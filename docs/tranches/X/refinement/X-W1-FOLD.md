@@ -34,11 +34,18 @@ elsewhere. Every row carries exactly one `⟨…⟩` provenance line naming its 
 banked ids are original for life** — this fold cross-books, it never re-mints. Dated corrections are
 recorded, never silent.
 
-**Arithmetic (this file's own bytes).** **50 ROWS** folded (R1..R50), **29 GATE ENTRIES** (14
-existing W1 gates SHARPENED · 15 NEW gate candidates NG-1..NG-15), **36 bounds additions**, **12
-cross-edges**, **4 packets adjudicated** (2 ADOPT-in-part · 2 DECLINE-with-arms-retained), **6
-dissents preserved unresolved**. The IN side (59 routing files × their row instances) is a receipt,
-not document-internal arithmetic; no in-equals-out identity is asserted.
+**Arithmetic (this file's own bytes) — RESTATED 2026-08-28 at FOLD ROUND 1. The pass-1 figures are
+printed beside the new ones; nothing is overwritten silently.** **56 ROWS** folded (R1..R56,
+gapless — 50 at pass-1 + **6** at §6), **31 GATE ENTRIES** (15 existing W1 gates SHARPENED · 16 NEW
+gate candidates NG-1..NG-16), **37 bounds entries** (a *file*-count reading gives 38 — the two
+readings are reconciled at §6.4c), **14 cross-edges**, **4 packets adjudicated** (2 ADOPT-in-part ·
+2 DECLINE-with-arms-retained), **6 dissents preserved unresolved**, **1 EXTERNAL row**
+(⟨INBOX I-28 · X-EXT-5⟩ — mail provenance, no registry id). *Pass-1 read 50 · 29 · 36 · 12 · 0.*
+The IN side (59 routing files × their row instances) is a receipt, not document-internal arithmetic;
+no in-equals-out identity is asserted. **Round-1 census receipt (§6.0, re-runnable):** **101**
+⟨record·id⟩ rows across **54** records carry an `X-W1` token on their own row line (62 of them with
+an explicit routing verb); **four** escaped this file by the ⟨record.md · id⟩ law and are folded at
+§6.1 — two by bytes, two by colliding namespace.
 
 ### 0a. Collator challenged — corrections, never silent
 
@@ -1024,3 +1031,321 @@ nothing here stamps a wave. Dispositions folded from the corpus are **ADJUDICATE
 that property is preserved through the fold. Every dated wave spec's bytes stand untouched (E-3); the
 two strikes this addendum makes (W1.md's `test/` prohibition; the G-5 project-level predicate) are
 recorded here and nowhere else.
+
+---
+
+## 6. FOLD ROUND 1 — dated repair addendum (2026-08-28)
+
+**What this section is.** The X·V fold round-1 repair seat's single write into this file, under the
+spine's ROW-CARRIAGE LAW (`REFINEMENT-FOLD-2026-08-28.md` §1, appended this round) and the work
+order at `refinement/ROUND-1-ASSIGNMENTS.md`. It (a) folds every ⟨record·id⟩ row this seat's own
+re-run census found routed to X-W1 and absent from this file, assignment-listed or not; (b) folds
+the one **EXTERNAL** I-28 row the assignment routes here; (c) cures the two PASS-1-CHECK defects
+that name this file by their own instruments. **Nothing in §§0–5 is deleted or re-graded.** Banked
+ids stay original for life; where a round-1 roster id is a facet of an already-folded identity the
+cure is an explicit `≡`-pointer row, never a silent skip, so the byte census closes. Status
+**planned**; dispositions **ADJUDICATED, never VERIFIED**; no product source opened; the dated wave
+specs and `CONFORMANCE-2026-08-03.md` stay byte-untouched (E-3).
+
+### 6.0. The re-run census — method, receipts, result
+
+The assignment roster is a **floor, not a ceiling**, so this seat re-derived the X-W1 census from
+the corpus rather than consuming the roster. Method, byte-for-byte re-runnable from the repo root:
+
+| # | command (as printed, verified to produce the printed number 2026-08-28) | result |
+|---|---|---|
+| C-1 | `cd docs/tranches/V/megatranche/registry/adjudicated && ls *.md \| grep -vE '^(kf\|fr\|pt)-' \| wc -l` | **92** — the corpus band |
+| C-2 | `grep -lE '^[[:space:]]*([-*+]\|\\\|)[[:space:]]*\*\*.*X[-.·]W1([^0-9]\|$)' $(ls *.md \| grep -vE '^(kf\|fr\|pt)-') \| wc -l` | **54** records |
+| C-3 | same pattern with `grep -hcE … \| paste -sd+ - \| bc` | **101** row-line ⟨record·id⟩ rows |
+
+Boundary discipline: `X-W1` is matched with a trailing non-digit guard, so **`X-W10`/`X-W11` never
+prefix-match** (the §0 header's 14-file trap, re-confirmed); en-dash, `·` and dotted (`X.W1.b`)
+forms are all counted; zero-padded ids are their own identity. Of the 101, **62** carry an explicit
+routing verb on the row line and **39** carry the `X-W1` token without one (adjudication-table
+cells and rider clauses); block-grain-only rows: **0** genuine (the two candidates the loose parse
+raised — ⟨MiniColorPicker · MCP-7⟩, ⟨wb-extract-pane · XP-28⟩ — are block-bleed across a non-bold
+table row, and their true X-W1 limbs, MCP-9 and XP-7, are folded at R13/R18).
+
+**Result — four escapes, all folded below.** Two escaped by BYTES; two escaped by **colliding
+namespace**, which is the failure mode the check's BLOCKER names (an id "matched only by a
+colliding namespace" is not carried):
+
+| ⟨record.md · id⟩ | anchor | escape mode | folded at |
+|---|---|---|---|
+| ⟨wb-mix-pane.md · R-MP11⟩ | :107 | bytes (0 hits, whole fold layer) | **R51** |
+| ⟨PreviewStrip.md · C-2⟩ | :25 | namespace — `C-2` in the layer resolves to App/other dockets | **R52** |
+| ⟨picker-spectrumcanvas.md · L-12⟩ | :84 | namespace — this file's only `L-12` is **AdminPane's**, at the R44 cell (:742) | **R53** |
+| ⟨wb-extract-imagedropzone.md · R-21⟩ | :67 | quotation, not booking — carried only inside R-28's quoted sibling list `R-2/R-7/R-13/R-21` (:571) | **R54** |
+
+**Reconciliation with the work order.** ROUND-1-ASSIGNMENTS §B routes exactly **one** row to X-W1
+(⟨wb-mix-pane · R-MP11⟩) and §C one EXTERNAL row (X-EXT-5); §A routes **zero** NO-WAVE-OWNER rows
+here. This seat reproduces the §B row id-for-id and adds **three** it did not carry — one an
+NWO-marked row (⟨wb-extract-imagedropzone · R-21⟩, `NO-WAVE-OWNER` on its own row line), two
+namespace-collision escapes invisible to a byte-only test. Stated, not silently absorbed: **§A NWO
+delta +1 · §B census delta +3** against the round-1 roster for this seat.
+
+### 6.1. Rows R51..R56
+
+**R51 · wb-mix-pane R-MP11 — the RED e2e run of record was never executed; only entailed**
+(cl.3 · MEASURE-AT-OPEN) · MAJOR (gate truth)
+Verbatim: *"the RED e2e run (locators statically unsatisfiable per MX-3 — entailed, not re-run; CI
+limb banked → X-W1)."* The row is the corpus's own admission that **no seat ever ran the mix
+specs** — the RED is derived from MX-3's static unsatisfiability (R2's member), not observed.
+**Consequence for G-3 (this is why the row is W1's, not the mix waves')**: G-3's committed baseline
+must record `mix.spec.ts` / `safari/mix-flow.spec.ts` as **RED-by-dead-locator, class ENTAILED —
+never executed**, and the first HARD run is the first observation. A baseline that prints an
+executed-looking number for these two files without a run id would launder an entailment into a
+measurement — the exact species R1's ABT-6 residue 12 warns of (*"the first HARD e2e run after
+CC-031 lands is the witness"*).
+**IDENTITY**: the CI limb ≡ **R1**; the locator limb ≡ **R2** (MX-3 ≡ MSS-2 ≡ MR-2); the sibling
+⟨wb-mix-pane · F-8⟩ is already folded at **R41**. Nothing re-booked; R-MP11 is banked here in its
+own right because its content is the *absence of the run*, which neither R1 nor R2 states.
+⟨wb-mix-pane R-MP11 (UNPROVEN-NEEDS-LIVE residue, :107) — CI limb ≡ R1 · locator limb ≡ R2⟩
+
+**R52 · PreviewStrip C-2 — `≡`-POINTER: the o20 encoding leg's CI limb, resolved BY IDENTITY**
+(cl.1) · MAJOR-by-identity · **banked, not re-booked**
+The adjudication-layer row ⟨PreviewStrip · C-2⟩ ("C-2 grade + state") rules **MAJOR — resolved BY
+IDENTITY ≡ GenerateControls R-A/G1**, adopts that arbiter's fresh run (**1 failed / 1 passed**;
+leg 2 deterministically RED on the encoding mismatch, leg 1's failure a transient of the s3:D14
+instability class), supersedes reader-LC's *"2 failed at dock.ts:78"* cell, and closes: *"the o20
+repair is already gated at `V·MEGA-W-GEN-1` G1; **the CI limb is ≡ X-W1 CC-031** (B3/B7: 6 of 6
+Playwright projects CI-orphaned). Not re-booked; identity preserved."*
+**Why this row exists here at all**: §1's **R3** already carries this ruling's *substance* under
+PS-6's name, and R1 carries the CI limb — but the id `C-2` was carried nowhere in this file, and
+the only `C-2` bytes in the fold layer belong to other dockets. Under the ⟨record.md · id⟩ citation
+law that is an escape, and the cure is this explicit pointer, not a second booking. **No grade, no
+gate and no count moves**: R52 adds an identity to the census, not a defect to the wave.
+⟨PreviewStrip C-2 (:25) ≡ R3 (PS-6/PS-7 dialect) ≡ R1 (CI limb, CC-031) ≡ GenerateControls R-A/G1 — POINTER ONLY⟩
+
+**R53 · picker-spectrumcanvas L-12 — two sibling seams with no unit coverage, and an SFC that
+cannot mount outside its parent** (cl.2) · **INFO — grade preserved at its home**
+Verbatim: *"L-12 — CONFIRMED (INFO) → X-W8/X-W1 riders. The two sibling controls split
+gesture/presentation at opposite seams, both justified by the same LoC cap; **neither seam has unit
+coverage**; the SFC **hard-asserts two injections so it cannot mount outside ColorPicker**."* The
+record's own terminal routing puts L-12 in the **subtraction/hygiene cluster → X-W8** and its gate
+cluster (*"C-7-strengthened + M-21 + the luma/plate unit oracles"*) → **X-W1**; the row line routes
+both. **W1 takes the coverage rider ONLY** — the seam/module relocation is X-W8's and claiming it
+at close is a scope defect (the R39 BOUNDARY-LOCK idiom).
+**MOUNTABILITY LOCK (binding, and the reason this is not a bare INFO for W1)**: the second clause
+is a **precondition fact, not a nicety** — two hard `inject(...)!` assertions mean no `mount()` of
+this SFC can succeed outside `ColorPicker`, so **R6/R7's harness cure is necessary but not
+sufficient here**: the oracle either provides both injections explicitly or is authored as a
+pure-function seam test. A mount gate that quietly wraps the component in `ColorPicker` to make it
+mount has tested the parent.
+**Rides**: R6 (harness), R23 (`spectrumLuma`, the same record's luma/plate oracle limb), NG-4,
+NG-9. **Grade discipline**: INFO at its home stays INFO here (the AdminTagsPanel precedent —
+severity lives at the identity's home).
+⟨picker-spectrumcanvas L-12 (:84) — X-W1 rider half only; X-W8 owns the seam/module half⟩
+
+**R54 · MERGED — the RESIDUE-WITNESS register: corpus residue items whose ONLY discharge is an
+X-W1 matrix cell** (cl.2) · MAJOR
+Four corpus records park a residue item whose stated discharge is not a cure anywhere but **a
+capture in W1's matrix**. They are not defect rows and must not be counted as such — but each is a
+standing obligation on X.W1.b, and W1's close should be able to enumerate what it discharges.
+· **⟨wb-extract-imagedropzone · R-21⟩ (:67, `NO-WAVE-OWNER` on its own row line)** — *"D-15 —
+physical `right-1.5` corner pin; RTL lands at inline-start… survived both a relocation and a value
+change. **NO-WAVE-OWNER** (the rtl modality capture that would witness it is A-4's hole, routed
+X-W1)."* The cure is ownerless; **the witness is W1's rtl-desktop/rtl-mobile cell** — which R34
+proves holds only the same five routes. This is the **NWO limb** this seat adds to the round-1
+roster (§6.0).
+· **⟨wb-extract-workbench · residue 5 "Zoom-200 clipping"⟩ (:128)** — *"`code.fira-code` clipped in
+all four state arms… WCAG 1.4.4 consequence sound **if the measurement holds**; needs one
+confirming instrument — **an X-W1 golden input** alongside XW-18's matrix absence."* One
+zoom-200 cell over `/#/extract` decides a WCAG 1.4.4 row that is otherwise single-instrument.
+· **⟨wb-extract-imageeyedropper · residue 2 "Geometry amounts"⟩ (:144)** — *"the 200% arm's
+2381.9/378 px… the 96 px pinned/unpinned readout reflow, the ~60 px letterbox band. The
+'unscrollable' inference is DEAD (K-7); **the amounts await the X-W1 matrix**."* Recorded with its
+own kill: W1 captures amounts, it does not revive K-7's inference.
+· **⟨SwatchHoverMenu · residue 7⟩ (:100) — `≡`-POINTER to R35** — *"…then prescribed the exact
+seeding fix that **becomes X-W1's matrix input**."* The seeding fix itself is already banked as
+SH-28 at R34/R35; this pointer closes the residue's citation, nothing more.
+**CURE-SHAPE LOCK**: a residue-witness cell is discharged by a **captured frame with its modality
+labelled** (R36's law: an emulated modality is labelled emulation and discharges no real-modality
+obligation), or it is carried forward still open. Silence at close is not discharge.
+**Feeds NG-11** (route-census + non-route arms) as named members; adds no new gate.
+⟨wb-extract-imagedropzone R-21 (NWO) · wb-extract-workbench residue 5 · wb-extract-imageeyedropper residue 2 · SwatchHoverMenu residue 7 ≡ SH-28 (pointer)⟩
+
+**R55 · EXTERNAL — ⟨INBOX I-28 · X-EXT-5⟩: the o7 card census goes BORN-RED at the glass 8.0.0
+repin** (cl.2) · MAJOR · **EXTERNAL, mail-sourced — this row carries no registry id**
+**Provenance is mail, not corpus**: `docs/tranches/V/coordination/INBOX.md` row **I-28** (glass
+v8.0.0 @ `17a11bc5`; letter + §5 addendum 08-25; ROWED 08-28), mirrored to this seat by
+ROUND-1-ASSIGNMENTS §C. Cited as ⟨INBOX I-28 · X-EXT-5⟩ — **never as an X-W1 row id and never as a
+registry id**.
+**The break**: at 8.0.0 the `grain` prop is removed library-wide, so `data-grain` stops being
+stamped. `e2e/smoke/oracles/o7-card-census.spec.ts` asserts grain **ON**. Witness re-measured
+read-only in-tree by this seat 2026-08-28 (the file is 20,575 B, tracked, un-skipped):
+· `:104` — `grain: el.dataset.grain ?? "(none)"` (the census reads the attribute).
+· `:224` — the stated law in comment: *"the picker's register — tier=resting, grain on, stamp
+present."*
+· `:234` — `expect.soft(card.grain, \`${view} (${scheme}): grain not on\`).toBe("true")`, inside a
+`for (const card of census.cards)` loop over every mounted pane/picker Card.
+**Two sharpenings this seat adds, both from the file's own bytes:**
+(i) **`expect.soft` is not a warning.** Soft assertions accumulate and fail the test at its end —
+so at the repin this is a **hard RED leg per card per view per scheme**, not a soft note. A reader
+who takes `.soft` for advisory will under-estimate the blast radius.
+(ii) **The o7 population and X-EXT-3's population are DIFFERENT, and must not be conflated.** `:101`
+filters `el.dataset.surface !== "veil"`, and `:110-112` names today's sole veil fixture as *"the
+picker's sliders console"* — i.e. `ComponentSliders.vue`, which is exactly where X-EXT-3 routes the
+`:grain="false"` deletion (`ComponentSliders.vue:29`, re-verified in tree; it is the ONLY `:grain`
+binding in `demo/`). **X-W6 deletes a prop on the card o7 already excludes; X-W1 owns the grain
+assertion on the cards o7 includes.** Neither cures the other's population, and neither may cite
+the other's landing as its own discharge.
+**BOUNDS CONSEQUENCE**: `o7-card-census.spec.ts` is named in **no** X wave's File Bounds
+(`grep -n 'o7' docs/tranches/X/waves/W1.md` → 0; W1's oracle carve names only o16 and o26) — it
+enters at §6.3 entry 37.
+**SEQUENCING (binding)**: X-EXT-5 goes **LIVE AT THE REPIN, not before**. The repin act is
+X-W0.j's, and its census PASS branch is unexecutable without X-EXT-6's peer install
+(`vue-component-type-helpers ^3.0.3`, X-W0). Until then this row is a **scheduled** born-RED, and
+W1 must not author the cure against a producer it has not installed. Gate: **NG-16**.
+⟨INBOX I-28 · X-EXT-5 — EXTERNAL, mail provenance; no registry id. Cross-cites: X-EXT-3 (X-W6, the `:grain="false"` site) · X-EXT-6 (X-W0, the peer install) · R2 (the dead-locator census discipline this row rides)⟩
+
+**R56 · MINTED — the "X-W1 B13" pointer resolves to `W1.md:95`, and its exports-map baseline is
+scoped to glass 5.0.0** (cl.1) · MAJOR · **dated correction, cures PASS-1-CHECK MAJOR #4**
+PASS-1-CHECK reports that the spine's §READINESS R.2 gate 10 cites *"X-W1 B13 (the exports-map
+holes)"* while `grep -n 'B13\|B-13' X-W1-FOLD.md` → **0 hits**, and that its RED baseline is false
+at the installed producer. Both halves are correct, and the resolution is stated here rather than
+by touching the spine or the spec (E-3):
+**(a) The pointer is not dangling — it resolves outside this file.** `B13` is a **W1.md baseline
+row**, at **`W1.md:95`**: *"demo subpaths ∩ BG exports map | 18 subpaths used; exactly `./blob` and
+`./chip` ABSENT from the **5.0.0** exports map (`./blob` ×5 sites incl. `useAtmosphere.ts`; `./chip`
+×1, `EasingSpecimenStrip.vue`)."* It is also cited by the spec at `:259`, `:315` (G-15's born-RED
+cell) and `:359`. This fold never cited B13 and does not book it now — a fold may not re-book a
+spec's baseline row. The check's zero-hit measurement over *this file* is therefore TRUE and
+**expected**; what was missing is the pointer's target, supplied here.
+**(b) The baseline is TRUE-AS-WRITTEN and STALE-AS-USED.** B13 is explicitly scoped to the **5.0.0**
+map (its own cell prints `B12 = 5.0.0`). Re-measured read-only by this seat 2026-08-28 against the
+installed producer — `node -e "const p=require('./node_modules/@mkbabb/glass-ui/package.json'); …"`:
+**version `7.0.0` · `./blob` true · `./chip` true · `./watercolor-dot` true · `./forms` true ·
+`./input` false**. So at the installed pin **both subpaths ARE exported** and a gate predicated on
+their absence **cannot go RED**. The import half stands unchanged and was re-verified:
+`grep -rn 'glass-ui/blob\|glass-ui/chip' demo/ src/` → **6 sites** (`BlobPane.vue:12/:13`,
+`HeroBlob.vue:34/:35`, `useAtmosphere.ts:36`, `EasingSpecimenStrip.vue:14`). **The defect is a
+SCOPE error in the citation, not an error in B13.**
+**(c) What survives for W1.** `G-15`'s *condition* — *"`deploy-pages.yml` resolves
+`@mkbabb/glass-ui` from the registry; no `ref: tranche/BG`"* — is untouched by the exports map, and
+its falsifier (*"revert to the branch checkout → the deploy build fails to resolve `./blob`"*)
+still holds at 7.0.0 by a **different mechanism**: the branch checkout, not an absent subpath. See
+the G-15 sharpening at §6.2.
+**(d) The standing negative is corrected, not weakened.** §4 cross-edge 12 records that six of
+W1's 21 gates are *"touched by no row in 88 apotheoses."* That claim concerned **corpus** rows and
+**remains true** — this seat re-swept and no corpus row touches G-11/G-14/G-15/G-16/G-18/G-19/G-21.
+Restated for accuracy: **no corpus row touches them; two non-corpus rows now do** — R56
+(fold-minted) and R55 (EXTERNAL) both land on the glass-pin pair G-15/G-16. Corpus silence: six.
+Total silence: four (G-11, G-14, G-18/G-19/G-21 less the pair).
+**(e) Re-measure-at-repin clause.** At the 8.0.0 adopt the exports map moves again (X-EXT-2:
+`./forms` → `./input`; measured above as `forms` true / `input` false, i.e. the rename has **not**
+landed). **Any citation of B12/B13 after the repin must re-measure first** — a baseline inherited
+across two majors is the L-19 dead-witness shape.
+⟨MINTED by this seat: `W1.md:95` (B13) + `:315` (G-15) read read-only; installed `@mkbabb/glass-ui@7.0.0` package.json read; import census re-run. Cures PASS-1-CHECK MAJOR #4; relays to the X-W0 sitting (the repin census) and the glass BH fond⟩
+
+### 6.2. Gate entries added this round (29 → 31)
+
+**NEW — NG-16** (born-RED at the repin, witness real and in-tree):
+
+| # | condition | born-RED witness (measured read-only 2026-08-28) | falsifier |
+|---|---|---|---|
+| **NG-16** | At the glass 8.0.0 repin, every oracle assertion predicated on a REMOVED producer API is re-pinned in the same change that repins the producer — and the o7 grain census is the named first member | R55 ⟨I-28 · X-EXT-5⟩: `o7-card-census.spec.ts:234` `expect.soft(card.grain, …).toBe("true")` over every non-veil card × view × scheme, fed by `:104` `el.dataset.grain`; `grain` is removed library-wide at 8.0.0. Today's pin measures `7.0.0` and the attribute still exists, so the leg is **scheduled-RED, not yet RED** — stated as such | Repin the producer without touching o7 → the smoke run reds for a producer reason and G-2's HARD flip eats the blame. A `test.skip()` on the grain leg does NOT pass (G-6/R2's law) |
+
+**SHARPENED — G-15** (first sharpening of this gate; the pass-1 fold left it in the standing
+negative):
+
+| gate | W1.md predicate today | sharpening (governing clause) | witness |
+|---|---|---|---|
+| **G-15** | `deploy-pages.yml` resolves `@mkbabb/glass-ui` from the registry; no `ref: tranche/BG`. Born-RED cell cites `B12 = 5.0.0`, `B13 = ./blob + ./chip absent from that exports map` | the **condition stands unchanged**; its born-RED *citation* is scoped to 5.0.0 and is **stale at the installed 7.0.0**, where `./blob` and `./chip` are both exported. G-15 is read on its resolution clause and its branch-checkout falsifier, **never on the exports-map cell**, unless that cell is re-measured at the pin of the day. At the 8.0.0 repin, re-measure before citing | R56 ⟨`W1.md:95`/`:315`; installed 7.0.0 map; 6 live importers⟩ |
+
+**Gate-cell additions (no new entries — members added to existing cells, named so the count does
+not drift):** **G-3** gains R51's ENTAILED-never-executed class for the two mix specs · **NG-4** and
+**NG-9** gain R53 (the two-injection mountability precondition + the sibling-seam oracle) ·
+**NG-11** gains R54's four residue-witness members (rtl · zoom-200 · geometry amounts · the seeded
+`/#/palettes` pointer) · **G-5**/**NG-1** gain `o7-card-census.spec.ts` as a slate member (R55).
+**New totals: 31 entries · 15 sharpened · 16 new · 0 blocked rows.**
+
+### 6.3. BoundsDelta — one addition (36 → 37 entries)
+
+37. `e2e/smoke/oracles/o7-card-census.spec.ts` — **modify-carve** — R55 ⟨I-28 · X-EXT-5: `:104`,
+    `:224`, `:234`⟩. Named in **no** X wave's File Bounds (W1.md's oracle carve lists only o16 and
+    o26; `grep 'o7' W1.md` → 0). W1 takes it because it is an **oracle** and the change is an
+    assertion re-pin — no `demo/` byte, so W1.md's Triumvirate trigger does not fire.
+    **NOT added by this row**: `ComponentSliders.vue` (X-EXT-3's `:grain="false"` site) is product
+    source and X-W6's — it joins the §3 "Files W1 must NOT add" list.
+
+The other three round-1 rows need no new path: **R51** rides `views/mix.spec.ts` +
+`safari/mix-flow.spec.ts` (entries 18/19) · **R53** rides the `test/**` carve (entry 32) and the
+R6 harness (entry 34) · **R54** rides the capture inputs (entries 28, 36).
+
+### 6.4. Dated corrections — the PASS-1-CHECK MINOR that names this file
+
+**(a) The `test/` STRIKE headline: NINE and ELEVEN are two different predicates, and both are
+true.** PASS-1-CHECK MINOR #5(b) records that §3's headline reads *"**Nine rows**… land inside
+`test/`"* while the same block's escape clause enumerates **eleven** (adding R6 and R10), and that
+the spine silently elected the larger figure. The contradiction is a missing predicate, supplied
+here — **§3's bytes stand; this clause governs**:
+· **Predicate A — "the row's surface is INSIDE `test/`": NINE at pass-1** (R5 · R11 · R12 · R21 ·
+R22 · R23 · R24 · R33 · R45). R6's surface is `vitest.config.ts` (repo root) and R10's is
+`demo/test/**` — **neither is inside `test/`**, which is precisely why the headline excluded them.
+· **Predicate B — "the row RIDES the strike (its cure is unreachable while the prohibition
+stands)": ELEVEN at pass-1** = the nine + R6 + R10. This is the figure §3's escape clause and §4
+cross-edge 11 use, and the one the spine's §2 e.16 elected — **correctly, for its own predicate**.
+· **Round-1 movement, stated:** **R53** joins Predicate B (**twelve**), because its unit-oracle arm
+is unreachable while `test/` is prohibited. It joins Predicate A **only if** authored as a
+pure-function seam test; authored as a mount it lands under R6's harness instead. That fork is
+declared, not resolved — so Predicate A stays **NINE + 1 conditional**, never silently ten.
+· **The packet law is unchanged**: if X.W1 refuses the strike, Predicate B's rows travel to the
+formation boundary **as one packet**, never singly — now twelve, not eleven.
+
+**(b) The count that changed, and the one that did not.** No pass-1 row, gate, dissent, packet
+ruling or grade is amended by §6. The moving figures are exactly: rows 50 → 56, gate entries
+29 → 31, bounds entries 36 → 37, cross-edges 12 → 14, external rows 0 → 1.
+
+**(c) BoundsDelta unit — "36 entries" vs "~37 files", reconciled.** PASS-1-CHECK MINOR #5(c) notes
+the spine's §0 table prints `~37 files` in the W1 cell against this fold's twice-stated **36 bounds
+additions**. Both readings are arithmetically right over different units and the fold's declared
+unit is the **numbered entry**: §3 numbers 1..36, and a *file* count runs one higher because entry
+36 names **two** artifacts (`capture.mjs` **+** `REPORT.json`). So pass-1 = **36 entries / 37
+files**; after §6.3 = **37 entries / 38 files**. The declared unit stays the entry; the file
+reading is printed beside it so no reader has to derive it.
+
+**(d) On the three §READINESS commands that name W1's surface.** PASS-1-CHECK MAJOR #3 finds five
+of the spine's ten printed R.2 commands misfire; three touch this wave's subject matter and are
+answered here, in this fold's own voice, without editing the spine: gate 10 is R56 above; gates 2
+and 4's `require('glass-ui/package.json')` form is unrunnable twice over — the installed name is
+**`@mkbabb/glass-ui`**, and even scoped, `./package.json` is not in the exports map, so the working
+form is a **path read** (`require('./node_modules/@mkbabb/glass-ui/package.json')`), which is the
+form this seat used at R56(b) and which does produce its printed output. Recorded as an instrument
+correction of the **NG-12 species** (a gate that consumes a measurement cites the instrument that
+actually produced it) and relayed to the X-W0 sitting, which owns the repin census.
+
+### 6.5. CrossEdges 13–14 (12 → 14)
+
+13. **X-W1 → X-W6 / X-W4 (the grain populations, non-overlapping).** R55: o7 asserts grain ON over
+    every **non-veil** card (`:101` filter); X-EXT-3 deletes `:grain="false"` at
+    `ComponentSliders.vue:29`, which **is** the veil fixture o7 excludes (`:110-112`). Two
+    populations, one prop name. Neither wave's landing discharges the other's, and neither may cite
+    the other as its witness. R53's seam/module half is X-W8's on the same discipline.
+14. **X-W1 → X-W0.j (the repin act).** R55 goes live **at** the repin, not before; R56's
+    re-measure-at-repin clause binds every B12/B13 citation after it; X-EXT-6's peer install
+    (`vue-component-type-helpers ^3.0.3`) is X-W0's and is a precondition of the census's PASS
+    branch. W1 authors the o7 re-pin **against a producer it has installed**, or not at all.
+
+### 6.6. Round-1 arithmetic
+
+| axis | pass-1 | round 1 | delta |
+|---|---|---|---|
+| rows | 50 (R1..R50) | **56** (R1..R56, gapless) | **+6** — R51 census-escape (roster) · R52/R53 namespace escapes · R54 residue-witness (carries the +1 NWO limb) · R55 EXTERNAL · R56 minted correction |
+| gate entries | 29 (14 sharpened · 15 new) | **31** (15 · 16) | +2 — NG-16 new; G-15 sharpened |
+| bounds entries | 36 (37 files) | **37** (38 files) | +1 — `o7-card-census.spec.ts` |
+| cross-edges | 12 | **14** | +2 |
+| external rows | 0 | **1** | +1 — ⟨INBOX I-28 · X-EXT-5⟩ |
+| packets · dissents | 4 · 6 | **4 · 6** | unchanged |
+
+**Work-order reconciliation:** ROUND-1-ASSIGNMENTS §D gives this seat **2** items (§A 0 · §B 1 ·
+§C 1). Delivered: **6** rows — the 2 assigned plus **3** census escapes the roster did not carry
+(one of them NWO-marked) and **1** minted correction discharging a check defect. Roster deltas for
+round 2, stated so no re-discovery is needed: **§A +1** (⟨wb-extract-imagedropzone · R-21⟩) · **§B
++3** (⟨PreviewStrip · C-2⟩, ⟨picker-spectrumcanvas · L-12⟩, ⟨wb-extract-imagedropzone · R-21⟩).
+
+**Status verbs unchanged** (§5 stands): AUDITED **YES** · SPECIFIED **YES, sharpened** ·
+IMPLEMENTED **NO** · VERIFIED **NO**. X.W1 remains **planned**. This section opened no product
+source, ran no gate, stamped no wave, and wrote no byte outside this file. Every gate it adds or
+sharpens is **born-RED with a named, re-measured witness**; the one scheduled-RED gate (NG-16) is
+labelled scheduled, never claimed as RED today.

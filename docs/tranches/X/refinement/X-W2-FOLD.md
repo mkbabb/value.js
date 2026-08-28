@@ -46,6 +46,13 @@ row 21 (L-5) ≡ **CC-035**, booked ONCE at `XW2-01` with both severity cells ca
 (31 mention-sites) is a grep receipt, not document-internal arithmetic; no in-equals-out identity
 is asserted.
 
+> **[DATED CORRECTION 2026-08-28 · fold round 1 · never silent]** These counts are the PASS-1
+> figures and stand as written. The round-1 re-census (§7.1) reproduces the IN side EXACTLY
+> (7 records · 31 mention-sites · 94 files scanned) and adds **one** row and **one** gate on
+> EXTERNAL mail provenance. **True counts after round 1: 22 ROWS · 13 GATE ENTRIES · 12 BOUNDS
+> ENTRIES · 10 CROSS-EDGES.** The superseding arithmetic block is §7.6; these bytes are not
+> rewritten.
+
 **Anti-rename law.** Every id in the `source` cell is the ORIGINAL banked id for life. `XW2-nn`
 is a fold-local ADDRESS for citation inside this file — it never replaces a banked identity and
 never becomes a defect name.
@@ -785,4 +792,280 @@ fold-minted NO-WAVE-OWNER entries for `COHESION.md §4` · 1 double-book removed
 (CC-035). Every disposition is **ADJUDICATED, not VERIFIED**; every anchor re-resolves at cure
 time (D-19). The seven source records remain immutable beside this file per E-1/E-3.
 
-— end of X-W2 fold.
+> **[DATED CORRECTION 2026-08-28 · fold round 1]** Superseded in its counts only, never in its
+> posture: **22 rows · 13 gate entries (7 sharpenings + 6 new candidates; G7 still a NO-FOLD) ·
+> 12 bounds entries · 10 cross-edges · 2 fold-minted NO-WAVE-OWNER entries · 1 double-book
+> removed by identity.** Status is still `planned`; the round-1 seat opened no product source and
+> stamped no wave. See §7.
+
+---
+
+## 7. ROUND-1 REPAIR ADDENDUM — the fresh id-keyed census and what it found
+
+**Dated 2026-08-28. Seat: X-W2 fold repair seat, X·V fold round 1.** Inputs read whole:
+`refinement/ROUND-1-ASSIGNMENTS.md` (the spine repair seat's work order),
+`refinement/PASS-1-CHECK-RETURN.json` (the pass-1 register), the 92-record corpus, and the
+repaired spine `REFINEMENT-FOLD-2026-08-28.md` §READINESS R.2 / §EXTERNAL / §ROUND-1. Sole write:
+this file. `docs/tranches/X/waves/W0.md..W11.md` and `docs/tranches/X/CONFORMANCE-2026-08-03.md`
+remain byte-untouched (E-3). Nothing below re-stages a W2 gate or opens product source.
+
+### 7.0 The work order carried ZERO rows to this seat — stated as a RESULT, not an omission
+
+`ROUND-1-ASSIGNMENTS.md` §D's per-wave totals table enumerates eight seats — X-W0 · X-W1 · X-W4 ·
+X-W5 · X-W6 · X-W7 · X-W8 · X-W10 — summing **73 NWO + 213 census + 6 external = 292**. **X-W2
+appears in no row of §A, no row of §B, and no row of §C.** Four seats are absent from the roster
+(X-W2, X-W3, X-W9, X-W11); this seat speaks only for its own.
+
+That absence is consistent with the pass-1 check's own receipts: PASS-1-CHECK-RETURN.json names
+`X-W2-FOLD.md` exactly twice — once in the `folds[]` census (`rowCount 21`, `gateCount 12`) and
+once quoting this fold's synopsis — and **in none of its eight defects**. The BLOCKER's
+per-record escape table (ShadowPalette 23/33 · PaletteCard 23/40 · SearchFilterBar 21/41 · …)
+names **no record that routes to X-W2**, and the MAJOR's NWO escape list names none either.
+
+**Under the standing directive the roster is a floor, not a ceiling.** §7.1 is this seat's own
+re-derivation, run fresh and falsifiably, without consulting the roster for its answer.
+
+### 7.1 The fresh id-keyed census — method, receipt, enumeration, verdict
+
+**Method (identical in shape to PASS-1-CHECK's, and re-runnable).** Corpus = every `*.md` at
+`docs/tranches/V/megatranche/registry/adjudicated/` NOT prefixed `kf-`/`fr-`/`pt-` (**92**), plus
+`adjudicated/delta-r3/` (**2** worker-substrate files) = **94 files scanned**. Token match is
+deliberately WIDER than the check's `X[-·.]W\d`, to catch the en-dash, em-dash, spaced, dotted,
+underscored and slashed forms the citation law admits:
+
+```
+python3 -c "import re,glob; p=re.compile(r'X\s*[^A-Za-z0-9\s]{0,3}\s*W\s*2(?![0-9])',re.I); \
+[print(f,[i+1 for i,l in enumerate(open(f).read().split(chr(10))) if p.search(l)]) \
+ for f in sorted(glob.glob('*.md')+glob.glob('delta-r3/*.md')) if not re.match(r'^(kf-|fr-|pt-)',f)]"
+```
+
+**Receipt, reproduced this seat 2026-08-28** — hits in **exactly seven records**, `delta-r3/`
+**0**:
+
+| record | mention-sites (:line) | n |
+|---|---|---|
+| `BlobPane.md` | :10, :33, :38, :57 | 4 |
+| `ErrorBoundary.md` | :83 | 1 |
+| `Katex.md` | :8, :55, :126, :137 | 4 |
+| `picker-heroblob.md` | :28, :37, :41, :50, :52, :53, :54, :67, :118, :131 | 10 |
+| `picker-spectrumcanvas.md` | :37, :42, :221 | 3 |
+| `shell-paneslot.md` | :31, :36, :50, :51, :65, :74, :124 | 7 |
+| `wb-extract-pane.md` | :83, :111 | 2 |
+| **Σ** | | **31** |
+
+This reproduces §1's pass-1 IN receipt **site-for-site and line-for-line**. The wider token class
+found nothing the narrow one missed: **no en-dash, dotted, spaced or slashed X-W2 form exists in
+the corpus outside these seven files.**
+
+**Classification of the 31 sites — 21 row-bearing, 10 non-row.** The 10 non-row sites are the
+records' own scaffolding and carry no bookable identity: `BlobPane.md:10` + `Katex.md:8`
+(arbiter's-instruments blocks), `BlobPane.md:33` + `picker-heroblob.md:41` +
+`picker-spectrumcanvas.md:37` + `shell-paneslot.md:31` (disposition legends), and
+`Katex.md:137` + `picker-heroblob.md:131` + `picker-spectrumcanvas.md:221` +
+`shell-paneslot.md:124` (closing verdicts, each re-stating routings already booked at a row site).
+
+**The 21 row-bearing sites → 17 distinct banked identities → all 17 carried in §2:**
+
+| ⟨record.md · id⟩ | site | folded at |
+|---|---|---|
+| ⟨`BlobPane.md` · row 2 / D-3(b) / BPC-2⟩ | :38 | `XW2-10` (BLOCKER) |
+| ⟨`BlobPane.md` · row 21 / L-5⟩ | :57 | `XW2-01` |
+| ⟨`picker-heroblob.md` · row 8 / L-1⟩ | :52 | `XW2-01` (≡ the same identity) |
+| ⟨`picker-heroblob.md` · ruled disagreement "L-1 severity"⟩ | :28 | `XW2-01` |
+| ⟨`picker-heroblob.md` · residue 8⟩ | :118 | `XW2-01` |
+| ⟨`picker-heroblob.md` · row 6 / C-9·L-5·D-13·D-10⟩ | :50 | `XW2-02` |
+| ⟨`picker-heroblob.md` · row 9 / C-3·L-6·D-6⟩ | :53 | `XW2-03` |
+| ⟨`picker-heroblob.md` · row 10 / D-3⟩ | :54 | `XW2-04` |
+| ⟨`picker-heroblob.md` · row 23 / L-15·C-4·D-§0⟩ | :67 | `XW2-05` |
+| ⟨`picker-heroblob.md` · ruled disagreement "L-15 / C-4 severity"⟩ | :37 | `XW2-05` |
+| ⟨`shell-paneslot.md` · BLOCKER L-1/PS-2/D-5, rider clause⟩ | :36 | `XW2-15` |
+| ⟨`shell-paneslot.md` · missed find 1⟩ | :50 | `XW2-11` |
+| ⟨`shell-paneslot.md` · missed find 2⟩ | :51 | `XW2-12` |
+| ⟨`shell-paneslot.md` · missed find 7⟩ | :65 | `XW2-13` |
+| ⟨`shell-paneslot.md` · missed find 9⟩ | :74 | `XW2-14` |
+| ⟨`picker-spectrumcanvas.md` · C-16⟩ | :42 | `XW2-16` (BLOCKER) |
+| ⟨`Katex.md` · R14⟩ | :55 | `XW2-17` |
+| ⟨`Katex.md` · residue 12⟩ | :126 | `XW2-18` |
+| ⟨`wb-extract-pane.md` · K-5⟩ | :83 | `XW2-19` |
+| ⟨`wb-extract-pane.md` · residue 5 / L-11⟩ | :111 | `XW2-20` |
+| ⟨`ErrorBoundary.md` · K-1 (+ EB-3 residual)⟩ | :83 | `XW2-21` |
+
+(21 sites, 17 distinct identities — `XW2-01` absorbs four sites and `XW2-05` two, both by the
+identity-dedupe §1 already declares.)
+
+**Byte verification of the carry (the check's own instrument, turned on this fold).** Every
+banked id above boundary-matches inside `X-W2-FOLD.md`, and none is matched only by a colliding
+namespace — each is anchored by a `⟨record.md · id⟩` provenance line naming its record. Measured
+counts in this file at round 1: `BPC-2` 1 · `D-3(b)` 1 · `L-5` 3 · `K-1` 6 · `EB-3` 6 · `R14` 8 ·
+`R15` 3 · `C-9` 1 · `D-13` 1 · `D-10` 1 · `L-1` 21 · `C-3` 1 · `L-6` 3 · `D-6` 1 · `D-3` 4 ·
+`C-5` 1 · `L-8` 2 · `M-5` 1 · `L-15` 2 · `C-4` 2 · `M-9` 1 · `C-16` 3 · `C-15` 8 · `PS-2` 3 ·
+`D-5` 3 · `K-5` 2 · `L-11` 4 · `CC-035` 10 · `CC-036` 6 · `CC-012` 3. **Zero zeroes.**
+
+> **CENSUS VERDICT — X-W2: ZERO ESCAPES.** No ⟨record·id⟩ routed to X-W2 anywhere in the 94-file
+> corpus is absent from this fold. **Registry rows added this round: 0**, because none was
+> missing — an absence that is a measurement, not a silence.
+
+**The floor is exceeded, and by how much.** Four of the fold's 21 pass-1 rows carry **no** X-W2
+token at their source and are therefore invisible to the census method entirely — `XW2-06`
+(⟨`picker-heroblob.md` · kill 13⟩), `XW2-07` (⟨`picker-heroblob.md` · kill 1⟩), `XW2-08`
+(⟨`picker-heroblob.md` · row 13⟩), `XW2-09` (⟨`picker-heroblob.md` · row 32⟩). They were reached
+by reading the records whole, which is why 17 census identities produced 21 rows. Recorded so a
+round-2 check reading only the token census does not mistake them for un-sourced.
+
+### 7.2 The NWO sweep over the seven records — also ZERO
+
+`grep -c 'NO-WAVE-OWNER'` over the seven X-W2 records: `BlobPane` 1 · `ErrorBoundary` 5 · `Katex`
+2 · `picker-heroblob` 1 · `picker-spectrumcanvas` 2 · `shell-paneslot` **0** · `wb-extract-pane`
+9 = **20 occurrences**. Every one classified:
+
+- **Non-row (4)**: `BlobPane.md:33`, `picker-heroblob.md:19`, `picker-spectrumcanvas.md:37`,
+  `Katex.md:137` — legend/scoreboard prose naming NO-WAVE-OWNER as an available disposition.
+  `picker-spectrumcanvas.md:37` and `:221` in fact assert the negative verbatim: ***"No row is
+  NO-WAVE-OWNER."***
+- **Carried already (1)**: ⟨`Katex.md` · R15⟩ (build-time KaTeX, booked NO-WAVE-OWNER in-record)
+  — folded at `XW2-17`'s dissent limb and again at `CE-9`, with the standing edict *"A W2 seat
+  must not attempt it; a formation boundary must not lose it."*
+- **Other waves' (15)**: ⟨`ErrorBoundary.md` · EB-14 · EB-15 · EB-20 · EB-27 · EB-33⟩ and
+  ⟨`wb-extract-pane.md` · XP-2 · XP-3 · XP-4 · XP-21 · XP-23 · XP-24 · XP-27⟩ and the record-level
+  marks beside them. **None carries an X-W2 token**; none is assigned to X-W2 by
+  `ROUND-1-ASSIGNMENTS.md` §A; under the consumption rule they belong to their own home wave or to
+  the G-F register slate at the X-W0 seat, and a wave may not stamp another wave's rows.
+
+> **NWO VERDICT — X-W2: ZERO ESCAPES. NWO rows added this round: 0.** The two fold-minted
+> NO-WAVE-OWNER entries this fold contributes to `COHESION.md §4`
+> (`demo/color-session/useColorPipeline.ts`; the KaTeX asset surface) stand unchanged at §4 B6/B7/B8
+> and `CE-9`.
+
+### 7.3 The I-28 external — zero X-EXT rows route here, and the one limb that does
+
+`ROUND-1-ASSIGNMENTS.md` §C routes the six glass-8.0.0 rows **X-EXT-1 → X-W7 · X-EXT-2 → X-W8 ·
+X-EXT-3 → X-W6 · X-EXT-4 → X-W4.g · X-EXT-5 → X-W1 · X-EXT-6 → X-W0**. **None routes to X-W2**,
+and this seat mints no X-EXT identity (those six are the spine's; anti-rename binds both ways).
+
+But the letter is dated AFTER this fold was authored, and **all three of W2's glass-pinned gates
+carry witnesses measured at 7.0.0** (G1's barrel, G2's eager set, G8's `BLOB_HERO` atom census).
+The adopt-wave amendment law — *"they go LIVE at the repin, and the owning wave folds them as
+adopt-wave amendments now so the repin lands on stated work, not surprise"* — therefore reaches
+X-W2 through its gates even though no cure edge does. That limb is folded below as **`XW2-22`**,
+on mail provenance, with **no registry id**.
+
+### XW2-22 · the glass-8.0.0 repin invalidates W2's three pinned witnesses · EXTERNAL · cl.2 + cl.3
+
+- **source**: **EXTERNAL, mail-sourced — NOT a registry row.** ⟨`docs/tranches/V/coordination/
+  INBOX.md` · row **I-28** (glass v8.0.0 @ `17a11bc5`; letter 2026-08-09 + §5 addendum 08-25;
+  ROWED 08-28) · letter `../glass-ui/docs/tranches/BJ/coordination/glass-outbound-2026-08-09-
+  value.js-8.0.0-addendum.md` §1/§2/§3/§4/§5 + its "Not restated here" block⟩. This is the X-W2
+  **limb** of the adopt-wave amendment; it is not X-EXT-1..6 and claims none of their ids.
+- **sev**: EXTERNAL — a measurement obligation and a gate-reading lock. No cure, no bounds path.
+- **mechanism (measured at the installed pin this seat, 2026-08-28)**:
+  `package.json:83` pins `"@mkbabb/glass-ui": "^7.0.0"` — a range that does **not** admit 8.0.0,
+  so the repin is a deliberate dated act, not a drift. Installed tree reads **version 7.0.0, 74
+  exports keys**: `./blob` **true** · `./blob-config` **true** · `./chip` **true** · `./forms`
+  **true** · `./search` **true** · `./dock` true · `./styles` true · `./input` **FALSE**. Live
+  edges: `demo/ui/input/index.ts:1` (`./forms`) and four `glass-ui/search` imports
+  (`demo/palettes/BrowsePane.vue:195` · `demo/palettes/PalettesPane.vue:149` ·
+  `demo/palettes/admin/AdminPane.vue:87` · `demo/palettes/browser/slug/PaletteSlugBar.vue:132`)
+  plus `ComponentSliders.vue:29` `:grain="false"`. At the repin `./search` and `./forms` die and
+  `./input` arrives — **the demo's glass module graph changes shape on a day W2 measures bytes.**
+- **the three consequences, one per pinned gate, stated so none is discovered late**:
+  1. **G1 is NOT discharged by the repin.** The letter's §3/§4 declare the zero-classes
+     (string-literal 0 · dropdown-menu 0 · sheet 0 · dead `./api` 0 · specular 0 · TagsInput 0)
+     and its break list names **no blob edge at all** — `blob`/`blob-config`/`BLOB_HERO`/
+     `atmosphere` appear nowhere in it. So `XW2-01`'s mechanism (*"the barrel does not shake, and
+     Rollup places a module statically imported by an eager module in the eager chunk regardless
+     of HeroBlob's dynamic import"*) **survives 8.0.0 unchanged**. **LOCK (cl.2): no close may
+     cite the 8.0.0 repin as evidence that G1 went green.** Only the two repoints do that.
+  2. **G2's baseline IS repin-sensitive, and it is the one number a repin can silently move.**
+     `W2.md §6 G2`'s eager-JS-gzip receipt and this fold's adopted 7.0.0 build receipts (122
+     assets; `vendor-katex-*.js` 258,876 B, not in the modulepreload set — `XW2-18`) are
+     7.0.0-graph facts. A BEFORE.json taken at 7.0.0 and an AFTER.json taken at 8.0.0 attributes
+     a **library repin** to a **blob cut**. Hence gate `N6`.
+  3. **G8's atom census is 7.0.0-measured and must be re-taken, not assumed.** The seven-atom
+     `BLOB_HERO` divergence (HERO {.22, 4, .1, .3, .04, .06, 0} vs demo {.325, 3, .09, .4, .03,
+     .05, .6}) was read *by import at glass-ui 7.0.0*. The letter names no preset change, so the
+     census is EXPECTED stable — **and "expected stable" is not a measurement.** Re-take it at the
+     repin. The K-11 cure-kill (§3 G8) binds either way: the tombstone arm is always available;
+     consuming whole remains a shipped regression under a green gate at any version.
+- **sequencing**: MEASURE-AT-OPEN, and again at the repin if the repin lands mid-wave. **W2 does
+  not perform the repin** — `X-W0.j` owns the act (X-EXT-6's peer install is its unexecutable
+  precondition today) and `X-W4.g` owns the trigger. W2 states the pin it measured against.
+- **dissent**: none available — this row asserts no defect, only that three of W2's witnesses are
+  version-scoped. If the repin never lands inside tranche X, the row closes by construction and
+  the close says which pin every receipt was taken at.
+- **BOUNDS**: **none.** The four `SearchBar` edges are X-W7's recipe cure and the `demo/ui` barrel
+  is X-W8's (spine §EXTERNAL); `ComponentSliders.vue` is X-W6's. **W2 adds no path and touches
+  none of them.** `§4`'s 12 entries are unchanged.
+- ⟨`INBOX.md` I-28 + the outbound letter read whole this seat; `package.json:83`,
+  `node_modules/@mkbabb/glass-ui/package.json` (version + 74 exports keys) and all six tree edges
+  measured read-only this seat 2026-08-28; spine `§EXTERNAL` X-EXT-1..6 routing table re-read⟩
+
+### 7.4 Dated corrections carried in from PASS-1-CHECK — the two that touch this fold's subject
+
+1. **The spine's R.2 gate 10 named `./blob` as an exports-map HOLE; it is not, and never was.**
+   Pass-1's spine text read *"`['./blob','./chip'].map(…)` → both absent … RED."* Measured at the
+   installed pin this seat: **`./blob:true ./chip:true ./forms:true`** — no hole exists. The spine
+   repair seat has already restated the entry whole (`§READINESS R.2` item 10: *"**NOT RED —
+   GREEN-at-pin**"*, authority re-pointed to ⟨`X-W0-FOLD.md` · W0.4⟩ + X-EXT-2). **Recorded here
+   because `XW2-01`/`G1` share that subpath and must not be read as sharing that premise:** this
+   fold has never claimed an exports-map hole. Its claim is narrower, stronger and independent —
+   the subpath resolves fine, and *that is the problem*: it resolves into the **eager** chunk.
+   G1's witness (esbuild two-symbol tree-shaken bundle, vue external: `./blob` **77,452 B** vs
+   `./blob-config` **1,667 B**) is a tree-shake measurement, not a resolution one, and survives
+   the spine's correction untouched.
+2. **The corpus-band filter that the spine's gate 1 lacked is present in this fold's census.**
+   PASS-1-CHECK MAJOR 3 showed the printed `grep … adjudicated/*.md` glob swallowing the 139
+   `kf-`/`fr-`/`pt-` records (201 records / 2,179 occurrences instead of 73 / 604). §7.1's command
+   carries the band filter in its own regex (`if not re.match(r'^(kf-|fr-|pt-)',f)`) and states
+   its scan base explicitly: **94 files = 92 corpus + 2 `delta-r3/` worker-substrate**. Stated
+   because MINOR 5(a) showed the same base being decomposed two ways (232 non-recursive entries =
+   231 `*.md` + 1 directory; 233 `*.md` by `find` = 139 + 92 + 2); this fold's census counts
+   **files**, never entries, and says so.
+
+### 7.5 The gate this round adds
+
+**N6 — every W2 boot receipt stamps its resolved glass-ui pin, and BEFORE/AFTER must share it.
+Candidate BORN-RED, MEASURE-AT-OPEN.** Row: `XW2-22`.
+- ASSERTED PROPERTY: `BEFORE.json`, `AFTER.json` and `DELTA.md` each record the resolved
+  `@mkbabb/glass-ui` version read from `node_modules` at collection time; **a DELTA whose BEFORE
+  and AFTER pins differ is VOID and must be re-collected**, not annotated.
+- WITNESS (real, measured, no proof-script): installed **7.0.0** (74 exports keys) against
+  published **8.0.0 @ `17a11bc5`**; `./input` **absent** and `./forms` **present** today, a pair
+  that flips at the repin; `package.json:83`'s `^7.0.0` does not admit 8.0.0. **Born-RED by
+  absence: no receipt shape named anywhere in `W2.md §5` carries a pin field**, so today every
+  W2 receipt is silently version-anonymous.
+- FALSIFIER: collect BEFORE at 7.0.0 and AFTER at 8.0.0 — G2's eager-set delta moves by the
+  library's own graph change (`./search` and `./forms` die, `./input` arrives) and the receipt
+  credits it to the blob cut. Re-collect both at one pin and the delta must reproduce inside the
+  runner-class noise G3 already declares. **A gate that passes because the pin field was defaulted
+  or hand-typed rather than read from the installed tree fails L-19.**
+- SCOPE LOCK: this gate does not license W2 to repin. `X-W0.j` owns the act, `X-W4.g` the trigger;
+  W2 reports the pin it measured against and nothing more.
+
+### 7.6 The superseding arithmetic block — countable from this file's own bytes, dated 2026-08-28
+
+| quantity | pass-1 | round-1 | delta | what moved |
+|---|---|---|---|---|
+| ROWS (§2 + §7.3) | 21 | **22** | +1 | `XW2-22`, EXTERNAL provenance (⟨INBOX I-28⟩), ids `XW2-01`..`XW2-22` contiguous |
+| — registry census rows added | — | **0** | 0 | §7.1: zero escapes existed |
+| — NWO rows added | — | **0** | 0 | §7.2: zero escapes existed |
+| — external rows added | — | **1** | +1 | §7.3 |
+| GATE ENTRIES (§3 + §7.5) | 12 | **13** | +1 | 7 sharpenings (G1 G2 G3 G4 G5 G6 G8) + **6** new candidates N1..N6; G7 still a NO-FOLD and still not counted |
+| BOUNDS ENTRIES (§4) | 12 | **12** | 0 | `XW2-22` adds no path — 3 ADD · 7 RE-ROUTE · 1 READ-ONLY · 1 NAMED-WITHIN unchanged |
+| CROSS-EDGES (§5 + CE-10) | 9 | **10** | +1 | CE-10 below |
+| fold-minted NO-WAVE-OWNER entries | 2 | **2** | 0 | B6 + B7/B8, unchanged |
+| double-books removed by identity | 1 | **1** | 0 | CC-035 |
+
+**CE-10 · X-W2 → the glass-adopt family (X-W0.j census → X-W4.g trigger).** Content: `XW2-22` +
+gate `N6`. Binding effect: **W2's G1/G2/G8 witnesses are version-scoped and W2 does not own the
+repin.** W2 stamps its pin on every receipt; X-W0.j owns the act and X-EXT-6's peer install
+(`vue-component-type-helpers ^3.0.3`) is its precondition; X-W4.g owns the trigger. If the repin
+lands mid-wave, G2 is re-collected whole at the new pin rather than annotated — and **no close may
+read the repin as discharging G1** (§7.3 consequence 1).
+
+**Posture, restated for round 1.** Status `planned`. No product source opened, no wave stamped, no
+gate re-staged or re-weighted, no dated spec byte altered (E-3 holds; `waves/` and
+`CONFORMANCE-2026-08-03.md` untouched). Every disposition remains **ADJUDICATED, not VERIFIED**.
+The 21 pass-1 rows are byte-unchanged; the one round-1 row is appended, not merged; the arithmetic
+above supersedes §1's and §6's counts by dated correction and never by rewrite.
+
+— end of X-W2 fold (round-1 repaired).

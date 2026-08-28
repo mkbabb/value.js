@@ -35,15 +35,22 @@ witness or it is not born-RED).
 sequencing clause · **cl.3** = accounting row (the boundary carry census, §1z) · **cl.4** =
 OUT-OF-WAVE, named and handed to the owning wave's fold seat, never dropped.
 
-**Arithmetic — countable from this file's own bytes.** **21 FOLDED rows** (§1, W11.1..W11.21,
-contiguous, one ⟨provenance⟩ line each) · **17 GATE rows** (§2 — **12 sharpenings** of existing
-W11 gates + **5 genuinely new**) · **7 BOUNDS-DELTA entries** (§3) · **85 census rows** (§1z —
-PreviewRamp 27 = R-1..R-26 + ADJ-1 · ColorNutritionLabel 27 = CNL-1..CNL-27 · PaletteColorStrip 31
-= PCS-1..PCS-31), of which **34 carry a NO-WAVE-OWNER limb** (+1 conditional, §0a n.6) and **51 are
-OUT-OF-WAVE**. The IN side is a receipt of the assignment, not document-internal arithmetic: no
-in-equals-out identity is asserted. **Dedupe by banked identity is applied throughout: no row is
-re-booked under a new name (anti-rename), and a row already banked at a sibling record is
-cross-referenced, never counted twice** (§0a n.5).
+**Arithmetic — countable from this file's own bytes. RESTATED 2026-08-28 at fold round 1 (§6);
+the pre-round figures are struck in place, never silently.** **25 FOLDED rows** (§1,
+W11.1..W11.25, contiguous, one ⟨provenance⟩ line each — *was 21; +4 at round 1*) · **17 GATE rows**
+(§2 — **12 sharpenings** of existing W11 gates + **5 genuinely new**) **+ 4 dated round-1 gate
+AMENDMENTS** (§2c — amendments to S5/S6/N1/N3; **no gate is minted at round 1**, so the layer's
+gate Σ is unmoved) · **8 BOUNDS-DELTA entries** (§3 — *was 7; +1 at round 1*) · **97 census rows**
+(*was 85*) = **85 roster rows** (§1z — PreviewRamp 27 = R-1..R-26 + ADJ-1 · ColorNutritionLabel 27
+= CNL-1..CNL-27 · PaletteColorStrip 31 = PCS-1..PCS-31) **+ 12 correction-block rows** (§1z-b, new
+at round 1), of which **34 carry a NO-WAVE-OWNER limb** (+1 conditional, §0a n.6) and **51 are
+OUT-OF-WAVE** — **both figures UNMOVED at round 1**, because every one of the 12 new census rows
+resolves to an already-banked roster identity (§1z-b's right column) and none opens a new carry.
+· **1 EXTERNAL carriage** (⟨INBOX I-28 · X-EXT-5⟩, §6.4 — mail provenance, stamp-side limb only;
+the row's booking lives at X-W1 and is **not** re-booked here). The IN side is a receipt of the
+assignment, not document-internal arithmetic: no in-equals-out identity is asserted. **Dedupe by
+banked identity is applied throughout: no row is re-booked under a new name (anti-rename), and a
+row already banked at a sibling record is cross-referenced, never counted twice** (§0a n.5).
 
 ### 0a. Seat challenged — corrections, never silent
 
@@ -527,6 +534,10 @@ ColorNutritionLabel residue (9 rows, *"Highest-value probes in this record"* nam
 PaletteColorStrip residue U-1..U-8 (*"visual-audit inputs — task #4 feed"*).
 *cureShape*: `close/evidence/browser/**` may list residue rows as **inputs attempted**, each with a
 verdict of `MEASURED <value>` or `UNMEASURED`; a residue row may never be closed by entailment.
+*Range note (round 1, 2026-08-28)*: `U-1..U-8`, `§UNPROVEN 1-11` and `§UNPROVEN 1-9` are **RANGE
+forms and expand before any byte test** — PaletteColorStrip U-3/U-4/U-5/U-6 and the PreviewRamp /
+ColorNutritionLabel numbered residues are carried BY these ranges, not escaped by them. Re-verified
+by this seat's fresh census (§6.1).
 *Sequencing*: X.W11.d; feeds the standing visual-audit task, not this close.
 *Dissent*: PreviewRamp DISSENT 2 keeps a severity question open pending exactly these measurements
 (*"If the visual audit lands the ratios at the predicted magnitudes AND the chips become reachable
@@ -534,6 +545,126 @@ verdict of `MEASURED <value>` or `UNMEASURED`; a residue row may never be closed
 resolve it and does not stamp over it.
 ⟨PreviewRamp.md §UNPROVEN 1-11 + DISSENT 2 · ColorNutritionLabel.md §UNPROVEN 1-9 ·
 PaletteColorStrip.md U-1..U-8⟩
+
+---
+
+**W11.22 · KILL-REGISTER CURRENCY — the Killed-claims register is a FOURTH correction-block
+species, and G15 as authored does not name it** (cl.1 · MAJOR — *folded at round 1, 2026-08-28*)
+*Mechanism*: W11.5's G15 (N3) requires a cited registry record to be read WITH its dated
+`COORDINATION` / `Re-verification addendum` / `Addendum clause` blocks. Every record in this input
+set also carries a **`## Killed-claims register`** — the block where a seat records which cells of
+the corpus it *struck*. G15's own falsifier is *"a `FINAL.md` claim resting on a cell a dated
+correction has struck"*, and a struck cell lives in exactly that register. The gate therefore names
+three of the four places its falsifier fires. This seat's own round-1 census proves the gap is not
+theoretical: **12 correction rows of my three assigned records were absent from this fold by
+bytes** (§1z-b) — including K16, which strikes a mechanism cell for CNL-2, the row W11.6 and W11.7
+both rest on.
+*locks (verbatim)*: ColorNutritionLabel §Killed-claims register preamble — *"Reader kills RATIFIED
+by this seat (K1–K12), then arbiter kills OF the readers (K13–K17)"* · **K17** — *"four 'missed by
+the whole corpus / no axis reports it' framings — pre-banked registry identities (R6) … True facts,
+false novelty; cross-booked, never re-booked."* (this is the corpus-level authority for the
+anti-double-booking law §0a n.5 asserts, and this fold had never named it) · **K16** — *"the null
+exits via `contrast_unreachable` before the identity test runs (R2); the float-ratio leg is the
+demotion target. C-2 unchanged."* · **K8** — *"a one-color exoneration generalised to the domain;
+the same error C's pass-1 made and formally retracted (challenge-C-implementation.md:585-596)."*
+*cureShape*: **G15's block list gains `Killed-claims register` as a fourth named species**, and the
+citation receipt records the kill-register rows read **by id**, not merely that the register was
+opened. A `FINAL.md` claim that reproduces a cell struck in a kill register fails G15 whether or not
+the other three block species were read.
+*Sequencing*: binds X.W11.e (FINAL + packets), with W11.5; no new gate — G15's predicate widens
+(§2c A-4).
+*Dissent*: none. **K8 is additionally a measured instance of W11.9's and W11.10(e)'s own defect
+class** — a single-instance exoneration generalised to a domain, which is precisely what o18's
+`.first()` does; recorded as corroboration, booked nowhere new.
+⟨ColorNutritionLabel.md K1/K2/K4/K5/K8/K9/K10/K11/K16/K17 · PaletteColorStrip.md C-3 + L-9 ·
+this seat's round-1 census §6.1⟩
+
+**W11.23 · G13's collision predicate is TOO NARROW — a DIVERGENT DUPLICATE is a cure collision that
+no "dead — delete" sweep can see** (cl.2 · MAJOR — *folded at round 1, 2026-08-28*)
+*Mechanism*: G13 (N1) sweeps *"every 'dead — delete' object named by any adjudicated record"* and
+asserts ONE landed fate. That predicate is keyed on the DELETE verb. The corpus measures a second
+collision species with no delete ruling anywhere in it: **one selector authored twice, divergently,
+in two files that render on one screen** — invisible to a delete-keyed sweep, and just as capable of
+having W11 stamp two waves VERIFIED across a contradiction.
+*Witness (born-RED, measured by the PaletteColorStrip seat's own grep; no probe run here)*:
+`.preview-chip` **is defined twice divergently** — `PreviewStrip.vue:56` `inline-flex` vs
+`PreviewRamp.vue:40` `inline-block`. Two strip species are imported into ONE file
+(`GenerateControls.vue:16/:20`) and rendered on one screen (`:135/:245/:274`) *"with incompatible
+input types, geometry and truncation policy"*, while `color-chips/index.ts:2-4` claims *"ONE focused
+common module … never a per-pane copy"* — **a false uniqueness claim plus a live same-screen
+duality**. Corroborated from the other record: PreviewRamp's kill 8 strikes reader-L's
+*"four of five byte-identical, only `display` differs"* undercount and re-measures **six
+declarations, two divergences (`overflow: hidden` Strip-only — load-bearing)** — i.e. the duplicate
+set is larger and more divergent than the corpus's own sharpest reader claimed.
+*locks*: L-9's grade is **MAJOR — B wins**, and the substance is already banked at **PCS-10**
+(*"OUT → X-W7.c + BOUND (chip-family unification residue)"*, §1z) — **identity preserved, no new id,
+no new carry**. W11 books the SWEEP predicate only; the unification cure is X-W7.c's and the residue
+is the boundary's.
+*cureShape*: G13's sweep object set becomes *"every object named by a 'dead — delete' ruling **or**
+declared more than once with divergent declarations across the adjudicated corpus"*; a divergent
+duplicate is reported with both declaration sites and their delta, and a post-cut tree that still
+carries both fails the sweep by the same argument as a contradicted delete.
+*Sequencing*: unchanged — after X-W7 and X-W6 land, before commit #8. Amendment only (§2c A-2).
+*Dissent*: none — the two records measured the duplicate independently and disagree only about how
+far the undercount ran.
+⟨PaletteColorStrip.md L-9 (kill register) + PCS-10 · PreviewRamp.md Killed-claims register 8⟩
+
+**W11.24 · G5's seed dimension needs a PERSISTED-STORE arm, not only a URL-seed arm — the
+rehydrator validates `version` and nothing else** (cl.1 · MAJOR — *folded at round 1, 2026-08-28*)
+*Mechanism*: W11.6 gave G5 a seed dimension over `?color=<seed>`. That arm covers the URL. The
+corpus measures a **second persisted entry point into the same class of defect** — client storage —
+and it reaches the very contract W11.15 asserts round-trip identity on. A boot cell that seeds only
+from the URL reports green while the store path is unasserted.
+*Witness (born-RED, measured by the PaletteColorStrip seat; no probe run here)*:
+`JSON.parse('{"weight":1e999}')` → **Infinity**; *"`usePaletteStore.ts:19-26` rehydrates palettes
+through a serializer that validates `version` and nothing else, and the strip's `own` channel
+(`:53`) reads `c.weight` straight off store palettes. The blank-strip path is reachable from
+tampered client storage, not only from the caller-less prop."*
+*locks*: the row's home is **PCS-15** (*"Adversarial-only → MINOR stands"*, §1z: `OUT → X-W7.c`) —
+**grade and ownership untouched; W11 books the ASSERTION half only, no cure and no new id.** The
+I-20 cell discipline of W11.6 carries over verbatim: **the URL-seed cell, the store-seed cell and
+the render cell are three cells and are never merged.**
+*cureShape*: G5's seed matrix gains a store arm — boot with a pre-seeded `localStorage` palette
+carrying an out-of-domain `weight` (Infinity at minimum, the measured vector) and assert `#app`
+non-empty + `pageerrors []`; the emitted JSON records the seeded value beside the verdict, per
+W11.7's no-verdict-without-its-input rule. **X-W1 owns the harness bytes; W11 executes and asserts.**
+*Sequencing*: with G5 (W11.6). If the store arm is absent at open, that arm reads **UNMEASURED**,
+never green — and never inherits the URL arm's green. Amendment only (§2c A-1).
+*Dissent*: the record grades this adversarial-only, and this fold does not contest the grade — it
+asserts only that the release boot cell can SEE the path.
+⟨PaletteColorStrip.md C-3 reachability (kill register) + PCS-15 · cross-ref ColorNutritionLabel.md
+CNL-3 (the URL-seed arm)⟩
+
+**W11.25 · EXTERNAL (I-28) — the glass-8.0.0 repin lands a BORN-RED oracle inside the suite W11
+stamps green** (cl.2 · MAJOR — *folded at round 1, 2026-08-28; mail provenance, not a registry id*)
+*Provenance*: **EXTERNAL, mail-sourced** — `docs/tranches/V/coordination/INBOX.md` row **I-28**
+(glass v8.0.0 @ `17a11bc5`; letter + §5 addendum 08-25; ROWED 08-28), mirrored at
+`refinement/ROUND-1-ASSIGNMENTS.md` §C. Cited ⟨INBOX I-28 · X-EXT-5⟩ — **not** a `⟨record.md · id⟩`
+registry citation.
+*Mechanism*: X-EXT-5 books that at the glass 8.0.0 repin the o7 oracle re-pins its `data-grain`
+expectation — *"`e2e/smoke/oracles/o7-card-census.spec.ts:104/:224/:234` asserts grain ON —
+born-RED at 8.0.0"* — because the `grain` prop is REMOVED whole-library (X-EXT-3). The row's
+**owning wave is X-W1** (oracle slate) and its cure is booked there. But the *stamp-side* limb has no
+other home: **X-W11 is the only wave that reads a whole-suite green** (PreviewRamp:42, *"the
+whole-suite green stamp is X-W11's"* — the single by-name routing to this wave in the entire
+corpus). A repin that lands during the X waves puts a born-RED spec inside the suite W11 stamps, and
+G7's exit code would carry it.
+*locks*: **anti-double-booking (§0a n.4) — the row is booked ONCE, at X-W1.** This fold carries the
+stamp-side limb as a cross-edge, a bounds entry and a gate class; it mints **no id**, adds **no
+census row to §1z**, and takes **no cure**.
+*cureShape*: `o7-card-census.spec.ts` joins the named-oracle list in §3 (BoundsDelta 8,
+**execute, no write**); its verdict carries an explicit **repin class** — `PRE-REPIN` or
+`POST-REPIN-BORN-RED` — and G7 may not read a whole-suite green while any spec in the suite is
+`POST-REPIN-BORN-RED` and uncured. This is the S6 vacuous-green discipline applied to a *known*
+red rather than a *hidden* one.
+*Sequencing*: reads X-W0.j's census PASS branch (the repin act) and X-W1's o7 cure; W11 executes,
+never authors. If the repin has not fired at open, the class is `PRE-REPIN` and this row is inert —
+recorded so the inertness is stated, not assumed.
+*Dissent*: none. **Figure discipline carried from the mail**: X-EXT-4's `--slider-track-bg` count is
+*"×4"* by mail and **5 live binding sites** by tree; both figures stand, neither is silently
+elected — W11 inherits that posture for any I-28 figure it reproduces.
+⟨INBOX I-28 · X-EXT-5 (mail) · ROUND-1-ASSIGNMENTS.md §C · PreviewRamp.md:42 (the whole-suite
+stamp routing) · cross-edge X-EXT-3 (the `grain` removal that reddens it)⟩
 
 ### 1z. Id-keyed census — all 85 source rows, no silent drops
 
@@ -644,7 +775,39 @@ seventeenth — R-5 is)
 | PCS-31 | INFO | **BOUND** (rides the U-tranche RTL logical-property ledger) |
 
 **Boundary total: 17 + 11 + 6 = 34** (+1 conditional, CNL-2). **OUT-OF-WAVE: 51.** Every id above
-appears exactly once; no id is renamed.
+appears exactly once; no id is renamed. **Both totals are UNMOVED at fold round 1** — see §1z-b.
+
+### 1z-b. Correction-block census — the 12 ⟨record·id⟩ rows this fold cited by bytes at round 1
+
+*New at fold round 1, 2026-08-28 (§6.1).* The §1z census above enumerates the three records'
+**adjudicated rosters**. Each record carries a second id-keyed population — its **Killed-claims
+register** — which W11.22 establishes as a G15 correction-block species. This seat's fresh census
+found the twelve rows below present in the corpus and **absent from this fold by bytes**; they are
+folded here id-for-life. **Every one resolves to an already-banked identity** (right column), so
+**no new NO-WAVE-OWNER limb and no new boundary carry is opened** — the 34/+1 and 51 totals stand
+unmoved. Ids are original for life; `≡` means the substance is banked there and is **not** re-booked.
+
+| # | ⟨record · id⟩ | what it strikes / establishes | resolves to (banked identity) |
+|---|---|---|---|
+| 1 | ⟨ColorNutritionLabel.md · **K1**⟩ | D-6's shadcn/edict-4 limb — the alert barrel documents its own glass conversion | ≡ CNL-15 (lattice limb) + CNL-19 (14px, re-attributed) — both in §1z |
+| 2 | ⟨ColorNutritionLabel.md · **K2**⟩ | L-12's "provably dead fallback, exactly two arms" — third arm live, is C-2's BLOCKER | ≡ CNL-2 (§1z, CONDITIONAL BOUND) |
+| 3 | ⟨ColorNutritionLabel.md · **K4**⟩ | D-8's "tabIndex −1 explicitly removed" — DOM default misread | ≡ CNL-8 (§1z, BOUND / AB-17) |
+| 4 | ⟨ColorNutritionLabel.md · **K5**⟩ | D-11's static-flat-tint mechanism limb — live probe resolver exists | ≡ CNL-17 (§1z, BOUND) |
+| 5 | ⟨ColorNutritionLabel.md · **K8**⟩ | D §7 negative proof #2 — a one-color exoneration generalised to the domain, formally retracted at `challenge-C-implementation.md:585-596` | **corroborates W11.9 + W11.10(e)**; no roster row (a kill of a proof, not of a finding) |
+| 6 | ⟨ColorNutritionLabel.md · **K9**⟩ | D-17 as a motion defect — no M-xx quarantine row names this component, *"so no FALSE row is carried; cited by id per the quarantine law"* | quarantine law; **corroborates W11.20** (probe/claim provenance). No carry |
+| 7 | ⟨ColorNutritionLabel.md · **K10**⟩ | D-1's "12 documented spaces / the one state that works" — the rgb base article is itself false | ≡ CNL-1 (§1z, OUT → X-W6.f) |
+| 8 | ⟨ColorNutritionLabel.md · **K11**⟩ | C-5's `cssColorOpaqueFrame` cure — provided key is the uncoalesced `cssColorOpaque` | ≡ CNL-2's seam; cure killed, no carry |
+| 9 | ⟨ColorNutritionLabel.md · **K16**⟩ | reader-D's C-2 mechanism cell — the null exits via `contrast_unreachable` **before** the identity test runs | **binds W11.6/W11.7's witness shape**; ≡ CNL-2 grade unchanged |
+| 10 | ⟨ColorNutritionLabel.md · **K17**⟩ | four "missed by the whole corpus" framings — *"pre-banked registry identities … True facts, false novelty; cross-booked, never re-booked"* | **the corpus authority for §0a n.5**; ≡ CSS-L-1/AB-2/AB-36/AB-10 + rider A-1 |
+| 11 | ⟨PaletteColorStrip.md · **C-3**⟩ | the `weight: 1e999` → Infinity store-rehydration vector | **FOLD W11.24** · ≡ PCS-15 (§1z, OUT → X-W7.c) |
+| 12 | ⟨PaletteColorStrip.md · **L-9**⟩ | `.preview-chip` declared twice divergently; two strip species on one screen against a false uniqueness claim | **FOLD W11.23** · ≡ PCS-10 (§1z, OUT → X-W7.c + BOUND) |
+
+**§1z-b arithmetic:** 10 ColorNutritionLabel + 2 PaletteColorStrip = **12**. Census total
+**85 + 12 = 97**. NO-WAVE-OWNER limbs added: **0**. Boundary carries added: **0**. New ids minted:
+**0**. (PreviewRamp's Killed-claims register is numbered 1..13 over *challenge-corpus* ids —
+C-1/C-3/D-2/D-5/D-6/D-10/D-11/D-12/L-1/L-2/L-3/L-4/C-11 — which live in the challenge namespace, not
+the registry's; kill 8 is cited at W11.23 by position, per the ⟨record · id⟩ law's own
+namespace rule. §6.1 records the check.)
 
 ---
 
@@ -681,6 +844,28 @@ prior wave and no honest baseline exists until it does.
 | N4 | **G16 — boundary carry census** | `BOUNDARY-CARRY.md` is id-keyed, **34 rows** from this seat's records (+1 conditional), each with original id · record · severity · pinned cure text · destination | no such file exists; three records enumerate their carries and forbid silent drops | a NO-WAVE-OWNER limb present in a record and absent from the census; a census row under a renamed id |
 | N5 | **G17 — probe provenance** | evidence cites tracked artifacts and pasted commands only; `/tmp`-authored or untracked probes read `UNMEASURED` | G8's own RED (4 tracked of 31); PreviewRamp residue 10 (`/tmp`, not banked); PCS U-7 (not re-run) | a cell green on a probe with no tracked artifact and no pasted output |
 
+### 2c. Round-1 gate AMENDMENTS (4) — dated 2026-08-28, no gate minted
+
+Fold round 1 found **no missing gate**; it found **four gate predicates too narrow to fire on
+witnesses already banked in this seat's own records**. Each is an amendment to a gate that already
+exists above — the gate count is **unmoved at 17**, and the layer's gate Σ is undisturbed. Minting a
+gate to carry a widened predicate would be the contrivance L-19 forbids.
+
+| # | gate amended | predicate BEFORE (as authored) | predicate AFTER (round 1) | why it could not fire | row |
+|---|---|---|---|---|---|
+| A-1 | **S5 · G5** | seed dimension = `?color=<seed>` over 28 greys ∪ {black}, both modes | **+ a persisted-STORE arm**: a pre-seeded `localStorage` palette with an out-of-domain `weight`; three cells (URL-seed · store-seed · render), never merged | the URL arm cannot reach `usePaletteStore.ts:19-26`, which validates `version` and nothing else | **W11.24** |
+| A-2 | **N1 · G13** | sweeps every object named by a **"dead — delete"** ruling | **or declared more than once with divergent declarations**; a divergent duplicate reports both sites + their delta | `.preview-chip` carries no delete ruling anywhere, so a delete-keyed sweep is blind to it | **W11.23** |
+| A-3 | **S6 · G7** | five vacuous-green classes; `assertions-reached` / `nodes-matched` asserted separately from exit code | **+ a repin class per spec** (`PRE-REPIN` \| `POST-REPIN-BORN-RED`); no whole-suite green while any spec is `POST-REPIN-BORN-RED` and uncured | S6 catches *hidden* reds (vacuity); a repin-born RED is a *known* red the exit code would still carry | **W11.25** |
+| A-4 | **N3 · G15** | a cited record is read with its `COORDINATION` / `Re-verification addendum` / `Addendum clause` blocks | **+ `Killed-claims register`** as a fourth species; the receipt records kill rows read **by id** | G15's falsifier fires on *struck cells*, which live in the register the list omitted | **W11.22** |
+
+**Amendment witnesses are all pre-measured and banked** (no probe run by this seat at round 1):
+A-1 `JSON.parse('{"weight":1e999}')` → Infinity (PCS C-3) · A-2 `PreviewStrip.vue:56` `inline-flex`
+vs `PreviewRamp.vue:40` `inline-block` (PCS L-9; PreviewRamp kill 8 re-measures six declarations /
+two divergences) · A-3 `o7-card-census.spec.ts:104/:224/:234` asserts grain ON while 8.0.0 removes
+the prop whole-library (⟨INBOX I-28 · X-EXT-5⟩ + X-EXT-3) · A-4 the 12 rows of §1z-b.
+**All four gates stay BORN-RED or MEASURE-AT-OPEN exactly as §2a/§2b state them** — an amendment
+widens a predicate, it never converts a red to a green.
+
 ---
 
 ## 3. BoundsDelta
@@ -697,10 +882,14 @@ receipts wave, and the `Do NOT touch` list is untouched.**
 | 5 | `docs/tranches/X/refinement/X-W11-FOLD.md` | **read at open** | the reading rule (§0) — spec THEN addendum |
 | 6 | `e2e/smoke/oracles/o14-preview-truth.spec.ts` | **execute, no write** | W11.10(a)(b)(c) — named so its verdict carries its class letter; X-W1 owns the bytes |
 | 7 | `e2e/smoke/oracles/o18-contrast-census.spec.ts` | **execute, no write** | W11.10(e) — the 4.5-vs-5.75 floor is labelled, not silently green; X-W1 owns the bytes |
+| 8 | `e2e/smoke/oracles/o7-card-census.spec.ts` | **execute, no write** | **W11.25 / §2c A-3** *(added at fold round 1, 2026-08-28)* — its verdict carries a repin class so a `POST-REPIN-BORN-RED` spec cannot ride a whole-suite green; ⟨INBOX I-28 · X-EXT-5⟩ books the cure at **X-W1**, which owns the bytes |
 
 **Disjointness holds**: entries 1-3 are `create` under unit-owned subdirectories (X.W11.a owns 1;
-X.W11.b/d own 2-3 by sub-gate); entries 4-7 are read/execute and take no writer. No sibling X wave
-writes under `docs/tranches/X/close/**`.
+X.W11.b/d own 2-3 by sub-gate); entries 4-8 are read/execute and take no writer. No sibling X wave
+writes under `docs/tranches/X/close/**`. **Round-1 note**: entry 8 is `execute, no write` precisely
+so the addition creates no writer collision with X-W1's oracle slate — W11 gains a reading, not a
+claim on the bytes. **No product source is added at round 1; the wave remains documents-and-receipts
+and the `Do NOT touch` list is still untouched.**
 
 ---
 
@@ -708,7 +897,7 @@ writes under `docs/tranches/X/close/**`.
 
 | edge | content | direction |
 |---|---|---|
-| **X-W1** | the oracle slate: o14 dialect cure (one encoding through the app's own parser), the reachability precondition, the born-RED boot test over CNL-3's seed matrix, the two-click render cell, the o18 floor (4.5→5.75), CI playwright. W11 executes, never authors | W11 ← W1 |
+| **X-W1** | the oracle slate: o14 dialect cure (one encoding through the app's own parser), the reachability precondition, the born-RED boot test over CNL-3's seed matrix **plus the persisted-store seed arm (W11.24 / §2c A-1)**, the two-click render cell, the o18 floor (4.5→5.75), **the o7 `data-grain` repin cure ⟨INBOX I-28 · X-EXT-5⟩ — booked at W1, carried here stamp-side only (W11.25)**, CI playwright. W11 executes, never authors | W11 ← W1 |
 | **X-W6** | R-1/R-11 (the Mix door: enclosing geometric seat; the `<Plus>` glyph the producer discards), R-3, R-17, R-22 — every G7 leg in W11.10(a)(b) is blocked on this | W11 ← W6 |
 | **X-W7.c** | 22 PCS rows die in one build (PaletteSpecimen); **two NAMED GAPs must be adopted or degraded before W11 opens** (W11.3); the `[data-color-surface]` single ruling (W11.4); `data-slot` before any oracle (W11.10(d)) | W11 ← W7 |
 | **X-W8** | G11's pre-subtraction denominators; the dead `@components` globs (PCS-13 ≡ CSS L-5(a)); the 19 barrels (CNL-15 ≡ CC-078); the dead-surface backstop for PCS-16. `ShadowPalette.md:45` cites `W11.md:343-344` as the ownership authority — the citation is correct | W11 ← W8 |
@@ -717,6 +906,7 @@ writes under `docs/tranches/X/close/**`.
 | **X-W5** | route identity/H1/title (CNL-12), the `/about` mount root (CNL-20 ≡ AB-10), deep-link `?space=` (CNL-26 ≡ CC-081) — W11.16's route denominator depends on it | W11 ← W5 |
 | **X-W3** | X.A1..X.A5 journeys gain the round-trip identity + cross-producer hash assertions (W11.15); W11 re-runs against the released build | W11 ← W3 |
 | **GLASS-UI (BH inbox)** | three producer-owned residuals relayed with corrected attribution: R-10 (SelectItem description lane reaches no AT), CNL-10 (fixed/fluid scale seam), CNL-19 (`AlertDescription` `text-sm` vs fluid `--control-text`). Standing owner edict: every glass-level defect relays | W11 → glass |
+| **GLASS-UI 8.0.0 repin (⟨INBOX I-28⟩)** | *added at fold round 1.* **X-EXT-5** is the only I-28 row with a W11 limb, and only stamp-side: o7 goes born-RED at the repin, inside the suite W11 stamps green (**W11.25**, §2c A-3, §3 entry 8). The other five are read as edges and booked nowhere here — X-EXT-1 → **X-W7** (recipe), X-EXT-2 → **X-W8**, X-EXT-3 → **X-W6** (the `grain` removal that reddens o7), X-EXT-4 → **X-W4.g** (mail says ×4, tree measures 5 — **both figures stand**), X-EXT-6 → **X-W0.j**. G9's glass tuple must read the 8.0.0 coordinate, not 7.x, once the repin fires | W11 ← I-28 |
 | **keyframes.js** | unchanged by this input set: the RD-11 exact-pin packet (`"4.0.0"`) stands as W11's own G9/G12 rows state it | W11 → keyframes |
 | **Formation boundary** | 34 NO-WAVE-OWNER limbs (+1 conditional): the chip family (R-4/R-6/R-7/R-8/R-13/R-14/R-15/R-21/R-24/R-25/R-26 + halves of R-5/R-12/R-16/R-18/R-19/R-22), the About recomposition + phantom-owner families (CNL-4/6/7/8/9/11/16/17/19/24/25), the three server-contract rows (PCS-3/PCS-9/PCS-11) plus PCS-10 residue, PCS-30 (W-HYGIENE identity), PCS-31 (RTL ledger) | W11 → boundary |
 | **Sibling registry records (read-only)** | PaletteCard (PC-7/PC-14/PC-29 identities + the corrected Superlative 1), GenerateControls (R-C/R-D/B1/row 6/#20), ColorSpaceSelector (L-5(a)/L-14/DISSENT-1 precedent), AboutPane (AB-1/2/10/17/26/36 + riders A-1/A-3), ShadowPalette (SP-11), shell-dock-dockstatuslamp (the stamping verdict) | W11 ← registry |
@@ -725,13 +915,108 @@ writes under `docs/tranches/X/close/**`.
 
 ## 5. Closing — status verbs
 
-**AUDITED** — YES (the three assigned apotheoses + the whole-corpus `X-W11` grep, §0a n.3).
+**AUDITED** — YES (the three assigned apotheoses + the whole-corpus `X-W11` grep, §0a n.3, **grep
+figure corrected at §6.2**; re-run fresh at fold round 1, §6.1).
 **SPECIFIED** — the dated `waves/W11.md` (2026-08-03) stands byte-untouched; this addendum is the
 later adjudicated word on its predicates, gates and bounds.
-**IMPLEMENTED** — NO. **VERIFIED** — NO.
+**IMPLEMENTED** — NO. **VERIFIED** — NO. **Status: `planned`** — unmoved at fold round 1.
 **This fold stamps nothing.** It is the accounting instrument the stamping wave was missing:
 adjudication is not verification, a routed row without a mechanism sentence is a degraded row, and
 a carry with no census is a drop. Execution stays gated; no product source is opened here.
+
+---
+
+## 6. Fold round 1 — the repair record (2026-08-28)
+
+**What this section is.** X·V fold round 1's repair pass over this file, under
+`refinement/ROUND-1-ASSIGNMENTS.md` and `refinement/PASS-1-CHECK-RETURN.json`. It records the census
+this seat re-ran from scratch, what it found, and what it changed — so a round-2 check re-derives
+the same numbers instead of re-discovering them. **This file remained this seat's sole write.**
+
+### 6.1 The fresh id-keyed census — method, and the four things it returned
+
+*Method (re-runnable).* Corpus = the **92** non-`kf-*`/`fr-*`/`pt-*` `*.md` at
+`docs/tranches/V/megatranche/registry/adjudicated/` (non-recursive; `ls *.md` = 231 files + 1
+directory entry = 232, of which 139 are prefix-excluded). Token test = `X`, any of
+{hyphen-minus, U+2010..U+2015 en/em/figure dashes, `·`, `.`}, `W11`, no trailing digit — i.e. **both
+the hyphen/en-dash and the dotted forms**, including the dotted unit forms `X.W11.a..e`. A row = a
+bold-leading id line (`- **ID` / `| **ID`). Ranges and slash-compressed forms expand before the byte
+test.
+
+1. **Census-routed escapes for X-W11: ZERO.** The token test returns **4 lines in the whole
+   92-record corpus**, and all four were already carried: ⟨PreviewRamp.md · **R-2**⟩:42 (the single
+   by-name routing — *"the whole-suite green stamp is X-W11's"*, folded at W11.10 and §1z);
+   `PaletteColorStrip.md:138` and `shell-dock-dockstatuslamp.md:127` (the identical stamping verdict,
+   folded verbatim as W11.1's lock and its cross-edge); `ColorNutritionLabel.md:9` (a `X-W0..X-W11`
+   **range citation** in an anti-rename sweep — a wave-authority citation, not a routing, excluded by
+   the same rule the work order applies). **This independently reproduces the work order's own
+   result**: `ROUND-1-ASSIGNMENTS.md` §D lists X-W0/W1/W4/W5/W6/W7/W8/W10 and **omits X-W11**, i.e.
+   assigns this seat 0 of the 73 NWO rows and 0 of the 213 census rows. Two methods, one answer.
+2. **NO-WAVE-OWNER escapes routed to X-W11: ZERO.** §A homes its 73 at W7/W4/W6/W5/W8/W10 and the
+   G-F register; none at W11.
+3. **I-28 external rows routed to X-W11: ZERO by assignment** — §C routes X-EXT-1..6 to
+   W7/W8/W6/W4.g/W1/W0. **One carries a W11 limb the roster's floor did not reach**: X-EXT-5's cure
+   is X-W1's, but its *stamp-side* consequence has no other home, because W11 is the only wave that
+   reads a whole-suite green. Folded at **W11.25** as a carriage (cross-edge + bounds + gate class),
+   **not** as a booking — the row stays booked once, at X-W1.
+4. **Twelve ⟨record·id⟩ correction rows escaped this fold's own bytes.** The roster census (§1z)
+   enumerated the three records' **adjudicated rosters**; it did not enumerate their **Killed-claims
+   registers**, which are a second id-keyed population in the same files. 10 of ColorNutritionLabel's
+   17 K-rows and 2 of PaletteColorStrip's kill-table rows boundary-matched nowhere here. Folded at
+   **§1z-b**, id-for-life. **Two of the twelve break gate predicates this seat authored** — which is
+   why they are a repair and not bookkeeping: ⟨PCS · C-3⟩ (G5's seed arm could not reach the store
+   path) and ⟨PCS · L-9⟩ (G13's delete-keyed sweep is blind to a divergent duplicate).
+   *Checked and NOT escapes*: PaletteColorStrip **U-3..U-6** and the numbered PreviewRamp /
+   ColorNutritionLabel residues are carried by the `U-1..U-8` / `1-11` / `1-9` **range forms**, which
+   expand before the byte test (W11.21's range note). PreviewRamp's kill register is numbered over
+   *challenge-corpus* ids (C-/D-/L- namespaces), not registry ids, and is cited by position.
+
+### 6.2 Corrections to this seat's own prior text — dated, never silent
+
+- **§0a n.3's headline figure is corrected: the `X-W11` grep returns FOUR files, not six.** The note
+  says *"That grep returns six files"* — but the stated grep is `X-W11` and its dotted forms, and
+  `ShadowPalette.md` and `AuroraPane.md` contain **zero** `X-W11` tokens (re-verified this round:
+  `grep -c 'X-W11'` = 0 in both). They cite **`W11.md`** — the dated spec file, a different object.
+  Six is the count of the **union** grep (`X-W11` ∪ `W11.md`); four is the count of the grep the note
+  names. **The note's substance is unchanged and re-verified**: still exactly ONE by-name routing to
+  this wave (PreviewRamp R-2), and its sub-items (a)-(f) each remain individually true as written —
+  (d) and (e) already say "cite `W11.md`" in their own text. Only the headline arithmetic was wrong.
+  The note's bytes stand; this correction stands beside them (E-3).
+- **§0's arithmetic block is restated** to 25 folded rows · 17 gates + 4 amendments · 8 bounds
+  entries · 97 census rows · 1 external carriage, with the pre-round figures struck in place.
+- **PASS-1-CHECK-RETURN.json names no defect against this file.** Its BLOCKER (189 census escapes)
+  and MAJOR 2 (73 NWO) route nothing here; its MAJOR-4 receipt cites this fold only as a *mitigation*
+  — W11.1–21 verified gapless and contiguous. **W11.1–25 remains gapless and contiguous** after this
+  round. Nothing in the register required a cure at this seat; this section is the floor-exceeded
+  work, not a cure.
+
+### 6.3 Round-1 delta — countable
+
+| quantity | before | after | delta |
+|---|---|---|---|
+| FOLDED rows (§1) | 21 | **25** | +4 (W11.22 · W11.23 · W11.24 · W11.25) |
+| GATE rows (§2a+§2b) | 17 | **17** | **0 — no gate minted**; 4 predicate amendments at §2c |
+| BOUNDS-DELTA entries (§3) | 7 | **8** | +1 (o7, execute-no-write) |
+| census rows (§1z + §1z-b) | 85 | **97** | +12 correction-block rows |
+| NO-WAVE-OWNER limbs | 34 (+1 cond.) | **34 (+1 cond.)** | **0** |
+| OUT-OF-WAVE | 51 | **51** | 0 |
+| EXTERNAL carriages | 0 | **1** | +1 (⟨INBOX I-28 · X-EXT-5⟩, stamp-side limb) |
+| new ids minted | — | **0** | anti-rename holds: every id above is original for life |
+
+### 6.4 Laws held at round 1
+
+**Banked ids for life** — 0 ids minted, 0 renamed; each of the 12 new census rows carries its
+original id and an `≡`-pointer to the identity it resolves to. **Locks/cure-shapes/dissents verbatim
+where load-bearing** — K17, K16, K8, C-3 and L-9 are quoted, not paraphrased; the PCS-15 grade
+("adversarial-only → MINOR") and the L-9 grade ("MAJOR — B wins") are carried unchanged, and no
+dissent is ruled away. **External rows carry mail provenance, not registry ids** — X-EXT-5 is cited
+⟨INBOX I-28 · X-EXT-5⟩ throughout, never as a `⟨record.md · id⟩`; X-EXT-4's mail-vs-tree figure
+disagreement (×4 vs 5) is carried with **both figures stated**. **§-arithmetic updated to the new
+true counts, dated** — §0 and §6.3. **Gates born-RED with real witnesses** — no gate was minted, and
+all four amendments cite witnesses measured by the source seats; **this seat ran no probe and
+authored no script at round 1** (L-19). **Status planned** — unmoved. **No product source** — the
+one bounds addition is `execute, no write` on a spec X-W1 owns; `waves/W0.md..W11.md` and
+`CONFORMANCE-2026-08-03.md` remain byte-untouched (E-3).
 
 — end of fold. The three source apotheoses, their challenge corpora and their re-reader returns
 remain immutable beside this file per E-1/E-3.

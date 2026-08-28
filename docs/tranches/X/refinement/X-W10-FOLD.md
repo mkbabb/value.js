@@ -38,6 +38,16 @@ widenings + 3 recorded NOT-ADDED families** (§4) · **14 cross-edges** (§5). T
 many source rows collapsed into the 86) is NOT asserted as an identity: the corpus rows are
 enumerated on the ⟨…⟩ lines and are falsifiable there, one row at a time.
 
+**ARITHMETIC SUPERSEDED 2026-08-28 by §6h — the ROUND-1 row-carriage repair.** The paragraph above
+stands as the **round-0** record (the counts the pass-1 check verified: gapless X-W10.1–86, gate
+Σ 27, zero VERIFIED stamps) and is **not** re-written. The file's **new true counts** are
+**103 rows** (contiguous X-W10.1..X-W10.103) · **36 gate rows** (9 sharpened + **27** born-RED,
+G-10..G-36) · **27 bounds-delta rows** (§4 rows 1-19 + §6f rows 20-27) · **17 cross-edges**
+(§5 edges 1-14 + §6g edges 15-17, plus two relay lines on edge 14). §6 adds **17 rows**: the
+assignment's **4** NO-WAVE-OWNER + **7** census escapes (2 declared overlaps folded once, both
+limbs) + **8** ceiling finds this seat's own fresh id-keyed census reached and the roster did not.
+Dated, never silent.
+
 ### 1a. Corrections and challenges — recorded, never silent
 
 1. **AB-22's census is CORRECTED UPWARD by this seat's own re-run (2026-08-28).** AboutPane AB-22,
@@ -1703,5 +1713,490 @@ producer patches.
 
 ---
 
-*End of fold. 86 rows · 27 gate rows · 19 bounds-delta rows · 14 cross-edges. E-3 honoured: no byte
-of `waves/W0..W11.md` or `CONFORMANCE-2026-08-03.md` was written by this seat.*
+*End of round-0 fold. 86 rows · 27 gate rows · 19 bounds-delta rows · 14 cross-edges. E-3 honoured:
+no byte of `waves/W0..W11.md` or `CONFORMANCE-2026-08-03.md` was written by this seat.*
+**⟶ §6 below is the ROUND-1 addendum (2026-08-28). File totals now: 103 rows · 36 gate rows ·
+27 bounds-delta rows · 17 cross-edges — see §6h.**
+
+---
+
+## 6. ROUND-1 FOLD ADDENDUM — 2026-08-28 · the ROW-CARRIAGE repair
+
+**Status: `planned`. Dispositions ADJUDICATED, never stronger. No product source was opened by this
+seat — every witness below is a source record's own measurement, re-cited with its anchor (the §3
+L-19 posture, unchanged), or this seat's grep over the twelve `waves/W*.md` and the fold layer.**
+
+**Warrant.** `refinement/ROUND-1-ASSIGNMENTS.md` (spine ROW-CARRIAGE LAW §1): *a packet's home wave
+adopts the packet's RIDING ROWS id-for-id, not merely its files.* This section is the X-W10 repair
+seat's consumption of that work order. **§2–§5 above are byte-untouched** — they are the round-0
+record the pass-1 check verified (gapless X-W10.1–86, gate Σ 27, no VERIFIED stamps). Everything
+this round adds lands here, numbered contiguously from **X-W10.87**, and §6h restates the file's
+arithmetic at its new true counts.
+
+**Pass-1 status for this fold: NO DEFECT NAMES IT.** `PASS-1-CHECK-RETURN.json` names
+`X-W10-FOLD.md` exactly once outside its own `/folds[10]` synopsis — in defect 3's receipt, where
+`X-W10-FOLD.md:1253` is cited as *evidence* that `B-13` exists in the layer only as a DECISIONS.md
+citation (Generate's three verbs), **an unrelated identity**. No cure is owed by this seat to the
+register; the whole of this section is row-carriage.
+
+### 6.0 The fresh id-keyed census — method and result
+
+Re-run from scratch, not inherited. **Corpus** = the 92 non-`kf-*`/`fr-*`/`pt-*` `*.md` at
+`registry/adjudicated/` (non-recursive) **plus** `delta-r3/` (2 files, re-checked: **zero** X-W10
+tokens — the §1 provenance claim holds). **Routing token** = `X` + any of hyphen / non-breaking
+hyphen / figure dash / **en dash** / em dash / **middle dot** / **full stop** + `W10`, word-bounded
+so `X-W1` can never prefix-match `X-W10`. **Row** = a bold-leading id on a `-`/`*`/`|` line; a
+supplementary sweep re-ran the same grep for **non-hyphenated** leading bold ids (the `M4`/`m3`/`K10`
+dialects) and returned **5 extras, all five already folded here** — recorded because that dialect is
+the obvious way to under-count. **Presence test** = boundary match against the concatenated fold
+layer (12 `X-W*-FOLD.md` + the spine) after expanding slash-compressed (`EY-7/27/32`) and range
+(`AAP-1..AAP-3`) forms.
+
+| measure | count |
+|---|---|
+| corpus rows touching X-W10 (row line or continuation block) | **319** |
+| of those, row-line-ROUTED (token + routing verb on the row line) | **213** |
+| routed rows absent from the WHOLE fold layer by bytes | **16** |
+| of those 16, X-W10-PRIMARY (this seat's) | **7** — exactly the assignment's §B roster, id-for-id |
+| of those 16, sibling-wave-primary with an X-W10 **law** limb | **9** (X-W7's roster this round) |
+| §A NO-WAVE-OWNER identities assigned here | **4** (PaneHeader; PH-9/PH-34 overlap §B — folded once, both limbs) |
+| §C I-28 EXTERNAL rows assigned here | **0** |
+| **ceiling finds — routed here, absent under the citation law, on NO roster** | **8** |
+| pointer-only closures (facets of already-banked identities) | **4** |
+
+**The ceiling was not empty, and the reason is the citation law.** Eight identities route to X-W10
+and are absent from the layer **as ⟨record.md · id⟩**, while five of the eight *bare* ids do appear
+in the layer inside **another record's namespace** — a naive byte census closes on them and a
+citation-law census does not: ⟨AboutPane · AB-32⟩ vs the layer's ⟨shell-dock-actionbarlayer · AB-32⟩
+· ⟨PaletteCardSwatches · PS-13⟩ vs ⟨PreviewStrip · PS-13⟩ · ⟨PaletteCardSwatches · PS-19⟩ vs
+⟨PreviewStrip · PS-19⟩ · ⟨picker-componentsliders · R-15⟩ vs ⟨PaletteColorStrip · R-15⟩ ·
+⟨shell-dock-profilesection · N-5⟩ vs the X-W3/X-W6 `N-5`s. **The roster was a floor. This is the
+ceiling, and it is 8 rows tall.**
+
+### 6a. §A — the four NO-WAVE-OWNER PaneHeader identities (packet 11 · AB-22 / PANE-CHROME)
+
+**X-W10.87 · PH-9 — `transform: scale()` on the `<h3>` scales every slotted descendant below the
+WCAG 2.5.8 target floor** (cl.1+cl.2+cl.5) **MAJOR. Both limbs, folded once** (§A NWO limb ∧ §B
+census limb). *Mechanism*: the scrub scales the heading and **everything slotted into it**; About
+slots a real `<button>` (`ColorSpaceSelector inline`, `aria-label` "Select color space") which drops
+below **24×24** when scrubbed — and at the **1280 pole** (X-W10.1's `−7.3909`) leaves the viewport
+entirely, visible in the committed WebKit shot.
+*cureShape+locks*: **(i)** the disposition is **`X-W10.d` rider, verbatim**: *"the font-size-step
+transposition changes but does not remove the geometry question for slotted content"* — X-W10.2's
+transposition is **not** a cure for this row, it only changes which property carries the defect.
+**(ii)** the structural cure — *"an adornment SLOT beside the heading, not inside it"* — **rides
+PH-26/PH-27's arm and is banked NO-WAVE-OWNER** (X-W10.88). A wave that lands the transposition and
+calls PH-9 discharged has cured the mechanism and left the target floor.
+*sequencing*: the geometry question is decided **with** X-W10.2, not after it; the adornment slot is
+formation-boundary work unless §4 addendum row 20 is taken. *dissent*: none on the mechanism; the
+slot's altitude (component API vs producer `CardHeader` slot) is unruled.
+⟨PaneHeader.md · PH-9 (C:C-7) — §A NWO row ∧ §B census row⟩
+
+**X-W10.88 · PH-26 — a `<div>`-rooted `Badge` is slotted into an `<h3>`: an HTML content-model
+violation that parses silently** (cl.1) **MAJOR (NWO).** *Mechanism*: `AdminPane.vue:5` slots a
+`<Badge>` into the `<h3>`; the producer `Badge` root is a **`<div>`** — flow content inside
+**phrasing-only** content. It **parses without auto-closing**, *"which is why nothing surfaced it"* —
+no parser error, no lint, no gate. This is the second occupant of the same slot PH-9 indicts, and it
+is why the adornment-slot cure is structural rather than cosmetic.
+*cureShape+locks*: **disposition carried verbatim — *"rides the adornment-slot arm (PH-9) —
+NO-WAVE-OWNER, candidate = the wave that lands PH-8's seam."*** X-W10 may state the slot law; the
+`AdminPane.vue` edit is **X-W7's** (§4 row 12, `W7:109`). *sequencing*: the slot law precedes both
+consumer edits. *dissent*: candidate-wave is PH-8's seam, not this wave — recorded, not overruled.
+⟨PaneHeader.md · PH-26 (reader-2 missed #2, CONFIRMED)⟩
+
+**X-W10.89 · PH-33 — `@reference` is a dead edge, and it is dead in 15 of 17 demo SFCs**
+(cl.1+cl.5) **MINOR (NWO, systemic).** *Mechanism*: `PaneHeader.vue:61` carries `@reference` with
+**zero `@apply` / `theme()` in 164 style lines**; the pattern is systemic — **17 demo SFCs carry it,
+15 dead** (the record's census). *cureShape+locks*: **disposition verbatim — *"NO-WAVE-OWNER
+(systemic hygiene; not charged to this component)."*** This fold **does not** mint a gate for it: a
+gate whose owner is nobody is a trap, and W-HYGIENE is where the 15-of-17 census belongs. Recorded
+here so the identity is carried and so the next formation inherits a census, not a rediscovery.
+*sequencing*: —. *dissent*: the record refuses to charge the leaf; this fold agrees and refuses to
+charge the wave.
+⟨PaneHeader.md · PH-33 (C:C-13 / L:L-7)⟩
+
+**X-W10.90 · PH-34 — `<slot />` with no fallback inside a display-rung `<h3>`: an empty heading with
+a reserved line box, and four undesigned states** (cl.1) **MAJOR (NWO). Both limbs, folded once.**
+*Mechanism*: empty-title / loading / error / focused **never designed**; the bare `<slot />` reserves
+a **full line box** and yields an **empty heading** — the a11y-tree failure G-11 measures from the
+other end (an `opacity: 0` description that keeps its tree entry) meeting its mirror image (a heading
+with a box and no name). *cureShape+locks*: **disposition verbatim — *"NO-WAVE-OWNER; the empty-title
+guard may ride any X-W10.d touch."*** The guard is one `v-if`/fallback on the slot; the **four-state
+design** is not, and is the NWO half. *sequencing*: the guard rides X-W10.2's file touch; the state
+design is formation-boundary. *dissent*: **D-7's amendment is a binding rider on X-W10.d** (the
+record's own closing line) — carried into G-29's falsifier so it cannot be forgotten at execution.
+⟨PaneHeader.md · PH-34 (D:D-15) — §A NWO row ∧ §B census row⟩
+
+### 6b. §B — the census escapes routed to X-W10 (X-W10.91–.95)
+
+**X-W10.91 · ADJ-M2 — the rename overlay escapes its well by 74px under RTL, and the one glyph that
+should mirror cannot** (cl.1+cl.2) **MAJOR.** *Mechanism*: the overlay is **physically anchored** —
+`transform-origin: top left`, `left: 0`, `margin-left: -0.375rem` (`:299-311`) — so under `dir=rtl`
+the **overlay right edge 760.1 vs well right edge 686 = 74px escape**, with `insetInline` identical
+in both directions (probe-D18-pass5, read whole). **The record corrects its own reader**: the
+internal FROM→TO row **does** mirror (ghost x=705.1 > solid x=626); what fails is the literal
+`&rarr;` at `:63` — **U+2192 `Bidi_Mirrored=No`** — so the arrow points backwards **against** the
+mirrored row. *cureShape+locks*: **terminal disposition verbatim — *"Terminal: X-W10 (logical
+properties + direction law)."*** Two distinct cures, and the fold names both so neither is mistaken
+for the other: **(i)** the anchor is logical (`inset-inline-start` / `margin-inline-start` /
+`transform-origin: logical`), **(ii)** the glyph is **replaced, not mirrored by CSS** — a
+non-mirroring character cannot be fixed with `transform: scaleX(-1)` without inverting its own
+stroke weight. **R1's "stays LTR-ordered" is the WRONG MECHANISM for the right defect and may not be
+cited** as the warrant. *sequencing*: with X-W10.9 (PH-12's `transform-origin: left top`) — one
+direction law, two surfaces. *dissent*: none; R1's mechanism corrected on the record.
+⟨CurrentPaletteEditor.md · ADJ-M2 (R1 missed #2, promoted with one arbiter correction)⟩
+
+**X-W10.92 · ADJ-m1 — two identical ✓ glyphs, 379.5px apart, bound to different commands, and the
+louder one is the lesser command** (cl.1) **MAJOR.** *Mechanism*: during an edit the screen carries
+**two identical ✓** (`:76` vs `:141`; a third instance at `Dock.vue:143`), **379.5px apart** — and
+the **larger, accent-tinted, NAMED** one is the **minor** command while the **smaller, nameless** one
+**commits the palette** (probe-D17-pass5 `checkGlyphs`, read whole). **PR-05 one-mark-one-meaning.**
+*cureShape+locks*: the canon owns the law; the cure is a **mark change, not a size change** — making
+the commit glyph louder without breaking the identity preserves the collision at higher volume. The
+third instance (`Dock.vue:143`) proves the register is fleet-wide, so the law must be stated at the
+canon and not settled inside `CurrentPaletteEditor.vue`. *sequencing*: law before either surface.
+*dissent*: —
+⟨CurrentPaletteEditor.md · ADJ-m1 (R1 missed #6, CONFIRMED)⟩
+
+**X-W10.93 · VHD-22 — a 50%-alpha accent hover replaces an opaque well inside a glass host, and the
+recipe is a hand-copy of `.interactive-item` minus everything that made it interactive** (cl.1+cl.2)
+**MAJOR.** *Mechanism*: the row hover replaces the opaque well with a **50%-alpha accent** inside a
+glass host whose well-law precondition (*"nothing live sits behind an in-plate fixture"*) is
+**false**; and the hover recipe is a hand-copy of glass-ui's `.interactive-item` **minus its focus
+ring and press state**, applied to **a row that is not interactive at all**. Two independent
+verifications on the record: **`DESIGN.md:98` names VersionHistoryDrawer rows in the WELL rung while
+rung 3 names drawers CHROME** — *the law's own table sanctions a deployment its rationale forbids* —
+and the served `utilities/base.css` ships the full recipe (`hover` = the same accent-mix,
+`:focus-visible`, `:active` scale) while `:25` copies **exactly the half that signals to pointers
+only**, a false affordance whose sole real function is revealing the button **VHD-2 proves
+unrevealable on touch**.
+*cureShape+locks*: **disposition verbatim — *"split → X-W10 (canon: rule the well-inside-glass case
+explicitly) + X.W7.d (the recomposition either makes rows real interactive items via the producer
+utility or strips the affordance)."*** The canon limb is **not optional**: `DESIGN.md:98` is the
+authority that sanctions the defect, so ruling the case explicitly **is** the cure of the law, and
+G-2's "the survivor's normative clauses are checked against the components they govern" now has its
+sharpest witness. **A half-copy of a producer utility is a false affordance, not a lighter one.**
+*sequencing*: **canon first** — the recomposition's two branches (real item vs no affordance) are
+*chosen by* the well-inside-glass ruling, not before it. *dissent*: **BOUNDS DEFECT, new** — the
+record routes the recomposition to **X.W7.d**, and `VersionHistoryDrawer.vue` is in **X-W4's** §4
+(`W4:127`, `modify`) and in **no W7 table** (this seat's grep over all twelve wave files). See §6f
+row 21.
+⟨VersionHistoryDrawer.md · VHD-22 (D-19 + reader-1 missed `.interactive-item` fold)⟩
+
+**X-W10.94 · D-06 — five height declarations for one box, two symmetric axes resolved
+anisotropically, and the plate's block size changes live under the finger** (cl.1+cl.2) **MAJOR.**
+*Mechanism*: `h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none` — **five height declarations
+for one box** (`:11`) — give two symmetric **[0,1]** axes **anisotropic, viewport-dependent**
+resolution, with a **64px discontinuity at `lg`**. Rider **M-3**: `dvh` is the **DYNAMIC** unit, so
+the plate's block size changes **live under the finger** during the `pan-y` scroll the gate
+deliberately permits (`touchAction: "pan-y"` until active, `useSpectrumPlateStyle.ts:41-43`;
+`@touchmove.passive` `:20`) — **re-scaling the pointer→v map mid-gesture. No axis named the unit.**
+*cureShape+locks*: **the canon hook is STRUCK per D-06-HOOK** and **the filed SS3-law-7 citation is
+KILLED — it is a SPACING law** and may not be re-cited as the warrant; *"the finding stands on
+measurement and structure alone."* The cure states **one height law** for a normalized-square
+sampler; a cure that leaves `dvh` on a pointer-mapped plate fixes the count and keeps the gesture
+bug. *sequencing*: with X-W10.23 (the same face's two prohibited shadow registers) — one surface,
+one ruling. *dissent*: **literal identity guard** — ⟨picker-spectrumcanvas · **D-06**⟩ ≠ the fold
+layer's `D-6` tokens, which live in other records' namespaces. Zero-padding is identity.
+⟨picker-spectrumcanvas.md · D-06 (+ rider M-3)⟩
+
+**X-W10.95 · XW-32(a) ≡ XP-19 — `≡`-POINTER, no second booking** (cl.2) **MINOR.** The roster
+assigns ⟨wb-extract-workbench.md · XW-32⟩ here. Its **(a) limb is the identity this fold already
+banked**: *"`.plate-ink` ×5 — IDENTITY = XP-19 → **X-W10**"* — folded at **X-W10.67**, gated at
+**G-25** (`.plate-ink {` declaration count = 1; five files; the sixth consumer `ImageEyedropper.vue:35`
+still on the retired `text-muted-foreground`), bounded at **§4 row 17** (ADD-OR-SEQUENCE, *"the
+`@utility` home must land before the five deletions or the ink goes dark for one commit"*).
+**Limbs (b)–(f) are X-W7's and are NOT adopted here** — (b) the eyebrow override ×4 (*pre-owned at
+`:523-527`, framing corrected, K-22*) · (c) `--btn-hover-color` ×3 · (d) the dead scoped
+`.touch-gate-target` (C-33) · (e) EmptyState's caption re-implemented as a bare `<p>` (L-12) ·
+(f) the two `DockSeparator`s against VC §4.2 / OPTICAL-BENCH:76's `none`, **carried with the readers'
+honest caveat that a Dock-internal group separator is arguably Dock grammar — the ambiguity itself
+needs the cure wave's ruling**. This row exists so the byte census closes on **XW-32** without
+minting a second name for **XP-19** (anti-rename), and so no reader mistakes (a) for the whole row.
+*sequencing*: none of its own — it inherits X-W10.67's. *dissent*: —
+⟨wb-extract-workbench.md · XW-32(a) ≡ wb-extract-pane.md · XP-19 — banked at X-W10.67 / G-25⟩
+
+### 6c. The ceiling — routed here, on no roster, absent under the citation law (X-W10.96–.103)
+
+**X-W10.96 · AB-32 — the demo maintains a private φ ladder that shadows the producer's shipped one,
+and About sits one rung below the ratified interval** (cl.1+cl.4) **MINOR (canon, high leverage).**
+*Mechanism*: `foundation.css:458-462` declares a **private `--phi-0..4` ladder** shadowing the
+producer's shipped **`--space-phi-5/6`** (both re-read on the record — demo sheet and glass dist);
+About's section interval **`pt-phi-3` sits one rung below the ratified `--space-phi-5`** (OBC PR-35).
+Token-level analogue of L-4's component aliasing: the same species as X-W10.24's material-ladder
+collapse, one layer down in the token graph.
+*cureShape+locks*: **disposition verbatim — *"X-W10.f (CC-102 producer-contract citation) with the
+CC-112 φ-canon bank adjacency; may not enact GOLDEN-GLASS naming (OP-3)."*** The **may-not** is
+load-bearing and is carried into G-34's falsifier: a cure that renames the ladder to the golden-glass
+vocabulary **enacts an owner mark this wave does not hold**. **G-7 is the sibling gate and the
+warning**: X-W5 marks `61.8033989`/`38.1966011` FABRICATED TOLERANCE, so a φ cure that cites those
+numbers cites a fabrication (edge 12). *sequencing*: with G-7's citation pass, before `.f`'s
+satellite fold. *dissent*: —
+⟨AboutPane.md · AB-32 (reader-1 miss, ADOPTED)⟩ — layer collision guard: ⟨AboutPane · AB-32⟩ ≠
+⟨shell-dock-actionbarlayer · AB-32⟩ (X-W4-FOLD W4·57)
+
+**X-W10.97 · CNL-25 — X-W11 folded the row and routed two limbs OUT to X-W10.d; this fold adopts
+them id-for-id** (cl.1+cl.5) **MINOR (bundle).** *Mechanism*: four limbs, of which **two are this
+wave's**: **(i)** the channel name at **`text-body`** — *"a third role-matrix escape and the loudest
+text in the component"* (`:52-58`) — a direct **VC §4 closed-matrix** violation of exactly the shape
+G-15 measures; **(ii)** the **forced-colors roster omission** — the hovered node **paints live colour
+as data** (the file's own C3 comment) yet appears in **neither** the U-F57 tier-1
+`forced-color-adjust` roster **nor** as `[data-color-surface]`. The other two limbs (six decorative
+`ArrowRight` without `aria-hidden`; the faux-italic device, 10 sites, three semantics) go to the
+boundary a11y bundle with AB-36 and are **not** adopted here.
+*cureShape+locks*: **disposition verbatim — *"aria/bidi rows → the boundary a11y bundle (with AB-36);
+type-role rows → X-W10.d; the roster row → X-W10.d with K-6 cited."*** **K-6's law is the lock**:
+under it this is **NOT scope-shopping — it is the declared colour-data roster missing a declared
+colour-data surface**, and the roster half is **static** (the *outcome* needs-live, the omission does
+not). The roster edit lands in the **§4 row 10 widening** (`foundation.css:678-694` / `:815-840`)
+that X-W10.80 already requires — **one carve, two rows**. *sequencing*: with X-W10.80; the type-role
+limb with X-W10.30. *dissent*: **ROW-CARRIAGE, stated** — X-W11-FOLD carries CNL-25 (`:606`
+*"**BOUND** (a11y/bidi bundle) + OUT → X-W10.d (type-role + roster, K-6 cited)"*, `:716` the W11←W10
+edge). The identity is **banked at X-W11 and adopted here for its OUT limbs only** — this is an
+adoption, not a second booking, and the a11y/bidi half stays W11's.
+⟨ColorNutritionLabel.md · CNL-25 (type-role limb + roster limb) · X-W11-FOLD.md:606/:716 (the OUT
+route this fold consumes)⟩
+
+**X-W10.98 · EAS-23 — focus ink and curve ink are one token, the UA ring is removed, and the parent's
+own certified ring register is not adopted** (cl.1+cl.2) **MAJOR.** *Mechanism*:
+`--easing-curve-accent ← --motion-accent` (`:115`) feeds **both** the curve stroke **and** the
+focus-visible handle stroke, while **`focus:outline-none` removes the UA ring** — so the focus
+indicator is the same ink as the thing being drawn, on top of it. The parent's own
+**`--focus-ring-shadow` register (`:285-288`) is not adopted**: the certified recipe exists one file
+away and is skipped. *cureShape+locks*: **disposition verbatim — *"X-W10 focus law + GLASS-RELAY."***
+This row is the **fourth witness for G-19** and sharpens its predicate from *"the token is unminted"*
+to *"the token is unminted **and** the one certified register that does exist is unadopted next
+door"* — `--color-ring` has **25 occurrences / 12 files** and **exactly ONE** file consumes
+`--focus-ring-inner`/`--focus-ring-outer`. **A-10's lock stands verbatim: a per-component recompose
+leaves 24 sites broken.** *sequencing*: the focus law precedes X-W6's edit
+(`EasingAuthoringStage.vue` is **X-W6's**, `W6:60` `modify`). *dissent*: the GLASS-RELAY limb is a
+**question, not a patch** — added as relay line (h) at §6g edge 14′.
+⟨wb-gradient-easingauthoringstage.md · EAS-23 (D3-11)⟩
+
+**X-W10.99 · EAS-25 — a rostered species' sibling is unrostered: `.easing-authoring` has no
+forced-colors design at all** (cl.1) **MINOR.** *Mechanism*: `.easing-authoring` is **absent from
+`foundation.css`'s enumerated tier-1 roster**, while **`.gradient-rail` / `.readout-rail` ARE
+rostered — the sibling thirty lines above** (the record's own awk). The roster is not merely
+mis-aimed (X-W10.80(a)) — **it is also incomplete along its own declared species line**, which is a
+different defect with the same cure site. *cureShape+locks*: rides **§4 row 10's widening** and
+X-W10.80's ruling; the **jurisdiction** question X-W10.80 settles (EC-8 right about the bytes; widen,
+never re-route) governs this row unchanged. **No new gate**: G-16's paint-measurement lock already
+binds any forced-colors green, and a second roster gate would double-count the same census.
+*sequencing*: after X-W10.80's jurisdiction act, before any `.f` edit. *dissent*: —
+⟨wb-gradient-easingauthoringstage.md · EAS-25 (D-13)⟩
+
+**X-W10.100 · EB-7 — `role="alert"` wraps the recovery control, and the focus hack exists because of
+it** (cl.1+cl.4) **MAJOR.** *Mechanism*: the sole recovery `<Button>` (`:30`) sits **inside** the
+`role="alert"` region (`:19`) — re-verified structurally by the record's own seat. **WAI-ARIA reserves
+`alert` for content requiring no interaction and directs `alertdialog` when it does**, and
+`alertdialog` supplies **by pattern** exactly the modality / return-focus contract that `:21`/`:64`
+**hand-patch**. That inverts the usual reading: the focus hack is not a wart on a correct role, it is
+the **symptom** of the wrong one — *"which makes EB-6's 'drop tabindex, focus the named control' half
+a cure while the role is wrong."*
+*cureShape+locks*: **disposition verbatim — *"→ successor surface; the role decision is a canon act
+(X-W10 note)."*** The **canon act is this wave's**; the successor surface is not. **The lock that
+matters: EB-6 may not be executed alone** — dropping the tabindex while the region stays `alert`
+ships half a cure and retires the evidence for the other half. *sequencing*: canon ruling before any
+ErrorBoundary touch. *dissent*: **BOUNDS — `ErrorBoundary.vue` returns ZERO hits across all twelve
+`waves/W*.md`** (this seat's grep). §4 row 17 names it only as one of the `.plate-ink` five, *"unowned
+for this purpose"*. See §6f row 24.
+⟨ErrorBoundary.md · EB-7 (reader-DU missed find; ADMITTED)⟩
+
+**X-W10.101 · N-5 — `--muted-foreground` is re-defined PER RUNG, and that fact is the fixer's map for
+every muted seat** (cl.1+cl.4) **INFO (map, adopted by name).** *Mechanism*: `ladder.css` re-points
+`--muted-foreground` **per rung — three re-points plus a backdrop-container escalation** (ladder
+re-points read by that seat; token values confirmed in `dark-arm.css` / `on-glass-fg.css`). The
+record calls it two things at once: *"the fixer's map for every muted seat here"* **and** *"the fact
+that killed the D-3 rider."*
+*cureShape+locks*: **disposition verbatim — *"Record — attach to X-W10's design-law fold."*** This row
+is that attachment. It is **INPUT to the ink/rung law** (X-W10.48 / G-20) and to X-W10.24's material
+ladder: a rung-aware token is the *correct* mechanism, and rows that read a flat `--muted-foreground`
+value at one rung and generalize are **wrong by construction** — which is precisely how it killed
+D-3. **It is a map, not a defect, and this fold does not grade it as one.** *sequencing*: available
+to `.c`'s ladder authoring immediately. *dissent*: **`ladder.css` returns ZERO hits across all twelve
+`waves/W*.md`** — the map's own file is in no wave's bounds (§6f row 25).
+⟨shell-dock-profilesection.md · N-5 (reader-DU)⟩ — collision guard: ≠ ⟨X-W3 · N-5⟩ (tag-array
+uniqueness) ≠ ⟨X-W6 W6·4 · N-5⟩ (the strip limb)
+
+**X-W10.102 · R-15 — canon §5's axis composition is not adopted, and the label is structurally
+detached from the axis it names** (cl.1+cl.4) **MAJOR.** *Mechanism*: **label structurally detached**
+— **no `aria-controls` / `for` / `labelledby`**, verified against ConsoleRail's own template — **unit
+glued into the value string**, **numeric entry absent**, and **four new slider mechanics minted in the
+consumer**. VC:104 verbatim; **PR-05 on the double boundary.**
+*cureShape+locks*: **disposition verbatim — *"→ glass BH relay + X-W10 canon"*, with the record's own
+qualifier carried whole: *"note A-17 (no chassis arms exist at 8.0.0) makes this a producer-roadmap
+ask, not a demo edit — the composition-adoption judgment itself is residue row 10."*** **The fold
+therefore SPLITS it and refuses to gate the unfixable half**: the **composition adoption** is a relay
+ask (edge 14′ line (i)) and the **programmatic-association half is fixable in-demo today** and is the
+only half G-35 measures. **This is the same trap as X-W10.21** — a canon that binds a housing the
+producer killed — and it is the second time the corpus has walked into it, which is why the split is
+written rather than assumed. *sequencing*: the canon states the axis law; the a11y association can
+land in any wave touching `ComponentSliders.vue` (**X-W4's**, `W4:133` `modify-carve`). *dissent*:
+the composition-adoption judgment stays **residue row 10** on the record and is not resolved here.
+⟨picker-componentsliders.md · R-15 (CONFIRMED)⟩ — collision guard: ≠ ⟨PaletteColorStrip · R-15⟩
+(X-W11-FOLD `:560/:564`)
+
+**X-W10.103 · PS-13 — `≡`-POINTER + the recipe-fleet limb: the boldest ink on the card is the
+provenance chip, and the weight is the ratified recipe's own** (cl.1+cl.2) **MAJOR (weight limb only).**
+*Mechanism*: the provenance chip is the **boldest ink on the card (700 vs the palette identity's
+500)** and is tinted with the **palette SEED**, which **VC:21 forbids outside named lanes**, while
+sibling chips tint with **ROLE** tokens. **The weight limb was RESCOPED by that seat against PS-18's
+find**: `font-bold` is **the ratified `.slug-pill` recipe's own weight** (`foundation.css:586`) — so
+*"the hierarchy inversion indicts the RECIPE fleet-wide (all 8 migrated sites), and its cure sits at
+the recipe/canon level, not this leaf."*
+*cureShape+locks*: **disposition verbatim — *"→ X-W7.c/f + X-W10 (weight rung at the recipe)."***
+**`≡`-pointer**: the `.slug-pill` recipe identity is **already banked at X-W10.84(b)** (Users =
+`.slug-pill` = `text-mono-small font-bold`, one of the four Admin identity registers) and bounded at
+**§4 row 10** (`foundation.css:585-587`). **What this row ADDS and X-W10.84 does not carry: the
+fleet count — all 8 migrated sites — and the inversion's direction** (the recipe makes *provenance*
+louder than *identity*). **The seed-tint limb stays leaf-owned** (`safeFirstColor` from
+`palette.colors[0]`) and is **X-W7's**. **Counterweight carried honestly**: the ink **is
+contrast-certified by construction on the named WELL tier** — the defect is hierarchy, not legibility,
+and a cure that darkens it has cured nothing. *sequencing*: the recipe rung ruling precedes X-W7.c/f.
+*dissent*: — **⟨PaletteCardSwatches · PS-19⟩** — the sibling row folded into ⟨PaletteCard · PC-35⟩ at
+**X-W7.49** — is pointer-closed at §6d, not re-booked here.
+⟨PaletteCardSwatches.md · PS-13 (D-11; weight limb rescoped) ≡ the `.slug-pill` recipe at
+X-W10.84(b)⟩ — collision guard: ⟨PaletteCardSwatches · PS-13⟩ ≠ ⟨PreviewStrip · PS-13⟩ (X-W9-FOLD
+`:433-450`, the 4.0.0 manifest row)
+
+### 6d. Pointer register — identities closed WITHOUT a second booking
+
+*The consumption rule's own shape: "where a roster id is a facet of an already-folded identity, the
+cure is an explicit `≡`-pointer row, never a silent skip, so the byte census closes." These are not
+rows and are not counted as rows; each names the identity that already carries the fact.*
+
+| ⟨record · id⟩ | why it is a pointer, not a booking | where the fact lives |
+|---|---|---|
+| ⟨PaneHeader.md · **PH-36**⟩ | the record itself refuses the booking: *"tsconfig `paths` drift: ALREADY BOOKED, identity = ColorSpaceSelector L-14 → W-HYGIENE config parity. Not re-booked (anti-rename). Recorded here so the next formation does not re-litigate."* Carried because `PaneHeader.md` is **this wave's record** and PH-36 boundary-matched **nowhere** in the fold layer | ⟨ColorSpaceSelector · L-14⟩ → W-HYGIENE |
+| ⟨PaletteCardSwatches.md · **PS-19**⟩ | *"IDENTITY ≡ PaletteCard.md PC-35 — the folder-wide census is banked there"*; **PC-35 is folded at X-W7.49** (⟨PaletteCard.md · PC-35⟩ + ⟨PaletteCardMeta.md · PM-13⟩). **The rider this fold flags for the X-W10 law**: `prefers-contrast: more` re-derives `--border` toward full-ink (`foundation.css:736`) but Tailwind's `/15` compiles to `color-mix(… 15%, transparent)` **on top of** the token — *"the modality cure is throttled to 15 % of its declared weight in exactly the mode built to fix it."* **A post-hoc alpha on a modality-managed token defeats modality management** — the structural reason the idiom was retired, and a G-16 paint-measurement case | X-W7.49 (row) · §4 row 10 + G-16 (the law) |
+| ⟨shell-panesegmentedcontrol.md · **PSC-24**⟩ | *"The `:45` Ad-18 marker is X-W10's tracked marker (`W10.md:117`/`:354`): **discharged by X-W5's deletion, recorded as the survivor's terminal event, spending the W10 row** — the cross-wave mechanics are already written; nothing to add."* The row is **X-W5's** (§A roster); its consequence is **G-8's denominator** and is recorded there (§6e sharpening 1) | X-W5 (row) · G-8 (the consequence) |
+| ⟨picker-spectrumcanvas.md · **D-07-b**⟩ | a **may-not-be-cited lock** riding an identity already folded at **X-W10.23** (D-07's cause 1). Carried **verbatim** because pass-1 defect 5 is precisely that such edicts travel nowhere: *"its premise … is the same unmeasured mechanism C-9-MECH kills; **the LayoutCount attribution may not be re-cited as established**."* True half kept: the prescribed `translate` + shadow-deletion cure **leaves a per-frame `getBoundingClientRect()` that should be hoisted to `pointerdown`** (the standing C-9 nit) — a cure-checklist item on X-W10.23 | X-W10.23 (row) · this register (the lock) |
+
+**Sibling-wave law-limb pointers (9).** These route **primary** to another wave and carry an
+**X-W10 law** limb. They are on **X-W7's** round-1 roster and are folded there; recorded here so this
+wave knows which laws it is being asked for and by whom, and so no reader mistakes the law limb for
+an unfolded row: ⟨EmptyState · **ES-33**⟩ *(the `hint` in Fira Code — a matrix role reserved for
+value/code/provenance; → X-W7's copy abrogation **under X-W10**)* · ⟨PaletteCardMeta · **PM-3**⟩
+*(bare `title` as sole carrier; → X-W7.f **under X-W10 canon**)* · ⟨PaletteCardMeta · **PM-12**⟩
+*(two spellings of mono, one FLUID against two FIXED; ≡ BrowsePane m5, banked → X-W7 + X-W10; the
+producer ships `text-mono-micro`)* · ⟨PalettesPane · **PP-12**⟩ *(IDENTITY-FOLD → PaletteCard PC-4 →
+X-W7.c G11, **+ X-W10 rider via PC-1's booking for the motion-canon law**)* · ⟨SearchFilterBar ·
+**SFB-26**⟩ *(two colour-mix spaces in one popover; **the mixing-space law → X-W10**)* ·
+⟨SearchFilterBar · **SFB-32**⟩ *(the literal pile in a container-scaled system, VC §3 law 7; **law →
+X-W10**)* · ⟨ShadowPalette · **SP-8**⟩ *(forced-colors: **the NAMED GAP is X-W10's** — "`foundation.css`
+is in no X wave's list at roster scope (X-W5/X-W10 carve it narrowly elsewhere)"; **§4 row 10's
+widening is the answer to it**)* · ⟨TagEditPopover · **TEP-22**⟩ *(`ml-auto` physical; subject → X-W7
+`ms-auto`, **census → X-W10 canon** — a G-30 witness)* · ⟨VersionHistoryDrawer · **VHD-23**⟩ *(forced
+colors kills the colour payload to identical black circles; → X.W7.d **under X-W10 law**, VC §4.1's
+forced-colors clause — the third witness for §4 row 10)*.
+
+### 6e. Gates — G-28..G-36 born-RED, and five sharpenings of standing gates
+
+*Same L-19 posture as §3: a real witness, a real falsifier, no proof script. Every RED baseline below
+is a source record's own measurement re-cited with its anchor, or this seat's grep over the twelve
+`waves/W*.md`.*
+
+| # | predicate | RED witness at HEAD | falsifier | rows |
+|---|---|---|---|---|
+| **G-28** SLOTTED-TARGET-FLOOR | at **every** scrub position, interactive descendants slotted into `.pane-header-title` measure ≥ **24×24** CSS px and stay in the viewport | About slots a real `<button>` (`ColorSpaceSelector inline`, `aria-label` "Select color space") into the scaled `<h3>`; at the designed 0.618 a 24px control scrubs **below the WCAG 2.5.8 floor**, and at the **1280 pole** (`−7.3909`, X-W10.1) it **leaves the viewport entirely** — visible in the committed WebKit shot | **measuring at REST passes** — the gate must scrub, or it is X-W10.6's vacuous oracle again. A cure that only fixes the ratio (X-W10.1) **leaves this red**: the transposition *"changes but does not remove the geometry question for slotted content"* | .87 |
+| **G-29** HEADING-SLOT-WELL-FORMED | `.pane-header-title`'s `<h3>` contains **no flow-content root** and is **never nameless** | **two witnesses**: `AdminPane.vue:5` slots `<Badge>`, whose producer root is a **`<div>`** — flow content in phrasing-only content, *parsing silently, which is why nothing surfaced it*; and the bare `<slot />` with **no fallback** reserves a full line box and yields an **empty heading** | a `v-if` guard alone turns the empty-heading arm green and leaves the content-model arm red — **both arms or neither**. **D-7's amendment is a binding rider on X-W10.d** and travels with this gate | .88 .90 |
+| **G-30** LOGICAL-DIRECTION | under `dir=rtl` no editor overlay escapes its host, and no directional glyph points against its own mirrored row | **four witnesses**: the rename overlay's **74px escape** (RTL right edge **760.1** vs well **686**, `insetInline` identical both directions) with the literal `&rarr;` at `:63` **`Bidi_Mirrored=No`** · `transform-origin: left top` at `PaneHeader.vue:184` with no `:dir()` arm (X-W10.9) · the cast shadow `8px 8px 0 0` **physical**, so RTL mirrors the layout and not the shadow (XP-26, X-W10.22) · `ml-auto` mis-resolving by **14.875px** (TEP-22) | **`transform: scaleX(-1)` on the glyph is NOT a cure** — it inverts stroke weight; the character is replaced. **Honest scope, carried**: no RTL commitment repo-wide (`dir=` grep 0, 8 physical-margin sites) — this gate is a **design law under test**, not a shipped-regression gate, and must be stated as such or it reads as a false alarm | .91 .9 .22 |
+| **G-31** ONE-MARK-ONE-MEANING | within one route, no glyph carries two commands | **two identical ✓ on screen during an edit, 379.5px apart, bound to different commands** (`:76` vs `:141`; a third at `Dock.vue:143`) — and the **larger, accent-tinted, NAMED** one is the **minor** command while the **smaller, nameless** one **commits the palette** | **making the commit glyph louder is not a cure** — it preserves the collision at higher volume. PR-05 | .92 |
+| **G-32** WELL-INSIDE-GLASS-RULED | the canon rules the well-inside-glass case explicitly, **and** no non-interactive row carries an interactive hover grammar | `DESIGN.md:98` seats VersionHistoryDrawer rows in the **WELL** rung while rung 3 names drawers **CHROME** — *the law's own table sanctions a deployment its rationale forbids*; `:25` hand-copies `.interactive-item` **minus** `:focus-visible` and `:active`, onto a row that is not interactive, over a **50%-alpha accent** inside a glass host whose well-law precondition is false | **a green here that cites `utilities/base.css`'s full recipe without the focus and press arms is the defect wearing the cure's name.** The gate is red until the canon *rules* — an unruled case cannot be conformed to | .93 |
+| **G-33** PLATE-ONE-HEIGHT-LAW | the normalized-square sampler resolves **isotropically**: height declarations on the plate = **1**, and no **dynamic** viewport unit feeds a pointer-mapped axis | **five declarations for one box** — `h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none` (`:11`) — a **64px discontinuity at `lg`**, and `dvh` re-scaling the pointer→v map **live under the finger** during the deliberately permitted `pan-y` scroll (`useSpectrumPlateStyle.ts:41-43`, `@touchmove.passive :20`) | collapsing to one declaration **that is still `dvh`** fixes the count and keeps the gesture bug → red. **The SS3-law-7 citation is KILLED and may not be cited as this gate's warrant** — it is a SPACING law | .94 |
+| **G-34** PHI-LADDER-ONE-HOME | demo-local `--phi-*` declarations = **0**, or every φ rung cites the named producer contract | `foundation.css:458-462` declares a **private `--phi-0..4`** shadowing the producer's shipped **`--space-phi-5/6`** (both re-read); About's `pt-phi-3` sits **one rung below** the ratified `--space-phi-5` (OBC PR-35) | **a rename to the golden-glass vocabulary turns it green and violates OP-3** — *"may not enact GOLDEN-GLASS naming"*. And per **edge 12**, a citation to `61.8033989`/`38.1966011` is a citation to **FABRICATED TOLERANCE** (X-W5 item 5): **citing a fabrication is not a cure** | .96 |
+| **G-35** SLIDER-LABEL-PROGRAMMATIC | every slider axis label is **programmatically associated** with its control, and the unit is not glued into the value string | **no `aria-controls` / `for` / `labelledby`** anywhere in the axis composition (verified against ConsoleRail's template); unit glued into the value string; numeric entry absent; **four new slider mechanics minted in the consumer** (VC:104 verbatim, PR-05 on the double boundary) | **the composition-adoption half is DELIBERATELY NOT GATED**: `A-17` — no chassis arms exist at 8.0.0 — makes it *"a producer-roadmap ask, not a demo edit"*, and a gate that cannot go green inside the wave is a trap of exactly the X-W10.21 species. **This gate measures only the half the demo can fix.** | .102 |
+| **G-36** LIVE-REGION-ROLE-CORRECT | no `role="alert"` region contains an interactive control | the sole recovery `<Button>` (`:30`) sits **inside** the `role="alert"` region (`:19`); WAI-ARIA reserves `alert` for content requiring **no** interaction and directs `alertdialog` when it does — which is why `:21`/`:64` **hand-patch** the modality/return-focus contract `alertdialog` supplies by pattern | **EB-6 executed alone turns nothing green and retires the evidence**: dropping the tabindex and focusing the named control is *"half a cure while the role is wrong"*. **Bounds guard**: `ErrorBoundary.vue` is in **no wave's §4** (§6f row 24) — the gate is stated, the write is not yet homed | .100 |
+
+**Five sharpenings of standing gates — no new gate rows, stated so they are not lost.**
+1. **G-8** (DR-13 BUNDLE TERMINAL) — its RED baseline counts **`Ad-18` markers = 2**
+   (`PaneSegmentedControl.vue:45`, `DockViewSelect.vue:57`). ⟨shell-panesegmentedcontrol · PSC-24⟩
+   confirms `W10.md:117`'s own conditional from the corpus side: **X-W5's deletion discharges the
+   first marker as the survivor's terminal event, spending that W10 row.** The denominator is
+   therefore **2 today, 1 after X-W5** — and a green stamped against a denominator of 2 after the
+   deletion is a green over a file that no longer exists. **The count must be re-measured at open**,
+   as `W10.md:237` already instructs.
+2. **G-15** (TYPE-MATRIX-CLOSED) — **two new witnesses**: CNL-25's channel name at **`text-body`**,
+   *"a third role-matrix escape and the loudest text in the component"* (X-W10.97); and PS-13's
+   **`font-bold` at the ratified `.slug-pill` recipe across all 8 migrated sites** (X-W10.103) — the
+   second is **FAMILY-SCOPED under US-10's binding clause**: charge the leaf and the gate turns red
+   for the family.
+3. **G-16** (CASCADE-LAYER-PAINT) — **a sixth independent measurement**: `prefers-contrast: more`
+   re-derives `--border` toward full ink (`foundation.css:736`) while Tailwind's `/15` compiles to
+   `color-mix(… 15%, transparent)` **on top of the token**, throttling the modality cure to **15% of
+   its declared weight in the very mode built to fix it** (⟨PaletteCardSwatches · PS-19⟩). **A
+   class-list grep stamps this green.** A-3's lock is why it cannot.
+4. **G-19** (RING-TOKEN-MINTED) — **a fourth witness with a new shape**: EAS-23 shows the failure is
+   not only *unminted token* but *unadopted certified register* — `focus:outline-none` removes the UA
+   ring while the parent's own `--focus-ring-shadow` (`:285-288`) sits one file away, and **exactly
+   ONE** file in the demo consumes `--focus-ring-inner`/`--focus-ring-outer`. **A-10's lock stands:
+   a per-component recompose leaves 24 sites broken.**
+5. **G-25** (PLATE-INK-ONE-HOME) — ⟨wb-extract-workbench · XW-32(a)⟩ is the **fifth independent
+   attestation** of the ⟨wb-extract-pane · XP-19⟩ identity (X-W10.67). No change to the predicate;
+   recorded because the corpus has now named the same `.plate-ink ×5` census from five records and a
+   sixth consumer still rides the retired `text-muted-foreground`.
+
+### 6f. BoundsDelta addendum — rows 20-27 (continuing §4)
+
+*Same verbs. Every "zero hits" below is this seat's grep over all twelve `docs/tranches/X/waves/W*.md`
+at HEAD, re-runnable.*
+
+| # | file(s) | verb | why, per the records | rows |
+|---|---|---|---|---|
+| 20 | `demo/picker/PaneHeader.vue` — the **adornment slot** | **WIDEN** (scope, not file) | the file is W10's, but PH-9/PH-26's cure is **an API change** (*"an adornment SLOT beside the heading, not inside it"*), not a style edit. Both source rows bank it **NO-WAVE-OWNER**, candidate = *"the wave that lands PH-8's seam"*. **Either W10 takes the API act or it is FORMATION-BOUNDARY — silence is the one inadmissible answer** (X-W10.86) | .87 .88 .90 |
+| 21 | `demo/palettes/browser/dialog/VersionHistoryDrawer.vue` | **ROUTE — to X-W4, not X-W7** | **bounds defect, new.** VHD-22 routes its recomposition to **X.W7.d** and VHD-23 to **X.W7.d** — but the file sits in **X-W4's** §4 (`W4:127`, `modify`) and appears in **no W7 bounds table** (this seat's grep). Under `W10 §3a`'s own rule an out-of-bounds write **invalidates the wave**; two corpus rows currently prescribe one | .93 · ⟨VHD-23⟩ |
+| 22 | `demo/palettes/browser/card/CurrentPaletteEditor.vue` | **WIDEN** the carve | in `W4:164` as **`modify-carve — impostor seat :98`**. ADJ-M2's anchors are **`:299-311`** and **`:63`**; ADJ-m1's are **`:76`** and **`:141`** — **all four outside the `:98` carve.** The rows are adjudicated here; the edits are unexecutable inside X-W4's carve as written | .91 .92 |
+| 23 | `demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue` · `useSpectrumPlateStyle.ts` | **WIDEN** the carve | in `W4:168` as **`modify-carve — import + face only`**. D-06's cure edits the **height declarations at `:11`** and M-3 touches `useSpectrumPlateStyle.ts:41-43` — **outside import+face.** `SpectrumCanvas.vue` is additionally named in `W10:306` as a **G-4 CONFORMING example** — the prose-mention species X-W10.85 already rules is **not ownership** | .94 |
+| 24 | `demo/color-picker/ErrorBoundary.vue` | **BOUNDARY** (or ADD with row 17) | **zero hits across all twelve wave files.** §4 row 17 names it only as one of the `.plate-ink` five, *"unowned for this purpose"*. EB-7's role act (`alert` → `alertdialog`) needs the same file. **Two unowned obligations on one unowned file** | .100 · .67 |
+| 25 | `demo/styles/ladder.css` | **BOUNDARY** (record) | **zero hits across all twelve wave files.** N-5 names it as *"the fixer's map for every muted seat"* — three per-rung re-points plus a backdrop-container escalation. **A wave that authors an ink/rung law (G-20, X-W10.48) against a file no wave may open is authoring against a map it cannot amend** | .101 |
+| 26 | `demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue` | **ROUTE** (X-W6, `W6:60` `modify`) | EAS-23's focus register and EAS-25's roster membership are **X-W10 law, X-W6 edit**. Note the collision with W6's own **e2 gate**: it counts *"2 rAF sites today (`:58`, `:65`), neither PRM-gated"* on the same file — **the focus cure and the rAF gate share a file and a wave; the write order is X-W6's to state** | .98 .99 |
+| 27 | `demo/picker/display/ColorNutritionLabel.vue` · `demo/picker/controls/ComponentSliders/ComponentSliders.vue` | **ROUTE** (X-W6 `W6:69` `modify-carve` · X-W4 `W4:133` `modify-carve`) | CNL-25's type-role limb and R-15's label-association limb are **law here, edit there**. CNL-25's **roster** limb does **not** ride this row — it lands in **§4 row 10's `foundation.css` widening**, with EAS-25 and SP-8's NAMED GAP: **one carve, three rows** | .97 .102 |
+
+### 6g. CrossEdges addendum — edges 15-17, and one relay extension
+
+| # | edge | the constraint |
+|---|---|---|
+| 15 | **X-W5 ⟹ X-W10** (Ad-18, the marker that spends itself) | `W10.md:117` already states the conditional; ⟨shell-panesegmentedcontrol · PSC-24⟩ **confirms it from the corpus side**: X-W5's `delete` on `PaneSegmentedControl.vue` **discharges the `:45` marker as the survivor's terminal event and SPENDS the W10 row**. **G-8's denominator must be re-measured after X-W5, never inherited** — a green against a denominator of 2 after the deletion is a green over a file that no longer exists. Distinct from edge 12 (which is about G-7 and fabricated tolerance): **same wave pair, different obligation** |
+| 16 | **X-W10 ⟹ X-W4** (three carves, law-before-edit) | three X-W4 files carry X-W10-adjudicated rows whose anchors fall **outside X-W4's declared carves**: `CurrentPaletteEditor.vue` (`:98` carve vs `:63`/`:76`/`:141`/`:299-311`) · `SpectrumCanvas.vue` (import+face vs `:11`) · `VersionHistoryDrawer.vue` (in W4's bounds while **two corpus rows route its cure to X.W7.d**). **X-W10 supplies the direction law, the one-mark law and the plate law; X-W4 must widen or the cures are unexecutable — and neither wave discovers this at execution** |
+| 17 | **X-W11 ⟶ X-W10** (adoption of an OUT route) | X-W11-FOLD `:606`/`:716` route ⟨ColorNutritionLabel · CNL-25⟩'s **type-role and roster limbs OUT to X-W10.d** while keeping the a11y/bidi half BOUND. **This fold adopts the OUT limbs id-for-id (X-W10.97) and claims nothing else** — the adoption is the row-carriage law working in the direction it was written for, and it is recorded so a round-2 census does not read one identity in two folds as a double booking |
+
+**Relay extension — edge 14′ (two new lines on the standing glass-ui BH fond; still one letter, still
+zero producer patches).** **(h)** the certified `--focus-ring-shadow` register (`:285-288`) exists and
+the easing seat does not adopt it while removing the UA ring — *is the certified register intended as
+the app-wide focus channel, and should `--color-ring` be minted producer-side or formally retired?*
+(EAS-23 + G-19's four witnesses). **(i)** the axis composition of canon §5 (`aria-controls`/`for`,
+unit-outside-value, numeric entry) has **no chassis arm at 8.0.0** (A-17) — *is the composition on the
+producer roadmap, or is the demo expected to mint the four slider mechanics it has already minted?*
+(R-15; **a producer-roadmap ask, not a demo edit**, and this fold refuses to gate it — G-35 measures
+only the half the demo can fix).
+
+### 6h. Arithmetic — restated at the new true counts, 2026-08-28
+
+**This block supersedes §1's "OUT side" sentence, which stands as the round-0 record.**
+
+| measure | round-0 (§1) | added this round | **new true count** |
+|---|---|---|---|
+| rows (contiguous `X-W10.1..`) | 86 | **+17** (`X-W10.87..X-W10.103`) | **103** |
+| — of which §A NO-WAVE-OWNER identities adopted | — | **4** (PH-9 · PH-26 · PH-33 · PH-34) | 4 |
+| — of which §B census escapes adopted | — | **7** (PH-9 · PH-34 · ADJ-M2 · ADJ-m1 · VHD-22 · D-06 · XW-32) | 7 |
+| — of which §C I-28 EXTERNAL rows | — | **0** (none assigned to X-W10) | 0 |
+| — of which **ceiling finds** (this seat's fresh census, on no roster) | — | **8** (AB-32 · CNL-25 · EAS-23 · EAS-25 · EB-7 · N-5 · R-15 · PS-13) | 8 |
+| gate rows | 27 (9 sharpened + 18 born-RED) | **+9 born-RED** (G-28..G-36) | **36** (9 sharpened + 27 born-RED) |
+| bounds-delta rows | 19 | **+8** (rows 20-27) | **27** |
+| cross-edges | 14 | **+3** (15-17) + 2 relay lines on edge 14 | **17** |
+
+**Reconciliation of the row count, so it decomposes.** 4 (§A) + 7 (§B) + 8 (ceiling) = **19
+assignments**, minus the **2 declared overlaps** (PH-9 and PH-34 each carry an NWO limb and a routed
+limb and are **folded once, both limbs**) = **17 numbered rows**. The **4 pointer closures** (PH-36 ·
+PS-19 · PSC-24 · D-07-b) and the **9 sibling-wave law-limb pointers** are **NOT rows** and are not
+counted as rows — they are §6d, and they exist so the byte census closes without a second booking.
+**Assignment coverage: §A 4/4 · §B 7/7 · §C 0/0 = 11/11**, the full ROUND-1-ASSIGNMENTS §D row for
+this seat, plus 8 beyond it.
+
+**Dispositions are ADJUDICATED, not VERIFIED. Status `planned`. Nothing here stamps a wave.**
+**E-3 re-verified for this round**: `docs/tranches/X/waves/W0.md..W11.md` and
+`CONFORMANCE-2026-08-03.md` are byte-untouched by this seat; no record under
+`registry/adjudicated/` was modified; `X-W10-FOLD.md` is this seat's sole write, this round as last.
+**Anti-rename honoured**: every identity above is its original id, cited ⟨record.md · id⟩, with the
+five namespace collisions the citation law exists for named explicitly at §6.0 and on the rows.
+

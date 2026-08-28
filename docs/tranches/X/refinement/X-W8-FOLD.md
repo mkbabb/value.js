@@ -37,6 +37,13 @@ sharpenings of existing G-1..G-15 + 6 genuinely new) + **31 BoundsDelta files** 
 W-HYGIENE) is a **census receipt**, falsifiable against the corpus by §5's commands, never asserted
 as an in-equals-out identity.
 
+> **DATED CORRECTION — 2026-08-28, fold round 1 repair (§9).** The paragraph above is the **pass-1**
+> reading and stands as written (E-3 idiom: correct by addendum, never by silent overwrite). The
+> **true current counts** are **69 folded rows (W8.1–W8.69) · 24 gate entries (15 sharpenings + 9
+> new) · 31 BoundsDelta files · 11 cross-edges**, decomposed in **§9.7**. The IN side gains a second,
+> row-keyed receipt beside the line-instance one: **271 X-W8-routed row lines across 56 records**
+> (§9.1) — a different unit, not a contradiction; the 455/64 figure reproduces exactly.
+
 **Anti-rename (M-25).** Every id below is the id its banked record minted, for life. Where a row
 carries N ids they are the N witnesses of ONE identity, listed, never re-minted. Where a record
 routed a row to X-W8 and W8.md declines it, the row is folded as **cl.4** with the decline quoted —
@@ -1222,11 +1229,429 @@ class.
 
 | verb | state | evidence |
 |---|---|---|
-| AUDITED | YES | this addendum; 64 records swept, 455 routed line-instances, 61 slugs read whole |
+| AUDITED | YES | this addendum; 64 records swept, 455 routed line-instances, 61 slugs read whole; **re-audited 2026-08-28 (§9): 271 routed row lines / 56 records, id-keyed** |
 | SPECIFIED | YES — by `waves/W8.md` PLUS this addendum | W8.md untouched (E-3); §3 is census evidence, not a bounds patch |
 | IMPLEMENTED | NO | — |
 | VERIFIED | NO | — |
 
 **51 rows · 21 gate entries (15 sharpenings + 6 new) · 31 BoundsDelta files · 11 cross-edges.**
+*(SUPERSEDED-BY-MEASUREMENT 2026-08-28 — see §9.7's dated arithmetic: **69 rows · 24 gate entries**.
+The line above is the pass-1 reading, kept so the correction is legible, never silently overwritten.)*
 Status stays **planned**; nothing here opens product source; every disposition is ADJUDICATED, not
 VERIFIED. The dated wave specs and every banked adjudication remain byte-intact beside this file.
+
+---
+
+## 9. FOLD-ROUND-1 REPAIR ADDENDUM — 2026-08-28 (the row-carriage repair)
+
+**What this section is.** The X-W8 repair seat's answer to `PASS-1-CHECK-RETURN.json` (BLOCKER:
+189 X-W-routed ⟨record·id⟩ rows absent from the fold layer; MAJOR 2: 73 NO-WAVE-OWNER row identities
+uncarried) under the spine's **ROW-CARRIAGE LAW** — *a packet's home wave adopts the packet's riding
+ROWS id-for-id, not merely its files.* Work order = `refinement/ROUND-1-ASSIGNMENTS.md`
+(§A ×4 NWO · §B ×4 census · §C ×1 external = 9 assigned). **The roster is a floor, not a ceiling**:
+this seat re-ran its own id-keyed census fresh over the whole 92-record corpus (§9.1) and folds
+**nine further escapes the roster did not carry**, so no round-2 check re-discovers them.
+
+**Posture unchanged.** Status `planned`. No product source opened — every witness below is a corpus
+byte, a mail byte, or a re-measurement already banked by a named seat. Dispositions ADJUDICATED,
+never VERIFIED. E-3 holds: `waves/W0.md..W11.md` and `CONFORMANCE-2026-08-03.md` stay byte-untouched;
+this file remains this seat's sole write. **Banked ids are for life** — every id below is the id its
+record minted; where a roster id is a facet of an already-folded identity the cure is an explicit
+**≡-pointer row**, never a silent skip, so the byte census closes either way.
+
+---
+
+### 9.1 The fresh id-keyed census (falsifiable, re-runnable, id-keyed)
+
+**Method.** Corpus = the 92 non-`kf-*`/`fr-*`/`pt-*` `*.md` at
+`docs/tranches/V/megatranche/registry/adjudicated/` (non-recursive). Row = a bold-leading id line
+(`- **ID` / `| **ID`). X-W8-routed row = such a line carrying an `X[-‑–—·.]W8(?![0-9])` token (all
+hyphen, en-dash, middot and dotted forms counted; the negative lookahead is why no X-W8x wave can
+alias in — X-W8 has no longer sibling, unlike X-W1/X-W10). ESCAPED = the id, as literal bytes
+(zero-padded ids are their own identity: `D-06` ≠ `D-6`), boundary-matches nowhere in the fold layer
+**after expanding range (`DVS-15..DVS-19`) and slash-compressed (`EY-7/27/32`) forms**, and appears
+in no exclusion register.
+
+| measurement | reading | note |
+|---|---|---|
+| X-W8-routed **row lines** | **271** across **56** records | the row-keyed unit; this is the census denominator |
+| …of which carry an explicit routing verb (the check's verb set) | **134** | **both figures stated, neither silently elected** — the verb filter is the check's, the token filter is this fold's; the wider reading is the one this seat repairs against |
+| X-W8 **line-instances** (any line, not only row lines) | **455** across **64** records | §0's IN-side receipt — **reproduces exactly**, different unit, not a contradiction |
+| absent from **this fold** by bytes (post-expansion) | **13** | the repair frontier, §9.3 |
+| absent from the **whole 13-file fold layer** | **7** | AL-X1 · PP-25 · US-9 · US-11 · US-12 · MISS-9(ActionBarLayer) · Copy-CSS |
+| NWO rows escaping in X-W8-homed records | **4** | DSL-9 · DSL-24 · DSL-28 · N-11 — reproduces §A id-for-id, zero drift |
+| block-grain candidates (token in the continuation block, not the row line) | **1, EXCLUDED** | ⟨MiniColorPicker.md · MCP-44⟩ — its own cell routes **X-W7 rider**; the X-W8 token belongs to ⟨MiniColorPicker.md · MCP-38⟩ at :80, already carried at W8.1's provenance. Recorded because a silent exclusion is indistinguishable from a miss |
+| unbolded-table supplement (`\| ID \|` rows without `**`) | **4 rows, 0 absent** | the ceiling test: widening the row grammar beyond the check's adds **nothing** to the frontier |
+
+**RANGE-EXPANSION RECEIPT (defensive, so a non-expanding round-2 check also closes).** Six ids that
+a naive byte grep will report missing are in fact carried by explicit ranges already in this file:
+**DVS-16 · DVS-17 · DVS-18** (by `DVS-15..DVS-19`, :370 and :1058) · **DVS-24** (by
+`DVS-23..DVS-29`/`DVS-23..DVS-25`, :370/:1058) · **ADJ-11 · ADJ-12** (by
+`⟨picker-debugeventlog ADJ-1..ADJ-13⟩`, :269). Enumerated here as literal bytes — **no new booking**,
+the ranges remain the carriers and W8.44's decline census remains their disposition.
+
+**Commands (L-19 — measurements over shipped bytes, no `proof:*` script).**
+```
+# denominator: X-W8-routed row lines / records
+grep -nE '^[[:space:]]*([-*]|\|)[[:space:]]*\*\*[A-Za-z]' \
+  docs/tranches/V/megatranche/registry/adjudicated/*.md \
+  | grep -v '/\(kf\|fr\|pt\)-' | grep -E 'X[-‑–—·.]W8([^0-9]|$)' | wc -l      # -> 271
+# line-instance receipt (the §0 unit, unchanged)
+grep -lE 'X[-‑–—·.]W8([^0-9]|$)' docs/tranches/V/megatranche/registry/adjudicated/*.md \
+  | grep -v '/\(kf\|fr\|pt\)-' | wc -l                                        # -> 64
+# NWO escapes in the two X-W8-homed records
+grep -n 'NO-WAVE-OWNER' docs/tranches/V/megatranche/registry/adjudicated/shell-dock-dockstatuslamp.md \
+  docs/tranches/V/megatranche/registry/adjudicated/shell-dock-profilesection.md   # -> DSL-9/24/28, N-11 among them
+```
+
+---
+
+### 9.2 §A — the four NO-WAVE-OWNER row identities homed here, adopted id-for-id
+
+The spine fixes ownership at X-W8 because `DockStatusLamp.vue` + `status-lamp.ts` (packet 19 ·
+DEBUG/STATUS) and `ProfileSection.vue` (packet 10 split) ride this wave's bounds delta (§3 rows 19,
+20, 15). **A NO-WAVE-OWNER mark is not a kill and adoption here does not re-mint the id.**
+
+**W8.52 · DSL-9 — the config-parity limb, adopted as an ≡-pointer to H-c, NOT as a new booking**
+(cl.4 · ≡)
+Verbatim disposition: *"**≡ W-HYGIENE config parity (ColorSpaceSelector L-14; cure = DELETE per Dock
+R-3) → NO-WAVE-OWNER, identity preserved.**"* Facts carried: 3 dead `paths` targets + 2 unentried
+shipped subpaths + no `.` + the unconsulted stale `node_modules` directory, *"INFO-grade facts at
+MINOR ledger weight per the six-confirmation identity."*
+**≡ W8.7 (H-c)** — the limb X-W8 **declines** at W8.md:112, home = formation boundary, cure
+SUPERSEDED to DELETE. Adopting the row here carries the identity; it does **not** reverse the
+decline, and **N-2**'s tri-limb declaration is the instrument that keeps the two facts apart.
+⟨shell-dock-dockstatuslamp.md · DSL-9, :48⟩ ≡ ⟨ColorSpaceSelector.md · L-14⟩ ≡ ⟨Dock.md · L-22⟩
+
+**W8.53 · DSL-24 — the dock band sits OUTSIDE the sole ErrorBoundary; a band setup throw is an
+unprotected white screen** (cl.1 · MAJOR-grade, new to this wave's gate surface)
+Verbatim: *"The dock band sits outside the sole ErrorBoundary (my App.vue reads); any band setup
+throw (incl. `useApiClient()`'s, :54-62) is an unprotected white screen against the repo's own U-F58
+law. The 'ordering accident' limb is **corrected** (Vue contract, not luck). **→ NO-WAVE-OWNER —
+candidates MT-APP-1 / MT-DOCK-LAYERS-1.**"*
+**Why X-W8 and not the boundary**: `DockStatusLamp.vue` + `status-lamp.ts` are §3 bounds rows here
+and `useApiClient()` is the transport cone this wave subtracts against (§3 row 21,
+`demo/platform/transport/**`) — the throw site is inside this wave's own delta. The **cure** (where
+the boundary is re-parented) is NOT elected here: it is contested between MT-APP-1 and
+MT-DOCK-LAYERS-1, and X-W5's ErrorBoundary rows are the third claimant (X-W5-FOLD's *"ErrorBoundary.vue
+is in NO X wave"*). This fold books the **row**, names the three claimants, elects none, and raises
+gate **N-7** so a subtraction close cannot report the surface clean.
+⟨shell-dock-dockstatuslamp.md · DSL-24, :56⟩ · cross-edge: X-W5 (ErrorBoundary) · X-W4.d (Dock.vue)
+
+**W8.54 · DSL-28 — specifier-extension duality inside the transport cone** (cl.1 · INFO/MINOR)
+Verbatim: *"Verified (`./client.js`/`./availability.js` with extensions inside; every inbound edge
+without). **→ NO-WAVE-OWNER (transport unclaimed — the ApiOfflineChip DISSENT-#3 flag,
+re-raised).**"*
+`demo/platform/transport/**` is **already** §3 BoundsDelta row 21 of this fold (the pass-1 check
+cites it at `X-W8-FOLD.md:374` as the answered path for AdminAuditPanel's *"appears in no X wave's
+file list"*), so the row lands inside declared bounds. The **ApiOfflineChip DISSENT-#3** flag is
+carried un-ruled: this wave subtracts dead surface, and a specifier rewrite is a *shape* decision
+the dissent says no wave has claimed. Rides **N-7**'s second clause.
+⟨shell-dock-dockstatuslamp.md · DSL-28, :73⟩ ≡ ⟨ApiOfflineChip.md · DISSENT-#3⟩
+
+**W8.55 · N-11 — `referrerPolicy`/`crossOrigin` unpassed: every menu open sends the full document URL
+to GitHub** (cl.1 · MINOR)
+Verbatim: *"`referrerPolicy`/`crossOrigin` are declared by the producer's `AvatarImage` and unpassed —
+every menu open sends the full document URL to GitHub; the mitigation is one token. (reader-LC) …
+Folded into **D-12** (NO-WAVE-OWNER)."*
+`ProfileSection.vue` is §3 BoundsDelta row 15 here and is **G-13's sole consumer surface**, so the
+one-token mitigation lands inside this wave's touch. **The spine's stated contingency is honoured
+explicitly, not silently**: the assignment reads *"if the D-12 identity resolves to another wave, the
+W0 sitting re-homes it, stated not silent."* This seat's reading: `D-12` is `shell-dock-profilesection`'s
+own namespace (⟨shell-dock-profilesection.md · D-12⟩ — **not** ⟨Dock.md · D-12⟩ nor any other), and
+this file's rows N-6..N-10/N-12 already fold here (W8.39, G-13), so the sibling evidence points home.
+**Recorded as a re-home candidate, not a ruling**: if the X-W0 sitting resolves D-12 elsewhere, this
+row travels with it and W8.55 becomes an ≡-pointer.
+⟨shell-dock-profilesection.md · N-11, :87⟩ → ⟨shell-dock-profilesection.md · D-12⟩
+
+---
+
+### 9.3 §B — the census escapes: the roster's four, plus nine this seat's re-derivation found
+
+Roster rows are marked **[R]**; this seat's supplements beyond the roster are marked **[+]** — all
+thirteen are escapes by the same byte test, and all thirteen are folded so no round-2 check
+re-discovers them.
+
+**W8.56 · [R] PP-25 — three dead vue imports surviving a hard `--max-warnings=0` gate whose
+unused-vars rules are off; both import idioms seven lines apart in one script block** (cl.1 · MINOR)
+Verbatim disposition: *"**Shim extirpation IDENTITY-FOLD → the W-HYGIENE demo/ui row
+(ColorSpaceSelector.md L-4 lineage) → X-W8; the dead imports die free in any wave touching the
+file.**"* Verified in-record: `watch`/`onMounted`/`nextTick` each occur exactly once (:128) — i.e.
+the import is the only occurrence. Two idioms coexist seven lines apart: the 19 one-line `demo/ui`
+shims AND direct `@mkbabb/glass-ui/*` subpaths.
+**≡ W8.1/W8.4 (H-a)** for the extirpation half; the **dead-import half is a distinct fact** and is
+this row's own content — it is the live counter-witness that **G-6**'s glob ban must FIRE on
+(`demo/palettes/**` is in no glob — PP-18, already W8.13). *Sharpens*: **G-2**, **G-6**, **G-10**.
+⟨PalettesPane.md · PP-25, :62⟩ ≡ ⟨ColorSpaceSelector.md · L-4⟩ (lineage, not re-mint)
+
+**W8.57 · [R] US-9 — the sort radio group is unlabelled for AT; the cure is TWO CONSUMER ATTRIBUTES,
+not a producer change** (cl.1 · MINOR · **correction-of-record carried verbatim**)
+Verbatim: *"**Correction of record**: both Label and RadioGroup are `inheritAttrs:!1` *with
+useAttrs-forwarding through mergeProps* (compiled setups read by this seat), so the cure is two
+consumer attributes today — `id` on the label, `aria-labelledby` on the group — no producer change
+required; a producer auto-wire affordance may ride the glass BH relay as garnish, never as a
+blocker."* Disposition verbatim: *"**Disposition: X-W8.b same-touch named-adopt rider** (the wave
+already edits this file) — else NO-WAVE-OWNER."* Mitigation (why MINOR): the invoking trigger is
+named "Sort users", establishing context on open.
+**The `else NO-WAVE-OWNER` is load-bearing**: if X-W8.b rewrites `UserSortMenu.vue`'s barrel imports
+and does not carry this rider, the row is orphaned by the very touch that could have cured it → gate
+**N-8**. This row also carries an **§A NWO limb homed to X-W7** (packet 14 · BROWSE-SEARCH); per the
+assignment's overlap law the row folds **once, both limbs** — X-W7 carries the NWO limb, this fold
+carries the X-W8.b routed limb. **The `UserSortMenu.vue:8` cure collision with X-W6 (null-DELTA vs
+quiet migration; X-W8 G-9's null-DELTA is the other pole) stays a SITTING ITEM — elected by no seat
+here.**
+⟨UserSortMenu.md · US-9, :45⟩ · collision: ⟨X-W6-FOLD · UserSortMenu.vue:8⟩ · G-9 non-citability rider (W8.33)
+
+**W8.58 · [R] US-11 — the demo forwarding-barrel edges: axis L-1's FIRST clause, dropped by both
+readers, restored** (cl.1 · MINOR-as-FOLD)
+Verbatim: *"`:40` `../../../ui/button`, `:41-48` `../../../ui/dropdown-menu` — the axis filed it
+('Button and dropdown pieces arrive through demo forwarding barrels') and neither reader adjudicated
+it. Both families have first-class per-component subpaths at glass-ui 7.0.0 (X-W8.b's own census).
+Identity: the repo-wide demo/ui extirpation (ColorSpaceSelector L-4 / AdminUsersPanel L-4 / MT-UI1 —
+anti-rename, one identity). **Disposition: FOLD → X-W8.b** (the 92-import rewrite; the executing
+owner of this file's touch)."*
+**≡ W8.1 (H-a)** by identity — folded as an explicit ≡-pointer row, and its arithmetic contribution
+is real: `button` and `dropdown-menu` are both in the **13 subpath families** the census commits, so
+US-11 is a *site* of the denominator W8.2 rules on (`90` vs `92`, loser SUPERSEDED-BY-MEASUREMENT),
+never a second booking of the identity.
+⟨UserSortMenu.md · US-11, :47⟩ ≡ ⟨ColorSpaceSelector.md · L-4⟩ ≡ ⟨AdminUsersPanel.md · L-4⟩ ≡ MT-UI1
+
+**W8.59 · [R] US-12 — option glyphs lack `aria-hidden` (one attribute ×3)** (cl.1 · INFO)
+Verbatim: *"`:13` carries it; `:23`/`:27`/`:31` do not; the producer supplies none (`@lucide/vue`
+defaultAttributes read — both readers, consistent) while glass-ui's own CheckboxItem indicator models
+the correct behaviour. One attribute ×3. **Disposition: X-W8.b same-touch rider with US-9** — else
+NO-WAVE-OWNER. AT consequence is residue 2."* Carries an **§A NWO limb homed to X-W7** — folded once,
+both limbs, exactly as US-9. Rides **N-8** with US-9/US-11.
+⟨UserSortMenu.md · US-12, :48⟩
+
+**W8.60 · [+] AL-X1 — the triplicated loading announcement: the SKELETON limb is X-W8's named edit**
+(cl.1 · MAJOR-at-its-booking-record · **surface split carried verbatim**)
+Verbatim: *"Surface split: panels = X-W7, skeleton = **X-W8's named AdminListSkeleton edit**."* Facts
+verified at the record independently: *"Skeleton :10-11 stamps `role="status" aria-label="Loading"`
+per row; every panel wrapper is a role-less div whose `aria-label` AT ignores (7 sites, my census);
+AdminTagsPanel.vue:54-55 is the in-suite correct shape."* Cure verbatim (from the AdminNamesPanel
+booking it counts at): *"one `role="status"` container owning the label, skeleton drops its
+per-instance `role="status"`."* Severity/anti-double-count clause verbatim: *"**counted at the
+AdminNamesPanel adjudication**"* — so this fold books the **skeleton limb**, not a second severity.
+**Why it must land here**: **G-9**'s census names `AdminListSkeleton.vue` and W8.33 already widens
+that census by three filenames; the skeleton's `role="status"` removal is inside the same edit. A
+close that widens G-9's grep and does not drop the per-instance role leaves the triplication live
+under a green gate.
+**LOCK CARRIED VERBATIM (the fourth may-not-be-cited edict the pass-1 check found absent layer-wide;
+the spine registered it at §3 d′ — this fold carries it because it binds THIS wave's close):**
+⟨AdminListSkeleton.md · :82⟩ — *"The E1-R2 ΔL certification does not currently apply to this
+component; live measurement required before it is ever cited again."* ⟨AdminFlaggedPanel.md ·
+:107/:146⟩ — *"the E1-R2 certification may not be cited for this component until re-measured."*
+⟨AdminListItem.md · AL-X1, :67⟩ ≡ ⟨AdminNamesPanel.md · C-9⟩ (counted there) · cross-edge X-W7 (panels limb)
+
+**W8.61 · [+] A-20 — `useDialogBrowseActions` homed under `dialog/`, sole consumer a pane, docstring
+says host-agnostic; the dead `PaletteDialog/` path still cited** (cl.1 · graph subtraction)
+Verbatim disposition: *"**X-W8.a census candidate (graph subtraction), else boundary.**" *Facts:
+*"`useDialogBrowseActions` homed under `dialog/` + re-exported from the 'dialog cluster' barrel, sole
+consumer a pane; docstring itself says host-agnostic; dead `PaletteDialog/` path still cited at
+useVersionHistory.ts:9-10 (my read)."*
+**Namespace note (citation law, C-1)**: ⟨FlagReportDialog.md · A-20⟩ ≠ ⟨PaletteSlugBar.md · A-20⟩ ≠
+⟨MigratePalettesDialog.md · A-20⟩ — bare `A-20` resolves in three namespaces and the fold layer's
+only `A-20` bytes belong to others. This row is the FlagReportDialog one. *Sharpens*: **G-1** (the
+X.W8.a census must emit this as a named candidate with a PASS/boundary branch) and **G-10** (dead
+path citation).
+⟨FlagReportDialog.md · A-20 (L-9), :53⟩
+
+**W8.62 · [+] R-4 — the live BEFORE witness is X-W8's DELTA OBLIGATION, not the record's proof**
+(cl.2 · obligation, born un-owned)
+Verbatim: *"a live BEFORE witness of ADJ-1's tints during an actual freeze/orphan repro (the static
+replay is decisive; **the witness belongs to X-W8's delta obligations, not to this record's
+proof**)."*
+This is a *record-to-wave hand-off of an evidence obligation* — the class the pass-1 check's lock
+defect is about, and it dies with the row if the row escapes. It attaches to **EGR-1's three-limb
+delta obligation** already inside **G-11** (W8.37) and to **N-4** (SEQ-1 coupling): the `--z-debug`
+restore commit is the only commit in which a live freeze/orphan repro is reproducible, so the BEFORE
+capture is takeable exactly once.
+**Namespace note**: ⟨picker-debugeventlog.md · R-4⟩ — the fold layer's other `R-4` bytes are X-W1's
+and X-W6's namespaces; this identity had no carrier.
+⟨picker-debugeventlog.md · R-4, :73⟩ → G-11 (EGR-1 limb) · N-4 (SEQ-1)
+
+**W8.63 · [+] AB-3 — the BLOCKER's GESTALT limb accretes to X.W8.d; the containment limb does NOT**
+(cl.4 · BLOCKER, split disposition carried verbatim)
+Verbatim: *"**DISPOSITION: split — containment (ONE predicate: guard `toggleActionBar` on
+`hasAnyActionBar`, or `disabled`+`aria-hidden` the toggle when `!visible`) rides X-W4.d (Dock.vue is
+in its file bounds; CC-043's unit) and is independent of the transposition; the gestalt cure (the
+trigger renders from the crossfade's own `faces` registry — reachable via template ref
+`defineExpose({faces})`, NOT via the unpublished context; K-1's tail) accretes to X-W8.d. Collapse
+geometry numbers: UNPROVEN-NEEDS-LIVE.**"* Corrections adopted, carried: *"(a) the owning surface is
+`Dock.vue` + `ActionBarToggle.vue` — ActionBarLayer cannot cure it; (b) NOT mobile-specific."*
+**This is the sharpest single find of the repair pass**: a **BLOCKER** with an explicitly named
+`X-W8.d` limb was carried nowhere in the fold layer — not in X-W4's fold (which owns the *other*
+limb), not here. It lands in **X.W8.d** (dead surface / dead state), it is **UNPROVEN-NEEDS-LIVE** on
+geometry, and it is **not** re-graded by this fold. Write-order cross-edge: X-W4.d's containment guard
+and X-W8.d's registry-sourced render are independent by the record's own words — *neither blocks the
+other*, and a close on either may not claim AB-3 cured.
+⟨shell-dock-actionbarlayer.md · AB-3 (D-1), :41⟩ · cross-edge X-W4.d (CC-043) · **not** ⟨AboutPane.md · AB-3⟩
+
+**W8.64 · [+] AB-17 — the 260 ms timer dies with the shim at X-W8.d; the state-lift question does
+NOT** (cl.1 · MINOR, split carried verbatim)
+Verbatim: *"The 260 ms timer is never cleared on scope disposal (no `onScopeDispose`/`onUnmounted` —
+my grep) and the whole mode state is a local ref behind two stacked `v-if`s. **DISPOSITION: the timer
+dies with the shim (X-W8.d); the `toolbarMode`-discard-on-unmount is a state-lift question recorded
+for the formation boundary (no owner).** The observed mid-session unmount: UNPROVEN-NEEDS-LIVE."*
+**Namespace note**: the fold layer's ten `AB-17` bytes are all ⟨AboutPane.md · AB-17⟩ (X-W11's
+`BOUND` cells) — a textbook C-1 collision; this ActionBarLayer identity had no carrier. Lands in
+**X.W8.d** beside W8.25/W8.31; the state-lift half travels to the boundary **stated**.
+⟨shell-dock-actionbarlayer.md · AB-17 (C-10), :64⟩
+
+**W8.65 · [+] MISS-9 — the shim's one surviving type obligation is a FALSE one; dies at X-W8.d with
+AB-18** (cl.1 · INFO)
+Verbatim: *"The shim's parameter type launders `Readonly<ShallowRef<HTMLElement|null>>` into
+`Ref<HTMLElement|null>` — the file's one surviving type obligation is a false one. Dies at X-W8.d
+with AB-18."*
+**Namespace note (a live collision, both halves routed this round)**: ⟨shell-dock-actionbarlayer.md ·
+MISS-9⟩ is **X-W8.d's**; ⟨picker-componentsliders-consolerail.md · MISS-9⟩ is **X-W4's** (roster §B).
+Two records, one bare id, two waves — cite ⟨record·id⟩ or the round-2 census will read one as
+carrying the other. Absent from the **whole** fold layer before this row.
+⟨shell-dock-actionbarlayer.md · MISS-9 (R-LC), :112⟩ ≠ ⟨picker-componentsliders-consolerail.md · MISS-9⟩ (→ X-W4)
+
+**W8.66 · [+] ABT-10 — the X-W8 LIMB only: "the label-bearing register itself rides ABT-7's X-W8
+rewrite"** (cl.4 · ≡-pointer, primary home is X-W4.a)
+The row's primary disposition is **X-W4.a** (CC-040, the shell target-size wave) and it is correctly
+carried there as ⟨X-W4-FOLD · W4·7⟩ — **this fold does not re-book it**. What escaped is its final
+clause, whose home is this wave, verbatim: *"**X-W4.a** … with the label-survival arm attached; **the
+label-bearing register itself rides ABT-7's X-W8 rewrite**."* `ABT-7` is in **W8.44**'s decline
+census (MT-DOCK-LAYERS-1) — so the register the label-survival arm depends on is **declined here**.
+**The consequence, stated not silent**: X-W4.a's label-survival arm has a dependency on a rewrite
+this wave does not perform. Neither wave may close claiming ABT-10 whole. Raised into **N-3** (the
+decline census must name ABT-7's *dependents*, not only ABT-7).
+⟨shell-dock-actionbartoggle.md · ABT-10 (D-07), :64⟩ → W8.44 (ABT-7) · X-W4-FOLD W4·7 (primary)
+
+**W8.67 · [+] L-21 — the eyedropper's tsconfig-parity SEVERITY row: identity wins, and it names this
+wave's decline** (cl.4 · ≡-pointer to H-c)
+Verbatim: *"Anti-rename identity guard: fact-identical to XP-21/ColorSpaceSelector-L-14/
+componentsliders-R-10 (this seat re-read tsconfig.demo.json:42-49 at HEAD: 3 phantoms, `/css`+`/value`
+missing, comment false by one). Nothing mis-resolves today; one identity, **already booked
+NO-WAVE-OWNER (X-W8 declined it, W8.md:112)**."* Ruled severity: **MINOR — identity wins** (axis
+filed BLOCKER, reader-2 MAJOR, XP-21 MINOR).
+**≡ W8.7 (H-c) ≡ W8.52 (DSL-9)** — three ids, one identity, one decline. Folded as an explicit
+≡-pointer so the byte census closes and **N-2**'s H-c cell has its full witness list.
+⟨wb-extract-imageeyedropper.md · L-21, :29⟩ ≡ ⟨wb-extract-pane.md · XP-21⟩ ≡ ⟨ColorSpaceSelector.md · L-14⟩ ≡ ⟨picker-componentsliders.md · R-10⟩
+
+**W8.68 · [+] Copy-CSS — the severity row whose second limb is X-W8 hygiene** (cl.4 · ≡-pointer)
+Verbatim: *"**MINOR — both corrected (PIN 6)** … The divergent-feedback half is real and user-facing;
+**the idiom census is X-W8 hygiene**."* The feedback half is X-W6's (GradientVisualizer's own wave);
+the **idiom-census half** is the H-a/H-b hygiene identity this wave owns.
+**≡ W8.1/W8.14 (the census MUST)** — no second booking; folded because the id, as literal bytes
+(`Copy-CSS`, a non-numeric identity that no range can expand into), was absent from the whole fold
+layer, and a round-2 byte census cannot distinguish "hygiene half carried elsewhere" from "row
+dropped".
+⟨wb-gradient-visualizer.md · Copy-CSS feedback severity, :33⟩ → G-1 (idiom census) · X-W6 (feedback half)
+
+---
+
+### 9.4 §C — the I-28 glass-8.0.0 EXTERNAL row owned by this wave
+
+**Provenance is MAIL, not registry** — `docs/tranches/V/coordination/INBOX.md` row **I-28** (glass
+v8.0.0 @ `17a11bc5`; letter + §5 addendum 08-25; ROWED 08-28). The id is `X-EXT-2`, cited
+⟨INBOX I-28 · X-EXT-2⟩; it carries **no registry id and must never be given one** (an X-EXT row that
+acquires a registry-shaped id becomes uncheckable against both censuses).
+
+**W8.69 · X-EXT-2 — `./forms` → `./input`: `demo/ui/input/index.ts:1` dies at glass 8.0.0** (cl.2 ·
+adopt-wave amendment, born-RED **at the repin**)
+Break, verbatim from the spine's §EXTERNAL: *"`./forms` → `./input`: `demo/ui/input/index.ts:1`
+(`export { Input } from "@mkbabb/glass-ui/forms"`) dies at 8.0.0"*, owning wave *"**X-W8** (demo/ui
+barrel surface, H-a territory — the extirpation cure and the rename cure are the same edit or an
+ordered pair, stated)."*
+**Why this row is not redundant with H-a.** `input` is **one of exactly two counterexamples** to the
+19-barrel one-line-rename shape — W8.1 carries it four-witnessed: TEP-9 (*"17 of 19 modules are
+one-line root-barrel renames (**alert & input are the counterexamples**)"*) and
+`shell-dock-profilesection` L-3 (*"18 of 19 reach the root barrel — **`input` is the counter-example
+(`@mkbabb/glass-ui/forms`)**"*). So the ONE barrel whose importer names a subpath is the ONE the
+8.0.0 repin renames.
+**THE ORDERED PAIR, STATED (the clause the assignment demands be elected, not left ambiguous):**
+if the barrel deletion (H-a, G-2/G-3) lands **before or with** the repin, `demo/ui/input/index.ts`
+ceases to exist and the rename is **moot** — the ~1 consumer edge repoints straight to
+`@mkbabb/glass-ui/input`. If the repin lands **first**, the barrel must be renamed `forms`→`input`
+in the repin commit or the demo does not build. **This fold elects the first order** — *delete, then
+repin; if the repin arrives first, the rename is a one-line stopgap inside the repin commit and the
+deletion still lands.* Either way the act is stated and neither is silent.
+**Born-RED status**: the census (X-W0.j) measured **0/4 at glass 7.0.0** on 2026-08-28 — the FAIL
+branch is live, the repin has not happened, so this row's gate (**N-9**) is RED-on-arm, not RED-today.
+Cross-edges: **X-W0** (X-EXT-6, the `vue-component-type-helpers ^3.0.3` peer — the repin is
+unexecutable without it) · **X-W7** (X-EXT-1's `.input-bar` recipe, the *other* input-shaped break) ·
+**X-W4.g** (X-EXT-4's receiving-bounds delta).
+⟨INBOX I-28 · X-EXT-2⟩ · mirrored at ⟨REFINEMENT-FOLD-2026-08-28.md · §EXTERNAL 2, :494⟩
+
+---
+
+### 9.5 Locks carried verbatim by this repair (the pass-1 MINOR-locks defect, X-W8's share)
+
+The check found four named may-not-be-cited edicts absent from the whole fold layer. Two bind **this
+wave's close** and are carried here in full (the spine registered all four at its §3 d′ — this is
+carriage at the wave that must obey them, not a second registration):
+
+1. **E1-R2** (admin skeleton certification) — carried at **W8.60**, both sources quoted verbatim.
+   Binding shape: **G-9**'s widened census may not cite the E1-R2 ΔL certification for
+   `AdminListSkeleton` in any close; live measurement first.
+2. **DVS-38** (the latch's mechanism) — ⟨shell-dock-dockviewselect.md · K-17, :93⟩ verbatim: *"the
+   seed/watcher predicate split was ruled LATENT and non-operative at Dock-adj R-5; it enters this
+   record only as an INFO accretion to L-19 (DVS-38) and **may not be cited as the latch's mechanism
+   by any close**."* Binding shape: **W8.44**'s decline census and **N-3** may enumerate DVS-38, but
+   no X-W8 close may cite it as the latch mechanism.
+
+Not X-W8's: **ONE-AXIS** (⟨GradientStopEditor.md · :120⟩ → X-W6) and **copy seat**
+(⟨PaletteCardSwatches.md · :24⟩ → X-W7). Named here so the absence reads as *routed elsewhere*, never
+as *unseen*.
+
+---
+
+### 9.6 Gates this repair adds — born-RED, real witnesses, L-19 posture
+
+**N-7 — THE STATUS-LAMP BOUNDARY + TRANSPORT-SPECIFIER GATE** (from W8.53 · W8.54).
+*(a)* `W8-CLOSE.md` states, for the dock band, whether the band's setup path is inside an
+ErrorBoundary at close, naming the elected claimant (MT-APP-1 / MT-DOCK-LAYERS-1 / X-W5) or recording
+UNCURED-WITH-OWNER. *(b)* the transport specifier duality (`./client.js` / `./availability.js` with
+extensions inside `demo/platform/transport/**`, every inbound edge without) is either normalized in
+the same subtraction or booked with the **ApiOfflineChip DISSENT-#3** flag re-raised, never dropped.
+**RED today**: the band sits outside the sole ErrorBoundary (the record's App.vue reads), the throw
+site `useApiClient()` :54-62 is live, and `demo/platform/transport/**` enters bounds only via §3 row
+21 of this addendum. **Falsifier**: a close that reports the transport cone subtracted while
+`grep -rn 'from "\./\(client\|availability\)"' demo/platform/transport/` and its `.js`-suffixed
+counterpart both return non-empty has not answered DSL-28.
+
+**N-8 — THE SAME-TOUCH RIDER DECLARATION (`UserSortMenu.vue`)** (from W8.57 · W8.58 · W8.59).
+If X-W8.b edits `UserSortMenu.vue` at all, the commit carries **US-9** (`id` on the label +
+`aria-labelledby` on the group), **US-11** (both barrel edges → per-component subpaths) and **US-12**
+(`aria-hidden` ×3 at `:23`/`:27`/`:31`); if it does not carry them, the close records each as
+NO-WAVE-OWNER **by name** — the records' own `else NO-WAVE-OWNER` branch, made checkable.
+**RED today**: all three are live at HEAD per their record (`aria-labelledby` = 0 occurrences in the
+compiled dropdown chunk; `:40`/`:41-48` still reach `../../../ui/*`; `:13` alone carries
+`aria-hidden`). **Falsifier**: a barrel-rewrite diff touching this file with none of the three riders
+and no named NO-WAVE-OWNER line is exactly the orphan-by-the-curing-touch failure. **Un-elected
+rider**: the `UserSortMenu.vue:8` cure collision (X-W6 quiet migration vs **G-9** null-DELTA) is a
+SITTING item — this gate may not be read as electing either.
+
+**N-9 — THE GLASS-8 `./forms`→`./input` ORDERED PAIR** (from W8.69 · X-EXT-2).
+At the 8.0.0 repin, `demo/ui/input/index.ts` is either **already deleted** (H-a landed first — the
+elected order) or **renamed in the repin commit itself**; no state exists in which the repin lands
+and the barrel still says `@mkbabb/glass-ui/forms`.
+**RED-on-arm, not RED-today** — and it is stated as such: X-W0.j's census measured **0/4 at glass
+7.0.0** on 2026-08-28, so `./forms` is alive and the gate cannot go RED until the repin. **Falsifier**:
+after the repin, `grep -n 'glass-ui/forms' demo/` returning non-empty is the break, live.
+
+---
+
+### 9.7 §-arithmetic — dated, never silent
+
+**Dated correction (2026-08-28, fold round 1 repair).** §0's arithmetic block and §8's closing line
+read **51 folded rows · 21 gate entries · 31 BoundsDelta files · 11 cross-edges**. That was the true
+pass-1 reading and is preserved above, marked SUPERSEDED-BY-MEASUREMENT. The true counts after this
+addendum:
+
+| unit | pass-1 | **repair round 1** | delta | decomposition |
+|---|---|---|---|---|
+| folded rows | 51 (W8.1–W8.51) | **69** (W8.1–**W8.69**) | **+18** | §9.2 NWO **4** (W8.52–55) + §9.3 census **13** (W8.56–68; roster 4 + supplements 9) + §9.4 external **1** (W8.69) |
+| gate entries | 21 (15 sharpenings + 6 new) | **24** (15 sharpenings + **9** new) | **+3** | N-7 · N-8 · N-9 (§9.6) |
+| BoundsDelta files | 31 | **31** | 0 | every row of §9 lands on a path §3 already carries (`status-lamp.ts`/`DockStatusLamp.vue` 19-20, `ProfileSection.vue` 15, `demo/platform/transport/**` 21, `demo/ui/**` H-a, `browser/index.ts` 25) — **no bounds growth**, and **N-1** (bounds completeness) is the standing check |
+| cross-edges | 11 | **11** | 0 | §9's edges (X-W4.d/AB-3 · X-W7/AL-X1 panels · X-W6/UserSortMenu:8 · X-W0+X-W7+X-W4.g/glass-8) are carried **inside their rows**, not minted as new §4 entries — a §4 row is a wave-to-wave write-order contract; these are row-level dependencies |
+| IN-side census receipt | 455 line-instances / 64 records | **unchanged** + **271 routed row lines / 56 records** | — | different units, both reproduce (§9.1); the row-keyed figure is the one a round-2 id census must re-derive |
+
+Numbering is gapless and contiguous: **W8.1 … W8.69**, zero gaps, zero re-mints, zero renames.
+Nothing in §9 re-stages or re-weights the wave's gate composite (OC-2/CC-096 staging stands).
+Status remains **planned**; no product source was opened by this repair.

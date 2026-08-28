@@ -40,14 +40,24 @@ source row(s). **Banked ids are original for life** (anti-rename): `AAP-3`, `ATP
 re-minted. Where several banked ids name ONE identity they share ONE fold row and every id is
 listed; the row is counted **once**.
 
-**Arithmetic (this document's own bytes).** **24 fold rows** (`F-1..F-24`), contiguously numbered,
-one provenance ⟨…⟩ line each — of which **19 are cl.1/cl.2 build-or-sharpen rows** and **5 are
-cl.4 riders recorded-not-adopted** (`F-19 · F-20 · F-21 · F-22 · F-23`). **17 gates touched**
-(§Gates): **10 existing W3 §6 gate IDs sharpened** — `G-3 · G-6 · G-7 · G-9 · G-11 · G-17 · G-18 ·
-G-19 · G-20 · G-22`, across **11 table entries** (`G-18` is sharpened three times and counted
-once) — **plus 7 new born-RED candidates** (`N-1..N-7`). **8 bounds rows** (§BoundsDelta), of which **3 are record-backed as X-W3 riders by name** and
-**5 are contested/candidate** with the dissent printed. Rows dedupe to **21 distinct banked
-identities** across **31 banked ids** (the AdminGate class alone carries four).
+**Arithmetic (this document's own bytes) — RESTATED at FOLD ROUND 1, 2026-08-28.** **27 fold rows**
+(`F-1..F-27`), contiguously numbered, one provenance ⟨…⟩ line each — of which **20 are cl.1/cl.2
+build-or-sharpen rows** and **7 are cl.4 riders recorded-not-adopted** (`F-19 · F-20 · F-21 · F-22 ·
+F-23 · F-25 · F-26`). **19 gates touched** (§Gates): **10 existing W3 §6 gate IDs sharpened** —
+`G-3 · G-6 · G-7 · G-9 · G-11 · G-17 · G-18 · G-19 · G-20 · G-22`, across **11 table entries**
+(`G-18` is sharpened three times and counted once) — **plus 9 new born-RED candidates**
+(`N-1..N-9`). **9 bounds rows** (§BoundsDelta `B-1..B-9`) **= 16 distinct file paths** — **both
+units printed** (see 0a.6), of which **3 are record-backed as X-W3 riders by name** and **6 are
+contested/candidate** with the dissent printed. Rows dedupe to **24 distinct banked identities**
+across **36 banked ids** (the AdminGate class alone carries four).
+
+*DATED CORRECTION, never silent (round 1, 2026-08-28). Superseded round-0 figures, kept legible:
+**24 rows** (`F-1..F-24`) · 19 build-or-sharpen + 5 cl.4 · **17 gates** (10 sharpened + 7 new) ·
+**8 bounds rows / 15 files** · **21 identities / 31 ids**. The round-1 delta, derived in §R1 and
+countable from these bytes: **+3 rows** (`F-25 · F-26 · F-27`) · **+2 gates** (`N-8 · N-9`) ·
+**+1 bounds row** (`B-9`) · **+3 identities** · **+5 banked ids** (`B2 · P-2 · M6 · P-3 · U7`;
+`F-27` banks no new id — it is an `≡`-pointer to X-W11's `PCS-3`/`PCS-11`, which stay X-W11's for
+life). No round-0 row, gate, edge, dissent or lock is altered, re-graded or renamed.*
 
 ### 0a. Corrections, never silent
 
@@ -67,10 +77,30 @@ identities** across **31 banked ids** (the AdminGate class alone carries four).
    `AAP-22` ("X-W3's scope does not carry it") and the `AdminListSkeleton` kill-5 residual
    ("X-W3 carries no deadline row — my grep"). Silently dropping a decline is the same defect as
    dropping a routing (M-25); both are in §CrossEdges §D.
-5. **`W3.md §Dispositions D-8 ("Glass bank rows: None") HOLDS under this fold.** Zero of the 24
-   rows is glass-coupled. The GLASS-RELAY rows in these records (`ATP-23` orphaned
-   `glass-chip.css`, `VHD-5/18/19/24/39` dialog placement, `EAS-10`'s d2 ask, `A-4`'s skeleton ink
-   seam, `GEN-8/28`) all route elsewhere and are **not** folded here.
+5. **`W3.md §Dispositions D-8 ("Glass bank rows: None") HOLDS under this fold.** Zero of the **27**
+   rows is glass-coupled (round-0 read "24"; the three round-1 rows `F-25`/`F-26`/`F-27` are api
+   predicate/index/hash rows and touch no producer surface, so D-8's confirmation is unchanged by
+   the restatement). The GLASS-RELAY rows in these records (`ATP-23` orphaned `glass-chip.css`,
+   `VHD-5/18/19/24/39` dialog placement, `EAS-10`'s d2 ask, `A-4`'s skeleton ink seam, `GEN-8/28`)
+   all route elsewhere and are **not** folded here.
+6. **The bounds unit is NINE ROWS, which is SIXTEEN FILE PATHS — both figures are printed here so
+   no downstream tabulator has to derive one from the other.** `PASS-1-CHECK-RETURN.json` MINOR (c)
+   caught the spine's §0 W3 cell printing "15 files" against a column headed "bounds delta (**fold's
+   unit**)" while this fold's declared unit was "**8 bounds rows**"; the spine applied its own dated
+   correction (`REFINEMENT-FOLD-2026-08-28.md:52-59`) and this is the cure on the fold side. The
+   decomposition, countable from §BoundsDelta's own cells: `B-1..B-5` = 1 path each (5) · `B-6` = 3 ·
+   `B-7` = 5 · `B-8` = 2 · `B-9` = 1 → **16**. Round-0's pair was 8 rows / 15 paths; both are true
+   readings of the same table, and neither figure was ever silently elected.
+7. **`api/src/modules/palette/service/crud-list.ts` needs NO bounds delta** — it is already
+   `W3.md §4 File Bounds` `modify` (`W3.md:122`). What `F-25`/`F-26` add to it is **SCOPE**, not
+   bounds: the record's own words are "*W3 modifies `crud-list.ts` for policy/forkCount only*"
+   (X.A1's `assertReadable` read paths + X.A4's computed `forkCount`), and the search predicate is
+   neither. Recorded as a scope statement so no reader upgrades it into a bounds claim this fold
+   does not make.
+8. **`ROUND-1-ASSIGNMENTS.md` assigns this seat ZERO rows** — §D's per-wave table prints no X-W3
+   seat row, and §A/§B/§C name no X-W3 identity. The roster's floor for this fold is nil; **§R1 is
+   entirely ceiling**, derived by this seat's own fresh census (§R1.0). Recorded so the absence of
+   an assignment is legible as a measured result, not as an unread work order.
 
 ---
 
@@ -738,6 +768,291 @@ anti-rename discipline, not as a miss.
 (`/versions` vs `/revisions/{revisionNo}`) or `X-5` (the export denominator). Note however that
 **N-2 mints `revisionNo` as a FIELD, not as a PATH** — D-1's "`/versions` STANDS" is untouched by
 it, and no executor may read S-6/N-2 as reopening the rename.
+
+---
+
+## §R1 — FOLD ROUND 1 ADDENDUM (2026-08-28) · the fresh id-keyed census and its three repairs
+
+**What this section is.** The X-W3 fold-repair seat's round-1 write, consuming
+`refinement/ROUND-1-ASSIGNMENTS.md` (which assigns this wave **zero** rows — 0a.8) and
+`refinement/PASS-1-CHECK-RETURN.json` (whose only clause naming this file is MINOR (c), cured at
+0a.6), and then **re-running the id-keyed census from scratch over the whole 92-record corpus**
+under the fold citation law ⟨record.md · id⟩, counting hyphen, en-dash and dotted forms. Everything
+below is an **addendum**: `waves/W0.md..W11.md` and `CONFORMANCE-2026-08-03.md` stay byte-untouched
+(E-3), status stays `planned`, dispositions stay **ADJUDICATED, not VERIFIED**, and no product
+source was opened — every witness below is quoted from the corpus records or from a sibling fold.
+
+### R1.0 · Census receipt — falsifiable, re-runnable, portable (no `grep -P`; BSD grep has none)
+
+Run from `docs/tranches/V/megatranche/registry/adjudicated/`:
+
+1. **Corpus.** `ls *.md | grep -v '^kf-\|^fr-\|^pt-' | wc -l` → **92** (the `delta-r3/` entry is a
+   DIRECTORY holding two worker-substrate files, excluded by rule; this is the same 91-vs-92
+   arithmetic the check flags at MINOR (a) against the spine — recorded, not re-litigated here).
+2. **Record-level routing.** `ls *.md | grep -v '^kf-\|^fr-\|^pt-' | xargs grep -lE
+   'X[-–—·.]W3([^0-9]|$)'` → **13 records**, byte-for-byte the thirteen named in §0. **No fourteenth
+   record routes to X-W3 by any token form.** §0's round-0 sweep reproduces exactly.
+3. **Row-level census.** **25 ⟨record · id⟩ identities** carry an X-W3 token on their row line or in
+   their continuation block, spread over **11** of those 13 records. The remaining two carry X-W3
+   only at record level and are already folded as such: ⟨AdminListSkeleton.md · kill-5 residual⟩
+   (`:62`, "*X-W3 carries no deadline row — my grep*" → `F-23`) and
+   ⟨wb-gradient-easingauthoringstage.md · kill-3 residue (a)⟩ (`:88`, plus the `:27` disposition
+   header "*X-W3 route closure*" → `F-6`).
+4. **Byte test against this file** (boundary match, zero-padded ids their own identity, each hit
+   required to sit on a record-qualified ⟨record.md · id⟩ provenance line — a bare-id match in a
+   colliding namespace is scored ABSENT): **25 of 25 PRESENT. ZERO census escapes in the X-W3
+   lane.** Enumerated so the count is checkable without re-running anything: `AAP-3` · `AAP-22` ·
+   `AF-1` · `AF-26` · `AF-27` · `AF-50` · `ATP-3` · `ATP-34` · `EB-4` · `EB-16` ·
+   ⟨PaletteCardMeta.md · `R-2`⟩ · `PM-16` · ⟨PaletteCardMeta.md · `C-2`⟩ · ⟨PaletteSlugBar.md ·
+   `A-3`⟩ · `TEP-10` · `VHD-4` · `VHD-10` · `VHD-11` · `VHD-12` · `VHD-25` · `VHD-33` · `VHD-34` ·
+   `DVS-5` · ⟨shell-paneslot.md · `L-7`/`PS-8`⟩ · `GEN-33`. (The four collision-prone ids —
+   `R-2`, `C-2`, `A-3`, `L-5` — each resolve in this file only under their own record's citation.)
+5. **THE SWEEP THE `X-W3` CENSUS STRUCTURALLY CANNOT SEE — where the one escape was.**
+   `ls *.md | grep -v '^kf-\|^fr-\|^pt-' | xargs grep -lE '(^|[^0-9A-Za-z])W3([^0-9]|$)'` → **22**
+   records, i.e. **9 beyond the thirteen**. Eight are other tranches' or other bands' waves and are
+   false positives, each named so the negative is legible: `T.W3-4`/`T.W3-5` (PaneHeader,
+   shell-dock-parseechoreadout) · `H.W3` (picker-pointerdebugoverlay ×2) · `R.W3` (ActionFeedback,
+   shell-dock-dockstatuslamp) · `K.W3` (wb-mix-sourceselector) · `W-GRADSTOP-3` and "*the
+   ordering-policy question does NOT reopen at W3*" (GradientStopEditor — that record's OWN wave-3,
+   settled in its core wave) · `DESIGN.md`'s register law `W3-3` (PaletteRenameInput) · plus
+   `waves/W3.md` instrument cites in four already-routed records. **The ninth is real:**
+   ⟨BrowsePane.md · B2⟩ at `:39` reasons about THIS wave's scope in bare form — "*no X·V wave
+   touches this seam (**W3 modifies `crud-list.ts` for policy/forkCount only**; W7 never names the
+   predicates)*". **Any census keyed on the string `X-W3` misses it by construction.** That is how
+   pass 1 missed it, and it is the whole reason §R1 exists.
+6. **Fold-layer inbound sweep.** `grep -rnE 'X[-–—·.]W3([^0-9]|$)' refinement/*.md
+   REFINEMENT-FOLD-2026-08-28.md` (excluding this file) → four sibling folds name X-W3. Three are
+   already carried here (`X-W5-FOLD:229` CE-9 ≡ `F-5`/§C · the spine's `F-1`/`F-4`/`F-7`/`F-24`
+   citations · `X-W0-FOLD:580`'s Do-NOT-touch clause, now §K). **One is an unbooked inbound
+   obligation on this wave's own units** — `X-W11-FOLD:434/:448/:832/:907` — repaired at `F-27`.
+
+### R1.1 · The three repairs
+
+---
+
+**F-25 · ⟨BrowsePane.md · `B2` ≡ `P-2`⟩ — the two-character search cliff: the api half of a seam
+whose client half is already homed at X-W7** (cl.4 · **RIDER RECORDED, NOT ADOPTED** · `≡`-POINTER,
+**not a second booking**)
+
+*Dedupe first, per the consumption rule.* ⟨BrowsePane.md · B2⟩ **is already folded** at
+⟨`X-W7-FOLD.md:70` · W7.5⟩: "*the 2-character search cliff, booked NO-WAVE-OWNER at its record, is
+ownable here* (cl.1). `BrowsePane.vue` IS in §4 (`modify`). The record's NO-WAVE-OWNER booking was
+taken against a narrower reading of the bounds; the fold re-homes it into X.W7.a/d." **This row does
+not re-book it.** It is the explicit `≡`-pointer the census law requires plus the one limb W7's
+re-homing provably cannot reach.
+
+*Mechanism (the record's own words).* "*two mutually incompatible search predicates hand over at 2
+characters; typing the second character of a word empties the commons.* ⊙ `useFilteredList.ts:9-11`
+lowercases and does NOT trim; `useBrowsePalettes.ts:43-45` client substring over `name|slug`; `:57`
+sends `q` server-side only at `trim().length >= 2`; api `crud-list.ts` `f.$text = { $search: q }`
+against `db.ts`'s `{ name: "text" }` index — **word/stem over `name` only vs substring over
+name-or-slug: not narrowings of each other in either direction**. The untrimmed client predicate
+independently proves the leading-space arm. Live counts (`o`→3, `oc`→0, `ocean`→1 on the production
+commons) → U7. Compounded by B5: the zero renders as 'the commons is empty.'*"
+
+*The limb X-W7 cannot reach (why this row exists).* The identity is a **mismatch between two
+predicates**, and exactly one of them lives in `api/src/modules/palette/service/crud-list.ts` —
+`W3.md §4` `modify` (`W3.md:122`) — with its index in `db.ts`, in no wave's bounds at all. **X-W7's
+own must-not-touch bans `api/**`** (quoted verbatim at `F-21`: "*X-W3 is api-side only, X-W7
+must-not-touch `api/**`*"). A W7-only cure can therefore move only the client half: bending the
+client to the server kills the slug arm and the leading-space arm **by fiat rather than by
+decision**, and bending the server is a breach of W7's own ban. The seam is a two-wave carve of
+exactly the `F-14`/`F-15` shape — **server half unclaimed by name → X-W3 rider, else
+NO-WAVE-OWNER** — and it is booked here so it cannot vanish between two folds that each believe the
+other holds it.
+
+*Lock (verbatim, load-bearing).* "**→ NO-WAVE-OWNER** — no X·V wave touches this seam (W3 modifies
+`crud-list.ts` for policy/forkCount only; W7 never names the predicates). **The single
+highest-priority unowned row in this apotheosis.**"
+
+*Sequencing / edge law.* Neither wave reports the search-predicate identity closed alone; whichever
+lands second inherits the seam, and its gate may not go green over the other's edit (§CrossEdges
+§J). **No bounds delta for `crud-list.ts`** — it is already in W3 §4; what is missing is SCOPE
+(0a.7). `db.ts` **is** a bounds question → `B-9`.
+
+*Dissent, preserved.* The record banks the row NO-WAVE-OWNER; ⟨X-W7-FOLD · W7.5⟩ overrides that
+booking for the client half on a bounds reading. **This fold contests neither** — it records that
+the override is sound for `BrowsePane.vue` and silent on `crud-list.ts`, and elects nothing.
+⟨BrowsePane.md · B2 ≡ P-2 (:39)⟩ ⟨BrowsePane.md · U7 (:135)⟩ ⟨X-W7-FOLD.md:70 · W7.5⟩
+
+---
+
+**F-26 · ⟨BrowsePane.md · `M6` ≡ `P-3`⟩ — the slug arm of the same seam: ABSENT from the entire
+twelve-fold layer under the citation law** (cl.4 · **RIDER RECORDED, NOT ADOPTED** · **TRUE CENSUS
+ESCAPE**)
+
+*The escape, proven.* `grep -rnE '(^|[^A-Za-z0-9])M6([^A-Za-z0-9-]|$)'` over all twelve folds plus
+the spine returns hits in four files — **and every one is a colliding namespace**, the nearest being
+⟨AdminListItem.md · **AL**-M6⟩ at `X-W7-FOLD.md:174`. `P-3` returns **zero hits anywhere**; `U7`
+returns **zero hits anywhere**. Under this fold's own citation law (§0's id-keyed census law;
+X-W7-FOLD §1a C-1's "*the citable identity is ⟨record.md · id⟩, never id*"), ⟨BrowsePane.md · M6⟩
+**boundary-matches nowhere in the fold layer and appears in no exclusion register** — the exact
+BLOCKER shape `PASS-1-CHECK` names, found here by the bare-token sweep (R1.0 §5) rather than by the
+roster, which does not list it.
+
+*Mechanism (verbatim).* "**M6 · P-3** — *slug search is offered by the client predicate and dead in
+the product above one character.* ⊙ `useBrowsePalettes.ts:44` `|| p.slug.includes(q)` vs the
+**name-only `$text` index**; the pane displays the identifier its own search cannot find
+(`show-slug`, `:101`)."
+
+*Lock (verbatim).* "**→ NO-WAVE-OWNER** (**B2 seam**)." The record ties M6 to B2 explicitly; they
+are one seam with two arms (name-stem vs slug), and `F-25`+`F-26` are the two arms folded once each,
+never merged into a single id and never renamed.
+
+*Carve, stated so nothing is stolen.* The **client** arm (`useBrowsePalettes.ts:44`, `show-slug` at
+`BrowsePane.vue:101`) is X-W7's by file — `BrowsePane.vue` is W7 §4 `modify`. **This fold books only
+the api arm** (the name-only text index vs a predicate that advertises `slug`) plus the `≡`-pointer
+that closes the byte census. X-W7 remains free to fold ⟨BrowsePane.md · M6⟩ into its own row band at
+round 2; this booking is not a claim on it and must not be read as one.
+
+*Residue carried, not laundered.* ⟨BrowsePane.md · U7⟩ (`:135`) is the reachability record for this
+seam and four siblings: "*(B2/B5/M5/M6/M20): every live production-commons count — 3/0/0/0/1 cards,
+5-of-10 empty `oklabColors`, 5-of-10 `userSlug: null`, the leading-space arm.*" **MEASURE-AT-OPEN**
+(cl.3): the `o`→3 / `oc`→0 / `ocean`→1 counts are live-commons observations, not source facts; `N-8`
+is armed on the **structural** arm (two predicates that are provably not narrowings of each other)
+and the counts are corroboration, never the gate's baseline.
+⟨BrowsePane.md · M6 ≡ P-3 (:51)⟩ ⟨BrowsePane.md · U7 (:135)⟩ ⟨BrowsePane.md · B2's seam clause⟩
+
+---
+
+**F-27 · ⟨`X-W11-FOLD.md` · W11.15 / S9-G10 handoff⟩ — a sibling fold routes work onto THIS wave's
+own units `X.A1..X.A5`, and this fold was silent on it** (cl.2 · **INBOUND OBLIGATION** · `≡`-POINTER
+to X-W11's identities, **no re-booking**)
+
+*The inbound routing, verbatim.* `X-W11-FOLD.md:448`: "*Sequencing: **X-W3 owns the journey bytes**;
+W11 re-runs. Both rows are **NO-WAVE-OWNER** for cure (§1z) — the assertion is W11's, the fix is the
+boundary's.*" Its §Handoff table states the same as a directed edge (`:907`): "| **X-W3** |
+`X.A1..X.A5` journeys gain the round-trip identity + cross-producer hash assertions (W11.15); W11
+re-runs against the released build | W11 ← W3 |". And `:434`: "*G10 re-runs X-W3's `X.A1..X.A5`*".
+`W3.md:1/:14` names this wave "**Access, route closure, and API policy (X.A1..X.A5)**" — the
+handoff lands squarely on this fold's own units and on files already in W3 §4.
+
+*Why it is a row and not merely an edge.* The obligation is **executable work on W3's bytes**: the
+journey specs `api/src/modules/palette/__tests__/palette-write-contract.test.ts` and
+`palette-policy.test.ts` are W3 §4 `create` (`W3.md:139-140`), and the mechanism sits in
+`api/src/modules/palette/hash.ts`, W3 §4 `modify` (`W3.md:130`). **No bounds delta is required** —
+which is precisely why the silence was cheap and dangerous: X-W11's gate `G10` is specified to
+re-run assertions that no X-W3 row asks anyone to write.
+
+*Witness (X-W11's, source-certain, quoted — this seat opened no product source).* `PCS-11` —
+"*`position` is REQUIRED with **two incompatible live encodings** (integer ordinal at 5 sites;
+normalized fraction `i / max(1, len-1)` at `useExtractSession.ts:87`), both pass
+`z.number().finite()`, and `hash.ts:11-13` rounds it into `computeContentHash` while `:46` keys
+`computeAtomSetHash` by it — 'The same 5 colors saved from Extract vs Generate hash differently',
+against the server's own documented equivalence relation (`:20-24`: 'position is the atom KEY … a
+re-order does not')*". `PCS-3` — "*`api/src/modules/palette/schema.ts:27-31` is `{css, name?,
+position}` with **no `weight`**; 'zod strips unknown keys, no 400, no log'*".
+
+*Lock carried verbatim (X-W11's, binding on whoever cures).* "**PCS-3 lock (verbatim)**: *'Must not
+be silently absorbed into PCS-3's cure: adding `weight` to the schema without ruling `position`
+compounds the identity ambiguity.'*"
+
+*Anti-double-book, explicit.* `PCS-3` · `PCS-9` · `PCS-11` are **X-W11's banked identities, ids for
+life** (its `:627` roster, its `:732` formation-boundary cell). This row books **no PCS id**. What
+it books is the X-W3-side obligation the handoff creates: **`X.A1..X.A5`'s journey bytes must carry
+the round-trip-identity and cross-producer-hash assertions, or `X-W11 G10` re-runs assertions that
+were never authored** — an L-19 shape (a gate whose witness does not exist).
+
+*Sequencing lock.* `G-7`'s round-0 clauses (payloadHash / release identity / migration, plus `S-6`'s
+fourth `revisionNo` clause) are about **version** identity; the cross-producer atom-set equality is
+a **different predicate on the same file**. **A green `G-7` may not be read as discharging it** —
+hence `N-9` as its own born-RED cell rather than a fifth `G-7` clause.
+
+*Dissent, preserved.* X-W11 grades the contract decision "*server-owned and unnamed in every X file
+list*" and asserts only "*that the release journey can SEE it*"; the cure it books to the formation
+boundary. **This fold does not adopt the cure** — it adopts only the assertion-authoring obligation,
+which is unambiguously X-W3's by that fold's own words and by `W3.md`'s own unit names.
+⟨X-W11-FOLD.md:434 · :448 · :832 · :907 · W11.15⟩ ⟨PaletteColorStrip.md · PCS-3 · PCS-11 — pointed
+at, NOT re-booked⟩
+
+### R1.2 · New born-RED candidates (2) — appended to §Gates B, numbering continues `N-8`, `N-9`
+
+| # | candidate gate | predicate | measured witness (real; corpus-quoted, no product source opened) | falsifier (L-19) | source |
+|---|---|---|---|---|---|
+| **N-8** | **search-predicate parity (client ⇄ api)** | The commons has **one** search predicate, or two that are provable narrowings of each other: client and server agree on trimming, on the field set (`name` vs `name\|slug`), and on the ≥2-character handover — and the handover cannot reduce a non-empty result set to zero. | `useFilteredList.ts:9-11` lowercases and **does NOT trim**; `useBrowsePalettes.ts:43-45` client substring over `name\|slug` + `:44` `\|\| p.slug.includes(q)`; `:57` sends `q` server-side only at `trim().length >= 2`; api `crud-list.ts` `f.$text = { $search: q }` against `db.ts`'s `{ name: "text" }` index — **"not narrowings of each other in either direction"** (the record's own construction). Corroboration only: live commons `o`→3, `oc`→0, `ocean`→1 (⟨BrowsePane.md · U7⟩). | Restore either predicate → typing the second character of a word empties a non-empty wall, and B5's true-empty plate states "the commons is empty" as fact. **RED today on the structural arm alone**; the live counts are MEASURE-AT-OPEN (U7). **Cross-wave: this gate cannot be armed by X-W7 alone (`api/**` banned) nor closed by X-W3 alone (`BrowsePane.vue` is W7's file)** — §CrossEdges §J. | `F-25`, `F-26` |
+| **N-9** | **cross-producer atom-set hash equality + save→reload field conservation** | The same five colours saved from two producers yield the **same** `computeAtomSetHash`, and a save→reload round trip preserves every field the client type declares. | `hash.ts:11-13` rounds `position` into `computeContentHash` while `:46` keys `computeAtomSetHash` by it, against the module's own documented equivalence relation at `:20-24` ("*position is the atom KEY … a re-order does not*"), while `position` ships **two incompatible live encodings** (integer ordinal ×5 sites; normalized fraction at `useExtractSession.ts:87`) that both pass `z.number().finite()`; `schema.ts:27-31` is `{css, name?, position}` with **no `weight`**, "*zod strips unknown keys, no 400, no log*". | Restore either encoding path → "*the same 5 colors saved from Extract vs Generate hash differently*", and an extracted palette silently loses `weight` on save. **RED at HEAD by X-W11's source-certain reading.** `G-7` green does **not** discharge it (`F-27`'s sequencing lock). `PCS-3`'s verbatim lock binds the cure: `weight` may not be added without ruling `position`. | `F-27` |
+
+**Gate arithmetic after §R1:** **19 gates touched** — 10 existing W3 §6 gate IDs sharpened across
+11 table entries (unchanged: `S-1..S-11` plus `G-9` at the §Gates A note), **plus 9 new born-RED
+candidates `N-1..N-9`**. Round-0 read 17 (7 new); the delta is `N-8` + `N-9` and nothing else.
+The §Gates A "*honest negative*" note stands unamended: this corpus still contributes no rows to
+`G-12`, `G-13`, `G-14`, `G-15`, `G-16` or `G-21`.
+
+### R1.3 · BoundsDelta — one new row, appended to §BoundsDelta as `B-9`
+
+| # | file | class | warrant (record's own words) | rows |
+|---|---|---|---|---|
+| **B-9** | `db.ts` — the `{ name: "text" }` index declaration (**exact path MEASURE-AT-OPEN**: the corpus cites the module bare; ⟨AdminTagsPanel.md · K-1⟩ cites `db.ts:98` for the tags unique index, so one module plausibly holds both — **re-resolve before any cure, D-19**) | **B — candidate/contested** | ⟨BrowsePane.md · B2⟩ names the index as one of the two mismatched predicates: "*api `crud-list.ts` `f.$text = { $search: q }` **against `db.ts`'s `{ name: "text" }` index***"; the record banks the seam NO-WAVE-OWNER and the file appears in **no** X wave's bounds (0 of 12). Listing is pressure, not authority. | `F-25`, `F-26`, `N-8` |
+
+**Explicit NOT-ADDs, so the absences read as decisions** (joining the round-0 list):
+`api/src/modules/palette/service/crud-list.ts` — **already** W3 §4 `modify` (0a.7); the gap is scope.
+`api/src/modules/palette/hash.ts` and the two `__tests__` journey specs — **already** W3 §4
+(`:130`, `:139-140`); `F-27` needs no delta, which is exactly why its silence was cheap.
+`demo/palettes/useBrowsePalettes.ts` · `demo/palettes/useFilteredList.ts` · `BrowsePane.vue` — the
+client arms of `F-25`/`F-26`; **X-W7's**, deliberately not proposed here.
+
+**Bounds arithmetic after §R1:** **9 bounds rows (`B-1..B-9`) = 16 distinct file paths** —
+`B-1..B-5` 1 each · `B-6` 3 · `B-7` 5 · `B-8` 2 · `B-9` 1. Both units printed per 0a.6.
+
+### R1.4 · CrossEdges — three appended (§J, §K, §L)
+
+**§J — X-W3 ⇄ X-W7 · the search-predicate seam (the THIRD contested carve, after §A and §B).**
+`F-25`/`F-26`. X-W7 holds `BrowsePane.vue` + the two composables and has already re-homed
+⟨BrowsePane.md · B2⟩ at W7.5; X-W3 holds `crud-list.ts` (§4 `modify`) and is the tranche's sole
+`api/**` owner, while **X-W7's own must-not-touch bans `api/**`**. **Edge law, identical in shape to
+§A:** neither wave reports the search-predicate identity closed alone; `N-8` may not go green over
+the other wave's un-landed half; whichever lands second inherits the seam. ⟨BrowsePane.md · M6⟩ is
+carried here **only** for its api arm and its byte census — X-W7 may fold the row into its own band
+at round 2 without this booking counting as a prior claim.
+
+**§K — X-W3 ⇄ X-W11 · `api/src/modules/palette/schema.ts` is proposed by two folds and owned by
+neither.** This fold's `B-3` proposes it as an X-W3 rider for `F-16`'s `tagsArraySchema` uniqueness
+refine ("*else NO-WAVE-OWNER — the AF-27 precedent*"); `X-W11-FOLD` books ⟨PaletteColorStrip.md ·
+PCS-3 · PCS-9 · PCS-11⟩'s **three server-contract rows to the formation boundary** on the same file
+(`:437`, `:732`). Two folds, one unowned file, **neither naming the other** until now. Escalated to
+the X-W0 sitting as bounds pressure; **this fold elects nothing** and re-books no PCS id. The
+coupling is real and asymmetric: `F-16`'s refine is one line on `tagsArraySchema`, while PCS-3's
+`weight` decision is locked to PCS-11's `position` ruling — landing `B-3` does **not** license
+touching the colour-entry schema.
+
+**§L — X-W0 ⇄ X-W3 · the `scripts/dev/dev.sh` Do-NOT-touch clause, inbound and unbooked until now.**
+`X-W0-FOLD.md:580`: "*X-W0.g → X-W1/X-W2/**X-W3**/X-W7/X-W11 — CC-021 (`scripts/dev/dev.sh`): five
+Do-NOT-touch clauses*". X-W3 is one of the five named waves. Recorded so the clause is legible in
+this fold rather than only in X-W0's; **no row, no bounds delta, no gate** — a prohibition this wave
+inherits and does not contest.
+
+### R1.5 · §C EXTERNAL (I-28 glass 8.0.0) — DECLARED NIL, with the derivation
+
+`ROUND-1-ASSIGNMENTS.md §C` mirrors six `X-EXT-*` rows from ⟨INBOX I-28 · glass v8.0.0 @
+`17a11bc5`⟩ and routes them to **X-W7 · X-W8 · X-W6 · X-W4.g · X-W1 · X-W0**. **None is routed to
+X-W3, and this seat's own re-derivation confirms the nil rather than inheriting it**: X-W3's entire
+surface is `api/**` + `docs/tranches/X/contracts/` + `docs/tranches/V/PALETTE-CONTRACT.md` +
+`e2e/smoke/admin/route-guard.spec.ts`, while all six breaks land on demo SFCs (`X-EXT-1` SearchBar
+import edges incl. `slug/PaletteSlugBar.vue:132`/`:166`; `X-EXT-3` `ComponentSliders.vue:29`;
+`X-EXT-4` the five `--slider-track-bg` binding sites), a `demo/ui` barrel (`X-EXT-2`), an e2e
+**oracle** (`X-EXT-5` `o7-card-census.spec.ts` — X-W1's slate, not X-W3's admin spec), or the repin
+install step itself (`X-EXT-6`). **`externalAdded = 0`, measured, not assumed.** This is the same
+result §CrossEdges §G reaches from the corpus side (D-8 CONFIRMED, zero glass-coupled rows), now
+also confirmed from the mail side — external rows carry **mail provenance, never registry ids**, so
+none is folded into the `F-n` band.
+
+### R1.6 · What round 1 did NOT do (declared silences, so each absence reads as a result)
+
+1. **No row was re-graded, renamed, re-homed or re-numbered.** `F-1..F-24` are byte-untouched except
+   where §0's arithmetic and 0a's corrections restate counts; every banked id is original for life.
+2. **No other wave's roster row was taken.** The census found six identities absent from the whole
+   fold layer that are **not** X-W3's — ⟨AdminTagsPanel.md · ATP-5⟩ · ⟨CurrentPaletteEditor.md ·
+   D4-02⟩ · ⟨PaletteCardMeta.md · PM-1⟩ · ⟨PaletteCardMeta.md · PM-11⟩ · ⟨SearchFilterBar.md ·
+   SFB-16⟩ · ⟨PalettesPane.md · U-11⟩ — all in X-W7's/X-W10's assigned lanes (the first five are on
+   `ROUND-1-ASSIGNMENTS §B`'s X-W7 roster by name). **Named here, folded nowhere here**, so a
+   round-2 check reads the omission as deliberate rather than as a second miss.
+3. **The four api-orphan riders stay riders.** `F-19`/`F-20` (`listFlagged` argument surface,
+   `$slice`), `F-21` (`paletteETag` contract home), `F-22`/`F-23` (the two declinations) are
+   unchanged; §R1 adds no authority they lacked.
+4. **No gate was re-staged or re-weighted**, and W3 §6's hard-gate staging (OC-2) is untouched.
+5. **No product source was opened.** Every `F-25`/`F-26`/`F-27` witness is quoted from
+   ⟨BrowsePane.md⟩, ⟨PaletteColorStrip.md⟩ or ⟨X-W11-FOLD.md⟩; line anchors are those documents'
+   own and **re-resolve before any cure (D-19)**.
 
 ---
 

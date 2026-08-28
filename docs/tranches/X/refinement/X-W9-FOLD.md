@@ -51,6 +51,16 @@ candidates** (§13) and **+11 sharpenings of existing W9 gates** (§13b) and **+
 routing citations; the citation set is enumerated NOWHERE in this file as a list, only as the
 `⟨…⟩` lines the rows carry, so no in-equals-out identity is asserted.
 
+> **ARITHMETIC SUPERSEDED 2026-08-28 (fold round 1, §17) — the paragraph above is the ORIGINAL and
+> stands as the dated record; the TRUE current counts are stated here, never silently swapped.**
+> **46 FOLDED ROWS**, contiguously numbered **W9.1..W9.46**, gapless. Distribution unchanged for
+> W9.1..W9.30; the sixteen round-1 rows form their own declared band — **citation-law closure
+> (`≡`-pointer) ×13 · id-keying of this fold's two id-less citations ×2 · EXTERNAL pointer ×1**.
+> Gates: **13 born-RED candidates** (§13, NG-1..NG-13) · **12 sharpenings** (§13b) · **6 bounds
+> deltas** (§14, unchanged — every round-1 row lands on already-bounded files or books no edit).
+> NO-WAVE-OWNER identities added: **0** — §17's re-run census found every NWO-and-X-W9 row already
+> folded, by enumeration (§17.0). See §17 for the re-run census's own method and receipts.
+
 ### 1a. Corpus challenged — corrections, never silent
 
 1. **The identity-collapse law, applied six times.** Six records book the **manifest dependency
@@ -735,7 +745,7 @@ does not guarantee. W9 is order-independent of X-W2..X-W8 by its own §State, so
 
 ---
 
-## 13. Gates — born-RED candidates (12 NEW), each with a real product witness
+## 13. Gates — born-RED candidates (12 NEW at authoring · **+1 at fold round 1, 2026-08-28 = 13**), each with a real product witness
 
 *L-19 discipline: every row names a **product consumer or a published artifact**; no gate is a
 `scripts/**/proof-*.mjs` (DR-19, structurally honoured — this fold authors none); no gate multiplies
@@ -756,8 +766,9 @@ epistemic status.*
 | **NG-10** | **Descriptor totality over the FULL id domain, incl. `alpha` and `kelvin`** | **RED** — `cp` → `"Ct (tritan)"` (wrong row) · `jz` → bare key · **`kelvin` → bare key** · **`alpha` → bare key in every space**; `ct` passes **only by array order** | `ConsoleRail`'s per-channel tooltip, every space | Restore prefix matching. **Count law**: the space count is re-derived from `ChannelsBySpace` at open — G32's "17" and the record's "18" are **both** carried, **neither adopted** | W9.20 |
 | **NG-11** | **Consumption census published beside coverage-by-export** | **RED** — no coverage config exists at all; consumption re-counted exactly: /color **23** · /css **9** · /quantize **3** · **/value 0 · /transform 0** | The published `coverage-by-export.md` artefact (§Verification Artefacts) | Publish a coverage ratio without the consumption census beside it; a 100% figure over a zero-consumer subpath reads as health | W9.15 |
 | **NG-12** | **The root `.` ruling is written, and the citing comment is corrected in the same act** | **RED** — no `"."` key, no root d.ts, `ERR_PACKAGE_PATH_NOT_EXPORTED`; `demo/shared/utils.ts:16` cites the nonexistent export as its fork's justification | `demo/shared/utils.ts`'s debounce fork | Rule the question and leave the comment (a false citation survives its own ruling), or correct the comment before the ruling exists | W9.10 |
+| **NG-13** *(round 1, §17)* | **`package.json` has ONE writer across the 4.1.0 cut and the glass-8.0.0 repin — the manifest edit is one ordered act, and the repin's peer requirement is named in it** | **RED — two witnesses, statuses carried unupgraded.** (i) Corpus-measured, six records: `dependencies` = **exactly** `{glass-ui ^7.0.0, keyframes.js ^6.0.0}` — `vue-component-type-helpers` appears **nowhere** in the manifest (W9.16's own quoted census). (ii) **ADOPTED, NOT RE-RUN BY THIS SEAT**: the spine's in-tree re-measurement 2026-08-28 — glass **8.0.0** requires peer `vue-component-type-helpers ^3.0.3` at adopt | Every installer at the repin, and `package.json` itself — the **only shipped defect in this corpus** (PS-13) is already in that file | Land the 4.1.0 cut's manifest edit and the repin's peer install as two unordered writes to one file (the second silently reverts or re-mints the first), **or** name neither wave the writer. **G29 is green either way today** — it reads a dated cut, not a write-order | W9.46 |
 
-### 13b. Existing W9 gates these rows SHARPEN (11 — no gate is re-staged, re-weighted or composited)
+### 13b. Existing W9 gates these rows SHARPEN (12 — no gate is re-staged, re-weighted or composited)
 
 | Gate | Sharpening | Row |
 |---|---|---|
@@ -772,6 +783,7 @@ epistemic status.*
 | **G25** | Fence scope clarified: it covers `bezierPresets`' 30 **keys** and the 40-name catalog — new **function** exports (`serializeTimingFunction`, `easingPathD`) are not fence breaches. Say so at open | W9.7 |
 | **G31** | Gains the **reclassification** leg (NG-9); today it reads the same map and asserts only the parse-that absence | W9.16 |
 | **G32** | Failing set widened from `{cp, jz}` to the full domain incl. `alpha` (every space) and `kelvin`; `ct` recorded as passing by array order; space count re-derived at open | W9.20 |
+| **G29** *(round 1)* | The "one dated cut" gains a **write-order** leg (NG-13): `package.json` is touched by BOTH X-W9.f's 4.1.0 cut and X-W0.j's glass-8 repin (peer install). G29 measures the cut, not the ordering; the ordering must be written at open or one write silently eats the other | W9.46 |
 
 **Denominator note (L-19).** Every count above names a product consumer or a published artifact. No
 row multiplies audit categories. Two gates carry explicit self-retirement conditions rather than
@@ -829,6 +841,7 @@ explicitly or degrade to NO-WAVE-OWNER."* This binds **W9.16** (devDependencies 
 | **SS-6 / the batched BJ letter ↔ X-W9.i** | `COHESION.md` §4a already holds **SC-5 ≡ EB-5**. Two channels for one identity is the re-book shape the anti-rename law forbids; **G33 counts five packets** so a row leaving by SS-6 may not also be W9.i content | W9.21 |
 | **`library-band.md` (the wave's audit input)** | **Already folded whole into the dated spec (CC-091, W.L1..W.L7 → X-W9.a..i); this addendum does NOT re-fold it.** Two dated corrections recorded against it: RD-6's hex census **2 → 4/5**, and RD-3's `_2` unit semantics pinned so the records' "25 lines" is not read as a competing count. Its §6 DISSENT register stands verbatim and untouched | §1a n.4 |
 | **`parser-band.md`** | cand-O/cand-F measured **0 spurious accepts over the 172-input R1 corpus**. **That corpus is NOT W9.2's 7-vector mirror corpus**, and **no claim is made here that either prototype closes W9.2** — the R1 totality result and the mirror-accept family are different measurements. Parser adoption is out of scope by `X-W9.g`'s own words (*"This wave does not adopt a parser"*) | W9.2 |
+| **X-W0.j ↔ X-W9.f — TWO WAVES, ONE `package.json`** *(round 1, EXTERNAL)* | The glass-8.0.0 repin (I-28) installs peer `vue-component-type-helpers ^3.0.3` **into the same manifest** X-W9.f rewrites at the 4.1.0 cut. **Neither W0.md nor W9.md declares this edge**, and X-W9.f's own sole-writer clause covers `eslint.config.js`, not `package.json`. Ownership of ⟨INBOX I-28 · X-EXT-6⟩ is **UNCHANGED at X-W0** — this is a pointer, not a re-booking | W9.46 |
 
 ---
 
@@ -859,3 +872,301 @@ instruction this fold obeyed at §1a n.2 · PS-13/PS-14's named-gap degradation 
 only mechanism in the whole corpus that makes an unadopted ask **fail loudly** instead of vanishing.
 The two units that book **zero** rows (§3 `.b`, §8 `.g`) say so in the open, with the
 cross-corroborating measurement (`/transform` consumption = 0) beside them.
+
+> **DATED POINTER, appended 2026-08-28 (fold round 1) — the closing above is the ORIGINAL and stands
+> byte-true as the dated word; §17 is the later adjudicated word.** Two counts in it have moved and
+> are corrected there, never here: **§13 now carries THIRTEEN** born-RED candidates (NG-13, the
+> `package.json` write-order gate) and this file now carries **46 rows**, W9.1..W9.46. Everything
+> else in the closing — the six named-gap asks, the three X-W0 rulings, the two `rulings owed, not
+> edits available` bounds deltas, `Status: planned`, and the begin-word gate — is **unchanged by
+> §17**, which booked no new work.
+
+---
+
+## 17. ROUND-1 REPAIR — the re-run id-keyed census and its sixteen closure rows (2026-08-28)
+
+*Authority: `refinement/ROUND-1-ASSIGNMENTS.md` (spine work order) + `PASS-1-CHECK-RETURN.json`.
+Posture unchanged: **E-3** (this file is still the fold's sole write; `waves/W9.md` and
+`CONFORMANCE-2026-08-03.md` stay byte-untouched), **status `planned`**, **no product source opened**
+— §17's two instruments were a byte census of `registry/adjudicated/*.md` and a boundary-match census
+of this file's own bytes. Every disposition below is **ADJUDICATED, never stronger**; every carried
+epistemic status travels unupgraded.*
+
+### 17.0 The re-run census — method, receipts, and what it found
+
+**Roster floor = zero, and that is the point.** `ROUND-1-ASSIGNMENTS.md` §D tabulates eight seats
+(X-W0 · X-W1 · X-W4 · X-W5 · X-W6 · X-W7 · X-W8 · X-W10). **X-W9 appears in no §D row, no §A group,
+no §B group and no §C row** — the spine assigned this seat **0 NWO rows, 0 census-escape rows, 0
+EXTERNAL rows**. Under the standing instruction *the assignment roster is a floor, not a ceiling*,
+this seat re-ran its own census from the corpus rather than reading a zero as a closure. All sixteen
+rows below are ceiling work: **not one was on the roster.**
+
+**Method (falsifiable, re-runnable).** Corpus = the **92** non-`kf-*`/`fr-*`/`pt-*` `*.md` at
+`docs/tranches/V/megatranche/registry/adjudicated/` (non-recursive) — the same 92 §1 swept.
+Token forms searched: `X-W9` · `X·W9` · `X.W9` · `X‑W9`/`X–W9`/`X—W9` (U+2010..U+2015) — i.e. hyphen,
+en-dash, middle-dot and dotted. **Measured: `X[^A-Za-z0-9]{0,3}W9` yields exactly ONE surface form in
+this corpus — `X-W9`, 120 occurrences.** No dotted, en-dash or middle-dot form exists; recorded so a
+later checker reads an executed sweep of the variants, not an assumption. A row = a bold-leading id
+line (`- **ID` / `| **ID`). Presence test = boundary match (`(?<![A-Za-z0-9-])id(?![A-Za-z0-9-])`) —
+zero-padded and case-distinct ids are their own identity.
+
+**Receipt 1 — the file set does not drift.** The 120 tokens sit in **exactly 28 files**, and that set
+is **identical** to §1's sweep. No record entered or left the routing set between the fold and this
+repair.
+
+**Receipt 2 — the 120 tokens decompose exactly.** **73** land on **row lines** (the check's own
+census grain). **47** land on non-row lines and are classified here rather than assumed:
+**28** routing-preamble / §Verdict paragraphs (a record's own X-map sentence — *"X-W9 = library
+apotheosis"*, *"X-W9 = parser + library apotheosis"* — or its closing verdict prose; not rows) ·
+**1** section header (`EmptyState.md:95` `## GLASS-RELAY … rides X-W9.i's existing glass-ui packet`,
+whose section contains **exactly three** items — ES-30 · ES-15 · ES-5 — **all three already folded at
+W9.21**; the only GLASS-RELAY header in the corpus that names X-W9, verified against the one other
+relay header, `ActionFeedback.md`, which does not) · **3** numbered superlative / cross-booking items
+(⟨ColorNutritionLabel · superlative 5⟩ *"the convention must move into the types (X-W9), not the
+discipline"* → W9.3 · ⟨picker-componentsliders-consolerail · item 6⟩ the CC-081∩CC-068 cross-booking
+→ W9.20 · ⟨wb-gradient-easingspecimenstrip · item 3⟩ *"which is why retirement-or-move, not adoption,
+is the X-W9 cure"* → W9.7) · **15** in-block carried-route or narrative sentences (the sharpest:
+`wb-gradient-visualizer.md:54`'s carried-rows paragraph, whose X-W9 limb is **GV-12** — folded at
+W9.7; and `shell-dock-parseechoreadout.md:14/:26`, whose X-W9 limb is the **R-2** identity — folded at
+W9.3). **28 + 1 + 3 + 15 = 47. 73 + 47 = 120.**
+
+**Receipt 3 — every one of the 73 row identities was already banked.** Zero escaped rows at row
+grain. Under the **fold citation law ⟨record.md · id⟩**, 72 of the 73 carried a provenance-line
+citation *under their own record*; **one did not** — ⟨wb-gradient-easingeditor.md · K-11⟩, cited in
+W9.16's body (*"Kill preserved (K-11)"*) but absent from every `⟨…⟩` line. Cured at **W9.43**.
+
+**Receipt 4 — the NWO axis closed by enumeration, not by assertion.** Corpus rows carrying **both**
+`NO-WAVE-OWNER` and `X-W9` on the row line = **14**, and all fourteen were already folded:
+(1) ⟨ColorNutritionLabel · CNL-4⟩→W9.6 · (2) ⟨ErrorBoundary · EB-15⟩→W9.19 ·
+(3) ⟨ErrorBoundary · EB-33⟩→W9.19 · (4) ⟨EmptyState · ES-18⟩→W9.19 ·
+(5) ⟨PreviewStrip · PS-13⟩→W9.16 · (6) ⟨PreviewStrip · PS-14⟩→W9.11 ·
+(7) ⟨PreviewStrip · PS-16⟩→W9.26 · (8) ⟨wb-gradient-visualizer · GV-1⟩→W9.27 ·
+(9) ⟨wb-gradient-visualizer · GV-50⟩→W9.13 · (10) ⟨wb-gradient-visualizer · GV-51⟩→W9.7 ·
+(11) ⟨wb-generate-pane · GEN-39⟩→W9.14 · (12) ⟨wb-gradient-easingspecimenstrip · R4-1 grade⟩→W9.7 ·
+(13) ⟨wb-gradient-easingspecimenstrip · R4-1/GV-12⟩→W9.7 ·
+(14) ⟨wb-mix-pane · F-4/D-2(L)/E-5⟩→W9.8. **NWO identities added by this
+repair: 0.** Recorded as an executed sweep so a round-2 check reads a count, not a silence.
+
+**Receipt 5 — what the stricter pair law DID find (the thirteen).** Applying ⟨record.md · id⟩ rather
+than bare-id bytes, **13 identities** carried by already-folded rows boundary-match **nowhere** in
+this file: they are **prior ids** of routed rows (anti-rename: *banked ids are the original id for
+life*, so a prior id is a citable identity, not decoration) and **limbs the routed row names as
+travelling with it**. Each is cured below with an explicit **`≡`-pointer row — never a silent skip**,
+per the consumption rule, so the byte census closes **without a second booking**. Two further holes
+are this fold's **own**: W9.21 cites two records **descriptively, with no ids at all** (*"two glass
+asks"*, *"five producer rows"*), which no id-keyed census can ever close. Cured at W9.44/W9.45.
+
+**Scope discipline, stated so the ceiling is not a licence.** Cross-references from a routed row to a
+**non-routed sibling** were swept and **deliberately NOT booked** — booking them would manufacture
+X-W9 rows the corpus never routed here. The nine identified and declined:
+(a) ⟨CurrentPaletteEditor · C4-4⟩ · (b) ⟨PreviewStrip · L2-7⟩ · (c) ⟨wb-generate-pane · GEN-9⟩ ·
+(d) ⟨wb-gradient-codeeditor · A-8 / A-14 / L-16 / S-2⟩ ·
+(e) ⟨ErrorBoundary · ES-6 (EmptyState-adj) / U-1⟩ ·
+(f) ⟨SearchFilterBar · SFB-11⟩ (X-W7's cure id). Named here so a round-2 check reads a ruling.
+
+---
+
+### 17.a Citation-law closure — 13 `≡`-pointer rows (W9.31..W9.46 band, part 1)
+
+*No row below books new work, moves a disposition, or earns a gate. Each names an identity that is
+already folded, cites it by its original id, and exists so the ⟨record.md · id⟩ census closes.*
+
+**W9.31 · `≡` W9.5 — ⟨ColorNutritionLabel.md · L-3 / L-3.4⟩, CNL-13's prior ids** (cl.4 · pointer)
+CNL-13 is banked whole at W9.5 (*"five declarations of 'the channels of a space', no owner; two
+contradict on one page"*). Its prior ids are **L-3 / L-3.4** and neither was citable here.
+**Namespace guard**: the single `L-3` byte this file carried belongs to ⟨picker-componentsliders ·
+L-3⟩ (the artifact-skew limb, W9.4) — a **different identity**. `L-3.4` existed nowhere.
+⟨ColorNutritionLabel.md · L-3 + L-3.4 (≡ CNL-13 → W9.5)⟩
+
+**W9.32 · `≡` W9.5 — ⟨ColorNutritionLabel.md · L-5⟩, CNL-14's prior id** (cl.4 · pointer)
+CNL-14 (*"the display-scale predicate copy-pasted five times"*, exactly 5 sites) is folded at W9.5
+with its cure-shape verbatim (*"the predicate is a schema fact (`ChannelMeta` should carry it);
+**consumer dedup follows the schema, not the reverse**"*). Its prior id **L-5** was uncitable.
+⟨ColorNutritionLabel.md · L-5 (≡ CNL-14 → W9.5)⟩
+
+**W9.33 · `≡` W9.7 — ⟨wb-gradient-easingauthoringstage.md · L-4⟩, EAS-17's prior id** (cl.4 · pointer)
+EAS-17 — *"four mints of the CSS timing literal; the library's own is an orphan"*, byte-identity
+across a package boundary *"maintained by prose"* and **load-bearing for identity** at
+`easingCatalogue.ts:220` — is folded at W9.7 and carries NG-5's real witness. Prior id **L-4**.
+⟨wb-gradient-easingauthoringstage.md · L-4 (≡ EAS-17 → W9.7 / NG-5)⟩
+
+**W9.34 · `≡` W9.7 + W9.21 — ⟨wb-gradient-easingauthoringstage.md · L-6⟩, EAS-19's prior id**
+(cl.4 · pointer) EAS-19 (*"three cross-repo implementations of easing→SVG-path"*, disposition
+*"X-W9 (`easingPathD` on `/easing` per W9's export band) + GLASS-RELAY adoption note"*) is folded
+**twice by design** — the export limb at W9.7, the relay limb at W9.21. Prior id **L-6, REINSTATED**
+(the record's own word, carried).
+⟨wb-gradient-easingauthoringstage.md · L-6 (≡ EAS-19 → W9.7 export limb + W9.21 relay limb)⟩
+
+**W9.35 · `≡` W9.7 — ⟨wb-gradient-easingauthoringstage.md · N-6 + L-11 + reader-LC MISSED-1⟩,
+EAS-20's prior ids** (cl.4 · pointer) EAS-20 — `/css` vs `/easing` **disagree by type** on a linear
+stop, and the 25-line bridge is *"statically dead"* — is folded at W9.7 with its cure caveat verbatim
+(*"a deletion **plus a NEW library surface for an algorithm with zero live coverage**"*). The record
+merges three ids into **one surface** (its own word) and none was citable here.
+**Namespace guard**: this file's `L-11` byte is ⟨ColorNutritionLabel · L-11⟩ (CNL-4's root, W9.6) —
+a different identity.
+⟨wb-gradient-easingauthoringstage.md · N-6 + L-11 + reader-LC MISSED-1 (merged, ≡ EAS-20 → W9.7)⟩
+
+**W9.36 · `≡` W9.28 — ⟨SearchFilterBar.md · LP5-2 + LP5-4 + P4-3 + K-5⟩, SFB-34's prior ids and its
+carried kill** (cl.4 · pointer) SFB-34 is folded at W9.28 (the *"X-W9's consumer sweep"* vacuum) and
+at W9.21 (the `menuRowClass` relay ask). This file cited only `LP5-3-as-split`. The row's full
+identity is *"LP5-3-as-split per RULED #3 + LP5-2/LP5-4 + P4-3's fact per RULED #1"*, and it carries
+a kill: *"the focus-leg and its cure are **DEAD (K-5)**"* — carried, not re-litigated. Its cure id
+**SFB-11** is **X-W7's**, declined here per §17.0's scope discipline.
+⟨SearchFilterBar.md · LP5-2 + LP5-4 + P4-3 + K-5 (≡ SFB-34 → W9.28 / W9.21)⟩
+
+**W9.37 · `≡` W9.7 — ⟨wb-gradient-visualizer.md · L-3 (r1) + L4-1⟩, GV-51's prior id and its
+corrector** (cl.4 · pointer) GV-51 (*"the `/css` ↔ `/easing` seam is missing both round-trip halves,
+and this tree owns both re-implementations"*) is folded at W9.7. Its prior id is **r1 L-3**, and
+**L4-1 is the id of the correction that makes the row true as folded**, verbatim: *"Corrected by
+L4-1: `/math` **DOES** ship a bezier serializer — **the wrong one** (GV-12)."* Without L4-1 the row
+reads as an absence; with it, as a wrong-implementation — the distinction NG-5's falsifier rests on.
+**Namespace guard**: ⟨wb-gradient-visualizer · L-3⟩ ≠ ⟨picker-componentsliders · L-3⟩ ≠
+the ⟨ColorNutritionLabel · L-3⟩ of W9.31 — three records, one bare id, three identities.
+⟨wb-gradient-visualizer.md · L-3 (r1) + L4-1 (≡ GV-51 → W9.7 / NG-5)⟩
+
+**W9.38 · `≡` W9.7 — ⟨wb-gradient-easingspecimenstrip.md · N-11⟩, the limb that travels with
+R4-1/GV-12** (cl.4 · pointer) The routed row reads, verbatim and in full: *"**R4-1 / GV-12 — MINOR
+(ruled above) → X-W9 coordination else NO-WAVE-OWNER, per GV-12's standing booking; the
+barrel-contract limb (N-11) travels with it.**"* **N-11 is therefore X-W9-routed by the row's own
+words**, and it is the identity behind W9.7's `/math`-barrel-docstring finding (*"parse-that-FREE …
+zero CSS grammar"* violated by a `cubic-bezier(…)` emitter). It was uncitable.
+⟨wb-gradient-easingspecimenstrip.md · N-11 (travels with R4-1/GV-12 → W9.7)⟩
+
+**W9.39 · `≡` W9.21 — ⟨ErrorBoundary.md · D2-1 ≡ C-6⟩, EB-5's prior identity chain**
+(cl.4 · pointer) EB-5 (the plate/material-tier ask, whose *"cure's export premise is TRUE:
+`./surface` and `./card` ARE among the 74"*) rides W9.21's glass packet. Its identity chain is
+*"D2-1 structural half ≡ C-6"* with the record's own epistemic split carried verbatim: *"both readers
+CONFIRMED the structure, **magnitudes live-only**"* — the magnitudes are **not** upgraded here.
+⟨ErrorBoundary.md · D2-1 + C-6 (≡ EB-5 → W9.21; magnitudes live-only, carried)⟩
+
+**W9.40 · `≡` W9.21 — ⟨ErrorBoundary.md · D2-8 ≡ V-5 ≡ L2-5 ≡ L-2⟩, EB-9's prior identity chain**
+(cl.4 · pointer) EB-9 — the `./alert` subpath ask (*"glass-ui ships `Alert`/`AlertTitle`/
+`AlertDescription` **from the root barrel only** — no `./alert` among its 74 exports"*) — rides
+W9.21. Its four-way identity chain was uncitable. **Cross-book preserved, not collapsed**: the row's
+own clause *"ONE identity with EmptyState-adj **ES-6** — cross-booked, never re-minted"* is recorded;
+EB-9's component half is **X-W7's**, and only the producer ask is W9.21 content.
+⟨ErrorBoundary.md · D2-8 + V-5 + L2-5 + L-2 (≡ EB-9 → W9.21 producer-ask limb; component half X-W7; ES-6 cross-book recorded)⟩
+
+**W9.41 · `≡` W9.19 — the standing register's NAME, uncarried until now: the `W-HYGIENE`
+config-parity row at ErrorBoundary and EmptyState** (cl.2 · pointer with a naming lock)
+W9.19 folds the config-parity dissent under its banked identity (**≡ ColorSpaceSelector L-14**), but
+**two of its own witnesses name the register itself** and this file never carried the name:
+EB-15 — *"→ **ONE identity with the standing W-HYGIENE config-parity row** (ColorSpaceSelector-adj
+L-14; EmptyState-adj ES-18) — cross-booked, never re-minted"*; ES-18 — *"ONE identity with the
+standing **W-HYGIENE config-parity row** (ColorSpaceSelector-adj L-14, born-RED generator-parity
+command; **cross-booked again at Markdown-adj L-1**)"*. **NAMING LOCK**: `W-HYGIENE` is the register's
+banked name; a seat that mints a second name for this identity breaches the anti-rename law. The
+third cross-booking site (**Markdown-adj L-1**) is recorded so W9.19's witness count is complete.
+**No disposition moves**: the dissent (PC-17 → X-W9 vs three NO-WAVE-OWNER bookings) stands
+unresolved and §14 delta 5 stands contested.
+⟨ErrorBoundary.md · W-HYGIENE (EB-15) · EmptyState.md · W-HYGIENE + Markdown-adj L-1 (ES-18) — ≡ W9.19, one identity ≡ ColorSpaceSelector L-14, never re-minted⟩
+
+**W9.42 · `≡` W9.8 + W9.1 — ⟨wb-mix-pane.md · MX-15 + MX-4⟩, the banked throw-site carriers**
+(cl.4 · pointer) W9.8 folds F-4/D-2(L)/E-5 (the `Result`-consumption dissent) and W9.1 folds R-MP12
+(the R1 throw class). **Both rows delegate their concrete throw sites to two banked ids this file
+never carried**: F-4 — *"two on this pane's own chain (**banked MX-15/MX-4 carry the throw sites**)"*;
+R-MP12 — *"throwing chain source-certain (**MX-4**/parser R1, X-W9)"*. Without them the two folded
+rows cite a mechanism whose evidence lives at an uncited identity.
+⟨wb-mix-pane.md · MX-15 + MX-4 (throw-site carriers for F-4 → W9.8 and R-MP12 → W9.1)⟩
+
+**W9.43 · `≡` W9.16 — ⟨wb-gradient-easingeditor.md · K-11⟩, promoted from body to provenance**
+(cl.4 · citation-law cure) The **only** row-line X-W9 identity in the whole 73 that this file cited
+in prose but not in a `⟨…⟩` line. W9.16 carries it correctly as substance — *"**Kill preserved
+(K-11)**: the r1 framing *'the published library runtime-depends on its demo's design system'* is
+**KILLED as stated** — *'r1's wording must not reach a ledger row'*"* — and the kill is load-bearing:
+it is why **only the manifest-form row** is booked at W9.16 and NG-9. Promoted here so the pair
+census closes.
+⟨wb-gradient-easingeditor.md · K-11 (≡ the kill inside W9.16 / NG-9; L-r1:L-1 as stated, KILL SUSTAINED)⟩
+
+---
+
+### 17.b Id-keying this fold's own two id-less citations (W9.44 · W9.45)
+
+*W9.21's provenance line cites two records **by description, with no ids** — the one shape an
+id-keyed census can never close. Corrected here; W9.21's substance is unchanged and its bookings do
+not move.*
+
+**W9.44 · W9.21 CORRECTION — ⟨wb-gradient-easingeditor.md · "two glass asks"⟩ resolves to
+D2-04 + D3-06/OM-13** (cl.1 · citation correction)
+The record's own verdict routes *"**two glass asks** ride the BH relay (preset-rail suppression;
+Input trailing slot)"*. Resolved id-for-id against its roster:
+- **preset-rail suppression = ⟨D2-04 / L-r3:L-3⟩** — *"`EasingPicker` publishes **NO prop to suppress
+  its preset Select** (my d.ts read: exactly 7 props); the producer's own 30-option menu renders under
+  the 27-tile strip, and **by the C2-2 identity the two surfaces DISAGREE by six entries**."* Producer
+  ask: *"a `presets`/rail-suppression axis; consumer half: adopt it when it lands"* → **X-W6**.
+- **Input trailing slot = ⟨D3-06 / OM-13⟩** — *"Producer half verified by ME: `Input.vue.d.ts`
+  declares **zero slots** — no trailing-adornment seat exists; the ask is a genuine producer gap."*
+  Consumer half → **X-W6**; ΔL magnitudes stay **U-1** (live-only, carried unupgraded).
+**Both are GLASS-OWNED producer asks riding the standing BH relay** — W9.21's packet body, not W9
+source work. The consumer halves are **X-W6's** and are not folded here.
+⟨wb-gradient-easingeditor.md · D2-04 (L-r3:L-3) + D3-06 (OM-13) — the two glass asks, id-keyed; ≡ W9.21⟩
+
+**W9.45 · W9.21 CORRECTION — ⟨wb-gradient-easingspecimenstrip.md · "five producer rows"⟩ resolves to
+five ids, and the census moves UPWARD to six** (cl.1 · citation correction with a dated census
+correction) The record's verdict routes *"**five producer rows** ride the standing glass-ui BH relay
+(M3 · chip-rung · `:presets` door · fade/`scrollToActive` · easing constants), banked per
+**MT-F014/MT-F026**"*. Resolved descriptor→id:
+- **M3 = ⟨C-03 / L-5 / M3⟩** — *"`dist/styles/glass/glass-chip.css` ships and **NOTHING imports it**
+  … seven registers unreachable on every consumer"*; → **GLASS-OWNED, NO local patch — MT-F014**.
+- **chip-rung = ⟨C-10 / D-20 / L-6⟩** — *"no producer SIZE rung reaches specimen scale"*; → glass rung
+  ask (BH) + X-W6 ◆ consumer half. **MINOR, LC's grade; first-seal MAJOR demoted** — carried.
+- **`:presets` door = ⟨D-29⟩** — *"**no `presets` prop exists** (d.ts read); … The two surfaces are
+  **structurally guaranteed to disagree**."* Same producer axis as W9.44's D2-04, filed at two seats.
+- **fade/`scrollToActive` = ⟨N-3⟩** — the reveal parks the selected tile under the producer's fade
+  feather; **the inertness caveat is REFUTED** by the record's own dist read (*"a **JS fallback** …
+  so the 16px feather paints in EVERY engine"*). Fraction stays **U-6** (live-only, carried).
+- **easing constants = ⟨L3-7⟩** — *"Glass's easing defaults are modelled as constants … and **hidden
+  from the published barrel**, so the demo restates them by hand."*
+**DATED CENSUS CORRECTION (never silent).** The record's headline elects **five**; its roster carries
+a **sixth** producer row on the same relay by its own words — ⟨**M-ESS-6**⟩, *"producer sticky-hover
+geometry: `.glass-capsule-hover:hover { scale: 1.015 }` unguarded … **MINOR → GLASS-OWNED (bank
+alongside MT-F026, BH relay)**"* — which is precisely the `MT-F026` half of the verdict's own
+"banked per MT-F014/MT-F026" clause. **Both figures are stated, neither is silently elected**: the
+record says five, the roster measures six. **No disposition moves** — all six were already inside
+W9.21's packet body as producer content; only the count and the ids are corrected.
+⟨wb-gradient-easingspecimenstrip.md · C-03/L-5/M3 + C-10/D-20/L-6 + D-29 + N-3 + L3-7 (the five, id-keyed) + M-ESS-6 (the stated sixth, MT-F026) — ≡ W9.21⟩
+
+---
+
+### 17.c EXTERNAL — the one I-28 row that lands on this wave's file (W9.46)
+
+*Provenance is **EXTERNAL, mail-sourced**, not a registry id: `docs/tranches/V/coordination/INBOX.md`
+row **I-28** (glass v8.0.0 @ `17a11bc5`; letter + §5 addendum 08-25; ROWED 08-28), mirrored through
+`ROUND-1-ASSIGNMENTS.md` §C. Cited as ⟨INBOX I-28 · X-EXT-n⟩.*
+
+**W9.46 · ⟨INBOX I-28 · X-EXT-6⟩ — TWO WAVES WRITE ONE `package.json`, AND NO FILE SAYS IN WHICH
+ORDER** (cl.2 · EXTERNAL pointer · **ownership UNCHANGED at X-W0**)
+X-EXT-6, verbatim: *"peer `vue-component-type-helpers ^3.0.3` required at adopt"* → **X-W0**
+(*"X-W0.j — the repin act's own install step; the census's PASS branch is unexecutable without it"*).
+**This is a pointer, NOT a re-booking**: the row stays X-W0's, and this seat does not adopt it.
+**Why it is folded here anyway.** X-W0.j's install step edits **`package.json`** — the same manifest
+**X-W9.f rewrites at the 4.1.0 cut** (W9.16's devDependencies reclassification; G29's *one dated
+cut*; G31's dependency-map read). `package.json` is in X-W9's §File Bounds; X-W9.f's **sole-writer**
+clause covers `eslint.config.js`, **not** the manifest; and **neither `W0.md` nor `W9.md` declares
+the edge** (§15). Two unordered writes to one manifest is the shape where the second silently reverts
+or re-mints the first — and W9.16's own finding is that *"the already-public 4.0.0 manifest is **the
+only shipped defect in this corpus**"* (PS-13), so this is the one file in the wave where a lost
+write is a shipped regression.
+**Epistemic status carried, NOT upgraded**: the peer requirement is the **spine's** in-tree
+re-measurement of 2026-08-28, **adopted, not re-run by this seat** — recorded in exactly the idiom
+W9.18 uses for PS-26. The corpus-side half (that `vue-component-type-helpers` is absent from today's
+manifest) is measured, six times over, inside W9.16's own quoted census.
+*Gate*: **NG-13** (§13) — born-RED on the two witnesses above, falsified by two unordered writes.
+*CrossEdge*: **X-W0.j ↔ X-W9.f**, §15, added by this repair.
+⟨INBOX I-28 · X-EXT-6 (EXTERNAL, mail provenance; ownership X-W0, pointer only) — collides with W9.16 / G29 / G31 on `package.json`⟩
+
+---
+
+### 17.d What §17 did NOT do
+
+- **Booked nothing new.** Thirteen `≡`-pointers, two citation corrections, one EXTERNAL pointer.
+  **Zero dispositions moved**, zero NO-WAVE-OWNER identities added, zero rows re-homed, zero
+  paraphrases substituted for a carried lock. Every dissent (W9.8 · W9.19 · W9.20's cross-book) stays
+  open exactly as it stood, and §14's six bounds deltas are **unchanged** — every round-1 row lands
+  on an already-bounded file or books no edit at all.
+- **Stamped nothing.** `waves/W9.md` §State stays `Status: planned`; no gate goes GREEN or RED by this
+  section; **NG-13 is born-RED as a candidate, exactly like NG-1..NG-12**, and nothing opens product
+  source until the owner's begin-word.
+- **Upgraded nothing.** Every quoted status travels as its record wrote it: EB-5's magnitudes
+  **live-only**; N-3's fraction **U-6**; D3-06's ΔL **U-1**; X-EXT-6's peer requirement **adopted, not
+  re-run**; the C-10/D-20/L-6 grade **MINOR, first-seal MAJOR demoted**.

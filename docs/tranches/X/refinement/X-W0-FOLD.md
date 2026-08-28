@@ -38,6 +38,20 @@ silences**. The IN side is a receipt, not arithmetic: 7 records read whole + 4 r
 wave specs + 3 ledgers; the input set is enumerated nowhere in this file as a row list, so **no
 in-equals-out identity is asserted**.
 
+**Arithmetic — SUPERSEDED 2026-08-28 by the round-1 repair (§6.8). Dated, never silent.** The
+paragraph above is the **round-0** count and its bytes stand as the record of what this fold held at
+authoring. The **current true counts** are **28 rows (W0.1–W0.28, gapless) · 11 gate candidates
+(7 SHARPEN · 4 NEW) · 10 BoundsDelta entries · 25 cross-edges · 5 declared silences**, with **37
+identities newly carried id-for-id** (32 NO-WAVE-OWNER-marked + 5 boundary-by-disposition) and **1
+EXTERNAL row** (⟨INBOX I-28 · X-EXT-6⟩). §6.8 is the authoritative arithmetic block from this date
+forward; §6 is the authoritative row band for W0.21–W0.28.
+
+**Byte-visibility caveat on the dedupe register below (cured at W0.28).** The bold-split idiom used
+in this §0 block and in §1 (`EC-**2**`, `MX-**1**`, `ES-**18**`, …) writes ids whose **literal bytes
+are not the id**, so 23 of them are invisible to a byte census and 7 escape the entire fold layer.
+They are restored in plain bytes at **W0.28** as `≡`-pointer rows — no re-booking, no new count. Ids
+are original for life; no id in §6 is bold-split.
+
 **Dedupe register (M-25, banked identity, anti-rename — ids are original for life).** Merged once,
 counted once, never re-booked:
 - **glass-7 `tag=` / no-slot residue**: CPE **A-1**'s L-12 census (6 `tag="button"` · 18 `tag="div"`)
@@ -620,4 +634,498 @@ rests on … a producer trigger no unit is charged with evaluating."* The packet
 mirror image — the trigger now has a unit, and **the FAIL branch it is overwhelmingly likely to
 return has no register to fall into**.
 
-— end of addendum. The dated wave specs and every adjudicated record remain byte-untouched (E-3/E-1).
+— end of round-0 addendum. The dated wave specs and every adjudicated record remain byte-untouched
+(E-3/E-1).
+
+**§5 is SUPERSEDED for arithmetic only, 2026-08-28 (fold round 1).** Its bytes stand as the round-0
+close. Current counts: rows **28** · gates **11** (7 sharpen · 4 new) · bounds deltas **10** ·
+cross-edges **25** · declared silences **5** — see **§6.8**. Status is still **planned**; the
+round-1 repair opened no product source, no §1.M bank row, and no part of the atomic cut.
+
+---
+
+## 6. §ROUND-1 REPAIR ADDENDUM — X·V fold round 1, FOLD REPAIR SEAT · dated 2026-08-28
+
+SERVED MODEL ID (repair seat, declared not inherited): `claude-opus-5[1m]`.
+
+### 6.0 Posture, laws, and what this section is
+
+**What it is.** The X-W0 seat's round-1 repair, written against three inputs: (1)
+`refinement/ROUND-1-ASSIGNMENTS.md` — this seat's work order (§A one NWO row · §B zero census rows ·
+§C one EXTERNAL row); (2) `refinement/PASS-1-CHECK-RETURN.json` — the pass-1 register, whose eight
+defects name **no** defect against this fold file (the BLOCKER's per-record escape table contains no
+X-W0-owned identity, and §0's own arithmetic/gapless-numbering axes are listed among the check's
+verified HOLDINGS); (3) this seat's **own id-keyed census, re-run fresh today** over the 92-record
+corpus — the roster is a floor, not a ceiling, and the fresh run found **seven** row-classes the
+work order does not list.
+
+**Laws honoured, stated so they are checkable.**
+- **Banked ids for life** (anti-rename, M-25). Every id below is the id its record gave it. Citation
+  key is ⟨record.md · id⟩ — bare ids collide across six namespaces, and three collisions are live in
+  this section alone: ⟨MigratePalettesDialog · A-1⟩ ≠ ⟨CurrentPaletteEditor · A-1⟩ (W0.2);
+  ⟨App · D-4⟩ ≠ ⟨ConfigSliderPane · D-4⟩ (W0.1's G-PAINT cut); ⟨AboutPane · AB-4/AB-5⟩ ≠
+  ⟨shell-dock-actionbarlayer · AB-4/AB-5⟩ (X-W8-FOLD W8.31/G-8).
+- **Locks, cure-shapes and dissents verbatim where load-bearing.** Every `"…"` below is byte-quoted
+  from the cited record, wave spec, spine, or sibling fold.
+- **External rows carry mail provenance, not registry ids** (§6.4).
+- **Status `planned`.** Nothing here opens product source, opens a §1.M bank row, performs any part
+  of the atomic cut, or edits `docs/tranches/X/waves/**` / `CONFORMANCE-2026-08-03.md` /
+  `registry/adjudicated/**` (E-1/E-3 — this file remains the fold's sole write).
+- **Arithmetic dated, never silent** (§6.8), and §0's block carries the pointer.
+
+### 6.1 The census, re-run fresh — method, receipts, and what it returned
+
+**Method (falsifiable, re-runnable).** Corpus = the 92 non-`kf-*`/`fr-*`/`pt-*` `*.md` at
+`docs/tranches/V/megatranche/registry/adjudicated/` (non-recursive; the 93rd entry `delta-r3` is a
+directory). A row = a bold-leading id line (`- **ID` / `| **ID`); a row's block runs to the next such
+line. X-W0-routed = the row line **or its continuation block** carries an `X-W0` token in any spelling
+this corpus uses — hyphen `X-W0`, en/em-dash and non-breaking variants, middle-dot `X·W0`, dotted
+`X.W0`, and the dotted unit forms `X-W0.a` … `X-W0.j`. Presence in this fold = boundary byte-match of
+the id in `X-W0-FOLD.md`.
+
+**Receipt 1 — the token census.** `grep -ohE 'X[-·.‐‑‒–—]W0[.a-z]*'` over the 92 records → **17
+occurrences across 10 records** (`X-W0.j` ×8 · `X-W0` ×8 · `X-W0..X-W11` ×1). Resolved to rows and
+non-row citations:
+
+| ⟨record.md · id⟩ | spelling | this fold's home | status |
+|---|---|---|---|
+| ⟨AuroraPane.md · AP-17⟩ (+ R-8 table, DISSENT §4) | `X-W0 sitting` ×3 | W0.1 | CARRIED |
+| ⟨CurrentPaletteEditor.md · A-1⟩ | `X-W0 owner-sitting` | W0.2 | CARRIED |
+| ⟨wb-extract-controls.md · residue 12⟩ (K-S block) | `X-W0.j census as the SOLE release event` | W0.3 | CARRIED |
+| ⟨wb-extract-controls.md · EC-15⟩ | `→ **X-W0/X-W1**` | W0.16 | CARRIED |
+| ⟨wb-gradient-visualizer.md · GV-4⟩ (GV-41 block) | `→ X-W0/X-W1 fold + X-W8.b` | W0.16 | CARRIED (bytes cured at W0.28) |
+| ⟨EmptyState.md · §Wave-authority⟩ | `trigger-gated on the X-W0.j census` | W0.4 | CARRIED (header, not a row) |
+| ⟨wb-generate-pane.md · §Route-legend⟩ (D-5 block) | `CLOSED unless the X-W0.j Glass-8 census PASSes` | W0.4 | CARRIED (legend, not a row) |
+| ⟨wb-extract-imageeyedropper.md · §Headline 1⟩ | `closed unless X-W0.j's census PASSes` | W0.4 | CARRIED (headline, not a row) |
+| ⟨wb-mix-animationcanvas.md · §Instruments⟩ | `CLOSED unless X-W0.j census PASSes` | W0.4 | CARRIED (instruments, not a row) |
+| ⟨ShadowPalette.md · §Provenance⟩ | `landed 2026-08-03 per X-W0 HG-11` | W0.8 | CARRIED |
+| ⟨ColorNutritionLabel.md · §Registry identity sweep⟩ | `CARRY-CUT-LEDGER.md X-W0..X-W11 rows` | §1a | DECLARED SILENCE (sweep citation, not a routing) |
+
+**Verdict on the token census: 11 of 11 already carried. Zero token-routed escapes.** The X-W0 seat
+did not lose a row to the byte test that failed the other eleven folds.
+
+**Receipt 2 — the census the token test cannot see (where the seven escapes are).** X-W0 is the
+formation wave: its inbound rows are routed by *disposition class*, not by an `X-W0` token. Two
+classes were swept fresh:
+
+- **FORMATION-BOUNDARY.** The spine disposes 19 packets **15 HOMED · 4 FORMATION-BOUNDARY**, and the
+  four — packets **7 · 12 · 15 · 16** — plus packet 5's split limb **H-c** all book at *the G-F
+  register whose home X-W0's sitting elects* (spine §1, and packet 7 cites ⟨X-W0-FOLD.md · G-F⟩ by
+  name). Under the ROW-CARRIAGE LAW appended this round — *"a packet's home wave adopts the packet's
+  RIDING ROWS id-for-id, not merely its files"* — the G-F slate must carry each rider by
+  ⟨record.md · id⟩. **Measured: zero of them were carried.** This is the same disease the check
+  charged against the HOMED packets, at the boundary end; this seat is the one that owns it.
+- **SITTING-ROUTED ESCALATIONS.** The fold layer routes cross-wave collisions to the W0 sitting by
+  name. `grep -niE '(W0 sitting|X-W0 sitting|owner sitting|opening sitting|the sitting (decides|item|elects|rules)|sitting item)'`
+  over the twelve folds + spine → **34 hits in 5 files**. Eight are escalations this fold did not
+  carry (§6.5); the rest resolve to W0.1/W0.2/W0.6 or to a *wave's own* opening sitting (not X-W0's —
+  declared at §6.7 n.5).
+
+- **Receipt 3 — the register of record, re-measured today.** `NO-WAVE-OWNER` = **604 occurrences
+  across 73 of the 92** records (`grep -ohE` → 604; `grep -l` → 73) — reproduces the check exactly.
+  `COHESION.md §4` still holds **14** source rows + the "(accretes per batch)" tail, and **none of the
+  five boundary entries below is among them** (§4's members are AboutPane-rider-A-1, ActionFeedback,
+  AdminAuditPanel, AdminTagsPanel, ApiOfflineChip, BlobPane, BrowsePane, ErrorBoundary,
+  MiniColorPicker, PaginationBar, PaletteCard, PaneHeader, PreviewRamp, PreviewStrip — record-level
+  pointers, not packets). `ls docs/tranches/X/W0` → **No such file or directory** (candidate A absent).
+  G-F's born-RED is therefore not merely stale — it is **0 of 37** by identity.
+
+### 6.2 §A consumption — the one assigned row
+
+⟨MigratePalettesDialog.md · A-31⟩ (record :71), packet 16, assigned FORMATION-BOUNDARY. Consumed at
+**W0.21** below, inside its own record's identity-flow unit, exactly as the work order directs
+("books at the G-F register with the identity-flow unit, never in a wave band"). §B assigned this
+seat **zero** census rows; §C assigned **one** external row, consumed at W0.26. Nothing in the work
+order is left unconsumed, and the six row-classes beyond it are marked ᶜ (census-found).
+
+---
+
+### 6.3 §Rows — the G-F REGISTER SLATE, booked id-for-id (W0.21 … W0.25)
+
+Route legend unchanged: **X-W0.x** = the unit whose bytes receive it · **sitting** = X-W0.g's owner
+packet · **slate** = the G-F register (home unelected — candidate A `W0/NO-WAVE-OWNER-REGISTER.md`,
+candidate B `COHESION.md` §4 carve; W0.17 elects neither and neither does this addendum).
+**Every disposition below is ADJUDICATED, never VERIFIED; no gate has run.**
+
+**W0.21 — SLATE ENTRY 1 · MIGRATE-DIALOG IDENTITY-FLOW (packet 16) — twenty NO-WAVE-OWNER identities
+ride one owner decision, and the record names them itself.** · **BLOCKER-bearing (2 BLOCKER
+identities) · OWNER-DECISION** · cl.1+cl.2 · → **slate** (+ sitting: the fate question)
+- **mech**: the record's own terminal block is a manifest, quoted whole: "**NO-WAVE-OWNER manifest
+  (one identity-flow repair unit, for the next formation boundary)**: A-1 + A-3 (order law binding:
+  A-1 before/with A-3's sink) + A-4/A-12's owner ruling + A-6, A-7-lifecycle, A-11, A-13, A-14, A-15,
+  A-18-rehome, A-19, A-20, A-22..A-25, A-27, A-28, A-31. These cohere as ONE unit — the identity flow
+  gets one home, one typed boundary, one error surface, one publish verb — and should be authored as
+  a single wave rather than scattered."
+- **the twenty riders, id-for-id** (⟨MigratePalettesDialog.md · id⟩ for every one; the range
+  `A-22..A-25` is expanded so the byte census closes):
+  | id | substance (record's words, compressed) | grade |
+  |---|---|---|
+  | A-1 | `setActiveTab("saved")` throws; ViewId widened to `string` and cast back — the admin branch (:55) is an unhandled rejection, switch-mode throws at :69 AFTER `userLogin` succeeded | BLOCKER |
+  | A-3 | "the flow's error channel has three implementations and zero working ones" — PaletteSlugBar.vue (243 lines) rendered by no template; `slugBarRef` permanently null | BLOCKER |
+  | A-4 | "the dialog's premise is false, its 'discard' arm is strictly worse than no dialog" — defect CONFIRMED BLOCKER · **cure OWNER-DECISION** | BLOCKER (cure severed) |
+  | A-6 | Escape/scrim/× silently abandon a committed action; `pendingMigrateAction` left armed | — |
+  | A-7 | "the surface is destroyed before the operation begins"; no loading/error/success state; every failure terminates at `console.warn` (lifecycle limb) | — |
+  | A-11 | type jurisdiction twice over: Fraunces on help prose + all three control labels; description on the control rung where the matrix demands `text-prose` | — |
+  | A-12 | "the action set has no owner and no Cancel"; initial focus lands on the irreversible command — **owner ruling, with A-4** | — |
+  | A-13 | every consumer class dead against or fighting a deciding root; producer axes + `DialogFooter` unused | — |
+  | A-14 | focus restoration cannot succeed by construction; `closeAutoFocus` unbound; the opener unmounts in the tick the dialog opens | — |
+  | A-15 | the modal does not occlude — rendered contrast unboundable; `surface="opaque"` is one unused prop away | — |
+  | A-18 | wrong home, dead seam: the dialog lives in `browser/` which never uses it; the "TOP-LEVEL SEAM" barrel has zero importers (rehome limb) | — |
+  | A-19 | `onSlugSubmit` async with zero awaits — spinner unreachable, N concurrent logins possible | — |
+  | A-20 | `transfer` unimplemented in regenerate mode; a template `v-if` is the only guard | — |
+  | A-22 | dead `title` computed — both ternary arms byte-identical (:74-78) | — |
+  | A-23 | `MigrateChoice` reachable through neither barrel; union hand-copied at :29 and :106 | — |
+  | A-24 | three decorative lucide icons reach the a11y tree; the house pattern is explicit at 79 sites | — |
+  | A-25 | `activeTab` dep dead and double-laundered (`as unknown as Ref<ViewId>` → `as Ref<string>`) | — |
+  | A-27 | App.vue:170-175 + dialog/index.ts:2-5 assert a `./demo/**` sideEffects mark package.json:20 contradicts | INFO |
+  | A-28 | no `count === 0` guard though exported through two public barrels | INFO |
+  | **A-31** ᴬ | foundation.css:91's `@source "../../color-picker/**/*.{vue,ts,html}"` resolves OUTSIDE the tree; the header comment claims the globs make the scan "EXPLICIT" | INFO |
+  ᴬ = the §A-assigned escapee. Ungraded cells are the record's own INFO/flow-repair band.
+- **order lock (verbatim, spine §3 a.1 ≡ the record's own A-1 clause)**: "**A-1 must land BEFORE or
+  WITH A-3's sink repair — mounting the sink first converts a silent bug into a user-visible lie on a
+  successful login.**"
+- **sequencing lock (verbatim, spine §3 a.2 · App-adj D-14)**: "the shell-root mount is removed only
+  WITH the recovery article — removing it first deletes the only affordance; canon §7:224 names the
+  unconditional dialog as two of the five forbidden recovery shapes at once. The gate
+  (`MigratePalettesDialog` 0 mount sites) fires at that wave's CLOSE, not before."
+- **the fate lock (verbatim, spine packet 16)**: "**THE DIALOG'S FATE is an owner decision no fold
+  seat may take**" — so the slate books the unit and the **sitting** takes the decision; this seat
+  elects nothing.
+- **not double-booked**: the record's routed limbs are live in their waves and are NOT re-booked here
+  — A-2/A-8/A-9/A-26 + the swallow census → X-W7; A-5 family + A-16/A-17 → X-W8; A-10/A-30 → X-W1;
+  A-21 + width/inset → GLASS-RELAY; A-1's throw-limb rides X-W4 (W4·122) and its cast cure X-W5
+  (BD-01). Those bookings stand; the slate carries the **remainder as one unit**, which is what
+  "scattered" was the record's word against.
+- **seq**: the owner decision precedes any wave opening `MigratePalettesDialog.vue` (it rides both
+  the X-W4 and X-W7 bounds deltas "so whichever wave the owner elects can lawfully open it").
+  ⟨MigratePalettesDialog.md · A-1/A-3/A-4/A-6/A-7/A-11/A-12/A-13/A-14/A-15/A-18/A-19/A-20/A-22/A-23/A-24/A-25/A-27/A-28/A-31 · §NO-WAVE-OWNER manifest — record; spine §1 packet 16, §3 a.1/a.2 — spine⟩
+
+**W0.22 ᶜ — SLATE ENTRY 2 · BOUNDARY-SCOPE (packet 12) — one row-family, and a path contention that
+must be resolved before three folds open the same file at two paths.** · **MAJOR · one row-family**
+· cl.1+cl.2 · → **slate** (+ sitting: the path)
+- **riders, id-for-id**: ⟨AboutPane.md · AB-4⟩ (:53) — "One failed doc-chunk fetch replaces the
+  entire two-pane grid: `Markdown.vue:58-62` unguarded `await module()` from async `onMounted`;
+  nearest boundary `App.vue:50…:140` wraps both panes; plus the stuck `isLoading`… **DISPOSITION:
+  NO-WAVE-OWNER** — no X row owns pane-granular error boundaries or this load path; books at the
+  formation boundary as one row with AB-5"; ⟨AboutPane.md · AB-5⟩ (:54) — "`useMarkdownColors.ts`
+  throws ×3 from a render-bound computed — a SECOND independent path to the same whole-grid boundary…
+  **DISPOSITION: NO-WAVE-OWNER, same row as AB-4.**" Live reachability stays NEEDS-LIVE (residue 3) —
+  an SS-8 obligation, never a wave gate.
+- **the contention (verbatim, spine packet 12)**: "`ErrorBoundary.vue` is named by NO dated X wave,
+  yet THREE folds add it to their bounds deltas at TWO different paths (X-W5:
+  `demo/shell/ErrorBoundary.vue`; X-W6/X-W7: `demo/color-picker/ErrorBoundary.vue`) — **the path must
+  be resolved at the sitting before any of the three opens it**."
+- **NAMESPACE GUARD (verbatim)**: "shell-dock-actionbarlayer's AB-4/AB-5 (X-W8-FOLD W8.31/G-8) are
+  DIFFERENT identities; **cite ⟨record.md · id⟩ or not at all**." This addendum obeys it in both
+  directions: nothing here touches the actionbarlayer pair.
+- **cure shape**: pane-granular error-boundary architecture is owned by no X row — the slate books
+  the family and names the two candidate owners the sitting may hand it to (X-W5's shell carve or the
+  successor component COHESION §4 already tracks under `ErrorBoundary`), electing neither.
+- **seq**: the path ruling precedes X-W5/X-W6/X-W7 opening.
+  ⟨AboutPane.md · AB-4 · AB-5 — record; spine §1 packet 12 — spine; X-W5/X-W6/X-W7-FOLD BoundsDelta — fold layer⟩
+
+**W0.23 ᶜ — SLATE ENTRY 3 · AUTH-SESSION SUBSTRATE (packet 15) — the store the "authoritative state"
+is built on is itself the violating one.** · **MAJOR, contract-violating** · cl.2 · → **slate**
+- **rider, id-for-id**: ⟨AdminFlaggedPanel.md · AF-50⟩ (:101, A-miss #8) — "The admin bearer lives in
+  `localStorage` (useAdminAuth.ts:15/:21-23/:35-37 — my read) against PALETTE-CONTRACT §2's
+  categorical ban ('no … localStorage … auth path in the browser' — the contract's head declares
+  itself the LIVE authority; §1-§4 are W45-owned). The corpus filed it only as a parenthetical, and
+  **every proposed gate cure (including X-W3's own X.W3.6, which reads 'the existing `useAdminAuth`
+  state') is built ON TOP of the violating store.**" Record disposition, verbatim: "**NO-WAVE-OWNER**
+  at the formation boundary — no X wave's bounds claim the auth substrate; recorded beside X-W3 so
+  its guard landing is never read as discharging the contract row."
+- **GATE-READING LOCK (verbatim, X-W3-FOLD F-4)**: X.W3.6 is built ON TOP of the localStorage bearer
+  PALETTE-CONTRACT §2 bans, and **"G-18 green may never be read as discharging that row"** —
+  `PALETTE-CONTRACT.md` is in W3's bounds and must carry it forward **undischarged**.
+- **cure shape locked in-record**: "move the session port to a platform/shell-neutral home; the
+  shell→palettes back edge dies with it (slugeditlayer's censused 5-forward/1-type-only-back)".
+  **No wave adopts without an owner ruling** — the slate books it, the sitting rules it.
+- **cross-check with W0.15**: this is the same lattice the typed graph must SEE (CPE L-24's
+  palettes ↔ shell mutual dependency); G-E requires the graph name it, this row requires the register
+  home it. Two gates, one substrate, no double-book.
+  ⟨AdminFlaggedPanel.md · AF-50 — record; X-W3-FOLD.md F-4, B-5 — fold layer; spine §1 packet 15 — spine⟩
+
+**W0.24 ᶜ — SLATE ENTRY 4 · PRE-X MT-REGISTER (packet 7) — a fifteen-record cohort whose MT-*→X
+crosswalk no seat authored, holding four BLOCKER identities.** · **BLOCKER-bearing (4)** · cl.1+cl.3
+· → **slate** (+ sitting) (+ SS-8 cross-edge)
+- **mech (verbatim, spine packet 7)**: "The per-record MT-*→X crosswalk was authored by no fold seat
+  and is not authored here… The REMAINDER — the crosswalk for the **15 zero-X-token records**,
+  holding 4 BLOCKER identities (MT-F012 empty prod bundle · C-1 route-untrue boot · C-2/D-1 inert
+  mobile action surface ≡ L-2, whose cure IS homed at X-W5 · D-4 zero H1 repo-wide) — **books at the
+  W0 sitting + G-F register**."
+- **the four BLOCKER identities, id-for-id** (all ⟨App.md · id⟩ — the record carries **zero**
+  `NO-WAVE-OWNER` tokens, so these are boundary identities by disposition, not by mark; stated so the
+  NWO arithmetic at §6.8 is not inflated):
+  - ⟨App.md · L-1⟩ **CONFIRMED · BLOCKER** — "The spine. No main.ts exists; the entry is 8 inline HTML
+    lines; App.vue carries five undeclared boot contracts… Build half re-run BY THIS SEAT: entry
+    `index-Dezn_h7o.js` 698 B, `hasApp:false` — **MT-F012 reproduces byte-for-byte**."
+  - ⟨App.md · C-1⟩ **CONFIRMED · BLOCKER** — "Route-untrue boot: index.html:205-213 mounts without
+    `router.isReady()`… b3 never fires, terminal for the session. **10/14 routes affected.**"
+  - ⟨App.md · C-2⟩ ≡ ⟨App.md · D-1⟩ **CONFIRMED · BLOCKER, "one defect with D-1, both ids
+    preserved"** — the entire mobile action surface inert; D-1's aggravations (the
+    `whenColorPickerReady` 40×50ms poll then give-up; Dock.vue:72 routing Save/Cancel to a null
+    `colorPickerRef` at exactly that viewport) travel with it. **Both ids are booked; the cure limb is
+    already homed at X-W5** (the nine-witness mobile-command identity, spine packet 9) — the slate
+    carries the crosswalk row, not a second cure.
+  - ⟨App.md · D-4⟩ **RESCOPED** — "H1 arm CONFIRMED and BUILT here (h1=0 repo-wide + live; §4.1/§5.1
+    canon-hard; **must be VISIBLE per §5.1**). Skip-link clause STRUCK (zero canon obligation;
+    landmarks satisfy bypass)." The strike travels with the row so no wave re-litigates it.
+- **the cohort, re-measured by this seat (2026-08-28)**: records with **zero** `X[-·.]W\d` tokens =
+  **16** — AdminPane · AdminUsersPanel · App · ColorInput · ColorPicker · ColorSpaceSelector ·
+  ConfigSliderPane · Dock · GenerateControls · GradientStopEditor · Markdown · chassis-fitness ·
+  layout-gestalt · library-band · parser-band · **shell-dock-slugeditlayer**. The spine says 15
+  because slugeditlayer "folded on FILE ownership at X-W4 despite zero X tokens (§2 e.12)" and is
+  subtracted. **16 − 1 = 15 reconciles exactly**; both figures are stated so neither is silently
+  elected.
+- **what is already subtracted (verbatim, spine)**: "the Dock/MT-DOCK-LAYERS-1 rows got a decline
+  census at X-W8 (N-3) so none reads as landed; MT-AU1's core homed at X-W7 (packet 6);
+  GradientStopEditor's W-GRADSTOP-* rows are provenance-mapped onto X.W6.a/.b/.c (X-W6-FOLD W6·396)."
+  The slate books only the un-subtracted remainder.
+- **cross-edge, and the lock on it**: this cohort is also §4's **ZERO-RESIDUE GAP** — 14 of these
+  records carry **no** §UNPROVEN section, so "the pre-X cohort contributes NOTHING to SS-8's slate"
+  and "**SS-8 may not be called complete until this cohort is swept for live-witness obligations**".
+  X-W0 writes no SS-8 byte; the slate records the obligation so the gap has an owner.
+- **correction carried (the check's own, adopted)**: §4's 14-name list and packet 7's 15-name cohort
+  **differ by one member** — AdminPane is in the packet's cohort and carries UNPROVEN content
+  (`grep -c UNPROVEN AdminPane.md` = 2), so it DOES feed SS-8. §4's enumeration governs for the
+  residue question; the packet's governs for the crosswalk question. Both stated, neither merged.
+  ⟨App.md · L-1 · C-1 · C-2 · D-1 · D-4 — record; spine §1 packet 7, §4 — spine; 16-record token sweep — measured 2026-08-28⟩
+
+**W0.25 ᶜ — SLATE ENTRY 5 · W-HYGIENE H-c (packet 5's boundary limb) — a decline GOVERNS over eight
+records that route the identity in, and the cure is SUPERSEDED to deletion.** · **MINOR, but nine
+records deep** · cl.2 · → **slate**
+- **mech (verbatim, spine packet 5)**: "**H-c** tsconfig↔exports parity (ColorSpaceSelector L-14 ≡
+  Dock L-22): `W8.md:112`'s explicit decline **GOVERNS** (ruled over the 8 records that route it in;
+  **silence-is-not-adoption**) → **FORMATION-BOUNDARY at the G-F register**". `W8.md:112` verbatim:
+  "`tsconfig.demo.json` path/export parity — L-22 ≡ W-HYGIENE, another owner."
+- **the nine riders, id-for-id** (one identity, nine independent derivations — this is the
+  corroboration the spine calls "13+ with zero re-books"): ⟨ColorSpaceSelector.md · L-14⟩ ·
+  ⟨Dock.md · L-22⟩ · ⟨EmptyState.md · ES-18⟩ · ⟨wb-extract-imageeyedropper.md · EY-43⟩ ·
+  ⟨wb-mix-animationcanvas.md · MX-20⟩ · ⟨AuroraPane.md · AP-31⟩ · ⟨wb-generate-pane.md · GEN-23⟩ ·
+  ⟨wb-extract-controls.md · EC-30⟩ · ⟨wb-extract-pane.md · XP-21⟩. Facts unanimous across all nine:
+  8 hand-written `paths` entries; 3 phantom targets (bare `.` → `dist/index.d.ts`, `/parsing`,
+  `/units` — none exists); 2 shipped-and-exported keys omitted (`/css`, `/value`); `#exports` = exactly
+  7 keys with no `.` root; and the block's own comment claiming "a CLOSED 8-key set" **false by one**.
+- **cure SUPERSESSION (verbatim, ⟨Dock.md · R-3⟩ — the deciding run travels with the row)**: "**O
+  wins.** My own resolver run (paths absent): bare → UNRESOLVED; exported subpaths → local dist via
+  self-reference. **Deletion makes the drift unrepresentable (L-8)**; generation would maintain a
+  mirror nothing needs. Evidence handed to W-HYGIENE; **booking and id unchanged**." The earlier
+  generate-parity shape booked at ⟨ColorSpaceSelector.md · L-14⟩ (:47) is **superseded, not deleted** —
+  its born-RED generator-parity node command "rides as **falsifier only**".
+- **lock**: "**all 8 entries proven inert**" and "no live break (both workers' vue-tsc exit 0)" — so
+  this row may never be graded as a shipping break, and gate N-2 at X-W8 "forces a per-limb close
+  declaration so 'W-HYGIENE landed' can never be reported one limb short". H-a and H-b are **already
+  X-W8 property** (scope 2/3, gates G-2..G-6) and are NOT booked here.
+- **correction to this fold's own §0 (dated, not silent)**: §0's dedupe register wrote this identity
+  "NOT re-booked here; appears only as a member of the boundary register at W0.17". Under the
+  ROW-CARRIAGE LAW that is now insufficient — membership without ids does not close a byte census. The
+  identity is **booked at the slate id-for-id, still counted once**; W0.17's mention stands as the
+  pointer it always was. No second booking exists.
+  ⟨ColorSpaceSelector.md · L-14 · Dock.md · L-22 · R-3 · EmptyState.md · ES-18 · wb-extract-imageeyedropper.md · EY-43 · wb-mix-animationcanvas.md · MX-20 · AuroraPane.md · AP-31 · wb-generate-pane.md · GEN-23 · wb-extract-controls.md · EC-30 · wb-extract-pane.md · XP-21 — record; W8.md:112 — spec; spine §1 packet 5 — spine⟩
+
+---
+
+### 6.4 §C consumption — the EXTERNAL row (mail provenance, no registry id)
+
+**W0.26 — ⟨INBOX I-28 · X-EXT-6⟩ — the repin's peer dependency is satisfied in `node_modules` and
+declared nowhere, so the census's PASS branch would repin against an undeclared transitive.** ·
+**MAJOR (adopt-blocking, measured)** · cl.3 · → **X-W0.j** (the repin act's own install step)
+- **provenance**: **EXTERNAL, mail-sourced** — `docs/tranches/V/coordination/INBOX.md` row **I-28**
+  (glass v8.0.0 @ `17a11bc5`; letter + §5 addendum 2026-08-25; ROWED 2026-08-28). **Not a registry
+  row**: the id is `X-EXT-6`, cited ⟨INBOX I-28 · X-EXT-6⟩, and carries no ⟨record.md · id⟩ because
+  no adjudication record contains it. The work order's words: "peer `vue-component-type-helpers
+  ^3.0.3` required at adopt → **X-W0** (X-W0.j — the repin act's own install step; the census's PASS
+  branch is unexecutable without it)."
+- **mech (measured read-only 2026-08-28, this seat)**: `node -p
+  "require('vue-component-type-helpers/package.json').version"` → **3.3.3** — the constraint `^3.0.3`
+  is *satisfied today*, but by a **transitive** provider: a scan of `package.json`'s `dependencies`,
+  `devDependencies` and `peerDependencies` for `vue-component-type-helpers` returns **zero hits**. The
+  repo depends on a package it does not declare. `@mkbabb/glass-ui` is pinned `^7.0.0` in
+  `dependencies` and installs at **7.0.0** (re-read from
+  `node_modules/@mkbabb/glass-ui/package.json`) — consistent with W0.4's 0/4 and unchanged today.
+- **cure shape**: the PASS branch's install step declares the peer explicitly in the same commit as
+  the repin; the FAIL branch records the undeclared transitive as a standing hazard (it is one
+  unrelated dependency bump away from vanishing). **X-W0 writes no `package.json` byte** — see the
+  bounds statement at §6.6 n.8; this row makes the requirement visible at the census, which is where
+  the trigger is evaluated.
+- **why it binds this seat and not X-W4.g**: W0.md:101 binds X-W0 to `node_modules/@mkbabb/glass-ui/**`
+  read/hash only. The census is the trigger; the install is the cut. Naming the peer at the trigger is
+  what prevents a PASS verdict that cannot be executed — the same defect shape as W0.3, one dependency
+  down. ⟨INBOX I-28 · X-EXT-6 — mail; installed tree + package.json — measured 2026-08-28⟩
+
+---
+
+### 6.5 §Rows continued — the sitting docket and the byte-visibility cure (W0.27 · W0.28)
+
+**W0.27 ᶜ — The sitting's docket carries eight cross-wave escalations the fold layer routes to it by
+name, and W0.md names none of them.** · **MAJOR (gate arithmetic, second order)** · cl.1 ·
+→ **sitting** (G-B's roster arithmetic extended)
+- **mech**: W0.5/G-B established the roster reads **nine** owner rows, not seven. The fresh sweep
+  finds a second, disjoint class: **escalations** — cross-wave collisions the folds explicitly refuse
+  to elect and route to this sitting. Eight, each with its far-end byte:
+  | # | escalation | routed by, verbatim | far end |
+  |---|---|---|---|
+  | S-1 | **`bindPane` ownership** — W5.md §5 gives `usePaneRouter.bindPane` "the instance refs it dispatches onto"; ⟨Dock.md · R-8⟩ narrows it and moves command dispatch to a `DockCommand` registry at MT-DOCK-LAYERS-1. "**Both cannot be true.**" | X-W5-FOLD CE-1: "**ESCALATION REQUIRED BEFORE W5 OPENS**" | X-W5 (W5F-01/02/11/64; gates A3, A4) |
+  | S-2 | **GAB-5/K-8 per-verb seat** under the VC:194 + B-13 + R-B collision, with "the standing cl.2 prohibition on executing challenge-D's Generate seat table while R-B stands" | spine packet 9: "TWO escalations must clear at the W0 sitting BEFORE the owning waves open" | X-W10 (owner/canon item) |
+  | S-3 | **`src/color/model.ts` barred TWICE** by two different rules (Do-NOT-touch the file; Triumvirate the mathematics) while four W9 rows require reading/re-exporting `SPACE_SCHEMA`/`SPACE_IDS`/`Color<S>` | spine §2 e.20: "ESCALATED, not assumed … **an adjudication for the W0 sitting, not a bounds edit**" | X-W9 (§1a n.6, §14 delta 6) |
+  | S-4 | **`UserSortMenu.vue:8` cure COLLISION** — X-W7 B-4's null-DELTA vs X-W8 G-9's quiet migration | spine packet 14: "a live CrossEdge both folds record and neither elects — **sitting item**" | X-W7 ⟂ X-W8 |
+  | S-5 | **`PaletteCard.vue` verb** — `W7.md` §5.d says "deletes", §4 grants modify-carve; ActionFeedback.md authored every row against the §5 reading | spine §2 e.18: "**the sitting elects the verb before unit .d opens**" | X-W7 |
+  | S-6 | **AdminGate deletion seam** CONTESTED between X-W3 and X-W7 | spine packet 6: "exactly as X-W3-FOLD F-1 prints it — **neither wave's gate goes green over the other's edit**" | X-W3 ⟂ X-W7 |
+  | S-7 | **`ErrorBoundary.vue` path** — three folds, two paths (W0.22) | spine packet 12: "**the path must be resolved at the sitting before any of the three opens it**" | X-W5 ⟂ X-W6 ⟂ X-W7 |
+  | S-8 | **MT-CSP-1 ⇄ the X carry-cut ledger** — ⟨ConfigSliderPane⟩ "is in no wave's table and the CC id is absent"; COHESION §4's BlobPane row: "MT-CSP-1 … **ORPHANED from the X carry-cut ledger — 10 identity-folds hang on it**" | X-W6-FOLD §2 e.12: "both belong at the X-W0 sitting (§0a n.9)" | X-W6 · X-W8 · W0.1 |
+- **S-8's rider, carried verbatim so W0.1 is not read as covering it**: X-W8-FOLD:432 quotes the
+  reconciliation clause and then adds ⟨BlobPane⟩'s own words — "**the bank must not resurrect it.**"
+  W0.1 books the CC-105 ⇄ G-PAINT *tension*; S-8 books the **missing carry-cut id** the tension's
+  subject hangs on. Two rows, one file, no double-book.
+- **cure shape**: the sitting's docket is **nine owner rows + eight escalations + one OWNER-DECISION**
+  (W0.21's dialog fate) = **eighteen items**, and each escalation's verdict names the far-end byte it
+  unblocks. A sitting that answers nine and adjourns leaves five waves unable to open lawfully.
+- **dissent**: none of the eight is elected here — every one is recorded exactly as its fold left it,
+  written either way. This addendum adds arithmetic, not verdicts.
+- **explicitly NOT adopted (declared, §6.7 n.5)**: spine §2 e.22's two bounds contests
+  (`demo/palettes/mix.ts` and `foundation.css`'s WHCM/print roster arm) route to the **X-W6 opening
+  sitting**, not X-W0's. Named so a later pass does not read the omission as a miss.
+  ⟨X-W5-FOLD CE-1 · X-W6-FOLD §2 e.12 · X-W8-FOLD:432 · spine §1 packets 6/9/12/14, §2 e.18/e.20 — fold layer + spine⟩
+
+**W0.28 — Twenty-three ids in this fold's own §0 and §1 blocks are bold-split and therefore invisible
+to the byte census; seven of them are invisible across the entire fold layer.** · **MAJOR
+(self-defect, census-fatal) · cl.1** · → **this file (cured below)**
+- **mech (measured, this seat, 2026-08-28)**: the round-0 idiom — a prefix, a hyphen, then the
+  numeral wrapped in emphasis markers (`PFX-` + `\*\*` + `N` + `\*\*`) — writes an id whose **literal
+  bytes are not the id**. The check's census law
+  boundary-matches ids as literal bytes; a bold-split id matches nothing. `grep -onE
+  '[A-Z][A-Za-z0-9]*-\*\*[0-9]+\*\*'` over this file → **28 occurrences / 23 distinct ids**:
+  AP-17, AP-31, EC-2, EC-3, EC-15, EC-22, EC-30, ES-18, EY-7, EY-27, EY-32, EY-43, GEN-2, GEN-8,
+  GEN-23, GV-4, MX-1, MX-3, MX-20, MX-25, MX-32, MX-35, MX-41.
+- **the seven true escapes** (boundary-match over all twelve folds + the spine → **0 files**):
+  **⟨wb-extract-controls.md · EC-2⟩ · ⟨wb-extract-controls.md · EC-3⟩ ·
+  ⟨wb-extract-imageeyedropper.md · EY-7⟩ · ⟨wb-gradient-visualizer.md · GV-4⟩ ·
+  ⟨wb-mix-animationcanvas.md · MX-1⟩ · ⟨wb-mix-animationcanvas.md · MX-3⟩ ·
+  ⟨wb-mix-animationcanvas.md · MX-41⟩.** ⟨wb-mix-animationcanvas.md · MX-1⟩ is a **BLOCKER**;
+  ⟨wb-gradient-visualizer.md · GV-4⟩ is one of only two corpus rows that route to X-W0 by token
+  (W0.16) — this fold cited it and did not carry its bytes. The check's 189/274 figure did not name
+  these because they are escapes this fold *manufactured*, not escapes it inherited.
+- **cure (an ≡-pointer restoration, never a re-booking)**: the sixteen non-escaping ids are restored
+  in plain bytes here and remain counted once at their existing rows; the seven escapes are restored
+  in plain bytes AND pointed at the row that already adjudicates them. **No id below opens a new
+  booking.**
+  | id, plain bytes | ≡ pointer — the row that already holds it | class |
+  |---|---|---|
+  | ⟨wb-extract-controls.md · EC-2⟩, ⟨wb-extract-controls.md · EC-3⟩, ⟨wb-extract-controls.md · EC-22⟩ | W0.4 stranded set + §0 CC-105 dedupe (`ExtractControls.vue:32,75`) | ESCAPE (EC-2, EC-3) / restored (EC-22) |
+  | ⟨wb-generate-pane.md · GEN-8⟩ | W0.4 stranded set + §0 CC-105 dedupe (`GenerateControls.vue:305`) | restored |
+  | ⟨AuroraPane.md · AP-17⟩ | W0.1 (the ⇄CSP tension) — also plain at :96 | restored |
+  | ⟨wb-extract-imageeyedropper.md · EY-7⟩, ⟨wb-extract-imageeyedropper.md · EY-32⟩, ⟨wb-extract-imageeyedropper.md · EY-27⟩ | W0.4 stranded set; EY-32 also W0.7(c)/G-C; EY-27 also §0 glass-7 `tag=` dedupe | ESCAPE (EY-7) / restored |
+  | ⟨CurrentPaletteEditor.md · A-1⟩ (as `CPE A-1`), ⟨wb-generate-pane.md · GEN-2⟩ | W0.2, W0.4 (BLOCKERs) — both also plain elsewhere | restored |
+  | ⟨wb-mix-animationcanvas.md · MX-1⟩, ⟨wb-mix-animationcanvas.md · MX-3⟩, ⟨wb-mix-animationcanvas.md · MX-32⟩, ⟨wb-mix-animationcanvas.md · MX-41⟩ | W0.4 stranded set (MX-1 = BLOCKER limb) | ESCAPE (MX-1, MX-3, MX-41) / restored (MX-32) |
+  | ⟨wb-extract-controls.md · EC-15⟩, ⟨wb-gradient-visualizer.md · GV-4⟩, ⟨wb-mix-animationcanvas.md · MX-25⟩, ⟨wb-mix-animationcanvas.md · MX-35⟩ | W0.16 (the dead-lint-lattice identity ≡ ColorSpaceSelector L-5(a)) | ESCAPE (GV-4) / restored |
+  | ⟨EmptyState.md · ES-18⟩, ⟨wb-extract-imageeyedropper.md · EY-43⟩, ⟨wb-mix-animationcanvas.md · MX-20⟩, ⟨AuroraPane.md · AP-31⟩, ⟨wb-generate-pane.md · GEN-23⟩, ⟨wb-extract-controls.md · EC-30⟩ | W0.25 (H-c, booked id-for-id this round) | restored |
+- **lock, adopted from the check's own language and binding on this seat**: an id is carried when its
+  **literal bytes** appear; emphasis markup inside an id is a rename, and **ids are original for
+  life**. No id in §6 is bold-split.
+  ⟨this file's §0/§1 bytes — measured 2026-08-28; PASS-1-CHECK-RETURN.json §check.defects[0] method — check⟩
+
+---
+
+### 6.6 §Gates — three NEW, born-RED with real witnesses (G-I · G-J · G-K)
+
+L-19 holds: no proof scripts; every falsifier is a probe over shipped bytes, a spec byte, or a
+set-difference over existing records.
+
+**G-I · NEW — the G-F register slate is ROW-KEYED, not cluster-keyed.**
+Every boundary-booked identity appears in the elected register by ⟨record.md · id⟩; the register's id
+set minus this addendum's §6.3 roster is ∅ in both directions. **BORN-RED (measured 2026-08-28)**:
+`ls docs/tranches/X/W0` → **No such file or directory** (candidate A absent); `COHESION.md` §4
+(candidate B) holds **14** record-level pointer rows and names **none** of the five boundary packets;
+so **0 of the 37 identities** booked at W0.21–W0.25 (20 MigratePalettesDialog + 2 AboutPane + 1
+AdminFlaggedPanel + 9 W-HYGIENE + 5 App) live in any register. *Falsifier*: drop one id — say
+⟨MigratePalettesDialog · A-31⟩, the row this round's work order assigned by name — and the
+set-difference against §6.3 names it; carry the five packets as five cluster labels with no ids and
+the difference is 37, which is exactly the failure the ROW-CARRIAGE LAW was appended to cure.
+*Relation to G-F*: G-F gates that the register **exists and closes by cluster**; G-I gates that its
+rows are **identities, not labels**. G-F may go green over a five-line file; G-I cannot.
+
+**G-J · NEW — the sitting's docket closes over every escalation the fold layer routes to it by name.**
+The sitting's agenda = 9 owner rows (G-B) + 8 escalations (W0.27 S-1..S-8) + 1 OWNER-DECISION
+(W0.21) = **18 items**, each verdict naming the far-end byte it unblocks. **BORN-RED (measured
+2026-08-28)**: `W0.md` names **seven** rows at :188/:301 and **zero** of the eight escalations —
+`grep -c` on `W0.md` for `bindPane` → 0 · `GAB-5` → 0 · `model.ts` → 0 · `UserSortMenu` → 0 ·
+`PaletteCard` → 0 · `AdminGate` → 0 · `ErrorBoundary` → 0 · `MT-CSP-1` → 0; while the fold layer
+routes all eight to this sitting in its own words (34 sitting-hits across 5 files). *Falsifier*: hold
+the sitting on seven or nine items and X-W5 cannot lawfully open (CE-1: "ESCALATION REQUIRED BEFORE
+W5 OPENS"), X-W7's unit .d has no verb (e.18), X-W9's four `SPACE_SCHEMA` rows stay barred (e.20),
+and three waves open `ErrorBoundary.vue` at two paths — all while HG-13 reads green. *Why it is not
+G-B*: G-B fixes the **roster** (which owner rows); G-J fixes the **docket** (which cross-wave
+collisions). Seven → nine cures the first and leaves the second at zero.
+
+**G-K · NEW — the repin's peer dependency is DECLARED, not merely resolvable.**
+`vue-component-type-helpers` appears in `package.json` with a constraint satisfying I-28's `^3.0.3`
+before any 8.0.0 repin is executed. **BORN-RED (measured 2026-08-28)**: the package resolves at
+**3.3.3** in `node_modules/` — constraint satisfied — while `package.json`'s `dependencies`,
+`devDependencies` and `peerDependencies` contain **zero** occurrences of the name; `@mkbabb/glass-ui`
+is `^7.0.0` and installs **7.0.0**, so the four HG-18 conditions remain **0/4** and the PASS branch
+has never been rehearsed against this requirement. *Falsifier*: the peer's transitive provider is one
+unrelated dependency bump from disappearing — remove it and the 8.0.0 type surface fails to resolve
+while `package.json` still claims nothing, which is a green census followed by an unexecutable cut.
+*Bounds note*: X-W0 writes no `package.json` byte (§6.7 n.8) — this gate is a **measurement at the
+trigger**, not a cut.
+
+---
+
+### 6.7 §BoundsDelta — entries 8–10 (dated addendum to §3)
+
+| # | path | today | delta | source |
+|---|---|---|---|---|
+| 8 | `package.json` (`dependencies` block, one line) | in **no** X-W0 bounds; `vue-component-type-helpers` undeclared while resolving at 3.3.3 | **NOT ADDED at X-W0** — stated, never silent. The declaration byte belongs to the repin's cut (X-W4.g on the census PASS branch), not to the trigger. X-W0.j records the requirement and measures it. | W0.26 · G-K |
+| 9 | `docs/tranches/X/W0/NO-WAVE-OWNER-REGISTER.md` (candidate A) **or** `COHESION.md` §4 carve (candidate B) | bounds row #2 already proposes one of the two — **still unelected** | **content delta**: the five boundary entries of §6.3 with their **37 member ids**, each as ⟨record.md · id⟩ with a terminal-home column per COHESION §3.3 | W0.21–W0.25 · G-I |
+| 10 | `docs/tranches/X/W0/OWNER-SITTING-2026-08-XX.md` | in bounds (`create`) — bounds row #6 already carries its content delta | **content delta, extended**: docket **7 → 18** (9 owner rows + 8 escalations + 1 OWNER-DECISION), each verdict naming the far-end byte it unblocks | W0.27 · G-J |
+
+**Not added, stated once (extending §3's list):** `demo/palettes/mix.ts` and `demo/styles/foundation.css`
+(the WHCM/print roster arm) — spine §2 e.22's two genuine bounds contests route to the **X-W6 opening
+sitting**, not X-W0's; recorded here so the non-adoption is legible, not an omission. `ErrorBoundary.vue`
+at either candidate path — the **path ruling** is X-W0 sitting business (W0.22 · S-7); the **file** is
+X-W5/X-W6/X-W7 property and X-W0 adds neither path to its own bounds.
+
+### 6.8 §Arithmetic — the OUT side, re-counted from this file's own bytes (2026-08-28, fold round 1)
+
+**Rows 20 → 28.** W0.1..W0.20 (round 0, unchanged) + **8 added**: W0.21 · W0.22 · W0.23 · W0.24 ·
+W0.25 (the five G-F slate entries) · W0.26 (the EXTERNAL row) · W0.27 (the sitting docket) · W0.28
+(the byte-visibility cure). Numbering stays **gapless and contiguous, W0.1–W0.28**; every row carries
+exactly one `⟨…⟩` provenance line.
+
+**Gates 8 → 11.** G-A..G-H (round 0: 7 SHARPEN + 1 NEW) + **G-I · G-J · G-K, all NEW, all born-RED
+with measured witnesses**. Sharpen/new split is now **7 SHARPEN · 4 NEW**.
+
+**BoundsDelta 7 → 10** (entries 8–10 above; entry 8 is a stated **non**-addition, counted because it
+is a bounds decision this fold makes and must be checkable).
+
+**CrossEdges 19 → 25.** Added, each naming its far-end byte: **20.** slate → **X-W5** (CE-1's
+`bindPane` escalation clears before W5 opens) · **21.** slate → **X-W9** (e.20's `src/color/model.ts`
+double-bar adjudication; four W9 rows wait on it) · **22.** slate → **X-W7** (e.18's delete-vs-carve
+verb before unit .d opens; and the `UserSortMenu.vue:8` collision with X-W8 G-9) · **23.** slate →
+**X-W3 ⟂ X-W7** (the AdminGate deletion seam; neither gate greens over the other's edit) ·
+**24.** slate → **X-W6/X-W8** (MT-CSP-1's orphaned carry-cut id — 10 identity-folds hang on it) ·
+**25.** X-W0.j → **X-W4.g** (X-EXT-6's undeclared peer rides the repin's install step).
+
+**Declared silences 4 → 5** (added: spine §2 e.22's two bounds contests, routed to the X-W6 opening
+sitting — §6.7).
+
+**Identities newly carried id-for-id: 37**, decomposing exactly — **32 NO-WAVE-OWNER-marked**
+(20 MigratePalettesDialog + 2 AboutPane + 1 AdminFlaggedPanel + 9 W-HYGIENE H-c) + **5
+boundary-by-disposition** (⟨App.md · L-1/C-1/C-2/D-1/D-4⟩ — `grep -c NO-WAVE-OWNER App.md` → **0**,
+so they are booked by the spine's packet-7 disposition, not by an in-record mark; stated so the NWO
+figure is not inflated by five). **Plus 1 EXTERNAL** (⟨INBOX I-28 · X-EXT-6⟩ — mail provenance, no
+registry id). **Plus 23 ids restored to plain bytes** at W0.28, of which **7 were fold-layer-wide
+escapes**; those 23 open **no** new booking and are counted in **no** total above.
+
+**The IN side remains a receipt, not arithmetic** (round 0's rule, kept): this round read the work
+order, the pass-1 register, the spine, eleven sibling folds (grep-scoped), and 10 corpus records
+whole or in part. **No in-equals-out identity is asserted.**
+
+**Work-order reconciliation (§D of ROUND-1-ASSIGNMENTS, this seat's line):** assigned **§A 1 · §B 0 ·
+§C 1 = 2**; delivered **2 assigned + 6 census-found row-classes (ᶜ) = 8 rows / 37 identities / 1
+external**. The roster was a floor; the census-found excess is itemised at §6.1 receipt 2 and marked
+ᶜ on every row that carries it, so a round-2 check re-derives the delta instead of re-discovering it.
+
+— end of round-1 repair addendum. Status **planned**. `docs/tranches/X/waves/**`,
+`CONFORMANCE-2026-08-03.md` and `registry/adjudicated/**` remain byte-untouched (E-1/E-3); this file
+is still the fold's sole write; no product source was opened.
