@@ -1262,3 +1262,99 @@ the assignment rather than merely accepting it.**
 `L-R6-4` (§C.4's erratum, registered at the G-F register in `X-W0-FOLD` §7.4) is cited nowhere in this
 file (grep → 0), so that cure has no site here. Numbering stays gapless and contiguous **W9.1 …
 W9.46**; zero ids minted, zero renamed. Status remains **planned**; no product source was opened.
+
+---
+
+## 19. ROUND-3 REPAIR — zero rows homed, the carriage law measured, and what the zero cost (2026-08-28)
+
+**What this section is.** This seat's answer to `refinement/ROUND-3-ASSIGNMENTS.md`, written against
+`refinement/PASS-3-CHECK-RETURN.json` (NON-CONFORMANT: 1 BLOCKER · 1 MINOR · 1 INFO). **As at rounds 1
+and 2, the roster's floor for this seat is zero**: §A's per-fold table homes its 124 escaped
+⟨record·id⟩ at `X-W7` (53) · `X-W8` (30) · `X-W6` (17) · `X-W4` (11) · `X-W0`'s G-F register (7) ·
+`X-W11` (4) · `X-W10` (2), and **X-W9 appears in no §A group, no §A.R refutation, no §A.S supplement,
+neither §B directive and no packet-home block** — measured, not assumed: `grep -oE 'X[-·.]W9([^0-9]|$)'
+refinement/ROUND-3-ASSIGNMENTS.md` → **0 occurrences in the whole work order**. §17.0's rule stands —
+*a zero is not a closure* — so this section records the re-measurement that earns it. **No row is
+added, no id minted, nothing renamed.**
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED; **this seat ran
+no probe and authored no script** (L-19), this round as the last two. No product source opened.
+**E-3**: `waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md`,
+`ROUND-2-ASSIGNMENTS.md` and every `registry/adjudicated/**` record are byte-untouched; this file is
+this seat's sole write.
+
+### 19.1 §1.G's GENEROUS CARRIAGE LAW against §17.0's method — clause by clause
+
+The pass-3 BLOCKER is a **carriage** failure, not a routing one: §1.L said how a home is *found*,
+nothing said what it means for a row to be *carried*, and the layer's own typography — bare ids,
+slash-compressed ranges, bold pseudo-headings — made real bookings unreadable to a namespace-scoped
+census. §1.G legislates the test. **§17.0's method already satisfies it**, and the check is
+enumerative rather than asserted:
+
+- **Clause 1 (namespace-scoped carriage; a bare id is never carriage).** §17's thirteen `≡`-pointer
+  rows exist for exactly this reason: each was an id **already true of this wave's substance but
+  carried under no record**, and each closed with a line naming ⟨record.md · id⟩. The instrument
+  §1.G now makes universal is the instrument §17.a used. **CONFORMANT.**
+- **Clause 2 (generous id matching; strict identity).** This fold re-spells no id — **zero minted,
+  zero renamed** across three rounds — and §17.0's own boundary test
+  `(?<![A-Za-z0-9-])id(?![A-Za-z0-9-])` is the id-side of clause 2's anchoring. **CONFORMANT.**
+- **Clause 3 (dedupe by normalised id).** No duplicate-normalised pair exists in W9.1–W9.46; the
+  6-row inflation clause 3 records at ⟨BrowsePane⟩ has no analogue here. **CONFORMANT.**
+- **Clause 4 (aliases derived AND declared).** This fold uses **no short form in a record column** —
+  its citations spell records in full (`picker-spectrumcanvas`, `ColorNutritionLabel`,
+  `wb-extract-pane`). **Nothing to declare, and the declaration is made anyway**: the abbreviations in
+  this file (`o7`, `o14`, `CC-0xx`, `X-EXT-6`) are oracle, charter and external tokens, **not** record
+  aliases. **CONFORMANT.**
+- **Clause 5 (heading scope; bold pseudo-headings do not scope).** This fold's rows sit under
+  **markdown headings** (`## 6. X-W9.e`, `## 11. Library correctness`, `### 17.a …`) and each row
+  names its record inline. **It keys no table by a bold record label**, so the clause-5 repair worked
+  at `X-W11-FOLD` §8 has **no site here**. **CONFORMANT.**
+- **Clause 6 (the `≡`-pointer is the cure and IS carriage).** §17.a is thirteen worked examples.
+  **CONFORMANT.**
+- **Clause 7 (the row predicate is ELECTED: `^\s*([-*]|\|)\s*\*\*`).** §17.0's **73** is a row-line
+  figure measured under that exact regex and reproduces under it (§19.2). The moratorium's lift
+  changes nothing this fold printed. **CONFORMANT.**
+- **Clause 8 (the count follows the predicate).** See §19.2.
+
+### 19.2 The census commands, re-run read-only at HEAD (2026-08-28)
+
+```
+# corpus band, and the law-true X-W9 row-line count under the ELECTED row regex
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l    # -> 92
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W9([^0-9]|$)'                     # -> 73
+# clause 3/token-instance receipt (all lines, not only row lines), and the dash-form sweep
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -ohE 'X[-·.]W9([^0-9]|$)' | wc -l                                              # -> 120
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l                                                     # -> 0
+```
+
+**`92`, `73`, `120` and `0` all reproduce**, unchanged from round 2 and identical to §1.L's law-true
+table for X-W9 (**73**). §17.0's receipts 1–5 are therefore re-derivable at round 3 without amendment,
+and **no figure in this fold is one that §1.G clause 8 strikes**.
+
+### 19.3 What §19 did NOT do — and the arithmetic, unchanged
+
+**Booked nothing.** No row, no gate, no bounds entry, no cross-edge. §17.d's list stands, and this
+section adds one line to it: **round 3 assigned this seat nothing, the work order does not name this
+wave once, and the zero was measured rather than accepted.** One receipt is worth stating because a
+zero can hide a real hole: **the three §1.G repairs the other seats owe — a declared alias set
+(clause 4), a promoted-or-attributed record label (clause 5), and a scope-corrected closure sentence —
+each have a named site in another fold and NO site in this one**, and each was checked at the bytes
+above rather than waved past.
+
+| unit | round 1 | round 2 | **round 3** | delta |
+|---|---|---|---|---|
+| rows | 46 (W9.1–W9.46) | 46 | **46** | **0** |
+| gates | 13 born-RED (+12 sharpenings) | 13 (+12) | **13 (+12)** | 0 — **no gate minted, none re-staged or re-weighted** |
+| BoundsDelta | 6 | 6 | **6** | 0 |
+| CrossEdges | §15 + the round-1 EXTERNAL edge | unchanged | **unchanged** | 0 — none received this round |
+| census | 120 tokens = 73 row lines + 47 classified non-row | unchanged | **unchanged, re-verified** | reproduces at HEAD (§19.2) |
+| declared aliases (§1.G cl.4) | — | — | **0 — none used** | none owed |
+
+**Assignment coverage: §A 0/0 · §B 0/0**, earned by measurement (§19.1–§19.2). Numbering stays gapless
+and contiguous **W9.1 … W9.46**; zero ids minted, zero renamed. **This section closes nothing**:
+whether the layer now carries every escaped ⟨record·id⟩ under its own namespace is settled by the
+**pass-4 census artifact**, re-derived from the twelve folds' own bytes under §1.G at a named HEAD —
+never in this seat's voice. Status remains **planned**; no product source was opened.

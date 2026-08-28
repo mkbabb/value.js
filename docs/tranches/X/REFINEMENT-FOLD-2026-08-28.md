@@ -57,6 +57,75 @@ rows (was 21; +4 at round 1)". The per-wave table below is NOT restated cell-by-
 fold's round-1 arithmetic block is the row authority (§5.1) and its gate/bounds/exclusion units
 move with it, per-fold, in that fold's own stated unit.*
 
+*DATED RE-WALK (round 3, 2026-08-28 — the SPINE REPAIR SEAT, per
+⟨`refinement/ROUND-3-ASSIGNMENTS.md` §B.1⟩, answering
+⟨`refinement/PASS-3-CHECK-RETURN.json` · MINOR/AXIS 5⟩: §0's title claims the
+walk is countable from the twelve folds' own bytes while its live figure was one round stale. The
+round-1 walk above — and the pass-1 walk above that — stay BYTE-UNTOUCHED as those passes' dated
+readings (§5.3). What follows is the same §0 arithmetic re-read from the twelve folds' own dated
+ROUND-2 arithmetic blocks, each quoted at the bytes below before the figure was written (§5.4: the
+OUT side is countable only from the folds themselves).*
+
+> **The round-2 walk (folded rows per wave, cumulative — re-read from each fold's own dated
+> round-2 arithmetic block, 2026-08-28):**
+> W0 **30** → 30 · W1 **56** → 86 · W2 **22** → 108 · W3 **27** → 135 · W4 **191** → 326 ·
+> W5 **88** → 414 · W6 **511** → 925 · W7 **585** → 1,510 · W8 **78** → 1,588 · W9 **46** → 1,634 ·
+> W10 **108** → 1,742 · W11 **26** → **1,768 FOLDED ROWS**.
+>
+> *Delta walk against round 1: 1,674 + **94** (W0 +2 · W4 +18 · W5 +5 · W6 +3 · W7 +51 · W8 +9 ·
+> W10 +5 · W11 +1; W1/W2/W3/W9 unchanged — they were not among ROUND-2 §A's eight named seats) =
+> **1,768**. The 94 decompose exactly: the **84** rows `ROUND-2-ASSIGNMENTS.md` §A assigned, plus
+> the **10** kin-escape rows the X-W7 seat found on its own (W7.575–W7.584).*
+
+**Per-wave receipts, each re-read at the bytes by this seat before the figure above was written.**
+The eight moved figures are quoted from their fold's own dated round-2 arithmetic block; the four
+unmoved waves took no round-2 assignment (they were not among `ROUND-2-ASSIGNMENTS.md` §A's eight
+named seats) and carry the round-1 figure unaltered.
+
+| wave | rows | the fold's own arithmetic block, verbatim |
+|---|---|---|
+| W0 | **30** | `X-W0-FOLD.md:1302` — `\| §Rows \| 28 (W0.1–W0.28) \| **30** (W0.1–**W0.30**) \| **+2** \| §A.8 **2** — W0.29 (ATP-35, ≡-pointer) · W0.30 (MISS-10, design residue) \|` |
+| W1 | 56 | round-1 figure, unmoved; W1 took no round-2 assignment |
+| W2 | 22 | round-1 figure, unmoved; no round-2 assignment |
+| W3 | 27 | round-1 figure, unmoved; no round-2 assignment |
+| W4 | **191** | `X-W4-FOLD.md:794` — `\| **rows booked** \| 123 (W4·1 … W4·123) \| 173 (… W4·173) \| **191** (W4·1 … W4·191, gapless) \| 173 + **18** = 11 routed (§7A.1) + 7 NWO (§7A.2). Round-2 rows add **zero** ≡-pointer-only rows: all 18 are first bookings of their ⟨record·id⟩ \|` |
+| W5 | **88** | `X-W5-FOLD.md:486` — `\| rows (§1 + §6b + §7b) \| 66 (W5F-01..W5F-66) \| 83 (..W5F-83) \| **+5** (W5F-84..W5F-88, contiguous, zero gaps) \| **88** \|` |
+| W6 | **511** | `X-W6-FOLD.md:1403` — `\| §1 rows \| **508** (W6·1 … W6·508) \| **511** (W6·1 … W6·511, gapless) \| **+3** \|` |
+| W7 | **585** | `X-W7-FOLD.md:1920` — `\| §Rows entries \| 140 \| **534** (W7.1–W7.533 · W7.X1) \| **585** (W7.1–W7.584 gapless · W7.X1) \| **+51** \|` |
+| W8 | **78** | `X-W8-FOLD.md:1845` — `\| folded rows \| 69 (W8.1–W8.69) \| **78** (W8.1–**W8.78**) \| **+9** \| §A.5 routed **8** (W8.70–W8.77) + §A.5 NWO **1** (W8.78) \|` |
+| W9 | 46 | round-1 figure, unmoved; no round-2 assignment |
+| W10 | **108** | `X-W10-FOLD.md:2367` — `\| rows (contiguous X-W10.1..) \| 103 \| **+5** (X-W10.104..X-W10.108) \| **108** \|` |
+| W11 | **26** | `X-W11-FOLD.md:1109` — `\| FOLDED rows (§1) \| 25 \| **26** (W11.26) \| +1 — the §A.7 row, gapless and contiguous W11.1..W11.26 \|` |
+
+*Quotation convention, stated so "verbatim" is exact: the quoted cells carry each fold's bytes with
+two typographic elisions and no others — the pipes are escaped `\|` so the cell renders inside this
+table (the layer's own convention), and the folds' inline code-span backticks around their row ids
+are dropped, since a code span cannot nest inside a code span. Every figure, id and word is the
+fold's. The eight anchors were opened and re-read at those exact line numbers by this seat before
+the walk above was written; a checker reproduces each with `sed -n 'Np' refinement/X-W*-FOLD.md`.*
+
+**THE POSTURE ON ROUND 3'S ADDITIONS — stated so no reader mis-reads the Σ.** The **124**
+⟨record · id⟩ assigned this round are **NOT** inside the 1,768 and must not be pre-credited to it.
+1,768 is a dated *pass-3* measurement of what the twelve folds carry TODAY; §A of the round-3 work
+order is a work order for rows they do **not** carry. The sentence §0 carries with the round-2
+walk, verbatim from ⟨`refinement/ROUND-3-ASSIGNMENTS.md` §B.1⟩:
+
+> *The 124 ⟨record · id⟩ assigned at `refinement/ROUND-3-ASSIGNMENTS.md` §A are outside this walk
+> by construction — they are precisely the rows the folds do not carry. No figure here anticipates
+> them; the round-3 walk is re-derived by the round-4 recheck from the twelve folds' own dated
+> arithmetic blocks, and only then.*
+
+*This seat re-measured no wave's rows beyond the twelve blocks quoted above and claims no new Σ.
+The twelve folds' arithmetic blocks remain the sole row authority (§5.1); `grep -n '1,768'` on this
+file — **0 hits** before this addendum — now returns the round-2 walk, and the round-1 and pass-1
+walks stand beside it, legible, as what they were.*
+
+*The table immediately below is the **PASS-1** per-wave table — the "per-wave table below" the
+round-1 restatement names — unmoved, byte-untouched, with its own dated round-1 correction beneath
+it. The round-3 re-walk restates no cell of it: per §5.1 each fold's own arithmetic block is that
+wave's row authority, and the re-walk moves the row column's Σ only, never a gate, bounds or
+exclusion unit (those move per-fold, in each fold's own stated unit).*
+
 | wave | fold file (`docs/tranches/X/refinement/`) | rows | gate entries | bounds delta (fold's unit) | exclusion register (fold's unit) |
 |---|---|---|---|---|---|
 | W0 | `X-W0-FOLD.md` | 20 | 8 (7 sharpen + 1 NEW) | 7 entries | 4 declared silences |
@@ -248,6 +317,132 @@ clause 4:** write the boundary as clause 4 writes it, `X[-·.]W(\d+)([^0-9]|$)` 
 form `X[-·.]W\d([^0-9]|$)` (the shape clause 7's own label prints) silently DROPS every row whose
 only token is `X-W10`/`X-W11`; this seat measured **1,804** with the malformed form before catching
 it, a 137-row under-count. The `+` is as mandatory as the boundary.*
+
+**THE GENEROUS CARRIAGE METHOD (appended round 3, 2026-08-28 — the method hole the PASS-3 census
+BLOCKER indicts, legislated shut).** §1's ROW-CARRIAGE LAW (round 1) says a homed packet carries its
+rows **id-for-id**; §1.L (round 2) says how a row's home is **found**. Neither says what it means for
+a row to be **CARRIED**, and that hole is the whole of the round-3 BLOCKER: rows sit in the folds
+under bare ids with no record attribution, so a namespace-scoped census cannot see them — while a
+namespace-blind census reads ⟨shell-dock-actionbarlayer · AB-13⟩ as carriage for ⟨AboutPane · AB-13⟩,
+the exact collision §1.L clause 4 legislates against. The **123 ⟨record·id⟩ across 34 records** the
+check measures absent by bytes (⟨`refinement/PASS-3-CHECK-RETURN.json` · BLOCKER⟩ is the census
+artifact; this spine asserts no closure of its own) are re-derived, reconciled to **124 across 35**
+with its ±2 refutations and +3 supplements stated, homed and quoted at
+**`refinement/ROUND-3-ASSIGNMENTS.md` §A** — round 3's work order, consumed by the seven named
+per-wave seats exactly as rounds 1 and 2 were. The **method** is legislated here. Adopted
+**verbatim** from that file's §B.2, which proposed §1 as its home: it lands immediately after §1.L,
+completing the triple — *a homed packet carries its rows id-for-id* · *how a home is found* · *what
+carriage is* — all three answering one question, *is this row really booked?*, whose splitting across
+sections is how the pass-1, pass-2 and pass-3 BLOCKERs each escaped the previous round's cure. §5.6
+points to it so the proposed home resolves without a second registration (§5.1's pointer law; M-25
+dedupe). It is a **method** law, not a row: it binds every seat and every check, moves no wave's
+bounds and stamps nothing.
+
+> **§1.G — GENEROUS CARRIAGE LAW (round 3, 2026-08-28).** §1.L says how a row's home is *found*.
+> This says what it means for a row to be *carried*. It binds every seat and every check. It is a
+> **method** law, not a row: it moves no wave's bounds and stamps nothing.
+>
+> **1. CARRIAGE IS NAMESPACE-SCOPED; A BARE ID IS NEVER CARRIAGE.** ⟨record.md · id⟩ is carried by
+> the fold layer if and only if some layer line matches the id under clause 2 **and** that line —
+> or a markdown heading in scope above it — names the record under clause 4. An id appearing in
+> the layer attached to no record is carriage for nothing; six namespaces collide and the layer's
+> own bytes prove it: `AB-13` occurs 4 times, all four ⟨shell-dock-actionbarlayer · AB-13⟩ at
+> `X-W4-FOLD.md:181/:183`, while ⟨AboutPane · AB-13⟩ is nowhere; `R-31` occurs once,
+> ⟨picker-componentsliders · R-31⟩ at `X-W6-FOLD.md:829`, while ⟨wb-extract-imagedropzone · R-31⟩
+> is nowhere.
+>
+> **2. ID MATCHING IS GENEROUS — case-insensitive, hyphen- and zero-pad-tolerant,
+> boundary-anchored.** Split the id into alpha and numeric runs; rejoin with an optional `[-._·]`
+> between runs; allow leading zeros before every numeric run; anchor both ends with
+> `(?<![A-Za-z0-9])` / `(?![A-Za-z0-9])`. So `D-06` ≡ `D-6` ≡ `D06`, `M2` ≡ `m2` ≡ `M-2` — and
+> `M2` still never matches `M-24`. **This REVERSES §1.L clause 4's second sentence for the
+> CARRIAGE test only, and the reversal is deliberate:** clause 4's `D-06 ≠ D-6` / `ADJ-M1 ≠
+> ADJ-m1` remains the law of IDENTITY — a fold may never re-spell an id, and ROUND-2's ERRATUM
+> R1-A-1 (`L-R6` → `L-R6-4`) stands unchanged. But a census that spells identity strictly AND
+> carriage strictly manufactures escapes out of the layer's own typography. **Identity: strict.
+> Carriage: generous.** They are different questions and the law now says so.
+>
+> **3. IDENTITIES DEDUPE BY THE NORMALISED ID.** ⟨BrowsePane · M2⟩ and ⟨BrowsePane · m2⟩ are ONE
+> ⟨record · id⟩ and the row folds once. A census that counts them twice inflates its own BLOCKER;
+> round 3 measured a 6-row inflation in that one record before the dedupe.
+>
+> **4. THE ALIAS SET IS DERIVED *AND* DECLARED.** *Derived*: the record stem, plus every
+> suffix-join of its hyphen segments ≥4 characters in both concatenated and hyphen-joined form,
+> plus every `*.vue`/`*.ts` symbol named in the record whose lowercase equals such a suffix-join
+> (`wb-mix-animationcanvas` → `animationcanvas`, `mixanimationcanvas`, `MixAnimationCanvas.vue`;
+> `wb-mix-pane` → `mixpane`, `MixPane.vue` — the alias expansion alone dissolved 14 apparent
+> escapes at that one record). ***Declared*, and this is the clause the pass-3 check lacked**: the
+> folds' own `| record |` column short forms — `strip`, `editor`, `configbar`, `resultdisplay`,
+> `sourceselector`, `animationcanvas` — are aliases **by declaration**, because no suffix-join
+> produces them, and two real bookings hid behind exactly that gap
+> (⟨wb-gradient-easingspecimenstrip · C-05/C-06⟩, banked at `X-W6-FOLD.md:363/:358`, reported
+> absent). **Any fold that uses a short form in a record column MUST print that short form's
+> expansion once, in the fold, beside the table that uses it.** An undeclared short form is a
+> census hole whose cure costs one line.
+>
+> **5. HEADING SCOPE COUNTS; BOLD PSEUDO-HEADINGS DO NOT — until they are cured.** A markdown
+> heading (`#`..`######`) naming a record scopes every id beneath it until the next heading of its
+> level or shallower. A **bold line** naming a record — `**ColorNutritionLabel — 27 rows**` at
+> `X-W11-FOLD.md:715` — is NOT a heading and does not scope: four real bookings sit under it
+> (`CNL-6` `:718` · `CNL-9` `:721` · `CNL-11` `:723` · `CNL-16` `:728`, each reading `**BOUND**
+> (AB-17)`) and every namespace-scoped census reads them as escapes. **A fold that keys a table by
+> a bold record label MUST either promote the label to a heading or attribute each row inline as
+> ⟨record.md · id⟩.** Until it does, its rows are uncarried by law, not by accident. §A.6 is that
+> repair, worked.
+>
+> **6. THE `≡`-POINTER IS THE CURE, AND IT *IS* CARRIAGE.** Where a roster id is a facet of an
+> already-folded identity, one dated `≡`-pointer line citing ⟨record.md · id⟩ closes the byte
+> census. A silent skip does not. A pointer line satisfies clauses 1 and 4 by construction, so the
+> cure and the test are the same shape — which is why the cure is cheap and the omission is not.
+>
+> **7. THE ROW PREDICATE IS ELECTED — §1.L clause 7 is settled.** The row regex for every census
+> in this layer is **`^\s*([-*]|\|)\s*\*\*`**: the predicate X-W4-FOLD §6E printed, the one the
+> spine's own law-true per-wave table was measured under, and the strictly wider of the two
+> candidates (`^(- |\* )\*\*` loses table rows, and this layer books rows in tables). The 5-row
+> gap §1.L's adoption re-measurement recorded — 4,694 under this form vs 4,689 under
+> `^(- |\| )\*\*` — resolves in favour of **4,694** by that election. **Clause 7's moratorium is
+> lifted:** a per-wave total may now be quoted as authoritative provided it states this regex
+> inline per §1.L clause 6. Nothing clause 7 says about the TOKEN predicate is touched — that was
+> never in doubt, and the pass-3 register survives BOTH row regexes on 114 of its members.
+>
+> **8. THE COUNT STILL FOLLOWS THE PREDICATE (§1.L clause 6, re-asserted for carriage).** Any
+> census figure printed under this law states its corpus, its row regex, its token class, its
+> alias set — derived AND declared — and its carriage test, and reproduces at the tree at a named
+> HEAD. A carriage figure that reproduces under no stated alias set is struck on discovery, not
+> reconciled. This clause is what lets a later seat refute a member of *this file's own* register
+> at the bytes; §A.R is the worked example, and it cost one `grep -rwF`.
+
+*ADOPTION RE-MEASUREMENT (this seat, read-only over the fifteen layer files and the 92-record corpus
+in the working tree, 2026-08-28 — §1.L clause 6 and §1.G clause 8 bind the adopter too: a carriage
+law printed with unverified receipts would be the defect wearing the cure's clothes). Re-run at
+adoption, all reproducing: corpus `ls *.md | grep -vE '^(kf|fr|pt)-' | wc -l` → **92**; clause 3's
+dash sweep → **0**; clause 7's elected row regex `^\s*([-*]|\|)\s*\*\*` → **4,694** against
+`^(- |\| )\*\*` → **4,689**, so the election is the strictly wider set exactly as the clause says,
+and §1.L clause 7's moratorium lifts on a measured figure, not an inherited one. Clause 1's
+collision receipts reproduce over the fifteen-file layer under `grep -rwoF`: `AB-13` → **4**, all
+four ⟨shell-dock-actionbarlayer · AB-13⟩ at ⟨X-W4-FOLD.md:181/:183⟩ while ⟨AboutPane · AB-13⟩ is
+nowhere; `R-31` → **1**, ⟨picker-componentsliders · R-31⟩ at ⟨X-W6-FOLD.md:829⟩. Clause 4's two
+hidden bookings are at their stated lines: ⟨X-W6-FOLD.md:363⟩ opens `| W6·88 | **C-05 / D-40**
+(+ D-40-forward-half) ≡ **R-B** … | strip ≡ editor | MAJOR |` and ⟨X-W6-FOLD.md:358⟩ opens
+`| W6·83 | **GV-23** ≡ **C-06 / L-1** ≡ **R-C** … | wb-gradient-visualizer ≡ strip ≡ editor |` — and
+all six DECLARED short forms are live typography in the folds' record columns (`strip` **117** ·
+`animationcanvas` **87** · `resultdisplay` **61** · `configbar` **55** · `sourceselector` **53** ·
+`editor` **38** word-boundary occurrences across the twelve folds), so clause 4's declaration duty
+lands on real bytes rather than a hypothetical. Clause 5's four bookings verify id-for-id at
+⟨X-W11-FOLD.md:718⟩ `| CNL-6 | MAJOR | **BOUND** (AB-17) |` · `:721` (CNL-9, `(AB-17 / A-3)`) ·
+`:723` (CNL-11) · `:728` (CNL-16).*
+
+***ONE DIVERGENCE, recorded not reconciled** (§5.3; the law's bytes are adopted unaltered — a
+verbatim adoption is not amended by its adopter): clause 5 anchors the bold pseudo-heading
+`**ColorNutritionLabel — 27 rows**` at `X-W11-FOLD.md:715`; at this tree that label is at **`:709`**
+(`:715` carries the `| CNL-3 | BLOCKER | **FOLD W11.6** …` row). The anchor is six lines short; the
+defect it names — a bold label does not scope, and the four real bookings beneath it read as escapes
+to every namespace-scoped census — is CONFIRMED at the bytes and wholly unaffected. **Read clause
+5's anchor as `:709`.** **Not re-derived by this seat, stated so no reader takes it as measured
+here:** clause 4's "14 apparent escapes dissolved" at the wb-mix records and clause 7's "114 of 123
+survive BOTH row regexes" are the check's and the assignment seat's figures, inherited with their
+sources named (⟨`refinement/PASS-3-CHECK-RETURN.json` · BLOCKER⟩ · ⟨`ROUND-3-ASSIGNMENTS.md` §A.0⟩)
+and never re-voiced as this seat's measurement.*
 
 1. **MX-CLUSTER — HOMED X-W6.** Adopted whole into W6's bounds by the fold's §3 (`mixStage.ts`,
    `useMixingState.ts`, `MixResultDisplay.vue`, `ErrorBoundary.vue` (see packet 12's path
@@ -714,6 +909,13 @@ adopted stays adopted, hypothesis stays hypothesis — never upgraded by transcr
    §D and is registered **once**, at **§1.L**, beside the ROW-CARRIAGE LAW it completes. This
    clause is a POINTER, not a second booking (clause 1). Reading order is unchanged by it: spec →
    fold → spine; the law binds the *census* every one of those three runs, not their bounds.
+   *Appended round 3, 2026-08-28: the **GENEROUS CARRIAGE LAW** — namespace-scoped carriage, a bare
+   id is never carriage, generous id matching against strict identity, the alias set derived AND
+   declared, heading scope versus bold pseudo-headings, the `≡`-pointer as carriage, and the elected
+   row regex that settles §1.L clause 7 — was proposed for a section of its own by
+   `refinement/ROUND-3-ASSIGNMENTS.md` §B.2 and is likewise registered **once**, at **§1.G**,
+   immediately after §1.L. Same pointer law, same reason: it answers* is this row really booked? *—
+   §1's question, not §5's. This clause names it; it does not restate it.*
 
 ---
 
@@ -1039,7 +1241,75 @@ zero product source opened by this round's writes; `docs/tranches/X/waves/W0.md.
 `waves/CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` byte-untouched (E-3);
 every banked id is the original id for life; the owner's begin-word remains the only execution key.
 
+## §ROUND-3 — the fold-round-3 note (dated 2026-08-28, spine repair seat)
+
+**Verdict repaired against:** `refinement/PASS-3-CHECK-RETURN.json` (NON-CONFORMANT — 1 BLOCKER
+(axis 1: the id-keyed census, still open and wider than round 2's) · 1 MINOR (axis 5: §0's Σ one
+round stale) · 1 INFO (axes 2, 3, 4 and axis 5's other four sub-axes HOLD WHOLE — all 84 pass-2
+escapes individually closed, §3's `e.` header restored, the six may-not-be-cited edicts anchored,
+E-3 exact, zero VERIFIED stamps)). Work order: `refinement/ROUND-3-ASSIGNMENTS.md`, whose §B
+addresses exactly two directives to this seat. **This file is this seat's only write.**
+
+**What moved at this seat, cure by cure.** (1) **§B.1 — §0 is re-based on the dated round-2
+re-walk**: **1,768 FOLDED ROWS** (W0 30 · W1 56 · W2 22 · W3 27 · W4 191 · W5 88 · W6 511 · W7 585 ·
+W8 78 · W9 46 · W10 108 · W11 26), each of the eight moved figures quoted verbatim from its fold's
+own dated round-2 arithmetic block and re-read at the bytes before the figure was written, with the
+delta walk decomposing exactly — 1,674 + 94 = 1,768, and 94 = ROUND-2 §A's **84** assigned rows +
+the **10** kin-escape rows the X-W7 seat found on its own (W7.575–W7.584). §0's title is true again;
+the round-1 and pass-1 walks stand beside it, byte-untouched, as those passes' dated readings.
+(2) **§B.1's posture note** — the **124** rows assigned this round are outside that walk BY
+CONSTRUCTION and are not pre-credited to it, carried in the work order's own words. (3) **§B.2 — the
+GENEROUS CARRIAGE LAW is adopted verbatim as §1.G**, immediately after §1.L, completing the triple
+the ROW-CARRIAGE LAW opened (*carried id-for-id* · *how a home is found* · *what carriage is*), with
+**§5.6** pointing to it so its proposed home resolves without a second registration, and a dated
+**ADOPTION RE-MEASUREMENT** beneath it re-running every receipt the law prints (corpus 92 · dash
+sweep 0 · 4,694 vs 4,689 · `AB-13` 4 · `R-31` 1 · the two hidden `C-05`/`C-06` bookings · the six
+declared short forms' live counts · clause 5's four CNL bookings) — one divergence recorded, not
+reconciled: clause 5's bold-label anchor reads `:715` where the tree measures **`:709`**, the defect
+itself confirmed and untouched, and the two figures this seat did not re-derive named as inherited
+with their sources.
+
+**What this seat did NOT do, stated so round 4 does not read silence as closure.** The BLOCKER's
+**124 assigned ⟨record · id⟩ across 35 records** (the check's 123 across 34, reconciled with
+receipts at ROUND-3 §A.0 — −2 refuted at the bytes, +3 supplements) are **not folded here and are
+not this file's to fold**: §5.1 makes the twelve per-wave folds the row authority and §5 forbids the
+spine restating a row that lives in one. They belong to the seven named per-wave seats (X-W7 53 ·
+X-W8 30 · X-W6 17 · X-W4 11 · X-W0 7 · X-W11 4 · X-W10 2), adopted by dated fold addendum with
+`≡`-pointers where an identity is already banked — a pointer closes the byte census, a silent skip
+does not. **Rows folded at this seat: zero, by law, not by omission.** The eight **⊘** ids with no
+word-boundary occurrence anywhere in the layer need a first booking at their home fold and can be
+cured by no pointer here. No wave is stamped, no gate is read, no `VERIFIED` mark is placed;
+§READINESS stays planning-only; zero product source was opened. **No closure is claimed in this
+seat's own voice**: the census state of the layer is what ⟨`refinement/PASS-3-CHECK-RETURN.json`⟩
+records today, and the **round-4 recheck** — re-deriving both the walk and the carriage census from
+the twelve folds' own dated arithmetic blocks under §1.G — is the only artifact that may state the
+next one. The round-3 walk is that recheck's to write, and only then.
+
+**Posture unchanged:** status `planned` everywhere; dispositions **ADJUDICATED**, never upgraded;
+every banked id is the original id for life under its record namespace, cited ⟨record.md · id⟩;
+carried locks are carried verbatim; `docs/tranches/X/waves/W0.md..W11.md`,
+`waves/CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md` and
+`refinement/ROUND-2-ASSIGNMENTS.md` are byte-untouched by this seat (E-3 — round records are never
+patched); the owner's begin-word remains the only execution key.
+
 ---
 
 — end of spine. The twelve per-wave folds stand beside this file as the row authority; the dated
 specs stand beneath both, immutable, per E-3.
+
+## §ROUND-4 — VERDICT 2026-08-28: CONFORMANT (pass 4)
+
+The fresh hostile pass-4 check (register: `refinement/PASS-4-CHECK-RETURN.json`) returns
+**CONFORMANT** — zero defects above MINOR-with-mitigation. The three residuals are all the
+declared one-round-lag class: (1) §0's live walk (1,768, dated pass-3) lags the folds' own
+round-3 blocks, whose fresh re-walk the checker supplies — **W0 37 · W1 56 · W2 22 · W3 27 ·
+W4 202 · W5 88 · W6 530 · W7 638 · W8 108 · W9 46 · W10 110 · W11 26 = 1,890** (dated pass-4;
+increment 122 = the 124 assigned minus W11's 4 attribution-only closures plus W6's 2 own-finds;
+row bands verified gapless by full enumeration) — recorded HERE per the walk's own posture
+sentence, the folds' blocks remaining the sole row authority (§5.4); (2) §1.G clause 1's
+collision receipts and (3) one §0 anchor line, both present-tense sentences aged by the same
+round-3 seat writes their own clauses date and declare. No defect names a missing row, a false
+booking, a broken lock, or an E-3 breach. The census loop that opened at 262 escapes (pass 2)
+closed by monotone strata: 84 (all closed at pass 3) → 123/124 (all closed at pass 4) → residue
+∅. **The X·V refinement fold is the first of the three sub-tranche fold/spec loops to reach
+CONFORMANT.** Status of every wave remains **planned**; execution awaits the owner's begin-word.

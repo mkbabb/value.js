@@ -2377,3 +2377,144 @@ sees the same identity.
 overlaps declared, so the walk is `5 = 5`. **Assignment coverage: §A.6 5/5 id-for-id.** Numbering is
 gapless and contiguous **X-W10.1 … X-W10.108**; zero ids minted, zero renamed. Dispositions are
 **ADJUDICATED, not VERIFIED**; status `planned`; nothing here stamps a wave.
+
+---
+
+## 8. ROUND-3 FOLD ADDENDUM — 2026-08-28 · the namespace-carriage repair (X-W10.109 · X-W10.110)
+
+**What this section is.** This seat's consumption of `refinement/ROUND-3-ASSIGNMENTS.md` **§A.7** —
+**two ⟨record·id⟩ homed here** (2 routed · 0 NWO) by the pass-3 BLOCKER's id-keyed census
+(`refinement/PASS-3-CHECK-RETURN.json`, NON-CONFORMANT: 1 BLOCKER · 1 MINOR · 1 INFO). The BLOCKER's
+root cause is **carriage, not routing**: rows banked under bare ids with no ⟨record.md · id⟩
+attribution are invisible to a namespace-scoped census, and visible to a namespace-blind one as
+somebody else's row. §B.2's **§1.G GENEROUS CARRIAGE LAW** closes that hole; these two rows are this
+fold's share of what it exposed.
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED — no gate has
+run, this seat ran no probe, and nothing here stamps a wave. No product source opened: both witnesses
+below are **corpus bytes re-read at HEAD** by this seat. **E-3 holds** — `waves/W0.md..W11.md`,
+`CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md`,
+`refinement/ROUND-2-ASSIGNMENTS.md` and every `registry/adjudicated/**` record stay byte-untouched;
+`X-W10-FOLD.md` is this seat's sole write. **Banked ids are for life**; kills and residues ride
+verbatim.
+
+### 8.1 §1.G compliance — the census re-verified, the alias set declared, the guard restated
+
+Re-run read-only at HEAD, 2026-08-28 (§1.G clause 8 — the count follows the predicate, and the
+predicate is printed):
+
+```
+# corpus (92) → X-W10-routed row lines (264, across 60 records)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W10([^0-9]|$)'
+```
+
+Both reproduce (`92`, `264`) — identical to §7.1's figures and to §1.L's law-true table
+(X-W10 = **264**). **Clause 4, declared:** the short forms this fold uses in a record column —
+`dockstatuslamp`, `profilesection`, `spectrumcanvas`, `colorcomponentdisplay`, `heroblob`,
+`easingauthoringstage` — are every one of them a **derived** suffix-join (≥4 chars) of the record's
+stem, and are declared here anyway; **this fold uses no non-derivable short form** (no `strip`, no
+`editor`), which is the spelling class that hid ⟨wb-gradient-easingspecimenstrip · C-05/C-06⟩ from the
+pass-3 check. **Clause 5:** this fold keys no table by a bold record label — every row's record rides
+its own `⟨…⟩` provenance line. **Clause 1, guard restated:** ⟨EmptyState.md · **ES-31**⟩ is the
+EmptyState namespace; `ES-*` ids elsewhere in this file (ES-7 at X-W10.20, ES-21, ES-29) are the same
+record and no other — but `D-7` is **not** unique: ⟨shell-dock-dockstatuslamp · **D-7**⟩ (X-W10.110)
+is one of many `D-7`s in the corpus, and ⟨ColorInput.md · **D-7**⟩ is a different row entirely, cited
+at `X-W8-FOLD` §11.3 (W8.107). **Cite ⟨record.md · id⟩ or not at all.**
+
+### 8.2 §A.7 — the two rows
+
+**X-W10.109 · ⟨EmptyState.md · ES-31⟩ — the forced-colors tier-1 roster is keyed on a producer CLASS,
+so an aria-hidden ornament inherits an exemption whose written charter is colour CONTENT** (cl.1+cl.5)
+**MINOR · DUAL-LIMB (§1.L clause 5).**
+*Row verbatim* (`:64`): *"**ES-31 · MINOR — the forced-colors tier-1 roster is keyed on a producer
+CLASS, so an aria-hidden ornament inherits an exemption whose written charter is color CONTENT**
+(reader-1's re-aim of the killed D-20; verified: foundation.css:653-657's charter, `.watercolor-swatch`
+in the :678-698 roster, `[data-color-surface]` :697 as the opt-in the trio could have been kept out
+of). → **NO-WAVE-OWNER in X** (named residue; candidate X-W10 canon; the WHCM engine specifics stay
+U-7)."*
+**Why it books HERE, and what the NWO limb does** (§1.L clause 5 — *NWO and routed are limbs, not
+partitions*): the row line carries **both** `NO-WAVE-OWNER` and an `X-W10` token (*"candidate X-W10
+canon"*), so **clause 1 governs the booking** and the residue limb **rides as a stated cross-edge**,
+not as a second booking. This is the second such override this fold carries — ⟨PaginationBar · M7⟩ at
+X-W10.108 is the first — and the treatment is identical, deliberately.
+*Mechanism, as the record proves it*: `foundation.css:653-657` writes the charter in **content** terms;
+the `:678-698` roster is keyed on the **producer class** `.watercolor-swatch`; `[data-color-surface]`
+(`:697`) is the **opt-in the trio could have been kept out of**. So an **aria-hidden ornament** inherits
+a colour-content exemption **by class inheritance**, not by charter.
+*cureShape+locks*: this is **canon, not a component edit** — the same jurisdiction X-W10.80 settled
+(*forced-colors has no canon jurisdiction; the one roster that exists protects an element that never
+paints* — **widen, never re-route**) and the same species-line incompleteness X-W10.99 (EAS-25) books
+one rung over. **G-16's paint-measurement lock already binds any forced-colors green**, so **no gate is
+minted and none re-staged**; ES-31 gives G-16 a further witness and leaves its predicate untouched.
+**Two locks ride verbatim**: (i) the row is **reader-1's re-aim of the KILLED D-20** — the kill stands,
+and no close may restore D-20's framing under this id; (ii) **the WHCM engine specifics stay U-7** —
+engine behaviour is a U-tranche booking this wave may not discharge by assertion.
+*sequencing*: **after X-W10.80's jurisdiction act** — a roster re-key applied before the jurisdiction is
+settled re-parents the miss instead of curing it; alongside X-W10.99, which is the same roster's
+incompleteness limb.
+*dissent*: none at the bytes. The **NWO limb** — *named residue at the formation boundary* — is
+recorded at the **G-F register** (`X-W0-FOLD` §8.3) as a cross-reference (edge 19), **not** as a second
+booking there.
+⟨EmptyState.md · ES-31 (:64) — dual-limb: candidate X-W10 canon ∧ NO-WAVE-OWNER⟩ ≡ jurisdiction of X-W10.80 · witness for **G-16** · kill carried: **D-20** · U-7 retains the WHCM engine specifics
+
+**X-W10.110 · ⟨shell-dock-dockstatuslamp.md · D-7⟩ — the perpetual-pulse grade, and the 2.4s literal
+residue that is the only limb X carries** (cl.1+cl.4) **INFO (ruled).**
+*Row verbatim, head + terminal* (`:25`): *"| **D-7/C-10 grade** (perpetual pulse) | INFO (per the C
+axis) | MINOR ("a pulse signifying a constant") | **INFO — and B's premise dies with AP-1 (this seat's
+sharpening)** | B's confirmation reasons from the `misconfigured` face ("the condition it pulses about
+cannot change" — true, `availability.ts:169` refuses the downgrade). But AP-1 kills that face's visual
+seat entirely; the SURVIVING `unavailable` face is recoverable (`markApiReachable`, :175-179), so the
+surviving pulse signifies a changeable state and the "constant" defect is moot-on-AP-1. The 2.4s literal
+residue ≡ **AP-21** (X-W10; no producer rung — my scheme-motion read makes "tokenize it" a producer mint,
+sustaining A's kill of the tokenization prescription). WCAG 2.2.2 ≡ AP residue U-5. W10:307 already counts
+this file's `no-preference` block CONFORMING — the PRM structure must survive any cure verbatim. |"*
+**What this fold carries, and what it must NOT**: the **grade is INFO and the defect is moot-on-AP-1** —
+`AP-1` kills the `misconfigured` face's visual seat, the surviving `unavailable` face **is** recoverable
+(`markApiReachable`, `:175-179`), so the "pulse signifying a constant" reading dies with its premise. **The
+only limb that routes to this wave is the `2.4s` literal residue**, and the record fixes it by identity:
+**≡ AP-21**, which this fold already books at **X-W10.61** (the motion/legibility token cluster —
+*"DSL-18/DSL-14 ≡ AP-21/AP-28, not re-booked"*). This row therefore **closes the byte census on `D-7`
+and mints nothing**.
+*cureShape+locks — three, each of them a bar on a plausible wrong cure*: (i) **`tokenize it` is KILLED**
+— there is **no producer rung** for 2.4s, so prescribing a token is a **producer mint**, and A's kill of
+the tokenization prescription is **sustained**; (ii) **`W10:307` already counts this file's
+`no-preference` block CONFORMING — the PRM structure must survive any cure verbatim**, so a motion edit
+that rewrites the guard breaks a counted conformance; (iii) **WCAG 2.2.2 ≡ AP residue U-5** — the
+accessibility limb is a **U-tranche residue**, not an X row, and may not be discharged here.
+*sequencing*: **after AP-1** (the face this row's severity argument depended on is deleted there), and
+with X-W10.61's token cluster — one literal, one identity. *dissent*: the C-axis INFO and reader-B's
+MINOR are **both legible above**; the ruling elects **INFO** on the record's own sharpening, and this
+fold does not re-grade another seat's disposition.
+⟨shell-dock-dockstatuslamp.md · D-7 (:25) — the D-7/C-10 grade row⟩ ≡ **AP-21** (X-W10.61) · kill carried: the tokenization prescription · locks: `W10:307` PRM structure verbatim · WCAG 2.2.2 → **U-5**
+
+### 8.3 CrossEdge addendum — edge 19 (continuing §7.3)
+
+| # | edge | the constraint |
+|---|---|---|
+| 19 | **X-W10 → the G-F register (X-W0)** (ES-31's NWO limb) | ⟨EmptyState · ES-31⟩ is dual-limb: **clause 1 books it here** as candidate X-W10 canon (X-W10.109), and its `NO-WAVE-OWNER in X` limb — *named residue at the formation boundary* — is recorded at the G-F register (`X-W0-FOLD` §8.3) **as a cross-reference, never a second booking**. The shared bar rides both sides: **the WHCM engine specifics stay U-7**, so neither register may report the forced-colors question closed by a roster edit alone. Same shape as edge 18's two-ledger treatment and as X-W10.108's G-F hedge |
+
+### 8.4 Arithmetic — restated at the new true counts, 2026-08-28 (fold round 3)
+
+**This block supersedes §7.4's row line; §7.4 stands as the round-2 record.**
+
+| measure | round 1 (§6h) | round 2 (§7.4) | added this round | **new true count** |
+|---|---|---|---|---|
+| rows (contiguous `X-W10.1..`) | 103 | 108 | **+2** (`X-W10.109..X-W10.110`) | **110** |
+| — of which §A.7 routed | — | 4 | **2** (ES-31 · D-7) | 2 |
+| — of which dual-limb (clause 5 override) | — | 1 (M7) | **1** (ES-31) | 2 across both rounds |
+| — of which `≡`-pointer bookings (no second cure) | — | 1 | **1** (D-7 ≡ AP-21, X-W10.61) | 2 across both rounds |
+| gate rows | 36 | 36 | **+0** | **36** — **no gate minted, none re-staged or re-weighted**; G-16 gains a further forced-colors witness (ES-31), predicate unchanged |
+| bounds-delta rows | 27 | 27 | **+0** | **27** — both rows are canon/law rows whose edits are elsewhere (`foundation.css` roster under X-W10.80's jurisdiction act; the 2.4s literal at X-W10.61) |
+| cross-edges | 17 | 18 | **+1** (edge 19) | **19** |
+| census denominator | 319 touching / 213 verb-routed | 264 law-true row lines / 60 records | **unchanged, re-verified** | reproduces at HEAD (§8.1) |
+| declared aliases (§1.G cl.4) | — | — | **6 forms, all derived** | §8.1; zero non-derivable short forms |
+
+**Reconciliation:** §A.7 assigns **2** (2 routed + 0 NWO); **2 numbered rows** are booked, so the walk is
+`2 = 2`. **Assignment coverage: §A.7 2/2 id-for-id.** Numbering is gapless and contiguous **X-W10.1 …
+X-W10.110**; zero ids minted, zero renamed. **No sentence here closes the X-W10 census** — whether the
+layer now carries every X-W10-routed ⟨record·id⟩ under its own namespace is settled by the **pass-4
+census artifact**, re-derived from the twelve folds' own bytes under §1.G at a named HEAD, and by nothing
+in this seat's voice. Dispositions are **ADJUDICATED, not VERIFIED**; status `planned`; nothing here
+stamps a wave.

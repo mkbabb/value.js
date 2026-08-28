@@ -1313,3 +1313,249 @@ seat's line): assigned `X-W0-FOLD.md` (G-F register) 0 routed + 2 NWO = 2; deliv
 Beyond the roster this section adds **no** rows — the ceiling work belongs to round 1 (§6.1 receipt 2)
 and is not re-opened. Status remains **planned**; **no fold seat elects the G-F register's home, the
 dialog's fate, or MT-COLORINPUT-1's shape**; no product source was opened by this repair.
+
+---
+
+## 8. §ROUND-3 REPAIR ADDENDUM — X·V fold round 3, G-F REGISTER SEAT · dated 2026-08-28
+
+**What this section is.** The X-W0 seat's consumption of `refinement/ROUND-3-ASSIGNMENTS.md` **§A.5**
+— **the seven ⟨AboutPane.md · id⟩ of the About-recomposition bundle**, every one of them
+`NO-WAVE-OWNER` by its own bytes, which the pass-3 BLOCKER
+(`refinement/PASS-3-CHECK-RETURN.json`) found absent from the entire fold layer under the AboutPane
+namespace. Per §A.5's packet home they are **FORMATION-BOUNDARY** rows: *the About-recomposition
+bundle **AB-17** is named by no §1 packet; spine §1 packet 12 books AboutPane's AB-4/AB-5 at the
+boundary and this bundle is its kin* — the ROUND-1 §A precedent is ⟨MigratePalettesDialog · A-31⟩
+(W0.21). Per the consumption rule they land at the **G-F register slate**, **never** in a wave's row
+band. This section also records the three cross-references sibling seats route here this round (§8.3)
+and one erratum the register is the site for (§8.4).
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED; **no gate has
+run** and none is minted here. No product source opened — every witness below is a **corpus byte
+re-read at HEAD by this seat**. **E-3 holds**: `docs/tranches/X/waves/**`,
+`CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md`,
+`refinement/ROUND-2-ASSIGNMENTS.md` and every `registry/adjudicated/**` record are byte-untouched by
+this seat; this file is still the fold's sole write. **The G-F register's home remains unelected**
+(candidate A `W0/NO-WAVE-OWNER-REGISTER.md` — still absent from disk; candidate B `COHESION.md` §4
+carve): W0.17 elected neither, rounds 1 and 2 elected neither, and **this addendum elects neither**.
+**AB-17 itself is not elected, scheduled, or scoped here** — the register carries its members'
+identities; the recomposition's shape belongs to the formation that takes it.
+
+### 8.1 §1.G compliance, and the guard that this bundle is the textbook case of
+
+**Clause 1 (carriage is namespace-scoped; a bare id is never carriage) — and the check proved it on
+exactly this record.** `AB-13` occurs **four** times in the fold layer, and **all four are
+⟨shell-dock-actionbarlayer · AB-13⟩** at `X-W4-FOLD.md:181/:183`, while **⟨AboutPane · AB-13⟩ is
+nowhere**. The bundle below is therefore not a set of rows the layer under-described — it is a set of
+rows the layer's own typography made **unfindable**. Three guards are live and are stated before the
+rows:
+
+1. ⟨AboutPane.md · **AB-13**⟩ (W0.31) **≠** ⟨shell-dock-actionbarlayer.md · **AB-13**⟩
+   (`X-W4-FOLD.md:181/:183`, the `activeStyle` collapse). Two records, one bare id, two waves.
+2. ⟨AboutPane.md · **AB-26**⟩ (W0.33) **≠** ⟨shell-dock-actionbarlayer.md · **AB-26**⟩, which
+   `X-W8-FOLD` §11.3 (W8.107) names as the standing NWO home of the built-ins design question. The
+   two are booked in the same round, in two registers, and neither is the other.
+3. ⟨AboutPane.md · **AB-36**⟩ (W0.36) is the **pane-level** limb of a bidi identity whose component
+   limb is ⟨ColorNutritionLabel.md · **CNL-11**⟩ — attributed this round at `X-W11-FOLD` §8. **One
+   bundle, two records, two ids, no double booking.**
+
+**Clause 4 (aliases derived AND declared).** The short forms this fold uses in a record column —
+`aboutpane`, `actionbarlayer`, `nutritionlabel`, `paginationbar` — are derived suffix-joins (≥4 chars)
+of their stems and are declared here anyway; **this fold uses no non-derivable short form**.
+**Clause 5 (bold pseudo-headings do not scope).** This register keys no table by a bold record label:
+each slate entry carries its record on its own row and on its `⟨…⟩` provenance line.
+
+### 8.2 §Rows — the G-F REGISTER SLATE, entries 8 … 14 (W0.31 … W0.37)
+
+**W0.31 — SLATE ENTRY 8 · ⟨AboutPane.md · AB-13⟩ — the ratified 66ch About measure exists nowhere in
+the demo, and the component declares its opposite** · **MAJOR (compounding)** · cl.1 · → **slate**
+(About-recomposition bundle, AB-17)
+- **row verbatim** (`AboutPane.md:62`): *"**AB-13 · D-11** — The ratified 66ch About measure does not
+  exist anywhere in the demo (`grep 66ch|max-inline-size` → 0, re-confirmed); `Markdown.vue:98-102`
+  declares the opposite (`max-w-full`); current 49.4ch is an accident of the companion column and
+  D-2's cure makes it worse — the compounding is why this stays MAJOR. **DISPOSITION: NO-WAVE-OWNER —
+  PR-35/VC:78/:218 were never cut into X; books at the boundary inside the About-recomposition bundle
+  (AB-17).**"*
+- **why the boundary and not a wave**: the row's own bytes say it — **PR-35 / VC:78 / VC:218 were
+  never cut into X**. There is no wave whose bounds carry the ratified measure, so a wave that set
+  `66ch` would be **enacting an authority no wave was granted**. The register carries the identity;
+  the recomposition enacts it.
+- **the compounding clause is the severity and is carried verbatim**: today's **49.4ch is an
+  accident of the companion column**, and **D-2's cure makes it worse** — so a close that lands D-2
+  without AB-13 moves the measure *away* from the ratified figure while reporting progress.
+- **NAMESPACE GUARD (guard 1 of §8.1)**: **≠** ⟨shell-dock-actionbarlayer.md · AB-13⟩.
+  ⟨AboutPane.md · AB-13, :62⟩ — bundle **AB-17** · authorities PR-35 / VC:78 / VC:218, uncut into X · **≠** ⟨shell-dock-actionbarlayer.md · AB-13⟩ (`X-W4-FOLD.md:181/:183`)
+
+**W0.32 — SLATE ENTRY 9 · ⟨AboutPane.md · AB-14⟩ — in dark mode the inline title control is optically
+identical to its sentence: 1.093:1 raw, ≈1.19:1 composited** · **MAJOR** · cl.1 · → **slate** (split
+disposition: GLASS-OWNED trigger register + consumer-side colour-only affordance)
+- **row verbatim** (`AboutPane.md:63`): *"**AB-14 · D-12** — Dark-mode: the inline title control is
+  optically identical to its sentence — **this seat's own recompute: 1.093:1 raw, ≈1.19:1
+  composited** (light 2.31) from probe-D1's computed inks; the source half is definitive (ghost
+  trigger, `--space-title-ink` at 86% alpha, underline transparent until hover, caret-only rest
+  affordance — reader 2's source read adopted). Hue-only affordance violates VC:82-83. **DISPOSITION:
+  NO-WAVE-OWNER** — the trigger register is GLASS-OWNED at the standing CSS-L-10/BANK-1 relay
+  (title/display SelectTrigger variant), but the color-only-affordance half is consumer-side and
+  unowned; boundary row, BANK-1 adjacency noted. Live material-tier sample = residue 4."*
+- **why the register and not a wave**: the row is **split by ownership** — the trigger register is
+  **GLASS-OWNED** (the standing CSS-L-10 / BANK-1 relay for a title/display SelectTrigger variant),
+  and the surviving half — a **colour-only affordance** — is consumer-side and **unowned by any X
+  wave**. A wave could execute neither half alone without either authoring a producer variant or
+  leaving the violation standing.
+- **the numbers ride, and their provenance rides with them**: **1.093:1 raw / ≈1.19:1 composited**
+  (light 2.31), recomputed by the record's own seat from probe-D1's computed inks; the **source half
+  is definitive** (ghost trigger, `--space-title-ink` at 86% alpha, underline transparent until hover,
+  caret-only rest affordance). **The live material-tier sample is residue 4** — an unclosed
+  measurement, so no close may report the composited figure verified.
+- **relay hygiene, not a wave act**: the BANK-1 adjacency is a **glass-ui relay** obligation (the
+  standing BH fond), recorded here, executed nowhere in X.
+  ⟨AboutPane.md · AB-14, :63⟩ — bundle **AB-17** · GLASS-OWNED limb → CSS-L-10 / BANK-1 relay · residue 4 (live material-tier sample) · VC:82-83
+
+**W0.33 — SLATE ENTRY 10 · ⟨AboutPane.md · AB-26⟩ — About is the last prop-drilled pane, and its two
+state routes carry DIFFERENT values** · **MAJOR** · cl.1 · → **slate** (phantom owner "MT-CSS-2",
+rider A-1)
+- **row verbatim** (`AboutPane.md:78`): *"**AB-26 · L-7 + C-9(structural) ⇄CSS-L-7/L-13** — About is
+  the last prop-drilled pane; its two state routes carry different values (alpha-bearing prop
+  `App.vue:340` vs alpha-stripped injection `:271` — re-read); and it rides the raw `cssColor` while
+  `cssColorOpaqueFrame` exists. The perf half stays declined (its own author's A/B). **DISPOSITION:
+  NO-WAVE-OWNER — the standing CSS apotheosis FOLDed this family to "MT-CSS-2," which exists in NO
+  ledger row and no X wave (rider A-1); identity preserved under its original ids.**"*
+- **why it is a register row and not a wave row — the PHANTOM OWNER**: the CSS apotheosis folded this
+  family to **"MT-CSS-2"**, a name that **exists in no ledger row and no X wave**. A fold that let the
+  phantom stand would report the row owned while nothing owns it; the register books it **under its
+  original ids** (rider A-1's instrument), which is the same treatment ⟨ColorNutritionLabel · CNL-16⟩
+  receives at `X-W11-FOLD` §8 for the identical phantom.
+- **the defect is a divergence, not a style**: the two state routes carry **different values** —
+  alpha-bearing prop (`App.vue:340`) vs alpha-stripped injection (`:271`) — so "About is prop-drilled"
+  understates it; the pane can render two answers to one question. **The perf half stays DECLINED** on
+  its own author's A/B, and that decline is carried so no close re-files it.
+- **NAMESPACE GUARD (guard 2 of §8.1)**: **≠** ⟨shell-dock-actionbarlayer.md · AB-26⟩ (named in
+  `X-W8-FOLD` §11.3 / W8.107 as the built-ins design question's standing NWO home).
+  ⟨AboutPane.md · AB-26, :78⟩ — bundle **AB-17** · phantom owner **MT-CSS-2** (rider A-1) · ⇄ CSS-L-7 / CSS-L-13 · perf half DECLINED · **≠** ⟨shell-dock-actionbarlayer.md · AB-26⟩
+
+**W0.34 — SLATE ENTRY 11 · ⟨AboutPane.md · AB-28⟩ — two ColorSpaceSelector instances own the same
+selection on one screen** · **MAJOR** · cl.1 · → **slate** (About-recomposition bundle, AB-17)
+- **row verbatim** (`AboutPane.md:80`): *"**AB-28 · D-16** — Two ColorSpaceSelector instances own the
+  same selection on one screen (both hosts re-read; visible in both tracked evidence frames).
+  **DISPOSITION: NO-WAVE-OWNER — About-recomposition bundle (AB-17).**"*
+- **why the bundle**: two instances owning one selection is a **composition** defect — the cure is
+  *which host owns the control*, which is precisely the recomposition question AB-17 names and no
+  wave's bounds decide. Deleting one instance inside a wave would elect a host by side effect.
+- **the evidence tier is high and is stated**: **both hosts re-read** at source and the duplication is
+  **visible in both tracked evidence frames** — so this is not an inference from a component read, and
+  a later seat may not demote it to UNPROVEN.
+  ⟨AboutPane.md · AB-28, :80⟩ — bundle **AB-17** · both hosts re-read · visible in both tracked evidence frames
+
+**W0.35 — SLATE ENTRY 12 · ⟨AboutPane.md · AB-33⟩ — the pane's single dynamic affordance is
+pointer-hover-only, and the tooltip it opens is empty by construction** · **MAJOR (merged misses)** ·
+cl.1 · → **slate**, with **one arm executable at any touch**
+- **row verbatim** (`AboutPane.md:85`): *"**AB-33 · hover-only affordance + MISS-4 (both readers'
+  misses, MERGED)** — The pane's single dynamic affordance is pointer-hover-only (`:109-113` — no
+  tabindex/focus/click/touch arm), the `cursor-pointer` promises nothing, `TooltipProvider` is
+  instantiated per-item inside the `v-for` (defeating its own grouping contract), and the provided
+  content is empty — dead code by inspection. **DISPOSITION: NO-WAVE-OWNER — About-recomposition
+  bundle (AB-17); the empty `<TooltipContent>` pair is deletable at ANY touch of the file and should
+  not wait for the bundle.**"*
+- **the row's own exception is carried, because it is the part a boundary loses**: the **empty
+  `<TooltipContent>` pair is deletable at ANY touch of the file and should NOT wait for the bundle**.
+  That is a standing permission, granted by the record, to any wave that opens `AboutPane.vue` —
+  recorded here so the boundary does not swallow a free subtraction.
+- **three mechanisms, one row**: no keyboard/touch arm at all (`:109-113`); a `cursor-pointer` that
+  **promises nothing**; and a `TooltipProvider` instantiated **per item inside the `v-for`**, which
+  defeats its own grouping contract. The affordance half is the a11y defect; the provider half is dead
+  code by inspection.
+  ⟨AboutPane.md · AB-33, :85⟩ — bundle **AB-17** · **standing permission**: the empty `<TooltipContent>` pair dies at ANY touch, not at the bundle
+
+**W0.36 — SLATE ENTRY 13 · ⟨AboutPane.md · AB-36⟩ — under RTL the identity line shatters and the
+ranges garble; CONVERTED from unproven at the tracked frame** · **MAJOR** · cl.1+cl.3 · → **slate**
+(a11y/bidi bundle at the boundary)
+- **row verbatim** (`AboutPane.md:88`): *"**AB-36 · D-13 (CONVERTED from unproven by this seat)** —
+  RTL: the identity line shatters ("About the color / Lab ⌄ ,spaces"), ranges garble ("to 125 125-",
+  "to 100% 0%"), sentence periods lead their lines, the picker echoes ",%92.0" — ALL READ DIRECTLY off
+  tracked `frames/d9-rtl.png` by this seat (neither reader opened it). Source half was already certain:
+  a sentence-composed title with a control inside and zero `unicode-bidi`/`dir` isolation repo-wide.
+  **DISPOSITION: NO-WAVE-OWNER — i18n/bidi isolation names no X owner; a11y bundle at the boundary.**"*
+- **the conversion is the row's provenance and must not be re-demoted**: the four garbling behaviours
+  were **read directly off the tracked frame `frames/d9-rtl.png`** by the record's own seat, *"neither
+  reader opened it"* — this row moved from UNPROVEN to CONFIRMED **on evidence**, and a later census
+  may not return it to UNPROVEN for want of a fresh probe.
+- **why no X owner exists**: **i18n/bidi isolation names no X owner** — the source condition is
+  repo-wide (**zero `unicode-bidi`/`dir` isolation**), so the cure is an isolation *policy*, not a pane
+  edit. Kin at the boundary: the ⟨ColorNutritionLabel · CNL-11⟩ component limb (attributed this round
+  at `X-W11-FOLD` §8) and the U-tranche RTL ledger that already holds ⟨PaletteColorStrip · D9⟩
+  (X-W11) and ⟨shell-dock-profilesection · D-14⟩ (X-W10.106). **One direction law, several ledgers,
+  no double booking.**
+  ⟨AboutPane.md · AB-36, :88⟩ — bundle: a11y/bidi at the boundary · witness `frames/d9-rtl.png` (CONVERTED, not inferred) · kin ⟨ColorNutritionLabel.md · CNL-11⟩ (`X-W11-FOLD` §8)
+
+**W0.37 — SLATE ENTRY 14 · ⟨AboutPane.md · AB-37⟩ — `sourceExportPlugin` + the `@src` alias have zero
+consumers, kept alive by a comment about this component's assets** · **MINOR (hygiene)** · cl.1 ·
+→ **slate** (no wave's bounds hold `vite.config`)
+- **row verbatim** (`AboutPane.md:92`): *"**AB-37 · L-8** — `sourceExportPlugin` + `@src` alias have
+  zero consumers; kept alive by a comment about this component's assets (census re-run: only the
+  plugin and the comment). **DISPOSITION: NO-WAVE-OWNER (hygiene; vite.config outside W8 bounds).**"*
+- **why the register, in the row's own words**: **`vite.config` is outside W8's bounds** — and outside
+  every other wave's; the dead-surface family that would otherwise own it is X-W8's **G-10**, whose
+  bounds stop at the demo tree. This is the exact shape of the register's charter: a real, cheap,
+  measured subtraction that **no wave may lawfully perform**.
+- **the census is closed and stated**: *only the plugin and the comment* — a re-run census, so the
+  "zero consumers" claim is measured, not assumed; and the **comment is the sole thing keeping the
+  plugin alive**, which is why deleting the comment without the plugin (or the reverse) leaves the
+  same dead surface behind under a different justification.
+  ⟨AboutPane.md · AB-37, :92⟩ — hygiene at the boundary · `vite.config` in **no** wave's bounds · family: X-W8 **G-10** (dead surface), bounds-blocked
+
+### 8.3 Cross-references received this round — recorded, not booked
+
+Three sibling seats route identities to this register in their round-3 addenda. **None is a booking
+here** (each row stays booked once, at its own home); they are recorded so the boundary seat holds the
+same identities its siblings say it holds — the §7.2 instrument, unchanged.
+
+| from | identity | what arrives at the register |
+|---|---|---|
+| **X-W8** (W8.107) | ⟨shell-dock-actionbarlayer.md · **AB-29**⟩ | the cycle's `input → actions` escape is dead on virtually every colour, and leaving the input **blanks the user's typed text**. Its disposition is the **MT-COLORINPUT-1 parent-wiring arm (with AB-6/AB-7)** — a successor-formation shape, not a carve — and the row **completes MISS-10's ring into a measured topology**, which makes it the direct kin of **W0.30** (⟨· MISS-10⟩, slate entry 7). Booked at X-W8 (packet 12's namespace guard fixes `AB-*` there); **the successor-formation limb lands here as a cross-reference**. The built-ins design question stays ⟨shell-dock-actionbarlayer · AB-26⟩'s NWO — **not** ⟨AboutPane · AB-26⟩ (W0.33) |
+| **X-W10** (X-W10.109, edge 19) | ⟨EmptyState.md · **ES-31**⟩ | **dual-limb** (§1.L clause 5): the row line carries both `NO-WAVE-OWNER in X` and *"candidate X-W10 canon"*, so **clause 1 books it at X-W10** and the **named residue** limb rides here. Substance: the forced-colors tier-1 roster is keyed on a **producer class**, so an `aria-hidden` ornament inherits an exemption whose written charter is colour **content**. The shared bar rides both sides — **the WHCM engine specifics stay U-7**. **Not a second booking** |
+| **X-W11** (§8, the citation repair) | ⟨ColorNutritionLabel.md · **CNL-6 / CNL-9 / CNL-11 / CNL-16**⟩ | all four are `BOUND` at `X-W11-FOLD` §1z and all four name **AB-17** (or its kin: A-3's divider census, the bidi bundle with AB-36, and the **MT-CSS-2 phantom owner** under AB-26's precedent). X-W11's round-3 cure is a **citation repair** — inline ⟨record.md · id⟩ attribution under §1.G clause 5 — **not** a new booking, and **not** a booking here: the register already carries the bundle's AboutPane members above (W0.31–W0.37) and this line records that the ColorNutritionLabel members ride the same bundle from their own fold |
+
+### 8.4 Errata registered at the register (E-3: register the identity, never patch another seat's bytes)
+
+**ERRATUM R1-A-1** (round 2, §7.4) stands unchanged: `ROUND-1-ASSIGNMENTS.md:83`'s `L-R6` reads
+`L-R6-4`. Added this round, in the same register and for the same reason — **the register is where
+identity spelling lives**:
+
+> **ERRATUM R3-A-1 (2026-08-28), registered at the G-F register.**
+> `refinement/ROUND-3-ASSIGNMENTS.md` §A.2 spells row 12's citation key ⟨picker-pointerdebugoverlay ·
+> **D**⟩. **The banked id at those bytes is `D#2b`** — `picker-pointerdebugoverlay.md:25`, *"|
+> **D#2b** (RTL physical inset) | KILLED — duplicate of a ruled ledger row | … | **RESCOPED → INFO,
+> already-booked. DU wins (identity guard).** | …"*. **Read the roster's ⟨· D⟩ as ⟨· D#2b⟩.**
+> **No row is lost**: `X-W8-FOLD` §11.3 books it at **W8.90** under the banked spelling and prints the
+> roster's spelling beside it, so the census closes under both. The work order's bytes stand
+> byte-untouched (E-3); this is a registration, not a patch — and anti-rename binds a work order
+> exactly as it binds a fold (§1.L clause 4; the R1-A-1 precedent).
+
+**Scope, stated so it is not read as more than it is.** The erratum **records** the spelling; the
+**row** is X-W8's and stays there; `ROUND-3-ASSIGNMENTS.md` is **not** edited. This seat's own bytes
+are clean of the short spelling: `grep -nw 'D#2b' X-W0-FOLD.md` → **0**, so nothing here needs the
+cure.
+
+### 8.5 §-arithmetic — the OUT side, re-counted from this file's own bytes (2026-08-28, fold round 3)
+
+**This block supersedes §7.6's row line; §7.6 stands as the round-2 record.**
+
+| unit | round 1 (§6.8) | round 2 (§7.6) | **round 3** | delta | decomposition |
+|---|---|---|---|---|---|
+| §Rows | 28 (W0.1–W0.28) | 30 (W0.1–W0.30) | **37** (W0.1–**W0.37**) | **+7** | §A.5 **7**, all NWO — W0.31 (AB-13) · W0.32 (AB-14) · W0.33 (AB-26) · W0.34 (AB-28) · W0.35 (AB-33) · W0.36 (AB-36) · W0.37 (AB-37) |
+| G-F slate entries | 5 (W0.21–W0.25) | 7 | **14** | **+7** | entries 8–14 above; the About-recomposition bundle (AB-17) enters the register whole |
+| Gates | 11 (7 SHARPEN · 4 NEW) | 11 | **11** | **0** | **no gate minted, none re-staged or re-weighted**; a boundary row carries no predicate |
+| BoundsDelta | 10 | 10 | **10** | 0 | no row opens a file — AB-37's own bytes say `vite.config` is in no wave's bounds, which is why it is here |
+| CrossEdges | 25 | 25 | **25** | 0 | §8.3's three arrivals are **received, not minted**: each is carried inside its own home's row (X-W8 W8.107 · X-W10 X-W10.109/edge 19 · X-W11 §8) |
+| Declared silences | 5 | 5 | **5** | 0 | |
+| Identities carried id-for-life | 37 (+1 EXTERNAL) | 39 (+1 EXTERNAL) | **46 (+1 EXTERNAL)** | **+7** | all seven are **NO-WAVE-OWNER-marked on their own row lines**, so the NWO figure grows by exactly seven and by nothing else |
+| Errata registered | 0 | 1 (R1-A-1) | **2** | **+1** | R3-A-1 (§8.4) — ⟨picker-pointerdebugoverlay · D⟩ reads `D#2b` |
+| declared aliases (§1.G cl.4) | — | — | **4 forms, all derived** | new | §8.1; zero non-derivable short forms |
+
+Numbering stays **gapless and contiguous, W0.1 … W0.37**; every row carries exactly one `⟨…⟩`
+provenance line; **zero ids minted, zero renamed**. **Work-order reconciliation (§A's per-fold table,
+this seat's line): assigned `X-W0` 0 routed + 7 NWO = 7; delivered 7, id-for-id.** Beyond the roster
+this section adds **no** rows. **It closes nothing**: whether the layer now carries every escaped
+⟨record·id⟩ under its own namespace is settled by the **pass-4 census artifact**, re-derived from the
+twelve folds' own bytes under §1.G at a named HEAD — never in this seat's voice. Status remains
+**planned**; **no fold seat elects the G-F register's home, AB-17's shape, MT-CSS-2's owner, or
+MT-COLORINPUT-1's**; no product source was opened by this repair.

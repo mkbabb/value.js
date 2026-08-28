@@ -1692,6 +1692,13 @@ ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)
 identical to §9.1's printed denominator and to §D's law-true table (X-W8 = **271**). **§B.2's defect
 class is therefore ABSENT from this fold**: the figure this file prints is the figure its printed
 command returns. Recorded as a result, not assumed — clause 6 obliges the receipt either way.
+**SCOPE, added in place and dated 2026-08-28 (fold round 3), no word above removed:** that sentence
+reads on **§B.2's non-reproducing-census class ONLY** — it is not a carriage claim, not a census
+closure, and this seat voices neither. Whether every X-W8-routed ⟨record·id⟩ is *carried under its own
+record namespace* is a different question, answered NO for **26** of them by
+`refinement/PASS-3-CHECK-RETURN.json` and worked at **§11**; and it is settled — for this fold and
+every other — by the **pass-4 census artifact**, re-derived from the twelve folds' own bytes under
+§1.G at a named HEAD, never by a sentence in this file. See §11.1.
 
 **One inherited column is struck, dated.** §9.1's row *"…of which carry an explicit routing verb (the
 check's verb set) | **134**"* is **SUPERSEDED as a census instrument** by §D clause 2: the verb set is
@@ -1856,3 +1863,644 @@ Numbering stays **gapless and contiguous: W8.1 … W8.78**, zero gaps, zero re-m
 namespace collisions with this file's own gate register and with a sibling record — both named at
 §10.1, neither reconciled by renaming. Status remains **planned**; no product source was opened by
 this repair; nothing here is VERIFIED.
+
+---
+
+## 11. FOLD-ROUND-3 REPAIR ADDENDUM — 2026-08-28 (the NAMESPACE-CARRIAGE repair)
+
+**What this section is.** The X-W8 seat's consumption of `refinement/ROUND-3-ASSIGNMENTS.md` **§A.2**
+— **thirty ⟨record·id⟩ homed here** (28 routed · 2 NWO) by the pass-3 BLOCKER's id-keyed census
+(`refinement/PASS-3-CHECK-RETURN.json`, verdict NON-CONFORMANT: 1 BLOCKER · 1 MINOR · 1 INFO). The
+BLOCKER's root cause is **carriage, not routing**: rounds 1 and 2 banked rows under **bare ids with no
+⟨record.md · id⟩ attribution**, so a namespace-scoped census cannot see them — while a namespace-blind
+census reads a sibling record's identical id as carriage (the check's own proof: `AB-13` occurs four
+times in the layer, all four ⟨shell-dock-actionbarlayer · AB-13⟩, while ⟨AboutPane · AB-13⟩ is
+nowhere). §B.2's **§1.G GENEROUS CARRIAGE LAW** legislates that hole shut; this section folds what it
+exposed inside this wave's band, **id-for-id, under the record namespace each id was minted in**.
+
+**Posture unchanged.** Status `planned`. Dispositions **ADJUDICATED**, never VERIFIED — no gate has
+run and nothing here stamps a wave. No product source opened: every witness below is a **corpus byte
+re-read at HEAD by this seat** via `grep`/`sed` on `registry/adjudicated/**`, quoted as bytes. **E-3
+holds** — `waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md`,
+`refinement/ROUND-2-ASSIGNMENTS.md` and every `registry/adjudicated/**` record stay byte-untouched;
+`X-W8-FOLD.md` is this seat's sole write in this fold. **Banked ids are for life**: every id below is
+the id its record minted, and where the substance is already carried by an existing row the cure is an
+explicit **`≡`-pointer booking under the original id** — never a silent skip — so the byte census
+closes. **Locks are carried verbatim**, kills included: a kill that is not carried is a kill that
+returns.
+
+**And this section closes nothing.** §A of the work order is a *work order*; the register closes when
+a **pass-4 recheck** re-derives the census from the twelve folds' own bytes under §1.G. No sentence
+here claims otherwise.
+
+### 11.1 Dated correction to §10.1 — the ABSENT sentence, scoped in place, and the artifact it defers to
+
+The pass-3 BLOCKER's receipt names this file **by line**: *"X-W8-FOLD.md:1692 '§B.2's defect class is
+therefore ABSENT from this fold' is true of its command but 26 X-W8-routed rows are absent by bytes."*
+**Both halves are true, and they are about different questions.** §10.1's sentence answers *does this
+fold's printed census reproduce its printed figure?* (yes — `92` and `271` reproduce at HEAD, re-run
+again by this seat 2026-08-28). It never answered *is every X-W8-routed row carried under its own
+record namespace?* — and read quickly, in a file with no other closure sentence near it, the word
+**ABSENT** reads as though it had.
+
+**The correction is applied at the sentence's own site**, dated, **with no word of the original
+removed** (§10.1's `SCOPE` paragraph): the claim is scoped to §B.2's non-reproducing-census class, the
+26 absences are named as this section's work, and the carriage question is handed to **the pass-4
+census artifact** — the successor to `refinement/PASS-3-CHECK-RETURN.json`, re-derived from the twelve
+folds' own bytes under **§1.G** at a named HEAD. It is applied **in place** rather than only in this
+addendum because the check quotes the sentence at its site: a reader who lands on `:1692` from the
+check must meet the scope there, not seven hundred lines later.
+
+**Byte-position note, so no later citation is silently wrong.** The seven lines added at §10.1 shift
+everything below them by **+7**: §10.3's arithmetic block, cited as `X-W8-FOLD.md:1845` by
+`ROUND-3-ASSIGNMENTS.md` §B.1's per-wave receipt table, now stands at **`:1852`** with its bytes
+unchanged (`| folded rows | 69 (W8.1–W8.69) | **78** (W8.1–**W8.78**) | **+9** | …`). The receipt's
+**quoted content is exact and reproduces**; only the coordinate moved. Cite it by content.
+
+### 11.2 §1.G compliance for this fold — declared aliases, heading scope, and three live namespace guards
+
+**Clause 4 (the alias set is derived AND declared).** Every short form this fold uses for a record is
+a **derived** suffix-join of its stem's hyphen segments (≥4 chars), and is **declared** here anyway,
+because clause 4's whole lesson is that an undeclared short form is a census hole whose cure costs one
+line:
+
+| short form used in this fold | the record it names |
+|---|---|
+| `dockviewselect` | `shell-dock-dockviewselect.md` |
+| `debugeventlog` | `picker-debugeventlog.md` |
+| `pointerdebugoverlay` | `picker-pointerdebugoverlay.md` |
+| `actionbarlayer` | `shell-dock-actionbarlayer.md` |
+| `profilesection` | `shell-dock-profilesection.md` |
+| `componentsliders` / `consolerail` | `picker-componentsliders.md` / `picker-componentsliders-consolerail.md` |
+| `extract-controls` / `extract-workbench` / `extract-pane` | `wb-extract-controls.md` / `wb-extract-workbench.md` / `wb-extract-pane.md` |
+| `gradient-pane` | `wb-gradient-pane.md` |
+
+**This fold uses no non-derivable short form** — no `strip`, no `editor`, no `configbar` (the class of
+spelling that hid ⟨wb-gradient-easingspecimenstrip · C-05/C-06⟩ from the pass-3 check at
+`X-W6-FOLD.md:363/:358`). Measured, not asserted.
+
+**Clause 5 (heading scope; bold pseudo-headings do not scope).** This fold **keys no table by a bold
+record label**: every row in §6, §9, §10 and §11 carries its record on the row itself or on the row's
+own `⟨…⟩` provenance line, which satisfies clause 1 by construction. The clause-5 repair worked at
+`X-W11-FOLD` §1z (the `**ColorNutritionLabel — 27 rows**` label) has **no site here**.
+
+**Clause 1 (namespace guards), and three of them are live inside this file this round** — stated
+before the rows, in the idiom §10.1 set:
+
+1. ⟨shell-dock-profilesection.md · **D-13**⟩ (W8.108) **≠** ⟨picker-componentsliders.md · **D-13**⟩ —
+   the latter is cited at **W8.49** (`:1125`, the `demo/ui` scope law: *"MINOR at this component's
+   scope; the repo-wide identity is X-W8's"*). One bare id, two records, two different rows.
+2. ⟨shell-dock-actionbarlayer.md · **AB-26**⟩ — named inside W8.107's disposition as the standing NWO
+   home of the built-ins design question — **≠** ⟨AboutPane.md · **AB-26**⟩, which the **G-F register**
+   books this same round at `X-W0-FOLD` §8 (W0.33). Two records, one bare id, two registers.
+3. ⟨picker-componentsliders.md · **R-29**⟩ (W8.81) **≠** ⟨wb-extract-imagedropzone.md · **R-29**⟩,
+   which `ROUND-3-ASSIGNMENTS.md` §A.1 homes at **X-W7**. The check's own receipt proves this class
+   with `R-31` (banked once, ⟨picker-componentsliders · R-31⟩ at `X-W6-FOLD.md:829`, while
+   ⟨wb-extract-imagedropzone · R-31⟩ is nowhere).
+
+**Erratum registered, not patched (E-3).** `ROUND-3-ASSIGNMENTS.md` §A.2 spells row 12's citation key
+⟨picker-pointerdebugoverlay · **D**⟩. The **banked id at the bytes is `D#2b`**
+(`picker-pointerdebugoverlay.md:25`, *"| **D#2b** (RTL physical inset) | …"*). The work order's bytes
+stand; this fold books **`D#2b`** (W8.90) and prints the roster's spelling beside it so the census
+closes under both. Registered at the G-F register (`X-W0-FOLD` §8.4) alongside ERRATUM R1-A-1, which
+is where identity spelling lives.
+
+### 11.3 §A.2 — the thirty rows, booked id-for-id (W8.79 … W8.108)
+
+**W8.79 · ⟨PaneHeader.md · eslint boundary-object count⟩ — the RULING row that sustains PH-10, and the
+citation-inheritance charge that rides it** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:26`): *"| **eslint boundary-object count** — reader-1's K-3 says
+THREE `no-restricted-imports` objects (one fully dead); reader-2's L2-1 confirm cell says "three of the
+four … the fourth also covers `demo/color-picker/**`", presented as re-run | **Reader-1 SUSTAINED.** My
+grep: rule declarations at `eslint.config.js:206` (src, live inv-K-1), `:241` (color-picker ×2 live
+globs + 4 dead `demo/@` globs), `:279` (composables, fully dead) … Three objects; exactly ONE matches
+zero files; six dead globs total — matching the ColorSpaceSelector arbiter's independent census AND
+X-W8:42's "six dead `demo/@/**` file globs". **New charge**: reader-2's cell repeats L2-1's original
+four-object arithmetic under a "re-run by me" label — a citation-inheritance event (the
+ColorSpaceSelector DISSENT-1 species), recorded. The FINDING (PH-10) survives both readers intact. |"*
+**Where the fact already lives**: §1's `:147-150` carries this census verbatim — three objects, six
+dead globs, the X-W8:42 match — but under the **finding** id `PH-10`, never under the ruling row's own
+key, which is why the id-keyed census reported it absent. **What the compressed form drops, and this
+row carries**: the **citation-inheritance charge** — a confirm cell presented as an independent re-run
+that is in fact the original arithmetic — is a *process* record with no cure and no wave; it dies
+silently if only the finding travels. The deletion itself is unchanged: **W8.md:42 owns the six dead
+globs** (`:336`).
+⟨PaneHeader.md · eslint boundary-object count, :26⟩ ≡ §1 `:147-150` (PH-10 ruling) · deletion at W8.md:42 (§6a, `:336`)
+
+**W8.80 · ⟨SearchFilterBar.md · SFB-35⟩ — `demo/ui/` is 19 dirs / 19 files / 20 lines of pure
+re-export, and the identity is the repo-wide one** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim* (`:85`): *"| **SFB-35** (L-9) | `demo/ui/` = 19 dirs / 19 files / 20 lines of pure
+re-export (counts reproduced by reader-B; badge + dropdown-menu already present) | **X-W8** (CC-007
+barrels); identity shared with the repo-wide `../ui` extirpation (ColorSpaceSelector L-4 / W-HYGIENE) —
+ONE identity |"*
+**Where the fact already lives**: `:71` lists `SearchFilterBar` **SFB-35/36/37** among the fifteen
+records that route W-HYGIENE to X-W8 *as a whole*, and §6b's **scope 6** owns the barrel deletion. The
+list is a routing census, not a booking. **The ONE-identity clause is the load** and is carried
+verbatim: SFB-35 is not a second barrel row — it is the same identity as ⟨ColorSpaceSelector · L-4⟩,
+so a close may report it landed **only** with the repo-wide extirpation, never from this record alone.
+⟨SearchFilterBar.md · SFB-35, :85⟩ ≡ §1 `:71` (W-HYGIENE routing census) · §6b scope 6 (CC-007 barrels) · ONE identity with ⟨ColorSpaceSelector.md · L-4⟩
+
+**W8.81 · ⟨picker-componentsliders.md · R-29⟩ — two dead `DIGITS` constants, one exported through the
+pipeline's public surface with zero consumers** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim* (`:59`): *"**R-29 · MINOR · MISSED-ADOPTED (RR-B) — two dead `DIGITS` constants, one
+exported through the pipeline's public surface with zero consumers.** Re-run by this seat: exactly 3
+hits (useSliderGradients.ts:14 dead-on-arrival duplicate; useColorPipeline.ts:28 definition; :331
+exported, consumed by nobody). **→ X-W8** (dead-code subtraction on the god module R-21 argues
+about)."*
+**Where the fact already lives**: **W8.35**'s dead-surface cluster (`:858-861`) quotes the substance,
+and **§BoundsDelta rows 7 and 8** carry both files by path (`useColorPipeline.ts` — *"R-29 (two dead
+`DIGITS`, one on the public surface, zero consumers)"*; `useSliderGradients.ts` — *"R-29's
+dead-on-arrival duplicate"*). It rides **G-10**. **NAMESPACE GUARD (guard 3 of §11.2)**: this is the
+componentsliders `R-29`, **not** ⟨wb-extract-imagedropzone · R-29⟩, which is X-W7's.
+⟨picker-componentsliders.md · R-29, :59⟩ ≡ W8.35 (`:858-861`) · §BoundsDelta 7, 8 · G-10 · **≠** ⟨wb-extract-imagedropzone.md · R-29⟩ (X-W7)
+
+**The debugeventlog eight (W8.82 … W8.89) — one preface, then the rows.** **W8.8** (`:258-274`) already
+carries all thirteen `ADJ-*` rows — but in **compressed parenthetical prose** (*"**ADJ-2** (UI seconds
+vs export milliseconds …) · **ADJ-3** (…) · … **ADJ-10..ADJ-13** (…)"*), which is exactly the shape a
+namespace-scoped census cannot read as carriage: the ids are there, the record attribution is on a
+`⟨…⟩` line four paragraphs away, and `ADJ-10..ADJ-13` is a **range**, not four ids. The eight rows
+below book the eight the work order names, each under its own id, each naming **the one fact the
+compressed form drops**. **G-11 is unchanged and no gate is minted**; the whole cluster rides
+**CC-081** and W8.30.
+
+**W8.82 · ⟨picker-debugeventlog.md · ADJ-2⟩ — the clock is unlabelled AND the two output surfaces
+disagree by 1000×** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:36`): *"**ADJ-2 — MINOR · merged D-2 + missed unit-divergence
+(reader-LC).** The clock is unlabelled AND the two output surfaces disagree by 1000×: the UI renders
+seconds `(evt.ts / 1000).toFixed(2)` (:14, no unit, no column header), the export writes raw
+milliseconds `t: +e.ts.toFixed(1)` (overlay :96, bare key). The same event reads `0.42` on screen and
+`424.3` in the copied JSON — the eyeball-then-export correlation workflow silently breaks. … C-4's
+"clock validation" framing stays dead (K-2). **Route: X-W8.**"*
+**What W8.8's compressed form drops**: the **kill**. *C-4's "clock validation" framing stays dead
+(K-2)* — carried here so no close re-files this as a validation defect. The defect is a **unit
+contract** between two surfaces, and its cure is one label plus one unit, not a validator.
+⟨picker-debugeventlog.md · ADJ-2, :36⟩ ≡ W8.8 (`:266`) · kill carried: **K-2** (C-4's clock-validation framing) · G-11 / CC-081
+
+**W8.83 · ⟨picker-debugeventlog.md · ADJ-3⟩ — retention, ordering and dropped semantics are absent
+from the boundary; the counter freezes at 80 forever** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:37`): *"**ADJ-3 — MINOR · merged D-4 + L-4 (one identity: L-4 root,
+D-4 symptom).** Retention/ordering/dropped semantics are absent from the boundary: `Events ({{
+events.length }})` (:5) is the RETAINED count; eviction is silent (`splice` at usePointerDebug.ts:74-76
+against MAX_EVENTS=80 at :20, no dropped/total field in either interface at :3-18); ordering inverted
+at :33 with no label. … the evidence destroyed first is precisely the causal window before a
+`FREEZE_DETECTED` … LC's narrowing adopted: absent from the TYPE, present in the module — the cure is a
+type/label lift, not an architecture. **Route: X-W8.**"*
+**What the compressed form drops — and it is the cure's bound**: *the cure is a **type/label lift, not
+an architecture***. A close that reports a ring-buffer redesign has over-executed the row; a close that
+reports a bigger `MAX_EVENTS` has under-executed it. The **causal-window** clause is the severity's
+ground: eviction destroys the 2500 ms of silence *before* a `FREEZE_DETECTED` first.
+⟨picker-debugeventlog.md · ADJ-3, :37⟩ ≡ W8.8 (`:267`) · producer: `usePointerDebug.ts` (W8.9) · cure bound: type/label lift
+
+**W8.84 · ⟨picker-debugeventlog.md · ADJ-4⟩ — two text colours fail WCAG AA at 10px, and one fails
+under every reachable backdrop** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:38`): *"**ADJ-4 — MINOR · missed by all three axes; sibling relay,
+picked up here (the relay reader-DU flagged as dropped).** Two text colors fail WCAG AA at 10px:
+`.debug-ts` `#666` (:80-83) and `.debug-tgt` `#777` (:101-107), sibling-measured live at **3.47:1** and
+**4.45:1** … against pure black #666 ceilings at ~3.66:1 — **fails under every reachable backdrop** —
+while #777 computes ~4.69:1, so `.debug-tgt`'s failure is backdrop-dependent (the 0.92-alpha blur
+lightens the effective ground); the sibling's live 4.45 governs the live tree. These are the two columns
+ADJ-2 and ADJ-7 independently identify as hardest to read — the defect compounds. **Route: X-W8**
+(CC-081 names this cluster's a11y explicitly)."*
+**What the compressed form drops**: the **asymmetry of the two failures**, which decides what a green
+means. `#666` fails **structurally** (its ceiling is below AA against pure black); `#777` fails
+**contingently** (backdrop-dependent, and the sibling's **live 4.45:1** governs). A gate that measures
+one composited backdrop can go green on `#777` while `#666` is still unfixable by re-grounding — and the
+**relay provenance** (`picker-pointerdebugoverlay/challenge-D-design-r2.md:166-172`) is carried because
+this row exists only by relay, which reader-DU flagged as **dropped**.
+⟨picker-debugeventlog.md · ADJ-4, :38⟩ ≡ W8.8 (`:268`) · relay source: picker-pointerdebugoverlay challenge-D-design-r2 `:166-172` · CC-081
+
+**W8.85 · ⟨picker-debugeventlog.md · ADJ-5⟩ — the column budget is allocated inversely to diagnostic
+value, and exactly the alarm rows wrap** (cl.1 · MINOR · **`≡`-pointer booking + UNPROVEN residue**)
+*Row verbatim, head + terminal* (`:39`): *"**ADJ-5 — MINOR · merged missed column-budget rows (both
+readers), magnitude corrected.** Budget is allocated inversely to diagnostic value: `.debug-etype` has
+`min-width:60px` and NO cap (:85-89) while `.debug-tgt` is hard-capped at 120px (:101-107). Fixed minima
+40+60+24+120 = 244px + three 4px gaps = 256px against ~258px of content … every alarm row carries an
+`extra` (FREEZE_DETECTED, ORPHAN_POINTERS, cancel-release), so the diagnostic rows are the ones that
+wrap … Corrected worst live specimen: `sl:kelvin:cancel-release` (24 ch), not the readers' invented
+27-ch string (CORRECTIONS #2). Exact wrap threshold UNPROVEN-NEEDS-LIVE (residue R-2). **Route:
+X-W8.**"*
+**The two things the compressed form drops are both guards against a false receipt**: (i) the
+**magnitude correction** — the worst live specimen is **24 ch**, and the readers' 27-ch string was
+*invented* (CORRECTIONS #2), so a cure sized to 27 is sized to a fiction; (ii) the **UNPROVEN residue
+R-2** — the *exact* wrap threshold is **NEEDS-LIVE** and unmeasured, so no close may report the wrap
+cured by arithmetic alone. This row is the budget re-form that **W8.89 (ADJ-12) rides**.
+⟨picker-debugeventlog.md · ADJ-5, :39⟩ ≡ W8.8 (`:268-269`) · residue **R-2** UNPROVEN-NEEDS-LIVE · magnitude: 24 ch (CORRECTIONS #2)
+
+**W8.86 · ⟨picker-debugeventlog.md · ADJ-6⟩ — `:key="i"` over a reversed array, and the row that says
+its own urgency is not earned** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:40`): *"**ADJ-6 — MINOR · C-2 (both readers agree; severity as
+re-bounded).** `:key="i"` over the reversed array (:9-10, :33): every push shifts every reversed index,
+so Vue in-place-patches all ~80 rows instead of prepending one. No observable consequence TODAY (no
+transitions, no selection, no per-row state; subtree inert) — the SOURCE-RED urgency is not earned — but
+it becomes a real defect the moment any ratified cure adds row interactivity or motion. Cure: a
+monotonic event id minted in the producer's `log()` (:57-77), the only constructor. **Route: X-W8**
+(rides the ADJ-1/ADJ-3 producer touch)."*
+**What the compressed form drops — and it binds the gate register**: *the SOURCE-RED urgency is **not
+earned***. A born-RED gate on this row today would be **RED against nothing observable**; the row's real
+force is **conditional** — it becomes a defect the moment ADJ-5's or ADJ-12's cure adds interactivity or
+motion, i.e. the moment this same wave's other rows land. **No gate is minted for it**, and the ordering
+is the point: the key fix must precede, not follow, any row-interactivity cure.
+⟨picker-debugeventlog.md · ADJ-6, :40⟩ ≡ W8.8 (`:269`) · producer touch with ADJ-1/ADJ-3 (`usePointerDebug.ts` `log()` `:57-77`) · **no gate minted**
+
+**W8.87 · ⟨picker-debugeventlog.md · ADJ-7⟩ — double truncation, and the prescribed `title` cure is
+REFUTED by the corpus's own D-5** (cl.1 · MINOR · **`≡`-pointer booking + refutation carried**)
+*Row verbatim, head + terminal* (`:41`): *"**ADJ-7 — MINOR · D-6 fact confirmed, cure refuted.** Double
+truncation: the producer clips targets to 40 chars (describeElement :31), then CSS clips ~40 to ~20
+visible (`max-width:120px` at 10px mono, :101-107) — `div.slider-track.is-active` renders
+`div.slider-track.is-…`. The prescribed `title` cure is REFUTED by the corpus's own D-5: a native
+tooltip needs hit-testing and the subtree is inert — a `title` here can never render on any input
+modality. The recoverable path exists (Copy JSON exports the untruncated 40-char `tgt`, overlay :99); the
+cure is layout budget (with ADJ-5), never interactivity."*
+**The refutation IS the row's load** — W8.8's compressed cell says *"the `title` cure REFUTED — the
+subtree is inert"*, and this booking carries **why**: the subtree is `pointer-events`-inert, so a native
+tooltip has no hit-test to fire on, on **any** modality. An executor who "fixes" ADJ-7 with `title=`
+ships dead markup that also **re-opens D-5**. The recoverable path (Copy JSON's untruncated 40-char
+`tgt`) is carried because it is the reason this is MINOR.
+⟨picker-debugeventlog.md · ADJ-7, :41⟩ ≡ W8.8 (`:269-270`) · cure = layout budget **with ADJ-5** (W8.85), never interactivity · refutation ground: the corpus's own **D-5**
+
+**W8.88 · ⟨picker-debugeventlog.md · ADJ-11⟩ — the four alarm rows print two sentinel lies as data**
+(cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:119`): *"**ADJ-11 — MINOR · the four alarm rows print two sentinel
+lies as data** (reader-LC missed M2; verified). `PointerDebugEvent` requires `pointerId: number` and
+`target: string` with no representation for "absent", so all four non-pointer producers pass sentinels —
+`FORCE_RELEASE` (:96), `FORCE_RESET_DONE` (:143), `ORPHAN_POINTERS` (:222), `FREEZE_DETECTED` (:250) all
+call `log(type, -1, null, …)` — and the leaf renders them verbatim: `p{{ evt.pointerId }}` → **`p-1`**
+(:16), `describeElement(null)` → **`??`** (:18). Exactly the rows a developer opens the panel to read
+spend two of six columns (and 144px of the ~258px budget) printing nonsense, while the real stuck pids
+hide in free-text `extra` (`:223`, `:248`). Same untyped-contract root as ADJ-1/ADJ-3 — one producer
+touch: optional `pointerId`/`target` or a `kind` discriminant; template renders `—`. **Route: X-W8.**"*
+**What the range `ADJ-10..ADJ-13` drops**: the **arithmetic that ties this row to ADJ-5's** — two of six
+columns and **144px of the ~258px** budget are spent printing `p-1` and `??` on precisely the four rows
+the panel exists for, while the real pids sit in free-text `extra`. ADJ-5 and ADJ-11 are therefore **one
+budget**, and the cure is **one producer touch** shared with ADJ-1/ADJ-3.
+⟨picker-debugeventlog.md · ADJ-11, :119⟩ ≡ W8.8 (`:270-271`, the `ADJ-10..ADJ-13` range) · one producer touch with ADJ-1/ADJ-3 · budget shared with **ADJ-5** (W8.85)
+
+**W8.89 · ⟨picker-debugeventlog.md · ADJ-12⟩ — a continuation line is typographically identical to a new
+event, and exactly the alarm rows wrap** (cl.1 · MINOR · **`≡`-pointer booking + residue**)
+*Row verbatim, head + terminal* (`:120`): *"**ADJ-12 — MINOR · row boundaries are imperceptible while
+exactly the alarm rows wrap, so a continuation line is typographically identical to a new event**
+(reader-DU missed M4; verified, including by this seat's own view of the shipped screenshot). The sole
+delimiter is `border-bottom: 1px solid rgba(255,255,255,0.04)` (:73) — ~1/70th luminance lift over the
+sibling-measured composite backdrop, invisible in `evidence-r2/04…` — while `flex-wrap: wrap` (:74) drops
+the overflowing `.debug-tgt`/`.debug-extra` flush to the same left edge with no indent or continuation
+glyph … Whether an operator *actually* misreads it is R-5. **Route: X-W8** (rides ADJ-5's budget re-form:
+a hanging indent or a perceptible delimiter falls out of the same edit)."*
+**The residue rides, and it is the honest bound**: *whether an operator actually misreads it is **R-5***
+— an unproven human-factors claim the record refuses to assert. The **structural** facts are certain (a
+1/70th-luminance delimiter; wrapped continuations flush at the same left edge), and they are what a cure
+answers. **One edit serves both**: this row and W8.85 are the same budget re-form.
+⟨picker-debugeventlog.md · ADJ-12, :120⟩ ≡ W8.8 (`:270-271`) · residue **R-5** (operator misreading, unproven) · rides **ADJ-5**'s budget re-form (W8.85)
+
+**W8.90 · ⟨picker-pointerdebugoverlay.md · D#2b⟩ — the RTL physical inset: RESCOPED to INFO,
+already-booked, and the IDENTITY stays with the U ledger** (cl.4 · INFO · **`≡`-pointer booking + lock**)
+*Row verbatim, head + terminal* (`:25`): *"| **D#2b** (RTL physical inset) | KILLED — duplicate of a
+ruled ledger row | CONFIRMED MINOR | CONFIRMED MINOR | **RESCOPED → INFO, already-booked. DU wins
+(identity guard).** | `rtl-logical-property-audit.md:50` books this file BY NAME ("dev-only overlay…
+lowest priority") … `dir="ltr"` hard-set `:12`; no i18n dependency exists; r2 induced RTL by assignment.
+Re-booking a ruled row without citing the ruling violates the anti-rename law (MT-CSS-A §5). The two-line
+`inset-inline-start` swap may ride X-W8 incidentally; the IDENTITY stays with the U ledger. |"*
+**Where the fact already lives**: §6d's out-list at `:932-933` carries it — *"**D#2a/D#2b** → rescoped
+INFO, the RTL two-line swap 'may ride X-W8 incidentally; **the IDENTITY stays with the U ledger**'"* —
+but as a **range** (`D#2a/D#2b`) with no ⟨record·id⟩ attribution. **The lock is the whole row and it is
+carried verbatim**: *re-booking a ruled row without citing the ruling violates the anti-rename law
+(MT-CSS-A §5)*. So this booking **cites the ruling and moves nothing**: the identity stays on the
+U-tranche RTL ledger (`rtl-logical-property-audit.md:50`), and the two-line swap rides **incidentally**
+— it is not an X-W8 obligation and no gate may be born on it. **Spelling erratum** (§11.2): the roster's
+citation key is ⟨picker-pointerdebugoverlay · **D**⟩; the banked id is **`D#2b`**.
+⟨picker-pointerdebugoverlay.md · D#2b, :25⟩ ≡ §6d `:932-933` (D#2a/D#2b out-list) · identity home: U ledger `rtl-logical-property-audit.md:50` · roster spelling ⟨· D⟩ — erratum at `X-W0-FOLD` §8.4
+
+**The DockViewSelect ten (W8.91 … W8.100) — one preface, and it is the reason none of them is an
+adoption.** **W8.44 (`:1061-1074`) and CE-1 (`:404-416`) already rule this cone**: `W8.md:114-116`
+**declines** MT-DOCK-LAYERS-1's remaining arms, this wave takes exactly the three subtractive Dock-adj
+rows (L-18/L-19/L-20) and their gates, and W8.44 lists the declined ids **by name** — DVS-1, **DVS-2**,
+**DVS-6**, **DVS-8**, DVS-9, DVS-10, **DVS-11**, DVS-15..**DVS-19**, DVS-23..**DVS-25**, **DVS-27**,
+DVS-29 — *"**Nothing here is killed**; each keeps its id and its home (MT-DOCK-LAYERS-1) at the
+formation boundary."* What the id-keyed census cannot read is a **comma-separated decline list**: the
+ids are present, the record is named once at the head of a sentence, and no row carries ⟨record · id⟩.
+The ten rows below book the ten the work order names, **id-for-id, under the decline** —
+**carriage is not adoption; the decline governs, unreversed** (the `X-W0-FOLD` §7.1 / W0.29 precedent,
+where adopting a row carried an identity without reversing `W8.md:112`'s decline). Each row carries the
+**accretion** its record binds to the identity, because an accretion lost at the boundary is a defect
+re-derived at the successor formation.
+
+**W8.91 · ⟨shell-dock-dockviewselect.md · DVS-2⟩ — the trigger renders `""` and the listbox reports no
+selected option on 7 of 14 routes** (cl.4 · **BLOCKER** · **`≡`-pointer booking under the decline**)
+*Row verbatim, head + terminal* (`:37`): *"**DVS-2 (L:L-1/L-13 ≡ C:D-3 ≡ D:D-2) — BLOCKER, FOLD →
+Dock-adj DELTA-4 (BUILD, G-C/G-D + the union clause) → X-W8.** The trigger renders `""` and the listbox
+reports no selected option on 7 of 14 routes: `:model-value="currentView"` (14-valued, router-owned) vs
+`viewEntries` (7-valued, hand-partitioned, useDockAdminMode.ts:34-39); reka's SelectValue resolves an
+unmatched value to `?.textContent ?? ""` → `.filter(Boolean)` → `placeholder` default `""` … Tracked
+witness: `shots/safari-desktop-light/atmosphere.png` (gold glyph, no label, Login pill). … Accretions
+this corpus adds to that identity: the placeholder-refusal ruling (a placeholder fixes `triggerText` and
+leaves `anySelected:false` untouched — L-13); reader-2's missed icon/label owner-split row (below) proving
+the interim label repair is local; the killed activedescendant sub-claim must NOT travel (see kills)."*
+**Three accretions, carried because they are what a boundary loses**: (i) **the union clause** —
+*"viewEntries is UNIONED unconditionally with the current view"*; **group derivation alone does not cure
+the anon-on-admin-route case**; (ii) **the placeholder-refusal ruling** — a placeholder repairs
+`triggerText` and leaves `anySelected:false` **untouched**, so a placeholder is not a cure; (iii) **the
+killed activedescendant sub-claim must NOT travel**. **Status here: DECLINED-BY-W8, identity preserved
+at MT-DOCK-LAYERS-1** (W8.44/CE-1). This booking closes the byte census and **reverses nothing**.
+⟨shell-dock-dockviewselect.md · DVS-2, :37⟩ ≡ W8.44 (`:1064`) · CE-1 · **DECLINED-BY-W8** → MT-DOCK-LAYERS-1 (DELTA-4, G-C/G-D + union clause)
+
+**W8.92 · ⟨shell-dock-dockviewselect.md · DVS-6⟩ — `hide-indicator` deletes the producer's sole
+selection affordance, and focus and selection collapse onto one signal** (cl.4 · MAJOR · **`≡`-pointer
+booking under the decline**)
+*Row verbatim, head + terminal* (`:41`): *"**DVS-6 (D:D-3-narrowed ≡ C:D-4-narrowed + D:D-20) — MAJOR,
+FOLD → Dock-adj DELTA-10 D2-16 (BUILD, G-N) → X-W8, with the narrowing as a binding accretion.**
+`hide-indicator` on every row (:97/:127) deletes the producer's sole selection affordance … and the SFC
+comment's substitute channel is the FOCUS channel … "where am I" and "where is the cursor" collapse onto
+one signal that leaves the current row on the first arrow key. **The accretion the wave must carry: the
+D-3/C-D-4 "zero pixels at open" headline is DEAD (see kills) — reka seeds focus onto the selected row at
+open (`focusSelectedItem`, SelectContentImpl.js:146-150) and `menu.css` paints it; the cure target is the
+CONFLATION (VISUAL-CONSTITUTION :84 focus-distinct-from-selection), not a zero.** Second accretion: o14's
+"legend stays dead" oracle asserts the ABSENCE of an indicator inside options (C:D-13's mutation 3) — the
+suite currently PINS this defect and G-N must flip that assert, not merely add one. D-20's chromatic
+misdirection … folds here as the compounding cell."*
+**Two binding accretions, both already visible in this fold but never id-keyed**: the **killed
+"zero pixels at open" headline** (the cure target is the **conflation**, not a zero) and the **o14
+gate-flip** — *"the suite currently PINS this defect and G-N must flip that assert, not merely add
+one"*, which W8.44 and CE-1 both name as a *NEW arm*. A close that adds an oracle without flipping the
+pin ships a suite that asserts the defect. **DECLINED-BY-W8; identity at MT-DOCK-LAYERS-1.**
+⟨shell-dock-dockviewselect.md · DVS-6, :41⟩ ≡ W8.44 (`:1064`) · CE-1 (`:409`, the o14 gate-flip) · **DECLINED-BY-W8** → DELTA-10 D2-16 / G-N
+
+**W8.93 · ⟨shell-dock-dockviewselect.md · DVS-8⟩ — one `v-if="isDesktop"` deletes the nav's
+SEMANTICS, not merely its pixels** (cl.4 · MAJOR · **`≡`-pointer booking under the decline**)
+*Row verbatim, head + terminal* (`:43`): *"**DVS-8 (D:D-4 ≡ C:D-17) — MAJOR, FOLD → Dock-adj DELTA-5/G-L
+(the breakpoint-predicate family) → X-W8, with the AX arm as its own accretion.** One `v-if="isDesktop"`
+(:87; Dock.vue:71 `useMediaQuery("(min-width: 1024px)")` — the exact width-only predicate DELTA-5
+indicts) deletes the nav's identity below 1024px, which 200% zoom triggers as a device class; and because
+`SelectValue` is the node reka exposes the combobox value through, the v-if removes the **semantics**,
+not just pixels — the mobile AX node carries no value (structure source-certain; the CDP cell stays in
+UNPROVEN). Cure: mount the node always, hide pixels responsively at the trigger root. …"*
+**The accretion and the honesty bound**: the **AX arm** is its own accretion (the mobile AX node carries
+**no value**), and the **CDP cell stays UNPROVEN** — structure is source-certain, the live AX read is
+not. **200% zoom is a device class** here, which is why this is not a mobile-only row. Cure shape is
+fixed by the record: **mount always, hide pixels at the trigger root** — not a second component.
+**DECLINED-BY-W8; identity at MT-DOCK-LAYERS-1** (the desktop half rides DELTA-4's route-parametrised
+label gate arm, C-29; the mobile mount-always arm accretes to **G-L**).
+⟨shell-dock-dockviewselect.md · DVS-8, :43⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** → DELTA-5 / G-L · CDP cell **UNPROVEN**
+
+**W8.94 · ⟨shell-dock-dockviewselect.md · DVS-11⟩ — a command wears `role="option"`, and `isViewId` sits
+unused on every write path** (cl.4 · MAJOR · **`≡`-pointer booking under the decline**)
+*Row verbatim, head + terminal* (`:46`): *"**DVS-11 (D:D-10 ≡ C:D-9 ≡ L:L-8) — MAJOR → X-W8 accretion
+(the wave's useDockAdminMode carve); the anchor-grammar question rides the formation boundary with
+L-22.** A command wears `role="option"`: `__admin_toggle__` duplicated as bare literals in two files
+(census = 2, mine), cast unvalidated into `router.push` (`switchView(id as ViewId)` :72) while `isViewId`
+(viewSchema.ts:236) sits unused on every write path; the row's `aria-selected` is permanently false; the
+label flips part of speech between modes; the mode switch is destructive to location … Correction adopted
+(reader-1): `useViewManager.ts:72-73` guards `id === currentView` so re-selection cannot push duplicate
+history — that sub-fault does not travel. Minimum cure at this boundary: shared constant + `if
+(!isViewId(id)) return;`; the real cure (a command is not an option) falls out of any anchor-grammar
+ruling."*
+**The correction travels with the row, not without it**: the duplicate-history sub-fault is **guarded**
+at `useViewManager.ts:72-73` and **does not travel** — a boundary that carries the row without the
+correction re-files a cured defect. **Two cures, explicitly tiered**: the *minimum* (shared constant +
+`isViewId` guard) is executable inside the useDockAdminMode carve; the *real* cure — **a command is not
+an option** — falls out of the **anchor-grammar ruling at the formation boundary, with L-22**.
+⟨shell-dock-dockviewselect.md · DVS-11, :46⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** → MT-DOCK-LAYERS-1 · anchor grammar → formation boundary with **L-22**
+
+**W8.95 · ⟨shell-dock-dockviewselect.md · DVS-16⟩ — `ViewEntry` retyped, and the casts were never
+forced** (cl.4 · MINOR · **`≡`-pointer booking under the decline**)
+*Row verbatim* (`:51`): *"**DVS-16 (D:D-16 ≡ C:D-12 ≡ L:L-7/L-19) — MINOR (ruled above) → X-W8 rider on
+the carve: `ViewEntry` → `{ id: ViewId } & PaneConfig`, casts deleted (they were never forced — the kill
+travels), `currentIcon: Component`.**"*
+**The kill travels, and that is the row's whole content**: *the casts **were never forced***, so
+deleting them is a **subtraction with no type debt** — not a migration, not a refactor. Booked under the
+decline as a **rider on the carve**: it lands only if the carve does. **DECLINED-BY-W8.**
+⟨shell-dock-dockviewselect.md · DVS-16, :51⟩ ≡ W8.44 (`:1064`, DVS-15..DVS-19) · **DECLINED-BY-W8** · kill carried: the casts were never forced
+
+**W8.96 · ⟨shell-dock-dockviewselect.md · DVS-17⟩ — a bare `<div>` separator inside `role="group"`
+inside `role="listbox"`, while `SelectSeparator` has zero consumers** (cl.4 · MINOR · **`≡`-pointer
+booking under the decline**)
+*Row verbatim, head + terminal* (`:52`): *"**DVS-17 (D:D-11 ≡ C:D-18 ≡ L:L-14) — MINOR → X-W8 rider; the
+zero-consumer SelectSeparator census accretes to CC-078.** A bare `<div>` separator (:123) inside
+`role="group"` inside `role="listbox"`, differing from the producer recipe in all three enumerated
+properties, while `SelectSeparator` sits re-exported and consumed by nobody (my census: 0); plus the
+danglings — `SelectGroup` with no `SelectLabel` emits an `aria-labelledby` that resolves to nothing, and
+the listbox itself is nameless (C:D-11). The lapse is proven two files away (MobileMenuDropdown uses the
+producer separator)."*
+**Two accretions**: the **zero-consumer `SelectSeparator` census accretes to CC-078** (a repo-wide
+dead-export identity this wave already owns the family of), and the **danglings** —
+`aria-labelledby` resolving to nothing plus a **nameless listbox** — are AX defects that survive any
+separator fix. **The lapse is proven two files away** (`MobileMenuDropdown` uses the producer
+separator), which is why this is a lapse and not a house style. **DECLINED-BY-W8.**
+⟨shell-dock-dockviewselect.md · DVS-17, :52⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** · census accretion → **CC-078**
+
+**W8.97 · ⟨shell-dock-dockviewselect.md · DVS-18⟩ — a dead clamp-cancelling class, a stale comment, and
+a five-tranche ask that CLOSES** (cl.4 · MINOR · **`≡`-pointer booking + a coordination close**)
+*Row verbatim, head + terminal* (`:53`): *"**DVS-18 (C:D-16) — MINOR → X-W8 rider + a coordination
+close.** `[&>span]:line-clamp-none` (:69) cancels nothing: `DockTrigger for="select"` mounts **reka's
+bare SelectTrigger** (dock.js:22, my read) and no line-clamp exists anywhere in the dock dist (census 0,
+mine); the clamp lives only in glass-ui's styled SelectTrigger this file never mounts. The class is dead,
+the :57-59 comment is stale, and the five-tranche `clampLabel` ask **closes as "producer changed shape"**
+— withdrawn, not re-filed. The model correction of the corpus: two axes read the comment as evidence; the
+pass that read the shipped bytes won."*
+**The coordination close is the load-bearing half and it does NOT ride the decline**: the five-tranche
+**`clampLabel` producer ask closes as "producer changed shape" — withdrawn, not re-filed**. That is a
+*standing ask against glass-ui being retired*, and it is true whether or not the dock arms ever execute.
+Carried here so the next formation does not re-open a withdrawn ask; the **BH-relay hygiene** is the
+E13 fond's, not a wave act. The **method correction** rides too: *two axes read the comment as evidence;
+the pass that read the shipped bytes won.* **DECLINED-BY-W8 for the class deletion.**
+⟨shell-dock-dockviewselect.md · DVS-18, :53⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** (the dead class) · **coordination close: `clampLabel` ask WITHDRAWN**, producer changed shape
+
+**W8.98 · ⟨shell-dock-dockviewselect.md · DVS-24⟩ — icon and label on two clocks** (cl.4 · MINOR ·
+**`≡`-pointer booking under the decline**)
+*Row verbatim* (`:59`): *"**DVS-24 (D:D-15) — MINOR → X-W8 rider.** Icon and label on two clocks:
+`mode="out-in"` guarantees the old glyph fully leaves while `SelectValue` swaps instantly — the whole
+leave duration pairs the OLD glyph with the NEW word. The negatives re-verified: the vj-morph family is
+global, opacity/transform-only, PRM-neutralised by both served guards."*
+**The negatives are the part a boundary drops**: the `vj-morph` family is **global,
+opacity/transform-only, and PRM-neutralised by both served guards** — so this row is **not** a PRM
+defect and not a motion-token defect, and no close may re-file it as either. The defect is exactly the
+**two-clock pairing** (`mode="out-in"` against an instant `SelectValue` swap). **DECLINED-BY-W8.**
+⟨shell-dock-dockviewselect.md · DVS-24, :59⟩ ≡ W8.44 (`:1064`, DVS-23..DVS-25) · **DECLINED-BY-W8** · negatives carried: vj-morph global, PRM-neutralised
+
+**W8.99 · ⟨shell-dock-dockviewselect.md · DVS-25⟩ — the `--accent-view` transition retargets at DRAG
+cadence, and the comment says the opposite** (cl.4 · MINOR · **`≡`-pointer booking + mandatory comment
+correction + UNPROVEN #9**)
+*Row verbatim, head + terminal* (`:60`): *"**DVS-25 (missed-1, reader-2) — MINOR → X-W8 rider (comment
+correction mandatory) + UNPROVEN #9 for the visible magnitude.** The scoped `--accent-view` transition
+(:159-161, `var(--duration-panel)` = 0.55s, my read of scheme-motion.css) retargets on every COLOUR
+tick, not just view switches: the writer watch's first source is `safeAccentCss` — the live picked
+colour, rAF-coalesced during drags by the file's own header … — so a drag restarts a 0.55s interpolation
+on the trigger subtree at drag cadence, and the inline `--dock-ring` write (until DVS-1 deletes it) is
+rewritten at the same cadence. The :152-158 comment frames the transition as the view-switch sweep only
+and declares the per-frame tax dead — dead at `:root`, alive at higher frequency on this element. All
+three axes sampled only view switches."*
+**Two things ride and neither is optional**: the **comment correction is MANDATORY** (the `:152-158`
+comment declares a tax dead that is alive on this element — the comment-truth law, Dock-adj D2-09's
+form), and the **visible magnitude is UNPROVEN #9** — the mechanism is source-certain, the *perceived*
+effect is not measured, so no close may report it fixed by eye. **All three axes sampled only view
+switches**, which is why this escaped ten rounds. **DECLINED-BY-W8** for the transition edit; the
+comment correction is cheap and independent.
+⟨shell-dock-dockviewselect.md · DVS-25, :60⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** · **UNPROVEN #9** (visible magnitude) · comment correction MANDATORY
+
+**W8.100 · ⟨shell-dock-dockviewselect.md · DVS-27⟩ — the sweep interpolates a rectangular oklab chord,
+not the hue arc its comment claims** (cl.4 · INFO · **`≡`-pointer booking under the decline**)
+*Row verbatim* (`:62`): *"**DVS-27 (C:D-19) — INFO → X-W8 rider under the comment-truth law (Dock-adj
+D2-09's form).** The sweep is live but interpolates as a rectangular oklab chord (`syntax: "<color>"`,
+foundation.css:192-198, my read), not the hue arc the :155-158 comment claims; the guard covers endpoints
+only. Cure: animate an `<angle>` and compose, or correct the comment."*
+**Two admissible cures, and the record refuses to elect**: *animate an `<angle>` and compose*, **or**
+*correct the comment*. This fold elects neither — the **comment-truth law** is satisfied by either, and
+electing one here would author a motion decision inside a declined cone. Pairs with W8.99: the same file,
+the same comment block, two different falsities. **DECLINED-BY-W8.**
+⟨shell-dock-dockviewselect.md · DVS-27, :62⟩ ≡ W8.44 (`:1064`) · **DECLINED-BY-W8** · comment-truth law (Dock-adj D2-09) · cure NOT elected
+
+**W8.101 · ⟨wb-extract-controls.md · EC-29⟩ — the WCAG floor constants have four homes, two identically
+named in sibling files** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim* (`:70`): *"**EC-29 — L-6: the WCAG floor constants have four homes, two identically named
+in sibling files** (ink.ts trio verified; view-accent.ts/palettes-ramp.ts per the axis's greps). →
+**X-W8** (one-home family, rides with EC-12)."*
+**Where the fact already lives**: **W8.40**'s addendum-candidate paragraph (`:989-993`) names EC-29 in
+prose beside **EC-12**, with the record's own terminal — *"→ X-W8 (addendum candidate — `ink.ts` is
+already in W8's G-13 surface)"*. **The evidence tiers are carried, because they decide what a census
+gate may assert**: the **`ink.ts` trio is verified**; `view-accent.ts` / `palettes-ramp.ts` stand **on
+the axis's greps**, not on this seat's. Rides **G-13** + §BoundsDelta #15; **no gate minted**.
+⟨wb-extract-controls.md · EC-29, :70⟩ ≡ W8.40 (`:989-993`) · G-13 · §BoundsDelta 15 · one-home family with **EC-12**
+
+**W8.102 · ⟨wb-extract-controls.md · EC-31⟩ — both glass-ui import spellings on adjacent lines; identity
+= wb-extract-pane XP-11** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim* (`:72`): *"**EC-31 — L-1: `demo/ui/` is 19 index-only barrels (K-L) and this file takes
+both spellings on adjacent lines** (:98 `/dock`, :99 `../ui/slider`). **FOLD — identity = wb-extract-pane
+XP-11 → X-W8** (which owns the import-line repoint even in the pinned files, W8:106)."*
+**Where the fact already lives**: **W8.42** (`:1043-1044`) carries *"**XP-11**/**XW-30**/**EC-31** (both
+glass-ui spellings on adjacent lines — `ExtractControls.vue:98-99`)"* — three ids, one identity, in one
+parenthesis and under none of their record namespaces. **The pinned-file clause is the load**: X-W8 owns
+the **import-line repoint even in files pinned to other waves** (`W8:106`), so this row is executable
+without a bounds fight — and it is **one identity with XP-11**, so it may never be counted as a second
+barrel row.
+⟨wb-extract-controls.md · EC-31, :72⟩ ≡ W8.42 (`:1043-1044`) ≡ ⟨wb-extract-pane.md · XP-11⟩ · G-10 · import-line repoint per `W8:106`
+
+**W8.103 · ⟨wb-extract-controls.md · EC-39⟩ — the session publishes dead surface: 4 of NINETEEN members
+unread** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim, head + terminal* (`:80`): *"**EC-39 — reader-2 miss (count corrected, K-Q): the session
+publishes dead surface — 4 of NINETEEN members unread** (`palette`, `lastFile`, `paletteName`,
+`totalPopulation`; return literal + sole-consumer enumeration both read by this seat; the reader's "21" is
+wrong, its list is right). `palette` is an escape hatch around the composable's own presentation contract.
+→ **X-W8** (G-10 dead-surface census family, beside XP-13)."*
+**Where the fact already lives**: **W8.42** (`:1039-1041`) quotes the substance — *"4 of NINETEEN session
+members unread … the reader's '21' corrected to 19"*. **The correction rides** (K-Q: the denominator is
+**19**, not 21 — *the reader's list is right, its count is wrong*), because a dead-surface census that
+inherits a wrong denominator cannot close. **The `palette` member is not just unread — it is an escape
+hatch around the composable's own presentation contract**, which is why its deletion is a contract
+decision and not a sweep. Rides **G-10**, beside **XP-13**.
+⟨wb-extract-controls.md · EC-39, :80⟩ ≡ W8.42 (`:1039-1041`) · G-10 dead-surface family, beside ⟨wb-extract-pane.md · XP-13⟩ · denominator corrected 21 → **19** (K-Q)
+
+**W8.104 · ⟨wb-extract-workbench.md · XW-30⟩ — both glass-ui import spellings live in one subtree;
+IDENTITY = the sibling's XP-11** (cl.1 · MINOR · **`≡`-pointer booking**)
+*Row verbatim* (`:66`): *"**XW-30 — MINOR — N-3 (confirmed): both glass-ui import spellings live in this
+one subtree** (narrow subpaths in the workbench, alias-hop root-barrel widenings in
+ExtractControls/ExtractPane, adjacent lines). IDENTITY = the sibling's XP-11. → **X-W8**."*
+**Booked separately because the record books it separately (anti-rename), and folded once because the
+record says so**: ⟨wb-extract-workbench · XW-30⟩ ≡ ⟨wb-extract-controls · EC-31⟩ (W8.102) ≡
+⟨wb-extract-pane · XP-11⟩ — **three ids, one identity, ONE cure**. The independent fact this row adds:
+the split is **subtree-shaped** (narrow subpaths in the workbench vs alias-hop root-barrel widenings in
+the two siblings), so the repoint is one sweep over one subtree.
+⟨wb-extract-workbench.md · XW-30, :66⟩ ≡ W8.42 (`:1043-1044`) ≡ ⟨wb-extract-controls.md · EC-31⟩ (W8.102) ≡ ⟨wb-extract-pane.md · XP-11⟩ — one identity, one cure
+
+**W8.105 · ⟨wb-gradient-pane.md · M-GP-8⟩ — four contradictory injection postures for two keys in one
+subtree** (cl.1 · MINOR · **`≡`-pointer booking + a cross-record guard**)
+*Row verbatim, head + terminal* (`:49`): *"**M-GP-8 (LC) — four contradictory injection postures for two
+keys in one subtree — MINOR → X-W8 limb (the GradientPane `!` dies with G-10) + cross-component note.**
+Verified all four: GradientPane `:8` asserted-then-unused; GeneratePane `:11` `inject(LIBRARY_PORT_KEY)!`
+asserted then dereferenced unguarded (`:19` `pm.createPalette` — the one latent TypeError site,
+**wb-generate-pane's corpus, cross-cited not booked here**); GradientVisualizer `:30` unasserted + guarded
+(correct — though the guard's branch is now known-dead, see C-3 ruling); ExtractWorkbench `:218` explicit
+default (correct). The `!` advertises a hard dependency doing no work — exactly what let the dead import
+survive review."*
+**Where the fact already lives**: **W8.41** (`:1010-1017`) names `GradientPane.vue:8` **by line** under
+G-10 and enumerates the same four postures. **The cross-record guard is the reason this row must be
+carried whole**: the **one latent TypeError site is GeneratePane's**, and the record marks it
+**wb-generate-pane's corpus, cross-cited not booked here** — so this wave may **not** absorb another
+record's row while deleting the `!`. The X-W6 sequencing already stated at W8.41 is unchanged.
+⟨wb-gradient-pane.md · M-GP-8, :49⟩ ≡ W8.41 (`:1010-1017`) · G-10 · **cross-cited, NOT booked**: ⟨wb-generate-pane⟩'s latent TypeError site
+
+**W8.106 · ⟨wb-gradient-pane.md · M-GP-9⟩ — `mx-auto` is a no-op on a `w-full` unconstrained wrapper**
+(cl.1 · INFO · **new to this fold**)
+*Row verbatim* (`:50`): *"**M-GP-9 (DU) — `mx-auto` is a no-op class on a `w-full` unconstrained wrapper
+— INFO → X-W8 carve rider (GradientPane.vue is W8 modify-carve); fleet idiom (GeneratePane `:30`,
+ExtractPane `:2`), not worth a standalone repair.** Verified: no `max-w-*` on the wrapper or Card."*
+**The record's own bound is carried and is the whole disposition**: **not worth a standalone repair** —
+it is a **carve rider**, dying free at any touch of `GradientPane.vue` (W8's modify-carve). The **fleet
+idiom** census (GeneratePane `:30`, ExtractPane `:2`) is recorded so a later seat does not mint a
+repo-wide sweep out of an INFO. **No gate, no bounds entry** — `GradientPane.vue` is already in this
+wave's carve.
+⟨wb-gradient-pane.md · M-GP-9, :50⟩ · carve rider on `GradientPane.vue` (W8 modify-carve) · fleet idiom: GeneratePane `:30` · ExtractPane `:2`
+
+**W8.107 · ⟨shell-dock-actionbarlayer.md · AB-29⟩ — the cycle's `input → actions` escape is dead on
+virtually every colour, and leaving the input BLANKS the user's typed text** (cl.4 · **NWO** · MAJOR ·
+**new to this fold entirely**)
+*Row verbatim, head + terminal* (`:177`): *"**AB-29 · R-DU′ M-1 — CONFIRMED (MAJOR).** The cycle's
+`input → actions` escape (:40) is dead on virtually every color: its gate is `!canProposeName`, and
+`canProposeName` = `!findCustomName(...)` (AB-26's divergence carried to its UX consequence — true for all
+built-ins and every unnamed color). So "Close input" (:131) almost never renders, and leaving the input
+transits `propose` — which BLANKS the user's typed text (ColorInput.vue:258-260 `proposedName=""`
+`innerText=""`, my read) and restores the MODEL's text on exit (:265), never the user's. The blanking
+writes are two of ColorInput.md D-7's six imperative `innerText` writes (⇄ booked; they die with that
+wave's v-model primitive). Booked HERE: the dead edge + the label economy — this completes MISS-10's ring
+into a measured topology (no `propose → input` edge, and no honest `input → actions` edge either).
+**DISPOSITION: MT-COLORINPUT-1 parent-wiring arm (with AB-6/AB-7); the built-ins design question stays
+AB-26's NO-WAVE-OWNER.**"*
+**Why it books at X-W8** (§A.2's packet home, and spine §1 packet 12's NAMESPACE GUARD): `AB-*` ids are
+fixed at X-W8 (W8.31/G-8) and `ActionBarLayer.vue` is X-W4/X-W8-held (`X-W10-FOLD.md:1225`). **The
+disposition is a successor-formation arm, and carriage is not adoption**: the cure is
+**MT-COLORINPUT-1's parent-wiring arm (with AB-6/AB-7)**, which this wave cannot author inside a
+subtraction — exactly the ground on which `X-W0-FOLD` §7.1 booked ⟨· MISS-10⟩ at the G-F register.
+**This row completes MISS-10's ring into a measured topology** (no `propose → input` edge, and no honest
+`input → actions` edge either), so it is recorded as a **cross-reference to the G-F register**
+(`X-W0-FOLD` §8.3) — **not** as a second booking there. **The data loss is the severity**: leaving the
+input blanks the user's typed text and restores the model's, never the user's.
+**NAMESPACE GUARD (guard 2 of §11.2)**: the `AB-26` named in this row is
+⟨shell-dock-actionbarlayer.md · AB-26⟩ — **≠** ⟨AboutPane.md · AB-26⟩, booked this round at
+`X-W0-FOLD` §8 (W0.33).
+⟨shell-dock-actionbarlayer.md · AB-29, :177⟩ → MT-COLORINPUT-1 parent-wiring arm (with AB-6/AB-7) · ⇄ ⟨ColorInput.md · D-7⟩ (booked at its own wave) · G-F cross-ref: `X-W0-FOLD` §8.3, kin of W0.30 (MISS-10) · **≠** ⟨AboutPane.md · AB-26⟩
+
+**W8.108 · ⟨shell-dock-profilesection.md · D-13⟩ — one menu hand-written twice, already drifted three
+ways, under a twin whose own comment claims "verbatim"** (cl.4 · **NWO** · MAJOR · **new to this fold
+entirely**)
+*Row verbatim* (`:56`): *"| **D-13 / C-9 / L-6** | MAJOR | One menu hand-written twice, already drifted
+three ways (admin identity gold-shimmer-in-band vs muted-pill-in-menu; the Regenerate separator present
+vs absent; Login button-in-band vs menu row) — under a twin whose own comment claims "verbatim". The 1024
+px seam is crossed by a desktop at 200 % zoom. The zoom-LOSS limb is K-5 (everything relocates into `⋮`;
+nothing is unreachable). | Both files read line-by-line; all three drifts confirmed;
+MobileMenuDropdown.vue:21–22 comment read. | **NO-WAVE-OWNER** — the consolidation (one content model, two
+presentations) is named for the next formation; the drift rows individually ride their owning waves
+above. |"*
+**Why it books here and what the NWO limb does**: `ProfileSection.vue` rides W8's bounds delta (§3 row
+15) and packet 10's subtraction arms — ROUND-1 §A's precedent on this same record (N-11, W8.55). **But
+the disposition is explicit and is preserved**: *the **consolidation** — one content model, two
+presentations — is **named for the next formation**, and **the drift rows individually ride their owning
+waves***. So this booking carries the identity and **elects no consolidation**; a close that reports
+"the twin drift fixed" has authored a design this register did not grant.
+**The kill rides**: **K-5** — the zoom-LOSS limb is dead (*everything relocates into `⋮`; nothing is
+unreachable*), so no close may re-file this as a reachability defect. The **200 % zoom crossing of the
+1024 px seam** is the same predicate family as W8.93 (DVS-8) — recorded as an adjacency, not a merge.
+**NAMESPACE GUARD (guard 1 of §11.2)**: ⟨shell-dock-profilesection · D-13⟩ **≠**
+⟨picker-componentsliders · D-13⟩ (W8.49, `:1125`).
+⟨shell-dock-profilesection.md · D-13, :56⟩ · **NO-WAVE-OWNER** — consolidation deferred to the next formation · kill carried: **K-5** (zoom-LOSS limb) · §BoundsDelta 15 · **≠** ⟨picker-componentsliders.md · D-13⟩
+
+### 11.4 §-arithmetic — dated, never silent (2026-08-28, fold round 3)
+
+**This block supersedes §10.3's row line; §10.3 stands as the round-2 record and its bytes are
+unchanged** (now at `:1852`, see §11.1).
+
+| unit | round 1 | round 2 | **round 3** | delta | decomposition |
+|---|---|---|---|---|---|
+| folded rows | 69 (W8.1–W8.69) | 78 (W8.1–W8.78) | **108** (W8.1–**W8.108**) | **+30** | §A.2 routed **28** (W8.79–W8.106) + §A.2 NWO **2** (W8.107–W8.108) |
+| — of which `≡`-pointer bookings (substance already carried) | — | 8 | **27** | **+19** | W8.79–W8.105 minus W8.106; each names where the fact lives, none re-books a cure |
+| — of which new to this file entirely | — | 1 | **4** | **+3** | W8.106 (M-GP-9) · W8.107 (AB-29) · W8.108 (D-13) |
+| — of which booked **under the standing decline** (carriage ≠ adoption) | — | 0 | **10** | **+10** | W8.91–W8.100, the DockViewSelect ten — `W8.md:114-116` / W8.44 / CE-1 unreversed |
+| gate entries | 24 (15 sharpened + 9 new) | 24 | **24** | **0** | **no gate minted, none re-staged, none re-weighted** — every row rides a standing gate (G-8, G-10, G-11, G-13) or a declined arm's gate at MT-DOCK-LAYERS-1 |
+| BoundsDelta files | 31 | 31 | **31** | 0 | every row lands on a path §3 already carries (rows 7, 8, 15, 16, 17 and the ActionBarLayer in-bounds note) or on a declined arm that opens no file here |
+| cross-edges | 11 | 11 | **11** | 0 | W8.107's G-F cross-reference and W8.105's wb-generate-pane cross-cite are carried **inside their rows** (§9.7's rule, unchanged) |
+| census denominator | 271 row lines / 56 records | unchanged | **271 / 56, re-verified** | — | printed command re-run read-only at HEAD 2026-08-28 → `92`, `271` |
+| declared aliases (§1.G cl.4) | — | — | **8 forms, all derived** | new | §11.2's table; **zero non-derivable short forms in this fold** |
+| namespace guards live | 2 (§10.1) | 2 | **5** | **+3** | §10.1's two + §11.2's three (D-13 · AB-26 · R-29) |
+
+Numbering stays **gapless and contiguous: W8.1 … W8.108**, zero gaps, zero re-mints, zero renames.
+**Assignment coverage: §A.2 30/30 id-for-id** (28 routed + 2 NWO), reproducing the work order's own
+per-fold Σ (`X-W8` 28 + 2 = 30) exactly. **This section closes no census**: whether the layer now carries
+every X-W8-routed ⟨record·id⟩ under its own namespace is measured by the **pass-4 census artifact**,
+re-derived from the twelve folds' own bytes under §1.G — never by this seat's voice (§11.1). Status
+remains **planned**; no product source was opened by this repair; nothing here is VERIFIED.

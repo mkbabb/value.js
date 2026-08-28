@@ -1216,3 +1216,156 @@ gate re-staged or re-weighted, no dated spec byte altered (E-3 holds; `waves/`,
 a result with its predicate printed, never as a claim. **This section closes nothing**; round 3's
 census artifact is what may say the X-W3 census is closed (§R2.3). Round 3 measures against these
 bytes.
+
+## §R3 — FOLD ROUND 3 ADDENDUM (2026-08-28) · the nil return, the GENEROUS CARRIAGE LAW, and the record-attribution repair this fold owes its own §Rows
+
+**Input.** `refinement/PASS-3-CHECK-RETURN.json` (verdict **NON-CONFORMANT**: BLOCKER on AXIS 1 —
+*"123 distinct ⟨record·id⟩ across 34 records absent by bytes"*; MINOR on AXIS 5; INFO) →
+`refinement/ROUND-3-ASSIGNMENTS.md` (**§A**, 124 identities across seven home folds; **§B.1**, the §0
+re-walk; **§B.2**, `§1.G` — the GENEROUS CARRIAGE LAW). Status `planned`; dispositions
+**ADJUDICATED, never anything stronger**; no product source opened; `waves/`,
+`CONFORMANCE-2026-08-03.md` and all three `ROUND-*-ASSIGNMENTS.md` **byte-untouched** (E-3).
+
+### R3.0 · The nil return — third consecutive round, with its receipt
+
+`ROUND-3-ASSIGNMENTS.md` §A homes its 124 identities at **X-W7 53 · X-W8 30 · X-W6 17 · X-W4 11 ·
+X-W0 7 · X-W11 4 · X-W10 2**. **X-W3 is in none of the seven bands and in none of the packet-home
+tables.** Re-derived, read-only:
+
+```
+cd docs/tranches/X/refinement
+grep -cE 'X[-·.]W3([^0-9]|$)' ROUND-3-ASSIGNMENTS.md    # → 0  (no band, no packet home, no §B mention)
+grep -nE '^\| \*\*X-W' ROUND-3-ASSIGNMENTS.md           # → the §A.0 Σ table: W7 W8 W6 W4 W0 W11 W10 — no W3
+```
+
+The pass-3 BLOCKER's routed split names the same five waves and not X-W3; its MITIGATION cites this
+fold **by line** (*"X-W3-FOLD.md:1182/:1217 … all defer to 'round 3's census artifact'"*) as evidence
+that *"the layer under-delivers; it does not lie."* **Stated as a result, not as an absence of
+effort** — and §R3.1 below is what this seat found when it turned the round's new instrument on its
+own bytes rather than on the work order.
+
+### R3.1 · `§1.G` adopted whole — and the clause-1 exposure it finds in §Rows
+
+§B.2 writes the **GENEROUS CARRIAGE LAW** into the spine's §1. This fold adopts it whole. Clause 1 is
+the one that indicts these bytes, and the indictment is this seat's to state:
+
+> **1. CARRIAGE IS NAMESPACE-SCOPED; A BARE ID IS NEVER CARRIAGE.** ⟨record.md · id⟩ is carried by
+> the fold layer if and only if some layer line matches the id under clause 2 **and** that line — or
+> a markdown heading in scope above it — names the record under clause 4. **An id appearing in the
+> layer attached to no record is carriage for nothing.**
+
+**§Rows `F-1 … F-24` are keyed by bold pseudo-headings that name IDS, not RECORDS.** `**F-1 ·
+`AAP-3` + `ATP-3` + `AF-1` ≡ `AdminUsersPanel L-5` …**` names one record of four; `**F-4 · `AF-50` …**`
+names none; `**F-10 · `VHD-34` …**` names none. Under clause 1 those ids are carriage for nothing —
+**by law, not by accident**, exactly as clause 5 says of the parallel hole at
+`X-W11-FOLD.md:715`. The round-1 rows `F-25 … F-27` already use the correct key
+(`**F-25 · ⟨BrowsePane.md · `B2` ≡ `P-2`⟩ …**`), so the fold's own later idiom is the cure for its
+earlier one.
+
+**Why this matters even though no round has yet charged X-W3 with an escape.** Three checks have run
+namespace-scoped censuses over this layer and **none** of them read `F-1 … F-24` as carriage for
+⟨AdminAuditPanel · AAP-3⟩ or ⟨VersionHistoryDrawer · VHD-34⟩ — they simply never had cause to look
+for those ⟨record · id⟩ under X-W3, because the corresponding records' rows route elsewhere or were
+found carried in a sibling fold. **The exposure is latent, not realised**, and a fold that waits for
+a check to realise its latent exposure has learned nothing from rounds 1, 2 and 3 — each of which
+realised the previous round's.
+
+### R3.2 · THE RECORD-ATTRIBUTION REPAIR — `F-1 … F-24` keyed to ⟨record.md · id⟩ (dated 2026-08-28)
+
+**E-3 idiom: the `F-n` bytes above are NOT patched, NOT renumbered and NOT re-worded.** This table is
+the attribution those rows carry from this date forward; it satisfies §1.G clause 1 for every id in
+them, by naming the record on the same line as the id. **Anti-rename holds absolutely**: every id
+below is the id its adjudicating record minted, and this table re-spells nothing.
+
+| `F-n` | the bare ids as §Rows prints them | ⟨record.md · id⟩ — the attribution | namespace guard (why the bare id is not enough) |
+|---|---|---|---|
+| F-1 | `AAP-3` · `ATP-3` · `AF-1` · `AdminUsersPanel L-5` | ⟨AdminAuditPanel.md · **AAP-3**⟩ · ⟨AdminTagsPanel.md · **ATP-3**⟩ · ⟨AdminFlaggedPanel.md · **AF-1**⟩ · ⟨AdminUsersPanel.md · **L-5**⟩ | bare `AF-1` occurs in **three** corpus records (`ActionFeedback`, `AdminFlaggedPanel`, `PaletteCard`); bare `AAP-3` occurs in two (`AdminAuditPanel` **mints** it, `AdminTagsPanel:20` **cites** it in its ruling table — a citation is not a booking); bare `L-5` occurs in a dozen |
+| F-2 | `ATP-34` · `DVS-5` | ⟨AdminTagsPanel.md · **ATP-34**⟩ · ⟨shell-dock-dockviewselect.md · **DVS-5**⟩ | `DVS-*` is `shell-dock-dockviewselect`'s alone, but ten of its siblings (`DVS-2`, `DVS-6`, `DVS-8`, `DVS-11`, `DVS-16`, `DVS-17`, `DVS-18`, `DVS-24`, `DVS-25`, `DVS-27`) are **X-W8's** round-3 band — **one record, two waves**, and the attribution is what keeps `DVS-5` on this side of that line |
+| F-3 | `DVS-5` (eviction limb) | ⟨shell-dock-dockviewselect.md · **DVS-5**⟩ | same record, **second limb of one id** — F-2 and F-3 split `DVS-5` by limb and **must not be deduped into one row** by a normalised-id census (§1.G clause 3 dedupes ⟨record · id⟩, and these two are one ⟨record · id⟩ carried at two `F-n`; the count of record is **one identity, two fold rows**, and this line is where that is said out loud) |
+| F-4 | `AF-50` | ⟨AdminFlaggedPanel.md · **AF-50**⟩ | bare `AF-*` collides with `ActionFeedback`'s `AF-*` family across the whole corpus — ⟨ActionFeedback · AF-23⟩ is **X-W7's** round-3 band |
+| F-5 | `EB-16` · `PS-8`/`L-7` | ⟨ErrorBoundary.md · **EB-16**⟩ · ⟨shell-paneslot.md · **PS-8**⟩ ≡ ⟨shell-paneslot.md · **L-7**⟩ | bare `PS-8` occurs in **four** corpus records (`PaletteCardSwatches`, `PreviewStrip`, `SwatchHoverMenu`, `shell-paneslot`); the record's own line is the disambiguator (`shell-paneslot.md:57` — *"**L-7 / PS-8** — MINOR — `componentFor(name: string \| null)` widens the closed unions…"*), and it also proves `PS-8` and `L-7` are **one identity, two spellings** |
+| F-6 | `EAS`-corpus kill-3 residue (a) | ⟨wb-gradient-easingauthoringstage.md · the **kill-3** residue⟩ (`EAS-*` family) | `EAS` is a **family prefix, not an id** — the attribution names the record so the residue is findable; the `EAS-1`/`EAS-2` rows of that record are **X-W6's** (`X-W6-FOLD.md` `W6·89`/`W6·90`), so this is a **two-wave record** and the route-inventory residue is X-W3's alone |
+| F-7 | `A-3` (`N-1`) · `A-19` (`N-2`) | ⟨PaletteSlugBar.md · **A-3**⟩ · ⟨PaletteSlugBar.md · **A-19**⟩ | **the sharpest guard in this table**: bare `A-19` occurs in **five** corpus records (`FlagReportDialog`, `MigratePalettesDialog`, `PaletteRenameInput`, `PaletteSlugBar`, `wb-gradient-codeeditor`) and bare `A-3` in more. Both are `PaletteSlugBar`'s — `A-3` at `:35` (*"`setActiveTab("saved")` navigates to a route that does not exist; all three live login success paths throw out of vue-router"*), `A-19` at `:54` (*"two unsound casts at the port boundary defeat the ViewId type system and are what let `"saved"` compile"*). The **same chain** is booked at X-W4 as `SLUG-CHAIN` (`X-W4-FOLD.md` `W4·122`: *"slugeditlayer **A-1** ≡ PaletteSlugBar **A-3** (URGENT) ≡ MigratePalettesDialog **A-1**"*) — **one URGENT identity, two waves, and neither may close the other's half** |
+| F-8 | `VHD-25` ≡ `G-6` | ⟨VersionHistoryDrawer.md · **VHD-25**⟩ (`G-6` = this fold's own gate id, not a record id) | `G-6` is a **W3 gate**, not a banked row id — named here so a census does not hunt for ⟨record · G-6⟩ |
+| F-9 | `VHD-33` ≡ `G-3` | ⟨VersionHistoryDrawer.md · **VHD-33**⟩ (`G-3` = gate id) | as F-8 |
+| F-10 | `VHD-34` | ⟨VersionHistoryDrawer.md · **VHD-34**⟩ | the `VHD-*` family spans three waves — ⟨VersionHistoryDrawer · VHD-24⟩ is **X-W7's** round-3 band (and one of its eight **⊘** zero-occurrence ids), ⟨· VHD-11⟩ is this fold's F-12, ⟨· VHD-36⟩ is X-W8's |
+| F-11 | `VHD-12` | ⟨VersionHistoryDrawer.md · **VHD-12**⟩ | as F-10 |
+| F-12 | `VHD-11` | ⟨VersionHistoryDrawer.md · **VHD-11**⟩ | already partly attributed at `:405` (*"⟨VersionHistoryDrawer.md · VHD-11 (C-11/D-10, severity per R-4)⟩"*) — this line extends that key to the `F-12` heading itself. Bare `C-11` occurs 18× across the layer in **six-plus** namespaces |
+| F-13 | `VHD-10` | ⟨VersionHistoryDrawer.md · **VHD-10**⟩ | as F-10 |
+| F-14 | `AF-26` (server half) | ⟨AdminFlaggedPanel.md · **AF-26**⟩ | **limb guard**: the row books the **server half** only; the client half is not X-W3's and this attribution says so on the same line as the id |
+| F-15 | `AF-27` (server half) | ⟨AdminFlaggedPanel.md · **AF-27**⟩ | bare `AF-27` occurs in **three** corpus records (`AdminFlaggedPanel`, `PaginationBar`, `PaletteCardMeta`) |
+| F-16 | `PaletteCardMeta R-2` / `C-2` residue | ⟨PaletteCardMeta.md · **R-2**⟩ · ⟨PaletteCardMeta.md · **C-2**⟩ | the record was **already named** in the heading — this line only completes the key for `C-2`, whose bare form collides across the whole corpus |
+| F-17 | `PM-16` | ⟨PaletteCardMeta.md · **PM-16**⟩ | `PM-*` reads like a PalettesPane/PaletteMenu prefix and is **not** — the corpus places it in `PaletteCardMeta.md`, and ⟨PaletteCardMeta · R-4⟩/⟨· L-5⟩ are **X-W7's** round-3 NWO band: **one record, two waves** |
+| F-18 | `GEN-33` | ⟨wb-generate-pane.md · **GEN-33**⟩ | the same id is folded at **X-W5** inside `W5F-07`'s identity chain (*"≡ `wb-generate-pane` **GEN-33**"*) — **one id, two folds, one identity**; F-18 books the route's async-chunk limb and X-W5 books the fallback-plate limb, and the attribution is what lets a census see both without reading either as a double booking |
+| F-19 | `AF-19` (server arm) | ⟨AdminFlaggedPanel.md · **AF-19**⟩ | bare `AF-19` occurs in `ActionFeedback.md` too |
+| F-20 | `AF-25` (server arm) | ⟨AdminFlaggedPanel.md · **AF-25**⟩ | bare `AF-25` occurs in `ActionFeedback.md` too |
+| F-21 | `TEP-10` | ⟨TagEditPopover.md · **TEP-10**⟩ | ⟨TagEditPopover · C-8⟩ is **X-W7's** round-3 band — **one record, two waves** |
+| F-22 | `AAP-22` | ⟨AdminAuditPanel.md · **AAP-22**⟩ | bare `AAP-22` occurs in `PaginationBar.md` too; the row is a **DECLINE** (*"X-W3 DECLINES the audit-ledger cursor question"*) and a decline is a **disposition** that must be carried at ⟨record · id⟩ like any other, or it reads as absence (§R2.3's rule, and X-W6-FOLD §7.1's before it) |
+| F-23 | `AdminListSkeleton` kill-5 residual | ⟨AdminListSkeleton.md · the **kill-5** residual⟩ | record already named; the residual is a **kill**, and the spine's `d′.1` edict (*"the E1-R2 certification may NOT be cited for this component until re-measured"*, `AdminListSkeleton.md:47`) rides with it |
+| F-24 | `AAP-12` + `ATP-15` riders | ⟨AdminAuditPanel.md · **AAP-12**⟩ · ⟨AdminTagsPanel.md · **ATP-15**⟩ | bare `AAP-12` occurs in **three** corpus records (`AdminAuditPanel`, `AdminTagsPanel`, `PaginationBar`) |
+
+**Standing rule for this fold, from this date.** Any row added to §Rows hereafter is keyed
+⟨record.md · id⟩ **in its own heading**, in the `F-25 … F-27` form this fold already uses, and never
+by bare id. **A bold pseudo-heading that names ids and no record is a census hole whose cure costs
+one line** (§1.G clauses 1 and 5) — and this table is that cure, worked, for twenty-four of them.
+
+### R3.3 · `§1.G`'s other clauses — this fold's position, measured
+
+| clause | this fold, at HEAD |
+|---|---|
+| **2/3** — generous id matching, dedupe by normalised ⟨record · id⟩ | **ADOPTED.** One consequence is stated at F-2/F-3 above: ⟨shell-dock-dockviewselect · DVS-5⟩ is **one** ⟨record · id⟩ carried at **two** `F-n` by limb — a census counts the identity once and finds it twice, which is carriage, not inflation |
+| **4** — alias set derived **AND** declared | **NO DECLARATION OWED, with its receipt.** This fold uses no record-column short form: it has no `\| record \|` column at all (its rows are prose blocks under `F-n` headings), and every record it names in §R3.2 is named by **full stem**. The `strip`/`editor`/`configbar`-class hole that hid sixteen real bookings at X-W6 cannot exist here — **and the hole this fold does have is the opposite one**: not an undeclared short form, but no record name at all |
+| **5** — heading scope counts; bold pseudo-headings do not | **THE EXPOSURE, and §R3.2 is its repair.** `F-1 … F-24` are bold pseudo-headings (`**F-1 · …**`), not markdown headings, so they scope nothing even where they do name a record. §R3.2 attributes each row **inline** — the second of the two cures clause 5 permits (*"promote the label to a heading **or** attribute each row inline as ⟨record.md · id⟩"*) — chosen because promotion would renumber the document's heading tree and E-3 forbids the patch |
+| **6** — the `≡`-pointer is the cure, and it **is** carriage | **ADOPTED.** F-5's `PS-8 ≡ L-7`, F-8's `VHD-25 ≡ G-6` and F-18's cross-fold `GEN-33` are already in the pointer shape; §R3.2 supplies the record each pointer was missing |
+| **7** — the row predicate is ELECTED: `^\s*([-*]\|\|)\s*\*\*` | **ADOPTED.** §R1.0's and §R2.1's figures were stated under this fold's own printed predicate; the election moves none of them, and the **moratorium is lifted**, so §R3.4's figures may be quoted as authoritative with the regex stated inline |
+| **8** — the count follows the predicate | **ADOPTED.** Every figure in §R3.4 states its corpus, row regex, token class, alias set and carriage test |
+
+### R3.4 · Arithmetic — dated 2026-08-28 (round 3), and it does not move
+
+| quantity | round 1 (§R1) | round 2 (§R2.4) | **round 3 (§R3)** | delta |
+|---|---|---|---|---|
+| §Rows fold rows (`F-1 … F-27`) | **27** | 27 | **27** | **0** — §A assigns none; this seat promotes none |
+| §Gates entries | 10 + 7 + 2 (`N-8`, `N-9`) | unchanged | **unchanged** | 0 |
+| §BoundsDelta rows | `B-1 … B-9` | unchanged | **unchanged** | 0 |
+| §CrossEdges | + §J, §K, §L | unchanged | **unchanged** | 0 |
+| **record attributions written** | 3 (`F-25 … F-27`, ⟨record.md · id⟩ keyed) | 3 | **27** (+ the 24 of §R3.2) | **+24** |
+| alias declarations owed (§1.G cl.4) | — | — | **0** (§R3.3, with its receipt) | — |
+
+**Row-regex declaration (§1.G clauses 7/8, mandatory).** The 27 is a count of this file's own `F-n`
+row keys and reproduces read-only:
+`grep -cE '^\*\*F-[0-9]+ ·' X-W3-FOLD.md` → **27**. The corpus-side X-W3 token census is §R1.0's and
+is **unmoved** — round 3 changed the **carriage** test, not the **token** test, and §R3.2 changes
+what this fold's bytes *say about their own records*, not what the corpus routes to X-W3.
+
+### R3.5 · No self-voiced closure — the pointer §R2.3 aimed at round 3 has fired, and did not close
+
+**The correction this seat owes its own §R2.3.** §R2.3 wrote that the X-W3 census closes *"when and
+only when the round-3 check's census artifact … re-derives it under §D's predicate against these
+bytes and prints zero X-W3 escapes."* That artifact exists —
+`refinement/PASS-3-CHECK-RETURN.json` — and returns **NON-CONFORMANT** on a layer-wide BLOCKER,
+naming **zero** X-W3 escapes while citing this fold's deferral **by line** as mitigation. **The
+condition was well-formed; the layer did not meet it, and this fold's own limb of it was met under
+an instrument that round 3 then replaced.**
+
+1. **No sentence in this file closes the X-W3 census.** §R1.0 clause 4's and §R2.0's findings are to
+   be read as *"the escapes this seat's sweep found, under the predicate and the carriage test it
+   printed, on its date"* — never as *"the escapes that exist"*. §R3.2 does not change that: it makes
+   twenty-four rows **findable**, which is a precondition of a closure someone else declares.
+2. **Closure is established by the census artifact, not by the fold.** The X-W3 census closes when
+   and only when the **round-4 recheck's census artifact** re-derives the ⟨record · id⟩ census
+   **under `§1.G`** against these bytes — with §R3.2's attributions in its input — and prints zero
+   X-W3 escapes.
+3. **The instrument is named in advance so the test cannot be moved to fit the answer.** Corpus =
+   the **92**; token class `X[-·.]W\d([^0-9]|$)`; row regex `^\s*([-*]|\|)\s*\*\*` (**elected**);
+   alias set derived **and** declared (this fold declares none and says why); carriage
+   namespace-scoped, generous on the id, **strict on identity**.
+4. **A fold may state what it folded. It may not state what remains.** Three rounds, three nil
+   returns — and the one thing this round found in this fold, it found by turning the round's own
+   new law on its own bytes rather than waiting to be charged.
+
+**Posture.** Status `planned`; no product source opened; no wave stamped; no gate re-staged or
+re-weighted; no dated spec byte altered (E-3 holds — `waves/`, `CONFORMANCE-2026-08-03.md` and all
+three `ROUND-*-ASSIGNMENTS.md` untouched). Every disposition remains **ADJUDICATED, not VERIFIED**.
+The 27 rows are byte-unchanged and **this round adds none** — it adds twenty-four *attributions* to
+rows that already existed. **This section closes nothing**; round 4's census artifact is what may say
+the X-W3 census is closed (§R3.5). Round 4 measures against these bytes, under `§1.G`.

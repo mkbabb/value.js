@@ -1460,4 +1460,289 @@ bytes — never this fold's assertion about itself.
 
 ---
 
-*End of the X-W6 refinement fold, as repaired at X·V fold round 1 (§6) and round 2 (§7), both dated 2026-08-28. `waves/W6.md`, `CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` are byte-unmodified (E-3); this addendum remains the only write. Every banked id cited is original for life (anti-rename); every citation is keyed ⟨record.md · id⟩; every census figure is printed with the command and the row regex that produce it (§D clause 6/7). Wave status: **planned**.*
+## 8. ROUND-3 FOLD REPAIR — the 17 assigned escapes + the §A.R pointer duty, booked under the GENEROUS CARRIAGE LAW (dated 2026-08-28)
+
+**What this section is.** The X·V fold-**round-3** repair seat's write, and the only bytes added to
+this file this round. Provenance chain: `refinement/PASS-3-CHECK-RETURN.json` (verdict
+NON-CONFORMANT; **BLOCKER**, AXIS 1 — *"123 distinct ⟨record·id⟩ across 34 records absent by
+bytes"*, of which *"X-W6 17"* routed) → `refinement/ROUND-3-ASSIGNMENTS.md` **§A.3** (17 rows homed
+here: 14 routed · 3 NWO) + **§A.R** (the two refuted rows and the `≡`-pointer duty this seat owes
+them) + **§B.2** (the GENEROUS CARRIAGE LAW, `§1.G`) → this seat's own re-derivation at HEAD.
+Every row keeps its **banked identity** (M-25, original for life); `W6·n` remains a fold-local
+counting device and is never a rename. Citation key remains ⟨record.md · id⟩.
+
+**Status is unchanged: `planned`.** Nothing here stamps a wave, opens product source, or edits
+`waves/W6.md` / `CONFORMANCE-2026-08-03.md` / `refinement/ROUND-1-ASSIGNMENTS.md` /
+`refinement/ROUND-2-ASSIGNMENTS.md` (E-3). Dispositions stay **ADJUDICATED, not VERIFIED**. §1, §6
+and §7 stay byte-intact above; this section supersedes nothing in them.
+
+### 8.0 The method — `§1.G` adopted whole, and the hole it closes in this fold's own bytes
+
+`ROUND-3-ASSIGNMENTS.md` §B.2 writes the **GENEROUS CARRIAGE LAW** into the spine's §1. This fold
+adopts it whole. Its clauses 1 and 4 are the ones that indict these bytes, and the indictment is
+this seat's to state, not to soften:
+
+> **1. CARRIAGE IS NAMESPACE-SCOPED; A BARE ID IS NEVER CARRIAGE.** … **4. THE ALIAS SET IS DERIVED
+> *AND* DECLARED** … *"the folds' own `| record |` column short forms — `strip`, `editor`, … — are
+> aliases **by declaration**, because no suffix-join produces them … **Any fold that uses a short
+> form in a record column MUST print that short form's expansion once, in the fold, beside the
+> table that uses it.** An undeclared short form is a census hole whose cure costs one line."*
+
+**§1d's `Src` column is that hole, and it is the whole of this round's X-W6 register.** Fourteen of
+the seventeen rows §A.3 assigns are **already banked in §1d** — verbatim, zero-pad-exact, with the
+identity ruled and the cure-shape written — under a `Src` cell that spells the record `strip`,
+`editor` or `visualizer`. No suffix-join of `wb-gradient-easingspecimenstrip` produces `strip`; none
+of `wb-gradient-easingeditor` produces `editor`; none of `wb-gradient-visualizer` produces
+`visualizer`. A namespace-scoped census therefore reads fourteen real bookings as absences — the
+exact artefact §A.R proved at two rows (⟨· C-05⟩, ⟨· C-06⟩) and this seat now proves at sixteen.
+
+**C3-1 — THE DECLARED SHORT FORMS (§1.G clause 4, discharged for this fold, dated 2026-08-28).**
+Every short form this file uses in a record column that no suffix-join derives, expanded once:
+
+| short form, as this fold spells it | expansion — the record it names | where it is used |
+|---|---|---|
+| `strip` | `wb-gradient-easingspecimenstrip.md` | §1d `Src` (`strip ≡ editor`, `strip ≡ editor ≡ visualizer`, `wb-gradient-visualizer ≡ strip ≡ editor`) |
+| `editor` | `wb-gradient-easingeditor.md` | §1d `Src`, and the parenthetical `(editor)` / `(editor, sharpening)` qualifiers at `W6·99` / `W6·120` |
+| `visualizer` | `wb-gradient-visualizer.md` | §1d `Src` (`… ≡ visualizer`), §1j `Src` |
+| `specimenstrip` | `wb-gradient-easingspecimenstrip.md` | §1d `Src` (`easingauthoringstage ≡ visualizer ≡ specimenstrip`) |
+| `gradientpane` | `wb-gradient-pane.md` | §1j `Src` (`animationcanvas ≡ configbar ≡ gradientpane`) |
+
+*Derived and therefore NOT requiring declaration — stated so the boundary of clause 4 is legible and
+a round-4 check does not demand redundant lines:* `easingauthoringstage`, `easingspecimenstrip`,
+`animationcanvas`, `resultdisplay`, `sourceselector`, `configbar`, `mixpane`, `consolerail`,
+`picker-componentsliders`, `MixConfigBar` — each is a ≥4-character suffix-join of its record's
+hyphen segments (concatenated or hyphen-joined), or a `*.vue` symbol equal to one, per clause 4's
+*derived* limb.
+
+**The row predicate (§1.G clause 7, elected).** Every figure in this section is stated under the
+elected row regex **`^\s*([-*]|\|)\s*\*\*`** — the predicate §6E printed, the one clause 7 settles
+in favour of. Clause 7's moratorium is lifted, so §8.4's per-fold total is quoted as authoritative
+**for this file's own bytes**; it remains no claim about the corpus-side census (§8.6).
+
+**Re-derived at HEAD by this seat, read-only (clause 8's receipt duty):**
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | wc -l                                   # → 92   (corpus)
+ls *.md | grep -vE '^(kf|fr|pt)-' \
+  | xargs grep -nE '^[[:space:]]*([-*]|\|)[[:space:]]*\*\*' \
+  | grep -cE 'X[-·.]W6([^0-9]|$)'                                           # → 389  (X-W6-routed rows)
+cd docs/tranches/X/refinement                                                # the fifteen-file layer
+sed -n '1,1462p' X-W6-FOLD.md | grep -cwF -- 'C-05'                          # → 1, and it is the strip's (:363)
+```
+
+*The `C-05` receipt is **scoped to the bytes that predate §8** (`1,1462p` — §8 opens at `:1463`),
+because §8.4 quotes the id in order to point at it: an unscoped `grep -rwF -- 'C-05'` over the layer
+now returns **5**, four of them this section's own pointer bytes. §A.R's finding — that the id
+occurred **once** in the pre-round-3 layer and that the one occurrence was the strip's — reproduces
+exactly under the scope, and the scope is stated so the receipt stays falsifiable rather than
+becoming self-confirming (§1.G clause 8; the idiom is X-W2-FOLD §8.1's).*
+
+### 8.1 The finding, stated before the rows: sixteen bookings, not sixteen absences
+
+**C3-2 — §A.R's duty discharged, and generalised from 2 to 16.** §A.R strikes ⟨· C-05⟩ and ⟨· C-06⟩
+from the 124 as *"an ALIAS artefact of the check's own alias table … not an absence"*, and lays a
+duty on this seat: *"print one dated `≡`-pointer line per row re-citing the banked row … so the
+namespace-scoped census closes at round 4 without a second booking."* Running that same
+`grep -rwF` over the remaining fourteen finds the identical artefact **on every one of them**:
+
+| ⟨record.md · id⟩ | banked at | the `Src` cell that hid it |
+|---|---|---|
+| ⟨wb-gradient-easingeditor · **C2-2**⟩ · ⟨· **R-C**⟩ | `W6·83` (`:358`) | `wb-gradient-visualizer ≡ strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **D3-11**⟩ · ⟨wb-gradient-easingspecimenstrip · **C-11**⟩ | `W6·109` (`:384`) | `strip ≡ editor ≡ visualizer` |
+| ⟨wb-gradient-easingeditor · **D2-06a**⟩ | `W6·99` (`:374`) | `strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **R3-7**⟩ · ⟨wb-gradient-easingspecimenstrip · **M-ESS-3**⟩ | `W6·120` (`:395`) | `strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **R-F**⟩ · ⟨wb-gradient-easingspecimenstrip · **C-09**⟩ | `W6·107` (`:382`) | `strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **R-G**⟩ · ⟨wb-gradient-easingspecimenstrip · **L3-4**⟩ | `W6·94` (`:369`) | `strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **R-H**⟩ | `W6·108` (`:383`) | `strip ≡ editor` |
+| ⟨wb-gradient-easingeditor · **R-I**⟩ · ⟨wb-gradient-easingspecimenstrip · **C-08**⟩ | `W6·93` (`:368`) | `strip ≡ editor` |
+
+**What this does and does not mean.** It does **not** refute §A.3's assignment: under the census
+instrument the check and the assignment seat both ran, those fourteen ⟨record · id⟩ *were* uncarried
+— **by law, not by accident** (§1.G clause 5's words for the parallel bold-label hole). Clause 4
+declares the short forms into the alias set, and clause 6 makes the `≡`-pointer *itself* carriage.
+So this seat discharges §A.3 the way the consumption rule prescribes for a facet of an
+already-folded identity: **an explicit `≡`-pointer row, never a silent skip.** Fourteen pointers,
+three first bookings, and the two §A.R pointers §A.R itself keeps out of the 124.
+
+**The anti-double-booking lock.** Not one of §1d's fourteen rows is renumbered, re-severitied,
+re-homed, re-sequenced or re-worded by this section. Their `◆` NAMED-GAP conditions (`cl.3` on §3's
+adoption of `EasingSpecimenStrip.vue` / `useSpecimenRows.ts`) stand exactly as written; the pointer
+rows below inherit them and add nothing. **A pointer is an attribution, not a second row of work.**
+
+### 8.2 Band A — the fourteen `≡`-pointer rows (`W6·512 … W6·525`)
+
+*Band arithmetic: §1 held `W6·1 … W6·464`; §6 added `… W6·508`; §7 added `… W6·511`; this band is
+`W6·512 … W6·525` (14, gapless). Every row prints its ⟨record.md · id⟩ **beside the record's full
+stem**, so the row line satisfies §1.G clauses 1 and 4 by construction. Row text is quoted from the
+record's own bytes, re-read this session at HEAD (`awk 'NR==<line>' <record>.md`).*
+
+| # | ⟨record.md · id⟩ | banked row text — verbatim from the record's bytes (head) | `≡` target, at the bytes |
+|---|---|---|---|
+| W6·512 | ⟨wb-gradient-easingeditor.md · **C2-2** (:24)⟩ | "**C2-2 / L-r3:L-1 severity** (FAMILY_ORDER drops quart/quint) \| filed as a MISSED finding, "no axis in ten rounds found it" \| escalated to **BLOCKER** \| **MAJOR — the standing grade; BOTH readers corrected.** … the sibling apotheosis already ADJUDICATED this identity MAJOR → X-W6 (its C-06)." | **≡ `W6·83`** (`:358`) — `wb-gradient-easingeditor` is the `editor` of that row's `Src`. The severity ruling is already this fold's at §5.19 n.3 (`:1089`): *"MAJOR is the standing grade, both readers overruled"* |
+| W6·513 | ⟨wb-gradient-easingeditor.md · **D3-11** (:44)⟩ | "**D3-11 / R3-4 / C2-4 / D2-14 — ADJUDICATED MAJOR → X-W6.** Every interval row mounts the full 27-tile strip (:161 inside the v-for :112) AND a live `EasingPicker` (:203-212 — v-show wrapper, so the stage mounts on first render of every row) — my read." | **≡ `W6·109`** (`:384`) — the row that already books `C-11 / D-23 / L-4 ≡ D3-11 / R3-4 / C2-4 / D2-14 ≡ GV-68` and carries the **higher-grade-governs** ruling (MINOR→MAJOR) |
+| W6·514 | ⟨wb-gradient-easingeditor.md · **D2-06a** (:49)⟩ | "**D2-06a — ADJUDICATED MINOR → X-W6 ◆.** Two hardcoded 9px sizes (`font-size: 0.5625rem`, EasingSpecimenStrip.vue:150/:196) below the closed type matrix's smallest rung (--text-micro bridge). Statically certain; rendered sizes stay in the sibling's U-9." | **≡ `W6·99`** (`:374`) — `D-41 / D-08 ≡ D2-06a (editor)`, `.d ◆` under X-W10's type law |
+| W6·515 | ⟨wb-gradient-easingeditor.md · **R3-7** (:52)⟩ | "**R3-7 + C2-7 — ADJUDICATED MINOR → X-W6 (sharpens the sibling's M-ESS-3 identity — one row).** `useClipboard` publishes `invalidate` (my d.ts grep) and the seat never calls it (:94-103 — my read)…" | **≡ `W6·120`** (`:395`) — `M-ESS-3 ≡ R3-7 + C2-7 (editor, sharpening)`. The record itself says *"one row"*; the pointer is the attribution that row lacked |
+| W6·516 | ⟨wb-gradient-easingeditor.md · **R-C** (:63)⟩ | "**R-C · C2-2/L-r3:L-1 ≡ the sibling's C-06 (MAJOR → X-W6)** — severity + novelty ruled above; DU's docstring-falsity + surfaces-disagree sharpenings attach to the identity." | **≡ `W6·83`** (`:358`), where `R-C` is printed **by name** in the ID cell — the id was in this file all along; only the record was not |
+| W6·517 | ⟨wb-gradient-easingeditor.md · **R-F** (:66)⟩ | "**R-F · R3-5 ≡ the sibling's C-09/D-25 (label-in-name, exactly 1 of 27; MINOR → X-W6 ◆).**" | **≡ `W6·107`** (`:382`) — `C-09 / D-25 ≡ R-F (R3-5)` |
+| W6·518 | ⟨wb-gradient-easingeditor.md · **R-G** (:67)⟩ | "**R-G · R3-6/D2-09 ≡ the sibling's L3-4 (27 toggles, no radiogroup/toggle-group; MAJOR → X-W6 ◆ + glass `$attrs` ask).**" | **≡ `W6·94`** (`:369`) — `L3-4 ≡ R-G (R3-6 / D2-09)`. **NAMESPACE GUARD:** ⟨wb-gradient-easingeditor · R-G⟩ ≠ ⟨UserSortMenu · R-G⟩ (X-W7's `W7.133` / CE-3 cure collision, X-W8's G-9) — two records, one bare id, two waves |
+| W6·519 | ⟨wb-gradient-easingeditor.md · **R-H** (:68)⟩ | "**R-H · D2-05/L-r3:L-4 ≡ the sibling's D-20/L-6/C-10 (shape="cell" bought then fought; glass specimen-rung ask + X-W6 ◆).** My d.ts read confirms the radius-less SHAPE.cell map." | **≡ `W6·108`** (`:383`) — `C-10 / D-20 / L-6 ≡ R-H (D2-05 / L-r3:L-4)`; the glass ask rides `e.21`'s bundle |
+| W6·520 | ⟨wb-gradient-easingeditor.md · **R-I** (:69)⟩ | "**R-I · D2-10's DEFECT ≡ the sibling's C-08 (nameless focusable scroll port; MAJOR → X-W6 ◆).** The CURE is killed here (K-4): the producer already ships `ariaLabel`/`ariaLabelledby` (my grep) — one consumer prop, no relay." | **≡ `W6·93`** (`:368`), which already carries **K-4 verbatim** (*"CURE KILLED at the editor (K-4): the producer already ships `ariaLabel`/`ariaLabelledby`"*). **The kill travels with the pointer** |
+| W6·521 | ⟨wb-gradient-easingspecimenstrip.md · **C-08** (:49)⟩ | "**C-08 / R4-3 / D-24 (+ R4-3(a)/L-7 comment-falsity limb, MINOR, folded) — MAJOR → X-W6 ◆ (≡ GV-35, booked NO-WAVE-OWNER there — the ◆ resolves the same way) + the semantics half as a glass ask (BH).**" | **≡ `W6·93`** (`:368`). † **BOTH LIMBS, FOLDED ONCE** (§1.L clause 5): the `≡ GV-35` NWO limb is already on that row and is **not** re-booked here |
+| W6·522 | ⟨wb-gradient-easingspecimenstrip.md · **L3-4** (:50)⟩ | "**L3-4 — MAJOR → X-W6 ◆ + glass ask.** A 27-way single-select hand-built from 27 independent boolean toggles inside a bare `role="group"` while glass publishes `./toggle-group` at a real exports key; no roving tabindex anywhere." | **≡ `W6·94`** (`:369`). **NAMESPACE GUARD:** ⟨wb-gradient-easingspecimenstrip · L3-4⟩ ≠ ⟨wb-gradient-visualizer · L3-3⟩ — `W6·110` already records that the `L3-*` family collides across these two records and that **both stay** |
+| W6·523 | ⟨wb-gradient-easingspecimenstrip.md · **C-09** (:67)⟩ | "**C-09 / D-25 — MINOR → X-W6 ◆.** WCAG 2.5.3 fails on exactly 1 of 27: `:aria-label="tile.id"` (`:105`) vs visible `n = 4` (`:187`). Both readers enumerated all 27 pairs independently; my spot-walk of `familyLabelFor` concurs." | **≡ `W6·107`** (`:382`), whose dissent cell already carries the count lock: *"both readers enumerated all 27 independently; the count is 1"* |
+| W6·524 | ⟨wb-gradient-easingspecimenstrip.md · **C-11** (:69)⟩ | "**C-11 / D-23 / L-4 — MINOR → X-W6.** One full 27-Chip strip + `useMediaQuery` listener mounted per interval forever (`v-for` `:112` → `v-show` `:144`, ramp `v-if`-gated at `:152` but the strip not — my reads)…" | **≡ `W6·109`** (`:384`). **NAMESPACE GUARD, and it is the sharpest in this band:** bare `C-11` occurs 18× across the layer — ⟨AboutPane · AB-22 (C-11)⟩, ⟨VersionHistoryDrawer · VHD-11 (C-11/D-10)⟩, ⟨wb-extract-pane · XP-17⟩, ⟨PreviewRamp · R-24 (≡ C-11)⟩, ⟨PreviewStrip · PS-3 (≡ C-11)⟩, ⟨shell-dock-parseechoreadout · C-11⟩ … **six-plus records, one bare id.** Only `W6·109` is this one |
+| W6·525 | ⟨wb-gradient-easingspecimenstrip.md · **M-ESS-3** (:103)⟩ | "**M-ESS-3 — the copy control confirms by mutating its own accessible name (`:181` conditional `aria-label`, `useClipboard({resetMs:1400})`, no live region — my reads this session) — MINOR → X-W6.**" | **≡ `W6·120`** (`:395`) — the editor's `R3-7 + C2-7` sharpening is attached there and stays attached |
+
+### 8.3 Band B — the three NO-WAVE-OWNER rows, booked at their packet home (`W6·526 … W6·528`)
+
+*Homing per `ROUND-3-ASSIGNMENTS.md` §A.3's packet table: `AuroraPane.md` and `PreviewStrip.md` are
+packet 13 · PREVIEW-CHIPS → HOMED X-W6 (the color-chips public barrel and `PreviewStrip.vue` are in
+W6's §3 bounds); `picker-componentsliders.md` is the picker-sliders/console seat — §1k's PROPOSED
+unit `.k`, and §EXTERNAL X-EXT-3 fixes `ComponentSliders.vue` at X-W6. **Adoption of a row is not
+adoption of a cure**, and **no filed `NO-WAVE-OWNER` disposition below is struck** — each is booked
+*as* the disposition it is, so a byte census can see it.*
+
+| # | ⟨record.md · id⟩ | sev (as filed) | banked row text — verbatim from the record's bytes | carriage + locks |
+|---|---|---|---|---|
+| W6·526 | ⟨AuroraPane.md · **AP-34** (:117)⟩ | INFO | "**AP-34 · reader-LC missed #4 (ADOPTED) — INFO — NO-WAVE-OWNER.** `serializeStop` + `RAMP_SAMPLE_COUNT` on the color-chips public barrel have zero external consumers (my census); with L/P2-3's `stampStops` mis-homing (one zero-dependency line co-housed with the parser-dragging sampler), the barrel's surface is half dead. color-session surface, no X owner named. **Recorded for the formation boundary.**" | **FIRST BOOKING** — `AP-34` occurs **0×** in this file. **§1.G clause 1 applied to a near miss:** `X-W0-FOLD.md:402` prints *"**AP-19 + AP-34**"* inside the G-F cluster slate, naming **no record on the line**, so it is carriage for nothing; and `X-W10-FOLD.md:676/:686`'s `AP-34` is ⟨**PaletteCardMenu** · AP-34⟩ — a different namespace, and precisely the collision clause 1 legislates against. The row is booked here because the **barrel** is W6's by §3 (PREVIEW-CHIPS); the **boundary limb is relayed, not swallowed** → new cross-edge **`e.26`**. §5.17's exclusion run `AP-16 … AP-19` is untouched and does not name `AP-34` |
+| W6·527 | ⟨PreviewStrip.md · **PS-27** (:71)⟩ | NWO, named | "**PS-27 · L2-9a — the library's src-mirror test tree holds TWELVE demo suites (count corrected by reader-LC against the axis's 10, verified at the axis's own HEAD), including the chip module's only unit oracle**, against vitest.config's stated law. **DISPOSITION: NO-WAVE-OWNER, named** (test-tree re-homing has no X owner)." | **ATTRIBUTION REPAIR, not a promotion — the §7.1 defect class, third instance.** The bare id **is already in this file**: §5.18 (`:1105`) prints `` `PS-16`/`PS-27` (NO-WAVE-OWNER, named) `` inside a comma-run that **names no record**, and §7.1 already ruled that shape: *"an exclusion register that lists bare ids in a comma-run does not close a byte census."* **§5.18 is NOT retracted, NOT weakened, NOT re-routed** — this row adds only the record-attributed carriage that makes it census-visible. The **test-tree limb rides a stated CrossEdge to X-W1** (§A.3's own words) → new cross-edge **`e.27`**; W6 books no test-tree edit. **COUNT LOCK (verbatim):** *"TWELVE demo suites (count corrected by reader-LC against the axis's 10)"* — a close citing 10 is citing the superseded figure |
+| W6·528 | ⟨picker-componentsliders.md · **R-21** (:51)⟩ | MAJOR · CONFIRMED | "**R-21 · MAJOR · CONFIRMED — the component's private derived state lives in the shared session pipeline, so a ramp throw is not contained to the console.** useSliderGradients.ts:25 `componentsSlidersStyle` — sole consumer this SFC (:194); `currentColorRanges` — sole consumer ConsoleRail; the warm-path throw sites (R-2) sit inside the injected pipeline's reactive graph. Owner edict 1, in the direction that maximizes blast radius. **→ NO-WAVE-OWNER** — the COLOR_MODEL_KEY role-split identity (the ColorSpaceSelector apotheosis's MT-CSS-2) has NO row in CARRY-CUT-LEDGER; flagged for the next formation boundary so the identity is not silently dropped (L-15.8)." | **FIRST BOOKING** into §1k's band — `.k` is **PROPOSED and bounds-gated**, so this row is **`cl.3`** with the rest of the band: if §3 n.16–n.21 are not adopted it degrades to NO-WAVE-OWNER by the ◆ law, which is also its filed disposition — **the two agree, and the row is honest either way.** **NAMESPACE GUARD, three-way:** ⟨picker-componentsliders · R-21⟩ ≠ ⟨**PreviewRamp** · R-21⟩ (this fold's own `W6·443`, `:790` — the sampler's half-throw) ≠ ⟨**wb-extract-imagedropzone** · R-21⟩ (X-W1-FOLD's, `:1078`/`:1145`, an NWO row folded there). **Three records, one bare id, three fates** — and the bare id `R-21` occurs 14× across the layer, none of them this one. **BLAST-RADIUS LOCK (verbatim):** *"Owner edict 1, in the direction that maximizes blast radius"* — the throw is **not** console-local, and a cure scoped to `ConsoleRail` alone is under-scoped by the record's own reasoning. Kin: `W6·334` (R-1, the band's first BLOCKER) and the R-2 route (X-W5 + X-W9 + X-W1, §4) |
+
+**C3-3b — a second attribution note, and it corrects `§1.G` clause 1's own receipt at the bytes.**
+Clause 1 states: *"`AB-13` occurs 4 times, **all four** ⟨shell-dock-actionbarlayer · AB-13⟩ at
+`X-W4-FOLD.md:181/:183`, while ⟨AboutPane · AB-13⟩ is nowhere."* Measured over the layer as it stood
+**at HEAD**, before any round-3 section (`git show HEAD:<file>`, so no round-3 seat's own bytes are
+counted), the **count of 4 is exact** and the **attribution is not**: three are in `X-W4-FOLD.md` at
+`:181`, `:182` and `:183` (three lines, not two — all ⟨shell-dock-actionbarlayer · AB-13⟩), and
+**the fourth is in THIS FILE**, at **`:1105`** — §5.18's chips/About exclusion run
+`` `AB-4`/`AB-5`/`AB-13`/`AB-20`/`AB-22`/`AB-24`/`AB-26`/`AB-28`/`AB-30`/`AB-33`/`AB-36`/`AB-37`
+(NO-WAVE-OWNER) ``. **That `AB-13` is ⟨AboutPane · AB-13⟩'s**, and it sits in a comma-run naming no
+record — which is exactly *why* every namespace-scoped census reported ⟨AboutPane · AB-13⟩ absent.
+**Clause 1's conclusion is not weakened by this; it is confirmed twice over** — the same four bytes
+were being read as two different records' ids, and a bare id in a comma-run is carriage for nothing.
+
+**The attribution, and its strict limit.** §5.18's run is ⟨**AboutPane.md** · `AB-4` / `AB-5` /
+`AB-13` / `AB-20` / `AB-22` / `AB-24` / `AB-26` / `AB-28` / `AB-30` / `AB-33` / `AB-36` / `AB-37`⟩ —
+recorded here so the ids are findable under their record. **This is an attribution of an EXCLUSION,
+not a booking, and X-W6 books no AboutPane row by it.** ⟨AboutPane · AB-13⟩, ⟨· AB-14⟩, ⟨· AB-26⟩,
+⟨· AB-28⟩, ⟨· AB-33⟩, ⟨· AB-36⟩ and ⟨· AB-37⟩ are **§A.5's seven**, homed at the **G-F register
+(X-W0 seat)** as the About-recomposition bundle, and **the X-W0 seat must not read this note — or
+`X-W4-FOLD.md:181/:182/:183` — as carriage for any of them.** §5.18's disposition
+(*"routes AWAY from W6 even after the §3 bounds edit"*, NO-WAVE-OWNER) stands exactly as written,
+unretracted and unweakened; only its ids become visible to a census. Per E-3 the work order's bytes
+stand and this is an addendum, never a patch; ⟨`X-W4-FOLD.md` · §8.0 C3-7⟩ carries the matching
+correction from the other side.
+
+### 8.4 Band C — §A.R's `≡`-pointer duty, discharged (`W6·529`, `W6·530`)
+
+**These two are NOT in §A's 124** — §A.R strikes them from the register as refuted at the bytes and
+prints them *"struck, un-counted, and carrying an `≡`-pointer duty on the X-W6 seat so no round-4
+recheck re-opens them."* They are counted in **this file's own** row Σ (they are bytes here) and in
+**no** figure attributed to the §A register. E-3: the check's bytes stand; this is an addendum.
+
+| # | ⟨record.md · id⟩ | the carriage, at the bytes | the pointer |
+|---|---|---|---|
+| W6·529 | ⟨wb-gradient-easingspecimenstrip.md · **C-05** (:44)⟩ | `X-W6-FOLD.md:363` — `\| W6·88 \| **C-05 / D-40** (+ D-40-forward-half) ≡ **R-B** (D2-03 / N-2·r3 / R3-2) \| strip ≡ editor \| MAJOR \| The **zero-letterbox law is DEAD CODE** …` | **≡ `W6·88`**, verbatim and zero-pad-exact. `grep -rwF -- 'C-05'` over the fifteen layer files **as they stood before this section** (§8.0's scoped form) → **1**, and it is this one. The record's own head: *"**C-05 / D-40 (+ D-40-forward-half) — MAJOR → X-W6 (files in W6 list) + one glass hook ask (BH relay).**"* — the glass ask rides `e.21`'s bundle, already there |
+| W6·530 | ⟨wb-gradient-easingspecimenstrip.md · **C-06** (:42)⟩ | `X-W6-FOLD.md:358` — `\| W6·83 \| **GV-23** ≡ **C-06 / L-1** ≡ **R-C** (C2-2 / L-r3:L-1) \| wb-gradient-visualizer ≡ strip ≡ editor \| MAJOR \| `FAMILY_ORDER` … drops all six quart/quint presets …`; re-cited at `:1089` | **≡ `W6·83`**. The record's own head names the identity fold outright: *"**C-06 / L-1 — MAJOR → X-W6.d (IDENTITY: ≡ GV-23, already booked there).**"* — the record and the fold agreed from the first seal; only the *record column's spelling* kept a census from seeing it |
+
+### 8.5 §-arithmetic, restated to the new true counts (dated 2026-08-28, round 3, never silent)
+
+**C3-4 — superseding note.** §7.3's dated block (`:1401-1410`) was true at round 2 and is
+**superseded on the §1 row count, the `≡`-pointer count, the NWO-carriage count, the cross-edge
+count, the §5 register count and the consumed-record count** by this block. Its bytes, and §6's
+before it, are left intact above — this fold's §0 discipline: corrections are stated, not
+overwritten.
+
+| quantity | round 1 (§6) | round 2 (§7) | **round 3 (§8)** | delta |
+|---|---|---|---|---|
+| §1 rows | **508** (`W6·1 … W6·508`) | **511** (`… W6·511`) | **530** (`W6·1 … W6·530`, gapless) | **+19** = 14 (§8.2) + 3 (§8.3) + 2 (§8.4) |
+| — of which `≡`-pointer rows (facets of folded identities) | 3 (`W6·475`, `W6·486`, `W6·507`) | 4 (+ `W6·511`) | **20** (+ `W6·512 … W6·525`, `W6·529`, `W6·530`) | **+16** |
+| — of which `cl.4` / filed NO-WAVE-OWNER carriage | 10 (`W6·496 … W6·505`) | 13 (+ `W6·509 … W6·511`) | **16** (+ `W6·526`, `W6·527`, `W6·528`) | **+3** |
+| §2 gate entries | 100 (80 + `N33…N52`) | 100 — unchanged | **100 — unchanged; §8 proposes no gate** | 0 |
+| §3 bounds rows / distinct paths | 38 / 37 | 38 / 37 — unchanged | **38 / 37 — unchanged; §8 adds no path** | 0 |
+| §4 cross-edges | 24 (`e.1 … e.24`) | 25 (+ `e.25`) | **27** (+ `e.26`, `e.27`, §8.6) | **+2** |
+| §5 register entries | 19 (through §5.19) | 20 (+ §5.20) | **21** (+ §5.21, §8.7) | **+1** |
+| corpus records consumed | 29 | 31 | **32** (+ `AuroraPane` — `PreviewStrip` and `picker-componentsliders` were already record-attributed sources at `W6·464` / §1k) | **+1** |
+
+**Clause-8 discipline, applied to this seat's own numbers.** Every figure above is a count of bytes
+in **this file** and is re-derivable read-only:
+`grep -oE 'W6·[0-9]+' X-W6-FOLD.md | grep -oE '[0-9]+' | sort -n | tail -1` → **530**, with the band
+contiguous and gapless from `W6·509`. The row regex under which every figure is stated is
+**`^\s*([-*]|\|)\s*\*\*`** (§1.G clause 7's election). The **corpus-side** figure (389 X-W6-routed
+rows across 29 records) is §7.0's and is unmoved by this round — §8 books attributions, not corpus
+rows.
+
+**The §0-walk posture, carried verbatim from §B.1 so no reader pre-credits this round.** The rows
+booked here are **outside** the round-2 walk of **1,768** by construction; **1,768 is a dated pass-3
+measurement of what the twelve folds carried on that date**, and the walk that counts §8's rows is
+the **round-4 recheck's**, re-derived from the twelve folds' own dated arithmetic blocks and never
+from a work order's arithmetic. This seat re-measured no other wave.
+
+### 8.6 §4 addendum — two cross-edges (`e.26`, `e.27`)
+
+**C3-5.**
+
+| e | Edge | Shape | What must be written |
+|---|---|---|---|
+| e.26 | **⟨AuroraPane · `AP-34`⟩ ⇄ the G-F register (X-W0 seat)** | one row, two limbs: a barrel W6 owns and a boundary decision it does not | W6 books the **carriage** (`W6·526`) because `demo/color-session/color-chips/**` and its public barrel are in W6's §3 bounds (n.14–n.18, n.36/n.37); the row's own terminal — *"color-session surface, no X owner named. **Recorded for the formation boundary**"* — is the **G-F register's**. `X-W0-FOLD.md:402`'s bare *"AP-19 + AP-34"* slate is the boundary's existing note and this edge is what attributes it; **neither seat re-books the other's limb.** The `stampStops` mis-homing limb (L/P2-3) is named, not adopted |
+| e.27 | **⟨PreviewStrip · `PS-27`⟩ ⇄ X-W1 (the test tree)** | a count-corrected fact W6 carries, a re-homing X-W1 owns | W6 books the **identity** (`W6·527`) at the packet home §A.3 names; the **twelve src-mirror demo suites against `vitest.config`'s stated law** are a **test-tree** question, and this fold books **no test-tree edit** — the same split §A.3 states (*"the test-tree limb rides a stated CrossEdge to X-W1"*) and the same one `W6·116`/`W6·124` already use for the X-W9/X-W1 dialect and o17 re-key. Kin at the boundary: ⟨wb-gradient-easingeditor · `M-EE-5`⟩ (`W6·510`, `vitest.config.ts` self-alias) — **adjacent and distinct**, and `e.25`'s anti-merge lock governs both |
+
+### 8.7 §5.21 — the round-3 escape register (what this repair changes about §5)
+
+21. **ROUND-3 ESCAPE REGISTER (2026-08-28).** Three classes, all dated, none silent.
+    **(a) Sixteen alias artefacts, cured by `≡`-pointer** — the fourteen of §8.2 plus §A.R's two at
+    §8.4. Every one was **already banked** in §1d, verbatim and zero-pad-exact; every one was
+    invisible to a namespace-scoped census because the `Src` cell spells the record `strip`,
+    `editor` or `visualizer` and **no suffix-join produces those five, six and ten characters**.
+    **§1d is not retracted, not renumbered and not re-worded.** The finding this seat states as a
+    rule, in the shape §7.1 stated its own: **a record column short form that the alias derivation
+    cannot produce does not close a byte census — the fold must DECLARE it (C3-1), and the
+    declaration costs one line.** §7.1's rule (*"bare ids in an exclusion comma-run do not close a
+    byte census"*) and this one are the same defect at two different sites: **the id was findable,
+    the record was not.**
+    **(b) Two attribution repairs, both in §5.18's comma-runs (`:1105`)** — ⟨PreviewStrip ·
+    `PS-27`⟩ (`W6·527`), the third instance of §7.1's class; and **C3-3b**, the twelve-id
+    ⟨AboutPane · `AB-*`⟩ run whose bare `AB-13` is the **fourth** layer occurrence `§1.G` clause 1
+    attributed to `X-W4-FOLD.md`. §5.18's dispositions stand exactly as written; §8.3 adds only the
+    record-attributed carriage, and **C3-3b books no AboutPane row** — §A.5 homes that bundle at
+    the G-F register.
+    **(c) Two first bookings** — ⟨AuroraPane · `AP-34`⟩ (`W6·526`) and ⟨picker-componentsliders ·
+    `R-21`⟩ (`W6·528`), absent from this file by **any** test, bare or record-attributed. `AP-34`'s
+    near-miss at `X-W0-FOLD.md:402` and `R-21`'s three-way namespace collision are both recorded on
+    their rows as the guards a round-4 census needs.
+    **Nothing in §5.17, §5.18, §5.19 or §5.20 is retracted.** Verified id-for-id against all four
+    this session: `AP-34` appears in none of them; `PS-27` appears in §5.18 **as a named
+    NO-WAVE-OWNER exclusion**, which `W6·527` books **as** that exclusion; `M-EE-5` and `MX-26`
+    keep §7.5's dispositions untouched. **The registers and this band agree, and where they overlap
+    they agree by construction.**
+
+### 8.8 Not claimed here — the closure posture, re-pointed (C3-6)
+
+**C3-6.** §7.3's *"Not claimed here"* paragraph named the **round-3 check** as the measurement that
+could close the X-W6 census. That check has now **run** — `refinement/PASS-3-CHECK-RETURN.json`,
+verdict **NON-CONFORMANT**, BLOCKER on AXIS 1 — and it did **not** close it. The forward pointer is
+therefore re-aimed, once, by dated addendum (E-3; §7.3's bytes stand):
+
+1. **No sentence in this file closes the X-W6 census.** §7.0's *"this seat reports only that §A.3's
+   roster for this file is exhausted id-for-id"* is the strongest form available to a fold, and this
+   section claims exactly that much for `ROUND-3-ASSIGNMENTS.md` §A.3: **17 assigned, 17 booked**,
+   plus §A.R's 2 pointer duties discharged — **19 rows, `W6·512 … W6·530`.**
+2. **Closure is established by the census artifact, not by the fold.** The X-W6 census closes when
+   and only when the **round-4 recheck's census artifact** — the successor of
+   `PASS-1-CHECK-RETURN.json`, `PASS-2-CHECK-RETURN.json` and `PASS-3-CHECK-RETURN.json` — re-derives
+   the ⟨record·id⟩ census **under §1.G** against **these bytes**, with the short forms C3-1 declares
+   in its alias set, and prints **zero** X-W6 escapes. Until that artifact exists and says so, the
+   honest statement of this fold's position is: *three rounds booked; completeness unproven.*
+3. **The predicate is named in advance so the test cannot be moved to fit the answer.** Corpus =
+   the **92**; token class `X[-·.]W\d([^0-9]|$)`; row regex `^\s*([-*]|\|)\s*\*\*` (elected, §1.G
+   clause 7); alias set = derived **and** declared (C3-1); carriage = namespace-scoped, generous on
+   the id, strict on identity (§1.G clauses 1–3).
+4. **The precedent, so this is a law and not a one-off.** Round 1 missed by citation; round 2 missed
+   by exclusion-register comma-runs; round 3's register was 82 % **alias artefact** at this fold —
+   sixteen of nineteen. Each round's instrument was wider than the last and each still under-read
+   the same bytes. **A fold may state what it folded. It may not state what remains.**
+
+---
+
+*End of the X-W6 refinement fold, as repaired at X·V fold round 1 (§6), round 2 (§7) and round 3 (§8), all dated 2026-08-28. `waves/W6.md`, `CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md` and `refinement/ROUND-2-ASSIGNMENTS.md` are byte-unmodified (E-3); this addendum remains the only write. Every banked id cited is original for life (anti-rename); every citation is keyed ⟨record.md · id⟩; every census figure is printed with the command, the row regex and — as of round 3 — the DECLARED alias set that produce it (§1.G clauses 4, 7, 8). Wave status: **planned**.*

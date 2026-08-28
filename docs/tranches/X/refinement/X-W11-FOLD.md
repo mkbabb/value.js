@@ -1121,3 +1121,131 @@ spine's and X-W4's; §C.1–§C.3 and §C.5 are the spine's; §C.4's erratum (`L
 X-W6's row (`X-W6-FOLD.md:1190`, W6·499) and is registered at the G-F register (`X-W0-FOLD` §7.4) —
 **no row of this fold cites `L-R6` in either spelling** (grep: 0), so nothing here needs the cure.
 Status **planned**; no product source opened; `X-W11-FOLD.md` remains this seat's sole write.
+
+---
+
+## 8. Fold round 3 — the §1.G clause-5 citation repair, four rows attributed, nothing re-booked (2026-08-28)
+
+**What this section is.** This seat's consumption of `refinement/ROUND-3-ASSIGNMENTS.md` **§A.6** —
+**four ⟨ColorNutritionLabel.md · id⟩ homed here** (0 routed · 4 NWO) by the pass-3 BLOCKER's id-keyed
+census (`refinement/PASS-3-CHECK-RETURN.json`, NON-CONFORMANT: 1 BLOCKER · 1 MINOR · 1 INFO). **The
+work order is explicit that this is a citation repair, not a booking**: *"`ColorNutritionLabel.md` —
+packet 18 · CATALOG-LIE⇄CSS **and the fold already carries the row**: X-W11-FOLD §1z's
+ColorNutritionLabel table books all four (`BOUND (AB-17)`) — the cure is a citation repair (⟨record ·
+id⟩ attribution per §B.2 clause 5), not a new booking; the AB-17 limb rides to the G-F register."*
+
+**So this section mints nothing.** No row is added, no id is minted, no disposition is re-graded, and
+`W11.1..W11.26` is untouched. What it adds is **attribution**: four lines that name the record and the
+id on the same line, which is what §1.G clause 1 requires of carriage and what §1z's bold record label
+— by clause 5, *not a heading* — could not supply.
+
+**Posture unchanged.** Status **planned**; dispositions **ADJUDICATED**, never VERIFIED — no gate has
+run and this seat ran no probe; no product source opened; `waves/W0.md..W11.md`,
+`CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md`, `ROUND-2-ASSIGNMENTS.md` and every
+`registry/adjudicated/**` record byte-untouched (E-1/E-3). **`X-W11-FOLD.md` is this seat's sole
+write, and §1z's own bytes are unchanged by this repair** — the attribution is an addendum beside
+them, never a patch of them.
+
+### 8.1 The defect, at this fold's own bytes — and one dated correction to the law's coordinate
+
+**§1.G clause 5, verbatim in its charge against this file**: *"A **bold line** naming a record —
+`**ColorNutritionLabel — 27 rows**` at `X-W11-FOLD.md:715` — is NOT a heading and does not scope: four
+real bookings sit under it (`CNL-6` `:718` · `CNL-9` `:721` · `CNL-11` `:723` · `CNL-16` `:728`, each
+reading `**BOUND** (AB-17)`) and every namespace-scoped census reads them as escapes."*
+
+**The charge is CONFIRMED at the bytes, and it is exactly right about the mechanism.** §1z's
+ColorNutritionLabel table is keyed by a **bold label**, its rows carry a bare `| CNL-6 | MAJOR |
+**BOUND** (AB-17) |` and nothing on those lines names the record — so a namespace-scoped census sees
+four ids attached to no record, which under clause 1 is **carriage for nothing**. The four rows were
+*booked* and *uncarried* at the same time. This seat does not dispute a byte of it.
+
+**One coordinate is corrected, dated, and the correction changes nothing about the charge.** The bold
+label `**ColorNutritionLabel — 27 rows**` stands at **`X-W11-FOLD.md:709`** at HEAD, not `:715`;
+`:715` is ⟨ColorNutritionLabel · **CNL-3**⟩'s own row (*"| CNL-3 | BLOCKER | **FOLD W11.6** (the
+28-grey seed matrix) · OUT → X-W9 + X-W1 |"*). **The four row coordinates the law prints are exact**
+(`:718` `:721` `:723` `:728`, each `**BOUND** (AB-17)`), and the label is six lines above the first of
+them, so the scope claim is unaffected. Recorded per §1.G clause 8 (a figure reproduces at the tree or
+it is struck) — **the law's substance stands; only its label coordinate moves**, and the work order's
+bytes stay byte-untouched (E-3).
+
+### 8.2 The cure — §A.6's four rows, attributed inline as ⟨record.md · id⟩ (carriage, not booking)
+
+Clause 5 offers two cures: *promote the label to a heading* **or** *attribute each row inline as
+⟨record.md · id⟩*. **This seat takes the attribution arm**, for a stated reason: §1z is a
+**census table**, one row per source id across three records, and promoting one record's label to a
+heading while its siblings stay bold would make the section's own structure lie about which rows are
+scoped. Attribution cures the four the register names **without re-shaping another record's rows**,
+and clause 6 settles that a pointer line *is* carriage: *"A pointer line satisfies clauses 1 and 4 by
+construction."*
+
+**Each line below names the record and the id on one line, quotes the §1z disposition it already
+carries verbatim, and adds the disposition's own bytes from the source record. No id is re-spelled; no
+grade is moved; no `W11.n` is minted.**
+
+| ⟨record.md · id⟩ | §1z cell, verbatim (`X-W11-FOLD.md`) | the record's own disposition, verbatim (`ColorNutritionLabel.md`) |
+|---|---|---|
+| ⟨ColorNutritionLabel.md · **CNL-6**⟩ (`:45`) | `:718` — `\| CNL-6 \| MAJOR \| **BOUND** (AB-17) \|` | *"**CNL-6 · D-3 / C-3 / L-8 — hover lights 6 of 10 nodes across all four rows · MAJOR.** … one component-level `hoveredPath` ref (:232), predicate `hoveredPath.includes(space)` (:123) with no row identity; lab's 4 paths … all begin "Lab" → 4 + 2 "XYZ" = 6 lit, 4 resting; xyz worse (8 paths). The row-index cure retires the `:111`/`:123` casts as a side effect. **DISPOSITION: NO-WAVE-OWNER — the conversion-graph well is inside the About recomposition bundle (AB-17 / rider A-1).**"* |
+| ⟨ColorNutritionLabel.md · **CNL-9**⟩ (`:48`) | `:721` — `\| CNL-9 \| MAJOR \| **BOUND** (AB-17 / A-3) \|` | *"**CNL-9 · D-7 — five sectional dividers ordered to zero · MAJOR.** `:15/:40/:68/:90/:146` + AboutPane's two = PR-14's seven; AboutPane rider A-3 already fixed the census vocabulary (7 components + 4 markdown `<hr>`). **DISPOSITION: NO-WAVE-OWNER (AB-17/A-3).**"* |
+| ⟨ColorNutritionLabel.md · **CNL-11**⟩ (`:50`) | `:723` — `\| CNL-11 \| MAJOR \| **BOUND** (bidi bundle with AB-36) \|` | *"**CNL-11 · D-10 / C-8 — the Components rows disintegrate under RTL · MAJOR.** Mechanism forced by source (`:59-63`, three unisolated inline runs, no `dir`/`<bdi>`/`unicode-bidi` anywhere in the file — my read) + the tracked rtl-desktop capture both readers and the AboutPane seat read. The pane-level limb (title/caption) is AB-36's identity. **DISPOSITION: NO-WAVE-OWNER — one bidi-isolation bundle with AB-36 at the boundary; the atomic LTR-isolated range formatter is the named cure.**"* |
+| ⟨ColorNutritionLabel.md · **CNL-16**⟩ (`:55`) | `:728` — `\| CNL-16 \| MAJOR \| **BOUND** (MT-CSS-2 phantom owner, AB-26 precedent) \|` | *"**CNL-16 · L-7 / C-9 / D-19 + C-5 — whole-model two-way binding never written; per-tick fan-out off the uncoalesced projection · MAJOR (cure 2 killed per R4).** `defineModel<ColorModel>` (:186) read at exactly two lines (:211/:219), both `selectedColorSpace`; `model.value = next` per tick (useColorPipeline.ts:70, my read); `formattedRange` fresh object per evaluation. The `defineProps<{space}>` cure is sound and kills both rows. **DISPOSITION: NO-WAVE-OWNER — the MT-CSS-2 identity is a PHANTOM OWNER (AB-26/rider A-1 precedent); preserved under original ids for the boundary.**"* |
+
+**Four facts these attributions carry that the `BOUND (AB-17)` cell alone does not, and each is a bar
+on a wrong close:**
+
+1. **CNL-6's cure has a free side effect and a named mechanism.** The defect is a **row-identityless
+   predicate** (`hoveredPath.includes(space)`), not a hover-styling miss: lab lights **6 of 10** nodes,
+   **xyz is worse (8 paths)**. The **row-index cure retires the `:111`/`:123` casts as a side effect** —
+   so a type-cast census that counts those two as separate work double-counts one edit.
+2. **CNL-9's census vocabulary is already fixed and must not be re-derived.** `:15/:40/:68/:90/:146` +
+   AboutPane's two = **PR-14's seven**, and **AboutPane rider A-3 already corrected the vocabulary**
+   (7 components + 4 markdown `<hr>`). A later seat re-counting dividers will get eleven and think it
+   found a drift.
+3. **CNL-11 is one limb of a two-limb bidi identity, and the other limb is another record's.** The
+   **pane-level limb is ⟨AboutPane · AB-36⟩'s identity** (booked this round at the G-F register,
+   `X-W0-FOLD` §8, W0.36); the **named cure is an atomic LTR-isolated range formatter**. One bundle,
+   two records, two ids, **no double booking**.
+4. **CNL-16's owner is a PHANTOM.** `MT-CSS-2` exists in **no ledger row and no X wave** — the
+   ⟨AboutPane · AB-26⟩ precedent (rider A-1), booked at `X-W0-FOLD` §8 (W0.33) this same round. The
+   identity is **preserved under its original ids for the boundary**, and **cure 2 is KILLED per R4**
+   while the `defineProps<{space}>` cure *"is sound and kills both rows"* — a kill and a live cure on
+   one row, both carried.
+
+**The AB-17 limb rides to the G-F register, and does not land here.** §A.6 says so, and `X-W0-FOLD`
+§8.3 records the arrival as a **cross-reference, never a second booking** — the register carries the
+bundle's AboutPane members (W0.31–W0.37) and now knows its ColorNutritionLabel members ride the same
+bundle from this fold. **This fold does not elect AB-17's shape, its schedule, or MT-CSS-2's owner.**
+
+### 8.3 The standing repair shape — declared, so a later census does not re-discover the same hole
+
+§1z keys **every** record's table by a bold label. Clause 5 makes that a census hole **for any row a
+later register names**, not only for these four. **The repair shape is settled and costs one line per
+row**: an inline ⟨record.md · id⟩ attribution beside the §1z cell, exactly as §8.2 prints it. This
+seat applies it to **the four rows the register assigns** and declares the shape for the rest rather
+than pre-emptively re-writing §1z's structure — a fold may not re-shape a census table to anticipate a
+census it has not been shown. **`PaletteColorStrip` and `GenerateControls` rows under the same
+labels are not escapes in the pass-3 register** (`X-W11-FOLD` §7.2 already carries ⟨PaletteColorStrip
+· D9⟩ id-for-id, and the register names no `GenerateControls` id here), so nothing is silently left
+uncured that the register asked for.
+
+### 8.4 Round-3 delta — countable
+
+| quantity | after round 1 | after round 2 | **after round 3** | delta |
+|---|---|---|---|---|
+| FOLDED rows (§1) | 25 | 26 (W11.26) | **26** | **0 — §A.6 is a citation repair; no row is booked and none may be** |
+| **attributed carriages (§1.G cl.5 repair)** | — | — | **4** | **+4** — ⟨CNL-6⟩ · ⟨CNL-9⟩ · ⟨CNL-11⟩ · ⟨CNL-16⟩, each naming record and id on one line (§8.2) |
+| GATE rows (§2a+§2b+§2c) | 17 (+4 amendments) | 17 (+4) | **17 (+4)** | **0 — no gate minted, none amended** |
+| BOUNDS-DELTA entries (§3) | 8 | 8 | **8** | 0 — an attribution opens no file |
+| census rows (§1z + §1z-b) | 97 | 97 | **97** | 0 — all four were already census rows in §1z; this round gave them their record, not a second row |
+| NO-WAVE-OWNER limbs | 34 (+1 cond.) | 34 (+1 cond.) | **34 (+1 cond.)** | 0 — all four were already counted NWO; **the §1z-vs-source divergence recorded at §7.3 stays unreconciled** |
+| OUT-OF-WAVE | 51 | 51 | **51** | 0 |
+| EXTERNAL carriages | 1 | 1 | **1** | 0 — ⟨INBOX I-28 · X-EXT-5⟩ (W11.25) unchanged |
+| new ids minted | 0 | 0 | **0** | anti-rename holds — every id above is the record's original, for life |
+| dated corrections to cited coordinates | 1 (§7.1) | 1 | **2** | **+1** — §8.1: the clause-5 label sits at `:709`, not `:715`; the four row coordinates are exact |
+
+**Assignment coverage: §A.6 4/4, by attribution, id-for-id.** Nothing else in `ROUND-3-ASSIGNMENTS` is
+addressed to this seat: §A homes its other 120 rows at W7/W8/W6/W4/W0/W10; §B.1 and §B.2 are the
+spine's writes. **This section closes no census**: whether the layer now carries every escaped
+⟨record·id⟩ under its own namespace is settled by the **pass-4 census artifact**, re-derived from the
+twelve folds' own bytes under §1.G at a named HEAD — never by a sentence in this file. Status
+**planned**; no product source opened; nothing here stamps a wave; `X-W11-FOLD.md` remains this seat's
+sole write.

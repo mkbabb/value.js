@@ -507,4 +507,116 @@ the X-W5 census is closed (§7a).
 
 ---
 
+## 8. FOLD ROUND 3 ADDENDUM — dated 2026-08-28 (the X·V fold round-3 repair)
+
+### 8a. Input, posture, and the nil return with its receipt
+
+**Input.** `refinement/PASS-3-CHECK-RETURN.json` (verdict **NON-CONFORMANT**: BLOCKER on AXIS 1 —
+*"123 distinct ⟨record·id⟩ across 34 records absent by bytes"*; MINOR on AXIS 5; INFO) →
+`refinement/ROUND-3-ASSIGNMENTS.md` (**§A**, 124 identities across seven home folds; **§B.1**, the §0
+re-walk; **§B.2**, **`§1.G`** — the GENEROUS CARRIAGE LAW). Status `planned`; dispositions
+**ADJUDICATED, never anything stronger**; **no product source opened**; E-3 intact — `waves/W0..W11.md`,
+`waves/CONFORMANCE-2026-08-03.md` and all three `ROUND-*-ASSIGNMENTS.md` are **byte-untouched**.
+
+**The work order carries ZERO rows to this seat.** §A homes its 124 at **X-W7 53 · X-W8 30 · X-W6 17 ·
+X-W4 11 · X-W0 7 · X-W11 4 · X-W10 2**; **X-W5 is in none of the seven bands and none of the packet-home
+tables.** Re-derived read-only, and the single hit is *about* this fold rather than *for* it:
+
+```
+cd docs/tranches/X/refinement
+grep -cE 'X[-·.]W5([^0-9]|$)' ROUND-3-ASSIGNMENTS.md    # → 1
+grep -nE 'X[-·.]W5([^0-9]|$)' ROUND-3-ASSIGNMENTS.md    # → :405, §B.1's per-wave receipt row:
+                                                        #   "| W5 | **88** | `X-W5-FOLD.md:486` — …"
+grep -nE '^\| \*\*X-W' ROUND-3-ASSIGNMENTS.md           # → the §A.0 Σ table: W7 W8 W6 W4 W0 W11 W10 — no W5
+```
+
+**That single hit is §B.1 quoting §7e's own arithmetic block back at this fold — and it reproduces.**
+`X-W5-FOLD.md:486` reads `| rows (§1 + §6b + §7b) | 66 (W5F-01..W5F-66) | 83 (..W5F-83) | **+5**
+(W5F-84..W5F-88, contiguous, zero gaps) | **88** |`, and the spine's re-walk credits W5 with exactly
+**88**. **This is the first round in which an external artifact re-read this fold's own figure and
+agreed with it**, and it is recorded here as such — not as closure, but as the arithmetic surviving a
+falsification attempt it did not run itself.
+
+**Third consecutive round, third result rather than an omission**: §6a's five §A identities + twelve
+supplements (round 1), §7b's five §A.2 identities (round 2), and **zero assigned** (round 3). The
+pass-3 BLOCKER's MITIGATION cites this fold **by line** — *"X-W5-FOLD:432/:506 … all defer to 'round
+3's census artifact'"* — as evidence that *"the layer under-delivers; it does not lie."*
+
+### 8b. `§1.G` adopted whole — and this fold's conformance, measured at its own bytes
+
+§B.2 writes the **GENEROUS CARRIAGE LAW** into the spine's §1. This fold adopts it whole. The two
+clauses that can convict a fold's bytes are clause 1 (a bare id is never carriage) and clause 4 (an
+undeclared record-column short form is a census hole). Both are measured here, not asserted:
+
+| clause | this fold, measured read-only at HEAD |
+|---|---|
+| **1** — carriage is namespace-scoped; a bare id is never carriage | **CONFORMANT, 85 of 88, and the other three book no ⟨record · id⟩ at all.** Every §1/§6b/§7b row's **id cell** names its record on the row line — either as a backticked stem (`` `shell-paneslot` **L-2** ``) or as the full citation key (⟨`PaletteSlugBar.md` · **A-10 (C-18)**⟩). The three exceptions are **W5F-43** (`W5 gates **B5 · B6**`), **W5F-44** (`W5 gates **D1 · D2** (DR-27)`) and **W5F-49** (`W5 gate **E2**`) — **gate/decision-record rows whose subject is a W5 gate, not a registry row.** They name no record because they carry no ⟨record · id⟩, and **a census must not read them as uncarried registry rows.** Receipt: `grep -E '^\| \*\*W5F-[0-9]+\*\*' X-W5-FOLD.md \| awk -F'\|' '{print $2"\|"$3}' \| grep -vE '` + "`" + `[A-Za-z][A-Za-z0-9.-]{2,}` + "`" + `'` → those three lines and no others |
+| **4** — the alias set is derived **AND** declared | **NO SHORT-FORM DECLARATION OWED — one length declaration IS owed, and it is made here.** This fold uses no record-column short form: every record is spelled by **full stem** (`shell-paneslot`, `PaletteSlugBar`, `AdminTagsPanel`, `shell-panesegmentedcontrol`, `shell-dock-parseechoreadout`, `shell-dock-genericactionbar`, `AboutPane`, `EmptyState`, `wb-generate-pane`, `ErrorBoundary`, `wb-gradient-pane`, `wb-extract-pane`, `wb-extract-workbench`, `wb-extract-controls`, `Dock`, `App`). **THE DECLARATION: `App` is a record stem of THREE characters** (`App.md`), and clause 4's derived limb admits *"the record stem, **plus** every suffix-join … **≥4 characters**"* — the ≥4 floor governs the *suffix-joins*, never the stem. **Three rows depend on it** — `W5F-28`, `W5F-30`, `W5F-64`, each keyed `` `App` `` plus its banked ids — and a round-4 census that applies a ≥4-character filter to *stems* would read all three as uncarried. **Declared so it cannot.** The same guard covers `Dock` (4) and any future short-stemmed record |
+| **2/3** — generous id matching; dedupe by normalised ⟨record · id⟩ | **ADOPTED.** This fold quotes ids exactly as minted and re-spells none; **identity: strict, carriage: generous** is the instrument a round-4 census must use here |
+| **5** — heading scope counts; bold pseudo-headings do not | **NOT APPLICABLE, verified.** §1/§6b/§7b are markdown tables keyed by the `W5F-nn` id cell with the record **inline on the same row line** — not by a `**Record — N rows**` bold label. The hole clause 5 legislates (four real bookings invisible under `X-W11-FOLD.md:715`'s bold label) has no instance in this file |
+| **6** — the `≡`-pointer is the cure, and it **is** carriage | **ADOPTED, and already in use**: `W5F-01`'s five-record identity chain, `W5F-07`'s four-record chain and `W5F-03`'s six-record chain are all written in the pointer shape with **every record named**, which is why they survive a namespace-scoped census that fourteen X-W6 rows did not |
+| **7** — the row predicate is ELECTED: `^\s*([-*]\|\|)\s*\*\*` | **ADOPTED.** §6a's and §7a's figures were stated under this fold's own printed predicate; the election moves none of them, and the **moratorium is lifted**, so §8c's figures may be quoted as authoritative with the regex stated inline |
+| **8** — the count follows the predicate | **ADOPTED.** Every figure in §8c states its corpus, row regex, token class, alias set and carriage test, and reproduces at HEAD |
+
+**The finding this seat states for the round, from its own bytes.** The pass-3 BLOCKER's 123 escapes
+were **not** predominantly missing adjudications — at X-W6 **sixteen of seventeen** were rows already
+banked whose record column spelled the record `strip`/`editor`/`visualizer`, and at X-W11 **four**
+were rows already booked under a bold label that scopes nothing. **The defect class is attribution,
+not coverage**, and this fold is unexposed to it for a structural reason worth naming so it is
+preserved rather than drifted away from: **its row idiom puts the record and the id in the same
+cell.** That is the whole of clause 1's requirement, paid at authoring time instead of at census time.
+
+### 8c. §-arithmetic, updated — dated 2026-08-28 (round 3), and it does not move
+
+| quantity | round 1 (§6h) | round 2 (§7e) | **round 3 (§8)** | delta |
+|---|---|---|---|---|
+| rows (§1 + §6b + §7b) | **83** (W5F-01..W5F-83) | **88** (..W5F-88, contiguous, zero gaps) | **88** | **0** — §A assigns none; this seat promotes none |
+| gate entries (§2a/§2b + N11..N15) | unchanged | unchanged | **unchanged** | 0 |
+| BoundsDelta (BD-1..BD-24) | 24 | 24 | **24 — unchanged** | 0 |
+| CrossEdges | **10** (four amended at §6f) | **10** (two amended at §7d) | **10 — unchanged; none added, none amended** | 0 |
+| namespace guards written | 3 | 5 (+⟨PaletteSlugBar · A-13⟩ ≠ ⟨shell-dock-slugeditlayer · A-13⟩; ⟨PaletteSlugBar · U-2⟩ ≠ ⟨PaletteCardMeta · U-2⟩) | **5 — unchanged** | 0 |
+| alias/stem declarations (§1.G cl.4) | — | — | **1** — the `App` three-character stem (§8b) | **+1** |
+
+**Row-regex declaration (§1.G clauses 7/8, mandatory).** The **88** is a count of this file's own row
+ids and reproduces read-only: `grep -cE '^\| \*\*W5F-[0-9]+\*\*' X-W5-FOLD.md` → **88**, contiguous
+`W5F-01 … W5F-88` with zero gaps. It is the same figure `ROUND-3-ASSIGNMENTS.md:405` independently
+re-read from `:486`. The corpus-side X-W5 token census is §6a's and is **unmoved** — round 3 changed
+the **carriage** test, not the **token** test, and this fold's carriage was already namespace-scoped.
+
+### 8d. No self-voiced closure — the pointer §7a aimed at round 3 has fired, and did not close
+
+**The correction this seat owes its own §7a.** §7a wrote: *"The X-W5 census closes when and only when
+the round-3 census artifact — `docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json` — re-derives it
+under §D's predicate against these bytes and prints zero X-W5 escapes."* **That artifact now
+exists.** It returns **NON-CONFORMANT** on a layer-wide BLOCKER; it prints **zero X-W5 escapes** (its
+routed split is *"X-W7 28 · X-W8 26 · X-W6 17 · X-W4 9 · X-W10 4"*); and it cites this fold's
+deferral by line as mitigation. **The condition was well-formed. The layer did not meet it, and this
+fold's own limb was met under an instrument that round 3 then replaced.**
+
+**And this seat still claims no closure — the reason, stated rather than assumed.** `§1.G` arrived
+**with** that verdict and **changes the instrument**: clauses 4 and 5 *widen* carriage (fewer apparent
+escapes), clause 1 *narrows* it (more). **This fold has never been measured by an artifact applying
+all three at once.** §8b measures it and finds it conformant — but **a fold measuring itself is
+evidence about its coverage and not proof of it**, and that rule does not bend because this round's
+answer is favourable. It is the same rule §7a adopted when the answer was unfavourable.
+
+1. **No sentence in this file closes the X-W5 census.** §6a's, §7a's and §8a's findings read as *"the
+   escapes this seat's sweep found, under the predicate and the carriage test it printed, on its
+   date"* — never as *"the escapes that exist"*.
+2. **Closure is established by the census artifact, not by the fold.** The X-W5 census closes when
+   and only when the **round-4 recheck's census artifact** re-derives the ⟨record · id⟩ census
+   **under `§1.G`** — with §8b's `App`-stem declaration in its alias set and the three gate rows
+   excluded as non-registry — against these bytes, and prints **zero** X-W5 escapes.
+3. **The instrument is named in advance so the test cannot be moved to fit the answer.** Corpus =
+   the **92**; token class `X[-·.]W\d([^0-9]|$)`; row regex `^\s*([-*]|\|)\s*\*\*` (**elected**,
+   clause 7); alias set derived **and** declared; carriage namespace-scoped, generous on the id,
+   **strict on identity**.
+4. **A fold may state what it folded. It may not state what remains.**
+
+— end of the round-3 addendum. Status `planned`; dispositions **ADJUDICATED, not VERIFIED**; no
+product source opened; E-3 intact. **This section closes nothing** — round 4's census artifact is
+what may say the X-W5 census is closed (§8d). Round 4 measures against these bytes, under `§1.G`.
+
+---
+
 — end of fold. The dated wave specs and every adjudicated record remain byte-untouched beside this file per E-3.

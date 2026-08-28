@@ -1215,3 +1215,110 @@ as a *result* with its predicate printed rather than as a claim. **This section 
 round 3's census artifact is what may say the X-W2 census is closed (§8.3).
 
 — end of X-W2 fold (round-2 repaired). Round 3 measures against these bytes.
+
+## 9. ROUND-3 REPAIR ADDENDUM — the second nil return, the GENEROUS CARRIAGE LAW, and the closure re-aim
+
+**Input.** `refinement/PASS-3-CHECK-RETURN.json` (verdict **NON-CONFORMANT**: 1 BLOCKER on AXIS 1,
+1 MINOR on AXIS 5, 1 INFO) → `refinement/ROUND-3-ASSIGNMENTS.md` (**§A** — 124 ⟨record · id⟩ across
+seven home folds; **§B.1** — the §0 re-walk; **§B.2** — `§1.G`, the GENEROUS CARRIAGE LAW). Status
+`planned`; dispositions **ADJUDICATED, never anything stronger**; no product source opened;
+`waves/W0.md..W11.md`, `waves/CONFORMANCE-2026-08-03.md` and all three `ROUND-*-ASSIGNMENTS.md` stay
+**byte-untouched** (E-3). This section is the fold's only round-3 write.
+
+### 9.0 The work order carries ZERO rows to this seat for the third consecutive round — stated as a RESULT, with the receipt
+
+`ROUND-3-ASSIGNMENTS.md` §A distributes its 124 identities across **seven** home folds — **X-W7 53 ·
+X-W8 30 · X-W6 17 · X-W4 11 · X-W0 7 · X-W11 4 · X-W10 2**. **X-W2 appears in none of them**, and the
+§A.0 per-fold Σ table omits it entirely. The pass-3 BLOCKER's own routed split names the same five
+waves (*"X-W7 28 · X-W8 26 · X-W6 17 · X-W4 9 · X-W10 4"*) and **not X-W2**. Re-derived here rather
+than inherited:
+
+```
+cd docs/tranches/X/refinement
+grep -cE 'X-W2([^0-9]|$)' ROUND-3-ASSIGNMENTS.md        # → 0   (no §A band, no packet home, no §B mention)
+grep -nE '^\| \*\*X-W' ROUND-3-ASSIGNMENTS.md           # → the §A.0 Σ table: W7 W8 W6 W4 W0 W11 W10 — seven rows, no W2
+```
+
+**This is the third nil return** (§7.0 for round 1, §8.0 for round 2, §9.0 for round 3) and it is
+still a *result*, not an absence of effort: the pass-3 check's BLOCKER names **34 records**, and the
+**seven** records this fold consumed (`BlobPane`, `picker-heroblob`, `shell-paneslot`,
+`picker-spectrumcanvas`, `Katex`, `wb-extract-pane`, `ErrorBoundary`) intersect that roster only at
+records whose escaping rows route to **other** waves — ⟨picker-spectrumcanvas · D-13/M-22/M-23/M-25/
+M-26⟩ → **X-W4** (folded at `X-W4-FOLD.md §8.2.1`), ⟨shell-paneslot⟩'s escapes → none in the
+register. **No X-W2-routed ⟨record · id⟩ is named as absent by any of the three check artifacts.**
+
+### 9.1 `§1.G` adopted whole — and this fold's own conformance to it, measured, not asserted
+
+§B.2 writes the **GENEROUS CARRIAGE LAW** into the spine's §1. This fold adopts it whole and states
+its position against each clause that can bind a fold's bytes:
+
+| clause | what it binds | this fold, measured at HEAD |
+|---|---|---|
+| **1** — carriage is namespace-scoped; a bare id is never carriage | every row | **CONFORMANT.** All **22** rows are keyed `- **source**: `Record` row N (id, sev)` — the record stem and the banked id(s) **on one line**, in backticks. Receipt: `grep -c '^- \*\*source\*\*' X-W2-FOLD.md` → **22**, and every one names its record inline (`BlobPane` · `picker-heroblob` · `shell-paneslot` · `picker-spectrumcanvas` · `Katex` · `wb-extract-pane` · `ErrorBoundary`), the twenty-second being the declared **EXTERNAL** mail-sourced row (`XW2-22`), which names its provenance ⟨`docs/tranches/V/coordination/…`⟩ rather than a registry record — **stated, so its non-registry shape is not read as an attribution hole** |
+| **2/3** — generous id matching, dedupe by normalised id | every census | **ADOPTED.** This fold quotes ids exactly as minted (`L-5`, `C-9 / L-6 / D-6`, `R14`) and never re-spells them; §1.L clause 4's **identity: strict** survives, and §1.G's **carriage: generous** is the instrument a round-4 census must use against these bytes |
+| **4** — the alias set is derived **AND** declared | any fold using a record-column short form | **NO DECLARATION OWED, and here is the falsifier.** This fold uses **no** short form: every source line spells the record's full stem. `BlobPane`, `Katex`, `ErrorBoundary` are stems, not short forms; `picker-heroblob`, `shell-paneslot`, `picker-spectrumcanvas`, `wb-extract-pane` are stems in full. **There is no `strip`/`editor`/`configbar`-class cell anywhere in this file** — the hole §A.R found at X-W6 (two real bookings reported absent) and this seat's siblings found at fourteen more cannot exist here, and the reason is structural, not lucky: **this fold's row idiom puts the record and the id on the same line by construction** |
+| **5** — heading scope counts; bold pseudo-headings do not | any fold keying a table by a bold record label | **NOT APPLICABLE, verified.** This fold's rows are keyed by real markdown headings (`### XW2-01 · … · cl.n`), and the record attribution rides the `source` bullet beneath each, **not** a bold label. Receipt: `grep -nE '^\*\*[A-Za-z][^*]*—[^*]*rows\*\*' X-W2-FOLD.md` → **0** — no `**Record — N rows**` pseudo-heading exists here. The defect §1.G clause 5 legislates (four real ColorNutritionLabel bookings invisible under `**ColorNutritionLabel — 27 rows**` at `X-W11-FOLD.md:715`) has no instance in this file |
+| **6** — the `≡`-pointer is the cure, and it **is** carriage | folds carrying facets of folded identities | **ADOPTED for future use; none owed today.** `XW2-01`'s cross-record identity (`BlobPane` row 21 ≡ `picker-heroblob` row 8, **ONE** identity, both severities preserved) is already written in the clause-6 shape — **both records named, both ids named, one row** |
+| **7** — the row predicate is ELECTED: `^\s*([-*]\|\|)\s*\*\*` | every census figure in the layer | **ADOPTED, and it moves nothing here.** §7.1/§8.1's figures were stated under this fold's own printed predicate and are re-checked against the elected regex below. **Clause 7's moratorium is lifted**, so §9.2's figures may be quoted as authoritative with the regex stated inline |
+| **8** — the count follows the predicate | every figure | **ADOPTED.** Every figure in §9.2 states its corpus, its row regex and its alias set, and reproduces read-only at HEAD |
+
+### 9.2 Arithmetic — dated 2026-08-28 (round 3), and it does not move
+
+| quantity | round 1 (§7.6) | round 2 (§8.4) | **round 3 (§9)** | delta |
+|---|---|---|---|---|
+| rows (`XW2-01 … XW2-22`) | **22** | 22 | **22** | **0** — §A assigns none; this seat promotes none |
+| gate entries | 12 (+1 at §7.5) | 13 | **13 — unchanged** | 0 |
+| BoundsDelta rows | unchanged | unchanged | **unchanged** | 0 |
+| CrossEdges | unchanged | unchanged | **unchanged** | 0 |
+| alias declarations owed (§1.G cl.4) | — | — | **0** (§9.1, with its receipt) | — |
+| attribution repairs owed (§1.G cl.1/5) | — | — | **0** (§9.1, with its receipt) | — |
+
+**Row-regex declaration (§1.G clauses 7/8, mandatory).** The 22 is a count of this file's own `###
+XW2-nn` row headings and is re-derivable read-only:
+`grep -cE '^### XW2-[0-9]+' X-W2-FOLD.md` → **22**. The corpus-side X-W2 token census is §7.1's/§8.1's
+and is **unmoved by this round** — round 3 changed the *carriage* test, not the *token* test, and
+this fold's carriage was already namespace-scoped.
+
+### 9.3 No self-voiced closure — the pointer §8.3 aimed at round 3 has fired, and did not close
+
+**The correction this seat owes its own §8.3.** §8.3 wrote that *"the X-W2 census closes when and
+only when the round-3 check's census artifact … re-derives it under §D's predicate against these
+bytes and prints zero X-W2 escapes."* That artifact now exists —
+`refinement/PASS-3-CHECK-RETURN.json`. It returns **NON-CONFORMANT** on a **layer-wide** BLOCKER,
+and it prints **zero X-W2 escapes**: the BLOCKER's routed split is *"X-W7 28 · X-W8 26 · X-W6 17 ·
+X-W4 9 · X-W10 4"*, and its own MITIGATION cites this fold **by line** — *"X-W2-FOLD.md:1182/:1215
+… all defer to 'round 3's census artifact'"* — as evidence that *"the layer under-delivers; it does
+not lie."*
+
+**And this seat still does not claim closure, for a reason it states rather than assumes.** The
+artifact's verdict is **NON-CONFORMANT for the layer**, and §1.G — the law that arrived *with* that
+verdict — **changes the instrument** under which any future census must run. A zero-escape reading
+taken under the pass-3 instrument is not a zero-escape reading under §1.G's: clause 4's declared
+aliases and clause 5's heading scope both *widen* what counts as carriage, which can only reduce
+apparent escapes, but clause 1 *narrows* it, which can only increase them — and **this fold has never
+been measured under the narrowed clause 1 by an artifact that also applied the widened clauses 4 and
+5.** §9.1 measures it, and finds it conformant; but **a fold measuring itself is evidence about its
+coverage and not proof of it** (§8.3, §7C.4's precedent at the sibling fold), and that rule does not
+bend because the answer this time is favourable.
+
+1. **No sentence in this file closes the X-W2 census.** §7.1's, §7.2's, §8.0's and §9.0's zero-escape
+   findings are to be read as *"the escapes this seat's sweep found, under the predicate and the
+   carriage test it printed, on its date"* — never as *"the escapes that exist"*.
+2. **Closure is established by the census artifact, not by the fold.** The X-W2 census closes when
+   and only when the **round-4 recheck's census artifact** re-derives the ⟨record · id⟩ census
+   **under `§1.G`** against these bytes and prints zero X-W2 escapes.
+3. **The instrument is named in advance so the test cannot be moved to fit the answer.** Corpus =
+   the **92**; token class `X[-·.]W\d([^0-9]|$)`; row regex `^\s*([-*]|\|)\s*\*\*` (**elected**,
+   clause 7); alias set derived **and** declared (this fold declares none and says why); carriage
+   namespace-scoped, generous on the id, strict on identity.
+4. **A fold may state what it folded. It may not state what remains.** Three rounds, three nil
+   returns, each with its receipt — and the sentence is unchanged by all three.
+
+**Posture, restated for round 3.** Status `planned`. No product source opened, no wave stamped, no
+gate re-staged or re-weighted, no dated spec byte altered (E-3 holds). Every disposition remains
+**ADJUDICATED, not VERIFIED**. The 22 rows are byte-unchanged; **this round adds none**, and it says
+so as a *result* with its predicate, its alias set and its carriage test printed rather than as a
+claim. **This section closes nothing** — round 4's census artifact is what may say the X-W2 census is
+closed (§9.3).
+
+— end of X-W2 fold (round-3 repaired). Round 4 measures against these bytes, under `§1.G`.

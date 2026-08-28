@@ -1429,3 +1429,99 @@ census PASS branch is unexecutable without X-EXT-6's peer install.
 §7.2) rather than inherited from the roster. Numbering stays gapless and contiguous **R1 … R56**; zero
 ids minted, zero renamed; `L-R6`/`L-R6-4` (§C.4's erratum) is cited nowhere in this file (grep → 0), so
 that cure has no site here. Status remains **planned**; no product source was opened by this round.
+
+---
+
+## 8. FOLD ROUND 3 — dated addendum (2026-08-28): zero rows homed, the carriage law measured, one cross-edge received
+
+**What this section is.** This seat's answer to `refinement/ROUND-3-ASSIGNMENTS.md`, written against
+`refinement/PASS-3-CHECK-RETURN.json` (NON-CONFORMANT: 1 BLOCKER · 1 MINOR · 1 INFO). **The work order
+homes ZERO of its 124 escaped ⟨record·id⟩ at X-W1** — §A's own per-fold table routes them to `X-W7`
+(53) · `X-W8` (30) · `X-W6` (17) · `X-W4` (11) · `X-W0`'s G-F register (7) · `X-W11` (4) · `X-W10` (2),
+and **X-W1 appears in no §A group, no §A.R refutation, no §A.S supplement and neither §B directive**.
+Its single occurrence in the whole work order is a **stated CrossEdge into this fold** (§8.3), not an
+assignment. **A zero is not a closure** (§7's rule, unchanged), so this section records what was
+re-measured to earn it. **No row is added; no id is minted; nothing is renamed.**
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED — *"no gate has
+run"* (§2's own line, and `:1027`'s `| VERIFIED | **NO** |`) is as true after this round as before it.
+No product source opened. **E-3**: `waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`,
+`ROUND-1-ASSIGNMENTS.md`, `ROUND-2-ASSIGNMENTS.md` and every `registry/adjudicated/**` record stay
+byte-untouched; this file is this seat's sole write.
+
+### 8.1 §1.G's GENEROUS CARRIAGE LAW measured against this fold — clause by clause, not asserted
+
+The pass-3 BLOCKER's root cause is **carriage, not routing**: §1.L legislated how a row's *home* is
+found and nothing said what it means for a row to be *carried*, so rows banked under bare ids read as
+escapes to a namespace-scoped census and as somebody else's carriage to a namespace-blind one. §B.2's
+**§1.G** closes it. Measured against this fold:
+
+| §1.G clause | what it requires | this fold, as measured at HEAD 2026-08-28 | verdict |
+|---|---|---|---|
+| **1. carriage is namespace-scoped; a bare id is never carriage** | a layer line must match the id **and** name the record (line or heading in scope) | every row R1–R56 carries a `⟨…⟩` provenance line naming the record beside the id (e.g. R54's ⟨wb-extract-imagedropzone · R-21⟩); the fold's own citation idiom is ⟨record · id⟩ throughout | **CONFORMANT** |
+| **2. id matching is generous (case-, hyphen-, zero-pad-tolerant, boundary-anchored)** | carriage tested generously; identity still strict | this fold re-spells no id: **zero minted, zero renamed** across three rounds (§6.6/§7.4), so the strict-identity side is met, and the generous side can only help it | **CONFORMANT** |
+| **3. identities dedupe by the normalised id** | ⟨R · M2⟩ and ⟨R · m2⟩ fold once | no duplicate-normalised pair exists in R1–R56 (ids are minted per record and carried once) | **CONFORMANT** |
+| **4. the alias set is derived AND declared** | any record-column short form must print its expansion | this fold uses **no short form in a record column** — its record names appear in full in the `⟨…⟩` lines (`wb-extract-imagedropzone`, `PreviewStrip`, `ColorNutritionLabel`, …). Declared anyway: the only abbreviations in this file are **wave/gate tokens** (`CC-030`, `o14`, `o7`), not record aliases | **CONFORMANT — nothing to declare** |
+| **5. heading scope counts; bold pseudo-headings do not** | a table keyed by a bold record label must promote or attribute inline | this fold keys its bands by **markdown headings** (`### Band A`…`### Band G`) and attributes every row inline; **it keys no table by a bold record label**, so the clause-5 repair worked at `X-W11-FOLD` §8 has **no site here** | **CONFORMANT** |
+| **6. the `≡`-pointer is the cure, and it IS carriage** | a facet of a folded identity closes by one dated pointer | the instrument is already this fold's: R51–R56 were booked at round 1 exactly this way | **CONFORMANT** |
+| **7. the row predicate is elected — `^\s*([-*]\|\|)\s*\*\*`** | a per-wave total may now be quoted as authoritative if it states the regex inline | **§7.2's `101` was measured under this exact regex** and reproduces (§8.2); the moratorium's lift changes nothing this fold printed | **CONFORMANT** |
+| **8. the count follows the predicate** | corpus, row regex, token class, alias set and carriage test all stated and reproducing | §8.2 | **CONFORMANT, re-verified** |
+
+### 8.2 The census commands, re-run read-only at HEAD (2026-08-28)
+
+```
+# §6.0 C-1 — the corpus band
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l    # -> 92
+# §6.0 C-2/C-3 under the ELECTED row regex (§1.G clause 7) and the law-true token class
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W1([^0-9]|$)'                     # -> 101
+# clause 3, re-measured not inherited: dash forms in the corpus
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l                                                     # -> 0
+```
+
+**`92`, `101` and `0` all reproduce**, and `101` matches §1.L's law-true table for X-W1 **exactly**
+(101 rows across **54** records — the same 54 §6.0 printed). The trailing non-digit guard still keeps
+`X-W10`/`X-W11` out of the X-W1 band, which is the §0 header's own fourteen-file trap. **No figure in
+this fold is one that §1.G clause 8 strikes.**
+
+### 8.3 The one cross-edge received this round — recorded, not booked
+
+`ROUND-3-ASSIGNMENTS.md` §A.3's packet-home block routes a limb here, and it is the **only** mention
+of X-W1 in the whole work order: *"`PreviewStrip.md` — packet 13 · PREVIEW-CHIPS → HOMED X-W6
+(`PreviewStrip.vue` in W6's §3 bounds); **the test-tree limb rides a stated CrossEdge to X-W1**."*
+
+**The row is X-W6's and stays there.** ⟨PreviewStrip.md · **PS-27**⟩ (`:71`), verbatim: *"**PS-27 ·
+L2-9a — the library's src-mirror test tree holds TWELVE demo suites (count corrected by reader-LC
+against the axis's 10, verified at the axis's own HEAD), including the chip module's only unit
+oracle**, against vitest.config's stated law. **DISPOSITION: NO-WAVE-OWNER, named** (test-tree
+re-homing has no X owner)."*
+
+**Why it is recorded here and not booked here**: the substance — a **src-mirror test tree holding
+twelve demo suites against `vitest.config`'s stated law**, one of which is the chip module's **only**
+unit oracle — lands squarely in this fold's oracle/coverage band (§Band E, and R51–R56's coverage
+rows). But the record's own disposition is **NO-WAVE-OWNER, named**: *test-tree re-homing has no X
+owner*. So a booking here would **mint an owner the record refuses to name**. Two facts are carried so
+the edge is not lost: (i) the count is **TWELVE**, corrected by reader-LC against the axis's ten and
+verified at the axis's own HEAD — a later seat re-counting ten has found the stale figure, not a drift;
+(ii) moving the tree would move the chip module's **only** unit oracle, so any re-homing is a coverage
+act, not a file move. **Booked: nothing. Received: one edge.**
+
+### 8.4 Arithmetic — unchanged, dated, and stated so the silence is countable
+
+| unit | round 1 | round 2 | **round 3** | delta |
+|---|---|---|---|---|
+| §Rows | 56 (R1–R56) | 56 | **56** | **0** — §A homes zero rows here |
+| §Gates | 31 | 31 | **31** | 0 — **no gate minted, none re-staged, none re-weighted** |
+| §BoundsDelta | 37 | 37 | **37** | 0 |
+| §CrossEdges | 14 | 14 | **14** | 0 — §8.3's arrival is **received, not minted**: ⟨PreviewStrip · PS-27⟩ stays booked at X-W6 |
+| EXTERNAL rows | 1 (R55, ⟨INBOX I-28 · X-EXT-5⟩) | 1 | **1** | 0 |
+| census denominator | 101 row lines / 54 records | unchanged | **unchanged, re-verified** | reproduces at HEAD under the **elected** row regex (§8.2) |
+| declared aliases (§1.G cl.4) | — | — | **0 — none used** | none owed |
+
+**Assignment coverage: §A 0/0 · §B 0/0**, with the zero **earned by re-measurement** (§8.1, §8.2)
+rather than inherited from the roster. Numbering stays gapless and contiguous **R1 … R56**; zero ids
+minted, zero renamed. **This section closes nothing**: whether the layer now carries every escaped
+⟨record·id⟩ under its own namespace is settled by the **pass-4 census artifact**, re-derived from the
+twelve folds' own bytes under §1.G at a named HEAD — never in this seat's voice. Status remains
+**planned**; no product source was opened by this round.

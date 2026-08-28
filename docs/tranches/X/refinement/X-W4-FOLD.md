@@ -811,3 +811,226 @@ and status remains **planned** — this section stamps nothing, and **it closes 
 `ROUND-2-ASSIGNMENTS.md` §A.1; the three cures from §B.2; the closure correction from this seat's
 own reading of the BLOCKER. **Round 3 measures against these bytes, and its census artifact — not this
 file — is what may say the X-W4 census is closed.**
+
+## 8. ROUND-3 FOLD REPAIR — dated addendum, `2026-08-28`
+
+**What this section is.** The X-W4 repair seat's consumption of `refinement/ROUND-3-ASSIGNMENTS.md`
+(the assignment seat's work order against `refinement/PASS-3-CHECK-RETURN.json`, verdict
+**NON-CONFORMANT**: 1 BLOCKER · 1 MINOR · 1 INFO). It folds the **11** §A.4 escapes homed here
+(9 routed · 2 NWO), discharges the **namespace-collision law** §1.G clause 1 works out of *this
+fold's own bytes*, and re-points §7C's closure pointer now that the artifact it named has run and
+not closed. Status **planned**; dispositions **ADJUDICATED, never anything stronger**; **no product
+source opened** — every witness below is a read or a grep. E-3 holds: `waves/W4.md`,
+`waves/CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md` and
+`refinement/ROUND-2-ASSIGNMENTS.md` stay **byte-untouched**; this file remains the fold's sole write.
+
+**Anti-rename, restated.** Every id below is the id its adjudicating record minted — **original for
+life**. `W4·n` continues §1/§6/§7's fold-local counting device and is never a rename. Citation key
+is **⟨record.md · id⟩**; six of the eleven sit on bare ids that collide across namespaces and each
+carries its guard on the row.
+
+**Row text.** Every quoted row below is the **banked line's own bytes**, read out of the record at
+HEAD by this seat (`awk 'NR==<line>' <record>.md`), not re-phrased and not recalled. The `:line` is
+the authority and the quote is the falsifier.
+
+### 8.0. `§1.G` adopted — and the clause this fold is the WORKED EXAMPLE of
+
+`ROUND-3-ASSIGNMENTS.md` §B.2 writes the **GENEROUS CARRIAGE LAW** (`§1.G`) into the spine's §1.
+This fold adopts it whole. Clause 1 cites **these bytes** as its proof text, and the citation is
+correct:
+
+> **1. CARRIAGE IS NAMESPACE-SCOPED; A BARE ID IS NEVER CARRIAGE.** … *"six namespaces collide and
+> the layer's own bytes prove it: `AB-13` occurs 4 times, all four ⟨shell-dock-actionbarlayer ·
+> AB-13⟩ at `X-W4-FOLD.md:181/:183`, while ⟨AboutPane · AB-13⟩ is nowhere; `R-31` occurs once,
+> ⟨picker-componentsliders · R-31⟩ at `X-W6-FOLD.md:829`, while ⟨wb-extract-imagedropzone · R-31⟩ is
+> nowhere."*
+
+**C3-7 — THE NAMESPACE QUALIFICATION, discharged at every `AB-13` this file carries (dated
+2026-08-28).** All **three** are **⟨shell-dock-actionbarlayer.md · AB-13⟩** and nothing else. Stated
+for the census, with the bytes left exactly as written (E-3 — this is an attribution, not a patch):
+
+| line | the row, and what its `AB-13` is | what it is **NOT** |
+|---|---|---|
+| `:181` | `W4·57` — **⟨shell-dock-actionbarlayer.md · AB-32⟩** (R-DU′ M-6), whose mechanism cell reads *"The **AB-13** collapse silently drops `activeStyle`"*. The `AB-13` here is a **reference to the sibling row's identity**, in the `actionbarlayer` namespace | not ⟨AboutPane · AB-13⟩; not a booking of `AB-13` at all — a citation inside another row |
+| `:182` | `W4·58` — **⟨shell-dock-actionbarlayer.md · AB-30⟩ ≡ ⟨· ABN-6⟩ ≡ ⟨shell-dock-actiontoolbar · AT-4⟩**, whose **VERBATIM LOCK** reads *"the **AB-13** collapse must seat actions on `DockControl` (or carry the coarse floor) as an explicit cure clause"*. Again a **citation of the sibling identity**, in the same namespace | not ⟨AboutPane · AB-13⟩; not a second booking |
+| `:183` | `W4·59` — **⟨shell-dock-actionbarlayer.md · AB-13⟩ ≡ ⟨shell-dock-actiontoolbar · AT-8⟩ ≡ ⟨shell-dock-genericactionbar · GAB-8⟩**, `Src` cell `actionbarlayer · actiontoolbar · genericactionbar`. **This is the booking**, and its three records are all `shell-dock-*` | not ⟨AboutPane · AB-13⟩ |
+
+**A dated correction to `§1.G` clause 1's own receipt, offered under its own clause 8 (*"what lets a
+later seat refute a member of this file's own register at the bytes"*).** Clause 1 reads: *"`AB-13`
+occurs 4 times, **all four** ⟨shell-dock-actionbarlayer · AB-13⟩ at `X-W4-FOLD.md:181/:183`, while
+⟨AboutPane · AB-13⟩ is nowhere."* Measured at **HEAD**, over the layer as it stood **before** the
+round-3 sections (`git show HEAD:<file>`, so no round-3 seat's own bytes are counted):
+
+```
+for f in docs/tranches/X/refinement/X-W*.md docs/tranches/X/refinement/ROUND-{1,2}-ASSIGNMENTS.md \
+         docs/tranches/X/REFINEMENT-FOLD-2026-08-28.md; do
+  n=$(git show HEAD:"$f" | grep -owF -- 'AB-13' | wc -l); [ "$n" != 0 ] && echo "$f: $n"; done
+# → X-W4-FOLD.md: 3      (:181, :182, :183 — one each, THREE lines, not two)
+# → X-W6-FOLD.md: 1      (:1105)
+# Σ = 4
+```
+
+**The count of 4 is exact. The attribution of all four to this file is not, and the fourth is the
+interesting one.** `X-W6-FOLD.md:1105` (§5.18) carries the run
+`` `AB-4`/`AB-5`/`AB-13`/`AB-20`/`AB-22`/`AB-24`/`AB-26`/`AB-28`/`AB-30`/`AB-33`/`AB-36`/`AB-37`
+(NO-WAVE-OWNER) `` — **that is ⟨AboutPane · AB-13⟩'s bare id**, sitting in an exclusion comma-run
+that names no record, which is precisely why every namespace-scoped census read ⟨AboutPane · AB-13⟩
+as *"nowhere"*. **Clause 1's conclusion survives intact and is strengthened** — a bare id in a
+comma-run is carriage for nothing, and here the same four bytes are being read as two different
+records' — but its receipt should read: *three in X-W4-FOLD at `:181/:182/:183`, all
+⟨shell-dock-actionbarlayer · AB-13⟩; one in X-W6-FOLD at `:1105`, ⟨AboutPane · AB-13⟩'s, uncarried
+by law.* Per E-3 the work order's bytes stand and this is an addendum, never a patch; the X-W6 seat
+carries the matching attribution note at its own `:1105` (⟨`X-W6-FOLD.md` · §8.3 C3-3b⟩), and
+⟨AboutPane · AB-13⟩'s **home is unchanged** — the **G-F register (X-W0)**, per §A.5.
+
+**⟨AboutPane · AB-13⟩ is not in this fold and must not be read out of it.** Its home is the **G-F
+register (X-W0 seat)**, per `ROUND-3-ASSIGNMENTS.md` **§A.5** — the About-recomposition bundle, seven
+NWO rows booked at the formation boundary. **X-W4 books no AboutPane row, and the X-W0 seat must not
+read `X-W4-FOLD.md:181/:183` as carriage for one.** Spine §1 packet 12's NAMESPACE GUARD, which
+fixes `shell-dock-actionbarlayer`'s `AB-*` ids at **X-W8** (W8.31/G-8) while `ActionBarLayer.vue` is
+X-W4/X-W8-held (`X-W10-FOLD.md:1225`), is untouched by this note: the guard is about *which wave
+cures the file*; C3-7 is about *which record owns the id*. **Two different questions, and conflating
+them is exactly how a bare id becomes false carriage.**
+
+**C3-8 — THE ALIAS DECLARATION (§1.G clause 4), discharged as a NEGATIVE with its receipt.** This
+fold's record columns use `actionbutton`, `actiontoolbar`, `actionbartoggle`, `actionbarlayer`,
+`genericactionbar`, `slugeditlayer`, `profilesection`, `consolerail`, `wb-generate-pane`,
+`wb-mix-sourceselector`, `wb-extract-controls`, `MiniColorPicker`, `AdminTagsPanel`, `PaginationBar`,
+`SearchFilterBar`, `VersionHistoryDrawer`, `Katex`, `wb-gradient-visualizer`. **Every short form
+among them is a ≥4-character suffix-join of its record's hyphen segments** — `shell-dock-actionbutton`
+→ `actionbutton`, `shell-dock-slugeditlayer` → `slugeditlayer`,
+`picker-componentsliders-consolerail` → `consolerail`, and so on — and is therefore **derived**, not
+declared. **This fold uses no undeclared short form**, and that is a result with a command behind it,
+not an assurance. *One reading caveat a census must carry, stated because it is not a defect and
+must not be repaired into one:* this file has **two table shapes** — §1's `| # | id | source(s) |
+sev | …` and §6/§7's `| # | ⟨record · id⟩ | sev | …` — so a positional parse of "column 4" returns
+severities (`MAJOR`, `MINOR`, `INFO`) from the second shape. **The record is in column 3 of the
+second shape and column 2's citation key carries it inline**; §7 onward, every row prints
+⟨record.md · id⟩ on its own line and is positionally parse-free.
+
+**C3-9 — THE BARE-ID ATTRIBUTION REPAIR (§1.G clause 1, applied to this fold's own near misses).**
+Four of the eleven rows below have their **ids already in this file**, attached to **no record**:
+
+- **`RK-5`** at **§0a n.5** (`:73`) — *"**Census drift settled once (RK-5).** r-DU said seven `any`s
+  on the action path; r-LC enumerated nine; **X.W4.d gate D2's scoped census of TEN … is the count
+  of record.**"* The note names no record on the line and sits under the heading *"0a. Corrections
+  recorded, never silent"*, which names none either. **Carriage for nothing, by law.**
+- **`D-13`, `M-22`, `M-23`** inside **`CE-12`** (`:379`) — *"`useTouchGate()` returning its class
+  binding (D-13); the gate API accepting per-event modality (M-22) and `suppressDeactivate` (M-23)"*.
+  Three bare ids in a relay-ask run naming no record.
+
+**These are attribution defects, not adjudication defects** — the §7.1 class this fold's sibling
+named at round 2, and the distinction is load-bearing: §0a n.5's ruling and CE-12's asks were
+**right**, and §8.2 overturns neither. What §8.2 adds is the record-attributed row that makes each
+findable by a namespace-scoped census. **§0a n.5 and CE-12 are NOT retracted, NOT weakened and NOT
+re-routed.**
+
+### 8.1. Method receipt, re-run read-only at HEAD (§1.G clause 8)
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | wc -l                                   # → 92   (corpus)
+ls *.md | grep -vE '^(kf|fr|pt)-' \
+  | xargs grep -nE '^[[:space:]]*([-*]|\|)[[:space:]]*\*\*' \
+  | grep -cE 'X[-·.]W4([^0-9]|$)'                                           # → 305  (X-W4-routed rows)
+```
+
+**Row regex, stated inline per §1.G clause 7 (now ELECTED, moratorium lifted):**
+`^\s*([-*]|\|)\s*\*\*`. Token class `X[-·.]W4([^0-9]|$)`, boundary mandatory. The corpus-side figure
+(**305 rows across 45 records**) is §7B's and is **unmoved** by this round — §8 books eleven
+attributions, not eleven corpus rows.
+
+### 8.2. The §A.4 escapes folded id-for-life — 11 rows, `W4·192 … W4·202`
+
+#### 8.2.1. Routed (9) — the token is on the row line, in the record's own phrasing
+
+| # | ⟨record · id⟩ | sev (as adjudicated) | banked row text — verbatim from the record's bytes | carriage + locks |
+|---|---|---|---|---|
+| W4·192 | ⟨picker-colorcomponentdisplay · **L-2**⟩ (:41) | MAJOR (merged with L-3, precedent-ruled) | "**L-2 + L-3 (merged, one identity) — CONFIRMED (MAJOR, precedent-ruled) → X-W4.** Untyped contract + the silent `HEX_CH` fallback (ruling above)." | **PICKER-REBUILD (`W4·123`)** — the rebuild's typed-boundary row, joining §7A.1's seven. **THE RULING IS THE ROW'S WEIGHT and travels with it (record `:23`, verbatim):** *"**MAJOR, merged — one identity.** Ruled on program precedent: the ColorSpaceSelector apotheosis confirmed its typed-boundary erasure (`colorSpace: any`, L-12) MAJOR; this is the same class with a sharper silent-failure cell."* **MERGE LOCK:** `L-2` and `L-3` are **one identity** — a close that cures the untyped contract and leaves the silent `HEX_CH` fallback (or the reverse) has cured half a row. **NAMESPACE GUARD:** ⟨picker-colorcomponentdisplay · L-2⟩ ≠ ⟨shell-paneslot · L-2⟩ (this fold's own `W4·53`, the GAB-1 mobile no-op) ≠ ⟨wb-generate-pane · L-2⟩ (cited inside `W4·128`'s GEN-18). **Three records, one bare id, three fates.** Kin: `W4·176` (C-4 ≡ L-5) — the same file's dead-emit row |
+| W4·193 | ⟨picker-spectrumcanvas · **D-13**⟩ (:57) | MAJOR (D-13 / L-3 / C-11 merged) | "**D-13 / L-3 / C-11 — CONFIRMED (MAJOR) → X-W4, producer-API half on the glass-ui BH relay.** The touch gate is an undiscoverable mode whose entire visible affordance is authored in a sibling SFC's deliberately-unscoped `<style>` (`ComponentSliders.vue:238-274`, comment names the cross-SFC reach; this seat's read) — the component consumes `touch-gate-target`/`touch-gate-active` (`:11-12`) it does not define. Third declaration site `ExtractControls.vue:140` is SCOPED and border-radius-only (this seat's precision — both readers over-called it "conflicting"). L's cure is adopted: `useTouchGate()` (a glass-ui primitive) should return the class binding so no consumer spells the name — relay the API request; the consumer half books at X-W4. SUBTRACTION.md:28's one-cascade-owner law." | **C3-9 attribution repair** — `CE-12` (`:379`) already carries the producer ask *"`useTouchGate()` returning its class binding (D-13)"* as a bare id. **CE-12 stands; this row is its record.** PICKER-REBUILD. **PRECISION LOCK (verbatim, against both readers):** `ExtractControls.vue:140` is *"SCOPED and border-radius-only"* — a close that files it as a third *conflicting* declaration has re-introduced the over-call the record killed. **SPLIT:** consumer half = X-W4; producer half = the standing glass-ui BH relay (`CE-12`), and **the relay does not gate the consumer half**. **NAMESPACE GUARD:** ⟨picker-spectrumcanvas · D-13⟩ ≠ ⟨shell-dock-slugeditlayer · D-13⟩ (this fold's own `W4·186`, the constitutional orphan) |
+| W4·194 | ⟨picker-spectrumcanvas · **M-22**⟩ (:188) | MAJOR | "**M-22 — MAJOR — the touch gate keys off DEVICE CAPABILITY (`isTouchDevice` = `'ontouchstart' in window`), never off the event's actual modality, so on hybrid machines a mouse/pen user's first click is silently swallowed — and again after every 3s idle → X-W4 (consumer: gate on `event.pointerType === 'touch'`), producer half on the glass-ui BH relay (the gate API should accept per-event modality).** (r2 reader B.) Verified this pass: `:138` branches on `spectrumGate.isTouchDevice && !isActive` and `grep pointerType` over the SFC returns nothing; the capability bit is true on touch-screen laptops/iPadOS where the primary pointer is frequently a mouse or trackpad; the scroll-cancel escape (`@touchmove.passive`, `:20`) never fires for a mouse. D-13 measured the swallow on an emulated iPhone and framed it as touch-only discoverability; the modality bug underneath was unfiled by every prior seat. Real-hardware witness rides R14." | **C3-9 attribution repair** (`CE-12`: *"the gate API accepting per-event modality (M-22)"*). PICKER-REBUILD. **CURE NAMED BY THE RECORD (verbatim):** *"consumer: gate on `event.pointerType === 'touch'`"* — capability sniffing is the defect, so a cure that keeps `isTouchDevice` and adds a second sniff is the same row. **KIN, and it is a CLASS:** ⟨shell-dock-actionbutton · ABN-3⟩ (`W4·63`, the once-evaluated coarse `matchMedia` probe) is the identical mistake in the dock — **capability read once, modality never** — and ⟨picker-componentsliders · R-1⟩ is its third instance (*"the gate tests device CAPABILITY, never event MODALITY"*, banked in X-W6's band at ⟨`X-W6-FOLD.md` · `W6·334`⟩, a **BLOCKER** there). Three records, one architectural error; **each keeps its own id.** **UNPROVEN:** the real-hardware witness *"rides R14"* — no close may promote the hybrid-machine cell without it |
+| W4·195 | ⟨picker-spectrumcanvas · **M-23**⟩ (:189) | MAJOR | "**M-23 — MAJOR — the producer ships `suppressDeactivate()` precisely to hold a gate open across a long gesture; this component never calls it, so the 3s timeout does not merely drop the outline — it flips the computed `touchAction` from `none` to `pan-y` mid-drag and hands the axis to the page scroller under the user's finger → X-W4, folded at cure with C-12/L-9 (whose severity this row is the true weight of).** (r2 reader B.) Verified this pass: `grep suppressDeactivate demo/` → zero; the producer's dist ships it; the chain is complete in source — `x()` sets `isActive` false → `spectrumStyle` (`:41-44`, re-read this pass) recomputes to `touchAction: "pan-y"` → Vue writes it back while `isDragging` is still true. C-12 found the timeout and L-9 the dual ownership; neither connected them nor found the producer-sanctioned cure sitting in the API. Hardware witness rides R14." | **C3-9 attribution repair** (`CE-12`: *"and `suppressDeactivate` (M-23)"*). **CO-FOLD CONDITION, the record's own words, carried and NOT converted into a second booking:** *"folded at cure with C-12/L-9 (whose severity this row is the true weight of)"* — ⟨picker-spectrumcanvas · C-12 / L-9⟩ is **already this fold's `W4·162`**, and **this row is that row's severity**. `W4·162` is not re-graded here (anti-rename; the record grades each id where it mints it) and **a close that lands `W4·162` without the `suppressDeactivate` call has landed the outline and left the scroll-steal.** **PRODUCER-SANCTIONED-CURE LOCK:** the API already ships it (`grep suppressDeactivate demo/` → **zero** callers) — **this is a consumption gap, not a producer ask**, and it must not be relayed as one. **UNPROVEN:** hardware witness rides R14 |
+| W4·196 | ⟨picker-spectrumcanvas · **M-25**⟩ (:191) | MINOR | "**M-25 — MINOR — `spectrumStyle` welds two cadences into one computed: the hue-only gradient template (byte-stable during an s/v drag — `stableHue` pins h) is rebuilt every frame alongside the per-frame `--spectrum-shadow`, only for Vue's patcher to diff the identical string away → X-W4 rider (dies with D-16's deletion + the rebuild; the split is the file's own colocation law applied to itself).** (r2 reader B; the single-computed shape re-verified this pass at `:30-45`.)" | **RIDER — no independent edit.** **DIES-WITH LOCK (verbatim):** *"dies with D-16's deletion + the rebuild"*; if the rebuild lands and one computed still welds both cadences, the cure was incomplete and this row is the falsifier. **NAMESPACE GUARD:** the `D-16` this row names is ⟨picker-spectrumcanvas · D-16⟩, **not** ⟨shell-dock-profilesection · D-16⟩ (this fold's own `W4·35`, the dock-band `Button` primitive) — the guard matters because `W4·35` is a live row in the same fold and the two would silently merge. Kin: `W4·160` (D-07, the per-frame `left`/`top` writes on the filtered producer root) — the same per-frame computed, its geometry half already carried to X-W10-FOLD |
+| W4·197 | ⟨picker-spectrumcanvas · **M-26**⟩ (:192) | MINOR | "**M-26 — MINOR — the product's dominant instrument has no visible name anywhere — no caption, heading, axis legend, or `aria-labelledby`; the only naming in the DOM is the aria string the corpus proved wrong (D-12) → X-W4 (the rebuild's naming layer), canon echo X-W10 (SS5.2 asks for two NAMED axes; there is not one name on screen).** (r2 reader A.) Verified this pass: `ColorPicker.vue:64-72` renders `<SpectrumCanvas />` bare in an unlabeled flex div; the deleted `SpectrumPlateCaption.vue` (81 lines, `a68ecdc1`) was the visible name and nothing replaced it — L-4/D-15 caught the syntax residue, M-21 the gate residue; this row is the user-facing consequence, and it makes M-21's orphaned oracle the tombstone of a REAL loss, not just a stale selector." | **DUAL TOKEN, ONE BOOKING** — the row prints **X-W4** and **X-W10**. Booked at **X-W4** (*"the rebuild's naming layer"*, the wave the row's own cure clause names); the **canon echo X-W10 rides as a stated CrossEdge (`CE-17`, §8.3), NOT a second booking** — §A.4's stated divergence, adopted verbatim. PICKER-REBUILD; rides **D-12's naming cure**, this fold's rider family at `W4·142`/`W4·143`, and closes the loop `W4·181` (D-15) opened: *"an UNNAMED `role="figure"` boundary is announcement noise layered on D-12's wrong name."* **TOMBSTONE LOCK (verbatim):** the deleted `SpectrumPlateCaption.vue` (81 lines, `a68ecdc1`) *"was the visible name and nothing replaced it"* — the naming layer is a **restoration**, and ⟨picker-spectrumcanvas · M-21⟩'s orphaned `.plate-caption` oracle is *"the tombstone of a REAL loss, not just a stale selector"*, which is why M-21's X-W1 re-key may not be closed as a selector rename alone. Feeds gate **N13**'s named-coordinate arm |
+| W4·198 | ⟨shell-dock-actiontoolbar · **AT-14**⟩ (:46) | MINOR | "**AT-14 — MINOR — reader-found (R1): the Reset hover spin snaps.** Tailwind v4's `-rotate-180` emits the standalone `rotate:` property (verified in tailwindcss dist: `l("rotate", …)`), absent from `transition-[transform,stroke]` (ActionButton.vue:25) — the 180° turn jumps both directions; `duration-normal` retunes only scale/stroke. → **X-W4** (rider — the bespoke hover CSS dies with the adoption)." | **`≡`-POINTER, no second booking** (§1.G clause 6). The identity is **already banked** at **`W4·72`** (`:196`) — ⟨shell-dock-actionbutton · **ABN-14**⟩, whose dissent cell prints *"≡ **AT-14** (Tailwind v4's `-rotate-180` emits the standalone `rotate:` property, absent from `transition-[transform,stroke]` — the 180° turn jumps both directions)"* — but that line's `Src` cell reads **`actionbutton`**, so under §1.G clause 1 it is carriage for ⟨shell-dock-actionbutton · ABN-14⟩ and **not** for ⟨shell-dock-actiontoolbar · AT-14⟩. **One identity, two records, two ids, one cure** — and `W4·72`'s cure clause governs both: *"One animation, one curve, moved with the seat (edict 6)."* **No figure in this file changes but §8.4's row count.** **NAMESPACE GUARD:** `AT-14` is ⟨shell-dock-actiontoolbar⟩'s alone — the `AT-*` family also runs through `AT-2`/`AT-3`/`AT-4`/`AT-8`/`AT-11`, all already folded at `W4·58`/`W4·59`/`W4·62`/`W4·64`/`W4·66` under the same three-record `Src` |
+| W4·199 | ⟨shell-dock-genericactionbar · **RK-5**⟩ (:59) | census-drift note (no verdict turns on it) | "**RK-5 — census drift**: r-DU "seven `any`s", r-LC "seven" enumerating nine, X.W4.d D2 measuring ten on its scoped path. No verdict turns on it; the gate's scoped census governs; recorded so the next seat does not re-litigate arithmetic." | **C3-9 attribution repair — the §7.1 class, exactly.** The id is **already in this file** at **§0a n.5** (`:73`), which settles the drift in the record's own direction (*"**X.W4.d gate D2's scoped census of TEN (App 6 · usePaneRouter 3 · Dock 1) is the count of record**"*) — but names **no record on the line**, so a namespace-scoped census cannot see it. **§0a n.5 is NOT retracted, NOT weakened and NOT re-numbered**; this row is its record-attributed carriage. **DOTTED-FORM TOKEN:** the routing is spelled **`X.W4.d`** — invisible to any hyphen-only sweep (§7.0 n.3), the second corpus proof in this fold after ⟨genericactionbar · U-1⟩ (`W4·182`) that the dotted form is load-bearing. **ANTI-RELITIGATION LOCK (verbatim):** *"recorded so the next seat does not re-litigate arithmetic"* — the row exists **to end** a count dispute, so a close that re-counts `any`s on a different scope has re-opened what the record closed |
+| W4·200 | ⟨wb-extract-imagedropzone · **R-31**⟩ (:77) † | NWO-limbed, routed by name | "**R-31 · A-8 (adopted) — the sampler rejects with a raw DOM Event and every caller floats the promise.** useImageSampler.ts:74 `img.onerror = reject`; loadAndFit unawaited at mount and watch (ImageEyedropper.vue:237/:247); the eyedropper's only failure mode surfaces as "[object Event]". X-W4 touches ImageEyedropper "import + face only" — this is deeper than face. **NO-WAVE-OWNER.**" | † **BOTH LIMBS, FOLDED ONCE** (§1.L clause 5). **THE ROW IS `§1.G` CLAUSE 1's SECOND PROOF TEXT, and this seat confirms it at the bytes:** `grep -rwF -- 'R-31'` over the fifteen layer files **as they stood before the round-3 sections** returns **1**, and it is ⟨**picker-componentsliders** · R-31⟩ at `X-W6-FOLD.md:829` (the scope is stated because this row and X-W6 §8 now quote the id themselves — an unscoped re-run is self-confirming, §1.G clause 8) (`W6·338`, the `@media print` wrong-element bug) — **a different record, a different wave, a different defect.** ⟨wb-extract-imagedropzone · R-31⟩ was nowhere. **BOUNDS TRUTH, the row's own (verbatim):** *"X-W4 touches ImageEyedropper 'import + face only' — this is deeper than face."* — so X-W4 books the **identity** and **claims no cure**: the sampler's rejection contract is outside the face carve, and the filed **NO-WAVE-OWNER** disposition **stands unstruck**. `useImageSampler.ts` is **not** added to §3 (C3-10's bounds line: unchanged). Kin: `W4·108` (⟨wb-extract-imageeyedropper · EY-32⟩) — the same component, the face carve's other side |
+
+#### 8.2.2. NWO (2) — `shell-dock-slugeditlayer.md`, folded on FILE ownership (§0a n.2 · `W4·122` · `W4.md:118`)
+
+*Homing is §7A.2's, unchanged and re-cited, not re-argued: `shell-dock-slugeditlayer.md` carries
+**zero** X-W4 tokens and routes its rows NO-WAVE-OWNER, but `SlugEditLayer.vue` **is** in W4 bounds
+(`W4.md:118`) and this fold folds that record on **FILE ownership**. These two join §7A.2's seven,
+making **nine** slugeditlayer rows in this fold. **Their filed dispositions are NOT struck.***
+
+| # | ⟨record · id⟩ | sev (as filed) | banked row text — verbatim from the record's bytes | carriage + locks |
+|---|---|---|---|---|
+| W4·201 | ⟨shell-dock-slugeditlayer · **C-9**⟩ (:61) | MINOR (C-9 / C-10 / L-6 / C-11 / L-7, one identity) | "**C-9 / C-10 / L-6 / C-11 / L-7 — MINOR.** `onCopySlug` misfiled into the edit layer, reached by a four-hop imperative round-trip (`ProfileSection.vue:77` → `Dock.vue:213/224` → `:62` → `:68-70`) into a component that is inert at the call moment, while both menus already inject the port themselves; the `Promise<CopyResult>` is discarded with `void` (the adjacent menu row renders a Copied! affordance — asymmetry inside one menu); `defineExpose` publishes `slugSwitching` (:72), which nothing reads and which C-2 proves can never be observably true. **Disposition: NO-WAVE-OWNER — the copy action moves to its callers; the expose dies.**" | Booked on file ownership. **CURE-SHAPE LOCK, the record's own disposition text (verbatim):** *"the copy action moves to its callers; the expose dies"* — **two deletions and a move, not a repair of the round-trip.** The cure surface spans `SlugEditLayer.vue` (W4 **modify**, `W4.md:118`), `Dock.vue` (in bounds) and `ProfileSection.vue` — which is **X-W8's** by packet 10's split (`X-W8-FOLD.md:375`, *"G-13's sole consumer"*) — so the caller-side landing is a **coordination**, recorded here and claimed by neither seat alone. Kin: `W4·35` (⟨profilesection · D-16⟩) touches the same file from the other wave. **NAMESPACE GUARD, five-way:** ⟨shell-dock-slugeditlayer · C-9⟩ ≠ ⟨AdminNamesPanel · D-11/C-9⟩ (this fold's own `W4·13` and the `AdminListSkeleton` bounds row at `:331`) ≠ ⟨shell-dock-profilesection · C-9⟩. **Bare `C-9` is one of the most-collided ids in the layer** |
+| W4·202 | ⟨shell-dock-slugeditlayer · **D-11**⟩ (:63) | MINOR (D-11 + A-6 ink half; net-new, RR-DU) | "**D-11 + A-6 (ink half; net-new, RR-DU) — MINOR.** Register incoherence on both axes: the decorative `LogIn` (:80, 16px, no `aria-hidden`) outweighs the three operable 14px glyphs in size AND in ink — the operable glyphs paint at `--opacity-icon-muted` = 0.8 of foreground (`icon-button.css` color-mix, read by this seat) while the decoration paints full foreground (A-4's token chain). Cross-layer glyph ladder 14/16/20/24px; `aria-label="Cancel"` (:114) collides with `Dock.vue:144` "Cancel edit"; the dead twin's refinements (`aria-hidden` on glyphs, state-bearing submit label) were all dropped in transplant. **Disposition: NO-WAVE-OWNER.**" | Booked on file ownership; **every limb is inside files X-W4 already modifies** (`SlugEditLayer.vue` + `Dock.vue`), so unlike `W4·185`/`W4·186`'s canon riders this row's cure surface **is** reachable from X-W4's bounds — stated, without overturning the filed NWO. **THREE LIMBS, NAMED so a partial cure is visible as one:** (a) decorative-outranks-operable in **size and ink**; (b) the duplicate accessible name (`"Cancel"` at `:114` vs `Dock.vue:144` `"Cancel edit"`) — a **naming collision inside one dock**, which rides X-W4's accname law with `W4·180`/`W4·183`/`W4·184`; (c) the **transplant-loss** limb — *"the dead twin's refinements … were all dropped in transplant"*, kin to `W4·59`'s drift-in-the-bytes finding (`AB-13`: *"the holes where the others' were deleted"*). **NAMESPACE GUARD, four-way:** ⟨shell-dock-slugeditlayer · D-11⟩ ≠ ⟨AdminNamesPanel · D-11⟩ (`W4·13`) ≠ ⟨shell-dock-actionbartoggle · D-14⟩-family ≠ ⟨wb-extract-pane · XP-17 (L-5/D-11)⟩ (X-W10's). **The `A-6` half is the ink arm only** — the record says *"(ink half; net-new, RR-DU)"*, and A-6's other arms are not booked here |
+
+### 8.3. §4 addendum — one cross-edge (`CE-17`) · C3-11
+
+| CE | Edge | Shape | What must be written |
+|---|---|---|---|
+| CE-17 | **⟨picker-spectrumcanvas · `M-26`⟩ ⇄ X-W10 (register canon)** | one row, one booking, one **stated** canon echo — never two bookings | X-W4 books the row (`W4·197`) at the wave its cure clause names — *"X-W4 (the rebuild's naming layer)"* — and **relays the canon limb**: *"canon echo X-W10 (**SS5.2 asks for two NAMED axes; there is not one name on screen**)"*. **X-W10 owns the canon sentence; X-W4 owns the naming layer that satisfies it.** This is the same shape `W4·160`/`W4·163`/`W4·164` already use for the spectrum's other canon halves (`§6B.2`'s cross-carriage rows), and it is why §A.4's routed split books M-26 at X-W4 with the X-W10 echo as a **CrossEdge, not a second booking** — the work order's stated divergence, adopted verbatim. **Neither seat may book the other's limb**; if X-W10's canon pass renames the axes without a visible name landing in the rebuild, the canon is satisfied on paper and `W4·197` is still live |
+
+*`CE-12` (the standing glass-ui BH relay fond) is **not** re-minted: `D-13`, `M-22` and `M-23` are
+already among its consolidated asks, and C3-9 supplies the record attribution those three asks
+lacked. **One letter per identity; the edge count rises by one, not by four.***
+
+### 8.4. Updated arithmetic block — dated `2026-08-28` (round 3) · C3-10
+
+**Supersedes §7D's table for the counts named here, and §6E's beneath it. Superseded figures are
+printed beside the new ones; nothing is amended in place, nothing is struck.**
+
+| measure | §0 (2026-08-25) | §6E round 1 | §7D round 2 | **true count, round 3 (2026-08-28)** | decomposition |
+|---|---|---|---|---|---|
+| **rows booked** | 123 (`W4·1 … W4·123`) | 173 | 191 (`… W4·191`) | **202** (`W4·1 … W4·202`, gapless) | 191 + **11** = 9 routed (§8.2.1) + 2 NWO (§8.2.2). **Of the 11, one is an `≡`-pointer row** (`W4·198`, ⟨actiontoolbar · AT-14⟩ ≡ `W4·72`'s ABN-14) and **ten are first bookings** of their ⟨record·id⟩ |
+| **gate entries** | 29 | 35 | 35 | **35 — unchanged** | §8 mints **no** gate. Two rows feed existing gates as inputs, neither as a new entry: `W4·197` → **N13**'s named-coordinate arm; `W4·194`/`W4·195` → the touch-gate family behind **N22**'s capture-balance arm (`W4·162`'s existing hook) |
+| **BoundsDelta distinct paths** | 31 | 31 | 31 | **31 — unchanged** | §8 adds **no** bounds row. `SpectrumCanvas.vue`, `ColorComponentDisplay.vue`, `SlugEditLayer.vue`, `ActionToolbar.vue`-via-`ActionButton.vue` are already §3's; **`useImageSampler.ts` is deliberately NOT added** — `W4·200` books the identity and claims no cure (*"deeper than face"*) |
+| **cross-edges** | 14 (CE-1 … CE-14) | 15 | 16 (… CE-16) | **17** (… **CE-17**) | **CE-17 — X-W4 ⇄ X-W10** (§8.3), the M-26 canon echo. `CE-12` accretes three record attributions and **is not re-minted** |
+| **dissents / escalations** | 9 | 11 | 12 | **12 — unchanged** | §8 escalates nothing new. `W4·194`'s three-record capability-vs-modality class (⟨spectrumcanvas · M-22⟩ · ⟨actionbutton · ABN-3⟩ · ⟨componentsliders · R-1⟩) is recorded **as a kin note on the row**, not as a thirteenth escalation — one architectural error, three ids, each already owned |
+| **IN-side receipt** | 402 hits / 47 records | 282 rows / 92 records | **305 / 45** (law-true) | **305 / 45 — unmoved** (row regex `^\s*([-*]\|\|)\s*\*\*`, now **ELECTED** per §1.G clause 7; token class `X[-·.]W4([^0-9]\|$)`) | Round 3 changes the **carriage** test, not the **token** test. §7B part 2's four figures stay legible; clause 7's moratorium is lifted, so **305 / 45 may now be quoted as authoritative** with its regex stated inline — which §8.1 does |
+| **census escapes booked** | — | 35 (§6B) | 53 (35 + 18) | **64** (53 + 11) | **Not a closure claim** (§8.5): 64 is what three rounds have booked, not what exists |
+| **namespace guards written** | 3 | 5 | 8 | **14** (+ `W4·192` ×3 · `W4·193` · `W4·196` · `W4·197`-tokens · `W4·198` · `W4·200` · `W4·201` ×3 · `W4·202` ×3, consolidated as six rows carrying guards) | Plus **C3-7**, the fold-level `AB-13` qualification — the first guard in this layer written against **this fold's own bytes** rather than against a sibling's |
+
+**What did not change.** No §1, §6A–§6D or §7A row is renumbered, re-severitied or re-homed. No gate
+is re-staged, re-weighted or re-composited (OC-2/CC-096 staging stands). No lock, kill (`K-n`),
+dissent or `UNPROVEN` carriage is weakened. `waves/W4.md`, `CONFORMANCE-2026-08-03.md` and both
+earlier `ROUND-*-ASSIGNMENTS.md` remain byte-untouched (E-3). Dispositions remain **ADJUDICATED** and
+status remains **planned** — this section stamps nothing, and **it closes nothing**.
+
+### 8.5. §7C's closure pointer, re-aimed — the artifact it named has run and did not close · C3-12
+
+**The defect this cures, and it is this seat's own predecessor's.** §7C.2 wrote: *"The X-W4 census
+closes when and only when the **round-3 check's census artifact** —
+`docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json` … re-derives the ⟨record·id⟩ census under §D's
+predicate against **these bytes** and prints **zero** X-W4 escapes."* That artifact now exists. It
+returns **NON-CONFORMANT** with a **BLOCKER** on AXIS 1 and names **nine** X-W4-routed ⟨record·id⟩
+absent by bytes — the nine folded at §8.2.1. **The condition was well-formed and it was not met.**
+
+**The re-aim, by dated addendum (§7C's bytes stand, E-3):**
+
+1. **No sentence in this file closes the X-W4 census.** §7C.1's rule is unchanged and now applies to
+   §8 as well: this section states *"the escapes booked as of this date"*, never *"the escapes that
+   exist"*.
+2. **The pointer moves forward exactly one round, and the mechanism is why it may.** Closure is
+   established by the **round-4 recheck's census artifact** — the successor of
+   `PASS-1-CHECK-RETURN.json` · `PASS-2-CHECK-RETURN.json` · `PASS-3-CHECK-RETURN.json` — re-deriving
+   the census **under `§1.G`** (namespace-scoped carriage, generous id matching, alias set derived
+   **and** declared) against **these bytes**, and printing **zero** X-W4 escapes. **`§1.G` is what
+   makes the next pointer different from this one:** rounds 1–3 each moved the pointer without
+   changing the instrument, and each time the instrument re-discovered rows the fold had reasoned
+   about but not attributed. Round 3 changes the instrument (clause 4's declared aliases, clause 5's
+   heading scope, clause 6's pointer-is-carriage) **and** the bytes.
+3. **The honest position, stated in one sentence.** *Three rounds, 64 escapes booked, 202 rows,
+   `ROUND-3-ASSIGNMENTS.md` §A.4's roster for this file exhausted id-for-id — completeness unproven,
+   and unprovable from inside this file.*
+4. **A fold may state what it folded. It may not state what remains.** Unchanged from §7C.4, and now
+   with a third round of evidence behind it.
+
+— end of the round-3 repair addendum. The 11 rows above are consumed id-for-id from
+`ROUND-3-ASSIGNMENTS.md` §A.4; the namespace qualification (C3-7), the alias declaration (C3-8) and
+the bare-id attribution repair (C3-9) from §B.2's `§1.G`; the closure re-aim (C3-12) from this seat's
+reading of `PASS-3-CHECK-RETURN.json`. **Round 4 measures against these bytes, and its census
+artifact — not this file — is what may say the X-W4 census is closed.**
