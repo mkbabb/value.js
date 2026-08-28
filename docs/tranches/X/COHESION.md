@@ -126,6 +126,7 @@ the per-component apotheoses are authoritative.
 | SC-7 | Producer chip size-rung ask: chipVariants sm (px-2.5 py-1 text-caption) exceeds the local meta pill on all three axes — xs/pill-micro rung requested; drop-in-Chip cure refuted until it exists | R-3, `adjudicated/PaletteCardMeta.md` |
 | SC-8 | Producer radius clobber: components.css re-emits `--radius/-lg/-sm` in layer(components), mis-scaling every consumer of the whole design system; + corrected motion-topology ask (stagger phaseless by construction) | `adjudicated/PaletteCardSkeleton.md` |
 | (accretes per batch; assembled into ONE letter at the next boundary per SS-6) | | |
+| **DISPATCHED 2026-08-28**: SC-1..SC-8 + the X·KF/X·F authoring-block accretions assembled into **O-20** (`../glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md`, 26 entries; cartoon-card retired, DOCK-ACTIVE negative-ask honored); the table resumes accreting for the next boundary | | |
 
 ## §5 Status board (kept current at every boundary)
 
