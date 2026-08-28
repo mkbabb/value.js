@@ -1655,3 +1655,204 @@ addendum:
 Numbering is gapless and contiguous: **W8.1 … W8.69**, zero gaps, zero re-mints, zero renames.
 Nothing in §9 re-stages or re-weights the wave's gate composite (OC-2/CC-096 staging stands).
 Status remains **planned**; no product source was opened by this repair.
+
+---
+
+## 10. FOLD-ROUND-2 REPAIR ADDENDUM — 2026-08-28 (the census-method repair)
+
+**What this section is.** The X-W8 seat's consumption of `refinement/ROUND-2-ASSIGNMENTS.md` §A.5 —
+**nine ⟨record·id⟩ homed here** (8 routed · 1 NWO) by the pass-2 BLOCKER's id-keyed census
+(`refinement/PASS-2-CHECK-RETURN.json`, verdict NON-CONFORMANT: 1 BLOCKER · 2 MAJOR · 5 MINOR ·
+1 INFO). The BLOCKER's root cause is **method, not oversight**: X-W7-FOLD §R1's *"wave token within
+30 characters after a routing marker"* heuristic is blind to rows routed by bare declarative
+phrasing, and §9's own verb-filter column inherited the same disease. §D of the work order retires
+it; this section folds what it hid.
+
+**Posture unchanged.** Status `planned`. Dispositions **ADJUDICATED**, never VERIFIED — no gate has
+run and nothing here stamps a wave. No product source opened: every witness below is a corpus byte
+re-read at HEAD by this seat. **E-3 holds** — `waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`,
+`refinement/ROUND-1-ASSIGNMENTS.md` and every `registry/adjudicated/**` record stay byte-untouched;
+this file remains this seat's sole write. **Banked ids are for life**: every id below is the id its
+record minted, and where the substance is already carried by an existing row the cure is an explicit
+**`≡`-pointer booking under the original id** — never a silent skip — so the byte census closes.
+
+### 10.1 The census, re-derived under the §D CENSUS METHOD LAW (clause 6: the count follows the predicate)
+
+**The predicate now**: a row line carrying an `X[-·.]W8` token **in any phrasing, at any position**
+BOOKS the row. No proximity requirement, no marker-verb requirement. Re-runnable at HEAD, verbatim:
+
+```
+# corpus (92) → X-W8-routed row lines (271) → records (56)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W8([^0-9]|$)'
+```
+
+**Both lines reproduce at HEAD (`92`, `271`)** — measured read-only by this seat, 2026-08-28, and
+identical to §9.1's printed denominator and to §D's law-true table (X-W8 = **271**). **§B.2's defect
+class is therefore ABSENT from this fold**: the figure this file prints is the figure its printed
+command returns. Recorded as a result, not assumed — clause 6 obliges the receipt either way.
+
+**One inherited column is struck, dated.** §9.1's row *"…of which carry an explicit routing verb (the
+check's verb set) | **134**"* is **SUPERSEDED as a census instrument** by §D clause 2: the verb set is
+the retired heuristic, and a 271-vs-134 split is an observation about phrasing, never a filter. Both
+figures stay legible (E-3 idiom: supersede in place, strike nothing) and **271 is the denominator**.
+The nine rows below are exactly what the verb filter hid inside this wave's band.
+
+**Namespace guards (stated before the rows, because two of them are live inside this file).**
+1. ⟨shell-dock-profilesection.md · **N-8 / N-9 / N-10**⟩ are **RECORD ids** and are **NOT** this
+   fold's gates **N-7 / N-8 / N-9** (§9.6). One bare token, two registers, no relation. Cite
+   ⟨record.md · id⟩ or `gate N-n` — never the bare id alone.
+2. ⟨shell-dock-actionbarlayer.md · **MISS-7**⟩ ≠ ⟨picker-componentsliders-consolerail.md ·
+   **MISS-7**⟩. Both are folded below, in this same wave band, as two rows. This is the same
+   collision class §9.3 already named for `MISS-9`.
+
+### 10.2 §A.5 — the nine rows, booked id-for-id (W8.70 … W8.78)
+
+**W8.70 · ⟨picker-spectrumcanvas.md · M-11⟩ — `spectrumLuma.ts` is 2/3 dead surface and its
+self-presentation is false in both numbers** (cl.1 · MINOR · **`≡`-pointer booking**)
+Row verbatim (`:98`): *"**M-11 — MINOR — 2 of `spectrumLuma.ts`'s 3 exports are dead surface; the
+module's self-presentation ("the shared home of a three-consumer regime") is false in both numbers →
+X-W8, cure with C-5.** (Reader B; this seat's greps are the proof.)"*
+**Where the fact already lives, and why this is a booking and not a re-book**: §BoundsDelta row 10
+carries the file (`demo/picker/controls/spectrumLuma.ts` — *"M-11 (2 of 3 exports dead;
+self-presentation false in both numbers)"*, CAND) and W8.35's body carries the substance in prose.
+Neither carried it as **⟨record.md · id⟩**, which is why the id-keyed census reported it absent; this
+row closes the byte census under the original id and mints nothing.
+**The `cure with C-5` clause is a CROSS-WAVE SEQUENCING FACT, and it is stated rather than swallowed**:
+⟨picker-spectrumcanvas.md · C-5⟩ (`:62`) routes *"→ X-W4, unit oracle → X-W1"* — the hue-blind border
+regime. So the dead-export deletion (X-W8) and the predicate rewrite (X-W4 + X-W1's oracle) touch one
+module: **deleting 2 of 3 exports while another wave rewrites the third is an order dependency, not a
+free carve.** No wave is elected here; the dependency is recorded so the executor cannot meet it by
+accident. Rides **G-10** (dead-surface subtraction) with W8.35.
+⟨picker-spectrumcanvas.md · M-11, :98⟩ ≡ §BoundsDelta row 10 + W8.35 (substance) · cross-edge X-W4/X-W1 ⟨picker-spectrumcanvas.md · C-5, :62⟩
+
+**W8.71 · ⟨shell-dock-profilesection.md · N-8⟩ — `liveTintCache` is keyed by surface alone, so the
+first veil probed becomes every veil's referent** (cl.1 · MAJOR · **`≡`-pointer booking**)
+Row verbatim (`:84`): *"| **N-8** | MAJOR | `liveTintCache` is keyed by `InkSurface` alone with a
+first-match `querySelector('[data-surface="veil"]')` host — directly contradicting the 12-line
+subtree-locality argument (with measured evidence) the same file makes for the veil; the first veil
+probed becomes every veil's referent until the next epoch. (reader-LC) | :158–172/:239–249 read —
+structurally certain. | **X-W8**. |"*
+**Where the fact already lives**: W8.39's *"Adjacent, same instrument"* paragraph carries N-8's
+mechanism as a **design input the G-13 repair must absorb**. It was never booked ⟨record·id⟩ — hence
+the escape. This row books it; **G-13's predicate is unchanged and no gate is re-staged**. The row's
+force is A-3's already-banked bound read forward: a cache whose key omits the referent is not cured by
+a better selector.
+⟨shell-dock-profilesection.md · N-8, :84⟩ ≡ W8.39 (G-13 design input) · **≠ gate N-8** (§9.6)
+
+**W8.72 · ⟨shell-dock-profilesection.md · N-9⟩ — `resolveCssColorAlpha` fabricates a confident OPAQUE
+BLACK where every sibling degrades honestly** (cl.1 · MINOR · **`≡`-pointer booking**)
+Row verbatim (`:85`): *"| **N-9** | MINOR | `resolveCssColorAlpha` fabricates a confident OPAQUE BLACK
+for an unparseable color (canvas ignores invalid `fillStyle`; both grounds return black; α computes 1)
+while every sibling failure path degrades honestly to null/undefined. Latent — current callers feed
+computed values. (reader-LC) | :100–117 read — derivation checked line-by-line by this seat. |
+**X-W8**. |"*
+**Latency carried, not dropped**: the record's own *"Latent — current callers feed computed values"* is
+the reason this is MINOR and the reason a close may not report it cured by absence of symptom. Same
+instrument as W8.71; booked separately because the record books it separately (anti-rename).
+⟨shell-dock-profilesection.md · N-9, :85⟩ ≡ W8.39 (G-13 design input) · **≠ gate N-9** (§9.6)
+
+**W8.73 · ⟨shell-dock-profilesection.md · N-10⟩ — the instrument leaks by design: an unremoved probe
+`div`, a memoized context, two unowned module-global maps** (cl.1 · MINOR · **`≡`-pointer booking**)
+Row verbatim (`:86`): *"| **N-10** | MINOR | The instrument leaks by design: a hidden probe `div`
+appended to `document.body` with no removal path, a memoized canvas context, and two more unowned
+module-global maps — surviving unmount and HMR, littering every jsdom suite. (reader-LC) |
+:80–92/:121/:134–145/:239 read. | **X-W8**. |"*
+**Why it matters to this wave beyond hygiene**: the leak is the *substrate* of N-8's stale referent —
+the maps that survive unmount are the maps whose keys omit the referent — and `ProfileSection.vue` is
+§BoundsDelta row 15 here, so the removal path lands inside this wave's touch. Rides **G-13**'s repair
+surface with W8.71/W8.72; **no new gate is minted for it**.
+⟨shell-dock-profilesection.md · N-10, :86⟩ ≡ W8.39 (G-13 design input)
+
+**W8.74 · ⟨shell-dock-actionbarlayer.md · MISS-7⟩ — the prescribed cure nests `.dock-crossfade`
+inside `.dock-crossfade`, and the descendant-scoped clip-path matches both** (cl.1 · MINOR ·
+**`≡`-pointer booking**)
+Row verbatim (`:110`): *"**MISS-7 (R-LC) — CONFIRMED (MINOR).** The prescribed cure nests
+`.dock-crossfade` inside `.dock-crossfade`, and crossfade.css's `[data-morphing] … >
+.dock-face-content { clip-path: inset(…) }` matches BOTH after the transposition — the same
+descendant-scoped shape that produced AB-2, co-directional and low-blast but absent from L's carry
+table. **DISPOSITION: X-W8.d carry-table addendum row.**"*
+**Where the fact already lives**: W8.31's G-8 paragraph and the **G-8 sharpening row** (§7a,
+*"carry-table gains MISS-7 (nested crossfade clip-path)"*) both carry it; the compressed provenance
+`MISS-4/-7/-8/-9` at W8.31's `⟨…⟩` line is the slash-compressed form the id-keyed census cannot see.
+Booked here as literal bytes so the census closes; **G-8's predicate is unchanged**.
+⟨shell-dock-actionbarlayer.md · MISS-7, :110⟩ ≡ W8.31 / G-8 carry-table · **≠** ⟨picker-componentsliders-consolerail.md · MISS-7⟩ (W8.77)
+
+**W8.75 · ⟨shell-dock-actionbarlayer.md · MISS-8⟩ — discharged BY CONSTRUCTION, and the sequencing
+lock is the part a silent skip would lose** (cl.1 · INFO · **`≡`-pointer booking + lock**)
+Row verbatim (`:111`): *"**MISS-8 (R-LC) — CONFIRMED (INFO).** `demo/shell/dock/index.ts` does not
+re-export `DockCrossfade`; the transposition's import must not deepen the dual path. **Discharged by
+construction at X-W8.b/scope-6 (the barrel dies); recorded so the sequencing (b → d) is honored.**"*
+**SEQUENCING LOCK, carried verbatim (this is the load, not the finding)**: *"Discharged by
+construction at X-W8.b/scope-6 (the barrel dies); recorded so the sequencing (b → d) is honored."*
+A row that is discharged-by-construction is **not** a row that may be dropped: the discharge is
+conditional on **b landing before d**, and a `d`-first execution re-opens it against a barrel that
+still exists. §6b already carries MISS-8 as scope-6's named witness (`:725`/`:729`); this booking adds
+the id and the order, and elects nothing.
+⟨shell-dock-actionbarlayer.md · MISS-8, :111⟩ ≡ X-W8.b scope 6 (§6b) · order lock **b → d**
+
+**W8.76 · ⟨picker-componentsliders-consolerail.md · MISS-5⟩ — `sliderWrapperEls` is never pruned, so
+five listeners re-bind to every detached wrapper from every space ever visited** (cl.1 · MINOR ·
+**`≡`-pointer booking**)
+Row verbatim head + terminal (`:65`): *"**MISS-5 — MINOR — `sliderWrapperEls` is never pruned, and
+`attachSliderListeners` re-binds five listeners to every DETACHED wrapper from every space ever
+visited → X-W8 (one cure with C-2/MISS-13).** Verified whole by this seat: … `listenerCleanups`
+(:94-100) bounds the leak; the retained subtrees and the dead re-bind work are real. One-line cure
+(else-delete) closes C-2 too."*
+**Where the fact already lives**: W8.34 (*"C-2 + MISS-5 + MISS-13 are one cure with delete-on-null in
+both ref callbacks"*) and §BoundsDelta rows 3 and 4. Booked here under its own id; **the one-cure
+identity with C-2/MISS-13 is preserved exactly as the record states it** — three ids, one edit, no
+second booking of the cure.
+⟨picker-componentsliders-consolerail.md · MISS-5, :65⟩ ≡ W8.34 (one cure with C-2/MISS-13) · §BoundsDelta 3, 4
+
+**W8.77 · ⟨picker-componentsliders-consolerail.md · MISS-7⟩ — `componentEntries` re-derives a computed
+the injected model already exposes, and the two copies disagree** (cl.1 · MINOR · **`≡`-pointer
+booking**)
+Row verbatim head (`:67`): *"**MISS-7 — MINOR — `componentEntries` re-derives a computed the injected
+model already exposes, its tuple payload is dead in every consumer, and the two copies disagree →
+X-W8.**"* The record's own correction rides with it: *"Verified with one correction to reader B: the
+expressions are NOT identical"* — the pipeline omits the alpha append and short-circuits hex to
+`[["hex", 0]]` while the local copy fabricates an untyped alpha literal and yields rgb+alpha in hex
+mode. **Two answers to "what channels does this space have"**, both consumers reading only index 0.
+**Namespace guard, restated on the row**: this is the consolerail `MISS-7`, **not** the ActionBarLayer
+`MISS-7` booked one row family above (W8.74). Fact already carried in W8.34's body; booked here
+id-for-id.
+⟨picker-componentsliders-consolerail.md · MISS-7, :67⟩ ≡ W8.34 (body) · **≠** ⟨shell-dock-actionbarlayer.md · MISS-7⟩ (W8.74)
+
+**W8.78 · ⟨shell-dock-actionbarlayer.md · K-4⟩ — the KILL of D-9's convention claim, carried so no
+close re-files it** (cl.4 · NWO · **kill row, new to this fold**)
+Row verbatim (`:89`): *"**K-4 — "the only two demo files that write a bare `:hover` are ActionButton
+and this one" (D-9's convention claim, and with it D-9 itself).** KILLED (ruling 1): my census finds
+bare `:hover` in **10** demo files; the "convention" (the guard) exists in exactly one. R-LC's
+confirming census cell is FALSE. D-9 leaves the roster; residue = an app-wide INFO census,
+NO-WAVE-OWNER."*
+**This is the §A.5 NWO row, and it is the only one of the nine that was absent from this file
+entirely** (the other eight had substance in prose or in a bounds cell). It books here because
+`ActionBarLayer.vue` is X-W4/X-W8-held and **X-W8 is the wave that carves it** (G-8/G-10, W8.31/W8.32),
+so a close of this wave is exactly where a killed row gets re-filed by a reader who never saw the
+ruling. **A KILL that is not carried is a kill that returns.** The residue — an app-wide bare-`:hover`
+INFO census across **10** demo files — is **NO-WAVE-OWNER** and rides to the **G-F register** as a
+cross-edge (X-W0-FOLD §7), **not** as a second booking here.
+⟨shell-dock-actionbarlayer.md · K-4, :89⟩ — kill of ⟨shell-dock-actionbarlayer.md · D-9⟩ · residue → G-F register (X-W0)
+
+### 10.3 §-arithmetic — dated, never silent (2026-08-28, fold round 2)
+
+**This block supersedes §9.7's row line; §9.7 stands as the round-1 record.**
+
+| unit | round 1 | **round 2** | delta | decomposition |
+|---|---|---|---|---|
+| folded rows | 69 (W8.1–W8.69) | **78** (W8.1–**W8.78**) | **+9** | §A.5 routed **8** (W8.70–W8.77) + §A.5 NWO **1** (W8.78) |
+| — of which `≡`-pointer bookings (substance already carried) | — | **8** | — | W8.70–W8.77; each names where the fact lives, none re-books a cure |
+| — of which new to this file entirely | — | **1** | — | W8.78 (K-4) |
+| gate entries | 24 (15 sharpened + 9 new) | **24** | **0** | **no gate minted, none re-staged, none re-weighted** — every row rides a standing gate (G-8, G-10, G-13) |
+| BoundsDelta files | 31 | **31** | 0 | all nine rows land on paths §3 already carries (rows 3, 4, 10, 15 and the ActionBarLayer in-bounds note) |
+| cross-edges | 11 | **11** | 0 | W8.70's X-W4/X-W1 order dependency and W8.78's G-F residue are carried **inside their rows** (§9.7's rule, unchanged) |
+| census denominator | 271 row lines / 56 records | **unchanged, re-verified** | — | printed command reproduces at HEAD; the verb-filtered **134** is struck as an instrument (§10.1) |
+
+Numbering stays **gapless and contiguous: W8.1 … W8.78**, zero gaps, zero re-mints, zero renames.
+**Assignment coverage: §A.5 9/9 id-for-id** (8 routed + 1 NWO), with the roster's own arithmetic
+(§A's table: `X-W8-FOLD.md` 8 + 1 = 9) reproduced exactly. Two identities in §A.5's receipt are
+namespace collisions with this file's own gate register and with a sibling record — both named at
+§10.1, neither reconciled by renaming. Status remains **planned**; no product source was opened by
+this repair; nothing here is VERIFIED.

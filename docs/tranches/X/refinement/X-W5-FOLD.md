@@ -389,4 +389,122 @@ namespace locks are written where the bare ids collide (⟨PaletteSlugBar · A-3
 
 ---
 
+## 7. FOLD ROUND 2 ADDENDUM — dated 2026-08-28 (the X·V fold round-2 repair)
+
+### 7a. Input, posture, and the CENSUS METHOD LAW this section obeys
+
+**Input.** `refinement/ROUND-2-ASSIGNMENTS.md` §A.2 — the assignment seat's work order against
+`refinement/PASS-2-CHECK-RETURN.json` (verdict **NON-CONFORMANT**: 1 BLOCKER · 2 MAJOR · 5 MINOR ·
+1 INFO). It homes **five** identities to this seat, **all five NWO, zero routed**: the four
+`PaletteSlugBar` rows of **packet 8 · SLUG-CHAIN** (HOMED X-W4 + X-W5; the typed-contract half is
+X-W5's **BD-01**) and ⟨shell-dock-parseechoreadout · K-13⟩, which reaches X-W5 through **BD-15**
+(`ParseEchoReadout.vue`, *"co-lands with A-1 → X-W5"* per that record). This fold appears in **no
+defect** of the pass-2 register; everything below is carriage the BLOCKER's census proved the fold
+layer owed, not a cure of a defect against this file.
+
+**The §D CENSUS METHOD LAW, adopted and applied to this fold's own method.** §6a defines a
+"W5-routed row" as one carrying **BOTH** a token **AND** a routing verb (`Disposition` · `→ X-W` ·
+`BOOK →` · `BUILD →` · `routes to` · a `| **X-W5 |` cell · `Terminal:`). **That conjunct is the
+retired heuristic (§D clause 2) and is struck as of this date**; §6a's bytes stand, superseded here.
+Two further corrections this seat owes its own §6a, both measured read-only at HEAD:
+
+- **The en-dash form does not exist.** §6a says *"Hyphen and en-dash forms and the dotted `X.W5.a`
+  forms are both counted."* Measured over the 92-record corpus:
+  `ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l` → **0**. The alphabet is
+  closed at `X-W\d` · `X.W\d` · `X·W\d`; the canonical class is **`X[-·.]W\d([^0-9]|$)`** and the
+  trailing boundary is mandatory (without it `X-W1` swallows `X-W10`/`X-W11`).
+- **The law-true X-W5 surface, printed so clause 6 has a baseline.** Row regex
+  `^\s*([-*]|\|)\s*\*\*`, token class as above, corpus = the 92:
+  `ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W5([^0-9]|$)'`
+  → **153**. §6a's own table printed **153 across 35 records** under a narrower predicate; the two
+  agree at the total, which is a coincidence of this wave's phrasing and **not** a vindication of the
+  retired predicate — the predicate is struck on its face (§D clause 2), not on a counter-example.
+  **Per §D clause 7 this figure is stated with its row regex and is not offered as authoritative**
+  until round 3 elects one row regex.
+
+**Posture unchanged.** Status `planned`. Dispositions **ADJUDICATED, not VERIFIED**. E-3 holds:
+`waves/W0.md..W11.md`, `waves/CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` are
+byte-untouched and this file is again the sole write. **No product source was opened** — every row
+below is quoted from its record's own bytes at HEAD (`awk 'NR==<line>' <record>.md`), never recalled.
+
+**No self-voiced closure.** This section closes nothing. §6a's *"they are folded here so no round-2
+check re-discovers them"* is superseded: the round-2 check re-discovered five anyway. **The X-W5
+census closes when and only when the round-3 census artifact —
+`docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json` — re-derives it under §D's predicate against
+these bytes and prints zero X-W5 escapes.** A fold may state what it folded; it may not state what
+remains.
+
+### 7b. Rows W5F-84..W5F-88 — the five §A.2 identities, id-for-life
+
+**Homing.** Four ride packet 8 · SLUG-CHAIN, whose home is X-W4 **and** X-W5 with the typed-contract
+half at **BD-01**; the fifth rides **BD-15**. **All five are filed NO-WAVE-OWNER and none of those
+dispositions is struck** — this fold books the **identities**, states each row's reachable limb from
+W5's own bounds, and `≡`-points every limb that lives in another wave.
+
+| id | ⟨record · id⟩ | sev (as filed) | banked row text — verbatim from the record's bytes | carriage + LOCKS |
+|---|---|---|---|---|
+| **W5F-84** | ⟨`PaletteSlugBar.md` · **A-10 (C-18)**⟩ (:45) — §A.2 NWO, packet 8 · SLUG-CHAIN | instrument-capability (no severity letter filed) | "**A-10 (C-18) — the shipped vitest project cannot import an SFC at all.** Verified: vitest.config.ts has NO plugins array (no @vitejs/plugin-vue); include = `test/**` + `demo/test/**`; no component-mount test exists. The axis's own repro config exists on disk precisely because of this. **Disposition: NO-WAVE-OWNER (same instrument-capability decision as A-9 — admit SFC mounting deliberately or record that component gates are e2e-only; must be a ruled decision, not drift).**" | **RULED-DECISION LOCK (verbatim)**: *"must be a ruled decision, not drift"* — the two admissible outcomes are **admit SFC mounting** or **record that component gates are e2e-only**, and a close that does neither has drifted, not decided. **Why it lands at W5 at all**: this fold's gates are the ones that would want a mount (N11–N15 all name specs or captures, none a component mount), so W5 is the wave whose gate slate is shaped by the answer — the *ruling* is not W5's to make, the *silence* is W5's to refuse. **The instrument decision is a G-F register cross-reference**, not a W5 edit and not a new edge. Kin: W5F-82 (GAB-21 — the coverage instrument that cannot see nine dead dock buttons) |
+| **W5F-85** | ⟨`PaletteSlugBar.md` · **A-13 (N-5)**⟩ (:48) — §A.2 NWO, packet 8 | MAJOR-shaped (authored-hierarchy family; no letter filed) | "**A-13 (N-5, reader-1 new find) — FlagReportDialog's destructive confirm renders as a neutral twin of its own Cancel.** Verified: :38 `variant="outline"` Cancel, :41-42 `variant="destructive"` Report — `variant` dead, the real axis is `tone` (which AdminUsersPanel.vue:175 already uses correctly: `:tone="confirmDestructive ? 'destructive' : 'neutral'"`). The one irreversible action in the flag flow and its dismissal are a matched pair. **Disposition: NO-WAVE-OWNER (same authored-hierarchy family as A-12; the in-repo correct idiom is cited for the executor).**" | **CROSS-EDGE, STATED (work order §A.2)**: the defect is **in `FlagReportDialog.vue`**, whose six routed rows (A-16 · A-17 · A-22 · A-23 · A-24 · A-28, all ending *"X-W7 rider else boundary"*) are **X-W7's** band. **W5 books the identity; the file-touch is `≡`-pointed to X-W7** — one defect, one edit, one wave, and the id is carried here so the ⟨record·id⟩ census closes without a second booking. → **§7d amends CE-5**. **NAMESPACE GUARD**: ⟨PaletteSlugBar · **A-13**⟩ ≠ ⟨shell-dock-slugeditlayer · **A-13**⟩ — the latter is **X-W4's** (⟨X-W4-FOLD · W4·191⟩), an INFO `catch (e: any)` re-offence. Two records, two waves, one bare id. **IDIOM LOCK (verbatim)**: *"the in-repo correct idiom is cited for the executor"* — `AdminUsersPanel.vue:175`'s `:tone` is the named pattern; a cure that invents a third idiom regresses the family |
+| **W5F-86** | ⟨`PaletteSlugBar.md` · **A-22 (D-29/D-30 + N-10)**⟩ (:60) — §A.2 NWO, packet 8 | MINOR-shaped, repo-scale (reader-1's rescope, adopted at the record) | "**A-22 (D-29/D-30 + N-10) — six hand-rolled focus seats at `ring-ring/40` with `outline-none`, a background-colour-only state vocabulary, zero forced-colors handling in the file — while a producer recipe that solves all of it (`focus-ring` + the a11y-overrides WHCM branch) ships installed and the demo documents its own composition rule (demo/styles/focus-ring.css).** Source omission verified (6 identical seats; the scoped block is a comment; `.slug-pill` IS in the forced-colors roster at foundation.css:746 — the buttons are not). Reader-1's rescope adopted: ONE repo-scale row (~22 `ring-ring/40` sites per the corpus grep) with a named, already-installed cure — not two per-file MINORs. Rendered WHCM result is U-2. **Disposition: NO-WAVE-OWNER (repo-scale focus-recipe adoption; the 6 in-file seats die with A-1).**" | **DIES-WITH LOCK (verbatim)**: *"the 6 in-file seats die with A-1"* — A-1 is `PaletteSlugBar.vue`'s deletion, whose **X-W8.a census addendum is already this fold's W5F-23 with its BOUNDS LOCK (CE-6)**; so the six seats need **no W5 edit** and a W5 cure that patches them in place is work the deletion undoes. **RESCOPE PRESERVED**: the record rules **one repo-scale row (~22 sites)**, *"not two per-file MINORs"* — no seat may re-split it. **The repo-scale adoption limb is a G-F register cross-reference** (formation boundary), not a W5 edge and not a new gate; **kin, not identity**, to W5F-69's `--select-font` ruled choice: both are producer-recipe decisions the demo already documents against itself. **UNPROVEN carried**: *"Rendered WHCM result is U-2"* — the rendered result is the record's unproven residue and no close may cite it as measured. **NAMESPACE GUARD**: ⟨PaletteSlugBar · U-2⟩ ≠ ⟨PaletteCardMeta · U-2⟩ (X-W7's band) |
+| **W5F-87** | ⟨`PaletteSlugBar.md` · **A-30 (N-11)**⟩ (:68) — §A.2 NWO, packet 8 | MINOR-shaped (dead public seam) | "**A-30 (N-11, reader-2 new find) — `demo/palettes/browser/index.ts`, the self-declared "TOP-LEVEL SEAM… stable public API", has ZERO importers** (verified: no bare-`browser` specifier anywhere; every consumer reaches a sub-barrel). Both halves of the U-F47 boundary — the barrel AND its gate (A-6) — are inert. **Disposition: NO-WAVE-OWNER (rule with A-6 at the boundary-ban authoring: either the seam is real — enforce it — or it is not — delete it; a 44-line dead file must not survive with a false comment).**" | **TWO LIMBS, ONE BOOKING.** **(a) the barrel limb is W5's** — `demo/palettes/browser/index.ts` is a `demo/palettes` seam and W5 is the wave with its hands on the palettes composition (BD-01/BD-02); **(b) the deletion census limb is X-W8's** and is **already carried**: W5F-23 holds the **BOUNDS LOCK** that `PaletteSlugBar.vue`'s deletion needs the **X-W8.a census addendum** or it is lost (CE-6). This row `≡`-**points the deletion census to X-W8.a** and books **no second census**. **EITHER/OR LOCK (verbatim)**: *"either the seam is real — enforce it — or it is not — delete it"* — with A-6 (the boundary-ban gate) ruled in the same move, because **both halves are inert** and curing one leaves a false comment guarding nothing. **NAMESPACE GUARD**: ⟨PaletteSlugBar · A-30⟩ ≠ ⟨wb-gradient-codeeditor · A-28⟩'s anchor-drift family and ≠ ⟨FlagReportDialog · A-28⟩ — different records, different registers |
+| **W5F-88** | ⟨`shell-dock-parseechoreadout.md` · **K-13**⟩ (:65) — §A.2 NWO, via **BD-15** (*"co-lands with A-1 → X-W5"*) | KILLED-with-residue (ruled law R①) | "**K-13 — reader-2 missed-6 (`--ink-muted` needs the fallback)** — killed by ruled law (R①): the prescription IS the ruled-MAJOR masking idiom (ledger 63610); the bare read is the certified direction (98689; ES-13 adopts it as the in-tree counterexample). The residue reader-2 was reaching for (a static declaration for the boot-stamped token) is ES-13's already-booked NO-WAVE-OWNER row — not this leaf's defect." | **A KILL THAT BOOKS.** The fold carries the kill so **no close re-files the `--ink-muted` fallback**: the prescribed cure **is** the ruled-MAJOR masking idiom (R①, ledger 63610) and the **bare read is the certified direction** (98689). Any W5 edit passing over `ParseEchoReadout.vue` (BD-15) that adds a `var(--ink-muted, …)` fallback ships the killed cure. **RESIDUE `≡`-POINTER (verbatim)**: the residue — *"a static declaration for the boot-stamped token"* — **is ⟨EmptyState · ES-13⟩'s already-booked NO-WAVE-OWNER row**, in **X-W7's** band, *"not this leaf's defect"*. Booked here as a pointer so the parseechoreadout namespace closes; **no second booking, no W5 work**. → **§7d amends CE-5**. Kin: W5F-80 (⟨EmptyState · U-6⟩) — the same record's arming residue already rides this fold |
+
+### 7c. What this section did NOT do — declared silences, so each absence reads as a result
+
+1. **No gate is minted or amended.** The five rows are NWO identities whose cures live at the
+   formation boundary (A-10, A-22), in X-W7 (A-13, K-13's residue) or in X-W8 (A-30's census limb).
+   N11–N15 stand exactly as §6c wrote them; §2a/§2b are untouched.
+2. **No BoundsDelta row is added.** `demo/palettes/browser/index.ts` is not claimed — A-30's W5 limb
+   is the *identity*, and its edit is the deletion X-W8.a censuses. `FlagReportDialog.vue` is X-W7's.
+   `ParseEchoReadout.vue` is already **BD-15**. **BD-01..BD-24 stand at 24 rows / 31 paths.**
+3. **No disposition is overturned.** All five rows are filed `NO-WAVE-OWNER` and stay so. This fold
+   books identities and states reachable limbs; it does not re-home a single row.
+4. **No cross-edge is minted.** Two existing edges are amended (§7d); the edge count stays **10**.
+5. **Nothing is claimed for X-W4's side of packet 8.** The SLUG-CHAIN packet is HOMED X-W4 **and**
+   X-W5; ⟨X-W4-FOLD · §7A.2⟩ books the seven `shell-dock-slugeditlayer` NWO rows on file ownership in
+   the same round. The two folds meet at ⟨slugeditlayer · A-13⟩ ≠ ⟨PaletteSlugBar · A-13⟩ and at the
+   W23 canon terminal that W5F-24 and ⟨X-W4-FOLD · CE-16⟩ both carry — **one terminal, two folds, no
+   double booking**.
+
+### 7d. CrossEdge amendments (two amended; none added — the edge count stays 10)
+
+- **CE-5 (X-W5 ⟂ X-W7)** gains two ids by pointer, neither a W5 booking: ⟨`PaletteSlugBar` · **A-13**⟩
+  (W5F-85) — the destructive-confirm `tone`/`variant` defect **lives in `FlagReportDialog.vue`**, whose
+  six routed rows are X-W7's, so the file-touch is X-W7's and the identity is carried here; and
+  ⟨`EmptyState` · **ES-13**⟩ as **K-13's residue home** (W5F-88) — the boot-stamped-token declaration
+  is ES-13's already-booked NWO row, and no W5 edit may absorb it. CE-5 already carries ES-25's arming
+  condition (W5F-80), so the EmptyState record now meets this edge twice, **as two ids, once each**.
+- **CE-6 (X-W5 ⟂ X-W8)** gains ⟨`PaletteSlugBar` · **A-30**⟩ (W5F-87): the dead `browser/index.ts`
+  seam and its inert gate (A-6) join the **X-W8.a census addendum** the edge already carries for
+  `PaletteSlugBar.vue`'s deletion (W5F-23's BOUNDS LOCK). **One census, two files, one addendum** — a
+  W5-side deletion that is not in that census is lost exactly as W5F-23 says.
+
+### 7e. §-arithmetic, updated to the new true counts (dated 2026-08-28, round 2, never silent)
+
+| measure | round-0 (§0) | round 1 (§6h) | **round 2** | new true count |
+|---|---|---|---|---|
+| rows (§1 + §6b + §7b) | 66 (W5F-01..W5F-66) | 83 (..W5F-83) | **+5** (W5F-84..W5F-88, contiguous, zero gaps) | **88** |
+| — of which NO-WAVE-OWNER identities folded | — | 6 | **+4** (A-10 · A-13 · A-22 · A-30) | **10** |
+| — of which KILLED-with-residue rows | — | — | **+1** (K-13) | **1** |
+| — of which §C I-28 EXTERNAL rows | 0 | 0 | **+0** (none is X-W5's; ⟨X-W2-FOLD:939-943⟩'s zero-X-EXT declaration is the sibling precedent) | **0** |
+| — of which `≡`-pointer/limb rows that book no new W5 work | — | 7 | **+3** (W5F-85's file-touch limb → X-W7 · W5F-87's deletion-census limb → X-W8.a · W5F-88 whole) | **10** |
+| gate entries (§2 + §6c) | 28 | 33 | **+0** — none minted, none amended | **33** |
+| BoundsDelta **rows** (§3 + §6e) | 21 | 24 rows / 31 paths | **+0** | **24 rows / 31 paths** |
+| cross-edges (§4 + §6f + §7d) | 10 | 10 | **+0** (CE-5, CE-6 amended) | **10** |
+| X-W5-routed rows in the corpus (IN-side receipt) | — | 153 / 35 records (narrow predicate) | **153**, law-true (row regex `^\s*([-*]|\|)\s*\*\*`, token class `X[-·.]W5([^0-9]\|$)`) | **153 — not authoritative until round 3 elects a row regex (§D clause 7)** |
+
+**Decomposition, so a check can re-add it**: **88** = 66 + 17 + 5. The 5 = **5** work-ordered (§A.2, all
+NWO, zero routed) + **0** found beyond the roster by this seat. **10** NWO identities = 6 (round 1) + 4.
+**10** pointer/limb rows = 7 + 3. Gates **33** = 28 + 5 + 0. Bounds **24** = 21 + 3 + 0. Edges **10**,
+unchanged across all three rounds. Every id above is the **original id for life**; every citation is
+⟨record.md · id⟩; two namespace guards are written where the bare ids collide
+(⟨PaletteSlugBar · A-13⟩ ≠ ⟨shell-dock-slugeditlayer · A-13⟩; ⟨PaletteSlugBar · U-2⟩ ≠
+⟨PaletteCardMeta · U-2⟩), joining round 1's three.
+
+— end of the round-2 addendum. Status `planned`; dispositions ADJUDICATED, not VERIFIED; no product
+source opened; E-3 intact. **This section closes nothing** — round 3's census artifact is what may say
+the X-W5 census is closed (§7a).
+
+---
+
 — end of fold. The dated wave specs and every adjudicated record remain byte-untouched beside this file per E-3.

@@ -133,6 +133,122 @@ I-28 external rows (§C). The per-wave repair seats consume that file as their r
 adoption is by dated fold addendum, dedupe by banked identity (an `≡`-pointer row closes the byte
 census — a silent skip does not).
 
+*ERRATUM POINTER (round 2, 2026-08-28 — PASS-2-CHECK MINOR/AXIS 2; an addendum, so the roster's
+bytes stand). `ROUND-1-ASSIGNMENTS.md:83` spells one roster identity SHORT —
+`| wb-mix-configbar.md | MC-15(:61), MC-22(:68), MC-23(:69), L-R6ᵇ(:33) |` — where the banked id at
+⟨wb-mix-configbar.md · :33⟩ is **`L-R6-4`**: "**L-R6-4 drift sub-claim** | LC kill: exported
+surface symbol-identical | …". A short spelling is the same class of violation as a dropped
+zero-pad (`D-06` ≠ `D-6`): read every occurrence of `L-R6` in that row as **`L-R6-4`**. **No row is
+lost** — ⟨X-W6-FOLD.md:1190⟩ already books "W6·499 | **L-R6-4** (drift sub-claim) |
+wb-mix-configbar | INFO", so this is a spelling slip in the work order, not an escaped identity.
+The correction is registered in full as **ERRATUM R1-A-1** at `refinement/ROUND-2-ASSIGNMENTS.md`
+§C.4; this line is the spine's pointer to it, so a seat reaching the roster through this paragraph
+cannot inherit the short spelling. E-3: the round-1 work order is a round-1 census record and is
+never patched.*
+
+**THE CENSUS METHOD LAW (appended round 2, 2026-08-28 — the method the PASS-2 census BLOCKER
+indicts, replaced).** The round-2 check found **84 ⟨record·id⟩ across 27 records** absent from the
+entire fold layer by bytes, and named the root cause as **method, not oversight**: X-W7-FOLD §R1's
+30-character proximity heuristic makes bare-declarative routings invisible (⟨PASS-2-CHECK-RETURN
+.json · BLOCKER⟩ is the census artifact; this spine asserts no closure of its own). The 84 are
+enumerated, homed and quoted at **`refinement/ROUND-2-ASSIGNMENTS.md` §A** — round 2's work order,
+consumed by the eight named seats exactly as round 1's was. The heuristic itself is retired here,
+by law. Adopted **verbatim** from that file's §D, which proposed §5 as its home: it lands **here**,
+beside the ROW-CARRIAGE LAW it completes — that law says a homed packet carries its rows id-for-id;
+this one says how a row's home is *found* — and §5.6 points to it so the proposed home resolves
+without a second registration (§5.1's pointer law; M-25 dedupe). It is a **method** law, not a row:
+it binds every seat and every check and moves no wave's bounds.
+
+> **§1.L — CENSUS METHOD LAW (round 2, 2026-08-28).**
+>
+> **1. THE PREDICATE.** A row line that contains an `X[-·.]W\d` token — **in any phrasing, at any
+> position on the line** — **BOOKS the row** to that wave. There is no proximity requirement, no
+> marker-verb requirement, and no position requirement.
+>
+> **2. THE RETIRED HEURISTIC.** X-W7-FOLD §R1's *"the wave token within 30 characters after a
+> routing marker (`→ · Disposition · BUILD · BOOK · Terminal · routes to · re-homed · rides ·
+> owns/owner · | **`)"* is **RETIRED**, and with it every derivative of it — including
+> X-W4-FOLD §6E's `grep -E '→|Disposition|BOOK|BUILD|routes to|Terminal:'` third stage (§B.2).
+> Rows routed by bare declarative phrasing are invisible to it and were the entire BLOCKER:
+> *"**X-W7 rider else boundary.**"* (×6, FlagReportDialog) · *"carried in the **X-W4** family"*
+> (wb-extract-controls K-H) · *"dies whole with **X-W7.d**"* (PaletteCardMeta PM-21) · *"the
+> **X-W7.c** seat spec"* (SwatchHoverMenu K-6) · *"**X.W7 G20** measures exactly this"*
+> (PaletteCardSkeleton U-6) · *"per … **X-W4's** accname law"* (wb-extract-workbench K-21). Any
+> fold, gate or check still carrying the heuristic is **NON-CONFORMANT on its face**; it does not
+> need a counter-example to be struck.
+>
+> **3. THE TOKEN ALPHABET IS CLOSED — hyphen and dotted ONLY.** Measured over the 92-record
+> corpus at HEAD, read-only:
+> ```
+> ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l   → 0
+> ```
+> **No en-dash (`X–W`), em-dash (`X—W`) or non-breaking-hyphen (`X‑W`) form exists in the
+> corpus.** The alphabet is therefore exactly `X-W\d` · `X.W\d` · `X·W\d`, and the canonical
+> character class is **`X[-·.]W\d`**. A sweep that adds dash variants is not more careful, it is
+> unfalsifiable padding; a sweep that omits the middle-dot or the dotted form **loses rows**
+> (⟨shell-dock-genericactionbar · U-1⟩ = `X.W4.d`, ⟨PaletteCardSkeleton · U-6⟩ = `X.W7 G20`).
+> Re-measure this clause, do not inherit it: if a future record introduces a dash form, the count
+> stops being 0 and the class widens **by measurement**.
+>
+> **4. THE BOUNDARY IS MANDATORY.** Match `X[-·.]W(\d+)([^0-9]|$)`. Without the trailing
+> boundary, `X-W1` swallows `X-W10`/`X-W11` and every per-wave census silently over-counts.
+> Zero-padding and case are identity (`D-06` ≠ `D-6`; `ADJ-M1` ≠ `ADJ-m1`).
+>
+> **5. NWO AND ROUTED ARE LIMBS, NOT PARTITIONS.** A row may carry both a `NO-WAVE-OWNER` limb and
+> a wave token; clause 1 governs the booking, the NWO limb rides as a stated cross-edge, and the
+> row **folds once, both limbs**. Round 2 measured exactly one such row among the 46 NWO escapes
+> (⟨PaginationBar.md · M7⟩, §A.6). A census that treats the two registers as disjoint will
+> re-orphan every dual-limb row it meets.
+>
+> **6. THE COUNT FOLLOWS THE PREDICATE, NEVER THE REVERSE.** Every census figure printed anywhere
+> in the fold layer must be accompanied by the **exact command that produces it**, and that
+> command must reproduce **at the tree, verbatim, at a named HEAD**. A figure that reproduces under
+> no predicate (§B.2's `282`) is struck on discovery, not reconciled. Changing the predicate
+> **obliges** re-deriving every figure downstream of it — a corrected predicate with an
+> uncorrected count is the same defect wearing the cure's clothes.
+>
+> **7. THE ROW PREDICATE IS OPEN AND MUST BE SETTLED (round 3).** Clauses 1–6 govern the **token**
+> predicate. The **row** predicate — what counts as a bold-leading row line — is **not yet
+> settled** and the divergence is recorded here rather than papered over: the round-2 check
+> measures **3,059** bold-leading rows / **1,290** X-W-token rows / **321** NWO rows, while this
+> seat, using X-W4-FOLD §6E's own row regex `^\s*([-*]|\|)\s*\*\*` over the same 92 records,
+> measures **4,689 / 1,941 / 442** (`^(- |\| )\*\*` gives the same three figures; `^(- |\* )\*\*`
+> gives 3,830 rows). **The token law is unaffected** — every escape in the pass-2 receipt is
+> contained in both row sets — but no per-wave *total* may be quoted as authoritative until round
+> 3 elects one row regex and prints it. Until then a census states its row regex inline or states
+> nothing.
+>
+> **Law-true per-wave figures at HEAD** (row regex `^\s*([-*]|\|)\s*\*\*`, token class
+> `X[-·.]W\d([^0-9]|$)`, 92-record corpus — printed so clause 6 has a baseline to re-derive
+> against, and labelled with its row regex per clause 7):
+>
+> | wave | rows | wave | rows |
+> |---|---|---|---|
+> | X-W0 | 3 | X-W6 | 389 |
+> | X-W1 | 101 | X-W7 | 653 |
+> | X-W2 | 11 | X-W8 | 271 |
+> | X-W3 | 22 | X-W9 | 73 |
+> | X-W4 | **305** | X-W10 | 264 |
+> | X-W5 | 153 | X-W11 | 1 |
+>
+> Total token-carrying rows **1,941**; NWO-carrying rows **442**.
+
+*ADOPTION RE-MEASUREMENT (this seat, read-only over the 92-record corpus in the working tree,
+2026-08-28 — clause 6 binds the adopter too: a law printed with unverified figures would be the
+defect wearing the cure's clothes). Re-run at adoption: clause 3's dash sweep → **0**, unchanged.
+The per-wave table reproduces **cell for cell, all twelve** (3 · 101 · 11 · 22 · **305** · 153 ·
+389 · 653 · 271 · 73 · 264 · 1), and X-W4's 305 resolve across **45 records** — the figure §B.2's
+corrected one-liner states. Clause 7's **1,941** token-carrying rows and **442** NWO-carrying rows
+reproduce under BOTH row regexes. **One stated divergence, recorded not reconciled** (and it falls
+inside exactly what clause 7 declares open): the ROW figure is regex-dependent — this seat measures
+**4,694** with `^\s*([-*]|\|)\s*\*\*` and **4,689** with `^(- |\| )\*\*`, so the two forms are NOT
+identical on rows, only on the token and NWO figures. No clause of the law moves; the 5-row gap
+goes to round 3 with the rest of the row predicate. **Warning carried for every seat re-running
+clause 4:** write the boundary as clause 4 writes it, `X[-·.]W(\d+)([^0-9]|$)` — the single-digit
+form `X[-·.]W\d([^0-9]|$)` (the shape clause 7's own label prints) silently DROPS every row whose
+only token is `X-W10`/`X-W11`; this seat measured **1,804** with the malformed form before catching
+it, a 137-row under-count. The `+` is as mandatory as the boundary.*
+
 1. **MX-CLUSTER — HOMED X-W6.** Adopted whole into W6's bounds by the fold's §3 (`mixStage.ts`,
    `useMixingState.ts`, `MixResultDisplay.vue`, `ErrorBoundary.vue` (see packet 12's path
    contention), both RED mix specs); the adoption transfers the whole docket, not the pre-spelled
@@ -323,6 +439,38 @@ read as wholesale. Sampled delegate paths land (the check's own mitigation): `de
 transport/**` at X-W8 BoundsDelta #21; `dateFormat.ts` + `AdminListItem.vue` + `useColorNameQueue.
 ts` at X-W7's MT-AU1 delta; `useImageSampler.ts` at X-W5; `useSpecimenRows.ts` at X-W6 §3.
 
+*DATED CORRECTION (round 2, 2026-08-28 — PASS-2-CHECK MINOR/AXIS 4: the note walked an INHERITED
+base and printed no re-runnable command anywhere, so a fresh seat could not verify it. §1.L clause
+6 now forbids exactly that. The command is printed here; the base is whatever it returns, at the
+tree, dated. Run read-only by this seat over the 92-record corpus in the working tree,
+2026-08-28:*
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -nEi \
+  'in no (wave.?s )?bounds|no bounds table|unowned|no wave names the file|not in (any )?bounds|bounds table (does not|omits)' \
+  | wc -l                                    # → 47   statements
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -lEi \
+  'in no (wave.?s )?bounds|no bounds table|unowned|no wave names the file|not in (any )?bounds|bounds table (does not|omits)' \
+  | wc -l                                    # → 29   records
+```
+
+*THE BASE AS MEASURED: **47 bounds-conviction statements across 29 records**, under the note's own
+stated phrasing. **66/33 stands above, legible**, labelled for what it is: inherited from the
+pass-1 check's sweep, **reproducing under neither the stated nor any widened predicate this seat
+could construct**. The widened net is **NOT elected and is not authoritative** — three seats
+measured three values from three unbanked regexes (the round-2 check **54/30**; the round-2
+assignment seat **54/31**; this seat **56/32**, adding `no bounds|bounds (do|does) not|outside
+.{0,20}bounds|absent from .{0,20}bounds`) — a predicate divergence recorded, never silently
+reconciled, and the same species §1.L clause 7 hands to round 3. **THE WALK, re-derived from the
+printed command instead of an inherited number: 47 = 22 answered in this register (e.1–e.22, each
+with conviction + cure + owner) + 25 delegated** to the per-wave folds' §BoundsDelta layer under
+e.14's blanket cure. **The walk's SHAPE is unchanged and is this note's real load**: e.1–e.22 each
+carry conviction + cure + owner; e.12/e.13 are marked record-side; e.22's two contests are written
+either way and decided by no fold seat; and **X-W8 N-1 (bounds completeness) is the standing gate**
+that makes the delegated remainder checkable at close. The delegate surface and the sampled landing
+paths above are untouched by this correction.*
+
 ---
 
 ## §3. Sequencing locks — carried whole, binding at execution
@@ -410,9 +558,48 @@ ts` at X-W7's MT-AU1 delta; `useImageSampler.ts` at X-W5; `useSpecimenRows.ts` a
 
 **d′. May-not-be-cited edicts (round-1 addendum, 2026-08-28 — the four the check found absent
 from the fold layer entirely; registered here so no close cites what the corpus forbade):**
+
+*DATED CORRECTION (round 2, 2026-08-28 — PASS-2-CHECK MINOR/AXIS 4). "The four" was an ASSERTION,
+not an enumeration, and a fresh corpus sweep does not close at four. The register is re-framed as a
+stated enumeration, closed by the sweep printed here rather than by its own say-so (the §1.L
+clause 6 discipline, applied to a register instead of a count): **the may-not-be-cited edicts
+absent from the fold layer, closed by corpus sweep — SIX: four from the pass-1 check (d′.1–d′.4),
+`d′.5` from the round-2 check, `d′.6` this seat's own find under the same sweep.** The round-1
+sentence stands above, legible, as that pass's dated reading. The sweep, run read-only by this seat
+over the 92-record corpus, 2026-08-28:*
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -nEi 'may (not|never) be cited|uncitable|may not cite'
+```
+
+*Two statements about that sweep, so no round-3 seat re-derives them: (i) its hits are the
+register's INPUT SET, not the register — killed-claims-register headers ("uncitable; refutations
+travel with the ids") match the phrasing and are not citation edicts; (ii) **d′.4 (COPY-SEAT) does
+not appear in it at all** — it is a sizing-ORDER rider, not a citation bar, and stays registered on
+the pass-1 check's authority under its own heading. The enumeration is of the register, not of the
+grep.*
 1. **E1-R2 (admin skeleton certification)** — ⟨AdminListSkeleton.md · :39⟩ + ⟨AdminFlaggedPanel.md
    · :107/:146⟩: "the E1-R2 certification may not be cited for this component until re-measured."
    Binds every wave touching the admin list surface (X-W7's MT-AU1 packet, X-W8's G-9 census).
+   *DATED CORRECTION (round 2, 2026-08-28 — PASS-2-CHECK MINOR/AXIS 4). The `:39` anchor is WRONG
+   and stands above superseded. `AdminListSkeleton.md:39` carries a DIFFERENT prohibition — "X-W5's
+   shell `role="status"` region (W5:36/:251) is a *route-settlement* node and may never be cited as
+   this cure" — which is the lock this spine already registers separately at **§3 b.4**; the `:39`
+   line is that edict, not this one. `grep -n 'E1-R2' AdminListSkeleton.md` → `:15 :21 :46 :47 :82`
+   — **never `:39`**. The E1-R2 prohibition lives at two lines in that record, both re-read
+   verbatim by this seat:*
+   - ⟨AdminListSkeleton.md · **:47**⟩ — *"…UNPROVEN-NEEDS-LIVE (residue #1) — the E1-R2
+     certification may NOT be cited for this component until re-measured."*
+   - ⟨AdminListSkeleton.md · **:82**⟩ — *"The E1-R2 ΔL certification does not currently apply to
+     this component; live measurement required before it is ever cited again."*
+
+   *⟨AdminFlaggedPanel.md · :107⟩ and ⟨AdminFlaggedPanel.md · :146⟩ both resolve EXACTLY and the
+   quoted edict text is verbatim-correct, so **the edict binds unchanged** — one of three line
+   pointers was wrong, not the edict, and nothing downstream of it moves. Read the anchor list as
+   ⟨AdminListSkeleton.md · :47/:82⟩ + ⟨AdminFlaggedPanel.md · :107/:146⟩. The other three edicts in
+   this register verify exactly and are untouched: DVS-38 @ `shell-dock-dockviewselect.md:93`,
+   ONE-AXIS @ `GradientStopEditor.md:120`, COPY-SEAT @ `PaletteCardSwatches.md:24`.*
 2. **DVS-38 (the latch's mechanism)** — ⟨shell-dock-dockviewselect.md · DVS-38, :93⟩: "may not be
    cited as the latch's mechanism by any close." Binds X-W4/X-W8's dock seats.
 3. **ONE-AXIS (the by-construction comment)** — ⟨GradientStopEditor.md · :120⟩: "the :8-13 'share
@@ -421,6 +608,34 @@ from the fold layer entirely; registered here so no close cites what the corpus 
 4. **COPY-SEAT (sizing order rider)** — ⟨PaletteCardSwatches.md · :24⟩: "the successor must size
    the copy seat BEFORE or WITH the swatch-activation cure." Binds X-W7.c. NAMESPACE GUARD: this
    record's PS-7/PS-2 collide with PreviewStrip's — cite ⟨PaletteCardSwatches.md · id⟩ only.
+5. **SAFARI-EVIDENCE (evidence-provenance bar; registered round 2, 2026-08-28 — the round-2
+   check's find)** — ⟨ColorPicker.md · :164⟩: *"**C-19 attribution** only from the production-build
+   capture named in the bank; the dev-server witness is structurally blind (L-12); the `safari-*`
+   shot directories are playwright-webkit and may not be cited as Safari-app evidence (I-20)."*
+   Absent from the fold layer by bytes — `grep -rn 'Safari-app evidence\|playwright-webkit and may
+   not' docs/tranches/X/refinement/ docs/tranches/X/REFINEMENT-FOLD-2026-08-28.md`, measured before
+   this entry was written: **zero registrations** across the twelve folds, this spine and
+   `ROUND-1-ASSIGNMENTS.md`; the only hits are the round-2 check return and the round-2 work order
+   — i.e. the finding itself, not a carriage. **BINDING NOTE (stated, not re-homed):** this is an
+   **evidence-provenance** bar, not a wave-binding edict — it **binds no X wave's cure; it binds
+   every seat that cites a `safari-*` capture, X or SS-8** — and its natural consumer is **SS-8's
+   real-Safari matrix** (§4), not an X wave. The register's coverage of **wave-binding** edicts is
+   otherwise intact, and the sweep's own carried counter-example proves it rather than asserting
+   it: ⟨AboutPane.md · AB-20 (:72)⟩'s polite-region prohibition **is** carried, at
+   ⟨X-W5-FOLD.md:74 · W5F-27⟩ with *"≡ `AdminListSkeleton` (LOCK source)"*.
+6. **DOCK-BANNER (claim bar; this seat's own find under the same sweep, round 2, 2026-08-28 —
+   supplement `ˢ`)** — ⟨Dock.md · :145⟩: *"**The r1 challenge file's Pass-2 banner (C-15..C-22) —
+   UNCITABLE** until recovered (C-30, L-13): the body is absent from the committed file; the root
+   attempts journal recovery before any re-run; no close may cite C-15..C-22."* `grep -rn
+   'C-15\.\.C-22\|Pass-2 banner\|r1 banner' docs/tranches/X/refinement/
+   docs/tranches/X/REFINEMENT-FOLD-2026-08-28.md` → **zero hits outside the round-2 work order**,
+   measured before this entry was written. Unlike d′.5 this one **DOES bind waves** — X-W8
+   (MT-DOCK-LAYERS-1) and the X-W4/X-W5 dock seats all cite ⟨Dock.md⟩ rows — so it is a genuine
+   wave-binding edict the round-1 register missed, recovered by the same sweep that recovered
+   d′.5. Assigned to no wave, because a citation bar is not a cure: registered at the spine,
+   binding every seat that would cite ⟨Dock.md · C-15..C-22⟩ until the body is recovered.
+
+**e. The escalation slate for the X-W0 sitting (all recorded, none elected by any fold):**
 bindPane (W5 §5 vs Dock R-8) BEFORE W5 opens · CE-8: CC-105 four-file cluster vs the CSP G-PAINT
 single cut (two live registers, one identity, opposite verdicts) · `src/color/model.ts` double-bar
 (§2 e.20) · the config-parity ownership dissent (W9.19: PC-17's X-W9 vs ES-18/EB-15/GV-9's
@@ -491,6 +706,14 @@ adopted stays adopted, hypothesis stays hypothesis — never upgraded by transcr
 5. **E-3 verification**: `git diff --stat HEAD -- docs/tranches/X/waves/` must print nothing,
    today and at every future fold pass. The dated specs and `CONFORMANCE-2026-08-03.md` are
    byte-untouched by this layer; this spine is the fold's final write.
+6. **Method laws live where they bind** *(appended round 2, 2026-08-28)*. The **CENSUS METHOD
+   LAW** — the `X[-·.]W\d` token predicate that BOOKS a row in any phrasing, the retired
+   30-character proximity heuristic, the closed token alphabet, the mandatory `(\d+)` boundary,
+   NWO-and-routed as limbs rather than partitions, count-follows-predicate, and the row predicate
+   left open for round 3 — was proposed for THIS section by `refinement/ROUND-2-ASSIGNMENTS.md`
+   §D and is registered **once**, at **§1.L**, beside the ROW-CARRIAGE LAW it completes. This
+   clause is a POINTER, not a second booking (clause 1). Reading order is unchanged by it: spec →
+   fold → spine; the law binds the *census* every one of those three runs, not their bounds.
 
 ---
 
@@ -736,10 +959,87 @@ never a re-book). No in-equals-out identity is asserted; the twelve folds' arith
 remain the sole row authority (§5.1), and the round-2 check re-derives this Σ from their bytes,
 one file at a time.
 
+*DATED CORRECTION (round 2, 2026-08-28 — PASS-2-CHECK MINOR/AXIS 3-5: the EXTERNAL receipt in the
+sentence above over-counts by one wave and contradicts a fold's own bytes). **8 EXTERNAL bookings,
+not 9** — `W2` is struck from the wave list. ⟨X-W2-FOLD.md:939-943⟩ declares the opposite in its
+own bytes: "### 7.3 The I-28 external — zero X-EXT rows route here" … "**None routes to X-W2**, and
+this seat mints no X-EXT identity (those six are the spine's; anti-rename binds both ways)." The
+contradiction is closed **by pointer**, not by silent renumbering; the nine-wave sentence stands
+above, legible, as round 1's dated reading. The true booking set, id-for-id, each anchor re-read at
+the owning fold's bytes by this seat:*
+
+| wave | identity | anchor (verified at the fold's bytes) |
+|---|---|---|
+| W0 | X-EXT-6 | **W0.26** — the repin's own install step (X-W0.j) — ⟨X-W0-FOLD.md:930; :1116 "Plus 1 EXTERNAL"⟩ |
+| W1 | X-EXT-5 | **R55** — ⟨X-W1-FOLD.md:1168; :1338 "external rows 0 → **1**"⟩ |
+| W4 | X-EXT-4 | **W4·173** — ⟨X-W4-FOLD.md:549; :435 "I-28 EXTERNAL rows owned by X-W4" = **1**⟩ |
+| W6 | X-EXT-3 | **W6·508** — ⟨X-W6-FOLD.md:1216⟩ |
+| W7 | X-EXT-1 | **W7.X1**, the recipe home — ⟨X-W7-FOLD.md:1530⟩ |
+| W8 | X-EXT-2 | **W8.69**, the demo/ui barrel surface — ⟨X-W8-FOLD.md:1555⟩ |
+| W9 | X-EXT-6 (**pointer**; ownership stays X-W0) | **W9.46** — ⟨X-W9-FOLD.md:1137, :1156⟩ |
+| W11 | X-EXT-5 (**stamp-side limb**) | **§6.4** — ⟨X-W11-FOLD.md:642; :1003 "EXTERNAL carriages 0 → **1**"⟩ |
+
+*X-W3 is likewise not a booking and never was on the list — ⟨X-W3-FOLD.md:1034⟩ prints
+"**`externalAdded = 0`, measured, not assumed**"; X-W5 and X-W10 carry zero `X-EXT` bytes. The
+dedupe rule the superseded sentence states is unchanged and is what makes 8 the right count: a
+shared identity's second booking is a POINTER at the sharing fold (W9's X-EXT-6, W11's X-EXT-5),
+never a re-book. Everything else on axis 3 holds whole and is recorded as holding: all six families
+present with real mail provenance, routed to real waves, mirrored id-for-id at
+`ROUND-1-ASSIGNMENTS` §C, and `grep -rl 'X-EXT' docs/tranches/V/megatranche/registry/adjudicated/`
+→ **0** (zero registry-id contamination, re-measured this seat).*
+
 **Posture unchanged:** status `planned` everywhere; ADJUDICATED, never upgraded; zero product
 source opened by this round's two writes (this file + `refinement/ROUND-1-ASSIGNMENTS.md`); the
 dated specs and `CONFORMANCE-2026-08-03.md` byte-untouched (E-3); the owner's begin-word remains
 the only execution key.
+
+## §ROUND-2 — the fold-round-2 note (dated 2026-08-28, spine repair seat)
+
+**Verdict repaired against:** `refinement/PASS-2-CHECK-RETURN.json` (NON-CONFORMANT — 1 BLOCKER ·
+2 MAJOR · 5 MINOR · 1 INFO). Work order: `refinement/ROUND-2-ASSIGNMENTS.md`, which addresses §B.1,
+§C.1, §C.2, §C.3, §C.5 and §D to this seat. **This file is this seat's only write.**
+
+**What moved at this seat, cure by cure.** (1) **§B.1 — the destroyed `e.` header of §3 is
+RESTORED** at the true coordinates, from the pass-1 bytes recovered at `f6842ef3:351`, verbatim, with no
+re-wording and no renumbering: `d′` keeps its position and its number, the twelve slate items keep
+their bytes and their order, and the three live pointers (§5.2 · R.1 · R.2 gate 9) resolve without
+edit now that the header line exists. **Both survive**: the round-1 `d′` addendum and the pass-1
+`e.` slate. (2) **§C.1** — d′.1's `:39` anchor is corrected at the sentence to ⟨AdminListSkeleton
+.md · :47/:82⟩, the two lines that actually carry the E1-R2 prohibition, with the `:39` line
+cross-referenced to §3 b.4 where it belongs; the edict itself binds unchanged. (3) **§C.2** — the
+delegation note gains the **re-runnable command** it never had, its base restated as measured
+(**47/29**; 66/33 kept legible and labelled inherited), the widened net explicitly **not elected**
+with all three seats' divergent figures recorded, and the walk re-derived as **47 = 22 + 25** with
+its shape intact. (4) **§C.3** — the EXTERNAL receipt is corrected at the sentence to **8
+bookings**, `W2` struck against ⟨X-W2-FOLD.md:939-943⟩'s own bytes, with the true set tabled
+id-for-id and every anchor re-read at its owning fold. (5) **§C.5** — d′'s framing moves from
+assertion ("the four") to **enumeration closed by a printed corpus sweep**, and the register gains
+two entries: **d′.5** (SAFARI-EVIDENCE, ⟨ColorPicker.md · :164⟩ — binds no X wave's cure, binds
+every seat citing a `safari-*` capture, X or SS-8) and **d′.6** (DOCK-BANNER, ⟨Dock.md · :145⟩ —
+this seat's own find, and unlike d′.5 it **does** bind waves). (6) **§D** — the **CENSUS METHOD LAW** is
+adopted verbatim as **§1.L**, beside the ROW-CARRIAGE LAW it completes, with **§5.6** pointing to
+it so its proposed home resolves without a second registration; every figure in it was re-measured
+at adoption per its own clause 6, and the two divergences found (a 5-row row-regex gap; the
+single-digit boundary's 137-row under-count) are recorded, not reconciled. (7) The **ERRATUM R1-A-1
+pointer** (`L-R6` → **`L-R6-4`**) is registered at §1 beside the roster it corrects; the round-1
+work order's bytes stand (E-3).
+
+**What this seat did NOT do, stated so round 3 does not read silence as closure.** The BLOCKER's
+**84 escaped ⟨record·id⟩ across 27 records** are not folded here and are not this file's to fold:
+they are enumerated, homed and quoted at `ROUND-2-ASSIGNMENTS.md` §A and belong to the eight named
+wave seats, adopted by dated fold addendum with `≡`-pointers where an identity is already carried.
+**§B.2** (X-W4-FOLD §6E's non-reproducing `282`) is the **X-W4 seat's** cure, inside that fold.
+**§0's and §ROUND-1's walk figures are untouched: 1,674 stands as the dated round-1 figure until a
+recheck re-walks it from the twelve folds' own bytes** — this seat re-measured no wave's rows and
+claims no new Σ. **No closure is claimed here in this seat's own voice**: the census state of the
+layer is what ⟨`refinement/PASS-2-CHECK-RETURN.json`⟩ records, and the next check re-derives it.
+
+**Posture unchanged:** status `planned` everywhere; dispositions **ADJUDICATED**, never upgraded;
+zero product source opened by this round's writes; `docs/tranches/X/waves/W0.md..W11.md`,
+`waves/CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` byte-untouched (E-3);
+every banked id is the original id for life; the owner's begin-word remains the only execution key.
+
+---
 
 — end of spine. The twelve per-wave folds stand beside this file as the row authority; the dated
 specs stand beneath both, immutable, per E-3.

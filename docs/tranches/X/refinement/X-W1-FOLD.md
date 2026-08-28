@@ -1349,3 +1349,83 @@ IMPLEMENTED **NO** · VERIFIED **NO**. X.W1 remains **planned**. This section op
 source, ran no gate, stamped no wave, and wrote no byte outside this file. Every gate it adds or
 sharpens is **born-RED with a named, re-measured witness**; the one scheduled-RED gate (NG-16) is
 labelled scheduled, never claimed as RED today.
+
+---
+
+## 7. FOLD ROUND 2 — dated addendum (2026-08-28): zero rows homed, and the census law this fold already satisfied
+
+**What this section is.** This seat's answer to `refinement/ROUND-2-ASSIGNMENTS.md`, written against
+`refinement/PASS-2-CHECK-RETURN.json` (NON-CONFORMANT: 1 BLOCKER · 2 MAJOR · 5 MINOR · 1 INFO).
+**The work order homes ZERO of its 84 escaped ⟨record·id⟩ at X-W1** — §A's own table routes them to
+`X-W4` (18) · `X-W5` (5) · `X-W6` (3) · `X-W7` (41) · `X-W8` (9) · `X-W10` (5) · `X-W11` (1) ·
+`X-W0`'s G-F register (2), and **X-W1 appears in no §A group, no §B cure and no §C cure**. A zero is
+not a closure, so this section records **what was re-measured to earn it** rather than reporting a
+silence. **No row is added; no id is minted; nothing is renamed.**
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED — *"no gate has
+run"* (§2's own line) is as true after this round as before it. No product source opened. **E-3**:
+`waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md` and every
+`registry/adjudicated/**` record stay byte-untouched; this file is this seat's sole write.
+
+### 7.1 §D's CENSUS METHOD LAW measured against this fold's own census (§6.0)
+
+The BLOCKER's root cause is **method**: X-W7-FOLD §R1's *"wave token within 30 characters after a
+routing marker"* heuristic, and every derivative of it, is blind to rows routed by bare declarative
+phrasing. §D retires it. **This fold's §6.0 census does not carry the heuristic** — checked clause by
+clause, not asserted:
+
+| §D clause | what it requires | this fold's §6.0, as printed | verdict |
+|---|---|---|---|
+| **1. THE PREDICATE** | a row line carrying an `X[-·.]W\d` token books the row, **any phrasing, any position** | C-2/C-3 count **every** bold-leading row line carrying the token; the **101** denominator is token-only | **CONFORMANT** |
+| **2. THE RETIRED HEURISTIC** | no proximity/marker-verb **filter** | §6.0 records *"of the 101, **62** carry an explicit routing verb … and **39** carry the `X-W1` token without one"* — **an observation about phrasing, never a filter**; the denominator stayed 101 | **CONFORMANT** — and the 39 are exactly the population the heuristic hides elsewhere |
+| **3. TOKEN ALPHABET** | hyphen and dotted only, **re-measured** | §6.0 counts en-dash, `·` and dotted (`X.W1.b`) forms; re-measured at HEAD, dash forms in the corpus = **0**, so the class is exactly `X[-·.]W\d` | **CONFORMANT** (superset, and the surplus is empty by measurement) |
+| **4. THE BOUNDARY** | `X-W1` must not swallow `X-W10`/`X-W11` | *"`X-W1` is matched with a trailing non-digit guard, so **`X-W10`/`X-W11` never prefix-match**"* — the §0 header's own 14-file trap | **CONFORMANT** |
+| **5. NWO AND ROUTED ARE LIMBS** | a dual-limb row folds **once, both limbs** | §6.0 folded ⟨wb-extract-imagedropzone · R-21⟩ — *"`NO-WAVE-OWNER` on its own row line"* — at **R54**, as one row | **CONFORMANT** |
+| **6. COUNT FOLLOWS PREDICATE** | every printed figure carries the command that produces it, reproducing at HEAD | see §7.2 | **CONFORMANT, re-verified** |
+| **7. ROW PREDICATE OPEN** | no per-wave **total** is authoritative until round 3 elects a row regex | recorded: §6.0's `101` reproduces under **both** its own regex and §D's, so this fold's figure does not depend on the open question | **noted** |
+
+### 7.2 §B.2's defect class — measured absent from this fold
+
+The MAJOR at §B.2 is a fold printing a *"Re-runnable in one line"* census that **does not reproduce its
+own printed output** (`X-W4-FOLD` §6E: printed **282**, returns **257**, law-true **305**). That cure
+is X-W4's. **This seat re-ran its own printed commands read-only at HEAD, 2026-08-28:**
+
+```
+# §6.0 C-1 — the corpus band
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l    # -> 92
+# §6.0 C-2/C-3 under §D's law-true predicate — records and row lines
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W1([^0-9]|$)'                     # -> 101
+```
+
+**`92` and `101` both reproduce**, and `101` matches §D's law-true table for X-W1 **exactly** (101 rows
+across **54** records — the same 54 §6.0 printed). **The `X-W1` figure is therefore not one of the
+figures §D clause 6 strikes**, and §B.2's cure has no site in this file.
+
+### 7.3 §C.3 — the EXTERNAL receipt, corrected upstream; this fold's booking is unaffected
+
+The spine's `§ROUND-1` receipt reports *"**9 EXTERNAL bookings** … (W0 · W1 · **W2** · W4 · W6 · W7 ·
+W8 · W9 · W11)"* and is contradicted in bytes by `X-W2-FOLD.md:939-943` (*"### 7.3 The I-28 external —
+zero X-EXT rows route here … **None routes to X-W2**"*). The corrected figure is **8**, with `W2`
+struck. **This fold's row is one of the 8 and is unchanged**: **W1 · ⟨INBOX I-28 · X-EXT-5⟩ · R55** —
+the o7 card census going born-RED at the glass 8.0.0 repin. Recorded here as a pointer only; **the
+correction's site is the spine and the write is the spine seat's** (E-3 — no second hand on another
+seat's bytes). R55's own sequencing is unchanged and restated because it is the part a corrected count
+must not blur: **X-EXT-5 goes LIVE AT THE REPIN, not before**, the repin act is **X-W0.j's**, and its
+census PASS branch is unexecutable without X-EXT-6's peer install.
+
+### 7.4 Arithmetic — unchanged, and stated so the silence is countable
+
+| unit | round 1 | **round 2** | delta |
+|---|---|---|---|
+| §Rows | 56 (R1–R56) | **56** | **0** — §A homes zero rows here |
+| §Gates | 31 | **31** | 0 — **no gate minted, none re-staged, none re-weighted** |
+| §BoundsDelta | 37 | **37** | 0 |
+| §CrossEdges | 14 | **14** | 0 |
+| EXTERNAL rows | 1 (R55, ⟨INBOX I-28 · X-EXT-5⟩) | **1** | 0 — see §7.3 |
+| census denominator | 101 row lines / 54 records | **unchanged, re-verified** | reproduces at HEAD under §D's predicate |
+
+**Assignment coverage: §A 0/0 · §B 0/0 · §C 0/0**, with the zero **earned by re-measurement** (§7.1,
+§7.2) rather than inherited from the roster. Numbering stays gapless and contiguous **R1 … R56**; zero
+ids minted, zero renamed; `L-R6`/`L-R6-4` (§C.4's erratum) is cited nowhere in this file (grep → 0), so
+that cure has no site here. Status remains **planned**; no product source was opened by this round.

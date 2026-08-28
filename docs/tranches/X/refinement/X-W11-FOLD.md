@@ -1020,3 +1020,104 @@ one bounds addition is `execute, no write` on a spec X-W1 owns; `waves/W0.md..W1
 
 — end of fold. The three source apotheoses, their challenge corpora and their re-reader returns
 remain immutable beside this file per E-1/E-3.
+
+---
+
+## 7. Fold round 2 — the one homed row, and a dated correction to §6.1 (2026-08-28)
+
+**What this section is.** This seat's consumption of `refinement/ROUND-2-ASSIGNMENTS.md` **§A.7** —
+**one ⟨record·id⟩ homed here**, ⟨PaletteColorStrip.md · **D9**⟩, from the pass-2 BLOCKER's id-keyed
+census (`refinement/PASS-2-CHECK-RETURN.json`: 84 escapes / 27 records, absent from the whole fold
+layer by bytes). Posture unchanged: status **planned**, disposition **ADJUDICATED** (never VERIFIED —
+no gate has run and this seat ran no probe), no product source opened, `waves/W0.md..W11.md`,
+`CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md` and every `registry/adjudicated/**` record
+byte-untouched (E-1/E-3). This file is this seat's sole write.
+
+### 7.1 Dated correction to §6.1 — never silent
+
+§6.1 claim **2** reads *"**NO-WAVE-OWNER escapes routed to X-W11: ZERO.**"* That was a **true reading
+of round 1's roster** (`ROUND-1-ASSIGNMENTS` §A homed its 73 NWO identities at W7/W4/W6/W5/W8/W10 and
+the G-F register, none at W11) and it stands as the round-1 record. **It is superseded for round 2**:
+the pass-2 census re-derived the NWO axis over the whole 92-record corpus and homes **exactly one** of
+its 46 NWO escapes here — ⟨PaletteColorStrip.md · D9⟩ — **not by a wave token** (§6.1 claim 1's token
+result is unchanged and re-verified: the token test still returns **4 lines**, of which exactly **1**
+is a bold-leading row line, matching §D's law-true table `X-W11 = 1`) but by **this fold's own §1z
+partition**: `PaletteColorStrip.md` is one of X-W11's three assigned records, so its rows are this
+seat's to carry. **Claim 1 holds; claim 2 is amended by enumeration, dated here.**
+
+**Re-runnable at HEAD** (§D clause 6 — the count follows the predicate, and the predicate is printed):
+
+```
+# corpus (92) → X-W11-routed row lines (1)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W11([^0-9]|$)'
+```
+
+Both reproduce (`92`, `1`), measured read-only 2026-08-28. **§B.2's non-reproducing-census defect
+class is absent from this fold** — the figures this file prints are the figures its printed method
+returns; the struck `282` lives at `X-W4-FOLD.md` §6E and is that seat's cure.
+
+### 7.2 §A.7 — the row (W11.26)
+
+**W11.26 · ⟨PaletteColorStrip.md · D9⟩ — the physical→logical conversion law, booked under its own id;
+`≡ PCS-31`, already this fold's** (cl.2 · INFO · **`≡`-pointer booking — no second booking, no new
+id**)
+*Row verbatim* (`PaletteColorStrip.md:25`): *"| **D9** | provenance limb KILLED (cites the dead
+`export/` module); substance INFO on the live export.ts path | UNPROVEN + demoted: `index.html`
+hard-pins `dir="ltr"` as deliberate booked readiness | **BOTH adopted, merged** | My read of
+demo/color-picker/index.html:1-11: `dir="ltr"` pinned with the U-F58 comment naming per-component
+physical→logical conversions as BOOKED follow-ups
+(`docs/tranches/U/audit/w-a11y/rtl-logical-property-audit.md`). The mechanism (bare flex row reverses
+under rtl; export emits ascending-index) is sound and the provenance limb is killed (K-8); no direction
+switch exists → PCS-31, INFO, NO-WAVE-OWNER on the booked RTL ledger. |"*
+
+- **Why a row and not a silent skip.** The consumption rule is explicit: *where a roster id is a facet
+  of an already-folded identity the cure is an explicit `≡`-pointer row, never a silent skip, so the
+  byte census closes.* `D9` boundary-matched **nowhere** in the twelve folds or the spine; `PCS-31`
+  **is** already this fold's (§1z, `:775`). This row closes the census on `D9` and **mints nothing**.
+- **The kill rides with it (K-8), carried so no close re-files it.** The **provenance limb is KILLED**
+  — it cites the dead `export/` module — while the **substance stands on the live `export.ts` path**.
+  A reader who meets D9 without the kill re-opens a dead-module claim.
+- **The demotion rides with it.** *"UNPROVEN + demoted"*: `index.html` hard-pins `dir="ltr"` as
+  **deliberate booked readiness**, so no direction switch exists to exercise the defect. This is why
+  the grade is INFO, and why **a green here is a green over an unexercised path** — stated so no
+  stamp-side reading mistakes absence of symptom for cure.
+- **STATED DIVERGENCE, not reconciled** (the §1z cell vs the source row): §1z books
+  `| PCS-31 | INFO | **BOUND** (rides the U-tranche RTL logical-property ledger) |`, while D9's own
+  terminal reads *"PCS-31, INFO, **NO-WAVE-OWNER** on the booked RTL ledger"*. **Both readings are
+  carried, neither is silently elected**; they agree on grade (INFO) and on ledger (the U-tranche RTL
+  audit) and differ on whether the ledger membership is a BOUND carriage or an NWO limb. This fold
+  does not rule it — a stamp wave may not re-grade another seat's disposition — and it is recorded
+  here so round 3 reads a divergence rather than re-deriving one. **The 34 (+1 conditional)
+  NO-WAVE-OWNER limb count is left UNMOVED** on that account, and the reason is stated rather than
+  assumed.
+- **Cross-edge (stated, not a re-booking).** The row's substance — physical→logical conversion — is the
+  **constitution conformance pass** that owns ⟨shell-dock-profilesection · D-14⟩ at **X-W10**
+  (`X-W10-FOLD` §7.2, X-W10.106; `VISUAL-CONSTITUTION.md:154` legislates the isolated span). **W11
+  books D9 under its own id and `≡`-points the law to X-W10**; X-W10 books the law limb and points
+  back (its edge 18). One law, two ledgers, two ids, no double booking.
+- **Nothing is stamped.** This row adds **no gate**, **no bounds entry** and **no cure**: X-W11 executes
+  and stamps, it does not author, and the RTL ledger is a U-tranche booking neither this wave nor X-W10
+  may discharge by assertion.
+⟨PaletteColorStrip.md · D9 (:25)⟩ ≡ ⟨PaletteColorStrip.md · PCS-31⟩ (§1z, :775) · cross-edge → X-W10.106 ⟨shell-dock-profilesection.md · D-14⟩ · kill carried: K-8 (provenance limb)
+
+### 7.3 Round-2 delta — countable
+
+| quantity | after round 1 | **after round 2** | delta |
+|---|---|---|---|
+| FOLDED rows (§1) | 25 | **26** (W11.26) | +1 — the §A.7 row, gapless and contiguous `W11.1..W11.26` |
+| GATE rows (§2a+§2b+§2c) | 17 (+4 amendments) | **17 (+4)** | **0 — no gate minted, none amended this round** |
+| BOUNDS-DELTA entries (§3) | 8 | **8** | 0 — W11.26 opens no file |
+| census rows (§1z + §1z-b) | 97 | **97** | 0 — `PCS-31` is already census row-for-row in §1z; `D9` is a merged-verdict id, not a fourth roster |
+| NO-WAVE-OWNER limbs | 34 (+1 cond.) | **34 (+1 cond.)** | 0 — **and the reason is the stated §1z-vs-source divergence above, recorded not reconciled** |
+| OUT-OF-WAVE | 51 | **51** | 0 |
+| EXTERNAL carriages | 1 | **1** | 0 — ⟨INBOX I-28 · X-EXT-5⟩ (W11.25) unchanged. **Round-2 §C.3 cross-reference**: the spine's *"9 EXTERNAL bookings"* is corrected to **8** (W2 struck, per `X-W2-FOLD.md:939-943`); **W11's booking is one of the 8 and is unaffected** — the correction is the spine seat's write, cited here so this fold's figure is not read as contradicting it |
+| new ids minted | 0 | **0** | anti-rename holds — `D9` is the record's original id, for life |
+
+**Assignment coverage: §A.7 1/1 id-for-id.** Nothing else in `ROUND-2-ASSIGNMENTS` is addressed to
+this seat: §A homes its other 83 rows at W4/W5/W6/W7/W8/W10 and the G-F register; §B.1/§B.2 are the
+spine's and X-W4's; §C.1–§C.3 and §C.5 are the spine's; §C.4's erratum (`L-R6` → **`L-R6-4`**) is
+X-W6's row (`X-W6-FOLD.md:1190`, W6·499) and is registered at the G-F register (`X-W0-FOLD` §7.4) —
+**no row of this fold cites `L-R6` in either spelling** (grep: 0), so nothing here needs the cure.
+Status **planned**; no product source opened; `X-W11-FOLD.md` remains this seat's sole write.

@@ -1069,3 +1069,149 @@ The 21 pass-1 rows are byte-unchanged; the one round-1 row is appended, not merg
 above supersedes §1's and §6's counts by dated correction and never by rewrite.
 
 — end of X-W2 fold (round-1 repaired).
+
+---
+
+## 8. ROUND-2 REPAIR ADDENDUM — the nil return, its receipt, and the census method law
+
+**Dated 2026-08-28. Seat: X-W2 fold repair seat, X·V fold round 2.** Inputs read whole:
+`refinement/ROUND-2-ASSIGNMENTS.md` (the assignment seat's work order) and
+`refinement/PASS-2-CHECK-RETURN.json` (the pass-2 register, verdict **NON-CONFORMANT**: 1 BLOCKER ·
+2 MAJOR · 5 MINOR · 1 INFO). Sole write: this file. `docs/tranches/X/waves/W0.md..W11.md`,
+`docs/tranches/X/waves/CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` remain
+**byte-untouched** (E-3). Nothing below re-stages a W2 gate, mints a row, or opens product source.
+
+### 8.0 The work order again carries ZERO rows to this seat — stated as a RESULT, with the receipt
+
+`ROUND-2-ASSIGNMENTS.md` §A homes the pass-2 BLOCKER's **84 escaped ⟨record·id⟩ across 27 records**
+to eight destinations, and prints its own arithmetic: **18 + 5 + 3 + 41 + 9 + 5 + 1 + 2 = 84 = 38
+routed + 46 NWO**, distributed `X-W4` 18 · `X-W5` 5 · `X-W6` 3 · `X-W7` 41 · `X-W8` 9 · `X-W10` 5 ·
+`X-W11` 1 · `X-W0` (G-F register) 2. **`X-W2-FOLD.md` appears in no row of that table**, in no row of
+§B, and in no row of §C — with **one** exception that is a citation *of* this fold rather than an
+assignment *to* it (§8.2).
+
+That absence is consistent with the pass-2 register's own bytes: the BLOCKER's two enumerated escape
+sets (38 routed / 46 NWO) name **twenty-seven records**, and **none** of them is one of the seven this
+fold's §7.1 census proved to be the whole X-W2 corpus surface. **Four seats are again absent from the
+roster** (X-W2, X-W3, X-W9, X-W11); this seat speaks only for its own.
+
+### 8.1 The CENSUS METHOD LAW adopted, and this seat's re-derivation under it
+
+`ROUND-2-ASSIGNMENTS.md` §D writes the law; this fold adopts it and re-measures itself against it.
+
+**1. What the law strikes here — nothing, and the reason is worth stating.** §D clause 2 retires the
+*"wave token within 30 characters after a routing marker"* heuristic and every derivative of it. **This
+fold never carried it**: §7.1's census matched a token predicate alone (a deliberately WIDER
+`X\s*[^A-Za-z0-9\s]{0,3}\s*W\s*2(?![0-9])`) and classified row-vs-non-row **by reading each of the 31
+sites**, not by a marker-verb grep. Recorded because §D clause 2 declares any fold still carrying the
+heuristic **NON-CONFORMANT on its face**, and this seat's conformance on that clause should be
+falsifiable rather than assumed. The test, scoped to the bytes that predate this section (`§8` quotes
+the retired rule in order to strike it, so an unscoped grep would match this very paragraph):
+`sed -n '1,1071p' X-W2-FOLD.md | grep -nEc 'routing marker|within 30|30-char'` → **0**; the two hits
+in the whole file today are both inside this clause.
+
+**2. Where the law corrects this fold: the dash-variant padding.** §7.1 justified its wider token
+class as catching *"the en-dash, em-dash, spaced, dotted, underscored and slashed forms the citation
+law admits"*. Measured read-only at HEAD over the 92-record corpus, **no such form exists**:
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l     → 0
+```
+
+§7.1 itself reported the same result in prose (*"no en-dash, dotted, spaced or slashed X-W2 form
+exists in the corpus outside these seven files"*) — so the finding stands and only its **framing** is
+corrected: a sweep that adds dash variants is **not more careful, it is unfalsifiable padding** (§D
+clause 3). The alphabet is closed at `X-W\d` · `X.W\d` · `X·W\d`; the canonical class is
+**`X[-·.]W\d`** and the trailing boundary `([^0-9]|$)` is **mandatory** — without it `X-W2` would
+swallow a future `X-W20`/`X-W21` and this fold's census would silently over-count (§D clause 4).
+
+**3. The law-true X-W2 figure, printed so §D clause 6 has a baseline to re-derive against.** Row
+regex stated inline per §D clause 7:
+
+```
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W2([^0-9]|$)'        → 11
+… | cut -d: -f1 | sort -u | wc -l                                                → 6
+```
+
+**11 bold-leading rows across 6 records** — `ErrorBoundary.md:83` ⟨K-1⟩ · `Katex.md:55` ⟨R14⟩ ·
+`picker-heroblob.md:28` ⟨L-1 severity⟩ · `picker-heroblob.md:37` ⟨L-15 / C-4 severity⟩ ·
+`picker-spectrumcanvas.md:42` ⟨C-16⟩ · `shell-paneslot.md:36` ⟨L-1 / PS-2 / D-5⟩ · `shell-paneslot.md:50`
+⟨NEW · reader-DU missed find 1⟩ · `:51` ⟨NEW · find 2⟩ · `:65` ⟨NEW · find 7⟩ · `:74` ⟨NEW · find 9⟩ ·
+`wb-extract-pane.md:83` ⟨K-5⟩. **This is a different measure from §7.1's 31 mention-sites / 21
+row-bearing sites and does not supersede it**: §7.1 counted *lines that mention X-W2 anywhere in the
+seven records*; this counts *bold-leading rows* under §D's row regex. Both are printed with their
+predicates, per clause 6, and **per clause 7 neither is authoritative as a per-wave total** until
+round 3 elects one row regex.
+
+**4. This seat's presence test over the 11, and what it is worth.** Each of the 11 was tested for
+byte presence against the concatenated fold layer (12 `X-W*-FOLD.md` + `ROUND-1-ASSIGNMENTS.md`);
+all 11 resolve. **The test is a bare-id test and this seat says so**: it is weaker than the fold
+citation law ⟨record.md · id⟩, exactly the looseness §6.0 n.2 of ⟨X-W4-FOLD⟩ recorded, and it is
+offered as **evidence about coverage, never as proof of it** (§8.3).
+
+### 8.2 The one place the pass-2 register names this fold — a citation, not an assignment
+
+`ROUND-2-ASSIGNMENTS.md` §C.3 cures the spine's `§ROUND-1` EXTERNAL receipt, which reported *"**9**
+EXTERNAL bookings … (W0 · W1 · **W2** · W4 · W6 · W7 · W8 · W9 · W11)"*. The cure restates it as
+**8**, striking `W2` from the wave list **on the authority of this fold's own bytes** —
+⟨`X-W2-FOLD.md:939-943`⟩: *"### 7.3 The I-28 external — zero X-EXT rows route here"* … *"**None routes
+to X-W2**, and this seat mints no X-EXT identity (those six are the spine's; anti-rename binds both
+ways)."*
+
+**Carried here as a confirmation, with no change to any byte.** §7.3's declaration is re-read at HEAD
+by this seat and stands exactly as written; the spine's correction is the **SPINE seat's** write, not
+this one's, and §C.3 closes the contradiction **by pointer** (`⟨X-W2-FOLD.md:939-943⟩`) rather than by
+renumbering. Two consequences this fold restates so neither is lost:
+
+1. **`XW2-22` is EXTERNAL by provenance and carries no X-EXT identity.** It is ⟨INBOX I-28⟩ mail
+   provenance about the glass-8.0.0 repin invalidating W2's three pinned witnesses — **not** one of
+   the spine's six `X-EXT-1..6`. The corrected count of **8** is unaffected by it, and the row's own
+   §7.3 framing is why: this seat mints no X-EXT identity.
+2. **`grep -rl 'X-EXT' registry/adjudicated/` → 0.** Re-run by the pass-2 check and recorded there as
+   zero registry-id contamination; this fold neither adds to that surface nor depends on it.
+
+### 8.3 No self-voiced closure — the correction this seat owes its own §7.1
+
+§7.1 ends in a **verdict** and §7.2 in a count, both of them this fold's own attestation that its
+census was complete. The pass-2 BLOCKER's finding — 84 escapes across 27 records, seven of them rows
+printing `→ X-W4` **verbatim** inside a record whose fold declared the census closed — falsifies that
+posture as a *class*, not as one seat's error. Accordingly:
+
+1. **No sentence in this file closes the X-W2 census.** §7.1's and §7.2's zero-escape findings are to
+   be read as *"the escapes this seat's sweep found, under the predicate it printed, on its date"* —
+   never as *"the escapes that exist"*.
+2. **Closure is established by the census artifact, not by the fold.** The X-W2 census closes when and
+   only when the round-3 check's census artifact —
+   `docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json`, successor to `PASS-1-CHECK-RETURN.json` and
+   `PASS-2-CHECK-RETURN.json` — re-derives the ⟨record·id⟩ census under §D's predicate against
+   **these bytes** and prints **zero** X-W2 escapes. Until it exists and says so, the honest statement
+   of this fold's position is: **two rounds have found no X-W2 escape; completeness unproven.**
+3. **The predicate is named in advance so the test cannot be moved to fit the answer.** Token class
+   `X[-·.]W\d([^0-9]|$)`; row regex stated inline by whichever regex round 3 elects (§D clause 7);
+   corpus = the **92**; namespace = **⟨record.md · id⟩**, never the bare id. Changing the predicate
+   **obliges** re-deriving every figure downstream of it.
+
+### 8.4 Arithmetic — dated 2026-08-28 (round 2), and it does not move
+
+| quantity | pass-1 | round-1 | **round-2** | delta | what moved |
+|---|---|---|---|---|---|
+| ROWS (§2 + §7.3 + §8) | 21 | 22 | **22** | **0** | §A homes **zero** rows here; `XW2-01`..`XW2-22` remain contiguous and byte-unchanged |
+| — §A routed escapes folded | — | — | **0** | 0 | §8.0: the roster homes none to X-W2 |
+| — §A NWO escapes folded | — | — | **0** | 0 | §8.0 |
+| — external rows added | — | 1 | **1** | 0 | `XW2-22`, unchanged; **no X-EXT identity** (§8.2) |
+| GATE ENTRIES (§3 + §7.5) | 12 | 13 | **13** | 0 | §8 mints and amends none |
+| BOUNDS ENTRIES (§4) | 12 | 12 | **12** | 0 | §8 adds no path |
+| CROSS-EDGES (§5 + CE-10) | 9 | 10 | **10** | 0 | §8 mints none |
+| fold-minted NO-WAVE-OWNER entries | 2 | 2 | **2** | 0 | B6 + B7/B8, unchanged |
+| X-W2 EXTERNAL bookings of the spine's six identities | — | **0** (§7.3) | **0** | 0 | Confirmed at HEAD; the spine's corrected total is **8**, `W2` struck (§8.2 / §C.3) |
+| law-true X-W2-routed rows in the corpus (IN-side receipt) | — | 31 mention-sites / 21 row-bearing / 7 records | **11 rows / 6 records** (row regex `^\s*([-*]\|\|)\s*\*\*`, token class `X[-·.]W2([^0-9]\|$)`) | — | **A different measure, not a supersession** (§8.1 n.3). Not authoritative until round 3 elects a row regex |
+
+**Posture, restated for round 2.** Status `planned`. No product source opened, no wave stamped, no
+gate re-staged or re-weighted, no dated spec byte altered (E-3 holds). Every disposition remains
+**ADJUDICATED, not VERIFIED**. The 22 rows are byte-unchanged; **this round adds none**, and it says so
+as a *result* with its predicate printed rather than as a claim. **This section closes nothing** —
+round 3's census artifact is what may say the X-W2 census is closed (§8.3).
+
+— end of X-W2 fold (round-2 repaired). Round 3 measures against these bytes.

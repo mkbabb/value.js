@@ -1059,3 +1059,160 @@ none is folded into the `F-n` band.
 *Dispositions in this addendum are **ADJUDICATED, not VERIFIED**; nothing here stamps a wave, opens
 product source, or moves X-W3 off `planned`. The thirteen apotheoses, their challenge corpora and
 reader returns, and the dated wave specs remain immutable beside this file per E-1/E-3.*
+
+---
+
+## §R2 — FOLD ROUND 2 ADDENDUM (2026-08-28) · the nil return, the census method law, and the closure correction
+
+**What this section is.** The X-W3 fold-repair seat's round-2 write, consuming
+`refinement/ROUND-2-ASSIGNMENTS.md` (the assignment seat's work order) and
+`refinement/PASS-2-CHECK-RETURN.json` (verdict **NON-CONFORMANT**: 1 BLOCKER · 2 MAJOR · 5 MINOR ·
+1 INFO). It folds **zero** rows — because **zero are homed here** — adopts §D's **CENSUS METHOD LAW**,
+records the two corrections that law makes to §R1.0's own method, and replaces this fold's
+self-voiced completeness with a citation to the round-3 census artifact. Everything below is an
+**addendum**: `waves/W0.md..W11.md`, `waves/CONFORMANCE-2026-08-03.md` and
+`refinement/ROUND-1-ASSIGNMENTS.md` stay byte-untouched (E-3), status stays `planned`, dispositions
+stay **ADJUDICATED, not VERIFIED**, and no product source was opened.
+
+### R2.0 · The nil return, with its receipt
+
+`ROUND-2-ASSIGNMENTS.md` §A distributes the pass-2 BLOCKER's **84 escaped ⟨record·id⟩ across 27
+records** to eight destinations and prints its arithmetic: **18 + 5 + 3 + 41 + 9 + 5 + 1 + 2 = 84 =
+38 routed + 46 NWO**, homed `X-W4` 18 · `X-W5` 5 · `X-W6` 3 · `X-W7` 41 · `X-W8` 9 · `X-W10` 5 ·
+`X-W11` 1 · `X-W0` (G-F register) 2. **`X-W3-FOLD.md` appears in no row of that table, no row of §B,
+and no row of §C.** Four seats are again absent from the roster (X-W2, X-W3, X-W9, X-W11); this seat
+speaks only for its own.
+
+The absence agrees with the pass-2 register's own bytes: the BLOCKER's twenty-seven named records do
+not include a record whose X-W3 identities §R1.0 enumerated, and **no defect in the register names
+this file**. **Stated as a RESULT, not as an omission** — and, per §R2.3, not as a closure either.
+
+### R2.1 · The CENSUS METHOD LAW adopted — what it strikes, and what it vindicates
+
+**1. Struck: the dash-variant padding in §R1.0's token class.** §R1.0 clauses 2 and 6 sweep with
+`X[-–—·.]W3([^0-9]|$)` and §R1's head declares it counts *"hyphen, en-dash and dotted forms"*.
+Measured read-only at HEAD over the 92-record corpus:
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l      → 0
+```
+
+**No en-dash, em-dash or non-breaking-hyphen form exists in the corpus.** The alphabet is closed at
+`X-W\d` · `X.W\d` · `X·W\d`; the canonical class is **`X[-·.]W\d`**, and the trailing boundary
+`([^0-9]|$)` — which §R1.0 already carried, correctly — is **mandatory** (§D clause 4). The dash
+alternates are **unfalsifiable padding**, not extra care (§D clause 3). **No count changes**: the
+sweeps returned the same records with or without them, which is exactly why the padding was invisible.
+Recorded rather than quietly dropped.
+
+**2. Not struck — this fold never carried the retired heuristic.** §D clause 2 retires the *"wave
+token within 30 characters after a routing marker"* rule and declares any fold still carrying it
+**NON-CONFORMANT on its face**. §R1.0's row-level census keyed on the **token alone**, on the row line
+**or in its continuation block**, with no marker-verb conjunct — falsifiable, and scoped to the bytes
+that predate this section (`§R2` quotes the retired rule in order to strike it, so an unscoped grep
+would match this very paragraph): `sed -n '1,1061p' X-W3-FOLD.md | grep -nEc 'routing marker|within 30|30-char'`
+→ **0**. The only `30 chars` string in the round-0/§R1 bytes is `N-5`'s tag-length bound
+(`:675`, *"≤10 × ≤30 chars"*), an unrelated schema fact. Recorded so this fold's conformance on clause
+2 is checkable rather than assumed.
+
+**3. Vindicated, and offered to the law: §R1.0 clause 5.** §D clause 7 declares the **row** predicate
+unsettled. §R1.0 clause 5 is this fold's prior evidence for the sharper form of that problem — the
+**token** predicate can be law-true and still miss a row, because a record may reason about a wave in
+**bare form**: ⟨BrowsePane.md · **B2**⟩ (`:39`) writes *"W3 modifies `crud-list.ts` for
+policy/forkCount only"* with **no `X-` prefix at all**. *"Any census keyed on the string `X-W3` misses
+it by construction. That is how pass 1 missed it, and it is the whole reason §R1 exists."* §D's law
+governs `X[-·.]W\d`; the bare-`W\d` residue is **outside** it, and this seat re-states its own
+mitigation as the standing method: the bare sweep
+`xargs grep -lE '(^|[^0-9A-Za-z])W3([^0-9]|$)'` → **22 records, 9 beyond the thirteen**, eight named
+false positives (`T.W3-4`/`T.W3-5` · `H.W3` · `R.W3` · `K.W3` · `W-GRADSTOP-3` · `DESIGN.md`'s `W3-3`
+· `waves/W3.md` instrument cites) and **one real** (`B2`, folded at `F-25`). **Any seat that runs only
+the token sweep should read this clause before declaring a nil return.**
+
+**4. The law-true X-W3 figure, printed so §D clause 6 has a baseline** (row regex stated inline per
+clause 7):
+
+```
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W3([^0-9]|$)'        → 22
+… | cut -d: -f1 | sort -u | wc -l                                                → 11
+```
+
+**22 bold-leading rows across 11 records** — `AdminAuditPanel:35` ⟨AAP-3⟩ · `:60` ⟨AAP-22⟩ ·
+`AdminFlaggedPanel:37` ⟨AF-1⟩ · `AdminTagsPanel:39` ⟨ATP-3⟩ · `:76` ⟨ATP-34⟩ · `ErrorBoundary:41`
+⟨EB-4⟩ · `:53` ⟨EB-16⟩ · `PaletteCardMeta:23` ⟨R-2⟩ · `:53` ⟨PM-16⟩ · `:69` ⟨C-2⟩ ·
+`PaletteSlugBar:35` ⟨A-3⟩ · `TagEditPopover:40` ⟨TEP-10⟩ · `VersionHistoryDrawer:44` ⟨VHD-4⟩ · `:50`
+⟨VHD-11⟩ · `:59` ⟨VHD-25⟩ · `:68` ⟨VHD-10⟩ · `:69` ⟨VHD-12⟩ · `:75` ⟨VHD-33⟩ · `:76` ⟨VHD-34⟩ ·
+`shell-dock-dockviewselect:40` ⟨DVS-5⟩ · `shell-paneslot:57` ⟨L-7 / PS-8⟩ · `wb-generate-pane:83`
+⟨GEN-33⟩. **This is a narrower measure than §R1.0 clause 3's 25 identities across 11 records and does
+not supersede it**: clause 3 counted the token on the row line **or in its continuation block** and
+added the two record-level-only routings already folded (`F-23`, `F-6`); this counts bold-leading rows
+only. **Both are printed with their predicates (clause 6); neither is authoritative as a per-wave
+total** until round 3 elects one row regex (clause 7). The 11 records here are clause 3's 11.
+
+**5. Presence test over the 22, and what it is worth.** Each of the 22 was tested for byte presence
+against the concatenated fold layer (12 `X-W*-FOLD.md` + `ROUND-1-ASSIGNMENTS.md`); **all 22 resolve**,
+⟨shell-paneslot · PS-8⟩ record-qualified at `F-5` (*"`EB-16` + `PS-8`/`L-7` ≡ CC-037/K-25"*, with that
+record's own `componentFor` text quoted at `:234`). **This is a bare-id test and this seat says so** —
+weaker than §R1.0 clause 4's record-qualified test, and offered as **evidence about coverage, never as
+proof of it** (§R2.3).
+
+### R2.2 · Declared silences for round 2 (so each absence reads as a result)
+
+1. **No row is folded, minted, re-graded, renamed, re-homed or re-numbered.** `F-1..F-27` are
+   byte-untouched. The roster homes zero rows here (§R2.0) and this seat's re-measure under §D's law
+   finds no identity its round-1 census did not already carry.
+2. **No other wave's roster row is taken.** §R1.6 n.2 already named six identities absent from the
+   layer that belong to X-W7's/X-W10's lanes; round 2's §A confirms that judgement by homing **41 to
+   X-W7 and 5 to X-W10** — including ⟨AdminTagsPanel · ATP-13⟩ and ⟨AdminAuditPanel · AAP-10/AAP-16⟩,
+   records this fold cites but whose escaped rows are not X-W3's. **Named, folded nowhere here.**
+3. **No gate, bounds row or cross-edge is added or amended.** Gate arithmetic stays **19 gates
+   touched** (10 sharpened `G-*` across 11 entries + `N-1..N-9`); bounds stays **9 rows
+   (`B-1..B-9`) = 16 distinct file paths**; §CrossEdges keeps §J/§K/§L as round 1 left them.
+4. **No product source was opened**, and no line anchor in this addendum is inherited: every command
+   above was run read-only at HEAD by this seat on the date in the header.
+
+### R2.3 · No self-voiced closure — the correction this seat owes its own §R1.0 clause 4
+
+§R1.0 clause 4 states, in this fold's own voice, **"25 of 25 PRESENT. ZERO census escapes in the X-W3
+lane."** The pass-2 BLOCKER falsified that *posture* as a class — 84 escapes across 27 records, seven
+of them rows printing `→ X-W4` **verbatim** inside a record whose fold had declared its census closed
+at 35. A seat's own sweep, however wide and however honestly run, is evidence about its coverage and
+**cannot be the proof of it**. Accordingly:
+
+1. **No sentence in this file closes the X-W3 census.** Clause 4's finding is to be read as *"the
+   escapes this seat's sweep found, under the predicate it printed, on its date"* — never as *"the
+   escapes that exist"*. Its bytes stand; only its force is corrected, by dated addendum (E-3 idiom).
+2. **Closure is established by the census artifact, not by the fold.** The X-W3 census closes when and
+   only when the round-3 check's census artifact —
+   `docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json`, successor to `PASS-1-CHECK-RETURN.json` and
+   `PASS-2-CHECK-RETURN.json` — re-derives the ⟨record·id⟩ census under §D's predicate against **these
+   bytes** and prints **zero** X-W3 escapes. Until then the honest statement of this fold's position
+   is: **two rounds, one escape found and folded (`F-25`, and it was found by the bare-`W3` sweep, not
+   the token sweep); completeness unproven.**
+3. **The predicate is named in advance, so the test cannot be moved to fit the answer.** Token class
+   `X[-·.]W\d([^0-9]|$)`; row regex stated inline by whichever regex round 3 elects (§D clause 7);
+   corpus = the **92**; namespace = **⟨record.md · id⟩**, never the bare id; and — this fold's own
+   standing caveat — **the token predicate does not reach bare-`W\d` prose** (§R2.1 n.3), so a
+   round-3 nil return that runs only the token sweep is under-scoped by construction.
+
+### R2.4 · Arithmetic — dated 2026-08-28 (round 2), and it does not move
+
+| quantity | round-0 | round-1 (§0 restated) | **round-2** | delta | what moved |
+|---|---|---|---|---|---|
+| fold rows | 24 (`F-1..F-24`) | 27 (`F-1..F-27`) | **27** | **0** | §A homes zero rows here; ids contiguous and byte-unchanged |
+| — cl.1/cl.2 build-or-sharpen | 19 | 20 | **20** | 0 | unchanged |
+| — cl.4 recorded-not-adopted riders | 5 | 7 | **7** | 0 | unchanged |
+| gates touched | 17 (10 + 7) | 19 (10 sharpened / 11 entries + `N-1..N-9`) | **19** | 0 | §R2 mints and amends none |
+| bounds rows / file paths | 8 / 15 | 9 (`B-1..B-9`) / 16 | **9 / 16** | 0 | §R2 adds no path |
+| distinct banked identities / banked ids | 21 / 31 | 24 / 36 | **24 / 36** | 0 | §R2 banks no id |
+| §A escapes folded this round | — | — | **0** (0 routed · 0 NWO) | 0 | §R2.0, with the roster's own arithmetic quoted |
+| law-true X-W3-routed rows in the corpus | — | 25 identities / 11 records (row **or continuation block**, + 2 record-level) | **22 rows / 11 records** (row regex `^\s*([-*]\|\|)\s*\*\*`, token class `X[-·.]W3([^0-9]\|$)`) | — | **A narrower measure, not a supersession** (§R2.1 n.4). Not authoritative until round 3 elects a row regex |
+| bare-`W3` residue records beyond the token sweep | — | 9 (8 false positives + `B2`, folded `F-25`) | **9 — re-verified at HEAD** | 0 | The residue §D's token law does not reach (§R2.1 n.3) |
+
+**Posture, restated for round 2.** Status `planned`. No product source opened, no wave stamped, no
+gate re-staged or re-weighted, no dated spec byte altered (E-3 holds; `waves/`,
+`CONFORMANCE-2026-08-03.md` and `ROUND-1-ASSIGNMENTS.md` untouched). Every disposition remains
+**ADJUDICATED, not VERIFIED**. The 27 rows are byte-unchanged and **this round adds none** — stated as
+a result with its predicate printed, never as a claim. **This section closes nothing**; round 3's
+census artifact is what may say the X-W3 census is closed (§R2.3). Round 3 measures against these
+bytes.

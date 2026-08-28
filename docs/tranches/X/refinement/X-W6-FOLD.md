@@ -1293,4 +1293,171 @@ favour once the existing rows land: **n.4** (`GradientCodeEditor.vue`) already r
 
 ---
 
-*End of the X-W6 refinement fold, as repaired at X·V fold round 1 (2026-08-28). `waves/W6.md` and `CONFORMANCE-2026-08-03.md` are byte-unmodified (E-3); this addendum remains the only write, and §6 is the only bytes round 1 added to it. Wave status: **planned**.*
+## 7. ROUND-2 FOLD REPAIR — the 3 assigned escapes, booked under the CENSUS METHOD LAW (dated 2026-08-28)
+
+**What this section is.** The X·V fold-**round-2** repair seat's write, and the only bytes added to
+this file this round. Provenance chain: `refinement/PASS-2-CHECK-RETURN.json` (verdict
+NON-CONFORMANT; **BLOCKER**, AXIS 1 — *"84 distinct ⟨record·id⟩ across 27 records absent by
+bytes"*) → `refinement/ROUND-2-ASSIGNMENTS.md` **§A.3** (3 rows homed here) + **§C.4** (ERRATUM
+R1-A-1) + **§D** (the CENSUS METHOD LAW) → this seat's own re-derivation at HEAD. Every row keeps
+its **banked identity** (M-25, original for life); `W6·n` stays a fold-local counting device and is
+never a rename. Citation key remains ⟨record.md · id⟩ — and §7.1 below records that the citation
+key, not the bare id, is the thing round 1 got wrong here.
+
+**Status is unchanged: `planned`.** Nothing here stamps a wave, opens product source, or edits
+`waves/W6.md` / `CONFORMANCE-2026-08-03.md` (E-3). Dispositions stay **ADJUDICATED, not VERIFIED**.
+§6 stays byte-intact above; this section supersedes nothing in it, it repairs an attribution and
+books three identities §6 never reached.
+
+### 7.0 The method this section is written under (§D adopted, the old predicate retired)
+
+`ROUND-2-ASSIGNMENTS.md` §D writes the **CENSUS METHOD LAW** into the spine. This fold adopts it
+whole and states the consequence for its own bytes:
+
+> **The predicate.** A row line containing an `X[-·.]W\d` token — **in any phrasing, at any position
+> on the line** — **BOOKS** the row to that wave. No proximity requirement, no marker-verb
+> requirement, no position requirement. Boundary mandatory: `X[-·.]W(\d+)([^0-9]|$)`.
+
+**Re-derived at HEAD by this seat, read-only, so clause 6 has its command and not an inherited
+number:**
+
+```
+cd docs/tranches/V/megatranche/registry/adjudicated
+ls *.md | grep -vE '^(kf|fr|pt)-' | wc -l                                   # → 92   (corpus)
+ls *.md | grep -vE '^(kf|fr|pt)-' \
+  | xargs grep -nE '^[[:space:]]*([-*]|\|)[[:space:]]*\*\*' \
+  | grep -cE 'X[-·.]W6([^0-9]|$)'                                           # → 389  (X-W6-routed rows)
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -lE 'X[-·.]W6([^0-9]|$)' | wc -l   # → 29  (records)
+ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l   # → 0    (alphabet closed)
+```
+
+**389 / 29 records / 0 dash-forms** — reproducing §D's law-true table entry for X-W6 exactly.
+**Row-regex declaration (§D clause 7, mandatory):** the figures above are stated under the row regex
+`^[[:space:]]*([-*]|\|)[[:space:]]*\*\*`. Clause 7 leaves the *row* predicate unsettled for round 3,
+so **no per-wave total in this file is quoted as authoritative** — the figure is printed with its
+regex or it is not printed.
+
+**What the seat re-measured against those 389, and what it found.** Testing this fold's three
+assigned ⟨record·id⟩ plus every X-W6-token row in their three records, under both the bare-id and
+the record-attributed test:
+
+| ⟨record.md · id⟩ | bare id in this file | record-attributed | verdict |
+|---|---|---|---|
+| ⟨wb-gradient-codeeditor.md · **A-28**⟩ | **0** | **0** | absent outright → §7.2 `W6·509` |
+| ⟨wb-gradient-easingeditor.md · **M-EE-5**⟩ | 1 (`§5.17`, `:1103`) | **0** | attribution defect → §7.1 + `W6·510` |
+| ⟨wb-mix-animationcanvas.md · **MX-26**⟩ | 1 (`§5.18`, `:1105`) | **0** | attribution defect → §7.1 + `W6·511` |
+
+*Kin sweep, stated as a negative result so round 3 does not re-run it:* every **other** X-W6-token
+row in those three records (`wb-gradient-codeeditor` A-1…A-22 · `wb-gradient-easingeditor`
+C2-2…M-EE-8 · `wb-mix-animationcanvas` MX-1…MX-45) **is** carried in §1/§6 by bare id, most of them
+in a table row whose `Src` column names the record on the same line. **No fourth escape was found
+in this fold's assigned records.** Whether the corpus-wide X-W6 census closes is the **round-3
+check's** finding, not this seat's claim — this seat reports only that `ROUND-2-ASSIGNMENTS.md`
+§A.3's roster for this file is exhausted id-for-id.
+
+### 7.1 The attribution defect §6 could not see — stated, never smoothed
+
+Two of the three are **not** promotions from silence. Their bare ids are already in this file, in
+the §5 exclusion registers:
+
+- `§5.17` (`:1103`) names **`M-EE-5`** in the list of *"rows in the 29 records that do NOT route to
+  X-W6"*.
+- `§5.18` (`:1105`) names **`MX-26`** inside *"`MX-20`/`MX-26`/`MSS-27`/`MR-29` (tsconfig↔exports +
+  published-surface ≡ `ColorSpaceSelector L-14` ≡ W-HYGIENE — **one banked identity, X-W8 declined
+  it by name**)"*.
+
+Neither line names its **record**. Under the check's own test — the id must appear on a line that
+also names the record alias — a bare id inside a comma-run is invisible, and both escaped. **This
+is a defect of citation, not of adjudication**, and the distinction is load-bearing: §6's judgment
+about where these two identities live was *right*, and this repair does not overturn it. What §7.2
+adds is the record-attributed row that makes the judgment findable by a census.
+
+**The rule this seat states for round 3, from its own bytes:** an exclusion register that lists bare
+ids in a comma-run does not close a byte census. Exclusion is a **disposition**, and like every
+other disposition it must be carried at ⟨record.md · id⟩ or it reads as absence. Round 1's §5.19(c)
+already saw the shape of this — it distinguished *"re-stated non-escapes"* from escapes by hand —
+but it applied the distinction to three ids it happened to check, not to the register as a class.
+
+### 7.2 The rows — 3 identities (`W6·509 … W6·511`)
+
+*Band arithmetic: §1 held `W6·1 … W6·464`; §6 added `W6·465 … W6·508`; this band is
+`W6·509 … W6·511` (3, gapless). Every row carries its banked id in the ID cell **beside its record
+alias**, so the row line itself satisfies the record-attributed test that §7.1 shows round 1 failed.
+Row text is quoted from the record's own bytes, re-read this session at HEAD — never typed from
+memory.*
+
+| # | ID | Src | Sev | Mechanism (row text, verbatim from the record) | Cure-shape + locks | Seq | Dissent |
+|---|---|---|---|---|---|---|---|
+| W6·509 | **A-28** ⟨wb-gradient-codeeditor.md · A-28 (:47)⟩ | wb-gradient-codeeditor | INFO | **A registry METHOD note, not a component defect.** Verbatim: *"**A-28 — INFO · CONFIRMED (reader-1 miss M-8, spot-checked).** D-r1's script-block anchors drift −2..−4 against a byte-identical file (r1:161 cites :63-65 for the emit that lives at :55-57; r1:291 cites :57-60 for onInput at :59-62 — both re-read this session); template anchors are exact; r2/r3 exact. **NO-WAVE-OWNER** — registry method note: any wave navigating this corpus re-resolves r1 anchors before editing (D-19 restated)."* | **`cl.4` NO-WAVE-OWNER as a disposition — but the row BINDS this wave's reading**, which is why it is booked here rather than left to the boundary: `§3 n.4` brings `GradientCodeEditor.vue` into W6 bounds, and **eight** W6 rows already cite that record by r1 anchors (`W6·3`, `W6·49`, `W6·50`, `W6·51`, `W6·52`, `W6·59`, `W6·60`, `W6·61`). **LOCK, verbatim: *"any wave navigating this corpus re-resolves r1 anchors before editing."*** It is the exact discipline `§3 n.1`'s own path erratum (`H5`/`N27`) already imposes on `.d` — one law, two records. **No line number cited from a D-r1 anchor is executable until re-resolved at wave-open.** | at the opening sitting, **before** any `.b`/`.c` edit that cites a codeeditor anchor | — |
+| W6·510 | **M-EE-5** ⟨wb-gradient-easingeditor.md · M-EE-5 (:79)⟩ | wb-gradient-easingeditor | MINOR | Verbatim: *"**M-EE-5 (LC) — vitest carries no value.js self-alias: the unit gate certifies `dist/` while `@src` imports certify source — ADJUDICATED MINOR → NO-WAVE-OWNER (next formation boundary).**"* Its own receipts, carried: *"vitest.config.ts declares only `@src`… all three gradient composables import bare `@mkbabb/value.js/*`… `test/gradient-v4-consume.test.ts` mixes both in one file (:2 vs :8-11)… ci.yml:36-37 orders build-before-test, so **CI is safe BY ACCIDENT and a local `npm test` is not**. W1.md contains zero vitest rows — no wave owns test-harness config parity; adjacent to but distinct from the banked tsconfig identity."* | **`cl.4` NO-WAVE-OWNER, record-attributed — the §7.1 repair, not a promotion.** §A.3's **STATED DIVERGENCE resolved, out loud:** home stays **X-W6 by packet 17** (easing family) for the *carriage*, and the **substance is `W-HYGIENE` H-c config-parity**, which the spine books FORMATION-BOUNDARY (`§1 packet 5`, `W8.md:112`'s explicit decline GOVERNING). This seat therefore books the identity here and **`≡`-points the H-c limb to the G-F register as a cross-edge (`e.25`)** — stated, never silently re-pointed, exactly as §A.3 requires. **`§5.17`'s exclusion of `M-EE-5` STANDS and is not retracted**: the row does not become W6 work; it becomes W6's *stated result*. The record's own last clause is the anti-merge lock: *"adjacent to but **distinct** from the banked tsconfig identity"* — it may not be folded into `ATP-35`/`L-14`/`AAP-32` (§A.8's five-roster H-c identity), which is a `tsconfig.demo.json` `paths` row; **this is `vitest.config.ts`.** Two neighbours, two identities, counted twice on purpose | the boundary owns it; W6 owes nothing before it | — |
+| W6·511 | **MX-26** ⟨wb-mix-animationcanvas.md · MX-26 (:87)⟩ ≡ **MX-20** ≡ MSS-27 ≡ MR-29 ≡ ⟨ColorSpaceSelector · L-14⟩ | wb-mix-animationcanvas | — | Verbatim: *"**MX-26 — L-13: published-surface facts — 7-key exports (no `.`, no `require`), `dist/value.js` + `dist/index.d.ts` absent while load-bearing comments assert them.** Facts re-verified; L's provenance citations killed (K-19). Identity overlaps MX-20; rides W-HYGIENE. → **NO-WAVE-OWNER (banked identity)**."* | **`cl.4` `≡`-POINTER, no second booking** — the form §A.3 names and the consumption rule requires. `≡ MX-20` is **already this fold's** (`§5.18`, `:1105`, where the four-id run is ruled *"one banked identity, X-W8 declined it by name"*), so the byte census closes with a pointer row and **no figure anywhere in this file changes** except §7.3's row count. The *"rides W-HYGIENE"* limb is a **G-F cross-edge (`e.25`), not a second booking** — §A.3's words, adopted verbatim. **Anti-double-booking lock, stated:** ⟨AdminTagsPanel.md · ATP-35⟩ is the **fifth** roster of the H-c identity and lands at the **G-F register** (§A.8), not here; W6 must not re-book it, and the G-F seat must not re-book `MX-26`. **Namespace guard:** ⟨wb-mix-animationcanvas · MX-26⟩ is one row in one record — the `MX-*` family also runs through `wb-mix-configbar`/`wb-mix-pane`/`wb-mix-resultdisplay` and bare `MX-26` collides with nothing folded there | governed by `§5.18`'s existing route (X-W8 via the banked identity) | the C-axis's INFO grade on the published-surface facts is preserved wherever `§5.18` records it; this row re-litigates none of it |
+
+### 7.3 §-arithmetic, restated to the new true counts (dated 2026-08-28, never silent)
+
+**Superseding note.** §6's dated block (`:100-102`) was true at round 1 and is **superseded on the
+§1 row count only** by this block. Its bytes are left intact above — this fold's own §0
+discipline: corrections are stated, not overwritten.
+
+| quantity | round 1 (§6) | round 2 (§7) | delta |
+|---|---|---|---|
+| §1 rows | **508** (`W6·1 … W6·508`) | **511** (`W6·1 … W6·511`, gapless) | **+3** |
+| — of which `≡`-pointer rows (facets of folded identities) | 3 (`W6·475`, `W6·486`, `W6·507`) | 4 (+ `W6·511`) | +1 |
+| — of which `cl.4` NO-WAVE-OWNER carriage | 10 (`W6·496 … W6·505`) | **13** (+ `W6·509`, `W6·510`, `W6·511`) | +3 |
+| §2 gate entries | 100 (80 + `N33…N52`) | 100 — **unchanged; §7 proposes no gate** | 0 |
+| §3 bounds rows / distinct paths | 38 / 37 | 38 / 37 — **unchanged; §7 adds no path** | 0 |
+| §4 cross-edges | 24 (`e.1 … e.24`) | **25** (+ `e.25`, §7.4) | +1 |
+| §5 register entries | 19 (through §5.19) | **20** (+ §5.20, §7.5) | +1 |
+| corpus records consumed | 29 | **31** (+ `wb-gradient-codeeditor` and `wb-gradient-easingeditor` as *record-attributed* sources; both were already cited by bare id) | +2 |
+
+**Clause-6 discipline, applied to this seat's own numbers:** every figure in the table above is a
+count of bytes in this file and is re-derivable by
+`grep -oE 'W6·[0-9]+' X-W6-FOLD.md | grep -oE '[0-9]+' | sort -n | tail -1` → **511**. No figure
+here is inherited. The **corpus-side** figure (389 X-W6-routed rows / 29 records) is §7.0's, printed
+with its command and its row regex.
+
+**Not claimed here.** This seat makes **no closure claim** about the X-W6 census. `ROUND-2-ASSIGNMENTS.md`
+§A.3 assigns this fold **3** rows and all 3 are booked above, id-for-id, with their bytes quoted;
+`PASS-2-CHECK-RETURN.json`'s BLOCKER receipt names exactly those 3 for this file
+(⟨wb-gradient-codeeditor · A-28⟩ · ⟨wb-gradient-easingeditor · M-EE-5⟩ · ⟨wb-mix-animationcanvas ·
+MX-26⟩). Whether the layer-wide census closes is the **round-3 check's** measurement against these
+bytes — never this fold's assertion about itself.
+
+### 7.4 §4 addendum — one cross-edge (e.25)
+
+| e | Edge | Shape | What must be written |
+|---|---|---|---|
+| e.25 | **`M-EE-5` ⇄ the G-F register · `MX-26`/`MX-20` ⇄ W-HYGIENE (`ATP-35` ≡ `L-14` ≡ `AAP-32` ≡ PreviewRamp `R-9` ≡ GenerateControls `#20` ≡ PaletteColorStrip `PCS-30`)** | two config-parity identities, one wave-carried and one boundary-carried, that must not merge | W6 carries **`M-EE-5` (`vitest.config.ts` self-alias)** and **`MX-26` ≡ `MX-20` (published-surface/exports)** at ⟨record·id⟩ so they are findable; the **H-c `tsconfig.demo.json` `paths` identity is the G-F register's** (`ROUND-2-ASSIGNMENTS` §A.8, where `ATP-35` books as its *fifth* roster and `X-W11-FOLD §1z n.5` already carries the four-roster run). **The two are adjacent and distinct — the record says so in its own words** (`M-EE-5`: *"adjacent to but distinct from the banked tsconfig identity"*). **Write-order and ownership stated at the sitting: W6 books carriage, the boundary books cure, neither books the other's identity.** `X-W8` declined the published-surface identity **by name** (`§5.18`) and that decline governs — this cross-edge records it, it does not reopen it |
+
+### 7.5 §5.20 — the round-2 escape register (what this repair changes about §5)
+
+20. **ROUND-2 ESCAPE REGISTER (2026-08-28).** Two classes, both dated, neither silent.
+    **(a) One true absence, booked** — ⟨wb-gradient-codeeditor.md · `A-28`⟩ (`W6·509`) was absent
+    from this file by **any** test, bare or record-attributed. It is a **registry method note**
+    whose lock (*"any wave navigating this corpus re-resolves r1 anchors before editing"*) binds
+    eight rows this fold already carries — so its absence was not inert, it was a live reading
+    hazard sitting under `§3 n.4`.
+    **(b) Two attribution repairs, NOT promotions** — ⟨wb-gradient-easingeditor.md · `M-EE-5`⟩
+    (`W6·510`) and ⟨wb-mix-animationcanvas.md · `MX-26`⟩ (`W6·511`). Both bare ids were **already in
+    this file** — `M-EE-5` at `§5.17` (`:1103`), `MX-26` at `§5.18` (`:1105`) — inside comma-runs
+    that name no record. **§5.17 and §5.18 are not retracted, not weakened, and not re-routed**:
+    their dispositions stand exactly as written, and §7.2 adds only the record-attributed carriage
+    that makes them census-visible. This is the finding §7.1 states as a rule for round 3: **bare
+    ids in an exclusion comma-run do not close a byte census.**
+    **(c) The round-1 erratum, adopted by citation** — `ROUND-2-ASSIGNMENTS.md` **§C.4** registers
+    **ERRATUM R1-A-1 (2026-08-28)**: `ROUND-1-ASSIGNMENTS.md:83` spells the identity `L-R6`; the
+    banked id at `wb-mix-configbar.md:33` is **`L-R6-4`** (*"| **L-R6-4 drift sub-claim** | LC kill:
+    exported surface symbol-identical | …"*). Per E-3 the work order's bytes stand and the
+    correction is an addendum, never a patch. **This fold already books the correct id** —
+    `§6b`'s `W6·499`, *"| **L-R6-4** (drift sub-claim) | wb-mix-configbar | INFO |"* — so **no row
+    is lost, no row is re-booked, and no `≡`-pointer is owed**; this entry exists only so the
+    citation `L-R6-4` and its erratum travel together and a sixth re-measurement is never
+    provoked. Zero-padding and short-spelling are the same class of anti-rename violation
+    (`D-06` ≠ `D-6`; `L-R6` ≠ `L-R6-4`).
+    **Nothing in §5.17, §5.18 or §5.19 is retracted.** Verified id-for-id against all three this
+    session: `A-28` appears in none of them; `M-EE-5` and `MX-26` appear in two of them **as
+    excluded ids**, which §7.2 books **as** exclusions — **the registers and this band agree, and
+    where they overlap they agree by construction, not by coincidence.**
+
+---
+
+*End of the X-W6 refinement fold, as repaired at X·V fold round 1 (§6) and round 2 (§7), both dated 2026-08-28. `waves/W6.md`, `CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` are byte-unmodified (E-3); this addendum remains the only write. Every banked id cited is original for life (anti-rename); every citation is keyed ⟨record.md · id⟩; every census figure is printed with the command and the row regex that produce it (§D clause 6/7). Wave status: **planned**.*

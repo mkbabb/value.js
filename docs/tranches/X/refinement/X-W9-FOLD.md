@@ -1170,3 +1170,95 @@ manifest) is measured, six times over, inside W9.16's own quoted census.
 - **Upgraded nothing.** Every quoted status travels as its record wrote it: EB-5's magnitudes
   **live-only**; N-3's fraction **U-6**; D3-06's ΔL **U-1**; X-EXT-6's peer requirement **adopted, not
   re-run**; the C-10/D-20/L-6 grade **MINOR, first-seal MAJOR demoted**.
+
+---
+
+## 18. ROUND-2 REPAIR — zero rows homed, the census law re-measured, and what the zero cost (2026-08-28)
+
+**What this section is.** This seat's answer to `refinement/ROUND-2-ASSIGNMENTS.md`, written against
+`refinement/PASS-2-CHECK-RETURN.json` (NON-CONFORMANT: 1 BLOCKER · 2 MAJOR · 5 MINOR · 1 INFO).
+**As at round 1, the roster's floor for this seat is zero**: §A's table homes its 84 escaped
+⟨record·id⟩ at `X-W4` · `X-W5` · `X-W6` · `X-W7` · `X-W8` · `X-W10` · `X-W11` · `X-W0`'s G-F register,
+and **X-W9 appears in no §A group, no §B cure and no §C cure**. §17.0's rule stands — *a zero is not a
+closure* — so this section records the re-measurement that earns it. **No row is added, no id minted,
+nothing renamed.**
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED; **this seat ran
+no probe and authored no script** (L-19), this round as last. No product source opened. **E-3**:
+`waves/W0.md..W11.md`, `CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md` and every
+`registry/adjudicated/**` record are byte-untouched; this file is this seat's sole write.
+
+### 18.1 §D's CENSUS METHOD LAW against §17.0's method — clause by clause
+
+The BLOCKER is a **method** failure: the *"wave token within 30 characters after a routing marker"*
+heuristic is blind to bare-declarative routing (*"**X-W7 rider else boundary.**"*, *"carried in the
+**X-W4** family"*, *"dies whole with **X-W7.d**"*). §D retires it and every derivative. **§17.0 never
+carried it**, and the check is enumerative rather than asserted:
+
+- **Clause 1 (the predicate).** §17.0 counted **every** `X-W9` token in the corpus — **120** — and then
+  *classified all 120*, rather than filtering by routing verb: **73** on row lines (the census grain)
+  + **47** on non-row lines, itemised `28 + 1 + 3 + 15 = 47`. A predicate that keeps its remainder
+  visible cannot hide a bare-declarative row. **CONFORMANT.**
+- **Clause 3 (the alphabet, re-measured not inherited).** §17.0 printed its own sweep of hyphen,
+  en-dash, middle-dot and dotted forms and reported *"exactly ONE surface form in this corpus —
+  `X-W9`, 120 occurrences"*. **Re-measured at HEAD 2026-08-28: `X[-·.]W9` → 120 occurrences; the
+  dash-form sweep `X[–—‑]W[0-9]` over the 92 records → 0.** Both reproduce; the alphabet stays
+  `X[-·.]W\d`. **CONFORMANT.**
+- **Clause 4 (the boundary).** `X-W9` has no longer sibling in this corpus, so no prefix-match exists;
+  §17.0's boundary test `(?<![A-Za-z0-9-])id(?![A-Za-z0-9-])` is the id-side of the same law, and it is
+  what found the thirteen `≡`-pointer identities. **CONFORMANT.**
+- **Clause 5 (NWO and routed are limbs, not partitions).** §17.0 receipt 4 swept rows carrying **both**
+  `NO-WAVE-OWNER` and `X-W9` on the row line — **14**, all already folded, enumerated one by one.
+  **CONFORMANT** — and this is exactly the sweep whose absence elsewhere re-orphaned dual-limb rows.
+- **Clause 6 (the count follows the predicate).** See §18.2.
+- **Clause 7 (the row predicate is open).** §17.0's **73** is a *row-line* figure and reproduces under
+  §D's row regex as well as its own; recorded so this fold's number does not ride the open question.
+
+### 18.2 §B.2's defect class — measured absent from this fold
+
+§B.2's MAJOR is a fold whose printed *"Re-runnable in one line"* census does not reproduce its printed
+output (`X-W4-FOLD` §6E: printed **282**, returns **257**, law-true **305**). That cure is X-W4's.
+Re-run read-only at HEAD, 2026-08-28:
+
+```
+# corpus band, and the law-true X-W9 row-line count
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l    # -> 92
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W9([^0-9]|$)'                     # -> 73
+# clause 3, token-instance receipt (all lines, not only row lines)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -ohE 'X[-·.]W9([^0-9]|$)' | wc -l                                              # -> 120
+```
+
+**`92`, `73` and `120` all reproduce**, and **73** matches §D's law-true table for X-W9 id-for-id.
+§17.0's receipts 1–5 are therefore re-derivable at round 2 without amendment, and **no figure in this
+fold is one of those §D clause 6 strikes**.
+
+### 18.3 §C.3 — the EXTERNAL receipt, corrected upstream; W9.46 is unaffected
+
+The spine's `§ROUND-1` receipt reports **9** EXTERNAL bookings including **W2**; `X-W2-FOLD.md:939-943`
+declares the opposite in its own bytes (*"**None routes to X-W2**"*). The corrected set is **8**, and
+**this fold's carriage is one of them**: **W9 · ⟨INBOX I-28 · X-EXT-6⟩ (pointer) · W9.46**. Its posture
+is unchanged and is restated because a corrected count must not blur it: **ownership stays at X-W0**
+(*"this is a pointer, not a re-booking"*), the collision is that **two waves write one `package.json`
+and no file says in which order**, and X-W9.f's sole-writer clause covers `eslint.config.js`, **not**
+`package.json`. The correction's site is the spine; **the write is the spine seat's** (E-3).
+
+### 18.4 What §18 did NOT do — and the arithmetic, unchanged
+
+**Booked nothing.** No row, no gate, no bounds entry, no cross-edge. §17.d's list stands, and this
+section adds one line to it: **round 2 assigned this seat nothing, and the re-measurement confirmed
+the assignment rather than merely accepting it.**
+
+| unit | round 1 | **round 2** | delta |
+|---|---|---|---|
+| rows | 46 (W9.1–W9.46) | **46** | **0** |
+| gates | 13 born-RED (+12 sharpenings) | **13 (+12)** | 0 — **no gate minted, none re-staged or re-weighted** |
+| BoundsDelta | 6 | **6** | 0 |
+| CrossEdges | as at §15 + the round-1 EXTERNAL edge | **unchanged** | 0 |
+| census | 120 tokens = 73 row lines + 47 classified non-row | **unchanged, re-verified** | reproduces at HEAD |
+
+**Assignment coverage: §A 0/0 · §B 0/0 · §C 0/0**, earned by measurement (§18.1–§18.2). `L-R6` /
+`L-R6-4` (§C.4's erratum, registered at the G-F register in `X-W0-FOLD` §7.4) is cited nowhere in this
+file (grep → 0), so that cure has no site here. Numbering stays gapless and contiguous **W9.1 …
+W9.46**; zero ids minted, zero renamed. Status remains **planned**; no product source was opened.

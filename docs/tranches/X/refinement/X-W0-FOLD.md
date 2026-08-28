@@ -1129,3 +1129,187 @@ external**. The roster was a floor; the census-found excess is itemised at §6.1
 — end of round-1 repair addendum. Status **planned**. `docs/tranches/X/waves/**`,
 `CONFORMANCE-2026-08-03.md` and `registry/adjudicated/**` remain byte-untouched (E-1/E-3); this file
 is still the fold's sole write; no product source was opened.
+
+---
+
+## 7. §ROUND-2 REPAIR ADDENDUM — X·V fold round 2, G-F REGISTER SEAT · dated 2026-08-28
+
+**What this section is.** The X-W0 seat's consumption of `refinement/ROUND-2-ASSIGNMENTS.md` **§A.8**
+— the **two ⟨record·id⟩ whose own bytes book the formation boundary** and which the pass-2 BLOCKER
+(`refinement/PASS-2-CHECK-RETURN.json`) found absent from the entire fold layer — plus the two
+register-level cures this seat is the site for (§7.4: the short-spelled roster identity; §7.5: the
+census-command receipt and one measured divergence). Per the consumption rule these two rows land at
+the **G-F register slate**, **never** in a wave's row band; the round-1 treatment of
+⟨MigratePalettesDialog.md · A-31⟩ (W0.21) is the precedent.
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED; **no gate has
+run** and none is minted here. No product source opened. **E-3 holds**: `docs/tranches/X/waves/**`,
+`CONFORMANCE-2026-08-03.md`, `refinement/ROUND-1-ASSIGNMENTS.md` and every
+`registry/adjudicated/**` record are byte-untouched by this seat; this file is still the fold's sole
+write. **The G-F register's home remains unelected** (candidate A `W0/NO-WAVE-OWNER-REGISTER.md` —
+still absent from disk; candidate B `COHESION.md` §4 carve): W0.17 elected neither, round 1 elected
+neither, and **this addendum elects neither**.
+
+### 7.1 §Rows — the G-F REGISTER SLATE, entries 6 and 7 (W0.29 · W0.30)
+
+**W0.29 — SLATE ENTRY 6 · ⟨AdminTagsPanel.md · ATP-35⟩ — the FIFTH roster of the W-HYGIENE
+config-parity identity, booked as an `≡`-pointer so the byte census closes without a sixth booking**
+· **INFO-grade facts at MINOR ledger weight (the identity's own posture)** · cl.4 · → **slate**
+(`≡`-pointer, **no new booking**)
+- **row verbatim** (`AdminTagsPanel.md:77`): *"**ATP-35 (L:L-10) — tsconfig.demo.json `paths` drift
+  (3 phantom targets, 2 shipped subpaths missing).** Identity: ColorSpaceSelector L-14 / AAP-32 — the
+  W-HYGIENE config-parity fold no X wave claims. **Disposition: NO-WAVE-OWNER, flagged again at the
+  formation boundary.**"*
+- **why it is a pointer and not a booking**: the identity is **already booked once** and is named by
+  four other rosters — ⟨PreviewRamp · R-9⟩ ≡ ⟨GenerateControls · #20⟩ ≡ ⟨ColorSpaceSelector · L-14⟩ ≡
+  ⟨PaletteColorStrip · PCS-30⟩ (`X-W11-FOLD` §1z n.5, carried as **one** identity) — and X-W3-FOLD
+  §H states the same chain from its side (`AAP-32 ≡ ATP-35 ≡ VHD-30 ≡ DVS-22 ≡ GEN-23 ≡ EAS-38 ≡
+  ColorSpaceSelector L-14`, *"ONE identity already FOLDed to W-HYGIENE … it is not re-booked here"*).
+  **ATP-35 is the fifth roster of that one identity**; the register books it **under its own id** so
+  the id-keyed census closes, and **opens no sixth booking**.
+- **the spine's disposition is unchanged and is the reason this sits at the boundary**: packet 5 books
+  **W-HYGIENE H-c** FORMATION-BOUNDARY with **`W8.md:112`'s explicit decline GOVERNING** (*"another
+  owner"*), and X-W8-FOLD's own W8.7/W8.52 carry the decline forward. **Adopting the row here carries
+  the identity; it does not reverse the decline** — the same instrument round 1 used at W0.25's H-c
+  entry, restated so no reader takes carriage for adoption.
+- **what the row adds that the four siblings do not**: its facts are file-specific and countable —
+  **3 phantom `paths` targets + 2 shipped subpaths missing** — so any future generator-parity gate has
+  a fifth independent measurement of the same drift, from a fifth record.
+- **seq**: none of its own; it inherits the boundary's. **No gate, no bounds entry, no cure elected.**
+  ⟨AdminTagsPanel.md · ATP-35, :77⟩ ≡ ⟨ColorSpaceSelector.md · L-14⟩ ≡ ⟨AdminAuditPanel.md · AAP-32⟩ ≡ ⟨PreviewRamp.md · R-9⟩ ≡ ⟨GenerateControls · #20⟩ ≡ ⟨PaletteColorStrip.md · PCS-30⟩ — one identity, six rosters, **one booking** (W-HYGIENE H-c, FORMATION-BOUNDARY; `W8.md:112` decline GOVERNING)
+
+**W0.30 — SLATE ENTRY 7 · ⟨shell-dock-actionbarlayer.md · MISS-10⟩ — the mode machine is a
+one-directional ring that no glyph in the cycle says is a ring** · **MINOR · design residue** · cl.1
+· → **slate** (formation boundary, by the row's own bytes)
+- **row verbatim** (`shell-dock-actionbarlayer.md:113`): *"**MISS-10 (R-DU) — CONFIRMED (MINOR).** The
+  mode machine is a one-directional ring with no `propose → input` edge (leaving propose always
+  discards the field, two activations to return) and no glyph in the cycle says it is a ring; the
+  propose leg is a mode nested inside a mode promoted into a glyph cycle that cannot express it.
+  **DISPOSITION: design residue — NO-WAVE-OWNER, formation boundary (the MT-COLORINPUT-1 split will
+  re-pose it with a real two-component seam).**"*
+- **why the slate and not X-W8**: the record itself books the boundary **and names the successor** —
+  **MT-COLORINPUT-1**, whose split *"will re-pose it with a real two-component seam"*. This is a
+  **shape** decision, not a carve: X-W8 deletes dead surface on `ActionBarLayer.vue` (G-8/G-10,
+  W8.31/W8.32) and cannot author a mode topology inside a subtraction. The register books the residue
+  and hands the successor its input; **no wave is elected here.**
+- **the two costs, carried because they are the row's substance**: (i) *leaving propose always
+  discards the field* — a data loss, not a nuisance — and (ii) *two activations to return*, on a
+  cycle whose glyphs do not announce that it is a cycle. **A close that reports the mode surface
+  subtracted has not answered either.**
+- **NAMESPACE GUARD (live, and the reason this row is easy to lose)**: ⟨shell-dock-actionbarlayer.md ·
+  **MISS-10**⟩ ≠ ⟨picker-componentsliders-consolerail.md · **MISS-10**⟩ — the latter is the keyboard
+  `:step` identity **≡ R-28**, folded at **X-W10.60** and cross-written at X-W6 (W6·340, edge e.9).
+  Two records, one bare id, two different waves. **Cite ⟨record.md · id⟩ or not at all.**
+- **seq**: precedes any MT-COLORINPUT-1 authoring; inert for every X wave. **No gate, no bounds entry.**
+  ⟨shell-dock-actionbarlayer.md · MISS-10, :113⟩ → successor **MT-COLORINPUT-1** · **≠** ⟨picker-componentsliders-consolerail.md · MISS-10⟩ (X-W10.60 ≡ R-28)
+
+### 7.2 Cross-edges received this round — recorded, not booked
+
+Two sibling seats route residues to this register in their round-2 addenda. **Neither is a booking
+here** (each row stays booked once, at its wave); they are recorded so the boundary seat holds the
+same identities its siblings say it holds.
+
+| from | identity | what arrives at the register |
+|---|---|---|
+| **X-W8** (W8.78) | ⟨shell-dock-actionbarlayer.md · **K-4**⟩ | the row is a **KILL** (D-9's *"only two demo files write a bare `:hover`"* convention claim, and D-9 with it: the census finds bare `:hover` in **10** demo files, the guard in exactly one). Its **residue** — an app-wide bare-`:hover` INFO census — is **NO-WAVE-OWNER** and lands here as a boundary item. The kill itself is carried at X-W8 so no close re-files D-9 |
+| **X-W10** (X-W10.108) | ⟨PaginationBar.md · **M7**⟩ | the **single clause-1 override among the 46 NWO escapes**: the row line carries both `NO-WAVE-OWNER` and an `X-W10` token, so §D clause 5 books it at X-W10 and its **formation-boundary hedge** rides here as a cross-reference. Substance: the `ch`-reservation half of DESIGN.md's card-lock law (`:67-78`), the same law that owns ⟨picker-colorcomponentdisplay · M-4/M-5/M-8/M-9/M-12⟩ at X-W10.62. **Not a second booking** |
+
+### 7.3 The escalation slate and §3 e — pointer only, no write here
+
+The work order's **§B.1** restores the destroyed `**e.` header in the spine
+(`REFINEMENT-FOLD-2026-08-28.md`, between HEAD `:423` and `:424`, byte-exact from `f6842ef3:351`).
+**That cure is the SPINE seat's write, not this seat's**, and this addendum does not anticipate it.
+Recorded here because this fold is the slate's consumer: §5's closing line and §6.5 both read *"X-W0
+(sitting · registers · census · **the §3.e escalation slate**)"*, and until the header line exists the
+twelve-item slate reads as a continuation of the `d′.4` COPY-SEAT edict. **This fold's pointers to
+§3 e are unchanged and remain correct**; they resolve the instant the header is restored.
+
+### 7.4 §C.4 — the short-spelled roster identity, registered at the register (E-3: erratum, never a patch)
+
+`ROUND-1-ASSIGNMENTS.md` is a **round-1 census record**; under **E-3** its bytes stand and are
+byte-untouched by this seat. The correction is registered, in the register that exists for identity
+spelling:
+
+> **ERRATUM R1-A-1 (2026-08-28), registered at the G-F register.** `ROUND-1-ASSIGNMENTS.md:83` prints
+> `| wb-mix-configbar.md | MC-15(:61), MC-22(:68), MC-23(:69), **L-R6**ᵇ(:33) |`. The **banked id at
+> that line is `L-R6-4`** — ⟨wb-mix-configbar.md · **L-R6-4** (:33)⟩, *"| **L-R6-4 drift sub-claim** |
+> LC kill: exported surface symbol-identical | …"*. **Read every occurrence of `L-R6` in that row as
+> `L-R6-4`.** The same work order legislates *"zero-padded ids are their own identity: `D-06` ≠ `D-6`"*
+> — a short-spelling is the same class of violation, and **anti-rename binds the work order exactly as
+> it binds a fold**.
+>
+> **No row is lost:** `X-W6-FOLD.md:1190` already books
+> `| W6·499 | **L-R6-4** (drift sub-claim) | wb-mix-configbar | INFO |`, so this is a spelling slip in
+> the work order, not an escaped identity. Counted as carried, **roster→fold agreement is 73/73
+> id-for-id** — the one part of axis 2 that holds clean.
+
+**Scope of this registration, stated so it is not read as more than it is.** The erratum **records**
+the identity; the **row** is X-W6's and stays there; `ROUND-1-ASSIGNMENTS.md` is **not** edited. This
+seat's own bytes are clean of the short spelling in both directions: `grep -n 'L-R6' X-W0-FOLD.md
+X-W1-FOLD.md X-W8-FOLD.md X-W9-FOLD.md X-W10-FOLD.md X-W11-FOLD.md` → **0 hits**, measured at HEAD
+2026-08-28, so no fold in this seat's set cites either spelling and none needs a follow-on cure.
+
+### 7.5 The census commands — receipts, and one measured divergence recorded rather than reconciled
+
+**§B.2's defect** (a fold printing a *"Re-runnable in one line"* census that does not reproduce its own
+output) is **X-W4-FOLD §6E's**, and its cure is that seat's. This seat re-ran the law-true predicate
+over the corpus so the claim *"it does not live here"* is a measurement rather than a hope. Read-only
+at HEAD, 2026-08-28:
+
+```
+# the corpus, and the law-true per-wave row-line count (row regex + token class, §D clauses 1/3/4)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l    # -> 92
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W0([^0-9]|$)'                     # -> 3
+# … the same line with W1 / W8 / W9 / W10 / W11 -> 101 · 271 · 73 · 264 · 1
+# clause 3, re-measured not inherited: dash forms in the corpus
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l                                                     # -> 0
+```
+
+**Every figure reproduces**, and each matches §D's law-true table id-for-id (X-W0 **3** · X-W1 **101**
+· X-W8 **271** · X-W9 **73** · X-W10 **264** · X-W11 **1**). The token alphabet is re-measured, not
+inherited: **zero** en-dash / em-dash / non-breaking-hyphen forms exist in the corpus, so the class
+stays exactly `X[-·.]W\d`.
+
+**DIVERGENCE, recorded (§D clause 7 — the row predicate is open until round 3 elects one).** §D prints
+the round-2 seat's row-total as **4,689** bold-leading rows under the row regex
+`^\s*([-*]|\|)\s*\*\*`. **This seat measures 4,694** under that same regex over the same 92 records —
+a **+5** divergence — while the two derived figures it accompanies reproduce **exactly**
+(token-carrying rows **1,941**, NWO-carrying rows **442**). Recorded and **not reconciled**: the
+divergence is in the **row** predicate, which clause 7 declares unsettled, and every escape in the
+pass-2 receipt is contained in both row sets, so **no booking above depends on which figure round 3
+elects**. Stated here rather than absorbed, because a silently-corrected base is the exact defect
+§C.2 charges against the §2 DELEGATION NOTE.
+
+**Two register-level corrections this seat records but does not write** (their sites are the spine's,
+and E-3 forbids a second hand): **§C.3** — the `§ROUND-1` EXTERNAL receipt reads *"9 EXTERNAL
+bookings … (W0 · W1 · **W2** · W4 · W6 · W7 · W8 · W9 · W11)"* and is contradicted by
+`X-W2-FOLD.md:939-943` (*"zero X-EXT rows route here"*); the true set is **8**, and **this fold's own
+booking is one of them** — W0 · **X-EXT-6** (W0.26, the repin's install step, X-W0.j). **§C.2** — the
+DELEGATION NOTE's *"66 = 22 + 44"* walk rests on a base that reproduces under neither the stated nor
+the widened predicate; the walk's **shape** is sound and **X-W8 N-1 (bounds completeness) remains the
+standing gate** that makes the delegated remainder checkable at close. Both are cited here so the
+register's own arithmetic is legible against the corrected figures, and neither is patched from this
+seat.
+
+### 7.6 §-arithmetic — the OUT side, re-counted from this file's own bytes (2026-08-28, fold round 2)
+
+**This block supersedes §6.8's row line; §6.8 stands as the round-1 record.**
+
+| unit | round 1 (§6.8) | **round 2** | delta | decomposition |
+|---|---|---|---|---|
+| §Rows | 28 (W0.1–W0.28) | **30** (W0.1–**W0.30**) | **+2** | §A.8 **2** — W0.29 (ATP-35, `≡`-pointer) · W0.30 (MISS-10, design residue) |
+| G-F slate entries | 5 (W0.21–W0.25) | **7** | **+2** | entries 6 and 7 above |
+| Gates | 11 (7 SHARPEN · 4 NEW) | **11** | **0** | **no gate minted, none re-staged or re-weighted**; G-F's born-RED baseline is untouched by carriage |
+| BoundsDelta | 10 | **10** | 0 | neither row opens a file — one is a config-parity pointer the spine declines, one is a successor-formation design residue |
+| CrossEdges | 25 | **25** | 0 | §7.2's two arrivals are **received**, not minted: each is carried inside its own wave's row (X-W8 W8.78 · X-W10 X-W10.108) |
+| Declared silences | 5 | **5** | 0 | |
+| Identities carried id-for-life | 37 (+1 EXTERNAL) | **39 (+1 EXTERNAL)** | **+2** | ATP-35 · MISS-10 — **both NO-WAVE-OWNER-marked on their own row lines**, so the NWO figure grows by exactly two and by nothing else |
+
+Numbering stays **gapless and contiguous, W0.1 … W0.30**; every row carries exactly one `⟨…⟩`
+provenance line; **zero ids minted, zero renamed**. **Work-order reconciliation (§A's table, this
+seat's line): assigned `X-W0-FOLD.md` (G-F register) 0 routed + 2 NWO = 2; delivered 2, id-for-id.**
+Beyond the roster this section adds **no** rows — the ceiling work belongs to round 1 (§6.1 receipt 2)
+and is not re-opened. Status remains **planned**; **no fold seat elects the G-F register's home, the
+dialog's fate, or MT-COLORINPUT-1's shape**; no product source was opened by this repair.

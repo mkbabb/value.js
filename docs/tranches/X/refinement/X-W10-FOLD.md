@@ -2200,3 +2200,180 @@ this seat, plus 8 beyond it.
 **Anti-rename honoured**: every identity above is its original id, cited ⟨record.md · id⟩, with the
 five namespace collisions the citation law exists for named explicitly at §6.0 and on the rows.
 
+
+---
+
+## 7. ROUND-2 FOLD ADDENDUM — 2026-08-28 · the census-method repair (X-W10.104 … X-W10.108)
+
+**What this section is.** This seat's consumption of `refinement/ROUND-2-ASSIGNMENTS.md` **§A.6** —
+**five ⟨record·id⟩ homed here** (4 routed · 1 NWO) by the pass-2 BLOCKER
+(`refinement/PASS-2-CHECK-RETURN.json`: 84 escapes across 27 records, absent from the entire fold
+layer **by bytes**). The escapes are a **method** failure the work order names and retires at §D: a
+row routed by bare declarative phrasing — *"→ X-W10"* inside a table cell, *"folded into D-05's cure
+(X-W10)"*, *"candidate X-W10 … rider"* — is invisible to the 30-character proximity heuristic every
+seat inherited. §6.0's own census used the stricter **token + routing-verb** reading and so shares the
+blindness; §7.1 restates it under the law.
+
+**Posture unchanged.** Status `planned`; dispositions **ADJUDICATED**, never VERIFIED. No product
+source opened — every witness is a corpus byte re-read at HEAD. **E-3**: `waves/W0.md..W11.md`,
+`CONFORMANCE-2026-08-03.md`, `ROUND-1-ASSIGNMENTS.md` and all `registry/adjudicated/**` records are
+byte-untouched; `X-W10-FOLD.md` is this seat's sole write, this round as last. **Anti-rename**: every
+id below is its record's original id, cited ⟨record.md · id⟩, with three live namespace collisions
+named on their rows rather than renamed away.
+
+### 7.1 The census under the §D CENSUS METHOD LAW — restated, re-measured, reproducing
+
+**The predicate** (clause 1): a row line carrying an `X[-·.]W10` token **in any phrasing, at any
+position** BOOKS the row — no proximity, no marker verb, no position. **The boundary is mandatory**
+(clause 4): `X[-·.]W1` without a trailing-digit guard swallows `X-W10`/`X-W11`, which is the trap
+§6.0's header already flagged from the other side.
+
+```
+# corpus (92) → X-W10-routed row lines (264, across 60 records)
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W10([^0-9]|$)'
+```
+
+**Both reproduce at HEAD (`92`, `264`), measured read-only by this seat 2026-08-28**, and `264`
+matches §D's law-true table id-for-id. **Dated correction to §6.0, never silent:** its table reads
+*"corpus rows touching X-W10 … **319**"* and *"row-line-ROUTED (token + routing verb on the row line)
+… **213**"*. Both stand as the round-1 record; **neither is the census predicate any more**. `319`
+counts row lines **plus continuation blocks** (a different, wider unit) and `213` applies the verb
+filter §D clause 2 retires. **The law-true row-line denominator is 264**, and the five rows below are
+inside the `264 − 213` the verb filter hid. Per clause 6 the count follows the predicate: the figure
+changed because the predicate did, and both figures stay legible.
+
+**§B.2's defect class is ABSENT from this fold** — checked, not assumed: this file's printed census
+figures are re-derivable and are re-derived above; the non-reproducing *"282"* the work order strikes
+lives at `X-W4-FOLD.md` §6E and is that seat's cure.
+
+**Namespace guards (three, all live).**
+1. ⟨picker-spectrumcanvas · **D-05**⟩ (X-W10.104) ≠ ⟨picker-spectrumcanvas · **D-06**⟩ (X-W10.94) ≠
+   the layer's `D-5`/`D-6` tokens in other records' namespaces. **Zero-padding is identity** — the
+   same guard X-W10.94 already carries, now load-bearing in both directions inside one record.
+2. ⟨picker-spectrumcanvas · **M-7**⟩ (X-W10.105) ≠ ⟨picker-colorcomponentdisplay · **M-7**⟩ — the
+   latter is folded at **X-W10.62** (the readout format law). One bare token, two records, two rows.
+3. ⟨AdminNamesPanel · **D-15**⟩ (X-W10.107) ≠ ⟨picker-spectrumcanvas · **D-15**⟩ (→ X-W4) ≠
+   ⟨shell-dock-mobilemenudropdown · **D-15**⟩ ≠ ⟨PaneHeader · **PH-34 (D:D-15)**⟩ (X-W10.90). Four
+   records, one bare id; **cite ⟨record.md · id⟩ or not at all.**
+
+### 7.2 §A.6 — the five rows
+
+**X-W10.104 · D-05 — the plate has no visible boundary at rest, and the boundary channel it lacks is
+already reserved and transparent** (cl.1+cl.2) **MAJOR.**
+*Row verbatim* (`picker-spectrumcanvas.md:49`): *"**D-05 — CONFIRMED (MAJOR, mechanism corrected;
+D-05b + the WCAG framing killed) → X-W10.** The plate has no VISIBLE boundary at rest — its own
+content supplies #fff and #000 at the corners; at-rest box-shadow is `0 0 0 0 transparent` (`:232`);
+the forced-colors tier-1 grant preserves the content and the white-on-white worst case. BUT the
+boundary channel already exists: an unconditional, permanently-reserved 3px transparent outline at the
+right offset (ruling table). Cure = assign the reserved ring a resting value (M-7 folded in). The
+measured ratios (1.538 light / 1.091 forced-colors) ride UNPROVEN with A's antialiasing caveat."*
+*cureShape+locks*: the cure is **one declaration on a channel that is already paid for** — assign the
+reserved ring a resting value; it is not a new box, not a shadow, not a size change. **Two kills ride
+the row and are carried, not dropped**: `D-05b` and **the WCAG framing** are KILLED at the record, so
+no close may re-file this as a contrast-ratio failure; and the measured **1.538 light / 1.091
+forced-colors** ratios ride **UNPROVEN** with reader A's antialiasing caveat — they are context, never
+a gate baseline. *sequencing*: **with X-W10.94 (D-06, the one-height law) and X-W10.23 (the same face's
+two prohibited shadow registers) — one surface, one ruling**; a resting ring assigned while the plate's
+five height declarations still resolve anisotropically paints a boundary around a box whose size is
+still under negotiation. *dissent*: none; the record's own mechanism correction is adopted whole.
+⟨picker-spectrumcanvas.md · D-05 (:49) — mechanism corrected; D-05b + WCAG framing KILLED⟩
+
+**X-W10.105 · M-7 ≡ D-05 — the reserved 3px transparent ring IS the missing channel: one cure, two
+ids** (cl.2) **INFO · `≡`-pointer, no second booking.**
+*Row verbatim* (`picker-spectrumcanvas.md:94`): *"**M-7 — INFO — the unconditionally-applied
+`touch-gate-target` reserves a permanent 3px transparent ring on every desktop session — the exact
+boundary channel D-05 says the plate lacks → folded into D-05's cure (X-W10).** (Reader A; the decider
+of the D-05 ruling.)"*
+This row exists so the **byte census closes on `M-7`** without minting a second name for X-W10.104's
+cure — the record itself folds it in, and the fold obeys. **The independent fact it contributes**: the
+ring is reserved **unconditionally, on every desktop session**, so the cure spends no new space; and
+the reserved-but-invisible ring is itself the reason D-05's "no boundary" reading survived review.
+*sequencing*: inherits X-W10.104's. *dissent*: —
+⟨picker-spectrumcanvas.md · M-7 (:94)⟩ ≡ X-W10.104 (D-05's cure) · **≠** ⟨picker-colorcomponentdisplay.md · M-7⟩ (X-W10.62)
+
+**X-W10.106 · D-14 — wordmark/handle/slug are not LTR-isolated, and the constitution already
+legislates the span** (cl.1+cl.3) **MINOR (ruled).**
+*Row verbatim* (`shell-dock-profilesection.md:57`): *"| **D-14** | MINOR (ruled) | Wordmark/handle/slug
+are not LTR-isolated; in an RTL context the wordmark renders `mbabb@` (bidi-derivable, both readers
+independently). LATENT: no RTL arm ships (my grep — one comment hit). Constitution :154 legislates
+LTR-isolated spans. | Component sites :75/:140/:149 + twin :50/:84 read. | **X-W10** (lands with the
+constitution conformance pass). |"*
+*cureShape+locks*: the row's own terminal is the disposition — **it lands with the constitution
+conformance pass**, not as a component patch: `VISUAL-CONSTITUTION.md:154` already legislates
+LTR-isolated spans, so the cure is **conformance to a written law**, and the five sites (`:75`/`:140`/
+`:149` + twin `:50`/`:84`) are its census. **The LATENT flag is carried verbatim and is load-bearing**:
+no RTL arm ships (one comment hit repo-wide), so this is a **design law under test**, exactly the
+posture **G-30** (LOGICAL-DIRECTION) is already stated in — *"a design law under test, not a shipped-
+regression gate"*. **G-30 gains a fifth witness; its predicate is unchanged and no gate is minted.**
+*sequencing*: with X-W10.51 (the ProfileSection emphasis register — same file, same pass) and under
+G-30's direction law. *dissent*: **cross-edge, stated** — ⟨PaletteColorStrip · D9⟩ (X-W11) books the
+same physical→logical conversion law on the U-tranche RTL ledger; **W11 books its row, this fold books
+the law limb, and neither re-books the other** (see §7.3 edge 18).
+⟨shell-dock-profilesection.md · D-14 (:57) — ruling row at :30, banked roster row at :57⟩
+
+**X-W10.107 · D-15 — the admin names surface misses PR-35 at all three rungs** (cl.1) **MINOR.**
+*Row verbatim* (`AdminNamesPanel.md:79`): *"| **D-15** | Spacing misses PR-35 at all three rungs (12 vs
+24; 10 constant vs 16/12 responsive; 6 vs 8). | **X-W10** |"*
+*cureShape+locks*: three rungs, three measured deltas, **one ratified authority** — the row is a
+conformance miss against **OBC PR-35**, the same ratified spacing authority X-W10.96 cites when About's
+`pt-phi-3` sits one rung below `--space-phi-5`. The cure is to seat the three rungs on the ratified
+ladder; **it is not a φ-token mint**, and **OP-3's bar stands — no GOLDEN-GLASS naming may be enacted
+to satisfy it** (X-W10.96's lock, restated because it binds any PR-35 cure). **G-34**
+(PHI-LADDER-ONE-HOME) gains a second component witness; **predicate unchanged, no gate minted**.
+*sequencing*: after the φ ladder has one home (X-W10.96) — re-seating rungs onto a shadowed ladder
+re-parents the miss instead of curing it. *dissent*: — . **Namespace**: guard 3 of §7.1 applies.
+⟨AdminNamesPanel.md · D-15 (:79)⟩ · law home: OBC PR-35 · adjacency: X-W10.96 / G-34
+
+**X-W10.108 · M7 — a digit-count boundary slides the pager arms mid-repeat-click; `tabular-nums`
+holds digit width, not count** (cl.1+cl.2) **INFO · DUAL-LIMB (§D clause 5).**
+*Row verbatim* (`PaginationBar.md:61`): *"| **M7** (design) | **INFO** (design filed MINOR, self-flagged
+the downgrade; this seat takes it) | `justify-center` + natural-width label: a digit-count boundary
+(9→10) widens the sentence ~3.3px and slides each arrow ~1.65px outward mid-repeat-click. `tabular-nums`
+holds digit width, not count. A one-rung-down echo of DESIGN.md's card-lock law (:67-78 — tabular
+figures AND `ch` reservation; only the first is present), below the law's literal display-scale
+trigger. Cure: one `min-w-[Nch]`. | **NEW. NO-WAVE-OWNER** — candidate X-W10 canonical-design rider at
+the formation boundary. |"*
+**Why it books HERE and what the NWO limb does** (§D clause 5 — *NWO and routed are limbs, not
+partitions*): the row line carries **both** `NO-WAVE-OWNER` and an `X-W10` token, so **clause 1
+governs the booking** and the NWO/formation-boundary hedge **rides as a stated cross-edge**, not as a
+second booking. The work order measures this as **the single clause-1 override among the 46 NWO
+escapes**; its packet home would otherwise be X-W7. **A census that treats the two registers as
+disjoint re-orphans exactly this row.**
+*cureShape+locks*: **one `min-w-[Nch]`** — the reservation half of DESIGN.md's card-lock law
+(`:67-78`), whose tabular half already ships. Substantively **the same law** that owns
+⟨picker-colorcomponentdisplay · M-4/M-5/M-8/M-9/M-12⟩ at **X-W10.62**: *tabular figures AND `ch`
+reservation*, and this row is the corpus's proof that the second clause is missed outside the readout.
+**The self-flagged downgrade is carried verbatim** (design filed MINOR, the record's own seat took
+INFO) — both grades legible, neither silently elected. *sequencing*: with X-W10.62's readout format law
+— one reservation law, two surfaces. *dissent*: the formation-boundary hedge is the record's, not this
+fold's; it is recorded at the **G-F register** (X-W0-FOLD §7) as a cross-reference so the boundary seat
+sees the same identity.
+⟨PaginationBar.md · M7 (:61) — dual-limb: routed X-W10 ∧ NO-WAVE-OWNER⟩ ≡ law of X-W10.62 · G-F cross-ref
+
+### 7.3 CrossEdge addendum — edge 18 (continuing §6g)
+
+| # | edge | the constraint |
+|---|---|---|
+| 18 | **X-W10 ⟷ X-W11** (one direction law, two ledgers) | ⟨shell-dock-profilesection · D-14⟩ (X-W10.106) and ⟨PaletteColorStrip · D9 ≡ PCS-31⟩ (X-W11's round-2 row) are the **same physical→logical conversion law** on two ledgers: the constitution conformance pass (`VISUAL-CONSTITUTION.md:154`) and the U-tranche booked RTL ledger (`docs/tranches/U/audit/w-a11y/rtl-logical-property-audit.md`). **X-W11 books D9 under its own id; this fold books the law limb; neither re-books the other.** The shared caveat is carried on both sides: `index.html` hard-pins `dir="ltr"` as **deliberate booked readiness**, so both rows are laws under test — G-30's stated posture, not a shipped-regression claim |
+
+### 7.4 Arithmetic — restated at the new true counts, 2026-08-28 (fold round 2)
+
+**This block supersedes §6h's row line; §6h stands as the round-1 record.**
+
+| measure | round 1 (§6h) | added this round | **new true count** |
+|---|---|---|---|
+| rows (contiguous `X-W10.1..`) | 103 | **+5** (`X-W10.104..X-W10.108`) | **108** |
+| — of which §A.6 routed | — | **4** (D-05 · M-7 · D-14 · D-15) | 4 |
+| — of which §A.6 NWO (dual-limb, clause 5) | — | **1** (M7) | 1 |
+| — of which `≡`-pointer bookings (no second cure) | — | **1** (M-7 ≡ D-05) | 1 |
+| gate rows | 36 (9 sharpened + 27 born-RED) | **+0** | **36** — **no gate minted, none re-staged or re-weighted**; G-30 gains a fifth witness (D-14) and G-34 a second component witness (D-15), predicates unchanged |
+| bounds-delta rows | 27 | **+0** | **27** — every row lands on a path §4/§6f already carries (`SpectrumCanvas.vue` row 23 · `ProfileSection.vue` via X-W10.51 · `AdminNamesPanel.vue` and `PaginationBar.vue` as canon-law rows whose edits are elsewhere) |
+| cross-edges | 17 | **+1** (edge 18) | **18** |
+| census denominator | 319 touching / 213 verb-routed | **264 law-true row lines / 60 records** | re-derived, reproducing (§7.1) |
+
+**Reconciliation:** §A.6 assigns **5** (4 routed + 1 NWO); **5 numbered rows** are booked, zero
+overlaps declared, so the walk is `5 = 5`. **Assignment coverage: §A.6 5/5 id-for-id.** Numbering is
+gapless and contiguous **X-W10.1 … X-W10.108**; zero ids minted, zero renamed. Dispositions are
+**ADJUDICATED, not VERIFIED**; status `planned`; nothing here stamps a wave.

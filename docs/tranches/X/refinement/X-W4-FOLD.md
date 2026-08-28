@@ -486,6 +486,12 @@ outside X-W4's bounds, the split is stated on the row.
 
 ### 6B. Census-escape rows — the 35 X-W4-routed ⟨record·id⟩ absent from this fold
 
+**SUPERSEDED IN PART, `2026-08-28` (round 2) — see §7C. Nothing below is struck.** The figure **35**
+was derived under the marker-verb predicate that §D's CENSUS METHOD LAW **retires**; under the law
+the X-W4-routed surface is **305 rows across 45 records**, and §7A folds **18** further escapes this
+header did not see. **This header does not close the X-W4 census and never did**: closure is
+established only by the round-3 check's census artifact, not by any sentence in this file (§7C).
+
 #### 6B.1. True escapes — absent from the entire fold layer under their own record namespace (20)
 
 | # | ⟨record · id⟩ | sev | mechanism (as adjudicated) | carriage + locks |
@@ -591,6 +597,217 @@ grep -nE '^\s*([-*]|\|)\s*\*\*' docs/tranches/V/megatranche/registry/adjudicated
   | grep -E 'X[-·.]W4' | grep -E '→|Disposition|BOOK|BUILD|routes to|Terminal:' | wc -l
 ```
 
+**SUPERSEDED `2026-08-28` (round 2) — the corrected one-liner is at §7B; these bytes stand unstruck
+as the superseded receipt.** Run verbatim at HEAD this command returns **257**, not the **282**
+printed above; **282 reproduces under no predicate at all** (§7B measures all four variants). The
+third stage is the retired marker-verb heuristic (§D clause 2). The header sentence "*the census
+this section closes*" is likewise superseded: **no section of this file closes the X-W4 census**
+(§7C).
+
 — end of the round-1 repair addendum. The rows above are consumed id-for-id from
 `ROUND-1-ASSIGNMENTS.md` §A/§B/§C **and** from this seat's own re-run census, which exceeded the roster
 in both registers. Round 2 measures against these bytes.
+
+---
+
+## 7. ROUND-2 FOLD REPAIR — dated addendum, `2026-08-28`
+
+**What this section is.** The X-W4 repair seat's consumption of `refinement/ROUND-2-ASSIGNMENTS.md`
+(the assignment seat's work order against `refinement/PASS-2-CHECK-RETURN.json`, verdict
+**NON-CONFORMANT**: 1 BLOCKER · 2 MAJOR · 5 MINOR · 1 INFO). It folds the **18** §A.1 escapes homed
+here (11 routed · 7 NWO), applies §B.2's three-part cure to §6E's census receipt, corrects §6B's
+closure claim, and re-states the arithmetic. Status **planned**; dispositions **ADJUDICATED, never
+anything stronger**; **no product source opened** — every witness below is a read or a grep. E-3
+holds: `waves/W4.md`, `waves/CONFORMANCE-2026-08-03.md` and `refinement/ROUND-1-ASSIGNMENTS.md` stay
+**byte-untouched**; this file remains the fold's sole write.
+
+**Anti-rename, restated.** Every id below is the id its adjudicating record minted — **original for
+life**. `W4·n` indices continue §1/§6's fold-local counting device and are never a rename. Citation
+key is **⟨record.md · id⟩**; three of the eighteen sit on bare ids that collide across namespaces and
+each carries its guard on the row.
+
+**Row text.** Every quoted row below is the **banked line's own bytes**, read out of the record at
+HEAD by this seat (`awk 'NR==<line>' <record>.md`), not re-phrased and not recalled. The `:line` is
+the authority and the quote is the falsifier.
+
+### 7.0. The CENSUS METHOD LAW adopted, and what it strikes in this fold
+
+`ROUND-2-ASSIGNMENTS.md` §D writes the law into the spine; this fold adopts it and states, without
+hedging, **which of its own bytes the law invalidates**:
+
+1. **The predicate.** A row line carrying an `X[-·.]W4` token — **in any phrasing, at any position on
+   the line** — books the row to X-W4. No proximity requirement, no marker-verb requirement, no
+   position requirement.
+2. **STRUCK: §6.0's own "X-W4-routed" definition.** §6.0 defines a routed row as one carrying the
+   token **"and a routing verb (`Disposition` · `→ X-W` · `→ X.W` · `BOOK →` · `BUILD →` · `FOLD →` ·
+   `routes to` · `Terminal: X-W` · a `| **X-W` cell)"**. That conjunct is the retired heuristic and is
+   **struck as of this date** (§D clause 2); §6.0's bytes stand, superseded here. It is why seven
+   rows in `picker-colorcomponentdisplay.md` that print `→ X-W4` **verbatim** were nonetheless missed:
+   the miss was not the token test but the *record-namespace* re-test layered on top of it — and
+   four more (⟨genericactionbar · U-1⟩ `X.W4.d`, ⟨wb-extract-controls · K-H⟩ *"carried in the X-W4
+   family"*, ⟨wb-extract-workbench · K-21⟩ *"per … X-W4's accname law"*, ⟨spectrumcanvas · D-15⟩) carry
+   no marker verb at all and are invisible to the heuristic by construction.
+3. **STRUCK: the dash-variant padding.** §6.0 claims the census counted *"hyphen, en-dash, middot and
+   dotted forms"*. Measured at HEAD over the 92-record corpus, **no en-dash, em-dash or
+   non-breaking-hyphen form exists**: `ls *.md | grep -vE '^(kf|fr|pt)-' | xargs grep -oE 'X[–—‑]W[0-9]' | wc -l` → **0**.
+   The alphabet is exactly `X-W\d` · `X.W\d` · `X·W\d`; the canonical class is **`X[-·.]W\d`** and the
+   trailing boundary `([^0-9]|$)` is mandatory. Widening beyond what the corpus contains is
+   unfalsifiable padding; **narrowing below the dotted/middot forms loses rows** — ⟨genericactionbar ·
+   U-1⟩ is `X.W4.d` and would be lost by a hyphen-only sweep.
+4. **NWO and routed are limbs, not partitions** (§D clause 5). Seven of the eighteen below carry a
+   `NO-WAVE-OWNER` limb; each **folds once, both limbs**, with the NWO limb riding as a stated
+   cross-edge.
+5. **The count follows the predicate** (§D clause 6). §7B re-derives every figure downstream of the
+   corrected predicate rather than carrying an uncorrected count under a corrected rule.
+6. **The row predicate is open** (§D clause 7). Every figure in this section is labelled with the row
+   regex that produced it (`^\s*([-*]|\|)\s*\*\*`), and **no per-wave total here is quoted as
+   authoritative** until round 3 elects one row regex and prints it.
+
+### 7A. The §A.1 escapes folded id-for-life — 18 rows, `W4·174 … W4·191`
+
+**Homing.** Eleven are **routed** — their own row lines print an X-W4 token (§D clause 1). Seven are
+**NWO** and home here on the correction §0a n.2 already records: `shell-dock-slugeditlayer.md` carries
+**zero** X-W4 tokens and routes 33/35 rows NO-WAVE-OWNER, but `SlugEditLayer.vue` **is** in W4 bounds
+(`W4.md:118`) and this fold folds that record on **FILE ownership** (W4·122). **Adoption of a row is
+not adoption of a cure**: where a row's cure surface sits outside X-W4's bounds, the split is stated on
+the row. **Their filed `NO-WAVE-OWNER` dispositions are NOT struck** — §0a n.2 struck the NWO on five
+*other* rows (D-7/L-4/C-5 · D-3/C-6/L-5/A-4 · A-10 · A-11 · A-12, folded at `W4·1`–`W4·5`); these seven
+are among the "other 30 [that] stand as filed", and they are booked as rows without their dispositions
+being touched.
+
+#### 7A.1. Routed (11) — the token is on the row line, in the record's own phrasing
+
+| # | ⟨record · id⟩ | sev (as adjudicated) | banked row text — verbatim from the record's bytes | carriage + locks |
+|---|---|---|---|---|
+| W4·174 | ⟨picker-colorcomponentdisplay · **C-1**⟩ (:32) | MAJOR (+ C-6 clause ii, folded — one identity) | "**C-1 (+ C-6 clause ii, folded) — CONFIRMED (MAJOR) → X-W4.** Browser-mutated contenteditable DOM and Vue-owned nested text interpolations have no commit/reconciliation contract. Both directions proven static: (fwd) the 500ms debounce boundary lands the model, `currentColorComponentsFormatted` recomputes, Vue re-runs `setElementText` inside the focused editing host — GUARANTEED divergent because the committed value clamps (see M-1), so the caret's ground is rewritten mid-edit; (conv) input that produces no model change (NaN drop at `ColorPicker.vue:233`, or emptying a cell) leaves the DOM permanently disagreeing with state — no blur/reset/`:key` bump exists (`:key="component"` is invariant while editing). Crash arm (v-if anchor detachment → insertBefore DOMException) UNPROVEN-NEEDS-LIVE." | **PICKER-REBUILD (W4·123)** — this is the rebuild's commit-contract row. **UNPROVEN LOCK (verbatim, carried in force)**: the crash arm is *"UNPROVEN-NEEDS-LIVE"* and **no close may promote it without a live witness**; the two proven directions do not need one. Kin: W4·145 (M-3, the same 500 ms window from the timer side) |
+| W4·175 | ⟨picker-colorcomponentdisplay · **C-2**⟩ (:33) | MAJOR | "**C-2 — CONFIRMED (MAJOR) → X-W4.** The sole handler reads `innerText.trim()` and emits per input event (`:30-35`); zero `keydown/beforeinput/composition*/paste/blur` bindings in 214 lines. Enter inserts a `<div>`/`<br>` (plain `contenteditable="true"`, not `plaintext-only`), so `"12\n.5"` parseFloats to 12 and the fraction silently drops. The Enter/Escape handler at `ColorPicker.vue:249-261` is gated on the PALETTE edit-target machine (`isEditing`), null during readout editing — verified." | PICKER-REBUILD. **The silent-drop half is a data-loss path, not an ergonomics note** — it rides D-2's silent-outcome family (W4·178) and the two are one cure surface. The `isEditing`-gating fact is **verified** in the record's own word and is the reason a "the handler already exists" reading is false |
+| W4·176 | ⟨picker-colorcomponentdisplay · **C-4**⟩ (:35) | MINOR (= L-5, one identity) | "**C-4 (= L-5, one identity) — CONFIRMED (MINOR) → X-W4.** `defineEmits` declares `update: [value: number, component: string]` (`:92-95`); the only `emit(` call is `input` (`:33`). Worse than either axis: the consumer BINDS the dead event — `ColorPicker.vue:51` `@update="(v,c) => updateColorComponentDebounced(v,c)"` is permanently cold wiring one line above the live `@input`. Corroborated independently at `audit/codex-provenance/axes-quality.md:150-151`." | PICKER-REBUILD. **≡ L-5, counted once as a defect, carried under C-4's spelling as the record mints it.** The cold-wiring fact is the sharper half: a rebuild that deletes the dead emit must delete the consumer binding **in the same edit** or the dead wire survives its declaration |
+| W4·177 | ⟨picker-colorcomponentdisplay · **D-1**⟩ (:36) | MAJOR (ruled over B's MINOR) | "**D-1 — CONFIRMED (MAJOR, ruled over B's MINOR) → X-W4.** No edit affordance on the page's least-input-like element (ruling above; M-22 TRUE cited)." | PICKER-REBUILD; the affordance half of the rebuild's template. **NAMESPACE NOTE (work order §A.1, carried)**: `picker-colorcomponentdisplay.md:24` is the **`D-1 severity` ruling row**, a different line; the banked roster row is **`:36`** and it is the row folded here. The ruling is cited, never folded as a second row |
+| W4·178 | ⟨picker-colorcomponentdisplay · **D-2**⟩ (:37) | MAJOR | "**D-2 — CONFIRMED (MAJOR) → X-W4.** Four silent outcome paths, zero painted state: PARSED (`ColorPicker.vue:232`), REJECTED (NaN drop `:233`; hex regex drop `:227`), CLAMPED (`useColorPipeline.ts:67` → `clampPickerColor`, `picker-color.ts:195-204`), COMMITTED (500ms later). Plus `useColorPipeline.ts:195`'s non-finite drop — a fifth silent site." | PICKER-REBUILD. **FIVE-SITE LOCK**: the record's own count is **five** silent sites, the fifth added by its own read (`useColorPipeline.ts:195`); a cure that paints four and leaves the fifth is under-scoped **by the record's arithmetic**, not by opinion. Feeds gate **N19**'s cancellation arm (the COMMITTED path is the same 500 ms timer) |
+| W4·179 | ⟨picker-colorcomponentdisplay · **D-3**⟩ (:38) | MINOR | "**D-3 — CONFIRMED (MINOR) → X-W4.** No `inputmode`, no mobile editor arm anywhere in the scoped block; the phone band is explicitly in the component's design scope (`readoutReservation.ts:142-147` derives a dedicated 390 arm). The 200%-zoom half is settled statically and MORE severely by M-5; the residual keyboard ergonomics ride UNPROVEN." | PICKER-REBUILD. **SPLIT PRESERVED**: the 200 %-zoom half is **not this row's** — it is settled by M-5 and may not be re-filed here; the residual is the keyboard-ergonomics limb and it rides **UNPROVEN** verbatim. Two halves, two homes, one row |
+| W4·180 | ⟨picker-colorcomponentdisplay · **M-6**⟩ (:51) | MAJOR | "**M-6 — MAJOR — the card's only heading takes its accessible name from labelled descendants, announcing label boilerplate instead of the color; the unit is excluded from every textbox's accessible value → X-W4 (with L-1).** Per accname step 2F the `<h3>`'s name traverses each descendant's own computed name, so the labelled textboxes contribute "l component value / c component value / h component value". Labels are raw channel keys (lab's "b" vs rgb's "b" — same announcement, different quantities), no space name, no unit, no range — while `PICKER_SPACE_NAMES` and `currentColorRanges` both exist unpassed. The `%`/`deg`/`K` sibling sits OUTSIDE the labelled textbox, so the control's value announces unitless. The `aria-hidden` commas (`:45`) are correct and stay. Exact AT interleavings ride UNPROVEN." | PICKER-REBUILD + **X-W4's accname law** (the same law ⟨wb-extract-workbench · K-21⟩ cites at W4·184). **CO-LANDING CONDITION (the record's own words, carried, not converted into a second booking)**: *"→ X-W4 (with L-1)"* — ⟨picker-colorcomponentdisplay · **L-1 (heading half)**⟩ (:40, *"`CardTitle` defaults `as: "h3"`"*) is the heading half and the two are one cure surface; **this fold books M-6 only** and states the L-1 co-landing as a condition. **PRESERVE-CLAUSE (verbatim)**: *"The `aria-hidden` commas (`:45`) are correct and stay."* — a cure that sweeps them regresses the row. **UNPROVEN**: exact AT interleavings. Kin: W4·150 (MISS-9, machine-token accessible names) |
+| W4·181 | ⟨picker-spectrumcanvas · **D-15**⟩ (:73) | MINOR | "**D-15 — CONFIRMED (MINOR) → X-W4 (dies in the rebuild's template).** Captionless single-child `<figure>` with `m-0` cancelling its one UA behaviour; A's sharpening adopted: an UNNAMED `role="figure"` boundary is announcement noise layered on D-12's wrong name." | PICKER-REBUILD (W4·123) — **"dies in the rebuild's template"**, the record's own terminal, so this row books **no independent edit**. Rides **D-12's** naming cure (already this fold's rider family at W4·142/W4·143). **NAMESPACE GUARD**: ⟨picker-spectrumcanvas · D-15⟩ ≠ ⟨AdminNamesPanel · D-15⟩ (X-W10's band) ≠ ⟨shell-dock-mobilemenudropdown · D-15⟩ (cited inside that record's M-G, X-W7's band) — three records, one bare id |
+| W4·182 | ⟨shell-dock-genericactionbar · **U-1**⟩ (:74) | UNPROVEN residue (no verdict depends on it) | "**U-1** — the ROOT 390×844 Reset witness (90°→337°→Reset→337° after 250 ms): text-only, no artifact, no verdict depends on it. Must be replaced by a durable capture at X.W4.d D4's MEASURE-AT-OPEN; never re-carried as "binding"." | **X.W4.d — D4's MEASURE-AT-OPEN**, by the row's own words. **DOTTED-FORM TOKEN**: the routing is spelled `X.W4.d`, invisible to any hyphen-only sweep (§7.0 n.3) — this row is the corpus proof that the middot/dotted forms are load-bearing. **NEVER-BINDING LOCK (verbatim)**: *"never re-carried as 'binding'"* — the text-only witness may be cited as motivation and **never as evidence**; the obligation D4 inherits is to **produce the durable capture**, not to re-quote this one. Kin: W4·134 (ABN-24 — the same matrix that never opened the action-bar layer) |
+| W4·183 | ⟨wb-extract-controls · **K-H**⟩ (:106) | kill-with-residue (weak last-resort naming) | "**K-H — D-10's "named only by hover title" framing**: the governing file's own a11y tree prints computed names for all three; residue = weak last-resort naming, carried in the X-W4 family." | **X-W4 family** — bare-declarative routing, no marker verb, the exact phrasing class §D's law recovers. Booked as a **KILL that still carries**: D-10's *"named only by hover title"* framing is dead (the a11y tree prints computed names for all three) and **no close may re-file it**; the surviving residue is **weak last-resort naming**, which rides X-W4's accname law with W4·180 and W4·184. `ExtractControls.vue` remains a **named bounds gap** (§0a n.3 / §3's CC-105 row) — the residue is carried, the file is not claimed |
+| W4·184 | ⟨wb-extract-workbench · **K-21**⟩ (:107) | kill (cure position), with the cure re-shaped | "**K-21 — this seat's kill of L-r3 §0's cure position ("three aria-labels; no glass-ui change; no BH relay")**: rests on K-12's refuted premise; the cure is an 11-site convention decision + a producer `label`-prop relay, per the sibling's XP-8 and X-W4's accname law. The withdrawal of the drafted glass-ui finding was right for the wrong reason — the producer's surface is a relay ask, not a masking fallback, when the fork spans three features." | **X-W4's accname law** — again bare-declarative. **CURE-SHAPE LOCK (verbatim)**: the cure is *"an 11-site convention decision + a producer `label`-prop relay"*, **not** three `aria-label`s; the three-label position is **killed** and a close that ships it has shipped the killed cure. The **producer relay limb rides CE-12's standing glass letter** (the BH/BI relay law binds every component-level change) — X-W4 books the convention decision, the relay ask is the letter's |
+
+#### 7A.2. NWO (7) — `shell-dock-slugeditlayer.md`, folded on FILE ownership (§0a n.2 · W4·122 · `W4.md:118`)
+
+| # | ⟨record · id⟩ | sev (as filed) | banked row text — verbatim from the record's bytes | carriage + locks |
+|---|---|---|---|---|
+| W4·185 | ⟨shell-dock-slugeditlayer · **D-6**⟩ (:44) | MAJOR | "**D-6 — MAJOR.** One undifferentiated `type="text"` field carries two authorities and renders the elevated one unmasked in the persistent top band; no `autocomplete`/`spellcheck`/`inputmode`/`name`; the only admission of the token role is the clipped-off placeholder tail. Canon assigns secret retention a designed treatment (VISUAL-CONSTITUTION.md:222, verbatim-verified). **Disposition: W23 (constitution-assigned Account Dialog owner); else NO-WAVE-OWNER at boundary.**" | **CANON RIDER — stated, never swallowed**: `W23` is a **V′ identity no X wave owns**. This seat **books the row** (the file is X-W4's by bounds) and **relays the canon-terminal limb** — VISUAL-CONSTITUTION.md:222, the W23 Account Dialog — **to the G-F register as a cross-edge (CE-16)**. ⟨X-W5-FOLD · W5F-24⟩ already carries the same canon terminal verbatim (*"Terminal home per canon = the W23 Account Dialog (VISUAL-CONSTITUTION.md:222)"*), so the two folds agree id-for-id and **neither claims W23's work**. X-W4 owns only what W4.md:118's `modify` reaches: the field's own attribute surface. **The filed NWO-at-boundary disposition is NOT struck** |
+| W4·186 | ⟨shell-dock-slugeditlayer · **D-13**⟩ (:51) | MAJOR | "**D-13 — MAJOR.** Constitutional orphan: canon assigns Account to a modal side Dialog owned by W23 with W15 supplying auth state (VISUAL-CONSTITUTION.md:222, verbatim-verified by both re-readers); this surface is a 46px inert-able strip of navigation chrome. The §7-Shell supporting citation is struck (K-10); the row stands without it. **Disposition: W23 (constitution-assigned); else NO-WAVE-OWNER at boundary.**" | Same **CANON RIDER** as W4·185 → **CE-16**, G-F register. **KILL CARRIED (verbatim)**: *"The §7-Shell supporting citation is struck (K-10); the row stands without it"* — a close may cite the row and **may not cite §7-Shell** for it. **ESCALATION (§5, new)**: a *constitutional orphan* is the sharpest form of the bounds-conviction class — the canon names an owner (**W23 + W15**) that **no X wave instantiates**, so X can render the strip honestly and cannot discharge the constitution. Recorded as an escalation, not as W4 work |
+| W4·187 | ⟨shell-dock-slugeditlayer · **C-8**⟩ (:60) | MINOR | "**C-8 — MINOR.** Escape dismisses only when the input holds focus; `.stop` (:86) starves any ancestor fallback; the layer has four focusables, two outside the `<form>` (multi-root template). **Disposition: NO-WAVE-OWNER.**" | Booked on file ownership; the cure is inside `SlugEditLayer.vue`, which `W4.md:118` holds as **modify** — so unlike D-6/D-13 this row's cure surface **is** reachable from X-W4's bounds. **The filed NWO stands as the record's disposition**; this fold books the identity and states the reachability, and does **not** overturn the record. Kin: W4·2's optically-absent-input family (same template, same wave) |
+| W4·188 | ⟨shell-dock-slugeditlayer · **C-12**⟩ (:62) | MINOR (credential-retention mechanism) | "**C-12 — MINOR.** A pasted admin token survives dismissal in the always-mounted DOM: `slugInput` is cleared only on open (:17) and successful submit (:55) — never on Escape (:86) or Cancel (:115). Given :29-37's explicit `ADMIN_TOKEN=` handling, the retained value can be a live credential. **Disposition: NO-WAVE-OWNER.**" | **NAMESPACE GUARD**: ⟨shell-dock-slugeditlayer · C-12⟩ ≠ ⟨FlagReportDialog · C-12⟩ (cited inside that record's A-22, X-W7's band) ≠ ⟨picker-spectrumcanvas · C-12⟩ (this fold's own W4·162) — **three records, one bare id, three fates**. Cure is two lines in the same file X-W4 already modifies; **grade preserved as filed (MINOR)** — this fold does not promote it on the credential wording, because the record graded it with that wording in hand |
+| W4·189 | ⟨shell-dock-slugeditlayer · **C-13**⟩ (:75) | INFO | "**C-13 — INFO.** `:6` imports `writeClipboard` from the root barrel while `:4` uses the narrow `/dock` path and `./dom` exists in the producer's exports. **Disposition: NO-WAVE-OWNER, fleet-level sweep.**" | **FLEET-SWEEP LIMB (verbatim)**: the disposition is *"NO-WAVE-OWNER, **fleet-level sweep**"* — the identity is the demo-wide import-narrowing class X-W8 owns (the 19 `demo/ui` barrels / narrow-ownership seam, this fold's W4·168 pointer). X-W4 books the id because the line is in its file and **`≡`-points the sweep to X-W8**; a one-file fix here would be the fleet row's fifth spelling, not its cure |
+| W4·190 | ⟨shell-dock-slugeditlayer · **L-10**⟩ (:76) | INFO (harness defect, not component defect) | "**L-10 — INFO (harness defect, not component defect).** The visual corpus measured this component only inert-at-opacity-0 (the uniform 30-per-shape fingerprint — corroborated by my recomputation; capture.mjs filters on nonzero rect with no visibility/inert check per RR-LC's read). The only active-state frame anywhere is the C seat's own `evidence-slug-layer-open-1024.png`. **Disposition: NO-WAVE-OWNER — the harness gains a visibility check; the active state joins the capture matrix (residue).**" | **NOT A COMPONENT ROW, and the row says so in its own head** — booked so the identity is carried, with the work routed where it lives: **CE-13, the visual-audit lane** (the same lane that owns W4·134 ABN-24 and W4·131 GEN-37 — `capture.mjs` never opening the layer is one mechanism across three records). **NAMESPACE GUARD**: ⟨shell-dock-slugeditlayer · L-10⟩ ≠ ⟨FlagReportDialog · L-10⟩ (X-W7's band). X-W4 books **no harness edit** |
+| W4·191 | ⟨shell-dock-slugeditlayer · **A-13**⟩ (:77) | INFO (net-new; RR-LC) | "**A-13 — INFO (net-new; RR-LC).** The very file whose comment rules `catch (e:any)` dead re-offends 29 lines below it: `useSlugMigration.ts:112-114` `catch (e: any) { console.warn("Migration action failed:", e?.message) }` — verified by this seat's read. **Disposition: NO-WAVE-OWNER — dies with D-12's cure.**" | **DIES-WITH LOCK (verbatim)**: *"dies with D-12's cure"* — no independent edit; if D-12's cure lands and the `catch (e: any)` survives, the cure was incomplete and this row is the falsifier. `useSlugMigration.ts` is already in this fold's §3 BoundsDelta (SLUG-CHAIN, W4·122's cure lock names all three files), so **no bounds row is added**. **NAMESPACE GUARD (work order §A.1, carried)**: ⟨shell-dock-slugeditlayer · **A-13**⟩ ≠ ⟨PaletteSlugBar · **A-13**⟩ — the latter is **X-W5's** (⟨X-W5-FOLD · W5F-85⟩), a FlagReportDialog destructive-confirm row. **Two records, two waves, one bare id** |
+
+### 7B. §B.2's cure — the census receipt that measured nothing, in three parts
+
+**Part 1 — the command's third stage is deleted, not repaired.** The `grep -E '→|Disposition|BOOK|BUILD|routes to|Terminal:'`
+pipe is the retired heuristic (§D clause 2) and no widening of it is admissible; the predicate becomes
+the law. **The corrected one-liner, re-run read-only at HEAD by this seat on 2026-08-28** — both lines
+reproduce:
+
+```
+# corpus (92) → X-W4-routed rows (305, across 45 records) → §6B/§7A re-derive from these
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' | wc -l
+ls docs/tranches/V/megatranche/registry/adjudicated/*.md | grep -vE '/(kf|fr|pt)-' \
+  | xargs grep -nE '^\s*([-*]|\|)\s*\*\*' | grep -cE 'X[-·.]W4([^0-9]|$)'
+```
+
+Returns **`92`** and **`305`**. The record count is the same pipeline through
+`| cut -d: -f1 | sort -u | wc -l` → **`45`**. The `([^0-9]|$)` boundary is **mandatory**, not
+decorative: without it `X-W4` swallows nothing today but silently swallows a future `X-W40` (§D
+clause 4). The row regex is stated inline per §D clause 7 — `^\s*([-*]|\|)\s*\*\*` — and this figure
+is **not** offered as the authoritative per-wave total until round 3 elects one row regex.
+
+**Part 2 — the IN-side receipt, restated with every superseded figure kept legible.** E-3 idiom:
+supersede in place with a dated correction, **strike nothing**.
+
+| figure | what it is | reproduces? |
+|---|---|---|
+| **305** rows / **45** records | **the law-true X-W4-routed surface** (§D predicate, row regex printed) | **yes** — the Part-1 command, at HEAD, verbatim |
+| 282 rows / 92 records | §6E's printed pass-1 IN-side receipt | **no — under no predicate at all**. This seat measured four variants: verbatim-as-printed **257**; band-filtered-first **257** (so the gap is **not** an input-set artefact); routing-verb filter dropped **305**; verb filter widened with the `\| **X-W` cell form **275**. 282 is none of them |
+| 257 rows | what §6E's printed command actually returns | yes — it is the command's true output, and it is **not** the figure the fold printed beside it |
+| 402 hits / 47 records | §0's original hit-count receipt | yes as a **hit** count; it was never a row count and §6E already ruled both stand as different measures. **Unaffected by this correction** |
+
+**The consequence, stated plainly.** §6E's superseded-figure table contrasted *"402 grep hits / 47
+records"* against *"282 X-W4-routed rows / 92 records"* and ruled **both stand**. That ruling rested
+on **282**, which measures nothing at the tree — so the ruling's second term is replaced by **305 / 45**
+and the ruling itself survives in its shape: a hit count and a row count measure different things and
+neither is struck. **The 92 in "282 X-W4-routed rows / 92 records" was the corpus size, not the
+carrying-record count** — the corrected receipt names both (**45** of the **92** carry an X-W4 row).
+
+**Part 3 — §6B's escape census re-derived against 305, not 282.** §6B declared *"the 35 X-W4-routed
+⟨record·id⟩ absent from this fold"*. That figure was derived from the retired predicate over a base
+that reproduces under none, so it cannot be the census. Re-derived under the law: **§7A folds 18
+further escapes**, of which **11 are routed rows the §6.0 predicate could not see** (7 in
+`picker-colorcomponentdisplay.md` alone, every one printing `→ X-W4` **verbatim**) and 7 are NWO rows
+homed by file ownership. **Escapes booked by this fold to date = 35 (§6B) + 18 (§7A) = 53.** Per §D
+clause 6 the count follows the predicate: **a corrected predicate with an uncorrected count is the
+same defect wearing the cure's clothes**, which is why §6B's header is superseded (above) rather than
+left standing beside a corrected command.
+
+### 7C. §6B's closure claim — no self-voiced completeness, ever
+
+**The defect this cures.** §6B's header sentence — *"the **35** X-W4-routed ⟨record·id⟩ absent from
+this fold"* — and §6E's *"the census this section closes"* are **self-voiced closure claims**: the
+fold asserting its own completeness on the strength of its own sweep. The pass-2 BLOCKER falsified
+exactly that assertion, and it did so from **one record**: seven rows printing `→ X-W4` verbatim, all
+absent by bytes while the header declared the census closed at 35.
+
+**The cure, binding on this fold and on any seat reading it.**
+
+1. **No sentence in this file closes the X-W4 census.** §6B's and §6E's completeness language is
+   superseded (dated pointers inserted at both sites, bytes unstruck) and is to be read as *"the
+   escapes booked as of that date"* — never as *"the escapes that exist"*.
+2. **Closure is established by the census artifact, not by the fold.** The X-W4 census closes when
+   and only when the **round-3 check's census artifact** — `docs/tranches/X/refinement/PASS-3-CHECK-RETURN.json`,
+   the successor of `PASS-1-CHECK-RETURN.json` and `PASS-2-CHECK-RETURN.json` — re-derives the
+   ⟨record·id⟩ census under §D's predicate against **these bytes** and prints **zero** X-W4 escapes.
+   Until that artifact exists and says so, the honest statement of this fold's position is: *53
+   escapes booked across two rounds; completeness unproven.*
+3. **The artifact's predicate is named in advance, so the test cannot be moved to fit the answer.**
+   Token class `X[-·.]W\d([^0-9]|$)`; row regex stated inline by whichever regex round 3 elects (§D
+   clause 7); the corpus is the **92**; the namespace is **⟨record.md · id⟩** and never the bare id.
+   A round-3 pass that changes the predicate **obliges** re-deriving every figure downstream of it.
+4. **Precedent, so this is a law and not a one-off.** Round 1's own §6.0 n.2 already recorded that the
+   check's bare-id instrument and this fold's ⟨record·id⟩ citation law disagree; round 2 proves the
+   remaining gap was never instrument width but **self-attestation**. A fold may state what it folded.
+   It may not state what remains.
+
+**A dated correction this seat owes its own §6.0 (n.1's framing).** §6.0 n.1 says *"Every supplement
+is an escape by the roster's own byte test and is folded here **so no round-2 check re-discovers
+it**"*. The round-2 check re-discovered 18 anyway. The sentence is superseded: a fresh sweep by one
+seat, however wide, is **evidence about a fold's coverage and not a proof of it** — which is precisely
+what §7C.2 now makes structural.
+
+### 7D. Updated arithmetic block — dated `2026-08-28` (round 2), superseding §6E's for the counts named
+
+**Supersedes §6E's table for the counts named here, and §0's "Arithmetic" paragraph beneath it.
+Superseded figures are printed beside the new ones; nothing is amended in place, nothing is struck.**
+
+| measure | §0 (2026-08-25) | §6E round 1 (2026-08-28) | **true count, round 2 (2026-08-28)** | decomposition |
+|---|---|---|---|---|
+| **rows booked** | 123 (`W4·1 … W4·123`) | 173 (`… W4·173`) | **191** (`W4·1 … W4·191`, gapless) | 173 + **18** = 11 routed (§7A.1) + 7 NWO (§7A.2). Round-2 rows add **zero** `≡`-pointer-only rows: all 18 are first bookings of their ⟨record·id⟩ |
+| **gate entries** | 29 (13 sharpened + 16 new) | 35 (13 + 22 new born-RED) | **35 — unchanged** | §7 mints **no** gate. Three rows feed existing gates as inputs, none as new entries: W4·178 → **N19** (the COMMITTED path is N19's timer), W4·180/W4·183/W4·184 → the accname family behind **N18**'s naming arm, W4·182 → **D4's MEASURE-AT-OPEN** (a wave obligation, not a gate) |
+| **BoundsDelta distinct paths** | 31 | 31 | **31 — unchanged** | §7 adds **no** bounds row. `SlugEditLayer.vue` is already `W4.md:118` **modify**; `useSlugMigration.ts` is already §3's SLUG-CHAIN row (W4·122); `ExtractControls.vue` is already §3's CC-105 row (W4·183 claims the residue, not the file) |
+| **cross-edges** | 14 (CE-1 … CE-14) | 15 (… CE-15) | **16** (… **CE-16**) | **CE-16 — X-W4 ⟂ the G-F register (canon terminal).** ⟨slugeditlayer · D-6⟩ + ⟨slugeditlayer · D-13⟩ name **W23** (Account Dialog) with **W15** supplying auth state, per VISUAL-CONSTITUTION.md:222 — **a V′ identity no X wave instantiates**. X-W4 books the two rows on file ownership and relays the canon-terminal limb to the G-F register; ⟨X-W5-FOLD · W5F-24⟩ carries the identical terminal, so the relay is **one edge, two folds, no double booking** |
+| **dissents / escalations** | 9 | 11 | **12** | **+12. The constitutional orphan (W4·186).** Canon assigns an owner (W23 + W15) that no X wave instantiates; X can render the strip honestly and **cannot discharge the constitution**. Escalated to the X-W0 sitting via CE-16, elected by no fold |
+| **IN-side receipt** | 402 hits / 47 records | 282 rows / 92 records | **305 X-W4-routed rows across 45 records** (law-true, row regex `^\s*([-*]|\|)\s*\*\*`, token class `X[-·.]W4([^0-9]\|$)`) | **282** = the pass-1 printed figure, reproducing under **no** predicate; **257** = what the pass-1 command actually returns; **402** = a hit count, a different measure, unaffected. All four kept legible per §7B part 2 |
+| **census escapes booked** | — | 35 (§6B) | **53** (35 + 18) | **Not a closure claim** (§7C): 53 is what two rounds have booked, not what exists. Completeness is the round-3 census artifact's to establish |
+
+**What did not change.** No §1, §6A, §6B or §6C row is renumbered, re-severitied or re-homed. No gate
+is re-staged, re-weighted or re-composited (OC-2/CC-096 staging stands). No lock, kill (`K-n`),
+dissent or `UNPROVEN` carriage is weakened — the four kills carried into §7 (D-10's framing at W4·183,
+L-r3 §0's cure position at W4·184, K-10's §7-Shell citation at W4·186, K-12's refuted premise behind
+W4·184) travel **with** their rows. `waves/W4.md`, `CONFORMANCE-2026-08-03.md` and
+`refinement/ROUND-1-ASSIGNMENTS.md` remain byte-untouched (E-3). Dispositions remain **ADJUDICATED**
+and status remains **planned** — this section stamps nothing, and **it closes nothing**.
+
+— end of the round-2 repair addendum. The 18 rows above are consumed id-for-id from
+`ROUND-2-ASSIGNMENTS.md` §A.1; the three cures from §B.2; the closure correction from this seat's
+own reading of the BLOCKER. **Round 3 measures against these bytes, and its census artifact — not this
+file — is what may say the X-W4 census is closed.**
