@@ -166,3 +166,18 @@ W10 + the 424-row W6 CARRY; W1/W5/W6/W9 fold seats re-running). SS-3/SS-4 author
 **The X·V refinement fold OPENS this boundary** (per-wave fold files under `refinement/` +
 `REFINEMENT-FOLD-2026-08-28.md`, the X·P idiom): NO-WAVE-OWNER packets dispositioned, bounds
 convictions answered, §READINESS planning-only. Execution gate unchanged.
+
+## §0c ADDENDUM 2026-08-28 (later) — X·V REFINEMENT FOLD CONFORMANT; THE VALUE.JS SPEC LAYER IS DEVELOP-COMPLETE
+
+**The X·V refinement fold reached CONFORMANT at pass 4** (`c88e1fed`; verdict appended at the
+addendum's §ROUND-4). The full apotheosis corpus now rides the wave set: 1,890 rows folded
+across the 12 per-wave fold files (walk dated pass-4, gapless bands), 19 NO-WAVE-OWNER packets
+terminal (15 homed with their riding rows id-for-id, 4 FORMATION-BOUNDARY), the 6 I-28
+glass-8.0.0 external rows minted (§EXTERNAL X-EXT-1..6 — SearchBar delete, ./forms→./input,
+grain, --slider-track-bg, o7 re-pin, peer), 22 bounds convictions answered + 44 delegated, six
+may-not-be-cited edicts registered, and §READINESS (planning-only) stating the execution-order
+picture. **G-F posture**: the fold layer now carries every NWO row at a home; §3.3's register
+question is answered by the fold layer itself — the union pass adjudicates the stamp.
+Sibling loops standing: X·KF at pass 5 (r4 staged-repair running), X·F at pass 3 (r2 resume
+running). **X-whole union pass remains the sole gate between here and tranche-development
+COMPLETE.** Execution gate unchanged: the owner's begin-word is the only key.
