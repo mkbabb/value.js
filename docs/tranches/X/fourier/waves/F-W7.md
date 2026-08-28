@@ -1,0 +1,275 @@
+# X.F.W7 — Trie-like variant compression: the R-4 greenfield (OWNER-GATED ⊙)
+
+**Sub-tranche**: X·F (`docs/tranches/X/fourier/waves/`), authority `docs/tranches/X/COHESION.md` §0/§1 SS-4, §0a boundary. **Half**: library. **Status**: **planned**.
+
+**Fold provenance (M-23 / M-12)**: this file is the fold-seat output, 2026-08-28 — Draft A (the Opus author half) verified row-for-row against the CARRY authority: **11 rows · 9 gates · 15 cross-edges · 6 bounds entries; 11 of 11 rows carried, zero excluded, zero silent drops**. Every value-side and fourier-side probe in the draft was **re-run read-only by this seat 2026-08-28 and every figure reproduced** (the guardrail bytes and their line-7 twin citation; 28 dirty entries / HEAD `cd26c653` / pin `14d83356` fatal; the one-comment atomdiff hit; the absent `api/src/lib`; the single opposite-word `Merkle property` hit; the fr-Tooltip-only `F.W7` grep). Three rows are **added by measurement** and marked ⟨NEW⟩; two of those plus one §8 line **correct the CARRY's own founding evidence** and are marked ⟨CC⟩. Two substrate deltas are **fresh at fold time, invisible to both halves**: `waves/` now holds F-W2/W3/W4/W5/W8/W9/W10 (F-W0 and F-W6 still absent), **F-W8.md:204 already declares its F.W7 reciprocal** and F-W3.md:289/:395 declares its edge, while **F-W8.md:202 re-records that F-W5.md §6c declares NO edge to F.W7** — the spine reciprocal is still owed. Neither authoring half is the wave; this fold is the wave's spec. Draft A's self-counts ("10 rows · 14 cross-edges", "four rows added") were miscounts and are repaired here.
+
+**EXECUTION IS NOT AUTHORIZED BY THIS FILE.** Nothing opens, writes, builds, or runs product source in either repo until the owner's begin-word. `/Users/mkbabb/Programming/fourier-analysis` is **READ-ONLY, always** — this wave writes zero fourier bytes. Specifying is not doing.
+
+---
+
+## 1. State
+
+**Name**: F.W7 — trie-like variant compression design (the R-4 greenfield)
+**Opens after**: **F.W0** (substrate pre-gates — hard, §6 G-F7-7) · **F.W5** (§E16/G7 is the same identity; §E1, §E3/G4, §E10/§B4 are hard predecessors) · **the owner's ruling on G-F7-1**
+**Agents**: 3 **serial** (units b and c both write `F-W7.md`; sequencing, never parallelism)
+**Hard gate**: 11 conditions in §6 — 9 carried from the CARRY verbatim in id, 2 added because a gate would otherwise be unfalsifiable prose. **All 11 born-RED**; **one is OWNER-GATED and may not be authored unruled (G-F7-1)**.
+**Status**: planned
+
+| verb | value | evidence |
+|---|---|---|
+| AUDITED | **YES** | `formation/fourier/lane-crud.md` §2 R-4 + §7 · `CENSUS-2026-08-03.md` §4 sketch 8 + §5 risk 4 · `F-W5.md` §4 §E1/§E3/§E5/§E8/§E9/§E10/§E11/§E12/§E16 + §5 G4/G7 + §3 Prohibitions · 9 adjudicated `fr-*.md` records · P-10 packet |
+| SPECIFIED | **YES — by this fold, 2026-08-28** | validated against `docs/precepts/instructions/tranche/WAVE_SPEC.md` (L-20, current at authoring: Header · State · Goal · Scope · Dispatch · Bounds · Disjointness · Units · Hard Gate · Cadence · Artefacts · Commits · Dependencies · Archaeology) |
+| IMPLEMENTED | **NO** | — no design byte lands before G-F7-1 rules |
+| VERIFIED | **NO** | — stamped only at X·F's sub-tranche release close |
+
+### 1a. Goal criterion
+
+This wave succeeds if **exactly one** of two things is true when work ends: either (a) the owner ruled FOR and a structural-sharing/delta design exists whose sharing key is *scoped*, *superset-closed*, *stamped from a snapshot*, and *sized over fields that survive F.W5 §E10* — or (b) the owner ruled AGAINST and F.W7 lands as a **terminal kill with rationale** naming the incumbent it deferred to. Both is a defect. Neither is a defect. **A completed wave is not the same thing as a wave that produced a design.**
+
+### 1b. What this wave is NOT
+
+It repairs nothing. Eight banked identities whose homes are F.W5 clauses (E1, E3, E5, E8, E9, E10/B4, E11, E12), plus F.W4's ImageUpload roster 12/23 and F.W5 §C2's m-15, are **cited and booked at zero** — FR-GIG-5's lesson, adopted as the standing bar at F-W5 §1b. **F.W7 is credited for no cure it did not author.** If a compression design's apparent benefit is actually delivered by E5's idempotency or E1's compound `_id`, F.W7 books ZERO.
+
+---
+
+## 2. Bounds
+
+### 2a. File bounds
+
+| File | Access |
+|---|---|
+| `docs/tranches/X/fourier/waves/F-W7.md` | **create** — this spec; carries the inline §4 OWNER RULING block (P-10 routing) and, if G-F7-1 rules against, the terminal-kill record **in situ** |
+| `docs/tranches/X/fourier/design/R4-enumeration-census.md` | **create** — G-F7-2's enumerated persistence-surface census. **Authorable while G-F7-1 is RED: it is measurement, not design** |
+| `docs/tranches/X/fourier/design/R4-variant-storage.md` | **create — CONDITIONAL on G-F7-1 ruling FOR.** Unauthorable while the gate is RED. If the ruling goes against, **this path is never created** |
+| `docs/tranches/X/fourier/waves/F-W7/carry-closure.md` | **create** — the G-F7-8 set-difference output, both directions, each CARRY id with its landing clause ⟨addition, reconciled below⟩ |
+| `docs/tranches/V/coordination/INBOX.md` | **append-only** (E13) — one ledger row **iff** a relay is sent. F.W7 expects **zero**; see §7c |
+
+**Reconciliation against the CARRY `boundsFiles`.** Rows 1–3 and the INBOX row adopted verbatim, conditionality intact. **One addition**: `F-W7/carry-closure.md`, on the same ground F.W5 admitted its G19 artefact — without a written set-difference, G-F7-8 is prose, and a prose closure gate is exactly the contrivance L-19 forbids. No other expansion.
+
+**Do NOT touch — every path, without exception**:
+
+- `/Users/mkbabb/Programming/fourier-analysis/**` — whole tree, read-only law. Zero fourier bytes.
+- All product source both repos (`value.js/{src,demo,api,test,e2e}/**`, fourier `api/` + `web/`) — execution gate. Read-only measurement is permitted and is the only thing this spec did.
+- `registry/adjudicated/fr-*.md` (all 66) · `formation/fourier/{lane-crud.md, CENSUS-2026-08-03.md, lane-frontend.md, lane-docs.md}` · `audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md` · `docs/tranches/X/fourier/waves/{F-W2.md, F-W3.md, F-W4.md, F-W5.md, F-W8.md, F-W9.md, F-W10.md}` · `docs/tranches/X/fourier/contract/**` (F.W5's, **incl. `OWNER-RULINGS-F.W5.md` — cited, never a second ruling file**) · `docs/tranches/J/design/J-diff-shape.md` (v1, IMMUTABLE) — **E-1/E-3 immutable beside the spec**; they hold the witnesses, and rewriting one destroys the evidence a gate cites.
+- `docs/tranches/X/COHESION.md` — root-authored at the boundary. F.W7 declares its half of every cross-edge in §7c and **requests** the reciprocal; it does not write the spine.
+- `docs/tranches/X/{waves,keyframes,parse-that}/**` · `glass-ui/**`, `keyframes.js/**`, `latex-paper/**` (producer trees, reached only by relay) · `scripts/dev/dev.sh` (unowned dirty row, **never staged**) · `package.json`.
+
+### 2b. Disjointness (and worktree plan)
+
+Unit **a** owns `R4-enumeration-census.md` alone. Units **b** and **c** both write `F-W7.md` and are **sequenced across sub-waves** (`a → b → c`), each committing before the next opens. **No worktree plan**: one writer at a time on clean `tranche-u`; a dirty tree at handoff halts the wave. No other X wave writes any §2a path while W7 is open.
+
+---
+
+## 3. Scope
+
+1. Re-run R-4's absence proof as an **enumeration of the persistence surface** — version writers · asset writers · cache keys · hash folds, both trees — and land it as `R4-enumeration-census.md` (G-F7-2).
+2. **Restate the ruling question against the corrected evidence** and put it to the owner inline (§4). Never presume it, never pre-answer it, never mint a second ruling file.
+3. If FOR: author `R4-variant-storage.md` — a structural-sharing/delta design whose sharing key satisfies the four inherited locks (scope · superset · snapshot-instant · live-field sizing) and whose scope over object kinds is explicit under G-F7-3.
+4. If AGAINST: land the **terminal kill with rationale** in `F-W7.md`, naming the incumbent (`atomdiff.py:12-14` as F.W5 §E16 records it), the cost accepted, and the census artefact that survives it.
+5. Emit the value-side limbs (TA-4 restoration, E1's compound `_id`) to the **value.js API row as value-side rows** — never re-booked as fourier defects, never executed here.
+6. Run the G-F7-8 set-difference against `F-W5.md` in both directions and commit the artefact.
+
+**Prohibitions.** No fourier byte. No product byte. **No design byte absent G-F7-1's ruling** (F-W5 §3, verbatim and binding on this wave: *"No trie design absent G7's ruling"*). No re-booking of any F.W5 clause. No credit for any cure this wave did not author. No HEAD figure and no line anchor cited as live before F.W0 re-grounds (D-19). No glass-producer row smuggled in as a design clause. No parse-that→fourier routing.
+
+### 3a. Triumvirate dispatch (mandatory: research + plan augment + redress)
+
+- **Bounds expansion that invalidates the wave**: any write to a fourier path; any write to `registry/adjudicated/**`, the lane files, or the intake adjudication; any product-source byte; any edit to F.W5's contract files or to v1.
+- **Gate failures not local-edit-recoverable**: **F.W0 fails to re-ground** (then every anchor here is unciteable — **the wave HALTS, it does not proceed on stale bytes**); **G-F7-1 returns no ruling** and the wave cannot state F.W5 §E16's default without contradicting a standing law; **G-F7-8 non-empty in either direction after two closure passes** (a silent drop or a re-booking is the defect class this program exists to kill).
+- **Diagnostic loops whose third iteration halts**: the enumeration census disagreeing with itself a third time on the surface's membership (the known trap is S-8's, re-proven at §5a N-2 — a term query is both noisy and blind here).
+
+---
+
+## 4. OWNER RULING — inline, per the P-10 routing ⊙
+
+**This block is the wave. It is never presumed, never pre-answered, and never moved to a second ruling file** (`contract/OWNER-RULINGS-F.W5.md` is cited, not extended — P-10 verbatim: *"F.W7's trie ruling stays inline in F.W7"*).
+
+**The question.** The commission (census §4 sketch 8) requires *"a structural-sharing/delta design proven on both object kinds."* The incumbent is an explicit anti-tree KISS guardrail: *"the atoms are a flat BAG (not a tree / Merkle / document); the diff is a whole-atom replace …; there is no three-way / DAG / merge."* Both are live. Neither is struck. **Does the union adopt structural sharing for variant storage, or does the guardrail stand?**
+
+**The honest default absent a ruling** (F.W5 §E16, carried verbatim and not contradicted here): **no trie; whole-snapshot duplication is the recorded shipped behaviour.**
+
+**What the corrected evidence changes about the question** ⟨CC ×2 + the §8 line, §5a⟩:
+
+1. The guardrail is **not bilateral**. It is one docstring in one tree, and that docstring names as its adopter a value.js file (`lib/crud/atomdiff.ts`) that TA-4 excised. The value tree's only surviving statement on the subject asserts the opposite word ("Merkle property", `hash.ts:6`). The ruling is therefore **one tree's law being asked to bind two**, not a convergent consensus.
+2. The guardrail already **placed sub-object granularity client-side** ("the diff-viewer field-diffs a changed sub-object client-side, F-06"). R-4's named compression targets are precisely those sub-objects. So this is not "no structure ever" — it is "structure at display time, not at rest," and the ruling either extends that line or moves it.
+3. "Zero material on either side" is **true for version-atom sharing and false as a statement about the trees**: content-addressed sharing ships today at three named seams and has already produced one BLOCKER.
+
+**Cost of each branch, stated honestly.**
+
+| branch | what it buys | what it costs |
+|---|---|---|
+| **FOR** (adopt structural sharing) | Stops re-persisting a 12-field `ContourSettings` + 6-field `AnimationSettings` bag on every one-integer variant | Inherits four live hazards on line one: unscoped key (E1), non-superset key (E12/C-25), wrong-instant stamping (M-12 ⟨NEW⟩), and a share-hit that skips work (E11/C-2's BLOCKER mechanism). Reverses a documented standing decision in the tree that authored the pattern |
+| **AGAINST** (guardrail stands) | Preserves KISS; costs zero new failure modes; F.W8 proceeds unchanged | The commission's sketch-8 requirement is retired. Whole-snapshot duplication remains the shipped behaviour. **F.W7 closes as a terminal kill with rationale, which is a completed wave** (COHESION §3 item 2) |
+| **NO RULING** | — | **The wave cannot open.** Design bytes are prohibited (F-W5 §3); the enumeration census (unit a) is the only authorable output |
+
+---
+
+## 5. Carry — the agglomerated rows (11 of 11, zero drops)
+
+`‡` BLOCKER-weight at its home · `⊙` OWNER-GATED · `▲` a cure-integrity lock binding the *repair*, not the finding · ⟨NEW⟩ this seat's own measurement · ⟨CC⟩ carry correction. Dedupe is by identity: where two records witness one mechanism the row carries **both ids and books once**. Cross-listed ids appear by **citation**, never by re-booking.
+
+### §5a — The ruling's substrate (4 rows)
+
+| row | banked ids | witness | lock |
+|---|---|---|---|
+| **R-4 ≡ E16 ≡ G7** ⊙ | lane-crud §2 R-4 + §7 · CENSUS §4 sketch 8 + §5 risk 4 [P1] · F-W5 §4 §E16 + §5 G7 + §3 Prohibitions · **ZERO adjudicated `fr-*.md` rows** | R-4's probe returns zero *true* hits both trees; what ships instead is whole-snapshot duplication — fourier's `VisualizationVersion` stores all 5 atoms in full incl. the 12-field `ContourSettings` and 6-field `AnimationSettings` on **every** version row (`visualization.py:241-245`); value's `PaletteVersion` stores the full `colors: PaletteColor[]` (`model.ts:88`). Neither shares structure parent→child; a variant changing one integer re-persists the whole bag | **ONE identity, three witnesses. F.W7 CITES, never re-books** (M-25). Routing re-verified this fold seat 2026-08-28: `grep -n "F\.W7" fr-*.md` over all 66 returns **`fr-Tooltip.md:10` and `:32` only** — `KF.W7`, a keyframes cross-repo note, **not a routing**. Pure greenfield confirmed. ⊙ Absent a ruling, F.W5 §E16's default is carried verbatim and **not contradicted**. **DISSENT RECORDED AND PRESERVED** (F-W10.md:106, intake CARRY): *"the trie requirement collides head-on with a standing KISS guardrail present in BOTH trees — owner ruling precedes design"*; the same line names `atomdiff.py:12-14` **the incumbent**. The commission requirement and the standing constraint are both live; neither is struck (the "BOTH trees" premise is corrected — not voided — at N-1) |
+| **P-10 (F.W7 limb)** ⊙ | NO-WAVE-OWNER packet P-10 | *"F.W7's trie ruling stays inline in F.W7"* | The §4 block above **is** the discharge. **No second ruling file beside `OWNER-RULINGS-F.W5.md`.** P-10's other four limbs are NOT F.W7's — see §7c and §8. Corroborated at fold time: F-W3.md:289/:395 declares from its end *"F.W7's anti-tree KISS guardrail stays inline in F.W7 (S-6)"* |
+| **N-1 ⟨NEW⟩⟨CC⟩ · The guardrail is not bilateral** | this seat, read-only, re-verified at fold 2026-08-28; corrects lane-crud §7 (*"both sides carry an explicit anti-tree KISS guardrail (`atomdiff.py:12-14`)"*) and the CARRY (*"Both trees carry the guardrail VERBATIM"*) | `atomdiff.py` line 1 reads *"authored once (fourier), adopted twice (value.js twin)"* and line 7 names the twin **`lib/crud/atomdiff.ts`** — the file TA-4 excised. `grep -rniE "merkle\|flat bag\|not a tree" $V/api/src $V/src` → **exactly one hit, and it asserts the opposite word**: `api/src/modules/palette/hash.ts:6` — *"Identical content always produces the same hash (Merkle property)."* | ▲ **The bilateral-guardrail premise is FALSE AS STATED and the ruling question is re-stated against the correction (§4).** The finding is **not** that the guardrail is void — it stands as the incumbent at F-W10:106 — but that its bilaterality was inherited from a docstring citing a deleted file. **Same defect class as S-8**, one register up: a *presence* claim resting on one file's bytes. Fold-time rider: **F-W8.md:204 repeats the stale "carried on BOTH sides" premise** — declared here as a cross-reference and routed to the F.W8 reciprocal request (§7c); F-W8.md is read-only to this wave |
+| **N-2 ⟨NEW⟩ · The probe is noisy AND blind** | this seat, 2026-08-28; extends S-8; the noise half **already enumerated by lane-crud §2** (credit given, not re-claimed) | `trie` is a substring of `entries`, `asymmetries`, `geometries`, `RETRIES`: the six-term probe re-run over the 66 `fr-*.md` returns **60+ lines, every one of them a substring artefact**. The blindness half is S-8's: it cannot see sha256 content addressing at all | **A probe that is simultaneously over- and under-inclusive cannot found a wave.** This is the concrete case for G-F7-2's enumeration replacing it |
+
+### §5b — Method (1 row)
+
+| row | banked ids | witness | lock |
+|---|---|---|---|
+| **S-8 (+ K-13 co-sign)**, applied to R-4's own absence proof | `fr-AdminAuditLog.md:126` (method law) · `fr-GalleryAdminBanner.md:90` K-13 (co-signed) | Verbatim: **"an absence-proof must enumerate the surface, not query one name for it"** — adopted from the K-1/K-2/K-6 kills (`./input` missed `./forms`; `log_audit(` missed the inlined second writer) and co-signed at K-13, where *"Not in the corpus"* died against **26 occurrences / 17 files**. Four shipped counter-witnesses the six-term probe cannot see: `image_storage.py:269-283` content-addresses contours on ordered pairs so a hash hit **is** byte-identical reuse (fr-ContourEditorCanvas K-3) · `database.py:98` gives visualizations a **plain** `content_hash` index (fr-GalleryDraftsSection B-2) · `hash.ts:8-17` + `findByHash {_id: hash}` already share **one** version row across palettes (F-W5 §E1) · the dedup-consequence family (fr-ImageUpload roster 12/23, m-15) | **F.W7's FIRST act.** Runs **before** the ruling is drafted — the question is mis-stated if the wave presents "zero material" as fact. It does **not** re-open R-4's conclusion for *version-atom sharing* (still absent both trees); it corrects the **scope** of the claim. Same class as the banked counting lock at F-W5 §D1 (*"a `@router.` grep is blind to prefixed routers"*) |
+
+### §5c — What must be settled before a key can exist (4 rows)
+
+| row | banked ids | witness | lock |
+|---|---|---|---|
+| **TA-4 ≡ E3** ⊙ ‡ | lane-crud §0/§2 R-3/§7 · CENSUS §5 risk 3 [P0] · F-W5 §4 §E3 + §5 G4 · COHESION §2 SS-4 edge · F-W10:106 | Re-measured read-only **at fold, 2026-08-28**: `grep -rn "atomdiff\|atomDiff" api/src src` → **one comment hit** (`api/src/modules/palette/__tests__/palettes-forks.test.ts:9`, which names T.W1/TA-4 as the excision); `ls api/src/lib` → *No such file or directory*. `J-diff-shape.md §6`'s close-gate assumes **both** probes exist; value.js's cannot run | ⊙ Owner rules **RESTORE (a TA-4 reversal)** or **F.W7 re-scopes to ONE object kind EXPLICITLY — never silently.** COHESION §2 verbatim: *"the value-side atomdiff restoration (TA-4) is a named prerequisite or the contract is re-scoped explicitly."* **F.W5 §E3/G4 is the ruling's home — F.W7 cites, does not re-ask.** Restoration is value-side and rides the value.js API row; **never re-booked as a fourier defect** |
+| **V-β ≡ E1** — *the single most load-bearing carry* | lane-crud §7 (V-β) · CENSUS §5 risk 5 [P1] · **F-W5 §4 §E1 (home)** | Re-measured **at fold, 2026-08-28**: `hash.ts:8-17` `computeContentHash` folds **only** `{name, colors}` — **never `paletteSlug`**; `paletteVersion.ts:13-14` `findByHash` filters `{_id: hash}` with **no slug scope**; `insertIfAbsent` returns early on a hit (`:47`). **Two palettes with identical `(name, colors)` share ONE version row whose `paletteSlug` names only the first.** The adjudicated cure is E1's compound per-entity `_id` — the shape **fourier already solved** (`{viz_slug}:{set_hash}`, CENSUS §3) | ▲ **Content-keyed sharing done unscoped is a DEFECT GENERATOR, not a free win.** This is the shipped witness and the hazard any R-4 design inherits on line one. **E1's compound-`_id` decision PRECEDES any F.W7 sharing-key design** — a key cannot be designed over an identity under repair. F.W7 books ZERO of E1's cure |
+| **C-25 ≡ E12** (B-4=C-1, ∘C-25 / R6-8 fold, ⊕ i-7) ‡ | **F-W5 §4 §E12 (home)** · `fr-ContourSettings.md:43` B-4 | `extraction_cache_key` is a **CLOSED 10-field `json.dumps` literal** omitting `ml_threshold`/`ml_detail_threshold` — the two fields ContourSettings is the **sole producer** of — and the handler short-circuits on the hit **BEFORE** `compute_contours`, while those fields materially drive extraction on the shipped default route | **Clause-level inheritance, verbatim: *an operation's cache identity must be a SUPERSET of the fields consumed.*** **F.W7's design states its sharing key's superset obligation explicitly or it has no key spec.** F.W7 authors no cure at E12's seam and takes no credit for it |
+| **N-3 ⟨NEW⟩⟨CC⟩ · The key's stamping instant** (fr-ContourSettings **S-3 ⊕ B-4 ⊕ M-12**) | `fr-ContourSettings.md:126` (S-3), `:43` (B-4), `:69` (M-12) — the CARRY dismissed `:126` as a lexical false positive for `trie` | Lexically the CARRY is right (*asymme​trie​s*). **Substantively `:126` is the tree's strongest statement on this wave's exact mechanism**: *"Client and server independently converged on content-addressed compute identity … the same idea, no shared code — and the audit's two sharpest defects are exactly the two asymmetries between the halves (B-4: the server's key is two fields short; M-12: the client stamps its key from the wrong instant)."* M-12: `lastComputedKey` records the **scheduling** fact, not the result fact, and is stamped from **live refs after the awaits** — an in-flight change is recorded as computed though the request never carried it | ▲ **FOURTH key lock, new to this wave: a sharing key must be stamped from a SNAPSHOT taken at the instant its inputs were read, and must record a RESULT, not a schedule.** Two independent converged content-addressing implementations already exist and **both** of their sharpest defects are key defects — that is the empirical prior any R-4 design must answer. **M-12's cure is F.W3/W4's one-line snapshot fix; F.W7 takes the CLAUSE only and books nothing** |
+
+### §5d — What ships today that a design must reconcile with (3 rows)
+
+| row | banked ids | witness | lock |
+|---|---|---|---|
+| **K-3 ⊕ C-2 ≡ E11** ‡ — *the counter-example to "built from nothing"* | `fr-ContourEditorCanvas.md:48` (C-2), `:105` (K-3), `:139` (recipe) · **F-W5 §4 §E11 (home)** | Ratified against a verbatim read of `image_storage.py:269-283`: content-addressing on ordered pairs ⇒ a hash hit is byte-identical points. **The dedup's real consequence cuts the other way and is banked inside C-2: a no-op save re-hits the extraction doc WITH bounds, so the overlay dies exactly when the points CHANGED — i.e. on every genuine edit** | ▲ **K-3's upsert arm ("a different `point_count` can come back") is KILLED by both readers — do NOT revive it in any F.W7 design rationale.** ▲ Witness recipe verbatim: **"MOVE A POINT FIRST — the K-3 dedup makes a no-op save pass spuriously."** ▲ **The design must state what changes when a share-hit short-circuits a write path; a sharing scheme that silently skips work is the mechanism of this BLOCKER.** C-2's cure is E11's; F.W7 books none of it |
+| **m-15 (=r2-missed-3) ⊕ ImageUpload roster 12 (=L:L-M3/C:C-6) ⊕ roster 23 (=R2-missed-3, K-8)** | `fr-GalleryDraftsSection.md:80` · `fr-ImageUpload.md:22/:46/:57/:90/:124` — homes **F.W5 §C2** (m-15) / **F.W4** (12, 23) | m-15: the unversioned thumbnail URL + 24 h `public` cache **negates the deliberate re-upload regeneration** the client comment (`workspace.ts:119-121`) and the server's dedup-hit regen branch (`image_storage.py:105-128`) exist to perform. Roster 12: the sha256-stable slug never fires the `:20-23` watcher, so a multi-MB data URL is stranded **and preferred over the regenerated thumbnail** (`:65`). Roster 23 (K-8): `activeReader` is never nulled after a successful read (`:82-84`) — and **on the dedup path `clearPreview` is unreachable, so the double copy is what persists** | Three adjudicated rows prove a content-hash share-hit **invalidates nothing downstream**. ▲ **A share-hit must state its regeneration/versioning consequence** — cache invalidation is part of a sharing design, not a downstream concern. ▲ Verbatim from F-W5 §C2: **m-15 is CROSS-REFERENCED, NOT MERGED with F-4** — F-4 books *who can fetch*, m-15 books *what they see*. F.W7 authors none of these cures. **DISSENT PRESERVED** (`fr-ImageUpload.md:124`): R1's MAJOR on the dedup-stranded preview held on the ground that defeating the store's own documented regeneration intent is capability loss, not waste; overruled by the banked fr-VisualizationView L-8 precedent (severity-follows-consequence) and kept as the second dissent on the family — **if SS-13 item 5 shows a visibly wrong (pre-EXIF-transpose) bitmap presented as current, the family re-grades** |
+| **B-2 (=C-C-1 ∘ L-3, ∘ m-13 rider) ⊕ FR-GV-1 (=L-2/C·C-3) ≡ E5** ‡ | `fr-GalleryDraftsSection.md:40` · `fr-GalleryView.md:34` · **F-W5 §4 §E5 (home)** | `createVisualization` sends no `Idempotency-Key` (`api.ts:371-380`); the middleware is explicit **`no header → handler()`** (`idempotency.py:68-70`); `content_hash` carries a **PLAIN** index (`database.py:98`) against flags' deliberate `unique=True` (`:140`). The row never leaves (`savedSnapshots` has ONE writer, the unconditional literal `[]` at `workspace.ts:102`), the button re-enables (`GalleryView.vue:214`), and the second press mints a **second** public visualization | Adjudicated split: props/reconciliation → F.W3/W4; server-side dedupe/idempotency for the create path → the F.W5–W8 union, where **F.W5 took the band row**. ▲ **NO-CREDIT LOCK: if a compression design's apparent benefit is actually delivered by E5's idempotency, F.W7 books ZERO.** The `publishedHashes` misnomer rider (it holds slugs) and m-13 (the success toast prints the USER slug) travel with **E5**, not here |
+
+### §5e — Sizing and substrate (2 rows)
+
+| row | banked ids | witness | lock |
+|---|---|---|---|
+| **SS-C-1 (write leg) ≡ E8 ⊕ SS-C-2 ≡ E9 ⊕ M-β4 / L·m-6 ≡ E10/B4** | `fr-SpeedSelect.md:44` (SS-C-1, MAJOR — demoted from C's BLOCKER at component altitude), `:45` (SS-C-2, MAJOR) · **F-W5 §4 §E8/§E9/§E10/§B4 (homes)** | SS-C-1: the persisted `speed` atom is settable **only at CREATE/FORK** — `VisualizationUpdate` (`visualization.py:198-210`) and `VisualizationPatch` (`types.ts:256-262`) are the same five fields with `extra="forbid"`, while `animation_settings` is **atom 4-of-5 of the version-identity set** (`atomdiff.py:38`). SS-C-2: **atom 4 is semantically empty** — `fps`/`max_circles`/`duration` have zero cross-wire readers, and the `duration` that `speed` divides is declared 4× with 3 values and a **1000× unit fork** (20000 ms store / 5000 client default / 30.0 s server) | ▲ **Compressing a bag whose members are dead is the wrong cure** — the 12-field `ContourSettings` and 6-field `AnimationSettings` sub-objects R-4 counts as the compression target are exactly where the dead fields live. **E10/B4's produced-and-unconsumed disposition PRECEDES any F.W7 sizing**: a saving measured over fields the contract may retire is **unfalsifiable**. E10/B4's standing requirement: **one stated disposition, not three ad-hoc deletions.** F.W7 books none of E8/E9/E10; the partial fold `duration = ref(20000)` zero-writers stays banked at **fr-BasisCanvas BC-20** and is never re-booked |
+| **OG-F1 (+ D-19 anchor law, X-1 precondition)** — **hard precondition, not a gate of this wave's making** | `INTAKE-ADJUDICATION-2026-08-03.md` §4 OG-F1 (R3-1, R3-4, R4-1, R4-13, R5-1, R6-1) + §3 F.W0 · F-W5 §5 X-1 · `fr-PaperSidebar` M1 · `fr-GalleryAdminBanner` GAB-13 | Re-measured read-only **at fold, 2026-08-28** (unchanged from the F.W5 pass): `git -C $F status --porcelain \| wc -l` → **28**; `git -C $F rev-parse --short=8 HEAD` → **`cd26c653`** on `m/w1-bump-migration`; **`git -C $F cat-file -t 14d83356` → `fatal: Not a valid object name`** — the census pin does not resolve. Plus glass-ui 4.0.0's syntactically corrupt `dist/styles/index.css` (M1) and F8-REACH-01/02 open | **Every anchor R-4 rests on is a pre-F.W0 coordinate against a dirty, unresolvable substrate**, including `visualization.py:241-245`, `atomdiff.py:12-14`, `model.ts:88` — and including this fold's own re-read of `atomdiff.py`, which is a **working-tree** read, not a HEAD read. **F.W0 substrate pre-gates FIRST.** OG-F1's own question (re-root at F.W0 vs freeze the R-coordinates and build from live-tree measurement) is owner-owed; lane evidence favours **freeze-with-adoption**. **If F.W0 fails to re-ground, the wave HALTS; it does not proceed on stale bytes** |
+
+---
+
+## 6. Gates — all born-RED
+
+`F=/Users/mkbabb/Programming/fourier-analysis` (read-only) · `V=/Users/mkbabb/Programming/value.js`.
+
+**Two reading disciplines, binding.** (1) **MEASURE-AT-OPEN**: every fourier figure and anchor is re-confirmed by F.W0 before citation (D-19); the probes below were re-run read-only by this fold seat 2026-08-28 and carry that date. (2) **Split verdict**: a gate closes for F.W7 when *this wave's* obligation is discharged; it goes GREEN only when its named owner lands the change. **F.W7 never claims a GREEN it did not execute.**
+
+| # | gate | born-RED witness (literal probe / named record) | F.W7 close | GREEN owner |
+|---|---|---|---|---|
+| **G-F7-1** ⊙ | the trie-vs-KISS ruling — **unauthorable unruled** | `sed -n '1,15p' $F/api/lib/crud/atomdiff.py` (lines 12–14 = the guardrail; lines 1 and 7 = the twin citation) · `F-W5.md` §4 §E16 + §5 G7 recorded **UNRULED** · `F-W5.md` §3 verbatim: *"No trie design absent G7's ruling"* | **The owner rules. Not before.** While RED, F.W7 authors **ZERO design bytes** and carries §E16's default verbatim. **If the ruling goes AGAINST, this gate closes by the wave landing as a TERMINAL KILL WITH RATIONALE** (COHESION §3 item 2) — a completed wave, never a silent drop, never a re-booking | **owner** |
+| **G-F7-2** | R-4's absence proof re-run as an **enumeration** | S-8 (`fr-AdminAuditLog.md:126`) co-signed at K-13 (`fr-GalleryAdminBanner.md:90`) + the four counter-witnesses of §5b + N-2's noise measurement | `design/R4-enumeration-census.md` exists and enumerates **four classes on both trees** — version writers · asset writers · cache keys · hash folds — and §4's question is restated against it. The six-term grep is retired as founding evidence | F.W7 itself (unit a) |
+| **G-F7-3** | both-object-kinds provability | `grep -rn "atomdiff\|atomDiff" $V/api/src $V/src` → **1 comment hit** (`…/palettes-forks.test.ts:9`); `ls $V/api/src/lib` → *No such file or directory* — **both re-measured at fold 2026-08-28** | **F.W5 G4 rules RESTORE, or F.W7 re-scopes to one object kind EXPLICITLY in its own text. Silence does not clear it** | owner → value.js API row |
+| **G-F7-4** | sharing-key identity settled **before** any key design | `sed -n '8,17p' $V/api/src/modules/palette/hash.ts` (folds `{name, colors}`, never `paletteSlug`); `sed -n '13,14p' $V/api/src/modules/palette/repository/paletteVersion.ts` (`findByHash` → `{_id: hash}`, no slug scope) — **both re-measured at fold 2026-08-28** | F.W5 §E1's compound per-entity version `_id` clause is stated. **F.W7 designs no sharing key over an identity under repair** | value.js API row |
+| **G-F7-5** | the key states its **superset** obligation | C-25 verbatim (F-W5 §E12): *"an operation's cache identity must be a SUPERSET of the fields consumed"* — witnessed by `extraction_cache_key`, a closed 10-field `json.dumps` literal omitting `ml_threshold`/`ml_detail_threshold`, with the handler short-circuiting **before** `compute_contours` | Any F.W7 key spec names its consumed-field set and proves the superset relation. **RED by absence: no key spec exists today** | F.W7 (FOR branch) |
+| **G-F7-6** | compression targets are **live** fields | `fr-SpeedSelect.md:45` SS-C-2 — atom 4 is semantically empty; `duration` declared 4× / 3 values / 1000× unit fork. F-W5 §E10/§B4's produced-and-unconsumed disposition is **UNSTATED** | F.W5 §E10 states ONE disposition, and F.W7's sizing is computed **over what survives it** | F.W5 → F.W7 |
+| **G-F7-7** | anchor re-grounding *(inherited precondition)* | `git -C $F status --porcelain \| wc -l` → **28**; `git -C $F rev-parse --short=8 HEAD` → **cd26c653**; `git -C $F cat-file -t 14d83356` → **fatal** — **all three re-measured at fold 2026-08-28** · `fr-PaperSidebar` M1 · GAB-13 · F8-REACH-01/02 | **F.W0 re-grounds.** Until then no HEAD figure and no line anchor here is citable (D-19) — including R-4's own and this fold's `atomdiff.py` read. **If F.W0 fails, the wave HALTS** | **F.W0** |
+| **G-F7-8** | zero re-booking / zero credit-taking | Eight F.W5-homed identities (E1, E3, E5, E8, E9, E10/B4, E11, E12) + F.W4's ImageUpload roster 12/23 + F.W5 §C2's m-15. FR-GIG-5's bar, standing at F-W5 §1b | `waves/F-W7/carry-closure.md` shows an id set-difference against `F-W5.md` **∅ in BOTH directions**: F.W7 **books zero** of them and **cites all** of them. **Non-empty in either direction after two closure passes ⇒ triumvirate dispatch** | F.W7 itself (unit c) |
+| **G-F7-9** | terminal disposition of census wave-sketch 8 | COHESION §3 item 2: *"Every census wave-sketch id … maps to a full spec **or** a terminal kill with rationale — no silent drops, no re-booking."* `CENSUS-2026-08-03.md` §4 sketch 8 exists; F.W7 today has **neither** | **Exactly one** of {full spec, terminal kill with rationale} lands, keyed to G-F7-1. **Both is a defect; neither is a defect** | F.W7 itself |
+| **G-F7-10** ⟨added⟩ | the guardrail's **bilaterality** | `grep -rniE "merkle\|flat bag\|not a tree" $V/api/src $V/src` → **one hit, asserting the opposite word**: `$V/api/src/modules/palette/hash.ts:6` *"(Merkle property)"*; `atomdiff.py` line 7 names the excised `lib/crud/atomdiff.ts` as its adopter — **re-measured at fold 2026-08-28** | §4's ruling question is stated against the corrected premise: **one tree carries the guardrail; the other's copy went out with TA-4.** Added because a ruling asked on a false bilaterality premise is a ruling the wave cannot rely on | F.W7 itself (unit b) |
+| **G-F7-11** ⟨added⟩ | cross-edge reciprocity declared from this end | COHESION §2: *"Cross-repo edges are declared FROM BOTH ENDS in the spec files."* Re-measured **at fold 2026-08-28**: `ls $V/docs/tranches/X/fourier/waves/` → **F-W2/W3/W4/W5/W8/W9/W10 + this file** — F-W0 and F-W6 **do not exist**, so their reciprocals cannot yet; **F-W8.md:204 DECLARES its F.W7 edge** and F-W3.md:289/:395 declares its; **F-W8.md:202 records F-W5.md §6c declares NO edge to F.W7** — the spine reciprocal is still owed | §7c declares this end of **all 15 CARRY edges** (plus the F.W1 sequencing-lock row) and **requests** the reciprocals still owed: **F.W0 · F.W6 · the F.W5 spine** (F.W8's is now DECLARED and cross-cited). Added because "declared from both ends" is otherwise unverifiable prose | F.W0 / F.W6 / F.W5-spine (their halves) |
+
+---
+
+## 7. Sequencing
+
+### 7a. In-wave order
+
+`a` (enumeration census — **authorable while G-F7-1 is RED**) → **⊙ the ruling** → `b` (§4 ruling record + the FOR/AGAINST branch) → `c` (carry closure). Serial; each commits before the next opens. **Unit b cannot open until the owner speaks.**
+
+### 7b. Cure-integrity locks (bind the repair, not the finding)
+
+▲ **K-3** — the upsert arm is dead; never revive it in a design rationale · ▲ **C-2 witness recipe** — *"MOVE A POINT FIRST"*; a no-op save passes spuriously · ▲ **E1** — unscoped content keying is a defect generator; the identity is under repair · ▲ **C-25** — cache identity ⊇ consumed fields · ▲ **M-12 ⟨NEW⟩** — stamp from a snapshot at the read instant; record a result, not a schedule · ▲ **SS-C-2** — do not size a saving over dead fields · ▲ **m-15** — cross-referenced with F-4, **never merged** · ▲ **FR-GIG-5 / F-W5 §1b** — no credit for an unauthored cure · ▲ **BC-20** — the `duration = ref(20000)` zero-writers fold stays banked; never re-booked · ▲ **D-19** — no anchor cited as live pre-F.W0.
+
+### 7c. Cross-edges (all 15 CARRY edges + the F.W1 lock row; declared from this end; reciprocal requested where marked)
+
+| edge | direction | this end's declaration | reciprocal |
+|---|---|---|---|
+| **F.W0** substrate pre-gates | **DEPENDS — HARD** | No line anchor, no HEAD figure, no "LIVE at certified HEAD" citation until F.W0 re-grounds: 28 dirty entries, pin `14d83356` unresolvable, corrupt glass-ui 4.0.0 `dist/styles/index.css` (M1), GAB-13, F8-REACH-01/02. R-4's own anchors are pre-F.W0 coordinates. **If F.W0 fails to re-ground, F.W7 HALTS** | **owed** (F-W0.md does not exist yet) |
+| **F.W5 §E16 / G7** | **SAME IDENTITY — cite, never re-book** | R-4 ≡ E16 ≡ G7 is one banked identity; F.W5 already carries the honest no-trie default and its §3 Prohibitions bind this wave verbatim. F.W7 exists only downstream of the ruling; **the ruling stays INLINE in F-W7.md per P-10**, cross-referenced to G7 — **no second ruling file** | **owed at the spine** — F-W8.md:202 records F-W5 §6c declares NO edge to F.W7; requested, not written |
+| **F.W5 §E1** (compound per-entity `_id`) | **DEPENDS** | The version identity a sharing key would fold is under repair. E1's clause precedes any key design (G-F7-4). **F.W7 books zero of E1's cure** | **owed** (same spine gap) |
+| **F.W5 §E3 / G4 ⊙** (TA-4) | **DEPENDS — OWNER-GATED** | The value-side atomdiff restoration is SS-4's named prerequisite **or** the scope is explicitly re-cut. Until G4 rules, "proven on both object kinds" is unprovable (G-F7-3). Restoration is value-side work riding the value.js API row — **never re-booked as a fourier defect** | **owed** (same spine gap) |
+| **F.W5 §E10 / §B4** | **DEPENDS** | Field-retirement disposition precedes compression sizing (G-F7-6) — a saving over retirable fields is unfalsifiable. SS-C-2 proves atom 4 is semantically empty | **owed** (same spine gap) |
+| **F.W5 §E12** (clause C-25) | **CLAUSE INHERITANCE** | *"An operation's cache identity must be a SUPERSET of the fields consumed"* binds any F.W7 key verbatim (G-F7-5). F.W7 authors no cure at E12's seam | no |
+| **F.W5 §E5 / §E8 / §E9 / §E11 / §C2** | **CITED-NOT-BOOKED** | B-2 ⊕ FR-GV-1 · SS-C-1 · SS-C-2 · C-2 ⊕ K-3 · m-15. **Credit claimed for none** — verified by G-F7-8's two-direction set-difference | no |
+| **F.W6** provenance burn-down | **CONTRIBUTES A WITNESS; books nothing** | Of the five inherited chain-integrity defects (F-α, F-β, V-α, V-β, V-γ), **V-β is F.W7's shipped accidental-sharing witness**. F.W7 authors no burn-down | **owed** (F-W6.md does not exist yet) |
+| **F.W8** CRUD union prototype | **FEEDS — conditionally** | F.W8 is the only wave that could exercise a sharing design across both kinds (create → derive → diff → remix → history walk). **FOR ⇒ F.W7's design lands as F.W8 input; AGAINST ⇒ F.W8 proceeds on whole-snapshot duplication unchanged and inherits the kill rationale** | **DECLARED — F-W8.md:204** (re-read at fold 2026-08-28: "SIBLING — OWNER-GATED, no gating either way"). Rider routed there: its "carried on BOTH sides" premise is stale per N-1 |
+| **SS-4** union synthesis | **IS a member wave** | SS-4 **FLAGS the trie-vs-KISS ruling INLINE, never presumes it**, and **names the TA-4 restoration a PREREQUISITE or re-scopes explicitly**. Neither side's edits gate the other's waves | **owed** |
+| **F.W1** atomic tri-package uplift *(sequencing-lock row, not a CARRY edge)* | **NO GATING either direction** | F.W1's transaction (producer bump + 162-site prop rewrite + copied→status triple **in ONE change**, else four zero-console-error e2e gates go red — FR-EQR-3) is untouched by this wave, and **F.W1 must NOT be credited for the pagination-drain cure (FR-GIG-5)**. F.W1 precedes F.W3/W4 by §2 law — also not F.W7's business | no |
+| **SS-6** glass BH communique | **NEGATIVE DECLARATION** | F.W7's surface carries **ZERO** glass-producer rows. Declared so no producer row is smuggled in as a frontend hack (standing owner edict). **Nothing here accretes to COHESION §4a**; any producer-shaped finding leaves as a letter | no |
+| **X·P (parse-that)** | **NEGATIVE — FORBIDDEN EDGE** | Direct parse-that→fourier routing is forbidden (COHESION §2, PLAW-BIND). **Zero parser edges in either direction** | no |
+| **X·V API row** (value.js) | **EMITS obligations, never work** | Every value-side limb (TA-4 restoration, E1's compound `_id`) is emitted as a **value-side row** and is never re-booked as a fourier defect. **F.W7 writes no value product byte** | **owed** |
+| **P-10 packet** (the other four limbs) | **NEGATIVE DECLARATION** | F.W7 absorbs **ONLY** the anti-tree KISS guardrail limb. The 7.0.0-vs-8.0.0 re-pin target and PaperSidebar's escalation + the M3 pre-gate law home at **F.W1**; the glass 4→8 deadlock vs the landable-at-old-pin ToggleChip route and the default-COLLAPSED ContourSettings IA choice home at **F.W3** (corroborated at fold: F-W3.md:289 S-6 flags (a)/(b)/(c) and homes the re-pin at F.W1). None of the packet's five slugs (FrequencyGraph, EasingPicker, ContourSettings, PaperSidebar, CanvasOverlayButton) carries an F.W7 row — see §8 for the two probe hits and their disposition | no |
+| **SS-13** live-probe lane | **EXPORTS ZERO** | Docs-and-design wave, no live-probe residue of its own. The dedup-family live questions it cites (roster 12's EXIF-transpose dissent trigger; fr-CanvasControlsDock UNPROVEN #6 — whether `POST /api/visualizations` dedupes on `(image_slug, contour_hash)`) **already ride their home records to SS-13; F.W7 re-books neither** | no |
+
+---
+
+## 8. Excluded — carried nowhere else, with reason
+
+Nothing below is a silent drop; each is named so a later reader cannot mistake absence for oversight. **Zero CARRY rows are excluded** — this table routes non-rows.
+
+| excluded | reason |
+|---|---|
+| **The trie/structural-sharing design itself, and `design/R4-variant-storage.md`** | **⊙ G-F7-1 unruled.** The file path is declared CONDITIONAL in §2a and is **never created** if the ruling goes against. Prohibited by F-W5 §3 until then |
+| **The value-side atomdiff restoration (TA-4) as work** | **⊙ G-F7-3 / F.W5 G4 unruled.** F.W7 states the prerequisite; the restoration is the **value.js API row's act**, never a fourier defect |
+| **Every cure at E1, E5, E8, E9, E10/B4, E11, E12** | **Homes are F.W5 clauses.** Cited, not booked; G-F7-8 verifies both directions |
+| **ImageUpload roster 12 / 23 cures; m-15's cure** | Homes are **F.W4** and **F.W5 §C2**. F.W7 carries only the cache-invalidation obligation they prove |
+| **M-12's one-line snapshot fix; B-4's server-key cure; m-18's invented `× 0.6` coupling** | **F.W3/W4's** and **F.W5 §E12's**. F.W7 takes M-12's **clause** (§5c N-3) and books nothing |
+| **K-3's upsert arm** (*"a different `point_count` can come back"*) | **KILLED by both readers** against a verbatim read of `image_storage.py:269-283`. Must not resurface as design rationale |
+| **P-10's other four limbs** | Not F.W7's. The **7.0.0-vs-8.0.0 re-pin target** → F.W1 (*"an owner/formation decision, not a measurement"*; retargeting to 8.0.0 **resurrects the text-admin-label break**) · **PaperSidebar's escalation + the M3 pre-gate law** → F.W1 · **the glass 4→8 deadlock vs the landable-at-old-pin ToggleChip route** and **the default-COLLAPSED ContourSettings IA choice** → F.W3 (*"the ruling the forming F.W3 spec actually owes"*; *"the F.W3/W4 pass should not silently flip it without the ruling"*) |
+| **The five P-10 slugs** (FrequencyGraph, EasingPicker, ContourSettings, PaperSidebar, CanvasOverlayButton) as F.W7 rows | **None carries one.** Verified this seat: `fr-CanvasOverlayButton.md:64` is a table header *"claim (adjudicated, compressed)"* — a true false positive. **`fr-ContourSettings.md:126` is a lexical false positive (*asymme​trie​s*) but a substantive HIT** and is therefore **carried, not excluded** (§5c N-3) ⟨CC⟩ |
+| **R-4's six-term grep as founding evidence** | **Retired at G-F7-2.** Simultaneously noisy (`trie` ⊂ `entries`/`asymmetries`/`geometries`/`RETRIES` — 60+ substring artefacts across the 66 records) and blind (invisible to sha256 content addressing). Its *conclusion* for **version-atom sharing** survives; its *scope* does not |
+| **Any claim that the guardrail is void** | **N-1 corrects its bilaterality, not its standing.** `atomdiff.py:12-14` remains **the incumbent** (F-W10:106) and the honest default remains F.W5 §E16's |
+| **A second owner-rulings file** | **P-10 routes the ruling INLINE.** `contract/OWNER-RULINGS-F.W5.md` is cited and never extended |
+| **Any glass-ui producer row** | SS-6 relay declared **EMPTY**; producer-shaped findings leave as letters, never as frontend hacks |
+| **Any parse-that edge** | **Forbidden routing** (COHESION §2, PLAW-BIND) |
+| **`docs/tranches/X/COHESION.md` edits; edits to F-W8.md's stale N-1 premise** | Root-authored / sibling-owned at the boundary; editing either would be a hidden cross-wave write conflict. §7c declares and **requests** |
+| **An INBOX row** | E13 is append-only **iff a relay is sent**. F.W7 sends none and expects **zero rows**; the declaration is the discharge |
+| **All product source, both repos; all fourier bytes** | Execution gate + read-only law |
+
+---
+
+## 9. Agent units (3, serial)
+
+### X.F.W7.a — The enumeration census
+
+- **Goal**: R-4's absence claim rests on an enumerated persistence surface, not a term grep.
+- **Mechanism**: enumerate both trees in four classes (version writers · asset writers · cache keys · hash folds); each row: `tree · site · keyed-on · scope · share-hit consequence`. Read-only measurement — **authorable while G-F7-1 is RED**.
+- **Files**: `design/R4-enumeration-census.md`.
+- **Sub-gate**: **G-F7-2** closes; **G-F7-10** closes (the bilaterality correction is stated in the census).
+
+### X.F.W7.b — The ruling record and its branch
+
+- **Goal**: exactly one of {design, terminal kill} exists, downstream of the owner's word.
+- **Mechanism**: author §4 against the corrected evidence; on **FOR**, author `design/R4-variant-storage.md` with the four key locks discharged and the object-kind scope explicit; on **AGAINST**, author the terminal kill with rationale **in situ**. **Cannot open until the owner rules.**
+- **Files**: `waves/F-W7.md`; conditionally `design/R4-variant-storage.md`.
+- **Sub-gate**: **G-F7-1** closes either way; **G-F7-3/4/5/6** close for F.W7; **G-F7-9** closes with exactly one branch.
+
+### X.F.W7.c — Carry closure (fresh Fable adjudicator)
+
+- **Goal**: zero re-bookings and zero silent drops, proven by artefact.
+- **Mechanism**: run the id set-difference against `F-W5.md` in both directions; confirm zero bookings and full citation; declare the §7c reciprocal requests.
+- **Files**: `waves/F-W7/carry-closure.md`.
+- **Sub-gate**: **G-F7-8 ∅ both directions**; **G-F7-11** closed for F.W7 (this end declared; owed reciprocals named).
+
+## 10. Cadence · artefacts · commits
+
+Docs-only. After each unit: `git diff --check`; markdown link check over the new `design/` paths; the G-F7-8 set-difference re-run. **`npm run typecheck` / `test` / `lint` are NOT this wave's gates** — no source byte moves, so a delta in any of them means the wave escaped its bounds and is itself the failure signal (run once at close as that tripwire only).
+
+Committed at close (L-7 — an uncommitted witness does not exist): `design/R4-enumeration-census.md`; `waves/F-W7.md` incl. the §4 ruling record and, on the AGAINST branch, the kill rationale; `design/R4-variant-storage.md` **iff** FOR; `waves/F-W7/carry-closure.md`; the F.W0 re-grounding receipt this wave's anchors were re-resolved against (cited, not copied). Pathspec commits only; `scripts/dev/dev.sh` never staged.
+
+| # | scope | contents |
+|---|---|---|
+| 1 | `docs(X·F.W7): the R-4 persistence-surface enumeration census` | unit a |
+| 2 | `docs(X·F.W7): the trie-vs-KISS ruling record + branch` | unit b |
+| 3 | `docs(X·F.W7): carry closure — set-difference against F.W5` | unit c |
+
+## 11. Dependencies
+
+- **Depends on**: **F.W0** (hard, G-F7-7) · **F.W5** §E16/G7, §E1, §E3/G4, §E10/§B4, §E12 · **the owner's ruling on G-F7-1**, and G4's on TA-4.
+- **Blocks**: **F.W8** (conditionally — the design is its input, or the kill rationale is; F-W8.md:204 already declares the sibling edge from its end) · **SS-4** (which flags this ruling inline and cannot synthesize an unflagged union).
+
+## 12. Archaeology
+
+- **Prior attempt**: none. R-4 is the one census requirement with **no material on either tree** — but "greenfield" was overstated. Content-addressed sharing **ships today at three seams** and has already produced a BLOCKER (E11/C-2) and a second key defect (E12/C-25) and a third (M-12). **New guardrail**: G-F7-2 replaces the term query with an enumeration before the ruling is drafted.
+- **Standing failure mode this wave is built against**: the guardrail that founds the ruling cites, as its bilateral proof, a file that was deleted three tranches ago. The lesson is S-8's, one register up — **a presence claim, like an absence claim, must enumerate the surface rather than trust one file's prose about another tree.** A wave that asked the owner to rule on that premise unexamined would have manufactured the exact defect it exists to prevent — and at fold time the premise had already propagated once (F-W8.md:204 repeats "carried on BOTH sides"), which is the propagation this correction stops.
