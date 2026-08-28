@@ -181,3 +181,13 @@ question is answered by the fold layer itself — the union pass adjudicates the
 Sibling loops standing: X·KF at pass 5 (r4 staged-repair running), X·F at pass 3 (r2 resume
 running). **X-whole union pass remains the sole gate between here and tranche-development
 COMPLETE.** Execution gate unchanged: the owner's begin-word is the only key.
+
+## §0d ADDENDUM 2026-08-28 (later still) — THE MINTED-UNAUTHORED SUCCESSOR WAVES, DECLARED AT THE BOUNDARY
+
+Per the X·KF W10 seat's upward declaration (its §6.C-E; the seat lawfully refused the COHESION
+write as out-of-bounds): **KF.W11 · KF.W12 · KF.W13 — MINTED (KF-W4:249's R-15 homing block;
+listed at KF-W1 cross-edge 9), UNAUTHORED; cargo = the 17-packet partition 9+6+2 with the six
+travelling locks; authoring seat = the SS-1/SS-2 authoring block; X·KF W10's close stamps the
+AUTHORED ELEVEN only.** The successor register of record is `keyframes/waves/KF-W10.md §6.D`;
+mechanism F (minted-wave roster census diffed against authored specs ∪ the register) is adopted
+program-wide — a mint with neither is a hard escape on sight.
