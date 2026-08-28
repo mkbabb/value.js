@@ -151,3 +151,17 @@ the F.W0 substrate pre-gates (corrupt glass-ui 4.0.0 dist/styles/index.css; dirt
 settle), KF.W0 §B-12 manifest schism, and the NO-WAVE-OWNER packets (§4 + the per-record
 NO-WAVE-OWNER registers). Execution gate unchanged: nothing opens product source until the
 owner's begin-word.
+
+## §0b ADDENDUM 2026-08-28 — KF.W3 OWNERSHIP CURED; THE FOLD BLOCK OPENS
+
+**KF.W3 ownership gap (found by the SS-1/SS-2 taxonomy seat): CURED by assignment.** §1 assigned
+parser-consumption to neither SS-1 nor SS-2. Disposition: KF.W3 is a library wave (parse façade →
+consumption); it belongs to **SS-1**, and its spec was authored under that seat at `KF-W3.md`
+(banked `b6e09ed4`). The wave's GATED posture is unchanged — PLAW-BIND keys it to the X·P release
+condition; never scheduled by this assignment.
+
+Boundary state: SS-1/SS-2 authoring PARTIAL-BANKED at `b6e09ed4` (7/11 specs: W0 W2 W3 W4 W7 W8
+W10 + the 424-row W6 CARRY; W1/W5/W6/W9 fold seats re-running). SS-3/SS-4 authoring RUNNING.
+**The X·V refinement fold OPENS this boundary** (per-wave fold files under `refinement/` +
+`REFINEMENT-FOLD-2026-08-28.md`, the X·P idiom): NO-WAVE-OWNER packets dispositioned, bounds
+convictions answered, §READINESS planning-only. Execution gate unchanged.
