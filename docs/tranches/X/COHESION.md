@@ -191,3 +191,12 @@ travelling locks; authoring seat = the SS-1/SS-2 authoring block; X·KF W10's cl
 AUTHORED ELEVEN only.** The successor register of record is `keyframes/waves/KF-W10.md §6.D`;
 mechanism F (minted-wave roster census diffed against authored specs ∪ the register) is adopted
 program-wide — a mint with neither is a hard escape on sight.
+
+## §0e ADDENDUM 2026-08-29 — X·KF CONFORMANT AT PASS 8; TWO OF THREE LOOPS CLOSED
+
+**X·KF is CONFORMANT** (`3c4807d0`; verdict at `keyframes/conformance/VERDICT.md`): eight passes,
+census ZERO escapes twice running, hash-proven close, all residuals MINOR-with-mitigation. Joined
+with §0c's X·V fold verdict, the value.js and keyframes spec layers are both develop-complete.
+Standing: **X·F census-freeze round running** (CENSUS-CANONICAL.md = the sole census operand;
+pass-5 pending). On its CONFORMANT: the X-whole union pass (seams · G-F stamp · the whole-tranche
+execution runbook) closes tranche development. Execution gate unchanged.
