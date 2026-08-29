@@ -1,0 +1,52 @@
+{
+ "verdict": "NON-CONFORMANT",
+ "hashesClean": true,
+ "censusEscapes": 0,
+ "defects": [
+  {
+   "severity": "BLOCKER",
+   "claim": "P7-1 \u2014 PASS-6/RULINGS-6.md was never created: TR-01..TR-08 (8 of 130 contracted edits) did not land, so the round's entire standing-instrument layer is unwritten, and LAW G is cited in current voice by 12 landed strikes across 8 specs with no instrument of record anywhere in the tree. Confirmed independently at this seat, not inherited from the seal.",
+   "receipt": "find docs -name 'RULINGS-6*' \u2192 nothing; ls conformance/PASS-6/ \u2192 11 CHECK + UNION + WORK-ORDER + CLOSE-CERT-6 + CLOSE-CERT-3, no RULINGS-6.md; grep -c 'RULINGS-6' waves/KF-W*.md \u2192 0 in ALL ELEVEN; grep -c 'LAW G' waves/KF-W*.md \u2192 W2 1 \u00b7 W4 1 \u00b7 W5 2 \u00b7 W6 2 \u00b7 W7 2 \u00b7 W8 1 \u00b7 W9 2 \u00b7 W10 1 = 12; grep -rl 'LAW G (the false-universal ban)' docs/tranches/X/ \u2192 WORK-ORDER.md and CLOSE-CERT-3.md ONLY"
+  },
+  {
+   "severity": "HIGH",
+   "claim": "P7-2 (NEW \u2014 the seal did not find this) \u2014 KF-W9.md:258-282, the block headed in bold 'VERIFIED, NOT DELEGATED', delegates three times in current voice and one delegate is falsified at the bytes. :258 and :282 delegate to 'CLOSE-CERT-5' (=PASS-5/CLOSE-CERT-2.md, mtime 15:24:27) to re-verify KF-W10.md, whose final write is 17:00:22 \u2014 a round-5 instrument cannot certify round-6 bytes. :269-271, LANDED AT ROUND 6, names PASS-6/CLOSE-CERT-6.md \u00a7ERRATA E-2 'the verifier of record for their final-bytes offsets'; E-2's offsets are wrong at 4 of 6. R5-8(a) struck this exact delegation class one round earlier. It is a false universal in current voice at the instrument LAW E exists to make unfalsifiable, and it is unconvictable by the corpus because LAW G has no instrument (P7-1).",
+   "receipt": "KF-W9.md:258 '\u2026because KF.W10 writes last and CLOSE-CERT-5 re-verifies under LAW E(5)(ii)'; :282 'CLOSE-CERT-5 re-verifies.'; :269-271 '\u2026the verifier of record for their final-bytes offsets is `PASS-6/CLOSE-CERT-6.md` \u00a7ERRATA E-2, which re-derives them.' E-2 certifies ':22 :68 :513 :547 :206 :197'; measured at KF-W10.md final bytes this seat: X.KF.W9\u2192:22 \u2713 \u00b7 OP-4\u2192:68 \u2713 \u00b7 PACKET-FIRST\u2192:519 (+6) \u00b7 'D. \u2192 KF.W9 (Safari Visual Audit)'\u2192:553 (+6) \u00b7 'surface verify'\u2192:212 (+6) \u00b7 CH2-02\u2192:203 (+6). stat: PASS-5/CLOSE-CERT-2.md 15:24:27 vs KF-W10.md 17:00:22, same day"
+  },
+  {
+   "severity": "MAJOR",
+   "claim": "P7-3 \u2014 CLOSE-CERT-6.md has no \u00a79 while 34 landed citations point at it; the U6-C cure's entire stamp authority (C-33, T8-04, T7-03, T5-03, T2-12, C-34) rests on a dangling pointer. Sub-defect: CLOSE-CERT-3 \u00a7S-2 seats a per-file list that sums to 36 (the bare-mention census) directly under the '\u2192 34' \u00a79 command; the true \u00a79 breakdown has KF-W9 at 0, not 2.",
+   "receipt": "grep -n '^#' PASS-6/CLOSE-CERT-6.md \u2192 exactly two headings (title, '## \u00a7ERRATA'); grep -oh 'CLOSE-CERT-6.md` \u00a79' waves/KF-W*.md | wc -l \u2192 34, per file KF-W8 27 \u00b7 KF-W2 4 \u00b7 KF-W10 2 \u00b7 KF-W5 1 \u00b7 KF-W9 0 (36 bare CLOSE-CERT-6 mentions in all)"
+  },
+  {
+   "severity": "MAJOR",
+   "claim": "P7-4 \u2014 two round-6 certificates under two bare names (CLOSE-CERT-6, CLOSE-CERT-3), in the round whose own E-11(b) rules 'one name per certificate, round-numbered'. SHARPENED beyond the seal: the dual spelling E-11(b) retired named ONE file that declares both spellings and its path-of-record; the collision E-11(b) created names TWO DIFFERENT FILES with disjoint content (one carries \u00a7ERRATA, the other the verification receipts and the round's only hash bracket). The repair made the class strictly worse.",
+   "receipt": "PASS-6/CLOSE-CERT-6.md 16,060 B 16:55:39 and PASS-6/CLOSE-CERT-3.md 29,505 B 17:19:53; CLOSE-CERT-6 \u00a7ERRATA E-11(b) verbatim: 'One name per certificate: \u2026 ending the CLOSE-CERT-2 / CLOSE-CERT-5 dual spelling that produced two of this round's census defects (E-4, E-5)'; PASS-5/CLOSE-CERT-2.md:1 '# X\u00b7KF REPAIR ROUND 5 \u2014 CLOSE CERTIFICATE (**CLOSE-CERT-5**)' and :3 'Path of record: \u2026/PASS-5/CLOSE-CERT-2.md'"
+  },
+  {
+   "severity": "MAJOR",
+   "claim": "P7-5 \u2014 CLOSE-CERT-6 \u00a7ERRATA E-2's certification that col C 'is correct and reproduces exactly at final bytes' is false at four of six anchors; the word 'exactly' is applied to numerals captured before the file they describe stopped moving \u2014 the exact class E-2 was written to convict, committed by E-2.",
+   "receipt": "E-2 prints ':22 :68 :513 :547 :206 :197'; measured this seat at KF-W10.md final bytes: :22 \u00b7 :68 \u00b7 :519 \u00b7 :553 \u00b7 :212 \u00b7 :203 \u2014 A3/A4/A5/A6 all +6. Cause visible in the clocks: CLOSE-CERT-6 closed 16:55:39, KF-W10.md's last write 17:00:22, with C-28/C-29/C-33/C-34 inserting six lines above four anchors"
+  },
+  {
+   "severity": "MAJOR",
+   "claim": "P7-6 (class NEW this pass) \u2014 the stale-coordinate class the seal reported at one instance (S-6) is at roughly fifteen. A mechanical sweep of 51 cross-spec 'grep -n <pat> KF-W<n>.md \u2192 :N' assertions re-executed at this seat found ~14 further clean single-hit staleness, several under present-tense 'Command, run this seat' labels rather than dated ones.",
+   "receipt": "W8\u2192W6 'THE ACT: ONE ATOMIC COMMIT, three limbs' 416\u2192464 (+48); W8\u2192W5 'Structure & Colocation' 430\u2192444 (+14, four sites); W8\u2192W5 'OP-4 \u00b7 LOCUS DECLARED' 339\u2192353; W8\u2192W5 '^| **D-6' 364\u2192378; W10\u2192W8 'TRIGGER, named' 391\u2192411 (+20); W8\u2192W2 'ORDERED: KF.W8 precedes' 59\u219263; W7\u2192W2 'KF.W7 may not decide' 782\u2192786; W7\u2192W2 'Both directions are now declared at both ends' 825\u2192829; W2\u2192W6 'Taxonomy (binding' 18/35\u219238; W5\u2192W4 'The ten rulings this spec owes' 99\u2192100 and 'Census S-2' 124\u2192125. Mitigation: LAW E(4) already makes the anchor the receipt \u2014 every anchor resolves and every quoted passage is byte-exact, verified for all of them"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P7-7 \u2014 CLOSE-CERT-6 \u00a7ERRATA E-5's corrected census ('64 occurrences on 37 lines') does not reproduce at final bytes; it is off by one in the same direction as the figure it struck. Mitigation: nothing rides it \u2014 both CLOSE-CERT-2/-5 spellings resolve (see P7-4) and E-5 says so itself.",
+   "receipt": "grep -oh 'CLOSE-CERT-5' waves/KF-W*.md | wc -l \u2192 63; sum of per-file grep -c \u2192 36. i.e. 63 occurrences on 36 lines, not 64 on 37. E-5 written 16:55; KF-W5 closed 17:01, KF-W7 17:04, KF-W8 17:07"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P7-8 \u2014 four commands across the eleven specs carry absolute /Users/mkbabb/... machine paths (portable-commands axis). Mitigation: three are cross-repo and a path is unavoidable; all four execute correctly at this seat and both named clones exist at the declared refs; only the value.js-root `find` could be made relative. No action required.",
+   "receipt": "`ls /Users/mkbabb/Programming/keyframes-v-exec/docs/tranches/V/coordination/`; `grep -rn '4\\.0\\.1' /Users/.../value.js/... /Users/.../keyframes.js/... /Users/.../keyframes-v-exec/...`; `find /Users/mkbabb/Programming/value.js -name '*parser-totality-exposure*' ...`; `git -C /Users/mkbabb/Programming/keyframes.js rev-parse master origin/master`"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P7-9 \u2014 T8-09 cured one site of a class of eight: the :25-28 docblock extent survives at seven further citing cells, three of which still call it 'docblock prose' \u2014 the exact predicate D-9 falsified. Mitigation: out of the edit's stated scope and correctly executed against its contract; in scope for the class, carried forward as a one-command sweep.",
+   "receipt": "grep -c ':25-28' KF-W8.md \u2192 7 at final bytes, against the ordered single-site cure ':25-28' \u2192 ':25-27'"
+  }
+ ]
+}
