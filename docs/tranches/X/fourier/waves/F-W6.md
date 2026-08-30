@@ -52,7 +52,7 @@ A cross-file paste that names no version is deceptive the moment the sibling is 
 | `waves/F-W9.md` | ~~`eda1fab4e865`~~ → **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** ⟨moved; **moves again in repair round 5** — REST-52..REST-64⟩ |
 | `carry/F-W4-CARRY.md` | `bf1da6fe1e7e` ⟨unmoved⟩ |
 | `../COHESION.md` | ~~`91c6d974db9b`~~ → **`956e71a83e32`** ⟨moved; re-measured this seat⟩ |
-| `../conformance/CENSUS-CANONICAL.md` | ~~`a450b8e9f80e`~~ → **`3e0a9acb3381`** ⟨moved — **errata round 5**, §0.4 E5-1..E5-18⟩ |
+| `../conformance/CENSUS-CANONICAL.md` | ~~`a450b8e9f80e`~~ → ~~`3e0a9acb3381`~~ → **`f44362757458`** (census digest as of 2026-08-29 settle; authority PIN-PURGE-CERT.md §TABLE) ⟨moved — **errata round 5**, §0.4 E5-1..E5-18; moved again — **errata round 6**, §0.5 E6-1..E6-5, chased at round-7 reconcile 2026-08-29⟩ |
 
 ⌧ **RE-STAMPED AT REPAIR ROUND 5 (REST-25; P5-6), AND THE FINAL STAMP IS THE PURGE SEAT'S.** **Five of the eight pins were stale at the pass-5 settle** — F-W5, F-W0, F-W1, F-W9 and the census — and the values above are that settle's, not this round's: **five of these files are re-written by repair round 5 itself**, so the authoritative stamp belongs to the purge seat that runs LAST, after every other seat's final byte. ⊕ **The R4-8.2 certificate that does not exist is still owed**: no purge-seat sha256 cert has ever been written for this wave, so LAW E's authoritative stamp remains undischarged. ⊘ **Record the mitigation, because it is the finding that acquits the mechanism**: **thirteen live-sibling receipts in this file reproduced despite five pins having moved — the pin did its job; movement was detected, not silent.**
 

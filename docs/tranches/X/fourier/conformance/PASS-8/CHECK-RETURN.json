@@ -1,0 +1,33 @@
+{
+ "verdict": "NOT CONFORMANT",
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "fabricated": 0,
+ "defects": [
+  {
+   "severity": "HIGH",
+   "claim": "The F.W5-band census operand is STALE at twelve live, current-voice sites across F-W5/F-W6/F-W8 \u2014 including F-W5's declared \u00a72 Operand, G19's gate cell, G19's run instruction, and gate FW6-G17 \u2014 and two published cmd receipts in F-W6 return EMPTY when re-run. The pass-7 BLOCKER's own class, uncured: round 7 re-based the six wave-duty roster denominators (all verified correct) but never swept the band denominator, because every surviving site spells it (28) / 28 + 90 rather than the '**28 rows**' form the reconcile and the seal both probed for.",
+   "receipt": "Canonical frozen at f44362757458 reads 5078:### F.W5 \u2014 **27 rows** and 5092:### F.W5-W8 \u2014 **89 rows**; this seat re-derived band membership independently = exactly 116 (record,id) pairs. F-W6:19 publishes cmd `grep -o '^### F\\.W5 \u2014 \\*\\*28 rows\\*\\*' $C` -> \"### F.W5 \u2014 **28 rows**\" and cmd `grep -o '^### F\\.W5-W8 \u2014 \\*\\*90 rows\\*\\*' $C` -> \"### F.W5-W8 \u2014 **90 rows**\"; BOTH re-run by this seat return NO OUTPUT, and the line then derives '**118 record-side rows in the band**'. Live sites (tested outside ~~..~~, <sub>..</sub>, angle-chase-notes): F-W5:95 ('the same one G19 now runs on: \u00a72's `F.W5` (28) + `F.W5-W8` (90) rosters, verbatim') \u00b7 F-W5:99 (heading '28 + 90 = 118 record-side rows') \u00b7 F-W5:101 ('**Operand**: \u2026 `F.W5` roster (28) + the `F.W5-W8` roster (90), adopted verbatim') \u00b7 F-W5:381 (G19 cell, '= 118 record-qualified rows, verbatim \u2014 and nothing else') \u00b7 F-W5:427 (G19 run item, '`F.W5` 28 + `F.W5-W8` 90 = 118 rows), verbatim \u2014 that roster ALONE') \u00b7 F-W6:19 \u00b7 F-W6:476 ('all three inside the canonical's `### F.W5 \u2014 **28 rows**` roster') \u00b7 F-W6:526 (gate FW6-G17, 'F.W5 = 28 rows \u00b7 F.W5-W8 = 90 rows') \u00b7 F-W8:78 and F-W8:246 ('\u00a72 `F.W5` (28 rows)'). F-W5:9 quotes the canonical's own stamp 'a gate that cites another census operand is DEFECTIVE on sight'. Graded HIGH not BLOCKER because every derivation IS correctly re-based: \u00a72c LHS = 116, enumeration declared (n) sum = 116, published result booked 113 \u00b7 cited 3 \u00b7 escaped 0 = 116, band fabrication probe zero both directions."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W5:265 states a false universal in current voice about the very figure that is live five lines away: it declares the superseded 118 confined to that one note while five live sites in the same file carry it. It is the sentence a successor would rely on to conclude the round-7 re-base was total.",
+   "receipt": "F-W5:265 \u2014 'The superseded *\"booked-or-cited = 118\"* survives only inside this note.' Falsified in its own file at :95, :99, :101, :381, :427 (all verified live \u2014 outside strikes, sub notes and chase notes). Mitigation: the same line publishes the correct LHS `F.W5` (27 rows) + `F.W5-W8` (**89 rows**) = **116** and the correct result 113 + 3 = 116."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W4:317's singles arithmetic was only half re-based at round 7 and now contradicts its own section header two lines above: the bullet head was moved nine->eight but the summing sentence still reads 'The nine' and '+9 = 72' against a header of 71 and a live list of eight.",
+   "receipt": "F-W4:315 '**(b) THE ESCAPES, BOOKED BY BANKED ID \u2014 71 rows on 17 records** <re-based \u2026 read 72; fr-ContourPreview KILL-3 re-homed TERMINAL per E6-3>'; F-W4:317 '- **The singles \u2014 eight rows on eight records (8)** <re-based \u2026 read nine/9>' and, on the same line, 'The nine sum with the eight record-groups above to 20+17+7+7+4+3+3+2+9 = 72'. 20+17+7+7+4+3+3+2 = 63; 63+8 = 71 (header), 63+9 = 72 (sentence). The bullet enumerates nine items of which one \u2014 fr-ContourPreview KILL-3 \u2014 is struck, leaving eight live. Liveness: grep -c '~~.*The nine sum.*~~' -> 0; grep -c '<sub>[^<]*The nine sum' -> 0. grep -o '= 72' -> 1; grep -o '= 71' -> 0. Mitigation: authoritative figure is in the header immediately above, the list is enumerable in place, and the sentence's own closing clause invites the re-add that catches it. Books nothing; touches no roster, gate or digest."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "LW-R7-a remains open exactly as PASS-7/SEAL.md \u00a75 left it: E6-3 re-homed both fr-PaperArticleWindow K-20 and K-24 from F.W1 to TERMINAL and the register strikes both, but only \u00a72\u00b7R3a's heading received the parallel disposition; \u00a72\u00b7R3b's heading is still in the live voice.",
+   "receipt": "F-W1:402 '### \u00a72\u00b7R3a \u2014 ~~`fr-PaperArticleWindow K-20` BOOKED~~ \u2014 **DISPOSED, NOT BOOKED** <sub>*re-homed TERMINAL per E6-3 \u2026*</sub>' vs F-W1:408 '### \u00a72\u00b7R3b \u2014 `fr-PaperArticleWindow K-24`'s F.W1 LEG ANSWERED (ruling R3-2.2 item 2, second half; PASS-3 escape #4, INFO)'. Mitigation: the section books nothing and says so at :412; the register at F-W1:602 strikes both ids; this seat's mechanical reverse diff returns 0 for this record. Carried, not re-graded."
+  },
+  {
+   "severity": "INFO",
+   "claim": "PASS-7/SEAL.md \u00a72.2's certification cell for F-W5 is falsified at the bytes \u2014 it is the cell that let the HIGH through. The seal's other five denominator rows re-verify correct, so this is one cell, not a method-wide failure.",
+   "receipt": "SEAL \u00a72.2 row 6 certifies F-W5 as '`28` inside the chase notes only'. This seat found live (28)/28+90 at F-W5:95, :99, :101, :381, :427. The seal's probe searched the '**28 rows**' spelling; every survivor spells it (28) or 28 + 90 \u2014 the spelling-restricted-detector class that F-W6:526's own R2-9 decree calls 'DEFECTIVE at authoring, whatever its result'. Re-verified correct in the same table: F-W0 55, F-W1 330, F-W2 23, F-W3 919, F-W4 1007 (receipts R5/R1/R4/R6/R7)."
+  }
+ ]
+}

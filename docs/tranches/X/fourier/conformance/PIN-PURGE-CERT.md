@@ -227,3 +227,146 @@ PASS-6 §6 measured the canonical operand and reported it **CLEAN** — *"⟨cmd
 ---
 
 **— issued 2026-08-29 by the X·F round-6 PIN-PURGE SEAT, after every other writer's final byte. The certificate is the sole pin authority; a spec cites the certificate, never a sibling. —**
+
+---
+---
+
+# §ERRATA-R7 — DATED APPEND, 2026-08-29 · X·F ROUND 7 · THE CERT-REBASE SEAT
+
+**Everything above this rule is round-6 dated evidence and is NOT edited** (E-3). This block **appends**; it corrects four counts filed against this certificate at `PASS-7/CHECK.md` §4.5 (LW-1 · LW-2 · LW-3 ⊕ the seat's own fourth), and it **re-bases the digest table**, which was stale by construction the moment the round-7 canonical seat and re-base seat wrote.
+
+⊘ **Two byte-states are in play, and every figure below names which.**
+
+- **R6** — the round-6 settled state, the bytes §TABLE describes. Reachable at commit **`3c12ec3d`**. ⟨cmd⟩ this seat, base repo root: `for f in F-W0 F-W1 F-W2 F-W3 F-W4 F-W5 F-W6 F-W7 F-W8 F-W9 F-W10; do git show 3c12ec3d:docs/tranches/X/fourier/waves/$f.md | shasum -a 256 | cut -c1-12; done` ⊕ the same for `conformance/CENSUS-CANONICAL.md` → **the twelve of §TABLE, 12 of 12**, and the certificate itself at `52264bcce7c9`, the row `PASS-7/CHECK.md` §1 published. **§TABLE was true of the bytes it named**; its expiry clause, not its arithmetic, is what fired.
+- **R7** — the working tree as the round-7 canonical seat and the re-base seat left it, **frozen before this seat's first byte**. This is what the new table hashes.
+
+**Toolchain**: `PATH=/usr/bin:/bin:/usr/sbin:/sbin`, absolute `/usr/bin/grep` throughout (the interactive `grep` here is a `ugrep` shell function and is not the instrument), BSD `awk` · `sed` · `sort` · `od` · `shasum` · `git`. Every command below is published so the correction can be falsified rather than trusted.
+
+---
+
+## LW-1 — **the headline's "forty-three citation sites in nine specs": the site count is 42. SUSTAINED.**
+
+The Verdict paragraph (¶4) reads *"…retired to this certificate across **forty-three citation sites in nine specs**."*
+
+⟨cmd⟩ this seat at the **R6** bytes, base `waves/`:
+
+```
+/usr/bin/grep -n 'PIN-PURGE-CERT.md §TABLE' F-W*.md | awk -F: '{print $1":"$2}' | sort -u | wc -l
+```
+
+→ **42**, distributed `F-W0` **8** · `F-W1` **4** · `F-W2` **10** · `F-W3` **1** · `F-W4` **1** · `F-W6` **5** · `F-W7` **7** · `F-W8` **1** · `F-W9` **5**. Nine files, by `grep -lF … | wc -l` → **9**.
+
+**Correction: `forty-three citation sites` → `FORTY-TWO citation sites`. "in nine specs" is EXACT and stands.** ⊘ **Forty-three matches neither of the two lawful metrics**, which is the tell: the **site** count is 42 and the **occurrence** count is 44 — the certificate's own §RECEIPTS S-3 measured that 44 correctly, and `PASS-7/CHECK.md` §5 R6-6 re-ran it and got 44. Two lines carry two citations each, which is exactly the gap. The headline took neither figure; it took one between them. Grade LOW, count-shaped: **no pin, conversion, home, booking or roster cell is touched by this, and the 53-retired / 50-stale / 17-digest arithmetic of the same paragraph is unaffected.**
+
+▲ **At the R7 bytes the same command returns 77 sites / 83 occurrences / 11 of 11 specs** — the re-base seat widened the star to F-W5 and F-W10 and cited the certificate at every denominator it re-based. **That figure is R7's, not this paragraph's**; the ¶4 sentence is a dated statement about what the round-6 purge did, and it is corrected here to 42 in that voice.
+
+## LW-2 — **§RECEIPTS S-6's "after" cell reads "6 digests / 4 specs": the true figure is FIVE digests. SUSTAINED.**
+
+S-6's row tracks D-1's **ten** superseded digests from pin position into history. Its *after* cell publishes *"**6 digests** / 4 specs, **history position only**"*.
+
+⟨cmd⟩ this seat at the **R6** bytes, base `waves/`, one digest at a time rather than by class:
+
+```
+for d in a89c3386f3f8 a1302689aaa3 5cc3346db23e 282f0c120cd4 39e1a60b3fc9 \
+         132c03192176 bb58dc400cff e9a9c3016f4c c8c6d1d7f136 1e3698adf4ff; do
+  printf "%s : " "$d"; /usr/bin/grep -lF "$d" F-W*.md | tr '\n' ' '; echo
+done
+```
+
+| digest (D-1's ten) | specs it survives in | occ |
+|---|---|---|
+| `a89c3386f3f8` | `F-W0` · `F-W1` · `F-W9` | 3 |
+| `a1302689aaa3` | `F-W0` | 1 |
+| `5cc3346db23e` | `F-W0` | 1 |
+| `39e1a60b3fc9` | `F-W3` · `F-W9` | 2 |
+| `bb58dc400cff` | `F-W9` | 1 |
+| `282f0c120cd4` · `132c03192176` · `e9a9c3016f4c` · `c8c6d1d7f136` · `1e3698adf4ff` | **∅ — extinct in the corpus** | 0 |
+
+**FIVE survive, in eight occurrences, across `{F-W0, F-W1, F-W3, F-W9}` = four specs.**
+
+**Correction: `6 digests / 4 specs` → `5 DIGESTS / 4 specs`. "4 specs" and "history position only" are both TRUE and stand.** ⊘ **The certificate already knew.** §RESIDUE (b) enumerates the survivors and they count to five; the file disagreed with itself by one across two sections, and `PASS-7/CHECK.md` §4.5 LW-2 caught it on exactly that ground — *"the certificate's own §RESIDUE (b) says five."* **The tabular cell is the error; the enumeration is right.** Unchanged at the **R7** bytes: the same loop returns the same five, the same four specs.
+
+## LW-3 — **the false corpus-wide universal at §WHAT-THIS-SEAT-DID-NOT-DO item 2, RESTATED as the enumerated truth. SUSTAINED.**
+
+Item 2's second sentence reads *"**Every `:NNN` address in every check, seal, union and work order still resolves to the content it named.**"* **That universal is false, it was never measured over the corpus it quantifies, and it is withdrawn here.** What the round-6 seat actually established, and what this seat re-established, is narrower and is stated without "every":
+
+**(i) The within-line property holds in TEN of the eleven specs, and fails in one.** ⟨cmd⟩ `git show --numstat --format= 3c12ec3d -- docs/tranches/X/fourier/waves` → adds **=** deletes for `F-W0` 8/8 · `F-W1` 4/4 · `F-W2` 10/10 · `F-W3` 1/1 · `F-W5` 14/14 · `F-W6` 6/6 · `F-W7` 7/7 · `F-W8` 1/1 · `F-W9` 10/10 · `F-W10` 5/5 — and **`F-W4.md` 9/3**. ⟨cmd⟩ `git show --format= --unified=0 3c12ec3d -- …/F-W4.md | /usr/bin/grep -E '^@@'` → **`@@ -11,0 +12,6 @@`** ⊕ three pure substitutions (`-140 +146`, `-289 +295`, `-456 +462`). **Six lines were inserted after `F-W4.md:11`. Every `F-W4` address at or below `:11` still resolves; every one above it is displaced by exactly +6.**
+
+**(ii) The addresses this certificate re-derived DO resolve, and they are the D-11 coordinates in `F-W1.md`** — the only addresses §ERRATA item 1 actually put through a command. ⟨cmd⟩ this seat at the **R7** bytes: `awk 'NR>=642 && NR<=673 && /^\|/' F-W1.md | wc -l` → **26**, and `awk '…{printf "%s ", NR}'` → `646 647 648 … 670 671` — **the identical line numbers PASS-5 addressed**, still holding two rounds and one re-base later. Item 1's ▲ claim is therefore **true as made about `F-W1`** and is not disturbed.
+
+**(iii) Two addresses are PROVEN BROKEN, both into `F-W4`, both cited by `PASS-6/CHECK.md`.** Artifact: **`PASS-7/CHECK.md` §4.5 LW-3**, whose two coordinates this seat re-walked at the R7 bytes. `PASS-6/CHECK.md:66` cites `` `F-W4.md:338` `` for the **suffix-elision chains**; ⟨cmd⟩ `sed -n '338p' F-W4.md` → the unrelated `` - **`GM-6` — the ENABLING F.W1 rider…** `` row, the named content at **`:344`**. `PASS-6/CHECK.md:113` cites `` F-W4 `:458` `` for the **§Y.3 residual-string declaration**; ⟨cmd⟩ `sed -n '458p' F-W4.md | od -c` → **`\n`**, a blank line, the named content at **`:464`**. Both are the +6 displacement, exactly.
+
+**(iv) Named as UNAUDITED, so no successor reads this correction as a clearance.** ⟨cmd⟩ `/usr/bin/grep -rnoE 'F-W4(\.md)?[^0-9]{0,4}:[0-9]{2,4}' conformance --include='*.md'` returns **eleven further pre-round-6 `F-W4` coordinates** inside PASS-2/3/4 instruments, all in the displaced region: `F-W4:217` (`PASS-2/F-W1-CHECK.md:68`, `PASS-2/UNION.md:35`) · `F-W4.md:28` (`PASS-2/F-W10-CHECK.md:107`, `PASS-2/F-W5-CHECK.md:231`) · `F-W4:274` (`PASS-3/F-W10-CHECK.md:78/:115/:116`, `PASS-3/RULINGS-3.md:44`, `PASS-3/UNION.md:35`) · `F-W4:202` (`PASS-3/RULINGS-3.md:144`) · `F-W4.md:241` (`PASS-4/F-W2-CHECK.md:173`) · `:111 :140 :206 :351 :183 :112` (`PASS-4/CLOSE-CERT-2.md`). **This seat does not claim they were ever correct** — they were taken at older bytes than round 6 — **only that the +6 insertion is a second, independent reason they may not resolve, and that nobody has checked.**
+
+⊘ **The corrected sentence, in the certificate's own voice, with no universal in it:**
+
+> **Round 6's edits were within-line in ten of the eleven specs. `F-W4.md` took a six-line insertion at `@@ -11,0 +12,6 @@`, so `F-W4` addresses at or below `:11` still resolve and those above it are displaced by +6. The addresses this certificate re-derived — `F-W1`'s D-11 coordinates `:642-673` · `:646` · `:647` · `:648`–`:670` · `:671` — resolve, and are re-derived again at §ERRATA-R7. Two `F-W4` coordinates in `PASS-6/CHECK.md` (`:338`, `:458`) do not. No other `:NNN` address in any check, seal, union or work order has been measured, and eleven `F-W4` coordinates in the PASS-2/3/4 instruments sit in the displaced region unaudited.**
+
+▲ **Why this one is not merely count-shaped, said plainly.** LW-1, LW-2 and LW-4 are arithmetic. **This was a claim of a property over a corpus the seat never enumerated**, made in the section whose whole purpose is to bound what was *not* done — the one place a false universal costs a successor the most, because it is read as a licence to skip a check. It is the same species as the canonical's E6-2 wording (`PASS-7/CHECK.md` §4.6) and it is retired the same way: **replace the quantifier with the enumeration.**
+
+## LW-4 — **§RESIDUE (b)'s "five struck halves at `:48`–`:52`": FOUR carry a digest. SUSTAINED.**
+
+The `F-W6 :44` row of §RESIDUE (b) reads *"the eight-moves-in-one-sitting chain ⊕ **five struck `~~…~~` halves at `:48`–`:52`**"*, occurrence total **15**.
+
+⟨cmd⟩ this seat, base `waves/`, at the **R6** bytes and again at **R7** — identical both times:
+
+```
+/usr/bin/grep -noE '[0-9a-f]{12}' F-W6.md | awk -F: '$1>=44 && $1<=52'
+```
+
+→ `:44` carries **11** tokens (the movement chain); then `:48 d4f47eb3ec4f` · `:49 cd64d6580098` · `:50 839d9964010b` · `:52 eda1fab4e865` — **four lines, one digest each. `:51` carries no 12-hex token at all.** ⟨cmd⟩ `awk -F: '$1>=48 && $1<=52 {print $1}' | sort -u | wc -l` → **4**.
+
+**Correction: `five struck halves at :48–:52` → `FOUR struck halves at :48–:50 and :52`.** ⊘ **The missing one is this certificate's own work, and the row is otherwise exact.** §PURGED row 1 lists `a89c3386f3f8` at **`F-W6 :51`** among its thirteen pin sites: `:51`'s struck half *was* a digest and the purge retired it, leaving that line carrying only the `§TABLE` citation. **The span `:48`–`:52` is right, the strike-count is one high, and `11 ⊕ 4 = 15` — the row's published occurrence total — is EXACT**, which is why the class arithmetic `61 (b) ⊕ 86 (c) ⊕ 1 (d) = 148` closed for `PASS-7/CHECK.md` §3 D-1 despite the miscount. **The error is in the prose gloss, not in the census it glosses.**
+
+---
+
+## §TABLE-R7 — **THE RE-BASE. §TABLE IS SUPERSEDED AS THE PIN AUTHORITY AS OF THIS APPEND.**
+
+**§TABLE (2026-08-29, round 6) is stale by construction and stands as HISTORY.** It was true of the R6 bytes and of no later state — its own ⊘ expiry clause says so in terms: *"Any seat that writes a spec after this certificate issues VOIDS it by construction … and owes a re-issue at its own settle."* **Three round-7 seats wrote after it** — the canonical seat, the re-base seat, and the eleven specs' denominators with them — so all twelve rows moved. **This is the owed re-issue, discharged in the lawful shape: an append, never a patch (E-3).**
+
+⊙ **What a spec cites is unchanged.** The spelling `pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)` **still resolves**, because both tables are dated `2026-08-29` and this section states the precedence: **the table below is the operand; §TABLE above is the round-6 reading of the same star.** The topology is untouched — one file pinning eleven, no in-edges, no cycle, and writing this certificate stales nothing.
+
+⊙ **The census pin, re-measured at these bytes.** `PASS-7/CHECK.md` §4.4 convicted 39 live sites of the superseded `3e0a9acb3381` in 11 of 11 specs. ⟨cmd⟩ this seat at R7: `3e0a9acb3381` → **8 occurrences in 6 specs** (history position), `b6d8d858c387` → **0**, and **`f44362757458` → 39 occurrences in 11 of 11** — which is **row 12 below**. **The re-base seat re-pinned the canonical and it is correct at these bytes.** ⟨cmd⟩ total 12-hex tokens across the eleven → **156** (R6: 148); the growth is the re-base's own dated strike history, and adjudicating it is the next check's work, not this append's claim.
+
+⊘ **The same expiry, restated so it is not read as a promise.** These twelve are true of the bytes this seat found frozen and of no later state. **The next seat to write a spec voids this table too and owes the next append.** A hash still proves only that bytes did not move; it does not prove a paste was produced by its command (F-W9 `:505`/REST-54 remains the programme's own counter-example), and **no certificate issues its own conformance** — `PASS-7`'s verify-only seal re-runs what follows.
+
+⟨cmd⟩ this seat, 2026-08-29, **base = repo root `/Users/mkbabb/Programming/value.js`**, on the pinned BSD toolchain, taken **AFTER** the canonical's and the re-base seat's last byte and **as the absolute last act of this write**:
+
+```
+shasum -a 256 docs/tranches/X/fourier/waves/F-W*.md \
+              docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**Output, pasted whole and verbatim — glob order, `F-W10` sorting after `F-W1` exactly as the shell produced it:**
+
+```
+c03149fc2f9e2bec601fe4e00982705203f4b0b3fac78afdd1bde097aa7d4af1  docs/tranches/X/fourier/waves/F-W0.md
+d03e07468c7477a775217d933f20e16c22c88e34eeae36be4f7c8ddaacdc12c0  docs/tranches/X/fourier/waves/F-W1.md
+d97a0123bf99ceba2f9c97a4a484ba03e482188f478b0e4d0910e32e80910fa9  docs/tranches/X/fourier/waves/F-W10.md
+655a21e7a64dd59c4bb954383ebf69bec829f295f7c6797a7c5cdf88e5d2ca65  docs/tranches/X/fourier/waves/F-W2.md
+bfa4278c5599b7866e87865f74b0380b91b27c2af77400f979d610e017f56cad  docs/tranches/X/fourier/waves/F-W3.md
+0932ced1a4c0fcc22a73e8eb2b942891f55ae5cd352d2f8bba5d12b4089472f2  docs/tranches/X/fourier/waves/F-W4.md
+2990f5b510568a469b165ac07cf32d970b227bdc31d8f96139c625d32f05918f  docs/tranches/X/fourier/waves/F-W5.md
+f16b290bcf62bfcdecb831b06ab37d5b42204af0380b48473168712c1ce0a0f0  docs/tranches/X/fourier/waves/F-W6.md
+16e35d5bb571708046033b10d20f9d0dc71e59c2d89fd52b7d824a877b74caaa  docs/tranches/X/fourier/waves/F-W7.md
+0d464a4a7d3abe8bdcbaa2fe16248f6cf672c8f836fa03b7a90f61b1df16c6dc  docs/tranches/X/fourier/waves/F-W8.md
+4972f6a418322629c73cd8e1ffac331d4ec4ecdab897bbed5bf1a79ceacf9602  docs/tranches/X/fourier/waves/F-W9.md
+f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**TWELVE ROWS, ordered numerically and labelled `fourier/`-relative for citation stability with §TABLE (`docs/tranches/X/fourier/` + the label = the path above). The first-12 prefixes derived beside each — THIS IS THE OPERAND EVERY SPEC NOW CITES:**
+
+| # | file | sha256 (first 12) — **R7, CURRENT AUTHORITY** | superseded §TABLE row (R6, history) |
+|---|---|---|---|
+| 1 | `waves/F-W0.md` | **`c03149fc2f9e`** | `d26cc4630f80` |
+| 2 | `waves/F-W1.md` | **`d03e07468c74`** | `fc3e28d3a5f8` |
+| 3 | `waves/F-W2.md` | **`655a21e7a64d`** | `02c5ba9448f5` |
+| 4 | `waves/F-W3.md` | **`bfa4278c5599`** | `ae589556a1b2` |
+| 5 | `waves/F-W4.md` | **`0932ced1a4c0`** | `d503170c111b` |
+| 6 | `waves/F-W5.md` | **`2990f5b51056`** | `a5ce07de3e6d` |
+| 7 | `waves/F-W6.md` | **`f16b290bcf62`** | `2d9969fb8320` |
+| 8 | `waves/F-W7.md` | **`16e35d5bb571`** | `c03cf709a963` |
+| 9 | `waves/F-W8.md` | **`0d464a4a7d3a`** | `6c1408766fd0` |
+| 10 | `waves/F-W9.md` | **`4972f6a41832`** | `459d959db156` |
+| 11 | `waves/F-W10.md` | **`d97a0123bf99`** | `80eff6ad1a26` |
+| 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `b6d8d858c387` |

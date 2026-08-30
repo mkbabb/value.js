@@ -57,7 +57,7 @@
 | `waves/F-W10.md` | **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes, three times** — re-verified at the round-5 hash |
 | `../COHESION.md` | `91c6d974db9b` | no |
 | `../keyframes/waves/KF-W1.md` | ~~`ee33bf25cb2a`~~ → **`919e484b8a60`** | **YES** ⟨*the cell read "no" and that statement is now false — re-measured at repair round 5, REST-38*⟩ |
-| `conformance/CENSUS-CANONICAL.md` | ~~`a450b8e9f80e`~~ → **`3e0a9acb3381`** | **YES — errata round 5**, §0.4 E5-1..E5-18 |
+| `conformance/CENSUS-CANONICAL.md` | ~~`a450b8e9f80e`~~ → ~~`3e0a9acb3381`~~ → **`f44362757458`** (census digest as of 2026-08-29 settle; authority PIN-PURGE-CERT.md §TABLE) | **YES — errata rounds 5 AND 6**, §0.4 E5-1..E5-18 ⊕ §0.5 E6-1..E6-5 (chased at round-7 reconcile 2026-08-29) |
 
 ⌧ **RE-STAMPED AT REPAIR ROUND 5 (REST-38; P5-6) — FIVE STALE, ONE "no" NOW FALSE.** F-W0, F-W1, F-W5, F-W6 and the census had all moved by the pass-5 settle, and `KF-W1.md`'s cell asserted **"no"** against a file that had moved to `919e484b8a60`. ⊘ **The mechanism is acquitted by its own record**: §0(C) explicitly disclaims settled-tree scope (*"the settled-tree hash table is the PURGE SEAT's closing act"*), and **every span re-run from all five moved files reproduced** — so the pin did exactly what R4-8.3 built it for. **Two residues remain and are stated rather than smoothed: the table cannot verify anything without a re-run, and one row's "no" was a false statement.** The authoritative stamp is the purge seat's, after every repair-round-5 byte has landed.
 
