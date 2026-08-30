@@ -1,0 +1,53 @@
+{
+ "defects": [
+  {
+   "severity": "BLOCKER",
+   "claim": "The eleven specs' record-side denominators are STALE against the census of record: the round-6 canonical errata moved ROWS 4262\u21924242 and re-based six wave rosters, and no wave spec was re-based. Six of eight wave-duty specs publish a roster figure the canonical does not state, at ~40 live (non-strike) sites, and their own published \u27e8cmd\u27e9 receipts return different numbers when re-run. The canonical's own \u00a70 stamp makes a gate citing a superseded census operand DEFECTIVE on sight.",
+   "receipt": "F-W0 :7/:25/:62/:111/:132 publish '### F.W0 \u2014 **57 rows**' (\":132\" calls it 'the CANONICAL F.W0 ROSTER \u2014 57 rows, CITED, NEVER DERIVED HERE'); canonical :4841 reads **55**. F-W1 :266/:548 publish the awk roster-sum '\u2192 **358**' and 'tr -cd \\140 | wc -c \u2192 **716**'; this seat re-ran both verbatim: **330** and **660** (record count 65 holds). F-W2 :32/:56/:270/:354 publish \u27e8cmd\u27e9 grep -n '^### F\\.W2' \u2192 '### F.W2 \u2014 **27 rows**'; re-run returns '### F.W2 \u2014 **23 rows**'. F-W3 publishes 928 at 14 sites (\":30\" \u2014 'The one number this file now asserts is 928'); canonical **919**. F-W4 :293/:295 publish 'F.W4 = 1012 rows across 54 records ... verbatim'; canonical **1007** (54 records \u2714). F-W5 :9/:265/:279 publish 28; canonical :5078 **27**. Wave-duty asserted 2515 vs canonical 2466. Across all eleven specs: 4242\u21920 hits, 4287\u21920, 2466\u21920, 1220\u21920, 1007\u21920, 330\u21920."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "47 of the 49 E6-3 re-homed ids remain BOOKED at the wave the canonical no longer homes them \u2014 D-9's fabrication class, multiplied. 37 are proven by a mechanical diff of the specs' own transcribed canonical-roster registers against the live canonical blocks.",
+   "receipt": "python3 register diff, F-W1.md \u00a76\u00b7R4 (:551\u2013:610) vs canonical F.W1: 29 pairs the canonical does not home; F-W3.md \u00a7X.1-v5 (:724\u2013:773) vs canonical F.W3: 9. Worked: F-W1:593 '- **fr-GalleryView** (3): `R-6` \u00b7 `FR-GV-18` \u00b7 `K11`' vs canonical '- **fr-GalleryView** (2): `R-6` \u00b7 `FR-GV-18`'; F-W3:724 '- **fr-BasisSelector** (31): \u2026 \u00b7 `K-12`' vs canonical '(30)'; F-W2:374/:379 book '`fr-ConvergenceLegend K-7`|`F.W2` \u2192 **F.W2**' and '`fr-ConvergencePlot K-11`|`F.W2` \u2192 **F.W2**' where canonical F.W2 homes C-2\u00b7C-1 and L-M6\u00b7C-19\u00b7C-22. Boundary-exact co-location test over all 49: 47 still present in their old home spec; only fr-ConvergenceLegend K-10 and fr-MorphShapePreview K-13 are not. Corpus confirms the canonical is right: fr-BasisSelector.md:111 '**K-12 \u00b7 \u2026 the F.W3 cheap arm) \u2014 KILLED**' \u2014 the F.W3 token stands inside the killed claim, \u00a70.1's operative arrow clause exactly."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "D-7's spec-side half is uncured: F-W1 still spells the band `FM-4..FM-16 (13 ids)` while E6-2 cured the canonical to `FM-4..FM-16`, so F-W1's register row no longer matches the canonical roster row it declares it transcribes VERBATIM AND ENTIRE \u2014 one row producing two false signals in any mechanical differ.",
+   "receipt": "/usr/bin/grep -c 'FM-4..FM-16 (13 ids)': F-W1.md \u2192 **3** (unchanged from PASS-6's measurement); CENSUS-CANONICAL.md \u2192 **1**, and that one is inside E6-2's own errata row at :179 (lawful under E-3). awk '/^## \u00a72/,/^## \u00a73/' | grep -ohE '`[^`]+\\.\\.[^`]+`' | sort -u \u2192 four spans, all clean. The register diff reports F-W1:580's band as BOTH an unmatched booking AND a missing canonical id (the sole 'canonical-has-but-spec-lacks' hit)."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "The census pin `3e0a9acb3381` is a superseded digest pinned LIVE at 39 sites in 11 of 11 specs, against the canonical's true `b6d8d858c387`. The pass-7 bar for D-1 is zero superseded digest pins.",
+   "receipt": "/usr/bin/grep -o '3e0a9acb3381' F-W*.md | wc -l \u2192 **39**; grep -lF \u2192 **11 of 11**; grep -o 'b6d8d858c387' F-W*.md \u2192 **0**. These are pin position, not history: F-W1:548 'operand sha256 **3e0a9acb3381** at quote time'; F-W2:270 'operand sha256 **3e0a9acb3381**, \u00a78d'; F-W4:295 publishes it as a live \u27e8cmd\u27e9 output. MITIGATION (substantial): the purge seat found and disclosed this itself at PIN-PURGE-CERT.md \u00a7ERRATA item 2, classed it (c) out-of-scope-not-clean, declined to edit it under E-3, and routed it to the canonical's seat as a round-7 duty. Filed once here, not 39 times."
+  },
+  {
+   "severity": "LOW",
+   "claim": "PIN-PURGE-CERT.md LW-1 uncured: the headline publishes 'forty-three citation sites in nine specs'; the true distinct-site count is 42. Count-shaped; the purge's substance is untouched and 'nine specs' is exact.",
+   "receipt": "/usr/bin/grep -n 'PIN-PURGE-CERT.md \u00a7TABLE' F-W*.md | awk -F: '{print $1\":\"$2}' | sort -u | wc -l \u2192 **42**, distributed F-W0 8 \u00b7 F-W1 4 \u00b7 F-W2 10 \u00b7 F-W3 1 \u00b7 F-W4 1 \u00b7 F-W6 5 \u00b7 F-W7 7 \u00b7 F-W8 1 \u00b7 F-W9 5. The cert's own S-3 measures 44 occurrences (two lines carry two citations); 43 matches neither metric."
+  },
+  {
+   "severity": "LOW",
+   "claim": "PIN-PURGE-CERT.md LW-2 uncured: \u00a7RECEIPTS S-6's 'after' cell reads '6 digests / 4 specs'; exactly five of D-1's ten superseded digests survive. The cert's own \u00a7RESIDUE (b) says five, so the file disagrees with itself by one; 'history position only' is TRUE.",
+   "receipt": "Per-digest grep -lF over D-1's ten: survivors a89c3386f3f8 (3 occ) \u00b7 a1302689aaa3 (1) \u00b7 39e1a60b3fc9 (2) \u00b7 bb58dc400cff (1) \u00b7 5cc3346db23e (1); 282f0c120cd4 \u00b7 132c03192176 \u00b7 e9a9c3016f4c \u00b7 c8c6d1d7f136 \u00b7 1e3698adf4ff each return 0 specs. Specs = {F-W0, F-W1, F-W3, F-W9} = 4, exact."
+  },
+  {
+   "severity": "LOW",
+   "claim": "PIN-PURGE-CERT.md LW-3 uncured \u2014 a false corpus-wide universal: \u00a7WHAT-THIS-SEAT-DID-NOT-DO item 2 asserts 'Every :NNN address in every check, seal, union and work order still resolves to the content it named.' The D-12 repair inserted six lines into F-W4, breaking both of PASS-6/CHECK.md's F-W4 coordinates.",
+   "receipt": "git diff --numstat: every wave adds=deletes EXCEPT F-W4.md **9/3**. PASS-6's 'F-W4.md:338' (suffix-elision chains) now lands on an unrelated GM-6 F.W1-rider row \u2014 content is at :344. PASS-6's 'F-W4 :458' (\u00a7Y.3 residual-string declaration) now lands on a BLANK line \u2014 content is at :464."
+  },
+  {
+   "severity": "LOW",
+   "claim": "PIN-PURGE-CERT.md \u00a7RESIDUE (b) describes 'five struck ~~\u2026~~ halves at :48\u2013:52' in F-W6; four lines carry a digest there (:51's was purged at \u00a7PURGED row 1). This seat's own finding; the row's occurrence total of 15 is exact.",
+   "receipt": "Class-(b) per-site occurrence counts, /usr/bin/grep -rnoE '[0-9a-f]{12}' minus the (c) and (d) token sets: F-W6 :44 \u2192 11, :48 \u2192 1, :49 \u2192 1, :50 \u2192 1, :52 \u2192 1 = 15; :51 carries no digest, only the \u00a7TABLE citation."
+  },
+  {
+   "severity": "LOW",
+   "claim": "CENSUS-CANONICAL.md E6-2's universal over-reaches (unchanged from the seal's reading): it says the malformed band spelling 'is now absent from this file' while two occurrences survive as dated errata quotations. The cure is real; only the wording is a universal it cannot hold \u2014 it should read 'absent from the census rows.'",
+   "receipt": "grep -nE '`[^`]*\\.\\.[^`]*\\([0-9]+ ids\\)[^`]*`' CENSUS-CANONICAL.md \u2192 :142 (E5-10 quoting the defect it cured) and :179 (E6-2 quoting the two spans that vanished with E6-1's bands). No live band row carries the spelling: the \u00a72 span probe returns four clean spans."
+  }
+ ],
+ "fabricated": 47,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "NOT CONFORMANT"
+}

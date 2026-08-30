@@ -1,6 +1,6 @@
 # X·F CENSUS-CANONICAL — the one census of record
 
-**THE CENSUS OF RECORD — supersedes every prior denominator, g19 operand, and per-spec census claim; a gate that cites another census operand is DEFECTIVE on sight.** *(Stamped by the BLESS seat, round 4, 2026-08-29, after the hostile re-derivation recorded at §0.3. **ERRATA ROUND 5 applied in place 2026-08-29** — the eighteen defects eight PASS-5 seats filed against this file, register and disclosures at **§0.4**; ROWS 4269 → 4262, twelve rows rehomed, §0.1's arrow clause made operative. The stamp holds: the corrections are recorded at their rows with the reading they replace, and nothing is re-graded, re-scoped or re-booked.)*
+**THE CENSUS OF RECORD — supersedes every prior denominator, g19 operand, and per-spec census claim; a gate that cites another census operand is DEFECTIVE on sight.** *(Stamped by the BLESS seat, round 4, 2026-08-29, after the hostile re-derivation recorded at §0.3. **ERRATA ROUND 5 applied in place 2026-08-29** — the eighteen defects eight PASS-5 seats filed against this file, register and disclosures at **§0.4**; ROWS 4269 → 4262, twelve rows rehomed, §0.1's arrow clause made operative. The stamp holds: the corrections are recorded at their rows with the reading they replace, and nothing is re-graded, re-scoped or re-booked.) **ERRATA ROUND 6 applied in place 2026-08-29** — the three defects `PASS-6/CHECK.md` filed against this file (D-4 · D-7 · D-13), register and disclosures at **§0.5**; ROWS 4262 → 4242, twenty phantom rows struck, forty-nine killed-claims rows re-homed off their waves under §0.1's operative arrow clause. Two of the three filings were understated at the bytes and this seat books what it measured. The stamp holds.)*
 
 **Seat**: census-canonical seat, X·F. **Written**: 2026-08-29. **Operand**: the 66 frozen
 `fr-*.md` records at `docs/tranches/V/megatranche/registry/adjudicated/`, read whole, one at a
@@ -156,6 +156,66 @@ ROWS 4269 → 4262 · ALIASES 2768 → 2780 · §1 = §2 = §3 = 4262, re-derive
 3. **`fr-PathPreview K7` is flagged, not moved** (F-W0, *"flagged for the amendment seat, not filed"*). It homes F.W0 on a token inside `:80`'s description of *the claim being killed*; rule 2's verbatim reading reaches F.W0, rule 2's own killed-claims clause reaches TERMINAL. The two readings are in genuine tension and no seat filed it as a defect. **Left as it stands, named here so its absence is not mistaken for a clean bill.**
 4. **Wave-side consequences are NOT applied here.** Twelve rehomings and seven strikes move duties: F-W1 now books `L-9`, `D:M-3`, `vue-tsc` and `D-i2` against homes this file no longer gives it; F-W2 books four such rows; F-W9 §2.0 row 14 loses its operand; F-W0's `PP-GATE` citation-to-the-frontier is now a live F.W0 duty; F-W10's drain operand rises 60 → 65 and its verbs were already correct. **Those are the waves' repairs, in their own files, and this file does not make them.**
 5. **The escape arithmetic this round moves is exactly one.** Of `PASS-5/UNION.md` §1's **28** wave-duty escapes, precisely one — `fr-EquationView vue-tsc` — was an escape *only* because this file minted a non-identity from a prose head (UNION §1 says so in terms). E5-6 retires it. Every other rehomed row was **already named** in its destination spec, verified this seat by `grep -c` over each of `waves/F-W0..F-W10.md`, so no rehoming manufactures a new escape. **Pass 6 opens against 27, not 28** — and the other 27 are the waves' to book or cite, not this file's to move.
+
+### §0.5 ERRATA, ROUND 6 (2026-08-29) — the three defects PASS-6 filed against THIS FILE, cured IN PLACE, and the two residues its cure re-derivation opened
+
+**Provenance.** `PASS-6/CHECK.md` filed **D-4**, **D-7** and **D-13** against the census of record. This
+section is that round. Every entry was **re-verified at `docs/tranches/V/megatranche/registry/adjudicated/`
+bytes by this seat before it was cured** — no cure rests on a check file, which is never an operand
+(R3-4/R4-3). Each cured row carries a dated `<sub>*errata R6 …*</sub>` note in its own §1 cell giving the
+fix, the old reading and the date; §2's rosters and §3's totals are re-based in the same act. **Two of the
+three filings were UNDERSTATED at the bytes and this seat books what it measured, not what it was handed** —
+D-4 named two records and 17 rows where the machine finds **four records and 19**; D-13(a)'s "not proven
+confined to five rows" is now **disproven by enumeration**, not merely unproven. `waves/F-W0..F-W10.md` are
+untouched: this file is the sole write.
+
+**Result in one line: 20 rows STRUCK · 49 rows REHOMED · 5 band spans re-spelled · ROWS 4262 → 4242 ·
+expanded 4322 → 4287 · wave-duty rows 2515 → 2466 · ALIASES unchanged at 2780 · §1 = §2 = §3 = 4242,
+re-derived mechanically after the write.**
+
+| # | filed as | the defect, and the cure | movement |
+|---|---|---|---|
+| **E6-1** | PASS-6 D-4 (MEDIUM) — **understated** | **BAND/STANDALONE DOUBLE-BANK.** A band row and its own members were both booked. **Corrected at the bytes: the filing named two records and 17 phantom rows; a band-expanded `sort \| uniq -d` over all 66 §1 tables returns 34 duplicate ⟨record,id⟩ pairs across FOUR records.** (a) `fr-NotationPills` — `:79` is a *single* banked-head line carrying all seventeen `**K-n**` stubs (⟨cmd⟩ `sed -n '79p' \| grep -oE '\*\*K-[0-9]+\*\*' \| sort -u \| wc -l` → **17**); the band is the real row and the standalone `K-2`…`K-17` are re-bookings of stubs inside it — **16 STRUCK**. (b) `fr-MorphShapePreview` — `:116` is PROSE (*"K-1..K-8 are r1's, re-ratified…"*) while the eight real heads are table rows `:120`–`:127` under a register that declares *"13 entries"*; the **band row was minted from a narrative sentence** (the E5-17 PROSE-TOKEN CAPTURE class) — **1 STRUCK**. (c) **`fr-MorphPhaseConfig`, which no seat filed** — identical mechanism: `:116` is prose (*"S-1..S-9 carried from pass 1"*) and the ten real heads are the numbered superlatives `:118`–`:127` — **band row 1 STRUCK**. (d) **`fr-FourierMorphSvg`, which PASS-6 published as its POSITIVE CONTROL** — the control holds for the record's `K` band but not for its `FM` band: `FM-6` is banked by the roster band `**FM-4..FM-16**` at `:39` and re-booked from `:90`, an UNPROVEN-residue **citation** (the record's own `:92` says the register *"re-cited, not duplicated"*) — **1 STRUCK**, its SS-13 residue re-attached as a leg on the band rather than lost (§0.3 class-1 idiom). | ROWS **−19** · TERMINAL **−18** · SS-13 **−1** · records `fr-NotationPills` 55 → 39 · `fr-MorphShapePreview` 69 → 68 · `fr-MorphPhaseConfig` 63 → 62 · `fr-FourierMorphSvg` 33 → 32 · band expansion 60 → 45 extra ids |
+| **E6-2** | PASS-6 D-7 (MEDIUM) | **E5-10's cure landed at one band row of six.** Five §2 band rows still spelled the multiplicity **inside** the backtick span while §1 spelled all six correctly, so a mechanical differ had to special-case five rows. **All five cured: three re-spelled** to §1's form — `` `FM-4..FM-16` `` <sub>band = 13 ids</sub> (`F.W1`) · `` `K-1..K-16` `` <sub>band = 16 ids</sub> · `` `K-1..K-17` `` <sub>band = 17 ids</sub> — **and two (`K-1..K-8 (8 ids)`, `S-1..S-9 (9 ids)`) disappear with the phantom band rows E6-1 strikes.** The malformed spelling is now absent from this file. *(Recorded, not cured here: `waves/F-W1.md` inherited `FM-4..FM-16 (13 ids)` at three sites — a wave-side consequence, that file's repair.)* | no count change |
+| **E6-3** | PASS-6 D-13(a) ⊕ D-13(c) (LOW) — **the class is NOT confined** | **THE ARROW-CLAUSE RE-DERIVATION, RUN.** §0.4 residue 1 said the E5-17 capture class was *"not proven confined to five rows"* because it was found in a five-record spot audit. This seat ran the re-derivation. **It is not confined, and the disproof is by enumeration rather than by sampling.** Method, declared with its bound: of the **2515** wave-homed §1 rows, the **55** whose id is killed-claims-shaped were tested one at a time — for each, the record's own banking line was located and its **routing positions** extracted (every clause following a `→`, plus every table cell whose content opens with a wave token). **49 of 55 carry NO routing position naming their home wave**, and all 49 were then read at the bytes: in every one the wave token stands in prose, an express prohibition (`fr-CanvasControlsDock K-8` *"**F.W1 must not budget it** as a version-forced touch"*; `fr-ConvergenceTimeline K-8` *"**F.W1 must not budget** from the 7.0.0 snapshot"*; `fr-GalleryCardModal K-8` *"the evidence cell **must not be copied into F.W1**"*), a negation (`fr-SliderControl K-1` *"At the census's named F.W1 target the break **DOES NOT EXIST**"*), the **quoted claim being killed** (`fr-ContourPreview KILL-6`, `fr-EquationModeToggle K-7`), or a parenthetical citing **another banked id's** routing (`fr-App K-9` *"C/S-2 carries the F.W1 debit"*; `fr-SpeedSelect K-11` *"AnimationControls **C-2** … routed F.W4"*; `fr-EasingCurvePreview K-11` *"already banked at fr-AnimationControls D-9/C-9 (…, F.W3)"*). The sharpest is `fr-PaperArticleWindow K-20`, which disclaims itself in bold: *"**Not a row of this roster** — a correction to a supporting cell of the **fr-GalleryCardModal F.W1 ledger**"*. **All 49 re-derived under §0.1's operative arrow clause** ⊕ TERMINAL-DISPOSITION-BY-REGISTER: 48 to **TERMINAL (∅)** (killed-claims hold no wave), and `fr-GalleryCardModal K-2` to **UNROUTED** — its arrow is `**FOLD → fr-BasisSelector B-3**`, an identity fold whose `F.W3/W4` sits in a parenthetical describing *that* banked target (the E5-15 disposition). **D-13(c) is ruled by the same act and needs no separate entry**: `fr-PathPreview K7` is one of the 49 — `:80` carries `F.W0` inside the head clause naming *the claim being killed* (*"reader A's F.W0 confirmation of it … **all three die together**"*) and `F.W1/W2` in *"The fact survives as **PP-REDGATE**, re-routed F.W1/W2"*, a parenthetical citing another banked id's routing. Both tokens fail the operative clause; the *"genuine tension"* §0.4 recorded is **resolved by E5-17's own amendment**, which post-dated the flag. **K7 MOVES; it is no longer flagged-not-moved.** | F.W0 **−2** · F.W1 **−28** · F.W2 **−4** · F.W3 **−9** · F.W4 **−5** · F.W5 **−1** · **TERMINAL +48** · **UNROUTED +1** · wave-duty rows 2515 → **2466** |
+| **E6-4** | PASS-6 D-13(b) (LOW) | **The alias orphan §0.4 flagged rather than struck is now STRUCK.** `fr-PathPreview` carried a standalone `C-10` row (UNROUTED) with **no banked head of its own**: ⟨cmd⟩ `grep -n 'C-10' fr-PathPreview.md` → `:49` (PP-GATE's head parenthetical `(D-1 gate half · C-10 · L-3)`), `:82` (K9's head, where `C-10` is a mention inside the descriptive clause and `K9` is the left token) and `:110` (prose, *"Closed, not residue"*). **Disposition: STRUCK, not re-homed** — §0.1 ONE HOME PER ID: *"An id claimed as an alias by another row in the same record is not a standalone identity and books no row of its own."* PP-GATE claims it at `:49` and E5-4 already restored it to PP-GATE's alias cell, **so the strike loses nothing**: the identity survives where the record puts it. This is the E5-3 mechanism (`C-3`/`L-9` at `fr-CanvasOverlayButton`) applied to the instance E5-1's seat found and left standing. | ROWS **−1** · UNROUTED **−1** · record `fr-PathPreview` 53 → 52 |
+| **E6-5** | this seat, at §4 | **A derived total was wrong before this round and is corrected rather than inherited.** §4.2 published *"the five criterion-negatives … carry **289 rows** between them"*. Summing those five records' own §1 headers gives **283** before this round (79 ⊕ 73 ⊕ 46 ⊕ 52 ⊕ 33) and **282** after E6-1 moves `fr-FourierMorphSvg` to 32 — a **six-row overstatement** inherited from a pre-errata-round-5 sum that no pass caught. Corrected to **282** with both readings disclosed. The **86**-row F.W4 arm of the twin law is untouched: no row this round moves was an `F.W3/W4` dual. | §4.2 289 → **282**; no home moves |
+
+**WHAT THIS ROUND DID NOT CURE — disclosed under §0.2's rule, not trimmed.**
+
+1. **The arrow-clause re-derivation is COMPLETE on one subclass and BOUNDED, not exhausted, on the rest.**
+   E6-3 tested **55** of the **2515** wave-homed rows — every killed-claims-shaped id — and cured 49. The
+   remaining **2460** were narrowed but not individually adjudicated: the same negation/citation sweep over
+   all 66 records (⟨cmd⟩, base `docs/tranches/V/megatranche/registry/adjudicated`, BSD `-E`:
+   `grep -EnH '(([^a-zA-Z](not|NOT|Not|never|Never|cannot|forbid|forbids|prohibit|prohibits|must not|MUST)[^|]{0,60}F\.W[0-9])|(F\.W[0-9][-/W0-9]*[^|]{0,60}[^a-zA-Z](not |NOT |never |no rows|cannot|double-book))|(banked[^|]{0,40}F\.W[0-9])|(re-routed F\.W[0-9])|(F\.W[0-9][-/W0-9]* (ledger|token)))' fr-*.md`
+   → **518 hits across all 66 records**) intersected with the wave-homed rows and the routing-position test
+   leaves **124 candidate rows**, of which the 17 read whole at the bytes were **17 for 17** the class.
+   **The candidate field is therefore 124 rows wide and its measured hit-rate on the read sample is 1.00.**
+   That is the next canonical act, and it is a canonical act (R4-3), never a wave's. **It is named here with
+   its number so that no successor reads "the class is cured" into E6-3.**
+2. **The alias-orphan sweep is still partial.** E6-4 strikes the one instance §0.4 flagged and E6-1 strikes
+   four more of the adjacent band class. A full re-sweep of alias-orphaned re-bookings across all 66 records
+   is **still owed** — E6-1's own `uniq -d` receipt is a band-shaped probe, not an alias-shaped one.
+3. **Wave-side consequences are NOT applied here.** Forty-nine rows leave wave rosters: F.W1 alone loses 28.
+   **No rehoming can manufacture an escape** — an escape is a census row its home wave fails to name, and
+   this round only removes rows from wave rosters — but the waves' *books* now over-cover this file by 49
+   rows, and `waves/F-W1.md` additionally inherited E6-2's malformed band spelling at three sites.
+   ⚠ **THE CENSUS PIN IS SUPERSEDED, AND IT IS SUPERSEDED PROGRAM-WIDE.** This write retires the digest
+   **`3e0a9acb3381`**, which all eleven wave specs pin as the sole canonical operand and which PASS-6 §6
+   measured and called *"the one pin the programme keeps correctly, in all eleven files"*. **Every one of
+   those eleven pins is now stale by construction.** The successor digest is deliberately **NOT printed
+   here**: a file that states its own hash is the fixed-point equation PASS-6 D-3 convicts — the sentence
+   falsifies the number by existing. **The lawful form is a count taken of this file from outside it**, so
+   the R4-8.2/R4-8.3 purge seat PASS-6 D-1/D-2 already ordered re-derives it with
+   ⟨cmd⟩ `shasum -a 256 conformance/CENSUS-CANONICAL.md` and re-pins the five tables from that reading. It
+   must run **after** this write, never before. Recorded in terms so no successor reads a `3e0a9acb3381`
+   citation as current. **Those
+   are the waves' repairs, in their own files, and this file does not make them.**
+4. **PASS-6's other ten defects are untouched.** D-1, D-2, D-3, D-5, D-6, D-8, D-9, D-10, D-11 and D-12 are
+   filed against the wave specs, the seal and the pin regime — not against this file. **The three HIGH
+   findings and the one live fabrication stand exactly where PASS-6 left them**; nothing here closes them,
+   and this section must not be read as narrowing that verdict.
+
 
 ### §0.2 What this census does NOT claim (disclosed, not trimmed)
 
@@ -330,7 +390,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-AFP-56` | `β-miss-8` | — | **UNROUTED** |
 | `FR-AFP-65` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.d</sub> |
 | `FR-AFP-71` | `β-miss-9` | `F.W5-W8` | **F.W5-W8** |
-| `K1` | — | `F.W1` | **F.W1** |
+| `K1` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K2` | — | — | **TERMINAL (∅)** |
 | `K3` | — | — | **TERMINAL (∅)** |
 | `K4` | — | — | **TERMINAL (∅)** |
@@ -528,8 +588,8 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-10` | — | — | **TERMINAL (∅)** |
 | `K-11` | — | — | **TERMINAL (∅)** |
 | `K-12` | — | — | **TERMINAL (∅)** |
-| `K-13` | — | `F.W1` | **F.W1** |
-| `K-14` | — | `F.W1` | **F.W1** |
+| `K-13` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
+| `K-14` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-15` | — | — | **TERMINAL (∅)** |
 | `K-16` | — | — | **TERMINAL (∅)** |
 | `K-17` | — | — | **TERMINAL (∅)** |
@@ -605,7 +665,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-6` | `C-1` | *KILLED* | **TERMINAL (∅)** |
 | `K-7` | `C-10` | *KILLED* | **TERMINAL (∅)** |
 | `K-8` | `D/B-2` | *KILLED* | **TERMINAL (∅)** |
-| `K-9` | `C/S-2` | `F.W1` | **F.W1** |
+| `K-9` | `C/S-2` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-10` | `D/B-1` | `SS-13` | **SS-13** |
 | `K-11` | `C-2` | *DISCHARGED* | **TERMINAL (∅)** |
 | `K-12` | `L-4` · `L-10` | *KILLED* | **TERMINAL (∅)** |
@@ -776,7 +836,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `M-β6` | — | `F.W1` | **F.W1** |
 | `M-β7` | — | `F.W3/W4` | **F.W4** <sub>file-criterion → no §5 list</sub> |
 | `M-β8` | — | `F.W3/W4` | **F.W4** <sub>file-criterion → no §5 list</sub> |
-| `K-1` | `D-26` | `F.W1` | **F.W1** |
+| `K-1` | `D-26` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-2` | `D-10` · `BC-19` | *KILLED, DEAD* | **TERMINAL (∅)** |
 | `K-3` | `D-8` | *KILLED* | **TERMINAL (∅)** |
 | `K-4` | `D-5` | *KILLED* | **TERMINAL (∅)** |
@@ -857,7 +917,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-9` | `D-i1` | *KILLED* | **TERMINAL (∅)** |
 | `K-10` | `C-4` | *KILLED* | **TERMINAL (∅)** |
 | `K-11` | `L-M3` | *KILLED* | **TERMINAL (∅)** |
-| `K-12` | `C-5` | `F.W3` | **F.W3** |
+| `K-12` | `C-5` | `F.W3` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-13` | — | *KILLED* | **TERMINAL (∅)** |
 
 ### fr-CanvasControlsDock — target `components/visualization/CanvasControlsDock.vue` · unit §5.e · **65 rows**
@@ -923,7 +983,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-5` | — | — | **TERMINAL (∅)** |
 | `K-6` | — | — | **TERMINAL (∅)** |
 | `K-7` | — | — | **TERMINAL (∅)** |
-| `K-8` | — | `F.W1` | **F.W1** |
+| `K-8` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-9` | — | `SS-13` | **SS-13** |
 | `K-10` | — | — | **TERMINAL (∅)** |
 | `R3-7a` | — | `F.W3` | **F.W3** |
@@ -1323,10 +1383,10 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `D:m-6` | — | `F.W4` · `SS-3` | **F.W4** <sub>legs: SS-3</sub> |
 | `KILL-1` | — | `SS-13` | **SS-13** |
 | `KILL-2` | — | *KILL* | **TERMINAL (∅)** |
-| `KILL-3` | — | `F.W4` | **F.W4** |
+| `KILL-3` | — | `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W4**; a killed-claims row whose own line carries no routing position naming `F.W4` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `KILL-4` | — | *KILL* | **TERMINAL (∅)** |
 | `KILL-5` | — | *KILL* | **TERMINAL (∅)** |
-| `KILL-6` | — | `F.W1` · `F.W4` | **F.W1** <sub>legs: F.W4</sub> |
+| `KILL-6` | — | `F.W1` · `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `KILL-7` | — | *KILL* | **TERMINAL (∅)** |
 | `KILL-8` | — | *KILL* | **TERMINAL (∅)** |
 | `KILL-9` | — | *KILL, KILLED* | **TERMINAL (∅)** |
@@ -1412,7 +1472,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-6` | `C-14` · `D-m1` | *KILLED* | **TERMINAL (∅)** |
 | `K-7` | `D-m10` | *KILLED* | **TERMINAL (∅)** |
 | `K-8` | `C-11` | *KILLED* | **TERMINAL (∅)** |
-| `K-9` | `challenge-C` | `F.W3` · `F.W4` | **F.W3** <sub>legs: F.W4</sub> |
+| `K-9` | `challenge-C` | `F.W3` · `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-10` | `C-17` | *KILLED* | **TERMINAL (∅)** |
 | `K-11` | `D-S5` | `F.W1` | **F.W1** |
 | `K-12` | — | — | **TERMINAL (∅)** |
@@ -1488,10 +1548,10 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-4` | — | — | **TERMINAL (∅)** |
 | `K-5` | — | — | **TERMINAL (∅)** |
 | `K-6` | — | — | **TERMINAL (∅)** |
-| `K-7` | — | `F.W2` | **F.W2** |
+| `K-7` | — | `F.W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W2**; a killed-claims row whose own line carries no routing position naming `F.W2` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-8` | — | — | **TERMINAL (∅)** |
 | `K-9` | — | `SS-13` | **SS-13** |
-| `K-10` | — | `F.W4` | **F.W4** |
+| `K-10` | — | `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W4**; a killed-claims row whose own line carries no routing position naming `F.W4` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-11` | — | — | **TERMINAL (∅)** |
 | `K-12` | — | — | **TERMINAL (∅)** |
 | `S-1` | — | — | **TERMINAL (∅)** |
@@ -1591,9 +1651,9 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-8` | — | — | **TERMINAL (∅)** |
 | `K-9` | — | — | **TERMINAL (∅)** |
 | `K-10` | — | — | **TERMINAL (∅)** |
-| `K-11` | — | `F.W2` | **F.W2** |
+| `K-11` | — | `F.W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W2**; a killed-claims row whose own line carries no routing position naming `F.W2` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-12` | — | — | **TERMINAL (∅)** |
-| `K-13` | — | `F.W5` | **F.W5** |
+| `K-13` | — | `F.W5` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W5**; a killed-claims row whose own line carries no routing position naming `F.W5` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-14` | — | — | **TERMINAL (∅)** |
 | `K-15` | — | — | **TERMINAL (∅)** |
 | `K-16` | — | — | **TERMINAL (∅)** |
@@ -1652,9 +1712,9 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-3` | — | — | **TERMINAL (∅)** |
 | `K-4` | — | — | **TERMINAL (∅)** |
 | `K-5` | — | — | **TERMINAL (∅)** |
-| `K-6` | — | `F.W3` | **F.W3** |
+| `K-6` | — | `F.W3` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-7` | — | — | **TERMINAL (∅)** |
-| `K-8` | — | `F.W1` | **F.W1** |
+| `K-8` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-9` | — | — | **TERMINAL (∅)** |
 | `K-10` | — | `SS-13` | **SS-13** |
 | `S-1` | — | — | **TERMINAL (∅)** |
@@ -1759,7 +1819,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `PICKER-RES` | — | `F.W3` | **F.W3** |
 | `K-1` | — | — | **TERMINAL (∅)** |
 | `K-2` | — | — | **TERMINAL (∅)** |
-| `K-3` | — | `F.W3` | **F.W3** |
+| `K-3` | — | `F.W3` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-4` | — | — | **TERMINAL (∅)** |
 | `K-5` | — | — | **TERMINAL (∅)** |
 | `K-6` | — | — | **TERMINAL (∅)** |
@@ -1767,7 +1827,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-8` | — | — | **TERMINAL (∅)** |
 | `K-9` | — | — | **TERMINAL (∅)** |
 | `K-10` | — | — | **TERMINAL (∅)** |
-| `K-11` | — | `SS-13` · `F.W3` | **F.W3** <sub>legs: SS-13</sub> |
+| `K-11` | — | `SS-13` · `F.W3` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-12` | — | — | **TERMINAL (∅)** |
 | `K-13` | — | — | **TERMINAL (∅)** |
 | `C/S-1` | — | — | **TERMINAL (∅)** |
@@ -1899,7 +1959,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-6` | — | — | **TERMINAL (∅)** |
 | `K-7` | — | — | **TERMINAL (∅)** |
 | `K-8` | — | — | **TERMINAL (∅)** |
-| `K-9` | — | `F.W1` | **F.W1** |
+| `K-9` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-10` | — | — | **TERMINAL (∅)** |
 | `K-11` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.a</sub> |
 | `K-12` | — | — | **TERMINAL (∅)** |
@@ -1999,14 +2059,14 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-EMT-23` | `R1` | `F.W3` · `F.W3/W4` | **F.W3** <sub>legs: F.W3/W4</sub> |
 | `FR-EMT-24` | `C-17` · `S-4` · `S-5` | `F.W2` | **F.W2** |
 | `FR-EMT-25` | `C·K-2` | `F.W0` | **F.W0** |
-| `K-1` | `D-5` | `F.W1` | **F.W1** |
+| `K-1` | `D-5` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-2` | `D-1` · `C-2` | *KILLED* | **TERMINAL (∅)** |
 | `K-3` | `D-10` · `L-m1` | *KILLED* | **TERMINAL (∅)** |
 | `K-4` | `D-6` | *KILLED* | **TERMINAL (∅)** |
 | `K-5` | `C-19` | *KILLED* | **TERMINAL (∅)** |
 | `K-6` | `L-B1` | *KILLED* | **TERMINAL (∅)** |
 | `FR-COB-2` | — | — | **TERMINAL (∅)** |
-| `K-7` | `L-M4` | `F.W3` · `F.W1` | **F.W3** <sub>legs: F.W1</sub> |
+| `K-7` | `L-M4` | `F.W3` · `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-8` | `C-9` | *KILLED* | **TERMINAL (∅)** |
 | `K-9` | `D-14` | *KILLED* | **TERMINAL (∅)** |
 | `C-L2` | — | — | **SS-13** |
@@ -2116,7 +2176,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-7` | `D-1` | *KILLED* | **TERMINAL (∅)** |
 | `K-8` | `C-10` | *KILLED* | **TERMINAL (∅)** |
 | `K-9` | `L-H1` | *KILLED* | **TERMINAL (∅)** |
-| `K-10` | — | `F.W4` | **F.W4** |
+| `K-10` | — | `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W4**; a killed-claims row whose own line carries no routing position naming `F.W4` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-11` | `D-2` | *KILLED* | **TERMINAL (∅)** |
 | `K-12` | — | *KILLED* | **TERMINAL (∅)** |
 | `L-i1` | `L-i2` | — | **SS-13** |
@@ -2212,8 +2272,8 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-2` | — | — | **TERMINAL (∅)** |
 | `K-3` | — | — | **TERMINAL (∅)** |
 | `K-4` | — | — | **TERMINAL (∅)** |
-| `K-5` | — | `F.W2` | **F.W2** |
-| `K-6` | — | `F.W2` | **F.W2** |
+| `K-5` | — | `F.W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W2**; a killed-claims row whose own line carries no routing position naming `F.W2` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
+| `K-6` | — | `F.W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W2**; a killed-claims row whose own line carries no routing position naming `F.W2` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-7` | — | `SS-13` | **SS-13** |
 | `K-8` | — | — | **TERMINAL (∅)** |
 | `K-9` | — | — | **TERMINAL (∅)** |
@@ -2224,7 +2284,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-14` | — | — | **TERMINAL (∅)** |
 | `K-15` | — | — | **TERMINAL (∅)** |
 | `K-16` | — | — | **TERMINAL (∅)** |
-| `K-17` | — | `F.W1` | **F.W1** |
+| `K-17` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-18` | — | — | **TERMINAL (∅)** |
 | `K-19` | — | *KILL* | **TERMINAL (∅)** |
 | `S-1` | — | — | **TERMINAL (∅)** |
@@ -2331,11 +2391,11 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `C-D-23` | — | — | **UNROUTED** |
 | `L-17` | `D-i3` | — | **UNROUTED** |
 | `M-3` | — | — | **UNROUTED** |
-| `K-16` | — | `F.W1` | **F.W1** |
+| `K-16` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-17` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-18` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-19` | — | *KILLED* | **TERMINAL (∅)** |
-| `K-20` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.d</sub> |
+| `K-20` | — | `F.W3/W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-21` | — | *KILL* | **TERMINAL (∅)** |
 | `K-22` | — | — | **TERMINAL (∅)** |
 | `K-23` | — | — | **TERMINAL (∅)** |
@@ -2392,14 +2452,14 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-5` | `L-28` | *KILLED* | **TERMINAL (∅)** |
 | `K-6` | `L-25` | *KILLED* | **TERMINAL (∅)** |
 | `K-7` | — | *KILLED* | **TERMINAL (∅)** |
-| `K-8` | — | `F.W1` | **F.W1** |
+| `K-8` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-9` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-10` | `D-3` | *KILLED* | **TERMINAL (∅)** |
 | `K-11` | `C-8` | *KILLED* | **TERMINAL (∅)** |
 | `K-12` | `L-07` | *KILLED* | **TERMINAL (∅)** |
 | `K-13` | — | *KILLED* | **TERMINAL (∅)** |
 
-### fr-FourierMorphSvg — target `components/decorative/FourierMorphSvg.vue` · unit **no §5 list — criterion negative → F.W4** · **33 rows**
+### fr-FourierMorphSvg — target `components/decorative/FourierMorphSvg.vue` · unit **no §5 list — criterion negative → F.W4** · **32 rows** *(errata round 6, 2026-08-29: read 33; 1 phantom row struck at §0.5 E6-1/E6-4)*
 
 | banked id | aliases | routing (verbatim) | home |
 |---|---|---|---|
@@ -2409,7 +2469,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `M-2` | — | `F.W4` · `F.W1` | **F.W4** <sub>legs: F.W1</sub> |
 | `FM-1` | `D-1` · `C-1` | `F.W4` · `SS-13` <sub>record (:36)</sub> | **F.W4** <sub>legs: SS-13</sub> |
 | `FM-3` | — | `F.W4` · `SS-13` <sub>record (:38)</sub> | **F.W4** <sub>legs: SS-13</sub> |
-| `FM-4..FM-16` | — | `F.W1` · `F.W4` · `F.W3/W4` | **F.W1** <sub>legs: F.W4, F.W3/W4</sub> <sub>band = 13 ids</sub> |
+| `FM-4..FM-16` | — | `F.W1` · `F.W4` · `F.W3/W4` | **F.W1** <sub>legs: F.W4, F.W3/W4, SS-13</sub> <sub>band = 13 ids</sub> <sub>*errata R6 E6-1, 2026-08-29: `SS-13` leg added — the record's standalone `FM-6` row (SS-13) was a re-booking of a member of THIS band, struck here; its UNPROVEN-NEEDS-LIVE residue (`fr-FourierMorphSvg.md:90`, device-pixel strokes) is re-attached as a leg on the band rather than lost*</sub> |
 | `FM-17..FM-19` | — | `F.W4` · `F.W0` | **F.W4** <sub>legs: F.W0</sub> <sub>band = 3 ids</sub> |
 | `L-01` | — | — | **UNROUTED** |
 | `L-02` | — | — | **UNROUTED** |
@@ -2435,7 +2495,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-18` | — | — | **TERMINAL (∅)** |
 | `K-19` | — | — | **TERMINAL (∅)** |
 | `K-20` | — | — | **TERMINAL (∅)** |
-| `FM-6` | — | — | **SS-13** |
 
 ### fr-FourierShapeExtractor — target `components/morph/FourierShapeExtractor.vue` · unit §5.d · **67 rows**
 
@@ -2544,7 +2603,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-FG-21` | `LC-missed-2` | `F.W5-W8` · `F.W4` | **F.W5-W8** <sub>legs: F.W4</sub> |
 | `FR-FG-22` | `LC-missed-3-as-demoted` | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.e</sub> |
 | `FR-FG-23` | `DU-missed-5` | `NO-WAVE-OWNER` | **NWO (packet)** |
-| `K-1` | — | `F.W1` | **F.W1** |
+| `K-1` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-2` | — | — | **TERMINAL (∅)** |
 | `K-3` | — | — | **TERMINAL (∅)** |
 | `K-4` | — | — | **TERMINAL (∅)** |
@@ -2882,15 +2941,15 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `GCM-54` | `L-17` | `F.W4` | **F.W4** |
 | `GCM-55` | — | `F.W5-W8` | **F.W5-W8** |
 | `K-1` | — | — | **TERMINAL (∅)** |
-| `K-2` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.e</sub> |
+| `K-2` | — | `F.W3/W4` | **UNROUTED** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-3` | — | — | **TERMINAL (∅)** |
 | `K-4` | — | — | **TERMINAL (∅)** |
 | `K-5` | — | — | **TERMINAL (∅)** |
 | `K-6` | — | — | **TERMINAL (∅)** |
 | `K-7` | — | — | **TERMINAL (∅)** |
-| `K-8` | — | `F.W1` | **F.W1** |
+| `K-8` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-9` | — | `SS-13` | **SS-13** |
-| `K-10` | — | `F.W1` | **F.W1** |
+| `K-10` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-11` | — | — | **TERMINAL (∅)** |
 | `K-12` | — | — | **TERMINAL (∅)** |
 | `K-13` | — | — | **TERMINAL (∅)** |
@@ -2957,7 +3016,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-3` | `D/M-3` | *KILLED* | **TERMINAL (∅)** |
 | `K-4` | `D/M-3` | *KILLED* | **TERMINAL (∅)** |
 | `K-5` | — | — | **TERMINAL (∅)** |
-| `K-6` | `D-M-1` | `F.W1` | **F.W1** |
+| `K-6` | `D-M-1` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-7` | `C-C-9` | *KILLED* | **TERMINAL (∅)** |
 | `K-8` | `D/S-2` · `D/S-7` | *KILLED* | **TERMINAL (∅)** |
 | `K-9` | `L-8` | *KILLED* | **TERMINAL (∅)** |
@@ -3072,9 +3131,9 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-GIG-19` | `L-10` | — | **UNROUTED** |
 | `L-12` | `C-12-coverage` | `F.W4` · `F.W0` | **F.W4** <sub>legs: F.W0</sub> |
 | `FR-GIG-20` | `MISS-5` | `SS-5` · `NO-WAVE-OWNER` · `SS-3` · `SS-4` | **NWO→SS-5** |
-| `K-1` | `D-1` | `F.W1` | **F.W1** |
+| `K-1` | `D-1` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-2` | `D-3` | *KILLED* | **TERMINAL (∅)** |
-| `K-3` | `D-3` · `D-6` | `F.W1` | **F.W1** |
+| `K-3` | `D-3` · `D-6` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-4` | `L-1` | *KILLED* | **TERMINAL (∅)** |
 | `K-5` | `D-8` | *KILLED* | **TERMINAL (∅)** |
 | `K-6` | `C-2` | *KILLED* | **TERMINAL (∅)** |
@@ -3083,7 +3142,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-9` | `C-17` | *KILLED* | **TERMINAL (∅)** |
 | `K-10` | `D-9` | *KILLED* | **TERMINAL (∅)** |
 | `K-11` | `C-14` | *KILLED* | **TERMINAL (∅)** |
-| `K-12` | — | `F.W1` | **F.W1** |
+| `K-12` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-13` | `L-3` | *KILLED* | **TERMINAL (∅)** |
 | `K-14` | — | `SS-5` | **SS-5** |
 | `K-15` | `L-1` | `SS-3` | **SS-3** |
@@ -3301,11 +3360,11 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K4` | `L-5` | *KILL* | **TERMINAL (∅)** |
 | `K5` | `D-3` | *KILL* | **TERMINAL (∅)** |
 | `K6` | `C·C-1` | *KILL* | **TERMINAL (∅)** |
-| `K7` | `L-13` | `F.W0` | **F.W0** |
+| `K7` | `L-13` | `F.W0` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W0**; a killed-claims row whose own line carries no routing position naming `F.W0` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K8` | `L-14` · `D-30` | *KILL* | **TERMINAL (∅)** |
 | `K9` | `L-21` | *KILL* | **TERMINAL (∅)** |
 | `K10` | — | — | **TERMINAL (∅)** |
-| `K11` | — | `F.W1` | **F.W1** |
+| `K11` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K12` | — | `SS-13` | **SS-13** |
 | `MISS-DU-1` | — | — | **UNROUTED** |
 | `MISS-DU-2` | — | — | **UNROUTED** |
@@ -3505,10 +3564,10 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-9` | `C:C-7` · `L:L-B2` | — | **TERMINAL (∅)** |
 | `K-10` | `D:U-1` | — | **TERMINAL (∅)** |
 | `K-11` | `D:U-3` · `R2` | *RETIRED* | **TERMINAL (∅)** |
-| `K-12` | `D:M-7` · `M-3` | `F.W1` · `F.W3/W4` | **F.W1** <sub>legs: F.W3/W4</sub> |
+| `K-12` | `D:M-7` · `M-3` | `F.W1` · `F.W3/W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-13` | `D:S-2` | — | **TERMINAL (∅)** |
 | `K-14` | `D:M-4` | — | **TERMINAL (∅)** |
-| `K-15` | `D:U-2` | `F.W1` | **F.W1** |
+| `K-15` | `D:U-2` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `S-1` | — | — | **TERMINAL (∅)** |
 | `S-2` | — | — | **TERMINAL (∅)** |
 | `S-3` | — | — | **TERMINAL (∅)** |
@@ -3631,7 +3690,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-13` | `L-S3` · `C-S6` | *KILLED* | **TERMINAL (∅)** |
 | `K-14` | — | *KILLED* | **TERMINAL (∅)** |
 
-### fr-MorphPhaseConfig — target `components/morph/MorphPhaseConfig.vue` · unit §5.a/.b · **63 rows**
+### fr-MorphPhaseConfig — target `components/morph/MorphPhaseConfig.vue` · unit §5.a/.b · **62 rows** *(errata round 6, 2026-08-29: read 63; 1 phantom row struck at §0.5 E6-1/E6-4)*
 
 | banked id | aliases | routing (verbatim) | home |
 |---|---|---|---|
@@ -3676,7 +3735,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-2` | `D-5` · `P-2` | *KILLED* | **TERMINAL (∅)** |
 | `K-3` | `D-24` | *KILLED* | **TERMINAL (∅)** |
 | `K-4` | `D-7` | *KILLED* | **TERMINAL (∅)** |
-| `K-5` | — | `F.W1` | **F.W1** |
+| `K-5` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-6` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-7` | `L-D8` · `C-8` | *KILLED* | **TERMINAL (∅)** |
 | `K-8` | `D-14` | — | **TERMINAL (∅)** |
@@ -3686,7 +3745,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-12` | `L-D12` | *KILLED* | **TERMINAL (∅)** |
 | `K-13` | `D-6` · `C-4` | *KILLED* | **TERMINAL (∅)** |
 | `K-14` | `D-8` | `SS-13` | **SS-13** |
-| `S-1..S-9` | — | — | **TERMINAL (∅)** <sub>band = 9 ids</sub> |
 | `S-1` | — | — | **TERMINAL (∅)** |
 | `S-2` | — | — | **TERMINAL (∅)** |
 | `S-3` | — | — | **TERMINAL (∅)** |
@@ -3699,7 +3757,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `S-10` | — | — | **TERMINAL (∅)** |
 | `C-7` | — | — | **SS-13** |
 
-### fr-MorphShapePreview — target `components/morph/MorphShapePreview.vue` · unit §5.d · **69 rows**
+### fr-MorphShapePreview — target `components/morph/MorphShapePreview.vue` · unit §5.d · **68 rows** *(errata round 6, 2026-08-29: read 69; 1 phantom row struck at §0.5 E6-1/E6-4)*
 
 | banked id | aliases | routing (verbatim) | home |
 |---|---|---|---|
@@ -3711,7 +3769,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `SC-7` | — | — | **TERMINAL (∅)** |
 | `SC-8` | — | `SS-13` | **SS-13** |
 | `D-22` | — | `F.W4` | **F.W4** |
-| `K-1..K-8` | — | — | **TERMINAL (∅)** <sub>band = 8 ids</sub> |
 | `D-1` | `L-01` · `C-1` | `F.W4` · `SS-13` | **F.W4** <sub>legs: SS-13</sub> |
 | `L-11` | `C-3` | `F.W4` | **F.W4** |
 | `D-4` | `L-02` · `C-7` | `F.W4` | **F.W4** |
@@ -3767,13 +3824,13 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-10` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-11` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-12` | — | *KILLED* | **TERMINAL (∅)** |
-| `K-13` | — | `F.W4` | **F.W4** |
+| `K-13` | — | `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W4**; a killed-claims row whose own line carries no routing position naming `F.W4` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `C·S-2` | — | `F.W2` | **F.W2** |
 | `D·S-1` | — | — | **TERMINAL (∅)** |
 | `C·S-3` | — | — | **TERMINAL (∅)** |
 | `L·S-3` | `D·S-6` | — | **TERMINAL (∅)** |
 
-### fr-NotationPills — target `components/equation/NotationPills.vue` · unit §5.d · **55 rows** *(errata round 5, 2026-08-29: read 56; `vue-tsc` struck at E5-6)*
+### fr-NotationPills — target `components/equation/NotationPills.vue` · unit §5.d · **39 rows** *(errata round 5, 2026-08-29: read 56; `vue-tsc` struck at E5-6)* *(errata round 6, 2026-08-29: read 55; 16 phantom rows struck at §0.5 E6-1/E6-4)*
 
 | banked id | aliases | routing (verbatim) | home |
 |---|---|---|---|
@@ -3810,22 +3867,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-NP-30` | — | `F.W5` · `F.W1` | **F.W5** <sub>legs: F.W1</sub> |
 | `FR-NP-31` | — | — | **UNROUTED** |
 | `K-1..K-17` | — | — | **TERMINAL (∅)** <sub>band = 17 ids</sub> |
-| `K-2` | — | — | **TERMINAL (∅)** |
-| `K-3` | — | — | **TERMINAL (∅)** |
-| `K-4` | — | — | **TERMINAL (∅)** |
-| `K-5` | — | — | **TERMINAL (∅)** |
-| `K-6` | — | — | **TERMINAL (∅)** |
-| `K-7` | — | — | **TERMINAL (∅)** |
-| `K-8` | — | — | **TERMINAL (∅)** |
-| `K-9` | — | — | **TERMINAL (∅)** |
-| `K-10` | — | — | **TERMINAL (∅)** |
-| `K-11` | — | — | **TERMINAL (∅)** |
-| `K-12` | — | — | **TERMINAL (∅)** |
-| `K-13` | — | — | **TERMINAL (∅)** |
-| `K-14` | — | — | **TERMINAL (∅)** |
-| `K-15` | — | — | **TERMINAL (∅)** |
-| `K-16` | — | — | **TERMINAL (∅)** |
-| `K-17` | — | — | **TERMINAL (∅)** |
 | `K-18` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-19` | `C·D-10` | *KILLED* | **TERMINAL (∅)** |
 | `K-20` | — | — | **TERMINAL (∅)** |
@@ -3924,7 +3965,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `PAW-50` | — | `F.W9/W10` | **F.W9** <sub>legs: F.W9/W10</sub> |
 | `K-18` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-19` | — | — | **TERMINAL (∅)** |
-| `K-20` | — | `F.W1` | **F.W1** |
+| `K-20` | — | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `UNPROVEN-4` | — | *STRUCK* | **TERMINAL (∅)** |
 | `Round-2` | — | — | **TERMINAL (∅)** |
 | `SC-4` | — | — | **TERMINAL (∅)** |
@@ -3946,7 +3987,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-21` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-22` | — | `SS-13` <sub>record (:342)</sub> | **SS-13** |
 | `K-23` | — | *KILL, STRUCK* | **TERMINAL (∅)** |
-| `K-24` | — | `F.W1` · `F.W2` | **F.W1** <sub>legs: F.W2</sub> |
+| `K-24` | — | `F.W1` · `F.W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-25` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-26` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-27` | — | — | **TERMINAL (∅)** |
@@ -4354,7 +4395,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `FR-COB-8` | — | — | **UNROUTED** |
 | `FR-AH-2` | — | — | **UNROUTED** |
 
-### fr-PathPreview — target `components/ui/PathPreview.vue` · unit §5.d · **53 rows**
+### fr-PathPreview — target `components/ui/PathPreview.vue` · unit §5.d · **52 rows** *(errata round 6, 2026-08-29: read 53; 1 phantom row struck at §0.5 E6-1/E6-4)*
 
 | banked id | aliases | routing (verbatim) | home |
 |---|---|---|---|
@@ -4382,7 +4423,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `L-15` | — | — | **UNROUTED** |
 | `D-9` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.d</sub> |
 | `PP-GATE` | `D-1` (gate half) · `C-10` · `L-3` | `F.W0` | **F.W0** <sub>*errata R5 E5-1, 2026-08-29: read aliases `—`, routing `—`, home **UNROUTED**; `fr-PathPreview.md:49` banks `**PP-GATE** (D-1 gate half · C-10 · L-3) — **MINOR · FOLD → F.W0**` — a sole `F.W0` token on the banked-head line*</sub> |
-| `C-10` | — | — | **UNROUTED** |
 | `PP-REDGATE` | — | `F.W1/W2` · `F.W0` · `F.W1` | **F.W1** <sub>legs: F.W0, F.W1, F.W1/W2</sub> |
 | `PP-TSSCOPE` | — | `F.W0` | **F.W0** |
 | `PP-NOTEST` | — | `F.W0` | **F.W0** |
@@ -4404,7 +4444,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K4` | — | — | **TERMINAL (∅)** |
 | `K5` | — | `SS-13` | **SS-13** |
 | `K6` | — | — | **TERMINAL (∅)** |
-| `K7` | — | `F.W0` · `F.W1/W2` | **F.W0** <sub>legs: F.W1/W2</sub> |
+| `K7` | — | `F.W0` · `F.W1/W2` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W0**; a killed-claims row whose own line carries no routing position naming `F.W0` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K8` | — | `SS-13` | **SS-13** |
 | `K9` | — | `SS-13` | **SS-13** |
 | `K10` | — | `SS-13` | **SS-13** |
@@ -4443,13 +4483,13 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `N-2` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.a</sub> |
 | `N-3` | `R-3` | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.a</sub> |
 | `N-4` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.a</sub> |
-| `K-1` | `D-2` | `F.W1` | **F.W1** |
+| `K-1` | `D-2` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-2` | `D-8` | *KILLED* | **TERMINAL (∅)** |
-| `K-3` | `D-6` · `D-8` · `D-12` | `F.W1` | **F.W1** |
+| `K-3` | `D-6` · `D-8` · `D-12` | `F.W1` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W1**; a killed-claims row whose own line carries no routing position naming `F.W1` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-4` | `D-1` | *KILLED* | **TERMINAL (∅)** |
 | `K-5` | `D-1` | *KILLED* | **TERMINAL (∅)** |
 | `K-6` | `C-1` | *KILLED* | **TERMINAL (∅)** |
-| `K-7` | — | `F.W3/W4` | **F.W3** <sub>file-criterion → §5.a</sub> |
+| `K-7` | — | `F.W3/W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W3**; a killed-claims row whose own line carries no routing position naming `F.W3` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-8` | `D-9` | `SS-13` | **SS-13** |
 | `K-9` | — | *KILLED* | **TERMINAL (∅)** |
 | `K-10` | `D-3` | *KILLED* | **TERMINAL (∅)** |
@@ -4508,7 +4548,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | `K-8` | — | `SS-13` | **SS-13** |
 | `K-9` | — | — | **TERMINAL (∅)** |
 | `K-10` | — | *KILLED* | **TERMINAL (∅)** |
-| `K-11` | — | `F.W4` | **F.W4** |
+| `K-11` | — | `F.W4` | **TERMINAL (∅)** <sub>*errata R6 E6-3, 2026-08-29: read home **F.W4**; a killed-claims row whose own line carries no routing position naming `F.W4` — the token stands in prose, a negation, the quoted claim being killed, or a parenthetical citing another banked id's routing (§0.1's OPERATIVE arrow clause, E5-17); register disposition applies*</sub> |
 | `K-12` | — | — | **TERMINAL (∅)** |
 | `K-13` | — | — | **TERMINAL (∅)** |
 | `K-14` | — | — | **TERMINAL (∅)** |
@@ -4798,7 +4838,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 *Round-4 audit (2026-08-29): rosters below re-based to the §0.3 re-derivation — every id moved, added or removed in §1 is moved here in the same commit; wave header counts re-summed.*
 
 
-### F.W0 — **57 rows** *(errata round 5, 2026-08-29: read 56; `PP-GATE` homed here at E5-1)*
+### F.W0 — **55 rows** *(errata round 5, 2026-08-29: read 56; `PP-GATE` homed here at E5-1)* *(errata round 6, 2026-08-29: read 57; `K7` ×2 (fr-GalleryView · fr-PathPreview) → TERMINAL at E6-3)*
 
 - **fr-AdminFlaggedPanel** (2): `FR-AFP-54` · `FR-AFP-55`
 - **fr-AdminUserList** (2): `FR-AUL-56` · `FR-AUL-58`
@@ -4819,72 +4859,72 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-GalleryInfiniteGrid** (1): `L-8`
 - **fr-GalleryMarquee** (1): `GM-F6`
 - **fr-GallerySearchBar** (1): `FR-GSB-31`
-- **fr-GalleryView** (2): `FR-GV-28` · `K7`
+- **fr-GalleryView** (1): `FR-GV-28`
 - **fr-InfoCard** (3): `FR-IC-1` · `FR-IC-2` · `FR-IC-25`
 - **fr-NotationPills** (2): `FR-NP-2` · `FR-NP-4`
 - **fr-PaperSearch** (2): `D-24` · `MISS-A7`
 - **fr-PaperSearchDropdown** (1): `C:S-2`
 - **fr-PaperSearchInput** (1): `MISS-LC2`
 - **fr-PaperSidebar** (3): `M1` · `C-m9` · `M7`
-- **fr-PathPreview** (5): `L-2` · `PP-TSSCOPE` · `PP-NOTEST` · `K7` · `PP-GATE`
+- **fr-PathPreview** (4): `L-2` · `PP-TSSCOPE` · `PP-NOTEST` · `PP-GATE`
 - **fr-SliderControl** (1): `R-20`
 - **fr-UserSlugBar** (2): `FR-USB-21` · `FR-USB-22`
 
-### F.W1 — **358 rows** *(errata round 5, 2026-08-29: read 362; `L-9` struck E5-3 · `D:M-3` → F.W3 E5-5 · `vue-tsc` struck E5-6 · `D-i2` → NWO→SS-3 E5-17)*
+### F.W1 — **330 rows** *(errata round 5, 2026-08-29: read 362; `L-9` struck E5-3 · `D:M-3` → F.W3 E5-5 · `vue-tsc` struck E5-6 · `D-i2` → NWO→SS-3 E5-17)* *(errata round 6, 2026-08-29: read 358; 28 killed-claims rows → TERMINAL at E6-3)*
 
 - **fr-AdminAuditLog** (3): `AA-2` · `AA-11` · `S-4`
-- **fr-AdminFlaggedPanel** (12): `D-9` · `FR-AFP-2` · `FR-AFP-3` · `FR-AFP-19` · `FR-AFP-20` · `FR-AFP-27` · `FR-AFP-28` · `FR-AFP-37` · `FR-AFP-44` · `FR-AFP-46` · `FR-AFP-61` · `K1`
+- **fr-AdminFlaggedPanel** (11): `D-9` · `FR-AFP-2` · `FR-AFP-3` · `FR-AFP-19` · `FR-AFP-20` · `FR-AFP-27` · `FR-AFP-28` · `FR-AFP-37` · `FR-AFP-44` · `FR-AFP-46` · `FR-AFP-61`
 - **fr-AdminUserList** (4): `FR-AUL-10` · `FR-AUL-45` · `FR-AUL-53` · `C-M7`
-- **fr-AnimationControls** (8): `R-10` · `R-14` · `R-16` · `C-13` · `C-1` · `L-13` · `K-13` · `K-14`
-- **fr-App** (15): `R-4` · `B-1` · `B-2` · `C-2` · `C-4` · `m-8` · `MG-β` · `m-9` · `L-7` · `L-9` · `MG-ι` · `C-11` · `MG-κ` · `MG-λ` · `K-9`
+- **fr-AnimationControls** (6): `R-10` · `R-14` · `R-16` · `C-13` · `C-1` · `L-13`
+- **fr-App** (14): `R-4` · `B-1` · `B-2` · `C-2` · `C-4` · `m-8` · `MG-β` · `m-9` · `L-7` · `L-9` · `MG-ι` · `C-11` · `MG-κ` · `MG-λ`
 - **fr-AppHeader** (6): `FR-AH-13` · `C-19` · `FR-AH-22` · `FR-AH-24` · `FR-AH-27` · `S-8`
-- **fr-BasisCanvas** (14): `R-2` · `D-1` · `D-2` · `C-4` · `C-8` · `D-18` · `M-α5` · `C-11` · `M-α6` · `M-β5` · `D-27` · `D-corpus-C-1` · `M-β6` · `K-1`
+- **fr-BasisCanvas** (13): `R-2` · `D-1` · `D-2` · `C-4` · `C-8` · `D-18` · `M-α5` · `C-11` · `M-α6` · `M-β5` · `D-27` · `D-corpus-C-1` · `M-β6`
 - **fr-BasisSelector** (11): `R-1` · `R-6` · `B-2` · `C-2` · `C-4` · `M-7` · `M-12` · `m-3` · `m-9` · `m-21` · `i-4`
-- **fr-CanvasControlsDock** (7): `R-10` · `D-2` · `D-12` · `D-7` · `C-13` · `C-27` · `K-8`
+- **fr-CanvasControlsDock** (6): `R-10` · `D-2` · `D-12` · `D-7` · `C-13` · `C-27`
 - **fr-CanvasOverlayButton** (7): `FR-COB-2` · `FR-COB-6` · `FR-COB-13` · `FR-COB-16` · `FR-COB-19` · `FR-COB-21` · `FR-COB-24`
 - **fr-CoefficientsPanel** (4): `FR-CP-5` · `FR-CP-13` · `FR-CP-14` · `FR-CP-42`
 - **fr-CoefficientsSpectrum** (11): `R-5` · `B-4` · `C:B-1` · `D:M-4` · `D:M-8` · `C-6` · `M-16` · `m-8` · `m-20` · `i-3` · `i-4`
 - **fr-CollapsibleSection** (9): `R-1` · `R-5` · `B-1` · `F-1` · `F-3` · `M-7` · `m-6` · `i-2` · `K-1`
 - **fr-ContourEditorCanvas** (2): `C-11` · `MM-11`
-- **fr-ContourPreview** (5): `D:m-9` · `D:m-7` · `C:D-10` · `D:i-5` · `KILL-6`
+- **fr-ContourPreview** (4): `D:m-9` · `D:m-7` · `C:D-10` · `D:i-5`
 - **fr-ContourSettings** (6): `D-B1` · `C-11` · `C-5` · `M-4` · `m-17` · `K-11`
 - **fr-ConvergenceLegend** (2): `S-3` · `Post-F.W1`
 - **fr-ConvergencePlot** (1): `SC-3`
-- **fr-ConvergenceTimeline** (2): `D·D-2` · `K-8`
+- **fr-ConvergenceTimeline** (1): `D·D-2`
 - **fr-DarkModeToggle** (3): `L-3` · `C-3` · `I-2`
 - **fr-EasingCurvePreview** (1): `CENSUS-MC`
 - **fr-EasingPicker** (5): `L/B-1` · `C/B-2` · `MISSED-C` · `MISSED-F` · `C/M-5`
-- **fr-EditorControlsDock** (7): `R-5` · `R-8` · `L-7` · `M-10` · `K-9` · `D-1` · `L-2`
+- **fr-EditorControlsDock** (6): `R-5` · `R-8` · `L-7` · `M-10` · `D-1` · `L-2`
 - **fr-EqCoefficientsPanel** (5): `FR-EQC-3` · `FR-EQC-13` · `FR-EQC-16` · `D/B-2` · `D/M-8`
-- **fr-EquationModeToggle** (4): `FR-EMT-8` · `FR-EMT-14` · `FR-EMT-22` · `K-1`
+- **fr-EquationModeToggle** (3): `FR-EMT-8` · `FR-EMT-14` · `FR-EMT-22`
 - **fr-EquationPanel** (1): `D-14`
 - **fr-EquationResult** (5): `FR-EQR-1` · `FR-EQR-2` · `FR-EQR-3` · `FR-EQR-13` · `FR-EQR-33`
-- **fr-EquationView** (5): `D·D-M10` · `M-RTC` · `D·D-M11` · `K-17` · `R2-K4`
-- **fr-ExportModal** (9): `R2-1` · `M-β` · `M-γ` · `M-ε` · `D-m8` · `D-m9` · `L-12` · `M-4` · `K-16`
-- **fr-FourierMorphDemo** (5): `FMD-3` · `FMD-11` · `FMD-12` · `FMD-21` · `K-8`
-- **fr-FourierMorphSvg** (4): `FM-2` · `FM-4..FM-16 (13 ids)` · `L-04` · `FM-22`
+- **fr-EquationView** (4): `D·D-M10` · `M-RTC` · `D·D-M11` · `R2-K4`
+- **fr-ExportModal** (8): `R2-1` · `M-β` · `M-γ` · `M-ε` · `D-m8` · `D-m9` · `L-12` · `M-4`
+- **fr-FourierMorphDemo** (4): `FMD-3` · `FMD-11` · `FMD-12` · `FMD-21`
+- **fr-FourierMorphSvg** (4): `FM-2` · `FM-4..FM-16` <sub>band = 13 ids</sub> · `L-04` · `FM-22`
 - **fr-FourierShapeExtractor** (9): `SC-3` · `AA-2` · `D-13` · `C-13` · `L-i3` · `C-16` · `C-18.2` · `D-2-size-md-mechanism` · `L·S-1`
-- **fr-FrequencyGraph** (2): `FR-FG-20` · `K-1`
+- **fr-FrequencyGraph** (1): `FR-FG-20`
 - **fr-FullscreenViewer** (4): `FB-3` · `FB-4` · `FV-24` · `K-7`
 - **fr-FunctionInput** (3): `D-13` · `D-12` · `N-1`
 - **fr-GalleryAdminBanner** (6): `GAB-2` · `GAB-5` · `GAB-11` · `GAB-13` · `GAB-29` · `Worker-DU`
 - **fr-GalleryCard** (10): `R-4` · `C-4` · `D-4` · `D-8` · `D-1` · `D-20` · `D-21` · `L·I-1` · `G-DU6` · `K-5`
-- **fr-GalleryCardModal** (9): `GCM-18` · `GCM-20` · `GCM-21` · `GCM-22` · `GCM-50` · `GCM-51` · `GCM-53` · `K-8` · `K-10`
-- **fr-GalleryDraftsSection** (8): `R-4` · `F-3` · `F-5` · `M-5` · `M-6` · `m-2` · `i-1` · `K-6`
+- **fr-GalleryCardModal** (7): `GCM-18` · `GCM-20` · `GCM-21` · `GCM-22` · `GCM-50` · `GCM-51` · `GCM-53`
+- **fr-GalleryDraftsSection** (7): `R-4` · `F-3` · `F-5` · `M-5` · `M-6` · `m-2` · `i-1`
 - **fr-GalleryFeaturedCarousel** (4): `FR-GFC-10` · `FR-GFC-26` · `FR-GFC-29` · `FOLD-2`
-- **fr-GalleryInfiniteGrid** (8): `R-2` · `FR-GIG-3` · `FR-GIG-5` · `C-6` · `FR-GIG-6` · `K-1` · `K-3` · `K-12`
+- **fr-GalleryInfiniteGrid** (5): `R-2` · `FR-GIG-3` · `FR-GIG-5` · `C-6` · `FR-GIG-6`
 - **fr-GalleryMarquee** (3): `GM-F7` · `GM-F9` · `GM-6`
 - **fr-GallerySearchBar** (5): `FR-GSB-2` · `FR-GSB-3` · `FR-GSB-4` · `FR-GSB-9` · `K-5`
-- **fr-GalleryView** (3): `R-6` · `FR-GV-18` · `K11`
+- **fr-GalleryView** (2): `R-6` · `FR-GV-18`
 - **fr-GlassTimeline** (6): `R2-2` · `PD-1` · `C-18` · `RB-1` · `BR-1` · `rK-24`
 - **fr-HarmonicLevelGrid** (3): `HLG-3` · `HLG-5` · `HLG-41`
-- **fr-ImageUpload** (4): `D:U-2` · `F8` · `K-12` · `K-15`
+- **fr-ImageUpload** (2): `D:U-2` · `F8`
 - **fr-InfoCard** (5): `R2-2` · `FR-IC-7` · `FR-IC-8` · `FR-IC-19` · `FR-IC-26`
 - **fr-MobileFloatingToc** (2): `F-1` · `i-4`
-- **fr-MorphPhaseConfig** (13): `MPC-3` · `MPC-16` · `MPC-2` · `MPC-5` · `MPC-10` · `MPC-13` · `MPC-14` · `MPC-21` · `MPC-22` · `MPC-31` · `MPC-32` · `MPC-29` · `K-5`
+- **fr-MorphPhaseConfig** (12): `MPC-3` · `MPC-16` · `MPC-2` · `MPC-5` · `MPC-10` · `MPC-13` · `MPC-14` · `MPC-21` · `MPC-22` · `MPC-31` · `MPC-32` · `MPC-29`
 - **fr-MorphShapePreview** (7): `FR-MSP-12` · `D-11` · `L-05` · `D-20` · `D-26` · `FR-MSP-4` · `FR-MSP-5`
 - **fr-NotationPills** (4): `FR-NP-32` · `FR-NP-5` · `FR-NP-12` · `FR-NP-13`
-- **fr-PaperArticleWindow** (8): `R-9` · `PAW-1` · `PAW-33` · `PAW-37` · `PAW-43` · `K-20` · `PAW-51` · `K-24`
+- **fr-PaperArticleWindow** (6): `R-9` · `PAW-1` · `PAW-33` · `PAW-37` · `PAW-43` · `PAW-51`
 - **fr-PaperSearch** (1): `MISS-A6`
 - **fr-PaperSearchDropdown** (2): `D:I-2` · `D:B-3`
 - **fr-PaperSearchInput** (4): `D-M3` · `C-3` · `D-M1` · `C-8`
@@ -4892,63 +4932,63 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-PaperSidebar** (5): `L-4` · `L-5` · `M3` · `M6` · `C-B1`
 - **fr-PaperView** (8): `D/B-3` · `C-03` · `C-06` · `C-14` · `C-15` · `C-19` · `MF-12` · `Contract-v2`
 - **fr-PathPreview** (3): `PP-REDGATE` · `PP-COLORSEAM` · `PP-IMPORTSHAPE`
-- **fr-SliderControl** (6): `R-1` · `R-5` · `R-11` · `R-18` · `K-1` · `K-3`
+- **fr-SliderControl** (4): `R-1` · `R-5` · `R-11` · `R-18`
 - **fr-SvgFilters** (6): `C-M4` · `C-i2` · `L-2` · `C-S3` · `M-1` · `M-2`
 - **fr-Tooltip** (4): `FR-TT-5` · `FR-TT-6` · `FR-TT-9` · `FR-TT-14`
 - **fr-UserSlugBar** (2): `FR-USB-35` · `FR-USB-39`
 - **fr-VisualizationView** (4): `L-13` · `MAJ-6` · `D-29` · `MIN-8`
 
-### F.W2 — **27 rows** *(errata round 5, 2026-08-29: read 31; `C-15` → UNROUTED E5-9 · `RD-5` → TERMINAL E5-7/E5-9 · `FR-TT-22` → NWO E5-13 · `FR-USB-38` → NWO E5-17)*
+### F.W2 — **23 rows** *(errata round 5, 2026-08-29: read 31; `C-15` → UNROUTED E5-9 · `RD-5` → TERMINAL E5-7/E5-9 · `FR-TT-22` → NWO E5-13 · `FR-USB-38` → NWO E5-17)* *(errata round 6, 2026-08-29: read 27; 4 killed-claims rows → TERMINAL at E6-3)*
 
 - **fr-AdminAuditLog** (1): `AA-20`
 - **fr-AdminUserList** (1): `FR-AUL-55`
 - **fr-CanvasControlsDock** (1): `C-25`
 - **fr-CoefficientsSpectrum** (1): `M-10`
 - **fr-ContourPreview** (3): `D:B-1` · `C:D-1(b)` · `D:m-8`
-- **fr-ConvergenceLegend** (3): `C-2` · `C-1` · `K-7`
-- **fr-ConvergencePlot** (4): `L-M6` · `C-19` · `C-22` · `K-11`
+- **fr-ConvergenceLegend** (2): `C-2` · `C-1`
+- **fr-ConvergencePlot** (3): `L-M6` · `C-19` · `C-22`
 - **fr-ConvergenceTimeline** (1): `S-9`
 - **fr-EquationModeToggle** (1): `FR-EMT-24`
-- **fr-EquationView** (5): `SC-4` · `C·D-11` · `I-5` · `K-5` · `K-6`
+- **fr-EquationView** (3): `SC-4` · `C·D-11` · `I-5`
 - **fr-GalleryFeaturedCarousel** (1): `FR-GFC-8`
 - **fr-GalleryInfiniteGrid** (2): `C-5` · `FR-GIG-17`
 - **fr-ImageUpload** (1): `C:C-11`
 - **fr-MorphShapePreview** (1): `C·S-2`
 - **fr-PaperView** (1): `C-08`
 
-### F.W3 — **928 rows** *(errata round 5, 2026-08-29: read 926; `PP-DEAD` homed here at E5-2 · `D:M-3` at E5-5)*
+### F.W3 — **919 rows** *(errata round 5, 2026-08-29: read 926; `PP-DEAD` homed here at E5-2 · `D:M-3` at E5-5)* *(errata round 6, 2026-08-29: read 928; 8 killed-claims rows → TERMINAL · `fr-GalleryCardModal K-2` → UNROUTED, at E6-3)*
 
 - **fr-AdminFlaggedPanel** (31): `FR-AFP-5` · `FR-AFP-6` · `FR-AFP-11` · `FR-AFP-12` · `FR-AFP-14` · `FR-AFP-15` · `FR-AFP-16` · `FR-AFP-17` · `FR-AFP-21` · `FR-AFP-22` · `FR-AFP-23` · `FR-AFP-59` · `FR-AFP-60` · `FR-AFP-67` · `FR-AFP-25` · `FR-AFP-26` · `FR-AFP-30` · `FR-AFP-31` · `FR-AFP-32` · `FR-AFP-34` · `FR-AFP-35` · `FR-AFP-38` · `FR-AFP-39` · `FR-AFP-41` · `FR-AFP-42` · `FR-AFP-43` · `FR-AFP-45` · `FR-AFP-58` · `FR-AFP-62` · `FR-AFP-63` · `FR-AFP-65`
 - **fr-AdminUserList** (7): `FR-AUL-6` · `FR-AUL-17` · `FR-AUL-18` · `FR-AUL-27` · `FR-AUL-28` · `FR-AUL-51` · `FR-AUL-52`
 - **fr-AnimationControls** (16): `R-7` · `L-1` · `L-3` · `C-4` · `D-9` · `L-6` · `M-1` · `M-3` · `L-1b` · `C-5` · `C-6` · `D-10` · `M-11` · `M-14` · `M-13` · `R3-7a`
 - **fr-App** (28): `R-7` · `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-7` · `L-5` · `MG-α` · `MG-γ` · `m-1` · `m-2` · `m-3` · `m-4` · `m-5` · `m-6` · `m-7` · `L-6` · `L-8` · `C-8` · `MG-δ` · `MG-ε` · `MG-ζ` · `MG-η` · `i-3` · `C-10` · `L-10`
-- **fr-BasisSelector** (31): `B-1` · `B-3` · `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-8` · `M-10` · `M-11` · `M-13` · `m-1` · `m-2` · `m-4` · `m-5` · `m-6` · `m-8` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-15` · `m-16` · `m-17` · `m-18` · `m-19` · `m-20` · `m-22` · `K-12`
+- **fr-BasisSelector** (30): `B-1` · `B-3` · `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-8` · `M-10` · `M-11` · `M-13` · `m-1` · `m-2` · `m-4` · `m-5` · `m-6` · `m-8` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-15` · `m-16` · `m-17` · `m-18` · `m-19` · `m-20` · `m-22`
 - **fr-CanvasControlsDock** (1): `R3-7a`
 - **fr-CanvasOverlayButton** (7): `FR-COB-4` · `FR-COB-5` · `FR-COB-7` · `FR-COB-11` · `FR-COB-17` · `FR-COB-18` · `FR-COB-22`
 - **fr-CoefficientsPanel** (33): `FR-CP-1` · `FR-CP-2` · `FR-CP-3` · `FR-CP-4` · `FR-CP-6` · `FR-CP-7` · `FR-CP-8` · `FR-CP-12` · `FR-CP-15` · `FR-CP-17` · `FR-CP-18` · `FR-CP-19` · `FR-CP-22` · `FR-CP-23` · `FR-CP-24` · `FR-CP-25` · `FR-CP-28` · `FR-CP-29` · `FR-CP-30` · `FR-CP-31` · `FR-CP-32` · `FR-CP-33` · `FR-CP-34` · `FR-CP-35` · `FR-CP-36` · `FR-CP-37` · `FR-CP-38` · `FR-CP-39` · `FR-CP-40` · `FR-CP-41` · `FR-CP-10` · `FR-CP-20` · `FR-CP-21`
 - **fr-CoefficientsSpectrum** (38): `B-1` · `B-2` · `B-3` · `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-7` · `M-8` · `M-9` · `M-11` · `M-12` · `M-14` · `M-15` · `m-1` · `m-2` · `m-3` · `m-4` · `m-5` · `m-6` · `m-7` · `m-9` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-15` · `m-16` · `m-17` · `m-18` · `m-19` · `m-21` · `m-22` · `i-2` · `i-5`
 - **fr-CollapsibleSection** (23): `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `m-1` · `m-2` · `m-3` · `m-4` · `m-5` · `m-7` · `m-8` · `m-9` · `m-10` · `m-11` · `m-12` · `m-13` · `m-15` · `m-16` · `i-4` · `i-5` · `i-6`
 - **fr-ContourPreview** (3): `D:M-2` · `D:M-3` · `D:m-10`
-- **fr-ContourSettings** (46): `R-6` · `B-1` · `B-2` · `B-3` · `B-5` · `B-6` · `D-i1` · `DU-missed-1` · `M-1` · `M-2` · `M-3` · `M-5` · `M-6` · `M-7` · `M-8` · `M-9` · `M-10` · `M-11` · `M-12` · `M-14` · `M-15` · `M-16` · `m-1` · `m-2` · `m-3` · `m-4` · `m-5` · `m-6` · `m-7` · `m-8` · `m-9` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-15` · `m-16` · `m-18` · `i-1` · `i-2` · `i-3` · `i-4` · `i-5` · `i-6` · `K-9`
+- **fr-ContourSettings** (45): `R-6` · `B-1` · `B-2` · `B-3` · `B-5` · `B-6` · `D-i1` · `DU-missed-1` · `M-1` · `M-2` · `M-3` · `M-5` · `M-6` · `M-7` · `M-8` · `M-9` · `M-10` · `M-11` · `M-12` · `M-14` · `M-15` · `M-16` · `m-1` · `m-2` · `m-3` · `m-4` · `m-5` · `m-6` · `m-7` · `m-8` · `m-9` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-15` · `m-16` · `m-18` · `i-1` · `i-2` · `i-3` · `i-4` · `i-5` · `i-6`
 - **fr-ConvergenceLegend** (1): `D-15`
 - **fr-ConvergencePlot** (2): `D-10` · `D-4`
-- **fr-ConvergenceTimeline** (13): `L·D-1` · `L·D-2` · `L·D-5` · `L·D-7` · `C·C-7` · `L·D-6` · `L·D-12` · `L·D-13` · `C·C-9` · `C·C-13` · `M-2` · `M-4` · `K-6`
+- **fr-ConvergenceTimeline** (12): `L·D-1` · `L·D-2` · `L·D-5` · `L·D-7` · `C·C-7` · `L·D-6` · `L·D-12` · `L·D-13` · `C·C-9` · `C·C-13` · `M-2` · `M-4`
 - **fr-DarkModeToggle** (4): `D-I2` · `N-10` · `N-11` · `SR-2`
-- **fr-EasingCurvePreview** (13): `R-2` · `R-4` · `R-7` · `R-9` · `GEO-1` · `GEO-2` · `D-2` · `CARRY-1.4.3` · `PICKER-RES` · `K-3` · `K-11` · `S-2` · `S-3`
+- **fr-EasingCurvePreview** (11): `R-2` · `R-4` · `R-7` · `R-9` · `GEO-1` · `GEO-2` · `D-2` · `CARRY-1.4.3` · `PICKER-RES` · `S-2` · `S-3`
 - **fr-EasingPicker** (12): `D/D-1` · `D/D-2` · `D/D-3` · `D/D-4` · `D/D-5` · `D/D-6` · `D/D-10` · `MISSED-B` · `MISSED-D` · `D/D-11` · `D/D-17` · `L/M-4`
 - **fr-EditorControlsDock** (5): `R-2` · `K-11` · `L-1` · `L-5` · `L-6`
 - **fr-EqCoefficientsPanel** (10): `FR-EQC-1` · `FR-EQC-2` · `FR-EQC-4` · `FR-EQC-5` · `FR-EQC-6` · `FR-EQC-9` · `FR-EQC-10` · `FR-EQC-11` · `FR-EQC-12` · `FR-EQC-14`
-- **fr-EquationModeToggle** (16): `FR-EMT-2` · `FR-EMT-3` · `FR-EMT-4` · `FR-EMT-5` · `FR-EMT-6` · `FR-EMT-7` · `FR-EMT-9` · `FR-EMT-10` · `FR-EMT-12` · `FR-EMT-13` · `FR-EMT-16` · `FR-EMT-17` · `FR-EMT-19` · `FR-EMT-21` · `FR-EMT-23` · `K-7`
+- **fr-EquationModeToggle** (15): `FR-EMT-2` · `FR-EMT-3` · `FR-EMT-4` · `FR-EMT-5` · `FR-EMT-6` · `FR-EMT-7` · `FR-EMT-9` · `FR-EMT-10` · `FR-EMT-12` · `FR-EMT-13` · `FR-EMT-16` · `FR-EMT-17` · `FR-EMT-19` · `FR-EMT-21` · `FR-EMT-23`
 - **fr-EquationPanel** (5): `M-N8` · `M-N9` · `M-N10` · `M-N14` · `D-2`
 - **fr-EquationView** (5): `D·D-M12` · `D·D-M5` · `D·D-M14` · `L·m-8` · `R2-r1`
-- **fr-ExportModal** (7): `R2-3` · `LC-1` · `LC-2` · `LC-3` · `M-α` · `M-δ` · `K-20`
+- **fr-ExportModal** (6): `R2-3` · `LC-1` · `LC-2` · `LC-3` · `M-α` · `M-δ`
 - **fr-FourierMorphDemo** (1): `FMD-32`
 - **fr-FourierShapeExtractor** (1): `M-3`
 - **fr-FrequencyGraph** (18): `FR-FG-1` · `FR-FG-2` · `FR-FG-3` · `FR-FG-4` · `FR-FG-5` · `FR-FG-6` · `FR-FG-7` · `FR-FG-8` · `FR-FG-9` · `FR-FG-10` · `FR-FG-11` · `FR-FG-14` · `FR-FG-15` · `FR-FG-16` · `FR-FG-17` · `FR-FG-18` · `FR-FG-19` · `FR-FG-22`
 - **fr-FullscreenViewer** (13): `FV-1` · `FV-2` · `FB-1` · `FV-3` · `FV-4` · `FV-5` · `FV-6` · `FV-7` · `FV-10` · `FM-3` · `FV-17` · `FV-19` · `FV-23`
 - **fr-FunctionInput** (14): `L-B2` · `D-1` · `N-2` · `C-5` · `D-4.2` · `D-5` · `D-6` · `D-7` · `D-8` · `D-9` · `D-11.1` · `N-3` · `L-M5` · `L-m5`
 - **fr-GalleryCard** (25): `B-2` · `D-3` · `D-5` · `L·M-2` · `D-6` · `G-LC1` · `G-LC2` · `G-DU1` · `G-DU2` · `G-DU3` · `L·D-1` · `L·M-4` · `L·D-4` · `L·D-5` · `D-9` · `G-DU4` · `G-DU5` · `D-14` · `D-10` · `D-12` · `G-LC3` · `G-DU8` · `L·M-3-residue` · `G-DU7` · `G-LC5`
-- **fr-GalleryCardModal** (40): `GCM-3` · `GCM-4` · `GCM-6` · `GCM-7` · `GCM-8` · `GCM-9` · `GCM-10` · `GCM-11` · `GCM-12` · `GCM-13` · `GCM-14` · `GCM-15` · `GCM-16` · `GCM-17` · `GCM-23` · `GCM-24` · `GCM-26` · `GCM-27` · `GCM-28` · `GCM-29` · `GCM-30` · `GCM-31` · `GCM-32` · `GCM-33` · `GCM-34` · `GCM-35` · `GCM-36` · `GCM-37` · `GCM-38` · `GCM-39` · `GCM-40` · `GCM-41` · `GCM-43` · `GCM-44` · `GCM-45` · `GCM-46` · `GCM-47` · `GCM-48` · `GCM-49` · `K-2`
+- **fr-GalleryCardModal** (39): `GCM-3` · `GCM-4` · `GCM-6` · `GCM-7` · `GCM-8` · `GCM-9` · `GCM-10` · `GCM-11` · `GCM-12` · `GCM-13` · `GCM-14` · `GCM-15` · `GCM-16` · `GCM-17` · `GCM-23` · `GCM-24` · `GCM-26` · `GCM-27` · `GCM-28` · `GCM-29` · `GCM-30` · `GCM-31` · `GCM-32` · `GCM-33` · `GCM-34` · `GCM-35` · `GCM-36` · `GCM-37` · `GCM-38` · `GCM-39` · `GCM-40` · `GCM-41` · `GCM-43` · `GCM-44` · `GCM-45` · `GCM-46` · `GCM-47` · `GCM-48` · `GCM-49`
 - **fr-GalleryDraftsSection** (30): `R-3` · `B-1` · `B-2` · `F-1` · `F-2` · `M-1` · `M-2` · `M-3` · `M-4` · `M-7` · `M-8` · `M-9` · `M-10` · `m-1` · `m-3` · `m-4` · `m-5` · `m-6` · `m-7` · `m-8` · `m-9` · `m-10` · `m-11` · `m-12` · `m-13` · `m-14` · `m-16` · `m-17` · `i-4` · `i-5`
 - **fr-GalleryFeaturedCarousel** (5): `FR-GFC-5` · `FR-GFC-6` · `FR-GFC-11` · `FR-GFC-14` · `FR-GFC-24`
 - **fr-GalleryInfiniteGrid** (14): `FR-GIG-1` · `FR-GIG-2` · `FR-GIG-4` · `C-4` · `FR-GIG-7` · `FR-GIG-8` · `FR-GIG-9` · `FR-GIG-10` · `FR-GIG-11` · `FR-GIG-12` · `FR-GIG-14` · `FR-GIG-15` · `L-4` · `FR-GIG-16`
@@ -4971,14 +5011,14 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-PaperSidebar** (1): `L-8`
 - **fr-PaperView** (3): `NAV-1` · `MF-11` · `MF-13`
 - **fr-PathPreview** (14): `PP-DEAD` · `L-14` · `L-5` · `PP-A11Y` · `PP-LEN` · `PP-SHAPE` · `PP-NULL` · `PP-GUARD1` · `PP-DOMAIN` · `D-9` · `PP-NOSHADOW` · `PP-DUP` · `PP-KIT` · `PP-DECIMATE`
-- **fr-SliderControl** (20): `R-2` · `R-3` · `R-4` · `R-6` · `R-7` · `R-8` · `R-9` · `R-10` · `R-13` · `R-14` · `R-16` · `R-17` · `R-19` · `R-21` · `R-23` · `N-1` · `N-2` · `N-3` · `N-4` · `K-7`
+- **fr-SliderControl** (19): `R-2` · `R-3` · `R-4` · `R-6` · `R-7` · `R-8` · `R-9` · `R-10` · `R-13` · `R-14` · `R-16` · `R-17` · `R-19` · `R-21` · `R-23` · `N-1` · `N-2` · `N-3` · `N-4`
 - **fr-SpeedSelect** (1): `SS-C-9`
 - **fr-SvgFilters** (27): `R-1` · `R-6` · `R-9` · `D-1` · `D-6` · `L-8` · `L-4` · `D-10` · `D-2` · `D-4` · `D-8` · `D-5` · `L-6` · `L-9` · `D-13` · `D-21` · `L-11` · `D-9` · `D-11` · `D-14` · `D-17` · `D-18` · `C-m4` · `M-3` · `M-4` · `M-5` · `M-6`
 - **fr-Tooltip** (15): `FR-TT-2` · `FR-TT-3` · `FR-TT-4` · `FR-TT-7` · `FR-TT-8` · `FR-TT-10` · `FR-TT-12` · `FR-TT-13` · `FR-TT-15` · `FR-TT-16` · `FR-TT-17` · `FR-TT-18` · `FR-TT-19` · `FR-TT-20` · `FR-TT-24`
 - **fr-UserSlugBar** (1): `FR-USB-26`
 - **fr-VisualizationView** (29): `L-2` · `L-3` · `L-10` · `L-1` · `L-6` · `L-7` · `L-9` · `L-14` · `MAJ-5` · `MAJ-7` · `D-1` · `D-5` · `D-6` · `D-7` · `D-8` · `D-9` · `D-12` · `D-15` · `L-5` · `L-8` · `L-24` · `L-26` · `L-27` · `D-22` · `VV-R2-C` · `M5` · `M6` · `M7` · `M9`
 
-### F.W4 — **1012 rows** *(errata round 5, 2026-08-29: read 1014; `PP-AGGLOM` and `PP-SEVLAW` → NWO at E5-17)*
+### F.W4 — **1007 rows** *(errata round 5, 2026-08-29: read 1014; `PP-AGGLOM` and `PP-SEVLAW` → NWO at E5-17)* *(errata round 6, 2026-08-29: read 1012; 5 killed-claims rows → TERMINAL at E6-3)*
 
 - **fr-AdminAuditLog** (35): `AA-1` · `AA-3` · `AA-4` · `AA-7` · `AA-8` · `AA-9` · `AA-10` · `AA-12` · `AA-13` · `AA-14` · `AA-15` · `AA-16` · `AA-17` · `AA-18` · `AA-19` · `AA-21` · `AA-22` · `AA-24` · `AA-25` · `AA-26` · `AA-27` · `AA-28` · `AA-29` · `AA-30` · `AA-33` · `AA-34` · `AA-35` · `AA-36` · `AA-37` · `AA-38` · `AA-39` · `AA-40` · `AA-41` · `AA-42` · `AA-43`
 - **fr-AdminFlaggedPanel** (1): `FR-AFP-50`
@@ -4990,9 +5030,9 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-CoefficientsPanel** (1): `R-7`
 - **fr-CoefficientsSpectrum** (1): `i-1`
 - **fr-ContourEditorCanvas** (40): `D/B-3` · `D/B-5` · `D/B-6` · `D/B-2` · `D/B-1` · `D/B-4` · `L-4` · `MM-1` · `L-5` · `L-6` · `L-7` · `L-8` · `D/M-10` · `D/M-8` · `D/M-9` · `D/M-2` · `D/M-4` · `D/M-7` · `MM-2` · `MM-3` · `MM-4` · `MM-5` · `L-9` · `C-9` · `C-21` · `L-17` · `D/m-1` · `D/m-4` · `D/M-1` · `D/M-5` · `D/m-7` · `D/m-11` · `L-10` · `L-11` · `L-13` · `C-22` · `MM-7` · `MM-8` · `MM-9` · `MM-12`
-- **fr-ContourPreview** (21): `D:M-1` · `D:M-4` · `D:M-5` · `D:M-6` · `D:M-7` · `D:M-8` · `D:M-9` · `C:D-2` · `L:L-4` · `D:m-1` · `D:m-2` · `D:m-3` · `D:m-4` · `D:m-5` · `D:m-11` · `C:D-8` · `D:i-3` · `D:i-2` · `D:m-6` · `KILL-3` · `R5-7`
+- **fr-ContourPreview** (20): `D:M-1` · `D:M-4` · `D:M-5` · `D:M-6` · `D:M-7` · `D:M-8` · `D:M-9` · `C:D-2` · `L:L-4` · `D:m-1` · `D:m-2` · `D:m-3` · `D:m-4` · `D:m-5` · `D:m-11` · `C:D-8` · `D:i-3` · `D:i-2` · `D:m-6` · `R5-7`
 - **fr-ContourSettings** (1): `i-8`
-- **fr-ConvergenceLegend** (39): `D-L6` · `D-L1` · `D-7` · `D-5` · `D-8` · `D-L4` · `D-L3` · `D-1` · `D-2` · `D-9` · `M-R1` · `M-R2` · `M-R3` · `D-6` · `C-5` · `D-3` · `D-4` · `C-12` · `C-14` · `D-10` · `D-14` · `D-11` · `D-L10` · `M-R6` · `M-R7` · `D-12` · `D-13` · `D-16` · `D-18` · `D-L5` · `D-L7` · `D-L13` · `C-11` · `M-R9` · `M-R10` · `M-R11` · `M-R13` · `K-10` · `R5-7`
+- **fr-ConvergenceLegend** (38): `D-L6` · `D-L1` · `D-7` · `D-5` · `D-8` · `D-L4` · `D-L3` · `D-1` · `D-2` · `D-9` · `M-R1` · `M-R2` · `M-R3` · `D-6` · `C-5` · `D-3` · `D-4` · `C-12` · `C-14` · `D-10` · `D-14` · `D-11` · `D-L10` · `M-R6` · `M-R7` · `D-12` · `D-13` · `D-16` · `D-18` · `D-L5` · `D-L7` · `D-L13` · `C-11` · `M-R9` · `M-R10` · `M-R11` · `M-R13` · `R5-7`
 - **fr-ConvergencePlot** (38): `D-1` · `L-B2` · `L-B3` · `L-M1` · `L-M2` · `M-L1` · `L-M3` · `D-9` · `M-D1` · `L-M4` · `L-M5` · `L-M7` · `D-12` · `D-5` · `L-M8` · `L-m4` · `L-m5` · `L-m6` · `L-m7` · `L-m9` · `L-m10` · `L-m11` · `L-m12` · `L-m13` · `L-i2` · `C-17` · `C-20` · `D-16` · `D-17` · `D-18` · `D-20` · `D-21` · `D-22` · `D-23` · `M-L4` · `D-25` · `D-27` · `C-24`
 - **fr-ConvergenceTimeline** (16): `L·D-3` · `L·D-4` · `D·D-4` · `D·D-5` · `D·D-6` · `D·D-8` · `L·D-10` · `L·D-11` · `L·D-8` · `L·D-9` · `D·D-13` · `D·D-11` · `D·D-7` · `L·D-14` · `M-1` · `M-5`
 - **fr-DarkModeToggle** (31): `L-1` · `L-2` · `L-5` · `L-15` · `D-M1` · `D-m13` · `C-15` · `L-16` · `M-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-7` · `M-8` · `N-1` · `N-2` · `N-3` · `N-4` · `N-5` · `N-6` · `N-7` · `N-8` · `N-9` · `N-12` · `N-13` · `N-14` · `N-15` · `N-16` · `N-17`
@@ -5001,7 +5041,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-EditorControlsDock** (34): `C-10` · `C-3` · `B-2` · `D-2` · `D-4` · `D-5` · `D-6` · `D-7` · `D-8` · `D-9` · `D-10` · `D-12` · `M-2` · `D-3` · `D-15` · `D-17` · `D-18` · `C-8` · `D-21` · `D-22` · `D-23` · `D-24` · `D-27` · `C-14` · `L-12` · `C-20` · `M-3` · `M-4` · `M-5` · `M-6` · `M-7` · `C-21` · `C-23` · `INFO-3`
 - **fr-EquationModeToggle** (2): `FR-EMT-15` · `FR-EMT-18`
 - **fr-EquationPanel** (15): `M-N11` · `M-N12` · `M-N13` · `M-N15` · `M-N16` · `D-4` · `D-5` · `D-6` · `D-7` · `D-8` · `D-9` · `D-11` · `D-L1` · `D-1-coarse-arm` · `M-N2`
-- **fr-EquationResult** (24): `FR-EQR-4` · `FR-EQR-5` · `FR-EQR-6` · `FR-EQR-7` · `FR-EQR-8` · `FR-EQR-9` · `FR-EQR-10` · `FR-EQR-11` · `FR-EQR-12` · `FR-EQR-14` · `FR-EQR-15` · `FR-EQR-16` · `FR-EQR-17` · `FR-EQR-18` · `FR-EQR-19` · `FR-EQR-20` · `FR-EQR-21` · `FR-EQR-22` · `FR-EQR-23` · `FR-EQR-25` · `FR-EQR-26` · `FR-EQR-27` · `FR-EQR-28` · `K-10`
+- **fr-EquationResult** (23): `FR-EQR-4` · `FR-EQR-5` · `FR-EQR-6` · `FR-EQR-7` · `FR-EQR-8` · `FR-EQR-9` · `FR-EQR-10` · `FR-EQR-11` · `FR-EQR-12` · `FR-EQR-14` · `FR-EQR-15` · `FR-EQR-16` · `FR-EQR-17` · `FR-EQR-18` · `FR-EQR-19` · `FR-EQR-20` · `FR-EQR-21` · `FR-EQR-22` · `FR-EQR-23` · `FR-EQR-25` · `FR-EQR-26` · `FR-EQR-27` · `FR-EQR-28`
 - **fr-EquationView** (60): `B-2` · `L·M-4` · `D·D-B4` · `C·D-02` · `L·M-3` · `L·M-2` · `L·M-6` · `L·M-7` · `D·D-B1` · `D·D-B2` · `D·D-B3` · `D·D-M3` · `D·D-M6` · `D·D-M1` · `M-FR` · `M-CK` · `L·M-1` · `D·D-M4` · `D·D-M2` · `D·D-M7` · `D·D-M13` · `D·D-m1` · `D·D-m3` · `D·D-m5` · `D·D-m7` · `C·D-04` · `C·D-03` · `C·D-22` · `C·D-24` · `L·m-1` · `L·m-2` · `L·m-3` · `L·m-5` · `L·m-7` · `L·m-10` · `L·m-11` · `L·m-12` · `L·m-13` · `M-TL` · `M-ZM` · `M-US` · `M-CP` · `M-BR` · `C·D-21` · `I-1` · `I-2` · `I-3` · `I-4` · `I-6` · `R2-N1` · `R2-N2` · `R2-N3` · `R2-N4` · `R2-N5` · `R2-N6` · `R2-N7` · `R2-r2` · `R2-r3` · `R2-r4` · `R2-L`
 - **fr-FourierMorphDemo** (36): `FMD-1` · `FMD-2` · `FMD-4` · `FMD-5` · `FMD-6` · `FMD-7` · `FMD-8` · `FMD-9` · `FMD-10` · `FMD-13` · `FMD-14` · `FMD-15` · `FMD-16` · `FMD-17` · `FMD-18` · `FMD-19` · `FMD-20` · `FMD-22` · `FMD-23` · `FMD-24` · `FMD-25` · `FMD-26` · `FMD-27` · `FMD-28` · `FMD-29` · `FMD-30` · `FMD-31` · `FMD-33` · `FMD-34` · `FMD-35` · `FMD-N1` · `FMD-N2` · `FMD-N3` · `FMD-N4` · `FMD-N5` · `FMD-N6`
 - **fr-FourierMorphSvg** (8): `FM-20` · `FM-21` · `M-2` · `FM-1` · `FM-3` · `FM-17..FM-19` <sub>band = 3 ids</sub> · `FM-23` · `FM-24`
@@ -5021,7 +5061,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-ImageUpload** (4): `R2-missed-4` · `D:m-8` · `C:C-13` · `F6`
 - **fr-InfoCard** (7): `FR-IC-3` · `FR-IC-4` · `FR-IC-5` · `FR-IC-6` · `FR-IC-10` · `FR-IC-18` · `FR-IC-24`
 - **fr-MorphPhaseConfig** (15): `MPC-7` · `MPC-1` · `MPC-4` · `MPC-6` · `MPC-8` · `MPC-9` · `MPC-12` · `MPC-15` · `MPC-18` · `MPC-20` · `MPC-24` · `MPC-25` · `MPC-26` · `MPC-30` · `MPC-27`
-- **fr-MorphShapePreview** (35): `FR-MSP-6` · `FR-MSP-7` · `D-22` · `D-1` · `L-11` · `D-4` · `D-14` · `L-09` · `D-7` · `L-16` · `D-2` · `D-3` · `D-5` · `D-6` · `D-9` · `D-10` · `D-12` · `D-17` · `L-10` · `D-15` · `D-16` · `D-18` · `D-21` · `D-24` · `L-07` · `L-17` · `C-11` · `FR-MSP-1` · `FR-MSP-2` · `FR-MSP-3` · `FR-MSP-8` · `FR-MSP-9` · `FR-MSP-10` · `C-1` · `K-13`
+- **fr-MorphShapePreview** (34): `FR-MSP-6` · `FR-MSP-7` · `D-22` · `D-1` · `L-11` · `D-4` · `D-14` · `L-09` · `D-7` · `L-16` · `D-2` · `D-3` · `D-5` · `D-6` · `D-9` · `D-10` · `D-12` · `D-17` · `L-10` · `D-15` · `D-16` · `D-18` · `D-21` · `D-24` · `L-07` · `L-17` · `C-11` · `FR-MSP-1` · `FR-MSP-2` · `FR-MSP-3` · `FR-MSP-8` · `FR-MSP-9` · `FR-MSP-10` · `C-1`
 - **fr-NotationPills** (6): `FR-NP-7` · `FR-NP-8` · `FR-NP-14` · `FR-NP-15` · `FR-NP-17` · `FR-NP-20`
 - **fr-PaperArticleWindow** (1): `PAW-36`
 - **fr-PaperSearchModal** (1): `PSM-3`
@@ -5029,20 +5069,20 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-PaperView** (43): `R-6` · `D/B-1` · `D/B-2` · `D/B-4` · `MF-1` · `MF-2` · `MF-10` · `D/M-1` · `D/M-2` · `D/M-5` · `D/M-6` · `D/M-7` · `D/M-8` · `D/M-9` · `D/M-10` · `D/M-11` · `D/M-12` · `D/M-13` · `D/M-14` · `D/M-15` · `C-02` · `C-07` · `D/M-4` · `D/m-1` · `D/m-5` · `D/m-6` · `D/m-8` · `D/m-9` · `D/m-13` · `D/m-16` · `D/m-17` · `D/m-18` · `D/m-14` · `C-10` · `C-13` · `C-18` · `MF-3` · `MF-4` · `MF-5` · `MF-6` · `MF-7` · `D/i-4` · `MF-8`
 - **fr-PathPreview** (2): `PP-PAR` · `PP-PREFLIGHT`
 - **fr-SliderControl** (2): `R-12` · `Scope-law`
-- **fr-SpeedSelect** (17): `D-05` · `D-03` · `SS-C-7` · `D-08` · `D-01` · `D-07` · `R2-LC` · `D-02` · `D-04` · `SS-C-8` · `D-06` · `D-03-as-demoted` · `D-10` · `SS-L-05` · `SS-L-07` · `SS-L-09` · `K-11`
+- **fr-SpeedSelect** (16): `D-05` · `D-03` · `SS-C-7` · `D-08` · `D-01` · `D-07` · `R2-LC` · `D-02` · `D-04` · `SS-C-8` · `D-06` · `D-03-as-demoted` · `D-10` · `SS-L-05` · `SS-L-07` · `SS-L-09`
 - **fr-SvgFilters** (1): `L-5`
 - **fr-Tooltip** (1): `FR-TT-1`
 - **fr-UserSlugBar** (28): `FR-USB-1` · `FR-USB-2` · `FR-USB-3` · `FR-USB-4` · `FR-USB-5` · `FR-USB-6` · `FR-USB-7` · `FR-USB-8` · `FR-USB-9` · `FR-USB-10` · `FR-USB-11` · `FR-USB-12` · `FR-USB-13` · `FR-USB-14` · `FR-USB-17` · `FR-USB-18` · `FR-USB-19` · `FR-USB-20` · `FR-USB-25` · `FR-USB-27` · `FR-USB-28` · `FR-USB-29` · `FR-USB-30` · `FR-USB-31` · `FR-USB-32` · `FR-USB-33` · `FR-USB-36` · `r2-K7`
 - **fr-VisualizationView** (31): `BLK-1` · `BLK-2` · `L-4` · `L-11` · `VV-R2-A` · `VV-R2-B` · `D-11` · `L-12` · `L-15` · `L-16` · `L-17` · `L-19` · `L-20` · `L-21` · `L-22` · `L-23` · `L-25` · `D-17` · `D-20` · `D-21` · `D-24` · `D-25` · `D-28` · `VV-R2-D` · `VV-R2-E` · `L-29` · `D-30` · `M2` · `M4` · `M8` · `M10`
 
-### F.W5 — **28 rows**
+### F.W5 — **27 rows** *(errata round 6, 2026-08-29: read 28; `fr-ConvergencePlot K-13` → TERMINAL at E6-3)*
 
 - **fr-AdminAuditLog** (4): `AA-6` · `AA-23` · `AA-31` · `AA-32`
 - **fr-AdminUserList** (11): `FR-AUL-3` · `FR-AUL-11` · `FR-AUL-12` · `FR-AUL-13` · `FR-AUL-14` · `FR-AUL-20` · `FR-AUL-21` · `FR-AUL-25` · `FR-AUL-31` · `FR-AUL-46` · `FR-AUL-59`
 - **fr-AnimationControls** (1): `R6-8`
 - **fr-CanvasControlsDock** (1): `R6-8`
 - **fr-ContourPreview** (1): `L:L-5`
-- **fr-ConvergencePlot** (3): `C-7` · `K-13` · `R6-8`
+- **fr-ConvergencePlot** (2): `C-7` · `R6-8`
 - **fr-EquationModeToggle** (2): `FR-EMT-20` · `FR-EMT-1`
 - **fr-EquationResult** (1): `FR-EQR-32`
 - **fr-GalleryAdminBanner** (2): `GAB-15` · `GAB-16`
@@ -5186,7 +5226,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-GalleryInfiniteGrid** (1): `M1`
 - **fr-MorphPhaseConfig** (1): `MISS-1`
 
-### SS-13 — **135 rows** *(errata round 5, 2026-08-29: read 138; the three sibling `vue-tsc` rows struck at E5-6)*
+### SS-13 — **134 rows** *(errata round 5, 2026-08-29: read 138; the three sibling `vue-tsc` rows struck at E5-6)* *(errata round 6, 2026-08-29: read 135; `fr-FourierMorphSvg FM-6` struck at E6-1 (a member of the record's own `FM-4..FM-16` band))*
 
 - **fr-AdminUserList** (6): `C-i3` · `C-B4` · `D-05` · `D-11` · `D-29` · `D-09`
 - **fr-AnimationControls** (2): `R-5` · `R-6`
@@ -5212,7 +5252,6 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-EquationResult** (1): `L-i1`
 - **fr-EquationView** (6): `K-7` · `K-10` · `D-B1` · `D-M1` · `D-B3` · `BC-2`
 - **fr-ExportModal** (2): `R2-2` · `R2-4`
-- **fr-FourierMorphSvg** (1): `FM-6`
 - **fr-FrequencyGraph** (5): `R-1` · `R-5` · `FR-CP-8` · `FR-CP-2` · `FR-CP-35`
 - **fr-GalleryAdminBanner** (1): `S-1`
 - **fr-GalleryCard** (2): `R-1` · `R-5`
@@ -5275,76 +5314,76 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 
 - **fr-AppHeader** (1): `MISS-7`
 
-### TERMINAL (∅) — **1190 rows** *(errata round 5, 2026-08-29: total HELD; composition moved — `PP-DEAD` out (E5-2) · `C-3` out (E5-3) · `RD-5` in (E5-7/E5-9) · `R2-7` in (E5-16))*
+### TERMINAL (∅) — **1220 rows** *(errata round 5, 2026-08-29: total HELD; composition moved — `PP-DEAD` out (E5-2) · `C-3` out (E5-3) · `RD-5` in (E5-7/E5-9) · `R2-7` in (E5-16))* *(errata round 6, 2026-08-29: read 1190; 18 phantom rows struck at E6-1; 48 killed-claims rows in at E6-3)*
 
 - **fr-AdminAuditLog** (20): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1` · `S-2` · `S-3` · `S-5` · `S-6` · `S-7` · `S-8`
-- **fr-AdminFlaggedPanel** (17): `D-12` · `D-3` · `D-2` · `K2` · `K3` · `K4` · `K5` · `K6` · `K7` · `K8` · `K9` · `K10` · `K11` · `K12` · `K13` · `K14` · `K15`
+- **fr-AdminFlaggedPanel** (18): `D-12` · `D-3` · `D-2` · `K2` · `K3` · `K4` · `K5` · `K6` · `K7` · `K8` · `K9` · `K10` · `K11` · `K12` · `K13` · `K14` · `K15` · `K1`
 - **fr-AdminUserList** (12): `L-9` · `D-15` · `L-13` · `L-2` · `L-6` · `D-02` · `D-26` · `D-17` · `L-3` · `C-B2` · `C-S3` · `Snapshot-at-ask`
-- **fr-AnimationControls** (27): `R-1` · `R-2` · `R-3` · `R-4` · `R-8` · `R-9` · `R-11` · `R-12` · `R-15` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-15` · `K-16` · `K-17` · `K-18` · `K-19` · `K-20`
-- **fr-App** (23): `R-2` · `R-3` · `R-6` · `R-8` · `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-11` · `K-12` · `K-13` · `K-14` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8`
+- **fr-AnimationControls** (29): `R-1` · `R-2` · `R-3` · `R-4` · `R-8` · `R-9` · `R-11` · `R-12` · `R-15` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-15` · `K-16` · `K-17` · `K-18` · `K-19` · `K-20` · `K-13` · `K-14`
+- **fr-App** (24): `R-2` · `R-3` · `R-6` · `R-8` · `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-11` · `K-12` · `K-13` · `K-14` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `K-9`
 - **fr-AppHeader** (13): `MISS-PRM` · `Provenance-pin` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-9` · `S-10` · `S-11` · `S-12`
-- **fr-BasisCanvas** (16): `R-1` · `R-3` · `R-4` · `R-5` · `R-6` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12`
-- **fr-BasisSelector** (17): `R-2` · `R-3` · `R-4` · `R-5` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13`
-- **fr-CanvasControlsDock** (11): `R-1` · `R-3` · `R-6` · `R-7` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-10`
+- **fr-BasisCanvas** (17): `R-1` · `R-3` · `R-4` · `R-5` · `R-6` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-1`
+- **fr-BasisSelector** (18): `R-2` · `R-3` · `R-4` · `R-5` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-12`
+- **fr-CanvasControlsDock** (12): `R-1` · `R-3` · `R-6` · `R-7` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-10` · `K-8`
 - **fr-CanvasOverlayButton** (21): `R-2` · `R-3` · `R-4` · `R-5` · `R-6` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15`
 - **fr-CoefficientsPanel** (19): `R-1` · `R-2` · `R-3` · `R-4` · `R-5` · `R-6` · `K-14` · `K-15` · `K-16` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10`
 - **fr-CoefficientsSpectrum** (17): `R-1` · `R-2` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-14` · `K-15`
 - **fr-CollapsibleSection** (15): `R-2` · `R-3` · `R-4` · `R-6` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `L/S-6`
 - **fr-ContourEditorCanvas** (28): `R-1` · `R-2` · `R-4` · `R-5` · `R-6` · `R-7` · `R-8` · `R-9` · `R-10` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `K-18` · `K-19`
-- **fr-ContourPreview** (13): `M-8` · `M-9` · `m-9` · `M-3` · `KILL-2` · `KILL-4` · `KILL-5` · `KILL-7` · `KILL-8` · `KILL-9` · `KILL-10` · `KILL-11` · `M-2`
-- **fr-ContourSettings** (20): `R-1` · `R-3` · `R-4` · `R-5` · `K-1` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-10` · `K-12` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7`
-- **fr-ConvergenceLegend** (22): `SC-1` · `SC-2` · `SC-3` · `SC-4` · `K-1` · `K-3` · `K-4` · `K-5` · `K-6` · `K-8` · `K-11` · `K-12` · `S-1` · `S-2` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `R2` · `R1`
-- **fr-ConvergencePlot** (36): `R-D` · `RD-1` · `RD-2` · `RD-3` · `RD-4` · `RD-5` · `RD-6` · `RD-8` · `SC-1` · `SC-2` · `SC-4` · `SD-1` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-12` · `K-14` · `K-15` · `K-16` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `R-L`
-- **fr-ConvergenceTimeline** (17): `SC-1` · `SC-2` · `SD-1` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-9` · `S-1` · `S-2` · `S-3` · `S-4` · `S-6` · `S-7` · `S-8`
+- **fr-ContourPreview** (15): `M-8` · `M-9` · `m-9` · `M-3` · `KILL-2` · `KILL-4` · `KILL-5` · `KILL-7` · `KILL-8` · `KILL-9` · `KILL-10` · `KILL-11` · `M-2` · `KILL-3` · `KILL-6`
+- **fr-ContourSettings** (21): `R-1` · `R-3` · `R-4` · `R-5` · `K-1` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-10` · `K-12` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `K-9`
+- **fr-ConvergenceLegend** (24): `SC-1` · `SC-2` · `SC-3` · `SC-4` · `K-1` · `K-3` · `K-4` · `K-5` · `K-6` · `K-8` · `K-11` · `K-12` · `S-1` · `S-2` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `R2` · `R1` · `K-10` · `K-7`
+- **fr-ConvergencePlot** (38): `R-D` · `RD-1` · `RD-2` · `RD-3` · `RD-4` · `RD-5` · `RD-6` · `RD-8` · `SC-1` · `SC-2` · `SC-4` · `SD-1` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-12` · `K-14` · `K-15` · `K-16` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `R-L` · `K-11` · `K-13`
+- **fr-ConvergenceTimeline** (19): `SC-1` · `SC-2` · `SD-1` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-9` · `S-1` · `S-2` · `S-3` · `S-4` · `S-6` · `S-7` · `S-8` · `K-6` · `K-8`
 - **fr-DarkModeToggle** (20): `SC-1` · `SC-2` · `SC-3` · `SC-4` · `SC-5` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15`
-- **fr-EasingCurvePreview** (19): `R-5` · `R-6` · `R-8` · `R-10` · `R-11` · `K-1` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-12` · `K-13` · `C/S-1` · `C/S-4` · `D/S-4`
+- **fr-EasingCurvePreview** (21): `R-5` · `R-6` · `R-8` · `R-10` · `R-11` · `K-1` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-12` · `K-13` · `C/S-1` · `C/S-4` · `D/S-4` · `K-11` · `K-3`
 - **fr-EasingPicker** (10): `D-7` · `CC-1` · `CC-2` · `CC-3` · `CC-4` · `U-1` · `C/i-1` · `D/X-D1` · `C/S-2` · `C/m-5`
-- **fr-EditorControlsDock** (14): `R-1` · `R-3` · `R-4` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-10` · `K-12`
+- **fr-EditorControlsDock** (15): `R-1` · `R-3` · `R-4` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-10` · `K-12` · `K-9`
 - **fr-EqCoefficientsPanel** (15): `R-1` · `R-2` · `R-3` · `R-5` · `R-6` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10`
-- **fr-EquationModeToggle** (8): `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `FR-COB-2` · `K-8` · `K-9`
+- **fr-EquationModeToggle** (10): `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `FR-COB-2` · `K-8` · `K-9` · `K-1` · `K-7`
 - **fr-EquationPanel** (2): `C·S-5` · `D-3`
-- **fr-EquationResult** (11): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-11` · `K-12`
-- **fr-EquationView** (58): `R-D` · `RD-1` · `RD-2` · `RD-3` · `RD-4` · `RD-5` · `RD-6` · `RD-7` · `RD-8` · `SC-1` · `SC-2` · `SC-3` · `SC-5` · `K-1` · `K-2` · `K-3` · `K-4` · `K-8` · `K-9` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-18` · `K-19` · `S-1` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10` · `S-11` · `R-L` · `R2-K1` · `R2-K2` · `R2-K3` · `R2-K5` · `R2-K6` · `R2-K7` · `R2-K8` · `R2-K9` · `R2-K10` · `R2-K11` · `R2-K12` · `R2-K13` · `BC-1` · `BC-3` · `SC-6` · `SC-7` · `S-12` · `S-13` · `R2-D` · `ROUND-2`
-- **fr-ExportModal** (7): `R2-5` · `K-17` · `K-18` · `K-19` · `K-21` · `K-22` · `K-23`
-- **fr-FourierMorphDemo** (12): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13`
-- **fr-FourierMorphSvg** (5): `K-1..K-16 (16 ids)` · `K-17` · `K-18` · `K-19` · `K-20`
+- **fr-EquationResult** (12): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-11` · `K-12` · `K-10`
+- **fr-EquationView** (61): `R-D` · `RD-1` · `RD-2` · `RD-3` · `RD-4` · `RD-5` · `RD-6` · `RD-7` · `RD-8` · `SC-1` · `SC-2` · `SC-3` · `SC-5` · `K-1` · `K-2` · `K-3` · `K-4` · `K-8` · `K-9` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-18` · `K-19` · `S-1` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10` · `S-11` · `R-L` · `R2-K1` · `R2-K2` · `R2-K3` · `R2-K5` · `R2-K6` · `R2-K7` · `R2-K8` · `R2-K9` · `R2-K10` · `R2-K11` · `R2-K12` · `R2-K13` · `BC-1` · `BC-3` · `SC-6` · `SC-7` · `S-12` · `S-13` · `R2-D` · `ROUND-2` · `K-17` · `K-5` · `K-6`
+- **fr-ExportModal** (9): `R2-5` · `K-17` · `K-18` · `K-19` · `K-21` · `K-22` · `K-23` · `K-16` · `K-20`
+- **fr-FourierMorphDemo** (13): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-8`
+- **fr-FourierMorphSvg** (5): `K-1..K-16` <sub>band = 16 ids</sub> · `K-17` · `K-18` · `K-19` · `K-20`
 - **fr-FourierShapeExtractor** (17): `SC-1` · `SC-2` · `L-m6` · `L-M7-falsifier` · `C-3-discriminator` · `D-14-radii` · `D-S-2` · `D-2-runtime-silence` · `D-1-moon-clip-figure` · `C-2-tracked-scripts` · `L-i3-grep` · `L-B1-monotonicity` · `L-i1-proof` · `C-16-citation` · `L-M1-asymmetry` · `D·S-4` · `glass-ui`
-- **fr-FrequencyGraph** (22): `R-2` · `R-3` · `R-4` · `R-6` · `R-8` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `S-1` · `L:S-1` · `C:S-3` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8`
+- **fr-FrequencyGraph** (23): `R-2` · `R-3` · `R-4` · `R-6` · `R-8` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `S-1` · `L:S-1` · `C:S-3` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `K-1`
 - **fr-FullscreenViewer** (23): `R-1` · `R-2` · `R-3` · `R-4` · `R-5` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7`
 - **fr-FunctionInput** (6): `D-2` · `D-11.2` · `D-23` · `L-m12` · `D·S-1` · `D-21`
 - **fr-GalleryAdminBanner** (20): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8`
 - **fr-GalleryCard** (17): `R-2` · `R-3` · `R-6` · `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `Zero-CLS` · `Export-map`
-- **fr-GalleryCardModal** (20): `R-1` · `R-2` · `R-4` · `R-6` · `R-7` · `R-8` · `R-9` · `R-10` · `K-1` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16`
-- **fr-GalleryDraftsSection** (15): `R-1` · `R-2` · `R-6` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12`
+- **fr-GalleryCardModal** (22): `R-1` · `R-2` · `R-4` · `R-6` · `R-7` · `R-8` · `R-9` · `R-10` · `K-1` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-10` · `K-8`
+- **fr-GalleryDraftsSection** (16): `R-1` · `R-2` · `R-6` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-6`
 - **fr-GalleryFeaturedCarousel** (14): `R-1` · `R-2` · `R-3` · `R-6` · `R-7` · `K1` · `K2` · `K3` · `K4` · `K6` · `K7` · `K8` · `K9` · `K10`
-- **fr-GalleryInfiniteGrid** (18): `R-3` · `R-4` · `R-5` · `R-8` · `R-9` · `R-10` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-16` · `K-17`
+- **fr-GalleryInfiniteGrid** (21): `R-3` · `R-4` · `R-5` · `R-8` · `R-9` · `R-10` · `K-2` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-16` · `K-17` · `K-1` · `K-12` · `K-3`
 - **fr-GalleryMarquee** (30): `R-1` · `R-2` · `R-3` · `R-4` · `R-6` · `GM-F10` · `C·S-1` · `L-16` · `D-6` · `L-15` · `K10-class` · `S-1-as-PRM-uniqueness` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `P2-R1` · `P2-R2` · `P2-R3` · `P2-R4` · `P2-R5` · `P2-R6` · `P2-R7` · `P2-R8` · `D-9` · `NET-NEW` · `RE-RATIFIED`
 - **fr-GallerySearchBar** (23): `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10` · `S-11`
-- **fr-GalleryView** (15): `R-1` · `R-2` · `R-3` · `R-4` · `R-7` · `K1` · `K2` · `K3` · `K4` · `K5` · `K6` · `K8` · `K9` · `K10` · `L-3`
+- **fr-GalleryView** (17): `R-1` · `R-2` · `R-3` · `R-4` · `R-7` · `K1` · `K2` · `K3` · `K4` · `K5` · `K6` · `K8` · `K9` · `K10` · `L-3` · `K11` · `K7`
 - **fr-GlassTimeline** (8): `R2-3` · `R2-5` · `R2-6` · `R2-7` · `K-1` · `rK-22` · `rK-23` · `RC-2`
 - **fr-HarmonicLevelGrid** (22): `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `K-18` · `K-20` · `A1` · `A2` · `A5`
-- **fr-ImageUpload** (23): `L-M3` · `F4` · `K-1` · `K-2` · `K-3` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-14` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9`
+- **fr-ImageUpload** (25): `L-M3` · `F4` · `K-1` · `K-2` · `K-3` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-13` · `K-14` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `K-12` · `K-15`
 - **fr-InfoCard** (7): `R2-3` · `R2-5` · `R2-6` · `FR-IC-17` · `K-17` · `K-19` · `K-20`
 - **fr-MobileFloatingToc** (17): `R-1` · `R-3` · `R-4` · `R-5` · `R-6` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-8` · `K-9` · `K-12` · `K-13` · `K-14`
-- **fr-MorphPhaseConfig** (23): `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1..S-9 (9 ids)` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10`
-- **fr-MorphShapePreview** (19): `SC-5` · `SC-6` · `SC-7` · `K-1..K-8 (8 ids)` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `D·S-1` · `C·S-3` · `L·S-3`
-- **fr-NotationPills** (23): `K-1..K-17 (17 ids)` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `K-18` · `K-19` · `K-20` · `K-21` · `C·D-5` · `C·S-2`
-- **fr-PaperArticleWindow** (54): `R-1` · `R-2` · `R-3` · `R-4` · `R-5` · `R-6` · `R-8` · `R2-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `R2-1` · `R2-2` · `R2-3` · `R2-4` · `R2-5` · `R2-6` · `R2-8` · `R2-9` · `K-18` · `K-19` · `UNPROVEN-4` · `Round-2` · `SC-4` · `SC-5` · `SC-6` · `R3-1` · `R3-2` · `R3-3` · `R3-5` · `R3-6` · `K-21` · `K-23` · `K-25` · `K-26` · `K-27` · `SC-7` · `SC-8` · `SC-9` · `SC-10`
+- **fr-MorphPhaseConfig** (23): `K-1` · `K-2` · `K-3` · `K-4` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10` · `K-5`
+- **fr-MorphShapePreview** (19): `SC-5` · `SC-6` · `SC-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `D·S-1` · `C·S-3` · `L·S-3` · `K-13`
+- **fr-NotationPills** (7): `K-1..K-17` <sub>band = 17 ids</sub> · `K-18` · `K-19` · `K-20` · `K-21` · `C·D-5` · `C·S-2`
+- **fr-PaperArticleWindow** (56): `R-1` · `R-2` · `R-3` · `R-4` · `R-5` · `R-6` · `R-8` · `R2-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `R2-1` · `R2-2` · `R2-3` · `R2-4` · `R2-5` · `R2-6` · `R2-8` · `R2-9` · `K-18` · `K-19` · `UNPROVEN-4` · `Round-2` · `SC-4` · `SC-5` · `SC-6` · `R3-1` · `R3-2` · `R3-3` · `R3-5` · `R3-6` · `K-21` · `K-23` · `K-25` · `K-26` · `K-27` · `SC-7` · `SC-8` · `SC-9` · `SC-10` · `K-20` · `K-24`
 - **fr-PaperSearch** (11): `D-23` · `K5` · `K7` · `K9` · `K10` · `K13` · `K16` · `K17` · `K18` · `K19` · `K20`
 - **fr-PaperSearchDropdown** (17): `K1` · `K2` · `K3` · `K4` · `K5` · `K6` · `K7` · `K8` · `K9` · `K10` · `K11` · `K12` · `K13` · `K14` · `K15` · `K16` · `K17`
 - **fr-PaperSearchInput** (17): `K-3` · `K1` · `K2` · `K3` · `K4` · `K5` · `K6` · `K7` · `K9` · `K10` · `K11` · `K12` · `K13` · `Challenge-D` · `Challenge-L` · `Challenge-C` · `fourier-API`
 - **fr-PaperSearchModal** (30): `R-1` · `R-2` · `R-6` · `R-7` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-7` · `K-8` · `K-10` · `K-11` · `S-1` · `A4-03` · `CHR-07` · `B1-PAPER-03` · `B6H-01` · `S-2` · `S-3` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `S-10` · `S-11` · `S-12` · `S-13` · `S-14`
 - **fr-PaperSidebar** (3): `D-N6` · `D-N7` · `C-M7`
 - **fr-PaperView** (27): `R-1` · `R-3` · `R-4` · `R-5` · `R-8` · `D/i-2` · `D/i-5` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `K-15` · `K-16` · `K-17` · `K-18` · `D·S-1` · `D·S-5`
-- **fr-PathPreview** (6): `K1` · `K2` · `K3` · `K4` · `K6` · `K11`
-- **fr-SliderControl** (18): `K-2` · `K-4` · `K-5` · `K-6` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9`
-- **fr-SpeedSelect** (21): `R1-DU` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-9` · `K-10` · `K-12` · `K-13` · `K-14` · `K-15` · `S-a` · `S-b` · `S-c` · `S-d` · `S-e` · `S-f` · `S-g`
+- **fr-PathPreview** (7): `K1` · `K2` · `K3` · `K4` · `K6` · `K11` · `K7`
+- **fr-SliderControl** (21): `K-2` · `K-4` · `K-5` · `K-6` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8` · `S-9` · `K-1` · `K-3` · `K-7`
+- **fr-SpeedSelect** (22): `R1-DU` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-9` · `K-10` · `K-12` · `K-13` · `K-14` · `K-15` · `S-a` · `S-b` · `S-c` · `S-d` · `S-e` · `S-f` · `S-g` · `K-11`
 - **fr-SvgFilters** (26): `R-2` · `R-5` · `R-7` · `R-8` · `K-1` · `K-2` · `K-3` · `K-4` · `K-5` · `K-6` · `K-7` · `K-8` · `K-9` · `K-10` · `K-11` · `K-12` · `K-13` · `K-14` · `S-1` · `S-2` · `S-3` · `S-4` · `S-5` · `S-6` · `S-7` · `S-8`
 - **fr-Tooltip** (6): `D-6` · `D·S-2` · `D·S-3` · `L·S-1` · `C·S-1` · `L·S-3`
 - **fr-UserSlugBar** (14): `GEO-2` · `MPC-19` · `D-M12` · `D-m6` · `D-m5` · `r2-K1` · `r2-K2` · `r2-K3` · `r2-K4` · `r2-K5` · `r2-K9` · `r2-K10` · `L-S3` · `C-S3`
 - **fr-VisualizationView** (13): `C-2` · `K1` · `K3` · `K4` · `K5` · `K6` · `K7` · `K8` · `K9` · `K10` · `K11` · `SUP-6` · `SUP-5`
 
-### UNROUTED — **307 rows** *(errata round 5, 2026-08-29: total HELD; composition moved — `PP-GATE` out (E5-1) · `D-2` out (E5-7) · `C-15` in (E5-9) · `C:C-23` in (E5-15))*
+### UNROUTED — **307 rows** *(errata round 5, 2026-08-29: total HELD; composition moved — `PP-GATE` out (E5-1) · `D-2` out (E5-7) · `C-15` in (E5-9) · `C:C-23` in (E5-15))* *(errata round 6, 2026-08-29: read 307; total HELD, composition moved — `fr-PathPreview C-10` out (E6-4) · `fr-GalleryCardModal K-2` in (E6-3))*
 
 - **fr-AdminAuditLog** (10): `AA-48` · `Worker-1` · `M-2` · `M-3` · `M-4` · `M-5` · `M-6` · `M-7` · `M-8` · `Worker-2`
 - **fr-AdminFlaggedPanel** (1): `FR-AFP-56`
@@ -5370,6 +5409,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-FullscreenViewer** (9): `FB-2` · `FM-2` · `FV-25` · `FV-26` · `FV-27` · `FV-28` · `FV-29` · `FV-30` · `FV-32`
 - **fr-FunctionInput** (8): `D-14` · `D-4.1` · `C-3` · `L-B3` · `D-3` · `D-10` · `L-m1` · `C-11`
 - **fr-GalleryAdminBanner** (1): `Worker-LC`
+- **fr-GalleryCardModal** (1): `K-2`
 - **fr-GalleryDraftsSection** (2): `i-2` · `i-3`
 - **fr-GalleryFeaturedCarousel** (2): `MISS-GT` · `MISS-CB`
 - **fr-GalleryInfiniteGrid** (12): `FR-GIG-13` · `L-3` · `C-7` · `L-7` · `L-9` · `C-14` · `M5` · `FR-GIG-18` · `FR-GIG-19` · `M2` · `M3` · `M4`
@@ -5388,7 +5428,7 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 - **fr-PaperSearchDropdown** (1): `C:C-23`
 - **fr-PaperSidebar** (2): `L-11` · `L-14`
 - **fr-PaperView** (3): `C-20` · `FR-COB-8` · `FR-AH-2`
-- **fr-PathPreview** (13): `C-1` · `PP-CLOSE` · `C-5` · `PP-STROKE` · `C-2` · `PP-PAD` · `C-7` · `PP-SPREAD` · `C-8` · `PP-POISON` · `L-15` · `C-10` · `PP-PLATE`
+- **fr-PathPreview** (12): `C-1` · `PP-CLOSE` · `C-5` · `PP-STROKE` · `C-2` · `PP-PAD` · `C-7` · `PP-SPREAD` · `C-8` · `PP-POISON` · `L-15` · `PP-PLATE`
 - **fr-SliderControl** (2): `R-15` · `R-22`
 - **fr-SpeedSelect** (7): `D-12` · `D-13` · `D-14` · `D-15` · `SS-C-16` · `SS-C-12` · `MISS-WD`
 - **fr-UserSlugBar** (3): `RC-2` · `RC-3` · `RC-4`
@@ -5400,24 +5440,27 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 
 *Round-4 audit (2026-08-29): totals re-summed after the §0.3 re-derivation (prior figures: ROWS 4278 · expanded 4338 · aliases 2767 · NWO-routing 87 · the superseded home column preserved in git history).*
 
+***Errata round 6 (2026-08-29): totals re-summed a THIRD time after the five errata at §0.5 — twenty phantom rows struck (E6-1 · E6-4) and forty-nine killed-claims rows re-homed off their waves under §0.1's operative arrow clause (E6-3). The errata-round-5 figures this table carried immediately before were: ROWS 4262 · expanded 4322 · F.W0 57 · F.W1 358 · F.W2 27 · F.W3 928 · F.W4 1012 · F.W5 28 · SS-13 135 · TERMINAL 1190 · UNROUTED 307. `records censused`, `ALIASES` (every struck row carried `—`) and `rows routing NO-WAVE-OWNER` are unchanged; UNROUTED holds its total and moves composition. Wave-duty rows 2515 → 2466. §1 = §2 = §3 = 4242, re-derived mechanically after the write.***
+
+
 ***Errata round 5 (2026-08-29): totals re-summed a second time after the eighteen errata at §0.4 — seven rows struck, twelve rehomed, eighteen alias tokens restored and six struck. The round-4 figures this table carried immediately before the errata were: ROWS 4269 · expanded 4329 · aliases 2768 · F.W0 56 · F.W1 362 · F.W2 31 · F.W3 926 · F.W4 1014 · F.W5-W8 90 · F.W9 17 · NWO (packet) 29 · NWO→SS-3 25 · SS-13 138. `records censused`, `rows routing NO-WAVE-OWNER`, `TERMINAL (∅)` and `UNROUTED` are unchanged in total (TERMINAL and UNROUTED changed composition only — §2's headers carry the moves). §1 = §2 = §3 = 4262, re-derived mechanically after the write.***
 
 | quantity | value |
 |---|---|
 | records censused | **66** |
-| ROWS (banked-head lines, one home each) | **4262** |
-| ids after band expansion | **4322** |
+| ROWS (banked-head lines, one home each) | **4242** |
+| ids after band expansion | **4287** |
 | ALIASES carried beside banked ids | **2780** |
 | rows routing NO-WAVE-OWNER | **88** |
 
 | home | rows |
 |---|---|
-| **F.W0** | 57 |
-| **F.W1** | 358 |
-| **F.W2** | 27 |
-| **F.W3** | 928 |
-| **F.W4** | 1012 |
-| **F.W5** | 28 |
+| **F.W0** | 55 |
+| **F.W1** | 330 |
+| **F.W2** | 23 |
+| **F.W3** | 919 |
+| **F.W4** | 1007 |
+| **F.W5** | 27 |
 | **F.W5-W8** | 89 |
 | **F.W9** | 16 |
 | **GLASS-RELAY** | 22 |
@@ -5426,16 +5469,16 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
 | **NWO→SS-3** | 27 |
 | **NWO→SS-5** | 3 |
 | **SS-1** | 5 |
-| **SS-13** | 135 |
+| **SS-13** | 134 |
 | **SS-2** | 7 |
 | **SS-3** | 9 |
 | **SS-4** | 3 |
 | **SS-5** | 2 |
 | **SS-6** | 1 |
 | **SS-7** | 1 |
-| **TERMINAL (∅)** | 1190 |
+| **TERMINAL (∅)** | 1220 |
 | **UNROUTED** | 307 |
-| **TOTAL** | **4262** |
+| **TOTAL** | **4242** |
 
 ---
 
@@ -5450,13 +5493,13 @@ record (rule 3's twin law); the five records with no `.a`–`.e` list are the cr
    by one question of a path, with no judgement of a defect. Every one of the 86 sits on the five
    **criterion-negatives** whose target file is in no §5 unit list (`fr-BasisCanvas` ·
    `fr-ContourEditorCanvas` · `fr-EquationResult` · `fr-GalleryAdminBanner` · `fr-FourierMorphSvg`),
-   which carry **289 rows** between them. §X.1-v4's stability claim — at most five records on
+   which carry **282 rows** between them *(re-summed 2026-08-29, errata round 6: this line read **289** against its own five per-record headers, which summed to 283 before this round and to 282 after `fr-FourierMorphSvg` 33 → 32 at E6-1 — a six-row overstatement inherited from a pre-errata-round-5 sum, disclosed rather than silently corrected)*. §X.1-v4's stability claim — at most five records on
    the default arm, never a sixth — **holds at this census**.
 3. **The alias law's magnitude is 2780 tokens** *(re-summed 2026-08-29; re-summed again at errata round 5 — this line read **2768 tokens beside 4269 banked ids, up to 2767 bookings**, before the sixteen alias tokens the derivation had dropped from table-form registers were restored (E5-4, E5-11) and the six it had absorbed from citations were struck (E5-3, E5-7, E5-12))*. 2780 `·`/slash-joined tokens ride
-   beside 4262 banked ids as aliases. A detector that atomises them into standalone identities
+   beside 4242 banked ids as aliases *(re-summed 2026-08-29, errata round 6: read 4262 — twenty phantom rows struck at E6-1/E6-4, none of which carried an alias, so the token count is unmoved)*. A detector that atomises them into standalone identities
    mints up to 2779 bookings that no record ever made — the exact mechanism of P4-1's
    30-id manufactured tier, measured here at its full size rather than at one axis's sample.
-4. **307 rows are UNROUTED** *(re-summed 2026-08-29; total HELD at errata round 5, composition moved — `PP-GATE` and `D-2` out, `C-15` and `C:C-23` in: §0.4 E5-1/E5-7/E5-9/E5-15)* — a banked head with no X-token and no terminal register anywhere
+4. **307 rows are UNROUTED** *(re-summed 2026-08-29; total HELD at errata round 5, composition moved — `PP-GATE` and `D-2` out, `C-15` and `C:C-23` in: §0.4 E5-1/E5-7/E5-9/E5-15; total HELD AGAIN at errata round 6, composition moved once more — `fr-PathPreview C-10` out as an alias orphan (E6-4), `fr-GalleryCardModal K-2` in as an identity fold (E6-3))* — a banked head with no X-token and no terminal register anywhere
    in its own record. They are not a hole in this census; they ARE the routing frontier, and they
    concentrate in exactly two shapes: **r1-carried rosters** (`fr-ExportModal` · `fr-PaperSearch` ·
    `fr-EquationPanel` — the routings live in the superseded revision, incorporated by reference) and
@@ -5482,3 +5525,6 @@ cure are named at §0.4's closing block rather than trimmed — the corpus-wide 
 the full alias-orphan sweep, `fr-PathPreview K7`, every wave-side consequence, and the twenty-seven
 escapes that remain the waves' to book or cite.*
 
+
+
+*Errata round 6, 2026-08-29: five entries at §0.5, each verified at the frozen record bytes before it was cured. The arrow-clause class §0.4 could only call *unproven* is now **disproven by enumeration** — 49 of the 55 killed-claims rows homed at a wave carry no routing position naming it. The four things this round did NOT cure are named at §0.5's closing block rather than trimmed: the 124-row remainder of the arrow-clause candidate field, the full alias-orphan sweep, every wave-side consequence, and PASS-6's ten findings against the specs, the seal and the pin regime — which stand.*

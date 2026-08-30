@@ -48,13 +48,13 @@
 
 | sibling quoted here | sha256-at-quote-time (first 12) | moved mid-round? |
 |---|---|---|
-| `waves/F-W0.md` | ~~`cd64d6580098`~~ → **`282f0c120cd4`** at the pass-5 settle | **yes** — re-stamped at repair round 5 (REST-38); **moves again this round** (REST-01..REST-08) |
-| `waves/F-W1.md` | ~~`0bfd6c8cd369`~~ → **`a1302689aaa3`** at the pass-5 settle | **yes, twice** — re-stamped at repair round 5 (REST-38); **moves again this round** (BATCH-W1) |
-| `waves/F-W3.md` | `a89c3386f3f8` | no |
-| `waves/F-W5.md` | ~~`40c1a5f5a576`~~ → **`132c03192176`** at the pass-5 settle | **yes, three times** — re-stamped at repair round 5 (REST-38) |
-| `waves/F-W6.md` | ~~`b11f08894b9d`~~ → **`c8c6d1d7f136`** at the pass-5 settle | **yes, three times** — re-stamped at repair round 5 (REST-38); **moves again this round** (REST-15..REST-31) |
-| `waves/F-W8.md` | `1e3698adf4ff` | **yes** — re-verified at this hash |
-| `waves/F-W10.md` | `bb58dc400cff` | **yes, three times** — re-verified at this hash |
+| `waves/F-W0.md` | ~~`cd64d6580098`~~ → **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes** — re-stamped at repair round 5 (REST-38); **moves again this round** (REST-01..REST-08) |
+| `waves/F-W1.md` | ~~`0bfd6c8cd369`~~ → **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes, twice** — re-stamped at repair round 5 (REST-38); **moves again this round** (BATCH-W1) |
+| `waves/F-W3.md` | **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **YES — the *no* is SUPERSEDED by the certificate: F-W3 moved at repair round 5 and again at round 6** |
+| `waves/F-W5.md` | ~~`40c1a5f5a576`~~ → **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes, three times** — re-stamped at repair round 5 (REST-38) |
+| `waves/F-W6.md` | ~~`b11f08894b9d`~~ → **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes, three times** — re-stamped at repair round 5 (REST-38); **moves again this round** (REST-15..REST-31) |
+| `waves/F-W8.md` | **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes** — re-verified at the round-5 hash |
+| `waves/F-W10.md` | **pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)** | **yes, three times** — re-verified at the round-5 hash |
 | `../COHESION.md` | `91c6d974db9b` | no |
 | `../keyframes/waves/KF-W1.md` | ~~`ee33bf25cb2a`~~ → **`919e484b8a60`** | **YES** ⟨*the cell read "no" and that statement is now false — re-measured at repair round 5, REST-38*⟩ |
 | `conformance/CENSUS-CANONICAL.md` | ~~`a450b8e9f80e`~~ → **`3e0a9acb3381`** | **YES — errata round 5**, §0.4 E5-1..E5-18 |
