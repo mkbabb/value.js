@@ -1,0 +1,63 @@
+{
+ "defects": [
+  {
+   "severity": "HIGH",
+   "claim": "F-W4 declares a SOLE CENSUS OPERAND the frozen canonical does not carry, at FOUR unchased sites including the masthead and the closure gate. Canonical \u00a73/\u00a72 home F.W4 = 1007 rows; F-W4 spells 1014 at :7 (masthead: \"\u00a72 \u2192 F.W4 = 1014 rows across 54 records \u2026 It is the SOLE census operand of this spec. Every one of the 1014 is BOOKED here\"), :349 (arithmetic), :374 (gate G-F4-CARRY-CLOSURE: \"Leg (b)'s roster is \u2026 \u00a72 \u2192 F.W4 (1014 rows, 54 records), hash-pinned at \u00a72.X.2\"), :455 (register). The gate is self-refuting: \u00a72.X.2 reads 1007. The canonical's own stamp: \"a gate that cites another census operand is DEFECTIVE on sight.\" Same class as pass-8's HIGH, never swept in F-W4. Not licensed E-3 history \u2014 no site is dated, struck, or marked at-the-time.",
+   "receipt": "\u27e8cmd\u27e9 awk '/1014/{c=gsub(/chased|re-based|1007/,\"&\"); print NR, c}' F-W4.md \u2192 :7 c=0 \u2327 \u00b7 :297 c=2 ok \u00b7 :349 c=0 \u2327 \u00b7 :374 c=0 \u2327 \u00b7 :455 c=0 \u2327. grep -c '1007' F-W4.md \u2192 3; grep -c '1014' F-W4.md \u2192 5. Canonical: grep -n '^### F\\.W4 \u2014' CENSUS-CANONICAL.md \u2192 5021:### F.W4 \u2014 **1007 rows**. F-W4:293/:295/:297 all read 1007 WITH chase notes."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "F-W3 attributes superseded magnitudes to canonical \u00a74.3 BY NAME in the present tense at three sites, and carries no chase anywhere in the file. :32 \"canonical \u00a74.3 measures 2768 alias tokens riding beside 4269 banked ids, so an atomiser \u2026 mints up to 2767 bookings \u2026 Both are rules of the operand now\"; :784 \"Canonical \u00a74.3 measures \u2026 2768 alias tokens beside 4269 banked ids\"; :703 \"cites the file that already answered it for all 4269 rows at once\". Canonical \u00a74.3 now reads 2780 tokens / 4242 banked ids / up to 2779 bookings, and explicitly records the quoted reading as superseded at errata round 5 (E5-4/E5-11/E5-3/E5-7/E5-12). Never filed by any cert or prior pass.",
+   "receipt": "\u27e8cmd\u27e9 grep -c '4242\\|2780\\|2779' F-W3.md \u2192 0 (the file contains not one current magnitude). grep -n '4269\\|2768\\|2767' F-W3.md \u2192 :32 :703 :784. Canonical \u00a74.3 (:5499): \"2780 `\u00b7`/slash-joined tokens ride beside 4242 banked ids as aliases \u2026 mints up to 2779 bookings\" with \"(re-summed \u2026 this line read 2768 tokens beside 4269 banked ids, up to 2767 bookings)\". F-W3:17/:28/:707 chase 926\u2192928\u2192919 correctly, so the file knows the idiom."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W4:349's falsifiable closure arithmetic is falsified by its own subsection 45 lines above. It publishes \"Canonical 1014; crosswalked-and-already-booked 29 (a); newly booked here 72 (b); the remaining 913 \u2026 29 + 72 + 913 = 1014\", but the (b) heading reads 71 with a chase note. Correct at the settled bytes: 29 + 71 + 907 = 1007. All three terms stale; the middle one contradicts a chase note in the same section.",
+   "receipt": "\u27e8cmd\u27e9 grep -oE '\\*\\*\\(b\\) THE ESCAPES, BOOKED BY BANKED ID \u2014 [0-9]+ rows on [0-9]+ records\\*\\* \u27e8[^\u27e9]*\u27e9' F-W4.md \u2192 \"**(b) THE ESCAPES, BOOKED BY BANKED ID \u2014 71 rows on 16 records** \u27e8re-based at round-7 reconcile, 2026-08-29: read 72; fr-ContourPreview KILL-3 re-homed TERMINAL per E6-3\u27e9\". grep -oE '\\*\\*\\(a\\) THE ANTI-RENAME CROSSWALK \u2014 [0-9]+ ids' \u2192 29. awk 'NR==349' F-W4.md \u2192 zero chase markers, zero '1007'."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W2:248 is a LIVE self-count class member, uncured through passes 8, 9 and 10 \u2014 including the pass convened to sweep precisely this class. Published \"sixty-seven of the eighty-three distinct commands carry no absolute path\"; the settled bytes return 84 and 68. Its own line contributes 3 of the 84 it counts, with no declared self-exclusion and no substantive-byte quantification. F-W2 unmoved since round 8 (655a21e7a64d).",
+   "receipt": "\u27e8cmd\u27e9 /usr/bin/grep -oE '\u27e8cmd\u27e9 `[^`]*`' F-W2.md | sort -u | wc -l \u2192 84 (published 83). \u2026 | grep -c '/Users/' \u2192 16 \u2713. Derived count-word 84\u221216 = 68 (published 67). Self-excluding: awk 'NR!=248' F-W2.md | grep -oE '\u27e8cmd\u27e9 `[^`]*`' | sort -u | wc -l \u2192 81, so :248 contributes 3. Independently re-derived by a receipt-enumeration instrument, not inherited from PASS-10/SEAL.md LW-S3."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W10:338 \u2014 round 10's principal repair published a coordinate its own insertion displaced. The re-cut collateral enumerates the nine other L-16 homes ending :419; the ninth actually stands at :442. The cure expanded :338 from one line to twenty-four, displacing everything below by +23 (419 + 23 = 442). The eight coordinates above the insertion all verify; the one below it drifted, and the drifting edit is the one that published it.",
+   "receipt": "\u27e8cmd\u27e9 grep -nE '(^|[^A-Za-z0-9])L-16([^A-Za-z0-9]|$)' F-W10.md \u2192 191 193 244 276 291 296 297 301 303 338 442. Excluding :296 (the booking) and :338 (the claiming line) the nine are 191 193 244 276 291 297 301 303 442 \u2014 :419 is not an L-16 home. Corroborated independently: pass-10 register item 7's FR-NP-32 site also moved :423 \u2192 :446, the same +23."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W10:467 is a LIVE self-count class member in round 10's own file. Published \u27e8cmd\u27e9 output `14 \u00b7 14 \u00b7 13`; the settled bytes return `14 \u00b7 14 \u00b7 14`. Line :467 is itself one of the three hits, and the value it publishes as the third is the value its own REST-67 cure changed. No R3-3.8 before/after pairing and no self-exclusion. Substance unaffected \u2014 23+36+16+14 = 89 re-derives TRUE and the label reads 89; only the receipt is false.",
+   "receipt": "\u27e8cmd\u27e9 /usr/bin/grep -o \"\u00a72.5a-iii's 1[34]\" waves/F-W10.md \u2192 14 \u00b7 14 \u00b7 14. grep -n same \u2192 314: 442: 467:. Published in the :467 cell: \"\u2192 `14` \u00b7 `14` \u00b7 `13`\"."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W8:324 enumerates ten under a label reading nine. The spec: \":324 is the claiming sentence itself, and the other nine are chase notes\u2026\" then lists :20 \u00b7 :25/:27 \u00b7 :40 \u00b7 :78/:81 \u00b7 :165 \u00b7 :246/:267 \u00b7 :322 = ten. PIN-PURGE-CERT.md \u00a7ERRATA-R10\u00b7b row 9 states it correctly as \"the other ten\" \u2014 the certificate is right and the spec is wrong. Form (ii) of round 10's own law requires the enumeration to be complete AND correctly labelled.",
+   "receipt": "\u27e8cmd\u27e9 grep -n 'C:C-23' F-W8.md \u2192 11 lines: 20 25 27 40 78 81 165 246 267 322 324. 11 \u2212 1 (the claiming line :324) = 10, not 9. The substantive claim holds: C:C-23 is homed UNROUTED at canonical :5428, below the '### UNROUTED' heading at :5386."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W9:289's coordinate citation has drifted and is still uncured. Cited homes :178 :282 :452; actual :185 :289 :461 \u2014 a uniform +7. The 'one distinct span' half of the receipt re-runs TRUE. Already declared: PIN-PURGE-CERT.md \u00a7ERRATA-R10\u00b7c filed it for round 11 and PASS-10/SEAL.md confirmed it; recorded here only to note it is unmoved at these bytes.",
+   "receipt": "\u27e8cmd\u27e9 grep -n '9 e2e never enter the audit tab' F-W9.md \u2192 185: 289: 461:. \u27e8cmd\u27e9 grep -o '9 e2e never enter the audit tab' F-W9.md | sort -u \u2192 one line \u2713 (the distinct-span half holds)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W7:16's residue enumeration is now short by TWO, and grows by one per conformance round. Published residue names two paths (PASS-5/F-W7-CHECK.md, PASS-5/WORK-ORDER.md); five exist, because PASS-5/SEAL.md and now PASS-10/SEAL.md quoted it. The load-bearing claim \u2014 'the sole WAVE-SIDE home' \u2014 remains TRUE. The correct cure is to scope the receipt to waves/, not to re-count the residue: a receipt scoped to docs/ is falsified by every future instrument that quotes it, including this check.",
+   "receipt": "\u27e8cmd\u27e9 /usr/bin/grep -rl \"trie ruling stays inline\" docs/ \u2192 waves/F-W7.md \u00b7 PASS-5/F-W7-CHECK.md \u00b7 PASS-5/WORK-ORDER.md \u00b7 PASS-5/SEAL.md \u00b7 PASS-10/SEAL.md (five). Restricted to waves/ \u2192 F-W7.md alone, so the wave-side universal holds."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "PASS-10/SEAL.md \u00a73.2 states a distribution in one unit and its total in another. It publishes '\u2192 30, distributed F-W1 7 \u00b7 F-W2 5 \u00b7 F-W9 2 \u00b7 seven files 1 each \u00b7 F-W0 0'; the distribution sums to 21, not 30. The total is per-OCCURRENCE and the distribution is per-LINE. Against the instrument, not the corpus \u2014 the corpus figure 30 is correct and the chase audit is clean.",
+   "receipt": "\u27e8cmd\u27e9 per-file occurrence counts: F-W1=8 F-W2=7 F-W3=2 F-W4=3 F-W5=1 F-W6=2 F-W7=2 F-W8=1 F-W9=3 F-W10=1 F-W0=0 \u2192 30. Per-LINE counts: F-W1=7 F-W2=5 F-W9=2, seven files 1 each, F-W0=0 \u2192 21, exactly the seal's list."
+  },
+  {
+   "severity": "INFO",
+   "claim": "FR-NP-32: the literal probe returns 1, not 0. The single hit is the retired bare spelling quoted inside its own strike at F-W10:446, beside two live qualified 'FR-NP-32 (\u2261 fr-PaperSidebar M1)'. The axis-5 requirement (zero unqualified '\u2261 M1') is SATISFIED under the round's own self-excluding law. Recorded only because a round-11 gate written to expect a literal zero will fire on lawful bytes.",
+   "receipt": "\u27e8cmd\u27e9 grep -cF '(\u2261 M1' F-W10.md \u2192 1. \u27e8cmd\u27e9 awk 'NR!=446' F-W10.md | grep -cF '(\u2261 M1' \u2192 0. awk 'NR==446' F-W10.md | grep -oE 'FR-NP-32 \\(\u2261 [^)]*\\)' \u2192 two \u00d7 'FR-NP-32 (\u2261 fr-PaperSidebar M1)' plus one 'FR-NP-32 (\u2261 M1)' found inside ~~`\u2026`~~."
+  }
+ ],
+ "fabricated": 0,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "NOT CONFORMANT"
+}

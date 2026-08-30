@@ -434,3 +434,78 @@ f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  docs/tranches/
 | 10 | `waves/F-W9.md` | **`4972f6a41832`** | `4972f6a41832` *(unmoved)* |
 | 11 | `waves/F-W10.md` | **`d97a0123bf99`** | `d97a0123bf99` *(unmoved)* |
 | 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `f44362757458` *(FROZEN, unmoved)* |
+
+---
+
+## §ERRATA-R10 — **2026-08-30. THE RE-BASE. §ERRATA-R9 IS SUPERSEDED AS THE PIN AUTHORITY AS OF THIS APPEND.**
+
+**§ERRATA-R9 expired exactly as it said it would, and this append discharges the debt in the same sitting the specs moved.** Its own clause reads: *"These twelve are true of the bytes this seat settled and of no later state. **The next seat to write a spec voids this table too and owes the next append.**"* **Round 10 wrote five specs** — `F-W1`, `F-W4`, `F-W8`, `F-W9`, `F-W10` — so the table above is void and this one replaces it. **An append, never a patch (E-3):** §TABLE, §TABLE-R7 and §ERRATA-R9 all stand above as HISTORY and not one byte of them is edited.
+
+⊙ **Precedence, restated.** The spelling `pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)` **still resolves**: **the table below is the operand**; §ERRATA-R9 is the round-9 reading, §TABLE-R7 the round-7 reading and §TABLE the round-6 reading of the same star. The topology is untouched — one file pinning eleven, no in-edges, no cycle.
+
+⊙ **The census pin did not move, for the second consecutive round.** Row 12 stands at **`f44362757458`**, byte-identical to §ERRATA-R9's and §TABLE-R7's row 12. **The canonical was FROZEN for the whole of round 10, verified at this seat's first act and again at its last, and every repair below was cut against it.** No spec's census citation is stale, and `rosterEscapes` is untouched at **ZERO**.
+
+### §ERRATA-R10·a — the correction this append owes §ERRATA-R9 (seal `LW-3`; PASS-10 `LW-R10-d`, MINOR)
+
+⌧ **Row 9 of the block above undercounts the round-9 re-based coordinates, and the undercount is in the certificate's own summary of that round.** It reads *"eight dead canonical coordinates re-based **(three of them found by this seat's own sweep, at the masthead)**"*. **The masthead three are ADDITIONAL, not a subset of the eight.** ⟨cmd⟩ enumerated from `F-W8`'s own notes: `F-W8:15` (masthead) → `5394` · `5393` · `5396` — and `F-W8.md:15` says so in terms, *"Found by this seat's own round-9 sweep … **not by the pass-9 check's list**"* — ⊕ `F-W8:81` → `5034` (1) ⊕ `F-W8:246`(A) → `5044` · `5091` · `5358` (3) ⊕ `F-W8:246`(B) → `4968` · `5044` · `1305` · `4037` (4). The check-listed subtotal is `3 + 4 + 1 = 8`; **the masthead adds three.**
+
+▲ **THE CORRECTION, stated here and never patched into row 9 (E-3):** *"three of them"* **must read** *"three more"*, and *"eight"* **must read ELEVEN** — **11 mentions / 10 DISTINCT coordinates**, `5044` being the one that appears in both `:246` receipts. **Non-load-bearing — all eleven verify** at `PASS-10/CHECK.md` §4.1 R-1…R-14 — and named because it lands in the one document the next seat reads, and because it undercounts round 9's best work by three.
+
+### §ERRATA-R10·b — the five changed rows, old → new
+
+- **Row 2 · `waves/F-W1.md`** — `176280bebc23` **→ `ab2437af09e0`** — the last live superseded census digest chased (PASS-10 `LW-R10-h`). `§E-3·R4`'s dated errata row at `:725` carries `a450b8e9f80e` present-tense and unstruck; **E-3 bars rewriting a dated row**, so a `<sub>` note was **APPENDED beside it** naming `f44362757458` as the current digest. **Not one byte of the row itself changed.** Pass 9's universal now holds at **all 30** occurrences of the two superseded digests: 28 by an adjacent `f44362757458`, two (`F-W1:437`, `F-W2:32`) inside explicit strike minutes.
+- **Row 5 · `waves/F-W4.md`** — `052731a56a12` **→ `7b427c227275`** — **two cures, both seal-filed and both uncured for a round.** `:192`'s `showImageOverlay` receipt (`LW-R10-b`, MEDIUM, seal `LW-1`): the published *"one occurrence each, **both inside this row**"* was false — the true count was **2**, and the second, `:347`, is round 9's own restatement spelling the token in full **inside the sentence certifying `:192` GREEN**. Re-cut self-excluding: `awk 'NR!=192' … | grep -c` → **1**. `:347`'s byte-universal (`LW-R10-c`, MINOR, seal `LW-2`): *"the sole occurrence of `FM-18` at any byte of this spec"* is refuted by the clause stating it; struck and restated to the **substantive-byte** form the same line already carried, with `awk 'NR!=347' … | grep -c` → **0** banked in its place. ⊙ The GREEN sibling `grep -c 'shape only'` → **1** is untouched, and `D:m-6`'s booking is unmoved.
+- **Row 9 · `waves/F-W8.md`** — `355d8c97c383` **→ `16d587cb7d77`** — `:324`'s *"zero bytes anywhere else in this file"* for `fr-PaperSearchDropdown C:C-23` (`LW-R10-e`, MINOR) restated **enumerated**: **zero SUBSTANTIVE bytes**, with the token's **eleven** lines listed — `:20` `:25` `:27` `:40` `:78` `:81` `:165` `:246` `:267` `:322` `:324` — and each of the other ten identified as a chase note, disclosure or E5-15/REST-51 minute **about this same non-booking**. Substance re-verified and unchanged: `C:C-23` is cited to F-W5, homed `UNROUTED` at canonical `:5428`, booked nowhere at F.W8.
+- **Row 10 · `waves/F-W9.md`** — `4972f6a41832` **→ `66030d34992d`** — `:505`'s pair-universal (`LW-R10-f`, MINOR) — *"`(fr-VisualizationView, L-26)` … appears nowhere in this spec"*, whose own clause was the sole site — struck and restated **self-excluding**: `awk 'NR!=505' … | grep -E '…L-26…' | grep -c 'fr-VisualizationView'` → **0**, with the boundary probe's three `L-26` lines (`:119` `:304` `:505`) enumerated. **The substance — no BOOKING of that pair in F-W9 — is unchanged and confirmed by the canonical id-set identity.**
+- **Row 11 · `waves/F-W10.md`** — `d97a0123bf99` **→ `d3fa14c669dd`** — **the round's principal repair, and the site nine passes read past.** `:338`'s `ExportModal` receipt (`LW-R10-a`, MEDIUM) published ⟨cmd⟩ `grep -cF 'ExportModal' waves/F-W10.md` → **0** in a sentence spelling the token three times — **unproducible from any byte-state containing that line**, not stale — while `:296` books `fr-ExportModal L-16` as a fold (REST-65) that `:338` listed among its escapes. Struck and re-cut self-excluding: whole-file **2** (`:296`, `:338`), `awk 'NR!=338'` → **1** at the live booking; the universal **WITHDRAWN**; the count-word corrected **`52 · 13` → `53 · 12`** by re-running the note's own record-qualified probe per pair with `:338` excluded (`fr-ExportModal L-16` = 1, the other twelve = 0); and the collateral *"9 hits, every one another record's"* re-cut to **10** with `:296` named as `fr-ExportModal`'s own. ⊕ `:446`'s disposition cell re-qualified `FR-NP-32 (≡ **fr-PaperSidebar** M1)` (`LW-R10-g`, MINOR; R-5 — an unqualified short token is not an identity). ⊕ **§R10-LAW added**, which is where the round's law and its corpus sweep live.
+
+**Seven unchanged and carried forward exact: rows 1 (`F-W0`), 3 (`F-W2`), 4 (`F-W3`), 6 (`F-W5`), 7 (`F-W6`), 8 (`F-W7`) and 12 (the canonical).**
+
+### §ERRATA-R10·c — the law this round added, and the sweep that applies it
+
+▲ **THE SELF-COUNT LAW, stated once in the corpus at `F-W10.md` §R10-LAW and binding on all eleven specs:** *a receipt that counts or denies a token **inside its own file** must EITHER use the **self-excluding probe** (`awk 'NR!=<own-line>' file | grep …`, exclusion declared inline) OR **quantify over SUBSTANTIVE bytes** (bookings, roster rows) **with the self- and chase-note occurrences enumerated beside it**. A bare "appears nowhere" over a file containing the claiming sentence is **defective at authoring** — never producible, therefore never merely stale.* ⊘ **The corollary the programme paid ten rounds to learn: `grep -c` counts LINES, so a receipt can be arithmetically GREEN while the universal wrapped around it is false at the bytes.** The receipt and the sentence are two claims and both must be checked.
+
+⊙ **The sweep (PASS-10 item 8), corpus-wide over all eleven specs, at the settled bytes: 35 MEMBERS · 5 FALSIFIED and cured · 30 already lawful.** Two instruments, unioned and deduped by site — **(A)** own-file `grep -c/-o/-q/-l` receipts whose own line matches their own pattern (**20** sites); **(B)** own-file-scoped absence universals over a declared phrase set (**20** sites); minus **11** hand-adjudicated non-members whose subject is another file, another doc, a product-tree token or a path. **The five falsified are exactly the five cured above.** ⚠ **The tally is INSTRUMENT-RELATIVE and says so at its own site** — it is what the two published probes return at these bytes, not a universal over every receipt in the corpus, which is the very shape the law forbids. ⊙ **One member carries a separate defect round 10 did not cure and does not claim to**: `F-W9:289`'s three-home enumeration is lawful as a count but its coordinates have drifted — it cites `:178` `:282` `:452` where the token now stands at **`:185` `:289` `:461`**. **Filed for round 11.**
+
+⊘ **The same expiry, restated so it is not read as a promise.** These twelve are true of the bytes this seat settled and of no later state. **The next seat to write a spec voids this table too and owes the next append.** A hash proves only that bytes did not move; **it does not prove that a paste was produced by its command, nor that a sentence wrapped around a true count is itself true** — `LW-R10-a` is this round's demonstration of both, found *after* a hash table that was, and remains, clean. **No certificate issues its own conformance**; the round-10 verify seat re-runs what follows.
+
+⟨cmd⟩ this seat, 2026-08-30, **base = repo root `/Users/mkbabb/Programming/value.js`**, on the pinned BSD toolchain, taken **as the absolute last act of this write, after every spec edit settled**:
+
+```
+shasum -a 256 docs/tranches/X/fourier/waves/F-W*.md \
+              docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**Output, pasted whole and verbatim — glob order, `F-W10` sorting after `F-W1` exactly as the shell produced it:**
+
+```
+c03149fc2f9e2bec601fe4e00982705203f4b0b3fac78afdd1bde097aa7d4af1  docs/tranches/X/fourier/waves/F-W0.md
+ab2437af09e0d0646260afdd024541539ad588d492b8de48aee25a8f82adff3e  docs/tranches/X/fourier/waves/F-W1.md
+d3fa14c669dd2a60419ad217b42ffdb374f8f4ea76b7e3b5458b24cef2a494d0  docs/tranches/X/fourier/waves/F-W10.md
+655a21e7a64dd59c4bb954383ebf69bec829f295f7c6797a7c5cdf88e5d2ca65  docs/tranches/X/fourier/waves/F-W2.md
+93bc1ebc4a24d33bc9dc062a308eed0d42169665199a8875f2f7920d31443622  docs/tranches/X/fourier/waves/F-W3.md
+7b427c227275ce7c6c3463e8bafbab1c17fdb3d05caea7fa80510d6e4df0d1e3  docs/tranches/X/fourier/waves/F-W4.md
+40bcad59cd2beed4e3e8453011b605bdcc9eab67082c9dc64bde131caea124ef  docs/tranches/X/fourier/waves/F-W5.md
+e83dcad051f560329ade30dbb0877732650ac05071e8b2ee0eab22f56abf7e11  docs/tranches/X/fourier/waves/F-W6.md
+16e35d5bb571708046033b10d20f9d0dc71e59c2d89fd52b7d824a877b74caaa  docs/tranches/X/fourier/waves/F-W7.md
+16d587cb7d77c60195622d89623b9e94c9a0861ac0543c08d4e36bc8b278e762  docs/tranches/X/fourier/waves/F-W8.md
+66030d34992db570b47d9e6496b56350b6c71c91897c7bd7320ba65e1d5f3f13  docs/tranches/X/fourier/waves/F-W9.md
+f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**TWELVE ROWS, ordered numerically and labelled `fourier/`-relative for citation stability with §TABLE, §TABLE-R7 and §ERRATA-R9 (`docs/tranches/X/fourier/` + the label = the path above). The first-12 prefixes derived beside each — THIS IS THE OPERAND EVERY SPEC NOW CITES:**
+
+| # | file | sha256 (first 12) — **R10, CURRENT AUTHORITY** | superseded §ERRATA-R9 row (R9, history) |
+|---|---|---|---|
+| 1 | `waves/F-W0.md` | **`c03149fc2f9e`** | `c03149fc2f9e` *(unmoved)* |
+| 2 | `waves/F-W1.md` | **`ab2437af09e0`** | `176280bebc23` |
+| 3 | `waves/F-W2.md` | **`655a21e7a64d`** | `655a21e7a64d` *(unmoved)* |
+| 4 | `waves/F-W3.md` | **`93bc1ebc4a24`** | `93bc1ebc4a24` *(unmoved)* |
+| 5 | `waves/F-W4.md` | **`7b427c227275`** | `052731a56a12` |
+| 6 | `waves/F-W5.md` | **`40bcad59cd2b`** | `40bcad59cd2b` *(unmoved)* |
+| 7 | `waves/F-W6.md` | **`e83dcad051f5`** | `e83dcad051f5` *(unmoved)* |
+| 8 | `waves/F-W7.md` | **`16e35d5bb571`** | `16e35d5bb571` *(unmoved)* |
+| 9 | `waves/F-W8.md` | **`16d587cb7d77`** | `355d8c97c383` |
+| 10 | `waves/F-W9.md` | **`66030d34992d`** | `4972f6a41832` |
+| 11 | `waves/F-W10.md` | **`d3fa14c669dd`** | `d97a0123bf99` |
+| 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `f44362757458` *(FROZEN, unmoved)* |
