@@ -41,15 +41,31 @@ close and enter no order until the SS-1/SS-2 authoring block authors them (§1.2
 
 Derived from the specs' own sequencing declarations: X·V `REFINEMENT-FOLD-2026-08-28.md`
 §READINESS R.1 (the fold-amended order); X·KF each wave's `Opens after`/`Hard ordering` line +
-`KF-W4.md` §Sequencing (the declared head); X·F each `F-W*.md` §State `Opens after` + `F-W0.md`
-§6a locks; X·P each `W*.md` §State `Opens after`. Every edge carries its dependency reason.
+`KF-W4.md` §Sequencing (the declared head); X·F **eight of the eleven** `F-W*.md` files'
+`Opens after` declarations + `F-W0.md` §6a locks (the other three are derived — provenance note
+below); X·P each `W*.md` §State `Opens after`. Every edge carries its dependency reason.
+
+**X·F provenance, restated truthfully ⟨union repair round 1⟩.** The earlier spelling — *"X·F each
+`F-W*.md` §State `Opens after`"* — overstated a source that does not exist for three specs.
+**Eight declare their own**: `F-W0.md:53` · `F-W1.md:7` · `F-W2.md:48` · `F-W3.md:100` ·
+`F-W5.md:35` · `F-W7.md:83` · `F-W8.md:63` · **`F-W9.md:15`** — the last carried *inline on the
+§State **Four-verb** line* rather than on a line of its own, which is exactly how this seat's
+predecessor missed it and dropped the edge §1.3 now restores. **Three declare none**, and their
+edges are derived from other specs' declarations — cited row by row so the derivation is
+auditable rather than asserted:
+
+| spec | carries no `Opens after` — its edges derive from |
+|---|---|
+| `F-W4.md` | `COHESION.md:74` (*"**F.W1 tri-package uplift precedes F.W3/F.W4**: no fourier frontend spec may assume the …"*) for the F.W1 edge; and its own `:33` PIN LAW, which **cites F-W1's** clause rather than declaring one — *"F.W1 is pinned `4→7(→8, G1-gated)` and opens after … **ESC-1** ruled (**G1**)"* — so F.W4's F.W0/ESC-1 dependency is inherited, not stated. |
+| `F-W6.md` | its own §4 **In-wave order** `:537` — *"`a` preconditions (FW6-G19 receipt + **F.W5 clause set** + FW6-G18 rulings)"* — supplies the F.W5 edge; `:542` (*"**F.W0 substrate pre-gates FIRST**"*) supplies the F.W0 edge. Both are sequencing declarations; neither is an `Opens after` line. |
+| `F-W10.md` | `F-W9.md:15`'s chain (F.W10 sits below F.W9); **RE-CUT-0** declared at both ends (`grep -c 'RE-CUT-0'` → F-W9 **4** · F-W10 **3**; `G-F10-6` ×**15** in F-W10); and its own `:7` §Scope (*"The F-side **terminal** wave"*), which is what fixes it as the track's last node. |
 
 ### §1.0 The four tracks are genuinely parallel
 
 Each sub-tranche edits a **different repository**. The cross-sub-tranche graph is thin (§1.5).
 Under the four-workflow cap (§5.1) the executor runs at most four sub-tranche heads concurrently,
-and the four heads may open together at the begin-word — nothing in any track gates another
-track's head:
+and the four **track** heads may open together at the begin-word — nothing in any track gates
+another track's head:
 
 | track | head | repo | gated on | owner items due AT this opening |
 |---|---|---|---|---|
@@ -57,6 +73,30 @@ track's head:
 | B · X·KF | `KF.W0` ∥ `KF.W1` | `keyframes.js` (+ `keyframes-v-exec`) | begin-word; KF.W0's §B-12 act is **the owner's hand** | **OP-1 — kf write authority (owner-held; nothing kf-side dispatches until ruled)**; OP-6 (`smooth-step-3`) before KF.W4 unit `.e`'s G-14 arm |
 | C · X·F | `F.W0` | `fourier-analysis` | begin-word only | OG-F1 (freeze-with-adoption vs re-root); G-15's rulings; G-10's KEEP/ISOLATE/DELETE breath; ESC-1/G1 (the F.W1 pin target) before F.W1 opens |
 | D · X·P | `X.P.W0` | `parse-that` + the fresh root | begin-word only | OC-1 (bench bar) — RC-P conjunct 5's subject, rulable any time before X.P.W4 evaluates; the separate release word (X.P.W4 OP-1) |
+
+**HEADS RE-DERIVED FROM THE SETTLED EDGES ⟨union repair round 1⟩.** The claim above is not taken
+from the diagrams' left margins — a left-margin node is a drawing decision, and it is precisely
+what went wrong in §1.3, where F.W9 sat at the margin with no in-edge while its own spec declared
+four hard predecessors. Each track's head is therefore **re-derived as its in-degree-zero set**
+over §1.1–§1.4's edge tables as repaired:
+
+| track | root set (in-degree 0, computed) | count | note |
+|---|---|---|---|
+| A · X·V | `{X-W0}` | **1** | R.1's diagram makes every other wave a child of X-W0; the three surviving cross-wave write-order edges (W2→W5, W6⟂W7, W8→W5's C3 back-gate) add in-edges, never roots. |
+| B · X·KF | `{KF.W0, KF.W1}` | **2** | KF-W1 §State `:35` makes W1 a **second** root (*"**Not** after X.KF.W0"*). **KF.W3 is not a third root**: it is gate-keyed and takes no ordering edge in either direction (§1.5 E-1) — it sits outside the ordered graph. The MINTED-UNAUTHORED three likewise take no verb and enter no order (§4.5). |
+| C · X·F | `{F.W0}` | **1** | **Exactly one — and only after this round's repair.** As drawn before, F.W9 had no in-edge and the computed root set was `{F.W0, F.W9}`, which would have made this section's own head table wrong at Track C and let an executor open F.W9 beside F.W0. F-W9 `:15`'s chain is restored at §1.3 in both the diagram and the edge list. |
+| D · X·P | `{X.P.W0}` | **1** | Strictly serial; every other wave names its predecessor's close. |
+
+**Restated precisely: four track heads, five root waves.** The imprecision is Track B's, and the
+table above already spells it — the X·KF head is the declared pair `KF.W0 ∥ KF.W1`, not one wave.
+Under the four-workflow cap the executor opens four **tracks**; Track B's two roots share that
+track's single slot (KF.W1 is 3 Opus serial, §5.1), so the cap is not strained by the fifth root.
+
+**The "may open together" claim SURVIVES the re-derivation.** No root in any track carries an
+in-edge from another track: §1.5's four cross-sub-tranche edges land on **KF.W3** (gate-keyed,
+never scheduled), on **F.W5 ∥ the X·V API row** (declared mutually non-gating), and on **X-W9**
+(not a head) — and the Glass-8 atomic cut is declared value.js-internal with each sibling's
+non-edge stated so the absence is measurable. Five roots, zero cross-track in-edges.
 
 ### §1.1 Track A — X·V (`waves/W0..W11.md` as amended by §READINESS R.1)
 
@@ -171,11 +211,32 @@ F.W1  ONE ATOMIC LAND-OR-LOSE TRANSACTION (TWELVE limbs)  ⊙ ESC-1/G1 OWNER-GAT
    │        arm is NOT so gated — fr-App C-2: the colors.ts cure is landable at 0.13.0
    │        today, alone)
    ├─ F.W3  Shadow retirement + glass suffusion   ── COHESION §2 law: after F.W1
-   └─ F.W4  Saturated frontend audit              ── COHESION §2 law: after F.W1
-F.W9 ──► F.W10   ── RE-CUT-0 (G-F9-21 ≡ G-F10-6) precedes both stamps; any change to
-       the shared §2.2 bytes is a PAIRED EDIT in ONE commit; "F.W10 does not author
-       F.W9"; F.W10 reconciles the boundary AGAINST the dispatched O-20 packet — "it
-       does not re-send it"
+   │        ⊕ PARTIAL — "except the §C.H rows expressly available at the installed
+   │          pin, which need F.W0 only" (F-W3 §State :100; K-7/K-12 refuted their
+   │          version framing). The track's SECOND partial-parallel edge, honoured
+   │          exactly like F.W2's specifier/colours split
+   ├─ F.W4  Saturated frontend audit              ── COHESION §2 law: after F.W1
+   │
+   └─ F.W3 ∧ F.W4 ──►  F.W9  Deploy spine · seats+harness · evidence
+                         ── NOT A ROOT. F-W9 §State :15 declares the WHOLE chain:
+                            "Opens after: F.W0 (substrate pre-gates, hard) → F.W1
+                            (atomic) → F.W3/W4 (the cures this wave gates)" —
+                            FOUR hard predecessors. F.W9 is the DEEPEST node in
+                            Track C and may NEVER open beside F.W0 at the
+                            begin-word. ⟨Drawn as a root in the 08-30
+                            agglomeration; chain restored at union repair
+                            round 1 — §1.0's Track-C root set is `{F.W0}`.⟩
+                              │
+                              ▼
+                       F.W10  Coordination discharge + close  ── TERMINAL
+                         ── F-W10 declares no `Opens after`; its position derives
+                            from F-W9 :15's chain, RE-CUT-0 at both ends, and its
+                            own :7 §Scope ("The F-side terminal wave").
+                            RE-CUT-0 (G-F9-21 ≡ G-F10-6) precedes both stamps; any
+                            change to the shared §2.2 bytes is a PAIRED EDIT in ONE
+                            commit; "F.W10 does not author F.W9"; F.W10 reconciles
+                            the boundary AGAINST the dispatched O-20 packet — "it
+                            does not re-send it"
 ```
 
 | edge | reason (source) |
@@ -186,13 +247,14 @@ F.W9 ──► F.W10   ── RE-CUT-0 (G-F9-21 ≡ G-F10-6) precedes both stamp
 | F.W0 internal: G-3 → the SENDs | The P-1/P-6 packets name *"whoever holds the mail seat"*; the seat is created here, so no letter leaves before G-3. |
 | **FR-NP-32 before every dist-dependent witness** | 11 of 11 F-W* specs carry it. The corrupt glass 4.0.0 `dist/styles/index.css` reddens every emitted-CSS readback; the SS-13 residues are *"BLOCKED, not merely unrun … gated on G-4/G-5 and must not be queued as independent visual work"* (F-W0 §6b). Citation form: **FR-NP-32 (≡ fr-PaperSidebar M1) — cite both, never substitute** (SEAMS S-23). |
 | F.W0 → F.W1 | F-W1 §State `:7`: *"Opens after: F.W0 closes (G2 · G3 · MISS-LC2 · F8-REACH-01+02) **and** the owner's begin-word **and** ESC-1 ruled (G1)."* F.W1 reads F.W0's published results, never contains its acts. |
-| F.W1 atomic | F-W1 §4 step 4: **ONE commit, TWELVE limbs** (glass 4→7(→8/9, G1/ESC-1 owner-gated) ∧ keyframes 4.3→6 ∧ value 0.13→4.0 + Button rewrite + lucide rename + FR-EQC-7 vaul-vue gate + …) — *"cited whole and never restated"* (ten of eleven specs cite it in one spelling, SEAMS S-22). *"A partial landing is the land-or-lose failure the L-18 base forbids."* |
+| F.W1 atomic | F-W1 §4 step 4: **ONE commit, TWELVE limbs**. **The charter, quoted at the spec's own bytes** ⟨`F-W1.md:5`, the `**Name**` masthead — cured at union repair round 1⟩: *"glass-ui **`4→7(→8, G1-gated)`** ∧ keyframes 4.3→6 ∧ value.js 0.13→4.0, ONE land-or-lose transaction, + the `lucide-vue-next`→`@lucide/vue` rename + the pencil-boil floor correction"* (plus the FR-EQC-7 vaul-vue gate and the remaining limbs) — *"cited whole and never restated"* (ten of eleven specs cite it in one spelling, SEAMS S-22). *"A partial landing is the land-or-lose failure the L-18 base forbids."* **⊘ The 9.0.0 branch is NOT in that quotation and must not be written into it.** The prior spelling `4→7(→8/9, G1/ESC-1 owner-gated)` rendered this runbook's own S-11 extension inside a citation of spec bytes that do not carry it: `grep -c '9\.0\.0' fourier/waves/F-W1.md` → **0**, and `grep -rl '9\.0\.0' waves/ keyframes/waves/ fourier/waves/ parse-that/waves/ COHESION.md` → **no output — no X spec anywhere contains the string**. **The runbook's own owed-addendum note, stated beside the quotation and never inside it**: S-11's 9.0.0 ACK widens X·F's election set, and **§3.2 already books it** — *"X·F elects its own target at **ESC-1/G1**, whose PIN-LAW gains the tag-pinned-vs-registry-pinned clause (S-11 cure) so an owner electing 9.0.0 knows it elects a tag"* — as an **addendum-beside owed at F-W1's PIN-LAW** (§3.1 seam 6, owning end `F-W1 PIN-LAW`), not as a fact already in the spec. Writing `/9` into the quote pre-empts the very E-3 addendum §3.2 says is required. |
 | F.W5 G11 → F.W1 sizing | fr-AdminFlaggedPanel ruling 5 (F-W5 `:176`): *"the F.W5-W8 producer-or-retire decision must precede F.W1's sizing where grades are load-bearing"* — **a back-edge into the atomic wave; the operator schedules the G11 ruling before F.W1 sizes.** |
 | F.W1 → F.W2, partially | F-W2 §State `:48`: *"F.W1 landed **for the specifier arm only** (the colours arm is *not* so gated, fr-App C-2)"* — a genuine partial-parallel edge, honoured. C·D-11's backward pin makes F.W2's specifier arm un-landable alone before W1. |
-| F.W1 → F.W3 / F.W4 | COHESION §2: *"F.W1 tri-package uplift precedes F.W3/F.W4 — no fourier frontend spec may assume the uplifted tree before W1 lands it."* |
+| F.W1 → F.W3 / F.W4 | `COHESION.md:74`: *"**F.W1 tri-package uplift precedes F.W3/F.W4** — no fourier frontend spec may assume the uplifted tree before W1 lands it."* **F.W3's edge is PARTIAL, as F.W2's is** ⟨restored at union repair round 1⟩: F-W3 §State `:100` reads *"Opens after: F.W0 (substrate: the GAB-13 dirty-set settle, the **`FR-NP-32` (≡ `fr-PaperSidebar M1`)** corrupt-dist settle …) and F.W1 … — **except the §C.H rows expressly available at the installed pin, which need F.W0 only** (K-7/K-12 refuted their version framing)."* The operator schedules the §C.H rows behind F.W0 alone; everything else in F.W3 waits on F.W1. F.W4 carries no such exception and is gated whole. |
 | F.W0 → F.W5 (NOT F.W1) | F-W5 §State `:35`: *"Opens after: **F.W0** (substrate pre-gates — HARD, §4 X-1) · the intake adjudication · the adjudicated fourier registry whole (66/66)."* **The ADMISSION KEYSTONE is not downstream of the uplift** — it runs beside F.W1. SS-4: twice-authored; neither side's edits gate the other's waves; TA-4 (value-side atomdiff restoration) is a named prerequisite or the contract re-scopes explicitly. |
 | F.W5 → F.W6 / F.W7 / F.W8 | F-W6 order `a` consumes the F.W5 clause set; F-W7 §State `:83` names F.W0 (hard, G-F7-7) · F.W5 §2 clauses E16 · E1 · E3⊕G4 · E10 · the owner's G-F7-1 ruling; F-W8 §State `:63` names F.W0 · **F.W1.close** · **F.W2** · F.W5's three artifacts. |
-| F.W9 ↔ F.W10 | RE-CUT-0 (G-F9-21 ≡ G-F10-6) precedes both stamps; shared-§2.2 changes are a paired edit in one commit. F.W9's G-F9-1 owns the unit-test FLOOR; F.W0's G-9 owned only the SEAT (*"the seat is a precondition of the floor, never a down payment on it"*). F.W10 is the terminal disposition of every deferred row. |
+| **F.W0 → F.W1 → F.W3/W4 → F.W9** ⟨**RESTORED, union repair round 1**⟩ | **The dropped edge, and the reason it mattered.** `F-W9.md:15` (§State, on the **Four-verb** line): *"**Opens after**: F.W0 (substrate pre-gates, hard) → F.W1 (atomic) → F.W3/W4 (the cures this wave gates)."* **Four hard predecessors, drawn as an arrow chain, not a set** — F.W9 gates the cures F.W3/W4 land, so it reads them after they land. Every prior draft and the 08-30 agglomeration drew F.W9 at Track C's left margin with **no in-edge and no row in this table**, which — beside §1.0's *"the four heads may open together"* — licensed an executor to open F.W9 at the begin-word beside F.W0, against a tree with no re-grounded substrate, no uplift and no cures. It is the class §1's own preamble commits to sourcing. **All four in-edges now hold in the diagram and here.** Cross-checks at the bytes: **`F-W9.md:218`** — *"**F.W9 owns the checkpoint, never the cure** — every item below is minted by **F.W1's** transaction (cited whole at §4a-3) or cured at F.W3/W4"* (the same sentence stands in the twin at `F-W10.md:107`, the §2.2 spliced region — cite the F-W9 home when the claim is about F.W9's own predecessors). And F.W9's `Agents` declaration, carried on that same `:15` §State line, is **3 serial, never parallel** — units 2 and 3 both write `web/package.json` and `.github/workflows/ci.yml` — so the wave admits no internal fan-out that could compensate for an early open. |
+| F.W9 ↔ F.W10 | RE-CUT-0 (G-F9-21 ≡ G-F10-6) precedes both stamps; shared-§2.2 changes are a paired edit in one commit. F.W9's G-F9-1 owns the unit-test FLOOR; F.W0's G-9 owned only the SEAT (*"the seat is a precondition of the floor, never a down payment on it"*). F.W10 is the terminal disposition of every deferred row. **F.W10 declares no `Opens after`** ⟨repair round 1⟩ — its position is derived, not declared: F-W9 `:15`'s chain places F.W9 above it, RE-CUT-0 is stated at both ends (`grep -c 'RE-CUT-0'` → F-W9 **4** · F-W10 **3**), and F-W10 `:7` §Scope fixes it as *"The F-side **terminal** wave"*. Since F.W10 sits below F.W9, **F.W9's four restored predecessors are transitively F.W10's** — F.W10 was never a root either, and nothing in this track opens at the begin-word but F.W0. |
 
 ### §1.4 Track D — X·P (`parse-that/waves/W0..W4.md`) — strictly serial
 

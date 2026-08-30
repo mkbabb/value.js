@@ -214,3 +214,134 @@ in X. With §0c (X·V) and §0e (X·KF), **all three sub-tranche spec layers are
 Standing: the X-whole union pass (seams · G-F stamp · the whole-tranche execution runbook) is the
 sole remaining artifact before tranche development is COMPLETE — launched on this addendum's date.
 Execution gate unchanged: the owner's begin-word is the only key.
+
+## §0g ADDENDUM 2026-08-30 — X-UNION REPAIR ROUND 1: THE SPINE'S THREE CURES (S-4 · S-19 · S-9)
+
+**Authority**: `docs/tranches/X/union/SEAMS.md` — the X-whole union pass seam register (24 seams,
+15 CONSISTENT, 9 CONVICTED, authored 2026-08-30 by the seam-adjudicator seat). This block executes
+**per X-union SEAMS.md S-4 cure, S-19 cure and S-9 cure, 2026-08-30**, the three convictions whose
+owning end is this file. Per SEAMS §8's recommendation the spine takes **one** dated addendum at
+this boundary rather than three.
+
+**E-3 posture.** This is an **addendum-beside**. **§0a..§0f are not rewritten, §0d is not
+rewritten, and §2's bullets keep their bytes** — dated sections are never rewritten; each cure
+below states the **strike** and the **replacement** in current voice, and the superseded reading
+stays legible at its own site. **No wave is authored here.** No four-verb row moves, no gate is
+minted or re-staged, no sibling spec is edited, no product source is opened. Status stays `planned`
+in all four sub-tranches. **The owner's begin-word remains the only execution key**, and neither
+disposition below may be executed before it.
+
+### §0g.1 · S-4 — THE X·V L1/L5 PARSER-ADOPTION LEG IS **UNHOMED** AND **OWNER-OWED**
+
+**What §2 says.** Its first bullet routes the chain *"PLAW-BIND — parser → value (X·V L1/L5
+surfaces) → packed release → consumers"*. **The chain's middle link — the X·V wave authorized to
+consume the parser seam — is held by no wave, and both named ends say so in their own bytes.**
+
+- **X·P's end** (`parse-that/waves/W4.md`, §OPEN-PROBLEMS row **OP-4**, read at this seat):
+  *"**The X·V adoption surface.** Some X·V (or successor) wave must be authorized to consume the
+  seam. | **DOES NOT EXIST — this is the wave's principal finding.** … None of X-W0..X-W11 adopts
+  one. | G-9's terminal disposition. This is a **coordination mark carried to the owner**, never a
+  unilateral wave invention: X·P does not get to author an X·V wave."*
+- **X·V's end** (`waves/W9.md`, §X-W9.g and §Hard Gate row **G31**, read at this seat): the unit
+  *"…adopt a parser; it records why value.js ships none of parse-that today"*, and G31's falsifier
+  is *"Record a dependency state the manifest does not show, or adopt a parser inside this wave"*,
+  against a measured dependency set of exactly
+  `{"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}`.
+
+**The defect is the spine's, not either sub-tranche's.** Both ends stated the gap honestly; §2
+asserts a chain whose middle link both of them disclaim. **DECLARED HERE, in current voice: the
+X·V L1/L5 parser-adoption leg is UNHOMED — no X wave holds it — and its disposition is
+OWNER-OWED at the X-W0 sitting.** §2's PLAW-BIND bullet is **not** struck: its routing is correct
+and remains the law (direct parse-that→fourier stays FORBIDDEN). What is corrected is the reading
+that the L1/L5 leg is an *existing* edge: **it is a declared, unhomed leg pending the owner's
+disposition.**
+
+**The three admissible dispositions are G-9's, quoted from `parse-that/waves/W4.md` §Hard Gate
+`G-9` and not re-worded here:**
+
+| id | disposition | what it decides |
+|---|---|---|
+| **A** | *"the owner authorizes a successor X·V wave (a thirteenth X wave, or a post-X tranche wave) that consumes `SEAM-CONTRACT.md` at `src/css/**`"* | mints the missing wave; its authoring seat and boundary are the owner's to name |
+| **B** | *"the owner amends X-W9's G31 to admit adoption inside tranche X, which also decides whether the adoption rides X-W9's dated cut and X-W11's release (OP-5)"* | keeps the leg inside X and binds it to the 4.1 cut + release |
+| **C** | *"the row closes `BLOCKED-ON <exact condition> + <re-trigger command>` (the X-W11.a idiom, L-4) and X·P ends with RC-P permanently FALSE until that condition fires"* | closes the leg with a named re-trigger; RC-P stays FALSE meanwhile |
+
+**G-F register consequence, stated so the stamp is not taken on a phantom edge.** G-6's **third**
+commissioned sentence — *"This wave consumes `docs/tranches/X/parse-that/SEAM-CONTRACT.md` at
+`src/css/**`; X·P writes no bytes here."* — enters the X-whole G-F register as
+**UNHOMED-PENDING-OWNER**, **never as an existing edge**, and no §3.4 reciprocity is claimed for
+it: it has no file to live in until disposition **A** or **B** is ruled. G-6's other two sentences
+are unaffected (X·KF's is discharged verbatim at `keyframes/waves/KF-W3.md`; X·F's is the separate
+S-3 conviction, owned at `fourier/waves/F-W0.md` and not curable from here).
+
+**No wave is authored by this cure**, and no seat may read it as authorization to author one —
+OP-4's own words govern: *"X·P does not get to author an X·V wave"*, and neither does the spine.
+
+### §0g.2 · S-19 RIDER — §0d's `KF-W4:249` ANCHOR IS **STRUCK**; THE STABLE ANCHOR REPLACES IT
+
+**§0d is not rewritten.** Its citation *"KF-W4:249's R-15 homing block"* is **STRUCK as a
+coordinate** by this dated rider, and the replacement anchor is:
+
+> **`keyframes/waves/KF-W4.md` §Sequencing — the R-15 homing block** (the paragraph opening
+> *"NO-WAVE-OWNER packets, HOMED from this end"*, whose roster is RULINGS **R-15**'s canonical
+> SEVENTEEN). **§-heading + rule id, no numeral** — matching KF-W10's own spelling of the same
+> citation, *"KF-W4 R-15 homing"*.
+
+**Verified at this seat, 2026-08-30, read-only** (the drift is real and the strike is earned):
+`sed -n '249p' keyframes/waves/KF-W4.md | wc -c` → **1** — the cited line is **blank**;
+`grep -n 'R-15' keyframes/waves/KF-W4.md` returns the homing block at **`:254`**, its three wave
+bullets at `:256`–`:258`, under the heading `## §Sequencing` at `:244`. **The anchor was dead by
+five lines when this rider was written, and the numeral is not re-issued** — a fourth coordinate
+would repeat the defect rather than cure it. **The replacement anchor resolves uniquely**, which is
+the only receipt a stable anchor owes (KF-W4's own LAW E(4) idiom — the coordinate it returns is
+deliberately not transcribed): ⟨cmd⟩ `grep -c 'NO-WAVE-OWNER packets, HOMED from this end'
+keyframes/waves/KF-W4.md` → **1**; `grep -c '^## §Sequencing' keyframes/waves/KF-W4.md` → **1**.
+
+**The form was the defect independent of the drift.** X·F convicts this class at its own **E-11**
+and X·KF at **D3-3/D3-4**; KF-W4's own R-15 row carries three retired coordinates (`:276` → `:401`
+→ neither) as its proof that *a line number is not a receipt*. The spine held itself to a lower bar
+than the specs it governs; it no longer does. **Standing rule, adopted here for this file: no
+COHESION citation into a live sibling carries a line number — §-heading plus row/rule id only.**
+§0d's substance is untouched (the mint, the 9+6+2 partition, the six travelling locks, the
+SS-1/SS-2 authoring seat, and the AUTHORED-ELEVEN stamp scope all stand exactly as §0d states
+them, and S-18 adjudicated them CONSISTENT sentence-for-sentence).
+
+### §0g.3 · S-9 — THE GLASS-8 ATOMIC-CUT LAW IS **RE-SCOPED TO THE REPO IT GOVERNS**
+
+**§2's Glass-8 bullet is not rewritten.** Its current bytes read:
+
+> *"- **Glass-8 census (X-W0.j) → X.W4.g**: the one atomic trigger-gated cut; sub-tranches never
+> consume glass 8 independently."*
+
+**The universal quantifier in its second clause is STRUCK by this dated addendum.** The bullet is
+**re-scoped, in current voice, to:**
+
+> **Glass-8 census (X-W0.j) → X-W4.g: the one atomic trigger-gated cut IN VALUE.JS. No X·V wave
+> consumes glass 8 outside the X-W0.j → X-W4.g family.**
+
+**Why the re-scope, measured.** The atomicity law was stated at the spine alone and reciprocated
+nowhere — ⟨cmd, this seat, read-only 2026-08-30⟩ `grep -rl 'X-W0\.j' keyframes/waves/
+fourier/waves/` → **no output**; `grep -rn 'glass 8 independently\|Glass-8 census' keyframes/waves/
+fourier/waves/` → **no output**. Meanwhile each sibling decides its own producer pin under its own
+owner gate: **X·F** at `F-W1` **G1/ESC-1** (the `4→7(→8, G1-gated)` re-pin, 8.0.0-aware at row
+granularity), **X·KF** at `KF-W0` **§B-12**'s 7.0.0 EXACT devDep. Under §2's own closing bullet —
+*"Cross-repo edges are declared FROM BOTH ENDS in the spec files"* — an edge stated at one end is
+not an edge. **X-W0.j is a value.js repin act reading value.js's installed bytes**; it never had
+standing to bind another repo's manifest, and the quantifier that said otherwise reached trees this
+spine does not own.
+
+**What is NOT changed.** The cut's **atomicity inside value.js is unweakened** — one trigger, one
+receiver, one spelling (S-24 adjudicated CONSISTENT: X-EXT-6 → X-W0.j, X-EXT-4 → X-W4.g, every
+X-EXT row riding the glass-adopt family); no interim wrapper, no second migration, no copied
+selector. **No sibling ruling is edited by this cure.** SEAMS' second move — the one-line
+non-edge declaration owed at `fourier/waves/F-W1.md` §Cross-edges and `keyframes/waves/KF-W0.md`
+§Sequencing (*"the COHESION §2 Glass-8 atomic cut is a value.js act; this repo's producer pin is
+decided at G1/ESC-1 (resp. §B-12's 7.0.0 pin) and creates no edge into X-W0.j"*) — **is owed at
+those two files and is NOT written here**: a reciprocity a seat authors on both ends is not a
+reciprocity. Until they land, the non-edge is **declared from this end only** and is carried as
+such.
+
+**Rider (S-11's fact, so this bullet is not re-scoped onto a stale option set).** The producer has
+since cut **9.0.0** (INBOX **I-30**, rowed this boundary). X-W0.j's four-condition verdict is
+widened by its own dated addendum to enumerate **8.0.0 AND 9.0.0** as candidate targets; the
+atomic-cut law above governs whichever target the census returns, and electing neither is a
+complete result.

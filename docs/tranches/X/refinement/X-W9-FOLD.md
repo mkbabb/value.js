@@ -1358,3 +1358,167 @@ and contiguous **W9.1 … W9.46**; zero ids minted, zero renamed. **This section
 whether the layer now carries every escaped ⟨record·id⟩ under its own namespace is settled by the
 **pass-4 census artifact**, re-derived from the twelve folds' own bytes under §1.G at a named HEAD —
 never in this seat's voice. Status remains **planned**; no product source was opened.
+
+---
+
+## 20. X-UNION REPAIR ROUND 1 — F.W2's PACKET **P-7** BOOKED **RECEIVED** (2026-08-30)
+
+**Written per X-union SEAMS.md S-6 cure, 2026-08-30.** Authority: `docs/tranches/X/union/SEAMS.md`
+§2 conviction **S-6**. The conviction: X·F declares a value-side reciprocal by name under COHESION
+§2's both-ends law (*"Cross-repo edges are declared FROM BOTH ENDS in the spec files"*), and **the
+named receiver booked nothing** — ⟨SEAMS' measurement⟩ `grep -rc 'P-7' waves/
+REFINEMENT-FOLD-2026-08-28.md` → **0** at every X·V file; `grep -rln 'startsWith is not a function'
+waves/ refinement/` → no output. **A declared cross-repo edge with a declaring end and no receiving
+end is exactly what §2's closing bullet forbids.** This section is the receiving end.
+
+**Where and why here.** The cure is written **at `refinement/X-W9-FOLD.md` and never at
+`waves/W9.md`**, which is UNTOUCHABLE under this fold's own E-3 posture (§1). **E-3 governs**: an
+addendum-beside. **§§1–19 are not rewritten**; nothing above this line moves.
+
+**Posture.** Status **`planned`**. **No gate is minted, re-staged, re-weighted or composited** —
+the roster stays **13 born-RED (+12 sharpenings)**. **No row enters the `W9.1 … W9.46` band**,
+which stays gapless and contiguous with **zero ids minted or renamed** in it; the rows below are
+minted in a **separate, non-registry namespace** (`X-P7-*`), the §EXTERNAL idiom — *mail/sibling-
+sourced, cited ⟨F-W2 §6b · P-7 clause (n)⟩, never as registry ids*. **§14 BoundsDelta is
+unchanged (6).** **§15 CrossEdges receives ONE edge this round** — stated, not silent (see §20.3).
+No product source was opened for edit; the measurements below are read-only runs against the
+**published `dist/`** at `package.json#version` → **`4.0.0`**.
+
+### 20.1 The declaration this section answers, at its own bytes
+
+⟨cmd⟩ `grep -c 'F\.W2 DECLARES; value\.js OWES the reciprocal' fourier/waves/F-W2.md` → **1** (a
+unique row label, not a line number — the anchor is `F-W2 §6b Cross-edges`, the `X·V / V·π` row).
+Its bytes, read at this seat 2026-08-30:
+
+> *"| **X·V / V·π** parser-seam program | **F.W2 DECLARES; value.js OWES the reciprocal** | Packet
+> P-7's reciprocal, per COHESION §2's both-ends law: **(a)** `color2` rejects its own sibling
+> parser's output and the unwrap silently returns wrong channels; **(b)** `colorUnit2`/`color2` are
+> **both deleted at 4.0.0** — the banked constraint is a 0.13.0-window rule; the 4.0.0 remedy is
+> `parseCssColor` + `convertColor`; **(c)** `parseCssColor` on `oklch()`/`light-dark()` is probed at
+> 0.13.0 **only** (G9); **(d)** the G18 reciprocal, reshaped at the fold seat — `parseStylesheet` is
+> **total on the string arm** (returns `ok: false` + a `css_syntax` diagnostic on the corrupt glass
+> dist, corroborating FR-NP-32) but **throws on Buffer input** (`e.startsWith is not a function`),
+> the surviving totality nit for X-W9; **(e) direct parse-that→fourier is FORBIDDEN** — the seam
+> travels through the parser-seam program. Owner-mail flag stands |"*
+
+**P-7 is hereby RECEIVED at the X·V end.** Every clause below has a disposition; none is left for
+F.W2 to infer.
+
+### 20.2 The four clauses, dispositioned — with this seat's own measurements
+
+**Measurement harness (one command, re-runnable, read-only):**
+
+```
+node -p "require('./package.json').version"                       # -> 4.0.0
+node -e "import('./dist/subpaths/css.js').then(m=>{ /* calls below */ })"
+```
+
+**X-P7-d · CLAUSE (d) — ACCEPTED, BOOKED, and it joins the R1/totality family**
+(the clause the cure names; **born-RED witness measured at this seat**)
+*Confirmed independently, not inherited.* ⟨run, 2026-08-30, `dist/subpaths/css.js`⟩
+`parseStylesheet(Buffer.from("a{color:red}"))` → **`TypeError: e.startsWith is not a function`** —
+**F.W2's string is exact, character for character.** `parseStylesheet` is declared over the same
+`ParseResult` contract as the rest of `src/css` (**no throw channel**), so a non-string input
+crossing the JS boundary produces a **thrown TypeError from a function whose type says it cannot
+throw** — the identical shape as **W9.1**'s `<any-ident>()` class, one input-domain over.
+**Born-RED gate witness (named, status `planned`, MEASURE-AT-OPEN)**: the vector
+`parseStylesheet(Buffer.from("a{color:red}"))` returns `ok:false` with a diagnostic instead of
+throwing. **Real product consumer (L-19, not a proof farm)**: `parseStylesheet` is the entry the
+**fourier substrate pre-gate** drives when it reads a producer's `dist/styles/index.css` off disk —
+`readFileSync(path)` without an encoding argument returns a **`Buffer`**, and that is the ordinary,
+non-adversarial way this input arrives. *Falsifier*: narrow the battery to string inputs and the
+Buffer arm throws again with every existing gate green.
+**Routing — a WIDENING of an existing gate, NOT a new one**: the vector is added to **NG-2**'s
+corpus (*"R1 corpus widened to `<any-ident>()` + the three-entry asymmetry"*, row **W9.1**), whose
+battery already carries the entry-point asymmetry across `parseCssColor` / `parseCssValue` /
+`parseCssScalar` / `parseStylesheet`. **The input-domain axis (non-string input) is what NG-2 did
+not have.** The widened corpus lands **inside Commit Plan row 1** (the RED-first commit), per
+W9.1's own sequencing — never added after the cure.
+**One honest scope-narrowing on F.W2's own words, stated so the citing end is not misled**: *"total
+on the string arm"* is true **for the input F.W2 measured** (the corrupt glass dist → `ok:false` +
+a `css_syntax` diagnostic, corroborating FR-NP-32) and is **not** true universally — ⟨run⟩
+`parseStylesheet("a{color:oklch()}")` → **`TypeError: Cannot read properties of undefined (reading
+'replace')`**, which is **W9.1's already-booked string-arm throw**, re-confirmed here. **The two
+findings do not conflict**; the string arm is total over *syntax-error* input and throws over the
+*empty-function* class. **No row is re-booked by this note** — W9.1 keeps the string arm, X-P7-d
+books the Buffer arm, and neither cure is complete without the other.
+⟨F-W2 §6b · P-7 clause (d) — the G18 reciprocal⟩
+
+**X-P7-a · CLAUSE (a) — DECLINE-with-reason (no surface to cure at 4.0.0; the finding is kept, not
+dismissed)**
+*Measured at this seat, 2026-08-30*: ⟨cmd⟩ `grep -rn "colorUnit2\|color2" src/` → **no output**;
+`grep -rlo "colorUnit2\|color2" dist/subpaths/*.js` → **no output**. **The symbol `color2` does not
+exist in the shipped library**, so *"`color2` rejects its own sibling parser's output and the
+unwrap silently returns wrong channels"* has **no live surface in X-W9's cut**. **DECLINED as a
+booking at the X·V end, ACCEPTED as history** — it is a true 0.13.0-window observation whose
+subject was deleted, and X-W9 does not book cures for deleted symbols.
+**Two things this decline explicitly does NOT do.** (1) **It does not disturb P-7's home ruling.**
+X·F's own packet body settles ownership — ⟨cmd⟩ `grep -n 'E2 · MG-ι' fourier/waves/F-W2.md` →
+*"**P-7 home ruling adopted: F.W2 BOOKS the constraint** — 'fourier's value.js-consumption wave is
+the declaring end … Booking it NO-WAVE-OWNER leaves a live trap stateless'"*. **The constraint is
+F.W2's booking and stays F.W2's**; what was owed here was the *reciprocal*, and the reciprocal is
+this answer. (2) **It does not drop the behavioural concern.** The measured 0.13.0 shape —
+*"`color2(parseCSSColor(x), …)` **throws**, and `color2(parseCSSColor(x).value, …)` does **not**
+throw and returns **wrong channels** ({r:0.33,g:0.54,b:0.32}, green for a red input) — 'the obvious
+unwrap repair ships a wrong-colour bug with no error signal'"* — is **exactly the standing shape of
+W9.2** (the mirror family: a silent wrong accept is worse than a throw, *because nothing downstream
+can detect it*), whose live gate is **NG-1**'s seven-vector battery. F.W2 may cite **this decline
+plus W9.2/NG-1** as its answer, and the class is gated at 4.0.0 even though the symbol is gone.
+⟨F-W2 §6b · P-7 clause (a) · F-W2 §E2 · MG-ι⟩
+
+**X-P7-b · CLAUSE (b) — ACCEPTED as a statement of fact; NO booking owed**
+*Measured, same commands as X-P7-a*: `colorUnit2` and `color2` are **both absent** from `src/` and
+from the packed `dist/subpaths/*.js` at `4.0.0`. **F.W2's clause is correct and self-discharging**:
+it records that the banked constraint is a **0.13.0-window rule** and names the 4.0.0 remedy
+(`parseCssColor` + `convertColor`) itself. **Nothing is owed at the X·V end** beyond this
+confirmation, which is what a both-ends law is for — the receiving end says *measured, agreed*
+rather than leaving the declaring end to assume it.
+⟨F-W2 §6b · P-7 clause (b)⟩
+
+**X-P7-c · CLAUSE (c) — ACCEPTED, and the clause's own gap is CLOSED FROM THIS END: the
+4.0.0 target is now PROBED**
+**This is the clause with real cargo.** F.W2 states the probe scope honestly and names what it
+could not reach — ⟨cmd⟩ `grep -n 'the 4.0.0 target is unprobed' fourier/waves/F-W2.md` → *"fr-App
+K-11's R1-crash discharge was measured **at 0.13.0 only — the 4.0.0 target is unprobed** (G9)."*
+**X·V owns the 4.0.0 artifact, so X·V is the end that can close it, and does, here.** F.W2's
+companion finding that *"**The `light-dark()` probe-element rule survives BOTH pins and is the one
+constraint that transfers whole**"* is what makes the vector worth probing at the new pin rather
+than assuming it.
+*Measured at this seat, 2026-08-30, at `4.0.0`* — **the unprobed target, probed**:
+- `parseCssColor("light-dark()")` → **`TypeError: Cannot read properties of undefined (reading
+  'replace')`** — **the same R1 `<any-ident>()` throw as `oklch()`**. **ACCEPTED and adopted**:
+  `light-dark()` is added to **NG-2**'s enumerated vector list beside `oklch()` / `calc()` /
+  `foo()`. It mints no gate and no row — it is one more member of a class W9.1 already owns, and
+  naming it costs nothing while omitting it would let a cure pass a battery that misses it.
+- `parseCssColor("light-dark(red, blue)")` → **`{"ok":false,"diagnostics":[{"code":"css_syntax",…,
+  "expected":["CSS color"],…}]}`** — **total, non-throwing, and correctly typed.** The *well-formed*
+  `light-dark()` is **unsupported, not broken**: it returns a diagnostic exactly as the contract
+  requires. **DECLINED as an X-W9 booking, with the reason and the route stated**: supporting a
+  CSS Color 5 function is a **capability** question, not a **totality** question, and X-W9's goal
+  is totality (the type becoming true). Capability belongs to the parser-adoption program — which
+  is **UNHOMED and owner-owed** per `COHESION.md` **§0g.1** (G-9 dispositions A/B/C). **F.W2 has an
+  answer to cite for both halves**, and neither half is silently carried.
+⟨F-W2 §6b · P-7 clause (c)⟩
+
+**CLAUSE (e) — CONCURRED, no id minted.** *"direct parse-that→fourier is FORBIDDEN — the seam
+travels through the parser-seam program"* is the standing routing law, stated identically at
+COHESION §2 and at X.P.W4 §6a, and **X-W9 opens no such edge**: `X-W9.g` is on record that *"This
+wave does not adopt a parser"*. **The concurrence is the whole act**; a row would imply a cure, and
+there is nothing to cure.
+
+### 20.3 What §20 did and did NOT do — the arithmetic, stated
+
+| unit | round 3 | **§20 (2026-08-30)** | delta |
+|---|---|---|---|
+| rows in the `W9.1 … W9.46` band | 46 | **46** | **0** — the band is untouched, gapless, contiguous |
+| `X-P7-*` non-registry bookings (new namespace) | — | **4** (`X-P7-a` · `X-P7-b` · `X-P7-c` · `X-P7-d`) + 1 un-id'd concurrence (clause (e)) | **+4**, stated |
+| gates | 13 born-RED (+12) | **13 (+12)** | **0 — none minted, none re-staged or re-weighted**; NG-2's *corpus* widens by 2 named vectors (`Buffer` input · `light-dark()`) |
+| BoundsDelta (§14) | 6 | **6** | 0 |
+| CrossEdges (§15) | §15 + the round-1 EXTERNAL edge | **+ the F.W2 → X-W9 P-7 reciprocal, RECEIVED** | **+1 received** — round 3 recorded *"none received this round"*; this round received one, and says so |
+| census (120 tokens = 73 row lines + 47 non-row) | unchanged | **unchanged** | 0 — `X-P7-*` ids are not `X-W9` tokens and do not enter that count |
+
+**Booked no product change and opened no source for edit.** Every measurement above is a read-only
+run against the published `dist/` at `4.0.0`, re-runnable from the harness in §20.2. **No verdict
+of any sub-tranche is reversed**; three clauses are answered, one is booked, and the edge F.W2
+declared now exists at both ends. **Status remains `planned`; the owner's begin-word is the only
+execution key.**

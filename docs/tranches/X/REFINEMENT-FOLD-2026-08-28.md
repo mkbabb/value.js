@@ -965,6 +965,71 @@ sheet / api / specular / TagsInput break classes for us; the remaining I-21a arm
 easing ×6 · A-16 RTL · A-15 · A-10 · A-18) are re-cited by I-28's not-restated block and already
 ride the X-W4.g trigger family — they stay where their bookings live, un-re-booked.
 
+### §EXTERNAL·9 (dated 2026-08-30, X-union repair round 1) — the 9.0.0 successor-fact note, BESIDE the six rows
+
+**Written per X-union SEAMS.md S-11 cure, 2026-08-30.** Authority: `docs/tranches/X/union/SEAMS.md`
+§3 conviction **S-11** + the ledger row it produced, `docs/tranches/V/coordination/INBOX.md`
+**I-30** (the 2026-08-29 glass O-20 ACK, rowed 2026-08-30).
+
+**E-3 posture — read before the table.** This is an **addendum-beside**. **The six rows above are
+not rewritten and none of their bytes moves.** **The ids KEEP**: X-EXT-1..6 remain six, remain
+I-28-sourced (glass **8.0.0**), remain cited ⟨INBOX I-28 · X-EXT-n⟩, and keep their owning waves.
+**No id is minted, re-homed, renamed or retired; no row is re-booked; no gate is minted or
+re-staged; §0's arithmetic and §ROUND-4's pass-4 CONFORMANT verdict are untouched.** What this
+note adds is a **column, not a row**: where the producer's 2026-08-29 letter supplies a **9.0.0
+successor fact** for a row, it is recorded here beside that row so the executing seat reads the
+break at the version it will actually repin to. Status stays `planned`; no product source was
+opened; the owner's begin-word remains the only execution key.
+
+**The 9.0.0 fact, from the letter's own bytes** (I-30): *"**9.0.0 is CUT**: tag `v9.0.0` at
+`d4f7b24f`, pushed. `MIGRATION.md` §9.0.0 is the re-read datum — `./search` removed whole …,
+`./canvas` gone, the 8.1.0 dark-sync fold riding the same section."* — carried under the letter's
+own publish-state disclosure: *"**every content claim in this letter is tag-pinned, not
+registry-pinned**"* (the npm PUT is walled by an account-wide token restriction).
+
+| id | owning wave (UNCHANGED) | 8.0.0 booking (I-28, UNCHANGED) | **9.0.0 successor fact** |
+|---|---|---|---|
+| **X-EXT-1** | X-W7 (recipe home) | `SearchBar` DELETED under glass Ruling 1; four `demo/palettes/` edges; cure = compose the `.input-bar` recipe | **SUPPLIED — the successor fact, and it WIDENS the deletion**: `./search` is **removed WHOLE** at 9.0.0. The subpath, not just the component, is gone. **The cure is unchanged and now producer-confirmed**: the `.input-bar` recipe *"(on `./styles`, which SURVIVES untouched)"*. Also dying with the door: `searchVariants` (the CVA) and every `/search` type (`FuzzySearchState` · `SearchableItem` · `SearchIndex` · `SearchResult` · `SearchVariant` · `SearchVariants` · `UseFuzzySearchOptions`) — so `PaletteSlugBar.vue`'s `InstanceType<typeof SearchBar>` type use has **no type successor either**. The engine is ENGINE-INTERNAL; the letter records *"Four consumer edges existed at the cut, all in value.js's own demo tree"* |
+| **X-EXT-2** | X-W8 (demo/ui barrel) | `./forms` → `./input`; `demo/ui/input/index.ts:1` dies at the repin | **NONE SUPPLIED by the letter** — a named absence, not a silent carry. The 8.0.0 booking stands as authored; see the tag-measured input below |
+| **X-EXT-3** | X-W6 (ComponentSliders) | `grain` prop REMOVED whole-library; `ComponentSliders.vue:29` `:grain="false"` deletes at the adopt | **NONE SUPPLIED** — named absence. Booking unchanged; re-measure at the X-W0.j census against the elected target |
+| **X-EXT-4** | X-W4.g (receiving surface) | `--slider-track-bg` typed-seam BREAK, no alias; mail ×4 / tree 5 live binding sites, **both figures stated** | **NONE SUPPLIED** — named absence. Booking unchanged, both figures still stated, neither elected |
+| **X-EXT-5** | X-W1 (oracle slate) | o7 re-pins its `data-grain` expectation; `o7-card-census.spec.ts:104/:224/:234` born-RED at the adopt | **NONE SUPPLIED** — named absence. Booking unchanged |
+| **X-EXT-6** | X-W0 (X-W0.j, the repin act) | peer `vue-component-type-helpers ^3.0.3` required at adopt | **NONE SUPPLIED by the letter**; the peer is **unchanged at the tag** (measured below), so the install step the census's PASS branch needs is the same act at either candidate |
+
+**Re-measured at this tree, read-only, 2026-08-30 (this seat) — X-EXT-1's edges are live and
+correctly enumerated**: ⟨cmd⟩ `grep -rn "glass-ui/search" --exclude-dir=node_modules
+--exclude-dir=.git --exclude-dir=docs .` → **exactly 4**, at the four coordinates X-EXT-1 names —
+`demo/palettes/BrowsePane.vue:195` · `demo/palettes/admin/AdminPane.vue:87` ·
+`demo/palettes/browser/slug/PaletteSlugBar.vue:132` · `demo/palettes/PalettesPane.vue:149` — plus
+the `:166` type use already named in the row. **Two prose-only mentions are NOT edges and mint
+nothing**: `demo/palettes/browser/admin/AdminAuditPanel.vue:6` (comment) and
+`e2e/smoke/admin/admin-walk.spec.ts:11` (docblock) — named so a later sweep is not surprised by
+them.
+
+**`./canvas` — a measured ZERO for this repo, stated as a result and NOT minted as a row**: ⟨cmd⟩
+`grep -rn "glass-ui/canvas" --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=docs .` →
+**0**. The producer's §9.0.0 migration records the same finding from its end (*"Zero consumers were
+found at the cut"*; the six names *"already published"* at the package root). **No seventh X-EXT id
+is minted**; the absence is the booking.
+
+**Tag-measured inputs — MEASURED AT THE `v9.0.0` TAG, NOT AT THE REGISTRY** (this seat, read-only,
+2026-08-30; `git -C ../glass-ui show v9.0.0:package.json`). These are **inputs to X-W0.j's census,
+not a verdict and not a booking** — the census's verdict is dated at wave-open and is never
+inherited, and the letter's own tag-vs-registry split (I-30) is why these carry that label:
+`version` → **`9.0.0`**; exports **`./input` PRESENT · `./forms` ABSENT · `./search` ABSENT ·
+`./canvas` ABSENT · `./styles` PRESENT**; `peerDependencies["vue-component-type-helpers"]` →
+**`^3.0.3`** (X-EXT-6's peer, unchanged). **One honesty note, both readings stated, neither
+silently elected**: the tag's `MIGRATION.md` §9.0.0 prose opens *"**Status.** `package.json`
+declares `8.0.0`"* — a status line written in flight — while the manifest **at that same tag**
+declares **`9.0.0`**. The manifest is the artifact; the prose is stale at its own tag. Any seat
+reading §9.0.0 for the migration content should not read that line for the version.
+
+**What this note does NOT do.** It elects no target (X-W0.j does, on a dated run, per its own
+§ADDENDUM 2026-08-30). It reverses no verdict, re-books no row, and changes no wave's file bounds.
+It answers no ask and sends no letter — the residual cures S-11 names at the X·F end (F.W1's
+PIN-LAW tag-vs-registry clause; F.W0's FR-NP-32 producer-side terminus) are **owed at those files
+and are not written from here**.
+
 ---
 
 ## §READINESS (PLANNING ONLY) — the execution-order picture this fold leaves

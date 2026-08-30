@@ -691,3 +691,179 @@ source was opened, no sibling spec edited, no COHESION section written, no mail 
 nine cures above are **stated, not executed**, per E-3, and each names the file that owns its end
 so the owner can direct them one at a time or as a batch. **The owner's begin-word remains the only
 execution key.**
+
+---
+
+## §ERRATA-1 — 2026-08-30 (X-union CHECK-1 repair round 1, seams-errata seat)
+
+**Instrument law (E-3).** *This file is a dated instrument; its original bytes above stand
+unaltered.* Corrections enter **only** as dated errata rows in this block. Three rows: **1 MAJOR,
+2 MINOR**, all against §5's receipts. Every figure below is the **verbatim return of a command
+re-run at this seat on 2026-08-30**, read-only, from `docs/tranches/X/` unless a path says
+otherwise. **No sibling spec, no COHESION section, no mail ledger and no product source was
+opened for write. No verdict in §1 changes.**
+
+### E1-1 · S-10 — the CONSISTENT stamp rested on a synthesized receipt; re-issued on measured bytes — **MAJOR**
+
+**The conviction.** §5's S-10 publishes ⟨cmd⟩ `grep -n 'AGG-P1' keyframes/waves/KF-W0.md | head -1`
+and quotes it as returning the `EXACT devDep` sentence. **It does not.** Re-run:
+
+⟨cmd⟩ `grep -n 'AGG-P1' keyframes/waves/KF-W0.md | head -1`
+```
+269:| **D-4** — `AGG-P1`, the probe that DECIDED SCH-1, absent from the wave that re-runs SCH-1 | …
+```
+
+— a repair-round **directive row**, not the quotation. Three defects compound, and they are of
+descending visibility, which is why the stamp passed:
+
+1. **Wrong hit.** The quoted sentence is not at the command's first hit; it lives inside KF-W0's
+   **C-1 fold row**, several hundred lines later.
+2. **Wrong voice — the load-bearing one.** KF-W0 does not *state* that sentence in its own voice;
+   it **quotes** it and names the source: `kf-AmigaScene.md:6`, a **megatranche registry record**
+   at `docs/tranches/V/megatranche/registry/adjudicated/`. S-10 booked a third-party record's
+   sentence as an X·KF spec's own bytes — i.e. the seam was stamped two-ended on a *single* end
+   plus a citation.
+3. **Emphasis minted into a byte-exact quotation.** ⟨cmd⟩
+   `sed -n '6p' docs/tranches/V/megatranche/registry/adjudicated/kf-AmigaScene.md | grep -oE 'package\.json:77 carries.{0,120}'`
+   ```
+   package.json:77 carries `"@mkbabb/glass-ui": "7.0.0"` as an EXACT devDep (census SCH-1, AGG-P1), so the phantom-dependency headline is FALSIFIED at HEAD.
+   ```
+
+   **No bold; nested double quotes intact; terminal period present.** S-10 printed *"**EXACT
+   devDep**"* in bold and dropped the period — inside a passage KF-W0 expressly declares *"quoted
+   byte-exact, no emphasis added and none dropped."* This is the **S-19 class committed one
+   altitude up**, and it is §Method's own rule (*"quoted by a runnable command"*) that it breaks.
+
+**THE TRUE RECEIPT — one fact, both ends, by commands that actually return it.**
+
+*Producer end (S-10's first ⟨cmd⟩ — re-run, TRUE as published):*
+⟨cmd⟩ `sed -n '7p' ../../../../glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-08-28-o20-authoring-block-batch.md`
+> *"**Measurement-pin honesty (read first)**: … Items below state the pin they were measured at
+> (fourier installs 4.0.0; **keyframes installs 7.0.0 exact**; value installs 7.0.0)…"*
+
+*X·KF end (replacement receipt, in KF-W0's own voice):*
+⟨cmd⟩ `grep -n 'glass-ui": "7.0.0"' keyframes/waves/KF-W0.md`
+```
+514:git show origin/master:package.json  → :77  "@mkbabb/glass-ui": "7.0.0" under devDependencies        (version 6.0.0; :70 "@mkbabb/value.js": "4.0.0")
+522:*GREEN*: HEAD == origin/master == worktree == installed at `"@mkbabb/glass-ui": "7.0.0"` **exact devDep** + lock, **AND** a written ruling on `legacy-peer-deps=true` …
+```
+
+— the two lines are **G-0.2's RED-baseline fold measurement** and **G-0.2's GREEN target**. Both
+are KF-W0's own sentences; both spell the pin `7.0.0`, **exact devDep**. (Line numbers appear here
+solely as the grep's own output, never as a minted prose anchor — cf. S-19.)
+
+*Third end — the manifest itself, so the seam no longer rests on documents at all:*
+⟨cmd⟩ `git show origin/master:package.json | grep -n 'glass-ui'` *(in `/Users/mkbabb/Programming/keyframes.js`)*
+> `77:        "@mkbabb/glass-ui": "7.0.0",`
+
+⟨cmd⟩ `git show origin/master:package.json | sed -n '70,80p'` places `:77` inside the
+`"devDependencies": {` block opened at `:72` (`:70` = `"@mkbabb/value.js": "4.0.0"`, `:71` closes
+the preceding block). **Exact — no range specifier — under devDependencies, at 7.0.0.**
+
+> **VERDICT RE-ISSUED — S-10 stays CONSISTENT, on a basis it did not previously have.** The
+> producer letter says *keyframes installs 7.0.0 exact*; KF-W0 says `"@mkbabb/glass-ui": "7.0.0"`
+> **exact devDep** at both its RED baseline and its GREEN target; the manifest at
+> `origin/master:package.json:77` says the same under `devDependencies`. **Three ends, one pin.**
+> The stamp changes **basis, not value** — the substance survived the synthesized receipt, and the
+> §1 count (15 CONSISTENT / 9 CONVICTED) is unchanged.
+
+**Rider — the two other pins in the same S-10 paragraph, re-measured.**
+- **X·F = 4.0.0, confirmed.** ⟨cmd⟩ `grep -n 'Adopted glass-ui 4\.0\.0' fourier/waves/F-W0.md` →
+  `140:` *"Adopted glass-ui 4.0.0 `dist/styles/index.css` is a **CSS syntax error**…"* (the
+  FR-NP-32 pre-gate row).
+- **X·V = `^7.0.0`, confirmed — but the citation form is corrected.** S-10 cites **`W9.md:373`**, a
+  **minted line anchor into a sibling spec**: the very form S-19 convicts, appearing in the
+  convicting file. It is retired here in favour of ⟨cmd⟩
+  `grep -n 'mkbabb/glass-ui":"\^7\.0\.0"' waves/W9.md` → the **G31** row: *"dependencies are exactly
+  `{"@mkbabb/glass-ui":"^7.0.0","@mkbabb/keyframes.js":"^6.0.0"}`"*. **Cite G31 by gate id, not by
+  line.**
+
+### E1-2 · S-11 — the ACK byte size is the adjacent row's — **MINOR**
+
+S-11 quotes the BK listing as *"`glass-outbound-2026-08-29-valuejs-o20-ack.md` (3,438 B,
+2026-08-29 16:41)"*. Re-measured:
+
+⟨cmd⟩ `ls -la /Users/mkbabb/Programming/glass-ui/docs/tranches/BK/coordination/`
+> ```
+> -rw-r--r--   1 mkbabb  staff  28603 Aug  3 21:48 ATLAS-BATCH-ROUTING.md
+> -rw-r--r--   1 mkbabb  staff   3438 Aug  3 15:06 ATLAS-TO-GLASS-2026-08-03-AUDIT-BATCH.md
+> -rw-r--r--   1 mkbabb  staff   3293 Aug 29 16:41 glass-outbound-2026-08-29-valuejs-o20-ack.md
+> -rw-r--r--   1 mkbabb  staff  11466 Aug 28 12:31 valuejs-outbound-2026-08-28-o20-authoring-block-batch.md
+> ```
+
+**The ACK is 3293 B.** **3438 B** belongs to `ATLAS-TO-GLASS-2026-08-03-AUDIT-BATCH.md` — the row
+**immediately above it** in the same listing, and dated Aug 3, not Aug 29: a size read off the
+wrong row of the right command. Filename, mtime (`Aug 29 16:41`), existence and every content line
+S-11 quotes are unaffected.
+
+> **VERDICT UNCHANGED — S-11 stays CONVICTED**, and its four-part cure (row it **I-30**; widen
+> X-W0.j to 8.0.0 **and** 9.0.0; §EXTERNAL's 9.0.0-successor column; F.W1 PIN-LAW's
+> tag-vs-registry clause; FR-NP-32's producer-side terminus) is untouched. What convicts is that
+> the letter is **unrowed**, not how large it is.
+
+### E1-3 · S-14 — the receipt cannot produce its output; the attribution is *correct* and stands — **MINOR**
+
+**(a) The command is unrunnable-as-quoted.** ⟨cmd⟩ verbatim as published:
+`grep -rEo 'O-1[0-9]|O-2[0-9]' fourier/waves/ waves/ | cut -d: -f1,3 | sort -u`
+> ```
+> fourier/waves/F-W0.md
+> fourier/waves/F-W10.md
+> fourier/waves/F-W2.md
+> fourier/waves/F-W4.md
+> fourier/waves/F-W9.md
+> waves/W4.md
+> waves/W7.md
+> ```
+
+Seven **filenames**. `grep -o` under `-r` emits exactly two colon-fields (`file:match`), so field 3
+is empty and `-f1,3` prints the path alone; **the id enumeration S-14 quotes is not this command's
+output.** Two further defects the mis-cut concealed: the walk omits **`keyframes/waves/`** and
+**`parse-that/waves/`** — two of the four sub-tranches the seam's own `ends` column names — and the
+unanchored alternation **matches inside component-record ids**, so the `KF-CO-2x` family
+(`KF-CO-20`, `KF-CO-24`, `KF-CO-25`, …) registers as outbound letters.
+
+**(b) The re-cut, run at this seat.**
+⟨cmd⟩ `for d in waves keyframes/waves fourier/waves parse-that/waves; do printf '%-18s ' "$d"; grep -rEoh '\bO-[12][0-9][a-z]?\b' "$d" | sort -u | paste -sd' ' -; done`
+> ```
+> waves              O-18a O-19
+> keyframes/waves    O-10a O-11 O-16 O-19 O-20 O-21
+> fourier/waves      O-10a O-14 O-15 O-17 O-20
+> parse-that/waves   O-15
+> ```
+
+Both regex changes are load-bearing: `\b` excludes the `KF-CO-2x` family, and the optional
+`[a-z]` suffix is **required** — the same loop without `[a-z]?` returns `waves → O-19` and
+`fourier/waves → O-14 O-15 O-17 O-20`, i.e. it **loses `O-18a` and `O-10a` entirely**, because
+neither bare `O-18` nor bare `O-10` occurs anywhere in the four layers.
+
+**(c) The O-15 attribution: S-14 was RIGHT and the challenge is wrong — recorded so no later seat
+"repairs" a true row.** O-15 is cited by X·F, in `fourier/waves/`:
+⟨cmd⟩ `grep -rn 'O-15' fourier/waves/ | grep -oE '.{0,25}O-15.{0,25}'`
+> `corded failure mode (the O-15 lesson) |`  *(= `fourier/waves/F-W10.md:409`)*
+
+O-15 (⟨cmd⟩ `grep -n 'O-15' docs/tranches/V/coordination/INBOX.md`, from the repo root →
+`79:| O-15 | 2026-07-27 | parse-that | …evidence packet ATTACHED to the standing 1.1.0 ask…`) is
+therefore cited **as history by both X·F and X·P** — exactly as S-14 says. **No erratum is owed on
+this limb.**
+
+**(d) Corrected reading of S-14's enumeration.** X·V cites **O-18a** *(`waves/W7.md:651`)* ·
+**O-19**; X·KF cites **O-10a · O-11 · O-16 · O-19 · O-20** and **mints O-21** (S-13, the sole mint
+in the four layers); X·F cites **O-10a · O-14 · O-15 · O-17 · O-20**; X·P cites **O-15**. Two
+spelling corrections to the published sentence: **`O-10` → `O-10a`** and **`O-18` → `O-18a`** —
+both are suffixed amendment ids and neither bare form exists. Ids appearing under two layers
+(`O-10a`, `O-15`, `O-19`, `O-20`) are **two citations of one ledger row**, never two mints.
+
+> **VERDICT UNCHANGED — S-14 stays CONSISTENT.** No O-number collision exists across the four spec
+> layers, and no X·V, X·F or X·P file mints an outbound id — a finding that now rests on a walk of
+> **all four** layers with an anchored pattern, instead of two layers with a broken cut.
+
+### §ERRATA-1 close
+
+**3 errata · 1 MAJOR (S-10) · 2 MINOR (S-11, S-14) · 0 verdicts reversed.** After repair: **S-10
+CONSISTENT (re-based, now three-ended)** · **S-11 CONVICTED (unchanged, cure intact)** · **S-14
+CONSISTENT (unchanged, receipt replaced)**. §1's header line — *24 seams · 15 CONSISTENT · 9
+CONVICTED* — and §8's nine cures stand exactly as written. One class recurs across E1-1 and its
+rider and is worth the executing seat's attention: **the S-19 defect — a receipt that points next
+door rather than at the fact — was committed twice by the file that convicts it.** Posture is
+unchanged: **planning-only, status `planned` everywhere, no VERIFIED stamp in any voice, no
+sibling edited, the owner's begin-word still the only execution key.**
