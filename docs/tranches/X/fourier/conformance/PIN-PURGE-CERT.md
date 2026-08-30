@@ -370,3 +370,67 @@ f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  docs/tranches/
 | 10 | `waves/F-W9.md` | **`4972f6a41832`** | `459d959db156` |
 | 11 | `waves/F-W10.md` | **`d97a0123bf99`** | `80eff6ad1a26` |
 | 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `b6d8d858c387` |
+
+---
+
+## §ERRATA-R9 — **2026-08-29. THE RE-BASE. §TABLE-R7 IS SUPERSEDED AS THE PIN AUTHORITY AS OF THIS APPEND.**
+
+**§TABLE-R7 expired exactly as it said it would, and it expired TWICE before this append discharged it.** Its own clause reads: *"These twelve are true of the bytes this seat found frozen and of no later state. **The next seat to write a spec voids this table too and owes the next append.**"* **Round 8 wrote five specs and never appended** — the debt `PASS-9/CHECK.md` files as INFO-1 — and **round 9, this seat, then wrote five more.** This append discharges both debts at once, in the lawful shape: **an append, never a patch (E-3).** §TABLE and §TABLE-R7 stand as HISTORY and are not edited.
+
+⊙ **What a spec cites is unchanged.** The spelling `pinned per PIN-PURGE-CERT.md §TABLE (2026-08-29)` **still resolves**: all three tables are dated `2026-08-29`, and precedence is stated here — **the table below is the operand; §TABLE-R7 is the round-7 reading and §TABLE the round-6 reading of the same star.** The topology is untouched: one file pinning eleven, no in-edges, no cycle.
+
+⊙ **The census pin did not move, and that is the load-bearing fact of this round.** Row 12 stands at **`f44362757458`**, byte-identical to §TABLE-R7's row 12 — the canonical was **FROZEN** for the whole of round 9 and every repair above was cut against it. **No spec's census citation is stale.** ⊘ The round's largest finding was that a frozen operand is not a frozen *address*: fourteen canonical `:NNNN` coordinates across `F-W3` and `F-W8` had died under errata rounds 5–6 while the digest they cite stayed exact, and one `sed` line-range in `F-W6` silently changed what it addressed. **A pin proves bytes, never coordinates** — the same limit this certificate already states about pastes and their commands.
+
+### The six changed rows, old → new
+
+- **Row 2 · `waves/F-W1.md`** — `d03e07468c74` **→ `176280bebc23`** ⟨*through the un-appended round-8 state `0b638dc6386b`*⟩ — §6·R5's stale `K1` canonical paste struck and sub-noted (E6-3), and the section's count-word plus its universal re-measured and restated enumerated.
+- **Row 4 · `waves/F-W3.md`** — `bfa4278c5599` **→ `93bc1ebc4a24`** ⟨*untouched at round 8; this spec moves for the first time since R7*⟩ — three dead canonical coordinates re-based (`4393`→`4433`, `1761`→`1875`, `1764`→`1878`) and two `verbatim` pastes completed with the `<sub>legs: F.W4</sub>` they had silently elided.
+- **Row 5 · `waves/F-W4.md`** — `0932ced1a4c0` **→ `052731a56a12`** ⟨*through the un-appended round-8 state `2f18c3d385f2`*⟩ — the self-refuting `FM-18` receipt re-stated honestly at its true count with the R3-3.8 pairing, and §2.X.2(b)'s record denominator re-derived `17 records` → **`16 records`**.
+- **Row 6 · `waves/F-W5.md`** — `2990f5b51056` **→ `40bcad59cd2b`** ⟨*round-8 state, carried; this seat did not write F-W5 and its bytes are unchanged since round 8*⟩ — appended here only because §TABLE-R7 never recorded the move.
+- **Row 7 · `waves/F-W6.md`** — `f16b290bcf62` **→ `e83dcad051f5`** ⟨*through the un-appended round-8 state `f32f8ec4eca5`*⟩ — §2.11's range receipt re-cut `4990,5038p` → **`5078,5091p`** and its failed *"stamped operand never moves"* defence struck for the dated truth.
+- **Row 9 · `waves/F-W8.md`** — `0d464a4a7d3a` **→ `355d8c97c383`** ⟨*through the un-appended round-8 state `73ddc4d0bf0e`*⟩ — the `ConvergencePlot` receipt re-cut discriminating on the §6a citation-row shape, eight dead canonical coordinates re-based (three of them found by this seat's own sweep, at the masthead), and the two E5-15 mid-sentence splice artifacts repaired.
+
+**Six unchanged and carried forward exact: rows 1 (`F-W0`), 3 (`F-W2`), 8 (`F-W7`), 10 (`F-W9`), 11 (`F-W10`) and 12 (the canonical).**
+
+⊘ **The same expiry, restated so it is not read as a promise.** These twelve are true of the bytes this seat settled and of no later state. **The next seat to write a spec voids this table too and owes the next append** — and round 8 is the standing proof that the debt is real and can go undischarged. A hash proves only that bytes did not move; it does not prove a paste was produced by its command (`F-W9 :505`/REST-54 remains the programme's own counter-example), and **no certificate issues its own conformance** — the round-9 verify seat re-runs what follows.
+
+⟨cmd⟩ this seat, 2026-08-29, **base = repo root `/Users/mkbabb/Programming/value.js`**, on the pinned BSD toolchain, taken **as the absolute last act of this write, after every spec edit settled**:
+
+```
+shasum -a 256 docs/tranches/X/fourier/waves/F-W*.md \
+              docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**Output, pasted whole and verbatim — glob order, `F-W10` sorting after `F-W1` exactly as the shell produced it:**
+
+```
+c03149fc2f9e2bec601fe4e00982705203f4b0b3fac78afdd1bde097aa7d4af1  docs/tranches/X/fourier/waves/F-W0.md
+176280bebc230da62efa5dbd9fda3469fd7b5773ad7db8f535fda64f7a578093  docs/tranches/X/fourier/waves/F-W1.md
+d97a0123bf99ceba2f9c97a4a484ba03e482188f478b0e4d0910e32e80910fa9  docs/tranches/X/fourier/waves/F-W10.md
+655a21e7a64dd59c4bb954383ebf69bec829f295f7c6797a7c5cdf88e5d2ca65  docs/tranches/X/fourier/waves/F-W2.md
+93bc1ebc4a24d33bc9dc062a308eed0d42169665199a8875f2f7920d31443622  docs/tranches/X/fourier/waves/F-W3.md
+052731a56a1257e0d886841db1cf7f056716c526b22fd2bdd902321b42b2aff4  docs/tranches/X/fourier/waves/F-W4.md
+40bcad59cd2beed4e3e8453011b605bdcc9eab67082c9dc64bde131caea124ef  docs/tranches/X/fourier/waves/F-W5.md
+e83dcad051f560329ade30dbb0877732650ac05071e8b2ee0eab22f56abf7e11  docs/tranches/X/fourier/waves/F-W6.md
+16e35d5bb571708046033b10d20f9d0dc71e59c2d89fd52b7d824a877b74caaa  docs/tranches/X/fourier/waves/F-W7.md
+355d8c97c383438094b40eceeea4744cc93b3333362f733688a55aade7d4305f  docs/tranches/X/fourier/waves/F-W8.md
+4972f6a418322629c73cd8e1ffac331d4ec4ecdab897bbed5bf1a79ceacf9602  docs/tranches/X/fourier/waves/F-W9.md
+f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**TWELVE ROWS, ordered numerically and labelled `fourier/`-relative for citation stability with §TABLE and §TABLE-R7 (`docs/tranches/X/fourier/` + the label = the path above). The first-12 prefixes derived beside each — THIS IS THE OPERAND EVERY SPEC NOW CITES:**
+
+| # | file | sha256 (first 12) — **R9, CURRENT AUTHORITY** | superseded §TABLE-R7 row (R7, history) |
+|---|---|---|---|
+| 1 | `waves/F-W0.md` | **`c03149fc2f9e`** | `c03149fc2f9e` *(unmoved)* |
+| 2 | `waves/F-W1.md` | **`176280bebc23`** | `d03e07468c74` |
+| 3 | `waves/F-W2.md` | **`655a21e7a64d`** | `655a21e7a64d` *(unmoved)* |
+| 4 | `waves/F-W3.md` | **`93bc1ebc4a24`** | `bfa4278c5599` |
+| 5 | `waves/F-W4.md` | **`052731a56a12`** | `0932ced1a4c0` |
+| 6 | `waves/F-W5.md` | **`40bcad59cd2b`** | `2990f5b51056` |
+| 7 | `waves/F-W6.md` | **`e83dcad051f5`** | `f16b290bcf62` |
+| 8 | `waves/F-W7.md` | **`16e35d5bb571`** | `16e35d5bb571` *(unmoved)* |
+| 9 | `waves/F-W8.md` | **`355d8c97c383`** | `0d464a4a7d3a` |
+| 10 | `waves/F-W9.md` | **`4972f6a41832`** | `4972f6a41832` *(unmoved)* |
+| 11 | `waves/F-W10.md` | **`d97a0123bf99`** | `d97a0123bf99` *(unmoved)* |
+| 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `f44362757458` *(FROZEN, unmoved)* |

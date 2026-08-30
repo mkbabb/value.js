@@ -1,0 +1,48 @@
+{
+ "defects": [
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W10:338's ExportModal receipt is FABRICATED (impossible, not stale), its universal is false at a live booking, and its count-word is contradicted eight sentences away in the same file. NEW \u2014 nine passes missed it. Published live+unstruck: \u27e8cmd\u27e9 `/usr/bin/grep -cF 'ExportModal' waves/F-W10.md` \u2192 0: \"that record is named nowhere in this file.\" The command string itself contains the token, so 0 is unproducible from any byte-state containing that line. Worse: :296 reads \"fr-ExportModal L-16 FOLDS HERE \u2014 landed at repair round 5 (REST-65)\" \u2014 the SAME REST id and round as the :338 note \u2014 while :338 lists fr-ExportModal L-16 among its \"52 record-qualified present \u00b7 13 not\". The file books the row at one line and lists it as an escape at another. Nothing routes off it (canonical homes F.W10 = 0 rows, zero-roster posture intact, id-set identity untouched).",
+   "receipt": "base $W=/Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves. `/usr/bin/grep -cF 'ExportModal' F-W10.md` \u2192 2; `-n` \u2192 :296 :338. Note's own record-qualified boundary probe re-run with :338 excluded: `awk 'NR!=338' F-W10.md | /usr/bin/grep -E '(^|[^A-Za-z0-9])L-16([^A-Za-z0-9]|$)' | /usr/bin/grep -c fr-ExportModal` \u2192 1 (:296); the other twelve named-absent ids \u2192 0. Honest figure 53 present \u00b7 12 not, not 52 \u00b7 13. Run verbatim (incl :338) the probe returns 65 \u00b7 0. Attribution over committed history: `git show <c>:\u2026/F-W10.md | /usr/bin/grep -cF 'ExportModal'` \u2192 50052945:0 \u00b7 23d3e1dd(round-5 banked):2 \u00b7 3c12ec3d:2 \u00b7 4d13029c:2 \u00b7 c3bbb168:2 \u00b7 worktree:2 \u2014 the repair that banked it falsified it in one commit."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W4:192's showImageOverlay receipt is falsified by the round-9 block that cites it as GREEN (seal LW-1, UNCURED). :192 publishes `grep -c 'showImageOverlay' F-W4.md` \u2192 0 before / 1 after, glossed \"one occurrence each, BOTH INSIDE THIS ROW\". Measured 2 \u2014 :192 and :347, and :347 is outside the row. :347's round-9 restatement spells the token in full inside the very sentence certifying that \"its two siblings at :117 \u2026 and :192 \u2026 both re-run GREEN\". Substance survives (D:m-6's booking untouched; the sibling `grep -c 'shape only'` \u2192 1 is GREEN); only the arithmetic is wrong, in a cell claiming to have checked it.",
+   "receipt": "base $W. `/usr/bin/grep -c 'showImageOverlay' F-W4.md` \u2192 2; `-n` \u2192 192, 347. `/usr/bin/grep -c 'shape only' F-W4.md` \u2192 1 (sole hit :192) \u2714. Attribution: `git show c3bbb168:\u2026/F-W4.md | /usr/bin/grep -c 'showImageOverlay'` \u2192 1 (true at round-8 bytes); worktree (052731a56a12) \u2192 2."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W4:347's byte-level universal is falsified by the sentence that states it (seal LW-2, UNCURED). Published: \"the sole occurrence of `FM-18` at any byte of this spec is the command string quoted immediately above.\" The clause making the claim is itself a second byte-occurrence. The receipt's arithmetic is GREEN (grep -c counts LINES); the universal quantified over BYTES is not. Mitigation: the honest form \u2014 \"appears at no *substantive* byte\" \u2014 is already on the page two clauses later.",
+   "receipt": "base $W. `/usr/bin/grep -c 'FM-18' F-W4.md` \u2192 1 \u2714 (matches published 0-before/1-after pairing). `/usr/bin/grep -oE 'FM-18' F-W4.md | wc -l` \u2192 2. `git show c3bbb168:\u2026/F-W4.md | /usr/bin/grep -o 'FM-18' | wc -l` \u2192 1 (universal was true before the round-9 restatement added the second)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "PIN-PURGE-CERT.md \u00a7ERRATA-R9 row 9 undercounts the re-based coordinates: \"eight dead canonical coordinates re-based (three of them found by this seat's own sweep, at the masthead)\" \u2014 the masthead three are ADDITIONAL, not among the eight. True figure eleven mentions / ten distinct. \"Three of them\" should read \"three more.\" (seal LW-3, UNCURED.) Non-load-bearing \u2014 all eleven verify \u2014 but it lands in the certificate's own summary of the repair round, the one document the next seat reads, and it undercounts the round's best work by three. Cure is an append, never a patch (E-3).",
+   "receipt": "cert :391. Enumerated from the specs' own notes: F-W8:15 masthead 5394 \u00b7 5393 \u00b7 5396 (F-W8.md:15 says in terms \"Found by this seat's own round-9 sweep \u2026 NOT by the pass-9 check's list\") + F-W8:81 \u2192 5034 (1) + F-W8:246(A) \u2192 5044/5091/5358 (3) + F-W8:246(B) \u2192 4968/5044/1305/4037 (4). Check-listed subtotal 3+4+1 = 8; masthead adds 3 \u2192 11 mentions, 10 distinct (5044 appears in both :246 receipts)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W8:324's \"zero bytes anywhere else in this file\" is false at the bytes. Published live: \"fr-PaperSearchDropdown C:C-23 \u2014 the sole canonical F.W5-W8 row with zero bytes anywhere else in this file, found by this seat by testing all 89 canonical band rows against these bytes\". The token stands at eleven lines of F-W8. Mitigation: every other occurrence is a chase note, disclosure or E5-15 minute about this same non-booking; the substance (C:C-23 is homed UNROUTED, cited to F-W5, booked nowhere at F.W8) is TRUE and re-verified.",
+   "receipt": "base $W. `/usr/bin/grep -n 'C:C-23' F-W8.md` \u2192 lines 20 25 27 40 78 81 165 246 267 322 324 (eleven). Over history: `git show <c>:\u2026/F-W8.md | /usr/bin/grep -c 'C:C-23'` \u2192 11 at 23d3e1dd, 3c12ec3d, 4d13029c, c3bbb168 and the worktree. Substance re-verified: `/usr/bin/grep -nF 'fr-PaperSearchDropdown' \"$C\"` \u2192 :5428 `- **fr-PaperSearchDropdown** (1): `C:C-23``, inside `### UNROUTED` (:5386)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W9:505's pair-universal is falsified by the clause that states it: \"(fr-VisualizationView, L-26) \u2014 the PAIR v4 rules \u2014 appears nowhere in this spec\". Its own sentence is the sole site of the pair. Same class as LW-R10-c, in a second file. Mitigation: the substantive claim (no BOOKING of that pair exists in F-W9) is TRUE \u2014 confirmed by the id-set identity \u2014 and the next sentence states the record-qualified warrant correctly.",
+   "receipt": "base $W. `/usr/bin/grep -c 'fr-VisualizationView, L-26' F-W9.md` \u2192 1. `/usr/bin/grep -nE '(^|[^A-Za-z0-9])L-26([^A-Za-z0-9]|$)' F-W9.md` \u2192 :119 :304 :505; piped to `/usr/bin/grep -c fr-VisualizationView` \u2192 1 (only :505, the claiming line)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W10:423 drops the record qualification on M1 in the disposition cell of the very gate row that names the cite-both-never-substitute law: the evidence cell reads \"**FR-NP-32 (\u2261 fr-PaperSidebar M1)**, BLOCKER, cite-both-never-substitute\" and the disposition cell four sentences later reads \"**FR-NP-32 (\u2261 M1)**\". M1 is a live cross-record short token and R-5 is explicit that an unqualified short token is not an identity. Falsifies pass-9's \"every qualified spelling is FR-NP-32 (\u2261 fr-PaperSidebar M1)\". Mitigation: fully qualified on the same line, same table row; the parenthetical is an equivalence gloss, not a booking; nothing routes off it.",
+   "receipt": "base $W. `/usr/bin/grep -ohE 'FR-NP-32[^\u2261]{0,6}\u2261[^A-Za-z0-9]{0,3}(\\*\\*|`)?[A-Za-z0-9-]+' waves/F-W*.md | /usr/bin/sort | /usr/bin/uniq -c` \u2192 53 spellings, 52 carrying `fr-PaperSidebar`, and exactly `1  FR-NP-32 (\u2261 M1`. `/usr/bin/grep -nHoF 'FR-NP-32 (\u2261 M1' waves/F-W*.md` \u2192 waves/F-W10.md:423."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "One live superseded census digest survives pass-9's ZERO claim. F-W1:725, inside the dated \u00a7E-3\u00b7R4 errata table, reads \"The LHS is NOW CENSUS-CANONICAL.md \u00a72's F.W1 roster, verbatim and entire, hash-pinned at quote time (`a450b8e9f80e`)\" \u2014 unstruck, present-tense, with f44362757458 nowhere on the line. Falsifies pass-9's universal \"Every occurrence of a450b8e9f80e and 3e0a9acb3381 stands inside an explicit strike or movement minute naming f44362757458 beside it\". Mitigation: the row's own first column is dated 2026-08-29 under a heading declaring it round-4 errata (E-3 bars rewriting in place); the same file states the current digest at :9, :12, :266, :473, :548; and PIN-PURGE-CERT.md is the sole pin authority by star topology, so no inline digest is load-bearing. Cure is an append beside the row.",
+   "receipt": "python3 over waves/: 30 occurrences of the two superseded census digests; 29 are struck or carry f44362757458 within \u00b1400 chars; 1 does not. `/usr/bin/sed -n '725p' F-W1.md | /usr/bin/grep -c 'f44362757458'` \u2192 0; the same line's a450b8e9f80e is at even ~~-parity (unstruck). Enclosing heading: `### \u00a7E-3\u00b7R4 \u2014 dated errata, repair round 4`."
+  }
+ ],
+ "fabricated": 2,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "NOT CONFORMANT"
+}
