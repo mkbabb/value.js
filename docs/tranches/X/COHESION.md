@@ -345,3 +345,22 @@ since cut **9.0.0** (INBOX **I-30**, rowed this boundary). X-W0.j's four-conditi
 widened by its own dated addendum to enumerate **8.0.0 AND 9.0.0** as candidate targets; the
 atomic-cut law above governs whichever target the census returns, and electing neither is a
 complete result.
+
+## §0h ADDENDUM 2026-08-30 — TRANCHE DEVELOPMENT COMPLETE (UNION-CLEAN)
+
+**The X-whole union pass is closed UNION-CLEAN** (check-2 register at `union/CHECK-2/`; repair r1
+banked `ba6dcdb3`): the 24-seam register walked with all 9 convictions cured as dated addenda-beside
+(zero-line-delta on both sub-tranche sides — no sibling coordinate displaced), **G-F MET WITH
+RESIDUALS** (the NO-WAVE-OWNER register question ANSWERED; register of record = the fold/canonical
+layers, named in `union/G-F-ADJUDICATION.md`), and **`EXECUTION-RUNBOOK.md`** standing (39 waves ·
+27 gates · four tracks, heads = the computed in-degree-zero set {X-W0 · KF.W0+KF.W1 · F.W0 ·
+X.P.W0}; twice-authored Fable∥Opus, agglomerated, hostile-checked twice). Carried tail: 6
+MINOR-with-mitigation + 2 INFO in the check-2 register — none blocking, each with its named cure.
+
+**Every development obligation of the megatranche is now discharged**: registry 227/227 adjudicated ·
+22 wave specs authored · four spec layers CONFORMANT (X·V §0c pass 4 · X·KF §0e pass 8 · X·F §0f
+pass 15 · X·P pass 10) · seams walked · G-F stamped · the runbook in hand · mail terminal (I-30
+rowed; O-21 = the next mint). Status is **planned** everywhere; no product source was opened at any
+point. **The owner's begin-word against `EXECUTION-RUNBOOK.md` is the sole remaining key.** Owner
+decision points standing: the L1/L5 adoption leg (§0g.1, G-9's A/B/C) · the glass 8-vs-9 election at
+X-W0.j (I-30; tag-pinned 9.0.0, registry walled) · ESC-1/G1 at F.W1.
