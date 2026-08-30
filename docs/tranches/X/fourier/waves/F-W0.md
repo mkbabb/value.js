@@ -533,3 +533,64 @@ F.W0 does not inherit contradictory bookings. Four rulings, each written into `S
 ---
 
 *L-18 rider (one line, reference not ceremony)*: landing the fifteen gates green makes this wave IMPLEMENTED, not ACCEPTED — two skeptic passes + a fresh-instance apotheosis sign it off; VERIFIED is the X·F release close's to stamp. L-20: this file re-validates against `docs/precepts/instructions/tranche/WAVE_SPEC.md` at every amendment.
+
+---
+
+## §R11 — THE NUMERIC RECONCILIATION — method and tally (repair round 11, 2026-08-30)
+
+⊘ **SCOPE, DECLARED FIRST SO THIS NOTE IS NOT READ AS A UNIVERSAL (the self-count law, G-12's own shape).** Every figure below is measured over the **eleven `waves/F-W*.md` at the pre-append settle of 2026-08-30**, against `../conformance/CENSUS-CANONICAL.md` frozen at `f44362757458`. **This note's own bytes are excluded from every count in it and are an operand for no gate.** It is a *record of a sweep*, not a denominator: a later seat that needs any figure here **re-derives it against the canonical** rather than quoting this paragraph. Nothing below re-grades, re-books or re-homes a single row.
+
+### R11-1 — Why the loop kept re-opening, and what changed
+
+Rounds 4 through 10 each closed their register and each was met by a **NEW** stale canonical magnitude in the next pass — `4262`, then `28/90/118`, then `1014`, then `2768/4269/2767`. **The cause was never the specs; it was the sweep's order of operations.** Each round probed *the numbers already filed against it*, so it could only ever re-find the previous round's misses — a value-matching instrument cannot discover a stale magnitude nobody has named yet. **R11 inverts the order:**
+
+1. **Build the authority list from the frozen canonical FIRST**, before opening any spec — every per-wave `§2` row heading, every `§3` total, `§4.3`'s alias magnitudes, and the record count of every roster.
+2. **Extract from each spec every multi-digit token standing within three lines of census context** — `canonical` · `census` · `§2` · `§3` · `§4.3` · `rows` · `records` · `operand` · `roster` — so the probe is **by CONTEXT, never by known-bad value**.
+3. **Triage every distinct value against the authority list**: current+correct → leave · stale and unchased in current voice → cure with a dated chase note · dated, struck or quoted-as-history → **leave, and record that it was read**.
+
+### R11-2 — THE AUTHORITY LIST (frozen `f44362757458`), copied here so no successor rebuilds it
+
+| home | rows | recs | · | home | rows | recs |
+|---|---|---|---|---|---|---|
+| F.W0 | 55 | 29 | · | F.W5 | 27 | 11 |
+| F.W1 | 330 | 65 | · | F.W5-W8 | 89 | 31 |
+| F.W2 | 23 | 15 | · | F.W9 | 16 | 15 |
+| F.W3 | 919 | 59 | · | *wave-duty* | *2466* | |
+| F.W4 | 1007 | 54 | · | *TERMINAL* | *1220* | |
+
+**§3 aggregates** — censused 66 · ROWS **4242** · ids after band expansion **4287** · ALIASES **2780** · NO-WAVE-OWNER **88** · UNROUTED **307** · TOTAL **4242**.
+**§4.3 alias law** — **2780** tokens ride beside **4242** banked ids; an atomiser promoting them mints up to **2779** bookings.
+
+⊙ **The superseded generations, named so a successor recognises one on sight**: ROWS 4278 → 4269 → 4262 → **4242** · expanded 4338 → 4329 → 4322 → **4287** · ALIASES 2767 → 2768 → **2780** · F.W4 1014 → 1012 → **1007** · F.W3 926 → 928 → **919** · F.W0 56/57 → **55** · F.W1 362/358 → **330** · F.W2 31/27 → **23** · F.W5 28 → **27** · F.W5-W8 90 → **89** · F.W9 17 → **16**.
+
+### R11-3 — The tally
+
+| measure | figure |
+|---|---|
+| authority values established from the canonical | **28** |
+| census-magnitude assertions mechanically enumerated and adjudicated | **181** — 24 quoted canonical row headings ⊕ 157 `N records` claims, plus the aggregate, alias and closure-arithmetic sites |
+| stale sites CURED, in current voice and unchased | **11**, across six specs |
+| distinct magnitude corrections written | **27** |
+| classes read and **left** as lawful dated/struck history | **7** |
+| **NEW — found by this round, filed by no prior pass, check or certificate** | **2** |
+| coordinates deliberately re-based | **5** |
+
+**The eleven cured sites**: `F-W4` `:7` (masthead) · `:349` (the falsifiable arithmetic) · `:374` (gate `G-F4-CARRY-CLOSURE`) · `:455` (register) — all four re-based `1014 → 1007`, with `(b) 72 → 71` and the residue `913 → 907`, so `29 + 71 + 907 = 1007` now closes; the **54-record** claim was re-verified against the canonical roster and is **unmoved and correct**. `F-W3` `:32` · `:703` · `:784` — `2768/4269/2767 → 2780/4242/2779`, the file having carried **not one** current magnitude before the cure and carrying all three after. `F-W7` `:291` — **NEW**. `F-W2` `:248` — `83/67 → 84/68` with the self-exclusion declared. `F-W8` `:324` — the count word `nine → ten`. `F-W10` `:467` — the receipt paired before/after.
+
+**The two this round found that the register did not**, both of them the same lesson from opposite directions:
+- **`F-W7:291`** — a ⟨cmd⟩ receipt publishing `1014 rows` **as the canonical's own output**. At the frozen canonical that command returns **ZERO**. It survived every prior sweep because it is not a magnitude the spec *asserts* — it is one the spec *quotes from the authority*, and no round had probed quoted receipts against their operand. Its three companion receipts on the same row were re-run and **all three reproduce exactly**.
+- **`F-W9:505`** — a **cross-file** coordinate, `F-W3.md:783`, resolving to a **blank line**; the true home is `:815`, a **+32** drift. No single file's line count reveals this class, which is why (B) below is run across files and not within them.
+
+⊙ **Read and deliberately NOT cured — the discipline that keeps E-3 intact.** `F-W10:322`'s dated round-4 `4278 → 4269` record carries its own chase and is superseded *as an operand*, which is exactly the licensed form; `F-W0:225`'s round-5 `57 rows` minute; `F-W8:20`'s dated canonical paste; `F-W3:17`/`:28`/`:707`'s `926 → 928 → 919` chases; `F-W6:19`/`:476`'s **declared-zero** `28 rows` probes; `F-W4:293`/`:295`/`:297`'s round-7 chases; and `F-W5:243`'s `42·100+42 = 4242`, which is arithmetic about a shader seed and **not a census magnitude at all** — recorded because a value-matching sweep convicts it on sight and a context-reading one correctly acquits it.
+
+### R11-4 — (B) The post-settle coordinate sweep
+
+**Every cure this round was an in-place, single-line replacement.** All eleven line counts are byte-identical before and after — F-W0 535 · F-W1 735 · F-W2 465 · F-W3 912 · F-W4 470 · F-W5 433 · F-W6 634 · F-W7 359 · F-W8 374 · F-W9 557 · F-W10 515, **total 5989 both times**. **No coordinate in the corpus was displaced by this round, by construction**, and this note is appended at **end-of-file** precisely so that no coordinate can sit at-or-below its insertion point. The sweep re-ran anyway rather than reasoning from the invariant: **36 intra-file** coordinates (`F-W10`'s eleven `L-16` homes, its three `§2.5a-iii` hits and the `FR-NP-32` strike; `F-W8`'s eleven `C:C-23` lines; `F-W9`'s three; `F-W4`'s seven) and **13 cross-file** — **48 verify unchanged, 1 was found already drifted and re-based**.
+
+### R11-5 — The law this round adds
+
+1. **Build the authority list before opening a spec.** A sweep that reads the specs first inherits their vocabulary and can only re-find named misses.
+2. **Probe by context, never by value.** The values you already know are the ones already cured.
+3. **Probe quoted receipts against their operand, not only asserted magnitudes.** A receipt that *quotes* the authority is the last place a stale number hides, and `F-W7:291` sat there through ten rounds.
+4. **A cure that inserts lines re-bases every coordinate at-or-below its insertion point in the same edit** — or it publishes a coordinate its own insertion has just moved, which is how `:419` and `:423` were minted.
+5. **Scope a receipt to the population its claim is about.** `F-W7:16`'s residue grew from four to **seven** while this very round ran; re-scoping the instrument to `waves/` ends the growth permanently, and re-counting never could.
