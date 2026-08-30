@@ -1,0 +1,58 @@
+{
+ "defects": [
+  {
+   "severity": "MEDIUM",
+   "claim": "LW-R8-c UNCURED \u2014 F-W8:328's receipt is falsified by the bytes it lives in. It publishes `fr-ConvergencePlot` as named nowhere in this file's \u00a76a citation rows on the warrant of a cmd returning ONE hit; re-run returns SIX, one of which is line 328 itself. The seal filed it and the hashes prove no repair followed. Substance survives (all five new hits are chase-note prose, none a \u00a76a citation row), but a successor re-running the published receipt gets six.",
+   "receipt": "PUBLISHED F-W8:328: cmd /usr/bin/grep -n 'ConvergencePlot' waves/F-W8.md -> one hit, `:20`. RE-RUN by this seat, verbatim, base docs/tranches/X/fourier: 20 40 78 165 246 328 (grep -c -> 6). The five new lines are exactly the five round 8 edited. F-W8.md hash 73ddc4d0bf0e = PASS-8/SEAL.md TABLE-R8 row 10, unmoved."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "FABRICATION (1) \u2014 F-W4:347's `grep -c 'FM-18' F-W4.md` -> 0 was never producible at any bytes containing the line, because the command string is the file's ONLY occurrence of FM-18. The receipt refutes its own claim ('the band's middle member is at no byte of this spec') in the act of making it. Unlike its two siblings in the same block it carries no R3-3.8 before/after pairing and no disclosure.",
+   "receipt": "PUBLISHED F-W4:347: cmd (base waves/) /usr/bin/grep -c 'FM-18' F-W4.md -> **0**. RE-RUN by this seat, same base, same command: 1. Contrast the two paired siblings, both re-run GREEN: F-W4:117 `grep -oE \"\\bBC-10\\b\" F-W4.md | wc -l` published 12 after-figure -> re-run 12; F-W4:192 `grep -c 'showImageOverlay' F-W4.md` published '-> 1 and 1' -> re-run 1."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "F-W1:650's canonical \u00a71 row paste is FALSE at the pinned frozen digest, live and in current voice. \u00a76\u00b7R5's header (:644) warrants every row as 'pasted verbatim from CENSUS-CANONICAL.md @ f44362757458'; the fr-AdminFlaggedPanel K1 cell pastes home **F.W1** where the canonical reads **TERMINAL (\u2205)**. The row is self-contradictory: its landing cell disposes the id BECAUSE E6-3 re-homed it, beside a canonical paste saying it did not. The identical shape was cured at F-W4:319 by the same round.",
+   "receipt": "F-W1:650 publishes: `` \\| `K1` \\| \u2014 \\| `F.W1` \\| **F.W1** \\| ``. CENSUS-CANONICAL.md:393 @ f44362757458 reads: | `K1` | \u2014 | `F.W1` | **TERMINAL (\u2205)** <sub>*errata R6 E6-3, 2026-08-29*</sub>. Corpus-wide sweep by this seat of ALL canonical-row pastes in both spellings (escaped-pipe form: 39 found; double-backtick form: 17 found) returns exactly ONE live mismatch \u2014 this one. Correct cure demonstrated in-corpus at F-W4:319 (`~~...~~` + sub-note 'the canonical now reads ... **TERMINAL (\u2205)**')."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "LW-R8-a UNCURED \u2014 F-W4:305's record denominator reads '71 rows on 17 records'; the block holds 16 distinct records. 71 = 63 + 8 needs eight single-records; 17 needs nine. Round 8 reconciled three figures against a header whose other half was stale and declared 'The three figures now agree.'",
+   "receipt": "F-W4:305 header verbatim: '**(b) THE ESCAPES, BOOKED BY BANKED ID \u2014 71 rows on 17 records**'. Re-derived by this seat from :307-:315: group records (8) MorphShapePreview/VisualizationView/DarkModeToggle/ConvergenceTimeline/ContourEditorCanvas/ImageUpload/EquationView/EquationPanel; live single records (8) BasisCanvas/CoefficientsSpectrum/FourierMorphSvg/HarmonicLevelGrid/PaperView/SliderControl/SpeedSelect/EquationResult; overlap none; TOTAL DISTINCT 16. The ninth singles name, fr-ContourPreview, is carried solely by the struck KILL-3. Rows re-summed GREEN: 20+17+7+7+4+3+3+2 = 63; 63+8 = 71."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "The stale-canonical-coordinate class is four times wider than LW-R8-b: ELEVEN live dead coordinates across three specs, not three at one site \u2014 and two of the three specs (F-W3, F-W6) were untouched at round 8, so the class predates it. Round 7 re-based the denominators and never swept the addresses. All cited CONTENT re-verifies at the new addresses; the addresses (and one classification) are dead.",
+   "receipt": "Re-run by this seat at the frozen canonical: F-W8:246(A) grep -nF 'fr-ContourPreview** (1): ' pub 5044/5091/5358 -> 5084/5131/5397. F-W8:246(B) grep -nF 'L:L-5' pub 4968/5044 + 1305/4037 -> 5008/5084 + 1365/4078. F-W8:81 grep -nF 'fr-PaperSearchDropdown' pub '5034: ... inside the \u00a72 F.W5-W8 roster' -> 5428:, inside the \u00a72 UNROUTED roster (E5-15 moved C:C-23). F-W3:383 grep -n '^| `PP-NOSHADOW`' pub 4393 -> 4433. F-W3:416 grep -nE '^\\| `D/D-(11|17)`' pub 1761/1764 -> 1875/1878, and both 'verbatim' pastes drop <sub>legs: F.W4</sub> without ellipsis. Correctly DEAD/disclosed and excluded: F-W8:20 (REST-51 history), F-W5:381 (5078/5092, still exact)."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W6:131's range receipt returns 3 where it publishes 0, and the parenthetical defending the shape ('a count over the census, which is a stamped operand, never over a live sibling') is precisely the defence that failed \u2014 the stamped operand moved +40 at errata rounds 5 and 6, so a line-range over it is an address, and R3-3.10's logic reaches addresses. Substance holds at the correct range.",
+   "receipt": "PUBLISHED F-W6:131: sed -n '4990,5038p' \"$C\" | grep -c 'fr-CanvasOverlayButton\\|fr-DarkModeToggle\\|fr-GlassTimeline\\|fr-HarmonicLevelGrid' -> **0**. RE-RUN verbatim: 3 (fr-GlassTimeline, fr-HarmonicLevelGrid, fr-DarkModeToggle) \u2014 the range now addresses the \u00a72 F.W3 roster; the \u00a72 F.W5 roster sits at 5078-5091. At the correct range: sed -n '5078,5091p' | grep -c ... -> 0, so the claim 'FOUR of the five mint nothing' is TRUE. Its companion arm reproduced byte-identically: grep -o '**fr-AdminUserList** (11): ...' -> 11 ids, FR-AUL-3..FR-AUL-59."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W1 \u00a76\u00b7R5's count-word AND its universal are both falsified by E6-3. The heading says '23 canonical F.W1 rows booked by name' and :644 says 'The other twenty-three are booked below' and 'nothing mints a row the canonical does not home at F.W1' \u2014 but K1 is DISPOSED-NOT-BOOKED and is homed TERMINAL, so 22 are booked and the universal is false of exactly one row.",
+   "receipt": "F-W1:642 heading: '### \u00a76\u00b7R5 \u2014 THE PASS-5 ESCAPE CLOSURE (23 canonical F.W1 rows booked by name, record-qualified)'. F-W1:644: 'The other twenty-three are booked below' ... 'nothing mints a row the canonical does not home at F.W1'. Table at :648-:671 counted by this seat = 24 rows (23 + the declared '\u2205 \u2014 NO ROW EXISTS' vue-tsc amendment); of the 23, F-W1:650's landing reads '~~BOOKED at WU-C...~~ **DISPOSED \u2014 re-homed TERMINAL per E6-3**'. Canonical:393 homes K1 TERMINAL (\u2205). Mitigation: F-W1:551 strikes K1 from the register."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "F-W8:81 and F-W8:324 carry a mid-sentence splice artifact: the E5-15 disclosure block was inserted inside a running sentence and the original tail survives orphaned after the inserted block's full stop. :324 reads literally 'The band roster is **89**, not 90. in the band.' Books nothing; named as the fingerprint of a blind substitution.",
+   "receipt": "F-W8:324 verbatim: '... while the canonical homes that line's token \u2327 **RESOLVED AT THE CENSUS, ERRATA ROUND 5 (E5-15) ...** ... That posture was correct and the repair was always the census's.** The band roster is **89**, not 90. in the band. **The canonical governs; ...**'. F-W8:81 same splice, leaving a duplicate of the 'a wave with zero record-side rows may not settle a record-side reading' clause the inserted block already quotes."
+  },
+  {
+   "severity": "INFO",
+   "claim": "PIN-PURGE-CERT.md \u00a7TABLE-R7 is stale in five of twelve rows and the owed append is undischarged \u2014 round 8 wrote five specs after the certificate, voiding the table by its own expiry clause. No live consequence in the specs: no spec cites a moved wave digest inline, and row 12 (the canonical) is unmoved and correct at 37 live sites. E-3 correctly bars editing the certificate.",
+   "receipt": "\u00a7TABLE-R7's own clause: 'These twelve are true of the bytes this seat found frozen and of no later state. The next seat to write a spec voids this table too and owes the next append.' Its rows d03e07468c74 (F-W1) / 0932ced1a4c0 (F-W4) / 2990f5b51056 (F-W5) / f16b290bcf62 (F-W6) / 0d464a4a7d3a (F-W8) are superseded by 0b638dc6386b / 2f18c3d385f2 / 40bcad59cd2b / f32f8ec4eca5 / 73ddc4d0bf0e. grep -l for each of the five superseded prefixes across waves/ and conformance/ -> conformance/PIN-PURGE-CERT.md ONLY. PASS-8/SEAL.md \u00a7TABLE-R8 supplies the current thirteen."
+  },
+  {
+   "severity": "INFO",
+   "claim": "F-W8:40's `28 \u2295 89 = 117` is live prose but licensed E-3 history \u2014 it minutes what F-W5's elided parenthetical read at its round-4 rewrite, the same line's later chase note names it as 'E-3 history and deliberately NOT re-based', and the convergence claim beside it carries the cured 27 \u2295 89. Not a live band figure. Named so round 10 does not re-find it, alongside the seal's own \u00a72.5 residual at F-W7:101 (confirmed unchanged, DEAD voice, F-W7 untouched at round 8).",
+   "receipt": "F-W8:40 live span: 'at the new bytes a re-based span naming the canonical's **28 \u2295 89 = 117** record-side rows \u27e8*re-based at errata round 5, E5-15: read 90*\u27e9'; later on the same line: 'The dated movement minute above \u2014 which records that the keystone's elided parenthetical read `28 \u2295 89 = 117` at its round-4 rewrite \u2014 is **E-3 history and is deliberately NOT re-based**'; and the convergence claim reads '\u00a72 `F.W5` 27 \u2295 \u00a72 `F.W5-W8` **89**'."
+  }
+ ],
+ "fabricated": 1,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "NOT CONFORMANT"
+}
