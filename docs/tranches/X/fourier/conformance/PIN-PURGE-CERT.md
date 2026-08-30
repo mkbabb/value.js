@@ -750,3 +750,126 @@ f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  conformance/CE
 | 10 | `waves/F-W9.md` | **`b265bf677869`** | `b265bf677869` *(unmoved)* |
 | 11 | `waves/F-W10.md` | **`8ae0ad8fa623`** | `8ae0ad8fa623` *(unmoved)* |
 | 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `f44362757458` *(FROZEN, unmoved)* |
+
+---
+
+## §ERRATA-R14 — **2026-08-30. THE RE-BASE. §ERRATA-R13 IS SUPERSEDED AS THE PIN AUTHORITY AS OF THIS APPEND.**
+
+⊘ **SCOPE, DECLARED FIRST AND BEFORE ANY COUNT IN IT.** Every enumeration in this erratum was measured at the settled bytes of repair round 14 — after both spec cures landed and before this append was written — over `waves/` and `conformance/` from the base `docs/tranches/X/fourier`, against the canonical **FROZEN at `f44362757458`**. ***THIS ERRATUM'S OWN BYTES ARE EXCLUDED FROM EVERY COUNT IN IT AND ARE AN OPERAND FOR NO GATE.*** This is the `F-W0:598` self-exclusion clause, adopted here deliberately, because the defect §ERRATA-R14·a cures is precisely the absence of one.
+
+⊙ **What round 14 was for.** `PASS-14/CHECK.md` held four of five axes — hashes 13/13, roster ZERO in four directions, fabrication ZERO across 56 receipts, all fourteen gates — and blocked on **exactly one carried MEDIUM**, the second member of `D13-1`'s class that `§ERRATA-R13·c` refused to certify closed. **`waves/F-W3.md` was writable at this round. It is cured.**
+
+### §ERRATA-R14·a — the `'289 rows'` sweep enumeration at `:707`, RESTATED with every hit adjudicated (PASS-14 `D14-3` / PASS-13 `LW-13-1`, LOW — CURED)
+
+`:707` published ⟨cmd⟩ `/usr/bin/grep -rn '289 rows' waves/ conformance/` → ***"the line itself and the canonical's E6-5 row, and nothing else"*** — **two lines**. That was **FALSE when written**: at the round-13 settled bytes the sweep returned **EIGHT**. The certificate does not patch the sentence — `E-3` forbids it — it restates the enumeration here, at this round's bytes, with each hit adjudicated on its face.
+
+▲ **At the settled bytes of round 14 the sweep returns THIRTEEN, and `waves/F-W3.md:780` IS NO LONGER AMONG THEM** — the cure at §ERRATA-R14·e row 4 re-based the numeral to `282` and spelled the superseded reading as `read 289`, so the pattern `'289 rows'` has left the corpus of eleven specs entirely but for one lawful, self-excluded addendum.
+
+| # | hit | class | adjudication |
+|---|---|---|---|
+| 1 | `waves/F-W0.md:598` | the `R11-6` addendum, quoting the claim | **LAWFUL** — declared-first self-exclusion clause at `:541`; dated `E-3` history. **The only `'289 rows'` left anywhere in `waves/`.** |
+| 2 | `conformance/CENSUS-CANONICAL.md:182` | erratum **`E6-5`**, the ruling operand | **LAWFUL, FROZEN** — one of the two `:707` accounted for. |
+| 3 | `conformance/PIN-PURGE-CERT.md:707` | **self-match of the receipt's own quoted pattern** | **THE DEFECT** — `:707` carried no self-exclusion clause, so its own publishing act falsified its own count. **DISCHARGED by this section's scope clause.** |
+| 4–7 | `PASS-13/SEAL.md` `:120` `:132` `:134` `:143` | the round-13 seal quoting the claim and the sweep | **LAWFUL** — self-matches of the quoted pattern inside a dated instrument that declares itself an operand for no gate. |
+| 8–10 | `PASS-14/CHECK-RETURN.json` `:6` `:15` `:16` | the round-14 register quoting the claim | **LAWFUL, AND OUT OF `:707`'s REACH BY CONSTRUCTION** — these bytes postdate `:707` and could not have been in its enumeration. |
+| 11–13 | `PASS-14/CHECK.md` `:128` `:232` `:382` | the round-14 check quoting the claim | **LAWFUL**, same class, same reason. |
+
+⊙ **ZERO of the thirteen is a corpus defect.** One is the frozen canonical's ruling; one is a lawful self-excluded addendum; **eleven are self-matches of the quoted pattern inside dated instruments** — the certificate itself, the round-13 seal, and the round-14 check and its return.
+
+⊘ **The substantive claim `:707` was making STANDS, and is now DISCHARGED.** It asserted that `F-W3:780` had been adjudicated by **no pass, check or certificate in thirteen rounds**. That was true, and it remains true of those thirteen rounds. **Round 14 adjudicated it and cured it.** What was wrong at `:707` was never the finding — it was the arithmetic of a sweep that counted its own sentence.
+
+### §ERRATA-R14·b — `§ERRATA-R13·b`'s *"command spans → 108 → 108 (distinct 101 → 101)"*: THE INSTRUMENT, PUBLISHED (PASS-14 `D14-5` / PASS-13 `LW-13-2`, INFO — DISCHARGED)
+
+The figures were published with **no instrument**, and reproduce under none. This seat built **nine** candidate spellings over `F-W5.md`; `PASS-13/SEAL.md` §5 built **five**. **Fourteen spellings, and not one returns `108` or `101`.** The certificate stops asserting the figure and publishes an instrument instead.
+
+⊘ **A REAL two-state operand, recovered rather than assumed.** The pre-cure `F-W5.md` was recovered from `babc83ad^` and **hashes to `40bcad59cd2b`** — byte-identical to `§ERRATA-R13·b` row 6's own *"old"* digest. Both states of the round-13 cure are therefore measurable, and the invariance claim is testable rather than rhetorical.
+
+**INSTRUMENT `R14-I2`, spelled exactly.** A *command span* := a backticked span whose **first** token is a pinned-toolchain invocation. Anchored, so it is insensitive to backtick re-pairing elsewhere on the line:
+
+```
+/usr/bin/grep -oE '`(/usr/bin/)?(grep|awk|sed|shasum|wc|comm|git|ls|find|sort|python3)[^`]*`' waves/F-W5.md | /usr/bin/wc -l
+/usr/bin/grep -oE '`(/usr/bin/)?(grep|awk|sed|shasum|wc|comm|git|ls|find|sort|python3)[^`]*`' waves/F-W5.md | sort -u | /usr/bin/wc -l
+```
+
+| state | digest | total | distinct |
+|---|---|---|---|
+| pre-cure `F-W5.md` | `40bcad59cd2b` | **172** | **132** |
+| post-cure `F-W5.md`, settled | `26aebcdc7bac` | **172** | **132** |
+
+⊙ **THE PROPERTY THE FIGURES WERE CITED FOR REPRODUCES: `172 → 172` (distinct `132 → 132`), INVARIANT.** So do the two receipts `§ERRATA-R13·b` published beside them, re-measured across the same two states: register lines `grep -cE '^\| \*\*[A-G][0-9]+c?\*\*'` → **93 → 93**; line count → **433 → 433**. **The claim was sound; only its numerals were unsourced.**
+
+▲ **And the reason a figure of this class is fragile is exhibited, not guessed.** The *unanchored* spelling of the same idea — `` `[^`]*(tool)[^`]*` `` — returns **337 → 338** (distinct **289 → 290**) across the identical cure, **because the cure adds two backtick pairs and unanchored matching re-pairs the inter-span regions around them.** *"Command spans"* is **not a well-defined count without an anchored spelling.** That is why `108/101` could not be re-derived by fourteen attempts, and why this certificate now publishes the command rather than the number.
+
+### §ERRATA-R14·c — the instrument-A tallies RECONCILED by naming every tuning and every scope (PASS-14 `D14-6` / PASS-13 `LW-13-3`, INFO — DISCHARGED)
+
+**Three runs of one comparator are on record with three different tallies, and no instrument stated its reconciliation.** It is stated here. **The `93 · 84 · 9` pairing named in the round-14 repair charge appears nowhere in this corpus** — ⟨cmd⟩ `/usr/bin/grep -rc '93 · 84\|93/84/9' waves/ conformance/` → **∅** — so the reconciliation below is written against the figures the instruments actually carry, quoted from their own bytes.
+
+| run | site | tally (byte-quoted) | tuning | scope |
+|---|---|---|---|---|
+| 1 | `F-W0:598` (`R11-6`) | ***"48 hits · 41 carrying an on-line chase · 7 read whole"*** | loose chase detector (`R\d+-\d` admitted) | the eleven specs at the round-13 post-cure settle, **the addendum's own bytes EXCLUDED** by its declared-first clause |
+| 2 | `PIN-PURGE-CERT.md:705` | ***"49 hits · 42 on-line chased · 7 read whole"*** | **the same** loose detector | **the same** eleven — **but with no self-exclusion**, so the addendum's own line is inside the count |
+| 3 | `PASS-14/CHECK.md` §4.1 | ***"54 hits · 39 carrying an on-line chase · 15 read whole"*** | **tightened** — explicit supersession vocabulary only; the loose `R\d+-\d` rule **dropped** | the eleven at the round-14 pre-repair settle |
+
+⊙ **Runs 1 → 2: `+1` hit and `+1` chase, and it is one line.** The `R11-6` addendum landed in `F-W0.md` between the two readings; run 1 excludes its own bytes by construction, run 2 does not. **`48 = 41 ⊕ 7` and `49 = 42 ⊕ 7` are the same measurement under two scopes**, not two measurements.
+
+⊙ **Run 3 is a different predicate and says so.** The tightened detector **re-classifies**, it does not re-count: hits rise to 54 on a wider census-noun capture, while `41 → 39` chased and `7 → 15` read whole, because lines the loose rule scored as chased on a bare `R3-7a`-shaped token are no longer credited with one. `PASS-14/CHECK.md` §4.1 discloses this in terms — *"the sixteenth was a FALSE ACQUITTAL of this seat's own making … the detector was tightened and re-run, which is how `F-W3:780` entered the read-whole bucket."*
+
+▲ **THE ADJUDICATED OUTCOME IS IDENTICAL IN ALL THREE RUNS.** Runs 1 and 2: six acquit, **one convicts**. Run 3: fourteen acquit, **one convicts**. **The one is `F-W3:780` every time.** Three instruments, three tunings, two scopes, **one answer** — which is why this was ever a scope-disclosure defect and never an arithmetic one.
+
+### §ERRATA-R14·d — `PASS-13/SEAL.md` §2.1's bolded `**16**` inside a block quotation: ADJUDICATED **LAWFUL** (PASS-14 `D14-7`, INFO — closed, so no successor re-files it)
+
+`PASS-13/SEAL.md:42` reproduces the round-13 cure inside a blockquote as *"the F.W9 roster of **16**"*; ⟨cmd⟩ `/usr/bin/awk 'NR==347' waves/F-W5.md` carries an **unbolded** `16`. The emphasis is an addition inside a quoted span, and the corpus holds itself to `R4-10` byte-true quotation.
+
+⊘ **It is nonetheless LAWFUL, and it is ruled so here rather than left to recur.** The span is a **quotation-of-cure**: the seal is reporting the very numeral it certifies as changed, and the bold marks *which token moved*. **No value is misstated** — the quoted numeral and the byte are both `16`. The file declares itself *"an operand for no gate,"* it is dated instrument history under `E-3`, and the substantive verification it reports re-runs GREEN at this round's bytes (⟨cmd⟩ `/usr/bin/grep -rn 'roster of 17' waves/` → **∅, exit 1**). **`R4-10` governs quotations of the corpus, not an instrument's own emphasis on the token it is adjudicating.** Recorded, closed, **not to be re-filed**; the seal is not patched.
+
+### §ERRATA-R14·e — the changed rows, old → new
+
+- **Row 4 · `waves/F-W3.md`** — `be86ae410118` **→ `025db038cc44`** — **MEDIUM (PASS-14 `D14-1`; carried from `§ERRATA-R13·c`), THE ROUND'S BLOCKING CURE: one numeral plus a chase.** `:780`'s §4a clause — the sentence naming the seven records that book nothing at F.W3 — asserted in the present indicative, **attributed expressly to canonical §4.2**, that *"the five carry 289 rows between them"*. The frozen canonical at `:5496` reads **`carry **282 rows**`**, and erratum **`E6-5`** (`:182`) rules the 289 *"a six-row overstatement inherited from a pre-errata-round-5 sum"*. This seat re-summed the five criterion-negatives' own §1 headers independently at `:768`/`:1265`/`:2133`/`:2462`/`:2753` — **`79 ⊕ 73 ⊕ 46 ⊕ 32 ⊕ 52 = 282`** ✓ — and confirmed the superseded reading likewise (`79 ⊕ 73 ⊕ 46 ⊕ 52 ⊕ 33 = 283` before `E6-1`). The line carried **not one chase token** and **no round of thirteen had adjudicated it**. **Cured to `282` with the chase written in the corpus's own idiom**, matched to `F-W5:347` and to `F-W3`'s own `:416`/`:703` token for token: `⟨*chased at repair round 14, 2026-08-30: read 289; re-based on `CENSUS-CANONICAL.md` §0.5 errata **E6-5** — a six-row overstatement inherited from a pre-errata-round-5 sum; the five criterion-negatives' own §1 headers re-summed at this repair, `79 ⊕ 73 ⊕ 46 ⊕ 32 ⊕ 52 = 282`*⟩`. ⊘ **NOTHING ELSE ON THE LINE MOVED, because every other clause is TRUE at the operand** — the sentence's function, enumerating the seven records that book nothing so their absence is a fact and not a gap, **re-runs exactly**: ⟨cmd⟩ 66 canonical `### fr-` records · 59 in the F.W3 roster · `comm -23` → **`fr-AdminAuditLog` · `fr-AppHeader` · `fr-BasisCanvas` · `fr-ContourEditorCanvas` · `fr-EquationResult` · `fr-FourierMorphSvg` · `fr-GalleryAdminBanner`**, the same seven in the same order. ▲ **ANCHOR DRIFT, RECORDED**: `PASS-14/CHECK-RETURN.json` and the repair charge both quote the line as *"the five carry **289** rows between them"* with the numeral **bolded**; the true bytes carry it **unbolded**. **The cure was applied at the true bytes** and the numeral is left unbolded, matching both the line's own style and the `F-W5:347` precedent. ▲ **WRITE-THEN-MEASURE discharged**: the edit adds no `⟨cmd⟩` span and enters no quoted span, and every `F-W3` receipt whose counted class it could move was re-measured against the pre-edit bytes (`be86ae410118`, recovered from `HEAD`) and **reproduces byte-exact** — line count **912 → 912** · `grep -c 'ContourSettings M-16'` **5 → 5** · `grep -c 'paraphrase — drift noted'` **21 → 21** · `awk '/verbatim/ && !/⟨cmd⟩/' \| wc -l` **30 → 30** · `grep -c '4242\|2780\|2779'` **3 → 3**.
+- **Row 8 · `waves/F-W7.md`** — `ba9be3e37613` **→ `b5247b852f46`** — **LOW ⊕ INFO (PASS-14 `D14-2` ⊕ `D14-4`), CURED IN ONE ACT — NEW, filed by no prior round.** `:58`'s `§0(C)` quote-time pin row read `` | `../COHESION.md` | `91c6d974db9b` | no | ``. **The file moved**: ⟨cmd⟩ `shasum -a 256 docs/tranches/X/COHESION.md` → **`956e71a83e32`**, and the sibling `F-W6:54` already carried the re-measurement. ⊘ **The digest column was NOT touched.** Its own header scopes it to *"sha256-**at-quote-time**"*, which places the digest squarely in the licensed `E-3` history class; **the defect was the third column's affirmative present-tense `no`**, and that alone is cured — in the row's own in-file idiom at `:59` crossed with the sibling's: `**YES** ⟨*the cell read "no" and that statement is now false — ~~`91c6d974db9b`~~ → **`956e71a83e32`** ⟨moved; re-measured at repair round 14, 2026-08-30⟩ …*⟩`. **Blast radius MEASURED, not assumed**: all three spans `F-W7` quotes from `COHESION.md` were re-run against the moved file and **all three reproduce** (`Cross-repo edges are declared FROM BOTH ENDS …` · `the value-side atomdiff restoration` · `Every census wave-sketch id`). ⊙ **And the count-word cured in the same act (`D14-4`).** The `⌧` minute published *"FIVE STALE, ONE "no" NOW FALSE"* and enumerated one short. **Re-counted against the table's own ten rows at the settled bytes: TWO** — `KF-W1.md`'s, cured at round 5, and `../COHESION.md`'s, cured here. The round-5 reading is **struck, not rewritten** (`~~ONE "no" NOW FALSE~~ → TWO "no"s NOW FALSE`) with the recount in a dated chase, and the minute's *"FIVE STALE"* is left standing because **it is correct**: `F-W0` · `F-W1` · `F-W5` · `F-W6` · the census. `waves/F-W3.md`'s row also once read *"no"*, but it was superseded by this certificate at round 6 — **after** the minute was written — so it is no residue of that count, and the chase says so. ▲ **ANCHOR DRIFT, RECORDED**: the register places the `⌧` minute at `:60`; at the true bytes `:60` is the canonical's pin row and **the minute is at `:62`**. The cure was applied at the true bytes. ▲ **WRITE-THEN-MEASURE discharged**: line count **359 → 359** · §5 record denominator **15 → 15** · `grep -c 'Genuinely owed'` **2 → 2**, all re-measured against the pre-edit bytes (`ba9be3e37613`, recovered from `HEAD`). The `§0(C)` pin block's own ⟨cmd⟩ was re-run whole and **all ten rows resolve**.
+
+**Ten unchanged and carried forward exact: rows 1 (`F-W0`), 2 (`F-W1`), 3 (`F-W2`), 5 (`F-W4`), 6 (`F-W5`), 7 (`F-W6`), 9 (`F-W8`), 10 (`F-W9`) and 11 (`F-W10`) — and row 12, the canonical, FROZEN for a SIXTH consecutive round of repair.**
+
+⊘ **NO STALE PIN PROPAGATES.** ⟨cmd⟩ `/usr/bin/grep -rn 'be86ae410118\|ba9be3e37613' waves/` → **∅ (exit 1)**: neither superseded digest is pinned literally in any of the eleven specs. Every surviving occurrence lives in `conformance/` — dated seals, checks and this certificate's own prior closing blocks — which is the licensed `E-3` history class, left standing.
+
+⊘ **The same expiry, restated so it is not read as a promise.** These twelve are true of the bytes this seat settled and of no later state. **The next seat to write a spec voids this table** and owes the corpus a `§ERRATA-R15` in the same sitting.
+
+⟨cmd⟩ this seat, 2026-08-30, **base = repo root `/Users/mkbabb/Programming/value.js`**, on the pinned BSD toolchain, taken **as the absolute last act of this write, after both cures settled and all 48 re-run receipts closed byte-exact under a double run**:
+
+```
+shasum -a 256 /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W*.md \
+              /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/conformance/CENSUS-CANONICAL.md
+```
+
+**Output, pasted whole and verbatim — glob order, `F-W10` sorting after `F-W1` exactly as the shell produced it:**
+
+```
+3d62e5f4e78b99d5f3552a8b4d1ed377981854ca47db80b8471b8f4690651645  waves/F-W0.md
+ab2437af09e0d0646260afdd024541539ad588d492b8de48aee25a8f82adff3e  waves/F-W1.md
+8ae0ad8fa623de2201a6184ec32dfcb2a6bd25e2443b69ad4377e24746eeddc9  waves/F-W10.md
+0b967619bb35763b6f1b09529db080fa2f9a37db2fa3e5e1eac70ce2aef7b7a6  waves/F-W2.md
+025db038cc44e360363ce2a4499c876f4a077cf1b740a0c47e4dff42b1493608  waves/F-W3.md
+2fb6e6d637bb6d0fad710716fb1dfa103d39fc41f67d8ff0fb856e4c0126cdb6  waves/F-W4.md
+26aebcdc7bacb6bc85e31b3bf1205097bacb4311855ade0fe1c581784ff2ad85  waves/F-W5.md
+e83dcad051f560329ade30dbb0877732650ac05071e8b2ee0eab22f56abf7e11  waves/F-W6.md
+b5247b852f46d9a5b6c3cb468be799cbe6315a387b31e52a0cc8397c8d76c5d2  waves/F-W7.md
+d8237cf6b11ef248e4080b8d805a2ee7477139b8d4cf9cf3564922096e29bd45  waves/F-W8.md
+b265bf677869b0ec6f3c02c54b93272f657111e55498cf05bef14578d6c4b53b  waves/F-W9.md
+f443627574581ec2a4138e46d927b5fc431a7a6657cae766f7ffafa01e770968  conformance/CENSUS-CANONICAL.md
+```
+
+**TWELVE ROWS, ordered numerically and labelled `fourier/`-relative for citation stability with §TABLE, §TABLE-R7, §ERRATA-R9, §ERRATA-R10, §ERRATA-R11, §ERRATA-R12 and §ERRATA-R13 (`docs/tranches/X/fourier/` + the label = the path above). TWO moved; TEN are unmoved, the canonical among them for a SIXTH consecutive round of repair.**
+
+| # | file | sha256 (first 12) — **R14, CURRENT AUTHORITY** | superseded §ERRATA-R13 row (R13, history) |
+|---|---|---|---|
+| 1 | `waves/F-W0.md` | **`3d62e5f4e78b`** | `3d62e5f4e78b` *(unmoved)* |
+| 2 | `waves/F-W1.md` | **`ab2437af09e0`** | `ab2437af09e0` *(unmoved)* |
+| 3 | `waves/F-W2.md` | **`0b967619bb35`** | `0b967619bb35` *(unmoved)* |
+| 4 | `waves/F-W3.md` | **`025db038cc44`** | `be86ae410118` |
+| 5 | `waves/F-W4.md` | **`2fb6e6d637bb`** | `2fb6e6d637bb` *(unmoved)* |
+| 6 | `waves/F-W5.md` | **`26aebcdc7bac`** | `26aebcdc7bac` *(unmoved)* |
+| 7 | `waves/F-W6.md` | **`e83dcad051f5`** | `e83dcad051f5` *(unmoved)* |
+| 8 | `waves/F-W7.md` | **`b5247b852f46`** | `ba9be3e37613` |
+| 9 | `waves/F-W8.md` | **`d8237cf6b11e`** | `d8237cf6b11e` *(unmoved)* |
+| 10 | `waves/F-W9.md` | **`b265bf677869`** | `b265bf677869` *(unmoved)* |
+| 11 | `waves/F-W10.md` | **`8ae0ad8fa623`** | `8ae0ad8fa623` *(unmoved)* |
+| 12 | `conformance/CENSUS-CANONICAL.md` | **`f44362757458`** | `f44362757458` *(FROZEN, unmoved)* |

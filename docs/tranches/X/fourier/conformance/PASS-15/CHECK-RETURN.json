@@ -1,0 +1,23 @@
+{
+ "defects": [
+  {
+   "severity": "MINOR",
+   "claim": "F-W3:384 cites the corrupt-dist fact by its second witness alone \u2014 'Companion: glass-ui 4.0.0's syntactically corrupt dist/styles/index.css (fr-PaperSidebar M1)' \u2014 departing from the cite-both canonical form 'FR-NP-32 (\u2261 fr-PaperSidebar M1)' declared at F-W5:394 and F-W10:128 ('two banked witnesses of ONE fact; the citation form is cite-both, never substitute'). Fresh; filed by no prior pass in fifteen rounds. DOES NOT BLOCK. Mitigation stated: it is the ONLY such site in all eleven specs (69 of 70 FR-NP-32 citations carry the canonical form); the row's subject is GAB-13's 28-path dirty worktree, not the dist, so the clause is a companion cross-reference that books nothing; F-W3 carries FR-NP-32 five times elsewhere including at its F.W3-binding sites, so the primary banked id is not lost from the file; no booking, homing, grading or magnitude moves.",
+   "receipt": "\u27e8cmd\u27e9 /usr/bin/grep -rn 'fr-PaperSidebar M1' waves/ | /usr/bin/grep -vc 'FR-NP-32' \u2192 1 (sole hit waves/F-W3.md:384). \u27e8cmd\u27e9 /usr/bin/grep -c 'FR-NP-32' waves/F-W3.md \u2192 5. \u27e8cmd\u27e9 /usr/bin/grep -rn 'F-W3:384\\|F-W3\\.md:384' conformance/ \u2192 \u2205 (unfiled). Law quoted at waves/F-W5.md:394 and waves/F-W10.md:128."
+  },
+  {
+   "severity": "LOW",
+   "claim": "F-W3:634's parenthetical self-count receipt has gone stale on one of three arms. The cell asserts in current voice: 'no \u00a71 bounds row and no \u00a75 file list holds BasisCanvas.vue, ContourEditorCanvas.vue or EquationResult.vue (\u27e8cmd\u27e9 this seat, grep -c 'components/[a-z/]*<file>\\.vue' F-W3.md \u2192 0 for each of the three)'. At the settled bytes the BasisCanvas arm returns 1, not 0 \u2014 falsified by a LATER paste inside its own file (:664's `find web/src -name 'BasisCanvas.vue'` receipt output `web/src/components/visualization/BasisCanvas.vue`). This is exactly the self-count fragility R3-3.10 abolished, in the manner it predicted. Fresh; filed by no prior pass in fifteen rounds. DOES NOT BLOCK. Mitigation stated: the SUBSTANTIVE CLAIM IS TRUE and is proved un-stale-ably thirty lines below, in the same section, by the CURED form of the identical probe at :664 \u2014 a probe scoped to the structural rows so it cannot match the section's own prose (R3-3.7) \u2014 which returns no output and cannot go stale under any paste; the parallel sentence at :691 carries no receipt at all and is unharmed; nothing booked, homed, graded or counted moves. Secondary note (not separately filed): the receipt is spelled with a literal <file> placeholder, so it is a schema rather than a runnable command \u2014 which is how it survived thirteen rounds of value-matching sweeps.",
+   "receipt": "\u27e8cmd\u27e9 per arm in waves/: grep -c 'components/[a-z/]*BasisCanvas\\.vue' F-W3.md \u2192 1 \u00b7 ContourEditorCanvas \u2192 0 \u00b7 EquationResult \u2192 0. \u27e8cmd\u27e9 grep -n 'components/[a-z/]*BasisCanvas\\.vue' F-W3.md \u2192 664 (sole hit; :664 is the find-receipt paste). MITIGATION re-run: \u27e8cmd\u27e9 /usr/bin/grep -h '^- \\*\\*Files\\*\\*' F-W3.md | /usr/bin/grep -o 'GalleryAdminBanner\\|BasisCanvas\\|ContourEditorCanvas\\|EquationResult' | sort -u \u2192 no output. \u27e8cmd\u27e9 grep -rn 'F-W3:634\\|F-W3\\.md:634' conformance/ \u2192 \u2205 (unfiled)."
+  },
+  {
+   "severity": "INFO",
+   "claim": "The ':707' sweep's raw return grew 18 \u2192 22 since round 14, and every one of the four new hits is PASS-14/SEAL.md's own quotation of the pattern it measures. This is the monotone self-match growth PASS-14/SEAL.md \u00a74 filed forward as a structural property for round 15; a fresh measurement confirms the prediction exactly. NOT A DEFECT and NEVER BLOCKS \u2014 recorded only so round 16 declares a scope before publishing a figure here rather than re-creating :707's defect a fourth time. Under the declared scope (this file's own bytes, plus \u00a7ERRATA-R14's PIN-PURGE-CERT \u2265:756 five hits, plus PASS-14/SEAL.md's four self-excluded hits) the scoped total is THIRTEEN, matching \u00a7ERRATA-R14\u00b7a row for row; F-W3.md:780 is NOT among them and F-W0.md:598 remains the only '289 rows' anywhere in waves/.",
+   "receipt": "\u27e8cmd\u27e9 /usr/bin/grep -rn '289 rows' waves/ conformance/ \u2192 22 raw. By file:line \u2014 F-W0.md:598 \u00b7 CENSUS-CANONICAL.md:182 \u00b7 PIN-PURGE-CERT.md:707 [+ :762 :764 :766 :770 :827 EXCLUDED] \u00b7 PASS-13/SEAL.md:120,132,134,143 \u00b7 PASS-14/CHECK-RETURN.json:6,15,16 \u00b7 PASS-14/CHECK.md:128,232,382 \u00b7 PASS-14/SEAL.md:82,153,169,264 [EXCLUDED]. Scoped = 13."
+  }
+ ],
+ "fabricated": 0,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "CONFORMANT"
+}
