@@ -234,4 +234,176 @@ fourier receives v2 — declaring **this end** of every §4 cross-edge and **req
 
 ## Unit receipts
 
-*(appended by each unit as it lands; nothing here yet)*
+### a
+
+**SERVED MODEL: claude-opus-5[1m]** · seat opened 2026-09-17, HEAD at open `353fa9d1`, branch `tranche-u`.
+Writable set honoured: **one file created**, `docs/tranches/X/fourier/contract/operation-register.md`,
+⊕ this receipt. Zero fourier bytes written (`$F` read-only: every fourier command below is
+`grep`/`sed`/`awk`/`ls`). `scripts/dev/dev.sh` never staged.
+
+**Serial-head note (§1c).** The tree at open carried four rows from **other tracks** — `X·P`'s
+`parse-that/waves/W1-CLOSE.md` (staged by that seat) and three `X·KF` `KF-W4` evidence files, plus the
+standing `CARRY-LEDGER.md` and the unowned `dev.sh`. **None is in F.W5's writable set**, so F.W5's own
+serial head is clean and the *"dirty tree at handoff halts the wave"* condition is not tripped by another
+track's concurrent work. At this unit's close the F.W5 writable set is **clean** (⟨cmd⟩
+`git status --porcelain | /usr/bin/grep -c 'operation-register'` → **0** after commit).
+
+#### Acts, in order
+
+**a.1 — MEASURE-AT-OPEN (D-19), before a byte was written.** Every fourier figure re-measured at this
+seat's own clock from `$F = /Users/mkbabb/Programming/fourier-analysis`, never inherited. Engine named
+(`/usr/bin/grep`, BSD) because the results are engine facts. All double-run, `run1 ≡ run2`:
+
+| figure | ⟨cmd⟩ | reading |
+|---|---|---|
+| router-level operations | `/usr/bin/grep -rE '^@[a-z_]*router\.(get\|post\|put\|patch\|delete)\(' api/routers/ \| wc -l` | **44** |
+| app-level operations | `/usr/bin/grep -cE '^@app\.(get\|post)\(' api/main.py` | **1** |
+| **total** | `44 + 1` | **45** |
+| arm `public-non-admin` | `/usr/bin/grep -rE '^@router\.(get\|post\|put\|patch\|delete)\(' api/routers/ \| wc -l` | **30** |
+| arm `admin` | `/usr/bin/grep -cE '^@admin_router\.' api/routers/admin.py` | **13** |
+| arm `gallery` | `/usr/bin/grep -cE '^@gallery_router\.' api/routers/gallery.py` | **1** |
+| arm `app` | (as above) | **1** |
+| OpenAPI security schemes | `/usr/bin/grep -rE 'HTTPBearer\|APIKeyHeader\|OAuth2\|SecurityScopes\|security=\|openapi_extra\|Security\(' api/ --include='*.py' \| wc -l` | **0** (G8's `0/45`, mechanism enumerated) |
+| the 7 unclientted viz ops | `/usr/bin/grep -rniE '/api/visualizations/\$\{[a-z]+\}/(remix\|publish\|unpublish\|forks\|provenance\|diff\|versions)' web/src \| wc -l` | **0** |
+| gallery alias consumers | `/usr/bin/grep -rn '/api/gallery' web/src \| wc -l` | **0** |
+| health consumers | `/usr/bin/grep -rn '/api/health\|healthz' web/src \| wc -l` | **0** |
+
+**`45 = 30 + 13 + 1 + 1`** closes on the first reading, on all four arms, on both runs — and it closes on
+**§D1's own naming** of the arms (*"30 public-non-admin + 13 admin + 1 app + 1 gallery"*, ⟨cmd⟩
+`/usr/bin/grep -c -F 'The triple is 45 = 30 public-non-admin + 13 admin + 1 app + 1 gallery' docs/tranches/X/fourier/waves/F-W5.md`
+→ **1**), not merely on the arithmetic.
+
+**a.2 — COUNTING LOCK K-1, fired rather than quoted.** The lock reads *"a `@router.` grep is BLIND to
+prefixed routers … read against 13/44, never as zero."* At this seat the trap **fires**:
+⟨cmd⟩ `/usr/bin/grep -cE '^@router\.' api/routers/admin.py` → **0** (the forbidden zero) against
+⟨cmd⟩ `/usr/bin/grep -cE '^@admin_router\.' api/routers/admin.py` → **13** — i.e. **13 of 44**, exactly as
+K-1 pins it; `gallery.py` shows the same blindness one row wide (**0** vs **1**). The register is
+therefore keyed on `@[a-z_]*router\.` ⊕ `@app\.`, and **"30" appears in it only as the public-non-admin
+arm, never as a total** (C-3's standing correction).
+
+⊘ **A collision the lock does not name, disclosed at register §1.3**: *two* arms of this API have thirteen
+operations — **admin** (13) and **visualizations** (13) — so `30 + 13 + 1 + 1` has a second arithmetically
+valid partition that would put different rows in the second arm. §D1's spelling (*"30 public-non-admin"*
+⊕ *"13 admin"*) settles it; the collision is recorded because a size-keyed check matching on `13` alone
+would read the wrong arm as agreeing. **No count in the register is verified by its size alone.**
+
+**a.3 — the register authored.** `contract/operation-register.md` created (**38 KB**, line 1 =
+`SERVED MODEL: claude-opus-5[1m]`): **45 numbered rows, one per operation**, each carrying
+**method · path · handler · authority class (R3-7b) · client function · client-edge disposition (R3-7c)**.
+Authority vocabulary is a **closed six-token set, each token a measured mechanism** (`ADMIN-TOKEN` ·
+`SESSION-DECLARED` · `SESSION-IN-BODY` · `OWNER-IN-BODY` · `VIEWER-SCOPED` · `ANONYMOUS`); disposition
+vocabulary is G9's three gap tokens ⊕ `CLIENTED`.
+
+**a.4 — the 36/9 split and the nine gap dispositions.** `36 CLIENTED / 9 gaps`, and the 9 = the **seven**
+unclientted `/api/visualizations` operations ⊕ `GET /api/gallery/cursor` ⊕ `GET /api/health`. Each gap
+carries **one** disposition token, its **measured ⊕ ruled basis**, **one home** and **two citations**:
+
+- **remix · publish · unpublish · forks · provenance · diff · versions → `CLIENTABLE`** (7). Ruled where a
+  ruling exists (§0j.D **F-SS4REST R8** carries remix/publish/unpublish); measured otherwise. Two are
+  **sequenced** in their basis cell, not in a second disposition: *provenance* behind **§C5** (⟨cmd⟩
+  `/usr/bin/grep -rn '_readable_or_none' api/ --include='*.py' \| wc -l` → **5**, entry-row only ⇒ the
+  breadcrumb emits a private ancestor's fields), *versions* behind **§E2** (⟨cmd⟩ `… '_write_root_version'
+  … \| wc -l` → **3** = def ⊕ create ⊕ remix, the ONLY writer ⇒ an always-singleton history; clienting it
+  today ships the dead affordance §D2/R4 bars). Home: **F.W1/F.W4** (⊕ §C5 / §E2 / F.W6 for the sequenced
+  legs).
+- **`GET /api/gallery/cursor` → `STRUCK`.** Measured from the route's **own docstring sunset clause**
+  (⟨cmd⟩ `/usr/bin/grep -n -F 'stable frontend-facing path while the consumer migration (B.W4) re-points the' api/routers/gallery.py`
+  → `:8`): the alias exists only *until* the client is re-pointed onto `/api/visualizations`. It has been
+  — **0** `/api/gallery` references in `web/src`. Home: the **fourier API row** (G9's strike owner).
+- **`GET /api/health` → `SERVER-ONLY`.** `{"status":"ok"}`, no authority, **0** web references; the
+  absence of a client edge is the design and is stated as such. Home: the **fourier API row** (no act
+  owed).
+
+⊘ **One divergence DISCLOSED, not resolved** (row 9): the server's unpublish target is **`unlisted`**
+(⟨cmd⟩ `/usr/bin/grep -n 'target = "unlisted"' api/routers/visualizations.py` → `:647`) while **ruling
+D9** rules *"The unused `unlisted` state dies."* Per the spec's own D9 rooting the reconciliation is **the
+value.js API row's obligation — never a silent contract overwrite, and never a fourier defect**. The
+register records it and **rules nothing**.
+
+**a.5 — F-6's client-side blindness lock honoured (§D1's second lock).** *"The register enumerates
+template-bound edges explicitly or it is armed against server under-count and unarmed against client
+under-count."* Register §5 enumerates them: **three operations reached only through a URL builder**, not a
+fetcher — `thumbnailUrl` (3 consuming sites), `overlayUrl` (3), `imageUrl` (**0**) — six consuming sites
+in all, none traversing `coreFetch`. ⊘ And the instrument's *other* error is disclosed: ⟨cmd⟩
+`/usr/bin/grep -rnE ':src="' web/src --include='*.vue' \| wc -l` → **6**, of which only **4** are API
+edges (`PaperArticleWindow.vue:97` and `AppHeader.vue:79` bind bundled `.png` assets) — so a `:src`-
+counting probe **over**-counts by two in the direction F-6 warns about under-counting.
+
+**a.6 — three `CLIENTED` rows whose client function has ZERO consumers, CITED NOT BOOKED.**
+⟨cmd⟩ (per name) `/usr/bin/grep -rw '<fn>' web/src --include='*.ts' --include='*.vue' \| /usr/bin/grep -cv 'lib/api.ts'`
+→ **0 · 0 · 0** for `checkImageHash` (row 21), `imageUrl` (row 23), `getMe` (row 29). The third reproduces
+the spec's banked §C3 witness; **the first two are new at this seat**. All three are offered to **§B4's
+LIVENESS predicate** as instances — **no id minted, no repair claimed, no roster entered** (§0b,
+FR-GIG-5's bar).
+
+**a.7 — WRITE-THEN-MEASURE, and what it caught.** Every published figure was re-run against the **settled
+bytes** before commit. **Four receipts did not reproduce as first drafted and were corrected at the true
+bytes; three are disclosed in the register itself (§0) rather than silently fixed:**
+
+1. **`grep -r` over `api/` counts `__pycache__`.** Un-scoped, `_readable_or_none` returned **6** and
+   `_write_root_version` **4** — one more each than the spec's banked 5 and 3 — because `grep -r` emits a
+   `Binary file api/routers/__pycache__/visualizations.cpython-314.pyc matches` line. With
+   `--include='*.py'` both reproduce the banked figures exactly (**5** · **3**, double-run). *A `.pyc`
+   inflating a source count by one is the phantom-receipt class in miniature: the digit is wrong and the
+   command still "works".*
+2. **An export grep is not an edge count.** `api.ts` exports **39** functions, **five** bearing no
+   operation (`setSessionToken` `:44` · `abortInflight` `:61` · `isAbortError` `:69` · `apiFetch` `:215` ·
+   `computeSha256` `:260`). `39 − 5 = 34`, ⊕ **2** in `equation/api.ts` = **36**. The first draft published
+   `34` under the raw instrument — **false**. The authoritative 36 is the register's own self-count.
+3. **A docstring quotation must be quoted at its line.** Row 45's sunset clause wraps across two source
+   lines; the re-flowed rendering returned **0** under `grep -c -F` and was replaced by the single line
+   that carries it (`gallery.py:8`), with the continuation named (`:9`).
+4. A `sed` line range (`649,651`) missed the `unlisted` target line by two; replaced with a `grep -n`
+   that names `:647` — a **drifted anchor cured at the true bytes**, per METHOD.
+
+**No figure published in the register is one that failed to reproduce.**
+
+**a.8 — SELF-COUNT from the settled bytes, double-run.** Row filter
+`/usr/bin/grep -E '^\| [0-9]+ \| (public-non-admin|admin|app|gallery) \|' <register>` — **the same 45
+lines every count runs over**:
+
+| partition | readings | closes |
+|---|---|---|
+| arms | `public-non-admin` **30** · `admin` **13** · `app` **1** · `gallery` **1** | **45** |
+| **G8** authority | `ADMIN-TOKEN` **13** · `SESSION-DECLARED` **1** · `SESSION-IN-BODY` **2** · `OWNER-IN-BODY` **5** · `VIEWER-SCOPED` **5** · `ANONYMOUS` **19** | **45** |
+| **G9** disposition | `CLIENTED` **36** · `CLIENTABLE` **7** · `STRUCK` **1** · `SERVER-ONLY` **1** | **45** |
+
+`run1 ≡ run2` on every cell. **Three partitions of the same 45, all closing at 45, none derived from
+another.**
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (baseline, this record) | AFTER (this seat, 2026-09-17) | verdict |
+|---|---|---|---|
+| **G21** — the register is a FILE, not prose | ⟨cmd⟩ `ls $V/docs/tranches/X/fourier/contract/` → *No such file or directory* (double-run) | ⟨cmd⟩ `/bin/ls /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/contract/` → **`operation-register.md`**, 38255 bytes; **45 rows**, `45 = 30+13+1+1` enumerated per row | **RED → GREEN** |
+| **G8** — security documentation (R3-7b) | `save_contour(req)` takes no `Depends`/`Header`/`Request`; router declares no `dependencies=` | **EVERY row carries an authority class** — 45/45, six measured mechanisms, self-counted `13+1+2+5+5+19=45`. The `0/45` OpenAPI witness is reproduced **with its mechanism enumerated** (0 security schemes; `admin_required`/`require_session`/`resolve_session` are plain `Request` readers at `api/dependencies.py:262`/`:254`/`:206`, which emit no `security` block) ⇒ **26 of 45 enforce authority, 45 of 45 document none** | **RED → GREEN** *(register half; the `save_contour` + image-GET **decisions** are §C1's, unit c — the register makes them checkable, not made)* |
+| **G9** — client-gap closure (R3-7c ⊕ X-3) | `web/src/lib/api.ts` exists; 23 `visualizations` hits; the 36/9 and 7-of-13 figures owed to unit a under lock K-1 | **36 client edges / 9 gap operations**, re-measured (a fourth independently agreeing count); **SEVEN of 13** `/api/visualizations` ops unclientted (probe → **0**); **every gap operation carries a disposition** — 7 `CLIENTABLE` · 1 `STRUCK` · 1 `SERVER-ONLY`, each with basis, one home, two citations. K-1 held: read against **13/44**, never zero | **RED → GREEN** |
+
+#### Commits
+
+- **`3418db60`** — `docs(x-f/F.W5.a): the 45-operation register — authority class + client-edge disposition on every row` (pathspec: `docs/tranches/X/fourier/contract/operation-register.md`).
+- this receipt — pathspec `docs/tranches/X/execution/C/F-W5.md`.
+
+#### Residuals handed on (books nothing, cites everything)
+
+1. **To unit b (§A/§B)** — §4.3's three zero-consumer rows for **§B4's LIVENESS** predicate; §5's
+   template-bound edges for **§A3's evenness** posture, which must cover edges that never reach
+   `coreFetch` at all.
+2. **To unit c (§C/§D/§E)** — §3's class table is **§C1**'s operand and §4's disposition table is
+   **§D1**'s (*"keyed to the register"* now has its referent); §3.2 carries the `save_contour` and
+   image-GET ground (3 `Cache-Control: public, max-age=86400` header sites at `images.py:145`/`:164`/`:205`
+   ⊕ 1 comment at `:138`); §2.2 carries the **producer absence** for **§D3** (rows 41–42 are the flags
+   collection's entire live surface and **no row of the 45 writes a flag**) — ruled **F-PRODRET**; row 9
+   carries the **D9 divergence** for the value.js API row; row 30's `logout` authority note
+   (`X-Session-Token` consumed **by value as a key**, never validated) for **§C3**.
+3. **To unit e (§G19)** — a file, not prose. The register **mints no id, books none, and enters no roster
+   at either end** of the set-difference; every id it touches is cited to its holder.
+
+#### Escalations
+
+**None.** No write outside the writable set; no ruling re-opened; no spec byte edited (E-3 honoured — the
+four instrument corrections are in **this** record and in the register's own §0, never in the spec).
+**Triumvirate status: the register agreed with the 45/30/13 triple at the FIRST reading, on all four arms,
+on both runs — zero disagreements, the third-iteration halt not approached.**
+
+**Handoff**: F.W5's writable set is clean; **unit b may open.**
