@@ -47,8 +47,13 @@ authority; do not hand-edit counts merely to keep prose numerically still.
 6. After the original runs settle, dispatch the seven-row `frontend-omissions.json` catch-up once.
    It is additive; do not modify or restart any of the first six run IDs.
 7. Do not claim saturation until the validator reports **88/88 components and 264/264
-   current-hash axes**. If a payload is genuinely absent, resume its existing run ID; do not
-   restart.
+   current-hash axes = 218 CHALLENGED + 46 REPORT-AUTHORED**. Cite the split, never the bare
+   figure (dated carve 2026-09-17, X-W0.c / CC-001 / HG-6): saturation says a canonical file
+   exists, is ledgered and still hashes — it says nothing about whether a seat challenged it, and
+   46 of the 264 had no seat dispatched at all. The three integers and the roster predicate are
+   printed by `validate-completeness.mjs` and carried in `registry/COMPLETENESS-LEDGER.md`
+   §The challenged denominator. If a payload is genuinely absent, resume its existing run ID; do
+   not restart.
 8. Recount top-level `.md` files in `registry/adjudicated/`; directories do not count.
 9. Begin adjudication on any complete corpus in bounded Goldilocks batches. New seats use GPT Sol
    xhigh for orchestration/refutation/synthesis and GPT Luna xhigh for mechanical extraction.

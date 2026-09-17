@@ -192,3 +192,50 @@ stamp says 'stale HEAD'."_ Run at this seat: that diff **is** empty (the tree is
 **the TypingDots stamp does not say "stale HEAD"** — it states the measured `+4/−9` against the
 **disqualified pin**, names the pin as the outlier, and carries the inversion with its three
 file-scoped corrections. **Not RED.**
+
+---
+
+## §9 — G-0.10 GATE READING (APPENDED 2026-09-17 · E-3: nothing above is rewritten)
+
+**Why here.** G-0.10 is the one gate of unit `.e`'s four that the spec gives **no dedicated
+work-product row** in §Bounds — its GREEN lands as *appended corrections at the registry ids* (§7
+above, every row grounded `G-0.10`) and as the transcript
+`docs/tranches/X/keyframes/artefacts/W0/glass-citation-rederivation.txt`. A turned gate whose reading
+reaches no doc is checkable only by a seat that thinks to open a `.txt`; the reading is therefore
+written beside its landings. **No new claim is made below** — every figure is re-executed at this
+seat's clock and double-run, and where a figure was already banked it is stated as *reproduces*.
+
+**G-0.10 — SOURCE-OVER-DIST PROVENANCE.** *glass-ui citations re-derived against the consumed
+artifact.*
+
+| GREEN clause                                                                          | reading                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| every surviving `glass-ui/src/**` citation re-derived against `node_modules/@mkbabb/glass-ui/dist/**` **or struck** | **GREEN** — ⟨`grep -c 'glass-ui/src' kf-*.md`⟩ → **4 records, 1 line each** (`kf-CSSPasteDialog` · `kf-KeyframeCardList` · `kf-KeyframeTimeline` · `kf-SharePopover`), every one a **META-citation about the provenance defect**, not a live `file:line` claim into glass source — so none is struck and each is re-derived at its load-bearing token. The consumed artifact is identified **by bytes, never by a version string** (C-13's whole content): ⟨`shasum -a 256 $(find node_modules/@mkbabb/glass-ui/dist -type f \| sort) \| shasum -a 256`⟩ → `3cc72cc9d84879c7a1ada0ae2d210fbf11ca39904cb5909759c8717bc45da6f2`, **double-run identical at this seat** |
+| XR-4 / IN-GLASS-1 / `DISPOSITIONS.md:21` re-read against **BOTH repo-qualified letters and the shipped artifact** | **GREEN** — **(a)** value.js `docs/tranches/V/archive/GLASS-INBOUND-2026-07-16-headerribbon-persistent-only.md:15-19`, re-read at this seat (its seven claimed deletions quoted at transcript §3); **(b)** keyframes.js `origin/master:docs/tranches/V/coordination/GLASS-INBOUND-2026-07-16-headerribbon-consumer-updates.md`, **26 L**, re-read at this seat; **+ `dist/header-ribbon.js`**, re-read at this seat — `anchor` **4** · `pinned` **3** · `inert` **2** · `aria-hidden` **2** · `anchorLabel` **0** · `HeaderRibbonMode` **0**. **Five of letter (a)'s seven deletions are falsified by the shipped 7.0.0; only `anchorLabel` and `HeaderRibbonMode` are actually gone** (EH-1 holds). XR-4 itself is **FALSIFIED at the settled frontier**: ⟨`sed -n '16p' EditorShell.vue`⟩ → `<HeaderRibbon placement="right">` (no `mode=`) and ⟨`grep -c 'defineExpose' EditorShell.vue`⟩ → **0**; both of letter (b)'s consumer updates are already applied |
+| **one fresh `npm run gh-pages`**, so the byte-offset receipts stop riding a Jul-16 artifact | **GREEN, and run EXACTLY ONCE** (2026-09-17 13:37:14, `package.json:43` `"vite build --mode gh-pages"`; **no `build:gh-pages` exists at any coordinate**, R-11 re-verified). `index-CL_QYCiO.css` (571142 B, Jul 16 09:11) → `index-CBB2Hr7m.css` (571192 B, Sep 17 13:37). **The artefact banked is the HASH, not the bytes**: ⟨`find dist/gh-pages -type f \| sort \| xargs shasum -a 256 \| shasum -a 256`⟩ → `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` — **re-verified double-run at this seat, byte-identical**, over **54** files. **This seat did NOT re-run the build**: a second run would breach the spec's *exactly one*, and the banked hash is the standing witness |
+
+**Falsifiers, run at this seat**
+
+- **(1) "matching version strings on both sides passes the check that produced this defect."** Not
+  RED: no leg of this gate rests on a version string. The consumed artifact is pinned by the dist
+  **digest** above; the producer tree `/Users/mkbabb/Programming/glass-ui` was **never opened** by
+  this unit (READ-ONLY always, and here not even read); every producer claim is measured against
+  `node_modules/@mkbabb/glass-ui/dist/**`.
+- **(2) "a Glass-7 consume slice scoped from the letter rather than the tree."** Not RED: the two
+  letters are recorded **with their repos** and with **what each one gets wrong**, and the tripwire
+  is stated from the import graph — the `/header-ribbon` consumer set is **exactly one**
+  (`EditorShell.vue:116`), LAW-A Census 2. Nothing in KF.W6 is scoped from either letter.
+- **(3) "a receipt naming ONE letter is RED."** Not RED: **both** are named, each with its repo, at
+  C-14, at transcript §3, and in the appended correction at `kf-EditorHeader`.
+
+**The dead asset name, disposed.** ⟨`grep -l 'index-CL_QYCiO' kf-*.md`⟩ → **10 records**, re-run at
+this seat. The coordinate is superseded, **the findings are not**: all seven byte-offset receipts
+re-derive GREEN in the fresh build (transcript §6), and the one delta — the `@layer` statement order —
+is **declared rather than absorbed** and appended at `kf-EditorHeader` under its own id. The 14 dated
+challenge files under `audit/kf-components/` are **immutable dated evidence and were not touched**
+(E-3).
+
+**W0 moved no product byte here.** ⟨`git -C /Users/mkbabb/Programming/keyframes.js status --short
+--untracked-files=no`⟩ → **0 rows**; ⟨`… status --short -- demo/`⟩ → **0 rows**.
+`dist/gh-pages/**` is git-ignored at the frontier (`.gitignore:10` `dist/`), so the one regeneration
+commits nothing and is **regenerate-only**, never hand-edited.

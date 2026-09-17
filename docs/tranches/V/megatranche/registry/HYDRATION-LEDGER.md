@@ -10,296 +10,335 @@ NOT challenge coverage. UNWITNESSED-DIRECT = an exact current-roster canonical r
 with no returned payload and no closure-manifest authorship; its only provenance is that the
 file is there. Neither status may be counted as a witnessed seat return.
 
-Totals: 235 original · 51 payload-less (46 report-authored · 5 unwitnessed-direct) · 0 hydrated · 0 unparseable payloads · 235 payload paths.
+Totals: 232 original · 51 payload-less (46 report-authored · 5 unwitnessed-direct) · 0 hydrated · 0 unparseable payloads · 232 payload paths.
+
+## The roster predicate (G-D) — which rows are the 264
+
+This ledger and `COMPLETENESS-LEDGER.md` count different sets. **The predicate, stated once:** a
+row is **CANONICAL-ROSTER** iff its path is `audit/components/<slug>/<exact canonical axis
+filename>` with `<slug>` on a band roster in `workflows/args/*.json` — 88 slugs x 3 axes = 264
+members, the same 264 the completeness validator measures saturation over. Every other row is
+**NON-ROSTER**: a real witnessed return that is not one of the 264, almost always a later round
+of a canonical axis. Non-roster rows are printed, never dropped — a ledger that counts a round's
+FILE cannot otherwise say whether the round was consumed.
+
+**Reconciliation.** 283 ledger rows = **264 canonical roster** + **19 non-roster**. The two ledgers' totals now differ *visibly*.
+
+**The three integers, over the canonical roster only** (so UNWITNESSED-DIRECT cannot hide inside
+a CHALLENGED aggregate):
+
+| integer | roster count | meaning |
+|---|---:|---|
+| EXISTS-ORIGINAL | **213** | a dispatched seat's own canonical file survived |
+| HYDRATED | **0** | materialized from a dispatched seat's returned payload |
+| UNWITNESSED-DIRECT | **5** | file present, no payload, no closure authorship — provenance is only that it is there |
+| REPORT-AUTHORED | **46** | no challenge seat ran; authored by the 2026-08-03 closure pass |
+| UNPARSEABLE-PAYLOAD | **0** | a payload returned that could not be rendered |
+| **CHALLENGED** | **218** | EXISTS-ORIGINAL + HYDRATED + UNWITNESSED-DIRECT |
+| **roster total** | **264** | CHALLENGED 218 + REPORT-AUTHORED 46 |
+
+**264 canonical axes = 218 CHALLENGED + 46 REPORT-AUTHORED.** The saturation figure is NOT challenge coverage and may not be printed as though it were.
+
+## Dangling receipts — seat-authored paths that carried prose
+
+**3** harvested payloads wrote a `reportPath` with an English annotation
+appended after the filename. An earlier run of this script materialized files at those
+strings, so the tree still holds them and they still grep as canonical reports. The
+annotation is now split off before the path is keyed, hashed or written; the row below names
+the real path, the prose, and the harvest it came from. The materialized artefacts are a
+tracked residue this generator no longer produces and does not delete.
+
+| canonical path | source harvest | appended prose |
+|---|---|---|
+| audit/components/PaletteCard/challenge-L-library.md | area-palettes.json | (pass 2; the prior seat's pass-1 report is preserved verbatim at /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteCard/challenge-L-library.pass-1-2026-07-24.md and its 14-row docket  |
+| audit/components/wb-extract-workbench/challenge-C-implementation.md | area-workbenches.json | (probe scripts + JSON captures + screenshots copied to .../wb-extract-workbench/probe-r3/; prior passes archived at .../challenge-C-implementation.pass1-2026-07-27.md and .../challenge-C-implementation.pass2-2026-07-28.m |
+| audit/components/wb-mix-configbar/challenge-D-design.md | area-workbenches.json | (round 3 archived to challenge-D-design.2026-07-28-r3-prior.md) |
 
 OM-14/15/16 are outside this component-challenge hydration ledger. Their current completion
 state is tracked in STATE.md and their own audit directories, never inferred from this table.
 
-| canonical path | status | sha256 | source harvest | payloads |
-|---|---|---|---|---|
-| audit/components/AboutPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `7520ee298cad43ba88504fcf10f9fc47ab107aa46760ea491eca1b14374a16ed` | area-scenes.json | 1 |
-| audit/components/AboutPane/challenge-D-design.md | EXISTS-ORIGINAL | `de860c8e6114d29488948bf1a59eb36ba8681c84f7353a555b1933ae3109c663` | area-scenes.json | 1 |
-| audit/components/AboutPane/challenge-L-library.md | EXISTS-ORIGINAL | `3383b6d5271994d24e934256a279eba40cd915137a7c56ce644e3da4c935fc08` | area-scenes.json | 1 |
-| audit/components/ActionFeedback/challenge-L-library-r2.md | EXISTS-ORIGINAL | `75a027c456c4929ff42faf6b1c4a4b2e4da9906bcef398d1ff88f800f3d313ef` | wf_1a4c8a8c-557.json | 1 |
-| audit/components/AdminAuditPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `aa55fd3c7e9ddd8baf622b9c85fb868330d92f373aba65f03ca6df7480da0c2a` | area-palettes.json | 1 |
-| audit/components/AdminAuditPanel/challenge-D-design.md | EXISTS-ORIGINAL | `bced760d46d97359909ff82113a6ca465708a971311561fe2d6ebfab3af6e855` | area-palettes.json | 1 |
-| audit/components/AdminAuditPanel/challenge-L-library.md | EXISTS-ORIGINAL | `55dec9b6b590279213612f97fa7d961a2f38eb57cd51360f51863c12d8a62695` | area-palettes.json | 1 |
-| audit/components/AdminFlaggedPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `f29c26f4e35e2c15e97e1338414912fc204005dc012e4d3ad61faf536ded1def` | area-palettes.json | 1 |
-| audit/components/AdminFlaggedPanel/challenge-D-design.md | EXISTS-ORIGINAL | `a1314b62c5f89bca09d7b6d29807f876044cd3c3eb8dbe0357d6fe182bdf64f6` | area-palettes.json | 1 |
-| audit/components/AdminFlaggedPanel/challenge-L-library.md | EXISTS-ORIGINAL | `84297d75cd825dccdc83e51eb2da51315d32243e1686b8483a2e7c70ab3ee13d` | area-palettes.json | 1 |
-| audit/components/AdminNamesPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e76b371f1cf208b052cfedcda47c555fcfec138e332d7f59a8d2d661043f3cb` | area-palettes.json | 1 |
-| audit/components/AdminNamesPanel/challenge-D-design.md | EXISTS-ORIGINAL | `c87f4c34118382d009c728742921cc3231a04c3bc5347f4faae0bbf6069e5cfd` | area-palettes.json | 1 |
-| audit/components/AdminNamesPanel/challenge-L-library.md | EXISTS-ORIGINAL | `37d6d2345bdd947361e8881deb8b867c9b05a34286d86702e371658e09a149fc` | area-palettes.json | 1 |
-| audit/components/AdminPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `23a5132568c27b238365c12582f031719d8d32985291cb0a05d1e63fb761b6e7` | area-palettes.json | 1 |
-| audit/components/AdminPane/challenge-D-design.md | EXISTS-ORIGINAL | `70c263661b55316ca07241c75ef8f0916d6634b65d438e25b61d29fb4773d783` | area-palettes.json | 1 |
-| audit/components/AdminPane/challenge-L-library.md | EXISTS-ORIGINAL | `41962f7980107f7870c046e4cd6ffba5d68b67472293e65b5c4224ae377c3685` | area-palettes.json | 1 |
-| audit/components/AdminTagsPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `b2114d2cae0e587812011ffce2d970ed72e856cfb02c57a82a3d73d9a62a863a` | area-palettes.json | 1 |
-| audit/components/AdminTagsPanel/challenge-D-design.md | EXISTS-ORIGINAL | `ac944a61605f0d68f11cb474e1d9df64b24ba4bd7f5ea444f77aff2a692d4f46` | area-palettes.json | 1 |
-| audit/components/AdminTagsPanel/challenge-L-library.md | EXISTS-ORIGINAL | `06b2d2a60380528c8a8ae6346ae36c933f62b0584d694a2ee9d068177de8ffaa` | area-palettes.json | 1 |
-| audit/components/AdminUsersPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `310b4a49caa4fc37b4c2ad6063957c8f3536b58f2793b591094c14bc0d9400c1` | area-palettes.json | 3 |
-| audit/components/AdminUsersPanel/challenge-D-design.md | EXISTS-ORIGINAL | `aa7b5af506f7edc0b589471f378c9ae3d745f09da2ac055c7c80851e70a490b9` | area-palettes.json | 3 |
-| audit/components/AdminUsersPanel/challenge-L-library.md | EXISTS-ORIGINAL | `caa1ae744828cf7df865f330b69cb954e2661aa3ec18dbf4d3e40644e5da2c82` | area-palettes.json | 4 |
-| audit/components/ApiOfflineChip/challenge-C-implementation.md | EXISTS-ORIGINAL | `7012b9a868e1b31a9534cf56c263a1441b2a32a34c0595309a88f4a2b3c69e64` | area-palettes.json | 1 |
-| audit/components/ApiOfflineChip/challenge-D-design.md | EXISTS-ORIGINAL | `f02e3cb49f8233660adad978aab92d00f6a30c922b5ccf2bc24207d283652df3` | area-palettes.json | 1 |
-| audit/components/ApiOfflineChip/challenge-L-library.md | EXISTS-ORIGINAL | `7006e8b8d3752c9f2d5fdb92c694635cf594cfc52815b55ba36cf539873ddd86` | area-palettes.json | 1 |
-| audit/components/App/challenge-C-implementation.md | EXISTS-ORIGINAL | `df7b3eaac65eb7412de0ebac0a3b9f6f197756ad9ab76a7bf17f9486a5665c85` | area-core.json | 1 |
-| audit/components/App/challenge-D-design.md | EXISTS-ORIGINAL | `d492253b760e01b3e210deddde3bd0cda0a8e702a015624a3013f588dcd6e443` | area-core.json | 1 |
-| audit/components/App/challenge-L-library.md | EXISTS-ORIGINAL | `21a462ed12577093d786a8a245e3adfb476605b973e4bcd28c745d8f843a91a4` | area-core.json | 1 |
-| audit/components/AuroraPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `0cc9a1bd4a0af6eeb250bd3eb95801fa52ad8e4cb14b5065bab531836276b743` | area-scenes.json | 2 |
-| audit/components/AuroraPane/challenge-D-design.md | EXISTS-ORIGINAL | `8129ee471dc18f38442af3eaade7219aa663d65867dd266ce4bde451e5f6f5f9` | area-scenes.json | 2 |
-| audit/components/AuroraPane/challenge-L-library.md | EXISTS-ORIGINAL | `cc874a167a94fd2ca227e7eae132400f78ceb5e0f2d35d8e8a4a5145d9ebf7d9` | area-scenes.json | 2 |
-| audit/components/BlobPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `5cae56aae5559f8bea005766bf0b3811e4ac7acf5c2eb81301174abfa9c41be3` | area-scenes.json | 1 |
-| audit/components/BlobPane/challenge-D-design.md | EXISTS-ORIGINAL | `3a61f423c2fa2ed61c9a100f399be05cd5124e7050977f80da57813cd2634297` | area-scenes.json | 1 |
-| audit/components/BlobPane/challenge-L-library.md | EXISTS-ORIGINAL | `2f70d0a2d0fe0a8fc90c21071a1ccaca3d3d94ebc33fbdb4aa0709f5ef928d0a` | area-scenes.json | 1 |
-| audit/components/BrowsePane/challenge-C-implementation.md | EXISTS-ORIGINAL | `153d126237930719e22092d2fe979ee20cf1d85dd630c929b70376dddf3baece` | area-palettes.json | 3 |
-| audit/components/BrowsePane/challenge-D-design.md | EXISTS-ORIGINAL | `c38763a2142ed64e6462a24a745c55846ef7d6c26fad8a0242c0cb41a751ef9e` | area-palettes.json | 6 |
-| audit/components/BrowsePane/challenge-L-library.md | EXISTS-ORIGINAL | `ef272f8578f37a2a959a2679ee4467b4bd92519b373815863d67682ab3828700` | area-palettes.json | 6 |
-| audit/components/ColorNutritionLabel/challenge-C-implementation.md | EXISTS-ORIGINAL | `57f49929168a16cabe677c24b853f22542c15ba760cd2dd7bef185805ea3ace4` | area-scenes.json | 2 |
-| audit/components/ColorNutritionLabel/challenge-D-design.md | EXISTS-ORIGINAL | `ed2446cd57f232b23b6c8ba111c4652811774d89958bd9078473e29071c176b9` | area-scenes.json | 2 |
-| audit/components/ColorNutritionLabel/challenge-L-library.md | EXISTS-ORIGINAL | `9be8f63c1c68ab94c1cef8434a9f6841c8eefe99ee6418cdfc9974f490a29e1c` | area-scenes.json | 2 |
-| audit/components/ColorSpaceSelector/challenge-C-implementation.md | EXISTS-ORIGINAL | `d2aca27ee8c9c5395999528fe09aac544ec3eaea215d99da289982e77d6ed8ec` | area-core.json | 1 |
-| audit/components/ColorSpaceSelector/challenge-D-design.md | EXISTS-ORIGINAL | `09c3f54bc77fb12f1754fe40377267f6d2049f6253da2b3df509596bea7bac4a` | area-core.json | 1 |
-| audit/components/ColorSpaceSelector/challenge-L-library.md | EXISTS-ORIGINAL | `2c16fe8fc80befa86a2af5a47d1f73cfe770f3efe5b87eb3abd0fc6bfb9ae22a` | area-core.json | 2 |
-| audit/components/ConfigSliderPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `5f763484485f663d970c660998e30f4b231ef5f8a16f21257f994d8ee2d4c0b6` | area-scenes.json | 3 |
-| audit/components/ConfigSliderPane/challenge-D-design.md | EXISTS-ORIGINAL | `0deff1139bad866efc40336d168499af194c9345169533c16ee9360125da6fe3` | area-scenes.json | 3 |
-| audit/components/ConfigSliderPane/challenge-L-library.md | EXISTS-ORIGINAL | `591a5e0030ca5e907f4bf041584fa0f375fe9c732d625d0d74ce5420a346cbfe` | area-scenes.json | 3 |
-| audit/components/CurrentPaletteEditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `35edfaf983889a31609424eca5389572c1d9c315942ad18a7f1045e1bbfa3799` | area-palettes.json | 4 |
-| audit/components/CurrentPaletteEditor/challenge-D-design.md | EXISTS-ORIGINAL | `3fc5fd36d554648b3f06af41925e67738efd6ab30b85c11ea20b7df347f3280e` | area-palettes.json | 4 |
-| audit/components/CurrentPaletteEditor/challenge-L-library.md | EXISTS-ORIGINAL | `b7552aa0a2923771d83c4b0f7e656a9e280414dafba3b0b474b177ffeb67cf8a` | area-palettes.json | 4 |
-| audit/components/EmptyState/challenge-C-implementation.md | EXISTS-ORIGINAL | `a9bc6a82284e312867c9f25c8011ef9ea9fefad0ed59aada987a9a842a8fb8ed` | area-core.json | 1 |
-| audit/components/EmptyState/challenge-D-design.md | EXISTS-ORIGINAL | `27c1c81bc5c1096aee4c2ec39c9933ccd7341548556529cc2b372055f994b4db` | area-core.json | 2 |
-| audit/components/EmptyState/challenge-L-library.md | EXISTS-ORIGINAL | `5d60ff01ec497e1dfd7b420dd34d406a836c5d3710a0bea01f4183002bd027ac` | area-core.json | 2 |
-| audit/components/ErrorBoundary/challenge-C-implementation.md | EXISTS-ORIGINAL | `cc409a0585cc0a1c7c7d194de9476eab088e3026ce04fcfb2c0799766123a4bb` | area-core.json | 2 |
-| audit/components/ErrorBoundary/challenge-D-design.md | EXISTS-ORIGINAL | `0d9b97e76e5e081cff7c27f7861c4edbc118be52b63080ee3bda00050c2c28a7` | area-core.json | 2 |
-| audit/components/ErrorBoundary/challenge-L-library.md | EXISTS-ORIGINAL | `181a3c0f755bf797fa045e126089316faf152ce0568f63a389c38f3e0d5881a1` | area-core.json | 2 |
-| audit/components/FlagReportDialog/challenge-C-implementation.md | EXISTS-ORIGINAL | `08dc80de969eb0ee4cfcb9ab104fe73637d306ea6ea744c8a80a428dd29606a8` | area-palettes.json | 1 |
-| audit/components/FlagReportDialog/challenge-D-design.md | EXISTS-ORIGINAL | `1b25530977482f56938ef68f0cf3a9f527258d56b234b221212a1a71ff8c32be` | area-palettes.json | 1 |
-| audit/components/FlagReportDialog/challenge-L-library.md | EXISTS-ORIGINAL | `a12b833ab3868b59cdd66e50877a632b3fd52fd3b255202a4c031c4271daadc5` | area-palettes.json | 1 |
-| audit/components/Katex/challenge-C-implementation.md | EXISTS-ORIGINAL | `e62f4e1927dded5c94413af2a64843804529b29df167eead5b891577a23dbffa` | area-scenes.json | 1 |
-| audit/components/Katex/challenge-D-design.md | EXISTS-ORIGINAL | `ea9b5f7b8b21a30efa6527b315d351530ff3630a58d7b93d0b19d8acbd1c9ba3` | area-scenes.json | 1 |
-| audit/components/Katex/challenge-L-library.md | EXISTS-ORIGINAL | `8166e468ab2322d6528d8205d2fd2fcb87330e3ba2eb26f3781e948cd507498a` | area-scenes.json | 1 |
-| audit/components/Markdown/challenge-C-implementation.md | EXISTS-ORIGINAL | `69523e6a81d4448a8909778e4d55f2d6255fb9d4a9852794c6b3712f64d520a4` | area-scenes.json | 2 |
-| audit/components/Markdown/challenge-D-design.md | EXISTS-ORIGINAL | `7c6962ba7e7a069830560e51a62ab8e78b565c210b6af500bfe0dc405e6f2d1c` | area-scenes.json | 2 |
-| audit/components/Markdown/challenge-L-library.md | EXISTS-ORIGINAL | `9f3d385798ad8492c5b94b292ff9ef4e8062489f5a3d1aa338aacba9eeebdfb3` | area-scenes.json | 4 |
-| audit/components/MigratePalettesDialog/challenge-C-implementation.md | EXISTS-ORIGINAL | `00e3f887b923382e35c6f43a55231c2cfb678b92cc4ffc6eece3b9eee7242ecb` | area-palettes.json | 1 |
-| audit/components/MigratePalettesDialog/challenge-D-design.md | EXISTS-ORIGINAL | `637eed9ce0483ab116ea4e099e981e3f585cb78cba265074513c99fd51ae3772` | area-palettes.json | 1 |
-| audit/components/MigratePalettesDialog/challenge-L-library.md | EXISTS-ORIGINAL | `2bfea4c235ceaf839f5fc9f26526e2e59f08d8bf0c632ce1b3956747a0ee740c` | area-palettes.json | 1 |
-| audit/components/MiniColorPicker/challenge-C-implementation.md | EXISTS-ORIGINAL | `d04551e97187e8112bc0dfda7311b1f59af5e2bd74780ebebb64118f90c95814` | area-palettes.json | 1 |
-| audit/components/MiniColorPicker/challenge-D-design.md | EXISTS-ORIGINAL | `0a4e07247995c5db2584bdffec1e4c2a83d9bcbdf2216d09b95a056d30412ea1` | area-palettes.json | 1 |
-| audit/components/MiniColorPicker/challenge-L-library.md | EXISTS-ORIGINAL | `cf0db2e0f4d4bcfc246cf03d2a200e4bdfad3adbb377addb34130f5941ecde70` | area-palettes.json | 2 |
-| audit/components/PaletteCard/challenge-C-implementation.md | EXISTS-ORIGINAL | `7d859fbf51a1d96c1be2e5d17ade1b5ba283930f9b116841acacca81e4074882` | area-palettes.json | 4 |
-| audit/components/PaletteCard/challenge-D-design.md | EXISTS-ORIGINAL | `de360488414c8d4a8af313c7a294d0e3b88e583a4c5c2d23672b52210acbdedb` | area-palettes.json | 4 |
-| audit/components/PaletteCard/challenge-L-library.md (pass 2; the prior seat's pass-1 report is preserved verbatim at /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/PaletteCard/challenge-L-library.pass-1-2026-07-24.md and its 14-row docket is carried forward with per-row re-verification in §5) | EXISTS-ORIGINAL | `49f2ef621e554986d6cd9dd00b2dcfe14221d00222f8f39acd333a320cdcf89f` | area-palettes.json | 1 |
-| audit/components/PaletteCard/challenge-L-library.md | EXISTS-ORIGINAL | `90b4d63727a39abfe64dfe8dcbcedee857647a100329ee5c78d4bc1f3c3eb5b0` | area-palettes.json | 4 |
-| audit/components/PaletteCardMenu/challenge-C-implementation.md | EXISTS-ORIGINAL | `b2ced16a15c7556f8f60a52808647d6618127766345579142b60aff4cb62b623` | area-palettes.json | 5 |
-| audit/components/PaletteCardMenu/challenge-D-design.md | EXISTS-ORIGINAL | `90c811fa162396e6f6bd43850e030914ee767fc7183b7f564045236a6065ddf0` | area-palettes.json | 5 |
-| audit/components/PaletteCardMenu/challenge-L-library.md | EXISTS-ORIGINAL | `d03284b39a611bce38a1a7a05744c1b656f9d1863941e30c3b161208a3d1f130` | area-palettes.json | 5 |
-| audit/components/PaletteCardSkeleton/challenge-C-implementation.md | EXISTS-ORIGINAL | `1301b7abecf90390158f0e6c5059f4d94b28fe2a65148b69a4402db2951a5011` | area-palettes.json | 1 |
-| audit/components/PaletteCardSkeleton/challenge-D-design.md | EXISTS-ORIGINAL | `4fc81d30d48114ffabb9ae3fd379ea76df254d6f35c8da9a815c091964968707` | area-palettes.json | 1 |
-| audit/components/PaletteCardSkeleton/challenge-L-library.md | EXISTS-ORIGINAL | `95ddc306e94d539dc3da8f5644b6ab3ef6b26de93b5cdcea92697dbbe69c59da` | area-palettes.json | 1 |
-| audit/components/PaletteCardSwatches/challenge-C-implementation.md | EXISTS-ORIGINAL | `41afc657d43340bb7a6e2c93da20ff519fb387b8c6abfddf0494e7e40c2d5f01` | area-palettes.json | 1 |
-| audit/components/PaletteCardSwatches/challenge-D-design.md | EXISTS-ORIGINAL | `f9a518945a4e5fc8e81a08e5505b82b3ef87288c8c1f5216ea6fe86dc99e5dc7` | area-palettes.json | 1 |
-| audit/components/PaletteCardSwatches/challenge-L-library.md | EXISTS-ORIGINAL | `458df27bbb30a88269d4bac0653aa9cd7794e70b0350346e6b1edc51c5ffa27e` | area-palettes.json | 1 |
-| audit/components/PaletteColorStrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `67e75b861db2a1f6bd4f90abd3907ebdc592b668bf9a2dc27c9455f73607ddc6` | area-palettes.json | 1 |
-| audit/components/PaletteColorStrip/challenge-D-design.md | EXISTS-ORIGINAL | `a03ee88fd4ddd604c4e308d4eda4b4572834a666d4a82a9c0c991d3ad99cfc78` | area-palettes.json | 1 |
-| audit/components/PaletteColorStrip/challenge-L-library.md | EXISTS-ORIGINAL | `5e4b5dcdf16284b545d823fac26f7a1c27b29752818062c581bcf77f3d4b0ac2` | area-palettes.json | 1 |
-| audit/components/PaletteSlugBar/challenge-C-implementation.md | EXISTS-ORIGINAL | `eea88fdcf7129e50c514003b25d23a572b0b970b2ddf9f013f997bf32291dbb9` | area-palettes.json | 5 |
-| audit/components/PaletteSlugBar/challenge-D-design.md | EXISTS-ORIGINAL | `f010db54fb6bac68d5124a499e9b863938b440ec709291e9dd70bc4e75851e3b` | area-palettes.json | 5 |
-| audit/components/PaletteSlugBar/challenge-L-library.md | EXISTS-ORIGINAL | `0254eb51be0aba2ea35b8dab577026cf94bbe41a914cdbfe0022c8a2a673b65b` | area-palettes.json | 5 |
-| audit/components/PalettesPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `fe3c69ebd985cca69f905a36a3abe44bc6a1cc2af04959c1f27a948393f653db` | area-palettes.json | 5 |
-| audit/components/PalettesPane/challenge-D-design.md | EXISTS-ORIGINAL | `02aa57c21be10a45016425ba78b080df540f2877851a349dcf25ce14714ce3d3` | area-palettes.json | 5 |
-| audit/components/PalettesPane/challenge-L-library.md | EXISTS-ORIGINAL | `1b2d8e7679b0b7608581b2e2f216651c3eeb9caa5902c53180f4b5faed33b99c` | area-palettes.json | 5 |
-| audit/components/PaneHeader/challenge-C-implementation.md | EXISTS-ORIGINAL | `b92025c93735c3a854fa28a3810ebe81db2220f2b1701e6a4a0ff4f7460eb39e` | area-core.json | 2 |
-| audit/components/PaneHeader/challenge-D-design.md | EXISTS-ORIGINAL | `f1f692726bc6d5a38b56939f1ab482a495b0b79f372a8c092ea710ab30e5aba6` | area-core.json | 2 |
-| audit/components/PaneHeader/challenge-L-library.md | EXISTS-ORIGINAL | `d1b1fd1a7b9d3a7db63b649504091068516e2583cc5a95c3f21e436cc937dac4` | area-core.json | 2 |
-| audit/components/PreviewRamp/challenge-C-implementation.md | EXISTS-ORIGINAL | `af93915c1291ccc264d376b557ffeb159345f6393f72965cda8f83a99a5dc1ae` | area-core.json | 1 |
-| audit/components/PreviewRamp/challenge-D-design.md | EXISTS-ORIGINAL | `4041d2f5504a96eeea4f69d2a0d60f5b4b38575427e62fd6b6b33b3d1b322855` | area-core.json | 1 |
-| audit/components/PreviewRamp/challenge-L-library.md | EXISTS-ORIGINAL | `e3822de8c6eb3753ee0be53f9d51f0570232f3fb212cac0f4540c9465365c1ac` | area-core.json | 1 |
-| audit/components/PreviewStrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `fca2b9eed16eefed63056fadda5943246f04224f94eb74e974950e0268ead2e0` | area-core.json | 2 |
-| audit/components/PreviewStrip/challenge-D-design.md | EXISTS-ORIGINAL | `f1fca46f9b568a216a0d2881d49c075fe7e44818177229f548875153471208df` | area-core.json | 2 |
-| audit/components/PreviewStrip/challenge-L-library.md | EXISTS-ORIGINAL | `6acecbe15fe1b065a783346235547efca22f4e7c5337e3e172f983128e3e8107` | area-core.json | 2 |
-| audit/components/SearchFilterBar/challenge-C-implementation.md | EXISTS-ORIGINAL | `9169307d8d8e7bacf545f0f92f9521a64f9ec2b558c28f8e30dee1a6bac22e5c` | area-palettes.json | 5 |
-| audit/components/SearchFilterBar/challenge-D-design.md | EXISTS-ORIGINAL | `f39137d76194d149f609cec4a866c3ad4005eecd3134d56d3a9bcb05141baaaf` | area-palettes.json | 4 |
-| audit/components/SearchFilterBar/challenge-L-library.md | EXISTS-ORIGINAL | `36247d382e3eae9dbf9d3d8dc400e7af9c7cf7a631b2157ce95431128287f357` | area-palettes.json | 5 |
-| audit/components/ShadowPalette/challenge-C-implementation.md | EXISTS-ORIGINAL | `31455a129d2d4d7c20d8ff9fc3a4cf0852483d78ab3062d7697097d0ed69ce01` | area-palettes.json | 1 |
-| audit/components/ShadowPalette/challenge-D-design.md | EXISTS-ORIGINAL | `352cf9b3e5909c967170e53c377fffd72864e2ff0ffc14709feff975756b10fc` | area-palettes.json | 1 |
-| audit/components/ShadowPalette/challenge-L-library.md | EXISTS-ORIGINAL | `7b3195956e3cfbdb45c643b4f19c76927da802e0f0e2535d60cdf0af95cca9a2` | area-palettes.json | 1 |
-| audit/components/SwatchHoverMenu/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e7624b8a132acadf2a2db7c7b427702e8be423d9d69cb54760405cedaca05e2` | area-palettes.json | 1 |
-| audit/components/SwatchHoverMenu/challenge-D-design.md | EXISTS-ORIGINAL | `843f68cfa501857f7ef09d735ff68d1c93c94e178dd4a028c5f31768323ea090` | area-palettes.json | 1 |
-| audit/components/SwatchHoverMenu/challenge-L-library.md | EXISTS-ORIGINAL | `7666bf0fab598ba4f6d92cc5b806410c97075b6848c71f610d78513246e0e723` | area-palettes.json | 1 |
-| audit/components/TagEditPopover/challenge-C-implementation.md | EXISTS-ORIGINAL | `20c97e85915340e7b84dbb389bf6ec27e2b725914a25fae03a9a2da146e1e916` | area-palettes.json | 1 |
-| audit/components/TagEditPopover/challenge-L-library.md | EXISTS-ORIGINAL | `9bf6b509693bd30566cf3299dc5c68f9785d65967280c599c86596fb54f2b9a4` | area-palettes.json | 1 |
-| audit/components/VersionHistoryDrawer/challenge-C-implementation.md | EXISTS-ORIGINAL | `af21c9babedd699ace8aa230be83ce526937a44f9c15001105ab42023f4fb02a` | area-palettes.json | 1 |
-| audit/components/VersionHistoryDrawer/challenge-D-design.md | EXISTS-ORIGINAL | `228cadf7b43cc92ca27b24c1ad791d814e5de4f37903ed38fc285020ed903d7e` | area-palettes.json | 1 |
-| audit/components/VersionHistoryDrawer/challenge-L-library.md | EXISTS-ORIGINAL | `1d9b9dd9c28682fb00e6954817b296dd5360d07c004c2b104e08a83a8d6ed9c4` | area-palettes.json | 2 |
-| audit/components/picker-colorpicker/challenge-C-implementation.md | EXISTS-ORIGINAL | `0f464762dfc8b8fc2cabaf37af6ea6c4d987ab716959f7d34a0659c8e24ac223` | area-picker.json | 1 |
-| audit/components/picker-colorpicker/challenge-D-design.md | EXISTS-ORIGINAL | `1b166f0157a4c334a184d199c9f6b00d70078bce09b4c55f17283fca8848aaaa` | area-picker.json | 1 |
-| audit/components/picker-colorpicker/challenge-L-library.md | EXISTS-ORIGINAL | `81bad4700382eef336e832d10ff6bf1990f3c1c6c0ed5dd1d7fce5157fa4377e` | area-picker.json | 1 |
-| audit/components/picker-componentsliders-consolerail/challenge-D-design-r2.md | EXISTS-ORIGINAL | `ec6edbfebd42a4f585078879abb020e7f65d64aaba36d5505f87db9dd40744cb` | wf_1a4c8a8c-557.json | 1 |
-| audit/components/picker-componentsliders/challenge-C-implementation.md | EXISTS-ORIGINAL | `fb20c9e966229796b766741dc393c23852f756bdfcb62a88d1245e5c8badd071` | area-picker.json | 1 |
-| audit/components/picker-componentsliders/challenge-D-design.md | EXISTS-ORIGINAL | `37230f595d79d9cd475dee98ac35d31c732735e7f9df3c2877138e2ea7c78720` | area-picker.json | 1 |
-| audit/components/picker-componentsliders/challenge-L-library.md | EXISTS-ORIGINAL | `6622a44893ecbfa79bb98d3d3da330aec091cb5891d8a53badfa4a32cc0058a8` | area-picker.json | 1 |
-| audit/components/picker-heroblob/challenge-C-implementation.md | EXISTS-ORIGINAL | `04b7d7059c129b6febdb75878f56239f2d6b4837c8d48c6247f21f9f9c52fd48` | area-picker.json | 1 |
-| audit/components/picker-heroblob/challenge-D-design.md | EXISTS-ORIGINAL | `f2911ec90b2d40b35f3b1461bdf1c59cc03fbb1097887b83c9b24a9906f731ed` | area-picker.json | 1 |
-| audit/components/picker-heroblob/challenge-L-library.md | EXISTS-ORIGINAL | `d8655b58966e3ba3e46fe8415bb975a5f095a61e73553d1a1d4676419b10320d` | area-picker.json | 1 |
-| audit/components/picker-pointerdebugoverlay/challenge-D-design-r2.md | EXISTS-ORIGINAL | `0f034f57e85269dde15c85b646b918e7c872038f6c967257ca3f37fefd141c73` | wf_1a4c8a8c-557.json | 1 |
-| audit/components/picker-spectrumcanvas/challenge-C-implementation.md | EXISTS-ORIGINAL | `0318e27c00ec7fa9771507b51cb5efca4120e12c745a4b62c3fe4ee52bfb40a5` | area-picker.json | 1 |
-| audit/components/picker-spectrumcanvas/challenge-D-design.md | EXISTS-ORIGINAL | `dac259a892bd3d96ea0743d8c71cd32328a9ee82254690180d8488218a3302d3` | area-picker.json | 1 |
-| audit/components/picker-spectrumcanvas/challenge-L-library.md | EXISTS-ORIGINAL | `eab6d1016a453ddd801f9a6bcd2ef5628da8ca45eb8436fca6fe323ace7ea56e` | area-picker.json | 1 |
-| audit/components/shell-dock-actionbarlayer/challenge-C-implementation.md | EXISTS-ORIGINAL | `5de54fafb74b2f7392b4bf2e8b09469e63c70cc30d9159d521a72c6fd4714ea7` | area-shell.json | 2 |
-| audit/components/shell-dock-actionbarlayer/challenge-D-design.md | EXISTS-ORIGINAL | `822708cd8bb4d543922347a0d0d39686180012f52aa090e453cc9fc9997fb6ef` | area-shell.json | 2 |
-| audit/components/shell-dock-actionbarlayer/challenge-L-library.md | EXISTS-ORIGINAL | `ad1afa2fa3db84cef2af0918bc8aa10af86b40f49d4c56b29eac17b684d41b1c` | area-shell.json | 2 |
-| audit/components/shell-dock-actionbartoggle/challenge-C-implementation.md | EXISTS-ORIGINAL | `139998c01380dc48d60e58fe67dde1b219325703c1c7c2631d9bef532a683715` | area-shell.json | 1 |
-| audit/components/shell-dock-actionbartoggle/challenge-D-design.md | EXISTS-ORIGINAL | `0da9b36ed5d3d29cb1f3adf3ab903c3608c8f61376722b3c937ef992e0c505b8` | area-shell.json | 1 |
-| audit/components/shell-dock-actionbartoggle/challenge-L-library.md | EXISTS-ORIGINAL | `1531312cb87a604b417f687d99e5c096b950d0e8b7026dcab0fb684f8603dba0` | area-shell.json | 1 |
-| audit/components/shell-dock-actionbutton/challenge-C-implementation.md | EXISTS-ORIGINAL | `81e13d77212fc5f9dcb499cb9eb238ce320a71ff99124beb4ab743ade383e685` | area-shell.json | 1 |
-| audit/components/shell-dock-actionbutton/challenge-D-design.md | EXISTS-ORIGINAL | `3f4a41c264d8af1a86d546259f2e8ef6299cc3083e1b36b95e5fb02a174658bd` | area-shell.json | 1 |
-| audit/components/shell-dock-actionbutton/challenge-L-library.md | EXISTS-ORIGINAL | `940a505d5cb9ebb413d4d31a434425458c8f85d913df0b8d8cf1802e9f5b032e` | area-shell.json | 1 |
-| audit/components/shell-dock-colorinput/challenge-C-implementation.md | EXISTS-ORIGINAL | `028b2fa6eb4fdb3727bb4514110398c2182d11cffe52b0973ded0a6492517cbb` | area-shell.json | 2 |
-| audit/components/shell-dock-colorinput/challenge-D-design.md | EXISTS-ORIGINAL | `9c9c19719540c888b12baebe2d210c7a751d8ac87d84a66abfea112a85de6eba` | area-shell.json | 3 |
-| audit/components/shell-dock-colorinput/challenge-L-library.md | EXISTS-ORIGINAL | `5294fda5c5f17c05ddac0a05b6f0dbbf6c008c0e542c6997704607f26f9f8f8f` | area-shell.json | 4 |
-| audit/components/shell-dock-dock/challenge-C-implementation.md | EXISTS-ORIGINAL | `464ead6a91236d21eb00fc9bec7d75f2ad83d216d397b7a895cfcbe596267556` | area-shell.json | 2 |
-| audit/components/shell-dock-dock/challenge-D-design.md | EXISTS-ORIGINAL | `03936a5dc8a8f4a9c5749dba3e957641ba71e4712bcb33b7a2abeccacf9f6153` | area-shell.json | 2 |
-| audit/components/shell-dock-dock/challenge-L-library.md | EXISTS-ORIGINAL | `683ae5a4844a1f46e7a55bc76d1f07edaf834397576b8f3b4c3e27098c461841` | area-shell.json | 3 |
-| audit/components/shell-dock-dockstatuslamp/challenge-C-implementation.md | EXISTS-ORIGINAL | `4f461d45130a10a75bbae41fec536ea49e833eeada6b1723b4771738595f2130` | area-shell.json | 1 |
-| audit/components/shell-dock-dockstatuslamp/challenge-D-design.md | EXISTS-ORIGINAL | `1b4e23ec90a1c7302a034193872f834a8c6d01307c30014c3b3a5869106799e4` | area-shell.json | 1 |
-| audit/components/shell-dock-dockstatuslamp/challenge-L-library.md | EXISTS-ORIGINAL | `b882d782aaa5dfae57d692578ab0488e921ea08d9a8a8173cac9a2eaa5d049c4` | area-shell.json | 1 |
-| audit/components/shell-dock-dockviewselect/challenge-C-implementation.md | EXISTS-ORIGINAL | `dee80947da296bb6905865f720f9116759609c089bc8cb64b1071dc817e0048b` | area-shell.json | 2 |
-| audit/components/shell-dock-dockviewselect/challenge-D-design.md | EXISTS-ORIGINAL | `196de7fd31d554a70f61e4be74f98b4312f34e7a4e0ea03be829bbe9acff17cb` | area-shell.json | 2 |
-| audit/components/shell-dock-dockviewselect/challenge-L-library.md | EXISTS-ORIGINAL | `88e506ac59e7b8c87f5a6fb22e81acb415f69262c471592970ba61585ed61558` | area-shell.json | 3 |
-| audit/components/shell-dock-mobilemenudropdown/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e43f5872357b1e5fa54ddc2611c2e298b35b2e5716ee679305dc383cecb78de` | area-shell.json | 1 |
-| audit/components/shell-dock-mobilemenudropdown/challenge-D-design.md | EXISTS-ORIGINAL | `36da05d120c2e93588a7f57e1f14602d165df5c731b7f2d404b3fded39403055` | area-shell.json | 1 |
-| audit/components/shell-dock-mobilemenudropdown/challenge-L-library.md | EXISTS-ORIGINAL | `df4be4ad013d15a88dd8acfceed7e06f1744fc28500b63e2ddc0f1126fd8ead2` | area-shell.json | 1 |
-| audit/components/shell-dock-profilesection/challenge-C-implementation.md | EXISTS-ORIGINAL | `15215fca4957cf19d98c35f611a709ec646fe278fa3c8398a59fc6657e9c5f58` | area-shell.json | 1 |
-| audit/components/shell-dock-profilesection/challenge-D-design.md | EXISTS-ORIGINAL | `da18eedd8d2d0e5cad48aa51f92f8d4c51daf00054dc8eed270d468f2ad16033` | area-shell.json | 1 |
-| audit/components/shell-dock-profilesection/challenge-L-library.md | EXISTS-ORIGINAL | `e6f0ec7651f8dfd5d4f448161a51ec88c8e75f3331e6b58b6176d5dc7376fd13` | area-shell.json | 1 |
-| audit/components/shell-dock-slugeditlayer/challenge-C-implementation.md | EXISTS-ORIGINAL | `f8dcbe57396e6c19bd0e09cc5cdd9d8474fd36937f29ba0a2c35eedfa57896b4` | area-shell.json | 1 |
-| audit/components/shell-dock-slugeditlayer/challenge-D-design.md | EXISTS-ORIGINAL | `656cf02aa28e08995320eb3497b7473e8e899d278aa61118fee516c24cbb93c3` | area-shell.json | 1 |
-| audit/components/shell-dock-slugeditlayer/challenge-L-library.md | EXISTS-ORIGINAL | `08d7781d525232cc676638303d9fd11a28102d6a1955e28cb3baa69658f0259c` | area-shell.json | 1 |
-| audit/components/shell-panesegmentedcontrol/challenge-C-implementation.md | EXISTS-ORIGINAL | `d49cff25d27f683ecc7d8426a080474c9210c8bc43aa855c8764230052d9b187` | area-shell.json | 1 |
-| audit/components/shell-panesegmentedcontrol/challenge-D-design.md | EXISTS-ORIGINAL | `282a8b0b6a63ca2df25df2eb8ad998d851f6378a15180ab2b68a35f2a62c08f1` | area-shell.json | 1 |
-| audit/components/shell-panesegmentedcontrol/challenge-L-library.md | EXISTS-ORIGINAL | `c87e0efa6b96c30e17597df500c7e84c71608cbb2c53dbd54711d8ee313fef65` | area-shell.json | 1 |
-| audit/components/shell-paneslot/challenge-C-implementation.md | EXISTS-ORIGINAL | `75397929439b36f8934d59b5228c810bf0f9a916af161db4ef5c08e657fbe6fd` | area-shell.json | 1 |
-| audit/components/shell-paneslot/challenge-D-design.md | EXISTS-ORIGINAL | `abdedea3f6c8b11bfb150e25cc96e3873dfc3722ebeba0496e41be5d9873ec4a` | area-shell.json | 1 |
-| audit/components/shell-paneslot/challenge-L-library.md | EXISTS-ORIGINAL | `762bc9b65289778c3d1d6a2e033ea9af30b03c3276d911d8a1aa6493a1ea2422` | area-shell.json | 1 |
-| audit/components/wb-extract-controls/challenge-C-implementation.md | EXISTS-ORIGINAL | `d44aa54dcc932bcd187b0a5615b55a614302ca3aa6bf53f85f7e91113615e8ff` | area-workbenches.json | 4 |
-| audit/components/wb-extract-controls/challenge-D-design-pass2.md | EXISTS-ORIGINAL | `88e40b037e6769420b71543fd80e667c0168a492b3f78d516a5955b505a2a149` | area-workbenches.json | 1 |
-| audit/components/wb-extract-controls/challenge-D-design.md | EXISTS-ORIGINAL | `10b9abeab341d036b1f08558f436bc6524fb8e6c02a3b78cf7b477dfd68bef8d` | area-workbenches.json | 3 |
-| audit/components/wb-extract-controls/challenge-L-library.md | EXISTS-ORIGINAL | `7276f32c6f5e7bce665ec5b68a86b59ab0817d006dd9ab0773119b2692c3fdcb` | area-workbenches.json | 4 |
-| audit/components/wb-extract-imagedropzone/challenge-C-implementation.md | EXISTS-ORIGINAL | `c030c0602c4ca30bacdb35298f1e69d3bd7cd4d9dd4de65b74c98c6f19f1d675` | area-workbenches.json | 2 |
-| audit/components/wb-extract-imagedropzone/challenge-D-design.md | EXISTS-ORIGINAL | `3acd532c5030ad8691cc2630d433cbf6a601f919b864103ad9a3464c337caefa` | area-workbenches.json | 2 |
-| audit/components/wb-extract-imagedropzone/challenge-L-library.md | EXISTS-ORIGINAL | `d7aa772b97b4fdc63dc13529098f7a94ceeeb5f206229f163bf8a3f37a43d725` | area-workbenches.json | 2 |
-| audit/components/wb-extract-imageeyedropper/challenge-C-implementation.md | EXISTS-ORIGINAL | `d129ab0391a4b399b281a7e99eef2a9e9f6aa1ab49d8130578306b17d8bb3b8b` | area-workbenches.json | 3 |
-| audit/components/wb-extract-imageeyedropper/challenge-D-design.md | EXISTS-ORIGINAL | `cf344f0716a87e84051c644d0b560082041ad2173f978c4aad7a9e35ad0c9dd5` | area-workbenches.json | 3 |
-| audit/components/wb-extract-imageeyedropper/challenge-L-library.md | EXISTS-ORIGINAL | `95b3bb1a6830a2c7bceb2e706611240348d7a57d1b9117948bb760586e02e3d3` | area-workbenches.json | 3 |
-| audit/components/wb-extract-pane/challenge-D-design.md | EXISTS-ORIGINAL | `9d252d11b3758384a3a6b5f8aa0c61a98336138ff653e4887d487a412b69aaf3` | area-workbenches.json | 1 |
-| audit/components/wb-extract-pane/challenge-L-library.md | EXISTS-ORIGINAL | `0fdb1f4c9b672ecd96c4e2d7fb0528dd2b55c7ff6cc4be41fedaf0d1509faa91` | area-workbenches.json | 1 |
-| audit/components/wb-extract-workbench/challenge-C-implementation.md (probe scripts + JSON captures + screenshots copied to .../wb-extract-workbench/probe-r3/; prior passes archived at .../challenge-C-implementation.pass1-2026-07-27.md and .../challenge-C-implementation.pass2-2026-07-28.md) | EXISTS-ORIGINAL | `41df4cf94ab5350cbe020319ab632a15939da45d124e4d7cdc00f4b0435620f3` | area-workbenches.json | 1 |
-| audit/components/wb-extract-workbench/challenge-C-implementation.md | EXISTS-ORIGINAL | `28e3773ecea8a52d5cf9641d321f2c0fba6766dc5f325ac6d9404a417158112e` | area-workbenches.json | 2 |
-| audit/components/wb-extract-workbench/challenge-D-design.md | EXISTS-ORIGINAL | `4c909d601a625ce93fb53d864cd74e6bc4c265e66febc4f3184c3ab808845972` | area-workbenches.json | 3 |
-| audit/components/wb-extract-workbench/challenge-L-library.md | EXISTS-ORIGINAL | `96263e51b7514d2cc9a8655c3ba246c522518918684be938548169abc99121f2` | area-workbenches.json | 3 |
-| audit/components/wb-generate-controls/challenge-C-implementation.md | EXISTS-ORIGINAL | `f56cb2fcbfd4f6d8953ef620a11ed3b823bb098969e8da38c2c5c81597e3cb11` | area-workbenches.json | 3 |
-| audit/components/wb-generate-controls/challenge-D-design.md | EXISTS-ORIGINAL | `637b944ca39713a4ebecaf4ce8d519fa58287f5be400afede634c15a806bfcdf` | area-workbenches.json | 3 |
-| audit/components/wb-generate-controls/challenge-L-library.md | EXISTS-ORIGINAL | `b0022ddb153d0e5ebd59e16ab391add255d617f6e9ee282806bb2eb92a4d2392` | area-workbenches.json | 4 |
-| audit/components/wb-generate-pane/challenge-C-implementation.md | EXISTS-ORIGINAL | `666f1dbfb7a773d30e23d35868bd8afda76ba2d0bbf860889ba542c969f7f428` | area-workbenches.json | 2 |
-| audit/components/wb-generate-pane/challenge-D-design.md | EXISTS-ORIGINAL | `132d035e5c3d30cf666c9446082184d28363adc984033104a6b0ec39f67918d5` | area-workbenches.json | 2 |
-| audit/components/wb-generate-pane/challenge-L-library.md | EXISTS-ORIGINAL | `77645349104ca9ab06963be8fc556f01938ed9a95bc3bfeea3cc04e6c447de6c` | area-workbenches.json | 2 |
-| audit/components/wb-gradient-codeeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `4c8985c2f1a61659e5c082995d5dd56a89b98dd36cd9b34b0f7e24d3ed7ca4f4` | area-workbenches.json | 3 |
-| audit/components/wb-gradient-codeeditor/challenge-D-design.md | EXISTS-ORIGINAL | `415b7f498a93decfbead7d17d749d03c92f1105ed7afe0ca45c2d480d6170615` | area-workbenches.json | 3 |
-| audit/components/wb-gradient-codeeditor/challenge-L-library.md | EXISTS-ORIGINAL | `9154987f4255aece39a4370f5018c7806e8a477002769ef2bddc9253998d8951` | area-workbenches.json | 3 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-C-implementation.md | EXISTS-ORIGINAL | `581edae7e0c853274f4a88adb5d7c3e44a91ae99dfb13acb85eb03430cbf422e` | area-workbenches.json | 4 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-D-design-r2.md | EXISTS-ORIGINAL | `f77040976c2d0527d740f4aa47b483c9d0e675392c1234c2e4e14dd988f6226b` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-D-design-r3.md | EXISTS-ORIGINAL | `47a78ba97a94bac4cfd7f4071cf6d88bcd4066f0b1c947564c8f542cd63e535c` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-D-design.md | EXISTS-ORIGINAL | `ec8ac81b824589c99d59292bacf3c7fa5dd85e961dd66e67039e319015395e20` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-L-library-r3.md | EXISTS-ORIGINAL | `796f580f7cf02103de2c2b292859d183b54919febe4f2a18db29a0d0c01391a7` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingauthoringstage/challenge-L-library.md | EXISTS-ORIGINAL | `5c4bf8bc11481085ce3b7d49d61021128c5f903dc4dd56ef5a5cfdaf99785b47` | area-workbenches.json | 2 |
-| audit/components/wb-gradient-easingeditor/challenge-C-implementation-r2.md | EXISTS-ORIGINAL | `a9c46aec6ba70963e0ff3a7e0229d1d215c977f0c51c79921a26b0495a2fcdac` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-C-implementation-r3.md | EXISTS-ORIGINAL | `2300162981a26fb18ac4706848b47caa41439b0177473610446319a7a7ffafc4` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `a53da6598905eb724b596ede2ca7ecd182df654f5f5c0018d4dabdaf38ea26f6` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-D-design-r2.md | EXISTS-ORIGINAL | `9e50fa41c0fcd7eb93d50671eacb41ec1a398cb7f99c3d3f78c8beac740573b8` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-D-design-r3.md | EXISTS-ORIGINAL | `2c92d22cd7672fa64a01e1c4745c04820565a2643c95215a730680236db22ae5` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-D-design.md | EXISTS-ORIGINAL | `9e73ef95871b463da412f5248cce52ac0aec71df062c74cd7200ff1f19881f68` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-L-library-r2.md | EXISTS-ORIGINAL | `8e634e8aaa9f02892cbae82e8084e66de53b8c814fbe03a4ce9c0169ce089dc9` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-L-library-r3.md | EXISTS-ORIGINAL | `085864b3b19451000ebc52015e2e51d0b34db2859ca852cb7abbaa4ac26cacf5` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-L-library-r4.md | EXISTS-ORIGINAL | `7280b4c2f190213389d3368be6300a816133143f4b9f5f110b151b574d091d4d` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingeditor/challenge-L-library.md | EXISTS-ORIGINAL | `6da939fc522d9afdbbf515ca3a5665e9ccaf2a621d6d10b9e81286790816d3e9` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingspecimenstrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `4fc554868aeedd7aa94736ce4f72c873163e04890ae0c7ecfc3eed2614b9845b` | area-workbenches.json | 4 |
-| audit/components/wb-gradient-easingspecimenstrip/challenge-D-design.md | EXISTS-ORIGINAL | `0b887e9894fce8a3b2090fc085f441d68bef1cf1c471069dc0c178f72ffe49b8` | area-workbenches.json | 4 |
-| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library-r3.md | EXISTS-ORIGINAL | `63ee9f1a652b599b21952b61bedd60393512c446e1d0007b7f16e63d3edb9bd7` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library-r4.md | EXISTS-ORIGINAL | `348ca04623e3abdae79dabf9eb357951f272a483394db8da29063397e28ea93d` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library.md | EXISTS-ORIGINAL | `355ccfb46c2cd375f162b26f8a4505dc378b8d2b54c9245d13ece414bc6eb53a` | area-workbenches.json | 2 |
-| audit/components/wb-gradient-stopeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `aa6dd4cdf37199274c8fdf54ad510802255b0f3a85ab7ef8a8faa9a70f4437af` | area-workbenches.json | 2 |
-| audit/components/wb-gradient-stopeditor/challenge-D-design.md | EXISTS-ORIGINAL | `a0a47d3d8517ca40c6212121c1254d422000fa1c24a54c82327146398bc5bdc4` | area-workbenches.json | 2 |
-| audit/components/wb-gradient-stopeditor/challenge-L-library-r2.md | EXISTS-ORIGINAL | `9909e549fce9b3e1f188f1168c7d2cedbc92d3ac590cc61214a42c2da8dbd947` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-stopeditor/challenge-L-library.md | EXISTS-ORIGINAL | `1a6cf733aa80cf706e150a11891abe07e1740b02b548fe7b2793902ff099e033` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-visualizer/challenge-C-implementation-r2.md | EXISTS-ORIGINAL | `d86de0e0ef608bc05606be2bf02547b43fa1fb991ed058e0ecef2e1ab36a6351` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-visualizer/challenge-C-implementation.md | EXISTS-ORIGINAL | `33bffce5116b270b9915e788d76c5f519a8cc3229b1807420dfde7c6a3e5b9f9` | area-workbenches.json | 3 |
-| audit/components/wb-gradient-visualizer/challenge-D-design.md | EXISTS-ORIGINAL | `04afef68d65f7c1ef7daff4627a7517aa77fa38b96413a98a874caa33aa148a4` | area-workbenches.json | 3 |
-| audit/components/wb-gradient-visualizer/challenge-L-library-r2.md | EXISTS-ORIGINAL | `9011102a7eae431b3a8924fdabf1b4ea7710eb56d89c4b3d8d1c59d15e783623` | area-workbenches.json | 1 |
-| audit/components/wb-gradient-visualizer/challenge-L-library.md | EXISTS-ORIGINAL | `5fddf53efa772542d2a1d8100f750b3a72af49f51df87ad8726dc681bf403b7e` | area-workbenches.json | 3 |
-| audit/components/wb-mix-animationcanvas/challenge-C-implementation.md | EXISTS-ORIGINAL | `f91fb7d866b115a7c4f7dcb59fc25bc20e6dda5c12f424858be3d06447f7c0d9` | area-workbenches.json | 1 |
-| audit/components/wb-mix-animationcanvas/challenge-D-design.md | EXISTS-ORIGINAL | `6b0fee310d5b233aab8a572b47344c0084540b83ece5a6866ff7787d5c26eba1` | area-workbenches.json | 1 |
-| audit/components/wb-mix-configbar/challenge-C-implementation.md | EXISTS-ORIGINAL | `c18bca366e312360a9a2d36dfa85ec3295f99a499658cd0e59691f4b89a780bd` | area-workbenches.json | 6 |
-| audit/components/wb-mix-configbar/challenge-D-design.md (round 3 archived to challenge-D-design.2026-07-28-r3-prior.md) | EXISTS-ORIGINAL | `47348b19d1ce3af3074721601bbd84f906475f5fe8c988e29246b88c2b437e6a` | area-workbenches.json | 1 |
-| audit/components/wb-mix-configbar/challenge-D-design.md | EXISTS-ORIGINAL | `09bcb823f529395568580f366332da1bf65354f6d92b3f0115ad9ee2e9fb954a` | area-workbenches.json | 5 |
-| audit/components/wb-mix-configbar/challenge-L-library.md | EXISTS-ORIGINAL | `29e5256cab8c4e23aa28b7c8c95057e30d41953bf9bc4cd491fdd320ad093bd1` | area-workbenches.json | 6 |
-| audit/components/wb-mix-pane/challenge-C-implementation.md | EXISTS-ORIGINAL | `6604efbc0f9e71ea556e00a0341ffa86417ff6400671751de48fca50d5078505` | area-workbenches.json | 4 |
-| audit/components/wb-mix-pane/challenge-D-design.md | EXISTS-ORIGINAL | `8957950877ddd358ea542a04baeeeb5322514076fe79796b138b7b0bd531b965` | area-workbenches.json | 4 |
-| audit/components/wb-mix-pane/challenge-L-library.md | EXISTS-ORIGINAL | `03cdd40ebe5e2ada47851cf688629eb0dec8bd3b77552b56ad3e1b6093991d68` | area-workbenches.json | 4 |
-| audit/components/wb-mix-resultdisplay/challenge-C-implementation.md | EXISTS-ORIGINAL | `795b48a61ed861f915ffcc5ad046da48a3586989e9f92e449538889000525632` | area-workbenches.json | 6 |
-| audit/components/wb-mix-resultdisplay/challenge-D-design.md | EXISTS-ORIGINAL | `db92961e8bbeacb4362aafbb8b532b19fd9ee2225b66cbdf1472dd51ea996f66` | area-workbenches.json | 6 |
-| audit/components/wb-mix-resultdisplay/challenge-L-library.md | EXISTS-ORIGINAL | `dcd1dbff3ba3efe8f399619eafeee54fbd9a02be87aff8dfee5399bae82f2d8b` | area-workbenches.json | 6 |
-| audit/components/wb-mix-sourceselector/challenge-C-implementation.md | EXISTS-ORIGINAL | `b48f9569cc8b6d83024eced4fdd10ac86dba0aa7ecba3857625bae31a8d6e40b` | area-workbenches.json | 3 |
-| audit/components/wb-mix-sourceselector/challenge-D-design.md | EXISTS-ORIGINAL | `5604fc112191e3db8b18d94208cf2e8ef3502a4e118596100d7e37f11439429c` | area-workbenches.json | 3 |
-| audit/components/wb-mix-sourceselector/challenge-L-library.md | EXISTS-ORIGINAL | `309ef1f66735e1ac9eaf96146c20906dba46ebd58541023a17296135aaadb817` | area-workbenches.json | 3 |
-| audit/components/ActionFeedback/challenge-C-implementation.md | REPORT-AUTHORED | `572cacf8d3721f0be2dd7bbfcf6f005c9a4675fbc548c7cc9783b93b03893768` | closure-manifest-2026-08-03 | 0 |
-| audit/components/ActionFeedback/challenge-D-design.md | REPORT-AUTHORED | `4e2a7215dc7a93242aba92e1d597ae5c4fba7d5787fe2f7a3c3667330c17f001` | closure-manifest-2026-08-03 | 0 |
-| audit/components/ActionFeedback/challenge-L-library.md | REPORT-AUTHORED | `8797614575e02eaeede7a1da1283a151b55e7bf8f72f3b39dffe6288c389012a` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListItem/challenge-C-implementation.md | REPORT-AUTHORED | `55a9f27c64703efe1d470d73f6aa9fbe0cfe7f38a4ab2ea7cb212c3e7a834fcc` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListItem/challenge-D-design.md | REPORT-AUTHORED | `3271268cbc19363f69f32736dca3aaabf585a5c1399948c3d7f5634610467b0d` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListItem/challenge-L-library.md | REPORT-AUTHORED | `35f5ecf74b9cbb94abc3632bcdd18ebcf2992d3b87d45de52fca380269b9e354` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListSkeleton/challenge-C-implementation.md | REPORT-AUTHORED | `c6621e2205d0d723dcd757d1a484de6b0802d8349aa3764ec92c6039d307a873` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListSkeleton/challenge-D-design.md | REPORT-AUTHORED | `91424831c5d4ec1a62a80c7abd642060eb7dab43072ff93534abe779fa65fe45` | closure-manifest-2026-08-03 | 0 |
-| audit/components/AdminListSkeleton/challenge-L-library.md | REPORT-AUTHORED | `5adb3d4055b44f9c9e0079f142fcbab2e18530683ec6533d018e71300d1bc8cf` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaginationBar/challenge-C-implementation.md | REPORT-AUTHORED | `60d17e3d124e9e0b1ff7aa9109726b60ab49ac627a817bc031f0af56eb1dfcfd` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaginationBar/challenge-D-design.md | REPORT-AUTHORED | `cbc7a81e00d7aad53b1b55ed853f2187f691739afb8996eb82bda6bf8cb80f51` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaginationBar/challenge-L-library.md | REPORT-AUTHORED | `b44ba6fc3f9a142ac85dd93a03b90961f3d9ea7247fec445ec3f27c21d2caac9` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardGrid/challenge-C-implementation.md | REPORT-AUTHORED | `edbdc2c6413063d0be1cfdae75f1e76ab79ace31b84b3081d5c1bf75cd625353` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardGrid/challenge-D-design.md | REPORT-AUTHORED | `94b31cc1e3a5d048fff6e867fb1fefcaa844381ecab1bad617f3e6f3d53ea012` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardGrid/challenge-L-library.md | REPORT-AUTHORED | `0d52436f47f36c0f184822c93164021d1f5e74fb8b4993ba4a15d4d613a0aff0` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardMeta/challenge-C-implementation.md | REPORT-AUTHORED | `65c7a4403b03bc23044a6abb26fc27aace80a77d6e448b0007ba0187aa24e562` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardMeta/challenge-D-design.md | REPORT-AUTHORED | `61f78319c4ea94e66bace230fab8914a6332f15af8bc613dae53de4c4b361d38` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteCardMeta/challenge-L-library.md | REPORT-AUTHORED | `5a7c9e40ce04287810d54aae51a9f0a2dfd5bcea4a31ae680597c3caee2e859e` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteRenameInput/challenge-C-implementation.md | REPORT-AUTHORED | `5c52b735f8ecdc50f01b4f64cb5d31179bbabb2f2a2b0a4695acceb2d0d8abac` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteRenameInput/challenge-D-design.md | REPORT-AUTHORED | `8189a78f3be163c1aafb7f365d47b7725ce81a7116a95f77042c86b2b3aecf0b` | closure-manifest-2026-08-03 | 0 |
-| audit/components/PaletteRenameInput/challenge-L-library.md | REPORT-AUTHORED | `200a36a519d78185062aab51c7feb8984bcf026988309438bbf66e2b0db1948e` | closure-manifest-2026-08-03 | 0 |
-| audit/components/TagEditPopover/challenge-D-design.md | REPORT-AUTHORED | `affeefc8e0eb11655ad987f770642ce71b55251005a4496ea8aaaab2c5c5f88e` | closure-manifest-2026-08-03 | 0 |
-| audit/components/UserSortMenu/challenge-C-implementation.md | REPORT-AUTHORED | `4a7e023d3d3793d81c55d07feda7529c2409091945d2f30a7693abaf3ce637ff` | closure-manifest-2026-08-03 | 0 |
-| audit/components/UserSortMenu/challenge-D-design.md | REPORT-AUTHORED | `10df5f8cae6c6d0724fed0b2f5a7dec1ad76eb46784318bbfab40a72334cf4f1` | closure-manifest-2026-08-03 | 0 |
-| audit/components/UserSortMenu/challenge-L-library.md | REPORT-AUTHORED | `a16e5c4cc32ae53469f50dbfda5d023840703c2b25563da879943b216f13d31e` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-colorcomponentdisplay/challenge-C-implementation.md | REPORT-AUTHORED | `a93784f288714d4eaabd450260b1cf9406cf790cf14314421eab413d8e2b068a` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-colorcomponentdisplay/challenge-D-design.md | REPORT-AUTHORED | `1b497569ada36fc036d28ac09c8fb19a71467bb8e5b35d7853415167903b068b` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-colorcomponentdisplay/challenge-L-library.md | REPORT-AUTHORED | `8607be233e8688ee13102c4b7374b3b257e402cfdc82187919a401f4bd754073` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-componentsliders-consolerail/challenge-C-implementation.md | REPORT-AUTHORED | `daa0f6588f982eecc77f9743641d7634e4e008938fd75c274bfc2a619313321e` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-componentsliders-consolerail/challenge-D-design.md | REPORT-AUTHORED | `b5c098449351a274593c421938c7e50633811f9d09d11921855e81bfeb7bf48f` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-componentsliders-consolerail/challenge-L-library.md | REPORT-AUTHORED | `4acdab78212ef6cad424c3d534a86c3e18fc30ceb93beb27bc0c5520c551ece9` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-debugeventlog/challenge-C-implementation.md | REPORT-AUTHORED | `17fe17fcbd73b039aeb71fdebd4737cc5936c7e5f8d33e4ccc975ecfda907920` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-debugeventlog/challenge-D-design.md | REPORT-AUTHORED | `d71c8ad54e5fabdde634b3618dec5e8bcbe574ba6508bfb995c2953c11f6e83f` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-debugeventlog/challenge-L-library.md | REPORT-AUTHORED | `560a8d257e95b8c41705e2bc391565d0e8f34d1949d039cabaaa8e1c9eb9503a` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-pointerdebugoverlay/challenge-C-implementation.md | REPORT-AUTHORED | `469f6d3df550d18b96a7646c1e5b05682d0c82bf8a96dfa5a689916a53ee7b69` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-pointerdebugoverlay/challenge-D-design.md | REPORT-AUTHORED | `f7638f2b4815a38dc70f6e8afdc880a6cb59e3156c2ce5023bd1cead2175df19` | closure-manifest-2026-08-03 | 0 |
-| audit/components/picker-pointerdebugoverlay/challenge-L-library.md | REPORT-AUTHORED | `d2a9834a740f93dee0eabd68d6777ae235f95ac8ba4eff2eeadc405460f7da14` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-actiontoolbar/challenge-C-implementation.md | REPORT-AUTHORED | `b9ce333fcbc531c0e5db48e83d2d88044c4dcea4a0ff7b848a5b72adaddd48b1` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-actiontoolbar/challenge-D-design.md | REPORT-AUTHORED | `35b7cfa39fa010d6e85cd7d9138630bf8b9b9ac5f43d4416ed3cb41033ce479f` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-actiontoolbar/challenge-L-library.md | REPORT-AUTHORED | `c565994e1acf78f561f7c01f6eadbf728c96e28c43598aeaf6264af01c7441b1` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-genericactionbar/challenge-C-implementation.md | UNWITNESSED-DIRECT | `581e983fb1bde78342be594ba6ecb8e73c4e0aa5480ad1002f459f9076d48724` | — | 0 |
-| audit/components/shell-dock-genericactionbar/challenge-D-design.md | UNWITNESSED-DIRECT | `36b30dd3faeee4efb0494363cc1ad8bd7703f2efd7e354588e39a9dfeb582766` | — | 0 |
-| audit/components/shell-dock-genericactionbar/challenge-L-library.md | UNWITNESSED-DIRECT | `2249a85a9bf6c0814e71698168a6e200643ca42534ebe77b26f959c3c9e6627c` | — | 0 |
-| audit/components/shell-dock-parseechoreadout/challenge-C-implementation.md | REPORT-AUTHORED | `7c599b81f90855949e0954be70a00eefb1ed08f395642426ac62b29cd4729a93` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-parseechoreadout/challenge-D-design.md | REPORT-AUTHORED | `b808a8ac549b2a9b43309d5fa216fa9359d6a0537a245dc60adb3e36cbca4704` | closure-manifest-2026-08-03 | 0 |
-| audit/components/shell-dock-parseechoreadout/challenge-L-library.md | REPORT-AUTHORED | `767226041c1d1f1a1dd391408fa35cdf30812a736d8809396e9c39ea8de17585` | closure-manifest-2026-08-03 | 0 |
-| audit/components/wb-extract-pane/challenge-C-implementation.md | UNWITNESSED-DIRECT | `ebe99978568bb69312b1c53e00e055abaee945d6fc17911cc7b5e71f4188c7cb` | — | 0 |
-| audit/components/wb-gradient-pane/challenge-C-implementation.md | REPORT-AUTHORED | `a6d3121924281640d540b9c2768a5948cc71be912287cbbf39d61f1b027bf7bd` | closure-manifest-2026-08-03 | 0 |
-| audit/components/wb-gradient-pane/challenge-D-design.md | REPORT-AUTHORED | `cb419bfcba69178b1b0a40ff2194776be24e6a9f50f4a154bbe299f1d1b2e725` | closure-manifest-2026-08-03 | 0 |
-| audit/components/wb-gradient-pane/challenge-L-library.md | REPORT-AUTHORED | `fcbc4424b2914988d9e9ad7a4b4ff70c2bf8fea83207de1de41a5457c992e778` | closure-manifest-2026-08-03 | 0 |
-| audit/components/wb-mix-animationcanvas/challenge-L-library.md | UNWITNESSED-DIRECT | `0c9302ecbaeb06afe3b6d913fb44679b89705e2366ba477205601e00906cd478` | — | 0 |
+| canonical path | status | sha256 | roster | round | source harvest | payloads |
+|---|---|---|---|---|---|---|
+| audit/components/AboutPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `7520ee298cad43ba88504fcf10f9fc47ab107aa46760ea491eca1b14374a16ed` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/AboutPane/challenge-D-design.md | EXISTS-ORIGINAL | `de860c8e6114d29488948bf1a59eb36ba8681c84f7353a555b1933ae3109c663` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/AboutPane/challenge-L-library.md | EXISTS-ORIGINAL | `3383b6d5271994d24e934256a279eba40cd915137a7c56ce644e3da4c935fc08` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/ActionFeedback/challenge-L-library-r2.md | EXISTS-ORIGINAL | `75a027c456c4929ff42faf6b1c4a4b2e4da9906bcef398d1ff88f800f3d313ef` | NON-ROSTER · round-variant r2 | r2 | wf_1a4c8a8c-557.json | 1 |
+| audit/components/AdminAuditPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `aa55fd3c7e9ddd8baf622b9c85fb868330d92f373aba65f03ca6df7480da0c2a` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminAuditPanel/challenge-D-design.md | EXISTS-ORIGINAL | `bced760d46d97359909ff82113a6ca465708a971311561fe2d6ebfab3af6e855` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminAuditPanel/challenge-L-library.md | EXISTS-ORIGINAL | `55dec9b6b590279213612f97fa7d961a2f38eb57cd51360f51863c12d8a62695` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminFlaggedPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `f29c26f4e35e2c15e97e1338414912fc204005dc012e4d3ad61faf536ded1def` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminFlaggedPanel/challenge-D-design.md | EXISTS-ORIGINAL | `a1314b62c5f89bca09d7b6d29807f876044cd3c3eb8dbe0357d6fe182bdf64f6` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminFlaggedPanel/challenge-L-library.md | EXISTS-ORIGINAL | `84297d75cd825dccdc83e51eb2da51315d32243e1686b8483a2e7c70ab3ee13d` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminNamesPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e76b371f1cf208b052cfedcda47c555fcfec138e332d7f59a8d2d661043f3cb` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminNamesPanel/challenge-D-design.md | EXISTS-ORIGINAL | `c87f4c34118382d009c728742921cc3231a04c3bc5347f4faae0bbf6069e5cfd` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminNamesPanel/challenge-L-library.md | EXISTS-ORIGINAL | `37d6d2345bdd947361e8881deb8b867c9b05a34286d86702e371658e09a149fc` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `23a5132568c27b238365c12582f031719d8d32985291cb0a05d1e63fb761b6e7` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminPane/challenge-D-design.md | EXISTS-ORIGINAL | `70c263661b55316ca07241c75ef8f0916d6634b65d438e25b61d29fb4773d783` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminPane/challenge-L-library.md | EXISTS-ORIGINAL | `41962f7980107f7870c046e4cd6ffba5d68b67472293e65b5c4224ae377c3685` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminTagsPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `b2114d2cae0e587812011ffce2d970ed72e856cfb02c57a82a3d73d9a62a863a` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminTagsPanel/challenge-D-design.md | EXISTS-ORIGINAL | `ac944a61605f0d68f11cb474e1d9df64b24ba4bd7f5ea444f77aff2a692d4f46` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminTagsPanel/challenge-L-library.md | EXISTS-ORIGINAL | `06b2d2a60380528c8a8ae6346ae36c933f62b0584d694a2ee9d068177de8ffaa` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/AdminUsersPanel/challenge-C-implementation.md | EXISTS-ORIGINAL | `310b4a49caa4fc37b4c2ad6063957c8f3536b58f2793b591094c14bc0d9400c1` | CANONICAL-ROSTER | r1 | area-palettes.json | 3 |
+| audit/components/AdminUsersPanel/challenge-D-design.md | EXISTS-ORIGINAL | `aa7b5af506f7edc0b589471f378c9ae3d745f09da2ac055c7c80851e70a490b9` | CANONICAL-ROSTER | r1 | area-palettes.json | 3 |
+| audit/components/AdminUsersPanel/challenge-L-library.md | EXISTS-ORIGINAL | `caa1ae744828cf7df865f330b69cb954e2661aa3ec18dbf4d3e40644e5da2c82` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/ApiOfflineChip/challenge-C-implementation.md | EXISTS-ORIGINAL | `7012b9a868e1b31a9534cf56c263a1441b2a32a34c0595309a88f4a2b3c69e64` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/ApiOfflineChip/challenge-D-design.md | EXISTS-ORIGINAL | `f02e3cb49f8233660adad978aab92d00f6a30c922b5ccf2bc24207d283652df3` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/ApiOfflineChip/challenge-L-library.md | EXISTS-ORIGINAL | `7006e8b8d3752c9f2d5fdb92c694635cf594cfc52815b55ba36cf539873ddd86` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/App/challenge-C-implementation.md | EXISTS-ORIGINAL | `df7b3eaac65eb7412de0ebac0a3b9f6f197756ad9ab76a7bf17f9486a5665c85` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/App/challenge-D-design.md | EXISTS-ORIGINAL | `d492253b760e01b3e210deddde3bd0cda0a8e702a015624a3013f588dcd6e443` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/App/challenge-L-library.md | EXISTS-ORIGINAL | `21a462ed12577093d786a8a245e3adfb476605b973e4bcd28c745d8f843a91a4` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/AuroraPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `0cc9a1bd4a0af6eeb250bd3eb95801fa52ad8e4cb14b5065bab531836276b743` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/AuroraPane/challenge-D-design.md | EXISTS-ORIGINAL | `8129ee471dc18f38442af3eaade7219aa663d65867dd266ce4bde451e5f6f5f9` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/AuroraPane/challenge-L-library.md | EXISTS-ORIGINAL | `cc874a167a94fd2ca227e7eae132400f78ceb5e0f2d35d8e8a4a5145d9ebf7d9` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/BlobPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `5cae56aae5559f8bea005766bf0b3811e4ac7acf5c2eb81301174abfa9c41be3` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/BlobPane/challenge-D-design.md | EXISTS-ORIGINAL | `3a61f423c2fa2ed61c9a100f399be05cd5124e7050977f80da57813cd2634297` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/BlobPane/challenge-L-library.md | EXISTS-ORIGINAL | `2f70d0a2d0fe0a8fc90c21071a1ccaca3d3d94ebc33fbdb4aa0709f5ef928d0a` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/BrowsePane/challenge-C-implementation.md | EXISTS-ORIGINAL | `153d126237930719e22092d2fe979ee20cf1d85dd630c929b70376dddf3baece` | CANONICAL-ROSTER | r1 | area-palettes.json | 3 |
+| audit/components/BrowsePane/challenge-D-design.md | EXISTS-ORIGINAL | `c38763a2142ed64e6462a24a745c55846ef7d6c26fad8a0242c0cb41a751ef9e` | CANONICAL-ROSTER | r1 | area-palettes.json | 6 |
+| audit/components/BrowsePane/challenge-L-library.md | EXISTS-ORIGINAL | `ef272f8578f37a2a959a2679ee4467b4bd92519b373815863d67682ab3828700` | CANONICAL-ROSTER | r1 | area-palettes.json | 6 |
+| audit/components/ColorNutritionLabel/challenge-C-implementation.md | EXISTS-ORIGINAL | `57f49929168a16cabe677c24b853f22542c15ba760cd2dd7bef185805ea3ace4` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/ColorNutritionLabel/challenge-D-design.md | EXISTS-ORIGINAL | `ed2446cd57f232b23b6c8ba111c4652811774d89958bd9078473e29071c176b9` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/ColorNutritionLabel/challenge-L-library.md | EXISTS-ORIGINAL | `9be8f63c1c68ab94c1cef8434a9f6841c8eefe99ee6418cdfc9974f490a29e1c` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/ColorSpaceSelector/challenge-C-implementation.md | EXISTS-ORIGINAL | `d2aca27ee8c9c5395999528fe09aac544ec3eaea215d99da289982e77d6ed8ec` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/ColorSpaceSelector/challenge-D-design.md | EXISTS-ORIGINAL | `09c3f54bc77fb12f1754fe40377267f6d2049f6253da2b3df509596bea7bac4a` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/ColorSpaceSelector/challenge-L-library.md | EXISTS-ORIGINAL | `2c16fe8fc80befa86a2af5a47d1f73cfe770f3efe5b87eb3abd0fc6bfb9ae22a` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/ConfigSliderPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `5f763484485f663d970c660998e30f4b231ef5f8a16f21257f994d8ee2d4c0b6` | CANONICAL-ROSTER | r1 | area-scenes.json | 3 |
+| audit/components/ConfigSliderPane/challenge-D-design.md | EXISTS-ORIGINAL | `0deff1139bad866efc40336d168499af194c9345169533c16ee9360125da6fe3` | CANONICAL-ROSTER | r1 | area-scenes.json | 3 |
+| audit/components/ConfigSliderPane/challenge-L-library.md | EXISTS-ORIGINAL | `591a5e0030ca5e907f4bf041584fa0f375fe9c732d625d0d74ce5420a346cbfe` | CANONICAL-ROSTER | r1 | area-scenes.json | 3 |
+| audit/components/CurrentPaletteEditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `35edfaf983889a31609424eca5389572c1d9c315942ad18a7f1045e1bbfa3799` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/CurrentPaletteEditor/challenge-D-design.md | EXISTS-ORIGINAL | `3fc5fd36d554648b3f06af41925e67738efd6ab30b85c11ea20b7df347f3280e` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/CurrentPaletteEditor/challenge-L-library.md | EXISTS-ORIGINAL | `b7552aa0a2923771d83c4b0f7e656a9e280414dafba3b0b474b177ffeb67cf8a` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/EmptyState/challenge-C-implementation.md | EXISTS-ORIGINAL | `a9bc6a82284e312867c9f25c8011ef9ea9fefad0ed59aada987a9a842a8fb8ed` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/EmptyState/challenge-D-design.md | EXISTS-ORIGINAL | `27c1c81bc5c1096aee4c2ec39c9933ccd7341548556529cc2b372055f994b4db` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/EmptyState/challenge-L-library.md | EXISTS-ORIGINAL | `5d60ff01ec497e1dfd7b420dd34d406a836c5d3710a0bea01f4183002bd027ac` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/ErrorBoundary/challenge-C-implementation.md | EXISTS-ORIGINAL | `cc409a0585cc0a1c7c7d194de9476eab088e3026ce04fcfb2c0799766123a4bb` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/ErrorBoundary/challenge-D-design.md | EXISTS-ORIGINAL | `0d9b97e76e5e081cff7c27f7861c4edbc118be52b63080ee3bda00050c2c28a7` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/ErrorBoundary/challenge-L-library.md | EXISTS-ORIGINAL | `181a3c0f755bf797fa045e126089316faf152ce0568f63a389c38f3e0d5881a1` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/FlagReportDialog/challenge-C-implementation.md | EXISTS-ORIGINAL | `08dc80de969eb0ee4cfcb9ab104fe73637d306ea6ea744c8a80a428dd29606a8` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/FlagReportDialog/challenge-D-design.md | EXISTS-ORIGINAL | `1b25530977482f56938ef68f0cf3a9f527258d56b234b221212a1a71ff8c32be` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/FlagReportDialog/challenge-L-library.md | EXISTS-ORIGINAL | `a12b833ab3868b59cdd66e50877a632b3fd52fd3b255202a4c031c4271daadc5` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/Katex/challenge-C-implementation.md | EXISTS-ORIGINAL | `e62f4e1927dded5c94413af2a64843804529b29df167eead5b891577a23dbffa` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/Katex/challenge-D-design.md | EXISTS-ORIGINAL | `ea9b5f7b8b21a30efa6527b315d351530ff3630a58d7b93d0b19d8acbd1c9ba3` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/Katex/challenge-L-library.md | EXISTS-ORIGINAL | `8166e468ab2322d6528d8205d2fd2fcb87330e3ba2eb26f3781e948cd507498a` | CANONICAL-ROSTER | r1 | area-scenes.json | 1 |
+| audit/components/Markdown/challenge-C-implementation.md | EXISTS-ORIGINAL | `69523e6a81d4448a8909778e4d55f2d6255fb9d4a9852794c6b3712f64d520a4` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/Markdown/challenge-D-design.md | EXISTS-ORIGINAL | `7c6962ba7e7a069830560e51a62ab8e78b565c210b6af500bfe0dc405e6f2d1c` | CANONICAL-ROSTER | r1 | area-scenes.json | 2 |
+| audit/components/Markdown/challenge-L-library.md | EXISTS-ORIGINAL | `9f3d385798ad8492c5b94b292ff9ef4e8062489f5a3d1aa338aacba9eeebdfb3` | CANONICAL-ROSTER | r1 | area-scenes.json | 4 |
+| audit/components/MigratePalettesDialog/challenge-C-implementation.md | EXISTS-ORIGINAL | `00e3f887b923382e35c6f43a55231c2cfb678b92cc4ffc6eece3b9eee7242ecb` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/MigratePalettesDialog/challenge-D-design.md | EXISTS-ORIGINAL | `637eed9ce0483ab116ea4e099e981e3f585cb78cba265074513c99fd51ae3772` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/MigratePalettesDialog/challenge-L-library.md | EXISTS-ORIGINAL | `2bfea4c235ceaf839f5fc9f26526e2e59f08d8bf0c632ce1b3956747a0ee740c` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/MiniColorPicker/challenge-C-implementation.md | EXISTS-ORIGINAL | `d04551e97187e8112bc0dfda7311b1f59af5e2bd74780ebebb64118f90c95814` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/MiniColorPicker/challenge-D-design.md | EXISTS-ORIGINAL | `0a4e07247995c5db2584bdffec1e4c2a83d9bcbdf2216d09b95a056d30412ea1` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/MiniColorPicker/challenge-L-library.md | EXISTS-ORIGINAL | `cf0db2e0f4d4bcfc246cf03d2a200e4bdfad3adbb377addb34130f5941ecde70` | CANONICAL-ROSTER | r1 | area-palettes.json | 2 |
+| audit/components/PaletteCard/challenge-C-implementation.md | EXISTS-ORIGINAL | `7d859fbf51a1d96c1be2e5d17ade1b5ba283930f9b116841acacca81e4074882` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/PaletteCard/challenge-D-design.md | EXISTS-ORIGINAL | `de360488414c8d4a8af313c7a294d0e3b88e583a4c5c2d23672b52210acbdedb` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/PaletteCard/challenge-L-library.md | EXISTS-ORIGINAL | `90b4d63727a39abfe64dfe8dcbcedee857647a100329ee5c78d4bc1f3c3eb5b0` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteCardMenu/challenge-C-implementation.md | EXISTS-ORIGINAL | `b2ced16a15c7556f8f60a52808647d6618127766345579142b60aff4cb62b623` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteCardMenu/challenge-D-design.md | EXISTS-ORIGINAL | `90c811fa162396e6f6bd43850e030914ee767fc7183b7f564045236a6065ddf0` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteCardMenu/challenge-L-library.md | EXISTS-ORIGINAL | `d03284b39a611bce38a1a7a05744c1b656f9d1863941e30c3b161208a3d1f130` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteCardSkeleton/challenge-C-implementation.md | EXISTS-ORIGINAL | `1301b7abecf90390158f0e6c5059f4d94b28fe2a65148b69a4402db2951a5011` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteCardSkeleton/challenge-D-design.md | EXISTS-ORIGINAL | `4fc81d30d48114ffabb9ae3fd379ea76df254d6f35c8da9a815c091964968707` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteCardSkeleton/challenge-L-library.md | EXISTS-ORIGINAL | `95ddc306e94d539dc3da8f5644b6ab3ef6b26de93b5cdcea92697dbbe69c59da` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteCardSwatches/challenge-C-implementation.md | EXISTS-ORIGINAL | `41afc657d43340bb7a6e2c93da20ff519fb387b8c6abfddf0494e7e40c2d5f01` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteCardSwatches/challenge-D-design.md | EXISTS-ORIGINAL | `f9a518945a4e5fc8e81a08e5505b82b3ef87288c8c1f5216ea6fe86dc99e5dc7` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteCardSwatches/challenge-L-library.md | EXISTS-ORIGINAL | `458df27bbb30a88269d4bac0653aa9cd7794e70b0350346e6b1edc51c5ffa27e` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteColorStrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `67e75b861db2a1f6bd4f90abd3907ebdc592b668bf9a2dc27c9455f73607ddc6` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteColorStrip/challenge-D-design.md | EXISTS-ORIGINAL | `a03ee88fd4ddd604c4e308d4eda4b4572834a666d4a82a9c0c991d3ad99cfc78` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteColorStrip/challenge-L-library.md | EXISTS-ORIGINAL | `5e4b5dcdf16284b545d823fac26f7a1c27b29752818062c581bcf77f3d4b0ac2` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/PaletteSlugBar/challenge-C-implementation.md | EXISTS-ORIGINAL | `eea88fdcf7129e50c514003b25d23a572b0b970b2ddf9f013f997bf32291dbb9` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteSlugBar/challenge-D-design.md | EXISTS-ORIGINAL | `f010db54fb6bac68d5124a499e9b863938b440ec709291e9dd70bc4e75851e3b` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaletteSlugBar/challenge-L-library.md | EXISTS-ORIGINAL | `0254eb51be0aba2ea35b8dab577026cf94bbe41a914cdbfe0022c8a2a673b65b` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PalettesPane/challenge-C-implementation.md | EXISTS-ORIGINAL | `fe3c69ebd985cca69f905a36a3abe44bc6a1cc2af04959c1f27a948393f653db` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PalettesPane/challenge-D-design.md | EXISTS-ORIGINAL | `02aa57c21be10a45016425ba78b080df540f2877851a349dcf25ce14714ce3d3` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PalettesPane/challenge-L-library.md | EXISTS-ORIGINAL | `1b2d8e7679b0b7608581b2e2f216651c3eeb9caa5902c53180f4b5faed33b99c` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/PaneHeader/challenge-C-implementation.md | EXISTS-ORIGINAL | `b92025c93735c3a854fa28a3810ebe81db2220f2b1701e6a4a0ff4f7460eb39e` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/PaneHeader/challenge-D-design.md | EXISTS-ORIGINAL | `f1f692726bc6d5a38b56939f1ab482a495b0b79f372a8c092ea710ab30e5aba6` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/PaneHeader/challenge-L-library.md | EXISTS-ORIGINAL | `d1b1fd1a7b9d3a7db63b649504091068516e2583cc5a95c3f21e436cc937dac4` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/PreviewRamp/challenge-C-implementation.md | EXISTS-ORIGINAL | `af93915c1291ccc264d376b557ffeb159345f6393f72965cda8f83a99a5dc1ae` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/PreviewRamp/challenge-D-design.md | EXISTS-ORIGINAL | `4041d2f5504a96eeea4f69d2a0d60f5b4b38575427e62fd6b6b33b3d1b322855` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/PreviewRamp/challenge-L-library.md | EXISTS-ORIGINAL | `e3822de8c6eb3753ee0be53f9d51f0570232f3fb212cac0f4540c9465365c1ac` | CANONICAL-ROSTER | r1 | area-core.json | 1 |
+| audit/components/PreviewStrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `fca2b9eed16eefed63056fadda5943246f04224f94eb74e974950e0268ead2e0` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/PreviewStrip/challenge-D-design.md | EXISTS-ORIGINAL | `f1fca46f9b568a216a0d2881d49c075fe7e44818177229f548875153471208df` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/PreviewStrip/challenge-L-library.md | EXISTS-ORIGINAL | `6acecbe15fe1b065a783346235547efca22f4e7c5337e3e172f983128e3e8107` | CANONICAL-ROSTER | r1 | area-core.json | 2 |
+| audit/components/SearchFilterBar/challenge-C-implementation.md | EXISTS-ORIGINAL | `9169307d8d8e7bacf545f0f92f9521a64f9ec2b558c28f8e30dee1a6bac22e5c` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/SearchFilterBar/challenge-D-design.md | EXISTS-ORIGINAL | `f39137d76194d149f609cec4a866c3ad4005eecd3134d56d3a9bcb05141baaaf` | CANONICAL-ROSTER | r1 | area-palettes.json | 4 |
+| audit/components/SearchFilterBar/challenge-L-library.md | EXISTS-ORIGINAL | `36247d382e3eae9dbf9d3d8dc400e7af9c7cf7a631b2157ce95431128287f357` | CANONICAL-ROSTER | r1 | area-palettes.json | 5 |
+| audit/components/ShadowPalette/challenge-C-implementation.md | EXISTS-ORIGINAL | `31455a129d2d4d7c20d8ff9fc3a4cf0852483d78ab3062d7697097d0ed69ce01` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/ShadowPalette/challenge-D-design.md | EXISTS-ORIGINAL | `352cf9b3e5909c967170e53c377fffd72864e2ff0ffc14709feff975756b10fc` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/ShadowPalette/challenge-L-library.md | EXISTS-ORIGINAL | `7b3195956e3cfbdb45c643b4f19c76927da802e0f0e2535d60cdf0af95cca9a2` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/SwatchHoverMenu/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e7624b8a132acadf2a2db7c7b427702e8be423d9d69cb54760405cedaca05e2` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/SwatchHoverMenu/challenge-D-design.md | EXISTS-ORIGINAL | `843f68cfa501857f7ef09d735ff68d1c93c94e178dd4a028c5f31768323ea090` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/SwatchHoverMenu/challenge-L-library.md | EXISTS-ORIGINAL | `7666bf0fab598ba4f6d92cc5b806410c97075b6848c71f610d78513246e0e723` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/TagEditPopover/challenge-C-implementation.md | EXISTS-ORIGINAL | `20c97e85915340e7b84dbb389bf6ec27e2b725914a25fae03a9a2da146e1e916` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/TagEditPopover/challenge-L-library.md | EXISTS-ORIGINAL | `9bf6b509693bd30566cf3299dc5c68f9785d65967280c599c86596fb54f2b9a4` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/VersionHistoryDrawer/challenge-C-implementation.md | EXISTS-ORIGINAL | `af21c9babedd699ace8aa230be83ce526937a44f9c15001105ab42023f4fb02a` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/VersionHistoryDrawer/challenge-D-design.md | EXISTS-ORIGINAL | `228cadf7b43cc92ca27b24c1ad791d814e5de4f37903ed38fc285020ed903d7e` | CANONICAL-ROSTER | r1 | area-palettes.json | 1 |
+| audit/components/VersionHistoryDrawer/challenge-L-library.md | EXISTS-ORIGINAL | `1d9b9dd9c28682fb00e6954817b296dd5360d07c004c2b104e08a83a8d6ed9c4` | CANONICAL-ROSTER | r1 | area-palettes.json | 2 |
+| audit/components/picker-colorpicker/challenge-C-implementation.md | EXISTS-ORIGINAL | `0f464762dfc8b8fc2cabaf37af6ea6c4d987ab716959f7d34a0659c8e24ac223` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-colorpicker/challenge-D-design.md | EXISTS-ORIGINAL | `1b166f0157a4c334a184d199c9f6b00d70078bce09b4c55f17283fca8848aaaa` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-colorpicker/challenge-L-library.md | EXISTS-ORIGINAL | `81bad4700382eef336e832d10ff6bf1990f3c1c6c0ed5dd1d7fce5157fa4377e` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-componentsliders-consolerail/challenge-D-design-r2.md | EXISTS-ORIGINAL | `ec6edbfebd42a4f585078879abb020e7f65d64aaba36d5505f87db9dd40744cb` | NON-ROSTER · round-variant r2 | r2 | wf_1a4c8a8c-557.json | 1 |
+| audit/components/picker-componentsliders/challenge-C-implementation.md | EXISTS-ORIGINAL | `fb20c9e966229796b766741dc393c23852f756bdfcb62a88d1245e5c8badd071` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-componentsliders/challenge-D-design.md | EXISTS-ORIGINAL | `37230f595d79d9cd475dee98ac35d31c732735e7f9df3c2877138e2ea7c78720` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-componentsliders/challenge-L-library.md | EXISTS-ORIGINAL | `6622a44893ecbfa79bb98d3d3da330aec091cb5891d8a53badfa4a32cc0058a8` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-heroblob/challenge-C-implementation.md | EXISTS-ORIGINAL | `04b7d7059c129b6febdb75878f56239f2d6b4837c8d48c6247f21f9f9c52fd48` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-heroblob/challenge-D-design.md | EXISTS-ORIGINAL | `f2911ec90b2d40b35f3b1461bdf1c59cc03fbb1097887b83c9b24a9906f731ed` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-heroblob/challenge-L-library.md | EXISTS-ORIGINAL | `d8655b58966e3ba3e46fe8415bb975a5f095a61e73553d1a1d4676419b10320d` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-pointerdebugoverlay/challenge-D-design-r2.md | EXISTS-ORIGINAL | `0f034f57e85269dde15c85b646b918e7c872038f6c967257ca3f37fefd141c73` | NON-ROSTER · round-variant r2 | r2 | wf_1a4c8a8c-557.json | 1 |
+| audit/components/picker-spectrumcanvas/challenge-C-implementation.md | EXISTS-ORIGINAL | `0318e27c00ec7fa9771507b51cb5efca4120e12c745a4b62c3fe4ee52bfb40a5` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-spectrumcanvas/challenge-D-design.md | EXISTS-ORIGINAL | `dac259a892bd3d96ea0743d8c71cd32328a9ee82254690180d8488218a3302d3` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/picker-spectrumcanvas/challenge-L-library.md | EXISTS-ORIGINAL | `eab6d1016a453ddd801f9a6bcd2ef5628da8ca45eb8436fca6fe323ace7ea56e` | CANONICAL-ROSTER | r1 | area-picker.json | 1 |
+| audit/components/shell-dock-actionbarlayer/challenge-C-implementation.md | EXISTS-ORIGINAL | `5de54fafb74b2f7392b4bf2e8b09469e63c70cc30d9159d521a72c6fd4714ea7` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-actionbarlayer/challenge-D-design.md | EXISTS-ORIGINAL | `822708cd8bb4d543922347a0d0d39686180012f52aa090e453cc9fc9997fb6ef` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-actionbarlayer/challenge-L-library.md | EXISTS-ORIGINAL | `ad1afa2fa3db84cef2af0918bc8aa10af86b40f49d4c56b29eac17b684d41b1c` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-actionbartoggle/challenge-C-implementation.md | EXISTS-ORIGINAL | `139998c01380dc48d60e58fe67dde1b219325703c1c7c2631d9bef532a683715` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-actionbartoggle/challenge-D-design.md | EXISTS-ORIGINAL | `0da9b36ed5d3d29cb1f3adf3ab903c3608c8f61376722b3c937ef992e0c505b8` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-actionbartoggle/challenge-L-library.md | EXISTS-ORIGINAL | `1531312cb87a604b417f687d99e5c096b950d0e8b7026dcab0fb684f8603dba0` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-actionbutton/challenge-C-implementation.md | EXISTS-ORIGINAL | `81e13d77212fc5f9dcb499cb9eb238ce320a71ff99124beb4ab743ade383e685` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-actionbutton/challenge-D-design.md | EXISTS-ORIGINAL | `3f4a41c264d8af1a86d546259f2e8ef6299cc3083e1b36b95e5fb02a174658bd` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-actionbutton/challenge-L-library.md | EXISTS-ORIGINAL | `940a505d5cb9ebb413d4d31a434425458c8f85d913df0b8d8cf1802e9f5b032e` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-colorinput/challenge-C-implementation.md | EXISTS-ORIGINAL | `028b2fa6eb4fdb3727bb4514110398c2182d11cffe52b0973ded0a6492517cbb` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-colorinput/challenge-D-design.md | EXISTS-ORIGINAL | `9c9c19719540c888b12baebe2d210c7a751d8ac87d84a66abfea112a85de6eba` | CANONICAL-ROSTER | r1 | area-shell.json | 3 |
+| audit/components/shell-dock-colorinput/challenge-L-library.md | EXISTS-ORIGINAL | `5294fda5c5f17c05ddac0a05b6f0dbbf6c008c0e542c6997704607f26f9f8f8f` | CANONICAL-ROSTER | r1 | area-shell.json | 4 |
+| audit/components/shell-dock-dock/challenge-C-implementation.md | EXISTS-ORIGINAL | `464ead6a91236d21eb00fc9bec7d75f2ad83d216d397b7a895cfcbe596267556` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-dock/challenge-D-design.md | EXISTS-ORIGINAL | `03936a5dc8a8f4a9c5749dba3e957641ba71e4712bcb33b7a2abeccacf9f6153` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-dock/challenge-L-library.md | EXISTS-ORIGINAL | `683ae5a4844a1f46e7a55bc76d1f07edaf834397576b8f3b4c3e27098c461841` | CANONICAL-ROSTER | r1 | area-shell.json | 3 |
+| audit/components/shell-dock-dockstatuslamp/challenge-C-implementation.md | EXISTS-ORIGINAL | `4f461d45130a10a75bbae41fec536ea49e833eeada6b1723b4771738595f2130` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-dockstatuslamp/challenge-D-design.md | EXISTS-ORIGINAL | `1b4e23ec90a1c7302a034193872f834a8c6d01307c30014c3b3a5869106799e4` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-dockstatuslamp/challenge-L-library.md | EXISTS-ORIGINAL | `b882d782aaa5dfae57d692578ab0488e921ea08d9a8a8173cac9a2eaa5d049c4` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-dockviewselect/challenge-C-implementation.md | EXISTS-ORIGINAL | `dee80947da296bb6905865f720f9116759609c089bc8cb64b1071dc817e0048b` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-dockviewselect/challenge-D-design.md | EXISTS-ORIGINAL | `196de7fd31d554a70f61e4be74f98b4312f34e7a4e0ea03be829bbe9acff17cb` | CANONICAL-ROSTER | r1 | area-shell.json | 2 |
+| audit/components/shell-dock-dockviewselect/challenge-L-library.md | EXISTS-ORIGINAL | `88e506ac59e7b8c87f5a6fb22e81acb415f69262c471592970ba61585ed61558` | CANONICAL-ROSTER | r1 | area-shell.json | 3 |
+| audit/components/shell-dock-mobilemenudropdown/challenge-C-implementation.md | EXISTS-ORIGINAL | `5e43f5872357b1e5fa54ddc2611c2e298b35b2e5716ee679305dc383cecb78de` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-mobilemenudropdown/challenge-D-design.md | EXISTS-ORIGINAL | `36da05d120c2e93588a7f57e1f14602d165df5c731b7f2d404b3fded39403055` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-mobilemenudropdown/challenge-L-library.md | EXISTS-ORIGINAL | `df4be4ad013d15a88dd8acfceed7e06f1744fc28500b63e2ddc0f1126fd8ead2` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-profilesection/challenge-C-implementation.md | EXISTS-ORIGINAL | `15215fca4957cf19d98c35f611a709ec646fe278fa3c8398a59fc6657e9c5f58` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-profilesection/challenge-D-design.md | EXISTS-ORIGINAL | `da18eedd8d2d0e5cad48aa51f92f8d4c51daf00054dc8eed270d468f2ad16033` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-profilesection/challenge-L-library.md | EXISTS-ORIGINAL | `e6f0ec7651f8dfd5d4f448161a51ec88c8e75f3331e6b58b6176d5dc7376fd13` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-slugeditlayer/challenge-C-implementation.md | EXISTS-ORIGINAL | `f8dcbe57396e6c19bd0e09cc5cdd9d8474fd36937f29ba0a2c35eedfa57896b4` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-slugeditlayer/challenge-D-design.md | EXISTS-ORIGINAL | `656cf02aa28e08995320eb3497b7473e8e899d278aa61118fee516c24cbb93c3` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-dock-slugeditlayer/challenge-L-library.md | EXISTS-ORIGINAL | `08d7781d525232cc676638303d9fd11a28102d6a1955e28cb3baa69658f0259c` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-panesegmentedcontrol/challenge-C-implementation.md | EXISTS-ORIGINAL | `d49cff25d27f683ecc7d8426a080474c9210c8bc43aa855c8764230052d9b187` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-panesegmentedcontrol/challenge-D-design.md | EXISTS-ORIGINAL | `282a8b0b6a63ca2df25df2eb8ad998d851f6378a15180ab2b68a35f2a62c08f1` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-panesegmentedcontrol/challenge-L-library.md | EXISTS-ORIGINAL | `c87e0efa6b96c30e17597df500c7e84c71608cbb2c53dbd54711d8ee313fef65` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-paneslot/challenge-C-implementation.md | EXISTS-ORIGINAL | `75397929439b36f8934d59b5228c810bf0f9a916af161db4ef5c08e657fbe6fd` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-paneslot/challenge-D-design.md | EXISTS-ORIGINAL | `abdedea3f6c8b11bfb150e25cc96e3873dfc3722ebeba0496e41be5d9873ec4a` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/shell-paneslot/challenge-L-library.md | EXISTS-ORIGINAL | `762bc9b65289778c3d1d6a2e033ea9af30b03c3276d911d8a1aa6493a1ea2422` | CANONICAL-ROSTER | r1 | area-shell.json | 1 |
+| audit/components/wb-extract-controls/challenge-C-implementation.md | EXISTS-ORIGINAL | `d44aa54dcc932bcd187b0a5615b55a614302ca3aa6bf53f85f7e91113615e8ff` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-extract-controls/challenge-D-design-pass2.md | EXISTS-ORIGINAL | `88e40b037e6769420b71543fd80e667c0168a492b3f78d516a5955b505a2a149` | NON-ROSTER · round-variant pass2 | pass2 | area-workbenches.json | 1 |
+| audit/components/wb-extract-controls/challenge-D-design.md | EXISTS-ORIGINAL | `10b9abeab341d036b1f08558f436bc6524fb8e6c02a3b78cf7b477dfd68bef8d` | CANONICAL-ROSTER | r1 · re-run at pass2 (witnessed) | area-workbenches.json | 3 |
+| audit/components/wb-extract-controls/challenge-L-library.md | EXISTS-ORIGINAL | `7276f32c6f5e7bce665ec5b68a86b59ab0817d006dd9ab0773119b2692c3fdcb` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-extract-imagedropzone/challenge-C-implementation.md | EXISTS-ORIGINAL | `c030c0602c4ca30bacdb35298f1e69d3bd7cd4d9dd4de65b74c98c6f19f1d675` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-extract-imagedropzone/challenge-D-design.md | EXISTS-ORIGINAL | `3acd532c5030ad8691cc2630d433cbf6a601f919b864103ad9a3464c337caefa` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-extract-imagedropzone/challenge-L-library.md | EXISTS-ORIGINAL | `d7aa772b97b4fdc63dc13529098f7a94ceeeb5f206229f163bf8a3f37a43d725` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-extract-imageeyedropper/challenge-C-implementation.md | EXISTS-ORIGINAL | `d129ab0391a4b399b281a7e99eef2a9e9f6aa1ab49d8130578306b17d8bb3b8b` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-extract-imageeyedropper/challenge-D-design.md | EXISTS-ORIGINAL | `cf344f0716a87e84051c644d0b560082041ad2173f978c4aad7a9e35ad0c9dd5` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-extract-imageeyedropper/challenge-L-library.md | EXISTS-ORIGINAL | `95b3bb1a6830a2c7bceb2e706611240348d7a57d1b9117948bb760586e02e3d3` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-extract-pane/challenge-D-design.md | EXISTS-ORIGINAL | `9d252d11b3758384a3a6b5f8aa0c61a98336138ff653e4887d487a412b69aaf3` | CANONICAL-ROSTER | r1 | area-workbenches.json | 1 |
+| audit/components/wb-extract-pane/challenge-L-library.md | EXISTS-ORIGINAL | `0fdb1f4c9b672ecd96c4e2d7fb0528dd2b55c7ff6cc4be41fedaf0d1509faa91` | CANONICAL-ROSTER | r1 | area-workbenches.json | 1 |
+| audit/components/wb-extract-workbench/challenge-C-implementation.md | EXISTS-ORIGINAL | `28e3773ecea8a52d5cf9641d321f2c0fba6766dc5f325ac6d9404a417158112e` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-extract-workbench/challenge-D-design.md | EXISTS-ORIGINAL | `4c909d601a625ce93fb53d864cd74e6bc4c265e66febc4f3184c3ab808845972` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-extract-workbench/challenge-L-library.md | EXISTS-ORIGINAL | `96263e51b7514d2cc9a8655c3ba246c522518918684be938548169abc99121f2` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-generate-controls/challenge-C-implementation.md | EXISTS-ORIGINAL | `f56cb2fcbfd4f6d8953ef620a11ed3b823bb098969e8da38c2c5c81597e3cb11` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-generate-controls/challenge-D-design.md | EXISTS-ORIGINAL | `637b944ca39713a4ebecaf4ce8d519fa58287f5be400afede634c15a806bfcdf` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-generate-controls/challenge-L-library.md | EXISTS-ORIGINAL | `b0022ddb153d0e5ebd59e16ab391add255d617f6e9ee282806bb2eb92a4d2392` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-generate-pane/challenge-C-implementation.md | EXISTS-ORIGINAL | `666f1dbfb7a773d30e23d35868bd8afda76ba2d0bbf860889ba542c969f7f428` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-generate-pane/challenge-D-design.md | EXISTS-ORIGINAL | `132d035e5c3d30cf666c9446082184d28363adc984033104a6b0ec39f67918d5` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-generate-pane/challenge-L-library.md | EXISTS-ORIGINAL | `77645349104ca9ab06963be8fc556f01938ed9a95bc3bfeea3cc04e6c447de6c` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-gradient-codeeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `4c8985c2f1a61659e5c082995d5dd56a89b98dd36cd9b34b0f7e24d3ed7ca4f4` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-gradient-codeeditor/challenge-D-design.md | EXISTS-ORIGINAL | `415b7f498a93decfbead7d17d749d03c92f1105ed7afe0ca45c2d480d6170615` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-gradient-codeeditor/challenge-L-library.md | EXISTS-ORIGINAL | `9154987f4255aece39a4370f5018c7806e8a477002769ef2bddc9253998d8951` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-C-implementation.md | EXISTS-ORIGINAL | `581edae7e0c853274f4a88adb5d7c3e44a91ae99dfb13acb85eb03430cbf422e` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-D-design-r2.md | EXISTS-ORIGINAL | `f77040976c2d0527d740f4aa47b483c9d0e675392c1234c2e4e14dd988f6226b` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-D-design-r3.md | EXISTS-ORIGINAL | `47a78ba97a94bac4cfd7f4071cf6d88bcd4066f0b1c947564c8f542cd63e535c` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-D-design.md | EXISTS-ORIGINAL | `ec8ac81b824589c99d59292bacf3c7fa5dd85e961dd66e67039e319015395e20` | CANONICAL-ROSTER | r1 · re-run at r2 r3 (witnessed) | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-L-library-r3.md | EXISTS-ORIGINAL | `796f580f7cf02103de2c2b292859d183b54919febe4f2a18db29a0d0c01391a7` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingauthoringstage/challenge-L-library.md | EXISTS-ORIGINAL | `5c4bf8bc11481085ce3b7d49d61021128c5f903dc4dd56ef5a5cfdaf99785b47` | CANONICAL-ROSTER | r1 · re-run at r3 (witnessed) | area-workbenches.json | 2 |
+| audit/components/wb-gradient-easingeditor/challenge-C-implementation-r2.md | EXISTS-ORIGINAL | `a9c46aec6ba70963e0ff3a7e0229d1d215c977f0c51c79921a26b0495a2fcdac` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-C-implementation-r3.md | EXISTS-ORIGINAL | `2300162981a26fb18ac4706848b47caa41439b0177473610446319a7a7ffafc4` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `a53da6598905eb724b596ede2ca7ecd182df654f5f5c0018d4dabdaf38ea26f6` | CANONICAL-ROSTER | r1 · re-run at r2 r3 (witnessed) | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-D-design-r2.md | EXISTS-ORIGINAL | `9e50fa41c0fcd7eb93d50671eacb41ec1a398cb7f99c3d3f78c8beac740573b8` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-D-design-r3.md | EXISTS-ORIGINAL | `2c92d22cd7672fa64a01e1c4745c04820565a2643c95215a730680236db22ae5` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-D-design.md | EXISTS-ORIGINAL | `9e73ef95871b463da412f5248cce52ac0aec71df062c74cd7200ff1f19881f68` | CANONICAL-ROSTER | r1 · re-run at r2 r3 (witnessed) | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-L-library-r2.md | EXISTS-ORIGINAL | `8e634e8aaa9f02892cbae82e8084e66de53b8c814fbe03a4ce9c0169ce089dc9` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-L-library-r3.md | EXISTS-ORIGINAL | `085864b3b19451000ebc52015e2e51d0b34db2859ca852cb7abbaa4ac26cacf5` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-L-library-r4.md | EXISTS-ORIGINAL | `7280b4c2f190213389d3368be6300a816133143f4b9f5f110b151b574d091d4d` | NON-ROSTER · round-variant r4 | r4 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingeditor/challenge-L-library.md | EXISTS-ORIGINAL | `6da939fc522d9afdbbf515ca3a5665e9ccaf2a621d6d10b9e81286790816d3e9` | CANONICAL-ROSTER | r1 · re-run at r2 r3 r4 (witnessed) | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingspecimenstrip/challenge-C-implementation.md | EXISTS-ORIGINAL | `4fc554868aeedd7aa94736ce4f72c873163e04890ae0c7ecfc3eed2614b9845b` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-gradient-easingspecimenstrip/challenge-D-design.md | EXISTS-ORIGINAL | `0b887e9894fce8a3b2090fc085f441d68bef1cf1c471069dc0c178f72ffe49b8` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library-r3.md | EXISTS-ORIGINAL | `63ee9f1a652b599b21952b61bedd60393512c446e1d0007b7f16e63d3edb9bd7` | NON-ROSTER · round-variant r3 | r3 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library-r4.md | EXISTS-ORIGINAL | `348ca04623e3abdae79dabf9eb357951f272a483394db8da29063397e28ea93d` | NON-ROSTER · round-variant r4 | r4 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-easingspecimenstrip/challenge-L-library.md | EXISTS-ORIGINAL | `355ccfb46c2cd375f162b26f8a4505dc378b8d2b54c9245d13ece414bc6eb53a` | CANONICAL-ROSTER | r1 · re-run at r3 r4 (witnessed) | area-workbenches.json | 2 |
+| audit/components/wb-gradient-stopeditor/challenge-C-implementation.md | EXISTS-ORIGINAL | `aa6dd4cdf37199274c8fdf54ad510802255b0f3a85ab7ef8a8faa9a70f4437af` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-gradient-stopeditor/challenge-D-design.md | EXISTS-ORIGINAL | `a0a47d3d8517ca40c6212121c1254d422000fa1c24a54c82327146398bc5bdc4` | CANONICAL-ROSTER | r1 | area-workbenches.json | 2 |
+| audit/components/wb-gradient-stopeditor/challenge-L-library-r2.md | EXISTS-ORIGINAL | `9909e549fce9b3e1f188f1168c7d2cedbc92d3ac590cc61214a42c2da8dbd947` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-stopeditor/challenge-L-library.md | EXISTS-ORIGINAL | `1a6cf733aa80cf706e150a11891abe07e1740b02b548fe7b2793902ff099e033` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | area-workbenches.json | 1 |
+| audit/components/wb-gradient-visualizer/challenge-C-implementation-r2.md | EXISTS-ORIGINAL | `d86de0e0ef608bc05606be2bf02547b43fa1fb991ed058e0ecef2e1ab36a6351` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-visualizer/challenge-C-implementation.md | EXISTS-ORIGINAL | `33bffce5116b270b9915e788d76c5f519a8cc3229b1807420dfde7c6a3e5b9f9` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | area-workbenches.json | 3 |
+| audit/components/wb-gradient-visualizer/challenge-D-design.md | EXISTS-ORIGINAL | `04afef68d65f7c1ef7daff4627a7517aa77fa38b96413a98a874caa33aa148a4` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-gradient-visualizer/challenge-L-library-r2.md | EXISTS-ORIGINAL | `9011102a7eae431b3a8924fdabf1b4ea7710eb56d89c4b3d8d1c59d15e783623` | NON-ROSTER · round-variant r2 | r2 | area-workbenches.json | 1 |
+| audit/components/wb-gradient-visualizer/challenge-L-library.md | EXISTS-ORIGINAL | `5fddf53efa772542d2a1d8100f750b3a72af49f51df87ad8726dc681bf403b7e` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | area-workbenches.json | 3 |
+| audit/components/wb-mix-animationcanvas/challenge-C-implementation.md | EXISTS-ORIGINAL | `f91fb7d866b115a7c4f7dcb59fc25bc20e6dda5c12f424858be3d06447f7c0d9` | CANONICAL-ROSTER | r1 | area-workbenches.json | 1 |
+| audit/components/wb-mix-animationcanvas/challenge-D-design.md | EXISTS-ORIGINAL | `6b0fee310d5b233aab8a572b47344c0084540b83ece5a6866ff7787d5c26eba1` | CANONICAL-ROSTER | r1 | area-workbenches.json | 1 |
+| audit/components/wb-mix-configbar/challenge-C-implementation.md | EXISTS-ORIGINAL | `c18bca366e312360a9a2d36dfa85ec3295f99a499658cd0e59691f4b89a780bd` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-configbar/challenge-D-design.md | EXISTS-ORIGINAL | `09bcb823f529395568580f366332da1bf65354f6d92b3f0115ad9ee2e9fb954a` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-configbar/challenge-L-library.md | EXISTS-ORIGINAL | `29e5256cab8c4e23aa28b7c8c95057e30d41953bf9bc4cd491fdd320ad093bd1` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-pane/challenge-C-implementation.md | EXISTS-ORIGINAL | `6604efbc0f9e71ea556e00a0341ffa86417ff6400671751de48fca50d5078505` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-mix-pane/challenge-D-design.md | EXISTS-ORIGINAL | `8957950877ddd358ea542a04baeeeb5322514076fe79796b138b7b0bd531b965` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-mix-pane/challenge-L-library.md | EXISTS-ORIGINAL | `03cdd40ebe5e2ada47851cf688629eb0dec8bd3b77552b56ad3e1b6093991d68` | CANONICAL-ROSTER | r1 | area-workbenches.json | 4 |
+| audit/components/wb-mix-resultdisplay/challenge-C-implementation.md | EXISTS-ORIGINAL | `795b48a61ed861f915ffcc5ad046da48a3586989e9f92e449538889000525632` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-resultdisplay/challenge-D-design.md | EXISTS-ORIGINAL | `db92961e8bbeacb4362aafbb8b532b19fd9ee2225b66cbdf1472dd51ea996f66` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-resultdisplay/challenge-L-library.md | EXISTS-ORIGINAL | `dcd1dbff3ba3efe8f399619eafeee54fbd9a02be87aff8dfee5399bae82f2d8b` | CANONICAL-ROSTER | r1 | area-workbenches.json | 6 |
+| audit/components/wb-mix-sourceselector/challenge-C-implementation.md | EXISTS-ORIGINAL | `b48f9569cc8b6d83024eced4fdd10ac86dba0aa7ecba3857625bae31a8d6e40b` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-mix-sourceselector/challenge-D-design.md | EXISTS-ORIGINAL | `5604fc112191e3db8b18d94208cf2e8ef3502a4e118596100d7e37f11439429c` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/wb-mix-sourceselector/challenge-L-library.md | EXISTS-ORIGINAL | `309ef1f66735e1ac9eaf96146c20906dba46ebd58541023a17296135aaadb817` | CANONICAL-ROSTER | r1 | area-workbenches.json | 3 |
+| audit/components/ActionFeedback/challenge-C-implementation.md | REPORT-AUTHORED | `572cacf8d3721f0be2dd7bbfcf6f005c9a4675fbc548c7cc9783b93b03893768` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/ActionFeedback/challenge-D-design.md | REPORT-AUTHORED | `4e2a7215dc7a93242aba92e1d597ae5c4fba7d5787fe2f7a3c3667330c17f001` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/ActionFeedback/challenge-L-library.md | REPORT-AUTHORED | `8797614575e02eaeede7a1da1283a151b55e7bf8f72f3b39dffe6288c389012a` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListItem/challenge-C-implementation.md | REPORT-AUTHORED | `55a9f27c64703efe1d470d73f6aa9fbe0cfe7f38a4ab2ea7cb212c3e7a834fcc` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListItem/challenge-D-design.md | REPORT-AUTHORED | `3271268cbc19363f69f32736dca3aaabf585a5c1399948c3d7f5634610467b0d` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListItem/challenge-L-library.md | REPORT-AUTHORED | `35f5ecf74b9cbb94abc3632bcdd18ebcf2992d3b87d45de52fca380269b9e354` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListSkeleton/challenge-C-implementation.md | REPORT-AUTHORED | `c6621e2205d0d723dcd757d1a484de6b0802d8349aa3764ec92c6039d307a873` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListSkeleton/challenge-D-design.md | REPORT-AUTHORED | `91424831c5d4ec1a62a80c7abd642060eb7dab43072ff93534abe779fa65fe45` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/AdminListSkeleton/challenge-L-library.md | REPORT-AUTHORED | `5adb3d4055b44f9c9e0079f142fcbab2e18530683ec6533d018e71300d1bc8cf` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaginationBar/challenge-C-implementation.md | REPORT-AUTHORED | `60d17e3d124e9e0b1ff7aa9109726b60ab49ac627a817bc031f0af56eb1dfcfd` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaginationBar/challenge-D-design.md | REPORT-AUTHORED | `cbc7a81e00d7aad53b1b55ed853f2187f691739afb8996eb82bda6bf8cb80f51` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaginationBar/challenge-L-library.md | REPORT-AUTHORED | `b44ba6fc3f9a142ac85dd93a03b90961f3d9ea7247fec445ec3f27c21d2caac9` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardGrid/challenge-C-implementation.md | REPORT-AUTHORED | `edbdc2c6413063d0be1cfdae75f1e76ab79ace31b84b3081d5c1bf75cd625353` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardGrid/challenge-D-design.md | REPORT-AUTHORED | `94b31cc1e3a5d048fff6e867fb1fefcaa844381ecab1bad617f3e6f3d53ea012` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardGrid/challenge-L-library.md | REPORT-AUTHORED | `0d52436f47f36c0f184822c93164021d1f5e74fb8b4993ba4a15d4d613a0aff0` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardMeta/challenge-C-implementation.md | REPORT-AUTHORED | `65c7a4403b03bc23044a6abb26fc27aace80a77d6e448b0007ba0187aa24e562` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardMeta/challenge-D-design.md | REPORT-AUTHORED | `61f78319c4ea94e66bace230fab8914a6332f15af8bc613dae53de4c4b361d38` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteCardMeta/challenge-L-library.md | REPORT-AUTHORED | `5a7c9e40ce04287810d54aae51a9f0a2dfd5bcea4a31ae680597c3caee2e859e` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteRenameInput/challenge-C-implementation.md | REPORT-AUTHORED | `5c52b735f8ecdc50f01b4f64cb5d31179bbabb2f2a2b0a4695acceb2d0d8abac` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteRenameInput/challenge-D-design.md | REPORT-AUTHORED | `8189a78f3be163c1aafb7f365d47b7725ce81a7116a95f77042c86b2b3aecf0b` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/PaletteRenameInput/challenge-L-library.md | REPORT-AUTHORED | `200a36a519d78185062aab51c7feb8984bcf026988309438bbf66e2b0db1948e` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/TagEditPopover/challenge-D-design.md | REPORT-AUTHORED | `affeefc8e0eb11655ad987f770642ce71b55251005a4496ea8aaaab2c5c5f88e` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/UserSortMenu/challenge-C-implementation.md | REPORT-AUTHORED | `4a7e023d3d3793d81c55d07feda7529c2409091945d2f30a7693abaf3ce637ff` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/UserSortMenu/challenge-D-design.md | REPORT-AUTHORED | `10df5f8cae6c6d0724fed0b2f5a7dec1ad76eb46784318bbfab40a72334cf4f1` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/UserSortMenu/challenge-L-library.md | REPORT-AUTHORED | `a16e5c4cc32ae53469f50dbfda5d023840703c2b25563da879943b216f13d31e` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-colorcomponentdisplay/challenge-C-implementation.md | REPORT-AUTHORED | `a93784f288714d4eaabd450260b1cf9406cf790cf14314421eab413d8e2b068a` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-colorcomponentdisplay/challenge-D-design.md | REPORT-AUTHORED | `1b497569ada36fc036d28ac09c8fb19a71467bb8e5b35d7853415167903b068b` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-colorcomponentdisplay/challenge-L-library.md | REPORT-AUTHORED | `8607be233e8688ee13102c4b7374b3b257e402cfdc82187919a401f4bd754073` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-componentsliders-consolerail/challenge-C-implementation.md | REPORT-AUTHORED | `daa0f6588f982eecc77f9743641d7634e4e008938fd75c274bfc2a619313321e` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-componentsliders-consolerail/challenge-D-design.md | REPORT-AUTHORED | `b5c098449351a274593c421938c7e50633811f9d09d11921855e81bfeb7bf48f` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-componentsliders-consolerail/challenge-L-library.md | REPORT-AUTHORED | `4acdab78212ef6cad424c3d534a86c3e18fc30ceb93beb27bc0c5520c551ece9` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-debugeventlog/challenge-C-implementation.md | REPORT-AUTHORED | `17fe17fcbd73b039aeb71fdebd4737cc5936c7e5f8d33e4ccc975ecfda907920` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-debugeventlog/challenge-D-design.md | REPORT-AUTHORED | `d71c8ad54e5fabdde634b3618dec5e8bcbe574ba6508bfb995c2953c11f6e83f` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-debugeventlog/challenge-L-library.md | REPORT-AUTHORED | `560a8d257e95b8c41705e2bc391565d0e8f34d1949d039cabaaa8e1c9eb9503a` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-pointerdebugoverlay/challenge-C-implementation.md | REPORT-AUTHORED | `469f6d3df550d18b96a7646c1e5b05682d0c82bf8a96dfa5a689916a53ee7b69` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-pointerdebugoverlay/challenge-D-design.md | REPORT-AUTHORED | `f7638f2b4815a38dc70f6e8afdc880a6cb59e3156c2ce5023bd1cead2175df19` | CANONICAL-ROSTER | r1 · re-run at r2 (witnessed) | closure-manifest-2026-08-03 | 0 |
+| audit/components/picker-pointerdebugoverlay/challenge-L-library.md | REPORT-AUTHORED | `d2a9834a740f93dee0eabd68d6777ae235f95ac8ba4eff2eeadc405460f7da14` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-actiontoolbar/challenge-C-implementation.md | REPORT-AUTHORED | `b9ce333fcbc531c0e5db48e83d2d88044c4dcea4a0ff7b848a5b72adaddd48b1` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-actiontoolbar/challenge-D-design.md | REPORT-AUTHORED | `35b7cfa39fa010d6e85cd7d9138630bf8b9b9ac5f43d4416ed3cb41033ce479f` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-actiontoolbar/challenge-L-library.md | REPORT-AUTHORED | `c565994e1acf78f561f7c01f6eadbf728c96e28c43598aeaf6264af01c7441b1` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-genericactionbar/challenge-C-implementation.md | UNWITNESSED-DIRECT | `581e983fb1bde78342be594ba6ecb8e73c4e0aa5480ad1002f459f9076d48724` | CANONICAL-ROSTER | r1 | — | 0 |
+| audit/components/shell-dock-genericactionbar/challenge-D-design.md | UNWITNESSED-DIRECT | `36b30dd3faeee4efb0494363cc1ad8bd7703f2efd7e354588e39a9dfeb582766` | CANONICAL-ROSTER | r1 | — | 0 |
+| audit/components/shell-dock-genericactionbar/challenge-L-library.md | UNWITNESSED-DIRECT | `2249a85a9bf6c0814e71698168a6e200643ca42534ebe77b26f959c3c9e6627c` | CANONICAL-ROSTER | r1 | — | 0 |
+| audit/components/shell-dock-parseechoreadout/challenge-C-implementation.md | REPORT-AUTHORED | `7c599b81f90855949e0954be70a00eefb1ed08f395642426ac62b29cd4729a93` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-parseechoreadout/challenge-D-design.md | REPORT-AUTHORED | `b808a8ac549b2a9b43309d5fa216fa9359d6a0537a245dc60adb3e36cbca4704` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/shell-dock-parseechoreadout/challenge-L-library.md | REPORT-AUTHORED | `767226041c1d1f1a1dd391408fa35cdf30812a736d8809396e9c39ea8de17585` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/wb-extract-pane/challenge-C-implementation.md | UNWITNESSED-DIRECT | `ebe99978568bb69312b1c53e00e055abaee945d6fc17911cc7b5e71f4188c7cb` | CANONICAL-ROSTER | r1 | — | 0 |
+| audit/components/wb-gradient-pane/challenge-C-implementation.md | REPORT-AUTHORED | `a6d3121924281640d540b9c2768a5948cc71be912287cbbf39d61f1b027bf7bd` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/wb-gradient-pane/challenge-D-design.md | REPORT-AUTHORED | `cb419bfcba69178b1b0a40ff2194776be24e6a9f50f4a154bbe299f1d1b2e725` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/wb-gradient-pane/challenge-L-library.md | REPORT-AUTHORED | `fcbc4424b2914988d9e9ad7a4b4ff70c2bf8fea83207de1de41a5457c992e778` | CANONICAL-ROSTER | r1 | closure-manifest-2026-08-03 | 0 |
+| audit/components/wb-mix-animationcanvas/challenge-L-library.md | UNWITNESSED-DIRECT | `0c9302ecbaeb06afe3b6d913fb44679b89705e2366ba477205601e00906cd478` | CANONICAL-ROSTER | r1 | — | 0 |

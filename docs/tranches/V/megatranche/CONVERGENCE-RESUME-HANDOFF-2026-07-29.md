@@ -65,7 +65,12 @@ repeating banked work or blocking independent source changes.
 
 ### Completion
 
-Formation closes when the completeness validator reports 264/264 banked axes,
+Formation closes when the completeness validator reports 264/264 banked axes
+**= 218 CHALLENGED + 46 REPORT-AUTHORED** — the split, never the bare figure
+(dated carve 2026-09-17, X-W0.c / CC-001 / HG-6; a saturation count is not
+challenge coverage, and the unqualified form is what let V·MT0 gate green with
+46 axes uncommanded. `registry/COMPLETENESS-LEDGER.md` §The challenged
+denominator carries the three integers and the roster predicate),
 each current component has one adjudicated disposition, all 107 actual tranche
 rows are `DEEP`, the two non-tranche artefacts remain explicitly dispositioned,
 and every surviving carry has one source owner and one receiver. This
