@@ -1087,3 +1087,270 @@ Declared rather than absorbed; **no gate reading, ruling, artefact figure or com
 it** — the three insertion counts that are load-bearing (`3 files changed, 597 insertions(+)` ·
 `12 insertions, 0 deletions` · the per-file `wc -l` triple 356/132/109) were each re-read at the bytes
 and reproduce.
+
+### KF.W0.d
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Substrate**:
+`/Users/mkbabb/Programming/keyframes.js` at the SETTLED coordinate — ⟨`date "+%Y-%m-%d"`⟩ →
+**2026-09-17**, ⟨`git rev-parse HEAD`⟩ → **`81a56990736ced5b5edde0b84c527680ac7689b1`** =
+⟨`git rev-parse origin/master`⟩, branch `master`, ⟨`git status --short | wc -l`⟩ → **6** ·
+**Charge**: spec §Agent Units `:675` · §Gates G-0.6 `:589-605` · §Scope 5, 6, 7 (`:309`–`:311`) ·
+§Carry C-8 `:368` · C-9 `:369` · C-10 `:370` · C-11 `:371` · C-17 `:377` · **C-17.R `:457-482`** ·
+§Sequencing KF.W5 `:691` + KF.W10 `:695` · §Excluded X-4 / SCH-7 / SCH-2 (`:707`–`:709`) · **`OP-4`**
+⟨§Carry `:455`⟩ · COHESION §0j.C **KF-OGKF1** (185 adopted). Ran **after OP-1**, concurrent with `.e`
+(§Disjointness: `.d` owns `COUNTS-*` + `CENSUS` + both lane files; `.e` owns `GATE-ROSTER` /
+`REF-OF-RECORD` / `V8-DISPOSITION` / the 58 records / `INTAKE-ADJUDICATION` / `lane-docs`; **no
+shared modify path** — verified at staging: the five paths this unit committed are disjoint from
+`.e`'s untracked `GATE-ROSTER.md` / `gate-roster.txt` / `glass-citation-rederivation.txt`).
+
+**This unit moved no byte in `keyframes.js` and none in any producer tree.** Every probe is `git` /
+`grep` / `sed` / `wc` / `node -p` / `find`, read-only; `node_modules/@mkbabb/glass-ui/**` was read
+only. **No install, no build, no `depcruise`, no dev server, no fetch.** Every published figure was
+**double-run**; both runs agreed on every count.
+
+#### Act 1 — measure before you write (read-only, double-run)
+
+```
+⟨git rev-parse HEAD⟩ = ⟨git rev-parse origin/master⟩ → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨git rev-parse --abbrev-ref HEAD⟩ → master        ⟨git status --short | wc -l⟩ → 6
+run1/run2:  SCH-3=153  SCH-6=58  X-2=185  glass-lines=83  glass-files=43  glass-.vue=37   (identical)
+```
+
+#### Act 2 — SCH-1..SCH-7 + X-2, command + literal output + date (§Scope 5)
+
+Banked whole at `docs/tranches/X/keyframes/artefacts/W0/counts-2026-09-17.txt` (**412** L,
+self-counted at the settled bytes) and written up at `W0/COUNTS-2026-09-17.md` §1 (**434** L).
+
+| row | reading of record, 2026-09-17 @ `origin/master` | note |
+|---|---|---|
+| SCH-1 | `package.json:77` `"@mkbabb/glass-ui": "7.0.0"` EXACT devDep · lock **3** | count-claim only; **the ruling is `.b`'s** and is not restated |
+| SCH-2 | 4 files; `124 + 93 = 217` | **re-verified, NOT re-booked** (§Excluded). The banked 217 reproduced **by its operands** |
+| SCH-3 | **153** `.ts` · **22 778** LOC, basis stated with the count | **X-4 NOT reconciled — KF.W5's** |
+| SCH-4 | **62 / 16 / 40 modules** — see Act 3 | MEASURE-AT-OPEN, discharged |
+| SCH-5 | 4 banked paths ABSENT · **all 13 Tier-A sites alive**, 9 at their banked line | re-anchor table in both the counts doc and `lane-library.md` |
+| SCH-6 | **58** | holds |
+| SCH-7 | L-1 + L-2 witnesses reproduce statically; **`depcruise` NOT run** | restated *unverified-at-HEAD*, as ruled |
+| X-2 | **185** | adopted per §0j.C KF-OGKF1; 184 was the stale-worktree figure both censuses agreed on |
+
+#### Act 3 — SCH-4 discharged: the predicate FIRST, then both readings (the seat-0 route-in)
+
+Seat 0 banked SCH-4 as *"does not reproduce at any spelling this seat can state"* over three
+readings. **All three reproduce here** — and they are the wrong scope: **SCH-4 is a LIBRARY-lane row
+and the library lane censused `src/`.** The predicate was read off the lane file, never inherited:
+⟨`lane-library.md:26`⟩ *"`grep -rn 'from "@mkbabb/value.js' src/ | wc -l` → 61"*, re-expressed
+**ref-resolved** because a `grep -r` over a working tree names no coordinate.
+
+```
+⟨git grep -h 'from "@mkbabb/value.js'       origin/master -- src | wc -l⟩ →  62   [bank 61]
+⟨git grep -h 'from "@mkbabb/value.js/value' origin/master -- src | wc -l⟩ →  16   [bank 15]
+⟨git grep -l 'from "@mkbabb/value.js'       origin/master -- src | wc -l⟩ →  40   [bank 39]
+same predicate elsewhere:  8281638c → 81 · /value 0      kf-sacred-snapshot-2026-09-17 → 48 · /value 10
+seat-0's three scopes, reproduced:  src demo test scripts → 148 / 30      repo-wide → 207
+per-subpath at the frontier: /css 29 · /value 16 · /color 7 · /math 5 · /easing 3 · /transform 2 = 62
+bank's table:                /css 29 · /value 15 · /color 7 · /math 5 · /easing 3 · /transform 2 = 61
+```
+
+**DOCS's 62/16 reproduces byte-for-byte; LIB's 61/15 reproduces at NO committed coordinate; the whole
+delta is one `/value` line.** The sharpest reading is stated rather than buried: **`/value` = 0 at the
+stale pin** — the subpath spelling did not exist in `src/` at `8281638c`, so the two lanes were not
+counting the same object, which is §0's schism in one subpath. Seat 0's sentence is **corrected beside
+it, never rewritten** (E-3).
+
+#### Act 4 — C-9's cascade-coupled column, landed FIRST (the hard order, observable)
+
+**Write order, stated because the lock is an order lock**: the column landed in
+`CENSUS-2026-08-03.md` §(ii) **before** the F-1 row disposition was written into `lane-frontend.md`
+§B — so *"F-1's remediation scopes its regression surface"* against a surface that counts cascade
+coupling, and against **C-1.F's full thirteen**, never six.
+
+```
+import census re-run:  83 mention lines [82] · 43 files [42] · 37 .vue [37] → 21 .vue with NO import [21]
+PREDICATE (stated): a zero-import .vue is cascade-coupled if its bytes carry any of
+  text-mono-caption · text-caption · text-muted-foreground · border-border ·
+  --radius-pill · z-controls · --muted-foreground · --border
+  — each DEFINED ZERO TIMES in the demo (⟨git grep -c '<tok>:' origin/master -- demo⟩ → 0 for all)
+→ 10 of the 21 are CASCADE-COUPLED.   WIDENED by text-foreground (also vendor-bridged) → 11 (+CopyButton.vue)
+definers, both sides measured: @utility text-mono-caption ⟨dist/styles/typography/utilities.css⟩ ·
+  --radius-pill: 9999px ⟨dist/styles/theme/radius.css⟩ vs 5 demo USES / 0 definitions ·
+  --z-index-controls: var(--z-controls) ⟨dist/styles/theme/bridges.css, @theme inline⟩ — GENERATED ·
+  --z-controls itself ⟨dist/styles/tokens/scheme-motion.css⟩
+chain by path: demo/styles/style.css:3 → exports["./styles"] = dist/styles/index.css
+               → ./theme.css / ./typography.css / ./accessibility.css → utilities/a11y-overrides.css
+```
+
+**Both readings are published and the roster is declared a FLOOR** — a predicate is a choice, and a
+choice unstated is a choice unreproducible. The token-namespace probe half stays **KF.W6's**.
+
+#### Act 5 — C-10 + C-11 in ONE motion, at the roster's real home (D-4)
+
+All in `lane-frontend.md` §C, one appended motion: **§6.5's roster · §9's tally row · both z-index
+cells**. `CENSUS-2026-08-03.md` received **the pointer-cell correction only**.
+
+- **All 13 PRM sites reproduce at their banked `file:line`, byte-for-byte.** The roster's *sites* are
+  right; its **denominator and its meaning** are not: **13 sites · 13 PATHS · 12 COMPONENTS** — "12
+  files" is reachable only by counting `scenes/easing/EasingTarget` once across its `.css` block
+  (`:48`) and its `.vue` query (`:234`). The unit is now named instead of inferred.
+- **A roster of local guards is not a coverage roster** (KF-AX-32). The floor is the vendor's
+  universal rule, at the installed bytes: `dist/styles/utilities/a11y-overrides.css`, **byte 0,
+  unlayered**, `@media (prefers-reduced-motion: reduce) { *:not([data-allow-motion]) { … !important } }`.
+- **Both "Gaps" rows HOLD** — `TypingDots.vue:121` and `KeyframeTimeline.vue:94` are correct
+  delegations; *"unverified statically"* is discharged. **And `KeyframeTimeline.vue:94` cites the
+  WRONG VENDOR FILE**, with the reason measured rather than asserted: `dist/styles/transitions.css`
+  exists and carries a PRM block, but that block is **class-scoped** (`.fade-*` / `.tab-fade-*` /
+  `.pane-swap-*` / `.metric-swap-*`) and covers none of the timeline's motion. **Correct conclusion,
+  wrong file** — C-13's own class, caught inside the row that discharges the gap.
+- **Both z cells corrected** (`lane-frontend.md:253` and `:442`): ⟨`git grep -n 'z-index' origin/master
+  -- demo/scenes/cube/CubeAxisLines.vue`⟩ → **`:67 z-index: var(--z-behind);`** — a TOKEN. The only
+  `z-index: -10` string left in `demo/` is **prose** at `styles/style.css:38`; ⟨`git grep -n 'z-\[[-0-9]'`⟩
+  → **no hits**. **The z-contract has ZERO raw-value exceptions at the frontier.** The prose recut is
+  KF.W6's; the dead-gate citation inside that same comment is `.e`'s roster, untouched here.
+- **`:194`'s `EditorHeader.vue` row**: 108 L and class `G` hold; **liveness does not** —
+  barrel-exported at `shell/index.ts:2`, styled for at `layout.css:15`, and ⟨`git grep -n
+  '<EditorHeader' origin/master -- demo`⟩ → **no instantiation site anywhere**. That is the condition
+  the shadow census omitted and the mint now books as **S-10**.
+
+#### Act 6 — C-17: the mint, ONE motion, the whole C-17.R roster (§Scope 6)
+
+**The id-space rule was measured and stated BEFORE the first assignment**, because *"fresh
+non-colliding"* had to be given a meaning the bytes support:
+
+```
+⟨grep -o 'S-<n>' kf-*.md⟩ over the 58 records:
+  S-9 raw=127/31rec · S-10 raw=40/15 · S-11 19/7 · S-12 17/4 · S-13 782/58(!) · S-14 6/3 · S-15 5/3
+  S-16 18/5 · S-17 8/4 · S-18 13/5 · S-19 6/3 · S-20 48/30 · S-21 6/3 · S-22 15/5
+→ NOT ONE bare S-n spelling is free as a substring (S-13 reaches all 58 through SS-13), so
+  non-colliding cannot mean substring-free and no numbering could make it so.
+⟨grep -c '^### S-' lane-frontend.md⟩ → 8   ⟨grep -oE '\bS-[0-9]+\b' lane-frontend.md | sort -u⟩ → S-1..S-8
+⟨the same over CENSUS-2026-08-03.md⟩ → S-1..S-8
+→ RULE: a slot's full spelling is `lane-frontend.md §5 S-n`; S-9..S-20 are free in the ONLY
+  namespace where a slot id resolves. A bare S-n elsewhere is a claim token, another record's
+  local roster index, or a substring — never a slot.
+```
+
+**Assigned in one motion: 12 slots `S-9 … S-20`, each citing its originating record** — S-9 C-M-1
+⟨kf-SpringHeatmap⟩ · S-10 F1≡KF-APP-41 ⟨kf-EditorHeader; the ask id-less at `:117`, stated as such⟩ ·
+S-11 LP-8≡KF-CO-35+ME-18 ⟨the carry's head id⟩ · S-12 C-6 ⟨kf-AmigaScene, **owned by KF.W6**⟩ ·
+S-13 KF-AV-28 ⟨kf-AnimationVisualizer, **carrying the standing supersession rider by name**⟩ ·
+S-14 R-5 ⟨kf-CSSPasteDialog⟩ · S-15 D-5/L-3/C-2 ⟨kf-DemoGlobalChrome⟩ · S-16 KAD-12
+⟨kf-KeyframesAddDialog, the sole carry's own claimant⟩ · S-17 C-9 ⟨kf-KeyboardShortcutsModal, its
+self-ruled renumber **superseded**⟩ · S-18 KF-KE-21 ⟨kf-KeyframesEditor⟩ · S-19 C-12
+⟨kf-SquareInstrument⟩ · S-20 KF-ET-27 + KF-ES-20 ⟨kf-EasingTarget / kf-EasingSidebar — **the arm is
+KF.W5's act**⟩. **Three receive no slot and are ENUMERATED**: `K-6` dead ⟨kf-SpringTrace⟩ · `C·C-2`
+refused-per-anti-rename ⟨kf-SharePopover⟩ · the anonymous fifth row **struck as a duplicate of
+S-18**. **Arithmetic at the rows**: 10 S-9 claimants (8 minted · 1 dead · 1 refused) + 4 S-10
+claimants (4 minted) = **14 live**, + 1 enumerated strike = **15** = C-17.R's row count; **12 slots
+minted**, 3 dispositioned without one.
+
+**The claim-token crosswalk is published with the mint** — banked `S-9` → {S-9…S-16} ∪ {K-6, C·C-2};
+banked `S-10` → {S-17…S-20} ∪ {the strike → S-18}; and the **five non-claim `S-10` occurrences**
+(three records' local roster indices + two cross-references) receive nothing and are named. C-17.R
+row 13's readings reproduce at this seat: **37 raw / 15 records**, discards `KF-ES-10` ×11 ·
+`MISS-10` ×4 · `KF-SS-10` ×3, **19 post-discard lines across 9 records**.
+
+**Handed forward as consumed, not as assumed**: KF.W10's `CARRY-C-3`/`CARRY-C-5` consume these twelve
+ids **at these bytes**; KF.W6 inherits seven evaluations under these ids; KF.W5 inherits S-20's arm;
+KF.W7 governs S-13. **The E-3 addendum at `kf-KeyboardShortcutsModal` recording its supersession is
+`.e`'s act** (the 58 records are `.e`'s writable set) and is named in the counts doc so it is not lost.
+
+#### Act 7 — OP-4's locus probe: MEASURED, home NOT decided
+
+```
+⟨git grep -n 'parseAnimationCSS' 81a56990 -- src demo⟩
+  demo/components/instrument/keyframes/composables/useKeyframeOps.ts:7 :64 :116 :162
+  demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:26   ← the declaration
+  demo/components/instrument/timeline/utils/timelineEngine.ts:11 :79
+```
+
+7 hits · 3 files · 1 declaration · 2 importing consumers · 4 call sites · **0 hits under `src`**.
+**This seat states no home and arms nothing** — `KF-W8`'s `B-16` arms on the measurement, not on this
+seat's reading. §Sequencing's engine-lane row `:699`, which asserts *"Engine work, not substrate
+work"*, is **left standing untouched** with the output now beside it: that row routes the CURE and
+does not resolve the LOCUS.
+
+#### WRITE-THEN-MEASURE — one figure this unit published and then corrected before it shipped
+
+The mint's note first claimed **`grep -c '^### S-'` → 8 → 20**. **It did not reproduce**: the twelve
+minted rows land as `^#### S-` (they are subordinate to the appended note's section E, and promoting
+them to `###` would break them out of the section that authorises them). Measured at the settled
+bytes: `^### S-` → **8, unchanged** · `^#### S-` → **12** · **`^#{3,4} S-[0-9]` → 20**. The
+prediction was replaced by the three measured readings in **both** places that carried it
+(`lane-frontend.md` §E, `COUNTS-2026-09-17.md` §5.1), and the wave spec's own quoted instrument is
+left **true** rather than silently redefined. Caught inside the unit, before the commit — this wave's
+§Carry law (*"the denominator is re-counted at the bytes, never carried forward"*) applied to its own
+receipt.
+
+#### E-3 compliance, measured
+
+Every one of the three dated formation files was **appended to, never rewritten** —
+⟨`git diff --cached --numstat`⟩ at staging:
+
+```
+95   0   CENSUS-2026-08-03.md        (342 → 437)
+365  0   lane-frontend.md            (624 → 989)
+137  0   lane-library.md             (582 → 719)
+434  0   W0/COUNTS-2026-09-17.md     (new)
+412  0   artefacts/W0/counts-2026-09-17.txt (new)
+                    → 1443 insertions, 0 deletions, 5 paths
+```
+
+**Zero deletions on all three.** ⟨`git diff --check`⟩ → clean at the unit boundary.
+**Prettier**: run on this unit's own new doc only — ⟨`npx prettier --check W0/COUNTS-2026-09-17.md`⟩ →
+*"All matched files use Prettier code style!"*. **NOT run** on `CENSUS`, `lane-frontend`,
+`lane-library` or this record: prettier rewrites a file whole, and rewriting another seat's dated
+evidence is precisely what E-3 forbids (`.b`'s precedent, same reasoning, independently re-reached).
+One prettier side-effect was caught and repaired rather than shipped: it mangled two `**`-glob spans
+inside bold runs (`src/**/*.ts`, `demo/**`) into escaped, space-glued text; both sentences were
+re-worded to state the same fact without the glob, and the file re-checked clean.
+
+#### E13 — mail, at this unit's scope
+
+Four-path sweep re-run read-only at this seat: `docs/tranches/V/coordination` **17** files ·
+`../glass-ui/docs/tranches/BK/coordination` **4** · `../keyframes.js/docs/tranches/V/coordination`
+**12** · `../sci-report/atlas/docs/tranches/P/coordination` **28**. **Two mtime traps named rather
+than tripped**: (i) every file in the keyframes coordination dir now carries a **2026-09-17 mtime** —
+that is OP-1's absorption finding, not a delivery; the newest **dated packet name** there is
+**2026-07-27**, ours; (ii) the one file dated today in value.js's own coordination dir,
+`value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, is a **RETAINED COPY of KF.W1.b's OUTBOUND**
+(its line 1 says so). **0 unrowed · 0 UNREAD in this unit's scope · I-30 remains the tail.**
+`INBOX.md` appends stay `.b`'s alone, once, at close (§Disjointness) — this unit wrote none.
+
+#### Gates
+
+| gate | BEFORE (seat-0 baseline) | AFTER |
+|---|---|---|
+| **G-0.6** | **RED-AS-EXPECTED** — 153/58/185 banked without a re-run of SCH-1/2/5/7; **SCH-4 banked as reproducing at no stateable spelling**; no cascade column; §6.5 roster and both z cells unexamined at the frontier; **no mint — three records claiming "S-10", four claiming "S-9"** | **GREEN on every clause this unit owns** — 8 rows each with command + literal output + date (+ the 412-L artefact); **SCH-4 discharged with its predicate stated ahead of both readings (62/16; the census's 61/15 unreachable at all three committed coordinates; the delta localised to one `/value` line)**; the cascade column landed **before** the F-1 disposition (10 of 21, 11 widened, four definers proved vendor-only, chain by path); §6.5 + tally row + both z cells re-scoped **in one motion at the roster's real home**, CENSUS taking the pointer cell only; **the mint run in ONE motion over all 15 C-17.R rows — 12 slots S-9..S-20 citing their records, 2 enumerated, 1 struck, plus the crosswalk and the stated id-space rule** |
+
+**Falsifiers, each checked rather than assumed**: *a figure restated without its command* — **not
+fired** (every figure in §1 is a command and its output). *A mint over four-plus-one* — **not fired**
+(the roster was re-read at the spec's post-round-4 bytes and includes both claimants prior rounds
+were short by, `KAD-12` and `KF-ET-27`+`KF-ES-20`). *Green-by-basis-reconciliation* — **not fired**
+(X-4 is declared KF.W5's and no basis is reconciled). *A roster naming fewer than its measured
+surface* — the cascade roster is declared a **floor** with both predicates published.
+
+No other gate was touched, cured or turned by this unit.
+
+#### Commits
+
+| sha | meaning |
+|---|---|
+| **`a331fae6`** | `docs(kf-w0/counts)` — the family, unsplit: `COUNTS-2026-09-17.md` · `counts-2026-09-17.txt` · `CENSUS-2026-08-03.md` · `lane-frontend.md` · `lane-library.md`. Pathspec only; `scripts/dev/dev.sh` neither staged nor touched. |
+
+#### Residuals
+
+1. **The cascade-coupled roster is a FLOOR, not a closure** — 10 under the published eight-token
+   predicate, 11 under the widened one. A wider vendor-token set returns more, and the note says so
+   in place of a completeness claim.
+2. **`KeyframeTimeline.vue:94`'s wrong-file citation is recorded, not repaired** — repairing it is a
+   `demo/**` byte and therefore Dispatch-fatal in this wave. It is booked in `lane-frontend.md` §C.1
+   for whichever wave owns that file's prose.
+3. **The `kf-KeyboardShortcutsModal` E-3 addendum** (its self-ruled S-10 renumber superseded by this
+   mint, slot = **S-17**) is owed **at the record, by `.e`** — named in `COUNTS-2026-09-17.md` §7 so
+   it cannot be lost between the two concurrent units.
+4. **`lane-library.md`'s §4.2 / §4.3 anchors** (`ingest/cssom.ts`, the six Tier-C regexes) were **not**
+   re-anchored by this unit and are **not** asserted to have moved or held. Only Tier A was in scope.
+5. **No escalation fired.** None of the five §Triumvirate Dispatch triggers is met: no reset by this
+   seat; **zero** bytes written under `keyframes.js/**` (or any producer tree); no blanket
+   re-anchor — the re-anchor is per-file and per-site throughout; no manifest mismatch (the four
+   coordinates agree, and the ruling is `.b`'s in any case); no second, let alone third, diagnostic
+   iteration on G-0.6. The specified cure was possible at the bytes and was performed as specified;
+   nothing was substituted, skipped, or masked.
