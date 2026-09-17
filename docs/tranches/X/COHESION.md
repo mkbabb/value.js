@@ -15,7 +15,7 @@ coordinate-only lane:
 | **X·V** | value.js — library, demo, API, CI | `docs/tranches/X/waves/W0..W11.md` | **SPECIFIED** 2026-08-03 (six-pass L-20 loop, `CONFORMANCE-2026-08-03.md`) |
 | **X·KF** | keyframes.js — library + demo | `docs/tranches/X/keyframes/waves/` | FORMING (census landed; specs await the intake CARRY table) |
 | **X·F** | fourier-analysis — frontend + CRUD union | `docs/tranches/X/fourier/waves/` | FORMING (census landed; specs await the intake CARRY table) |
-| **X·P** | parse-that — the CSS-totality parser lane | `docs/tranches/X/parse-that/waves/W0..W4.md` | **SPECIFIED** 2026-08-04 (three-pass L-20 loop, fable-stamped; fresh root uncreated; Plane B bench bar OWNER-GATED) |
+| **X·P** | parse-that — the CSS-totality parser lane | `docs/tranches/X/parse-that/waves/W0..W4.md` | **SPECIFIED** 2026-08-04 (three-pass L-20 loop, fable-stamped) · **EXECUTING — W0 gates 8/8 GREEN 2026-09-17**: fresh root `parse-that-css-totality-p2` OPEN at `f5757082` (`8a83c8bb`), eighteen roots byte-unchanged (census diff empty); IMPLEMENTED is W0's close report's stamp, VERIFIED is X.P.W4's (R-A); Plane B bench bar RULED **RECORDED-NOT-GATING** (§0j.E OC-1) |
 | glass | producer; coordinate-only | batched BJ communique | O-19/I-21 ledger current; next batch assembles from CARRY rows |
 
 One tranche, one carry discipline, one conformance law (L-20), one execution gate: **nothing in
@@ -134,6 +134,13 @@ the per-component apotheoses are authoritative.
   24/24 seats) + batch 2 dispatched · SS-9 intake adjudication RUNNING · SS-5 X·P spec authoring
   DISPATCHED · SS-1..SS-4 await the CARRY table · I-24a/I-26 mail defects rowed · execution gate
   CLOSED (awaits owner begin-word).
+- 2026-09-17: **X·P W0 executed** under the begin-word (§0j) — the fresh root
+  `parse-that-css-totality-p2` opened at `f5757082` by no-hardlink clone (`8a83c8bb`), the pause
+  handoff's seven identities re-derived with 0 MISMATCH (`80d96f18`), the eighteen preserved roots
+  enumerated and byte-unchanged across the wave (`b69611a8`; `diff census-before census-after`
+  empty), the lane's harvest filed at `registry/harvest/x-p-w0.json` and **PLAW-BIND now declared
+  from BOTH ends** — the X·P end at `docs/tranches/X/parse-that/EVIDENCE-CHAIN.md` §5/§6, citing
+  §2's X·P release-condition bullet by anchor and quoted sentence, never by line.
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
