@@ -293,3 +293,60 @@ consumer).
 meticulous measuring instrument wrapped in a broken authority machine: the measurements are banked
 (267 facts), the machine is dismantled with receipts (26 refutations, 7 owner rulings), and no
 Codex verdict crossed into the formation except through per-claim adjudication.
+
+---
+
+## KF.W0 EXECUTION OUTCOME — APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e** · gate **G-0.8**
+
+**Ref of record**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`** — since
+the §B-12 substrate settle of this date, the sacred checkout's own `HEAD`. The pin this whole
+lineage is measured on, **`8281638c`**, is **DISQUALIFIED**: ⟨`git merge-base --is-ancestor 8281638c
+origin/master`⟩ → exit **1** (not an ancestor), ⟨`git rev-list --count 8281638c..origin/master`⟩ →
+**41**, ⟨`… origin/master..8281638c`⟩ → **1**.
+
+**The outcome column for §3's `### KF.W0 · Substrate Settle` block**, row by row, as executed:
+
+| carried row | outcome |
+|---|---|
+| **X-1** — *the B-lineage is pinned to the stale `8281638c` checkout; §B-12 must re-anchor the Codex v8 contract too, **or** declare it stale-by-substrate and never citable for a live count* | **DISPOSITIONED — the SECOND disjunct taken.** `COHESION.md` §0j.C **`KF-OGKF1`** (owner ruling, 2026-09-17): the lineage is **STALE-BY-SUBSTRATE and does not continue**; citable only as *"345 exact / 12 partial / 57 unresolved @ `8281638c`"*, never as HEAD coverage. Written as ruled at `docs/tranches/X/keyframes/W0/V8-DISPOSITION.md`; transcript at `artefacts/W0/v8-disposition.txt` |
+| **B10-9** | **CLOSED — never opens.** Conditional on the v8 contract ever being cited; under KF-OGKF1 it is never cited |
+| **B19-10 (pin half)** | **CLOSED — never opens**, same ground |
+| **B19-11** | **CLOSED — never opens**, same ground |
+| **B20-6** | **CLOSED — never opens**, same ground |
+| **B21-7 (3 of 5 pins)** | **CLOSED — never opens**, same ground |
+
+**X-2, executed and adopted.** *"KF.W0's re-count adopts 185-at-HEAD."* Re-measured at this seat,
+**double-run**: ⟨`git ls-tree -r --name-only origin/master demo/ | grep -cE '\.(ts|vue)$'`⟩ → **185**
+(twice). **185 is ADOPTED.**
+
+**And a sharpening of the intake's own argument, by measurement.** The same command at the
+**disqualified pin's committed tree** returns **183** (twice). **The claimed 184 therefore reproduces
+at NEITHER coordinate** — it is not the pin's tree reading, it is the pin's **dirty disk** reading,
+with the uncommitted deletions folded in. The intake's reasoning (*184's exact Codex/census agreement
+is the proof both censused the same stale worktree*) is upgraded from an inference to a
+demonstration: **two instruments agreeing on a figure that exists at no committed coordinate is a
+shared substrate error, not corroboration.** The disk that produced it no longer exists; it survives
+only as snapshot commit `6d280ee7` and is never an anchor.
+
+**The remaining denominators, each with an explicit disposition** (so no naive check can leave them
+citable): **414 contracts** and **152 surfaces** — Codex-internal, no product consumer, measured at
+the disqualified pin, **NEVER CITABLE**, and deliberately not re-measured; **73 568 Safari cells** —
+a Kronecker **self**-cross-product of the audit's own categories, **REJECTED** at B18-26 (numerator
+INHERITED, denominator REJECTED), KF.W9 scoping its own surface list.
+
+**Carried unresolved, by design, and not absorbed here**: **B18-27** (slot 4-vs-5) and
+**B18-12 / B18-13 / B18-14** (three external coordinates no artifact on this machine reproduces) —
+all KF.W10's. **X-6** (the lineage's zero-authority self-declaration is accurate) and **X-7** (its
+terminal-stop language is not load-bearing) stand as banked.
+
+**OG-KF1 (B21-18) is NAMED, NOT RULED.** *"Does the Codex Keyframes B-lineage continue at all — and
+must any continuation re-anchor to `origin/master` `81a56990` before its denominators may be cited?"*
+It is ruled at **KF.W10**'s owner block beside OD-V3/OD-V5, never proxied; a seat that rules it
+earlier fails the wave. **`KF-OGKF1` (the §0j.C ruling on the contract's citability, consumed here)
+and `OG-KF1` (the owner row on the lineage's continuation, named here) are different items** — the
+stem is shared, the rows are not.
+
+**Scope of this addendum**: it records the EXECUTED outcome of the rows §3 carried to KF.W0. It
+rewrites no dated evidence, re-opens no adjudication, and books no new row.
