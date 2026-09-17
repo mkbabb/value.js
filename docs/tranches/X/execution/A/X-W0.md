@@ -843,3 +843,147 @@ Line numbers, measured not inherited: the spec's `:171` had drifted to `:196` at
 #### What this unit did NOT do
 
 Zero product bytes; zero `src/ demo/ api/ test/ e2e/ .github/ scripts/ node_modules/` paths in either commit. **No hand edit to either ledger** — every byte of `HYDRATION-LEDGER.md` and `COMPLETENESS-LEDGER.md` came out of its generator (§Disjointness `:119`, fold BoundsDelta 3). **No `registry/adjudicated/**` byte** (fold G-H: intersection 0). **No canonical `challenge-*.md` byte** (C-02). **No `BANDS` entry invented, borrowed or re-pointed.** **No self-test fixture weakened** — S1..S6 are byte-identical to their landed form. **No harvest file written and no `DEFECT-LEDGER.md` byte touched.** **No 46-row constant edited**: `CLOSURE_MANIFEST_46` still holds exactly 46 paths and still throws if it does not. `scripts/dev/dev.sh` never touched, never staged.
+
+---
+
+### X-W0.h — Typed Graph Authority and the Frontend Denominator (CC-001 graph half + CC-024) — **DONE**
+
+**Seat**: Opus · `claude-opus-5[1m]` · 2026-09-17 · group 4
+**Sections executed**: `waves/W0.md` §Agent Units "X-W0.h" :193–199 · §Scope 8 :31 · HG-14 :305–308 · HG-15 :310–313 · §Format And Lint Cadence :342 · §Commit Plan row 7 :377 · fold **G-E** :513–520 · fold §3 BoundsDelta **7** :567
+**Commit**: `c9aa1fdf` — `feat(megatranche/graph-v3)`, body required and present (mechanism · X-W8 consumer · round-trip evidence), **seven paths, one commit, family unsplit**
+**Gates**: HG-14 **RED → GREEN** · HG-15 **RED → GREEN** · G-E **RED → GREEN**
+
+#### A0 — the found state, and what this seat did about it
+
+`graph-v3.mjs` (50,307 B) and `GRAPH-V3/` (5 JSON files) were **on disk and untracked at open**, written earlier the same day at 14:21/14:24 — a prior seat's unlanded draft, never committed, in exactly this unit's writable set. ⟨`git status --porcelain`⟩ → `?? docs/tranches/V/megatranche/workflows/graph-v3.mjs` · `?? docs/tranches/X/W0/GRAPH-V3/`. `FRONTEND-DENOMINATOR.md` was **absent**.
+
+The draft was **read whole (1,072 lines) before any edit and before any publish**, not trusted. Reading it found the gate-bearing defects in A1. Nothing was committed that this seat had not read.
+
+#### A1 — defects found in the found draft, each cured at the root
+
+| # | defect, measured | why it was gate-bearing | cure |
+|---|---|---|---|
+| 1 | `SCC_REGISTRY`'s Dock entry carried **`classes: [...]`** while `nameSccs` matched on **`r.class === s.class`** — a key that entry does not have | **Dock never matched.** ⟨`--print-sccs`⟩ before: `[load] size=2 (UNNAMED)` and `[runtime] size=2 (UNNAMED)` over `Dock.vue` + `dock/index.ts`. HG-14 requires *"the four frontend SCCs … appear by name with an owner each"* — the gate was RED on its own headline requirement | `nameSccs` matches `r.classes.includes(s.class)`; every entry normalized to a `classes` array |
+| 2 | `census()` returned **`renderTagsUnboundToAnImport: facts.renderUnresolved`** — a field that does not exist on `facts` (the real one is `renderUnbound`) | `undefined` → dropped by `JSON.stringify`, so the census silently published **no** unbound-tag fact at all | field corrected + sorted by a total key |
+| 3 | `DENOMINATOR_BANDS` was **declared and never used**; `sourceMembers` counted **every** band | census read **412**, not 310. HG-15's denominator would have been wrong by 102 | `sourceMembers` = the three denominator bands; `graphMembers` published beside it |
+| 4 | line citations computed as `lineOf(text, text.indexOf(m[0]))` — the **first** occurrence of the matched text anywhere in the file | every repeated statement mis-cited; X-W8 subtracts against these witnesses | blocks are now **masks over the whole file** (outside bytes → spaces, newlines kept), so `m.index` IS the file offset and `lineOf` is exact |
+| 5 | **15 raw NUL bytes** inside sort-key template literals | the file was **binary to `grep`** ⟨`grep -n "lineOf" …`⟩ → no output on a file containing 8 such lines; `git diff --check` over it is meaningless, which is this wave's own §Format And Lint Cadence gate | each raw NUL → the escape ` `: identical runtime sort key, plain-ASCII source. ⟨scan⟩ `raw NUL before=15 after=0`; `grep -c byKey` → **16** (grep works again) |
+| 6 | `facts.workers` could hold duplicates; `counts.sccs` omitted the `ownership.pair` class | a published count that double-counts, and a class invisible in the digest summary | `[...new Set()]`; counts extended with `ownership.pair` · `total` · `owned` · `reasonedNoOwner` · `unnamed` |
+
+**Nothing was masked.** No try/catch around a defect, no skip, no allowlist, no figure hand-edited into an artefact.
+
+#### A2 — G-E's closure, built (not asserted)
+
+G-E: *"Graph v3 names **every** runtime/load/ownership SCC it finds, with an owner or a written reason for having none."* The found draft named 4 of 11 (and one of those, CPE L-24, was attached to the **coarse 8-area component** rather than to its own pair — the precise failure G-E's falsifier describes).
+
+Measured pair set, with witnesses read at the bytes:
+
+| pair | witnesses | disposition |
+|---|---|---|
+| `demo/palettes ↔ demo/shell` | 17 | **CPE L-24**, owner **X-W8** — `registry/adjudicated/CurrentPaletteEditor.md` L-24 verbatim: *"palettes ↔ shell mutual dependency (type-import up at usePalettePorts.ts:19, five SESSION_PORT_KEY value-imports down — verified); lattice cycle, not load-time"*. Measured **absent from both the runtime and the load class** — exactly what "lattice, not load-time" predicts |
+| `demo/color-picker ↔ demo/scenes` | 3 | **AP-19**, **NO-WAVE-OWNER** — `registry/adjudicated/AuroraPane.md:83` verbatim, reason carried into `sccs.json`. Back-edge measured at `aurora-harmony-stops.ts:23` → `atmosphere-calibration`, the record's own citation |
+| `assets ↔ demo/scenes` | 55 | reason recorded — the About reference-page lattice; 11 `.md` pages reached by `import()` only, each importing the shared `katex` barrel back. Absent from runtime and load: no static edge closes it |
+| `demo/color-picker ↔ demo/picker` | 4 | reason recorded — provide/inject inversion (`OVERTURE_KEY`) |
+| `demo/picker ↔ demo/shell` | 5 | reason recorded — the pane-registry contract (`VIEW_MANAGER_KEY`) |
+| the coarse `ownership` component (8 areas) | 179 | reason recorded — it is the five pairs' transitive closure; owning it would mean owning the whole demo |
+
+⟨`node …/graph-v3.mjs --verify`⟩ → `G-E closure GREEN  11 SCCs = 6 owned + 5 reasoned-no-owner + 0 unnamed`. **The closure is machine-checked**: an `UNNAMED` row fails `--verify`, so the roster cannot silently shrink back to a list of four.
+
+#### A3 — HG-15's six figures, and the two that had to be earned
+
+⟨`node …/graph-v3.mjs`⟩, double-run, identical both times:
+
+```
+  census 310 source members · 88 SFC · 2 harnesses
+  graph digest b3a387c9afd00ca07639812bfc0598593fdf84d1829eb37ca09be3a906782bee
+```
+
+| figure | required | measured | verdict |
+|---|---|---|---|
+| SFC | 88 | **88** | EXACT (⟨`find demo -name '*.vue' \| wc -l`⟩ → 88 agrees) |
+| source members | 310 | **310** | EXACT |
+| routes + wildcard | 14 + wildcard | **14 + 1** (`/:pathMatch(.*)*`) | EXACT |
+| `:is` | 13 | **13** | EXACT |
+| Teleports | 2 | **2** | EXACT |
+| harnesses | 2 | **2** — `PaletteSlugBar.vue` · `Katex.vue` | EXACT |
+| per-file SHAs | required | **88 rows**, re-verified against live bytes ⟨double-run⟩ → `rows=88 mismatches=0` | PRESENT |
+
+**310 was earned by stating a predicate.** The inherited figure carries none. The tool's stated predicate — the three denominator bands — yields 261 + 26 + 23 = **310**, reproducing it to the unit while `e2e` (84), `assets` (11) and the seven build files stay **in the graph** (412 members) and **out of the denominator**, so an edge can leave it.
+
+**2 harnesses was derived, not copied.** The naive predicate ("an SFC no render edge targets") measured **25**. Three real mount mechanisms were missing, each cured at the root:
+
+1. **barrel forwarding** — `<PaletteCard>` binds to a barrel; the SFC is one `export { default as … }` behind it. New typed edge kind **`render.mount`** (222 edges) resolves the hop while `render.tag` still names the barrel, so both truths survive for X-W8. 25 → 4.
+2. **in-component lazy binding** — `HeroBlob` exists only as `defineAsyncComponent(() => import("./visual/HeroBlob.vue"))` at `ColorPicker.vue:157`; async bindings were read only inside `usePaneRouter`. Now read in every file. 4 → 3.
+3. **the pane registry's prefix arm** — ⟨`sed -n '93p' demo/shell/usePaneRouter.ts`⟩ → `if (name.startsWith("admin-")) return AdminPane;` is `AdminPane.vue`'s **only** mount; only the `name === "…"` arms were parsed. 3 → 2 (with the `componentFor` barrel hop for `ColorPicker`).
+
+The survivors are **`PaletteSlugBar` + `Katex`** — exactly the pair two independent records name: `coordination/VALUE-NATIVE-OWNER-INPUT-READINESS-AUDIT-2026-08-02.md:90` (*"`PaletteSlugBar` and `Katex` remain honest unmounted harnesses"*) and `formation/codex-worktree-7e28/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V3-OWNER-INTAKE-2026-08-01.md:110` (*"88 SFC workflows, with 86 mounted and two exported-unmounted harnesses"*). **Neither was read into the tool**; the agreement is corroboration, not copying.
+
+#### A4 — HG-14's round trip, and its falsifier EXECUTED
+
+⟨`node docs/tranches/V/megatranche/workflows/graph-v3.mjs --verify`⟩ → **exit 0**, verbatim:
+
+```
+graph-v3 --verify · round-trip over two independent in-process builds
+  run1 vs run2  nodes   MATCH  0e75a1c9cc1a5c6c90494a186fc010bc934a18a0f1f288554152740072a55000
+  run1 vs run2  edges   MATCH  4f1fb14fda15c0a80cd769cdae579e32948bd820aeba9057c9c888a7873a30c6
+  run1 vs run2  sccs    MATCH  bf9c9a20cb4c4ca2c0dc28c7349851a0aec5709a2bd375caa615ad80412c82a3
+  run1 vs run2  census  MATCH  e3a09112213701e05e9f6ba163b7f97cde7ed15608a09a08bf7b19cca359d54a
+  run1 vs run2  graph   MATCH  b3a387c9afd00ca07639812bfc0598593fdf84d1829eb37ca09be3a906782bee
+  committed     nodes   MATCH  0e75a1c9cc1a5c6c90494a186fc010bc934a18a0f1f288554152740072a55000
+  committed     edges   MATCH  4f1fb14fda15c0a80cd769cdae579e32948bd820aeba9057c9c888a7873a30c6
+  committed     sccs    MATCH  bf9c9a20cb4c4ca2c0dc28c7349851a0aec5709a2bd375caa615ad80412c82a3
+  committed     census  MATCH  e3a09112213701e05e9f6ba163b7f97cde7ed15608a09a08bf7b19cca359d54a
+  committed     graph   MATCH  b3a387c9afd00ca07639812bfc0598593fdf84d1829eb37ca09be3a906782bee
+  G-E closure   GREEN  11 SCCs = 6 owned + 5 reasoned-no-owner + 0 unnamed
+  HG-14 four    GREEN
+ROUND-TRIP GREEN
+```
+
+Run again **after** the commit, against HEAD's own bytes: identical, exit 0.
+
+**The falsifier, run.** HG-14: *"remove one resolver-alias edge and either a named SCC disappears or the round-trip digest changes."* The tool derives the repo root from its own path, so the mutant had to sit at the real path; a byte-exact backup was taken and the restore **re-hashed** (`98e4d3a72db32025fdc9ad81457b929288952c9db86d9092058fd78730b7cba6` **before and after** → `RESTORE BYTE-EXACT`).
+
+| arm | mutation | result |
+|---|---|---|
+| **A** | the `@src` alias removed from the alias table | `nodes` · `edges` · `graph` all **DIFFER** from committed; `graph` → `801021ba7a0baa2f…`. `ROUND-TRIP RED — 3 mismatch(es)` |
+| **B** | the typed alias edge suppressed (the `alias` domain emits nothing) | `edges` · `graph` **DIFFER**; `graph` → `086cb8ed968ab005…`. `ROUND-TRIP RED — 2 mismatch(es)` |
+
+Both mutants stayed **internally deterministic** (run1 = run2 in each), so the gate distinguishes *"the graph changed"* from *"the tool is flaky"* — which is the distinction §Triumvirate Dispatch bullet 2 turns on. **No non-determinism was observed at any point**, so no triumvirate was triggered.
+
+#### A5 — what the graph is, in one table
+
+Nodes **487** · edges **2,996** · eleven domains:
+
+`module` 1,477 · `render` 715 · `boundary` 570 · `di` 76 · `alias` 63 · `route` 39 · `api` 20 · `state` 16 · `asset` 11 · `css` 8 · `worker` 1.
+
+The alias class G-E asks to be **typed**: **19** `demo/ui/**/index.ts` barrels carrying **279** inbound edges (the record's "19 barrels / 90+ edges" — 19 exact, the edge figure a floor). The class is load-bearing because it is *what hid the mounts*: all 25 false harnesses in A3 sat behind exactly this forwarding.
+
+Resolver aliases: **8**, and the table is **read from `package.json#exports`**, never hard-coded — `vite.config.ts` derives its own the same way, so the two cannot drift.
+
+#### Commit
+
+| # | hash | scope | paths |
+|---|---|---|---|
+| 7 | `c9aa1fdf` | `feat(megatranche/graph-v3)` | `workflows/graph-v3.mjs` · `X/W0/GRAPH-V3/{nodes,edges,sccs,census,digests}.json` · `X/W0/FRONTEND-DENOMINATOR.md` |
+
+Body carries the three required sections. ⟨`git show --name-only --format="" HEAD`⟩ → exactly **7 paths**, all inside the writable set; the declared family did not split.
+
+**Index hygiene, recorded.** At commit time the shared index already held **~200 staged paths from a concurrent seat** (`docs/tranches/X/parse-that/evidence/W1/rescued/**`). A bare `git commit` would have swept them into this unit's commit. This seat **unstaged its own paths to restore the index as found** and committed with an explicit pathspec (`git commit -F <msg> -- <7 paths>`); ⟨`git show --name-only`⟩ confirms no foreign path entered. No other seat's work was touched, moved or reset.
+
+#### Format And Lint Cadence (`:342`, `:346`)
+
+- ⟨`git diff --check --cached -- <the 7 paths>`⟩ → exit **0**, no output.
+- ⟨`node …/graph-v3.mjs --verify`⟩ → exit **0** (the cadence's named X-W0.h gate), run at landing and again post-commit.
+- `npm run lint` / `vue-tsc` **intentionally skipped** per `:346` — this unit wrote no `.ts`, `.vue` or `.css` byte. Replacement evidence is the two lines above.
+
+#### Residuals — stated, not hidden
+
+- **R-1 — one false-positive unbound render tag, named and bounded.** `census.renderTagsUnboundToAnImport` = **1**: `PaletteCard.vue`, tag `Card`, at **`:12`** — inside a JavaScript line-comment nested in a template `:class="[…]"` binding expression (*"… is retired. NOT `<Card` / surface=cartoon>"*). HTML comments in templates **are** blanked before tag extraction (that cure removed the other two, both `<EasingPicker>` in the gradient visualizers, 3 → 1); a JS comment inside an attribute expression would need a template-expression parser, and building one for a single benign site is contrivance. The figure, the file and the line are published in `FRONTEND-DENOMINATOR.md` §6 and any change to it moves the census digest.
+- **R-2 — two genuinely dangling e2e fixture imports**, recorded for the wave that owns `e2e/`: `e2e/smoke/admin/fixtures/admin-populated.ts` and `e2e/smoke/fixtures/browse-palettes.ts` both import `demo/@/lib/palette/types`, a tree that no longer exists. Outside the denominator, so no §2 figure moves. The naive count read **5**; the honest count is **2**, because specifiers resolving to files outside the five subject roots (vite's own root-level plugin modules) are now typed `outside:` rather than conflated with "unresolved".
+- **R-3 — the `ownership` class is emitted at two granularities on purpose.** The coarse component is an artefact of area-level Tarjan, not a finding; the `ownership.pair` refinement is where the adjudicated cycles live. Both are emitted and both are reasoned. A later wave that reads only the coarse row will see one 8-area blob — `FRONTEND-DENOMINATOR.md` §5.2 says so in terms.
+- **R-4 — `docs/tranches/X/artefacts/W0/graph-v3/`** (`W0.md:358`) is **in no unit's writable set**, so the nodes/edges/SCC/round-trip artefacts were **not** written there. Their content is the committed `GRAPH-V3/**` plus §A4 above, verbatim. This is the same bounds gap X-W0.i and X-W0.c each returned; it is a spec finding, returned, not worked around.
+- **R-5 — mail was not swept by this unit.** E13 binds the **wave's** close; seat 0's **I-31** (UNREAD) stands exactly as left.
+
+#### What this unit did NOT do
+
+Zero product bytes — no `src/ demo/ api/ test/ e2e/ .github/ scripts/ node_modules/` path in the commit (the tree is **read** exhaustively; not one byte written). `scripts/dev/dev.sh` never touched, never staged. **No `registry/adjudicated/**` byte** — ⟨`git show --name-only HEAD | grep -c registry/adjudicated`⟩ → **0** (fold G-H). No adjudicated verdict re-opened, re-homed or re-worded: **AP-19 stays NO-WAVE-OWNER** and **L-24 stays X-W8's**; the graph is the register that carries them, not a court. No figure written into an artefact by hand — every number in `FRONTEND-DENOMINATOR.md` is a field of `census.json`, and the 88-row SHA table was spliced from it mechanically. No sibling tree read or written; glass-ui untouched.
