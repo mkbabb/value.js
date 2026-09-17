@@ -673,3 +673,274 @@ where it was.
 5. **Escalation class**: **S-13 — a gate failure not local-recoverable.** The spec's own head case is
    *"G-KFW9-1 RED because safaridriver cannot be enabled (**the named condition is unreachable → the
    horizon is re-planned, not faked with webkit**)"*. **This is that class at G-KFW9-11.**
+
+### `.b` — desktop-Safari cell · the PRM band · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commits**: `52ae20b8` — *"the desktop cell — the capture band re-measured and BLOCKED; the bundle
+destroyed twice, the pin moved under it"* (2 paths) · `a062629b` — *"the PRM band measured — G-KFW9-5's
+ONE enumeration (14 enforcement sites / 51 motions / 42 engine instances), G-KFW9-6's three-arm register,
+G-KFW9-7's two-direction pair"* (3 paths). **TWO commits, in that order**, so no commit carries a
+dangling forward reference: the registers cite the cell record for their blocked limbs, so the cell
+record lands first. 5 paths total, all inside `.b`'s writable set.
+
+**Status: ESCALATED.** **G-KFW9-5 is GREEN at this seat's limb.** G-KFW9-6 lands **2 of its 3** required
+measurements and G-KFW9-7 lands **0 of 1** — both remainders are *captures*, and the capture band is
+blocked by a wave-level precondition that **no grant inside this unit's bounds could cure** and that
+**changed shape during the sitting**. Nothing was substituted: no static inference is offered as a
+rendered witness, no `webkit-engine` reading enters the `safari-app` column, no bundle of unprovable
+provenance was photographed, and **no probe was spent** — so none is double-spent later.
+
+---
+
+#### Act 1 — the capture band, re-measured at this seat (not inherited), and found WORSE
+
+`.a` booked two blockers (SUBSTRATE-PIN §7/§8); `.c` re-measured them at 16:17/16:20. **This seat
+re-measured again and the picture moved twice more.** Timeline, each row a command at the clock printed:
+
+| clock | fact | command → output |
+|---|---|---|
+| **16:18:48** | tree quiescent, bundle present | ⟨`git rev-parse HEAD`⟩ → `5388907b…`; ⟨`git rev-parse origin/master`⟩ → `55e9bf0d…`; ⟨`git diff --name-only -- demo/ \| wc -l`⟩ → **0**; ⟨`ls -la dist/gh-pages`⟩ → `index.html` 8,381 B + `assets/` **51** |
+| **16:18:26** | the commit that would name the bundle | ⟨`git log -1 --format='%H%n%ci%n%s' 5388907b`⟩ → `2026-09-17 16:18:26 -0400` · *"build(kf/check): wire vue-tsc into `check` … (X.KF.W4 .a / G-KFW4-1)"* |
+| **16:17:47** | …but the bundle is **39 s OLDER than that commit** | ⟨`stat -f '%N %Sm' dist/gh-pages/index.html`⟩ → `Sep 17 16:17:47 2026` |
+| — | its whole-tree digest, taken while it existed | ⟨`find dist/gh-pages -type f \| sort \| xargs shasum -a 256 \| shasum -a 256`⟩ → `a599205a5e0da27f5a8a030fbe4451f74334a0e94c4300cf7fa9a5d3a3dfad54` |
+| **16:31:58** | **bundle destroyed a SECOND time** | ⟨`find dist -maxdepth 1 -type f -exec stat -f '%Sm %N' -t '%H:%M:%S' {} \;`⟩ → `16:31:58` on `dist/keyframes.js`, `registry-*.js`, `sequence-*.js`; `16:31:59` on `dist/keyframes.d.ts` — the same self-emptying `build:lib` `.a` diagnosed at §3 |
+| **16:35:38** | no bundle; tree dirty again, with a **different** sibling's chassis | ⟨`ls dist/gh-pages`⟩ → `No such file or directory`; ⟨`git status --porcelain -uno`⟩ → `M .dependency-cruiser.cjs` · `M .github/workflows/ci.yml` · `M package-lock.json` · `M package.json` · `M vitest.config.ts` |
+
+**Two findings this seat adds to `.a`'s and `.c`'s, neither softening them:**
+
+1. **The 16:17 bundle's provenance is UNPROVABLE, not merely foreign.** `.c` recorded it as *"built from
+   `5388907b`"* — at that clock the honest reading. Its mtime is **39 seconds earlier than the commit**,
+   so it was compiled from an **uncommitted working tree** that matched no ref at build time. That
+   downgrades *"built from `5388907b`"* from a measurement to an inference; `.c`'s cell and this one both
+   hung on it, and neither photographed it. `.a` §7 names this case in its **what must NOT happen** row —
+   *"a capture against a **stale or foreign** bundle … evidence that cannot be proved to be the bytes
+   anyone looked at."*
+2. **A one-off rebuild under a grant does NOT open the band.** Twice in one wave an unrelated sibling's
+   install/`build:lib` emptied `dist/` (15:26:18 · 16:31:58), and the demo source went dirty → clean →
+   dirty (16:13 → 16:18 → 16:35). **The kf checkout is a shared, actively-written workspace, and in it a
+   gh-pages bundle has a lifetime of minutes.** The band needs a **declared quiescence window** or a
+   **separate serving tree** (`.a`'s shape (b)) — not one command.
+
+**And the re-pin, PRICED rather than feared.** The census was re-derived at **both** refs and differenced:
+⟨`diff prm-pin.txt prm-frontier.txt`⟩ → **25 lines each, exactly ONE differs** (`EasingTarget.vue:234` →
+`:241`); ⟨`diff eng-pin.txt eng-frontier.txt`⟩ → **40 lines each, exactly THREE differ** (all in
+`useSquareDemo.ts`: `:60`→`:85`, `:61`→`:86`, `:343`→`:368`). **A re-pin costs four line numbers, not a
+re-census.** Offered as evidence for the orchestrator's ruling — **this seat takes no shape and re-pins
+nothing** (`.a` §8: the decision is above a phase-2 cell seat, and `.c` holds the same line).
+
+#### Act 2 — G-KFW9-5: THE PRM ENUMERATION (`evidence/W9/PRM-ENUMERATION.md`)
+
+Measured over the **published pin** `55e9bf0d` and never over the working tree — ⟨`git archive 55e9bf0d
+demo | tar -x -C <scratch>`⟩ — because the tree moved three times during this sitting and a census taken
+from it would be a census of nobody's substrate. Every figure **self-counted from the settled bytes and
+double-run identical**.
+
+**REGISTER A — enforcement (§6.5's own subject).** ⟨`grep -rn 'prefers-reduced-motion' demo/`⟩ → **18
+lines**, 4 prose, **14 sites**; ⟨`grep -rn 'respectReducedMotion' demo/`⟩ → **7 lines**, 3 prose, **4
+sites**. Published: **14 enforcement sites across 14 files by four mechanisms** — 10 CSS `@media` blocks ·
+2 `window.matchMedia` (`useCubeDemo.ts:164`, `useSequenceInstrument.ts:31`) · 1 `useMediaQuery`
+(`EasingTarget.vue:234`) · 1 `usePreferredReducedMotion` (**`AmigaScene.vue:58`**, read at `:107`) —
+**plus 4 engine-flag sites §6.5 counts nowhere**.
+
+- **§6.5 is wrong in BOTH numerals**: *"13 enforcement sites across 12 files"* — 13 misses the fourth JS
+  site and counts the engine layer at zero; **12 undercounts the files by two** (the 14 sites sit in 14
+  distinct files; `EasingTarget.css` and `EasingTarget.vue` are two files).
+- **§A's anchor row reproduces at the bytes**: *"JS tally amends to **4 sites / 3 mechanisms**
+  (AmigaScene.vue:58 the uncounted fourth)"* — found here by an independent sweep, not inherited.
+- **6 of the 10 CSS blocks gate `transition` in files with no local `animation` at all** (C-1, C-2, C-3,
+  C-6, C-7, C-9; bodies read at the bytes). That is the **counted** form of *"the CSS blocks the comments
+  call compliance govern the layer with no motion"*.
+
+**REGISTER B — every motion, four layers.** **51 motion sites**: **42 engine** · **7 CSS keyframe-driven**
+· **1 rAF loop** · **1 timer tour** · **0 direct WAAPI** (⟨`grep -rn '\.animate(' demo/`⟩ → **0** — every
+WAAPI motion is engine-delegated, which is why KF-TD-1 is a library question with a demo witness). The
+42-row engine table is **emitted from the settled bytes by a generator whose column-derivation rule is
+printed in its header**, double-run identical; verified again from the committed file
+⟨`awk '/^\| file \| line \| construct/{f=1;next} …{c++} END{print c}'`⟩ → **42**, flags **literal:3
+stored:3**.
+
+**The three findings the register exists to state:**
+
+1. **`0 of 42` uses the intensity form.** All three opt-ins pass boolean `true`; the resolver maps `true`
+   to **`0`** under an active query (`internal/reduced-motion.ts:113-131`, read verbatim). **The demo's
+   opt-ins ARE the binary snap the adjudicated cure forbids.**
+2. **Three engine instances carry a TRUE flag that the group arm discards.** `useCubeDemo.ts:58` · `:80` ·
+   `:109` take their options from `getStoredAnimationOptions(…)`, which seeds
+   `structuredClone(defaultStoredAnimationOptions)` (`animationOptionsStore.ts:108-113`) whose
+   `animationOptions` **is** `defaultAnimationOptions` (`:62`) carrying `respectReducedMotion: true`
+   (`:49`). All three are children of the group at `:116`, and the group's play path reads
+   **`group.respectReducedMotion`** (`group/lifecycle.ts:79-80`), never a child's bag. **A true flag in
+   the bag, a false gate at the group** — a fifth PRM-inert mechanism, live at the flagship scene.
+3. **The one gated cube motion is gated BY HAND.** `changeGraphPerspectiveAnim` (`useCubeDemo.ts:130`,
+   options `{duration: 650, timingFunction: "ease-out-back"}`, no flag) is fenced by the hand-rolled
+   `matchMedia` at `:164-168`, which writes `graphEl.style.transform` and never calls `.play()`.
+   **"cube gates 1 of 4 engine motions (650 ms graph settle only)" reproduces exactly** — with *why*
+   added.
+
+**The rows resolve.** ⟨`awk 'NR>=106 && NR<=123 && /^- \*\*/' KF-W9.md | wc -l`⟩ → **18** bullets in §A
+against the gate's *"seventeen banked rows"*; **all eighteen resolve against the enumeration**, each with
+its coordinates, so the gate's condition holds under either enumeration. The candidate eighteenth is
+named (**D-8/C-§5** ⟨kf-SequencePlayhead⟩, banked *INFO, NO-CHARGE*) **as a reading, adjudicated by
+nobody here**; **no row is re-graded by this seat**.
+
+**Gate reading — G-KFW9-5: RED → GREEN at this seat's limb.** BEFORE ⟨`sed -n '462p'
+lane-frontend.md`⟩ → *"### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files"* with no
+replacing enumeration anywhere in the tree. AFTER: ONE enumeration exists, every motion with layer and
+flag state, 18/18 rows resolving. **The amendment rides as a DRAFT (§6 of that file) for `.e` alone** —
+**this seat wrote no census byte**, and `lane-frontend.md §6.5` is untouched dated evidence.
+
+#### Act 3 — G-KFW9-6: the three measurements (`evidence/W9/G-KFW9-6-REGISTER.md`)
+
+The gate closes on **three measurements only**, and its falsifier is *"fails if a green is recorded on the
+constraint's behalf rather than on the three measurements; fails if the register omits an arm."*
+
+**(i) THE ARM REGISTER — LANDED. Three arms exist in the engine; three are registered.** Every coordinate
+re-read line-by-line at the pin and re-verified by a second pass ⟨`git show 55e9bf0d:<path> | sed -n
+'<l>p'`⟩ over all nine published coordinates:
+
+| arm | site | reads | demo state |
+|---|---|---|---|
+| **GROUP** | `group/group.ts:57` (`respectReducedMotion = false;`, docblock `:55-56`) → `group/lifecycle.ts:79-80` | `group.respectReducedMotion` — the group's OWN field | **0 of 4 groups set it** (`useAmigaDemo.ts:153` · `useCubeDemo.ts:116` · `SquareScene.vue:174` · `CopyButton.vue:95`); **no `g.respectReducedMotion` assignment exists in `demo/`** |
+| **STANDALONE up-front/final-frame** | `strategies.ts:109-110` | `anim.options.respectReducedMotion` | 3 of 33 standalone instances, **all boolean `true`** |
+| **STANDALONE live-flip per tick** | `frame.ts:131-132` → `snapToReducedMotion` `:137` | `anim.options.respectReducedMotion` | the same 3 — **and unreachable on the WAAPI lane** (Act 4) |
+
+**(iii) THE CONSUMER CENSUS — LANDED.** ⟨`git grep -n 'reducedMotionScale' 55e9bf0d -- src/ demo/ test/
+scripts/`⟩ → **6 hits, whole output printed** in the register: export `index.ts:50` (LIGHT barrel),
+definition `internal/reduced-motion.ts:125`, import `physics/spring/progress.ts:2`, and the three
+assignments `:153` · `:232` · `:385`; applied at `:323`/`:352`, field `private amplitudeScale = 1` at
+`:100`. ⟨`git grep -c 'reducedMotionScale' 55e9bf0d -- demo/`⟩ → **exit 1, no hits**. **0 demo · 3
+library.** R3-9's restatement holds: the resolver is **not** dead code, the spring lane is the shipped
+precedent, and the gate's falsifier (*"fails if … any re-statement that the resolver is unconsumed"*) is
+honoured.
+
+**(ii) THE KAD-11 PAIR'S REST-STATE CAPTURE — UNMEASURED, blocked.** Specified in full so the shot is
+unambiguous: the pair is `KeyframesAddDialog.vue:128` + its twin `KeyframesEditor.vue:255` (both bags
+**duration-only**, both re-read at the pin, PAIR LOCK intact); the witness is a **frame pair** at one
+viewport with the discriminator *"do the two frames differ anywhere but the bar's fill"* and the
+falsifier *"pixel-equal in the bar's region confirms the hazard"*. **The static half is in hand and is
+NOT offered as the measurement** — a static inference dressed as a rest-state witness is exactly the
+substitution this wave convicts.
+
+**The unification constraint reads UNMEASURED by design** — HANDED to KF.W5 (engine) and KF.W6
+(tokenization) as a DECLARED SEQUENCING OBLIGATION (RULINGS-4 R4-3, booked at both ends). Neither act has
+landed; **no discharge is recorded**, and recording one would be a measurement of *their* act, never a
+green of this gate.
+
+**Gate reading — G-KFW9-6: RED → RED (correctly), 2 of 3.** *A gate that closes on the measurements it
+could take rather than the measurements it names is the failure this wave exists to convict.*
+
+#### Act 4 — G-KFW9-7: the two-direction pair (`evidence/W9/G-KFW9-7-TWO-DIRECTION.md`)
+
+**ONE pass because it is ONE surface, measured**: `EditorStartScreen.vue:29`
+`<span class="hero-dots"><TypingDots /></span>` (import `:63`) inside the hero `<h1>` at `:27` — **the LCP
+heading**. KF-EST-11 and KF-TD-1 are two questions about one instance.
+
+- **The instrument, at its bytes**: `TypingDots.vue:46` `CYCLE_MS = 1200` · **`:53` `REST_OPACITY = 0.2`**
+  — *KF-EST-11's "frozen at 0.2" located at its constant*, since `:95`'s `100%` frame **is**
+  `opacity: REST_OPACITY` and the gated snap-to-final lands exactly there · `:86-91` the options bag with
+  `iterationCount: "infinite"`, `timingFunction: "steps(4, jump-none)"`, **`respectReducedMotion: true`**
+  · `:98` `anim.play()`, called **once**, at mount.
+- **RELEASE (P-9)**: the CSS wave `AnimatedText.vue:100` is gated at `:121`→`:123` and **re-arms for
+  free** (a media query is continuously evaluated); the engine dots decide at `play()`
+  (`strategies.ts:109-110`), have **no PRM watcher in the file**, and the only re-evaluation path
+  (`frame.ts:131-137`) **runs only while a rAF loop ticks** — an animation already snapped has no loop.
+  **There is no code path by which a released preference re-arms them.**
+- **ENGAGEMENT (U-1)**: ⟨`git grep -n 'snapToReducedMotion' 55e9bf0d -- src/ demo/ test/ scripts/`⟩ →
+  **7 hits, whole output printed**, of which **exactly one call site**, `frame.ts:137` inside `playFrame`
+  (decl `:121`) — **the rAF lane**; ⟨`git grep -c 'withReducedMotion' 55e9bf0d --
+  src/animation/waapi/delegation.ts`⟩ → **exit 1**; ⟨`git grep -n 'shadowTick' … delegation.ts`⟩ →
+  **`:53`** decl · **`:64`** loop. **`shadowTick` never consults the gate; the claim stands at the
+  frontier.** The docblock asserting the opposite is at `strategies.ts:66-75`, quoted verbatim, decl
+  `:76`.
+- **THE LANE CHAIN, measured to its one undecided link** (this is new): `constants/defaults.ts:86`
+  **`useWAAPI: true`** — WAAPI is opt-**out**; ⟨`grep -rn 'useWAAPI' demo/`⟩ → **0 hits**, so the dots
+  inherit `true`; `strategies.ts:117` branches on it; `:118-123` then turns on `isWAAPIEligible(anim)`,
+  whose eight enumerated rejection reasons (`eligibility.ts:114`…`:259`) all read as not-applicable to
+  `opacity` + `steps(4, jump-none)` — **but this seat does not adjudicate the predicate by reading it.**
+  The protocol **reads the lane from the running page** instead:
+  `document.getAnimations().filter(a => a.effect?.target?.closest?.('.hero-dots'))` — non-empty ⇒ WAAPI,
+  empty ⇒ rAF — with `anim.waapiIneligibleReason` (set `:123`, cleared `:120`) as the corroborating read.
+  **The lane is made a measurement, not a prediction**, which is the whole point of the SUBSTRATE
+  INVERSION (ruling 1).
+- **The four-frame protocol** (F1 no-preference → F2 engage → F3 release → F4 reload-under-reduce as the
+  control separating *"the live flip has no path"* from *"PRM never reaches this animation"*), with the
+  OS toggle and **never** a devtools emulation — *an emulated preference is a different cell*.
+
+**Gate reading — G-KFW9-7: RED → RED (correctly).** BEFORE: *"neither direction witnessed."* AFTER: still
+neither — **the gate closes on ONE LIVE PASS and this seat took none.** *A gate whose subject is "was this
+observed?" cannot be closed by any amount of reading, and the register says so in the same breath as it
+publishes the reading.*
+
+#### Act 5 — S-8: the families owed, specified, UNSPENT
+
+`evidence/W9/DESKTOP-CELL-B.md` §3 and the cell record `safari-real/desktop-CELL-2026-09-17.md`. Each
+family carries its shot list, discriminator and falsifier so the shots are unambiguous when the band
+opens, and each states the **same single precondition** (Act 1):
+
+- **(i) three-rect, ONE mount** — SS-13 #1 across kf-SequenceAxis · SequencePlayhead · SequenceScene ·
+  SequenceTarget. **K-29 stands against ruling it statically**, so no source reading is offered in its
+  place. **UNMEASURED · 0 probes spent.**
+- **(ii) the `Card cartoon tier="quiet"` plate, ONCE** — KF-AV-19/D-8 · KeyframeTimeline D-6/D-7 ·
+  TimelineTrack D-5/D-6/D-m3 · TimelineCaret D·M-7. **KF-AV-28 binds here as WITNESS-ORDERING ONLY**: this
+  wave spends no cure on any of the seven governed rows, so a capture is lawful before KF.W7's verdict —
+  but a verdict-superseded row's witness is **reported as superseded at close, never silently inherited**.
+  Contrast numerals **re-derived at capture** (KF-SKEL-22), frames stamped (KF-AX-4). **UNMEASURED · 0
+  probes spent.**
+- **(iii-a) the OD-V3 packet's 1280 arm** — both transport homes × `cube` · `amiga` · `square` · `easing`
+  at 1280 against real Glass 7 = **8 cells + 4 both-homes frames = 12 frames, 0 taken**. **The packet is
+  INCOMPLETE and its exact precondition is stated in that form deliberately** — it is the shape §0j.C
+  authorises KF.W10 `.g` to close `complete_with_misses` on, and a sibling's row should cite a measured
+  precondition rather than an absence. **THIS WAVE PRODUCES THE PACKET AND RULES NOTHING**: no verdict on
+  a transport home is formed here or implied by the shot list.
+
+#### Locks, bounds, probes and mail
+
+- **Bounds clean.** ⟨`git status --short`⟩ after both commits → only `CARRY-LEDGER.md` and
+  `scripts/dev/dev.sh` (**both arrived dirty; untouched, unstaged**) and a sibling's
+  `waves/evidence/KF-W4/*`. **Zero keyframes.js bytes written. Zero glass-ui bytes.**
+  `safari-real-matrix.js`, `capture.mjs` and `states.mjs` **unmodified** — `.b` holds no harness carve.
+  `LEDGER.md` is not in this unit's writable set and was not edited.
+- **Cell-disjoint with `.c`** as the plan requires: this seat wrote exactly one `safari-real/desktop-*`
+  path and nothing else under `safari-real/`.
+- **OP-4**: `safari-app/desktop`'s three `.media` strings are **already recorded, dated, for this exact
+  cell** at SUBSTRATE-PIN §4.4. **This seat opened no second WebDriver session** — probe parsimony (owner
+  edict 2026-07-12; runbook §5.2): a duplicate reading of a recorded capability, on the same host, in the
+  same cell, **with nothing to load**, is spend without discrimination. *Stated so the absence is a
+  decision, not an omission.*
+- **Mail (E13)**: four paths re-swept read-only at this seat's clock — `docs/tranches/V/coordination/`
+  (newest `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, **our own outbound**) ·
+  `../glass-ui/docs/tranches/BK/coordination/` (newest `glass-outbound-2026-08-29-valuejs-o20-ack.md` =
+  **I-30**) · `../keyframes.js/docs/tranches/V/coordination/` (every `VALUEJS-INBOUND-*` is ours) ·
+  `../sci-report/atlas/docs/tranches/Q/coordination/` (both value-addressed letters already rowed).
+  ⟨`grep -c '^| I-' INBOX.md`⟩ → **33**, tail still **I-30**. **0 unrowed · 0 UNREAD in scope.** No row
+  minted and no INBOX byte written (not in this unit's writable set; `.a`'s open sweep line stands).
+
+#### ESCALATION — handed up with its measurements
+
+**Class: S-13 — a bounds expansion this unit may not take, compounded by a sequencing decision above a
+phase-2 cell seat.** The ask `.a` filed (*"who rebuilds and under which grant"*) is **now insufficient**;
+this seat's measurements make it three questions:
+
+1. **A serving artifact that SURVIVES** — a **declared quiescence window** on the kf checkout (no sibling
+   `npm install` / `build:lib` while the band runs) **or** `.a`'s **shape (b)**: build and serve from a
+   **separate clone** at the named ref, needing a grant for *that* tree only and never for the sacred
+   checkout. *A single rebuild does not open the band — it restores an artifact the next sibling install
+   destroys, twice-measured.*
+2. **The substrate ruling** — hold `55e9bf0d` (shape (b) preserves the published pin exactly) **or**
+   re-pin to `5388907b` (shape (c)), **priced at four drifting coordinates** and carrying the fact that
+   `5388907b` is **local and unpushed**, so `master == origin/master` — the identity §0j.C **KF-WRITE**
+   uses to define this wave's execution substrate — **is false at the bytes**.
+3. **The bundle-hash discipline, unchanged** — `capture.mjs` aborts without `--bundle-sha=` by design;
+   whoever builds hashes the tree and passes it. **No seat may default it, and this seat did not.**
+
+**What is NOT asked**: permission to capture anyway, to soften a stamp, to re-pin on a seat's own
+authority, or to substitute a cell. **What was refused, explicitly**: building in the kf tree · serving
+the foreign 16:17 bundle · stamping `55e9bf0d` on bytes compiled from something else · stashing or
+checking out a sibling's worktree · offering a `webkit-engine` run in the `safari-app` column — *that
+last is I-20's convicted failure by name, and it is the tempting one, so it is written down.*
+
+**Carried forward for `.e`**: the census-amendment **DRAFT** at `PRM-ENUMERATION.md` §6 (placed by `.e`
+alone; `CENSUS-2026-08-03.md` and `lane-frontend.md §6.5` untouched by this seat) · the OD-V3 packet's
+**exact precondition**, in the form KF.W10 `.g` can cite · the KF-AV-28 witness-ordering obligation on
+S-8 family (ii) · **0 probes spent at this cell**, so the surface list's terminal states are unchanged by
+`.b` and nothing is double-spent later.
