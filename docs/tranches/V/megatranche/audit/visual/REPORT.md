@@ -1,178 +1,78 @@
-# Mega-tranche visual audit — Safari (WebKit), desktop + mobile, light + dark
+# X.KF.W9 — Safari visual audit, keyframes.js demo · PER-CELL RESULTS
 
-Origin: `http://localhost:9000` · 4 matrices × 15 routes = **60 captures**
+**SKELETON published by seat `.a`, 2026-09-17. 0 captures.** `.b`/`.c`/`.d` fill their own cells;
+`.e` folds. Machine form: `REPORT.json`.
 
-## Defect summary
+**Substrate**: keyframes.js `master` == `origin/master` == `55e9bf0d2391bbc6d9871bb3f0555a6225daae92`
+(disqualified `8281638c` preserved by ref at `kf-sacred-snapshot-2026-09-17` = `6d280ee7`).
 
-### blankOrNearBlank — 0
+**Denominator**: **590** = 565 enumerated + 25 prose-carried, over 58 adjudicated records.
+Published at `docs/tranches/X/keyframes/evidence/W9/SURFACE-LIST.md`. The Kronecker
+**73,568** is **REJECTED** (B18-26: inherit the numerator, reject the denominator) and is
+named here only as the thing rejected.
 
-_none_
+## What this file replaced, and why
 
-### pageErrors — 0
+The bytes here until now were the **2026-07-24 value.js-route corpus** — *"4 matrices × 15 routes =
+60 captures"*, origin `http://localhost:9000`, API-less. **That corpus is G-KFW9-3's born-RED
+witness**: value.js routes, pre-X, **zero real-Safari execution against any keyframes.js tree**. It was
+never a kf-scoped surface list. **Nothing is destroyed**: the prior bytes are in git at `c0078d96` and
+recover with `git show c0078d96:docs/tranches/V/megatranche/audit/visual/REPORT.md`.
 
-_none_
+## Cell ledger (I-20) — all ten cells, every run, never absent
 
-### consoleErrors — 1
+An **absent** cell is how a `webkit-engine` reading ends up in a `safari-app` column by default. So
+every cell appears with a state, and the only three an unrun cell may say are `UNMEASURED` ·
+`UNREACHABLE-IN-CELL` · `UNVERIFIABLE-HERE`. **Green without a per-shot `sha256` FAILS.**
 
-- safari-desktop-light /#/: WebGL: context lost.
+| cell | column | driver required | seat | state | captures |
+|---|---|---|---|---|---:|
+| `safari-app/desktop` | safari-app | `safaridriver` | `.b` | **UNMEASURED** | 0 |
+| `safari-app/ios-device` | safari-app | `safaridriver-ios` | `.c` | **UNMEASURED** | 0 |
+| `safari-app/ios-simulator` | safari-app | `safaridriver-simulator` | `.c` | **UNMEASURED** | 0 |
+| `webkit-engine` | webkit-engine | `playwright-webkit` | `.b` | **UNMEASURED** | 0 |
+| `chromium` | chromium | `playwright-chromium` | `.b` | **UNMEASURED** | 0 |
+| `chromium/emulated-forced-colors` | chromium | `playwright-chromium` | `.d` | **UNMEASURED** | 0 |
+| `windows/real-HCM` | windows | `windows-host` | `.d` | **UNMEASURED** | 0 |
+| `at/voiceover-safari` | at | `voiceover+safaridriver` | `.d` | **UNMEASURED** | 0 |
+| `at/nvda` | at | `windows-host` | `.d` | **UNMEASURED** | 0 |
+| `at/jaws` | at | `windows-host` | `.d` | **UNMEASURED** | 0 |
 
-### horizontalOverflow — 0
+### OP-4 capability record — owed PER CELL, never inherited
 
-_none_
+**`safari-app/desktop` is the only cell with a reading**, taken by `.a` in a real Safari 26.4 /
+macOS 26.4.1 session (`safari:useSimulator: false`): **all three `.media` strings PARSE** and
+round-trip byte-identical, so that column is **not foreclosed by UA capability** for forced-colors,
+reduced-transparency or reduced-motion. It is a **baseline**, and it binds **only** that cell.
 
-### darkClassMissing — 0
+## The registers (published with the surface list, G-KFW9-12)
 
-_none_
+| register | figures | file |
+|---|---|---|
+| negative | **6 records · 11 probes · 4 traps** | `evidence/W9/NEGATIVE-REGISTER.md` |
+| escalation | **13 armed triggers over 12 records** (3 can reach BLOCKER) | `evidence/W9/ESCALATION-REGISTER.md` |
 
-### mainCountNotOne — 0
+**A retired probe re-entering the surface list is a GATE FAILURE.** **A probe satisfied by both
+hypotheses is a SPEC DEFECT, not a measurement.** Both are mechanized in `capture.mjs`
+(`assertNotRetired` / `assertProbeTerminal`), not merely asked for.
 
-_none_
+## Probe tally
 
-### smallTapTargets — 60
+| state | count |
+|---|---:|
+| EXECUTED | 0 |
+| RETIRED | 0 |
+| UNREACHABLE-IN-CELL | 0 |
+| **UNMEASURED** | **590** |
 
-- safari-desktop-light /#/: 8
-- safari-desktop-light /#/palettes: 8
-- safari-desktop-light /#/browse: 4
-- safari-desktop-light /#/extract: 6
-- safari-desktop-light /#/mix: 8
-- safari-desktop-light /#/generate: 5
-- safari-desktop-light /#/gradient: 6
-- safari-desktop-light /#/atmosphere: 7
-- safari-desktop-light /#/blob: 39
-- safari-desktop-light /#/admin/users: 4
-- safari-desktop-light /#/admin/names: 4
-- safari-desktop-light /#/admin/audit: 4
-- safari-desktop-light /#/admin/flagged: 4
-- safari-desktop-light /#/admin/tags: 4
-- safari-desktop-light /#/does-not-exist: 8
-- safari-desktop-dark /#/: 8
-- safari-desktop-dark /#/palettes: 8
-- safari-desktop-dark /#/browse: 4
-- safari-desktop-dark /#/extract: 6
-- safari-desktop-dark /#/mix: 8
-- safari-desktop-dark /#/generate: 5
-- safari-desktop-dark /#/gradient: 6
-- safari-desktop-dark /#/atmosphere: 7
-- safari-desktop-dark /#/blob: 39
-- safari-desktop-dark /#/admin/users: 4
-- safari-desktop-dark /#/admin/names: 4
-- safari-desktop-dark /#/admin/audit: 4
-- safari-desktop-dark /#/admin/flagged: 4
-- safari-desktop-dark /#/admin/tags: 4
-- safari-desktop-dark /#/does-not-exist: 8
-- safari-mobile-light /#/: 8
-- safari-mobile-light /#/palettes: 4
-- safari-mobile-light /#/browse: 4
-- safari-mobile-light /#/extract: 6
-- safari-mobile-light /#/mix: 4
-- safari-mobile-light /#/generate: 5
-- safari-mobile-light /#/gradient: 6
-- safari-mobile-light /#/atmosphere: 7
-- safari-mobile-light /#/blob: 8
-- safari-mobile-light /#/admin/users: 4
-- safari-mobile-light /#/admin/names: 4
-- safari-mobile-light /#/admin/audit: 4
-- safari-mobile-light /#/admin/flagged: 4
-- safari-mobile-light /#/admin/tags: 4
-- safari-mobile-light /#/does-not-exist: 8
-- safari-mobile-dark /#/: 8
-- safari-mobile-dark /#/palettes: 4
-- safari-mobile-dark /#/browse: 4
-- safari-mobile-dark /#/extract: 6
-- safari-mobile-dark /#/mix: 4
-- safari-mobile-dark /#/generate: 5
-- safari-mobile-dark /#/gradient: 6
-- safari-mobile-dark /#/atmosphere: 7
-- safari-mobile-dark /#/blob: 8
-- safari-mobile-dark /#/admin/users: 4
-- safari-mobile-dark /#/admin/names: 4
-- safari-mobile-dark /#/admin/audit: 4
-- safari-mobile-dark /#/admin/flagged: 4
-- safari-mobile-dark /#/admin/tags: 4
-- safari-mobile-dark /#/does-not-exist: 8
+## STANDING BLOCKER FOR THE CAPTURE BAND — OP-5
 
-### namelessButtons — 18
+The `dist/gh-pages` bundle **does not exist**. It was destroyed **2026-09-17 15:26:18** by npm's
+`prepare` → `build:lib`, whose production build writes to a **self-emptying** bare `dist/` — triggered
+by a sibling seat's install in the kf tree (the `vue-tsc`/`eslint` devDependencies now dirty in
+`package.json`). **No kf source byte changed** (`git diff --name-only -- src/ demo/` → 0).
 
-- safari-desktop-light /#/: 1
-- safari-desktop-light /#/palettes: 1
-- safari-desktop-light /#/extract: 3
-- safari-desktop-light /#/mix: 1
-- safari-desktop-light /#/gradient: 1
-- safari-desktop-light /#/blob: 1
-- safari-desktop-light /#/does-not-exist: 1
-- safari-desktop-dark /#/: 1
-- safari-desktop-dark /#/palettes: 1
-- safari-desktop-dark /#/extract: 3
-- safari-desktop-dark /#/mix: 1
-- safari-desktop-dark /#/gradient: 1
-- safari-desktop-dark /#/blob: 1
-- safari-desktop-dark /#/does-not-exist: 1
-- safari-mobile-light /#/extract: 3
-- safari-mobile-light /#/gradient: 1
-- safari-mobile-dark /#/extract: 3
-- safari-mobile-dark /#/gradient: 1
-
-## Per-capture table
-
-| matrix | route | text | overflowX | main | h1 | canvas | pageErr | consoleErr | settle ms |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| safari-desktop-light | `/#/` | 859 | 0 | 1 | 0 | 1 | 0 | 1 | 18905 |
-| safari-desktop-light | `/#/palettes` | 237 | 0 | 1 | 0 | 2 | 0 | 0 | 3139 |
-| safari-desktop-light | `/#/browse` | 280 | 0 | 1 | 0 | 1 | 0 | 0 | 3595 |
-| safari-desktop-light | `/#/extract` | 299 | 0 | 1 | 0 | 1 | 0 | 0 | 3568 |
-| safari-desktop-light | `/#/mix` | 186 | 0 | 1 | 0 | 3 | 0 | 0 | 4201 |
-| safari-desktop-light | `/#/generate` | 310 | 0 | 1 | 0 | 1 | 0 | 0 | 3553 |
-| safari-desktop-light | `/#/gradient` | 611 | 0 | 1 | 0 | 1 | 0 | 0 | 3586 |
-| safari-desktop-light | `/#/atmosphere` | 299 | 0 | 1 | 0 | 1 | 0 | 0 | 3606 |
-| safari-desktop-light | `/#/blob` | 713 | 0 | 1 | 0 | 2 | 0 | 0 | 3515 |
-| safari-desktop-light | `/#/admin/users` | 273 | 0 | 1 | 0 | 1 | 0 | 0 | 3494 |
-| safari-desktop-light | `/#/admin/names` | 274 | 0 | 1 | 0 | 1 | 0 | 0 | 3506 |
-| safari-desktop-light | `/#/admin/audit` | 259 | 0 | 1 | 0 | 1 | 0 | 0 | 3451 |
-| safari-desktop-light | `/#/admin/flagged` | 256 | 0 | 1 | 0 | 1 | 0 | 0 | 3473 |
-| safari-desktop-light | `/#/admin/tags` | 244 | 0 | 1 | 0 | 1 | 0 | 0 | 3488 |
-| safari-desktop-light | `/#/does-not-exist` | 859 | 0 | 1 | 0 | 2 | 0 | 0 | 3496 |
-| safari-desktop-dark | `/#/` | 859 | 0 | 1 | 0 | 2 | 0 | 0 | 3515 |
-| safari-desktop-dark | `/#/palettes` | 237 | 0 | 1 | 0 | 2 | 0 | 0 | 3443 |
-| safari-desktop-dark | `/#/browse` | 280 | 0 | 1 | 0 | 1 | 0 | 0 | 3470 |
-| safari-desktop-dark | `/#/extract` | 299 | 0 | 1 | 0 | 1 | 0 | 0 | 3450 |
-| safari-desktop-dark | `/#/mix` | 186 | 0 | 1 | 0 | 3 | 0 | 0 | 3491 |
-| safari-desktop-dark | `/#/generate` | 310 | 0 | 1 | 0 | 1 | 0 | 0 | 3498 |
-| safari-desktop-dark | `/#/gradient` | 611 | 0 | 1 | 0 | 1 | 0 | 0 | 3498 |
-| safari-desktop-dark | `/#/atmosphere` | 299 | 0 | 1 | 0 | 1 | 0 | 0 | 3438 |
-| safari-desktop-dark | `/#/blob` | 713 | 0 | 1 | 0 | 2 | 0 | 0 | 3435 |
-| safari-desktop-dark | `/#/admin/users` | 273 | 0 | 1 | 0 | 1 | 0 | 0 | 3454 |
-| safari-desktop-dark | `/#/admin/names` | 274 | 0 | 1 | 0 | 1 | 0 | 0 | 3427 |
-| safari-desktop-dark | `/#/admin/audit` | 259 | 0 | 1 | 0 | 1 | 0 | 0 | 3452 |
-| safari-desktop-dark | `/#/admin/flagged` | 256 | 0 | 1 | 0 | 1 | 0 | 0 | 3454 |
-| safari-desktop-dark | `/#/admin/tags` | 244 | 0 | 1 | 0 | 1 | 0 | 0 | 3485 |
-| safari-desktop-dark | `/#/does-not-exist` | 859 | 0 | 1 | 0 | 2 | 0 | 0 | 3499 |
-| safari-mobile-light | `/#/` | 70 | 0 | 1 | 0 | 2 | 0 | 0 | 3317 |
-| safari-mobile-light | `/#/palettes` | 169 | 0 | 1 | 0 | 1 | 0 | 0 | 3365 |
-| safari-mobile-light | `/#/browse` | 124 | 0 | 1 | 0 | 1 | 0 | 0 | 3457 |
-| safari-mobile-light | `/#/extract` | 142 | 0 | 1 | 0 | 1 | 0 | 0 | 3422 |
-| safari-mobile-light | `/#/mix` | 118 | 0 | 1 | 0 | 2 | 0 | 0 | 3413 |
-| safari-mobile-light | `/#/generate` | 148 | 0 | 1 | 0 | 1 | 0 | 0 | 3417 |
-| safari-mobile-light | `/#/gradient` | 449 | 0 | 1 | 0 | 1 | 0 | 0 | 3377 |
-| safari-mobile-light | `/#/atmosphere` | 286 | 0 | 1 | 0 | 1 | 0 | 0 | 3357 |
-| safari-mobile-light | `/#/blob` | 69 | 0 | 1 | 0 | 2 | 0 | 0 | 3308 |
-| safari-mobile-light | `/#/admin/users` | 122 | 0 | 1 | 0 | 1 | 0 | 0 | 3352 |
-| safari-mobile-light | `/#/admin/names` | 123 | 0 | 1 | 0 | 1 | 0 | 0 | 3353 |
-| safari-mobile-light | `/#/admin/audit` | 108 | 0 | 1 | 0 | 1 | 0 | 0 | 3371 |
-| safari-mobile-light | `/#/admin/flagged` | 107 | 0 | 1 | 0 | 1 | 0 | 0 | 3364 |
-| safari-mobile-light | `/#/admin/tags` | 92 | 0 | 1 | 0 | 1 | 0 | 0 | 3364 |
-| safari-mobile-light | `/#/does-not-exist` | 70 | 0 | 1 | 0 | 2 | 0 | 0 | 3307 |
-| safari-mobile-dark | `/#/` | 70 | 0 | 1 | 0 | 2 | 0 | 0 | 3287 |
-| safari-mobile-dark | `/#/palettes` | 169 | 0 | 1 | 0 | 1 | 0 | 0 | 3353 |
-| safari-mobile-dark | `/#/browse` | 124 | 0 | 1 | 0 | 1 | 0 | 0 | 3414 |
-| safari-mobile-dark | `/#/extract` | 142 | 0 | 1 | 0 | 1 | 0 | 0 | 3355 |
-| safari-mobile-dark | `/#/mix` | 118 | 0 | 1 | 0 | 2 | 0 | 0 | 3361 |
-| safari-mobile-dark | `/#/generate` | 148 | 0 | 1 | 0 | 1 | 0 | 0 | 3423 |
-| safari-mobile-dark | `/#/gradient` | 449 | 0 | 1 | 0 | 1 | 0 | 0 | 3397 |
-| safari-mobile-dark | `/#/atmosphere` | 286 | 0 | 1 | 0 | 1 | 0 | 0 | 3392 |
-| safari-mobile-dark | `/#/blob` | 69 | 0 | 1 | 0 | 2 | 0 | 0 | 3277 |
-| safari-mobile-dark | `/#/admin/users` | 122 | 0 | 1 | 0 | 1 | 0 | 0 | 3333 |
-| safari-mobile-dark | `/#/admin/names` | 123 | 0 | 1 | 0 | 1 | 0 | 0 | 3372 |
-| safari-mobile-dark | `/#/admin/audit` | 108 | 0 | 1 | 0 | 1 | 0 | 0 | 3376 |
-| safari-mobile-dark | `/#/admin/flagged` | 107 | 0 | 1 | 0 | 1 | 0 | 0 | 3339 |
-| safari-mobile-dark | `/#/admin/tags` | 92 | 0 | 1 | 0 | 1 | 0 | 0 | 3351 |
-| safari-mobile-dark | `/#/does-not-exist` | 70 | 0 | 1 | 0 | 2 | 0 | 0 | 3353 |
+`.b`/`.c`/`.d` cannot photograph a served demo until a gh-pages build exists again. **`.a` does not
+rebuild**: a rebuild writes into the kf tree, which §Bounds forbids outright — *"Do NOT touch — any
+keyframes.js byte"* — and S-13 makes that a **bounds expansion → triumvirate, never a quiet build**.
+Full booking at `evidence/W9/SUBSTRATE-PIN.md` §7.
