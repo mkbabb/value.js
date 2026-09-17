@@ -358,3 +358,169 @@ No two concurrent units share a modify path (§4a).
 ## Unit receipts
 
 _(empty at open; each unit appends its own block with commit hash, gates turned, and receipts)_
+
+### X.P.W0.a
+
+**Seat**: Opus 5 implementation seat (M-23 §2) · `claude-opus-5[1m]` · 2026-09-17, `cwd =
+/Users/mkbabb/Programming/value.js`, darwin arm64, node v26.0.0, `shasum` 6.04, HEAD at measurement
+`426761a7`.
+**Sections executed**: `W0.md` §5 `X.P.W0.a` (L203–219) · §6 G-1 (L300–329) · §6 G-2 (L331–344) ·
+§3.1 · §2c rows 1–2 · §3a (STOP evaluation) · §11.3.
+**Gates**: G-1 **RED → GREEN** · G-2 **RED → GREEN**.
+**Commit**: `80d96f18` — `docs(x-p-w0/auth): re-derive the pause handoff's identities — seven rows,
+three dispositions`.
+**Writable set honoured**: one file created,
+`docs/tranches/X/parse-that/evidence/W0/PAUSE-AUTHENTICATION-2026-09-17.md`. Zero bytes written
+outside it. Appending this block to this record is the parent's instruction, not a bounds expansion.
+
+#### Acts, in order
+
+**Act 1 — read the spec whole, then the consumed rulings.** `W0.md` (602 lines), this record,
+`COHESION.md` §0j (begin-word · pre-acts gate 24 · §0j.E), and the lane authority
+`PARSER-CSS-PAUSE-HANDOFF-2026-08-02.md` §§3.1/3.2/3.3/7/8/9. Rulings consumed: **gate 24** (TCC wall
+gone ⇒ three-state PRESENT with date, builder + residue MATCH, v12 target VERIFIED ABSENT) and
+**E-3** (the 08-03 lines of `W0.md` are immutable; today's facts land as dated addenda beside).
+
+**Act 2 — the four document identities.** ⟨cmd⟩ `shasum -a 256 <handoff> <7e28 matrix> <7e28 DREI-v11
+intake> <in-repo ADOPT-COPY>`
+
+```
+ced234406d3d9ad6bb13e4dce92452a596c9af55dd2091fd90a83f02502f20f7  docs/tranches/V/megatranche/coordination/PARSER-CSS-PAUSE-HANDOFF-2026-08-02.md
+244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7  /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md
+aa891714b3b6bb3386afda45201b203ac5aa1f2ef028466f303831197e992767  /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-V11-TWO-REVIEW-OWNER-INTAKE-2026-08-02.md
+0002ed933f7628797792c28258c37b150b2eb10a767eb5113db20225757d0f50  docs/tranches/V/megatranche/formation/codex-worktree-7e28/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md
+```
+
+⟨cmd⟩ `wc -c <the same four>` → `10205` · `30242` · `7558` · `30927` (total `78932`).
+
+**Act 3 — the 685-byte header proved, not narrated** (`W0.md` §5's explicit requirement).
+⟨cmd⟩ `tail -c 30242 <ADOPT-COPY> | shasum -a 256`
+
+```
+244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7  -
+```
+
+⟨cmd⟩ `expr 30927 - 30242` → `685` · ⟨cmd⟩ `head -c 685 <ADOPT-COPY> | wc -c` → `685`, and the
+literal 685 bytes are an HTML comment that closes on byte 685 (pasted in the ledger §4). The
+divergence is therefore **total and accounted for**: 685 B prepended provenance + 30,242 B
+byte-exact original = 30,927 B measured. The header's own `original-sha256`/`original-bytes` lines
+are recorded as the copy's *claim about itself*, never as this unit's evidence — the evidence is the
+`tail -c` digest, computed here, equal to the original's independently measured digest.
+
+**Act 4 — builder and residue, ex-EPERM, hashed and `stat`ed.** ⟨cmd⟩ `shasum -a 256` · ⟨cmd⟩
+`stat -f '%z %p %l %N'`
+
+```
+0732ebc27bc712d64d0b6ade30db13b9d8c7817524268af7d3d7474654b64ee8  …/parser-novelty-v12-construction/BUILD-V12.py
+de1d62ff18da4851968136b1e3190c00f6c463b9b8a5e7b5d23103155cc00937  …/__pycache__/BUILD-V12.cpython-314.pyc
+243827 100644 1 …/BUILD-V12.py
+154221 100644 1 …/__pycache__/BUILD-V12.cpython-314.pyc
+```
+
+Three fields each (digest, size, mode, nlink) meet handoff §3.2. `%p`'s `100644` is recorded as file
+type `100000` + permission bits `0644` rather than silently normalized to the handoff's `0644`.
+**C-02 honoured**: the builder was hashed, `stat`ed and listed — never opened for edit, never run;
+the residue was hashed — never removed, regenerated, normalized, or credited.
+⟨cmd⟩ `find …/parser-novelty-v12-construction -type f | wc -l` → `2` (builder + residue only; **no
+generated packet**, corroborating the absent target).
+
+**Act 5 — G-2, the row that changed kind.** Absence disposed by **enumeration of a listable parent**,
+never by a failed `ls`:
+
+```
+⟨cmd⟩ ls -ld /Users/mkbabb/Documents/Codex/2026-08-02/          → drwxr-xr-x 136 mkbabb staff 4352 Aug 26 11:18 …
+⟨cmd⟩ ls -1 …/2026-08-02/ | wc -l                              → 133   (run 1)
+⟨cmd⟩ ls -1 …/2026-08-02/ | wc -l                              → 133   (run 2, double-run)
+⟨cmd⟩ ls -1 …/2026-08-02/ | grep 'parser-novelty'              → 32 rows, incl. …-and-experiment-v1 … v11
+⟨cmd⟩ ls -1 …/2026-08-02/ | grep -c '^parser-novelty-and-experiment-v12$'  → 0
+⟨cmd⟩ ls -d …/parser-novelty-and-experiment-v12                → No such file or directory
+⟨cmd⟩ test -e …/parser-novelty-and-experiment-v12 && echo PRESENT || echo ABSENT  → ABSENT
+```
+
+Disposition: **ABSENT as measured 2026-09-17 by a reader with listable, readable access to its parent
+directory** — eleven sibling `v1..v11` directories present by name, `v12` occurring **zero** times in
+a 133-entry listing. Every absence sentence in the ledger carries that date **and** that access state
+(G-2's falsifier); audited on the settled bytes ⟨cmd⟩ `grep -n -i 'absen' <ledger>` → 19 rows, each
+either qualified inline, a quotation of the handoff/gate, a literal command output, or a meta-claim
+about qualification. Two sentences were hardened after the first audit found them short of the bar.
+
+**Act 6 — the 08-03 EPERM rows preserved beside, never overwritten.** Ledger §6 is a dated addendum:
+the three rows read EPERM on 2026-08-03 and **stay EPERM in the record**; today's MATCH/ABSENT stands
+next to them. G-2's reverse clause — *"the grant does not retroactively make today's EPERM a
+verification"* — is applied forward in time as well, protecting the earlier record from retro-fitting.
+A standing caution is written for later X·P seats: the grant is a property of *this reader on this
+date*, not of the tree; under a revoked grant a seat records EPERM again, beside, and does not carry
+today's MATCH forward. **`W0.md` was not edited** (E-3).
+
+**Act 7 — handoff §9 STOP, evaluated row by row.** Five conditions, verdict each: missing bytes
+**DOES NOT FIRE** · a present v12 target **DOES NOT FIRE** · a changed builder **DOES NOT FIRE** · a
+changed residue **DOES NOT FIRE** · a stale owner receipt **DOES NOT FIRE** (the governing word is
+dated 2026-09-17, `COHESION.md` §0j, the same day as this measurement). **0 of 5 fire ⇒ `W0.md` §3a
+is NOT triggered by this unit**; no triumvirate requested. The other three §3a triggers are out of
+this unit's scope: it wrote one file inside bounds, made one measurement pass, and iterated on no
+gate.
+
+**Act 8 — pause law §7, per row, and the append-never-rewrite proof.** All seven prohibitions
+tabulated in the ledger §8 with this unit's conduct against each — no blanket claim.
+⟨cmd⟩ `find docs/tranches -name '*.sha256' -newermt '2026-09-17'` → **no output**: zero existing
+`.sha256` packets edited, including the two F-7 known-broken seals, which stay SUPERSEDED-BY-GIT and
+**unrepaired** (`W0.md` §11.3). Standing invariant gate 27 / W4 G-2 ⟨cmd⟩
+`git status --porcelain -- src api demo test e2e | wc -l` → `0` at this unit's commit.
+
+**Act 9 — write, Prettier, measure, commit.** ⟨cmd⟩ `npx prettier --write <ledger>` (repo
+`.prettierrc.json`: `printWidth 88`, `tabWidth 4`; `proseWrap` default *preserve*, so no prose was
+reflowed) · ⟨cmd⟩ `git diff --cached --check` → **clean**. Settled bytes, double-run:
+
+```
+⟨cmd⟩ wc -c <ledger>      →  36269   (run 1)  ·  36269 (run 2)
+⟨cmd⟩ wc -l <ledger>      →    504   (run 1)  ·    504 (run 2)
+⟨cmd⟩ shasum -a 256 <ledger> → b7aa83e9fc6817082edfd03292ee4cc04e837b167edc6bca324064925ba17535
+⟨cmd⟩ head -1 <ledger>    → SERVED MODEL: claude-opus-5[1m]
+```
+
+SELF-COUNT, read back from the settled bytes rather than from the draft ⟨cmd⟩
+`sed -n '76,85p' <ledger> | grep -c '^| [1-7] '` → **7**, and their disposition cells:
+
+```
+1 -> **MATCH**   2 -> **MATCH**   3 -> **MATCH**   4 -> **EXPLAINED** (§4)
+5 -> **MATCH**   6 -> **MATCH**   7 -> **MATCH**
+```
+
+#### Gate readings BEFORE → AFTER
+
+| gate | BEFORE (this record's wave-open baseline) | AFTER | the closing act |
+|---|---|---|---|
+| **G-1** | **RED-AS-EXPECTED** — the four digests the lane held were the *authoring* session's; `evidence/W0/PAUSE-AUTHENTICATION-*.md` did not exist | **GREEN** | 7 rows named, **7 disposed**, each with this session's literal command and literal output beside it — **6 MATCH · 1 EXPLAINED · 0 MISMATCH · 0 EPERM**; zero rows carry a digest this unit did not itself compute; the ADOPT-COPY row disposed by `tail -c 30242`, not by prose |
+| **G-2** | **RED — of a changed kind** — the wall was gone at wave-open and **no lane artifact recorded it** | **GREEN** | absence disposed by enumeration of a listable parent; every absence sentence qualified by date + access state; the 08-03 EPERM rows stand beside as dated history, so the grant is not read backwards as a verification |
+
+**Tally of dispositions (the gate's own arithmetic): rows named 7 = rows disposed 7. MISMATCH 0 ⇒ no
+§9 STOP, no §3a dispatch.**
+
+#### Residuals
+
+1. **The grant is dated, not durable.** G-1 rows 5–7 are MATCH only for a reader holding the
+   2026-09-17 `~/Documents/Codex` access. Later X·P seats re-measure; under a revoked grant they
+   record EPERM **beside** ledger §6 and may not carry today's MATCH forward. Written into the
+   ledger as a standing caution, not left to inference.
+2. **Five handoff-named digests have no subject** — §3.2's dry-audit generated identities (contract,
+   Markdown, matrix, predecessor registry, generated source). Deliberately **not** rows of the
+   seven-row table and not given a disposition: they describe a packet that was never materialized,
+   so there is nothing to hash, and MATCH/MISMATCH/EPERM would each be a conflation. Disclosed in
+   ledger §9 so a later reader who counts eleven digests in §3.2 does not conclude five were missed.
+   Corroborated at the bytes: the construction root holds exactly two files. Their revival is
+   `W0.md` §10's DORMANT-UNLESS-NC-0-REVIVED set, owner-release-gated.
+3. **`W0.md` §6 G-1's own table now diverges from the measured state** on rows 5–7 (EPERM there,
+   MATCH/ABSENT here). This is E-3 working as designed, not a defect: the addendum is beside. The
+   **W0-CLOSE report should cite ledger §6 rather than re-stating G-1's 08-03 cells**, or a reader
+   will meet the two tables without the bridge.
+4. **Rows 1 and 3 carry no asserted size in the handoff.** Their measured sizes (10,205 B · 7,558 B)
+   are recorded as *new* facts for the next reader, explicitly flagged as such rather than dressed
+   up as confirmations.
+
+#### Escalations
+
+**None.** Zero MISMATCH, zero §9 STOP conditions fired, zero writes outside the writable set, one
+measurement pass with no diagnose→act→re-measure iteration. `W0.md` §3a was evaluated and not
+triggered. `scripts/dev/dev.sh` never touched and never staged (⟨cmd⟩ `git status --porcelain
+--untracked-files=no` at commit time showed it ` M` and **unstaged**, beside the staged `A` of this
+unit's one file).
