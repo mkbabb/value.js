@@ -581,3 +581,265 @@ homing failure, and MF-9 is unit e's to resolve or strike (A3 carries the sequen
 `GCM-10` cure is not quoted ahead of it).
 
 **Handoff**: F.W5's writable set is clean after this unit's two commits; **unit c may open.**
+
+---
+
+### c
+
+**SERVED MODEL: claude-opus-5[1m]** · seat opened 2026-09-17, branch `tranche-u`. Writable set honoured:
+**one file appended**, `docs/tranches/X/fourier/contract/J-diff-shape-v2.md`, ⊕ this receipt. **Zero
+fourier bytes written** — every `$F` command below is `grep`/`sed`/`wc`, and at this unit's close
+⟨cmd⟩ (fourier tree) `git status --porcelain | wc -l` → **0** and
+`git status --porcelain docs/tranches/J/design/J-diff-shape.md` → **0 lines**: **v1 is byte-unchanged,
+superseded BY REFERENCE only** (E-3). `scripts/dev/dev.sh` never staged. `LEDGER.md` untouched — not
+unit c's.
+
+**Serial-head note (§1c).** The serial predecessor is **unit b's contract commit `bf3707ec`** ⊕ its
+record commit `1cbde268`; this unit opened on b's committed tree and its own commit's parent is
+⟨cmd⟩ `git rev-parse --short 73e35e74^` → **`d354d144`**, an **X·KF** row landed concurrently by another
+track. **No row of another track is in F.W5's writable set**, so the *"dirty tree at handoff halts the
+wave"* condition is not tripped; F.W5's own serial head was clean at open and is clean at close (⟨cmd⟩
+`git status --porcelain` after commit → the two standing rows only: `CARRY-LEDGER.md` (another seat's)
+and the unowned `dev.sh`).
+
+**E13.** The wave's Step-0 sweep (this record) read **0 UNREAD in F.W5's scope**; no letter arrived in
+this unit's window and none is owed by it. The close sweep is unit e's.
+
+#### Acts, in order
+
+**c.1 — MEASURE-AT-OPEN (D-19), before a clause was written.** Every witness in §C/§D/§E was re-measured
+at this seat's own clock from `$F = /Users/mkbabb/Programming/fourier-analysis` (READ-ONLY) and
+`$V = /Users/mkbabb/Programming/value.js`, engine `/usr/bin/grep` (BSD) where the result is an engine
+fact, **every published figure double-run** (`run1 ≡ run2`). Nothing was inherited: the spec is the
+**operand**, the bytes are the **witness**, and the register (unit a) is the **operand for §C1/§D1's
+enumeration**, cited and never re-derived.
+
+**c.2 — the four RULED clauses, each citing §0j.D and never presuming it.** Four of this unit's clauses
+are owner-gated and all four were ruled at COHESION **§0j.D** before the wave opened; the clause bodies
+carry the ruling id and the ruling's own words:
+
+| clause | ruling id | what the clause writes |
+|---|---|---|
+| **§D2** (the like verb, G10) | **F-SS4REST R4** | **REMOVE the affordance** — counter, compound index, sort key and UI arm retire **together**; *"no third option ships"* quoted at `fr-GalleryFeaturedCarousel.md:34`; **dissent (C axis, BLOCKER at two sites) preserved, not resolved** |
+| **§D3** (moderation, G11 — **THE ADMISSION GATE**) | **F-PRODRET** | **PRODUCER, as a PORT** of value.js's `POST /:slug/flag`, **homed at F.W8**, with the rationale carried from the ruling; **F.W5 writes the clause and nothing else about it** |
+| **§D12** (off-state `[]`, G-side of R5) | **F-SS4REST R5** | **STOP MINTING** `[]`; **no silent rewrite**; `fr-BasisSelector M-9`'s sentence quoted at record case |
+| **§E3** (TA-4 diff clause, G4 ⊕ G18) | **F-SS4REST R1** | **RE-SCOPE value.js out** — and **v1 §6 RE-AUTHORED IN FULL**, block-quoted inside the clause, with the verdict rendering fixed: **`N/A — RE-SCOPED (F-SS4REST R1)`**, never *missing*/*pending*/*RED* |
+| **§E4** (born visibility, G5) | **F-SS4REST R8** | **REMIX + BORN-PRIVATE**, after the D9 non-contradiction check below |
+| **§E16** (trie, G7) | **F-TRIE** | **NO TRIE**; F.W7 unit `b` never opens, `design/R4-variant-storage.md` never created, **G-F7-5 closes vacuously**; **dissent recorded** at `F-W10.md` §2.3's `SS-4-PREREQ` row and **quoted nowhere here** (it is quoted ONCE in the programme, at F-W5 §4's `F.W5 → F.W7` edge row) |
+| **§D6** (hard-delete arm) | **F-SS4REST R6** | **KEEP the arm**; copy made truthful — and the clause states *why* keeping beats deleting: **the copy is false in the direction that SUPPRESSES a safe action** |
+| **§C3** (dead session subsystem) | **F-SS4REST R9** | **DELETE**, with the scope of the deletion bounded in the clause: **the client capability goes; the server's four `/api/sessions` operations do not** |
+
+**c.3 — D9 NON-CONTRADICTION, VERIFIED AT THE RECORD BEFORE §E4 WAS AUTHORED**, as R8's own text
+requires (*"the F.W5 seat verifying non-contradiction with ruling D9 at the record before authoring"*).
+⟨cmd⟩ `/usr/bin/grep -n 'D9' docs/tranches/V/DECISIONS.md` → **one hit, `:36`** (double-run), whose bytes
+are: *"| D9 | Palette visibility is `private | public`; owner lifecycle is `active | trashed`; admin
+moderation is separately clocked `clear | withdrawn`. The unused `unlisted` state dies. Non-owner reads
+require active/public/moderation-clear and a visible immutable release. |"*. **Three tests, all
+recorded in the clause so a later reader re-runs rather than trusts**: (i) **domain membership** —
+born-private names `private`, a **member** of D9's two-state domain, introducing no new state;
+(ii) **no revival** — `unlisted` appears nowhere in R8 or in the clause; (iii) **no clock collision** —
+D9 clocks lifecycle and moderation **separately** from visibility, and R8 speaks only to
+visibility-at-birth. **Verdict: R8 is a NARROWING INSIDE D9's domain; no contradiction.** ⊘ The one live
+divergence is **disclosed, not resolved**: value.js persists **three** visibility states (⟨cmd⟩
+`/usr/bin/sed -n '61p' api/src/modules/palette/model.ts` → the 3-state comment) and fourier's unpublish
+target is `unlisted` (register row 9) — **that is the value.js API row's D9 reconciliation**, *never a
+silent contract overwrite, and never a fourier defect*.
+
+**c.4 — the three bands authored.** §C (C1–C5) · §D (D1–D8, **D10**–D17) · §E (E1–E20) appended to
+`J-diff-shape-v2.md`. **SELF-COUNT from the settled bytes, double-run** — ⟨cmd⟩ (per band)
+`/usr/bin/grep -c '^### C[0-9]' J-diff-shape-v2.md` etc.:
+
+| band | clauses | reading |
+|---|---|---|
+| §C | **5** | C1 · C2 · C3 · C4 · C5 |
+| §D | **16** | D1–D8 ⊕ D10–D17 — ⟨cmd⟩ `/usr/bin/grep -c '^### D9' J-diff-shape-v2.md` → **0** (the reserved number is not used) |
+| §E | **20** | E1–E20 |
+| **this unit** | **41** | |
+| file total | **52** | ⊕ unit b's §A **6** ⊕ §B **5** |
+
+**Every clause carries all four parts §0.4 requires.** ⟨cmd⟩ over the §C-onward slice:
+`\*\*RULE` → **41** · `\*\*WITNESS` → **41** · `\*\*DISPOSITION` → **41**; and a per-clause LOCK scan
+⟨cmd⟩ `/usr/bin/awk '/^### [CDE][0-9]/ {…} /LOCK/ {lock=1}'` → **no output** (zero clauses without a
+LOCK), double-run. ⊘ **That scan is in this receipt because it CAUGHT FOUR**: **D16 · E9 · E10 · E19**
+landed without a LOCK part on the first write — D16's S-8 method bar was present but unlabelled, and
+three clauses genuinely had none. All four were cured **before commit**; the count is published because
+*a clause missing a part its own §0.4 declares mandatory is defective by the document's own definition*,
+and a receipt that showed only the final 41/41/41/41 could not be told from one where nothing was ever
+wrong.
+
+**c.5 — the register consumed, never re-derived.** §C1 and §D1 are the two clauses keyed to unit a's
+`operation-register.md`, and they **cite its figures and re-derive none**: the six-token authority
+vocabulary and `13+1+2+5+5+19 = 45`; the disposition split `CLIENTED 36 · CLIENTABLE 7 · STRUCK 1 ·
+SERVER-ONLY 1 = 45`; the arms `30 + 13 + 1 + 1`. **What this unit adds is the two DECISIONS G8's close
+names and the register deliberately does not make** (§3.2: *"The register makes neither decision. It
+makes both checkable."*): **`save_contour` ruled `SESSION-DECLARED` with the `Idempotency-Key` channel
+taken**, and **the image GETs' `ANONYMOUS` RETAINED for published assets and WITHDRAWN for the
+pre-publication surface, with the cache directive bound into the same act**. §D1 additionally carries
+both blindness locks (**K-1** server-side, **F-6** client-side) forward as standing contract terms.
+
+**c.6 — WRITE-THEN-MEASURE, and what it caught.** Every published figure and every line anchor was
+re-run against the **settled bytes** before commit, double-run. **Five did not reproduce as first
+written; all five are corrected at the true bytes and the correction is IN THE CLAUSE, not hidden:**
+
+1. **The unbounded trie probe returns 160 at this seat, not the baseline's 150 — and it reconciles
+   without remainder.** ⟨cmd⟩ the gate's own ERE over both trees → **160**, decomposing as
+   **150 source lines ⊕ 10 `Binary file …__pycache__….pyc matches` lines** (⟨cmd⟩ same probe
+   `| /usr/bin/grep -c '^Binary file'` → **10**; `-vc` → **150**). The baseline's 150 is **the source-line
+   arm of this same reading**. §E16 publishes both digits and the decomposition, plus the token census
+   ⟨cmd⟩ `-o … | sort | uniq -c` → `147 trie · 10 TRIE · 2 Trie`, **all substring artefacts**
+   (`entries`, `Tries`, `retries`, `retrieval`). The **bounded** probe is **0** on both trees, double-run.
+2. **`grep -rn '401' web/src` returns 7, and all seven are coordinate digits in `moon.json`.** The
+   spec's stated **ZERO** is true of the source tree and false of the naive probe: ⟨cmd⟩
+   `… --include='*.ts' --include='*.vue' | wc -l` → **0**. §C3 publishes both, because *the digit is
+   wrong and the command still "works"* — the same class as unit a's `__pycache__` find.
+3. **The janitor sentinel's comment anchor drifted.** The clause first cited `:52`; ⟨cmd⟩
+   `/usr/bin/grep -n 'self-documenting' api/services/janitor.py` → **`:54`**, and **the sentence wraps**
+   — so §E18 names **both** lines (`:54` ⟶ `:55`) and the block (`:50-55`) rather than re-flowing a span
+   its own command cannot return.
+4. **E11's inherited arithmetic does not reproduce.** The banked cell says *"three siblings guard"*;
+   ⟨cmd⟩ `/usr/bin/grep -rn 'ANIMATION_EASINGS\[' web/src --include='*.ts' --include='*.vue'` →
+   **exactly two sites** — `stores/animation.ts:28` guarded twice over (optional chain **and** fallback)
+   and `lib/easings.ts:105` guarded not at all. **The intent holds and the count does not**, so §E11
+   prints the measurement: *one of two is unguarded, and it is the one behind a template expression*.
+5. **E20's "two lines earlier" is one.** ⟨cmd⟩ `/usr/bin/sed -n '224p;225p;226p' ContourEditorCanvas.vue`
+   → `getPoints,` · `points,` · `magnetRadius,` — the accessor is **one** line before the ref it
+   accesses. §E20 states the measured adjacency and names the distance as *not the finding* — **the
+   co-exposure is**.
+
+⊘ **A sixth was caught by read-back rather than by a probe, and it is disclosed for that reason**: the
+first assembly of the append produced a **doubled `---`** at the §B5/§C seam (an off-by-one in the
+head/append split). ⟨cmd⟩ `/usr/bin/awk 'p=="---" && $0=="---" {print "DOUBLE at "NR} {p=$0}'` → **no
+output** after the cure, and ⟨cmd⟩ `diff <(head -706 old) <(head -706 new)` returned **empty** at
+assembly, so **unit b's 706 lines are byte-identical in the committed file**. *A structural defect that
+no clause-level probe would ever have reported is the argument for reading back what you wrote.*
+
+**c.7 — every verbatim span survives a `grep -F` of itself, and the RULE sentences survive §0.6's
+instrument.** Thirteen registry/charter spans re-run from the `$R` base and from the repo root at this
+seat, **double-run, all HIT (1)**: `fr-ContourSettings.md` (the E13 superset sentence ⊕ the B-1
+client-derivable-bounds rider ⊕ *"two triggers, ONE cure"*) · `fr-GalleryFeaturedCarousel.md`
+(*"no third option ships"*) · `fr-BasisSelector.md` (*"admit `[]` … or stop minting it"*) ·
+`fr-EditorControlsDock.md` (*"The asymmetry, not an exploit, is the defect…"*) · `fr-AdminFlaggedPanel.md`
+(C's scope discipline ⊕ *"grade the populated surface"*) · `fr-EquationPanel.md` (the hoisted-signal
+sentence) · `fr-GallerySearchBar.md` (the WAVE-LOCK) · `fr-AdminAuditLog.md` (*"indexed equality into a"*)
+· `fr-ContourPreview.md` (*"a TWO-member change"*) · `lane-crud.md` (*"flat BAG …"*, its **wrap
+disclosed**: `:240` ends mid-sentence at *"the diff is a"* and `:241` completes it) · `COHESION.md`
+(*"is a named prerequisite or the contract is"*, the charter's own line breaks marked `/`). And **21
+normative sentences return 1** under §0.6's published instrument — **a CENSUS, not a sample, and its
+arithmetic is printed**: **all 41 RULE sentences, one per clause** (§C **5** ⊕ §D **16** ⊕ §E **20**,
+run as **19 + 22** in two passes and reconciling to the clause count exactly) ⊕ the two
+**rendering-critical strings** a probe reads literally: the **`FR-GV-24`** repair-test lock and §E3's
+**`N/A — RE-SCOPED (F-SS4REST R1)`** verdict spelling. ⊘ *The first draft of this line claimed "every
+RULE" over a **19**-sentence reading — the phantom-count class in miniature, caught by this receipt's
+own self-count before commit. The remaining 22 were then actually run rather than the claim narrowed*
+⟨cmd⟩ `/usr/bin/tr '\n' ' ' < J-diff-shape-v2.md | /usr/bin/tr -s ' ' | /usr/bin/grep -c -F '<sentence>'`,
+double-run. **A lock that cannot survive a `grep -F` of its own sentence is not carrying its source**, and
+none here is in that position.
+
+**c.8 — the one-home law, at every citing clause.** This unit **books** where the spec's rows-folded cell
+books and **cites by holder name** everywhere else. Legs cited, never booked: `F-6` (NWO→SS-3) ·
+`fr-AppHeader FR-AH-6` (F-W4) · `fr-GalleryView FR-GV-7` (F-W3 §X.1-v5) · `fr-ContourSettings B-1 / L-B1 /
+C-2` (F.W3) · `fr-ContourSettings M-10 / L-M6 / C-19 / D-m9` (F.W3) · `fr-GalleryInfiniteGrid C-4 / D-13`
+(F-W3) · `FR-GSB-1` (F-W4) · `GAB-17` (F-W4) · `VV-R2-B` (F-W4) · `fr-GalleryDraftsSection B-2` (F-W3) ·
+`fr-CanvasControlsDock D-4 / L-1 / C-3` (F-W4) · `VV-R2-A` (F-W4) · `AA-10` (F-W4) · `FR-AFP-32` (F-W3) ·
+`fr-ContourSettings B-4`'s `m-18` limb (F-W3). Cited-not-booked with their census cells named:
+**`fr-AdminAuditLog AA-24`** (routes **F.W4 only**; held at F-W4 §2.A) · **`AA-31`** (booked §B1) ·
+**`C-28`** (booked §B1) · **`GCM-1`** (booked §E4, cited §D5) · **`fr-NotationPills FR-NP-30`** (booked
+§A5) · **`FR-EMT-20`** (cited at §F1, unit d's) · **`fr-BasisSelector M-10`** (the `basisFilter`
+normaliser). **Booked explicitly where the host is held here**: **`fr-AdminAuditLog AA-23`** at §D15, on
+the `45 = 30+13+1+1` join its own routing names — *a leg is never a new identity* — with **F.W6 keeping
+only the killed-cure citation, marked as a citation**; and **`fr-GalleryInfiniteGrid R-7`** at §D10 by its
+**full (record, id) pair**, the pass-4 escape named in the clause. **Record-qualification is carried at
+every declared collider this unit touches**: three `C-2`s (§D10 alias · §E17 `fr-ContourEditorCanvas` ·
+§G2c `fr-FourierShapeExtractor`), three `R-7`s (`lane-crud §R-7` §E18 · `GCM-3 R-7` §E6 ·
+`fr-GalleryInfiniteGrid R-7` §D10), two `M-13`s (§E14 `fr-ContourSettings` vs §A5
+`fr-CoefficientsSpectrum`, the homonym disarmed in the clause), three `L-B1`s, and `i-7` · `C:C-12` ·
+`C-7` · `M-9` · `M-10` at their sites. **F.W5 repairs nothing (§0b) and claims credit for none of it
+(FR-GIG-5's bar).**
+
+**c.9 — the E13 superset sentence lives ONCE.** R2-1-LAW.1's requirement, measured over the settled
+bytes: ⟨cmd⟩ §0.6's normalized instrument, `-c -F` of the sentence → **1** (double-run). **G13 cites
+clause `E13` and quotes nothing**; no other clause, no gate cell and no sibling restates it.
+
+#### Gate readings — BEFORE → AFTER
+
+BEFORE is this record's own baseline table (22/22 RED-AS-EXPECTED); AFTER is measured at this seat after
+the landing. **The unit turns the CLAUSE side of each gate — which is exactly what each gate's "F.W5
+close" column names.** Where a gate's full green additionally requires an act or a test owned elsewhere,
+the residual is stated rather than absorbed.
+
+| gate | BEFORE (baseline) | AFTER (this seat, 2026-09-17) | verdict |
+|---|---|---|---|
+| **G8** — security documentation | `save_contour(req)` takes no `Depends`; router declares no `dependencies=`; register half GREEN at unit a | **§C1** lands the rule (*every operation carries exactly one explicit authority class*), the six-token vocabulary, **and the two DECISIONS the close names** — `save_contour` → `SESSION-DECLARED` ⊕ `Idempotency-Key`; image GETs → `ANONYMOUS` retained-for-published / withdrawn-for-pre-publication, **cache directive bound into the same act**. `0/45` reproduced with its mechanism (deps at `:206`/`:254`/`:262` emit no `security` block) | **RED → GREEN** *(clause ⊕ register both landed; the handler edits are the fourier API row's)* |
+| **G9** — client-gap closure | 36/9 and 7-of-13 owed to unit a under lock K-1 | **§D1** keys disposition to the register **by name**, carries **K-1** and **F-6** forward as contract terms, and locks *the seven unclientted operations ARE the provenance surface* — **all seven `CLIENTABLE`, none `STRUCK`**, two sequenced (behind §C5 / §E2) with **one token per disposition cell** | **RED → GREEN** |
+| **G2** — version-identity collision (V-β) | `computeContentHash(name, colors)` folds `{name, colors}` only; `findOne({_id: hash})` no slug scope; early return at `:47` | **§E1** mandates the **compound per-entity version `_id`** (fourier's `f"{viz_slug}:{set_hash}"` form), with all three value-side anchors re-measured and reproducing exactly | **RED → GREEN** *(residual, stated in the clause: the green owner's **test** — two same-content palettes keep separate histories — **does not exist today**)* |
+| **G3** — chain depth (F-α) | `_write_root_version` 3 hits, the ONLY writer, `depth=0` | **§E2** states **deepen-or-retire** for the depth/parent/root quadruple; **F.W5 owns the CLAUSE, F.W6 the burn-down — no double-booking**; register row 13 sequenced behind it | **RED → GREEN** |
+| **G4 ⊙** — diff-clause participation | ONE `atomdiff` comment hit; `ls api/src/lib` → No such file | **§E3** re-scopes value.js out **explicitly** under **F-SS4REST R1**, quoting the charter bullet that offered exactly two exits and naming which the owner took | **RED → GREEN** |
+| **G18** — casing + envelope isomorphism | unrunnable-as-parity: value.js has no diff surface to conform | **§E3 RE-AUTHORS v1 §6 IN FULL**, block-quoted: **one probe, fourier-side**; value.js *"runs no diff probe and is not measured by one"*; a report is **COMPLETE** with the fourier probe alone and the correct rendering is **`N/A — RE-SCOPED (F-SS4REST R1)`**. The casing limb (§A2.4, unit b) is **explicitly unaffected — each side still runs its own check** | **RED → GREEN** *(both limbs: casing at §A2.4, the one-sided verdict here)* |
+| **G5** — born-visibility | `forks.ts:76` `visibility: "public"` hard-coded vs fourier's `draft` | **§E4** lands **REMIX + BORN-PRIVATE** under **R8**, **with the D9 non-contradiction check written into the clause as three re-runnable tests** and the 3-state value-side divergence disclosed as the value.js API row's reconciliation | **RED → GREEN** *(residual: **a create-visibility test each side** — the green owner's)* |
+| **G6** — redaction parity | value collapses to `{kind:"unavailable", ordinal}`; fourier `_readable_or_none` = 5, entry-row only | **§C5** mandates the discriminated-union placeholder **for every hop**, with the 5-site enumeration by role (def · remix · provenance · diff · versions) and the unscoped-probe artefact (6 vs 5) disclosed | **RED → GREEN** |
+| **G7 ⊙** — trie disposition | 150-line unbounded artefact / 0 bounded; `atomdiff.py:12-14` guardrail | **§E16** lands **NO TRIE** under **F-TRIE**, with the 160 = 150 ⊕ 10 reconciliation, the guardrail quoted with its **wrap disclosed**, the **bilaterality correction** (one live guardrail ⊕ a deleted twin) narrowing the premise without voiding the ruling, and **dissent recorded, not resolved** | **RED → GREEN** *(and the baseline's divergence **D-1** is now reconciled at the digit rather than merely minuted)* |
+| **G10 ⊙** — the like verb | no like route; sort key + compound index + `const liked = true` all ship | **§D2** lands **REMOVE the affordance** under **R4** — four witnesses, ONE identity, `fr-GalleryInfiniteGrid C-3` spelled with its record; **no third option ships**; dissent preserved | **RED → GREEN** |
+| **G11 ⊙** — moderation producer-or-retire (**ADMISSION GATE**) | `FlagRequest` referenced nowhere; every `db.flags` write a fixture or migration; value.js HAS the verb | **§D3** lands **PRODUCER-as-PORT** under **F-PRODRET**, homed **F.W8**, with the producer absence proved by **enumeration** (§D16's S-8 bar applied to this wave's own proof) and the sequencing lock quoted with its elision marked | **RED → GREEN** — ▲ **and the runbook §1.3 back-edge is discharged: the ruling PRECEDED F.W1's sizing and this clause lands it, so F.W1 is unblocked on that axis at this unit's commit** |
+| **G12** — unsafe GET / counter provenance | `find_one` → `$inc` → `_public_doc(doc)` on the read path | **§E6** requires an explicit verb **or** a stated mutating-GET policy against **RFC 9110 §9.2.1**, with the pre-increment serialisation shown at `:268-270`/`:272` | **RED → GREEN** — ▲ **FR-GV-24 LOCK CARRIED VERBATIM IN THE CLAUSE: repair tests MUST NOT assert a re-open increment** (the defect is SCOPE, not absence), ⊕ the *accident-vs-intent* separation so v2 does not codify the publish-path self-count |
+| **G13** — cache identity ⊇ consumed fields | `extraction_cache_key` 10 · `ml_threshold` 3 — disjoint surfaces | **§E13** states the superset clause **verbatim at record case, ONCE in the document** (normalized `-c -F` → **1**), with the full key literal enumerated and the two omitted fields located at `shared.py:19-20`/`:59-60` and the short-circuit at `images.py:219-220` | **RED → GREEN** |
+| **G14** — contour provenance | `store_contour_asset(..., source="editor")` with no `extraction_cache_key` | **§E14** makes an editor-saved contour a **first-class compute input**; one-hit proof at `contours.py:25` against the callee's available parameter at `image_storage.py:291`; *"two triggers, ONE cure"* at record case; **mechanism SOURCE-CERTAIN**, M-14's end-to-end arm → SS-13 | **RED → GREEN** |
+| **G15** — image bounds on write | POST path carries no `image_bounds`; 29 read sites | **§E17** requires **derive-on-POST or backfill-on-write**, with the signature default shown at `image_storage.py:290` and the content-addressing inversion stated (*the overlay dies exactly when the points CHANGED*) | **RED → GREEN** |
+
+**Tally for this unit: 15 gates · 15 RED → GREEN · 0 left RED · 0 UNRUNNABLE.** Two residuals are
+**named in their clauses rather than absorbed into a green**: G2's missing separate-histories test and
+G5's two create-visibility tests — both are the gates' own **green-owner** cells, not F.W5 acts.
+
+#### Commits
+
+- **`73e35e74`** — `docs(x-f/F.W5.c): J-diff-shape-v2 §C+§D+§E — authority, denominator and provenance,
+  41 clauses each RULE/WITNESS/DISPOSITION/LOCK` (pathspec:
+  `docs/tranches/X/fourier/contract/J-diff-shape-v2.md`). **One commit, one meaning**: the three bands
+  plus the two consequential header cells they make true — §0's **Status** line and §0.2's **§6 row**,
+  which now points at clause `E3` where the re-authored §6 is quoted in full. Splitting the header from
+  the clause it addresses would have published a table cell that was false of its own file.
+- this receipt — pathspec `docs/tranches/X/execution/C/F-W5.md`.
+
+#### Residuals handed on (books nothing, cites everything)
+
+1. **To unit d (§F/§G ⊕ the obligation list)** — **§E3's re-authored §6 is the binding frame for §F**:
+   the diff envelope binds **fourier alone**, so §F restates v1 §§3.1–3.3 as a **one-sided** conformance
+   surface and must not re-introduce a value.js probe. **`FR-EMT-20` is cited at §E10 and is F1's to
+   book.** The **value-side obligation list** inherits three items this unit measured and deliberately
+   did **not** rule: the **D9 reconciliation** (3-state `model.ts:61` vs D9's two), **V-γ's** version-row
+   hole under `userSlug: string | null` (§E18), and **V-β's** compound-`_id` execution ⊕ its missing test
+   (§E1). Each is the **value.js API row's**, *never a silent contract overwrite and never a fourier
+   defect*.
+2. **To unit e (G19/G20/G22)** — this unit **books only the ids the spec's §C/§D/§E rows-folded cells
+   book**; every other id is **cited to its holder by name** (the §c.8 enumeration is the list). **No id
+   is minted**, no roster entered at either end, and the **seven §2c exclusions stay excluded**. For
+   **G22**: the **E11 merge is recorded in the clause as its own provenance** — `RESOLVER` ⊕ `L/M-3`,
+   **both ids preserved**, with `L/M-3`'s **kill of `C/i-1`** carried (`animation_settings` on all four
+   models, seat-verified at `visualization.py:129`/`:189`/`:244`/`:283`) — so unit e's G22 second item is
+   discharged at the contract and unit e need only resolve-or-strike **MF-9**.
+3. **To F.W8** — **§D3's port is written against §D4's flag-identity settlement**, and §D3's own lock
+   says so: *a producer that lands with a different flag identity re-opens §D4 at the moment it ships*.
+   **F.W8's §3 J4 consumes §D7's bound and does not author it** (that end already says so).
+4. **To F.W1** — the **G11 back-edge is discharged** (c.2/§D3): the ruling preceded sizing and the clause
+   is landed. **§D7's `FR-AFP-33` counterweight is now live rather than latent** — `if not flagged`
+   short-circuits production's only case, so the cost was LATENT *while the queue had no producer*; the
+   producer ruling changes that row's **weight**, and F.W1 re-derives FR-AFP grades **at the populated
+   surface**, as F-PRODRET directs.
+5. **To F.W9/W10** — **§0.6's instrument is what a conformance probe must use** on this document
+   (whitespace-normalized matching on stable clause ids, never line numbers into a live file); **21 of
+   this unit's normative sentences were verified under it at authoring**. §E3's rendering rule is part of
+   the probe's contract: a report that marks the value.js diff probe *missing*/*pending*/*RED* is
+   **mis-reading the scope**.
+
+#### Escalations
+
+**None.** No write outside the writable set (`J-diff-shape-v2.md` appended; this receipt appended;
+`LEDGER.md` untouched — not unit c's; `COHESION.md`, the registry, the canonical, `lane-crud.md` and the
+spec **unedited**). **Zero fourier bytes written**; **v1 byte-unchanged**. No ruling re-opened and none
+presumed — all eight §0j.D rulings this unit consumes are cited by **ruling id** with the ruling's own
+words. **E-3 honoured**: the six instrument/anchor corrections live in **the clauses themselves** and in
+**this** record, never in the spec, never in v1, never in the registry. **Triumvirate status: no halt
+condition approached** — no register/triple disagreement (the register agreed at first reading and this
+unit only consumes it), no `(record, id)` homing failure at any of this unit's 41 clauses, and MF-9 is
+unit e's.
+
+**Handoff**: F.W5's writable set is clean after this unit's two commits; **unit d may open.**
