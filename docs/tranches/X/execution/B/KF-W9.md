@@ -466,3 +466,23 @@ tracked and recovers with ⟨`git show c0078d96:<path>`⟩ — named inside the 
    only that cell.
 4. **Two kf tracked rows are dirty from KF.W4's chassis.** Recorded so no later seat reads a nonzero
    `git status` as a moved substrate; the source trees are identical.
+
+##### `.a` ADDENDUM 16:14 — a SECOND blocker, found on the closing sweep
+
+Re-measured after the chassis committed: ⟨`git -C ../keyframes.js diff --name-only -- demo/ | wc -l`⟩ →
+**21** (it was **0** at 15:50), newest write **16:13:48** (`CubeScene.vue`, `OrbitalDrag.vue`,
+`ControlsPaneWrapper.vue`); ⟨`rev-parse HEAD`⟩ → `55e9bf0d` **unchanged — the edits are uncommitted**.
+**KF.W4's concurrent fan-out is editing the exact `demo/` surface this wave photographs.**
+
+This is **harder than the missing bundle**, and it is not the same problem. A rebuild taken now would
+compile 21 uncommitted files, so the artifact **could not honestly carry `substrateSha: 55e9bf0d`** —
+a receipt against a moving substrate, the same class that disqualified `8281638c` in the first place
+(§H's witness-substrate law). The capture band therefore has **two** unmet preconditions: **no bundle**
+(curable by one command under a named grant) and **no stable source** (not curable by this wave at all).
+
+**`.a` books it and stops** — no rebuild, no stash, no checkout of a sibling's worktree, and **no
+softening of the substrate stamp so a capture can proceed anyway**. Three lawful shapes are offered for
+the orchestrator's decision at `SUBSTRATE-PIN.md` §8 — **(a)** wait for KF.W4 to commit and re-pin ·
+**(b)** build and serve from a clean clone at `55e9bf0d` (preserves the published pin exactly) ·
+**(c)** re-pin forward to KF.W4's post-commit sha, with its stated cost. **Capturing now and stamping
+`55e9bf0d` is named as the one option that is not available.** Commit `d629be8b`.
