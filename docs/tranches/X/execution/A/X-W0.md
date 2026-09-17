@@ -1497,3 +1497,134 @@ I-31 status cell + one appended sweep line — and nothing else. **No** `registr
 byte, **no** `docs/tranches/X/artefacts/W0/` directory manufactured. **No escalation answered** — all
 fifteen are returned as they were raised. `scripts/dev/dev.sh` never touched, never staged. No
 history rewritten; no `git stash`, no `reset --hard`, no force-push.
+
+---
+
+## §RESUME 2026-09-17 — the repair round, opened on COHESION §0k.1 (seat 0, RESUME MODE)
+
+**E-3 posture.** This is a dated block **appended beside** §Open … §Close. **Not one byte above this
+line is rewritten** — no gate is re-baselined, no round-1 measurement re-taken, no unit receipt edited.
+X-W0's round-1 state stands exactly as its seats wrote it: **IMPLEMENTED 2026-09-17** (`1246f859`),
+17/18 hard + 8/8 fold GREEN, **HG-7 RED (E-1)**, **HG-10 SPLIT (E-2)**.
+
+**Seat**: seat 0 (OPEN — resume) · Opus (`claude-opus-5[1m]`) · 2026-09-17.
+**HEAD at resume**: `dfe890e1` ⟨`git log --oneline -1`⟩ · branch `tranche-u`.
+**Authority for re-opening**: **COHESION §0k.1** (`505429ca`, *"THE X-W0 CLOSE DOCKET, RULED"*), whose
+HG-7 row ends *"**Landed by X-W0's repair seat**: `docs/tranches/V/megatranche/workflows/validate-completeness.mjs`
+is inside X-W0's COMPLETABLE clause … the self-test S1..S6 must then run and pass on the real tree. No
+run id borrowed, no allowlist, no cutoff written into a fixture."* and §0k.3's consequence line:
+*"X-W0's repair seat lands §0k.1's HG-7 cure and the §Verification Artefacts pointer; **its fresh check
+then adjudicates the close**."*
+
+**What this round is NOT.** It re-opens no ruled row, re-runs no unit a..j, and mints no new scope. Two
+acts and one adjudication: the HG-7 corpus predicate, the §Verification Artefacts pointer (+ the HG-10
+reading §0k.1 rules), and then a fresh, independent check that adjudicates the close.
+
+### Open (resume) — preconditions verified at the bytes AND in the ledger
+
+| condition | verified how | result |
+|---|---|---|
+| X-W0 round 1 landed and closed IMPLEMENTED | all **13** hashes re-opened ⟨`git log --oneline -1 <h>` ×13⟩: `befbc05a` `5937b6de` `9f4b22a7` `af03de5c` `58be3626` `549353fd` `b5673ae0` `c9aa1fdf` `2012dbfa` `379d011c` `ad240462` `f7197d71` **`1246f859`** — every one reachable, subjects match the §Close roster | **MET** |
+| the repair is RULED, not presumed | ⟨`git show HEAD:docs/tranches/X/COHESION.md \| grep -c 'HG-7 (E-1) — SCOPE now, HARVEST at X-W11'`⟩ → **1**; §0k.1 and §0k.3 are at HEAD, committed `505429ca` | **MET** |
+| both write targets are inside X-W0's own §File Bounds | `waves/W0.md:84` `workflows/validate-completeness.mjs` **modify-carve**; `:75` `waves/W0.md` **modify**; `:92`/`:93` both registry ledgers **modify (generated)** | **MET — no bounds expansion** |
+| P-1 · P-2 · P-3 | LEDGER §Pre-acts: all three `CLOSED 2026-09-17` | **MET** |
+| the wave-owned tree is settled | ⟨`git status --porcelain -- docs/tranches/X/execution/ docs/tranches/X/waves/W0.md docs/tranches/V/megatranche/workflows/ \| wc -l`⟩ → **0** | **MET** |
+| no predecessor wave | X-W0 is Track A's head (RUNBOOK §1.1) | **MET** |
+
+### Mail sweep (E13 Step-0, runbook §5.3) — **0 unrowed · 0 UNREAD in scope**
+
+Four paths swept read-only at this seat's clock; classification taken from each row's **status cell**,
+never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**).
+
+| # | path | newest | disposition |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` + `V/coordination/` | `INBOX.md` self-excluded (SELF-COUNT law); newest non-self `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09 | **ours (O-21)**, rowed at I-26 → CURED |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` | `glass-outbound-2026-08-29-valuejs-o20-ack.md`@2026-08-29 16:41 | **I-30**, rowed — still the ledger tail |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`@14:58 | **ours**, O-21's delivery |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md`@Aug 3 | **ours (O-12)** |
+| 4b | `../sci-report/atlas/docs/tranches/Q/coordination/` (the later lane, per I-27/I-31's minuted path note) | `ATLAS-TO-VALUE-2026-08-03-RULINGS.md` | **I-27**, rowed |
+
+**BK re-confirmed the newest glass tranche dir** ⟨`ls -ltd ../glass-ui/docs/tranches/*/`⟩ → `BK/`@2026-09-17 12:49 heads `BJ/`@2026-08-03. BK's five files written after 12:00 today are **producer-internal**, not mail paths (`BURNDOWN.md` · `EXECUTION-PROGRESS.md` · `PLAN.md` · `ASK.md` · `execution/2026-09-17-status-census/CENSUS.md`); bounded ⟨`grep -ci 'value.js\|valuejs'`⟩ → `BURNDOWN` **0** · `PLAN` **0** · `ASK` **1** · `EXECUTION-PROGRESS` **15**, every hit a row of **their** consumer ledger (the O-19/O-20 receive, the `SearchBar` relay census) — **no letter and no ask of us**. `glass-ui` stayed READ-ONLY; zero bytes written to any sibling tree by this seat.
+
+**I-31** — rowed and **FOLDED** at the round-1 close with its three receipts; it is no longer UNREAD.
+Status-cell scan over all rows: **0 UNREAD**.
+
+### Baseline (resume round) — BEFORE, re-measured READ-ONLY at this clock
+
+Read-only proven, not assumed: ⟨`git status --porcelain`⟩ **byte-identical before and after** the
+self-test runs (`--self-test` returns at the harness's own guard, before the `:511` ledger write).
+
+| gate | probe ⟨cmd⟩ | round-1 close reading | **measured now (double-run)** | verdict |
+|---|---|---|---|---|
+| **HG-7** | `node …/workflows/validate-completeness.mjs --self-test` | `exit 1 · 87 uncovered` (RED, E-1) | `exit 1 · **89 uncovered** · 264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED`, identical on both runs | **RED — the round's one cure** |
+| **HG-6** | same-line unqualified `264/264` over the five live gate sites | **0** | **0** | **GREEN (stay-GREEN)** |
+| **HG-10** | supersession column + r2 tracking | SPLIT (E-2) | column live: **6** rows read `r1 · re-run at r2 (witnessed)`; **6** r2 artefacts tracked | **GREEN-BEFORE-CURE** under §0k.1 |
+| **HG-16** | `grep -L COMPLETABLE docs/tranches/X/waves/W*.md` | 12 files · 0 missing | **12** files · **0** missing | **GREEN (stay-GREEN)** |
+| **HG-1** | `git ls-files --others --exclude-standard docs/ \| wc -l` | **0** (absolute, double-run) | **3** — `V/megatranche/registry/harvest/x-p-w1.json` (Track D) · `X/keyframes/**` ×2 (Track B) | **DIVERGENT — cross-track, see F-R2** |
+| **E-3 pointer** | `ls docs/tranches/X/artefacts` ⧸ `grep -c '§0k' waves/W0.md` | bank absent, gap returned ×5 | **No such file or directory** ⧸ **0** | **RED — the round's second act** |
+
+**HG-7 verbatim, both runs identical:**
+
+```
+baseline (unmutated tree): exit 1 · 89 uncovered · 264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED
+three integers (canonical roster): EXISTS-ORIGINAL 213 · UNWITNESSED-DIRECT 5 · REPORT-AUTHORED 46
+BASELINE IS NOT GREEN — self-test is meaningless until the real tree passes. Fix the tree first.
+```
+
+**The corpus, measured at this clock** (the datum §0k.1's predicate ranges over) ⟨`node -e` over
+`SESSION_WF`, read-only⟩: **128** run records readable, **0** unreadable — **33** timestamped on or
+before **2026-08-03**, **95** after it, and every after-boundary `workflowName` names one of the four
+tranche-X tracks (`xf-repair-r2` · `fourier-saturation-batch-*` · `kf-adjudication-batch-*` ·
+`xp-refinement-fold` · `xp-fold-repair-r6` · `xkf-repair-r6` …). The record shape carries a
+`timestamp` field (and `startTime`) — the predicate has a real datum to range over and needs no
+invented one.
+
+### Findings this baseline hands the repair round (findings, not rulings)
+
+- **F-R1 — the uncovered count moved 87 → 89 between the round-1 close and this clock, and the drift IS the diagnosis.** Two more tranche-X journals accrued in a live session directory while X-W0 sat closed. A law whose subject set grows when no megatranche byte moves is exactly the unscoped law §0k.1 rules on. The repair seat states the number it measures at its own clock; **87 is not carried forward as a constant.**
+- **F-R2 — HG-1 reads 3, and none of the three is X-W0's to cure.** `registry/harvest/x-p-w1.json` is a live Track D seat's artefact; the two `docs/tranches/X/keyframes/**` trees are Track B's evidence dirs, inside their own waves' bounds. X-W0's HG-1 was **absolute 0 at its close seat's clock, double-run**; these carriers post-date it. **The repair seat neither tracks nor deletes them** (a write outside §File Bounds), and the fresh check reads HG-1 against X-W0's own bounds with the three carriers named and owned.
+- **F-R3 — HG-10 is GREEN before this round writes a byte.** X-W0.c's supersession column (C6) already prints the witnessed r2 round beside each of the three canonical rows, and X-W0.e already tracked the r2 artefacts; §0k.1 rules that column **is** the cure and that the falsifier is read against it. The round therefore **records** HG-10 GREEN and **writes no ledger byte for it** — re-badging `REPORT-AUTHORED` would falsify the one thing the status column records.
+- **F-R4 — the artefacts bank stays absent, as ruled.** §0k.1: *"no new directory"*. The pointer is a dated addendum at `waves/W0.md` §Verification Artefacts naming the tracked homes the close record's §4 maps, row for row.
+- **F-R5 — two sibling-seat working paths are live in the index's neighbourhood and must never be staged**: `registry/DEFECT-LEDGER.md` (modified by a concurrent harvest seat) and `registry/harvest/x-p-w1.json` (untracked, Track D). Four tracks share this git index; the standing law is **pathspec on the commit itself** (§0k.1's contamination row). `scripts/dev/dev.sh` is never touched, never staged.
+
+### Unit plan (resume round) — **2 units · 2 ordered groups · peak concurrency 1**
+
+Serial by construction: the check adjudicates a close that includes the repair, so it cannot precede
+it. Both seats are **Opus** — `waves/W0.md` §Agent Units `:142` binds this wave's seats to Opus by
+name (*"No unit here is design content; the twice-authored Fable ∥ Opus → fresh-Fable apotheosis
+process belongs to X-W10 … and is not performed in this wave"*), and the fresh-check precedent in this
+program (F.W0 CHECK 1, X.P.W0 CHECK 1) is an independent Opus seat that authored none of the bytes.
+
+| group | unit | model | writes |
+|---|---|---|---|
+| 1 | **X-W0.k** — the HG-7 corpus predicate + the §Verification Artefacts pointer | Opus | `workflows/validate-completeness.mjs` · both registry ledgers (generated only) · `waves/W0.md` (dated addendum) · this record |
+| 2 | **X-W0.m** — the fresh check, VERIFY-ONLY, adjudicates the close | Opus | this record (§Check 1) · `execution/LEDGER.md` (its own row cells) |
+
+**X-W0.k — sections**: `waves/W0.md` §Hard Gate **HG-7** `:251–259` · **HG-6** `:246–249` · **HG-8**
+`:261–264` · §Agent Units X-W0.c `:158–163` · §File Bounds `:84,:85,:92,:93,:75` · §Disjointness `:119`
+· §Format And Lint Cadence `:338–346` · §Commit Plan rows 5 + 11 idiom `:375,:381` · §Verification
+Artefacts `:350–363`; **COHESION §0k.1** `:696–715`; the close record **§4** `:1345–1370` (the mapping
+the pointer cites) and **X-W0.c C1–C8** `:742–818` (the measured ground).
+
+**X-W0.m — sections**: the spec **whole** (572 L incl. §ADDENDUM + §CLOSE) · this record **whole** ·
+`X/refinement/X-W0-FOLD.md` G-A..G-H · **COHESION §0i.2 · §0j · §0k.1–§0k.3** · RUNBOOK §1.1 · §3.4 ·
+§5; LEDGER row + event log.
+
+#### X-W0.k — the HG-7 corpus predicate and the §Verification Artefacts pointer (COHESION §0k.1)
+
+- **Gates it must turn**: **HG-7 GREEN** (baseline green **and** S1..S6 each rejected) · **HG-6 stay-GREEN** (same-line unqualified `264/264` → 0 at all five live sites) · **HG-8 stay-GREEN** (ephemeral `git worktree` of HEAD: `node hydrate-reports.mjs && node validate-completeness.mjs` → `git diff --exit-code` **0**, double-run, worktree removed, nothing committed from it) · **HG-10 recorded GREEN** under §0k.1 (no ledger byte written for it).
+- **Writable set** (nothing else): `docs/tranches/V/megatranche/workflows/validate-completeness.mjs` · `docs/tranches/V/megatranche/registry/COMPLETENESS-LEDGER.md` · `docs/tranches/V/megatranche/registry/HYDRATION-LEDGER.md` (**generated only — never a hand edit**, §Disjointness `:119`) · `docs/tranches/X/waves/W0.md` (dated addendum, append-beside) · `docs/tranches/X/execution/A/X-W0.md` (its own receipt).
+- **Locks / families**: the predicate **and** the ledgers it regenerates are **ONE commit** (§Commit Plan row 5's generated-output idiom, body required); the `waves/W0.md` addendum is a **second** commit (one commit per meaning). **Pathspec on the commit itself** — `git add <paths> && git commit --no-verify --quiet -m … -- <the same paths>`; **never** stage `registry/DEFECT-LEDGER.md`, `registry/harvest/x-p-w1.json`, `docs/tranches/X/keyframes/**` or `scripts/dev/dev.sh`.
+- **Acts, in order**: (1) re-measure HG-7 double-run and state the number at your own clock (**89 here, not the inherited 87**); (2) write the corpus predicate into the non-band law **in §0k.1's own words** — it ranges over run records timestamped **≤ 2026-08-03** (the megatranche dispatch boundary) **plus any record a canonical row cites**; live tranche-X session journals are outside the corpus **by construction**, not by exception; the record's own `timestamp` field is the datum; (3) **print** the predicate, the in-corpus denominator and the **out-of-corpus count as a dated, owed figure** (`harvest at X-W11`), so the scope suppresses nothing; (4) regenerate both ledgers through their generators and verify the three integers still read **213 · 5 · 46 = 264 = 218 + 46**; (5) run `--self-test` — baseline GREEN **and** S1..S6 all rejected — double-run; (6) re-run HG-8's ephemeral-worktree replay and its falsifier; (7) append the dated `waves/W0.md` **§ADDENDUM 2026-09-17 (§0k.1)**: the §Verification Artefacts pointer (**no new directory** — the ten rows of the close record's §4 mapping, quoted by name) and the **HG-10 GREEN** reading (supersession column IS the cure; canonical provenance words are not re-badged); (8) write this record's receipt with BEFORE→AFTER per gate.
+- **Forbidden, named**: no borrowed/invented run id, no `BANDS` re-point, no allowlist, no cutoff written into an S1..S6 fixture, no weakening of any fixture, no `covered:true` short-circuit, no harvest file written, no `DEFECT-LEDGER.md` byte, no canonical `challenge-*.md` byte, no `registry/adjudicated/**` byte, no 7e28 byte, zero product source. If the predicate cannot be written without one of these, **STOP and escalate** — a third diagnose→edit→re-measure iteration on HG-7 is itself a Triumvirate trigger (§Triumvirate Dispatch `:65`).
+
+#### X-W0.m — the fresh check (VERIFY-ONLY) that adjudicates the close (COHESION §0k.3)
+
+- **Independence**: an Opus seat that **authored none of X-W0's bytes**. It **cures nothing, re-opens nothing, and extends relief to no gate by name** — it re-runs and adjudicates.
+- **Acts, in order**: (1) read `waves/W0.md` **whole** and this record **whole**; (2) re-open **every** wave commit with `git show --name-status` (the eleven of round 1 + X-W0.k's) and prove the union bounds again: non-`docs/` **0** · `registry/adjudicated/` **0** · 7e28 copies **0** · canonical `challenge-*.md` **0** · `scripts/dev/dev.sh` **0**; (3) **re-run all 18 hard gates and all 8 fold gates (G-A..G-H) at its own clock**, never inheriting a reading, each against the gate's own GREEN definition, doubling every published count; (4) read **HG-1** against X-W0's bounds with the three cross-track carriers **named and owned** (F-R2) — it neither tracks nor deletes them; (5) read **HG-7** against §0k.1's predicate and **HG-10** against §0k.1's supersession clause; (6) confirm **HG-18 stays FAIL at the elected target 8.0.0** (§0i.2) so X-W4.g stays CLOSED and the §1.M bank shut; (7) E13 sweep at close — **no close with UNREAD mail**; (8) verify the **fifteen escalations**' dispositions against §0k.1/§0k.2/§0k.3 and name any that remain owed; (9) write **§Check 1** in this record and set the LEDGER row by minimal in-place edit to the verdict it measures, appending an event-log line.
+- **Verdict vocabulary**: `CLOSED` only if every gate reproduces GREEN at its own clock, or `CLOSED (honest-RED: …)` naming each RED with the ruling that relieves it — the F.W0 CHECK 1 idiom. **VERIFIED stays ✗** — X-W11's alone (R-A).
+- **Writable set**: `docs/tranches/X/execution/A/X-W0.md` · `docs/tranches/X/execution/LEDGER.md` (its own row cells + an appended event line). **Nothing else** — a check that edits a gate's subject has stopped being a check.
+
+### Unit receipts (resume round)
+
+_(empty at open — each unit appends its own block below, newest last.)_
