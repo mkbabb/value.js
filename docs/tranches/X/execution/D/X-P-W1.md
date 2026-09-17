@@ -771,6 +771,290 @@ specified cure was possible at the bytes, and no diagnose→edit→re-measure lo
 third iteration.
 
 
+### X.P.W1.b
+
+**Date**: 2026-09-17. **Seat**: X.P.W1 unit `.b` (the equivalence oracle), `claude-opus-5[1m]`
+(M-23 §2 implementation seat, as §5 declares for all five units).
+**Spec sections executed**: `W1.md` §5 `X.P.W1.b` (L233–255) · §3 item 2 (L87–89) · §6 G-2
+(L385–413) · §2c rows L74–75 · §4 rows L140–141, L155.
+**Writable set**: `/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/equivalence/**`.
+**Gate owned**: **G-2**. **Commit (in `<p2>`, §9's one commit for this unit)**:
+`d1458f4f3c08899cb832752214e8c719cb8ed318`.
+**Rulings consumed**: COHESION **§0j.E OP-1** (both owner words given 2026-09-17 — the lane is open)
+and **§0j.E OC-1**, read and found **not binding on G-2**: it rules the *bench* table
+recorded-not-gating and ratifies no bar; this gate's trigger is a defect count, not a bar.
+
+---
+
+#### Act 1 — the sources measured before a byte was written
+
+⟨cmd⟩ `ls -la /Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof/equivalence/` →
+`corpus.json` **80065** · `harness.ts` **20514** · `equivalence-results.json` **185107** ·
+`harvest.mjs` 9949 · `probe{,2,3}.ts` · `witness-attempt.ts`. **Both byte sizes the spec's OP-2 row
+names reproduce exactly**, so the port reads the primary tree and OP-2's fallback branch stays shut.
+
+⟨cmd⟩ `shasum -a 256 …/equivalence/{corpus.json,harness.ts}` →
+`c6649cadd10f2aca7227482bc0c05ea1f9aaf3159e563a052f65aeea0f0a4ff8` ·
+`ac1b5afcc1e2b09f01bdb2cbbdbb46362836bd8c019134a69b98531eab3971f7`. Both digests are carried in the
+port's own header so a later reader can prove what was ported from what.
+
+⟨cmd⟩ `shasum -a 256 …/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js` →
+**`8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42`** — string-equal to the digest
+`cand-o/equivalence.test.ts:76` asserts for the published tarball. This is the LIVE engine of record.
+
+⟨cmd⟩ `node -e '…'` over the authority → the `equivalence.md` §1 block is **683 UTF-8 bytes / 675
+UTF-16 units / 9 lines**, sha256 **`554c2993cebd3ed386e023e043ded9538bd99fd488de0598ada40b845dd963a7`**.
+
+⟨cmd⟩ `sed -n '80,148p' …/registry/adjudicated/parser-band.md` → the ledger is **15 + 7 = 22** rows
+(fifteen published-parser defect rows; the seven of *"Structured corpus 86 inputs: 79 agree, 7
+disagree"*), which is the *"22-row divergence ledger asserted in both directions"* the record's own
+§4 names — counted, not assumed. The DISSENT section holds **five** bullets, of which the fifth
+(*"cand-F's disclosure hygiene is noted for the record"*) is a process note; the **four** W1.md §2c
+names — token juxtaposition · non-finite numerals · try/catch posture · bench epistemics — are the
+DISSENTs, and the fifth is deliberately **not** carried as one.
+
+#### Act 2 — the port, with its four declared changes
+
+Four files created, all inside the writable set:
+
+| file | B | what it is |
+|---|---:|---|
+| `corpus.json` | 80,065 | **byte-exact copy**; ⟨`shasum -a 256`⟩ at source and at destination both `c6649cad…0f0a4ff8` |
+| `taxonomy.ts` | 7,794 | the §1 taxonomy verbatim + `checkTaxonomyUnmoved()` |
+| `declared-divergences.ts` | 13,313 | the 22 ruled rows + the 4 DISSENTs + `checkDivergenceRows()` |
+| `harness.ts` | 37,172 | the gate-invoked entry |
+
+The per-door differential — the semantic-core extractors, the selector/comment normalisation, the two
+C14 shape oracles, the verdict ladder and **the defect predicate** — is carried over **unchanged**. A
+port may not improve the thing it ports: an oracle that reproduces GREEN under a different rule has
+reproduced nothing. The four changes, each with its reason, are stated in the file's own header:
+
+1. **LIVE is the vendored sha-pinned tarball, never the working tree** (§5.b's fold of the parser
+   band's G6). The original's one un-portable line was
+   `from "/Users/mkbabb/Programming/value.js/dist/subpaths/css.js"`. The tarball's digest is asserted
+   at startup and printed, so the engine bytes are a coordinate rather than an assumption.
+2. **The corpus is the port's own copy**, so the harness has no read dependency on a job temp
+   directory; item ids and the **raw** provenance tags are preserved.
+3. **The taxonomy is asserted byte-for-byte** against `equivalence.md` §1 — G-2's falsifier is a
+   *widened rule*, not a wrong count.
+4. **The 22 ruled divergences and 4 DISSENTs print as their own section**, never summed into the
+   defect count.
+
+**The defect predicate is STRICTER than A/B/C alone and was kept that way.** The ported original also
+counts a C14-side (or two-sided) thrown exception as a defect. Narrowing it to A/B/C would have been
+a widening of acceptance under the cover of following the spec's letter, so the gate here requires
+**both** `A/B/C = 0/0/0` **and** zero C14/BOTH engine exception.
+
+**Two provably behaviour-identical no-ops of the original were not transcribed**, declared here
+rather than left silent: `harness.ts:223` (`if (verdict === "STRUCT_CONGRUENT" && coreEq(…)) verdict
+= "STRUCT_CONGRUENT";` — a reassignment to the value just assigned) and `:270` (`verdict = atRule ?
+"COVERAGE_NARROWING" : "COVERAGE_NARROWING";` — a ternary with identical arms). Neither can change a
+verdict; the 403-row comparison in Act 5 is the measurement that they did not.
+
+#### Act 3 — WRITE-THEN-MEASURE caught this seat's own published figure
+
+The first run printed `TAXONOMY: ported verbatim copy is 683 B, pinned at 675 B` and exited non-zero.
+The taxonomy had **not** moved — sha256 and the extracted text both matched. **The seat's own
+constant was wrong**: `675` was read from `String.length` (UTF-16 units) and asserted against
+`Buffer.byteLength` (UTF-8). The block carries four em-dashes, so the two readings differ by exactly
+8. Cured at the root rather than by relaxing the check: **both** units are now pinned and asserted
+(`TAXONOMY_BYTES` 683 · `TAXONOMY_CHARS` 675 · `TAXONOMY_LINES` 9), with the comment that names why a
+check mixing them fails a correct port for the wrong reason. **This is the gate catching its author,
+which is the whole argument for asserting the class definitions and not only the count.**
+
+#### Act 4 — G-2, BEFORE → AFTER
+
+**BEFORE** (this record's §Baseline, unchanged): `size 403` read from the corpus, hint map
+byte-identical to the spec's, **`<p2>/harness/equivalence` ABSENT — 0 items ported. RED.**
+
+**AFTER** — ⟨cmd⟩ `npx tsx /Users/…/parse-that-css-totality-p2/harness/equivalence/harness.ts`,
+**exit 0**, the harness's own stderr **0 bytes**, `real 1.73` then `real 1.56` on a double-run whose
+two stdout captures ⟨`diff`⟩ differ **in the PID line alone**:
+
+```
+--- corpus ---
+size 403
+provenance {"c":84,"b":232,"seed":70,"d":27,"a":19}
+provenance-raw {"c:demo-css":84,"b:test/*":232,"seed:color:non-oklch":11,"d:c14-tests":27,
+  "seed:sheet:bad":4,"seed:sheet:in":4,"seed:sheet:narrow":5,"seed:color:oklch-oos":5,
+  "seed:easing:cb-badx":3,"a:test/parsing":19,"seed:easing:cb-bad":4,"seed:easing:cb-in":7,
+  "seed:easing:non-cb":7,"seed:color:oklch-bad":7,"seed:color:oklch-in":13}
+hints {"stylesheet":121,"color":84,"value":120,"sheet":13,"keyframe-selector":22,"easing":43}
+corpus sha256 c6649cadd10f2aca7227482bc0c05ea1f9aaf3159e563a052f65aeea0f0a4ff8
+ids 0..402 · unique 403 · raw provenance tags 15 · multi-tag items 26
+
+--- taxonomy (equivalence.md §1, byte-for-byte) ---
+extracted 683 B · sha256 554c2993…5dd963a7 · UNMOVED
+
+--- tally ---
+{ "CONGRUENT_REJECT": 50, "COVERAGE_NARROWING": 95, "OUT_OF_SCOPE": 142,
+  "STRUCT_CONGRUENT": 105, "LIVE_STRICTER": 10, "ENGINE_EXCEPTION": 1 }
+
+--- DECLARED DIVERGENCES (ruled; NOT defects) ---
+22 ruled divergence rows · 4 preserved DISSENTs
+
+--- ENGINE_EXCEPTION ---
+   LIVE "oklch()" :: LIVE threw: Cannot read properties of undefined (reading 'replace')
+
+A/B/C = 0/0/0
+defects (A+B+C + C14/BOTH engine exceptions) = 0
+GATE: GREEN
+```
+
+`size 403` ✓ · provenance map unchanged from the RED baseline ✓ · hint map unchanged ✓ ·
+**`A/B/C = 0/0/0`** ✓ · declared-divergence list printed as a section distinct from the defect count ✓
+· exit **0** ✓. **§3a's halt condition — *"the P-1 GREEN failing to reproduce"* — did not fire.**
+
+**The tally reproduces `equivalence.md` §3's congruence table to the digit** (105 / 50 / 95 / 142 /
+10 / 1, and 0 / 0 / 0), and the single `ENGINE_EXCEPTION` is the **LIVE** thrower on `oklch()` — R1,
+the shipping crash — not a C14 defect.
+
+#### Act 5 — the port proved comparable row-by-row, which is what the provenance tags are for
+
+⟨cmd⟩ `node -e '…'` joining the ported `equivalence-results.json` to the prior run's by item id:
+
+```
+prior rows 403      ported rows 403
+prior tally  {"CONGRUENT_REJECT":50,"COVERAGE_NARROWING":95,"OUT_OF_SCOPE":142,
+              "STRUCT_CONGRUENT":105,"LIVE_STRICTER":10,"ENGINE_EXCEPTION":1}
+ported tally {"CONGRUENT_REJECT":50,"COVERAGE_NARROWING":95,"OUT_OF_SCOPE":142,
+              "STRUCT_CONGRUENT":105,"LIVE_STRICTER":10,"ENGINE_EXCEPTION":1}
+verdict differences: 0 / 403
+provenance tag differences: 0
+source mismatches: 0
+prior gate GREEN   ported gate GREEN      prior defects 0   ported defects 0
+```
+
+**Zero of 403 rows differ in verdict, in source, or in provenance** — and this is a stronger reading
+than a repeat, because the prior run's LIVE engine was the **working-tree dist** and this one's is the
+**published 4.0.0 tarball**. §5.b flags that those two differ in bytes (the dist-drift finding). They
+are here measured to differ in **no verdict on any of the 403 corpus rows**. That is a positive
+finding this wave did not have, and it is *bounded*: it says the drift is invisible to this corpus at
+this taxonomy, not that the two artifacts are equal.
+
+#### Act 6 — the falsifiers fired, on copies, with the landed files proven untouched
+
+G-2's falsifier names three failure modes. Each was *executed* on a scratchpad copy of the four files
+— never on the landed bytes, never on the read-only authorities:
+
+| # | mutation | reading |
+|---|---|---|
+| F-0 | control, unmutated copy | `A/B/C = 0/0/0` · **GATE: GREEN** · exit **0** |
+| F-1 | **widen the taxonomy** — reclassify `(B) MIS_ACCEPT` as `COVERAGE_NARROWING` in the ported verbatim copy | `UNMOVED` → **`MOVED`**; four distinct failures printed (block differs 683 vs 691 B · digest `aa592db0…` ≠ pinned · UTF-8 683→691 · UTF-16 675→683); **GATE: RED** although `A/B/C` was still `0/0/0` — *the count stayed zero and the gate still went red, which is the falsifier's exact claim* |
+| F-2 | **lose the provenance tags** — strip one item's tags | `provenance summary moved: {…"c":83…} != {…"c":84…}` + `corpus header provenanceCounts disagrees with the tags on its own items`; **GATE: RED** |
+| F-3 | **drop one declared-divergence row** (22 → 21) | `21 ruled divergence rows` + `DIVERGENCES: ported divergence ledger is 21 rows, the adjudication declares 22`; **GATE: RED**, unpiped ⟨`echo $?`⟩ → **1** |
+
+After restoring, the same copy ran **GATE: GREEN, exit 0**. ⟨`shasum -a 256`⟩ over the four landed
+files vs the restored copies → **SAME ×4**. ⟨`git -C value.js status --porcelain -- …/parser-proof/
+…/parser-band.md …/cand-o`⟩ → **0 lines** (the sealed record, the adjudication and the vendored
+tarball were read and never written). ⟨`find …/parser-proof -type f -not -path '*node_modules*' | wc
+-l`⟩ → **189**, the open reading unchanged — the job tree was a copy source and nothing else.
+
+#### Act 7 — §7's typecheck limb, taken the only way Q-1 allows
+
+⟨cmd⟩ `tsc --noEmit --strict --target es2022 --lib es2023 --typeRoots <prototype-ws>/node_modules/@types
+--types node --module esnext --moduleResolution bundler --skipLibCheck harness/equivalence/harness.ts`
+→ **exit 0, zero diagnostics.** `tsc` is resolved from `/opt/homebrew/bin/tsc` and `@types/node` by
+**absolute path into the prototype workspace's already-installed `node_modules`** — precisely Q-1's
+in-bounds posture. **No `<p2>` root `package.json`, no `<p2>/tsconfig.json` and no `npm ci` was
+written or run**; each is Q-1's named §3a trigger.
+
+#### Act 8 — the commit
+
+⟨cmd⟩ `git -C <p2> add <5 paths> && git commit --no-verify --quiet -m … -- <5 paths>` →
+**`d1458f4f3c08899cb832752214e8c719cb8ed318`**, `5 files changed, 12365 insertions(+)`, message
+verbatim from §9: *"feat(x-p-w1/equivalence): port the 403-string oracle with its three-class
+taxonomy intact"*, body carrying the provenance and hint counts and the reproduced defect count as
+§9 requires. **One commit, as §9 binds for this unit.** The **pathspec is on the `git commit`
+itself** (X-W0.e `:402`'s shared-index hazard — unit `.a` was committing into the same `<p2>` index
+this sitting and landed `d8a529a` between this seat's first measurement and its commit).
+⟨`git -C <p2> diff --check`⟩ → **0**. ⟨`git -C <p2> status --porcelain`⟩ → **empty** after.
+**Gate 27** ⟨`git -C value.js status --porcelain -- src api demo test e2e`⟩ → **0 lines**, asserted
+before and after. `scripts/dev/dev.sh` never touched, never staged.
+
+---
+
+#### ESCALATION — G-2's literal invocation cannot run from `<p2>` on this box, and the cure is outside every bound
+
+**This is the one obligation of the unit that was not discharged, and it is returned rather than
+worked around.**
+
+G-2's GREEN condition names a literal command *"run from `<p2>`"*: `npx tsx
+harness/equivalence/harness.ts`. **That command does not complete on this machine.** Measured twice,
+in two processes:
+
+```
+$ cd <p2> && npx tsx harness/equivalence/harness.ts
+FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
+  … 4079.6 (4081.6) MB …            EXIT=134
+real 150.93   user 61.25   sys 101.78
+```
+
+**The cause is not the harness.** ⟨cmd⟩ `cd <p2> && npx tsx --version` — a command that runs none of
+this unit's code — was still running at a 115 s cap with `user 35.55 / sys 84.38`. The same entry,
+invoked by the same `npx tsx` from any other working directory, runs in **1.35–1.73 s**:
+
+```
+$ cd <scratchpad> && npx tsx /Users/…/parse-that-css-totality-p2/harness/equivalence/harness.ts
+A/B/C = 0/0/0      GATE: GREEN      EXIT=0      real 1.35
+```
+
+**Diagnosed at npm's own installed bytes, not inferred.**
+
+1. ⟨cmd⟩ `cd <p2> && npm prefix` → **`/Users/mkbabb`**. `<p2>` has no `package.json` and no
+   `node_modules`, so npm's up-walk from it terminates at a **stray `/Users/mkbabb/package.json`**
+   (⟨`cat`⟩ → `{"dependencies":{"@mkbabb/value.js":"^0.4.4"}}`) — the home directory becomes npm's
+   local prefix.
+2. `libnpmexec/lib/index.js` takes a fast path *only* if the command is found in a local
+   `node_modules/.bin` walking up from that prefix, or at `globalBin`; otherwise it falls through to
+   `const localArb = new Arborist({…, path}); const localTree = await localArb.loadActual()` with
+   `path` = the prefix. ⟨`ls /opt/homebrew/bin/tsx`⟩ → **No such file or directory**, and
+   `libnpmexec/lib/file-exists.js`'s `localFileExists` **walks up** (`walkUp(dir)` from
+   `/Users/mkbabb` to `/`), so every candidate is `/Users/mkbabb`, `/Users` or `/`.
+3. `loadActual()` therefore walks the entire home directory. ⟨`sample`⟩ of the live process shows
+   **every libuv worker thread in `uv__fs_work`**, which is the `sys 101.78` figure and the 4 GB heap.
+
+**No in-bounds cure exists, and the three out-of-bounds ones are each refused here rather than
+taken.** (i) A `<p2>/package.json` or `<p2>/node_modules` would stop the walk — **Q-1 names exactly
+these as the §3a file-bound expansion that invalidates the wave**. (ii) `npm i -g tsx` would put
+`tsx` on `globalBin` and fire npm's fast path — it writes no byte inside any bounded tree, but it
+mutates shared machine state that three concurrent seats and every later X·P wave resolve through,
+and it is not this unit's to decide. (iii) `NODE_OPTIONS=--max-old-space-size=…` is not the literal
+command and would be a masking fallback around an unbounded directory walk. **Q-1's own instruction
+is followed: *"A unit that cannot turn its gate without one of those HALTS and returns, it does not
+write."***
+
+**What is therefore claimed, precisely.** G-2's **product** is turned: the ported oracle re-runs over
+the same 403 strings against the sha-pinned engine bytes, reproduces **A/B/C = 0/0/0** with the
+taxonomy asserted byte-for-byte and the maps unchanged, exits **0**, double-run, and its three
+falsifiers fire. G-2's **literal cwd form** is **BLOCKED** by an environment defect that the gate's
+author could not have measured in August. **This seat does not mark G-2 green on its own word**; the
+reading above is offered to the orchestrator with the obstruction named, the diagnosis complete, and
+the ruling — install `tsx` globally, widen `<p2>`'s bounds by dated E-3 addendum, or amend the
+command — left where it belongs.
+
+**A note on what the cwd does and does not affect**, so the offered reading is not over-read: the
+entry, the corpus, both engines, the authority and the results file are all addressed by **absolute
+path**, and the runner is the same `_npx`-cached `tsx`. The working directory changes npm's
+project-root detection and nothing the oracle measures. That is an argument for the reading's
+validity, not a claim that the gate was run as written.
+
+#### Residuals — six, none blocking, each with an owner
+
+| id | severity | residual |
+|---|---|---|
+| **R-b1** | **ESCALATION** | the `npx`-from-`<p2>` obstruction above. Owner: **orchestrator**. Until it is ruled, W1-CLOSE must paste G-2 as *product-GREEN / literal-form-BLOCKED*, never as a plain GREEN. **Unit `.d`'s G-4/G-5 invoke `npx tsx harness/bench/bench.ts` from `<p2>` and will hit the identical wall** — this is a wave-level finding, not a unit-level one, and `.d` should read it before it spends 150 s discovering it. |
+| **R-b2** | INFO — **F-3 reconciled** | seat-0's F-3 raw figures (`b:test/*` **216** · `a:test/parsing` **14** · `d:c14-tests` **18**) do not reproduce as raw counts; measured raw is **232 / 19 / 27**. They are the **EXCLUSIVE** reading — items carrying that tag *and no other*. ⟨cmd⟩ `node -e '…provenance.length===1…'` → `a 14 · b 216 · c 84 · d 18` + the eleven seed exclusives, with **26** multi-tag items. So there are three honest aggregations of one corpus: **RAW** (per tag, overlapping), **EXCLUSIVE** (single-tag items), and the spec's **FIVE-KEY SUMMARY** (once per leading key). The harness publishes the two F-3 asked for — raw and the summary, the latter **derived from the tags and cross-checked against the corpus header**, never copied from it. **Not a moved corpus; three readings, now each named.** |
+| **R-b3** | INFO | `corpus.json` carries **no `SERVED MODEL:` line-1 receipt**: it is a byte-exact copy whose identity *is* its bytes, and a header line would break the digest the port is asserted by. Its receipt is `c6649cad…0f0a4ff8`, equal at source and destination. The three authored `.ts` files each carry the line. |
+| **R-b4** | INFO | `equivalence-results.json` is **regenerated by every gate run**, so `<p2>` goes dirty on any re-run. It is committed as the landed machine form of the reproduced GREEN (§8's *"defect count by class and its declared-divergence row list"*); a re-runner should expect the diff and not read it as drift. |
+| **R-b5** | INFO — **for `.d` (G-9)** | the corpus's **maximum bracket-nesting depth is 8** (item **335**), printed by the harness and stored in the results JSON. Published as an **INPUT** to G-9; the margin below the `Parser.lazy` ceiling **measured at `.d`'s own clock** (finding F-1: **7,759** on this box, not 7,761) is `.d`'s to declare, and this seat declares none. |
+| **R-b6** | INFO | the two behaviour-identical no-ops of Act 2 are the only lines of the ported differential not transcribed verbatim; the 0-of-403 verdict comparison is the evidence that they changed nothing. |
+
+**No §3a trigger fired**: no write outside §4's table (⟨`git -C <p2> show --stat`⟩ → five paths, all
+under `harness/equivalence/`); the P-1 GREEN **did** reproduce; no bar was set, discussed or implied;
+and no diagnose→edit→re-measure loop on G-2 reached a third iteration — the byte/char unit error was
+one measure→cure→re-measure cycle and the `npx` obstruction was diagnosed, not iterated on.
+
 ---
 
 ## Addendum 2026-09-17 (same sitting) — the E13 sweep line IS appended to `INBOX.md`
