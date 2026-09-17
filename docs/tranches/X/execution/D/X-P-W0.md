@@ -1036,3 +1036,241 @@ triggered.** Standing invariant gate 27 / W4 G-2 at this unit's commit ⟨cmd⟩
 whose guardrail `W0.md` names as *"not 'we intend not to touch the old root' but an inode intersection
 and a byte-identical pre/post quadruple"* — is answered by exactly those two instruments, both run,
 both clean: intersection **∅**, quadruple digest **equal**.
+
+---
+
+### X.P.W0.d
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus 5 implementation seat (M-23 §2) · 2026-09-17 ·
+`cwd = /Users/mkbabb/Programming/value.js`, darwin arm64, node v26.0.0 · agentId
+`ae2cbfaac365889ee`, workflow `wf_c431fb2c-82d`.
+**Sections executed**: `W0.md` §5 `X.P.W0.d` (L270–290) · §6 **G-6** (L421–432) · §6 **G-7**
+(L434–447, collated) · §6 **G-8** (L449–476) · §3.6 · §3.7 · §3.8 · §4a.
+**Rulings consumed**: `COHESION.md` §0j.E **OP-1** — *"both owner words are given, dated
+2026-09-17"*; this unit consumed the **begin-word only** and published nothing. §0j.E **OC-1** —
+the bench bar is **RECORDED-NOT-GATING**, consumed here **only** as the cure for the §0 status row's
+stale *"Plane B bench bar OWNER-GATED"* cell, never as a W0 gate. §0j **gate 24** (the TCC wall gone)
+as it bears on G-7's three formerly EPERM-bounded rows. **E-3** throughout: no 08-03 line of `W0.md`
+was edited; every delta is a dated statement beside.
+**Writable set honoured exactly**: five paths written, zero bytes outside them.
+
+#### Acts, in order
+
+**Act 1 — the spec read whole, then the anchors verified at true bytes before any write.** `W0.md`
+(602 lines), this record (1,038 lines at read), `COHESION.md` §0j and §2, and the lane authority's
+§2 (the PLAW-BIND chain). Preconditions for a close-time unit:
+
+```
+⟨cmd⟩ test -e /Users/mkbabb/Programming/parse-that-css-totality-p2 → PRESENT   (.c's FIRST WRITE landed)
+⟨cmd⟩ shasum -a 256 …/evidence/W0/census-before.txt → 7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7
+⟨cmd⟩ test -f …/parse-that/EVIDENCE-CHAIN.md        → CHAIN-ABSENT     (G-6's RED half still held)
+⟨cmd⟩ ls …/registry/harvest/ | wc -l → 50  ·  | grep -c '^x-p-' → 0   (G-6's RED half, second limb)
+```
+
+No anchor drift anywhere; no INTENT substitution was needed.
+
+**Act 2 — G-3's after-half, captured by `.b`'s forwarded command verbatim.** No `SERVED MODEL` line
+was prepended by hand and none was removed — the script emits its own, precisely so the two captures
+stay byte-comparable:
+
+```
+⟨cmd⟩ sh docs/tranches/X/parse-that/evidence/W0/roots-census.sh \
+        > docs/tranches/X/parse-that/evidence/W0/census-after.txt     → exit 0, stderr 0 bytes
+⟨cmd⟩ diff …/census-before.txt …/census-after.txt → (empty) exit 0   (run 1)
+⟨cmd⟩ diff …/census-before.txt …/census-after.txt → (empty) exit 0   (run 2, double-run at close)
+⟨cmd⟩ shasum -a 256 …/census-after.txt  → 7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7
+⟨cmd⟩ head -1 …/census-after.txt        → SERVED MODEL: claude-opus-5[1m] -- authoring seat of roots-census.sh; …
+```
+
+**The digest is equal to `census-before.txt`'s**, so the eighteen preserved roots are byte-unchanged
+across the whole wave — including across `.c`'s clone. A third capture taken **before** the harvest
+and a fourth **after** the commit both matched, so the reading is not an artefact of when it was taken.
+
+**Act 3 — the harvest, measured BEFORE it was allowed to write.** The harvester's output paths are
+**relative** in its source (`OUT` and the ledger path), so its write surface is a function of the
+process `cwd`. That surface was simulated first, read-only:
+
+```
+⟨cmd⟩ (simulation of the script's own loop, writing nothing)
+WOULD CREATE 79 · WOULD CHANGE 2 · UNCHANGED 47      ← 81 paths outside this unit's writable set
+```
+
+A repository-root run would therefore have written **81 paths no `X.P.W0` unit owns**. It was run
+instead with its output root in the scratchpad — **the script itself unmodified, `CLAUDE_SESSION_DIR`
+unset so it read the real session root**:
+
+```
+⟨cmd⟩ cd <scratchpad>/harvest-run && node /Users/…/value.js/docs/tranches/V/megatranche/workflows/harvest-journals.mjs
+harvested 2756 agent results · 7506 defects · {"BLOCKER":914,"MAJOR":3245,"MINOR":2163,"INFO":685, …}
+EXIT=0
+⟨cmd⟩ ls <sandbox>/…/registry/harvest/ | wc -l → 128    (128 of the 129 run dirs carry a result row)
+```
+
+**Act 4 — the two authorized artifacts placed, and the ledger's "append" verified rather than
+assumed.** The script `writeFileSync`s the whole ledger, so a regeneration could silently *drop* rows;
+the claim was tested at the bytes:
+
+```
+⟨cmd⟩ grep '^### ' <old> | sort > old-heads ; grep '^### ' <new> | sort > new-heads
+⟨cmd⟩ comm -23 old-heads new-heads | wc -l →     0     rows LOST
+⟨cmd⟩ comm -13 old-heads new-heads | wc -l →  1473     rows RECOVERED
+⟨cmd⟩ wc -c <old> <new> → 10494611 → 10548743 ;  rows 6033 → 7506
+```
+
+`x-p-w0.json` is a **byte-identical copy** of the script's own `wf_c431fb2c-82d.json` — both sha256
+`cccd07a2eced029ce89df55798df5c2435ad727068c2aa857eb98c88f06dabe0`, 30,067 B, 190 lines, `resultCount:
+4`. The harvester's `NAMES` map holds no entry for this runId and `W0.md` §4 forbids writing to the
+script, so the lane's stable name is applied by the consumer with **zero hand-authored bytes inside a
+machine-generated artifact**; the file's own `runId`/`workflow` fields still name the true run.
+
+**Act 5 — chasing `git diff --check` found a MAJOR defect in the harvester itself.** The staged ledger
+returned **2,946 trailing-whitespace rows**. The whitespace is a symptom; the cause was measured:
+
+```
+⟨cmd⟩ key histogram of the 1473 empty-subject defect rows, over all 128 journals
+      → { severity: 1473, claim: 1473, receipt: 1473 }
+```
+
+**The harvester's row template assumes the *challenger* schema (`id`/`defect`/`mechanism`/`evidence`/
+`reproduction`/`proposedCure`, subject from `component ?? slug ?? axis`) and silently drops every row
+written in the *conformance* schema (`severity`/`claim`/`receipt`).** All 1,473 recovered rows bank as
+**empty stubs**: `claim` and `receipt` are never emitted at all. The ledger's headline therefore reads
+*"7506 defects"* when **6,033 carry content and 1,473 carry none**. Written into
+`EVIDENCE-CHAIN.md` **§4a** with its falsifier (after a cure, `grep -c '^\*\*Defect\.\*\* $'` must go
+**1473 → 0** with the headline unchanged). **Not cured here**: §4 gives this wave *execute, no write to
+itself* over the script, and hand-editing the generated ledger would diverge the bytes from their
+generator and be re-introduced by the next harvest — the definition of a masking fix.
+
+**Act 6 — `EVIDENCE-CHAIN.md` authored, then two of its own claims retracted at the bytes.** Drafted
+claims were audited before publication rather than after: (i) *"`V·L5` is used in several X documents"*
+was replaced by the measured `21` files plus the re-run no-definition probe (`grep -c` over
+`registry/adjudicated/layout-gestalt.md` → **0**); (ii) a drafted sentence claiming **no** fourier or
+keyframes wave file references parse-that was **false** — ⟨cmd⟩ `grep -rn 'parse-that'
+docs/tranches/X/{fourier,keyframes}/waves/ | wc -l` → **47**. All 47 were read and classified:
+forbidden-non-edge declarations · bounds exclusions · and the lawful gate-key (`KF-W3.md`'s
+*"opens if and only if `RC-P(V)` evaluates TRUE"*, plus `KF-W0.md`'s `node_modules/@mkbabb/parse-that`
+inventory line — the packed-release route, not the forbidden edge). **Zero are a direct consumption.**
+Corollary measured for successors: ⟨cmd⟩ `test -f docs/tranches/X/parse-that/RELEASE-CONDITION.md` →
+**ABSENT**, and it is **X.P.W4 `.c`'s** to create — correct, because KF.W3 is gate-keyed, never
+scheduled.
+
+**Act 7 — the `COHESION.md` carve, bounded to two loci and taken at close.** Re-read at true bytes
+immediately before editing (other seats edit this file concurrently), then:
+
+```
+⟨cmd⟩ git diff --stat -- docs/tranches/X/COHESION.md → 1 file changed, 8 insertions(+), 1 deletion(-)
+      locus 1: the §0 X·P status row — ONE line replaced
+      locus 2: ONE §5 status-board bullet appended (7 physical lines; §5's own idiom — the
+               2026-08-03 entry beside it is a 4-physical-line bullet)
+⟨cmd⟩ sed -n '64,70p' COHESION.md → §2's X·P bullet BYTE-UNTOUCHED
+```
+
+Both stale cells in the §0 row were cured by the same act: *"fresh root uncreated"* (false since
+`8a83c8bb`) and *"Plane B bench bar OWNER-GATED"* (superseded by §0j.E OC-1). The SPECIFIED stamp and
+its 2026-08-04 date were **kept**; **IMPLEMENTED was not stamped** — that is the close report's, and
+VERIFIED is X.P.W4's (R-A).
+
+**Act 8 — committed.** `git diff --check` run **per path**, never as a blanket claim, and reported as
+such below.
+
+#### The G-7 collation — seven prohibitions, SEVEN ROWS, no blanket claim
+
+`W0.md` §6 G-7's own falsifier: *"the gate **must say so per-row** rather than reporting seven greens.
+A blanket 'pause law observed' claim fails."* Rows 1, 2 and 5 were **EPERM-bounded at authoring**;
+under §0j gate 24's dated grant they are **directly checkable for the first time**, and each carries
+its date and access state (G-2's law) rather than being quietly upgraded.
+
+| # | handoff §7 prohibition | check this wave ran | reading |
+|---|---|---|---|
+| 1 | **`BUILD-V12.py` not run** | ⟨cmd⟩ `shasum -a 256` → `0732ebc2…64ee8` · `stat -f '%z %p %l %i %Sm'` → `243827 100644 1 241579269 Aug 2 13:19:15 2026` · ⟨cmd⟩ `find <construction root> -type f -newermt '2026-09-01' \| wc -l` → **0** | **PASS.** Digest, size, mode, nlink, inode **and** mtime all unmoved; no byte under the root is newer than 2026-09-01. Formerly EPERM; **directly checked 2026-09-17 by a reader holding the dated `~/Documents/Codex` grant** |
+| 2 | **no v12 target materialized** | ⟨cmd⟩ `ls -1 …/2026-08-02/ \| wc -l` → **133** · `\| grep -c '^parser-novelty-and-experiment-v12$'` → **0** · `test -e` → **ABSENT** | **PASS.** Absence disposed by **enumeration of a listable parent**, never by a failed `ls`. Formerly EPERM; this is the first date handoff §9's *"a present v12 target"* STOP is detectable **at all**, and **it does not fire** |
+| 3 | **no generated parser/auditor source imported or executed** | ⟨cmd⟩ `git -C <p2> status --porcelain \| wc -l` → **0** · `test -e <p2>/node_modules` → **NO-NODE_MODULES** · `find <p2> -maxdepth 2 -name target -o -name __pycache__ \| wc -l` → **0** · `find <p2> -type f -not -path '*/.git/*' \| wc -l` → **691** | **PASS.** The fresh root is cloned and **nothing else**: no install, no build, no run. 691 files is the checkout alone; a clean porcelain is the positive evidence G-7 names |
+| 4 | **no mutation of `parse-that`, Value parser/CSS source, package state, tests, benchmarks, caches, release coordinates** | ⟨cmd⟩ `git status --porcelain -- src test e2e api package.json package-lock.json \| wc -l` → **0** · `-- src api demo test e2e` → **0** (gate 27 / W4 G-2) · **G-3** census diff **empty** · **G-5** source quadruple digest `04f2c538…c324` equal before/after, objects `4239 → 4239`, seven index mtimes unmoved | **PASS**, by three independent instruments — this repo's porcelain, the 18-root census, and `.c`'s quadruple + inode work |
+| 5 | **the `__pycache__` residue NOT cleaned** | ⟨cmd⟩ `shasum -a 256 …/BUILD-V12.cpython-314.pyc` → `de1d62ff…c00937` (re-run at close, equal to `.a`'s open reading) · `stat` → `154221 100644 1`, mtime `Aug 2 11:36:36 2026` · ⟨cmd⟩ `find <root> -type f \| wc -l` → **2** | **PASS.** Present, byte-identical, mtime unmoved: never removed, regenerated, normalized, or credited. Formerly EPERM; **directly checked under the dated grant** |
+| 6 | **no N4 / parser-law P01 / CSS DREI-v12 / performance-family dispatch** | the journal's own roster: **5 seats**, `X.P.W0:open` · `.a` · `.b` · `.c` · `.d`, every one `model: opus` · ⟨cmd⟩ `ls <session>/subagents/workflows/wf_c431fb2c-82d/*.meta.json \| wc -l` → **5** | **PASS.** Four units plus the wave-open seat; **none is a family**, and no second workflow was launched for this lane |
+| 7 | **no parser evidence bound into non-parser cross-repository input slots** | **G-8** (below) + ⟨cmd⟩ `grep -rn 'parse-that' docs/tranches/X/{fourier,keyframes}/waves/ \| wc -l` → **47**, all 47 read and classified | **PASS.** Every one of the 47 is a forbidden-non-edge declaration, a bounds exclusion, or the lawful `RC-P` gate-key / packed-release route. **Zero direct consumptions** |
+
+**Seven named, seven disposed, seven PASS, zero blanket claims.** The three formerly TCC-bounded rows
+(1, 2, 5) are marked as such **and** carry the access state of the reading, so a later seat under a
+revoked grant records EPERM **beside** rather than inheriting today's PASS.
+
+#### Commit
+
+`6da438f68d30c61ebae8180fc11ec263f3ccf73c` — `docs(x-p-w0/chain): evidence chain, harvest, and
+PLAW-BIND declared from this end` (**commit 4 of §9, verbatim**). Its body carries the `COHESION.md`
+**§2 anchor + quoted sentence** citation (never a line), the V·L5 rename flag, the seat arithmetic,
+and the §4a harvester finding, as §9 requires.
+
+**Absorption, at a third site — recorded, not rewritten.** Between this unit's `git add` and its
+`git commit`, a concurrent **Track A** seat's bare commit `9c72f097`
+(*"docs(x-w0/record): X-W0.e receipts …"*) absorbed **four of the five staged paths plus the then-current
+`EVIDENCE-CHAIN.md`**; that seat recorded the fact in `7f7455bd` rather than rewriting history, and this
+unit does the same. Its own commit therefore carries only the §4a delta (+45 lines). **Nothing is lost
+and nothing diverges** — verified at the bytes:
+
+```
+⟨cmd⟩ git diff HEAD --stat -- <all five paths> | wc -l  →  0     committed bytes == settled bytes
+⟨cmd⟩ git show --stat 9c72f097 → DEFECT-LEDGER.md · x-p-w0.json · COHESION.md(9 ±) ·
+                                  EVIDENCE-CHAIN.md(+272) · census-after.txt(+25) · X-W0.md(+78)
+⟨cmd⟩ git show HEAD:docs/tranches/X/COHESION.md | grep -c 'X·P release condition → KF.W3'   → 1
+⟨cmd⟩ git show HEAD:docs/tranches/X/COHESION.md | grep -c 'parse-that→fourier is FORBIDDEN' → 1
+```
+
+**The law this sharpens** (`.b` and `.c` found the first two sites). Their cure — the `--only` /
+`-- <path>` **commit** verb — was used here and worked: this unit's commit took exactly its own path.
+But `--only` protects the *committing* seat, not the *staged* file: **anything sitting in the shared
+index is absorbable by any concurrent bare commit**, and this unit's five paths sat staged while it
+chased the `git diff --check` finding of Act 5. **The complement to the law is therefore: stage as
+late as possible and commit in the same breath** — `git add` and `git commit --only` should be one
+act, with every measurement taken before the `add`, never between `add` and `commit`.
+
+#### Gate readings BEFORE → AFTER
+
+| gate | BEFORE (this record's wave-open baseline) | AFTER | the closing act |
+|---|---|---|---|
+| **G-3 (after-half)** | **NOT ASSERTED** by `.b`, explicitly — *"this unit asserts nothing about it"* | **GREEN** | `diff census-before.txt census-after.txt` **empty, exit 0, double-run**; both files sha256 `7f0c5b13…19d7`; the capture is the script's verbatim stdout, unedited. **G-3 is now GREEN whole** — enumeration (`.b`) and invariance (`.d`) |
+| **G-6** | **RED-AS-EXPECTED** — `harvest/` held 50 entries, **0** matching `x-p-*`; `EVIDENCE-CHAIN.md` absent | **GREEN** | harvester run **unmodified**, **exit 0**, 2,756 results over 128 journals; `x-p-w0.json` filed, non-empty, `resultCount: 4`; seat roster published so the count is **checkable, not claimed**: dispatched 5 · returned 4 · **harvested 4 = returned 4** · killed 0 · `NO_JURY` **0** · empty results **0**. The single unharvested seat is the harvesting seat itself — structural, disclosed, with the re-harvest command written into the artifact |
+| **G-7 (collation)** | **RED-AS-EXPECTED** — no per-row check existed in any tracked file | **GREEN** | the seven-row table above: **7 named · 7 disposed · 7 PASS · 0 blanket claims**, with rows 1/2/5 marked as the formerly-EPERM rows and carrying the date and access state of their reading |
+| **G-8** | **RED-AS-EXPECTED** — declared from the `COHESION.md` end only; **1 of 2** | **GREEN — 2 of 2** | `EVIDENCE-CHAIN.md` §5 carries the handoff §2 chain **verbatim** (self-checked at the settled bytes: `grep -c 'Fourier F.W0 atomic tuple'` → 1; `grep -c 'Direct .parse-that -> Fourier. credit is forbidden'` → 1) and names the forbidden edge; §6 cites `COHESION.md` **§2, the X·P release-condition bullet, by anchor + quoted sentence**. Both fragment greps return **1** row each — double-run, before the carve, after the carve, and against `HEAD`'s committed blob — so neither falsifier fires. **No line coordinate is used as a citation anywhere in this unit's output**; the `:66`/`:68` readings are pasted as today's *measurement* and labelled as such |
+
+**Gates turned GREEN by this unit: G-3 (after-half), G-6, G-7 (collated), G-8. RED remaining in this
+unit's scope: none.** With `.a`'s G-1/G-2, `.b`'s G-3 before-half and `.c`'s G-4/G-5, **all eight gates
+of `W0.md` §6 now read GREEN.**
+
+#### Residuals recorded, not resolved
+
+1. **MAJOR — the harvester drops the conformance schema** (Act 5, `EVIDENCE-CHAIN.md` §4a). 1,473 of
+   the ledger's 7,506 rows are empty stubs; `claim` and `receipt` are never emitted. The cure is two
+   string templates in `harvest-journals.mjs`, which this wave may not write. **Read the headline as
+   `7,506 = 6,033 with content + 1,473 stubs` until it is cured.**
+2. **`git diff --check` is RED on `DEFECT-LEDGER.md` alone** — 2,946 machine-emitted
+   trailing-whitespace rows, the symptom of residual 1. **CLEAN** on all four hand-authored paths.
+   §7's cadence is met where a hand can meet it; the close report should rule on whether a generated
+   artifact is in `--check`'s denominator at all.
+3. **79 completed workflow runs still have no per-run JSON in `registry/harvest/`.** A
+   repository-root harvest would create them, but that is **81 paths outside every `X.P.W0` unit's
+   writable set**, so the surface was measured and disclosed rather than taken. Their defect rows
+   **are** in `DEFECT-LEDGER.md`, so nothing is lost in substance. One command by a seat whose bounds
+   include `registry/harvest/**` closes it.
+4. **`x-p-w0.json` carries 4 seats, not 5**, for the structural reason above. The re-harvest that
+   closes the roster is written into `EVIDENCE-CHAIN.md` §3 as a command, not as a hope.
+5. **The harvester's `NAMES` map has no X·P entry**, so every future X·P wave must copy its run file
+   to the lane's stable name by hand. Filed for the wave that owns the script.
+6. **`EVIDENCE-CHAIN.md` is a live operating document, not a dated packet.** W1..W4 re-state §2 against
+   their own run; when X-W0.i lands the V·L5 replacement cut, §7 is amended by a **dated addendum
+   beside** and the verbatim handoff quotation in §5 is never rewritten (E-3).
+
+#### Escalations
+
+**None.** Zero writes outside the five-path writable set — the one surface that would have breached it
+(the harvester's 81 collateral paths) was **measured before the script was allowed to write** and
+avoided by bounding the process `cwd`, with the consequence disclosed rather than silently absorbed.
+Zero `gc` / `repack` / `prune` / `worktree prune` / `stash` / `reset` / force-push / branch write
+anywhere; zero writes to `../parse-that`, `../glass-ui`, `~/.codex/**` or `~/Documents/Codex/**`
+(read/hash only, C-02 — the builder hashed and `stat`ed, never opened for edit or run; the residue
+hashed, never cleaned). No §9 STOP condition fired and none is this unit's to fire. Zero
+diagnose→act→re-measure iterations: every gate was read once then double-run for the count law, never
+re-attempted. **`W0.md` §3a evaluated and not triggered.** Standing invariant gate 27 / W4 G-2 at this
+unit's commit ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0**. `scripts/dev/dev.sh`
+never touched and never staged ⟨cmd⟩ `git status --porcelain -- scripts/dev/dev.sh` → ` M
+scripts/dev/dev.sh`, unstaged throughout.
