@@ -407,3 +407,177 @@ four instrument corrections are in **this** record and in the register's own §0
 on both runs — zero disagreements, the third-iteration halt not approached.**
 
 **Handoff**: F.W5's writable set is clean; **unit b may open.**
+
+---
+
+### b
+
+**SERVED MODEL: claude-opus-5[1m]** · seat opened 2026-09-17, HEAD at open `d7650002`, branch
+`tranche-u`. Writable set honoured: **one file created**,
+`docs/tranches/X/fourier/contract/J-diff-shape-v2.md`, ⊕ this receipt. **Zero fourier bytes written** —
+every `$F` command below is `grep`/`sed`/`ls`/`wc`, and `git status --porcelain
+docs/tranches/J/design/J-diff-shape.md` in the fourier tree → **0 lines** at this unit's close: **v1 is
+byte-unchanged, superseded BY REFERENCE only** (E-3). `scripts/dev/dev.sh` never staged.
+
+**Serial-head note (§1c).** At open the tree carried four rows from **other tracks** —
+`V/reformation/CARRY-LEDGER.md`, `X/execution/A/X-W0.md`, `X/execution/LEDGER.md` (another seat's
+concurrent edit) and the unowned `dev.sh`, plus the untracked `KF-W4/k3-decision.md`. **None is in
+F.W5's writable set**, so the serial head is clean and the *"dirty tree at handoff"* halt is not
+tripped. **`LEDGER.md` was not touched by this seat** — it is not in unit b's writable set.
+
+**E13.** The wave's Step-0 sweep (this record, §E13) read **0 UNREAD in F.W5's scope**; no letter
+arrived in this unit's window and none is owed by it. The close sweep is unit e's.
+
+#### Acts, in order
+
+**b.1 — MEASURE-AT-OPEN (D-19), before a clause was written.** Every witness in §A/§B was re-measured at
+this seat's own clock from `$F = /Users/mkbabb/Programming/fourier-analysis` (READ-ONLY) and
+`$V = /Users/mkbabb/Programming/value.js`, engine `/usr/bin/grep` (BSD), **every published figure
+double-run** (`run1 ≡ run2`). Nothing was inherited from the spec's prose: the spec is the **operand**,
+the bytes are the **witness**.
+
+**b.2 — FOUR witness spellings did not reproduce; each got INTENT at the true bytes, recorded.** Per
+METHOD (*drifted anchors get INTENT at the true bytes, recorded*) and E-3 (*the spec is immutable —
+addenda, not patches*), the corrections live in **v2's own §0.5**, never in the spec:
+
+| # | spec spelling | measured at this seat | intent, at the true bytes |
+|---|---|---|---|
+| 1 | §A4: *"no `response_model` anywhere"* | ⟨cmd⟩ `/usr/bin/grep -rn "response_model" api --include='*.py' \| wc -l` → **8** | **sharper than the absolute**: `visualizations.py` **0/13** · `admin.py` **1/13** (the `/stats` row) · the three flagged models bound to **no route at all**. Per-router, double-run: admin 1/13 · contours 2/4 · equations 2/2 · gallery 0/1 · images 3/7 · sessions 0/4 · visualizations 0/13 |
+| 2 | §A2: *"`Link: rel=next`"* | ⟨cmd⟩ `/usr/bin/grep -rn "Link\|rel=" api/lib/crud/cursors.py \| wc -l` → **0** | fourier's opaque cursor is **body-borne**: `routers/visualizations.py:324` `has_more`, `:328-329` `next_cursor`, `:334-335` both in the body. The divergence A2 settles is unchanged; **a contract that mis-states where a field travels cannot be mechanically checked** |
+| 3 | §A1: *"pydantic extra-ignore"* | ⟨cmd⟩ `/usr/bin/grep -c "model_config\|ConfigDict" api/models/admin.py` → **0** | the `_id` drop is pydantic v2's **inherited default**, not a declared `ConfigDict`. Mechanism identical; the distinction is load-bearing because `models/visualization.py` declares `extra="forbid"` at seven models and `models/assets.py:58` `extra="ignore"` at one — **the admin band's silence is a gap in an otherwise-explicit house style** |
+| 4 | §B5: the `as any` seam at *MorphShapePreview* | the cast is at `web/src/components/morph/FourierMorphDemo.vue:99-100` (`prepareFourierShape(sunData as any)` / `(moonData as any)`); `MorphShapePreview.vue`'s only import is a decorative SVG | **location, not substance** — likewise §A5's silent fallback, which lives at `src/fourier_analysis/symbolic/latex_rendering.py:280`, the library package, not `api/` |
+
+**None of the four changes a clause's meaning; all four change what a probe can find**, which is the
+whole subject of §B3.
+
+**b.3 — the contract authored.** `contract/J-diff-shape-v2.md` created (**52241 bytes**, **715 lines**,
+line 1 = `SERVED MODEL: claude-opus-5[1m]`): **§0** (scope change · the v1 supersession table · bases ·
+the four corrections · **§0.6 how a probe reads this document**) · **§A** A1–A6 · **§B** B1–B5.
+**Eleven clauses, each carrying RULE · WITNESS · DISPOSITION · LOCK** — *a clause that names no witness
+is not a clause* (§0a). **v1 is superseded BY REFERENCE**: §0.2 dispositions all seven v1 sections and
+**withdraws none of them**; §§2.1–2.5, §3 and §5 stand unamended and in force.
+
+**b.4 — the inv-26 amendment stated in the open (A4), not slid past.** §0j.D **F-SS4REST R7 = CODEGEN**
+is applied as the spec's own bar requires — *"v2 RESTATES or AMENDS, never silently reverses"*. A4
+splits the standing law into three limbs and disposes each by name: **inv-16 RESTATED UNCHANGED**
+(shared-by-contract, no shared package) · **inv-26 first limb RESTATED UNCHANGED** (one contract source)
+· **inv-26 second limb — *hand-typed twins, no codegen* — AMENDED to generated twins, openly, cited to
+its ruling id.** The amendment is named as an amendment in the clause body, so no later reader can
+mistake it for drift. Both ids are rooted (inv-16 → `lane-crud.md` §0 headline block; inv-26 → its
+in-repo evidence home `docs/tranches/R/audit/pass1/R4-FOURIER.md` §6, the fourier ledger anchor left
+**MEASURE-AT-OPEN** and unopened).
+
+**b.5 — the one-home law honoured at every citing clause.** A1 **BOOKS NOTHING**: `AA-45` and `AA-48`
+are cited to `F-W10.md` §2.5's drain and to §5 respectively, under the standing tie-breaker (*a banked
+NO-WAVE-OWNER row's one home is the drain; a clause needing its mechanism cites it and never books it*,
+R3-6.5). A2 cites **`AA-46` as EVIDENCE with its kill noted** and stands whole on `FR-AFP-18` ⊕ §D10.
+A3 cites **`AA-47`** and rests its denominator on **`FR-CP-16`**'s measured surface. A6 cites
+**`FR-USB-37`** (canonical NWO (packet), disposed at F-W10's drain) and **`fr-GalleryView FR-GV-7`**
+(held at F-W3 §X.1-v5). B5 cites **`P-9`** (home F.W4) and **`HLG-23 (C:C-12)`** as a LEG held at F-W4.
+**`R6-8` is booked ONCE, as four record-qualified canonical rows** — `fr-AnimationControls` ·
+`fr-CanvasControlsDock` · `fr-ConvergencePlot` (all `F.W5`) ⊕ `fr-EasingCurvePreview` (`F.W5-W8`) — and
+**`C-28` is written as the BODY of that booking, not a second row** (R4-10's identity minute).
+
+**b.6 — every verbatim span survives a `grep -qF` of itself.** Eleven registry spans re-run from the
+`$R` base at this seat, **double-run, all HIT**: `fr-CoefficientsSpectrum.md:65` (A5's
+*"unjoinable in principle"* cell, arrow inside the bold and the terminal period present) ·
+`fr-AnimationControls.md:123` (C-30's leg **and** its disposition cell) · `fr-EquationView.md:71`
+(M-CK's *"fix the key FIRST or the B-1 repair ships broken."*) · `fr-AdminUserList.md:51` ×2 (FR-AUL-13
+**with no terminal period — the cell closes on the table pipe** — and the *"written against a contract
+document rather than the router"* indictment) · `fr-CanvasControlsDock.md:150` (the C-28 fold) ·
+`fr-MorphShapePreview.md:110` · `fr-AdminAuditLog.md` ×3 (the AA-45/AA-46/AA-47 terminal cells). The
+negative control is published with them: ⟨cmd⟩ `grep -rn -iF 'join to get wrong' fr-*.md` → **0 across
+the 66**, which is why B5's compression **carries no quotation marks** — and why §B4's LIVENESS
+predicate is set in **plain text** as F.W5's own coinage, the triple-star marker struck per R4-1 item 6.
+
+**b.7 — WRITE-THEN-MEASURE, and what it caught.** Every published figure was re-run against the
+**settled bytes** before commit. **Two instruments did not reproduce as first drafted; both are
+corrected in the document itself rather than silently fixed:**
+
+1. **A count of element instances that silently counted a comment.** The first draft published ⟨cmd⟩
+   `/usr/bin/grep -c "<MetricBadge" …/GalleryAdminBanner.vue` → **6**. Re-run against the settled bytes
+   it returns **7**: `:96` is a CSS comment naming the component. The element-anchored spelling ⟨cmd⟩
+   `/usr/bin/grep -cE '^[[:space:]]+<MetricBadge$' …` → **6** (double-run), and the six are `:45 :52
+   :60 :68 :75 :82`. **The over-count is disclosed inside A2's witness**, because *the digit is wrong
+   and the command still "works"* — unit a's phantom-receipt class, met again at this seat.
+2. **A `wc -l` that would read as call sites.** `/usr/bin/grep -rnw "softDelete" web/src …` → **2**, and
+   a bare `2` reads as two callers. The receipt now publishes the split — `gallery.ts:165` (definition)
+   ⊕ `gallery.ts:286` (export) — so **zero callers** is legible from the digit.
+
+⊘ **And the gate probes themselves failed once, for the reason the document now warns about.** The first
+gate run grepped two normative sentences line-wise and returned **0** on both — *not absence, wrap*.
+Re-run under whitespace normalization ⟨cmd⟩ `/usr/bin/tr '\n' ' ' < J-diff-shape-v2.md | /usr/bin/tr -s
+' ' | /usr/bin/grep -c -F '<sentence>'` → **1** each, double-run. **The instrument is now published in
+the document at §0.6**, because §A2.4 demands a mechanical check and §B3 convicts a contract document
+that ships without a probe: *a conformance probe that reads this file line-wise is measuring the wrap,
+not the contract.*
+
+**No figure published in v2 is one that failed to reproduce.**
+
+**b.8 — SELF-COUNT from the settled bytes, double-run.** ⟨cmd⟩
+`/usr/bin/grep -cE '^### (A[1-6]|B[1-5]) — ' J-diff-shape-v2.md` → **11**, ids in order
+`A1 A2 A3 A4 A5 A6 B1 B2 B3 B4 B5`; `^\*\*RULE` → **11** · `^\*\*WITNESS` → **11** ·
+`^\*\*DISPOSITION` → **11** · `^▲ ` → **18** locks · `⟨cmd⟩` → **31** receipts. **Four partitions of the
+same eleven clauses, each closing at eleven, none derived from another.** `^### D9` → **0**: **no clause
+is numbered D9**, the reservation held (§2 compatibility note). Clause ids are preserved **verbatim** for
+sibling cross-refs; a sibling's mis-keyed cite is conformed **at the sibling** (R-1e) and none was
+renamed here.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (baseline, this record) | AFTER (this seat, 2026-09-17) | verdict |
+|---|---|---|---|
+| **G1** — identity on the wire | ⟨cmd⟩ `grep -rn "class AuditEntry" $F/api --include='*.py'` → one hit, `api/models/admin.py:94`; four fields, no identity; the `:key` positional | **§A1 states the rule**: *"Every **list-bearing response class** in this contract carries a **stable per-row identity** that is emitted on the wire."* — greppable at §0.6's instrument → **1** (double-run). The rule is **normative, not descriptive**: a class that cannot name its row identity is **not admissible**; one that deliberately has none **states that, and why**, under §A3. Witness re-measured whole (`sed -n '94,99p'` → the four fields; `AdminAuditLog.vue:127` → ``:key="`${entry.timestamp}-${i}`"``, the loop-index limb doing the work) | **RED → GREEN** *(the clause; the `:key` deletion stays **F.W4's act** and is not credited here)* |
+| **G17** — boundary-validation evenness | the whole 45-operation client surface lands as ONE unchecked `(await res.json()) as T`; AA-47's uneven pair; `save_contour` zero cardinality validation; six admin tiles em-dash on drift | **§A3 states one posture per response class — *validated* or *explicitly-not-validated-and-why* — over THREE surfaces** (HTTP · persisted-then-rehydrated · build-time), with *"**Evenness is the clause, not paranoia.**"* carried verbatim → **1**. Denominator measured, not asserted: ⟨cmd⟩ `grep -rn "await res.json()) as" web/src` → **1** (`api.ts:192`), one `as T` for 45 operations. `save_contour`'s bare `.get(…, [])` pair quoted at `contours.py:21-26`. **The L-19 lock lands verbatim** — *"**Do NOT author a per-field defensive sweep at F.W4.**"* → **1** — and the clause is extended, per unit a's residual, to the **six template-bound consuming sites that never traverse `coreFetch`**: a posture declared only at the fetcher **is not even** | **RED → GREEN** |
+| **G18** — casing + envelope isomorphism — **CASING LIMB ONLY** | v1 §4 names TS-camel ↔ Python-snake as the ONLY allowed envelope difference and §6 binds each probe to the doc; value.js has **no diff surface to conform**, so the parity verdict is unrunnable | **§A2.4 restates the casing rule as a mechanical check on each side**: *"the casing rule is a mechanical check on each side, never prose a reader applies"* → **1**; *"**TS lowerCamelCase ↔ Python snake_case is the ONLY allowed difference in the wire envelope**"* → **1**; *"against the document, never against the sibling"* → **1** (all double-run, §0.6 instrument). **The limb is deliberately made independent of the second surface's existence** — where one side has no surface, its half of the verdict is explicitly one-sided and says so | **CASING LIMB RED → GREEN**; **G18 overall stays RED** — its §6 re-authoring and the explicit one-sided verdict are **unit c's** (§E3, ruling R1 RE-SCOPE), and this seat does not pre-empt them |
+
+**Gates turned by this unit: G1 · G17 · G18's casing limb. G18 itself remains RED pending unit c.** No
+other gate was touched, and none was read as GREEN that this seat did not turn.
+
+#### Commits
+
+- **`bf3707ec`** — `docs(x-f/F.W5.b): J-diff-shape-v2 SS-A+SS-B — the neutral co-signed contract's wire shape and the R6-8 join relation` (pathspec: `docs/tranches/X/fourier/contract/J-diff-shape-v2.md`).
+- this receipt — pathspec `docs/tranches/X/execution/C/F-W5.md`.
+
+**One commit per meaning; the family did not split** — §A and §B are one authoring act on one file and
+landed in one commit, as §1c's *"each unit commits before the next opens"* requires.
+
+#### Residuals handed on (books nothing, cites everything)
+
+1. **To unit c (§C/§D/§E)** — (a) **§A5 PRECEDES §B's enforceability and §C's**: if any clause admits an
+   untyped operation, the join, authority and disposition rules are unenforceable *at that operation*;
+   the exception set must be **named or closed**. (b) **§A6 states the transport; §C3 owns the session
+   predicate** — and the two **must not cite each other** (PASS-5 P5-14's closed loop); A6 names §C3 as
+   the holder and §C3 should name its own, not point back. (c) **G18's §6 re-authoring and the explicit
+   one-sided verdict are unit c's** under R1 RE-SCOPE; A2.4 was written to survive that verdict either
+   way and does not constrain it. (d) **§B1 routes ImageUpload's security half to §C2 and its transport
+   half to §E15**, and books neither. (e) **The `GCM-10` cure is quoted in A3 only after G22 resolves or
+   STRIKES MF-9** (unit e) — if struck, quote the cure without it and record the strike.
+2. **To unit d (§F/§G + obligations)** — (a) **§F re-states the diff envelope against v1 §3**, which
+   §0.2 leaves **in force and unamended**; the supersession table is the authority for what v1 still
+   governs. (b) **`FR-EQR-32` is enforceable only if §F8 chooses the wire field** — §B1 records that
+   conditional, and **a decline must be RECORDED as a decline with its reason**, never as silence.
+   (c) The **value-side obligation list** inherits two rows already measured here: the D9 three-state
+   reconciliation (unit a, register row 9) and **G18's value-side probe**, whose casing check §A2.4 now
+   specifies mechanically.
+3. **To unit e (G19/G20/G22)** — this unit **mints no id and books nothing outside the four
+   record-qualified `R6-8` rows and the clause-table ids §2 §A/§B already assign**; every other id it
+   touches is **cited to its holder by name** (A1 → F-W10 §2.5 · A6 → F-W10's drain and F-W3 §X.1-v5 ·
+   B5 → F.W4). The **seven §2c exclusions stay excluded** at both ends of the set-difference.
+4. **To F.W9/W10 (via §4's edge)** — **§B3 is v2's own indictment**: this document is *"written against
+   a contract document rather than the router"* unless the conformance probe ships. **§0.6 publishes the
+   instrument that probe must use** (whitespace-normalized matching on stable clause ids, never line
+   numbers into a live file).
+
+#### Escalations
+
+**None.** No write outside the writable set (`J-diff-shape-v2.md` created; this receipt appended;
+`LEDGER.md` untouched — not unit b's). **Zero fourier bytes written**; **v1 byte-unchanged and
+superseded BY REFERENCE only** (E-3 honoured — the four witness corrections are in **v2's §0.5** and in
+**this** record, never in the spec, never in v1, never in the registry). No ruling re-opened; §0j.D's R7
+applied as ruled and named as an amendment rather than a silent reversal. **Triumvirate status: no halt
+condition approached** — no register/triple disagreement (not this unit's operand), no `(record, id)`
+homing failure, and MF-9 is unit e's to resolve or strike (A3 carries the sequencing lock so the
+`GCM-10` cure is not quoted ahead of it).
+
+**Handoff**: F.W5's writable set is clean after this unit's two commits; **unit c may open.**
