@@ -535,3 +535,214 @@ form at these bytes.
 **Nothing in Acts 1–4 is retracted.** The fourteen drift rows, the 61/81/62 triple and both verbatim
 proofs stand as measured; only their *substrate's tense* changed, and this addendum is where that is
 said.
+
+---
+
+### KF.W1.b
+
+**Unit**: X.KF.W1.b · The Addendum. **Seat model**: `claude-opus-5[1m]`. **Date**: 2026-09-17.
+**Status**: **DONE**. **Commits**: `55e9bf0d` (keyframes-v-exec, pushed to kf `origin/master`) ·
+`57dddee0` (value.js, the retained copy) · this record. **Writable set honoured exactly**: the
+delivered addendum and its retained copy, and nothing else. **Zero writes, zero git mutations, zero
+npm in `/Users/mkbabb/Programming/keyframes.js`** (SACRED-CHECKOUT LAW, spec `:27-28`) — every access
+to that tree this seat made was `ls` · `git rev-parse` · `git status` · `git reflog` · `git grep` ·
+`grep` · `cat`. Every figure below is this seat's own command output at its own clock; the
+load-bearing ones are double-run and the published ones were re-read from the **settled bytes** after
+the commits.
+
+#### Act 1 — the substrates, re-measured at this seat's clock (C-1 ANTI-STALENESS; nothing inherited)
+
+⟨cmd⟩ in `keyframes-v-exec`: `git rev-parse HEAD` → `81a56990736ced5b5edde0b84c527680ac7689b1`;
+`git rev-parse origin/master` → **the same sha**; `git status --porcelain | wc -l` → **0**; branch
+`master`. ⟨cmd⟩ in `/Users/mkbabb/Programming/keyframes.js` (read-only): `git rev-parse HEAD` →
+**`81a56990`** on `master`; `git rev-list --left-right --count origin/master...master` → **`0  0`**;
+`git status --porcelain | wc -l` → **6**, the two packet bodies + four untracked `src/` files.
+**`.a`'s ADDENDUM-BESIDE reproduces exactly at this seat's clock**: §B-12 has landed, the sacred
+checkout is settled, and the 252-dirty / `8281638c` state `.a` measured in its Acts 1–4 is gone.
+
+#### Act 2 — the §5a drift table, RE-DERIVED WHOLE a second time (D-19; `.a`'s table inherited as nothing)
+
+Substrate written into every command: `keyframes-v-exec`, ref **`origin/master`** = `81a56990`,
+porcelain 0. **Bare `HEAD` never used.** Method per row: `git cat-file -e origin/master:<path>` plus
+`git show origin/master:<path> | sed -n '<n>p'`. **14 of 14 rows reproduce `.a`'s derivation and the
+spec's §5a reading exactly** — 4 PATH-drifted (1 · 3 · 5 · 6–8) · 2 LINE-drifted (row 2 `−3`, row 9
+`+1`) · 8 EXACT; rows 6–8 path drift with **zero** line drift (`color.ts` 385 L, `:171`/`:250`/`:263`
+byte-exact). **ZERO corrections owed; ZERO anchors failed to resolve to a live path** — Triumvirate
+trigger (ii) did **not** fire.
+
+**Beyond the commissioned fourteen, and recorded as a completion of payload (a), not a re-scope**:
+the **five secondary anchors** the two packets also cite were re-checked in the same motion and all
+resolve — `browser.ts:3` **EXACT** · `engine/options.ts:17` **EXACT** · `compile/value-ast.ts:1`
+**ABSENT**, live `compile/value/compile.ts:1` = `import { parseCssValues } from "@mkbabb/value.js/css";`
+· `internal/leaves.ts:6`/`:9-12`/`:19-21` **EXACT** · `test/internal/leaves-parity.test.ts:1-7`
+**EXACT**. Anchors the packets aim at **value's own tree** (`src/css/grammar.ts:181`, `src/easing.ts:168`,
+`src/easing.ts:94-132`, `stylesheet.ts:86`) are declared in the letter as deliberately not re-anchored
+— they are ours and not actionable from the kf side.
+
+#### Act 3 — G-KF1-3's three sites and §A3's end-state count, RE-DERIVED (never arithmetic)
+
+⟨cmd⟩ `git grep -n 'parseStylesheet' origin/master -- src` → **9 lines** exactly as the spec promises
+(3 call sites · 3 imports · 3 prose). The three postures were read **at the bytes**, not taken from
+prose: `compile/adapter.ts:222` sits inside `parseSource`, whose body is
+`result.ok ? { ast, issues: [] } : { ast: [], issues: result.diagnostics }` → **absorb-to-diagnostics**;
+`scroll/grammar.ts:109` passes through `requireParsed` (`:57-63`, `throw new TypeError(...)`) →
+**THROW**; `validate.ts:182` sits inside `keyframesNames`'s `try { … } catch { return [] }` →
+**swallow-to-`[]`**. All three agree with LIB §7.5's independent reading at
+`formation/keyframes/lane-library.md:572+`.
+
+**§A3's end state, re-derived by enumeration with its counting rule pasted at the enumeration** —
+*one call-expression on §A3's own alphabet (`parseCssScalar`, `parseCssValues`) plus `parseStylesheet`
+(the entry §A2 raised into the class), in `src/`, at `origin/master`, import lines and docblock prose
+excluded*: ⟨cmd⟩
+`git grep -nE '(parseCssScalar|parseCssValues|parseStylesheet)\(' origin/master -- src | grep -v ':[0-9]*: \*'`
+→ **6** (double-run: 6 · 6) — `adapter.ts:222` · `compile/value/compile.ts:32` · `engine/options.ts:31`
+· `browser.ts:162` · `scroll/grammar.ts:109` · `validate.ts:182`. **SIX, not three**, and the figure
+is an enumeration's `wc`, never `3 + 3`. The letter states the alphabet the count is over and
+explicitly declares it **not** a total of every value.js parse entry in the kf tree, with **no ask
+riding it** — C-2's *"names only the three missed sites"* and C-7's no-re-scope lock both held.
+
+#### Act 4 — §5b's censuses re-run at this seat's clock, and the ONE dated delta this seat found
+
+```
+(C) FRONTIER OF RECORD  [keyframes-v-exec @ origin/master 81a56990, porcelain 0]
+$ git grep -h -o -E 'from "@mkbabb/value\.js[^"]*"' origin/master -- src | sort | uniq -c
+   7 /color  29 /css  3 /easing  5 /math  2 /transform  16 /value        → 62   (62 · 62)
+
+(B) BARE 8281638c — DISQUALIFIED CONTRAST, never "the tree measured"
+  10 (root) 9 /color 5 /easing 5 /math 24 /parsing 2 /transform 26 /units → 81   (81 · 81)
+
+(A) THE 61-STATE — NOT RE-RUNNABLE AT THIS CLOCK. The tree that answers this command no longer
+    exists: §B-12 reconciled it. `.a`'s 2026-09-17 pre-reset reading is its LAST measurement.
+
+(A') the sacred worktree NOW  → 69 = /css 31 · /value 18 · /color 9 · /math 6 · /easing 3 · /transform 2
+(A'') snapshot 6d280ee7 (tracked half only)                                              → 48 (48 · 48)
+```
+
+**THE DATED DELTA THIS SEAT ADDS, measured before the withdrawal sentence was authored (G-KF1-4's
+RED-remains clause).** `.a` recorded that the snapshot reads 48 and inferred *"the 13 imports in
+untracked `src/` files are outside it"*. Measured rather than inferred, this seat: the **four**
+surviving untracked `src/` files carry **7** value.js imports ⟨cmd⟩ (`value-ast.ts` 3 ·
+`interp-slot.ts` 4 · `compiled-frame.ts` 0 · `composite-storage.ts` 0), so
+**snapshot ∪ surviving-untracked = 55** (double-run: 55 · 55) — **not 61**. The remaining 6 were in
+files the reset made *tracked* (they exist at `origin/master`), so they are no longer identifiable as
+part of that state. **CONSEQUENCE, carried into the letter: the 61-state is NOT reconstructible even
+with the owner's preservation snapshot in hand.** Nothing of `.a`'s is corrected — its 48, 69, 62 and
+81 all reproduce here exactly; this is a figure `.a` inferred and this seat measured, recorded beside
+it per E-3.
+
+**C-6 / G-KF1-4 SUBSTRATE-NAMING RULE, discharged leg by leg** in the letter's §E: (i) the substrate
+is the dated tuple ⟪HEAD `8281638c…` · porcelain **252** · **61** = `/css` 29 · `/value` 15 · `/color` 7
+· `/math` 5 · `/easing` 3 · `/transform` 2 · measured 2026-07-27 by O-11, last re-measured 2026-09-17
+pre-reset by `.a`⟫ — **a record, never a bare sha**; (ii) *"no sha addresses that state and you could
+never have re-derived it"* is stated as the **ground** of the withdrawal, now strengthened by the
+55 ≠ 61 finding; (iii) the frontier split rides beside it, named as `origin/master` `81a56990` → **62**;
+(iv) bare `8281638c` → **81** over a disjoint alphabet is labelled **"a contrast reading only"** and
+**"NO"** in the citability column. **Four of the five numerals are this seat's own**; the `61` alone is
+a dated historical record carried **with the seat and date that took it**, because the tree that
+answers its command is gone — and the letter says exactly that rather than hiding an inheritance.
+**LAW-B corollary LOCK honoured**: no sha is cited as "the tree measured" anywhere — the snapshot
+`6d280ee7` is explicitly refused that role (it reads 48), and so is the post-reset worktree (69).
+
+#### Act 5 — the letter, delivered and retained (§3 items 3–4; §0j.C KF-WRITE(a))
+
+**Delivered**: `/Users/mkbabb/Programming/keyframes-v-exec/docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`
+— their `<SENDER>-INBOUND-*` grammar, **24,108 B · 309 L**, sha256
+`80b7c83183909ccbca2ec43f3828d114f23ac57eb15168e2fc3667fe1b8c8a34` (read from the settled bytes).
+Committed `55e9bf0d` and **pushed**: ⟨cmd⟩ `git push origin master` → `81a56990..55e9bf0d  master -> master`;
+after the push `HEAD` = `origin/master` = **`55e9bf0d2391bbc6d9871bb3f0555a6225daae92`**, porcelain 0.
+Session trailer on the kf commit.
+
+**Retained**: `docs/tranches/V/coordination/value-inbox-2026-09-17-o8-o11-amendment-addendum.md`,
+**24,443 B** = a 335 B one-line `RETAINED COPY` provenance header (delivered path · date · byte count ·
+recipient frontier sha) + the body **verbatim**. Proof, double-run and then re-run from the git object:
+`tail -c 24108 <retained> | cmp - <delivered>` → identical (run 1, run 2); `git show HEAD:<retained> |
+tail -c 24108 | shasum -a 256` → `80b7c831…`, **byte-identical to the delivered letter**.
+
+**ONE MEANING, TWO TREES, TWO COMMITS** (spec §4b row `.b`): `55e9bf0d` is the delivery, `57dddee0`
+is its retention; neither is split and neither carries anything else.
+
+**The letter's recorded substrate sha, stated precisely because it is not the commit that contains it.**
+The letter records **`81a56990`** — the exec clone's HEAD at authoring and the ref every measurement in
+it names. The delivery commit necessarily advanced `origin/master` to `55e9bf0d`. That commit is
+**docs-only and touches no anchor**: ⟨cmd⟩ `git diff --stat 81a56990 55e9bf0d` → *1 file changed, 309
+insertions*, and `git rev-parse 81a56990^{tree}:src` = `git rev-parse 55e9bf0d^{tree}:src` =
+**`b7b0d950830d529cff6854e7e943c90fb1d83b93`** — **the `src/` tree object is identical**, so all 14 drift
+rows, the 5 secondary anchors and the 6 call sites resolve unchanged at the new frontier. The letter
+also tells its reader, in its own header, to re-run the commands if their `origin/master` has moved.
+
+#### Act 6 — the four payload items, the ask, the request, the self-defect
+
+| item | where | lock discharged |
+|---|---|---|
+| **(a)** site-drift correction table | **§A — the FIRST payload section**, as G-KF1-2 requires; 14 rows + 5 secondary anchors + the value-side-anchor declaration | C-5 · D-19: every row re-resolved at this seat, none copied |
+| **(b)** the three `parseStylesheet` sites | **§B**, each with its posture read at the bytes and what a THROW does *at that site*; §A3's end state re-derived to **6** by enumeration | C-2: **only** the three; no façade design, no 13-site Tier-A inventory (KF.W2's object) |
+| **(c)** the vehicle question **WITHDRAWN** | **§C**, ONE sentence, citing **CC-084** (`CARRY-CUT-LEDGER.md:186`, re-read verbatim this seat) | C-3 **HARD NEGATIVE**: `4.0.1` appears **twice** in the whole letter ⟨cmd⟩ — once inside the quoted question being withdrawn, once inside the ruling's own text. **Never re-asked, never restated as open, no cut date** (⟨cmd⟩ a date sweep over the letter returns **no** date that is not a provenance date), and the letter states in terms that kf's silence neither caused the ruling nor is read as consent |
+| **(d)** D-GAP-6 `sampleBezier` → **not adopted** | **§D**, ONE line + the permanence and its ground (`library-band.md:205-206` *"DECLINE — `sampleBezier` / (permanently, measured zero demand)"*, corroborated `:173`), against their `IN-VALUE-2` conditional | C-4: asymmetry **recorded, not litigated**; terminal both sides |
+| the **withdrawn certification** | **§E**, on the SUBSTRATE-NAMING RULE, six-row citability table | C-6 / G-KF1-4, above |
+| the **minimal mark ask** | **§F** — `IN-VALUE-3` (O-8) / `IN-VALUE-4` (O-11), their grammar, their numbering, their call | C-12 **HARD NON-GATING**: the letter says in its own voice that nothing on our side gates on it |
+| the **§B-12 request** | **§G** — asked as the owner's act, with the reflog + snapshot receipt showing it was performed 2026-09-17 under the owner's explicit grant, in the reversible snapshot-first form | C-8: **ASKED, never performed by this wave**; the letter never claims value.js took it unilaterally, and the preserved ref `6d280ee7…` is named so nothing reads as discarded |
+| the **self-defect paragraph** | **§H** — the sweep-path law named the frozen tree; and the **memory limb** (`~/.claude/…/memory/feedback-mail-inbox-law.md:16`, re-measured this seat: still naming `../keyframes.js/docs/tranches/V/`) is stated as an **OPEN residual routed to the OWNER**, out of bounds for this and every wave | §4c's STABLE DENOMINATOR of **TWO** carried honestly: the in-bounds limb is `.c`'s cure, the out-of-bounds limb is disclosed rather than silently left |
+| **C-7's inherited payload** | **§I** — re-anchored **by table reference only** | no re-ask, no re-scope, no severity change, no new obligation; §E2 `lerpArray` **re-delivered and explicitly not scheduled** |
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (this seat's own re-measure) | AFTER | verdict |
+|---|---|---|---|
+| **G-KF1-1** DELIVERY | ⟨cmd⟩ `ls $PROG/keyframes-v-exec/docs/tranches/V/coordination/` → **10 entries** (9 files + `vnext/`); no addendum, no O-8, no O-11 | **11 entries**; the addendum present, tracked, pushed; ⟨cmd⟩ `git show origin/master:<letter> \| grep -c '81a56990736c…'` → **2** — the clone HEAD sha is recorded **inside** the letter | **RED → GREEN** |
+| **G-KF1-2** ANCHOR LIVENESS | 3 packet paths ABSENT at `origin/master`; `browser.ts` → `:162` (packet `:165`); `package.json` → `:70` (packet `:69`); no letter existed | **every `file:line` asserted in the letter re-verified at `origin/master`** by `cat-file -e` + line-content assertion — 14 drift rows + 5 secondary anchors + 6 call sites + `requireParsed`'s `:57-63`; the drift table is the letter's **FIRST** payload section | **RED → GREEN** |
+| **G-KF1-3** `parseStylesheet` COMPLETENESS | grep → **9 lines**; O-11 §A3 names **0 of 3** call sites | all three named at re-resolved anchors with their LIB §7.5 postures (⟨cmd⟩ each site string appears **2×** in the letter — table row + prose); end-state count re-derived to **6** by enumeration | **RED → GREEN** |
+| **G-KF1-4** IMPORT CENSUS | frontier **62** · **61** un-re-runnable (tree gone) · disqualified **81** · snapshot **48** · snapshot∪untracked **55** · worktree-now **69**; certification un-withdrawn | withdrawn in §E on the SUBSTRATE-NAMING RULE, all four legs; ⟨cmd⟩ *"matches your tree exactly"* appears **once**, inside the quoted sentence being withdrawn; *"off-by-one"* appears **once**, as an explicit **denial**; **no sha is cited as the tree measured** | **RED → GREEN** |
+| **G-KF1-5** VEHICLE QUESTION | O-8 `:101-103` asks it; ⟨cmd⟩ `4.0.1` sweep over the three coordination trees → **5 hits** (the spec's dated 4, **plus `.a`'s retained copy at `:104`** — a dated delta of value's own tree, recorded); **ZERO under `keyframes-v-exec`**; withdrawal nowhere | ⟨cmd⟩ `grep -rniE 'withdraw' $PROG/keyframes-v-exec/docs/tranches/V/coordination/` → **6 hits in the addendum** (the 7th is `vnext/skeptic-H1-r2.md:65`, unrelated); the question is closed in §C citing CC-084, **no cut date** | **RED → GREEN** |
+| **G-KF1-6** D-GAP-6 CONDITIONAL | `INBOX.md` **I-10** (`:47`) carries *"only if a future 4.1 ships it"*; `library-band.md:205-206` reads the permanent DECLINE; **never joined in any letter** | joined in §D in one line, with the permanence and its ground, against their own `IN-VALUE-2` row; asymmetry recorded, nothing re-litigated | **RED → GREEN** |
+| **G-KF1-10** MARK REQUESTED (**ask half only**) | ⟨cmd⟩ `INBOUND-LEDGER.md` at `origin/master` → **9 rows**, no `IN-VALUE-3/4` | the explicit minimal ask is in §F in their grammar (⟨cmd⟩ `IN-VALUE-3` present). **Their half re-measured AFTER delivery: still 9 rows — RECORDED, NOT REPAIRED**, and declared non-gating in the letter itself | **ask half RED → GREEN**; counterparty half **NOT A GATE** (C-12) |
+| **G-KF1-12** SACRED CHECKOUT (stay-GREEN, not this unit's gate) | value-posture half GREEN | **GREEN — STAYED**: zero writes, zero git mutations, zero npm in `/Users/mkbabb/Programming/keyframes.js` by this seat; its reflog head is unmoved at `HEAD@{0}: reset: moving to origin/master` (KF.W0's act, not this seat's) | **GREEN → GREEN** |
+
+Untouched by this unit: **G-KF1-7** and **G-KF1-8** remain **RED-AS-EXPECTED** (they are `.c`'s, and
+G-KF1-7 is void ahead of G-KF1-1, which is now GREEN — `.c` may open). **G-KF1-9** stands **GREEN**
+from `.a` and is *extended* by this unit's retained copy. **G-KF1-11** remains DECLARED-SATISFIED.
+
+#### Locks discharged
+
+**C-1** *"Amend, do not re-send"* + ANTI-STALENESS — the letter amends and re-sends nothing; **every**
+interval, count and anchor in it was re-measured at this seat's clock (silence **61 d**, O-8 **55 d**,
+O-11 **52 d**, by `date` arithmetic against 2026-09-17, replacing the spec's dated 41/35/32).
+**C-2 · C-3 · C-4 · C-5 · C-6 · C-7 · C-8 · C-12** — discharged as tabulated in Act 6.
+**ANCHOR DUALITY (§5b)** — two substrates, each named in its own command; **bare `HEAD` never used**;
+`8281638c` appears only as a named historical context and as the labelled disqualified contrast.
+**§4a disjointness** — this unit wrote two files, neither `.a`'s nor `.c`'s; `INBOX.md` untouched.
+**§0j.C KF-WRITE(a)** — delivery landed in `keyframes-v-exec`, committed **and pushed** to kf
+`origin/master`, session trailer on the kf commit.
+
+#### Residuals · escalations
+
+- **Escalations: NONE.** No Triumvirate trigger fired: (i) OP-1's bodies were live and are now inside
+  value's git at `426761a7`; (ii) **zero** anchors failed to resolve to a live path; (iii) the delivery
+  succeeded on the **first** attempt (one commit, one push, no retry).
+- **Bounds note (recorded, not a deviation)**: the delivered letter carries the standing seat receipt
+  `SERVED MODEL: …` as line 1, above the letter's own title — the same prefix treatment `.a` applied to
+  the two back-fills, and it is *prefix* matter carrying no claim about keyframes.
+- **Dated delta this seat measured**: **snapshot ∪ surviving-untracked = 55, not 61** — the 61-state is
+  not reconstructible even with the preservation snapshot. Recorded beside `.a`'s inferred *"13"*, not
+  over it; `.a`'s own 48 / 69 / 62 / 81 all reproduce exactly here.
+- **Dated delta on G-KF1-5's own witness**: the `4.0.1` three-tree sweep now returns **5**, not the
+  spec's dated 4 — the fifth hit is `.a`'s retained O-8 copy at `value-inbox-2026-07-24-*.md:104`,
+  i.e. **the G-KF1-9 cure entering G-KF1-5's census**, the §4c self-reference class one file over. The
+  gate's load-bearing property is untouched: **ZERO hits under `keyframes-v-exec/docs/tranches/V/coordination/`
+  before delivery**, and the question is asked in exactly one place and now withdrawn in one.
+- **OPEN residual, out of bounds, routed OWNER (§4c)**: the memory limb
+  `~/.claude/projects/-Users-mkbabb-Programming-value-js/memory/feedback-mail-inbox-law.md:16` still
+  names `../keyframes.js/docs/tranches/V/` among its four landing paths (re-measured this seat). It is
+  **owner configuration** — not this unit's and not any unit's to edit unasked — and it is now stated
+  **in the addressee's own copy of the letter** (§H), so the disclosure cannot be lost with our tree.
+  `INBOX.md` alone does not close the class.
+- **Recorded, not repaired (C-12)**: keyframes' `INBOUND-LEDGER.md` still reads **9 rows** after
+  delivery. Theirs to perform; non-gating by construction.
+- **For `.c`**: G-KF1-1 is **GREEN**, so C-10's ORDERING lock is satisfied and the ledger edits may
+  proceed. The receipt tuple for I-26's CURED row is ⟪ delivered path
+  `/Users/mkbabb/Programming/keyframes-v-exec/docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`
+  · date **2026-09-17** · exec-clone HEAD **at authoring `81a56990`**, **at delivery `55e9bf0d`**
+  (docs-only, `src/` tree object identical) ⟫. Re-run the MINT-LAW max-grep at your own write.
+- **E13 mail**: re-swept at this seat — the four paths carry **0 unrowed letters addressed to
+  value.js**; the reconciled keyframes coordination dir holds **no keyframes-authored letter to
+  value.js** (⟨cmd⟩ `ls` → 9 inbound + `INBOUND-LEDGER.md` + the two untracked packet bodies +
+  `vnext/`). This unit minted **no `I-n`** — it sent outbound. **No unread mail in this unit's scope.**
