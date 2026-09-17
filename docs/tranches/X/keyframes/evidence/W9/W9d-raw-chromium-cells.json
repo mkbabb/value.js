@@ -1,0 +1,1522 @@
+{
+ "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+ "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+ "origin": "http://127.0.0.1:9123",
+ "rows": [
+  {
+   "cell": "chromium/emulated-forced-colors",
+   "driver": "playwright-chromium",
+   "forcedColorsEmulation": "active",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "route": "/#/easing",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": true,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "btnPlayback": {
+    "selector": ".btn-playback",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgba(5, 0, 73, 0.8)",
+    "outlineOffset": "2px",
+    "boxShadow": "none",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "focusRing": {
+    "selector": ".focus-ring",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "button",
+    "cls": "button tap-squish focus-ring aspect-square w-8 scale-on-hover",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgba(5, 0, 73, 0.8)",
+    "outlineOffset": "2px",
+    "boxShadow": "none",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "shot": {
+    "path": "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-chromium-emulated-forced-colors-easing-ribbon.png",
+    "sha256": "bb2434b5c7bb9e17f29736ef8246b422e013ca7f3222af2b9dfd20bdcc1bdd88"
+   },
+   "NOT_WHC": "This is the chromium column. windows/real-HCM requires a Windows host; this row NEVER enters that column (I-20 / S-13)."
+  },
+  {
+   "cell": "chromium/emulated-forced-colors",
+   "driver": "playwright-chromium",
+   "forcedColorsEmulation": "active",
+   "route": "/#/sequence",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "seqHandle": {
+    "selector": ".seq-handle",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "div",
+    "cls": "seq-handle",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgba(5, 0, 73, 0.8)",
+    "outlineOffset": "0px",
+    "boxShadow": "none",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "shot": {
+    "path": "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-chromium-emulated-forced-colors-sequence-slider.png",
+    "sha256": "32c0504df7aa370a08a28e53e3e2da5faf26deb8b2c11a8cbd27268c72d1f36e"
+   },
+   "NOT_WHC": "chromium column only."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "forcedColorsEmulation": "none",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "route": "/#/easing",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "btnPlayback": {
+    "selector": ".btn-playback",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "button",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "oklch(0.56 0.17 295)",
+    "outlineOffset": "0px",
+    "boxShadow": "color(srgb 0.109804 0.0980392 0.0901961 / 0.3) 0px 0px 0px 2px, color(srgb 0.109804 0.0980392 0.0901961 / 0.15) 0px 0px 8px 0px",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "focusRing": {
+    "selector": ".focus-ring",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "button",
+    "cls": "button tap-squish focus-ring aspect-square w-8 scale-on-hover",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(112, 89, 66)",
+    "outlineOffset": "0px",
+    "boxShadow": "color(srgb 0.109804 0.0980392 0.0901961 / 0.3) 0px 0px 0px 2px, color(srgb 0.109804 0.0980392 0.0901961 / 0.15) 0px 0px 8px 0px",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "shot": null,
+   "NOT_WHC": "This is the chromium column. windows/real-HCM requires a Windows host; this row NEVER enters that column (I-20 / S-13)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "forcedColorsEmulation": "none",
+   "route": "/#/sequence",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "seqHandle": {
+    "selector": ".seq-handle",
+    "isActive": true,
+    "focusVisible": true,
+    "tag": "div",
+    "cls": "seq-handle",
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(28, 25, 23)",
+    "outlineOffset": "0px",
+    "boxShadow": "color(srgb 0.109804 0.0980392 0.0901961 / 0.3) 0px 0px 0px 2px, color(srgb 0.109804 0.0980392 0.0901961 / 0.15) 0px 0px 8px 0px",
+    "forcedColorAdjust": "auto",
+    "focusRingShadowToken": "0 0 0 2px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 30%, transparent), 0 0 8px color-mix(in srgb, light-dark(#1c1917,#bab7ab) 15%, transparent)"
+   },
+   "shot": null,
+   "NOT_WHC": "chromium column only."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/easing",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-62",
+      "title": null,
+      "now": "0.25",
+      "vt": "x 0.250, y 0.100",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-62",
+      "title": null,
+      "now": "0.25",
+      "vt": "x 0.250, y 1.000",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-64-label",
+      "describedby": null,
+      "title": null,
+      "now": "1500",
+      "vt": null,
+      "min": "300",
+      "max": "5000"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "1500"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 14,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     }
+    ],
+    "copyButtons": [
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     },
+     {
+      "label": "Copy easing literal",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     }
+    ],
+    "namelessButtons": 0,
+    "headings": [
+     "H2:ease"
+    ],
+    "landmarks": 2,
+    "dragHintInText": false,
+    "bodyTextLen": 637
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/spring",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-110-label",
+      "describedby": null,
+      "title": null,
+      "now": "0.5",
+      "vt": null,
+      "min": "0.1",
+      "max": "1.2"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-111-label",
+      "describedby": null,
+      "title": null,
+      "now": "0.86",
+      "vt": null,
+      "min": "0.2",
+      "max": "1.5"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 1 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 2 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.25",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 3 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.5",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 4 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.75",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 5 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-113-label",
+      "describedby": null,
+      "title": null,
+      "now": "0.5",
+      "vt": null,
+      "min": "0.1",
+      "max": "1.2"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-114-label",
+      "describedby": null,
+      "title": null,
+      "now": "0.86",
+      "vt": null,
+      "min": "0.2",
+      "max": "1.5"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 1 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 2 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.25",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 3 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.5",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 4 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0.75",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": "Value 5 of 5",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "-10",
+      "max": "110"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "1400"
+     },
+     {
+      "cls": "spring-rail stage-field-x focus-ring relative w-full h-12 cursor-pointer select-",
+      "label": "Drag to re-seat the spring target",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "100",
+      "vt": null,
+      "min": "0",
+      "max": "100"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": "status",
+      "live": "polite",
+      "parentTag": "button",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [
+     {
+      "label": "Spring parameter-space heatmap — click or use the arrow keys to navigate response (horizontal) and damping (vertical); cells are tinted by peak overshoot",
+      "labelWords": 23,
+      "describedby": null,
+      "valuenow": null,
+      "valuetext": null,
+      "tabindex": "0",
+      "childCount": 2,
+      "childrenAriaHidden": [
+       "true",
+       "true"
+      ]
+     },
+     {
+      "label": "Spring parameter-space heatmap — click or use the arrow keys to navigate response (horizontal) and damping (vertical); cells are tinted by peak overshoot",
+      "labelWords": 23,
+      "describedby": null,
+      "valuenow": null,
+      "valuetext": null,
+      "tabindex": "0",
+      "childCount": 2,
+      "childrenAriaHidden": [
+       "true",
+       "true"
+      ]
+     }
+    ],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 14,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "crosshair",
+      "w": 316,
+      "h": 254
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "crosshair",
+      "w": 0,
+      "h": 0
+     }
+    ],
+    "copyButtons": [
+     {
+      "label": "Copy to clipboard",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     },
+     {
+      "label": "Copy to clipboard",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     },
+     {
+      "label": "Copy to clipboard",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     },
+     {
+      "label": "Copy to clipboard",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     },
+     {
+      "label": "Copy to clipboard",
+      "cls": "cursor-pointer relative inline-block text-foreground p-0 m-0 bg-transp",
+      "nestedStatus": [
+       {
+        "role": "status",
+        "live": "polite",
+        "text": ""
+       }
+      ]
+     }
+    ],
+    "namelessButtons": 0,
+    "headings": [],
+    "landmarks": 1,
+    "dragHintInText": true,
+    "bodyTextLen": 644
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/sequence",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 1 start offset",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "1600"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 2 start offset",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "260",
+      "vt": null,
+      "min": "0",
+      "max": "1600"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 3 start offset",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "520",
+      "vt": null,
+      "min": "0",
+      "max": "1600"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 4 start offset",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "780",
+      "vt": null,
+      "min": "0",
+      "max": "1600"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 5 start offset",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "1040",
+      "vt": null,
+      "min": "0",
+      "max": "1600"
+     },
+     {
+      "cls": "seq-scrub relative w-full h-9 cursor-pointer select-none",
+      "label": "Scrub the sequence master playhead",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "100"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [],
+    "copyButtons": [],
+    "namelessButtons": 0,
+    "headings": [],
+    "landmarks": 1,
+    "dragHintInText": false,
+    "bodyTextLen": 125
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/amiga",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-161",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-161",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-166-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-180",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-180",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-185-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-199",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-199",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-204-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "8000"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 14,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "grab",
+      "w": 781,
+      "h": 792
+     }
+    ],
+    "copyButtons": [
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     },
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     },
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     }
+    ],
+    "namelessButtons": 6,
+    "headings": [
+     "H3:cubic-bézier",
+     "H3:cubic-bézier",
+     "H3:cubic-bézier"
+    ],
+    "landmarks": 1,
+    "dragHintInText": false,
+    "bodyTextLen": 355
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/cube",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-539",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-539",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-544-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-558",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-558",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-563-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-577",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-577",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": "v-582-label",
+      "describedby": null,
+      "title": null,
+      "now": "1",
+      "vt": null,
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "5000"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 14,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     }
+    ],
+    "copyButtons": [
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     },
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     },
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     }
+    ],
+    "namelessButtons": 6,
+    "headings": [
+     "H3:cubic-bézier",
+     "H3:cubic-bézier",
+     "H3:cubic-bézier"
+    ],
+    "landmarks": 1,
+    "dragHintInText": false,
+    "bodyTextLen": 372
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  },
+  {
+   "cell": "chromium",
+   "driver": "playwright-chromium",
+   "route": "/#/square",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+   "capability": {
+    "fc": "(forced-colors: active)",
+    "fcMatch": false,
+    "prt": "(prefers-reduced-transparency: reduce)",
+    "prtMatch": false,
+    "prm": "(prefers-reduced-motion: reduce)",
+    "prmMatch": false,
+    "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+    "dpr": 1
+   },
+   "atInventory": {
+    "sliders": [
+     {
+      "cls": "",
+      "label": "Bezier control point 1",
+      "labelledby": null,
+      "describedby": "v-921",
+      "title": null,
+      "now": "0.175",
+      "vt": "x 0.175, y 0.885",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "",
+      "label": "Bezier control point 2",
+      "labelledby": null,
+      "describedby": "v-921",
+      "title": null,
+      "now": "0.32",
+      "vt": "x 0.320, y 1.275",
+      "min": "0",
+      "max": "1"
+     },
+     {
+      "cls": "slider-thumb glass-specular-track",
+      "label": null,
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "2000"
+     },
+     {
+      "cls": "sr-only-slider",
+      "label": "Horizontal position",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": "x 0.00",
+      "min": "-1",
+      "max": "1"
+     },
+     {
+      "cls": "sr-only-slider",
+      "label": "Vertical position",
+      "labelledby": null,
+      "describedby": null,
+      "title": null,
+      "now": "0",
+      "vt": "y 0.00",
+      "min": "-1",
+      "max": "1"
+     }
+    ],
+    "liveRegions": [
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "div",
+      "parentRole": null,
+      "text": ""
+     },
+     {
+      "role": null,
+      "live": "polite",
+      "parentTag": "html",
+      "parentRole": null,
+      "text": ""
+     }
+    ],
+    "applications": [],
+    "sceneLabelled": [
+     {
+      "tag": "button",
+      "role": "combobox",
+      "text": ""
+     }
+    ],
+    "canvases": [
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": "true",
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 14,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     },
+     {
+      "role": null,
+      "label": null,
+      "tabindex": null,
+      "ariaHidden": null,
+      "title": null,
+      "textLen": 0,
+      "cursor": "auto",
+      "w": 0,
+      "h": 446
+     }
+    ],
+    "copyButtons": [
+     {
+      "label": "Copy curve literal",
+      "cls": "shrink-0 rounded-pill p-1.5 text-muted-foreground transition-colors ho",
+      "nestedStatus": []
+     }
+    ],
+    "namelessButtons": 2,
+    "headings": [
+     "H3:cubic-bézier"
+    ],
+    "landmarks": 1,
+    "dragHintInText": true,
+    "bodyTextLen": 466
+   },
+   "NOTE": "AT-PRECONDITION INVENTORY — DOM/ARIA attributes as authored. NOT an AT utterance; at/voiceover-safari, at/nvda and at/jaws stay UNREACHABLE-IN-CELL. NEVER enters a safari-app column (I-20)."
+  }
+ ]
+}

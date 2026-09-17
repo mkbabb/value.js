@@ -1,0 +1,202 @@
+{
+ "wave": "X.KF.W9",
+ "unit": ".d",
+ "date": "2026-09-17",
+ "servedModel": "claude-opus-5[1m]",
+ "substrate": {
+  "repo": "keyframes.js",
+  "ref": "55e9bf0d (COHESION \u00a70m.2 HOLD)",
+  "sha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+  "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+  "bundleMeasured": true,
+  "bundleDoubleRun": true,
+  "captureClone": "/Users/mkbabb/Programming/keyframes-w9-capture (\u00a70m.2 shape (b) grant; clean at the pin; no commit, no push)",
+  "origin": "http://127.0.0.1:9123"
+ },
+ "cellLedger": [
+  {
+   "cell": "safari-app/desktop",
+   "column": "safari-app",
+   "driver": "safaridriver",
+   "state": "PARTIAL",
+   "captures": 3,
+   "capability": {
+    "forced-colors: active": false,
+    "forced-colors: none": true,
+    "prefers-reduced-transparency: reduce": false,
+    "prefers-reduced-motion: reduce": false,
+    "prefers-contrast: more": false,
+    "prefers-contrast: no-preference": true,
+    "allThreeMediaStringsParse": true
+   },
+   "forcedColorsArm": "UNREACHABLE-IN-CELL",
+   "forcedColorsBound": "PLATFORM, not capability: with the host's increaseContrast set, (prefers-contrast: more) flipped true LIVE in the same matchMedia batch while (forced-colors: active) stayed false and (forced-colors: none) stayed true. macOS/WebKit implements no forced-colors mode. Host setting restored.",
+   "closedMidSeat": "Safari 'Allow Remote Automation' stopped granting sessions; `safaridriver --enable` needs an interactive admin password this seat cannot supply; the running Safari (pid 23725, started 16:23:59, 6 windows) is the OWNER'S and was not quit."
+  },
+  {
+   "cell": "safari-app/ios-device",
+   "column": "safari-app",
+   "driver": "safaridriver-ios",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "COHESION \u00a70m.2; `xcrun devicectl list devices` -> No devices found.",
+   "ownedBy": ".c"
+  },
+  {
+   "cell": "safari-app/ios-simulator",
+   "column": "safari-app",
+   "driver": "safaridriver-simulator",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "COHESION \u00a70m.2; `safaridriver --help | grep -ci simulator` -> 0",
+   "ownedBy": ".c"
+  },
+  {
+   "cell": "webkit-engine",
+   "column": "webkit-engine",
+   "driver": "playwright-webkit",
+   "state": "UNMEASURED",
+   "bound": "playwright 1.60.0 resolves webkit to webkit-2287; only webkit-2311 is installed, so webkit.launch() throws. A chromium reading was NOT labelled webkit-engine (I-20 in its other direction)."
+  },
+  {
+   "cell": "chromium",
+   "column": "chromium",
+   "driver": "playwright-chromium",
+   "state": "MEASURED",
+   "rows": 8,
+   "capability": {
+    "forced-colors: active": false
+   },
+   "use": "the forced-colors-OFF control twin + the AT-precondition inventory over 6 routes"
+  },
+  {
+   "cell": "chromium/emulated-forced-colors",
+   "column": "chromium",
+   "driver": "playwright-chromium",
+   "state": "MEASURED",
+   "captures": 2,
+   "capability": {
+    "forced-colors: active": true
+   },
+   "NOT_WHC": "windows/real-HCM requires a Windows host. A chromium emulation labelled WHC is the I-20 failure by name (S-13). This row never enters the windows column."
+  },
+  {
+   "cell": "windows/real-HCM",
+   "column": "windows",
+   "driver": "windows-host",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "uname -> Darwin 25.4.0; no Parallels/VMware/UTM/VirtualBox/CrossOver in /Applications; no qemu-system-x86_64 on PATH. No Windows host and no virtualization host exists."
+  },
+  {
+   "cell": "at/voiceover-safari",
+   "column": "at",
+   "driver": "voiceover+safaridriver",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "BOTH legs: safaridriver session refused (admin-gated 'Allow remote automation'); VoiceOver not running (pgrep -> 0, System Events exists-process -> false) and starting it takes over the owner's live machine with no grant."
+  },
+  {
+   "cell": "at/nvda",
+   "column": "at",
+   "driver": "windows-host",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "no Windows host"
+  },
+  {
+   "cell": "at/jaws",
+   "column": "at",
+   "driver": "windows-host",
+   "state": "UNREACHABLE-IN-CELL",
+   "bound": "no Windows host"
+  }
+ ],
+ "captures": [
+  {
+   "shot": "at-chromium-amiga-bare-canvas-subject.png",
+   "cell": "chromium",
+   "sha256": "e4937bdfe60c2cfc4b16e4e24d7d11f7c92ec622f7cc0fe5b52edb27b8dc3c4d",
+   "sidecarAgrees": true,
+   "bytes": 164278,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "at-chromium-spring-heatmap-application.png",
+   "cell": "chromium",
+   "sha256": "67e4ca6205e7a18e81fd4dffa2af4679116dda1e7a53c3989f06da830c50549a",
+   "sidecarAgrees": true,
+   "bytes": 167725,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "hcm-chromium-emulated-forced-colors-easing-ribbon.png",
+   "cell": "chromium/emulated-forced-colors",
+   "sha256": "bb2434b5c7bb9e17f29736ef8246b422e013ca7f3222af2b9dfd20bdcc1bdd88",
+   "sidecarAgrees": true,
+   "bytes": 95166,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "hcm-chromium-emulated-forced-colors-sequence-slider.png",
+   "cell": "chromium/emulated-forced-colors",
+   "sha256": "32c0504df7aa370a08a28e53e3e2da5faf26deb8b2c11a8cbd27268c72d1f36e",
+   "sidecarAgrees": true,
+   "bytes": 38726,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "hcm-safari-app-desktop-easing-focusring-default.png",
+   "cell": "safari-app/desktop",
+   "sha256": "9c357c5f352c647b6277c3fcc6a51101a4b6f82f90caa2cd19eecebda9820356",
+   "sidecarAgrees": true,
+   "bytes": 1017958,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "hcm-safari-app-desktop-easing-ribbon-default.png",
+   "cell": "safari-app/desktop",
+   "sha256": "631c27a9a8851d20f559001d5ca269d9de89f7983f5c4d6e277e44421f43c538",
+   "sidecarAgrees": true,
+   "bytes": 1022964,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  },
+  {
+   "shot": "hcm-safari-app-desktop-sequence-slider-default.png",
+   "cell": "safari-app/desktop",
+   "sha256": "ed0e28d46e55dc28208744f39481a5f0af4ec2c1ecaf0d5d39c06ef871936105",
+   "sidecarAgrees": true,
+   "bytes": 419716,
+   "substrateRef": "55e9bf0d",
+   "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+   "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448"
+  }
+ ],
+ "captureCount": 7,
+ "allSidecarsAgree": true,
+ "gateLimb": {
+  "G-KFW9-8": "RED \u2014 demo-side count re-recorded 0 (ninth seat); producer enumeration republished at TWELVE dist files (the ruling's four all present); the WHC half cannot close (no Windows host).",
+  "G-KFW9-9": "RED \u2014 the BEFORE witness EXISTS in chromium/emulated-forced-colors with its falsifier run as a control; the safari-app and real-HCM forced-colors arms are UNREACHABLE-IN-CELL with bounds stated. The re-derivation obligation handed to KF.W13 is DISCHARGED.",
+  "G-KFW9-1": "share moved \u2014 7 captures force-added, each with sha256 sidecar + cell + substrate ref.",
+  "G-KFW9-2": "share moved \u2014 every row carries its own cell; 4 cells carry a reading or a named foreclosure from this seat; no verdict crosses a column.",
+  "G-KFW9-4": "share moved \u2014 this unit's probes reach terminal states; .e folds the tally.",
+  "G-KFW9-14": "share moved \u2014 every capture names substrateRef + substrateSha + bundleSha256 + cell; the bundle hash is MEASURED (double-run) from a clone built at the pin."
+ },
+ "locksHonoured": {
+  "twoDeletionAct": "KF.W13's. This unit spent no cure and deleted no byte. The AFTER witness reads UNMEASURED (S-9).",
+  "ST-1 re-point": "KF.W11's, strictly after KF.W13's act (S-15). Not touched.",
+  "harness": "safari-real-matrix.js EXECUTE-NO-WRITE and capture.mjs/states.mjs are .a-alone modify-carve \u2014 none was written.",
+  "cellDisjointness": "wrote only hcm-* and at-*; desktop-* and mobile-* untouched.",
+  "adjudicatedRecords": "no byte written \u2014 E-1/E-3 reserve addenda to .e alone; the material is handed over.",
+  "kfBytes": 0,
+  "glassUiBytes": 0,
+  "devShTouched": false
+ }
+}
