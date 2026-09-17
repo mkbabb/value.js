@@ -1284,3 +1284,194 @@ no command and the CWV gates had no instrument; today `node scripts/perf/eager-b
 its untouched bar**, the barrel is out of the eager graph by an import-graph fact, and the carried
 5,141 / 4,919 ms LCP figures are **superseded by measurement** rather than re-booked. What did not happen
 is the park, the o5 verdict, the telemetry successor and the AFTER receipt.
+
+---
+
+## Check 1
+
+**FRESH ADVERSARIAL CHECK (L-20, pass 1) — VERIFY-ONLY.** **SERVED MODEL**: `claude-opus-5[1m]`.
+**Seat clock**: 2026-09-17, **19:24–19:33 EDT**. Branch `tranche-u`, HEAD at check `49d7c24c`.
+This seat **authored none of this wave's bytes** — not seat 0's, not unit c's, a's or b's, not the
+close seat's. It cured nothing, moved no gate, touched no bar and narrowed no grep. Every figure
+below is this seat's **own** measurement, taken from the gate's **own command** over its **own**
+fresh `npm run gh-pages`, and every count is double-run.
+
+### VERDICT — **NOT-CONFORMANT** · 2 HIGH · 1 MEDIUM · 1 MINOR · 2 INFO
+
+**All eight §6 gate verdicts reproduce exactly** (4 GREEN · 4 RED), **all four claimed GREENs
+reproduce**, and **bounds · masking · E-3 · commit families · mail · the four-verb line are clean**.
+The verdict turns on **axis 10 alone**: of the four REDs, **G5 and G3 are honest-RED under the
+spec's own relief**, and **G6 and G7 are not relieved by anything the spec says** — their cure is
+in-bounds to **X.W2.d, a unit of this very wave**, which was never dispatched. A RED whose cure sits
+inside the wave's own unrun unit is a real defect, not an honest red; the close's own **cl-F5** says
+so in its own words (*"unit d is executable today and is blocked only by dispatch … the single
+largest miss of this wave is a dispatch gap, not a technical one"*). This is the same shape this
+tranche's F.W5 CHECK 1 and KF.W4 CHECK 1 both returned NOT-CONFORMANT for, and it is returned the
+same way here.
+
+### Axis 1 — every claimed GREEN, re-run at this seat's own command
+
+| gate | the close's claim | **this seat's independent reading** | reproduces? |
+|---|---|---|---|
+| **G1** barrel absent from the eager set | GREEN by the import graph; `smin` 0 across all six eager chunks | ⟨cmd⟩ a loop of `grep -o` for all three tokens over **each of the six eager chunks the instrument itself enumerates** → `smin` **0 · 0 · 0 · 0 · 0 · 0**. ⟨cmd⟩ `grep -c smin dist/gh-pages/assets/*.js` (all emitted JS) → **one file only, `HeroBlob-CK6WV_Kd.js:41`**. ⟨cmd⟩ `grep -o 'HeroBlob-[A-Za-z0-9_-]*' dist/gh-pages/index.html \| sort -u \| wc -l` → **0** — neither entry nor `modulepreload`. Source side: ⟨cmd⟩ `grep -rn 'glass-ui/blob"' demo/` → **2 lines, both `HeroBlob.vue` (:34, :35)**; ⟨cmd⟩ `grep -rn blob-config demo/ src/ \| wc -l` → **3** | **YES** |
+| **G2** eager JS gz ≤ 286,720 B | GREEN 280,811 B, margin 5,909 B, bar untouched | ⟨cmd⟩ `node scripts/perf/eager-bytes.mjs` ×2 on one fresh build → **`eager JS raw= 886610 gz= 280811 = 274.2 KiB (bar 286720 B) -> GREEN`**, 6 modules; ⟨cmd⟩ `diff` of the two JSON records with `generatedAt` excluded → **no output**. Enforcing gate re-run from the spec file: ⟨cmd⟩ `npx playwright test --project=smoke-perf … -g "G2"` → **1 passed**, `[X-W2 G2] … gz=280811 (274.2 KiB) bar=286720 B → GREEN`. **The bar in both `eager-bytes.mjs:58` and `eager-payload.spec.ts:82` is `286720`, byte-identical to §6's** | **YES — to the byte** |
+| **G4** p75 LCP ≤ 2500 ms, N≥20 | GREEN, desktop 952/816 · mobile-4× 1,136/780 ms | ⟨cmd⟩ `npx playwright test … -g "G3/G4"`, **N=20 per config at this seat's own clock**: `desktop-unthrottled` **p75 LCP 684 ms** · `mobile-4x-cpu` **p75 LCP 1,080 ms** — **GREEN on both, against a 2,500 ms bar**. The pin string the spec **computes** reproduced verbatim: `macOS 26.4.1 (25E253) · Apple M5 Max · node v26.0.0 · @playwright/test 1.60.0 · Chromium headless (SwiftShader) · serve-built.mjs :8091` | **YES** (a third independent N=20 reading; the carried Q14 5,141 / 4,919 ms figures are again **not reproduced**) |
+| **G8** `BLOB_HERO` consumed or tombstoned | GREEN by the tombstone arm | ⟨cmd⟩ `grep -rn "BLOB_HERO" demo/ src/ \| wc -l` → **0**; the one-line tombstone with its two measured disqualifiers and its X-W10 re-trigger is carried **verbatim in the close**, where G8's asserted property says it lives. *"Silence fails"* — this is not silence | **YES** |
+
+### Axis 1 (cont.) — every RED the close left, re-run the same way
+
+| gate | reading at this seat | matches the close? |
+|---|---|---|
+| **G3** p75 TBT ≤ 300 ms | `mobile-4x-cpu` **p75 TBT 786 ms** at N=20 (desktop **202 ms**, GREEN). **A third independent reading above the bar** — 386 (unit c) · 616 / 529 (close) · **786** (here). Every reading on that leg, at every machine load, exceeds 300 ms | **YES — RED** |
+| **G5** wall-clock park → `settled` | ⟨cmd⟩ `grep -rn "BLOB_IDLE_MS\|SLEEPY_POSE_MS" demo/ e2e/ \| wc -l` → **26**, ⟨cmd⟩ `grep -rln … \| wc -l` → **5**; ⟨cmd⟩ `sed -n '205,215p' demo/picker/visual/HeroBlob.vue` still carries the *"booked at the 5.0.0 adopt"* dead book and `const BLOB_IDLE_MS = 2000;` / `const SLEEPY_POSE_MS = 3300;` | **YES — RED, unchanged at the bytes** |
+| **G6** the o5 spike leg tells today's truth | ⟨cmd⟩ `grep -n "test.fail()" e2e/smoke/perf/o5-boot-pacing.spec.ts` → **`48:    test.fail();`**; `:27` still binds the red to *"the payload cure is W7's"* — a dead V-prime wave | **YES — RED, UNRUN** |
+| **G7** the telemetry successor | ⟨cmd⟩ `ls docs/tranches/V/megatranche/audit/telemetry/` → **`PERF.json` + `perf-probe.mjs` only; `PERF-X-W2.json` ABSENT**. **F-7 intact**: ⟨cmd⟩ `git diff --stat a8d9af99..HEAD -- …/PERF.json` → **0 lines** | **YES — RED, UNRUN** |
+
+**Gate verdicts reproduced: 8 of 8. Claimed GREENs that failed to reproduce: 0.**
+
+### Axis 2 — bounds · Axis 4 — families · Axis 5 — E-3
+
+- **10 commits, every one in bounds.** ⟨cmd⟩ `git show --stat --format=""` per sha: `fc7489d5` (INBOX ⊕ record ⊕ LEDGER) · `188870c2` · `eaa70162` (**exactly the 3-file unsplittable instrument family**) · `33de6349` · `4ca55e5d` · `13f4ddc2` (**exactly 2 files**) · `48d921e4` · `6c783f39` · `91dc6e56` (record ⊕ LEDGER ⊕ W2.md §State ⊕ INBOX) · `1174dfdc` (the close's own sha, the self-reference the close could not carry).
+- **The modify-carve is exactly three lines and every one is a bare specifier swap.** ⟨cmd⟩ `git show 13f4ddc2 --format="" -- <the two files> | grep -E '^[+-][^+-]'` → six lines, three `-`/`+` pairs, `@mkbabb/glass-ui/blob` → `@mkbabb/glass-ui/blob-config`, **imported symbols unmoved**. ⟨cmd⟩ `git diff --stat 13f4ddc2^ 13f4ddc2 -- src demo api vite.config.ts package.json package-lock.json` → **2 files, 3 insertions, 3 deletions and nothing else**.
+- **`scripts/dev/dev.sh` appears 0 times.** ⟨cmd⟩ `git log fc7489d5^..1174dfdc --name-only --format="" | sort -u | grep -c dev.sh` → **0**, and it is still ` M` and unstaged in the tree.
+- **Every path §4 reserves is byte-untouched.** ⟨cmd⟩ `git diff --stat a8d9af99..1174dfdc -- demo/picker/visual/HeroBlob.vue e2e/smoke/fixtures/blob-timing.ts e2e/smoke/webgl-blob-idle.spec.ts e2e/smoke/oracles/o12-blob-seat.spec.ts e2e/smoke/mobile/blob-presence-mobile.spec.ts e2e/smoke/perf/idle-frame-budget.spec.ts e2e/smoke/perf/o5-boot-pacing.spec.ts e2e/smoke/perf/serve-built.mjs vite.config.ts src demo/shell/usePaneRouter.ts` → **0 lines**. Unit b's revert is clean to the byte.
+- **Families not split.** §9 row 1's three files landed in ONE commit; row 2 in one; **row 3 landed as NOTHING rather than as half** (§5's *"commit 3 is ONE commit and must not split"*, honoured by landing none of the six-file family); rows 4–5 are the miss registered below.
+- **E-3 held.** ⟨cmd⟩ `git diff --stat a8d9af99..1174dfdc -- docs/tranches/V/megatranche/registry/` → **0 lines**. `docs/tranches/X/waves/W2.md` moved **one line** — the §State `Status` field, exactly the §4 grant (⟨cmd⟩ `git show 91dc6e56 -- docs/tranches/X/waves/W2.md` → `-**Status**: planned` / `+**Status**: **PARTIAL …**`). **No §6 byte was edited**; the three corrections ride as dated addenda-beside, as E-3 requires.
+
+### Axis 3 — masking fallbacks: **none found**
+
+Both created files were read **whole** at this seat (`scripts/perf/eager-bytes.mjs` 296 L ·
+`e2e/smoke/perf/eager-payload.spec.ts` 498 L), and the product diff is three specifier characters.
+**No `test.skip`, no added `test.fail()`, no allowlist, no copied producer selector, no patched
+`node_modules`, no silently narrowed assertion.** The two constructs a hostile would reach for, each
+checked and each cleared:
+
+1. **The instrument's one `try`/`catch`** (`eager-bytes.mjs:288-295`) is the CLI's error boundary: it
+   reports `exit 2` for *"could not measure"* and wraps **nothing** that could hide a defect — the
+   collector **throws** on a missing artifact (`:126`) and on an index that references a file that is
+   not on disk (`:199`). A born-RED reading exits 0 **by design**, because the enforcing gate is the
+   spec file, and this seat proved that pairing lives: the same command read RED at 313,601 B for
+   unit c and GREEN at 280,811 B here, through an unmodified instrument and an unmodified bar (L-19).
+2. **The TBT window is WIDENED, not narrowed.** The gated window is `[navigationStart,
+   observationEnd]`; Lighthouse's strict `[FCP, TTI]` reads **2 ms desktop / 4 ms mobile-4×** at this
+   seat's own N=20 — i.e. **G3 would be GREEN on both legs under the canonical window**, and the
+   implementing seat gated the **harder** one and published the softer one beside it. That is the
+   opposite of masking, and it is why G3 is still a live failing gate. See INFO-1.
+- **`expect.soft`** in the G3/G4 leg accumulates all four verdicts in one run; any soft failure still
+  fails the test — proved here: the run exited **1 failed** on the mobile TBT leg.
+
+### Axis 6 — mail · Axis 7 — the four-verb line · Axis 9 — published figures
+
+- **Mail: 0 UNREAD in X-W2's scope, reproduced independently.** The three live `UNREAD` rows are
+  **I-32 · I-33 · I-34**, Track D's, routed by their own cells to X-W0.j / the X formation mail seat.
+  Scope probe re-run at the letters' current bytes: ⟨cmd⟩ `grep -Eic "blob|settled|eager|metaball"` →
+  **1 · 2 · 0** (disposition · constellation-relay · bbnf), and ⟨cmd⟩ `grep -rn defaultBlobColorResolver demo/ src/ | wc -l`
+  → **0** places every hit nowhere in this tree. ⟨cmd⟩ `ls -lt ../glass-ui/docs/tranches/BK/coordination/ | head -5`
+  → **no letter minted since 17:43**.
+- **The four-verb line moved lawfully — by NOT moving.** §State's condition for IMPLEMENTED is
+  *"gates green, bytes landed"*; the gates are 4/4 and unit d's bytes never landed, so the close left
+  `IMPLEMENTED: no.` and moved only the `Status` field. **VERIFIED is untouched and remains X-W11's.**
+  Stamping IMPLEMENTED here would have been §11's own U-close disease (*"naming the obligation counted
+  as satisfying it"*); the close declined it, and that is the correct act.
+- **Published figures reproduce.** eager JS `raw 886,610` / `gz 280,811` / 6 modules (double-run
+  identical); the pin string verbatim; CLS **0.0193** desktop / **0.0000** mobile, reproducing the §6
+  pilot exactly; ⟨cmd⟩ `npm test` → **26 files, 348 tests, ALL PASSED**, the close's figure to the
+  number. The close's own **cl-F2** is confirmed: gz reads **280,811** here and **280,813** at unit a
+  on identical product bytes, every chunk hash differing — 2 B against a 5,909 B margin.
+- **cl-F3 re-read, and it clears the cut.** ⟨cmd⟩ `npx playwright test --project=smoke e2e/smoke/webgl-blob-idle.spec.ts`
+  → **1 passed (29.5 s)**. The hero's engine still parks and still renders as a lazily fetched
+  94.6 KB chunk, so the close's load-flake diagnosis holds and **unit a's cut broke nothing the park
+  oracle can see**.
+
+### Axis 8 — the spec's own goal criterion (§2a), at the bytes
+
+> *"…the boot path of the built demo no longer pays for the WebGL2 metaball engine it does not use at
+> boot, **and** … the boot cost is thereafter a measured number with a named environment rather than
+> an escalation."*
+
+**First half: MET at the bytes, verified independently** — the engine is out of the eager graph
+(`smin` 0 × 6 chunks; the barrel alone in an unpreloaded chunk `index.html` names 0 times) and the
+eager set is 32,790 B gz lighter under an untouched bar. **Second half: MET IN PART.** The number and
+its environment exist and are re-runnable by one agent at one bench — this seat re-ran both from the
+shell and from the spec file — which is exactly what §2a calls the end of the Q14 chronic. But the
+boot cost **is still an escalation at G3** (§3a's *"TBT still red after the cut"* fired), and the
+before/after **pair** §State's Hard Gate names cannot be formed at all, because `AFTER.json` does not
+exist. §2a is therefore **not fully met**, and the close says so rather than claiming otherwise.
+
+### Axis 10 — HONEST-RED ADJUDICATION, gate by gate
+
+**RELIEVED — the honest-RED set (2): G5 · G3.**
+
+- **G5 — RELIEVED, twice over: PRODUCER-OWNED and named by the spec's own relief arm.**
+  §3a spells the arm verbatim: *"**Quiescence does not park.** If `settled` never goes true within the
+  fixture window on the software-GL renderer, triumvirate. Do **not** restore the wall clock."* Unit b
+  met that trigger literally (5 runs / 2 instruments / 45–75 s windows against the built origin, PRM
+  excluded by measurement, the cause isolated by a reverted `HERO_FISSION_AMP = 0` counterfactual),
+  and the root cause is **inside the producer**: `isQuiescent()` requires every satellite
+  simultaneously `orbiting` while the resting colony's merge chain (6,000–8,000 ms) exceeds the
+  5,490 ms cooldown that gates it. **`glass-ui` is READ-ONLY always**, so a consumer-side cure would
+  be precisely the substitute trigger the spec forbids — a green bought by a masking fallback. The
+  landed tree keeps the original wall clock **because it was never removed**, not because it was
+  restored, and this seat measured that (`26 / 5`, unchanged). **Owner named in the register**:
+  residual 1 → the X orchestrator's mandatory triumvirate; residual 4 → b-F1/b-F2 to the glass-ui
+  BH/BI relay. **HONEST-RED.**
+- **G3 — RELIEVED by §11 guardrail 2, which names the disposition by its own words.**
+  *"There is no `escalate` arm — G2/G3 pass or the wave closes `complete_with_misses` with the
+  measured number."* That is the spec authoring this exact outcome in advance. The measured number is
+  published (616 / 529 at close; **786 at this seat**), the bar is byte-identical to wave-open, and
+  §3a's *"TBT still red after the cut … halt and research"* is the spec's own routing of what happens
+  next. **Owner named in the register**: residuals 2 and 7 → the X orchestrator, at a quiescent bench
+  or on X-W1's pinned `ubuntu-24.04` runner. **HONEST-RED.**
+
+**UNRELIEVED (2): G6 · G7 — see D-1 and D-2.** Neither is producer-owned; neither is routed to a
+later wave by any byte of the spec; neither is an honest-RED the spec names by id. §5's
+`### X.W2.d` and §9 rows 4–5 route both to a unit **of this wave**. The register names an owner —
+*"**Owner: X.W2.d** — dispatchable today"* — but **X.W2.d is not a successor**, and an owner inside
+the wave is the definition of an undischarged obligation, not of a relief.
+
+### The defect register
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **HIGH** | **G6 is an UNRELIEVED RED**: the o5 spike leg still tells a dead wave's truth, and the spec routes the cure to X.W2.d — a unit of this wave that was never dispatched | ⟨cmd⟩ `grep -n "test.fail()" e2e/smoke/perf/o5-boot-pacing.spec.ts` → `48:    test.fail();`; `:27` still reads *"the payload cure is W7's (L20 `/blob/config` + GAP-L5 — the Q14 chain). Re-measure at the W7 adopt; flip then"* — the V-prime W7 that this wave **is**. §6 G6's own words: *"A stale prophecy naming a dead wave is not an acceptable third state."* The close concurs at cl-F5: *"unit d is executable today and is blocked only by dispatch"* | Dispatch **X.W2.d** (nothing gates it — G6 measures the o5 leg after the *payload* cure, landed at `13f4ddc2`, and §5/§10 gate it on nothing): re-run `o5-boot-pacing`, then **either** delete `test.fail()` (leg green) **or** rewrite `:20-38` with today's median / max-ratio and today's diagnosed cause, and write `docs/tranches/X/evidence/W2/o5-remeasure.txt` with the `[O-5]` console line |
+| **D-2** | **HIGH** | **G7 is an UNRELIEVED RED**: the 2026-07-24 all-zero telemetry receipt is still the only telemetry file in the tree, and its dated successor was never written | ⟨cmd⟩ `ls docs/tranches/V/megatranche/audit/telemetry/` → `PERF.json` · `perf-probe.mjs` — **`PERF-X-W2.json` ABSENT**. F-7 **is** intact (⟨cmd⟩ `git diff --stat a8d9af99..HEAD -- …/PERF.json` → 0 lines), so the gate's own falsifier does not fire; what fails is the successor's non-existence, which is the gate's asserted property (*"a dated successor (`PERF-X-W2.json`) **exists**"*) | Dispatch **X.W2.d**: write `docs/tranches/V/megatranche/audit/telemetry/PERF-X-W2.json` — the dated successor, carrying the pin string and this wave's own CWV readings — **never** by editing `PERF.json` (append-never-rewrite, F-7) |
+| **D-3** | **MEDIUM** | **The §State Hard Gate's *"with a before/after receipt"* clause is unsatisfiable as the wave stands**, and §8 is **2 of 7**: `AFTER.json`, `DELTA.md`, `o5-remeasure.txt`, `PERF-X-W2.json` and the dated §D producer note are all absent, so G2's GREEN publishes a number without its pair | ⟨cmd⟩ `ls docs/tranches/X/evidence/W2/` → **`BEFORE.json` alone** (34,020 B, tracked at `eaa70162`, pin verbatim — CC-012 honoured for the one artefact that exists). The close registers this itself and declines to read the clause as discharged | Dispatch **X.W2.d**; and note the close's **cl-F1** constraint at the bytes: a CWV `AFTER.json` taken under the four-track cap cannot be differenced against unit c's `BEFORE.json` (this seat's own desktop p75 TBT reads **202 ms** against unit c's pre-cure **58 ms** on **zero** changed product bytes). The **byte** halves are load-independent and pair cleanly today; the **CWV** halves need X-W1's pinned runner or a dated quiescent-bench sitting. The §D note is **non-gating by CC-035** and cannot block a close, but it is owed to the BH/BI relay all the same |
+| **D-4** | **MINOR (mitigated)** | **cl-F1 reproduced independently: the bench is not quiescent and G3's pin (ii) pins nothing about that.** The pin string is a machine *identity*, not a machine *state* | ⟨cmd⟩ `uptime` across this seat's runs → load averages **19.36 · 27.26 · 37.09 · 40.91**. On identical product bytes the mobile-4× p75 TBT reads **386** (unit c) · **616 / 529** (close) · **786** (here) and desktop **58 → 220 / 218 → 202** | **Mitigation, and why it does not block**: the byte gates are read from disk and reproduce **to the byte** at every load, and **every** mobile-4× reading at **every** load exceeds the 300 ms bar, so G3's RED is load-robust even though its magnitude is not. **Owner already named** (residual 7 → X-W1's pin (i) / the orchestrator's concurrency cap) |
+| **INFO-1** | INFO | The gated TBT window is `[navigationStart, observationEnd]`, not Lighthouse's `[FCP, TTI]` against which `lighthouserc.json`'s 300 ms bar is defined | This seat's own N=20: `p75 TBT[FCP,end]` = **2 ms** desktop / **4 ms** mobile-4× — **G3 would read GREEN on both legs under the canonical window**. The substitution is declared in the spec file's docstring, in `BEFORE.json`'s `windowRuling`, and in the close | **No act owed** — the seat gated the **stricter** window and published the softer one beside it every run. Recorded here so that **no successor may flip G3 GREEN by silently reverting to the strict window**: that would be the narrowed assertion this check exists to catch |
+| **INFO-2** | INFO | One warm-up load per config is discarded from the p75 | `eager-payload.spec.ts:364-368` — measured, logged, and kept in the record as `warmup`; never deleted | **No act owed** — disclosed, not silent, and immaterial at today's margins (G4's is >1,400 ms; G3's mobile leg is RED with and without it) |
+
+### What this check does NOT find
+
+Stated because a check that finds only what it looked for is not a check. **No** write outside
+§4 · **no** `scripts/dev/dev.sh` byte · **no** split family · **no** re-baselined bar (`286720` in
+both wave-written files, byte-identical to §6) · **no** narrowed grep (the token census was *widened*
+to all three tokens over all six chunks, and this seat re-ran it that way; the residual `metaball` ×3
+are `@mkbabb/glass-ui/aurora`'s GLSL comments — ⟨cmd⟩ `grep -rl "mirrors metaball.frag.ts" node_modules/@mkbabb/glass-ui/dist/`
+→ **`aurora.js`** + `brush.glsl.d.ts` — and the residual `satellite` ×3 are
+`BLOB_CONFIG_DEFAULTS`' own field names, `satelliteCount:3, satelliteRadius:.082`, which the §6 G2
+prediction line budgets eager in so many words) · **no** patched `node_modules` · **no** dev-server
+number anywhere (MT-F011 is enforced structurally by `builtOrigin()`, which **fails the test** unless
+the port is `serve-built.mjs`'s) · **no** UNREAD mail in scope · **no** false IMPLEMENTED stamp.
+**The close's honesty is not in question anywhere in this register.** What is in question is that a
+wave with two never-attempted Hard-Gate legs and five of seven verification artefacts missing is not
+yet a closed wave.
+
+### Successor readiness — the "Opens after" conjuncts, stated
+
+- **X-W5** (`W5.md:6`) opens after **X-W4** · **X-W2** · X-W0's track-or-archive act. **X-W4 is
+  `planned`**, so X-W5 is blocked on that conjunct regardless of this wave. On the **X-W2** conjunct:
+  the runbook §1.1 edge reads *"Boot cost is measured before shell composition rewrites it; **W2's
+  `AFTER.json` is non-terminal until W5's A1/A2 land**"* — the boot cost **is** measured (instrument
+  + pin + two N=20 sittings), so the edge's substance is served, but the artefact the edge names by
+  name **does not exist**. **X-W5 is lawfully blocked today, on X-W4 outright and on X-W2's missing
+  `AFTER.json` in the artefact the edge itself names.**
+- **X-W11** (`W11.md:6`) opens after *"X-W0 … X-W10 are **IMPLEMENTED**"*. **X-W2 is not
+  IMPLEMENTED** and its close deliberately declined the stamp, so **X-W11 is lawfully blocked by this
+  wave**, exactly as §10's *"CC-035 and CC-036 cannot reach VERIFIED in the release table without
+  this wave's receipts"* anticipated.
+
+### The act this check takes
+
+Per the bar, **the LEDGER Track A `X-W2` status cell is NOT moved to CLOSED** — the wave remains
+**PARTIAL** — and a dated event line is appended to the append-only §Event log. Nothing else in the
+ledger is touched; no gate, bar, grep, spec byte or prior receipt was moved by this seat.
