@@ -1911,3 +1911,68 @@ anchors on that sha, and this is exactly why `.c` wrote *"every anchor in the se
 non-blocking**, and the fetch-decision is handed to the orchestrator with its cost stated: a later
 fetch in the sacred checkout is lawful and probably necessary, but the seat that runs it must know it
 retires the branch-relative form of every command in this record.
+
+---
+
+## Check 1
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Seat**: FRESH ADVERSARIAL L-20 pass 1
+(Track B · KF.W0 close). **VERIFY-ONLY — this seat cured nothing, wrote no byte in `keyframes.js`,
+in any producer tree, or in any KF.W0 work-product file.** Read whole: the governing spec
+`docs/tranches/X/keyframes/waves/KF-W0.md` (758 L), this record (1,913 L before this block) and
+every commit it names. **VERDICT: CONFORMANT — 10 of 10 gates reproduce at this seat's own clock,
+0 failed, 0 BLOCKER/CRITICAL/HIGH.**
+
+### §C1.1 · Gate reproduction — this seat ran the gate commands itself
+
+Every reading below is **anchored on the SHA `81a56990736ced5b5edde0b84c527680ac7689b1`, never on
+the branch name** — see §C1.5, where the record's own R-3 hazard is found to have FIRED between the
+close and this check.
+
+| gate | command this seat ran | reading | vs the close |
+|---|---|---|---|
+| **G-0.1** | ⟨`git diff --name-only 81a56990 kf-sacred-snapshot-2026-09-17 \| sort -u \| wc -l`⟩ · the three `comm` probes rebuilt from `substrate-open.txt`'s 26 untracked rows ∪ ⟨`git diff --name-status 8281638c <snap> \| cut -f2-`⟩ | **325** · `comm -13` **225** · `comm -23` **152** · `comm -12` **100**; B's classes re-derived by the record's own stated predicate → **196 CREATED · 24 UPDATED · 5 REMOVED = 225**; ⟨`git ls-tree -r --name-only 81a56990 docs/tranches/V/`⟩ → **175** | **EXACT** |
+| **G-0.2** | ⟨`git show 81a56990:package.json \| grep -n glass-ui`⟩ · ⟨worktree `grep -n`⟩ · ⟨`node -p …version`⟩ · ⟨`grep -c glass-ui package-lock.json`⟩ · ⟨`grep -c optionalDependencies`⟩ | `:77 "7.0.0"` at **all four** coordinates, lock **3**, `optionalDependencies` section **gone (0)**; `MANIFEST-RULING.md` §2 and §3 both present (`^## ` scan) | **EXACT** |
+| **G-0.3** | ⟨`git diff 81a56990 --stat -- <the four paths>`⟩ | **EMPTY** | **EXACT** |
+| **G-0.4** | ⟨`git show 81a56990:<each> \| sed -n <line>p`⟩ ×3 · ⟨`git grep -c 'bounceInEase' 81a56990 -- demo/`⟩ · ⟨`… '\.start\.toString()' …`⟩ | `easeInBounce` · `startScalar(frames[i].start)` · `() => animation.templateFrames.length,` · **0** · **0** | **EXACT** |
+| **G-0.5** | ⟨`git grep -nF 'glass-ui/header-ribbon' 81a56990 -- .`⟩ · ⟨`git grep -n '\bHeaderRibbon\b' 81a56990 -- demo/ test/ src/ scripts/`⟩ · producer + installed probes | **1 live specifier** (`EditorShell.vue:116`) + 2 docs-prose hits; symbol census `:16`/`:50`/`:116`, same file same specifier ⇒ **consumer set = 1**; producer dir empty at HEAD, 5 files at `4bf53962^`; `dist/header-ribbon.js` present | **EXACT** |
+| **G-0.6** | ⟨`git ls-tree -r --name-only 81a56990 src/ \| grep -c '\.ts$'`⟩ · the `.vue`/`.ts+.vue` pair · LOC by `git show` · the mint instruments over `lane-frontend.md` | **153** · **58** · **185** (and **183** at the disqualified pin, so the claimed 184 reaches no committed coordinate) · **22 778** LOC · `^### S-` **8** · `^#### S-` **12** · `^#{3,4} S-[0-9]` **20** | **EXACT** |
+| **G-0.7** | ⟨`git ls-tree -r --name-only 81a56990 scripts/gates/ \| wc -l`⟩ · the dead-name sweep · ⟨`git grep -c 'proof:' 81a56990 -- demo/`⟩ · the roster `comm` | **9** files / **3** entry points · **55 tokens = 54 names + 1 bare**, 1 runnable ⇒ **53 dead** · **116 hits / 51 files** · `build:gh-pages` **0 hits** · ⟨`comm -23 <sweep-54> <roster names, `sed -n '143,340p' GATE-ROSTER.md`>`⟩ → **∅** · keyframes ⟨`status --short -- demo/`⟩ → **0 rows** ⇒ **W0 struck nothing** | **EXACT** |
+| **G-0.8** | file presence + verdict-token scan | `V8-DISPOSITION.md` **128 L**, token **STALE-BY-SUBSTRATE**, `OG-KF1` named ×4 and nowhere ruled | **EXACT** |
+| **G-0.9** | ⟨`ls kf-*.md \| wc -l`⟩ · ⟨`grep -l 'REF-OF-RECORD — KF.W0' \| wc -l`⟩ · ⟨`grep -c … \| awk -F: '$2!=1'`⟩ · ⟨`git show --numstat`⟩ · the pre-stamp census re-derived by ⟨`git archive 7c569bb0^ …`⟩ · the blanket-pass falsifier | **58 / 58 / 0 duplicates**; **1204 + / 0 −** and **14 + / 0 −**; pre-stamp **42 records / 94 lines** bare `D-19`, **0** stamps; ⟨`grep -l 'of the six named at G-0.9'`⟩ → **exactly 6**; falsifier **does not fire** (TypingDots' frontier diff empty beside a stamp stating `+4/−9`); corrections (i) and (ii) spot-re-derived at the pin — `App.vue:176` the provide site; `var(--dock-margin)` **10 lines − 1 comment = 9 live**, bare token **11** | **EXACT** |
+| **G-0.10** | ⟨`shasum -a 256 $(find node_modules/@mkbabb/glass-ui/dist -type f \| sort) \| shasum -a 256`⟩ · ⟨`find dist/gh-pages -type f \| sort \| xargs shasum -a 256 \| shasum -a 256`⟩ · the citation censuses | digest **`3cc72cc9d848…da6f2`** · build hash **`bad6ea595fb5…64d2` over 54 files** — **byte-identical to the banked artefact, re-hashed without rebuilding** · **4** `glass-ui/src` records, 1 line each · **10** `index-CL_QYCiO` citers | **EXACT** |
+
+**10 reproduced · 0 failed · 0 UNRUNNABLE.** Not one AFTER figure this seat re-ran needed correction.
+
+### §C1.2 · Bounds, dev.sh, masking, families, E-3, mail
+
+- **Bounds.** Union of the paths in all **22** KF.W0 commits taken by ⟨`git show --name-only --format=`⟩: every path is a §Bounds row, the standing record `execution/B/KF-W0.md`, or `execution/LEDGER.md` — **except the two already booked at §4** (see D-2 below). `lane-docs.md` is the single `modify-carve` and its diff is **`2 +-`**, one row cell, prior disposition carried verbatim inside it.
+- **`scripts/dev/dev.sh`**: ⟨per-commit `git show --name-only`, summed over the 22⟩ → **0**. Untouched, unstaged.
+- **Masking.** The wave's whole diff (10,025 lines) scanned: ⟨`grep -cE '^\+.*\btry\s*\{'`⟩ → **0**; no `test.skip`/`it.skip`/`.only(`/`@ts-ignore`/`eslint-disable`/allowlist; every `node_modules/` hit is a **read-only probe transcript inside a docs fence**, never a patch. The only executable bytes in the wave's commits are Track A's two `workflows/*.mjs` swept at `58be3626`, whose two added `continue` statements are ordinary loop filters in that seat's own script, not a defect suppressed.
+- **Families.** No §3.4 lock names KF.W0. The three families the record declares unsplit **are** unsplit at the bytes: `settle` = `388dbf1f` (4 paths, one motion) · `manifest` = `30110269` (3 paths) · `counts` = `a331fae6` (**5 paths, 1443 + / 0 −**). Each additional commit carries its own declared meaning (receipts · E13 delivery · the 231→229 addendum · correction (v)'s continuation · G-0.10's gate reading).
+- **E-3.** ⟨`shasum -a 256 waves/KF-W0.md`⟩ = ⟨`git show 97e6a5f2:<same> \| shasum`⟩ = **`5c82b06d8e7f…ac4b`** — the governing spec's bytes never moved. Over the KF.W0 commit set, `docs/tranches/X/keyframes/conformance/**`, `docs/tranches/X/waves/**`, `docs/tranches/X/fourier/**`, `docs/tranches/X/parse-that/**` and the sibling `KF-W4.md`/`KF-W7.md` are **absent from every path list**. The 58 adjudicated records are **append-only measured**: `1218 added / 0 deleted` across the two commits that touch them.
+- **Mail (E13).** ⟨`grep -nE '^\| (I\|O)-[0-9]+ '` over `INBOX.md`, then the **status cell** of each match⟩ → exactly **one** row whose status cell literally reads `**UNREAD 2026-09-17**`: **I-31**, whose own Routing cell assigns it to **X-W0 (Track A)**. The other two `UNREAD` hits are prose inside O-20's and I-30's bodies. **0 UNREAD in KF.W0's scope** — the close's classification-per-status-cell reproduces.
+- **Four-verb line.** `AUDITED`/`SPECIFIED` unchanged; `IMPLEMENTED` **NO → YES 2026-09-17** at the LEDGER row and at §8, exactly where spec §State puts it (*"stamped at this wave's own close"*); `VERIFIED` **stays NO**, per *"stamped only at KF.W10's sub-tranche release close (R-A)"*. The spec's own `Status: planned` is **correctly** left untouched — the spec is immutable under E-3 and the verb moves in the record and the ledger.
+- **Goal criterion, met at the bytes** (spec §State): ⟨`grep -l '81a56990736ced5b5edde0b84c527680ac7689b1' kf-*.md \| wc -l`⟩ → **58 of 58**, each stamped **exactly once**, and the ref they name is **one ref**. The counts, the gate roster, the glass-ui citations and the Codex denominators each live in a dated artifact with its command.
+
+### §C1.3 · Register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **MINOR** (mitigated) | §1's G-0.9 cell says *"the five `stale HEAD` strings in that file are pre-existing dated body prose, untouched under E-3"*. **Three** are pre-existing; **two** were authored by `.e`'s own appended stamp | ⟨`grep -c 'stale HEAD' kf-TypingDots.md`⟩ → **5**; the same over ⟨`git archive 7c569bb0^ …`⟩'s copy → **3**; the stamp opens at `:122`, and the two extra hits are `:134` and `:136`, both inside it | **NOT BLOCKING.** Neither new occurrence is a verdict: `:134` reads *"the rAF-lane readings describe stale HEAD"* (a finding) and `:136` **quotes the falsifier's own form**. The blanket-pass falsifier therefore still does not fire and G-0.9's GREEN is untouched. Cure = a dated addendum-beside at this record correcting 5 → 3 + 2; nothing at the registry moves |
+| **D-2** | **MINOR** (mitigated) | Two commits carry paths outside KF.W0's §File Bounds writable set: `a10e33ad` → `execution/D/X-P-W0.md` (+203/−0); `58be3626` → six Track A paths (`CONVERGENCE-RESUME-HANDOFF-2026-07-29.md` · `IN-FLIGHT-RESUME-HANDOFF-2026-07-29.md` · `COMPLETENESS-LEDGER.md` · `HYDRATION-LEDGER.md` · `hydrate-reports.mjs` · `validate-completeness.mjs`) | ⟨`git show --name-only --format=`⟩ on both | **NOT BLOCKING, and this seat corroborated the disposition from the OTHER END rather than taking §4's word**: Track D's own `X.P.W0 CHECK 1 · D-2` books `a10e33ad` (*"`.b`'s record block rode Track B's `a10e33ad`"*, ruled MINOR-mitigated, `git diff HEAD --stat` → 0 on all five), and Track A's LEDGER line books *"bytes at `58be3626` + `549353fd`"* while `549353fd`'s own message names *"a concurrent sibling seat's pathspec commit consumed this seat's staged index"*. **No KF.W0 byte landed in a foreign commit and no foreign byte was altered**; nothing lost, nothing duplicated, no history rewritten; the guard (**pathspec on the `commit` verb, never only on a preceding `add`**) is already booked at §4 and R-17. Already-disposed at both receiving tracks — this check adds corroboration, not a new obligation |
+| **D-3** | **INFO** | The record's **R-3 has FIRED since the close**: the sacred checkout was fetched and fast-forwarded, so `HEAD` **and** `origin/master` in `/Users/mkbabb/Programming/keyframes.js` now both read **`55e9bf0d`**, not `81a56990` | ⟨`git reflog show origin/master`⟩ → `55e9bf0d … @{0}: fetch -q origin: fast-forward` over `81a56990 … @{1}`; ⟨`ls -l .git/FETCH_HEAD`⟩ → **Sep 17 14:58**; ⟨`git rev-parse HEAD`⟩ → `55e9bf0d` | **NOT A DEFECT OF THIS WAVE — its vindication.** This seat's first branch-relative readings gave `176 / 326 / 226` where the record publishes `175 / 325 / 225`; **re-run at the SHA every one reproduces exactly** (`git ls-tree -r --name-only 81a56990 docs/tranches/V/` → **175**; `git diff --name-only 81a56990 <snap>` → **325**; `comm -13` → **225**; B = **196 + 24 + 5**). The whole delta is the one docs-only commit `55e9bf0d` adds under `docs/tranches/V/coordination/`. **`.c` act 6 predicted this exact failure mode and every anchor in the record names the sha for that reason** — the hazard is now MEASURED, and R-3 should be re-stated to every later X·KF wave as *fired*, not *pending* |
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 2 MINOR (both mitigated) · 1 INFO.**
+
+### §C1.4 · What this seat weighed and did NOT convict
+
+- **The `npm run gh-pages` build** did not move a tracked byte (`dist/` is `.gitignore:10`); the artefact is the hash and it **re-hashes byte-identical**. Not a bounds breach.
+- **The 118-file absorption** is irreversible, but it is the *consequence of a ruled owner act*, was found and declared by the seat that caused it, was re-cut from *"kept"* to **DISCARDED**, and left **both** value.js-delivered mail packets intact. A finding, not a masked defect.
+- **`.npmrc` left un-deleted** is the *lawful* outcome: the file is named by no §Bounds row, so deleting it would have been the file-bound expansion the Dispatch calls wave-invalidating. The ruling (INERT-AND-RETIRABLE) was written and the **act** routed — silence was not substituted for a disposition.
+- **The `+5` dead names outside the 53** (R-12) are rostered as a loud addendum-beside rather than folded into the spec's stated denominator. That is the X-4 lesson applied, not a short roster.
+- **Prettier not run** over `INBOX.md`, the shared record or the lane's dated files: declared at three seats with the same reasoning (prettier rewrites whole files; E-3 forbids rewriting another seat's dated evidence). A stated decision, not a skipped gate.
+
+### §C1.5 · Ledger
+
+On this CONFORMANT verdict the `LEDGER.md` Track B row for KF.W0 moves **`IMPLEMENTED 2026-09-17` → `CLOSED 2026-09-17`** by minimal in-place cell replacement, and an event line is appended. **`VERIFIED` is NOT moved by this check** — it stays KF.W10's alone (R-A).
