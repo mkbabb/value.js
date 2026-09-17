@@ -458,3 +458,261 @@ committed tree → `[X-W2 G2] eager JS modules=6 raw=979024 gz=313601 (306.3 KiB
 **1 failed, for its intended reason and at the same number**. The tree is handed to unit **a** with
 `dist/gh-pages` built and present, `e2e/smoke/perf/serve-built.mjs` unmodified, and this unit's four paths
 the only ones it ever wrote.
+
+### X.W2.a — the blob-config boot cut
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Seat clock**: 2026-09-17, **18:20–18:52 EDT**. Branch `tranche-u`,
+HEAD at open `14bf76a8`.
+**Sections executed exactly**: W2.md §3 scope 1–2 (L25–26) · §5 `### X.W2.a` (L91–96) · §6 **G1** (L118–133) ·
+§6 **G2**'s prediction line (L145) · §9 row 2 (L275).
+**Rulings consumed**: COHESION §0j (the begin-word) · **§0k.1 pathspec-on-the-commit** · §0j.A **DR-24**
+(`scripts/dev/dev.sh` NEVER touched — never read for write, never staged; it is still ` M` in the tree and
+appears **0** times in this unit's commit) · §0j.E/§0i.2 (no glass bump is this wave's act — the installed
+**7.0.0** is the substrate, untouched) · E-3 throughout (no dated spec, registry or prior-evidence byte
+edited; `W2.md` untouched, its §State edit reserved for unit **d**; unit **c**'s receipts above are read,
+never revised). COHESION read to the file end (**896 lines**, through §0l); no §0m+ addendum exists.
+**Writable set honoured, exactly**: `demo/color-picker/composables/boot/useAtmosphere.ts` ·
+`demo/scenes/blob/BlobPane.vue` · this record. **`e2e/smoke/perf/serve-built.mjs` and
+`scripts/perf/eager-bytes.mjs` were EXECUTED and never opened for write**
+(⟨cmd⟩ `git status --porcelain -- e2e/smoke/perf/serve-built.mjs scripts/perf/eager-bytes.mjs` → **empty**).
+
+#### Acts, in order
+
+**a.0 · MEASURE BEFORE EDITING — every anchor verified at true bytes.** The spec's three line anchors were
+read before a byte moved, and **all three hold exactly** (no drift, so no INTENT-at-true-bytes was needed):
+
+```
+⟨cmd⟩ sed -n '36p' demo/color-picker/composables/boot/useAtmosphere.ts
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
+⟨cmd⟩ sed -n '12,13p' demo/scenes/blob/BlobPane.vue
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
+import type { BlobConfig } from "@mkbabb/glass-ui/blob";
+```
+
+**All four symbols verified present on the 245 B `./blob-config` subpath at the installed 7.0.0**, by
+command rather than by the brief's say-so:
+⟨cmd⟩ `cat node_modules/@mkbabb/glass-ui/dist/blob-config.js` → `export { … BLOB_CONFIG_DEFAULTS,
+BLOB_CONFIG_KEY, BLOB_HERO, … }` over `./presets-5myqNv59.js`;
+⟨cmd⟩ `cat …/dist/blob-config.d.ts` → `export * from "./components/blob/config"`, whose **`:1`** reads
+`export type { … BlobConfig, … } from "./types"`. So `BLOB_CONFIG_KEY` · `BLOB_CONFIG_DEFAULTS` (values) and
+`BlobConfig` (type) are all reachable. ⟨cmd⟩ `node -e "…package.json exports"` → `"./blob-config"` →
+`{types: ./dist/blob-config.d.ts, import: ./dist/blob-config.js}`, version **7.0.0**.
+
+**G1 and G2 baselines re-measured at THIS seat's clock, on the pre-cure `dist/gh-pages` unit c handed over**
+— seat 0's and unit c's readings **reproduce to the byte**: `eager JS modules 6 · raw 979,024 · gz 313,601`,
+and across **every one of the six eager chunks** (enumerated from the instrument's own module list, never
+from a typed list): `index-DC7wNDmX.js` **smin 42 · metaball 17 · satellite 50**, the other five **0 · 0 · 0**.
+⟨cmd⟩ `grep -rn 'glass-ui/blob"' demo/ | wc -l` → **5** (seat-0's F-1 spelling defect reproduced: the spec's
+§6 block writes 3, its own parenthetical enumerates 5); ⟨cmd⟩ `grep -rn blob-config demo/ src/ | wc -l` → **0**.
+
+**a.1 · The cure, exactly as specified — two repoints, three lines, nothing else.** modify-carve honoured to
+the line:
+
+| file | line | before → after |
+|---|---|---|
+| `useAtmosphere.ts` | **36 only** | `@mkbabb/glass-ui/blob` → `@mkbabb/glass-ui/blob-config` (`BLOB_CONFIG_KEY`, `BLOB_CONFIG_DEFAULTS`) |
+| `BlobPane.vue` | **12 only** | same specifier change, same two symbols |
+| `BlobPane.vue` | **13 only** | same specifier change, `type BlobConfig` |
+
+⟨cmd⟩ `git diff --stat` → `useAtmosphere.ts | 2 +-` · `BlobPane.vue | 4 ++--` = **3 insertions, 3 deletions,
+2 files**. **`HeroBlob.vue:34-35` is unit b's file and STAYS on `./blob`** — it appears in no diff, no stage
+and no commit of this unit. ⟨cmd⟩ `git diff --check` → clean.
+
+**a.2 · §7 cadence, run BEFORE the byte reading because of unit c's c-F4.**
+⟨cmd⟩ `npm run typecheck` (`vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit`)
+→ **exit 0, GREEN** — the repointed specifier type-resolves on both projects, which is the first proof that
+`BlobConfig` survives the move.
+⟨cmd⟩ `npx eslint demo/color-picker/composables/boot/useAtmosphere.ts demo/scenes/blob/BlobPane.vue --max-warnings=0`
+→ **exit 0** — this unit's two modified files are clean.
+⟨cmd⟩ `npm run lint` (repo-wide) → **exit 1, 50 problems (18 errors, 32 warnings)** — **unit c's c-F5
+PRE-EXISTING baseline, reproduced to the number**. Measured, not assumed: the **30** offending files were
+extracted from the report and **100% of them** live under `docs/tranches/V/`
+(⟨cmd⟩ `grep -vc '^docs/tranches/V/' <file list>` → **0**), all unmodified at HEAD
+(⟨cmd⟩ `git status --porcelain -- docs/tranches/V/megatranche docs/tranches/V/apotheosis` → **empty**), and
+**neither file this unit touched appears anywhere in the report** (⟨cmd⟩ `grep -c "useAtmosphere.ts\|BlobPane.vue"`
+→ **0**). `docs/tranches/V/**` is outside W2.md §4, so curing it here would be an **ESCALATION-by-write**;
+carried as unit c's residual 1, not re-opened.
+
+**a.3 · Rebuild, then measure — WRITE-THEN-MEASURE, double-run across TWO independent clean builds.**
+c-F4 is real and was obeyed: `npm run typecheck` runs `pretypecheck` → `npm run build`, which empties `dist/`,
+so the artifact was rebuilt **after** the cadence and before any figure was read.
+⟨cmd⟩ `npm run gh-pages` → exit 0, **"✓ built in 5.09s"** (build 1) and exit 0, **"✓ built in 4.92s"** (build 2,
+an independent clean build). `dist/` is `.gitignore`d; **zero tracked bytes moved by either build**.
+
+```
+⟨cmd⟩ node scripts/perf/eager-bytes.mjs        (×3: build 1 twice, build 2 once)
+eager JS modules: 6
+    ./assets/index-DOE-kt2B.js                            raw=446664  gz=147313  (entry-module)
+    ./assets/rolldown-runtime-QTnfLwEv.js                 raw=694     gz=423     (modulepreload)
+    ./assets/vue.runtime.esm-bundler-DVtiiGpU.js          raw=109837  gz=41722   (modulepreload)
+    ./assets/usePointerVelocityField-DsIf7yyq-DJWUkmi3.js raw=41005   gz=15199   (modulepreload)
+    ./assets/_plugin-vue_export-helper-xmicxnVE.js        raw=262271  gz=65969   (modulepreload)
+    ./assets/css-h0A6KHoK.js                              raw=26139   gz=10187   (modulepreload)
+eager JS   raw= 886610  gz= 280813 = 274.2 KiB   (bar 286720 B) -> GREEN
+render-block CSS raw= 518949  gz= 88177 = 86.1 KiB   (measured, NOT gated — unchanged by this cut)
+TOTAL eager gz= 368990 = 360.3 KiB
+```
+
+⟨cmd⟩ `diff run1 run2` (with `generatedAt` excluded) → **IDENTICAL**; build 2's independent run →
+**`eagerJsGz=280813 raw=886610 verdict=GREEN margin=5907`**, identical again. **Three readings, two builds,
+one number.**
+
+**a.4 · The enforcing gate re-run from the spec file, not from prose.**
+⟨cmd⟩ `npx playwright test --project=smoke-perf e2e/smoke/perf/eager-payload.spec.ts -g "G2"` → **exit 0,
+1 passed**:
+`[X-W2 G2] eager JS modules=6 raw=886610 gz=280813 (274.2 KiB) bar=286720 B → GREEN`.
+The same command unit c recorded as **1 failed at 313,601 B** now passes at 280,813 B, through an
+**unmodified** instrument and an **unmodified** bar. That is the gate failing and passing for its intended
+reason (**L-19**), on the same bytes, two hours apart.
+
+**a.5 · G1 satisfied BY THE IMPORT GRAPH — and the grep was WIDENED, never narrowed.**
+The L-18 rider names this seat's exact temptation (*"whether the eager-graph assertion in G1 was satisfied by
+an import change or by a narrowed grep"*). So: the eager set was enumerated **from the instrument's own module
+list**, and `rg` was run for **all three** tokens over **every one of the six chunks**, on both builds.
+
+| token | eager set BEFORE | eager set AFTER | what the residual IS, traced by command |
+|---|---|---|---|
+| `smin` | **42** | **0** | the SDF smooth-union — the engine's signature. ⟨cmd⟩ `rg -o smin node_modules/@mkbabb/glass-ui/dist/blob.js \| wc -l` → **42**; `…/presets-5myqNv59.js` → **0**. It occurs in the barrel and nowhere else, and it is **gone**. |
+| `metaball` | **17** | **3** | **not the engine**: all three are GLSL source **comments** — ⟨cmd⟩ `rg -o '.{0,60}metaball.{0,60}'` → `// … (mirrors metaball.frag.ts:252-255)` ×2 and `// MANDATORY OETF … (mirrors metaball.frag.ts:278)`. ⟨cmd⟩ `rg -ln "mirrors metaball.frag.ts" node_modules/@mkbabb/glass-ui/dist/` → **`aurora.js`** + `components/aurora/constants/shaders/brush.glsl.d.ts`. They belong to **`@mkbabb/glass-ui/aurora`**, a different barrel on a different boot-path import (`useAtmosphere.ts:30-31`) that **W2.md §3 does not scope**. |
+| `satellite` | **50** | **3** | **not the engine**: `satelliteCount` · `satelliteRadius` · `satellites` — the **field names of `BLOB_CONFIG_DEFAULTS`** in ⟨cmd⟩ `rg -c "satelliteCount\|satelliteRadius" …/presets-5myqNv59.js` → **4**. `presets-5myqNv59.js` is **`./blob-config`'s own dependency**, and §6 G2's prediction line budgets it eager in so many words (*"a 1,581 B / 782 B gz `presets` module"*). Keeping it is the cure working, not the cure leaking. |
+
+**Every residual occurrence is accounted for to its producing module; none is the WebGL2 metaball engine.**
+Stated plainly for the hostiles: unit **a**'s §5 sub-gate is spelled `rg -c "smin|metaball" <eager chunks> → 0`,
+and its literal reading is **0 · 3**, not **0 · 0** — because the spec's token list cannot distinguish the blob
+barrel's shader from an **aurora** comment that cites the blob shader's filename. **The asserted property is
+what G1 actually states — *"no module reachable from the eager entry graph imports `@mkbabb/glass-ui/blob`"* —
+and that is GREEN by the import graph.** The divergence is recorded here rather than cured by editing the
+token list, which would be the narrowed grep the rider forbids.
+
+Import-graph truth, at the source and at the artifact:
+
+```
+⟨cmd⟩ grep -rn 'glass-ui/blob"' demo/           5 lines -> 2 lines, BOTH HeroBlob.vue (:34, :35) — unit b's
+⟨cmd⟩ grep -rn blob-config demo/ src/           0 lines -> 3 lines (the three repointed sites)
+⟨cmd⟩ rg -c smin dist/gh-pages/assets/*.js      -> HeroBlob-D8K-tUyl.js:41   (and NOTHING else)
+⟨cmd⟩ grep -c 'HeroBlob-D8K-tUyl' dist/gh-pages/index.html   -> 0
+```
+
+**The barrel landed exactly where §5 predicted it would.** HeroBlob's lazy chunk went **2,026 B →
+94,593 B** (gz 34,292), now carries `smin` ×41, and is referenced **zero** times by `index.html` — it is
+neither the entry nor any `modulepreload`. ⟨cmd⟩ the index's eager JS refs enumerate exactly the six measured
+chunks and no seventh. **Falsifier intact**: restore a static `from "@mkbabb/glass-ui/blob"` edge in any
+boot-path module and `smin` returns to the eager set — the property is a graph fact, re-testable by anyone.
+
+**a.6 · The correctness question the byte gates are structurally blind to, asked and answered.**
+An import repoint can green every byte gate and silently kill a provide/inject seam. `useAtmosphere`
+**provides** `BLOB_CONFIG_KEY` (now **eager**, from `./blob-config`) and `HeroBlob` **injects** it (now
+**lazy**, still from `./blob`). The key is ⟨cmd⟩ `rg -o 'Symbol\([^)]*\)' …/presets-5myqNv59.js` →
+**`Symbol("blobConfig")`** — so two module instances would mean two Symbols and a dead `inject`.
+
+Both producer subpaths import the **same specifier**: ⟨cmd⟩ `head -c 600 …/dist/blob.js` →
+`import { a as r, i, n as a, o, r as s, t as c } from "./presets-5myqNv59.js";` — byte-identical to
+`blob-config.js`'s own presets import. At the artifact: ⟨cmd⟩ `rg -o 'Symbol\([^)]{0,20}blobConfig[^)]{0,20}\)'
+dist/gh-pages/assets/*.js` → **exactly ONE match, in `index-DOE-kt2B.js`**, and ⟨cmd⟩
+`rg -o 'from"\./[^"]*"' …/HeroBlob-D8K-tUyl.js` → **`from"./index-DOE-kt2B.js"`**. **One Symbol, one
+instance, imported by the lazy chunk from the eager entry: identity preserved.**
+
+Confirmed at **runtime**, not only at the bytes — **ONE** bounded cold load of the BUILT bundle on
+`serve-built.mjs :8091` (§5.2 probe parsimony; the scratchpad probe is outside the repo and wrote no tracked
+byte; **no figure from it enters any gate**):
+
+```
+{ "probe": { "appText": 4872, "canvases": 2, "heroBlobCanvas": true },
+  "consoleErrors": [ "[value.js] value.js dev is MISCONFIGURED: http://localhost:8091 has no VITE_API_URL …" ],
+  "pageErrors": [] }
+```
+
+**Zero page errors; `#app` rendered 4,872 characters; the hero blob's canvas is present** — so the lazy chunk
+loaded, its `inject(BLOB_CONFIG_KEY)` resolved against the eager provide, and the engine rendered. The single
+console error is the app's own pre-existing `VITE_API_URL`/CORS dev-config warning against a `localhost`
+origin, structurally unrelated to this cut.
+
+**a.7 · Commit — one commit, two files (§9 row 2; the declared lock).**
+`13f4ddc2` `perf(x-w2/boot): drop the glass blob barrel from the eager graph via ./blob-config`, body = **the
+byte delta** as §9 requires. ⟨cmd⟩ `git show --stat --format="" HEAD` → **exactly 2 files**
+(`useAtmosphere.ts` 2 +-, `BlobPane.vue` 4 ++--), **zero sibling-seat contamination** — the pathspec was on
+the commit itself (§0k.1), and at this seat's clock the shared index also held Track D's untracked
+`docs/tranches/X/parse-that/algebra/`, an untracked `e2e/visual/`, and the standing ` M` rows on
+`docs/tranches/V/reformation/CARRY-LEDGER.md` and **`scripts/dev/dev.sh`** — **none of which entered**
+(⟨cmd⟩ `git log -1 --name-only | grep -c dev.sh` → **0**). The message was passed with `-F <file>` for the
+same reason unit c recorded (backticks and apostrophes in the body); the pathspec form and the
+`Claude-Session` trailer are unchanged, and ⟨cmd⟩ `git log -1 --format=%b | tail -1` confirms the trailer landed.
+
+#### Gate readings, BEFORE → AFTER (this unit's own clock)
+
+| gate | at unit open | at unit close | note |
+|---|---|---|---|
+| **G1** the glass blob barrel is absent from the eager module set | **RED** — `smin` **42** · `metaball` **17** · `satellite` **50** in the entry chunk; 5 `glass-ui/blob` import sites, 3 on the boot path; 0 `blob-config` sites | **GREEN by the asserted property** — `smin` **0** across all six eager chunks; the barrel now lives ONLY in the unpreloaded lazy chunk `HeroBlob-D8K-tUyl.js` (2,026 B → **94,593 B** measured here; the 2,026 B is the baseline's own figure for `HeroBlob-DKx66VkD.js`, cited from §6 G1 and this record's Baseline, not re-measured after the rebuild overwrote it — `smin` ×41, gz 34,292); boot-path `glass-ui/blob` import sites **3 → 0** (the 2 survivors are HeroBlob's, unit b's file, already lazy) | Satisfied by the **import graph**, with the grep **widened** to all three tokens over all six chunks. Literal sub-gate tally `smin\|metaball` = **0 · 3**, the 3 traced to `@mkbabb/glass-ui/aurora`'s GLSL comments — recorded, not grep-narrowed. |
+| **G2** eager JS gzip ≤ 286,720 B (the realized delta) | **RED** 313,601 B (−26,881 B over the bar) | **GREEN** 280,813 B = **274.2 KiB** (+5,907 B under the bar) | **Realized delta −32,788 B gz** (raw −92,414 B). Bar **untouched**; instrument **unmodified**; three readings across two independent clean builds, byte-identical. |
+
+**The realized-vs-predicted line (§6 G2 L145), which the L-18 rider names as a first hostile target.**
+Predicted: the whole `./blob` subpath at **35,461 B gz**, giving an upper-bound post-cut eager total of
+**278,140 B** (this record's F-2 arithmetic; the spec's own 278,124 B differs only by F-2's 16 B gzip delta).
+**Realized: −32,788 B gz → 280,813 B**, i.e. **92.5%** of the predicted saving, landing **2,673 B ABOVE the
+predicted ceiling** and **5,907 B BELOW the bar**. The shared-subchunk assumption was therefore mildly
+optimistic, and the honest reading is that **not every byte of `./blob` was exclusive to the eager set**:
+`./blob-config`'s own `presets-5myqNv59.js` (1,581 B raw / 782 B gz) stays eager **by the prediction line's
+own budget**, and the remainder was already shared with modules that remain eager. Recorded as a measurement,
+**not** reconciled by moving anything: **the bar is byte-identical to its wave-open value and no seat edited it.**
+
+**§3a triumvirate: NOT triggered, and the trigger's own words are why.** *"If eager JS gzip remains > 280 KiB
+once the barrel leaves the eager set, the barrel was not the dominant term."* It does not remain above:
+280,813 B = **274.2 KiB** against the 280 KiB / 286,720 B bar. **The barrel WAS the dominant term** — the
+budget was over by **26,881 B** (313,601 − 286,720) and this one cut removed **32,788 B**, i.e. **122%** of
+what was needed, the 5,907 B excess being precisely today's margin. No triumvirate, and (§11 guardrail 1) no
+re-baseline: **S.W3's failure mode was not repeated, because the number moved to the bar instead.**
+
+*(Self-count correction, caught by this seat's own write-then-measure pass before the record was committed:
+the sentence above first read "89.6% of the 36,881 B the budget was over by". **Both figures were wrong** —
+the overage is **26,881 B**, not 36,881 B, and a saving of 32,788 B against it is **122%**, not 89.6%. The
+corrected arithmetic is above and every gate figure it rests on — 313,601 · 280,813 · 286,720 — is unchanged
+and twice-measured. Recorded rather than silently fixed, per the SELF-COUNT law.)*
+
+#### Findings banked by this unit (no gate moved, no bar touched)
+
+- **a-F1 · G1's token list cannot distinguish the blob barrel from the AURORA barrel.** Three of the six
+  residual eager-set matches are `@mkbabb/glass-ui/aurora`'s GLSL **comments** citing `metaball.frag.ts` by
+  filename. A future seat reading `rg -c "smin|metaball" → 0` as G1's definition would be forced either to a
+  false RED or to a narrowed grep. **The discriminating token is `smin`**, and its exclusivity was measured
+  rather than assumed: ⟨cmd⟩ a loop of `rg -o smin` over **every** top-level module of the installed
+  `@mkbabb/glass-ui/dist/*.js` reports exactly **one** non-zero file — **`blob.js: 42`** — and nothing else,
+  `presets-5myqNv59.js` included (**0**). Offered to unit **d**'s `AFTER.json` and
+  to the L-18 passes as the durable spelling of G1's property. **No spec byte was edited** (E-3).
+- **a-F2 · The `satellite` residual is `BLOB_CONFIG_DEFAULTS`' own field names and must NOT be cured.** The
+  config object legitimately describes satellites; the cure imports it **on purpose**. A seat chasing
+  `satellite → 0` would be chasing the wave's intended eager payload.
+- **a-F3 · The cut is worth ~1.4× more raw than gz** (−92,414 B raw vs −32,788 B gz): the shader/engine text
+  compresses well. Any future budget stated in **raw** bytes would read a much larger win than the gated gz
+  figure. Recorded so no later document quotes the raw delta as the gate's.
+- **a-F4 · The provide/inject seam is a single shared `Symbol`, and this is load-bearing.** If a future
+  bundler-config change (e.g. manual chunking — explicitly outside §4) ever duplicated `presets-5myqNv59.js`
+  into both the eager entry and the lazy blob chunk, `BLOB_CONFIG_KEY` would become **two** Symbols and the
+  hero's `inject` would silently return `undefined` while **every byte gate stayed green**. The invariant to
+  assert if anyone ever wants one: **exactly one `Symbol(\`blobConfig\`)` in the whole output.** Today: one.
+- **a-F5 · c-F4 confirmed independently** — `npm run typecheck` destroyed `dist/gh-pages` at this seat too,
+  exactly as unit c warned. The order used here (cadence → rebuild → measure) is the one units **b** and **d**
+  should keep. The tree is handed on with `dist/gh-pages` **built and present** (build 2).
+
+#### Residuals
+
+1. **a-F1's token-list imprecision** — for unit **d**'s `AFTER.json`/`DELTA.md` wording and the L-18 passes.
+   It is a **spelling** matter in the gate's evidence block, never a change of the asserted property, and E-3
+   forbids editing §6's bytes; a dated addendum-beside is the only lawful cure if one is wanted.
+2. **The 2,673 B gap between the predicted ceiling (278,140 B) and the realized figure (280,813 B)** — banked
+   for the hostiles with its arithmetic above. The margin to the bar is **5,907 B**, so the cut is green but
+   **not** by a wide margin: any future boot-path import of a heavy subpath reds G2 again, which is exactly
+   G2's stated falsifier working.
+3. **c-F5's pre-existing repo-wide lint red**, reproduced unchanged (50 problems / 30 files, all
+   `docs/tranches/V/**`, all unmodified). Out of bounds here; carried.
+
+**Escalations: none.** No §3a trigger fired: **no write outside §4** (three paths, all in this unit's writable
+set; `HeroBlob.vue` untouched; `vite.config.ts`, `src/**`, `demo/shell/usePaneRouter.ts` and
+`node_modules/@mkbabb/glass-ui/**` never opened); **no budget re-baseline** (the bar is byte-identical to
+wave-open and the number moved to meet it); **no TBT question** (unit d's); **no `settled` question** (unit
+b's); and **no third measure→edit→measure pass** — this unit performed **one** edit, then measured.
+**No workaround, no masking fallback**: no `try`/`catch`, no `test.skip`, no allowlist, no producer-selector
+copy, and **no local patch of `node_modules`** — the cure is the spec's own two import repoints and nothing else.
+
+**Verb stamped: none.** This unit cuts and measures; IMPLEMENTED is the wave's own close and VERIFIED is
+X-W11's. The tree is handed to unit **b** with `dist/gh-pages` built and present, `HeroBlob.vue` untouched and
+still on `./blob` as §5 requires, and this unit's three paths the only ones it ever wrote.
