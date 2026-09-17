@@ -1014,3 +1014,217 @@ bytes.**
 ruling returned empty, and no diagnostic loop reached a third iteration (the denominator table
 reconciled the 21-vs-25 and 9-vs-87 pairs on the **first** pass, and no anchor file needed a second
 re-resolution).
+
+---
+
+### F.W0.c
+
+**SERVED MODEL: claude-opus-5[1m]** · the toolchain gates · **gates G-7, G-8, G-9** · 2026-09-17 ·
+repo `/Users/mkbabb/Programming/fourier-analysis`, branch `m/w1-bump-migration`, opened at
+`9930e80` (unit *e*'s close), closed at **`b3b736c`**.
+
+Sections executed exactly as the unit plan names them: §4 **G-7** · **G-8** · **G-9** + its F.W9
+disjointness clause · §3 rows **15 · 16 · 17 · 18 · 19 · 38** · §2a rows for `web/tsconfig.json`,
+`web/e2e/`, `ci.yml`/`deploy-pages.yml` · §6a **lock 7** · §6b the **F.W9/F.W10** row · §7b the
+format/lint cadence. Durable artefact: **`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` §3** (§3.0–§3.5),
+which carries every enumeration this summary compresses.
+
+#### Acts, in order
+
+1. **Read the spec whole and the substrate at the bytes before writing anything.** Confirmed unit
+   *e*'s close is the base (⟨cmd⟩ `git rev-parse --short HEAD` → `9930e80`, ⟨cmd⟩
+   `git status --porcelain` → **empty** — all 28 paths released, §2b satisfied). Confirmed the
+   open-baseline RED witnesses still hold at that base: **13** `compilerOptions` with **0-of-3**
+   flags; `include` = the four `src`/`env.d.ts` entries; **8** `e2e/*.spec.ts`; no `lint` script; no
+   eslint/prettier in either dep block; `grep -c vitest web/package.json` → 0.
+
+2. **Measured the G-7 yield BEFORE editing** (read-only, flags forced on the command line) —
+   ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json --noUnusedLocals --noUnusedParameters`, **double-run
+   byte-identical**: 19 diagnostic lines = **18 unused-code findings across 14 files** + the one
+   pre-existing `TS2882` that G-15(a) already ruled F.W1/W2's.
+
+3. **Measured the `noUncheckedIndexedAccess` transaction, read-only** — ⟨cmd⟩ same form with
+   `--noUncheckedIndexedAccess`, double-run identical → **287 diagnostics (286 excl. `TS2882`) across
+   35 files**. This is the fact that made the row-16 decision measurable rather than rhetorical.
+
+4. **Landed the tsconfig act** (`web/tsconfig.json`): `noUnusedLocals: true` · `noUnusedParameters:
+   true` · `include` widened from **4 → 7** entries (`vite.config.ts`, `playwright.config.ts`,
+   `e2e/**/*.ts`) · `allowImportingTsExtensions: true` (disclosed at ledger §3.4 as a consequence of
+   act 6, not a gate flag). **13 → 16** `compilerOptions`. One project, not a second — `FR-EQR-30`
+   books that every `tsconfig.app.json` citation in the corpus is dead and web/ holds exactly one
+   tsconfig; ⟨cmd⟩ `ls web/tsconfig*.json` → `tsconfig.json` alone, re-verified at this act.
+
+5. **Measured the widened scope** — ⟨cmd⟩ `npx vue-tsc -b --force`, double-run identical → **20**
+   diagnostics. **All 8 specs and `playwright.config.ts` are CLEAN.** The widening's entire delta is
+   **one** diagnostic: `vite.config.ts(51,21) TS2769`, whose text names `manualChunks`' record form
+   against vite 8's `ManualChunksFunction` — **`MISS-A7` confirmed at the type level for the first
+   time**, a build-time claim resting on an unrunnable build turned into a compile-time fact.
+
+6. **Stood up the unit-runner SEAT** — `web/e2e/unit/figure-dimensions.unit.ts`, ONE asserting spec,
+   Node's built-in runner. ⟨cmd⟩ `node --test --experimental-strip-types
+   e2e/unit/figure-dimensions.unit.ts` → `pass 1 · fail 0`, **exit 0, double-run**. Subject is
+   `src/lib/figureDimensions.ts`, whose `Record<string, readonly [number, number]>` is the exact
+   loose-`Record` shape row 16 names — the seat asserts the invariant the deferred flag cannot
+   express. **Not collected by Playwright**: ⟨cmd⟩ `npx playwright test --list | grep -c
+   'figure-dimensions'` → **0**; ⟨cmd⟩ `… | tail -1` → **`Total: 69 tests in 8 files`** (68 before;
+   **the file count stays 8**, so §2.2's denominator survives the act).
+
+7. **Stood up the LINT FLOOR** — oxlint at an exact pin, through `npx`, zero manifest bytes and zero
+   config bytes. ⟨cmd⟩ `npx --yes oxlint@1.42.0 src e2e vite.config.ts playwright.config.ts`,
+   double-run identical → **`Found 18 warnings and 0 errors.`**, 141 files, 90 rules, **exit 0**. All
+   18 enumerated by rule and site at ledger §3.1.4.
+
+8. **Wired everything** (FR-IC-25) into **`ci.yml`** (`web-build`: `Lint floor (X·F F.W0, G-7)` +
+   `Unit-runner seat (X·F F.W0, G-9)`, between Type-check and Build) **and `deploy-pages.yml`**
+   (`deploy`, after its Type-check). ⟨cmd⟩ `python3 -c "yaml.safe_load(...)"` over both files → parse
+   OK, both steps present in the expected jobs. **The `deploy-pages.yml` mirror is not
+   belt-and-braces**: that workflow's `changes` gate admits `workflow_dispatch` unconditionally, so a
+   manual re-ship reaches the deploy job with **no CI run behind it** — on that path these steps are
+   the only place either gate exists.
+
+9. **Authored (did NOT run) the axe keystone-route extension** — `web/e2e/visualization-ux.spec.ts`
+   Keystone 5, `keystone: /equation is a11y-clean`, **armed** (`test(...)`, never `fixme` — a `skip`
+   on a brand-new gate is the defect row 19 books), settling on `networkidle` + the rendered
+   `.slider-subtitle` rather than a blind timeout, then the file's existing `checkA11y` helper.
+
+10. **Corrected the justification prose to the measured 4.0.0 `inert` truth** at **all four** stale
+    sites (`visualization-ux.spec.ts:104/:105 · :131 · :190` and `visualization-crud.spec.ts:623/:625`).
+    **No `test.fixme` state was changed** — un-`fixme`-ing B-3 is F.W3/W4's four-test operation.
+
+11. **Wrote ledger §3** (§3.0 substrate and bounds · §3.1 G-7 with both first-run enumerations ·
+    §3.2 G-8 with the ruling · §3.3 G-9 · §3.4 the `allowImportingTsExtensions` disclosure · §3.5 the
+    gate reading and routing), then **re-verified every claim at the settled bytes before committing**.
+
+12. **Committed by pathspec** (7 paths, named individually; no `git add -A`), then **re-ran all three
+    gates from the committed bytes**: HEAD **`b3b736c`**, ⟨cmd⟩ `git status --porcelain | wc -l` →
+    **0**, oxlint `0 errors / 18 warnings`, seat exit **0**, `vue-tsc -b --force` **20** diagnostics,
+    ⟨cmd⟩ `node -p` → **16 compilerOptions / 7 include entries**.
+
+#### The two decisions this unit was sent to make, and how each was decided
+
+**`noUncheckedIndexedAccess` → DEFERRED, as a rider on `M-10`, with its consumer named.** §6a **lock 7**
+is not advisory: row 16 is *"a rider on `M-10`, **never landed alone**"*, so setting the flag in this
+wave **is** the violation. The consumer is named as the gate requires — **`BasisKey` +
+`normalizeBasisKey` + `satisfies`, at F.W3/W4** — and the **WAVE-LOCK travels with it**: no
+`basisFilter` wiring without the normaliser (`gallery.ts:38` repeats the widening). **No `basisFilter`
+byte was written and no `gallery.ts` byte entered any act.** The deferral is not a shrug: the
+**286/35** transaction was measured so F.W3/W4 sizes it from a number instead of an adjective, and it
+is **sixteen times** the unused-code gate's yield — which is precisely why it may not ride alone.
+
+**G-8's exclusion arm → DECLINED, in writing, with its reason.** The arm exists for a scope that
+cannot be reached. This scope was reached and returned one finding; **excluding the single file the
+widening convicted would be an allowlist** — the masking-fallback class the standing law forbids and
+the very blindness `PP-TSSCOPE` books. `vite.config.ts` stays in scope, the `TS2769` stands visible in
+CI, and it is **routed to F.W1** with the `MISS-A7` build unblock. **No `@ts-expect-error`, no
+narrowing cast, no path exclusion was applied anywhere.**
+
+#### The divergence, minuted rather than adopted
+
+G-7 banks a **twice-independently-PREDICTED** first-run yield of **16 findings / 12 files**. The
+measurement at the settled tree is **18 / 14** (double-run, byte-identical; counting units stated:
+a *finding* is one emitted diagnostic line, a *file* is one distinct column-1 path). Delta **+2 / +2**.
+**The measurement is published and the prediction is left standing as what it was** — no row was
+trimmed to meet it. Two facts bound the explanations and **neither is asserted as the cause, because
+neither was measured here**: the predicting seats read the tree before unit *a* landed it (identical
+contents under OG-F1, but not necessarily the same toolchain), and the settled lock resolves
+**typescript 6.0.3 / vue-tsc 3.3.5** where the pre-bump lock resolved **5.9.3 / 2.2.12**. Settling it
+needs a second tree and **§2c forbids a worktree**, so it is routed, not guessed. **`16 findings / 12
+files` joins the forbidden-figure register** (ledger §3.1.2): it may not be quoted downstream as a
+measured yield. All **18** rows are enumerated at ledger §3.1.2 so F.W3/W4 consumes measured sites
+rather than an integer.
+
+#### The route-spelling drift, taken at the true bytes
+
+Row 19 and §4 G-9 both spell the keystone route **`/equations`**. The live router declares ⟨cmd⟩
+`/usr/bin/grep -n 'path: "/equation"' web/src/router/index.ts` → **`92:            path: "/equation",`**,
+name `equation`, and there is **no `/equations` record**. **INTENT taken at the true bytes**: the
+keystone addresses `/equation`, and the divergence is minuted (ledger §3.3.3) rather than followed
+raw — a seat following the banked spelling would have armed a keystone against a route that 404s,
+which is the D-19 *"lands OUTSIDE the file"* failure exactly. The gap itself was re-verified, not
+inherited: ⟨cmd⟩ `grep -rn 'subtitle' src/components/equation/FunctionInput.vue` → **`:182`** *"terms
+in the Fourier sum"* · **`:215`** *"shown in expanded (a+b) view"*, and `SliderControl.vue:69` renders
+`.slider-subtitle` only when that prop is passed. **The banked gap holds.**
+
+#### The 4.0.0 `inert` truth, measured (glass-ui read-only throughout)
+
+| fact | ⟨cmd⟩ | value |
+|---|---|---|
+| declared consumer pin | `web/package.json` at the settled tree | **`^4.0.0`** |
+| installed producer | `node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"` | **4.0.0** |
+| `inert` in the adopted dist | `/usr/bin/grep -c 'inert' node_modules/@mkbabb/glass-ui/dist/glass-ui.js` | **0** |
+
+**Both halves of the old premise are false, and the second is the one that matters: the `^2→^3` bump
+the prose was waiting on ALREADY HAPPENED, and it did not carry the fix.** The collapsed layer still
+omits `inert` at the **adopted** pin, so the unblock is **a producer release that ships it** — a
+glass-ui BH relay item — **never another bump and never a consumer-side patch (SS-6)**. All four sites
+now say so, with the `grep -c … → 0` receipt inline at two of them.
+
+#### Commits
+
+| # | hash | message |
+|---|---|---|
+| 1 | **`b3b736c`** | `chore(F.W0): toolchain gates + lint floor + unit-runner seat + CI wiring` — 7 paths, pathspec, the three gates' bodies and their receipts in one act |
+
+**One commit, one meaning.** The unit's act is *"the toolchain gates exist and are wired"*; the
+tsconfig flags, the scope widening, the floor, the seat, the two workflows and the ledger section are
+one transaction — splitting them would publish a wired gate whose findings are unrecorded, or a
+finding list for a gate that does not yet run. **No declared must-not-split family is touched** (the
+wave's only one is G-10's, at unit *f*). Nothing was predicted into the commit: every figure in
+ledger §3 was read before it, and re-read after it.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (open baseline) | AFTER (this unit's close) |
+|---|---|---|
+| **G-7** | **RED** — 13 `compilerOptions`, **0-of-3** flags; no `lint` script; no eslint/prettier in either dep block | **GREEN.** `noUnusedLocals` + `noUnusedParameters` set and wired by construction into both workflows' `vue-tsc`; `noUncheckedIndexedAccess` **DECIDED — deferred as an `M-10` rider with `BasisKey`/`normalizeBasisKey` named**, its **286/35** transaction measured; a **lint floor landed and wired into `ci.yml` AND `deploy-pages.yml`**, first run **0 errors / 18 warnings / 141 files, exit 0**; first-run unused-code yield **18/14 measured against 16/12 predicted — divergence MINUTED**, all 18 enumerated and routed |
+| **G-8** | **RED** — `include` 4 entries; `vite.config.ts`, `playwright.config.ts` and all 8 specs outside `vue-tsc -b` entirely | **GREEN on the scope limb, compile residue RULED and ROUTED.** `include` **4 → 7**; all **8** specs + `playwright.config.ts` **CLEAN**; the whole delta is **one** diagnostic — `vite.config.ts(51,21) TS2769` = **`MISS-A7` at the type level**. **Exclusion arm DECLINED with its reason.** Compile limb **RED with 20 diagnostics, every one externally owned**: 18 → F.W3/W4 · `TS2882` → F.W1/W2 (already ruled §2.6.1) · `TS2769` → F.W1. **8-spec denominator preserved** |
+| **G-9** | **RED** — no unit runner in `scripts`, `vitest` in neither dep block; axe keystone set never reaches the equation route | **GREEN.** SEAT stands: Node's built-in runner (**zero manifest bytes**), wired into both workflows, **inside G-8's type scope** (contributes **0** of the 20 diagnostics), **ONE asserting spec** at exit 0 double-run, **not collected by Playwright** (69 tests / **8** files). Axe keystone-route extension **AUTHORED, not run**, against **`/equation`** (drift recorded), prose corrected at **all four** stale sites to the measured 4.0.0 `inert` truth. **Explicitly NOT green-by-coverage — F.W9's `G-F9-1` FLOOR is untouched and undischarged** |
+
+**Post-commit verification, from the committed bytes** (⟨cmd⟩, this seat): `git rev-parse --short HEAD`
+→ **`b3b736c`** · `git status --porcelain | wc -l` → **0** · oxlint → `Found 18 warnings and 0 errors.`
+· seat → exit **0** · `vue-tsc -b --force` → **20** diagnostics · `node -p` → **16** compilerOptions /
+**7** include entries.
+
+#### Law compliance
+
+**No write outside the writable set** — the commit's 7 paths are exactly `web/tsconfig.json` ·
+`.github/workflows/ci.yml` · `.github/workflows/deploy-pages.yml` ·
+`web/e2e/visualization-ux.spec.ts` · `web/e2e/visualization-crud.spec.ts` ·
+`web/e2e/unit/figure-dimensions.unit.ts` · `docs/tranches/F/SUBSTRATE-LEDGER.md` ·
+**`web/package.json` and `package-lock.json` untouched** (§2b — verified absent from the diff) ·
+**no `web/src/**` byte written**: every deletion the gates surfaced is routed, none performed
+(§7b — *land the gate, then let it drive*) · **no masking anywhere**: no `test.skip`/`test.fixme`
+added, no existing `fixme` un-armed or re-armed, no `eslint-disable`, no `@ts-expect-error`, no
+`try/catch` around a defect, **no path allowlisted out of a gate** — G-8's exclusion arm was
+**declined in writing** · **no hand-formatting** (§7b): the only edits to existing files are the
+mandated comment-prose corrections and the two workflow steps · **no `node_modules` patched**;
+`glass-ui` read **only** to measure `inert`, never written · **producer defects relayed, never
+patched** (SS-6) · no `git add -A`, **no `git stash`**, no `reset --hard`, no `checkout --`, no
+force-push · **no worktree** (§2c) · `value.js/scripts/dev/dev.sh` never touched, never staged ·
+pathspec commits only · no cron · `execution/LEDGER.md` untouched — its F.W0 row is the wave seat's ·
+**every published figure double-run at the settled bytes**, and the one figure that would not agree
+with the record (16/12) is **published as a divergence rather than conformed to**.
+
+#### Residuals and routing — nothing dropped
+
+| item | routed to |
+|---|---|
+| The **18** unused-code findings (enumerated, ledger §3.1.2) | **F.W3/W4** — deletions; re-measure before deleting (a dated reading of a moving tree) |
+| `noUncheckedIndexedAccess` + its **286/35** transaction | **F.W3/W4** as the `M-10` `BasisKey` + `normalizeBasisKey` + `satisfies` unit; **WAVE-LOCK carried**: no `basisFilter` wiring without the normaliser (`gallery.ts:38`) |
+| `vite.config.ts(51,21) TS2769` — record→function `manualChunks` | **F.W1**, with the `MISS-A7` build unblock (and the ruling-6 emitted-CSS falsifier it gates, §2.6.4) |
+| `PaperView.vue(12,8) TS2882` | **F.W1/W2** — already ruled and handed over at §2.6.1; **re-stated, not re-booked** |
+| The **18** lint-floor warnings (enumerated, ledger §3.1.4) | **F.W3/W4** cures · **F.W9/W10** for `--deny-warnings` + the `lint` npm script (§6b: that wiring is the W9/W10 half) |
+| `FR-USB-21`'s `catch (e: any)` — **34** sites / **7** files re-measured and **CONFIRMED**; `-D typescript/no-explicit-any` → **49** errors | **F.W3/W4** cures · **F.W9/W10** tightening. **Deliberately NOT wired now** — it would land the floor born-RED with 49 errors whose cures are two waves away; the gap is named so no wave mistakes the floor's green for `: any` coverage |
+| **Keystone 5's first execution** — authored, not run; **outcome UNMEASURED at this seat** | **CI** (its first outing), then **F.W3/W4** if it surfaces a real `/equation` a11y defect |
+| The glass-ui `inert` absence at the **adopted** 4.0.0 dist (`grep -c` → **0**) | **glass-ui BH relay** — a producer act, **no consumer patch** (SS-6). The three `fixme` keystones stay booked, now with true prose |
+| Un-`fixme`-ing `fr-BasisSelector` B-3 `:133` (four-test operation) | **F.W3/W4** — row 19; not performed here |
+| The seat's home (`web/e2e/unit/`, the only writable source dir) and its runner choice | **F.W9** — free to re-home onto vitest + a component harness with the manifest transaction the floor needs |
+| The **16/12 vs 18/14** cause | **unresolved by design** — its falsifier needs a second tree and §2c forbids a worktree |
+
+**E13 at this seat**: no mail act was owed or taken — the wave's sweep is the seat's and unit *b*
+holds the mail seat; the one relay item this unit produced (the 4.0.0 `inert` measurement) is routed
+to the glass-ui BH relay above rather than sent from here.
+
+**Escalations**: **none.** No §7a trigger fired. In particular **the declared bounds question did not
+become one**: all three of G-9's clauses were met with **zero** `web/package.json` /
+`package-lock.json` bytes, so the *"ESCALATE rather than expand bounds"* branch never opened.
