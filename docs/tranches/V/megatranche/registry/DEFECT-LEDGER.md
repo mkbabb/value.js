@@ -5,7 +5,7 @@ from the workflow journals. **This file exists so that a session limit, a compac
 truncated notification cannot lose work that was already paid for.** Never re-run a seat whose
 rows are already here.
 
-**7506 defects** from completed challenger seats: BLOCKER 914 · MAJOR 3245 · MINOR 2163 · INFO 685 · MEDIUM 191 · HIGH 105 · LOW 156 · MEDIUM-LOW 1 · MINOR-RISING-TO-MAJOR 1 · MODERATE 5 · CRITICAL 16 · HIGH — FILED AGAINST CENSUS-CANONICAL.MD 1 · MEDIUM — FILED AGAINST CENSUS-CANONICAL.MD 1 · INFO — FILED AGAINST PASS-4/RULINGS-4.MD 1 · INFO — ENVIRONMENTAL, FOR SUCCESSOR SEATS 1 · CLEAR — AXIS 2 PASSES 1 · CLEAR — AXES 3/4/5 PASS 1 · MEDIUM-HIGH 5 · MINOR-WITH-MITIGATION 3 · LOW-MEDIUM 2 · MINOR (MITIGATED) 6 · MINOR (REGISTER TRUTH — ARITHMETIC THAT DOES NOT DECOMPOSE; AXIS 5) 1 · MINOR (DATED-EVIDENCE LAW — UN-DATED STALE COUNT IN CURRENT VOICE; AXIS 4) 1
+**7520 defects** from completed challenger seats: BLOCKER 914 · MAJOR 3245 · MINOR 2170 · INFO 692 · MEDIUM 191 · HIGH 105 · LOW 156 · MEDIUM-LOW 1 · MINOR-RISING-TO-MAJOR 1 · MODERATE 5 · CRITICAL 16 · HIGH — FILED AGAINST CENSUS-CANONICAL.MD 1 · MEDIUM — FILED AGAINST CENSUS-CANONICAL.MD 1 · INFO — FILED AGAINST PASS-4/RULINGS-4.MD 1 · INFO — ENVIRONMENTAL, FOR SUCCESSOR SEATS 1 · CLEAR — AXIS 2 PASSES 1 · CLEAR — AXES 3/4/5 PASS 1 · MEDIUM-HIGH 5 · MINOR-WITH-MITIGATION 3 · LOW-MEDIUM 2 · MINOR (MITIGATED) 6 · MINOR (REGISTER TRUTH — ARITHMETIC THAT DOES NOT DECOMPOSE; AXIS 5) 1 · MINOR (DATED-EVIDENCE LAW — UN-DATED STALE COUNT IN CURRENT VOICE; AXIS 4) 1
 
 > Status: these are **challenger** outputs. A defect here has NOT been adjudicated by a jury —
 > the jury seats were the ones most often killed by the rate wall. Treat every row as an
@@ -103734,6 +103734,48 @@ MixResultDisplay.vue:4 `import { computed, TransitionGroup } from "vue";` vs :60
 
 ---
 
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
 ## INFO
 
 ### `CHALLENGE-C — implementation (demo/shared/ui/PaneHeader.vue,` · C-11 · CHALLENGE-C
@@ -114382,6 +114424,48 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light /#/mi
 **Reproduction.** node -e over REPORT.json filtering matrix==='safari-desktop-light' && route includes 'mix' → probe.a11y.smallTapTargets, none belonging to MixResultDisplay; Read the PNG at the path above.
 
 **Proposed cure.** Add a STATES.json entry that drives the mix flow (select two sources, fire Mix, capture ghost and settled) so the plate enters the matrix — but only after F-1 is cured, since today no scripted flow can reach it either.
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
 
 ---
 

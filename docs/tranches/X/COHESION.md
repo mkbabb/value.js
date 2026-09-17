@@ -141,6 +141,22 @@ the per-component apotheoses are authoritative.
   empty), the lane's harvest filed at `registry/harvest/x-p-w0.json` and **PLAW-BIND now declared
   from BOTH ends** — the X·P end at `docs/tranches/X/parse-that/EVIDENCE-CHAIN.md` §5/§6, citing
   §2's X·P release-condition bullet by anchor and quoted sentence, never by line.
+- 2026-09-17: **X·P W1 instruments landed and the bar ledger published — NO BAR IS SET BY IT.**
+  The three harnesses exist in the fresh root (`d8a529a` the 52-export totality corpus · `d1458f4`
+  the 403-string equivalence oracle, `A/B/C = 0/0/0` reproduced against the sha-pinned published
+  tarball · `4df9e91` the bench: one fresh process per cell, `PACKRAT_ARMED` read from the installed
+  dist and asserted false at entry **and** exit, nine cells nine distinct PIDs, diagnostics
+  quarantined to their own process with byte-empty bench stderr), and the parser-proof tree is off
+  the job scratchpad onto tracked disk with a 189-digest manifest (`f9c0acb2`). The lane's
+  `evidence/W1/BAR-LEDGER-2026-09-17.md` restates all four budgets against **1,636,680 µs** against
+  the fixed native floor **311,883 µs** — `10×` **RETIRED AS LAW** (the floor is 1.906× that budget,
+  strengthening from 1.667× under the unproven denominator), and strict-3× / strict-2× /
+  break-even each read **`OWNER-GATED-PENDING-RATIFICATION`**, because **§0j.E OC-1 rules the bench
+  table RECORDED-NOT-GATING and ratifies no bar**. Plane A's CC-095 three-leg bar is adopted as a
+  **reporting format only**, its X·P applicability flagged as an owner confirmation; the two planes
+  are never merged. **G-8 (R1 totality) stands RED by its own design** — re-measured `324 throws /
+  1,548 calls`, unpiped exit 1 — because this wave writes no grammar. **IMPLEMENTED is the wave's
+  own close report's stamp; VERIFIED is X.P.W4's alone (R-A).**
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
