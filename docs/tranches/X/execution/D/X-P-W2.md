@@ -303,3 +303,373 @@ W1 refused it twice.
 
 *(empty at open; each unit appends its own block below, dated, with its served-model line and its
 commit hashes in both repos)*
+
+---
+
+### X.P.W2.0
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · COHESION `§0l`'s opening unit (the one
+unit not in `W2.md` §5). **Sections executed exactly**: COHESION `§0l` L866–896 (E-1, R-7, R-13) ·
+`W2.md` §4 L485–549 · §4a L550–561 · §7 L854–866 · `X-P-W1.md` R-1 / R-2 / R-7 and D-3 / D-4.
+
+**Writable set, hard bound (4 paths, all four written, nothing else):**
+`<p2>/package.json` · `<p2>/package-lock.json` ·
+`docs/tranches/X/parse-that/waves/W2-ADDENDA-2026-09-17.md` ·
+`docs/tranches/X/parse-that/evidence/W0/roots-census-v2.sh` — plus this record (a D-4 standing
+orchestration path, admitted by the addendum this unit wrote).
+
+**Commits, in order (two histories, never merged — §9):**
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | value.js | **`dac211c1`** | the dated E-3 addendum-beside (the wave's FIRST value.js commit) |
+| 2 | `<p2>` | **`99bd987d11019d9a6c192735f4754ff3aef7d3de`** | the toolchain pair (the wave's FIRST `<p2>` commit); body states base `f5757082` |
+| 3 | value.js | **`4cd00ad0`** | `roots-census-v2.sh` (R-7) |
+| 4 | value.js | this record | the receipts below |
+
+The `§0l` E-1 lock holds as written: **the value.js addendum commit (1) precedes the `<p2>` toolchain
+commit (2)**, and each is the first commit of this wave in its own repository. Every commit carries
+its own pathspec on the commit itself (`git commit … -- <the same exact paths>`); ⟨`git show --stat`⟩
+on each shows **exactly one file** for 1, 3 and 4 and **exactly two** for 2 — no sibling seat's staged
+work was swept in. `scripts/dev/dev.sh` appears in **0** of them and was never staged.
+
+---
+
+#### A.0 — E13, at this seat's own clock
+
+⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -newermt "2026-09-17 17:30"` → the only hits are
+`docs/tranches/V/coordination/INBOX.md` (a sibling Track-A seat's sweep line, appended at 17:41) and
+the three glass letters **already rowed by this wave's seat 0 as I-32 · I-33 · I-34**. **0 unrowed ·
+0 new `I-n` · 0 UNREAD in X.P.W2's scope.** All three are glass-producer / demo-consumer rows routed
+to X-W0.j / X-EXT-1; this unit wrote zero glass bytes (READ-ONLY always) and zero value.js
+`src/**`/`demo/**` bytes. **This seat appends no `INBOX.md` line** — seat 0's sweep is the wave's, and
+a unit that adds a second sweep line for the same wave manufactures a second record of one act.
+
+#### A.1 — The addendum-beside, FIRST, and `W2.md` untouched (E-3)
+
+`docs/tranches/X/parse-that/waves/W2-ADDENDA-2026-09-17.md` — **134 L · 12,249 B** · sha256
+`9fead53fd2d466759403a7d08149d65d03e9a86670db00fc5d3dc26e8472c10b`. It admits, by the grant that
+names each: `<p2>/package.json` + `<p2>/package-lock.json` (§A-1.1, `§0l` E-1),
+`evidence/W0/roots-census-v2.sh` and **itself** (§A-1.2, `§0l` R-7), and the three standing
+orchestration paths `execution/D/X-P-W2.md` · `execution/LEDGER.md` · `V/coordination/INBOX.md`
+(§A-1.3, X-P-W1.md **D-4**). §A-1.4 shows §4a disjointness undisturbed (all four are **create**, all
+four owned by this unit alone). §A-2 states **D-3's uniform-posture sentence**. §A-3 states the base
+(**R-13**). §A-4 states what the addendum does not do — no verb, no gate widened, **no bench bar**.
+
+**`W2.md` is byte-untouched, measured before the addendum was written and again after both value.js
+commits:**
+
+```
+⟨cmd⟩ shasum -a 256 docs/tranches/X/parse-that/waves/W2.md
+248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd   ×2, identical   (999 L · 82,540 B)
+```
+
+= the digest §Open banks as the spec of record. **Anchors verified at true bytes before citing them**
+(no drifted anchor): ⟨`sed -n '485p;502p;550p;561p;854p;866p'`⟩ → `## 4. File Bounds` ·
+`**Surface B — the fresh writer root** …` · `### 4a. Disjointness` ·
+`concurrently-open wave shares any Surface-B path.` · `## 7. Format And Lint Cadence` · §7's last
+line. §7 cadence taken: ⟨`npx prettier --write`⟩ on the addendum, then **re-run and byte-compared —
+idempotent** (`9fead53f…` twice; W1 `.b`'s measured hazard of a second prettier pass rewriting a
+receipt's text does **not** reproduce here), and ⟨`git diff --check`⟩ → exit 0 before every commit.
+
+#### A.2 — `<p2>/package.json` + lockfile, and THE WALL COMES DOWN
+
+`package.json` — **10 L · 1,762 B** · sha256 `03ce2399f88fd3ba5d8e668b79db4eba08021d37dd759a5335eee9faebe8af96`,
+**identical before and after `npm install`** (npm rewrote nothing). Measured at the settled bytes:
+
+```
+⟨cmd⟩ node -e 'const p=require("./package.json");…'
+private: true | type: ABSENT | deps: {"tsx":"4.23.13","typescript":"5.9.3","vitest":"3.2.7"}
+```
+
+`"private": true` ✓ · **no `type` field** ✓ (`harness/bench/package.json` owns its directory's module
+type and is execute-no-write for this wave) · **exact pins, no ranges** ✓. The two constrained pins
+are the newest releases satisfying `<p2>/typescript/package.json`'s own ranges (⟨`npm view
+'typescript@^5.8.0' version`⟩ → … `5.9.3` · ⟨`npm view 'vitest@^3.2.0' version`⟩ → … `3.2.7`), so the
+fresh root's toolchain cannot drift away from the library it typechecks; `tsx` is unconstrained by
+any sibling manifest and takes the current `4.23.13`. **The seat receipt rides a `"why"` key** — JSON
+admits no line-1 comment — following W1.d's own precedent at `harness/bench/package.json`.
+
+```
+⟨cmd⟩ npm install            → added 52 packages, and audited 53 packages in 3s      (exit 0)
+⟨cmd⟩ git check-ignore -v node_modules   → .gitignore:2:node_modules/  node_modules
+⟨cmd⟩ git status --porcelain → ?? package-lock.json
+                               ?? package.json                     (EXACTLY the two files)
+```
+
+`package-lock.json` — **1,678 L · 63,696 B**, `lockfileVersion 3`, resolutions read back from the
+settled bytes: `node_modules/tsx 4.23.13` · `node_modules/typescript 5.9.3` · `node_modules/vitest
+3.2.7`. *Disclosed*: npm's lockfile root entry does **not** echo `"private": true` although
+`package.json` declares it; the lockfile is **generated bytes and was not hand-edited** (the standing
+law).
+
+**THE WALL, BEFORE → AFTER.** The obstruction `§0l` E-1 names, re-dated at §Open at a 25 s cap:
+
+| invocation, cwd `<p2>` | BEFORE (X.P.W1 D-F5 / §Open O.3) | AFTER this commit |
+|---|---|---|
+| `npx tsx --version` | still running at the 25 s cap, **killed, exit 137**; at W1, `EXIT=124` at a 115 s cap | **`tsx v4.23.13` · `node v26.0.0` · 0.384 s total** |
+| `npm prefix` | `/Users/mkbabb` | *(moot — npx takes the local `node_modules/.bin` fast path)* |
+
+`/Users/mkbabb/package.json` (the owner's, 61 B) was **never touched, never read for modification,
+never removed**; no global install was performed; nothing was written inside `<p2>/typescript/`.
+
+#### A.3 — The three literal `npx tsx` forms, re-run from `<p2>`, pasted BESIDE W1's (D-3)
+
+W1's readings are dated evidence and are **not rewritten** (E-3). These sit beside them.
+
+| gate | literal form (cwd `<p2>`) | W1's reading | **this seat, AFTER** |
+|---|---|---|---|
+| **G-2** | `npx tsx harness/equivalence/harness.ts` | `EXIT=134`, OOM at 4 GB, `real 150.93` | **`EXIT=0` · 0.685 s** |
+| **G-4** | `npx tsx harness/bench/bench.ts` | unrunnable in this form (identical wall) | **`EXIT=0` · 2.376 s** |
+| **G-5** | `npx tsx harness/bench/bench.ts 2> harness/bench/bench.stderr` | unrunnable in this form | **`EXIT=0`**, ⟨`wc -c`⟩ → **0** |
+
+**D-3 is now evidenced as well as stated**: all three ran, in their own literal form, from `<p2>`, at
+one clock. The asymmetry W1's gate table showed was a presentation artifact of one wall that blocked
+all three.
+
+**G-2, pasted:**
+
+```
+=== X.P.W1.b — P-1 DIFFERENTIAL, RE-RUN IN THE FRESH ROOT ===
+node v26.0.0 · darwin arm64 · pid 17518
+--- corpus ---
+size 403
+provenance {"c":84,"b":232,"seed":70,"d":27,"a":19}
+hints {"stylesheet":121,"color":84,"value":120,"sheet":13,"keyframe-selector":22,"easing":43}
+corpus sha256 c6649cadd10f2aca7227482bc0c05ea1f9aaf3159e563a052f65aeea0f0a4ff8
+--- engines ---
+LIVE …/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js
+     sha256 8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42 == pinned
+--- taxonomy (equivalence.md §1, byte-for-byte) ---
+extracted 683 B · sha256 554c2993cebd3ed386e023e043ded9538bd99fd488de0598ada40b845dd963a7 · UNMOVED
+--- ENGINE_EXCEPTION ---
+   LIVE "oklch()" :: LIVE threw: Cannot read properties of undefined (reading 'replace')
+A/B/C = 0/0/0
+defects (A+B+C + C14/BOTH engine exceptions) = 0
+GATE: GREEN
+```
+
+`size 403`, the hint map, the corpus sha256, the vendored pin `8b5381…0c42` and `TAXONOMY_BYTES 683`
+/ `554c2993…63a7` all reproduce **to the character**; the single `ENGINE_EXCEPTION` is R1, the
+incumbent's shipping crash, exactly as W1 recorded it.
+
+**G-4, pasted (tail):**
+
+```
+── G-4 LEDGER · one PID per cell, entry AND exit, read from the dist ──
+       pid  cell                                    entry  exit
+     18076  census                                  false  false
+     18108  published-4.0.0/shared-accepted         false  false
+     18109  published-4.0.0/reject-non-throwing     false  false
+     18110  published-4.0.0/r1-throw-class          false  false
+     18111  c14/shared-accepted                     false  false
+     18128  c14/reject-non-throwing                 false  false
+     18160  c14/r1-throw-class                      false  false
+     18190  deposed/shared-accepted                 false  false
+     18219  json-normaliser/json-normaliser         false  false
+   PIDs 9, distinct 9 — NONE REPEATED.
+── FINALIZE · legs 4 · rows 8 · latch ledger 9 cells · bar applied: NONE
+   PACKRAT_ARMED observed true in any cell, at any phase: false
+   R1 cross-check: published-4.0.0 parseCssColor throws 102/172 …
+GREEN — 8 timing cells + 1 census cell … No bar is set and no verdict is issued.
+```
+
+**`bar applied: NONE`** — `§0j.E` OC-1's posture is intact and **this unit sets no bar** (§3a's
+trigger stays armed). The timing table was read and is **not** transcribed here: it is `.g`/G-7's
+subject, not this unit's, and a number lifted out of its printed table is the drift this program
+measures.
+
+**A RECORDED ACT, DISCLOSED IN FULL — the three run artifacts were written by the gates' own literal
+commands and restored to HEAD bytes.** `harness/**` is **execute + read, no write** (§4 R-E), yet
+`harness.ts` and `bench.ts` write their own declared result files on every run (W1's `harness/README.md`
+says so, and `W2.md` §4 binds the bench entry *"argv per W1's landed `harness/README.md`"*). This seat
+therefore **ran the literal forms and then restored W1's banked bytes**, so the net write under
+`harness/**` is **zero**:
+
+| file | HEAD sha256 | after the run | after the restore |
+|---|---|---|---|
+| `harness/equivalence/equivalence-results.json` | `4c82e91c…f2215` | `ef5f8939…2350a` | **`4c82e91c…f2215`** |
+| `harness/bench/bench-raw.json` | `e5cc0440…8a0fa` | *(new timings)* | **`e5cc0440…8a0fa`** |
+| `harness/bench/bench-results.json` | `4282f579…6e0c3` | *(new timings)* | **`4282f579…6e0c3`** |
+| `harness/bench/bench.stderr` | `e3b0c442…52b855` (0 B) | **`e3b0c442…52b855` (0 B)** | unchanged, never restored |
+
+**The equivalence delta is the strongest single receipt this unit produced.** Before restoring, the
+fresh run was joined to W1's banked result row by row:
+
+```
+⟨cmd⟩ git diff --unified=0 -- harness/equivalence/equivalence-results.json
+@@ -5 +5 @@
+-  "generatedAt": "2026-09-17T19:06:58.664Z"
++  "generatedAt": "2026-09-17T21:56:51.342Z"
+⟨cmd⟩ git diff --numstat → 1  1  harness/equivalence/equivalence-results.json
+```
+
+**One line changed, and it is the wall clock.** 0 of 403 rows differ in verdict, source or
+provenance. ⟨`git status --porcelain`⟩ in `<p2>` → **0** after the restores; ⟨`git diff --stat HEAD --
+harness/`⟩ → **0 lines**.
+
+#### A.4 — §7's two limbs, taken
+
+**R-2 — the `vitest` limb: CURED (takeable), and its reading is a configuration baseline, not a
+verdict.** BEFORE: *"NOT taken and not takeable in bounds"* — no `package.json`, no `node_modules`, no
+vitest config, `npx` did not complete. AFTER:
+
+```
+⟨cmd⟩ cd <p2> && npx vitest run
+ Test Files  8 failed | 18 passed (26)
+      Tests  2 failed | 213 passed | 2 skipped (217)
+EXIT=1
+```
+
+With **no root vitest config**, vitest's default glob reaches two trees this unit does not own, and
+runs them without the library's own `typescript/node_modules`. The eight failing files decompose
+completely, and **not one is a defect of the library's parse code**:
+
+| n | cause, read from the run | files |
+|---|---|---|
+| 4 | `ENOENT … open '../data/json/data.json'` etc. — **cwd-relative fixtures**, resolved against `<p2>` rather than `<p2>/typescript`, and `data/` is gitignored at `<p2>/.gitignore` so the fixtures are not in the tree at all | `typescript/test/{csv,json,validate-parsers,verify-parse-output}.test.ts` |
+| 3 | `` Error: `bench()` is only available in benchmark mode `` — these belong to `vitest bench`, which is `typescript/package.json`'s own `bench` script | `typescript/test/prototypes/pass1/{e,r,vk}/profile.test.ts` |
+| 1 | `Cannot find module '…/typescript/node_modules/ajv/dist/2020.js'` — the library's own devDependencies are not installed | `docs/tranches/B/coordination/NOVELTY-EVIDENCE-REGISTRY.semantic.test.mjs` |
+
+**This is `.f`'s baseline and must be read as one.** `W2.md` §5 `.d/.e/.f` binds the AC-3 seat with
+*"the library's own test suite stays green on the branch, or the union is a fork, not a citizen"* —
+and *green* has to be read against the **library's own invocation** (`typescript/package.json`'s
+`NODE_OPTIONS='--max-old-space-size=8192' vitest run`, run from `<p2>/typescript/` with its deps
+installed), never against this root-scope reading. Filed as **R-P2** below.
+
+**R-1 — the `tsc --noEmit` limb: TAKEN, and the three diagnostics SURVIVE. ESCALATED, not edited.**
+The limb was taken in three forms so the reading cannot be mistaken for the flags:
+
+```
+(i)  ⟨cmd⟩ cd <p2> && npx tsc --noEmit                         → prints tsc's help, EXIT=1
+       There is no root tsconfig.json in <p2> (the only one is typescript/tsconfig.json), so
+       §7's limb read bare has no project to read. Filed as R-P1.
+
+(ii) ⟨cmd⟩ cd <p2> && npx tsc --noEmit --target es2022 --lib es2023 \
+             --typeRoots <prototype-ws>/node_modules/@types --types node \
+             --module esnext --moduleResolution bundler --skipLibCheck harness/bench/bench.ts
+     harness/bench/bench.ts(108,40): error TS2339: Property 'bytes'  does not exist on type 'unknown'.
+     harness/bench/bench.ts(108,74): error TS2339: Property 'sha256' does not exist on type 'unknown'.
+     harness/bench/bench.ts(109,31): error TS2339: Property 'path'   does not exist on type 'unknown'.
+     EXIT=2                                                     → 3 diagnostics
+
+(iii) the same, + --strict                                      → 5 diagnostics
+     (32,47) TS7016 './lib/engines.mjs' implicitly 'any' · (33,25) TS7016 './lib/stats.mjs'
+     (108,38) (108,72) (109,29) TS18046: 'p' is of type 'unknown'   [the strict rendering of the same
+                                                                     three sites]
+     EXIT=2
+```
+
+Form (ii) is `.b`'s own flag set (`X-P-W1.md` L955–956), with `@types/node 22.15.30` read **read-only**
+from the prototype workspace — `cand-o/**`'s sibling tree, never modified, and **no fourth dependency
+was added to the pinned three**, because `§0l` E-1 names exactly `tsx` · `typescript` · `vitest`.
+`npx tsc` resolves **5.9.3**, the pinned local one. **R-1 reproduces to the digit and to the
+coordinate**: 3 at defaults, `(108,40)` · `(108,74)` · `(109,31)`, all `TS2339`, `Object.entries(subjectPins())`
+values inferred `unknown`; 5 under `--strict`, with W1's two `TS7016` present. **The seat did not edit
+one byte of `harness/bench/**`.** Escalated as **ESC-1** below.
+
+#### A.5 — R-7: `roots-census-v2.sh`, beside the sealed original
+
+`docs/tranches/X/parse-that/evidence/W0/roots-census-v2.sh` — **10,635 B**, mode **0644** (the
+original's mode; no shebang, not executable, invoked as `sh <path>`), sha256
+`eab8c3f0ba90f78aea31a15354a665d70cf90cb46061d73cbe0b7a9f08c825a1`.
+
+**The original is not edited** and its captured pair is not substituted: ⟨`shasum -a 256
+roots-census.sh`⟩ is untouched at `6,575 B`, and `census-before.txt` / `census-after.txt` stand.
+
+D-3's finding is that `W0.md:226` names **three** identity states (*"`rev-parse --short HEAD` +
+branch, or 'not a repository', or 'EPERM'"*) and the original prints two. The successor cures the
+conflation in **all three columns where it lives**, because a partial cure is the more dangerous
+artifact:
+
+1. **identity** — a git root that exists and cannot be read now reads `EPERM`, not `NOT-A-GIT-ROOT`;
+2. **state** — `[ -e "$p" ]` is false both for a truly absent path and for one under an unsearchable
+   ancestor, so the original could print a **FALSE ABSENT**. v2 walks to the deepest ancestor it can
+   see: searchable ⇒ the absence is real (`ABSENT`); existing-but-unsearchable ⇒ undecidable (`EPERM`);
+3. **file count** — `find … 2>/dev/null` silently lowers the count, and a lowered count in a census
+   whose entire purpose is a byte-exact diff is indistinguishable from deleted files. v2 publishes an
+   `access` column: `OK`, or `PARTIAL(n)` with n refused entries.
+
+**Measured at this seat:**
+
+```
+⟨cmd⟩ sh -n …/roots-census-v2.sh                       → EXIT=0            (W0.md §7's own check)
+⟨cmd⟩ sh …/roots-census-v2.sh                          → EXIT=0, stderr 0 B, ROOTS ENUMERATED: 18
+⟨cmd⟩ double-run, diff                                 → EMPTY             (deterministic, no stamp)
+⟨cmd⟩ diff <(cols 1-4 of census-after.txt) <(cols 1-4 of v2)
+                                                       → EMPTY — state+identity IDENTICAL on all 18
+⟨cmd⟩ access column                                    → OK on all 18 rows
+```
+
+The last line is a **new fact the original could not state**: the eighteen counts it published were
+never silently truncated. It writes no byte but its own stdout (stderr 0 B; `git status` in this repo
+shows only sibling-seat dirt) and runs only `git rev-parse --no-optional-locks`, `find`, `dirname`
+and builtins — **no `git status`, no `gc`, no `prune`, no stamp**.
+
+**POSITIVE CONTROL — every branch proved live, not decorative** (the discipline W1.d used for the
+latch; *"we did not call it"* is not evidence). A probe copy in the scratchpad — the committed bytes
+verified **unmodified, sha256 `eab8c3f0…c825a1` before and after** — was pointed at purpose-built
+paths:
+
+```
+walled                       (chmod 000)            EPERM  EPERM  EPERM  EPERM  EPERM
+walled/inner/deeper          (EXISTS, walled off)   EPERM  …                 ← the original: FALSE ABSENT
+walled/nonexistent           (absent, walled off)   EPERM  …                 ← the original: ABSENT, undecidably
+partial (one shut subdir)    PRESENT  NOT-A-GIT-ROOT  -        1  PARTIAL(1) ← the original: a silent 1, truth 2
+truly-absent                 ABSENT   -               -        -  -
+probe stderr: 0 B
+```
+
+Row 2 is the one that matters: a path that **exists** read `ABSENT` under the old instrument. All
+probe paths were in the scratchpad, `chmod` restored, and nothing in any frozen root was touched.
+
+---
+
+#### ESCALATIONS
+
+**ESC-1 — R-1's three `TS2339` SURVIVE the toolchain landing, and their cure is outside this unit's
+bounds.** Measured above, form (ii): `harness/bench/bench.ts(108,40)` · `(108,74)` · `(109,31)`,
+`Object.entries(subjectPins())` values inferred `unknown`; 5 under `--strict`. The cure is one of two
+edits, and **both are inside W1's execute-no-write surface** (`W2.md` §4's R-E row —
+*"an edit here is a §3a halt"*): a type annotation or a generic on the `Object.entries` consumer in
+`harness/bench/bench.ts`, or a `.d.mts` beside `harness/bench/lib/engines.mjs` so `subjectPins()`'s
+return type is not `unknown` (which would also retire the two `TS7016`). **This seat wrote nothing
+there**, per its own brief (*"if the 3 TS2339 survive, record and ESCALATE, never edit W1's bytes"*).
+Restating what does and does not turn on it, so the escalation is not read as larger than it is:
+**no gate reads `tsc`** — G-4/G-5/G-9's GREENs are the printed assertions, the byte-empty stderr and
+the depth table, and **all of them reproduced at this seat in their literal form** (A.3). It is a
+display-loop typing gap in an instrument that runs correctly. **Owner: the orchestrator** — either a
+dated §4 addendum admitting `harness/bench/bench.ts` to one named seat, or the finding is carried to
+X.P.W3 with W1's instrument untouched.
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+|---|---|---|---|
+| **R-P1** | INFO | §7's `npx tsc --noEmit` read **bare** has no project to read from `<p2>`: there is no root `tsconfig.json` (only `typescript/tsconfig.json`), so the bare form prints tsc's help and exits 1. The meaningful forms are per-entry with explicit flags (A.4) or from `<p2>/typescript/`, which §7 itself points at (*"binding for the AC-3 seat"*). A root `tsconfig.json` is in **no** §4 row and was **not** created | orchestrator / `.f` |
+| **R-P2** | MINOR | the root-scope `npx vitest run` baseline above — 26 discovered files, 8 failing, taxonomy in A.4, **zero library-code defects**. `.f`'s *"the library's own test suite stays green"* must be evaluated with the library's own invocation from `<p2>/typescript/` with its deps installed, never against this reading | `.f` (AC-3 seat) |
+| **R-P3** | INFO | **module resolution in `<p2>` changed under this commit**: `<p2>/node_modules` now exists, so files under `typescript/` and elsewhere can resolve `typescript`/`vitest`/`tsx` up to the root. Benign and intended (it is what makes `npx` take its fast path), recorded so no later seat reads it as drift | every later seat |
+| **R-P4** | INFO | npm's lockfile root entry does not echo `"private": true` although `package.json` declares it. **Generated bytes; not hand-edited** | none — recorded only |
+| **R-P5** | INFO | the gates' own literal commands write W1's result files; this seat ran them and **restored HEAD bytes** (A.3), net write zero. A later seat that re-runs them in-place must make the same disclosure, or commit the fresh artifacts under a wave that owns the path | every later seat |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: the union of this unit's committed paths is exactly its four-path writable set plus this
+  record — a D-4 standing path admitted by the addendum this unit wrote. **0 bytes** outside it.
+  `parse-that`, `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` ·
+  `api/**` · `demo/**` · `package.json` · `package-lock.json`, `scripts/dev/dev.sh`, and the two
+  sealed W2 author arms: **all untouched**.
+- **`<p2>` end state**: ⟨`git status --porcelain`⟩ → **0** · HEAD `99bd987d11019d9a6c192735f4754ff3aef7d3de`
+  · ⟨`git merge-base --is-ancestor f5757082… HEAD`⟩ → **true** · ⟨`git ls-files harness/ | wc -l`⟩ →
+  **32**, unchanged · ⟨`git diff --stat HEAD -- harness/`⟩ → **0 lines** · ⟨`git remote -v | wc -l`⟩ →
+  **0** (W0 `.c`'s `remote remove` stands; no push path exists in this lane).
+- **Gates**: this unit turns **none of the twelve**, by design (`W2.md` §5 has no `.0`). It unblocks
+  the **literal** form of G-1..G-11 and closes §7's two limbs, one CURED (R-2) and one taken-and-escalated
+  (R-1). **No gate was declared GREEN by this seat, and no bar was set.**
+- **§7 cadence, one deliberate exception, disclosed**: Prettier was run (and re-run, idempotently) over
+  the two `.md` files this unit **created**. It was **not** run over this record. Measured first in the
+  scratchpad on a copy: ⟨`prettier --write` on a copy, then `diff`⟩ → **350 diff lines**, almost all of
+  them inside **seat 0's** block (its tables re-padded, its `*emphasis*` rewritten to `_emphasis_`).
+  Formatting a shared append-only evidence ledger rewrites another seat's settled bytes, which is the
+  E-3 hazard W1 `.b` measured in a different guise. The committed bytes of this record below the
+  `## Unit receipts` heading are this seat's own, and nothing above it was touched.
