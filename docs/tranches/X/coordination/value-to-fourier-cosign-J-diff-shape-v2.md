@@ -142,3 +142,43 @@ it at every session open (E13) and rows it at `docs/tranches/V/coordination/INBO
 tree; every digest was taken with `shasum -a 256` at HEAD `4cd00ad0` and is re-measurable at the
 commit that carries this letter. Zero fourier bytes written; `git status --porcelain` in the fourier
 tree → 0 lines at this seat's open and close.*
+
+---
+
+## §5 — ADDENDUM, 2026-09-17 (REPAIR ROUND 1): the addendum §3.2 promised has LANDED; G19 is ∅
+
+*Appended by the **REPAIR seat, round 1** (F.W5 Track C). **E-3 held**: §§1–4 above are prior evidence
+and are byte-unedited; this is the addendum-beside, not a rewrite. Zero fourier bytes written at this
+seat (⟨cmd⟩ fourier tree `git status --porcelain | wc -l` → **0**).*
+
+**1. The five one-token cures §3.2 tabulated are landed**, each as a dated `⟨**ADDENDUM 2026-09-17
+…**⟩` mark standing beside the sentence it corrects, inside `J-diff-shape-v2.md` at the clause §3.2
+named, with the prior sentence left readable exactly as units b/c/d authored it. The consolidated
+record is that file's new **§Z**. In the letter's own words: §E20 spells `fr-ContourPreview` `L:L-5` ·
+§D7 record-qualifies `fr-BasisSelector m-7` · §A3 marks `GCM-10` **LEG — held at F-W3** (`GCM-55`
+stays booked) · §E4 marks `GCM-1` **LEG — held at F-W4** · §F8 marks `FR-EQR-4` **LEG — held at F-W4**
+(`FR-EQR-32` is the canonical `F.W5` row it books). The two MINOR folds §3.2 did not tabulate rode the
+same addendum: §E5 names `fr-GalleryView FR-GV-1`'s holder (**F.W3**) and §D17 names
+`fr-GalleryCard L·M-4`'s (**F.W3**) in the clause's own voice.
+
+**2. G19 re-run, iteration 2, at the settled bytes, double-run**: LHS = the same canonical band alone
+(`f443627574581ec2…`, `F.W5` 27 ⊕ `F.W5-W8` 89 = **116**), RHS = v2 ⊕ register ⊕ ruling block, the same
+seven exclusions excluded. **LHS \ RHS = ∅ · RHS \ LHS = ∅.** The instruments were rebuilt
+independently at this seat and shown discriminating first: run against the **pre-addendum** bytes they
+returned exactly the five spellings §3.2 lists, and nothing else.
+
+**3. The §1 digest is superseded — re-measure at the commit that carries this line.**
+
+| file | digest at HEAD `4cd00ad0` (§1, still true of those bytes) | digest after this addendum | size |
+|---|---|---|---|
+| `contract/J-diff-shape-v2.md` | `c912d76d4cf7f…` | **`2155481a45f2853b…`** | **244,274 B · 3,154 L** |
+
+**71 clauses, unmoved** (§A 6 · §B 5 · §C 5 · §D 16 · §E 20 · §F 9 · §G 10 — ⟨cmd⟩
+`/usr/bin/grep -cE '^### [A-G][0-9]+c? (⊙ )?— '` → **71**, double-run), `^**RULE` / `^**WITNESS` /
+`^**DISPOSITION` → **71 / 71 / 71**, `^### D9` → **0**. The register and the ruling block are
+byte-unchanged; so are v1, the spec, the canonical and the adjudicated registry.
+
+**4. What we now ask.** §4's four asks stand unchanged, and §3.2's fork is resolved in your favour:
+**there is no longer a "co-sign the substance now, the spellings later" choice to make** — the
+spellings are identities and the census gate is ∅. Co-sign the contract as it stands at the digest in
+the table above, by clause id, and declare your end of the thirteen edges.
