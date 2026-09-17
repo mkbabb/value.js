@@ -2210,3 +2210,37 @@ back to its four standing entries. The main repository was untouched by every pr
 ⟨`git status --porcelain` identical before and after each generator and harness run⟩.
 **No `git stash`, no `reset`, no force-push, no history rewritten.** `scripts/dev/dev.sh` never touched,
 never staged. **No verb stamped; VERIFIED stays X-W11's.**
+
+### 10 · WRITE-THEN-MEASURE addendum — the landed hash, and the two pointers it closes (dated 2026-09-17)
+
+**E-3: an addendum-beside. Not one byte of §Check 1 `:1861–2212` is rewritten.** §Check 1's header and
+§8 each promised the close hash forward (*"stated at §7"* / *"stated in §9 with the commit"*) and
+neither section could carry it, because the hash does not exist until the commit exists. It exists now,
+so it is written here rather than left as a pointer into nothing — the same defect class this wave's
+own HG-17 and G-G(b) exist to catch, applied to this seat's own receipt.
+
+| datum | value |
+|---|---|
+| **the check commit** | **`b92d6a38`** — `docs(x-w0/check): X-W0 CHECK 1 — fresh VERIFY-ONLY adjudication returns CLOSED (honest-RED: E13 rowing limb); 18/18 hard + 8/8 fold GREEN at its own clock` |
+| **paths in it** | **2** ⟨`git diff-tree --no-commit-id --name-only -r b92d6a38`⟩ — `execution/A/X-W0.md` · `execution/LEDGER.md`, exactly the writable set |
+| **HEAD at open of check** | `d5d1931d` |
+| **HEAD at close of check** | **`b92d6a38`** (this commit; sibling tracks commit concurrently, so a later HEAD is expected and is not this seat's) |
+
+**Bounds over this seat's own commit, measured after it landed**: `^docs/` **2** · `registry/adjudicated/`
+**0** · `codex-worktree-7e28` **0** · `challenge-*.md` **0** · `dev.sh` **0** · `X/keyframes` **0** ·
+`registry/harvest` **0** · `INBOX` **0** · `waves/W0.md` **0** · `COHESION` **0**. ⟨`git diff --check`⟩
+clean, exit 0. **Append-only proven at the bytes**: ⟨`git diff --numstat`⟩ → **352 / 0** on the record
+with a single hunk `@@ -1860,0 +1861,352 @@`, and ⟨`head -c 273867 <record> | shasum -a 256`⟩ →
+**`d1da786215aed44b`** both before and after the append — the prior 1,860 lines are byte-identical.
+The LEDGER took **1 changed line + 1 appended line** (⟨`git diff --numstat`⟩ **2 / 1**), the X-W0 row
+replaced **in place** with its pipe count unchanged at **6**, identical to its untouched neighbour.
+
+**The shared-index guard held.** ⟨`git diff --cached --name-only`⟩ was **empty** before the `add`, and
+the commit carried its own pathspec (`git commit … -- <the same two paths>`), so a concurrent Track D
+seat's staged `X/parse-that/waves/W1-CLOSE.md` **was not swept** — it was left for its own seat, which
+committed it. **§Format And Lint Cadence `:346`**: `npm run lint` / `vue-tsc` intentionally skipped —
+this seat wrote **zero** `.ts`/`.vue`/`.css` bytes; the replacement evidence is the three script gates
+re-run above plus ⟨`git diff --check`⟩.
+
+**Nothing in §8's verdict moves**: X-W0 is **CLOSED (honest-RED: E13's rowing limb — ESC-M2)**, 18/18
+hard and 8/8 fold GREEN, **ESC-M1** and **ESC-M2** returned, **VERIFIED still ✗ and still X-W11's**.
