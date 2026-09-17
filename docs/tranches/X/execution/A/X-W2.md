@@ -447,3 +447,14 @@ started after the window ruling landed, and no `settled` question belongs to thi
 
 **Verb stamped: none.** This unit measures and instruments; IMPLEMENTED is the wave's own close and
 VERIFIED is X-W11's.
+
+**Post-commit confirmation, 2026-09-17 18:17 EDT — stated because the file changed after its measured
+run.** Between run 4 and the commit this seat edited `eager-payload.spec.ts`'s **docstring only**, so that
+the file cites the banked verdicts and the window ruling instead of restating run-specific figures that
+would rot. **No executable byte changed after the measurement**, and the committed bytes were re-proved,
+not assumed: ⟨cmd⟩ `npx playwright test --project=smoke-perf e2e/smoke/perf/eager-payload.spec.ts --list`
+→ **`Total: 2 tests in 1 file`** (`:282` G2 · `:338` G3/G4), and ⟨cmd⟩ `… -g "G2"` re-run against the
+committed tree → `[X-W2 G2] eager JS modules=6 raw=979024 gz=313601 (306.3 KiB) bar=286720 B → RED`,
+**1 failed, for its intended reason and at the same number**. The tree is handed to unit **a** with
+`dist/gh-pages` built and present, `e2e/smoke/perf/serve-built.mjs` unmodified, and this unit's four paths
+the only ones it ever wrote.
