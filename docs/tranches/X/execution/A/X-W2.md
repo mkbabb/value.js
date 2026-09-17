@@ -224,6 +224,24 @@ never settles on software-GL (**do NOT restore the wall clock**) · any third me
 
 ---
 
+## Errata (E-3: dated addenda-beside; the figures above keep their bytes)
+
+- **2026-09-17, seat 0, same sitting — SELF-COUNT correction to G5's baseline row.** The G5 cell above
+  reads *"20 hits across 6 files"*. That **20** was read off a display truncated by `| head -20` — a
+  self-count defect by this seat, caught by the write-then-measure double-run. **The true figure, twice
+  measured on settled bytes**: ⟨cmd⟩ `rg -n "BLOB_IDLE_MS|SLEEPY_POSE_MS" demo/ e2e/ | wc -l` → **26**
+  (×2), ⟨cmd⟩ `rg -l … | wc -l` → **5** (×2), the five being `demo/picker/visual/HeroBlob.vue` ·
+  `e2e/smoke/fixtures/blob-timing.ts` · `e2e/smoke/webgl-blob-idle.spec.ts` ·
+  `e2e/smoke/mobile/blob-presence-mobile.spec.ts` · `e2e/smoke/perf/idle-frame-budget.spec.ts`.
+  `e2e/smoke/oracles/o12-blob-seat.spec.ts` imports the fixture but names **neither** constant, which
+  is why the file count is 5 and not 6 — and it is still one of unit **b**'s four consumer specs,
+  because its dependency is on the fixture's exports (⟨cmd⟩ `rg -ln blob-timing e2e/` → exactly the
+  four the spec names). **G5's verdict does not move: RED, and the target of the cure is `rg … → 0`.**
+  Unit **b** asserts against **26 → 0**, not 20 → 0.
+- No other figure in this record is affected; the byte gates, the pin string and the unit plan stand.
+
+---
+
 ## Unit receipts
 
 _(appended by each unit as it lands)_
