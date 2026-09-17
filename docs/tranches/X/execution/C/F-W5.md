@@ -1433,3 +1433,78 @@ pathspec · E13). **What remains is G19's ∅-closure** — five one-token spell
 this table was read GREEN that this seat did not measure itself**.
 
 **Seat**: wave-close (VERIFY-ONLY), `claude-opus-5[1m]`, 2026-09-17 18:25 EDT.
+
+---
+
+## Check 1
+
+**SERVED MODEL: claude-opus-5[1m]** · FRESH ADVERSARIAL CHECK (L-20, pass 1), 2026-09-17, VERIFY-ONLY —
+authored none of units a–e's bytes and none of the close seat's. **Cures nothing.** The wave's `## Close`
+and `## Close — VERIFY SEAT` above are prior evidence and are **unedited**; this section is the
+addendum-beside E-3 prescribes. Writable set at this seat: **this record** ⊕ `execution/LEDGER.md`
+(append only). `scripts/dev/dev.sh` never staged. Every reading below **double-run** — the 22-gate battery
+was written to a script and run twice, ⟨cmd⟩ `diff run1 run2` → **no output**.
+
+### C1.1 — What reproduced
+
+| axis | reading at THIS seat | verdict |
+|---|---|---|
+| **(1) claimed GREENs** | **21 of 21 reproduce.** G1 `admin.py:94` · G2 `hash.ts:8`/`paletteVersion.ts:14`/`:47` · G3 **3** · G4 **1** hit ⊕ `api/src/lib` absent ⊕ `N/A — RE-SCOPED (F-SS4REST R1)` **2** · G5 `forks.ts:76` · G6 **5** ⊕ `:179`/`:197` · G7 bounded **0**, unbounded **160 = 150 ⊕ 10 Binary** (unit c's reconciliation reproduces exactly) · G8 **0** schemes ⊕ register **45/45** authority (`13+19+5+1+2+5`) · G9 register **45/45** disposition (`36+7+1+1`) · G10 **0** like routes · G11 `FlagRequest` **1** (scoped) · G12 `visualizations.py:269` · G13 **10**/**3** · G14 `contours.py:25` · G15 **29** · G16 `moon.json` **1** ⊕ `### G1c`/`### G5c` ⊕ `DO-NOT-REGENERATE` **5** · G17 **1** · G18 `### A2` ⊕ `### E3` · G20 **2** files ⊕ **13** edges ⊕ `O-22` **1** · G21 **45** rows = **30+13+1+1** · G22 registry **1**, in v2 only at `:299-300` (the §A3 LOCK) | **0 claimed GREEN failed** |
+| **(2) bounds** | ⟨cmd⟩ `git show --name-only` over **all 15** wave commits → the union is exactly **7 paths**: the five §1a artefacts ⊕ this record ⊕ `LEDGER.md`. `dev.sh` in **0 of 15**; `Claude-Session:` trailer in **15 of 15**; no `-A`, no stash/reset/force | **CLEAN** |
+| **(3) masking** | ⟨cmd⟩ over the whole wave diff for `test.skip\|test.fixme\|xit(\|allowlist\|node_modules/\|@ts-ignore\|eslint-disable\|try {\|catch (` → **one hit, and it is a `-not -path '*/node_modules/*'` exclusion inside a `find` probe**. No try/catch round a defect, no skip, no allowlist, no copied producer selector, no patched `node_modules`, no narrowed assertion | **NONE** |
+| **(4) commit families** | a `[3418db60]` · b `[bf3707ec]` · c `[73e35e74]` · d `[34b5f2be]` · e `[e8277c8e]` ⊕ `[37e2feec]` (relay ⊕ its INBOX row, **one meaning, kept together**); each unit committed before the next opened (log order verified). Runbook §3.4 declares **no** F.W5 same-commit lock | **HELD** |
+| **(5) E-3** | ⟨cmd⟩ `git diff --stat 6d4221c5..HEAD -- registry/adjudicated fourier/waves fourier/conformance fourier/carry` → **no output**. `COHESION.md` moved only at `f67cf619`, **another track's commit**, absent from F.W5's union. fourier tree ⟨cmd⟩ `git status --porcelain \| wc -l` → **0**; v1 `J-diff-shape.md` → **0 lines** | **HELD** |
+| **(6) mail** | three `UNREAD` status cells (`I-32`·`I-33`·`I-34`) verified **out of scope at their own bytes**: ⟨cmd⟩ per letter for `J-diff` / `F\.W5` / `operation-register\|co-sign` → **0 · 0 · 0** on all three; each Routing cell names **X-W0.j / the X formation mail seat**, not F.W5. `O-22` appended `+3/−0` | **0 UNREAD in scope** |
+| **(7) four verbs** | IMPLEMENTED **NO→YES** (the five artefacts exist and carry their content — re-counted here). VERIFIED **unmoved**, per §0's own evidence cell (*"stamped only at X·F's sub-tranche release close"*). The spec's own §0 table is byte-untouched | **LAWFUL** |
+| **(9) published figures** | v2 **236,694 B / 3,076 L**, **71** clause headings partitioned **A6·B5·C5·D16·E20·F9·G10 = 71**, `^**RULE`/`^**WITNESS`/`^**DISPOSITION` **71/71/71**, `^### D9` → **0** · register **38,255 B / 452 L** at `3418db60` · v2 **52,241 B / 715 L** at `bf3707ec` · relay **20,202 B** · ruling block **18,702 B**. Canonical ⟨cmd⟩ `shasum -a 256` → `f443627574581ec2…`; rosters **27 ⊕ 89 = 116**, closed independently at the declared `(n)` sum **and** at the backticked-id count | **REPRODUCE** |
+
+**(8) goal criterion, at the bytes.** §0a's clause test is met structurally: **71 of 71 clauses carry
+RULE · WITNESS · DISPOSITION and a lock** — ⟨cmd⟩ an `awk` walk keyed on `/LOCK/` ⊕ `/▲/` (v2 §0.4's own
+legend: *"`▲` = a lock that binds the repair"*) returns **no bare clause**; §H carries `VO-1`…`VO-8` ⊕
+`VO-0`. *A clause that names no witness is not a clause* holds at 71/71. The co-signature half of §0a is
+**relayed, not received** — which is what §3's G20 close column itself defines, the reciprocal being
+fourier's act.
+
+### C1.2 — Successor conjuncts
+
+| successor | its F.W5 conjunct, at that spec's bytes | state |
+|---|---|---|
+| **F.W6** | `:558` *"DEPENDS — HARD; F.W5 STATES, F.W6 BURNS"* — the clause set, not a gate | **GREEN** (71 clauses landed). F.W6's ledger cell names `FW6-G19`, **its own** gate id, not F.W5's G19 |
+| **F.W7** | `:83` — F.W0 · **F.W5 §2 `E16` ⊕ §3 `G7` (same identity); §2 `E1`, §2 `E3` ⊕ §3 `G4`, §2 `E10`** · the G-F7-1 ruling | **ALL GREEN** — `### E16` · `### E1` · `### E3` · `### E10` all present (⟨cmd⟩ → 1 each), G7/G4 GREEN, G-F7-1 ruled (F-TRIE ≡ G-F7-1). **Lawfully unblocked on its F.W5 axis** |
+| **F.W8** | `:63` — *"F.W5 (the ADMISSION KEYSTONE — its three artifacts are inputs, not prose)"* | **GREEN** (three artifacts exist). F.W8 stays blocked on **F.W1.close** and **F.W2**, neither of which this wave touches |
+
+**G19 is a conjunct of no successor.** No successor is blocked by the RED.
+
+### C1.3 — Register: severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **HIGH** | **G19 was left RED and escalated although its cure is inside the WAVE's own §1a writable set, at iteration 1 of the spec's own three-iteration allowance — and the escalation's stated ground does not reproduce against §1a.** The close's §7 reads *"the specified cure (∅ both directions) is not reachable by any byte inside **any F.W5 seat's** writable set"*. §1a `:63` grants this wave `$V/docs/tranches/X/fourier/contract/J-diff-shape-v2.md` — **`create`** — and §1c `:90-92` assigns **units b, c and d** as its writers; the five cures land in §A3 (b), §D7/§E4/§E20 (c) and §F8 (d). The unit-level partition that put v2 outside *unit e's* set is the wave's own serial plan, not a spec bound. Runbook **§5.7** names the loop: *"any **third** diagnose→edit→re-measure iteration on one gate"* is the triumvirate trigger — iterations 1 and 2 are the prescribed path, and §1c spells the same allowance (*"a `(record, id)` pair … failing to home **three times**"*). §6 item 1 says **"∅ or halt"**; the wave reached neither, and the record's own §4 marks that item **"RUN — RED, escalated"**, not DONE. **Axis-10 adjudication: NOT relieved.** G19's §3 green-owner cell is **"F.W5 itself (unit e, closing)"** — not producer-owned, not routed to a successor, and named as no honest-RED; ⟨cmd⟩ `grep -niE 'escalat' F-W5.md` → **one hit, `:181`, unrelated prose**: the spec offers this gate no escalation exit | ⟨cmd⟩ `sed -n '63p;90,92p' docs/tranches/X/fourier/waves/F-W5.md` → the `create` grant and the three writer rows · ⟨cmd⟩ `sed -n '637,641p' docs/tranches/X/EXECUTION-RUNBOOK.md` → §5.7's *third*-iteration trigger · record `:1414-1415` (the falsified ground) · record `:1373` (item 1 not DONE). **The five spellings themselves reproduce exactly at this seat**: `L:L-5` → **0** across all three RHS files · `m-7` booked **bare** at v2 `:1231` · `GCM-10` `:285` (canonical `:2897` → **F.W3**) · `GCM-1` `:1716` (canonical `:2888` → **F.W4**) · `FR-EQR-4` `:2617` (canonical `:2140` → **F.W4**) — all in `**DISPOSITION.** Booked:` voice | Open a v2-writing seat under the wave's own §1a grant, land the five one-token edits as a **dated addendum-beside inside v2** (E-3, exactly as the record's **R-1** already prescribes), re-run unit e's three instruments, and close G19 at ∅ both ways — **iteration 2 of three, the loop §5.7 names.** Only if that second run is also non-∅ does the escalation become the spec's prescribed act |
+| **D-2** | MINOR | The **baseline's G11 cell** publishes ⟨cmd⟩ `grep -rn "FlagRequest" $F/api $F/web/src` → *"**exactly one hit**, the definition"*. As spelled it returns **two** lines — the second is `Binary file api/models/__pycache__/admin.cpython-314.pyc matches`. The **substance reproduces** (one source hit, referenced nowhere); the digit does not. This is the identical phantom class the wave itself convicted at **a.7 item 1** (*"a `.pyc` inflating a source count by one … the digit is wrong and the command still works"*) — caught for `_readable_or_none` and `_write_root_version`, missed one cell over | ⟨cmd⟩ (fourier tree) `/usr/bin/grep -rn "FlagRequest" api web/src \| wc -l` → **2**; with `--include='*.py'` → **1** (record `:98`) | Dated addendum-beside in this record scoping the G11 witness `--include='*.py'`. No gate verdict moves |
+| **D-3** | MINOR | The VERIFY seat's structural self-count publishes *"`**RULE` **71** · `**WITNESS` **71** · `**DISPOSITION` **71**"* **without its line anchor**. Run as spelled the three return **75 · 72 · 72** (the extras are §0.4's own legend bullet, §0.6's prose, and the two `**RULED HERE**` headings F8/G1c). Under the anchored spelling units b and c actually used — `^\*\*RULE` — all three return **71** and the three-partition claim stands | ⟨cmd⟩ `grep -cE '^\*\*RULE' J-diff-shape-v2.md` → **71**; ⟨cmd⟩ `grep -c '\*\*RULE'` → **75** (record `:1311`) | Publish the anchor in the receipt. The claim is true; only its command under-specified |
+| **D-4** | INFO | Unit e's ruling-block byte figure (**18,398** vs **18,702** settled) — **already found, disclosed and dated by the VERIFY seat** at `:1322-1332`; re-confirmed here (⟨cmd⟩ `git show e8277c8e:… \| wc -c` → **18702**, one commit ever touched the file) | record `:1322-1332` | None owed — the mitigation is already in the record |
+
+### C1.4 — Honest-RED set
+
+**EMPTY.** G19 is the wave's only RED and it is **not** relieved under axis 10: its own §3 green-owner
+cell assigns it to **F.W5 itself**, the spec routes it to no successor, names it as no honest-RED by id,
+and gives it no escalation exit. Its cure sits inside the wave's own §1a writable set. **It is owner-named
+(R-1) but unrelieved, and an unrelieved RED is not laundered as honest.**
+
+Weighed the other way, and stated so the finding is not read wider than it is: **nothing is masked.** All
+**116** canonical rows have a real landing — verified here, not accepted. There is **no silent drop**, the
+defect class G19 exists to kill. The wave measured the miss twice independently, refused both available
+substitutes (booking through the ruling block; declaring ∅ over five known spellings), named the cures
+token by token, assigned an owner, labelled the close **PARTIAL** and left **VERIFIED unmoved**. The
+finding is that the wave stopped one lawful iteration short of its own gate — **not** that it shipped a
+falsehood.
+
+### C1.5 — Verdict
+
+**NOT-CONFORMANT** — **1 HIGH · 2 MINOR · 1 INFO · 0 BLOCKER/CRITICAL**. **21 of 21 claimed GREENs
+reproduce at this seat's own clock, double-run; `gatesFailed` = {G19}.** Bounds, masking, commit families,
+E-3, mail and the four verbs are all clean. **The single blocking finding is D-1**: G19's ∅-closure is
+owed *inside this wave*, by the grant §1a already carries, before F.W5's row reads CLOSED. The LEDGER
+status cell is therefore left at **PARTIAL** by this seat, and an event line is appended beside it.
+
+**Seat**: fresh adversarial check (L-20 pass 1, VERIFY-ONLY), `claude-opus-5[1m]`, 2026-09-17.
