@@ -741,3 +741,298 @@ rewritten to correct this** — the fact is recorded instead. **Finding for the 
 parallel seats on one checkout, a bare `git commit` is not pathspec-safe even when every seat stages
 by pathspec, because the index is shared; the standing "pathspec commits only" law should be read as
 binding the *commit* verb (`git commit -- <path>`), not only the `add` verb.
+
+---
+
+### X.P.W0.c
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus 5 implementation seat (M-23 §2) · 2026-09-17 ·
+`cwd = /Users/mkbabb/Programming/value.js`, darwin arm64 · value.js HEAD at dispatch `fa9597cd`.
+**Sections executed**: `W0.md` §5 `X.P.W0.c` (L241–268, the two literal commands at L247–253) ·
+§6 **G-4** (L382–404) · §6 **G-5** (L406–419) · §3.3 · §3.4 · §3.5 · §3a · §11.2.
+**Rulings consumed**: `COHESION.md` §0j **OP-1 / §0j.E** — *"both owner words are given, dated
+2026-09-17"*; W0 consumes the **begin-word only** (the release word is X.P.W4's, and this unit
+published nothing, added no remote and ran no push). `COHESION.md` §0j **gate 25** — `worktree list`
+returns **7, not 8**; the quadruple is therefore captured and asserted **at today's bytes**, and
+`W0.md`'s 08-03 eight stands unedited (**E-3**).
+**Writable set honoured exactly**: every byte this unit wrote landed under
+`/Users/mkbabb/Programming/parse-that-css-totality-p2/**`. **Zero bytes** written to
+`../parse-that`, to any frozen sibling, or anywhere else — proved below rather than asserted.
+
+#### Acts, in order
+
+**Act 1 — anchors verified at true bytes, before the first write.** The spec read whole (602 lines),
+then this record and `COHESION.md` §0j. The two preconditions this unit stands on:
+
+```
+⟨cmd⟩ test -e /Users/mkbabb/Programming/parse-that-css-totality-p2 && echo PRESENT || echo ABSENT
+ABSENT                                        ← G-4's RED half still held at this seat's start
+⟨cmd⟩ ls -l  …/evidence/W0/census-before.txt  → 3242 B, Sep 17 12:59   (unit .b, §3.6 edge)
+⟨cmd⟩ shasum -a 256 …/census-before.txt       → 7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7
+```
+
+`census-before.txt` exists and is byte-equal to `.b`'s published digest, so **§3.6's group-1 → group-2
+edge is met**: the before-census was taken before this unit's first write. No anchor drift; no INTENT
+substitution was needed anywhere in this unit.
+
+**Act 2 — the pre-state, captured as ONE artifact so the after-diff is a single comparison.**
+`OP-3` re-measured ⟨cmd⟩ `df -h /Users/mkbabb` → **85Gi avail** (96% used) against a 28M `.git`.
+The G-5 (i) quadruple, every read taken with `--no-optional-locks` so the *measuring instrument*
+cannot refresh the source's index and taint its own interval (unit `.b`'s finding, adopted):
+
+```
+⟨cmd⟩ { worktree list ; rev-parse HEAD ; branch -a ; status --porcelain } > source-quad-before.txt
+⟨cmd⟩ wc -l source-quad-before.txt                      →   76
+⟨cmd⟩ shasum -a 256 source-quad-before.txt              → 04f2c538b58e0c754a9226c9e947c70608147fe9bc18ce5700aa0be3c0c0c324
+   components: worktree list 7 · HEAD ef10d5b78236c4a30a7bb22a6113b60bdc4bdf42 · branch -a 33 · status --porcelain 31
+⟨cmd⟩ du -sh   …/parse-that/.git                        →  28M
+⟨cmd⟩ test -e  …/parse-that/.git/gc.log                 →  NO-GC-LOG
+⟨cmd⟩ find     …/parse-that/.git/objects -type f | wc -l → 4239
+⟨cmd⟩ stat -f '%m %Sm %N' .git/index .git/worktrees/*/index   → 7 mtimes banked (Jul 20 · Jul 29 ×5 · Aug 2)
+```
+
+Every figure equals this record's wave-open baseline to the byte (28M · NO-GC-LOG · 4239 · 7/33/31).
+
+**Act 3 — the FIRST WRITE: exactly the two commands of §5, no third.**
+
+```
+⟨cmd⟩ git clone --no-hardlinks --no-checkout \
+          /Users/mkbabb/Programming/parse-that \
+          /Users/mkbabb/Programming/parse-that-css-totality-p2
+Cloning into '/Users/mkbabb/Programming/parse-that-css-totality-p2'...
+done.                                                            → exit 0, FIRST attempt
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 \
+          checkout --detach f5757082ca160dd5f25fcf437e692c9df8f7e78d
+HEAD is now at f575708 docs(parser-audit): bank N2 v10 two-review terminal intake and novelty boundary
+                                                                 → exit 0
+```
+
+**§3a clone-failure counter: 0.** The halt condition (*"the clone failing twice"*) never approached;
+no third attempt against a shared object store was made, so no frozen root could acquire a `.git/gc.log`
+— and ⟨cmd⟩ `test -e …/parse-that/.git/gc.log` → **NO-GC-LOG** after, as before.
+
+**Act 4 — G-4 measured at the literal commands' output, and TWO of four conjuncts read RED.**
+
+```
+⟨cmd⟩ git -C <p2> remote -v
+origin	/Users/mkbabb/Programming/parse-that (fetch)
+origin	/Users/mkbabb/Programming/parse-that (push)
+⟨cmd⟩ git -C <p2> for-each-ref --format='%(refname) %(objectname:short)' | grep refs/heads
+refs/heads/master ef10d5b
+⟨cmd⟩ git -C <p2> config --local --list | grep -E '^(remote|branch)\.'
+remote.origin.url=/Users/mkbabb/Programming/parse-that
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+```
+
+This is the unit's one substantive finding and it is stated plainly: **the mandated mechanism and the
+gate do not meet by themselves.** G-4's fourth GREEN conjunct is *"`git … remote -v` prints nothing"*,
+and `git clone` creates `origin` **by construction** — with a **push** URL into the shared repository
+of six frozen worktrees — plus `refs/heads/master` carrying `branch.master.merge=refs/heads/master`
+upstream to it. Left as the two commands leave it, the fresh root ships with a configured write path
+back into the exact repository this whole wave exists to prove untouched.
+
+**Act 5 — cured to the spec's own stated end state, inside the writable set, nothing substituted.**
+
+```
+⟨cmd⟩ git -C <p2> remote remove origin                  → exit 0
+⟨cmd⟩ git -C <p2> branch -D master                      → Deleted branch master (was ef10d5b).
+⟨cmd⟩ git -C <p2> config --local --list | grep -cE '^(remote|branch)\.'   → 0
+⟨cmd⟩ git -C <p2> for-each-ref --format='%(refname)' refs/heads refs/remotes | wc -l → 0
+⟨cmd⟩ git -C <p2> for-each-ref --format='%(refname)' | wc -l              → 9   (refs/tags/* only)
+```
+
+Both acts write **only** into `<p2>/.git`, which is inside this unit's writable set; neither reads or
+writes one byte of the source. They are not an improvisation over the spec but the spec's own words:
+§5 — *"**No remote is added**, no push is ever run, **no branch is created**"* — and §5's rationale for
+choosing `--no-checkout` + `--detach` over `--branch`, *"the detached HEAD pins the ruled bytes and
+**creates no branch ref in the clone that invites a push**."* The end state both sentences describe is
+**0 remotes, 0 heads**, which is now the measured state. **Disclosed for the close report and the L-18
+quartets to re-rule** rather than left to inference; the residual below states the one thing it costs.
+
+**Act 6 — G-4's four conjuncts, double-run.**
+
+```
+                              run 1                                        run 2
+rev-parse HEAD            f5757082ca160dd5f25fcf437e692c9df8f7e78d    f5757082ca160dd5f25fcf437e692c9df8f7e78d
+status --porcelain        0 lines                                     0 lines
+rev-parse --abbrev-ref    HEAD                                        HEAD
+remote -v                 0 lines                                     0 lines
+⟨cmd⟩ [ "$H" = f5757082ca160dd5f25fcf437e692c9df8f7e78d ] && echo HEAD-EQ-RULED-COMMIT   → HEAD-EQ-RULED-COMMIT
+```
+
+The pin is a **string equality against the full 40-hex**, not a prefix match, so G-4's falsifier — *"a
+clone left at `codex/css-totality-combinators-20260729`'s tip"* — cannot pass silently; `--branch` was
+never used and no branch ref survives to move. Corroboration against the *other* G-4 falsifier (an
+interrupted clone that "exists and has no valid HEAD"):
+
+```
+⟨cmd⟩ git -C <p2> cat-file -t HEAD                     → commit
+⟨cmd⟩ git -C <p2> rev-parse 'HEAD^{tree}'              → 3809a1ed635575b281641c826d9831b609a8b8ef
+⟨cmd⟩ git -C <p2> diff --stat HEAD | wc -l             → 0
+⟨cmd⟩ find <p2> -type f -not -path '*/.git/*' -not -path '*node_modules*' | wc -l → 691
+⟨cmd⟩ git -C <p2> log -1 --format='%H%n%ad%n%s'
+f5757082ca160dd5f25fcf437e692c9df8f7e78d / Sun Aug 2 06:49:24 2026 -0400 /
+docs(parser-audit): bank N2 v10 two-review terminal intake and novelty boundary
+```
+
+Date and subject equal the provenance `W0.md` §6 G-4 recorded on 2026-08-03, re-derived here in the
+**clone**, independently of the source.
+
+**Act 7 — G-5 (i): the source quadruple, before vs after.**
+
+```
+⟨cmd⟩ diff source-quad-before.txt source-quad-after.txt        → (empty), exit 0   DIFF-EMPTY
+⟨cmd⟩ shasum -a 256 <both>
+04f2c538b58e0c754a9226c9e947c70608147fe9bc18ce5700aa0be3c0c0c324  source-quad-before.txt
+04f2c538b58e0c754a9226c9e947c70608147fe9bc18ce5700aa0be3c0c0c324  source-quad-after.txt
+⟨cmd⟩ wc -l <both>                                             → 76 and 76
+```
+
+Worktree registry, HEAD, the 33-branch set and the 31-row porcelain status are **bit-for-bit
+identical** across the wave (§3.4). Stated at **today's** bytes per §0j gate 25 — seven worktree
+entries, not the 08-03 eight — with `W0.md` unedited (E-3).
+
+**Act 8 — G-5 (ii): the inode intersection, and why it is not vacuous.**
+
+```
+⟨cmd⟩ find <each>/.git/objects -type f -exec stat -f '%i' {} + | sort -u
+      source 4239 unique inodes · p2 4239 unique inodes
+⟨cmd⟩ comm -12 inodes-source.txt inodes-p2.txt   → 0 lines, 0 bytes          (run 1)
+⟨cmd⟩ comm -12 …-2.txt                           → 0 lines                   (run 2, double-run;
+                                                    both per-store listings byte-IDENTICAL run-to-run)
+```
+
+An empty intersection is worthless if the two trees cannot share inodes in the first place, so that is
+measured too — **one device, and the same object path carries different inodes**:
+
+```
+⟨cmd⟩ stat -f 'dev=%d %N' <each>/.git/objects        → dev=16777234 for BOTH
+⟨cmd⟩ stat -f '%d:%i %N' … objects/61/d77b31950c92543b1a8c05ecf4a13b68602872
+16777234:232119366  …/parse-that/.git/objects/61/d77b31950c92543b1a8c05ecf4a13b68602872
+16777234:268673739  …/parse-that-css-totality-p2/.git/objects/61/d77b31950c92543b1a8c05ecf4a13b68602872
+```
+
+That pair **is** G-5's falsifier (ii) read directly: a default clone hardlinks, so those two numbers
+would be equal. `--no-hardlinks` copied the object files instead — hence the identical 4239 counts and
+the disjoint inode sets. Two checks stronger than the gate asks, both clean:
+
+```
+⟨cmd⟩ find <each>/.git/objects -type f -links +1 | wc -l    → 0 and 0   (no hardlink anywhere, either store)
+⟨cmd⟩ comm -12 <whole-.git inode lists>                     → 0 lines   (4471 vs 4260 files)
+```
+
+**Coverage of *"any* frozen root"** (§3.5 says *any*, and one intersection answers for all seven):
+
+```
+⟨cmd⟩ for each of the six frozen siblings: test -f <root>/.git ; test -d <root>/.git/objects
+parse-that-css-totality … -p1-e … -p1-r … -p1-vk … -runtime-probes … -skv26
+   .git is FILE (a gitdir pointer) ; own objects dir ABSENT   — all six
+```
+
+Six linked worktrees own **no** object store; `parse-that`'s is the only one, so p2 ∩ parse-that = ∅
+**is** p2 ∩ {all seven} = ∅. This is `.b`'s shared-repository finding used as a proof instrument
+rather than restated.
+
+**Act 9 — G-5 (iii): the source is untouched, by four independent readings.**
+
+```
+⟨cmd⟩ du -sh …/parse-that/.git                          →  28M   BEFORE and AFTER   (the census figure)
+⟨cmd⟩ test -e …/parse-that/.git/gc.log                  →  NO-GC-LOG  BEFORE and AFTER
+⟨cmd⟩ find …/parse-that/.git/objects -type f | wc -l    → 4239   BEFORE and AFTER
+⟨cmd⟩ stat -f '%m %Sm %N' .git/index .git/worktrees/*/index  → all SEVEN mtimes byte-identical
+      1784558162 Jul 20 10:36:02 · 1785348838/1785348903/1785349238/1785347215/1785346523 Jul 29 · 1785667764 Aug 2
+```
+
+The index-mtime row is the direct evidence that **taking the readings** wrote nothing either — a
+`status` without `--no-optional-locks` refreshes the stat-cache and would have moved those numbers
+*inside* the interval G-5 measures. And the mechanism itself is proved to be a clone, not a worktree:
+
+```
+⟨cmd⟩ git -C …/parse-that worktree list | grep -c 'totality-p2'   → 0     (absent from the registry)
+⟨cmd⟩ ls -1 …/parse-that/.git/worktrees | wc -l                   → 6     (unchanged; §0j gate 25's six)
+⟨cmd⟩ test -d <p2>/.git                                           → DIRECTORY, an independent repository
+```
+
+That triple is G-5's falsifier (i) answered from three sides: `git worktree add` would have added a
+registry entry, created a branch ref in the shared repo, and left `<p2>/.git` as a *file*.
+
+**Act 10 — committed, pathspec-safe under live concurrency.** ⟨cmd⟩ `git diff --cached --name-only |
+wc -l` immediately before the commit returned **≈300 paths staged by a concurrent seat** — the shared
+index, exactly `.b`'s absorption finding. A bare `git commit --allow-empty` would have swallowed all
+of them into this unit's commit. The commit was therefore taken in the **partial-commit form**,
+`git commit --allow-empty --only … -- <one unmodified path of this lane>`, which builds the commit
+from `HEAD` plus the named path alone and leaves the rest of the index untouched. Verified after:
+
+```
+⟨cmd⟩ git show --stat --format='' HEAD | wc -l                → 0   (empty diff, as §9 designs)
+⟨cmd⟩ git diff-tree --no-commit-id --name-only -r HEAD | wc -l → 0
+⟨cmd⟩ [ HEAD^{tree} = HEAD~1^{tree} ]                         → TREES-IDENTICAL — zero bytes absorbed
+⟨cmd⟩ git status --porcelain -- scripts/dev/dev.sh            →  M scripts/dev/dev.sh  (untouched, UNSTAGED)
+```
+
+The concurrent seat's batch landed in its own commit `befbc05a` in the interval, on its own terms —
+this unit neither absorbed nor disturbed it. **`.b`'s forwarded law is confirmed at a second site: the
+`--only`/`-- <path>` form binds the *commit* verb, and it holds even for an `--allow-empty` commit.**
+
+#### Commit
+
+`8a83c8bbbe1a3673dd4700bd18bf3f0713627dbb` — `chore(x-p-w0/root): open parse-that-css-totality-p2 at
+f5757082 by no-hardlink clone` (**commit 3 of §9, verbatim**). Its diff in this repository is **empty
+by design**; the body is therefore mandatory and carries the pre/post quadruple, the inode
+intersection, the §3a counter, the G-4 finding of Act 4/5, and the `Claude-Session` trailer.
+
+#### Gate readings BEFORE → AFTER
+
+| gate | BEFORE (this record's wave-open baseline) | AFTER | the closing act |
+|---|---|---|---|
+| **G-4** | **RED — and the RED is the point**: `test -e <p2>` → `ABSENT`; the ruled commit exists in the source and is **not** an ancestor of `master` | **GREEN** | `rev-parse HEAD` **string-equal** to `f5757082ca160dd5f25fcf437e692c9df8f7e78d` · `status --porcelain` **0 lines** · `--abbrev-ref HEAD` = **`HEAD`** (detached) · `remote -v` **0 lines**; double-run identical. Neither falsifier can fire: no branch ref survives to be a moving tip, and the clone is complete (691 files, valid HEAD commit, `HEAD^{tree}` `3809a1ed`, `diff --stat HEAD` 0) |
+| **G-5** | **RED, vacuously** — the fresh root did not exist, so the assertion had no subject | **GREEN, all three checks** | (i) quadruple `diff` **empty**, both captures sha256 `04f2c538…c324`, 76 lines each · (ii) inode intersection **0 lines / 0 bytes**, double-run, on **one device**, with identical object paths holding **different** inodes and `-links +1` **0** in both stores (whole-`.git` intersection also 0) · (iii) `du -sh` **28M → 28M**, `gc.log` absent throughout, objects file count **4239 → 4239**, seven index mtimes unmoved, p2 **absent** from the worktree registry with `<p2>/.git` a **directory** |
+
+**Gates turned GREEN by this unit: G-4, G-5. RED remaining in this unit's scope: none.**
+Asserted about nothing else: G-3's after-half, G-6, G-7's collation and G-8 are unit `.d`'s, and this
+unit makes no claim about them.
+
+#### Residuals recorded, not resolved
+
+1. **The G-4 conjunct-4 cure is a divergence between spec mechanism and spec gate, and the close
+   report should rule on it explicitly.** The two literal commands of §5 L247–253 cannot by themselves
+   produce `remote -v` → nothing; `git remote remove origin` + `git branch -D master` were performed
+   inside the writable set to reach the end state §5's prose states twice. **What it costs, stated
+   rather than buried**: with `origin` gone the clone's remote-tracking refs go with it, so the 24
+   non-packet branch tips (incl. `master` @ `ef10d5b`) are no longer *reachable* in p2 — their objects
+   are still present (4239 files, none pruned; nothing was `gc`'d), and every one of them remains in
+   the preserved source root, which is read-only-forever evidence. The alternative — leaving a live
+   **push** URL into the six frozen worktrees' shared repository inside the "provably fresh" root — is
+   the worse of the two by the wave's own §2a criterion.
+2. **`du -sh` is a coarse instrument for G-5 (iii)** — it resolves to 1 MB, so a sub-megabyte write
+   into the source would read 28M either side. It is the gate's named instrument and it is reported as
+   such; the *fine* evidence is beside it and is what actually carries the claim: the objects file
+   count (4239 → 4239, exact), the seven index mtimes (unmoved to the second), and the 76-line
+   quadruple digest. A later seat should prefer those three over the `du` line.
+3. **The fresh root is pinned but not frozen.** Nothing enforces that a later wave stays at
+   `f5757082` — no ref, no hook, no lock; the detached HEAD is a convention. X.P.W1's port lands *in*
+   this root and will move its tree by design; the guarantee this unit establishes is about the
+   **source**, not about p2's future. Named so no reader over-reads G-4 as a standing invariant.
+4. **The clone was not `fsck`'d.** HEAD's object type, tree id, clean status, and the 691-file
+   checkout are the completeness evidence; a full `git fsck` was deliberately not run — it is neither
+   asked for by G-4/G-5 nor free, and §5 forbids executing anything in the fresh root beyond the
+   opening itself. Recorded as a deliberate omission, not an oversight.
+
+#### Escalations
+
+**None.** Clone failure count **0** (the §3a halt at two was never approached); zero `git worktree
+add`; zero writes outside `/Users/mkbabb/Programming/parse-that-css-totality-p2/**`; zero reads or
+writes that moved a byte or an mtime in `../parse-that`; zero `gc` / `repack` / `prune` /
+`worktree prune` / `stash` / `reset` / branch write anywhere; zero pushes and no remote in existence
+to push to; nothing in the fresh root built, installed, or executed. No §9 STOP condition is this
+unit's to fire and none was observed. Zero diagnose→act→re-measure iterations — every gate was read
+once, then double-run for the count law, never re-attempted. **`W0.md` §3a evaluated and not
+triggered.** Standing invariant gate 27 / W4 G-2 at this unit's commit ⟨cmd⟩ `git status --porcelain
+-- src api demo test e2e` → **0**. `scripts/dev/dev.sh` never touched and never staged.
+
+**§11.2 discharged mechanically.** Archaeology item 2 — *same-root repair*, the PRUNED failure mode
+whose guardrail `W0.md` names as *"not 'we intend not to touch the old root' but an inode intersection
+and a byte-identical pre/post quadruple"* — is answered by exactly those two instruments, both run,
+both clean: intersection **∅**, quadruple digest **equal**.
