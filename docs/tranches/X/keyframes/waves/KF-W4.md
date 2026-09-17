@@ -333,3 +333,59 @@ The bank-enumerated dead-citation families that G-KFW4-8's original wide command
 1. **THE SUBJECT-IDENTITY CHECK (R3-4.3, ruled here and binding on every seat that writes a §Bounds row).** *For every §Bounds row naming a symbol, run `git grep -n '<symbol>' origin/master -- '<the row's own file>'`; the command must return the row's stated lines. An anchor's CONTENT must mention its SUBJECT.* R2-5 checked existence; this checks identity. Run over row 78 as round 2 wrote it, the command prints nothing — it would have caught the defect before the file was written. Swept over every symbol-bearing row this round: five members found and cured (row 78's `seedFor`/`syncGap`; `sceneExposedApi.ts` and `useSquareDemo.ts`'s pathless-or-elided leaves; the fourth `types.ts`; `backward.ts`'s three-site attribution against a one-line carve), and the rest re-derived exactly with their commands printed at the row.
 2. **THE IMPORT-GRAPH LAW (LAW A).** Every delete, repoint or shim act carries a consumer census derived from the import graph at the frontier — specifier census over every spelling and alias root, symbol census with **each hit resolved to its own specifier**, consumer set = the union, prose recorded as non-import context and never counted. **A line count proves a file exists; it does not prove who imports it.** Five acts, five censuses, pasted at the acts. Two of the five paid for themselves immediately: `monaco-themes`' only live "consumers" are a **vendored sibling directory of the same basename**, and the carried F-5 repoint's two apparent consumers **import the real module, not the shim** — the exact confusion that authorized a delete on an invented census at KF.W6.
 3. **THE CLOSURE-CLAIM BAN (LAW B).** No sentence here asserts completeness, closure or zero-escape in its own voice. Each such clause cites the freshest conformance census artefact by repo path and date and states what it found, defects included; when a newer pass supersedes it, the citation is re-pointed and the claim is never re-asserted in spec voice. **The corollary binds this seat's own cures**: no cure text commissions a certification its receipts do not reproduce — every sentence this round ordered written rides beside the measurement that makes it true at the substrate it names, and where no such measurement exists the honest sentence is written instead.
+
+---
+
+## §Bounds ADDENDUM — dated 2026-09-17, E-3 addendum-beside (COHESION §0m.1 F-10 · KF-CB-29 candidate (ii))
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Seat**: X.KF.W4 **REPAIR 1** · **Substrate** keyframes.js
+`origin/master` **`3e81f500`** (⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `0  0`).
+**Nothing above this rule is altered** — E-3 holds absolutely; the §Bounds table, its access column,
+its LAW A censuses and every dated repair-round head keep their bytes. This block is written
+**beside** them because COHESION **§0m.1** ruled two widenings that the table, frozen at repair
+round 6, cannot carry: *"**KF.W4's §Bounds are widened by dated E-3 addendum at KF-W4.md** to those
+two loci, and the default easing gains a name"* (F-10) and *"§Bounds gain the single type-only token
+at `compile/emit/css-text.ts:30`"* (KF-CB-29 candidate (ii)).
+
+**THREE LOCI ARE ADDED, and nothing else.** Every coordinate below was re-resolved read-only at
+`origin/master 3e81f500` at this seat's write time (R2-5 witness re-derivation; no coordinate is
+inherited from the ruling's prose):
+
+| # | locus | access | unit | ruling |
+|---|---|---|---|---|
+| **A-1** | `src/animation/constants/types.ts` — the `Easing` interface | modify-carve — **the interface body only**: it gains ONE optional field. No other member moves | the repair seat (R-2's retirement) | §0m.1 **F-10** |
+| **A-2** | `src/animation/constants/defaults.ts:85` | modify-carve — **`:85` only**, the nameless default easing | the repair seat | §0m.1 **F-10** |
+| **A-3** | `src/animation/compile/emit/css-text.ts:30` | modify-carve — **the single type-only token at `:30`** (the arrow's return annotation) plus the `import type` specifier its resolution requires | the repair seat | §0m.1 **KF-CB-29 (ii)** |
+
+**COORDINATE DELTA, printed rather than smoothed (LAW D).** §0m.1 F-10 names the first locus
+`constants/types.ts:57-62` (`Easing = {fn, css?}`). At the frontier that span is **not** the `Easing`
+interface: ⟨`sed -n '57,62p' src/animation/constants/types.ts`⟩ → `:57` `export type TimingFunction =
+(t: number) => number;` · `:58` blank · `:59-62` the opening four lines of the interface's docblock.
+The interface itself is ⟨`git grep -n 'export interface Easing' -- src/animation/constants/types.ts`⟩
+→ **`:69`**, running `:69-74` with its docblock at `:59-68`. The ruling's SUBJECT is unambiguous
+(*"`Easing = {fn, css?}`"*, quoted from the interface's own body, and `:57-62` overlaps its docblock)
+and is honoured; its *span* is six lines short and is **corrected here, not transcribed** — the exact
+class R2-5 exists to kill, applied to a ruling as readily as to a bank. **A-2 and A-3 re-resolve
+EXACTLY as ruled**: ⟨`sed -n '85p' src/animation/constants/defaults.ts`⟩ → `    timingFunction: { fn:
+easeInOutCubic },` · ⟨`sed -n '30p' src/animation/compile/emit/css-text.ts`⟩ → `export const
+serializeTimingFunction = (value: NonNullable<CSSAnimationOptions["timingFunction"]>): string => {`.
+
+**LAW A CENSUS — A-1, the `Easing` field ADD.** A widening of a published interface by one OPTIONAL
+member strands no consumer and moves no import edge, and that is a measurement, not an adjective:
+⟨`git grep -n '\bEasing\b' -- src/ test/ demo/ scripts/ bench/ | wc -l`⟩ → **83** hits; every
+structural construction site is ⟨`git grep -n '{ fn' -- src/ | wc -l`⟩ → **6** (`easing.ts:27` ·
+`compile/easing/option.ts:27`/`:65` · `constants/defaults.ts:85` · `engine/css/animation.ts:222`),
+each of which supplies `fn` and therefore still satisfies the widened interface unchanged. **An
+optional member cannot red an existing assignment**; the falsifier for that claim is `tsc` itself and
+it is run at the cure. **A-3's census**: ⟨`git grep -n 'serializeTimingFunction' -- src/ test/ demo/
+scripts/`⟩ → **4** hits — the declaration at `css-text.ts:30`, its one in-file call at `:21`, and two
+re-export rows (`compile/emit/index.ts`, `compile/index.ts`). A **narrowing** of a return type from
+`string` to a subtype of `string` is assignable everywhere `string` was, so the consumer set is
+unstranded by construction; again, `tsc` is the falsifier and it is run.
+
+**What this addendum does NOT do.** It grants no access to `compile/easing/option.ts`, to
+`src/animation/easing.ts` beyond the `.e` carve already booked at §Bounds, to
+`compile/emit/format/options.ts`, to `test/engine/computed-resolution.test.ts` or to
+`test/fixtures/compile/scroll-driven.css` — four of those five carry G-KFW4-7 provenance rows, and
+§0m.1's own conditional (*"cured by the repair seat **if in bounds**, else routed with receipts"*)
+routes them rather than widening to reach them. The §Bounds **Do NOT touch** block stands whole.
