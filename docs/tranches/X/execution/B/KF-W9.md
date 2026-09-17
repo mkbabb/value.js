@@ -1632,3 +1632,272 @@ which is the shape §0j.C authorizes a downstream wave to close `complete_with_m
 6. **The capture clone `/Users/mkbabb/Programming/keyframes-w9-capture` is left in place** at the pin,
    clean, built and hashed — so `.e` (or a re-authorized safari-app seat) can re-serve the *same*
    bytes without rebuilding. Its `bundleSha256` is published on every row.
+
+### KF.W9.e — write-backs · the fold · census amendment · the capture receipt · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commits, six, one per meaning**: `429bf48b` (G-KFW9-13's thirteen addenda, 13 paths) · `a94bc452`
+(the five measurements `.d` took and could not land, 6 paths) · `ff7dfda5` (the census-amendment
+DRAFT, 1 path) · `88a3c5b0` (`SS-13-CAPTURE-RECEIPT.md`, 1 path) · `04d7a0d2` (the fold —
+`REPORT.json` · `REPORT.md` · `STATES.json` · `SURFACE-LIST.json` + apparatus, 5 paths) · `55ed2a5e`
+(the two gate readings restated at their own clauses, 1 path). **27 path-slots / 25 distinct paths** (`REPORT.md` and
+`W9e-*.mjs` each appear twice), and a scoped grep of the union against the writable-set patterns returns
+**NONE outside it**. Each commit carries its own pathspec on the commit itself; a sibling's dirty
+`docs/tranches/X/execution/D/X-P-W2.md` was present in the worktree throughout and is in **none** of
+them ⟨`git show --stat <sha>`⟩.
+
+**Status: PARTIAL.** Every act `.e` could lawfully take landed. **Three gates turn** (G-KFW9-13 on its
+own disjunctive arm, G-KFW9-5, G-KFW9-3) and **two stay RED with the missing clause named**
+(G-KFW9-4, G-KFW9-2). **Zero triggers were measured** — that is the wave's condition, not a
+concealment, and it is printed beside every green this seat claims.
+
+---
+
+#### Act 0 — anchors verified at the true bytes, before a byte was written; **three drifted**
+
+⟨`grep -n '^## ' waves/KF-W9.md`⟩ → `220:## Gates` · `245:## Sequencing`; ⟨`grep -n` on the row
+labels⟩ → §Bounds CELL SPLIT **`:69`** · capture-receipt row **`:77`** · S-10 **`:256`** · S-10.1
+**`:308`** · S-11 **`:309`** · S-14 **`:315`** · §H **`:207`**–`:219`.
+
+| dispatched | true | what sits at the dispatched offset |
+|---|---|---|
+| §Gates `:220-244` | **`:220-244`** | **resolves exactly** — G-KFW9-2 `:225` · -3 `:226` · -4 `:227` · -5 `:228` · -13 `:242` |
+| §H's two registers `:207-219` | **`:207-219`** | **resolves exactly** — escalation `:213`, negative `:214` |
+| S-11 · S-14 `:306-315` | **`:309` · `:315`** | **both inside the cited band** |
+| §Bounds CELL SPLIT `:70` | **`:69`** | `:70` is the **adjacent** row (`CENSUS-2026-08-03.md` · `lane-frontend.md §6.5`, *"read-only (both paths)"*) |
+| §Bounds capture-receipt `:81` | **`:77`** | `:81` is **§Disjointness** |
+| S-10 / S-10.1 `:145-161` | **`:256` · `:308`** | `:145-161` is **§Carry D/E/F** |
+
+**Subjects identical at both readings; only offsets drifted.** Each was re-resolved **by §-heading and
+id, the sole anchor (R2-7)**, recorded at `SS-13-CAPTURE-RECEIPT.md §5` and
+`CENSUS-AMENDMENT-DRAFT-PRM.md §0`, **and not worked around**. `.c` recorded the same §Sequencing drift
+independently — two seats, one reading. *One drift is load-bearing and is called out rather than
+noted*: `:70` is precisely the cell that makes **both** census paths read-only and sends the amendment
+to `evidence/W9/**`, so the true byte is the **stronger** authority for what this seat then did.
+
+#### Act 1 — G-KFW9-13: the thirteen, written back under their ORIGINAL ids
+
+**BEFORE, at this seat** ⟨`grep -rl 'ADDENDUM.*2026-09-17' registry/adjudicated/kf-*.md | wc -l`⟩ →
+**0** · ⟨`grep -rl 'PROVISIONAL' kf-*.md | wc -l`⟩ → **0** · ⟨`grep -rl 'G-KFW9-13' kf-*.md | wc -l`⟩
+→ **0**, all **double-run**.
+
+**Apparatus** (banked so the write is re-runnable and refuses to duplicate itself):
+`evidence/W9/W9e-addenda.mjs`. **AFTER, self-counted from the settled bytes**: **12 records** carry the
+addendum · **14 appended blocks** · **13 triggers** · ⟨`grep -rl PROVISIONAL kf-*.md | wc -l`⟩ → **12**.
+
+**The three numbers are different on purpose and the counting rule is stated at its enumeration**:
+**13 triggers** (the register's own figure — R2-15's recount, the kf-TimelineTrack row binding two ids
+under one armed row), **14 blocks** (trigger 13 binds **two** records — `kf-KeyframesStringControls`
+and `kf-TimingFunctionPanel` — and its addendum is appended under its own limb at each), **12 records**
+(triggers 5 and 10 share `kf-KeyframesAddDialog`; 7 and 13 share `kf-TimingFunctionPanel`).
+
+**E-1 PROVEN AT THE BYTES, not asserted**: ⟨`git diff --numstat`⟩ → **210 added · 0 deleted** across
+12 files; ⟨`git diff -U0 | grep '^@@'`⟩ → **12 hunks, every one `@@ -N,0 +N+1,k @@`** — a pure
+insertion at each file's old EOF. **No existing line was edited, re-graded, renumbered or deleted, and
+no id was minted.**
+
+**Every one of the thirteen reads `PROVISIONAL (unrun)`** with the trigger's own named measurement, its
+ceiling, its roster cell, and **the exact precondition it is blocked on** — re-measured at this seat,
+not inherited: ⟨`xcrun devicectl list devices`⟩ → `No devices found.` · ⟨`safaridriver --help | grep
+-ci simulator`⟩ → **0** · ⟨`uname -a`⟩ → `Darwin 25.4.0` · ⟨`ls /Applications | grep -icE
+'parallels|vmware|utm|virtualbox|crossover'`⟩ → **0** · ⟨`command -v qemu-system-x86_64`⟩ → no output ·
+⟨`pgrep -x VoiceOver | wc -l`⟩ → **0**.
+
+**Two preconditions are stated as *unrun*, not *foreclosed*, because that is what they measure**: the
+`chromium` cells **did** open at `.d`, so triggers 3–7, 11–13 need a pass that mounts the subject, not
+a different host. Conflating the two is how a register grows false UNREACHABLEs.
+
+**And KF-TD-8's bound has MOVED and is recorded as moved**: the cheapest trigger in the register waited
+on a servable build; **that build now exists** (the §0m.2 clone), so its precondition is no longer the
+bundle but a cell that can hold a trace.
+
+#### Act 2 — the five measurements `.d` took and was forbidden to land
+
+`.d`'s residual 4 handed `.e` four facts plus the producer enumeration, with *"no re-booking and no
+re-grade"*. All five landed as dated addenda under **original ids**, in a family **counted separately**
+from the thirteen so neither number can absorb the other: `evidence/W9/W9e-addenda-measured.mjs`, **5
+blocks over 5 records**, ⟨`git diff --numstat`⟩ → **74 added · 0 deleted**, all five hunks `-N,0`.
+
+The sharpest, because it changes what a later wave must do before it acts: **`playback-idiom.css`'s
+redundancy ground is FALSE AS WORDED.** Glass 7.0.0 ships **no `.btn-playback` rule at any coordinate**
+⟨`find …/dist -name '*.css' | xargs grep -l 'btn-playback'`⟩ → exit 1, widened to all file types → no
+output. The row survives by a **different** path — the ribbon buttons carry **both** `btn-playback`
+**and** `focus-ring`, ⟨`querySelectorAll('.focus-ring').length`⟩ → **44** — which also makes **K-5
+measured rather than argued**. **Handed to KF.W13: re-word the ground before the deletion lands. The
+act itself is unchanged and is still ONE act.**
+
+#### Act 3 — G-KFW9-5's amendment half: a DRAFT, and the census untouched by design
+
+`evidence/W9/CENSUS-AMENDMENT-DRAFT-PRM.md`. **Both census paths are unwritten** ⟨`git status
+--porcelain -- …/formation/keyframes/`⟩ → **0**; ⟨`sed -n '462p' lane-frontend.md`⟩ → still *"### 6.5
+`prefers-reduced-motion` — 13 enforcement sites across 12 files"*. The draft quotes **both** targets at
+their bytes (`CENSUS-2026-08-03.md:141`'s *"(10 CSS blocks, 2 raw `matchMedia`, 1 `useMediaQuery`)"*
+and the lane's `:462`) and states precisely what the measurement moves: the census's own triple
+enumerates **three** mechanisms, and `.b`'s register finds a **fourth** with one site
+(`usePreferredReducedMotion`, `AmigaScene.vue:58`) → **14 sites / 14 files / 4 mechanisms**, plus **4
+engine-flag sites §6.5 counts nowhere**; **both numerals in "13 across 12" are wrong in opposite
+directions.** *Two of the census clause's three limbs were already discharged at the census's own hand
+(§(iii), D-4) — the draft reaches only the third, and says so rather than claiming the whole row.*
+
+**The residual is named with its owner**: whoever holds the write grant on `CENSUS-2026-08-03.md`.
+**No KF.W9 seat has it, and none took it.**
+
+#### Act 4 — `SS-13-CAPTURE-RECEIPT.md`, the surface receipt — and it rules nothing
+
+Created at `…/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md` (231 lines). Four items indexed by
+path + sha256 + cell + substrate ref, **each missing half recorded INCOMPLETE with its exact
+precondition**:
+
+| item | state | produced |
+|---|---|---|
+| **(a) OD-V3 capture packet** | **INCOMPLETE** | **0 of 16** cells (4 scenes × 2 homes × 2 viewports) |
+| **(b) OD-V5 390 at-rest** | **NOT OBSERVED** | nothing — **DEFERRED by ruling, not re-opened** |
+| **(c) Glass §4 dock re-verify (CH2-02 ×4)** | **INCOMPLETE** | **0 of 4** marks (BG-5 · GU-1 · GU-2 · subject-legible) |
+| **(d) V-A95 aurora surface verify** | **NOT PRODUCED** | nothing |
+
+**THE DISCRIMINATOR DID REAL WORK HERE, and the receipt says where.** This wave holds 7 shots, **three
+of them on `/#/easing` — an OD-V3 scene — in OD-V3-eligible cells at 1280×848**. **Not one is counted
+toward the packet.** They are single-control focus captures at one viewport with no 390 twin and no
+both-homes framing; S-8 (iii-a) is explicit that *"a capture of one home, or of either home at one
+viewport, does not satisfy it."* **The nearest miss is named in the receipt rather than quietly
+counted** — which is the whole difference between a receipt and a score.
+
+**The four anchors were re-verified at their own sources, not inherited**: ⟨`git show
+55e9bf0d:docs/tranches/V/OWNER-DECISIONS.md | sed -n '7p;9p'`⟩ → OD-V3's *"THE TRANSPORT-HOME RULING IS
+HELD FOR CAPTURE REVIEW."* and OD-V5's *"THE AT-REST REOPEN QUESTION IS DEFERRED PENDING GLASS'S DOCK
+MARK."*; ⟨`git grep -n 'CH2-02' 55e9bf0d -- docs/tranches/V/FOLD-FORWARD.md`⟩ → **`:34`**, the dock
+contract quoted whole; and KF-W10 §B-1 by anchor.
+
+**THE SIX S-10 ANCHORS, RE-RESOLVED AT THIS SEAT** (S-10's SHADOW leaves the RECONCILE seat exactly one
+act — *"re-resolve them at close and re-issue col C if they moved"*; this seat consumes them, so it ran
+all six):
+
+```
+                                                          col C (PASS-7)            col D (THIS SEAT)
+(A1) grep -n 'X.KF.W9' KF-W10.md                         → :22*                    → :22*
+(A2) grep -n 'OP-4' KF-W10.md                            → :68* :232 :530 :537 :541 → identical
+(A3) grep -n 'PACKET-FIRST' KF-W10.md                    → :68 :84 :519* :537       → identical
+(A4) grep -n 'D. → KF.W9 (Safari Visual Audit)'          → :553*                    → :553*
+(A5) grep -n 'surface verify' KF-W10.md                  → :212*                    → :212*
+(A6) grep -n 'CH2-02' KF-W10.md                          → :203 :214* :232 :537     → identical
+6 of 6 RESOLVE · 6 of 6 subjects byte-exact · 0 of 6 OFFSETS MOVED since col C.
+col C is NOT re-issued: the SHADOW's condition ("if they moved") is measured FALSE.
+```
+
+#### Act 5 — THE FOLD
+
+Apparatus `evidence/W9/W9e-fold.mjs`, re-runnable, **dry-run by default**, and it **prints the residue
+line it matched for every row it moves** so a third party reproduces the mapping by eye.
+
+**THE MAPPING RULE, stated because it is the load-bearing decision of this act**: a banked defect id
+becomes a `SURFACE-LIST` probe row **only when the record's own residue line at that probe's `line`
+contains the id at a WORD BOUNDARY**. The word boundary is not decoration — a substring match put
+`D-1` onto `PlaybackRibbon#2` via the string `D-10/M-3`, and the boundary form killed it before
+anything was written.
+
+**Terminal states, self-counted from the settled bytes, double-run in a fresh process**:
+
+| state | before | after |
+|---|---:|---:|
+| EXECUTED | 0 | **1** |
+| RETIRED | 0 | 0 |
+| UNREACHABLE-IN-CELL | 0 | **12** |
+| UNMEASURED | 590 | **577** |
+| total | 590 | **590** (the script throws if the denominator moves) |
+
+**Cell ledger**: **9 of 10** cells now carry a reading or a **named** foreclosure (before: 10
+UNMEASURED, 9 of 10 `capability: null`). Only `webkit-engine` reads UNMEASURED — **with its bound
+measured** (playwright 1.60.0 wants `webkit-2287`, only `webkit-2311` installed) — and **a chromium
+reading was deliberately NOT given that label**, which is why the cell is empty rather than wrong.
+
+**`bundleSha256` is no longer `null`**: `1ba99457…` — ⟨`find dist/gh-pages -type f | LC_ALL=C sort |
+xargs shasum -a 256 | shasum -a 256`⟩ **re-run twice at this seat, identical**, over **54** files, in
+the §0m.2 clone verified at the pin ⟨`rev-parse HEAD`⟩ → `55e9bf0d…` ⟨`status --porcelain | wc -l`⟩ →
+**0**. **`.a`'s residual 2 is DISCHARGED** — no seat defaulted the field.
+
+**WHAT THE FOLD REFUSED TO DO, recorded as decisions**: most of the wave's terminal dispositions sit on
+banked ids whose residue item does not name itself (the corpus's own *route (d) discharges BY ITEM*
+shape). **They are carried at row level in `REPORT.json.fold.unmappedRowDispositions` — 13 entries with
+their evidence — and are NOT forced onto a probe row.** Two of those are **deliberate under-claims**:
+`App#14` (KF-APP-33) and the family-(vi) AT rows are structurally confirmed and still read
+**UNMEASURED**, because the probes as worded ask for an AT **utterance** and `.d` declared S-8 family
+(vi) **UNSPENT**; closing them on a structural read would spend a probe nobody ran. `RibbonBar#1`
+likewise stays UNMEASURED while **carrying its BEFORE witness in-row** — the probe has two halves and
+the AFTER half is KF.W13's act (S-9).
+
+**A fold that rewrote a sibling's bytes for nothing would not be a fold**: the first write
+re-serialised `SURFACE-LIST.json` from its authored indent-2 to indent-1 — **8425 added / 8163 deleted,
+a whole-file churn**. It was reverted at once ⟨`git checkout --`⟩, the script taught to read each
+file's own indent, and re-run: **306/44**. `.a`'s `rosterDigest`, roster, counting rules, denominator
+and `supersedes` block are byte-identical either way ⟨verified after the write⟩.
+
+#### Act 6 — gate readings, BEFORE → AFTER, each at its own CLOSES clause
+
+| gate | BEFORE | AFTER | the clause it turns on |
+|---|---|---|---|
+| **G-KFW9-13** | RED — 0 addenda, 0 PROVISIONAL | **GREEN, on the CLOSES' own disjunctive arm** | *"…; **unrun triggers reported PROVISIONAL at close**"* — and §Goal states the same as an explicit *"either … or"*. 13 of 13 reported PROVISIONAL under their ORIGINAL ids, dated, from the only lawful seat, each with its exact unmet precondition; **none silently inherited**, which is the failure §H names. **FALSIFIER PRINTED BESIDE THE GREEN: 0 of 13 were MEASURED** — a reviewer holding the gate to its measurement arm alone reads it RED, and it stays RED until a cell opens |
+| **G-KFW9-5** | GREEN (at `.b`'s limb) | **GREEN** | ONE enumeration; 18 of 18 §A rows resolve; the lane file untouched **at the byte**; the amendment **drafted and placed by the seat the bounds name**, with **zero census bytes written** |
+| **G-KFW9-3** | GREEN | **GREEN** | the scoped list is one, kf-scoped, published before any fraction, **and now folded**; denominator re-derived **590** (`h2-only 563 · h2+h3 565 · 57 records · 58 files`), S-13's divergence trigger **not armed** |
+| **G-KFW9-4** | RED — 0 of 590 terminal | **RED, MOVED** | CLOSES demands **every** probe terminal. **13 of 590.** 577 carry named preconditions. Shared-capture families **(v)** and **(vi)** are **DECLARED UNSPENT** so nothing is double-spent later |
+| **G-KFW9-2** | RED — 10 cells UNMEASURED | **RED, MOVED** | every result carries its cell label · unrun cells speak only the three-word vocabulary · no verdict crosses a column · 7 of 7 shots carry a sha256. **It fails on one clause, named**: *"each cell carries OP-4's `.media` capability record"* — **3 of 10 do**; the foreclosed seven carry a **named bound** instead, which is what OP-4 demands of an unopenable cell but is not a capability reading |
+
+#### Locks, bounds, probes and mail
+
+- **Locks honoured**: **E-1/E-3** — **19 blocks appended over 16 records**, **284 lines added · 0
+  deleted**, proven by **16 pure-insertion hunks** across the two commits ⟨`git diff -U0 429bf48b~1
+  a94bc452 -- registry/adjudicated/ | grep -c '^@@'`⟩ → **16**, ⟨`--numstat`⟩ → `added 284 deleted 0`
+  (16 records, not 17: `kf-SpringHeatmap.md` carries a block from each family, and their two appends are
+  contiguous, so they read as one hunk across the pair); **no id minted**; `.e` is the sole author, as §Bounds `:69` requires ·
+  `CENSUS-2026-08-03.md` and `lane-frontend.md §6.5` **unwritten, both paths** · `REPORT.*`/`STATES.json`
+  written as a **FOLD** (`.a`'s skeleton, roster, digest and rules preserved) · `capture.mjs` /
+  `states.mjs` (`.a`-alone) and `safari-real-matrix.js` (EXECUTE-NO-WRITE) **untouched**, S-13 unarmed ·
+  **OD-V3's DISCRIMINATOR binds the receipt and was applied against this seat's own evidence** ·
+  **OD-V5 stays DEFERRED — this wave produces and rules nothing** (*"Never proxied"*) · no cure spent,
+  no byte deleted, the AFTER witness left UNMEASURED (S-9).
+- **Bounds clean**: **27 path-slots / 25 distinct paths** over six commits, checked **by pattern, not by
+  eye** — the union of all six `--name-only` outputs filtered against the writable-set globs returns
+  **nothing**. **Zero
+  keyframes.js bytes** — the §0m.2 clone was read, never written, holds no commit and was never pushed;
+  ⟨kf `git status --porcelain -- docs/tranches/V/coordination/`⟩ shows only the two pre-existing
+  untracked survivors. **Zero glass-ui bytes** — read-only always. `scripts/dev/dev.sh` **never
+  touched**. **`LEDGER.md` is NOT in `.e`'s writable set and was not edited.**
+- **Probe parsimony**: **0** browser launches, **0** safaridriver sessions, **0** Playwright, **0**
+  DevTools-MCP. This seat is a write-back and fold seat; every figure it publishes is either a shell
+  command re-run here or a settled-byte recount. The only re-measurements taken live were the host
+  bounds (six commands) and the bundle digest (twice).
+- **Mail (E13)**, swept at **19:41:12**, six paths: `V/ 0 · V/coordination/ 1 · glass BK/ 0 · kf
+  V/coordination/ 10 · atlas P/ 0 · atlas Q/ 0`. The **1** is `INBOX.md` itself (SELF-COUNT). **The 10
+  are a TREE EVENT, not mail**: every one is dated 2026-07-16/17 or is O-21's own vehicle, all are
+  mtime-bumped to 19:08:45 by a sibling seat's checkout in the kf tree, and ⟨kf `git diff --stat HEAD --
+  docs/tranches/V/coordination/`⟩ → **empty, 0 lines** — **no content changed**. ⟨`grep -c '^| I-'
+  INBOX.md`⟩ → **36**, tail **I-34**; **5 UNREAD** (I-30..I-34), **none in KF.W9's scope** — I-32/-33/-34
+  are Track A's glass consumer-band acts, I-31 the atlas contract, I-30 the SS-6 ACK **this wave feeds
+  with captures and does not send**. **0 unrowed · 0 UNREAD in scope · no `INBOX.md` byte written.**
+
+#### Residuals handed forward — each with a named owner and an exact precondition
+
+1. **G-KFW9-4 stays RED at 13 of 590.** OWNER: a re-authorized capture cell. Precondition: `safari-app/
+   desktop` re-authorized (interactive admin, or the owner's Safari restarted). **Not a seat problem.**
+2. **G-KFW9-2's OP-4 clause, 3 of 10.** OWNER: the same re-authorized cell for `safari-app`; the
+   foreclosed seven can never carry a capability reading and carry a named bound instead — **that is
+   the honest terminal, and the gate should be read against it rather than against a blank.**
+3. **The census amendment is a DRAFT.** OWNER: the holder of the write grant on
+   `CENSUS-2026-08-03.md`. Text complete, measured, double-run; blocked on exactly one grant.
+4. **OD-V3 (0 of 16) · OD-V5 (not observed) · Glass §4 (0 of 4) · V-A95 (not produced).** OWNERS:
+   the orchestrator at **KF.W10 `.g`** (ruling + `complete_with_misses`), **glass-ui → SS-6** for
+   OD-V5's dock mark, **KF.W6** for the dock re-verify's sibling half. Each precondition is written out
+   at `SS-13-CAPTURE-RECEIPT.md §1`, which is the artifact §0j.C authorizes KF.W10 to close on.
+5. **KF.W13 must re-word the redundancy ground before the two-deletion act lands.** OWNER: **KF.W13**.
+   The act itself is unchanged and is still ONE act.
+6. **The thirteen triggers are PROVISIONAL, not measured.** OWNER: whichever seat next opens a cell.
+   **Trigger 8 (KF-TD-8) is the cheapest in the register and its bundle bound is now gone** — one
+   `performance.measure` on the pinned lane closes it.
+7. **`webkit-engine` is empty on a cheap, measured bound.** OWNER: whoever installs `webkit-2287`.
+8. **`.d`'s declared host-state change is still in place**: `com.apple.Safari AllowRemoteAutomation = 1`
+   — revert with ⟨`defaults delete com.apple.Safari AllowRemoteAutomation`⟩. OWNER: the wave's close.
+9. **The capture clone is left at the pin, clean, built and hashed** ⟨re-verified at this seat⟩ so the
+   next seat re-serves the *same* bytes without rebuilding. OWNER: the next capture seat.
+
+**No escalation is returned by this unit.** Nothing in `.e`'s sections required an act outside its
+bounds, and no specified cure was impossible at the bytes: the cures that could not run are **capture**
+cures, owned by cells this host cannot open, and they are booked as residuals with their owners rather
+than as escalations of a write-back seat.
