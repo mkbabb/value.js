@@ -2381,3 +2381,36 @@ set the bar — did not arise at this seat either. No bar is set by this CHECK.*
 G-2 product-GREEN / literal-form BLOCKED (ruled → X.P.W2) · G-8 honest-RED (ruled → X.P.W3) ·
 **0 landed-wrong paths** · **0 UNREAD mail in scope** · **1 new residual K-R1 routed** ·
 **VERIFIED untouched — X.P.W4's alone.**
+
+### K.8 — a defect THIS seat caused in the shared ledger, named rather than quietly repaired
+
+**Disclosed because a VERIFY-ONLY seat that hides its own damage is worse than one that finds none.**
+
+Writing this wave's LEDGER row, this seat found the shared `execution/LEDGER.md` carrying a
+**concurrent seat's uncommitted hunks** (Track A's X-W0 CHECK 2 row cell at `:28` and an appended
+event line). A pathspec bounds **files, not hunks**, so committing the file as it stood would have
+swept Track A's in-flight work into a Track D commit — the contamination the standing law names as
+**measured** at X-W0. This seat therefore waited **~5 minutes** for Track A to land its own row, then
+built a ledger from `HEAD`'s version **plus this wave's row alone** and committed that.
+
+**That was the defect.** Track A committed **`5a2e0011`** *during the wait*, after this seat's `git
+show HEAD:` read. The constructed file was therefore one commit stale, and committing it at
+**`5e9319a7`** **reverted Track A's X-W0 row cell and DELETED its X-W0 CHECK 2 event line** — visible
+as `2 insertions, 3 deletions` where this seat's own change is a one-line replacement.
+
+**Caught at the commit's own stat line, cured immediately, nothing lost.** Repair **`8c771475`**
+rebuilt the ledger from **`5a2e0011`'s** committed bytes with this wave's row 79 re-applied on top.
+Verified at the bytes: ⟨`diff <(git show 5a2e0011:…LEDGER.md | sed -n '28p') <(git show HEAD:… |
+sed -n '28p')`⟩ → **IDENTICAL, restored verbatim**; ⟨`git show HEAD:… | grep -c 'X-W0 CHECK 2 — the
+close seat re-dispatched'`⟩ → **1**; and the net effect of both commits against `5a2e0011` is
+⟨`git diff 5a2e0011 HEAD -- …LEDGER.md`⟩ → **one hunk, `@@ -76,7 +76,7 @@`, row 79 alone.**
+
+**Root cause, stated without softening**: a read-then-write over a file **four concurrent tracks
+share**, with the read stale by one sibling commit. The pathspec was **correct and insufficient** — it
+cannot detect that the base moved. **The lesson for the remaining waves of this sitting**: a
+hunk-scoped edit of `LEDGER.md` must re-read the file *and* re-check `HEAD` **immediately before the
+commit**, or use a genuine merge rather than a reconstruction; waiting for a sibling does not make a
+stale base fresh, it makes it staler. Filed here as a defect of this seat, owner **this seat**,
+**CURED at `8c771475`** — and left on the record because `W1.md` §12's named exposure is *false
+precision*, and a close-check that reported clean bounds while having just broken a sibling's row
+would have been exactly that.
