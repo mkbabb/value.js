@@ -1081,7 +1081,8 @@ writing seat's §4 / unit-plan writable set. Every one carries its `Claude-Sessi
 | 6 | `13f4ddc2` | **unit a, §9 row 2** | `useAtmosphere.ts` · `BlobPane.vue` — **exactly 2** | ✅ |
 | 7 | `48d921e4` | unit a receipts | the record alone | ✅ |
 | 8 | `6c783f39` | unit b receipts (**escalation; no product byte**) | the record alone | ✅ |
-| 9 | *this close* | close seat | the record · `LEDGER.md` · `W2.md` §State Status · `INBOX.md` sweep line | ✅ |
+| 9 | `91dc6e56` | **close seat, §9 row 5 (partial)** | the record · `LEDGER.md` · `W2.md` §State Status · `INBOX.md` sweep line — **exactly 4**, ⟨cmd⟩ `git show --stat` verified, zero sibling contamination | ✅ |
+| 10 | *this self-reference* | close seat | `LEDGER.md` + this row — the close sha the close could not carry | ✅ |
 
 **The modify-carve was honoured to the line.** ⟨cmd⟩ `git show 13f4ddc2 -- <the two files>` → **three
 changed lines and no others**: `useAtmosphere.ts:36`, `BlobPane.vue:12`, `BlobPane.vue:13`, each a bare
