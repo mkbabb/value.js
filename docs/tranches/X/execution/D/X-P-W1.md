@@ -1989,3 +1989,196 @@ level up. The settled values, read from the **committed** bytes:
 reported them. Recorded rather than silently corrected in place, because the receipt is landed
 evidence and **E-3 makes a correction an addendum, never an edit** — and because the *shape* of this
 miss is the wave's own §12 exposure and is worth one more pasted instance.
+
+---
+
+## Close
+
+**Date**: 2026-09-17. **Seat**: X.P.W1 CLOSE, `claude-opus-5[1m]` — **VERIFY-ONLY; this seat cured
+nothing.** **Appended at the file's end, E-3: no block above is rewritten**, including the §Addendum
+and `.e`'s dated self-correction that precede it.
+**Spec of record**: `W1.md` @ `519df03ff21b48f3b2c4f352d6a4d8ae98c86d3dde117ba786b6c924204c6d09`,
+718 L / 55,891 B — re-read whole at this seat's clock, **string-equal to §Open's banked digest**, so
+the plan above is resumed rather than re-derived. **`W1.md` is not edited; its §2 four-verb table is a
+dated spec and E-3 makes it immutable.**
+**Close report**: `docs/tranches/X/parse-that/waves/W1-CLOSE.md` — **684 L / 58,613 B**, the full
+ten-gate RED-before / AFTER table with every reading pasted, staged per OC-2 and never composited.
+**Verdict: PARTIAL — IMPLEMENTED 2026-09-17.**
+
+### C.1 — the ten gates, BEFORE → AFTER, re-run by this seat
+
+Every AFTER below was measured **by this seat, at close**, by the spec's own literal command where it
+runs, never inherited from a unit receipt.
+
+| gate     | BEFORE (at open) | AFTER (close-seat re-measurement)                                                                                        | owner |
+| -------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------- | ----- |
+| **G-1**  | **RED**          | **GREEN** — `node harness/totality/derive.mjs --check` `EXIT=0`, stderr 0 B, **double-run byte-identical**, porcelain 0    | `.a`  |
+| **G-2**  | **RED**          | **PRODUCT GREEN** — `A/B/C = 0/0/0`, exit 0, `size 403`, maps unchanged, taxonomy UNMOVED. **LITERAL cwd FORM BLOCKED** — ESCALATION E-1 | `.b`  |
+| **G-3**  | **RED**          | **GREEN** — `shasum -a 256 -c MANIFEST.sha256` `EXIT=0`, **189 OK / 0 FAILED**; source 189 = dest 189 = manifest 189       | `.c`  |
+| **G-4**  | **RED**          | **GREEN** — 9 cells, **9 distinct PIDs (39066…39077), none repeated**, `PACKRAT_ARMED === false` at entry **and** exit     | `.d`  |
+| **G-5**  | **RED**          | **GREEN** — `wc -c < harness/bench/bench.stderr` = **0**, twice; quarantined suite `EXIT=0` in its own process             | `.d`  |
+| **G-6**  | **RED**          | **GREEN** — four rows against **1,636,680 µs**; both consistency checks; **0** budget rows carry a `1,870,633`-derived figure | `.e`  |
+| **G-7**  | **RED**          | **GREEN** — 3 row-scoped `OWNER-GATED-PENDING-RATIFICATION` cells; 0 ✓/✗ columns; 0 pass/fail claims; planes never merged  | `.e`  |
+| **G-8**  | **RED**          | **RED** — 324 throws / 1,548 calls, 1 failure mode, `parseCssColor` 102/172, unpiped `EXIT=1`, **reproduced to the digit**. MEASURE-AT-OPEN DISCHARGED — ESCALATION E-2 | `.e`  |
+| **G-9**  | **RED**          | **GREEN** — four corpora at depths 2/3/1/3, **margin 7,770 against a required 1,000**, ceiling measured in the census process | `.d`  |
+| **G-10** | **RED**          | **GREEN** — `RED — 7 gap(s)`, unpiped `EXIT=1`, stderr 0 B; the seven recorded, **none lowered**                           | `.d`  |
+
+**10 RED before cure · 0 GREEN-BEFORE-CURE · 8 GREEN at close · 1 product-GREEN-with-the-literal-form-BLOCKED · 1 RED-by-design.**
+
+**Readings this seat took that no unit had.** (i) The G-2 re-run's `equivalence-results.json` differs
+from `.b`'s landed bytes in **the `generatedAt` line and nothing else** — ⟨`git -C <p2> diff`⟩ → 1
+insertion / 1 deletion; **all 403 rows byte-identical** between two independent runs. Restored by
+⟨`git checkout --`⟩, `<p2>` left at porcelain 0. (ii) The bench's nine PIDs at this seat (39066…39077)
+are **entirely disjoint** from `.d`'s landed 96134…96150, so the per-process claim is re-established
+by measurement at a new clock rather than carried over. (iii) The `Parser.lazy` ceiling read **7,759**
+from the probe and **7,773** from the bench census **within minutes of each other on this same box**,
+confirming D-F1's reading that the ceiling is a property of a stack shape — and confirming why G-9's
+margin, not its ceiling, is the assertion. (iv) G-8's probe stderr measures **191 B** here against
+`.e`'s **190 B**; both are node's own `[DEP0205]` warning and the delta is the PID digit count. Both
+figures are printed; neither is elected.
+
+### C.2 — commit roster (two histories, never merged — §9)
+
+**In `<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2`** (no remote, W0 `.c`'s
+`remote remove`, **R-2 UPHELD**):
+
+| unit | commit                                     | files                                    |
+| ---- | ------------------------------------------ | ---------------------------------------- |
+| `.a` | `d8a529aedc5927843bbaed3e57b73cdf06f5a18d` | **10**, all under `harness/totality/`    |
+| `.b` | `d1458f4f3c08899cb832752214e8c719cb8ed318` | **5**, all under `harness/equivalence/`  |
+| `.d` | `4df9e914bfa66e120aaba2ae34c00dae9106e6e5` | **16**, all under `harness/bench/`       |
+| `.e` | `336b2add6bb7cb6886e04d65d3fa3d35e0effc08` | **1** — `harness/README.md`              |
+
+**In `/Users/mkbabb/Programming/value.js`**: `4df45e38` · `26402c9a` (seat 0 open) ·
+**`f9c0acb2ed2d6e491f94bd46b8e3d80e60d2ba70`** (`.c`, 190 files under `evidence/W1/rescued/`) ·
+`6abe729f` (`.c` receipts) · `7d1c9474` (`.a` receipts) · `43c9aa4b` (`.b` receipts) · `18dcbf9b`
+(`.d` receipts) · **`71b25ff35c337b99f8699e647d05e90063344727`** (`.e`, 5 files) · `fbbe4756` +
+`296db58b` (`.e` receipts + self-correction) · **this close**.
+
+### C.3 — bounds audit: LANDED-WRONG = NONE
+
+⟨`git show --name-only`⟩ over **every** commit above. **Every path lands inside the committing unit's
+§4 writable set; zero landed-wrong paths.**
+
+- `.a`/`.b`/`.d` wrote the three **disjoint** `<p2>` subtrees §4a promises, and **no unit's commit
+  carries a byte of another's** — which was at genuine risk, since `.a` and `.b` were writing the same
+  index concurrently and the pathspec was the only thing preventing a sweep.
+- `.c`'s 190 paths are all `evidence/W1/rescued/**` (§4 L145–146).
+- `.e`'s `COHESION.md` carve is **16 insertions / 0 deletions** at `@@ -141,6 +141,22 @@`, wholly
+  inside `## §5` (line 131) and above `## §0a` (line 161) — **purely additive, status board only**;
+  the §1 register row at `:18` untouched.
+- **`scripts/dev/dev.sh` appears in no commit of this wave**; it stays ` M` by standing arrangement.
+- **Gate 27** ⟨`git status --porcelain -- src api demo test e2e`⟩ → **0 lines**, asserted by this seat
+  before and after every gate re-run, including after both probes that `npm pack` this repository.
+
+**Three paths this wave wrote that are not §4 rows, declared rather than left implicit**: this record,
+`execution/LEDGER.md`, and one appended sweep line in `coordination/INBOX.md`. `W1.md` was authored
+2026-08-03, before this sitting's execution-record convention existed; all three are standing
+orchestration infrastructure that every track of this sitting writes, the third mandated by the E13
+mail law. **A spec/convention seam, recorded — not a bounds violation.**
+
+### C.4 — E13, at this seat's own clock
+
+The four paths plus the bounded atlas **Q**-lane extension swept read-only, classification taken from
+each row's **STATUS CELL** (X.P.W0 CHECK 1 **D-1**), never from a `grep -i unread` line.
+
+| # | path                                              | newest                                                                      | disposition |
+| - | ------------------------------------------------- | --------------------------------------------------------------------------- | ----------- |
+| 1 | `docs/tranches/V/` + `V/coordination/`            | `INBOX.md` **self-excluded** (SELF-COUNT); next `value-inbox-2026-09-17-o8-o11-amendment-addendum.md` = **ours (O-21)** | rowed |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/`      | **BK re-confirmed newest** (`BK/`@09-17 12:49 > `BJ/`@08-03 > `BI/`@07-28); `glass-outbound-2026-08-29-valuejs-o20-ack.md` | **I-30**, rowed |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/`   | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` — **ours, O-21's delivery** | rowed |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` = **O-12, ours**  | rowed |
+| 4b | `../sci-report/atlas/docs/tranches/Q/coordination/` | `ATLAS-TO-VALUE-2026-08-03-RULINGS.md` = **I-27**; `…-07-28-PASS2.md` = **I-31** | both rowed |
+
+**Delta test** ⟨`find <the five paths> -maxdepth 1 -type f -newermt "2026-09-17 16:20"`⟩ → **empty**.
+**0 unrowed · 0 new `I-n` minted · I-30 the standing glass tail · O-21 the outbound tail.**
+**0 UNREAD in X.P.W1's scope**: the row that read `**UNREAD 2026-09-17**` at this wave's open is
+**I-31**, and its own Routing cell assigned it to **X-W0 (Track A)**, which **marked it FOLDED** at
+`1246f859` — verified at the bytes by this seat. **The wave does not close with unread mail.** One
+sweep line is appended to `INBOX.md` in the file's own idiom; **no `I-n` row is written and no row
+above it is touched.**
+
+### C.5 — residuals, each with a named owner
+
+Nine, published in full at `W1-CLOSE.md` §5. Summarised, with the two this **close seat** found and no
+unit did marked ★:
+
+| id      | severity | residual                                                                                                                              | owner                        |
+| ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| **R-1** ★ | MINOR  | **§7's `tsc --noEmit` limb was never taken over `harness/bench/bench.ts`, and it is not clean.** `.b` ran it over the equivalence entry (exit 0, re-confirmed here); `.d`'s receipt names prettier, vitest and the `npx` wall but **no typecheck**. Measured here under `.b`'s own flags: **3 diagnostics at tsc defaults** (`TS2339 ×3`, `bench.ts:108–109` — `Object.entries(subjectPins())` values inferred `unknown`) and **5 under `--strict`** (+`TS7016 ×2`, implicit-`any` imports of the plain-`.mjs` siblings). **No gate reads tsc**; G-4/G-5/G-9's GREENs are the printed assertions, the byte-empty stderr and the depth table, all of which reproduce. **A cadence gap in a display loop, not a gate flip and not a behavioural defect.** | **X.P.W2's bench consumer**, which binds this entry by name |
+| **R-2** | MINOR    | **§7's `npx vitest run` limb NOT taken and not takeable in bounds**: `<p2>` has no root `package.json`, no `node_modules`, no vitest config, `npx` from `<p2>` does not complete, and `harness/**` holds **0** test/spec files. Creating any of the three is Q-1's named §3a expansion. G-5's structural requirement is met and measured. | **orchestrator** |
+| **R-3** ★ | MINOR  | **§5.e's seat-count sub-gate is NOT met at the artifact**: `x-p-w1.json` carries **4** unit-result rows (`.c` DONE · `.a` DONE · `.b` PARTIAL · `.d` DONE), not 5. `.e` is structurally absent — a harvesting unit cannot appear in its own harvest. **`.e` made this checkable rather than asserted**: the dispatch roster of **5** is inside the artifact. **This VERIFY-ONLY seat does not re-harvest** — that file is `.e`'s §4 create row. W0's **R-3** reproduced exactly. | **orchestrator** — a post-return re-harvest, or a dated addendum acknowledging the structural floor of 4 |
+| **R-4** | INFO     | The three results JSONs regenerate on every run. **Narrowed at this seat**: the equivalence re-run's only delta is `generatedAt`; all 403 rows byte-identical.                                       | a re-runner |
+| **R-5** | INFO     | `DEFECT-LEDGER.md` landed with 28 new `git diff --check` flags — the harvester's conformance-schema drop (`.e`'s E-F3; X.P.W0's MAJOR finding reproduced on fresh journals). §4 forbids writing the generator; hand-editing generated bytes is the masking fix the standing law forbids. | the harvester's owner |
+| **R-6** | INFO     | §7's prettier limb not run over `COHESION.md`, `LEDGER.md`, this record, or the 7 copied `.md` files of the rescued tree — each refusal measured, each would rewrite landed evidence (E-3), reformat a concurrently-edited live document, or **move a manifest digest and falsify G-3**. ⟨`git diff --check`⟩ → 0 flagged lines everywhere but `DEFECT-LEDGER.md` (R-5). | declared, standing |
+| **R-7** | INFO     | **D-3** (`roots-census.sh`'s EPERM disposition) stays **RETURNED, NOT SCHEDULED** — `evidence/W0/**` is in no row of `W1.md` §4.                                                                     | **orchestrator** — X.P.W2's open, or a dated §4 addendum |
+| **R-8** | INFO     | Two dated baseline divergences stand, neither a gate flip: the `Parser.lazy` ceiling (7,761 spec / 7,759 probe / 7,773 census — F-1, D-F1) and G-6's grep baseline (0 → 35 → 38 hits, **every one a dated spec or execution record, not one a lane artifact** — F-2, E-F1). | recorded; consumed by X.P.W2 |
+| **R-9** | INFO     | Three lane-standing findings recorded, cured by nobody this wave (§3 L109 writes no grammar): **A-F1** the kf column measures 2 PARTIAL/37 where `coverage.md` Surface 2 carries 3 (3 is right for the 52, 2 for the 37 — recorded beside a sealed record, never folded in place); **A-F2** published 4.0.0's `parseCssColor` rejects `color-mix()`; **D-F2** published 4.0.0's `parseStylesheet` **accepts** `@@@ { }` where cand-O rejects it. | **X.P.W2** |
+
+### C.6 — escalations, returned not absorbed
+
+**E-1 — the literal `npx`-from-`<p2>` invocation of G-2, G-4 and G-5 cannot run on this box.**
+Reproduced at this seat, bounded: ⟨`cd <p2> && npx tsx --version`⟩ — a command running **none** of
+this wave's code — was **still running at a 25-second cap and was killed**. Root cause confirmed at
+the bytes: ⟨`npm prefix`⟩ → `/Users/mkbabb`, because `<p2>` has no `package.json` and npm's up-walk
+terminates at a stray `/Users/mkbabb/package.json`; ⟨`command -v tsx`⟩ → ABSENT, so npm's fast path
+never fires and `loadActual()` walks the home directory. The **products** of all three gates are fully
+measured through the same entry names, the same `_npx`-cached binary and the same absolute paths.
+**All three out-of-bounds cures are refused and the refusals upheld**: a `<p2>/package.json` is Q-1's
+named §3a expansion; `npm i -g tsx` mutates shared machine state three concurrent seats resolve
+through; `NODE_OPTIONS` is a masking fallback. **This binds beyond the wave** — `W1.md` §5.d and
+**X.P.W2 §4** both pin the literal string *"the bench entry `npx tsx harness/bench/bench.ts`"* as a
+cross-wave coordinate, and that coordinate is unrunnable as written. **Ruling owed** (install `tsx`
+globally · widen `<p2>`'s §4 bounds by dated E-3 addendum · or amend the coordinate to name the cwd or
+the binary); **G-2 is recorded product-GREEN / literal-form-BLOCKED, never a plain GREEN**, exactly as
+`.b`'s R-b1 asked of this close.
+
+**E-2 — G-8 cannot go green in this wave, and §6's preamble reads as though all ten do.** G-8's own
+title is *"R1 TOTALITY, RED TODAY"*, its GREEN is *"zero throws, exit 0"*, its falsifier keeps it
+wired *"until the whole surface is total"*, and **§3 L109 forbids writing the grammar that would
+deliver it**. The wave's obligation under G-8 is its **MEASURE-AT-OPEN** clause, discharged three
+times over (open · `.e` · this seat), each a fresh unpiped reading at today's HEAD. **This seat reads
+the hard gate as _nine turned plus one measured-and-declared_ for the purpose of the stamp, marks the
+wave PARTIAL for it, and returns the reading to the owner** rather than silently redefining a hard
+gate fixed in August. **The RED is not this wave's failure — R1 is the lane's subject, and the
+instrument that prices it now exists on tracked disk.**
+
+### C.7 — the four verbs
+
+**`W1.md` §2's table is NOT edited** (dated spec, E-3 immutable). The stamp is made **here and in
+`W1-CLOSE.md` §1**, beside it, exactly as `W0-CLOSE.md` established at this lane's head.
+
+| verb        | value                                                       | evidence                                                  |
+| ----------- | ----------------------------------------------------------- | --------------------------------------------------------- |
+| AUDITED     | **YES** (unchanged)                                         | `GATE-VERDICT.md` · `parser-band.md` · INBOX O-15         |
+| SPECIFIED   | **YES — 2026-08-03** (unchanged)                            | L-20 validation against `WAVE_SPEC.md`                    |
+| IMPLEMENTED | **YES — 2026-09-17, stamped here; PARTIAL, qualified by E-1 and E-2** | §C.1's gate table; §C.2's roster; `W1-CLOSE.md`  |
+| VERIFIED    | **NO — and this close does not move it**                    | **X.P.W4's alone, at the X·P sub-tranche release close (R-A).** Never this wave's |
+
+**L-18 (§12)**: landing these gates makes the wave **IMPLEMENTED, not ACCEPTED**. Acceptance needs two
+challenging gestalt passes, each a quartet of Opus 5 skeptics across the three altitudes, then a fresh
+Fable apotheosis. §12's named exposure — **false precision** — was met structurally: every one of its
+five "obvious purchase" bases was tested by construction, and in four of the five the instrument
+caught its own author (`.a`'s two count-preserving falsifiers; `.b`'s byte/char unit error and the
+falsifier that went RED **while the defect count stayed zero**; `.d`'s entry-only falsifier 1b and its
+own corpus defect; `.e`'s four self-referential figures, one introduced by another's correction).
+**And the thing most likely to go wrong did not: §3a's "single most likely place this wave goes wrong"
+is pressure to set the bar. It arose twice at `.e` and was refused both times. No bar is set by this
+wave.**
+
+### C.8 — push
+
+- **value.js** → **PUSHED** to `origin/tranche-u`, no force; remote == local at the close commit.
+- **`<p2>`** → **NO REMOTE.** ⟨`git -C <p2> remote -v | wc -l`⟩ → **0**, by W0 `.c`'s deliberate
+  `remote remove` (**R-2 UPHELD**). The four `<p2>` commits are unpushable **by design**; no remote
+  was created, because creating one is not this seat's act.
+- **`/Users/mkbabb/Programming/parse-that`** → **PUSH REFUSED, spec-forbidden.** That worktree sits in
+  `W1.md` §4's do-not-touch list and in §3a's *"any write under `/Users/mkbabb/Programming/parse-that`
+  … invalidates the wave"*. Read-only state at this seat: branch `master`, HEAD **`ef10d5b`** (the sha
+  W0's G-5 source quadruple pins), 31 dirty lines that are not ours, and
+  ⟨`git rev-list --count origin/master..HEAD`⟩ → **0** — **nothing to push even were it permitted.**
+  X.P.W0's close-seat refusal, reproduced for the identical reason.
+
+**X.P.W1 — PARTIAL, IMPLEMENTED 2026-09-17.** Eight gates GREEN · G-2 product-GREEN with its literal
+form BLOCKED and escalated · G-8 RED by its own design and escalated · **0 landed-wrong paths** ·
+**0 UNREAD mail in scope** · **VERIFIED untouched — X.P.W4's alone.**
