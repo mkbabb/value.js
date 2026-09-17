@@ -1,0 +1,321 @@
+SERVED MODEL: claude-opus-5[1m]
+#
+# ============================================================================
+# MANIFEST.sha256 — THE RESCUED PARSER-PROOF HARNESS TREE
+# ============================================================================
+#
+# DATED 2026-09-17. APPEND-NEVER-REWRITE (M-22 ¶5): the census below is the
+# reading of 2026-09-17. Every later correction, re-census or addition is a
+# NEW dated block APPENDED BELOW the END marker — never an edit of a line
+# above it. A line once written here is a coordinate, not a draft.
+#
+# Authority: docs/tranches/X/parse-that/waves/W1.md (immutable, E-3) —
+#   §5 X.P.W1.c (L257-272) · §3 item 3 (L90-91) · §6 G-3 (L415-432) ·
+#   §2b OP-2 (L64) · §4 rows L145-146 (create) and L156 (read + copy source).
+# Wave record: docs/tranches/X/execution/D/X-P-W1.md. Seat: X.P.W1.c.
+#
+# ----------------------------------------------------------------------------
+# WHAT THIS TREE **IS**
+# ----------------------------------------------------------------------------
+# The instruments built by the 2026-07-20 PARSER PROOF GATE, lifted off an
+# ephemeral job scratchpad onto tracked disk. Specifically:
+#
+#   equivalence/   the P-1 differential oracle — harness.ts (20,514 B), the
+#                  403-string corpus.json (80,065 B), equivalence-results.json
+#                  (185,107 B), harvest.mjs and the three probes.
+#   bench/         the P-3 bench — bench.ts (16,591 B), aggregate.mjs (1,396 B),
+#                  finalize.mjs (4,429 B), coverage.ts, diag.ts/diag2.mjs, the
+#                  probes, bench-results.json and raw-run-{1..5}.json.
+#   gate-recovered.mjs   (11,820 B) and
+#   bench-recovered.mjs  ( 4,741 B) — the two scripts recovered from value.js
+#                  repo commit b3f4f76e, PRE-v4. Both provenance claims are
+#                  PROVEN AT THE DIGESTS, not asserted (see PROVENANCE below).
+#   c14-bundle.mjs / live-bundle.mjs / c14-entry.ts / live-entry.ts — the
+#                  bundled engines the gate measured against.
+#   c14-css/ deposed/ deposed-full/ profile/ — the candidate tree, the two
+#                  deposed source snapshots, and the six .cpuprofile captures.
+#   package.json + package-lock.json — KEPT DELIBERATELY. G-3's own falsifier
+#                  reads: "a 'rescue' that copies node_modules and omits
+#                  package-lock.json fails: the tree must be REPRODUCIBLE, not
+#                  merely large." node_modules/ (394 files) is excluded because
+#                  it is reinstallable from these two files.
+#
+# ----------------------------------------------------------------------------
+# WHAT THIS TREE **IS NOT** (L-16 — evidence modes never impersonate one another)
+# ----------------------------------------------------------------------------
+#   * NOT a product surface. Nothing here ships, is imported by value.js src/**,
+#     or is reachable from any published artifact. It is EVIDENCE.
+#   * NOT a proof of any product claim. Every measurement these harnesses
+#     produce is labelled SOURCE, API-TEST or BENCH-PROCESS and is a reading of
+#     a rig, never a verdict on a shipped thing.
+#   * NOT a live harness for this lane. X.P.W1 units .a/.b/.d PORT these
+#     instruments into the fresh root at /Users/mkbabb/Programming/
+#     parse-that-css-totality-p2/harness/**; this tree is the SOURCE they port
+#     FROM and the archive a later re-run can still read. It is not run in place.
+#   * NOT a proof-farm authoring. gate-recovered.mjs carries the legacy
+#     `proof:perf-target` marker in its own first line. That is RECOVERED
+#     HISTORICAL BYTES from b3f4f76e, preserved byte-exact as the copy law
+#     demands — NOT a fresh proof-farm script. DR-19's structural ban is on
+#     `scripts/**/proof-*.mjs`; nothing here is under scripts/ and nothing here
+#     is authored by this seat.
+#   * NOT the original. The original at /Users/mkbabb/.claude/jobs/9e7dadd0/
+#     tmp/parser-proof/ is LEFT EXACTLY AS FOUND — see COPY LAW below.
+#
+# ----------------------------------------------------------------------------
+# COPY LAW — copy, never move (spec §5.c; L-13)
+# ----------------------------------------------------------------------------
+# Source: /Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof/
+# Method: rsync -a --exclude='node_modules' --exclude='node_modules/**' SRC/ DST/
+#
+# The original is untouched. Measured at this seat's clock, before and after:
+#   * stat census (path|size|mtime|inode|perms) over all 226 non-node_modules
+#     entries — IDENTICAL before and after. The mtimes are provenance (L-13)
+#     and no act of this unit moved one.
+#   * source digests (189 files) — IDENTICAL before and after.
+#   * source node_modules/ — 394 files, intact.
+#   * inode intersection of source files and copied files — **0**. A move or a
+#     hardlink would share inodes; disjointness is how "copy" is checked rather
+#     than asserted.
+#
+# ----------------------------------------------------------------------------
+# PROVENANCE, PROVEN AT THE DIGESTS
+# ----------------------------------------------------------------------------
+# The spec states the two recovered scripts came from value.js repo b3f4f76e,
+# pre-v4. This seat verified both limbs rather than repeating them:
+#
+#   b3f4f76e = b3f4f76e30b5707da24800e6f5bdd81a17c9719b, 2026-07-13,
+#              "fix(U.W-PERF · U-F14): re-anchor the flagship dist perf gate's
+#               PREMISE — co-scaling parse-that normaliser + peak statistic"
+#   pre-v4:   package.json at b3f4f76e reads version 3.1.0; HEAD reads 4.0.0.
+#
+#   git show b3f4f76e:scripts/gates/proof-perf-target.mjs | shasum -a 256
+#     -> 639e596135b2944c07ad8b1f4be89373cc640cba7544fec35936655833f0512e
+#   shasum -a 256 gate-recovered.mjs
+#     -> 639e596135b2944c07ad8b1f4be89373cc640cba7544fec35936655833f0512e   EXACT
+#
+#   git show b3f4f76e:bench/css-parse-perf.mjs | shasum -a 256
+#     -> e54b31054cf92a1c7831616f3d6df0db066d7ea22e1b90ea86389fe1a04e2281
+#   shasum -a 256 bench-recovered.mjs
+#     -> e54b31054cf92a1c7831616f3d6df0db066d7ea22e1b90ea86389fe1a04e2281   EXACT
+#
+# (deposed/css-parse-perf.mjs carries that same blob — one file, two paths.)
+#
+# ----------------------------------------------------------------------------
+# HOW TO VERIFY THIS MANIFEST
+# ----------------------------------------------------------------------------
+#   cd docs/tranches/X/parse-that/evidence/W1/rescued
+#   shasum -a 256 -c MANIFEST.sha256
+#
+# Paths are relative to THIS directory. Measured, not presumed: that command
+# prints "189 OK / 0 FAILED" and exits 0, with exactly ONE line on stderr —
+#   shasum: WARNING: 1 line is improperly formatted
+# That one line is LINE 1, the `SERVED MODEL:` receipt the seat law requires of
+# every authored file; it carries no `#` because the law fixes its text. Every
+# other header line here begins with `#` and shasum skips it as a comment. The
+# warning is expected, is not a failure, and does not move the exit code. To
+# silence it: grep -E '^[0-9a-f]{64}  ' MANIFEST.sha256 | shasum -a 256 -c -
+#
+# MANIFEST.sha256 EXCLUDES ITSELF from its own census, necessarily: a file
+# cannot carry its own digest. 189 files are censused; the directory holds 190.
+#
+# ----------------------------------------------------------------------------
+# CENSUS 2026-09-17 — BEGIN. 189 files · 37 directories · 4,729,711 bytes.
+# Slices: deposed-full 81 · c14-css 50 · deposed 20 · bench 14 · profile 8 ·
+#         equivalence 8 · (root) 8.  Symlinks 0 · hidden files 0 · excluded:
+#         node_modules/ (394 files).
+# Every copied file's digest equals its source file's digest, path for path,
+# 189 of 189 — the copy is byte-exact.
+# ----------------------------------------------------------------------------
+e54b31054cf92a1c7831616f3d6df0db066d7ea22e1b90ea86389fe1a04e2281  bench-recovered.mjs
+101c6f479e5565871adbaa8298455af8df909671116f2120fc30da87bef220cd  bench/aggregate.mjs
+08b927753ee717c67a3031861a88e35e629ecb585d5f84f7e1ba9e4378070be2  bench/bench-results.json
+8c274f8132f9aa5d3f5effbf902699541b693e356a520132c405658b3aa2bfad  bench/bench.ts
+2eb41093ae679334456844b64e6e5c931bdd3308dcbcfc4752c331b88870778e  bench/coverage.ts
+c6d85ae4a0986506e1825ec0d029d53357e632c9c4e61ca7f4a4648c7905edfc  bench/demo-probe.ts
+e5f0d556b19fec4638fcd156f2ba51515edbcf81e5a0611b8dbbb0988dca054e  bench/diag.ts
+e74031786a7bd7f9077f58182d857447108e010656958822e9d9e5239ce7a0bf  bench/diag2.mjs
+85593e0baa97a1392f586b6a487f3770dd7291bc46bfa03bcb4f9026c1a9c6ba  bench/finalize.mjs
+58002281c0b1b180503e9b57861d187813442fe852aa188bca88d46d81920b8b  bench/probe.ts
+0fb737bb66aeb005b382ca5b773c2e8eb5c64033b5c8572803ce49bc68ba0841  bench/raw-run-1.json
+1dac97f3077790a4d66688b2ecb1d630d71b0fefc6038473f82f7c737188c03f  bench/raw-run-2.json
+f2990e9e8aab34e5df98ba12a14d5ef8b69403f36dc0dae920d95612a59e3726  bench/raw-run-3.json
+52055639a3fbc11e023cab9b2bb8a8088959851ed98763daff3d29d536fc6876  bench/raw-run-4.json
+73b631b8649b86a428eb82c809767d3ed2f53980c655bdf3cd9ea638607c3c44  bench/raw-run-5.json
+2b57626fff0975276f7d46d84ffc01835bc83bfe4f28ce6b5855622f6a22f0d6  c14-bundle.mjs
+28d064f3e8f1aa8c85e5e5f720c3810e51a4e92f1096d1393942ae41e9d3c2c8  c14-css/README.md
+3c4339771cc035a8b286ed474c173c056aaf554172dd01b32fd305e1278f19ee  c14-css/bench/compare.ts
+11a27db600feac503c6baa106cad61d3bac9a3f569cc7d73171626fc52a98e52  c14-css/package-lock.json
+4b5945908af2e51d425ce08d9aabc421ab997b1a610a382651d9f7a00e30350a  c14-css/package.json
+44dc1a1f9e6899559b93c556e051b7894678789d2718341998096ac5961c8e14  c14-css/proof/benchmark.json
+73c05b87bf6e0cdadf5f5fe8b28361dcf8e60b5607a2c05d6c3d2178069b9257  c14-css/proof/corpus.json
+5cfb6a7d7c8b12c6927a4088f3f1fc47b29345b605371b1a06ceeafcad19e788  c14-css/proof/last-run.json
+8fd9af4c027e6a1178e87e0a6080f85ee6a1a74f9dcf3f1416dcb82b3b5e6c04  c14-css/proof/package-receipt.json
+e8637ea6c95e9d633eb85e854fe8edaf73ea8efb22dcaa48fe7337b7737d4e56  c14-css/proof/status.json
+ce547d18ea38adc6048727739b89cf12bd8967e5527078b259a30f5ab0035951  c14-css/src/css/api.ts
+03e4d689d932dc45b481515f3871c1560a702cb5b49a0596b745f5e25593cb7c  c14-css/src/css/cst.ts
+d1249c714e67f81655fe823ef2899b893effaeae3908313c93d52eafbfd5ffe0  c14-css/src/css/grammar/combinators.ts
+c01e2b3c19ee8d0cd9b9f44c87fe6a51677fb2e191672d62a17a76a91c299ee3  c14-css/src/css/grammar/l4/color.ts
+1f0100dea87c79c5a12846e94977a7535daf24336114aca750d7ef054e9ff28a  c14-css/src/css/grammar/l4/easing.ts
+b25209392e76f30b4375c5795695ff55d411079efcf6b4f2bfa81a4450bda279  c14-css/src/css/grammar/l4/filters.ts
+be3af01b1aeeadff4db9a23ff11c256ee2f994f686b4fef7acab46c0958a0b31  c14-css/src/css/grammar/l4/func-body.ts
+f7ec7bb64e8617b1a91841fcc871176543e39bf08c2c48af1ad4157f51c972f4  c14-css/src/css/grammar/l4/gradients.ts
+7d092b78de5b2a4b3bde5f9ec3ffa928f6b2cde342106b1fc42f6d89e2390466  c14-css/src/css/grammar/l4/keyframes.ts
+7ae3a20b8c4cb50480b807fe09b296c7fb016acc1bc1c53fb0a9db5a8a4bee46  c14-css/src/css/grammar/l4/keywords.ts
+571c4ba32249bea07ba7b8040d85a6c663a7a4d78493d6b80e10c6794e19cf06  c14-css/src/css/grammar/l4/media.ts
+856848a33b5b2ab6692cc6ee98541b653c5179f82780f3ec19797533fd3564af  c14-css/src/css/grammar/l4/properties.ts
+0e8ce876ba23943eecf990e6c9930ba823827acbdd4453e7256bed93ced81ebc  c14-css/src/css/grammar/l4/selectors.ts
+5ab701832f3206c3299dcd95ea1c22eee5c4f7c2ea73c3bb681a86d14e988ef3  c14-css/src/css/grammar/l4/stylesheet.ts
+08e30a356486d08490c6a7ff02a40cfcbd7dfb0d2f5e24a41fb70cfd29b06afd  c14-css/src/css/grammar/l4/tokens.ts
+235337ee2e08ed7e5a324a3972c6a9e1e437dbf3ba73dbebedf0ede9a6bbd1fd  c14-css/src/css/grammar/l4/transforms.ts
+da738397cf4504a7c3438b9823a861fcd9e55f016175ce0c5436cb2f2d811890  c14-css/src/css/grammar/l4/value-unit.ts
+8ae61ebe1e12be77e6e688d1d488083758de2828d247b8cc4d53327d3a7a3243  c14-css/src/css/grammar/l4/values.ts
+fcb021ee83e81665f971d6f23f54796362e3a9c70bc5e0b8a50390ebc7a3ccc1  c14-css/src/css/lower.ts
+ef4449fda26d0df7c3888908ed48f979d2f4cb6ac3565e3bfdc49032ff1b7796  c14-css/src/css/result.ts
+fb6dc184c40ec40f227fd7f82c92c7ee6e336f2982eb430cb818da9ed176186f  c14-css/src/css/serialize.ts
+2808c19a5c5bb07ccf213c9cd5bd751128c5cee0a0a6a479a8883adf9c575ae0  c14-css/src/css/value.ts
+c6d104d4848e81973190d6356bcacd9e654fd6c9369c934120338b0658c56071  c14-css/test/src/css/grammar/l4/color.test.ts
+45e1969785a806a462bc3b4f1760e99c4c53283bd5960898d9921786e979d87b  c14-css/test/src/css/grammar/l4/easing.test.ts
+42aa0c5ea7ed4f06ce838c2322e659609117ddbf80ecc8343297ea982a4a4d71  c14-css/test/src/css/grammar/l4/filters.test.ts
+ba8d57f9a99ffb9c3814c78ca055a738f6f14e6dfa7e9de4c10a9fbb581282c0  c14-css/test/src/css/grammar/l4/func-body.test.ts
+2a49eea3b451076901a09af48671638d82842ac39284a586f2c3a5f38995605c  c14-css/test/src/css/grammar/l4/gradients.test.ts
+a640fef14f7e2bda62d665a450fde3b08ad7017d96bd1898bafc19ca6f738658  c14-css/test/src/css/grammar/l4/keyframes.test.ts
+881acdf078c11e1dcb7da4741d9da7cb3f2324f1ca621e72acbeaf2f962bcdad  c14-css/test/src/css/grammar/l4/keywords.test.ts
+c4d4a0813d2e80169bda892f95bc63351d351e3bfcf5990d659566b667ea6295  c14-css/test/src/css/grammar/l4/media.test.ts
+8618ef52ba4485252ab0d84198ee71a869a43b814e6a5b1daa13c422bb5739d5  c14-css/test/src/css/grammar/l4/properties.test.ts
+0381b72d73d8f904618087e4b23f12837ade15bd20fd521f0063381f4aff4d4d  c14-css/test/src/css/grammar/l4/selectors.test.ts
+72ac26a4f9dffe05241f9cb5c5ff5469846e995fa549fe68955a069562914e9a  c14-css/test/src/css/grammar/l4/stylesheet.test.ts
+0cd12d91553f86a3bbc04cca7b2b632e9fda67e122169086f70589af659bfe0a  c14-css/test/src/css/grammar/l4/tokens.test.ts
+7f1fb6158ec3cc50de4e4cef83135db2f8726b22984f12a11f2e86f2fc51009c  c14-css/test/src/css/grammar/l4/transforms.test.ts
+5f45642b16f145c33cc0097747a57675d7f5928fddb0faf1132e543589cdced5  c14-css/test/src/css/grammar/l4/value-unit.test.ts
+981fd18bde64d37344dde2e33ddc32908a79d2b0ea422f194d66bc85847f74fe  c14-css/test/src/css/grammar/l4/values.test.ts
+337b320ef8b5401c75a10ecc12b7e9e2dc1cbfc8b433741f51e0c652f483500f  c14-css/tools/reproduce-from-commit.mjs
+b3e6ba9968c86be852e604bc6bee2641e3571247fc5b4c2c846ad6a39da0100a  c14-css/tools/verify-module-isomorphism.mjs
+55732e6571ee99bf909f8d7b50221b90fb225b7c7a5bc501b4cebbaa27c34934  c14-css/tools/verify-package-receipt.mjs
+faa3cea7857ebfb44a0cc614dd8370a9b7be01610a7681a49514752816a22e66  c14-css/tsconfig.json
+92aa3634adb17b9f2b12ae63dab174c124741173654042b15a714c71581235cf  c14-entry.ts
+6c62368f6b4e6c1c28e6c0542bc86004c243fba6bb6d70ac0bba8435a81618eb  deposed-full/deposed-bundle.mjs
+ed6f6ae281a42fe1dbd99e3daa327a01d74c7c897cb94365963139587c3a7c8f  deposed-full/entry.ts
+44c63a966658dfa817d8a7dfa858c90a07ddb392bf7298b5f44c78a3c0d06053  deposed-full/package.json
+b9e601b774fcc2b0692c42837d3c3b1c50d0600d89d48ee1861f70c06d48c8f7  deposed-full/src/easing.ts
+31836f16e4c5e680f00df8f39ff71164a017ad8477d1954e8dfac194c1ccdae5  deposed-full/src/index.ts
+da02fdca11474c6a98074413a2d2a4c95163c985722ded68e98018423e2b0d4f  deposed-full/src/math.ts
+3bf228ed085643fe93b8cb8a782296d9c2f3d8252c4f71150b9aa04ba54fc601  deposed-full/src/parsing/CLAUDE.md
+70f2e54336b8b908c759d6ccd1252259d3fb38ce780f10413a8bae2f791e3968  deposed-full/src/parsing/animation-shorthand.ts
+123fdb0ac821aff291d0016c18081006fe7d986b94aa6ef2f8cd37dc7c2cc114  deposed-full/src/parsing/color/color-unit.ts
+3c975d8d6d9f11913960f872f623cfff698ee1cb48f4ce9483f0778a27d982eb  deposed-full/src/parsing/color/color.ts
+082b09113da0c20c7ed5f75478f7b08d83a560825f56d1d30ea47d4dfbe7120f  deposed-full/src/parsing/color/index.ts
+506b9c1900c222424ba4e8af83c3e84927af959349e42731039ac502f5f6c9fc  deposed-full/src/parsing/color/relative-color.ts
+64b956dce74cacd7797e700b225782bf895e21e6b2e36e9f500f4953ea014096  deposed-full/src/parsing/index.ts
+b343830c7bb728046780f07d0db7e3592effeb414884aa73e45e8e19e410faa8  deposed-full/src/parsing/math.ts
+eca9fe881331b4c9abad1d8c74b77653e91d4537943e4fdce311859842bc22e2  deposed-full/src/parsing/stylesheet/extract.ts
+9ba968d8a65acbfcc7fb6be27037231bbcdb4cc42c3f972809098cadd7b31048  deposed-full/src/parsing/stylesheet/index.ts
+e0a49f89c7bb5dd3aab3a9fb2c83b8ae5737983f4e94d4ef7efb9afbf9e26d6d  deposed-full/src/parsing/stylesheet/serialize.ts
+5dcc013a340e8b943514500ca12ada10aa562fb2b0f7dc158137e02a9b942066  deposed-full/src/parsing/stylesheet/stylesheet-types.ts
+94c9f27035bbf67402ed20337c08bf6fdc08e95f6dce3bc6bca1616ddb1c28fd  deposed-full/src/parsing/stylesheet/stylesheet.ts
+2c9541f46931b2ff113c8e75d84a9ecf3dbb2bab7585d5b9eab8f51333e6b70f  deposed-full/src/parsing/syntax.ts
+3663f130ca88980737c4dd107e2c09a8f50eb70c8fd476a28197d18c7da7b3ae  deposed-full/src/parsing/timeline/easing.ts
+2b3acbe248760b09b35dd9aabdbfa5b765ef9d09cf181251415d416954ca5555  deposed-full/src/parsing/timeline/index.ts
+629140a090968eea5c3bcfcf96d5709c159ea539f3d75f3be31f2f77703b3590  deposed-full/src/parsing/timeline/scroll-timeline.ts
+835e35ed65c089e265ec728717c0ab03bef53ca964f574e11abba4e9f2a5c2b6  deposed-full/src/parsing/units.ts
+a38ba5b16fd8b4885817b88b78df465b819f8d815ecff2da6670449ccc71da08  deposed-full/src/parsing/utils.ts
+ce7ff2f06faaf6170e7fdf55f6f07998b2c6795679ba43035d44efe99c160abd  deposed-full/src/quantize/cluster.ts
+8c7b1c6d1d197482401ec77b01e62cf8768e91ef20c7286a8c78f4cc16500b5e  deposed-full/src/quantize/index.ts
+00f6d9b056de25a72805378857926f498d4e61afdfcdac8fd2c3d3a8103d4be7  deposed-full/src/quantize/types.ts
+defb937574846e92718df95045bed36c9f68ccb2a937c1a9047db7c855ef93ec  deposed-full/src/subpaths/CLAUDE.md
+5b71d96929931389c662906ee6364dc2efb66dd7bdbcf5bee1c1e77abced78ca  deposed-full/src/subpaths/color.ts
+456dc2b3126d291a66aecc7f71f6cea4d60d0df7d0f4567ba2a417b73d0c8e7c  deposed-full/src/subpaths/easing.ts
+5f3351ed4766853b35da6bef4b45e61aca2a002cf4f272d50fab79ebd69062f1  deposed-full/src/subpaths/math.ts
+b2875ed6c1223b2100c2ee42932d1a974bb711565355e17eb97cff166a823a7e  deposed-full/src/subpaths/parsing.ts
+22752a3b4dce512bf5c7cb2ea2d386549d5dff14a910f2d6c31a2d5aaf8d6754  deposed-full/src/subpaths/quantize.ts
+b21d2de735470a4d44ef64274abceba847b7ac4f2c6d5cf24ee37535496cf8d9  deposed-full/src/subpaths/transform.ts
+2e260dc71ce7474ddf40090a7f05334d44532950c230f8e6e3e04a1aca8e898d  deposed-full/src/subpaths/units.ts
+87e195cea45b3a0cd0838c4e03f641381583613bc8144f5b3b89e2dbecff02f2  deposed-full/src/transform/CLAUDE.md
+cb375fb6fed9b3afc4fb810d1c223925908e35dd7f0b99e55d15337e8eacf283  deposed-full/src/transform/decompose.ts
+5fdc11f10b2ad80cab7600b50e8780922d0d4f5f59ed4986c326b5b2bdf97185  deposed-full/src/transform/path.ts
+d8daabd2caec8625b48c9e984ac49b77373a0530065d236355c0413622d891ad  deposed-full/src/units/CLAUDE.md
+1acc8c3ebd21749921a23f023cf36c9976f48c387bbb59e7355b3378e2f60085  deposed-full/src/units/color/CLAUDE.md
+65dd6ce56f00eb693cbe2e54ba8b7b505acb062cb07a8af27cffe31fad00abea  deposed-full/src/units/color/base.ts
+e0996bde204991b66072aebc8218b72b2417d8f45a181546bd97d19df9bdb60b  deposed-full/src/units/color/color-names.ts
+23774fc5a3754bc9087578ed801665c5004ec94ded91c1d31d6d2338515a41a8  deposed-full/src/units/color/colorFilter.ts
+754dfe4997e66c0586a080d7165fb1906561436d856fea75a97e671b835fae29  deposed-full/src/units/color/constants.ts
+a818bd0d9af2397966545596483588314faf705e2cc111665038a4bbf31e4d04  deposed-full/src/units/color/contrast.ts
+847dc28e292f802d610d454c64d9eff428248bf5b8cc594fa8b072822203ede0  deposed-full/src/units/color/conversions/cylindrical.ts
+ca2482e40e2c19beebcee702f98bef384dad7f710f969e1007dd4be0f2d91fa9  deposed-full/src/units/color/conversions/direct.ts
+605ff14b495c937635f15da970fc62cda57ce836c3f63ac4685d498a74a945f1  deposed-full/src/units/color/conversions/hex.ts
+f6983d48573d6592316cff90f18564ff80cc69b7c37a006176cafeeb93feb1f2  deposed-full/src/units/color/conversions/ictcp.ts
+d848a4943dac2e1c53354b4e58fdf65dd488868d159a4c6b1dd9f2ff4b5352af  deposed-full/src/units/color/conversions/index.ts
+bd7c221de84ef99da370a4b0b3651c70658f8ecb62e4c1e1ba67045f39ce21cd  deposed-full/src/units/color/conversions/jzazbz.ts
+d7e4fd08e8fb8365dce3b908535d9316675c86ce2cb3d3fedb250f1e8fb74dcf  deposed-full/src/units/color/conversions/kelvin.ts
+f86e9c5d01ac2a58317d9d862a1c733838aa87c7261477fb152a4785ea4e2621  deposed-full/src/units/color/conversions/lab.ts
+b5004db57f6e1761237d6e86ce1b85448da4e52dbe9edd74097a43f33c9b03a3  deposed-full/src/units/color/conversions/matrices.ts
+70798afc11e933185a9b817721eaa49a343bea6ce8e89dde2e0f18df12d49866  deposed-full/src/units/color/conversions/oklab.ts
+2a7b1f474845d9189358af7b919d5e6ff01a61f89544cc62db878bd02bfa6ba3  deposed-full/src/units/color/conversions/transfer.ts
+fbb6df0be1b30109eb1651e23ff271386c0d588f499b02d036add06cb7ed7e27  deposed-full/src/units/color/conversions/xyz-extended.ts
+8e5bc7494d75d5ae8e4a9294316dafb6113853a69182b4c2c22b0726b6553c47  deposed-full/src/units/color/difference.ts
+86f7720d90900b1881754dd6a7fb0969b946d9a743e78e3cb51d0da54218278f  deposed-full/src/units/color/dispatch.ts
+5e46225067e521a5589dcc0b1f48209762755ed287a5f990dfa79488eb76e2d3  deposed-full/src/units/color/gamut/boundary.ts
+164e24f0f8525f6df92073b8bf666acd0056536fc0d6b3aab3e143efece84f7e  deposed-full/src/units/color/gamut/gamut.ts
+df3a6f3103c8e539c8a9abc15bfbf6e40bff7c8c5e71904663a03f663cc1b632  deposed-full/src/units/color/gamut/index.ts
+a996f9dd77b618ddd5c7b226bb139c48634d3a5d5e390e149fd9bf1b87e42f6f  deposed-full/src/units/color/gamut/okhsl.ts
+fbc4272815efcb2a33c1bb5524eba54f7101bd1b26d2a771527ec8935ed19813  deposed-full/src/units/color/gamut/raytrace.ts
+d6bab477719d4cb0f1b7d484630be3e94afe89c1feb038a93437fff08e94122a  deposed-full/src/units/color/index.ts
+92f3760094c4656e127d994352fac43762cc42aa4904927718b8f731e6b1eae1  deposed-full/src/units/color/matrix.ts
+b94175e70600ab7c4fc0b3f64bbd6f478c96423114830d94dea46d37c7d10f9a  deposed-full/src/units/color/mix.ts
+eb3c7d2056d0249fcf4811f4094dcedeb76e3a6f5a6fb3f68ed0be87e50399a2  deposed-full/src/units/color/normalize.ts
+956aeac0e6e3411e89fa067e10c7a19171a0ca6ba3fef3f120a2c36d9ebb4fef  deposed-full/src/units/color/serialize.ts
+30f1d80185fddca25eee1858a9b232293e2ebe98f8a7accef261c2faccba24b8  deposed-full/src/units/color/spaces.ts
+29f518ddd98d855247b47ecd5930caa3b6f3ed9072975397a9f46f0e7b4e5b0d  deposed-full/src/units/constants.ts
+882e132e1f1ed05e1b931db4cb177c78a145869a21425c4ba2f409ba3347ad10  deposed-full/src/units/dom-metrics.ts
+489735cecde1c2ddcdce53732cdec854b8b56d1bcd266be5e9aef4b5b4037783  deposed-full/src/units/index.ts
+5273e375631393a3bbeebd54284c1d4406a8a7283ea0e0e060b8af55d27a57db  deposed-full/src/units/interpolate.ts
+1c48ab79c41eb3885fb4a07260b26f0bd36172ce86d67640e63ae235fbf2cbf3  deposed-full/src/units/layout-cache.ts
+19ed7af1331bc67314d4d8118b474b79f8f46d23a861a803708bb623eeed5454  deposed-full/src/units/normalize.ts
+3b63eab8b3fb0a220829afb992b86c5d4f1b3142f8fb42d47481076c0e192b3c  deposed-full/src/units/style-names.ts
+d77ac6ef6c1b5abf9d132416acf0af92ef7f8eb4be970afe46333802afb89d48  deposed-full/src/units/utils.ts
+904e866a1f9069b70fe14c26f2c13073f816aa879cac457b69112d0fe3a97870  deposed-full/src/utils.ts
+03f2e0e648f979b67e81e768dd46c594ed21f78614524acc484fd3b989d69376  deposed-full/src/vite-env.d.ts
+e54b31054cf92a1c7831616f3d6df0db066d7ea22e1b90ea86389fe1a04e2281  deposed/css-parse-perf.mjs
+3bf228ed085643fe93b8cb8a782296d9c2f3d8252c4f71150b9aa04ba54fc601  deposed/src/parsing/CLAUDE.md
+70f2e54336b8b908c759d6ccd1252259d3fb38ce780f10413a8bae2f791e3968  deposed/src/parsing/animation-shorthand.ts
+123fdb0ac821aff291d0016c18081006fe7d986b94aa6ef2f8cd37dc7c2cc114  deposed/src/parsing/color/color-unit.ts
+3c975d8d6d9f11913960f872f623cfff698ee1cb48f4ce9483f0778a27d982eb  deposed/src/parsing/color/color.ts
+082b09113da0c20c7ed5f75478f7b08d83a560825f56d1d30ea47d4dfbe7120f  deposed/src/parsing/color/index.ts
+506b9c1900c222424ba4e8af83c3e84927af959349e42731039ac502f5f6c9fc  deposed/src/parsing/color/relative-color.ts
+64b956dce74cacd7797e700b225782bf895e21e6b2e36e9f500f4953ea014096  deposed/src/parsing/index.ts
+b343830c7bb728046780f07d0db7e3592effeb414884aa73e45e8e19e410faa8  deposed/src/parsing/math.ts
+eca9fe881331b4c9abad1d8c74b77653e91d4537943e4fdce311859842bc22e2  deposed/src/parsing/stylesheet/extract.ts
+9ba968d8a65acbfcc7fb6be27037231bbcdb4cc42c3f972809098cadd7b31048  deposed/src/parsing/stylesheet/index.ts
+e0a49f89c7bb5dd3aab3a9fb2c83b8ae5737983f4e94d4ef7efb9afbf9e26d6d  deposed/src/parsing/stylesheet/serialize.ts
+5dcc013a340e8b943514500ca12ada10aa562fb2b0f7dc158137e02a9b942066  deposed/src/parsing/stylesheet/stylesheet-types.ts
+94c9f27035bbf67402ed20337c08bf6fdc08e95f6dce3bc6bca1616ddb1c28fd  deposed/src/parsing/stylesheet/stylesheet.ts
+2c9541f46931b2ff113c8e75d84a9ecf3dbb2bab7585d5b9eab8f51333e6b70f  deposed/src/parsing/syntax.ts
+3663f130ca88980737c4dd107e2c09a8f50eb70c8fd476a28197d18c7da7b3ae  deposed/src/parsing/timeline/easing.ts
+2b3acbe248760b09b35dd9aabdbfa5b765ef9d09cf181251415d416954ca5555  deposed/src/parsing/timeline/index.ts
+629140a090968eea5c3bcfcf96d5709c159ea539f3d75f3be31f2f77703b3590  deposed/src/parsing/timeline/scroll-timeline.ts
+835e35ed65c089e265ec728717c0ab03bef53ca964f574e11abba4e9f2a5c2b6  deposed/src/parsing/units.ts
+a38ba5b16fd8b4885817b88b78df465b819f8d815ecff2da6670449ccc71da08  deposed/src/parsing/utils.ts
+c6649cadd10f2aca7227482bc0c05ea1f9aaf3159e563a052f65aeea0f0a4ff8  equivalence/corpus.json
+c288744ce3e36a236f07d4af2c89288e095892199925d1aa1fb76abd12c09f40  equivalence/equivalence-results.json
+ac1b5afcc1e2b09f01bdb2cbbdbb46362836bd8c019134a69b98531eab3971f7  equivalence/harness.ts
+dc4456bc73103dafcc443158e117a63ca1fe6a142d3e3bd53915baa15000652f  equivalence/harvest.mjs
+9fac4eee8b82bf01941045eab80c8a1b0292167b974578565143809de3497276  equivalence/probe.ts
+5aaa9c27b748646201ffad9a27cf0d7d27b9522c0bb132592a223b86228cd873  equivalence/probe2.ts
+5dde0b1df6e9d4f57ee5b1eefc8750221f70396774bb7dfceedf9a4edca18190  equivalence/probe3.ts
+74893ba465d1e798fea30bb877ec5fce2bdff9abd62184f04f5b8e43a01719c2  equivalence/witness-attempt.ts
+639e596135b2944c07ad8b1f4be89373cc640cba7544fec35936655833f0512e  gate-recovered.mjs
+c73c8ff2ca2da3ed9bcd7b2016ef00aba0416a79d1787d88943fc3ab0bdccad0  live-bundle.mjs
+9cdda7869adf5f1685c63e3bb8669489bd4110f0ead3e72970b2a7b98181cab0  live-entry.ts
+49c39791a97798f03b8776ff8de70082da77bbad61aa16fa2237da452199de8b  package-lock.json
+1cd57088cada97596f0ee02ed681224738ef4911e19b9b1f2d2294b037cb9391  package.json
+4594a0b859bb4694651445023bcb132277a72d0c47238c8aa4148ea49af1fcf3  profile/analyze.mjs
+6666242ab1dadce6f5519a19071142b269d4461b3b849424ab4a3405965a09db  profile/driver.mjs
+f2ddd7dbbc8dc6627403450ac1ff427c9088bf3c3e88b868c8d9029affae2957  profile/out/c14-sheet.cpuprofile
+618ca181b49aa68f70cd3a6a7097d1a992e801c0cc248e04c875a514cec4d165  profile/out/c14-value.cpuprofile
+f5b8d8a9522ecede6439799cf911e06bc46c28b3955ef3ab74dedc280cf7a7fa  profile/out/dep-sheet.cpuprofile
+ed560d79395cf0dd00ae60b72e985fbfa232d621bb0b24ace529a81eab64d7e9  profile/out/dep-value.cpuprofile
+11a84c429ba05e0919ba12cb5768293dbd97f20a12d23eecf07d9f0eea48487f  profile/out/live-sheet.cpuprofile
+74b65b9a2cafad62ee62263a6d6ef5e2608c726b0c0952669f867e71ea65b99f  profile/out/live-value.cpuprofile
+# ----------------------------------------------------------------------------
+# CENSUS 2026-09-17 — END. Nothing below this line was written on 2026-09-17.
+# Append-only: a later dated block starts here.
+# ----------------------------------------------------------------------------

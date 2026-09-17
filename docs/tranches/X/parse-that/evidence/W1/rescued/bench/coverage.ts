@@ -1,0 +1,12 @@
+import { parseCssValue as liveV, parseStylesheet as liveS } from "/Users/mkbabb/Programming/value.js/src/css/index.ts";
+import { parseStylesheet as c14S, parseColor as c14Color, parseEasing as c14Easing } from "../c14-css/src/css/api.ts";
+import { CSSValues as depV, parseCSSStylesheet as depS } from "../deposed-full/deposed-bundle.mjs";
+const okR = (r: any) => typeof r === "object" && r?.ok === true;
+const okT = (fn: () => unknown) => { try { fn(); return true; } catch { return false; } };
+const c14Val = (v: string) => v.startsWith("cubic-bezier") ? okR(c14Easing(v)) : okR(c14Color(v));
+const values = ["oklch(0.7 0.15 30)","oklch(62.8% .257 29.23 / 85%)","linear(0, 0.5 50%, 1)","linear-gradient(to right, red, blue)","translateX(100px)","calc(100% - 2rem)","var(--color, red)","cubic-bezier(0.42, 0, 0.58, 1)","42px","blue","spring(1, 100, 10, 0)"];
+const sheets = [".a { color: oklch(62.8% .257 29.23 / 85%); }",".b:hover { animation-timing-function: cubic-bezier(.25, .1, .25, 1); }",".c { color: oklch(80% .1 250); animation-timing-function: cubic-bezier(.4, 0, .2, 1); }","@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }","@layer base { .box { color: red; } }","@media (min-width: 600px) { .grid { display: grid; } }",".card { padding: 1rem; background: oklch(0.7 0.15 30); }",'@property --angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }'];
+console.log("VALUES: live | c14 | deposed");
+for (const v of values) console.log(`  ${(okR(liveV(v))?"Y":"n")} ${(c14Val(v)?"Y":"n")} ${(okT(()=>depV.Value.parse(v))?"Y":"n")}  ${v}`);
+console.log("SHEETS: live | c14 | deposed");
+for (const s of sheets) console.log(`  ${(okR(liveS(s))?"Y":"n")} ${(okR(c14S(s))?"Y":"n")} ${(okT(()=>depS(s))?"Y":"n")}  ${s.slice(0,55)}`);
