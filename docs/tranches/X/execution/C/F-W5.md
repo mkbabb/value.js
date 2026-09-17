@@ -1645,3 +1645,122 @@ three BK letters ⊕ K-R1 ⊕ the 9.0.0 re-trigger (the X formation mail seat). 
 X·F's sub-tranche release close stamps it, not this wave, and not a seat that repaired its own gate.
 
 **Seat**: REPAIR round 1, `claude-opus-5[1m]`, 2026-09-17 18:55 EDT.
+
+---
+
+## Check 2
+
+**SERVED MODEL: claude-opus-5[1m]** · FRESH ADVERSARIAL CHECK (L-20, **pass 2**), 2026-09-17 19:05 EDT,
+**VERIFY-ONLY** — authored none of units a–e's bytes, none of the close seat's, none of CHECK 1's and none
+of REPAIR 1's. **Cures nothing.** `## Close`, `## Close — VERIFY SEAT`, `## Check 1` and `## Repair 1`
+above are prior evidence and are **byte-unedited**; this section is the addendum-beside E-3 prescribes.
+Writable set at this seat: **this record** ⊕ `docs/tranches/X/execution/LEDGER.md` (this wave's row cell,
+minimal in-place replacement, ⊕ one appended event line). `scripts/dev/dev.sh` never staged, in **0** of
+this seat's commits. **Zero fourier bytes** — ⟨cmd⟩ (fourier tree) `git status --porcelain | wc -l` → **0**
+at open and at close; ⟨cmd⟩ `git rev-parse HEAD` → `5842377a`. Every gate reading below **double-run**: the
+whole battery was written to one script and run twice, ⟨cmd⟩ `diff run1 run2` → **no output**.
+
+### C2.1 — What reproduced, axis by axis
+
+| axis | reading at THIS seat, measured not accepted | verdict |
+|---|---|---|
+| **(1) claimed GREENs — all 22** | **22 of 22 reproduce.** G1 `class AuditEntry` → **1** (`admin.py:94`) ⊕ v2 `^### A1` → 1 · G2 `hash.ts:8` `computeContentHash(name, colors)` ⊕ `paletteVersion.ts:14` `findOne({ _id: hash })` ⊕ `:47` `if (existing) return version._id;` ⊕ `^### E1 —` → 1 · G3 `_write_root_version` → **3** ⊕ `^### E2` → 1 · G4 ⊙ `atomdiff\|atomDiff` → **1**, `ls api/src/lib` → *No such file or directory*, `N/A — RE-SCOPED (F-SS4REST R1)` → **2** · G5 `forks.ts:76` → `visibility: "public",` ⊕ `^### E4` → 1 · G6 `_readable_or_none` → **5** ⊕ `forks.ts:179/:197` ⊕ `^### C5` → 1 · G7 ⊙ bounded → **0**, unbounded → **160** with `^Binary file` → **10** (= 150 source, unit c's reconciliation to the digit) ⊕ `^### E16` → 1 · G8 OpenAPI `security` in `main.py` → **0**, `save_contour(req)` bare, **register 45/45 authority classes self-counted by my own `awk` over the settled bytes: `ADMIN-TOKEN` 13 · `ANONYMOUS` 19 · `OWNER-IN-BODY` 5 · `VIEWER-SCOPED` 5 · `SESSION-IN-BODY` 2 · `SESSION-DECLARED` 1 = 45** ⊕ `^### C1` → 1 · G9 **register 45/45 dispositions, my own count: `CLIENTED` 36 · `CLIENTABLE` 7 · `STRUCK` 1 · `SERVER-ONLY` 1 = 45** ⊕ `^### D1` → 1 · G10 ⊙ like routes → **0** ⊕ `^### D2 … RULED: REMOVE THE AFFORDANCE` → 1 · G11 ⊙ `FlagRequest` scoped → **1** (`admin.py:57`, the definition) ⊕ `^### D3 ⊙ … RULED: PRODUCER, AS A PORT` → 1 · G12 `visualizations.py:269` `$inc {"views": 1}` on the read path ⊕ `RFC 9110` → 1 · G13 `extraction_cache_key` **10** / `ml_threshold` **3** ⊕ `^### E13` → 1 · G14 `contours.py:25` `source="editor"` ⊕ `^### E14` → 1 · G15 `image_bounds` **29** ⊕ `^### E17` → 1 · G16 `moon.json` **1** ⊕ `^### G1c`/`^### G5c` → 1 each ⊕ `DO-NOT-REGENERATE` → **5** · G17 `(await res.json()) as` → **1** ⊕ `^### A3` → 1 · G18 `^### A2` → 1 ⊕ `^### E3 ⊙` → 1 · **G19 → §C2.2** · G20 `ls …/X/coordination/` → **2** ⊕ **13** edge rows in the relay ⊕ `^\| O-22 \|` → **1** · G21 **45 rows = 30+13+1+1**, and the triple re-measured **at the fourier source, not at the register**: ⟨cmd⟩ `grep -rE '^@router\.(get\|post\|put\|patch\|delete)\(' api/routers/ \| wc -l` → **30** · `grep -cE '^@admin_router\.' api/routers/admin.py` → **13** · `grep -cE '^@app\.(get\|post)\(' api/main.py` → **1** · `grep -cE '^@gallery_router\.' api/routers/gallery.py` → **1** · G22 registry `MF-9` → **1** (`fr-GalleryCardModal.md:56`), in v2 → **2 occurrences, `:304-305` ONLY**, the §A3 G22 sequencing LOCK, so **GCM-10's cure is quoted without it** | **0 claimed GREEN failed** |
+| **(2) bounds** | ⟨cmd⟩ `git show --numstat` over **all 21** commits in `6d4221c5..HEAD` attributable to this wave: the path union is exactly **8** — the five §1a artefacts (`contract/operation-register.md` · `contract/J-diff-shape-v2.md` · `contract/OWNER-RULINGS-F.W5.md` · `coordination/value-to-fourier-cosign-J-diff-shape-v2.md` · `V/coordination/INBOX.md`) ⊕ this record ⊕ `execution/LEDGER.md` ⊕ **nothing else**. **`scripts/dev/dev.sh` in 0 of 21**; `Claude-Session:` trailer in **21 of 21**; no `-A`, no stash, no reset, no force. **`waves/F-W5.md` — §1a's sixth path — was written by no commit**, which is the E-3-correct reading of a `create` row on a file that already exists | **CLEAN** |
+| **(3) masking** | ⟨cmd⟩ over the whole wave diff (`6d4221c5..HEAD`, the artefact ⊕ record ⊕ INBOX paths) for `test.skip\|test.fixme\|xit(\|allowlist\|node_modules/\|@ts-ignore\|eslint-disable\|try {\|catch (` → **three hits, all prose about the probe itself**: G16's `-not -path '*/node_modules/*'` `find` exclusion, CHECK 1's own masking-axis cell, and REPAIR 1's §R1.8 denial. **No try/catch round a defect · no skip · no allowlist · no copied producer selector · no patched `node_modules` · no narrowed assertion.** ▲ **And the REPAIR's cure was tested for the masking shape specifically**, because a G19 ∅ reached by relabelling would be exactly that: the five cures are the spec's own *one-home-two-citations* idiom (`LEG — held at F-Wn`, record-qualification, a missing token spelled), not a suppressed difference, and the instrument was shown discriminating on the **pre-addendum** bytes first | **NONE** |
+| **(4) commit families** | a `3418db60` → b `bf3707ec` → c `73e35e74` → d `34b5f2be` → e `e8277c8e` ⊕ `37e2feec`, each unit committing before the next opened (log order verified). **Two families kept whole**: unit e's relay ⊕ its INBOX `O-22` row in ONE commit (`37e2feec`), and REPAIR 1's relay §5 addendum ⊕ its INBOX sweep line in ONE commit (`67064eed`) — *a relay and its ledger row cannot be read apart*. Runbook **§3.4** declares **no** F.W5 same-commit lock (re-read at this seat; the table's F-band rows are F.W1's twelve-limb roster and the FR-NP-32 pre-gate, neither this wave's act). One commit per meaning throughout | **HELD** |
+| **(5) E-3** | ⟨cmd⟩ `git diff --stat 6d4221c5..HEAD -- registry/adjudicated · fourier/waves · fourier/conformance · fourier/carry · V/DECISIONS.md · formation/fourier/lane-crud.md · audit/codex-provenance` → **no output**. `COHESION.md` moved in the range by **`f67cf619` · `acc652f5` · `71b25ff3` — all other tracks' commits, none in F.W5's union.** fourier tree `git status --porcelain \| wc -l` → **0**; v1 `docs/tranches/J/design/J-diff-shape.md` mtime **Jun 2**, untracked-by-this-wave. ▲ **AND THE REPAIR'S v2 EDIT WAS PROVED ADDITIVE AT THIS SEAT, not accepted as labelled**: ⟨cmd⟩ strip every `⟨**ADDENDUM 2026-09-17 …⟩` span **and §Z** from `a94d7428`'s v2, normalise emphasis, tokenise to a word stream and `difflib` it against `a94d7428^`'s v2 → **exactly TWO opcodes**: a `severity;` token split by emphasis-stripping, and the insertion of the `---` rule above §Z. **Not one word of units b/c/d's clauses was deleted or rewritten**, which is the whole claim R1.5 makes and the only way an *addendum-beside* differs from a patch | **HELD** |
+| **(6) mail** | Four paths ⊕ the atlas **Q** extension swept at **this seat's own clock, 19:05 EDT** — ⟨cmd⟩ `find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 18:53'` → `V/coordination` **1** (`INBOX.md` itself, self-excluded per SELF-COUNT) · BK **0** · keyframes **0** · atlas P **0** · atlas Q **0**. Status-cell scan (never a bare `grep -i unread`): the three `UNREAD` status cells are `I-32` · `I-33` · `I-34`, **Track D's rows**, and their out-of-scope claim is verified at the letters' own bytes rather than accepted — ⟨cmd⟩ per letter for `J-diff` → **0 · 0 · 0**, `F\.W5` → **0 · 0 · 0**, `operation-register\|co-sign` → **0 · 0 · 0**. Each Routing cell names **X-W0.j / the X formation mail seat**. `O-22` appended `+3/−0`; REPAIR's sweep line `+2/−0` | **0 UNREAD in F.W5's scope** |
+| **(7) four verbs** | AUDITED **YES** unchanged · SPECIFIED **YES** unchanged · IMPLEMENTED **NO → YES**, lawful against §0's own evidence cell (*"contract bytes land only after the begin-word"* — the begin-word is given and the five artefacts exist and carry their content) · **VERIFIED unmoved**, and deliberately: §0's evidence cell reads *"stamped only at X·F's sub-tranche release close"*, which is not this wave's seat and is not a repair seat's either. **The spec's own §0 table is byte-untouched** (axis 5) | **LAWFUL** |
+| **(9) published figures** | Every one reproduces **to the byte**, measured from the settled bytes at this seat, double-run: v2 **244,274 B · 3,154 L**, sha256 `2155481a45f2853b…` · register **38,255 B · 452 L**, sha256 `f4af6ba716d751c4…` · ruling block **18,702 B**, sha256 `23e47b6cc8038f97…`, `^\| \*\*R[1-9]\*\* \|` → **9** · relay **20,202 B at `37e2feec`** (23,047 B at HEAD, after the §5 addendum). At their own landing commits: register **38,255 B** at `3418db60` · v2 **52,241 B / 715 L** at `bf3707ec` · v2 **236,694 B**, sha `c912d76d4cf7…` at `a94d7428^` — the exact pre-repair digest the relay §1 and CHECK 1 published. Canonical ⟨cmd⟩ `shasum -a 256` → **`f44362757458`**; rosters **27 ⊕ 89 = 116**, closed independently at the declared `(n)` sum **and** at the backticked-id count, with a per-record assertion that halts on any mismatch | **REPRODUCE** |
+
+**(8) goal criterion, at the bytes — MET.** §0a asks two things and both are measured here, not inferred.
+*(i)* *"every clause in it is **ruled**, **declined-with-reason**, or **⊙ owner-gated and named as such**"*
+and *"**a clause that names no witness is not a clause**"*: a parser walked the settled v2 clause by clause
+at this seat — **71 clauses, `A 6 · B 5 · C 5 · D 16 · E 20 · F 9 · G 10 = 71`, zero duplicate ids, and
+every one of the 71 carries EXACTLY ONE `**RULE`, ONE `**WITNESS` and ONE `**DISPOSITION` at line-start
+plus at least one `▲`/LOCK** (⟨cmd⟩ the walk's bad-list → **empty**; `^### D9` → **0**, the reservation
+held). The three ⊙ clauses are **`D3` · `E3` · `E16`**, each carrying `RULED:` in its own heading, each
+quoting COHESION **§0j.D** by ruling id — and those ids were checked **at COHESION's bytes, not at the
+ruling block's**: ⟨cmd⟩ `grep -n 'F-SS4REST\|F-PRODRET\|F-TRIE' docs/tranches/X/COHESION.md` → `:647`
+F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1) **NO TRIE** · `:652` F-PRODRET (R3 ≡ D3 ≡ G11) **PRODUCER, as a port**,
+homed F.W8, *"with F.W5 writing the clause"* · `:658` F-SS4REST R1 **RE-SCOPE** ⊕ R4 **REMOVE** ⊕ R5
+**STOP MINTING** ⊕ R6 **KEEP** ⊕ R7 **CODEGEN** ⊕ R8 **REMIX + BORN-PRIVATE** ⊕ R9 **DELETE** — **R1…R9
+match the wave's table word for word; no ruling was invented, widened or presumed.** *(ii)* *"a **neutral
+document both repos co-sign**"*: the document exists, is neutral (it supersedes v1 **by reference** and v1
+is byte-unchanged), and this end is signed and **relayed** — the reciprocal is fourier's act and is
+exactly what §3's G20 close column assigns to *"the fourier side's reciprocal"*. **The goal criterion is
+met at the bytes, not merely at the gate table.**
+
+### C2.2 — G19, re-run at this seat from the canonical alone, with my own instruments
+
+**Operand pinned first, then the roster rebuilt rather than read**: ⟨cmd⟩ `shasum -a 256
+CENSUS-CANONICAL.md` → **`f44362757458…`**, character-match to the frozen pin; ⟨cmd⟩ `grep -nE '^### F\.W5(-W8)? — '` → `5078` (**27**) · `5092` (**89**). A parser at this seat walked each roster line,
+**asserting the declared `(n)` against the backticked-id count per record and halting on any mismatch** —
+it did not halt: **27 ⊕ 89 = 116 record-qualified `(record, id)` pairs.**
+
+| direction | instrument, mine, and the reading |
+|---|---|
+| **LHS → RHS** | For each of the **116** pairs, a token-bounded search (`(?<![A-Za-z0-9_\-:·])id(?![A-Za-z0-9_\-])`) across **all three** RHS files — v2 ⊕ register ⊕ ruling block. **Ids with zero occurrence: 0.** The two CHECK-1 misses are cured at the bytes I read: `fr-ContourPreview` `L:L-5` now lands at v2 `:2245`/`:2247` **record-qualified, with the two-record-collider fact stated**, and `fr-BasisSelector m-7` is record-qualified inside §D7's own booking at `:1236-1238`. **∅** |
+| **RHS → LHS** | An independent map was built **from the canonical's §1 per-record tables** — 4,242 banked heads ⊕ 2,548 aliases, keyed `(record, id)` → home — and every `**DISPOSITION.** Booked:` span in v2 (69 disposition paragraphs) was resolved against it. Every booked token is (a) a member of the 116, (b) one of the seven exclusions, (c) a **body alias of a head booked in the same list** — verified at the canonical, e.g. `MIN-4`/`MIN-5`/`MIN-10`/`MIN-11` are alias rows of `fr-VisualizationView D-14`, which IS an LHS member; `D-L12`/`C-22` of `fr-EquationPanel D-10`; `D-20` of `fr-BasisCanvas BC-9` — (d) a **lane-crud / intake id** carrying no registry home (`R-4` · `R-5` · `R-6` · `R3-7b` · `R3-7c` · `F-α` · `F-β` · `F-γ` · `V-β` · `V-γ` · `TA-4`), or (e) an id whose canonical home is another wave **with that holder stated in the item** — and each of those five was read at the bytes: `GCM-10` → canonical **F.W3**, marked *LEG — held at F-W3* at `:285-286` · `GCM-1` → **F.W4**, *LEG — held at F-W4* at `:1728-1729` · `FR-EQR-4` → **F.W4**, *LEG — held at F-W4* at `:2638-2639` · `FR-GFC-1` → **F.W4**, *"RIDER ONLY at F.W5 … the body cure is F.W4's"* at `:1311-1316` · `VV-R2-B` → **F.W4**, *"rides as a LEG held at F-W4"* at `:1461`. **∅** |
+
+**G19 is GREEN, and the ∅ is honest at both ends.** The roster was **not** re-cut to make the difference
+close: the frozen canonical was the sole operand at both ends, no check file, no pass index, no wave
+arithmetic, **no `F-W5-CARRY.md`** (⟨cmd⟩ `ls docs/tranches/X/fourier/carry/` → `F-W1-CARRY.md` ·
+`F-W4-CARRY.md`, the two). The seven exclusions stayed excluded on my own reading. **Triumvirate: no
+`(record, id)` pair failed to home three times; the wave closed at iteration 2 of the three §5.7/§1c
+allow, which is the prescribed path and not an escalation exit.**
+
+### C2.3 — Successor conjuncts, at the successors' own bytes
+
+| successor | its F.W5 conjunct | state |
+|---|---|---|
+| **F.W6** | *"F.W5 STATES the shared-provenance clauses, F.W6 executes the **server half**"* (`F-W6.md` §Scope) — the clause set, not a gate. F-W6 §0 also reads the canonical's `27`/`89` and closes at **116**, the same operand this wave ran | **GREEN** — 71 clauses landed, `E1`…`E20` present. F.W6's own `FW6-G19` is its gate, not this one |
+| **F.W7** | `F-W7.md:83` — **F.W0** · **F.W5** (*"§2 clause `E16` ⊕ §3 `G7` is the same identity; §2 `E1`, §2 `E3` ⊕ §3 `G4`, §2 `E10` are hard predecessors"*) · the owner's ruling on **G-F7-1** | **ALL FOUR GREEN** — ⟨cmd⟩ `^### E16` · `^### E1 —` · `^### E3` · `^### E10` → **1 each**; G7 and G4 GREEN; G-F7-1 ruled (**F-TRIE ≡ G-F7-1**, COHESION `:647`, which also closes F.W7 unit `b` vacuously). **Lawfully unblocked on its F.W5 axis** |
+| **F.W8** | `F-W8.md:63` — **F.W0** · **F.W1.close** · **F.W2** · **F.W5** (*"the ADMISSION KEYSTONE — its three artifacts are inputs, not prose"*) | **F.W5 conjunct GREEN** (register · v2 · ruling block all exist and carry content; G11's port is homed here by F-PRODRET). F.W8 remains **lawfully blocked** on `F.W1.close` ∧ `F.W2` — neither this wave's to move |
+
+**No successor is blocked by anything F.W5 leaves behind.**
+
+### C2.4 — Register: severity · claim · receipt · cure
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **INFO** | The `## Close` section's terminal line still reads *"Status: **CLOSED-PARTIAL** (G19 escalated; reciprocal pending)"*. It is **correctly unedited** — E-3 makes it prior evidence — but a reader who stops there reads a status REPAIR 1 superseded | record `:1232`; superseded by `## Repair 1` §R1.4 (*"22 of 22 GREEN"*) and by the LEDGER row | **None owed.** The live status is the LEDGER cell, which this seat moves to CLOSED; the addendum-beside chain is the spec's own idiom and is intact |
+| **D-2** | **INFO** | The `INBOX.md` **`O-22`** row's own cells still read *"G19 RED on five one-token spellings … escalated"*. §1a makes the INBOX **append-only**, so the row cannot lawfully be rewritten | INBOX `:108`; the correction rides the appended REPAIR sweep line and the relay letter's own dated **§5** (`:148`), which is the artefact fourier actually reads | **None owed** — the mitigation is already in tree, and it is in the letter rather than only in our ledger, which is the right end |
+| **D-3** | **INFO** | Two ids inside v2 §D14's joint-identity booking — **`BLK-2`** and **`VV-R2-E`** — are canonically **F.W4**-homed with no `F.W5` leg, and their relief is the clause's blanket *"**it does not re-book its members**"* rather than a per-id holder line. Not a silent drop and not a booking: the sentence is explicit, the identity booked is the joint gap, and `VV-R2-B` beside them carries its LEG mark | v2 `:1458-1463`; canonical `fr-VisualizationView` rows for `BLK-2` (**F.W4**) and `VV-R2-E` (**F.W4** <sub>legs: SS-13</sub>) | **None owed.** Recorded so a later seat re-running RHS → LHS meets the same two tokens with the reason already written down |
+| **D-4** | **INFO** | Unit e's ruling-block byte gloss (**18,398** published vs **18,702** settled) — **already found, disclosed and dated** by the VERIFY seat and re-confirmed by CHECK 1 | record `:1322-1332`; ⟨cmd⟩ `shasum`/`wc -c` at this seat → **18,702 B**, sha `23e47b6cc8038f97…`, one commit ever touched the file | **None owed** — the mitigation is in the record |
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 0 MINOR · 4 INFO.** CHECK 1's **D-1 (HIGH)** is **CURED and verified
+cured at this seat** — G19 ∅ both directions, measured with instruments built here from the canonical
+alone. CHECK 1's **D-2** and **D-3** (both MINOR) are cured as dated addenda at `## Repair 1` §R1.2, and
+both cures were re-run here: G11 scoped `--include='*.py'` → **1**; `^\*\*RULE`/`^\*\*WITNESS`/`^\*\*DISPOSITION` → **71 / 71 / 71**.
+
+### C2.5 — Honest-RED set
+
+**EMPTY — and empty because there is no RED, not because a RED was relieved.** All 22 gates read GREEN at
+this seat's own commands. Two carry a close-column qualifier that is the **spec's own**, not a softening:
+**G16** is GREEN *at the contract half* because §3's own green-owner cell says **F.W6 / build lane**
+(DO-NOT-REGENERATE stands, and a regeneration revives `L-B1` and `L-B2/C-2` at BLOCKER), and **G20** is
+GREEN *at this end* because its close column reads *"F.W5 itself (unit e) + **the fourier side's
+reciprocal**"*. Neither is an unrelieved RED dressed as green; both are the gate's own definition, and the
+residual work is owned at `## Close — VERIFY SEAT` §6 **R-2** … **R-8** with a named owner each.
+
+Weighed the other way, so the finding is not read narrower than it is: **nothing is masked, and the ∅ was
+not manufactured.** I rebuilt the roster, the id→home map and both difference instruments from the frozen
+canonical at this seat and got the same answer the repair seat got — including the same five ids needing
+relief and the same reliefs at the same bytes. The one thing a fourth seat could still have caught, a cure
+that relabels instead of resolving, was tested for specifically: the five marks are `LEG — held at F-Wn`,
+a record qualification and a missing token spelled, all of them the spec's own *one-home-two-citations*
+vocabulary, and the addendum is **word-for-word additive** against the pre-repair bytes.
+
+### C2.6 — Verdict
+
+**CONFORMANT.** **22 of 22 gate readings reproduce at this seat's own clock, double-run** (`gatesFailed` =
+∅). Bounds clean (8 paths, `dev.sh` in 0 of 21, session trailer 21 of 21) · no masking fallback · commit
+families held with no §3.4 lock split · **E-3 held, and the repair's v2 addendum proved additive at the
+word stream** · 0 UNREAD in F.W5's scope at 19:05 EDT · the four-verb line moved lawfully (IMPLEMENTED
+NO→YES, VERIFIED deliberately unmoved) · every published figure reproduces to the byte · **§0a's goal
+criterion MET at the bytes** — 71/71 clauses ruled-or-owner-gated-and-named, each with its witness, the
+rulings matching COHESION §0j.D word for word. **The LEDGER status cell moves to CLOSED 2026-09-17** and
+an event line is appended beside it.
+
+**Seat**: fresh adversarial check (L-20 pass 2, VERIFY-ONLY), `claude-opus-5[1m]`, 2026-09-17 19:05 EDT.
