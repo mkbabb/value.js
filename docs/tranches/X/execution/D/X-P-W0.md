@@ -727,3 +727,17 @@ this record, which is not a diffed artifact. Then `diff census-before.txt census
 **None.** Zero writes outside the writable set · zero `status`/`gc`/`prune`/`stash`/branch-write
 against any root · zero §9 STOP conditions fired · zero diagnose→act→re-measure iterations (`W0.md`
 §3a evaluated and not triggered) · `scripts/dev/dev.sh` never touched and never staged.
+
+**Record-commit note (dated 2026-09-17, appended by `.b` immediately after the fact).** This unit
+staged its receipts block by pathspec and its own `git commit` returned *"no changes added to
+commit"* — a **concurrent seat's non-pathspec `git commit` had already absorbed the staged file**.
+The block therefore lands in `a10e33ad98840d7c7a6895f97b00d46e7ed14c40`
+(*"docs(X·exec): LEDGER — KF.W0.OP-1 done; substrate settled at `81a56990`, untracked-absorption
+finding booked"*, 2 files / 204 insertions: this record +`203` and `LEDGER.md` +`1`) rather than in a
+`.b`-authored record commit. Verified intact ⟨cmd⟩ `git show HEAD:…/X-P-W0.md | grep -c '^### X.P.W0.b$'`
+→ **1**; ⟨cmd⟩ `git diff HEAD --stat -- …/X-P-W0.md | wc -l` → **0**. The unit's own evidence commit
+`b69611a8` is unaffected ⟨cmd⟩ `git branch --contains b69611a8` → `* tranche-u`. **No history was
+rewritten to correct this** — the fact is recorded instead. **Finding for the close report**: under
+parallel seats on one checkout, a bare `git commit` is not pathspec-safe even when every seat stages
+by pathspec, because the index is shared; the standing "pathspec commits only" law should be read as
+binding the *commit* verb (`git commit -- <path>`), not only the `add` verb.
