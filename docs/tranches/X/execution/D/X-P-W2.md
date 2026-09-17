@@ -1000,3 +1000,6 @@ be ruled **before phase 4 dispatches**. This seat rules nothing.
   both arms (§9 / P.1). This seat's one commit carries this record alone.
 - **Gates**: sub-gate §5.b **GREEN** (mechanically verified, B.6). G-1 and G-6 remain **RED**, as they
   must until `.c` ratifies — this unit is an input to them, not a cure for them.
+
+**Commit of record for this unit** (the self-reference the block above could not carry until it existed):
+`013a4b59a4a6200e5ec62b4a1065dfc55d7f8f19` — ⟨`git show --stat`⟩ → **1 file changed, 203 insertions(+), 0 deletions(-)**, this record alone; `scripts/dev/dev.sh` in **0** of it. The draft remains uncommitted, per the phase-1 lock.
