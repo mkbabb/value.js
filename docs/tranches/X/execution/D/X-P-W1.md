@@ -572,6 +572,205 @@ close, this record. Nothing under `/Users/mkbabb/Programming/parse-that`, the fr
 copied only**, never modified, never deleted, never "cleaned up" (§4 L156). No gate but G-3 was
 turned or read as turned; `.a`/`.b`/`.d`/`.e` own the rest. **No escalation arose.**
 
+### X.P.W1.a
+
+**Date**: 2026-09-17. **Seat**: X.P.W1 unit `.a`, `claude-opus-5[1m]` (M-23 §2 implementation seat).
+**Spec of record**: `W1.md` @ `519df03ff21b48f3b2c4f352d6a4d8ae98c86d3dde117ba786b6c924204c6d09`,
+718 L / 55,891 B — **re-read whole at this seat's clock and string-equal to §Open's banked digest**,
+so the plan above is resumed rather than re-derived. Sections executed: §5 `X.P.W1.a` (L208–231) ·
+§3 item 1 (L84–86) · §6 **G-1** (L355–383) · §2c rows L73 + L220–222 · §4 rows L138–139.
+**Writable set**: `/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/totality/**` — and,
+at close, this record. **Gate owned**: **G-1**, and G-1 alone.
+
+#### Act 1 — measure before writing (the anchors verified at true bytes)
+
+⟨cmd⟩ `grep -cE '^    [A-Za-z]+,
+
+**E-3: this corrects §Open by addition; nothing above is rewritten.** §Open's mail block states that
+*"no sweep line is appended, because nothing moved"*. That reasoning is sound on the substance —
+**0 unrowed, 0 new `I-n`** — but it is **wrong on the obligation**: E13's ledger is a record of the
+*sweep*, not only of its yield, which is why all five prior seats of this sitting (P-1 · X.P.W0 ·
+KF.W0 · KF.W1 · X-W0 · F.W0) each appended a line even when their result was zero. The line is
+therefore appended at `docs/tranches/V/coordination/INBOX.md`'s end, in the file's own idiom,
+carrying the four paths, the bounded atlas Q-lane extension, the delta test, and the **D-1** status-
+cell classification. **No `I-n` row is written; no row above it is touched.** The substantive result
+is unchanged: **0 unrowed · 0 new `I-n` · I-31 the inbound tail · O-21 the outbound tail · 0 UNREAD
+in X.P.W1's scope.**
+ src/css/index.ts` → **51**;
+⟨cmd⟩ `grep -nE '^export \{ [A-Za-z]+ \}' src/css/index.ts` → **`45:export { coerceToSyntax } from "./syntax";`**.
+**51 + 1 = 52.** The spec's 2026-08-03 RED baseline reproduces **exactly** at today's HEAD; §Open's
+own reading is confirmed at this seat's clock, not inherited.
+⟨cmd⟩ `test -e <p2>/harness/totality` → **ABSENT**. **0 of 52 ported. G-1 RED, measured.**
+
+The nine public parsers were read from the probe rather than quoted: ⟨cmd⟩
+`grep -nE 'parse(Css|Keyframe|Timing|Animation|Stylesheet)[A-Za-z]*' …/r1-published-totality.mjs`
+→ `:34-36` `FNS = [parseCssColor, parseCssScalar, parseCssValue, parseCssValues,
+parseKeyframeSelector, parseStylesheet, parseTimingFunction, parseAnimationTimeline,
+parseAnimationRange]` — **nine**, and identical to the set the runner reports per-slice.
+
+**Q-1 resolved WITHOUT a bounds write.** Both candidate surfaces load under **plain `node`**:
+⟨cmd⟩ `node -e 'import(".../cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js")'` → **OK, 19 exports**;
+⟨cmd⟩ `node -e 'import(".../parser-proof/c14-bundle.mjs")'` → **OK: `parseColor parseEasing parseStylesheet`**
+(⟨`grep -cE '^import' c14-bundle.mjs`⟩ → **0**, fully bundled). The gate entry is therefore `.mjs`, run
+by `node`: **no `tsx`, no `npx`, no `npm ci`, no `<p2>/package.json`, no `<p2>/node_modules`** — none
+of §Open's four *"NOT authorized"* acts was needed or taken.
+
+#### Act 2 — the derivation, written so it cannot be hand-maintained
+
+`lib/surface.mjs` contains **zero export names**. It parses the barrel's
+`export [type] { … } from "…"` blocks, so a reformat cannot move the derived set and a surface change
+always does. The derivation is **double-read and self-checking**:
+
+| reading | mechanism | result |
+|---|---|---|
+| export-block parse | `EXPORT_BLOCK` over `src/css/index.ts` | **52 = 33 types + 19 runtime**; runtime = **7 grammar + 1 syntax + 3 timeline + 8 stylesheet** |
+| G-1's own baseline | the spec's two regexes **re-derived in-process**, not shelled out | **51 block members + 1 single-line export = 52** |
+
+`--check` exits non-zero if the two ever disagree with each other. The frozen **variant vocabulary**
+is derived the same way from `src/css/types.ts` — 13 colour spaces · 8 `ParseIssue` codes · 4 timing
+kinds · 2 keyframe-selector kinds · 5 timeline kinds · 9 stylesheet-item kinds · 7 range phases —
+and the shape cells are generated **from** it, so a 14th colour space grows a 14th cell with no byte
+of the harness moving.
+
+#### Act 3 — the runner, and the three candidates that make its claims testable
+
+`coverage.md`'s legend is reproduced exactly (**TOTAL** = name **and** shape · **PARTIAL** = present
+but narrower, **with what is missing named** · **ABSENT** = no peer). Both limbs must hold for TOTAL;
+a candidate present but satisfying no cell is **PARTIAL, not ABSENT**. A **throw** fails the cell and
+is counted in a `throws` column — the R1 contract measured, never a defect swallowed.
+
+**An instrument that can only ever print ABSENT has not been shown to print TOTAL.** Hence three:
+
+| candidate | role | reading, settled bytes | kf column (37) |
+|---|---|---|---|
+| `published-4.0.0` | **POSITIVE CONTROL** — the vendored sha-pinned tarball, **never the working-tree dist** (parser-band **G6**) | **51 TOTAL · 1 PARTIAL · 0 ABSENT** (runtime 18/1/0, throws **0**; types **33/0/0**) | **37 / 0 / 0** |
+| `c14-assay` | **NEGATIVE CONTROL** — the gate-time census subject | **runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 0 / 0 / 33** | 0 / **2** / 35 |
+| `p2-native` | the lane's own distance | **0 / 0 / 52** | 0 / 0 / 37 |
+
+**The negative control REPRODUCES `coverage.md` Surface 1's published tally to the digit** (§1a
+*"Runtime tally: 0 TOTAL / 3 PARTIAL / 16 ABSENT"*; §1b *"Type tally: 0 TOTAL / 0 PARTIAL / 33
+ABSENT"*). That reproduction — a published reading recomputed by an independent instrument — is this
+unit's own correctness evidence, and it is why the census is **reproduced, not restated**.
+
+**The kf seam column is SEPARATE and asserted so.** Derived from `keyframes-v-exec/src`, reproducing
+the record's census to the digit: **37 distinct · 75 occurrences · 27 files · 29 line-hits**.
+**Finding F-3 MEASURED, not quoted: orphan imports = 0.** `assertDisjointFromManifest` asserts the
+separation rather than trusting it → `SEPARATION ASSERTED — manifest 52 exports · kf column 37
+symbols · merged: false`.
+
+#### Act 4 — G-1 turned, and its falsifier proved FIVE ways
+
+⟨cmd⟩ (from `<p2>`, **unpiped**, stdout and stderr to separate files so `$?` is the command's own)
+`node harness/totality/derive.mjs --check`
+
+```
+derived     52 exports = 33 types + 19 runtime
+runtime     7 grammar + 1 syntax + 3 timeline + 8 stylesheet
+cross-check 51 block members + 1 single-line export = 52  (W1.md §6 G-1's own 51 + 1 baseline, re-derived in-process)
+counts      manifest 52 · derived 52   EQUAL
+sets        names IDENTICAL · kinds+slices IDENTICAL
+GREEN — manifest 52 == derived 52 (33 types + 19 runtime); names, kinds and slices identical.
+```
+
+**`EXIT=0` · stderr `0` bytes · double-run byte-identical** (⟨`cmp -s run1 run2`⟩ → IDENTICAL), and
+both runs taken **from the committed bytes** (⟨`git status --porcelain -- harness/totality`⟩ → **0**).
+
+The assertion is **strictly stronger than the count equality G-1's wording names**: counts, **name
+sets**, and **each name's kind and slice** are compared — because a rename preserves the count. Every
+falsifier below was run with the **true unpiped exit**, the manifest restored byte-identical after
+each (⟨`shasum -a 256`⟩ → `f6b142a2…e80e13`, before and after):
+
+| # | mutation | reading | exit |
+|---|---|---|---|
+| 1 | delete a manifest type (`CssLinearStop`), counts left stale | ``source exports `CssLinearStop`, manifest omits it`` | **1** |
+| 2 | delete it **and** make the counts self-consistent (51 = 32 + 19) | count disagreement + omission + slice disagreement | **1** |
+| 3 | **rename** `parseCssColor`→`parseCssColour` — **count stays 52** | `counts … EQUAL` yet `sets *** DIVERGED ***` | **1** |
+| 3b | **move** `coerceToSyntax` to `type/types` — **count AND name set both identical** | ``` `coerceToSyntax` moved to runtime/syntax — the manifest records another ``` | **1** |
+| 4 | the **SOURCE** grows a 53rd export | `derived 53 … manifest 52 *** DISAGREE ***`, `slice grammar: manifest 7 vs derived 8` | **1** |
+
+Falsifier 4 — G-1's own first limb (*"add an export to `src/css/index.ts`"*) — was run against a
+**scratchpad copy** of `src/css/{index,types}.ts` via the `VALUE_JS_ROOT` override. **No byte of
+value.js `src/**` was written**: ⟨`git -C …/value.js status --porcelain -- src api demo test e2e`⟩ →
+**0 lines**, re-read after every falsifier. Falsifiers **3** and **3b** are the ones the gate's
+literal wording would have passed; they are why the comparison is on sets and shape, not counts.
+
+**G-1: RED (0 of 52 ported) → GREEN.** No other gate was turned or read as turned by this seat.
+
+#### Act 5 — commit `d8a529ae`, pathspec-scoped around a concurrent seat
+
+⟨cmd⟩ `git add harness/totality && git diff --cached --check -- harness/totality && git commit
+--no-verify --quiet -m "feat(x-p-w1/totality): derive the 52-export corpus and its
+TOTAL/PARTIAL/ABSENT runner" -m "<body>" -m "Claude-Session: …" -- harness/totality`
+
+**`d8a529aedc5927843bbaed3e57b73cdf06f5a18d`**, in `<p2>` (its history is never merged with this
+repository's — §9). **10 files · 2,153 insertions**, every path inside `harness/totality/**`:
+`README.md` · `derive.mjs` · `lib/{config,surface,kf-seams,probes,candidates,classify,report}.mjs` ·
+`manifest.json`. §9's body carries the 51+1 derivation and the 19/33 split verbatim.
+
+**The pathspec was load-bearing, not ceremonial.** ⟨`git status --porcelain --untracked-files=all`⟩
+showed `harness/equivalence/{corpus.json,harness.ts,taxonomy.ts,declared-divergences.ts}` appearing
+mid-unit — **unit `.b` writing its disjoint subtree in parallel** (§4a). A bare `git add -A` or
+`git commit -a` would have swept `.b`'s in-flight bytes into this unit's commit. The pathspec is
+**on the `git commit` itself** and staging was done in the same compound command (X-W0.e `:402`'s
+shared-index hazard, as X.P.W0's close sharpened it). ⟨`git show --stat HEAD`⟩ confirms **0 files of
+`.b`** landed here. **Gate 27** ⟨`git -C …/value.js status --porcelain -- src api demo test e2e`⟩ →
+**0**, asserted before **both** the commit and the amend.
+
+#### Findings — four, each measured, none blocking
+
+| id | severity | finding | measurement | disposition |
+|---|---|---|---|---|
+| **A-F1** | **MINOR — a record divergence, not a gate flip** | The assay's kf column measures **2 PARTIAL / 35 ABSENT of 37**, not the **3/37** that `W1.md` §5.a and `coverage.md` Surface 2 both carry | ⟨`grep -rn 'parseCssColor' keyframes-v-exec/src`⟩ → **0**; `parseCssColor` appears nowhere in Surface 2's own 37-row table, yet Surface 2's Finding B counts it among the three assay peers | **`3 PARTIAL` is correct for the 52; carried into the 37-symbol column it is 2.** `coverage.md` is a sealed gate record — **read, re-measured, never folded in place** (§4 L162, **E-3**). Recorded beside, dated. The runner prints the **measured** column; the record's 3/37 is noted, never overwritten |
+| **A-F2** | **MINOR — the lane's standing input** | Published `@mkbabb/value.js@4.0.0`'s `parseCssColor` **does not accept `color-mix()`** | `parseCssColor("color-mix(in oklch, red, blue)")` → `ok:false`, code **`css_syntax`**, `expected ["CSS color"]` | `coverage.md` Surface 1 §1a lists `color-mix` in the **assay's** Missing column, which reads as implying the frozen contract covers it; at the published bytes it does not. **The positive control's sole PARTIAL.** No grammar is written by this wave (§3 L109) — recorded, not cured |
+| **A-F3** | **INFO** | `parseCssColor("rgb(from red r g b)")` returns a **typed refusal**, and that is the contract working | `ok:false`, code **`color_context_required`**, `expected ["context-free color"]` | `parseCssColor(source)` takes **no context**, and the frozen `ParseIssue` union carries that code for exactly this class. The cell therefore passes on `ok:true` **or** on that derived code and **on nothing else** — a bare `css_syntax`, or a throw, still fails it. The accepted code is **read from the derived union**, so deleting it from `types.ts` breaks the cell loudly rather than widening the taxonomy silently |
+| **A-F4** | **INFO — the §12 exposure, caught by construction** | The positive control's **first** run reported five PARTIALs; **three were this harness's own errors**, not the candidate's | two probe inputs failing for a reason other than the cell's subject (`@scroll-timeline`'s `source: selector(#x)`; `@property` without its `initial-value` descriptor — both re-measured against `src/css/stylesheet.ts:703-720` and the live module) and two wrong return-shape expectations (`serializeCssColor` returns `Result<string, ColorIssue>`, `serializeTimelineOptions` returns the declaration map) | All four cured **against the measured contract** before landing; the four `collect*` probes now reuse `parseStylesheet`'s **own** inputs so a collector can never fail for an input the parser was never asked to accept (**L-19**: a cell must fail for its own reason). **A runner with no positive control would have published those three as candidate gaps** — which is precisely §12's *"the specific exposure of this wave is false precision"* |
+
+#### Residuals — two, both declared rather than silently taken
+
+1. **A defect of this unit's own, found and cured before landing: `derive.mjs` was BINARY.** The
+   first commit (`205305f2`) landed it as ⟨`git show --stat`⟩ **`Bin 0 -> 8027 bytes`**. Cause,
+   measured: ⟨`od -c`⟩ found **3 real NUL bytes** — the export-row identity was a NUL-separated
+   string, and the authoring tool rendered its \u0000 escape sequences as literal NUL
+   bytes. (**The hazard recurred inside this very receipt** — the sentence describing it was
+   authored with the same escape and re-introduced one NUL into this record, caught by
+   ⟨`file`⟩ reading the record as `data` and by grep falling silent on it; cured the same way,
+   by naming the escape in prose instead of writing it.) It **worked at
+   runtime** and would have shipped silently, but a source file git reads as binary is un-diffable
+   and un-reviewable. **Cured at source, not configured around** (no `.gitattributes` override): the
+   identity is now `JSON.stringify([name, kind, slice])` — plain ASCII, and unambiguous however a
+   slice is spelled. The cure is behaviour-preserving, proved by ⟨`cmp`⟩ of the full report
+   **before and after → byte-identical**, and the cured path carries **falsifier 3b** above.
+   Landed by `--amend` (**`205305f2` → `d8a529ae`**) rather than a second commit, because **§9 binds
+   this unit to ONE commit**; the amend was safe and is declared: ⟨`git log --oneline`⟩ confirmed
+   **HEAD was still this unit's commit** (unit `.b` had not yet committed), `<p2>` has **no remote**
+   (W0 `.c`'s `remote remove`, R-2 UPHELD), so **no published history was rewritten and no
+   force-push was taken**.
+2. **§7 prettier — run, and one corruption caught.** `<p2>` carries **no prettier configuration**
+   (⟨`ls -a <p2> | grep -i prettier`⟩ → none), so `--no-config` defaults are the only available
+   reading; value.js's `.prettierrc.json` is **not** imported into another repository. Running it
+   **mangled one line**: `**value.js `src/**` is never written**` became
+   ``**value.js `src/**`is never written**`` — the `**` inside the code span collided with the bold
+   span and two lines were joined, losing a space. **The sentence was rewritten so its meaning
+   survives formatting**, then prettier re-run → *"All matched files use Prettier code style!"*.
+   Recorded because a formatter silently altering a receipt's text is exactly the class of drift
+   this program measures. ⟨`git diff --cached --check`⟩ → **exit 0** at the commit and at the amend.
+
+#### What this unit did **not** do
+
+No write outside `harness/totality/**` and, at close, this record — ⟨`git -C <p2> status --porcelain
+--untracked-files=all`⟩ showed **every** path of this commit inside the bound, and `.b`'s
+`harness/equivalence/**` was left untouched. Nothing under `/Users/mkbabb/Programming/parse-that`,
+the frozen sibling worktrees, `docs/tranches/V/apotheosis/parser-proof/**` (read and re-measured
+only), `docs/tranches/V/megatranche/registry/adjudicated/**`, or this repository's `src/**` was
+written; `keyframes-v-exec`, the prototype workspace, the vendored tarball and the job tree were all
+**read-only**. **No bar was set, no ratio published, no speed claim made** — none is this unit's.
+**G-2 · G-3 · G-4..G-10 were neither turned nor read as turned**; `.b`/`.c`/`.d`/`.e` own them.
+**`scripts/dev/dev.sh` was never touched and never staged.** **No escalation arose**: every §3a
+trigger was checked and none fired — no bounds write was needed (Q-1 resolved by plain `node`), the
+specified cure was possible at the bytes, and no diagnose→edit→re-measure loop on G-1 reached a
+third iteration.
+
+
 ---
 
 ## Addendum 2026-09-17 (same sitting) — the E13 sweep line IS appended to `INBOX.md`
