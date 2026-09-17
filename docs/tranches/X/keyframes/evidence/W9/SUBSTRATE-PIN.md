@@ -342,3 +342,71 @@ a run that does not name the bundle it photographed aborts. Cell roster and colu
 | **the ask** | a ruling on **who rebuilds and under which grant**. §0j.C **KF-WRITE** already names the hand (*"the sacred checkout on `master` … is the execution substrate for … **W9** …"*, the value.js orchestrator under the owner's 2026-09-17 grant), so the authority plausibly exists **above** this seat; what does not exist is a grant **inside** this unit's bounds |
 | **the fix, once granted** | `npm run gh-pages` in `/Users/mkbabb/Programming/keyframes.js` at `55e9bf0d`, then hash the tree and pass it to every capture as `--bundle-sha=`. **The source bytes are unchanged** (§2.2), so the rebuilt bundle is the same build the wave opened against — this restores an artifact, it does not move the substrate |
 | **what must NOT happen** | a capture against a **stale or foreign** bundle, or a capture that omits `bundleSha256` because the figure was inconvenient. Both are the I-20 failure in a different coat: evidence that cannot be proved to be the bytes anyone looked at |
+
+---
+
+## 8 · ADDENDUM 2026-09-17 16:14 — **THE SUBSTRATE IS MOVING UNDER A CONCURRENT SIBLING**
+
+*Appended, not rewritten (E-3). §2.2 stated the truth at its own clock and stays as its dated reading;
+this section states the truth at a later one. The change is material to the whole capture band.*
+
+At **15:50** this seat measured ⟨`git -C ../keyframes.js diff --name-only -- src/ demo/`⟩ → **0**, and
+recorded that *"every byte the gh-pages bundle compiles is identical to `55e9bf0d`"*. **That is no
+longer true.** Re-measured at **16:14**:
+
+| fact | command | output |
+|---|---|---|
+| tracked modifications | `git diff --name-only \| wc -l` | **23** (was 2) |
+| under `src/` or `demo/` | `git diff --name-only -- src/ demo/ \| wc -l` | **21** (was 0) |
+| under `demo/` alone | `git diff --name-only -- demo/ \| wc -l` | **21** |
+| under `src/` alone | `git diff --name-only -- src/ \| wc -l` | **0** |
+| newest write | `xargs stat -f '%Sm %N'` | `Sep 17 **16:13:48**` — `demo/scenes/cube/CubeScene.vue`, `…/orbital-drag/OrbitalDrag.vue`, `…/controls-pane/ControlsPaneWrapper.vue` |
+| HEAD | `git rev-parse HEAD` | `55e9bf0d…` — **unchanged; the edits are uncommitted** |
+
+**Twenty-one `demo/` files — the surface this wave photographs — are being edited RIGHT NOW**, seconds
+before this reading, by the concurrent **KF.W4** fan-out (OP-6 authorises it to run beside this wave;
+the same seat's install destroyed the bundle at §3).
+
+### What this does to the capture band
+
+**It is no longer only that the bundle is missing. A rebuild taken now would not be a build of
+`55e9bf0d`.** It would compile 21 uncommitted `demo/` files and produce an artifact that:
+
+- **cannot honestly carry `substrateSha: 55e9bf0d`** — the stamp would name a ref whose bytes are not
+  what was compiled, which is precisely the receipt-against-a-moving-substrate failure G-KFW9-14 and
+  the §H witness-substrate law exist to stop (*"the corpus was measured against stale `8281638c`;
+  DISQUALIFIED as witness substrate"* — the same class, a different sha); and
+- **would drift again mid-run**, since the sibling is still writing.
+
+**The `.b`/`.c`/`.d` capture band therefore has TWO unmet preconditions, not one**, and the second is
+the harder:
+
+1. **no bundle** (§3/§7) — curable by one command under a named grant;
+2. **no stable source** — **not** curable by this wave at all. A capture band cannot photograph a tree
+   that is being edited underneath it.
+
+### What `.a` does and does not do about it
+
+`.a` **books it and stops**. It does not rebuild (a kf write, §3.4), it does not stash, checkout or
+otherwise quiet a sibling's working tree (forbidden in the sharpest terms by §0j.C KF-OP1's
+*"Forbidden forms stay forbidden"* and by this seat's standing law), and it does **not** soften the
+substrate stamp so a capture can proceed anyway — *a stamp that names a ref it did not photograph is
+worse than no capture, because it reads green.*
+
+### The ask, stated precisely
+
+**A sequencing decision, which is above this seat**: the capture band needs a *quiescent* kf worktree at
+a *named* ref with a *built* bundle. Three shapes are available and only the orchestrator can pick one:
+
+- **(a) WAIT** — `.b`/`.c`/`.d` hold until KF.W4's fan-out commits, then the substrate re-pins to that
+  new sha (a re-pin, cheap: this file's §1 is re-run and the addendum names the new ref), the bundle is
+  rebuilt under a named grant, and the band runs against a settled tree. *The honest default.*
+- **(b) CAPTURE AT A CLEAN CHECKOUT** — build and serve from a separate clone at `55e9bf0d` so the
+  stamp is true and the sibling is undisturbed. Needs a grant for the clone's tree, not for the sacred
+  checkout. *Preserves the pin exactly as published.*
+- **(c) RE-PIN FORWARD** — declare the substrate to be KF.W4's post-commit sha and re-run §1 against it.
+  Lawful, but it makes this wave's captures evidence about a tree the registry's 58 records were **not**
+  adjudicated against, which is a real cost and must be a decision, not a drift.
+
+**What is NOT available**: capturing now and stamping `55e9bf0d`. That is the I-20 failure in a
+different coat — a verdict wearing a label it did not earn.
