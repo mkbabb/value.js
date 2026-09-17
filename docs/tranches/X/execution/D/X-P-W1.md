@@ -1547,3 +1547,424 @@ one place it could have (the ported `gate`/`verdict` block) was removed *because
 no diagnose→edit→re-measure loop on any gate reached a third iteration (the stderr warning and the
 `@@@ { }` corpus item were each one measure→cure→re-measure cycle, and the `npx` obstruction was
 diagnosed to its root cause, not iterated on). **No escalation arose.**
+
+### X.P.W1.e
+
+**Date**: 2026-09-17. **Seat**: X.P.W1 unit `.e` (the bar ledger and the two planes),
+`claude-opus-5[1m]` (M-23 §2 implementation seat, as §5 declares for all five units).
+**Appended at the file's end, E-3: no block above is rewritten.**
+**Spec sections executed**: `W1.md` §5 `X.P.W1.e` (L306–345) · §3 items 4 and 8 (L92–93, L102–105) ·
+§6 **G-6** (L500–513) · **G-7** (L515–527) · **G-8** (L529–542) · §7 (L591–601) · §8 (L603–620) ·
+§4 rows L144, L147–154, L157 · §4a (L171–189).
+**Writable set**: `evidence/W1/BAR-LEDGER-2026-09-17.md` · `evidence/W1/bench-baseline.json` ·
+`<p2>/harness/README.md` · `registry/harvest/x-p-w1.json` · `registry/DEFECT-LEDGER.md`
+(modify-append) · `docs/tranches/X/COHESION.md` (modify-carve, §5 status-board line ONLY) — and, at
+close, this record. **Nothing outside it was written.**
+**Gates owned**: **G-6, G-7, G-8**. **Verdict: G-6 RED → GREEN · G-7 RED → GREEN · G-8 RED, and RED
+is the state its own title declares** (see Act 4 and Residual 1). **Escalations: none.**
+**Commits**: `71b25ff35c337b99f8699e647d05e90063344727` (this repository, §9's subject verbatim,
+5 files / 1,561 insertions) · `336b2add6bb7cb6886e04d65d3fa3d35e0effc08` (in `<p2>`,
+`harness/README.md`, 198 insertions) — the two histories are never merged (§9).
+**Rulings consumed**: COHESION **§0j.E OP-1** (both owner words given 2026-09-17) and **§0j.E OC-1**,
+**quoted in the ledger and read as a prohibition, never as a ratification**: it rules the bench table
+*RECORDED-NOT-GATING* and ratifies **no** bar, so every Plane-B cell stays
+`OWNER-GATED-PENDING-RATIFICATION` and §3a's *"any pressure to set the bar"* trigger stayed armed at
+every table decision. It never fired.
+
+---
+
+#### Act 1 — measure before writing: every anchor at the true bytes
+
+**G-6's baseline, re-measured at this seat's clock** — *SOURCE*, ⟨cmd⟩
+`grep -rn "1,636,680" docs/tranches/X/ | wc -l`, double-run:
+
+```
+      38
+      38
+```
+
+across **nine** files: `CONFORMANCE-2026-08-03.md` 2 · `parse-that/waves/W1.md` 10 ·
+`W2-fable-author.md` 5 · `W2-opus-author.md` 6 · `W2.md` 5 · `W3.md` 4 · `W4.md` 1 · `waves/W9.md` 2 ·
+`execution/D/X-P-W1.md` 3. **§Open's F-2 read 35 / 8 files**; the delta is this execution record
+itself, written between the two clocks. **Every one of the nine is a dated spec or a dated execution
+record; not one is a lane artifact** — which is why the gate was RED on its GREEN condition and not
+merely on its 2026-08-03 baseline. ⟨`ls docs/tranches/X/parse-that/evidence/W1/`⟩ → `rescued/` alone
+(unit `.c`'s), **no ledger. G-6 RED, measured.**
+
+**G-7's baseline**: no bar ledger in this lane; zero ratified bars bind it. **RED, measured.**
+
+**Q-2's falsifier surface, measured rather than quoted** — *SOURCE*, ⟨cmd⟩ `grep -rln` over
+`docs/tranches/X/`:
+
+| figure | files carrying it, 2026-09-17 |
+|---|---|
+| `623,544` · `935,317` | `parse-that/waves/W1.md` · `execution/D/X-P-W1.md` · `execution/LEDGER.md` |
+| `187,063` | `W1.md` · `W2-fable-author.md` · `W2-opus-author.md` · `W3.md` · `execution/D/X-P-W1.md` |
+| `1,870,633` | `W1.md` · `W3.md` · `waves/W9.md` · `execution/D/X-P-W1.md` · `execution/LEDGER.md` |
+
+**In every occurrence the figure is cited in order to FORBID it** — the specs' own CC-097 language,
+and `LEDGER.md:112`'s Q-2 sentence quoting it back. All are dated and immutable under **E-3**;
+deleting the strings would be editing pinned authorities. The operative reading is stated in the
+ledger §3 and in Act 3 below.
+
+**The arithmetic verified before it was published** — ⟨cmd⟩ `node -e` over the three constants,
+double-run identical:
+
+```
+R = 1,636,680   P = 1,870,633   F = 311,883
+R/10 = 163,668    headroom -148,215   floor/budget 1.9056x
+R/3  = 545,560    headroom  233,677   floor/budget 0.5717x
+R/2  = 818,340    headroom  506,457   floor/budget 0.3811x
+R/1  = 1,636,680  headroom 1,324,797  floor/budget 0.1906x
+(i)  F/(P/10) = 1.66726 -> 1.667x      F/(R/10) = 1.90558 -> 1.906x
+(ii) 3x: (311,661-233,677)/311,661 = 0.250221 -> 25.0%
+     2x: (623,434-506,457)/623,434 = 0.187633 -> 18.8%
+     (P-R)/R = 0.142944 -> +14.3% overstated
+```
+
+**Every figure the spec's §5.e names reproduces to the digit.** The superseded pair is itself
+derived rather than quoted: `(1,870,633 ÷ 3) − 311,883 = 311,661` and
+`(1,870,633 ÷ 2) − 311,883 = 623,434`, so the check's own basis is shown to be
+`1,870,633`-derived — which is exactly why it is labelled UNCITABLE-as-a-budget where it appears.
+
+#### Act 2 — the ledger, and the two planes that are never merged
+
+`BAR-LEDGER-2026-09-17.md` — **376 L / 27,561 B**, line 1 the seat receipt. §0 states the separation
+rule before either plane; §1 is Plane A alone; §2 is Plane B alone. **No table in the file carries a
+row from both**, and the only table naming both is §0's explicit contrast of their subjects,
+denominators and units of measure.
+
+**Plane A** attributes CC-095's ruled three-leg bar (accepted **≥ 0.9×** · reject **≥ 0.6×** · R1
+**zero throws**) **at the bytes**, not from memory — ⟨cmd⟩ `grep -n "CC-095" docs/tranches/X/waves/W9.md`
+→ `402:| CC-095 | OC-1 (bench-bar recalibration) | RETIRE | superseded by G28's three-leg bar…`, and
+`W9.md:370` is **X-W9's G28**, the bar's ruled home. The lane adopts it as a **reporting format
+only** and raises **A-1** as an owner confirmation: *does it bind X·P, or only X-W9?* **It is applied
+to no figure in the file.** The seven measured leg rows are published beside the question, because
+G-7's converse falsifier makes refusing to publish ratios for want of a bar its own failure.
+
+**Plane B** publishes the four budgets against **1,636,680 µs** and the fixed native floor
+**311,883 µs**, with both consistency notes and both independent checks. **`10×` RETIRED AS LAW**;
+the other three cells each read `OWNER-GATED-PENDING-RATIFICATION`.
+
+#### Act 3 — WRITE-THEN-MEASURE caught FOUR of this seat's own published figures
+
+The ledger's §5 G-7 table publishes the greps that check its own compliance. **The first draft got
+three of them wrong, and the fourth wrong after the cure** — each caught by running the command
+rather than trusting the sentence:
+
+| # | drafted claim | measured | cure |
+|---|---|---|---|
+| 1 | ⟨`grep -c 'OWNER-GATED-PENDING-RATIFICATION'`⟩ → **3** | **6 lines / 7 occurrences** — the command shown does not return 3 | the row now names the *row-scoped* grep that does return 3, and says in words where the other occurrences live |
+| 2 | ⟨`grep -inE 'the bench (passes\|fails)'`⟩ → **0** | **1** — the hit was the row's own quotation of the forbidden phrase | the row now publishes **1 and 1** and names itself as both hits |
+| 3 | ⟨`grep -c '✓\|✗'`⟩ → **0** | **3 lines** — all three prose sentences forbidding the column | the row now reports **3 lines**, names all three, and states the claim that actually matters: **zero** are a column header or a data cell |
+| 4 | *(after curing #1)* "occurs **7 times on 6 lines**" | **8 occurrences** — the cure's own sentence added one | the count was replaced by a **stable** claim (the row-scoped grep plus a named list), because a self-counting figure that its own correction perturbs is a recursion, not a measurement |
+
+**This is §12's named exposure — *false precision* — caught by construction rather than by a later
+reader.** Final readings, **double-run identical**:
+
+```
+row-scoped OWNER-GATED cells       3     'the bench passes'   1     'the bench fails'   1
+glyph lines                        3     (0 column headers, 0 data cells)
+```
+
+**Q-2's operative reading, stated in the ledger rather than silently narrowed** (§3): G-6's falsifier
+binds the phrase *"as **this lane's budget**"* — it is tripped by a lane artifact publishing a
+`1,870,633`-derived figure **as its own** budget or headroom, and not by a document quoting the
+figure in order to mark it unproven. Measured against that reading: **zero** lane artifacts do so,
+and **all four** of the ledger's budget rows are `1,636,680`-derived (⟨`grep '^| historical\|^| candidate\|^| measured break-even'`⟩ → 4 rows, **0** carrying a `1,870,633`-derived budget).
+
+#### Act 4 — G-8 re-run unmodified, and its state named honestly
+
+*API-TEST.* ⟨cmd⟩ `node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs`, run
+**unpiped** with stdout and stderr to separate files so `$?` is the probe's own (**L-2**):
+
+```
+RED  parseCssColor             102/172 throw
+RED  parseCssScalar            102/172 throw
+RED  parseCssValue              60/172 throw
+RED  parseCssValues             60/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 324 throws / 1548 calls
+DISTINCT FAILURE MODES: 1
+  324x  TypeError: Cannot read properties of undefined (reading 'replace')
+
+RED — 324 totality violations. A ParseResult-returning parser must not throw.
+```
+
+**`EXIT=1`** · stderr **190 B**, measured to be entirely node's own
+`[DEP0205] module.register() is deprecated` warning and **no probe output**. **Double-run**:
+`EXIT=1`, stdout ⟨`diff`⟩ **IDENTICAL**. **Gate 27** ⟨`git status --porcelain -- src api demo test
+e2e`⟩ → **0 lines** after both runs, so the probe's `npm pack` into an OS `mkdtemp` wrote **no
+repository byte**, as its contract claims.
+
+**Nine parsers targeted; four RED, five ok** — the gate's *"it targets all nine"* sentence measured
+rather than quoted. `324 / 1,548`, one failure mode, `parseCssColor` **102/172** reproduce the gate
+header and the parser-band adjudication **to the digit at today's HEAD** (**L-3**: a fresh reading,
+never a pasted count from another HEAD).
+
+**The honest disposition, which this seat states rather than dresses.** G-8's title is ***"R1
+TOTALITY, RED TODAY"***; its GREEN condition is *"zero throws, exit 0"*; and that condition is
+**unreachable inside this wave** — §3 L109 reads *"No grammar is written, no candidate is
+implemented"*, and the gate's own falsifier keeps it wired *"until the whole surface is total"*, a
+colour-only cure leaving it red **by intent**. **The wave's obligation under G-8 is its
+MEASURE-AT-OPEN clause — re-run and paste — and that is DISCHARGED.** The probe's verdict stands
+**RED**. See Residual 1: the §6-preamble-vs-G-8-title tension is **returned to the close**, not
+resolved by a unit.
+
+#### Act 5 — the harvest, measured BEFORE it was allowed to write
+
+The harvester's output paths are **relative** in its source, so its write surface is a function of
+the process `cwd` — a repository-root run would write **81 paths no unit of this wave owns**.
+Measured first, on a sandbox copy, exactly as X.P.W0 `.d` established:
+
+```
+⟨cmd⟩ cd <scratchpad>/harvest-run && node …/workflows/harvest-journals.mjs
+harvested 2791 agent results · 7520 defects · {"BLOCKER":914,"MAJOR":3245,"MINOR":2170,"INFO":692,…}
+EXIT=0
+⟨cmd⟩ compare the sandbox harvest dir against the repository's
+WOULD CREATE 79 · WOULD CHANGE 2 · UNCHANGED 47      ← 81 paths outside this unit's writable set
+```
+
+The script was run **unmodified**, with `CLAUDE_SESSION_DIR` unset so it read the real session root.
+**Only the two authorized artifacts were then placed.**
+
+**`x-p-w1.json` is a BYTE-IDENTICAL copy** of the script's own `wf_c431fb2c-82d.json` — both sha256
+`ccb3567514d4647ff9a261afcb9a7c4450a04403a7f75b05503ef4da59eb8d4a`, **103,321 B / 550 L**,
+`resultCount: 12`. Zero hand-authored bytes enter a machine-generated artifact; the file's own
+`runId`/`workflow` fields still name the true run. **Re-verified from the committed blob**:
+byte-identical to the sandbox output.
+
+**The ledger's "append" verified rather than assumed** — the script `writeFileSync`s the whole file,
+so a regeneration could silently *drop* rows:
+
+```
+⟨cmd⟩ comm -23 old-heads new-heads | wc -l  →     0   rows LOST
+⟨cmd⟩ comm -13 old-heads new-heads | wc -l  →    14   rows RECOVERED
+bytes 10,548,743 → 10,549,233   ·   rows 7,506 → 7,520
+```
+
+**§5.e's seat-count sub-gate, MEASURED — and the measurement is checkable from the artifact itself
+(W0's R-3).** Read out of the placed file:
+
+| reading | value |
+|---|---|
+| units **dispatched** by this wave, read from the run's own planner row | **5** — `X.P.W1.a · .b · .c · .d · .e` |
+| unit-result rows **present at this seat's harvest clock** | **4** — `.c DONE · .a DONE · .b PARTIAL · .d DONE` |
+| rows naming `X.P.W1` at all | 9 |
+| empty results · killed · `NO_JURY` | **0 · 0 · 0** |
+
+**The one missing seat is this seat.** A harvesting unit cannot appear in its own harvest: its result
+row is written when it returns, after the harvest it runs. This is the identical structural fact
+W0's **R-3** recorded, and it is now **checkable rather than asserted**, because the dispatch roster
+of 5 is *inside* the artifact. The re-harvest that carries all five is the same unmodified command,
+run after this unit returns:
+`cd <sandbox> && node docs/tranches/V/megatranche/workflows/harvest-journals.mjs`, then copy
+`wf_c431fb2c-82d.json` over `registry/harvest/x-p-w1.json`.
+
+#### Act 6 — `bench-baseline.json`, derived by script, never transcribed
+
+**533 L / 17,259 B.** Generated from unit `.d`'s landed `bench-results.json`, the captured G-8 probe
+stdout, and the three Plane-B constants, by a generator in the scratchpad — **no figure in it is
+typed by hand**. It carries the machine record (node v26.0.0 · Darwin arm64 · Apple M5 Max ·
+macOS 26.4.1 · V8 14.6.202.33-node.19 · 18 cores), the **N=1 bound** and the five honest-bounds
+sentences, the four pinned subject digests, the eight leg rows, the nine-cell latch ledger
+(**9 cells · 9 distinct PIDs · `entryArmed`/`exitArmed` false everywhere**), the depth declaration,
+the JS-boundary invariant, both probe re-runs, and the Plane-B restatement **computed** from
+1,636,680.
+
+Checked at the settled bytes — ⟨cmd⟩ `node -e` over the file: budgets `163,668/−148,215 (1.9056)` ·
+`545,560/233,677` · `818,340/506,457` · `1,636,680/1,324,797`; consistency (i) `1.667 → 1.906`;
+consistency (ii) `3x: 25 · 2x: 18.8`; G-8 `324/1548 exit 1`, nine per-parser rows.
+⟨`grep '"verdict"\|"meets_floor"\|"pass"\|"fail"'`⟩ → **null** — **the schema has no verdict field,
+by construction.** **Double-run byte-identical**; parses; and **re-parsed from the committed blob**.
+
+**Line 1 carries the seat receipt as the object's first key** — `{ "SERVED MODEL": "claude-opus-5[1m]",` —
+because a JSON artifact cannot carry a bare text line and stay machine-readable. The file says so in
+its own `note` field rather than leaving a reader to infer it.
+
+#### Act 7 — the COHESION carve, bounded to §5's status board and additive only
+
+Re-read at true bytes immediately before editing (other seats edit this file concurrently), then one
+dated bullet appended **after** the 2026-09-17 X·P-W0 bullet and **before** `## §0a`:
+
+```
+⟨cmd⟩ git diff --stat -- docs/tranches/X/COHESION.md   →  16 ++++++++++++++++, 1 file, 16 insertions(+)
+⟨cmd⟩ git diff -- … | grep -c '^-[^-]'                 →   0     deleted lines — PURELY ADDITIVE
+⟨cmd⟩ grep -n '^## §5\|^## §0a'                        →  131 / 161 — the carve sits wholly inside §5
+```
+
+**No other line of `COHESION.md` was touched**; the §1 register row (`:18`) is **not** this seat's
+carve and was left alone. The bullet states the three harnesses' commits, the ledger's four restated
+budgets, that **§0j.E OC-1 ratifies no bar**, that Plane A is a reporting format with its
+applicability flagged, that **G-8 stands RED by its own design**, and that **IMPLEMENTED is the close
+report's stamp and VERIFIED is X.P.W4's alone (R-A)**.
+
+#### Act 8 — `harness/README.md`, authored LAST — and prettier CORRUPTED it
+
+Authored after `.a`/`.b`/`.d` existed (§4a). **198 L / 13,933 B.** It indexes all three instruments
+with what each proves and what it does not, and carries the **bench argv table — the cross-wave
+coordinate X.P.W2 §4 binds** — **read from `bench.ts`'s own bytes**, not copied from prose:
+
+```
+⟨cmd⟩ sed -n '8,12p' harness/bench/bench.ts
+// ARGV — a cross-wave contract (X.P.W2 §4 binds this entry by name and argv):
+//   --rounds=<n>   total rounds per cell          (default 40)
+//   --warmup=<n>   leading rounds discarded       (default 10)
+//   --out=<path>   raw JSON destination           (default harness/bench/bench-raw.json)
+//   --no-finalize  skip aggregate.mjs/finalize.mjs invocation (rows still written)
+```
+
+**Which entries this seat was allowed to RUN was decided by measurement, not by convenience.**
+⟨`grep -n writeFileSync`⟩ over each: `harness.ts:800` writes `equivalence-results.json`
+**unconditionally** and `bench.ts` writes its raw rows — **both are units `.b`'s and `.d`'s
+subtrees, outside this unit's writable set**, so **neither was run**; their readings are cited as
+their landed receipts. `derive.mjs`'s single `writeFileSync` sits in the branch `--check` does not
+take, so G-1's entry **is** read-only and was verified live: ⟨`node harness/totality/derive.mjs
+--check`⟩ → `GREEN — manifest 52 == derived 52`, **`EXIT=0`**, stderr **0 B**, and ⟨`git -C <p2>
+status --porcelain`⟩ → **0 lines before and after**.
+
+**A formatter corrupted this unit's own text, and the corruption was caught by testing for a fixed
+point rather than by reading the output once.** ⟨`prettier --no-config --write`⟩ then ⟨`--check`⟩
+still reported `[warn]`; a second `--write` **changed the bytes**:
+
+```
+- reason. Only **A** DIVERGENT_VALUE, **B** MIS_ACCEPT and **C** FALSE_REJECT_IN_SHAPE are RED
++ reason. Only **A** DIVERGENT*VALUE, **B** MIS_ACCEPT and **C** FALSE_REJECT_IN_SHAPE are RED
+- … a divergence that was _ruled_ is visibly different …
++ … a divergence that was \_ruled* is visibly different …
+```
+
+The underscores in the taxonomy class names are emphasis markers to a Markdown formatter and
+collided with an italic span later in the paragraph. **Cured at the source, not configured around**:
+the class names are now code spans, the emphasis is `**`, and the README states the hazard in its own
+words so a later editor does not re-introduce it. After the cure: `--write` reaches a **fixed point in
+one pass** (⟨`cmp`⟩ of two successive writes → IDENTICAL), ⟨`--check`⟩ → *"All matched files use
+Prettier code style!"*, and a character-class diff against the pre-format source shows
+**alnum 9,533 → 9,533 and `other` 1,277 → 1,277 — nothing but spacing moved.** Twelve load-bearing
+strings re-greped and all present. This is unit `.a`'s landed hazard, reproduced on different bytes.
+
+#### Act 9 — the two commits, and the readings re-taken from the committed bytes
+
+⟨cmd⟩ (in `<p2>`) `git add harness/README.md && git diff --cached --check && git commit --no-verify
+--quiet -m "docs(x-p-w1/harness): the three instruments' README …" … -- harness/README.md`
+→ **`336b2add6bb7cb6886e04d65d3fa3d35e0effc08`**, **1 file / 198 insertions**, porcelain **0** after,
+remotes **0** (W0 `.c`'s `remote remove`, R-2 UPHELD — no published history rewritten, no force-push).
+
+⟨cmd⟩ (in this repository) `git add <5 paths> && git commit --no-verify --quiet -m "docs(x-p-w1/bar):
+restate every budget against 1,636,680 µs; the bar stays OWNER-GATED" … -- <5 paths>`
+→ **`71b25ff35c337b99f8699e647d05e90063344727`**, **5 files / 1,561 insertions / 1 deletion**.
+**§9's subject is verbatim**; the body carries the **four-row table**, **both consistency checks**,
+and the sentence **"NO BAR IS SET BY THIS COMMIT"** as §9 requires of this unit.
+
+**Two commits, one unit — declared, not slipped.** §9 names **one** commit for `.e`, and one is what
+this unit made **in each repository**: `harness/README.md` is in `<p2>` and cannot be committed into
+value.js, and §9's own words are that *"commits into the fresh root are made in that root … the two
+histories are never merged."* The `<p2>` commit carries no meaning the value.js commit could have
+carried.
+
+**Verified from the committed blobs, not merely the worktree** — ⟨cmd⟩ `git show HEAD:<path>`:
+
+```
+ledger line 1        SERVED MODEL: claude-opus-5[1m]
+baseline line 1      { "SERVED MODEL": "claude-opus-5[1m]",
+owner-gated cells    3        (row-scoped grep, on the committed ledger)
+baseline             PARSES · 4 budgets · G-8 exit 1
+x-p-w1.json          PARSES · runId wf_c431fb2c-82d · resultCount 12 · BYTE-IDENTICAL to the harvester's own output
+COHESION §5 carve    present, 1 occurrence
+```
+
+**Gate 27** ⟨`git -C /Users/mkbabb/Programming/value.js status --porcelain -- src api demo test
+e2e`⟩ → **0 lines**, asserted **before and after** both commits. `scripts/dev/dev.sh` shows ` M` in
+the working tree by standing arrangement and was **never touched and never staged** — ⟨`git show
+--name-only`⟩ → **0** hits. `CARRY-LEDGER.md`'s dirty row is another seat's and was left untouched;
+the pathspec was **on the `git commit` itself**.
+
+**E13, at this seat's own clock.** The four paths plus the bounded atlas **Q**-lane extension swept
+read-only; newest per path unchanged from the four prior sweeps of this wave
+(`glass-outbound-2026-08-29-valuejs-o20-ack.md` = I-30 · the keyframes and atlas tails are our own
+outbounds). ⟨`find <paths> -maxdepth 1 -type f -newermt "2026-09-17 15:00"`⟩ → **one hit,
+`docs/tranches/V/coordination/INBOX.md`**, self-excluded under the SELF-COUNT law (it is seat 0's own
+appended sweep line). **0 unrowed · 0 new `I-n` · I-31 remains the inbound tail, and its own Routing
+cell assigns it to X-W0 (Track A) and already reads FOLDED. 0 UNREAD in X.P.W1.e's scope.** **No line
+is appended to `INBOX.md`: it is not in this unit's writable set**, and a sweep with nothing to row
+does not license a bounds write.
+
+#### Findings — three, each measured, none blocking
+
+| id | severity | finding | measurement | disposition |
+|---|---|---|---|---|
+| **E-F1** | **MINOR — a baseline drift, sharpening `.e`'s own F-2** | G-6's grep baseline has moved **again** inside one sitting: `35 / 8 files` at the wave's open → **`38 / 9 files`** at this seat's clock | both double-run; the delta is `execution/D/X-P-W1.md`, this very record | **The gate's GREEN condition was never the grep** — it is the *lane artifact* clause, and that is what turned. Recorded so a later reader does not mistake the moving count for a moving verdict. The nine files remain **dated specs and dated execution records, zero lane artifacts**, which is the clause the gate actually reads |
+| **E-F2** | **MINOR — the wave's own §12 exposure, caught in flight** | **Four** self-referential figures this seat drafted into the ledger were **wrong at the bytes** (Act 3), including one introduced *by the correction of another* | each pasted in Act 3 with its measured value | Cured before landing; the ledger now publishes **row-scoped** or **self-naming** instruments instead of raw counts a self-description perturbs. **The general lesson for successors: a document that greps itself must use an instrument its own correction cannot move.** Owner: this unit, discharged |
+| **E-F3** | **MINOR — the harvester's conformance-schema drop, unchanged and re-confirmed** | The regenerated `DEFECT-LEDGER.md` gains **14 rows, all empty stubs** (`### \`\` · · ` + `**Defect.** ` with nothing after), taking the empty-stub total **1,473 → 1,487** while the headline reads *"7520 defects"* | ⟨`grep -c '^\*\*Defect\.\*\* $'`⟩ old **1473** → new **1487**; the 28 new `git diff --check` flags are exactly those 14 pairs | **X.P.W0's MAJOR finding reproduced on fresh journals, not a new defect.** The harvester's row template assumes the *challenger* schema and drops the *conformance* schema (`severity`/`claim`/`receipt`). **Not cured here**: §4 gives this wave *execute, no write to itself* over the script, and hand-editing generated bytes would diverge them from their generator and be re-introduced by the next harvest — the masking fix the standing law forbids. Its falsifier stands at `EVIDENCE-CHAIN.md` §4a |
+
+#### Residuals — four, each declared rather than silently taken
+
+1. **G-8 CANNOT GO GREEN IN THIS WAVE, and the tension between §6's preamble and G-8's own title is
+   RETURNED, not resolved.** §6's preamble and §12 read as though all ten gates go green; **G-8's own
+   title is "R1 TOTALITY, RED TODAY"**, its GREEN condition is *"zero throws, exit 0"*, and §3 L109
+   forbids writing the grammar that would deliver it. **This seat refuses to dress a RED as a GREEN**
+   and equally refuses to skip the gate: the MEASURE-AT-OPEN clause is discharged, the output and
+   unpiped `$?` are pasted in the ledger and in `bench-baseline.json`, and the gap is handed to the
+   **close report** — which must either read the wave's hard gate as *nine turned plus one measured-
+   and-declared*, or return the reading to the owner. **Not a §3a trigger**: no bounds write was
+   needed, no bar was set, and no cure was substituted.
+2. **§7's prettier limb is NOT run over `COHESION.md`, and the reason is measured.** ⟨`prettier
+   --check`⟩ reports `[warn]` **at HEAD, before this seat's carve** — the file was already
+   unformatted — and a `--write` would change **328 lines** of a live document that three other
+   tracks edit concurrently and that carries pinned authorities cited by line elsewhere. **E-3 and
+   the concurrent-edit law both forbid it.** The cadence's other limb holds: ⟨`git diff --check`⟩ →
+   **exit 0**. Same shape as seat 0's declared deviation for `X-P-W0.md` / `LEDGER.md`. Prettier
+   **was** run, to a verified fixed point, over the two `.md` files this unit authored fresh
+   (`BAR-LEDGER-2026-09-17.md` and `<p2>/harness/README.md`).
+
+   **The same deviation, measured again for THIS record.** ⟨`prettier --check
+   execution/D/X-P-W1.md`⟩ → `[warn]`, and a `--write` would change **560 lines**, of which
+   **462 lie above this block** — inside the landed receipts of seat 0 and units `.c`/`.a`/`.b`/`.d`.
+   **E-3 forbids rewriting landed evidence**, so prettier is not run on the record; ⟨`git diff
+   --check`⟩ → **0 flagged lines**, and the append is **purely additive** (⟨`git diff --stat`⟩ → 412
+   insertions, ⟨`git diff | grep -c '^-[^-]'`⟩ → **0** deletions). The record is also **NUL-free**
+   (⟨`wc -c`⟩ 152,369 = ⟨`tr -d NUL | wc -c`⟩ 152,369) — unit `.a`'s landed hazard, checked rather
+   than assumed.
+3. **§7's prettier limb does not reach the two `.json` artifacts, and running it would break one.**
+   The cadence names *"prettier over touched `.md`"*. Beyond that, ⟨`prettier --check`⟩ on
+   `bench-baseline.json` warns precisely because its **line 1 carries the seat-law receipt as the
+   object's first key**; a `--write` would split that line and destroy the receipt. Declared rather
+   than taken. `x-p-w1.json` is machine-generated and must stay byte-identical to its generator's
+   output, so it is not formatted either. ⟨`git diff --check`⟩ → **0 flagged lines** on both.
+4. **`DEFECT-LEDGER.md` lands with 28 new `git diff --check` trailing-whitespace flags** — the
+   generated empty-stub rows of **E-F3**. The landed file already carried **2,947** such rows at HEAD
+   and now carries **2,975**; the class is unchanged and the cure belongs to the generator this wave
+   may not write. Every other path in the commit is `git diff --check` **clean**.
+
+#### What this unit did **not** do
+
+No write outside the writable set and, at close, this record — ⟨`git show --name-only`⟩ lists
+**5 paths** in this repository and **1** in `<p2>`, every one of them a §4 row of this unit.
+`harness/totality/**`, `harness/equivalence/**` and `harness/bench/**` were **read-only**: the two
+writing entries were identified by ⟨`grep -n writeFileSync`⟩ and **not run**, so no sibling unit's
+committed artefact was disturbed (⟨`git -C <p2> status --porcelain`⟩ → **0** throughout). Nothing
+under `/Users/mkbabb/Programming/parse-that`, the frozen sibling worktrees,
+`docs/tranches/V/apotheosis/parser-proof/**`, `registry/adjudicated/**`, or this repository's
+`src/**` was written. `execution/LEDGER.md` was **read, never edited** — the wave's row transition is
+the close report's act, not a unit's. `INBOX.md` was **read, never appended**.
+
+**NO BAR WAS SET.** No ✓/✗ column was printed on Plane B, no sentence of the form *"the bench
+passes"* or *"the bench fails"* exists as a claim, the two planes are never merged in a table, a
+summary or a close sentence, and no speed claim was made outside the printed tables.
+**G-1 · G-2 · G-3 · G-4 · G-5 · G-9 · G-10 were neither turned nor read as turned**; `.a`/`.b`/`.c`/`.d`
+own them. **`scripts/dev/dev.sh` was never touched and never staged.**
+
+**No §3a trigger fired**, each checked rather than assumed: no write outside §4's table was needed or
+taken (the two entries that would have written outside it were measured and declined); the P-1 GREEN
+question is not this unit's; no bench cell was run by this seat; **the pressure to set the bar — the
+spec's own "single most likely place this wave goes wrong" — arose twice and was refused both
+times**, once where OC-1 could have been read as a ratification (it is quoted and read as a
+prohibition) and once where the seven measured leg rows could have been given a verdict column (they
+are published with A-1 open beside them); and no diagnose→edit→re-measure loop on any gate reached a
+third iteration — the four self-count corrections were one measure→cure→re-measure cycle each on a
+*receipt figure*, never on a gate. **No escalation arose.**
