@@ -92,3 +92,4 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 ## Event log (dated, append-only)
 
 - 2026-09-17 — begin-word received; ledger opened; P-1..P-3 dispatched as workflow `x-begin`.
+- 2026-09-17 — P-1 mail round: 0 rowed, 8 tail items cured, commit 642a0098.
