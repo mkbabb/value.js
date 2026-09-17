@@ -8,8 +8,8 @@ addenda, not patches). Where v2 is silent, v1 governs unchanged.
 
 **Authority**: `docs/tranches/X/fourier/waves/F-W5.md` (the wave spec) · `docs/tranches/X/COHESION.md`
 §0/§1 SS-4 and **§0j.D** (the owner's rulings under the 2026-09-17 begin-word).
-**Status**: **§A and §B authored** (F.W5 unit b, 2026-09-17). §C–§E land at unit c; §F–§G and the
-value-side obligation list at unit d; the inline ruling block is
+**Status**: **§A and §B authored** (F.W5 unit b, 2026-09-17); **§C, §D and §E authored** (F.W5 unit c,
+2026-09-17). §F–§G and the value-side obligation list at unit d; the inline ruling block is
 `contract/OWNER-RULINGS-F.W5.md` (unit e).
 **Neutrality**: this document is authored in the value.js tree because value.js is the wave's writing
 repo, and it is **neutral in force**: every clause binds **both** ends or names which end it binds and
@@ -47,7 +47,7 @@ unspoken.**
 | §3.1–§3.3 — the canonical shapes | **IN FORCE**; §F re-states the diff envelope against them (unit d) |
 | §4 — the casing rule | **RESTATED AS A MECHANICAL CHECK ON EACH SIDE — see §A2.4** (G18's casing limb). The rule's content is unchanged; what changes is that it is no longer prose a reader applies |
 | §5 — the JSON examples | **IN FORCE**, as v1's bytes |
-| §6 — the close-gate clause | **RE-AUTHORED at unit c** under owner ruling R1 (`§0j.D` F-SS4REST): value.js is re-scoped out of the diff clause, so the parity verdict becomes explicitly **one-sided**. v2 §A2/§A3 do not pre-empt that re-authoring; the casing limb below is stated so it survives either verdict |
+| §6 — the close-gate clause | **RE-AUTHORED — the re-authored §6 is quoted in full at clause `E3`** (F.W5 unit c, 2026-09-17) under owner ruling R1 (`§0j.D` F-SS4REST): value.js is re-scoped out of the diff clause, so the parity verdict is explicitly **one-sided**. v2 §A2/§A3 do not pre-empt it; the casing limb below survives either verdict and is unaffected |
 | §7 — the summary | superseded in scope by this §0, unchanged in content |
 
 ### §0.3 Bases, and the measure-at-open declaration (D-19)
@@ -706,10 +706,1535 @@ denominator has manufactured the coverage it is measuring.
 
 ---
 
-*§A and §B are complete. §C (authority, session and transport posture) · §D (the denominator,
-disposition and coverage) · §E (provenance, lineage and persistence) land at F.W5 unit c; §F (the
-equation contract and error envelope) · §G (canonical geometry) and the value-side obligation list at
-unit d; `contract/OWNER-RULINGS-F.W5.md` and the co-signature relay at unit e. Clause ids in this file
-are preserved verbatim for sibling cross-references; a sibling's mis-keyed cite is conformed **at the
-sibling** (R-1e). No clause is numbered D9 — `D9` is reserved throughout for the ruled owner decision,
-which no clause may contradict.*
+## §C — Authority, session and transport posture (R3-7b)
+
+**The band's subject.** §A fixed the *shape* of what crosses the wire and §B fixed *whose* identity keys
+it. §C fixes **who may cross at all**, and it is the band where the contract's silence is itself the
+defect: an operation that documents no authority is not thereby open — it is **undecided**, and an
+undecided operation cannot be conformance-checked from either side.
+
+**The measured ground this band stands on** — re-run at this seat, 2026-09-17, base `$F`, double-run:
+⟨cmd⟩ `/usr/bin/grep -rE 'HTTPBearer|APIKeyHeader|OAuth2|SecurityScopes|security=|openapi_extra|Security\(' api/ --include='*.py' | wc -l` → **0**. **Zero security schemes across 45 operations.** The
+register (`contract/operation-register.md` §3) is the surface on which that zero becomes row-by-row
+checkable; §C is where the two decisions the zero forces are **made**.
+
+### C1 — Authority class per operation
+
+**RULE.** **Every operation in this contract carries exactly one explicit AUTHORITY CLASS, and the class
+is part of the contract, not an implementation detail of the handler.** The register
+(`contract/operation-register.md` §2, 45 rows) is the normative enumeration; a class token is a **named
+mechanism**, never a mood. An operation whose class is unstated is **not admissible** to this contract,
+and an operation whose class is `ANONYMOUS` says so deliberately and carries the reason in the clause
+that owns it. **Enforcing authority and documenting authority are two obligations, and discharging the
+first does not discharge the second.**
+
+The closed class vocabulary, as the register assigns it: `ADMIN-TOKEN` · `SESSION-DECLARED` ·
+`SESSION-IN-BODY` · `OWNER-IN-BODY` · `VIEWER-SCOPED` · `ANONYMOUS`. Six tokens, 45 rows,
+`13 + 1 + 2 + 5 + 5 + 19 = 45`.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **The documentation surface is empty and the enforcement surface is not.** Zero security schemes (the
+  band figure above), while **26 of the 45 rows enforce some authority**. The mechanism is enumerable
+  rather than asserted: ⟨cmd⟩ `/usr/bin/grep -rn 'def admin_required\|def require_session\|def resolve_session' api/` → `api/dependencies.py:262` · `:254` · `:206`, each a plain
+  `async def …(request: Request)` reader. **A plain `Request` reader emits no `security` block**, so the
+  OpenAPI document reports `0/45` while the code enforces `26/45`. **Enforced-but-undocumented is the
+  R3-7b contract defect in its exact shape.**
+- **The dock's only API seam is an unauthenticated write with a client that always authenticates.**
+  ⟨cmd⟩ `/usr/bin/sed -n '18,26p' api/routers/contours.py` → `router = APIRouter(prefix="/api/contours", tags=["contours"])` — **no `dependencies=`** — and `@router.post("")` /
+  `async def save_contour(req: SaveContourRequest):` — **no `Depends`, no `Header`, no `Request`
+  parameter**. The same call is the one non-idempotent-shaped write on that router, and it **declines
+  the `Idempotency-Key` channel its own client core declares**: the envelope exists
+  (`api/lib/crud/idempotency.py:63`) and this route does not take it.
+- **The publicly-cacheable pre-publication surface.** ⟨cmd⟩
+  `/usr/bin/grep -n 'Cache-Control' api/routers/images.py` → **four lines**, spelled as what they are:
+  **three header sites** — `:145` (blob) · `:164` (thumbnail) · `:205` (overlay), each
+  `{"Cache-Control": "public, max-age=86400"}` — ⊕ **one comment**, `:138`. Register rows 23 · 24 · 25
+  are all `ANONYMOUS`, so an unauthenticated GET over a **pre-publication** asset is cached publicly for
+  a day.
+- **The entropy that is doing the actual access control.** ⟨cmd⟩
+  `/usr/bin/grep -n 'def generate_slug' api/lib/crud/slugs.py` → `:40`, and `:42`
+  `return "-".join(secrets.choice(_WORD_LISTS[k]) for k in _WORD_KEYS)` — **four `secrets.choice` draws
+  over 128-word lists = 2²⁸** (F-4's arithmetic, re-derived here from the same two lines). Unguessability
+  is a real property; it is **not** an authority class, and this contract does not let it stand in for
+  one.
+
+**DECISION — G8's close names two, and v2 makes them here.** The register made them *checkable*; the
+contract makes them.
+
+1. **`save_contour` (register row 14) — the write is ruled `SESSION-DECLARED`, not `ANONYMOUS`.** The
+   client already authenticates on every call through this core; the server declining to read what the
+   client always sends is the asymmetry, not a permission grant. The cure is the **dependency**, not a
+   client change. ▲ And the over-statement is barred in the same breath, at the record's own bytes
+   (⟨cmd⟩ base `$R`, `/usr/bin/grep -n -F 'not an exploit, is the defect' fr-EditorControlsDock.md` →
+   `:60`): ***"The asymmetry, not an exploit, is the defect (content-addressed store honestly noted)."***
+   The store is content-addressed and abort-keyed; **this is not the sibling's publish-blocker**, and the
+   seam is recorded **R6-8-CLEAN as a positive**. The `Idempotency-Key` channel is taken on the same act,
+   because a non-idempotent write that declines the replay envelope its own core offers is an
+   undeclared retry hazard, not a design.
+2. **The image GETs (rows 23 · 24 · 25) — `ANONYMOUS` is RETAINED for the blob and thumbnail of a
+   PUBLISHED entity and is WITHDRAWN for the pre-publication surface.** The class is not the whole
+   decision: **the cache directive is part of the authority posture**, because a 24-hour public cache on
+   an unauthenticated URL converts a later visibility change into a no-op for every intermediary. The
+   contract therefore binds the two together — *the visibility gate and the cache directive are decided
+   in one act*, and §C2 is where that act lands for the moderation case.
+
+**DISPOSITION.** Booked: **`R3-7b`** (the un-refuted CONTRACT DEFECT) · **`GCM-52`** (C-15) ·
+**`fr-GalleryDraftsSection F-4`** (= C-C-8). **`fr-EditorControlsDock D-12 / C-4 / C-5`** rides with its
+**full banked head** — the alias limbs are carried because a dropped limb is invisible to an id-keyed
+difference **in both directions** — and its rider (async commit, no pending state, no double-submit
+guard, a reachable silent unhandled rejection) rides the same seam. **`fr-EditorControlsDock C-6/C-7`**
+is CITED for the asymmetry sentence above. Identity stays with the intake at every instantiation
+(EditorControlsDock C-6, GCM-52, `FR-AFP-4`, GalleryDraftsSection F-4 all say so) — **fold by reference,
+never re-book**. The acts land at the **fourier API row**; **F.W5 claims credit for none of them** (§0b).
+
+▲ **LOCK — the register is the enumeration; the contract is the decision; neither substitutes for the
+other.** A later wave may not close G8 by pointing at the register alone (the classes are a *measurement*
+of today's handlers) nor by pointing at this clause alone (a decision with no row-level surface is
+unfalsifiable). **G8 closes on both**, and a conformance probe reads the register row-wise against this
+clause's vocabulary.
+
+### C2 — Image remediation contract — ONE unit
+
+**RULE.** **A moderation action that is advertised as taking content down TAKES THE CONTENT DOWN**, and
+the four mechanisms that together decide whether it does are **ruled as one unit**: (i) the delete or
+quarantine verb over the **asset**, not only over the entity that references it; (ii) the **blob
+visibility gate**; (iii) the **janitor's recency predicate**; and (iv) **thumbnail versioning**. A
+contract that rules any one of the four alone has ruled none of them, because each of the other three
+independently restores the artifact.
+
+**WITNESS** (measured this seat, base `$F`). **No action the moderation panel offers takes the reported
+artifact offline**, and each limb is measured separately:
+
+- **There is no asset-level delete.** ⟨cmd⟩
+  `/usr/bin/grep -cE '^@router\.(get|post|put|patch|delete)\(' api/routers/images.py` → **7** operations;
+  ⟨cmd⟩ `/usr/bin/grep -cE '^@router\.delete\(' api/routers/images.py` → **0**. The panel's *Delete* is
+  a soft-delete of the **visualization** (register rows 5 · 33), not of the image.
+- **The blob GET is unauthenticated and publicly cached** — §C1's `:145`/`:164`/`:205` header sites,
+  register rows 23 · 24 · 25, all `ANONYMOUS`.
+- **The janitor's recency predicate is bumped by the very fetches that make the content a problem.**
+  ⟨cmd⟩ `/usr/bin/grep -rn 'touch_document' api/ --include='*.py'` → six sites, of which two are the
+  asset read paths: `api/dependencies.py:75` `await touch_document("images", {"image_slug": image_slug})`
+  and `:100` `await touch_document("contours", {"contour_hash": contour_hash})`. **Actively-fetched
+  reported content is precisely what never reaps.**
+- **The thumbnail URL is unversioned**, `${BASE}/api/images/${imageSlug}/thumbnail` (⟨cmd⟩
+  `/usr/bin/sed -n '292,294p' web/src/lib/api.ts`), so the 24-hour public cache **negates the deliberate
+  re-upload regeneration** — the one remediation path that does regenerate the artifact cannot be
+  observed by any client for a day.
+
+**DISPOSITION.** Booked: **`FR-AFP-4`** (L-1/C:D-2, the BLOCKER-weight survivor) · **`m-15`**. **`GCM-52`**
+and **`fr-GalleryDraftsSection F-4`** are CITED (booked at §C1); **ImageUpload row 26's security half** is
+CITED, its transport half living at §E15. ▲ **`m-15` is CROSS-REFERENCED, NOT MERGED with F-4**: **F-4
+books *who can fetch*; m-15 books *what they see*.** The deployment auth-proxy question stays **UNPROVEN
+→ SS-13**. Home: the **fourier API row**, as one unit.
+
+▲ **LOCK — C's scope discipline, at the record's own bytes** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F "C's scope discipline preserved: soft-delete does de-list from browse" fr-AdminFlaggedPanel.md` → `:47`): ***"C's scope discipline preserved: soft-delete does de-list from
+browse"*** — the down-listed form is the record's, and v2 must not over-state the finding: **de-listing
+from browse is real and is not take-down**. The four limbs ship together or the unit is not closed; a
+repair that lands the delete verb and leaves the janitor predicate has moved the artifact from *reachable
+and listed* to *reachable and unlisted*, which is the state the panel already produces.
+
+### C3 — Session truth, the canonical admin predicate, and the dead subsystem (R9)
+
+**RULE.** **A client's authentication predicate is a statement about the SERVER's view of the caller, not
+about the presence of a string in local storage**, and **exactly one predicate is canonical** for each of
+*logged in* and *is admin*. The contract states which. Two corollaries bind both ends: **(a)** a `401` is
+part of the contract vocabulary and the client speaks it; **(b)** **a declared capability with zero call
+sites is not a session subsystem — it is dead code, and the contract does not carry it.**
+
+**Session form, settled** (lane-crud §R-7, adopted): **v2's session clause takes the value.js form — a
+SHA-256 digest at rest**; fourier persists the raw UUIDv4 as `_id`. The digest form is the contract's.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **`isLoggedIn` is a presence check over restored localStorage.** ⟨cmd⟩
+  `/usr/bin/sed -n '14,22p' web/src/stores/auth.ts` → `:14`
+  `const userSlug = ref<string | null>(safeGetItem(localStorage, USER_SLUG_KEY));` and `:21`
+  `const isLoggedIn = computed(() => !!userSlug.value);`. A >30-day identity renders **authenticated
+  forever** until a mutation fails.
+- **The vocabulary for that failure is not spoken.** ⟨cmd⟩
+  `/usr/bin/grep -rn '401' web/src --include='*.ts' --include='*.vue' | wc -l` → **0** (double-run).
+  ⊘ **Instrument disclosure**: the unscoped form `/usr/bin/grep -rn '401' web/src | wc -l` returns **7**,
+  and **all seven are digit substrings inside `web/src/assets/fourier-paths/moon.json`** — a coordinate
+  file. The spec's stated ZERO is true of the source tree and false of the naive probe, which is the same
+  class as a `__pycache__` line inflating a source count: **the digit is wrong and the command still
+  "works"**.
+- **`getMe` — the one revalidation edge — has zero call sites**, register row 29, §4.3: ⟨cmd⟩
+  `/usr/bin/grep -rw 'getMe' web/src --include='*.ts' --include='*.vue' | /usr/bin/grep -cv 'lib/api.ts'`
+  → **0**.
+- **The admin predicate is forked and the non-persisted half is the one on screen.**
+  `web/src/stores/auth.ts:22` exposes `isAdminAuthenticated = computed(() => !!adminToken.value)` over a
+  token **restored from localStorage** at `:16` — and the badge reads `galleryStore.adminMode` instead:
+  ⟨cmd⟩ `/usr/bin/grep -rn 'adminMode' web/src | wc -l` → **30** sites over a plain ref that is never
+  rehydrated. **After reload the app is admin-capable and the badge is gone.**
+- **R9's ground — the anonymous-session subsystem has ZERO external call sites.** The block is
+  self-labelled: ⟨cmd⟩ `/usr/bin/sed -n '100,118p' web/src/stores/auth.ts` heads
+  `// ── Session (anonymous) ──────` and contains `ensureSession` (`:102`) and `clearSession` (`:112`).
+  ⟨cmd⟩ (per name) `/usr/bin/grep -rw '<name>' web/src --include='*.ts' --include='*.vue' | /usr/bin/grep -cv 'stores/auth.ts'` → **`ensureSession` 0 · `clearSession` 0** (double-run).
+  `logout()` (`:60`) clears `userSlug`/`userToken` and calls `setSessionToken(null)` — and **never calls
+  `clearSession`**, so `sessionStorage`'s token survives a logout; the bootstrap's
+  `} else if (sessionToken.value) {` arm (`:29-30`) would then re-attach an anonymous identity on reload.
+  ⊘ **Instrument disclosure**: the same probe on the token itself returns **4**
+  (`/usr/bin/grep -rw 'sessionToken' web/src … | grep -cv 'stores/auth.ts'`) and **all four are
+  `web/src/lib/api.ts`'s own module-local `let sessionToken` (`:42` · `:45` · `:132` · `:133`)** — a
+  **homonym fed by `setSessionToken()`, not a consumer of the store's ref**. The zero holds for the
+  subsystem; it does not hold for a name-keyed probe, and that distinction is the whole of R9's evidence.
+
+**DECISION — R9, ruled.** COHESION **§0j.D F-SS4REST R9**: ***DELETE*** the dead session subsystem (zero
+external call sites). v2 therefore **does not carry an anonymous-session capability**. Concretely: the
+store's `sessionToken` ref, `ensureSession`, `clearSession`, the `SESSION_TOKEN_KEY` constant and the
+bootstrap's `else if` arm go; the **server's four `/api/sessions` operations are NOT in scope of this
+deletion** (register rows 26–29 — `register`, `login`, `me`, `logout` — of which `me` is §C3's
+revalidation edge and stays). **Deleting a client capability is not retiring a server operation**, and a
+later wave may not read R9 as licence to do the second.
+
+**DISPOSITION.** Booked: **`FR-USB-15`** (L-1/C-§0/C-7) · **`FR-USB-23` ⊙** (L-10 — the ruled row).
+**`fr-AppHeader FR-AH-6`** (C-6) rides as a **LEG held at F-W4**; **`fr-GalleryView FR-GV-7`** (=M-9/C·M-9)
+is **held at F-W3 §X.1-v5's register** (canonical `F.W3`, leg `F.W5-W8`) — **named by its holder, at both
+ends**. ⊘ *The former A6↔C3 mutual citation was a closed two-clause loop resolving to nothing outside its
+own file (PASS-5 P5-14); each end now names a holder.* **`fr-AdminAuditLog K-5`**'s *adminMode
+non-persisted* fact **corroborates and is corroborated — it is not re-booked here.** Homes: the
+**401 handling and `getMe` revalidation are authored at the STORE/API seam** (F.W4 renders whatever truth
+the store then has); **the admin-auth seam owns WHICH predicate is canonical, and that is F.W5's** — this
+clause.
+
+▲ **LOCK — the defect is authored in the STORE; do not route the cure to the leaf.** One predicate, one
+home. A component that reads a different admin flag from the one the store rehydrates is a **rendering**
+of the fork, not the fork, and repairing it at the leaf leaves the contract exactly as ambiguous as it
+was.
+
+### C4 — Retry and limiter posture
+
+**RULE.** **A retry the user cannot see, cancel or escape is not a retry; it is an unbounded wait
+disguised as a request.** Every operation in this contract declares its retry posture, and the default is
+stated rather than inherited: **authority-bearing mutations pass `retryOn429: false` or surface the
+wait**, and any operation that opts into silent retry **bounds it and makes it abortable**.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **The default is opt-out, not opt-in.** ⟨cmd⟩ `/usr/bin/sed -n '161,163p' web/src/lib/api.ts` → `:162`
+  `const retryOn429 = options?.retryOn429 ?? true;` — so **every call site that says nothing opts into
+  the silent retry**, including the login path. The retry fires at `:172`
+  (`if (res.status === 429 && retryOn429 && attempt < MAX_RATE_LIMIT_RETRIES)`).
+- **The signal is hoisted out of the loop**, which is both the re-entrancy property and the reason the
+  wait cannot self-abort: ⟨cmd⟩ `/usr/bin/sed -n '161,166p' web/src/lib/api.ts` → `:161`
+  `const signal = options?.signal ?? abortable(abortKey);` sits **before** `:163` `let attempt = 0;` and
+  `:164` `while (true) {`.
+- A full-payload re-upload runs against the **same compute budget** as the interactive controls, so the
+  two most expensive acts on the surface contend for one limiter.
+
+**DISPOSITION.** Booked: **`FR-USB-24`** (L-11 — the auth-side arm) · **`fr-EquationPanel D-L5+C-1`** (the
+abort-seam family). The two rows **share one lock and neither carries the other's sentence**:
+`FR-USB-24`'s routing cell is the auth arm (*"auth mutations pass `retryOn429: false` or surface the
+wait"*) and carries **no controller sentence of its own**.
+
+▲ **ONE-CONTROLLER LOCK, at the record's own bytes** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'the 429 retry loop cannot self-abort because the signal is hoisted outside' fr-EquationPanel.md` → `:69`): ***"the 429 retry loop cannot self-abort because the signal is hoisted
+outside `while (true)` (lib/api.ts:161-164, my read) — a re-entrancy subtlety any C-1 hardening rewrite
+must preserve."*** **F.W5's binding, in F.W5's own voice**: a hardening rewrite of the retry loop
+**preserves the hoisted signal**. A naive request-scoped rewrite that re-derives the signal inside the
+loop satisfies the visible symptom and destroys the property the seam is built on — the two-slot
+hardening question is answered **in the contract**, not at the call site.
+
+### C5 — Redaction parity
+
+**RULE.** **A provenance breadcrumb emits, for every hop the viewer may not read, a redacted placeholder
+carrying ORDINAL and NOTHING ELSE.** The redacted form is a **discriminated union member**, so the
+absence is a shape the client can render rather than a field it must guess at:
+`{ kind: "unavailable", ordinal }`. Redaction applies to **every** hop of a chain, never to the entry row
+alone. **If the two ends do not adopt one shape, v2 states the asymmetry and its reason — silence is not
+a posture.**
+
+**WITNESS** (measured this seat).
+
+- **value.js already collapses non-public hops to the union member.** ⟨cmd⟩ base `$V`,
+  `/usr/bin/sed -n '177,181p;195,199p' api/src/modules/palette/service/forks.ts` →
+  `:179` `| { kind: "unavailable"; ordinal: number };` (the declared member) and `:197`
+  `chain.push({ kind: "unavailable", ordinal });` guarded by `if (!doc)`. The clause the value side
+  already states: *no raw document or lineage field ever crosses the wire for a non-public hop*.
+- **fourier's breadcrumb applies NO redaction.** ⟨cmd⟩ base `$F`,
+  `/usr/bin/grep -rn '_readable_or_none' api/ --include='*.py' | wc -l` → **5** (double-run), all five in
+  `routers/visualizations.py` — `:466` (def) · `:507` (remix) · `:744` (provenance) · `:816` (diff) ·
+  `:869` (versions) — i.e. **applied to the ENTRY row only**. The ancestors are a bare `find_one`, so
+  `slug`, `set_hash`, `author_slug` and `created_at` of a **private ancestor** cross the wire for every
+  hop. ⊘ *Instrument note: run without `--include='*.py'` the same probe returns **6**, the extra line
+  being a `Binary file …__pycache__… matches` row. Every count in this clause is source-scoped.*
+
+**DISPOSITION.** Booked: **`F-γ` / `R-6`** (lane-crud). The act is the **fourier API row**'s: the
+breadcrumb redacts to the value.js discriminated-union shape. ▲ **Sequencing, not caution**: register row
+11 (`GET …/{slug}/provenance`) disposes `CLIENTABLE` **SEQUENCED BEHIND §C5** — clienting the edge before
+this clause lands ships a private ancestor's slug **to a rendered surface**. The sequencing lives in the
+register's basis cell and the disposition cell holds one token (register §4.2).
+
+▲ **LOCK.** Today's witness is **a private ancestor's slug on the wire** — the same *private artifact
+readable by slug* family as **GCM-52** at the image seam (§C1/§C2). The two are one mechanism at two
+surfaces: **an identifier that is also a capability**. A cure at either surface that leaves the other is
+not parity.
+
+---
+
+## §D — The denominator, disposition and coverage
+
+*(No clause is numbered D9 — `D9` is reserved for the ruled owner decision, `docs/tranches/V/DECISIONS.md`
+§2 row `D9`, which no clause may contradict.)*
+
+### D1 — Per-operation disposition, keyed to the register
+
+**RULE.** **Every operation in this contract carries exactly one CLIENT-EDGE DISPOSITION**, drawn from a
+closed set — `CLIENTED` · `CLIENTABLE` · `STRUCK` · `SERVER-ONLY` — and **the register is where it is
+written**. A gap is not an absence to be discovered later; it is a **row with a disposition, a measured
+basis, one home and two citations**. Where a disposition is *sequenced* behind another clause, the
+sequencing lives in the **basis**, and the disposition cell still holds exactly **one token**, so an
+id-keyed or token-keyed probe reads **one answer per row**.
+
+**WITNESS** — `contract/operation-register.md`, authored by unit a at this wave and measured at its own
+clock. The figures are the register's; this clause consumes them and re-derives none:
+
+| partition | reading | closes |
+|---|---|---|
+| arms | `public-non-admin` **30** · `admin` **13** · `app` **1** · `gallery` **1** | **45** |
+| disposition (G9) | `CLIENTED` **36** · `CLIENTABLE` **7** · `STRUCK` **1** · `SERVER-ONLY` **1** | **45** |
+
+**36 client edges / 9 gap operations.** **SEVEN of thirteen** `/api/visualizations` operations — `remix`,
+`publish`, `unpublish`, `forks`, `provenance`, `diff`, `versions` — **have zero client function** (register
+§4.1; a fourth independently agreeing count). The `publish` witness reproduces at the bytes: the client
+publishes by **PATCHing `{visibility:"public"}` behind an extra GET** while the dedicated verbs ship with
+no wrapper.
+
+▲ **CENSUS CORRECTION, carried forward as a standing term of this contract (C-3): both sides were right on
+different denominators — never cite "30" as the whole API again. The triple is 45 = 30 public-non-admin +
+13 admin + 1 app + 1 gallery.** ▲ **COUNTING LOCK K-1 (server-side blindness): a `@router.` grep is BLIND
+to prefixed routers (`@gallery_router.get("/cursor")`) — read against 13/44, never as zero.** The trap
+**fired** at unit a rather than being quoted: `@router\.` over `admin.py` → **0** against
+`@admin_router\.` → **13**. ▲ **SECOND BLINDNESS LOCK — F-6, the CLIENT-side axis**, quoted at the spec's
+own words: ***"the template-`src`-binding operation edge is structurally invisible to a function-keyed
+operation↔client model (the R5-7 dual)"***, and its consequence: ***"The register enumerates
+template-bound edges explicitly or it is armed against server under-count and unarmed against client
+under-count."*** The register's §5 **is** that enumeration — three operations reached only through a URL
+builder (`thumbnailUrl` 3 consuming sites · `overlayUrl` 3 · `imageUrl` **0**), none traversing
+`coreFetch`.
+
+**DISPOSITION.** Booked: **`R3-7c ⊕ X-3`** · **`FR-GV-8`** (=M-6/L-12) · **`FR-GV-27`** (=L-23).
+**`F-6`** (= C-C-9 = L-15, `fr-GalleryDraftsSection:49`) rides as a **LEG held at NWO→SS-3** — its own
+severity stays **INFO / NO-WAVE-OWNER** (SS-3/SS-4 census methodology) and **this contract consumes it as
+a register-construction constraint, booking no repair**. **`AA-31`** is CITED (booked at §B1);
+**`FR-AFP-1`** is CITED **INVERTED** at §D3. Identity/provenance **DISPLAY** arms fold to banked
+**`fr-GalleryCard D-7 / C·I-2`** (the full banked head), **`GCM-25`** and **`GCM-3`** — **do NOT re-book**.
+`FR-GV-27`'s phantom-view cell belongs to **§E6**, not here.
+
+▲ **LOCK — the seven unclientted operations ARE the provenance surface this contract re-authors.** That is
+why every one of them disposes `CLIENTABLE` and **none** disposes `STRUCK`: a provenance verb with no
+client is a **gap**, and striking it would retire the union's subject to tidy the count. Two of the seven
+are sequenced (`provenance` behind §C5, `versions` behind §E2) and **sequencing is not a third
+disposition**.
+
+### D2 — The like verb ‡ — RULED: REMOVE THE AFFORDANCE
+
+**RULE — RULED, COHESION §0j.D F-SS4REST R4: REMOVE THE AFFORDANCE.** **No dead affordance ships under an
+`aria-pressed`.** A surface that reports state to assistive technology reports a state the system can
+actually hold; a control whose only write path is a client-side constant does not report state, it asserts
+one. The counter, its compound index, its sort key and its UI arm are **retired together**, because each
+one alone is what makes the next look intentional.
+
+**WITNESS** (measured this seat, base `$F`) — the full shape, in four measurements:
+
+- **No like route exists anywhere.** ⟨cmd⟩ `/usr/bin/grep -rniE 'def .*like|/like' api/routers/ | wc -l`
+  → **0** (double-run).
+- **The server sorts by a counter nothing can increment.** ⟨cmd⟩
+  `/usr/bin/sed -n '17,22p' api/lib/crud/cursors.py` → `:17`
+  `SortKey = Literal["newest", "popular", "most-forked", "views", "likes"]` and the map's
+  `"likes": "likes"` row; ⟨cmd⟩ `/usr/bin/grep -n 'likes' api/services/database.py` → `:111`
+  `await _db.visualizations.create_index([("visibility", 1), ("likes", -1), ("_id", -1)])` — **the
+  compound index ships**.
+- **`liked_ips` exists only as an exclusion.** ⟨cmd⟩
+  `/usr/bin/grep -rn 'liked_ips' api/ --include='*.py' | wc -l` → **7**, every one a projection
+  exclusion — the dedup substrate for a verb that was never written.
+- **The client hard-codes the on-state.** ⟨cmd⟩ `/usr/bin/grep -n 'const liked' web/src/stores/gallery.ts`
+  → `:195` `const liked = true;` — a monotonic unguarded bump with **no un-like arm**.
+
+**DISPOSITION.** Booked: **`FR-GFC-3`** as **ONE identity with FOUR witnesses** — `C-1` ⊕
+**`fr-GalleryCard C-1-as-corrected`** ⊕ `GCM-2·C-1` ⊕ **`fr-GalleryInfiniteGrid C-3`**. The fourth is
+spelled with its record because **`GIG C-3` is resolvable by a reader and not by an id-keyed
+set-difference** — the exact mechanism by which a row escaped at pass 4. `fr-GalleryInfiniteGrid C-3`'s
+canonical home is **`F.W5-W8`** (legs `NO-WAVE-OWNER` · `SS-3` · `SS-4`) and its banked disposition is
+*FOLDS BY REFERENCE to banked FR-GFC-3 — do NOT re-book*: it is booked here **once, as the fourth
+witness of the one identity**, and its own new grain — the **orphan-client class**, a published emit
+contract with no reachable operation, R6-8's degenerate case — **rides its NWO leg as census methodology,
+cited never booked**. The **display arm** (`aria-pressed` + the re-click guard) is **F.W3/W4's**; the
+route deletion and index/sort-key retirement are the **fourier API row's**.
+
+▲ **LOCK — the honest repair, at the record's own bytes and its own case** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'third option ships' fr-GalleryFeaturedCarousel.md` → `:34`): ***"add the operation
+or remove the affordance — the honest repair is stated in C §7.1 and adopted: no third option ships"***.
+The owner has now chosen the second arm. ▲ **The store's own comment DOCUMENTS the stopgap — v2 must not
+treat it as intent**: a comment explaining why a constant stands in for a verb is evidence of the gap, not
+a specification of it. ▲ **Dissent preserved, not resolved**: the **C axis filed BLOCKER at two sites**
+against the banked MAJOR; the filing stands in the record and is **not** reconciled by the ruling, which
+decided the *disposition*, not the *grade*.
+
+### D3 ⊙ — Moderation producer-or-retire — **THE ADMISSION GATE** — RULED: PRODUCER, AS A PORT
+
+**RULE — RULED, COHESION §0j.D F-PRODRET (R3 ≡ D3 ≡ G11): PRODUCER.** The moderation queue **gains its
+user half**, and it gains it as a **PORT of value.js's already-shipped verb** under this contract:
+`POST /visualizations/{slug}/flags` on the fourier side, the mirror of value.js's `POST /:slug/flag`.
+**The port is homed at F.W8** (the CRUD union prototype). **F.W5 writes this clause and nothing else about
+it** — the clause is the wave's own act, the implementation is F.W8's, and neither is the other's.
+
+**The ruling's rationale, carried with the ruling** (§0j.D): *D-15 made the value↔fourier API isomorphism
+first-class; retiring the admin half would freeze the two APIs non-isomorphic where the port is the
+cheapest act in the union.* **The union's cleanest one-directional donation**: value.js has the verb
+fourier lacks.
+
+**WITNESS** (measured this seat) — the queue has **NO PRODUCER**, and the absence is enumerated rather
+than queried for one name (§D16's S-8 method law, applied to this clause's own proof):
+
+- **The declared request model is referenced nowhere.** ⟨cmd⟩ base `$F`,
+  `/usr/bin/grep -rn 'FlagRequest' api/ web/src --include='*.py' --include='*.ts' --include='*.vue'` →
+  **exactly one hit, the definition**: `api/models/admin.py:57` `class FlagRequest(BaseModel):`.
+- **Every `db.flags` write repo-wide is a fixture or a migration.** ⟨cmd⟩
+  `/usr/bin/grep -rn 'flags.insert\|flags.update\|flags.replace' api/ --include='*.py' | /usr/bin/grep -v tests` → **one line**, `api/scripts/migrate_flags_field.py:104` (`update_many`). The live
+  surface is **read and delete only**: `admin.py:530` (`aggregate`), `:219`/`:358`/`:469`/`:607`
+  (`delete_many`).
+- **No client posts a flag and no UI renders a report affordance** — the panel is admin-side only, and
+  ⟨cmd⟩ `/usr/bin/wc -l web/src/components/visualization/gallery/AdminFlaggedPanel.vue` → **285** lines,
+  of which production's only reachable state is *"No flagged content"*.
+- **value.js HAS the verb.** ⟨cmd⟩ base `$V`,
+  `/usr/bin/sed -n '1,5p' api/src/modules/palette/routes/flags.ts` → *"POST /:slug/flag — flag a palette
+  for admin review."*, wired at `api/src/modules/palette/routes/index.ts:38`
+  (`palettes.route("/", flagsRouter);`).
+
+**DISPOSITION.** Booked: **`FR-AFP-1`** (L-1/C:D-1) — **the band's sole reachability gate**. This clause
+**extends R3-7c INVERTED**: R3-7c's axis is *an operation with no client*; `FR-AFP-1`'s is **an admin half
+with no user half**, and the gap ledger carries **both directions**. Homes: **the clause is F.W5's; the
+port is F.W8's; FR-AFP grade re-derivation is F.W1's, at the populated surface.**
+
+▲ **SEQUENCING LOCK — the producer conditional, at the record's bytes with its elision marked** (⟨cmd⟩
+base `$R`, `/usr/bin/grep -n -F 'grade the populated surface' fr-AdminFlaggedPanel.md` → `:25`):
+***"Ruling: severities in this roster grade the populated surface; … FR-AFP-1 is the band's sole
+reachability gate, and the F.W5-W8 producer-or-retire decision must precede F.W1's sizing where grades are
+load-bearing."*** (the `…` marks elision of the ruling's L-2/K10 disposition clause — elision, never
+addition). **The obligation on F.W5, in F.W5's own voice**: the ruling **precedes F.W1's sizing wherever
+FR-AFP grades are load-bearing**, and it does — F-PRODRET was ruled at §0j.D **before this wave opened**,
+and this clause lands it. **F.W1 is unblocked on that axis at this clause's commit.**
+
+▲ **LOCK — the port is a port.** The fourier verb is written **against this contract's shape**, not
+re-invented: same identity rules (§D4), same authority class discipline (§C1), same envelope (§A2). A
+producer that lands with a different flag identity re-opens §D4 at the moment it ships.
+
+### D4 — Flag identity keys the ENTITY
+
+**RULE.** **A moderation record keys on the ENTITY it reports, never on a content digest.** A digest is a
+**substrate, never identity** — the fourier models say so in their own prose — so a flag keyed on
+`content_hash` fans one report out across every entity that shares the content, and a dismissal scoped to
+the digest silently clears every sibling.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '600,610p' api/routers/admin.py` →
+the dismiss handler resolves the entity, then discards it: `doc = await db.visualizations.find_one({"slug": slug}, {"content_hash": 1})` followed by
+`result = await db.flags.delete_many({"content_hash": doc["content_hash"]})` — **a slug-labelled action
+executing a hash-scoped `delete_many`**. The uniqueness constraint confirms the fan-out is by design of
+the index, not an accident: ⟨cmd⟩ `/usr/bin/grep -n 'flags.create_index' api/services/database.py` →
+`:140` `[("content_hash", 1), ("reporter_slug", 1)], unique=True` — **unique per (digest, reporter)**, so
+N entities sharing content produce N rows each claiming the full count. And the law it violates is in the
+tree: ⟨cmd⟩ `/usr/bin/grep -rn 'never identity' api/ --include='*.py'` →
+`api/models/visualization.py:113`, *"substrate, never identity (CRUD-CONTRACT §1)"*.
+
+**DISPOSITION.** Booked: **`FR-AFP-7`** (L-3/L-4). **Contract-level**: flag identity moves to the ENTITY,
+**or** dismiss scopes to slug — and the contract states which, because the two choices produce different
+wire shapes. Home: the **fourier API row**; **§D3's port is written against whichever this clause
+settles**, which is why §D3's lock names it.
+
+▲ **LOCK.** The apparent count is the tell: **3 rows × "3 flags" reads as nine**. A repair that fixes the
+count display and leaves the key has made an incorrect number correct and left the **destructive** arm —
+the hash-scoped `delete_many` — exactly as wide as it was.
+
+### D5 — Which identifier a human-facing surface may render
+
+**RULE.** **A human-facing surface renders the ENTITY identifier of the thing it is about.** An asset
+foreign key is not an entity name; a destructive confirmation that names an asset while deleting an
+entity is **mis-stating its own subject**, and the contract forbids it.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/grep -n 'image_slug' web/src/components/visualization/gallery/AdminFlaggedPanel.vue` → the
+label (`:175`), three `aria-label`s (`:202` · `:212` · `:222`) and the confirm call (`:224`
+`askDelete(item.slug, item.image_slug ?? item.slug)`) **all spend `item.image_slug`** — an asset FK
+**shared by every remix** — while the act deletes `item.slug`. The remix model declares no `image_slug` of
+its own, so siblings are indistinguishable on the surface that asks you to destroy one of them.
+
+**DISPOSITION.** Booked: **`FR-AFP-8`** (L-2/C:D-3). **`GCM-1`'s `/w/` shape is CITED** (booked at §E4).
+v2 states **entity vs asset** for human-readable surfaces; the **one-token F.W3/W4 rider** is *pass
+`item.slug` as the label*. ▲ **Dissent preserved**: the **L axis filed BLOCKER**; β's demotion to MAJOR is
+**sustained under ruling 5 (K10)** — the L axis cannot carry two BLOCKERs when its first proves the second
+unreachable.
+
+▲ **LOCK.** The rider is one token wide and **it is not the clause**. Passing `item.slug` at this call
+site fixes this dialog; the contract term — *human surfaces spend entity identifiers* — is what stops the
+next surface re-deriving the same defect from the same available FK.
+
+### D6 — Lifecycle truth and cascade — RULED: KEEP the hard-delete arm
+
+**RULE — RULED, COHESION §0j.D F-SS4REST R6: KEEP the arm; the copy is made truthful about
+irreversibility.** **A lifecycle verb's copy states what the verb does.** Soft delete is reversible and
+says so; the grace-bypass hard delete is irreversible and says so; and **soft delete CASCADES the
+moderation rows it strands**, or the contract states where they go.
+
+**WITNESS** (measured this seat, base `$F`), four limbs:
+
+- **The dialog asserts irrevocability over a restorable act**, while the client ships an unreachable
+  restore path (`web/src/stores/gallery.ts:178` `async function restore(slug: string)`).
+- **The hard arm has zero callers.** ⟨cmd⟩ `/usr/bin/sed -n '518,532p' web/src/lib/api.ts` →
+  `adminDeleteVisualization(token, slug, hard = false)` building
+  `` `/api/admin/visualizations/${slug}${hard ? "?hard=true" : ""}` ``; ⟨cmd⟩
+  `/usr/bin/grep -rnw 'adminDeleteVisualization' web/src --include='*.ts' --include='*.vue'` → **two call
+  sites**, `stores/gallery.ts:154` and `AdminFlaggedPanel.vue:92`, **both passing two arguments**. The
+  purpose-built grace-bypass is **unreachable from the UI**.
+- **The docstring names a cascade owner that carries no flags code.** ⟨cmd⟩
+  `/usr/bin/sed -n '1,6p' api/lib/crud/softdelete.py` → *"No cascade on soft-delete (R-lifecycle-spec
+  §3.2); the cron handles hard-delete cascade via ``pinned_cron.cron_prune``."* — and ⟨cmd⟩
+  `/usr/bin/grep -n 'flag' api/lib/crud/pinned_cron.py` → **one line, `:1`**, and it is the word *flag*
+  in the module's own summary *"``pinned: bool`` flag + bounded cron prune (CRUD-CONTRACT §8)"*, **not
+  flags-collection code**. ⊘ The naive `grep -c 'flag'` returns **1** and the honest reading is **zero
+  flags code**; the count and the fact disagree, which is why the line is printed rather than the digit.
+- **Therefore Delete → grace strands flags forever**, and a restored row returns to the queue still
+  flagged, permanently inflating the unscoped `$group`.
+
+**DISPOSITION.** Booked: **`FR-AFP-9`** (C:D-5) with its **member-site rider `FR-GV-34`** (= MISS-LC-5)
+— **one identity, two call sites, NOT re-booked** — and **`FR-AFP-66`** (β-miss-1). The acts: a
+**`content_hash`-keyed cascade at grace hard-delete** ⊕ **the docstring correction** (the module docstring
+is false for this band). ⊙ The **hard-arm caller decision** was the owner's and is **ruled KEEP**;
+**truthful copy → F.W3/W4** (diction rides `FR-AFP-35`). Home: the **fourier API row** for the cascade and
+the docstring; **F.W3/W4** for the copy.
+
+▲ **LOCK — the copy is false in the direction that SUPPRESSES a safe action.** That asymmetry is the
+reason R6 keeps the arm rather than deleting it: a warning that over-states irreversibility teaches the
+operator to avoid the reversible act, so removing the *real* irreversible arm would leave the false
+warning attached to the only path left. **Truthful copy is the cure; deletion would have been the
+workaround.**
+
+### D7 — Client-derivable bounds
+
+**RULE.** **A numeric or cardinality bound is a property of the OPERATION, and the client derives it from
+the operation model rather than inventing it at the leaf** (the R6-8 dual). Operation records carry field
+**DOMAINS**; a control that restates a window in its own template is asserting a contract it cannot read.
+
+**WITNESS** (measured this seat, base `$F`). The server's windows are **plural and divergent** — ⟨cmd⟩
+`/usr/bin/grep -n 'n_harmonics' api/models/visualization.py api/models/equations.py` → `le=256`
+(`visualization.py:76`) · `le=4096` (`:126`, `:187`, `:281`) · `le=200` (`equations.py:20`) — while the
+client's numeric window is invented at the leaf and matches **none** of them. The unbounded-both-ends
+cases are live in the same models: ⟨cmd⟩ `/usr/bin/grep -n 'max_length=50' api/models/admin.py` → `:42`
+and `:47` (`hashes`, `slugs`) — **a server cap the client never enforces**. And the *Min Area %* control
+drives a `[0,1]` fraction from a `0–20, step 0.5` axis, so every detent ≥ 1.0 demands
+`area ≥ A ∧ area ≤ 0.92·A` — **empty by construction** — with the default `0.001` rendering "0.0" under a
+"%" label: **a 100× unit lie in the dangerous direction**.
+
+**DISPOSITION.** Booked: **`m-7`** (=C-6-as-rescoped) · **`FR-AUL-46`** (LC-miss-M5) · **`FR-FG-21`**
+(=LC-missed-2) · **`FR-AFP-33`** (D-17/L-20/L-22); **`R-16`** (SliderControl) **FOLDS — books nothing
+new**; **`fr-ContourSettings B-1 / L-B1 / C-2`** is a **LEG CITED, HELD AT F.W3** (canonical home `F.W3`,
+file-criterion §5.d; legs `F.W5-W8`, `SS-13`) — **the ROW is F.W3's and only the contract obligation is
+this clause's**, which is what the record's own rider says (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'the contract seam owes client-derivable bounds' fr-ContourSettings.md` → `:40`):
+*"the typed range-checked descriptor table for all six fields rides an **F.W5–W8 rider** — the contract
+seam owes client-derivable bounds"*. **`FR-AUL-46`'s ONE HOME IS HERE**, and this end says so: the census
+of record carries it as a sole `F.W5` token, no alias, no leg — **it cannot be double-homed by
+construction, and this clause is that home**; **F.W8's §3 J4 consumes the bound and does not author it**.
+Anti-rename: `L-B1` here is **`fr-ContourSettings`'s**, not `fr-FourierShapeExtractor L-B1` nor
+`fr-FunctionInput L-B1` — three records, one token, all three record-qualified.
+
+▲ **K-3 KILL LOCK: `m-7`'s straddle-a-422 scenario is REFUTED FROM SOURCE** (`AnimationData` is a
+server-computed embedded document; the client-reachable bound 4096 ⊇ [1,500]) — **v2 must NOT cite it**.
+▲ **LOCK — the descriptor table is F.W3's and its INPUT is this contract's term.** A wave that lands the
+table without the operation-side domain has hard-coded a second window one layer up. Born-RED fixture,
+named at the record: drive *Min Area* to 0.5/1.0 in e2e and assert **non-422**. `FR-AFP-33`: the **server
+bound is this clause's**; the **client collapse is F.W1/W3's**; and ▲ its counterweight is carried —
+`if not flagged` short-circuits production's only case, so **the cost is LATENT while §D3 stands**, which
+is precisely why §D3's producer ruling changes this row's weight rather than its content.
+
+### D8 — A blanket write is not a transition
+
+**RULE.** **A verb that claims to move an item between states performs the transition, and every verb has
+its inverse.** A write that sets a field is not a transition unless the predicate that reads the field
+participates; and a bulk write that unconditionally `$set`s a shared field **erases states it was never
+asked about**.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '164,190p' api/routers/admin.py` →
+`set_tier` writes **`{"$set": {"tier": body.tier, "updated_at": …}}`** and nothing else, then audits
+`f"set_tier:{body.tier}"`. **The flagged listing has no tier predicate**, so *"Mark acceptable (save)"*
+**never dequeues**. The client half is hardwired with no inverse: ⟨cmd⟩
+`/usr/bin/grep -n 'handleSetTier' web/src/components/visualization/gallery/AdminFlaggedPanel.vue` →
+`:116` (the handler) and `:204` (`handleSetTier(item.slug, 'saved')`) — a **repeat click is a real PUT +
+audit row + success toast + full pagination reset for a no-op**. The batch arm is the destructive
+converse: Batch Unfeature `$set`s `tier:"normal"` unconditionally via `update_many`, **silently erasing a
+SAVED tier**.
+
+**DISPOSITION.** Booked: **`FR-AFP-10` ⊕ `FR-AFP-70`** (C:D-4 · β-miss-7) · **`FR-GV-9`** (=C·M-8, second
+clause). **ONE semantics decision covers the tier↔flag pair**; the tier verb gains its inverse; **the
+false in-file comment dies with the cure**; the interim posture is **reflect-and-disable when already
+saved**. ▲ **`FR-GV-9`'s first clause was KILLED at R-3/K3 — the kill is carried with the row.**
+▲ **β's own KILL of its 428-escalation hypothesis (If-Match `*` accepted) is preserved — do not revive
+it.** Rides banked **`FR-GFC-20`**'s stale-slug row. Home: the **fourier API row**.
+
+▲ **LOCK.** The in-file comment claims the opposite of what the handler does. **A cure that leaves the
+comment has left the defect's documentation in place**, and the next reader will re-derive the same wrong
+model from it — which is the §B3 indictment (*a contract document read instead of the router*) reappearing
+inside a single file.
+
+### D10 — The list contract: filters and windows
+
+**RULE.** **A filter that is offered is a parameter the operation accepts.** Every filter, sort and window
+a surface exposes maps to a **declared operation parameter**, and a control with no parameter is not a
+filter — it is a refetch. A bounded, dedicated fetch serves a bounded, dedicated section; **a section
+whose contents are "whatever the infinite window happens to hold" is not a section.**
+
+**WITNESS** (measured this seat, base `$F`). The parameter hole is **an operation-surface hole, not a
+component patch**, and it is total: ⟨cmd⟩ (per file) `/usr/bin/grep -cw 'tier' <file>` →
+`api/routers/visualizations.py` **0** · `api/routers/gallery.py` **0** · `api/lib/crud/cursors.py` **0**
+(`web/src/lib/api.ts` carries 4, all client-side). **No `tier` param at ANY server layer**, so the
+Featured strip is `featured ∩ the loaded window`, it **grows during vertical scroll**, and a featured row
+outside the window renders **no Featured section at all**. The store-side filters are producerless:
+⟨cmd⟩ `/usr/bin/grep -rnw 'visibilityFilter' web/src | wc -l` → **3**, all inside `stores/gallery.ts`,
+**zero writers** — so `ownerParam()` returns `undefined` unconditionally and the server's whole
+`owner == "me"` branch is **DEAD from this client**; ⟨cmd⟩
+`/usr/bin/grep -rnw 'searchQuery\|tierFilter\|basisFilter' web/src --include='*.ts' | wc -l` → **6**, with
+**zero query-builder or `.filter()` readers**, so every visitor who types and pauses tears the strip down
+to refetch a provably identical page.
+
+**DISPOSITION.** Booked: **`FR-GFC-4`** (=C-2/L-3) · **`fr-GalleryInfiniteGrid R-7`** — **BOOKED HERE by
+its full (record, id) pair**, the pass-4 escape named: its substance was always in this clause (the
+dead-controls arm inside `FR-GFC-1`, the param hole at `FR-GFC-4`) while **its identity was not**, and a
+row whose substance lands without its id is invisible to the only difference G19 states. **`FR-GV-13`**
+(=MISS-LC-2) books; **`FR-GFC-1`** (=D-1/C-3 ⊕ MISS-1(DU)) is **RIDER ONLY at F.W5** — whether
+search/tier/basis become real params — while **the body cure is F.W4's** and **the D-1 skeleton cure is
+KILLED (K5)**. **`fr-GalleryInfiniteGrid C-4 / D-13`** rides as a **LEG held at F-W3** (canonical `F.W3`,
+file-criterion §5.e, `F.W5-W8` leg) — **cited, not booked**; **`FR-GSB-1`** rides as a **LEG held at
+F-W4**. ▲ **`F.W1` must NOT be credited for the pagination-drain cure** (FR-GIG-5's bar). ▲ **Two BLOCKER
+filings on `FR-GFC-1` (D and C axes) are preserved.** `FR-GV-13` is the worst sibling — the other three
+filters at least have producers. Home: the **fourier API row** (a `tier` param, or a dedicated **BOUNDED**
+featured fetch).
+
+▲ **WAVE-LOCK, at the record's own bytes and its own polarity** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'carried as a **WAVE-LOCK** on any' fr-GallerySearchBar.md` → `:24`):
+***"carried as a **WAVE-LOCK** on any F.W5-W8 wiring of `basisFilter` — wire it without the banked
+normaliser and the Fourier pill returns zero rows against `active_bases ∈ {fourier-epicycles,
+fourier-series}`."*** The normaliser's banked id is **`fr-BasisSelector M-10`** — record-qualified, cited,
+**not re-booked**. *Identity minute*: the quoted `C-2` is an **ALIAS carried beside
+`fr-GallerySearchBar FR-GSB-6`** (home `F.W3`), so **the WAVE-LOCK is a quotation, never a booking**; that
+record's one canonical `F.W5-W8` row is `FR-GSB-28`, booked at **§B1**. ▲ The genuinely new rider
+`fr-GalleryInfiniteGrid R-7` carries — under the drain, **one tier click costs `⌈N/20⌉` round trips, not
+one** — rides `FR-GFC-1`'s banked row and is **not credited to F.W5**.
+
+### D11 — What a count counts
+
+**RULE.** **Every count this contract transports declares two things: whether it is LIVE or
+TOMBSTONE-INCLUSIVE, and whether it is PRIMARY or DERIVED.** An unqualified number on an operational
+surface is not a measurement; and **a derived total silently drops whatever its fold does not enumerate**.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **Two uncorrected opposite biases under one unqualified label.** ⟨cmd⟩
+  `/usr/bin/sed -n '144,147p' api/routers/admin.py` → the storage tile's pipeline is
+  `[{"$group": {"_id": None, "total_bytes": {"$sum": "$bytes"}}}]` — **no `$match`**, so soft-deleted
+  assets are counted — while `"bytes"` records the primary blob only and thumbnails are separate
+  `{slug}.thumb` files **sized nowhere**. The two errors are **unbounded and non-cancelling**.
+- **A derived total that vanishes its own off-enum members.** `:127`
+  `total_entries = sum(tier_counts.values())` — a fold over an **in-enum** grouping, so any absent or
+  off-enum `tier` silently disappears from the total (the §D12 mechanism, one layer up).
+- **A janitor that manufactures the population its prune then refuses.** `:263`'s *"Live-entry count"*
+  `$lookup` carries **no `deleted_at` filter** (`:280` `"entry_count": {"$size": "$_entries"}`), and
+  `prune_empty_users` uses the **same** unfiltered lookup.
+
+**DISPOSITION.** Booked: **`GAB-15`** (L·D-10) · **`GAB-16`** · **`FR-AUL-20`** (LC-miss-M2) ·
+**`FR-AUL-25`** (DU-miss). **`GAB-17`** (D-M7/C-11/L·D-13) rides as a **LEG held at F-W4**. v2 states
+**live/tombstoned** and **primary/derived**; the join filters `deleted_at: None` **or** tombstone-inclusive
+counting is stated explicitly; the honest total is `count_documents(not_deleted_filter())` ⊕ an *other*
+bucket; the prune gets a count/dry-run endpoint or a two-step confirm. ▲ **`GAB-17` is SEQUENCED**: render
+`stats.normal` **only AFTER `GAB-16` lands**, or drop the field with this contract pass — **its
+"verification" limb is a TAUTOLOGY until then**. ▲ **`GAB-16` REFUTES D-M7's headline rationale (R-6
+ruling) — the refutation is carried with the row.** ▲ **PRUNE SEQUENCE: `FR-AUL-20` → `FR-AUL-21` →
+`FR-AUL-25`; the count is meaningless until both land.** ▲ **Dissent: axes split MAJOR/MINOR/INFO on
+`GAB-17`; MINOR ruled — the split is preserved.** Magnitudes → **SS-13**.
+
+▲ **LOCK.** The prune confirmation announces an **unbounded PERMANENT deletion without a count**, although
+`empty_slugs` is computed **before** the delete. **The number exists and is withheld** — which is the one
+case where "add a count" is not a feature request but the removal of a defect.
+
+### D12 — Closed domains at the boundary — RULED: STOP MINTING the off-state `[]`
+
+**RULE — RULED, COHESION §0j.D F-SS4REST R5: STOP MINTING the off-state `[]`; the contract does not admit
+it, and there is NO SILENT REWRITE.** More generally: **one closed set spans writers, model and wire.** A
+domain that is closed at the boundary and open in the collection is not closed; a value a writer can mint
+and a reader cannot represent is a **contract break at the moment it is written**, not at the moment it is
+displayed.
+
+**WITNESS** (measured this seat, base `$F`), three instances of one mechanism:
+
+- **A THIRD `status` exists and renders as health.** ⟨cmd⟩
+  `/usr/bin/grep -rn 'orphan-migrated' api/scripts/migrate_visualization.py` → `:393`
+  `"status": "orphan-migrated",` (upserted; `:17` documents the disposal path). `AdminUserInfo.status` is
+  a bare `str`, `$ifNull` passes it through, and the template branches on one value only: ⟨cmd⟩
+  `/usr/bin/grep -rn "user.status === 'suspended'" web/src --include='*.vue'` → **one hit**,
+  `AdminUserList.vue:375`. **An orphan-migrated user renders as a HEALTHY ACCOUNT WITH A SUSPEND
+  AFFORDANCE** — on the panel whose purpose is separating real accounts from churn.
+- **Two hand-maintained maps stand in for a seven-member server enum.** ⟨cmd⟩
+  `/usr/bin/grep -n 'strategy' src/fourier_analysis/cli.py` → `:231`
+  `choices=["auto", "threshold", "adaptive_threshold", "multi_threshold", "canny", "edge_aware", "ml"]`
+  — **seven**; ⟨cmd⟩ `/usr/bin/sed -n '41,57p' web/src/components/visualization/ContourSettings.vue` →
+  `strategyLabels` and `strategyDescriptions`, two `Record<string, string>`s, **six keys each**.
+  **`adaptive_threshold` is real, implemented and UNREPRESENTABLE in the picker**, and once selected
+  elsewhere cannot be re-selected.
+- **The deliberately-minted "off" state is unrepresentable end-to-end.** ⟨cmd⟩
+  `/usr/bin/grep -n 'canvas handles it gracefully' web/src/components/visualization/BasisSelector.vue` →
+  `:103`, the in-file comment above the empty-selection path. **The third click is honoured on screen and
+  destroyed on save with zero diagnostic.**
+
+**DISPOSITION.** Booked: **`FR-AUL-21` ⊕ `FR-AUL-31`** · **`fr-BasisSelector M-9` ⊙** (=L-M4/C-20 — the
+ruled row). **`fr-ContourSettings M-10 / L-M6 / C-19 / D-m9`** is a **LEG CITED, HELD AT F.W3** (canonical
+`F.W3`, file-criterion §5.d; leg `F.W5-W8`) — **this clause cites the leg, states the closed-set contract
+term in F.W5's voice, and books no row on the id**, while the shared-enum obligation it names is genuinely
+this wave's. **`fr-NotationPills FR-NP-30`** is CITED (booked at §A5). **The shared-enum contract is
+F.W5's; the typed vocabulary at the leaf is F.W3/W4's.** ▲ **F.W4 rider: unknown statuses render VISIBLY,
+never as healthy.** ▲ *Reciprocal minute, carried at BOTH ends*: `RULINGS-2` **R2-7.1** directed F-W8's
+§6a to cite `fr-ContourSettings M-10`'s F-W5 clause home as *"the E13/A5 family"*; **that candidate home
+does not hold at the bytes** and **`D12` is not a rival home either** — the census homes the row at `F.W3`
+with an `F.W5-W8` leg. The departure is minuted here and at `F-W8.md` §0's opening item. `fr-BasisSelector
+M-10` (the `basisFilter` normaliser at §D10's WAVE-LOCK) stays a **distinct identity**.
+
+▲ **LOCK — the ruled sentence, at the record's own bytes** (⟨cmd⟩ base `$R`,
+``/usr/bin/grep -n -F 'admit `[]` in the contract, or stop minting it' fr-BasisSelector.md`` → one hit):
+***"admit `[]` in the contract, or stop minting it — the silent rewrite must not survive either way."***
+The owner has chosen **stop minting**. ▲ The sort set is closed on **both** ends in the same act — reka's
+`AcceptableValue` widening and `sort_map.get(sort, default)` **both fall back silently**, and a closed
+domain with two silent fallbacks is an open domain with better manners. Same mechanism family as
+**`GAB-16`**: *closed domain at the boundary, open domain in the collection*.
+
+### D13 — Required-vs-optional posture, stated once
+
+**RULE.** **Every field in a response model is declared required or optional ONCE, and the declaration is
+the contract.** A field the producer may omit is optional at the model, or the model is a **precondition
+the data does not have to meet** — and one non-conforming document then denies the whole collection.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/grep -n 'created_at\|last_seen_at' api/models/admin.py` → `:18` `created_at: datetime` and `:19` `last_seen_at: datetime` — **both
+required, no default** — consumed through a bare inclusion projection and constructed in the handler body
+under a global exception handler. **ONE user document missing either field 500s the ENTIRE admin list.**
+The janitor cannot clear the condition either: its reap query **SKIPS fieldless docs**, so the offending
+documents never age out.
+
+**DISPOSITION.** Booked: **`FR-AUL-14`** (C-B4, rescoped under ruling 2). The act: `$ifNull` the
+projection **or** default the model fields — and the **posture is stated once**, not per field. The
+client's null guard **rides `FR-AUL-17`'s `timeAgo` repair (F.W3)** and is not this clause's. **Absent
+defence is proven on BOTH sides**; **production INCIDENCE is UNPROVEN — that question alone rides live →
+SS-13.** Home: the **fourier API row**.
+
+▲ **LOCK.** **v2 states the posture; the probe answers whether it is violated.** This clause does not
+claim the population contains such a document — it claims that **if one exists the list is denied**, which
+is a property of the model and is true today at the bytes regardless of the data.
+
+### D14 — Adoption is measurable — the ACCEPTANCE SURFACE
+
+**RULE.** **A contract's adoption is measured at the surface that consumes it, and this contract names
+that surface.** A converged-CRUD arm that exists and is not wired is **not adoption**; and a component
+that reaches around its own store to call the API raw **strands the state the store maintains for exactly
+that call**.
+
+**WITNESS** (measured this seat, base `$F`). The workspace store's converged arm is dead surface: **TEN of
+24 exported members have zero consumers outside the store** — `visualizationSlug`, `visualizationETag`,
+`revision`, `loadVisualization`, `loadSnapshot`, `setVisibility`, `deleteVisualization`,
+`invalidateInFlightComputation`, `defaultContourSettings`, `defaultAnimationSettings`. And the bypass
+reproduces at the spec's own line: ⟨cmd⟩
+`/usr/bin/grep -n 'api.deleteVisualization' web/src/stores/gallery.ts` → **`:168`**
+`await api.deleteVisualization(slug, etag);` — inside `softDelete`, **calling the API directly** while
+`stores/workspace.ts:395` `deleteVisualization()` exists and maintains `visualizationETag` for that very
+purpose (`:399`).
+
+**DISPOSITION.** Booked: **the joint identity of `BLK-1` / `BLK-2` / `VV-R2-A` / `VV-R2-E`** — read as
+**ONE gap**, which changes the cure: **a single wiring unit at this component** (route →
+`loadVisualization`; publish → `setVisibility`; delete → the store action), **not scattered repairs** —
+and **it does not re-book its members**. **`VV-R2-B`** (MAJOR · NEW, the FRAME row; census verified 10/10)
+rides as a **LEG held at F-W4**. **F.W4 executes the wiring; F.W5 owns the CRUD-CONTRACT §1 adoption as
+the union tranche's own ACCEPTANCE SURFACE.**
+
+▲ **LOCK — this is the row that tells this contract whether it was adopted at all. NO WAVE MAY CLAIM
+ADOPTION WITHOUT IT.** A co-signature, a relay letter and a green gate table are evidence that the
+document exists and was received. **Adoption is a different measurement**, and it is taken here.
+
+### D15 — Query semantics under the shipped indexes
+
+**RULE.** **A filter's semantics are declared, and they are declared against the indexes that actually
+ship.** A surface that advertises prefix or substring matching over an **exact-match indexed field** is
+mis-describing its own operation; and a cure that buys the advertised semantics by discarding the index
+has converted an indexed equality into a collection scan.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '628,636p' api/routers/admin.py` →
+`filter_doc["action"] = action` — **a bare equality** — beside an honest
+`{"$regex": re.escape(target), "$options": "i"}` on target. The advertised example matches **zero rows
+forever**: writers emit `set_tier:{tier}` (`:185`), so a placeholder reading `set_tier` can never hit.
+⟨cmd⟩ `/usr/bin/grep -n 'admin_audit' api/services/database.py` → **exactly two indexes**, `:145`
+`[("timestamp", -1)]` and `:146` `[("action", 1), ("timestamp", -1)]`. The `target` filter therefore drives
+an **unindexed** case-insensitive regex plus a second full scan via `count_documents`; and the `entries`
+sort orders the pipeline ⟨cmd⟩ `/usr/bin/sed -n '284,292p' api/routers/admin.py` →
+`$match → $lookup → $addFields → $sort → $skip → $limit`, so **the cross-collection join runs over the
+ENTIRE matched user set** on every debounced keystroke.
+
+**DISPOSITION.** Booked: **`AA-6`** (L-4/C·D-2) · **`AA-23`** — **its HOST ROW is booked HERE,
+explicitly**, on the `45 = 30+13+1+1` join its own routing names (*"the 45/30/13 join must carry this
+constraint"*); **a leg is never a new identity**, so **F.W6 keeps only the killed-cure citation, marked as
+a citation**. **`AA-32`** books; **`FR-AUL-59`** (LC-miss-M9) books. The two rows that cite `AA-23` carry
+**no second booking**: `AA-6`'s cure set is *bound* by it and `AA-32` cites it for the two-index fact.
+▲ **The regex-action cure BOTH axes prescribed is REJECTED (`AA-23`).** Sound cures, **in this stated
+ORDER only**: **(a)** honest placeholder (*"action (exact…)"*), **(b)** `$in` over a generated taxonomy
+(also cures `AA-5`/`AA-24`), **(c)** anchored case-**sensitive** `^prefix`. ▲ **`AA-32` positive, binding:
+`re.escape` IS applied — there is no injection and v2 must not manufacture one** (bounded by the 90-day
+janitor prune). `AA-21`'s placeholder co-sign rides `AA-6`. **`FR-AUL-59`**: pipeline reorder — join
+**AFTER** `$limit`, as the sibling branch already does; **it composes with §B1's abort-key fix and neither
+alone closes the window**. Home: the **fourier API row**.
+
+▲ **AA-23 CURE LOCK, at the record's own bytes** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'indexed equality into a' fr-AdminAuditLog.md` → `:60`): *"A case-insensitive
+`$regex` … cannot use that index; shipping it converts an indexed equality into a collection scan on the
+one monotonically growing collection."* and, its own next sentence, *"Binds AA-6's cure set."*
+**F.W5's addition, stated as F.W5's**: **the lock PRECEDES any query-semantics clause this contract
+writes**, which is why the ordered cure set above is part of the rule and not advice attached to it.
+▲ And the composition trap is named: composed with `AA-1`, *"no matches"* and *"unreachable"* are
+**pixel-identical** — an operator cannot distinguish a correct empty result from a broken filter.
+
+### D16 — The shared action taxonomy
+
+**RULE.** **The action vocabulary of an audit surface is SHARED between every writer and every reader, and
+it is declared in one place.** A reader that switches on prefixes of a vocabulary it does not hold is
+guessing; **a second writer that bypasses the logging helper is outside the vocabulary entirely.**
+
+**WITNESS** (measured this seat, base `$F`). The collection has a **second writer** that inserts directly:
+⟨cmd⟩ `/usr/bin/grep -n 'admin_audit' api/services/janitor.py` → `:92`
+`await db.admin_audit.insert_one(` — **no `log_audit` call** — emitting **nine** `janitor:*` actions:
+⟨cmd⟩ `/usr/bin/grep -o 'janitor:[a-z_]*' api/services/janitor.py | sort -u` →
+`janitor:cascade_delete_flags` · `janitor:cascade_delete_sessions` ·
+`janitor:cascade_soft_delete_visualizations` · `janitor:delete_expired_sessions` ·
+`janitor:delete_stale_users` · `janitor:hard_delete_visualizations` · `janitor:prune_audit` ·
+`janitor:prune_contours` · `janitor:prune_images` — **including the audit log pruning its own history**
+(`:276`). The reader is blind to the whole namespace: ⟨cmd⟩
+`/usr/bin/sed -n '67,81p' web/src/components/visualization/gallery/AdminAuditLog.vue` → `actionTone`
+branches on `startsWith("delete")`, `=== "prune_empty_users"`, `startsWith("set_user_status")`,
+`startsWith("set_tier")`, `startsWith("dismiss")`, `startsWith("batch")`, else **sky** — so every
+`janitor:*` row lands on the **benign default**, and inside the map **`batch_users:delete`, the
+vocabulary's most destructive operation, falls past `startsWith("delete")` into the same violet arm as
+`batch_users:unsuspend`.**
+
+**DISPOSITION.** Booked: **`AA-5`** (L-3). **`fr-AdminAuditLog AA-24` is CITED, NOT BOOKED** — the census
+routes it **`F.W4` only**, so **the contract obligation is genuinely F.W5's while the ROW is F.W4's**;
+**held at F-W4 §2.A**, and this clause claims none of it. The act: **a shared ACTION TAXONOMY at the
+seam** (cross-tier, F.W5's), which also cures `AA-24` and feeds `AA-6`'s `$in` (§D15 cure (b)). **Display
+arm → F.W4.** Home: the **fourier API row** for the taxonomy.
+
+▲ **LOCK — S-8 METHOD LAW, adopted as a standing bar on this contract's own proofs (kills C·S-2/K-3 via
+K-6): an absence-proof must ENUMERATE the surface, not query one name for it.** `grep "log_audit("` was
+**structurally blind** to the inlined second writer. **v2's absence-proofs inherit this bar** — and §D3's
+producer proof above was written to it deliberately: it enumerates every `db.flags` write rather than
+asking whether one route exists.
+
+### D17 — Date serialization — the SERIALIZER ARM ONLY
+
+**RULE.** **One concept, one serialization, across every operation of one API.** A timestamp crosses the
+wire in **one** form, and that form is **ECMA-parseable**.
+
+**WITNESS** (measured this seat, base `$F`). **ONE router serializes the same concept TWO WAYS**: ⟨cmd⟩
+`/usr/bin/grep -n 'default=str' api/routers/admin.py` → `:92`
+`content=json.dumps(body, default=str),` — the flagged rows' path, producing Python's **space-separated,
+non-ECMA** `str(datetime)` — while the audit path returns a model: `:652`
+`return AuditListResponse(items=items, total=total, page=page, pages=pages)` (declared
+`api/models/admin.py:101`), i.e. **ISO with `T`**. And the defensive asymmetry compounds it: the NaN guard
+sits in the consumer that receives the **conformant** payload, while the consumer of the
+**non-conformant** one has none.
+
+**DISPOSITION.** **`FR-AFP-32`** rides as a **LEG held at F-W3** (D-16/L-13/C:D-15; ⊕ the `FR-AFP-40`
+fold, ⊕ `FR-AFP-69` = β-miss-5). **`fr-GalleryCard L·M-4 / D-13 / C-8(a) + L·D-2 / C-12`** folds here —
+**the FULL banked spelling**, because the record's own routing is what splits the work: *"→ F.W3;
+serializer → F.W5–W8; JSC → SS-13"*. ▲ **F.W5 owns ONLY the serializer arm.** The five-copy `timeAgo`
+family's shared formatter is **F.W3's and already banked as `FR-AUL-17` — do NOT re-book it here**
+(GalleryCard states the fold explicitly). **F-W8's §6a names the same id as an exclusion-with-reason
+pointing here.** JSC acceptance of the non-ECMA form → **SS-13**. Home: the **fourier API row** for the
+serializer.
+
+▲ **LOCK.** The two forms are produced **in one file, by one router, for one concept**. That is the
+signature of a serializer decision never made rather than of two teams disagreeing — and it is why the
+cure is a **posture in the contract**, not a guard in each consumer.
+
+---
+
+## §E — Provenance, lineage and persistence (the union's core)
+
+**The band's subject and its standing constraint.** §E is where the two repos' models of *the same thing*
+are reconciled: what a version is, what a derived entity inherits, what a counter means and what a cache
+is identical over. **No clause in this band may contradict ruling D9** — `docs/tranches/V/DECISIONS.md`
+§2, row `D9`, quoted once here at its own bytes (⟨cmd⟩ base `$V`,
+`/usr/bin/grep -n 'D9' docs/tranches/V/DECISIONS.md` → **one hit**, `:36`): *"Palette visibility is
+`private | public`; owner lifecycle is `active | trashed`; admin moderation is separately clocked
+`clear | withdrawn`. The unused `unlisted` state dies. Non-owner reads require active/public/
+moderation-clear and a visible immutable release."*
+
+### E1 — Compound per-entity version identity
+
+**RULE.** **A version identifier is scoped to the entity whose version it is.** A content digest alone is
+**not** a version identity: two entities with identical content are two histories, and a global digest
+key collapses them into one. The contract mandates the **compound per-entity version `_id`** — the form
+fourier already ships, `f"{viz_slug}:{set_hash}"`.
+
+**WITNESS** (measured this seat, base `$V` — value-side, and the defect is value's).
+
+- ⟨cmd⟩ `/usr/bin/sed -n '1,12p' api/src/modules/palette/hash.ts` → `computeContentHash(name, colors)`
+  canonicalizes **`{name, colors}` only** — **never `paletteSlug`**. (The docstring's own words:
+  *"Identical content always produces the same hash (Merkle property)."*)
+- ⟨cmd⟩ `/usr/bin/sed -n '13,16p' api/src/modules/palette/repository/paletteVersion.ts` → `:13`
+  `findByHash(hash: string, session?: ClientSession)` returning `this.col.findOne({ _id: hash }, …)` —
+  **no slug scope**.
+- ⟨cmd⟩ `/usr/bin/sed -n '39,50p' api/src/modules/palette/repository/paletteVersion.ts` →
+  `insertIfAbsent` reads `{ _id: version._id }` and `:47` `if (existing) return version._id;` — **the
+  early return**, whose own test asserts *"no second write"*.
+
+**Consequence, stated as the contract consequence it is**: two palettes with identical `(name, colors)`
+share **ONE** version row, whose `paletteSlug` names only the first — **and the second's history is
+EMPTY**. The idempotency the early return implements is correct *for a content-addressed store* and wrong
+*for a per-entity history*; the defect is the identity, not the guard.
+
+**DISPOSITION.** Booked: **`V-β`** (lane-crud §V-β, ⊕ §7) — **value-side**. ▲ **Execution belongs to the
+value.js API row and is NEVER re-booked as a fourier defect.** Value-side rows are citable now; fourier's
+own form is the reference and needs no act. **The gate's green owner names the missing artefact
+explicitly: a test asserting that two same-content palettes keep separate histories — none exists today**,
+and the cure is not landed until it does.
+
+▲ **LOCK.** fourier documents a §2.3-vs-§11 tension around this same key; **v2 adopts the compound form
+and does not re-open that tension** — it is a *documentation* question on a side whose identity is already
+correct.
+
+### E2 — Chain depth: deepen or retire
+
+**RULE.** **A lineage quadruple that cannot deepen is retired, or the operation that would deepen it is
+specified.** A contract does not ship `parent`/`root`/`depth` fields that one writer sets to constants —
+the fields then look like a capability, sort orders are written against them, and clients render histories
+that cannot exist.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/grep -rn '_write_root_version' api/ --include='*.py'` → **three hits, and they are the whole
+story**: `routers/visualizations.py:110` (the definition) · `:220` (create) · `:592` (remix) — **the ONLY
+writer**, hard-coding `parent_hash=None, root_hash=set_hash_value, depth=0`. Every version therefore has
+`depth == 0`, and `GET /{slug}/versions` **sorts by `depth` over an always-singleton set**. All real
+lineage rides **cross-viz `fork_of`**, which is a different relation entirely.
+
+**DISPOSITION.** Booked: **`F-α`** (lane-crud §F-α ⊕ intake X-8) — **fourier-side**. v2 states
+**deepen-or-retire** for the depth/parent/root quadruple and this clause is that statement. ▲ **F.W5 owns
+the CLAUSE; F.W6 owns the BURN-DOWN — do NOT double-book.** `X-8` corroborates three ways (Codex controls,
+census C-6, fourier's own M.W10 booking) and **adds no new work**. Register row 13
+(`GET …/{slug}/versions`) disposes `CLIENTABLE` **SEQUENCED BEHIND THIS CLAUSE** — clienting a provably
+singleton history today ships a **dead affordance**, the same bar §D2 applies to the like verb.
+
+▲ **LOCK.** *Retire* and *deepen* are both admissible answers and **silence is not**. The reason this is
+a clause rather than a cleanup: the fields are on the wire, so whichever way it goes is an **envelope
+change** both repos must co-sign.
+
+### E3 ⊙ — Diff-clause participation — RULED: RE-SCOPE, and v1 §6 RE-AUTHORED ONE-SIDED
+
+**RULE — RULED, COHESION §0j.D F-SS4REST R1: RE-SCOPE value.js OUT of the diff clause.** **value.js is not
+a party to the diff clause of this contract.** `atomdiff.ts` is **wholly excised** from value.js and stays
+excised; restoring it would be value-side authoring that couples value.js's release train to the fourier
+contract (the §0i.1 logic). The diff envelope (v1 §§3.1–3.3, restated at §F) binds **fourier alone**.
+
+**▲ v1 §6 IS RE-AUTHORED HERE, AND THE VERDICT IS EXPLICITLY ONE-SIDED.** v1 §6's close-gate clause binds
+**each repo's probe to the document** and assumes **both probes exist**. One does not. The re-authored
+clause, which supersedes v1 §6 for the diff envelope and for nothing else:
+
+> **§6 (v2).** The diff envelope's conformance is asserted by **one probe, on the fourier side**, against
+> §3/§4 of v1 as restated at §F. **value.js runs no diff probe and is not measured by one**; its absence
+> is **the ruled scope of this contract**, not an outstanding obligation, not a deferral and not a gap in
+> the census. A conformance report for this contract is **COMPLETE** with the fourier probe alone, and a
+> report that marks the value.js diff probe *missing*, *pending* or *RED* is **mis-reading the scope** —
+> the correct rendering is **N/A — RE-SCOPED (F-SS4REST R1)**. The casing rule (§A2.4) is unaffected and
+> **each side still runs its own casing check**, because casing binds the whole envelope surface and not
+> the diff route.
+
+**WITNESS** (measured this seat, base `$V`). ⟨cmd⟩
+`/usr/bin/grep -rn 'atomdiff\|atomDiff' api/src src` → **ONE hit**, and it is a comment naming the
+excision: `api/src/modules/palette/__tests__/palettes-forks.test.ts:9` — *"atom-diff were excised at
+T.W1 — TA-4 — so the remix/atomDiff wire cases are…"*. ⟨cmd⟩ `/bin/ls api/src/lib` →
+*No such file or directory* (double-run). **v1 §2.5 mandates the exact file and v1 §6's close-gate assumes
+BOTH probes exist**, so before this ruling **a co-signature over un-runnable probes would have been
+VOID**.
+
+**The charter law this clause discharges, quoted at its own bytes once** (⟨cmd⟩ base `$V`,
+`/usr/bin/grep -n -F 'is a named prerequisite or the contract is' docs/tranches/X/COHESION.md` → one hit;
+the source wraps mid-sentence and the wrap is disclosed rather than re-flowed): *"**SS-4 contract
+co-signature → F.W5 ∥ X·V API row**: neither side's edits gate the other's / waves; the value-side
+atomdiff restoration (TA-4) is a named prerequisite or the contract is / re-scoped explicitly."* (the `/`
+marks the charter's own line breaks; no word is changed). **The charter offered exactly two exits and the
+owner took the second. This clause is the explicit re-scoping the charter requires**, and the SS-4
+co-signature is therefore **not** blocked on a TA-4 restoration.
+
+**DISPOSITION.** Booked: **`TA-4`** (megatranche COHESION §2 / lane-crud §7 / the SS-4 prerequisite).
+Homes: **the ruling is the owner's**, **the clause is F.W5's**, and **the value.js API row owes nothing on
+this axis** — which is the substantive content of the re-scope. **F.W9/W10 owns the conformance probe** and
+runs it one-sided.
+
+▲ **LOCK.** A later wave may not "restore symmetry" by reviving `atomdiff.ts`, and may not record this
+contract as **partially conformant** because one side has no diff probe. **One-sided is the verdict, not a
+defect in the verdict.**
+
+### E4 — Born visibility of the derived variant ‡ + the fork/remix vocabulary — RULED: REMIX + BORN-PRIVATE
+
+**RULE — RULED, COHESION §0j.D F-SS4REST R8: REMIX + BORN-PRIVATE.** **The derived-entity verb is
+`remix`**, and **a derived entity is BORN PRIVATE**, with an **explicit publish act** as the only path to
+visibility. Vocabulary is settled in the same act: **remix** (not *fork*) for the derivation verb;
+**version** (not *snapshot*) for the within-entity record. **Each side's test asserts the child's
+visibility on create** — the rule is not adopted until both tests exist.
+
+**▲ D9 NON-CONTRADICTION — VERIFIED AT THE RECORD BEFORE THIS CLAUSE WAS AUTHORED**, as the ruling
+requires. The check, in full, so a later reader can re-run it rather than trust it: ⟨cmd⟩ base `$V`,
+`/usr/bin/grep -n 'D9' docs/tranches/V/DECISIONS.md` → **one hit, `:36`**, whose bytes are quoted at this
+band's head. Three tests, all passing:
+
+1. **Domain membership.** D9's visibility domain is **`private | public`**. R8's *born-private* names
+   **`private`** — **a member**. No new state is introduced.
+2. **No revival of a dead state.** D9 rules *"The unused `unlisted` state dies."* R8 names `private` and
+   an explicit publish act to `public`; **`unlisted` appears nowhere in the ruling or in this clause**.
+3. **No lifecycle or moderation collision.** D9 clocks lifecycle (`active | trashed`) and moderation
+   (`clear | withdrawn`) **separately** from visibility. R8 speaks only to visibility-at-birth and
+   touches neither clock.
+
+**Verdict: R8 and D9 do not contradict; R8 is a narrowing INSIDE D9's domain.** ⊘ And the one live
+divergence is **disclosed, not resolved here**: the value.js model still persists **three** visibility
+states — ⟨cmd⟩ base `$V`, `/usr/bin/sed -n '61p' api/src/modules/palette/model.ts` →
+`` /** I.W1 canonical visibility (3-state): `public`/`unlisted`/`private`. */ `` — and the server-side
+unpublish target on the fourier side is `unlisted` (register row 9). **That is the D9 reconciliation the
+value.js API row owes** — *never a silent contract overwrite, and never a fourier defect*.
+
+**WITNESS** (measured this seat). **Opposite privacy defaults on the same verb, both shipping**: a fourier
+remix child is born **`draft`** (fourier's own state name, MEASURE-AT-OPEN at the re-grounded substrate),
+while ⟨cmd⟩ base `$V`, `/usr/bin/sed -n '72,80p' api/src/modules/palette/service/forks.ts` → `:76`
+`visibility: "public",` — **hard-coded** in the fork child's document. The value side therefore publishes
+a derived entity **at the moment of derivation, without an act**. Register rows 7 · 8 · 9 (`remix`,
+`publish`, `unpublish`) are all `CLIENTABLE` with **zero client function** — so the ruled shape is
+**unreachable as a product today on the fourier side**, which is why R8's publish act and §D1's
+`CLIENTABLE` disposition are one decision seen twice.
+
+**DISPOSITION.** Booked: **`R-5`** (lane-crud) ⊕ **`GCM-1`** ⊕ **`fr-GalleryCard D-7 / C·I-2`** (the FULL
+banked head) ⊕ **`X-2`**; **`BLK-1` FOLDS** (VisualizationView). ▲ **F.W5's share of `GCM-1` is the
+CONTRACT FACT — *a save that should have been a remix carries no lineage* — NOT the routing repair**,
+which is F.W4's (`BLK-1` folds; **§D14 owns the joint identity**). `fork_count` unrendered is **load-bearing
+for the union**: it is the counter the derivation verb maintains, composing with lane-crud **`R-1`**
+(`fork_count`↔`forkCount`) and **`X-2`** (*a stored counter cannot stay truthful under viewer filtering*).
+Homes: **both API rows**, ⊕ **a create-visibility test each side**.
+
+▲ **LOCK.** **Born-private without a publish verb is not privacy — it is an unreachable entity**, and
+born-public without an act is not convenience — it is publication without consent. R8 rules the pair;
+neither half ships alone.
+
+### E5 — Create idempotency and dedupe — ONE clause, TWO entry points ‡
+
+**RULE.** **A create operation is idempotent under a caller-supplied key, and the server deduplicates on
+the identity that makes two creates "the same".** The client may not be the dedupe: a disabled button is
+a rendering, and a second press is a second entity.
+
+**WITNESS** (measured this seat, base `$F`) — a composed falsehood, measured limb by limb:
+
+- **The publish gate reads a field with one writer, and that writer is a literal.** ⟨cmd⟩
+  `/usr/bin/grep -rn 'savedSnapshots' web/src --include='*.ts' --include='*.vue'` → **four hits**:
+  `stores/workspace.ts:102` `savedSnapshots: [],` (**the only writer, unconditional**),
+  `lib/types.ts:90` (the declaration), and the two **readers** at
+  `GalleryView.vue:78-79` (`!d.savedSnapshots?.length || !d.savedSnapshots.every(…)`). The guard is
+  **invariantly true** and the row never leaves the tab.
+- **The idempotency envelope exists and the create route declines it.** ⟨cmd⟩
+  `/usr/bin/sed -n '63,70p' api/lib/crud/idempotency.py` → the wrapper's own docstring is explicit:
+  *"No header → ``handler()``."* — so a create carrying no `Idempotency-Key` executes **every time**.
+- **The dedupe index that would catch it is not unique.** ⟨cmd⟩
+  `/usr/bin/grep -n 'create_index' api/services/database.py` → `:98`
+  `await _db.visualizations.create_index("content_hash")` — **a PLAIN index** — against the deliberate
+  contrast two collections over, `:140`
+  `await _db.flags.create_index([("content_hash", 1), ("reporter_slug", 1)], unique=True)`.
+  **The same digest is uniqueness-bearing for flags and not for entities.**
+
+**Consequence**: the button re-enables and **the second press mints a SECOND public visualization**; at
+the dock the same shape is re-entrant on all three hops — **N clicks ⇒ N public gallery rows**.
+
+**DISPOSITION.** **`fr-GalleryDraftsSection B-2`** rides as a **LEG held at F-W3**; **`fr-CanvasControlsDock
+D-4 / L-1 / C-3`** (the full banked head) rides as a **LEG held at F-W4**; **`FR-GV-1` FOLDS at banked
+severity**; **`fr-EditorControlsDock C-7`** is the rider; **intake `X-3`** is consumed. **Split adopted**:
+props/reconciliation → **F.W3/W4**; **server dedupe → this contract**. ▲ **K12 PROBE-SUPPRESSION LOCK:
+both axes' UNPROVEN-NEEDS-LIVE hedges are DEAD — `fr-GalleryDraftsSection B-2` closes it STATICALLY
+(no-header idempotency passthrough ⊕ the plain index); SS-13 spends NO probe here.** ▲ The record's own
+F.W5 share, verbatim at record case (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'two-sided delta' fr-CanvasControlsDock.md` → `:45`): *"**F.W5–W8 rider**: the
+server-side `(image_slug, contour_hash)` dedupe arm rides the R6-8 seam split (C-28 fold) — the client
+cure and the operation cure register a two-sided delta until that join is split."* **F.W5's own binding:
+the server arm SEQUENCES AFTER the join split (§B1).** The **`C-28` fold itself is homed at §B1** — cited
+here, booked there; **one home, two citations**. Riders: the success toast prints the **USER** slug
+(`m-13`); **`publishedHashes` is a misnomer** — it holds freshly minted visualization slugs, which can
+never equal a draft's `imageSlug` — **fix the name with the contract**.
+
+▲ **LOCK.** Three independent mechanisms each suffice to mint the duplicate: no header, no unique index,
+no truthful client gate. **A cure that lands one of the three and reports the clause closed has measured
+the mechanism it chose, not the outcome.**
+
+### E6 — Unsafe GET and counter provenance
+
+**RULE.** **A read is safe.** A counter is incremented by an **explicit verb**, not as a side effect of
+the representation request — **or** this contract states the mutating-GET policy explicitly, against
+**RFC 9110 §9.2.1**, and names every operation it covers. A response that reports a counter it has just
+changed **reports the wrong value by construction**.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '256,275p' api/routers/visualizations.py` — the order is the defect and it is visible in eleven lines:
+`find_one` resolves `doc`; `:268-270` `await db.visualizations.update_one({"slug": slug}, {"$inc": {"views": 1}, …})`; `:272` `body = _public_doc(doc)` — **serialising the PRE-increment
+document**. The operation therefore **cannot observe its own side effect**. And the same verb is the
+**ETag-capture path** (register row 8's publish flow, §4.2), so **every publish silently inflates its own
+view counter** and an entity is **born at `views: 1` before any third party sees it**. There is **no
+`viewed_ips` dedup** while `liked_ips` exists (§D2's seven projection exclusions), and the client-side
+guard is component-local and resets on mount: ⟨cmd⟩ `/usr/bin/grep -rn 'viewedHashes' web/src` → `:46`
+(`const viewedHashes = ref(new Set<string>())` in `GalleryView.vue`) ⊕ `:118-119`.
+
+**DISPOSITION.** Booked: **`FR-GV-12`** (=MISS-LC-1) ⊕ **`FR-GV-24`**; **`VV-R2-A`** rides as a **LEG held
+at F-W4**. The **F.W4 arm**: publish adopts `store.setVisibility("public")` (implemented, zero callers —
+§D14), dropping one round trip **and the phantom view**. Rides **§D14's joint identity**. Observable
+magnitude → **SS-13**. Home: the **fourier API row** ⊕ F.W4.
+
+▲ **FR-GV-24 REPAIR-TEST LOCK — `viewedHashes` DOES work within a session; the defect is SCOPE, not
+absence — so REPAIR TESTS MUST NOT ASSERT A RE-OPEN INCREMENT.** A test that opens the same entity twice
+in one session and expects `views` to rise is asserting the **opposite** of the shipped intent and will
+fail on correct code. ▲ **The store's own `recordView` comment documents GET-as-increment as the
+DELIBERATE mechanism, so the publish-path GET is an ACCIDENTAL self-count: v2 must not codify the
+accident.** The two facts are easy to fuse and must not be: **one increment is intended, the other is
+collateral.**
+
+### E7 — PATCH atom coverage and `set_hash` recompute
+
+**RULE.** **A partial-update model covers exactly the fields that are user-settable after create, and
+every field that participates in the version identity triggers a RECOMPUTE and a version write when it
+changes.** A model that omits a settable atom is **too narrow**; a model that admits an identity-bearing
+atom without recomputing is **too permissive**. Both are the same defect — *the update model and the
+identity set were never reconciled*.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/sed -n '198,210p' api/models/visualization.py` → `class VisualizationUpdate(BaseModel)` carries
+**five fields** — `visibility`, `title`, `description`, `tags`, `palette_slug` — under
+`model_config = ConfigDict(extra="forbid")`, and the client's `VisualizationPatch` is the same five. So:
+**`speed` — atom 4-of-5 of the version-identity set — is settable ONLY at create/remix** (too narrow),
+while **`palette_slug` (atom 5) can be `$set` with NO `set_hash` recompute and NO version write** (too
+permissive), going stale against `enumerate_atoms(doc)`.
+
+**DISPOSITION.** Booked: **`F-β`** (lane-crud) ⊕ **`SS-C-1`'s WRITE leg**. Ruled **SPLIT (R2-LC wins)**:
+**`SS-C-1`'s READ leg FOLDS to `GCM-1`/§E4 — do not re-book; the WRITE leg books new.** ▲ **Dissent
+preserved**: the **C axis filed BLOCKER**; demoted at component altitude (no capability loss in the
+control). Home: the **fourier API row** — **atom coverage and recompute stated once**, in one act.
+
+▲ **LOCK.** **The SAME model is both TOO NARROW and TOO PERMISSIVE**, and the two halves must land
+together: widening the model without the recompute makes the staleness reachable from one more field.
+
+### E8 — AnimationSettings — the three-way reconciliation
+
+**RULE.** **A persisted settings object has ONE declaration of each field, ONE default and ONE unit**, and
+the unit is stated in the contract. A field that no consumer reads across the wire is **not part of the
+persisted contract** and is either wired or retired.
+
+**WITNESS** (measured this seat, base `$F`). **Half the persisted contract is WRITE-ONLY and THREE-WAY
+DIVERGENT INCLUDING UNITS.** The wire declares the fields — ⟨cmd⟩
+`/usr/bin/grep -n 'fps\|duration\|max_circles' web/src/lib/types.ts` → `:45` `fps: number;` · `:46`
+`duration: number;` · `:47` `max_circles: number;` — while the renderer and the animation store hold
+**their own** constants: ⟨cmd⟩ `/usr/bin/grep -rn 'ref(20000)\|ref(80)' web/src --include='*.vue' --include='*.ts'` → `stores/animation.ts:23` `const duration = ref(20000); // ms per full cycle` and
+`components/visualization/BasisCanvas.vue:47` `const maxCircles = ref(80);`. **Only easing/speed/
+active_bases round-trip**, so **a gallery replay cannot reproduce its own frame**; atom 4 is semantically
+empty because `fps`/`max_circles`/`duration` have **zero cross-wire readers**; and the `duration` that
+`speed` divides is declared with a **1000× unit fork** (seconds server-side, milliseconds client-side).
+
+**DISPOSITION.** Booked: **`BC-9`/`C-6`/`D-20` ⊕ `SS-C-2`** — **deduped: `SS-C-2` and `BC-9` are ONE
+identity**, with `SS-C-2`'s unconstrained-`speed` cell carried. AnimationControls' LC-miss **folds**.
+▲ **`duration = ref(20000)` zero-writers stays banked at `fr-BasisCanvas BC-20` — NOT re-booked**, and the
+other end confirms it: **`F-W3.md` §X.1-v4's `18`-vs-`19` SLACK block** records `BC-20` as **NOT
+zero-homed**, names F-W5 among its holders, and settles the id **to F.W4** on the file criterion — **this
+is a citation and F.W4 books.** ▲ AnimationControls' independently re-derived *"write-only
+AnimationSettings"* is **CORROBORATION, not a new booking**. Home: **the union owns the reconciliation
+INCLUDING the unit fork**, with server-side units stated in the contract.
+
+▲ **LOCK.** The unit fork is the part that cannot be repaired by "picking the server's defaults": a client
+that adopts `30.0` while reading it as milliseconds has made the divergence **invisible** instead of
+visible. **The unit is a contract term.**
+
+### E9 — One shape, one name
+
+**RULE.** **One name denotes one shape across the seam.** Two types that share a name and a field name
+while disagreeing on that field's structure are **not two implementations of one contract** — they are one
+contract violated twice, and no probe can catch it because both sides type-check.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/grep -n 'partial_sums' api/models/visualization.py` → `:77`
+`partial_sums: dict[str, Point2D] = Field(default_factory=dict)` with `:68`'s docstring explaining the
+stringified-int keys — against ⟨cmd⟩ `/usr/bin/sed -n '14,20p' web/src/lib/types.ts` → `AnimationData`'s
+`partial_sums: Record<string, Record<number, { x: number[]; y: number[] }>>`. **A `Point2D` per key on one
+side; a nested record of coordinate arrays on the other.** The server docstring **names `BasisCanvas.vue`**
+and prescribes typed access over a shape the client cannot use; the component's own comment misdescribes
+even the client type; and entity `animation_data` is **written and read by nobody**.
+
+**DISPOSITION.** Booked: **`fr-BasisCanvas C-7`** (record-qualified — `C-7` is a declared collider, five
+sites across three records). Home: the **fourier API row** — **one shape, one name**, and **the server
+docstring's prescription is either honoured or retracted**. A docstring that prescribes an access pattern
+against a shape that does not exist is a **specification**, and this contract does not let one stand
+unretracted.
+
+▲ **LOCK — renaming one side is not the cure, and renaming the CLIENT side is the wrong half.** The
+server's shape is the one the docstring prescribes and the one the persisted document holds; the client's
+is the one the renderer consumes. **Whichever shape survives, the OTHER NAME GOES** — two names for two
+shapes is admissible, one name for two shapes is not, and a repair that leaves both names in place while
+"documenting the difference" has written the defect down instead of removing it.
+
+### E10 — Produced-and-unconsumed: ONE disposition
+
+**RULE.** **This contract states ONE disposition for produced-and-unconsumed response fields** — *retire*,
+*retain-with-reason*, or *make optional and opt-in* — and every such field answers to it. **Three ad-hoc
+deletions are not a disposition.** This is R6-8's converse: the server computes, nobody consumes.
+
+**WITNESS** (measured this seat, base `$F`), three fields, one class:
+
+- **`EpicycleData.trace`** — a per-response polyline: ⟨cmd⟩ `/usr/bin/sed -n '22,27p' web/src/lib/types.ts` → `:25` `trace: { x: number[]; y: number[] };`, produced at
+  `api/services/computation.py:127`. ⟨cmd⟩ `/usr/bin/grep -rn '\.trace\b\|trace:' web/src --include='*.ts' --include='*.vue'` → **one hit, the declaration itself** — **zero readers** — and it
+  rides `structuredClone` into every IndexedDB draft.
+- **`reconstructed_points`** — ⟨cmd⟩ `/usr/bin/grep -rnw 'reconstructed_points' web/src api/ --include='*.ts' --include='*.py'` → produced at `api/routers/equations.py:114`/`:128`, declared at
+  `web/src/lib/equation/types.ts:31`, **read by NOTHING** — and sessionStorage-persisted whole.
+- **`SimplifyResponse.term_count`** — produced at `api/routers/equations.py:152`/`:155`/`:162`, declared
+  at `web/src/lib/equation/types.ts:45`, **zero consumers**.
+
+**DISPOSITION.** Booked: **`M-β4`** · **`fr-EquationView L·m-6`** (=C·D-14). **`FR-EMT-20`** is CITED
+(at §F1). ▲ **`FR-EMT-20`'s *"registry-swept: 0 banked hits"* cell is CORRECTED by `fr-EquationView
+L·m-6` — one identity, two witnesses**, and the correction is carried with the row. **Distinct from §B4's
+liveness predicate**: §B4 is *declared on both sides, implemented on neither*; **this clause is
+*implemented on one side, consumed on neither*** — the two are different gaps and different cures. Home:
+the **fourier API row**.
+
+▲ **LOCK — the disposition is ONE and it is stated before any field is touched.** Three separate
+deletions, each justified on its own field's merits, is how a surface loses a field some consumer did
+want; and `trace`'s cost is not the wire alone — it rides `structuredClone` into **every IndexedDB
+draft**, so the field is paid for on every local write as well as on every response. **Whichever
+disposition the contract takes, it is taken once and every field of this class answers to it.**
+
+### E11 — Easing domain hoisted to the operation — RESOLVER ⊕ L/M-3 MERGED, BOTH IDS PRESERVED
+
+**RULE.** **A closed vocabulary that indexes a catalog is declared on the OPERATION as a closed literal
+type**, not as a bare `str` the leaf casts. Where the corridor is a string at both seam ends and the only
+validation is a cast, the first unknown value is a **template-expression throw with no error boundary**.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/sed -n '100,110p' web/src/lib/easings.ts` → `:105`
+`p = generateCurveSVGPath(ANIMATION_EASINGS[name].fn);` — **the tree's ONLY unguarded catalog index**,
+reached from a template expression with **zero error boundaries**, over a corridor that is a bare `str`
+at both ends. ⊘ *Measured at this seat rather than inherited, because the banked cell's arithmetic
+("three siblings guard") does not reproduce as spelled at this token*: ⟨cmd⟩
+`/usr/bin/grep -rn 'ANIMATION_EASINGS\[' web/src --include='*.ts' --include='*.vue'` → **exactly two
+sites**, `stores/animation.ts:28`
+`const fn = ANIMATION_EASINGS[easing.value]?.fn ?? ((x: number) => x);` — **guarded twice over**, optional
+chain **and** fallback — and `lib/easings.ts:105`, **guarded not at all**. **One of two is unguarded, and
+it is the one behind a template expression**; the intent holds at the true bytes and the count does not,
+so the count is printed rather than repeated. **Five unguarded hops**, the fifth being a localStorage draft spread
+over defaults. The failure mode is quiet: **a radio group with zero checked members over a silently-linear
+animation.**
+
+**DISPOSITION — the merge, recorded here as the clause's own provenance (G22's second item).**
+**`RESOLVER` (D-10 · L-4 · C-D-4) ⊕ `L/M-3` (EasingPicker) are ONE identity, MERGED — and BOTH IDS ARE
+PRESERVED.** The registry-integrity finding is that **EasingPicker booked its easing-domain server half as
+"new" when `RESOLVER` already carried the cure**; the merge is the cure and **neither id is retired**
+(anti-rename: banked ids are original for life; a merge that drops a limb is invisible to an id-keyed
+difference in both directions). **F.W4 owns the one `?? linear` guard-parity line; F.W5 hoists the union
+to the operation record as `Literal[…]` on `AnimationSettings.easing`.** The seed/normalization half
+**FOLDS to banked AnimationControls `L-11`/`M-10` — not re-booked** (`fr-AnimationControls M-10`,
+record-qualified: one of the four `M-10`s this programme manages). ▲ **`L/M-3` KILLS `C/i-1`**: the field
+**IS** persisted and remixed (`animation_settings` on **all four** models — ⟨cmd⟩
+`/usr/bin/grep -n 'animation_settings' api/models/visualization.py` → `:129` · `:189` · `:244` · `:283`,
+seat-verified) — **the kill rides with the row.**
+
+▲ **LOCK.** The guard-parity line at F.W4 and the `Literal` at F.W5 are **not alternatives**. The guard
+stops the throw; **only the closed type stops the value from being minted**, and a wave that lands the
+guard and reports the clause closed has made the defect silent rather than absent.
+
+### E12 — Debounced mirror vs synchronous save
+
+**RULE.** **Where a debounced mirror and a synchronous save read the same state, the save FLUSHES the
+mirror first.** Persistence semantics are part of this contract because the window is invisible from both
+ends: the writer believes it wrote and the reader believes it read.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/grep -rn 'watchDebounced' web/src --include='*.vue' --include='*.ts'` → **eight component sites**,
+including `ContourSettings.vue:140` and `EquationPanel.vue:61`. The picker's write reaches persistence
+through a **500 ms `watchDebounced` with no flush-on-save**, while `saveVisualization()` reads
+`toRaw(animationSettings.value)` **synchronously** — so **select-then-save inside the window persists the
+PREVIOUS curve**.
+
+**DISPOSITION.** Booked: **`MISSED-E`** (the EasingPicker save-race). The flush seam is the banked
+`L-12`/`C-25` **`setEasing` action** — the cure is *an action that both writes and flushes*, not a longer
+debounce. Home: **F.W3/W4** for the action; **the persistence semantics are this contract's**.
+
+▲ **LOCK — the narrow reachability is HONESTLY STATED and the honesty CARRIES**: this particular race is
+narrow, and **a debounced mirror is a contract hazard wherever a synchronous save reads the same state**.
+The clause is written at the class, not at the instance, precisely because the instance is small.
+
+### E13 — Cache identity ⊇ consumed fields ‡
+
+**RULE — the clause, verbatim at record case, stated ONCE in this contract and inherited downstream by
+this clause id** (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F "an operation's cache identity must be a superset of the request fields the operation consumes" fr-ContourSettings.md` → `:43`, double-run):
+
+> ***an operation's cache identity must be a superset of the request fields the operation consumes***
+
+This is **the R6-8 seam made product-visible**. Any wave transcribing this sentence takes **the record's
+case**, and **no other clause, gate cell or sibling in this programme restates it** — they cite `E13`.
+
+**WITNESS** (measured this seat, base `$F`). The key is a **closed `json.dumps` literal** and the omission
+is exact: ⟨cmd⟩ `/usr/bin/sed -n '248,266p' api/services/image_storage.py` → `extraction_cache_key`
+folds `_v` · `image_sha256` · `strategy` · `resize` · `blur_sigma` · `n_classes` · `min_contour_length` ·
+`min_contour_area` · `max_contours` · `smooth_contours` · `n_points` — and **OMITS `ml_threshold` and
+`ml_detail_threshold`**, which exist on the very settings object it is handed: ⟨cmd⟩
+`/usr/bin/grep -n 'ml_threshold\|ml_detail_threshold' api/models/shared.py` → `:19` `ml_threshold: float = 0.5` · `:20` `ml_detail_threshold: float = 0.3`, consumed at `:59-60`. The ML Threshold slider is the
+**sole producer** of those two fields (⟨cmd⟩
+`/usr/bin/grep -n 'ml_threshold' web/src/components/visualization/ContourSettings.vue` → `:39` · `:67` ·
+`:76` · `:121`), and the handler **short-circuits on the cache hit BEFORE compute**: ⟨cmd⟩
+`/usr/bin/sed -n '219,221p' api/routers/images.py` → `cache_key = extraction_cache_key(asset.sha256, cs)`
+then `existing = await db.contours.find_one({"extraction_cache_key": cache_key})`. **The user drags
+0.50→0.85, waits out the debounce, and receives the 0.50 contour with no signal.**
+
+**DISPOSITION.** Booked: **`fr-ContourSettings B-4`** (= C-1 ∘ C-25 / R6-8) ⊕ **`i-7`** — **`i-7` FOLDS,
+it is B-4's payload and not a second row** (and `i-7` is a declared collider: `fr-ContourSettings`'s here
+vs `fr-CollapsibleSection`'s NWO→SS-3). The **`m-18` limb** rides as a **LEG held at F-W3** — its invented
+`ml_detail_threshold = mlThreshold * 0.6` coupling rides here as the contract fact. **F.W3/W4 owns the
+regression fixture**: assert **`contour_hash` INSTABILITY across an ML-threshold change** (also the SS-13
+probe). Home: the **fourier API row**.
+
+▲ **LOCK.** The cure is the **key**, not the control. Re-enabling, re-labelling or debouncing the slider
+differently leaves the operation returning a cached result for an input it never hashed — and **a cache
+that is not a function of its inputs is not a cache, it is a stale read with a fast path.**
+
+### E14 — Contour provenance — an editor-saved contour is FIRST CLASS ‡
+
+**RULE.** **A hand-edited artifact is a first-class input to the operation that consumes it**, and an
+automated pipeline **may not silently overwrite a human-authored asset**. Concretely: an editor-saved
+contour carries the provenance the compute path keys on, or the compute path recognises `source="editor"`
+and declines to substitute its own extraction.
+
+**WITNESS** (measured this seat, base `$F`). **The hand-edit pipeline DESTROYS THE EDIT ON EXIT**, and the
+mechanism is two lines: ⟨cmd⟩ `/usr/bin/grep -rn 'source="editor"' api/ --include='*.py'` → **one hit**,
+`api/routers/contours.py:25`
+`doc = await store_contour_asset(xs, ys, req.image_slug, source="editor")` — **no
+`extraction_cache_key_value`**, although the parameter exists on the callee
+(`api/services/image_storage.py:291`). So the saved contour is **invisible to the extraction cache**;
+nothing recomputes from `store.contour`; **merely LEAVING the editor** remounts ContourSettings, whose
+immediate watcher auto-runs `runCompute` → `extractContour`, and the server **cache-hits the ORIGINAL**
+extraction. The second trigger is a Harmonics/Sample-Points nudge from the sibling panel doing the same
+thing.
+
+**DISPOSITION.** Booked: **`fr-ContourSettings M-13` ⊕ `fr-BasisSelector M-14`** — ▲ **NOT
+`fr-CoefficientsSpectrum M-13`, which is the A5 homonym** (U-12 qualification; the two `M-13`s are
+different records' rows and only the qualified form is an identity). The banked routing, at the record's
+own bytes (⟨cmd⟩ base `$R`, `/usr/bin/grep -n -F 'two triggers, ONE cure' fr-ContourSettings.md` → `:70`):
+*"Sibling row: fr-BasisSelector M-14 (the settings-nudge trigger) — same provenance seam, two triggers,
+ONE cure."* — **the record's own words are "two triggers, ONE cure"**, and this clause is that one cure.
+**F-W8 cites this clause at its §6a residue as an exclusion-with-reason and books nothing.** `M-14`'s
+end-to-end arm is **UNPROVEN-NEEDS-LIVE → SS-13**; ▲ **the mechanism is SOURCE-CERTAIN** — the two lines
+above are the whole proof and need no probe. Home: the **fourier API row**.
+
+▲ **LOCK.** The user touches **no setting** and loses the work. That is why the cure is the **provenance
+key**, not a confirmation dialog: there is no user act to confirm.
+
+### E15 — ONE transport clause
+
+**RULE.** **Every URL this application fetches goes through the client core, or the exception is STATED
+in this contract with its reason.** The core is what carries the session token, the abort registry, the
+429 posture (§C4), the ApiProblem decoding and the ETag round-trip; **a URL built outside it has none of
+them, and the absence is invisible at the call site** because a string concatenation always type-checks.
+
+**WITNESS** (measured this seat, base `$F`). The three URL builders are exactly that — builders, not
+fetchers: ⟨cmd⟩ `/usr/bin/sed -n '288,299p' web/src/lib/api.ts` → `:288` `imageUrl` · `:292`
+`thumbnailUrl` · `:296` `overlayUrl`, each returning a **template-literal string** off `BASE`
+(`overlayUrl` additionally concatenating `?resize=${resize}`). `thumbnailUrl` goes **straight into
+`<img src>`** — **no session token, no abort registry, no 429 retry, no ApiProblem, no ETag** — and
+`overlayUrl`'s raw concat yields `/api/api/...` under the Dockerfile default while compose passes empty.
+The overlay is additionally **fetched unconditionally then refused when `image_bounds` is null**, with a
+second correctly-sized fetch following: **the first is waste**.
+
+**DISPOSITION.** Booked: **`fr-BasisCanvas C-17` ⊕ `fr-BasisCanvas C-18`** (transport) · **row 26
+`C:C-12`'s transport half** (ImageUpload — its **security half is §C2's**, and `C:C-12` is a declared
+collider, so the record qualification is load-bearing). These are the register's **§5 template-bound
+edges** (`thumbnailUrl` 3 consuming sites · `overlayUrl` 3 · `imageUrl` 0) — the F-6 blindness §D1 locks,
+seen from the transport side. Home: the **fourier API row**.
+
+▲ **LOCK — the race discipline is a recorded superlative (S-6): do NOT cure the waste by removing the
+guard.** The unconditional-then-refuse sequence is wasteful **and** the guard is what keeps a null-bounds
+overlay from rendering wrong. The cure is **ordering** (know the bounds before fetching), not deletion.
+
+### E16 ⊙ — Trie disposition — RULED: NO TRIE
+
+**RULE — RULED, COHESION §0j.D F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1): NO TRIE.** **Whole-snapshot duplication
+is the recorded shipped behaviour and this contract carries it forward.** No trie, no prefix tree, no
+radix or patricia structure, no structural sharing and no delta compression is introduced by this
+contract. **F.W7 unit `b` never opens**, `design/R4-variant-storage.md` is never created, and **G-F7-5
+closes vacuously**; F.W7 unit `a`'s census still runs.
+
+**WITNESS** (measured this seat, both trees, **token-bounded**). ⟨cmd⟩
+`/usr/bin/grep -rniwE 'trie|prefix.?tree|radix|patricia' $F/api $F/web/src $V/api/src $V/src | wc -l` →
+**0** (double-run) — **zero true hits on BOTH trees**: there is no material on either side to preserve,
+extend or migrate. ⊘ **Instrument disclosure, because the digit is only as good as the probe, and it
+reconciles exactly.** The unbounded `-i` ERE the gate spells returns, at this seat,
+⟨cmd⟩ `/usr/bin/grep -rniE 'trie|prefix.?tree|radix|patricia|structural.?sharing|delta.?compress' $F/api $F/web/src $V/api/src $V/src | wc -l` → **160** (double-run), which decomposes without remainder:
+**150 source lines ⊕ 10 `Binary file …__pycache__….pyc matches` lines** (⟨cmd⟩ the same probe piped to
+`/usr/bin/grep -c '^Binary file'` → **10**, and `-vc` → **150**). **The wave record's baseline figure of
+150 is the source-line arm of this same reading**, taken before the `.pyc` set existed at this clock —
+the two agree once the artefact is named, which is the only way a count and a figure can be said to agree.
+Every one of the token occurrences is a substring artefact: ⟨cmd⟩ the same probe with `-o`, minus the
+binary lines, `| sort | uniq -c` → `147 trie · 10 TRIE · 2 Trie`, **all inside `entries`, `Tries`,
+`retries` and `retrieval`**. A bare-substring probe on this corpus manufactures a hundred and sixty
+phantom hits for a token that occurs nowhere; the bounded form is what this clause stands on, and its
+**∅ is admissible only because the same instrument returns non-∅ on tokens that are present** (§0.6's
+discipline).
+
+**The incumbent constraint, quoted at its own bytes with its wrap disclosed** (⟨cmd⟩ base `$V`,
+`/usr/bin/grep -n -F 'flat BAG' docs/tranches/V/megatranche/formation/fourier/lane-crud.md` → **one hit,
+`:240`, and that line ENDS mid-sentence**): `:240` *"`atomdiff.py:12-14`: "the atoms are a flat BAG (not a
+tree / Merkle / document); the diff is a"* ⟶ continuing on `:241` *"whole-atom replace …; there is no
+three-way / DAG / merge.""* — the break falls after *"the diff is a"*, no word is changed, and the inner
+`…` is the source's own elision, carried and never widened. The guardrail is **live in the fourier tree**:
+⟨cmd⟩ base `$F`, `/usr/bin/sed -n '12,14p' api/lib/crud/atomdiff.py` → *"the atoms are a flat BAG (not a
+tree / Merkle / document); the diff is a whole-atom replace …; there is no three-way / DAG / merge."*
+
+⊘ **BILATERALITY CORRECTED, and the correction NARROWS the premise without voiding the ruling.**
+lane-crud's *"both sides carry"* spelling rests on a docstring citing a file value.js no longer has:
+⟨cmd⟩ base `$V`, `/usr/bin/grep -rniE 'merkle|flat bag|not a tree|structural.?sharing' api/src src` →
+**exactly ONE hit, and it asserts the opposite word** — `api/src/modules/palette/hash.ts:6`
+*"Identical content always produces the same hash (Merkle property)."* — and ⟨cmd⟩ `/bin/ls api/src/lib` →
+*No such file or directory*, the TA-4 excision §E3 rules on. **One live guardrail plus a deleted twin is
+still an incumbent constraint**, and the ruling rests on the corpus fact the bounded probe measures plus
+the live guardrail, not on the bilaterality claim.
+
+**DISPOSITION.** Booked: **`R-4`** (lane-crud §R-4 ⊕ COHESION SS-4). ▲ **DISSENT RECORDED, NOT RESOLVED**:
+the trie/structural-sharing requirement **collides with the standing anti-tree KISS guardrail**; the
+guardrail is the **incumbent**; the dissent is banked at **`F-W10.md` §2.3, the `SS-4-PREREQ` row**, and
+its bytes are quoted **ONCE** in this programme, at F-W5 §4's `F.W5 → F.W7` edge row — **this clause
+quotes nothing and states the substance in its own voice**. The ruling **preceded design**, which is the
+order SS-4 requires.
+
+▲ **LOCK.** *No trie* is a **ruled disposition, not an unimplemented requirement.** A later wave may not
+record this clause as deferred work, and may not introduce structural sharing as an optimisation under a
+different name — **delta compression and structural sharing are named in the ruling's own probe**, and
+reintroducing either re-opens G7.
+
+### E17 — Image bounds on write ‡
+
+**RULE.** **A write derives and persists the geometric context its own reads require**, or the contract
+names the backfill path and the operation that runs it. A field that is written `None` by the only writer
+and read by every consumer is **not optional — it is absent**.
+
+**WITNESS** (measured this seat, base `$F`). The POST **never derives bounds**: `api/routers/contours.py:25` calls `store_contour_asset(xs, ys, req.image_slug, source="editor")` —
+**no `image_bounds` argument** — against the signature ⟨cmd⟩
+`/usr/bin/sed -n '285,292p' api/services/image_storage.py` →
+`image_bounds: dict[str, Any] | None = None,`, **written verbatim**. Backfill is **GET-only**. So
+`imageOverlayRect` goes null and the `<image>` `v-if` drops. ⊘ And the content-addressed store turns the
+failure inside out: **a no-op save re-hits the extraction doc WITH bounds**, which means **the overlay dies
+exactly when the points CHANGED** — the one case where the user has done real work. (⟨cmd⟩
+`/usr/bin/grep -rn 'image_bounds' api/ --include='*.py' | wc -l` → **29** sites, i.e. the field is
+pervasively *read*.)
+
+**DISPOSITION.** Booked: **`fr-ContourEditorCanvas C-2`** — ▲ **record-qualified: NOT
+`fr-GallerySearchBar C-2` (§D10's WAVE-LOCK alias) and NOT `fr-FourierShapeExtractor C-2` (§G2c)**; three
+records, one token, U-12 qualification at every site. The act — **derive bounds on POST or backfill on
+write** — is **ruled at the fourier API row**, and this clause states the contract term it must satisfy.
+
+▲ **LOCK — the tree's own workaround comment sits on the LOAD path; do NOT mistake it for a cure.** A
+load-side accommodation for missing bounds is what has kept the defect invisible; removing it without
+deriving on write turns a silent drop into a visible one and fixes nothing.
+
+### E18 — Attribution — the actor is a FIELD
+
+**RULE.** **An audit row's ACTOR is a field of its own**, never a repurposed transport or privacy field;
+and **attribution is required on both sides of the union or the asymmetry is stated**. A system actor is a
+value of the actor field, not a sentinel smuggled through a hash column.
+
+**WITNESS** (measured this seat).
+
+- **The log never answers WHO.** ⟨cmd⟩ base `$F`,
+  `/usr/bin/grep -n '_JANITOR_ACTOR' api/services/janitor.py` → `:56`
+  `_JANITOR_ACTOR = "system:janitor"` and `:95` `"ip_hash": _JANITOR_ACTOR,` — **the actor is written
+  into `ip_hash`** — and it is rendered by an unconditional truncation: ⟨cmd⟩
+  `/usr/bin/grep -n 'slice(0, 10)' web/src/components/visualization/gallery/AdminAuditLog.vue` → `:146`
+  `{{ entry.ip_hash.slice(0, 10) }}`, i.e. **`system:jan`** on screen. The producer's own comment
+  **convicts the mechanism by its own rationale** — ⟨cmd⟩
+  `/usr/bin/grep -n 'self-documenting' api/services/janitor.py` → **`:54`**, and the sentence **wraps**,
+  so both lines are named rather than re-flowed: `:54` *"# loosening the admin-action contract to
+  ``str | None``. It is self-documenting"* ⟶ `:55` *"# in the viewer and trivially filterable."* The
+  comment block is `:50-55` and `_JANITOR_ACTOR` is the line after it.
+- **The attribution asymmetry.** fourier declares ⟨cmd⟩
+  `/usr/bin/grep -n 'owner_slug' api/models/visualization.py` → `:119` `owner_slug: str  # required,
+  non-null (CRUD-CONTRACT §3)`, while value.js declares ⟨cmd⟩ base `$V`,
+  `/usr/bin/grep -n 'userSlug: string | null' api/src/modules/palette/model.ts` → `:60`
+  `userSlug: string | null;`. The value side's `if (userSlug)` guard means **an unattributable edit
+  writes NO version row (V-γ)** — the history simply has a hole where the anonymous act was.
+
+**DISPOSITION.** Booked: **lane-crud `R-7`** (record-qualified: `lane-crud §R-7`, **not** `GCM-3 R-7` at
+§E6's repair-test lock, **not** `fr-GalleryInfiniteGrid R-7` booked at §D10 — **three identities, one
+token**) ⊕ **`V-γ`**. **`AA-10`** (D-M2/L-13) rides as a **LEG held at F-W4**; the **display cure**
+(sentinel-aware branch ⊕ legend) is F.W4's. Homes: the **actor field** is the fourier API row's; **V-γ's
+hole** is the value.js API row's. **The asymmetry is stated once, here.**
+
+▲ **LOCK.** A sentinel in `ip_hash` is *legible to the person who wrote it* and to nobody else. The cure
+is the **field**; a viewer branch that special-cases the sentinel makes the display honest and leaves the
+column lying.
+
+### E19 — Vocabulary the contract inherits — the NOUN and POSITIONAL arm only
+
+**RULE.** **One affordance, one noun, across the wire and the code.** This contract fixes the nouns it
+inherits — **remix, not fork** (§E4); **version, not snapshot** — and **a retired noun does not remain on
+the wire as a compatibility spelling**. A positional parameter kept only so a call site need not change is
+**not an interface; it is a deferred edit**.
+
+**WITNESS** (measured this seat, base `$F`). The retired noun survives as an alias with its own honest
+comment: ⟨cmd⟩ `/usr/bin/grep -rn 'loadSnapshot\|_imageSlug' web/src --include='*.ts' --include='*.vue'` →
+`stores/workspace.ts:237` `async function loadSnapshot(_imageSlug: string, vizSlug: string)` with `:448`
+*"`loadSnapshot` is a compatibility alias over `loadVisualization`"*, exported at `:451`; and
+`stores/gallery.ts:219` `async function publish(slug: string, _imageSlug?: string)` — **a dead positional
+with exactly one caller**. Three names stand for one affordance across this cluster.
+
+**DISPOSITION.** Booked: **`D-14` / `MIN-4` / `MIN-5` / `MIN-10` / `MIN-11`** (the VisualizationView
+cluster) — ▲ **the NOUN and POSITIONAL arm is F.W5's; the REST is F.W4's.** v2 fixes the nouns it inherits
+(remix vs fork; snapshot vs version — lane-crud §6), and **`loadSnapshot` is itself one of §D14's ten
+zero-consumer members**, so the alias and the dead surface retire in one act.
+
+▲ **LOCK — a compatibility alias with one caller is not compatibility.** The comment at
+`workspace.ts:448` is honest about what the alias is for, and that honesty is exactly what makes it
+retirable: **the call site the alias was kept for is the call site the rename would have edited.** The
+dead positional `_imageSlug` goes with it — a leading underscore declares the parameter unused, which is
+the compiler being told the truth about an interface the contract is still carrying.
+
+### E20 — The exposed-ref seam — the one non-wire contract row
+
+**RULE.** **A cross-component channel is READ-ONLY unless the contract says otherwise, and `defineExpose`
+is a channel.** A `ref` handed across a component boundary is a **read-write** corridor — Vue's
+`proxyRefs` set-trap makes assignment through it silent and legal — so a component that exposes mutable
+state is publishing a write API whether or not it meant to. **This is the one row in this contract that is
+not about the wire**, and it is here because it is the same defect class: *an interface whose mutability
+is undeclared*.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/sed -n '217,227p' web/src/components/visualization/ContourEditorCanvas.vue` → the expose block
+lists `getPoints,` (`:224`) and then **`points,` (`:225`) and `magnetRadius,` (`:226`)** — i.e. **the
+accessor and the raw ref it accesses are exposed on ADJACENT LINES**, and `points` is the **undo ring's
+subject**. ⊘ *The banked cell says `getPoints()` is exposed "two lines earlier"; at the true bytes it is
+**one** line before `points` and two before `magnetRadius`. The distance is not the finding — the
+**co-exposure** is — and the measured spelling is printed so the sentence survives a re-read.* The consumer takes it as a prop across a `v-if` boundary (`ContourPreview.vue:7`
+`points: Point2D[] | undefined;`), and **the tree ALREADY writes through the channel one key over** —
+`magnetRadius` via the computed setter (`ContourEditorCanvas.vue:38`, bound through
+`EditorControlsDock.vue:31`/`:43`).
+
+**DISPOSITION.** Booked at the record's own ADJUDICATED cell, verbatim at record case (⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'a TWO-member change' fr-ContourPreview.md` → `:46`): ***"ADJUDICATED → **F.W5**
+(readonly/`getPoints` seam; a TWO-member change — `points` AND `magnetRadius`)"***. **Owned here because
+the record routed it here.** ▲ **Row 11's one-character `?:` fix pairs at F.W4 "per the L-lane carry" —
+F.W4 must NOT land row 11 presuming row 13's seam shape**, because the seam's shape is what this clause
+decides.
+
+▲ **LOCK.** It is a **TWO-member change**. Making `points` readonly and leaving `magnetRadius` exposed
+leaves the tree's one demonstrated write path open — and that path is the proof the channel is
+**exercised**, not merely exposable.
+
+---
+
+*§A–§E are authored. §F (the equation contract and error envelope) · §G (canonical geometry) and the
+value-side obligation list land at F.W5 unit d; `contract/OWNER-RULINGS-F.W5.md` and the co-signature
+relay at unit e. Clause ids in this file are preserved verbatim for sibling cross-references; a sibling's
+mis-keyed cite is conformed **at the sibling** (R-1e). No clause is numbered D9 — `D9` is reserved
+throughout for the ruled owner decision, which no clause may contradict.*
