@@ -262,3 +262,61 @@ Tracked canon carries the dispute in full at `registry/harvest/v-pi-receiving-au
 **Why TRACK and not DELETE, reviewably**: (1) ⟨`git grep -c '255,457,954\|255457954' -- docs/`⟩ → the figure occurs in **one** file; **COHESION §0j does not rule it**, and the wave's standing law is explicit — *anything owner-gated that §0j does not cover is an escalation returned, not a seat decision*; (2) **E-3** binds this seat and positionA *is* E-3 under another name; (3) the proposing auditor declined the identical act for the identical reason; (4) DELETE is irreversible, TRACK is not.
 
 **The word wanted, in one sentence**: *retain (positionA — the branch landed here) or delete-the-payloads-keep-the-receipts (positionB / P3.1)*. On a positionB ruling the act is one pathspec over `…/apotheosis/pi/denominator/occurrence-owner-formation-v*.json` + `…-v*.shards`, retaining every `*-rejection.json` receipt and the tools. **Returned to X-W0.g's sitting packet as a docketed row** — it is **not** one of §0j.A's seven and must not be presumed into them — or to the owner directly. **No act taken.**
+
+---
+
+### X-W0.d — Worktree-7e28 Corpus Closure (CC-026 / C-11) — **DONE**
+
+**Seat**: Opus (`claude-opus-5[1m]`) · group 2 · 2026-09-17
+**Sections executed**: `waves/W0.md` §Agent Units "X-W0.d" `:165–170` · §Scope 4 `:27` · HG-9 `:266–269` · §Commit Plan row 3 `:373` · §File Bounds Do-NOT-touch `:101` (the 90 copies immutable)
+**Rulings consumed**: COHESION `§0j` preamble (the begin-word) — no §0j row gates this unit; nothing owner-held arose.
+**Artefact**: `docs/tranches/V/megatranche/formation/codex-worktree-7e28/CENSUS.md` **§7** (appended; §1–§6 untouched)
+**Commit**: **`9f4b22a7`** — `docs(x-w0/7e28-census): HG-9 re-verified GREEN — 126/126 accounted, 90/90 copies byte-exact, collision holds, ~/.codex untouched` · ONE commit, as locked · **1 file changed, 281 insertions(+), 0 deletions(-)**
+
+#### Acts, in order
+
+**D1 · Open, frozen.** HEAD at measurement open **`c0d70599`** ⟨`git log --oneline -1`⟩. Tree state ⟨`find …/codex-worktree-7e28 -type f | wc -l`⟩ → **91** · ⟨`git ls-files … | wc -l`⟩ → **91** · ⟨`git ls-files --others --exclude-standard … | wc -l`⟩ → **0** · ⟨`git status --porcelain -- … | wc -l`⟩ → **0**, worktree and index both CLEAN. Seat 0's open measurement (**91 files, 91 tracked**) reproduces exactly.
+
+**D2 · The 126 accounted, re-derived from §2 — not read off §1.** ⟨`awk -F'|' 'NF>=7 && $6 ~ /ADOPT-COPY|LEAVE-IN-PLACE/' CENSUS.md`⟩ → **126** rows (double-run **126**, ⟨`cmp -s`⟩ identical); ⟨`cut -f1 | sort | uniq -c`⟩ → **89** `ADOPT-COPY` + **1** `ADOPT-COPY-AS-VARIANT` + **36** `LEAVE-IN-PLACE` = **90 + 36**. The gate's accounting is confirmed by independent re-derivation rather than by quoting the census's own §1 headline.
+
+**D3 · The 90 re-hashed — HG-9's central act, one row each.** ⟨`tail -c <original-bytes> <copy> | shasum -a 256`⟩ against §2's recorded original digest, for all 90 (the collision row resolved to its `.WORKTREE-VARIANT.md` copy path): **90 MATCH · 0 DRIFT**, double-run identical. **No row required a finding.** §1's claim *"90/90 payload tails re-hash to the original sha256 (byte-exact)"* reproduces forty-five days after it was written.
+
+**D4 · Two further axes the gate does not require, run because a single axis cannot catch a header edit.**
+- **§3 whole-copy digests**: ⟨`shasum -a 256 <copy>`⟩ vs §3 → **90 MATCH / 0 DRIFT** (double-run identical). A payload-preserving edit *to the provenance header* would pass D3 and fail here.
+- **Three-way set equality**: the §2-derived copy-path set, §3's listed set, and the on-disk set minus `CENSUS.md` are the same **90** paths — ⟨`diff`⟩ → **0** lines on both comparisons. No copy exists that the census does not name; no census row names a copy that is gone.
+- **Provenance-header integrity**: `header_length = copy_bytes − original_bytes`, then reading only those bytes — **90/90** headers name the `~/.codex/worktrees/7e28` origin path, the original sha256 and the original byte-count. Two greps returned >1 line and **both belong solely to the collision variant**, whose header restates `5661` / `1450204640b3…` / `3463` inside its own COLLISION RULING prose. Stated rather than left as an unexplained outlier.
+
+**D5 · The collision — two distinct tracked names, still.** ⟨`git ls-files 'docs/**/PRODUCER-ARTIFACT-BOUNDARY-2026-07-29*'`⟩ → exactly **2** paths, ⟨`git ls-files --error-unmatch`⟩ succeeds on both:
+
+| role | path | bytes | sha256 |
+|---|---|---:|---|
+| repo of record (**governs**) | `megatranche/coordination/PRODUCER-ARTIFACT-BOUNDARY-2026-07-29.md` | **5661** | `1450204640b3…` |
+| derivative variant (copy) | `…/codex-worktree-7e28/coordination/PRODUCER-ARTIFACT-BOUNDARY-2026-07-29.WORKTREE-VARIANT.md` | **5694** | `b56b064e…` |
+| the variant's payload | ⟨`tail -c 3463`⟩ | **3463** | `91b9a0ce…` |
+
+All three equal §4's record. Titles differ (*"Producer artifact boundary — Glass, Value, and Keyframes"* vs *"Producer Artifact Boundary — Value Receiver"*) and — the load-bearing part — **the basenames differ**, not merely the directories, so the disambiguation survives any future flattening. §4's ruling is not re-opened.
+
+**D6 · `~/.codex/**` unmodified (M-21 §2, read/hash only).** The strongest read-only evidence available is the corpus itself: **all 126 originals still carry their recorded sha256 *and* their recorded byte-count in place** — ⟨`shasum -a 256`⟩ + ⟨`wc -c`⟩ → **126 MATCH / 0 DRIFT**, double-run identical. Beside that: ⟨`find /Users/mkbabb/.codex/worktrees/7e28/value.js -type f | wc -l`⟩ → **3967** (double-run **3967**), exactly the spec's `:268` figure; the worktree's `HEAD` **file** reads `e01d0065fa6c7c80282280566af2b9a4add809bf`, its `.git` reads `gitdir: /Users/mkbabb/Programming/value.js/.git/worktrees/value.js`, and ⟨`git merge-base --is-ancestor e01d0065 tranche-u`⟩ exits **0** — §Subject's *"detached HEAD `e01d0065`, reachable from `tranche-u`"* holds. HEAD was read from the file rather than by a command that could refresh an index; no write, no `git` mutation, no mtime touch in either tree.
+
+**D7 · The unit's Goal, measured rather than assumed** (`:168` — *"the 07-31 'Exact Value authority' pins resolve from the repo of record, permanently"*). All **six** §5 pins named in `CONSTELLATION-RESURRECTION-HANDOFF-2026-07-31.md` §4 still resolve inside the repo of record and each resolving copy re-hashes **MATCH**: `717bf1e3…` · `244c448a…` · `713ae753…` · `973799e4…` · `29303183…` · `0cc04422…`. **K-14 stays cured** — 6/6 from `formation/codex-worktree-7e28/`, 0/6 from `~/.codex/`. **K-13's standing exception stands unchanged and unre-opened**: `VALUE-FORMATION-PACKET-2026-07-29.md` still carries `d07b6ddc…` at 63,572 bytes, adopted AS-FOUND, sole extant version — its stability across 45 days is not evidence the seal digests were right, only that the as-found bytes have not moved again.
+
+**D8 · Landing, append-only by measurement.** `CENSUS.md` pre-append: **59,093** B, sha256 `afd6ed06aeb14dd2ca2fb02602b5cb1d3c93ef34e15c84e387878c39bce3ddfc`. Post-append: **92,254** B, and ⟨`head -c 59093 CENSUS.md | shasum -a 256`⟩ → **`afd6ed06…`, identical** — the prior bytes are preserved byte-for-byte, so E-3's addendum-beside is proved, not asserted. Git agrees independently: ⟨`git diff --numstat`⟩ → **281 0**, ⟨`git diff | grep -c '^-[^-]'`⟩ → **0 deleted lines**. ⟨`git diff --check`⟩ clean. Staged by exact pathspec, one argument; the landed commit carries **1** file ⟨`git diff-tree --no-commit-id --name-only -r 9f4b22a7`⟩, **0** non-`docs/`, **0** `registry/adjudicated/` (fold **G-H**), **0** `dev.sh`.
+
+**SELF-COUNT, read back from the settled bytes**: §7.3 → **90** numbered rows, **90** reading `MATCH | MATCH`; §7.4 → **36** numbered rows, **36** reading `MATCH`; row-level `| DRIFT` verdicts anywhere in §7 → **0** (the 7 textual `DRIFT` hits are all the string *"0 DRIFT"* or *"no copy drifts"*); `SERVED MODEL: claude-opus-5[1m]` → **1**. The block is not prefixed to line 1 of `CENSUS.md` — that would rewrite the file's existing first byte (E-3); the served-model receipt is carried inside the appended section.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (open, HEAD `c0d70599`) | AFTER (post-commit `9f4b22a7`) | verdict |
+|---|---|---|---|
+| **HG-9** — the 7e28 corpus is closed and byte-exact | seat 0 recorded **GREEN-AS-DECLARED** on the two limbs it could take read-only (91 files / 91 tracked; both collision names present) and left the gate's **central limb — the 90 digest re-hashes — UNRUN**, deliberately: *"the 90 digest re-hashes are X-W0.d's act"* | **all four limbs measured**: 126/126 accounted (90 + 36, each with its own row) · **90/90** tail digests MATCH, 0 DRIFT (and 90/90 on the §3 axis) · collision = **2** distinct tracked names, three digests reproducing · `~/.codex/**` unmodified (126/126 originals, 3,967 files, `e01d0065`). Re-measured **after** the commit at the landed bytes: tree **91/91/0-dirty**, re-hash **90 checked / 0 drift** | **GREEN** |
+
+*The gate's own falsifier (`:269` — "any copy whose `tail -c <original-bytes>` digest drifts from `CENSUS.md` §2") was executed as the gate, not paraphrased: 90 separate `tail -c | shasum -a 256` invocations, each compared to its own recorded digest, twice.*
+
+#### Residuals
+
+- **R-1 — the freeze this gate makes checkable.** The 90 copies are frozen *by rule* (`waves/W0.md:101`; HG-17 excludes them from X-W0.i's `V·L5` live set precisely because an edit inside one would break this digest re-hash). Re-measured at this run: ⟨`git ls-files <7e28> | grep -v CENSUS.md | xargs grep -l 'V·L5\|V\.L5' | wc -l`⟩ → **19** (double-run **19**) — the frozen copies carrying the token, all correctly untouched. This unit's 90 digests are the instrument that would name any seat that edits one; X-W0.i and X-W11 can rely on it.
+- **R-2 — concurrency, recorded not disputed.** Two Track-B commits (`30110269`, `4ffa4f59`) landed during this run, moving repo HEAD off `c0d70599`. ⟨`git diff-tree --no-commit-id --name-only -r <h> | grep -c 'codex-worktree-7e28'`⟩ → **0** and **0**; the tree re-measured 91/91/clean afterwards and the post-commit re-hash returned 90/0. No interference.
+
+#### Escalations
+
+**None.** Every limb of HG-9 was executable at the bytes exactly as specified; no anchor had drifted, no cure was impossible, no owner-gated question arose. Nothing outside the single writable file was written.
