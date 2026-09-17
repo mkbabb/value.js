@@ -132,3 +132,20 @@ Routing law: **KF.W0–W10** named from the census taxonomy (`formation/keyframe
 **ADJUDICATED at keyframes.js worktree-on-`8281638c` against frontier `origin/master 81a56990` under the baseline law: the seeding stack, its host wiring, and every roster row above are frontier-durable; the three divergent files on this blast surface (the panel's EE-02 twin, the setter's `css` thread, the package.json pin) were re-read at BOTH coordinates by this seat and decide four kills and one frontier-only defect. 29 roster rows — 2 BLOCKER · 9 MAJOR · 11 MINOR · 7 INFO, with 14 folds/fold-extensions to banked identities and zero re-bookings. 11 kills sustained — the frontier-baseline kills re-proved at this seat's own git reads (including the winning-write leg neither reader closed), the one-prop cure dead for the third time, and two reader-vs-reader contradictions settled at the bytes (the `v-if` exists; the canvas crushes). 8 missed rows admitted, the largest a source-decided keyboard-collision third site whose colliding widget is vendor-owned. The component is the census's best shadow-component citizen — the cluster deleted, the container supplied, the clock refused, zero token surface — wearing the demo's worst seeding contract: a `:key` wired to the value its own handler writes, an echo filter anchored to the wrong reference with a standing hard-coded arm, and a stale vendor premise whose tempting one-prop cure would trade the blocker for a silent regression. Routings are M-25 agglomeration input: the behavioral core rides NO-WAVE-OWNER to the SS-1/SS-2 seat-composable spec under the banked KF-ES-4/KF-ET-1 cure-locks; producer rows ride the standing GLASS BH relay (the viewport grid, the preset seam, the keyboard registry's missing `defaultPrevented`/scope with R-1's LIFO/FIFO law); structural folds to KF.W0/W4/W5; 13 visual rows to SS-13/KF.W9. Nothing here stamps a wave; X·KF executes on the owner's begin-word.**
 
 — end of apotheosis. The challenge corpus and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **TimingFunctionPanel.vue=+16/-9**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

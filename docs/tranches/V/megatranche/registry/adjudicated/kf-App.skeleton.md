@@ -110,3 +110,26 @@ Both reader returns survive the incredulity seat **with their verdicts largely i
 The component's adjudicated shape: **a structurally correct, teardown-free, token-citizen fallback whose every design promise is false** — it announces nothing, dims nothing, matches no geometry, reads one dead token and three detuned ones, and reimplements-without-tracking a primitive whose own packaging defeats its own radius scale. Zero blockers; the harm today is bounded by one mount site and one chunk-fetch lifetime; the significance is the **fan-out** (a broken contract canonized as the house skeleton spec) and the **cure inversion** (delegating to the bare primitive makes the silhouette and the PRM state worse — the right target is the demo's own stage-card register). Routings: **KF.W6** owns the component's cure surface whole (delegation-via-Card KF-SKEL-3/-6/-8/-18, tokens KF-SKEL-2/-11/-17, a11y wrapper KF-SKEL-1, grammar+docblock KF-SKEL-13/-14, plus the cascade-coupling probe KF-SKEL-7); **KF.W5** takes the adjacent-component folds (KF-SKEL-9/-16/-20); **KF.W9** takes the PRM/motion-register unification arm and every live witness; **KF.W0** takes the re-anchor law; **GLASS-OWNED/BH-relay** takes KF-SKEL-4 with the bundle-offset proof attached; **NO-WAVE-OWNER** carries the app-shell seam (KF-SKEL-5/-15) for SS-1/SS-2 to consume. Nothing lost: head, tail, or interval.
 
 — end of apotheosis. The three challenge files and both reader returns remain immutable beside this record per E-1/E-3; dispositions are ADJUDICATED, not VERIFIED; X·KF execution awaits the owner's begin-word.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/app/App.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **App.vue=+8/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**CORRECTION (iii) of the six named at G-0.9 — KF-SKEL-7's cascade-level coupling arm is RECORDED BESIDE THE IMPORT CENSUS** (C-22 (iii) / C-1.F row F-13). Banked ⟨`kf-App.skeleton.md:42`⟩: *"the §B-12 reconciliation adopts a cascade-level coupling arm beside the import census."* The arm is C-9's legend rider and lands in the census re-anchor at `lane-frontend.md` (KF.W0.d's motion, same wave); **its token-namespace probe half stays KF.W6's** and is not booked here.
+
+**KF-SKEL-2 re-derived in the FRESH build**: ⟨`grep -c -- '--shadow-glass:' dist/gh-pages/assets/index-CBB2Hr7m.css`⟩ → **0**. The dead-token finding HOLDS at a dated, hashed artifact instead of a Jul-16 one.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

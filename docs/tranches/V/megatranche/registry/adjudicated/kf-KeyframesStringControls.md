@@ -174,3 +174,28 @@ Ids keep their axis names for life; reader-missed finds bank as N-1..N-10. Line 
 **ADJUDICATED against the measured dirty worktree over checkout `8281638c` (component byte-equal to `origin/master`; emit chain WIP-divergent from both refs): 56 confirmed rows (4 BLOCKER · 22 MAJOR · 27 MINOR · 3 INFO), of which 11 fold by reference to banked kf-DemoGlobalChrome / kf-CSSCodeEditor / kf-ChannelControls / kf-ControlsPaneWrapper / kf-ACG / kf-App / census identities with zero re-bookings — the net-new blocker is N-1 (Controls-tab edits silently destroyed in animation AND store by the stale-buffer round trip), joining L-BL-1 (the inert Apply-CSS class) and L-BL-2 (whitespace names → invalid idents + mid-apply throw), all three converging on N-8's root cause (three names for one animation; the library's one normalizer unpublished — KF.W5) · 11 claims killed with executed refutations (two unreachable-state kills re-proved on today's disk, one kill-of-a-confirm, one tree-motion kill of a corpus cell both re-readers inherited, two identity-guard kills of "net-new" status) · 10 reader-missed rows banked (N-1..N-10, one merged pair), 3 folded, 1 rescoped latent · superlatives preserved with one demotion (S-6, by N-5's uncalled `clear`) · routings are M-25 agglomeration input for the forming X·KF specs — KF.W0 (F-1/substrate), KF.W3 (R1 reachability), KF.W4 (typecheck fold), KF.W5 (`cssIdent` + deep-path surface), KF.W6 (tap-floor, tabs/focus reconciliation), KF.W8 (colocation), KF.W9/SS-13 (8 residue rows, 3 retired), EDITOR-UNIT (echo/format/toast-storm folds), and the proposed APPLY-UNIT carrying everything the apply/name/feedback family owns as NO-WAVE-OWNER input for SS-1/SS-2.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/keyframes/KeyframesStringControls.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KeyframesStringControls.vue=+1/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**`L-M-9`'s TWO LIMBS ARE DISAMBIGUATED — MAJOR FOLD vs RETIRED PROBE** (C-1.R row 7, repair round 5 D-3). The banked row at `:86` carries BOTH: a **MAJOR fold** (`FOLD → census F-1 ≡ SCH-1 → KF.W0`, NOT re-booked) and a **RETIRED probe** (the clean-`npm ci`-fails probe). A seat greping the id now finds **exactly TWO dispositions, each naming its limb**, and re-books neither. **The fold is discharged by the §B-12 act, once, at C-1**; both transitive critical-path riders (`CSSCodeEditor.vue:38`; `useHighlightCSS.ts:2` via `useApplyCSS.ts:4`) are carried verbatim there.
+
+**DISSENT 3's tree-motion law is now SATISFIED BY CONSTRUCTION**: *"every anchor in this record is a TODAY-disk read; every cure re-resolves at `origin/master` first; and any future seat re-running a corpus grep on this repo must date its run."* The today-disk of 2026-08-25 is gone; the ref of record is the checkout's own `HEAD`; this stamp is dated.
+
+**`D-19` here is a COMPONENT-LOCAL id, not the re-anchor law** (C-1.R row 6's record-qualification rule); nothing is re-booked from it.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -136,3 +136,22 @@ Dispositions are **ADJUDICATED, not VERIFIED** — X·KF specs are still forming
 **ADJUDICATED.** Two hostile re-readers re-derived the corpus to the digit and the register cut both ways: one BLOCKER died on a baseline no axis named, one BLOCKER died on its own in-section self-refutation, a parity superlative died on executed arithmetic, D's race direction died at the installed producer's bytes, and D's one "airtight" promotion died in all three branches of a disjunction whose third branch neither reader saw — while the readers' ten missed-find filings yielded seven genuine admissions, including the corpus's sharpest compound fact: a ringless click that hands the page's arrow keys to a widget which then steps a parameter, rebuilds a live spring, and scrubs the playhead per press, undisclosed at every layer. The component underneath is the program in miniature: a genuinely excellent 5-line kernel, textbook DPR and teardown, honest PRM — wrapped in an instrument whose legend, lattice, published tolerance, aspect annotation, tone seam, bench citation, and provenance comment are all false at once, and whose entire render stakes itself on an unvalidated token-to-canvas gamble the design system it already imports both names and cures. The repair is a packet — one field design, one input lattice, one two-ref contract, one resolved color path — not a rewrite. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C for life; N-SH-1..N-SH-7 for life.
 
 — end of apotheosis. The three challenger records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/spring/SpringHeatmap.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SpringHeatmap.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

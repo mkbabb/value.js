@@ -159,3 +159,22 @@ Routing law: **KF.W0–W10** per CENSUS-2026-08-03; behavioral repairs with no c
 **ADJUDICATED at keyframes.js worktree-on-`8281638c` (dirty; anchors re-resolve at cure — the worktree's glass-7 sweep has already reached one of this scene's two Button twins): 41 roster rows — 0 new BLOCKER · 9 MAJOR · 16 MINOR · 7 INFO · 9 folds into banked identities, ZERO re-bookings. All five filed BLOCKERs die or fold: the phantom-dependency pair killed baseline-short at this seat's own git instruments (origin/master pins the exact installed 7.0.0); the accent-CTA and Reverse-mirror rows fold to kf-PlaybackRibbon — the latter to a fold the bank had PRE-ASSIGNED to this adjudication by name; the inert-gesture row survives as the headline MAJOR with four dissents; the ungated-facet row splits into two banked folds. Two reader confirmations reversed at the bytes (the Re-seat button re-seats; the Entry-channel loop paints the visible facet), one grouped booking-kill covering fourteen registry-blind identities, and the corpus's best find was missed by all three axes and found by one reader: dock Reset, R, and Escape have never been able to touch this scene — the only rewind code is unreachable, the dock stops an empty group, and the comment says the dock owns it. The component's measured shape: a genuinely excellent hot path, teardown, and physics core (ten sustained superlatives, one of them the tree's own green test refuting the file's own comment) wearing a transport, facility, and prose layer in which the instruction is false at birth, the Reset is a decoy, the artifact uppercases what it promises verbatim, and six comments name the wrong color. Nothing here stamps a wave; every routing is M-25 agglomeration input for the forming X·KF specs. Original ids — D/L/C and the readers' rows for life; KF-SS-1..41 minted here.**
 
 — end of apotheosis r2. The three challenge records and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/spring/SpringScene.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SpringScene.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

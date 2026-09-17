@@ -163,3 +163,28 @@ Identity-deduped: one row per defect, all axis ids attached. Anchors = stale che
 **ADJUDICATED.** The component is the program's sharpest specimen of *earned bespoke with one-line holes*: architecture superlative (single writer, disjoint gestures, firewall-exact, zero hand-rolled rAF), yet its two BLOCKERs are each ONE missing edge in an otherwise well-built gate (a `pose` read while paused; an `isDragging()` term), and its design layer is theme-blind precisely where its CSS layer is theme-fluent. The corpus survives hostile re-reading almost intact — 49 rows confirmed, and the 17 kills are dominated not by false defects but by wrong scopes, wrong numbers, and one substrate-stale BLOCKER that the census had already falsified before the challenge was written. The re-anchor law is not paperwork; it changed a BLOCKER's fate here. Nothing in this record stamps a wave: every disposition above is agglomeration input for the forming X·KF specs, original ids for life.
 
 — end of apotheosis. The challenger records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/amiga/AmigaScene.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **AmigaScene.vue=+1/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**C-21 EXEMPLAR — the one MEASURED per-file offset the corpus hands this wave, re-run and reproduced byte-exactly.** Banked ⟨`kf-AmigaScene.md:155`⟩: *"**KF.W0**: the C-1 discharge + the corpus-wide re-anchor clause (this component: **comment-only drift, useAmigaDemo −2 below `:73`**)."* ⟨`git diff --numstat 8281638c 81a56990 -- demo/scenes/amiga/useAmigaDemo.ts`⟩ → `5  7` over 158 L → 156 L, **net −2**, and ⟨`git diff … | head -30`⟩ shows **both hunks are comment-block rewrites with zero code-line change**, the first opening at `@@ -73,11 +73,9 @@`. Comment-only drift, −2 below `:73` — exactly as banked. **This is the row that proves the re-anchor is per-FILE**: a blanket per-repo verdict would have mis-stated it in both direction and magnitude.
+
+**`AGG-P1` — provenance handle, NOT a fresh obligation** (C-1, repair round 5 D-4): the census agglomerator probe that produced the SCH-1 override. Its consequences are discharged at C-1 / G-0.2 / G-0.6; nothing is re-booked here. Its home is `formation/keyframes/CENSUS-2026-08-03.md` `:9`/`:32`/`:62`.
+
+**The `:6`/`:98` phantom-dependency falsification is now the SHIPPING truth, not a claim about a ref nobody held**: the settle made `81a56990` the checkout's `HEAD`, so `package.json:77`'s `"@mkbabb/glass-ui": "7.0.0"` exact devDep is the tree's own manifest. Ruled at KF.W0.b (`MANIFEST-RULING.md`).
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -149,3 +149,20 @@ Line anchors are HEAD `8281638c`; re-resolve before executing any cure (D-19). D
 **ADJUDICATED at HEAD `8281638c` — RED.** 49 rows stand (4 BLOCKER · 15 MAJOR · 20 MINOR · 4 INFO booked + 6 folds to banked identities, one blocker-weight): the component is a correct, even praiseworthy adoption whose CONTRACT went stale in every direction the cascade can betray prose — the headline BLOCKER's discharge lever ships unread in the installed producer while two comments deny it exists; the #1 repair all three axes prescribed is scope-dead as written and is corrected here with compiler and runtime receipts; the rest-dim, the closed rail, and the Apply-CSS state each fail a WCAG floor by arithmetic this seat re-derived thrice-independently (with the corpus's own 1.22:1 headline killed at 1.33:1 and its α=0.60 cure killed below the AA floor it cites). 11 claims killed with executed refutations; 14 re-reader finds adjudicated in, four of them MAJOR a11y/gesture defects no original axis reached; identity guards held across census F-1, parent D-1/D-3/D-7/D-8·C-7/L-4(a), and kf-App KF-APP-4 with zero re-bookings — and one double-filed "novel" find caught as already banked. Routings are M-25 agglomeration input for the forming X·KF specs: KF.W1-DEP/W2-TABS/W7-TOKENS and the banked KF-APP-4 gates lane own their folds; everything behavioral is NO-WAVE-OWNER for SS-1/SS-2; ten residue items ride to SS-13, the MISS-1 DOM check first. Nothing here stamps a wave.
 
 — end of apotheosis. The three challenge axes and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.css` · `demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **ControlsPaneWrapper.css=IDENTICAL · ControlsPaneWrapper.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

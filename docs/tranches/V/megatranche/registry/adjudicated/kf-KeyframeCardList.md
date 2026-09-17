@@ -135,3 +135,24 @@ Ids are the corpus's own, for life; `KC-n` is this record's roster index. Dispos
 **ADJUDICATED — RED.** 37 rows stand (3 BLOCKER · 10 MAJOR · 17 MINOR · 7 INFO); 12 claims killed with refutations preserved, two of them verified dead by this seat's own node runs and one of them a re-reader's confirmed cell; 13 corpus-missed defects adjudicated in, including one of this seat's own (KC-9). The offset authoring loop is dead three independent ways — readout (`[object Object]`), writer (a frozen-selector TypeError on the primary control), and removal (a mouse-only `<svg>`) — while the component's architecture (the child-ref contract, the closed round-trip, the two-writer discipline) is repeatedly *right*; every defect is a line, and every line sits in the one surface nothing type-checks. Routings: the repair coheres as ONE proposed wave-surface (**CARD-UNIT, NO-WAVE-OWNER** — SS-1/SS-2 spec authoring to consume, sequenced after the KF.W4 vue-tsc gate, internally ordered by KC-34's highlight-before-blanking edict), with discrete rows to **KF.W4** (the KF-CE-16 gate identity + two new witnesses), **KF.W6** (focus-contract/version-bump note, rhythm, tap-floor, muted token, Label conformance), **KF.W8** (colocation), **KF.W9/SS-13** (twelve live witnesses, one carrying a severity-promotion trigger), one re-scoped **glass-ui BH relay**, and two folds by reference (census F-1; megatranche R1). Dispositions are ADJUDICATED, not VERIFIED; nothing here stamps a wave.
 
 — end of apotheosis. The three challenge documents and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/keyframes/components/KeyframeCardList.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KeyframeCardList.vue=+14/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**THE UPSTREAM RELAY PREMISE IS 8.0.0-SOURCE, NOT ARTIFACT — re-derived against the CONSUMED dist** (C-13's law, G-0.10). D-10(b)'s verification rests on an 8.0.0 read: *"`--separator-ink` is deleted upstream in the fainter direction (`--ink-seam` 0.08)."* At the consumed 7.0.0 artifact: ⟨`grep -rl -- '--separator-ink' node_modules/@mkbabb/glass-ui/dist`⟩ → **2 files** (it SHIPS), ⟨`… '--ink-seam' …`⟩ → **0 files** (the successor is ABSENT). **The KILL of D-10(b) stands; the relay must be re-scoped (KC-20) before any consume slice**, because as written it requests a landed change whose sign the consumed artifact cannot see.
+
+**F-12 invokes the KF-CE-32 precedent by name**, so the precedent is made legible at `kf-CSSCodeEditor`'s bank: identity ownership stays with `lane-frontend` §10 step 1; what KF.W0 discharges is the **F-1 substrate leg**.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

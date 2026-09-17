@@ -129,3 +129,28 @@ Dispositions are ADJUDICATED, not VERIFIED — X·KF specs are forming; routings
 **ADJUDICATED — no blocker survives; 32 confirmed (6 MAJOR · 18 MINOR · 8 INFO), 10 of them FOLDS into the banked registry; 17 claims killed including both axis BLOCKERs (substrate-dead; refuted-at-the-bytes), one axis's entire producer-evidence base (wrong-version), and two reader-vs-reader disputes ruled by this seat's own vendor reads; 7 net-new rows the axes missed, headlined by the 12px iOS share field (SP-4) and the partial-apply false success (SP-22); the share feature's one systemic truth — success is reported unconditionally across three distinct failure shapes — is one cure family, already anchored in the bank; glass-consumption cures route to KF.W6, behaviour cures to NO-WAVE-OWNER for SS-1/SS-2, witnesses to KF.W9/SS-13, and the manifest artifact to KF.W0.**
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/SharePopover.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SharePopover.vue=+2/-2**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**§6's WRONG-VERSION-SOURCE row is RE-DERIVED AGAINST THE CONSUMED ARTIFACT, and it is corrected in ONE of its four legs** (C-13's law, G-0.10). Measured at `node_modules/@mkbabb/glass-ui/dist` (7.0.0, 225 files): `--spring-press` → **2 files** (`styles/theme/bridges.css`, `styles/tokens/scheme-spring.css`) and `--spring-smooth` → **14 files**. **BOTH SHIP.** The row's direction — D read an 8.0.0 source tree while the demo consumes the 7.0.0 dist — HOLDS; its exclusivity claim (*"installed: `--spring-smooth`"*, implying `--spring-press` is absent) does **not**. E-3: the dated cell is not rewritten; the measurement is appended.
+
+**The other three legs re-derive as banked**: `ACKNOWLEDGE_WINDOW_MS` → **0 occurrences** in the consumed dist (an 8.0.0 surface-only rationale; the citation does not resolve in the artifact under audit, and is STRUCK against it); `--radius-pill` → **29 files** (present, so the `calc(var(--button-size)/2)` claim is the 8.0.0 spelling); S-1's PRM text unchanged.
+
+**The stripped worktree manifest is EXPLAINED and DISCHARGED**: it was a checkout-lag artefact of the 41-behind tree, and the settle removed it. The devDep at the ref of record is `"@mkbabb/glass-ui": "7.0.0"`, exact — ruled at `MANIFEST-RULING.md`.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -137,3 +137,24 @@ Both hostile re-reader returns **survive the incredulity seat with corrections t
 The component's adjudicated shape: **a small, genuinely excellent piece of craft — the a11y mirror that became a library default, an identity-frame PRM guard, one clock with N phases, em-relative amplitude with its work shown — wrapped in three latent contract MAJORs no instrument in the repo can see (frozen props, N-way `$attrs` fan-out, a UTF-16 split the library's own segmenter names as the anti-pattern), guarded by the one gate that shares its defect, and shadowed by the library primitive extracted from it that nobody consumes and that none of the three prescribed migrations could actually land** (scoped CSS, the role override, the gate selector, the missing word tier, the zero-teardown price — five constraints, zero of them named by the corpus's repair orders, all named now). Every row leaves with exactly one disposition: **KF.W0** takes the dependency reconciliation (folded), **KF.W4** the gate/instrument law rows (the oracle that cannot bite, the selector coupling, the migration's gate work, the static-instrument gap), **KF.W5** the three library-side split-text defects as pre-seeded tri-fold roster rows, **KF.W6** the component repairs + the re-homed S-5 dogfood decision under the five-constraint spec input, **KF.W8** the colocation carry, **KF.W9** the eleven SS-13 probes, **KF.W10** the two stale doc authorities. Nothing lost: head, tail, or interval.
 
 — end of apotheosis. The three challenge files and both reader returns remain immutable beside this record per E-1/E-3; dispositions are ADJUDICATED, not VERIFIED; the X·KF specs are forming and these routings are their agglomeration input (M-25); execution awaits the owner's begin-word.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/AnimatedText.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **AnimatedText.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 ANTI-FIRING — enumerated SEPARATELY and NOT swept as a firing** (D-3, repair round 3). This record is one of the two declared anti-inheritance events in C-19's cell: its two readers converged independently on the `role="img"` implicit-role override — *"the anti-signature of citation-inheritance."* A sweep keyed to 32 resolves this record to the OPPOSITE disposition and cannot close; the ledger is keyed to **30 members + 2 anti-firings**, and this is one of the 2.
+
+**KF-AT-28's re-anchor obligation is DISCHARGED for `TypingDots.vue`** (C-21): that file's worktree was byte-identical to `origin/master` before the settle and is the frontier now; there is no anchor left to re-resolve for it. The discharge is scoped to that file alone and to no other subject of KF-AT-28.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

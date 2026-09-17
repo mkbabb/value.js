@@ -145,3 +145,30 @@ Ids are the corpus's own, for life; missed rows keep their finder's designation 
 **ADJUDICATED — RED for the caret's seams, GREEN-hearted at the leaf: 25 rows stand (0 BLOCKER · 7 MAJOR · 13 MINOR · 5 INFO) with 11 whole-row folds + 4 partial arms discharged by reference to banked kf-KeyframeTimeline (M2/D-3/M8/M1/D-17/D-28/D-9/N-11/N-6/D-18/C-15), kf-CSSCodeEditor KF-CE-16, kf-CSSPasteDialog R-24, and census F-1 — zero re-bookings; 17 claims killed with re-executed refutations, among them one reader-vs-reader overrule settled by this seat's own execution (C-1: the export never contained "29%", the no-op commit is bit-identical, the arrow path breaks sole-writership) and one BLOCKER killed at every committed baseline (L-1); 10 missed rows adjudicated in, headed by the composition that promotes the rounding well to artifact data loss (MISS-β1) and the triple-private serializer that owns the float defect C-1 mis-attributed (MISS-β2, correcting banked KC-1's cure citation). The anchor truth is booked as a MAJOR process row: the audited tree is a HYBRID of `8281638c` and `81a56990`, the caret's four files anchor-safe, the composable tier origin-side — every consuming wave states its ref. Routings: the interaction/model rows to KF.W7 (the census names this cluster); the glass/token/a11y-name/register rows to KF.W6; naming+structure+serializer-publication to KF.W8; the type-gate to KF.W4 by fold; 12 residue rows to KF.W9/SS-13, headed by the single probe that decides two rows at once (`select()` focus). Dispositions are ADJUDICATED, not VERIFIED; nothing here stamps a wave.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/timeline/TimelineCaret.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **TimelineCaret.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**MISS-α5 ≡ RR-β K-BASE's ATTACHED CORRECTION IS LANDED AT ITS TARGET'S BANK** (C-1.R row 4): the row also *"CORRECTS the banked kf-KeyframeTimeline header's 'working tree = the audited tree' equation"*, and that correction is appended at `kf-KeyframeTimeline.md` under its own id. The row's substrate CONTENT — hybrid tree, merge-base `a59d3a22`, untracked-but-cited-by-line — is carried at C-2 / G-0.1 and is not re-booked.
+
+**The binding form this record states is the whole of this stamp**: *"any spec consuming this registry states WHICH ref it cures against."* Every one of the 58 records now does.
+
+**`D-19` here is a COMPONENT-LOCAL id, not the re-anchor law** (C-1.R row 6's record-qualification rule); nothing is re-booked from it.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -120,3 +120,26 @@ Carried whole from r1: **F-1 → census F-1 = KF-CE-32** (this record adds reade
 **ADJUDICATED — AMBER (r2; supersedes same-day r1, identities preserved).** 32 rows stand (0 BLOCKER · 4 MAJOR · 17 MINOR · 11 INFO) — r1's 30 carried without a single severity change plus two new MINORs (the dissolved `proof:brittleness` citation chain; the census §6.5 coverage misreading that manufactured the corpus's only false BLOCKER). 18 register entries killed with refutations preserved, six new — among them both r2 readers' top geometric grading (rescoped by the mount-time `rotate3d(-1,1,0,30deg)` this seat re-verified at HEAD), and two corrections against r1 itself (the forced-colors keying cell, to reader-β's credit; KF-AX-9's overstated cure benefit, per the opacity-grouping rider). This reader generation improved on the last — both readers killed D·D-1 and the restart mechanism correctly, and β did the arbiter's git work unprompted — yet neither found the registry root nor the rotated frame, the two largest truths about this component, both sitting in files the readers had open. Routings unchanged: **AXISLINE-UNIT (NO-WAVE-OWNER)** for the coherent repair, sequenced after **KF.W4**, frame-stamped per KF-AX-4; discrete rows to **KF.W0** (census re-anchor + §6.5 re-scope + F-1 reconciliation + gate-inventory truth), **KF.W6** (dark arm, ladder, the `--z-behind` policy contradiction, the z-contract recut, namespace audit), **KF.W9/SS-13** (nine witnesses, the Z triptych first — it now decides three rows). Dispositions are ADJUDICATED, not VERIFIED; nothing here stamps a wave.
 
 — end of apotheosis r2. The three challenge documents and both r2 reader returns remain immutable beside this file per E-1/E-3; the r1 record's substance is carried inside this one (supersession note, header).
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/cube/CubeAxisLines.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CubeAxisLines.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 ANTI-FIRING — enumerated SEPARATELY and NOT swept as a firing** (D-3, repair round 3). This record is one of the two declared anti-inheritance events: its reader-β re-derived F-1's substrate **from git** rather than inheriting it. The ledger is keyed to **30 members + 2 anti-firings**, and this is one of the 2.
+
+**KF-AX-31's `proof:brittleness` family is ROSTERED AND ROUTED, NOT STRUCK HERE**: three measured frontier sites — `demo/styles/style.css:38` · `demo/styles/layout.css:152` · `scripts/lib/demo-driver.mjs:69` — disposition **cure → KF.W6, family whole** (R2-13), with `layout.css:152` carried as KF.W4's **declared carve**. A further **68** keyframes `docs/**` files carry the name and are **out of scope by bounds**. GATE-ROSTER §4 row 7.
+
+**KF-AX-12's stale raw-`z-index:-10` prose and the §6.5 PRM-roster re-scope are the census re-anchor's act** (C-10/C-11), landing at `lane-frontend.md` §6.5 — **not in `CENSUS-2026-08-03.md`**, which carries one pointer cell only. That motion is KF.W0.d's, this same wave.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

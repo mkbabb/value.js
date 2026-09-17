@@ -142,3 +142,20 @@ Dispositions are **ADJUDICATED**, not VERIFIED — X·KF specs are forming; thes
 **ADJUDICATED — 1 BLOCKER (the `innerHTML` DOM-XSS sink; STAYS, unlike the twin's demoted pair — no unproven half, CSP verified closed) · 15 MAJOR (12 own incl. two upheld MISSED — highlighting-inert + proportional-face — and the innerHTML-corrupts-CSS twin of the sink; 3 folded to the banked twin's R-2/R-6+R-25/R-7) · 20 MINOR (18 own, clustered; 2 folded) · 7 INFO/fold-by-reference · 12 killed · 7 superlatives · 10 UNPROVEN-NEEDS-LIVE residue rows. The component is the redundant re-author of `CSSPasteDialog`; the cure spine is the one-line sink fix (`textContent`, FRONT-LOADED, KF.W5), the twin fold (KF.W7, constraints pinned by the banked R-7), registry adoption for the reformat shortcut (KF.W6, dissolving the `Ï` cluster), and the failure-posture + busy-state contract (KF.W7 joined to KF.W2's registry). F-1 / R1-containment / min-h-vh / the three 3-surface a11y-and-scroll classes fold by reference, never re-booked. NO-WAVE-OWNER rows for SS-1/SS-2 spec authoring: the whether-to-keep-hljs-at-all question (highlighting is inert during authoring, so a swap sacrifices nothing real) and the spellcheck severity re-grade.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/keyframes/components/KeyframesAddDialog.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KeyframesAddDialog.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

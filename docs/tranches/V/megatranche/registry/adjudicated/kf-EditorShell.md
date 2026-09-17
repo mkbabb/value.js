@@ -151,3 +151,30 @@ Line anchors are worktree `8281638c`; EditorShell.vue, SharePopover.vue, MbabbMe
 **ADJUDICATED at worktree `8281638c` (EditorShell.vue and its whole blast surface dirty; anchors re-resolve at `origin/master` before any cure) — RED.** 51 rows stand: 8 MAJOR · 23 MINOR · 9 INFO booked here, plus 11 folds to banked identities of which four are blocker-weight at their banks — the inert-ribbon lockout (KF-APP-5, now carrying this record's completing WCAG 2.1.1 lemma: no keyboard route to Share or theme-toggle exists anywhere in the app, dead at three independent layers, frontier-durable), the producer's outright deletion of HeaderRibbon under its sole consumer (first-banked here, with the KF.W0 sequencing tripwire: settle no substrate past `4bf53962` before the shell migrates off `/header-ribbon`), the phantom dependency (SCH-1, frontier-cured), and the no-SFC-typecheck gate (KF-APP-4). Thirteen corpus claims killed on executed refutations — the heaviest a compositing-model artifact that had filed a MAJOR against the file's single best mechanism, killed to every digit by this seat's own oracle and locked against its own remediation. The shell is genuinely well-made where it is structural (the substrate retint, the DOM-order backdrop contract, the landmark box, the PRM composition, the self-registering shortcut) and wrong where it trusts chrome it does not own and prose it did not re-read: its entire header band rides a component the design system has deleted, reachable by hover alone, measured by no gate that exists. Routings are M-25 agglomeration input for the forming X·KF specs: KF.W0/W4/W6 own the folds, KF.W9 owns the nine-item SS-13 residue (rest-state affordance first), the migration decision and everything behavioral are NO-WAVE-OWNER for SS-1/SS-2. Nothing here stamps a wave.
 
 — end of apotheosis. The three challenge axes and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/EditorShell.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **EditorShell.vue=+18/-20**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**THE DELETION (C-3) stands, and its TRIPWIRE is now a graph fact, not a sample.** LAW-A census 2 at the ref of record: the consumer set of `@mkbabb/glass-ui/header-ribbon` is **exactly one file** — this component, at `:116`. The HOLD is declared outbound: installed glass-ui may **not** advance past `4bf53962` while that import stands.
+
+**Both letter-(b) consumer updates are ALREADY LANDED at the ref of record**: `:16` is a clean `<HeaderRibbon placement="right">` (no stray `mode=`), and `defineExpose` has **0** occurrences in the 259-line file. XR-4 (`DISPOSITIONS.md:21`) is therefore **falsified at the frontier**, and L-17's FOSSIL reframing is the correct reading of L-3.
+
+**C-15's phantom attribute did NOT carry forward.** The disqualified pin carried `position="right"` — also not a 7.0.0 prop. The settle moved the tree toward the frontier, so the phantom class is extinct at both spellings. The reconciliation was **diffed, not assumed** (KF.W0.c).
+
+**DISSENT 3 (C-20) is RESOLVED**: this record's own probe — the `@select.prevent` menuitem wrappers — is present verbatim at the ref of record (**5 sites**, `MbabbMenu.vue:8/:18/:29/:46/:57`). kf-ChromeDock and kf-CubeScene were measuring different coordinate pairs; see the appended notes at both banks.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

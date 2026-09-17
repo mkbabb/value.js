@@ -166,3 +166,22 @@ Routing law: **KF.W0–W10** per the census wave sketch where a forming X·KF wa
 **ADJUDICATED — 0 BLOCKER · 14 MAJOR · 23 MINOR · 7 INFO across 44 rows, original ids OD-1..OD-44 for life; 15 kills; 10 net-new misses admitted as rows, 3 as riders, 4 booking-killed into the bank.** The component is the best-engineered gesture unit in the demo — five of its superlatives survived two hostile axes and this seat's incredulity intact, and its library consumption is close to exemplary — wearing three families of genuine defects: a **reactivity contract one-third registered** (OD-1, whose freeze composes with the banked #53 into a Z-roll that visibly works in no state), a **latch that answers to no law** (OD-4/5/6, already named at KF-AX-1 with the cure pointed at this very directory, down to the app's own Undo shortcut driving the cube's axis lock), and — this corpus's real contribution — **gesture physics that lose information at every hand-off** (direction discarded, magnitude mis-sourced, the model emit never fired). The adjudication events matter as much as the rows: four reader cells died on the registry and the substrate in one corpus, including a filed miss killed by a banked BLOCKER and a banked BLOCKER re-derived as a "miss" — the program's recurring lesson (*read the registry; name the tree; verify the write, not the call site*) is now three-for-three across the cube scene's seats. Nothing here stamps a wave; every disposition is agglomeration input for the forming X·KF specs, awaiting the owner's begin-word.
 
 — end of apotheosis. The three challenge files and both fresh reader returns remain immutable beside this record per E-1/E-3. Dispositions are ADJUDICATED, not VERIFIED.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/cube/orbital-drag/OrbitalDrag.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **OrbitalDrag.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

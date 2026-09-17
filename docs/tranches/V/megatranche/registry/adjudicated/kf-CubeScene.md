@@ -182,3 +182,32 @@ Adopted, with the readers' corroborations and this seat's qualifiers:
 **ADJUDICATED.** 49 rows confirmed (0 BLOCKER · 15 MAJOR · 23 MINOR · 11 INFO), 12 claims killed, 9 net-new misses adopted (6 reader-A, 2 reader-B, 1 this seat's ARB-1), 10 live residues to SS-13. All three corpus BLOCKERs died or demoted — two of them (L-1, and reader B's M-1) on the same substrate lesson pointing in opposite directions: **name the tree before you grade it**. The component's real condition is a well-crafted scene (nine standing superlatives, two of them uncredited by any axis) wearing one genuinely broken instrument — the matrix editor, whose five MAJORs share three files and one repair wave — plus a dead brand feature already banked at kf-App, and a per-channel portal architecture already banked at kf-AnimationControlsGroup. Nothing here stamps a wave: X·KF specs are forming, and this record is their CubeScene intake.
 
 — end of apotheosis. The challenge corpus and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/cube/CubeScene.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CubeScene.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**C-20 RESOLVED BY MEASUREMENT — this cell is TRUE.** ⟨`git diff --numstat 6d280ee7 81a56990 -- demo/app/dock/MbabbMenu.vue`⟩ → **EMPTY**: the pre-settle worktree was byte-identical to `origin/master` for that file. kf-ChromeDock's *"MOVED at the frontier (−146 lines)"* is a **HEAD-vs-frontier** statement (measured **+13/−133**, net −120, LOC 241 → 121) — a different coordinate pair, not a contradiction. The two banks disagreed because neither named its pair; C-2's law is the cure and this is its named test case.
+
+**`D-19` here is a COMPONENT-LOCAL id, not the re-anchor law** (C-1.R row 6's record-qualification rule); nothing is re-booked from it.
+
+**D-16's PRM half re-derived in the FRESH build**: ⟨`grep -c 'data-allow-motion' dist/gh-pages/assets/index-CBB2Hr7m.css`⟩ → **1**, the universal `:not([data-allow-motion])` reset present. The KILL of D-16's PRM half **stands at a dated, hashed artifact**, no longer at a Jul-16 one.
+
+**kill 4 is carried as NARRATIVE and booked as NOTHING** (§Excluded): β-miss-1's `--omit=optional` failure-SHAPE was a HEAD-only artifact, killed at the frontier — and the frontier is now the tree.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

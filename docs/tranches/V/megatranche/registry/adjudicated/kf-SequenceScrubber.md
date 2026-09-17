@@ -141,3 +141,28 @@ Routing law: **KF.W0/W6/W7/W9** where a forming X·KF wave owns the surface; **N
 **ADJUDICATED.** The incredulity seat cut in all three directions this generation. Against the challengers: fourteen kills — a BLOCKER dead twice over, a cross-axis F-1 premise that existed only in an uncommitted worktree (the sixth one-baseline-short event), an italic mechanism dead at a four-face font inventory, two whole rows dead on a rail-vs-handle convention, and three "sole/only/every-other" rosters that all omitted the same twin file none of the three axes opened. Against the readers: one citation-inheritance event caught crossing between them (the throttle-precedent misquote, adopted by one reader as "verified" after the other had killed it at the docstring), one counting cell and one over-claimed correction repaired. Against the bank: one census cell corrected to its true scope, one banked row enriched and re-graded on evidence its seat never saw. And for the tree: the single largest defect in the component's orbit — a two-finger gesture that freezes text selection document-wide for the life of the page, inside the seam the registry twice praised, under a docblock that promises the opposite — entered the record only at the second reading generation, verified whole at the bytes by this seat. The component underneath remains the corpus's best-behaved leaf: idiom consumed by parameter, no clock, no teardown surface, no literal colour, hit-target and measurement frame one element by construction — with prose that lies about its font, its brightness, and its citations, and a gesture contract that is pointer-only four separate ways. The repair is two packets and a sweep, not a rewrite. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C for life, KF-SCR-1..6 for life.
 
 — end of apotheosis r1. The three challenger records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/sequence/SequenceScrubber.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SequenceScrubber.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**K-1's ONE-BASELINE-SHORT kill is a C-19 firing and its COROLLARY is executed**: the banked `kf-AnimationVisualizer.md:9` census cell is corrected to **worktree-scope** by appended note at that bank (correction (i) of the six).
+
+**C-9's provenance is corrected at the wave and recorded here**: the banked row is `:71` *"C·C-13 / L·D-2 (surviving refinement)"*, restated at `:126`. The earlier "D-11/C-13" tag named a different family in this record — `D·D-11` at `:57` and `L·D-11` at `:65`, routed to KF.W7/W9 and never to KF.W0.
+
+**`L·D-2`'s MAJOR half is BOOKED, not dropped**: *"a component with ZERO glass-ui imports is fully glass-coupled through the `@import` cascade … an import-graph census scores it clean and is wrong."* That is the surviving half; the phantom-dependency arm died at this record's own K-1.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

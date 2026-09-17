@@ -135,3 +135,22 @@ Routing law: **KF.W0/W6/W7/W9** where a forming X·KF wave owns the surface; **N
 **ADJUDICATED.** The axis corpus survives hostile re-reading the same way its sibling's did: every load-bearing geometric and token fact re-derived clean, while the grades, the cures, the "sole"s and the "only"s fell — a BLOCKER became the banked MAJOR, two MAJORs became MINORs, a superlative died at the token inside a default-material Card, and five "misses" were found already banked one directory away. This record books one MAJOR (the unmitigated narrow-width collision, its S-refutation limb killed), twelve MINORs, eight INFOs, admits five modest new rows (a ruler louder than its data, selectable text on a drag stage, an off-doctrine wipe, an idiom split, an uncancelled timer), and attaches one genuinely new rider to the banked geometry row: the cure that aligns the ruler parks its `0` under the playhead's diamond, so the repair and the collision fix are one commit or neither. The component remains what every reader found: a 49-line props-down leaf that renders once, hides itself from AT correctly, derives every number it shows — and sits 12px off the clock it names, in a frame whose real defects live one level up. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C for life; SA-1..SA-5 minted here for life.
 
 — end of apotheosis. The three challenger records and both re-reader returns remain immutable beside this file per E-1/E-3; the banked kf-SequencePlayhead r3 rows referenced here are untouched by this record.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/sequence/SequenceAxis.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SequenceAxis.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

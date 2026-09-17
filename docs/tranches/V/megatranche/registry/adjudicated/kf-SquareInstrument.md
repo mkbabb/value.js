@@ -149,3 +149,22 @@ Routing law: **KF.W0/W6/W9** where a forming X·KF wave owns the surface; **NO-W
 **ADJUDICATED.** The first full reading of this component ends 40-13-9: one BLOCKER that three axes reached by three roads and no reader could dent, ten MAJORs of which one is brand new (the third spring, missing from its own snapshot), and a killed-claims register in which the two readers are each other's correction — reader-A executed, git-checked, and producer-read its way through four challenge limbs that reader-B confirmed verbatim, while reader-B contributed the sharpest find in the corpus, the joint-unsatisfiability proof, and the severity calibration the manifest itself dictates. This seat re-derived every disputed cell at the bytes, reproduced the parser execution (and R1 itself, at its true degenerate input), demoted two grades, killed one kill's confirmation twice over, and added one find of its own: the tour that claims to be paced by the spring's own settle is a 520ms `setTimeout`. The component remains what the superlatives say — a disciplined, leak-proof, token-clean leaf — drawn in a coordinate system that does not exist, reporting a spring the engine is not driving, titled with an animation it does not observe, beneath an owner ruling it has not yet honoured. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C for life, N-SQ-1..N-SQ-9 for life.
 
 — end of apotheosis r1. The three challenger records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/square/SquareInstrument.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SquareInstrument.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

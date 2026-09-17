@@ -127,3 +127,26 @@ Dispositions are **ADJUDICATED**, not VERIFIED — X·KF specs are forming; thes
 **ADJUDICATED — 22 confirmed (0 BLOCKER · 10 MAJOR · 12 MINOR; both axis BLOCKERs off the top rung — D-2 by the reversibility precedent with a named escalation, L-1 by the identity guard) · 12 killed (the three-axis `--panel-max-h` framing dead by this seat's own read; D-1 re-grounded on reka's focus trap, statically certain in every engine, its SS-13 decider retired) · 17 missed rows folded in · component STAYS; cure spine = FadingScroll-port + `scroll` composition (KF.W6, retires 4 rows) + the GLASS-OWNED registry-modality relay carrying the LIFO/FIFO cure-shape law, the label-narrowing, the alias-surfacing, the keycap accessible-name companion, and the `.kbd` forced-colors note · R-9 typecheck-void and the dead font-census witness = NO-WAVE-OWNER for SS-1/SS-2 · R-10 → KF.W8 · F-1 folded by reference with the parse-that second-phantom rider · the C-9 census extension renumbered S-10 against the banked registry.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/KeyboardShortcutsModal.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KeyboardShortcutsModal.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**CORRECTION (v) of the six named at G-0.9 — THE SEAT-RULED RENUMBER IS DEMOTED TO A CLAIM-INPUT** (R-5; E-3 addendum under the original id, never a rewrite). The cell at `:29` rules *"COLLISION — seat's own ruling: renumber to S-10"*. **That renumber is superseded by the KF.W0 C-17 single-motion mint; the slot id is whatever the mint assigns.** A claim is an INPUT to the mint and is never itself a slot, and no wave other than KF.W0 mints or renumbers a census slot.
+
+**The seat's own booked lesson is thereby honoured rather than repeated**: *census extension ids must be allocated against the banked registry, not against the local corpus.* The renumber landed a SECOND "S-10" on top of `kf-KeyframesEditor:63`'s and `kf-SquareInstrument:78`'s — which is the exact mechanism C-17 exists to kill.
+
+**R-7/R-9 provenance, corrected at the wave and recorded here**: `:43` is **R-7**, the dead-witness row (`DESIGN.md:24-30` states the Mono-as-data law and names `proof:font-census`); `:45` is **R-9**, the *"nothing automated verifies this file"* row, which routes to **KF.W4**. The two are separate rows and the dead-gate arm alone lands in this wave's roster.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -122,3 +122,20 @@ Ids keep their axis names for life; this record's net-new bookings are N-KPT-1/N
 **ADJUDICATED at keyframes HEAD `8281638c`: the census DELETE stands and hardens — 27 confirmed rows (7 MAJOR · 16 MINOR · 4 INFO), of which 15 fold by reference to banked kf-ChannelControls / kf-AnimationControlsGroup / kf-App / census identities with zero re-bookings; 12 booked here, headed by the corpus's one LIVE net-new MAJOR (N-KPT-1: the KeyframesEditor toolbar's Arrow/Home/End traversal scrubs the playhead through the guardless window registry — the leak the L axis filed against the dead strip, found alive one component over; NO-WAVE-OWNER keyboard-scope spec row + glass-ui BH relay); 12 claims killed with executed refutations, headed by a kill-of-a-joint-confirm — both hostile re-readers certified a PRM gap that the installed producer's `a11y-overrides.css` universal blanket closes, one `@import` below the file both of them grepped; the strip's whole latent cluster routes to KF.W2-TABS as a DELETE with a preservation spec (migrate the 7-case keyboard gate onto `useTabRovingFocus`, carry the guard/host-shape/forced-colors acceptance criteria, close the untested click path), the barrels and shim to KF.W3-SHIM, the mangled header and phantom-consumer prose to KF.W4-PROSE, F-1 to KF.W1-DEP; routings are M-25 agglomeration input for the forming X·KF specs, and 8 residue rows ride to SS-13 with the thirty-second toolbar trace ranked first.**
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/KfPillTabs.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KfPillTabs.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

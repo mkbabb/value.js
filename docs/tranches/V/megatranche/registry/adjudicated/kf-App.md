@@ -168,3 +168,24 @@ All live-only cells from both readers, merged, deduplicated; the mechanisms behi
 **ADJUDICATED — the corpus substantially survives hostile re-reading and adjudication: 59 roster rows (5 BLOCKER · 12 MAJOR · 32 MINOR · 10 INFO), 13 kills sustained (one extended, one sharpened), 13 misses admitted, 2 reader cells corrected, zero fabricated citations found anywhere in three challenge files or two returns.** The App is a genuinely well-crafted shell (21 sustained superlative cells — the PRM delegation, the focus discipline, the loader registry) wearing five blockers, of which three are one-line-to-one-file cures (KF-APP-1, -3's minimal arm, -4) and two are design decisions the tree itself documents as deliberate (KF-APP-2's ink-over-subject, KF-APP-5's collapsed chrome — the latter shared with the producer via BH relay). The deepest structural fact is KF-APP-6: the demo's entire layout authority chain runs through a token that does not exist at any substrate, masked by exactly the fallbacks that made the visible page look intended. Routings: 2 rows fold by reference (census SCH-1/F-1, S-6; plus the R1 reference), 9 rows to **KF.W6**, 1 to **KF.W4**, 2 to **KF.W0**, all SS-13 residue to **KF.W9**, remainder **NO-WAVE-OWNER** for SS-1/SS-2 spec agglomeration (M-25). Nothing here stamps a wave; X·KF executes on the owner's begin-word.
 
 — end of apotheosis. The three challenge files and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/app/App.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **App.vue=+8/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**CORRECTION (i) of the six named at G-0.9 — the `TABS_EXTERNALLY_MANAGED_KEY` provide site is `demo/app/App.vue:176`, not the banked stale-HEAD `:169`** (C-22 (i), inbound from `KF-W6-CARRY.md` §CrossEdges). Re-measured at the ref of record: ⟨`git grep -n 'TABS_EXTERNALLY_MANAGED_KEY' origin/master -- demo/app/App.vue`⟩ → `:140` the import, **`:176` `provide(TABS_EXTERNALLY_MANAGED_KEY, true);`**. **The path qualification is load-bearing**: ⟨`git show origin/master:demo/App.vue`⟩ → *fatal: path does not exist* — a bare leaf `App.vue:176` sends a seat to a path that is not in the tree.
+
+**Scope note**: this file MOVED between the disqualified pin and the ref of record (+8/−1), so a `:169`-vs-`:176` discrepancy is a substrate artefact of exactly the class C-2 governs, not an authoring error at either end.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

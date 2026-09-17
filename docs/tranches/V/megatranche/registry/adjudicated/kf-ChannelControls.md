@@ -155,3 +155,20 @@ Ids keep their axis names for life; net-new re-reader finds are banked as N-1..N
 **ADJUDICATED at keyframes HEAD `8281638c`: 52 confirmed rows (2 BLOCKER · 12 MAJOR · 27 MINOR · 11 INFO; D-17 held UNPROVEN-conditional in the residue, outside this tally), of which 8 fold by reference to banked kf-AnimationControlsGroup / census identities with zero re-bookings — the net-new blocker is L-2/C-2's `:key` remount silently destroying authored timeline work (must be settled before KF.W6-TIMELINE), while the stacked-portal blocker contributes its source-side evidence to the already-banked D-1; 9 claims killed with executed refutations (three severity demotions from BLOCKER, one kill-of-a-confirm, one kill-and-refile that produced a STRONGER row); 10 net-new re-reader finds banked (N-1..N-10) plus 4 riders and 1 arbiter-own rider (the KfPillTabs :45-46 stale contingency); the census is corrected twice (S-1's liveness premise — the strip is source-live, runtime-dead, so KF.W2-TABS step 2 is a DELETE; §10 step 2's open design question — closed by 7.0.0's `semantics` contract); routings are M-25 agglomeration input for the forming X·KF specs — KF.W1-DEP/W2-TABS/W3-SHIM/W4-PROSE own their folds, everything behavioral is NO-WAVE-OWNER for SS-1/SS-2, and 11 residue rows ride to SS-13.**
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/channel-controls/ChannelControls.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **ChannelControls.vue=+2/-2**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

@@ -129,3 +129,20 @@ All mechanisms below are source-certain; only magnitudes/UA behaviour need a ren
 **ADJUDICATED — the component is a well-built shell around a mis-called library door, under prose that narrates a library two majors gone, over a compositing stack nobody had measured.** 0 BLOCKER survives adjudication (both original BLOCKERs die — one to provenance, one to severity calibration); 7 MAJOR (3 folded to banked identities: KF.W0 substrate, KF-AT-12 gate law, KF-APP-16), 7 MINOR, 6 INFO; 14 register kills including one direct overruling of a reader's confirmed-and-crowned cell (D-4 — the WCAG vindication of the 0.1 ceiling is dead on both its threshold and its compositing premise, and the true delivered presence is ~0.19, itself a new MAJOR); 10 reader misses adjudicated real; 12 superlatives sustained — the lifecycle, teardown, a11y-hygiene, and layering discipline are the census's counter-example and survive every attack. The cure mass routes: KF.W6 (the one config motion + prose truth + the KISS reduction), KF.W4 (the oracle rebuilt in an assertable form), KF.W0/W8 (folded), KF.W9 (eight SS-13 inputs), one glass-ui BH relay packet, one NO-WAVE-OWNER cross-repo carry. Nothing here stamps a wave; X·KF specs consume this record whole (M-25).
 
 — end of apotheosis. The three challenge files and both reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/HeroAurora.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **HeroAurora.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

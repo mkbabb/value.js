@@ -144,3 +144,22 @@ Routing law: **KF.W0–W10** from the census taxonomy (kf-CopyButton.md:36); **N
 **ADJUDICATED.** Two hostile readers and an incredulous third seat leave the record cutting both ways: every axis BLOCKER demoted with its dissent preserved (one killed outright by baseline law — the program's sixth one-baseline-short event), one reader confirmation overruled by a bank kill it never swept, one inherited "~700-char" gloss corrected by this seat's own execution in the same numbers that expose the inheritance, two banked registry prescriptions inverted by a single verified `pointer-events: none`, and two superlatives retired because the declaration they praised loses the cascade. What survives is precise: a component whose live `@starting-style` CSS is the best-authored motion block in the demo — five craft superlatives, three re-executed — standing directly on top of an artifact panel that misstates its polarity, its duration, its case, its provenance, and its own legibility, beside a verb rendered twice under a one-surface law the file itself legislates, and a transport channel that is honest as a switch and false as a channel. 0 BLOCKER · 10 MAJOR (2 folds) · 21 MINOR · 8 INFO; 12 kills; 7 net-new admissions; 10 residues to SS-13. The repair is a packet, not a rewrite: one artifact spec, one surviving verb with real state, one honest channel, one prose sweep. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C for life, KF-SST-1..39 for life.
 
 — end of apotheosis r1. The three challenger records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/spring/StartingStyleTarget.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **StartingStyleTarget.vue=+1/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

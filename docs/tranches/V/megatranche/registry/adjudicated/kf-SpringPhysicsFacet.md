@@ -130,3 +130,22 @@ Dispositions are **ADJUDICATED**, not verified; X·KF specs are forming, and the
 **Closing verdict**: SpringPhysicsFacet is ADJUDICATED as the spring scene's best engine consumer wearing its worst glass-ui boundary — a compositor-exemplary painter whose one clamp bound erases the physics it exists to show (SPF-3), above a re-sample button whose every press doubles the stop set at its banked BLOCKER home (SPF-20 ≡ KF-KE-10, re-executed 3→6 by this seat), inside a chip surface whose phantom props, phantom class, and phantom variant all fold to banked identities — while the corpus's loudest cascade indictments died together on one orphaned stylesheet, one dirty manifest, and one inverted export map. 33 rows stand (12 folds, 8 net-new), 18 claims killed, 8 superlatives, 8 live residues to SS-13; routings are agglomeration input for the forming X·KF specs (M-25), nothing here stamps a wave.
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3; this file is this seat's only write.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/spring/SpringPhysicsFacet.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SpringPhysicsFacet.vue=+2/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

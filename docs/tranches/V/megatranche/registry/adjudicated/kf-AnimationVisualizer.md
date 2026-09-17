@@ -147,3 +147,26 @@ Per the standing glass-ui BH relay edict, the next value.js/keyframes session wi
 **ADJUDICATED at keyframes.js worktree-on-`8281638c` (dirty; diff characterized in the substrate disclosure): 42 roster rows — 3 BLOCKER (the stale twin that silently overwrites the playhead it mirrors; the non-reentrant emit contract that strands playback paused; the touch-only gate swallowing every first mouse press) · 12 MAJOR · 16 MINOR · 11 INFO; 12 kills sustained with re-executed refutations, including the D-7 thumb-row kill decided at the bytes against a reader's confirmation; 18 missed rows admitted (the playhead-overwrite, the drag-seam user-select latch-up, the per-frame localStorage coast, the geometric non-twin, and the false "ONE motion-color identity" chief among them); one net-new substrate finding by this seat (HEAD's build-breaking `@mkbabb/value.js` import — the deep import is its uncommitted repair and the misattributed comment its fossil); identity guards held (KF-CE-12, KF-CE-13, ACG L-1, F-1, S-4, R1 folded by reference — zero re-bookings); routings are M-25 agglomeration input — behavioral rows NO-WAVE-OWNER for SS-1/SS-2 under the standing KF.W7-may-supersede rider, structural folds to KF.W4/W6/W7/W8, visual residue (8 rows) to KF.W9/SS-13. The component's taste is high and its eleven superlatives are real; its two seams — the gate it consumes without the sibling's cure, and the twin premise its own guard falsifies — are where every blocker lives.**
 
 — end of apotheosis. The challenge corpus and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/playback/AnimationVisualizer.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **AnimationVisualizer.vue=+1/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**CORRECTION (iv) of the six named at G-0.9 — the census cell at `:9` is corrected to WORKTREE-SCOPE** (C-9 / C-1.R row 3; the kf-SequenceScrubber K-1 kill). Every anchor in that instruments line is a read of the **pre-settle working tree**, not of `origin/master`, and not of `8281638c` either: the worktree was 1-ahead-and-41-behind and is now preserved only at snapshot `6d280ee7bec7793846b2e2e1d250e1ea0a21859a`. The cell is not rewritten; its SCOPE is stated here.
+
+**KF-AV-42's collision set (measured EMPTY) is what keeps kf-SpringTrace's `D-15` a dated hazard note and not a cure** — see the guard appended at `kf-SpringTrace.md` (C-1.R row 5, NO RE-BOOK).
+
+**KF-AV-28, the STANDING SUPERSESSION RIDER, travels with its packets and not with this wave**: banked here at `:35`, and at `kf-PlaybackRibbon.md:36` (transport/ribbon) and `kf-SequenceScrubber.md:36` (drag-seam). Both limbs — the supersession sentence AND the C-axis §7 caution with its NON-bespoke clause — ride the packets.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

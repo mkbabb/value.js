@@ -231,3 +231,26 @@ The second pair contradicted each other on the `cn` mechanism: the design axis c
 **66 ADJUDICATED-CONFIRMED (6 BLOCKER · 21 MAJOR · 31 MINOR · 8 INFO) · 15 KILLED · 17 net-new re-reader finds banked across both pairs · 12 UNPROVEN-NEEDS-LIVE rows to SS-13/KF.W9.** Routings unchanged plus: KF-CO-41/44/45/46/47 → OPTIONS-UNIT; KF-CO-42 → OPTIONS-UNIT + BH-relay docstring note; KF-CO-43 → glass-ui BH relay (third producer item); KF-CO-48 → engine lane. Identity guards held (KF-CO-8 convergence, KF.W4-PROSE ≡ ChannelControls L-19, SwatchHoverMenu K-1 merger-mechanics corroboration — zero re-bookings).
 
 — end of addendum R2. The standing record above, the three challenge files, and both pairs of re-reader returns remain immutable per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/channel-controls/ChannelOptions.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **ChannelOptions.vue=+232/-58**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` appears in this record but NOT in the re-anchor sense** — it is a component-local id here, and the record-qualification rule (KF-W0 §Carry C-1.R row 6) keeps this sweep from booking a dead-token cluster as a re-anchor obligation. Eight records are in this class: kf-ChannelOptions · kf-CubeScene · kf-KeyframesStringControls · kf-OrbitalDrag · kf-SquareScene · kf-SquareInstrument · kf-StartingStyleTarget · kf-TimelineCaret.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**`D-19` here is a COMPONENT-LOCAL id, not the re-anchor law** (C-1.R row 6's record-qualification rule). A bare `grep 'D-19'` books this record as carrying the re-anchor obligation; by the stated predicate it does not. Nothing is re-booked.
+
+**KF-CO-33's `proof:bezier-*` trio is routed and NOT in this wave's roster denominator**: the sole site `ChannelOptions.vue:168` spells all three in brace form, which the roster's own `-$` filter discards; the three are enumerated as a declared residue at GATE-ROSTER §2.2 and travel to the **OPTIONS-UNIT packet at KF.W12** (`KF-W4.md` §Excluded 21).
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

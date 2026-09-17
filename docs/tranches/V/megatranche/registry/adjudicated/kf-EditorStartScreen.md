@@ -151,3 +151,24 @@ Both hostile re-reader returns survive with **substantive corrections in both di
 The component's adjudicated shape: **a genuinely well-made hero — frame-0 LCP paint, the banked a11y mirror, correct barrel consumption, a real metric-matched fallback, exemplary teardown — whose prose repeatedly outruns its tree**: eight citations of deleted gates styled as binding locks, a false producer premise held in three redundant mechanisms, an italic story whose fallback face cannot deliver it, a four-referent instruction whose only true clause is true because of a banked defect in another file, and a derivation boast with one un-derived axis. Five booked majors, fourteen minors, four info clusters, fifteen folds; routings: **KF.W0** the dependency churn (folded), **KF.W4** the gate/provenance law rows (dead `proof:` authorities, the rescoped coverage row, the manifest coupling), **KF.W5** the library rows (stagger docblock, group per-child gaps, memoized rejection), **KF.W6** the component repairs under the named constraints (the `:root`-not-`@theme` cure, the KF-EST-14 consolidation constraint, cure-severed KF-EST-5), **KF.W9** the nine-probe SS-13 residue with P-1/P-2 ordered first, **KF.W10** the two U-lane doc-truth re-opens, **NO-WAVE-OWNER** the design/copy/orientation clusters for SS-1/SS-2. Nothing lost: head, tail, or interval.
 
 — end of apotheosis. The three challenge files and both reader returns remain immutable beside this record per E-1/E-3; dispositions are ADJUDICATED, not VERIFIED; the X·KF specs are forming and these routings are their agglomeration input (M-25); execution awaits the owner's begin-word.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/shell/EditorStartScreen.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **EditorStartScreen.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**KF-EST-1's EIGHT SITES ARE ROSTERED BY NAME AND BY FAMILY** at `GATE-ROSTER.md` §6(iii): `:15` `proof:hero-two-focal` (styled as an OWNER lock) · `:56` `proof:design-refinement` · `:134` `proof:hero-deck-voice` · `:159` `proof:styling-idioms` · `:180` `proof:font-census` · `TypingDots.vue:45`/`:51`/`:59` `proof:typing-dots` ×3 — **six distinct names over eight sites**, all inside KF.W4's eight citation targets, all **struck-in-owner-wave KF.W4** under G-KFW4-8. The family, its id and its second file are named; the roster no longer disposes two of the eight under other names while losing the family.
+
+**KF-EST-21's SCOPING IS CORRECTED and EST ruling 7's DIRECTION IS REVERSED — for `TypingDots.vue` ONLY** (C-21 / KF-TD-2's inversion). For that file the pre-settle worktree was IDENTICAL to `origin/master` and the local pin `8281638c` was the OUTLIER (+4/−9): the WAAPI-lane readings are the shipping truth and the rAF-lane readings describe stale HEAD. **The correction is scoped to that one file** and to no other subject of either row — a blanket per-repo re-anchor would corrupt it.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

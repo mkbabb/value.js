@@ -132,3 +132,20 @@ Routing law: **KF.W0–W10** named from the census taxonomy (`formation/keyframe
 **ADJUDICATED at keyframes.js worktree-on-`8281638c`, whose EasingSidebar chain is byte-identical to `origin/master` — every row frontier-durable by identity; the only divergent cited files are the sibling panel (worktree lacks master's EE-02 twin) and package.json (the SCH-1 phantom, cured at the frontier). 34 roster rows — 2 BLOCKER · 12 MAJOR · 13 MINOR · 7 INFO, with 8 folds by reference (KF-ET-6, KF-CO-17, KF-CO-2, KF-ET-1, KF-ET-20, KF-ET-5, SCH-1/F-1, KF-CB-8) and zero re-bookings. 10 kills sustained — the decisive two ruled at this seat's own instruments: the smooth-step-3 POLARITY REVERSAL (the caption is true, the widget exhibits a curve 0.111 off the selection, and the corpus-unanimous merge-the-catalogues cure is refuted — KF-ET-6's owner question now has a measured answer) and the WRITE-THROUGH CURE-KILL (the model cannot seat a preset display — the remount machinery all three axes sentenced to deletion is partially load-bearing, and the honest repair is a split seam). The component is the best-postured consumer seat in the demo tree — zero bespoke controls, zero tokens, the right container, the right clock refusal, the right delivery channel — wearing three defective predicates: an echo filter that compares against the wrong value, a steps promotion gated on the predicate that makes it unreachable, and a seed gate keyed to the wrong catalogue's superset. Routings are M-25 agglomeration input: behavioral rows NO-WAVE-OWNER for SS-1/SS-2 (the seat composable + the literal/steps semantics are ONE spec with the banked KF-ET-1/KF-ET-6 cure-locks); producer rows GLASS-OWNED on the BH relay (the viewport-gated grid, the steps(1, jump-none) render throw, the preset seam, the slider readout seam); structural folds to KF.W0/W4/W5/W6; 9 visual rows to SS-13/KF.W9. Nothing here stamps a wave; X·KF executes on the owner's begin-word.**
 
 — end of apotheosis. The challenge corpus and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/easing/EasingSidebar.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **EasingSidebar.vue=+4/-6**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

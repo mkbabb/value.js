@@ -126,3 +126,26 @@ Dispositions are **ADJUDICATED**, not VERIFIED — X·KF specs are forming; thes
 **ADJUDICATED — 27 confirmed (0 BLOCKER · 10 MAJOR · 17 MINOR, both axis BLOCKERs demoted to MAJOR-with-escalation on SS-13 probes #1/#4) · 10 killed · 7 missed rows folded in · component STAYS as the shell; the cure spine is the S-9 Textarea swap (KF.W6, kills 7 rows in one move) + the twin fold (KF.W7, structure constraints pinned) + the merge-lie truth-telling (KF.W7) + the failure-posture row joining KF.W2's registry; F-1/L-12/R1-containment folded by reference, never re-booked; one GLASS-OWNED relay row; one NO-WAVE-OWNER corpus-integrity row for SS-1/SS-2 to consume.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/timeline/CSSPasteDialog.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CSSPasteDialog.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-13's corpus-integrity row is DISCHARGED IN ITS OWN TERMS.** Its companion caveat — *"the built witness `dist/gh-pages/assets/index-CL_QYCiO.css` is dated Jul 16 — possibly pre-glass-7 — so every byte-offset receipt in the corpus is provisional until a fresh build"* — is answered: **one** `npm run gh-pages` ran at this seat on 2026-09-17 13:37 (R-11: the banked command name `build:gh-pages` exists at no coordinate; the real script is `package.json:43`). The Jul-16 artifact is gone; the receipts now ride `index-CBB2Hr7m.css`, 571 192 B, with the build hash banked at `artefacts/W0/glass-citation-rederivation.txt` §5.
+
+**The `--ink-perimeter` dating is CONFIRMED BY MEASUREMENT against the consumed artifact**: ⟨`grep -rl -- '--ink-perimeter' node_modules/@mkbabb/glass-ui/dist`⟩ → **0 files**. It landed 2026-08-04, after the 7.0.0 cut of 2026-07-16, exactly as this record's re-readers dated it. **A version string is not an artifact** — the law this row states, now with its own receipt.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

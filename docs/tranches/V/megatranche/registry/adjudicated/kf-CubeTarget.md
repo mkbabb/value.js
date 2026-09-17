@@ -106,3 +106,22 @@ Carried: r1 items 1–4 and 6–8 unchanged (the rest-pose lighting capture unde
 **ADJUDICATED (r2).** The r1 verdict's shape survives — ornament outrunning verification — but this corpus deepens it by one decisive turn: the component's *third* dead render path was not merely missed but **actively used as refuting evidence**. Three challenge axes and the r1 seat all treated the matrix painter as the mechanism that kept the pre-start drag coherent; two of them killed a true defect with it; reader-β alone read the nine renderer lines against the object they receive, and this seat re-derived the chain at both trees. The die's signature roll has never fired, its roll animation could never paint, and its pre-start orientation painter has never written — three independent silent-failure mechanisms on one 239-line component, each invisible to every gate, the third invisible to five consecutive audit documents. The repeated instrument lessons are now law-grade: *name the tree before quoting a manifest* (three library-side seats, three corpora, same error), and *a kill is only as dead as its mechanism*. Nothing in this record stamps a wave; every disposition is agglomeration input for the forming X·KF specs. Original ids #1–#60, for life.
 
 — end of apotheosis r2. The challenger records, both r1 reader returns, and both r2 reader returns remain immutable beside this file per E-1/E-3; the r1 text at this path is superseded whole, its rows carried by id.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/cube/CubeTarget.css` · `demo/scenes/cube/CubeTarget.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CubeTarget.css=IDENTICAL · CubeTarget.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

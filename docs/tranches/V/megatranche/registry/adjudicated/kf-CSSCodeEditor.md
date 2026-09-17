@@ -147,3 +147,20 @@ Ids are the corpus's own, for life; `KF-CE-n` is this record's roster index. Dis
 **ADJUDICATED — RED.** 49 rows stand (3 BLOCKER · 14 MAJOR · 23 MINOR · 9 INFO); 13 claims killed with refutations; 14 corpus-missed defects adjudicated in, two of them verified here to BLOCKER/MAJOR weight. One root cause — the one-line `5fe2e4cb` specifier swap, measured only in the direction that flattered it — accounts for both remaining capability BLOCKERs, the a11y trap, the dead worker, the unresolvable type specifier, and the inert themes; one structural absence — no `.vue` file typechecked anywhere — is why every one of them shipped green. Routings: the component's repair coheres as ONE proposed wave-surface (**EDITOR-UNIT, NO-WAVE-OWNER** — SS-1/SS-2 spec authoring to consume, sequenced after the KF.W4 vue-tsc gate), with discrete rows to **KF.W4** (type/manifest/depcruise gates), **KF.W6** (Surface, radius, `--kf-*` tokens, focus-contract), **KF.W7** (the timeline parent's emit-time targeting), **KF.W8** (deep-import/publish-surface settle), **KF.W2/W3** (the R1 ingress note, by fold), and **KF.W9/SS-13** (nine live witnesses); one producer relay (glass-ui Skeleton export) rides the standing BH channel. Dispositions are ADJUDICATED, not VERIFIED; nothing here stamps a wave.
 
 — end of apotheosis. The three challenge documents and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/keyframes/CSSCodeEditor.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CSSCodeEditor.vue=+5/-5**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

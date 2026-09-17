@@ -130,3 +130,28 @@ Ids keep their axis names for life; net-new re-reader finds are banked M-1..M-7 
 **ADJUDICATED at HEAD `8281638c`: 33 confirmed rows (1 BLOCKER · 9 MAJOR · 17 MINOR · 6 INFO) — the blocker is the missing vue-sonner stylesheet that muted the demo's entire 23-site diagnostic channel in source and in the shipped artifact; 10 claims killed with executed refutations (Preflight kill re-verified in the bundle, C-9 killed by this seat's own compile, D-9's law-attribution withdrawn, two fabricated-citation registers pinned); 12 net-new re-reader finds banked, two of them MAJOR (the unlayered-import cascade hazard that invalidates the corpus's own step-1 cure, and the Retry-as-body-text correction); identity guards held — census F-1 and S-9, the kf-AnimationControlsGroup C-9 mis-home and D-13 dead-gate identities, and value.js's R1 row all FOLDED by reference, zero re-bookings, with this record's sharper censuses (16-hit dead-gate sweep, 23+1 call-site tally) attached as riders; routings are M-25 agglomeration input for the forming X·KF specs — KF.W1-DEP and KF.W7-TOKENS own their folds, the swap verdict is census-S-9-owned, everything behavioral is NO-WAVE-OWNER for SS-1/SS-2, and 10 residue rows ride to SS-13.**
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/components/DemoGlobalChrome.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **DemoGlobalChrome.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**L-6's sweep is EXECUTED AS A ROSTER, per its own lock.** Banked: *"A fix confined to this file leaves twelve files standing; **the fold owns the sweep**."* The fold is `docs/tranches/X/keyframes/W0/GATE-ROSTER.md` §4.1, where all **16 hits across 13 files** are split per site with a named owner each. Re-measured: `demo/`-scoped **16 / 13**, reproducing the banked figure **exactly**; repo-wide **121 hits / 70 files, 57 of those under `docs/`** — the `docs/**` surface is **declared loudly out of scope**, never silently inherited.
+
+**A 17th site exists under a wrap-inclusive predicate and is recorded, not merged into the banked figure** (E-3): `ChannelControls.vue:341` carries the name line-wrapped as `proof:demo-no-` / `oversize`, which the roster's own `-$` filter discards. GATE-ROSTER §2.2.
+
+**The record's consequence travels**: this component's header cites the retired gate as the SOLE stated reason for the file's existence. That strengthens its C-3 re-home — which is not this wave's act.
+
+**THE BYTE-OFFSET WITNESS IS SUPERSEDED — this record cites `dist/gh-pages/assets/index-CL_QYCiO.css` by name, and that coordinate is dead.** One `npm run gh-pages` ran at this seat (2026-09-17 13:37, exit 0, `built in 2.81s`). The artifact is now **`dist/gh-pages/assets/index-CBB2Hr7m.css`** — 571 192 B (was 571 142 B), mtime 2026-09-17 13:37 (was Jul 16 09:11), tree digest `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over 54 files, per-entry hashes at `artefacts/W0/glass-citation-rederivation.txt` §5. Seven of the corpus's byte-offset receipts were re-derived in the fresh build and **all seven reproduce** (`data-allow-motion` 1 · `header-ribbon__actions` 1 · `btn-interactive` 0 · `--shadow-glass:` 0 · `skeleton-scan` 1 · `header-items-wrapper` 0 · `header-collapsed` 0 · `rainbow-vivid` 1). **Only the filename moved**; the findings stand, now on a dated and hashed artifact instead of a provisional one.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

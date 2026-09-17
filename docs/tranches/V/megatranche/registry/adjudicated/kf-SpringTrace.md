@@ -144,3 +144,26 @@ L's own §4 killed-hypotheses (K-1 `--color-progress` demo-owned; K-2 `text-mono
 **ADJUDICATED.** Three axes wrote a corpus good enough to be wrong in interesting places, two hostile readers caught most of it, and the incredulity seat caught the rest of them: one census contribution killed before it could land (the counterpart was one grep away, in a directory both axes had cited), one MAJOR killed twice over on a substrate the registry had already ruled three times, one reader's mechanism cell false at the bytes inside an otherwise-admitted finding, two BLOCKERs re-graded to the banked bar, and two arithmetic cells corrected against the sampled curve that actually paints. What survives is a clean shape: a 129-line leaf that is genuinely well-made — correct mark, correct stroke discipline, correct lifecycle, correct composable contract — wrapped around one two-line fill bug six seats have now derived identically, one prop that provably does nothing (proven this session on the shipped artifact itself), reference geometry that fails contrast in both themes while wearing the data's own hue, and a header whose only Greek letter renders as the wrong alphabet. The repair is a packet, not a rewrite — one domain decision, one draw route, one register pass — and every row of it is agglomeration input for the forming X·KF specs. Nothing here stamps a wave. Original ids — D/L/C for life, N-1..N-5 for life.
 
 — end of apotheosis. The three challenge records and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/scenes/spring/SpringTrace.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **SpringTrace.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**`D-15` — NO RE-BOOK, and the token is RECORD-QUALIFIED** (C-1.R row 5, repair round 3 E-6). Banked at `:72`: *"dual-owner token consumption (`--color-progress` demo-owned, `--border` vendor-owned) with no call-site qualification … **KF.W0 fold-adjacent; no re-book**."* Booked here as a ONE-LINE GUARD and nothing else: the collision set is measured EMPTY at `kf-AnimationVisualizer` KF-AV-42, so it stays a dated hazard note. **A seat greping `D-15` finds TWO record-qualified rows and re-books neither** — this one, and kf-EditorHeader's `D-15`/`D-17`, which ride the header-ribbon-migration decision at §Excluded (NO-WAVE-OWNER, SS-1/SS-2's).
+
+**F-1's re-measure obligation is DISCHARGED**: *"F-1 must be re-measured against origin/master before routing any wave."* It was, dated, at C-1 and again at this wave's execution; the ref of record IS `origin/master`.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

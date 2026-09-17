@@ -172,3 +172,20 @@ Routing law: **KF.W0–W10** named from the census taxonomy (`formation/keyframe
 **ADJUDICATED — RED, at keyframes.js worktree-on-`8281638c` (the standing SCH-1 stale fork, 41 behind `origin/master`; frontier durability probed row-by-row by this seat, which neither reader did): 66 roster rows — 6 BLOCKER · 31 MAJOR · 25 MINOR · 4 INFO. Two blockers are already repaired at the frontier and fold to their banked identities (FE-3's `startScalar`, EE-03's length-watch) with re-regression guards as the surviving obligation; four are frontier-durable, chief among them a feature that has never once worked (Apply-CSS's class ≠ selector, probe-proven) and an action cluster painted under its own code plate — the two defects every axis reasoned around without seeing. 12 killed-claims sustained (three deciding a head-on reader collision, one extended, one reader miss reversed against the engine bytes and the banked registry); 14 misses admitted, 1 fold-caught re-booking; 9 reader corrections. The component is the strongest argument in the program for the KF.W4 type gate and the KFED-UNIT spec: its seams that were DECLARED (the expose contract, the error posture, the heavy/light split) are exemplary, and its seams that were merely ASSUMED (the selector's type, the apply identity, the paint order, the projector watches) are where all six blockers live. Routings are M-25 agglomeration input: behavioral rows to KFED-UNIT (NO-WAVE-OWNER, SS-1/SS-2, after KF.W0 + KF.W4); folds to FE-3, EE-03, KF-CE-12, KF-CE-16, KF-CB-3/11/25, F-1/SCH-1 (KF.W0), S-9, R1; census asks S-10 + the §6.3 class-space annotation (KF.W6, E-3); one library letter (KF.W5, `fromString` append semantics); one producer relay (glass toast id/dismiss/action surface, BH channel); visual residue (10 rows) to KF.W9/SS-13. Nothing here stamps a wave; X·KF executes on the owner's begin-word.**
 
 — end of apotheosis. The challenge corpus and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/keyframes/KeyframesEditor.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **KeyframesEditor.vue=+33/-4**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

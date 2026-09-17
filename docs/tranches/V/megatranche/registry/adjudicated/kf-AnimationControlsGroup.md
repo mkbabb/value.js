@@ -135,3 +135,26 @@ Ids keep their axis names for life; re-reader net-new finds are banked as M-1..M
 **ADJUDICATED at HEAD `8281638c`: 37 confirmed rows (2 BLOCKER · 6 MAJOR · 22 MINOR · 7 INFO) — the blocker pair is L-1's false-green SCRUB seam (the gate must move to the component seam before any repair) and D-1's portal stacking (three timelines in one sink on the flagship scene, restored to BLOCKER by enumeration); 9 claims killed with executed refutations (both glass-ui cascade kills re-verified at the file, one kill-of-a-kill each way); 11 net-new re-reader finds banked, three of them MAJOR keyboard/overflow defects the original axes cleared or brushed past; identity guards held (F-1, S-2, F-5, §6.3, R1 folded by reference, zero re-bookings); routings are M-25 agglomeration input for the forming X·KF specs — KF.W1-DEP/W2-TABS/W3-SHIM/W7-TOKENS own their folds, everything behavioral is NO-WAVE-OWNER for SS-1/SS-2, and 9 residue rows ride to SS-13.**
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/AnimationControlsGroup.css` · `demo/components/instrument/transport/AnimationControlsGroup.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **AnimationControlsGroup.css=IDENTICAL · AnimationControlsGroup.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**D-13's seven are ENUMERATED** at `docs/tranches/X/keyframes/W0/GATE-ROSTER.md` §6(i), re-derived at the ref of record: **8 distinct `proof:*` names over 16 citations** on this record's subject surface, of which `live-session-mobile` is the record's own carve-out (DEMO_ROSTER **row 6**, `scripts/demo-roster.mjs:11`; `scripts/observe/demo/live-session-mobile.mjs` present) ⇒ **8 − 1 = the banked seven**, reproduced by measurement, **no bank correction owed**. Family disposition stands as banked: **NO-WAVE-OWNER (prose-truth hygiene)**.
+
+**One correction, appended not rewritten**: the row's *"two `proof:` scripts exist"* is a stale-worktree reading. At the ref of record there are **THREE** npm entry points (`package.json:50/:51/:52`) over **NINE** `scripts/gates/` files — GATE-ROSTER §1.
+
+**REPOINT, not strike, for one of the seven**: `proof:no-shadow-playback-authority` names a LIVE vitest suite, `test/demo/state/no-shadow-playback-authority.test.ts`, whose own `:1` reads *"proof:no-shadow-playback-authority — T.B8 (lane 30 rec 1), the vitest half."* Deleting that citation would delete a true sentence (GATE-ROSTER §5).
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

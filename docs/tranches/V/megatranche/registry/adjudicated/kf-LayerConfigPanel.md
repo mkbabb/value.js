@@ -142,3 +142,22 @@ Rerouted, not SS-13: **LP-19's dev-graph magnitude** → build-level analysis (t
 The two hostile re-readers split the frontier between them: RR-1's confirmations survive intact but two of its seven misses were already banked at the host record it never opened and a third died at a vendor file it never read; RR-2's three boldest rulings — the regime kill, the blast-radius cap, the rename-provenance kill — all stopped one baseline short of `origin/master`, where this seat's own git shows the audited file byte-identical to landed frontier content and glass-ui pinned at exactly the installed 7.0.0, reviving the four prop BLOCKERs RR-2 had capped and reproducing, for the third time in this program, the pattern the kf-MatrixEditor seat named. After identity-folding against the heavily pre-banked host surface (nine folds, zero re-bookings), the corpus's genuine net yield is precise and small: **LP-1, the absent write→render edge that axis L alone found and that now sequences the banked one-line repairs; LP-6, the multi-target honesty gap on the enabled row; LP-9, the two-armed row geometry; the description-cure geometry rider that stops the prescribed tooltip cure from squeezing the panel it repairs; and the S-9 collision ruling that keeps the census namespace sound.** Three reader kills sustained (one discharging an SS-13 row at the bytes), one kill overturned, one split, one reader miss killed, and the enabled/zIndex over-claim trimmed at the engine source. Nothing lost: head, tail, or interval — and nothing banked was booked twice.
 
 — end of apotheosis. The three challenge files and both re-reader returns remain immutable beside this record per E-1/E-3; dispositions are ADJUDICATED, not VERIFIED; the X·KF specs consume this as agglomeration input (M-25); execution awaits the owner's begin-word.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **LayerConfigPanel.vue=+8/-8**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` does not appear in this record** (⟨`grep -c 'D-19'`⟩ → 0). The re-anchor obligation reaches it through this stamp alone, which is why the stamp is written at every one of the 58 and not only at the 42 the token reaches.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

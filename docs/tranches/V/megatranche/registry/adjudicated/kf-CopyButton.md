@@ -142,3 +142,22 @@ Routing law: **KF.W0–W10** named from the census taxonomy (`formation/keyframe
 **ADJUDICATED at keyframes.js worktree-on-`8281638c` (a stale local fork, 41 behind `origin/master` — the four-layer substrate ruling is this seat's governing addition): 38 roster rows — 1 BLOCKER, real at the audited bytes and ALREADY CURED at the frontier (folded to EE-01/KF.W0, with the re-regression guard as the surviving obligation) · 12 MAJOR · 15 MINOR · 10 INFO; 12 kills sustained (one extended by the frontier probe, one corrected in its own mechanism against the banked kf-App record); 17 misses admitted — chief among them the nested live region that may silence the component's only working channel, the N-identical-names resting defect, the keyboard-unreachable destructive sibling, and the glass PRM kill switch every axis's falsifier missed; 7 reader corrections including one reversed confirmation cell (the substring-phantom forced-colors arm); identity guards held (EE-01, census SCH-1/F-1, KF-CE-13, S-7, §6.4, §6.5 — zero re-bookings). The component is a well-mannered consumer wearing an unimplemented design: its boundary discipline, button semantics, and reactivity choices are genuinely exemplary, and every one of its failures — the dead name it was handed, the swap that was never written, the latch with no reset, the sink nested where the tree may flatten it — is a failure of what it promises rather than how it reaches the library. Routings are M-25 agglomeration input: behavioral rows NO-WAVE-OWNER for SS-1/SS-2 under the KF.W6-reshell-may-absorb rider; structural folds to KF.W0/W3/W4/W5/W6/W8; visual residue (10 rows) to KF.W9/SS-13. Nothing here stamps a wave; X·KF executes on the owner's begin-word.**
 
 — end of apotheosis. The challenge corpus and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/CopyButton.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **CopyButton.vue=+1/-1**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**C-19 LEDGER MEMBER — dirty-manifest / registry-sweep law, firing enumerated and DATED.** The ledger's corrected denominator is **30 members + 2 anti-firings enumerated separately** (the two anti-firings, kf-CubeAxisLines and kf-AnimatedText, are events where the law did NOT fire and are never swept as firings). Re-derived at the corpus bytes this seat: the C-19 cell names **32 distinct records**, minus those 2 ⇒ **30**. This record's disposition: **the firing is a DATED RECORD, not a live defect** — its cause (a manifest/tree claim filed without naming its baseline) is extinguished by this stamp, which names the baseline for every row in the file.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

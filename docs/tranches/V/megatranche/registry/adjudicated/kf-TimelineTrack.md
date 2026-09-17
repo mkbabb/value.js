@@ -159,3 +159,20 @@ Whole rows discharged by reference; each contributes this corpus's re-verificati
 **ADJUDICATED — RED at keyframes worktree/HEAD `8281638c` (target file baseline-invariant): 35 rows stand (0 BLOCKER · 7 MAJOR · 19 MINOR · 9 INFO) with 20 whole-row folds + 4 partial arms discharged by reference to banked kf-KeyframeTimeline (C-1, M2, M5, M9, M10, D-4/L-4/C-5, D-7, D-10, D-11, D-12, D-15, D-20, D-21, C-15, N-2, N-11, S-1, S-8, hygiene D-26, the KF-CE-16 gate-hole fold) and census identities — zero re-bookings; 9 claims killed with re-executed refutations, headed by both axes' phantom-dependency BLOCKERs dying on this seat's own three-baseline git probes (the corpus's sixth one-baseline-short event, now with a formal F-1 re-rule request) and one reader-vs-reader contradiction (m-5's tick count) settled at the bytes against the confirming reader; 11 net-new missed rows booked, the two heaviest — the grab-offset teleport and the per-pointermove engine rebuild — re-walked end to end by this seat and routed to KF.W7 beside the banked scrub-seam cluster they aggravate. The component's centre of gravity: a drag pipeline that teleports data, rebuilds the world per pointermove, guards neither multi-touch nor foreign drags nor non-primary buttons, and pans by the wrong axis into a display-only readout — one gesture system, adjudicated as ONE design problem for the KF.W7 spec, exactly as the census's "evaluate, not mechanical swap" predicted. Routings: the bulk to KF.W7; token/contrast/register/coarse rows to KF.W6; structure by fold to KF.W8; the type gate to KF.W4 by fold; parser ingress negative-result recorded for KF.W2/W3; 12 residue rows to KF.W9/SS-13 with two explicit severity-escalation triggers armed. Dispositions are ADJUDICATED, not VERIFIED; nothing here stamps a wave.**
 
 — end of apotheosis. The three axis challenges and both re-reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/instrument/timeline/components/TimelineTrack.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **TimelineTrack.vue=IDENTICAL**.
+
+**Reading**: the subject file is **BYTE-IDENTICAL** at `8281638c` and at the ref of record, so this record's line anchors into it bind **unchanged**. No line re-resolution is owed for it — and that is a measurement, not an assumption.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+

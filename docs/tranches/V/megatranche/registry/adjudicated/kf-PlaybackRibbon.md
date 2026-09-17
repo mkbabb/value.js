@@ -161,3 +161,20 @@ The next session with mail duty should relay to the glass-ui BH inbox, beside th
 **ADJUDICATED at keyframes.js worktree-on-`8281638c` ≡ `origin/master` `81a56990` for every audited file (frontier-durable by identity): 38 roster rows — 4 BLOCKER (the anonymous sole-AT scrub control; the invisible playhead over a 1.23:1 boundary; the unpublished effective-time contract that mirrors two of three mounts; the banked frozen-duration identity extended with a signed-seek rider) · 9 MAJOR · 16 MINOR · 9 INFO — plus 8 folds into banked records and ZERO re-bookings. The readers' seven kills all sustained, two extended at the bytes (the forced-colors cure is two deletions because the producer already ships the whole answer; the press-squish kill hands its truth to a new admitted row); four seat kills against reader cells, including this corpus's premise-inheritance event (a hairline border that does not exist, quoted beside the rule that deletes it) and one prescription killed by the bank itself (the `source` branch is the planned consumer of a banked cure, not dead weight). The dominant result is the registry lesson at its largest yet: thirteen booking-kills in one corpus — two readers re-deriving, brilliantly and independently, defects the bank had held for up to five days, one of them re-deriving a banked superlative as its own discovery. The component's shape survives every ruling: a correctly-seamed, correctly-worded, token-disciplined transport whose five false comment blocks, two dead style authorities, and one unpublished contract are exactly where all four blockers and most of the majors live. Nothing here stamps a wave; every routing is agglomeration input for the forming X·KF specs. Original ids — D/L/C and the readers' M-rows for life; N-1..N-6 minted here.**
 
 — end of apotheosis r1. The three challenge records and both reader returns remain immutable beside this file per E-1/E-3.
+
+---
+
+## REF-OF-RECORD — KF.W0 · G-0.9 · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
+
+**REF OF RECORD — the one ref this record cures against**: keyframes.js `origin/master` **`81a56990736ced5b5edde0b84c527680ac7689b1`**. Since the §B-12 substrate settle of 2026-09-17 that coordinate **is** the sacred checkout's `HEAD`: ⟨`git rev-parse HEAD`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1` · ⟨`git rev-list --count HEAD..origin/master`⟩ → `0` · ⟨`… origin/master..HEAD`⟩ → `0`. The local pin **`8281638c` is DISQUALIFIED**; the pre-settle working tree survives only as snapshot commit **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** and is never an anchor.
+
+**PER-FILE SUBSTRATE OFFSET (C-21 — this pass is per-FILE, never per-repo).** Subject: `demo/components/playback/PlaybackRibbon.vue`. ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩ → **PlaybackRibbon.vue=+30/-23**.
+
+**Reading**: the subject file **MOVED** between the disqualified pin and the ref of record, so every line anchor in this record must be **re-resolved at `81a56990` before any cure** (the `D-19` law). The offset is stated above rather than a repo-wide verdict, because KF-TD-2 proves the direction is per-FILE.
+
+**`D-19` — the re-anchor / re-resolve-before-cure law — IS CARRIED BY THIS RECORD IN ITS RE-ANCHOR SENSE**, and this stamp discharges that routing word. Census at the corpus bytes, predicate stated so it reproduces (*a `D-19`-bearing line that also matches `re-anchor|re-resolve|Re-anchor|Re-resolve`*): **34 records / 39 lines** in the re-anchor sense, **42 records / 94 lines** by bare token. NO RE-BOOK: the content is carried whole at KF-W0 §Carry C-2, C-21 and G-0.9.
+
+**Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
+
