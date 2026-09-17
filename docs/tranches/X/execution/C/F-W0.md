@@ -1228,3 +1228,151 @@ to the glass-ui BH relay above rather than sent from here.
 **Escalations**: **none.** No §7a trigger fired. In particular **the declared bounds question did not
 become one**: all three of G-9's clauses were met with **zero** `web/package.json` /
 `package-lock.json` bytes, so the *"ESCALATE rather than expand bounds"* branch never opened.
+
+### F.W0.c — second seat (re-verification + one correction), 2026-09-17
+
+**SERVED MODEL: claude-opus-5[1m]** · gates **G-7, G-8, G-9** · repo
+`/Users/mkbabb/Programming/fourier-analysis`, branch `m/w1-bump-migration`, opened at **`b3b736c`**
+(the first F.W0.c seat's close), closed at **`edee6bf`**.
+
+**Why this block exists.** This seat was dispatched to execute F.W0.c and found the unit **already
+landed and committed on both sides** (`b3b736c` fourier · `80941e71` value.js). Under
+MEASURE-BEFORE-YOU-EDIT the honest act is not to re-land it — a second commit of one meaning is a
+defect, and E-3 makes the first seat's receipts immutable. It is to **verify the receipts at the
+bytes rather than inherit them**, and to correct, as a dated addendum-beside, anything that does not
+reproduce. **One figure did not.**
+
+#### Acts, in order
+
+1. **Read the spec sections this unit owns, the wave record, and COHESION §0j** before touching
+   anything. Established the base: ⟨cmd⟩ `git rev-parse --short HEAD` → **`b3b736c`** · ⟨cmd⟩
+   `git status --porcelain | wc -l` → **0**.
+
+2. **Verified the commit's path set is inside the writable bound.** ⟨cmd⟩
+   `git show b3b736c --name-only --format=` → exactly **7** paths: `web/tsconfig.json` ·
+   `.github/workflows/ci.yml` · `.github/workflows/deploy-pages.yml` ·
+   `web/e2e/visualization-ux.spec.ts` · `web/e2e/visualization-crud.spec.ts` ·
+   `web/e2e/unit/figure-dimensions.unit.ts` · `docs/tranches/F/SUBSTRATE-LEDGER.md`. Every one is in
+   this unit's writable set; ⟨cmd⟩ `… | /usr/bin/grep -c 'package.json\|package-lock.json'` → **0**,
+   so **§2b's reservation of the manifest to unit *a* held**.
+
+3. **Re-ran G-7 at the settled bytes, double-run.** ⟨cmd⟩
+   `npx --yes oxlint@1.42.0 src e2e vite.config.ts playwright.config.ts` →
+   **`Found 18 warnings and 0 errors.`**, **exit 0**, byte-identical across both runs. tsconfig
+   read back by ⟨cmd⟩ `node -p` → **16** `compilerOptions` · **7** `include` entries ·
+   `noUnusedLocals: true` · `noUnusedParameters: true` · `noUncheckedIndexedAccess` **absent**
+   (the ruled deferral). CI wiring present in **both** workflows — ⟨cmd⟩
+   `/usr/bin/grep -n 'F.W0, G-7\|F.W0, G-9' .github/workflows/ci.yml .github/workflows/deploy-pages.yml`
+   → `ci.yml:108` · `ci.yml:127` · `deploy-pages.yml:123` · `deploy-pages.yml:127`. **FR-IC-25
+   satisfied at the bytes, not by assertion.**
+
+4. **Re-ran G-8.** ⟨cmd⟩ `npx vue-tsc -b --force` → **20** diagnostics, and the enumeration matches
+   the record item-for-item: **18** unused-code findings (`TS6133`/`TS6196`) over **14** distinct
+   column-1 paths — **18/14 reproduces EXACT** — plus `PaperView.vue(12,8) TS2882` and
+   `vite.config.ts(51,21) TS2769`, the latter naming `manualChunks`' record form against vite 8's
+   `ManualChunksFunction`. **`MISS-A7` at the type level, re-confirmed.** The exclusion arm stays
+   **declined**: `vite.config.ts` is still in `include`, and its single finding is still visible in CI.
+
+5. **Re-ran G-9.** ⟨cmd⟩ `node --test --experimental-strip-types e2e/unit/figure-dimensions.unit.ts`
+   → `pass 1 · fail 0`, **exit 0**. Seat still outside Playwright collection — ⟨cmd⟩
+   `npx playwright test --list | tail -1` → **`Total: 69 tests in 8 files`**; ⟨cmd⟩ `… | grep -c
+   'figure-dimensions'` → **0**. **The 8-spec denominator survives.** Keystone 5 verified **armed**,
+   not masked: ⟨cmd⟩ `/usr/bin/grep -n` over `visualization-ux.spec.ts` → **`:247`** =
+   `test("keystone: /equation is a11y-clean", …)` — a bare `test(...)`, and the three pre-existing
+   `fixme` keystones (`:121`, `:148`, `:210`) are **unchanged in both directions**.
+
+6. **Re-measured the `inert` truth** (glass-ui read-only): ⟨cmd⟩
+   `/usr/bin/grep -c 'inert' node_modules/@mkbabb/glass-ui/dist/glass-ui.js` → **0**; installed
+   **4.0.0**, declared **`^4.0.0`**. The producer-relay routing stands; no consumer patch exists.
+
+7. **Found the one divergence and proved its cause rather than guessing it.** The published command
+   returns **`142 files`**, where ledger §3.1.4 and §3.5 print **`141 files`**. Isolated with one
+   variable moved — ⟨cmd⟩ `npx --yes oxlint@1.42.0 --ignore-pattern 'e2e/unit/**' src e2e
+   vite.config.ts playwright.config.ts` → **`on 141 files`** — and corroborated by census: ⟨cmd⟩
+   `find src e2e -type f \( -name '*.ts' -o -name '*.vue' -o … \) | wc -l` → **140**, plus the two
+   named configs = **142**, less the seat file = **141**. **`141` is the linted set without the seat
+   file**: the floor's first run predated the seat, and the post-commit re-run re-stated only
+   `0 errors / 18 warnings`, never the count.
+
+8. **Landed the correction as a dated addendum-beside** — ledger **§3.6**, appended. **§3.1.4 and
+   §3.5 were NOT patched** (E-3); they stand as the first seat wrote them, with §3.6 beside them
+   carrying the figure of record. Committed by pathspec.
+
+#### The divergence, and its true size
+
+| figure | published | re-measured | verdict |
+|---|---|---|---|
+| lint floor result | `18 warnings / 0 errors`, exit 0 | identical, double-run | **EXACT** |
+| lint floor **file count** | **141** | **142** | **DIVERGENT → §3.6** |
+| every other §3 figure (11 rows, tabulated at §3.6) | — | — | **EXACT** |
+
+**No gate flips, and that is a measurement, not a reassurance.** G-7's criterion is a floor that is
+runnable, wired and **exits 0**; `exit 0` and `0 errors` both reproduce. Further, the two runs above
+return the **identical `18 warnings / 0 errors`** with and without the seat file — so the seat file is
+lint-clean and **the miscount could not have masked a finding**. It is a bookkeeping defect in a
+published integer.
+
+**The class it belongs to is worth naming, because it is this program's own.** Ledger §3's closing
+sentence reads *"every published figure double-run at the settled bytes"* — and it is false for
+exactly one figure, which is that sentence's own counter-example. A seat's own bytes are the
+least-audited ones, and the figure that slipped is the one nobody thought worth re-reading because it
+was never the criterion. **`141 files` joins the forbidden-figure register beside `16 findings / 12
+files`**; the figure of record is **`142 files`** under the committed command at `b3b736c`.
+
+#### Commits
+
+| # | hash | repo | message |
+|---|---|---|---|
+| 1 | **`edee6bf`** | fourier | `docs(F.W0.c): dated addendum-beside — the oxlint file-count figure re-measured at the settled bytes (142, not 141)` |
+| 2 | *(this block)* | value.js | `docs(X·F/record): F.W0.c second-seat re-verification — 11 of 12 §3 figures EXACT; the oxlint file count corrected beside` |
+
+**One commit per meaning.** The fourier commit's meaning is *"the figure of record is corrected,
+beside"*; the value.js commit's is *"the re-verification is on the record"*. The first seat's
+`b3b736c` is untouched, and no declared must-not-split family is involved (the wave's only one is
+G-10's, at unit *f*).
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (this seat's open, = first seat's close) | AFTER (this seat's close) |
+|---|---|---|
+| **G-7** | **GREEN** as landed at `b3b736c` | **GREEN — re-verified at the bytes.** Flags set; `noUncheckedIndexedAccess` decision intact as an `M-10` rider with `BasisKey`/`normalizeBasisKey` named (§6a lock 7 honoured; no `basisFilter` and no `gallery.ts` byte written by this seat either); floor **0 errors / 18 warnings, exit 0**, wired in `ci.yml` **and** `deploy-pages.yml`; **the one non-reproducing figure corrected beside at §3.6** |
+| **G-8** | **GREEN on the scope limb**, compile residue routed | **GREEN — re-verified.** `include` 7 entries; **20** diagnostics, 18/14 unused-code **EXACT**; `TS2769` still visible, **exclusion arm still declined** — no allowlist, no `@ts-expect-error`, no path excluded |
+| **G-9** | **GREEN** (SEAT, not FLOOR) | **GREEN — re-verified.** Seat exits **0**; inside G-8's scope; **not** collected by Playwright (**69 tests / 8 files**); Keystone 5 **armed** against `/equation`; **explicitly NOT green-by-coverage — F.W9's `G-F9-1` FLOOR remains untouched and undischarged** (R-5) |
+
+#### Law compliance
+
+**No write outside the writable set** — this seat wrote exactly one file,
+`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` (explicitly in bound for *"any minuted exclusion
+ruling"* and the findings list), plus this record. ⟨cmd⟩ `git status --porcelain` immediately before
+the commit listed that one path and nothing else; **0** after. **`web/package.json` and
+`package-lock.json` untouched** (§2b) · **no `web/src/**` byte written** · **no re-landing of an
+already-committed act** · **E-3 honoured: nothing patched in place** — §3.1.4 and §3.5 stand, the
+correction is beside them · **no masking**: no `test.skip`/`test.fixme` added or removed, no
+`eslint-disable`, no `@ts-expect-error`, no `try/catch` around a defect, no allowlist, no
+`node_modules` patch · `glass-ui` read **only** to measure `inert`, never written · **no
+hand-formatting** (§7b) · no `git add -A`, **no `git stash`**, no `reset --hard`, no `checkout --`,
+no force-push · **no worktree** (§2c) · `value.js/scripts/dev/dev.sh` never touched, never staged ·
+pathspec commits only · no cron · **`execution/LEDGER.md` untouched** — its F.W0 row is the wave
+seat's, not this unit's · **every figure published here double-run at the settled bytes**, which is
+precisely the law whose one breach this block exists to correct.
+
+**E13 at this seat**: bounded four-path delta re-checked — ⟨cmd⟩ `find <the four paths> -maxdepth 1
+-type f -newermt '2026-09-16'` returns only our **own outbound** drafts plus
+`value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, which is a value.js→keyframes outbound
+delivered by X.KF.W1.b and is **already rowed in `INBOX.md`** (⟨cmd⟩ `grep -c` → **4**). **No unread
+mail in this unit's scope; nothing owed from this seat.** The one relay item this unit produced (the
+4.0.0 `inert` absence) remains routed to the glass-ui BH relay, unsent from here.
+
+#### Residuals and routing
+
+**Unchanged from the first seat's table — nothing new is dropped and nothing is re-booked.** The 18
+unused-code findings and the 18 lint warnings still route F.W3/W4 (re-measure before deleting);
+`noUncheckedIndexedAccess` + its **286/35** transaction still rides `M-10` with the WAVE-LOCK;
+`TS2769` → F.W1 with the `MISS-A7` unblock; `TS2882` → F.W1/W2; Keystone 5's first execution → CI;
+the `inert` absence → glass-ui BH relay; the seat's home and runner choice → F.W9. **One addition**:
+**`141 files` is a forbidden figure**, and any downstream quotation of the lint floor's file count
+takes **142** from ledger §3.6.
+
+**Escalations**: **none.** No §7a trigger fired. The declared bounds question again did not become
+one — **zero manifest bytes were needed or written**, so the *"ESCALATE rather than expand bounds"*
+branch never opened at this seat either.
