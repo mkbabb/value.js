@@ -9,8 +9,9 @@ addenda, not patches). Where v2 is silent, v1 governs unchanged.
 **Authority**: `docs/tranches/X/fourier/waves/F-W5.md` (the wave spec) · `docs/tranches/X/COHESION.md`
 §0/§1 SS-4 and **§0j.D** (the owner's rulings under the 2026-09-17 begin-word).
 **Status**: **§A and §B authored** (F.W5 unit b, 2026-09-17); **§C, §D and §E authored** (F.W5 unit c,
-2026-09-17). §F–§G and the value-side obligation list at unit d; the inline ruling block is
-`contract/OWNER-RULINGS-F.W5.md` (unit e).
+2026-09-17); **§F, §G and §H — the value-side obligation list — authored** (F.W5 unit d, 2026-09-17).
+The inline ruling block `contract/OWNER-RULINGS-F.W5.md` and the co-signature relay
+`coordination/value-to-fourier-cosign-J-diff-shape-v2.md` land at unit e.
 **Neutrality**: this document is authored in the value.js tree because value.js is the wave's writing
 repo, and it is **neutral in force**: every clause binds **both** ends or names which end it binds and
 why. It is received by fourier as a letter
@@ -2233,8 +2234,843 @@ leaves the tree's one demonstrated write path open — and that path is the proo
 
 ---
 
-*§A–§E are authored. §F (the equation contract and error envelope) · §G (canonical geometry) and the
-value-side obligation list land at F.W5 unit d; `contract/OWNER-RULINGS-F.W5.md` and the co-signature
-relay at unit e. Clause ids in this file are preserved verbatim for sibling cross-references; a sibling's
-mis-keyed cite is conformed **at the sibling** (R-1e). No clause is numbered D9 — `D9` is reserved
-throughout for the ruled owner decision, which no clause may contradict.*
+## §F — The equation contract and the error envelope
+
+### §F.0 Bases, measure-at-open, and what v1 §3 hands this band
+
+Every ⟨cmd⟩ in §F, §G and the obligation list was run **at this seat, 2026-09-17**, from the bases §0.3
+assigns (`$F` = the fourier tree, **READ-ONLY, always**; `$V` = the value.js tree; `$R` =
+`docs/tranches/V/megatranche/registry/adjudicated`, from the value.js repo root), each named at its
+site. Engine: **`/usr/bin/grep` (BSD)** wherever the result is an engine fact. Every published figure was
+**double-run against the settled bytes** (`run1 ≡ run2`) before this file was committed. **No figure in
+this band is inherited**: the wave spec is the operand, the bytes are the witness, and where a spec
+spelling did not reproduce the true bytes are printed and the divergence is named (§F.0's two entries
+below, and §G5c's).
+
+**v1 §3.1–§3.3, discharged here** (§0.2's cell names this band). The canonical shapes of v1 — the
+`/diff` response body, the `AtomOp` structure, the from/to identifiers — are **IN FORCE, unamended**;
+§F restates them in exactly two respects and adds nothing to them:
+
+1. **The diff envelope is one-sided, by ruling.** Under §E3 (owner ruling R1, `§0j.D` F-SS4REST) value.js
+   is re-scoped out of the diff clause, so v1 §3's shapes bind the **fourier** end of this contract and
+   the casing rule of §A2.4 applies to them there. v1's *layer* split (§A2: envelope identical, atom
+   VALUE repo-local) is the governing distinction and is untouched by this band.
+2. **v1 spoke an envelope for the HAPPY path and never spoke one for the error path.** That gap is this
+   band's subject at **§F5**: an API whose success shapes are pinned to the byte and whose failure shape
+   is whatever the framework happens to emit has not settled its envelope — it has settled half of it.
+
+**Two spec spellings did not reproduce as spelled; both mechanisms reproduced exactly.** The spec is
+IMMUTABLE (E-3), so nothing there is edited — the corrections live here and in the execution record:
+
+- **§F3's *"a seven-keyword denylist"*** reproduces to the digit, but not where the spec's sentence puts
+  it: the denylist is in the **library**, not the API — ⟨cmd⟩ base `$F`,
+  `/usr/bin/sed -n '79,82p' src/fourier_analysis/symbolic/parsing.py` → `for forbidden in ("import",
+  "__", "eval", "exec", "compile", "open", "system"):` — **seven**, at `:80`, inside
+  `parse_expression`, which `api/routers/equations.py:42` imports. The distinction is load-bearing: the
+  only string-hardening on the free-text field lives in a package the API merely calls, so a contract
+  term written against `api/` alone would not reach it.
+- **§F7's *"the `latex`/`latex_sigma` arrive unconsumed"*** is true **of `ConvergencePlot`**, which is
+  the clause's subject, and false of the view as a whole (`EquationView.vue:114-115` consumes both into
+  `displayLatex`/`displayLatexSigma`). The clause is written against the component that renders the
+  tooltip, and says so.
+
+### F1 — Partial projection of a notation-dependent render ‡
+
+**RULE.** **Where one response field is a projection of a request parameter, every field that parameter
+governs travels on the same response, on BOTH models** — or the operation declares the un-refreshed field
+**stale/unavailable** in its own contract. **A partial projection is forbidden**: two renders of one
+state, of which one refreshes and the other does not, is a divergence the client cannot detect and the
+user reads as a working control.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **The field is missing on one model of the pair.** ⟨cmd⟩
+  `/usr/bin/sed -n '26,47p' api/models/equations.py` → `ComputeEquationResponse` carries **`latex`**
+  (`:29`) **and `latex_sigma`** (`:30` — *"sigma-notation form with approximate c_n"*), while
+  `SimplifyResponse` (`:44-47`) carries **`{latex, energy_captured, term_count}`** and **no sigma arm**;
+  the client twin agrees — ⟨cmd⟩ `/usr/bin/grep -n 'SimplifyResponse' web/src/lib/equation/types.ts` →
+  `:42`.
+- **The server itself proves sigma is notation-dependent.** ⟨cmd⟩
+  `/usr/bin/grep -n 'render_latex_sigma' api/routers/equations.py` → `:96`
+  `latex_sigma = render_latex_sigma(terms, req.notation)`, dispatching on notation through
+  `src/fourier_analysis/symbolic/latex_rendering.py:269` `_SIGMA = {...}`.
+- **A notation flip routes ONLY to the operation that cannot refresh it.** `EquationView.vue:177-180`
+  debounce-watches `[notation, budget]` into `doSimplify()` (`:177` the source, `:178` the callback),
+  which writes `displayLatex` (`:138`) and
+  **never `displayLatexSigma`** — whose only writers are `:39` (cache init) and `:114` (doCompute).
+  `activeLatex` (`:49-51`) prefers `displayLatexSigma` whenever `eqMode === "sigma"` — **the default**,
+  `:43` — **and the ref is truthy**, so a stale-but-truthy sigma wins.
+- **The retry is suppressed by the same call.** `:140` `lastDisplayKey = key;` against the early return
+  `:133` `if (key === lastDisplayKey) return;`.
+- **The control looks alive.** `:139` `displayEnergy.value = resp.energy_captured;` — the energy badge
+  moves on every flip while the equation does not.
+- **It survives a reload.** `:141` `saveCachedResult(...)` into sessionStorage (⟨cmd⟩
+  `/usr/bin/grep -n 'sessionStorage' web/src/components/equation/composables/useEquationCache.ts` →
+  `:27` `:33` `:38` `:48`), and `:39` re-seeds `displayLatexSigma` from the cached result on the next
+  mount.
+- **The leaf cannot be told.** ⟨cmd⟩ `/usr/bin/sed -n '8,10p'
+  web/src/components/equation/EquationResult.vue` → three lines, `const props = defineProps<{` ⟶
+  `latex: string;` ⟶ `}>();` (the wrap is the source's, disclosed rather than re-flowed): **the leaf's
+  entire input is one string** — no `disabled`, no `available`, no `stale` member exists to receive the
+  fact.
+
+**DISPOSITION.** Booked: **`fr-EquationView B-1`** (record-qualified; L·B-1 = C·D-05) **⊕ `FR-EMT-1`**,
+rider **R1-missed-4**. The act — **`latex_sigma` joins `SimplifyResponse` on BOTH models**, a **contract
+decision, not a patch**, or an explicit invalidation path — is the **fourier API row's**; this clause
+states the contract term it must satisfy and **claims none of the work** (§0.4; FR-GIG-5's bar).
+
+▲ **CURE BOUND — a COMPOSITE, quoted as two sentences at two coordinates** (R2-1-LAW.4; the two are
+*not* fused under one attribution). (i) The bound, at the B-1 row's own disposition cell — ⟨cmd⟩ base
+`$R`, `/usr/bin/grep -n -F 'walks into the under-determined' fr-EquationView.md` → `:47`:
+***"CURE BOUND by M-CK below: the alternative cure ("route notation through doCompute") walks into the
+under-determined `computeKey` and re-ships B-1 one layer down."*** (ii) The imperative, a different row
+— ⟨cmd⟩ `/usr/bin/grep -n -F 'fix the key FIRST or the B-1 repair ships broken' fr-EquationView.md` →
+`:71`: ***"fix the key FIRST or the B-1 repair ships broken."***
+
+▲ **LOCK.** The operation identity is the precondition, not the field: `computeKey()`
+(`EquationView.vue:82-84`) returns **four** components while the POST carries **seven**, including the
+two that determine the render (`notation` `:109`, `budget` `:110`). **Adding the field while the key
+still under-determines the request re-ships B-1 one layer down** — the field would refresh on a compute
+the key says need not happen. Sequenced behind **§B1**'s identity clause, which owns the key.
+
+### F2 — One shared bound constant across the seam ‡
+
+**RULE.** **A bound that both ends enforce is ONE constant, declared once and carried across the seam.**
+Where a client computes a value it will send, the client's admissible range **is** the server's, and a
+range the UI offers but the model rejects is a contract defect, not a validation success. **The clamp
+belongs at the value, not at the widget**: a bound enforced only in a control is absent from every path
+that does not pass through it.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **The two ends disagree in both directions.** ⟨cmd⟩
+  `/usr/bin/grep -n 'ge=2, le=50\|le=200\|:max=' api/models/equations.py web/src/components/equation/FunctionInput.vue`
+  → `api/models/equations.py:23` and `:40` both `budget: int = Field(default=…, ge=2, le=50)`;
+  `api/models/equations.py:20` `n_harmonics: int = Field(default=20, ge=1, le=200)`;
+  `FunctionInput.vue:184` `:min="1" :max="100"` — the Harmonics control **forfeits half of the
+  operation's own range**, and `:217` caps *Display terms* at `vizHarmonics`, not at `50`.
+- **The client walks past `le=50` without touching a bounded control.** The rescale recurrence is
+  `EquationView.vue:151-158`; simulated at this seat over the shipped defaults (`budget = 10`,
+  `vizHarmonics = 20`), **double-run**: a monotone one-step up-drag yields `budget(v) = v − 10`, whose
+  **first value over the ceiling is `v = 61 → budget = 51`**; a **single track-click** from defaults to
+  the slider's own max yields **exactly 50**, and the drag ends at `budget = 90` — **40 above the model's
+  ceiling** — with no control ever showing an out-of-range value, because `:216` displays
+  `Math.min(budget, vizHarmonics)`.
+- **The 422 is swallowed.** `EquationView.vue:143` `if (!isAbortError(e)) { /* silent */ }` — the only
+  handler on the `doSimplify` path.
+- **And it survives the session boundary.** `budget` restores from sessionStorage (`:29`
+  `ref(cached?.budget ?? 10)`), so **the next session's first compute 422s before the user touches
+  anything**.
+
+**DISPOSITION.** Booked: **`fr-EquationView B-2`** ⟨**LEG — held at F-W4**⟩ **⊕ `fr-FunctionInput
+L-B1/C-1`** ⟨**LEG — held at F-W4**, the `L-B1` limb⟩ **⊕ `fr-FunctionInput C-8`** — ▲ **record-qualified:
+NOT `fr-FourierShapeExtractor L-B1`, which is §G1c's** (U-12; one token, two records, two waves). The
+contract act — **one shared bound constant across the seam** (the R6-8-correct form) — is **F.W5's own
+clause**; the two client repairs are their holders'.
+
+▲ **LOCK — clamp at the two request sites or at the ref, NEVER at the slider** (M-BR rider): **the
+restore path never passes through the control.** A widget-level clamp leaves the sessionStorage
+resurrection, the programmatic rescale and the cache re-seed all unbounded.
+
+▲ **KILL LOCK — `fr-EquationView K-13`, record-qualified** (§2's kill-register law; a bare `K-n` is not
+an identity and may not be quoted as a lock). ⟨cmd⟩ base `$R`, `/usr/bin/sed -n '146p'
+fr-EquationView.md` heads *"| K-13 | L·B-2's path 2 …"* and rules the ratio-1 state **unreachable from
+the shipped defaults**, with the same `budget(v) = v − 10` recurrence this seat reproduced above;
+`fr-FunctionInput.md:100` cites that register rather than minting a second kill. **This is NOT the
+`K-13` at §F7, which is `fr-ConvergencePlot`'s.** `fr-FunctionInput C-1`'s sessionStorage-restore path is
+the TRUE one, and it is the only one this clause carries.
+
+### F3 — No unbounded field beside bounded siblings
+
+**RULE.** **Every field of a request is bounded, or its unboundedness is a stated term of the contract.**
+A collection declares `max_length`; a free-text field declares `max_length` and, where its grammar is
+known, a `pattern`. **A bound that exists only as an incidental consequence of a client's arithmetic is
+not a contract term** — it is a coincidence the next client will not reproduce.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '17,41p' api/models/equations.py`,
+read field by field:
+
+| field | model | bound at the model |
+|---|---|---|
+| `expression: str` | `ComputeEquationRequest:17` | **NONE** — no `max_length`, no `pattern` |
+| `domain_start` / `domain_end` | `:18-19` | none (F4's subject) |
+| `n_harmonics` · `n_eval_points` · `notation` · `budget` | `:20-23` | `ge/le` · `ge/le` · `pattern` · `ge/le` |
+| `coefficients: list[FourierTermDTO]` | `SimplifyRequest:39` | **NONE** — no `max_length` |
+| `budget` · `notation` | `:40-41` | `ge/le` · `pattern` |
+
+**Six fully-bounded scalars across the two request models, and two unbounded fields sitting among
+them** — and the free-text one is the harder half: `expression` flows through the library's
+seven-keyword denylist (§F.0) into `parse_expr` + symbolic integration (`api/routers/equations.py:52`,
+`:72`), with **no `maxlength` at its sole editor** (⟨cmd⟩
+`/usr/bin/grep -c 'maxlength' web/src/components/equation/FunctionInput.vue` → **0**). The client's
+`2N+1 ≤ 201` array bound is arithmetic, not a term.
+
+**DISPOSITION.** Booked: **`fr-EquationView M-SB` ⊕ `fr-FunctionInput N-4`** (AMENDMENT RELAY); cites
+**§D7** (client-derivable bounds). One `max_length` per unbounded field — the R6-8 attributability
+asymmetry exactly — at the **fourier API row**.
+
+▲ **AMENDMENT RELAY, verbatim discipline.** `fr-FunctionInput N-4` **CORRECTS** banked `fr-EquationView
+M-SB`, whose own span is ⟨cmd⟩ base `$R`, `/usr/bin/grep -n -F 'the ONE unbounded field'
+fr-EquationView.md` → **one hit, `:112`**: *"the ONE unbounded field"*. **There are TWO.** The relay is
+recorded **at the amending record**; the banked file is never rewritten (E-3). Damage is bounded today by
+the banked 30 s-semaphore / 429 row — **a bound on the blast radius is not a bound on the field**.
+
+### F4 — A server-side domain validator
+
+**RULE.** **Cross-field admissibility is validated at the boundary, by the model, not by the handler's
+luck.** Where two fields define an interval, the contract states the relation (`start < end`) and the
+model enforces it; a request that satisfies every per-field bound and no cross-field relation must be
+rejected as *invalid*, never executed into a division the framework reports as a 500.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/grep -c 'model_validator\|field_validator\|@validator' api/models/equations.py
+api/routers/equations.py` → **0** — no cross-field constraint exists on either file. The consequence is
+arithmetic, at `api/routers/equations.py:55` `period = domain[1] - domain[0]`: `domain_start ==
+domain_end` ⇒ **period 0** ⇒ the catch-all at `api/main.py:114` (§F5's subject), which the client renders
+as **nothing**; and a **reversed** domain (`end < start`) passes every bound and succeeds **with a
+negative period**, producing a silently wrong series rather than an error.
+
+**DISPOSITION.** Booked: **`fr-EquationView M-DV`** (a seat-booked rider on the folded `L·M-1` / `C·C-32`).
+The act — **a pydantic `model_validator` on `ComputeEquationRequest`** — is the **fourier API row's**.
+▲ **The client half is banked at `CoefficientsPanel M-L1`: book only the INCREMENT here**, never the
+banked half.
+
+▲ **LOCK.** The two failures are **not** one: `start == end` is a crash the envelope hides, `end <
+start` is a **success** that is wrong. A validator that only guards equality leaves the worse half
+shipping.
+
+### F5 — The error envelope is actually spoken ‡
+
+**RULE.** **The contract's error envelope is `application/problem+json` (RFC 7807) on every non-2xx
+response of every operation, including framework-raised ones** — and **a client resolves its message as
+`detail ?? title ?? statusText ?? fallback`, treats a non-string `detail` as structured content rather
+than discarding it, and never lets an empty string stand as a rendered message.** An envelope that only
+the hand-written raises honour is not an envelope.
+
+**WITNESS** (measured this seat, base `$F` unless stated).
+
+- **The server speaks one shape and the framework speaks another.** ⟨cmd⟩
+  `/usr/bin/grep -n 'exception_handler' api/main.py` → **exactly one**, `:114`
+  `@app.exception_handler(Exception)` returning `{"detail": "Internal server error"}` at `:122` — **no
+  `HTTPException` handler**, so every `raise HTTPException(...)` in the tree emits FastAPI's
+  `{"detail": …}` and every 422 emits FastAPI's **ARRAY**-shaped `[{loc, msg, type}]`.
+- **The client discards exactly those two shapes.** ⟨cmd⟩
+  `/usr/bin/sed -n '36,46p' web/src/lib/api-problem.ts` → `:38` destructures `detail` out of the body
+  and `:43` admits it **only** `typeof detail === "string"` (the array 422 becomes `undefined`), while
+  `:41` falls the title back to `response.statusText`, which `:27` `super(title)` makes the thrown
+  `Error`'s message.
+- **Under HTTP/2 that message is the empty string, and `""` is not nullish.** `statusText` is absent on
+  the h2 wire; `"" ?? x` returns `""`, which is falsy — **no toast, no banner, silence end to end**.
+- **The one hand-authored 422 proves the cost.** ⟨cmd⟩ `/usr/bin/grep -n 'No contours extracted'
+  api/routers/images.py` → `:247` `detail="No contours extracted — try lowering min area or changing
+  strategy"` — a sentence written for a user, parked on the one field the client drops, and surfaced as
+  *"Unprocessable Entity"*.
+- ▲ **Narrowing adopted and binding: the middleware's rate-limit 429 IS problem+json** (`rate_limited()`,
+  exercised at `api/tests/conformance/test_problem.py:53-63`). **This clause must NOT claim zero
+  coverage** — it claims the **framework-raised** band, which is the uncovered one.
+- **The value end carries the identical client half** (base `$V`): ⟨cmd⟩
+  `/usr/bin/sed -n '37,42p' demo/platform/transport/api-problem.ts` → the same destructure, the same
+  `typeof detail === "string"` narrowing and the same `response.statusText` fallback, in the
+  independently-authored twin (inv-16) at `:37` · `:40` · `:42`. value.js's own API **does** emit
+  problem+json (⟨cmd⟩ `/usr/bin/grep -rl 'application/problem' api/src --include='*.ts' | wc -l` →
+  **3 files**), so the value client meets the fallback rarely — **the clause binds both ends anyway**,
+  and the value-side act is handed on at **VO-6**, not performed here.
+
+**DISPOSITION.** Booked: **neither witness — one server identity, two witnesses, zero double-homes.**
+**`fr-EquationView C·D-02`** is an **F.W4** row and **`fr-ContourSettings M-15 / DU-missed-4 / D-m2 /
+D-m3`** is a **LEG held at F.W3** (canonical home F.W3 per the file criterion, legs `F.W5-W8` and
+SS-13; ruling R4-6). **F5 owns the server-side envelope clause and books neither record**: the
+`HTTPException` handler is the contract act (**fourier API row**), the two records are its evidence, and
+both display cures land at their holders (F.W3 / F.W4). The **transport arm** — *is the browser hop
+HTTP/2?* — is **SS-13**'s probe; ▲ **the static arm needs no probe**: `"" ?? x === ""` is a language
+fact, and `statusText`'s absence on h2 is a protocol fact.
+
+▲ **LOCK.** The cure is **the handler, not the client guard**. A client that hardens its fallback chain
+while the server keeps emitting `{"detail": …}` has made the silence legible in one consumer and left
+the contract unspoken; every other consumer — and the independently-authored value twin — re-derives the
+same bug. **Both halves land, and the server half is the one that closes the clause.**
+
+### F6 — A response field states WHICH population it measures
+
+**RULE.** **A quantity that can be computed over more than one population names its denominator in the
+contract, beside the field.** The same name may not denote two different populations at the two ends of
+one wire, and a UI may not print a value under a sentence asserting a different one.
+
+**WITNESS** (measured this seat, base `$F`).
+
+- **Two denominators under one number.** ⟨cmd⟩
+  `/usr/bin/sed -n '56,65p' src/fourier_analysis/symbolic/simplification.py` → `simplify_series` keeps
+  `truncate_by_budget(terms, budget)` (`:59`) and returns
+  `energy_fraction = kept_energy / total_energy` (`:62`) — **the BUDGET-truncated fraction**, which the
+  router returns as `energy_captured` (`api/routers/equations.py:91`, `:129`). The client prints it
+  **directly beneath its own ≥99.99% assertion**: ⟨cmd⟩
+  `/usr/bin/sed -n '201,209p' web/src/components/equation/FunctionInput.vue` → *"Sets N to the minimum
+  harmonics capturing ≥99.99% of total energy ‖f‖²"* at `:202-203`, then
+  `{{ (energyCaptured * 100).toFixed(1) }}% energy` at `:207`, fed from
+  `EquationView.vue:206` `:energy-captured="displayEnergy"`. The assertion is about **N_eff** (whose own
+  threshold is `compute_effective_n(..., threshold=0.9999)`, `simplification.py:68-71`); the number is
+  about **the budget**. With the shipped defaults (`budget` 10, `effectiveN` 20–40) **the mismatch is
+  the common case, not the edge**.
+- **And the same name means two things across the wire.** `nHarmonics` is a **surviving-harmonic cap**
+  in the client (`EquationView.vue:53-55` `Math.min(effectiveN, nHarmonics)`) and an **index bound** on
+  the wire (`n_harmonics`, `ge=1, le=200`, the count of harmonics computed).
+
+**DISPOSITION.** Booked: **`fr-FunctionInput L-M3`** ⟨**LEG — held at F-W4**⟩ **⊕ `fr-ConvergencePlot
+L-m13`** — ▲ **record-qualified: NOT `fr-FourierShapeExtractor L-M3`, which is §G5c's** (U-12). **v2
+states the denominator WITH the field**; the copy and the naming are **F.W4's**.
+
+Provenance carried verbatim, at the record's own bytes and in the record's own voice — ⟨cmd⟩ base `$R`,
+`/usr/bin/grep -n -F 'best library-axis find in the corpus' fr-FunctionInput.md` → `:53`:
+***"The best library-axis find in the corpus (both readers concur; I concur)."***
+
+▲ **LOCK.** Renaming the tooltip is not the cure: **the wire field is the ambiguity**. Two names on the
+wire (`energy_captured_over_kept` vs `energy_captured_over_total`, or one field ⊕ an explicit
+`denominator`) make every consumer's sentence checkable; a corrected sentence in one tooltip leaves the
+next consumer to guess again.
+
+### F7 — The missing original-expression field
+
+**RULE.** **A surface that contrasts two quantities receives both of them, each in its own field.** Where
+a plot exists to show that a partial sum is *not* the original function, the original travels as its own
+contract field, rendered in the same language as its counterpart — **never re-used from a
+budget-truncated render, and never reconstructed from a request parameter at the consumer.**
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/sed -n '260,266p' web/src/components/equation/ConvergencePlot.vue`:
+
+```
+if (h === "sum")      return renderKatexInline(`f(x) = ${props.expression ?? "\\text{sum}"}`);
+if (h === "original") return renderKatexInline(`f(x) = ${props.expression ?? "f(x)"}`);
+```
+
+The two branches are **character-identical but for an unreachable fallback**: at the only call site
+(`EquationView.vue:309-316` `:expression="expression"`) the prop is always a non-empty string — the input
+ref defaults `"x*(pi - x)"` (`:25`) and `doCompute` returns early on blank (`:93`) — so `??` never fires
+and **both curves are labelled `f(x) = <the original expression>`**. The golden partial sum therefore
+**asserts the identity the plot exists to disprove**. The string is **raw SymPy source pushed through
+KaTeX** (`:255-257`), while `latex` and `latex_sigma` arrive on the same response and **this component
+consumes neither** (⟨cmd⟩ `/usr/bin/grep -c 'latex_sigma\|result.latex'
+web/src/components/equation/ConvergencePlot.vue` → **0**; §F.0's second correction).
+
+**DISPOSITION.** Booked: **none by this clause.** `fr-ConvergencePlot K-13` was **re-homed TERMINAL** at
+the canonical's §0.5 errata **E6-3** (2026-08-29), so this clause **carries the FACT and books no
+canonical F.W5 row**; `L-M7 + C-8` (ConvergencePlot) are **canonically F.W4 rows** ⟨**LEG — held at
+F-W4**⟩, cited here and claimed by neither side twice. The act — **a new backend field carrying the
+ORIGINAL expression as LaTeX** — is the **fourier API row's**.
+
+▲ **THE PRESCRIBED CURE IS DEAD, AND THE KILL IS RECORD-QUALIFIED.** ⟨cmd⟩ base `$R`,
+`/usr/bin/sed -n '129p' fr-ConvergencePlot.md` → *"| K-13 | C-8's cure ("route `result.latex` to the
+original curve") | RATIFIED: `latex` is the budget-TRUNCATED series render (seat-read equations.py:91 +
+the simplify_series docstring) … Cross-repo field required (F.W5)."* Re-verified at the bytes this seat:
+`api/routers/equations.py:91` `latex, energy = simplify_series(terms, req.budget, req.notation)` and
+`simplification.py:59-64` truncate before rendering. **Routing `latex` to the original curve re-commits
+the exact inversion C-8 diagnoses.** The sound cure is a **NEW field** — `sp.latex(expr)` taken from the
+already-parsed expression (`api/routers/equations.py:52` `expr = parse_expression(req.expression)`) and
+added to `ComputeEquationResponse` — ⊕ **§C §6**'s provenance posture. ▲ **This `K-13` is
+`fr-ConvergencePlot`'s, NOT the `fr-EquationView K-13` at §F2**: two records, two kills, one token.
+
+▲ **LOCK.** The fallbacks are **unreachable**, so no fix that edits them changes anything; and the two
+branches must not be "de-duplicated" — **they are meant to differ**, and their identity is the defect.
+
+### F8 — THE SEAM CHOICE: portable LaTeX on the wire ‡ — **RULED HERE: THE WIRE FIELD**
+
+**RULE — this clause makes the choice the forming spec is owed, and states it once.** **Every LaTeX field
+on this contract carries PORTABLE LaTeX** — renderable by any conforming consumer with no `trust` flag,
+no HTML-class extensions and no post-processing. **Presentation hooks travel in their own field, named
+for what they are** (e.g. `latex_sigma` portable ⊕ `latex_sigma_html` decorated), and **a consumer that
+copies, exports, stores or transmits LaTeX uses the portable field.** A field whose value only one
+renderer, in one trust mode, can consume is not a LaTeX field; it is markup with a LaTeX-shaped name.
+
+**WITNESS** (measured this seat, base `$F`). The app's sole copy affordance emits invalid LaTeX **in the
+default mode**:
+
+- ⟨cmd⟩ `/usr/bin/grep -n 'htmlClass' src/fourier_analysis/symbolic/latex_rendering.py` → **four
+  emission sites**, `:175` `:176` (`\htmlClass{eq-coeff eq-an}{a_n}` / `{eq-bn}{b_n}`), `:216`
+  (`{eq-cn}{c_n}`), `:248` (`{eq-An}{A_n}`) — and ⟨cmd⟩ `/usr/bin/grep -n '^def ' <same file>` places
+  **all four inside the `*_sigma` renderers** (`render_trig_sigma:154`, `render_exponential_sigma:199`,
+  `render_polar_sigma:231`), while the three expanded renderers (`:21`, `:60`, `:111`) are **clean**.
+- `eqMode` defaults `"sigma"` (`EquationView.vue:43`); `activeLatex` prefers the sigma form (`:49-51`);
+  `copyLatex()` copies it **raw** (⟨cmd⟩ `/usr/bin/sed -n '30,32p'
+  web/src/components/equation/EquationResult.vue` → `copy(props.latex);`), and the only renderer that
+  consumes it is KaTeX **with `trust: true`** (`:23`).
+- **Therefore the app copies PORTABLE LaTeX in the non-default mode and UNPORTABLE LaTeX in the default
+  one** — the inversion is the finding.
+
+**DECISION AND REASONS.** The spec's routing cell offers two seams and gives the choice to the forming
+spec — ⟨cmd⟩ base `$R`, `/usr/bin/grep -n -F 'the forming spec chooses the seam' fr-EquationResult.md` →
+`:39`: ***"→ F.W4 (a `plainLatex()` strip beside the FR-EQR-17 singleton) or F.W5 (the hooks as a
+separate wire field — filed beside R6-8; the forming spec chooses the seam)."*** **v2 chooses the WIRE
+FIELD**, in F.W5's own voice, for three reasons that are facts of the measurement above:
+
+1. **The hooks are produced in the library, not the client.** They are baked into a package the API
+   merely calls, so a client-side strip leaves every *other* consumer of the same library output — the
+   next client, the export path, a notebook — re-deriving the same strip. The seam where the defect is
+   produced is the seam where the contract must speak.
+2. **A strip is a masking fallback.** It repairs the symptom in one sink while the wire keeps carrying a
+   value whose portability depends on the consumer remembering to sanitise it. **§A2's layer split
+   already rules this class**: the envelope is the contract's, the rendering is the consumer's.
+3. **It is the cheaper, checkable act.** The decorated string is already a *derived* form of a portable
+   one (the hooks wrap `a_n`/`b_n`/`c_n`/`A_n` tokens), so the portable spelling costs one renderer
+   parameter, and the split makes **FR-EQR-32's sink-class clause enforceable**: the decorated field has
+   exactly one lawful sink (a trusted HTML renderer) and the portable field has all the others.
+
+**DISPOSITION.** Booked: **`FR-EQR-4`** (reader-2 missed M-1) ⊕ **`FR-EQR-32`** (cited at §B1);
+registry-swept, unbanked elsewhere. The act — **the field split on the wire, portable by default** — is
+the **fourier API row's**, and it composes with §F1: when `latex_sigma` joins `SimplifyResponse`, **it
+joins in the portable spelling.**
+
+▲ **LOCK — F.W5 RECORDS NO DECLINE, so F.W4 does NOT land `plainLatex()` as the portability cure.** The
+spec's alternative branch is the one that would have licensed it; it was not taken. If F.W4 wants a
+defensive strip at a sink it may have one, **but it is not the cure and must not be reported as
+closing FR-EQR-4** — reporting it so would be exactly the masking-fallback shape this clause rejects.
+The FR-EQR-17 singleton work at F.W4 is unaffected and proceeds on its own merits.
+
+### F9 — A parameter that does not govern
+
+**RULE.** **Every parameter of an operation governs something observable in that operation's result, and
+governs it at every layer that receives it.** A parameter carried through a signature and dropped at the
+call it was carried for is **not an interface** — and a parameter that governs a result **must belong to
+that result's identity** (§B1's key), or the operation can refuse to recompute a request whose answer
+would differ.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩
+`/usr/bin/sed -n '272,282p' src/fourier_analysis/symbolic/latex_rendering.py` → `render_latex(terms,
+notation, budget=10, variable, compact)` declares `budget` at `:275` and then calls
+`renderer(terms, variable, compact=compact)` at `:281` — **`budget` is never forwarded**, at the exact
+line the spec names. Its sibling `render_latex_sigma` (`:285-292`) **does not take a budget at all**, so
+the sigma render is not truncated even in principle, while the expanded `latex` is truncated *upstream*
+by `truncate_by_budget` (`simplification.py:59`) — **one name, two governing regimes, one of them
+vacuous**. And the same `budget` is **absent from the operation's identity**: `computeKey()`
+(`EquationView.vue:82-84`) omits it (with `notation`), which is why §F1's flip is suppressible at all.
+
+**DISPOSITION.** Booked: **`D-10` ⊕ `D-L12` ⊕ `C-22`** (the EquationPanel cluster). The act — **forward
+it or delete it, and put it in the key** — is the **fourier API row's** for the signature and **§B1's**
+for the identity.
+
+▲ **LOCK.** This clause is the third face of one defect and must be cured with the other two: the **same
+`budget`** is **unbounded at the client (§F2/§F3)**, **unforwarded at the server (here)** and **absent
+from the operation's identity (§B1)**. Same family as **§G4c**'s sampling contract — *a parameter named
+for a quantity it does not control*.
+---
+
+## §G — Canonical geometry: the build-time provenance contract
+
+*The §G band governs geometry that is **built once and shipped as an artifact**, so its "wire" is the
+repository: a tracked source, a runnable generator, a recorded parameterisation and a diagnosed result.
+Every clause here binds the **fourier** end — value.js ships no canonical geometry and owes nothing in
+this band; the silence is stated so a later reader cannot read it as an escape (the obligation list
+below carries the same statement in the other direction).*
+
+### G1c — The moon's true source ‡ — **TRIPWIRE** — **RULED HERE: RE-AUTHOR, AT F.W6, NOT BEFORE**
+
+**RULE.** **A canonical artifact names the source it was built from, and that source is tracked, runnable
+and recorded with the parameters that produced the artifact.** Where the source cannot be named, the
+artifact is **RE-AUTHORED under a repaired pipeline** — never regenerated ad hoc, and never
+hand-corrected in place, because an artifact edited apart from its generator **destroys the only
+evidence that they ever agreed**. Until the pipeline exists, the artifact is **FROZEN with a golden-file
+baseline**, which is the instrument the owner has already ruled for the frozen-asset class (`§0j.D`
+G-15(c), FM-19: *frozen-forever with a golden-file diff*; this clause adopts the instrument and does not
+re-open that ruling).
+
+**WITNESS** (measured this seat, base `$F`, **double-run**; the distance figures are computed from the
+tracked bytes of `web/src/assets/fourier-paths/moon.json` against `scripts/raw-contours.json`, the
+generator's own declared input).
+
+- **The shipped artifact does not come from the extraction it claims.** Nearest-point distance from each
+  of the 512 shipped moon points to **any** extracted moon point: **19 of 512 = 3.71 % within 1.0 unit**,
+  **p90 = 37.55**, median 2.93 — against a **1.23-unit** resample spacing of the shipped polyline
+  itself. **A p90 thirty times the sampling pitch is not drift; it is a different shape.**
+- **The sun is the control, and it behaves.** Same instrument, same run: **167 of 512 = 32.62 % within
+  1.0 unit, p90 13.84** (its own spacing is 3.14, and its residual is dominated by the tour's gap
+  traversals). **The two assets were produced by the same script; only one still matches its input.**
+- **Containment, on all four sides.** Shipped moon bbox `x ∈ [30.06, 140.96]`, `y ∈ [36.55, 174.73]`;
+  the **crescent-alone** bbox (the two 128-point contours) `x ∈ [28.03, 153.93]`, `y ∈ [30.00, 177.11]`
+  — strictly containing, **Δ x-max 12.97 · Δ y-min 6.55**, reproducing the record's two figures at this
+  seat's own clock.
+- **The divergence EVENT is an asset-only commit the generator never received.** ⟨cmd⟩
+  `git show --stat 9e5ba74 -- web/src/assets/fourier-paths/` → **`moon.json` 1 ±, `sun.json` 1 ±**, and
+  the message body carries *"Day/night toggle: remove stars from moon SVG contour, cap sun/moon at 50
+  harmonics"*. **The stars were removed from the ARTIFACT, not from the SOURCE**: the component still
+  renders all six — ⟨cmd⟩ `/usr/bin/grep -n '<!--' web/src/components/morph/FourierShapeExtractor.vue`
+  places *"5-point polygon stars"* at `:97` (three `<polygon>`s, `:98` `:104` `:110`) and *"Tiny dot
+  stars"* at `:116` (three `<circle>`s, `:117-119`) **inside the moon `<svg>` (`:72-121`)**, and the
+  generator's own input still holds them: ⟨cmd⟩ contour lengths of `raw-contours.json` `moon` →
+  `[128, 128, 10, 10, 10, 16, 16, 16]` = crescent ⊕ inner stroke ⊕ **three stars ⊕ three dots**.
+- **The parameterisation diverged with it.** Shipped `n_harmonics` **50**, `levels` **10 entries**
+  (`[1,2,3,5,8,12,18,25,35,50]`, both assets) against the script's hard-coded `n_harmonics=100` and
+  **12** levels (`scripts/precompute_svg_fourier.py:139-142`).
+- **And it is the site-wide toggle that renders it.** ⟨cmd⟩
+  `/usr/bin/grep -n 'fourier-paths' web/src/components/layout/DarkModeToggle.vue` → `:23-24`
+  `import sunData … import moonData …`.
+
+**DECISION (this wave's, in F.W5's own voice).** The record leaves the first branch empty at its own
+bytes — ⟨cmd⟩ base `$R`, `/usr/bin/sed -n '51p' fr-FourierShapeExtractor.md`, the L-B1 routing cell:
+*"What moon.json WAS generated from → SS-13/undetermined."* — and this seat's measurement closes it the
+rest of the way: **no parameterisation of the present source reproduces the shipped artifact** (the
+crescent-alone bbox strictly *contains* it, so no subset-of-contours choice yields it either).
+**Therefore: RE-AUTHOR.** The moon is re-generated from the tracked component with the six decorations
+excluded **at the source**, under the repaired generator (§G2c) and the diagnosed result type (§G5c),
+**at F.W6 and not before**; the re-authored artifact lands **with its parameters recorded beside it** and
+a golden-file baseline. **The interim posture is FROZEN.**
+
+▲ **TRIPWIRE — a COMPOSITE from two rows of one record, quoted as two** (R2-1-LAW.4). (i) ⟨cmd⟩ base
+`$R`, `/usr/bin/grep -n -F 'DO-NOT-REGENERATE on' fr-FourierShapeExtractor.md` → `:51`, whose L-B1
+routing cell reads ***"DO-NOT-REGENERATE on `master`."*** (ii) ⟨cmd⟩
+`/usr/bin/grep -n -F 'revive at BLOCKER with the DO-NOT-REGENERATE rider as the tripwire'
+fr-FourierShapeExtractor.md` → `:149`, the record's own severity ruling: ***"if any wave attempts
+regeneration before F.W5-W8 lands the pipeline, both rows revive at BLOCKER with the DO-NOT-REGENERATE
+rider as the tripwire."*** The *"both rows"* the ruling denotes are **`fr-FourierShapeExtractor L-B1`**
+and **`fr-FourierShapeExtractor L-B2/C-2`**, named here in F.W5's own voice and keeping their banked
+spellings.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-B1`** — ▲ **record-qualified: NOT
+`fr-FunctionInput L-B1`, which is §F2's** (U-12; one token, two records). The eager-payload arm is banked
+**`FR-AH-1` → F.W4** and is **not re-booked here**. The act — **the re-authoring, with the pipeline** —
+is **F.W6's / the build lane's**, and the magnitude question *"what `moon.json` WAS generated from"*
+remains **SS-13 / undetermined** and is **not** a precondition of the decision above.
+
+▲ **LOCK — DO-NOT-REGENERATE ON `master` STANDS UNTIL F.W6 LANDS THE PIPELINE.** A regeneration attempt
+before then **revives `L-B1` and `L-B2/C-2` at BLOCKER**. **Dissent preserved with its revival
+condition**: reader-1 filed BLOCKER; the demotion was on latency, not on the finding.
+
+### G2c — The seam is tracked and the generator runs
+
+**RULE.** **A build seam is part of the repository**: the producer, its declared input and the
+parameterisation that produced the shipped artifact are all tracked, and the generator **imports only
+symbols that exist**. **A generated artifact whose producer is untracked is an artifact with no
+provenance**, whatever a docstring claims.
+
+**WITNESS** (measured this seat, base `$F`). The only producer of the two rendered assets is **untracked
+AND broken at import AND parameter-diverged**:
+
+- **Untracked.** ⟨cmd⟩ `/usr/bin/sed -n '52,56p' .gitignore` → `:53` `scripts/*` with negations at
+  `:54-56` (`!scripts/dev.sh`, `!scripts/deploy.sh`, `!scripts/e2e.sh`); ⟨cmd⟩
+  `git status --porcelain --ignored scripts/` → **three `!!` rows**, two of them this seam's —
+  **`!! scripts/precompute_svg_fourier.py`** and **`!! scripts/raw-contours.json`** (the third is
+  `scripts/gen_analyticity_strip.py`, a different tool, named so the return is quoted whole) — **the
+  producer AND its declared input are both swallowed**, while the product they make is tracked in full:
+  ⟨cmd⟩ `/bin/ls -l web/src/assets/fourier-paths/{sun,moon}.json` → **220 KB each, 440 KB together**
+  (the record's *"450 KB of product"*, re-measured here). **A fresh clone holds the product and nothing
+  that makes it.**
+- **Broken at import.** `scripts/precompute_svg_fourier.py:39`
+  `from fourier_analysis.shortest_tour import order_contours`, against ⟨cmd⟩
+  `/usr/bin/grep -rc 'def order_contours' src/ api/` → **0**. **No module defines it**; the file cannot
+  be run as written.
+- **Parameter-diverged.** `:139-142` hard-code `n_harmonics=100` and a 12-entry `levels` list against
+  the shipped **50 / 10** (§G1c).
+- **Unpinned generator input, no drift detection.** ⟨cmd⟩ `/usr/bin/grep -n 'pencil-boil'
+  web/package.json` → `:17` `"@mkbabb/pencil-boil": "^0.4.1"` — a **caret range**, so canonical geometry
+  is a pure function of a third-party generator admitted by a *range*; ⟨cmd⟩
+  `/usr/bin/grep -rln 'fourier-paths' scripts/ web/e2e` → **the two producer scripts and nothing else**
+  — **no golden file, no drift check, no test reads the assets.**
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-B2 / C-2` (one identity) ⊕ `fr-FourierShapeExtractor
+L-B3`** — ▲ **record-qualified: NOT `fr-ContourEditorCanvas C-2` (§E17), NOT `fr-GallerySearchBar C-2`
+(§D10)**. The acts — **track the seam** (`.gitignore` negation lines), **fix the import**
+(`build_contour_tour(...).path`; ⟨cmd⟩ `/usr/bin/sed -n '31,49p' src/fourier_analysis/shortest_tour.py`
+→ `ContourTour` at `:31` with `path: NDArray[np.complex128]` at `:46`, `build_contour_tour` at `:49`),
+**reconcile 50/10**, and **prefer the tracked in-process idiom** — are **F.W6's / the build lane's**.
+**`L-B3` RIDES this cure**: its concrete `0.4.1 → 0.12.0` exposure is **CLOSED** at the record (Δ
+6.10e-6), the absent drift detector survives, and **tracking `raw-contours.json` IS the golden file** —
+not a separate act.
+
+▲ **REPAIR-SHAPING CORRECTION BOUND IN (M-2), RE-MEASURED AND SHARPENED AT THIS SEAT.** The frame is
+**not** *"no tracked path exists"*: ⟨cmd⟩ `git ls-files scripts/ | wc -l` → **16**, including a tracked,
+working, **in-process** `scripts/precompute_nav_icons.py`, whose own header (`:12`) names its outputs as
+`web/src/assets/fourier-paths/{paper,visualize,gallery,equation,morph}.json` — **5 of the 7 assets**, no
+browser anywhere. ⊘ **And the sharper fact, measured here because it inverts the reassurance**: ⟨cmd⟩
+run once per asset, `for n in paper visualize gallery equation morph; do /usr/bin/grep -rl
+"fourier-paths/$n.json" web/src; done` → **empty for all five: those 5 have ZERO importers**,
+while the two the app actually renders — `sun.json` and `moon.json` (`FourierMorphDemo.vue:95-96`,
+`DarkModeToggle.vue:23-24`) — are **exactly the two produced by the untracked browser detour**. **The
+proven idiom exists and produces only orphans; the rendered geometry is the part it was never pointed
+at.** That strengthens the prescribed direction rather than softening it.
+
+▲ **LOCK.** **Dissent preserved**: reader-1 filed BLOCKER on `L-B2/C-2`, demoted on M-2's repair-shrink;
+**revival = the §G1c tripwire.**
+
+### G3c — Closure is CARRIED, never inferred
+
+**RULE.** **Whether a contour is closed is a property of the contour and travels with it** — a boolean
+carried from extraction to every consumer — **and is never re-derived downstream by a heuristic.** A
+point list that cannot express open-vs-closed is an under-specified type, and a sampler must not emit a
+closed shape as an open one.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '10,58p' web/src/lib/svg-contours.ts`
+— **every branch is endpoint-exclusive and none carries a flag**:
+
+- the circle branch runs `for (let i = 0; i < n; i++)` over `angle = 2πi/n` (`:26-29`) — the closing
+  point is never emitted;
+- the geometry branch runs `t = (i / n) * totalLen` for `i < n` (`:42-46`) — `t = totalLen` is never
+  sampled;
+- the polygon branch emits the authored vertices only (`:30-35`) — **a closed polygon loses its whole
+  authored closing edge**, and the largest instance was in no axis table at all: `sun[0]`, the 20-vertex
+  ray polygon (⟨cmd⟩ contour lengths of `raw-contours.json` `sun` → `[20, 123, 128, 4, 4, 4, 16, 16]`),
+  whose dropped closing flank is **44.08 units on the page's dominant silhouette** ⟨*the 44.08 and the
+  per-shape percentages below are the RECORD's measurements, carried, not re-derived here; the contour
+  lengths and the branch structure are this seat's*⟩;
+- the return type is ⟨cmd⟩ `/usr/bin/sed -n '10,14p' web/src/lib/svg-contours.ts` →
+  `[number, number][][]` — **it cannot express the distinction**;
+- and the sink is closed-only: `web/src/lib/svg-fourier.ts:47-49`
+  `pointsToSvgPath(points, closed: boolean = true)` with ⟨cmd⟩ `/usr/bin/grep -rn 'pointsToSvgPath('
+  web/src` → **both call sites 1-arg** (`composables/useFourierMorph.ts:81`,
+  `components/morph/HarmonicLevelGrid.vue:131`), so **two genuinely open strokes** (the sun's golden
+  spiral and the moon's inner stroke) are rendered closed.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-M1`** (+ the 44.08 arm) **⊕ `M-8` ⊕ `C-3`** — ▲
+**record-qualified: NOT `fr-GalleryInfiniteGrid C-3` (§D2's record)**. The act — **a closure FLAG set at
+extraction, plus the wrap** — is **ONE cure with `C-3`** and is **F.W6's / the build lane's**.
+
+▲ **LOCK — v2 MUST NOT SPECIFY A HEURISTIC.** The *"unambiguous discriminator"* sub-claim is **KILLED**
+at the record: the closed shape's dropped flank (44.08) and an open stroke's gap (44.97) **overlap**, so
+no post-hoc rule can recover closure from the points. **The kill strengthens the type complaint**: the
+flag must be **carried**, because it provably cannot be **inferred**.
+
+### G4c — A parameter that governs
+
+**RULE.** **A parameter named for a quantity governs that quantity in every branch that produces the
+result, or the contract names the branches it does not govern and why.** Where a later stage re-samples
+what an earlier parameter selected, **the pipeline's sampling contract is stated once, at the stage that
+owns it.**
+
+**WITNESS** (measured this seat, base `$F`). `samplesPerPath` (`svg-contours.ts:12`, default 128) is
+honoured by **one of three branches**: the geometry branch takes it whole (`:41` `const n =
+samplesPerPath;`); the circle branch **rescales it against a magic constant** (`:25`
+`Math.max(16, Math.round(samplesPerPath * (r / 50)))` — the `50` is a literal, named nowhere); and the
+polygon branch **ignores it entirely** (`:30-35`). The measured output of one run is the contract's own
+counter-example: ⟨cmd⟩ contour lengths of `raw-contours.json` `sun` → **`[20, 123, 128, 4, 4, 4, 16,
+16]`** — **a parameter named "samples per path" produced a 4-point contour**. And the polygon branch's
+exact-vertex care is undone downstream: `scripts/precompute_svg_fourier.py:84`
+`contour = resample_arc_length(stitched, n_samples)` with `n_samples=512` — **documented in neither
+file**.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor C-4 ⊕ C-14`** — ▲ **book them together: `C-14`
+bounds `C-4`'s geometric cost.** The act — **a stated sampling contract or a uniform post-pass** — is
+**F.W6's / the build lane's**. Same family as **§F9**: *a parameter named for a quantity it does not
+control.*
+
+▲ **LOCK.** The `r / 50` rescale is not a bug to be deleted — it encodes a real intent (sample density
+proportional to arc length). The cure names the constant and **applies one rule to all three branches**;
+raising the polygon branch to `samplesPerPath` **without** the post-pass decision merely moves the
+inconsistency downstream to `resample_arc_length`.
+
+### G5c — A DIAGNOSED result type — the precondition for any regeneration
+
+**RULE.** **An extraction returns a DIAGNOSED result** — the contours **and** what was dropped, by which
+gate, with counts — not a bare list. **A silent-drop path that defines shipped artifacts is forbidden**:
+every gate that can discard geometry reports, and the caller records what it was told.
+
+**WITNESS** (measured this seat, base `$F`). Three silent-drop gates on the path that defines canonical
+geometry, in a 58-line file: `svg-contours.ts:40` `if (totalLen < 1) continue;` (sub-unit bail) · `:47-49`
+`catch { continue; }` (**bare**) · `:52` `if (points.length >= 3)` (the floor: anything shorter is
+dropped without a word). ⟨cmd⟩ `/usr/bin/grep -cE 'console|throw|warn' web/src/lib/svg-contours.ts` →
+**0** — *zero* diagnostics of any kind. The caller records no counts and the failure exit is a bare
+return: `FourierShapeExtractor.vue:166` `if (!sunSvgRef.value || !moonSvgRef.value) return;`.
+
+**And the same repository already ships the correct shape, on the server side of the same operation**:
+⟨cmd⟩ `/usr/bin/sed -n '153,172p' src/fourier_analysis/contours/extraction.py` →
+`extract_contours_result(...) -> ContourExtractionResult` (with `ContourDiagnostics`: requested/selected
+strategy, `contour_count`, `total_points`, retained-area fractions, `max_jump`, `notes`, `candidates`)
+and, beneath it, `extract_contours(...)` returning **only** `…​.contours` for callers that want the bare
+list. **The twin is not a design to be invented; it is a design to be mirrored.**
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-M3 / C-6`** — ▲ **record-qualified: NOT
+`fr-FunctionInput L-M3`, which is §F6's** (U-12). The act — **a diagnosed result type mirroring the
+server twin** — is **F.W6's / the build lane's**.
+
+▲ **LOCK — THIS ROW SEQUENCES WITH THE §G1c TRIPWIRE AND IS A PRECONDITION OF ANY REGENERATION.** The
+silent drops are **the mechanism that makes §G1c structurally unobservable at the human seam**: a
+regeneration run today reports nothing, so a re-authored artifact would be trusted **for exactly the
+reason the present one was.** **§G1c's re-authoring may not land before this row does** — and together,
+**§G1c ⊕ §G5c are gate G16's close**.
+
+### G6c — A typed, named machine handoff
+
+**RULE.** **A machine-readable handoff is a named, exported interface**, emitted by the component that
+owns the data and **independent of any presentational node**. An ambient global reached through a cast is
+not an interface; a handoff conditioned on a DOM element that exists for display is not a handoff.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '176,181p'
+web/src/components/morph/FourierShapeExtractor.vue` → `const el = document.getElementById("output");`
+then `if (el) {` wrapping **both** writes — the text dump **and** `(window as any).__fourierShapeData =
+output;` (`:180`), under the comment *"Also put it on window for Playwright to access"*. So: an untyped
+ambient global (⟨cmd⟩ `/usr/bin/grep -rc 'declare global' web/src` → **0** for this seam), **hostage to a
+presentational `<pre>`**, with **zero readers** — ⟨cmd⟩ `/usr/bin/grep -rlw '__fourierShapeData' web/e2e
+| wc -l` → **0**, i.e. **the Playwright comment is false at HEAD** — while the same file owns the correct
+idiom twice (`sunSvgRef` / `moonSvgRef`, `:147-148`).
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-M5 / C-5`** — ▲ **record-qualified: NOT
+`fr-BasisCanvas C-5` (§E9/§B1's record)** — cured **with** `fr-FourierShapeExtractor C-15` (§A3). The act
+— **a NAMED EXPORTED INTERFACE ⊕ ref emission** — is **F.W6's**, and is **decided WITH the pipeline
+repair**, never before it.
+
+▲ **CORPUS CORRECTION BOUND IN.** *"Just delete it"* (SE-05) is **WRONG on the tree**:
+`scripts/precompute_svg_fourier.py:1-19` names this component as its **INPUT** (*"Reads multi-contour
+shape data extracted by FourierShapeExtractor.vue (via Playwright)"*, `:4-5`). **The seam needs a real
+harvester or a real deletion WITH the pipeline decision — not either alone**, because deleting the
+handoff while the generator still names it converts a dead seam into a broken one.
+
+### G7c — Which stage-0 survives
+
+**RULE.** **One pipeline stage has one implementation.** Where two implementations of the same stage
+exist in one repository, **the contract names which survives** and what the other is for; a second
+implementation that no test exercises is a fork of the specification, not a convenience.
+
+**WITNESS** (measured this seat, base `$F`). The browser leaf **reimplements stage 0** of the server's
+contour pipeline — sampling and contour assembly in `web/src/lib/svg-contours.ts` — while the Python
+package ships that stage with diagnostics (§G5c) behind a public surface of ⟨cmd⟩
+`/usr/bin/grep -rhE '^def [a-z]' src/fourier_analysis --include='*.py' | wc -l` → **96 public top-level
+functions** (**25** of them in `fourier_analysis/contours`). **The browser stage-0 is unit-tested
+nowhere — `web/` has no unit runner at all**: ⟨cmd⟩ `/usr/bin/grep -c 'vitest' web/package.json` →
+**0** (the `test:e2e` scripts at `:10-11` are Playwright, and §G6c measured what they do not read). This
+is the **R6-8 echo at build time**; its runtime twin is `C-5`/BasisCanvas at §B1.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor C-7`** — ▲ **record-qualified: NOT
+`fr-BasisCanvas C-7` (§B1/§B2/§E9) and NOT `fr-ConvergencePlot C-7` (§C1)** — **five sites, one token**.
+The act — **the pipeline decision names WHICH stage-0 survives** — is **F.W6's**.
+
+▲ **C's HONESTY ADOPTED AND BINDING — v2 must NOT overstate the duplication.** The **decomposition** is
+not duplicated (it runs once, in Python), and **the offline detour is ELECTIVE**: ⟨cmd⟩
+`/usr/bin/grep -n 'saveContour' web/src/lib/api.ts web/src/stores/workspace.ts` → `api.ts:316`
+`saveContour(...)` called from `workspace.ts:271` with plain point arrays — **contours can be ingested
+through the API without the browser detour at all**. The clause's claim is the narrow, true one:
+**stage 0 exists twice.**
+
+### G8c — Extraction SCOPE — space and visibility (two clauses, one family)
+
+**RULE.** **An extractor states the SPACE it reads in and the VISIBILITY it respects.** Geometry is
+resolved through the accumulated transform of each element (**not** its local coordinates), and **only
+painted geometry contributes**: definition, mask, clip-path and display-none subtrees are excluded by
+construction, not by the accident of what a page happens to contain.
+
+**WITNESS** (measured this seat, base `$F`). Both properties are absent from the same 58-line file:
+
+- **Space-blindness.** ⟨cmd⟩ `/usr/bin/grep -cE 'getCTM|getScreenCTM|transform'
+  web/src/lib/svg-contours.ts` → **0** — every branch reads **local** coordinates (`el.cx.baseVal`,
+  `pl.getItem(i)`, `geom.getPointAtLength(t)`), so any ancestor `transform` is silently discarded. The
+  selector is also short of the element it would most need: ⟨cmd⟩ `/usr/bin/sed -n '16p'
+  web/src/lib/svg-contours.ts` → `svgEl.querySelectorAll("path, polygon, circle, ellipse, rect, line")`
+  — **`polyline` is absent** (latent today; live SVGs use bare `<g>`s, whose children this selector does
+  reach with their transforms dropped).
+- **Visibility-blindness.** No paint filter of any kind (`display`, `visibility`, `<defs>`, `<mask>`,
+  `<clipPath>` — zero occurrences, same probe). And **the hazard idiom is LIVE in-tree**: ⟨cmd⟩
+  `/usr/bin/grep -n 'SvgFilters' web/src/App.vue` → `:22` `<SvgFilters />`, a **global `<defs>` surface
+  mounted app-wide** (`web/src/components/decorative/SvgFilters.vue:66` `<defs>`). An extractor pointed
+  at a subtree containing it would fold definition geometry into canonical output.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-M2 · M-11`** — **two clauses, one family:
+space-blindness and visibility-blindness are distinct defects with distinct cures**, and neither is a
+generalisation of the other. Both acts are **F.W6's**. `L-M2`'s magnitude (how much geometry the CTM
+actually moves today) → **SS-13**.
+
+▲ **LOCK.** Adding `polyline` to the selector **without** the CTM fix widens the blind space rather than
+narrowing it, and a visibility filter **without** the selector fix leaves the same hole one element over.
+
+### G9c — The guards check the wrong predicate — twice
+
+**RULE.** **A guard states the condition it means, including at the boundaries of its own type.** A
+numeric gate is written so that a **NaN** fails it (`!(x >= k)`, never `x < k`), and a gate meant to
+exclude **degenerate** geometry tests **extent**, not **cardinality**.
+
+**WITNESS** (measured this seat, base `$F`), both in `web/src/lib/svg-contours.ts`:
+
+- **`:40` `if (totalLen < 1) continue;` is NaN-PERMISSIVE.** `NaN < 1` is **false**, so a NaN
+  `getTotalLength()` **passes the gate** and the loop at `:42-46` emits `samplesPerPath` (128)
+  `[NaN, NaN]` samples, which clear the `:52` floor and serialize into the handoff as **`null` pairs**.
+- **`:52` `if (points.length >= 3)` guards CARDINALITY, not EXTENT.** An `r = 0` circle takes `:25`
+  `Math.max(16, Math.round(128 * 0 / 50))` = **16 coincident points**, which pass the floor and reach the
+  decomposition — **the one branch with no degenerate bail**.
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor M-7 · M-9`** — ▲ **record-qualified: NOT
+`fr-BasisSelector M-9` (§D12)**. The acts — **the correct guard `!(totalLen >= 1)`** and **an extent
+predicate beside the cardinality one** — are **F.W6's**. **One family: the extraction guards check the
+wrong predicate twice.** `M-7` registry-swept clean.
+
+▲ **LOCK — `M-9` BOUNDS `L·S-4`'s superlative: carry the bound WITH the superlative** so v2 does not
+inherit a false credit. And the two guards are **not interchangeable**: fixing the NaN comparison leaves
+the zero-extent circle, and adding an extent test leaves NaN — `NaN` fails an extent test too, but only
+because it fails **every** comparison, which is the coincidence this clause exists to stop relying on.
+
+### G10c — The artifact's provenance prose is false
+
+**RULE.** **The prose that explains a canonical artifact is part of the artifact's contract**: it states
+the true generating parameters, and those parameters are **named constants**, declared once. **A
+provenance note that is arithmetically false, or that cites a mechanism existing in no repository, is
+worse than none** — it is the one thing a later reader will trust.
+
+**WITNESS** (measured this seat, base `$F`). ⟨cmd⟩ `/usr/bin/sed -n '150,162p'
+web/src/components/morph/FourierShapeExtractor.vue`:
+
+- `:150` — *"// Use seed 42 for canonical shapes (first frame = seed * 100 + 42 = 42)"*. **It is wrong
+  twice**: `42 · 100 + 42 = 4242`, **not 42**; and the frame-seed formula it cites exists in **neither
+  repo** — the only frame API in the tree is ⟨cmd⟩ `/usr/bin/grep -n 'useLineBoil'
+  web/src/components/decorative/SvgFilters.vue` → `:20-21` `useLineBoil(boilOffsets.length, 150)`, i.e.
+  **(frame count, interval) — it takes no seed at all.** **The single sentence explaining why the
+  canonical geometry is what it is, false in both of its claims.**
+- The artifact's **only free parameters** are scattered inline beside it: `:151` `generateSunRays(42)`;
+  `:154-156` `wobbleStarPolygon(…, 1)`, `(…, 2)`, `(…, 3)`; `:160-162` `wobbleDiamond(…, 10)`,
+  `(…, 20)`, `(…, 30)` — **the canonical seed set (42; 1,2,3; 10,20,30), with no single knob.**
+
+**DISPOSITION.** Booked: **`fr-FourierShapeExtractor L-m3 / C-10 ⊕ L-m5`** (both in the record's
+`:81-87` band). ▲ **Deduped: the false comment and the scattered seeds are ONE cure** — **one named seed
+constant, one true provenance note** — and the act is **F.W6's**, landing **with** the re-authoring
+(§G1c), because the note can only be made true once the artifact's true parameters exist.
+
+▲ **LOCK.** The provenance union's most literal row: **do not "fix the arithmetic"** by editing `4242`
+into the comment. The comment describes a mechanism the tree does not have; the cure is to **state what
+actually produced the artifact**, which is the fact §G1c's re-authoring establishes.
+
+---
+
+## §H — The value-side obligation list
+
+**What this list is.** Every act this contract asks of **value.js**, enumerated once, each with **ONE
+HOME and TWO CITATIONS**, so no act can be lost by silence and none can be double-booked. **F.W5 claims
+credit for none of them** (F-W5 §0b; FR-GIG-5's standing bar): this wave authors clauses, and the acts
+below are executed by their holders, in their own waves, against their own gates. **A value-side row is
+never re-booked as a fourier defect, and a fourier act never appears here.**
+
+**The home, spelled once.** *"The value.js API row"* means the X·V API row in the constellation spine —
+the same holder the wave spec's §4 edge names (`F-W5.md` §4, the **`F.W5 → value.js API row`** row, whose
+cell reads *"value-side obligations, never fourier defects"*). Sequencing is stated per row where it
+exists; **no row below gates a fourier wave, and no fourier wave gates a row below** (§E3's ∥ posture:
+neither side's edits gate the other's).
+
+| # | act | one home | citation 1 | citation 2 |
+|---|---|---|---|---|
+| **VO-1** | **Compound per-entity version identity.** Version `_id` scopes the palette as well as the content: `computeContentHash(name, colors)` (`api/src/modules/palette/hash.ts:8`) keyed into `findOne({ _id: hash })` (`repository/paletteVersion.ts:14`) with the early return at `:47` means **two palettes with identical content share one version row** — and one palette's history silently becomes another's | value.js API row | **§E1** (the clause + its witness) | `F-W5.md` §4, `F.W5 → value.js API row` (*"V-β compound version `_id` + the two-histories test"*) ⊕ gate **G2** |
+| **VO-2** | **The two-histories test.** A regression test that creates the same content under two palettes and asserts **two** version rows — the falsifier for VO-1, without which the cure is unobservable | value.js API row | **§E1** ▲ LOCK | `F-W5.md` §3 gate **G2** |
+| **VO-3** | **Born visibility of the derived variant: BORN-PRIVATE** (owner ruling **R8**, `§0j.D` F-SS4REST). `service/forks.ts:76` hard-codes `visibility: "public",`; the derived variant is born **private** and becomes public only by the shipped explicit publish act | value.js API row | **§E4** (RULED; the D9 non-contradiction check is recorded there) | `F-W5.md` §4 edge (*"fork born-visibility (`forks.ts:76`) + create-visibility test"*) ⊕ gate **G5** |
+| **VO-4** | **A create-visibility test, each side.** The clause's own falsifier: a created/derived entity's birth visibility asserted at the API boundary | value.js API row (its half; fourier owns the other) | **§E4** (*"Homes: both API rows, ⊕ a create-visibility test each side"*) | `F-W5.md` §3 gate **G5** |
+| **VO-5** | **Attribution — `V-γ`'s hole.** `model.ts:60` `userSlug: string \| null` with the `if (userSlug)` guard means **an unattributable edit writes NO version row**: the history has a hole exactly where the anonymous act was. The actor is a FIELD; an absent actor is a *value* of it, not a reason to skip the row | value.js API row | **§E18** (*"V-γ's hole is the value.js API row's"*) | `F-W5.md` §4 edge (*"V-γ attribution (`userSlug` null ⇒ no version row)"*) |
+| **VO-6** | **The client problem+json resolution chain, value twin.** `demo/platform/transport/api-problem.ts` resolves `title` to `response.statusText` (`:40`) and narrows a non-string `detail` to `undefined` (`:42`) — **the same two discards as the fourier twin**, in the independently-authored copy (inv-16). The act: resolve `detail ?? title ?? statusText ?? fallback`, treat a structured `detail` as content, never render an empty string. ⊘ **Seat-measured addition beyond §4's enumeration, recorded as such** (this seat, 2026-09-17), **renaming nothing and re-booking nothing**: it is the value half of a clause that binds both ends | value.js API row | **§F5** (RULE + the `$V` witness bullet) | `F-W5.md` §4, `F.W5 → value.js API row` (the edge's own scope: *"value-side obligations, never fourier defects"*) |
+| **VO-7** | **D9 reconciliation, disclosed not overwritten.** value.js persists a **three**-state visibility (`public` / `unlisted` / `private`, `api/src/modules/palette/model.ts:61`) while this contract's union speaks two. The obligation is to **reconcile explicitly** — map or widen, in the open — because **the contract does not silently overwrite a shipped model**, and **no clause may contradict ruling D9** | value.js API row | **§E4** (the disclosure paragraph) ⊕ **§D17**'s D9 quotation of record | `F-W5.md` §4 edge (*"D9 reconciliation: value.js persists 3-state visibility"*) |
+| **VO-8** | **G18's value-side probe** — the mechanical casing/envelope check each side runs **against this document**, never against its sibling (inv-26), in the **one-sided** form §E3 ruled | value.js API row | **§A2.4** (the casing limb) ⊕ **§E3** (the re-authored §6, verdict `N/A — RE-SCOPED`) | `F-W5.md` §4 edge (*"G18's value-side probe"*) ⊕ gate **G18** |
+
+**VO-0 — the one obligation that is an explicit NON-obligation, stated so it cannot be re-opened.**
+**TA-4 / the diff clause: value.js owes NOTHING.** Under owner ruling **R1** (`§0j.D` F-SS4REST, quoted
+at **§E3**) value.js is **re-scoped out of the diff clause**; `atomdiff.ts` is wholly excised and stays
+excised, **value.js runs no diff probe and is not measured by one**, and any report marking the value.js
+diff probe *missing*, *pending* or *RED* is **mis-reading the scope** — the verdict spelling is
+**`N/A — RE-SCOPED (F-SS4REST R1)`**. Cited at **§E3** and at `F-W5.md` §4's edge (*"TA-4 per G4's
+ruling"*).
+
+**Bands with no value-side act, stated rather than left silent.** **§F** asks value.js for exactly one
+act — **VO-6** — and nothing else: the equation surface (`/api/equations/*`, its models, its renderers
+and its client) exists only in the fourier tree. **§G asks value.js for nothing at all**: value.js ships
+no canonical geometry, no contour extractor and no build-time geometry artifact, so every §G act homes at
+F.W6 / the build lane. **These silences are measured, not assumed** — ⟨cmd⟩ base `$V`,
+`/usr/bin/grep -rl 'fourier-paths\|extractContours\|SimplifyRequest' api/src src demo --include='*.ts'
+--include='*.vue' | wc -l` → **0** (double-run, this seat) — and they are printed here because an
+unstated silence in an obligation list is indistinguishable from a dropped row.
+
+---
+
+*§A–§G and the value-side obligation list are authored (F.W5 units b · c · d, 2026-09-17). The inline
+ruling block `contract/OWNER-RULINGS-F.W5.md`, the co-signature relay and the E13 ledger row land at unit
+e — **a contract nobody received is not co-signed** (G20). Clause ids in this file are preserved verbatim
+for sibling cross-references; a sibling's mis-keyed cite is conformed **at the sibling** (R-1e). No
+clause is numbered D9 — `D9` is reserved throughout for the ruled owner decision, which no clause may
+contradict. Every `K-n` citation in this document carries its record: `fr-EquationView K-13` at §F2 and
+`fr-ConvergencePlot K-13` at §F7 are two different records' kills, and a bare `K-n` may not be quoted as
+a lock or entered into a set-difference.*
