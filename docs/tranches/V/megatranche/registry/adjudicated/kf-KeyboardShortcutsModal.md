@@ -150,3 +150,17 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+---
+
+## CORRECTION (v), CONTINUED — THE SLOT THE MINT ASSIGNED · APPENDED 2026-09-17 (E-3: nothing above is rewritten)
+
+SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e** · gate **G-0.9** · cross-unit discharge of **KF.W0.d residual 3**
+
+Correction (v) above states *"the slot id is whatever the mint assigns"* and stops there, because a claim-input is not a slot. **The mint has since run, in the same wave, at the same clock.** The slot it assigned this record's `/command` family shadow is named here so the sentence terminates at a coordinate rather than at a promise:
+
+> **`S-10` (this record's self-ruled renumber, `:29`) → the mint assigns `S-17`.**
+
+**Mint of record** ⟨`grep -n 'S-17' docs/tranches/V/megatranche/formation/keyframes/lane-frontend.md`⟩ → `:918` `#### S-17 · the /command family shadowed — **MINT**`; the block's own re-key line `:955` reads **`S-10`** → {S-17 · S-18 · S-19 · S-20} ∪ {the struck duplicate → S-18}. Write-up at `docs/tranches/X/keyframes/W0/COUNTS-2026-09-17.md` §7 (row **S-17**, disposition *CLAIM-INPUT ONLY*), which names this E-3 addendum as `KF.W0.e`'s act so the obligation could not be lost between the two concurrent units.
+
+**What this does NOT do.** It does not re-open the demotion, re-rule the collision, evaluate the shadow, or move the row's routing: the `/command` family shadow's evaluation remains **evaluate-not-replace → KF.W6**, exactly as banked at `:68`. Naming the assigned slot is bookkeeping on an id, not a disposition of a cure — and the id is the mint's, never this record's.
+
