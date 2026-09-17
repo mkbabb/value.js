@@ -622,3 +622,368 @@ So **glass-ui depends on keyframes.js** (peer), and keyframes.js's demo depends 
 ## Provenance note
 
 Every glass-ui primitive claim is sourced from `/Users/mkbabb/Programming/keyframes.js/node_modules/@mkbabb/glass-ui/dist/` — the copy already installed in the census target — so all replacements are available without an upgrade. The producer repo at `/Users/mkbabb/Programming/glass-ui` was read for its `package.json` version field only (7.0.0), per lane law. No file in keyframes.js or fourier-analysis was written, mutated, or executed; no installs and no dev servers were run.
+
+---
+
+## APPENDED NOTE — 2026-09-17, KF.W0.d (E-3: appended beside; nothing above is rewritten)
+
+Served model id: `claude-opus-5[1m]`. Unit `KF.W0.d`, sub-gate **G-0.6**, under the owner's
+2026-09-17 begin-word (COHESION §0j). Substrate: `/Users/mkbabb/Programming/keyframes.js` at
+`origin/master` = **`81a56990736ced5b5edde0b84c527680ac7689b1`**, **after** the §B-12 settle
+(KF.W0.OP-1); every figure re-read at those bytes on **2026-09-17** and **double-run**. Receipts
+command-for-command: `docs/tranches/X/keyframes/W0/COUNTS-2026-09-17.md` +
+`docs/tranches/X/keyframes/artefacts/W0/counts-2026-09-17.txt`. **Read-only in `keyframes.js` and in
+`node_modules/@mkbabb/glass-ui/**`**; no install, no build, no dev server.
+
+**This note lands four acts in ONE motion** — §3's cascade column, the F-1 disposition, §6.5's PRM
+re-scope with §9's tally row and the two z-index cells, and §5's census-slot mint. The order inside
+it is C-9's hard order: **the cascade column precedes the F-1 disposition**, so the remediation
+scopes its blast radius against a surface that counts cascade coupling.
+
+---
+
+### A. §3 EXTENDED — the CASCADE-COUPLED column (C-9 · the legend rider)
+
+**The import census, re-run** (2026-08-03 readings in brackets):
+
+```
+$ git grep -h '@mkbabb/glass-ui' origin/master -- demo            | wc -l →  83   [82]
+$ git grep -l '@mkbabb/glass-ui' origin/master -- demo            | wc -l →  43   [42]
+$ git grep -l '@mkbabb/glass-ui' origin/master -- 'demo/**/*.vue' | wc -l →  37   [37, holds]
+58 .vue − 37 = 21 .vue with NO glass-ui import                            [21, holds]
+```
+
+**§3's line 81 — *"21 `.vue` with no glass-ui import"* — is arithmetically right and analytically
+wrong, and this column is the correction.** A component with zero glass-ui imports can be fully
+glass-coupled through the `@import` cascade; an import-graph census scores it CLEAN.
+
+**PREDICATE, stated so it reproduces**: a zero-import `.vue` is **cascade-coupled** when its bytes at
+`origin/master` contain any of the eight vendor-resolved spellings — `text-mono-caption` ·
+`text-caption` · `text-muted-foreground` · `border-border` · `--radius-pill` · `z-controls` ·
+`--muted-foreground` · `--border` — **each defined ZERO times in `demo/**`** (`git grep -c '<tok>:'
+origin/master -- demo` → 0 for every one) and resolvable only through
+`node_modules/@mkbabb/glass-ui`.
+
+| # | zero-import `.vue` | coupling | vendor spellings it resolves through the cascade |
+|---|---|---|---|
+| 1 | `components/instrument/shell/EditorStartScreen.vue` | **CASCADE** | `--muted-foreground` · `z-controls` |
+| 2 | `components/instrument/timeline/TimelineCaret.vue` | **CASCADE** | `border-border` · `text-muted-foreground` |
+| 3 | `components/instrument/timeline/components/TimelineHoverPreview.vue` | **CASCADE** | `border-border` · `text-mono-caption` · `text-muted-foreground` |
+| 4 | `components/instrument/transport/KfPillTabs.vue` | **CASCADE** | `--muted-foreground` |
+| 5 | `scenes/amiga/AmigaScene.vue` | **CASCADE** | `--border` |
+| 6 | `scenes/sequence/SequenceAxis.vue` | **CASCADE** | `text-mono-caption` · `text-muted-foreground` |
+| 7 | `scenes/sequence/SequencePlayhead.vue` | **CASCADE** | `--radius-pill` |
+| 8 | `scenes/sequence/SequenceScrubber.vue` | **CASCADE** | `border-border` · `text-caption` · `text-mono-caption` · `text-muted-foreground` |
+| 9 | `scenes/spring/SpringTrace.vue` | **CASCADE** | `--border` · `text-mono-caption` · `text-muted-foreground` |
+| 10 | `scenes/square/SquareInstrument.vue` | **CASCADE** | `--border` · `text-caption` · `text-mono-caption` · `text-muted-foreground` |
+| — | the remaining 11 (`App.skeleton` · `CopyButton` · `KeyframesStringControls` · `AnimatedText` · `TypingDots` · `DemoGlobalChrome` · `CubeAxisLines` · `CubeTarget` · `OrbitalDrag` · `EasingScene` · `SequenceScene`) | uncoupled **under this predicate** | — |
+
+**Both readings, because a predicate is a choice**: widening it by `text-foreground` — vendor-bridged
+identically (`--color-foreground: var(--foreground)`, `dist/styles/theme/bridges.css`) — returns
+**11**, the addition being `CopyButton.vue`. **The roster is a FLOOR and is used as one**; it asserts
+no completeness in its own voice.
+
+**The definers, both sides measured**: `text-mono-caption` = `@utility` in
+`dist/styles/typography/utilities.css` · `--radius-pill: 9999px` in `dist/styles/theme/radius.css`
+(`@theme`) against **5 `var(--radius-pill)` uses / 0 definitions** in the demo · `--border` /
+`--muted-foreground` vendor-only · **`z-controls` is glass-GENERATED**: `@theme inline { … --z-index-controls:
+var(--z-controls); … }` in `dist/styles/theme/bridges.css`, `--z-controls` itself in
+`dist/styles/tokens/scheme-motion.css`; the demo's only occurrences are prose (`styles/style.css:30`,
+`DESIGN.md:101`). Chain, by path: `styles/style.css:3` → `exports["./styles"]` =
+`dist/styles/index.css` → `./theme.css` / `./typography.css` / `./accessibility.css` →
+`utilities/a11y-overrides.css`.
+
+**The legend column itself is booked at `CENSUS-2026-08-03.md`** (appended note of the same date,
+§(ii)); this file carries the per-file roster it legends.
+
+---
+
+### B. §2 / §54–69 — the **F-1** row, DISPOSITIONED
+
+**F-1 as written is FALSIFIED at the frontier and CURED ON DISK.** Measured 2026-09-17:
+
+```
+$ git show origin/master:package.json      | grep -n glass-ui → 77:  "@mkbabb/glass-ui": "7.0.0",   ← EXACT devDep
+$ git show origin/master:package-lock.json | grep -c glass-ui → 3
+```
+
+The 2026-08-03 probes (`ABSENT` in both manifests) were true of the **stale owner checkout**, not of
+the tree the demo ships from. The identity is `F-1 ≡ census SCH-1 ≡ kf-AmigaScene C-1 ≡ KF-CE-32 ≡
+kf-App ruling 1 ≡ AGG-P1`, and its cure is the **KF.W0 §B-12 substrate settle — performed
+2026-09-17** — **never a dependency wave**.
+
+Three consequences, each landed rather than implied:
+
+1. **§10 step 1 — *"declare `@mkbabb/glass-ui: 7.0.0` in `package.json` and regenerate the lock"* —
+   is DISCHARGED AS TO THE DECLARATION and UNBUILDABLE AS TO ANY ADVANCE.** The declaration exists.
+   Any remediation that *advances* the installed producer past glass-ui `4bf53962` while
+   `origin/master:demo/components/instrument/shell/EditorShell.vue:116` still imports
+   `@mkbabb/glass-ui/header-ribbon` **kills the build at that line** — the producer deleted
+   `src/components/header-ribbon/` whole. That HOLD is declared from the keyframes end and is carried
+   in `docs/tranches/X/keyframes/W0/MANIFEST-RULING.md` (KF.W0.b); it **bounds** the manifest ruling.
+2. **The "`npm ci` is currently broken" sentence at §10 step 1 is corrected at the bytes.** The
+   2026-08-03 probes (`ABSENT` from `package.json`, `0` in the lock) read the **dirty worktree**, not
+   any committed tree. At the stale pin the manifest and lock were consistent:
+   ⟨`git show 8281638c:package.json`⟩ → `:70 "optionalDependencies": { :71 "@mkbabb/glass-ui":
+   "6.0.0" }`, ⟨`git show 8281638c:package-lock.json | grep -c glass-ui`⟩ → **3**. So `npm ci` at the
+   pin did **not** fail — it silently **downgraded** the installed 7.0.0 to 6.0.0, resolving from a
+   lock that was never empty. The "phantom" was an **uncommitted local deletion**, and the failure
+   *shape* is why nobody noticed. Recorded as the disposition of this row, not re-booked as a finding.
+3. **The remediation's blast radius is the full fold-identity set, not six records.** It is scoped
+   against `docs/tranches/X/keyframes/waves/KF-W0.md` §Carry **C-1.F** (thirteen id-keyed rows, each
+   with its banked travel-rider) **plus the cascade-coupled ten of §A above** — a surface no build
+   error and no `tsc` run reds. **This scoping was written after the column landed**, which is C-9's
+   hard order.
+
+**`.npmrc` (`legacy-peer-deps=true`, §69) is NOT ruled here** — the ruling against the two genuinely
+absent peers (`@mkbabb/pencil-boil`, `embla-carousel-vue`) is KF.W0.b's, at `MANIFEST-RULING.md`.
+
+---
+
+### C. §6.5 + §9 + the z-index cells — ONE MOTION (C-10 · C-11 · KF-AX-32 · KF-AX-12)
+
+#### C.1 §6.5 — the PRM roster, RE-SCOPED
+
+**All 13 banked sites reproduce at their banked `file:line`, byte-for-byte, at `origin/master`** — the
+10 `@media (prefers-reduced-motion: reduce)` blocks (`App.skeleton.vue:95` · `AnimatedText.vue:121` ·
+`ControlsPaneWrapper.css:144` · `EasingTarget.css:48` · `SequenceTarget.css:238` ·
+`SpringHeatmap.vue:333` · `SpringTarget.vue:462` · `StartingStyleTarget.vue:211` ·
+`SquareInstrument.vue:207` · `SquareScene.css:136`) and the 3 JS sites (`useCubeDemo.ts:164` ·
+`useSequenceInstrument.ts:31` · `EasingTarget.vue:234`). **The sites are right. The heading's
+denominator and the roster's MEANING are not.**
+
+1. **"13 enforcement sites across 12 files" → 13 sites · 13 PATHS · 12 COMPONENTS.** The 10 CSS
+   blocks sit in 10 distinct files and the 3 JS sites in 3 more: **13 distinct paths**. "12" is
+   reachable only by counting `scenes/easing/EasingTarget` **once** across its `.css` block (`:48`)
+   and its `.vue` query (`:234`) — i.e. by component. The unit is now named; the figure is not left
+   to be inferred.
+2. **A roster of LOCAL GUARDS is not a coverage roster** (KF-AX-32: *"local guards misread as
+   coverage"*). The coverage **floor** is the vendor's universal rule, at the installed bytes:
+   `node_modules/@mkbabb/glass-ui/dist/styles/utilities/a11y-overrides.css` opens at **byte 0,
+   unlayered**, with `@media (prefers-reduced-motion: reduce) { *:not([data-allow-motion]) {
+   animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } … }` — reaching
+   **every demo element** through `styles/style.css:3` → `dist/styles/index.css` →
+   `./accessibility.css` → `utilities/a11y-overrides.css`. The 13 local guards are *refinements over
+   a universal reset*, and any tally that reads them as the coverage surface is counting the wrong
+   object.
+3. **The two "Gaps" rows HOLD — the delegation is verified, and statically.**
+   `TypingDots.vue:121` (deferring to the engine's resting state) and `KeyframeTimeline.vue:94`
+   (deferring to glass-ui) are **correct delegations**, not gaps. *"Correct if the delegation holds,
+   unverified statically"* is discharged: it holds, and it is verifiable.
+4. **`KeyframeTimeline.vue:94` cites the WRONG VENDOR FILE.** It names the *"`transitions.css` PRM
+   block"*. `dist/styles/transitions.css` exists and does carry a PRM block — but that block is
+   **class-scoped** (`.fade-enter-active`, `.tab-fade-*`, `.pane-swap-*`, `.metric-swap-*`) and covers
+   none of the timeline's own motion. The rule that covers it is `utilities/a11y-overrides.css`. **The
+   delegation is right and its citation is wrong** — a correct conclusion resting on the wrong file,
+   the provenance class the corpus-integrity row convicts.
+5. **Consequence named, not performed**: D·D-1's BLOCKER ground was manufactured by this mis-scoping,
+   and **KF.W9's per-scene PRM tallies re-derive from this corrected roster** (kf-CubeScene: 4 engine
+   motions + 1 gated; **kf-OrbitalDrag OD-11 corrects the cube tally to 5 ungated**). That
+   re-derivation is KF.W9's act.
+
+#### C.2 §9 — the counts-table tally row, re-cut in the same motion
+
+| metric | value as printed at `:598` | value of record, 2026-09-17 |
+|---|---|---|
+| `prefers-reduced-motion` enforcement sites | `13 (10 CSS + 3 JS)` | **13 local enforcement sites (10 CSS + 3 JS) across 13 paths / 12 components — over a vendor UNIVERSAL reset (`*:not([data-allow-motion])`, `glass-ui/dist/styles/utilities/a11y-overrides.css`) that reaches every demo element. Local guards are refinements, not the coverage surface.** |
+
+Two further §9 rows are re-read at the frontier in the same motion, so the table stops disagreeing
+with the tree: **glass-ui import/mention lines 82 → 83** · **files importing glass-ui (any type)
+42 → 43**. `.vue` importing glass-ui **37** and `.vue` NOT importing **21** both hold — with §A's
+column attached to the second: **10 of those 21 are cascade-coupled** (11 under the widened
+predicate), so the "not importing" row is not a "not coupled" row.
+
+#### C.3 the z-index cells — BOTH of them, corrected (KF-AX-12 ≡ kf-CubeTarget #51)
+
+`:253` (roster row) — *"`cube/CubeAxisLines.vue` | b | axis lines (raw `z-index:-10`)"* — and `:442`
+(§6.3) — *"One acknowledged exception: `CubeAxisLines.vue`'s raw `z-index:-10`"* — are **both FALSE at
+`origin/master`**, and this is the file being wrong about one component at its own frontier, twice,
+inherited from stale prose no seat re-read:
+
+```
+$ git grep -n 'z-index' origin/master -- demo/scenes/cube/CubeAxisLines.vue
+  demo/scenes/cube/CubeAxisLines.vue:67:    z-index: var(--z-behind);       ← a TOKEN, not a raw value
+$ git grep -n 'z-index: *-\?[0-9]' origin/master -- demo
+  demo/styles/style.css:38: …the one raw `z-index: -10`…                     ← PROSE, inside a comment
+$ git grep -n 'z-\[[-0-9]' origin/master -- demo → (no hits)                 ← the bracket ban HOLDS
+```
+
+**The z-contract has ZERO raw-value exceptions at the frontier.** The only surviving `-10` string in
+`demo/` is the narrative sentence at `styles/style.css:38`, which additionally cites the dissolved
+gate `proof:brittleness` — that dead-gate citation is rostered by `KF.W0.e`'s `GATE-ROSTER.md` and is
+**not** touched here. §6.3's substantive claim (z-index single-sourced from glass-ui; the demo owns
+only the documented order; raw brackets forbidden) is **unchanged and now exception-free**.
+**The z-contract PROSE RECUT is KF.W6's** — KF-AX-11/12/31 in one motion, together with the
+`--z-behind` policy contradiction at `layout.css:8-11` (*a contradiction to RESOLVE, not a stray to
+delete*). This note performs the **census re-anchor only**.
+
+---
+
+### D. §4 roster — the `:194` `EditorHeader.vue` row
+
+`:194` rosters `EditorHeader.vue` at 108 lines, class `G`. **The line count and the class hold; the
+liveness does not.** Measured 2026-09-17:
+
+```
+$ git show origin/master:demo/components/instrument/shell/EditorHeader.vue | wc -l → 108
+$ git grep -n 'EditorHeader' origin/master -- demo
+    demo/components/instrument/shell/index.ts:2:export { default as EditorHeader } from "./EditorHeader.vue";
+    demo/styles/layout.css:15: … --header-items-max-w … the EditorHeader expanded items-wrapper cap …
+$ git grep -n '<EditorHeader' origin/master -- demo → (no hits)   ← NEVER INSTANTIATED
+```
+
+**The file exists, is barrel-exported, is styled for — and is mounted nowhere.** That is the exact
+condition the shadow census omitted and which the mint now books as **S-10** (§E). The **deletion
+decision itself is NOT this note's** — the header-ribbon migration (which chrome host replaces the
+band) is NO-WAVE-OWNER, SS-1/SS-2's.
+
+---
+
+### E. §5 EXTENDED — THE CENSUS-SLOT MINT (C-17, one motion, the whole C-17.R roster)
+
+**This block is the only census-slot authority** (R-5 / KF-W0 §Scope 6): **no wave other than KF.W0
+mints or renumbers a census slot**, claims are inputs to the mint, and **a claim is never a slot**.
+The mint ran in **ONE motion** over the whole of `KF-W0.md` §Carry **C-17.R** at its post-round-4
+bytes — **fourteen live rows plus one enumerated strike** — because a mint run over a short roster
+re-collides on its first motion.
+
+**The id-space rule, stated before the assignment.** Measured over the 58 adjudicated records
+(`grep -o 'S-<n>' kf-*.md`): **no bare `S-n` spelling is free as a substring** — `S-13` reaches all 58
+records through `SS-13`; `S-9`/`S-20` ride `KF-…-9`/`KF-ES-20`; `S-10` rides `KF-ES-10` (×11),
+`MISS-10` (×4), `KF-SS-10` (×3). So "fresh non-colliding" cannot mean substring-free and no numbering
+could make it so. It means **record-qualification**, applied to the census:
+
+> **A census slot's full spelling is `lane-frontend.md §5 S-n`.** In this block the namespace is
+> exactly `S-1..S-8` before this note (`grep -c '^### S-'` → 8; `grep -oE '\bS-[0-9]+\b'` over the
+> whole file → `S-1 … S-8`, nothing else; the same probe over `CENSUS-2026-08-03.md` → the same
+> eight), so **S-9..S-20 are free in the only namespace where a slot id resolves**. A bare `S-n`
+> elsewhere is a **claim token**, another record's **local roster index**, or a **substring of a
+> different id** — never a slot. **The instrument after this note, read at the settled bytes rather
+> than predicted**: the eight original rows keep their `^### S-` level and the twelve minted rows are
+> `^#### S-` (they are subordinate to this note's section E, and moving them to `###` would break them
+> out of the section that authorises them) — so `grep -c '^### S-'` → **8, unchanged**,
+> `grep -c '^#### S-'` → **12**, and **the whole S-block is `grep -cE '^#{3,4} S-[0-9]' lane-frontend.md`
+> → 20**. A seat sweeping the block uses the last form; the bare `^### S-` instrument the wave spec
+> quotes measures the *original eight* and is left true rather than silently redefined.
+
+#### S-9 · glass `./canvas` shadowed — **MINT**
+Originating record ⟨`kf-SpringHeatmap` **C-M-1** : `:46`, `:128`⟩; claimed as *S-9*. `./canvas` is
+PRESENT at installed 7.0.0 (73 subpath exports). **W0 assigns the identity; the swap/keep evaluation
+is not W0's.**
+
+#### S-10 · `EditorHeader → HeaderRibbon` — DEAD, replace-by-deletion — **MINT**
+Originating record ⟨`kf-EditorHeader` **F1 ≡ D-1 / L-B1 / C-1 → kf-App KF-APP-41** : `:33`; the S-9
+ask itself at the `## Verdict` DELETE line `:117`, **which carries no id at the bank and is stated as
+such rather than re-spelled from this end**⟩; claimed as *S-9*. Subject re-measured: PRESENT, 108 L,
+barrel-exported, **never instantiated** (§D). This is the slot `kf-SharePopover`'s amendment was
+refused against. **The deletion and the migration decision are NOT W0's** (NO-WAVE-OWNER, SS-1/SS-2).
+
+#### S-11 · the number-field row (*"consumed-but-mis-called"*) — **MINT**
+Originating id ⟨**LP-8 ≡ KF-CO-35 + ME-18**, the carry's head id, `KF-W6-CARRY.md:175`; provenance
+legs `kf-LayerConfigPanel` D-5/C-7 · `kf-ChannelOptions` RR-B · `kf-MatrixEditor` C-8 · `kf-CubeScene`
+L-5/C-6⟩; claimed as *S-9*. `./number-field` PRESENT at 7.0.0. **The `/number-field` EVALUATION is
+KF.W6's** (ME-18 precedent); W0 fixes the identity only.
+
+#### S-12 · `Surface` / `PaperBackdrop` / `Card` shadowed by 8 lines of bespoke CSS — **MINT**
+Originating record ⟨`kf-AmigaScene` **C-6** : `:61`, `:146`⟩; claimed as *S-9*; banked as *"booked
+ONCE here, extends S-1..S-8"* — it extends **the block**, not S-1 (S-1 is `KfPillTabs →
+SegmentedTabs`, a different subject). **OWNED BY KF.W6** (evaluate-not-swap; the `:6–12` no-DOM-layer
+ruling may reduce the cure to a shared `.stage-plate` recipe).
+
+#### S-13 · `ScrubberTimeline` (256 L) — the larger of the two rail/ball shadows — **MINT**
+Originating record ⟨`kf-AnimationVisualizer` **KF-AV-28 · D-18 = C-13** : `:72`⟩; claimed as *S-9*;
+the shadow census sized `SequenceScrubber` at 162 L (S-4) and skipped the larger instrument.
+**The slot carries KF-AV-28's STANDING SUPERSESSION RIDER by name**: KF.W7's timeline-evaluate verdict
+may supersede any cure on a governed row, and the row's own *"evaluate, not swap"* verdict is
+**KF.W7's intake, never W0's**.
+
+#### S-14 · `CSSPasteDialog`'s bespoke shadow of the shipped `Textarea` — **MINT**
+Originating record ⟨`kf-CSSPasteDialog` **R-5** : `:43`⟩; claimed as *S-9*; census-invisible, sized at
+1 site; *"census row 80 classified `G` on import-list evidence alone"* — the exact failure §A's column
+generalises. The suffusion cure is KF.W6's.
+
+#### S-15 · the `./toast` family shadowed — **MINT**
+Originating record ⟨`kf-DemoGlobalChrome` **D-5 / L-3 / C-2** : `:43`⟩ (= `KF-W0.md` C-1.F row
+**F-1**); claimed as *S-9*. `./toast` PRESENT at 7.0.0. **The swap verdict is census-owned, not
+W0's**; the identity guard travels with the slot.
+
+#### S-16 · a second global keyboard mechanism beside the house `/keyboard` registry — **MINT**
+Originating record ⟨`kf-KeyframesAddDialog` **KAD-12** : `:56`, C-3/D-23b; the claimant row in this
+wave's sole carry, `KF-W6-CARRY.md:176`⟩; claimed as *S-9*. The reformat hotkey is the demo's sole
+`useMagicKeys` site, layout-dependent (macOS `Ï` / US-literal), and leaks a window listener for the
+component's life, while the registry has 19 `registerShortcut` calls surfaced by
+`KeyboardShortcutsModal`. **The cure is KF.W6's** (`registerShortcut(…, {allowInInput:true, …})`,
+which dissolves the entire `Ï` cluster); W0 fixes the identity only.
+
+#### S-17 · the `/command` family shadowed — **MINT**
+Originating record ⟨`kf-KeyboardShortcutsModal` **C-9** : `:29`, `:68`, restated `:127`⟩; claimed as
+*S-10*. `./command` PRESENT at 7.0.0. **That seat's own *"COLLISION — renumber to S-10"* ruling is
+SUPERSEDED by this mint** (R-5: the renumber is demoted to a claim-input); the E-3 addendum recording
+that supersession under the original id is `KF.W0.e`'s act at the record. The seat's booked lesson
+stands verbatim — *"census extension ids must be allocated against the banked registry, not against
+the local corpus"* — and this mint honours it by allocating from the block's own namespace.
+
+#### S-18 · the progress bar as a shadow of glass `./progress` — **MINT**
+Originating record ⟨`kf-KeyframesEditor` **KF-KE-21** : `:63`, restated `:128`/`:172`⟩; claimed as
+*S-10*. `./progress` PRESENT at 7.0.0. The `Progress` **evaluation** is KF.W6's; binding the bar to
+something true is **KFED-UNIT's**.
+
+#### S-19 · the status pill against glass-ui `Chip` — **MINT**
+Originating record ⟨`kf-SquareInstrument` **C-12** : `:78`, restated `:129`/`:140`/`:145`⟩; claimed as
+*S-10*; banked *"correctly evaluate"*. `./chip` PRESENT at 7.0.0. An **intake row, not a
+re-derivation of S-1..S-8**; the shape completion is a `design-idioms.css` edit (NO-WAVE-OWNER).
+
+#### S-20 · the `design-idioms.css` census arm (glass overlap + contract truth) — **MINT**
+Originating record ⟨`kf-EasingTarget` **KF-ET-27** : `:69`⟩, second provenance leg ⟨`kf-EasingSidebar`
+**KF-ES-20** : `:61`⟩; claimed as *S-10*. **THE ARM ITSELF IS KF.W5's ACT** — banked *"C's proposed
+S-10 census arm over design-idioms.css (glass overlap + contract truth) is ADOPTED as a KF.W5 input"*.
+**W0 assigns the identity and performs no part of the arm**: claims are inputs to the mint, and the
+mint is never the evaluation.
+
+#### The three claimants that receive NO slot — enumerated, because enumeration is what stops the next seat re-raising them
+
+| claim | banked id ⟨record : line⟩ | disposition |
+|---|---|---|
+| S-9 | **K-6 / D-§S-9 = C-S-B** ⟨`kf-SpringTrace:89`⟩ | **DEAD OCCUPANT — ENUMERATED, NOT MINTED.** *"S-9 · SpringTrace — JUSTIFIED BESPOKE"* was KILLED AS STATED (`generateCurveSVGPath` *"was one `ls` away from a directory both axes cited"*); the row *"must be re-derived (0..1-range caveat included) before any census landing"*, and that re-derivation is not this wave's. |
+| S-9 | **C·C-2's census amendment** ⟨`kf-SharePopover:90`⟩ | **REFUSED — ENUMERATED, NOT MINTED.** *"ALREADY CLOSED, TWICE … the S-9 slot is spoken for by an adjudicated booking (kf-EditorHeader.md:117). Refused per anti-rename."* The refusal is the anti-rename law working; the slot that booking became is **S-10**. |
+| S-10 | the anonymous fifth row | **STRUCK AS A DUPLICATE — retained here so the strike is checkable.** It is `kf-KeyframesEditor`'s own S-10 ask ⟨`:63`⟩, **already minted as S-18 under `KF-KE-21`** — the same claim entered twice, the second time without its id. |
+
+#### Crosswalk, arithmetic, and what is handed forward
+
+**Claim-token crosswalk** (the property whose absence manufactured the collision): banked **`S-9`** →
+{S-9 · S-10 · S-11 · S-12 · S-13 · S-14 · S-15 · S-16} ∪ {dead `K-6`, refused `C·C-2`}; banked
+**`S-10`** → {S-17 · S-18 · S-19 · S-20} ∪ {the struck duplicate → S-18}. **Five further `S-10`
+occurrences are not census claims at all and receive nothing**: three records' own local roster
+indices (`kf-App.skeleton.md:91` · `kf-ChromeDock.md:125` · `kf-ControlsPaneWrapper.md:122`) and two
+cross-references to another record's index (`kf-RibbonBar.md:7`, `:72`). The S-10 enumeration
+reproduces C-17.R row 13 at this seat's own run: **37 raw hits / 15 records**; discards `KF-ES-10` ×11
+· `MISS-10` ×4 · `KF-SS-10` ×3; **19 post-discard lines across 9 records**.
+
+**Arithmetic, counted at the rows and not carried forward**: 10 S-9 claimants (8 minted · 1
+dead-and-enumerated · 1 refused-and-enumerated) + 4 S-10 claimants (4 minted) = **14 live rows**; + 1
+enumerated strike = **15 rows** = C-17.R's row count. **12 slots minted (S-9..S-20)**, 3 dispositioned
+without one. S-block headings in this file, **measured at the settled bytes, not predicted**:
+`grep -c '^### S-'` → **8** (the originals, unchanged) · `grep -c '^#### S-'` → **12** (the mint) ·
+`grep -cE '^#{3,4} S-[0-9]'` → **20** (the whole block).
+
+**Carriage, per LAW B**: this block asserts no completeness in its own voice. Its input set is
+C-17.R at the spec's post-round-4 bytes, whose carriage is measured at
+`docs/tranches/X/keyframes/conformance/PASS-4/KF-W0-CHECK.md` §1 (2026-08-28) — the artifact that
+found the round-3 roster short by `KF-ET-27` and its second leg `KF-ES-20`, and the row-13 receipt
+unreproducible. A later pass re-points this citation rather than re-asserting the claim.
+
+**Handed forward**: **KF.W10 consumes; it never mints** — `CARRY-C-3` / `CARRY-C-5` consume the twelve
+ids above **at these bytes**, never at a prior roster shape. **KF.W6** inherits S-11 · S-12 · S-14 ·
+S-16 · S-17 · S-18 · S-19 evaluations under these ids (its own booking's *"census id pending the
+KF.W0 C-17 mint"* is now satisfied); **KF.W5** inherits **S-20**'s arm; **KF.W7** governs **S-13**
+under the KF-AV-28 rider.
+
+---
+
+### F. Shadow tally (§ "Shadow tally", `:391`) — extended, not rewritten
+
+| verdict | components | lines |
+|---|---|---|
+| *(the four 2026-08-03 rows stand unchanged)* | — | — |
+| **Minted 2026-09-17, evaluation NOT performed here** | **S-9 … S-20** — 12 slots over 12 subjects, each citing its originating record; owners: KF.W6 ×7 · KF.W5 ×1 · KF.W7-governed ×1 · census-owned ×1 · NO-WAVE-OWNER-decided ×1 · identity-only ×1 | not sized here — **sizing a slot is the evaluation, and the evaluation is not W0's** |
+| **Claimed and refused a slot** | `K-6` (dead) · `C·C-2` (refused, anti-rename) · the struck duplicate | — |

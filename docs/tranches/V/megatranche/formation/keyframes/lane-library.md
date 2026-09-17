@@ -580,3 +580,140 @@ The same value.js parse failure is handled three different ways depending on the
 - `compile/value-ast.ts:73-77` — **throw** `TypeError`.
 
 Any parser-consumption wave that changes value.js's diagnostic shape touches all five independently. This is the strongest argument for a single kf-side `parse()` façade before the wave begins.
+
+---
+
+## APPENDED NOTE — 2026-09-17, KF.W0.d (E-3: appended beside; nothing above is rewritten)
+
+Served model id: `claude-opus-5[1m]`. Unit `KF.W0.d`, sub-gate **G-0.6**, under the owner's
+2026-09-17 begin-word (COHESION §0j). Substrate: `/Users/mkbabb/Programming/keyframes.js` at
+`origin/master` = **`81a56990736ced5b5edde0b84c527680ac7689b1`**, **after** the §B-12 settle
+(KF.W0.OP-1); every figure re-read at those bytes on **2026-09-17**, **double-run**, and resolved
+**at a named ref** rather than over a working tree. Receipts command-for-command:
+`docs/tranches/X/keyframes/W0/COUNTS-2026-09-17.md` +
+`docs/tranches/X/keyframes/artefacts/W0/counts-2026-09-17.txt`. Read-only throughout: **no install,
+no build, no `depcruise` run, no dev server**.
+
+**Why the re-anchor.** This lane censused the stale owner checkout (`8281638c` + local dirt); the
+tree the library ships from is 41 commits ahead. The lane's **findings** survive; its **anchors** do
+not all (census §0's formation law). Below: SCH-3, SCH-4, SCH-5 and SCH-7, each re-run.
+
+### (i) SCH-3 — the module count and its BASIS
+
+```
+$ git ls-tree -r --name-only origin/master src/ | grep -c '\.ts$'                              → 153
+$ git ls-tree -r --name-only origin/master src/ | grep '\.ts$' \
+      | while read f; do git show "origin/master:$f"; done | wc -l                             → 22 778
+```
+
+`:26`'s neighbourhood figure *"39 modules (of 145)"* and §1's *145 src `.ts` / 22 636 LOC* are the
+stale-checkout readings. **The figures of record are 153 files / 22 778 LOC**, and the **basis is
+stated with them** so it cannot become a fifth: *`git show` of every tracked `src/**/*.ts` at
+`origin/master`, newline count*. **X-4's basis reconciliation — 80 / 139 / 153 / "159" — is KF.W5's
+row and is NOT performed here**; restating four bases in this note would mint a fifth.
+
+### (ii) SCH-4 — the value.js import census, RE-ANCHORED, with its predicate
+
+`:26` bank: *"**61** across **39** modules (of 145) — `grep -rn 'from "@mkbabb/value.js' src/ | wc -l`
+→ 61; `grep -rln … | wc -l` → 39; total mentions incl. prose = 79"*. **That command names no
+coordinate**, and a corpus grep without a dated ref is unreproducible by construction (the
+tree-motion law, DISSENT 3 of this very lane). Re-expressed ref-resolved, **same predicate, same
+scope (`src/` only)**:
+
+```
+$ git grep -h 'from "@mkbabb/value.js'       origin/master -- src | wc -l  →  62     [bank: 61]
+$ git grep -h 'from "@mkbabb/value.js/value' origin/master -- src | wc -l  →  16     [bank: 15]
+$ git grep -l 'from "@mkbabb/value.js'       origin/master -- src | wc -l  →  40     [bank: 39]
+
+the same predicate at the two other committed coordinates:
+  8281638c (the stale pin)                     →  81   · /value  0
+  kf-sacred-snapshot-2026-09-17 (the sacred     →  48   · /value 10
+  checkout's tracked dirt, committed 2026-09-17)
+```
+
+**The per-subpath split — `:25`'s own table shape, so the delta is visible per row:**
+
+| subpath | `:25` (bank) | `origin/master`, 2026-09-17 |
+|---|---|---|
+| `/css` | 29 | **29** |
+| `/value` | 15 | **16** ← the entire delta |
+| `/color` | 7 | **7** |
+| `/math` | 5 | **5** |
+| `/easing` | 3 | **3** |
+| `/transform` | 2 | **2** |
+| **total** | **61** | **62** |
+
+**Three readings of record.** (1) The census's SCH-4 verdict — *"LIB import census off-by-one at
+HEAD"* — is **SUSTAINED**, and the off-by-one is **localised**: it is one `/value` line and nothing
+else. (2) The DOCS probe's **62 (`/value` 16) reproduces byte-for-byte**; this lane's 61/15 reproduces
+at **no committed coordinate**. (3) The sharp one: **`/value` = 0 at the stale pin.** The `/value`
+subpath spelling did not exist in `src/` at `8281638c`; 16 of the 62 frontier lines are consequences
+of V's own execution — so a lane reading the pin and a lane reading the frontier were not counting the
+same object. **`6` of value.js 4.0.0's `7` subpaths are still the consumed set, `./quantize` still
+absent** (`:57`'s claim, unchanged in kind).
+
+### (iii) SCH-5 — §4.1's **13-site parse seam**, RE-ANCHORED (the inventory survives whole)
+
+**Four cited paths are dead; not one Tier-A site is.** Nothing was deleted, merged or duplicated —
+four files moved under the W5 carves, and **9 of the 13 sites are at their banked line number**.
+
+| # | §4.1 site (2026-08-03) | site at `origin/master 81a56990` | motion |
+|---|---|---|---|
+| A1 | `compile/adapter.ts:222` | `compile/adapter.ts:222` | — |
+| A2 | `compile/adapter.ts:266` | `compile/adapter.ts:266` (`export const resolveKeyframes = (`) | — |
+| A3 | `compile/value-ast.ts:71` | **`compile/value/compile.ts:32`** | file carved into a module; line −39 |
+| A4 | `compile/selector.ts:24` | `compile/selector.ts:23` (decl) / `:24` (the aliased `parseValueSelector` call) | −1; **and its one in-tree caller is now named: `compile/frame/compiler.ts:146`** |
+| A5 | `compile/easing/easing-registry.ts:131` | **`compile/easing/registry.ts:131`** | file renamed; **line identical** |
+| A6 | `compile/emit/format-options.ts:104` | **`compile/emit/format/options.ts:104`** | file into a sub-module; **line identical** |
+| A7 | `engine/options.ts:31` | `engine/options.ts:31` | — |
+| A8 | `resolve/browser.ts:165` | `resolve/browser.ts:162` | **−3** |
+| A9 | `scroll/grammar.ts:109` | `scroll/grammar.ts:109` | — |
+| A10 | `scroll/grammar.ts:77` | `scroll/grammar.ts:77` | — |
+| A11 | `scroll/grammar.ts:85` | `scroll/grammar.ts:85` | — |
+| A12 | `validate.ts:182` | `validate.ts:182` | — |
+| A13 | `engine/css/css-animation.ts:176` | **`engine/css/animation.ts:176`** | file renamed; **line identical** |
+
+**The census's four named dead anchors, dispositioned**: `value-ast.ts:71` → A3 ·
+`easing-registry.ts` → A5 · **`emit/backward/backward.ts` → PRESENT** (it is the *frontier* spelling;
+the dead layout is HEAD's flat `emit/{backward,backward-walk,backward-color}.ts`, removed by the
+§B-12 reset and stated by path in `docs/tranches/X/keyframes/W0/SUBSTRATE-SETTLE-2026-09-17.md`) ·
+**`emit/easing-serialize.ts:71-73` → PRESENT**, still the `timingFunctionEntries.find(([_name, func])
+=> func === easing.fn)` reverse-map, i.e. the K1 easing-reference site, unmoved.
+
+**Consequences for this lane's own prose, stated and not performed here**: `:519`'s near-miss list
+names `compile/emit/backward.ts` and `compile/emit/backward-color.ts` — **HEAD spellings**; at the
+frontier they are `emit/backward/backward.ts` and `emit/backward/color.ts`. `:562`'s **DUAL-1** row
+(two live `reverseAnimationShorthand`s) re-anchors to `emit/format/options.ts` and
+`emit/css-text.ts`; the finding is unaffected. §4.2/§4.3 sites (`ingest/cssom.ts`, the six Tier-C
+regexes) were not re-anchored by this unit and are **not** asserted to have moved or held.
+
+### (iv) SCH-7 — §3.5's **L-1 / L-2**, RESTATED UNVERIFIED-AT-HEAD
+
+**`depcruise` was NOT run.** The re-verification is **KF.W5's input**, and a green run here would be
+precisely the false refutation §3.5 warns of — *"0 depcruise violations does NOT refute L-1 (silent
+coverage loss reds nothing)"*. What this unit did instead is re-read both defects' **static
+witnesses** at the frontier; **both reproduce**:
+
+```
+L-1  $ git grep -n 'physics/spring/(duration|reseat|linear-stops|timing-function)' origin/master -- .dependency-cruiser.cjs
+       .dependency-cruiser.cjs:58: "physics/spring/duration",      :59: "physics/spring/reseat",
+       .dependency-cruiser.cjs:60: "physics/spring/linear-stops",  :61: "physics/spring/timing-function",
+     …while the real modules are PRESENT at, and only at:
+       src/animation/physics/spring/solver/duration.ts   ·  …/solver/reseat.ts
+       src/animation/physics/spring/css/linear-stops.ts  ·  …/css/timing-function.ts
+
+L-2  $ git cat-file -e origin/master:.dependency-cruiser-known-violations.json → ABSENT
+     $ git grep -c 'knownViolations' origin/master -- .dependency-cruiser.cjs  → 0 hits
+```
+
+**Both defects are alive at the frontier as described** — four LIGHT modules unguarded by name, and a
+`no-cycle` comment describing a baseline ratchet that is not wired. **Status stays
+*unverified-at-HEAD*** because the verification instrument (a `depcruise` run) is deliberately not
+executed by this wave; the witnesses above are static and are what a KF.W5 seat inherits.
+
+### (v) Provenance
+
+Read-only in `keyframes.js`; the producer tree and `node_modules/@mkbabb/glass-ui/**` were not read
+by this section. No file in `keyframes.js` was written, mutated or executed by this unit; no install,
+no build, no dev server, no `depcruise`. The 2026-08-03 body above is dated evidence and was not
+rewritten (E-3).
