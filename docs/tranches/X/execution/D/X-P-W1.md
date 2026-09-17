@@ -371,3 +371,18 @@ stands for the `.md` files the units create fresh inside their own bounds.
 ## Unit receipts
 
 *(empty at open; each unit appends its own dated block below, never rewriting another's — E-3)*
+
+---
+
+## Addendum 2026-09-17 (same sitting) — the E13 sweep line IS appended to `INBOX.md`
+
+**E-3: this corrects §Open by addition; nothing above is rewritten.** §Open's mail block states that
+*"no sweep line is appended, because nothing moved"*. That reasoning is sound on the substance —
+**0 unrowed, 0 new `I-n`** — but it is **wrong on the obligation**: E13's ledger is a record of the
+*sweep*, not only of its yield, which is why all five prior seats of this sitting (P-1 · X.P.W0 ·
+KF.W0 · KF.W1 · X-W0 · F.W0) each appended a line even when their result was zero. The line is
+therefore appended at `docs/tranches/V/coordination/INBOX.md`'s end, in the file's own idiom,
+carrying the four paths, the bounded atlas Q-lane extension, the delta test, and the **D-1** status-
+cell classification. **No `I-n` row is written; no row above it is touched.** The substantive result
+is unchanged: **0 unrowed · 0 new `I-n` · I-31 the inbound tail · O-21 the outbound tail · 0 UNREAD
+in X.P.W1's scope.**
