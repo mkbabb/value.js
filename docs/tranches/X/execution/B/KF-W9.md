@@ -944,3 +944,29 @@ alone; `CENSUS-2026-08-03.md` and `lane-frontend.md §6.5` untouched by this sea
 **exact precondition**, in the form KF.W10 `.g` can cite · the KF-AV-28 witness-ordering obligation on
 S-8 family (ii) · **0 probes spent at this cell**, so the surface list's terminal states are unchanged by
 `.b` and nothing is double-spent later.
+
+##### `.b` ADDENDUM 16:41 — the churn's third and fourth data points, and the pattern is now a REGULARITY
+
+*Appended, not rewritten (E-3). The section above states the truth at its own clock; this states it at a
+later one. It **corroborates** the escalation and changes two of its numerals.*
+
+⟨`git rev-parse --short HEAD`⟩ → **`fb509edd`** (was `5388907b` at 16:18, `55e9bf0d` at wave-open) —
+⟨`git log --oneline 55e9bf0d..HEAD`⟩ → **two commits**, `fb509edd` *"ci(kf/merge-path): register
+plugin-vue … (X.KF.W4 .b)"* + `5388907b` *"build(kf/check) … (X.KF.W4 .a)"*. ⟨`git rev-parse
+origin/master`⟩ → **still `55e9bf0d`**: the pin is now **two commits behind an unpushed HEAD**, and
+⟨`git diff --name-only 55e9bf0d..HEAD -- demo/ | wc -l`⟩ → **23** demo files between them.
+⟨`git status --porcelain -uno | wc -l`⟩ → **0** (quiescent at this instant).
+⟨`ls -1 dist/gh-pages/assets | wc -l`⟩ → **51** — **a third bundle exists**.
+
+**And it is pre-commit again, by the same 20–40 s margin**: ⟨`stat -f '%N %Sm'
+dist/gh-pages/index.html`⟩ → **16:39:51** vs ⟨`git log -1 --format='%ci'`⟩ → **16:40:12** — the build
+precedes its commit by **21 s**, exactly as the 16:17:47 bundle preceded `5388907b` by **39 s**.
+**Twice measured is a workflow, not an accident**: the sibling builds, then commits, so **every bundle
+this seat has found on disk was provably compiled from an uncommitted tree.** A capture taken at any of
+those three moments could name a `bundleSha256` truthfully and a `substrateSha` only by assertion.
+
+**The escalation is unchanged in kind and sharper in degree.** Its numerals update: *pin + 1* → **pin +
+2**; *one bundle destroyed twice* → **three bundles, two destroyed, each pre-commit**. Its ask is
+unchanged: a serving artifact that survives (quiescence window **or** separate clone), the substrate
+ruling, and the unchanged `--bundle-sha=` discipline. **This seat still captures nothing, re-pins
+nothing, and photographs no bundle whose provenance is an inference.**
