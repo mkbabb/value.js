@@ -1274,3 +1274,100 @@ re-attempted. **`W0.md` §3a evaluated and not triggered.** Standing invariant g
 unit's commit ⟨cmd⟩ `git status --porcelain -- src api demo test e2e` → **0**. `scripts/dev/dev.sh`
 never touched and never staged ⟨cmd⟩ `git status --porcelain -- scripts/dev/dev.sh` → ` M
 scripts/dev/dev.sh`, unstaged throughout.
+
+---
+
+## Close
+
+**Seat**: CLOSE (VERIFY-ONLY — this seat cured nothing) · Opus 5 implementation seat (M-23 §2) ·
+`claude-opus-5[1m]` · 2026-09-17 13:40 · `cwd = /Users/mkbabb/Programming/value.js`, darwin arm64,
+node v26.0.0 · workflow `wf_c431fb2c-82d`, agent `a58044423134cde32` (`X.P.W0:close`, `model: opus`).
+**Full close report**: `docs/tranches/X/parse-that/waves/W0-CLOSE.md` (`W0.md` §4 create · §8
+required · §9 commit ⑤). This block is the record's summary; the report carries every pasted output.
+
+**Verdict: IMPLEMENTED 2026-09-17. Eight of eight gates GREEN, every one re-run and re-measured by
+this seat against `W0.md` §6's own GREEN definitions.** Nothing was inherited from a unit receipt
+without re-measurement.
+
+### Gate table — BEFORE → AFTER
+
+| gate | BEFORE (wave-open baseline, this record §Baseline) | AFTER (close-seat re-measurement) | turned by |
+|---|---|---|---|
+| **G-1** | RED — no disposition in any tracked file | **GREEN** — 7 named · 7 disposed · 6 MATCH · 1 EXPLAINED · **0 MISMATCH · 0 EPERM**; four digests + builder + residue re-derived here and equal to the 08-03 baseline to the character; `tail -c 30242` ⇒ `244c448a…504a7`, `30927 − 30242 = 685` | `.a` |
+| **G-2** | RED — of a changed kind | **GREEN** — target **ABSENT by enumeration** (133 entries ×2, `v1..v11` present, `v12` ×0, `test -e` ABSENT); falsifier audited on settled bytes: **21 of 21** absence sentences qualified, a quotation, a literal output, or a meta-claim | `.a` |
+| **G-3** | RED — `roots-census.sh` absent, 0 of 18 tracked | **GREEN whole** — `diff census-before census-after` **empty ×2**, plus a **third capture by this seat** at the same digest `7f0c5b13…19d7`; 18 rows with identities; `ROOTS ENUMERATED: 18` | `.b` + `.d` |
+| **G-4** | RED — and the RED is the point | **GREEN** — HEAD **string-equal** to the full 40-hex `f5757082…f8f7e78d` · porcelain **0** · `--abbrev-ref` **HEAD** · `remote -v` **0** · refs/heads+remotes **0** · tree `3809a1ed` · 691 files · `<p2>/.git` a **directory** | `.c` |
+| **G-5** | RED, vacuously | **GREEN ×3** — (i) source quadruple `7 / ef10d5b7… / 33 / 31` **unchanged from before the clone to now**, this seat's own capture differing from `.c`'s only by four section-label lines · (ii) inode intersection **0 lines / 0 bytes**, `-links +1` **0** in both stores · (iii) `28M` · `NO-GC-LOG` · objects **4239** · worktrees **6** · p2 absent from the registry | `.c` |
+| **G-6** | RED — 0 `x-p-*`, chain absent | **GREEN** — harvester re-run by this seat **EXIT=0** (unmodified, cwd sandboxed, `git status -- registry` → 0 after); `x-p-w0.json` 30,067 B · `resultCount: 4` = **4 units dispatched**; killed **0**, `NO_JURY` **0**, empty results **0**. Roster gap disclosed → **R-3** | `.d` |
+| **G-7** | RED — no per-row check | **GREEN** — the seven prohibitions re-measured **row by row by this seat**: 7 named · 7 disposed · **7 PASS** · 0 blanket claims; rows 1/2/5 marked as the formerly-EPERM rows with date + access state | `.d` |
+| **G-8** | RED — 1 of 2 ends | **GREEN — 2 of 2** — both fragment greps → **1** row each, against the working tree **and** `HEAD`'s blob; chain verbatim (`Fourier F.W0 atomic tuple` ×1); `grep -c 'COHESION.md:[0-9]'` in the chain → **0**, so no line coordinate is used as a citation | `.d` |
+
+**8 of 8 RED before cure · 0 GREEN-BEFORE-CURE · 8 of 8 GREEN after (R.2 finding count: zero).**
+
+### Commit roster
+
+`80d96f18` (.a, §9①) · `b69611a8` (.b, §9②) · `8a83c8bb` (.c, §9③ — **empty diff by design**) ·
+`6da438f6` (.d, §9④) · the close commit (§9⑤). Record appends: `607efb0e` · `fa9597cd` · `c0d70599` ·
+`9dfcacca`. **Every path any unit committed is inside `W0.md` §4's table — zero bytes outside the
+writable set, in any unit**; the `COHESION.md` carve is exactly the two loci §4 allows (8 insertions,
+1 deletion; §2's X·P bullet byte-untouched).
+
+### Landed wrong — recorded, never rewritten
+
+`.b`'s record block (+203) rode a Track B LEDGER commit `a10e33ad`; four of `.d`'s five writable
+paths + `EVIDENCE-CHAIN.md` rode a Track A commit `9c72f097`. **Bytes correct, commits wrong.**
+Verified intact: `git diff HEAD --stat` → **0** on every path; `grep -c '^### X.P.W0.b$'` in HEAD's
+blob → **1**; both G-8 fragment greps against HEAD's `COHESION.md` → **1** and **1**. No history was
+rewritten. The sharpened law is in `W0-CLOSE.md` §3: *"pathspec commits only"* binds the **commit**
+verb (`git commit --only -- <path>`), and because `--only` protects the committing seat but not the
+staged file, **stage as late as possible and commit in the same breath.**
+
+### E13 at close
+
+Four paths re-swept read-only at this seat's clock. **0 unrowed letters · 0 new `I-n` · I-31 the
+inbound tail · O-21 the outbound tail · 0 UNREAD in X.P.W0's scope.** `grep -n -i 'unread'` on
+`INBOX.md` → 11 rows, **all** law text or prior sweep records; no row's status cell reads UNREAD.
+The delta test returns value's own four files and nothing from paths 2, 3, 4 or the exec-visible
+keyframes delivery path. **This wave does not close with unread mail.**
+
+### Residuals — seventeen, each with a named owner
+
+Full table at `W0-CLOSE.md` §6. The ones a successor must not miss: **R-1** a published self-count
+(19) disagrees with the settled bytes (21) — substance holds, SELF-COUNT law does not; corrected as a
+dated addendum, `.a`'s receipt not rewritten. **R-2** G-4's conjunct 4 is unreachable by §5's two
+literal commands — `.c`'s `remote remove` + `branch -D` is RULED CORRECT and the divergence is the
+spec's; L-18 to re-rule. **R-3** `x-p-w0.json` carries 4 seats not 5; a fresh harvest today yields 5,
+so it is closable by one command from a seat whose bounds include `registry/harvest/**`. **R-5**
+MAJOR — the harvester silently drops the conformance schema; 1,473 of 7,506 ledger rows are empty
+stubs. **R-6/R-7** the `--check` and Prettier denominators, both ruled here. **R-10** the
+`~/Documents/Codex` grant is dated, not durable — later seats re-measure and record EPERM **beside**.
+
+### Escalation — one
+
+**`git push origin HEAD` from `/Users/mkbabb/Programming/parse-that` was REFUSED as spec-forbidden
+and returned, not performed.** `W0.md` §4 forbids touching that root *"under any circumstance, at any
+point in this wave"*, §5 forbids the push verb outright, and §3a makes a write there *"invalidate the
+wave outright"*. Measured: the root has an `origin`, but `rev-list --count origin/master..HEAD` → **0**
+— **there is nothing to push**, because this wave wrote zero bytes there by design and `.c` removed
+the clone's `origin` so no push path exists in the lane at all. The lawful half — the **value.js**
+push — was performed. Publishing parse-that's `master` is a separate owner act outside every X·P
+wave's bounds.
+
+**Nothing else escalates.** Zero writes outside any writable set · zero `gc`/`repack`/`prune`/
+`worktree prune`/`stash`/`reset --hard`/force-push · zero §9 STOP conditions fired (0 of 5) · `W0.md`
+§3a evaluated at every seat and never triggered · clone-failure counter **0** · zero third
+diagnose→act→re-measure iterations · `../glass-ui` untouched · `~/.codex/**` and
+`~/Documents/Codex/**` read/hash only (C-02) · gate 27 / W4 G-2 ⟨cmd⟩ `git status --porcelain --
+src api demo test e2e` → **0** at close · `scripts/dev/dev.sh` never touched, never staged.
+
+### Four-verb status — this close moves exactly one
+
+| verb | value | moved by |
+|---|---|---|
+| AUDITED | YES (unchanged) | — |
+| SPECIFIED | YES — 2026-08-04 (unchanged) | — |
+| **IMPLEMENTED** | **YES — 2026-09-17** | **this close report** (`W0.md` §2 / §9⑤) |
+| VERIFIED | **NO** | **X.P.W4's alone**, at the X·P sub-tranche release close (R-A). This close does **not** move it |
+
+`W0.md` is **not edited** — it is a dated spec and E-3 makes it immutable. This stamp is the dated
+record beside it.
