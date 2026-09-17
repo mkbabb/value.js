@@ -838,3 +838,137 @@ artefact**. After X.F.W0's G-10 DELETE the budget is **6 imports / 6 files, all 
 **Status**: no verb is stamped; no byte above this line is edited; **no `registry/adjudicated/**`
 byte, no intake-adjudication byte and no `web/DESIGN.md` byte was written** (E-1/E-3 and bounds).
 Every superseded cell is named, dated and left standing.
+
+---
+
+## ERRATA ADDENDUM 2026-09-17 — X.F.W0 unit *d* (gate G-6; §6a lock 5's authoring half)
+
+**SERVED MODEL: claude-opus-5[1m]** · authority `value.js/docs/tranches/X/fourier/waves/F-W0.md`
+§4 **G-6** whole (the R-4a re-cut; both GREEN halves) + §3 rows **8** · **9** · **10** · **11** ·
+**12** · **14** · **34** · **35** + §2a (*"ERRATA ADDENDUM ONLY — never patched in place"*) + §6a
+lock 5 (*"the doc half is F.W0's and lands in the same act as the authoring"*) + lock 8 (E-3).
+
+**E-3. NOT ONE BYTE ABOVE THIS LINE IS EDITED**, including the 2026-09-17 unit *e* addendum this one
+sits beside. Measurements at fourier **`edee6bf`** (porcelain **0**; the manifest byte-identical to
+the LAND set at **`1193003`**), installed producer `@mkbabb/glass-ui` **4.0.0**, every figure
+**double-run** and byte-identical across passes. The full gate text lives at
+`fourier-analysis/docs/tranches/F/SUBSTRATE-LEDGER.md` **§4**.
+
+**WHY A SECOND ADDENDUM ON THE SAME DAY, AND WHAT IT DOES NOT REPEAT.** Unit *e*'s **LF9-1** already
+corrected the "dead devDeps" contradiction this file's `:70` and `:645` carry, and **that correction
+is cited here, not re-booked** — the liveness table (`reka-ui` 40 / `class-variance-authority` 11 /
+`clsx` 2 / `tailwind-merge` 0 glass-ui `dist/` importers), the **MOVE-not-DELETE** verdict, and the
+`DESIGN.md:32 → :33` coordinate fix all stand at LF9-1/LF9-2 and are this programme's single operand
+for them. **A second copy would be a second operand.** What follows is the part that is **G-6's and
+not G-12's**: the transaction F.W1 is to land, the three-package NEITHER-BLOCK fact, and one measured
+finding that changes which cure is available.
+
+---
+
+### LF10-1 · THE PRESCRIBED MANIFEST TRANSACTION — six limbs, landed by F.W1, authored at F.W0
+
+**The landing is F.W1's** — a limb set inside **F-W1 §4 Sequencing, intra-wave step 4**'s TWELVE-limb
+roster, with **FR-EQC-7's `vaul-vue` gate INSIDE it** per **F-W1 §4's cross-edge 1**. **X.F.W0 wrote
+no manifest byte** (F-W0 §2b: *"unit **d** writes no manifest byte and is now doc-only"*).
+
+| # | limb | warrant |
+|---|---|---|
+| **T-1** | Move `class-variance-authority` · `clsx` · `lucide-vue-next` · `reka-ui` from `devDependencies` to `dependencies` | all four are `"dev": true` in the lock while reached by shipped source or by the installed producer (LF9-1's denominator) |
+| **T-2** | Delete **`tailwind-merge` ALONE** | **0** `src/` sites **and 0** glass-ui 4.0.0 `dist/` importers; surviving mentions are doc comments only (`dist/utils/cn.d.ts`'s *"We replace twMerge with a hand-rolled deduplicator"* rationale, `README.md`, two CSS comments) |
+| **T-3** | `vaul-vue` **declared + locked**, **OR** the barrel→subpath retirement landed so no edge needs it | in **neither** dep block; **0** `node_modules/vaul-vue` lock entries; `dist/glass-ui.js:60` is a **static** import reached through **7** root-barrel edges. **See LF10-3 — the OR-arm does not close today** |
+| **T-4** | `@lucide/vue` **declared AND present in the lock** | a **REQUIRED** glass-ui 4.0.0 peer (`^1.16.0`) in **neither** block, **0** lock entries, on disk 1.20.0 — *"a required peer filed NOWHERE"* |
+| **T-5** | Remove the dead **`@types/katex`** row | `@types/katex@^0.16.8` is inert against `katex@0.17.0`, which self-declares `types/katex.d.ts`, under `moduleResolution: "bundler"`; `web/` holds **exactly one** `tsconfig.json` |
+| **T-6** | **Nothing else** | see LF10-4 |
+
+**It is one transaction.** An `--omit=dev` install that acquires four of the five runtime packages
+still throws, so the limbs land together or not at all.
+
+**`@lucide/vue` and `lucide-vue-next` are two packages.** T-1 moves the app's own direct import
+(**35** `src/` files); T-4 declares the producer's required peer, reached only through glass-ui's
+`createLucideIcon` chunk. **The `@lucide/vue` RENAME of the 35 sites is excluded from the transaction**
+and rides the uplift as current debt (F-W0 §8) — a point this file's §1 row 13 reads the other way and
+which LF9-1's lineage already flags.
+
+### LF10-2 · THE THREE-PACKAGE NEITHER-BLOCK FACT — the measurement F.W1 sizes against
+
+Measured at the landed 4.0.0 manifest, double-run; membership probes returning `false` for **both**
+blocks:
+
+| package | `dependencies` | `devDependencies` | lock entries | on disk | glass-ui 4.0.0 peer class |
+|---|---|---|---|---|---|
+| `vaul-vue` | **no** | **no** | **0** | 0.4.1 | **REQUIRED** |
+| `@lucide/vue` | **no** | **no** | **0** | 1.20.0 | **REQUIRED** (`^1.16.0`) |
+| `embla-carousel-vue` | **no** | **no** | **0** | 8.6.0 | **OPTIONAL** (`peerDependenciesMeta`) |
+
+Blocks as landed: **`dependencies` = 11**, **`devDependencies` = 15**, and **the name sets are exactly
+those F-W0 §4 G-6's fold witness enumerates** — only the versions moved, which is the LAND branch's
+own content.
+
+### LF10-3 · **THE FINDING**: T-3's barrel→subpath OR-arm is INCOMPLETE at glass-ui 4.0.0
+
+Row 9 offers two cures for `vaul-vue`. **Only one of them closes on the consumer side today**, and
+the reason is measurable rather than arguable.
+
+The app holds **7** root-barrel edges (`from "@mkbabb/glass-ui"`, counted quote-agnostically — a
+double-quote-only probe returns 6 and drops `CollapsibleSection.vue`). **Five have a live subpath to
+retire to; two do not:**
+
+| edges | symbol | subpath | status |
+|---|---|---|---|
+| `useMorphConfig.ts:9` · `UserSlugBar.vue:5` · `EquationResult.vue:4` | `useClipboard` | **`./dom`** | retirable |
+| `CollapsibleSection.vue:2` | `Collapsible*` | **`./collapsible`** | retirable |
+| `router/index.ts:2` | `supportsViewTransitions` | **`./motion-core`** | retirable |
+| **`AdminUserList.vue:4`** · **`GalleryCard.vue:5`** | **`Checkbox`** | **NONE** | **NOT retirable** |
+
+`Checkbox` is exported from the **root barrel** in runtime and types (`dist/index.d.ts:7` =
+`export * from "./components/ui/checkbox";`) **and from no subpath**: a scan of **all 75 `.js` targets
+among the 80 export keys** finds it in none, and **`./checkbox` is not an export key.** Since
+`dist/glass-ui.js` is the **only** entry in the package that imports `vaul-vue`, **any surviving
+root-barrel edge keeps the static `vaul-vue` import in the graph** — so the retirement arm cannot
+discharge T-3 while those two edges exist.
+
+**Consequence, stated as a sizing input and not as an election**: **declare + lock is the only arm
+that closes today.** The retirement arm becomes complete the day the producer publishes a `./checkbox`
+(or equivalent) subpath — **a producer-side ask that rides the glass-ui BH relay and is never a
+frontend hack** (FR-COB-8 S-4). **X.F.W0 records it and sends nothing** (G-3 gates the sends; the mail
+seat is unit *b*'s).
+
+### LF10-4 · `embla-carousel-vue` is EXCLUDED from the set — a ruling, not an oversight
+
+It is an **OPTIONAL** peer at 4.0.0, so **it cannot fail `npm ci --omit=dev`** — the exact condition
+the transaction is all-or-nothing about. Folding it in over-binds the transaction, and declaring it
+now would declare a dependency with **zero importers**. Its declaration is a one-line convenience limb
+riding the **F.W3 `.d`** carousel adoption (`F-W3.md` §X.1-v4, cited not re-derived). **It is a G-6
+measured fact, not a G-6 operand.**
+
+### LF10-5 · A dated correction to an enumeration this file's lineage carries
+
+The `@lucide/vue` reach clause — *"`createLucideIcon` is reached from
+dock/select/configurator/dropdown-menu/collapsible/tabs"* — **does not reproduce at the adopted pin**.
+By transitive closure over the installed 4.0.0 export map (double-run): `dock` · `select` ·
+`configurator` · `dropdown-menu` · `tabs` **reach it**; **`collapsible` does NOT**; and `dialog` and
+`toast`, which the clause omits, **do**. The app's live reaching set is **seven** subpaths —
+`configurator` · `dialog` · `dock` · `dropdown-menu` · `select` · `tabs` · `toast`.
+
+**The conclusion is unmoved and is in fact stronger**: seven app-imported subpaths reach a chunk whose
+package has **0** lock entries, so *a faithful `npm ci` yields module-eval throws* stands. **What is
+corrected is an enumeration**, and `collapsible` may not be quoted downstream as a `@lucide/vue`
+reach-site at glass-ui 4.0.0.
+
+### LF10-6 · The laws this addendum binds
+
+> **A PEER'S LIVENESS IS A PROPERTY OF THE INSTALLED PRODUCER'S IMPORT GRAPH, NOT OF THE CONSUMER'S
+> `src/`.** (LF9-1's law, restated because LF10-3 is its second instance: the *reachability* question,
+> like the *liveness* question, is answered in the producer's graph.)
+>
+> **AN ALTERNATIVE CURE IS NOT AN ALTERNATIVE UNTIL ITS TARGETS RESOLVE.** A spec may lawfully offer
+> two arms; the wave that consumes it must measure which arm exists before it elects.
+>
+> **PRODUCER-OWNED GAPS RIDE THE RELAY, NEVER THE CONSUMER.** The missing `./checkbox` subpath is
+> recorded as a producer ask; **no consumer-side patch, shim or local edit is authorized by this
+> addendum** (SS-6 / FR-COB-8 S-4).
+
+**Status**: no verb is stamped; **no byte above this addendum's first line is edited**; **no
+`registry/adjudicated/` byte, no intake-adjudication byte, no `web/DESIGN.md` byte and no
+`web/package.json` / `package-lock.json` byte was written** by the unit that authored it (E-1/E-3 and
+bounds). Every superseded cell is named, dated and left standing.
