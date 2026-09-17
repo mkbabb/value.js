@@ -961,3 +961,245 @@ files `.e` holds or opens — the first two are `.e`'s outright. **(4)** `types.
 
 **The push is the wave close seat's** (§0j.C KF-WRITE); this unit leaves `30ccd4dc` local and
 unpushed by design.
+
+### KF.W4.d
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Opened** 2026-09-17 in parallel with `.c` (disjoint:
+`scripts/` + specs + manifests vs `src/` + K3 sites) · **Gates** `G-KFW4-7` · `G-KFW4-8` ·
+`G-KFW4-9` · `G-KFW4-10` · **Commits** keyframes.js **`c5c0b889`** (ONE commit, §Commits commit
+6) · value.js **`578d2813`** (artefacts + the bundle patch) · **Substrate**
+`/Users/mkbabb/Programming/keyframes.js`, branch `master`. Every figure below is read from the
+settled bytes and double-run (RUN1/RUN2 identical).
+
+**Receipt-law exception, declared, four files.** The SERVED MODEL line is line 1 of every record
+and artefact this unit wrote. For the four SOURCE files it created (`census.mjs`,
+`register-census.mjs`, the two `.test.ts` fixtures) the receipt rides the file's own header
+docblock instead: line 1 of an `.mjs` gate is its shebang (the house idiom at all nine frontier
+gates), and a bare `SERVED MODEL:` line 1 makes a `.test.ts` a syntax error. Provenance is
+carried, the file still runs.
+
+#### Act 0 — anchors re-verified at TRUE bytes before a byte was written
+
+| §Bounds row | anchor as spec'd | measured at this seat | verdict |
+|---|---|---|---|
+| Citation targets L89 | 8 files · **33** `proof:` lines · **19** distinct names | ⟨`git grep -n 'proof:' -- <the eight>` ⟩ → **33**; ⟨`… \| grep -oE 'proof:[A-Za-z0-9_-]+' \| sort -u`⟩ → **19** | **reproduces byte-exact** |
+| — same row, `EditorStartScreen.vue` | `:15` `:56` `:134` `:159` `:180` | `:15` `:56` **`:138` `:163` `:184`** | **DRIFTED +4 on the last three — INTENT taken at the TRUE bytes, recorded.** Cause named: ⟨`git show 81a56990:…EditorStartScreen.vue \| grep -n 'proof:'`⟩ → the spec's five exactly, so the drift is **`.a`'s `5388907b`** type-surface cure, not a spec error |
+| `font-roles.json` L85 | `:17` `:23` filing-tab rows · `:36` wave-char pin · `:68` kbd · `:82` `_monoContract` | all five at their stated lines | reproduces |
+| `resize-tracks.test.ts` L75 | `fs.readFileSync` + two `toMatch` source-text pins | `:133-139` (the pins at `:138`/`:139`) | reproduces |
+| orbital specs L76 | `INERTIA_FACTOR = 0.92` at `:29` + **EIGHT** uses; shipped `0.95` at `OrbitalDrag.vue:56` | ⟨`grep -n 'INERTIA_FACTOR' test/demo/scenes/orbital-inertia-parity.test.ts`⟩ → **9 lines** (`:29` + `:52 :58 :76 :99 :106 :123 :132 :138`); ⟨`grep -n 'inertiaFactor' demo/scenes/cube/orbital-drag/OrbitalDrag.vue`⟩ → `:56 const inertiaFactor = props.inertiaFactor ?? 0.95` | reproduces, **all nine** |
+| `usability.mjs` L77 | `:9` header · `:239` glyphCount · `:20-31` contract · `:160-172` heroReady · `:278-285` equality | every anchor at its stated line | reproduces — **READ ONLY; not written** |
+| `live-session.mjs` L78 | read, no write | read for the census denominator only | honoured; `live-session-mobile.mjs` **neither read nor written** |
+| `scripts/gates/` L79 | frontier carries **NINE** | ⟨`find scripts/gates -name '*.mjs' \| wc -l`⟩ → **9** before, **11** after this unit's two creates | reproduces |
+
+#### Act 1 — the two gate creates (R-3's FOLD, one script three clauses)
+
+**`scripts/gates/census.mjs` — ONE script, THREE separately-closing clauses.** Each clause owns
+its verdict, its denominator and its exit contribution; `--clause <name>` runs one and only one,
+and the script exits non-zero while ANY requested clause is red, so **three gates read three
+verdicts off one run**.
+
+- **C1 provenance** (G-KFW4-7): every identifier ATTRIBUTED to `@mkbabb/value.js` in a comment
+  under `src/ demo/ test/` must be a real export of the subpath it is attributed to. Two arms,
+  one assertion — **PHANTOM** (exported by nobody) and **MISATTRIBUTED** (actually exported by
+  THIS repo's `src/`). The denominator is read from the INSTALLED package at use — runtime keys
+  ∪ the `.d.ts` declared names, **141 names over 7 subpaths at value.js 4.0.0** — never a
+  checked-in list. **The STATED BOUND is written into the gate's header, not discovered after
+  the fact**: the subject is an identifier in one of FOUR written relational forms (possessive ·
+  export-verb · source · import-parenthetical). Prose that attributes a MECHANISM while naming
+  no identifier is **outside the denominator and is not silently claimed** — see B7 below.
+- **C2 citations** (G-KFW4-8): every `proof:*` at the eight enumerated targets resolves to an
+  executable npm script or gate. Sites re-read and **re-hashed at use** (hashes printed);
+  `--sites <artefact>` reads the roster from the evidence file and prints its sha256.
+- **C3 manifest** (G-KFW4-12's standing clause): every declared devDependency has an import
+  specifier, a config reference or an npm script naming it.
+
+**`scripts/gates/register-census.mjs` — the RENDERED register census, and R-3's fold made real.**
+`demo/styles/font-roles.json` is the gate's INPUT and the ONE home of the private AnimatedText
+class strings; this module exports the contract (`loadRegister`, `selectorContract`, `SELECTORS`)
+and `usability.mjs` reads its selectors from here — **one shared module, no second parallel
+runner.** Four clauses: **S** manifest integrity (static, always runs) · **1** non-vacuity (any
+row matching ZERO elements FAILS) · **2** register semantics incl. `text-transform`, and **a
+census that cannot read the property FAILS rather than passing blind** · **3** no laundering by
+descent (a mono leaf must match an allowlist entry ITSELF; descent-only satisfaction is REFUSED
+and its laundering ancestor named). Harness = the house `withPage` lifecycle: browser half
+**skips honestly** when playwright is unresolvable and **THROWS** under `KF_REQUIRE_BROWSER=1` —
+never a vacuous pass.
+
+⟨`node scripts/gates/register-census.mjs --static`⟩ → *"(S) the KF-AT-24 fold holds — the hero
+row homes BOTH class strings (.wave-char chars inside .wave-word words)"* · *"(S) every role
+binds a selector to an expected register tuple"* · **PASS**.
+⟨`KF_REQUIRE_BROWSER=1 node scripts/gates/register-census.mjs`⟩ → throws
+`HarnessRequiredError` — the vacuity guard bites.
+
+#### Act 2 — the citation extinction (33 lines / 19 names), with its carve DECLARED
+
+| figure | BEFORE | AFTER |
+|---|--:|--:|
+| citation LINES at the eight | **33** | **4** |
+| `proof:` TOKENS | **38** | **5** |
+| distinct NAMES | **19** | **3** |
+| C2's dead-citation count | **34** | **0** |
+
+The R-7 partition discharged **name by name, 17 cure / 1 routed / 1 live**, in
+`evidence/KF-W4/citation-inventory.md §3`. Two names were **REPOINTED before deletion** because
+a real gate exists: `DESIGN.md:29`'s `proof:font-census` → `node scripts/gates/register-census.mjs`
+(R-7's named repoint), and `DESIGN.md:251`'s bare *"owner-golden"* → the live
+**`proof:owner-golden`**. That second repoint is why the AFTER name count is **3** and not 2, and
+it is stated rather than absorbed.
+
+**THE DECLARED CARVE, in the run's artefact and in the gate's own output (R2-13):**
+⟨`node scripts/gates/census.mjs --clause citations`⟩ prints, every run — *"DECLARED CARVE:
+`proof:brittleness` at demo/styles/layout.css is OUT of this clause's denominator BY NAME;
+routed whole to KF.W6 (X.KF.W4 §Excluded 17). Subject present: 1 citation(s)."* The clause
+**FAILS if that subject is cured here**. **This wave wrote no brittleness byte** and pulled in
+**no** residue family — §Excluded 16–21's six families keep their named destinations.
+
+**The DECLARED SEPARATE BOUNDED ACT** — `DESIGN.md`'s §10 rules table `:234-240` — was reviewed
+row by row and is tabulated in `citation-inventory.md §4`: **the rule text of all seven rows is
+byte-unchanged**; only the Proof column moved, and only where it claimed a gate that does not
+exist. R1 (real depcruise rules) and R2 (`proof:publish`) are untouched. Every other citation
+site is ≤1 clause (R-7).
+
+#### Act 3 — the cure rules (c)/(d)/(e)
+
+1. **`resize-tracks.test.ts`** — the two `toMatch` source-text pins RETIRED and replaced by a
+   **real mount** of `AnimationVisualizer.vue`: the observer registration and the epoch bump are
+   read off behaviour. ⟨`npx vitest run --project demo test/demo/instrument/resize-tracks.test.ts`⟩
+   → **3 passed**. The KF-AV-18 prose (four value.js attributions for symbols this repo owns) is
+   cured in the same file, and C1's two rows there are gone.
+2. **`orbital-rotate3d.test.ts`** — the `renderTransform` helper that **REPLICATED** the
+   component's render math is DELETED with clause (c)'s `readFileSync` + four source pins; every
+   clause now reads the transform the REAL `containerStyle` rendered from a mounted OrbitalDrag.
+   ⟨`npx vitest run --project demo …orbital-rotate3d.test.ts`⟩ → **4 passed** (5 → 4 `it` blocks:
+   clause (c) is retired, not re-spelled).
+3. **`orbital-inertia-parity.test.ts`** — `INERTIA_FACTOR` recalibrated **0.92 → 0.95** at **all
+   NINE coordinates** (the declaration is the single home the eight uses read, so one edit
+   reaches all nine; ⟨`grep -n 'INERTIA_FACTOR' …`⟩ → **9**, ⟨`grep -c '0\.92'`⟩ → **2**, both
+   non-pins: this unit's own note quoting the retired value and the k-mapping sweep
+   `[0.8, 0.9, 0.92, 0.95]`). The **deep-source import** `../../../src/animation/physics/decay`
+   is repointed at `@mkbabb/keyframes.js` — the surface the SUBJECT (`useOrbitalInertia.ts:14`)
+   consumes, which is rule (d). ⟨`npx vitest run …orbital-inertia-parity.test.ts`⟩ → **6 passed**.
+4. **`font-roles.json`** — the two empty-set `filing-tab` rows DELETED (R-3), manifest **10 → 8**
+   roles. Emptiness verified statically: ⟨`git grep -n 'tab-trigger' -- demo/`⟩ returns the CSS
+   skin, two prose mentions and the manifest rows — **no template applies the class**. The skin
+   itself is KF.W6's.
+
+#### Act 4 — the two created fixtures (`.test.ts`, never `.spec.ts`)
+
+- **`test/demo/instrument/typing-dots-engine-seam.test.ts`** (R-5's ONE seam spec; the surface
+  `grep -rn TypingDots test/` → 0 covered). Four clauses on a REAL mount: substrate · **engine
+  paint** (the wait condition is EVERY dot painted — the stagger's own evidence; a seam that
+  never paints times out and REDs instead of passing on a lucky sleep) · no cascade collision ·
+  teardown. **4 passed.**
+- **`test/demo/instrument/aurora-opacity-ceiling.test.ts`** (KF-HA-4). The bound is read from an
+  **`export const`** authored in HeroAurora's own module-scope `<script>` block — §Bounds row L84's
+  named alternative, and the reason is written at the site: a `<script setup>` compile-local is
+  unreachable to every instrument, so a gate over one could only be a source-text pin. Clause (1)
+  asserts the literal is STRICTLY below the OWNER's P-HERO 0.15; clause (2) mounts the component
+  and asserts it hands **that exact value** to Aurora's `opacity-ceiling`. **2 passed.**
+
+#### Act 5 — the KF.W4 ∥ KF.W6 ATOMIC BUNDLE half (runbook §3.4)
+
+`scripts/observe/demo/usability.mjs` is **UNMODIFIED in the working tree** — ⟨`git status
+--porcelain -- scripts/observe/demo/usability.mjs`⟩ → **empty**, so no pathspec could capture it
+— and **no byte of it is committed by this wave**. The half is authored as
+`docs/tranches/X/execution/B/KF-W4-usability-bundle.patch` (265 L incl. its stated header),
+curing exactly two rows: **rule (e)** — (2c)'s oracle moves OFF the subject's own counter at
+`:239` and onto `DECLARED_HERO_TITLE`, read statically from `EditorStartScreen.vue`'s `title:`
+default, with the mirror count still REPORTED and (2b) gaining a new bite — and **KF-AT-24** —
+every live selector (`heroReady`'s poll, both tiers, (2d)'s ink probe) re-pointed at the shared
+`SELECTORS` contract. ⟨`git apply --check <the patch>` from keyframes.js⟩ → **CLEAN**;
+⟨`node --check` on the patched scratchpad copy⟩ → **OK**. **W6's first commit lands both halves.**
+
+#### Act 6 — gate readings, BEFORE → AFTER
+
+| gate | BEFORE (baseline) | AFTER (this unit) |
+|---|---|---|
+| **G-KFW4-7** | RED — `census.mjs` ABSENT, command unrunnable | **RED — WIRED, NOT GREEN · ROUTED.** The gate exists and bites: 13 false attributions at first run, **8** at the settled bytes. **Every one of the 8 is OUTSIDE this wave's writable set** — 4 cured in-bounds (2 by this unit at `resize-tracks.test.ts`, 3 by `.c`'s `30ccd4dc` at `backward.ts`, incl. both named born-RED witnesses `deltaEOK` + `sampleColorRamp`) |
+| **G-KFW4-8** | RED — `census.mjs` ABSENT; 33 lines / 19 names | **GREEN** — ⟨`node scripts/gates/census.mjs --clause citations`⟩ → PASS, 0 dead citations at 8 enumerated sites, carve DECLARED in the output and in the artefact, no residue family pulled in (double-run) |
+| **G-KFW4-9** | RED — the audit did not exist | **GREEN-WITH-BOOKED-RESIDUE.** Ten rows CURED, eight BOOKED WITH THEIR BOUND STATED, in `evidence/KF-W4/gate-audit.md`. The `test/` sweep's mechanical detector: ⟨`grep -rln 'readFileSync' test/ --include='*.ts'`⟩ → **6** files, of which 2 are this unit's cures (token now in PROSE only, no call site), 3 are allowed by subject (fixtures / the import-graph gate), and **1 survives out of bounds** (`physics/oscillator.test.ts`, booked) |
+| **G-KFW4-10** | RED — `register-census.mjs` ABSENT | **GREEN ON ITS STATIC CLAUSE · BROWSER HALF UNMEASURED, HONESTLY.** ⟨`node scripts/gates/register-census.mjs`⟩ → clause S PASS ×2; clauses 1–3 print *"browser half SKIPPED — playwright not resolvable … Clauses 1–3 are UNMEASURED at this run (they did not pass)"*. **Playwright is not installed in this substrate** (⟨`ls node_modules/playwright-core node_modules/playwright`⟩ → both absent), which is the harness's own declared condition, not a gate defect; `KF_REQUIRE_BROWSER=1` converts it to a hard failure and does |
+
+**Collateral at the settled bytes**: ⟨`npx vitest run --project demo`⟩ → **29 files / 160 tests
+passed** (27/155 at `.b`'s handover: +2 files, +6 new tests, −1 retired source-text clause) ·
+⟨`npx vitest run --project library`⟩ → **98 passed / 5 skipped, 1080 tests** ·
+⟨`npx eslint demo --ext .ts,.vue`⟩ → **10 problems / 5 files — byte-identical to `.b`'s F-8 set,
+ZERO of them in any file this unit touched** ⟨`… -f compact | grep -c '<my sixteen>'` → **0**⟩ ·
+⟨`npx depcruise --config .dependency-cruiser.cjs src demo`⟩ → **4 violations**, `.b`'s F-7 ring,
+unchanged · ⟨`git diff --check`⟩ → CLEAN · `prettier --check` over the touched surface: the four
+CREATED files are clean; the eight pre-existing files that warn **warn identically at `HEAD`**
+(verified against pristine `git show` copies with the repo's own config) — **zero new drift, no
+unrelated reformat spent**.
+
+#### Act 7 — findings, routed not smoothed
+
+- **F-9 · TREE (MAJOR, routed) — the value.js 4.0.0 provenance surface is stale in EIGHT places
+  no KF.W4 unit may write.** C1's residue, each verified against the installed package (none of
+  the names appears anywhere in `node_modules/@mkbabb/value.js/dist/`):
+  `backward.ts:296` `serializeScrollOptions` · `format/options.ts:10`/`:81`
+  `reverseAnimationShorthand` ×2 · `format/options.ts:148` `serializeStylesheetItem` ·
+  `constants/types.ts:9` `timingFunctions` · `computed-resolution.test.ts:23` `convertToPixels`
+  · `:50` `dvh` · `fixtures/compile/scroll-driven.css:6` `extractTimelineOptions`. Three are
+  MISATTRIBUTED (this repo's own exports credited to value.js) and five PHANTOM. `backward.ts`'s
+  survivor sits **outside `.c`'s `:30`/`:32`/`:47` carve**; `types.ts:9` sits outside `.e`'s
+  `:25`/`:27`/`:195` carve; the rest are in no unit's set. **ROUTED — §Sequencing trigger 1 (any
+  write outside §Bounds).**
+- **F-10 · TREE (INFO, routed) — `OrbitalDrag.vue`'s render dep is `rotate.x` alone.**
+  `containerStyle` registers `void model.value.rotate.x`, so a y-or-z-ONLY external write to the
+  Euler v-model re-seeds the quaternion (the `flush: 'pre'` watch fires) but **never invalidates
+  the computed**, and the container keeps rendering the stale orientation. Found by the mounted
+  rewrite: a `{x:0, y:95, z:0}` drive measured a **94.99999°** divergence. The forward path
+  writes all three components, so production does not hit it; an external y-only write does. The
+  file is in no unit's writable set — the spec: *"`OrbitalDrag.vue` is NOT opened by this wave."*
+  **ROUTED**, and stated at the fixture so the next seat does not rediscover it as flake.
+- **F-11 · SUBSTRATE (MAJOR, routed) — glass-ui's dist self-imports `@mkbabb/keyframes.js`,
+  which is unresolvable from inside `node_modules/@mkbabb/glass-ui`.** ⟨first mount attempt⟩ →
+  `Error: Cannot find package '@mkbabb/keyframes.js' imported from
+  node_modules/@mkbabb/glass-ui/dist/useSpring-BCHxLjwv.js`. Node self-reference resolves inside
+  THIS package, not inside a sibling's directory, and the demo vitest project externalizes deps
+  so the vite alias never reaches them. **Consequence, stated: no demo spec can mount a component
+  that transitively imports glass-ui's runtime** unless that seam is stubbed. Two specs stub the
+  vendor **at its own module seam** and nothing about their subject; the general cure is a
+  `vitest.config.ts` resolution change — **`.b`'s file, this wave's commit 2, already landed** —
+  or a producer row, and **producer rows ride SS-6/BH, never a demo-side hack**. ROUTED.
+- **F-12 · SPEC (INFO) — `EditorStartScreen.vue`'s three citation anchors drifted +4** between
+  the spec's `81a56990` measurement and this seat's bytes, caused by `.a`'s in-wave
+  `5388907b`. INTENT taken at the true bytes (`:138` `:163` `:184`), the cause named by command.
+  No spec byte edited (E-3); recorded here and at `citation-inventory.md §3`.
+- **Two DECLARED ROUTED RESIDUALS of this unit's own acts**, named rather than smoothed:
+  (i) `DESIGN.md:245-247`'s tail prose — *"All other enforcement is clause-shaped on surviving
+  gates"* — is FALSE now that R3–R7 name no gate; it carries **no `proof:` token**, so it is
+  outside C2's denominator, and §Bounds books the surrounding rationale as **KF.W6's**.
+  (ii) `font-roles.json:2`'s `_doc` still names `proof:font-census`; `font-roles.json` is **not**
+  one of the eight targets and `:2` is not one of the row's four named anchors. Both **→ KF.W6**.
+
+#### Act 8 — what was NOT done
+
+**No suppression of any kind**: no allowlist added anywhere, no `known-violations` file, no
+`test.skip`, no `|| true`, no severity downgrade, no `eslint-disable`, no try/catch around a
+defect, no `node_modules` patch, no copied producer selector. **No byte of
+`scripts/observe/demo/usability.mjs`** (the atomic bundle), none of `live-session.mjs` (read
+only), none of `live-session-mobile.mjs` (neither read nor written). No glass-ui byte. No
+`vitest.config.ts`, `package.json`, `ci.yml`, `tsconfig*.json` or `.dependency-cruiser.cjs` byte
+(`.a`/`.b`'s rows). No `src/**` byte (`.c`/`.e`'s rows). F-1's four untracked `src/` files not
+deleted, edited, `.gitignore`d, moved or gate-wrapped. `scripts/dev/dev.sh` never touched. No
+spec, registry or prior conformance artefact edited (E-3); every correction is an addendum
+beside. **No gate was weakened to pass** — C1 exits 1 on residue it may not lawfully cure, and
+the register census refuses to pass vacuously.
+
+#### Artefacts landed (value.js `docs/tranches/X/keyframes/waves/evidence/KF-W4/`, commit `578d2813`)
+
+`citation-inventory.md` (the enumerated-site artefact G-KFW4-8's command reads via `--sites`;
+verified in that form: ⟨`node scripts/gates/census.mjs --clause citations --sites <it>`⟩ →
+*"site roster: …citation-inventory.md (sha256 b50c70302e70)"*, PASS) · `gate-audit.md` (six rules
+× every gate; 10 cured / 8 booked) · `census-three-clauses-first-run.txt` — **a path DISTINCT
+from `.b`'s `census-first-run.txt`, per that unit's declared name collision**: one path, one
+writer, one content. Plus `docs/tranches/X/execution/B/KF-W4-usability-bundle.patch`.
+
+#### Handover
+
+`.e` opens on a tree where the demo lane is **29/160 green** and the three new gates run. **`.e`
+inherits one named obligation from F-9**: `constants/types.ts:9`'s `timingFunctions` attribution
+is a live C1 red sitting in `.e`'s file but **outside** its `:25`/`:27`/`:195` carve — it is
+routed, not silently handed over. **The push is the wave close seat's** (§0j.C KF-WRITE); this
+unit leaves `c5c0b889` local and unpushed by design.
