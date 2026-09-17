@@ -524,3 +524,206 @@ measurement pass with no diagnose→act→re-measure iteration. `W0.md` §3a was
 triggered. `scripts/dev/dev.sh` never touched and never staged (⟨cmd⟩ `git status --porcelain
 --untracked-files=no` at commit time showed it ` M` and **unstaged**, beside the staged `A` of this
 unit's one file).
+
+---
+
+### X.P.W0.b
+
+**SERVED MODEL: claude-opus-5[1m]** · Opus 5 implementation seat (M-23 §2) · 2026-09-17 ·
+`cwd = /Users/mkbabb/Programming/value.js`, darwin arm64.
+**Sections executed**: `W0.md` §5 `X.P.W0.b` (L221–239) · §6 **G-3** (L346–380) · §3.2 · §3.3 ·
+§3.6 · §4's do-not-touch list (L145–167) · §4a.
+**Rulings consumed**: `COHESION.md` §0j (pre-acts block) **gate 25** — *"`git worktree list` returns
+7, not 8 … X.P.W0 G-3 states the table at today's bytes"*; **gate 24** (the `~/Documents/Codex` wall
+gone) as it bears on rows 14–16; **E-3** throughout — no 08-03 line of `W0.md` was edited; every
+delta lands as a dated addendum beside.
+**Writable set honoured exactly**: three files created, zero writes outside it.
+
+#### Acts, in order
+
+**Act 1 — anchors verified at true bytes before any write.** ⟨cmd⟩ `ls -la
+docs/tranches/X/parse-that/` → `REFINEMENT-FOLD-2026-08-06.md` + `waves/` only; `evidence/` **did
+not exist** (created by this unit as the parent of its three files, which §4's table implies by
+naming `evidence/W0/…` as create). ⟨cmd⟩ `test -e …/parse-that-css-totality-p2` → **ABSENT** (the
+`.c` precondition still held at capture time). No anchor drift; no INTENT substitution needed.
+
+**Act 2 — ground truth measured (rev-parse + find ONLY; no `status` anywhere).** Existence and
+`.git` presence probed per root with `test -e`, never with a bare `rev-parse` (which walks UP the
+tree and would mis-attribute a non-repository root to a parent repo). ⟨cmd⟩ `test -e
+/Users/mkbabb/Programming/.git` → **NO**, so no such mis-attribution was possible in any case.
+
+**Act 3 — the shared-repository finding, at today's bytes.**
+
+```
+⟨cmd⟩ git --no-optional-locks -C /Users/mkbabb/Programming/parse-that worktree list | wc -l   →  7
+⟨cmd⟩ ls -1 /Users/mkbabb/Programming/parse-that/.git/worktrees | wc -l                      →  6
+⟨cmd⟩ ls -1 /Users/mkbabb/Programming/parse-that/.git/worktrees | grep -c 'm2-baseline'      →  0
+⟨cmd⟩ cat /Users/mkbabb/Programming/parse-that-css-totality/.git
+gitdir: /Users/mkbabb/Programming/parse-that/.git/worktrees/parse-that-css-totality
+⟨cmd⟩ cat /Users/mkbabb/Programming/parse-that-skv26/.git
+gitdir: /Users/mkbabb/Programming/parse-that/.git/worktrees/parse-that-skv26
+⟨cmd⟩ du -sh /Users/mkbabb/Programming/parse-that/.git                                       →  28M
+⟨cmd⟩ test -e /Users/mkbabb/Programming/parse-that/.git/gc.log                               →  NO-GC-LOG
+```
+
+**Seven entries, not the eight of 2026-08-03** — the `prunable` record for
+`/private/tmp/parse-that-m2-baseline-20260729` is gone. Recorded as a **dated addendum beside**
+`W0.md`'s eight (E-3), never as a rewrite. **The load-bearing consequence is unchanged**: rows 1–7
+are **seven roots on ONE object store** — row 1 the primary checkout owning `.git/objects`, rows 2–7
+six linked worktrees whose `.git` is a *file* pointing back into it (the two `cat` receipts above,
+taken at opposite ends of the list, are that proof). One `gc`/`repack`/`prune` reaches all seven;
+`refs/` is shared so any branch write is a write to all seven; **therefore the opening is a
+`git clone --no-hardlinks`, never a `git worktree add`** (G-5 falsifier i). The prohibition on
+`worktree prune` is now **stricter, not looser**: six registry records are all that remain to lose.
+By whose hand the eighth record went, and when, is **unknown** — recorded as a fact with two dates
+and no attribution rather than guessed.
+
+**Act 4 — `roots-census.sh` authored** (`docs/tranches/X/parse-that/evidence/W0/roots-census.sh`,
+130 lines, sha256 `56e3d6c404d62312cf81147a80cc399fb4c15f76cef783859952b429ac2f83fd`). Instrument:
+`git rev-parse --short HEAD` + `--abbrev-ref HEAD` (both `--no-optional-locks`) and
+`find … -type f -not -path '*/.git/*' -not -path '*node_modules*'`. **No `status`. No `gc`. No
+`prune`. No branch write. No timestamp.** No shebang and not marked executable — it is invoked as
+`sh <path>`, the form §7 checks and runs.
+
+**Act 5 — the sub-gate's four assertions, each measured.**
+
+```
+⟨cmd⟩ sh -n docs/tranches/X/parse-that/evidence/W0/roots-census.sh          → exit 0 (SYNTAX-OK)
+⟨cmd⟩ (cd <empty dir>; sh …/roots-census.sh >run1.txt 2>run1.err)           → exit 0 · stderr 0 bytes · cwd gained 0 entries
+⟨cmd⟩ (cd <empty dir>; sh …/roots-census.sh >run2.txt 2>run2.err)           → exit 0 · stderr 0 bytes · cwd gained 0 entries
+⟨cmd⟩ diff run1.txt run2.txt                                                → (empty), exit 0
+⟨cmd⟩ shasum -a 256 run1.txt run2.txt                                       → 7f0c5b13…19d7 for BOTH
+```
+
+The second run **is** the test (§7), and it passed byte-for-byte.
+
+**Act 6 — `census-before.txt` captured, BEFORE `.c` dispatched** (§3.6 — the group-1 → group-2
+edge), by the documented redirection, unedited:
+
+```
+⟨cmd⟩ sh docs/tranches/X/parse-that/evidence/W0/roots-census.sh > docs/tranches/X/parse-that/evidence/W0/census-before.txt   → exit 0
+⟨cmd⟩ shasum -a 256 …/census-before.txt   → 7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7
+⟨cmd⟩ wc -l -c …/census-before.txt        → 25 lines · 3242 bytes
+⟨cmd⟩ diff …/census-before.txt run1.txt   → (empty) — the capture is the script's verbatim stdout
+```
+
+**The instrument-cleanliness probe** — the direct evidence that taking the reading wrote nothing
+into the shared repository:
+
+```
+⟨cmd⟩ stat -f '%m %Sm %N' …/parse-that/.git/index                            (before the capture run)
+1784558162 Jul 20 10:36:02 2026 /Users/mkbabb/Programming/parse-that/.git/index
+1785346523 Jul 29 13:35:23 2026 /Users/mkbabb/Programming/parse-that/.git/worktrees/parse-that-skv26/index
+⟨cmd⟩ stat -f '%m %Sm %N' …/parse-that/.git/index                            (after  the capture run)
+1784558162 Jul 20 10:36:02 2026 /Users/mkbabb/Programming/parse-that/.git/index
+1785346523 Jul 29 13:35:23 2026 /Users/mkbabb/Programming/parse-that/.git/worktrees/parse-that-skv26/index
+```
+
+**Both index mtimes UNCHANGED.** This is why the census omits `git status` despite §5's field list
+naming "porcelain status": **`status` writes** — it refreshes the index stat-cache — and it would do
+so *inside* the interval G-3 measures. The dirty-state facts are preserved without the write:
+`W0.md` §4 names `parse-that`'s modified paths, the wave record's G-5 pre-capture carries
+`status --porcelain | wc -l` → **31** as a one-shot reading taken **outside** the census interval,
+and ⟨cmd⟩ `test -e` (a plain filesystem read) confirms row 2's two untracked provenance files are
+still on disk — `…/parse-that-css-totality/data` and
+`…/docs/tranches/B/PARSER-RESURRECTION-HANDOFF-2026-07-31.md` (provenance finding **F-6**). The
+omission is documented in the census file's §4 so no later reader files it as a defect.
+
+**Act 7 — the eighteen enumerated, every cell cross-checked against the wave-open baseline.** The
+capture's 18 data rows are **identical in every cell** to this record's own §G-3 baseline census.
+Self-count from the settled bytes: the script's own row counter emits `ROOTS ENUMERATED: 18`, the
+block holds 18 data rows by independent count, and §3.2's arithmetic `8+3+2+3+1+1 = 18` agrees.
+
+Dated addenda beside the 08-03 baseline (E-3): row **8** ABSENT *and* its registry record gone;
+rows **10/11** were `(enumerate at open)`, now **2988** / **1100** files; rows **14/16** were EPERM,
+now readable (2 / 8 files) under §0j gate 24 — **a read grant, never a write licence**; row **15**
+was EPERM, now **verified ABSENT by a reader with listable-parent access, 2026-09-17**, which is the
+first date handoff §9's *"a present v12 target"* STOP is detectable at all — **it does not fire**;
+rows **12/13** file counts filled (3846 / 3979). Rows **1–7, 9, 17, 18** unchanged. G-2's reverse
+clause honoured: the 08-03 EPERM rows stay EPERM in the record, beside today's readings.
+`.p-totality` unchanged to the byte ⟨cmd⟩ `ls -1A` → **6 entries**; ⟨cmd⟩ `stat -f '%z'
+…/evidence-archive-2026-08-03.tar.zst` → **323894591**, exactly the baseline figure.
+
+**Act 8 — §4 do-not-touch coverage proved, not asserted.** Bullets 1–6 map onto rows 1+8 · 2–7 ·
+9–11 · 14–16 · 12–13 · 17; ⟨cmd⟩ `ls -1 /Users/mkbabb/.codex/worktrees` → `7e28` `9167` `d0be`,
+**exactly three**, so bullet 3 has no fourth path. **Bullet 7 is not a root class** — `src/**`,
+`demo/**`, `api/**`, `test/**`, `e2e/**`, `scripts/dev/dev.sh` and `docs/tranches/X/waves/W*.md` are
+in-repository paths of the lane's *working* checkout; enumerating them would make the census claim to
+freeze the tree the wave commits into. They are bound by gate 27 / W4 G-2 instead ⟨cmd⟩
+`git --no-optional-locks status --porcelain -- src api demo test e2e` → **0**. **18 required, 18
+present, 0 extra.**
+
+**Act 9 — committed** (one commit, one meaning, pathspec only).
+
+#### Commit
+
+`b69611a8d0238e61f1a8e341c365ab306d369c2e` — `docs(x-p-w0/census): the eighteen preserved roots, the
+shared-repository finding, and the never-touch law` (commit 2 of §9, verbatim). Body states that the
+frozen roots share one object store, as §9 requires.
+
+```
+⟨cmd⟩ git show --stat --format='' HEAD
+ .../evidence/W0/FROZEN-ROOTS-CENSUS-2026-09-17.md  | 367 +++++++++++++++++++++
+ .../X/parse-that/evidence/W0/census-before.txt     |  25 ++
+ .../X/parse-that/evidence/W0/roots-census.sh       | 130 ++++++++
+ 3 files changed, 522 insertions(+)
+⟨cmd⟩ git diff --cached --check                     → clean, exit 0
+⟨cmd⟩ git diff --cached --name-only | wc -l         → 3  (exactly the writable set)
+⟨cmd⟩ git diff HEAD --stat -- …/evidence/W0/ | wc -l → 0  (committed blobs == settled bytes)
+⟨cmd⟩ git status --porcelain -- scripts/dev/dev.sh  →  M scripts/dev/dev.sh  (untouched, UNSTAGED)
+```
+
+Settled-byte digests, re-read **after** the commit (write-then-measure, double-run):
+
+```
+7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7  …/evidence/W0/census-before.txt
+56e3d6c404d62312cf81147a80cc399fb4c15f76cef783859952b429ac2f83fd  …/evidence/W0/roots-census.sh
+5821b5e1e0441c604d2bfef630dcda2cc334051f4b678711f9cb40b4a2002794  …/evidence/W0/FROZEN-ROOTS-CENSUS-2026-09-17.md
+```
+
+Receipts law, ⟨cmd⟩ `head -1` of each created file: `SERVED MODEL: claude-opus-5[1m]` (the `.md`),
+`# SERVED MODEL: claude-opus-5[1m]` (the `.sh` — in the file's own comment syntax, because a bare
+line would execute as a command and emit `command not found` on stderr, breaking the sub-gate's
+"exits 0, writes no byte outside its own stdout"; the reason is written into the script's header),
+and `SERVED MODEL: claude-opus-5[1m] -- authoring seat of roots-census.sh; …` (the `.txt`, emitted by
+the script itself).
+
+#### Gate reading — G-3 (before-half)
+
+| | reading |
+|---|---|
+| **BEFORE** (wave-open §G-3) | **RED-AS-EXPECTED** — *"`roots-census.sh` does not exist and 0 of 18 are enumerated in any tracked file."* |
+| **AFTER** (this unit) | **GREEN — before-half.** Script exists · `sh -n` clean · exits 0 · writes no byte outside stdout · two runs byte-identical · **18 of 18** roots enumerated **with identities** in a tracked file · `census-before.txt` captured **before `.c` dispatched** · output names every §4 do-not-touch path, 0 omissions, 0 additions |
+| **NOT asserted** | G-3's **after-half** (`diff census-before.txt census-after.txt` empty) is unit `.d`'s at close. This unit asserts nothing about it, and asserts nothing about any root *remaining* unchanged — that is what the after-half measures, and promising it would be prose again |
+
+**Gates turned GREEN by this unit: G-3 (before-half). RED remaining in this unit's scope: none.**
+
+#### Instruction handed forward to unit `.d` (load-bearing)
+
+Capture `census-after.txt` by **exactly** `sh docs/tranches/X/parse-that/evidence/W0/roots-census.sh
+> docs/tranches/X/parse-that/evidence/W0/census-after.txt`, **unedited** — do **not** prepend a
+`SERVED MODEL` line by hand and do **not** remove the one the script prints. The script emits its own
+provenance line precisely so the two captures stay byte-comparable; `.d`'s own seat receipt belongs in
+this record, which is not a diffed artifact. Then `diff census-before.txt census-after.txt` (G-3).
+
+#### Residuals recorded, not resolved
+
+1. **Who removed the m2-baseline worktree record, and when, is unknown.** Present 2026-08-03, absent
+   2026-09-17; no X·P seat removed it — the lane had taken no act before this wave. Recorded with two
+   dates and **no attribution**.
+2. **Prettier was run as a CHECK, not applied** (§7 cadence). ⟨cmd⟩ `npx prettier --check
+   'docs/tranches/X/**/*.md'` → **255 files fail**, including the **immutable spec `W0.md`** and this
+   wave record; ⟨cmd⟩ a 20-file sample → **1 of 20 pass**. Applying it to this unit's files alone
+   would rewrite `*emphasis*` → `_emphasis_` and balloon every table against the style of 255 sibling
+   documents. `git diff --check` — the hard requirement — is **clean**. Flagged for the close report
+   to rule on; not resolved unilaterally.
+3. **A `gc`/`repack` inside the shared object store is invisible to this instrument**, because the
+   file-count column excludes `.git` by construction. Disclosed in the census file §3c; it is caught
+   by **G-5** checks (ii) inode intersection and (iii) `du -sh parse-that/.git` against the **28M**
+   recorded here — unit `.c`'s, and the two instruments are complementary by design.
+
+#### Escalations
+
+**None.** Zero writes outside the writable set · zero `status`/`gc`/`prune`/`stash`/branch-write
+against any root · zero §9 STOP conditions fired · zero diagnose→act→re-measure iterations (`W0.md`
+§3a evaluated and not triggered) · `scripts/dev/dev.sh` never touched and never staged.
