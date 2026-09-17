@@ -1376,3 +1376,170 @@ takes **142** from ledger §3.6.
 **Escalations**: **none.** No §7a trigger fired. The declared bounds question again did not become
 one — **zero manifest bytes were needed or written**, so the *"ESCALATE rather than expand bounds"*
 branch never opened at this seat either.
+
+---
+
+### F.W0.d
+
+**SERVED MODEL: claude-opus-5[1m]** · manifest gate AUTHORING · **gate G-6** · 2026-09-17 ·
+repos `/Users/mkbabb/Programming/fourier-analysis` (branch `m/w1-bump-migration`) and
+`/Users/mkbabb/Programming/value.js` (branch `tranche-u`).
+
+**Sections executed**: §4 **G-6 whole**, incl. the **R-4a** re-cut and **both** GREEN halves · **§6a
+lock 5** · §3 rows **8** · **9** · **10** · **11** · **12** · **14** · **34** · **35** · **§7**'s
+`F.W0.d` unit row · **§7b** verification artefacts · **§8**'s DECLARE+LOCK exclusion + the
+`cva`/`clsx`/`reka-ui` row · `COHESION.md` §0j.D (`OG-F1`, consumed as G-1's branch stamp).
+
+#### Acts, in order
+
+**Act 1 — the branch stamp taken from the ruling and the tree, never presumed.** §6a lock 5 conditions
+the whole gate on G-1's ruled branch. G-1 ruled **LAND** (§0j.D `OG-F1` = FREEZE-WITH-ADOPTION **and**
+WORKTREE-AS-BASELINE; unit *a*'s LAND set at `1193003`). Verified at the bytes: ⟨cmd⟩ `git rev-parse
+--short HEAD` → **`edee6bf`** · `git status --porcelain | wc -l` → **0** · `git diff --stat 1193003
+HEAD -- web/package.json web/package-lock.json` → **empty**, so **the manifest measured here is the
+manifest G-1 landed**. The ABANDON counterfactual was read **once** and recorded as a counterfactual
+only: ⟨cmd⟩ `git show cd26c65:web/package.json | /usr/bin/grep -E 'glass-ui|keyframes\.js|value\.js'`
+→ `^3.1.0` / `^2.2.0` / `^0.10.0`. **The ABANDON arm did not fire; no F.W0 exit criterion moved.**
+
+**Act 2 — the four born-RED facts measured, double-run.** A single measurement script was written to
+the scratchpad and **run twice**; the two runs returned **byte-identical** output, and every figure
+below is from the settled bytes (WRITE-THEN-MEASURE).
+
+| fact | reading |
+|---|---|
+| **1 · the two blocks** | `dependencies` **11** · `devDependencies` **15**. **The fold witness's NAME SETS reproduce EXACT** — same membership, no addition, no omission; only the versions moved, which is the LAND branch's own content |
+| **2 · three in NEITHER block** | `vaul-vue` · `@lucide/vue` · `embla-carousel-vue` → membership probe `false` in both blocks for all three |
+| **3 · the lock** | **0** `node_modules/vaul-vue` · **0** `node_modules/@lucide/vue` · **0** `node_modules/embla-carousel-vue` entries; all five runtime devDeps present with **`"dev": true`** (`cva` 0.7.1 · `clsx` 2.1.1 · `lucide-vue-next` 1.0.0 · `reka-ui` 2.9.10 · `tailwind-merge` 3.6.0). Cross-checked in the spec's own grep idiom: `/usr/bin/grep -c '"node_modules/vaul-vue"' package-lock.json` → **0** |
+| **4 · ⇒ `npm ci --omit=dev` fails TODAY** | derived from fact 3 + the reachability chain, **not** from a transcript — **the run is F.W1's** (§7b, verbatim) |
+
+**Act 3 — the button-chunk → `cn` → clsx chain read AT THE BYTES rather than asserted.** ⟨cmd⟩
+`/usr/bin/head -c 400 dist/button-BNDWhAZb.js` → `import { t as e } from "./cn-DJXf4yaB.js";` …
+`import { Primitive as l } from "reka-ui";` … `import { cva as u } from "class-variance-authority";`;
+⟨cmd⟩ `/usr/bin/head -c 300 dist/cn-DJXf4yaB.js` → `import { clsx as e } from "clsx";`. **The chain
+§8 names as the reason deletion is FORBIDDEN is now a quotation, not a claim.**
+
+**Act 4 — `tailwind-merge`'s deadness proved on both denominators.** ⟨cmd⟩ `/usr/bin/grep -rn
+'tailwind-merge\|twMerge' . --exclude-dir=node_modules --exclude-dir=dist --exclude=package-lock.json`
+→ **one hit, its own `package.json` declaration**; inside the producer, its only mentions are **doc
+comments** (`dist/utils/cn.d.ts`'s *"We replace twMerge with a hand-rolled deduplicator"* rationale ·
+`README.md` · two CSS comment sites) with **0** `dist/*.js` importers. **Doc-comment-only, exactly as
+row 10 and §8 state.**
+
+**Act 5 — the gate written into `SUBSTRATE-LEDGER.md` §4** (append-only; E-3 verified by diff: bytes
+1..1601 **byte-identical** to the pre-write copy). §4.1 carries the gate text; §4.1.1 the four
+branch-stamped facts; §4.1.2 the **six-limb prescribed transaction** T-1…T-6; §4.1.3 the OR-arm
+measurement; §4.1.4 the errata discharge; §4.1.5 embla's exclusion; §4.2 a dated addendum-beside;
+§4.3 the gate reading and routing.
+
+**Act 6 — the `lane-frontend.md` DATED ERRATA ADDENDUM** (`LF10-1`…`LF10-6`), appended beside unit
+*e*'s `LF9-*` addendum of the same day; E-3 verified by diff: lines **1..840 byte-identical**.
+**`web/DESIGN.md` was not written** — it is not a §2a row, and the §8 bounds note's ESCALATE branch
+**did not open**, because the correction is complete in the two documents this wave may lawfully
+write (see the escalation note below).
+
+#### The finding this unit produced — T-3's OR-arm does not close today
+
+Row 9 offers two cures for `vaul-vue`; **this seat elected neither and measured which exists.**
+
+- **7 root-barrel edges**, counted **quote-agnostically** — ⟨cmd⟩ `/usr/bin/grep -rnE "from
+  ['\"]@mkbabb/glass-ui['\"]" src` → 7 occurrences / 7 files. *(The quote spelling is load-bearing: a
+  double-quote-only probe returns **6** and drops `CollapsibleSection.vue`, which is one of the two
+  files row 9 names.)*
+- **5 retire cleanly**: `useClipboard` ×3 → **`./dom`** · `Collapsible*` → **`./collapsible`** ·
+  `supportsViewTransitions` → **`./motion-core`**; **none of those three subpaths pulls `vaul-vue`**.
+- **2 cannot**: `Checkbox` at `AdminUserList.vue:4` and `GalleryCard.vue:5`. `Checkbox` is exported
+  from the **root barrel** in runtime and types (`dist/index.d.ts:7` = `export * from
+  "./components/ui/checkbox";`) and **from no subpath** — a scan of **all 75 `.js` targets among the
+  80 export keys** finds it in none, and **`./checkbox` is not an export key**.
+- **`dist/glass-ui.js` is the ONLY entry in the package importing `vaul-vue`** (⟨cmd⟩ `grep -n
+  'vaul-vue' dist/glass-ui.js` → `60:`; transitive closure over every export target finds it in
+  exactly one entry, the root `.`; **0** of the app's 20 live subpaths reach it).
+
+**⇒ Any surviving root-barrel edge keeps the static `vaul-vue` import in the graph, so the
+barrel→subpath retirement CANNOT discharge T-3 at glass-ui 4.0.0 as installed. Declare + lock is the
+only arm that closes on the consumer side today.** The arm completes if the producer publishes a
+`./checkbox` subpath — **a producer-side ask recorded for the relay, NOT sent by this seat** (G-3
+gates the sends; unit *b* holds the mail seat) and **never a frontend hack** (FR-COB-8 S-4).
+
+#### Dated addendum-beside — one inherited enumeration that does not reproduce
+
+Row 8's clause, repeated at ledger §2.3.3 — *"`createLucideIcon` is reached from
+dock/select/configurator/dropdown-menu/collapsible/tabs"* — **re-measured by transitive closure at the
+adopted pin, double-run**: `dock` · `select` · `configurator` · `dropdown-menu` · `tabs` **reach it**;
+**`collapsible` does NOT**; `dialog` and `toast`, unnamed in the clause, **do**. The app's live
+reaching set is **seven**: `configurator` · `dialog` · `dock` · `dropdown-menu` · `select` · `tabs` ·
+`toast`. **Gate impact NONE and the conclusion is strictly stronger** — row 8 needs only that *some*
+app-imported subpath reaches a chunk whose package has 0 lock entries, and seven do. **Neither row 8
+nor §2.3.3 is patched** (E-1/E-3); the correction lands beside both, and `collapsible` may not be
+quoted downstream as a 4.0.0 reach-site.
+
+#### One self-caught defect, disclosed rather than quietly fixed
+
+A first literal-grep probe of `dist/index.d.ts` for `Checkbox` returned **nothing**, which would have
+published *"`Checkbox` is not exported from the root barrel's types"* — **false**. The cause is a
+**star re-export** (`export * from "./components/ui/checkbox";`), which a literal grep cannot see. It
+was caught **before any byte was written**, the claim was narrowed to what the bytes support
+(*no subpath exports it*), and the episode is recorded at ledger §4.1.3 and here. **A seat's own
+probes are the least-audited instruments it owns.**
+
+#### Commits
+
+| # | repo | hash | message |
+|---|---|---|---|
+| 1 | fourier-analysis | **`87ecc85`** | `docs(F.W0): manifest gate authored + born-RED measurements (landing is F.W1's)` |
+| 2 | value.js | **`d50f818c`** | `docs(X·F): lane-frontend G-6 errata addendum — the prescribed manifest transaction (F.W0.d)` |
+
+Two commits because they are **two repositories**, not two meanings; the doc half and the authoring
+half are one act and are cross-cited at both ends. **No declared family was split** — the only
+must-not-split family in this wave is G-10's, at unit *f*. Both staged by **explicit pathspec**.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (open) | AFTER (this unit's close) |
+|---|---|---|
+| **G-6** | **RED-AS-EXPECTED** — *"No gate text exists (`SUBSTRATE-LEDGER.md` absent)"*; the four facts unmeasured at this wave and unstamped by any branch | **GREEN (F.W0's half).** Gate text exists (ledger §4.1); four born-RED facts **measured, dated 2026-09-17, double-run, stamped `BRANCH = LAND`**; the prescribed transaction named in full (T-1…T-6); the dead-devDeps errata discharged in this wave's act and cited at its home with G-6's own half added beside; `embla` excluded with its reason. **Zero manifest bytes written.** |
+
+**The split, stated so no reader mistakes it**: G-6 publishes **two** GREEN halves and this seat turns
+**one**. **F.W1's half** — the transaction landed, `npm ci --omit=dev` exiting 0, the entry graph
+evaluating — **is neither green nor red at F.W0 and this unit claims no credit for it** (the FR-GIG-5
+bar). The `npm ci --omit=dev` run **could not have halted this wave** (§7a), and the branch-conditioned
+measurement set was produced on its **first** pass — none of §7a's three diagnostic-loop triggers fired.
+
+#### Residuals and routing — nothing dropped
+
+| item | routed to |
+|---|---|
+| The DECLARE+LOCK landing (T-1…T-5) | **F.W1** — limbs of F-W1 §4 Sequencing intra-wave step 4, `FR-EQC-7`'s vaul-vue gate INSIDE it (cross-edge 1) |
+| T-3's election (declare+lock **vs** barrel→subpath retirement) | **F.W1** — the arms are measured, the election is not made here |
+| The missing `./checkbox` subpath | **glass-ui BH relay**, producer-side — **recorded, not sent** by this seat |
+| The `@lucide/vue` rename (35 sites) | **F.W1** (§8, current debt riding the uplift) |
+| `embla-carousel-vue`'s declaration | **F.W3 `.d`** with the carousel adoption (`F-W3.md` §X.1-v4, cited not re-derived) |
+| Rows 34/35 as import hygiene | **F.W1**; row 35's bundle-weight arm is **dead in the registry's own record** and must not be re-argued |
+| `web/DESIGN.md:33`'s own byte | **not this wave's** — not a §2a row; the correction lives in the ledger and the addendum |
+
+#### Law compliance
+
+**No `package.json` / `package-lock.json` byte written** (§2b, categorical — the whole shape of the
+R-4a re-cut) · **no byte under `web/src/`** · **no `registry/adjudicated/` or intake-adjudication byte**
+(E-1) · **no `web/DESIGN.md` byte** · **every write append-only, both verified by diff against a
+pre-write copy** (E-3: ledger 1..1601 and lane-frontend 1..840 byte-identical) · **no `git stash`, no
+`reset --hard`, no `checkout --`, no force-push, no `git add -A`** · **pathspec commits only**;
+`value.js/scripts/dev/dev.sh` **never touched and never staged** — it remains ` M` and unstaged
+(§6a lock 9) · `../glass-ui` **READ-ONLY**: read for peer classes and import graphs, written never ·
+**no new carry authored** (§6a lock 11) · **no census derived or re-cut** — the canonical was neither
+read as a roster nor sampled · **`execution/LEDGER.md` untouched** (not in this unit's writable set;
+the F.W0 row is the wave seat's).
+
+**E13 mail, checked at this seat**: a delta sweep of the four paths since the wave open returns one
+2026-09-17 item — `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, an **outbound retained copy**
+written by **X.KF.W1.b** (another track), already rowed in `INBOX.md`. **No unread mail in this
+unit's scope; nothing owed back.**
+
+**Escalations: none.** The one bounds question this unit carried — *"if a `DESIGN.md` byte is
+genuinely owed, **ESCALATE** rather than write outside §2a"* — **was answered by measurement rather
+than by judgement**: the `lane-frontend.md:70` / `web/DESIGN.md:33` contradiction is fully corrected by
+the ledger plus the `lane-frontend` addendum (unit *e*'s `LF9-2` fixing the stale `:32` coordinate at
+all three inheriting sites, this unit's `LF10-*` binding the manifest consequence), so **no
+`DESIGN.md` byte is owed** and the escalation branch never opened.
+
+---
