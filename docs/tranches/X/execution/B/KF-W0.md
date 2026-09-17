@@ -843,3 +843,232 @@ them that this unit re-derived reproduced exactly.
    (this unit wrote **zero** bytes there); no producer-repo write; no blanket per-repo re-anchor (the
    record's dispositions are per-file, C-21); no manifest mismatch surfaced at this unit's readings;
    no second diagnostic iteration on either gate — both turned on their first run.
+
+---
+
+### KF.W0.b
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Substrate**:
+`/Users/mkbabb/Programming/keyframes.js` at `master` == `origin/master` == `81a56990` (**settled** by
+OP-1), producer `/Users/mkbabb/Programming/glass-ui` at HEAD `887a0db9` **read/hash only** ·
+**Charge**: spec §Agent Units `:671` · §Gates **G-0.2** `:510-524` + **G-0.5** `:574-587` · §Scope 2
+`:306` · §Carry **C-1** `:361` · **C-3** `:363` · **C-16** `:376` · §LAW-A CENSUSES **Census 2**
+`:134-152` · §Sequencing, the glass-ui **OUTBOUND HOLD + FYI** row `:688` · §Bounds, the `INBOX.md`
+row `:344`. Ran after OP-1, concurrent with `.c` (disjoint paths — no shared `modify` path;
+`INBOX.md` is `.b`'s alone, once, at close).
+
+*Ordering note, declared rather than corrected*: this receipt sits **below** `### KF.W0.c` because
+`.c` finished first and this record is **append-only** — *"nothing above this line is rewritten, per
+E-3."* Re-ordering the two blocks would be a rewrite of a sibling's dated evidence, so the file keeps
+**write order**, not unit order, and says so here. `.b ∥ .c` were concurrent by design (spec
+§Sequencing `:681`), so no order between them is load-bearing.
+
+**Writable set honoured exactly** — four paths, no fifth: `X/keyframes/W0/MANIFEST-RULING.md` ·
+`V/coordination/INBOX.md` · `X/keyframes/artefacts/W0/manifest-four-coordinates.txt` ·
+`.../headerribbon-tripwire.txt` (plus this receipt, by instruction). **No product byte moved by this
+unit**, in either repository: keyframes.js re-verified at close against OP-1's own close reading —
+⟨`git status --short \| wc -l`⟩ → **6**, all untracked, **0 tracked**; ⟨`git diff --name-only
+origin/master \| wc -l`⟩ → **0**; ⟨`git rev-parse HEAD`⟩ → `81a56990…`; ⟨`git diff --check`⟩ → clean;
+⟨`git status --short -- package.json package-lock.json .npmrc`⟩ → **empty**.
+
+#### Act 1 — G-0.2's four coordinates, re-measured on the settled tree (double-run)
+
+Both runs agreed on every byte. Full paste banked at
+`docs/tranches/X/keyframes/artefacts/W0/manifest-four-coordinates.txt`.
+
+```
+⟨git show HEAD:package.json          | grep -n glass-ui⟩ → 77:        "@mkbabb/glass-ui": "7.0.0",
+⟨git show origin/master:package.json | grep -n glass-ui⟩ → 77:        "@mkbabb/glass-ui": "7.0.0",
+⟨grep -n glass-ui package.json⟩                          → 77:        "@mkbabb/glass-ui": "7.0.0",
+⟨node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"⟩ → 7.0.0
+⟨grep -c glass-ui package-lock.json⟩ → 3   ⟨HEAD⟩ → 3   ⟨origin/master⟩ → 3
+⟨grep -n glass-ui package-lock.json⟩ → :19 (root devDeps mirror) · :612 (installed node) · :614 (resolved)
+⟨sed -n '613,617p' package-lock.json⟩ → "version": "7.0.0" · resolved · "integrity": "sha512-iK2DaPNb…" ·
+                                        "dev": true · "license": "MIT"
+```
+
+**One reading this seat added, because a grep proves the string and never the section — and the RED
+baseline's defect was a SECTION as much as a version** (HEAD's `:71` sat under `optionalDependencies`):
+
+```
+⟨node -e "const p=require('./package.json'); …"⟩
+    devDependencies['@mkbabb/glass-ui'] = "7.0.0"      ← EXACT (no ^, no ~, no range)
+    dependencies / optionalDependencies / peerDependencies → undefined
+⟨grep -c optionalDependencies package.json⟩ → 0        ← the whole SECTION is gone at the frontier
+```
+
+Consequence, booked as nothing and stated so it is not re-filed: the `npm ci --omit=optional` failure
+**shape** (kf-CubeAxisLines β-miss-1) is killed **by substrate**, not by version. §Excluded carries it
+as narrative; this receipt leaves it there.
+
+| coordinate | BEFORE (spec RED baseline; reproduced by seat 0) | AFTER (this seat) |
+|---|---|---|
+| `HEAD` | `:71 "6.0.0"` under **optionalDependencies** | `:77 "7.0.0"` devDependencies, EXACT |
+| `origin/master` | `:77 "7.0.0"` devDependencies, EXACT | `:77 "7.0.0"` devDependencies, EXACT |
+| worktree | **row DELETED** from `package.json` *and* lock | `:77 "7.0.0"` devDependencies, EXACT |
+| installed | `7.0.0` | `7.0.0` |
+| | four coordinates · **THREE states** | four coordinates · **ONE state** |
+
+#### Act 2 — RULING 1: the worktree deletion (the spec's first named ruling)
+
+**DISCARDED AND SUPERSEDED — preserved by commit on a DISQUALIFIED ref, never re-raised.** Landed at
+`MANIFEST-RULING.md` §2 with three measured limbs. The limb the wave turns on:
+
+```
+⟨git rev-parse kf-sacred-snapshot-2026-09-17⟩                      → 6d280ee7bec7793846b2e2e1d250e1ea0a21859a
+⟨git show kf-sacred-snapshot-2026-09-17:package.json      | grep -c glass-ui⟩            → 0
+⟨git show kf-sacred-snapshot-2026-09-17:package-lock.json | grep -c glass-ui⟩            → 0
+⟨git show kf-sacred-snapshot-2026-09-17:package.json      | grep -c optionalDependencies⟩ → 0
+⟨git diff --stat 8281638c kf-sacred-snapshot-2026-09-17 -- package.json package-lock.json⟩
+      → 2 files changed, 9 insertions(+), 81 deletions(-)
+```
+
+**The falsifier is read at its own words and is NOT tripped, and the distinction is stated rather than
+assumed.** G-0.2's falsifier convicts *"committing the worktree deletion **as-is**"*. OP-1 **did**
+commit it — to `kf-sacred-snapshot-2026-09-17`, a **preservation ref**, never to `master`. A naive
+reading convicts that act; it does not hold, because **the manifest coordinate is the execution
+substrate** (COHESION §0j.C **KF-WRITE**: `master` == `origin/master`), and `8281638c` plus every ref
+descending from it is **DISQUALIFIED as a manifest coordinate**. *Committed to a disqualified
+preservation ref* and *committed as-is to the substrate* are different acts; only the second revives
+census F-1, and only the first happened. The ruling makes the snapshot ref **citable only as
+provenance** — which is what keeps the act reversible without re-opening F-1.
+
+#### Act 3 — RULING 2: `legacy-peer-deps=true` vs the two genuinely-absent peers
+
+The spec's own words: *"either is a ruling; silence is not."* This seat refused to pick a side by
+reading and **measured the predicate instead**.
+
+```
+installed 7.0.0 peer map, each entry resolved in-tree (10 peers; counting rule at the table):
+    REQUIRED  @lucide/vue 1.17.0 ✔ · reka-ui 2.9.9 ✔ · tailwindcss 4.3.0 ✔ · vue 3.5.35 ✔   (4 of 4 SATISFIED)
+    optional  @mkbabb/pencil-boil  → ABSENT      ← C-16's first "genuinely absent" peer
+    optional  embla-carousel-vue   → ABSENT      ← C-16's second
+    optional  @mkbabb/keyframes.js → ABSENT (self-peer) · @mkbabb/value.js 4.0.0 · @vueuse/core 14.3.0 · tw-animate-css 1.4.0
+THE PROBE (dry run; writes nothing) — BOTH arms, because a lock built under legacy mode could encode
+a tree strict mode rejects, and checking only the lock-faithful arm leaves exactly that hole:
+    ⟨npm ci      --dry-run --no-legacy-peer-deps --ignore-scripts⟩ → exit 0, exit 0
+    ⟨npm install --dry-run --no-legacy-peer-deps --ignore-scripts⟩ → exit 0, exit 0
+    ⟨grep -ci 'ERESOLVE|could not resolve|conflicting peer' <all four runs>⟩ → 0 everywhere
+CONTROL ⟨npm ci --dry-run --ignore-scripts⟩ (the flag ON, tree default) → exit 0; diff vs the strict
+    run, timings elided → IDENTICAL.  The flag changes NOTHING at this coordinate.
+⟨git status --short -- package.json package-lock.json .npmrc⟩ → empty   ← the probes wrote nothing
+```
+
+**RULING**: **C-16's premise is FALSIFIED at the bytes** — an optional peer is never demanded, so the
+flag masks nothing; the absence is **DECLARED**; the flag is **RULED INERT and RETIRABLE**; and the
+**retirement ACT is routed NO-WAVE-OWNER** because **`.npmrc` is named by no §Bounds row of this
+wave** — deleting the line here would be the file-bound expansion the §Triumvirate Dispatch calls
+wave-invalidating, and a ruling that invalidates its own wave is not a cure. The routed act carries
+its exact form, its precondition (**re-run both arms at the coordinate of the act** — inertness is a
+property of the *installed* peer map) and its falsifier (any nonzero exit or `ERESOLVE` means the flag
+*is* load-bearing and the deletion is refused, not worked around). **Its expiry is §4's HOLD**: both
+depend on the installed producer not advancing, so whoever lifts one re-measures the other.
+
+#### Act 4 — G-0.5: the tripwire DECLARED, and the HOLD carried into the ruling
+
+Banked at `artefacts/W0/headerribbon-tripwire.txt`. **LAW A Census 2, executed on the settled tree** —
+the gate's own rule is that a GREEN re-derived from anything but the import graph is RED:
+
+```
+(1) SPECIFIER ⟨git grep -nF 'glass-ui/header-ribbon' origin/master -- .⟩
+        → EditorShell.vue:116  ← the ONE live import
+        → docs/tranches/H/audit/a-glass-ui-consumption.md:48 · docs/tranches/V/audit/R1-15-cross-repo.md:54
+          (docs PROSE — non-import context, recorded, NEVER counted)
+      ⟨git grep -n 'header-ribbon' origin/master -- src/ demo/ test/ scripts/⟩ → 1 hit, the same :116
+      ⟨grep -rnF 'glass-ui/header-ribbon' src demo test scripts⟩ (WORKTREE) → the same one file
+(2) SYMBOL   ⟨git grep -n '\bHeaderRibbon\b' origin/master -- demo/ test/ src/ scripts/⟩
+        → :16 <HeaderRibbon placement="right">  ·  :50 </HeaderRibbon>  ·  :116 the import
+        → resolved: all three the SAME file through the SAME specifier; no sibling-basename consumer
+(3) CONSUMER SET = { demo/components/instrument/shell/EditorShell.vue } — EXACTLY ONE, tests included
+PRODUCER ⟨git -C ../glass-ui ls-tree --name-only HEAD src/components/header-ribbon/⟩ → (empty)
+         ⟨… '4bf53962^' …⟩ → 5 files   ⟨log -1 4bf53962⟩ → 2026-08-04 "feat(reduction): land BK #18 W-DELETE…"
+         ⟨git -C ../glass-ui merge-base --is-ancestor 4bf53962 HEAD⟩ → YES   ← the delete is ANCESTRAL
+         ⟨grep -c header-ribbon ../glass-ui/package.json⟩ → 0
+INSTALLED ⟨ls -la node_modules/@mkbabb/glass-ui/dist/header-ribbon.js⟩ → present, 2420 B (7.0.0, cut 2026-07-16)
+```
+
+**Seat 0's R.2 GREEN-BEFORE-CURE finding is UPHELD and discharged by declaration, not by a state
+change.** Disjunct (a) holds (installed 7.0.0 ≤ `4bf53962`); disjunct (b) does not (the import
+stands). This unit changed no state and skipped no cure: it banked the census and carried the
+**HOLD** into `MANIFEST-RULING.md` §4 — *installed glass-ui may not advance past `4bf53962` while
+`origin/master:EditorShell.vue:116` imports `/header-ribbon`* — so that **G-0.5 BOUNDS G-0.2** and the
+one remediation that passes G-0.2 while destroying the build is refused **by name**.
+
+**C-15's rider discharged by measuring the reconciliation instead of assuming it**: ⟨`sed -n '16p'`⟩ →
+`<HeaderRibbon placement="right">`; ⟨`grep -n 'mode="persistent"\|position="right"'`⟩ → **no hit**.
+HEAD's `position="right"` — also not a 7.0.0 prop — did **not** carry forward.
+
+#### Act 5 — E13: the three relay packets (`.b` alone, once, at close)
+
+Appended to `docs/tranches/V/coordination/INBOX.md`, **strictly append-only** ⟨`git diff --numstat`⟩ →
+**12 insertions · 0 deletions**; ⟨`git diff -U0 | grep -c '^-[^-]'`⟩ → **0**. **KF-APP-59** (unmet
+peers = a closed falsifier, with the packument/tarball divergence as the producer question) ·
+**EH-1** (the two repo-qualified letters named, with the shipped `d.ts` refuting the archived letter
+in part, and `consumer-evidence/header-ribbon.md:3` still claiming *"RETAINED persistent-only"*
+against producer HEAD) · **KF-APP-5** (producer half **MOOT**, answered by deletion; the **HOLD**
+declared from this end). **No `O-n` id minted** — `O-21` is KF.W1's and was rowed at this same sitting
+(COHESION §0j.C **KF-WRITE**); every packet keyed by its **banked** id, anti-rename honoured.
+
+**Close sweep**: (1) V + V/coordination 19 + 17, `INBOX.md` self-excluded · (2) glass **BK** re-confirmed
+newest ⟨`ls -dlt ../glass-ui/docs/tranches/B*/`⟩ → BK@Sep 17 > BJ@Aug 3 > BI@Jul 28 > BH@Jul 15; newest
+file = **I-30, rowed** · (3) `../keyframes.js/.../coordination/` — ⟨`find … -newermt '2026-09-17 00:00'`⟩
+returns **10 files, every one a 2026-09-17 BIRTHTIME with a July CONTENT date**: the reset's recreated V
+docs (OP-1's FINDING), **not mail** · (4) `../keyframes-v-exec/.../coordination/` — newest is **our own
+O-21** · (5) atlas 28, newest ours. **0 unrowed · 0 new `I-n` · I-30 remains the tail · 0 UNREAD in
+scope.**
+
+#### Gates
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G-0.2** — manifest single-state | **RED-AS-EXPECTED** — four coordinates, three states (HEAD `6.0.0` optionalDeps · master `7.0.0` exact devDep · worktree DELETED from both manifests · installed `7.0.0`); `.npmrc` unruled | **GREEN** — `HEAD == origin/master == worktree == installed` at `"@mkbabb/glass-ui": "7.0.0"` **exact devDep** + lock (`:19` · `:612` integrity · `dev:true`), **AND both written rulings landed** (`MANIFEST-RULING.md` §2 the deletion · §3 `legacy-peer-deps`). The version half was reconciled **by the reset**; the ruling half is this unit's, and it is the half the gate's falsifier exists to catch. |
+| **G-0.5** — header-ribbon tripwire (negative) | **RED-AS-EXPECTED as a tripwire; GREEN-BEFORE-CURE on stated disjunct (a)** (seat 0, R.2) — the HOLD was **undeclared** | **GREEN by disjunct (a), tripwire DECLARED** — consumer set re-derived from the **import graph** at **exactly one**, `headerribbon-tripwire.txt` banked, the **HOLD** carried into the ruling so **G-0.5 BOUNDS G-0.2**. No state changed; no `demo/**` or producer byte touched. |
+
+No other gate was touched, cured or turned by this unit. G-0.1's clauses stay OP-1's and `.c`'s;
+G-0.3/G-0.4 are `.c`'s; G-0.6 `.d`'s; G-0.7..G-0.10 `.e`'s.
+
+**Banked, self-counted at the settled bytes** (⟨`wc -l`⟩, run after the writes): `MANIFEST-RULING.md`
+**356 L** · `artefacts/W0/manifest-four-coordinates.txt` **132 L** · `artefacts/W0/headerribbon-tripwire.txt`
+**109 L** — 597 lines, matching the commit's own `3 files changed, 597 insertions(+)`.
+
+#### Commits
+
+| sha | meaning |
+|---|---|
+| `301102692eb1f2daa08a2ea29c781c4ab6bebd39` | `docs(kf-w0/manifest)` — the ruling + the two artefacts (one meaning: the ruling and the readings it rules on do not split) |
+| `ac5cc99cb481ccf6e1fc45fc18069dabffbaed85` | `docs(kf-w0/manifest)` — E13: the three relay packets + the close sweep (a second meaning: delivery, not ruling) |
+
+Pathspec only; `scripts/dev/dev.sh` never staged (⟨`git log -1 --stat`⟩ on both commits names only the
+four writable paths). §Cadence's `git diff --check` ran clean at the unit boundary, staged.
+
+#### Residuals
+
+1. **`.npmrc`'s retirement** — ruled INERT-and-retirable, act **routed NO-WAVE-OWNER** (`.npmrc` is
+   named by no §Bounds row). Expires with the G-0.5 HOLD; both re-measured together.
+2. **glass-ui 7.0.0 packument ≠ tarball** by one peer entry (bare `embla-carousel` in the lock's
+   recorded map, absent from the shipped `package.json`). **Producer-owned**; relayed as part of
+   KF-APP-59. Nothing in this tree changes for it. It is **C-13's class inside this wave's own
+   manifest surface** — a version string agreeing while the artifacts disagree.
+3. **`@mkbabb/parse-that@1.0.0` is EXTRANEOUS in `node_modules`** — absent from `package.json`
+   (⟨`grep -n parse-that package.json`⟩ → no hit) and from the lock (⟨`grep -c`⟩ → 0), and neither a
+   dependency nor a peer of glass-ui. All four dry-runs report `remove @mkbabb/parse-that 1.0.0`. An
+   **install-state residue, not a manifest coordinate** — outside G-0.2's four, needs no act, named so
+   no later seat files it as a manifest defect.
+4. **The COHESION §4a (SS-6 accretion register) mirror is OWED, not written** — `COHESION.md` is
+   outside this unit's writable set. The packets are durable at `INBOX.md` (the E13 ledger of record
+   and the site §Bounds names); the §4a mirror is routed to the orchestrator.
+5. **Prettier, declared rather than silently skipped.** §Cadence says *"Prettier over touched `.md`"*.
+   Run on this unit's own new doc — ⟨`npx prettier --check .../MANIFEST-RULING.md`⟩ → *"All matched
+   files use Prettier code style!"*. **NOT run on `INBOX.md` or on this record**: both are shared,
+   concurrently-written files, prettier would **rewrite them whole** (E-3 forbids rewriting other
+   seats' dated evidence, and this record is appended, never rewritten). Measured context, so the next
+   seat is not surprised: ⟨`prettier --check`⟩ reports **DIRTY** for
+   `execution/B/KF-W0.md`, `keyframes/waves/KF-W0.md` and `COHESION.md` alike — the lane's corpus is
+   not prettier-formatted, and a lane-wide run is neither this unit's act nor, on immutable dated
+   files, a lawful one.
+6. **No escalation fired.** None of the five §Triumvirate Dispatch triggers is met: no reset by this
+   seat; no write under `keyframes.js/{src,demo,test,scripts}/**` (this unit wrote **zero** bytes in
+   either the consumer or the producer tree); no producer-repo write; no blanket re-anchor; **no
+   MANIFEST MISMATCH** (the four coordinates agree — §1); no second, let alone third, diagnostic
+   iteration on either gate. The specified cure was possible at the bytes and was performed as
+   specified; nothing was substituted.
