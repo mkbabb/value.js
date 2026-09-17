@@ -17,9 +17,9 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 
 | id | act | status | commit(s) | notes |
 |---|---|---|---|---|
-| P-1 | Four-path mail sweep at the begin-word + union check-2 tail (6 MINOR + 2 INFO) cured as dated addenda (§0i.4) | OPEN 2026-09-17 | | I-30 is the ledger tail; nothing unrowed found at the orchestrator's own sweep (glass BK newest = 08-29 ACK; kf/atlas newest = our 07-27 letters) |
-| P-2 | The 27 born-RED first gates run read-only and banked as dated baselines (`execution/gates/`) | OPEN 2026-09-17 | | R.2: a PASS before its cure is a sitting finding |
-| P-3 | The opening sitting — owner-gated items ruled under the 2026-09-17 delegation → COHESION §0j | OPEN 2026-09-17 | | dossier at `execution/SITTING-DOSSIER-2026-09-17.md`; rulings by the orchestrator (core model), written by an Opus seat |
+| P-1 | Four-path mail sweep at the begin-word + union check-2 tail (6 MINOR + 2 INFO) cured as dated addenda (§0i.4) | CLOSED 2026-09-17 | `642a0098` | 0 unrowed; 8 cured; I-30 is the ledger tail; nothing unrowed found at the orchestrator's own sweep (glass BK newest = 08-29 ACK; kf/atlas newest = our 07-27 letters) |
+| P-2 | The 27 born-RED first gates run read-only and banked as dated baselines (`execution/gates/`) | CLOSED 2026-09-17 | `fd40535c` · `0bed8379` | 22 RED-AS-EXPECTED · 2 GREEN-BEFORE-CURE (10, 27 — both declared) · 2 DIVERGENT (24 Codex wall gone; 25 worktree 7-not-8) · 1 UNRUNNABLE (21 is an act); divergences recorded at COHESION §0j |
+| P-3 | The opening sitting — owner-gated items ruled under the 2026-09-17 delegation → COHESION §0j | CLOSED 2026-09-17 | see §0j commit | dossier `a3ae9a4f` (28 items); §0j.A–F ruled by the orchestrator: seven X-W0.g rows · FB packets + GF-R1/R3 · OP-1 reset (snapshot-first) + KF-WRITE + OGKF1 + SS3 + the W5 quartet + ODV3/ODV5/AT · OG-F1/OG-F2 · G-10 DELETE · G-15 ×4 · NO TRIE · PRODUCER (port) · SS4 R1–R9 · X·P both words + OC-1 recorded-not-gating · BRANCH-TOPOLOGY three words |
 
 ## Track A — X·V (value.js) — head `X-W0`
 
@@ -93,3 +93,4 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 
 - 2026-09-17 — begin-word received; ledger opened; P-1..P-3 dispatched as workflow `x-begin`.
 - 2026-09-17 — P-1 mail round: 0 rowed, 8 tail items cured, commit 642a0098.
+- 2026-09-17 — P-2 gates baseline banked (fd40535c · 0bed8379); P-3 sitting RULED at COHESION §0j; pre-acts CLOSED; Tracks A–D dispatched as workflows x-track-A..D.

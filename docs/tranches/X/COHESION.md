@@ -459,3 +459,217 @@ against the 8.0.0 tarball on the registry**: `exports["./styles"]` → `dist/sty
 **parses under postcss** — the FR-NP-32 comment-corruption shape is absent at 8.0.0. Whether a
 1,514-byte styles entry is the intended shipped surface is exactly F.W0 **G-4**'s question and is
 measured there, not ruled here.
+
+## §0j ADDENDUM 2026-09-17 — THE BEGIN-WORD, AND THE OPENING SITTING RULED UNDER DELEGATION
+
+**The begin-word, verbatim (the owner, 2026-09-17):** *"Begin and continue the current tranche. You must
+read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent
+orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate
+the processes as team lead. Continue through this indefatigably: do not relinquish control back to me
+until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt
+approaches. Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and
+pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc. Use your
+core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Ensure
+total robustness with non-spammy or duplicative crons; suffuse durability to survive both crashes and
+system walls insofar as rate-limiting or session limits."*
+
+**What it opens.** Execution of the 39 authored waves per `EXECUTION-RUNBOOK.md` §1, all four tracks at
+the begin-word (§1.0), under the four-workflow cap (§5.1). The on-disk state machine is
+`execution/LEDGER.md`; per-wave records live at `execution/<track>/<wave>.md`. **What it also grants,
+read at its words:** (i) *publish, push, pull* authority across the constellation — which discharges
+**OP-1** (kf write authority) and X·P's separate **release word** (§0j.E below), each cited by this
+quotation; (ii) ONE supervisor cron (a stall guard; E13's no-cron order of 2026-07-17 is superseded only
+to that extent). **What it does not change:** `scripts/dev/dev.sh` NEVER touched; pathspec commits; E-3;
+sibling trees READ-ONLY until their own wave opens; KF.W3 gate-keyed, never scheduled; F.W9 never opens
+beside F.W0.
+
+**Pre-acts banked before this sitting** (runbook §3.3 + R.2): P-1 mail round — four paths swept, zero
+unrowed, I-30 remains the tail; the union check-2 tail cured as dated addenda (`642a0098`). P-2 — the 27
+born-RED first gates run read-only and banked (`execution/gates/BASELINE-2026-09-17-{value-parse,kf-fourier}.md`,
+`fd40535c` · `0bed8379`): **22 RED-AS-EXPECTED · 2 GREEN-BEFORE-CURE (gate 10 as the runbook itself
+declares; gate 27, a standing invariant that holds) · 2 DIVERGENT · 1 UNRUNNABLE (gate 21 is an act,
+not a command).** The two divergences are facts for the waves, not rulings: **gate 24** — the
+`~/Documents/Codex` TCC wall is GONE (PRESENT/readable 2026-09-17; OP-2 GRANTED), so X.P.W0 G-2 records
+the three-state as PRESENT with date and the v12 target VERIFIED ABSENT, builder + residue MATCH;
+**gate 25** — every git identity of the eighteen roots holds, but `git worktree list` returns 7, not 8
+(the prunable `m2-baseline` registry record is gone) — X.P.W0 G-3 states the table at today's bytes.
+The dossier of record for this sitting is `execution/SITTING-DOSSIER-2026-09-17.md` (`a3ae9a4f`; 28
+items, every option quoted at the spec bytes with a read-only measurement beside it).
+
+**Rulings.** Each carries its rationale; the spec's own honest default is followed wherever one is
+stated. Where the dossier measured a predicate, the ruling rests on that measurement.
+
+### §0j.A · X-W0.g — the seven owner rows (CC-014 / DR-29), each LANDED-AS-RULED or RETIRED
+
+| row | ruling | rationale |
+|---|---|---|
+| **DR-19** vnext `proof:` sites | **RETIRE** + the grep-checkable structural ban in canon (no `scripts/**/proof-*.mjs`; invariants live in types/tsc/eslint/tests) | the ledger's verb; the owner's 2026-06-02 deletion of the idiom (*"overfit junk"*); measured 69 sites in `docs/tranches/V/vnext/`, 0 `proof-*.mjs` in the library band — clean both ways |
+| **DR-20** the PARK set | **RETIRE** | `Color.try` → 0 sites; the trigger metric is zero in both directions; the v4 Result surface supersedes |
+| **DR-24** `scripts/dev/dev.sh` | **RETIRED-BY-ASSIGNMENT with the NEVER-touch posture made PERMANENT for tranche X**: neither commit nor restore is executed by any seat; the row is owner-held outside every X denominator; receipts paste it and cite this ruling; X-W11's close correspondence explains it by this id | the owner's standing order (never touch) is explicit and repeated; a seat electing either branch would override it |
+| **DR-31** the NCSU alias | **ACCEPT the permanent 301 in canon** | measured live: `301 https://color.babb.dev/`; the spec names this disposition as executable without the probe |
+| **DR-14** `siblingFsAllowTransient` | **DELETE**, routed to X-W1's config carve (two sites, one file: `vite.config.ts`) | a transient carve-out is a compat shim by another name (no-backwards-compat law); the name may not survive X either way |
+| **DR-16** HG6 taste certification | **RETIRE** (option a) — tombstone at X-W0.f; **no** fresh bracket set at X-W10 | (b) manufactures a second unsized sitting — the FM-21 scheduling-failure shape HG-13 exists to prevent |
+| **U-F12** Pole A/B | **POLE B** | C3-compliant and met as-built (C 0.0216); Pole A needs a C3-ledger amendment outside every X bound and re-opens dark-accent work X-W4 was not sized for; U-F26's dock-icon 2.26:1 residual discharges against B |
+
+### §0j.B · the FORMATION-BOUNDARY packets (§4.3) and the G-F residuals (§4.4)
+
+**XV-FB, per packet** — the union was sealed UNION-CLEAN at `31dcf279`; electing cargo into a sealed wave
+re-opens it, so every packet is dispositioned as a **register row, never silence**: (1) PRE-X
+MT-REGISTER → **BOOK TERMINAL** at the G-F register (its live obligations already ride SS-8's
+zero-residue-cohort sweep, §4.1); (2) BOUNDARY-SCOPE AB-4/AB-5 → **BOOK TERMINAL** (X-W6's fold books
+them; the disposition is the boundary's, i.e. this row); (3) AUTH-SESSION SUBSTRATE AF-50 → **BOOK
+TERMINAL** (X-W3-FOLD F-4's NO-WAVE-OWNER banking stands as the record); (4) MIGRATE-DIALOG IDENTITY-FLOW
+→ **DECLINE-WITH-REASON**: no wave in X owns an identity-flow migration and no probe resolves it; it stays
+behind the OWNER-DECISION gate as a named register row with that gate as its re-trigger; (5) W-HYGIENE's
+boundary limb → **BOOK TERMINAL, explicitly NOT ADOPTED** (*"silence is not adoption"* is honoured by
+saying the word: the 8 records' routing stays on the register). X-W0.g writes the five rows at
+`X-W0-FOLD.md`'s §8 idiom.
+
+**GF-R1** — **BOOK slate entry 15** at `X-W0-FOLD.md` §8, all seven ⟨record · id⟩ id-for-id, and correct
+`×5`→`×7` **in the addendum, never in §4's bytes** (the recommended half). **Claimant: X-W3**, by a dated
+E-3 addendum widening its bounds to `demo/platform/transport/**` (4 files) as one named unit carrying the
+seven rows with AP-17 (the unbounded probe burst against a *"ONE probe"* promise) as its born-RED gate.
+Rationale: the transport client is the API contract's client leg — probe cadence is a contract property
+under X-W3's route-spec-first law (a.4) — and X-W3 runs at stage 3 of Track A, so a CONFIRMED MAJOR is
+cured well before X-W11 stamps. The `ErrorBoundary.vue` contention at W0.22 stays X-W0's.
+
+**GF-R3** — **RATIFY §1**: the fold + canonical layers ARE the register of record (the adjudicator's own
+recommendation; zero file motion; X-W11's 117-row walk reads what it already reads). **R-2**'s two
+`≡`-pointers (⟨AdminFlaggedPanel · AF-12⟩ ≡ AdminListItem D-5; ⟨ColorNutritionLabel · R6⟩) are written
+as two lines at X-W0-FOLD.md §8 by X-W0.g.
+
+### §0j.C · X·KF
+
+**KF-OP1 / §B-12 — the reset is PERFORMED, as the owner's delegated hand, in a reversible form.** The
+begin-word's *"pull whatever items you need"* is the owner's hand for this act, cited by quotation.
+KF.W0's OP-1 seat performs it **alone and first**, in `/Users/mkbabb/Programming/keyframes.js`, in this
+exact order and no other: (1) `git branch kf-sacred-snapshot-2026-09-17` at HEAD `8281638c` — the
+1-ahead commit is preserved by ref; (2) `git checkout kf-sacred-snapshot-2026-09-17 && git add -u && git
+commit -m "snapshot(kf): the sacred checkout's 252 tracked modifications as found 2026-09-17 (OWNER'S
+HAND record; KF.W0 §B-12)"` — the tracked dirty rows are preserved by commit; **untracked files are not
+added** and are therefore left in place by the reset exactly as the spec requires (*"untracked V docs
+unharmed"*); (3) `git checkout master && git fetch origin && git reset --hard origin/master` — the
+spec's own command, direction lock **disk←master** honoured; the four OWNER'S-HAND bounds rows
+(`package.json`, `package-lock.json`, the two EE-02 files) are reconciled by the reset itself. The
+G-0.1 record dispositions every one of the 252/325/124 rows as **kept (untracked) / committed (to the
+snapshot branch) / discarded (superseded by origin/master)** with the snapshot sha as the receipt.
+**Forbidden forms stay forbidden**: no partial `git checkout origin/master -- src/`, no stash, no
+`master←disk`. The schism §B-12 exists to close was *unauthorized* value.js writes into the sacred
+checkout; a dated, quoted, reversible act under the owner's explicit grant is its opposite.
+
+**KF-WRITE — write authority NAMED.** Two substrates, one hand: (a) **KF.W1's delivery** (O-21 and the
+O-8/O-11 amendment-addendum) lands in **`keyframes-v-exec`** (HEAD `81a56990` = the frontier; the
+exec-clone path the spec built so the mail cure never queues behind §B-12), committed and pushed to
+kf `origin/master`; (b) **after §B-12, the sacred checkout on `master` (= `origin/master`) is the
+execution substrate for KF.W2 · W4 · W5 · W6 · W7 · W8 · W9 · W10**, every wave pushing `origin HEAD`
+at close; `keyframes-v-exec` fast-forwards to it. **Under whose hand:** the value.js orchestrator
+under the owner's 2026-09-17 grant (quoted above), every kf commit carrying the session trailer. No
+new kf tranche letter is minted — the exec clone and the settled checkout are one frontier.
+
+**KF-OGKF1** — the Codex "Keyframes v8" B-lineage is **STALE-BY-SUBSTRATE and does not continue**; it
+is citable only as *"345 exact / 12 partial / 57 unresolved @ 8281638c"*, never as HEAD coverage; the
+five conditional TCC re-reads never open; KF.W0's re-count adopts 185-at-HEAD (X-2). Rationale: the
+lineage's pin is exactly the tree §0 already ruled non-authoritative, measured live.
+
+**KF-SS3 `smooth-step-3`** — **NOT repointed at `bezierPresets`; its class is preserved.** A smoothstep
+polynomial is not a cubic bézier; flipping its class to make a name resolve is a behaviour change dressed
+as hygiene, which is the spec's own warning. The easing-name trap (KF-CB-18/24/29 + K1) is cured by
+K1's sampled value-identity on the 33-point grid — the mechanism, not a relabel.
+
+**KF-W5R4 — the four library rulings (arm B's ruling commits precede its fixes):** (1) **`fromString`
+REPLACES** — a second `fromString` on a populated instance yields the parsed set alone (idempotent; the
+B-9 append is a MAJOR defect, not a documented behaviour); G-FROMSTRING asserts it. (2) **`delay` is
+PER-PLAY** — one phase offset at play start, never re-slept per iteration (B-8's 27%/cycle unbounded
+drift against the compositor clock is the defect; WAAPI semantics agree); G-DELAY asserts it.
+(3) **PRM default INVERTED to `respectReducedMotion: true` engine-wide** — one honest default in one
+engine (B-6/B-7: the honest default *"exists in-house and is used nowhere"*); PRM-honesty is
+constellation law. (4) **`singleTarget` gains a SUPPORTED opt-out** (a constructor/option-level
+declaration the recompute honours), retiring the raw poke; one ruling, one commit, in `.c`.
+
+**KF-ODV3 / KF-ODV5 / KF-AT** — **KF.W9's capture band is AUTHORIZED to run** (PACKET-FIRST binding;
+OP-3's Safari reachability is measured at run, never assumed); the transport-home ruling is taken by the
+orchestrator **from the OD-V3 packet** at KF.W10 `.g`'s sitting under this delegation, and if the packet
+does not exist by then KF.W10 closes `complete_with_misses` on that row citing its exact precondition.
+**OD-V5 stays DEFERRED** pending glass's dock mark (standing edict: glass rows and OD-V5 route to SS-6,
+never demo-side hacks); the `complete_with_misses` shape is authorized in advance. **AT runs inside
+KF.W9 `.d`'s arm** (the proposed resolution); no new lane is minted.
+
+### §0j.D · X·F
+
+**OG-F1** — **FREEZE-WITH-ADOPTION AND WORKTREE-AS-BASELINE** (the lane's own evidence; measurements
+live-reproduced; R6 `NO_SUCCESSOR`). Consequences as the spec states them: G-1's minute becomes a
+disclosure + the LAND set; G-11 narrows to drift-correction; G-14's R-coordinate rows become records;
+GAB-13 discharges to a disclosure line.
+
+**OG-F2 / OG-V2** — **CODEX-ERA-SPECIFIC.** The pre-write root-absence-receipt requirement and the
+Codex-authored prohibitions died with M-15's abrogation (2026-07-27); the *finding* under OG-F2 (the
+absence, TRUE) stays adopted; the `FOURIER-R*` value-side files are records. G-F10-8 closes on the
+charter line.
+
+**G-10** — **F8-REACH-01 (`InfoCard.vue`) and F8-REACH-02 (`CanvasOverlayButton.vue`): DELETE, in one
+breath**, with FR-COB-17's 8-site `:aria-pressed` lift in the **same commit** using **L's list (seven
+sites), not C's**, line numbers re-resolved via G-11 first; the STEP-2i divergence minuted. Rationale:
+five DELETE orders already stood unexecuted; both files are unreachable at the frontier; the
+constellation's subtraction law.
+
+**G-15 — the four contradictions:** (a) the vue-tsc RED → **LAND**: the settled tree is the committed
+substrate; the RED is the uplift's, its cure owned by F.W1/W2 (the pre-ruled green form; the forbidden
+exit-criterion shape avoided). (b) the root-size fork → **`html{font-size:1.125rem}` under 768px GOES**:
+the 12.5% inflation compounds with `--ui-scale` (67.5px against the token author's 60px); F.W1's
+token-parity re-tune absorbs it, F.W4 executes per component. (c) FM-19 → **FROZEN-FOREVER with a
+golden-file diff** (no regeneration pipeline exists; building one is unsized work). (d) the emission
+contradiction → **ruled UNDECIDABLE on today's evidence**: the written ruling that the two cells are
+mutually exclusive, plus its falsifier — the spec's honest-RED relief, by name.
+
+**F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1)** — **NO TRIE**; whole-snapshot duplication is the recorded shipped
+behaviour (the honest default; `atomdiff.py:12-14` is the guardrail; zero material on either tree). F.W7
+unit `b` never opens, `design/R4-variant-storage.md` is never created, G-F7-5 closes vacuously; unit `a`'s
+census runs.
+
+**F-PRODRET (R3 ≡ D3 ≡ G11, the admission gate)** — **PRODUCER**, as a **port** of value.js's shipped
+verb (`POST /:slug/flag`) under the SS-4 contract, homed at **F.W8** (the CRUD union prototype) with F.W5
+writing the clause; FR-AFP grades re-derive at the populated surface. Rationale: D-15 made the
+value↔fourier API isomorphism first-class; retiring the admin half would freeze the two APIs
+non-isomorphic where the port is the cheapest act in the union.
+
+**F-SS4REST** — **R1 (TA-4)**: **RE-SCOPE value.js out of the diff clause** (a one-sided §6 verdict,
+stated explicitly) — `atomdiff.ts` is wholly excised from value.js and restoring it is value-side
+authoring that would couple value.js's release train to the fourier contract (the §0i.1 logic).
+**R4**: **REMOVE the affordance** (no dead affordance under `aria-pressed`). **R5**: **STOP MINTING**
+the off-state `[]`; the contract does not admit it (no silent rewrite). **R6**: **KEEP** the hard-delete
+arm; copy made truthful about irreversibility. **R7**: **CODEGEN** — twins derived from one source
+(inv-16/inv-26 restated; structural invariants over prose). **R8**: **REMIX + BORN-PRIVATE** (value.js's
+shipped verb and its explicit publish act), the F.W5 seat verifying non-contradiction with ruling D9 at
+the record before authoring. **R9**: **DELETE** the dead session subsystem (zero external call sites).
+
+### §0j.E · X·P
+
+**OP-1 — both owner words are given, dated 2026-09-17:** the begin-word (quoted above) opens the X·P
+lane; the release word is *"You are authorized to publish, push, and pull whatever items you need"*, in
+the same message. X.P.W4's release limb still materializes **only** after `RELEASE-PACKET.md` exists and
+`RC-P(V)` is evaluated by running its six commands — the word licenses the limb, it does not bypass the
+gates or the §9 STOP conditions.
+
+**OC-1 (OP-3) — ADMISSION IS DECIDED ON CORRECTNESS; the bench table is RECORDED-NOT-GATING**, with the
+LIVE regex numbers held as the *recorded ceiling* the GATE-VERDICT proposal names — never a floor, never a
+veto, never an invented standard. RC-P conjunct 5 evaluates TRUE on this word once the three-leg table is
+recorded at X.P.W3. Rationale: the spec forbids an unruled bar from becoming a permanent veto; value.js
+being operational is the paramount path; a −21% sheet deficit is evidence for the record, not a lock.
+
+### §0j.F · BRANCH-TOPOLOGY — value.js `tranche-u` vs `origin/master`
+
+Three words: (1) **The two `ci(release)` hardening commits (`e2652f1c` · `44ddaff7`) RIDE INTO
+`tranche-u` before X-W9's cut**, cherry-picked verbatim (1 file, `release.yml`; strictly-stronger
+pack-time identity checks). (2) **`7334c793`'s `src/v4` relocation does NOT bind X-W9; X-W9's
+public-surface law supersedes it — `tranche-u` is the tree of record.** At X-W11's merge-to-master,
+every both-changed path resolves to `tranche-u`'s bytes (the eight tests and the three `scripts/ci`
+probes `tranche-u` deleted stay deleted; X-W1's `boot-smoke.mjs` is the surviving add), except
+`release.yml`, already reconciled by word (1); local `master` (140 behind) is fast-forwarded to
+`origin/master` before the merge. Option D (rebase) is refused: it would re-hash every SHA-pinned
+authority in §0h/§0i, the runbook and the ledger. (3) **`.github/workflows/release.yml` joins X-W1's
+bounds** by dated E-3 addendum (X-W1 already modifies `ci.yml` and `deploy-pages.yml`; the cherry-pick is
+X-W1's first commit); X-W11's Do-NOT-touch stands.
+
+**What this addendum does not do.** It does not stamp any verb. Every ruling above is consumed by the
+wave that names it, at its own opening, cited by id; a wave that finds a ruling's measured predicate
+false at its own bytes returns to this sitting rather than presuming.
