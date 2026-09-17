@@ -486,3 +486,190 @@ the orchestrator's decision at `SUBSTRATE-PIN.md` §8 — **(a)** wait for KF.W4
 **(b)** build and serve from a clean clone at `55e9bf0d` (preserves the published pin exactly) ·
 **(c)** re-pin forward to KF.W4's post-commit sha, with its stated cost. **Capturing now and stamping
 `55e9bf0d` is named as the one option that is not available.** Commit `d629be8b`.
+
+---
+
+### `.c` — mobile-Safari / iOS cell · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `6119fe6f` — *"the mobile/iOS cells booked terminal — both foreclosed, 27 probes
+UNREACHABLE-IN-CELL with hosts named, G-KFW9-11 RED→RED"*. **ONE commit**, 3 paths, all inside `.c`'s
+writable set.
+
+**Status: ESCALATED.** Both cells this seat owns are foreclosed on this host, **two of the three
+foreclosures by conditions no grant to this wave could cure**. Nothing was substituted: no desktop shot
+wears a mobile label, no simulator shot wears the device label, no engine reading enters a `safari-app`
+column. **0 captures · 0 sidecars · 0 gates turned · 0 keyframes.js bytes.**
+
+Record of substance: `…/audit/visual/safari-real/mobile-CELL-RECORD-2026-09-17.md` (+ its JSON twin);
+seat index `…/evidence/W9/UNIT-C-MOBILE-INDEX.md`.
+
+---
+
+#### Act 0 — anchors verified at true bytes; two drifted, INTENT taken at the bytes
+
+The dispatch carried `§Gates G-KFW9-11 (:220-244)` · `S-6 (:121-122)` · `S-7 (:123-124)` ·
+`S-8 (:125-141)` · `§D carry (:137-147)`. At the file's true bytes ⟨`grep -n '^## '
+waves/KF-W9.md`⟩ → `220:## Gates` · `245:## Sequencing`, so **the §Gates band resolves exactly as
+given** and **the §Sequencing offsets do not** — `:121` is a §A carry bullet (`KF-SKEL-11`). Re-resolved
+by heading and id, which is the sole anchor (R2-7): **G-KFW9-11 `:240`** · **S-6 `:252`** · **S-7
+`:253`** · **S-8 `:254`** (families (iii) / (iii-a) / (iii-b) / (v) all inside that one line) ·
+**§D carry `:137-147`** — that last one resolving exactly as dispatched
+⟨`grep -n '^### '`⟩ → `137:### D · iOS / mobile / touch (the device session — family (v))`.
+**Subjects are identical at both readings; only the offsets drifted.** Recorded, not worked around.
+
+#### Act 1 — F-1: the `safari-app/ios-device` cell does not exist on this host
+
+⟨`xcrun devicectl list devices`⟩ → **`No devices found.`**, **double-run, identical**. Two independent
+corroborations: ⟨`system_profiler SPUSBDataType | grep -ic 'iPhone\|iPad'`⟩ → **0**;
+⟨`xcrun xctrace list devices`⟩ → the whole `== Devices ==` section is **one entry, the host MacBook Pro**.
+
+**Named missing host: a paired iOS device running Safari 26.x.** The bank forecloses every substitute by
+its own words, carried at §Carry D: *"**KF.W9 owns the live witness** (zoom is hardware-only)"* and
+*"only this wave's Safari-mobile cell can witness it."* A desktop window at 390 px does not auto-zoom on
+focus — filing one as this cell would be I-20's convicted failure one cell over, the class S-13 names as
+*"a chromium emulation labelled as WHC"*. Not done.
+
+#### Act 2 — F-2: the `safari-app/ios-simulator` cell cannot be opened through the apparatus
+
+18 simulators are installed (⟨`xcrun xctrace list devices`⟩ — `iPhone 16/17/Air Simulator (26.0)` …), so
+the cell is foreclosed by the **driver**, measured:
+
+⟨`safaridriver --help`⟩ → six options (`-h` `--version` `-p` `-b` `--enable` `--diagnose`); ⟨`safaridriver
+--help | grep -ci simulator`⟩ → **0** — **the flag the roster names does not exist**.
+⟨`curl -s :4605/status`⟩ → `{"value":{"message":"","ready":true}}` (the driver is up; `.a` opened a real
+`safari-app/desktop` session on this same binary — the control).
+⟨`POST :4605/session -d '{… "safari:useSimulator":true}'`⟩ → **`session not created: "The 'macOS'
+platform is incompatible with requested capability: safari:useSimulator."`** — **double-run,
+byte-identical**. ⟨`pkill -f 'safaridriver -p 4605'` ; `lsof … | grep -c LISTEN`⟩ → **0** (single-session
+discipline; nothing left listening).
+
+**Named missing host: a WebDriver endpoint able to host an iOS-Simulator Safari session.**
+
+> **Dated correction-beside (E-3 — `.a`'s artifact NOT edited).** `evidence/W9/CELL-ROSTER.md` §1 row 3
+> names this cell's driver **`safaridriver --use-simulator`**. That flag does not exist in `safaridriver`
+> 26.4 and its capability form is refused by the platform. **The roster's cell *separation* is untouched
+> and correct** — rows 2 and 3 stay distinct and `assertCell()` still throws; one **driver** cell is
+> corrected, beside, at `mobile-CELL-RECORD-2026-09-17.md` §2.
+
+#### Act 3 — F-3: the pin went stale **during** this seat's run
+
+`.a`'s two blockers were re-measured at 16:17 and both stood: ⟨`ls -la ../keyframes.js/dist/gh-pages`⟩ →
+`No such file or directory`; ⟨`git -C ../keyframes.js diff --name-only -- demo/ | wc -l`⟩ → **23**
+(widened from `.a`'s 21). **At 16:20 both were gone and a third had replaced them**:
+⟨`git rev-parse HEAD`⟩ → **`5388907b`** ⟨`git log --oneline -1`⟩ → *"build(kf/check): wire vue-tsc into
+`check` … (X.KF.W4 .a / G-KFW4-1)"*; ⟨`git rev-parse origin/master`⟩ → **`55e9bf0d`** (unchanged);
+⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `0	1` — **1 ahead, UNPUSHED**;
+⟨`git diff --name-only -- demo/ | wc -l`⟩ → **0** (clean); ⟨`stat -f '%Sm %N' dist/gh-pages`⟩ →
+**2026-09-17T16:17:47**, `index.html` 8,381 B, 51 assets; ⟨`shasum -a 256 dist/gh-pages/index.html`⟩ →
+`b127991c0f1e9ff0ff662fd5fba329269c5d4c188190972eb652ceba9e05343e`.
+
+**The bundle exists again and is built from `5388907b`, not from the pin**:
+⟨`git diff --stat 55e9bf0d..5388907b`⟩ → **26 files changed, 1200 insertions(+), 73 deletions(-)**;
+⟨`--name-only … -- demo/ | wc -l`⟩ → **23**; ⟨`… -- src/ | wc -l`⟩ → **0**. The 23 are this seat's
+photographic subjects **by name** — `EditorShell.vue` (D-25's shell + the `initIOSPlatformClass()`
+caller) · `CSSCodeEditor.vue` (R-9's sole `clampIOSNoZoomFontSize` consumer) · `ChromeDock.vue` (S-6's
+whole session) · `EditorStartScreen.vue` (KF-EST-3/4, S-7's P-1/P-2 head) · `ControlsPaneWrapper.vue` ·
+and `CubeScene.vue` / `OrbitalDrag.vue` / `EasingTarget.vue` / `useSquareDemo.ts` — **three of OD-V3's
+four duplicating scenes**.
+
+**Two consequences, neither softened.** (1) A capture from this bundle **cannot honestly carry
+`substrateSha: 55e9bf0d`** — the receipt-against-a-moving-substrate class that disqualified `8281638c`
+(§H's witness-substrate law), which `.a` named *"the one option that is not available."* Not taken.
+(2) **`master == origin/master` is FALSE at the bytes** — the identity COHESION §0j.C **KF-WRITE** uses
+to *define* this wave's execution substrate. **Re-pinning is G-KFW9-14's act**, escalated by `.a` to the
+orchestrator at `SUBSTRATE-PIN.md` §8; **a phase-2 cell seat does not choose among its three shapes and
+does not re-pin.** Note for whoever takes (c): `5388907b` is unpushed, and re-pinning re-points every
+byte-offset receipt this wave carries across a 23-file demo delta.
+
+#### Act 4 — OP-4, owed per cell and honestly untaken
+
+The three `.media` strings are **NOT TAKEN** for either cell, because no session opens in either.
+Booked **UNREACHABLE-IN-CELL with the host named** — which is what OP-4 demands instead of *"a silent
+blank"* — and **explicitly NOT inherited** from `.a`'s `safari-app/desktop` reading (*"No cell inherits
+another's"*).
+
+#### Act 5 — every probe in scope booked terminal, with its exact precondition
+
+**27 rows**, self-counted from the settled JSON by command, **double-run**:
+⟨`node -e '…family_v.length + family_iii.length + odv3.cellsRequired + 1 + 3'`⟩ → **27 = published 27,
+match true** (pass 1 and pass 2 identical). *The first writing of the cell said 26; the re-run corrected
+it — the family-(iii) table's five rows carry **seven** subjects (`KF-APP-6`/`-8` and `KF-EST-3`/`-4`
+are paired rows). The figure of record is the command's.*
+
+- **S-8 family (v), 8 members** — R-9 · SP-4 · R-20/KAD-F4 · KF-KC-16/25 · KF-SCR-1 · i-13/C-3 · K-13 ·
+  TimelineCaret probe 10 — all **UNREACHABLE-IN-CELL**. **The family is NOT double-spent**: no session
+  opened, so none of the eight is spent and the family stays intact as one re-runnable unit. KAD-F4's
+  armed trigger (**R-A's MAJOR**) is **neither revived nor resolved** and stays PROVISIONAL. K-13 stays
+  owed **before either packet writes its focus cure** (S-7).
+- **S-8 family (iii), 7 subjects** — KF-APP-6/-8 · EditorShell D-25/D-6 · TD-36 · KF-EST-3/4 — all
+  **UNREACHABLE-IN-CELL**. **S-7's order is published and unspent** so the next seat inherits it, not its
+  absence: KF-EST **P-1 first**, then **P-2**; **D-25 + KF-APP-6 in ONE 390×844 capture**, never
+  separately; KF-APP-1's crash-witness before kf-CubeScene SS-13 #8.
+- **S-8 (iii-a) — the OD-V3 390 arm: NOT PRODUCED, 0 of 8 cells** (4 scenes × 2 homes). **DISCRIMINATOR
+  honoured** (nothing partial filed as satisfying it) and **FALSIFIER honoured** (no scene shot at 390
+  alone, because none is shot). **Exact precondition written for KF.W10**, which §0j.C **KF-ODV3**
+  authorizes it to close `complete_with_misses` upon: *a servable build whose source sha the capture may
+  honestly stamp (F-3), rendered at 390 in a cell this host can open (F-1/F-2)*. **This seat rules
+  nothing** — the transport-home ruling is the orchestrator's at KF.W10 `.g`, *"Never proxied."*
+- **S-8 (iii-b) — OD-V5's 390 at-rest: NOT OBSERVED**, and **nothing is ruled**; OD-V5 stays DEFERRED
+  pending glass's dock mark (§0j.C **KF-ODV5**). **Zero glass-ui bytes read or written.**
+- **S-6 — the ChromeDock touch/menu session: NOT RUN.** M-5/C-6 witness, the M-4 rider check (the two
+  kf-MbabbMenu MUST-CARRY riders, whose carrier's *cure as worded ships an unopenable menu*) and MM-4's
+  computed-style falsifier all stay owed; `ChromeDock.vue` is itself inside the F-3 delta.
+
+#### Act 6 — what *was* measured: the static anchors, re-verified at the pin, read-only
+
+Taken with `git show`/`git grep` **at `55e9bf0d`**, never at the worktree, so they read the pinned
+substrate exactly. **6 rows, all reproducing**: `viewport-fit` absent repo-wide ⟨exit 1⟩ against
+`index.html:6`'s viewport meta (**D-25**) · `initIOSPlatformClass` at `EditorShell.vue:115`/`:133`
+(decl `iosTextEntry.ts:14`) · `clampIOSNoZoomFontSize` decl `:10` with **exactly one** consumer
+`CSSCodeEditor.vue:39`/`:137`, tested `:88`/`:89`/`:97` (**R-9**; G-KFW9-11's born-RED witness holds at
+the pin) · **`autocapitalize` / `autocorrect` / `spellcheck` each `exit 1`, zero hits repo-wide**
+(**R-20/KAD-F4/KF-KC-25**) · the three source-code `contenteditable` surfaces present
+(`CSSPasteDialog.vue:17` · `KeyframeCard.vue:46`, its `<pre` at `:41` · `KeyframesAddDialog.vue`) ·
+**six** `touch-action: none` scene declarations (`AmigaScene.vue:254` · `CubeScene.vue:12` ·
+`CubeTarget.vue:4` · `OrbitalDrag.vue:350` · `SequenceTarget.css:134` · `SquareScene.css:64`), the
+banked figure to the digit (**MISSED-F / i-13 / C-3**).
+
+**This is the probes' SUBJECT reproducing; it is NOT the device witness and it closes nothing.** The
+bank's standing — *"mechanisms closed statically, device confirmation outstanding"* — is left exactly
+where it was.
+
+#### Gate readings
+
+| gate | BEFORE | AFTER | basis |
+|---|---|---|---|
+| **G-KFW9-11** | RED | **RED** | its CLOSES names *one real-iOS-Safari session*; neither iOS cell opens (F-1/F-2) and no servable build exists at the pin (F-3). The born-RED witness re-verifies at `55e9bf0d` (Act 6) — RED at its own witness, and not turned by a substitute cell |
+| `.c`'s share of **-1 / -2 / -4 / -14** | — | **0 / 0 / 0 / 0** | 0 captures · 0 labelled rows · 0 probe discharges · 0 substrate-stamped shots, each stated as a zero rather than left to inference |
+
+#### Locks, bounds and mail
+
+- **Cell-disjoint with `.b` held**: this seat wrote **only** `safari-real/mobile-*` (2 files) plus
+  `evidence/W9/UNIT-C-MOBILE-INDEX.md`. ⟨`git diff --cached --name-only`⟩ → exactly those 3.
+- **Untouched on arrival and left so**: `scripts/dev/dev.sh` (unowned, NEVER), `CARRY-LEDGER.md`,
+  `workflows/validate-completeness.mjs` (a sibling's, dirty when this seat arrived).
+- **Zero keyframes.js bytes. Zero glass-ui bytes.** `safari-real-matrix.js` **not written and not
+  executed** — it has no lawful bundle to point at. `capture.mjs`/`states.mjs` untouched (`.a`'s alone).
+  `SURFACE-LIST.*`, `REPORT.*`, `STATES.json` untouched. No adjudicated record touched (`.e`'s alone).
+- **`LEDGER.md` not edited** — no row cell of this wave changed state at this seat.
+- **Mail (E13)**: no new mail in scope since seat 0's four-path sweep; `INBOX.md` tail remains **I-30**.
+  **0 UNREAD.**
+- **Probe parsimony**: two short `safaridriver` sessions, both terminated and verified closed; no
+  Playwright, no DevTools-MCP, no page ever loaded.
+
+#### Residuals and escalations handed forward
+
+1. **F-1 — no paired iOS device. NOT curable by any grant.** Either a device is provided, or the horizon
+   is re-planned so `safari-app/ios-device` is a **declared** UNREACHABLE cell for this pass and the
+   family-(v) rows close as UNREACHABLE-IN-CELL at wave close rather than as owed.
+2. **F-2 — the simulator cell cannot be opened by `safaridriver` 26.4. NOT curable by any grant.** It is
+   also a **separate cell** and could not discharge G-KFW9-11's device witness even if it opened.
+3. **F-3 — the pin is stale. CURABLE**, by the orchestrator taking one of `.a`'s three shapes at
+   `SUBSTRATE-PIN.md` §8. **(a)** and **(c)** are now *available* where they were not at 16:14.
+   **F-3 alone does not rescue this seat**: with a lawful pin and bundle there is still no mobile cell.
+4. **If the orchestrator wants OD-V3's 390 arm taken in `safari-app/desktop` at a 390-wide viewport**,
+   that is a **different cell, a different seat (`.b`) and a different filename prefix** — lawful only
+   if labelled `safari-app/desktop`, and **not this seat's to file under `mobile-*`**. A wave-level call.
+5. **Escalation class**: **S-13 — a gate failure not local-recoverable.** The spec's own head case is
+   *"G-KFW9-1 RED because safaridriver cannot be enabled (**the named condition is unreachable → the
+   horizon is re-planned, not faked with webkit**)"*. **This is that class at G-KFW9-11.**
