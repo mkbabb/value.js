@@ -9,8 +9,8 @@
 // live picker-palette feed (App.vue's deriveBlobPalette watch), not a slider.
 
 import { inject } from "vue";
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
-import type { BlobConfig } from "@mkbabb/glass-ui/blob";
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
+import type { BlobConfig } from "@mkbabb/glass-ui/blob-config";
 import ConfigSliderPane from "../ConfigSliderPane.vue";
 import type { SliderSection } from "../ConfigSliderPane.vue";
 
