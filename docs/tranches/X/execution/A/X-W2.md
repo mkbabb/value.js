@@ -716,3 +716,296 @@ copy, and **no local patch of `node_modules`** — the cure is the spec's own tw
 **Verb stamped: none.** This unit cuts and measures; IMPLEMENTED is the wave's own close and VERIFIED is
 X-W11's. The tree is handed to unit **b** with `dist/gh-pages` built and present, `HeroBlob.vue` untouched and
 still on `./blob` as §5 requires, and this unit's three paths the only ones it ever wrote.
+
+### X.W2.b — the quiescence park · **ESCALATED (§3a "Quiescence does not park")**
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Seat clock**: 2026-09-17, **18:55–20:05 EDT**. Branch `tranche-u`,
+HEAD at open `48d921e4`, HEAD at close `67064eed` (sibling tracks committed alongside; nothing of theirs
+entered this unit's commit).
+**Sections executed exactly**: W2.md §3 scope 3–4 (L27–28) · §3 scope 8 (L32) · §5 `### X.W2.b` (L98–103) ·
+§6 **G5** (L169–185) · §6 **G8** (L208–217) · §7 (L258) · §9 row 3 (L276).
+**Rulings consumed**: COHESION §0j (the begin-word) · **§0k.1 pathspec-on-the-commit** · §0j.A **DR-24**
+(`scripts/dev/dev.sh` never read for write, never staged; it is still ` M` in the tree and appears **0**
+times in this unit's commit) · §0j.E/§0i.2 (no glass bump is this wave's act; the installed **7.0.0** is the
+substrate and `node_modules/@mkbabb/glass-ui/**` was opened **read-only**, never patched) · E-3 throughout
+(no dated spec, registry or prior-evidence byte edited; `W2.md` untouched — its §State edit is unit **d**'s;
+units **c** and **a**'s receipts above are read, never revised). COHESION read to the file end (**896 lines**,
+through §0l); no §0m+ addendum exists.
+**Writable set honoured**: of the seven paths granted, **exactly one was written** —
+`docs/tranches/X/execution/A/X-W2.md` (this record). `demo/picker/visual/HeroBlob.vue` was written, measured,
+and **reverted to HEAD** (below); `e2e/smoke/fixtures/blob-timing.ts` and the four consumer specs were
+**never opened for write** (⟨cmd⟩ `git status --porcelain -- e2e/` → only the pre-existing untracked
+`e2e/visual/`, a sibling seat's, untouched).
+
+#### Acts, in order
+
+**b.0 · MEASURE BEFORE EDITING — every anchor verified at true bytes.** Three of the four hold; one drifted
+and is recorded rather than presumed:
+
+```
+⟨cmd⟩ grep -n "BLOB_IDLE_MS = |SLEEPY_POSE_MS = |5.0.0 adopt" demo/picker/visual/HeroBlob.vue
+209:// the 5.0.0 adopt) restores the tight park by consulting the engine's     ← the dead book, as spec'd
+211:const BLOB_IDLE_MS = 2000;
+212:const SLEEPY_POSE_MS = 3300;
+⟨cmd⟩ grep -n "settled" node_modules/@mkbabb/glass-ui/dist/components/blob/Blob.vue.d.ts
+63:    settled: Readonly<import("vue").Ref<boolean, boolean>>;                 ← EXACT, as spec'd
+64:    settledFrame: Readonly<...BlobSettledFrame | null...>;
+⟨cmd⟩ rg -n "BLOB_IDLE_MS|SLEEPY_POSE_MS" demo/ e2e/ | wc -l   → 26      (×2, settled bytes)
+⟨cmd⟩ rg -ln … | wc -l                                          → 5       (×2)
+⟨cmd⟩ rg -ln "blob-timing" e2e/                                 → the four consumer specs, exactly
+```
+
+- **ANCHOR DRIFT, recorded (E-3 — no spec byte edited).** §6 G5's evidence block quotes
+  `sed -n '213,214p'` for the two constants; at true bytes they are **`:211-212`**. Two lines, no change of
+  substance; this seat worked the **true** bytes. Seat 0's Baseline row already reads `:211-212`, so the
+  record is self-consistent and only §6's quoted `sed` range drifts.
+- **The erratum's 26/5 is reproduced exactly**, not the superseded 20/6. `o12-blob-seat.spec.ts` names
+  neither constant and is a consumer **through the fixture's exports** — which is precisely why the §5 lock
+  ("commit 3 must not split") exists.
+
+**b.1 · The cure, implemented EXACTLY as §5 `### X.W2.b` specifies.** Not a variant, not a superset:
+
+| §5 clause | what landed in the working tree |
+|---|---|
+| *"bind `HeroBlob.vue`'s template ref to the Blob instance's `settled`"* | `const engineSettled = computed(() => blobRef.value?.settled === true)` |
+| *"watch it to drive `blobPaused` / `:paused`"* | `watch(engineSettled, (settled) => { if (settled) blobPaused.value = true; })`; `:paused="blobPaused"` unchanged |
+| *"delete `BLOB_IDLE_MS`, `SLEEPY_POSE_MS`, `idleTimer`, `poseTimer`"* | all four deleted, with the `onScopeDispose` timer-clearing block and its now-unused import |
+| *"and the 'booked at the 5.0.0 adopt' comment"* | deleted with the wall-clock rationale block it sat in |
+
+**One typed fact worth the record**: `Blob.vue.d.ts:63` declares `settled: Readonly<Ref<boolean>>`, but the
+**consumer-side** read is a plain `boolean` — Vue's expose proxy (`proxyRefs`) unwraps exposed refs, so
+`blobRef.value?.settled.value` is a type error and `blobRef.value?.settled` is the binding. Measured, not
+guessed: ⟨cmd⟩ `npm run typecheck` → `HeroBlob.vue(212,61): error TS2551: Property 'value' does not exist on
+type 'boolean'` on the first form, **exit 0 GREEN** on the second. Reactivity is preserved (the proxy reads
+the ref underneath), and the built bundle proves the wiring survived minification: ⟨cmd⟩
+`rg -o '.{0,80}settled.{0,40}' dist/gh-pages/assets/HeroBlob-XNw6eD7v.js` →
+`A=u(!1);e(f(()=>d.value?.settled===!0),e=>{e&&(A.value=!0)})` — the ref, the computed, the watcher.
+
+**b.2 · WRITE-THEN-MEASURE — and the park DOES NOT ENGAGE.** Five independent observations, two instruments,
+on the **BUILT** bundle over `serve-built.mjs :8091` (§ENV: no dev-server number appears in this block):
+
+| instrument | runs | window | result |
+|---|---|---|---|
+| draw-plateau probe (`instrumentWebglDraws` idiom, per-canvas WebGL2 draw counting) | **3** | 45 s each, after one spectrum click | draws never plateau: **769 / 618 / 618** draws accrued, last increment at **45,068 / 45,053 / 45,018 ms** — i.e. at the end of the budget, every run |
+| state probe (the same counter + a temporary `data-x-settled` / `data-x-paused` / `data-x-mood` reflection of the component's own state) | **2** | 60 s + 75 s | `settled` reads **`false` at every sample**; `paused` reads **`false` at every sample**; draws climb monotonically to **1,019** and **1,671** |
+
+⟨cmd⟩ (75 s state probe, transitions only)
+```
+ 7s draws=0    settled=false paused=false mood=idle
+20s draws=148  settled=false paused=false mood=sleepy
+37s draws=565  settled=false paused=false mood=excited     ← no user input has occurred
+38s draws=595  settled=false paused=false mood=sleepy
+49s/50s · 58s/59s · 71s/72s   → the same one-second `excited` flip, ~every 9–12 s
+LAST {"t":75203,"draws":1671,"settled":"false","paused":"false","mood":"sleepy"}
+settled EVER true: false
+```
+
+`prefers-reduced-motion` is **excluded as a cause by measurement**, not by assumption: ⟨cmd⟩
+`page.evaluate(() => matchMedia("(prefers-reduced-motion: reduce)").matches)` → **`false`** under both the
+explicit `reducedMotion: "no-preference"` context and the harness default, and `settled` is false in both.
+One canvas, one host: ⟨cmd⟩ `document.querySelectorAll('[data-testid="goo-blob-canvas"]').length` → **1**, so
+the hero is the measured canvas and no second Blob is being read by mistake.
+
+**b.3 · THE ROOT CAUSE, isolated by a controlled counterfactual (the §3a-mandated "measured reason").**
+The diagnostic loop was **HALTED AT ITS THIRD PASS** per §3a; what follows is the halting pass's own finding
+plus one counterfactual, and **no fourth attempt at a cure was made**.
+
+The producer's predicate is ⟨cmd⟩ `sed -n '1399p' node_modules/@mkbabb/glass-ui/dist/blob.js` →
+`h = () => e.mood.isSettled() && e.pointer.isAtRest() && e.satellites.isQuiescent()`. Its three conjuncts,
+read at the installed 7.0.0's bytes and against the measurements above:
+
+1. **`pointer.isAtRest()` — TRUE, structurally.** The hero is decorative (no `pressLabel`), so the producer
+   computes its hit element as `null` (`p = pressLabel && !disabled && !paused` → `false`) and
+   `useBlobPointer` attaches **no** listeners. Nothing can make the pointer active.
+2. **`mood.isSettled()` — TRUE only between the fission kicks.** Measured: the mood reaches `sleepy` at ~20 s
+   and holds — **except** for a one-second `excited` flip every 9–12 s with **zero user input**. Traced to
+   its only possible source: `⟨cmd⟩ rg -n "onPinch" …/blob.js` → `e.satellites.onPinch((t) => e.pointer.click(t))`,
+   and in the satellite tick `!d.snapFired && e >= .42 && (d.snapFired = !0, l?.(…))` — **the fission snap
+   enters the mood FSM through the `clicked` channel**, where `d("excited", {source:"auto"})` answers it with
+   `s = 900` (the excited hold) and arousal 1. Arousal 1 drops `mergeRate` to 0.3
+   (`mergeRate = lerp(2, 0.3, arousal)`), which shortens the colony's global event cooldown from
+   `3000 × 1.83 = 5,490 ms` to `900 ms` — so the kick makes the colony busier, which makes more fissions,
+   which kick again. **A self-sustaining excitation loop, driven by the hero's own armed `fissionAmp = 0.6`
+   (WR-2 / T-49c).**
+3. **`satellites.isQuiescent()` — the STRUCTURAL blocker, and it survives the counterfactual.** With
+   `HERO_FISSION_AMP` temporarily set to **0** (a diagnostic edit, rebuilt, measured, **reverted**), the
+   mood flips **vanish** — ⟨cmd⟩ the 75 s probe reports `mood=idle → sleepy` at ~40 s and **no `excited`
+   sample at all**, confirming conjunct 2's diagnosis exactly — and yet **`settled EVER true: false`**,
+   `paused EVER true: false`, 538 draws over 75 s. So the remaining blocker is conjunct 3:
+   `isQuiescent()` requires **every** satellite in the `orbiting` phase simultaneously, while the colony's
+   own arithmetic forbids it in the resting state: the merge chain is
+   `mergeDuration 1800 + absorbedDuration ≤ 4000 + emergeDuration 2200` = **6,000–8,000 ms**, and the global
+   inter-event cooldown at sleepy's `mergeRate 1.83` is `3000 × 1.83` = **5,490 ms**. **The cooldown is
+   SHORTER than the chain it gates**, so a fresh satellite event can always begin before the previous one
+   ends, and the 3-satellite colony is never wholly orbiting. `settled` is therefore not merely slow — on
+   this configuration it is **unreachable**.
+
+**b.4 · The gate-reading pair, run from the gate's own command (L-19: it must fail for its intended reason).**
+`webgl-blob-idle.spec.ts` is the park's draw-plateau oracle; it runs in the `smoke` project.
+
+```
+⟨cmd⟩ npx playwright test --project=smoke e2e/smoke/webgl-blob-idle.spec.ts    # WITH the §5 cure in tree
+1 failed — "blob drew 56 frames over 2500ms of true idle — the render loop is NOT parked"
+           Expected: <= 5   Received: 56
+⟨cmd⟩ (same command, after `git checkout -- demo/picker/visual/HeroBlob.vue`)  # at HEAD, wall clock intact
+1 passed (30.2s)
+```
+
+**That pair is the whole escalation in two lines**: today's green rests on the 5.3 s stopwatch, and the
+shipped quiescence seam does not replace it on this configuration. The specs are **not** vacuous — they are
+sensitive to the park, which is the very property G5's falsifier asks for (*"stub `settled` to never settle
+and the four park specs must red"*). Here `settled` is **held false by the engine itself**, and the spec
+**reds** — the falsifier's asserted property is therefore **satisfied by measurement**, from the wrong side
+of the gate.
+
+**b.5 · The tree, handed back CLEAN.** The cure was reverted with a pathspec checkout of **this unit's own
+uncommitted file** (`git checkout -- demo/picker/visual/HeroBlob.vue`) — **no stash, no `reset --hard`, no
+force-push**, and no sibling seat's path touched. ⟨cmd⟩ `git status --porcelain -- demo/ e2e/` → the single
+pre-existing untracked `e2e/visual/` (a sibling's), nothing else. **The fixture and the four consumer specs
+were never edited**, because a quiescence-derived `PARK_SETTLE_MS` over a trigger that is still the wall
+clock would be an incoherent artefact — the §5 lock ("commit 3 is ONE commit and MUST NOT SPLIT") is
+honoured by landing **none** of it rather than half of it. `scripts/dev/dev.sh` untouched (DR-24);
+`node_modules/@mkbabb/glass-ui/**` read-only throughout — **no local patch of the producer was made or
+contemplated**; the scratchpad probes live outside the repo and wrote **zero** tracked bytes.
+
+**b.6 · G8 — `BLOB_HERO` RULED: TOMBSTONE, with the measured rationale (the gate's second arm).**
+Born-RED reproduced: ⟨cmd⟩ `grep -rn "BLOB_HERO" demo/ src/ | wc -l` → **0**; the symbol does ship
+(⟨cmd⟩ `grep -c BLOB_HERO node_modules/@mkbabb/glass-ui/dist/blob-config.js` → **1**). The consumption arm
+was evaluated at the bytes before it was declined — `BLOB_HERO` is `BLOB_CONFIG_DEFAULTS` overlaid with
+`geometry{satelliteCount 4, orbitRadius .3, satelliteRadius .1, eccentricity .04}` ·
+`membrane{smoothK .06}` · `color{lightnessFloor .15}`, against the hero's live register
+`geometry{bodyRadius .325, orbitRadius .4, satelliteRadius .09, eccentricity .03}` over the **injected app
+config**. Two independent disqualifiers, each measured:
+
+1. **It would sever a live seam.** `heroConfig` spreads `appBlobConfig` — the `reactive` object
+   `useAtmosphere.ts:381` provides and **`BlobPane` live-tunes**. Taking `BLOB_HERO` as the base replaces
+   that object with a frozen module constant, and BlobPane's tuning stops reaching the hero. That is a
+   functional regression, not an adoption.
+2. **The residual delta is DESIGN CONTENT, which this wave may not carry.** Netting out the four geometry
+   atoms the hero already overrides, adopting `BLOB_HERO` changes `satelliteCount` **3 → 4** and
+   `membrane.smoothK` **.05 → .06** — a fourth satellite in the hero colony and a softer union. W2.md
+   §State's **Model law M-23** is explicit: *"This wave carries no design content; the design canon is
+   X-W10."*
+
+**The one-line tombstone, for unit d to carry into the wave close (G8's asserted property):**
+
+> **`BLOB_HERO` — TOMBSTONED at X-W2.** The hero's register is an overlay on the app-wide `BLOB_CONFIG_KEY`
+> object that `BlobPane` live-tunes, so adopting the frozen preset as its base would sever that seam; the
+> residual delta (`satelliteCount` 3→4, `membrane.smoothK` .05→.06) is design content, and design content
+> is X-W10's by M-23. Re-trigger: X-W10's design canon may adopt it as the hero's base **in the same ruling
+> that re-homes the live-tuning seam**.
+
+G8's falsifier — *"a third close that neither consumes nor tombstones. Silence fails."* — is answered: this
+is the word, with its measurements, and it is not silence.
+
+**b.7 · §7 cadence.** Each line says **which tree** it was run against, because this unit's product edit was
+measured and then reverted — a cadence claim over bytes that no longer exist would be worthless.
+
+⟨cmd⟩ `npm run typecheck` (`vue-tsc -p tsconfig.lib.json` **and** `-p tsconfig.demo.json`) →
+**exit 0 GREEN with the cure in tree** (and it is what caught the `Readonly<Ref>`-vs-unwrapped-`boolean`
+binding in b.1), **exit 0 GREEN again on the landed tree** after the revert.
+⟨cmd⟩ `npx eslint demo/picker/visual/HeroBlob.vue e2e/smoke/fixtures/blob-timing.ts --max-warnings=0` →
+**exit 0** on the landed tree. **No eslint claim is made about the reverted cure** — it was not run against
+those bytes, and this line says so rather than implying it.
+⟨cmd⟩ `npm run lint` (repo-wide, landed tree) → **exit 1, 50 problems (18 errors, 32 warnings)** — unit c's
+**c-F5** pre-existing baseline, **reproduced to the number** a third time; the offending files are all under
+`docs/tranches/V/**`, unmodified, outside W2.md §4. Carried, not cured (a write there is an
+ESCALATION-by-write).
+⟨cmd⟩ `npm test` (vitest, landed tree) → **26 test files, 348 tests, ALL PASSED** (4.42 s). §7 orders this
+run after unit **b** *because spec code imports the fixture's constants*; this unit changed **no** fixture
+constant and **no** spec byte, so the run is a confirmation that the tree it hands on is unmoved — which is
+exactly the claim an escalating seat owes.
+⟨cmd⟩ `git diff --check` and `git diff --check --cached` → **clean** before the commit.
+
+**b.8 · E13, in this unit's scope.** ⟨cmd⟩ `ls -lt ../glass-ui/docs/tranches/BK/coordination/ | head -6` →
+the same three 2026-09-17 letters seat 0 swept, already rowed **I-32 · I-33 · I-34** by the Track D seat;
+**no letter minted since**. None touches an X-W2 surface (seat 0's measurement, re-read here). **Zero unread
+mail in this unit's scope.**
+
+#### Gate readings, BEFORE → AFTER (this unit's own clock)
+
+| gate | at unit open | at unit close | note |
+|---|---|---|---|
+| **G5** the wall-clock park is replaced by the shipped `settled` seam | **RED** — `:211-212` the two constants live; `:209` the dead book; `rg … demo/ e2e/` → **26 hits / 5 files**; producer seam present at `Blob.vue.d.ts:63-64` | **RED — ESCALATED, unchanged at the bytes.** The cure was written, typechecked, built and measured; **`settled` never reads true** (5 runs, 2 instruments, 45–75 s windows, software-GL, built origin), so the park never engages and `webgl-blob-idle` **reds**. The cure is **reverted**; `rg … demo/ e2e/` is still **26 / 5** | §3a trigger **"Quiescence does not park"** fired, verbatim. **The wall clock was NOT restored** — it was never removed from the landed tree. **No substitute trigger was invented.** |
+| **G8** `BLOB_HERO` is consumed or tombstoned | **RED** — `grep -rn BLOB_HERO demo/ src/ \| wc -l` → **0**, three closes of silence | **GREEN by the tombstone arm** — the ruling is written above with its two measured disqualifiers and its re-trigger, and is handed to unit **d** for the close line G8 names as its home | The consumption arm was **evaluated and declined on measurement**, not skipped. G8 is discharged the moment unit d carries the line; the word exists now and is quotable. |
+
+#### Findings banked by this unit (no gate moved, no bar touched, no producer byte patched)
+
+- **b-F1 · MAJOR · PRODUCER · the shipped `settled` seam is UNREACHABLE on the hero's configuration.**
+  `isQuiescent()` demands every satellite simultaneously `orbiting`, while the resting colony's own numbers
+  forbid it: merge chain **6,000–8,000 ms** (1800 + ≤4000 + 2200) against a global inter-event cooldown of
+  `3000 × mergeRate(sleepy 1.83)` = **5,490 ms**. A gate on a cooldown shorter than the run it gates cannot
+  starve. **Measured, not derived alone**: with fission disarmed and the mood held `sleepy`, `settled` is
+  still false after 75 s. This is the row that must reach glass-ui via the BH/BI relay.
+- **b-F2 · MAJOR · PRODUCER · the fission snap enters the mood FSM through the USER-CLICK channel.**
+  `satellites.onPinch(t => pointer.click(t))` makes the engine's own ornamental beat indistinguishable from
+  a user click; the FSM answers `excited` (arousal 1) for 900 ms + transition, which drops `mergeRate` to
+  0.3, which shortens the event cooldown to 900 ms, which produces more fissions. At any `fissionAmp > 0`
+  the engine excites itself indefinitely. **Measured**: a 1 s `excited` flip every 9–12 s with zero input,
+  gone entirely at `fissionAmp = 0`. An autonomous animation event should not occupy the `clicked` channel.
+- **b-F3 · the manual-mood latch is a THIRD, independent path to the same starvation.** `setMood(m)` from a
+  consumer passes `source: "manual"`, which latches the FSM's manual flag; it is cleared **only** by a click
+  or a pointer-active edge — neither of which a decorative (hit-layer-less) Blob can ever produce. So the
+  demo's own `setMood("excited")` on a scrub would pin `isSettled()` false forever. **The deleted wall-clock
+  code called `setMood("sleepy")` at the idle threshold**, i.e. the old demo pose was itself blocking the
+  read it was booked to be replaced by. Any future quiescence park must also retire the consumer's mood
+  writes or receive a producer-side expiry.
+- **b-F4 · the park's replacement cannot be sized from the wall clock's numbers.** The fixture's
+  `PARK_SETTLE_MS = 2000 + 3300 + 800 = 6,100 ms` is a mirror of HeroBlob's constants. The quiescence
+  trigger's analytic floor is already **8,500 ms** (auto-sleepy at `idleMs > 6000` + the 2,500 ms sleepy
+  transition, both producer constants), before any satellite term — so **no re-derivation of that fixture is
+  honest until b-F1 is answered**, and this unit deliberately left it alone rather than mint a number over a
+  trigger that does not fire.
+- **b-F5 · `prefers-reduced-motion` is a SEPARATE hole, banked not chased.** Under PRM the producer skips
+  `mood.update`, so the FSM's `idleMs` never advances and `isSettled()` reads false by construction — a
+  fourth starvation path, and the one that matters most for the users PRM exists to serve. Measured only to
+  the extent of excluding PRM as *this* run's cause (`matchMedia(reduce)` → false); recorded for the
+  triumvirate because a quiescence park that never parks under PRM would be a regression against the
+  constellation's PRM-honesty law.
+- **b-F6 · c-F4 / a-F5 confirmed a third time** — `npm run typecheck` destroys `dist/gh-pages`
+  (`pretypecheck` → `npm run build`). Every byte reading in this unit was taken after an explicit
+  `npm run gh-pages`.
+
+#### Residuals
+
+1. **G5 is the escalation itself** — unchanged at the bytes, with the cure measured and reverted. §5's
+   sub-gate (`rg … → 0` **and** the four park specs green) is **unreachable through the specified mechanism**
+   until b-F1 is answered.
+2. **The fixture re-derivation and the four consumer-spec adoptions are UNSTARTED, by choice** — they are
+   one indivisible commit with the HeroBlob cure (§5's lock), and landing them alone would red four specs
+   against a trigger that does not exist.
+3. **Two producer rows (b-F1, b-F2) owe the BH/BI relay.** They are **not** the §D producer note W2.md
+   scope 9 charges unit **d** with (that note records the seam as *shipped*; these record it as
+   *unreachable*), and `glass-ui` is READ-ONLY always — so they are authored in-bounds here and handed to
+   the orchestrator for routing, never written into `../glass-ui/**`.
+4. **c-F5's pre-existing repo-wide lint red**, reproduced unchanged. Out of bounds; carried.
+
+#### Escalation — §3a **"Quiescence does not park"**, the trigger quoted and met
+
+> *"**Quiescence does not park.** If `settled` never goes true within the fixture window on the software-GL
+> renderer, triumvirate. Do **not** restore the wall clock; a wall-clock park is the disease."*
+
+**Met literally.** `settled` never goes true in **45 s, 60 s and 75 s** windows — every one of them far past
+the 6,100 ms fixture window — on the software-GL (SwiftShader) renderer, against the **built** bundle, across
+**five** runs and **two** instruments, with PRM excluded by measurement and the cause isolated by a
+controlled counterfactual. Per §3a the dispatch is **mandatory triumvirate (research + plan augment +
+redress)** and **"the orchestrator may not redispatch the failing unit alone."**
+
+**What this seat did NOT do, each forbidden act named so the record is checkable:** it did not restore or
+re-introduce a wall clock (the landed tree still carries the original one, untouched); it did not invent a
+substitute trigger (a draw-count plateau, a `settledFrame` proxy, an intersection read); it did not lower
+`HERO_FISSION_AMP` to buy quiescence (the counterfactual was reverted, and at 0 it does not park either); it
+did not patch `node_modules/@mkbabb/glass-ui/**`; it did not add a `try`/`catch`, a `test.skip`, an
+allowlist, or a timeout raise to mask the red; it did not re-baseline any gate; and it did not land a
+half-commit of the fixture family.
+
+**What the triumvirate needs from the producer, stated as the shape of a cure rather than a demand:** either
+(i) `isQuiescent()` gains a definition the resting colony can actually reach (the cooldown must exceed the
+chain it gates, or quiescence must be defined over the colony's *aggregate* rest rather than a simultaneous
+all-orbiting instant), or (ii) the fission snap leaves the `clicked` channel and the manual-mood latch gains
+an expiry for hit-layer-less Blobs, or (iii) the Blob exposes a *park-worthy* read distinct from `settled`.
+Any of the three makes W2.md §5's mechanism executable **as written**; none of them is a value.js byte.
+
+**Verb stamped: none.** This unit measures and escalates; IMPLEMENTED is the wave's own close and VERIFIED
+is X-W11's. The tree is handed on with `HeroBlob.vue` **byte-identical to HEAD**, the fixture and four specs
+untouched, `dist/gh-pages` built and present, and this record the only path this unit wrote.
