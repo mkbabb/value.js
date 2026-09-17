@@ -512,3 +512,67 @@ mutated the shared repository under a too-coarse before/after (**the quadruple, 
 intersection, the object count and the seven index mtimes all agree**), a census without identities
 (**18 rows carry them**), and a harvest with fewer seats than were dispatched (**the one real
 instance of this is R-3, disclosed and measured closable, not hidden**).
+
+---
+
+## 9. Dated addendum — 2026-09-17, at the close seat's last measurement
+
+**Appended after §§1–8 were committed at `51699f0c`; nothing above is rewritten (E-3).**
+
+**The lane authority's bytes moved inside the close window, by another track's in-flight hand.**
+A final porcelain sweep, taken after the close commits and the push, found
+`docs/tranches/V/megatranche/coordination/PARSER-CSS-PAUSE-HANDOFF-2026-08-02.md` **modified and
+uncommitted** in the shared working tree:
+
+```
+⟨cmd⟩ shasum -a 256 <handoff>            → 10a12719772f2aa954469450b2c3f1ab468519949fe4f5c8dcbfecabb83e7171   (working tree, now)
+⟨cmd⟩ wc -c <handoff>                     → 11163                                                              (was 10205)
+⟨cmd⟩ git show HEAD:<handoff> | shasum -a 256 → ced234406d3d9ad6bb13e4dce92452a596c9af55dd2091fd90a83f02502f20f7
+⟨cmd⟩ git status --porcelain -- <handoff> →  M   (uncommitted; last commit touching it is 338c513b)
+⟨cmd⟩ git diff --stat -- <handoff>        → 1 file changed, 14 insertions(+), 2 deletions(-)
+```
+
+**What it is**: the **X-W0.i / CC-011 / C-13 carve** — the routing law's third node rewritten from
+`V.L1 / V.L5` to `V·L1..V·L4 → X-W9 → X-W11`, with a dated carve paragraph naming the tombstone
+`docs/tranches/X/W0/ROUTING-LAW-V-L5.md` (⟨cmd⟩ `test -f` → **TOMBSTONE-ABSENT**; the seat is
+mid-flight). **It is a lawful act of Track A, not of this wave**: no X.P.W0 seat touched this file,
+and it is uncommitted, so no X.P.W0 commit carries it.
+
+**What it does and does not do to this wave's gates.**
+
+- **G-1 stays GREEN, and its row-1 coordinate is durable.** `ced23440…f20f7` is the digest of the
+  **committed blob at the close commit `61217711`** — a coordinate any later reader can re-derive
+  with `git show <commit>:<path> | shasum -a 256`, not a working-tree reading that a concurrent seat
+  can move. The gate asks for _"a disposition this session computed"_; this session computed it,
+  twice, against the 08-03 baseline, and it matched to the character.
+- **Handoff §9 STOP does not fire.** _"Missing bytes"_ — none; _"a stale owner receipt"_ — the
+  governing word is dated 2026-09-17. This is a **dated additive carve by the wave that owns the
+  routing-law rewrite**, not a silent mutation of a pause coordinate: §3.1/§3.2/§3.3 are untouched by
+  the diff, which lands entirely in §2's chain block and a new dated paragraph beside it.
+- **G-8 stays GREEN as specified**, and this is the case `W0.md` §6 G-8 wrote in advance: _"`V·L5`
+  is CC-011/C-13's RETIRE row … X-W0.i rewrites the routing law … This lane therefore states the
+  chain **and** flags that its own downstream node is mid-rename; it does not silently adopt either
+  spelling."_ `EVIDENCE-CHAIN.md` §5 quotes the chain **verbatim as the spec specifies it** and §7
+  carries the standing flag with its rule 1 (_"Until X-W0.i lands the rewrite, the third node is
+  cited as …"_). **The spec's own instrument absorbed this event by design.**
+
+**The trigger has fired.** `.d`'s residual 6 and `EVIDENCE-CHAIN.md` §7 both say that when X-W0.i
+lands the replacement cut, §7 is amended by a **dated addendum beside** and the verbatim handoff
+quotation in §5 is **never rewritten**. That condition is now **in flight** rather than hypothetical.
+
+**R-18 (new, dated 2026-09-17)** — \*owner: **X.P.W1 seat 0\***. At X.P.W1's open, re-measure the
+handoff: if the carve has committed, amend `EVIDENCE-CHAIN.md` §7 by a dated addendum beside, leave
+§5's verbatim quotation untouched, and record **both** the pre-carve digest `ced23440…f20f7` (at
+`61217711`) and the post-carve digest as dated coordinates. **Do not** re-run G-1 against the new
+bytes and call the difference a MISMATCH — it is an authored amendment by a named wave, not a moved
+receipt, and treating it as the latter would fire a §9 STOP over a lawful act.
+
+**Not absorbed, verified.** Two foreign paths sat in the shared index while this seat committed — a
+Track A `docs/tranches/X/W0/GLASS8-REPIN-CENSUS.md` (staged `A`) and this handoff (`M`). Neither
+entered either close commit: ⟨cmd⟩ `git show --name-only` → `51699f0c` = `X-P-W0.md` +
+`W0-CLOSE.md`; `61217711` = `LEDGER.md`. **The §3 law held at a fourth site.**
+
+**Everything re-verified after the push**, so this addendum rests on post-push readings:
+`parse-that/.git` **28M** · `NO-GC-LOG` · objects **4239** · HEAD `ef10d5b7…` · `worktree list`
+**7**; a **fourth** census capture at `7f0c5b13…19d7`, still diff-empty; `git status --porcelain --
+src api demo test e2e` → **0**; `scripts/dev/dev.sh` ` M` and **unstaged** throughout.
