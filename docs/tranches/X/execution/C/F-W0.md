@@ -2033,3 +2033,18 @@ be doing exactly what eleven repair rounds of this spec exist to prevent: publis
 cannot measure.
 
 ---
+
+### C.9 Push receipts — both repos, owner-authorized, never forced
+
+| repo | command | result | remote == local? |
+|---|---|---|---|
+| `fourier-analysis` | `git push origin HEAD` | `* [new branch]      HEAD -> m/w1-bump-migration` — **the working branch had never been published; all ten F.W0 commits ship in this one push** | **YES** — ⟨cmd⟩ `git rev-parse --short HEAD` → `5842377`, ⟨cmd⟩ `git rev-parse --short origin/m/w1-bump-migration` → `5842377` |
+| `value.js` | `git push origin HEAD` | `bd5dd14f..98ed52c8  HEAD -> tranche-u` | **YES** — ⟨cmd⟩ both → `98ed52c8` |
+
+**No `--force` anywhere, no fetch-then-reset, no branch rewritten.** Neither push was a fast-forward
+refusal, so the R-3 measured-refusal branch never opened. `scripts/dev/dev.sh` remains ` M` and
+unstaged in `value.js` after both acts, and the only other dirty row
+(`docs/tranches/V/reformation/CARRY-LEDGER.md`) belongs to another track and was never touched.
+
+**F.W0's close is complete. The wave is PARTIAL on G-8 alone, and that single escalation (§C.6) is
+the whole of what stands between this wave and IMPLEMENTED.**
