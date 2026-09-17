@@ -871,3 +871,137 @@ unit only consumes it), no `(record, id)` homing failure at any of this unit's 4
 unit e's.
 
 **Handoff**: F.W5's writable set is clean after this unit's two commits; **unit d may open.**
+
+### d
+
+**SERVED MODEL: claude-opus-5[1m]** · seat opened 2026-09-17 17:38 EDT, branch `tranche-u`. Writable set
+honoured: **one file appended**, `docs/tranches/X/fourier/contract/J-diff-shape-v2.md`, ⊕ this receipt.
+**Zero fourier bytes written** — every `$F` command below is `grep`/`sed`/`ls`/`git show`/`git ls-files`
+or a read-only `python3` over tracked JSON, and at this unit's close ⟨cmd⟩ (fourier tree)
+`git status --porcelain | wc -l` → **0**, `git status --porcelain docs/tranches/J/design/J-diff-shape.md`
+→ **0 lines**: **v1 is byte-unchanged, superseded BY REFERENCE only** (E-3). `scripts/dev/dev.sh` never
+staged. `LEDGER.md` untouched — **not in unit d's writable set**.
+
+**Serial-head note (§1c).** The serial predecessor is **unit c's contract commit `73e35e74`** ⊕ its
+record commits `483cc8e9` · `145790a3` · `223f951b`; this unit opened on c's committed tree (⟨cmd⟩
+`git log --oneline -1` at open → `223f951b`) and wrote only after reading it. The tree at open carried
+the two standing rows (`CARRY-LEDGER.md`, another seat's; the unowned `dev.sh`) plus three **untracked**
+X·KF evidence paths landed by the concurrent track — **none in F.W5's writable set**, so the *"dirty tree
+at handoff halts the wave"* condition is not tripped.
+
+**E13 — re-swept at this seat's own clock, and the window is unchanged.** ⟨cmd⟩ (double-run, 17:43 EDT)
+`/usr/bin/find docs/tranches/V/coordination ../glass-ui/docs/tranches/BK/coordination
+../keyframes.js/docs/tranches/V/coordination ../sci-report/atlas/docs/tranches/P/coordination
+../sci-report/atlas/docs/tranches/Q/coordination -maxdepth 1 -name '*.md' -newermt '2026-09-17 17:27'`
+→ **3**, and they are **the same three** unit c rowed in its addendum-beside and handed to unit e
+(`…-valuejs-o20-disposition.md` · `…-constellation-o20-relay.md` · `…-bbnf-lang-9.0.0-addendum.md`).
+**Nothing new arrived during unit d · 0 new `I-n` minted · 0 UNREAD in F.W5's scope.** The INBOX row is
+**unit e's writable path**, not this unit's; rowing them here would be an ESCALATION, so the handoff
+stands exactly as c left it.
+
+#### Acts, in order
+
+**d.1 — MEASURE-AT-OPEN (D-19), before a clause was written.** Every witness in §F, §G and §H was
+re-measured at this seat's own clock from `$F = /Users/mkbabb/Programming/fourier-analysis`
+(READ-ONLY), `$V = /Users/mkbabb/Programming/value.js` and
+`$R = docs/tranches/V/megatranche/registry/adjudicated`; engine `/usr/bin/grep` (BSD) where the result
+is an engine fact; **every published figure double-run** (`run1 ≡ run2`). Nothing was inherited — and
+where a spec spelling did not reproduce, the **true bytes** are printed in the clause and the divergence
+is named there (d.5 below).
+
+**d.2 — §F authored, F1…F9, each RULE / WITNESS / DISPOSITION / LOCK.** Nine clauses, plus a **§F.0**
+head that (i) declares the bases in the block that consumes them, (ii) **discharges §0.2's cell** —
+*"§3.1–§3.3 … §F re-states the diff envelope against them (unit d)"* — by restating v1 §3's canonical
+shapes as **IN FORCE, unamended**, binding the **fourier** end under §E3's R1 one-sided verdict, and
+naming what v1 never spoke (the **error** envelope, §F5's subject), and (iii) records the two witness
+corrections. **Zero rows double-booked**: `fr-EquationView B-2`, `fr-FunctionInput L-B1/C-1`,
+`fr-FunctionInput L-M3` and the ConvergencePlot `L-M7 + C-8` pair travel as **LEGS held at F-W4**, cited
+and not re-booked; **§F5 books NEITHER of its two witnesses** (`fr-EquationView C·D-02` is F.W4's,
+`fr-ContourSettings M-15 / DU-missed-4 / D-m2 / D-m3` is a leg held at F.W3 per R4-6) and owns only the
+server-side envelope clause; **§F7 books nothing at all** — `fr-ConvergencePlot K-13` is **TERMINAL**
+per canonical errata **E6-3**, so the clause keeps the fact and loses the booking voice.
+
+**d.3 — §G authored, G1c…G10c**, same four-part shape, all ten record-qualified at their sites.
+
+**d.4 — §H, the value-side obligation list.** **Eight acts (`VO-1`…`VO-8`) ⊕ one explicit
+NON-obligation (`VO-0`, TA-4)**, each with **ONE HOME and TWO CITATIONS**, the home spelled once (*the
+X·V API row — the holder `F-W5.md` §4's `F.W5 → value.js API row` edge names*). **F.W5 claims credit for
+none of them** (FR-GIG-5's bar, §0b). `VO-1`…`VO-5`, `VO-7`, `VO-8` and `VO-0` are the §4 edge's own
+enumeration, one row each; **`VO-6` is a seat-measured addition, recorded as such** — the value twin
+`demo/platform/transport/api-problem.ts` carries §F5's two discards verbatim (`:40` `statusText`
+fallback, `:42` non-string `detail` → `undefined`), so a clause that binds both ends acquires a value
+half. It renames nothing and re-books nothing. The band's **silences are measured, not assumed**: ⟨cmd⟩
+base `$V`, `/usr/bin/grep -rl 'fourier-paths\|extractContours\|SimplifyRequest' api/src src demo
+--include='*.ts' --include='*.vue' | wc -l` → **0** (double-run) — §G asks value.js for nothing and §F
+asks for exactly `VO-6`.
+
+**d.5 — THE TWO DECISIONS THIS UNIT WAS OWED, made in F.W5's own voice, each with its reasons and its
+lock.**
+
+| clause | the choice the spec hands the forming wave | **RULED HERE** | the lock that follows |
+|---|---|---|---|
+| **§F8** — THE SEAM CHOICE | *"→ F.W4 (a `plainLatex()` strip …) **or F.W5** (the hooks as a separate wire field — … the forming spec chooses the seam)"* (⟨cmd⟩ base `$R`, `grep -n -F 'the forming spec chooses the seam' fr-EquationResult.md` → `:39`) | **THE WIRE FIELD.** Every LaTeX field carries **portable** LaTeX; presentation hooks travel in their own field named for what they are. Reasons, each a measured fact: the hooks are emitted in the **library** (`latex_rendering.py:175` `:176` `:216` `:248`, all inside the three `*_sigma` renderers, the three expanded renderers clean), so a client strip leaves every other consumer to re-derive it; **a strip is a masking fallback**; and the split makes **FR-EQR-32's sink-class clause enforceable** | **F.W5 RECORDS NO DECLINE**, so **F.W4 does not land `plainLatex()` as the portability cure** and must not report a defensive strip as closing FR-EQR-4. Composes with §F1: when `latex_sigma` joins `SimplifyResponse`, it joins **portable** |
+| **§G1c** — the provenance union | *"decide the moon's TRUE SOURCE or RE-AUTHOR it"*, with the record's first branch left empty — *"What moon.json WAS generated from → SS-13/undetermined"* (`fr-FourierShapeExtractor.md:51`) | **RE-AUTHOR, at F.W6, not before** — because this seat's own measurement closes the first branch the rest of the way: **no parameterisation of the present source reproduces the shipped artifact** (the crescent-alone bbox strictly *contains* the shipped one, so no subset-of-contours choice yields it either) | **DO-NOT-REGENERATE on `master` STANDS until F.W6 lands the pipeline**; a regeneration attempt **revives `L-B1` and `L-B2/C-2` at BLOCKER**. Interim posture **FROZEN with a golden-file baseline** — the instrument the owner already ruled for the frozen-asset class at **§0j.D G-15(c)** (FM-19), **adopted, not re-opened** |
+
+**Non-contradiction checks run before those two were written**: (i) **§0j.D G-15(c)** rules FM-19
+*frozen-forever with a golden-file diff* — §G1c **adopts that instrument** for the interim and rules
+only on the sun/moon band, which is the band the tracked producer never covered (d.6); (ii) **no clause
+in this band is ⊙ owner-gated** — ⟨cmd⟩ base `$V`, `/usr/bin/awk 'NR>=216 && NR<=244'
+docs/tranches/X/fourier/waves/F-W5.md | /usr/bin/grep -c '⊙'` → **0** (the spec's four ⊙ gates — G4, G7,
+G10, G11 — are all unit c's), so **no ruling is presumed here**; (iii) **ruling D9**
+is untouched — `VO-7` carries §E4's 3-state disclosure forward **without amending it**, and no clause
+in this band is numbered D9.
+
+**d.6 — corrections and drifts, recorded here and in the clauses, never in the spec (E-3).**
+
+| # | spec spelling | at the true bytes, this seat | where it landed |
+|---|---|---|---|
+| 1 | §F3's *"seven-keyword denylist"* placed at the API | **Seven exactly**, but in the **library**: `src/fourier_analysis/symbolic/parsing.py:80`, inside `parse_expression` | §F.0 item 1 — load-bearing: a term written against `api/` alone would not reach it |
+| 2 | §F7's *"`latex`/`latex_sigma` arrive unconsumed"* | True of **ConvergencePlot** (⟨cmd⟩ `grep -c 'latex_sigma\|result.latex' ConvergencePlot.vue` → **0**); false of the view (`EquationView.vue:114-115` consumes both) | §F.0 item 2 — the clause is written against the component that renders the tooltip |
+| 3 | §F9's anchor `latex_rendering.py:281` | **EXACT** — `:275` declares `budget`, `:281` is the call that drops it. **No drift**; recorded because a verified anchor is evidence too | §F9 witness |
+| 4 | §G7c's *"no test runner in `web/` at all"* | No **unit** runner: ⟨cmd⟩ `grep -c 'vitest' web/package.json` → **0**. Playwright e2e exists (`:10-11`) and reads nothing of this seam (⟨cmd⟩ `grep -rlw '__fourierShapeData' web/e2e \| wc -l` → **0**) | §G7c + §G6c, stated in the precise form |
+| 5 | §G2c's *"450 KB of product"* | **440 KB** re-measured — `sun.json` + `moon.json`, **220 KB each**; the untracked input `raw-contours.json` is 23 KB | §G2c witness, with the record's figure named |
+| 6 | §G2c's M-2 frame (*"a tracked path exists for 5 of 7"*) | **True, and inverted**: those 5 assets have **ZERO importers**; the 2 the app renders (`sun`/`moon`) are exactly the untracked-detour pair | §G2c ▲ — it **strengthens** the prescribed direction |
+| 7 | §G1c's record figures | **Reproduced first-hand, double-run**: 19/512 = **3.71 %** within 1.0 · p90 **37.55** · spacing **1.23** · Δ x-max **12.97** · Δ y-min **6.55**; sun control **32.62 %**, p90 **13.84** | §G1c witness — corroboration, not drift |
+| 8 | §F2's *"61→51"* and *"exactly 50"* | **Reproduced by simulating the recurrence at `EquationView.vue:151-158`**, double-run: first over-ceiling value `v = 61 → budget = 51`; single track-click from defaults → **exactly 50**; drag end → **90**, 40 above `le=50` | §F2 witness |
+
+**d.7 — commit.** `34b5f2be` — **one commit, one meaning**: §F, §G and §H are **one authoring act on one
+file** (the obligation list is the disposition half of the same clauses and cannot be read apart from
+them), so the family did not split. Pathspec only:
+`git add docs/tranches/X/fourier/contract/J-diff-shape-v2.md`. The header **Status** line was updated in
+the same commit because it is a statement *about* this act.
+
+#### Gate readings — BEFORE → AFTER, at this seat, double-run
+
+| gate | BEFORE (unit d open, 17:39) | AFTER (post-`34b5f2be`) | verdict |
+|---|---|---|---|
+| **G16** — canonical-geometry provenance, **TRIPWIRE** | ⟨cmd⟩ `grep -c '^### G[0-9]*c ' J-diff-shape-v2.md` → **0** · `grep -c '^### G5c' …` → **0** · `grep -c 'DO-NOT-REGENERATE' …` → **0**: **no decision existed in any document**, which is exactly why the gate was born-RED | **10** §G clauses · **G5c present** · **DO-NOT-REGENERATE ×5** · the pairing sentence greppable under §0.6's normalizer — ⟨cmd⟩ `tr '\n' ' ' < … \| tr -s ' ' \| grep -c -F '**§G1c ⊕ §G5c are gate G16'\''s close**'` → **1** | **RED → GREEN at the contract half** (the pipeline decision **WITH** the diagnosed-result-type row, paired and locked). **The product-side close is F.W6's / the build lane's**, and the tripwire stands until it lands |
+| **F-band envelope clause (F5)** — the unit plan's second item; not a numbered gate | ⟨cmd⟩ `grep -c '^### F[0-9] ' J-diff-shape-v2.md` → **0** | **9** §F clauses; §F5 states the RFC 7807 term for **framework-raised** responses, adopts the 429 narrowing, and hands the client half to F.W3/F.W4 ⊕ `VO-6` | **LANDED** |
+| §0.6 probe law (self-check) | — | **21 of 22** sampled RULE/LOCK sentences returned exactly **1** under the whitespace-normalized instrument; the one `0` was the probe string's own typo and returns **1** when spelled from the bytes (re-run, double-run) | **GREEN** |
+
+#### Residuals
+
+- **`SS-13` probes stated, not spent** (this unit adds no probe): the **HTTP/2 transport arm** at §F5
+  ▲ *(the static arm needs no probe: `"" ?? x === ""` is a language fact)*, and **`L-M2`'s magnitude**
+  at §G8c. Both are named at their clauses.
+- **`fr-ConvergencePlot K-13` is TERMINAL** (E6-3) and §F7 books nothing; the **fact** it carried is
+  preserved in the clause so a later reader does not mistake the re-homing for a withdrawal of the
+  finding.
+- **Dissents preserved, unresolved by this wave** (§2b): reader-1's BLOCKER filings on `L-B1` and
+  `L-B2/C-2` travel **with their revival condition** inside §G1c/§G2c.
+- **`VO-6` is new to the §4 enumeration.** It is recorded as a seat-measured addition at both ends (the
+  clause and this receipt) so unit e's G19 set-difference reads it as *added-with-provenance*, never as
+  a silent insertion.
+
+#### Escalations
+
+**None.** No write outside the writable set (`J-diff-shape-v2.md` appended; this receipt appended;
+`LEDGER.md` untouched — not unit d's; `COHESION.md`, the registry, the canonical, `lane-crud.md`, the
+spec and **every fourier byte** unedited). **v1 byte-unchanged.** No ruling re-opened and none presumed.
+**Triumvirate status: no halt condition approached** — no register/triple disagreement (this unit
+consumes the register and disputes nothing), **no `(record, id)` homing failure** across this unit's 19
+clauses and 9 obligation rows, and MF-9 is unit e's.
+
+**Handoff**: F.W5's writable set is clean after this unit's two commits; **unit e may open** — with the
+three unrowed BK letters still standing for the INBOX row, `G19`'s set-difference now running against a
+**complete** §2 clause surface (§A–§H), and `G22`/`G20` untouched by this unit.
