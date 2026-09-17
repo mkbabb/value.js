@@ -746,3 +746,223 @@ O-11 **52 d**, by `date` arithmetic against 2026-09-17, replacing the spec's dat
   value.js**; the reconciled keyframes coordination dir holds **no keyframes-authored letter to
   value.js** (⟨cmd⟩ `ls` → 9 inbound + `INBOUND-LEDGER.md` + the two untracked packet bodies +
   `vnext/`). This unit minted **no `I-n`** — it sent outbound. **No unread mail in this unit's scope.**
+
+---
+
+### KF.W1.c
+
+**Unit**: X.KF.W1.c · Ledger and Law. **Seat model**: `claude-opus-5[1m]`. **Date**: 2026-09-17.
+**Status**: **DONE**. **Commits**: `4ffa4f59` (the three `INBOX.md` edits + the Step-0 sweep line, **ONE
+commit, not split**) · this record. **Writable set honoured exactly**: `docs/tranches/V/coordination/INBOX.md`
+and nothing else — ⟨cmd⟩ `git show --stat HEAD` → *1 file changed, 11 insertions(+), 4 deletions(-)*.
+Zero writes anywhere in `/Users/mkbabb/Programming/keyframes.js` and `keyframes-v-exec` (both read-only
+at this seat: `ls`, `git rev-parse`, `git status`, `git log`, `git show`, `grep`, `shasum`). Every figure
+below is this seat's own command output; the load-bearing ones are double-run and were re-read from the
+**settled bytes** — worktree and git object both — after the commit.
+
+#### Act 0 — the ORDERING lock, verified before anything else (C-10: `.c` is void ahead of G-KF1-1)
+
+⟨cmd⟩ in `keyframes-v-exec`: `ls docs/tranches/V/coordination/` → **11 entries** including
+`VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`; `git log --oneline -1 -- <that path>` →
+**`55e9bf0d`**; `git rev-parse HEAD` = `git rev-parse origin/master` = **`55e9bf0d2391bbc6d9871bb3f0555a6225daae92`**,
+`git status --porcelain | wc -l` → **0**; `wc -lc <letter>` → **309 L / 24,108 B**; `shasum -a 256` →
+`80b7c83183909ccbca2ec43f3828d114f23ac57eb15168e2fc3667fe1b8c8a34` — **identical to `.b`'s published sha**.
+**G-KF1-1 is GREEN, re-verified independently at this seat**, so the ledger may record CURED. A ledger that
+marks CURED ahead of delivery reproduces I-26 one layer up; this seat measured the delivery rather than
+inheriting `.b`'s word for it.
+
+#### Act 1 — the MINT LAW, re-run FIRST and immediately before writing (C-10)
+
+⟨cmd⟩ `grep -oE '^\| O-[0-9]+' docs/tranches/V/coordination/INBOX.md | sort -t- -k2 -n | tail -1`
+→ **`| O-20`** (**double-run: O-20 · O-20**). **Therefore `max+1` = `O-21`.** The spec's commissioned
+literal and the measured mint **agree at this seat's clock**, exactly as they did at wave-open —
+**no delta, so no dated delta addendum is owed before executing.** The measurement was taken from the
+ledger, not from the spec; had they disagreed the measured id would have governed.
+
+**Dated deltas against the WAVE-OPEN baseline, stated not silently applied (E-3) — none of them a MINT delta:**
+
+1. **The ledger grew on axes the mint does not read.** `INBOX.md` measured **100 L / 62,178 B** at wave-open
+   and **109 L / 70,241 B** at this seat's open ⟨cmd⟩ `wc -lc`. The growth is other tracks' seat-0 work
+   appended at the tail: **`I-31` minted by X-W0's Track A seat** (the atlas Q-lane `ATLAS-TO-VALUE-2026-07-28-PASS2.md`,
+   UNREAD) plus the X.P.W0 · KF.W0 · X-W0 · F.W0 Step-0 sweep lines. **The inbound tail moved `I-30` → `I-31`;
+   the OUTBOUND max did not move** — the grep is scoped `^\| O-`, and `I-31` is inbound.
+2. **All four anchors resolved unchanged at this seat's open** — the row ids are the anchors and every one
+   held its line as well: the sweep law at **`:15-16`**, `I-10` at `:47`, **`I-26` at `:92`**, **`O-20` at `:95`**
+   (and `O-8` at `:72`, `O-11` at `:75`). Nothing drifted; no INTENT-at-true-bytes relocation was needed for
+   any commissioned coordinate.
+3. **ONE drifted LITERAL, cured by INTENT at the true bytes and recorded here.** C-10's ANTI-RENAME lock
+   commissions *"O-8/O-11's rows keep **"SENT — no reply on record"** plus an amended-by-O-21 pointer"*.
+   ⟨cmd⟩ `grep -c 'no reply on record' docs/tranches/V/coordination/INBOX.md` → **0** before this write:
+   **that literal string does not exist at the bytes.** The true cells read `**SENT** 2026-07-24. Decision
+   asked: \`4.0.1\` vs coherent tuple` and `**SENT** 2026-07-27. Asks + declarations only; no keyframes edit
+   made or implied`. The lock's **intent** — *keep the row's own text, never rewrite it, add a pointer* — was
+   applied to the text that is actually there: **both cells are preserved byte-for-byte** ⟨cmd⟩ (each still
+   matches its original string, verified post-commit), the `— **no reply on record.**` clause is appended as
+   a statement of fact this seat re-measured (their `INBOUND-LEDGER.md` is unmoved at 9 rows), and the
+   pointer follows it. **No rewrite, no re-key, no id change.**
+
+#### Act 2 — the three surgical edits, ONE commit (`4ffa4f59`; §7 SAME MOTION, C-9 + C-10 not split)
+
+**(i) C-9 / G-KF1-8 — the four-path preamble's keyframes bullet, on the `7a7dc6ef` glass-limb template.**
+The superseded law read, whole:
+```
+- `../keyframes.js/docs/tranches/V/coordination/` — the keyframes exchange (their
+  `<SENDER>-INBOUND-*` grammar; the tranche root is NOT a mail path)
+```
+It now reads, at the settled bytes ⟨cmd⟩ `sed -n '15,20p'`:
+```
+- `../keyframes-v-exec/docs/tranches/V/coordination/` — the keyframes exchange, THE DELIVERY PATH (their
+  `<SENDER>-INBOUND-*` grammar; the tranche root is NOT a mail path)
+- `../keyframes.js/docs/tranches/V/coordination/` — the SACRED checkout: **READ-ONLY / NEVER-DELIVER**
+  (sweep it for inbound, never land a letter there. A letter left in a frozen checkout is not
+  delivered — the path, not the content, was the defect; that pin cost O-8 and O-11 55 and 52 days
+  undelivered → I-26)
+```
+**SIZING LOCK (C-9, KISS / L-19) discharged by construction: TWO bullet lines plus ONE sentence of
+rationale**, shaped on the glass limb's own two-sentence parenthetical (rule sentence + recorded-cost
+sentence) that `7a7dc6ef` established at `:12-14`. **No routing subsystem, no script, no linter, NO CRON**
+— ⟨cmd⟩ `git status --porcelain` shows exactly one modified path from this seat. **The grammar note is
+verbatim** ⟨cmd⟩ `grep -c '`<SENDER>-INBOUND-\*` grammar; the tranche root is NOT a mail path)'` → **1**,
+and it rides the delivery path where a sender needs it. **The sacred checkout is marked, not deleted** —
+per C-9's own reasoning that other senders' inbound really does land there and the sacred rule must stay
+visible. **The cost figures are this seat's own** ⟨cmd⟩ `date -j -f %Y-%m-%d` arithmetic against 2026-09-17:
+2026-07-24 → **55 days**, 2026-07-27 → **52 days** (2026-07-18 → 61, the silence figure, unused here).
+
+**(ii) C-10(i) / G-KF1-7 — `I-26` ROWED → CURED, id kept, prior text kept whole.** The status cell's verb
+becomes `**ROWED 2026-08-03 → CURED 2026-09-17**` and the original sentence — *"a letter that lands untracked
+in a frozen checkout is NOT delivered … no kf-side wave may consume O-8/O-11 obligations until it lands"* —
+**stands unedited** as the dated record it is; the receipt is **appended beside it**, never over it (E-3's
+shape applied inside a live ledger row). The receipt carries the three commissioned legs — **absolute
+delivered path** `/Users/mkbabb/Programming/keyframes-v-exec/docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`
+· **date 2026-09-17** · **exec-clone HEAD `81a56990` at authoring and `55e9bf0d` after the docs-only delivery
+commit** (both stated, because the letter records the first and the tree now carries the second; `src/` tree
+object identical, so no anchor moves) — plus payload (a)–(d), the retention commits (`426761a7` · `57dddee0`)
+and the bytes/sha. **The kf-side mark is left as an OPEN sub-row**, re-measured at this seat rather than
+inherited ⟨cmd⟩ in `keyframes-v-exec`: `git show origin/master:docs/tranches/V/coordination/INBOUND-LEDGER.md
+| grep -oE 'IN-[A-Z]+-[0-9]+' | sort -u` → **9 rows** `IN-ATLAS-1..5 · IN-GLASS-1..2 · IN-VALUE-1..2` —
+**no `IN-VALUE-3`/`IN-VALUE-4`**, after delivery. **NON-GATING by construction (C-12)**; recorded, not repaired.
+The out-of-bounds memory limb is carried in the same row as an **OPEN residual routed OWNER**.
+
+**(iii) C-10(ii)+(iii) — `O-21` minted, `O-8`/`O-11` pointed at it without a rewrite.** The new row sits at
+the ledger's append point (after `I-31`, which is where rows accrete in this file — `O-20` likewise sits
+between `I-25` and `I-28`), five cells on the outbound header `| # | Date | To | Letter | Status |`, and names
+**payload items (a)–(d) by letter and by section** — §A the drift table placed FIRST (4 path-drifted ·
+2 line-drifted · 8 exact) · §B the three `parseStylesheet` sites with their postures · §C the vehicle question
+withdrawn on CC-084 with no cut date · §D D-GAP-6 `sampleBezier` not adopted — together with §E (the
+certification withdrawn on a worktree-state record, never a sha), §F, §G, §H and §I. `O-8` and `O-11` each
+keep their status text **verbatim** and gain an `**AMENDED BY O-21**` pointer that says in its own words that
+the row's text stands as written.
+
+#### Act 3 — the dated E13 Step-0 four-path sweep, appended at the file end (§7 standing law)
+
+Swept read-only at this seat's own clock, not inherited from wave-open. **(1)** value `V/` + `V/coordination/`
+— `INBOX.md` self-excluded (SELF-COUNT law); newest non-self = `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09
+and the two `value-inbox-2026-07-2{4,7}-*` back-fills@12:54, **all three ours** (`.a`/`.b`'s own retention);
+`V/*.md` tops out at `DECISIONS.md`@2026-07-17. **(2)** `../glass-ui/docs/tranches/BK/coordination/` —
+**BK re-confirmed newest** ⟨cmd⟩ `ls -ldt ../glass-ui/docs/tranches/*/` → BK@2026-09-17 12:49 ≻ BJ@08-03 ≻
+BI@07-28; newest letter `glass-outbound-2026-08-29-valuejs-o20-ack.md` = **I-30, rowed**; BK's 09-17 writes are
+`ASK.md` · `PLAN.md` · `BURNDOWN.md` · `EXECUTION-PROGRESS.md` — **not mail paths**. **(3)**
+`../keyframes.js/docs/tranches/V/coordination/` — 11 entries + `vnext/`, every one ours, a third-party→kf
+letter, or kf's own `INBOUND-LEDGER.md`; **no keyframes-authored letter addressed to value.js**. The uniform
+`2026-09-17 12:58` mtimes there are **the §B-12 reset rewriting the working tree, not new mail** — every body's
+content date is 2026-07-16/17/24/27, a reading this seat states rather than letting a mtime sweep manufacture
+eleven false positives. **(4)** atlas `P/coordination/` — 28 entries, newest
+`valuejs-inbound-2026-07-27-library-band-export-delta.md`@2026-08-03, **ours**, rowed. ⟨cmd⟩ delta test
+`find <the four paths> -maxdepth 1 -type f -newermt '2026-09-17 00:00'` → value's own four files and the
+eleven reset-touched keyframes files; **no new inbound anywhere**. **RESULT: 0 unrowed letters addressed to
+value.js · 0 new `I-n` minted · `I-31` remains the inbound tail · `O-21` is the new outbound tail. No wave
+closes with UNREAD mail in scope — KF.W1 does not.**
+
+#### §4c — the two censuses re-run at this write, and the class-H growth booked by the partition's own rule
+
+The wave-open baseline assigned this to `.c` explicitly. **Both totals are published at TWO CLOCKS, because
+the first reading was invalidated by this receipt's own append — the D4-2(a) mechanism §4c names, firing
+inside the very seat that books it.** ⟨cmd⟩ over `docs/ --include='*.md'`: census **(1)**
+`grep -rnF 'keyframes.js/docs/tranches/V/coordination'` → **50 hits / 32 files** at the `INBOX.md` write,
+**57 / 32 re-run LAST at this receipt's own settled bytes**; census **(1b)**
+`grep -rnF '../keyframes.js/docs/tranches/V/'` → **38 / 19** at the write, **45 / 19 re-run last**;
+census **(2)**, the subject,
+`grep -n '^- \`\.\./keyframes\.js' docs/tranches/V/coordination/INBOX.md` → **exactly 1, now `:17`**,
+**unmoved at both clocks — the gate's own witness is stable because it is scoped to the law, not to the corpus.**
+**The entire +7 / +7 delta is THIS FILE**: ⟨cmd⟩ a `grep -cF` of each pattern over this record alone → **8**
+and **10** occurrences, all of them written above by this seat. The **file** counts did not move (**32 / 19**)
+— this record was already a member before the append, so nothing entered or left the partition; only its own
+membership deepened. Neither raw total is operative, at either clock.
+The round-4 readings were 26/18 and 15/8, round-5's 27/19 and 16/9. **Class H took its FOURTH member exactly
+as its own rule predicts** — `conformance/PASS-6/KF-W1-CHECK.md:165` joined `PASS-1:125` · `PASS-4:189` ·
+`PASS-5:165`. The remaining growth is the **execution-record layer** that did not exist at any repair round
+(`X/EXECUTION-RUNBOOK.md`, `X/execution/{A,B,C,D}/*`, `X/union/RUNBOOK-DRAFT-{A,B}.md`,
+`X/keyframes/W0/SUBSTRATE-SETTLE-2026-09-17.md`) **plus this wave's own cure artefacts** (`.a`'s two back-fills
+and `.b`'s retained copy, which quote the path they were written to repair) — i.e. **every new member is a
+file that WRITES ABOUT the path, and not one of them EXECUTES it.** That is the SELF-REFERENCE DISCLOSURE
+firing for the third consecutive reading, and it is why the raw total is **not re-issued as an operative
+numeral**.
+
+> **THE STABLE DENOMINATOR, re-derived at this write — the only figure any act here depended on.**
+> BEFORE: **TWO** executing consumers — `INBOX.md:15-16` (in bounds) and the memory limb (out of bounds).
+> AFTER: **ONE**, and it is the out-of-bounds one. `INBOX.md`'s limb is **CURED** — it no longer names a
+> frozen tree as a landing path; the sacred checkout survives in the law as an inbound-sweep target marked
+> **READ-ONLY / NEVER-DELIVER**. ⟨cmd⟩ `grep -n '\.\./keyframes\.js/docs/tranches/V/'
+> ~/.claude/projects/-Users-mkbabb-Programming-value-js/memory/feedback-mail-inbox-law.md` → **`:16`**,
+> still naming `../keyframes.js/docs/tranches/V/` **and** a stale glass `BI` pin (the glass limb `7a7dc6ef`
+> cured in the ledger but not in memory — the same defect, two limbs, one of them beyond every wave's bounds).
+> **OPEN, routed OWNER. Repairing `INBOX.md` alone does not close the class**, and this seat states it here
+> and in the addressee's own copy of the letter (§H) rather than letting the cure read as complete.
+
+#### Gate readings — BEFORE → AFTER (this seat's own re-measure at both ends; double-run)
+
+| gate | BEFORE (re-measured at this seat, pre-write) | AFTER (settled bytes, worktree **and** git object) | verdict |
+|---|---|---|---|
+| **G-KF1-7** LEDGER VERBS | ⟨cmd⟩ `grep -n '^\| I-26 '` → **`:92`**, reading `**ROWED 2026-08-03**` with the cure described-but-unperformed; ⟨cmd⟩ max-grep → **`O-20`** (double-run), **no `O-21` row**; ⟨cmd⟩ `grep -c 'no reply on record'` → **0**; `O-8`/`O-11` carry no pointer | `I-26` reads **`ROWED 2026-08-03 → CURED 2026-09-17`** with its three-leg receipt (absolute delivered path · date · exec-clone HEAD `81a56990`→`55e9bf0d`) and the kf-side mark as an **OPEN sub-row**; ⟨cmd⟩ max-grep → **`O-21`** (double-run: O-21 · O-21) at worktree **and** ⟨cmd⟩ `git show HEAD:…` → **`O-21`**; ⟨cmd⟩ `grep -c '^\| O-21 '` → **1**, naming (a)–(d); `O-8`/`O-11` original cells still match byte-for-byte (⟨cmd⟩ → 1 · 1) **and** each carries `AMENDED BY O-21` (⟨cmd⟩ → 1 · 1); `grep -c '^\| I-26 '` → **1** (id kept) | **RED → GREEN** |
+| **G-KF1-8** SWEEP-PATH LAW | ⟨cmd⟩ the gate's own narrowed witness `grep -n '^- \`\.\./keyframes\.js' INBOX.md` → **exactly 1 hit, `:15`**, naming `../keyframes.js/…` as the keyframes exchange path — the tree that produced I-26 | the narrowed witness still returns **exactly 1 hit**, now **`:17`**, and it reads *"the SACRED checkout: **READ-ONLY / NEVER-DELIVER**"*; delivery is carried by a **new** bullet ⟨cmd⟩ `grep -n '^- \`\.\./keyframes-v-exec'` → **`:15`**, the exec-visible tree; the grammar note is verbatim (⟨cmd⟩ → 1); **two lines plus one sentence**; no tooling minted | **RED → GREEN** |
+
+Untouched by this unit and **unchanged**: **G-KF1-1** · **-2** · **-3** · **-4** · **-5** · **-6** · **-9**
+· **-10 (ask half)** stand **GREEN** from `.a`/`.b`; **G-KF1-10's counterparty half** is **NOT a gate** (C-12)
+and measures **9 rows, unmoved** at this seat; **G-KF1-11** remains **DECLARED-SATISFIED**; **G-KF1-12**
+remains **GREEN — STAYED** (⟨cmd⟩ in `/Users/mkbabb/Programming/keyframes.js`: zero writes, zero git
+mutations, zero npm by this seat; every access was `ls` / `git rev-parse` / `git status` / `git show` / `grep`).
+
+**WAVE TALLY AT THIS SEAT'S CLOSE: 10 born-RED gates, 10 GREEN** (G-KF1-10 on its ask half, as specced) ·
+**1 DECLARED-SATISFIED** · **1 stay-GREEN INVARIANT, STAYED**.
+
+#### Locks discharged
+
+**§7 SAME MOTION** — C-9 and C-10 landed in **one commit, `4ffa4f59`**, not split: the ledger and the law that
+broke it are cured together, which is the whole point of the lock.
+**C-10 ORDERING** — the edits were made strictly **after** G-KF1-1 was verified GREEN at this seat (Act 0).
+**C-10 MINT LAW** — the max-grep was re-run **first and immediately before writing**, double-run; `max+1`
+governs and the spec's literal was checked against it, never trusted over it; no delta, so no addendum owed.
+**C-10 ANTI-RENAME** — `I-26` keeps its id and its prior text; `O-8`/`O-11` keep their cells verbatim and gain
+pointers; the one drifted commissioned literal was applied by **intent at the true bytes** and recorded (Act 1 §3).
+**C-9 SIZING LOCK (KISS, L-19)** — two lines plus one sentence; no subsystem, no script, no linter, **no cron**.
+**§4a single-writer** — this unit wrote `INBOX.md` alone and nothing else wrote it; `.a`'s and `.b`'s paths
+were untouched.
+**E-3** — nothing dated was rewritten: the superseded law text is quoted whole above, `I-26`'s 2026-08-03
+sentence stands unedited inside its own row, and every correction is stated rather than silently applied.
+**WRITE-THEN-MEASURE / SELF-COUNT** — every published figure was read from the settled bytes, the
+load-bearing ones twice and from the git object as well.
+
+#### Residuals · escalations
+
+- **Escalations: NONE.** No Triumvirate trigger is in this unit's scope and none fired: the ledger was live,
+  every commissioned anchor resolved, and the single drifted literal had a lawful intent-at-the-bytes cure
+  that did **not** require substituting a different act.
+- **OPEN sub-row, recorded not repaired (C-12)**: keyframes' `INBOUND-LEDGER.md` at kf `origin/master` reads
+  **9 rows** after delivery — no `IN-VALUE-3`/`IN-VALUE-4`. Theirs to perform; **non-gating by construction**,
+  and the row says so in its own voice.
+- **OPEN residual, OUT OF BOUNDS, routed OWNER**: the session-memory limb
+  `~/.claude/projects/-Users-mkbabb-Programming-value-js/memory/feedback-mail-inbox-law.md:16` still codifies
+  the frozen keyframes sweep path **and** a stale glass `BI` pin. It is owner configuration — not this unit's
+  and not any unit's to edit unasked — so the STABLE DENOMINATOR closes at **ONE**, not zero. Until it is
+  cured the next session opens with the frozen path re-injected; `INBOX.md` alone cannot close the class.
+- **Dated observation, not a defect**: `INBOX.md` grew **100 L / 62,178 B → 109 L / 70,241 B** between
+  wave-open and this seat (other tracks' seat-0 rows and sweep lines, incl. `I-31`), and to **116 L / 79,733 B**
+  after this write. No commissioned anchor moved.
+- **Dated observation on §4c**: censuses (1)/(1b) now read **50/32** and **38/19** against round-5's 27/19 and
+  16/9. Class H grew by its own rule (PASS-6); the rest is the execution-record layer and this wave's own cure
+  artefacts. **Not operative** — the STABLE DENOMINATOR is, and it went **TWO → ONE**.
+- **E13 mail**: the four-path Step-0 sweep at this seat returned **0 unrowed letters addressed to value.js**;
+  the dated sweep line is appended at `INBOX.md`'s end. **No unread mail in this unit's or this wave's scope.**
+- **Note for the wave-close seat**: the repaired sweep law takes effect **at the very next wave-open,
+  program-wide** (spec §7). Every track's Step-0 from here sweeps `../keyframes-v-exec/docs/tranches/V/coordination/`
+  for delivery and treats `../keyframes.js/docs/tranches/V/coordination/` as inbound-only, READ-ONLY / NEVER-DELIVER.
