@@ -1,0 +1,121 @@
+{
+  "tool": "docs/tranches/V/megatranche/workflows/graph-v3.mjs",
+  "consumer": "X-W8 (CC-078 file bounds · CC-079 SCC owners)",
+  "counts": {
+    "nodes": 487,
+    "edges": 2996,
+    "domains": {
+      "alias": 63,
+      "api": 20,
+      "asset": 11,
+      "boundary": 570,
+      "css": 8,
+      "di": 76,
+      "module": 1477,
+      "render": 715,
+      "route": 39,
+      "state": 16,
+      "worker": 1
+    },
+    "kinds": {
+      "alias.self": 57,
+      "alias.src": 6,
+      "api.endpoint": 1,
+      "api.transport": 19,
+      "asset.url": 11,
+      "boundary.build": 1,
+      "boundary.package": 521,
+      "boundary.test": 48,
+      "css.import": 8,
+      "di.inject": 59,
+      "di.provide": 17,
+      "import.dynamic": 36,
+      "import.sideeffect": 9,
+      "import.type": 238,
+      "import.value": 1087,
+      "reexport.type": 15,
+      "reexport.value": 92,
+      "render.dynamic": 8,
+      "render.mount": 222,
+      "render.tag": 485,
+      "route.pane": 24,
+      "route.record": 15,
+      "state.module": 16,
+      "worker.spawn": 1
+    },
+    "sccs": {
+      "runtime": 1,
+      "load": 4,
+      "ownership": 1,
+      "ownership.pair": 5,
+      "total": 11,
+      "owned": 6,
+      "reasonedNoOwner": 5,
+      "unnamed": 0
+    }
+  },
+  "digests": {
+    "nodes": "0e75a1c9cc1a5c6c90494a186fc010bc934a18a0f1f288554152740072a55000",
+    "edges": "4f1fb14fda15c0a80cd769cdae579e32948bd820aeba9057c9c888a7873a30c6",
+    "sccs": "bf9c9a20cb4c4ca2c0dc28c7349851a0aec5709a2bd375caa615ad80412c82a3",
+    "census": "e3a09112213701e05e9f6ba163b7f97cde7ed15608a09a08bf7b19cca359d54a",
+    "graph": "b3a387c9afd00ca07639812bfc0598593fdf84d1829eb37ca09be3a906782bee"
+  },
+  "aliases": [
+    {
+      "find": "@mkbabb/value.js/color",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/color.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/css",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/css.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/easing",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/easing.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/math",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/math.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/quantize",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/quantize.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/transform",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/transform.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@mkbabb/value.js/value",
+      "kind": "alias.self",
+      "replacement": "./dist/subpaths/value.js",
+      "minter": "package.json#exports → vite.config.ts",
+      "anchored": true
+    },
+    {
+      "find": "@src",
+      "kind": "alias.src",
+      "replacement": "src",
+      "minter": "vite.config.ts"
+    }
+  ]
+}
