@@ -1,0 +1,35 @@
+{
+  "schema": 1,
+  "source": "foundation-g4/BRIEF.md with inherited G2 exact-result contract",
+  "cases": [
+    { "id": "escape-six-digit-boundary", "operation": "cssEscape", "input": "\\000061z", "offset": 7, "result": { "value": "a", "error": null } },
+    { "id": "escape-crlf-raw-offset", "operation": "cssEscape", "input": "\\41\r\nZ", "offset": 5, "result": { "value": "A", "error": null } },
+    { "id": "escape-over-maximum", "operation": "cssEscape", "input": "\\110000!", "offset": 7, "result": { "value": "�", "error": null } },
+    { "id": "escape-eof-recovery", "operation": "cssEscape", "input": "\\", "offset": 1, "result": { "value": "�", "error": "unexpected-eof" } },
+    { "id": "escape-newline-rollback", "operation": "cssEscape", "input": "\\\n", "failure": true },
+
+    { "id": "identifier-leading-hex-escape", "operation": "cssIdentifier", "input": "\\31 0x!", "offset": 6, "result": { "value": "10x", "error": null } },
+    { "id": "identifier-invalid-escape-stops", "operation": "cssIdentifier", "input": "a\\\nZ", "offset": 1, "result": { "value": "a", "error": null } },
+    { "id": "identifier-hyphen-eof-recovery", "operation": "cssIdentifier", "input": "-\\", "offset": 2, "result": { "value": "-�", "error": "unexpected-eof" } },
+    { "id": "identifier-included-037f", "operation": "cssIdentifier", "input": "Ϳx!", "offset": 2, "result": { "value": "Ϳx", "error": null } },
+    { "id": "identifier-excluded-037e-rollback", "operation": "cssIdentifier", "input": ";x", "failure": true },
+
+    { "id": "string-escaped-crlf-raw-offset", "operation": "cssString", "input": "\"a\\\r\nb\"x", "offset": 7, "result": { "value": "ab", "quote": "\"", "error": null } },
+    { "id": "string-unescaped-crlf-reconsumed", "operation": "cssString", "input": "\"a\r\nb", "offset": 2, "result": { "value": "a", "quote": "\"", "error": "newline" } },
+    { "id": "string-eof-recovery", "operation": "cssString", "input": "\"abc", "offset": 4, "result": { "value": "abc", "quote": "\"", "error": "unexpected-eof" } },
+    { "id": "string-backslash-eof-single-error", "operation": "cssString", "input": "\"abc\\", "offset": 5, "result": { "value": "abc", "quote": "\"", "error": "unexpected-eof" } },
+    { "id": "string-nonstarter-rollback", "operation": "cssString", "input": "x", "failure": true },
+
+    { "id": "whitespace-mixed-maximal", "operation": "cssWhitespace", "input": " \t\nx", "offset": 3, "result": " \t\n" },
+    { "id": "whitespace-crlf-raw-offset", "operation": "cssWhitespace", "input": "\r\nx", "offset": 2, "result": "\n" },
+    { "id": "whitespace-cr-ff-lf", "operation": "cssWhitespace", "input": "\r\f\nx", "offset": 3, "result": "\n\n\n" },
+    { "id": "whitespace-nbsp-boundary", "operation": "cssWhitespace", "input": "  x", "offset": 1, "result": " " },
+    { "id": "whitespace-empty-rollback", "operation": "cssWhitespace", "input": "", "failure": true },
+
+    { "id": "comments-two-adjacent", "operation": "cssComments", "input": "/**//**/x", "offset": 8, "result": { "error": null } },
+    { "id": "comments-whitespace-boundary", "operation": "cssComments", "input": "/**/ /**/", "offset": 4, "result": { "error": null } },
+    { "id": "comments-adjacent-final-unterminated", "operation": "cssComments", "input": "/**//*tail", "offset": 10, "result": { "error": "unexpected-eof" } },
+    { "id": "comments-preprocessed-raw-offset", "operation": "cssComments", "input": "/*a\r\n\u0000\ud800*/x", "offset": 9, "result": { "error": null } },
+    { "id": "comments-noncomment-rollback", "operation": "cssComments", "input": "/x", "failure": true }
+  ]
+}

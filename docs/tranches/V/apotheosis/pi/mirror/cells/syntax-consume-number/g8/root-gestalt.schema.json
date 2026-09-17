@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:root-gestalt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "verdict", "root", "subject", "reviews", "union_blockers", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "verdict": { "enum": ["ACCEPT", "REJECT"] },
+    "root": { "type": "object", "additionalProperties": false, "required": ["id", "served_model", "independent", "candidate_author", "challenge_reviewer", "hidden_access"], "properties": { "id": { "type": "string", "minLength": 1 }, "served_model": { "type": "string", "minLength": 1 }, "independent": { "const": true }, "candidate_author": { "const": false }, "challenge_reviewer": { "const": false }, "hidden_access": { "const": false } } },
+    "subject": { "type": "object", "additionalProperties": false, "required": ["formation", "closure_sha256", "holdout_receipt", "holdout_ciphertext"], "properties": { "formation": { "$ref": "#/$defs/idRow" }, "closure_sha256": { "$ref": "#/$defs/sha256" }, "holdout_receipt": { "$ref": "#/$defs/idRow" }, "holdout_ciphertext": { "$ref": "#/$defs/idRow" } } },
+    "reviews": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "object", "additionalProperties": false, "required": ["id", "reviewer_id", "path", "sha256", "bytes", "verdict"], "properties": { "id": { "enum": ["A", "B"] }, "reviewer_id": { "type": "string", "minLength": 1 }, "path": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 }, "verdict": { "enum": ["ACCEPT", "REJECT"] } } } },
+    "union_blockers": { "type": "array", "items": { "type": "string", "minLength": 1 } }, "credit": { "const": "ZERO_ROOT_ADMISSION_ONLY" }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }, "idRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } } }
+}

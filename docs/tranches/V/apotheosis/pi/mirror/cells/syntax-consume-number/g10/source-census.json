@@ -1,0 +1,255 @@
+{
+  "roots": [
+    "cells/syntax-consume-number",
+    "apotheosis"
+  ],
+  "executable_extensions": [
+    ".cjs",
+    ".cts",
+    ".js",
+    ".jsx",
+    ".mjs",
+    ".mts",
+    ".ts",
+    ".tsx"
+  ],
+  "rows": [
+    {
+      "kind": "source",
+      "path": "apotheosis/vitest.config.ts",
+      "sha256": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9",
+      "bytes": 216
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g1/contract.ts",
+      "sha256": "961e59e0a3fb61eef10c2a577438a25d5c63c3f0d972fd33988c532383cfe5a7",
+      "bytes": 1740
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g1/harness.ts",
+      "sha256": "8326e0aa1594a2d3c594f499b32da43d64f2a9e2020d3308ca68654acc4c2eb2",
+      "bytes": 11961
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g1/promotion-verifier.mjs",
+      "sha256": "a496deeebeaef19c8dda7e0ed2d8c19743abe64d4a23556b1f175545f7a61bf0",
+      "bytes": 22838
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g10/correctness-harness.mjs",
+      "sha256": "b76642a7402515a55f80861a49b8f47ebded6356c4b537b68cc5f163b3804a0d",
+      "bytes": 2078
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g10/correctness-worker.mjs",
+      "sha256": "cabc69254b3eedb65fbef34a104c5159b199c44a838cea09ca14c2385b226299",
+      "bytes": 1503
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g10/formation-validator.mjs",
+      "sha256": "a2a98a2069c1749b78a37a24a36d24e7d3abab8ef746e0482db12bfdec20f141",
+      "bytes": 9042
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g10/peer-adapters.mjs",
+      "sha256": "99b8f7691e3a5a6ebf6c6ca07aa5221c94a65246edc8315c60a88effa5af39c8",
+      "bytes": 989
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g10/source-census.mjs",
+      "sha256": "4f354ca7c31df4e988ba1f6f7dc7b3293b69b44982b4f4df144e38338f1d21a5",
+      "bytes": 1921
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g2/contract.ts",
+      "sha256": "71693f18f033adfe31cd5b564dedd9dc2a3c7c792fa2f021e95eef302dd63c6f",
+      "bytes": 1740
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g2/harness.ts",
+      "sha256": "61f96c0f117a56a6e806a28fb69daa2c12d4ceb48e7a5980a387071f79684ecc",
+      "bytes": 11961
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g2/promotion-verifier.mjs",
+      "sha256": "c6c0513e6bdc7dc8620bedbb821f62c940aaca727fcbd59831d4f9b49e5eabc4",
+      "bytes": 23539
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g3/author-admission-validator.mjs",
+      "sha256": "14524bfaa0afccfb4a02f9152049e74b108ddee2ba701392714208c18378f071",
+      "bytes": 35316
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g3/benchmark-runner.mjs",
+      "sha256": "2c014fdc98388cde91d171161d76f1f968552b0ad173e87b4c0123f235745d31",
+      "bytes": 18274
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g3/contract.ts",
+      "sha256": "81f1baa47137d3e1a7cdb5b0c589af14e9a1a10a94cb32e047b8ed2b4201141f",
+      "bytes": 1740
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g3/harness.ts",
+      "sha256": "557bad5b92e8e3cf914848e3601dcabce43f571b0d5043c4437b497c5eb86fa0",
+      "bytes": 12797
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g4/author-admission-validator.mjs",
+      "sha256": "5b02c15e167f38fb438ef48c4f54e593f3c8e42142e2769767d325b32bdb3f10",
+      "bytes": 36635
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g4/benchmark-runner.mjs",
+      "sha256": "6a384b6b667f1eb5d453ba677411adc134c90516c55216ad34d3a1a40e280bff",
+      "bytes": 18274
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g4/contract.ts",
+      "sha256": "acac6b9401efd7ab3d2153af8dc168db7bcce92541013d65bf37313927ab04c1",
+      "bytes": 1740
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g4/harness.ts",
+      "sha256": "895356f6d8581e4ae84e4aadef03b22d14f850859e90d84252dde43b2b59be20",
+      "bytes": 12797
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g5/author-admission-validator.mjs",
+      "sha256": "83473bf5bfa7e98ff38ba779f6faa710ef21e1de3eddfa726aa6c3e3895c8b7b",
+      "bytes": 39605
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g5/benchmark-runner.mjs",
+      "sha256": "a339be4caa600de623c078811fc305d422a3a3e5e3bc3c8202143b1445001ab3",
+      "bytes": 18274
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g5/contract.ts",
+      "sha256": "2ad6a53493e4fda84409aed74845102fed178d73daa6150ad574fb7ec35a7966",
+      "bytes": 1740
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g5/harness.ts",
+      "sha256": "9e20d1f8519767fb619163e29583f3eb7c5bb6d56e240fce1d2fec1cf10eccc3",
+      "bytes": 12797
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g6/author-admission-validator.mjs",
+      "sha256": "e59d66ffd8ed2f9333566ad75dfdc5ab877767098784bd373b02f455f19c8eeb",
+      "bytes": 62092
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g6/benchmark-validator.mjs",
+      "sha256": "3f5e4fe8977cd43ef9b32cff7a2e4c29e42b27b552cfb00796fd3761fe26bba9",
+      "bytes": 27374
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g6/contract.ts",
+      "sha256": "5ab9f370371e93fe13770a5b4b172f6261186028e37624428dee25562f8fb4a8",
+      "bytes": 2411
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g6/harness.ts",
+      "sha256": "e89cc646f7d17d481c446c4b5450aa05912dffb58825771d743291ae80e7da9b",
+      "bytes": 16547
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g7/author-admission-validator.mjs",
+      "sha256": "f09a000d5f0a8252c84a0e4b1772dcf828a7139eb9961a3c973107a7f077200d",
+      "bytes": 69430
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g7/authorities/historical-utils.ts",
+      "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4",
+      "bytes": 7656
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g7/benchmark-validator.mjs",
+      "sha256": "4d065d20f38104aa741646c2b3a602b7a7b4b5a55dd12aafa1f5bef782ecd3c8",
+      "bytes": 27374
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g7/contract.ts",
+      "sha256": "12db0b8a89dfcf1a93a7b4b0e97f088cd8b617588bbc5a0620884e55c6ffc10b",
+      "bytes": 2411
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g7/harness.ts",
+      "sha256": "fc66d47f70b0500d57232e4d1a934b08b14f56aa82d686ae607f59ad8a688cf5",
+      "bytes": 16547
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g8/benchmark-validator.mjs",
+      "sha256": "10d397e7fd3bbd4373d58e58b8b62ed758d73b3f43a1ddd6e01c856cce00f260",
+      "bytes": 16488
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g8/contract.ts",
+      "sha256": "7dec8367db6040150e8be4e31eb762e2c5927c1b86e7d54671277545ddf2f73d",
+      "bytes": 2725
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g8/formation-validator.mjs",
+      "sha256": "5ab1d6d34e841b5159285a7f544e018f879fff35842ad2668e0f51f210e1f018",
+      "bytes": 43852
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g8/harness.ts",
+      "sha256": "5a5f9a440f0d2df0f1bdeced756b304224b33e8c794cecc4ef830bef74226864",
+      "bytes": 18556
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g8/owner-law-validator.mjs",
+      "sha256": "d6f7bd556ffd2b55761526eea91e93943bc347097a401013fd8ecbe7cf30ace0",
+      "bytes": 51646
+    },
+    {
+      "kind": "source",
+      "path": "cells/syntax-consume-number/g9/admission-validator.mjs",
+      "sha256": "f8a00dc67637ab968a00480f6c3a3bcede6b50adb0bc4186fca345b235d697cb",
+      "bytes": 30798
+    }
+  ],
+  "row_count": 39,
+  "source_count": 39,
+  "symlink_count": 0
+}

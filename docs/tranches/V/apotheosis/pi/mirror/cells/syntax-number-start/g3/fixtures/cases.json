@@ -1,0 +1,140 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 3,
+  "positive_matrix": {
+    "numberPrefixes": ["", "+", "-", ".", "+.", "-."],
+    "digits": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    "sourcePrefixes": [
+      { "id": "root", "text": "" },
+      { "id": "ascii", "text": "xx" },
+      { "id": "astral", "text": "💩" },
+      { "id": "cr", "text": "\r" },
+      { "id": "lone-high", "utf16": [55296] }
+    ],
+    "tail": "x"
+  },
+  "negative_matrix": {
+    "spellings": [
+      "", "+", "-", ".", "+.", "-.", "+x", "-x", ".x", "+.x",
+      "-.x", "++1", "--1", "+..1", "-..1", "e1", "١", "１"
+    ],
+    "sourcePrefixes": [
+      { "id": "root", "text": "" },
+      { "id": "ascii", "text": "xx" },
+      { "id": "astral", "text": "💩" },
+      { "id": "cr", "text": "\r" },
+      { "id": "lone-low", "utf16": [56320] }
+    ],
+    "tail": "x"
+  },
+  "mapped_preprocessing_cases": [
+    {
+      "id": "P-CRLF-BEFORE-PLUS",
+      "raw": "\r\n+1",
+      "rawOffset": 2,
+      "rawContinuation": "+1",
+      "preprocessed": "\n+1",
+      "preprocessedOffset": 1,
+      "preprocessedContinuation": "+1",
+      "starts": true
+    },
+    {
+      "id": "P-CR-BEFORE-DIGIT",
+      "raw": "\r9",
+      "rawOffset": 1,
+      "rawContinuation": "9",
+      "preprocessed": "\n9",
+      "preprocessedOffset": 1,
+      "preprocessedContinuation": "9",
+      "starts": true
+    },
+    {
+      "id": "P-FF-BEFORE-MINUS",
+      "raw": "\f-.9",
+      "rawOffset": 1,
+      "rawContinuation": "-.9",
+      "preprocessed": "\n-.9",
+      "preprocessedOffset": 1,
+      "preprocessedContinuation": "-.9",
+      "starts": true
+    },
+    {
+      "id": "P-NUL-AT-POSITION",
+      "raw": "\u0000",
+      "rawOffset": 0,
+      "rawContinuation": "\u0000",
+      "preprocessed": "�",
+      "preprocessedOffset": 0,
+      "preprocessedContinuation": "�",
+      "starts": false
+    },
+    {
+      "id": "P-LONE-HIGH-AT-POSITION",
+      "rawUtf16": [55296],
+      "rawOffset": 0,
+      "rawContinuationUtf16": [55296],
+      "preprocessed": "�",
+      "preprocessedOffset": 0,
+      "preprocessedContinuation": "�",
+      "starts": false
+    },
+    {
+      "id": "P-LONE-LOW-AT-POSITION",
+      "rawUtf16": [56320],
+      "rawOffset": 0,
+      "rawContinuationUtf16": [56320],
+      "preprocessed": "�",
+      "preprocessedOffset": 0,
+      "preprocessedContinuation": "�",
+      "starts": false
+    },
+    {
+      "id": "P-CRLF-FIRST-POSITION",
+      "raw": "\r\n",
+      "rawOffset": 0,
+      "rawContinuation": "\r\n",
+      "preprocessed": "\n",
+      "preprocessedOffset": 0,
+      "preprocessedContinuation": "\n",
+      "starts": false
+    },
+    {
+      "id": "P-EOF-AFTER-CRLF",
+      "raw": "\r\n",
+      "rawOffset": 2,
+      "rawContinuation": "",
+      "preprocessed": "\n",
+      "preprocessedOffset": 1,
+      "preprocessedContinuation": "",
+      "starts": false
+    }
+  ],
+  "excluded_positions": [
+    {
+      "id": "X-CRLF-ELIMINATED-LF",
+      "raw": "\r\n+1",
+      "rawOffset": 1,
+      "reason": "The LF code unit is eliminated when CRLF maps to one LF and has no corresponding preprocessed position. SYNTAX-SOURCE-MAP must never call this operation at that raw interior offset."
+    }
+  ],
+  "deterministic_hostile": [
+    {
+      "id": "H-PREFIX-1M-TRUE",
+      "generator": "'x'.repeat(1000000) + '+.9'",
+      "utf8_bytes": 1000003,
+      "sha256": "69ada027b00d4e8cd961fb18543eadff1515bfa4ba00fb98d91b0865c97d904e"
+    },
+    {
+      "id": "H-ASTRAL-PREFIX-1M-FALSE",
+      "generator": "'💩'.repeat(500000) + '-x'",
+      "utf8_bytes": 2000002,
+      "sha256": "bc65d746f27d6915913735ada5830ed7403c060721ece593c14da37352675ce5"
+    },
+    {
+      "id": "H-CR-PREFIX-1M-TRUE",
+      "generator": "'\\r'.repeat(1000000) + '-9'",
+      "utf8_bytes": 1000002,
+      "sha256": "b7086a515de50ac7dc31aeff163d98d83de533a5dcb3277702196b66ac193b95"
+    }
+  ]
+}

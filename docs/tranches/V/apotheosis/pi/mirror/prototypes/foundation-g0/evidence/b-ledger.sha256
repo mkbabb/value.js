@@ -1,0 +1,10 @@
+2c569e89ed1c49cc38d4b31b8fd50499744875586a1363a71e53aff7dd8c0eba  ./index.ts
+b4f3b8d5f240e87670104332b3e8904dc63b489e16bfaab646026196a97c6afb  ./test/foundation.test.ts
+d3d4df4c23ee07856df1aa41827d90cd2db53d2b86f445affb269f370b8d5b52  ./tokens/code-point.ts
+d2a42bd0d945831ad39cea76059e9cd3c82bfd7cd973e0dc734d39424a0f07d8  ./tokens/identifier.ts
+d22c61ee586d54c2b62b2704f62ed569b44d2249e82f0d553fe96e81941dbef7  ./tokens/string.ts
+8defbaa6e55e1fa6fda3b6734f47306dff9022e68b903ae6bbc535387087a4d4  ./tokens/trivia.ts
+658d05a16fbaca09663c4b397fc1ff7bf31547e00b2a6d2b4a8b337dac7ecfd4  ./tsconfig.json
+8ca9c82e0719c27f55a2b79337c020580db408a4ab270f3d629a9f7d9717e143  ./value-unit/dimension.ts
+d20d6825bec7d06a0a52c38245398ea9c00374267dc817260b3c16f6d62b0134  ./value-unit/percentage.ts
+74aabb0c4d4fd2ef13a5130a6b636f20f619a98970e7208f9ac0ace84c22fcf0  ./vitest.config.ts

@@ -1,0 +1,48 @@
+{
+  "schema": "value.pi.foundation-g1.common-replay/v1",
+  "status": "THREE_OF_THREE_PASS_PRE_REVIEW",
+  "environment": {
+    "node": "v26.0.0",
+    "v8": "14.6.202.33-node.19",
+    "platform": "darwin",
+    "arch": "arm64",
+    "browser": "Chromium 148.0.7778.96"
+  },
+  "candidates": {
+    "h": {
+      "tree_ledger_sha256": "d4a6967ab1e7f0ed3eb6282321e15441617d4a65397a455b666a48014ea65518",
+      "strict_typescript": "PASS",
+      "focused_tests": "10_OF_10_PASS"
+    },
+    "b": {
+      "tree_ledger_sha256": "6409e4220883e6f7d94609a0f651598a378c6bc9d590f0700b27273534e5bb74",
+      "strict_typescript": "PASS",
+      "focused_tests": "104_OF_104_PASS"
+    },
+    "s": {
+      "tree_ledger_sha256": "04481b417ed1bf5f0ea642df489eb13ca2ac1839ee2d5cbf4620a6b78b41b179",
+      "strict_typescript": "PASS",
+      "focused_tests": "11_OF_11_PASS"
+    }
+  },
+  "common": {
+    "baseline_and_corrected_success_transactions_per_candidate": 205,
+    "baseline_and_corrected_failure_transactions_per_candidate": 88,
+    "known_units": 62,
+    "deterministic_hostile_calls_per_candidate": 180000,
+    "unicode_scalar_domain_per_candidate": 1113984,
+    "unicode_transactions_per_candidate": 2227980,
+    "unicode_expected_accepted": 1104687,
+    "unicode_expected_rejected": 9297,
+    "browser_unit_witnesses": 62,
+    "browser_escaped_px": "PASS",
+    "browser_unknown_unit_rejection": "PASS",
+    "million_code_unit_no_throw": "PASS"
+  },
+  "credit": {
+    "candidate": 3,
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

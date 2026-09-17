@@ -1,0 +1,46 @@
+{
+  "generation": "V9_REPAIR_1",
+  "subject": {
+    "analyzer": "5b084bfba01f5fcf8979aaed7a3be21a326cbef070f0cffd2e9599e1e6c1fb9e",
+    "oracle": "5c4e1f65f5eaeefd886fa63ac2aa6d771adda9bbd13b6a4169b1d5f77b5e4afd",
+    "test": "2e09d97a7af648c81b072b2cf67f2682ee2e427e9b4f074a0f3a1ad33c3d965b",
+    "evidence": "b7316ed3d3beef7a10fb39ec73d4cb8f5f254083a0c7851ca85f77e7248090b3"
+  },
+  "challenges": [
+    {
+      "path": "occurrence-owner-v9-repair-challenge-a.json",
+      "sha256": "b79556fe5aab2f7a6c7424267ad994e8577fbcaf265a5cf9a412d2c706f52a21",
+      "bytes": 25666,
+      "verdict": "REJECT"
+    },
+    {
+      "path": "occurrence-owner-v9-repair-challenge-b.json",
+      "sha256": "475cb782b16b725b515b605381e0862f072cf2e1351ff85190378a9f31c08a71",
+      "bytes": 17956,
+      "verdict": "REJECT"
+    }
+  ],
+  "verdict": "REJECT_REPAIR_2_REQUIRED",
+  "accepted_repairs": [
+    "Original V9 mid-line, tag-split, Setext, invalid raw closer, nonvoid slash, scalar escape, empty href, excluded-definition join, same-name close pairing, ledger locator/bijection, untruncated ID, semantic omission/fabrication/state, and cwd-dependence controls now replay on exact bytes.",
+    "The false formal 8*N+64 claim was withdrawn and replaced by an explicitly lower-bound-only witness with zero complexity credit.",
+    "Workspace and /tmp outputs are byte-identical and all broad denominator/parser credits remain truthfully zero."
+  ],
+  "confirmed_remaining_defects": [
+    "Whole-string Unicode lowercasing expands U+0130 and corrupts raw-end tag offsets; raw tag matching must be ASCII-case-insensitive without index-changing transformation.",
+    "Closing ATX hashes remain in heading text, ATX/Setext can duplicate one operation locator, and owner_candidate/duplicate interval ledger constraints are not fully enforced.",
+    "Ordinary single-quoted prose, empty [==], and bare https:// can become included references; excluded/invalid occurrence semantics remain incomplete.",
+    "Multi-scope dfn-for is treated as one scalar and label for can fabricate definition ownership; carrier scope provenance is incomplete.",
+    "The oracle shares these omissions and accepts coordinated false output, so it is not yet an independent semantic witness.",
+    "Operation-ledger lookup, matching closes, repeated byte-prefix conversion, and carrier/reference joins retain uncovered superlinear paths; the lower-bound witness cannot authorize scale claims."
+  ],
+  "next": "Repair the exact union, rerun the same bounded corpus, then obtain two fresh independent challenges before operation-ledger formation or any 168-source run.",
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "operation": 0,
+    "owner": 0,
+    "parser": 0,
+    "production": 0
+  }
+}

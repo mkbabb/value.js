@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:boundary-review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "review_id", "verdict", "reviewer", "subject", "axes", "evidence", "blockers", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "review_id": { "enum": ["A", "B"] }, "verdict": { "enum": ["ACCEPT", "REJECT"] },
+    "reviewer": { "type": "object", "additionalProperties": false, "required": ["id", "served_model", "independent", "candidate_author", "root", "peer_review_access", "hidden_access"], "properties": { "id": { "type": "string", "minLength": 1 }, "served_model": { "type": "string", "minLength": 1 }, "independent": { "const": true }, "candidate_author": { "const": false }, "root": { "const": false }, "peer_review_access": { "const": false }, "hidden_access": { "const": false } } },
+    "subject": { "type": "object", "additionalProperties": false, "required": ["formation", "closure_sha256", "holdout_receipt", "holdout_ciphertext"], "properties": { "formation": { "$ref": "#/$defs/idRow" }, "closure_sha256": { "$ref": "#/$defs/sha256" }, "holdout_receipt": { "$ref": "#/$defs/idRow" }, "holdout_ciphertext": { "$ref": "#/$defs/idRow" } } },
+    "axes": { "type": "object", "minProperties": 15, "additionalProperties": { "enum": ["ACCEPT", "REJECT"] } },
+    "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }, "blockers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "credit": { "const": "ZERO_BOUNDARY_REVIEW_ONLY" }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }, "idRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } } }
+}

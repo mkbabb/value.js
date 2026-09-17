@@ -1,0 +1,16 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G4-PRE-HOLDOUT-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 4,
+  "status": "REJECTED_BEFORE_HOLDOUT_UNAUTHENTICATED_AUTHORITY_DRIFT",
+  "formation": { "sha256": "4a9a6b989f5797a8d7d233c6456dd9ca13ee55be27b06bbad6a6ddcd5c8182af", "bytes": 5885 },
+  "defect": {
+    "path": "../g2/rejection.json",
+    "declared": { "sha256": "22028ecdac55b949623375c07c7dd484f08d184cd908accc946480bd58121bc5", "bytes": 2157 },
+    "actual": { "sha256": "00fbcdb9e543a0df3f140580313150e718c953b111fbfdfb3f4e0b3942163e89", "bytes": 2369 },
+    "cause": "feature-public.json declared a stale pre-destruction G2 rejection identity and validator self-check did not authenticate authority rows."
+  },
+  "required_recut": "G5 must executable-check every file authority hash and every declared byte length, and bind pinned URL content through exact local content-addressed source bytes or a fetched-byte ledger.",
+  "state": { "holdout_files": 0, "ciphertext_files": 0, "manifest_files": 0, "challenge_files": 0, "candidate_files": 0, "active_grammar_mutations": 0 },
+  "credit": "ZERO: no feature, parser, holdout, benchmark result, integration, conformance, production, or promotion credit."
+}

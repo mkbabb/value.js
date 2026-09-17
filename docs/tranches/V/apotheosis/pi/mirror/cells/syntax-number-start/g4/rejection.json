@@ -1,0 +1,35 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 4,
+  "verdict": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "manifest_sha256": "8d5a75cf11d63fc250e9968641aae377ac8a97ed4a160470468d5c508064a342",
+  "challenges": [
+    {
+      "receipt": "reviews/challenge-a-specification.md",
+      "sha256": "37ac9c3150622c2c3f9ea758af904ab657f0a503ea717487dcb5a610b3b5bbf5",
+      "verdict": "REJECT"
+    },
+    {
+      "receipt": "reviews/challenge-b-architecture.md",
+      "sha256": "ee73c763133904585b4c1ac20844e090d43815fde75ff3c0d3350f2f8e9a1ba1",
+      "verdict": "REJECT"
+    }
+  ],
+  "gestalt": {
+    "receipt": "root-gestalt.md",
+    "sha256": "1da3fa80041d6339b65b2e25638bb24390d083b8efb1fbd0fdc806b7addb689e",
+    "verdict": "REJECT"
+  },
+  "blocker_classes": [
+    "default undefined predecessor coverage",
+    "implicit ParserState source coercion and truthful mechanical-gate scope",
+    "explicit diagnostics-enabled benchmark transition and exception invalidation",
+    "canonical actual-live promotion roots",
+    "clean direct-combinator integration base before candidate authoring"
+  ],
+  "candidate_sources_authored": false,
+  "holdout_revealed": false,
+  "holdout_disposition": "DISCARD_UNREVEALED_DO_NOT_REUSE",
+  "credit": "FORMATION_EVIDENCE_ONLY",
+  "next_generation": 5
+}

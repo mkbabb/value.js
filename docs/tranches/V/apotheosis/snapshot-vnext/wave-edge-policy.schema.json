@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-wave-edge-policy-1.json",
+  "title": "V-next canonical wave edge and advancing-status policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "orientation",
+    "formation_graph_sha256",
+    "policy_schema_sha256",
+    "classes",
+    "default_wave_class",
+    "wave_class_overrides",
+    "edge_overrides",
+    "supersession",
+    "expected",
+    "manifest_hash"
+  ],
+  "properties": {
+    "schema": { "const": "vnext-wave-edge-policy/1" },
+    "orientation": { "const": "producer-to-consumer" },
+    "formation_graph_sha256": { "$ref": "#/$defs/sha256" },
+    "policy_schema_sha256": { "$ref": "#/$defs/sha256" },
+    "classes": {
+      "const": {
+        "complete": {
+          "edge_role": "completion-predecessor",
+          "advancing_statuses": ["COMPLETE"]
+        },
+        "conditional-disposition": {
+          "edge_role": "conditional-disposition",
+          "advancing_statuses": ["KEEP", "PRUNE"]
+        },
+        "fixed-keep": {
+          "edge_role": "requires-keep",
+          "advancing_statuses": ["KEEP"]
+        },
+        "fixed-prune": {
+          "edge_role": "requires-prune",
+          "advancing_statuses": ["PRUNE"]
+        }
+      }
+    },
+    "default_wave_class": { "const": "complete" },
+    "wave_class_overrides": {
+      "const": [
+        {
+          "class": "conditional-disposition",
+          "waves": ["V15P", "V16B", "V18H", "V18V", "V24"]
+        },
+        {
+          "class": "fixed-keep",
+          "waves": ["K16", "K17"]
+        },
+        {
+          "class": "fixed-prune",
+          "waves": ["K14", "K15", "K18", "K19", "K20", "K21", "K22"]
+        }
+      ]
+    },
+    "edge_overrides": {
+      "const": [
+        {
+          "from": "V24",
+          "to": "V24C",
+          "role": "requires-keep",
+          "allowed_statuses": ["KEEP"]
+        },
+        {
+          "from": "V24",
+          "to": "V24M",
+          "role": "requires-keep",
+          "allowed_statuses": ["KEEP"]
+        }
+      ]
+    },
+    "supersession": {
+      "const": {
+        "role": "reopening-supersession",
+        "static_edge": false,
+        "allowed_statuses": "owner-advancing-plus-refused"
+      }
+    },
+    "expected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wave_count",
+        "edge_count",
+        "role_counts",
+        "wave_outcomes_sha256",
+        "edges_sha256"
+      ],
+      "properties": {
+        "wave_count": { "const": 190 },
+        "edge_count": { "const": 759 },
+        "role_counts": {
+          "const": {
+            "completion-predecessor": 723,
+            "conditional-disposition": 24,
+            "requires-keep": 4,
+            "requires-prune": 8
+          }
+        },
+        "wave_outcomes_sha256": { "$ref": "#/$defs/sha256" },
+        "edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  }
+}

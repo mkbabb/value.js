@@ -1,0 +1,146 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 1,
+  "status": "BORN_RED_DRAFT",
+  "owner": {
+    "family": "value-unit",
+    "module": "mirror/cells/syntax-number-start/candidates/<seat>/number-start.ts",
+    "final_module": "grammar/css/l4/value-unit/number.ts",
+    "internal_root": "numberStart: Parser<boolean>",
+    "observation_root": "observeNumberStartAt(parser, source, offset)",
+    "public_root": null,
+    "compatibility_impact": "No public export or result type. The exact winner becomes an internal dependency of consume-number and numeric dispatch only after its own acceptance."
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "definition": "§4.3.10 Check if three code points would start a number"
+  },
+  "structure_identity": {
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "feature_ledger_sha256": "c766a5c69632054ab9d45f18c569fc97ae325ddd53a796730a2ab3526b32cc24",
+    "mirror_tsconfig_sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc",
+    "ledger_status": "The full denominator is incomplete. This pilot may be formed and candidates prepared, but cannot receive apotheosis acceptance before full-ledger freeze."
+  },
+  "occurrences": [
+    {
+      "id": "CSS-SYNTAX-3/4.3.10/definition",
+      "role": "owned operation",
+      "disposition": "This row owns the complete non-consuming boolean algorithm exactly once."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/plus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token row imports this winner."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/minus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token row imports this winner."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/dot-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token row imports this winner."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/digit-number-dispatch",
+      "role": "explicit non-occurrence",
+      "disposition": "A leading digit directly reconsumes and consumes a numeric token; it does not call §4.3.10. Its truth is implied by the digit arm but it contributes no caller count."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.13/precondition",
+      "role": "incoming consumer",
+      "disposition": "Future consume-number row imports this winner."
+    }
+  ],
+  "grammar_contract": {
+    "input": "An actual parse-that ParserState at any source-native UTF-16 offset from 0 through source.length.",
+    "operation": "Inspect the next at-most-three positions and return true exactly for sign+digit, sign+dot+digit, dot+digit, or digit; otherwise false.",
+    "consumption": "The Parser<boolean> always succeeds, replaces state.value with one boolean, consumes zero code units, and preserves offset, furthest, expected, suggestions, and secondarySpans exactly.",
+    "diagnostic_sandbox": "Candidate recognition must use direct parse-that terminals/combinators. A candidate-local Parser wrapper may snapshot and restore parse-that error bookkeeping around speculative recognition; it may not inspect state.src, classify characters, consume input, or feed a token stream. This is a state-isolation adapter, not a terminal/scanner waiver.",
+    "preprocessing": "The positive alphabet is only ASCII +, -, ., and digits. CSS preprocessing changes no positive case; NUL, CR, CRLF, FF, lone surrogates, scalar astral code points, and other non-ASCII inputs remain false in every inspected position. Public fixtures exercise each class and nonzero source-native offsets.",
+    "result": "boolean",
+    "diagnostics": "No new diagnostic state on true or false. The harness seeds nonempty error bookkeeping and requires exact preservation.",
+    "recovery": "Not applicable: the operation consumes nothing, always succeeds, and cannot throw for a string input.",
+    "serialization": "NOT_APPLICABLE_NO_SERIALIZATION",
+    "work_bound": "O(1) time and O(1) auxiliary space after input existence; grammar recognition examines no more than three positions and materializes no token, CST, substring, or array proportional to source length."
+  },
+  "oracle_roles": {
+    "spec": "Sole semantic arbiter.",
+    "bbnf": "Topology/provenance evidence only; the acknowledged BBNF value-unit file has no separately named predicate.",
+    "live": "Compatibility evidence only; the live public CSS API exposes no equivalent non-consuming predicate and is NON_COMPARABLE for feature strict-win credit.",
+    "browser": "No independent browser door for the internal predicate. Downstream CSSOM may witness consumers but cannot override §4.3.10."
+  },
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "required_authors": 4,
+    "reason_for_fourth": "H/B number-regex genealogy is not affirmatively independent, so they count as one lineage until proven otherwise.",
+    "seats": [
+      {
+        "id": "h",
+        "allowed_sources": [
+          "value.js f5723e72 src/parsing/utils.ts SHA-256 bcaa6cb2206a1d57776a71c260b6ed30e8c29ad48ed4f1069def2896a650133c",
+          "sealed cell contract and public fixtures",
+          "published parse-that 1.0.0"
+        ],
+        "topology": "Historical whole-number terminal as zero-width recognition plus candidate-local diagnostic sandbox."
+      },
+      {
+        "id": "b",
+        "allowed_sources": [
+          "bbnf-lang af15f63e0d2d3d719938c13b906a50acbb92ea3b value-unit.bbnf SHA-256 cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+          "sealed cell contract and public fixtures",
+          "published parse-that 1.0.0"
+        ],
+        "topology": "BBNF whole-number production as zero-width recognition without f64 conversion, plus sandbox."
+      },
+      {
+        "id": "s",
+        "allowed_sources": [
+          "pinned CSS Syntax source",
+          "sealed cell contract and public fixtures",
+          "published parse-that 1.0.0"
+        ],
+        "topology": "Explicit specification arms built from direct terminals/lookahead, plus sandbox."
+      },
+      {
+        "id": "d",
+        "allowed_sources": [
+          "sealed cell contract and public fixtures without H/B/S implementation source",
+          "published parse-that 1.0.0 core API/types"
+        ],
+        "topology": "Clean-room prefix-directed dispatch/chain recognition, plus sandbox."
+      }
+    ],
+    "provenance_graph": "H and B are one unresolved lineage. S derives only from normative source. D derives only from the sealed behavior and engine API. One of H/B plus S plus D must remain materially independent.",
+    "isolation": "Each author receives only its allowed-source manifest, the sealed public inputs, package, and holdout hash. No hidden holdout bytes, foreign candidate, benchmark result, or design notes before close."
+  },
+  "comparators": [
+    {
+      "id": "live-regex-css",
+      "source": "src/css/grammar.ts at c654824e0b252cda7f8490b67f182a48c48cc0ed",
+      "source_sha256": "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69",
+      "numberToken_slice_sha256": "22e4222fe9bf60eff4f3fc37b783bc0b1e487870d856816c7166f60e0418ae51",
+      "disposition": "NON_COMPARABLE: complete-token number|null is not this prefix predicate."
+    },
+    {
+      "id": "bbnf-runtime",
+      "source_sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+      "disposition": "NON_COMPARABLE: no acknowledged consumable runtime or standalone predicate."
+    }
+  ],
+  "benchmark": {
+    "semantic_precheck": "Before timing, every candidate must match every public, deterministic-hostile, and revealed-holdout observation at root and nonzero offsets, preserve seeded diagnostics, and parse each downstream sentinel from the unchanged offset.",
+    "timed_operation": "For one prevalidated case, construct ParserState with the case offset and seeded diagnostic state, then call the exact candidate parser. Do not assert, normalize, stringify, or compare inside timing.",
+    "corpus": "Exact public case IDs and deterministic hostile outputs; revealed holdout joins after candidate close.",
+    "schedule": "Interleaved paired permutation over candidate IDs with fixed xoshiro256** seed 0x564e554d53544152; identical case index and invocation count per pair.",
+    "statistics": "Raw nanoseconds, median, MAD, and geometric mean paired ratios. Strict win requires the one-sided 95% percentile-bootstrap upper endpoint over paired log-ratios, 10000 fixed-seed resamples, below 0.",
+    "allocation": "Report allocation evidence when exposed; otherwise UNAVAILABLE with exact runtime/tool reason.",
+    "peer_credit": "H/B/S/D are comparable. External peers are predeclared NON_COMPARABLE, so this cell cannot independently close tranche G-3; integrated public doors must later beat comparable peers."
+  },
+  "admission": "Seal exact feature, contract, harness, public fixtures, deterministic hostile identities, and a fresh hidden holdout hash before two challenges and gestalt. Any byte change starts generation 2. No candidate source before acceptance."
+}

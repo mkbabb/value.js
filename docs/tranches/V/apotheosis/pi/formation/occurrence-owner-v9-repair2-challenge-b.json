@@ -1,0 +1,372 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair2-challenge/v1",
+  "date": "2026-07-22",
+  "challenge": "B",
+  "review_mode": "FRESH_INDEPENDENT_ASSUME_FAULTY_EXACT_BYTE_ADVERSARIAL",
+  "reviewer": {
+    "task": "/root/v9_repair2_challenge_b",
+    "model_served": "UNAVAILABLE_TO_AGENT_RUNTIME_NOT_INFERRED",
+    "independence": [
+      "The review read only the exact repair2 subject, its declared blueprint and fixture inputs, and executable source needed to reproduce behavior.",
+      "The review did not read challenge A or any prior challenge output.",
+      "The review did not run the 168-source corpus.",
+      "The review did not mutate the analyzer, oracle, test, evidence, parser, production sources, or denominator shards. Temporary outputs existed only under /tmp."
+    ]
+  },
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "sha256": "919af7dbd7a094e13c2d72d8e82684b5f9d9201f88aaa462bccfeb1fdeb107cd",
+      "bytes": 46651
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "sha256": "899cf3d2c336c4ac84b855da902cb00e6269336080b19ae051e1ec0fc66a881e",
+      "bytes": 44369
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "sha256": "6c4da44635d2a1e31f68966360a5fdaa5483240ff1780a60561c069e33e75ebb",
+      "bytes": 31914
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json",
+      "sha256": "c82f75e684f1990d1e458a124f7c8ca592377a0bf01f0bf1b473108d17963cb4",
+      "bytes": 7894
+    },
+    "expected_stdout": {
+      "sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+      "bytes": 14468
+    },
+    "identity_recheck_before_receipt": "GREEN_EXACT"
+  },
+  "commands": [
+    {
+      "id": "IDENTITY",
+      "command": "sha256sum docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/{analyzer.mjs,oracle.mjs,test.mjs} docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json && wc -c docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/{analyzer.mjs,oracle.mjs,test.mjs} docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json",
+      "result": "GREEN; all four hashes and byte counts equal the sealed subject"
+    },
+    {
+      "id": "SYNTAX",
+      "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs && node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs && node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "result": "GREEN"
+    },
+    {
+      "id": "WORKSPACE_REPLAY",
+      "command": "out=$(mktemp /tmp/v9-r2-b-workspace.XXXXXX) && node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > \"$out\" && sha256sum \"$out\" && wc -c \"$out\"",
+      "result": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861 / 14468 bytes"
+    },
+    {
+      "id": "EXTERNAL_CWD_REPLAY",
+      "command": "out=$(mktemp /tmp/v9-r2-b-external.XXXXXX) && cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > \"$out\" && sha256sum \"$out\" && wc -c \"$out\"",
+      "result": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861 / 14468 bytes"
+    },
+    {
+      "id": "TIMED_REPLAY",
+      "command": "time_log=$(mktemp /tmp/v9-r2-b-time.XXXXXX) && out=$(mktemp /tmp/v9-r2-b-timed-out.XXXXXX) && /usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > \"$out\" 2> \"$time_log\" && sha256sum \"$out\" && wc -c \"$out\" && rg 'real|maximum resident set size|peak memory footprint' \"$time_log\"",
+      "result": {
+        "stdout_sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+        "stdout_bytes": 14468,
+        "real_seconds": 0.46,
+        "maximum_resident_set_size_bytes": 218185728,
+        "peak_memory_footprint_bytes": 184938880,
+        "classification": "ONE_LOCAL_CHALLENGE_RUN_ONLY_NOT_A_BOUND_OR_BENCHMARK"
+      }
+    },
+    {
+      "id": "COUNTEREXAMPLE_DRIVER",
+      "command": "node --input-type=module with direct imports of analyzeSource from the sealed analyzer and verifyAnalysis from the sealed oracle; execute each exact source/options pair recorded under findings and print only the cited fields as JSON",
+      "result": "Reproduced every row below. The full driver was supplied through stdin and created no repository file."
+    }
+  ],
+  "findings": [
+    {
+      "id": "R2B-01-ANALYZER-ORACLE-BIBLIOGRAPHIC-DIVERGENCE",
+      "severity": "BLOCKER",
+      "axis": ["references", "oracle", "test-closure"],
+      "source_locations": [
+        "analyzer.mjs:489-500",
+        "oracle.mjs:426-432"
+      ],
+      "cause": "The analyzer uses split(/s+/) rather than split(/\\s+/) for bibliographic targets. The sealed oracle permits a bibliographic target followed by whitespace metadata, so the subject disagrees with its own independent semantic contract.",
+      "reproduction": {
+        "source": "[[CSS-VALUES-4 status]]",
+        "options": {},
+        "program": "const r=analyzeSource(s); verifyAnalysis(s,r)",
+        "analyzer_candidates": [],
+        "oracle": "REJECT CANDIDATE_SEMANTICS: semantic derivation mismatch"
+      },
+      "why_load_bearing": "The deterministic suite can be GREEN while a simple declared reference shape fails the sealed oracle. Therefore its candidate census and test closure are incomplete."
+    },
+    {
+      "id": "R2B-02-ANALYZER-ORACLE-DEFINITION-SHAPE-DIVERGENCE",
+      "severity": "BLOCKER",
+      "axis": ["delimiters", "references", "oracle", "test-closure"],
+      "source_locations": [
+        "analyzer.mjs:489-495",
+        "oracle.mjs:426-430"
+      ],
+      "cause": "The analyzer trims each slash-delimited part independently and admits whitespace adjacent to the scope separator; the oracle's independently declared shape rejects it.",
+      "reproductions": [
+        {
+          "source": "[=foo / bar=]",
+          "analyzer_candidates": ["[=foo / bar=]"],
+          "oracle": "REJECT CANDIDATE_SEMANTICS"
+        },
+        {
+          "source": "[=foo/ bar=]",
+          "analyzer_candidates": ["[=foo/ bar=]"],
+          "oracle": "REJECT CANDIDATE_SEMANTICS"
+        },
+        {
+          "source": "[=foo /bar=]",
+          "analyzer_candidates": ["[=foo /bar=]"],
+          "oracle": "REJECT CANDIDATE_SEMANTICS"
+        }
+      ],
+      "why_load_bearing": "The base test does not exercise the analyzer/oracle semantic seam even though the subject represents the oracle as its independent arbiter."
+    },
+    {
+      "id": "R2B-03-SETEXT-UNDERLINE-REUSED-AS-NEXT-HEADING",
+      "severity": "HIGH",
+      "axis": ["headings", "coordinates", "oracle-common-mode"],
+      "source_locations": [
+        "analyzer.mjs:873-918",
+        "oracle.mjs:649-681"
+      ],
+      "cause": "After an underline is consumed for a Setext heading, the next loop iteration reuses that same underline as another heading's content line. The oracle independently repeats the same non-consuming line loop, so it accepts the fabrication.",
+      "reproduction": {
+        "source": "Title\n---\n===\n",
+        "analyzer_headings": [
+          {
+            "start_offset": 0,
+            "end_offset_exclusive": 10,
+            "level": 2,
+            "title": "Title"
+          },
+          {
+            "start_offset": 6,
+            "end_offset_exclusive": 14,
+            "level": 1,
+            "title": "---"
+          }
+        ],
+        "oracle": "ACCEPT with headings=2"
+      },
+      "expected": "The underline line is consumed by the first Setext production and cannot become the content line of a second heading."
+    },
+    {
+      "id": "R2B-04-ATTRIBUTE-CHARACTER-REFERENCES-NOT-DECODED",
+      "severity": "HIGH",
+      "axis": ["parsed-attributes", "href-resolution", "multi-scope-definitions", "oracle-common-mode"],
+      "source_locations": [
+        "analyzer.mjs:87-126",
+        "analyzer.mjs:640-663",
+        "analyzer.mjs:1016-1053",
+        "oracle.mjs:96-135",
+        "oracle.mjs:545-568",
+        "oracle.mjs:846-883"
+      ],
+      "cause": "Both implementations copy raw attribute source text and never apply HTML character-reference decoding before semantic URL or definition-scope use. Raw byte provenance and decoded semantic value are distinct requirements; preserving only the raw spelling is insufficient.",
+      "reproductions": [
+        {
+          "source": "<a href=\"?a=1&amp;b=2\">x</a>",
+          "source_url": "https://drafts.csswg.org/base/Overview.bs",
+          "actual_href_value": "?a=1&amp;b=2",
+          "actual_resolved_url": "https://drafts.csswg.org/base/Overview.bs?a=1&amp;b=2",
+          "expected_semantic_resolved_url": "https://drafts.csswg.org/base/Overview.bs?a=1&b=2",
+          "oracle": "ACCEPT actual"
+        },
+        {
+          "source": "<div dfn-for=\"A&amp;B\"><dfn>X</dfn></div>[=a&b/x=]",
+          "actual_carrier_scopes": ["a&amp;b"],
+          "actual_reference_target_form": "a&b/x",
+          "actual_target_carrier_ids": [],
+          "expected_semantic_scope": "a&b",
+          "oracle": "ACCEPT actual"
+        }
+      ],
+      "why_load_bearing": "The required parsed-attribute provenance and relative URL relations cannot be exact across the pinned corpus if source entities are treated as literal URL/scope bytes."
+    },
+    {
+      "id": "R2B-05-UPPERCASE-URL-SCHEME-OMITTED",
+      "severity": "MEDIUM",
+      "axis": ["references", "url-semantics", "oracle-common-mode"],
+      "source_locations": [
+        "analyzer.mjs:602-617",
+        "oracle.mjs:507-522"
+      ],
+      "cause": "Text URL discovery checks only lowercase literal schemes even though URL schemes are ASCII case-insensitive. Both analyzer and oracle share the same literal check.",
+      "reproduction": {
+        "source": "HTTPS://drafts.csswg.org/css-values-4/",
+        "actual_candidates": [],
+        "oracle": "ACCEPT with candidates=0",
+        "expected": "one included specification URL candidate"
+      }
+    },
+    {
+      "id": "R2B-06-CONTAINER-NESTING-NOT-IN-OPERATION-OWNERSHIP",
+      "severity": "BLOCKER",
+      "axis": ["nesting", "containers", "operation-owner", "ledger-owner", "oracle-common-mode"],
+      "source_locations": [
+        "analyzer.mjs:837-845",
+        "analyzer.mjs:926-943",
+        "oracle.mjs:757-778"
+      ],
+      "contract": "The V9 blueprint names containers as a required single-stream consumer and requires heading, container, definition, and operation ownership to use both byte order and nesting.",
+      "cause": "The analyzer assigns every explicit algorithm to the globally preceding heading by byte offset. It emits no container relation and does not restore the outer heading when a nested section closes. The oracle repeats a global preceding-heading search.",
+      "reproduction": {
+        "source": "# Outer {#outer}\n<section>\n## Inner {#inner}\n</section>\n<div algorithm>Op</div>",
+        "operation_start_offset": 56,
+        "actual_owner_candidate": "heading-1",
+        "actual_heading_title": "Inner",
+        "ledger_owner_candidate": "heading-1",
+        "operation_admitted": true,
+        "oracle": "ACCEPT",
+        "expected_structural_owner": "the outer heading/container context after </section>, not the closed nested section's heading"
+      },
+      "why_load_bearing": "A content-addressed ledger can be made to agree with a source-derived owner that is itself structurally false. Exact locator and owner equality therefore do not prove the required nesting relation."
+    },
+    {
+      "id": "R2B-07-HOSTILE-OPTION-INPUTS-THROW",
+      "severity": "MEDIUM",
+      "axis": ["no-throw", "input-contract", "ledger"],
+      "source_locations": [
+        "analyzer.mjs:774-835",
+        "analyzer.mjs:1114-1151"
+      ],
+      "reproductions": [
+        {
+          "program": "analyzeSource('<div algorithm>x</div>', {sourceUrl: Symbol('hostile')})",
+          "actual": "throws TypeError: Cannot convert a Symbol value to a string"
+        },
+        {
+          "program": "analyzeSource('<div algorithm>x</div>', {operationLedger: [rowWithThrowingOperationIdGetter]})",
+          "actual": "throws Error: hostile getter"
+        }
+      ],
+      "qualification": "The sealed evidence truthfully proves 512 decoded arbitrary byte strings, not arbitrary JavaScript option objects. These counterexamples therefore defeat a broad no-throw interpretation but do not contradict the narrower reported byte-corpus count. The public option boundary must be frozen or hardened before denominator authority."
+    }
+  ],
+  "targeted_passes": [
+    {
+      "id": "R2B-PASS-RAW-UNICODE-COORDINATES",
+      "source": "<style>😀İ[=opaque=]</StYlE >[=live=]",
+      "result": "GREEN: the opaque reference owns UTF-8 bytes [13,23), the mixed-case ASCII close owns [23,32), and the live reference owns [32,40); the oracle agrees"
+    },
+    {
+      "id": "R2B-PASS-CROSS-STATE-DELIMITER",
+      "source": "[=before <script>=]</script> after=]",
+      "result": "GREEN: no INCLUDED candidate pairs across VISIBLE_TEXT/RAW_SCRIPT/TAG boundaries; the only candidate is an excluded unterminated visible interval [0,9)"
+    },
+    {
+      "id": "R2B-PASS-DISPOSITION-TOTALITY-TARGETS",
+      "result": "GREEN on all targeted sources: every emitted candidate had exactly one disposition; excluded definition candidates did not join carriers"
+    },
+    {
+      "id": "R2B-PASS-LEDGER-DUPLICATE-INTERVAL",
+      "source": "<div algorithm>x</div>",
+      "setup": "two otherwise valid ledger rows A and B with the same source SHA, source URL, and locator 0",
+      "result": "GREEN: zero operations; both rows receive LEDGER_SOURCE_INTERVAL_DUPLICATE"
+    },
+    {
+      "id": "R2B-PASS-LEDGER-OWNER-EQUALITY",
+      "source": "# Owner {#owner}\n<div algorithm>x</div>",
+      "result": "GREEN at the equality seam: heading-0 is SOURCE_MATCHED, heading-wrong is unmatched, and null is explicitly REVIEWED_UNRESOLVED; this does not cure finding R2B-06 because the source-derived owner can itself be wrong"
+    },
+    {
+      "id": "R2B-PASS-CROSS-NAMESPACE-COLLISION-ORACLE",
+      "source": "[=x=]\n<div algorithm>Op</div>",
+      "setup": "set the exact ledger operation_id equal to the emitted candidate ID",
+      "analyzer": "emits the duplicate ID twice while stable_id_collisions remains empty",
+      "oracle": "REJECT STABLE_ID_COLLISION",
+      "result": "QUALIFIED GREEN only for the mandatory analyzer-plus-oracle path; analyzer output alone does not report the cross-namespace collision"
+    }
+  ],
+  "oracle_independence_adjudication": {
+    "verdict": "REJECT_AS_SEMANTIC_ORACLE",
+    "positive": [
+      "The oracle does not import analyzer helpers.",
+      "It catches the bibliographic whitespace bug, definition-separator shape divergence, cross-namespace stable-ID collision, ledger contract errors, owner equality mismatches, and result mutations."
+    ],
+    "negative": [
+      "The analyzer and oracle duplicate their attribute tokenization almost statement-for-statement and both omit character-reference decoding.",
+      "They duplicate Setext line iteration and both reuse an underline as the next heading's content.",
+      "They duplicate lowercase-only text URL discovery.",
+      "They both derive operation ownership from the globally preceding heading and omit the required container ownership relation."
+    ],
+    "consequence": "The oracle is useful as a differential implementation check but is not independent enough to arbitrate the shared Bikeshed/HTML semantics. At least one external semantic oracle or independently frozen expected relation is required for these boundaries."
+  },
+  "resource_adjudication": {
+    "verdict": "HONESTLY_RED_NOT_QUALIFIED",
+    "confirmed": [
+      "The subject makes no formal upper-bound claim and labels its work counter as an instrumented lower bound.",
+      "Workspace, external-CWD, and timed stdout were byte-identical.",
+      "The new timed replay's varying local RSS does not contradict the evidence because both observations are explicitly local and non-normative."
+    ],
+    "remaining_red": [
+      "The V9 blueprint's 8*N+64 malformed-input transition law is not proved.",
+      "The work counter omits URL parsing, hashing, sorting, projected-text work, ledger validation, and allocations; it cannot support a complexity or performance claim.",
+      "No authenticated launcher/runtime/dependency closure, raw frozen resource receipt, crash-fault custody, full-corpus RSS proof, or 168-source run exists.",
+      "No benchmark, cost-lattice, denominator, or parser credit follows from the local suite."
+    ]
+  },
+  "three_altitudes": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "analysis": "Repair2 makes material progress over a line-collapsed or regex-fabricated corpus inventory: exact UTF-8 intervals, raw-state coordinates, duplicate-interval ledger rejection, disposition totality, and collision rejection are real. It nevertheless cannot freeze the July-2026 CSS denominator because the occurrence census still misses admitted reference forms, shares semantic defects with its oracle, and violates the blueprint's container-aware ownership law. Using it to materialize 168-source rows now would content-address false headings, URLs, scopes, and owners and amplify rework downstream."
+    },
+    "wave": {
+      "verdict": "REJECT",
+      "analysis": "Syntax, deterministic replay, external-CWD replay, the declared suite, and several hostile seams are GREEN. The wave fails its semantic close because exact counterexamples defeat both analyzer/oracle agreement and shared semantic correctness outside the suite. The correct next action is a bounded repair generation and two fresh exact-byte reviews, not a full-corpus run or shard publication."
+    },
+    "feature": {
+      "verdict": "REJECT",
+      "analysis": [
+        "State partition and ASCII raw-close coordinates pass the targeted Unicode and cross-state probes.",
+        "Heading consumption fails and is common-mode with the oracle.",
+        "Reference syntax fails the subject's own oracle on bibliographic metadata and definition separator whitespace.",
+        "Text URL classification misses uppercase schemes in both implementations.",
+        "Parsed attribute semantics fail HTML character-reference decoding, corrupting href and multi-scope definition relations.",
+        "Ledger duplicate intervals and direct owner equality pass, but container-derived owner truth fails.",
+        "Disposition totality passes the targeted emitted candidates.",
+        "Cross-namespace collisions are caught only by the mandatory oracle path.",
+        "Malformed byte-string evidence is real but does not establish a no-throw public option boundary.",
+        "Resource labels are honest but grant zero qualification or benchmark credit."
+      ]
+    }
+  },
+  "required_repairs_before_fresh_review": [
+    "Make analyzer reference-shape rules agree with the independently frozen contract; add direct negative controls for every analyzer/oracle divergence, including bibliographic metadata and definition separator whitespace.",
+    "Consume Setext underline rows exactly once and freeze chained-underline counterexamples against an oracle that does not share the same line loop.",
+    "Separate raw attribute byte provenance from decoded HTML semantic values; apply decoded values to href, id/class/type, dfn scopes, and alternate names while preserving exact raw intervals.",
+    "Recognize text URL schemes ASCII-case-insensitively and freeze mixed-case cases.",
+    "Materialize the required container relation and derive operation ownership from byte order plus nesting; do not validate a ledger against a globally preceding-heading surrogate.",
+    "Freeze or harden the public options contract so malformed sourceUrl and ledger inputs fail closed without uncaught exceptions.",
+    "Retain the oracle's cross-namespace uniqueness check and make analyzer collision reporting cover candidate, operation, and carrier namespaces or explicitly declare it oracle-only.",
+    "Keep all formal cost, full-denominator, parser, and production credit at zero until the existing blueprint gates are independently proven."
+  ],
+  "terminal_verdict": {
+    "status": "REJECT",
+    "may_seed_next_denominator_formation": false,
+    "may_run_full_168_source_corpus": false,
+    "may_generate_or_publish_shards": false,
+    "may_change_parser_or_production": false,
+    "rationale": "Two direct analyzer/oracle contradictions and four common-mode semantic failures are sufficient to reject the exact subject despite deterministic suite replay."
+  },
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "benchmark": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

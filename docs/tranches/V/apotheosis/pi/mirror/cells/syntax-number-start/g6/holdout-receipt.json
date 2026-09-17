@@ -1,0 +1,266 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 6,
+  "status": "HIDDEN_HOLDOUT_SEALED",
+  "custodian_task_id": "/root/number_start_g6_holdout",
+  "precursor": {
+    "path": "feature-public.json",
+    "sha256": "8a5559937ce73bd0db576fb36a35427a182c0cf682cae42c50781552e6a8c667",
+    "bytes": 19707,
+    "public_input_closure_entries": 38,
+    "public_input_closure_mismatches": 0,
+    "public_input_closure_aggregate": {
+      "definition": "<sha256><two spaces><bytes><two spaces><path>\\n in precursor array order",
+      "bytes": 3760,
+      "sha256": "aeac659804c727d29a168fef4aec90bcb7f5652a3350b7b5d2252bcc56db560d"
+    }
+  },
+  "auxiliary_rejection_input": {
+    "path": "../g5/rejection.json",
+    "bytes": 1753,
+    "sha256": "a8fd4cc5a9d3d4ed8258778b90a5f7466e65c2fc002d78222dedf6c69508e0f3",
+    "role": "Post-precursor destruction/non-reuse evidence; auxiliary to the frozen 38-row closure and not a precursor mutation.",
+    "verified_disposition": {
+      "generation": 5,
+      "status": "REJECTED_BEFORE_CANDIDATE_CODE",
+      "candidate_sources_written": 0,
+      "active_grammar_typescript_sources": 0,
+      "holdout_revealed": false,
+      "holdout_reused": false,
+      "holdout_disposition": "IRREVERSIBLY_DESTROYED_AND_DISCARDED",
+      "custodian_accessible_copies_remaining": 0,
+      "workspace_or_temporary_same_byte_copies_found": 0
+    }
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "raw_bytes": 144427,
+    "operation": "§4.3.10 Check if three code points would start a number",
+    "preprocessing_dependency": "§3.3 mapped retained positions or EOF"
+  },
+  "public_corpora": {
+    "generation_3_fixture_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "generation_3_materialized_cases": 406,
+    "generation_4_endpoint_fixture_sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187",
+    "generation_4_endpoint_cases": 23
+  },
+  "clean_base": {
+    "manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "active_typescript_sources": 0,
+    "active_symbolic_links": 0,
+    "grammar_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "parse_that_dist_ledger": {
+    "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "entries": 64,
+    "package": "@mkbabb/parse-that",
+    "version": "1.0.0",
+    "installed_path_mismatches": 0,
+    "installed_byte_mismatches": 0
+  },
+  "typescript_package_ledger": {
+    "path": "typescript-package.ledger",
+    "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+    "entries": 130,
+    "package": "typescript",
+    "version": "5.8.3",
+    "installed_path_mismatches": 0,
+    "installed_byte_mismatches": 0
+  },
+  "configuration_closure": {
+    "child": {
+      "path": "../../../tsconfig.apotheosis.json",
+      "bytes": 257,
+      "sha256": "8e4d9009e5d4678542ca908c842f391aa7faa8caff43c388d8f77d979ed3ac68"
+    },
+    "inherited_parent": {
+      "path": "../../../tsconfig.json",
+      "bytes": 586,
+      "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc"
+    },
+    "exact_typecheck": "GREEN via installed TypeScript 5.8.3 bin/tsc with -p tsconfig.apotheosis.json --noEmit"
+  },
+  "hidden": {
+    "sha256": "04905e995203db11d833c3e5398f756b097609a1c5b4ea2683e81beb3258fbc6",
+    "bytes": 94812,
+    "case_count": 224,
+    "true_count": 112,
+    "false_count": 112
+  },
+  "canonicalization": {
+    "encoding": "UTF-8",
+    "byte_order_mark": false,
+    "newlines": "LF",
+    "serialization": "JSON.stringify(value, null, 2) followed by exactly one terminal LF"
+  },
+  "coverage": {
+    "basis": "CSS Syntax Module Level 3 §4.3.10 and §3.3 mapped retained positions",
+    "all_offsets_nonzero": 224,
+    "number_spelling_ending_at_eof": 16,
+    "actual_operation_at_eof": 16,
+    "astral_prefix_cases": 50,
+    "unpaired_surrogate_prefix_cases": 104,
+    "mapped_preprocessing_pairs": 12,
+    "mapped_retained_cases": 24,
+    "true_false_near_misses": 84,
+    "positive_arms": [
+      "digit",
+      "dot-digit",
+      "minus-digit",
+      "minus-dot-digit",
+      "plus-digit",
+      "plus-dot-digit"
+    ],
+    "near_miss_positions": [
+      "dot-alone-eofish",
+      "dot-second-other",
+      "double-sign",
+      "first-other",
+      "minus-alone-eofish",
+      "minus-dot-third-other",
+      "minus-second-dot-eofish",
+      "minus-second-other",
+      "non-ascii-arabic-indic",
+      "non-ascii-fullwidth",
+      "plus-alone-eofish",
+      "plus-dot-third-other",
+      "plus-second-dot-eofish",
+      "plus-second-other"
+    ],
+    "balance": "112 true / 112 false"
+  },
+  "disjointness": {
+    "machine_verified": true,
+    "semantic_tuple": "[source, offset, starts, continuation, positionKind]",
+    "categories": [
+      {
+        "category": "hidden_internal_id_duplicates",
+        "hidden_count": 224,
+        "duplicate_count": 0
+      },
+      {
+        "category": "id_vs_generation_3_materialized",
+        "hidden_count": 224,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "id_vs_generation_4_endpoints",
+        "hidden_count": 224,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "hidden_internal_source_duplicates",
+        "hidden_count": 224,
+        "duplicate_count": 0
+      },
+      {
+        "category": "source_vs_generation_3_materialized",
+        "hidden_count": 224,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_vs_generation_4_endpoints",
+        "hidden_count": 224,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "hidden_internal_sourceOffset_duplicates",
+        "hidden_count": 224,
+        "duplicate_count": 0
+      },
+      {
+        "category": "sourceOffset_vs_generation_3_materialized",
+        "hidden_count": 224,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "sourceOffset_vs_generation_4_endpoints",
+        "hidden_count": 224,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "hidden_internal_semanticTuple_duplicates",
+        "hidden_count": 224,
+        "duplicate_count": 0
+      },
+      {
+        "category": "semanticTuple_vs_generation_3_materialized",
+        "hidden_count": 224,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "semanticTuple_vs_generation_4_endpoints",
+        "hidden_count": 224,
+        "compared_count": 23,
+        "intersection_count": 0
+      }
+    ]
+  },
+  "g6_harness_applicability": {
+    "harness_path": "harness.ts",
+    "harness_sha256": "8de9fbd556b3f4cc95e3d99fd32615401c4ebb7fdc26500231d1a37d2ad7cb4d",
+    "entrypoint": "assertNumberStartCase",
+    "candidate_scope": "After all five exact identities close, every H/B/S/D/R candidate must run every hidden case through the complete G6 harness before any reveal.",
+    "diagnostics_modes": [
+      "disabled",
+      "enabled"
+    ],
+    "diagnostic_profiles": 7,
+    "predecessor_representatives": {
+      "package_default": "undefined",
+      "inherited_six": [
+        "null",
+        "false",
+        "0",
+        "empty string",
+        "frozen array",
+        "frozen object"
+      ]
+    },
+    "binding_lanes": [
+      "raw-child",
+      "ordinary-parent-composition"
+    ],
+    "observations_per_case": 196,
+    "observations_per_candidate": 43904,
+    "custodian_reference_harness_witness": "PASS",
+    "custodian_reference_harness_observations": 43904,
+    "independent_spec_oracle_checks": 224,
+    "independent_spec_oracle_mismatches": 0
+  },
+  "candidate_identity_gate": {
+    "required_seats": [
+      "H",
+      "B",
+      "S",
+      "D",
+      "R"
+    ],
+    "required_closed_identities_per_seat": [
+      "source_sha256",
+      "overlay_ledger_sha256",
+      "projected_grammar_ledger_sha256"
+    ],
+    "status": "SEALED_AWAITING_ALL_FIVE_IDENTITY_CLOSES",
+    "execution_and_reveal_rule": "Do not execute any candidate against or reveal any hidden case until all five source, overlay-ledger, and projected grammar-ledger identities close."
+  },
+  "custodian_runtime": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "prior_holdout_access": "NONE",
+  "destroyed_prior_holdout_material_reused": false,
+  "hidden_path_disclosed": false,
+  "hidden_case_content_disclosed": false,
+  "public_input_integrity": "PRECURSOR_AND_ALL_38_PUBLIC_INPUTS_REMAIN_UNTOUCHED"
+}

@@ -1,0 +1,160 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 2,
+  "status": "SEALED_AWAITING_BOUNDARY_CHALLENGES",
+  "owner": {
+    "family": "value-unit",
+    "module_namespace": "grammar/css/l4/value-unit",
+    "candidate_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+    "integration_target": "grammar/css/l4/value-unit/number-start.ts",
+    "internal_root": "numberStart: Parser<boolean>",
+    "public_root": null,
+    "compatibility_impact": "No public export or result type. An accepted exact byte identity becomes an internal dependency of numeric dispatch and consume-number only after full-ledger freeze and integration replay."
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "definition": "§4.3.10 Check if three code points would start a number"
+  },
+  "structure_identity": {
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "module_dag_bbnf_disposition": "TERMINAL_SHARED_BOUNDARY_ACK",
+    "feature_ledger_sha256_at_formation": "c766a5c69632054ab9d45f18c569fc97ae325ddd53a796730a2ab3526b32cc24",
+    "full_ledger_status": "INCOMPLETE_NO_APOTHEOSIS_ACCEPTANCE",
+    "integration_base_ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+    "promotion_protocol_sha256": "f487b6d6b3ff921cd8bf3c68938f0f1752b3d9994d284e0aeabaa3440e283e75"
+  },
+  "generation_1_disposition": {
+    "verdict": "REJECTED_BEFORE_CANDIDATE_CODE",
+    "retained_spec_finding": "The §4.3.10 semantic boundary and occurrence matrix were accepted by the specification challenge.",
+    "repairs_in_generation_2": [
+      "The harness invokes the candidate as the raw child of an ordinary prefix.map(...).next(candidate).skip(continuation) composition.",
+      "Both empty and seeded diagnostics and six arbitrary predecessor-value classes are exercised.",
+      "The benchmark has separate exact parser-only ranking and descriptive end-to-end lanes.",
+      "Each candidate is an overlay at its final target-relative path and closes with an exact projected aggregate grammar ledger."
+    ]
+  },
+  "occurrences": [
+    {
+      "id": "CSS-SYNTAX-3/4.3.10/definition",
+      "role": "owned operation",
+      "disposition": "Own the complete non-consuming boolean algorithm exactly once."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/plus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/minus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/dot-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/digit-number-dispatch",
+      "role": "explicit non-occurrence",
+      "disposition": "A leading digit directly reconsumes and consumes a numeric token; it does not call §4.3.10."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.13/precondition",
+      "role": "incoming consumer",
+      "disposition": "Future consume-number imports the accepted root."
+    }
+  ],
+  "grammar_contract": {
+    "input": "An ordinary parse-that child-parser state at any source-native UTF-16 offset from 0 through source.length, with an arbitrary predecessor value and either empty or nonempty diagnostic state.",
+    "operation": "Inspect at most the next three source positions through direct parse-that terminals/combinators and return true exactly for sign+digit, sign+dot+digit, dot+digit, or digit; otherwise false.",
+    "composition": "The harness constructs string(prefix).map(variedPredecessor).next(candidate).skip(string(continuation)); the outer parser, not the harness, invokes the candidate child parser.",
+    "consumption": "Always succeed, replace the predecessor with one boolean, consume zero code units, and leave the following grammar at the original candidate offset.",
+    "diagnostics": "Preserve furthest, expected, suggestions, and secondarySpans byte-for-byte on true and false under both empty and seeded state.",
+    "diagnostic_sandbox": "Candidate recognition must use direct parse-that terminals/combinators. A candidate-local Parser wrapper may snapshot and restore only parse-that diagnostic bookkeeping around speculative recognition. It may not inspect or slice state.src, classify characters, advance a cursor, or feed a token/CST layer.",
+    "preprocessing": "Only ASCII +, -, ., and 0–9 can form a positive prefix. CSS preprocessing cannot create a positive case from CR, CRLF, FF, NUL, lone surrogates, astral scalars, or other non-ASCII units, so raw and preprocessed truth are identical for this operation.",
+    "result": "boolean",
+    "recovery": "NOT_APPLICABLE_ALWAYS_SUCCEEDS",
+    "serialization": "NOT_APPLICABLE_NO_SERIALIZATION",
+    "work_bound": "O(1) time and O(1) auxiliary space, no token/CST/substrings/arrays proportional to source length, and no imperative scanner."
+  },
+  "fixture_identity": {
+    "public_cases_path": "../fixtures/cases.json",
+    "public_cases_sha256": "7ee0228067bcc4ac785595689e308bccceac04448fe9ac8a46253b4fb181f23b",
+    "public_case_count": 36,
+    "deterministic_hostile_count": 3,
+    "harness_sha256": "46c89e2dd0c46d45b3c594254f1b4795c8df441b46ec8682ac5ce2514131caf9",
+    "contract_sha256": "678d44e452f41cc2bf51fe1a4e432ac082ca76ecb68136cf5496d886b8d3b6bf",
+    "hidden_holdout": {
+      "status": "SEALED_WITHHELD",
+      "custodian": "/root/number_start_g2_holdout",
+      "sha256": "4ae1524b5bb8b2a44ce6690f9a0326b3fd7b86f1df3b8d7a9dc2953ca68a4128",
+      "bytes": 4244,
+      "cases": 36,
+      "canonicalization": "UTF-8 canonical JSON with LF termination",
+      "reveal": "Only after all four candidate source and projected aggregate hashes close."
+    }
+  },
+  "oracle_roles": {
+    "spec": "Sole semantic arbiter.",
+    "bbnf": "Acknowledged topology/provenance only; no independently named predicate or consumable runtime.",
+    "live": "NON_COMPARABLE: the live public CSS API exposes complete-token parsing, not this non-consuming predicate.",
+    "browser": "No independent CSSOM door for an internal three-position predicate. Downstream browser witnesses cannot override §4.3.10."
+  },
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "required_authors": 4,
+    "reason_for_fourth": "H and B number-terminal genealogy is not affirmatively independent; together they count as at most one lineage.",
+    "common_inputs": [
+      "this exact feature identity and its exact referenced files",
+      "published @mkbabb/parse-that@1.0.0",
+      "the seat-specific allowed source manifest",
+      "fresh hidden-holdout hash without bytes"
+    ],
+    "seats": [
+      {
+        "id": "H",
+        "provenance": "Historical direct-combinator transpose",
+        "allowed_source": "value.js f5723e72 src/parsing/utils.ts SHA-256 bcaa6cb2206a1d57776a71c260b6ed30e8c29ad48ed4f1069def2896a650133c",
+        "required_topology": "Historical whole-number terminal recast as zero-width recognition plus the narrow diagnostic sandbox."
+      },
+      {
+        "id": "B",
+        "provenance": "BBNF-production transpose",
+        "allowed_source": "bbnf-lang af15f63e0d2d3d719938c13b906a50acbb92ea3b grammar/css/l4/value-unit.bbnf SHA-256 cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+        "required_topology": "Transpose the BBNF whole-number production without f64 conversion, using zero-width grammar recognition plus sandbox."
+      },
+      {
+        "id": "S",
+        "provenance": "Specification-first",
+        "allowed_source": "Only the pinned CSS Syntax authority, sealed behavior, and parse-that public API",
+        "required_topology": "Explicit normative arms expressed by direct terminals/lookahead plus sandbox."
+      },
+      {
+        "id": "D",
+        "provenance": "Engine-native clean room",
+        "allowed_source": "Only the sealed observable contract/public fixtures and parse-that public API/types; no H/B/S implementation source",
+        "required_topology": "Prefix-directed dispatch or chain construction materially distinct from the production-tree arms, plus sandbox."
+      }
+    ],
+    "isolation": "Authors receive no foreign candidate, hidden bytes, benchmark result, or cross-seat design note before close.",
+    "anti_scanner_gate": "Reject candidate typed source containing state.src, source slicing, cursor loops, indexOf, splitTopLevel, balancedUntil, token/component/CST imports, broad remainder regexes, or retired-tree imports."
+  },
+  "benchmark": {
+    "protocol_path": "benchmark-protocol.json",
+    "protocol_sha256": "3c893d1ad6c5a425f2589c85ca1fe13c12b7241cf309e990f963c408d34a1f75",
+    "selection_lane": "STRICT_PARSER_ONLY_RAW_CHILD",
+    "peer_credit": "H/B/S/D only. This internal cell cannot independently close the tranche's public peer-beating requirement."
+  },
+  "promotion": {
+    "protocol_path": "promotion-protocol.json",
+    "protocol_sha256": "f487b6d6b3ff921cd8bf3c68938f0f1752b3d9994d284e0aeabaa3440e283e75",
+    "integration_base_ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+    "candidate_identity": "source SHA-256 + overlay-ledger SHA-256 + projected aggregate grammar-ledger SHA-256"
+  },
+  "admission": "Insert the fresh hidden-holdout identity, seal a manifest over every referenced byte, then require two fresh independent boundary challenges and one gestalt acceptance. No candidate source may exist before all three formation verdicts accept. Full feature acceptance remains forbidden until the complete CSS denominator ledger is frozen."
+}

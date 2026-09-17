@@ -1,0 +1,45 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.unanimous-selection/v1",
+  "status": "UNANIMOUS_EXACT_H2_SELECTED_FOR_PROMOTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "synthesis_subject": {
+    "path": "synthesis-subject.json",
+    "sha256": "062bbafc1f2e8445fa6a84b6e56594c9425388b4c18a5f75887f5b2e8467d58a"
+  },
+  "adjudications": [
+    {
+      "role": "semantic",
+      "path": "synthesis/semantic.md",
+      "sha256": "16ac0f739bf02bb529e0e49dabc4eba2a1969c3c71fc3bfa1bbf19f6d6831569",
+      "nomination": "h2",
+      "candidate_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+    },
+    {
+      "role": "parser-architecture",
+      "path": "synthesis/architecture.md",
+      "sha256": "16c92b1afc274ac487d71adbd8817ce010da3c1db5136428e8c687dc821b0ffc",
+      "nomination": "h2",
+      "candidate_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+    },
+    {
+      "role": "performance-gestalt",
+      "path": "synthesis/performance-gestalt.md",
+      "sha256": "cc70435f2bbf1795b4c584b5cc39cfdba5d9e1439e77396b87da52c585490fa0",
+      "nomination": "h2",
+      "candidate_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+    }
+  ],
+  "selected_candidate": {
+    "id": "h2",
+    "source_path": "../g15/optimization/h2/index.ts",
+    "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "promotion_path": "../../../apotheosis/grammar/css/l4/value-unit/numeric.ts",
+    "promotion_rule": "byte-identical copy; no wrapper, export change, formatting, or semantic edit"
+  },
+  "credit": {
+    "selection": "PASS",
+    "feature": "PENDING_EXACT_PROMOTION_AND_ACTIVE_ROOT_REPLAY",
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,6 @@
+# u-gestalt probe leg=boot @ 2026-07-12T20:01:33.801Z
+BOOT light beat marks: {"b0":28,"b1":1258,"b3":1857,"b2":3341,"b4":4387}
+BOOT light console errors: none
+BOOT dark beat marks: {"b0":11,"b1":648,"b3":1240,"b2":1876,"b4":3482}
+BOOT dark console errors: none
+DONE boot

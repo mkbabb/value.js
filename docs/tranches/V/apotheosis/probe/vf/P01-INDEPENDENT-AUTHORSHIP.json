@@ -1,0 +1,207 @@
+{
+  "schema": "vnext-p01-independent-authorship/1",
+  "purpose": "Formation authority for the independent P01 TypeScript-combinator implementer and grammar-oracle fixture author, followed by third-Sol differential adjudication; this file records no future work as complete.",
+  "state": "born_red",
+  "authority_inputs": {
+    "p01_wave_contract_sha256": "e7c25b4e55357eccb2ef633afeb968cf63955d283baf641fd065bd8856911c5f",
+    "host_capsule": {
+      "path": "BBNF-HOST-CONTROL.json",
+      "file_sha256": "ba6ef2eef8e356e1a0d94e831d79500f5664eda1224e533cb295e407be234e54",
+      "manifest_hash": "1c9a2f829ed2c79f6fbd0b246567e57900df58e6d13a9646b57a04cb65262776",
+      "bbnf_commit": "6914618918e3e76b47be66006810b708b8443425",
+      "parse_that_commit": "fe25063c9f122926608156f71f2396c11497fb7b",
+      "packed_parse_that_sha256": "b6a8433cc2378314c9b718bb025c68399e38ab24fb74be6de92b87c53304cd15",
+      "imports_active_novelty": false
+    },
+    "css_module_isomorphism": {
+      "path": "CSS-MODULE-ISOMORPHISM.json",
+      "file_sha256": "08ac97aa6c208c5d6a0d138b85595c7167ddccb24bde6a7cfe209450a8b9fc51",
+      "manifest_hash": "4fbc661ec3206885636a419156564437019bde980ca69bac95413ac09e342ec3",
+      "source_commit": "af15f63e0d2d3d719938c13b906a50acbb92ea3b",
+      "snapshot_kind": "formation-current",
+      "execution_resnapshot_required": true,
+      "module_count": 15
+    },
+    "forbidden_authorities": {
+      "formation_manifest": "CSS-MODULE-ISOMORPHISM.json",
+      "formation_bbnf_commit": "af15f63e0d2d3d719938c13b906a50acbb92ea3b",
+      "active_bbnf_restart_w0": {
+        "state": "red-observation-only",
+        "csswg_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+        "specifications": 84,
+        "source_bytes": 10454319,
+        "structured_rows": 690,
+        "named_splits": 512,
+        "authority": false
+      }
+    },
+    "formation_sources": [
+      {
+        "path": "CSS-MODULE-ISOMORPHISM.json",
+        "sha256": "08ac97aa6c208c5d6a0d138b85595c7167ddccb24bde6a7cfe209450a8b9fc51",
+        "purpose": "Pinned exact BBNF L4 to TypeScript combinator module authority"
+      },
+      {
+        "path": "SEED-ROW-INVENTORY.json",
+        "sha256": "c794c808a54f1025459a595a125f29b4535b545113aac55dd9cf15f9c551e267",
+        "purpose": "Exact seed-row ownership and amendment projection"
+      },
+      {
+        "path": "bbnf-host-control.schema.json",
+        "sha256": "976eb2bd986bf66fa00d186f000736e96adbb030e7a6ce485981fb96857fda32",
+        "purpose": "Strict stable-host capsule shape"
+      },
+      {
+        "path": "css-module-isomorphism.schema.json",
+        "sha256": "0a2cbd9e9a7175d6fb0f477822b747b4beaa0c49656ee50774596172086f0dd1",
+        "purpose": "Strict BBNF to TypeScript module join shape"
+      },
+      {
+        "path": "p01-access-projection.schema.json",
+        "sha256": "733bd36da42d4cc96c8d052f0095dae5b3f46c458d5972d5c5d4f85aa7b91aa8",
+        "purpose": "Strict transcript-derived tool-call, tool-output and message projection shape"
+      },
+      {
+        "path": "p01-css-corpus.schema.json",
+        "sha256": "abefbf7c3b09ad8432da6090f02a58d4f03276c431439d93950733a6eeb65eba",
+        "purpose": "Strict eight-partition case-level CSS differential corpus shape"
+      },
+      {
+        "path": "p01-differential-ledger.schema.json",
+        "sha256": "1a585fd3cfbd92743372729f3aa8a7222dc08657c500c2460f0340f8db375e80",
+        "purpose": "Strict total case and runtime-module differential ledger shape"
+      },
+      {
+        "path": "p01-grammar-oracle-proposal.schema.json",
+        "sha256": "6e6c7902e98995c9e5923eb3bd70e2fde21fe208d4337036a475e7b3097e3679",
+        "purpose": "Strict grammar-oracle test and fixture proposal shape"
+      },
+      {
+        "path": "p01-independent-authorship.schema.json",
+        "sha256": "af9803978729486db9930ec0c5c5b209749b286f51f3c7bccd8aa7562c14654e",
+        "purpose": "Strict two-author and adjudication authority shape"
+      },
+      {
+        "path": "p01-input-epoch.schema.json",
+      "sha256": "c15fa17fc4a6a8066f0a06ece8c1eb72d687e6ed973b127b1737ccc35bded034",
+        "purpose": "Strict terminal predecessor, current coordination clearance, corpus and shared-input epoch shape"
+      },
+      {
+        "path": "p01-origin-ledger.schema.json",
+        "sha256": "0f51a39fc148cb8920adaf9cbc91d33c1dcf62f46047062b7567d4a847b7f65f",
+        "purpose": "Strict P00, V01, V02, committed-source and published-package origin ledger shape"
+      },
+      {
+        "path": "p01-typescript-combinators-proposal.schema.json",
+        "sha256": "92558cd42da0d9f17c7f81c035ee84812889d1dad8a67801bca913990d4a2ea4",
+        "purpose": "Strict handwritten TypeScript-combinator proposal shape"
+      },
+      {
+        "path": "parse-that-package-receipt.schema.json",
+        "sha256": "619785297668b6f90bbdb94fd00258f8d940741544cf3315269542753a1c4b99",
+        "purpose": "Strict published parse-that package and no-link install receipt shape"
+      },
+      {
+        "path": "tools/p01-structural-contract.mjs",
+      "sha256": "7a1c624281d43a25c6c5794be68450bb6337deb7b1f4bc7e3bf10b60b5be4f42",
+        "purpose": "Pure role, origin, corpus and total differential relation verifier"
+      },
+      {
+        "path": "tools/validate-bbnf-host-control.mjs",
+        "sha256": "d8e8a37b32e4bb3cafe8d80cd3e2787237bd2033768cbf1a9fe45f55fa2c3503",
+        "purpose": "Clean-archive executable host control"
+      },
+      {
+        "path": "tools/validate-css-module-isomorphism.mjs",
+        "sha256": "047a66876088d8e309170bc1109bb334670a3ca7cdf64fc7ac43429815ad9952",
+        "purpose": "Exact committed module, hash, import and SCC verifier"
+      },
+      {
+        "path": "tools/validate-p01-authorship.mjs",
+      "sha256": "c9b894473018fcc7b415521bb22a306d6926a13475d6fc4e583d2f6636711a6b",
+        "purpose": "Canonical JSONL, live predecessor, coordination-clearance, independence and adjudication verifier"
+      },
+      {
+        "path": "tools/validate-parse-that-package-receipt.mjs",
+        "sha256": "316fbc1efc657f1e2434895ba57778063f6a800c8c5fb323b7c6fc6cff0286f2",
+        "purpose": "Executable tarball, archive and no-link published-package verifier"
+      }
+    ]
+  },
+  "execution_input_epoch": {
+    "state": "pending",
+    "required_predecessors": ["P00", "V01", "V02"],
+    "required_path": "test/proof/p01/input-epoch.json",
+    "required_schema": "vnext-p01-input-epoch/1",
+    "reason": "P00 CSS corpus/current coordination receipt and the active-BBNF terminal full modular CSS union freeze, V01 standards lock, and V02 value CSS signatures do not exist until their owning work returns terminally."
+  },
+  "authorship_contract": {
+    "required_authors": 2,
+    "slots": ["grammar-oracle", "typescript-combinators"],
+    "agent_paths": {
+      "grammar-oracle": "/root/p01_grammar_oracle",
+      "typescript-combinators": "/root/p01_typescript_combinators"
+    },
+    "adjudicator_agent_path": "/root/p01_independence_adjudicator",
+    "provider": "codex",
+    "model": "gpt-5.6-sol",
+    "effort": "ultra",
+    "fresh_sibling_sessions": true,
+    "fork_turns": "none",
+    "inherited_dialogue_turns": 0,
+    "allowed_common_ancestry": "exactly-input-epoch-coordinator",
+    "author_to_author_ancestry": false,
+    "session_reuse": false,
+    "peer_access_before_both_freezes": false,
+    "generated_or_copied_from_peer": false,
+    "artifact_roots_overlap": false,
+    "allowed_input_origins": ["P00", "V01", "V02", "committed-value", "terminal-bbnf-css-union", "published-parse-that-1.0.0"],
+    "implementation_contract": {
+      "slot": "typescript-combinators",
+      "proposal_schema": "vnext-p01-typescript-combinators-proposal/1",
+      "required_root": "typescript_root"
+    },
+    "oracle_contract": {
+      "slot": "grammar-oracle",
+      "proposal_schema": "vnext-p01-grammar-oracle-proposal/1",
+      "required_roots": ["test_root", "fixture_root"]
+    },
+    "forbidden_shared_roots": ["active-parse-that-checkout", "active-T-tranche", "active-U-tranche", "parse-that-bank"],
+    "access_projection_schema": "vnext-p01-access-projection/1",
+    "access_observability_limit": "Codex JSONL exposes recorded tool calls, tool outputs and messages, not operating-system reads outside those calls; independence is enforced by fork_turns:none, zero inherited dialogue, undisclosed disjoint roots, concurrent freezes, and no recorded peer-root disclosure before both freezes.",
+    "root_disclosure_boundary": "both author sessions start before either proposal freezes; neither peer root appears in either author or coordinator projection before both freeze times",
+    "receipt_hash_algorithm": "sha256-jcs-omit-receipt_hash"
+  },
+  "author_receipts": [],
+  "adjudication": {
+    "owner_wave": "P01",
+    "wave_contract_sha256": "e7c25b4e55357eccb2ef633afeb968cf63955d283baf641fd065bd8856911c5f",
+    "required_model": "gpt-5.6-sol",
+    "required_effort": "ultra",
+    "contract": [
+      "receive only both frozen proposal manifests after both freeze times",
+      "verify author session and ancestry disjointness",
+      "verify access logs contain no peer proposal read before both freezes",
+      "compare frozen grammar-oracle fixtures with TypeScript combinator outputs and name every divergence owner",
+      "invoke the CSS module validator with the TypeScript proposal root and grammar-oracle test root as one paired filesystem join",
+      "accept only total case and runtime-module differential coverage with no unowned divergence",
+      "accept only the exact execution-input BBNF CSS runtime/exclusion partition with zero edge corrections and unchanged published parse-that 1.0.0 TypeScript usage"
+    ],
+    "receipt": {
+      "state": "pending",
+      "reason": "Adjudication cannot begin before two valid coordinator-bounded sibling author receipts and frozen proposal roots exist."
+    }
+  },
+  "completion_conditions": [
+    "one frozen P00/V01/V02 input epoch and named coordinator session are shared byte-for-byte by both authors",
+    "the epoch binds a terminal active-BBNF full-modular-CSS-union freeze receipt and an execution-input module manifest at that same BBNF commit",
+    "the epoch binds one no-link registry @mkbabb/parse-that 1.0.0 tarball, integrity, file manifest, runtime exports, declarations and export-condition receipts",
+    "exactly two Sol-ultra author receipts occupy the two distinct slots",
+    "author session identities, transcript files, ancestry sets, reports, derived access projections and proposal roots are pairwise distinct",
+    "author ancestry intersects only at the named coordinator; neither author descends from the other; proposal roots are disjoint",
+    "both sessions overlap through the first freeze and no recorded author/coordinator tool call, tool output or message discloses a peer root before both freezes",
+    "the adjudicator binds both immutable role-manifest paths, file hashes and internal hashes and the CSS validator passes with the paired TypeScript/test roots",
+    "a third distinct Sol-ultra P01 adjudicator accepts a total corpus/runtime-module differential ledger with no unowned divergence"
+  ],
+  "manifest_hash": "634a1d98a38ab9309ca8781d0e0d7968e0ed2f1f3fa5eee0bac40677206a27e6"
+}

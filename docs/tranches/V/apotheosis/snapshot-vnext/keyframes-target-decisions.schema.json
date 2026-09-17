@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-keyframes-target-decisions-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "wave_id", "scope", "decisions", "annex_hash"],
+  "properties": {
+    "schema": { "enum": ["vnext-keyframes-target-decisions/1", "vnext-keyframes-local-target-decisions/1"] },
+    "wave_id": { "$ref": "#/$defs/waveId" },
+    "scope": { "enum": ["library", "demo"] },
+    "decisions": { "type": "array", "items": { "$ref": "#/$defs/decision" } },
+    "annex_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "waveId": { "type": "string", "pattern": "^[PVKAGDMC][0-9]{2}[A-Z]?$" },
+    "decision": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "scope", "kind", "disposition", "target_id", "target_sha256", "rationale", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/nonEmpty" },
+            "scope": { "enum": ["library", "demo"] },
+            "kind": { "enum": ["source", "test", "support"] },
+            "disposition": { "const": "introduce" },
+            "target_id": { "$ref": "#/$defs/nonEmpty" },
+            "target_sha256": { "$ref": "#/$defs/sha256" },
+            "rationale": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "scope", "kind", "current_id", "current_sha256", "disposition", "rationale", "tombstone", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/nonEmpty" },
+            "scope": { "enum": ["library", "demo"] },
+            "kind": { "enum": ["source", "test", "support"] },
+            "current_id": { "$ref": "#/$defs/nonEmpty" },
+            "current_sha256": { "$ref": "#/$defs/sha256" },
+            "disposition": { "const": "delete" },
+            "rationale": { "$ref": "#/$defs/nonEmpty" },
+            "tombstone": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "scope", "kind", "current_id", "current_sha256", "disposition", "target_id", "target_sha256", "rationale", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/nonEmpty" },
+            "scope": { "enum": ["library", "demo"] },
+            "kind": { "enum": ["source", "test", "support"] },
+            "current_id": { "$ref": "#/$defs/nonEmpty" },
+            "current_sha256": { "$ref": "#/$defs/sha256" },
+            "disposition": { "enum": ["keep", "move", "fold"] },
+            "target_id": { "$ref": "#/$defs/nonEmpty" },
+            "target_sha256": { "$ref": "#/$defs/sha256" },
+            "rationale": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "status": "FROZEN_REVIEWED_SUBJECT_PRE_CHALLENGE",
+  "formation": {
+    "path": "formation-receipt.json",
+    "sha256": "21991b481df84081f105581bcbb80ff49f98e1688b080046a33e6688047e353a",
+    "bytes": 3562
+  },
+  "precursor_closure_sha256": "0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991",
+  "holdout_receipt": {
+    "path": "holdout-receipt.json",
+    "sha256": "c9006ca78471593933f1c8a14b38d19b63b04c0182c8a5fae2dea0c7fd359144",
+    "bytes": 2368
+  },
+  "holdout_ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "sha256": "44abeb756059679db7fc09554c4ac159abee8ed625cf5f96f204d7a01dedb4c6",
+    "bytes": 181721
+  },
+  "actors": {
+    "custodian": "/root/g9_holdout_custodian",
+    "review_a": "/root/g9_boundary_challenge_a",
+    "review_b": "/root/g9_boundary_challenge_b",
+    "root": "value-pi-root-g9"
+  },
+  "credit": "ZERO_REVIEW_SUBJECT_ONLY"
+}

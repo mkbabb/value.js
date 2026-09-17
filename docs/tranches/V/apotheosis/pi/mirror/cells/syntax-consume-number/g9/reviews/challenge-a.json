@@ -1,0 +1,70 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "review_id": "A",
+  "verdict": "REJECT",
+  "reviewer": {
+    "task_id": "/root/g9_boundary_challenge_a",
+    "served_model": "gpt-5.6-sol",
+    "independent": true,
+    "candidate_author": false,
+    "root": false,
+    "custodian": false,
+    "peer_review_access": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade",
+    "bytes": 944
+  },
+  "axes": {
+    "exact_subject_identity": "ACCEPT",
+    "formation_closure_and_g8_terminal_binding": "ACCEPT",
+    "feature_semantics_and_normative_slice": "ACCEPT",
+    "direct_parse_that_idiom_contract": "ACCEPT",
+    "scanner_lexer_token_atom_cst_veto": "ACCEPT",
+    "public_harness_observation_contract": "ACCEPT",
+    "four_lineage_seat_count": "ACCEPT",
+    "lineage_provenance_and_topology_review": "REJECT",
+    "immutable_subject_chronology": "REJECT",
+    "holdout_receipt_and_ciphertext_binding": "REJECT",
+    "custody_fail_closed_enforcement": "REJECT",
+    "actor_provenance_binding": "REJECT",
+    "review_semantic_completeness": "REJECT",
+    "foreign_or_fabricated_bundle_resistance": "REJECT",
+    "candidate_absence_and_author_isolation": "REJECT",
+    "admission_cli_lifecycle_replay": "REJECT",
+    "benchmark_chronology": "ACCEPT",
+    "benchmark_comparator_predeclaration": "REJECT",
+    "post_candidate_quintetto_chronology": "ACCEPT",
+    "post_candidate_synthesis_chronology": "ACCEPT",
+    "zero_feature_and_parser_credit": "ACCEPT"
+  },
+  "evidence": [
+    "The reviewed subject replayed at its exact c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade/944 identity after the receipt returned to the bound bytes: `node cells/syntax-consume-number/g9/admission-validator.mjs --subject cells/syntax-consume-number/g9/reviewed-subject.json` emitted PASS, formation 21991b481df84081f105581bcbb80ff49f98e1688b080046a33e6688047e353a/3562, 188 holdout cases, and zero candidates.",
+    "During this exact challenge, before that later PASS, the same public subject command exited `subject holdout receipt identity mismatch`; `shasum -a 256` observed holdout-receipt.json as 395c941c709275108eaf6ec2b182db2111801c3630eea627b90e7ae91d353bce/2368 while reviewed-subject.json bound c9006ca78471593933f1c8a14b38d19b63b04c0182c8a5fae2dea0c7fd359144/2368. Subsequent reads returned c9006ca7... without a new subject. This is direct moving-byte evidence, not a hypothetical mutation.",
+    "Filesystem chronology corroborates the race: reviewed-subject.json mtime is 2026-07-22T10:08:13-0400 while holdout-receipt.json mtime is 2026-07-22T10:09:35-0400. The receipt was written after the supposedly frozen subject that bound it.",
+    "ADDENDA-07 section 4 states that any holdout byte change creates generation N+1 and invalidates the generation. Restoring the prior bytes does not erase the observed post-freeze change or retroactively make the exact reviewed subject immutable.",
+    "The precursor replay is mechanically green: `--precursor-check` emitted PASS for the 20-row closure 0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991 with zero candidates, and `--negative-controls` emitted PASS for seven controls.",
+    "The normative LF slice independently hashes to 3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3/2303, matching feature-contract.json. Its result and maximal-prefix contract correctly preserve explicit sign and Object.is(-0), distinguish integer from decimal/exponent representations, and forbid lexical/CST observations.",
+    "The formation binds direct public parse-that inputs and four separate H/B/S/D packets. The contract forbids manual source/offset access, imperative scanning, lexer/token tape, atom/component-value/CST layers, broad remainder capture, cursor recursion, and source mutation while expressly permitting an idiomatic parse-that regex terminal.",
+    "The required pre-author provenance graph and pairwise construction review do not exist in the exact 20-row formation. The four packets name source lineages but do not predeclare materially distinct construction topologies; H, B, S, and D can all independently converge on the same regex-plus-map construction, which ADDENDA-07 says labels alone do not make orthogonal.",
+    "admission-validator.mjs authenticates actor identity only by comparing JSON strings such as `/root/g9_boundary_challenge_a`; the exact subject, reviews, root, and admission envelope bind no external Codex task receipt. protocol.json itself admits that model identity requires an external actor-provenance witness, but no such witness is required before `AUTHORS_MAY_BEGIN_ZERO_CREDIT`.",
+    "validateReviewValue requires merely twelve arbitrarily named ACCEPT/REJECT fields and one nonempty evidence string. The validator's own accepted fixture uses axis_0 through axis_11, evidence `fixture`, served_model `fixture`, and self-asserted actor strings. Therefore the admission CLI cannot distinguish a substantive independent challenge from a locally fabricated syntactic ACCEPT bearing the expected task-id text.",
+    "assertNoCandidates scans only files ending in `.ts` under two roots. It ignores `.mts`, `.cts`, `.tsx`, `.js`, extensionless parser sources, and symlinked files, yet `--subject` and `--admit` represent the result as candidates: 0. This does not prove the protocol's stronger claim that no candidate source exists before admission.",
+    "No author roster, author task identities, input-manifest identities, isolated candidate-root identities, or pairwise author-disjointness are part of reviewed-subject.json or the admission result. Four seat packet names alone do not mechanically enforce four context-isolated author seats.",
+    "validateHoldoutValue checks canonical base64 and a minimum decoded length but does not validate an AES-256-GCM envelope layout, authenticated-decryption round trip, or live custodian recovery at admission. Those facts are receipt assertions; after the observed receipt race the public admission path has no fail-closed liveness check to prevent authors from starting after custody loss.",
+    "Deferring actual timing and five-plus-three review until exact candidate bytes close is the correct chronology. However the accepted pre-author subject still lacks exact comparable LIVE-regex, deposed, and C14 comparator identities and an immutable benchmark cell; it freezes only a prose benchmark law. This leaves the benchmark denominator selectable after candidate results, contrary to the feature-row comparator-identity requirement.",
+    "`npm run check` is green and `npm test -- --run` exits green with `No test files found`; this is correctly zero parser/feature credit and cannot cure a rejected pre-author boundary."
+  ],
+  "blockers": [
+    "A1 — The holdout receipt changed after reviewed-subject.json was frozen: this reviewer observed a real 395c941c... identity and a public subject-replay failure before the bytes returned to c9006ca7.... ADDENDA-07 makes any holdout-byte change a generation restart. G9 cannot admit authors; destroy the unrevealed secret and form G10 from immutably settled bytes.",
+    "A2 — Actor and challenge independence are self-attested strings, not content-addressed external task receipts. Because arbitrary axis names plus one token evidence string satisfy validateReviewValue, a fabricated local A/B/root bundle using the expected task-id text can reach the same syntactic admission path as real independent challenges. Bind external actor receipts and require the named substantive axes/evidence joins before admission.",
+    "A3 — The formation has four lineage labels but no required provenance graph, pairwise construction review, or topology assignments, and the admission bundle contains no author roster or isolation identities. It therefore does not prove four orthogonally begotten, context-isolated candidates rather than four same-shape regex terminals or repeated authorship.",
+    "A4 — Candidate absence is overclaimed: assertNoCandidates recognizes only `.ts` files in two directories and ignores other executable TypeScript/JavaScript extensions, extensionless sources, and symlinks. Close the source census or reduce the admission claim to exactly what is checked.",
+    "A5 — Fail-closed custody is not executable at admission: canonical base64 is treated as sufficient AES-256-GCM evidence and no external live-custodian/recoverability witness is bound. A stale or undecryptable holdout can authorize author work and fail only after four candidates close.",
+    "A6 — Benchmark timing may correctly occur post-candidate, but comparator selection may not. The boundary lacks exact LIVE-regex, deposed, and C14 comparator/build/operation identities required by the feature row, so a later benchmark can choose its denominator after seeing candidate results. Freeze comparable-door and comparator identities before authoring while leaving raw timing post-close."
+  ],
+  "credit": "ZERO_BOUNDARY_CHALLENGE_ONLY"
+}

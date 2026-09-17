@@ -1,0 +1,85 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "status": "PILOT_ROW_PREPARED_UNACCEPTED_PRE_AUTHOR_PRE_HOLDOUT",
+  "owner": "value-unit",
+  "ledger_authority": {
+    "path": "../../../../FEATURE-LEDGER.md",
+    "sha256": "9b8950a275f7b7cb8c83d12e30a75021528d1a69a6066faa7b315996b040c258",
+    "bytes": 12559,
+    "permission": "ADDENDA-07 permits pilot row preparation before full-ledger freeze; this row grants no feature acceptance or broad fan-out."
+  },
+  "g6_terminal_authority": {
+    "formation": { "path": "../g6/formation-receipt.json", "sha256": "41601fe8a14eaab1dd550148f269f114ca7ddbf1978f3644365e90f913d6d0be", "bytes": 5680 },
+    "rejection": { "path": "../g6/rejection.json", "sha256": "5e24fdeaabc5e9df08ed866eb6a8420de439ce6fb52175dd5d99bcaa00f41bf2", "bytes": 4057 },
+    "precursor_closure_sha256": "21b2d1fbbe4944708ca7b68b3ed7b3ff270ca56c1c7aead15f341de34e31971f"
+  },
+  "normative_occurrence": {
+    "authority_path": "../g5/authorities/css-syntax-3.Overview.bs",
+    "authority_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "authority_bytes": 144427,
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "anchor": "consume-number",
+    "line_start": 1610,
+    "line_end_inclusive": 1679,
+    "exact_lf_slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3",
+    "exact_lf_slice_bytes": 2303,
+    "algorithm_steps": [1, 2, 3, 4, 5, 6, 7]
+  },
+  "operation": {
+    "entry": "At the current parse-that UTF-16 offset, consume one maximal CSS number prefix and return one semantic leaf.",
+    "accepted_prefix": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "maximality": "Dot and exponent syntax are consumed only when their following ASCII-digit guards are complete.",
+    "result": {
+      "type": "Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>",
+      "value": "ECMAScript binary64 Number(exact consumed representation), compared with Object.is including negative zero, signed infinity, and underflow.",
+      "number_type": "integer iff neither fraction nor exponent is consumed; otherwise number.",
+      "sign": "Leading + or -, otherwise null.",
+      "object_shape": "Ordinary Object.prototype and exactly three own writable/enumerable/configurable string data properties value/type/sign; no symbols, accessors, surplus keys, raw, parts, or spans."
+    },
+    "source_observation": "The harness observes source.slice(entryOffset, finalOffset) in the same input's UTF-16 code units; raw/preprocessed source mapping remains SYNTAX-SOURCE-MAP work.",
+    "subordinate_number_start": "The six §4.3.10 true arms are subordinate public branch fixtures only. SYNTAX-NUMBER-START is not a dependency, exported parser, or acceptance prerequisite.",
+    "composition": ["number", "integer type guard", "percentage suffix witness", "dimension unit witness"],
+    "excluded": [
+      "standalone zero-width Parser<boolean> number-start predicate",
+      "tokens, atoms, component values, CST, lexer, scanner, cursor, or source-slicing runtime",
+      "percentage/dimension dispatch, identifier conformance, contextual bounds, math, EOF diagnostics, source mapping, serialization, and computed values"
+    ]
+  },
+  "failure_contract": {
+    "common": "Return the same ParserState; set isError=true; preserve src identity/ownership; preserve entry offset; preserve predecessor value by Object.is; do not throw; preserve global diagnostics mode.",
+    "ordinary_diagnostics_disabled": "Set furthest to the failed entry offset; expected remains undefined; preserve the same empty suggestions and secondarySpans array references and contents.",
+    "ordinary_diagnostics_enabled": "Set furthest to the failed entry offset; expected is a nonempty array of nonempty strings; preserve the same empty suggestions and secondarySpans array references and contents.",
+    "preseeded_ahead_both_modes": "When furthest is seeded beyond all candidate activity, preserve furthest, expected ownership/reference/content, suggestions reference/content, and secondarySpans reference/content exactly.",
+    "public_test": "harness.ts applies every public failure to diagnostics disabled/enabled × ordinary/preseeded-ahead and all seven predecessor classes."
+  },
+  "work_limit": {
+    "complexity": "O(n) time in the consumed prefix length and O(1) runtime stack for the finite static parser graph.",
+    "construction_floor": "Candidate topology permits only finite direct combinator construction and forbids lazy/recursive/local-function graphs, loops, manual state/source access, and source slicing.",
+    "executable_scaling": "For digits, fraction, exponent, and incomplete-exponent constructions at 4096/8192/16384/32768 code units, five-sample medians at each exact doubling use a 0.05 ms floor and every adjacent ratio must be <= 8; every invocation must complete semantically within 1000 ms.",
+    "credit": "A scaling PASS is a hostile rail, not benchmark or acceptance credit."
+  },
+  "fixtures": {
+    "retained_public_cases": {
+      "path": "../g5/fixtures/public-cases.json",
+      "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+      "bytes": 5213,
+      "role": "unchanged semantic, subordinate start-arm, composition, malformed, offset, and hostile evidence"
+    },
+    "g7_controls": "fixtures/g7-controls.json"
+  },
+  "oracle_roles": {
+    "spec": "Pinned CSS Syntax §4.3.13 exact occurrence is normative.",
+    "live": "Retiring LIVE regex participates only on a declared semantics-equivalent common-domain lane.",
+    "browser": "Browser observation may classify numeric literal behavior but cannot override the pinned algorithm or this internal prefix boundary.",
+    "bbnf": "Acknowledged value-unit.bbnf is construction/provenance evidence; its f64 projection and unit dispatch are outside this row."
+  },
+  "benchmark_door": "Allocate ParserState(source, predecessor, offset), invoke the exact admitted consumeNumber once with diagnostics disabled, and fold isError/offset/value/type/sign plus same-input consumed-extent identity after public and revealed-holdout semantic PASS.",
+  "owner_review_law": {
+    "authors": ["h", "b", "s", "d"],
+    "skeptics": ["specification", "parse-that", "hostility", "performance", "gestalt"],
+    "adjudicators": ["semantic", "parser-architecture", "performance-gestalt"],
+    "selection": "Five unblocked skeptic receipts and three pairwise-independent unanimous adjudicators must bind one exact already-reviewed candidate hash."
+  },
+  "credit": "ZERO: prepared pilot row and executable precursor only."
+}

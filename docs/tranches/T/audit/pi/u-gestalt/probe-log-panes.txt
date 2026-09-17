@@ -1,0 +1,6 @@
+# u-gestalt probe leg=panes @ 2026-07-12T20:04:39.095Z
+PANES light-1440 errs: none
+PANES light-390 errs: none
+PANES dark-1440 errs: none
+PANES dark-390 errs: none
+DONE panes

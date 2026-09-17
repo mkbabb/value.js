@@ -1,0 +1,29 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G9-PREAUTHOR",
+  "generation": 9,
+  "status": "FROZEN_FORMATION_PRE_HOLDOUT",
+  "scope": "PREAUTHOR_ADMISSION_ONLY",
+  "sequence": [
+    "Freeze and replay the G9 precursor formation after G8 rejection and unrevealed-secret destruction.",
+    "A fresh independent custodian seals a new encrypted holdout and receipt. Loss of its private custody before reveal terminates G9; it never weakens the gate.",
+    "Freeze one reviewed-subject.json binding the exact formation, precursor closure, holdout receipt/ciphertext, and predetermined custodian/challenge/root task identities. It contains no challenge or root hashes.",
+    "Two independent challenges bind the exact reviewed-subject hash. Neither sees peer work or hidden material.",
+    "Root binds the same subject and the exact two challenge bytes, and unions their blockers.",
+    "Only a later admission-envelope.json adds the exact subject, challenge, and root identities. The validator fully checks every content and identity join before emitting AUTHORS_MAY_BEGIN.",
+    "Four isolated authors receive common contract/harness inputs plus exactly one H/B/S/D lineage packet. No candidate source exists before admission.",
+    "Holdout reveal, candidate correctness, benchmarks, five skeptics, three adjudicators, exact-hash selection, and prototype integration are later gates over real candidate bytes."
+  ],
+  "commands": {
+    "formation": "node cells/syntax-consume-number/g9/admission-validator.mjs --formation-check",
+    "precursor": "node cells/syntax-consume-number/g9/admission-validator.mjs --precursor-check",
+    "negative_controls": "node cells/syntax-consume-number/g9/admission-validator.mjs --negative-controls",
+    "subject": "node cells/syntax-consume-number/g9/admission-validator.mjs --subject <reviewed-subject.json>",
+    "admit": "node cells/syntax-consume-number/g9/admission-validator.mjs --admit <admission-envelope.json>"
+  },
+  "explicit_limits": [
+    "Content hashes prove bundle identity, not a model's identity; the Codex task receipts are the external actor-provenance witness.",
+    "Pre-reveal public validation cannot prove hidden-case semantic adequacy; the ciphertext commitment prevents later substitution and the five skeptics judge the revealed corpus.",
+    "A live private custodian store is intentionally fail-closed rather than falsely durable: task loss rejects the generation and strands no accepted candidate."
+  ],
+  "credit": "ZERO_PROTOCOL_ONLY"
+}

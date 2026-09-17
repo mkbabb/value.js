@@ -1,0 +1,30 @@
+{
+  "feature_id": "SYNTAX-NUMBER-REPR",
+  "generation": 0,
+  "sealed": false,
+  "created": "2026-07-22",
+  "feature": {
+    "path": "../feature.json",
+    "bytes": 5032,
+    "sha256": "44a353d64d019d3adce27ccecec8b81143d386dda89db5e9d695d9bc7863a392"
+  },
+  "files": [
+    {
+      "path": "cases.json",
+      "bytes": 4742,
+      "sha256": "47062dda39ebb355f1610103f09e147b6209bb2b055191093c7520db1660e1b1"
+    }
+  ],
+  "counts": {
+    "valid": 15,
+    "invalid_start": 11,
+    "trailing": 12,
+    "hostile_templates": 4
+  },
+  "holdout": {
+    "status": "UNSEALED",
+    "sha256": null,
+    "custodian": null
+  },
+  "admission": "This manifest is a boundary-challenge input, not an accepted or author-visible candidate corpus. It becomes sealed only after two independent challenges and gestalt adjudication accept an exact generation."
+}

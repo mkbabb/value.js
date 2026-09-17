@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:benchmark-attempt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "attempt_id", "evidence_root_sha256", "runner_sha256", "schedule_sha256", "previous_ledger_closure_sha256", "raw_result", "status", "recorded_at", "ledger_closure_sha256"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "attempt_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,79}$" }, "evidence_root_sha256": { "$ref": "#/$defs/sha256" }, "runner_sha256": { "$ref": "#/$defs/sha256" }, "schedule_sha256": { "$ref": "#/$defs/sha256" },
+    "previous_ledger_closure_sha256": { "$ref": "#/$defs/sha256" },
+    "raw_result": { "type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": { "path": { "type": "string", "pattern": "^attempts/[a-z0-9][a-z0-9._-]{0,79}\\.raw\\.json$" }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } },
+    "status": { "enum": ["COMPLETE", "FAILED"] }, "recorded_at": { "type": "string", "format": "date-time" }, "ledger_closure_sha256": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+}

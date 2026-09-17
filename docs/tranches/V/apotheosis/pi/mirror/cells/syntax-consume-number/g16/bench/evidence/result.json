@@ -1,0 +1,77 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.confirmatory-result/v1",
+  "status": "PASS_STRICT_WIN_PENDING_QUINTETTO_AND_SYNTHESIS",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "subject": {
+    "candidate_id": "h2",
+    "candidate_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "benchmark_source_sha256": "bd46893f1ddfa628a258f9f0c953227b1d0513f28643a75c13977f49815a74c3",
+    "manifest_sha256": "f9ef032d101a74e4493f0e529ffe26244e35f6e9b49c18998ecb4a83438ca9a1",
+    "corpus_sha256": "084d40cceed3cce481e23cbac1ca288c2af2899fad515dc948115c0aed9fd46b",
+    "benchmark_correctness_sha256": "0196d9a361bea3bc43fa370f64c7354c739e2c99e1f3e73853d71a712794c22f",
+    "holdout_replay_source_sha256": "40e8dd24170fd4dd70f6df9692380d099d317fc220e99499cf92f9b3569ff93e",
+    "holdout_replay_evidence_sha256": "4eac6a187ef7f615152f364ff52e33ecaa2890c3595313fd6f40ae3714cd13d8"
+  },
+  "preflight": {
+    "audit_a2_sha256": "88ddf86db6e36667db5785af3b7be75db82264af18cb125dcb2095a1b65ea67e",
+    "audit_a2_verdict": "ACCEPT",
+    "audit_b2_sha256": "58055615b7bcd7e5df110f30c5d857a4caaf3e69d86c75b7af609a0842a96e58",
+    "audit_b2_verdict": "ACCEPT",
+    "raw_absent_before_attempt": true
+  },
+  "attempt": {
+    "attempt_id": "a0d321bc-b6ca-460d-9960-38973d1e6f86",
+    "raw_path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/evidence/raw-first-attempt.ndjson",
+    "raw_sha256": "372fef4094e34b1b78d9ab8e48fcf36bcda7557f2e8ba54cac637c222de11e54",
+    "raw_bytes": 250611,
+    "raw_lines": 545,
+    "started_at": "2026-07-22T21:59:41.096Z",
+    "completed_at": "2026-07-22T22:00:07.783Z",
+    "terminal_status": "COMPLETE_FIRST_ATTEMPT",
+    "replicate_processes": 30,
+    "sample_blocks": 360,
+    "timed_lane_operations": 230400000,
+    "worker_nonempty_stderr_count": 0,
+    "retry_or_replacement": false
+  },
+  "inference": {
+    "estimator": "ONLY_PREDECLARED_PROCESS_AGGREGATE_MEAN_LOG_RATIO",
+    "n_process_aggregates": 30,
+    "df": 29,
+    "mean_log_ratio_h2_over_deposed": -0.07336197220979548,
+    "sample_sd_log_ratio": 0.027244341177386378,
+    "one_sided_95_upper_log_ratio": -0.06491032168356216,
+    "geometric_mean_ratio_h2_over_deposed": 0.9292644012517273,
+    "one_sided_95_upper_ratio_h2_over_deposed": 0.9371515017780626,
+    "point_estimate_relative_time_reduction": 0.07073559874827273,
+    "child_aggregate_median_log_ratio": -0.08039757244129006,
+    "child_aggregate_mad_log_ratio": 0.018675995216382787,
+    "h2_block_median_ns": 20278396,
+    "h2_block_mad_ns": 252020.5,
+    "deposed_block_median_ns": 21099104,
+    "deposed_block_mad_ns": 376312.5,
+    "strict_upper_below_equality": true,
+    "qualification": "PASS"
+  },
+  "scope": {
+    "claim": "On the exact 64-row common-domain corpus and exact pinned Apple M5 Max/Node/parse-that environment, H2 is strictly faster than the operation-equivalent deposed consume-number parser under the predeclared process-aggregate inference.",
+    "not_claimed": [
+      "production-input average",
+      "per-case or per-block dominance",
+      "full CSS parser throughput",
+      "comparability with broader LIVE parseCssScalar or C14 CST doors",
+      "feature acceptance",
+      "integration acceptance",
+      "production authority"
+    ]
+  },
+  "credit": {
+    "correctness_evidence": "PASS",
+    "benchmark_evidence": "PASS_PENDING_REVIEW",
+    "skeptic_verdicts": 0,
+    "synthesis_verdicts": 0,
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

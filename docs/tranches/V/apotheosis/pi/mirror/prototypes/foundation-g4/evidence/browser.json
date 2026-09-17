@@ -1,0 +1,14 @@
+{
+  "schema": "value.pi.foundation-g4.browser-witness/v1",
+  "status": "PASS",
+  "candidate": "h-self-contained-integration",
+  "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+  "observations": {
+    "escaped_color_supported": true,
+    "adjacent_comments_supported": true,
+    "raw_feff_custom_property_supported": true,
+    "computed_color": "rgb(255, 0, 0)",
+    "computed_content": "\"aAb\""
+  },
+  "credit": "BROWSER_WITNESS_ONLY; no full CSS or public parser credit"
+}

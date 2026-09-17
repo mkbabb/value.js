@@ -1,0 +1,62 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation/v8-rejection",
+  "date": "2026-07-22",
+  "status": "REJECTED_ZERO_CREDIT",
+  "subject": {
+    "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v8.json",
+    "sha256": "1491335ca478a942efdbd7000f62a4e4aa57ce32b7db93af18ddeb346f5767af",
+    "bytes": 24485
+  },
+  "formation_receipt": {
+    "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-formation-2026-07-22.md",
+    "sha256": "d2cc0ff450c01898715501345f22669fac55f4b774aa1428f9e8cdb8fa86e768",
+    "bytes": 9772
+  },
+  "challenges": [
+    {
+      "id": "A",
+      "verdict": "REJECT",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-challenge-a.md",
+      "sha256": "6d0c14190c5632994e4c2e9cbfdd5b16867d8a8689e7f7191f61dfbfc8cdd56d",
+      "bytes": 13805
+    },
+    {
+      "id": "B",
+      "verdict": "REJECT",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-challenge-b.md",
+      "sha256": "2c10bab979b0e2ef3c13d344e0ea2667b2950fba0fa41a0cde174024e67b018f",
+      "bytes": 17864
+    }
+  ],
+  "root_gestalt": {
+    "verdict": "REJECT",
+    "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-root-gestalt.md",
+    "sha256": "d27225314682318d98c5bfde5abcfd4831949fa8d2d4ee9ac777fd8ff7e94f11",
+    "bytes": 7305
+  },
+  "confirmed_blockers": [
+    "The source-order state space omits fenced code and alternate raw-pre states, allowing false references, headings, and operations.",
+    "Reference delimiters can pair across opaque or escaped states, suppressing later active candidates.",
+    "Thousands of href intervals receive contradictory dispositions, relative CSSWG hrefs are false-excluded, and a bare CSSWG root URL throws.",
+    "Carriers are inherited from rejected V1 rather than re-extracted, while raw attribute regexes can fabricate definition target joins.",
+    "Line-granular ancestry collapses distinct same-line headings and operations.",
+    "Operation discovery is a keyword/tag heuristic rather than a reviewed normative-operation bijection.",
+    "Generation, regeneration, and mutation expectations share the same semantic implementation and do not provide an independent relation oracle.",
+    "The launcher and imported dependencies are not authenticated at a complete pre-execution boundary, and resource/work/publication evidence is not content-addressed or adversarially closed."
+  ],
+  "required_next": "Form V9 around one byte-positioned and work-bounded source-order state machine; make delimiter formation state-bounded and no-throw; resolve hrefs and enforce one disposition per interval; re-extract every structural family from parsed tokens with byte-position ownership; bind operations to an independent normative ledger; add an independent semantic oracle and invariant-specific mutations; freeze launcher, dependency, resource, and crash evidence; retain every V6-V8 witness; then obtain two fresh challenges and root gestalt.",
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair3-hostile-challenge/v1",
+  "date": "2026-07-22",
+  "challenge": "A",
+  "scope": "denominator corpus-analysis research tooling only",
+  "status": "REJECT",
+  "independence": {
+    "repair3_challenge_b_read": false,
+    "full_168_source_corpus_run": false,
+    "review_method": "The pinned repair3 subject, declarative contract, evidence, implementation receipt, V9 blueprint, adjudicated repair2 docket, and primary Bikeshed/WHATWG semantics were checked directly. Every repair and verifier claim was treated as unproved until a bounded replay or counterexample established it.",
+    "qualification": "The repair2 root docket names the rejected union that repair3 claims to close; no repair3 review B was read. This challenge is based on fresh repair3 inputs and mutations."
+  },
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 56293,
+      "sha256": "8181757557f3a6e86ea5d45c3620c2649e6b083c4a4aead323c4196f17040425"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 17007,
+      "sha256": "f2c2397c22b7fdae350b074943c52cb18906e6c9e814f8f3bc709b57f411fc33"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 18149,
+      "sha256": "989ff130d4c6fd11688d02a91109860663fdf255bff859e75290b38264b177aa"
+    },
+    "semantic_contract": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json",
+      "bytes": 6381,
+      "sha256": "732ebafdf0336c9c21027bfa4b4df3b6b143ef61336603750797b4a254c1c702"
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair3-evidence.json",
+      "bytes": 8185,
+      "sha256": "8215baeb14bb2fe205bd9e7689eef06c068aba9bb70d89f1687f489c25c11ec0"
+    },
+    "deterministic_stdout": {
+      "bytes": 14316,
+      "sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf"
+    }
+  },
+  "primary_semantic_authority": {
+    "bikeshed": {
+      "url": "https://speced.github.io/bikeshed/",
+      "retrieved_bytes": 591977,
+      "retrieved_sha256": "aca9bbf8fc22374f074f4d05525a417d0097f7b66bdab1a9b92b1faa8668a60f",
+      "facts_used": [
+        "Section 8.1 permits biblio modifiers in any order, and section 7.2 permits a visible-text suffix such as [[CSS-FOO|the CSS Foo spec]].",
+        "The shared autolink inside syntax permits an empty slash for an explicitly for-less definition, as in [=/url=], and a vertical-bar visible-text segment that is not part of the target.",
+        "Markup Shorthands is a comma-separated metadata list; the l element recognizes every autolink syntax even when that category is disabled.",
+        "Any a element without an href attribute is a manual autolink; link text and type attributes are optional because their defaults come from text content and dfn.",
+        "All dfn attributes can be inherited from ancestors, taking the closest value per attribute; recognized defining elements are dfn and h2 through h6.",
+        "Datablocks initially jump to their closing tag without interpreting Bikeshed shorthands; their DSL determines replacement, and data-source blocks disappear."
+      ]
+    },
+    "whatwg_html_syntax": {
+      "url": "https://html.spec.whatwg.org/multipage/syntax.html#attributes-2",
+      "retrieved_bytes": 89193,
+      "retrieved_sha256": "10584fddd2bd865650526a397b27200444d9b07b38f9f858166baf8b6e41d38d",
+      "fact_used": "The empty-attribute syntax gives an attribute the empty-string value; a source-level href token without '=' is present, not absent."
+    }
+  },
+  "replay": {
+    "syntax_checks": "GREEN",
+    "workspace": {
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > /tmp/v9r3-a-workspace.7iT5Oc",
+      "exit": 0,
+      "stdout_bytes": 14316,
+      "stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf"
+    },
+    "temporary_cwd": {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > /tmp/v9r3-a-tmpcwd.h19ixl",
+      "exit": 0,
+      "stdout_bytes": 14316,
+      "stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+      "byte_identical_to_workspace": true,
+      "classification": "CWD-independent bounded replay only; not a relocated or authenticated transitive runtime closure."
+    },
+    "published_rail_reproduced": {
+      "frozen_v9_cases": 18,
+      "inherited_v8_cases": 29,
+      "semantic_rules": 10,
+      "exact_semantic_witnesses": 19,
+      "rejected_mutations": 13,
+      "hostile_option_cases": 6,
+      "arbitrary_decoded_byte_sequences": 512,
+      "arbitrary_input_bytes": 130605,
+      "decoded_utf8_bytes": 237348,
+      "state_labels": 13,
+      "geometric_rows": 20
+    },
+    "limits": {
+      "full_168_source_run": false,
+      "normative_operation_ledger": false,
+      "publisher_or_denominator_shards": false,
+      "authenticated_launcher_or_runtime_closure": false,
+      "formal_resource_bound_or_benchmark": false,
+      "parser_or_production_credit": false
+    }
+  },
+  "retained_green_controls": [
+    {
+      "area": "bibliographic modifiers and adjacent definition whitespace",
+      "result": "The exact [[ABC current]], [[CSS-VALUES-4 status]], [=foo / bar=], [=foo/ bar=], and [=foo /bar=] witnesses behave as declared."
+    },
+    {
+      "area": "duplicate-name close recovery and processed depth",
+      "result": "Both STALE_STACK witnesses retain the two processed-code references in PROCESSED_CODE and leave the post-code reference in VISIBLE_TEXT; no fresh failure was found in the repaired suffix removal loop."
+    },
+    {
+      "area": "narrow pre/datablock cases",
+      "result": "The frozen ordinary-pre, explicit-l definition, anchors datablock shorthand, and css-no single-quote witnesses pass exactly."
+    },
+    {
+      "area": "decoded attributes",
+      "result": "The exact entity-decoded absolute URL, relative query, and dfn-for scope witnesses preserve raw_value while using decoded semantic values."
+    },
+    {
+      "area": "ledger status and union IDs",
+      "result": "A REJECTED status is excluded with LEDGER_REVIEW_STATUS, and an admitted operation ID equal to a candidate ID is reported as a union collision."
+    },
+    {
+      "area": "container witness and URL case",
+      "result": "The closed nested section witness assigns the later explicit operation to Outer, and an uppercase HTTPS URL is included."
+    }
+  ],
+  "adversarial_evidence": [
+    {
+      "id": "BIBLIO_VISIBLE_TEXT_VALID_FORM_OMITTED",
+      "input": "[[CSS-FOO|the CSS Foo spec]]",
+      "expected": "One active bibliographic autolink whose target is CSS-FOO and whose visible text is the suffix.",
+      "actual": {
+        "candidates": 0
+      },
+      "cause": "analyzer.mjs:538-541 applies the target regex to the unsplit target-plus-visible-text body. The declarative BIBLIO rule and witnesses omit Bikeshed's valid visible-text segment."
+    },
+    {
+      "id": "DEFINITION_EMPTY_SLASH_VALID_FORM_OMITTED",
+      "input": "[=/url=]",
+      "expected": "One active definition reference with explicit empty scope and target url.",
+      "actual": {
+        "candidates": 0
+      },
+      "cause": "analyzer.mjs:531-535 requires every slash-separated part to be nonempty even though the contract says only zero-or-one slash with no adjacent whitespace and Bikeshed explicitly defines the empty slash."
+    },
+    {
+      "id": "DEFINITION_VISIBLE_TEXT_POLLUTES_TARGET",
+      "input": "<dfn id=x>do foo</dfn> [=do foo|when foo is done=]",
+      "expected": {
+        "target_form": "do foo",
+        "resolved_carriers": 1
+      },
+      "actual": {
+        "target_form": "do foo|when foo is done",
+        "resolved_carriers": 0
+      },
+      "cause": "joinDefinitionTargets at analyzer.mjs:1252-1257 parses only slash and never removes the valid visible-text segment before target resolution."
+    },
+    {
+      "id": "MARKUP_SHORTHANDS_COMMA_GRAMMAR_IGNORED",
+      "input": "<pre class=metadata>Markup Shorthands: css no, biblio yes</pre> 'must-not-be-active'",
+      "expected": "The CSS shorthand is disabled by the comma-separated metadata list.",
+      "actual": {
+        "candidate_raw": "'must-not-be-active'",
+        "candidate_type": "css_shorthand_single",
+        "disposition": "INCLUDED"
+      },
+      "cause": "analyzer.mjs:551-556 splits only on whitespace, so the value token is 'no,' rather than the recognized 'no'."
+    },
+    {
+      "id": "MARKUP_SHORTHANDS_CSS_DOUBLE_NOT_DISABLED",
+      "input": "<pre class=metadata>Markup Shorthands: css no</pre> ''must-not-be-active''",
+      "expected": "The CSS category disables both documented CSS shorthand families outside l.",
+      "actual": {
+        "candidate_raw": "''must-not-be-active''",
+        "candidate_type": "css_term_double",
+        "disposition": "INCLUDED"
+      },
+      "cause": "settings.css gates only the single-quote scan at analyzer.mjs:679; the css_term_double delimiter in PAIRS is always scanned."
+    },
+    {
+      "id": "EXPLICIT_L_DOES_NOT_OVERRIDE_DISABLED_CSS",
+      "input": "<pre class=metadata>Markup Shorthands: css no</pre><l>'must-be-active'</l>",
+      "expected": "The l element activates the CSS shorthand even when the document-level category is disabled.",
+      "actual": {
+        "candidates": 0
+      },
+      "cause": "The l state exception in analyzer.mjs:360-369 changes source state but the global settings.css gate at line 679 still suppresses the syntax."
+    },
+    {
+      "id": "NON_METADATA_DATABLOCK_MUTATES_SETTINGS",
+      "input": "<pre class=anchors>Markup Shorthands: css no</pre> 'must-be-active'",
+      "expected": "An anchors datablock does not establish document metadata, so the following CSS shorthand remains active.",
+      "actual": {
+        "candidates": 0
+      },
+      "cause": "markupShorthandSettings scans every DATABLOCK range rather than only the metadata datablock."
+    },
+    {
+      "id": "DATABLOCK_STRUCTURAL_AND_REFERENCE_LEAKAGE",
+      "input": "<pre class=anchors><a lt=term>plain</a><h2 id=t data-dfn-type=dfn>T</h2><div algorithm>x</div></pre>",
+      "expected": "The initial anchors datablock parse does not promote its payload to live manual links, headings, definition carriers, or algorithms.",
+      "actual": {
+        "candidate_types": ["manual_autolink"],
+        "heading_titles": [""],
+        "operation_candidate_kinds": ["explicit_algorithm", "heading_anchor"],
+        "carrier_names": [[]]
+      },
+      "cause": "pre is deliberately excluded from findRawClose at analyzer.mjs:438-455, after which all nested tags are materialized and the tag-based consumers at lines 700-744 and 1002-1221 do not reject DATABLOCK ancestry."
+    },
+    {
+      "id": "BARE_MANUAL_AUTOLINK_OMITTED",
+      "input": "<a>plain term</a>",
+      "expected": "One dfn-type manual autolink using its text content as default linking text.",
+      "actual": {
+        "candidates": 0
+      },
+      "cause": "analyzer.mjs:701-721 requires an lt/data-lt or dfn/data-link-type attribute even though Bikeshed says every href-less a is an autolink."
+    },
+    {
+      "id": "EMPTY_HREF_MISCLASSIFIED_AS_ABSENT",
+      "input": "<a href dfn>term</a>",
+      "expected": "href is present with the empty-string value, so this is not a href-less manual autolink; it belongs on the empty-href omission path.",
+      "actual": {
+        "candidate_raw": "<a href dfn>",
+        "candidate_type": "manual_autolink",
+        "disposition": "INCLUDED"
+      },
+      "cause": "parseAttributes records empty-syntax attributes as value:null, and scanReferences searches only href rows with value!==null. This confuses present-empty with absent despite preserving quoted entity-decoded values correctly."
+    },
+    {
+      "id": "INHERITED_HEADING_DEFINITION_TYPE_OMITTED",
+      "input": "<section data-dfn-type=dfn><h2 id=t>Term</h2></section> [=Term=]",
+      "expected": "The closest inherited definition type makes the h2 a definition carrier, resolving [=Term=].",
+      "actual": {
+        "headings": 1,
+        "carriers": 0,
+        "resolved_definition_count": 0
+      },
+      "cause": "The carrier predicate at analyzer.mjs:1171-1180 checks dfn-type only on the heading itself. Nearest-ancestor logic is applied later only to scope and alternate name."
+    },
+    {
+      "id": "SETEXT_ROW_REUSED_AFTER_ATX",
+      "input": "# H\n---\n===\n",
+      "expected": "One ATX heading H; the dash row is not reusable as the textual content of another heading.",
+      "actual": {
+        "heading_titles": ["H", "---"],
+        "heading_syntaxes": ["BIKESHED_ATX", "BIKESHED_SETEXT"]
+      },
+      "cause": "analyzer.mjs:1027-1047 continues immediately after ATX recognition. Consumption at line 1069 occurs only after a successful Setext construction, leaving an underline/thematic row available as later heading content."
+    },
+    {
+      "id": "HOSTILE_LEDGER_VALUES_ESCAPE_ANALYZER",
+      "inputs": [
+        "operationLedger row with source_id:Symbol('x')",
+        "operationLedger equal to a revoked array Proxy",
+        "operationLedger row whose entry_conditions is a revoked array Proxy"
+      ],
+      "actual": [
+        "TypeError: Cannot convert a Symbol value to a string",
+        "TypeError: Cannot perform 'IsArray' on a proxy that has been revoked",
+        "TypeError: Cannot perform 'IsArray' on a proxy that has been revoked"
+      ],
+      "cause": "Array.isArray(ledgerInput) at analyzer.mjs:1310 and validation coercions/Array.isArray calls at lines 881-893 remain outside a complete hostile-value boundary. The six published cases do not include these shapes, and test.mjs:257 intentionally does not run the verifier for hostile case index 2."
+    },
+    {
+      "id": "NON_WITNESS_CANDIDATE_OMISSION_ADMITTED",
+      "input": "prefix [[ABC current]] suffix",
+      "mutation": "Delete the only candidate and disposition, delete its stable ID, decrement work.candidate_rows, and decrement total_instrumented_units so the published field sum remains internally consistent.",
+      "actual": "verifyAnalysis returned GREEN_DECLARATIVE_WITNESS_ORACLE_REPAIR3_RED_ONLY with semantic_witness_id:null.",
+      "cause": "The ten declarative rule texts are never interpreted. oracle.mjs:286-325 applies expected semantics only when source URL plus the complete source string exactly equals one of nineteen witnesses."
+    },
+    {
+      "id": "NON_WITNESS_URL_CORRUPTION_ADMITTED",
+      "input": "<a href=\"?a=1&amp;b=2\">variant</a>",
+      "base": "https://drafts.csswg.org/base/Overview.bs",
+      "mutation": "Replace href_value by ?wrong and resolved_url by https://drafts.csswg.org/wrong without changing raw provenance.",
+      "actual": "verifyAnalysis accepted with semantic_witness_id:null.",
+      "cause": "The general verifier checks candidate bytes and IDs but does not join href candidates to parsed tag attributes or recompute platform URL resolution."
+    },
+    {
+      "id": "TAG_ANCESTRY_CORRUPTION_ADMITTED",
+      "input": "<section><div>x</div></section>",
+      "mutation": "Set the opening div parent_id to tag-does-not-exist.",
+      "actual": "verifyAnalysis accepted with semantic_witness_id:null.",
+      "cause": "verifyTags checks intervals and mutual matching IDs but never validates parent_id existence, parent intervals, tag-name pairing, or recovered nesting."
+    },
+    {
+      "id": "WRONG_PRECEDING_HEADING_OWNER_ADMITTED",
+      "input": "# A\n# B\n<div algorithm>x</div>",
+      "mutation": "Change the operation candidate owner, heading_id, and heading_title from heading-1/B to heading-0/A.",
+      "actual": "verifyAnalysis accepted with semantic_witness_id:null.",
+      "cause": "verifyRelations accepts any named heading whose stored container path is a prefix; it does not recompute the last eligible preceding heading."
+    },
+    {
+      "id": "REVIEWED_OPERATION_OMISSION_ADMITTED",
+      "input": "<div algorithm>x</div>",
+      "ledger": "One exact-locator REVIEWED_ACCEPTED required operation OP.",
+      "mutation": "Delete the admitted operation and OP from stable_ids, decrement relation_rows and total_instrumented_units to preserve their field sum, and leave ledger_unmatched_ids empty.",
+      "actual": "verifyAnalysis accepted with semantic_witness_id:null.",
+      "cause": "verifyLedger loops emitted operations and trusts the analyzer-provided ledger_unmatched_ids; it never independently establishes the required ledger-to-operation bijection."
+    },
+    {
+      "id": "WORK_COUNTER_SUPPRESSION_ADMITTED",
+      "input": "prefix [[ABC current]] suffix",
+      "mutation": "Set total_instrumented_units, relation_rows, reference_code_units, tag_code_units, raw_searches, and fence_lines to 0.",
+      "actual": "verifyAnalysis accepted and reported analyzer_work_units:0.",
+      "cause": "verifyAnalyzerWork validates only classified_code_units, source_utf8_bytes, range_rows, tag_rows, and candidate_rows; it neither recomputes the total nor checks the other counters."
+    },
+    {
+      "id": "UNCOUNTED_NESTED_CARRIER_ANCESTRY_SCANS",
+      "family": "For N in 16,32,64,128,256, use '<section><dfn>x</dfn>' repeated N followed by N closing section tags.",
+      "rows": [
+        {"n": 16, "bytes": 496, "carriers": 16, "analyzer_reported": 689, "verifier_reported": 673, "unreported_min_ancestor_visits": 304},
+        {"n": 32, "bytes": 992, "carriers": 32, "analyzer_reported": 1377, "verifier_reported": 1345, "unreported_min_ancestor_visits": 1120},
+        {"n": 64, "bytes": 1984, "carriers": 64, "analyzer_reported": 2753, "verifier_reported": 2689, "unreported_min_ancestor_visits": 4288},
+        {"n": 128, "bytes": 3968, "carriers": 128, "analyzer_reported": 5505, "verifier_reported": 5377, "unreported_min_ancestor_visits": 16768},
+        {"n": 256, "bytes": 7936, "carriers": 256, "analyzer_reported": 11009, "verifier_reported": 10753, "unreported_min_ancestor_visits": 66304}
+      ],
+      "derivation": "Each carrier calls nearestDefinitionScope and nearestTagAttribute. With carrier i below i section ancestors and no matching inherited attribute, these two loops perform at least 2*sum(i+1)=N*(N+3) ancestor visits, none of which increments work. closeIndexes performs repeated delimiter scans, sourceLines/projectedText repeat range work, and assignContainerPaths scans/sorts tags twice; these are likewise not represented as executed units.",
+      "classification": "Static and bounded work-accounting counterexample, not a timing benchmark or formal whole-program bound."
+    }
+  ],
+  "findings": [
+    {
+      "severity": "BLOCKER",
+      "code": "V9R3-A-01-REFERENCE-GRAMMAR-INCOMPLETE",
+      "title": "Valid biblio and definition separator forms remain absent or resolve to the wrong target.",
+      "evidence_ids": [
+        "BIBLIO_VISIBLE_TEXT_VALID_FORM_OMITTED",
+        "DEFINITION_EMPTY_SLASH_VALID_FORM_OMITTED",
+        "DEFINITION_VISIBLE_TEXT_POLLUTES_TARGET"
+      ],
+      "impact": "A full-source occurrence denominator would omit valid references and misjoin visible-text references. The empty-slash case contradicts even the declarative rule's stated slash law."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R3-A-02-BIKESHED-STATE-SETTINGS-INCOMPLETE",
+      "title": "Metadata grammar, CSS-family gating, explicit-l override, and datablock consumers still diverge from Bikeshed.",
+      "evidence_ids": [
+        "MARKUP_SHORTHANDS_COMMA_GRAMMAR_IGNORED",
+        "MARKUP_SHORTHANDS_CSS_DOUBLE_NOT_DISABLED",
+        "EXPLICIT_L_DOES_NOT_OVERRIDE_DISABLED_CSS",
+        "NON_METADATA_DATABLOCK_MUTATES_SETTINGS",
+        "DATABLOCK_STRUCTURAL_AND_REFERENCE_LEAKAGE"
+      ],
+      "impact": "The analyzer both fabricates and omits occurrences under ordinary metadata and datablock forms. Passing one css-no witness and one l-in-pre definition witness does not close the source-state repair."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R3-A-03-MANUAL-CARRIER-ATTRIBUTE-DENOMINATOR",
+      "title": "Bare manual links, empty href semantics, and inherited heading definition attributes remain incorrect.",
+      "evidence_ids": [
+        "BARE_MANUAL_AUTOLINK_OMITTED",
+        "EMPTY_HREF_MISCLASSIFIED_AS_ABSENT",
+        "INHERITED_HEADING_DEFINITION_TYPE_OMITTED"
+      ],
+      "impact": "Whole occurrence families are still incomplete, while a present empty href can be promoted to a manual link. Entity decoding is repaired on the frozen forms but the parsed-attribute model is not complete."
+    },
+    {
+      "severity": "HIGH",
+      "code": "V9R3-A-04-SETEXT-CONSUMPTION-INCOMPLETE",
+      "title": "Underline rows remain reusable as later heading content on a neighboring ATX path.",
+      "evidence_ids": ["SETEXT_ROW_REUSED_AFTER_ATX"],
+      "impact": "Heading and downstream operation ownership can still be fabricated by a three-line bounded source despite the exact SETEXT_CONSUMED witness passing."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R3-A-05-OPTION-NOTHROW-BOUNDARY-OPEN",
+      "title": "Hostile but in-scope ledger values still escape analyzeSource as native TypeErrors.",
+      "evidence_ids": ["HOSTILE_LEDGER_VALUES_ESCAPE_ANALYZER"],
+      "impact": "The explicit INPUT contract and evidence claim are false beyond six handpicked shapes. A corpus launcher cannot treat analysis as a total nonthrowing boundary."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R3-A-06-DECLARATIVE-ORACLE-NOT-COMPLETE",
+      "title": "The verifier is an exact nineteen-source witness table plus self-consistency checks, not an independent semantic oracle.",
+      "evidence_ids": [
+        "NON_WITNESS_CANDIDATE_OMISSION_ADMITTED",
+        "NON_WITNESS_URL_CORRUPTION_ADMITTED",
+        "TAG_ANCESTRY_CORRUPTION_ADMITTED",
+        "WRONG_PRECEDING_HEADING_OWNER_ADMITTED",
+        "REVIEWED_OPERATION_OMISSION_ADMITTED"
+      ],
+      "impact": "Five required blueprint relations can be falsified while the verifier returns GREEN. The contract's rule texts are inert and exact whole-source lookup is neither complete nor independent semantic derivation."
+    },
+    {
+      "severity": "HIGH",
+      "code": "V9R3-A-07-WORK-ACCOUNTING-SUPPRESSIBLE",
+      "title": "Separate counters exist, but both the verifier check and the geometric families omit material repeated work.",
+      "evidence_ids": [
+        "WORK_COUNTER_SUPPRESSION_ADMITTED",
+        "UNCOUNTED_NESTED_CARRIER_ANCESTRY_SCANS"
+      ],
+      "impact": "The honest no-formal-bound disclaimer is retained, but the emitted analyzer/verifier units cannot support even bounded work-accounting claims: the reported total can be zeroed and a quadratic ancestor family appears linear in the counters."
+    }
+  ],
+  "axis_verdicts": {
+    "identity_and_workspace_tmp_replay": "GREEN_BOUNDED",
+    "bibliographic_target_and_modifier_semantics": "REJECT_VALID_VISIBLE_TEXT_FORM_OMITTED",
+    "definition_separator_semantics": "REJECT_EMPTY_SLASH_AND_VISIBLE_TEXT",
+    "duplicate_name_close_recovery": "GREEN_ON_EXACT_AND_BOUNDED_CASES",
+    "processed_depth_state": "GREEN_ON_EXACT_AND_BOUNDED_CASES",
+    "ordinary_pre_datablock_explicit_l": "REJECT_INCOMPLETE",
+    "markup_shorthands_settings": "REJECT",
+    "manual_autolinks": "REJECT",
+    "heading_definition_carriers_and_inheritance": "REJECT",
+    "raw_and_entity_decoded_attributes": "GREEN_EXACT_ENTITY_CASES_REJECT_EMPTY_ATTRIBUTE_SEMANTICS",
+    "ledger_review_status": "GREEN_ON_EXACT_CASE",
+    "union_stable_id_collision": "GREEN_ON_EXACT_CASE",
+    "container_aware_analyzer_owner": "GREEN_ON_EXACT_SECTION_CASE",
+    "container_and_owner_verifier": "REJECT",
+    "setext_consumption": "REJECT",
+    "ascii_case_insensitive_url": "GREEN_ON_EXACT_AND_FRESH_CASE",
+    "option_nothrow_boundary": "REJECT",
+    "declarative_contract_independence_and_completeness": "REJECT",
+    "analyzer_and_verifier_work_accounting": "REJECT_SUPPRESSIBLE_AND_INCOMPLETE",
+    "formal_resource_bound": "ZERO_CREDIT_AS_DECLARED",
+    "full_denominator": "ZERO_CREDIT",
+    "parser_or_production": "ZERO_CREDIT"
+  },
+  "three_altitude_verdict": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "analysis": "The exact repair3 tooling cannot seed the 168-source occurrence-to-owner denominator. It still omits valid reference and manual-link forms, misclassifies source states and empty attributes, can throw at the option boundary, and can receive a green verdict after required relations are corrupted. No broad tranche conclusion follows."
+    },
+    "wave": {
+      "verdict": "REJECT",
+      "analysis": "The repair3 wave is byte-reproducible and closes several exact repair2 witnesses, but fresh bounded sources reopen reference grammar, Bikeshed settings, datablock, carrier, Setext, no-throw, oracle, and work-accounting gates. It is not ready for a denominator traversal."
+    },
+    "feature": {
+      "verdict": "REJECT",
+      "analysis": "Narrow duplicate-stack, entity decoding, ledger-status, union-collision, nested-section owner, and uppercase-URL repairs are retained as local green facts only. The occurrence-owner feature remains semantically incomplete and independently unverified."
+    }
+  },
+  "required_repairs_before_rechallenge": [
+    "Parse the complete reviewed inside grammar: biblio visible text, definition empty slash, type suffixes, and visible-text suffixes must be separated from target identity before validation and joining.",
+    "Parse Markup Shorthands as its comma-separated metadata grammar, gate every CSS shorthand family, make l override disabled categories, and prevent non-metadata datablocks from changing settings.",
+    "Apply a single datablock ancestry policy to every consumer so tag-derived links, headings, carriers, and operations cannot leak from opaque DSL payloads without an explicit reviewed DSL result.",
+    "Emit every href-less a manual autolink with default text/type semantics, distinguish absent attributes from present empty-string attributes, and apply closest inherited definition attributes per field when recognizing heading carriers.",
+    "Consume heading underline/thematic rows under the complete block grammar, including paths adjacent to ATX headings and empty projected content.",
+    "Close the no-throw boundary around Array.isArray, coercive regex/template operations, revoked proxies, and hostile nested ledger field values; run analyzer and verifier on every hostile row rather than skipping one.",
+    "Replace exact whole-source semantic lookup with an independently derived general relation checker. Recompute ancestry, URL joins, last eligible heading ownership, required ledger bijection, and work totals instead of trusting analyzer summaries.",
+    "Count or explicitly inventory repeated delimiter, line/range, container-sort, projected-text, and ancestor-walk work; add the nested-carrier family. Preserve the current no-formal-bound and no-benchmark disclaimers until a real proof/measurement exists."
+  ],
+  "commands": [
+    "shasum -a 256 docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json",
+    "shasum -a 256 docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair3-evidence.json",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > /tmp/v9r3-a-workspace.7iT5Oc",
+    "cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > /tmp/v9r3-a-tmpcwd.h19ixl",
+    "wc -c /tmp/v9r3-a-workspace.7iT5Oc /tmp/v9r3-a-tmpcwd.h19ixl && shasum -a 256 /tmp/v9r3-a-workspace.7iT5Oc /tmp/v9r3-a-tmpcwd.h19ixl && cmp -s /tmp/v9r3-a-workspace.7iT5Oc /tmp/v9r3-a-tmpcwd.h19ixl",
+    "curl -L --max-time 20 -sS https://speced.github.io/bikeshed/ -o /tmp/v9r3-a-bikeshed.html",
+    "curl -L --max-time 20 -sS 'https://html.spec.whatwg.org/multipage/syntax.html#attributes-2' -o /tmp/v9r3-a-html-syntax.html",
+    "node --input-type=module <<'NODE' # import analyzeSource/verifyAnalysis; run each exact adversarial_evidence input, three hostile ledger shapes, six verifier mutations, and N=16..256 nested-carrier rows; NODE"
+  ],
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1",
+    "build": "25E253"
+  },
+  "credit": {
+    "denominator": 0,
+    "semantic": 0,
+    "operation": 0,
+    "owner": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0,
+    "broad_credit": 0
+  },
+  "review_boundary": {
+    "full_168_source_census_run": false,
+    "repair3_challenge_b_read": false,
+    "subject_analyzer_oracle_test_contract_edited": false,
+    "parser_or_production_files_edited": false,
+    "only_persistent_write": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair3-challenge-a.json"
+  },
+  "verdict": "REJECT"
+}

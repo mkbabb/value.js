@@ -1,0 +1,125 @@
+{
+  "aad": {
+    "canonicalization": "UTF-8 JSON; recursively lexicographically sorted object keys; arrays retain declared order; no insignificant whitespace; one terminal LF",
+    "fields": {
+      "custodian_task": "/root/g13_holdout_custodian",
+      "root_sha256": "38383e09cfc2d788d6399cf06d0422af61e91efed72a26e88ecadfb23beaec09",
+      "schema": "value.pi.syntax-consume-number.g13.holdout-aad/v1",
+      "subject_sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572"
+    },
+    "sha256": "35e5cafc67267afafb9aeddbd837e56765e3fa3c40adf40b3f6e4467a41d1591"
+  },
+  "algorithm": {
+    "authenticated_encryption": "AES-256-GCM",
+    "implementation": "node:crypto built-in createCipheriv",
+    "key_bytes": 32,
+    "fresh_key_and_nonce": true
+  },
+  "artifact": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/holdout-ciphertext.b64",
+    "base64_text_bytes": 329665,
+    "base64_text_sha256": "4e6a09fae3ddecef0437abb694421d2fd80c7e05ca6f33fdc9399dee8db48671",
+    "ciphertext_bytes": 247210,
+    "ciphertext_sha256": "7435a2ce3bec4b2fddb1aaa8770697e02ee996de8d3bbc97e730541276936569",
+    "sealed_frame_bytes": 247247,
+    "sealed_frame_sha256": "860c09972642aee0da6019f482f3cf6a2f33e857808b00cabf092ec9aac89806"
+  },
+  "corpus": {
+    "canonicalization": "UTF-8 JSON; recursively lexicographically sorted object keys; arrays retain declared order; no insignificant whitespace; one terminal LF",
+    "cases": 172,
+    "family_counts": [
+      {
+        "canonical_case_bytes": 9386,
+        "cases": 24,
+        "family": "core-success"
+      },
+      {
+        "canonical_case_bytes": 10258,
+        "cases": 26,
+        "family": "maximal-prefix"
+      },
+      {
+        "canonical_case_bytes": 6867,
+        "cases": 18,
+        "family": "utf16-offset"
+      },
+      {
+        "canonical_case_bytes": 8735,
+        "cases": 18,
+        "family": "composition-boundary"
+      },
+      {
+        "canonical_case_bytes": 4899,
+        "cases": 10,
+        "family": "descriptor-expectation"
+      },
+      {
+        "canonical_case_bytes": 9091,
+        "cases": 18,
+        "family": "extreme-conversion"
+      },
+      {
+        "canonical_case_bytes": 14854,
+        "cases": 40,
+        "family": "failure-transaction"
+      },
+      {
+        "canonical_case_bytes": 179557,
+        "cases": 18,
+        "family": "bounded-hostile"
+      }
+    ],
+    "maximum_source_utf16_length": 4098,
+    "plaintext_bytes": 247210,
+    "plaintext_sha256": "ab1ff7a462070e4d1ed6b32457d28406cae0012223f18ecfb446294e9c2bcc5e",
+    "version": "value.pi.syntax-consume-number.g13.holdout-corpus/v1"
+  },
+  "credit": "ZERO_HOLDOUT_ZERO_CANDIDATE_ZERO_PARSER_ZERO_BENCHMARK_ZERO_FEATURE_ZERO_PRODUCTION",
+  "custodian": {
+    "actual_collaboration_task": "/root/g13_holdout_custodian",
+    "authority": "CORPUS_FORMATION_AND_UNREVEALED_SEAL_ONLY",
+    "candidate_or_author_access": "NONE; no candidate or author existed or was inspected"
+  },
+  "framing": {
+    "base64": "RFC 4648 standard alphabet over the complete binary frame, followed by one LF",
+    "binary_layout": [
+      {
+        "bytes": 8,
+        "offset": 0,
+        "value_ascii": "VCNG13AE"
+      },
+      {
+        "bytes": 1,
+        "offset": 8,
+        "value_uint8": 1
+      },
+      {
+        "bytes": 12,
+        "offset": 9,
+        "value": "fresh GCM nonce"
+      },
+      {
+        "bytes": 247210,
+        "offset": 21,
+        "value": "ciphertext"
+      },
+      {
+        "bytes": 16,
+        "offset": 247231,
+        "value": "GCM authentication tag"
+      }
+    ],
+    "nonce_bytes": 12,
+    "tag_bytes": 16,
+    "tag_position": "final 16 bytes of decoded frame"
+  },
+  "generation": 13,
+  "schema": "value.pi.syntax-consume-number.g13.holdout-receipt/v1",
+  "status": "UNREVEALED_PREAUTHOR_HOLDOUT_SEALED",
+  "subject": {
+    "root_path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/root-gestalt.json",
+    "root_sha256": "38383e09cfc2d788d6399cf06d0422af61e91efed72a26e88ecadfb23beaec09",
+    "subject_path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/formation-receipt.json",
+    "subject_sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572"
+  }
+}

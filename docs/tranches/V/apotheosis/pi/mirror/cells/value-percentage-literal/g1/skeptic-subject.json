@@ -1,0 +1,26 @@
+{
+  "schema": "value.pi.percentage-literal.g1.skeptic-subject/v1",
+  "feature": "VALUE-PERCENTAGE-LITERAL + exact numeric-owner export revision",
+  "rootDisposition": ["ROOT-DISPOSITION.md", "2fa3b007ba9d5ed1973324c27f4a58bb45f3d09464148c5bcb1656d6c74826fe"],
+  "candidate": ["candidates/h3/value-unit.ts", "1d1c37d20a9ef97f13466e96fbd65175d7c387aebd877ef400c81951fda23dc3"],
+  "correctness": ["correctness.json", "fb632b374fac73883c6b4084e4cd956b90fd3cb014f2857ca479f3ba7c33303e"],
+  "benchmarkHarness": ["benchmark-v4.mts", "723c3053d1076667d2a1a817f7a9e808fd184ef591dd224efbb33559ecc3450d"],
+  "benchmarkManifest": ["benchmark-v4-manifest.json", "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db"],
+  "benchmarkFirstAttempt": ["benchmark-v4-first-attempt.json", "67c5d229f00a15d2fab565ad14cb436a1de648973a7acc99dcceefae556f1ae4"],
+  "bbnfReceipt": ["bbnf-uplift-receipt.json", "aad1e2377401292b2f564dee5fd97967a8ebd08bea8004397e4f23c9cae3e857"],
+  "g0Subject": ["../g0/skeptic-subject.json", "81498cb4afeb0fac70f83afe17342c88ac90fc7eed396b98a44a1c52400e4ca0"],
+  "g0Reviews": {
+    "semantic": "c2ae4d83147e455b27da1b6d4a07d20234c3b9826bef1b013e2d848c219b6ba6",
+    "architecture": "db6e4ac2d6f0ae8d157a4d1ce3bc6c71af823641cba0934bebdcf60343281cb5",
+    "state": "049f2020e9ec68210d3605087bec99896689b0bba243b7138dae38588a465c16",
+    "benchmark": "309c40110df5e91a6e894c3f9030e1603e6dc82b004c10c0aca6a522c0691805",
+    "gestalt": "306f275ff117fff3f5d4b383ead7b9c4938152c9edaf4a3a0b0974c2becee7a9"
+  },
+  "terminalFailures": {
+    "v2OperationEquivalentKernel": "d6c5c639e7c74049c651e3f0c1fbea299890e6e996a35d37b4e580653d925d2f",
+    "v3EmitCorrectSkip": "3fc52108c858532d46402c2e68f4c971da2194afbc39bc640663007bec5f019a"
+  },
+  "requiredVerdict": "ACCEPT or REJECT exact H3 integration; assume semantics, architecture, benchmark, lineage, and root adjudication are wrong",
+  "candidateMutationAfterFreeze": false,
+  "featureCredit": 0
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v2",
+  "status": "WITHDRAWN_PRE_CHALLENGE_DETERMINISTIC_REPLAY_DEFECT_ZERO_AUDIT_DENOMINATOR_OWNER_GRAPH_COST_OR_PARSER_CREDIT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v2.json",
+    "bytes": 69589449,
+    "sha256": "005a79b0e6d407e50baa15c3b6081499326f237705b4f4c711bcf0dfc10e12d5",
+    "payload_sha256": "5e00b2c182db7e695392e8ed185e1453ec7de6ccca88d17f3298fc6dda7e2720"
+  },
+  "schema": {
+    "path": "occurrence-owner-formation-v2.schema.json",
+    "bytes": 6072,
+    "sha256": "7a38ba2bf92192fa6f8d0bd8ddbfbeae3b493db068f688f57fb7fbdd2786647a"
+  },
+  "generator": {
+    "path": "tools/occurrence-owner-v2/generate.mjs",
+    "aggregate_files": 9,
+    "aggregate_bytes": 78937,
+    "aggregate_identity_sha256": "a218c0c46b386b1ba13d000cc3fa73110796779bca8b7ba1dd7fa8c2640a8add"
+  },
+  "superseded_formation_receipt": {
+    "path": "../formation/occurrence-owner-v2-formation-2026-07-22.md",
+    "bytes": 7808,
+    "sha256": "76e3a44e78b26c49be4ecdcedd913652f67c21f07f513cbe3b33c68549c3eae2",
+    "false_claim": "The receipt reported byte-identical replay, but that test reused the checked-in output path and did not test an arbitrary output target."
+  },
+  "defect": {
+    "class": "OUTPUT_PATH_DEPENDENT_SERIALIZATION_BREAKS_BYTE_DETERMINISM",
+    "cause": "The v2 generator derives replay.command from the live --output argument and serializes that command into the artifact. Identical authenticated inputs therefore produce different artifact bytes at a different output path.",
+    "canonical_command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v2/generate.mjs --source-root /private/tmp/value-pi-csswg-complement.TpPSHC --output docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v2.json",
+    "arbitrary_temp_command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v2/generate.mjs --source-root /private/tmp/value-pi-csswg-complement.TpPSHC --output /private/tmp/value-pi-owner-v2-replay.SnNraC/replay.json",
+    "arbitrary_temp_result": {
+      "bytes": 69589440,
+      "sha256": "43b094b76ebb92a25aae2b1084b80a43ded413682e5541b5e1514fcbec06edf4",
+      "payload_sha256": "5e00b2c182db7e695392e8ed185e1453ec7de6ccca88d17f3298fc6dda7e2720"
+    },
+    "comparison": "The compact payload digest remains equal because replay is appended after the payload digest. The serialized replay.command is the material difference; path length changes the final artifact byte count and raw SHA-256.",
+    "independently_reproduced": true
+  },
+  "disposition": {
+    "challenge_authorized": false,
+    "audit_credit": 0,
+    "denominator_credit": 0,
+    "parser_credit": 0,
+    "owner_graph_credit": 0,
+    "cost_lattice_credit": 0,
+    "compatibility_credit": 0,
+    "conformance_credit": 0,
+    "production_authorized": false,
+    "v2_subject_mutated": false,
+    "retained_evidence": "The fail-closed counts and content-addressed discovery evidence may be recut only in a new version with this withdrawal attached."
+  },
+  "next": "Cut occurrence-owner-formation-v3 with output-path-independent serialized bytes, prove byte identity at arbitrary temporary output paths, then require two fresh challenges and root gestalt."
+}

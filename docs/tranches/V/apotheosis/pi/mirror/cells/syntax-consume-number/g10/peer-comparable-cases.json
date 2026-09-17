@@ -1,0 +1,13 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "scope": "Exact common-operation smoke corpus only; later benchmark qualification must derive and emit each peer-specific correctness intersection from the full public plus revealed holdout corpus.",
+  "cases": [
+    { "id": "integer", "source": "12x", "offset": 0, "representation": "12", "value": 12, "type": "integer", "sign": null, "end": 2 },
+    { "id": "negative-integer", "source": "x-7%", "offset": 1, "representation": "-7", "value": -7, "type": "integer", "sign": "-", "end": 3 },
+    { "id": "fraction", "source": ".5rem", "offset": 0, "representation": ".5", "value": 0.5, "type": "number", "sign": null, "end": 2 },
+    { "id": "negative-fraction", "source": "-.25,", "offset": 0, "representation": "-.25", "value": -0.25, "type": "number", "sign": "-", "end": 4 },
+    { "id": "exponent", "source": "1e2px", "offset": 0, "representation": "1e2", "value": 100, "type": "number", "sign": null, "end": 3 },
+    { "id": "negative-zero", "source": "-0;", "offset": 0, "representation": "-0", "value": 0, "negative_zero": true, "type": "integer", "sign": "-", "end": 2 }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "receipt_id": "SYNTAX-NUMBER-START-G7-FRESH-HOLDOUT-SEAL",
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 7,
+  "status": "SEALED_CONFIDENTIAL_AWAITING_FIVE_CANDIDATE_IDENTITIES",
+  "precursor": {
+    "role": "generation-7 public boundary precursor",
+    "bytes": 15611,
+    "sha256": "b3cf8f8f0dc4d84399dd853ca93070ac5f412ff1fa99d316f856ec82f3f90a46",
+    "bound_before_hidden_formation": true,
+    "semantic_delta_from_generation_6": "NONE",
+    "harness_delta_from_generation_6": "NONE"
+  },
+  "public_input_closure": {
+    "declared_rows": 22,
+    "reproduced_rows": 22,
+    "mismatch_count": 0,
+    "ledger_encoding": "For each row in declared order: <sha256><two spaces><path><LF>",
+    "ledger_bytes": 2013,
+    "ledger_sha256": "b42ef703d423c5a469646578dcf4b83052f4121061bdf028a7129a4acb06f6a7",
+    "rows": [
+      { "path": "contract.ts", "bytes": 190, "sha256": "9e8a24d12444f7631bf5fa66e1c7011a20e32f1bc0d80ac488df758b9f96db3e" },
+      { "path": "harness.ts", "bytes": 188, "sha256": "c595d3ad5ddba2996bf55c7e166e5f6f08342fffa668e20687087d0f09e56932" },
+      { "path": "benchmark-protocol.json", "bytes": 1054, "sha256": "b3939805eb229ce6b010386db04a833a2ed22a4ab61bcb245703a911410a6e90" },
+      { "path": "promotion-protocol.json", "bytes": 7286, "sha256": "64e37760ea312f69759800abc6a9d593bcdaa583b2cbb4d7268bdc91beb9dab8" },
+      { "path": "promotion-verifier.mjs", "bytes": 31585, "sha256": "7e22b43b386ff4a38d24f6f6f978a13ca0310b9ea06fac1140eb3737821badf5" },
+      { "path": "../g6/contract.ts", "bytes": 175, "sha256": "e8e1f82bd0eafafc3795fa4cddbd04dd22d5653e4364b5b6e6f3468017b3d51e" },
+      { "path": "../g6/harness.ts", "bytes": 187, "sha256": "8de9fbd556b3f4cc95e3d99fd32615401c4ebb7fdc26500231d1a37d2ad7cb4d" },
+      { "path": "../g6/benchmark-protocol.json", "bytes": 7220, "sha256": "a3cfc5356d535c4a8a100bb7301cf58b7775479db04d5d0b69249b58bf72a4ed" },
+      { "path": "../g6/feature-public.json", "bytes": 19707, "sha256": "8a5559937ce73bd0db576fb36a35427a182c0cf682cae42c50781552e6a8c667" },
+      { "path": "../g6/manifest.json", "bytes": 7663, "sha256": "fc3c059accc160841c391bb20bee0364e2defb3b69a8661ae00cfc9fa0e1f064" },
+      { "path": "../g6/reviews/challenge-a-specification.md", "bytes": 12889, "sha256": "89b112ab2621b4a21c281af706c826ff218875833c61430b432fa4312dbcb29c" },
+      { "path": "../g6/reviews/challenge-b-architecture.md", "bytes": 8468, "sha256": "0809fb83866d14fddf22eb795a1ec136d11485d42e8a3f48116292428eb5ff2c" },
+      { "path": "../g6/root-gestalt.md", "bytes": 3160, "sha256": "3866bc53927393dab1372598db5ca6510bd98c8aec7d3a11a15fcf4962ceb6da" },
+      { "path": "../g6/rejection.json", "bytes": 1861, "sha256": "ce4ad499fcb180b79826036c6798528ad8490367924982c409d7f7d40d790612" },
+      { "path": "../g6/typescript-package.ledger", "bytes": 12054, "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47" },
+      { "path": "../g3/parse-that-dist.ledger", "bytes": 5586, "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b" },
+      { "path": "../../../apotheosis/clean-base.json", "bytes": 1177, "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2" },
+      { "path": "../../../package.json", "bytes": 755, "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af" },
+      { "path": "../../../package-lock.json", "bytes": 69400, "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7" },
+      { "path": "../../../../MODULE-DAG.md", "bytes": 4880, "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f" },
+      { "path": "../../../../FEATURE-LEDGER.md", "bytes": 13998, "sha256": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3" },
+      { "path": "../../../../ADDENDA-07.md", "bytes": 20954, "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5" }
+    ]
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_bytes": 144427,
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "operation": "§4.3.10 Check if three code points would start a number",
+    "preprocessing_dependency": "§3.3 filtering maps CR, FF, and CRLF to LF and maps NUL and surrogate code points to U+FFFD; cases invoke the operation only at retained mapped positions or EOF.",
+    "independent_oracle": "Inspect the next three code points without consuming: true exactly for digit, sign+digit, dot+digit, or sign+dot+digit; false otherwise.",
+    "oracle_agreement_cases": 256,
+    "oracle_disagreement_cases": 0
+  },
+  "public_corpus": {
+    "generation_3": {
+      "bytes": 3893,
+      "sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+      "materialization": "5×6×10 positive matrix + 5×18 negative matrix + 8×2 mapped raw/preprocessed cases",
+      "cases": 406,
+      "true": 306,
+      "false": 100
+    },
+    "generation_4_endpoints": {
+      "bytes": 3053,
+      "sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187",
+      "cases": 23,
+      "true": 12,
+      "false": 11
+    }
+  },
+  "hidden_corpus": {
+    "format": "canonical UTF-8/LF JSON",
+    "bytes": 148269,
+    "sha256": "c4b818a063dbc163a693cd7abebeb2d62850b331d419d15f80c92c6a7e2aa449",
+    "cases": 256,
+    "true": 128,
+    "false": 128,
+    "balanced": true,
+    "unique_cases": 256,
+    "all_offsets_nonzero": true,
+    "formation_nonce_sha256": "4ff519daa38abbf8769cdfcd536a64d7b77a9b126ce88e7f38f6202e66f79d62"
+  },
+  "coverage": {
+    "positive_arms": {
+      "digit": 22,
+      "plus_digit": 22,
+      "minus_digit": 21,
+      "dot_digit": 21,
+      "plus_dot_digit": 21,
+      "minus_dot_digit": 21
+    },
+    "families": {
+      "ordinary_positive": 92,
+      "number_spelling_to_eof": 12,
+      "ordinary_near_miss": 95,
+      "short_prefix_to_eof": 5,
+      "actual_predicate_at_eof": 4,
+      "mapped_raw_retained": 24,
+      "mapped_preprocessed_retained": 24
+    },
+    "source_prefixes": {
+      "ascii": 36,
+      "astral": 70,
+      "unpaired_surrogate": 118,
+      "mapped_control": 32
+    },
+    "mapped_pair_kinds": {
+      "crlf_to_lf": 8,
+      "cr_to_lf": 8,
+      "ff_to_lf": 8,
+      "nul_to_replacement": 8,
+      "lone_high_to_replacement": 8,
+      "lone_low_to_replacement": 8
+    },
+    "mapped_raw_preprocessed_pairs": 24,
+    "mapped_retained_cases": 48,
+    "near_miss_classes": 38,
+    "near_miss_domains": [
+      "actual EOF",
+      "EOF-short sign/dot prefixes",
+      "sign/dot followed by non-digit",
+      "doubled and crossed signs/dots",
+      "ASCII non-digit starts",
+      "Arabic-Indic, fullwidth, and astral mathematical numerals",
+      "fullwidth plus/dot and Unicode minus",
+      "whitespace, control, replacement, and unpaired-surrogate starts"
+    ],
+    "number_spellings_ending_at_eof": 12,
+    "actual_predicate_calls_at_eof": 4,
+    "all_six_positive_arms_present": true,
+    "all_cases_at_retained_position_or_eof": true,
+    "eliminated_crlf_interior_positions": 0
+  },
+  "uniqueness_and_disjointness": {
+    "axis_definitions": {
+      "id": ["id"],
+      "source": ["source"],
+      "source+offset": ["source", "offset"],
+      "semantic_tuple": ["source", "offset", "starts", "continuation", "positionKind"]
+    },
+    "internal_duplicate_counts": {
+      "id": 0,
+      "source": 0,
+      "source+offset": 0,
+      "semantic_tuple": 0
+    },
+    "generation_3_overlap_counts": {
+      "id": 0,
+      "source": 0,
+      "source+offset": 0,
+      "semantic_tuple": 0
+    },
+    "generation_4_overlap_counts": {
+      "id": 0,
+      "source": 0,
+      "source+offset": 0,
+      "semantic_tuple": 0
+    },
+    "machine_proved": true
+  },
+  "harness_expansion": {
+    "predecessor_representatives": [
+      "package-default undefined",
+      "null",
+      "false",
+      "0",
+      "empty string",
+      "frozen array",
+      "frozen object"
+    ],
+    "predecessor_count": 7,
+    "lanes": [
+      "raw child candidate.parser(state)",
+      "ordinary parent string(prefix).map(predecessor).next(candidate).skip(string(continuation))"
+    ],
+    "lane_count": 2,
+    "diagnostics_modes": ["disabled", "enabled"],
+    "diagnostics_mode_count": 2,
+    "diagnostic_profiles": [
+      "default-present-undefined",
+      "absent-before",
+      "undefined-before-multi",
+      "empty-at",
+      "multi-at",
+      "multi-beyond",
+      "multi-source-end"
+    ],
+    "diagnostic_profile_count": 7,
+    "observations_per_case_arithmetic": "7×2×2×7=196",
+    "observations_per_case": 196,
+    "hidden_case_count": 256,
+    "total_observations_arithmetic": "256×196=50176",
+    "total_observations": 50176,
+    "bound_invariants": [
+      "expected boolean truth",
+      "always succeeds and never throws",
+      "identical returned ParserState object",
+      "zero child consumption",
+      "correct following-parser offset",
+      "ParserState.src own-property presence and exact value/identity preserved",
+      "furthest, expected, suggestions, and secondarySpans identities and values preserved",
+      "global diagnostics mode preserved",
+      "predecessor value ignored"
+    ]
+  },
+  "confidential_retention": {
+    "plaintext": {
+      "bytes": 148269,
+      "sha256": "c4b818a063dbc163a693cd7abebeb2d62850b331d419d15f80c92c6a7e2aa449",
+      "case_count": 256,
+      "files_ever_written": 0,
+      "filesystem_copies_remaining": 0,
+      "custodian_accessible_plaintext_copies_remaining": 0,
+      "generation_and_verification": "in-memory only; buffers zeroized after encryption and recovery check"
+    },
+    "ciphertext": {
+      "bytes": 148301,
+      "sha256": "9c5b1b2af3b95ea9eaaf27fd7bbf3efb0ed98e8f82b6a1cbdfa3abf9a3102614",
+      "format": "G7H1 envelope: 4-byte magic, 12-byte IV, 16-byte authentication tag, AES-256-GCM ciphertext",
+      "aad": "SYNTAX-NUMBER-START-G7<LF>",
+      "filesystem_copies": 1,
+      "locator_disclosed": false,
+      "content_revealed": false
+    },
+    "secret": {
+      "kind": "fresh random 256-bit key",
+      "serialized": false,
+      "filesystem_copies": 0,
+      "retention": "one custodian task-context copy only",
+      "disclosed": false
+    },
+    "recoverability": {
+      "verified": true,
+      "authenticated_decryption_succeeded": true,
+      "recovered_bytes": 148269,
+      "recovered_sha256": "c4b818a063dbc163a693cd7abebeb2d62850b331d419d15f80c92c6a7e2aa449",
+      "recovered_equals_original": true,
+      "recovered_plaintext_persisted": false
+    }
+  },
+  "anti_reuse": {
+    "formation": "Wholly fresh corpus derived directly from the pinned §4.3.10 operation and §3.3 filtering rules after the exact G7 precursor was frozen.",
+    "prior_g4_g5_g6_holdout_receipts_inspected": false,
+    "prior_g4_g5_g6_hidden_paths_located": false,
+    "prior_g4_g5_g6_hidden_files_accessed": false,
+    "prior_g4_g5_g6_hidden_cases_recovered": false,
+    "prior_g4_g5_g6_hidden_cases_inferred": false,
+    "prior_g4_g5_g6_hidden_bytes_reused": false,
+    "previous_custodian_output_reused": false,
+    "same_byte_copy_known_or_created": false,
+    "fresh_formation_nonce_bound": true
+  },
+  "declarations": {
+    "candidate_directories_inspected": false,
+    "candidate_sources_present_at_seal": 0,
+    "candidate_sources_read": 0,
+    "candidate_sources_written": 0,
+    "candidate_executions": 0,
+    "holdout_executions": 0,
+    "holdout_revealed": false,
+    "secret_revealed": false,
+    "ciphertext_locator_revealed": false,
+    "plaintext_locator_revealed": false,
+    "eligible_execution_point": "Only after all five candidate source, overlay, projected, isolated-program, and type identities close."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "operation": "Execute each named peer's actual public/source parser first on the exact raw string; only then normalize its real output to {ok,end,value,type,sign}. Common lanes require exact agreement with this CSS consume-number observation.",
+  "cases": [
+    { "id": "integer", "raw": "12", "end": 2, "value_kind": "finite", "value": 12, "type": "integer", "sign": null },
+    { "id": "negative-integer", "raw": "-7", "end": 2, "value_kind": "finite", "value": -7, "type": "integer", "sign": "-" },
+    { "id": "fraction", "raw": ".5", "end": 2, "value_kind": "finite", "value": 0.5, "type": "number", "sign": null },
+    { "id": "negative-fraction", "raw": "-.25", "end": 4, "value_kind": "finite", "value": -0.25, "type": "number", "sign": "-" },
+    { "id": "exponent", "raw": "1e2", "end": 3, "value_kind": "finite", "value": 100, "type": "number", "sign": null },
+    { "id": "negative-zero", "raw": "-0", "end": 2, "value_kind": "negative-zero", "type": "integer", "sign": "-" },
+    { "id": "decimal", "raw": "1.0", "end": 3, "value_kind": "finite", "value": 1, "type": "number", "sign": null },
+    { "id": "zero", "raw": "0", "end": 1, "value_kind": "finite", "value": 0, "type": "integer", "sign": null },
+    { "id": "explicit-plus", "raw": "+3", "end": 2, "value_kind": "finite", "value": 3, "type": "integer", "sign": "+" },
+    { "id": "leading-zero", "raw": "00", "end": 2, "value_kind": "finite", "value": 0, "type": "integer", "sign": null },
+    { "id": "incomplete-fraction", "raw": "1.", "end": 1, "value_kind": "finite", "value": 1, "type": "integer", "sign": null },
+    { "id": "incomplete-exponent", "raw": "1e+", "end": 1, "value_kind": "finite", "value": 1, "type": "integer", "sign": null },
+    { "id": "overflow", "raw": "1e309", "end": 5, "value_kind": "positive-infinity", "type": "number", "sign": null }
+  ]
+}

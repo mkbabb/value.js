@@ -1,0 +1,62 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.skeptic-subject/v1",
+  "status": "FROZEN_FOR_FIVE_INDEPENDENT_HOSTILE_REVIEWS_ZERO_CREDIT",
+  "selected_candidate": {
+    "id": "h2",
+    "path": "optimization/h2/index.ts",
+    "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "bytes": 560,
+    "lines": 17,
+    "topology": "one direct parse-that regex terminal plus one semantic projection map"
+  },
+  "bindings": {
+    "feature": "a88dc7dfb1d452d8bcf103d359cd058722db7ad93ed598622f6e1cfc8d5b3a58",
+    "candidate_interface": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+    "original_candidate_set": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40",
+    "synthesis_set": "bb1405494c35b7de29f41549d4cd5a98a5f8c5336dfba58508089a11822763dc",
+    "public_evaluator": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "holdout_evaluator": "81e91458842749407d82043b9d93cd7cc1ad8a94c2d11be3a0d371ceca127e09",
+    "original_holdout_evidence": "b06c6345fe88149eb5cb90ff38a617dc08d5b26e8ae081ddfe80b9178322c63c",
+    "h2_holdout_supplement": "5a702de87a671a579cbfb5808bf53bafb178d6ba85f8c5ac5a2d9dc5809bfffb",
+    "benchmark_v1_failure": "cbcfe27cb19228b4787e8e31f20d7cb8d9acb43046bd5e486a64fb1007bd0174",
+    "benchmark_v2_result": "9269e6ec1769e9137f283bc0096b9d87b052714c7a26e8c572a9a0af4b1a55dd",
+    "benchmark_v3_result": "f717891c3f4ba5c99ac66d01b415b868d8a02d2a7728a11f9690288ef0495cde",
+    "benchmark_v3_raw": "97f32458d6f031f0ad7de0446ad62b28c232facad629738dd6797cced62ea6ae",
+    "bbnf_engine_receipt": "6968e378e024b5c178da830a3878b0fdb72831ca7252aa7abe94b030c4c39ed5"
+  },
+  "normative_source": {
+    "commit": "08f2f799da6a306e8bf5daca208683717f26d643",
+    "document_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "excerpt_lines": "1610-1678",
+    "excerpt_sha256": "3d9bc61ac4fbaa5a1038354c260e2289bc334b9837b9faf5acab840439cc5708"
+  },
+  "claimed_evidence": {
+    "public": "PASS",
+    "authenticated_holdout": "PASS_180_OF_180",
+    "construction_stability": "PASS_9_OF_9",
+    "transaction": "PASS_14_OF_14",
+    "parent_composition": "PASS_24_OF_24",
+    "introspection": "PASS_8_OF_8",
+    "parser_id_growth": "PASS_8_OF_8",
+    "performance": "PASS_STRICT_VS_OPERATION_EQUIVALENT_DEPOSED_GEOMEAN_0.944105_UPPER_0.986473"
+  },
+  "review_law": {
+    "assumption": "The selected candidate, evidence, idiom and performance claim are wrong until independently proved otherwise.",
+    "required_axes": [
+      "normative maximal-prefix semantics and exact result contract",
+      "idiomatic direct parse-that construction and absence of a scanner/CST/token runtime",
+      "transaction, diagnostics, composition, hostility and long-run stability",
+      "benchmark operation equivalence, schedule, statistics, persistence and v1/v2 lineage",
+      "parsimony, module ownership, downstream value-unit fit and total-tranche consequences"
+    ],
+    "verdicts": ["ACCEPT", "REJECT"],
+    "repair": "Any candidate or semantic seam change restarts all five reviews.",
+    "next": "Only five ACCEPT reviews permit three independent synthesis adjudicators."
+  },
+  "credit": {
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

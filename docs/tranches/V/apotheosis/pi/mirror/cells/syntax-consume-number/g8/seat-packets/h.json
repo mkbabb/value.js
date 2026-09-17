@@ -1,0 +1,23 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "seat": "h",
+  "lineage": "historical direct parse-that production transpose",
+  "source_inputs": [
+    {
+      "path": "../g7/authorities/historical-utils.ts",
+      "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4",
+      "bytes": 7656,
+      "git_repository": "value.js",
+      "git_commit": "9fce504a5764258c8e56b0ce77cd656c725a4907",
+      "git_path": "src/parsing/utils.ts",
+      "git_blob": "cbb57ab5327bc0afa667fbd13ad98d77f3b610de",
+      "production_line": 96,
+      "exact_lf_line_sha256": "545226e90f05ae9beb0759a9b7ebf831bfb92eb0d36dcc212d9fad73e1f29169",
+      "exact_lf_line_bytes": 92
+    }
+  ],
+  "lineage_instruction": "Transpose the historical direct regex-terminal parser, repairing leading plus, CSS digit maximality, guarded fraction/exponent, and the exact semantic leaf. Preserve readable direct production shape; do not consult B, S, or D source or notes.",
+  "quota": "NONE",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

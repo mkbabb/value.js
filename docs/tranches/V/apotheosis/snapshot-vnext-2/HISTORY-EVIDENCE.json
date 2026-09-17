@@ -1,0 +1,12 @@
+{
+  "schema": "vnext-history-evidence/1",
+  "authority": "evidence_only",
+  "index": "docs/tranches/V/evidence/vnext-history/INDEX.md",
+  "sealed_epoch": {
+    "files": 51,
+    "bytes": 878130,
+    "ledger_sha256": "1c1af01760144e1e9c4920a69b01caa765609ce707fa590dc29b6841534f3811"
+  },
+  "formation_credit": 0,
+  "execution_credit": 0
+}

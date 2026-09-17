@@ -1,0 +1,41 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.benchmark-erratum/v1",
+  "status": "RAW_DERIVED_NO_RERUN",
+  "raw": {
+    "path": "../bench/evidence/raw-first-attempt.ndjson",
+    "sha256": "372fef4094e34b1b78d9ab8e48fcf36bcda7557f2e8ba54cac637c222de11e54",
+    "records": 545,
+    "retained_sample_blocks": 360
+  },
+  "rejected_result": {
+    "path": "../bench/evidence/result.json",
+    "sha256": "738ee94837e1747dd13116b76f5f7812838a3dc3dfb75c1bec5a7a77ad456bb4",
+    "disposition": "SUPERSEDED_ONLY_FOR_FOUR_BLOCK_DESCRIPTIVE_FIELDS"
+  },
+  "unchanged_predeclared_inference": {
+    "n_process_aggregates": 30,
+    "df": 29,
+    "mean_log_ratio_h2_over_deposed": -0.07336197220979548,
+    "sample_sd_log_ratio": 0.027244341177386378,
+    "one_sided_95_upper_log_ratio": -0.06491032168356216,
+    "geometric_mean_ratio_h2_over_deposed": 0.9292644012517273,
+    "one_sided_95_upper_ratio_h2_over_deposed": 0.9371515017780626,
+    "point_estimate_relative_time_reduction": 0.07073559874827273,
+    "strict_upper_below_equality": true,
+    "qualification": "PASS"
+  },
+  "corrected_all_retained_block_descriptives": {
+    "h2_block_median_ns": 21818104,
+    "h2_block_mad_ns": 576396,
+    "deposed_block_median_ns": 23620145.5,
+    "deposed_block_mad_ns": 749750
+  },
+  "method": {
+    "median": "sort all 360 elapsed_ns values for one lane ascending and average indices 179 and 180",
+    "mad": "take absolute distance from that lane median, sort all 360 distances ascending, and average indices 179 and 180",
+    "timing_rerun": false,
+    "sample_or_process_removed": false,
+    "inferential_estimator_changed": false
+  },
+  "scope": "The erratum repairs descriptive fields only. It does not widen the exact 64-row, exact-environment, operation-equivalent H2-versus-deposed claim."
+}

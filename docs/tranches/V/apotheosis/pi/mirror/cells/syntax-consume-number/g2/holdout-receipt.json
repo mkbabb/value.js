@@ -1,0 +1,91 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G2-HOLDOUT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 2,
+  "status": "SEALED_CANDIDATE_FREE_HOLDOUT",
+  "cell": "cells/syntax-consume-number/g2",
+  "precursor_verification": {
+    "formation_receipt": {
+      "path": "formation-receipt.json",
+      "sha256": "f3e5a6c708129d8578364245d5c5da098def327533b89d431d7106e14cca1b67",
+      "bytes": 6506
+    },
+    "precursor_byte_closure_rows_verified": 9,
+    "proof_config": {
+      "path": "../../../tsconfig.apotheosis.json",
+      "sha256": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39",
+      "bytes": 315
+    },
+    "candidate_source_files": 0,
+    "candidate_directories": 0
+  },
+  "plaintext_seal": {
+    "identity": "SYNTAX-CONSUME-NUMBER-G2-HOLDOUT-v1",
+    "sha256": "8448d00d02a43dfe26b2569d0816798cb6f9a7fe7d5b435af50440fdf92db214",
+    "bytes": 42623,
+    "encoding": "UTF-8",
+    "final_lf": false,
+    "canonicalization": {
+      "encoding": "UTF-8",
+      "final_lf": false,
+      "json_rule": "Recursively sort every object key by UTF-16 code-unit order; preserve array order; serialize with ECMAScript JSON.stringify and no replacer or spacing."
+    },
+    "row_counts": {
+      "scalar_cases": 81,
+      "hostile_recipe_cases": 12,
+      "total_cases": 93
+    },
+    "coverage_classes": [
+      "public-omission",
+      "exponent",
+      "fraction",
+      "sign",
+      "nonzero-offset",
+      "same-input",
+      "negative-zero",
+      "overflow",
+      "underflow",
+      "partial-prefix",
+      "ASCII-only",
+      "hostile-length"
+    ],
+    "hostile_materialization": "Each hostile row deterministically concatenates its source_segments and representation_segments. A text segment contributes text once; a repeat segment contributes its one-code-unit ASCII repeat string exactly count times."
+  },
+  "encryption": {
+    "algorithm": "AES-256-GCM",
+    "key": "ABSENT; delivered privately to the root custodian and stored outside the workspace",
+    "iv_hex": "c88dcc012756843a055ff7a8",
+    "auth_tag_hex": "2caccc9c50d224c5a5c735964c8b4d42",
+    "aad_utf8": "SYNTAX-CONSUME-NUMBER|G2|HOLDOUT|v1|f3e5a6c708129d8578364245d5c5da098def327533b89d431d7106e14cca1b67|32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39",
+    "ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "encoding": "base64 with one final LF",
+      "file_sha256": "911371622d319acbaf8d5fac706244048bdfef3fcabd43620aee332e529489e8",
+      "file_bytes": 56833,
+      "decoded_sha256": "6f1dd4dfa713d5bad6de691ffce8ef9fd221539bcf9a5dc5df72463a51cc3fa3",
+      "decoded_bytes": 42623
+    }
+  },
+  "post_author_reveal": {
+    "decrypt": [
+      "Verify the ciphertext file SHA-256 and byte count, remove its single final LF, and decode base64.",
+      "Parse the privately held 32-byte key from its 64 lowercase hexadecimal characters.",
+      "Create an AES-256-GCM decipher with that key and encryption.iv_hex; set AAD to the exact UTF-8 bytes of encryption.aad_utf8 and set the 16-byte authentication tag from encryption.auth_tag_hex before finalizing.",
+      "Concatenate decipher.update(decoded ciphertext) and decipher.final(); authentication failure is fatal.",
+      "Verify the recovered plaintext byte count and SHA-256 before JSON parsing."
+    ],
+    "canonicalization_check": [
+      "Parse the authenticated UTF-8 plaintext as JSON.",
+      "Recursively sort every object key by UTF-16 code-unit order, preserve every array order, and serialize with ECMAScript JSON.stringify using no replacer and no spacing.",
+      "Encode that string as UTF-8 with no final LF and require exact byte equality with the decrypted plaintext."
+    ],
+    "oracle_check": [
+      "Materialize scalar rows from cases directly and hostile rows from hostile_cases using plaintext_seal.hostile_materialization.",
+      "For every success, observe the consumed representation from the same input using source.slice(start_offset, final_offset); compare candidate value with Number(representation) using Object.is and also compare its big-endian binary64 bytes to value_binary64_be_hex.",
+      "Require the exact semantic leaf keys value,type,sign; require the declared sign/type and exact final offset. For failure, require error at the unchanged input offset and the same returned ParserState.",
+      "Keep every assertion inside the existing public ConsumeNumberParser boundary; do not infer credit for any excluded layer."
+    ]
+  },
+  "workspace_plaintext_policy": "No plaintext or key may be written under this cell or elsewhere in the workspace. After authorized reveal, decrypt in memory or in an external ephemeral location and erase any plaintext copy.",
+  "nonclaims": "This receipt creates no candidate, manifest, challenge, root gestalt, parser, grammar, production, benchmark, integration, or promotion credit."
+}

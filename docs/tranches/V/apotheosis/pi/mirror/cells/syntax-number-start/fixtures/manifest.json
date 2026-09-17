@@ -1,0 +1,48 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 1,
+  "sealed": true,
+  "sealed_at": "2026-07-22",
+  "public_inputs": [
+    {
+      "path": "../feature.json",
+      "bytes": 9435,
+      "sha256": "9a2ffb3e10915656dec49f9c5ee79a570b46cad1ad9443c2ce4146b838f59765"
+    },
+    {
+      "path": "cases.json",
+      "bytes": 4614,
+      "sha256": "7ee0228067bcc4ac785595689e308bccceac04448fe9ac8a46253b4fb181f23b"
+    },
+    {
+      "path": "../contract.ts",
+      "bytes": 1135,
+      "sha256": "091ee01e5b12e3701a3b5240fcdea2f912f937fb3094d6342da862fa2891274f"
+    },
+    {
+      "path": "../harness.ts",
+      "bytes": 4194,
+      "sha256": "a2457a17e920925d63308bcab7f4081de9dd81302582c7f55441b5e436bfdc35"
+    },
+    {
+      "path": "../../../tsconfig.json",
+      "bytes": 586,
+      "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc"
+    }
+  ],
+  "counts": {
+    "public_cases": 36,
+    "deterministic_hostile": 3,
+    "hidden_holdout": 24
+  },
+  "holdout": {
+    "status": "SEALED_WITHHELD",
+    "custodian_task": "/root/number_start_holdout",
+    "bytes": 3986,
+    "cases": 24,
+    "sha256": "7b303233e650b5ae662a070f22871c1d4d3aaa46e9a31d6021cb4c2b754e63e4",
+    "canonicalization": "UTF-8 JSON, 2-space indentation, exactly one trailing newline",
+    "reveal": "Only after all four candidate author hashes close."
+  },
+  "receipt_boundary": "Challenges and adjudication receipts live outside this immutable manifest. Any public input or holdout byte change creates generation 2."
+}

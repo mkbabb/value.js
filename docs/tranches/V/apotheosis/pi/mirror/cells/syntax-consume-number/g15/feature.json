@@ -1,0 +1,105 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.feature/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 15,
+  "status": "FROZEN_PREAUTHOR_ZERO_CREDIT",
+  "owner": {
+    "module": "grammar/css/l4/value-unit/numeric",
+    "bbnf_family": "value-unit",
+    "production": "consume-number"
+  },
+  "semantic_contract": {
+    "base_path": "../g14/feature.json",
+    "base_sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29",
+    "unchanged": true,
+    "g15_repairs": [
+      "pin the normative algorithm to immutable CSSWG source bytes",
+      "require ordinary printable parse-that parser context",
+      "forbid per-invocation Parser construction and Parser-ID growth",
+      "compare performance only against an operation-equivalent deposed leaf"
+    ]
+  },
+  "normative_source": {
+    "repository": "w3c/csswg-drafts",
+    "commit": "08f2f799da6a306e8bf5daca208683717f26d643",
+    "path": "css-syntax-3/Overview.bs",
+    "local_path": "../g5/authorities/css-syntax-3.Overview.bs",
+    "document_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "line_start": 1610,
+    "line_end": 1678,
+    "excerpt_sha256": "3d9bc61ac4fbaa5a1038354c260e2289bc334b9837b9faf5acab840439cc5708"
+  },
+  "candidate_interface": {
+    "path": "candidate.d.ts",
+    "sha256": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+    "export": "consumeNumber"
+  },
+  "candidate_slots": {
+    "h": {
+      "path": "candidates/h/index.ts",
+      "topology": "one fused terminal plus one projection map"
+    },
+    "b": {
+      "path": "candidates/b/index.ts",
+      "topology": "static BBNF-shaped decomposition using parse-that sequencing and alternation"
+    },
+    "s": {
+      "path": "candidates/s/index.ts",
+      "topology": "static staged grammar with distinct mantissa and exponent decisions"
+    },
+    "d": {
+      "path": "candidates/d/index.ts",
+      "topology": "first-character dispatch into complete static branches"
+    }
+  },
+  "construction_law": {
+    "required": [
+      "direct @mkbabb/parse-that@1.0.0 combinators",
+      "all Parser objects constructed once at module initialization",
+      "consumeNumber.toString() remains ordinary and non-throwing",
+      "transactional failure under the inherited semantic contract",
+      "ordinary mutable result leaf with exact sign,type,value own-key order"
+    ],
+    "forbidden": [
+      "manual source or cursor loop",
+      "source slicing scanner or generic remainder capture",
+      "token tape, atom object, CST, or separate lexical runtime",
+      "filesystem, process, network, corpus, peer, or candidate reads",
+      "per-call Parser construction",
+      "custom global or mutable state",
+      "inspection of G14 candidate source"
+    ]
+  },
+  "public_evaluator": {
+    "path": "../g14/public-evaluator.mts",
+    "sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "fixtures_path": "../g14/fixtures/manifest.json",
+    "fixtures_sha256": "d679e8896b35402fc84ada7d308cb1ff28d6da04287e5770b17439c69335b3e6"
+  },
+  "holdout": {
+    "status": "SEALED_UNREVEALED_PREAUTHOR",
+    "receipt_path": "holdout-receipt.json",
+    "receipt_sha256": "2ee93b9a8d239c9ecd6bd27762b826da69231a0bbb1b3f5def3fb7679b00dd1d",
+    "case_count": 180
+  },
+  "benchmark": {
+    "status": "STRUCTURALLY_GREEN_NO_TIMING",
+    "manifest_path": "bench/benchmark-manifest.json",
+    "manifest_sha256": "368e7ab77640a4bf57ae0695e0d6d739487b38135c421b84cd282235efa7c767",
+    "operation": "one parse-that state, one consume-number invocation, one intrinsic mutable result leaf",
+    "peer": "operation-equivalent deposed recognizer only"
+  },
+  "selection": {
+    "candidates": 4,
+    "skeptics": 5,
+    "adjudicators": 3,
+    "promotion": "exact accepted synthesis only"
+  },
+  "credit": {
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

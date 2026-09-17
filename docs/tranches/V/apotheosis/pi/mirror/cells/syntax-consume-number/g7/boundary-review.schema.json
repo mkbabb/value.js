@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g7:boundary-review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "review_id", "scope", "verdict", "identity", "model_receipt", "subject", "three_altitude_findings", "evidence", "defects", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 7 },
+    "review_id": { "enum": ["A", "B"] },
+    "scope": { "const": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION" },
+    "verdict": { "enum": ["ACCEPT", "REJECT"] },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["reviewer_id", "role", "served_model", "reasoning_effort", "independent", "candidate_author", "root_adjudicator", "peer_review_access", "hidden_plaintext_or_key_access"],
+      "properties": {
+        "reviewer_id": { "type": "string", "minLength": 1 },
+        "role": { "type": "string", "minLength": 1 },
+        "served_model": { "type": "string", "minLength": 1 },
+        "reasoning_effort": { "type": "string", "minLength": 1 },
+        "independent": { "const": true },
+        "candidate_author": { "const": false },
+        "root_adjudicator": { "const": false },
+        "peer_review_access": { "const": false },
+        "hidden_plaintext_or_key_access": { "const": false }
+      }
+    },
+    "model_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["served_model", "input_manifest_sha256", "review_input_sha256", "commands", "closed_at"],
+      "properties": {
+        "served_model": { "type": "string", "minLength": 1 },
+        "input_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "review_input_sha256": { "$ref": "#/$defs/sha256" },
+        "commands": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+        "closed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "subject": { "$ref": "#/$defs/subject" },
+    "three_altitude_findings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total_tranche", "feature_cell", "author_admission_and_tooling"],
+      "properties": {
+        "total_tranche": { "$ref": "#/$defs/totalAxes" },
+        "feature_cell": { "$ref": "#/$defs/featureAxes" },
+        "author_admission_and_tooling": { "$ref": "#/$defs/toolAxes" }
+      }
+    },
+    "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "defects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "severity", "summary", "evidence", "required_repair"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "severity": { "const": "BLOCKER" },
+          "summary": { "type": "string", "minLength": 1 },
+          "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+          "required_repair": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "credit": { "$ref": "#/$defs/zeroCredit" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "verdict": { "const": "ACCEPT" } }, "required": ["verdict"] },
+      "then": {
+        "properties": {
+          "defects": { "maxItems": 0 },
+          "three_altitude_findings": {
+            "properties": {
+              "total_tranche": { "$ref": "#/$defs/allAcceptTotal" },
+              "feature_cell": { "$ref": "#/$defs/allAcceptFeature" },
+              "author_admission_and_tooling": { "$ref": "#/$defs/allAcceptTool" }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "identityRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256", "bytes"],
+      "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formation", "precursor_closure_sha256", "holdout_receipt", "holdout_ciphertext"],
+      "properties": {
+        "formation": { "$ref": "#/$defs/identityRow" },
+        "precursor_closure_sha256": { "$ref": "#/$defs/sha256" },
+        "holdout_receipt": { "$ref": "#/$defs/identityRow" },
+        "holdout_ciphertext": { "$ref": "#/$defs/identityRow" }
+      }
+    },
+    "axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["verdict", "findings"],
+      "properties": {
+        "verdict": { "enum": ["ACCEPT", "REJECT"] },
+        "findings": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "acceptAxis": { "type": "object", "properties": { "verdict": { "const": "ACCEPT" } }, "required": ["verdict"] },
+    "totalAxes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sequencing", "denominator", "boundary"],
+      "properties": { "sequencing": { "$ref": "#/$defs/axis" }, "denominator": { "$ref": "#/$defs/axis" }, "boundary": { "$ref": "#/$defs/axis" } }
+    },
+    "featureAxes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["correctness", "result", "diagnostics", "limits", "hostility", "composition"],
+      "properties": { "correctness": { "$ref": "#/$defs/axis" }, "result": { "$ref": "#/$defs/axis" }, "diagnostics": { "$ref": "#/$defs/axis" }, "limits": { "$ref": "#/$defs/axis" }, "hostility": { "$ref": "#/$defs/axis" }, "composition": { "$ref": "#/$defs/axis" } }
+    },
+    "toolAxes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["review_integrity", "holdout_integrity", "provenance", "topology", "benchmark", "owner_law"],
+      "properties": { "review_integrity": { "$ref": "#/$defs/axis" }, "holdout_integrity": { "$ref": "#/$defs/axis" }, "provenance": { "$ref": "#/$defs/axis" }, "topology": { "$ref": "#/$defs/axis" }, "benchmark": { "$ref": "#/$defs/axis" }, "owner_law": { "$ref": "#/$defs/axis" } }
+    },
+    "allAcceptTotal": { "properties": { "sequencing": { "$ref": "#/$defs/acceptAxis" }, "denominator": { "$ref": "#/$defs/acceptAxis" }, "boundary": { "$ref": "#/$defs/acceptAxis" } } },
+    "allAcceptFeature": { "properties": { "correctness": { "$ref": "#/$defs/acceptAxis" }, "result": { "$ref": "#/$defs/acceptAxis" }, "diagnostics": { "$ref": "#/$defs/acceptAxis" }, "limits": { "$ref": "#/$defs/acceptAxis" }, "hostility": { "$ref": "#/$defs/acceptAxis" }, "composition": { "$ref": "#/$defs/acceptAxis" } } },
+    "allAcceptTool": { "properties": { "review_integrity": { "$ref": "#/$defs/acceptAxis" }, "holdout_integrity": { "$ref": "#/$defs/acceptAxis" }, "provenance": { "$ref": "#/$defs/acceptAxis" }, "topology": { "$ref": "#/$defs/acceptAxis" }, "benchmark": { "$ref": "#/$defs/acceptAxis" }, "owner_law": { "$ref": "#/$defs/acceptAxis" } } },
+    "zeroCredit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["feature", "parser", "candidate", "benchmark", "integration", "production"],
+      "properties": { "feature": { "const": 0 }, "parser": { "const": 0 }, "candidate": { "const": 0 }, "benchmark": { "const": 0 }, "integration": { "const": 0 }, "production": { "const": 0 } }
+    }
+  }
+}

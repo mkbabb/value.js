@@ -1,0 +1,41 @@
+{
+  "schema": "value.pi.foundation-g1.benchmark-smoke/v1",
+  "status": "NON_CREDIT_CONTINUOUS_SIGNAL",
+  "subject_sha256": "687ac4941ab73f79fdf7abd21d997262a1c66ca15c51d04e2505d9c895631764",
+  "harness_sha256": "fccad77681acda3b2892684eb7cdae9f605c6fc569a31a382b70b251c8953895",
+  "corpus_sha256": "1be44579a85e3a8de9abf618b293ee5bb88975f8b1c8c9c58813ad9466e6f24e",
+  "environment": {
+    "node": "v26.0.0",
+    "v8": "14.6.202.33-node.19",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5 Max",
+    "logical_cpus": 18
+  },
+  "method": {
+    "warmups": 4,
+    "samples": 21,
+    "cycles_per_sample": 3000,
+    "balanced_three_order_schedule": true,
+    "successful_operation_equivalent_common_domain_only": true,
+    "import_and_construction_excluded": true,
+    "raw_samples_retained": false
+  },
+  "g1_median_ns_per_parse": {
+    "cssEscape": { "h": 97.41, "b": 96.03, "s": 98.23 },
+    "cssIdentifier": { "h": 569.90, "b": 315.40, "s": 316.96 },
+    "cssString": { "h": 832.89, "b": 597.86, "s": 568.58 },
+    "cssTrivia": { "h": 194.16, "b": 399.48, "s": 282.78 },
+    "cssPercentage": { "h": 128.52, "b": 128.86, "s": 127.81 },
+    "cssDimension": { "h": 566.34, "b": 423.20, "s": 416.97 }
+  },
+  "g1_to_own_g0_median_ratio": {
+    "cssEscape": { "h": 0.9945, "b": 1.0772, "s": 0.9714 },
+    "cssIdentifier": { "h": 1.0226, "b": 1.7294, "s": 0.8889 },
+    "cssString": { "h": 0.9928, "b": 3.1210, "s": 0.9623 },
+    "cssTrivia": { "h": 0.9841, "b": 3.4654, "s": 0.9268 },
+    "cssPercentage": { "h": 0.9999, "b": 1.0017, "s": 0.9927 },
+    "cssDimension": { "h": 1.0217, "b": 1.1654, "s": 0.9190 }
+  },
+  "interpretation": "S is the only candidate faster than its own G0 lineage on every measured operation in this smoke. B pays heavily for replacing its incorrect fused regex metagrammar. H is approximately flat. No strict qualification, LIVE public-door, integration, or full-parser claim follows because raw timing was not retained and this was not the independent benchmark skeptic's run."
+}

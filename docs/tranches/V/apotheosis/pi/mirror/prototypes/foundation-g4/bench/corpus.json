@@ -1,0 +1,8 @@
+{
+  "cssEscape": ["\\61 ", "\\000026", "\\😀", "\\"],
+  "cssIdentifier": ["red", "--glass-slider-track-background", "r\\65 d", "λx", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"],
+  "cssString": ["\"hello\"", "\"a\\41 b\"", "'a\\\nb'", "\"unterminated", "\"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\""],
+  "cssWhitespace": [" ", "\r\n\f\t", "                                                                                                                                "],
+  "cssComments": ["/**/", "/**//**/", "/* comment *//**/", "/*unterminated", "/*aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa*/"]
+}
+

@@ -1,0 +1,33 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 1,
+  "verdict": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "subject": {
+    "feature_sha256": "9a2ffb3e10915656dec49f9c5ee79a570b46cad1ad9443c2ce4146b838f59765",
+    "contract_sha256": "091ee01e5b12e3701a3b5240fcdea2f912f937fb3094d6342da862fa2891274f",
+    "harness_sha256": "a2457a17e920925d63308bcab7f4081de9dd81302582c7f55441b5e436bfdc35",
+    "cases_sha256": "7ee0228067bcc4ac785595689e308bccceac04448fe9ac8a46253b4fb181f23b",
+    "manifest_sha256": "42e9bf55f17866a78a54f5e258b1c643e0b0556f4bb8f4fd2a216a8168a9506f",
+    "hidden_holdout_sha256": "7b303233e650b5ae662a070f22871c1d4d3aaa46e9a31d6021cb4c2b754e63e4"
+  },
+  "challenges": [
+    {
+      "axis": "specification",
+      "verdict": "ACCEPT",
+      "receipt": "reviews/g1-spec-boundary.md"
+    },
+    {
+      "axis": "architecture",
+      "verdict": "REJECT",
+      "receipt": "reviews/g1-architecture-boundary.md"
+    }
+  ],
+  "blockers": [
+    "No actual parent-combinator invocation with arbitrary predecessor values.",
+    "Candidate timing and statistical protocol are not exact or candidate-isolating.",
+    "No byte-exact overlay and projected aggregate promotion contract."
+  ],
+  "candidate_sources_authored": false,
+  "credit": "FORMATION_EVIDENCE_ONLY",
+  "next_generation": 2
+}

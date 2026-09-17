@@ -1,0 +1,89 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G7-PROMOTION",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_G7_HOLDOUT",
+  "active_root": "mirror/apotheosis",
+  "target_path": "grammar/css/l4/value-unit/number-start.ts",
+  "candidate_overlay_root": "cells/syntax-number-start/g7/candidates/<seat>/overlay",
+  "allowed_overlay_paths": ["grammar/css/l4/value-unit/number-start.ts"],
+  "allowed_runtime_imports": ["@mkbabb/parse-that/core"],
+  "clean_base": {
+    "manifest": "../../../apotheosis/clean-base.json",
+    "manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "typescript_source_count": 0,
+    "empty_grammar_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rejected_pre_reset_tree": "NOT_IN_ACTIVE_SOURCE_CENSUS_OR_PROJECTION"
+  },
+  "execution": {
+    "command": "node cells/syntax-number-start/g7/promotion-verifier.mjs <owner-sealed-g7-manifest-sha256> <candidate-overlay-root>",
+    "manifest_trust_anchor": "The first argument is the exact G7 manifest digest sealed by the owner/root after the fresh holdout receipt joins the public precursor. Candidate receipts are conformant only when they bind that externally recorded digest.",
+    "alternate_digest": "A caller-supplied digest other than the owner-sealed G7 manifest digest is nonconformant. The verifier also rejects mechanically unless the supplied digest equals the canonical adjacent manifest bytes.",
+    "verifier_identity": "The canonical verifier locates adjacent manifest.json, reproduces the supplied manifest digest, requires exactly one promotion-verifier.mjs row in its public_input_closure, reproduces that row against its running bytes, and emits manifest, row, and verifier identities.",
+    "pre_manifest_assays": "Before manifest creation, only exported isolated helpers or a disposable external verifier/manifest copy may be tested. No governed manifest or candidate source may be created."
+  },
+  "tool_closure": {
+    "typescript_package": "mirror/node_modules/typescript",
+    "typescript_version": "5.8.3",
+    "typescript_ledger": "../g6/typescript-package.ledger",
+    "typescript_ledger_sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+    "typescript_files": 130,
+    "parse_that_package": "mirror/node_modules/@mkbabb/parse-that",
+    "parse_that_version": "1.0.0",
+    "parse_that_dist_ledger": "../g3/parse-that-dist.ledger",
+    "parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "validation_order": "Both complete package path/byte sets and package identities are reproduced before the ledger-bound TypeScript implementation is imported."
+  },
+  "isolated_compiler_program": {
+    "roots": [
+      "the exact canonical candidate file whose source/overlay identity was just computed",
+      "one in-memory verifier-generated type probe; it is never persisted"
+    ],
+    "options": {
+      "strict": true,
+      "target": "ES2022",
+      "module": "ESNext",
+      "moduleResolution": "Bundler",
+      "noEmit": true,
+      "types": [],
+      "lib": ["lib.es2022.d.ts"],
+      "allowJs": false,
+      "checkJs": false,
+      "skipLibCheck": false,
+      "noResolve": false,
+      "useDefineForClassFields": true,
+      "verbatimModuleSyntax": true
+    },
+    "source_allowlist": [
+      "the exact candidate root",
+      "the exact in-memory verifier probe",
+      "regular files in the complete ledger-bound TypeScript package",
+      "regular dist files in the complete ledger-bound parse-that package"
+    ],
+    "closed_world": "After resolution, every program SourceFile is canonicalized and rejected unless it is exactly in the allowlist. Workspace configs/globs, root node_modules, ambient @types, sibling cells, and all other declarations are outside the program. Every admitted source is byte-hashed, classified, emitted, and included in one byte-sorted resolved-input ledger and aggregate SHA-256.",
+    "diagnostics": "All option, global, syntactic, semantic, and declaration diagnostics reject; zero diagnostics is emitted.",
+    "module_resolution": "The probe's relative root resolves only to the exact candidate. @mkbabb/parse-that/core resolves only to the ledger-bound dist/core.d.ts. Relative imports within ledger-bound parse-that declarations resolve normally and are then checked by the source allowlist."
+  },
+  "type_proof": {
+    "export_surface": "The AST floor and TypeScript module symbol must each observe exactly one export named numberStart, directly declared in the exact candidate source.",
+    "root": "The verifier-generated probe rejects any and unknown, then requires bidirectional exactness between typeof numberStart and Parser<boolean>.",
+    "payload": "The probe independently extracts Parser<infer Value>, rejects any and unknown in Value, and requires bidirectional exactness between Value and boolean. Thus Parser<any>, Parser<unknown>, Parser<true>, numeric/non-parser values, and missing/multiple exports reject.",
+    "receipt": "The receipt emits export names, symbol/declaration kind, checker-rendered observed type, type flags, observed type arguments, every probe assertion, probe identity/hash/bytes, resolved inputs, and zero-diagnostic count."
+  },
+  "mechanical_checks": [
+    "owner-sealed manifest and running verifier identities reproduce before candidate work",
+    "clean base remains zero TypeScript sources and overlay remains one canonical UTF-8 file at the exact target",
+    "AST syntax/import/export/source-access floor passes",
+    "64-file parse-that dist and 130-file TypeScript package ledgers reproduce",
+    "isolated two-root strict compiler program admits only exact ledger-bound inputs and emits their complete byte ledger",
+    "zero compiler diagnostics and exact Parser<boolean> root/payload proof pass",
+    "source, overlay, projection, manifest, verifier, dependency, tool, roots, compiler inputs, observed type, and host runtime identities are emitted"
+  ],
+  "mechanical_nonclaims": [
+    "The AST visitor does not claim to recognize token/atom/component-value/CST naming or regex breadth.",
+    "The type proof establishes an exact public TypeScript root type, not runtime behavior or absence of assertions/casts.",
+    "Neither mechanism proves absence of aliases, indirection, recursion, prototype/inherited coercion, source derivation, scanner behavior, contrivance, O(1), KISS, or idiomatic parse-that.",
+    "All five exact-source skeptics retain every unclaimed axis; a mechanical pass is necessary and grants no semantic, architecture, idiom, or performance credit."
+  ],
+  "projection": "The active base ledger is empty. The overlay and projected active grammar ledgers are the same one canonical row <source-sha256><two spaces>grammar/css/l4/value-unit/number-start.ts<LF>.",
+  "integration": "Only after the 5-author, 5-skeptic, 3-adjudicator process may exact selected bytes be copied into the active prototype; all semantic, fresh holdout, type, no-throw, benchmark, modularity, and denominator gates rerun.",
+  "drift": "Any change to the manifest, verifier, protocol, compiler options/probe, source allowlist, dependency/tool ledger, clean base, package/lock, candidate source, or resolved-input set starts a new identity."
+}

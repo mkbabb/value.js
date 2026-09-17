@@ -1,0 +1,121 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "status": "SEALED_PRE_AUTHOR_CIPHERTEXT_ONLY_ZERO_FEATURE_CREDIT",
+  "custodian": {
+    "id": "g8-holdout-custodian-g8_holdout_custodian",
+    "served_model": "OpenAI Codex (GPT-5 family)",
+    "reasoning_effort": "independent high-reasoning custody task",
+    "independent": true,
+    "candidate_source_access": false,
+    "commands": [
+      "shasum/wc/read-only inspection of the frozen G8 formation identity and enumerated public law/schema/terminal inputs",
+      "node formation-validator.mjs --holdout-schema-fixture",
+      "custodian-private Node crypto generation using independent randomBytes calls; no secret filesystem output",
+      "apply_patch of holdout-ciphertext.b64 and holdout-receipt.json only",
+      "in-memory execution of the frozen formation-validator.mjs validateHoldoutReceipt function against the two sealed artifacts and exact precursor identity"
+    ],
+    "closed_at": "2026-07-22T13:34:57.321Z"
+  },
+  "precursor": {
+    "formation": {
+      "sha256": "ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba",
+      "bytes": 9872
+    },
+    "rows": 28,
+    "closure_sha256": "ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d"
+  },
+  "generator": {
+    "bytes": {
+      "sha256": "dd0179e2afc60a1d260ccf2d8781f3d597a2f7b6462f26d5af0620a4009dc693",
+      "bytes": 3656
+    },
+    "method": "G8-CANONICAL-REFERENCE-V1: a fresh 256-bit seed plus ordered declarative family specifications expands 141 hidden cases; SHA-256 domain separation derives case IDs/state profiles, and an anchored ASCII CSS-number reference regexp plus big-endian IEEE-754 encoding derives expected observations.",
+    "canonicalization": "UTF-8 JSON with recursively lexicographically sorted object keys, source-order arrays, no insignificant whitespace, and exactly one final LF; cases and hidden-index rows are sorted by case_id.",
+    "hidden_index_commitment": {
+      "sha256": "9e7f95f91c57aa70e5665b65aa4bf3149602ed4b2f7f956736357c81c230cc52",
+      "bytes": 26062
+    }
+  },
+  "plaintext_commitment": {
+    "sha256": "6e243400928b33ef67e84a1d52b19bb0f91d493743921ece88125a49c1b6191d",
+    "bytes": 215669
+  },
+  "ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "sha256": "bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319",
+    "bytes": 287609,
+    "encoding": "base64-with-final-lf",
+    "decoded_envelope_bytes": 215705,
+    "algorithm": "AES-256-GCM",
+    "magic_ascii_nul": "VPI8CN1\u0000",
+    "nonce_bytes": 12,
+    "tag_bytes": 16,
+    "aad_sha256": "2c5959362e1a3fb7a33ab6fdd94247110061b18a1955a6159840c994ddaa91c8"
+  },
+  "coverage": {
+    "case_count": 141,
+    "unique_case_ids": 141,
+    "categories": [
+      "positive",
+      "negative",
+      "boundary",
+      "offset",
+      "diagnostics",
+      "hostile",
+      "binary64",
+      "composition"
+    ],
+    "canonical_hidden_cases_sha256": "9a8af28db6848c107fad40925859348b6af57017fb6bfa57bedbb0e58756b310",
+    "public_case_ids_sha256": "f63f9d26b7aa44c13d5d4287e692c7e6dbc9949cb70fbd658d107ee9f152ef72"
+  },
+  "comparison_inputs": [
+    {
+      "path": "../g7/holdout-destruction.json",
+      "sha256": "e946ce86e6342d8d5d362664282fa393608f4b93af87cee196d563f770e26a66",
+      "bytes": 5166
+    },
+    {
+      "path": "../g5/fixtures/public-cases.json",
+      "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+      "bytes": 5213
+    }
+  ],
+  "custody": {
+    "secret_location": "live private custodian tool store key syntax-consume-number:g8:holdout:v1; no workspace or private-temp secret material",
+    "key_recoverable_until": "POST_AUTHOR_REVEAL_OR_TERMINAL_REJECTION",
+    "plaintext_workspace_files": 0,
+    "key_workspace_files": 0,
+    "generator_workspace_files": 0
+  },
+  "protocol": {
+    "reveal_trigger": "AFTER_ALL_FOUR_EXACT_CANDIDATE_PAYLOADS_CLOSE",
+    "reveal_verifier": "Custodian reconstructs exact generator/index/plaintext from the private store, recomputes all commitments and coverage, decrypts AES-256-GCM with committed AAD, and verifies every reference observation before publishing a reveal receipt.",
+    "destruction_trigger": "AFTER_REVEAL_VERIFICATION_OR_TERMINAL_PRE_AUTHOR_REJECTION",
+    "destruction_receipt_required": true,
+    "no_reuse": true
+  },
+  "public_verifiability": {
+    "pre_reveal_proves": [
+      "Exact frozen formation/precursor binding and stable generator, hidden-index, plaintext, AAD, and ciphertext commitments.",
+      "Canonical one-line base64 envelope shape, magic, nonce/tag lengths, ciphertext byte identity, and path-bearing comparison-input identities.",
+      "Custodian attestation of eight-category coverage, independent generation, zero candidate access, workspace absence, and live-session custody."
+    ],
+    "pre_reveal_cannot_prove": [
+      "Hidden case IDs, sources, expected observations, generator bytes, plaintext contents, AES key/nonce, or semantic adequacy without reveal.",
+      "Freshness of unrevealed random material independently of the custodian attestation."
+    ],
+    "post_reveal_recomputes": [
+      "Generator bytes/method expansion, hidden index, all unique cases, all eight category memberships, canonical case corpus, public-ID comparison hash, plaintext commitment, AAD, ciphertext encryption/decryption round trip, and every reference observation."
+    ]
+  },
+  "absence_freshness": {
+    "candidate_sources_existed": false,
+    "candidate_sources_accessed": false,
+    "prior_secret_material_reused": false,
+    "fresh_key": true,
+    "fresh_nonce": true,
+    "fresh_corpus_id": true
+  },
+  "credit": "ZERO_SEALING_ONLY"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "value.pi.syntax-consume-number.g11.runtime-closure/v1",
+  "packages": [
+    "@mkbabb/parse-that",
+    "tsx",
+    "esbuild",
+    "@esbuild/darwin-arm64",
+    "get-tsconfig",
+    "resolve-pkg-maps"
+  ],
+  "package_closures": [
+    { "package": "@mkbabb/parse-that", "rows": 65, "sha256": "057fa0a3b93580fa0ef3e352a274d02a3046a6837e5285ec5dfe940e56dd3989" },
+    { "package": "tsx", "rows": 50, "sha256": "9b35f50aeba42f35a93ea143a270aa20d76ec804456ba121676300d733065e12" },
+    { "package": "esbuild", "rows": 7, "sha256": "4e923a739391871177b6156d6a306d26084ddf764d3b5c104046297dfeff4ed6" },
+    { "package": "@esbuild/darwin-arm64", "rows": 3, "sha256": "a0ab2829cba75ff46ccfc9cdc13008c5be69e609eb8040bea11e83c84af50483" },
+    { "package": "get-tsconfig", "rows": 7, "sha256": "f21c6b1e3684128c328dce7c2c3e5e12864b12eb8424500b2557d0995b28ea6f" },
+    { "package": "resolve-pkg-maps", "rows": 7, "sha256": "9d5adccb51a44a757b869825e412578ad9cd13939d257bd58878ddf9a7c5c4fa" }
+  ],
+  "package_row_count": 139,
+  "peer_sources": [
+    { "path": "src/css/grammar.ts", "sha256": "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69", "bytes": 22182 },
+    { "path": "src/css/named-colors.ts", "sha256": "ca26754d97a4d06e0131bde72bf31f8e4bfd011a40dbd3787484420054222a39", "bytes": 3920 },
+    { "path": "src/css/types.ts", "sha256": "109327ce94fdcc37d57677e23e3c0bd0c8dfde399ace2998a87e2442d9338fe2", "bytes": 5879 },
+    { "path": "src/foundation/result.ts", "sha256": "93e1b4bd65a7531e0df7fde9bb4aa07930517d289f1be8d3912df561f5ebdb39", "bytes": 278 },
+    { "path": "src/color/model.ts", "sha256": "b5dc6194d4c58a72c4faee51adf3eab3bbc5bba798874ea9914031d9881512f0", "bytes": 6385 },
+    { "path": "src/color/anchors.ts", "sha256": "342e2c08adbebda075a60ae84d3c3d1b6a2be77d0e043ddf123f765f779faf0a", "bytes": 16563 },
+    { "path": "src/value.ts", "sha256": "73604f966c307d4424ee051277f4d8ae8e038aa7ba114d1a4502aaed7f3dfba1", "bytes": 1009 },
+    { "path": "docs/tranches/V/vnext/prototypes/c14-css/src/css/grammar/l4/value-unit.ts", "sha256": "da738397cf4504a7c3438b9823a861fcd9e55f016175ce0c5436cb2f2d811890", "bytes": 1265 },
+    { "path": "docs/tranches/V/vnext/prototypes/c14-css/src/css/grammar/combinators.ts", "sha256": "d1249c714e67f81655fe823ef2899b893effaeae3908313c93d52eafbfd5ffe0", "bytes": 1294 },
+    { "path": "docs/tranches/V/vnext/prototypes/c14-css/src/css/cst.ts", "sha256": "03e4d689d932dc45b481515f3871c1560a702cb5b49a0596b745f5e25593cb7c", "bytes": 1234 },
+    { "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g7/authorities/historical-utils.ts", "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4", "bytes": 7656 }
+  ],
+  "package_lock": { "path": "../../../package-lock.json", "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7", "bytes": 69400 },
+  "node": { "path": "/opt/homebrew/Cellar/node/26.0.0/bin/node", "version": "v26.0.0", "platform": "darwin", "arch": "arm64", "sha256": "08dad0581f00a0cabf4d49ec92ca1f25fdfd01c2c18fa8e92b35f04d4c24c164", "bytes": 68384 },
+  "loader": "../../../node_modules/tsx/dist/loader.mjs",
+  "resolver": "peer-resolver.mjs",
+  "data_closure_sha256": "97026352f6c2069a7df4aebb244349e3d7e5c86f52e4902c10e8b34fe19b0d5d"
+}

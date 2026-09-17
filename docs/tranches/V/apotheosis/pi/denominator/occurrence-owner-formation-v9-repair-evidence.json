@@ -1,0 +1,135 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair-evidence/v1",
+  "date": "2026-07-22",
+  "status": "GREEN_REPAIR_RESEARCH_ONLY_ZERO_DENOMINATOR_CREDIT",
+  "authority": {
+    "formation_only": true,
+    "may_execute_168_source_denominator": false,
+    "may_generate_or_publish_shards": false,
+    "parser": false,
+    "production": false
+  },
+  "rejected_subject": {
+    "analyzer": {
+      "bytes": 27806,
+      "sha256": "8d31d5189599f03be502aab450b5f17a9615d499c29dabc9a657eda4e69323da"
+    },
+    "oracle": {
+      "bytes": 14073,
+      "sha256": "19c9dd905990129d48a37eeb7d8667482cf61f8fec9b95e2574ddacdbd659ec2"
+    },
+    "test": {
+      "bytes": 19213,
+      "sha256": "7378e6514359252e9fcd6ce726f9c76053a1d913b73e7d9e0c8f4430aeaa56ab"
+    },
+    "challenge_a": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-challenge-a.json",
+      "bytes": 26357,
+      "sha256": "d37b05dedab2973f10b09dcc86a24b9ed5919473e2a1f528b2af758ee4bbd2ad",
+      "verdict": "REJECT"
+    },
+    "challenge_b": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-challenge-b.json",
+      "bytes": 30503,
+      "sha256": "33cdf9e8e3b220b093d96658fa6fa3012de8b11d6b1f3141e4030a19c65f08b5",
+      "verdict": "REJECT"
+    }
+  },
+  "repaired_subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 36243,
+      "sha256": "5b084bfba01f5fcf8979aaed7a3be21a326cbef070f0cffd2e9599e1e6c1fb9e"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 37680,
+      "sha256": "5c4e1f65f5eaeefd886fa63ac2aa6d771adda9bbd13b6a4169b1d5f77b5e4afd"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 25356,
+      "sha256": "2e09d97a7af648c81b072b2cf67f2682ee2e427e9b4f074a0f3a1ad33c3d965b"
+    },
+    "deterministic_output": {
+      "bytes": 10148,
+      "sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4",
+      "runs": 3,
+      "workspace_runs": 2,
+      "external_cwd_runs": 1,
+      "byte_identical": true
+    }
+  },
+  "confirmed_repairs": [
+    "ATX headings require a physical source-line boundary while tag-split heading content is projected across parsed inline tags.",
+    "Bikeshed Setext headings are represented with source-exact UTF-8 byte intervals.",
+    "Raw-element close recognition requires a valid post-name boundary, respects quoted greater-than signs, and treats non-void slash syntax as non-void.",
+    "Escapes consume one Unicode scalar and escaped delimiter candidates own the escape byte.",
+    "Empty href values follow the explicit OMIT_EMPTY_VALUE omission policy and never create zero-width candidates.",
+    "Definition target joins require an INCLUDED disposition.",
+    "Open and close tags are paired by the live nesting stack, including nested same-name elements.",
+    "Fixture ledger rows join only by exact source SHA-256, pinned source URL, UTF-8 byte locator, kind, and heading anchor where applicable; sequence has no authority.",
+    "Candidate and carrier identities use full SHA-256 digests; collisions remain visible and are never silently deduplicated by a truncated hash.",
+    "The oracle independently derives states, tags, candidates, dispositions, empty-value omissions, headings, carriers, definition targets, operation candidates, and exact ledger joins from source bytes.",
+    "Repeated whole-source lowercase and repeated raw suffix parsing were removed; reference close lookup is pre-indexed in the analyzer.",
+    "The false 8*N+64 claim and transition counter were removed. The replacement is explicitly lower-bound instrumentation and makes no formal complexity claim."
+  ],
+  "test_evidence": {
+    "frozen_v9_cases": 18,
+    "inherited_v8_evidence_cases": 29,
+    "confirmed_semantic_counterexamples": 12,
+    "independent_oracle_mutations_rejected": 12,
+    "arbitrary_byte_sequences_no_throw": 512,
+    "arbitrary_input_bytes": 130605,
+    "decoded_utf8_bytes": 237348,
+    "state_labels_covered": 13,
+    "geometric_families": 5,
+    "geometric_rows": 25,
+    "geometric_sizes": [32, 64, 128, 256, 512],
+    "geometric_timing_credit": 0
+  },
+  "commands": [
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "/usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs"
+  ],
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1"
+  },
+  "one_local_resource_observation": {
+    "classification": "FIXTURE_AND_HOSTILE_REPAIR_SUITE_ONLY_NOT_FULL_CORPUS",
+    "elapsed_seconds": 0.25,
+    "maximum_resident_set_size_bytes": 88965120,
+    "peak_memory_footprint_bytes": 49860592,
+    "stdout_bytes": 10148,
+    "stdout_sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4"
+  },
+  "remaining_red": [
+    "The complete independently reviewed normative operation ledger for 168 sources does not exist.",
+    "The 168-source, 14,609,103-byte universe was not executed.",
+    "Containers, full definition outputs, denominator shards, and compatibility publication were not generated.",
+    "Authenticated launcher, runtime, transitive dependency, post-import, arbitrary-output, publisher, fsync, rename, and crash-fault custody remain absent.",
+    "The lower-bound work instrument is not a formal complexity proof; full-corpus RSS and hostile resource adjudication remain absent.",
+    "Two fresh independent exact-byte hostile challenges and root gestalt are required before any denominator credit."
+  ],
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

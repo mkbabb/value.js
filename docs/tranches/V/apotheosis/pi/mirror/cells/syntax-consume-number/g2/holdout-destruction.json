@@ -1,0 +1,45 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G2-HOLDOUT-DESTRUCTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 2,
+  "status": "PERMANENTLY_DESTROYED_AFTER_DUAL_CHALLENGE_AND_ROOT_REJECTION",
+  "cell": "cells/syntax-consume-number/g2",
+  "reason": "G2 was rejected by both boundary challenges and the root review, so its sealed holdout was ineligible for reuse and was permanently destroyed without author reveal.",
+  "prior_identities": {
+    "ciphertext_file": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "911371622d319acbaf8d5fac706244048bdfef3fcabd43620aee332e529489e8",
+      "bytes": 56833,
+      "decoded_sha256": "6f1dd4dfa713d5bad6de691ffce8ef9fd221539bcf9a5dc5df72463a51cc3fa3",
+      "decoded_bytes": 42623
+    },
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "bb6a4b9a5a57ba43cc7fb4ed6ceb2f9566e1928b768194bf620f026b94429380",
+      "bytes": 4854
+    },
+    "plaintext": {
+      "sha256": "8448d00d02a43dfe26b2569d0816798cb6f9a7fe7d5b435af50440fdf92db214",
+      "bytes": 42623,
+      "rows": 93
+    }
+  },
+  "destruction": {
+    "ciphertext_file_removed": true,
+    "custodian_ciphertext_copies": 0,
+    "custodian_key_copies": 0,
+    "custodian_plaintext_copies": 0,
+    "workspace_key_copies": 0,
+    "workspace_plaintext_copies": 0,
+    "root_private_key_copies": 0,
+    "root_private_key_clearance": "reported complete by root"
+  },
+  "non_reveal": {
+    "candidates": { "plaintext_revealed": false, "key_revealed": false, "decrypted": false },
+    "reviewers": { "plaintext_revealed": false, "key_revealed": false, "decrypted": false },
+    "root": { "plaintext_revealed": false, "decrypted": false },
+    "custodian_validation": "Authenticated in memory before rejection; no plaintext was persisted or disclosed."
+  },
+  "preservation": "The precursor, public holdout receipt, challenge reviews, root review, and rejection record are retained unchanged.",
+  "nonclaims": "No manifest, challenge, candidate, parser, grammar, production, benchmark, integration, or promotion credit is created."
+}

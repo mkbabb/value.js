@@ -1,0 +1,2656 @@
+{
+  "schema": "value.pi.percentage-literal.benchmark/v4",
+  "status": "PASS",
+  "executedAt": "2026-07-22T23:09:32.991Z",
+  "manifestPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/value-percentage-literal/g1/benchmark-v4-manifest.json",
+  "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+  "controller": {
+    "pid": 9098,
+    "argv": [
+      "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+      "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/value-percentage-literal/g1/benchmark-v4.mts",
+      "cells/value-percentage-literal/g1/benchmark-v4-manifest.json",
+      "cells/value-percentage-literal/g1/benchmark-v4-first-attempt.json"
+    ],
+    "execArgv": [
+      "--require",
+      "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/node_modules/tsx/dist/preflight.cjs",
+      "--import",
+      "file:///Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/node_modules/tsx/dist/loader.mjs"
+    ]
+  },
+  "environment": {
+    "node": "v26.0.0",
+    "v8": "14.6.202.33-node.19",
+    "platform": "darwin",
+    "arch": "arm64",
+    "release": "25.4.0",
+    "cpu": "Apple M5 Max",
+    "logicalCpus": 18,
+    "allocation": "UNAVAILABLE: no stable per-operation allocator instrumentation in Node/V8"
+  },
+  "protocol": {
+    "replicates": 20,
+    "blocksPerReplicate": 5,
+    "warmupIterations": 1000,
+    "sampleIterations": 2000,
+    "tCriticalOneSided95Df19": 1.729132811521367,
+    "comparisons": [
+      [
+        "h3-public",
+        "live-public"
+      ],
+      [
+        "h3-public",
+        "rejected-public"
+      ],
+      [
+        "h3-internal",
+        "prior-internal"
+      ]
+    ]
+  },
+  "comparisons": {
+    "h3-public_over_live-public": {
+      "logs": [
+        -1.0933737484300041,
+        -1.0772359611993623,
+        -1.1074750911537055,
+        -1.082562944523968,
+        -1.0797398925859194,
+        -1.0823341757576745,
+        -1.0840959399599426,
+        -1.0800012113379318,
+        -1.0778388442521798,
+        -1.0793330025476138,
+        -1.0917922850066835,
+        -1.0900997690434495,
+        -1.0921867124961775,
+        -1.0767245258023839,
+        -1.0497618991748323,
+        -1.0758035036564264,
+        -1.091946381699184,
+        -1.060119181234111,
+        -1.0855489528522937,
+        -1.0779861792069982
+      ],
+      "n": 20,
+      "meanLog": -1.0817980100960418,
+      "sampleSdLog": 0.012173674112024867,
+      "medianLog": -1.0811676935478032,
+      "madLog": 0.004412213524954911,
+      "oneSided95UpperLog": -1.0770911095107996,
+      "geometricMeanRatio": 0.33898547806146484,
+      "oneSided95UpperRatio": 0.3405848100020106,
+      "strictWin": true
+    },
+    "h3-public_over_rejected-public": {
+      "logs": [
+        -2.698234455912679,
+        -2.6984554482175236,
+        -2.690508817938693,
+        -2.690413589401842,
+        -2.676312653389981,
+        -2.6921984909923458,
+        -2.6666212456899023,
+        -2.6931586142177264,
+        -2.7021822257603976,
+        -2.6754405758833126,
+        -2.682440558310445,
+        -2.6989202899826394,
+        -2.6899979989755876,
+        -2.687827957701751,
+        -2.660366104876123,
+        -2.671120426895783,
+        -2.685116124518354,
+        -2.65683590508365,
+        -2.7085556755848574,
+        -2.6707406657075565
+      ],
+      "n": 20,
+      "meanLog": -2.6847723912520576,
+      "sampleSdLog": 0.014358678354637512,
+      "medianLog": -2.6889129783386694,
+      "madLog": 0.009774890761412136,
+      "oneSided95UpperLog": -2.6792206678422787,
+      "geometricMeanRatio": 0.06823672350412564,
+      "oneSided95UpperRatio": 0.06861660845176615,
+      "strictWin": true
+    },
+    "h3-internal_over_prior-internal": {
+      "logs": [
+        -0.056740514167148634,
+        -0.09820803614540724,
+        -0.10245175212085655,
+        -0.0948715828179671,
+        -0.11964415375929069,
+        -0.059448094121604726,
+        -0.06103152642142507,
+        -0.05623110747074547,
+        -0.026451816569822824,
+        -0.09558388863801634,
+        -0.03577246485447115,
+        -0.055950963708220086,
+        -0.05815269350040033,
+        -0.08260830416508129,
+        -0.0845905042457404,
+        -0.057882375850696645,
+        -0.09167062154985516,
+        -0.06761944919674322,
+        -0.08430876859159597,
+        -0.04759835071512584
+      ],
+      "n": 20,
+      "meanLog": -0.07184084843051072,
+      "sampleSdLog": 0.024259702086645903,
+      "medianLog": -0.06432548780908415,
+      "madLog": 0.019133048569254484,
+      "oneSided95UpperLog": -0.062460935275398075,
+      "geometricMeanRatio": 0.9306790030491694,
+      "oneSided95UpperRatio": 0.9394497614428683,
+      "strictWin": true
+    }
+  },
+  "workers": [
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 0,
+      "pid": 9100,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4174750,
+          4017209,
+          3966083,
+          4032708,
+          4065042
+        ],
+        "live-public": [
+          12343875,
+          11411583,
+          11761667,
+          11883292,
+          13049459
+        ],
+        "rejected-public": [
+          60671584,
+          59566959,
+          59483958,
+          59683042,
+          61463541
+        ],
+        "h3-internal": [
+          2170917,
+          2161875,
+          2194208,
+          2186875,
+          2208625
+        ],
+        "prior-internal": [
+          2411959,
+          2267833,
+          2285459,
+          2267625,
+          2327292
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "0038e4c0d9c24adc9f9f066cf8ae0795d8dd9c4aa1e8229d999c101bf548fd01"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 1,
+      "pid": 9101,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4192500,
+          4046000,
+          4068500,
+          4211041,
+          4120708
+        ],
+        "live-public": [
+          12523459,
+          11834542,
+          11851000,
+          12295708,
+          12102042
+        ],
+        "rejected-public": [
+          63886250,
+          60927458,
+          61996667,
+          60831709,
+          58983000
+        ],
+        "h3-internal": [
+          2278417,
+          2189250,
+          2177125,
+          2212000,
+          2145709
+        ],
+        "prior-internal": [
+          2553625,
+          2383583,
+          2321125,
+          2614583,
+          2264958
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "31b3c64b7bf5779b932bb3eec2d685dc9f4ab42bf21d8fa776e852a8226202e1"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 2,
+      "pid": 9102,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4192834,
+          4200000,
+          4031458,
+          3938916,
+          4014167
+        ],
+        "live-public": [
+          12347542,
+          12100292,
+          11864667,
+          13265250,
+          12098584
+        ],
+        "rejected-public": [
+          60694584,
+          59979084,
+          59618458,
+          61098041,
+          58955500
+        ],
+        "h3-internal": [
+          2300375,
+          2206458,
+          2135625,
+          2230041,
+          2138584
+        ],
+        "prior-internal": [
+          2907417,
+          2367208,
+          2290709,
+          2362667,
+          2271000
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "85df68f9ae800bad1b3099b143724964e0a9143f546d9ebfd0f0b6a1c6137686"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 3,
+      "pid": 9103,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4194250,
+          4158459,
+          4032541,
+          3953916,
+          4242125
+        ],
+        "live-public": [
+          12537084,
+          11898917,
+          11792542,
+          12525833,
+          12006458
+        ],
+        "rejected-public": [
+          62183750,
+          59836917,
+          59462167,
+          60270292,
+          61569208
+        ],
+        "h3-internal": [
+          2228833,
+          2170667,
+          2189709,
+          2247583,
+          2520500
+        ],
+        "prior-internal": [
+          2540042,
+          2336417,
+          2460542,
+          2280250,
+          2870292
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "cbdbec23ce364cc1412404d71c2d699fe0ed3e4d2c23c606097596a4ffe56306"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 4,
+      "pid": 9109,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4391459,
+          4164834,
+          4069209,
+          3883291,
+          4008042
+        ],
+        "live-public": [
+          12974500,
+          12185292,
+          11916958,
+          11452375,
+          11870667
+        ],
+        "rejected-public": [
+          61388292,
+          59116041,
+          59300208,
+          58916250,
+          59417792
+        ],
+        "h3-internal": [
+          2289959,
+          2138500,
+          2132917,
+          2104916,
+          2053000
+        ],
+        "prior-internal": [
+          2865959,
+          2306042,
+          2206333,
+          2198834,
+          2504500
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "e08d403c56cc806dbc125c3ffb384007123cdabdaa9dece37dfcf32f99db4ac6"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 5,
+      "pid": 9180,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4306708,
+          4073583,
+          4118334,
+          4020541,
+          3976500
+        ],
+        "live-public": [
+          12494625,
+          12374417,
+          11832625,
+          11897708,
+          11894833
+        ],
+        "rejected-public": [
+          62427458,
+          61144667,
+          59957000,
+          59531250,
+          59539667
+        ],
+        "h3-internal": [
+          2256583,
+          2233209,
+          2187750,
+          2160084,
+          2377875
+        ],
+        "prior-internal": [
+          2760542,
+          2266375,
+          2303208,
+          2288458,
+          2283875
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "ba8962f85bec159f282537f3fa2225b584110e609a0acf045aace8bb2d06fc4b"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 6,
+      "pid": 9209,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4158708,
+          4244542,
+          4112417,
+          4063625,
+          4056250
+        ],
+        "live-public": [
+          12783875,
+          12113417,
+          12250167,
+          11951125,
+          11915875
+        ],
+        "rejected-public": [
+          60852000,
+          60428167,
+          59357792,
+          57284166,
+          59049375
+        ],
+        "h3-internal": [
+          2306291,
+          2355833,
+          2254958,
+          2236292,
+          2116667
+        ],
+        "prior-internal": [
+          2608375,
+          2371042,
+          2360667,
+          2414958,
+          2224250
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "271cde8e8094a521682cd9d461c53829c2399b5b46f02032a58c8d2312638ab0"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 7,
+      "pid": 9235,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4014667,
+          3985917,
+          4187958,
+          4190459,
+          4028458
+        ],
+        "live-public": [
+          12134459,
+          11734333,
+          11993125,
+          12275250,
+          11956333
+        ],
+        "rejected-public": [
+          61026042,
+          61794375,
+          60743542,
+          59719667,
+          58303541
+        ],
+        "h3-internal": [
+          2386792,
+          2214625,
+          2221208,
+          2366625,
+          2187250
+        ],
+        "prior-internal": [
+          2717042,
+          2284250,
+          2335625,
+          2430958,
+          2266666
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "e546da002c4ebf159c38398a0dbeb198e6130435701484e4ca7681ebf4652c41"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 8,
+      "pid": 9236,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4302250,
+          4257209,
+          3918500,
+          4123209,
+          4345875
+        ],
+        "live-public": [
+          12397667,
+          12212917,
+          11678000,
+          12304292,
+          12956292
+        ],
+        "rejected-public": [
+          64878792,
+          61251167,
+          63957750,
+          61013584,
+          61266000
+        ],
+        "h3-internal": [
+          2530875,
+          2395291,
+          2402083,
+          2373000,
+          2219875
+        ],
+        "prior-internal": [
+          2813083,
+          2380417,
+          2425417,
+          2374750,
+          2247000
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "95a1475c66176db924ef01702eb7ee134c2080574d61236762cfcb86edb23a56"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 9,
+      "pid": 9239,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4213667,
+          4235000,
+          4196709,
+          4168417,
+          4149833
+        ],
+        "live-public": [
+          13777417,
+          12144625,
+          11753458,
+          12039000,
+          11975500
+        ],
+        "rejected-public": [
+          62374500,
+          59614583,
+          61926250,
+          60718333,
+          59731875
+        ],
+        "h3-internal": [
+          2258458,
+          2165250,
+          2208084,
+          2291333,
+          2328833
+        ],
+        "prior-internal": [
+          2664292,
+          2693542,
+          2347792,
+          2337208,
+          2337708
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "e94a7ba5009de756f33f803e86c93de19f5493ca7468abf9c778b14444b87cea"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 10,
+      "pid": 9240,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4231333,
+          4024167,
+          4089000,
+          4134583,
+          3922625
+        ],
+        "live-public": [
+          12541833,
+          11817916,
+          11741792,
+          11952917,
+          12734667
+        ],
+        "rejected-public": [
+          61701208,
+          58789166,
+          59354458,
+          58090667,
+          60352417
+        ],
+        "h3-internal": [
+          2295000,
+          2214708,
+          2207791,
+          2189000,
+          2359125
+        ],
+        "prior-internal": [
+          2538834,
+          2316584,
+          2277792,
+          2289291,
+          2253417
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "e30d2e0f7a74d773f7caa0a1ad36014d67eeefd588dfe8e684241aec7644e57c"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 11,
+      "pid": 9269,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4240875,
+          4167875,
+          4189834,
+          4058875,
+          4048917
+        ],
+        "live-public": [
+          13087333,
+          12508458,
+          12259250,
+          11747333,
+          11990208
+        ],
+        "rejected-public": [
+          64582584,
+          61489542,
+          60666042,
+          60974375,
+          60060292
+        ],
+        "h3-internal": [
+          2432542,
+          2268500,
+          2214875,
+          2469792,
+          2166667
+        ],
+        "prior-internal": [
+          2951292,
+          2353500,
+          2330042,
+          2296125,
+          2286208
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "7594762c9a2afdbd125a8e629802e8f09751ea70c558b34987973c3cf511e07b"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 12,
+      "pid": 9330,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4297459,
+          3971209,
+          4028083,
+          4309083,
+          4131167
+        ],
+        "live-public": [
+          12426834,
+          11954625,
+          13274250,
+          12012084,
+          12144750
+        ],
+        "rejected-public": [
+          61928417,
+          59421333,
+          60888833,
+          62789917,
+          60461667
+        ],
+        "h3-internal": [
+          2403375,
+          2172666,
+          2346458,
+          2291083,
+          2411000
+        ],
+        "prior-internal": [
+          2989917,
+          2301125,
+          2304250,
+          2353083,
+          2372250
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "b142552adf63982601cf95700808aeec0d6ed59df0b20477678f8d5ce6c5d954"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 13,
+      "pid": 9355,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4182250,
+          4124167,
+          3986875,
+          4301292,
+          4091917
+        ],
+        "live-public": [
+          12708584,
+          12164250,
+          11846417,
+          11832458,
+          12164208
+        ],
+        "rejected-public": [
+          61970666,
+          59437708,
+          59718250,
+          60586083,
+          62372917
+        ],
+        "h3-internal": [
+          2494416,
+          2212750,
+          2155958,
+          2323542,
+          2216042
+        ],
+        "prior-internal": [
+          2950583,
+          2345709,
+          2290375,
+          2446625,
+          2351375
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "6ad59e95d2afa99e7dd89d0b876095741c1c01d0ffdfb37a4fa547477317f3fe"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 14,
+      "pid": 9428,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4774125,
+          4084083,
+          4061500,
+          4076375,
+          4054666
+        ],
+        "live-public": [
+          12761625,
+          11914125,
+          11854125,
+          11794708,
+          11816792
+        ],
+        "rejected-public": [
+          62845000,
+          58644417,
+          58298875,
+          59991042,
+          61278458
+        ],
+        "h3-internal": [
+          2243166,
+          2148125,
+          2152000,
+          2196209,
+          2220083
+        ],
+        "prior-internal": [
+          2681083,
+          2336542,
+          2304625,
+          2300959,
+          2303791
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "7fe6c0833b496be772646be56b7e7e4072741b3425b12603f5ec2ce6e7006322"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 15,
+      "pid": 9453,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4197833,
+          4117000,
+          4152000,
+          4237625,
+          4040209
+        ],
+        "live-public": [
+          12739792,
+          11886292,
+          12186334,
+          12208209,
+          11809958
+        ],
+        "rejected-public": [
+          60459875,
+          59644584,
+          60214708,
+          59599250,
+          59969750
+        ],
+        "h3-internal": [
+          2126750,
+          2219833,
+          2229042,
+          2280000,
+          2300375
+        ],
+        "prior-internal": [
+          2517083,
+          2327708,
+          2349875,
+          2320916,
+          2305208
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "b1a2c3ae0a24d0dd1cd37daf7eb3e810afecd1d736f3b6ccaf9959d1d8f50350"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 16,
+      "pid": 9454,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4096167,
+          4107625,
+          4182625,
+          4195833,
+          4026125
+        ],
+        "live-public": [
+          12680833,
+          12956459,
+          11966416,
+          12018167,
+          11792500
+        ],
+        "rejected-public": [
+          61697333,
+          59538000,
+          61091084,
+          59375458,
+          60414917
+        ],
+        "h3-internal": [
+          2524667,
+          2170292,
+          2256875,
+          2210459,
+          2240458
+        ],
+        "prior-internal": [
+          2986416,
+          2298083,
+          2425667,
+          2423042,
+          2364250
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "b7964fd3a1889120b4e4efed3c268c77a72761727c1352766af8af1cd983a01f"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 17,
+      "pid": 9466,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4236208,
+          4709625,
+          4032250,
+          4034833,
+          3976917
+        ],
+        "live-public": [
+          12314291,
+          12492000,
+          11877333,
+          12266917,
+          11641125
+        ],
+        "rejected-public": [
+          60671375,
+          60805833,
+          58709583,
+          59741625,
+          59200334
+        ],
+        "h3-internal": [
+          2400167,
+          2256334,
+          2200666,
+          2175208,
+          2222583
+        ],
+        "prior-internal": [
+          2864416,
+          2321500,
+          2260167,
+          2229292,
+          2366958
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "952513756f82fabf5097736c897135726781cf2dac7bd2e88b322a5b69eb4fdd"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 18,
+      "pid": 9552,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ],
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4190250,
+          4199625,
+          4075167,
+          3889708,
+          4059584
+        ],
+        "live-public": [
+          12699916,
+          12118292,
+          11941709,
+          11754167,
+          11934083
+        ],
+        "rejected-public": [
+          63228125,
+          61044875,
+          60544583,
+          60260958,
+          61291292
+        ],
+        "h3-internal": [
+          2177875,
+          2176458,
+          2139125,
+          2155750,
+          2157209
+        ],
+        "prior-internal": [
+          2599458,
+          2348334,
+          2204292,
+          2321334,
+          2283583
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "3338251c02b673880ed40987b5d552e1bda5997c0065d48167f7da2fd874497d"
+    },
+    {
+      "event": "worker",
+      "manifestSha256": "52f6e74b511a020847b03c3fb9ac7ee90cf1307fd21f30d1fcddd20a0a2f43db",
+      "replicate": 19,
+      "pid": 9565,
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "orders": [
+        [
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal"
+        ],
+        [
+          "h3-public",
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal"
+        ],
+        [
+          "live-public",
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public"
+        ],
+        [
+          "rejected-public",
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public"
+        ],
+        [
+          "h3-internal",
+          "prior-internal",
+          "h3-public",
+          "live-public",
+          "rejected-public"
+        ]
+      ],
+      "normalizedTranscriptSha256": "1747b01fdacea11757f23e5b8c1aea44445dbe17dc59dd5aca4cbd5987b72198",
+      "elapsedNs": {
+        "h3-public": [
+          4506667,
+          4001459,
+          4003250,
+          4026167,
+          4182084
+        ],
+        "live-public": [
+          12249000,
+          12673708,
+          12168042,
+          11779417,
+          12019750
+        ],
+        "rejected-public": [
+          60086709,
+          61319666,
+          59866458,
+          58634792,
+          59504833
+        ],
+        "h3-internal": [
+          2602916,
+          2188166,
+          2121916,
+          2178625,
+          2195709
+        ],
+        "prior-internal": [
+          2616958,
+          2340791,
+          2297625,
+          2266417,
+          2315791
+        ]
+      },
+      "timedChecksums": {
+        "h3-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "live-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "rejected-public": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "h3-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ],
+        "prior-internal": [
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523,
+          2012934001.9999523
+        ]
+      },
+      "operationsPerBlock": 32000,
+      "exitCode": 0,
+      "signal": null,
+      "stderrBytes": 190,
+      "stderrSha256": "511fc6267df54e2a46ae5e5a0aa032f239c832fdf5fbab882378aa5717cd3b74"
+    }
+  ]
+}

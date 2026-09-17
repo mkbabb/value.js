@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-parse-that-package-receipt-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "package", "tarball", "archive", "install", "receipt_hash"],
+  "properties": {
+    "schema": { "const": "vnext-parse-that-package-receipt/1" },
+    "package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "registry_spec", "integrity"],
+      "properties": {
+        "name": { "const": "@mkbabb/parse-that" },
+        "version": { "const": "1.0.0" },
+        "registry_spec": { "const": "@mkbabb/parse-that@1.0.0" },
+        "integrity": { "type": "string", "pattern": "^sha512-[A-Za-z0-9+/]+={0,2}$" }
+      }
+    },
+    "tarball": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "archive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["package_json_sha256", "file_count", "files_sha256", "runtime_files_sha256", "declaration_files_sha256", "export_conditions_sha256"],
+      "properties": {
+        "package_json_sha256": { "$ref": "#/$defs/sha256" },
+        "file_count": { "type": "integer", "minimum": 1 },
+        "files_sha256": { "$ref": "#/$defs/sha256" },
+        "runtime_files_sha256": { "$ref": "#/$defs/sha256" },
+        "declaration_files_sha256": { "$ref": "#/$defs/sha256" },
+        "export_conditions_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "install": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root", "package_path", "source_spec", "tree_sha256", "npm_ls", "lockfile", "workspace_links"],
+      "properties": {
+        "root": { "$ref": "#/$defs/absolutePath" },
+        "package_path": { "$ref": "#/$defs/absolutePath" },
+        "source_spec": { "const": "@mkbabb/parse-that@1.0.0" },
+        "tree_sha256": { "$ref": "#/$defs/sha256" },
+        "npm_ls": { "$ref": "#/$defs/evidence" },
+        "lockfile": { "$ref": "#/$defs/evidence" },
+        "workspace_links": { "const": [] }
+      }
+    },
+    "receipt_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "absolutePath": { "type": "string", "pattern": "^/" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 5,
+  "status": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "subject": {
+    "path": "manifest.json",
+    "bytes": 5839,
+    "sha256": "41c482b059ddab64c51226a05022016c17adb55cb73292d665d29298aa1a0109"
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a-specification.md",
+      "verdict": "ACCEPT_BOUNDARY_ONLY",
+      "bytes": 10099,
+      "sha256": "4f9df0cd2a0c012a2b167cb4ec64972ba29ad490f296f383dac8610d95835307"
+    },
+    {
+      "path": "reviews/challenge-b-architecture.md",
+      "verdict": "REJECT",
+      "bytes": 11325,
+      "sha256": "a8c1669c95f37ec4a838b352cbaefbe11d4715d58193d61caa6078f30b67542f"
+    }
+  ],
+  "root_gestalt": {
+    "path": "root-gestalt.md",
+    "verdict": "REJECT",
+    "bytes": 2998,
+    "sha256": "7409c84b1cff505614e82a1950dadc38ad28ef7e0a6a519e7232616bd6135c99"
+  },
+  "confirmed_blockers": [
+    "Promotion omitted the inherited tsconfig.json and the installed TypeScript implementation from its claimed configuration/tooling closure.",
+    "The protocol falsely claimed mechanical rejection of token/CST names and broad remainder regex patterns that the verifier did not inspect."
+  ],
+  "candidate_sources_written": 0,
+  "active_grammar_typescript_sources": 0,
+  "holdout": {
+    "sha256": "3dac39da917de45aa9a0c45f76d177a33294c174f76e30d7cbc4294cbfa626b0",
+    "revealed": false,
+    "reused": false,
+    "disposition": "IRREVERSIBLY_DESTROYED_AND_DISCARDED",
+    "custodian_accessible_copies_remaining": 0,
+    "workspace_or_temporary_same_byte_copies_found": 0
+  },
+  "next": "Fresh G6 formation must bind the complete TypeScript configuration/implementation and make the mechanical verifier claims exact before a new holdout and challenges."
+}

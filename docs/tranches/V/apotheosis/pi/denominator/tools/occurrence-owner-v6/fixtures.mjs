@@ -1,0 +1,139 @@
+import { discoverFixture } from "./discover.mjs";
+import { extractOwnerScope } from "./evidence.mjs";
+import { canonicalBytes, sha256 } from "./shared.mjs";
+
+function assert(condition, message) {
+    if (!condition) throw new Error(`counterfixture failed: ${message}`);
+}
+
+function referenceCase(name, text, expected) {
+    const result = discoverFixture(text);
+    assert(result.references.length === expected.length, `${name}: expected ${expected.length} references, found ${result.references.length}`);
+    for (const wanted of expected) {
+        const actual = result.references.find((row) => row.raw === wanted.raw);
+        assert(actual !== undefined, `${name}: missing ${wanted.raw}`);
+        for (const [key, value] of Object.entries(wanted)) assert(actual[key] === value, `${name}: ${key} expected ${JSON.stringify(value)}, found ${JSON.stringify(actual[key])}`);
+        assert(result.source.bytes.subarray(actual.start_offset, actual.end_offset_exclusive).toString("utf8") === actual.raw, `${name}: exact byte replay`);
+    }
+    return { name, input_sha256: sha256(Buffer.from(text, "utf8")), references: result.references.map((row) => ({ raw: row.raw, type: row.type, name: row.name, scope: row.scope })) };
+}
+
+function operationCase(name, text, expectedOpenings) {
+    const result = discoverFixture(text);
+    assert(result.operations.algorithmOpenings.length === expectedOpenings.length, `${name}: expected ${expectedOpenings.length} algorithm openings`);
+    for (const expectedOpening of expectedOpenings) {
+        const opening = result.operations.algorithmOpenings.find((row) => row.raw_opening === expectedOpening);
+        assert(opening !== undefined, `${name}: missing opening ${expectedOpening}`);
+        assert(opening.candidate_ids.length > 0, `${name}: opening ${expectedOpening} has no candidate`);
+        for (const id of opening.candidate_ids) assert(result.operations.candidates.some((candidate) => candidate.id === id && candidate.start_line <= opening.line && candidate.end_line >= opening.line), `${name}: opening ${expectedOpening} candidate does not enclose opening`);
+    }
+    return { name, input_sha256: sha256(Buffer.from(text, "utf8")), openings: result.operations.algorithmOpenings.map((row) => row.raw_opening), candidate_count: result.operations.candidates.length };
+}
+
+function inheritedDefinitionCase() {
+    const text = [
+        '<dl dfn-for="display" dfn-type="value"><dt><dfn data-lt="grid-lanes|masonry">grid-lanes</dfn></dt></dl>',
+        '<section data-dfn-for="animation"><dfn data-dfn-type="value">running</dfn></section>',
+        '<div for="media"><dfn dfn-type="value">screen</dfn></div>',
+        "Use ''display/grid-lanes!!value'', ''display/masonry!!value'', ''animation/running!!value'', and ''media/screen!!value''.",
+    ].join("\n") + "\n";
+    const definitions = [
+        ["grid", '<dfn data-lt="grid-lanes|masonry">grid-lanes</dfn>', ["grid-lanes"]],
+        ["running", '<dfn data-dfn-type="value">running</dfn>', ["running"]],
+        ["screen", '<dfn dfn-type="value">screen</dfn>', ["screen"]],
+    ];
+    const carriers = definitions.map(([id, raw, names]) => {
+        const start = Buffer.byteLength(text.slice(0, text.indexOf(raw)), "utf8");
+        return { id: `fixture-${id}`, source_path: "fixture/Overview.bs", kind: "semantic_definition", start_offset: start, end_offset_exclusive: start + Buffer.byteLength(raw), names };
+    });
+    const result = discoverFixture(text, carriers);
+    const expected = new Map([
+        ["''display/grid-lanes!!value''", "fixture-grid"], ["''display/masonry!!value''", "fixture-grid"],
+        ["''animation/running!!value''", "fixture-running"], ["''media/screen!!value''", "fixture-screen"],
+    ]);
+    for (const [raw, id] of expected) {
+        const reference = result.references.find((row) => row.raw === raw);
+        assert(reference !== undefined, `inherited-definition-scope: ${raw} absent`);
+        assert(reference.link_type === "value" && JSON.stringify(reference.target_carrier_ids) === JSON.stringify([id]), `inherited-definition-scope: ${raw} target join`);
+    }
+    return { name: "inherited-definition-scope-type-and-alternate-text", input_sha256: sha256(Buffer.from(text)), joins: [...expected] };
+}
+
+export function runCounterfixtures() {
+    const cases = [
+        referenceCase("single-quoted-css-and-element", "Use 'animation' with <{li}>.\n", [
+            { raw: "'animation'", type: "css_shorthand_single", name: "animation", scope: null },
+            { raw: "<{li}>", type: "element", name: "li", scope: null },
+        ]),
+        referenceCase("scoped-css-and-idl", "Use ''animation-timeline-range/cover'' and {{Event/target}}.\n", [
+            { raw: "{{Event/target}}", type: "idl_or_property", name: "target", scope: "Event" },
+            { raw: "''animation-timeline-range/cover''", type: "css_term_double", name: "cover", scope: "animation-timeline-range" },
+        ]),
+        referenceCase("production-definition-property-and-bibliography", "Parse <<length>> beside [=concept=], {{CSSStyleDeclaration/color}}, and [[!CSS-VALUES-4#calc-notation|calc]].\n", [
+            { raw: "[[!CSS-VALUES-4#calc-notation|calc]]", type: "bibliographic", name: "CSS-VALUES-4", scope: null },
+            { raw: "<<length>>", type: "production", name: "length", scope: null },
+            { raw: "[=concept=]", type: "definition", name: "concept", scope: null },
+            { raw: "{{CSSStyleDeclaration/color}}", type: "idl_or_property", name: "color", scope: "CSSStyleDeclaration" },
+        ]),
+        operationCase("boolean-and-valued-algorithm-divs", "# Parse\n<div algorithm>\n1. Return.\n</div>\n<div algorithm=\"convert\">\n1. Convert.\n</div>\n", ["<div algorithm>", "<div algorithm=\"convert\">"]),
+        operationCase("class-and-data-algorithm-divs", "# Serialization\n<div class='note algorithm'>\n1. Serialize.\n</div>\n<div data-algorithm='roundtrip'>\n1. Return.\n</div>\n", ["<div class='note algorithm'>", "<div data-algorithm='roundtrip'>"]),
+        operationCase("boolean-data-algorithm", "# Parse\n<section data-algorithm>\n1. Consume.\n</section>\n", ["<section data-algorithm>"]),
+        operationCase("all-algorithm-bearing-element-forms", '<h2 id="convert" algorithm="convert a color">Convert</h2>\n<h3 algorithm>Match</h3>\n<dfn algorithm for="PreferenceObject">Get preference</dfn>\n<ol class="algorithm"><li>Run.</li></ol>\n', [
+            '<h2 id="convert" algorithm="convert a color">', "<h3 algorithm>", '<dfn algorithm for="PreferenceObject">', '<ol class="algorithm">',
+        ]),
+        referenceCase("markup-and-compound-css", "Use [^input/type/submit^] with ''trigger-scope: all''.\n", [
+            { raw: "[^input/type/submit^]", type: "markup", name: "submit", scope: "input/type" },
+            { raw: "''trigger-scope: all''", type: "css_term_double", name: "trigger-scope: all", scope: null },
+        ]),
+        referenceCase("definition-idl-element-display-text", "Use [=main axis|main=], {{CSS/supports(conditionText)|CSS.supports()}}, and <{input/type|type attribute}>.\n", [
+            { raw: "[=main axis|main=]", type: "definition", name: "main axis", scope: null, link_text: "main" },
+            { raw: "{{CSS/supports(conditionText)|CSS.supports()}}", type: "idl_or_property", name: "supports(conditionText)", scope: "CSS", link_text: "CSS.supports()" },
+            { raw: "<{input/type|type attribute}>", type: "element", name: "type", scope: "input", link_text: "type attribute" },
+        ]),
+        referenceCase("bibliography-fragment-display", "See [[css2/visuren#visual-model-intro|Visual formatting model]].\n", [
+            { raw: "[[css2/visuren#visual-model-intro|Visual formatting model]]", type: "bibliographic", name: "css2/visuren", anchor: "visual-model-intro", link_text: "Visual formatting model" },
+        ]),
+        referenceCase("html-attribute-values-excluded", "<h3 id='parse-selector' algorithm>Use [=visible|text=].</h3>\n", [
+            { raw: "[=visible|text=]", type: "definition", name: "visible", scope: null, link_text: "text" },
+        ]),
+        referenceCase("type-modified-css-shorthands", "Use 'font-family!!property' and ''font-kerning/auto!!value''.\n", [
+            { raw: "'font-family!!property'", type: "css_shorthand_single", name: "font-family", link_type: "property", target_form: "UNSCOPED_TARGET" },
+            { raw: "''font-kerning/auto!!value''", type: "css_term_double", name: "auto", scope: "font-kerning", link_type: "value", target_form: "SCOPED_TARGET" },
+        ]),
+        referenceCase("bibliography-modifier-semantics", "See [[css-multicol-1 inline]], [[L2-22-080R snapshot|proposal]], and [[css-values-4 inline#calc-notation|calc]].\n", [
+            { raw: "[[css-multicol-1 inline]]", type: "bibliographic", name: "css-multicol-1", modifier: "inline" },
+            { raw: "[[L2-22-080R snapshot|proposal]]", type: "bibliographic", name: "L2-22-080R", modifier: "snapshot", link_text: "proposal" },
+            { raw: "[[css-values-4 inline#calc-notation|calc]]", type: "bibliographic", name: "css-values-4", modifier: "inline", anchor: "calc-notation", link_text: "calc" },
+        ]),
+        referenceCase("raw-code-style-literals-excluded", "<pre highlight=javascript>alert('finished'); left: '-20px'</pre><style>local('MathJax_AMS-Regular')</style><xmp><script>f('bar')</script></xmp>\nUse 'animation'.\n", [
+            { raw: "'animation'", type: "css_shorthand_single", name: "animation", processing_context: "BIKESHED_TEXT" },
+        ]),
+        referenceCase("dated-undated-and-draft-url-boundaries", "https://www.w3.org/TR/2023/WD-css-images-4-20230217/; https://www.w3.org/TR/css-syntax-3/#tokenization, https://drafts.csswg.org/selectors-4/#subject.\n", [
+            { raw: "https://www.w3.org/TR/2023/WD-css-images-4-20230217/", type: "spec_url", name: "WD-css-images-4-20230217", modifier: "DATED_TR_2023" },
+            { raw: "https://www.w3.org/TR/css-syntax-3/#tokenization", type: "spec_url", name: "css-syntax-3", anchor: "tokenization" },
+            { raw: "https://drafts.csswg.org/selectors-4/#subject", type: "spec_url", name: "selectors-4", anchor: "subject" },
+        ]),
+        referenceCase("slash-bearing-inline-css-maybe", "Use ''atan(-1 / 1)'', ''--ar: (16 / 9);'', and ''0 / 0''.\n", [
+            { raw: "''atan(-1 / 1)''", type: "css_term_double", name: "atan(-1 / 1)", scope: null, target_form: "INLINE_MAYBE" },
+            { raw: "''--ar: (16 / 9);''", type: "css_term_double", name: "--ar: (16 / 9);", scope: null, target_form: "INLINE_MAYBE" },
+            { raw: "''0 / 0''", type: "css_term_double", name: "0 / 0", scope: null, target_form: "INLINE_MAYBE" },
+        ]),
+        inheritedDefinitionCase(),
+    ];
+    const ownerIds = [
+        "owner-color-growth", "owner-easing-spring", "owner-filter-url-shape-shadow", "owner-calc-math", "owner-gradients-image",
+        "owner-keyframes-timeline-trigger", "owner-media-container-supports", "owner-typed-declarations", "owner-typed-selectors",
+        "owner-at-rule-recovery", "owner-css-syntax", "owner-transform-motion", "owner-unit-algebra", "owner-substitution",
+    ];
+    const ownerBytes = Buffer.from([
+        "relative-color color-mix light-dark contrast-color", "spring() easing-L4", "filter functions url() shapes shadow",
+        "calc/math min/max/clamp", "gradients image union", "keyframes/timeline/trigger depth", "media/container/supports conditions",
+        "typed declarations value matcher", "typed selectors", "at-rule recovery", "CSS-Syntax-L3 tokenizer",
+        "full transform motion path", "unit algebra typed unit classes", "substitution var/env/attr typed",
+    ].join("\n") + "\n", "utf8");
+    const owner = extractOwnerScope(ownerBytes, ownerIds.map((id) => ({ id, search_terms: [] })));
+    assert(owner.every((row, index) => row.input_lines[0] === index + 1), "owner provenance line extraction");
+    const ownerCase = { name: "owner-scope-exact-line-provenance", input_sha256: sha256(ownerBytes), rows: owner.map((row) => ({ id: row.id, input_lines: row.input_lines })) };
+    const receipt = { suite: "occurrence-owner-v6-exact-counterfixtures", case_count: cases.length + 1, cases: [...cases, ownerCase] };
+    return { ...receipt, digest_sha256: sha256(canonicalBytes(receipt)) };
+}

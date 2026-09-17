@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-differential-ledger-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "input_epoch_hash", "execution_manifest", "css_corpus", "proposal_manifests", "coverage", "rows", "unowned_divergence_count", "ledger_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-differential-ledger/1" },
+    "input_epoch_hash": { "$ref": "#/$defs/sha256" },
+    "execution_manifest": { "$ref": "#/$defs/executionBinding" },
+    "css_corpus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "corpus_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "corpus_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "proposal_manifests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["grammar_oracle", "typescript_combinators"],
+      "properties": {
+        "grammar_oracle": { "$ref": "#/$defs/oracleManifestBinding" },
+        "typescript_combinators": { "$ref": "#/$defs/implementationManifestBinding" }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expected_case_count", "compared_case_count", "expected_case_ids_sha256", "compared_case_ids_sha256", "expected_runtime_modules_sha256", "exercised_runtime_modules_sha256", "rows_sha256"],
+      "properties": {
+        "expected_case_count": { "type": "integer", "minimum": 1 },
+        "compared_case_count": { "type": "integer", "minimum": 1 },
+        "expected_case_ids_sha256": { "$ref": "#/$defs/sha256" },
+        "compared_case_ids_sha256": { "$ref": "#/$defs/sha256" },
+        "expected_runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "exercised_runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "rows_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "partition", "covered_modules", "oracle_fixture_sha256", "implementation_result_sha256", "comparison", "owner"],
+        "properties": {
+          "case_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+          "partition": { "$ref": "#/$defs/partition" },
+          "covered_modules": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/bbnfPath" }
+          },
+          "oracle_fixture_sha256": { "$ref": "#/$defs/sha256" },
+          "implementation_result_sha256": { "$ref": "#/$defs/sha256" },
+          "comparison": { "enum": ["match", "divergence"] },
+          "owner": {
+            "oneOf": [
+              { "$ref": "#/$defs/noOwner" },
+              { "$ref": "#/$defs/valueOwner" },
+              { "$ref": "#/$defs/parseThatOwner" },
+              { "$ref": "#/$defs/bbnfOwner" }
+            ]
+          }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "comparison": { "const": "match" } } },
+            "then": { "properties": { "owner": { "$ref": "#/$defs/noOwner" } } }
+          },
+          {
+            "if": { "properties": { "comparison": { "const": "divergence" } } },
+            "then": {
+              "properties": {
+                "owner": {
+                  "oneOf": [
+                    { "$ref": "#/$defs/valueOwner" },
+                    { "$ref": "#/$defs/parseThatOwner" },
+                    { "$ref": "#/$defs/bbnfOwner" }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "unowned_divergence_count": { "const": 0 },
+    "ledger_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "bbnfPath": { "type": "string", "pattern": "^grammar/css/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.bbnf$" },
+    "partition": { "enum": ["syntax", "value", "stylesheet", "unicode", "pathological", "serialization", "consumer-ingest", "historical-disposition"] },
+    "executionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/.*/test/proof/p00/css-module-isomorphism\\.execution\\.json$" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "manifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot", "path", "file_sha256", "manifest_hash"],
+      "properties": {
+        "slot": { "enum": ["grammar-oracle", "typescript-combinators"] },
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "oracleManifestBinding": {
+      "allOf": [
+        { "$ref": "#/$defs/manifestBinding" },
+        { "properties": { "slot": { "const": "grammar-oracle" } } }
+      ]
+    },
+    "implementationManifestBinding": {
+      "allOf": [
+        { "$ref": "#/$defs/manifestBinding" },
+        { "properties": { "slot": { "const": "typescript-combinators" } } }
+      ]
+    },
+    "noOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": { "kind": { "const": "none" } }
+    },
+    "valueOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "wave_id", "row_id"],
+      "properties": {
+        "kind": { "const": "value-owned-grammar-row" },
+        "wave_id": { "const": "P01" },
+        "row_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "parseThatOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "wave_id", "row_id"],
+      "properties": {
+        "kind": { "const": "p00-parse-that-blocker" },
+        "wave_id": { "const": "P00" },
+        "row_id": { "type": "string", "minLength": 1 }
+      }
+    },
+    "bbnfOwner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "routed_to", "row_id"],
+      "properties": {
+        "kind": { "const": "external-bbnf-topology-row" },
+        "routed_to": { "const": "active-bbnf-campaign" },
+        "row_id": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

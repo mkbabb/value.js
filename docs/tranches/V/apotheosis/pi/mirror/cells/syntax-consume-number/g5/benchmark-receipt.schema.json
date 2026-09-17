@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "value.pi/SYNTAX-CONSUME-NUMBER/G5/four-seat-benchmark-receipt",
+  "title": "SYNTAX-CONSUME-NUMBER G5 exact four-seat benchmark receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "feature_id", "generation", "attempt_id", "runner", "inputs", "environment", "policy", "preflight_digest", "samples", "statistics", "winner", "allocation", "claims"],
+  "properties": {
+    "schema_version": { "const": "syntax-consume-number.g5.benchmark/v1" },
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 5 },
+    "attempt_id": { "type": "string", "minLength": 1 },
+    "runner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sha256", "bytes", "schema_sha256", "schema_bytes"],
+      "properties": {
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "schema_sha256": { "$ref": "#/$defs/sha256" },
+        "schema_bytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bundle_sha256", "bundle_bytes", "corpus_sha256", "corpus_bytes", "case_count"],
+      "properties": {
+        "bundle_sha256": { "$ref": "#/$defs/sha256" },
+        "bundle_bytes": { "type": "integer", "minimum": 1 },
+        "corpus_sha256": { "$ref": "#/$defs/sha256" },
+        "corpus_bytes": { "type": "integer", "minimum": 1 },
+        "case_count": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node", "v8", "uv", "platform", "arch", "endianness", "cpu_model", "logical_cpu_count", "available_parallelism", "exec_argv", "pid", "timer", "process_model"],
+      "properties": {
+        "node": { "type": "string" },
+        "v8": { "type": "string" },
+        "uv": { "type": "string" },
+        "platform": { "type": "string" },
+        "arch": { "type": "string" },
+        "endianness": { "enum": ["BE", "LE"] },
+        "cpu_model": { "type": "string" },
+        "logical_cpu_count": { "type": "integer", "minimum": 1 },
+        "available_parallelism": { "type": "integer", "minimum": 1 },
+        "exec_argv": { "const": ["--expose-gc"] },
+        "pid": { "type": "integer", "minimum": 1 },
+        "timer": { "const": "process.hrtime.bigint" },
+        "process_model": { "const": "one fresh process; all four seats share one captured self-contained bundle and one runtime" }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seats", "orders", "warmup_rounds", "measured_rounds", "batch_repeats", "bootstrap_resamples", "bootstrap_seed", "familywise_percentile", "familywise_index", "diagnostics", "gc", "cases", "timed_operation", "timed_exclusions", "batching", "failure", "allocation"],
+      "properties": {
+        "seats": { "const": ["h", "b", "s", "d"] },
+        "orders": { "const": [["h", "b", "d", "s"], ["b", "s", "h", "d"], ["s", "d", "b", "h"], ["d", "h", "s", "b"]] },
+        "warmup_rounds": { "const": 8 },
+        "measured_rounds": { "const": 40 },
+        "batch_repeats": { "const": 16 },
+        "bootstrap_resamples": { "const": 100000 },
+        "bootstrap_seed": { "type": "integer", "minimum": 1, "maximum": 4294967295 },
+        "familywise_percentile": { "const": 0.9875 },
+        "familywise_index": { "const": 98749 },
+        "diagnostics": { "const": "disableDiagnostics immediately before preflight and before every round" },
+        "gc": { "const": "require --expose-gc; call globalThis.gc twice before every warmup and measured round, outside timing" },
+        "cases": { "const": "corpus strings, including hostile strings, are fully materialized before preflight/timing; fixed stored order" },
+        "timed_operation": { "const": "for each case allocate state, call parser once, and fold O(1) case-index/error/offset/binary64/type/sign observations into one retained 64-bit FNV-1a digest" },
+        "timed_exclusions": { "const": "no source slice, representation hash, corpus materialization, diagnostics toggle, GC, import, calibration, or correctness oracle" },
+        "batching": { "const": "fixed 16 complete-corpus repeats; no calibration" },
+        "failure": { "const": "any throw, invalid state, digest disagreement, nonpositive timer, or changed input aborts without a receipt; attempt_id is retired and no retry may replace it" },
+        "allocation": { "const": "not measured and wholly non-adjudicative" }
+      }
+    },
+    "preflight_digest": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+    "samples": {
+      "type": "array",
+      "minItems": 40,
+      "maxItems": 40,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["round", "order", "nanoseconds", "digests"],
+        "properties": {
+          "round": { "type": "integer", "minimum": 0, "maximum": 39 },
+          "order": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "enum": ["h", "b", "s", "d"] } },
+          "nanoseconds": { "$ref": "#/$defs/seatMapDecimal" },
+          "digests": { "$ref": "#/$defs/seatMapDigest" }
+        }
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "resamples", "seed", "familywise_percentile", "percentile_rule", "candidates"],
+      "properties": {
+        "method": { "const": "paired log-ratio geometric mean; shared-index bootstrap maximum over three peers; Bonferroni 0.05/4 candidate-family alpha" },
+        "resamples": { "const": 100000 },
+        "seed": { "type": "integer", "minimum": 1, "maximum": 4294967295 },
+        "familywise_percentile": { "const": 0.9875 },
+        "percentile_rule": { "const": "sort ascending; index ceil(p*N)-1; no interpolation" },
+        "candidates": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["h", "b", "s", "d"],
+          "properties": {
+            "h": { "$ref": "#/$defs/candidateStatistic" },
+            "b": { "$ref": "#/$defs/candidateStatistic" },
+            "s": { "$ref": "#/$defs/candidateStatistic" },
+            "d": { "$ref": "#/$defs/candidateStatistic" }
+          }
+        }
+      }
+    },
+    "winner": { "type": ["string", "null"], "enum": ["h", "b", "s", "d", null] },
+    "allocation": { "const": { "status": "NON_ADJUDICATIVE_NOT_MEASURED" } },
+    "claims": { "const": "TIMING_RECEIPT_ONLY_NO_FEATURE_PARSER_INTEGRATION_OR_PRODUCTION_CREDIT" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "decimal": { "type": "string", "pattern": "^[1-9][0-9]*$" },
+    "digest": { "type": "string", "pattern": "^[0-9a-f]{16}$" },
+    "candidateStatistic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pair_geometric_mean_ratio", "simultaneous_familywise_upper_ratio", "every_peer_strict_win"],
+      "properties": {
+        "pair_geometric_mean_ratio": {
+          "type": "object",
+          "minProperties": 3,
+          "maxProperties": 3,
+          "propertyNames": { "enum": ["h", "b", "s", "d"] },
+          "additionalProperties": { "type": "number", "exclusiveMinimum": 0 }
+        },
+        "simultaneous_familywise_upper_ratio": { "type": "number", "exclusiveMinimum": 0 },
+        "every_peer_strict_win": { "type": "boolean" }
+      }
+    },
+    "seatMapDecimal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["h", "b", "s", "d"],
+      "properties": {
+        "h": { "$ref": "#/$defs/decimal" },
+        "b": { "$ref": "#/$defs/decimal" },
+        "s": { "$ref": "#/$defs/decimal" },
+        "d": { "$ref": "#/$defs/decimal" }
+      }
+    },
+    "seatMapDigest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["h", "b", "s", "d"],
+      "properties": {
+        "h": { "$ref": "#/$defs/digest" },
+        "b": { "$ref": "#/$defs/digest" },
+        "s": { "$ref": "#/$defs/digest" },
+        "d": { "$ref": "#/$defs/digest" }
+      }
+    }
+  }
+}

@@ -1,0 +1,168 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair3-evidence/v1",
+  "date": "2026-07-22",
+  "status": "GREEN_REPAIR3_RESEARCH_ONLY_ZERO_DENOMINATOR_CREDIT",
+  "authority": {
+    "corpus_analysis_tooling_only": true,
+    "may_execute_168_source_denominator": false,
+    "may_generate_ledger_or_shards": false,
+    "parser": false,
+    "production": false
+  },
+  "rejected_repair2_authority": {
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json",
+      "bytes": 7894,
+      "sha256": "c82f75e684f1990d1e458a124f7c8ca592377a0bf01f0bf1b473108d17963cb4"
+    },
+    "challenge_a": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-challenge-a.json",
+      "bytes": 18176,
+      "sha256": "bd1c979b6cae4a234c17406b9966f18ccea367281304a8da39eab463c1b9f98c",
+      "verdict": "REJECT"
+    },
+    "challenge_b": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-challenge-b.json",
+      "bytes": 21312,
+      "sha256": "0cbb4a4293cf96d8e5d1ac2896938991ce453e416f2398779dfa8b060656d4e6",
+      "verdict": "REJECT"
+    },
+    "root": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-root-gestalt.json",
+      "bytes": 7431,
+      "sha256": "c1cd26a4285f79be04b3da3c7af820cf595eaff5bf770e9a5442e13a95df7b8c",
+      "verdict": "TERMINAL_REJECT_REPAIR2_ZERO_DENOMINATOR_CREDIT"
+    }
+  },
+  "repair3_subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 56293,
+      "lines": 1445,
+      "sha256": "8181757557f3a6e86ea5d45c3620c2649e6b083c4a4aead323c4196f17040425"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 17007,
+      "lines": 382,
+      "sha256": "f2c2397c22b7fdae350b074943c52cb18906e6c9e814f8f3bc709b57f411fc33"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 18149,
+      "lines": 414,
+      "sha256": "989ff130d4c6fd11688d02a91109860663fdf255bff859e75290b38264b177aa"
+    },
+    "semantic_contract": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json",
+      "bytes": 6381,
+      "sha256": "732ebafdf0336c9c21027bfa4b4df3b6b143ef61336603750797b4a254c1c702",
+      "rules": 10,
+      "witnesses": 19
+    },
+    "deterministic_output": {
+      "bytes": 14316,
+      "sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+      "workspace_runs": 1,
+      "external_cwd_runs": 1,
+      "byte_identical": true
+    }
+  },
+  "parsimony": {
+    "repair2_analyzer_oracle_test_bytes": 122934,
+    "repair3_analyzer_oracle_test_contract_bytes": 97830,
+    "net_bytes": -25104,
+    "percent_reduction": 20.42,
+    "repair3_analyzer_oracle_test_lines": 2241,
+    "duplicated_policy_removed": [
+      "The 44,369-byte second source-state/reference/heading/carrier/ledger implementation was deleted.",
+      "Semantic authority now resides in a 6,381-byte declarative contract with exact external-authority witnesses.",
+      "The 17,007-byte verifier checks indexed relations, byte provenance, contract witnesses, collisions, and admitted ledger identity without reconstructing the analyzer policy.",
+      "The test driver was reduced from 31,914 to 18,149 bytes while retaining the frozen fixture and inherited rails and adding the rejected-review counterexamples."
+    ]
+  },
+  "confirmed_repairs": [
+    "Bibliographic targets and their six accepted modifiers are declaratively validated; invalid status and punctuation targets are absent, and definition slashes reject adjacent whitespace.",
+    "Mismatched close recovery removes every suffix opening in reverse stack order, including duplicate same-name openings, without corrupting later processed-code depth.",
+    "Ordinary pre, Bikeshed datablocks, explicit l descendants, and Markup Shorthands css no have distinct source-state semantics.",
+    "Href-less manual autolinks, definition-bearing headings, and nearest-ancestor definition name/scope attributes enter the occurrence relations.",
+    "Attributes preserve raw byte spelling and expose an entities-decoded semantic value before URL, scope, and target resolution.",
+    "Only REVIEWED_ACCEPTED operation rows are admitted, and stable-ID collision reporting covers the union candidate/operation/carrier namespace.",
+    "Heading and explicit-operation ownership is assigned by active structural-container ancestry, so a heading in a closed nested section cannot own a later operation.",
+    "Setext underline rows are consumed once and URL scheme recognition is ASCII-case-insensitive.",
+    "Hostile source/options/ledger access produces explicit input-contract evidence instead of escaping analyzer exceptions.",
+    "The verifier uses content-addressed semantic witnesses and indexed maps for tags, dispositions, headings, ledgers, carriers, and stable IDs; analyzer and verifier work are reported separately."
+  ],
+  "test_evidence": {
+    "frozen_v9_cases": 18,
+    "inherited_v8_evidence_cases": 29,
+    "semantic_contract_rules": 10,
+    "semantic_witnesses": 19,
+    "rejected_mutations": 13,
+    "hostile_option_cases": 6,
+    "arbitrary_byte_sequences_no_throw": 512,
+    "arbitrary_input_bytes": 130605,
+    "decoded_utf8_bytes": 237348,
+    "state_labels_covered": 13,
+    "geometric_families": 4,
+    "geometric_rows": 20,
+    "geometric_sizes": [32, 64, 128, 256, 512],
+    "analyzer_and_verifier_work_reported_separately": true,
+    "formal_bound_or_benchmark_credit": 0
+  },
+  "inputs_and_dependencies": {
+    "v9_fixtures": {
+      "bytes": 12452,
+      "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a"
+    },
+    "v8_fixture_runner": {
+      "bytes": 22402,
+      "sha256": "3c5926b4911b0826fe86d4252aa93110083c22744bd2ffb4de5b3dd45d3ebc0a"
+    },
+    "entities_package": {
+      "version": "7.0.1",
+      "package_json_bytes": 3740,
+      "package_json_sha256": "b33b5d3fd4a8e196d3245c10ebb8feb2e076fc8d392f99a1050377d6e2b8b641"
+    },
+    "package_lock": {
+      "bytes": 309241,
+      "sha256": "26e03976bb05d94ba5602b9fd7c0e8ac44a75a63fbd0a05419dc6ff9c4dbc5de"
+    },
+    "qualification": "These identities support bounded replay; an authenticated relocatable launcher and complete transitive runtime closure remain RED."
+  },
+  "commands": [
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+    "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+    "cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs"
+  ],
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1"
+  },
+  "remaining_red": [
+    "This subject is corpus-analysis tooling only and creates no parse-that parser, feature, or conformance credit.",
+    "The complete independently reviewed normative operation ledger does not exist.",
+    "The 168-source universe was not executed.",
+    "Denominator shards, compatibility publication, authenticated launcher/runtime closure, crash-fault custody, and full-corpus resource proof remain absent.",
+    "The work counters and geometric rows are observations, not a formal resource bound or benchmark.",
+    "Two fresh independent exact-byte hostile challenges and root adjudication are required before this subject may seed a denominator traversal."
+  ],
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

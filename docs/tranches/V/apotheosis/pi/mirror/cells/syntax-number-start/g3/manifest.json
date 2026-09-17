@@ -1,0 +1,103 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 3,
+  "status": "SEALED_AWAITING_TWO_CHALLENGES_AND_GESTALT",
+  "sealed_at": "2026-07-22",
+  "public_inputs": [
+    {
+      "path": "feature.json",
+      "bytes": 12220,
+      "sha256": "418497ede79bd23afab6e53d63e05887b703a33b1cd69a52f4fcbacb61c406f9"
+    },
+    {
+      "path": "contract.ts",
+      "bytes": 2830,
+      "sha256": "31ffbac4e1833a3a31342e4ce5dca47eb19c3c996b71e76eb28e92003de54322"
+    },
+    {
+      "path": "harness.ts",
+      "bytes": 15655,
+      "sha256": "60f0f60504f2bc2a55c6e1d79970762716a0dbc1a85219cb625d7341e00a3ec9"
+    },
+    {
+      "path": "fixtures/cases.json",
+      "bytes": 3893,
+      "sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706"
+    },
+    {
+      "path": "benchmark-protocol.json",
+      "bytes": 6749,
+      "sha256": "f6f79fa87f7b1c800434faaf6d38b8f499ab880a8ef2268f0fabb002f37b55a8"
+    },
+    {
+      "path": "promotion-protocol.json",
+      "bytes": 2143,
+      "sha256": "b0b79f1aa27de96f69eb42207b75632f6ff746c7313f164396df6283dfd4acd1"
+    },
+    {
+      "path": "promotion-verifier.ts",
+      "bytes": 5861,
+      "sha256": "fc1078dbbad8af3948cf337b7d129143550af75b74c692a112d1d579885cb432"
+    },
+    {
+      "path": "parse-that-dist.ledger",
+      "bytes": 5586,
+      "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b"
+    },
+    {
+      "path": "../g2/integration-base.ledger",
+      "bytes": 1756,
+      "sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c"
+    },
+    {
+      "path": "../../../tsconfig.json",
+      "bytes": 586,
+      "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc"
+    },
+    {
+      "path": "../../../package.json",
+      "bytes": 535,
+      "sha256": "9250d9d95ab51664a47682a61bb1d82de8938481d8413b792378c9155d15723b"
+    },
+    {
+      "path": "../../../package-lock.json",
+      "bytes": 69400,
+      "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"
+    },
+    {
+      "path": "../../../../MODULE-DAG.md",
+      "bytes": 4880,
+      "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f"
+    },
+    {
+      "path": "../../../../FEATURE-LEDGER.md",
+      "bytes": 12070,
+      "sha256": "8e52ecc7899b7f0a5404be9a46be8b42bde55424b3fb81029c542604bdff41e7"
+    },
+    {
+      "path": "../../../../ADDENDA-07.md",
+      "bytes": 20954,
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5"
+    }
+  ],
+  "holdout": {
+    "status": "SEALED_WITHHELD",
+    "custodian": "/root/number_start_g2_spec_challenge#g3-restart-2",
+    "bytes": 9645,
+    "cases": 58,
+    "true": 29,
+    "false": 29,
+    "sha256": "968d2bb63477bf38ae2bf8c17667ba1cabd5faee2d859ec0dab9077357197b17",
+    "bound_precursor_feature_sha256": "b964292d5c68270b572835238abf1f7a967276709018825fe48c37fab63c8aa1",
+    "canonicalization": "UTF-8 canonical JSON with LF termination",
+    "reveal": "Only after all five candidate source, overlay, and projected aggregate identities close."
+  },
+  "discarded_holdouts": [
+    {
+      "reason": "A parse-that dist ledger became a public input after restart-1 closed; its bytes were discarded and are not valid for this seal.",
+      "sha256": "da31426dd6178ab3435338d10585343f3c79b0c7fce0015ce7deea161c55b9f4"
+    }
+  ],
+  "candidate_sources_present": false,
+  "admission": "Two fresh independent exact-byte challenges and one gestalt adjudication must accept this manifest before any of five isolated candidate authors may write source. Full-ledger incompleteness still forbids feature apotheosis."
+}

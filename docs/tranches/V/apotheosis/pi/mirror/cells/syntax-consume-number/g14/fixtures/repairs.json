@@ -1,0 +1,25 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.public-repairs/v1",
+  "complete_cases": [
+    { "id": "complete/zero", "source": "0", "offset": 0, "representation": "0", "end": 1, "type": "integer", "sign": null },
+    { "id": "complete/signed-zero", "source": "-0", "offset": 0, "representation": "-0", "end": 2, "type": "integer", "sign": "-", "value_kind": "negative-zero" },
+    { "id": "complete/leading-dot", "source": ".5", "offset": 0, "representation": ".5", "end": 2, "type": "number", "sign": null },
+    { "id": "complete/signed-exponent", "source": "+12.5e-1", "offset": 0, "representation": "+12.5e-1", "end": 8, "type": "number", "sign": "+" },
+    { "id": "complete/nonzero-offset", "source": "@@7E+2", "offset": 2, "representation": "7E+2", "end": 6, "type": "number", "sign": null }
+  ],
+  "repeated_fraction_prefix_cases": [
+    { "id": "repeat/zero", "source": ".0.0", "offset": 0, "representation": ".0", "end": 2, "type": "number", "sign": null },
+    { "id": "repeat/five", "source": ".5.6", "offset": 0, "representation": ".5", "end": 2, "type": "number", "sign": null },
+    { "id": "repeat/plus", "source": "+.5.6e7", "offset": 0, "representation": "+.5", "end": 3, "type": "number", "sign": "+" },
+    { "id": "repeat/minus", "source": "-.9.1%", "offset": 0, "representation": "-.9", "end": 3, "type": "number", "sign": "-" },
+    { "id": "repeat/nonzero-offset", "source": "@@.0.0px", "offset": 2, "representation": ".0", "end": 4, "type": "number", "sign": null },
+    { "id": "repeat/signed-nonzero-offset", "source": "@@@+.5.6%", "offset": 3, "representation": "+.5", "end": 6, "type": "number", "sign": "+" }
+  ],
+  "repeated_fraction_parent_cases": [
+    { "id": "repeat-parent/percentage", "source": ".0.0%", "prefix": "", "suffix": "", "kind": "percentage", "accepts": false },
+    { "id": "repeat-parent/signed-percentage", "source": "+.5.6%", "prefix": "", "suffix": "", "kind": "percentage", "accepts": false },
+    { "id": "repeat-parent/nonzero-percentage", "source": "@@-.9.1%", "prefix": "@@", "suffix": "", "kind": "percentage", "accepts": false },
+    { "id": "repeat-parent/dimension", "source": ".5.6px", "prefix": "", "suffix": "", "kind": "dimension", "accepts": false },
+    { "id": "repeat-parent/delimited", "source": "(.5.6)", "prefix": "(", "suffix": ")", "kind": "delimited", "accepts": false }
+  ]
+}

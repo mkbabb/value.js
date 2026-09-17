@@ -1,0 +1,160 @@
+{
+  "schema": "value.pi.syntax-consume-number.g12.boundary-review/v1",
+  "review_seat": "A",
+  "reviewer_task_evidence": {
+    "canonical_task_id": "/root/g12_boundary_review_a",
+    "parent_task_id": "/root",
+    "basis": "External collaboration NEW_TASK envelope observed outside the reviewed workspace bytes",
+    "served_model_receipt": "NOT_EXPOSED_IN_TASK_ENVELOPE",
+    "review_boundary_b_read": false,
+    "parser_candidates_created": false,
+    "holdout_data_created": false,
+    "author_tasks_created": false
+  },
+  "subject": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/formation-receipt.json",
+    "sha256": "56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a",
+    "bytes": 4922,
+    "closure_sha256": "28ce596310273a53cb257ade553999afc9b0574ec8f3b2f16c4d96a34fd1e278",
+    "row_count": 25,
+    "receipt_mode": "0444"
+  },
+  "commands": [
+    {
+      "command": "shasum -a 256 formation-receipt.json; wc -c formation-receipt.json",
+      "cwd": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12",
+      "result": "PASS: exact SHA-256 56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a and 4,922 bytes"
+    },
+    {
+      "command": "node --input-type=module -e '<independent per-row SHA-256, byte, lstat mode, and closure verifier>'",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: 25/25 rows were regular non-symlink mode-0444 files with exact identities; independently recomputed closure 28ce596310273a53cb257ade553999afc9b0574ec8f3b2f16c4d96a34fd1e278; receipt mode 0444"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/formation-validator.mjs",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "exit 0; BOUNDARY_READY_FOR_TWO_PUBLIC_REVIEWS_NOT_AUTHORS; exact subject/closure; rows 25; candidates 0; holdout 0; strict TypeScript PASS; all four executable evidence records PASS; credit 0"
+    },
+    {
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/formation-validator.mjs",
+      "cwd": "/tmp",
+      "result": "exit 0; byte-for-byte same formation-result observation as the repository invocation"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/public-corpus-generator.mjs --verify docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/public-corpus.json",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: 70 generated successes, including four required signed-integer-exponent rows"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/root-check.mjs",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: four frozen topology probes; genuine H regex, B factorized, S staged, and D dispatch feasibility; G11 incomplete signed-exponent parser rejected on cross/+/7/e2; zero timing gates"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/peer-harness.mjs --print",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: 15 cases; exact eight-case common lane; live_regex, deposed, and c14 inclusions/exclusions matched peer-expected.json and retained their distinct observations"
+    },
+    {
+      "command": "for seat in h b s d; do node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/candidate-closure.mjs --assay $seat; done",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS for the four frozen positive probes: one regular non-executable index.ts each, strict compilation, resolved import input, bundle identity, and ROOT_ASSAY_CLOSED_ZERO_CREDIT"
+    },
+    {
+      "command": "node --input-type=module - '<evaluate candidate-closure.mjs sourceLaw regexes against in-memory counterexamples>'",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "COUNTEREXAMPLE: ambient_forbidden_regex_matches=false; b_lexical_topology_accepted=true although actual all/any calls were both zero and the actual recognizer was a split whole-prefix RegExp"
+    },
+    {
+      "command": "node --input-type=module -e '<inspect public-worker failure offsets and corpus decimal-rollback axis>'",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "COUNTEREXAMPLE SURFACE: failure_state_offsets=[0]; incomplete_fraction_public_axis=false; hostile semantic assertions absent beyond no-throw and offset bounds"
+    },
+    {
+      "command": "test ! -e <each candidates/{h,b,s,d} and named holdout/later-phase artifact>",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: all four candidate roots, holdout ciphertext/receipt/reveal, and candidate-reviewed-subject were absent"
+    }
+  ],
+  "positive_evidence": [
+    "The exact 4,922-byte receipt and 25-row closure are internally consistent, immutable at mode 0444, and caller-CWD independent. The validator passed from the repository and /tmp under a sanitized fixed child environment with bounded timeout and output.",
+    "The public contract states the correct maximal CSS number prefix language, sign/type rules, UTF-16 offset behavior, Number carrier including signed zero/subnormal/overflow behavior, exact frozen ordinary three-key result, transaction/no-throw behavior, and composition surface.",
+    "The independently generated public axes cover all three signs, integer/fraction/leading-dot mantissas, four exponent forms, all 27 incomplete-exponent rollbacks, nonzero UTF-16 offsets, seven predecessor profiles, ordinary and preseeded-ahead diagnostics, five parent compositions, binary64 extremes, and the G11 signed-integer-exponent regression.",
+    "The deliberate G11 incomplete parser is actually bundled and rejected, while the four frozen H/B/S/D probes are visibly and executably different constructions under the pinned parse-that core.",
+    "The peer worker calls the actual live parseCssScalar, frozen historical parse-that parser, and C14 numberValue implementation before normalization. The 14-source bundle closure, Node binary, package lock, six package trees, exact observations hash, and lane exclusions all replayed.",
+    "The chronology is satisfiable and correctly ordered: two public reviews, root acceptance, a separately tasked unrevealed holdout seal, four external author tasks, four candidate closures, reveal, skeptics, then adjudicators. Current hashes do not claim actor identity, all later artifacts are absent, and all formation/candidate/parser/benchmark credit remains zero.",
+    "The candidate closer does correctly fix the seat root and one-file index.ts inventory, reject filesystem symlinks and executable bits, run strict TypeScript, bind the static esbuild input graph and bundle, and reject ordinary static out-of-root and non-core imports. These positive controls do not exercise the lexical-policy bypasses below."
+  ],
+  "findings": [
+    {
+      "id": "G12-A-01",
+      "severity": "BLOCKER",
+      "category": "candidate-topology-enforcement",
+      "finding": "candidate-closure.mjs treats raw source text as proof of construction. Required all(/any(/then(/dispatch( and new Parser/save/call/restore counts are satisfied by comments or strings, while the forbidden H recognizer is defeated by splitting the same pattern across string literals. An in-memory B counterexample containing comment-only all( and any( markers, exactly one real transaction wrapper, and an H-equivalent new RegExp assembled from fragments satisfies every B lexical predicate despite making zero all/any calls.",
+      "exact_evidence": [
+        "sourceLaw computes hasAll/hasAny/hasThen/hasDispatch and wrapper operation counts with regular expressions over joined raw text, without parsing the TypeScript AST or inspecting the built combinator graph",
+        "sourceLaw detects the whole recognizer only with joined.includes(exactString), so string concatenation defeats it",
+        "The independent in-memory replay returned b_lexical_topology_accepted=true with actual combinator calls {all:0,any:0}",
+        "The four --assay runs are positive controls only; candidate-closure.mjs has no frozen negative controls for comments, strings, aliases, computed properties, or equivalent recognizers"
+      ],
+      "impact": "A B, S, or D closure can attest the advertised independent construction while actually reusing H's whole-prefix design. This defeats the four-construction denominator before the holdout exists; a later semantic holdout or benchmark cannot reconstruct genuine independent topology."
+    },
+    {
+      "id": "G12-A-02",
+      "severity": "BLOCKER",
+      "category": "candidate-ambient-capability-and-state-isolation",
+      "finding": "The no-scanner/core-only/ambient-capability law is also only a deny-list regex and is bypassed by computed names. Reflect.get(globalThis, \"pro\" + \"cess\").getBuiltinModule(\"node:\" + \"fs\") reaches the filesystem without a static import and without matching the forbidden expression; esbuild's import metafile cannot report that runtime lookup. In B/S the same technique can read or write state[\"s\"+\"rc\"] and state[\"off\"+\"set\"] while evading the literal .src/.offset checks.",
+      "exact_evidence": [
+        "The independent sourceLaw replay returned ambient_forbidden_regex_matches=false for a direct core import followed by computed process/getBuiltinModule/fs access",
+        "lib.mjs intentionally executes candidate bundles as ordinary Node processes; cleanEnv removes loader variables but does not remove Node globals or process.getBuiltinModule",
+        "sourceLaw permits Reflect, globalThis, computed property access, Array.from/reduce scanners, state.value/diagnostic mutation, and arbitrary extra wrapper state operations",
+        "The contract says the B/S wrapper's sole state operations are save(), one inner.call(), conditional restore(), and isError restoration, which the checker does not structurally enforce"
+      ],
+      "impact": "A closed candidate can inspect out-of-seat files or the corpus path, manually scan/mutate parser state, or spawn further ambient behavior while receiving PASS_DIRECT_PARSE_THAT_NO_STATE_SCANNER_NO_AMBIENT_IMPORT. This breaks author-input isolation and makes later holdout evidence non-hermetic."
+    },
+    {
+      "id": "G12-A-03",
+      "severity": "MAJOR",
+      "category": "public-maximal-prefix-and-transaction-kill-strength",
+      "finding": "The public Cartesian products cover incomplete exponent rollback but not the other guarded CSS suffix: a decimal point not followed by a digit. peer-corpus.json contains incomplete-fraction 1., but peer evidence is never applied to candidates. All explicit failure transaction runs start at offset zero, and hostile rows assert only no throw and offset bounds rather than the declared leaf/failure semantics.",
+      "exact_evidence": [
+        "public-corpus.json has incomplete_exponent_matrix but no incomplete_fraction or incomplete_decimal matrix",
+        "public-worker.ts constructs every runFailure ParserState with offset 0",
+        "The hostile loop does not assert isError, predecessor preservation, exact consumed prefix, diagnostics, or exact result",
+        "A recognizer that allows [0-9]+\\.[0-9]* consumes 1. instead of the required integer prefix 1; coupled with G12-A-01's comment marker bypass, an H-shaped candidate can close and pass every public semantic row"
+      ],
+      "impact": "The public evidence does not by itself establish all maximal-prefix and nonzero-failure transaction branches. A correctly generated secret holdout could kill these candidates later, so this finding grants no parser credit and is distinct from the frozen candidate-closure blockers, which a holdout cannot repair."
+    }
+  ],
+  "three_altitude_verdict": {
+    "total_tranche": {
+      "verdict": "ACCEPT",
+      "findings": [
+        "Exact frozen identities, zero-credit denominator, satisfiable public-review/root/custodian/author chronology, later-phase absence, and environment-bounded formation replay are sound at this altitude.",
+        "This ACCEPT is formation sequencing evidence only; it is not candidate, holdout, parser, or benchmark credit."
+      ]
+    },
+    "feature_cell": {
+      "verdict": "REJECT",
+      "findings": [
+        "The CSS contract and positive/negative feasibility probes are sound, but the candidate-facing public suite omits incomplete-decimal maximal-prefix cross-products and nonzero failure transaction profiles.",
+        "Later sealed holdout cases may add semantic evidence, but no such artifact exists now and formation remains zero parser credit."
+      ]
+    },
+    "author_admission_and_tooling": {
+      "verdict": "REJECT",
+      "findings": [
+        "The frozen candidate closer can be made to certify false H/B/S/D construction distinctions using comments and split literals.",
+        "Computed Node and ParserState access defeats the stated no-ambient, no-scanner, core-only, and author-input-isolation boundary."
+      ]
+    }
+  },
+  "required_repairs": [
+    "Replace raw-text topology counting with a TypeScript-AST and resolved-symbol allowlist that proves actual calls and actual combinator dataflow, ignores comments/strings, rejects aliases/equivalent whole gates in non-H seats, and structurally confines the B/S wrapper to the exact permitted state operations.",
+    "Make ambient capability and state access enforcement closed-world rather than regex-deny-list: reject computed/global access and unapproved expressions, add executable negative controls for process.getBuiltinModule, Reflect/computed src/offset access, non-loop scanners, state/diagnostic mutation, and child/network/filesystem escapes, and run closures in a capability sandbox if source proof is not complete.",
+    "Add signed incomplete-decimal maximal-prefix matrices at zero and nonzero UTF-16 offsets, nonzero failure transaction/diagnostic profiles, and exact hostile success/failure observations; keep the later unrevealed holdout and benchmark gates separate and zero-credit until they actually run."
+  ],
+  "verdict": "REJECT",
+  "credit": "ZERO_FORMATION_ZERO_CANDIDATE_ZERO_PARSER_ZERO_BENCHMARK",
+  "rationale": "The exact-byte formation, CSS contract, signed-exponent redress, genuine frozen feasibility probes, peer transitive closure, clean bounded execution, and corrected chronology are substantial. They do not make the frozen author/candidate boundary sufficient: its lexical architecture proof admits false construction identities and computed ambient/state access. Those are pre-author blockers, not defects that a later semantic holdout or benchmark can cure."
+}

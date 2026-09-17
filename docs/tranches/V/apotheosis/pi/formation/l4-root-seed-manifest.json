@@ -1,0 +1,3065 @@
+{
+  "schema_version": "value.pi.l4-root-seed/v2",
+  "artifact_kind": "gate-1-formation-root-seed",
+  "generated_at": "2026-07-21T20:18:12Z",
+  "authority_status": "PROPOSED_NOT_RATIFIED_ROOT_SELECTION_ONLY",
+  "phase_b_code_authorized": false,
+  "previous_seed": {
+    "root_count": 21,
+    "manifest_content_digest": "16c5fc8c57d5f092096a8060024e3884b9474aa941aef8389ac3e0d94b7026ce",
+    "disposition": "SUPERSEDED_AFTER_AUDIT_B_REVERSE_CONSUMER_SCOPE_DEFECT"
+  },
+  "official_repository": "https://github.com/w3c/csswg-drafts.git",
+  "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+  "verified_commit_parent": "df2c8d991cdad3582adb549bae076d7a05104ced",
+  "verified_commit_tree": "75bf19c016ed98126381508073de6893c9f756f5",
+  "commit_edge_verification": {
+    "status": "VERIFIED_FROM_OFFICIAL_REMOTE",
+    "method": "Fetch the exact immutable object from the official Git remote; re-hash its raw commit body as a Git commit object; parse its tree header; require the parsed tree to equal rev-parse <commit>^{tree}; run git fsck --strict.",
+    "rehash_result": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "parsed_tree_result": "75bf19c016ed98126381508073de6893c9f756f5"
+  },
+  "resolver": {
+    "name": "value-pi-csswg-root-seed-resolver",
+    "version": "2.0.0",
+    "query_version": "snapshot-2026-stability-union-owner-roots/2",
+    "query": "At immutable CSSWG commit c7573530343759ace8e46438a1fa2c44515b5554, include css-2026/Overview.bs as scope evidence; parse exactly the top-level <dt> TR links in the four stability-band <dl> blocks bounded by the frozen section markers; normalize only the five declared TR-slug aliases; resolve Overview.bs then Overview.src.html then Overview.html inside the same Git tree; union the 21 explicit owner family roots from seed v1; de-duplicate by exact source path; sort by unsigned UTF-8 path bytes; then let PB0 follow normative grammar-bearing dependencies.",
+    "selection_kind": "snapshot_stability_membership_union_explicit_owner_paths",
+    "snapshot_parser": {
+      "version": "css-2026-membership-parser/1.0.0",
+      "source_path": "css-2026/Overview.bs",
+      "source_sha256": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+      "item_rule": "within each exact band slice, inspect only the first membership <dl>; split top-level <dt> entries; collect and de-duplicate https://www.w3.org/TR/<slug>/ links from each <dt> header before its <dd>",
+      "aliases": {
+        "CSS2": "css2",
+        "css-style-attr": "css-style-attr-1",
+        "css3-mediaqueries": "mediaqueries-3",
+        "css-namespaces": "css-namespaces-3",
+        "css-font-loading": "css-font-loading-3"
+      },
+      "source_resolution_priority": [
+        "Overview.bs",
+        "Overview.src.html",
+        "Overview.html"
+      ],
+      "metadata_rule": "Parse each metadata key from its own physical header line only; a blank Level: value normalizes to the string sentinel none and must never consume the following Status:, Work Status:, or other key.",
+      "included_bands": [
+        "official_definition",
+        "reliable_candidate_recommendation",
+        "fairly_stable_limited_implementation",
+        "rough_interoperability"
+      ],
+      "excluded_sections": [
+        "CSS Current Work external live catalog",
+        "Safe to Release pre-CR Exceptions as whole-module membership; exact normative feature references remain PB0 closure inputs",
+        "CSS Levels, Profiles, responsible-implementation policy, and media-type prose"
+      ]
+    },
+    "canonical_order": "roots sorted by exact_path as unsigned UTF-8 bytes; routed_family_ordinals ascending numerically; snapshot band arrays retain declared order; exact_paths inside each band sort by unsigned UTF-8 bytes",
+    "raw_source_fetch": "HTTPS GET https://raw.githubusercontent.com/w3c/csswg-drafts/<verified_commit>/<exact_path> with curl --proto '=https' --tlsv1.2 -fsSL",
+    "raw_source_verification": "SHA-256 and byte count from the HTTPS response must equal SHA-256 and byte count of git show <verified_commit>:<exact_path>; Git blob OID independently recorded"
+  },
+  "manifest_digest_method": {
+    "algorithm": "sha256",
+    "payload": "the entire parsed JSON object with the top-level manifest_content_digest field removed",
+    "canonicalization": "recursively sort every JSON object key by JavaScript code-unit order; preserve array order; serialize with JSON.stringify and no insignificant whitespace; hash the UTF-8 bytes",
+    "implementation": "Node.js canonical(value): arrays map canonical; object keys Object.keys(value).sort(); JSON.stringify(canonical(payload))"
+  },
+  "family_ledger": [
+    {
+      "ordinal": 1,
+      "name": "full color inventory"
+    },
+    {
+      "ordinal": 2,
+      "name": "full easing and spring()"
+    },
+    {
+      "ordinal": 3,
+      "name": "filters, URL, shapes, and shadow"
+    },
+    {
+      "ordinal": 4,
+      "name": "calc and math"
+    },
+    {
+      "ordinal": 5,
+      "name": "gradients and image union"
+    },
+    {
+      "ordinal": 6,
+      "name": "keyframes, timeline, and trigger depth"
+    },
+    {
+      "ordinal": 7,
+      "name": "media, container, and supports conditions"
+    },
+    {
+      "ordinal": 8,
+      "name": "typed declarations and value matcher"
+    },
+    {
+      "ordinal": 9,
+      "name": "typed selectors"
+    },
+    {
+      "ordinal": 10,
+      "name": "at-rule model and recovery"
+    },
+    {
+      "ordinal": 11,
+      "name": "CSS Syntax Level 3 tokenizer"
+    },
+    {
+      "ordinal": 12,
+      "name": "full transforms and motion path"
+    },
+    {
+      "ordinal": 13,
+      "name": "unit algebra and context requirements"
+    },
+    {
+      "ordinal": 14,
+      "name": "typed var(), env(), and attr() substitution"
+    }
+  ],
+  "scope_ledger": {
+    "snapshot_scope_root_count": 1,
+    "snapshot_stability_member_count": 64,
+    "stability_band_counts": {
+      "official_definition": 24,
+      "reliable_candidate_recommendation": 8,
+      "fairly_stable_limited_implementation": 10,
+      "rough_interoperability": 22
+    },
+    "explicit_owner_root_count": 21,
+    "snapshot_owner_overlap_count": 10,
+    "additive_owner_extension_count": 11,
+    "union_root_count": 76,
+    "snapshot_owner_overlap_paths": [
+      "css-backgrounds-3/Overview.bs",
+      "css-cascade-5/Overview.bs",
+      "css-color-5/Overview.bs",
+      "css-nesting-1/Overview.bs",
+      "css-shapes-1/Overview.bs",
+      "css-syntax-3/Overview.bs",
+      "css-transforms-2/Overview.bs",
+      "filter-effects-1/Overview.bs",
+      "motion-1/Overview.bs",
+      "selectors-4/Overview.bs"
+    ],
+    "rule": "All four snapshot stability bands are in scope as independently pinned membership. Owner roots not in those bands remain separately marked later/experimental extensions. Membership does not itself grant semantic implementation credit."
+  },
+  "stability_band_ledger": [
+    {
+      "band": "official_definition",
+      "start_marker": "<h3 id=css-official>",
+      "end_marker": "<h3 id=reliable-cr>",
+      "inclusion": "INCLUDED_EXACTLY",
+      "member_count": 24,
+      "exact_paths": [
+        "compositing-1/Overview.bs",
+        "css-backgrounds-3/Overview.bs",
+        "css-box-3/Overview.bs",
+        "css-cascade-4/Overview.bs",
+        "css-color-4/Overview.bs",
+        "css-conditional-3/Overview.bs",
+        "css-contain-1/Overview.bs",
+        "css-counter-styles-3/Overview.bs",
+        "css-easing-1/Overview.bs",
+        "css-flexbox-1/Overview.bs",
+        "css-fonts-3/Overview.html",
+        "css-images-3/Overview.bs",
+        "css-multicol-1/Overview.bs",
+        "css-namespaces-3/Overview.bs",
+        "css-style-attr-1/Overview.src.html",
+        "css-syntax-3/Overview.bs",
+        "css-transforms-1/Overview.bs",
+        "css-ui-3/Overview.bs",
+        "css-values-3/Overview.bs",
+        "css-variables-1/Overview.bs",
+        "css-writing-modes-3/Overview.bs",
+        "css2/Overview.bs",
+        "mediaqueries-3/Overview.html",
+        "selectors-3/Overview.src.html"
+      ]
+    },
+    {
+      "band": "reliable_candidate_recommendation",
+      "start_marker": "<h3 id=reliable-cr>",
+      "end_marker": "<h3 id=fairly-stable>",
+      "inclusion": "INCLUDED_EXACTLY",
+      "member_count": 8,
+      "exact_paths": [
+        "css-cascade-5/Overview.bs",
+        "css-color-adjust-1/Overview.bs",
+        "css-conditional-4/Overview.bs",
+        "css-grid-1/Overview.bs",
+        "css-grid-2/Overview.bs",
+        "css-scroll-snap-1/Overview.bs",
+        "css-scrollbars-1/Overview.bs",
+        "mediaqueries-4/Overview.bs"
+      ]
+    },
+    {
+      "band": "fairly_stable_limited_implementation",
+      "start_marker": "<h3 id=fairly-stable>",
+      "end_marker": "<h3 id=rough-interop>",
+      "inclusion": "INCLUDED_EXACTLY",
+      "member_count": 10,
+      "exact_paths": [
+        "css-align-3/Overview.bs",
+        "css-break-3/Overview.bs",
+        "css-display-3/Overview.bs",
+        "css-masking-1/Overview.bs",
+        "css-shapes-1/Overview.bs",
+        "css-speech-1/Overview.bs",
+        "css-text-3/Overview.bs",
+        "css-text-decor-3/Overview.bs",
+        "css-view-transitions-1/Overview.bs",
+        "css-writing-modes-4/Overview.bs"
+      ]
+    },
+    {
+      "band": "rough_interoperability",
+      "start_marker": "<h3 id=rough-interop>",
+      "end_marker": "<h3 id=\"css-levels\">",
+      "inclusion": "INCLUDED_EXACTLY",
+      "member_count": 22,
+      "exact_paths": [
+        "css-animations-1/Overview.bs",
+        "css-color-5/Overview.bs",
+        "css-contain-2/Overview.bs",
+        "css-font-loading-3/Overview.bs",
+        "css-fonts-4/Overview.bs",
+        "css-lists-3/Overview.bs",
+        "css-logical-1/Overview.bs",
+        "css-nesting-1/Overview.bs",
+        "css-position-3/Overview.bs",
+        "css-scroll-anchoring-1/Overview.bs",
+        "css-sizing-3/Overview.bs",
+        "css-transforms-2/Overview.bs",
+        "css-transitions-1/Overview.bs",
+        "css-will-change-1/Overview.bs",
+        "cssom-1/Overview.bs",
+        "cssom-view-1/Overview.bs",
+        "filter-effects-1/Overview.bs",
+        "geometry-1/Overview.bs",
+        "motion-1/Overview.bs",
+        "resize-observer-1/Overview.bs",
+        "selectors-4/Overview.bs",
+        "web-animations-1/Overview.bs"
+      ]
+    }
+  ],
+  "roots": [
+    {
+      "id": "root-animation-triggers-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "animation-triggers-1/Overview.bs",
+      "module_shortname": "animation-triggers",
+      "module_title": "Animation Triggers",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a0e5dbe1a760dbc958da79d3aed0c88c765ece33",
+      "sha256_raw_source": "6d88146248aed4e3e873820b35c7ac2af0c0f0e2b2ace150d55a1ada8a40196a",
+      "raw_source_bytes": 27020,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        6
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "revising",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "The verified current CSSWG source moved animation-trigger syntax out of CSS Animations 2 into this dedicated module; it is an explicit owner-requested trigger root.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-compositing-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "compositing-1/Overview.bs",
+      "module_shortname": "compositing",
+      "module_title": "Compositing and Blending Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "b3f19ae2b72ca74bad61ef9bf930d8931b490fe3",
+      "sha256_raw_source": "1674031393106ef5f52ab3beb5b5f986d0c91912511dac1a7c85242b62af3213",
+      "raw_source_bytes": 66818,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "compositing-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-2026-scope-evidence",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-2026/Overview.bs",
+      "module_shortname": "css-2026",
+      "module_title": "CSS Snapshot 2026",
+      "module_level": "none",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "23b25266cd0d19e10f9a1907b741fb9d8c5955a8",
+      "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+      "raw_source_bytes": 52105,
+      "snapshot_membership": {
+        "band": "scope_root_evidence",
+        "snapshot_slug": "css-2026",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "self"
+      },
+      "scope_roles": [
+        "scope_root_evidence",
+        "membership_carrier"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "scope_root_evidence",
+        "source_status": "ED",
+        "source_work_status": "revising",
+        "classification": "scope_root_evidence"
+      },
+      "seed_rationale": "Content-addressed source of the four included CSS Snapshot 2026 stability-band membership lists; included as evidence and as the starting scope carrier, not as an operation denominator.",
+      "status": "VERIFIED_SCOPE_ROOT_EVIDENCE"
+    },
+    {
+      "id": "root-css-align-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-align-3/Overview.bs",
+      "module_shortname": "css-align",
+      "module_title": "CSS Box Alignment Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "de3b4b9d32e92a7a1eff5d0ef13b31f5ba11ac1b",
+      "sha256_raw_source": "bf6a78a8aeea6b2967fa6954cc62f41f83212e418346826d9a799c0acdfd20e2",
+      "raw_source_bytes": 104695,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-align-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-animations-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-animations-1/Overview.bs",
+      "module_shortname": "css-animations",
+      "module_title": "CSS Animations Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "273b00e5ca8935b0c7afd69431200ff639ce6a1b",
+      "sha256_raw_source": "2addff804cce623aedb6b24eb25cafae88f0060ce758794c3daf3bb708081eb7",
+      "raw_source_bytes": 54862,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-animations-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        6,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-animations-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-animations-2/Overview.bs",
+      "module_shortname": "css-animations",
+      "module_title": "CSS Animations Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d7eb75bc30bb915215e161063ed3a137f1d76f6f",
+      "sha256_raw_source": "061d6a60297c7d4b811f599b79902ee4ce0ec41daed4657dbbd4391aec826ca4",
+      "raw_source_bytes": 45967,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        6
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Seeds current keyframe-animation extensions and the normative route to inherited CSS Animations Level 1 obligations.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-backgrounds-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-backgrounds-3/Overview.bs",
+      "module_shortname": "css-backgrounds",
+      "module_title": "CSS Backgrounds and Borders Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "33f77e4a49e66b5da6047443b1f23d8b10fff8cc",
+      "sha256_raw_source": "5119e57464695b40659e52bb19dbab978f3440c1665b63e952d158d0474ffb08",
+      "raw_source_bytes": 166998,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-backgrounds-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        3,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Seeds the visual box-shadow grammar; CSS Shadow Module Level 1 is a Shadow-DOM module and is deliberately not substituted for this source. It is also an exact CSS Snapshot 2026 official_definition member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-box-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-box-3/Overview.bs",
+      "module_shortname": "css-box",
+      "module_title": "CSS Box Model Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9453c5950c4fc4d71c8038a14298117d374c21f0",
+      "sha256_raw_source": "46ca6f7e5d5d787d8a1c05466e6ae994795bd90c2cdf1aa51a6db425f7c33171",
+      "raw_source_bytes": 20136,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-box-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Completed",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-break-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-break-3/Overview.bs",
+      "module_shortname": "css-break",
+      "module_title": "CSS Fragmentation Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "74fd00706b3597702d23c5e4b110a0de0524753c",
+      "sha256_raw_source": "1310c4e80ba2c082a49c2b69fbb09e41e0a700ddf625c2fa652b4fd4327fbcff",
+      "raw_source_bytes": 58001,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-break-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-cascade-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-cascade-4/Overview.bs",
+      "module_shortname": "css-cascade",
+      "module_title": "CSS Cascading and Inheritance Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "3e6dec6c1daa85f83869440eb91d3ac82e83fe64",
+      "sha256_raw_source": "e5932127261f9cd5e0e900c9dcad978024cb44fedb77d27f53da7b17953da86f",
+      "raw_source_bytes": 67047,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-cascade-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-cascade-5",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-cascade-5/Overview.bs",
+      "module_shortname": "css-cascade",
+      "module_title": "CSS Cascading and Inheritance Module Level 5",
+      "module_level": 5,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "aad064f4251db6093236c9786e7a430e32361358",
+      "sha256_raw_source": "c2433a793927a74ae8583760ead21494de32a89a3bdd0222cbdb95f4ab900298",
+      "raw_source_bytes": 87793,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-cascade-5",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Seeds declaration, layer, and cascade-adjacent at-rule carriers needed to route typed declarations and recovered rule documents without claiming cascade evaluation. It is also an exact CSS Snapshot 2026 reliable_candidate_recommendation member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-color-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-color-4/Overview.bs",
+      "module_shortname": "css-color",
+      "module_title": "CSS Color Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "238300b75970ab68bf6a0b9339f8e3a01c749b59",
+      "sha256_raw_source": "f5b6afc82d9198d130507448837e19c1b984ae9a1bebb579547822339aaf482a",
+      "raw_source_bytes": 430720,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-color-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        1,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-color-5",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-color-5/Overview.bs",
+      "module_shortname": "css-color",
+      "module_title": "CSS Color Module Level 5",
+      "module_level": 5,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "26f508fc194d45cb0c228a32ba93ad118f9fc327",
+      "sha256_raw_source": "e419968b08ee2768fab0c4b667a73541e35cb8cd0b444fb2b6e2d46b1c8ddc15",
+      "raw_source_bytes": 182733,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-color-5",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        1,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "exploring",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "The owner explicitly requested relative colors, color-mix(), light-dark(), and contrast-color(); this module names those extensions and normatively reaches the Color 4 base. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-color-adjust-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-color-adjust-1/Overview.bs",
+      "module_shortname": "css-color-adjust",
+      "module_title": "CSS Color Adjustment Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6add2cb7d4d6e4e7e7870e9c48c9e53b149e0269",
+      "sha256_raw_source": "b34b7209868e0d082582dda02cab03c8a3c0dfdb430ebb37248eb68f96853bf3",
+      "raw_source_bytes": 51123,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-color-adjust-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        1,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "CR",
+        "source_work_status": "testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-conditional-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-conditional-3/Overview.bs",
+      "module_shortname": "css-conditional",
+      "module_title": "CSS Conditional Rules Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "fdda96660b13ad7c8eeef9f2fc5018871b803291",
+      "sha256_raw_source": "771816b6b976296126988d33f399d45379cc4ca67eb5f8d3e8e1486ddc318365",
+      "raw_source_bytes": 57123,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-conditional-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-conditional-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-conditional-4/Overview.bs",
+      "module_shortname": "css-conditional",
+      "module_title": "CSS Conditional Rules Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "683734be9381cccc391f2fad1c8479b7bf4c00a8",
+      "sha256_raw_source": "7e7aae451f6b9a19090f14791c75aee8a2f4a68dcb552f830420022a8c35cc80",
+      "raw_source_bytes": 26250,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-conditional-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-conditional-5",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-conditional-5/Overview.bs",
+      "module_shortname": "css-conditional",
+      "module_title": "CSS Conditional Rules Module Level 5",
+      "module_level": 5,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a75db13511085279adeb9ed92c321d42e11cc77c",
+      "sha256_raw_source": "b7399a570cdf5d47c0769e0cd1bb62853b3111c13871982270e72a3e2e768e32",
+      "raw_source_bytes": 91099,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        7,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "WD",
+        "source_work_status": "Exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Seeds supports extensions and the current container/style-query grammar; the verified CSS Containment 3 source says those features moved here and is now empty.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-contain-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-contain-1/Overview.bs",
+      "module_shortname": "css-contain",
+      "module_title": "CSS Containment Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6d2061f8aba8286014d9d12f2ce1026784eea29b",
+      "sha256_raw_source": "2946bdb02b9577437edac982f3576256ac062040b0cae20e8f5c5bd88b47ad58",
+      "raw_source_bytes": 55354,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-contain-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "completed",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-contain-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-contain-2/Overview.bs",
+      "module_shortname": "css-contain",
+      "module_title": "CSS Containment Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "52c43c792228b27de3171edb173c4faaf9bed240",
+      "sha256_raw_source": "5a8dbbd4c6a8bccd661c5bb7b66275da9cfb5a93b206f2124cc6f60cfd6ccc4d",
+      "raw_source_bytes": 118409,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-contain-2",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "stable",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-counter-styles-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-counter-styles-3/Overview.bs",
+      "module_shortname": "css-counter-styles",
+      "module_title": "CSS Counter Styles Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "802b33e762973d1d5a5f3e733e51e4b042ade26d",
+      "sha256_raw_source": "296e168274385902eb77f23604c8a095ad9415e78fb089c6d1fde2891fd4c4ba",
+      "raw_source_bytes": 141901,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-counter-styles-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-display-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-display-3/Overview.bs",
+      "module_shortname": "css-display",
+      "module_title": "CSS Display Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "3b914e99201749dffbb123e90024d91531b47158",
+      "sha256_raw_source": "883aa6a221a91f5ee34cab17d8df974891a08921a410901e9328e6ff982671a5",
+      "raw_source_bytes": 115372,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-display-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-easing-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-easing-1/Overview.bs",
+      "module_shortname": "css-easing",
+      "module_title": "CSS Easing Functions Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9088654e2736206adc75d136b0637378f2f83717",
+      "sha256_raw_source": "92043cb3319f450dfdbbef32035324ddf66969f9fe0330514f2c2db7ca74f185",
+      "raw_source_bytes": 19774,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-easing-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        2,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-easing-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-easing-2/Overview.bs",
+      "module_shortname": "css-easing",
+      "module_title": "CSS Easing Functions Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6dae1b21adfafe3013740f3bac163c363e3e94db",
+      "sha256_raw_source": "650cdccf65fe523627ce7917c8d1bef1361dac6bf62a82f8f75c89524a521554",
+      "raw_source_bytes": 36116,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        2
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "This is the official current easing extension root. No spring() carrier exists anywhere in the verified CSSWG tree, so the owner-requested spring row remains an explicit PB0 scope/maturity RED rather than invented syntax.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT_WITH_UNRESOLVED_OWNER_FEATURE"
+    },
+    {
+      "id": "root-css-env-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-env-1/Overview.bs",
+      "module_shortname": "css-env",
+      "module_title": "CSS Environment Variables Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "f5f0429a216e42c5925f9bbbe42b58bc77e93588",
+      "sha256_raw_source": "ded7f567bb4ad5ac14473d7ef43c8d7290b6f2ee197384d374f369c9c3ce1703",
+      "raw_source_bytes": 15854,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        14
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Direct official root for env() substitution and its explicit environment-provider boundary.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-flexbox-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-flexbox-1/Overview.bs",
+      "module_shortname": "css-flexbox",
+      "module_title": "CSS Flexible Box Layout Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "0a91c321010cd9e47f72377c1d11f622280ebba2",
+      "sha256_raw_source": "9045cf12ebac5c027cadaacab8b4e90fcc66657520eeaab140d50e51bd300ffa",
+      "raw_source_bytes": 302576,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-flexbox-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-font-loading-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-font-loading-3/Overview.bs",
+      "module_shortname": "css-font-loading",
+      "module_title": "CSS Font Loading Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "ceb5808f5898de90ffa5547a3306fddb98b9b58f",
+      "sha256_raw_source": "9c2bcb587776351dd79d050dd1eacf7d64989dcdc02662e3e81623a927b767ff",
+      "raw_source_bytes": 58978,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-font-loading",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-fonts-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-fonts-3/Overview.html",
+      "module_shortname": "css-fonts",
+      "module_title": "CSS Fonts Module Level 3",
+      "module_level": 3,
+      "source_format": "html_only_in_verified_tree",
+      "git_blob_oid_sha1": "bb3d4b3686953dafbebf7e6f0be39b77251b2f07",
+      "sha256_raw_source": "b4f219d0592dd1b1a5973c15184206824cd357e6cc83ec79bbe46b8202d8fe9f",
+      "raw_source_bytes": 240516,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-fonts-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": null,
+        "source_work_status": null,
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-fonts-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-fonts-4/Overview.bs",
+      "module_shortname": "css-fonts",
+      "module_title": "CSS Fonts Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "bc543787bd845e9329238608fac67d0350fa6e2c",
+      "sha256_raw_source": "54a92b8ad8bbf97bfd24652c38ff14b8d07be0d541b8b997fce7ed444c894755",
+      "raw_source_bytes": 406898,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-fonts-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Revising",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-grid-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-grid-1/Overview.bs",
+      "module_shortname": "css-grid",
+      "module_title": "CSS Grid Layout Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "ce44ccbdeb8a4834cd02767cb1dcc2e17740cb59",
+      "sha256_raw_source": "4b330f7c33c365dbcac4850d87e4a9e15c8a15df81968ecbba4af24643723021",
+      "raw_source_bytes": 328097,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-grid-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "CRD",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-grid-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-grid-2/Overview.bs",
+      "module_shortname": "css-grid",
+      "module_title": "CSS Grid Layout Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "82955f59b8017912f617cc6b4c88e4b9cf28326d",
+      "sha256_raw_source": "32eff3d4208e584dc2ebb1ce01e5b7ff23e92f7531c4cb989e8f7339127ed5e3",
+      "raw_source_bytes": 240947,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-grid-2",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "CRD",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-images-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-images-3/Overview.bs",
+      "module_shortname": "css-images",
+      "module_title": "CSS Images Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "0f23001004cd2f263a91a30645361933cb83040f",
+      "sha256_raw_source": "47f5caf4d08280cb244e6604515f30eaf30ad9097e014adb58ab1eec5e820b1f",
+      "raw_source_bytes": 117281,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-images-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        5,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-images-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-images-4/Overview.bs",
+      "module_shortname": "css-images",
+      "module_title": "CSS Images Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "632e9fd495ac1abbfeaa9089d5c3d7e6a5a7b2fe",
+      "sha256_raw_source": "e47a6426f40f863a247271a17c400f08edd961989f94b552755ba158ef7cd844",
+      "raw_source_bytes": 135519,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        5
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Direct Level 4 root for gradients, image values, aliases, stops, interpolation, and resource-bearing image forms.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-lists-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-lists-3/Overview.bs",
+      "module_shortname": "css-lists",
+      "module_title": "CSS Lists and Counters Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d18e3405eba902b98cf7cf6a9198924685a5e211",
+      "sha256_raw_source": "417cec4088605d6c300de17bbac4c2be1ea4c3ce1eaf8d660672a5b91a32d902",
+      "raw_source_bytes": 66082,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-lists-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-logical-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-logical-1/Overview.bs",
+      "module_shortname": "css-logical",
+      "module_title": "CSS Logical Properties and Values Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "66856564dbc3bb1ec132648f154de355fd740b7c",
+      "sha256_raw_source": "9b4a85569bcacff752f797fb6214a9eb04fca7173b93a160bcf8a47e39ed2b41",
+      "raw_source_bytes": 39421,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-logical-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-masking-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-masking-1/Overview.bs",
+      "module_shortname": "css-masking",
+      "module_title": "CSS Masking Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "31d40c0b4a032cfa62920f9cdf4e77f6384f5052",
+      "sha256_raw_source": "7b02d1b4a71c65b78ef1420511f0427602b13d7b9f579fb15f85656c09f3e028",
+      "raw_source_bytes": 121961,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-masking-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-multicol-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-multicol-1/Overview.bs",
+      "module_shortname": "css-multicol",
+      "module_title": "CSS Multi-column Layout Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d49c2fd6c8870354bd2f003609d3bd65259609d9",
+      "sha256_raw_source": "12e6a4f00565dbebd467d6eb1af375fd7afd4efa1df245b71cf02a3df1faa010",
+      "raw_source_bytes": 90766,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-multicol-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-namespaces-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-namespaces-3/Overview.bs",
+      "module_shortname": "css-namespaces",
+      "module_title": "CSS Namespaces Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9442ce15f4af6b7240f86eb44a4edd2ab116d958",
+      "sha256_raw_source": "c6db689f29d34569a8b5f2268e786be7d737708d3d734690617ac111e9fe4087",
+      "raw_source_bytes": 13208,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-namespaces",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Completed",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-nesting-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-nesting-1/Overview.bs",
+      "module_shortname": "css-nesting",
+      "module_title": "CSS Nesting Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "41db452e107401cab5b8394b85213f007287a14e",
+      "sha256_raw_source": "2e2bb05f055d03fc02d25314741b59f00a67b3f5fa226a903c75711276a51397",
+      "raw_source_bytes": 39266,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-nesting-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        8,
+        9,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Seeds current nested-rule and nesting-selector carriers required by the recovered-rule and selector families. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-position-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-position-3/Overview.bs",
+      "module_shortname": "css-position",
+      "module_title": "CSS Positioned Layout Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "1e7e9a0e3ae5a8494916ca03817ab0f411216115",
+      "sha256_raw_source": "fef573ef81d55d6f8565ce1c57e088e060c5c48a255620aa1eabce43bec02215",
+      "raw_source_bytes": 66371,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-position-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-scroll-anchoring-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-scroll-anchoring-1/Overview.bs",
+      "module_shortname": "css-scroll-anchoring",
+      "module_title": "CSS Scroll Anchoring Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "bbd7fbc7d29f008c7d6c4506da72df13b6e9f43e",
+      "sha256_raw_source": "9d3e9d48a837f4b35cf3b6ad5302e1564539d7535b8be3e633f884da5acfd751",
+      "raw_source_bytes": 15557,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-scroll-anchoring-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Revising",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-scroll-snap-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-scroll-snap-1/Overview.bs",
+      "module_shortname": "css-scroll-snap",
+      "module_title": "CSS Scroll Snap Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a355c20611178ff37fdc9a9763b44ae3aabdf75d",
+      "sha256_raw_source": "fc16af57e81a30d01972867ef44ca02dd7b72a39cb352eba9787fc345ad737af",
+      "raw_source_bytes": 79610,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-scroll-snap-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-scrollbars-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-scrollbars-1/Overview.bs",
+      "module_shortname": "css-scrollbars",
+      "module_title": "CSS Scrollbars Styling Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "48a0413dca538416f6f61c985ce2cff00ecf96f5",
+      "sha256_raw_source": "e29bf0b59d3e4fcea8da92715b156413b2cfc31db5d2ec2199cfe8446f1f65c7",
+      "raw_source_bytes": 29597,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "css-scrollbars-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "ED",
+        "source_work_status": "Revising",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-shapes-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-shapes-1/Overview.bs",
+      "module_shortname": "css-shapes",
+      "module_title": "CSS Shapes Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "ab9d65831346eabffabbab5342b4005572ab9926",
+      "sha256_raw_source": "4a73dc39cd2b9f5a877a11b4962a52f8c7bf85debe1860a0b26329228a81e02b",
+      "raw_source_bytes": 94337,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-shapes-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        3,
+        8,
+        12
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Seeds the shared basic-shape and geometry vocabulary used by effects and motion-path parsing. It is also an exact CSS Snapshot 2026 fairly_stable_limited_implementation member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-sizing-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-sizing-3/Overview.bs",
+      "module_shortname": "css-sizing",
+      "module_title": "CSS Box Sizing Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c52a8647eee2edfb1ebd636d71e77b6954c5e866",
+      "sha256_raw_source": "4cd217e42d1ca9285371a479e36076ff2c339ea5066302337b9fbbbb5b2227a7",
+      "raw_source_bytes": 94025,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-sizing-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        4,
+        8,
+        13
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-speech-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-speech-1/Overview.bs",
+      "module_shortname": "css-speech",
+      "module_title": "CSS Speech Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6db7be139f592cfd33a166841a0578d164455647",
+      "sha256_raw_source": "a59295dd529bf7394a17b910a5a38c58ba1a8c351e854c84850f2c95c1f1471e",
+      "raw_source_bytes": 79991,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-speech-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-style-attr-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-style-attr-1/Overview.src.html",
+      "module_shortname": "css-style-attr",
+      "module_title": "CSS Style Attributes",
+      "module_level": 1,
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "204df005f918776e62816ee21d0dfb5ca1166622",
+      "sha256_raw_source": "5c1aef3d0f0d8cb8afbceda4d31c058eca3c91d2ff27825db394e2b6b17a9071",
+      "raw_source_bytes": 11054,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-style-attr",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": null,
+        "source_work_status": null,
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-syntax-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-syntax-3/Overview.bs",
+      "module_shortname": "css-syntax",
+      "module_title": "CSS Syntax Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "238e068faf59212a4790cffcc27731e8c697c113",
+      "sha256_raw_source": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "raw_source_bytes": 144427,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-syntax-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10,
+        11
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Mandatory preprocessing, tokenization, component-value, declaration, rule, recovery, and serialization foundation for every routed family. It is also an exact CSS Snapshot 2026 official_definition member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-text-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-text-3/Overview.bs",
+      "module_shortname": "css-text",
+      "module_title": "CSS Text Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "e28a5c3cb05cbd89c4fa3ddea882e241bc729749",
+      "sha256_raw_source": "404b3febe09f47fe6deb3f9279448a222a8e72042a0aa7cbcdc2d46f15844af7",
+      "raw_source_bytes": 315372,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-text-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-text-decor-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-text-decor-3/Overview.bs",
+      "module_shortname": "css-text-decor",
+      "module_title": "CSS Text Decoration Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "94f76df84c522b575be3008b0811281680745315",
+      "sha256_raw_source": "a8deabf2862ba056592f70c42ba9c678efa0a10ebbfb867c5bc881a7aa9543ab",
+      "raw_source_bytes": 48617,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-text-decor-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-transforms-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-transforms-1/Overview.bs",
+      "module_shortname": "css-transforms",
+      "module_title": "CSS Transforms Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "308749d07130451ef515a67282b6de7fa6d96443",
+      "sha256_raw_source": "efa546b47442be30a773fd60b1a236b206720ea7942d88cfd539ebc6b32c95ee",
+      "raw_source_bytes": 73009,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-transforms-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        12
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-transforms-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-transforms-2/Overview.bs",
+      "module_shortname": "css-transforms",
+      "module_title": "CSS Transforms Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "eae60396e7988e8a1fa738203e79295483784f25",
+      "sha256_raw_source": "088bd50ed41701612c3f9b6672c5092c5749991d4a54fe49d74ea9c903bdd078",
+      "raw_source_bytes": 79384,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-transforms-2",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        8,
+        12
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Seeds ordered 2D/3D transform syntax and the normative route to the inherited transform base. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-css-transitions-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-transitions-1/Overview.bs",
+      "module_shortname": "css-transitions",
+      "module_title": "CSS Transitions Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "8f7dbddd9552f539aaad3f4b1a24077f422848dd",
+      "sha256_raw_source": "7f200e2ec8fde6b3b23c57fd3265ddacee03c74707bf7bfa4c62dcb4881c8d93",
+      "raw_source_bytes": 68790,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-transitions-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        6,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "WD",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-ui-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-ui-3/Overview.bs",
+      "module_shortname": "css-ui",
+      "module_title": "CSS Basic User Interface Module Level 3 (CSS3 UI)",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "72a184eac369b5204d4ea1c945405538cb8032e4",
+      "sha256_raw_source": "ca509b34da96afcf0bfe55204d48ca3027c4b75f60b0195643d39c24362fc7fd",
+      "raw_source_bytes": 160220,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-ui-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "completed",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-values-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-values-3/Overview.bs",
+      "module_shortname": "css-values",
+      "module_title": "CSS Values and Units Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c0587823e447c2e362f7005230a932ff6354306e",
+      "sha256_raw_source": "f54249b0052b7c978100d03bab6d82a7e9812f68b688d0de0a74cd54cd3fa181",
+      "raw_source_bytes": 102049,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-values-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        4,
+        8,
+        13
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-values-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-values-4/Overview.bs",
+      "module_shortname": "css-values",
+      "module_title": "CSS Values and Units Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "4ca682027841d3016d2d0190693438ecd5f2ee23",
+      "sha256_raw_source": "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc",
+      "raw_source_bytes": 230907,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        4,
+        8,
+        13
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Mandatory Level 4 value-definition, numeric, math, unit, range, and context foundation.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-values-5",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-values-5/Overview.bs",
+      "module_shortname": "css-values",
+      "module_title": "CSS Values and Units Module Level 5",
+      "module_level": 5,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "bc58aca95bfafe450bc481a3c7d5cf91bf9d7057",
+      "sha256_raw_source": "1558654754407903cf70f9e6bcb3cec290de012d66e6ad2d6233335f405e0c76",
+      "raw_source_bytes": 198656,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        4,
+        8,
+        13,
+        14
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "The owner explicitly pulled typed attr() and newer math/value syntax beyond the literal Level 4 label; this root is kept maturity-distinct from the Values 4 foundation.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-variables-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-variables-1/Overview.bs",
+      "module_shortname": "css-variables",
+      "module_title": "CSS Custom Properties for Cascading Variables Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "b7dfbc8b9953d8e707386c7160edf62e20e44768",
+      "sha256_raw_source": "5c451db91b361068771917b1145d3f36b40159ec46dfc3a029237cb418d668d1",
+      "raw_source_bytes": 37177,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-variables-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        14
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-variables-2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-variables-2/Overview.bs",
+      "module_shortname": "css-variables",
+      "module_title": "CSS Custom Properties for Cascading Variables Module Level 2",
+      "module_level": 2,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "cee854d7f5d7e24441f2bc3e666ac0f8ecef20e0",
+      "sha256_raw_source": "f034abbe468e582213d2c2764710870e0785fa6051494c5ac752fcf8bdf7ca4b",
+      "raw_source_bytes": 39059,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        8,
+        14
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Direct current root for var(), custom-property substitution, fallbacks, and typed custom-property interactions.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-css-view-transitions-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-view-transitions-1/Overview.bs",
+      "module_shortname": "css-view-transitions",
+      "module_title": "CSS View Transitions Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "509a3a95d203810c7059d908231eabb3e6584393",
+      "sha256_raw_source": "238a506264f3f37c9657416aa8bbbd095eddc26062d8304951c70a0363c857d3",
+      "raw_source_bytes": 95404,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-view-transitions-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        6,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "exploring",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-will-change-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-will-change-1/Overview.bs",
+      "module_shortname": "css-will-change",
+      "module_title": "CSS Will Change Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d74ed538c750367bc1da88ca3451da5c92d43cd8",
+      "sha256_raw_source": "5bdd2bcec919dc16c6f955220ac14c1471ec6cefe318748cac2334b922c4a24e",
+      "raw_source_bytes": 16826,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "css-will-change-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-writing-modes-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-writing-modes-3/Overview.bs",
+      "module_shortname": "css-writing-modes",
+      "module_title": "CSS Writing Modes Module Level 3",
+      "module_level": 3,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "3dc41096910fa00ac970948deec7cdf71ed4ee8c",
+      "sha256_raw_source": "22e710f88e34108e357372b5e76e449f93985f09277f7e59458d2b9d785bea90",
+      "raw_source_bytes": 118425,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css-writing-modes-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css-writing-modes-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css-writing-modes-4/Overview.bs",
+      "module_shortname": "css-writing-modes",
+      "module_title": "CSS Writing Modes Module Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "bac49379bb8dfcdee767def0c17bb05f5b6c3aa7",
+      "sha256_raw_source": "b7346127107657e86868e201cdbe3c476776d094ca4df87096932768efa5cd87",
+      "raw_source_bytes": 136439,
+      "snapshot_membership": {
+        "band": "fairly_stable_limited_implementation",
+        "snapshot_slug": "css-writing-modes-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "fairly_stable_limited_implementation",
+        "source_status": "ED",
+        "source_work_status": "Testing",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 fairly_stable_limited_implementation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-css2",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "css2/Overview.bs",
+      "module_shortname": "css2",
+      "module_title": "Cascading Style Sheets (CSS) Level 2",
+      "module_level": "none",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "34fa459aa9b2a4e759454f58a68a4aa5aaf1651d",
+      "sha256_raw_source": "60dc5b8df0d1b97c82998bd05016ac4ec3146a160d79017071c18df41309186e",
+      "raw_source_bytes": 644776,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "CSS2",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": "Stable",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-cssom-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "cssom-1/Overview.bs",
+      "module_shortname": "cssom",
+      "module_title": "CSS Object Model (CSSOM) Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "e4663c21f0e54f1a1b82c1e17187fccfa1ebed72",
+      "sha256_raw_source": "5a0b6a2f116ad450c22a202241c997c4a64d9c13bb9e011c5a0bcc4345f89668",
+      "raw_source_bytes": 155459,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "cssom-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-cssom-view-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "cssom-view-1/Overview.bs",
+      "module_shortname": "cssom-view",
+      "module_title": "CSSOM View Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "320ec4fcf82b0b985d65843e4899ada270482658",
+      "sha256_raw_source": "462ce76726254774db4d7ebb35b620bab95af445872af234391a0342ac043c19",
+      "raw_source_bytes": 161625,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "cssom-view-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Revising",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-filter-effects-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "filter-effects-1/Overview.bs",
+      "module_shortname": "filter-effects",
+      "module_title": "Filter Effects Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "70ccd6fc64ee379f46e1aaf347c56f1ec92f46b5",
+      "sha256_raw_source": "16fae7f47b89a8a713e8aec70671ff7340c5c8eb3164dcdd0becf52cd095230b",
+      "raw_source_bytes": 222513,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "filter-effects-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        3,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Direct root for filter lists, filter functions, URL references, and drop-shadow syntax; resource resolution remains contextual and outside the parser. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-geometry-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "geometry-1/Overview.bs",
+      "module_shortname": "geometry",
+      "module_title": "Geometry Interfaces Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "2c9c6457c350ac83113dcebbf2ce4699b93c3d08",
+      "sha256_raw_source": "a5488392c96acc71c029d5ae5d98c5e0811236f93f277c18ba4e9ce2ae510dcb",
+      "raw_source_bytes": 103624,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "geometry-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        12
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "CRD",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-mediaqueries-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "mediaqueries-3/Overview.html",
+      "module_shortname": "mediaqueries",
+      "module_title": "Media Queries Level 3",
+      "module_level": 3,
+      "source_format": "html_only_in_verified_tree",
+      "git_blob_oid_sha1": "ad9c46c63dc6b57e08f2cff965a5950f575a5b99",
+      "sha256_raw_source": "b9f7857aabd29de6de7420d20abe05c2e50a7e6806b621d2d54dbf0ea6873c54",
+      "raw_source_bytes": 61382,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "css3-mediaqueries",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": "ED",
+        "source_work_status": null,
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-mediaqueries-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "mediaqueries-4/Overview.bs",
+      "module_shortname": "mediaqueries",
+      "module_title": "Media Queries Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "bcb608949967cfbb2e320ff56ccbc4f679a25546",
+      "sha256_raw_source": "5b3afc928d531e77e75ea28354fb75f28efa14f7b15597320aa506cf519ee7c3",
+      "raw_source_bytes": 102124,
+      "snapshot_membership": {
+        "band": "reliable_candidate_recommendation",
+        "snapshot_slug": "mediaqueries-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8,
+        10
+      ],
+      "source_maturity": {
+        "snapshot_band": "reliable_candidate_recommendation",
+        "source_status": "CRD",
+        "source_work_status": "refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 reliable_candidate_recommendation member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-mediaqueries-5",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "mediaqueries-5/Overview.bs",
+      "module_shortname": "mediaqueries",
+      "module_title": "Media Queries Level 5",
+      "module_level": 5,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6fed7d768d9321a83aac3ce5c60fdbcacdeb7a0e",
+      "sha256_raw_source": "6b97ebfe27f23b103549051003ee125e4b039d91fd87cf1f6ec95bb91d912979",
+      "raw_source_bytes": 166203,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        7
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "WD",
+        "source_work_status": "Exploring",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Direct current media-query and range-syntax root; viewport and device evaluation remain delegated capabilities.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-motion-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "motion-1/Overview.bs",
+      "module_shortname": "motion",
+      "module_title": "Motion Path Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "4407ba67dcb8671528a12533edeae2c52d057a74",
+      "sha256_raw_source": "d9043f6d2f4cfe4e4a2b7d0c7b6e13004b1a6cb8c19be0c1c26164dd1a2199b0",
+      "raw_source_bytes": 65249,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "motion-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        8,
+        12
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Direct motion-path root for path, ray, reference-box, offset, and shared geometry syntax. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-resize-observer-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "resize-observer-1/Overview.bs",
+      "module_shortname": "resize-observer",
+      "module_title": "Resize Observer Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "f6c3c5ba8f28364115365836ac2866fdeb4287a7",
+      "sha256_raw_source": "cdd7afee5ab3f7be81dc8927996d44caa43a444e5dd42bab820650bf0903562b",
+      "raw_source_bytes": 25757,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "resize-observer-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Exploring",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-scroll-animations-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "scroll-animations-1/Overview.bs",
+      "module_shortname": "scroll-animations",
+      "module_title": "Scroll-driven Animations Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "5fff74caff11c2e3a8c1e6257d99440af2df4dbb",
+      "sha256_raw_source": "c730c2d6cdae2aeb9d5616b844ce378613a24b4af7e1eeca640adbbaedd683e1",
+      "raw_source_bytes": 65357,
+      "snapshot_membership": null,
+      "scope_roles": [
+        "owner_family_root",
+        "explicit_later_or_experimental_extension"
+      ],
+      "routed_family_ordinals": [
+        6
+      ],
+      "source_maturity": {
+        "snapshot_band": null,
+        "source_status": "ED",
+        "source_work_status": "revising",
+        "classification": "explicit_owner_extension"
+      },
+      "seed_rationale": "Direct root for scroll/view timelines and animation-range syntax; playback and layout measurement remain outside parser scope.",
+      "status": "VERIFIED_OWNER_EXTENSION_ROOT"
+    },
+    {
+      "id": "root-selectors-3",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "selectors-3/Overview.src.html",
+      "module_shortname": "selectors",
+      "module_title": "Selectors Level 3",
+      "module_level": 3,
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "c7faf470edb1b8dcfb8294159133c093cd703bdf",
+      "sha256_raw_source": "5bca207b0f526c33dfcf8e6d37159199320e72436584f046b28acb98a918f539",
+      "raw_source_bytes": 107712,
+      "snapshot_membership": {
+        "band": "official_definition",
+        "snapshot_slug": "selectors-3",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        8,
+        9
+      ],
+      "source_maturity": {
+        "snapshot_band": "official_definition",
+        "source_status": null,
+        "source_work_status": null,
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 official_definition member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    },
+    {
+      "id": "root-selectors-4",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "selectors-4/Overview.bs",
+      "module_shortname": "selectors",
+      "module_title": "Selectors Level 4",
+      "module_level": 4,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "4715b41e7f84f68b6c9d28e3c7cbc6e08964b3e4",
+      "sha256_raw_source": "ac800347a26eb67cff99d38c08cae2d47622dbbb64d730a531b84646cacfe84c",
+      "raw_source_bytes": 212484,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "selectors-4",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan",
+        "owner_family_root"
+      ],
+      "routed_family_ordinals": [
+        7,
+        8,
+        9
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_member_and_owner_root"
+      },
+      "seed_rationale": "Direct Level 4 selector syntax, forgiving-list, nesting-adjacent, and specificity root; matching is explicitly an adapter operation. It is also an exact CSS Snapshot 2026 rough_interoperability member, so membership is independent of forward dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_AND_OWNER_ROOT"
+    },
+    {
+      "id": "root-web-animations-1",
+      "official_repository": "https://github.com/w3c/csswg-drafts.git",
+      "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "exact_path": "web-animations-1/Overview.bs",
+      "module_shortname": "web-animations",
+      "module_title": "Web Animations Module Level 1",
+      "module_level": 1,
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "06fab211a7c67ab2462b66af36ecadd67091d716",
+      "sha256_raw_source": "4dbbf8caec4e2ebce609a753158e2f9cfc1d4c631090e3724b0796a201372f98",
+      "raw_source_bytes": 283862,
+      "snapshot_membership": {
+        "band": "rough_interoperability",
+        "snapshot_slug": "web-animations-1",
+        "evidence_source": "css-2026/Overview.bs",
+        "extraction": "top_level_dt_tr_link"
+      },
+      "scope_roles": [
+        "snapshot_stability_member",
+        "typed_registry_consumer_scan"
+      ],
+      "routed_family_ordinals": [
+        6,
+        8
+      ],
+      "source_maturity": {
+        "snapshot_band": "rough_interoperability",
+        "source_status": "ED",
+        "source_work_status": "Refining",
+        "classification": "snapshot_stability_member"
+      },
+      "seed_rationale": "Exact CSS Snapshot 2026 rough_interoperability member; retained before normative closure so independent property, descriptor, selector, or at-rule consumer grammars cannot be omitted by reverse dependency direction.",
+      "status": "VERIFIED_SNAPSHOT_ROOT"
+    }
+  ],
+  "coverage_summary": {
+    "root_count": 76,
+    "total_root_bytes": 9008216,
+    "covered_family_ordinals": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "missing_family_ordinals": [],
+    "foundation_roots": [
+      "css-syntax-3/Overview.bs",
+      "css-values-3/Overview.bs",
+      "css-values-4/Overview.bs"
+    ],
+    "snapshot_scope_root": "css-2026/Overview.bs",
+    "reverse_consumer_audit": [
+      {
+        "exact_path": "css-grid-2/Overview.bs",
+        "git_blob_oid_sha1": "82955f59b8017912f617cc6b4c88e4b9cf28326d",
+        "sha256_raw_source": "32eff3d4208e584dc2ebb1ce01e5b7ff23e92f7531c4cb989e8f7339127ed5e3",
+        "raw_source_bytes": 240947,
+        "snapshot_band": "reliable_candidate_recommendation",
+        "literal_propdef_count": 10,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-flexbox-1/Overview.bs",
+        "git_blob_oid_sha1": "0a91c321010cd9e47f72377c1d11f622280ebba2",
+        "sha256_raw_source": "9045cf12ebac5c027cadaacab8b4e90fcc66657520eeaab140d50e51bd300ffa",
+        "raw_source_bytes": 302576,
+        "snapshot_band": "official_definition",
+        "literal_propdef_count": 13,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-text-4/Overview.bs",
+        "git_blob_oid_sha1": "8d95f68326718ac13f59765c6fea3dfa68fb2481",
+        "sha256_raw_source": "bf7fd748f1e304e0fb93bb4166837824649f1e5e659e135e0765e9607d765eac",
+        "raw_source_bytes": 505763,
+        "snapshot_band": null,
+        "literal_propdef_count": 33,
+        "snapshot_occurrence": "css-2026/Overview.bs:960 safe-to-release exception for hyphenate-character only",
+        "reason": "The module is absent from all four stability-band membership <dl> sets; the snapshot names one feature-level pre-CR exception, so PB0 may follow that exact carrier but the whole module is not silently promoted to a stability root.",
+        "status": "EXCLUDED_AS_WHOLE_MODULE_ROOT_FEATURE_CARRIER_DEFERRED_TO_PB0_CLOSURE"
+      },
+      {
+        "exact_path": "css-box-4/Overview.bs",
+        "git_blob_oid_sha1": "9283c77a46f451b564b21c12e1a2804d08665d03",
+        "sha256_raw_source": "417e6eff31419711d1e29ea485f65011064fa950ac3f3dac92be8645be882fe0",
+        "raw_source_bytes": 26251,
+        "snapshot_band": null,
+        "literal_propdef_count": 5,
+        "reason": "No top-level membership <dt> or safe-release reference to CSS-BOX-4 occurs in the pinned CSS Snapshot 2026 source, and it is not one of the 21 owner roots.",
+        "status": "EXCLUDED_NOT_SNAPSHOT_MEMBER_OR_OWNER_EXTENSION"
+      },
+      {
+        "exact_path": "css-logical-1/Overview.bs",
+        "git_blob_oid_sha1": "66856564dbc3bb1ec132648f154de355fd740b7c",
+        "sha256_raw_source": "9b4a85569bcacff752f797fb6214a9eb04fca7173b93a160bcf8a47e39ed2b41",
+        "raw_source_bytes": 39421,
+        "snapshot_band": "rough_interoperability",
+        "literal_propdef_count": 22,
+        "status": "INCLUDED"
+      }
+    ],
+    "independent_at_rule_audit": [
+      {
+        "exact_path": "css-fonts-3/Overview.html",
+        "git_blob_oid_sha1": "bb3d4b3686953dafbebf7e6f0be39b77251b2f07",
+        "sha256_raw_source": "b4f219d0592dd1b1a5973c15184206824cd357e6cc83ec79bbe46b8202d8fe9f",
+        "raw_source_bytes": 240516,
+        "snapshot_band": "official_definition",
+        "literal_at_rule_marker_count": 85,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-counter-styles-3/Overview.bs",
+        "git_blob_oid_sha1": "802b33e762973d1d5a5f3e733e51e4b042ade26d",
+        "sha256_raw_source": "296e168274385902eb77f23604c8a095ad9415e78fb089c6d1fde2891fd4c4ba",
+        "raw_source_bytes": 141901,
+        "snapshot_band": "official_definition",
+        "literal_at_rule_marker_count": 203,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-namespaces-3/Overview.bs",
+        "git_blob_oid_sha1": "9442ce15f4af6b7240f86eb44a4edd2ab116d958",
+        "sha256_raw_source": "c6db689f29d34569a8b5f2268e786be7d737708d3d734690617ac111e9fe4087",
+        "raw_source_bytes": 13208,
+        "snapshot_band": "official_definition",
+        "literal_at_rule_marker_count": 25,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-conditional-3/Overview.bs",
+        "git_blob_oid_sha1": "fdda96660b13ad7c8eeef9f2fc5018871b803291",
+        "sha256_raw_source": "771816b6b976296126988d33f399d45379cc4ca67eb5f8d3e8e1486ddc318365",
+        "raw_source_bytes": 57123,
+        "snapshot_band": "official_definition",
+        "literal_at_rule_marker_count": 77,
+        "status": "INCLUDED"
+      },
+      {
+        "exact_path": "css-page-3/Overview.bs",
+        "git_blob_oid_sha1": "33ed6d144418b7cfbcda3c937ca7baae756ac482",
+        "sha256_raw_source": "92bff1b9d38c2f929ec88f50666d447ed7c23909c93ec45c306090b826295256",
+        "raw_source_bytes": 97791,
+        "snapshot_band": null,
+        "literal_at_rule_marker_count": 258,
+        "reason": "CSS Page 3 is absent from all four pinned snapshot membership sets and from the owner extension set; CSS2 remains an official root for the baseline @page grammar. Later Page 3 carriers require a future E-3 scope change or a normative edge discovered by PB0.",
+        "status": "EXCLUDED_NOT_SNAPSHOT_MEMBER_BASELINE_PAGE_REMAINS_IN_CSS2"
+      }
+    ],
+    "marker_count_method": "literal UTF-8 substring count in the exact source object; propdef and @ counts are audit signals only, never carrier or denominator counts",
+    "unresolved_owner_features": [
+      {
+        "family_ordinal": 2,
+        "feature": "spring()",
+        "finding": "No literal spring() carrier exists in any *.bs file in the verified CSSWG commit tree.",
+        "disposition": "PB0_RED_REQUIRES_EXACT_EXTERNAL_OR_HISTORICAL_SOURCE_PIN_OR_TYPED_REFUSAL_OWNER_RULING"
+      }
+    ]
+  },
+  "exclusions": [
+    {
+      "id": "exclude-ambient-head",
+      "subject": "any branch HEAD, working tree, drafts.csswg.org live rendering, or unpinned URL",
+      "predicate": "not content-addressed by the verified immutable commit",
+      "status": "EXCLUDED_FROM_SEED"
+    },
+    {
+      "id": "exclude-bbnf-epoch5-semantics",
+      "subject": "BBNF epoch-5 parsed labels, 96-object selection, denominator rows, WPT routes, candidates, and generated products",
+      "predicate": "adversarial leads only; current adjudication grants no semantic or denominator authority",
+      "status": "EXCLUDED_FROM_AUTHORITY"
+    },
+    {
+      "id": "exclude-css-contain-3-placeholder",
+      "subject": "css-contain-3/Overview.bs",
+      "source_object_sha256": "4355b8e269b044190a0734df5b8ec1c6ccb3da473b123bb51de58c5e38525531",
+      "predicate": "the verified source declares itself an empty placeholder and says container queries moved to css-conditional-5",
+      "replacement_root": "css-conditional-5/Overview.bs",
+      "status": "EXCLUDED_AS_ROOT_NOT_AS_RECORDED_SUPERSESSION_EVIDENCE"
+    },
+    {
+      "id": "exclude-unpinned-external-current-work",
+      "subject": "CSS Current Work live catalog and any source outside the verified CSSWG commit",
+      "predicate": "the snapshot links to a mutable external catalog but this seed uses only its own pinned stability-band membership and exact owner roots",
+      "status": "EXCLUDED_FROM_SEED_AUTHORITY"
+    },
+    {
+      "id": "exclude-generated-html-except-pinned-only-source",
+      "subject": "generated Overview.html and live rendered pages",
+      "predicate": "Overview.bs or Overview.src.html wins when present; exact immutable Overview.html is retained only for snapshot members whose verified tree has no corresponding source form, with source_format marking the exception for PB0 review",
+      "status": "CONDITIONALLY_EXCLUDED"
+    },
+    {
+      "id": "exclude-text-4-whole-module-root",
+      "subject": "css-text-4/Overview.bs",
+      "source_object_sha256": "bf7fd748f1e304e0fb93bb4166837824649f1e5e659e135e0765e9607d765eac",
+      "predicate": "not a four-band snapshot member or owner root; only hyphenate-character is named as a feature-level safe-release exception at pinned snapshot line 960",
+      "status": "WHOLE_MODULE_NOT_ROOT_EXACT_FEATURE_REFERENCE_REMAINS_PB0_CLOSURE_INPUT"
+    },
+    {
+      "id": "exclude-css-box-4-root",
+      "subject": "css-box-4/Overview.bs",
+      "source_object_sha256": "417e6eff31419711d1e29ea485f65011064fa950ac3f3dac92be8645be882fe0",
+      "predicate": "absent from all four exact snapshot membership lists, safe-release references, and owner roots",
+      "status": "EXCLUDED_FROM_ROOT_SCOPE"
+    },
+    {
+      "id": "exclude-css-page-3-root",
+      "subject": "css-page-3/Overview.bs",
+      "source_object_sha256": "92bff1b9d38c2f929ec88f50666d447ed7c23909c93ec45c306090b826295256",
+      "predicate": "absent from all four exact snapshot membership lists and owner roots; baseline @page remains reachable from official CSS2 root",
+      "status": "EXCLUDED_FROM_ROOT_SCOPE"
+    },
+    {
+      "id": "exclude-nonparser-operations-not-membership",
+      "subject": "cascade evaluation, DOM matching, layout, fetch, rendering, playback, CSSOM identity, and other contextual operations found inside included member modules",
+      "predicate": "module membership triggers PB0 carrier review but does not convert contextual operations into parser obligations; PB0 records preserve, delegate, or typed-refuse dispositions",
+      "status": "INCLUDED_SOURCE_EXCLUDED_OPERATION"
+    }
+  ],
+  "generation_method": {
+    "environment": "temporary bare Git repository outside the value.js workspace; no BBNF or value source mutation",
+    "commands_recorded_in": "formation/l4-root-seed-research.md",
+    "steps": [
+      "fetch and cryptographically re-hash the exact official CSSWG commit object",
+      "parse and verify the commit-to-tree edge",
+      "parse the four exact CSS Snapshot 2026 stability-band membership lists independently",
+      "resolve all 64 snapshot members to exact paths in the same tree",
+      "union the explicit 21 owner roots plus css-2026 scope evidence and de-duplicate to 76 paths",
+      "verify every path, Git blob, raw HTTPS byte count, and SHA-256",
+      "audit representative reverse property consumers and independent at-rule owners",
+      "validate family/scope ledgers and canonical ordering",
+      "compute the manifest content digest from the declared canonical payload"
+    ]
+  },
+  "manifest_content_digest": "cd505eecd6404e8719baef2c18a8e62b03916db46ec56a7ae92f0a1c2615937c"
+}

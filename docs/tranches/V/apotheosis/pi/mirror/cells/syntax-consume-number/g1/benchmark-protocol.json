@@ -1,0 +1,13 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G1-BENCH",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "operation": "For each case, allocate ParserState(source, undefined, offset), call the exact consumeNumber parser once with diagnostics disabled, and fold isError, final offset, value/type/sign, and consumed-representation identity into a retained digest.",
+  "comparability": "H/B/S/D/R run identical ordered case bytes and the identical consuming operation. Setup, ParserState allocation, semantic normalization, and digest folding are inside every timed invocation. A complete-input wrapper, number-start predicate, regex-only validation, tokenization, Number-only conversion, percentage/unit dispatch, and BBNF f64 emission are NON_COMPARABLE.",
+  "corpora": { "public": "fixtures/public-cases.json prefix cases plus deterministic hostile materializations", "holdout": "one wholly fresh unrevealed corpus formed only after precursor freeze; no G7 byte/result/ciphertext reuse" },
+  "precheck": "Every public and revealed-holdout observation must equal the harness before timing; any throw, mismatch, mutation, or failure invalidates the candidate and all its timings.",
+  "schedule": { "warmup_rounds": 7, "measured_rounds": 41, "candidate_order": "rotate H,B,S,D,R by round index", "case_order": "byte order of stable fixture IDs", "diagnostics": "disabled before warmup and explicitly disabled again before measured rounds", "exception_law": "retain failure and stop; no retry erases it" },
+  "statistics": "Retain raw nanoseconds and invocations for every pair. Report median and MAD. A strict win requires the one-sided 95% paired bootstrap confidence interval (100000 resamples, xorshift32 seed 0x564e554d over per-round candidate/peer ratios) wholly below 1.0.",
+  "units": "operations/second and nanoseconds/operation; source lengths are UTF-16 code units and are never labeled UTF-8 MB/s",
+  "allocation": "Record peak RSS and heap delta when the host tool is available; otherwise record UNAVAILABLE with exact tool/runtime reason.",
+  "claims": "Formation defines comparability only. No timing has run and no performance, feature, parser, integration, or production credit exists."
+}

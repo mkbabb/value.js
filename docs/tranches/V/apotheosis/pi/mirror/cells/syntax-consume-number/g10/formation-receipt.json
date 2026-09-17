@@ -1,0 +1,75 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_PUBLIC_FORMATION_PRE_HOLDOUT",
+  "rows": [
+    {
+      "path": "author-roster.json",
+      "sha256": "b8d775de76d61713ad5e67234622d838e7145b778e317c6016de15b4c8117663",
+      "bytes": 1059
+    },
+    {
+      "path": "correctness-harness.mjs",
+      "sha256": "b76642a7402515a55f80861a49b8f47ebded6356c4b537b68cc5f163b3804a0d",
+      "bytes": 2078
+    },
+    {
+      "path": "correctness-worker.mjs",
+      "sha256": "cabc69254b3eedb65fbef34a104c5159b199c44a838cea09ca14c2385b226299",
+      "bytes": 1503
+    },
+    {
+      "path": "feature-row.json",
+      "sha256": "6e964b4d458b4c8eabb157f6872649858388b62c323c702fcf66eb1525f04930",
+      "bytes": 1079
+    },
+    {
+      "path": "formation-validator.mjs",
+      "sha256": "a2a98a2069c1749b78a37a24a36d24e7d3abab8ef746e0482db12bfdec20f141",
+      "bytes": 9042
+    },
+    {
+      "path": "lineage-topologies.json",
+      "sha256": "84ac7598540e7143ed83d3fe5b3e959a5174259e6bfff5735f9e51a2fc12ac1b",
+      "bytes": 3414
+    },
+    {
+      "path": "peer-adapters.mjs",
+      "sha256": "99b8f7691e3a5a6ebf6c6ca07aa5221c94a65246edc8315c60a88effa5af39c8",
+      "bytes": 989
+    },
+    {
+      "path": "peer-comparable-cases.json",
+      "sha256": "1283b615d2a12e75eb217624af4fb8643376ad3dc762c05917c14769bea9d7a7",
+      "bytes": 1151
+    },
+    {
+      "path": "peer-manifest.json",
+      "sha256": "bf0fb334de832c100bd2f3581ffb1642a0f7d57ec8323059e9ee42178c63de00",
+      "bytes": 3281
+    },
+    {
+      "path": "runtime-package-ledger.tsv",
+      "sha256": "e97fffdfb7ba27d88c0860ff44eb0a7984099632b55c41221b4d9ca28dfdda73",
+      "bytes": 6261
+    },
+    {
+      "path": "source-census.json",
+      "sha256": "51a530fde97dbff35441873b518fb5027d0a4dcad4d33651ef9d307bc92bea4a",
+      "bytes": 8405
+    },
+    {
+      "path": "source-census.mjs",
+      "sha256": "4f354ca7c31df4e988ba1f6f7dc7b3293b69b44982b4f4df144e38338f1d21a5",
+      "bytes": 1921
+    }
+  ],
+  "row_count": 12,
+  "closure_sha256": "e7e122ea8a86fc3c696aad653e44e06ce79a236a65839f77c1ea8e35acd32163",
+  "candidate_count": 0,
+  "holdout_artifact_count": 0,
+  "next": "Independent boundary challenges over this exact receipt; only an accepted root may dispatch the four frozen author task IDs. A fresh custodian may create a holdout only after these public bytes freeze.",
+  "actor_identity": "CONTENT_HASHES_DO_NOT_PROVE_ACTORS_MANUAL_EXTERNAL_TASK_WITNESS_REQUIRED",
+  "post_author": "Candidate correctness, holdout reveal, exact comparable peer benches, five skeptics, three adjudicators, and selection remain later gates over real bytes.",
+  "credit": "ZERO_PUBLIC_FORMATION_ONLY"
+}

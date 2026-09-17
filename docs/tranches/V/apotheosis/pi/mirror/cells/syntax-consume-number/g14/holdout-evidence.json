@@ -1,0 +1,271 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.holdout-evidence/v1",
+  "status": "PASS_ALL_FOUR_EXACT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 14,
+  "prototype_evidence_only": true,
+  "evaluator": {
+    "path": "holdout-evaluator.mts",
+    "sha256": "887799d06f170c6ae799cfb5ce5d5d825b555e50c394b21f78c5b156890e05c0",
+    "mode": "0444"
+  },
+  "authority": {
+    "status": "PASS_ALL_LOCAL_HASH_MODE_AND_CROSS_ARTIFACT_JOINS",
+    "verified_artifacts": {
+      "feature.json": {
+        "sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29",
+        "mode": "0444",
+        "bytes": 4875
+      },
+      "public-evaluator.mts": {
+        "sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+        "mode": "0444",
+        "bytes": 12462
+      },
+      "holdout-receipt.json": {
+        "sha256": "787f2543f4046ed71669daa55ca03af65a269f320f4f9891d22adab8da127e0e",
+        "mode": "0444",
+        "bytes": 3707
+      },
+      "candidate-set.json": {
+        "sha256": "e2f786bb2e190da3c45e9f6396ffb98bad652772de12c6c047519d48c4fda5e6",
+        "mode": "0444",
+        "bytes": 2251
+      },
+      "holdout-recovery-ciphertext.b64": {
+        "sha256": "3c2dcf58cc2cfc351399acfeefff56065b33a68c38400eece6f03a7d9460ebae",
+        "mode": "0444",
+        "bytes": 18505
+      },
+      "holdout-recovery-reveal.json": {
+        "sha256": "337a11ca21e39004e4381e5052298e5f9df2c7ffa87990b3c811ea55a2800038",
+        "mode": "0444",
+        "bytes": 11287
+      },
+      "candidate.d.ts": {
+        "sha256": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+        "mode": "0444",
+        "bytes": 272
+      },
+      "fixtures/manifest.json": {
+        "sha256": "d679e8896b35402fc84ada7d308cb1ff28d6da04287e5770b17439c69335b3e6",
+        "mode": "0444",
+        "bytes": 594
+      },
+      "fixtures/repairs.json": {
+        "sha256": "d9e94359c3cac96ba44f151debed534042aabbca85e82d9e59c6022267bc18f2",
+        "mode": "0444",
+        "bytes": 2357
+      },
+      "holdout-ciphertext.b64": {
+        "sha256": "e2aa624ebbd7344381fb59d6c420bd581086ab0346f2ce1fea5d3fac82a0d25c",
+        "mode": "0444",
+        "bytes": 18505
+      },
+      "../../g13/public-corpus.json": {
+        "sha256": "5056de266d0379ec3ae63b8a56d1a9c07f0607ff264aa22d6c7a7a177e7edd48",
+        "mode": "0444",
+        "bytes": 4739
+      }
+    },
+    "candidate_set_sha256": "e2f786bb2e190da3c45e9f6396ffb98bad652772de12c6c047519d48c4fda5e6"
+  },
+  "authenticated_recovery": {
+    "algorithm": "AES-256-GCM",
+    "status": "PASS_AUTHENTICATED_IN_MEMORY_ONLY",
+    "recovery_file_sha256": "3c2dcf58cc2cfc351399acfeefff56065b33a68c38400eece6f03a7d9460ebae",
+    "frame_sha256": "1cf68cb526b13aad045e272d9f14215bbc7c860c6ca9155a51c6498398c50a39",
+    "ciphertext_sha256": "a3e19f70c4b742818de326253e98a3182eb6ff97b93aacde717205fde4316d80",
+    "aad_sha256": "40dd617ae49654810d318fdca18d6e44dcf79fe97fc10fe2cbd050ec337693ee",
+    "frame_magic": "VPG14R01",
+    "plaintext_written": false
+  },
+  "corpus": {
+    "schema": "value.pi.syntax-consume-number.g14.hidden-holdout/v1",
+    "plaintext_bytes": 13840,
+    "plaintext_sha256": "f53e24b703596990e9e53cf0160e2e32bf3a524022d41d982d251207ea5d5867",
+    "canonical_roundtrip_sha256": "f53e24b703596990e9e53cf0160e2e32bf3a524022d41d982d251207ea5d5867",
+    "case_count": 61,
+    "case_index_sha256": "a9007af89553a2ebbdcf0adb7eb8e8705a3d8efd7ffa12d22a2001b8ae7c83e5",
+    "case_payload_sha256": "88cccfd04147eab399059b678c0f90d457b49692b390a2d84f222bbcd90161ff",
+    "family_count": 8,
+    "family_counts": {
+      "bounded-hostile-strings": 5,
+      "incomplete-decimal-exponent-suffixes": 10,
+      "maximal-prefix-repeated-fractions": 6,
+      "ordinary-mutable-result-descriptors": 3,
+      "parent-composition": 15,
+      "signed-zero-extreme-conversion": 10,
+      "transactional-failures": 8,
+      "utf16-nonzero-offsets": 4
+    },
+    "family_payload_sha256": {
+      "bounded-hostile-strings": "ed73f9349ffa9ce8a86356b7cbb87d84df148d0dfed16f787c9065505ec5d291",
+      "incomplete-decimal-exponent-suffixes": "26ff543cf368cfee50e6de519f0881d4a5b7d9757e223a6a7558b69db76f38f1",
+      "maximal-prefix-repeated-fractions": "2bc240d685308490b300111875bb05d7566d40e581a1d9b3def80e5ded610106",
+      "ordinary-mutable-result-descriptors": "191457d34971aacebd216fa22547cb95999127d92299c4b5611e63a4b6f04387",
+      "parent-composition": "a361aa4bdfe425381f64a26e0a49ed48812933c33bf326849dfeb42023a72f6f",
+      "signed-zero-extreme-conversion": "b6f16c590dfb4ef8418a5689bab06fd62c728c6fd2582c44b88e97f6a15b02a9",
+      "transactional-failures": "09c6b1d943a203799598fe2e1f04b6bd62a43c67a7a66695fd42cd28a1f86bbf",
+      "utf16-nonzero-offsets": "2ee10184f09cfa2ed25669ec4be8048ea00885797d81adb949bd6e0708650060"
+    },
+    "family_manifest_sha256": "38fda5b677021b068320e556f1b53e748e52baea65876a7be3fe16c7e26e179d",
+    "generators_materialized_with_utf16_bounds": true,
+    "maximum_generated_utf16_length": 8193
+  },
+  "seats": {
+    "h": {
+      "status": "PASS_EXACT_61_OF_61",
+      "candidate": {
+        "path": "candidates/h/index.ts",
+        "sha256": "ca17a811198a286c3e07ab06670b76b16f98c513d246696296dd4c3e4abffaa8",
+        "bytes": 477,
+        "lines": 15,
+        "mode": "0444",
+        "topology": "WHOLE_PREFIX_REGEX"
+      },
+      "family_counts": {
+        "bounded-hostile-strings": 5,
+        "incomplete-decimal-exponent-suffixes": 10,
+        "maximal-prefix-repeated-fractions": 6,
+        "ordinary-mutable-result-descriptors": 3,
+        "parent-composition": 15,
+        "signed-zero-extreme-conversion": 10,
+        "transactional-failures": 8,
+        "utf16-nonzero-offsets": 4
+      },
+      "case_count": 61,
+      "success_cases": 37,
+      "failure_cases": 9,
+      "ordinary_failure_cases": 4,
+      "ahead_failure_cases": 5,
+      "parent_cases": 15,
+      "parent_accepts": 6,
+      "parent_rejects": 9,
+      "hostile_cases": 5
+    },
+    "b": {
+      "status": "PASS_EXACT_61_OF_61",
+      "candidate": {
+        "path": "candidates/b/index.ts",
+        "sha256": "42e6e6a3662c5bb30858b845fe04ced565ff6f755e7edd54d703804285f4e913",
+        "bytes": 2097,
+        "lines": 55,
+        "mode": "0444",
+        "topology": "FACTORIZED_ALL_ANY"
+      },
+      "family_counts": {
+        "bounded-hostile-strings": 5,
+        "incomplete-decimal-exponent-suffixes": 10,
+        "maximal-prefix-repeated-fractions": 6,
+        "ordinary-mutable-result-descriptors": 3,
+        "parent-composition": 15,
+        "signed-zero-extreme-conversion": 10,
+        "transactional-failures": 8,
+        "utf16-nonzero-offsets": 4
+      },
+      "case_count": 61,
+      "success_cases": 37,
+      "failure_cases": 9,
+      "ordinary_failure_cases": 4,
+      "ahead_failure_cases": 5,
+      "parent_cases": 15,
+      "parent_accepts": 6,
+      "parent_rejects": 9,
+      "hostile_cases": 5
+    },
+    "s": {
+      "status": "PASS_EXACT_61_OF_61",
+      "candidate": {
+        "path": "candidates/s/index.ts",
+        "sha256": "2edb390a542ebb98221c624934b14c009bc07c6b306cf7d4be1ccfcfd74202c8",
+        "bytes": 1768,
+        "lines": 52,
+        "mode": "0444",
+        "topology": "SPEC_STAGED_CHAIN"
+      },
+      "family_counts": {
+        "bounded-hostile-strings": 5,
+        "incomplete-decimal-exponent-suffixes": 10,
+        "maximal-prefix-repeated-fractions": 6,
+        "ordinary-mutable-result-descriptors": 3,
+        "parent-composition": 15,
+        "signed-zero-extreme-conversion": 10,
+        "transactional-failures": 8,
+        "utf16-nonzero-offsets": 4
+      },
+      "case_count": 61,
+      "success_cases": 37,
+      "failure_cases": 9,
+      "ordinary_failure_cases": 4,
+      "ahead_failure_cases": 5,
+      "parent_cases": 15,
+      "parent_accepts": 6,
+      "parent_rejects": 9,
+      "hostile_cases": 5
+    },
+    "d": {
+      "status": "PASS_EXACT_61_OF_61",
+      "candidate": {
+        "path": "candidates/d/index.ts",
+        "sha256": "a1e4fc2016362f4d1e4b49089c9580b85f6caa19d2adf91f60dd2dac412f8cd8",
+        "bytes": 963,
+        "lines": 26,
+        "mode": "0444",
+        "topology": "FIRST_CHARACTER_DISPATCH"
+      },
+      "family_counts": {
+        "bounded-hostile-strings": 5,
+        "incomplete-decimal-exponent-suffixes": 10,
+        "maximal-prefix-repeated-fractions": 6,
+        "ordinary-mutable-result-descriptors": 3,
+        "parent-composition": 15,
+        "signed-zero-extreme-conversion": 10,
+        "transactional-failures": 8,
+        "utf16-nonzero-offsets": 4
+      },
+      "case_count": 61,
+      "success_cases": 37,
+      "failure_cases": 9,
+      "ordinary_failure_cases": 4,
+      "ahead_failure_cases": 5,
+      "parent_cases": 15,
+      "parent_accepts": 6,
+      "parent_rejects": 9,
+      "hostile_cases": 5
+    }
+  },
+  "replay": {
+    "candidate_order": [
+      "h",
+      "b",
+      "s",
+      "d"
+    ],
+    "cases_per_candidate": 61,
+    "total_case_executions": 244,
+    "exact_parser_instance_required": true,
+    "source_preservation_checked": true,
+    "signed_zero_checked_with_Object_is": true,
+    "infinity_dispositions_checked": true,
+    "predecessor_identity_checked": true,
+    "ahead_diagnostic_snapshot_checked": true,
+    "full_source_parent_dispositions_checked": [
+      "percentage",
+      "dimension",
+      "integer",
+      "delimited"
+    ],
+    "hostile_no_throw_checked": true,
+    "benchmark_executed": false,
+    "production_source_read": false,
+    "candidate_source_modified": false
+  },
+  "credit": {
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

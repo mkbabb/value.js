@@ -1,0 +1,19 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_FUTURE_AUTHOR_ROSTER",
+  "authors": [
+    { "seat": "h", "task_name": "g10_author_h", "task_id": "/root/g10_author_h" },
+    { "seat": "b", "task_name": "g10_author_b", "task_id": "/root/g10_author_b" },
+    { "seat": "s", "task_name": "g10_author_s", "task_id": "/root/g10_author_s" },
+    { "seat": "d", "task_name": "g10_author_d", "task_id": "/root/g10_author_d" }
+  ],
+  "external_witness": {
+    "required_before_candidate_write": true,
+    "path": "author-task-witness.json",
+    "authority": "A manual root witness must bind the Codex task creation receipts, canonical task IDs, served-model receipts, isolation prompts, and absence of prior candidate access. Content hashes alone do not establish actor identity.",
+    "formation_validator_claim": "NONE"
+  },
+  "isolation": "Each task receives feature-row.json, the common public correctness harness, and only its own lineage/topology row. No author receives peer candidate bytes.",
+  "credit": "ZERO_ROSTER_ONLY"
+}

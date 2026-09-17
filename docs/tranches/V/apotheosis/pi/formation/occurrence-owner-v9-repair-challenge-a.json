@@ -1,0 +1,519 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair-challenge/v1",
+  "date": "2026-07-22",
+  "review_id": "occurrence-owner-v9-repair-challenge-a",
+  "review_mode": "INDEPENDENT_HOSTILE_REPAIR_CORRECTNESS_REVIEW",
+  "independence": {
+    "presumption": "REPAIRS_INCOMPLETE_UNTIL_SOURCE_DERIVED_COUNTEREXAMPLES_FAIL_CLOSED",
+    "original_reject_challenges_read_in_full": true,
+    "original_root_gestalt_read_in_full": true,
+    "implementation_or_parser_files_edited": false,
+    "review_output_is_the_only_repository_file_written": true,
+    "methods": [
+      "exact-byte authentication",
+      "source inspection",
+      "workspace benign replay",
+      "external-CWD benign replay",
+      "minimal source-derived counterexamples",
+      "oracle omission and fabrication probes",
+      "stable-ID collision-path probe",
+      "decoded-byte and ill-formed-string no-throw probe",
+      "deterministic work-path inspection",
+      "geometric hostile timing observation"
+    ]
+  },
+  "authority": {
+    "formation_only": true,
+    "judgment_scope": "READINESS_FOR_NEXT_DENOMINATOR_FORMATION_ONLY",
+    "full_css_credit_adjudicated": false,
+    "may_execute_168_source_denominator": false,
+    "may_generate_or_publish_shards": false,
+    "parser": false,
+    "production": false
+  },
+  "bound_subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 36243,
+      "sha256": "5b084bfba01f5fcf8979aaed7a3be21a326cbef070f0cffd2e9599e1e6c1fb9e"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 37680,
+      "sha256": "5c4e1f65f5eaeefd886fa63ac2aa6d771adda9bbd13b6a4169b1d5f77b5e4afd"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 25356,
+      "sha256": "2e09d97a7af648c81b072b2cf67f2682ee2e427e9b4f074a0f3a1ad33c3d965b"
+    },
+    "repair_evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair-evidence.json",
+      "bytes": 6501,
+      "sha256": "b7316ed3d3beef7a10fb39ec73d4cb8f5f254083a0c7851ca85f77e7248090b3"
+    }
+  },
+  "governing_inputs_read": {
+    "original_challenge_a": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-challenge-a.json",
+      "bytes": 26357,
+      "sha256": "d37b05dedab2973f10b09dcc86a24b9ed5919473e2a1f528b2af758ee4bbd2ad",
+      "verdict": "REJECT"
+    },
+    "original_challenge_b": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-challenge-b.json",
+      "bytes": 30503,
+      "sha256": "33cdf9e8e3b220b093d96658fa6fa3012de8b11d6b1f3141e4030a19c65f08b5",
+      "verdict": "REJECT"
+    },
+    "original_root_gestalt": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-root-gestalt.json",
+      "bytes": 4944,
+      "sha256": "1a94d50fb15566691f0cea5b8430d64e9c78d89a08337a5186e73ebf853f238d",
+      "verdict": "REJECT_REPAIR_REQUIRED_NO_FULL_CORPUS_RUN"
+    },
+    "blueprint": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json",
+      "bytes": 11406,
+      "sha256": "fbaaadb4e3de6fc5fcef756e6bd4a1824514faac5360afa2d4c8450caf170bb3"
+    },
+    "fixtures": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+      "bytes": 12452,
+      "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a"
+    }
+  },
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1"
+  },
+  "verdict": "REJECT",
+  "verdict_scope": "The exact repaired RED research analyzer is not ready to seed the next denominator formation. This is not a full-CSS-credit judgment: candidly absent ledger, launcher, publisher, full-corpus, and formal-resource artifacts are not by themselves the basis of rejection. Rejection rests on new in-boundary source examples for which analyzer and oracle agree on false state, heading, reference, and carrier semantics.",
+  "benign_replay": {
+    "commands": [
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "/usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs >/dev/null"
+    ],
+    "syntax_exit": 0,
+    "workspace": {
+      "exit": 0,
+      "stdout_bytes": 10148,
+      "stdout_sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4"
+    },
+    "external_cwd": {
+      "cwd": "/tmp",
+      "exit": 0,
+      "stdout_bytes": 10148,
+      "stdout_sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4"
+    },
+    "outputs_byte_identical": true,
+    "reported": {
+      "v9_fixtures": 18,
+      "inherited_v8_evidence_cases": 29,
+      "semantic_counterexample_rows": 12,
+      "mutations_rejected": 12,
+      "arbitrary_byte_sequences_no_throw": 512,
+      "arbitrary_input_bytes": 130605,
+      "decoded_utf8_bytes": 237348,
+      "state_labels": 13,
+      "geometric_rows": 25
+    },
+    "fresh_resource_observation": {
+      "classification": "ONE_LOCAL_FIXTURE_AND_HOSTILE_SUITE_OBSERVATION_ONLY",
+      "elapsed_seconds": 0.60,
+      "maximum_resident_set_size_bytes": 94502912,
+      "peak_memory_footprint_bytes": 55267144
+    }
+  },
+  "fresh_counterexamples": [
+    {
+      "id": "A-R1-RAW-CLOSE-INDEX-DRIFT-UNDER-UNICODE-LOWERCASE-EXPANSION",
+      "axes": [
+        "state",
+        "UTF-8 byte coordinates",
+        "candidate disposition",
+        "oracle common mode"
+      ],
+      "source": "<script>İ</script>[=live=]",
+      "source_bytes": 27,
+      "source_sha256": "09d0553b45f48f90d30b05652eb2db2027aa14c52c04d0cd1f1a70a5a17cde6d",
+      "expected": {
+        "ranges": [
+          [0, 8, "TAG"],
+          [8, 10, "RAW_SCRIPT"],
+          [10, 19, "TAG"],
+          [19, 27, "VISIBLE_TEXT"]
+        ],
+        "closing_tag_interval": [10, 19],
+        "live_candidate_interval": [19, 27],
+        "live_disposition": "INCLUDED"
+      },
+      "observed": {
+        "ranges": [
+          [0, 8, "TAG"],
+          [8, 27, "RAW_SCRIPT"]
+        ],
+        "closing_tag_emitted": false,
+        "live_candidate_interval": [19, 27],
+        "live_disposition": "REVIEWED_EXCLUDED",
+        "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+      },
+      "root_cause": "Both implementations lowercase the whole source with Unicode String.toLowerCase(), then reuse indexes from that folded string against the original string. U+0130 expands from one UTF-16 code unit to two under lowercase, so the appropriate raw end tag is searched at a shifted index and missed.",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:236",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:241",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:306",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:238",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:277"
+      ]
+    },
+    {
+      "id": "A-R2-ATX-CLOSING-SEQUENCE-REMAINS-IN-OWNER-TITLE",
+      "axes": [
+        "headings",
+        "operation owner",
+        "oracle common mode"
+      ],
+      "source": "## Title ## {#title}\n",
+      "source_bytes": 21,
+      "source_sha256": "c58396b78089b863a4bb9ca9117a83f063f69d68164f729bbe92efba3695136b",
+      "ledger": {
+        "operation_id": "TITLE",
+        "kind": "heading_anchor",
+        "anchor": "title",
+        "source_byte_anchor_or_reviewed_locator": 0
+      },
+      "expected": {
+        "heading_title": "Title",
+        "operation_heading_title": "Title"
+      },
+      "observed": {
+        "heading_title": "Title ##",
+        "operation_heading_title": "Title ##",
+        "operation_joined_by_exact_locator": true,
+        "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+      },
+      "prior_authenticated_behavior": "The inherited V8 heading implementation removes the optional trailing ATX closing sequence after removing an explicit anchor.",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:654",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:752",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:570",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/discover.mjs:54"
+      ]
+    },
+    {
+      "id": "A-R3-INVALID-TEXT-FORMS-FABRICATE-INCLUDED-REFERENCE-CANDIDATES",
+      "axes": [
+        "exact candidate semantics",
+        "exact disposition semantics",
+        "oracle fabrication resistance"
+      ],
+      "cases": [
+        {
+          "source": "'ordinary prose'",
+          "source_bytes": 16,
+          "source_sha256": "bf78ebb7aef7006df3da1118972516709b87e15a1acb2f696a5086b0880e7a7f",
+          "expected": "No CSS single-quote shorthand candidate: the inherited grammar requires an identifier/function-shaped target and does not admit spaces.",
+          "observed": "One css_shorthand_single candidate [0,16), INCLUDED/ELIGIBLE_STATE.",
+          "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+        },
+        {
+          "source": "[==]",
+          "source_bytes": 4,
+          "source_sha256": "41a1cfe6bdfa9b8fa6a642d73c07784a229f5872f621bacfb3e3ee85dda57838",
+          "expected": "An empty definition body is not an included definition target.",
+          "observed": "One definition candidate [0,4), INCLUDED, target_form empty.",
+          "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+        },
+        {
+          "source": "https://",
+          "source_bytes": 8,
+          "source_sha256": "66dfeeedabf1f022d223bd6b9f464d1ca241d6da54ab7ade5b2c7758b4e08fa8",
+          "expected": "A scheme without a host is not a specification URL candidate.",
+          "observed": "One spec_url candidate [0,8), INCLUDED/ELIGIBLE_STATE.",
+          "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+        }
+      ],
+      "root_cause": "Analyzer and oracle both treat any nonempty single-quoted text, any paired delimiter body including empty, and the bare https:// prefix as semantic candidates; the mutation suite only detects disagreement with this shared derivation.",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:513",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:534",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:548",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:412",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:482",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/discover.mjs:410"
+      ]
+    },
+    {
+      "id": "A-R4-MULTI-SCOPE-DEFINITION-CARRIER-DOES-NOT-JOIN",
+      "axes": [
+        "carrier semantics",
+        "definition target join",
+        "oracle omission resistance"
+      ],
+      "source": "<div dfn-for=\"a, b\"><dfn>x</dfn></div>[=a/x=]",
+      "source_bytes": 45,
+      "source_sha256": "7f7a3fb2f2160c0a62a29268ec3da2886d946b458c4738339a6c2c7bfc02274f",
+      "expected": "The parsed dfn-for value denotes scopes a and b; [=a/x=] targets the x carrier.",
+      "observed": {
+        "carrier_scope": "a, b",
+        "reference_target_form": "a/x",
+        "target_carrier_ids": [],
+        "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY"
+      },
+      "prior_authenticated_behavior": "The inherited V8 definition metadata splits parsed scope values on comma, trims them, and canonicalizes each scope.",
+      "root_cause": "The repair stores the complete attribute as one scope string and joins by exact scalar equality rather than the parsed multi-scope set.",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:801",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:822",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:861",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:723",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/discover.mjs:468"
+      ]
+    }
+  ],
+  "fresh_controls": {
+    "same_name_nesting": {
+      "verdict": "ACCEPT",
+      "source": "<div algorithm>a<div algorithm>b</div>c</div>",
+      "source_bytes": 45,
+      "source_sha256": "256e3f29e71a52ce47fb10f750b844b3067fa4e588e82fd25d47e1889a2be6ab",
+      "ledger_locators": [0, 16],
+      "observed_operation_intervals": [
+        [0, 45],
+        [16, 38]
+      ],
+      "observed_tag_pairs": [
+        ["tag-0", "tag-3"],
+        ["tag-1", "tag-2"]
+      ],
+      "oracle": "GREEN_INDEPENDENT_SEMANTIC_ORACLE_REPAIR_RED_ONLY",
+      "finding": "Two marked nested same-name elements pair to the live stack and join two exact ledger locators without ordinal fallback."
+    },
+    "exact_ledger_join": {
+      "verdict": "ACCEPT",
+      "official_rows": [
+        {
+          "id": "LEDGER_LOCATOR_MISMATCH",
+          "oracle_rejection": "REVIEWED_OPERATION_OMISSION"
+        },
+        {
+          "id": "LEDGER_LOCATOR_BIJECTION",
+          "oracle_rejection": "LEDGER_OCCURRENCE_CONFLICT"
+        }
+      ],
+      "finding": "Wrong locators and two ledger rows for one occurrence fail closed. A correct exact locator can still carry a wrong common-mode heading owner as A-R2 shows."
+    },
+    "oracle_direct_omission": {
+      "verdict": "ACCEPT_NARROW",
+      "source": "[=x=]",
+      "mutation": "Remove candidates, dispositions, and stable IDs and reconcile the emitted candidate work count.",
+      "oracle_rejection": "CANDIDATE_SEMANTICS",
+      "finding": "Direct output omission is rejected. A-R1 through A-R4 show that source-level common-mode omissions and fabrications remain accepted."
+    },
+    "collision_behavior": {
+      "verdict": "ACCEPT",
+      "source": "[=x=]<div algorithm>a</div>",
+      "source_bytes": 27,
+      "source_sha256": "6b60ce47dc76ede19e6aa3bb485c0bd78cac423f36446ede5e0257ea6795223a",
+      "operation_locator": 5,
+      "forced_cross_domain_operation_id": "candidate-6b4bd86a2afb56371fb71be584205bcab7b54fdc57602af36c537de89ad84a1c",
+      "observed_stable_ids": [
+        "candidate-6b4bd86a2afb56371fb71be584205bcab7b54fdc57602af36c537de89ad84a1c",
+        "candidate-6b4bd86a2afb56371fb71be584205bcab7b54fdc57602af36c537de89ad84a1c"
+      ],
+      "oracle_rejection": "STABLE_ID_COLLISION",
+      "finding": "Candidate IDs use all 256 digest bits, insertion does not silently drop the second stable ID, and the oracle rejects a real candidate/operation namespace collision. Deliberately producing two distinct SHA-256 candidate preimages with the same digest is not feasible and is not claimed as an executed test."
+    },
+    "no_throw": {
+      "verdict": "ACCEPT_WITHIN_DECLARED_TEXT_DECODING_BOUNDARY",
+      "official_arbitrary_byte_sequences": 512,
+      "official_arbitrary_input_bytes": 130605,
+      "fresh_exhaustive_one_byte_sequences": 256,
+      "fresh_decoded_utf8_bytes": 512,
+      "fresh_edge_strings": [
+        "empty",
+        "NUL",
+        "lone high surrogate",
+        "lone low surrogate",
+        "bare less-than",
+        "terminal escape",
+        "unterminated quoted tag",
+        "Unicode-fold raw-close case"
+      ],
+      "result": "NO_THROW_AND_ORACLE_GREEN",
+      "qualification": "No-throw does not imply semantic correctness; the Unicode-fold edge is green but semantically false under A-R1."
+    }
+  },
+  "resource_review": {
+    "honest_claim_scope": {
+      "verdict": "ACCEPT",
+      "finding": "The result explicitly calls its work fields an instrumented lower bound, asserts no formal upper bound, assigns zero timing credit, and the receipt limits RSS to one local suite observation. The fresh 0.60-second/94,502,912-byte sample does not contradict such a scoped observation."
+    },
+    "readiness": {
+      "verdict": "REJECT",
+      "deterministic_source_finding": "currentTextState invokes stack.some and is called at tag boundaries. For N nested non-processed div elements, each scan reaches the end without a match across geometrically varying stack depth, while no work field counts those predicate visits.",
+      "geometric_family": "<div> repeated N followed by </div> repeated N; analyzer only, one warm-up and median of five fresh samples",
+      "rows": [
+        {
+          "n": 500,
+          "source_bytes": 5500,
+          "median_ms": 3.630,
+          "instrumented_units": 13001
+        },
+        {
+          "n": 1000,
+          "source_bytes": 11000,
+          "median_ms": 25.270,
+          "instrumented_units": 26001
+        },
+        {
+          "n": 2000,
+          "source_bytes": 22000,
+          "median_ms": 93.976,
+          "instrumented_units": 52001
+        },
+        {
+          "n": 4000,
+          "source_bytes": 44000,
+          "median_ms": 349.549,
+          "instrumented_units": 104001
+        },
+        {
+          "n": 8000,
+          "source_bytes": 88000,
+          "median_ms": 953.030,
+          "instrumented_units": 208001
+        }
+      ],
+      "classification": "HOSTILE_TIMING_OBSERVATION_PLUS_SOURCE_DERIVED_UNCOUNTED_QUADRATIC_PATH_NOT_A_FORMAL_BENCHMARK",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:310",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:314",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:867"
+      ]
+    }
+  },
+  "criteria": {
+    "state_and_byte_coordinates": {
+      "verdict": "REJECT",
+      "evidence": "A-R1 turns a valid ASCII raw closing tag and following visible reference into RAW_SCRIPT through EOF whenever earlier raw text contains a lowercase-expanding Unicode scalar; the byte-exact close tag disappears."
+    },
+    "headings": {
+      "verdict": "REJECT",
+      "evidence": "A-R2 preserves the optional ATX closing sequence in the title and propagates the wrong title to the exactly joined operation owner."
+    },
+    "same_name_nesting": {
+      "verdict": "ACCEPT",
+      "evidence": "A fresh two-operation nested same-name case produces exact outer [0,45) and inner [16,38) intervals with correct tag pairings."
+    },
+    "candidate_and_disposition_semantics": {
+      "verdict": "REJECT",
+      "evidence": "A-R3 admits ordinary quoted prose, an empty definition, and a hostless scheme as INCLUDED semantic candidates."
+    },
+    "carrier_and_operation_joins": {
+      "verdict": "REJECT",
+      "evidence": "Exact ledger locator and duplicate-occurrence controls close, but A-R4 misses a valid multi-scope carrier join and A-R2 attaches a common-mode false heading title to an otherwise exact operation join."
+    },
+    "oracle_omission_and_fabrication_resistance": {
+      "verdict": "REJECT",
+      "evidence": "Direct analyzer-shaped omissions now reject, but the oracle repeats the analyzer's whole-source Unicode fold, permissive reference grammar, ATX title normalization, and scalar scope model; all four new false analyses pass. Structural import separation is not semantic independence."
+    },
+    "collision_behavior": {
+      "verdict": "ACCEPT",
+      "evidence": "Full SHA-256 candidate identities are emitted and a forced candidate/operation stable-ID collision remains visible and is rejected as STABLE_ID_COLLISION."
+    },
+    "no_throw": {
+      "verdict": "ACCEPT_WITHIN_DECLARED_BOUNDARY",
+      "evidence": "The official 512 decoded arbitrary-byte cases reproduce; all 256 one-byte sequences plus eight ill-formed or boundary strings also complete without a throw."
+    },
+    "honest_resource_claims": {
+      "verdict": "ACCEPT",
+      "evidence": "The repair makes no formal complexity or full-corpus resource claim and labels its instrument a lower bound."
+    },
+    "resource_readiness_for_next_formation": {
+      "verdict": "REJECT",
+      "evidence": "The nested-tag stack predicate is deterministically quadratic and absent from the linear reported instrument; fresh geometric timing exposes the path."
+    },
+    "readiness_for_next_denominator_formation": {
+      "verdict": "REJECT",
+      "evidence": "A denominator formation seeded from this analyzer could silently exclude visible references after valid raw closers, corrupt heading/operation owner titles, include ordinary prose as references, and omit valid scoped definition targets while its oracle stays green."
+    },
+    "full_css_credit": {
+      "verdict": "NOT_ADJUDICATED",
+      "evidence": "The requested judgment stops before full CSS credit. All credits remain zero and no full-corpus execution or publication is authorized."
+    }
+  },
+  "confirmed_repairs": [
+    "The documented workspace and external-CWD runs are byte-identical and syntax-clean.",
+    "Physical-line ATX admission, inline-tag heading projection, Setext headings, raw invalid-boundary handling, non-void slash handling, empty-href omission, astral escape ownership, escape-byte candidate ownership, disposition-gated target joins, and the original nested same-name case replay green.",
+    "Exact source hash, URL, byte locator, kind, and anchor joins reject wrong locators and duplicate ledger claims.",
+    "Direct state, candidate, tag, heading, owner, base, omission, and work-suppression mutations reject.",
+    "Candidate identities are no longer truncated and collision-bearing stable IDs are not silently erased.",
+    "The resource and authority labels remain candidly RED, lower-bound-only, non-parser, non-production, and zero-credit."
+  ],
+  "blockers": [
+    {
+      "id": "A-RB-01",
+      "severity": "BLOCKING_FOR_NEXT_DENOMINATOR_FORMATION",
+      "title": "Raw close positions are not invariant under Unicode source text",
+      "evidence": "A-R1",
+      "required_correction": "Use ASCII-only tag-name comparison without transforming coordinate-bearing source text; freeze lowercase-expanding and non-ASCII prefix cases for script, style, and xmp in analyzer and an independently different oracle."
+    },
+    {
+      "id": "A-RB-02",
+      "severity": "BLOCKING_FOR_NEXT_DENOMINATOR_FORMATION",
+      "title": "Heading and operation-owner normalization is incomplete",
+      "evidence": "A-R2",
+      "required_correction": "Implement and independently derive Bikeshed ATX closing-sequence removal, then freeze the exact heading and joined operation-owner title."
+    },
+    {
+      "id": "A-RB-03",
+      "severity": "BLOCKING_FOR_NEXT_DENOMINATOR_FORMATION",
+      "title": "Candidate grammar fabricates included references",
+      "evidence": "A-R3",
+      "required_correction": "Restore explicit validity rules for every reference family, reject or explicitly review empty targets and invalid URLs, and test analyzer-produced false positives rather than only mutated output rows."
+    },
+    {
+      "id": "A-RB-04",
+      "severity": "BLOCKING_FOR_NEXT_DENOMINATOR_FORMATION",
+      "title": "Carrier scope is modeled as one scalar instead of a normalized set",
+      "evidence": "A-R4",
+      "required_correction": "Parse comma-separated scope values from exact attribute bytes, retain provenance for each normalized scope, and join references against the resulting set."
+    },
+    {
+      "id": "A-RB-05",
+      "severity": "BLOCKING_FOR_NEXT_DENOMINATOR_FORMATION",
+      "title": "The oracle remains common-mode and the work instrument omits a deterministic quadratic path",
+      "evidence": "A-R1 through A-R4 and resource_review.readiness",
+      "required_correction": "Derive the affected semantics through algorithms that do not share the analyzer's folding, grammar, normalization, or ownership strategy; remove or explicitly govern the quadratic stack scan before denominator-scale formation."
+    }
+  ],
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  },
+  "required_next": [
+    "Keep this exact repaired subject RED and do not use it to form or execute the 168-source denominator.",
+    "Freeze A-R1 through A-R4 and the nested-tag resource family as born-RED controls.",
+    "Repair the analyzer semantics and replace the four common-mode oracle derivations with independently structured checks.",
+    "Retain the accepted same-name, exact-locator, collision, direct-omission, no-throw, and candid-scope controls.",
+    "Re-freeze analyzer, oracle, test, and evidence bytes before the remaining fresh challenge and root gestalt."
+  ]
+}

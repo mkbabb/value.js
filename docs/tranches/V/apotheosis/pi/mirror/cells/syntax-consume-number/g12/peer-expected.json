@@ -1,0 +1,20 @@
+{
+  "schema": "value.pi.syntax-consume-number.g12.peer-expected/v1",
+  "cases": 15,
+  "common": ["integer", "negative-integer", "fraction", "negative-fraction", "exponent", "negative-exponent", "decimal", "zero"],
+  "lanes": {
+    "live_regex": {
+      "included": ["integer", "negative-integer", "fraction", "negative-fraction", "exponent", "signed-exponent", "negative-exponent", "decimal", "zero", "explicit-plus", "leading-zero"],
+      "excluded": ["negative-zero", "incomplete-fraction", "incomplete-exponent", "overflow"]
+    },
+    "deposed": {
+      "included": ["integer", "negative-integer", "fraction", "negative-fraction", "exponent", "negative-exponent", "decimal", "zero", "incomplete-fraction", "incomplete-exponent"],
+      "excluded": ["signed-exponent", "negative-zero", "explicit-plus", "leading-zero", "overflow"]
+    },
+    "c14": {
+      "included": ["integer", "negative-integer", "fraction", "negative-fraction", "exponent", "signed-exponent", "negative-exponent", "decimal", "zero", "explicit-plus", "leading-zero", "incomplete-exponent"],
+      "excluded": ["negative-zero", "incomplete-fraction", "overflow"]
+    }
+  },
+  "observations_sha256": "73cd4e76c4b06d3ade34a90eb0011e9d99c523100538dc7ebd81a4dec85a0bbd"
+}

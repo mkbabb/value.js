@@ -1,0 +1,97 @@
+{
+  "schema": "value.pi.feature/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 14,
+  "status": "PUBLIC_BOUNDARY_ONLY_ZERO_CREDIT",
+  "owner": {
+    "module": "grammar/css/l4/value-unit/numeric",
+    "bbnf_family": "value-unit",
+    "production": "consume-number"
+  },
+  "normative": [{
+    "title": "CSS Syntax Module Level 3 — consume a number",
+    "url": "https://drafts.csswg.org/css-syntax/#consume-number",
+    "revision": "Editor’s Draft 10 June 2026",
+    "algorithm": "§4.3.13",
+    "retrieved_on": "2026-07-22",
+    "document_sha256": "755d81a47638112e13b6aa3e5c0599bc4b4aa308f4c1fd6f19cb984d838e019d"
+  }],
+  "input": {
+    "source": "ECMAScript string interpreted as UTF-16 code units",
+    "offset": "finite integer in [0, source.length]",
+    "precondition": "current input starts with a CSS number representation"
+  },
+  "success": {
+    "language": "optional sign; digits plus optional fraction or leading-dot digits; optional complete exponent",
+    "maximal_prefix": true,
+    "offset": "advance by exactly the consumed representation; incomplete decimal/exponent and repeated-fraction suffixes remain unconsumed",
+    "value": "Number(consumed representation), preserving signed zero, underflow, and infinities",
+    "result": {
+      "prototype": "Object.prototype",
+      "own_keys_in_order": ["sign", "type", "value"],
+      "descriptors": "all three are data properties, enumerable, writable, configurable",
+      "extensible": true,
+      "frozen": false,
+      "sign": "+ | - | null",
+      "type": "integer iff neither decimal point nor exponent was consumed; otherwise number"
+    }
+  },
+  "failure": {
+    "transaction": "source identity/content, offset, and predecessor value identity are unchanged; isError is true; no throw",
+    "ahead_diagnostics": "pre-existing diagnostics whose furthest offset is ahead of this attempt remain structurally unchanged",
+    "ordinary_diagnostics": {
+      "classification": "OUTSIDE_CONSUME_NUMBER_STARTS_NUMBER_PRECONDITION",
+      "contract": "candidate-local parse-that expected labels are internal and structurally validated but deliberately not normalized here",
+      "credit": "no ParseIssue fidelity credit; typed/public parents own stable user-facing issue translation"
+    }
+  },
+  "composition": {
+    "required": ["percentage", "dimension", "integer-only", "delimited"],
+    "parent_failure_state": "parse-that parent value/offset-on-error is outside this leaf contract; this row scores parent accept/reject and source preservation only"
+  },
+  "source_preservation": "consumed spelling is recoverable from unchanged source plus start/end UTF-16 offsets; this row emits no serializer",
+  "work_limits": "no candidate throw on public hostile cases; no manual source/cursor loop, slicing scanner, token tape, CST, filesystem, process, network, or corpus read",
+  "candidate_interface": {
+    "path": "candidate.d.ts",
+    "sha256": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+    "import": "@mkbabb/parse-that/core",
+    "export": "consumeNumber"
+  },
+  "candidate_slots": {
+    "h": "candidates/h/index.ts",
+    "b": "candidates/b/index.ts",
+    "s": "candidates/s/index.ts",
+    "d": "candidates/d/index.ts"
+  },
+  "fixtures": {
+    "manifest": {
+      "path": "fixtures/manifest.json",
+      "sha256": "d679e8896b35402fc84ada7d308cb1ff28d6da04287e5770b17439c69335b3e6"
+    }
+  },
+  "public_evaluator": {
+    "path": "public-evaluator.mts",
+    "sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "command": "tsx public-evaluator.mts --candidate <candidate-index>"
+  },
+  "oracles": {
+    "spec": "primary algorithm and maximal-prefix arbiter",
+    "live": "later parent/public differential only; not an internal consume-number authority",
+    "browser": "later typed-parent witness; CSSOM does not expose this internal triple",
+    "bbnf": "module/ownership coordination only, not semantic truth"
+  },
+  "benchmark": "POST_CANDIDATE; ADDENDA-07 §6 identical-operation manifest required",
+  "reviews": { "skeptics": "PENDING_0_OF_5", "adjudicators": "PENDING_0_OF_3" },
+  "predecessor": {
+    "g13_acceptance_sha256": "f3a76feac33c0d9e1c95abfbc4983e8521eea52a455fb9f963a9da4f93ea0945",
+    "g13_review_sha256": [
+      "9f6a60fbe26310cae4bc83f15a6283d7010931b91d0056318b117cd3f1541b60",
+      "f445479d0a14d795aec6cc179bbd9abbc561dbae4ff3103266fa9d9bda768d11",
+      "81eb057bb370b35e669f56ba6f21093b49d6ad7c497600a6add5dc5e11185691",
+      "8ff697866c531cc9c16a4d25ca24a77e805d002e79889b4bbea9db024bd0e2ba",
+      "3c88419beecf8f696ea1a074ecc2ed9777a9d076df21bec068d627ca1fcb4f4f"
+    ],
+    "repairs": ["repeated-fraction maximal prefix", "ordinary mutable result contract", "explicit ordinary-failure classification"]
+  },
+  "credit": { "parser": 0, "feature": 0, "benchmark": 0, "integration": 0, "production": 0 }
+}

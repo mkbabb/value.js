@@ -1,0 +1,63 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v5",
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_CHALLENGES_AND_ROOT_GESTALT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v5.json",
+    "bytes": 18048,
+    "sha256": "9f64d59ac8effffdfe476805b5d2086bba8281f55609e3f575b714f7fdf51b10"
+  },
+  "schemas": [
+    { "path": "occurrence-owner-formation-v5.schema.json", "bytes": 10510, "sha256": "e406bf06bcb06535a1e015b209d1c9c85c14485c3dd7f88be5cbec936c1a6a8e" },
+    { "path": "occurrence-owner-formation-v5-shard.schema.json", "bytes": 13590, "sha256": "9e688ecd62e939679898ffb2201c4fb64443d74cb7e5f212670e705c7da0a5b2" }
+  ],
+  "formation_receipt": {
+    "path": "../formation/occurrence-owner-v5-formation-2026-07-22.md",
+    "bytes": 7540,
+    "sha256": "a0000722fd3b774329c13fe6fddea3268e608770360e3ba74868bbcd5371b143"
+  },
+  "challenges": [
+    { "path": "../formation/occurrence-owner-v5-challenge-a.md", "bytes": 14581, "sha256": "72941acb997243e7ee3a206d4f1478b8949fbe0d6a17647af71b8eb00a09e167", "verdict": "REJECT" },
+    { "path": "../formation/occurrence-owner-v5-challenge-b.md", "bytes": 13488, "sha256": "3fb419a4f0dfd41348eab52958894dc9bce71a506420470c71e13dd108fc0904", "verdict": "REJECT" }
+  ],
+  "root_gestalt": {
+    "path": "../formation/occurrence-owner-v5-root-gestalt.md",
+    "bytes": 5402,
+    "sha256": "3264d24172298667848105b7984ec247016f6d49500558065dc13eaffcd10ae0",
+    "verdict": "REJECT"
+  },
+  "confirmed_blockers": [
+    "contexts and carriers are not independently regenerated and canonical-compared",
+    "derived context/carrier IDs and carrier-context edges are not authenticated",
+    "stale operation-context and reference-target foreign keys can survive carrier/context corruption",
+    "343 authenticated single-quoted Bikeshed shorthand occurrences with type modifiers are omitted",
+    "inherited dfn-for data-dfn-for and for scopes are not applied to definition targets",
+    "bibliography modifiers are folded into specification names",
+    "program and style literals are falsely classified as CSS shorthand references",
+    "slash-bearing CSS maybe syntax is forced into false scope/name semantics",
+    "URL occurrence intervals consume terminal punctuation",
+    "297 dated W3C TR references are named by year rather than publication identifier",
+    "boolean data-algorithm is not recognized despite the advertised boundary",
+    "atomic bundle and executed-byte identity claims overstate two-rename publication and the loader TOCTOU boundary",
+    "whole-bundle verification and mutation cloning peak near 1.2 GB"
+  ],
+  "accepted_narrow_facts": [
+    "168-source byte closure remains exact and RED-only",
+    "311 current algorithm-bearing openings and the 293 literal-div subset are retained as snapshot facts",
+    "5153 operation candidates over 5151 intervals and ten RED required joins remain unreviewed evidence",
+    "14 owner-source rows reproduce exact ADDENDA-01 lines while assigning no owner edges",
+    "52-export and 37-consumer inputs remain RED and unjoined",
+    "all semantic owner operation compatibility conformance parser audit and production credits remain zero"
+  ],
+  "credit": {
+    "denominator": 0,
+    "parser": 0,
+    "owner_graph": 0,
+    "cost_lattice": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "audit": 0,
+    "production": 0
+  },
+  "next": "Cut a fresh RED-only V6 subject repairing every confirmed discovery semantic provenance integrity and memory blocker, then obtain two fresh challenges and root gestalt."
+}

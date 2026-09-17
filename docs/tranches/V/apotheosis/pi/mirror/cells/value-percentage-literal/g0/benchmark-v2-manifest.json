@@ -1,0 +1,45 @@
+{
+  "schema": "value.pi.percentage-literal.benchmark-manifest/v2",
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "generation": "G0 benchmark correction after exact skeptic rejection",
+  "operation": "complete literal percentage to {kind,number{sign,type,value}} or failure",
+  "files": [
+    {"path":"cells/value-percentage-literal/g0/benchmark-v2.mts","sha256":"5d023307c52aad192a2980777a83a71f5be5aa19b45444615685740d20e081d3"},
+    {"path":"cells/value-percentage-literal/g0/benchmark-peers.ts","sha256":"390e2f36ca29f7b460b9cf77c8e45e26052adebeeaa2f70942596e4cfc22ef4d"},
+    {"path":"cells/value-percentage-literal/g0/candidates/h/index.ts","sha256":"82d426f494fed3e14cac1ddf7c20ca787b1f731fe11c7e48d422a0a1b8c4a02a"},
+    {"path":"cells/value-percentage-literal/g0/candidates/b/index.ts","sha256":"2b3ffe8e18d32d62c25de28ad4ef2d0246c23ab81440fcc83bf3faf5c4d445c2"},
+    {"path":"cells/value-percentage-literal/g0/candidates/s/index.ts","sha256":"0657c2bb60a9200c5ffc26aef3d7a1049219657757797901bc4b4a435f14b654"},
+    {"path":"apotheosis/grammar/css/l4/value-unit/numeric.ts","sha256":"8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"},
+    {"path":"grammar/css/l4/value-unit.ts","sha256":"0b271307c758a99bba065c9efb23e4f15bb7c73466390018fc5a5e9cc97f275b"},
+    {"path":"grammar/css/l4/combinators.ts","sha256":"be3f6efc6d6f3919e5d1e67c260b02ac6d49111bd9b2966492d692a0cb34be08"},
+    {"path":"grammar/css/l4/tokens.ts","sha256":"bd021f01f11e1fa2c98409fdf9cbdcce42771b9979f5085cb3881fb745260411"},
+    {"path":"../../../../../../src/css/grammar.ts","sha256":"40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69"},
+    {"path":"package.json","sha256":"b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af"},
+    {"path":"package-lock.json","sha256":"489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"},
+    {"path":"node_modules/@mkbabb/parse-that/package.json","sha256":"f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff"},
+    {"path":"node_modules/@mkbabb/parse-that/dist/core.js","sha256":"d577cc3e19b3a7e138ad433670ebdf4857776744c3375ae174391e2f68e642f5"},
+    {"path":"node_modules/@mkbabb/parse-that/dist/parse.js","sha256":"2ad25cf0093f5caf66b359aae563eb0a6d4e77a38fd569b430b70cdd2e4ed56b"}
+  ],
+  "corpus": [
+    "0%", "+12%", "-.5%", "1.25e2%", "-0%", "+.0e-0%",
+    "000%", "1E-2%", "100%", "101%", "-1000.125%", "5e-324%",
+    "42.125%", "+7E3%", "-9e-3%", "999999.5%"
+  ],
+  "protocol": {
+    "replicates": 20,
+    "blocksPerReplicate": 5,
+    "warmupIterations": 1000,
+    "sampleIterations": 2000,
+    "tCriticalOneSided95Df19": 1.729132811521367,
+    "comparisons": [
+      ["b", "h"],
+      ["b", "s"],
+      ["b", "live-regex"],
+      ["b", "prior-parser"]
+    ]
+  },
+  "selection": "B is the only emit-shaped candidate and must strictly beat both candidate alternatives and both operation-equivalent historical peers.",
+  "schedule": "Five-block Latin rotation per fresh process; every lane occupies every position exactly once per replicate.",
+  "retryLaw": "This is a new benchmark generation after v1 rejection. Its first completed invocation is terminal whether PASS or FAIL.",
+  "featureCreditBeforeRun": 0
+}

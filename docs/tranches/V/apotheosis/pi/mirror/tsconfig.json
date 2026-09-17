@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "types": ["node", "vitest/globals"]
+  },
+  "include": [
+    "bench/**/*.ts",
+    "cells/**/*.ts",
+    "deps/**/*.ts",
+    "grammar/**/*.ts",
+    "harness/**/*.ts",
+    "stylesheet/**/*.ts",
+    "support/barrel-types.ts",
+    "support/contract-parity.ts",
+    "test/**/*.ts",
+    "tools/**/*.ts",
+    "*.ts"
+  ]
+}

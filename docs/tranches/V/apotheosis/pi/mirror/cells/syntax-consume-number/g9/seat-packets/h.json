@@ -1,0 +1,9 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "seat": "h",
+  "lineage": "historical direct parse-that production",
+  "source_inputs": [{ "path": "../g7/authorities/historical-utils.ts", "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4", "bytes": 7656, "commit": "9fce504a5764258c8e56b0ce77cd656c725a4907" }],
+  "instruction": "Start from the old direct parse-that numeric terminal and improve it to the exact contract. Do not consult B, S, or D sources or candidates.",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

@@ -1,0 +1,30 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "status": "FROZEN_PREAUTHOR_FEATURE_ROW",
+  "owner": "value-unit",
+  "semantic_contract": {
+    "path": "../g9/feature-contract.json",
+    "sha256": "92cc3f90352c2e6250f16d93587ebfd74f51d2878fd5e8fdf312035b60514a1a",
+    "bytes": 3945,
+    "reuse": "The operation, maximal-prefix grammar, semantic leaf, failure transaction, composition, direct-combinator veto, four-seat law, later five-plus-three selection, and benchmark law remain sound. No G9 or G10 acceptance status is inherited."
+  },
+  "terminal_predecessor": {
+    "path": "../g10/root-gestalt.json",
+    "sha256": "7b645062395fd5bf4fd4b0fa25b501d88be50c0e3b627e068dc16e92a05f78aa",
+    "bytes": 4675,
+    "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS"
+  },
+  "runtime": "@mkbabb/parse-that@1.0.0 exact",
+  "operation": "At the current parse-that UTF-16 offset, consume one maximal CSS Syntax 3 number prefix and return Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>.",
+  "candidate_roots": {
+    "h": "candidates/h",
+    "b": "candidates/b",
+    "s": "candidates/s",
+    "d": "candidates/d"
+  },
+  "candidate_export": "consumeNumber",
+  "candidate_phase": "ONLY_AFTER_PHASE_VALIDATOR_OUTPUTS_AUTHORS_MAY_WRITE",
+  "holdout_phase": "ONLY_AFTER_ALL_FOUR_CANDIDATES_CLOSE",
+  "credit": "ZERO_PREAUTHOR_BOUNDARY_ONLY"
+}

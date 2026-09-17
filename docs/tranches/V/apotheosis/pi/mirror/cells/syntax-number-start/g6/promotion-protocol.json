@@ -1,0 +1,73 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G6-PROMOTION",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT",
+  "active_root": "mirror/apotheosis",
+  "target_path": "grammar/css/l4/value-unit/number-start.ts",
+  "candidate_overlay_root": "cells/syntax-number-start/g6/candidates/<seat>/overlay",
+  "allowed_overlay_paths": ["grammar/css/l4/value-unit/number-start.ts"],
+  "allowed_runtime_imports": ["@mkbabb/parse-that/core"],
+  "clean_base": {
+    "manifest": "../../../apotheosis/clean-base.json",
+    "manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "typescript_source_count": 0,
+    "empty_grammar_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rejected_pre_reset_tree": "NOT_IN_ACTIVE_SOURCE_CENSUS_OR_PROJECTION"
+  },
+  "mechanical_verifier": "promotion-verifier.mjs",
+  "execution_bootstrap": {
+    "command": "node cells/syntax-number-start/g6/promotion-verifier.mjs <candidate-overlay-root>",
+    "tsx_dependency": "NOT_USED",
+    "verifier_location": "The verifier derives every live root from realpath(import.meta.url); only the overlay root is supplied.",
+    "host_runtime": "The invoking Node/V8 binary is an environment receipt, not a byte-reproducible candidate identity. Its executable path and versions are emitted; a host-runtime change invalidates the run but does not alter candidate source identity."
+  },
+  "typescript_closure": {
+    "package_root": "mirror/node_modules/typescript",
+    "package_version": "5.8.3",
+    "ledger": "typescript-package.ledger",
+    "ledger_sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+    "file_count": 130,
+    "ledger_scope": "Every canonical regular file under the installed TypeScript package, including package.json, lib/typescript.js, bin/tsc, lib/tsc.js, declarations, libraries, notices, and locale data. Path-set and every byte are revalidated; symlinks and unsupported entries reject.",
+    "ast_implementation": "The verifier imports the exact ledger-verified node_modules/typescript/lib/typescript.js by canonical file URL only after the complete package verifies.",
+    "typecheck_implementation": "Candidate typecheck invokes the exact ledger-verified node_modules/typescript/bin/tsc with --project mirror/tsconfig.apotheosis.json --noEmit. The generic .bin shim is not part of the claim.",
+    "active_config_sha256": "8e4d9009e5d4678542ca908c842f391aa7faa8caff43c388d8f77d979ed3ac68",
+    "inherited_config_sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc",
+    "config_closure": "The child must extend ./tsconfig.json and the exact parent must not extend another config. Both canonical files and hashes are verified."
+  },
+  "live_root_binding": {
+    "derived_roots": [
+      "mirror/apotheosis",
+      "mirror/apotheosis/grammar",
+      "mirror/node_modules/@mkbabb/parse-that",
+      "mirror/node_modules/typescript",
+      "mirror/package.json",
+      "mirror/package-lock.json",
+      "mirror/tsconfig.apotheosis.json",
+      "mirror/tsconfig.json",
+      "mirror/cells/syntax-number-start/g3/parse-that-dist.ledger",
+      "mirror/cells/syntax-number-start/g6/typescript-package.ledger"
+    ],
+    "canonicality": "Every derived directory/file and overlay root must equal its canonical real path. Symbolic links below active grammar, dependency, tool, or overlay roots are rejected.",
+    "caller_arguments": "Only the candidate overlay root is caller-supplied; mirror, clean base, package, lock, configurations, dependency, tool, and ledger roots cannot be substituted."
+  },
+  "mechanical_checks": [
+    "clean-base manifest matches and active grammar contains zero TypeScript sources before overlay",
+    "overlay is one canonical regular UTF-8 file at the exact target path",
+    "ordinary imports are restricted to @mkbabb/parse-that/core",
+    "TypeScript syntax parses and exactly one direct variable named numberStart is exported; export declarations, assignments, and other exported declarations are rejected",
+    "the exact AST visitor rejects dynamic import/require, runtime template expressions, binary-plus coercion, element access, object binding/spread, imperative loops, the verifier's enumerated direct identifiers/properties, and the literal source-property spelling",
+    "all 64 installed parse-that dist paths/bytes plus installed package.json are revalidated",
+    "all 130 installed TypeScript package paths/bytes, package name/version, both TypeScript configs, mirror package, and lock are revalidated",
+    "source, overlay-ledger, projected one-file grammar-ledger, clean-base, parse-that aggregate, TypeScript aggregate/config closure, resolved roots, and host runtime receipt are emitted"
+  ],
+  "mechanical_nonclaims": [
+    "The AST visitor does not claim to recognize token/atom/component-value/CST naming.",
+    "It does not inspect regex-literal breadth or prove bounded matching.",
+    "It does not prove absence of aliases, indirection, recursion, prototype/inherited coercion, source derivation, scanner behavior, or contrivance.",
+    "It does not prove idiomatic parse-that, normative ownership, O(1), or KISS."
+  ],
+  "human_review_boundary": "Every one of the five independent exact-source skeptics must inspect every candidate for token/CST architecture, regex breadth, all indirection and source-derivation routes, scanner/remainder behavior, predecessor dependence, state corruption, normative ownership, O(1), LOC/KISS, and idiomatic direct parse-that. A mechanical pass is necessary only and grants no safety or idiom credit.",
+  "typecheck": "After overlay identities close, run the emitted direct canonical Node + bound TypeScript bin/tsc command against the exact two-file config closure. The ordinary npm run check remains a formation-level regression witness, not the identity of the candidate-specific command.",
+  "projection": "The active base ledger is empty. The overlay ledger and projected active grammar ledger are the same single canonical row `<source-sha256><two spaces>grammar/css/l4/value-unit/number-start.ts<LF>`.",
+  "integration": "After quintet and triumvirate, copy only exact selected bytes into mirror/apotheosis/target_path, require the emitted projected hash, then rerun type, semantic, fresh holdout, hostile, and benchmark evidence. This remains prototype integration, never production execution.",
+  "drift_rule": "Any public input, verifier bytes/location, resolved live root, host-runtime receipt, clean-base file/census, package/lock/config, parse-that byte, TypeScript ledger/path/byte, source, overlay, or projected identity drift starts a new promotion generation."
+}

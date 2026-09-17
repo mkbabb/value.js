@@ -1,0 +1,85 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "review_id": "B",
+  "verdict": "REJECT",
+  "reviewer": {
+    "id": "g8-boundary-challenge-b",
+    "served_model": "gpt-5.6-sol",
+    "independent": true,
+    "candidate_author": false,
+    "root": false,
+    "peer_review_access": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "formation": {
+      "sha256": "ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba",
+      "bytes": 9872
+    },
+    "closure_sha256": "ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d",
+    "holdout_receipt": {
+      "sha256": "bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9",
+      "bytes": 5651
+    },
+    "holdout_ciphertext": {
+      "sha256": "bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319",
+      "bytes": 287609
+    }
+  },
+  "axes": {
+    "exact_subject_byte_authentication": "ACCEPT",
+    "path_containment": "ACCEPT",
+    "ciphertext_framing": "ACCEPT",
+    "four_seat_payload_satisfiability": "ACCEPT",
+    "direct_ast_negative_controls": "ACCEPT",
+    "exact_frozen_formation_admission": "REJECT",
+    "precursor_and_authority_closure_replay": "REJECT",
+    "boundary_manifest_chronology": "REJECT",
+    "boundary_review_schema_enforcement": "REJECT",
+    "boundary_review_subject_binding": "REJECT",
+    "root_schema_enforcement": "REJECT",
+    "root_review_identity_binding": "REJECT",
+    "reviewer_root_custodian_independence": "REJECT",
+    "post_admission_actor_identity_join": "REJECT",
+    "foreign_or_fabricated_bundle_rejection": "REJECT",
+    "holdout_comparison_input_resolution": "REJECT",
+    "durable_reveal_and_destruction_control": "REJECT",
+    "phase_aware_frozen_replay": "REJECT",
+    "benchmark_artifact_identity": "ACCEPT",
+    "benchmark_execution_and_comparability": "REJECT",
+    "benchmark_result_integrity": "REJECT",
+    "three_by_five_by_three_gate_integrity": "REJECT"
+  },
+  "evidence": [
+    "Independent byte replay confirmed formation-receipt.json as SHA-256 ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba / 9872 bytes, holdout-receipt.json as bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9 / 5651 bytes, and holdout-ciphertext.b64 as bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319 / 287609 bytes.",
+    "The formation receipt embeds the asserted precursor closure ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d and authority closure 32ba6ab38f3169e57f180b14ee38654a1f8b8246e031a5bbea3d06a6cb7aad0d, but actualPreAuthor never invokes validateFormation, verifyAuthorities, verifyG7Terminal, or an equivalent exact frozen-formation replay.",
+    "formation-validator.mjs:380-398 accepts the formation path row named by the caller-controlled manifest and checks only parsed.formation.precursor_closure_sha256 against the same caller-controlled manifest closure. It does not require the exact ad53112e.../9872 formation, receipt_id, class, feature, generation, status, precursor rows, authority rows, authority closure, G7 terminal authority, or zero-credit state.",
+    "validateHoldoutReceipt binds its precursor to manifest.formation and manifest.precursor_closure_sha256, so it faithfully joins a holdout to whichever foreign formation the manifest names; it does not repair the absence of a fixed G8 formation identity.",
+    "formation-validator.mjs:394 checks each review only for review_id, ACCEPT, and an empty blockers array. It does not validate feature_id, generation, exact keys/schema, reviewer independence flags, hidden/peer access, subject formation/closure/holdout identities, the >=15 axes, evidence, or credit.",
+    "formation-validator.mjs:395-396 checks only two distinct reviewer.id strings, root ACCEPT, empty root union_blockers, and a third root.root.id string. It does not validate the root schema, root subject, root independence flags, the root's two review path/hash/byte/verdict rows, reviewer_id joins, or whether the root actually adjudicated the manifest's review bytes.",
+    "Consequently two tiny fabricated ACCEPT JSON objects with IDs A/B and distinct reviewer IDs plus one tiny root ACCEPT object with a third ID can open the author gate even if all three omit the frozen subject and the root names no challenged review. Exact file hashes in the manifest authenticate the fabricated bytes without authenticating their semantics.",
+    "The boundary chronology is internally unsatisfiable as written: boundary-manifest.schema.json requires the exact review_a, review_b, and root hashes, while author-admission-protocol.json says to seal that manifest before obtaining those reviews and root. Because the review subject has no precursor-manifest identity, the executable route necessarily creates reviews/root first and seals the manifest afterward, so the claimed frozen-before-review boundary is not established.",
+    "The root schema can describe exact review rows, but actualPreAuthor does not enforce it. The review schema can describe the exact formation and holdout subject, but actualPreAuthor does not enforce it. verifySchemas only checks each schema document's own $schema/$id/type/additionalProperties metadata and never applies those schemas to admission artifacts.",
+    "The operative strict-check is not replayable in the authorized post-seal state: running --strict-check after the holdout and review directory exist reports 'forbidden formation artifacts exist: holdout-ciphertext.b64,holdout-receipt.json,reviews'. The later --pre-author path does not replace that failed replay with immutable closure verification.",
+    "The holdout validator checks comparison_inputs only as syntactically valid path rows at formation-validator.mjs:187; it neither resolves those bytes nor requires the exact G7 destruction and G5 public corpus identities. Custodian freshness and no-reuse therefore remain self-attestation rather than an executable cross-generation comparison.",
+    "The sealed receipt's sole recoverable secret location is a live private custodian tool-store key. No frozen reveal validator, reveal-receipt schema, durable recovery mechanism, or executable destruction transition is present in the 28-row precursor. The receipt explicitly concedes that semantic adequacy and freshness cannot be publicly proved pre-reveal; loss of that live task would strand all four authored candidates.",
+    "owner-law-validator.mjs later obtains formation actor IDs from candidate-set.json itself. The pre-author receipt contains hashes but no authenticated reviewer/root/custodian IDs, and validateReviewEvidenceRoot does not recover them from the admitted review/root bytes. A candidate-set author can therefore substitute harmless actor strings and allow an actual boundary actor to reappear among skeptics or adjudicators undetected.",
+    "benchmark-validator.mjs does content-address exactly 40 files and preserves two chained raw attempts, but validateEvidenceRoot treats build manifests, bundles, correctness receipts, runner, schedule, normalized observations, and comparator artifacts as opaque bytes. validateRaw accepts any five positive numeric samples paired with a correctness-receipt hash; it does not execute the runner, verify units/work counts/environment/order/warmups, compare observations, enforce paired schedules, compute statistics, or enforce a win over live-regex/deposed/C14.",
+    "The owner-law resolved fixture demonstrates the weakness rather than closing it: its synthetic raw samples are arbitrary numbers and its public/holdout correctness receipts are small claimed-status JSON objects. Later exact-hash joins preserve those claims but never prove the claimed executions, so a fabricated benchmark bundle can satisfy the mechanical 3x5x3 gate if human reviewers fail to rediscover it.",
+    "The direct-AST topology controls and detached four-seat payload fixture are substantive positive formation work, but they operate after a pre-author gate that can be opened by a foreign formation and fabricated reviews. They cannot confer candidate credit while admission provenance is unsound.",
+    "A sound next generation needs a fixed pre-review subject manifest that excludes future review/root hashes, two reviews binding that exact subject-manifest hash, a root binding and validating those exact review bytes, and a final admission envelope. actualPreAuthor must fully validate the frozen formation/closures, every review/root schema and subject join, actor disjointness including the custodian, and negative controls for foreign formation, subject-swapped review, review-swapped root, and actor-ID substitution.",
+    "The same repair must make frozen replay phase-aware, resolve the exact holdout comparison inputs, freeze an executable reveal/destruction protocol with durable custody, bind formation actor IDs into the pre-author receipt and candidate set, and make benchmark qualification execute or independently verify the exact runner/schedule/observation/statistical win rather than accept opaque positive samples."
+  ],
+  "blockers": [
+    "B1 FOREIGN-FORMATION ADMISSION: --pre-author does not pin or substantively replay ad53112e.../9872, ff2bbfa4..., 32ba6ab3..., or the G7 terminal chain. A caller can create a different formation, matching holdout, and manifest and still reach AUTHORS_MAY_BE_INVITED.",
+    "B2 FABRICATED REVIEW/ROOT ADMISSION: the executable gate ignores the boundary-review and root-gestalt schemas and all subject/review identity joins. Minimal unblocked ACCEPT objects with three distinct ID strings can authorize authors without challenging this frozen subject.",
+    "B3 IMPOSSIBLE SEAL ORDER: the required manifest contains future review/root hashes, so it cannot be sealed before those actors work; reviews do not bind a separately frozen precursor-manifest. The stated chronology is neither constructible nor mechanically provable.",
+    "B4 ACTOR-INDEPENDENCE LAUNDERING: the admitted receipt omits actual custodian/reviewer/root IDs, while candidate-set.json supplies its own formation_actor_ids. Boundary actors can be renamed away and reused as skeptics/adjudicators, defeating the 3x5x3 independence law.",
+    "B5 NON-REPLAYABLE FROZEN GATE: --strict-check becomes RED merely because authorized holdout/review artifacts exist, and --pre-author does not verify the frozen precursor/authority closure as a phase-aware substitute. Current post-seal state cannot reproduce the claimed formation gate.",
+    "B6 HOLDOUT CUSTODY NOT CLOSED: comparison input bytes are not resolved; freshness/no-reuse is attested only; reveal/destruction has no frozen executable transition; and the sole secret is in a live task-local store rather than a durable recoverable custody route.",
+    "B7 BENCHMARK COMPARABILITY IS CLAIM-ONLY: opaque evidence bytes plus arbitrary positive sample arrays pass. No execution, schedule equivalence, observation equality, environment/work-unit proof, statistical calculation, or peer-beating threshold is enforced before owner-law acceptance.",
+    "B8 REQUIRED NEGATIVE CONTROLS ABSENT: there is no actual-CLI rejection assay for a foreign formation/holdout bundle, a subject-swapped ACCEPT review, a root that names different reviews, custodian/reviewer/root overlap, candidate-set actor substitution, or fabricated benchmark samples."
+  ],
+  "credit": "ZERO_BOUNDARY_REVIEW_ONLY"
+}

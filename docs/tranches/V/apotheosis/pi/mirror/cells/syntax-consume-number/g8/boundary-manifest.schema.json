@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:boundary-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "formation", "precursor_closure_sha256", "holdout_receipt", "holdout_ciphertext", "review_a", "review_b", "root"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 8 },
+    "formation": { "$ref": "#/$defs/pathRow" },
+    "precursor_closure_sha256": { "$ref": "#/$defs/sha256" },
+    "holdout_receipt": { "$ref": "#/$defs/pathRow" },
+    "holdout_ciphertext": { "$ref": "#/$defs/pathRow" },
+    "review_a": { "$ref": "#/$defs/pathRow" },
+    "review_b": { "$ref": "#/$defs/pathRow" },
+    "root": { "$ref": "#/$defs/pathRow" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "pathRow": { "type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } }
+  }
+}

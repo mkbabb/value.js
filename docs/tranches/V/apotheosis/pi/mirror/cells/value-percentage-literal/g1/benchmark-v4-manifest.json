@@ -1,0 +1,49 @@
+{
+  "schema": "value.pi.percentage-literal.benchmark-manifest/v4",
+  "feature": "VALUE-PERCENTAGE-LITERAL + NUMERIC-OWNER-EXPORT",
+  "generation": "H3 combined percentage terminal after v3 terminal FAIL",
+  "domains": {
+    "public": "complete percentage input to the exact successful ParseResult<CssScalar> value observed from parseCssScalar",
+    "internal": "complete percentage input to {kind,number{sign,type,value}} or failure"
+  },
+  "files": [
+    {"path":"cells/value-percentage-literal/g1/benchmark-v4.mts","sha256":"723c3053d1076667d2a1a817f7a9e808fd184ef591dd224efbb33559ecc3450d"},
+    {"path":"cells/value-percentage-literal/g0/benchmark-peers.ts","sha256":"390e2f36ca29f7b460b9cf77c8e45e26052adebeeaa2f70942596e4cfc22ef4d"},
+    {"path":"cells/value-percentage-literal/g1/candidates/h3/value-unit.ts","sha256":"1d1c37d20a9ef97f13466e96fbd65175d7c387aebd877ef400c81951fda23dc3"},
+    {"path":"apotheosis/grammar/css/l4/value-unit/numeric.ts","sha256":"8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"},
+    {"path":"result.ts","sha256":"a51ce946492f83e5ba88078a23b0979af62ac3c488c5bfbfb4d40de196003ffc"},
+    {"path":"types.ts","sha256":"6423d0cdb89d8df7dc8e0f90911a753287e81144591fe572c441675fd0619357"},
+    {"path":"package.json","sha256":"b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af"},
+    {"path":"package-lock.json","sha256":"489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"},
+    {"path":"node_modules/@mkbabb/parse-that/package.json","sha256":"f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff"},
+    {"path":"node_modules/@mkbabb/parse-that/dist/core.js","sha256":"d577cc3e19b3a7e138ad433670ebdf4857776744c3375ae174391e2f68e642f5"},
+    {"path":"node_modules/@mkbabb/parse-that/dist/parse.js","sha256":"2ad25cf0093f5caf66b359aae563eb0a6d4e77a38fd569b430b70cdd2e4ed56b"}
+  ],
+  "trees": [
+    {"root":"../../../../../../src","ledgerSha256":"04c27fc03d47cfbe9295fb7aa397fb09df008311a0b23437204370e6022aed17"},
+    {"root":"grammar","ledgerSha256":"03c463c8fcbc952065722d80fc95cfcffdcc79a688f060dafaa352c8cba739a6"},
+    {"root":"deps","ledgerSha256":"abcc7faf6a24f274a62596856fec595d36b08041b6543b2db8aca9672cee0ee0"}
+  ],
+  "corpus": [
+    "0%", "+12%", "-.5%", "1.25e2%", "-0%", "+.0e-0%",
+    "000%", "1E-2%", "100%", "101%", "-1000.125%", "5e-324%",
+    "42.125%", "+7E3%", "-9e-3%", "999999.5%"
+  ],
+  "protocol": {
+    "replicates": 20,
+    "blocksPerReplicate": 5,
+    "warmupIterations": 1000,
+    "sampleIterations": 2000,
+    "tCriticalOneSided95Df19": 1.729132811521367,
+    "comparisons": [
+      ["h3-public", "live-public"],
+      ["h3-public", "rejected-public"],
+      ["h3-internal", "prior-internal"]
+    ]
+  },
+  "architecture": "H3 owns one CSS number source/projector and two CSS Syntax terminals; no scanner, token object, CST, or duplicated numeric mapping.",
+  "nonComparableDiagnostic": "The raw live numeric regex kernel remains a non-public diagnostic loss in v2 and is not relabeled as a qualification door.",
+  "schedule": "Five-block Latin rotation per fresh process; every lane occupies every position exactly once per replicate.",
+  "retryLaw": "The first completed v4 invocation is terminal whether PASS or FAIL; v1-v3 evidence remain append-only.",
+  "featureCreditBeforeRun": 0
+}

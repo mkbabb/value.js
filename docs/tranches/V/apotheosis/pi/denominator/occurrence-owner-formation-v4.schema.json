@@ -1,0 +1,238 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mkbabb.dev/value.pi/occurrence-owner-formation-v4.schema.json",
+  "title": "value.pi compact occurrence/owner formation v4 manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "date", "status", "authority", "rejected_subjects", "source_closure", "primary_compatibility_inputs", "module_dag", "generator", "schemas", "shards", "counts", "validation", "replay", "credits", "content_digest_method", "content_digest_sha256"],
+  "properties": {
+    "schema_version": { "const": "value.pi.full-source-occurrence-owner-formation/v4" },
+    "date": { "const": "2026-07-22" },
+    "status": { "const": "PROVISIONAL_AWAITING_TWO_CHALLENGES_AND_GESTALT" },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["formation_only", "may_promote", "red_only"],
+      "properties": {
+        "formation_only": { "const": true },
+        "may_promote": { "const": false },
+        "red_only": { "const": true }
+      }
+    },
+    "rejected_subjects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pinned", "formation_inputs"],
+      "properties": {
+        "pinned": { "type": "array", "minItems": 13, "maxItems": 13, "items": { "$ref": "#/$defs/repo_identity" } },
+        "formation_inputs": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/repo_identity" } }
+      }
+    },
+    "source_closure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["universe", "seed", "complement", "source_bytes", "exact_paths_sha256"],
+      "properties": {
+        "universe": { "const": 168 },
+        "seed": { "const": 76 },
+        "complement": { "const": 92 },
+        "source_bytes": { "const": 14609103 },
+        "exact_paths_sha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "primary_compatibility_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["export_sources", "runtime_exports", "type_exports", "total_exports", "consumer_root_label", "consumer_files", "consumer_symbols", "dag_family_joined", "status"],
+      "properties": {
+        "export_sources": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "$ref": "#/$defs/repo_identity_path" } },
+        "runtime_exports": { "const": 19 },
+        "type_exports": { "const": 33 },
+        "total_exports": { "const": 52 },
+        "consumer_root_label": { "const": "keyframes-v-exec" },
+        "consumer_files": { "type": "array", "minItems": 27, "maxItems": 27, "items": { "$ref": "#/$defs/repo_identity_path" } },
+        "consumer_symbols": { "const": 37 },
+        "dag_family_joined": { "const": 0 },
+        "status": { "const": "RED_PRIMARY_SYMBOL_UNJOINED_TO_DAG" }
+      }
+    },
+    "module_dag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodes", "edges", "acyclic", "root_reachable"],
+      "properties": {
+        "nodes": { "type": "array", "minItems": 16, "maxItems": 16, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "edges": { "type": "array", "minItems": 46, "maxItems": 46, "items": { "$ref": "#/$defs/string_pair" } },
+        "acyclic": { "const": true },
+        "root_reachable": { "const": true }
+      }
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["launcher", "executed_modules", "pre_execution_module_set_sha256", "post_import_module_set_sha256", "runtime", "validator"],
+      "properties": {
+        "launcher": { "$ref": "#/$defs/repo_identity" },
+        "executed_modules": { "type": "array", "minItems": 7, "items": { "$ref": "#/$defs/repo_identity" } },
+        "pre_execution_module_set_sha256": { "$ref": "#/$defs/hash" },
+        "post_import_module_set_sha256": { "$ref": "#/$defs/hash" },
+        "runtime": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["node_version", "exec_path", "bytes", "sha256"],
+          "properties": {
+            "node_version": { "type": "string", "minLength": 1 },
+            "exec_path": { "type": "string", "minLength": 1 },
+            "bytes": { "type": "integer", "minimum": 1 },
+            "sha256": { "$ref": "#/$defs/hash" }
+          }
+        },
+        "validator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "package_tree_files", "package_tree_bytes", "package_tree_sha256"],
+          "properties": {
+            "name": { "const": "ajv" },
+            "version": { "type": "string", "minLength": 1 },
+            "package_tree_files": { "type": "integer", "minimum": 1 },
+            "package_tree_bytes": { "type": "integer", "minimum": 1 },
+            "package_tree_sha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest", "shard"],
+      "properties": {
+        "manifest": { "$ref": "#/$defs/repo_identity" },
+        "shard": { "$ref": "#/$defs/repo_identity" }
+      }
+    },
+    "shards": { "type": "array", "minItems": 9, "maxItems": 9, "items": { "$ref": "#/$defs/shard_identity" } },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sources", "strings", "contexts", "carriers", "operation_candidate_rows", "operation_unique_intervals", "operation_alias_groups", "algorithm_openings", "required_operation_joins", "references", "compatibility", "keyframes_consumers", "owner_scope", "reviewed_operations", "reviewed_owners", "owner_edges"],
+      "properties": {
+        "sources": { "const": 168 },
+        "strings": { "$ref": "#/$defs/nonnegative" },
+        "contexts": { "$ref": "#/$defs/nonnegative" },
+        "carriers": { "const": 17079 },
+        "operation_candidate_rows": { "$ref": "#/$defs/nonnegative" },
+        "operation_unique_intervals": { "$ref": "#/$defs/nonnegative" },
+        "operation_alias_groups": { "$ref": "#/$defs/nonnegative" },
+        "algorithm_openings": { "$ref": "#/$defs/nonnegative" },
+        "required_operation_joins": { "const": 10 },
+        "references": { "$ref": "#/$defs/nonnegative" },
+        "compatibility": { "const": 52 },
+        "keyframes_consumers": { "const": 37 },
+        "owner_scope": { "$ref": "#/$defs/nonnegative" },
+        "reviewed_operations": { "const": 0 },
+        "reviewed_owners": { "const": 0 },
+        "owner_edges": { "const": 0 }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manifest_schema", "shard_schema", "cross_shard_relations", "counterfixtures", "mutation_suite"],
+      "properties": {
+        "manifest_schema": { "const": "PASS" },
+        "shard_schema": { "const": "PASS" },
+        "cross_shard_relations": { "const": "PASS" },
+        "counterfixtures": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["suite", "case_count", "digest_sha256"],
+          "properties": {
+            "suite": { "const": "occurrence-owner-v4-exact-counterfixtures" },
+            "case_count": { "const": 5 },
+            "digest_sha256": { "$ref": "#/$defs/hash" }
+          }
+        },
+        "mutation_suite": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["case_count", "rejected", "digest_sha256"],
+          "properties": {
+            "case_count": { "type": "integer", "minimum": 10 },
+            "rejected": { "type": "integer", "minimum": 10 },
+            "digest_sha256": { "$ref": "#/$defs/hash" }
+          }
+        }
+      }
+    },
+    "replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["command", "arbitrary_output_path", "verify_before_execute", "atomic_bundle_write", "canonical_json_lf"],
+      "properties": {
+        "command": { "type": "string", "minLength": 1 },
+        "arbitrary_output_path": { "const": "PASS" },
+        "verify_before_execute": { "const": true },
+        "atomic_bundle_write": { "const": true },
+        "canonical_json_lf": { "const": true }
+      }
+    },
+    "credits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["semantic", "owner", "operation", "compatibility", "owner_edges", "costed_owner_formation"],
+      "properties": {
+        "semantic": { "const": 0 },
+        "owner": { "const": 0 },
+        "operation": { "const": 0 },
+        "compatibility": { "const": 0 },
+        "owner_edges": { "type": "array", "maxItems": 0 },
+        "costed_owner_formation": { "const": false }
+      }
+    },
+    "content_digest_method": { "const": "sha256(canonical-json-with-lf excluding content_digest_sha256)" },
+    "content_digest_sha256": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "nonnegative": { "type": "integer", "minimum": 0 },
+    "repo_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repo_relative_path", "bytes", "sha256"],
+      "properties": {
+        "repo_relative_path": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "repo_identity_path": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "shard_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["logical_path", "table", "bytes", "sha256", "count"],
+      "properties": {
+        "logical_path": { "type": "string", "pattern": "^shards/[a-z-]+\\.json$" },
+        "table": { "enum": ["codes", "strings", "sources", "contexts", "carriers", "operations", "references", "compatibility", "owner_scope"] },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/hash" },
+        "count": { "$ref": "#/$defs/nonnegative" }
+      }
+    },
+    "string_pair": {
+      "type": "array",
+      "prefixItems": [{ "type": "string", "minLength": 1 }, { "type": "string", "minLength": 1 }],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    }
+  }
+}

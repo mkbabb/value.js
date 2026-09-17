@@ -1,0 +1,60 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.acceptance/v1",
+  "status": "APOTHEOSIS_ACCEPTED",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "accepted_candidate": {
+    "id": "h2",
+    "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "active_path": "../../../apotheosis/grammar/css/l4/value-unit/numeric.ts"
+  },
+  "proof_chain": {
+    "corrected_skeptic_subject_path": "skeptic-subject-v2.json",
+    "corrected_skeptic_subject_sha256": "9747e051bc0f34fbe354dac311bba2e9322f4a2ca9f4d670a1548b49f0bcc749",
+    "quintetto": "FIVE_OF_FIVE_ACCEPT",
+    "synthesis_subject_path": "synthesis-subject.json",
+    "synthesis_subject_sha256": "062bbafc1f2e8445fa6a84b6e56594c9425388b4c18a5f75887f5b2e8467d58a",
+    "selection_path": "selection.json",
+    "selection_sha256": "79ab20d533e0892876c882907b08c5b0385d13c0a1f38825716d55fa3cef19e7",
+    "synthesis": "THREE_OF_THREE_NOMINATE_EXACT_H2",
+    "integration_path": "integration-evidence.json",
+    "integration_sha256": "82cbf9e39f38ec7e571869dc203736cceef7a0968228c7b79478586991ce6c2b"
+  },
+  "correctness": {
+    "evidence_path": "correctness/evidence.json",
+    "evidence_sha256": "4eac6a187ef7f615152f364ff52e33ecaa2890c3595313fd6f40ae3714cd13d8",
+    "sealed_cases": "180_OF_180_PASS",
+    "independent_oracle_transactions": 65024,
+    "active_integration_tests": "4_OF_4_PASS",
+    "strict_typescript": "PASS"
+  },
+  "performance": {
+    "erratum_path": "correction/benchmark-erratum.json",
+    "erratum_sha256": "54f1b3eaadd7198e22bc6d3ef9b0d8211933069efe0b179cec49906938a9f323",
+    "peer": "exact deposed operation-equivalent consume-number recognizer",
+    "geometric_mean_ratio": 0.9292644012517273,
+    "one_sided_95_upper_ratio": 0.9371515017780626,
+    "qualification": "PASS_STRICT_WIN",
+    "scope": "exact 64-row common-domain corpus and pinned local environment only"
+  },
+  "architecture": {
+    "module_owner": "grammar/css/l4/value-unit/numeric",
+    "bbnf_family": "value-unit",
+    "direct_parse_that": true,
+    "scanner_runtime": false,
+    "token_or_cst_runtime": false,
+    "manual_cursor": false,
+    "public_adapter": "NOT_APPLICABLE_TO_INTERNAL_PREFIX_LEAF; downstream value-unit/public doors remain separately governed"
+  },
+  "credit": {
+    "feature": 1,
+    "active_prototype": 1,
+    "full_parser": 0,
+    "production": 0
+  },
+  "next": [
+    "VALUE-PERCENTAGE-LITERAL",
+    "VALUE-DIMENSION",
+    "TIMELINE-RANGE-NAME",
+    "KF-SELECTOR-STANDARD"
+  ]
+}

@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-independent-authorship-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "purpose", "state", "authority_inputs", "execution_input_epoch", "authorship_contract", "author_receipts", "adjudication", "completion_conditions", "manifest_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-independent-authorship/1" },
+    "purpose": { "$ref": "#/$defs/nonEmpty" },
+    "state": { "enum": ["born_red", "complete"] },
+    "authority_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["p01_wave_contract_sha256", "host_capsule", "css_module_isomorphism", "forbidden_authorities", "formation_sources"],
+      "properties": {
+        "p01_wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+        "host_capsule": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "parse_that_commit", "packed_parse_that_sha256", "imports_active_novelty"],
+          "properties": {
+            "path": { "const": "BBNF-HOST-CONTROL.json" },
+            "file_sha256": { "$ref": "#/$defs/sha256" },
+            "manifest_hash": { "$ref": "#/$defs/sha256" },
+            "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+            "parse_that_commit": { "$ref": "#/$defs/gitCommit" },
+            "packed_parse_that_sha256": { "$ref": "#/$defs/sha256" },
+            "imports_active_novelty": { "const": false }
+          }
+        },
+        "css_module_isomorphism": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "file_sha256", "manifest_hash", "source_commit", "snapshot_kind", "execution_resnapshot_required", "module_count"],
+          "properties": {
+            "path": { "const": "CSS-MODULE-ISOMORPHISM.json" },
+            "file_sha256": { "$ref": "#/$defs/sha256" },
+            "manifest_hash": { "$ref": "#/$defs/sha256" },
+            "source_commit": { "$ref": "#/$defs/gitCommit" },
+            "snapshot_kind": { "const": "formation-current" },
+            "execution_resnapshot_required": { "const": true },
+            "module_count": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "forbidden_authorities": {
+          "const": {
+            "formation_manifest": "CSS-MODULE-ISOMORPHISM.json",
+            "formation_bbnf_commit": "af15f63e0d2d3d719938c13b906a50acbb92ea3b",
+            "active_bbnf_restart_w0": {
+              "state": "red-observation-only",
+              "csswg_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+              "specifications": 84,
+              "source_bytes": 10454319,
+              "structured_rows": 690,
+              "named_splits": 512,
+              "authority": false
+            }
+          }
+        },
+        "formation_sources": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/relativeEvidence" }
+        }
+      }
+    },
+    "execution_input_epoch": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "required_predecessors", "required_path", "required_schema", "reason"],
+          "properties": {
+            "state": { "const": "pending" },
+            "required_predecessors": { "const": ["P00", "V01", "V02"] },
+            "required_path": { "const": "test/proof/p01/input-epoch.json" },
+            "required_schema": { "const": "vnext-p01-input-epoch/1" },
+            "reason": { "$ref": "#/$defs/nonEmpty" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "path", "file_sha256", "epoch_hash"],
+          "properties": {
+            "state": { "const": "frozen" },
+            "path": { "$ref": "#/$defs/absolutePath" },
+            "file_sha256": { "$ref": "#/$defs/sha256" },
+            "epoch_hash": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "authorship_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required_authors", "slots", "agent_paths", "adjudicator_agent_path", "provider", "model", "effort", "fresh_sibling_sessions", "fork_turns", "inherited_dialogue_turns", "allowed_common_ancestry", "author_to_author_ancestry", "session_reuse", "peer_access_before_both_freezes", "generated_or_copied_from_peer", "artifact_roots_overlap", "allowed_input_origins", "implementation_contract", "oracle_contract", "forbidden_shared_roots", "access_projection_schema", "access_observability_limit", "root_disclosure_boundary", "receipt_hash_algorithm"],
+      "properties": {
+        "required_authors": { "const": 2 },
+        "slots": { "const": ["grammar-oracle", "typescript-combinators"] },
+        "agent_paths": {
+          "const": {
+            "grammar-oracle": "/root/p01_grammar_oracle",
+            "typescript-combinators": "/root/p01_typescript_combinators"
+          }
+        },
+        "adjudicator_agent_path": { "const": "/root/p01_independence_adjudicator" },
+        "provider": { "const": "codex" },
+        "model": { "const": "gpt-5.6-sol" },
+        "effort": { "const": "ultra" },
+        "fresh_sibling_sessions": { "const": true },
+        "fork_turns": { "const": "none" },
+        "inherited_dialogue_turns": { "const": 0 },
+        "allowed_common_ancestry": { "const": "exactly-input-epoch-coordinator" },
+        "author_to_author_ancestry": { "const": false },
+        "session_reuse": { "const": false },
+        "peer_access_before_both_freezes": { "const": false },
+        "generated_or_copied_from_peer": { "const": false },
+        "artifact_roots_overlap": { "const": false },
+        "allowed_input_origins": { "const": ["P00", "V01", "V02", "committed-value", "terminal-bbnf-css-union", "published-parse-that-1.0.0"] },
+        "implementation_contract": { "const": { "slot": "typescript-combinators", "proposal_schema": "vnext-p01-typescript-combinators-proposal/1", "required_root": "typescript_root" } },
+        "oracle_contract": { "const": { "slot": "grammar-oracle", "proposal_schema": "vnext-p01-grammar-oracle-proposal/1", "required_roots": ["test_root", "fixture_root"] } },
+        "forbidden_shared_roots": { "const": ["active-parse-that-checkout", "active-T-tranche", "active-U-tranche", "parse-that-bank"] },
+        "access_projection_schema": { "const": "vnext-p01-access-projection/1" },
+        "access_observability_limit": { "const": "Codex JSONL exposes recorded tool calls, tool outputs and messages, not operating-system reads outside those calls; independence is enforced by fork_turns:none, zero inherited dialogue, undisclosed disjoint roots, concurrent freezes, and no recorded peer-root disclosure before both freezes." },
+        "root_disclosure_boundary": { "const": "both author sessions start before either proposal freezes; neither peer root appears in either author or coordinator projection before both freeze times" },
+        "receipt_hash_algorithm": { "const": "sha256-jcs-omit-receipt_hash" }
+      }
+    },
+    "author_receipts": {
+      "type": "array",
+      "maxItems": 2,
+      "items": { "$ref": "#/$defs/authorReceipt" }
+    },
+    "adjudication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner_wave", "wave_contract_sha256", "required_model", "required_effort", "contract", "receipt"],
+      "properties": {
+        "owner_wave": { "const": "P01" },
+        "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+        "required_model": { "const": "gpt-5.6-sol" },
+        "required_effort": { "const": "ultra" },
+        "contract": {
+          "const": [
+            "receive only both frozen proposal manifests after both freeze times",
+            "verify author session and ancestry disjointness",
+            "verify access logs contain no peer proposal read before both freezes",
+            "compare frozen grammar-oracle fixtures with TypeScript combinator outputs and name every divergence owner",
+            "invoke the CSS module validator with the TypeScript proposal root and grammar-oracle test root as one paired filesystem join",
+            "accept only total case and runtime-module differential coverage with no unowned divergence",
+            "accept only the exact execution-input BBNF CSS runtime/exclusion partition with zero edge corrections and unchanged published parse-that 1.0.0 TypeScript usage"
+          ]
+        },
+        "receipt": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["state", "reason"],
+              "properties": {
+                "state": { "const": "pending" },
+                "reason": { "$ref": "#/$defs/nonEmpty" }
+              }
+            },
+            { "$ref": "#/$defs/adjudicationReceipt" }
+          ]
+        }
+      }
+    },
+    "completion_conditions": {
+      "const": [
+        "one frozen P00/V01/V02 input epoch and named coordinator session are shared byte-for-byte by both authors",
+        "the epoch binds a terminal active-BBNF full-modular-CSS-union freeze receipt and an execution-input module manifest at that same BBNF commit",
+        "the epoch binds one no-link registry @mkbabb/parse-that 1.0.0 tarball, integrity, file manifest, runtime exports, declarations and export-condition receipts",
+        "exactly two Sol-ultra author receipts occupy the two distinct slots",
+        "author session identities, transcript files, ancestry sets, reports, derived access projections and proposal roots are pairwise distinct",
+        "author ancestry intersects only at the named coordinator; neither author descends from the other; proposal roots are disjoint",
+        "both sessions overlap through the first freeze and no recorded author/coordinator tool call, tool output or message discloses a peer root before both freezes",
+        "the adjudicator binds both immutable role-manifest paths, file hashes and internal hashes and the CSS validator passes with the paired TypeScript/test roots",
+        "a third distinct Sol-ultra P01 adjudicator accepts a total corpus/runtime-module differential ledger with no unowned divergence"
+      ]
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "state": { "const": "born_red" } } },
+      "then": {
+        "properties": {
+          "author_receipts": { "const": [] },
+          "execution_input_epoch": { "properties": { "state": { "const": "pending" } } },
+          "adjudication": { "properties": { "receipt": { "properties": { "state": { "const": "pending" } } } } }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "state": { "const": "complete" } } },
+      "then": {
+        "properties": {
+          "author_receipts": { "minItems": 2, "maxItems": 2 },
+          "execution_input_epoch": { "properties": { "state": { "const": "frozen" } } },
+          "adjudication": { "properties": { "receipt": { "properties": { "state": { "const": "complete" } } } } }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "relativeEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "purpose"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^(?!/)" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "purpose": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "session": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "session_id", "agent_path", "model", "effort", "fork_turns", "inherited_dialogue_turns", "ancestry_session_ids", "transcript"],
+      "properties": {
+        "provider": { "const": "codex" },
+        "session_id": { "type": "string", "pattern": "^[A-Za-z0-9._:-]+$" },
+        "agent_path": { "type": "string", "pattern": "^/root/[a-z0-9_/-]+$" },
+        "model": { "const": "gpt-5.6-sol" },
+        "effort": { "const": "ultra" },
+        "fork_turns": { "const": "none" },
+        "inherited_dialogue_turns": { "const": 0 },
+        "ancestry_session_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[A-Za-z0-9._:-]+$" }
+        },
+        "transcript": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "authorReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "slot", "session", "frozen_input_epoch_sha256", "report", "access_log", "observed_read_paths", "proposal", "session_started_at", "freeze_started_at", "freeze_finished_at", "session_finished_at", "peer_proposal_read_before_both_freezes", "generated_or_copied_from_peer", "receipt_hash"],
+      "properties": {
+        "schema": { "const": "vnext-p01-author-receipt/1" },
+        "slot": { "enum": ["grammar-oracle", "typescript-combinators"] },
+        "session": { "$ref": "#/$defs/session" },
+        "frozen_input_epoch_sha256": { "$ref": "#/$defs/sha256" },
+        "report": { "$ref": "#/$defs/evidence" },
+        "access_log": { "$ref": "#/$defs/evidence" },
+        "observed_read_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/absolutePath" }
+        },
+        "proposal": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["root", "manifest", "manifest_hash", "artifact_tree_sha256"],
+          "properties": {
+            "root": { "$ref": "#/$defs/absolutePath" },
+            "manifest": { "$ref": "#/$defs/evidence" },
+            "manifest_hash": { "$ref": "#/$defs/sha256" },
+            "artifact_tree_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "session_started_at": { "type": "string", "format": "date-time" },
+        "freeze_started_at": { "type": "string", "format": "date-time" },
+        "freeze_finished_at": { "type": "string", "format": "date-time" },
+        "session_finished_at": { "type": "string", "format": "date-time" },
+        "peer_proposal_read_before_both_freezes": { "const": false },
+        "generated_or_copied_from_peer": { "const": false },
+        "receipt_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "adjudicationReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "schema", "session", "started_at", "frozen_author_receipt_hashes", "frozen_proposal_manifests", "report", "differential_ledger", "verdict", "receipt_hash"],
+      "properties": {
+        "state": { "const": "complete" },
+        "schema": { "const": "vnext-p01-adjudication-receipt/1" },
+        "session": { "$ref": "#/$defs/session" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "frozen_author_receipt_hashes": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "frozen_proposal_manifests": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["slot", "path", "file_sha256", "manifest_hash"],
+            "properties": {
+              "slot": { "enum": ["grammar-oracle", "typescript-combinators"] },
+              "path": { "$ref": "#/$defs/absolutePath" },
+              "file_sha256": { "$ref": "#/$defs/sha256" },
+              "manifest_hash": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "report": { "$ref": "#/$defs/evidence" },
+        "differential_ledger": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "file_sha256", "ledger_hash"],
+          "properties": {
+            "path": { "$ref": "#/$defs/absolutePath" },
+            "file_sha256": { "$ref": "#/$defs/sha256" },
+            "ledger_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "verdict": { "const": "accepted" },
+        "receipt_hash": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

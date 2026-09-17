@@ -1,0 +1,31 @@
+{
+  "schema": "value.pi.foundation-g1.author-subject/v1",
+  "status": "FROZEN_FOR_THREE_INDEPENDENT_REPAIR_AUTHORS",
+  "brief": {
+    "path": "BRIEF.md",
+    "sha256": "b2fcc4698b119d1e0b83714c2cc226ab80fe0245b44e7a981d2e2b5ba558224e"
+  },
+  "fixtures": {
+    "path": "fixtures.json",
+    "sha256": "b323a80d403c494b4190a89cfa285c9d20d8816257c17f43f7b4c68adcceeaa8"
+  },
+  "baseline": {
+    "brief_sha256": "c4b2a4996df7a5dd3df294422917c1bfed5004f2a0bcd5f05dc5ff4af8d93806",
+    "fixtures_sha256": "6d76da0bedae64c38e57762683fe5df995a896958722705d45e8bd6c52eab204"
+  },
+  "lineages": {
+    "h": "3fdc829978e07e182b4b27772dc4a3d3661d84377494a949f5c753fc5bb63e20",
+    "b": "98cb225e5f12da35cde816ca0a919bd42f4dc2fb5adbf1db9119fd3d9f7304f8",
+    "s": "8642ca648aaf5c1efb1d75f7596a5651deb19953feb5dfac7431ac10e741ed58"
+  },
+  "runtime": {
+    "package": "@mkbabb/parse-that",
+    "version": "1.0.0"
+  },
+  "candidate_roots": {
+    "h": "candidates/h",
+    "b": "candidates/b",
+    "s": "candidates/s"
+  },
+  "authority": "prototype only; no production execution or feature credit"
+}

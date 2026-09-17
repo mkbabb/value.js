@@ -1,0 +1,61 @@
+{
+  "schema": "value.pi.foundation-g1.skeptic-subject/v1",
+  "status": "FROZEN_FOR_FIVE_HOSTILE_CODE_REVIEWS",
+  "author_subject": {
+    "path": "AUTHOR-SUBJECT-v2.json",
+    "sha256": "9d5974c2d5fdfddc9345dcfc8ea933510963396d3adcfcea85b081406991d315"
+  },
+  "candidates": {
+    "h": {
+      "path": "candidates/h",
+      "ledger_path": "evidence/h-ledger.sha256",
+      "ledger_sha256": "d4a6967ab1e7f0ed3eb6282321e15441617d4a65397a455b666a48014ea65518",
+      "non_test_typescript_lines": 221
+    },
+    "b": {
+      "path": "candidates/b",
+      "ledger_path": "evidence/b-ledger.sha256",
+      "ledger_sha256": "6409e4220883e6f7d94609a0f651598a378c6bc9d590f0700b27273534e5bb74",
+      "non_test_typescript_lines": 188
+    },
+    "s": {
+      "path": "candidates/s",
+      "ledger_path": "evidence/s-ledger.sha256",
+      "ledger_sha256": "04481b417ed1bf5f0ea642df489eb13ca2ac1839ee2d5cbf4620a6b78b41b179",
+      "non_test_typescript_lines": 223
+    }
+  },
+  "accepted_dependency": {
+    "path": "../../apotheosis/grammar/css/l4/value-unit/numeric.ts",
+    "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+  },
+  "common_evidence": {
+    "replay_path": "evidence/common-replay.json",
+    "replay_sha256": "477fa8064792c82441258597cdb07e58065547dc047e37bd0513e2042fb5a03d",
+    "evaluator_path": "evaluate.mts",
+    "evaluator_sha256": "7b106e8d8ad1cc724d38a54277464ee0749e163ac665953575df79c71a800248",
+    "unicode_evaluator_path": "unicode-domain.mts",
+    "unicode_evaluator_sha256": "8b11c3e1b0564651349199eb8b1911e1e8031ff06c7f30b937b476fa8c3b3d0e",
+    "browser_witness_path": "../foundation-g0/browser-witness.mts",
+    "browser_witness_sha256": "6f2da23f51499ae9d6229a9843a476eaa97a960b713c220848569b8a05205026"
+  },
+  "runtime": {
+    "package_json_sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af",
+    "package_lock_sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7",
+    "installed_parse_that_package_json_sha256": "f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff",
+    "installed_parse_that_core_esm_sha256": "d577cc3e19b3a7e138ad433670ebdf4857776744c3375ae174391e2f68e642f5"
+  },
+  "required_reviews": [
+    "CSS Syntax and Values semantics",
+    "idiomatic parse-that architecture and module ownership",
+    "parser state, mutation, composition, hostility, and limits",
+    "comparable performance and construction cost",
+    "tranche gestalt, parsimony, and downstream suitability"
+  ],
+  "credit": {
+    "candidate": 3,
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 4,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "owner": "value-unit",
+  "candidate_root": {
+    "overlay": "candidates/<seat>/overlay",
+    "seats": ["h", "b", "s", "d"],
+    "target": "grammar/css/l4/value-unit/consume-number.ts",
+    "export": "consumeNumber",
+    "type": "Parser<Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>>"
+  },
+  "boundary": {
+    "operation": "Consume the maximal CSS number prefix at the current parse-that position and return the CSS Syntax §4.3.13 semantic triple.",
+    "accepted_prefix": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "maximality": "A dot is consumed only with a following ASCII digit; e/E and its optional sign are consumed only with a following ASCII digit. When exponent syntax is complete, the literal e/E is inside the consumed extent.",
+    "value": "Base-10 interpretation required by §4.3.13, carried by ECMAScript binary64 Number(consumedRepresentation): precision rounds to binary64, overflow is signed Infinity, and underflow can be signed zero. Public equality is Object.is, preserving negative zero. This explicit carrier boundary grants no arithmetic, math-function, contextual-range, computed-value, or serialization-policy credit.",
+    "type": "integer only when neither a fractional part nor exponent is consumed; otherwise number.",
+    "sign": "The consumed leading + or -, otherwise null.",
+    "result_object": "Reflect.ownKeys must be exactly the three strings value, type, and sign. Object.getPrototypeOf must be Object.prototype. Each key must be an own writable, enumerable, configurable data property; accessors, symbols, non-enumerable surplus, null/custom prototypes, raw/parts/span fields, and any other own keys fail.",
+    "spelling_and_source": "The harness observes the exact consumed representation as source.slice(entryOffset, finalOffset) in same-input UTF-16 code units. It earns no raw/preprocessed correspondence or original-source mapping credit; those belong to SYNTAX-SOURCE-MAP.",
+    "failure": "If no CSS number starts at the current position, fail without consumption. This internal grammar parser emits no public API diagnostic object.",
+    "composition": "The same consuming parser is used by number, integer, percentage, and dimension witnesses. Integer checks the returned type; percentage consumes % afterward; dimension consumes an identifier/unit afterward.",
+    "excluded": [
+      "standalone Parser<boolean> number-start predicate",
+      "token, atom, component-value, CST, lexer, scanner, cursor or source-slicing implementation layer",
+      "percentage versus dimension dispatch and ident-sequence conformance",
+      "unit classification, contextual bounds, math functions, complete-input/EOF diagnostics",
+      "numeric evaluation beyond literal base-10 interpretation, canonical serialization and computed values"
+    ]
+  },
+  "authorities": [
+    { "path": "../../../../MODULE-DAG.md", "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f", "bytes": 4880 },
+    { "path": "../../../../ADDENDA-07.md", "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5", "bytes": 20954 },
+    { "path": "../../../../FEATURE-LEDGER.md", "sha256": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3", "bytes": 13998 },
+    { "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs", "revision": "c7573530343759ace8e46438a1fa2c44515b5554", "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390", "bytes": 144427, "sections": ["4.3.10", "4.3.12", "4.3.13"] },
+    { "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-values-4/Overview.bs", "revision": "c7573530343759ace8e46438a1fa2c44515b5554", "sha256": "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc", "bytes": 230907, "sections": ["5.2", "5.3", "5.4", "5.5"] },
+    { "package": "@mkbabb/parse-that", "version": "1.0.0", "integrity": "sha512-ygzF6JPb0OC2XRCeg/ywtNYgo2hKmZYGabaimObx0/czxH/8I2gF8obQjkWpPrXW8azOtt5x3RpnU5nZVEpY1Q==" },
+    { "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf", "repository_head": "af15f63e0d2d3d719938c13b906a50acbb92ea3b", "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b", "role": "grammar/provenance evidence; its f64 projection and combined unit dispatch are outside this row" },
+    { "git_object": "e3b2c19ba047c9cb8970d20178534b63d5a36dd0", "sha256": "09ac5c5fb361f1a19bb85bc5a7518aea52ca5f2f358228361ff66b3750e4fa4e", "role": "historical Value value grammar evidence only" },
+    { "git_object": "7955bd4f3c1bea82aebb913353575fd45171b901", "sha256": "a39978278b02b934eb70c1c6f9ed4bbe225132196c9b8dedc45b3e570c4c4ff4", "role": "historical keyframes grammar evidence only" },
+    { "path": "../../syntax-number-start/g7/rejection.json", "sha256": "45318a954e312c1f85fa666ef320033b2ebba4b217e2d564616e9c6b96465b04", "bytes": 2782, "role": "binding rejection/root/challenge docket; no hidden byte reused" },
+    { "path": "../g1/rejection.json", "sha256": "64b8a26e8bdd42fbf9e9b12cfccac314d530488ffe7950f365752367e6b5ad89", "bytes": 2797, "role": "binding pre-challenge mechanical rejection" },
+    { "path": "../g2/reviews/challenge-a-specification.md", "sha256": "7e555146be8158ec9ba1c3c67b3fb9d6bc4546116e73470a22ff4364e2f97e48", "bytes": 11880, "role": "binding G2 specification rejection" },
+    { "path": "../g2/reviews/challenge-b-architecture.md", "sha256": "26f5b9ca277a4c7c7eb89e36a444f74fc2729a28e1dc98a60f8e60282d643007", "bytes": 12361, "role": "binding G2 architecture rejection" },
+    { "path": "../g2/root-gestalt.md", "sha256": "d8ad7e04f5a37797b2bac6c1c0ec6f32ca1292939249428a32b692487385f1ec", "bytes": 4820, "role": "binding G2 union repair" },
+    { "path": "../g2/rejection.json", "sha256": "22028ecdac55b949623375c07c7dd484f08d184cd908accc946480bd58121bc5", "bytes": 2157, "role": "terminal G2 rejection before candidates" },
+    { "path": "../g3/rejection.json", "sha256": "b515f4924f80db42829907f43a1f37eb6c878c794d8f5c929a0722b1a9867085", "bytes": 1719, "role": "binding G3 owner-law rejection before holdout" },
+    { "path": "../../../tsconfig.json", "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc", "bytes": 586, "role": "parent compiler proof configuration" },
+    { "path": "../../../tsconfig.apotheosis.json", "sha256": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39", "bytes": 315, "role": "child compiler proof configuration" },
+    { "path": "../../../package.json", "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af", "bytes": 755, "role": "package scripts and tool versions" },
+    { "path": "../../../apotheosis/vitest.config.ts", "sha256": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9", "bytes": 216, "role": "package test discovery configuration" },
+    { "path": "../../../apotheosis/clean-base.json", "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2", "bytes": 1177, "role": "active direct-combinator base declaration" },
+    { "path": "../../../apotheosis/grammar/css/l4/README.md", "sha256": "77f8aaf85e4cf7dc85a7b3fc890a7bb63ba25018a5f10db9ebe55ad2a38b71b2", "bytes": 241, "role": "complete active grammar tree at formation" }
+  ],
+  "subordinate_number_start": "fixtures/public-cases.json contains exactly the six true §4.3.10 prefix arms. They are fixtures for this consuming operation, never an exported predicate.",
+  "candidate_topologies": [
+    { "seat": "h", "topology": "Historical transpose: one whole-prefix regex terminal mapped directly to the semantic triple.", "lineage": "historical terminal" },
+    { "seat": "b", "topology": "BBNF transpose: mantissa alternatives plus an optional exponent composed with any/all/opt/map.", "lineage": "production tree" },
+    { "seat": "s", "topology": "Specification-first: six consuming start clauses extended by fractional/exponent clauses through any/skip/next/map.", "lineage": "algorithm clauses" },
+    { "seat": "d", "topology": "Engine dispatch: first-character dispatch selects signed, dot-leading, or digit-leading consuming subgrammars.", "lineage": "prefix dispatch" }
+  ],
+  "lineage_law": "Exactly four independent H/B/S/D authors are invited only after boundary admission. Each must submit a separate provenance receipt, declare no access to peer source, satisfy its seat topology check, and produce exact source bytes distinct from all peers. Five further independent skeptic identities retain specification, parse-that, hostility, performance, and gestalt review.",
+  "fixtures": "fixtures/public-cases.json",
+  "closure": "contract.ts and harness.ts are the flattened executable public closure; harness.ts statically imports the sole fixture. proof-inputs.ledger closes package.json, both TypeScript configs, Vitest config, clean-base declaration, and the exact active grammar tree. Tool ledgers close parse-that and TypeScript.",
+  "author_admission": "author-admission-validator.mjs captures every manifest, precursor, proof, tool, compiler, clean-base, fresh holdout receipt, and fresh ciphertext byte once; it computes from those buffers, requires two exact ACCEPT boundary JSON verdicts plus an ACCEPT root JSON gestalt, and closes all governed paths before and after. The fresh ciphertext is a direct manifest row and must match its receipt.",
+  "candidate_floor": "The validator separately exposes a positive construction/type/topology assay. It rejects state/source spellings and structural bypasses, requires four distinct H/B/S/D source digests and exact independent author receipts, and cannot claim whole-program semantic or lineage proof; five named skeptics retain those axes.",
+  "owner_law": "The later acceptance validator must require five named skeptic receipts (specification, parse-that, hostility, performance, gestalt) and three named synthesis-adjudicator receipts (semantic, parser-architecture, performance-gestalt). All eight identities are pairwise independent; every receipt binds the same exact four-candidate set hashes and same reviewed candidate hash; all three adjudicators must unanimously nominate that same exact hash.",
+  "acceptance_deferred": "After authors, a separate acceptance validator—not this precursor—must bind and require public, revealed-holdout, four-seat benchmark, five named skeptic, three named unanimous adjudicator, integration, and projection/default-gate receipts before any acceptance or promotion claim.",
+  "benchmark": "benchmark-runner.mjs plus benchmark-receipt.schema.json is the sole four-seat timing procedure. Formation defines it but runs no candidate timing.",
+  "admission": "Freeze G4, form a wholly fresh holdout and directly bound ciphertext, seal one manifest, obtain two fresh exact-byte ACCEPT boundary verdicts and one ACCEPT root gestalt, and only then invite H/B/S/D authors. No feature/parser/benchmark/integration/production credit is granted."
+}

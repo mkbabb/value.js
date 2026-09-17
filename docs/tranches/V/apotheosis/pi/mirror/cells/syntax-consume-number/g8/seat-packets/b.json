@@ -1,0 +1,17 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "seat": "b",
+  "lineage": "acknowledged BBNF value-unit production transpose",
+  "source_inputs": [
+    {
+      "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf",
+      "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+      "bytes": 3084,
+      "repository_head": "af15f63e0d2d3d719938c13b906a50acbb92ea3b"
+    }
+  ],
+  "lineage_instruction": "Transpose the acknowledged number production nearly one-for-one where sound and repair its f64 projection into the exact common semantic leaf. Do not satisfy a call quota and do not consult H, S, or D source or notes.",
+  "quota": "NONE",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

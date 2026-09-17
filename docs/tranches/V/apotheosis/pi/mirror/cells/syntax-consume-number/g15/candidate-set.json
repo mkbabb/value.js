@@ -1,0 +1,66 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.candidate-set/v1",
+  "status": "SEALED_PRE_TIMING",
+  "feature_sha256": "a88dc7dfb1d452d8bcf103d359cd058722db7ad93ed598622f6e1cfc8d5b3a58",
+  "candidates": [
+    {
+      "id": "h",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/h/index.ts",
+      "sha256": "b78dfcd5194ec2480d4ce480417555fffb10788e9ea0cdef1fa4d778af901a0f",
+      "bytes": 553,
+      "lines": 17,
+      "topology": "one fused regex terminal plus one projection map",
+      "author_task": "/root/g15_author_h",
+      "model_receipt": "Codex; GPT-5 family; exact serving checkpoint unavailable"
+    },
+    {
+      "id": "b",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/b/index.ts",
+      "sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7",
+      "bytes": 1999,
+      "lines": 64,
+      "topology": "static BBNF-shaped combinator decomposition",
+      "author_task": "/root/g15_author_b",
+      "model_receipt": "Codex; GPT-5 family; exact serving checkpoint unavailable"
+    },
+    {
+      "id": "s",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/s/index.ts",
+      "sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169",
+      "bytes": 2238,
+      "lines": 81,
+      "topology": "static staged mantissa and exponent decisions",
+      "author_task": "/root/g15_author_s",
+      "model_receipt": "Codex; GPT-5 family; exact serving checkpoint unavailable"
+    },
+    {
+      "id": "d",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/d/index.ts",
+      "sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137",
+      "bytes": 884,
+      "lines": 21,
+      "topology": "first-character dispatch into complete static branches",
+      "author_task": "/root/g15_author_d",
+      "model_receipt": "Codex; GPT-5 family; exact serving checkpoint unavailable"
+    }
+  ],
+  "public_evaluation": {
+    "status": "PASS_ALL_FOUR",
+    "per_candidate": {
+      "inherited_successes": 77,
+      "complete_cases": 5,
+      "repeated_fraction_prefix_cases": 6,
+      "failure_transactions": 336,
+      "parent_cases": 10,
+      "hostile_cases": 10
+    }
+  },
+  "holdout": "UNREVEALED_AT_SEAL",
+  "benchmark": "NOT_RUN_AT_SEAL",
+  "credit": {
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

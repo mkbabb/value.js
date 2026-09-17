@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:pre-author-receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "status", "manifest_sha256", "formation_sha256", "closure_sha256", "holdout_receipt_sha256", "holdout_ciphertext_sha256", "review_a_sha256", "review_b_sha256", "root_sha256", "seat_manifests", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "status": { "const": "AUTHORS_MAY_BE_INVITED_ZERO_CREDIT" },
+    "manifest_sha256": { "$ref": "#/$defs/sha256" }, "formation_sha256": { "$ref": "#/$defs/sha256" }, "closure_sha256": { "$ref": "#/$defs/sha256" }, "holdout_receipt_sha256": { "$ref": "#/$defs/sha256" }, "holdout_ciphertext_sha256": { "$ref": "#/$defs/sha256" }, "review_a_sha256": { "$ref": "#/$defs/sha256" }, "review_b_sha256": { "$ref": "#/$defs/sha256" }, "root_sha256": { "$ref": "#/$defs/sha256" },
+    "seat_manifests": { "type": "object", "additionalProperties": false, "required": ["h", "b", "s", "d"], "properties": { "h": { "$ref": "#/$defs/sha256" }, "b": { "$ref": "#/$defs/sha256" }, "s": { "$ref": "#/$defs/sha256" }, "d": { "$ref": "#/$defs/sha256" } } },
+    "credit": { "const": "ZERO_ADMISSION_ONLY" }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+}

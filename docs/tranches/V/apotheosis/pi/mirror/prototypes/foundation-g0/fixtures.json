@@ -1,0 +1,88 @@
+{
+  "escapeSuccess": [
+    ["\\61 ", "a", 4],
+    ["\\000061", "a", 7],
+    ["\\110000", "�", 7],
+    ["\\d800", "�", 5],
+    ["\\0", "�", 2],
+    ["\\1f600", "😀", 6],
+    ["\\?", "?", 2],
+    ["\\", "�", 1]
+  ],
+  "escapeFailure": ["\\\n", "\\\r", "\\\f", "\\\r\n"],
+  "identifierSuccess": [
+    ["foo", "foo", 3],
+    ["foo!", "foo", 3],
+    ["--", "--", 2],
+    ["--x", "--x", 3],
+    ["-x", "-x", 2],
+    ["_x", "_x", 2],
+    ["é", "é", 1],
+    ["😀", "😀", 2],
+    ["\\31 23", "123", 6],
+    ["p\\78", "px", 4],
+    ["-\\78", "-x", 4],
+    ["\\", "�", 1],
+    ["\u0000x", "�x", 2],
+    ["\ud800x", "�x", 2]
+  ],
+  "identifierFailure": ["", "-", "-1", "9x", "\\\n", "-\\\n"],
+  "commentSuccess": [
+    ["/**/", 4],
+    ["/*x*/", 5],
+    ["/*x", 3],
+    ["/*", 2]
+  ],
+  "whitespaceSuccess": [
+    [" \t\n", 3],
+    ["\r\n", 2],
+    ["\r", 1],
+    ["\f", 1]
+  ],
+  "triviaSuccess": [
+    [" \t/*x*/\n!", 8],
+    ["/*a*//*b*/x", 10],
+    ["", 0]
+  ],
+  "stringSuccess": [
+    ["\"a\"", "a", 3],
+    ["'a'", "a", 3],
+    ["\"a\\26 b\"", "a&b", 8],
+    ["\"a\\\nb\"", "ab", 6],
+    ["\"a\\\r\nb\"", "ab", 7],
+    ["\"a", "a", 2],
+    ["\"a\\", "a", 3],
+    ["\"\u0000\"", "�", 3],
+    ["\"\ud800\"", "�", 3]
+  ],
+  "stringFailure": ["\"a\nb\"", "'a\rb'", "\"a\fb\""],
+  "percentageSuccess": [
+    ["12%", { "kind": "percentage", "number": { "sign": null, "type": "integer", "value": 12 } }, 3],
+    ["+.5%", { "kind": "percentage", "number": { "sign": "+", "type": "number", "value": 0.5 } }, 4],
+    ["-1e2%", { "kind": "percentage", "number": { "sign": "-", "type": "number", "value": -100 } }, 5],
+    ["1%%", { "kind": "percentage", "number": { "sign": null, "type": "integer", "value": 1 } }, 2]
+  ],
+  "percentageFailure": ["%", "+%", "1e+%", "1 %"],
+  "dimensionSuccess": [
+    ["12px", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 12 }, "unit": "px", "family": "length" }, 4],
+    ["-1.5e2PX", { "kind": "dimension", "number": { "sign": "-", "type": "number", "value": -150 }, "unit": "px", "family": "length" }, 8],
+    ["1p\\78", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "px", "family": "length" }, 5],
+    ["1Q", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "q", "family": "length" }, 2],
+    ["1foo", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "foo", "family": null }, 4],
+    ["1--x", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "--x", "family": null }, 4],
+    ["1\\", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "�", "family": null }, 2],
+    ["1px\\", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "px�", "family": null }, 4],
+    ["1px\\\n", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "px", "family": "length" }, 3],
+    ["1px\u0000", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "px�", "family": null }, 4],
+    ["1e+px", { "kind": "dimension", "number": { "sign": null, "type": "integer", "value": 1 }, "unit": "e", "family": null }, 2]
+  ],
+  "dimensionFailure": ["1", "1-", "1 %", ".px", "+px"],
+  "units": {
+    "length": ["px", "cm", "mm", "q", "in", "pc", "pt", "em", "rem", "ex", "rex", "cap", "rcap", "ch", "rch", "ic", "ric", "lh", "rlh", "vw", "vh", "vi", "vb", "vmin", "vmax", "lvw", "lvh", "lvi", "lvb", "lvmin", "lvmax", "svw", "svh", "svi", "svb", "svmin", "svmax", "dvw", "dvh", "dvi", "dvb", "dvmin", "dvmax", "cqw", "cqh", "cqi", "cqb", "cqmin", "cqmax"],
+    "angle": ["deg", "grad", "rad", "turn"],
+    "time": ["s", "ms"],
+    "frequency": ["hz", "khz"],
+    "resolution": ["dpi", "dpcm", "dppx", "x"],
+    "flex": ["fr"]
+  }
+}

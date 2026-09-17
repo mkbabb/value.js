@@ -1,0 +1,213 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "review_id": "A",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "independence": {
+    "reviewer_id": "/root/number_g5_boundary_spec",
+    "role": "independent-specification-and-boundary-challenger",
+    "presumption": "FAULTY_UNTIL_PROVEN",
+    "peer_review_access": false,
+    "hidden_plaintext_access": false,
+    "hidden_key_access": false,
+    "candidate_source_access": false,
+    "mutations": "Only this challenge-a.json was authored. No precursor, receipt, ciphertext, candidate, active grammar, production, or forbidden path was modified."
+  },
+  "subject": {
+    "cell": "cells/syntax-consume-number/g5",
+    "precursor_rows": 14,
+    "precursor_closure_sha256": "67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682",
+    "holdout_receipt": {
+      "sha256": "e5d29b7e99595de8594eb9142ce5e5e542ecd4e1c570c41f841c448a9721f700",
+      "bytes": 7992
+    },
+    "ciphertext": {
+      "sha256": "a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212",
+      "bytes": 111971
+    },
+    "authority_revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "parse_that": "@mkbabb/parse-that@1.0.0"
+  },
+  "three_altitude_findings": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "findings": [
+        "The consuming-number seam is the right kind of primitive for the direct-combinator reset: it owns CSS Syntax section 4.3.13 as one prefix-consuming value-unit operation and introduces no token, atom, CST, lexer, scanner, cursor, or source-slicing runtime.",
+        "The frozen authority set is internally non-admitting. FEATURE-LEDGER.md is explicitly BORN-RED and calls the rows proposed rather than sealed; it also states that SYNTAX-CONSUME-NUMBER follows only after SYNTAX-NUMBER-START is accepted. The same G5 authority registry binds syntax-number-start/g7/rejection.json, so no accepted prerequisite exists in the exact subject.",
+        "The exact G5 manifest vocabulary cannot cure that conflict: its required closure is limited to the 14 frozen precursors, the holdout pair, two reviews, and root gestalt. It has no row for a subsequently accepted denominator, a sealed occurrence-to-owner feature row, or an authority that changes the rejected number-start dependency.",
+        "Accordingly this generation cannot truthfully issue AUTHORS_MAY_BE_INVITED, even though its narrow grammar language is sound."
+      ]
+    },
+    "feature_cell": {
+      "verdict": "REJECT",
+      "findings": [
+        "The accepted-prefix language, maximal dot/exponent guards, integer/number type rule, sign rule, Object.is binary64 observation, exact ordinary three-key leaf, and same-input UTF-16 extent observation agree with the pinned CSS Syntax algorithm and the declared ECMAScript carrier boundary.",
+        "An independent clause transcription matched the declared regex on all 299593 strings of lengths zero through six over +-.eE09x. Public fixtures cover the six true number-start arms, nonzero offsets, incomplete fraction/exponent tails, composition witnesses, and four 32768-character hostile constructions.",
+        "The failure contract is not complete enough to be a frozen parse-that operation contract. It says only fail without consumption and emit no public API diagnostic object; it does not say whether the predecessor value, furthest, expected, suggestions, and secondarySpans must be preserved, cleared, or extended. The public harness creates predecessor values but on failure checks only isError and offset. Hidden state-invariance labels cannot add a public semantic rule after authoring.",
+        "The claimed work-limit evidence has no limit. Neither the feature boundary nor the harness declares a step, time, stack, allocation, or asymptotic bound; direct invocation of a 32768-character case proves only termination if the surrounding process eventually returns."
+      ]
+    },
+    "candidate_and_acceptance_lattice": {
+      "verdict": "REJECT",
+      "findings": [
+        "No candidate exists, so no candidate receives correctness, idiom, performance, or feature credit.",
+        "H, B, S, and D are plausible design labels, but the author-admission gate does not establish operative topology or orthogonal provenance. Its AST visitor counts calls anywhere in a source file and never proves that the counted any/all/string/dispatch nodes are reachable from the exported consumeNumber initializer. B, S, and D can therefore carry dead topology-shaped declarations while exporting the same operative whole-regex parser as H; distinct file hashes can arise solely from the dead declarations.",
+        "No content-addressed historical H source, provenance graph, H/B genealogy finding, or pairwise construction review is part of the frozen cell. The fourth D seat is useful insurance, but it does not replace the owner-ratified pre-author provenance record.",
+        "The pre-author verdict checker admits structurally trivial ACCEPT JSON. It checks only feature_id, generation, review_id, scope, and verdict, and checks only the root challenge hash list. It does not require reviewer identities, pairwise independence, model receipts, the three-altitude rubric, evidence, defects, or credit. Thus two fabricated nominal ACCEPT files and a nominal root file satisfy the executable admission condition without two substantive independent challenges.",
+        "The five-skeptic and three-adjudicator role names are stated correctly and the deferred contract requires unanimity on one reviewed candidate hash. This is retained design text only; it cannot repair the pre-author gate defects above."
+      ]
+    },
+    "benchmark": {
+      "verdict": "REJECT",
+      "findings": [
+        "The four-seat Williams order, fixed warmup and measured rounds, fixed batching, retained O(1) observation fold, paired log-ratio statistic, shared-index bootstrap maximum, and conservative four-candidate familywise percentile are coherent as a candidate-only timing experiment.",
+        "The timing experiment is not correctness-qualified. It accepts a corpus containing only id/source/offset and preflights only equality of the four candidate digests. Four identically wrong implementations pass; no expected normalized result or previously green public/holdout receipt is an input to the runner.",
+        "The self-contained bundle is not cryptographically joined to the four admitted source hashes, author receipts, or a reproducible build ledger. The runner can time arbitrary objects named h/b/s/d, so its winner cannot be attributed to the admitted candidate set.",
+        "The sole benchmark procedure contains only H/B/S/D. It does not identify or measure the LIVE regex comparator or retained prior parse-that iterations required by the owner-ratified peer-beating law, and it has no explicit NON_COMPARABLE classifications.",
+        "The runner does not seal a pre-timing run manifest or immutable append-only raw-result path, enforce attempt retirement, record median plus dispersion, or validate its emitted receipt against the schema. The no-retry rule is a string, not an executable lifecycle constraint."
+      ]
+    }
+  },
+  "defects": [
+    {
+      "id": "G5-A-01",
+      "severity": "BLOCKING",
+      "axis": "total-tranche-sequencing",
+      "summary": "The exact authority set forbids this author admission.",
+      "evidence": [
+        "FEATURE-LEDGER.md lines 3-7: BORN-RED / denominator incomplete.",
+        "FEATURE-LEDGER.md lines 90-93: these are proposed ledger rows and each needs exact occurrences, boundary challenges, and gestalt acceptance before candidate generation.",
+        "FEATURE-LEDGER.md lines 175-178: SYNTAX-CONSUME-NUMBER follows only after the number-start dependency is accepted.",
+        "feature-public.json lines 35 and 39 bind that ledger and the terminal G7 number-start rejection.",
+        "author-admission-validator.mjs lines 532-545 allow no accepted denominator or dependency-revision row in the exact manifest closure."
+      ],
+      "required_repair": "Recut only after a content-addressed, accepted feature-row/occurrence authority explicitly resolves the rejected number-start dependency and is included in the precursor closure."
+    },
+    {
+      "id": "G5-A-02",
+      "severity": "BLOCKING",
+      "axis": "independent-boundary-gate",
+      "summary": "The executable gate does not prove two substantive independent challenges or a substantive root gestalt.",
+      "evidence": [
+        "author-admission-validator.mjs lines 548-567 check only nominal identity/scope/verdict fields and the root challenge hash list.",
+        "No reviewer_id, independence, model, three-altitude finding, evidence, defect, or credit field is required or checked.",
+        "ADDENDA-07 sections 4 and 5 require substantive independent all-axis reviews and independent adjudication, not nominal ACCEPT labels."
+      ],
+      "required_repair": "Define exact review/root schemas and executable uniqueness, independence, model-receipt, three-altitude, subject-hash, evidence, defect, and credit checks before an ACCEPT can open authoring."
+    },
+    {
+      "id": "G5-A-03",
+      "severity": "BLOCKING",
+      "axis": "author-provenance",
+      "summary": "Author receipts omit binding owner-law fields.",
+      "evidence": [
+        "author-admission-protocol.json lines 57-61 and validator lines 672-680 require only feature, generation, seat, topology, source hash/bytes, author_id, independent, and peer_source_access.",
+        "ADDENDA-07 section 3 requires served model, input-manifest hash, isolated candidate-root hash, commands, and close time in every author receipt.",
+        "ADDENDA-07 section 3 also requires each candidate to record parse-that APIs, LOC, backtracking shape, material intermediate allocations, and known compromises; none is required by the admission receipt."
+      ],
+      "required_repair": "Expand and executable-check exact author-receipt schemas, including the owner-mandated provenance and construction fields."
+    },
+    {
+      "id": "G5-A-04",
+      "severity": "BLOCKING",
+      "axis": "prototype-orthogonality",
+      "summary": "The topology floor is dead-code bypassable and the frozen cell lacks the pre-author provenance graph.",
+      "evidence": [
+        "author-admission-validator.mjs lines 273-369 accumulate call counts over the entire AST without data-flow or reachability from consumeNumber.",
+        "validator lines 679-682 prove only different complete-file hashes and author_id strings.",
+        "feature-public.json lines 55-61 label lineages but content-address no historical H input and record no H/B genealogy or pairwise construction review.",
+        "ADDENDA-07 section 3 says labels and cosmetic syntax do not establish orthogonality and requires the provenance graph and pairwise construction review before authoring."
+      ],
+      "required_repair": "Bind exact lineage inputs and the pre-author provenance/genealogy review; make the mechanical floor prove that each seat's required construction dominates the exported parser, while leaving idiom and semantic review to the quintetto."
+    },
+    {
+      "id": "G5-A-05",
+      "severity": "BLOCKING",
+      "axis": "failure-diagnostics-and-limits",
+      "summary": "Failure-state and work-limit behavior are not frozen.",
+      "evidence": [
+        "feature-public.json line 22 specifies only unchanged offset and no public diagnostic object.",
+        "harness.ts failure assertion checks only state.isError and state.offset; the seeded predecessor value is not checked on failure.",
+        "The seeded-ahead profile checks preservation only when furthest is artificially beyond all candidate activity, leaving ordinary diagnostic effects unspecified.",
+        "holdout-receipt.json promises work-limit evidence, but no numeric or asymptotic limit exists in the contract or executable harness."
+      ],
+      "required_repair": "State exact predecessor-value and diagnostic-field behavior for both modes/profiles, enforce it publicly, and declare an executable hostile-input work/stack/time or asymptotic limit."
+    },
+    {
+      "id": "G5-A-06",
+      "severity": "BLOCKING",
+      "axis": "benchmark-correctness-and-attribution",
+      "summary": "The benchmark can qualify four wrong or unrelated parsers.",
+      "evidence": [
+        "benchmark-runner.mjs lines 58-77 accept no expected normalized results.",
+        "benchmark-runner.mjs lines 268-277 load an arbitrary bundle and require only cross-seat digest equality.",
+        "The receipt records one bundle hash but no admitted H/B/S/D source hashes, author-receipt hashes, or reproducible source-to-bundle build identity.",
+        "feature-public.json line 68 calls this the sole procedure, yet it includes no LIVE regex or retained-prior comparator identities required by ADDENDA-07 lines 282-305."
+      ],
+      "required_repair": "Bind a correctness oracle and prior green receipts before timing, join each bundle export to the exact admitted source/build closure, and add the predeclared comparable LIVE/prior lanes or explicit NON_COMPARABLE classifications."
+    },
+    {
+      "id": "G5-A-07",
+      "severity": "BLOCKING",
+      "axis": "benchmark-evidence-lifecycle",
+      "summary": "The timing receipt lacks the immutable evidence lifecycle and required summaries.",
+      "evidence": [
+        "benchmark-runner.mjs accepts an arbitrary attempt_id and writes only stdout; it has no sealed run manifest, append-only raw path, or attempt retirement registry.",
+        "benchmark-runner.mjs parses but does not validate benchmark-receipt.schema.json and no later exact acceptance validator exists yet.",
+        "The receipt omits median and dispersion, explicit invocation total, exit/failure ledger, and throughput unit.",
+        "Allocation is declared non-adjudicative rather than measured or marked UNAVAILABLE with a tool reason, despite each success allocating a semantic leaf."
+      ],
+      "required_repair": "Add a pre-timing content-addressed run manifest, immutable append-only raw sink, attempt ledger, schema validation and recomputation, required descriptive summaries/units/exits, and an allocation measurement or truthful tool-specific UNAVAILABLE classification."
+    }
+  ],
+  "evidence": {
+    "mechanical_gates": [
+      {
+        "command": "npm run check",
+        "result": "PASS_EXIT_0"
+      },
+      {
+        "command": "npm test -- --run",
+        "result": "PASS_EXIT_0_NO_TEST_FILES_ZERO_FEATURE_CREDIT"
+      },
+      {
+        "command": "node cells/syntax-consume-number/g5/author-admission-validator.mjs --self-check",
+        "result": "PASS; 20 authority rows authenticated; mutated local authority SHA rejected"
+      },
+      {
+        "command": "node cells/syntax-consume-number/g5/benchmark-runner.mjs --self-check",
+        "result": "PASS_SYNTHETIC_ONLY"
+      }
+    ],
+    "byte_reproduction": [
+      "All 14 precursor rows matched holdout-receipt.json SHA-256 and byte lengths.",
+      "The canonical precursor closure recomputed to 67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682.",
+      "The holdout receipt reproduced as e5d29b7e99595de8594eb9142ce5e5e542ecd4e1c570c41f841c448a9721f700/7992.",
+      "The canonical base64 ciphertext reproduced as a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212/111971; it was not decrypted.",
+      "The local BBNF value-unit source reproduced as cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b at repository HEAD af15f63e0d2d3d719938c13b906a50acbb92ea3b."
+    ],
+    "semantic_reproduction": [
+      "Pinned CSS Syntax section 4.3.13 was inspected from the authenticated local bytes.",
+      "An independent algorithm-clause transcription agreed with the declared maximal-prefix regex for 299593 exhaustive short strings over +-.eE09x.",
+      "The exact semantic leaf check uses Reflect.ownKeys, ordinary Object.prototype, and ordinary data-property descriptors, closing the G2 hidden-key defect."
+    ]
+  },
+  "retained": [
+    "The narrow consuming operation and its value/type/sign carrier boundary.",
+    "The exact ordinary semantic leaf test.",
+    "The authenticated local CSS, BBNF, parse-that, TypeScript, proof-input, and clean-base closures.",
+    "The candidate-only Williams schedule and paired bootstrap statistic as reusable pieces after correctness, attribution, comparator, and lifecycle repairs.",
+    "The exact five skeptic roles and three unanimous synthesis-adjudicator roles."
+  ],
+  "disposition": "Reject G5 before authors. Do not reveal the holdout, create H/B/S/D sources, benchmark candidates, or claim any feature/parser/integration credit. Recut a fresh generation only after the authority-sequencing, review-gate, author-provenance, orthogonality, failure/limit, and benchmark defects are repaired; a changed precursor requires a fresh holdout.",
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "prototype": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "conformance": 0,
+    "production": 0
+  }
+}

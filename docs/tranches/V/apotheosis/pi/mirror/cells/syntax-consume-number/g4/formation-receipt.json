@@ -1,0 +1,74 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G4-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 4,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "cell": "cells/syntax-consume-number/g4",
+  "retained_boundary": "Consume the maximal CSS Syntax §4.3.13 number prefix and return exactly ordinary own data properties value/type/sign, with binary64/Object.is semantics and number/integer/percentage/dimension composition witnesses.",
+  "g3_rejection": {
+    "path": "../g3/rejection.json",
+    "sha256": "b515f4924f80db42829907f43a1f37eb6c878c794d8f5c929a0722b1a9867085",
+    "bytes": 1719,
+    "reason": "G3 undercounted the explicit owner law as four skeptics and one adjudicator."
+  },
+  "narrow_repair": {
+    "authors": ["h", "b", "s", "d"],
+    "skeptic_roles": ["specification", "parse-that", "hostility", "performance", "gestalt"],
+    "adjudicator_roles": ["semantic", "parser-architecture", "performance-gestalt"],
+    "identity_law": "The five skeptic identities and three synthesis-adjudicator identities are pairwise distinct and distinct from the four authors.",
+    "candidate_set_law": "Every skeptic and adjudicator receipt binds the identical exact ordered H/B/S/D candidate hashes.",
+    "unanimity_law": "Every receipt binds the same reviewed candidate hash from that set and all three adjudicators unanimously nominate that exact hash. Missing roles, identity reuse, set/hash drift, or disagreement rejects.",
+    "scope": "All G3 semantic, harness, proof-input, captured-compiler, source-floor, four-seat, and executable benchmark mechanics otherwise remain intact."
+  },
+  "precursor_byte_closure": [
+    { "path": "author-admission-protocol.json", "sha256": "cfc6ba5a7c741985049652e29a87983575c5980166c1959a93925379128b98b1", "bytes": 6069 },
+    { "path": "author-admission-validator.mjs", "sha256": "5b02c15e167f38fb438ef48c4f54e593f3c8e42142e2769767d325b32bdb3f10", "bytes": 36635 },
+    { "path": "benchmark-receipt.schema.json", "sha256": "3484825b01d84713981abfb4313b5dd4ef1862ffd9c20167a45f370476fbd33d", "bytes": 8207 },
+    { "path": "benchmark-runner.mjs", "sha256": "6a384b6b667f1eb5d453ba677411adc134c90516c55216ad34d3a1a40e280bff", "bytes": 18274 },
+    { "path": "contract.ts", "sha256": "acac6b9401efd7ab3d2153af8dc168db7bcce92541013d65bf37313927ab04c1", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "59b2b18bb8ae8cf25407f6c39b0075b8827f25d0fddffae2433670a67cf06c04", "bytes": 11186 },
+    { "path": "fixtures/public-cases.json", "sha256": "e2b3e03ef37189b8a1e40c218c96348303a34bc1c0f261647bbeb9d6026caa66", "bytes": 5213 },
+    { "path": "harness.ts", "sha256": "895356f6d8581e4ae84e4aadef03b22d14f850859e90d84252dde43b2b59be20", "bytes": 12797 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "proof-inputs.ledger", "sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1", "bytes": 539 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "proof_input_closure": {
+    "package_json": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af/755",
+    "tsconfig_json": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc/586",
+    "tsconfig_apotheosis_json": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39/315",
+    "vitest_config": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9/216",
+    "clean_base": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2/1177",
+    "active_tree": "77f8aaf85e4cf7dc85a7b3fc890a7bb63ba25018a5f10db9ebe55ad2a38b71b2/241 apotheosis/grammar/css/l4/README.md"
+  },
+  "public_fixture_counts": { "number_start_prefix_evidence": 6, "prefix_cases": 23, "composition_cases": 6, "hostile_cases": 4, "total_rows": 39 },
+  "formation_assays": [
+    { "name": "package-default-check", "result": "PASS_EXIT_0" },
+    { "name": "package-default-test", "result": "PASS_EXIT_0_NO_TEST_FILES_NO_FEATURE_CREDIT" },
+    { "name": "direct-strict-contract-harness", "result": "PASS" },
+    { "name": "public-harness", "result": "PASS_138_ASSERTIONS_4_HOSTILE" },
+    { "name": "semantic-shape-attacks", "result": "REJECTED_4_OF_4" },
+    { "name": "captured-buffer-positive-H-source-assay", "result": "PASS_EXACT_TOPOLOGY_TYPE_65_COMPILER_SOURCES" },
+    { "name": "candidate-bypass-negative-controls", "result": "REJECTED_8_OF_8" },
+    { "name": "benchmark-runner-self-check", "result": "PASS_BALANCE_OBSERVER_BOOTSTRAP" },
+    { "name": "author-admission-validator-self-check", "result": "PASS_EXACT_CLOSURES_AND_OWNER_LAW_OUTPUT_CONTRACT" }
+  ],
+  "formation_state": {
+    "candidate_source_files": 0,
+    "candidate_directories": 0,
+    "manifest_files": 0,
+    "holdout_files": 0,
+    "ciphertext_files": 0,
+    "challenge_files": 0,
+    "root_gestalt_files": 0,
+    "active_grammar_mutations": 0
+  },
+  "acceptance_deferred": {
+    "five_skeptic_receipts": ["specification", "parse-that", "hostility", "performance", "gestalt"],
+    "three_adjudicator_receipts": ["semantic", "parser-architecture", "performance-gestalt"],
+    "other": ["public runtime", "revealed fresh holdout", "four-seat benchmark", "integration", "projection/package-default", "separate acceptance validator"]
+  },
+  "next": "Freeze G4; form a wholly fresh G4 holdout and directly bound ciphertext; obtain two fresh ACCEPT boundary verdicts and ACCEPT root gestalt; only then invite independent H/B/S/D authors.",
+  "receipt_self_identity": "The future owner-sealed manifest binds this receipt's externally reported exact SHA-256 and byte length.",
+  "credit": "ZERO: no candidate, feature, parser, holdout, benchmark result, integration, conformance, production, or promotion credit."
+}

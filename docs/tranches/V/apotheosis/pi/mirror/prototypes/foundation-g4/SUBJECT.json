@@ -1,0 +1,74 @@
+{
+  "schema": "value.pi.foundation-g4.skeptic-subject/v1",
+  "status": "FROZEN_FOR_FIVE_FRESH_SKEPTICS",
+  "generation": "foundation-g4",
+  "features": [
+    "SYNTAX-ESCAPE",
+    "SYNTAX-IDENT",
+    "SYNTAX-STRING",
+    "SYNTAX-WHITESPACE",
+    "SYNTAX-COMMENTS"
+  ],
+  "corrections": [
+    "G2 aggregate spacing is removed; whitespace and comments are independent.",
+    "G3 singular comment is replaced by CSS Syntax 4.3.2 one-or-more adjacent comments.",
+    "H is a self-contained promotion-shaped tree with no assay-directory runtime imports.",
+    "Fresh holdout, exact-source benchmark, raw timing custody, strict TypeScript, and browser witness are bound."
+  ],
+  "inputs": {
+    "brief": ["BRIEF.md", "31077cbd0d1b07fe5122343cb17d86e8279dd93cca17a586e9eb7ded899a073b"],
+    "public_evaluator": ["evaluate.mts", "2cba0476655f5395faace09bc6121a8dc7d7ea384a9182004c705f70f7a1fee7"],
+    "holdout_cases": ["holdout/cases.json", "c22118f724e1190936c839a19b12321e911b99140eee2e29695b0626320b44fc"],
+    "holdout_evaluator": ["holdout/evaluate.mts", "5ac9c859263673a9d633aeed60477788b52e522f7013889c0c635d1bfd46c3a4"],
+    "holdout_result": {
+      "status": "PASS_ALL",
+      "cases_per_seat": 25,
+      "normalized_output_sha256": "9df7e68319867f06188b8c26c73325b439f517811732c8340af8c683b14679bd"
+    },
+    "browser_script": ["browser-witness.mts", "43cd6a4cb2c06a45b701b946655001e06dedb77283195fdec3126f1f9c68f12f"],
+    "browser_evidence": ["evidence/browser.json", "6ee91dbf2df42e68488bc1a500fcd0c78d2b96a325d7db84a411f7f2428aafc1"],
+    "benchmark_manifest": ["bench/manifest.json", "da08eab5bb3901593d55c1f857f4c83b3957c1f1e14a9e2d596056ba6c5f3b3e"],
+    "benchmark_raw_attempt_2": ["bench/raw-attempt-2.json", "5a4b04a42f88a05d8bdca10d67f54679fbc6f98bb6ad1c47b06b79deb41aa6bd"],
+    "benchmark_attempt_1_failure": ["bench/attempt-1-failure.json", "a3ab74cdd63b0129e146583a8d474a28f4d93e675a8dc8fde62699c10960ec0f"],
+    "benchmark_erratum": ["bench/attempt-2-erratum.json", "11559b51d6526518bea09dccfc746df3c36ff9aefc1b6121e16a7d0b7bb5135d"]
+  },
+  "candidate_h": {
+    "topology": "self-contained literal compositional grammar",
+    "root": "../foundation-g3/integration/grammar/css/l4/tokens",
+    "files": {
+      "escape.ts": "5b5dcae703d644d0ff28214032a9bdf54558e017f223c821d3006322ad428045",
+      "identifier.ts": "2e87f6cf2e72b2cd33f5d9c443a82d85c355bc7af1b05f31ebfb87c82cb2b2de",
+      "string.ts": "9938547fd6083189f296d7764140f9ea0dd5f243287ca5238b6e66c0f04a469e",
+      "whitespace.ts": "8cd4d201b115eacd3ba420c1f8ae9f6244dfe34400393c184216268f4900674f",
+      "comments.ts": "9c82c1008d0e7cf94917a34299e6186170aad420ea8939d7f51270857658292d",
+      "index.ts": "e5d0dba2d9ff467dd4e2dad97d4812241634a094dc8791a3ea21d3057317684a"
+    },
+    "promotion_rule": "Each source file is copied byte-identically under mirror/apotheosis/grammar/css/l4/tokens after acceptance."
+  },
+  "independent_alternatives": {
+    "origin_subject": ["../foundation-g3/SUBJECT.json", "e03f0510f4ae98e54f2a69e8ef6893bdd30f58e6b4bc490a707b73e449a2debf"],
+    "b_comments": ["candidates/b/tokens/comments.ts", "3fd48dd1bc2be666c78ae90f158a20681799c1f84e88c04ed6afb05904162c5f"],
+    "b_index": ["candidates/b/index.ts", "2a5370c7d992dc9a44904446f8a15ec6c9f476efea7c70da2ded493377cb6247"],
+    "s_comments": ["candidates/s/tokens/comments.ts", "91eb9ced27fa25dd60eca11f8ed1c2b84b4b3615f8d3ad0117977bfacfa42471"],
+    "s_index": ["candidates/s/index.ts", "aa26e5e6dbc1624615680d209bb782d5a64b24f13f8e5f0eb8fa42ba8c856932"],
+    "law": "H/B/S remain the three independent constructions. G4 is a repair generation after five G3 challenges, not a replacement authorship claim."
+  },
+  "public_result": {
+    "status": "PASS",
+    "comments_exact_cases_per_seat": 7,
+    "comments_transactional_failures_per_seat": 5,
+    "comments_hostile_calls_per_seat": 10000,
+    "comments_million_code_unit_cases_per_seat": 1,
+    "strict_typescript": "PASS"
+  },
+  "performance": {
+    "candidate_relative": true,
+    "h_strictly_beats_b": ["IDENT", "STRING", "WHITESPACE", "COMMENTS"],
+    "h_strictly_beats_s": ["ESCAPE", "IDENT", "COMMENTS"],
+    "peer_win": false,
+    "full_parser_win": false,
+    "noncomparable_peers_do_not_close_final_performance": true
+  },
+  "required_verdict": "Each of five independent skeptics returns ACCEPT or REJECT for H/B/S across all five features; three adjudicators may begin only after all five reviews close.",
+  "feature_credit": 0
+}

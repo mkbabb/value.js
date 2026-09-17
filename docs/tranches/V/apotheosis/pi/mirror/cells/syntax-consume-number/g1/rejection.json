@@ -1,0 +1,36 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G1-PRE-CHALLENGE-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 1,
+  "status": "REJECTED_BEFORE_HOLDOUT_MECHANICAL_PACKAGE_CHECK_FAILURE",
+  "reason": "The package-default strict check cannot compile the frozen harness because tsconfig.apotheosis.json does not enable resolveJsonModule and harness.ts statically imports fixtures/public-cases.json.",
+  "defect": {
+    "command": "npm run check",
+    "exit_code": 2,
+    "diagnostic": "cells/syntax-consume-number/g1/harness.ts(4,25): error TS2732: Cannot find module './fixtures/public-cases.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.",
+    "package_json": { "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af", "bytes": 755 },
+    "tsconfig_apotheosis": { "sha256": "8e4d9009e5d4678542ca908c842f391aa7faa8caff43c388d8f77d979ed3ac68", "bytes": 257 }
+  },
+  "frozen_g1_closure": [
+    { "path": "benchmark-protocol.json", "sha256": "9c7f5a82671ff37c22ac501c33807b6e1f005180ce9de35587f0aa29e93b14cc", "bytes": 2235 },
+    { "path": "contract.ts", "sha256": "961e59e0a3fb61eef10c2a577438a25d5c63c3f0d972fd33988c532383cfe5a7", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "9435eec66739d8751b7c57d857334b70bea16fff580b260bd9848c494c512d5b", "bytes": 6870 },
+    { "path": "fixtures/public-cases.json", "sha256": "4c41068bfa1c1476fe7dd70583bbf53fefe701b6e4f02c2353d6911ca88726a7", "bytes": 5213 },
+    { "path": "formation-receipt.json", "sha256": "d41e8339c07d11becceafde5355175a72fb7aecb15919c4ccd435f1f1c3fb45c", "bytes": 6316 },
+    { "path": "harness.ts", "sha256": "8326e0aa1594a2d3c594f499b32da43d64f2a9e2020d3308ca68654acc4c2eb2", "bytes": 11961 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "promotion-protocol.json", "sha256": "968d6b02a4f457c63ae8ba806554aab82d1fd47bf0176ca4c67eaf9bf176e9e5", "bytes": 2217 },
+    { "path": "promotion-verifier.mjs", "sha256": "a496deeebeaef19c8dda7e0ed2d8c19743abe64d4a23556b1f175545f7a61bf0", "bytes": 22838 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "holdout_state": {
+    "generation_started": false,
+    "copies": 0,
+    "manifest": false,
+    "challenges": 0,
+    "root_gestalt": false,
+    "candidates": 0
+  },
+  "disposition": "Re-cut as G2. Preserve the explicit verifier fixture closure, but load and parse the JSON from Node fs/URL in the harness so the package-default configuration compiles unchanged.",
+  "credit": "ZERO: no feature, parser, harness, holdout, challenge, benchmark, integration, production, or promotion credit."
+}

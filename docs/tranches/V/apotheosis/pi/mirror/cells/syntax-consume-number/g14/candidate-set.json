@@ -1,0 +1,56 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.candidate-set/v1",
+  "status": "SEALED_PRE_REVEAL_ZERO_CREDIT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 14,
+  "authority": {
+    "feature_sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29",
+    "public_evaluator_sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "holdout_receipt_sha256": "787f2543f4046ed71669daa55ca03af65a269f320f4f9891d22adab8da127e0e"
+  },
+  "candidates": {
+    "h": {
+      "task": "/root/g14_author_h",
+      "topology": "WHOLE_PREFIX_REGEX",
+      "sha256": "ca17a811198a286c3e07ab06670b76b16f98c513d246696296dd4c3e4abffaa8",
+      "bytes": 477,
+      "lines": 15,
+      "mode": "0444"
+    },
+    "b": {
+      "task": "/root/g14_author_b",
+      "topology": "FACTORIZED_ALL_ANY",
+      "sha256": "42e6e6a3662c5bb30858b845fe04ced565ff6f755e7edd54d703804285f4e913",
+      "bytes": 2097,
+      "lines": 55,
+      "mode": "0444"
+    },
+    "s": {
+      "task": "/root/g14_author_s",
+      "topology": "SPEC_STAGED_CHAIN",
+      "sha256": "2edb390a542ebb98221c624934b14c009bc07c6b306cf7d4be1ccfcfd74202c8",
+      "bytes": 1768,
+      "lines": 52,
+      "mode": "0444"
+    },
+    "d": {
+      "task": "/root/g14_author_d",
+      "topology": "FIRST_CHARACTER_DISPATCH",
+      "sha256": "a1e4fc2016362f4d1e4b49089c9580b85f6caa19d2adf91f60dd2dac412f8cd8",
+      "bytes": 963,
+      "lines": 26,
+      "mode": "0444"
+    }
+  },
+  "public_replay": {
+    "status": "PASS_ALL_FOUR",
+    "success_observations_per_candidate": 88,
+    "failure_observations_per_candidate": 336,
+    "parent_observations_per_candidate": 10,
+    "hostile_observations_per_candidate": 10
+  },
+  "isolation": "Each task forked without conversation context, received only the common public boundary and its named provenance, and wrote only its own index.ts.",
+  "forbidden_source_constructs": "Root replay found no manual loop, source/cursor access, slicing, token/CST layer, filesystem/process import, or Object.freeze.",
+  "next": "Independent custodian may reveal the preauthor-sealed holdout only against these exact four read-only sources.",
+  "credit": { "parser": 0, "feature": 0, "benchmark": 0, "integration": 0, "production": 0 }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mkbabb.dev/value.pi/occurrence-owner-formation-v5-shard.schema.json",
+  "title": "value.pi compact occurrence/owner formation v5 shard",
+  "type": "object",
+  "discriminator": { "propertyName": "table" },
+  "oneOf": [
+    { "$ref": "#/$defs/codes" },
+    { "$ref": "#/$defs/strings" },
+    { "$ref": "#/$defs/sources" },
+    { "$ref": "#/$defs/contexts" },
+    { "$ref": "#/$defs/carriers" },
+    { "$ref": "#/$defs/operations" },
+    { "$ref": "#/$defs/references" },
+    { "$ref": "#/$defs/compatibility" },
+    { "$ref": "#/$defs/owner_scope" }
+  ],
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "sha1": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "index": { "type": "integer", "minimum": 0 },
+    "nullable_index": { "type": ["integer", "null"], "minimum": 0 },
+    "indexes": { "type": "array", "items": { "$ref": "#/$defs/index" }, "uniqueItems": true },
+    "codes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" },
+        "table": { "const": "codes" },
+        "columns": { "const": ["code"] },
+        "count": { "$ref": "#/$defs/index" },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/string_row" } }
+      }
+    },
+    "strings": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" },
+        "table": { "const": "strings" },
+        "columns": { "const": ["value"] },
+        "count": { "$ref": "#/$defs/index" },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/string_row" } }
+      }
+    },
+    "string_row": {
+      "type": "array", "prefixItems": [{ "type": "string" }], "items": false, "minItems": 1, "maxItems": 1
+    },
+    "sources": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" },
+        "table": { "const": "sources" },
+        "columns": { "const": ["path_s", "format_s", "sha256", "git_blob_sha1", "bytes", "lines", "seed", "status_c"] },
+        "count": { "const": 168 },
+        "rows": { "type": "array", "minItems": 168, "maxItems": 168, "items": { "$ref": "#/$defs/source_row" } }
+      }
+    },
+    "source_row": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/hash" }, { "$ref": "#/$defs/sha1" }, { "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }, { "type": "boolean" }, { "$ref": "#/$defs/index" }], "items": false, "minItems": 8, "maxItems": 8
+    },
+    "contexts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "contexts" }, "columns": { "const": ["id", "sections", "containers", "markers_s", "complete"] }, "count": { "$ref": "#/$defs/index" },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/context_row" } }
+      }
+    },
+    "context_row": {
+      "type": "array", "prefixItems": [{ "type": "string", "pattern": "^ctxv5-[0-9a-f]{24}$" }, { "type": "array", "items": { "$ref": "#/$defs/section_row" } }, { "type": "array", "items": { "$ref": "#/$defs/container_row" } }, { "$ref": "#/$defs/indexes" }, { "type": "boolean" }], "items": false, "minItems": 5, "maxItems": 5
+    },
+    "section_row": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1, "maximum": 6 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/nullable_index" }, { "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 7, "maxItems": 7
+    },
+    "container_row": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }, { "$ref": "#/$defs/nullable_index" }, { "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }, { "type": "boolean" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 7, "maxItems": 7
+    },
+    "carriers": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "carriers" }, "columns": { "const": ["id", "source_i", "kind_s", "extraction_s", "start_line", "end_line", "start_offset", "end_offset", "slice_sha256", "slice_bytes", "names_s", "anchor_s", "context_i", "status_c", "flags_c"] }, "count": { "const": 17079 },
+        "rows": { "type": "array", "minItems": 17079, "maxItems": 17079, "items": { "$ref": "#/$defs/carrier_row" } }
+      }
+    },
+    "carrier_row": {
+      "type": "array", "prefixItems": [{ "type": "string", "minLength": 1 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/hash" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/indexes" }, { "$ref": "#/$defs/nullable_index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 15, "maxItems": 15
+    },
+    "operations": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "interval_columns", "interval_count", "interval_rows", "candidate_columns", "candidate_count", "candidate_rows", "alias_columns", "alias_group_count", "alias_rows", "algorithm_opening_columns", "algorithm_opening_count", "algorithm_opening_rows", "required_join_columns", "required_join_count", "required_join_rows", "reviewed_operation_count", "count"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "operations" },
+        "interval_columns": { "const": ["id", "source_i", "start_line", "end_line", "start_offset", "end_offset", "slice_sha256", "slice_bytes", "context_i", "status_c", "flags_c"] }, "interval_count": { "$ref": "#/$defs/index" }, "interval_rows": { "type": "array", "items": { "$ref": "#/$defs/operation_interval" } },
+        "candidate_columns": { "const": ["id", "interval_i", "kind_s", "extraction_s", "status_c"] }, "candidate_count": { "$ref": "#/$defs/index" }, "candidate_rows": { "type": "array", "items": { "$ref": "#/$defs/operation_candidate" } },
+        "alias_columns": { "const": ["interval_i", "candidate_rows_i"] }, "alias_group_count": { "$ref": "#/$defs/index" }, "alias_rows": { "type": "array", "items": { "$ref": "#/$defs/operation_alias" } },
+        "algorithm_opening_columns": { "const": ["source_i", "line", "offset", "raw_opening_s", "candidate_rows_i", "status_c"] }, "algorithm_opening_count": { "$ref": "#/$defs/index" }, "algorithm_opening_rows": { "type": "array", "items": { "$ref": "#/$defs/algorithm_opening" } },
+        "required_join_columns": { "const": ["requirement_s", "carrier_i", "relation_s", "intervals_i", "status_c"] }, "required_join_count": { "const": 10 }, "required_join_rows": { "type": "array", "minItems": 10, "maxItems": 10, "items": { "$ref": "#/$defs/required_join" } },
+        "reviewed_operation_count": { "const": 0 }, "count": { "$ref": "#/$defs/index" }
+      }
+    },
+    "operation_interval": {
+      "type": "array", "prefixItems": [{ "type": "string", "pattern": "^opv5i-[0-9a-f]{24}$" }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/hash" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 11, "maxItems": 11
+    },
+    "operation_candidate": {
+      "type": "array", "prefixItems": [{ "type": "string", "pattern": "^opv5c-[0-9a-f]{24}$" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }], "items": false, "minItems": 5, "maxItems": 5
+    },
+    "operation_alias": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/index" }, "uniqueItems": true }], "items": false, "minItems": 2, "maxItems": 2
+    },
+    "algorithm_opening": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/index" }, "uniqueItems": true }, { "$ref": "#/$defs/index" }], "items": false, "minItems": 6, "maxItems": 6
+    },
+    "required_join": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/index" }, "uniqueItems": true }, { "$ref": "#/$defs/index" }], "items": false, "minItems": 5, "maxItems": 5
+    },
+    "references": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "references" }, "columns": { "const": ["id", "source_i", "start_line", "start_offset", "end_offset", "raw_s", "type_s", "name_s", "canonical_s", "scope_s", "anchor_s", "link_text_s", "normative_s", "targets_carrier_i", "status_c", "flags_c"] }, "count": { "$ref": "#/$defs/index" },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/reference_row" } }
+      }
+    },
+    "reference_row": {
+      "type": "array", "prefixItems": [{ "type": "string", "pattern": "^refv5-[0-9a-f]{24}$" }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/nullable_index" }, { "$ref": "#/$defs/nullable_index" }, { "$ref": "#/$defs/nullable_index" }, { "$ref": "#/$defs/nullable_index" }, { "$ref": "#/$defs/indexes" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 16, "maxItems": 16
+    },
+    "compatibility": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows", "primary_runtime_count", "primary_type_count", "primary_total_count", "primary_consumer_count", "dag_family_joined_count"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "compatibility" }, "columns": { "const": ["symbol_s", "surface_s", "primary_export_line", "keyframes_consumer", "primary_consumer_evidence", "dag_family_s", "status_c", "flags_c"] }, "count": { "const": 52 },
+        "rows": { "type": "array", "minItems": 52, "maxItems": 52, "items": { "$ref": "#/$defs/compatibility_row" } },
+        "primary_runtime_count": { "const": 19 }, "primary_type_count": { "const": 33 }, "primary_total_count": { "const": 52 }, "primary_consumer_count": { "const": 37 }, "dag_family_joined_count": { "const": 0 }
+      }
+    },
+    "compatibility_row": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }, { "type": "boolean" }, { "type": "array", "items": { "$ref": "#/$defs/index_line_pair" }, "uniqueItems": true }, { "type": "null" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 8, "maxItems": 8
+    },
+    "index_line_pair": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "type": "integer", "minimum": 1 }], "items": false, "minItems": 2, "maxItems": 2
+    },
+    "owner_scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "table", "columns", "count", "rows"],
+      "properties": {
+        "schema_version": { "const": "value.pi.occurrence-owner-shard/v5" }, "table": { "const": "owner_scope" }, "columns": { "const": ["id_s", "exact_input_lines", "rejected_search_terms_s", "discovery_carriers_i", "reviewed_normalization_s", "status_c", "flags_c"] }, "count": { "$ref": "#/$defs/index" },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/owner_scope_row" } }
+      }
+    },
+    "owner_scope_row": {
+      "type": "array", "prefixItems": [{ "$ref": "#/$defs/index" }, { "type": "array", "items": { "$ref": "#/$defs/input_line" } }, { "$ref": "#/$defs/indexes" }, { "$ref": "#/$defs/indexes" }, { "type": "null" }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/indexes" }], "items": false, "minItems": 7, "maxItems": 7
+    },
+    "input_line": {
+      "type": "array", "prefixItems": [{ "type": "integer", "minimum": 1 }, { "$ref": "#/$defs/index" }, { "$ref": "#/$defs/hash" }], "items": false, "minItems": 3, "maxItems": 3
+    }
+  }
+}
+

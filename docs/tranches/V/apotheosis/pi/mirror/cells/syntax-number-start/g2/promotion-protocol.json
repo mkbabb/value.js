@@ -1,0 +1,22 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G2-PROMOTION",
+  "status": "SEALED_BEFORE_CANDIDATE_CODE",
+  "target_path": "grammar/css/l4/value-unit/number-start.ts",
+  "candidate_overlay_root": "candidates/<seat>/overlay",
+  "candidate_source_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+  "allowed_overlay_paths": ["grammar/css/l4/value-unit/number-start.ts"],
+  "base_ledger": "integration-base.ledger",
+  "base_ledger_format": "Each LF-terminated line is `<lowercase sha256><two spaces><mirror-relative path>`, byte-sorted by path.",
+  "base_scope": "Every existing mirror/grammar/**/*.ts file. The frozen base contains rejected historical architecture only as an integration-drift witness; it grants that architecture no credit.",
+  "candidate_close_receipt": [
+    "candidate source SHA-256",
+    "candidate overlay ledger SHA-256",
+    "projected aggregate grammar ledger SHA-256",
+    "exact import list",
+    "candidate tree Git hash-object when available"
+  ],
+  "projection": "Replace or add each allowed overlay path verbatim atop the frozen base, then regenerate the complete byte-sorted grammar ledger. No formatter, import rewrite, barrel edit, or generated shim occurs during projection.",
+  "review_identity": "The quintetto and synthesis triumvirate review the candidate source hash, overlay-ledger hash, and projected aggregate-ledger hash as one indivisible identity.",
+  "integration": "Root applies the selected overlay bytes verbatim to target_path, verifies the selected source hash and projected aggregate-ledger hash, and then runs semantic/type/benchmark replay.",
+  "drift_rule": "Any base-ledger drift, extra import, rewritten byte, target collision, or aggregate mismatch starts a new generation before selection. Later retirement of the rejected base is a separate tree change and requires an integration replay under the then-current feature-law authority."
+}

@@ -1,0 +1,160 @@
+{
+  "schema": "value.pi.occurrence-owner-v9-repair3-root-gestalt/v1",
+  "date": "2026-07-22",
+  "scope": "CORPUS_ANALYSIS_TOOLING_ONLY",
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "sha256": "8181757557f3a6e86ea5d45c3620c2649e6b083c4a4aead323c4196f17040425",
+      "bytes": 56293
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "sha256": "f2c2397c22b7fdae350b074943c52cb18906e6c9e814f8f3bc709b57f411fc33",
+      "bytes": 17007
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "sha256": "989ff130d4c6fd11688d02a91109860663fdf255bff859e75290b38264b177aa",
+      "bytes": 18149
+    },
+    "semantic_contract": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json",
+      "sha256": "732ebafdf0336c9c21027bfa4b4df3b6b143ef61336603750797b4a254c1c702",
+      "bytes": 6381
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair3-evidence.json",
+      "sha256": "8215baeb14bb2fe205bd9e7689eef06c068aba9bb70d89f1687f489c25c11ec0",
+      "bytes": 8185
+    },
+    "implementation_receipt": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair3-implementation-2026-07-22.md",
+      "sha256": "c127fc626f72b0de1c9e37c9ff41010a5ebdea7b233605babcac8ca9feed7651",
+      "bytes": 3854
+    },
+    "deterministic_stdout": {
+      "sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+      "bytes": 14316
+    }
+  },
+  "independent_challenges": [
+    {
+      "task": "/root/v9_repair3_review_a",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair3-challenge-a.json",
+      "sha256": "d15a1b106513deca87686981aa22ec28656da608e1515137aa441c1c451a6499",
+      "bytes": 29933,
+      "verdict": "REJECT"
+    },
+    {
+      "task": "/root/v9_repair3_review_b",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair3-challenge-b.json",
+      "sha256": "b6e99ebf384bf4fd1b09228465c2683999697fa69e047e4049a5a4e30fc6a740",
+      "bytes": 26608,
+      "verdict": "REJECT"
+    }
+  ],
+  "root_replay": {
+    "workspace_stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+    "workspace_stdout_bytes": 14316,
+    "tmp_stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+    "tmp_stdout_bytes": 14316,
+    "byte_identical": true,
+    "full_168_source_run": false
+  },
+  "adjudication": [
+    {
+      "id": "V9R3-R-01",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Reference and carrier grammar is still incomplete: default href-less manual autolinks, empty-for definition references, visible-text definition links, bibliographic visible text, and cross-spec section forms are omitted or mis-targeted.",
+      "sources": [
+        "V9R3-A-01-REFERENCE-GRAMMAR-INCOMPLETE",
+        "V9R3-A-03-MANUAL-CARRIER-ATTRIBUTE-DENOMINATOR",
+        "R3B-01-HREFLESS-DEFAULT-MANUAL-AUTOLINK-OMITTED",
+        "R3B-02-REFERENCE-INSIDE-SYNTAX-IS-STILL-INCOMPLETE"
+      ]
+    },
+    {
+      "id": "V9R3-R-02",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Bikeshed source-state and setting semantics remain unsound. Ordinary pre, explicit l, metadata datablocks, category settings, and datablock structure are conflated, so headings and references are both fabricated and omitted.",
+      "sources": [
+        "V9R3-A-02-BIKESHED-STATE-SETTINGS-INCOMPLETE",
+        "R3B-03-EXPLICIT-L-CONFLATES-AUTOLINK-ELIGIBILITY-WITH-STRUCTURAL-VISIBILITY"
+      ]
+    },
+    {
+      "id": "V9R3-R-03",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Semantic text is not consistently decoded and Setext underline consumption is incomplete. Definition text containing character references fails to join, and a consumed underline can be reused by a neighboring heading path.",
+      "sources": [
+        "V9R3-A-04-SETEXT-CONSUMPTION-INCOMPLETE",
+        "R3B-04-DEFINITION-TEXT-CONTENT-IS-NOT-ENTITY-DECODED"
+      ]
+    },
+    {
+      "id": "V9R3-R-04",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The declared nonthrowing input boundary is false. Hostile ledger values including revoked proxies escape analyzeSource as native TypeErrors.",
+      "sources": [
+        "V9R3-A-05-OPTION-NOTHROW-BOUNDARY-OPEN",
+        "R3B-05-HOSTILE-OPTION-BOUNDARY-STILL-THROWS"
+      ]
+    },
+    {
+      "id": "V9R3-R-05",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The verifier is an exact nineteen-source example table plus self-consistency checks, not an independent semantic oracle. On non-witness inputs it accepts erased tags, candidates, headings, carriers, references, and wrong source states.",
+      "sources": [
+        "V9R3-A-06-DECLARATIVE-ORACLE-NOT-COMPLETE",
+        "R3B-06-DECLARATIVE-RULES-DO-NOT-GENERALIZE-BEYOND-EXACT-WITNESS-STRINGS"
+      ]
+    },
+    {
+      "id": "V9R3-R-06",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Admitted operation ownership and copied ledger evidence are not independently checked; a fabricated owner and heading can be made internally self-consistent and accepted.",
+      "sources": [
+        "V9R3-A-06-DECLARATIVE-ORACLE-NOT-COMPLETE",
+        "R3B-07-ADMITTED-OPERATION-OWNER-AND-LEDGER-EVIDENCE-ARE-NOT-VERIFIED"
+      ]
+    },
+    {
+      "id": "V9R3-R-07",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Work accounting is suppressible and omits repeated nested-carrier ancestry scans. The total can be zeroed without rejection, so neither bounded accounting nor a complexity claim follows.",
+      "sources": [
+        "V9R3-A-07-WORK-ACCOUNTING-SUPPRESSIBLE",
+        "R3B-08-TOTAL-WORK-SUPPRESSION-IS-ADMITTED"
+      ]
+    }
+  ],
+  "retained_green_facts": [
+    "The exact repair3 subject replays identically from the workspace and /tmp at 14,316 bytes and SHA-256 2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf.",
+    "Repair3 is 20.42 percent smaller than repair2 and removed the duplicated policy-oracle implementation.",
+    "Attribute URL decoding, accepted ledger-status filtering, collision reporting, the sealed container witness, and the exact bounded regression rail remain useful research evidence only."
+  ],
+  "next_generation_law": [
+    "Do not run the 168-source corpus or generate owner/operation ledgers from repair3.",
+    "Before repair4, freeze a source-derived semantic contract that covers default and explicit carriers, all declared reference separators, Bikeshed pre/l/datablock states, category settings, decoded semantic text, heading consumption, and container ownership.",
+    "The independent oracle must derive those relations for arbitrary bounded inputs or use an authenticated external witness; exact-source lookup is not an oracle.",
+    "Make the option boundary total over hostile JavaScript values and independently recompute every admitted operation relation and work total.",
+    "Prefer one parsimonious structural pass and explicit state transitions; do not grow another parallel handwritten parser or duplicate analyzer policies in verification.",
+    "Only a twice-ACCEPTED later exact subject may seed the normative operation ledger and full source traversal."
+  ],
+  "verdict": "TERMINAL_REJECT_REPAIR3_ZERO_DENOMINATOR_CREDIT",
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

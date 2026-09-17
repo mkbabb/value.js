@@ -1,0 +1,31 @@
+{
+  "schema_version": "value.pi.clean-direct-base/v1",
+  "status": "ACTIVE_FIRST_ACCEPTED_DIRECT_FEATURE",
+  "created": "2026-07-22",
+  "root": "apotheosis",
+  "runtime_root": "apotheosis/grammar",
+  "default_check": "npm run check",
+  "default_test": "npm test (one file, four active integration tests)",
+  "typescript_sources": [
+    {
+      "path": "apotheosis/grammar/css/l4/value-unit/numeric.ts",
+      "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+      "feature_id": "SYNTAX-CONSUME-NUMBER",
+      "selection_path": "../cells/syntax-consume-number/g16/selection.json",
+      "selection_sha256": "79ab20d533e0892876c882907b08c5b0385d13c0a1f38825716d55fa3cef19e7"
+    }
+  ],
+  "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+  "rejected_base": {
+    "location": "../grammar plus its pre-reset consumers/tests",
+    "ledger": "../cells/syntax-number-start/g2/integration-base.ledger",
+    "ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+    "disposition": "REJECTED_EVIDENCE_ONLY_NOT_IN_ACTIVE_SOURCE_CENSUS"
+  },
+  "invariants": [
+    "every TypeScript source below apotheosis/grammar is an exact accepted promotion",
+    "candidate overlays are rooted at apotheosis and may add only their exact governed target",
+    "no import may cross from apotheosis into the rejected pre-reset mirror runtime",
+    "no speculative foundation or placeholder runtime module receives base credit"
+  ]
+}

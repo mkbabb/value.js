@@ -1,0 +1,40 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.benchmark-failure/v1",
+  "status": "CONSUMED_FAILED_FIRST_ATTEMPT_ZERO_CREDIT",
+  "subject": {
+    "manifest_sha256": "50184dcf15049113399b60606a370f2237aad811176b6ce93d1fc4443b3fdf3f",
+    "harness_sha256": "f4e3177c4fb8906cc28aaf53ce8f36c4a76ac3801c81f011dee359172d8ca2b7",
+    "bindings_sha256": "a9730a61007a25623f8d2f935bf13b9d6b4d9ead7bee740377339cb1862028af",
+    "lanes_sha256": "484194988941883acae346d8a19baeac3fcb2b6c1c538ca3304ed57b7b7d47f1",
+    "protocol_sha256": "4cd8be133014b77ec7cc5187cb556c3b97af5f84dc88c16aa5ed33a1e109f208",
+    "candidate_set_sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40"
+  },
+  "raw_evidence": {
+    "path": "raw-first-attempt.ndjson",
+    "sha256": "48286cbc1914513c698d8e43d93503e3ba306efb372d27e28d433297b80d2654",
+    "bytes": 2656,
+    "lines": 5,
+    "mode": "0444",
+    "attempt_id": "dc8fbd42-62de-4686-89fa-2544ad652640",
+    "candidate_validation": "PASS_ALL_FOUR",
+    "timed_blocks": 0
+  },
+  "root_cause": {
+    "classification": "HARNESS_WARMUP_ASSERTION_DEFECT",
+    "fact": "The worker applied the sample schedule's three-distinct-neighbour assertion to a one-superblock warmup schedule.",
+    "reproduction": "balancedBlocks(ids, seed ^ 0xa5a5a5a5, 1) followed by assertBalanced(blocks, ids, 1) throws 'h: fixed-neighbor confounding'.",
+    "scope": "No candidate semantic failure and no timed sample. Position balance is satisfiable; only the cross-superblock neighbour rule is inapplicable to one warmup superblock."
+  },
+  "law": {
+    "retry_v1": "FORBIDDEN",
+    "raw_deletion_or_rewrite": "FORBIDDEN",
+    "correction": "A separately content-addressed v2 subject may repair only the assertion scope and use a distinct write-once raw path."
+  },
+  "credit": {
+    "v1_benchmark": 0,
+    "performance": 0,
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

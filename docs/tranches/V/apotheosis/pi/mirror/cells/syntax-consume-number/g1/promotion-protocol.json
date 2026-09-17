@@ -1,0 +1,16 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G1-PROMOTION",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "command": "node cells/syntax-consume-number/g1/promotion-verifier.mjs <owner-sealed-manifest-sha256> <candidate-overlay-root>",
+  "target": "grammar/css/l4/value-unit/consume-number.ts",
+  "seat_roots": "cells/syntax-consume-number/g1/candidates/{h,b,s,d,r}/overlay",
+  "overlay": "Exactly one canonical UTF-8 regular file at the target. The active clean base has zero TypeScript grammar files, so overlay and projected grammar ledgers are the same one row.",
+  "allowed_candidate_imports": { "module": "@mkbabb/parse-that/core", "named": ["Parser", "all", "any", "dispatch", "regex", "string"] },
+  "tools": [
+    { "package": "@mkbabb/parse-that", "version": "1.0.0", "ledger": "parse-that-package.ledger", "rows": 65, "ledger_sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d" },
+    { "package": "typescript", "version": "5.8.3", "ledger": "typescript-package.ledger", "rows": 130, "ledger_sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47" }
+  ],
+  "compiler": "A strict two-root program contains the captured candidate bytes and an in-memory type probe. The host serves both roots from memory, checks every resolved source against the two local tool ledgers, proves the sole direct export is exact Parser<ConsumedNumber>, then revalidates candidate bytes and the one-file overlay at close.",
+  "manifest": "The owner-sealed adjacent manifest must bind every precursor row, fresh holdout receipt, two challenges, root gestalt, itself indirectly through the caller-supplied digest, and the running verifier's own exact row. All rows are reproduced before candidate inspection.",
+  "mechanical_nonclaims": "The AST/type/ledger floor proves only syntax, direct export/import shape, exact type/dependency identity, one-file projection, and captured-byte compiler closure. It does not prove runtime truth, no casts/aliases/indirection, regex correctness, scanner absence under novel spellings, bounded work, lineage, idiom, KISS, or performance. Harness, holdout, five skeptics, and three adjudicators retain those axes."
+}

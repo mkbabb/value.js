@@ -1,0 +1,61 @@
+{
+  "schema": "value.pi.foundation.benchmark-review-summary/v1",
+  "subject_sha256": "22ec8f1270f3ffa5b75ed8be85c43069e62f71d383d43be12ba29821b8f4b207",
+  "common_corpus_sha256": "b25d67e4c063649fb045b9749f93aa609c40f3f2a791a306b493e793c23b4057",
+  "environment": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu": "Apple M5 Max",
+    "logical_cpus": 18
+  },
+  "method": {
+    "warmup_rounds": 4,
+    "samples": 25,
+    "cycles_per_sample": 4000,
+    "schedule": [["h", "b", "s"], ["b", "s", "h"], ["s", "h", "b"]],
+    "clock": "process.hrtime.bigint",
+    "import_and_construction_excluded": true,
+    "successful_common_inputs_only": true,
+    "raw_samples": "printed by run.mts; this file freezes their median/IQR summary"
+  },
+  "results": {
+    "cssEscape": {
+      "operations_per_sample": 28000,
+      "h": {"median_ns_per_parse": 98.80, "iqr_ns_per_parse": 4.27, "checksum": 204000, "ratio_to_fastest": 1.0817},
+      "b": {"median_ns_per_parse": 91.34, "iqr_ns_per_parse": 3.40, "checksum": 204000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 101.82, "iqr_ns_per_parse": 4.48, "checksum": 204000, "ratio_to_fastest": 1.1147}
+    },
+    "cssIdentifier": {
+      "operations_per_sample": 28000,
+      "h": {"median_ns_per_parse": 526.86, "iqr_ns_per_parse": 18.58, "checksum": 356000, "ratio_to_fastest": 2.8063},
+      "b": {"median_ns_per_parse": 187.74, "iqr_ns_per_parse": 8.13, "checksum": 356000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 362.74, "iqr_ns_per_parse": 14.48, "checksum": 356000, "ratio_to_fastest": 1.9321}
+    },
+    "cssString": {
+      "operations_per_sample": 24000,
+      "h": {"median_ns_per_parse": 850.73, "iqr_ns_per_parse": 32.58, "checksum": 352000, "ratio_to_fastest": 4.3920},
+      "b": {"median_ns_per_parse": 193.70, "iqr_ns_per_parse": 8.52, "checksum": 352000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 613.92, "iqr_ns_per_parse": 22.84, "checksum": 352000, "ratio_to_fastest": 3.1694}
+    },
+    "cssTrivia": {
+      "operations_per_sample": 20000,
+      "h": {"median_ns_per_parse": 181.16, "iqr_ns_per_parse": 6.74, "checksum": 284000, "ratio_to_fastest": 1.5285},
+      "b": {"median_ns_per_parse": 118.52, "iqr_ns_per_parse": 3.61, "checksum": 340000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 326.96, "iqr_ns_per_parse": 13.85, "checksum": 284000, "ratio_to_fastest": 2.7587}
+    },
+    "cssPercentage": {
+      "operations_per_sample": 24000,
+      "h": {"median_ns_per_parse": 132.47, "iqr_ns_per_parse": 6.80, "checksum": 1840000, "ratio_to_fastest": 1.0045},
+      "b": {"median_ns_per_parse": 131.88, "iqr_ns_per_parse": 5.68, "checksum": 1840000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 132.17, "iqr_ns_per_parse": 5.17, "checksum": 1840000, "ratio_to_fastest": 1.0022}
+    },
+    "cssDimension": {
+      "operations_per_sample": 32000,
+      "h": {"median_ns_per_parse": 538.17, "iqr_ns_per_parse": 22.99, "checksum": 3336000, "ratio_to_fastest": 1.4700},
+      "b": {"median_ns_per_parse": 366.11, "iqr_ns_per_parse": 14.85, "checksum": 3336000, "ratio_to_fastest": 1.0000},
+      "s": {"median_ns_per_parse": 456.67, "iqr_ns_per_parse": 14.44, "checksum": 3336000, "ratio_to_fastest": 1.2474}
+    }
+  },
+  "credit": "NONE_ALL_CANDIDATES_SEMANTICALLY_INELIGIBLE"
+}

@@ -1,0 +1,442 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-prototype-challenge/v1",
+  "date": "2026-07-22",
+  "review_id": "occurrence-owner-v9-prototype-challenge-a",
+  "review_mode": "INDEPENDENT_HOSTILE_CORRECTNESS_AND_DESIGN_REVIEW",
+  "independence": {
+    "presumption": "SUBJECT_WRONG_UNTIL_REPRODUCED",
+    "peer_reviews_read": false,
+    "implementation_or_parser_files_edited": false,
+    "review_output_is_the_only_file_written": true,
+    "methods": [
+      "exact-byte authentication",
+      "source inspection",
+      "official benign fixture replay",
+      "minimal benign counterexamples",
+      "self-consistent oracle mutation probes",
+      "geometric malformed-input work probe"
+    ]
+  },
+  "authority": {
+    "law": {
+      "path": "docs/tranches/V/apotheosis/pi/ADDENDA-07.md",
+      "bytes": 20954,
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5"
+    },
+    "formation_only": true,
+    "may_generate_denominator_shards": false,
+    "may_promote": false,
+    "parser": false,
+    "production": false
+  },
+  "subject": {
+    "blueprint": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json",
+      "bytes": 11406,
+      "sha256": "fbaaadb4e3de6fc5fcef756e6bd4a1824514faac5360afa2d4c8450caf170bb3"
+    },
+    "fixtures": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+      "bytes": 12452,
+      "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a"
+    },
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 27806,
+      "sha256": "8d31d5189599f03be502aab450b5f17a9615d499c29dabc9a657eda4e69323da"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 14073,
+      "sha256": "19c9dd905990129d48a37eeb7d8667482cf61f8fec9b95e2574ddacdbd659ec2"
+    },
+    "test_driver": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 19213,
+      "sha256": "7378e6514359252e9fcd6ce726f9c76053a1d913b73e7d9e0c8f4430aeaa56ab"
+    },
+    "prototype_evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json",
+      "bytes": 6053,
+      "sha256": "1fcbcfc2c637d2add7dbedf3c6de1e8c7f150f69c8bd804dbaa19a308b845722"
+    },
+    "implementation_receipt": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-implementation-2026-07-22.md",
+      "bytes": 7460,
+      "sha256": "6b1f6739ae11271cb5a5249fd38ce36078b62bccf702f324d86cd46e27b4e9c1"
+    },
+    "resource_sample": {
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-time.txt",
+      "bytes": 777,
+      "sha256": "9eebe53f5e4fd99e0da9ec6cb7b36152d622020824ae9cef0cf0e1c117284cb1"
+    },
+    "source_universe": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/source-universe.json",
+      "bytes": 75132,
+      "sha256": "c1b823396dcc38607d23243f578e58ef08de79136edd52abd1bbdf6a64f606b7",
+      "sources": 168,
+      "source_bytes": 14609103
+    },
+    "inherited_v8_fixture_module": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/fixtures.mjs",
+      "bytes": 22402,
+      "sha256": "3c5926b4911b0826fe86d4252aa93110083c22744bd2ffb4de5b3dd45d3ebc0a"
+    }
+  },
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1"
+  },
+  "verdict": "REJECT",
+  "verdict_scope": "The exact executable RED research prototype is rejected as a correct advancement subject. Its explicit zero-credit and no-production labels remain true; this verdict awards no full-denominator or parser credit.",
+  "official_replay": {
+    "commands": [
+      "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9-blueprint/verify.mjs",
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "/usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs"
+    ],
+    "syntax_exit": 0,
+    "blueprint_verifier": {
+      "exit": 0,
+      "status": "GREEN_BLUEPRINT_INTERNAL_ONLY_ZERO_DENOMINATOR_CREDIT",
+      "cases": 18,
+      "input_bytes": 1121
+    },
+    "test_driver": {
+      "exit": 0,
+      "status": "GREEN_V9_RESEARCH_PROTOTYPE_ZERO_DENOMINATOR_CREDIT",
+      "runs": 3,
+      "each_output_bytes": 4208,
+      "each_output_sha256": "86514d8b2a9a1d5978c102cf8cad77974ff002f45a382f2952e7755cded2e04e",
+      "outputs_byte_identical": true,
+      "v9_cases_reported_green": 18,
+      "v8_cases_reported_green": 29,
+      "mutations_reported_rejected": 15,
+      "deterministic_no_throw_cases": 512
+    },
+    "resource_rerun": {
+      "exit": 0,
+      "elapsed_seconds": 0.10,
+      "maximum_resident_set_size_bytes": 78987264,
+      "classification": "ONE_LOCAL_RERUN_ONLY"
+    },
+    "scope_correction": "The 29 inherited V8 cases execute occurrence-owner-v8/discover.mjs through runCounterfixtures(); they never call the V9 analyzer. Only the 18 V9 cases, totaling 1121 input bytes, directly exercise analyzeSource()."
+  },
+  "criteria": {
+    "total_denominator_fit": {
+      "verdict": "REJECT",
+      "finding": "No pinned source has been analyzed, the 168-source normative operation ledger does not exist, no denominator shards or compatibility join are emitted, and no publication path exists. This is 0/168 full-source coverage, not a total denominator."
+    },
+    "analyzer_correctness_state_and_byte_positions": {
+      "verdict": "REJECT",
+      "finding": "The classifier admits a mid-line fragment as an ATX heading, misses inherited inline-tag ATX headings, accepts an invalid raw-element closer, emits an invalid zero-width href candidate, and advances the ESCAPE state by UTF-16 code units so one astral character is assigned to the wrong state."
+    },
+    "ownership_and_dispositions": {
+      "verdict": "REJECT",
+      "finding": "Heading ownership inherits false and missing headings; operation binding is ordinal or anchor-only rather than pinned occurrence identity; the oracle accepts two ledger rows for one operation interval and accepts fabricated definition scope while stale target ownership remains."
+    },
+    "analyzer_oracle_import_independence": {
+      "verdict": "ACCEPT",
+      "finding": "oracle.mjs imports only node:crypto and does not import analyzer, generator, discovery, or table code."
+    },
+    "analyzer_oracle_semantic_independence": {
+      "verdict": "REJECT",
+      "finding": "The oracle checks output self-consistency, not source semantics. It accepts complete source-candidate omission, a fabricated candidate over ordinary prose, a coordinated false state/disposition, a substituted source URL base with correspondingly changed href, a fabricated scope witness, and a zeroed work counter."
+    },
+    "no_throw_and_deterministic_work_bound": {
+      "verdict": "REJECT",
+      "finding": "The frozen 512-string no-throw sample reproduces, but it is not arbitrary bytes and it omits ordinary valid empty href input whose analysis fails validation. The transition counter measures consumed UTF-16 positions, omits helper comparisons and post-passes, can be changed to zero without oracle rejection, and stays linear while a malformed raw-end family exhibits approximately quadratic elapsed scaling."
+    },
+    "trust_and_resource_evidence": {
+      "verdict": "REJECT",
+      "finding": "Exact local hashes and deterministic fixture output reproduce, but there is no authenticated launcher, transitive dependency/runtime seal, post-import attestation, arbitrary-output regeneration, real staged publisher, real rename/fsync fault injection, arbitrary-byte rail, or full-source RSS/work record. The publication and dependency evidence is a synthetic object accepted by a same-process predicate."
+    },
+    "parsimony": {
+      "verdict": "REJECT",
+      "finding": "The 61092-byte analyzer/oracle/test closure performs repeated source and table scans (including repeated raw-end parseTag scans, per-opening close searches, repeated ancestor searches, and linear candidate deduplication) while still omitting basic Bikeshed headings and semantic oracle checks. The confirmed work and correctness defects defeat the one-stream KISS claim."
+    },
+    "zero_credit_truth": {
+      "verdict": "ACCEPT",
+      "finding": "The evidence and receipt consistently label the subject RED, formation-only, non-parser, non-production, not full-source, without a normative operation ledger, and zero credit. Those negative scope claims are accurate."
+    },
+    "full_credit_eligibility": {
+      "verdict": "REJECT",
+      "finding": "No denominator, semantic, owner, operation, compatibility, conformance, parser, feature, cost-lattice, movement, integration, megatranche, or production credit is earned."
+    },
+    "immediate_168_source_execution": {
+      "verdict": "REJECT",
+      "finding": "Running or publishing the 168-source denominator from this rejected subject is not lawful under the frozen blueprint or ADDENDA-07 sequencing."
+    }
+  },
+  "blockers": [
+    {
+      "id": "A-01-HEADING-BOUNDARY-AND-COVERAGE",
+      "axis": "analyzer correctness and ownership",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:591",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:612",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:507",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:508"
+      ],
+      "counterexamples": [
+        {
+          "source": "<span></span># False {#false}\n",
+          "expected": "No ATX heading: # is byte 13 and the preceding byte is >, not a line boundary.",
+          "observed": "heading-0 and ledger operation FALSE-HEADING are emitted at [13,30); verifyAnalysis accepts them."
+        },
+        {
+          "source": "## <span data-note=\"> remains quoted\">Quoted</span> heading {#quoted-atx}\n<div algorithm>Run.</div>\n",
+          "expected": "The inherited authenticated V8 fixture classifies one BIKESHED_ATX heading titled Quoted heading with anchor quoted-atx.",
+          "observed": "The V9 analyzer emits zero headings because TAG ranges split the physical line."
+        },
+        {
+          "source": "Security Considerations {#security}\n===================================\n",
+          "expected": "A Bikeshed Setext heading form must be represented or explicitly reviewed before full-source ownership.",
+          "observed": "The V9 analyzer has no Setext recognition and emits zero headings."
+        }
+      ],
+      "impact": "Heading and operation owners are false, missing, or unpinned even before full-source execution."
+    },
+    {
+      "id": "A-02-RAW-END-TOKENIZATION",
+      "axis": "state machine and dispositions",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:128",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:141",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:237",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:248"
+      ],
+      "counterexample": {
+        "source": "<script>[=opaque=]</script!>[=leaked=]",
+        "expected": "</script!> is not an appropriate script end tag; following bytes remain RAW_SCRIPT through EOF and both shorthand intervals are reviewed-excluded.",
+        "observed": "parseTag accepts </script!> as name script; [=leaked=] becomes VISIBLE_TEXT/INCLUDED, and verifyAnalysis accepts the result."
+      },
+      "impact": "Opaque-state boundaries and reference dispositions are not trustworthy."
+    },
+    {
+      "id": "A-03-EMPTY-HREF-AND-ASTRAL-ESCAPE",
+      "axis": "candidate validity and UTF-8 state coordinates",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:42",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:62",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:318",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:325",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:503",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:109"
+      ],
+      "counterexamples": [
+        {
+          "source": "<a href=\"\">empty</a>",
+          "expected": "A valid empty href is either represented by a contract-valid empty-value disposition or omitted by an explicit empty-value rule; analysis validation must not fail.",
+          "observed": "The analyzer emits a candidate at [9,9); verifyAnalysis rejects CANDIDATE_INTERVAL."
+        },
+        {
+          "source": "\\😀[=x=]",
+          "expected": "The ESCAPE transition consumes the next Unicode scalar consistently with the exercised \\x behavior, ending after UTF-8 byte 5.",
+          "observed": "ESCAPE is only [0,1) with raw \\, while the four-byte emoji is assigned to VISIBLE_TEXT. The classifier advanced into a surrogate pair in UTF-16 coordinates."
+        }
+      ],
+      "impact": "Ordinary valid markup cannot always satisfy the analyzer's own oracle, and state boundaries are not genuinely driven by the declared UTF-8 cursor."
+    },
+    {
+      "id": "A-04-ORACLE-SELF-CONSISTENCY-NOT-SEMANTICS",
+      "axis": "true analyzer-oracle independence",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:67",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:141",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:183",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:307",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:104",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:133"
+      ],
+      "accepted_mutations": [
+        {
+          "source": "[=real=]",
+          "mutation": "Remove all candidates, dispositions, and stable_ids.",
+          "observed": "verifyAnalysis returns GREEN."
+        },
+        {
+          "source": "ordinary text",
+          "mutation": "Add an INCLUDED definition candidate over bytes [0,8), add its disposition and stable id.",
+          "observed": "verifyAnalysis returns GREEN although ordinary is not a [=...=] interval."
+        },
+        {
+          "source": "[=x=]",
+          "mutation": "Change the only range and candidate state to FENCED_BLOCK and disposition to REVIEWED_EXCLUDED.",
+          "observed": "verifyAnalysis returns GREEN."
+        },
+        {
+          "source": "<a href=\"../x\">x</a>",
+          "mutation": "Change result.source.source_url to https://example.invalid/other/base and recompute resolved_url from that substituted base.",
+          "observed": "verifyAnalysis returns GREEN because no independently pinned source URL is supplied to the oracle."
+        }
+      ],
+      "test_harness_gap": "Fixture checks require expected included raws with >= counts, never reject extra included raws, and classify excluded raws by containing state rather than exact candidate/disposition identity.",
+      "impact": "The mutation docket proves only selected internal inconsistencies; common-mode omissions, fabrications, and coordinated misclassifications remain green."
+    },
+    {
+      "id": "A-05-OWNER-AND-OPERATION-BIJECTION",
+      "axis": "ownership and normative operation identity",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:614",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:660",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:662",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:715",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:195",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:274"
+      ],
+      "accepted_mutations": [
+        {
+          "source": "<div dfn-for=\"right\"><dfn>term</dfn></div> [=right/term=]",
+          "mutation": "Change carrier.scope to wrong and replace scope_attribute with a self-consistent fabricated object whose tag_id is fabricated; leave the right/term reference targeted to carrier-0.",
+          "observed": "verifyAnalysis returns GREEN with scope wrong while right/term still targets carrier-0."
+        },
+        {
+          "source": "# X {#x}\n",
+          "ledger": [
+            "OP-A heading_anchor x",
+            "OP-B heading_anchor x"
+          ],
+          "observed": "Two operation rows with two IDs and one exact source interval are emitted and verifyAnalysis returns GREEN."
+        }
+      ],
+      "design_defect": "Explicit algorithms bind by sequence only and heading-ledger rows bind by first matching anchor; neither path authenticates source_id plus source-byte anchor/reviewed locator as required by the blueprint ledger contract.",
+      "impact": "Occurrence-to-ledger bijection and definition ownership can be false while the oracle is green."
+    },
+    {
+      "id": "A-06-WORK-COUNTER-DOES-NOT-BOUND-WORK",
+      "axis": "no-throw and deterministic work",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:128",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:156",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:237",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:249",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:291",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:295",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:338",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:351"
+      ],
+      "counterexamples": [
+        {
+          "source": "nonempty",
+          "mutation": "Set transition_count to 0.",
+          "observed": "verifyAnalysis returns GREEN; the named work_counter_suppression mutation in test.mjs instead raises the counter above the limit and does not test suppression."
+        },
+        {
+          "family": "<script> followed by N repetitions of </script with an unterminated quote",
+          "measurements": [
+            {
+              "n": 500,
+              "bytes": 5008,
+              "reported_transitions": 5008,
+              "median_ms_five_samples": 2.471
+            },
+            {
+              "n": 1000,
+              "bytes": 10008,
+              "reported_transitions": 10008,
+              "median_ms_five_samples": 8.523
+            },
+            {
+              "n": 2000,
+              "bytes": 20008,
+              "reported_transitions": 20008,
+              "median_ms_five_samples": 28.668
+            },
+            {
+              "n": 4000,
+              "bytes": 40008,
+              "reported_transitions": 40008,
+              "median_ms_five_samples": 128.151
+            }
+          ],
+          "observed": "Reported transitions double, while median elapsed time grows about 3.4x, 3.4x, and 4.5x on doubling because findRawEnd invokes parseTag from each false raw-end candidate and each parse scans the remaining suffix."
+        }
+      ],
+      "impact": "The 8*N+64 field is not a deterministic bound on analyzer work and the oracle cannot attest it."
+    },
+    {
+      "id": "A-07-STABLE-ID-TRUNCATION-SILENCE",
+      "axis": "stable identities",
+      "status": "CONFIRMED_BY_SOURCE",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:438",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:449"
+      ],
+      "finding": "candidateId truncates SHA-256 to 24 hexadecimal characters and add() silently returns when that truncated ID already exists. This is precisely truncation silence rather than collision rejection.",
+      "impact": "The blueprint relation stable_ids_are_collision_checked_without_truncation_silence is not implemented."
+    },
+    {
+      "id": "A-08-EVIDENCE-AND-PUBLICATION-SCOPE",
+      "axis": "total denominator, trust, resources, and sequencing",
+      "status": "CONFIRMED",
+      "source_locations": [
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:447",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:493",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:498",
+        "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:516"
+      ],
+      "finding": "The evidence envelope is an in-memory synthetic transcript, the inherited V8 module exercises V8 code, one local time sample is not a source-corpus resource rail, no complete normative operation ledger exists, no launcher authenticates a transitive closure, and no publisher or real fault injector exists.",
+      "impact": "The prototype cannot lawfully generate shards, claim resource closure, or start a publishable 168-source run."
+    }
+  ],
+  "reproduction": {
+    "module_imports": [
+      "import { analyzeSource } from './docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs'",
+      "import { verifyAnalysis } from './docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs'"
+    ],
+    "counterexample_recipe": "Run Node with --input-type=module from the repository root, call analyzeSource(source,{sourceUrl,operationLedger}), apply each explicitly described mutation where present, and call verifyAnalysis(source,result,{operationLedger}). The observed ACCEPTED/REJECTED codes in this review were obtained exactly that way.",
+    "work_probe_recipe": "For N in [500,1000,2000,4000], form source = '<script>' + '</script \\\"'.repeat(N); warm once; time five analyzeSource calls with process.hrtime.bigint(); report the median and result.transition_count.",
+    "hash_commands": [
+      "shasum -a 256 docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json",
+      "wc -c docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json"
+    ]
+  },
+  "credit_truth": {
+    "classification": "ZERO_CREDIT_TRUE_FULL_CREDIT_FALSE",
+    "claims_full_source_denominator": false,
+    "claims_normative_operation_ledger": false,
+    "claims_parser": false,
+    "claims_production": false,
+    "credits_awarded": {
+      "denominator": 0,
+      "semantic": 0,
+      "owner": 0,
+      "operation": 0,
+      "compatibility": 0,
+      "conformance": 0,
+      "parser": 0,
+      "feature": 0,
+      "cost_lattice": 0,
+      "movement": 0,
+      "integration": 0,
+      "megatranche": 0,
+      "production": 0
+    },
+    "full_credit_earned": false,
+    "reason": "Honest RED and zero-credit labels do not cure confirmed analyzer, oracle, owner, and work-proof defects."
+  },
+  "next_step": {
+    "immediate_168_source_run_lawful": false,
+    "disposition": "BLOCKED_PENDING_NEW_EXACT_SUBJECT",
+    "required_sequence": [
+      "Repair the confirmed state, heading, href, UTF-8 escape, ownership, stable-ID, and actual-work defects without editing parser or production files.",
+      "Replace self-consistency-only oracle checks with source-semantic checks that reject omissions, fabrications, coordinated state/disposition errors, source-base substitution, fabricated ownership, duplicate occurrence binding, and counter suppression.",
+      "Route the inherited heading/reference fixtures through the V9 analyzer or freeze equivalent V9 expectations; require exact included and excluded occurrence sets, not lower bounds.",
+      "Re-freeze analyzer, oracle, test, fixtures if changed, evidence, and receipt as one new exact subject and rerun both independent challenges.",
+      "Materialize and independently review the complete source-anchored normative operation ledger before any 168-source operation claim.",
+      "Freeze launcher, transitive module/schema/runtime identities, arbitrary-output equality, real resource/work rails, and real publication fault injection before attempting a publishable 168-source result."
+    ]
+  }
+}

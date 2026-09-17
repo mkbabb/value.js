@@ -1,0 +1,53 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v4",
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_CHALLENGES_AND_ROOT_GESTALT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v4.json",
+    "bytes": 16484,
+    "sha256": "75d251f549a958d811cf6b445ddd364b99d6c98b188bf958d01d0a2a0b37acef"
+  },
+  "schemas": [
+    { "path": "occurrence-owner-formation-v4.schema.json", "bytes": 10509, "sha256": "a91edf2b2deff5412cfd2937b55118bb6685207c27a0ba4838423982ce6727d6" },
+    { "path": "occurrence-owner-formation-v4-shard.schema.json", "bytes": 13589, "sha256": "386213aaee2086a74246a4307b65f7898c0ee77e080f5d78ecff8a293f4a9998" }
+  ],
+  "formation_receipt": {
+    "path": "../formation/occurrence-owner-v4-formation-2026-07-22.md",
+    "bytes": 5926,
+    "sha256": "0b0bb1a13124f72cf81a88426c4d6c7c2b7c723a4a9bea6725c0f37da1fe1223"
+  },
+  "challenges": [
+    { "path": "../formation/occurrence-owner-v4-challenge-a.md", "bytes": 16664, "sha256": "b23b7301c391ee7f521d8a1ebe66b88daf3989d0585f3c10925efbf7bdd750d8", "verdict": "REJECT" },
+    { "path": "../formation/occurrence-owner-v4-challenge-b.md", "bytes": 9961, "sha256": "bfb71c8496a025c67880a6c9521d41127facf7a1b622297587e500861299640a", "verdict": "ACCEPT_RED_ONLY_REPRODUCIBILITY" }
+  ],
+  "root_reproduction": {
+    "discovery_counterexamples_reproduced": 5,
+    "semantic_provenance_mutations_accepted_by_rejected_verifier": 3
+  },
+  "confirmed_blockers": [
+    "algorithm discovery omits non-div and non-ol algorithm-bearing Bikeshed elements",
+    "reference discovery omits markup and compound shorthand families and mishandles display text",
+    "global reference regexes emit HTML attribute values as CSS references",
+    "owner-scope provenance is copied from rejected V1 associations",
+    "verifier does not reparse algorithm-opening tuples",
+    "verifier does not reparse reference semantic fields and targets",
+    "verifier does not authenticate owner-scope line and hash provenance"
+  ],
+  "accepted_narrow_facts": [
+    "168-source byte closure and compact sharding replay exactly",
+    "literal-div algorithm census is exact for that narrow form",
+    "52-export and 37-consumer inputs remain RED and unjoined",
+    "all semantic owner operation and compatibility credits remain zero"
+  ],
+  "credit": {
+    "denominator": 0,
+    "parser": 0,
+    "owner_graph": 0,
+    "cost_lattice": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "audit": 0,
+    "production": 0
+  },
+  "next": "Cut a fresh RED-only V5 subject repairing discovery and semantic/provenance replay, then obtain two fresh challenges and root gestalt."
+}

@@ -1,0 +1,74 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "status": "SEALED_PRE_AUTHOR_CIPHERTEXT_ONLY_ZERO_FEATURE_CREDIT",
+  "corpus_id": "130eb8d1-29e9-4132-ad7b-4bf37101dbe5",
+  "precursor": {
+    "formation": {
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "rows": 34,
+    "closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73"
+  },
+  "plaintext_commitment": {
+    "sha256": "30f6d0e59df7fd2ab6978afc6ad1606267fa932be6fb8b6945c61b0801e047dd",
+    "bytes": 96881
+  },
+  "ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+    "bytes": 129225,
+    "encoding": "base64-with-final-lf",
+    "decoded_envelope_bytes": 96917
+  },
+  "envelope": {
+    "algorithm": "AES-256-GCM",
+    "magic_ascii_nul": "VPI7CN1\u0000",
+    "magic_bytes": 8,
+    "nonce_bytes": 12,
+    "tag_bytes": 16,
+    "aad": {
+      "feature_id": "SYNTAX-CONSUME-NUMBER",
+      "generation": 7,
+      "corpus_id": "130eb8d1-29e9-4132-ad7b-4bf37101dbe5",
+      "formation_sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+      "plaintext_sha256": "30f6d0e59df7fd2ab6978afc6ad1606267fa932be6fb8b6945c61b0801e047dd",
+      "plaintext_bytes": 96881
+    }
+  },
+  "coverage": {
+    "case_count": 184,
+    "unique_case_ids": 184,
+    "categories": [
+      "positive",
+      "negative",
+      "boundary",
+      "offset",
+      "diagnostics",
+      "hostile",
+      "binary64",
+      "composition"
+    ],
+    "public_case_ids_sha256": "f63f9d26b7aa44c13d5d4287e692c7e6dbc9949cb70fbd658d107ee9f152ef72",
+    "generator_sha256": "f2f2a24868e9ac21623cdd703c70f4f9564a67a4be52a6a35f8e7392ac8b0a3f"
+  },
+  "anti_duplication": {
+    "duplicate_ids": 0,
+    "duplicate_cases": 0,
+    "public_exact_duplicates": 0,
+    "cross_generation_exact_duplicates": 0
+  },
+  "absence_freshness": {
+    "candidate_sources_existed": false,
+    "candidate_sources_accessed": false,
+    "plaintext_workspace_files": 0,
+    "key_workspace_files": 0,
+    "prior_secret_material_reused": false,
+    "fresh_key": true,
+    "fresh_nonce": true,
+    "fresh_corpus_id": true
+  },
+  "credit": "ZERO_SEALING_ONLY"
+}

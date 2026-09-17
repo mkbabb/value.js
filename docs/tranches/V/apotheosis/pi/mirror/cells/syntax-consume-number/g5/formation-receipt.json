@@ -1,0 +1,56 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G5-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "cell": "cells/syntax-consume-number/g5",
+  "retained": "G4 §4.3.13 semantics, exact ordinary semantic leaf, proof/compiler closure, H/B/S/D seats, five named skeptics, three named unanimous synthesis adjudicators, and executable benchmark.",
+  "g4_rejection": {
+    "path": "../g4/rejection.json",
+    "sha256": "fb9f537f283f89587b8b6f45d28f5a9f56a22d1e5a0f80a37e6006af42c3f217",
+    "bytes": 1235,
+    "reason": "stale G2 rejection identity and no executable authority authentication"
+  },
+  "authority_repair": {
+    "corrected_g2_rejection": "00fbcdb9e543a0df3f140580313150e718c953b111fbfdfb3f4e0b3942163e89/2369",
+    "path_law": "Every relative or absolute file authority is captured, SHA-256 checked, declared byte length checked when present, and reclosed.",
+    "bbnf": "The absolute value-unit.bbnf authority omits bytes by declaration but is captured and hash-checked as cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b.",
+    "pinned_sources": [
+      "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390/144427 authorities/css-syntax-3.Overview.bs",
+      "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc/230907 authorities/css-values-4.Overview.bs"
+    ],
+    "mutation_control": "Self-check clones the authority registry in memory, replaces one local authority SHA-256 with zeros, and requires rejection."
+  },
+  "precursor_byte_closure": [
+    { "path": "author-admission-protocol.json", "sha256": "346541456cac4c2fd8c60e91d1e8e623043a4aec45d7a82c84381e19a0c812f8", "bytes": 6528 },
+    { "path": "author-admission-validator.mjs", "sha256": "83473bf5bfa7e98ff38ba779f6faa710ef21e1de3eddfa726aa6c3e3895c8b7b", "bytes": 39605 },
+    { "path": "authorities/css-syntax-3.Overview.bs", "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390", "bytes": 144427 },
+    { "path": "authorities/css-values-4.Overview.bs", "sha256": "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc", "bytes": 230907 },
+    { "path": "benchmark-receipt.schema.json", "sha256": "821be7a472a626d6be6d76f812a0e0890df848c9efaac0a05a002e19e63fb91d", "bytes": 8207 },
+    { "path": "benchmark-runner.mjs", "sha256": "a339be4caa600de623c078811fc305d422a3a3e5e3bc3c8202143b1445001ab3", "bytes": 18274 },
+    { "path": "contract.ts", "sha256": "2ad6a53493e4fda84409aed74845102fed178d73daa6150ad574fb7ec35a7966", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "7404bd80e67e30ac7f1e6a952c60ffcf2bc6147e4fa3ebb58d1b8cfe8221c58c", "bytes": 11210 },
+    { "path": "fixtures/public-cases.json", "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3", "bytes": 5213 },
+    { "path": "harness.ts", "sha256": "9e20d1f8519767fb619163e29583f3eb7c5bb6d56e240fce1d2fec1cf10eccc3", "bytes": 12797 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "proof-inputs.ledger", "sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1", "bytes": 539 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "owner_law": {
+    "skeptics": ["specification", "parse-that", "hostility", "performance", "gestalt"],
+    "adjudicators": ["semantic", "parser-architecture", "performance-gestalt"],
+    "law": "All eight identities are pairwise distinct and distinct from authors; every receipt binds the identical ordered candidate-set hashes and reviewed candidate hash; all three adjudicators unanimously nominate it."
+  },
+  "formation_assays": [
+    { "name": "package-default-check", "result": "PASS_EXIT_0" },
+    { "name": "package-default-test", "result": "PASS_EXIT_0_NO_TEST_FILES_NO_CREDIT" },
+    { "name": "direct-strict-contract-harness", "result": "PASS" },
+    { "name": "captured-buffer-positive-H-source-assay", "result": "PASS_WITH_AUTHORITY_CLOSURE" },
+    { "name": "benchmark-runner-self-check", "result": "PASS" },
+    { "name": "author-admission-validator-self-check", "result": "PASS_INCLUDING_MUTATED_LOCAL_AUTHORITY_REJECTION" }
+  ],
+  "formation_state": { "candidate_files": 0, "holdout_files": 0, "ciphertext_files": 0, "manifest_files": 0, "challenge_files": 0, "root_gestalt_files": 0, "active_grammar_mutations": 0 },
+  "next": "Freeze G5, then form a wholly fresh holdout/ciphertext and obtain two fresh ACCEPT boundary verdicts plus ACCEPT root gestalt before authors.",
+  "receipt_self_identity": "The future manifest binds this receipt's externally reported exact SHA-256 and byte length.",
+  "credit": "ZERO."
+}

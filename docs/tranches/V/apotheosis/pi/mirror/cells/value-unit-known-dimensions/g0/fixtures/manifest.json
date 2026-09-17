@@ -1,0 +1,29 @@
+{
+  "schema": "value.pi.value-unit-known-dimensions.fixtures/v1",
+  "families": {
+    "length": [
+      "px", "cm", "mm", "q", "in", "pc", "pt",
+      "em", "rem", "ex", "rex", "cap", "rcap", "ch", "rch", "ic", "ric", "lh", "rlh",
+      "vw", "vh", "vi", "vb", "vmin", "vmax",
+      "svw", "svh", "svi", "svb", "svmin", "svmax",
+      "lvw", "lvh", "lvi", "lvb", "lvmin", "lvmax",
+      "dvw", "dvh", "dvi", "dvb", "dvmin", "dvmax",
+      "cqw", "cqh", "cqi", "cqb", "cqmin", "cqmax"
+    ],
+    "angle": ["deg", "grad", "rad", "turn"],
+    "time": ["s", "ms"],
+    "frequency": ["hz", "khz"],
+    "resolution": ["dpi", "dpcm", "dppx", "x"],
+    "flex": ["fr"]
+  },
+  "numbers": ["0", "-0", "+12.5", ".5", "1e2", "-4E-2"],
+  "boundarySuccess": ["1px,", "1REM)", "1kHz/", "1dppx ", "1turn;"],
+  "boundaryFailure": [
+    "1pxrest", "1px-rest", "1px_", "1px\\78", "1pxé", "1dppx2",
+    "1sv", "1cq", "1k", "1", "px", "1%"
+  ],
+  "hostile": [
+    "", "+", "-", ".", "1e+px", "1e-px", "1..2px", "--1px",
+    "1\\70x", "1ｐｘ", "NaNpx", "Infinitypx"
+  ]
+}

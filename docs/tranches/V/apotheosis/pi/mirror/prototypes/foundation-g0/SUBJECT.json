@@ -1,0 +1,33 @@
+{
+  "schema": "value.pi.foundation-vertical.subject/v1",
+  "status": "SEALED_FOR_FIVE_SKEPTICS",
+  "brief": "c4b2a4996df7a5dd3df294422917c1bfed5004f2a0bcd5f05dc5ff4af8d93806",
+  "fixtures": "6d76da0bedae64c38e57762683fe5df995a896958722705d45e8bd6c52eab204",
+  "evaluator": "b0f11f84b6ab1c8b8ed257e41d94910e920f315678c63439399b977acdab33d6",
+  "browser_witness": "6f2da23f51499ae9d6229a9843a476eaa97a960b713c220848569b8a05205026",
+  "accepted_numeric": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+  "candidates": {
+    "h": {
+      "ledger": "evidence/h-ledger.sha256",
+      "ledger_sha256": "3fdc829978e07e182b4b27772dc4a3d3661d84377494a949f5c753fc5bb63e20"
+    },
+    "b": {
+      "ledger": "evidence/b-ledger.sha256",
+      "ledger_sha256": "98cb225e5f12da35cde816ca0a919bd42f4dc2fb5adbf1db9119fd3d9f7304f8"
+    },
+    "s": {
+      "ledger": "evidence/s-ledger.sha256",
+      "ledger_sha256": "8642ca648aaf5c1efb1d75f7596a5651deb19953feb5dfac7431ac10e741ed58"
+    }
+  },
+  "public_replay": {
+    "each_candidate": {
+      "success_transactions": 128,
+      "failure_transactions": 56,
+      "recognized_units": 62,
+      "chromium_unit_witnesses": 62,
+      "escaped_unit": "1px",
+      "unknown_typed_unit": null
+    }
+  }
+}

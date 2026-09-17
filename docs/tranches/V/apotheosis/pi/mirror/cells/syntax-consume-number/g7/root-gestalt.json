@@ -1,0 +1,111 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "identity": {
+    "root_id": "vpi-root",
+    "reviewer_id": "root-g7-gestalt-20260722",
+    "served_model": "gpt-5.6-sol",
+    "reasoning_effort": "inherited-not-exposed",
+    "independent": true,
+    "candidate_author": false,
+    "challenge_reviewer": false,
+    "hidden_plaintext_or_key_access": false
+  },
+  "model_receipt": {
+    "served_model": "gpt-5.6-sol",
+    "input_manifest_sha256": "4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422",
+    "root_input_sha256": "1518621bbc196aec427581b068b4a4d2019d2bb40147df823be456ddb494fbaa",
+    "commands": [
+      "npm run check",
+      "npm test -- --run",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --self-check",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --negative-controls",
+      "node cells/syntax-consume-number/g7/benchmark-validator.mjs --self-check",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --pre-author cells/syntax-consume-number/g7/manifest.json",
+      "shasum -a 256 cells/syntax-consume-number/g7/reviews/challenge-a.json cells/syntax-consume-number/g7/reviews/challenge-b.json"
+    ],
+    "closed_at": "2026-07-22T12:40:08.000Z"
+  },
+  "subject": {
+    "formation": {
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+    "holdout_receipt": {
+      "sha256": "6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2",
+      "bytes": 2363
+    },
+    "holdout_ciphertext": {
+      "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+      "bytes": 129225
+    }
+  },
+  "challenges": [
+    {
+      "id": "A",
+      "reviewer_id": "g7-boundary-spec-a",
+      "path": "reviews/challenge-a.json",
+      "sha256": "5f1dcc96532b882fff0bcb40fd7af17cc694ada778b09a052cc6f6293420d6c8",
+      "bytes": 24077,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "B",
+      "reviewer_id": "g7-quality-b",
+      "path": "reviews/challenge-b.json",
+      "sha256": "b7fe735c15b4cea1e81ef80d5ea07900d12f1b36af016002eb90bf0aad0501d8",
+      "bytes": 13444,
+      "verdict": "REJECT"
+    }
+  ],
+  "three_altitude_findings": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "findings": [
+        "G7 does not execute the owner-ordered pre-author gate and therefore cannot open H/B/S/D seats.",
+        "The frozen candidate families are quota-shaped rather than affirmatively proven idiomatic and orthogonal, conflicting with the tranche reset's KISS requirement."
+      ]
+    },
+    "feature_cell": {
+      "verdict": "REJECT",
+      "findings": [
+        "The semantic boundary itself is narrow and plausible, but public diagnostics, composition, hostile-size, timing, and scaling coverage are materially weaker than the frozen claims."
+      ]
+    },
+    "author_admission_and_tooling": {
+      "verdict": "REJECT",
+      "findings": [
+        "The manifest row shape is impossible, candidate-root hashing is self-referential, topology restrictions admit reachable indirection, author isolation exposes peer lineages, benchmark evidence hashes are nominal, and no executable five-plus-three terminal gate exists."
+      ]
+    }
+  },
+  "evidence": [
+    "Challenge A is REJECT at SHA-256 5f1dcc96532b882fff0bcb40fd7af17cc694ada778b09a052cc6f6293420d6c8 with eight blockers and zero credit.",
+    "Challenge B is REJECT at SHA-256 b7fe735c15b4cea1e81ef80d5ea07900d12f1b36af016002eb90bf0aad0501d8 with five blockers and zero credit.",
+    "The exact pre-author invocation exits 1 with: manifest holdout receipt keys mismatch: bytes,path,sha256.",
+    "No candidates directory or candidate source existed at root adjudication; the holdout remained unrevealed."
+  ],
+  "union_blockers": [
+    "Repair the path-bearing manifest row versus two-field identity comparison and prove the real pre-author path reaches the review stage.",
+    "Replace self-referential seat-root hashing with a detached, exact candidate-payload closure.",
+    "Exercise every public failure across every predecessor and diagnostic profile; observe semantic and transactional composition results.",
+    "Make hostile cases exact declared UTF-16 sizes and enforce semantics, every-invocation time, and the stated scaling law.",
+    "Make holdout coverage, custody, generator, freshness, and post-author reveal verification explicit and durable.",
+    "Provide authors only common law plus their own lineage; do not expose peer lineage inputs or construction notes.",
+    "Stop using raw combinator-call quotas as idiom proof; validate reachable direct constructions and adjudicate orthogonality substantively.",
+    "Authenticate every benchmark source, build, correctness, corpus, comparator, runner, schedule, attempt, and raw-result identity.",
+    "Provide an executable five-skeptic plus three-adjudicator schema and validator over exact candidate hashes.",
+    "After changing the frozen precursor, form a fresh generation and a fresh secret holdout; do not reuse G7 secret material."
+  ],
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 7,
+  "status": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "manifest.json",
+    "bytes": 6668,
+    "sha256": "0927a5e276f3d3902b6b9a0d5b353d06ffc6131d51a2f5370be03fa9da64b37c"
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a-specification.md",
+      "verdict": "ACCEPT",
+      "bytes": 19381,
+      "sha256": "73eaab221d69b335a7a2021298d408752915be3321180182c07c68728af942da"
+    },
+    {
+      "path": "reviews/challenge-b-architecture.md",
+      "verdict": "REJECT",
+      "bytes": 19401,
+      "sha256": "f5fc571456cc722bad83b3d0049103b1492cc2e54a219e521dbb7b7e3ff0d9d1"
+    }
+  ],
+  "root_gestalt": {
+    "path": "root-gestalt.md",
+    "verdict": "REJECT",
+    "bytes": 5935,
+    "sha256": "cb56fdcb6aeb56dc6ea7c10e040cc840df608cba426dbdb2f133ab46536a0b96"
+  },
+  "confirmed_blockers": [
+    "An always-successful zero-width Parser<boolean> is a tokenizer/source-position classifier seam, not an independently useful direct grammar production.",
+    "The declared 22-row closure does not reproduce the transitive live G5/G4 contract and harness leaves used during semantic and holdout execution.",
+    "The isolated TypeScript program loads the candidate root from disk after capturing and hashing bytes, so typechecked bytes can diverge from receipted bytes."
+  ],
+  "retained_public_evidence": [
+    "Pinned CSS Syntax §4.3.10 and §3.3 truth/domain vectors may be used inside a consuming numeric grammar formation.",
+    "G7's externally sealed manifest, self-bound verifier row, closed TypeScript input allowlist, and exact generic-type proof are repairable verifier design evidence.",
+    "No G7 hidden byte, case, result, key, or ciphertext is reusable."
+  ],
+  "candidate_sources_written": 0,
+  "candidate_executions": 0,
+  "active_grammar_typescript_sources": 0,
+  "holdout": {
+    "receipt_sha256": "fc5fda34c0912fcbf7b1cd45797871b3734fbed6cfad5a4732adee854354682f",
+    "plaintext_sha256": "c4b818a063dbc163a693cd7abebeb2d62850b331d419d15f80c92c6a7e2aa449",
+    "ciphertext_sha256": "9c5b1b2af3b95ea9eaaf27fd7bbf3efb0ed98e8f82b6a1cbdfa3abf9a3102614",
+    "revealed": false,
+    "executed": false,
+    "reused": false,
+    "disposition": "PERMANENTLY_DESTROYED_AFTER_PRE_CANDIDATE_ARCHITECTURE_REJECTION",
+    "plaintext_copies_remaining": 0,
+    "ciphertext_copies_remaining": 0,
+    "key_copies_remaining": 0,
+    "same_byte_copies_remaining": 0
+  },
+  "next": "Re-form around the smallest consuming numeric grammar seam. Preserve the public number-start truth vectors as subordinate evidence; close transitive executable leaves and in-memory candidate typechecking; obtain a fresh holdout and two fresh challenges before five-author candidate work."
+}

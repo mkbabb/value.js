@@ -1,0 +1,94 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G6-PRE-HOLDOUT-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 6,
+  "date": "2026-07-22",
+  "status": "REJECTED_BEFORE_HOLDOUT_UNTRUTHFUL_H_GENEALOGY",
+  "verdict": "REJECT",
+  "scope": "ROOT_INDEPENDENT_LINEAGE_AUDIT",
+  "frozen_subject": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "41601fe8a14eaab1dd550148f269f114ca7ddbf1978f3644365e90f913d6d0be",
+      "bytes": 5680,
+      "precursor_rows": 33,
+      "precursor_closure_sha256": "21b2d1fbbe4944708ca7b68b3ed7b3ff270ca56c1c7aead15f341de34e31971f"
+    },
+    "lineage": {
+      "path": "lineage.json",
+      "sha256": "303768d9829b47ec0c32c14516eaa264cc6fecfd204c75f9a353759c2d121d68",
+      "bytes": 3724
+    }
+  },
+  "confirmed_defect": {
+    "id": "G6-ROOT-LINEAGE-01-FALSE-HISTORICAL-AUTHORITY",
+    "severity": "BLOCKER",
+    "declared_lineage": "historical direct-combinator regex transpose",
+    "declared_required_input": "the owner-required older value.js/keyframes.js implementation",
+    "actual_bound_input": {
+      "path": "../../../grammar/css-token.ts",
+      "sha256": "c258e98e22bd979d44c2dca1734b776db811f736c20a55378badf194660bc2a4",
+      "bytes": 2599,
+      "classification": "rejected pre-reset mirror token/lexeme module"
+    },
+    "actual_source_facts": {
+      "abstractions": [
+        "identToken",
+        "numberLexeme",
+        "unitLexeme",
+        "numberUnitToken",
+        "numberToken"
+      ],
+      "number_pattern": "[+-]?(?:\\d+\\.?(?:\\d*)?|\\.\\d+)(?:[eE][+-]?\\d+)?",
+      "semantic_conflict": "The optional dot followed by optional digits admits a trailing dot into numberLexeme, while the G6 boundary consumes a dot only when a following ASCII digit exists."
+    },
+    "secondary_bound_input": {
+      "path": "../g5/feature-public.json",
+      "sha256": "7404bd80e67e30ac7f1e6a952c60ffcf2bc6147e4fa3ebb58d1b8cfe8221c58c",
+      "bytes": 11210,
+      "classification": "rejected formation/design authority, not historical implementation source"
+    },
+    "finding": "The H seat is neither truthfully genealogized nor grounded in the owner-required historical implementation. Its bound source embodies the rejected token/lexeme architecture and disagrees with the frozen maximal-prefix semantics.",
+    "consequence": "The pre-author provenance graph, pairwise genealogy finding, H topology label, and author-admission inputs are invalid. G6 cannot form a holdout, admit authors, or receive any credit."
+  },
+  "generation_state": {
+    "holdout_files": 0,
+    "ciphertext_files": 0,
+    "manifest_files": 0,
+    "review_files": 0,
+    "root_gestalt_files": 0,
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "candidate_executions": 0,
+    "benchmark_attempts": 0,
+    "production_mutations": 0
+  },
+  "required_recut": [
+    "Locate and bind the real older value.js/keyframes.js historical implementation with exact path, repository revision when applicable, SHA-256, and byte length.",
+    "Reperform the H extraction and every pairwise genealogy finding from that exact source; do not substitute a rejected token/lexeme module or a formation description for historical implementation bytes.",
+    "If the owner-required historical bytes cannot be recovered, retire or truthfully reclassify H and recut the four-seat orthogonality law rather than inventing provenance.",
+    "Freeze a wholly fresh precursor and obtain a fresh independent lineage audit before any holdout or author admission."
+  ],
+  "disposition": {
+    "g6_closed": true,
+    "holdout_may_be_formed": false,
+    "authors_may_be_invited": false,
+    "g7_created_by_this_receipt": false,
+    "precursor_changed_by_this_receipt": false,
+    "ledger_changed_by_this_receipt": false,
+    "production_changed_by_this_receipt": false
+  },
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "prototype": 0,
+    "candidate": 0,
+    "holdout": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "conformance": 0,
+    "movement": 0,
+    "production": 0
+  }
+}

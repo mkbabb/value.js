@@ -1,0 +1,29 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 4,
+  "endpoint_cases": [
+    { "id": "EOF-T-DIGIT-0", "source": "0", "offset": 0, "starts": true, "continuation": "0", "positionKind": "retained" },
+    { "id": "EOF-T-DIGIT-9", "source": "9", "offset": 0, "starts": true, "continuation": "9", "positionKind": "retained" },
+    { "id": "EOF-T-PLUS-DIGIT-0", "source": "+0", "offset": 0, "starts": true, "continuation": "+0", "positionKind": "retained" },
+    { "id": "EOF-T-PLUS-DIGIT-9", "source": "+9", "offset": 0, "starts": true, "continuation": "+9", "positionKind": "retained" },
+    { "id": "EOF-T-MINUS-DIGIT-0", "source": "-0", "offset": 0, "starts": true, "continuation": "-0", "positionKind": "retained" },
+    { "id": "EOF-T-MINUS-DIGIT-9", "source": "-9", "offset": 0, "starts": true, "continuation": "-9", "positionKind": "retained" },
+    { "id": "EOF-T-DOT-DIGIT-0", "source": ".0", "offset": 0, "starts": true, "continuation": ".0", "positionKind": "retained" },
+    { "id": "EOF-T-DOT-DIGIT-9", "source": ".9", "offset": 0, "starts": true, "continuation": ".9", "positionKind": "retained" },
+    { "id": "EOF-T-PLUS-DOT-DIGIT-0", "source": "+.0", "offset": 0, "starts": true, "continuation": "+.0", "positionKind": "retained" },
+    { "id": "EOF-T-PLUS-DOT-DIGIT-9", "source": "+.9", "offset": 0, "starts": true, "continuation": "+.9", "positionKind": "retained" },
+    { "id": "EOF-T-MINUS-DOT-DIGIT-0", "source": "-.0", "offset": 0, "starts": true, "continuation": "-.0", "positionKind": "retained" },
+    { "id": "EOF-T-MINUS-DOT-DIGIT-9", "source": "-.9", "offset": 0, "starts": true, "continuation": "-.9", "positionKind": "retained" },
+    { "id": "EOF-F-EMPTY", "source": "", "offset": 0, "starts": false, "continuation": "", "positionKind": "eof" },
+    { "id": "EOF-F-PLUS", "source": "+", "offset": 0, "starts": false, "continuation": "+", "positionKind": "retained" },
+    { "id": "EOF-F-MINUS", "source": "-", "offset": 0, "starts": false, "continuation": "-", "positionKind": "retained" },
+    { "id": "EOF-F-DOT", "source": ".", "offset": 0, "starts": false, "continuation": ".", "positionKind": "retained" },
+    { "id": "EOF-F-PLUS-DOT", "source": "+.", "offset": 0, "starts": false, "continuation": "+.", "positionKind": "retained" },
+    { "id": "EOF-F-MINUS-DOT", "source": "-.", "offset": 0, "starts": false, "continuation": "-.", "positionKind": "retained" },
+    { "id": "EOF-F-PLUS-X", "source": "+x", "offset": 0, "starts": false, "continuation": "+x", "positionKind": "retained" },
+    { "id": "EOF-F-MINUS-X", "source": "-x", "offset": 0, "starts": false, "continuation": "-x", "positionKind": "retained" },
+    { "id": "EOF-F-DOT-X", "source": ".x", "offset": 0, "starts": false, "continuation": ".x", "positionKind": "retained" },
+    { "id": "EOF-F-PLUS-DOT-X", "source": "+.x", "offset": 0, "starts": false, "continuation": "+.x", "positionKind": "retained" },
+    { "id": "EOF-F-MINUS-DOT-X", "source": "-.x", "offset": 0, "starts": false, "continuation": "-.x", "positionKind": "retained" }
+  ]
+}

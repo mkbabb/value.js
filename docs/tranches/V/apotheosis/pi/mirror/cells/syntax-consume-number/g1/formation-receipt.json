@@ -1,0 +1,77 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G1-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 1,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "cell": "cells/syntax-consume-number/g1",
+  "formation": {
+    "reason": "SYNTAX-NUMBER-START G7 was rejected because its always-success predicate was not the consuming public grammar seam needed by number, integer, percentage, and dimension, and because its verifier did not close the executable/runtime/compiler byte roots.",
+    "selected_boundary": "Consume the maximal CSS Syntax §4.3.13 number representation at the current parse-that position and return exactly Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>.",
+    "smallest_public_seam": true,
+    "representation_and_extent": "The representation and entry/final offsets are external ParserState/source observations only; they are not fields of the semantic result.",
+    "carrier": "ECMAScript binary64 Number(consumedRepresentation), compared with Object.is so negative zero is preserved; precision rounding, signed Infinity overflow, and signed-zero underflow are explicit. No broader numeric evaluation or serialization credit follows.",
+    "composition_witnesses": ["number", "integer", "percentage", "dimension"],
+    "subordinate_number_start_evidence": "Exactly six §4.3.10 true arms are public fixtures only, with no exported number-start predicate."
+  },
+  "binding_g7_docket": [
+    { "path": "../../syntax-number-start/g7/manifest.json", "sha256": "0927a5e276f3d3902b6b9a0d5b353d06ffc6131d51a2f5370be03fa9da64b37c", "bytes": 6668 },
+    { "path": "../../syntax-number-start/g7/rejection.json", "sha256": "45318a954e312c1f85fa666ef320033b2ebba4b217e2d564616e9c6b96465b04", "bytes": 2782 },
+    { "path": "../../syntax-number-start/g7/reviews/challenge-a-specification.md", "sha256": "73eaab221d69b335a7a2021298d408752915be3321180182c07c68728af942da", "bytes": 19381 },
+    { "path": "../../syntax-number-start/g7/reviews/challenge-b-architecture.md", "sha256": "f5fc571456cc722bad83b3d0049103b1492cc2e54a219e521dbb7b7e3ff0d9d1", "bytes": 19401 },
+    { "path": "../../syntax-number-start/g7/root-gestalt.md", "sha256": "cb56fdcb6aeb56dc6ea7c10e040cc840df608cba426dbdb2f133ab46536a0b96", "bytes": 5935 }
+  ],
+  "precursor_byte_closure": [
+    { "path": "benchmark-protocol.json", "sha256": "9c7f5a82671ff37c22ac501c33807b6e1f005180ce9de35587f0aa29e93b14cc", "bytes": 2235 },
+    { "path": "contract.ts", "sha256": "961e59e0a3fb61eef10c2a577438a25d5c63c3f0d972fd33988c532383cfe5a7", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "9435eec66739d8751b7c57d857334b70bea16fff580b260bd9848c494c512d5b", "bytes": 6870 },
+    { "path": "fixtures/public-cases.json", "sha256": "4c41068bfa1c1476fe7dd70583bbf53fefe701b6e4f02c2353d6911ca88726a7", "bytes": 5213 },
+    { "path": "harness.ts", "sha256": "8326e0aa1594a2d3c594f499b32da43d64f2a9e2020d3308ca68654acc4c2eb2", "bytes": 11961 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "promotion-protocol.json", "sha256": "968d6b02a4f457c63ae8ba806554aab82d1fd47bf0176ca4c67eaf9bf176e9e5", "bytes": 2217 },
+    { "path": "promotion-verifier.mjs", "sha256": "a496deeebeaef19c8dda7e0ed2d8c19743abe64d4a23556b1f175545f7a61bf0", "bytes": 22838 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "public_fixture_counts": {
+    "number_start_prefix_evidence": 6,
+    "prefix_cases": 23,
+    "composition_cases": 6,
+    "hostile_cases": 4,
+    "total_rows": 39
+  },
+  "executable_closure": {
+    "local": ["contract.ts", "harness.ts"],
+    "fixtures": ["fixtures/public-cases.json"],
+    "external_imports": ["@mkbabb/parse-that/core", "@mkbabb/parse-that/diagnostics"],
+    "parse_that_package_ledger_rows": 65,
+    "typescript_package_ledger_rows": 130,
+    "clean_base_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "clean_base_typescript_sources": 0
+  },
+  "formation_assays": [
+    { "name": "verifier-syntax", "command": "node --check cells/syntax-consume-number/g1/promotion-verifier.mjs", "result": "PASS" },
+    { "name": "strict-contract-harness", "command": "./node_modules/.bin/tsc --noEmit --strict --target ES2022 --module ESNext --moduleResolution Bundler --types node --resolveJsonModule --allowSyntheticDefaultImports --verbatimModuleSyntax cells/syntax-consume-number/g1/contract.ts cells/syntax-consume-number/g1/harness.ts", "result": "PASS" },
+    { "name": "recursive-self-check", "command": "node cells/syntax-consume-number/g1/promotion-verifier.mjs --self-check", "result": "PASS" },
+    { "name": "public-harness-negative-control", "input": "deliberately incomplete digits-only ConsumeNumberParser", "result": "REJECTED" },
+    { "name": "verifier-forbidden-state-import", "input": "candidate importing ParserState", "result": "REJECTED_EXIT_1" },
+    { "name": "verifier-wrong-payload", "input": "candidate exporting Parser<string>", "result": "REJECTED_EXIT_1" },
+    { "name": "verifier-custom-constructor", "input": "candidate using new Parser", "result": "REJECTED_EXIT_1" }
+  ],
+  "formation_state": {
+    "candidate_source_files": 0,
+    "candidate_directories": 0,
+    "manifest_files": 0,
+    "holdout_files": 0,
+    "challenge_files": 0,
+    "root_gestalt_files": 0,
+    "active_grammar_mutations": 0
+  },
+  "next_owner_actions": [
+    "Freeze the exact precursor bytes, including this receipt.",
+    "Generate a wholly fresh holdout receipt after freeze.",
+    "Obtain two fresh exact-byte challenges and a root gestalt.",
+    "Seal the exact manifest and communicate its SHA-256 out of band.",
+    "Only then invite the H/B/S/D/R candidate authors."
+  ],
+  "receipt_self_identity": "This receipt cannot contain its own digest. Its exact bytes must be bound by the future owner-sealed manifest; the formation handoff reports its current SHA-256 and byte length externally.",
+  "nonclaims": "No candidate exists. No holdout, challenge, root gestalt, or manifest has been generated. No feature, parser, benchmark, integration, production, active-grammar, or promotion credit is claimed."
+}

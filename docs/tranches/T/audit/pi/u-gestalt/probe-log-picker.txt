@@ -1,0 +1,10 @@
+# u-gestalt probe leg=picker @ 2026-07-12T20:02:56.321Z
+PICKER light-1440 canvases: [{"w":1440,"h":900,"x":0,"y":0,"cls":"atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none atmosphere-canvas--arrived","id":""},{"w":469,"h":224,"x":220,"y":412,"cls":"gamut-overlay","id":""},{"w":180,"h":180,"x":565,"y":119,"cls":"goo-blob-canvas","id":""}]
+PICKER light-1440 space-label: {"lab":{"x":220,"y":166,"w":101,"h":102,"fs":"67.776px"}}
+PICKER light-390 canvases: [{"w":390,"h":844,"x":0,"y":0,"cls":"atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none atmosphere-canvas--arrived","id":""},{"w":327,"h":160,"x":31,"y":350,"cls":"gamut-overlay","id":""},{"w":179,"h":179,"x":228,"y":120,"cls":"goo-blob-canvas","id":""}]
+PICKER light-390 space-label: {"lab":{"x":31,"y":167,"w":67,"h":66,"fs":"43.7px"}}
+PICKER dark-1440 canvases: [{"w":1440,"h":900,"x":0,"y":0,"cls":"atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none atmosphere-canvas--arrived","id":""},{"w":469,"h":224,"x":220,"y":412,"cls":"gamut-overlay","id":""},{"w":180,"h":180,"x":565,"y":119,"cls":"goo-blob-canvas","id":""}]
+PICKER dark-1440 space-label: {"lab":{"x":220,"y":166,"w":101,"h":102,"fs":"67.776px"}}
+PICKER dark-390 canvases: [{"w":390,"h":844,"x":0,"y":0,"cls":"atmosphere-canvas absolute inset-0 w-full h-full pointer-events-none atmosphere-canvas--arrived","id":""},{"w":327,"h":160,"x":31,"y":350,"cls":"gamut-overlay","id":""},{"w":179,"h":179,"x":228,"y":120,"cls":"goo-blob-canvas","id":""}]
+PICKER dark-390 space-label: {"lab":{"x":31,"y":167,"w":67,"h":66,"fs":"43.7px"}}
+DONE picker

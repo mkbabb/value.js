@@ -1,0 +1,144 @@
+{
+  "schema": "value.pi.syntax-consume-number.g12.boundary-review/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 12,
+  "review_seat": "B",
+  "review_task": "/root/g12_boundary_review_b2",
+  "independence": {
+    "review_boundary_a_read": false,
+    "assumption": "The validator result was treated as formation evidence, not as the boundary verdict.",
+    "model_identity": "Not content-attested by workspace bytes; this review does not invent an external actor receipt."
+  },
+  "subject": {
+    "path": "formation-receipt.json",
+    "sha256": "56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a",
+    "bytes": 4922,
+    "closure_sha256": "28ce596310273a53cb257ade553999afc9b0574ec8f3b2f16c4d96a34fd1e278",
+    "row_count": 25
+  },
+  "commands": [
+    {
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/formation-validator.mjs",
+      "exit_code": 0,
+      "status": "BOUNDARY_READY_FOR_TWO_PUBLIC_REVIEWS_NOT_AUTHORS"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/formation-validator.mjs",
+      "exit_code": 0,
+      "status": "BOUNDARY_READY_FOR_TWO_PUBLIC_REVIEWS_NOT_AUTHORS"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/public-corpus-generator.mjs --verify /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/public-corpus.json",
+      "exit_code": 0,
+      "result": "PASS_GENERATED_SUCCESSES_70_SIGNED_INTEGER_EXPONENTS_4"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/runtime-closure-generator.mjs --verify /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/runtime-closure.json",
+      "exit_code": 0,
+      "result": "PASS_PEER_SOURCES_14_PACKAGES_6"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/peer-harness.mjs --verify",
+      "exit_code": 0,
+      "result": "PASS_CASES_15_EXACT_EXPECTED"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/root-check.mjs",
+      "exit_code": 0,
+      "result": "PASS_FOUR_TOPOLOGY_PROBES_AND_G11_NEGATIVE_CONTROL"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/candidate-closure.mjs --assay h",
+      "exit_code": 0,
+      "result": "ROOT_ASSAY_CLOSED_ZERO_CREDIT"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/candidate-closure.mjs --assay b",
+      "exit_code": 0,
+      "result": "ROOT_ASSAY_CLOSED_ZERO_CREDIT"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/candidate-closure.mjs --assay s",
+      "exit_code": 0,
+      "result": "ROOT_ASSAY_CLOSED_ZERO_CREDIT"
+    },
+    {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g12/candidate-closure.mjs --assay d",
+      "exit_code": 0,
+      "result": "ROOT_ASSAY_CLOSED_ZERO_CREDIT"
+    }
+  ],
+  "findings": [
+    {
+      "id": "G12-B-01",
+      "severity": "BLOCKER",
+      "area": "maximal-prefix and incomplete-suffix semantics",
+      "evidence": [
+        "contract.json requires maximal-prefix consumption and explicitly says incomplete decimal and exponent suffixes remain unconsumed.",
+        "public-corpus-generator.mjs generates incomplete exponent cases for e, e+, and e- but no incomplete decimal case such as 7., +7., -7., or 7.e2.",
+        "peer-corpus.json records the relevant 1. observation with end 1 and integer value 1, but peer-harness.mjs never runs a candidate and public-worker.ts never reads the peer corpus.",
+        "The public hostile inputs 1e++2 and 1e--2 receive only no-throw, unchanged-source, and in-bounds-offset checks; the harness does not require either input to consume exactly the prefix 1, end at 1, and return the integer leaf."
+      ],
+      "analysis": "A candidate can pass every public assertion while violating a declared CSS number boundary. For example, on source 1e++2 the hostile loop accepts any offset from 0 through 6 and does not inspect isError or value. A candidate that consumes the invalid e++ suffix therefore passes. Likewise, a candidate that consumes the dot in 1. passes because no candidate-facing case asserts end 1. These are public, deterministic grammar cases, not behavior that needs an unrevealed holdout oracle.",
+      "required_redress": "Promote incomplete-decimal and malformed-exponent inputs to exact success observations. At minimum assert 1., +7., -7.e2, 1e++2, and 1e--2 with the contract-derived representation, end offset, sign, type, and value."
+    },
+    {
+      "id": "G12-B-02",
+      "severity": "HIGH",
+      "area": "candidate architecture admission",
+      "evidence": [
+        "candidate-closure.mjs recognizes the H topology by substring presence of the whole grammar and absence of a short token list; it does not require that the admitted regex be exactly that recognizer or that map be its only continuation.",
+        "The H seat packet says the exact whole recognizer must be followed only by a pure map, but sourceLaw does not forbid skip, next, opt, chain, or a second regex for H.",
+        "An H-shaped index.ts can use the required whole regex followed by .skip(regex(/e\\+\\+/).opt()).map(...). It contains the required whole recognizer, contains none of all/any/then/dispatch/new Parser, and passes the current success matrix; on 1e++2 it wrongly consumes through e++ while the hostile check still passes."
+      ],
+      "analysis": "The resolved one-file/import closure is strong provenance evidence, but the lexical topology check and weak hostile assertion compose into a concrete false admission. The four honest root probes show feasibility; they do not prove that future candidate closures enforce the seat laws they report as PASS.",
+      "required_redress": "Either validate the parser topology structurally from the parse-that context/metafile or close the lexical escape hatches seat by seat, and add exact semantic cases that reject every admitted recognizer broadening."
+    },
+    {
+      "id": "G12-B-03",
+      "severity": "HIGH",
+      "area": "exact result-object contract",
+      "evidence": [
+        "contract.json requires an ordinary frozen object with exactly own enumerable keys sign,type,value.",
+        "public-worker.ts exactLeaf checks the prototype, frozen state, Reflect.ownKeys names, and values, but never checks propertyIsEnumerable or the enumerable descriptor bit.",
+        "Object.freeze(Object.defineProperties({}, {sign:{value:null}, type:{value:'integer'}, value:{value:7}})) has exactly those own keys and passes exactLeaf for 7 even though all three properties are non-enumerable."
+      ],
+      "analysis": "The harness labels the observation exact while admitting a result shape explicitly forbidden by the contract. This defect affects all 70 successes and all four topology paths because they share exactLeaf.",
+      "required_redress": "Assert Object.prototype.propertyIsEnumerable.call(actual, key) for all three keys, or compare exact property descriptors."
+    },
+    {
+      "id": "G12-B-04",
+      "severity": "MEDIUM",
+      "area": "failure transaction at caller offsets",
+      "evidence": [
+        "The contract accepts an arbitrary UTF-16 offset and requires a failed parse to preserve that offset and predecessor state.",
+        "All 168 runFailure executions construct ParserState with offset 0 and hard-code the expected offset as 0; only successes exercise nonzero offsets.",
+        "A case such as source @@@+ with initial offset 3, a frozen predecessor, and diagnostics already furthest ahead should fail at offset 3 without altering any saved field, but no public assertion exercises it."
+      ],
+      "analysis": "The B and S sample wrappers correctly save and restore caller state, and primitive H/D failure happens to preserve it, but the common harness does not test the general contract against authored candidates.",
+      "required_redress": "Cross at least one nonzero failure offset with predecessor and preseeded-ahead diagnostic profiles and compare the initial offset rather than a literal zero."
+    }
+  ],
+  "positive_evidence": [
+    "The subject identity is exactly 56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a over 4,922 bytes; all 25 declared read-only regular rows and closure hash reproduce.",
+    "The formation validator passes from both the repository and /tmp with the same subject, closure, row count, zero candidates, zero holdout artifacts, zero timing gates, and strict TypeScript PASS.",
+    "The generated matrix covers three signs, integer/decimal/leading-dot mantissas, four exponent forms, nonzero caller offsets, incomplete exponent rollback, overflow, underflow, minimum subnormal, integer rounding, and signed integer exponents.",
+    "All four materially different sample constructions pass the shared public worker, strict compilation, one-file closure, and resolved-import restrictions; the reproduced G11 signed-integer-exponent defect is rejected.",
+    "The peer harness executes three pinned implementations, preserves exclusions, and binds exact observations rather than borrowing a denominator; its 1. result also supplies independent evidence for the missing candidate-facing assertion.",
+    "The candidate closure rejects symlinks, executable files, extra candidate files, out-of-seat import graph entries, external imports, and lack of a direct @mkbabb/parse-that/core import.",
+    "The phase order is internally consistent: two exact public reviews precede root ACCEPT; an independent custodian seal then precedes all four external author tasks; candidate closure precedes holdout reveal and later skepticism/adjudication."
+  ],
+  "verdict": "REJECT",
+  "credit": "ZERO_BOUNDARY_ZERO_CANDIDATE_ZERO_PARSER_ZERO_BENCHMARK",
+  "terminal": false
+}

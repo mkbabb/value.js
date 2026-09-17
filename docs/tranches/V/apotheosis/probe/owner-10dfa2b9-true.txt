@@ -1,0 +1,1838 @@
+===== OWNER MSG #1 line=8 ts=2026-06-03T21:11:50.252Z =====
+Execute tranche A in full per docs/tranches/A/ (incl. the 3.0.0 re-release +
+  the exported RAFPlayback PRM gate + changesets/--provenance). Publish 3.0.0 first. Gate on green CI.
+
+===== OWNER MSG #2 line=1000 ts=2026-06-04T04:14:47.223Z =====
+Update all of our deps--vite, vue, vue router, shad, tsc, etc--to the latest
+
+DEEPLY audit with 6 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+we need a full e2e audit with lighthouse and the aforesaid google best pracitces tool of every page in the demo, every facet of the library.
+
+Pursuant to precepts/--ensure that we have an edict therein--pull the latest version and ensure our contesllation is synced--to screenshot every page BEFORE and AFTER tranches. Remove the keyframes.js loading screen, too--we need to dramatically improive loading times.
+
+After that wave, deploy 6 frontend design plugin agents in a workflow to audit the design and glass-ui implementation herein. Create the next tranche with perfected CI. Audit every page in both desktop and mobile views--validate scrupulously that NO occlusion or overlapping is ocurring, the dock is perfected, etc. Fully playwright validation.
+
+===== OWNER MSG #3 line=1031 ts=2026-06-04T14:10:10.824Z =====
+Continue. Re-deploy all agents and workflows
+
+===== OWNER MSG #4 line=1416 ts=2026-06-04T14:55:06.644Z =====
+current repo status and tranche plan
+
+===== OWNER MSG #6 line=1452 ts=2026-06-04T15:31:37.447Z =====
+Read 
+  /Users/mkbabb/Programming/fourier-analysis/docs/constellation/CONSTELLATION.md + your 
+  docs/tranches/<L>/. inv-16: write only your own repo. Orchestrate waves with parallel agents. Gate on
+  your own green CI. No workarounds, idiomatic, no legacy.
+
+You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+===== OWNER MSG #7 line=2257 ts=2026-06-04T16:28:07.971Z =====
+continue redeploy all agents and workflows
+
+===== OWNER MSG #8 line=2986 ts=2026-06-04T17:38:17.836Z =====
+DEEPLY audit with 6 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Plan for the demo. Another 6 agent frontend design plugin wave workflow set to inventory our demo to align with our design language. Fold in the above
+
+===== OWNER MSG #9 line=3014 ts=2026-06-04T17:43:51.802Z =====
+Continue. Redeploy all agents and workflows.
+
+===== OWNER MSG #10 line=3144 ts=2026-06-04T18:26:32.671Z =====
+Continue. Re-deploy all agents and workflows.
+
+===== OWNER MSG #11 line=3151 ts=2026-06-04T18:27:00.240Z =====
+Another workflow, no.
+
+===== OWNER MSG #12 line=3190 ts=2026-06-04T18:40:28.206Z =====
+With our glass-ui tranches hereof, audit the dock implementations in vaule.js, keyframes.js, and fourier, and refine the glass-ui dock-forward waves & c. Deploy 6 agents in parallel in a workflow.
+
+===== OWNER MSG #13 line=3277 ts=2026-06-04T18:55:37.999Z =====
+Let's also plan to properly re-name our constellation usage of the dock, and properly fold all items into the base glass-ui and leverage THAT thereof.
+
+===== OWNER MSG #14 line=3306 ts=2026-06-04T19:49:57.270Z =====
+Harden this with 6 agents in parallel in a workflow. Analyze the slides facilities, too. Leverage local versions of playwright & c. Research IOS dock-like animations and IOS animations in a general animation audit, too, using the key principles of animation timing, morhping, etc. Affordance and design hierarchy.
+
+===== OWNER MSG #15 line=3359 ts=2026-06-04T20:14:20.601Z =====
+continue. Redploy all agents and workflows.
+
+===== OWNER MSG #16 line=3362 ts=2026-06-04T20:16:25.014Z =====
+continue. Redploy all agents and workflows.
+
+===== OWNER MSG #18 line=3438 ts=2026-06-04T20:35:40.800Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+===== OWNER MSG #19 line=3553 ts=2026-06-04T20:54:03.115Z =====
+Ensure: this a FULL multi-repo specification spanning keyframes, dock, etc.
+
+===== OWNER MSG #20 line=3554 ts=2026-06-04T20:54:11.331Z =====
+Ensure: this a FULL multi-repo specification spanning keyframes, dock, etc. Drive all to completion.
+
+===== OWNER MSG #21 line=4667 ts=2026-06-05T03:05:14.689Z =====
+Deploy a wave of 6 agents in a parallel workflow:
+
+DEEPLY audit with 6 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+The then another wave of 6 agents in a workflow:
+
+Assay the frontend components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity.
+
+Analyze for non-idiomatic tailwind or tenuous, brittle, bespoke styling in therein, too. Ensure that any style changes are perfectly isomorphic thereto, unless HIGHLY befitting otherwise. For styling focus on:
+
+(1) non-idiomatic Tailwind usage
+(2) monolithic/global stylesheet patterns that should be colocated or component-scoped
+(3) deprecated/archaic CSS
+(4) fragile rules (magic numbers, brittle `calc()/min()/max()` chains, viewport-unit traps, z-index coupling, browser-specific breakage)—unless highly befitting
+
+Ensure that we're using idiomatic tailwind applies for style, animations, colors: we should have a localized area that defines all of our design idioms—but still leverages proper colocation. Ensure design cohesion within our chosen aesthetic.
+
+In plan mode, deploy 8 agents in parallel. Fastidious assay with conservative and judicious changes. No legacy or deprecated codepaths: this is a development product.
+
+
+Perfect and fold ALL of the above items, all deferred items, into a keyframes.js tranche that's conginzant of both value.js, glass-ui, and slides' current state (which is being actively developed as a tranche, the tranche research is in flight)
+
+===== OWNER MSG #23 line=4789 ts=2026-06-05T03:43:43.638Z =====
+Write the D tranche now. No implementation. Tranche development only.
+
+We plan to execute this tranche simultaneously with the glass-ui/slides tranche within: ~/Programming/slides/docs/tranches/F/
+
+Alongside a new set of slides being developed in /Users/mkbabb/Programming/feedback-coder/docs/tranches--how can we appropriately coordinate and run all three simultaneously, such that we can kick off all three at the same time, and then this session and the soon-to-be-run glass-ui/slides session know about eachother and properly/sleep/wait/coordinate such that ALL tranches can be driven to completion FULLY autonomously with perfected CI: the goal is a fully deployed slides, glass-ui, keyframes.js demo with ALL tranche items from each fully pushed and developed out, including the glass-ui tranche of AT in totality.
+
+What can we do, and what can we tell the other sessions, how to prompt them and kick them off. Normally, we start our tranches with:
+
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Note: the feedback-coder session is already live--how can we inform that.
+
+And further, deploy 6 agents in parallel to do the following for the extant glass-ui tranche set:
+
+DEEPLY audit with 6 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+===== OWNER MSG #24 line=4807 ts=2026-06-05T03:48:20.342Z =====
+No. Exit plan mode, then then execute the following: a workflow with 6 agents in parallel to author D. A parallel workflow with 6 agents in parallel for the above, and then another workflow thereupon to harden D, and then another workflow to harden the glass-ui tranche and perfect the coordination of the keyframes.js session, glass-ui/slides session (which should be set to execute the FULL slides tranche, which includes glass-ui items, the FULL glass-ui tranche that will be begotten), and then information to hand to the feedbackcoder agent running now.
+
+===== OWNER MSG #25 line=4984 ts=2026-06-05T04:49:38.955Z =====
+Continue. Redeploy all workflows and agents.
+
+===== OWNER MSG #27 line=5092 ts=2026-06-05T05:13:07.706Z =====
+begin keyframes-D
+
+===== OWNER MSG #28 line=5095 ts=2026-06-05T05:13:07.707Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+===== OWNER MSG #29 line=6054 ts=2026-06-05T14:23:46.045Z =====
+Continue indefatigably
+
+===== OWNER MSG #30 line=6426 ts=2026-06-05T15:06:48.286Z =====
+Continue indefatigably.
+
+===== OWNER MSG #31 line=6513 ts=2026-06-05T15:17:55.507Z =====
+Whilst glass-ui is being developed:
+
+DEEPLY audit with 6 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Fold all of the above into E. Audit every page on the demo. Audit with lighthouse every page. Devise an optimizatin strategy. Compare our last tranche set items against, and all of our core primitives, against:
+
+https://developer.chrome.com/docs/modern-web-guidance
+
+Deploy in a workflow with 12 agents in parallel. Use npx modern-web-guidance@latest install
+
+Alongside another wave of 6 agents in parallel, in a workflow:
+
+Assay the frontend components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity.
+
+Analyze for non-idiomatic tailwind or tenuous, brittle, bespoke styling in therein, too. Ensure that any style changes are perfectly isomorphic thereto, unless HIGHLY befitting otherwise. For styling focus on:
+
+(1) non-idiomatic Tailwind usage
+(2) monolithic/global stylesheet patterns that should be colocated or component-scoped
+(3) deprecated/archaic CSS
+(4) fragile rules (magic numbers, brittle `calc()/min()/max()` chains, viewport-unit traps, z-index coupling, browser-specific breakage)—unless highly befitting
+
+Ensure that we're using idiomatic tailwind applies for style, animations, colors: we should have a localized area that defines all of our design idioms—but still leverages proper colocation. Ensure design cohesion within our chosen aesthetic.
+
+In plan mode, deploy 8 agents in parallel. Fastidious assay with conservative and judicious changes. No legacy or deprecated codepaths: this is a development product.
+
+===== OWNER MSG #32 line=6646 ts=2026-06-05T15:34:46.837Z =====
+Tranche development only now. No implementation yet.
+
+===== OWNER MSG #33 line=6676 ts=2026-06-05T17:12:57.581Z =====
+Continue. Re-deploy all workflows and agents.
+
+===== OWNER MSG #34 line=6714 ts=2026-06-05T17:38:45.852Z =====
+Audit our tranches hitherto, and our extant library, keyframes & css parsing, to be FULLY modern, SOTA, and up to spec--for both value.js and keyframes.js--to augment that tranche set within value.js, and augement herein:
+
+current tranche with 32 agents, researching animation SOTA, and 
+    leveraging npx modern-web-guidance@latest install items thereof;                                         
+    https://developer.chrome.com/docs/modern-web-guidance  
+
+What gaps do we have? What features might we leverage that are modern and new? What of our frame compiler? We'd like to improve both parsing, runtime, and compiletime performance. And improve our demo for usability, elegance, and design cogency.
+
+===== OWNER MSG #35 line=6834 ts=2026-06-05T18:48:08.285Z =====
+Continue; redeploy all agents and workflows.
+
+===== OWNER MSG #36 line=6848 ts=2026-06-05T18:51:56.618Z =====
+Continue. Re-deploy all agents and workflows.
+
+===== OWNER MSG #37 line=6924 ts=2026-06-05T19:36:22.022Z =====
+Ensure:
+
+NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+===== OWNER MSG #38 line=6986 ts=2026-06-05T19:51:46.823Z =====
+Fold therein and update our tranche spec
+
+===== OWNER MSG #40 line=7057 ts=2026-06-05T21:35:38.038Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage.
+
+===== OWNER MSG #41 line=8287 ts=2026-06-06T03:41:29.800Z =====
+Audit our tranches hitherto, and our extant library, keyframes & css parsing, to be FULLY modern, SOTA, and up to spec--for both value.js and keyframes.js--to augment that tranche set within value.js, and augement herein:
+
+current tranche with 32 agents, researching animation SOTA, and 
+    leveraging npx modern-web-guidance@latest install items thereof;                                         
+    https://developer.chrome.com/docs/modern-web-guidance  
+
+What gaps do we have? What features might we leverage that are modern and new? What of our frame compiler? We'd like to improve both parsing, runtime, and compiletime performance. And improve our demo for usability, elegance, and design cogency.
+
+Ensure:
+
+  NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural
+  transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+  NO legacy code.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+===== OWNER MSG #42 line=8337 ts=2026-06-06T03:55:52.835Z =====
+Continue. Re-deploy all agents and workflows. Absolutely re-deploy, no exceptions.
+
+===== OWNER MSG #43 line=8356 ts=2026-06-06T04:29:15.327Z =====
+What of our parsing modality, what of value.js's parsing, what of parse-that, how can we best SOTA, too--deploy another 6 agents in parallel hereupon, too, in a workflow.
+
+===== OWNER MSG #44 line=8491 ts=2026-06-06T07:18:29.579Z =====
+Continue. Re-deploy all agents and workflows. Absolutely re-deploy, no exceptions.
+
+===== OWNER MSG #46 line=10551 ts=2026-06-07T01:34:58.234Z =====
+Continue. Redploy all workflows and agents. No exceptions.
+
+===== OWNER MSG #47 line=10665 ts=2026-06-07T01:46:34.159Z =====
+Continue. Re-deploy all agents and workflows. Absolutely re-deploy, no exceptions.
+
+===== OWNER MSG #48 line=10734 ts=2026-06-07T02:18:46.862Z =====
+DEEPLY audit with 16 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Assay the frontend components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity.
+
+Analyze for non-idiomatic tailwind or tenuous, brittle, bespoke styling in therein, too. Ensure that any style changes are perfectly isomorphic thereto, unless HIGHLY befitting otherwise. For styling focus on:
+
+(1) non-idiomatic Tailwind usage
+(2) monolithic/global stylesheet patterns that should be colocated or component-scoped
+(3) deprecated/archaic CSS
+(4) fragile rules (magic numbers, brittle `calc()/min()/max()` chains, viewport-unit traps, z-index coupling, browser-specific breakage)—unless highly befitting
+
+Ensure that we're using idiomatic tailwind applies for style, animations, colors: we should have a localized area that defines all of our design idioms—but still leverages proper colocation. Ensure design cohesion within our chosen aesthetic.
+
+In plan mode, deploy 8 agents in parallel. Fastidious assay with conservative and judicious changes. No legacy or deprecated codepaths: this is a development product.
+
+Analyze the extant backend codebase for any legacy code, deprecated code, temporary workarounds, fallback or fall-through behavior: in all instances, either excise the code entirely, or fail explicitly therein: no silent or graceful handling unless befitting. 
+
+This should be a fastidious and surgical refactor: thoroughly identify all areas herein with legacy behavior and get everything explicitly migrated to whatever new API—or facility—present.
+
+Divine an approach to achieve better encapsulation, consistency in service boundaries, dependency injection patterns, and pipeline orchestration.
+
+NO god modules: break large files (>500 lines especially) into smaller, cohesive sub-modules when appropriate and expedient; leverage better and modern patterns.
+
+NO workarounds, NO fallbacks, NO special cases. No effusive dynamicsim. NO nested imports. NO test files in src files.
+
+NO duplicated effort: DRY. KISS.
+
+Run linting and type checking to validate your changes at every interval.
+
+Remove any legacy CI. Perfect and streamline our constellation, too, of value.js, parse-that, and the like. Ensure idiomatic glass-ui usage. What gaps do we have within our constellation? What should we create herein, what should we better leverage from value.js; what should we better leverage from parse-that, glass-ui, etc. Audit every page with playwright MCP, too, within our demo, for usability and affordance.
+
+ researching animation SOTA, and 
+    leveraging npx modern-web-guidance@latest install items thereof;                                         
+    https://developer.chrome.com/docs/modern-web-guidance
+
+===== OWNER MSG #49 line=10806 ts=2026-06-07T02:51:41.159Z =====
+Continue. Re-deploy all agents and workflows. Absolutely re-deploy, no exceptions.
+
+===== OWNER MSG #50 line=10813 ts=2026-06-07T02:53:13.501Z =====
+Continue. Re-deploy all agents and workflows. Absolutely re-deploy, no exceptions.
+
+===== OWNER MSG #52 line=11092 ts=2026-06-07T05:29:49.328Z =====
+recap the future tranche with what it does
+
+===== OWNER MSG #54 line=11135 ts=2026-06-07T05:35:35.126Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage.
+
+===== OWNER MSG #55 line=11727 ts=2026-06-07T07:16:01.846Z =====
+glass-ui is set to begin AW--ensure that you complete G in totality, but with cognizance of this. AW recently requested:
+
+ keyframes 4.x: widen your @mkbabb/value.js dependency to admit ^0.11.0 and rebuild/retest the 
+  ▎ timingFunctions-derived types against value 0.11 (a 4.0.1). That's the upstream unblock. Once it lands, glass-ui 
+  ▎ widens both peers together (keyframes ^2.2||^3||^4 + value ^0.10||^0.11), build-verified green, with a born-RED 
+  ▎ proof:peer-conformance gate. Keep the dedup-alias until then.
+
+do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is for G and anything else.
+
+===== OWNER MSG #56 line=12420 ts=2026-06-07T17:13:38.510Z =====
+Continue indefatigably.
+
+===== OWNER MSG #57 line=12497 ts=2026-06-07T17:18:41.963Z =====
+No usage of file: syntax--get glass-ui working and imported properly herein. Perfect CI and validate passing. Merge all of these feature branches into master--reconcile this deftly--make a backup of the entire repo to ensure you don't lose anything.
+
+===== OWNER MSG #58 line=12806 ts=2026-06-07T17:53:59.471Z =====
+Deploy. Pushing to master should always deploy, no?
+
+===== OWNER MSG #59 line=12864 ts=2026-06-07T17:58:44.896Z =====
+start the demo locally for me to audit
+
+===== OWNER MSG #60 line=12877 ts=2026-06-07T18:06:55.185Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_j6y7JT/Screenshot 2026-06-07 at 14.00.18.png'
+
+The sidebar is totally broken'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_WrHa08/Screenshot 2026-06-07 at 14.00.35.png'
+
+There's a strange circular, radial, blur artifact when hovering--these should have cartoon shadows (but their glassy effect is good!)'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_wk3dSX/Screenshot 2026-06-07 at 14.01.14.png'
+
+Easing should not be so massive, and there should not be an inner border, that touches the top of the "cubic-bezier" header--that should be larger, too, that header'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_gbYLWv/Screenshot 2026-06-07 at 14.01.54.png'
+
+The timeline scrubber should be the same width as the controls sidebar'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_fKphZq/Screenshot 2026-06-07 at 14.02.24.png'
+
+That broken/strange radial blur effect is everywhere and needs to be fixed
+
+The dock animations are totally broken, slow, laggy'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_LM227d/Screenshot 2026-06-07 at 14.03.09.png'
+
+The typing dots animation is totally broken
+
+The hero needs to be properly sized and larger--audit for usage of our golden typography.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_X5KXNm/Screenshot 2026-06-07 at 14.03.59.png'
+
+Wtf are these other animation items, like path, discreete? These should be audited for pertinence--if they survive hardening, they should have proper svg icons designed, screenshotted, like the other modes.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_wlkEkx/Screenshot 2026-06-07 at 14.04.47.png'
+
+The controls sidebar should not be two columns, but one.
+
+And all of this needs to be audited for perfection on mobile: mobile should be a single page, with affixed top and bottom docks, with the page contextually changing based on what mode you're in--the background should be the current animation area, the cube, etc'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_KVX6x7/Screenshot 2026-06-07 at 14.05.50.png'
+
+The mbabb logo was formally clickable to display a popover with darkmode and an about--restore this.
+
+Our new items, if they survive hardening, should become more interacitve: clickable, dragabble, etc.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+===== OWNER MSG #61 line=12885 ts=2026-06-07T18:08:05.694Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_j6y7JT/Screenshot 2026-06-07 at 14.00.18.png'
+
+The sidebar is totally broken'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_WrHa08/Screenshot 2026-06-07 at 14.00.35.png'
+
+There's a strange circular, radial, blur artifact when hovering--these should have cartoon shadows (but their glassy effect is good!)'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_wk3dSX/Screenshot 2026-06-07 at 14.01.14.png'
+
+Easing should not be so massive, and there should not be an inner border, that touches the top of the "cubic-bezier" header--that should be larger, too, that header'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_gbYLWv/Screenshot 2026-06-07 at 14.01.54.png'
+
+The timeline scrubber should be the same width as the controls sidebar'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_fKphZq/Screenshot 2026-06-07 at 14.02.24.png'
+
+That broken/strange radial blur effect is everywhere and needs to be fixed
+
+The dock animations are totally broken, slow, laggy'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_LM227d/Screenshot 2026-06-07 at 14.03.09.png'
+
+The typing dots animation is totally broken
+
+The hero needs to be properly sized and larger--audit for usage of our golden typography.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_X5KXNm/Screenshot 2026-06-07 at 14.03.59.png'
+
+Wtf are these other animation items, like path, discreete? These should be audited for pertinence--if they survive hardening, they should have proper svg icons designed, screenshotted, like the other modes.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_wlkEkx/Screenshot 2026-06-07 at 14.04.47.png'
+
+The controls sidebar should not be two columns, but one.
+
+And all of this needs to be audited for perfection on mobile: mobile should be a single page, with affixed top and bottom docks, with the page contextually changing based on what mode you're in--the background should be the current animation area, the cube, etc'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_KVX6x7/Screenshot 2026-06-07 at 14.05.50.png'
+
+The mbabb logo was formally clickable to display a popover with darkmode and an about--restore this.
+
+Our new items, if they survive hardening, should become more interacitve: clickable, dragabble, etc.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this new tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Note: the dock is being worked on by glass-ui now, but audit this and suggest possible fixes, espeically for the noticable lag. We have a formely working dock many versions ago, what was that like?
+
+===== OWNER MSG #62 line=13225 ts=2026-06-07T19:22:22.342Z =====
+Harden this with 32 agents in a workflow. Several waves.
+
+===== OWNER MSG #64 line=13367 ts=2026-06-07T21:19:19.482Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage.
+
+===== OWNER MSG #65 line=14061 ts=2026-06-08T02:30:16.772Z =====
+To be clear, too, our previous layout from many iterations ago was correct for the controls, wherein we had the labels on the LEFT and the input values on the RIGHT'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_MicI9M/Screenshot 2026-06-07 at 22.26.38.png'
+
+Cubic bezier should not have to scroll, the back button should be baked into the cubic bezier header, on the right'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_4Gg8nQ/Screenshot 2026-06-07 at 22.27.07.png'
+
+The specular effect on the bezier card is WAY too dramatic.
+
+Don't attempt to fix these directly right now: you must deploy a triumvariate to research, plan, and update our tranche spec idiomatically, with another workflow'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_3xdXEZ/Screenshot 2026-06-07 at 22.28.01.png'
+
+ppmycota should have the proper pp logo, too, which is an svg'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_jcP1Lh/Screenshot 2026-06-07 at 22.28.21.png'
+
+The darkmode item should toggle darkmode, not just the sun icon
+
+The specular effect is only present on some items, why? Perhaps we just remove it?'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_rKOcTU/Screenshot 2026-06-07 at 22.29.06.png'
+
+The box-shadow, on hover, is strangely sharp and cut off in the bottom left
+
+The cards are not quite as glassy as the used to be before the box-shadow--any way to have both?
+
+The controls UI doesn't ahve the proper fade away when not interacted with/hovered for a time: after a time, say 10 seconds of no engagement, the controls sidebar should become much more transparent--this used to be extant.
+
+===== OWNER MSG #66 line=14118 ts=2026-06-08T02:50:00.280Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully 
+  reset.
+
+===== OWNER MSG #67 line=14132 ts=2026-06-08T02:51:17.254Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully 
+  reset.
+
+===== OWNER MSG #68 line=14135 ts=2026-06-08T02:51:39.574Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully 
+  reset.
+
+===== OWNER MSG #69 line=14168 ts=2026-06-08T02:55:35.781Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully 
+  reset.
+
+===== OWNER MSG #70 line=14175 ts=2026-06-08T02:56:37.674Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully 
+  reset.
+
+===== OWNER MSG #71 line=14261 ts=2026-06-08T03:20:33.435Z =====
+The previous icons were the correct ones--expressive, colorful--do not water these down. Make new ones for the other primitives in the same way.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_Ay7wd3/Screenshot 2026-06-07 at 23.15.58.png'
+
+Why is this card not rounded?'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_bOl4SD/Screenshot 2026-06-07 at 23.16.10.png'
+
+Why are these buttons different, and do not match the controls panel of the standard cube/amiga/animation controls? They should match exactly, and re-use that component'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_GNQ8dR/Screenshot 2026-06-07 at 23.16.39.png'
+
+This view is useless and duplicative--and this main area card is not rounded either.
+
+Another triumvariate to augment our waves. Singular should NOT be a duplicated bezier view--it should be ONE large ball.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_q2H3us/Screenshot 2026-06-07 at 23.17.42.png' And the easing sidebar controls shoudl be larger'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_qRc852/Screenshot 2026-06-07 at 23.18.01.png'There are too many inner-containers here--flatten this--match more of the normal controls sidebar--this should use a normalized component.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_BHmCjp/Screenshot 2026-06-07 at 23.18.39.png'
+
+These buttons should be the same width and height, for pause/reset.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_mi7Rr7/Screenshot 2026-06-07 at 23.19.22.png'
+The easing area clips into the docks--reconcile this cleanly--perhaps remove the card bg from the easing area to better match how the cube/amiga/etc works? Or better contain the card betweeen the two docks? Do so idiomatically, cleanly, and WITHOUT overfit, overcomplex hardcoded items. This should be a proper layout-level primitive change.
+
+===== OWNER MSG #72 line=14326 ts=2026-06-08T03:42:09.595Z =====
+I don't want the icons re-created. I want them re-instantiated. The only new icons should be for those that lack them. If they are to be converted to SVG, they should be done so 1-1.
+
+===== OWNER MSG #73 line=14463 ts=2026-06-08T04:39:46.621Z =====
+Give me the glass-ui items to give the currently developing AX tranche
+
+===== OWNER MSG #74 line=14477 ts=2026-06-08T04:41:52.715Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #75 line=14552 ts=2026-06-08T05:12:29.888Z =====
+the labels should all be the same width--it should be a clean grid and sub-grid layout for the labels/input values
+
+The various states of the various scenes need to be analyzed and fully mapped out via a state machine/DFA--for example, we should not display keyframes, timeline, controls on the easing page--only "easing"; fully map out and ensure NO undefined behavior when navigating between scenes and all controls--ensure proper state suspension and full resuming when transitioning, and monitor the performance to ensure all of this is done performantly.
+
+Our sequence and path items need to be greatly refined--have a frontend design plugin agent montior and audit every scene and control view, and ensure proper usability, design affordance, interactability, divine a few easter eggs for each, too. Ensure that each card is rounded, too'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_fDMuIe/Screenshot 2026-06-08 at 01.08.58.png'--why is motion path's card not rounded, for example? This should be baked into the primitive. The easing view should actually have a card background, but a standard, non-cartoon, glass one--the scenes for easing, spring, sequence, and path, should have that glass-card encapsulation.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_MBNRo1/Screenshot 2026-06-08 at 01.10.00.png'Cubic bezier doesn't need a double card like that--remove the internal most card'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_m20d26/Screenshot 2026-06-08 at 01.10.21.png'
+
+The easing panel is too small herein'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_jGLUd2/Screenshot 2026-06-08 at 01.10.51.png' Make the bezier controls as big as you can within that container--make it taller; and remove the "editing: ease-in-out" sub-title.
+
+Standardize these components, too, such that we share more between scenes and normalize them.
+
+components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity.
+
+Analyze for non-idiomatic tailwind or tenuous, brittle, bespoke styling in therein, too. Ensure that any style changes are perfectly isomorphic thereto, unless HIGHLY befitting otherwise. For styling focus on:
+
+(1) non-idiomatic Tailwind usage
+(2) monolithic/global stylesheet patterns that should be colocated or component-scoped
+(3) deprecated/archaic CSS
+(4) fragile rules (magic numbers, brittle `calc()/min()/max()` chains, viewport-unit traps, z-index coupling, browser-specific breakage)—unless highly befitting
+
+Ensure that we're using idiomatic tailwind applies for style, animations, colors: we should have a localized area that defines all of our design idioms—but still leverages proper colocation. Ensure design cohesion within our chosen aesthetic.
+
+
+Triumvariate dispatch to research, plan, update our tranche spec. And then impleemtn after prefected convergence and hardening.
+
+===== OWNER MSG #76 line=14595 ts=2026-06-08T05:43:20.682Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #77 line=14603 ts=2026-06-08T05:44:17.490Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #78 line=14614 ts=2026-06-08T05:45:24.907Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #79 line=14729 ts=2026-06-08T06:34:56.429Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_IgaWzT/Screenshot 2026-06-08 at 02.33.13.png'Too, within easing, we should just have the dropdonw--no text iput; duration slider should be the full length of the card, too; and remove the "value" label; remove the double container therein, and remove the "ease" title--more like controls--and make the bezier visualizer bigger as such.
+
+===== OWNER MSG #80 line=14936 ts=2026-06-08T12:29:25.488Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #81 line=14943 ts=2026-06-08T12:31:12.243Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #82 line=15052 ts=2026-06-08T12:52:14.318Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #83 line=15073 ts=2026-06-08T12:55:19.245Z =====
+Fix the currently running glass-ui spec and tranche, AX, if need be--there's an active session working on glass-ui now. communicate with that at the root.
+
+NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+===== OWNER MSG #85 line=15193 ts=2026-06-08T16:56:33.041Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset.
+
+===== OWNER MSG #86 line=15698 ts=2026-06-08T19:09:05.645Z =====
+The broken demo is fine. We'll fix this with our next tranche. This is a development product.
+
+===== OWNER MSG #87 line=15734 ts=2026-06-08T19:21:56.050Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_YN7gMg/Screenshot 2026-06-08 at 15.21.18.png'
+And the demo name should just be "keyframes.js".
+
+===== OWNER MSG #88 line=15791 ts=2026-06-08T19:59:48.628Z =====
+Further, for all debugging and chrome tasks, leverage the chrome-devtools-mcp.
+
+===== OWNER MSG #90 line=15929 ts=2026-06-08T23:13:08.192Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage.
+
+===== OWNER MSG #91 line=17031 ts=2026-06-09T04:07:43.217Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #92 line=17036 ts=2026-06-09T04:07:56.057Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #93 line=17054 ts=2026-06-09T13:29:57.774Z =====
+Continue
+
+===== OWNER MSG #94 line=17704 ts=2026-06-09T15:06:11.981Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #97 line=19800 ts=2026-06-10T00:57:24.787Z =====
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+===== OWNER MSG #98 line=19918 ts=2026-06-10T03:42:29.009Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #99 line=20305 ts=2026-06-10T05:37:31.059Z =====
+What of performance and animation quality, too? Are we truly SOTA? Based on our tranche doc research done hitherto? Lighthouse audit?
+
+===== OWNER MSG #100 line=20460 ts=2026-06-10T05:57:36.134Z =====
+Divine improvements that we could make to push the frontier further, folded in from informed research and the above.
+
+===== OWNER MSG #102 line=20673 ts=2026-06-10T17:25:30.162Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+===== OWNER MSG #103 line=20843 ts=2026-06-10T18:11:26.095Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #104 line=21422 ts=2026-06-10T21:29:06.615Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #105 line=21691 ts=2026-06-11T06:01:01.630Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #106 line=21779 ts=2026-06-11T06:59:30.976Z =====
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+ Spawn a dev instance using your dev tools MCP for me to audit as you go. Ensure the port is not occupied aforehand.
+
+===== OWNER MSG #107 line=21840 ts=2026-06-11T07:21:38.540Z =====
+Note: the fonts are still all wrong (no instrument serif in sight), and I think we're not up to date with glass-ui. Also, none of the animations are working correctly, like the cube does not spin when clicking play, but it does hover. These could be because of the in-flight work.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_V7suej/Screenshot 2026-06-11 at 03.14.12.png'
+
+The fontsize of the dropdown does not match the selected item itself--the options are all smaller. This needs to be fixed at the glass-ui root for all dropdown/popove rlike components.
+
+http://localhost:8080/#/amiga just hovers up and down too, it does not exec the animations properly
+
+http://localhost:8080/#/easing does not animate smoothly in the preview/bezier area? It's stepped almost.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_FDJlBF/Screenshot 2026-06-11 at 03.16.37.png'
+
+The bottom dock needs to be closer to the actual bottom, same with the top being closer to the top--though with a sense of golden proprotion (one tighter than the other?) and with a clean, non-hardcoded or contrived layout. '/Users/mkbabb/Downloads/Screenshot 2026-06-11 at 03.16.04.png'
+
+The glass card for the easing area needs to be refined--the "singular" dropdown area needs to have actual dropdown styling.
+
+The bottom dock should have a shrunken state of the selected animation and the rainbow playbutton'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_5WNSF7/Screenshot 2026-06-11 at 03.18.13.png'
+
+These sliders are not right--the latest glass-ui should have these fixed.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_3BBTRL/Screenshot 2026-06-11 at 03.18.38.png'
+
+The spring UI completely sucks and needs to be designed again from first principles, and made congruent with out other main animation/cube/amiga controls, with a keyframes variant, etc.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_E2TFho/Screenshot 2026-06-11 at 03.19.23.png'
+
+Sequence is just entirely broken and also needs to be rediesnged, or removed.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_bVhJvL/Screenshot 2026-06-11 at 03.19.46.png'
+
+And for items like spring (which may acutally need a new keyframes section, lol)--that only have ONE option, we should NOT display this other dropdown'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_Qt8HAl/Screenshot 2026-06-11 at 03.20.20.png'Or animation select, like for the other views. And the animation select should only be displayed if the count is > 1'/Users/mkbabb/Downloads/Screenshot 2026-06-11 at 03.20.15.png''/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_JvYzBx/Screenshot 2026-06-11 at 03.20.52.png'
+
+Also awful and needs to be redesigend idiomatically from first principles.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_1xFCja/Screenshot 2026-06-11 at 03.21.14.png'
+
+Same with path, which is just broken.
+
+Hereupon, run a frontend design plugin audit of our ui, easing ui--all UI panes.
+
+How might we better structure and suffuse proper design hierarchy of elements? Check for any obvious visual incongruences.
+
+Look for areas wherein we might better suffuse our design language of glass, grid, math, large and audacious typography, with colorful audacious pops, like those found in our icons (how might we increase this, too? within a sense of proportion), and our animation targets.
+
+What glass-ui idioms might we adopt—what glass-ui items, if totally befitting, might we smoothen, refine, hone, and abstract out--or just generally refine within an extant one component—within glass-ui. Look for gaps.
+
+===== OWNER MSG #108 line=22214 ts=2026-06-11T09:36:36.169Z =====
+Ensure: if we hit a usage limit, the session will automatically wake back up at some interval to check if we can return. When we do return, do so with this exact edict (until tranche completion):
+
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #109 line=22931 ts=2026-06-11T19:04:09.835Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #110 line=23303 ts=2026-06-12T03:32:46.221Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_zca4xU/Screenshot 2026-06-11 at 23.23.11.png'
+
+The dock here is not shrunked by default.
+
+When you click the rainbow playbutton from the hero screen it should SMOOTHLY transition immediately with no loading to the cube animating. It does not do that at all now.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_x5p34T/Screenshot 2026-06-11 at 23.24.04.png'
+
+Clicking the rainbow play button is totally broken, yet the animation slider progresses?'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_h3SXoK/Screenshot 2026-06-11 at 23.24.36.png'
+
+The amiga animation is totally broken and just floats around, and flashes constantly.
+
+None of the animations work properly. http://localhost:5180/#/square'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_2wORuT/Screenshot 2026-06-11 at 23.25.15.png'
+
+Most of the fonts are wrong. Like the bottom dock is not even instrument serif? This needs to be fixed at the root.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_kKKfvS/Screenshot 2026-06-11 at 23.25.42.png'
+
+The positions of the top and bottom dock, alongside the main animation area and controls, needs to be wildly refined on both desktop and mobile. This also needs to be a better, more modern grid and sub-grid layout. And further, the docks should not have hardcoded offsets if possible. And we must handle pathologically large screens, in both width and height, such that the docks begin to cluster and the controls cluster after being too large. Handle this idiomatically in a modern web guidance manner.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_Zmfhq7/Screenshot 2026-06-11 at 23.27.12.png'
+
+The top dock's expanded fonts are wrong.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_sNer99/Screenshot 2026-06-11 at 23.27.31.png'
+
+This should be on one line.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_kjz7hp/Screenshot 2026-06-11 at 23.27.46.png'
+
+These fonts are wrong and in consistent. This needs to be fixed globally.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_CsAaev/Screenshot 2026-06-11 at 23.28.11.png'
+
+The spring UI still sucks, does not have a proper keyframes editor'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_y0AqAi/Screenshot 2026-06-11 at 23.28.29.png'The tabs at the top look awful--if you must use tabs here, use the pills. You likely should just ahve items in the dock dropdown.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_2cWpHi/Screenshot 2026-06-11 at 23.28.59.png'Looks awful.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_EzhHkG/Screenshot 2026-06-11 at 23.29.08.png'looks awful.
+
+We must uprade to the latest glass-ui, which should fix the sliders and such.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_T6yf0H/Screenshot 2026-06-11 at 23.29.30.png'
+
+On the springs, the animation slider steps through with literal steps, its not smooth.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_ktJjNS/Screenshot 2026-06-11 at 23.29.55.png'Spring and the other vizs should have OPTINS like keyframes and such, not just one option. Whenever a dropdown in the top or bottom dock has ONE option, we should NOT even display that item, as there's nothing to even pick from.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_dQ8OlJ/Screenshot 2026-06-11 at 23.30.41.png'clipped on the left, and should be draggable. And I don't necessarily like this green. I prefer our main controls bar red with dashed outline for the final state.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_wuu0yM/Screenshot 2026-06-11 at 23.31.23.png'Better design hierarchy here with less useless information.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_2BJXG3/Screenshot 2026-06-11 at 23.31.46.png'
+
+Same for this, and this demo is totally broken, and when you drag it changes the size of the container, and doesn't even properly drag.
+
+The fourier field animation should be removed in the bg herein. And the grid lines made slightly less opaque. 
+
+Hereupon, run a frontend design plugin audit of our ui--all UI panes.
+
+How might we better structure and suffuse proper design hierarchy of elements? Check for any obvious visual incongruences.
+
+Look for areas wherein we might better suffuse our design language of glass, grid, math, large and audacious typography, with colorful audacious pops, like those found in our icons (how might we increase this, too? within a sense of proportion), and our animation targets.
+
+What glass-ui idioms might we adopt—what glass-ui items, if totally befitting, might we smoothen, refine, hone, and abstract out--or just generally refine within an extant one component—within glass-ui. Look for gaps.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+===== OWNER MSG #111 line=23404 ts=2026-06-12T04:25:59.303Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #112 line=23468 ts=2026-06-15T16:16:01.415Z =====
+Explicate what the deferred L is to be--we should likely fold that into K.
+
+===== OWNER MSG #113 line=23576 ts=2026-06-15T16:29:54.553Z =====
+We should plan full value.js execution and orchestration. Not just asks. Analyze the current value.js status and tranche status.
+
+===== OWNER MSG #114 line=23605 ts=2026-06-15T16:32:26.489Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow. Properly batch both requests.
+
+===== OWNER MSG #115 line=23703 ts=2026-06-15T17:47:46.510Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow. Properly batch both requests.
+
+===== OWNER MSG #116 line=23764 ts=2026-06-15T18:02:55.163Z =====
+Ratify all three and properly harden this with batches of 3 agents in parallel in a workflow. Fully develop this, NO workarounds. The limit's been reset.
+
+===== OWNER MSG #117 line=23765 ts=2026-06-15T18:03:20.777Z =====
+Ratify all three and properly harden this with batches of 3 agents in parallel in a workflow. Fully develop this, NO workarounds. The limit's been reset. Full wave specificatoin in every repo, pursuant to precepts/.
+
+===== OWNER MSG #118 line=23845 ts=2026-06-15T19:08:11.377Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #119 line=23859 ts=2026-06-15T19:19:37.208Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #120 line=23910 ts=2026-06-15T19:51:08.414Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #122 line=23954 ts=2026-06-16T01:00:03.881Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+Assume that a glass-ui BA tranche audit is inbound, with the 4.0.0 publish coming quite soon.
+
+===== OWNER MSG #123 line=24721 ts=2026-06-16T04:30:28.392Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #124 line=24767 ts=2026-06-16T04:59:22.655Z =====
+'/Users/mkbabb/Downloads/Screenshot 2026-06-16 at 00.55.21.png'
+
+Dock seems to be totally broken, and our controls UI is far too thin--should be likely 25% wider. Let those continue. Redress thereupon. The glass card panel should be a subtle border around the two controls elements.'/Users/mkbabb/Downloads/Screenshot 2026-06-16 at 00.56.27.png'
+
+Hover states for all buttons are uninteresting and not the correct color
+
+The timeline scrubber needs to be thicker.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_MzvGzi/Screenshot 2026-06-16 at 00.57.12.png'
+
+Thise draggable slider needs to be draggable even when the animation has not been started.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_Tsa1gf/Screenshot 2026-06-16 at 00.57.50.png'
+
+The dock is broken insofar as the collapsed state not being correct. And the hovwer to expand animation has an edge case flashing problem wherein the dock will instantly expand and then progress the rest of the animation--is this a glass-ui problem? Have we adoped 4.0.0 yet? Are there items we need to communicate to the glass-ui BB tranche that's being currently authored?
+
+===== OWNER MSG #125 line=24977 ts=2026-06-16T05:21:57.643Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #126 line=25643 ts=2026-06-16T17:30:38.121Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #127 line=25666 ts=2026-06-16T17:34:38.743Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #128 line=25674 ts=2026-06-16T17:38:57.649Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #129 line=25748 ts=2026-06-16T18:01:19.550Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #130 line=25906 ts=2026-06-16T18:51:17.941Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #131 line=25915 ts=2026-06-16T19:03:34.317Z =====
+All workflow items died. Properly batch them into groups of three. Re-deploy 
+  ALL workflows. No partial completions.
+
+===== OWNER MSG #133 line=26784 ts=2026-06-16T22:17:19.372Z =====
+Status, why is this taking so long?
+
+===== OWNER MSG #134 line=26908 ts=2026-06-16T22:35:06.272Z =====
+status
+
+===== OWNER MSG #135 line=27217 ts=2026-06-16T23:28:54.721Z =====
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+Consider both value.js and parse-that. How might we further true CSS parity. SOTA peformance and usability; true bi-directional CSS facilities with our compiler and frame compiler. What's the status of both value.js and parse-that insofar as tranches?
+
+===== OWNER MSG #136 line=27436 ts=2026-06-17T00:33:19.686Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #137 line=27672 ts=2026-06-17T03:26:39.050Z =====
+recap your reserach findings, and then deploy a frontend design fleet with opus and the frontend design plugin on every page of both the demo and value.js. full workflow deployment--be concisous of ratelimiting.
+
+===== OWNER MSG #138 line=27721 ts=2026-06-17T04:02:54.331Z =====
+I like the crayon primaries. These should be deftly, with a sense of proporition, folded into the extant tranche--not implemented yet. Our extant design language should be refined, not abrogated. Glass, paper, audaicious typograhy and mathematics. Easter eggs like the breathing sRGB gamut boundary is great. Harden the above. Deftly fold herein with adroitness--augment our wave set.
+
+===== OWNER MSG #140 line=27835 ts=2026-06-17T04:54:12.126Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+The glass-ui session, completing BB, is in-flight, so be concious of this: drive this tranche until completion, and wait upon glass-ui as needed. Be conscious of the rate limiting in your workflow deployment.
+
+===== OWNER MSG #141 line=29214 ts=2026-06-17T15:06:48.868Z =====
+The drive proof:hygiene has been running for 2 hours. Why. Don't necessarily kill it, but assay.
+
+===== OWNER MSG #142 line=29261 ts=2026-06-17T16:22:29.281Z =====
+It's now at 3 hours. This is preposterous--why does the proof: suite and test suite take so long to run? Deploy a workflow to analyze for contrivance and superfluity--why are these not proper tests/ in the tests dir, too? What are these proof: scripts, too--what's the import?
+
+===== OWNER MSG #143 line=29381 ts=2026-06-17T19:29:52.356Z =====
+Too, consider our value.js and parse-that tranches. And our ongoing glass-ui BB tranche.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+What of our performance numbers?
+
+===== OWNER MSG #145 line=29571 ts=2026-06-17T23:08:19.422Z =====
+What of all of the UI changes suffused and implemnted in this most recent tranche--did these all land? What of the new animations, new lighting, new frontend design hierarchy--what of the new glass-ui primitives? Harden and validate these.
+
+===== OWNER MSG #146 line=30108 ts=2026-06-18T01:15:18.912Z =====
+Deploy a triumvariate to research, prototype, plan, and tranche write the following:
+
+When switching animations, we should enter a new, robustly developed and stylized though SUBTLE in transformation, downloading stage animation switcher, redolent of the Donkey Kong 64'/Users/mkbabb/Downloads/Donkey+Kong+64_Character+Barrel_2.png.webp'
+
+The downlighting stage should be, facing the user, at a slight 15 degree or so angle downward, with the other animation scenes in a circular carosel ring, with each animation preview being a living, animated, preview of the animation scene to come. The UI should smoothly fade, liquid glass transition, into thie stage downlighting view. 
+
+The UI should gain those two arrows, though they should be glassy and animated to express intent. The new picker UI should be invoked when clicking the animation dropdown, and should smoothly transition into view with a liquid glass effect. The animation previews in the carousel should be interactive, allowing users to hover over them for a closer look or click to select an animation. The overall design should be sleek and modern, with a focus on subtlety and elegance in the transitions and animations. When clicking on a carousel item, it should spin to the selection front area and then fade into, smoothly, that new animation. The animation state should similarly be preserved and active when fully selected--but each animation should gain a new idle animation state that's like, interactive, and visually distinct. When hovering, the stage lighting should subtly brighten to highlight the hovered over item and partially shift the focus away from the front and centre stage item.
+
+Design and prototype this now, with a fully specified wave set. Leverage the above screenshot, research, and the frontend design plugin and crew to create a detailed design and prototype for the new animation switcher UI.
+
+===== OWNER MSG #147 line=30328 ts=2026-06-18T02:17:25.875Z =====
+The prototype is completely awful. Not 3d. These should be LIVE previews. They should be angled at the user at abount 15-30 degrees; the darkened areas are far too dark. The background should be our grid paper background, too, not pure black. There should be a smooth transition from the singular view to the stage select. The lighting is not active and dynamic. The carosuel is janky, blurry, and not smooth. This needs to be completely refined.
+
+===== OWNER MSG #148 line=30367 ts=2026-06-18T02:38:08.813Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #149 line=30392 ts=2026-06-18T02:43:36.270Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #150 line=30558 ts=2026-06-18T03:10:51.457Z =====
+start the prototype for me to audit.
+
+===== OWNER MSG #151 line=30574 ts=2026-06-18T03:16:32.974Z =====
+This is better, but still awful.
+
+We should execute this: when we're in the cube view and activate the scene switcher, we should zoom out, and the controls for the cube, the docks, should fade out, and the bottom dock should change to house the new arrows left and right. The zooming process should be grand, sweeping, and smooth, and when the cube animates into place, the other animation scenes should animate into place with idle animations--these should be actual live running previews, not icons or pre-loaded images. These should be tightly optimized with a sort of LOD rendering or run at a slower framerate. Each animation display should be fully interactive in its smaller form. The carousel disk should be pointed downwards at a slight angle towards the user, such that the back of the carousel is higher than the top, say at 15 degrees (right now it's inverted and not angled properly at all). All of this animation should be beautifully choreographed and fully detailed. Begin again with a fleet. Use proper glass-ui components and elements. Fully bake this now.
+
+===== OWNER MSG #152 line=30660 ts=2026-06-18T04:04:22.287Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #153 line=30692 ts=2026-06-18T04:21:40.454Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #154 line=30864 ts=2026-06-18T05:02:17.952Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #155 line=30889 ts=2026-06-18T06:22:06.953Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #156 line=31118 ts=2026-06-18T14:32:57.434Z =====
+The selector is not only slow but totally and unmeasurably wrong. We need to approach this from first principles and get each animation choregraphed stage working correctly. Create a detailed spec based on our last few prompts. Get each stage, one at a time, working. Break this up into its atomic parts. Use the chrome dev tools mcp. And leverage and dogfood our own libraries.
+
+===== OWNER MSG #157 line=31163 ts=2026-06-18T14:45:33.784Z =====
+Start.
+
+===== OWNER MSG #158 line=31229 ts=2026-06-18T14:50:23.872Z =====
+For now, let's shelf this idea and revert the stage selector (though keep the spec). Let's finalize and develop the latest tranche instead. This is going nowhere.
+
+===== OWNER MSG #159 line=31230 ts=2026-06-18T14:50:49.149Z =====
+For now, let's shelf this idea and revert the stage selector (though keep the spec). Let's finalize and develop the latest tranche instead. This is going nowhere. Let's focus on demo performance, design, and library performance and design, alongside locksteps with value.js and fourier-analysis.
+
+===== OWNER MSG #160 line=31231 ts=2026-06-18T14:51:02.110Z =====
+For now, let's shelf this idea and revert the stage selector (though keep the spec). Let's finalize and develop the latest tranche instead. This is going nowhere. Let's focus on demo performance, design, and library performance and design, alongside locksteps with value.js and fourier-analysis, and the forthcoming glass-ui BC tranche (analyze those waves).
+
+===== OWNER MSG #161 line=31295 ts=2026-06-18T14:59:23.467Z =====
+Stop stopping. Do we not already have a wave set? We should. What of the latest tranche.
+
+===== OWNER MSG #163 line=31504 ts=2026-06-18T15:18:44.049Z =====
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #164 line=31623 ts=2026-06-18T15:31:33.822Z =====
+This is the claim:
+
+⏺ value.js 0.13 is a single un-split module (no subpath) — so there's no clean atlas-side fix; importing parseCSSColor unavoidably pulls keyframes. This is a genuine
+  upstream (@mkbabb value.js/keyframes) regression: the eager light surface drags the heavy engine because the module isn't split. Root-repo-law forbids
+  consumer-patching it.
+
+  The atlas's own contract still holds (its loadAnimationEngine stays dynamic-gated). Let me re-record the lock seed, re-point the bundle-budget gate to the atlas source
+  contract (meaningful + honest about the upstream pull), and file the upstream ask. First the lock seed:
+  
+⏺ Reading 1 file… (ctrl+o to expand)
+  ⎿  tests/lock-hash.seed.json
+
+⏺ Update(tests/lock-hash.seed.json)
+  ⎿  Added 2 lines, removed 2 lines
+      2    "_comment": "E0 SET-D / lock-parity seed (INV-E5). The recorded SHA-256 of the capture substrate's package-lock.json at E0 author time. The lock-parity
+          gate (tests/build/lock-parity.spec.ts) asserts the live package-lock.json hashes to THIS value, so the gate substrate and the recorded substrate are the
+          SAME install. The E6 close RE-POINTS `algorithm`/`sha256` at the DEPLOYED bundle's lockfile artifact (the deploy-vs-capture parity the invariant ultimat
+         ely enforces); until then it pins the local lockfile.",
+      3    "file": "package-lock.json",
+      4    "algorithm": "sha256",
+      5 -  "sha256": "592c0626a50b281866d6ea30453092fe76b3583d7ef6d11a882596bcf27ab71c",                                                                          
+      6 -  "recordedAt": "2026-06-17 (I-GLYPH.a re-record: the geo-glyph bake added topojson-server + topojson-simplify as BUILD-TIME devDeps [the I-GLYPH pipelin
+        -e tooling — grep-confirmed ZERO in src/**, never in the runtime graph], changing package-lock.json. The seed re-pins the LOCAL lockfile per its between-d
+        -eploys contract; the deploy-vs-capture parity re-discharges at the I-arc deploy [I-A-CLOSE/I17] when this lock ships. Prior: I0 SFC-unit @vue/test-utils 
+        -hash fcd11b8a; F5 deploy 91534353 hash 1203b5ee.)",                                                                                                      
+      5 +  "sha256": "c1c994d38a5f53de7b3e75d124a540aaa79778f47899b8a9b0863a3485709d54",                                                                          
+      6 +  "recordedAt": "2026-06-18 (I1 BA→4.0 install-boundary re-record: the d6-bifurcation-trap EXACT pin to @mkbabb/glass-ui 4.0.1 [the BA cut — the dock cur
+        +e + /handmark + the metals + W-DRAWER-ABROGATE], with the required peer co-bump @mkbabb/value.js ^0.11.1→^0.13.0 [glass-ui 4.0.1 peerOptional ^0.13.0||^1
+        +.0.0]. keyframes.js held at 4.1.0 [^4.0.0 peer satisfied — NOT bumped to 4.3.0: the constellation co-bump tripped the eager-keyframes budget]. The seed r
+        +e-pins the LOCAL lockfile per its between-deploys contract. Prior: 2026-06-17 I-GLYPH.a hash 592c0626; I0 @vue/test-utils fcd11b8a; F5 deploy 91534353 ha
+        +sh 1203b5ee.)",                                                                                                                                          
+      7    "repointAt": "DISCHARGED-F5",
+      8    "deployArtifact": {
+      9      "project": "atlas",
+
+⏺ Lock seed re-recorded. Now the bundle-budget gate re-point. Let me read the two failing test blocks to re-point them to the atlas source contract (honest about the
+  upstream value.js pull).
+
+===== OWNER MSG #165 line=31650 ts=2026-06-18T15:37:30.013Z =====
+We own value.js--and this tranche for keyframes should resolve this problem. Part of our audit should include the value.js and fourier-analysis tranches. We should plan to optimize our libraries for keyframes, value.js, parse-that, and fourier-analysis.
+
+===== OWNER MSG #166 line=31683 ts=2026-06-18T15:50:16.738Z =====
+We should plan to fully specify the tranche set for the above repo constellation, pursuant to precepts: audit, research, plan, and refine in an iterative loop until convergence. Harden this until each tranche set/wave set is fully formed. keyframes' M tranche will then drive value.js and parse-that totally (fourier will be a consumer later) in one long-horizon session with multi-repo execution and discipline (including all dev changes, frontend changes, and ALL tranche items within value.js and parse-that).
+
+Research SOTA and brainstorm ideas for parse-that and value.js, to fold therein--do so based on an INFORMED basis, too--do not randomly brainstorm ideas for their tranches, or for the value.js demo that you're to refine.
+
+Tranche development only.
+
+===== OWNER MSG #167 line=31764 ts=2026-06-18T16:59:15.717Z =====
+parse-that's CSS parser is likely out of date. parse-that should be the parsing primitives--value.js then implements the combinator/scanner hybrid using those primitives. We should plan to remove the full css parser from parse-that if so. We should plan to support the latest (2026+) CSS spec to superscede what's possible with standard CSS, whilst also being fully bi-directional. This should be researched, planned, and hardened, too. The keyframes parser, and our parse-that primitives, should be a combinator/scanner hybrid that bests SOTA for javascript parsing. KISS.
+
+===== OWNER MSG #168 line=31860 ts=2026-06-18T17:37:13.118Z =====
+Moderate. Not a massive re-write.  Small changes. Implement the latest, and experiemental, CSS spec items. Full function support, full timeline and scrolling support--etc.
+
+===== OWNER MSG #169 line=31938 ts=2026-06-19T02:36:10.499Z =====
+What are we to ask glass-ui's BC tranche? What should we inform that agent of?
+
+===== OWNER MSG #170 line=31965 ts=2026-06-19T03:05:05.155Z =====
+What is planned for keyframes, value.js, and parse-that--what's the state of the current and planned CSS parsing/bidriectional idempotency/superceding the spec? What's the state of parse that, the scanner, the parse time performance--are we >SOTA? What of value.js?
+
+===== OWNER MSG #172 line=32009 ts=2026-06-19T05:13:03.732Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+===== OWNER MSG #173 line=32397 ts=2026-06-19T06:40:22.262Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #174 line=32405 ts=2026-06-19T06:41:35.075Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #175 line=33405 ts=2026-06-19T14:45:48.155Z =====
+master merge.
+
+===== OWNER MSG #177 line=34240 ts=2026-06-19T17:26:40.229Z =====
+The glass-ui changes are coming forthwith and are in active development. Analyze that tranche, and then the constellation of parse-that, value.js, and herein:
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #178 line=34399 ts=2026-06-19T21:04:43.917Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #179 line=34552 ts=2026-06-20T05:40:47.129Z =====
+Explicate 1.
+
+===== OWNER MSG #180 line=34567 ts=2026-06-20T05:46:11.349Z =====
+Let's communicate the need to glass-ui and then ratify all else.
+
+===== OWNER MSG #181 line=34622 ts=2026-06-20T18:08:49.194Z =====
+Take another pass at hardening for both value.js, parse-that, and keyframes.js. Brainstorm novel approaches for each library in a triumvariate that will challenge them: aggressively optimize. How can we best performance, architecture: and in the demos, how can we improve usability, clarity, and correctness (using the frontend design plugin in a fleet).
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #182 line=34647 ts=2026-06-20T22:38:04.813Z =====
+Take another pass at hardening for both value.js, parse-that, and keyframes.js. Brainstorm novel approaches for each library in a triumvariate that will challenge them: aggressively optimize. How can we best performance, architecture: and in the demos, how can we improve usability, clarity, and correctness (using the frontend design plugin in a fleet).
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #183 line=34881 ts=2026-06-22T15:07:25.231Z =====
+bbnf-lang is in prototype development and should not be used directly for any features. What is our parse-that plan?
+
+===== OWNER MSG #184 line=35016 ts=2026-06-22T18:05:18.118Z =====
+Analyze the above value.js and keyframes.js for similarly contrived items and reformulate accordingly.
+
+===== OWNER MSG #185 line=35017 ts=2026-06-22T18:06:07.896Z =====
+Analyze the above value.js and keyframes.js tranche specs, and perhaps the last 10 tranches for each, for similarly contrived items and reformulate accordingly. What have we done, what might we do to suffuse better API usage, performance, and elegance? Be conservative and fastidious in your approach.
+
+===== OWNER MSG #186 line=35038 ts=2026-06-22T18:30:52.132Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #187 line=35134 ts=2026-06-22T19:06:57.977Z =====
+For these items, prototype and validate their worth now. Test the SoA re-write, for example, rather than out right abrogating it. Novel CSS features like (if(), @function, spring() SHOULD be supported in our grammar for CSS--we can support it within our engine, browsers can catch up later.
+
+===== OWNER MSG #188 line=35259 ts=2026-06-22T19:17:56.892Z =====
+You do these NOW--prototype NOW. Research NOW--etc. This will inform our tranche development.
+
+===== OWNER MSG #189 line=35389 ts=2026-06-22T20:14:14.694Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #190 line=35485 ts=2026-06-22T20:37:18.755Z =====
+Take a pass at every item listed in each tranche set and harden, prototype, brainstorm--use the aforesaid loop.
+
+===== OWNER MSG #191 line=35486 ts=2026-06-22T20:37:39.185Z =====
+Take a pass at every item listed in each tranche set and harden, prototype, brainstorm--use the aforesaid loop. Full tranche hardening, wave authoring, augmentation, pruning, and analysis.
+
+===== OWNER MSG #193 line=35620 ts=2026-06-23T03:28:14.098Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+Set up a cron to re-try if we hit a session limit wall.
+
+===== OWNER MSG #194 line=36525 ts=2026-06-23T14:31:03.039Z =====
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+No deferrals in the next tranche. Harden in an iterative loop, looking for potential frictional areas of mid-tranche defferals and redress those with wave specifications now.
+
+===== OWNER MSG #195 line=36698 ts=2026-06-23T16:52:18.761Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+You must re-deploy.
+
+===== OWNER MSG #196 line=36810 ts=2026-06-23T17:05:57.762Z =====
+Nonsense. Fully re-deploy and harden this with a workflow.
+
+===== OWNER MSG #197 line=36907 ts=2026-06-23T18:48:08.929Z =====
+Recap the wave plans.
+
+===== OWNER MSG #199 line=36955 ts=2026-06-24T00:35:16.647Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+Set up a cron to re-try if we hit a session limit wall.
+
+===== OWNER MSG #200 line=38819 ts=2026-06-24T17:17:35.334Z =====
+What is │ keyframes-vue
+
+===== OWNER MSG #201 line=38830 ts=2026-06-24T17:18:28.850Z =====
+Overfit nonsense. Remove completely and revoke from NPM publishing.
+
+===== OWNER MSG #203 line=38854 ts=2026-06-24T17:28:20.398Z =====
+keyframes-vue was overfit nonsense. Remove completely and revoke from NPM publishing. Why did we remove Animation, too, what's our
+  in to the library? What of our readme, examples, documnets? I've just removed a bunch of files at the root--most
+  were junk.
+
+  The state of src is a mess. What are all of these files? Why is there no module or sub-dir encapuslation? Logical
+  grouping of files, modules, components, into directories without contrivance or over-engineering. KISS. What files
+  hereof can be deleted, what are superfluous, what are needed and can be re-structured into logical sub-modules,
+  with potential sub-modules thereof.
+
+  Analyze the extant backend codebase for any legacy code, deprecated code, temporary workarounds, fallback or fall-through behavior: in all instances, either excise the code entirely, or fail explicitly therein: no silent or graceful handling unless befitting. 
+
+This should be a fastidious and surgical refactor: thoroughly identify all areas herein with legacy behavior and get everything explicitly migrated to whatever new API—or facility—present.
+
+Divine an approach to achieve better encapsulation, consistency in service boundaries, dependency injection patterns, and pipeline orchestration.
+
+NO god modules: break large files (>500 lines especially) into smaller, cohesive sub-modules when appropriate and expedient; leverage better and modern patterns.
+
+NO workarounds, NO fallbacks, NO special cases. No effusive dynamicsim. NO nested imports. NO test files in src files.
+
+NO duplicated effort: DRY. KISS.
+
+Run linting and type checking to validate your changes at every interval.
+
+This is a library and demo code audit.
+
+Further, for our demo components and items, we should apply similar structuring and principles.
+
+Assay the frontend components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity. Remove the broken and deprecated scene switcher, css thereof, etc. All sub-components should be re-structured.
+
+Deploy a series of workflows, localized to core areas of the library and demo, alongside a gestalt library workflow and gestalt demo workflow. Challenge each claim made with a challenge and hardening workflow.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this new tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #204 line=39329 ts=2026-06-24T19:46:37.828Z =====
+5.0 is fine. Remove animate() in favor of our more idiomatic solutions.
+
+===== OWNER MSG #206 line=39450 ts=2026-06-24T21:18:04.838Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+Set up a cron to re-try if we hit a session limit wall.
+
+===== OWNER MSG #207 line=40847 ts=2026-06-25T18:37:59.557Z =====
+What remains? What's red?
+
+===== OWNER MSG #209 line=40945 ts=2026-07-02T17:40:45.108Z =====
+Given our most recent tranche development set, we seek to challenge, audit, and refine (by way of pruning, augmenting, or totally re-writing entire waves/tranches) it. The last 100+ distinct session messages from this project (excluding simple commands, meta-workflow items, or tranche begin/end messages) should be used to seed your analysis, alongside a historical review of previous tranches and their outcomes. The goal is to identify patterns, inconsistencies, and areas for improvement in the current tranche development set.
+
+For both the backend library and the demo--the backend library and frontend components should be aggressively analyzed in both content and layout within the directory: for example, our last tranche set was based on better component/composable/file encapsulation into modules, like within /Users/mkbabb/Programming/keyframes.js/demo and the backend library--yet we still have long-running dirs that could be easily colocated within their features, components, items. /Users/mkbabb/Programming/keyframes.js/demo/app still seems to be a mess; what even is /Users/mkbabb/Programming/keyframes.js/demo/playground.
+
+For our library, we should likely challenge further both the content and structure--for example, within compile/, why not have a backward/ module, and easing module, etc; within engine, why not have a css/ module, etc.
+
+Target and look for any legacy or deprecated code. And be aware of the forthcoming glass-ui 5.0.0 changes, coming from that library's BG/BH tranches.
+
+For our library, research again the SOTA in both parsing and animation. These same precepts, in library research and structure, should be applied to uplift parse-that, too. bbnf-lang is in active development, note, and should not be considered yet.
+
+Finally, analyze, too, and develop an entire tranche set, based on the shelved scene switcher from many tranches/sessions ago.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design (all design must be routed using Fable and the frontend design plugin), synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+Deploy several workflows to dissect the above and synthesize upon each pass.
+
+A pass should consist of the following, done sequentially in an iterative loop: 
+
+- 1. Deploy up to 8 agents in parallel to research the web, the extant codebase, the tranches hitherto, etc.
+- 2. Deploy an agent to then synthesize the result into a cogent specification and plan
+- 3. Deploy a fleet of prototyping agents—sometimes with concrete implementation, sometimes with prototype-augmented specification—to greenfield brainstorm and test-implement based on the begotten specification from 2.
+- 4. Deploy a fleet of critique agents to harden, challenge, and refine each begotten item: the hardened result should return with a percentage of convergence, alongside a critical analysis thereof
+- 5. A final synthesizing agent will then aggolmerate the above and begin the loop again with newfound contextual information.
+
+Whereupon 100% convergence, stop and develop out that exact tranche plan/wave set(s) to implement, refine, and align.
+
+Each frontend page within the demo should be analyzed using the frontend design plugin with a Fable instance.
+
+===== OWNER MSG #210 line=41366 ts=2026-07-03T03:01:00.141Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #211 line=41445 ts=2026-07-03T04:24:32.500Z =====
+The scene stage switcher that was implemented completly failed to deliver and must be re-opened, prototyped, designed from first principles given our spec and messages pursuant to it: DK-64 style. Scene drop lighting. LIVE scene rendering previews. Full 3d scene and carousel. Use a Fable agent and the frontend design plugin, in an iterative process.
+
+Fold all of the above, too, into fully formed waves Fix CI. Fix the bugs aforesaid with wave specs. This is tranche development and prototyping only.
+
+===== OWNER MSG #212 line=41638 ts=2026-07-03T18:43:09.749Z =====
+Let's validate the prototype. Display it to me to review.
+
+===== OWNER MSG #213 line=41746 ts=2026-07-03T19:31:52.554Z =====
+value.js is set to run its own tranche: ecoute:
+
+The coordination statement landed at keyframes.js/docs/tranches/S/VALUEJS-R-COORDINATION-2026-07-03.md (their commit
+  b7fea38), placed per their standing inbound-letter convention and written fully self-contained for a compacted
+  instance — every fact spelled out with repo:file:line cites, nothing assumed from session memory. It carries, in
+  order: what's incoming at value.js 2.0.0 (the KF-1 grammar fix + type→syntax/defaultValue→default rename, with their
+  exact deletion map — normalizeParam, NormalizedParam, VJS_PARAM_BUG_MAX, the coerceArg simplification, re-pin
+  ^2.0.0); the two rulings only the kf owner can make (S as authored has no scoped value.js-2.0.0 consume slot — its
+  S.C4/S2 "else KEEP" branch fires as written under S's two-edge budget; and the single-vs-double re-pin choice, since
+  kf is parse-that-free and 1.0.0 reaches it only through our ^1.0.0 follow-on publish); our reciprocal commitments
+  (S.H4 trigger correction adopted, the widened re-pin verify, color2Into + suite held green so their fold-row-46 gate
+  closes without firing its exit); the glass-ui 5.0.0 context (active BG/BH development, adopt-event books both
+  sides, peer-floor note riding our cut); and the letter+book mechanism ruling.
+
+===== OWNER MSG #214 line=41828 ts=2026-07-03T19:40:54.515Z =====
+Execute the doc changes, and then prepare for compaction and development of this forthcoming tranches
+
+===== OWNER MSG #216 line=41907 ts=2026-07-03T20:05:34.119Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+===== OWNER MSG #217 line=43621 ts=2026-07-04T04:35:48.208Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #218 line=43911 ts=2026-07-04T17:46:01.760Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #219 line=43946 ts=2026-07-04T18:12:09.685Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #220 line=44182 ts=2026-07-04T21:36:21.909Z =====
+value.js should be published, no?
+
+===== OWNER MSG #221 line=44502 ts=2026-07-05T00:03:04.146Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #222 line=44610 ts=2026-07-05T00:15:34.801Z =====
+spawn the dev server for me to audit the demo
+
+===== OWNER MSG #223 line=44631 ts=2026-07-05T00:18:53.833Z =====
+occuppied by another process. use another port.
+
+===== OWNER MSG #224 line=44643 ts=2026-07-05T00:37:24.569Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_r6B4Wc/Screenshot 2026-07-04 at 20.20.27.png' cube does not render fully.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_ZrmVrw/Screenshot 2026-07-04 at 20.20.46.png'--remove this crap.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_UsTsvX/Screenshot 2026-07-04 at 20.21.11.png'--the original hero animation is totally broken and should uplift each individual char.
+
+'/Users/mkbabb/Downloads/Screenshot 2026-07-04 at 20.20.58.png'--the docks are both blurry, broken, janky messes.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_cPIOrG/Screenshot 2026-07-04 at 20.21.46.png'Remove this as well.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_FIXvN0/Screenshot 2026-07-04 at 20.21.59.png'what's this superfluous dividing line when on the home screen? And the play button should be the first element.
+
+http://localhost:5180/#/amiga is a broken mess and does not properly interleave and stack animations.
+
+'/Users/mkbabb/Downloads/Screenshot 2026-07-04 at 20.23.10.png' remove the surrounding pane--it's superlfuous.
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_IjLN1w/Screenshot 2026-07-04 at 20.23.35.png' remove all alements like this.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_i1O27u/Screenshot 2026-07-04 at 20.23.47.png'
+
+All of the dock animations are ruined.
+
+http://localhost:5180/#/square--what even happened to this--totally a mess an unusable>
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_RuE6kI/Screenshot 2026-07-04 at 20.24.42.png' superfluous nonsense.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_4ASaRv/Screenshot 2026-07-04 at 20.25.02.png'Remove all of this.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_pftn28/Screenshot 2026-07-04 at 20.25.17.png'we should just have the easing balls previewed here.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_E758fC/Screenshot 2026-07-04 at 20.25.32.png'remove this button.
+
+Most of the fonts on the site are not right at all, like the sub-header hero and dropdowns are mostly wrong.
+
+Most of this page looks awful and needs to be re-designed with glass-ui in mind. I don't like this latent red theme.
+
+http://localhost:5180/#/spring'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_cN1eZV/Screenshot 2026-07-04 at 20.26.33.png'
+
+When we have a page with ONE option, like easing, spring, etc--the dock should not show an extra "spring" or "easing" item--it should elide that intelligently if there's only ONE option. Same for animations--that should not be displayed if an animation only has ONE sub-animation.
+
+The performance on every single page is god awful and needs to be rethought from the ground up.'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_6BG0S8/Screenshot 2026-07-04 at 20.28.16.png''/Users/mkbabb/Downloads/Screenshot 2026-07-04 at 20.28.13.png'--what the fuck even is this? If we're to have a keyframes option, it should be like the core cube/amiga/square (how it used to be) with sub options for the controls, keyframes, timeline, etc. wtf?
+
+http://localhost:5180/#/motion-path barely works.
+
+http://localhost:5180/#/morph does not work at all'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_QpcCgg/Screenshot 2026-07-04 at 20.30.08.png'
+
+There's this strange light that follows the cursor, but only partially--if you're going to implement this, it should be done right.
+
+http://localhost:5180/#/compose--just straight up remove this crap.
+
+motion-path, morph, and compose likely need to just be pruned. Square used to have a proper keyframes, controls, etc section but that was removed?
+
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_G020gJ/Screenshot 2026-07-04 at 20.31.31.png'
+
+The hero should be lower on the page, more towards the centre--it's OK if it sits a bit ontop of the cube.
+
+Ensure that ALL of our fonts, sizes, etc are consistent and that we're properly leveraging glass-ui components for items. Why do we not properly have a keyframes, controls, etc view for the other sub-animations? It's like we forgot about that facility entirely? Further, what the fuck are most of these items? /Users/mkbabb/Programming/keyframes.js/demo/@/components/custom/KfPillTabs.vue?? KF? Pills? Why aren't these just glass-ui components?
+
+/Users/mkbabb/Programming/keyframes.js/demo--this needs to be entirely re-structured from first-principles. Components should be structured and properly colocated into sub-components, composables, skeletons, constants, etc--and recursively so. Long running dirs shoudl be encapsulated into modules when befitting. /Users/mkbabb/Programming/keyframes.js/demo/@/styles--what the fuck is this?
+
+Analyze the extant codebase for any legacy code, deprecated code, temporary workarounds, fallback or fall-through behavior: in all instances, either excise the code entirely, or fail explicitly therein: no silent or graceful handling unless befitting. 
+
+This should be a fastidious and surgical refactor: thoroughly identify all areas herein with legacy behavior and get everything explicitly migrated to whatever new API—or facility—present.
+
+Divine an approach to achieve better encapsulation, consistency in service boundaries, dependency injection patterns, and pipeline orchestration.
+
+NO god modules: break large files (>500 lines especially) into smaller, cohesive sub-modules when appropriate and expedient; leverage better and modern patterns.
+
+NO workarounds, NO fallbacks, NO special cases. No effusive dynamicsim. NO nested imports. NO test files in src files.
+
+NO duplicated effort: DRY. KISS.
+
+Run linting and type checking to validate your changes at every interval.
+
+Assay the frontend components herein to look for areas of better encapsulation, consistency in       
+composables, useX's, state management and store management, etc.
+
+We should break large components (>500 lines especially) into smaller sub-components when befitting; leverage better and modern Vue patterns. Components and composeables should be colocated together when befitting in functionality. Complex components should be structured into sub-component dirs with components, composeables, constants,  skeletons, thereof, if needed.
+
+Logical grouping of files, modules, components, into directories without contrivance or over-engineering. KISS.
+
+Audit for deeply nested or brittle selector usage insofar as CSS or reactivity.
+
+Analyze for non-idiomatic tailwind or tenuous, brittle, bespoke styling in therein, too. Ensure that any style changes are perfectly isomorphic thereto, unless HIGHLY befitting otherwise. For styling focus on:
+
+(1) non-idiomatic Tailwind usage
+(2) monolithic/global stylesheet patterns that should be colocated or component-scoped
+(3) deprecated/archaic CSS
+(4) fragile rules (magic numbers, brittle `calc()/min()/max()` chains, viewport-unit traps, z-index coupling, browser-specific breakage)—unless highly befitting
+
+Ensure that we're using idiomatic tailwind applies for style, animations, colors: we should have a localized area that defines all of our design idioms—but still leverages proper colocation. Ensure design cohesion within our chosen aesthetic.
+
+wtf is /Users/mkbabb/Programming/keyframes.js/demo/app/chrome?
+
+wtf is 90% of the junk in /Users/mkbabb/Programming/keyframes.js/demo/app? Most of these should be pruned.
+
+Why aren't these properly composed into sub-components when needed? /Users/mkbabb/Programming/keyframes.js/demo/scenes
+
+The structure of /Users/mkbabb/Programming/keyframes.js/demo/@ is totally half baked and inconsistent.
+
+Leverage proper, and the latest, glass-ui components for all items when befitting. Delinate our gaps, and glass-ui's gaps--glass-ui is in active development with BG/BH forthcoming.
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design (all design must be routed using Fable and the frontend design plugin), synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+===== OWNER MSG #225 line=44803 ts=2026-07-05T00:59:31.012Z =====
+Ecoute-moi: we shall compact now. Re-ingest our exact original prompt, and then proceed, keep the extant running, too. You'll likely see a few gaps hereupon compaction.
+
+===== OWNER MSG #226 line=44804 ts=2026-07-05T00:59:53.913Z =====
+Ecoute-moi: we shall compact now. Re-ingest our exact original prompt thereafter, and then proceed, keep the extant running, too. You'll likely see a few gaps hereupon compaction. Tranche development and prototyping only.
+
+===== OWNER MSG #228 line=45084 ts=2026-07-05T04:46:53.738Z =====
+Ecoute-moi, and ensure this is to be planned:
+
+Further, our frontend structure--and this is a grand edict for ALL file directories--needs to be wildly re-structured: components should be COLOCATED with their sub-components, composables, skeletons, constants, etc (and this should be done recursively for nested components).
+
+Composables that are truly module-level or global-level—and other dirs of that nature—can be found within a composables/ dir therein, but otherwise they're to be COLOCATED--same for styles, etc.
+
+Long running dirs must and always be broken into common modules and encapsulated thereof.
+
+Similar treatment and enforcement should be applied to all backend files, too—though abstracted and made befitting for those languages and implementations.
+
+The library AND the demo should have a similar treatment. The demo should be AGGRESSIVELY analyzed for deprecated, legacy, superfluous code, sub-optimal encapsulation, glass-ui usage, etc.
+
+===== OWNER MSG #229 line=45289 ts=2026-07-05T06:18:47.933Z =====
+Spawn the prototypes for me to view. Aurora on hero. Prune morph and motion path unless you can convince me otherwise. Keep ppmycota.
+
+===== OWNER MSG #230 line=45310 ts=2026-07-05T06:22:12.327Z =====
+I like the aurora, but more subtle.
+
+Square is much better, but the controls need work. And that curve preview in the top left needs to be improved dramatically.
+
+Good.
+
+Ratify. Do not begin dev yet.
+
+===== OWNER MSG #231 line=45355 ts=2026-07-05T07:02:12.614Z =====
+Prepare for compaction: thereupon we shall begin execution.
+
+===== OWNER MSG #232 line=45357 ts=2026-07-05T07:02:27.616Z =====
+Prepare for compaction: thereupon we shall begin execution. Update your task list, and any other appurtenant items.
+
+===== OWNER MSG #234 line=45419 ts=2026-07-05T07:42:47.363Z =====
+Begin and continue the current tranche. You must read any and all appurtenant documentation and adhere exactly to the plan, in particular regarding agent orchestration and deep parallelization. Do not edit items directly unless befitting and fully orchestrate the processes as team lead.
+
+Continue through this indefatigably: do not relinquish control back to me until you have completed the plan IN TOTALITY. NO quick solutions, NO workarounds: idiomatic, gestalt approaches.
+
+Execute with maximal parallelism and workflow usage. You are authorized to publish, push, and pull whatever items you need--and deploy anything and everything via Cloudflare, AWS's CLI, etc.
+
+Use your core model for orchestration, design, synthesis, but defer to Opus or Sonnet for workflow fanout.
+
+===== OWNER MSG #235 line=46385 ts=2026-07-05T18:37:25.583Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #236 line=46745 ts=2026-07-06T02:53:44.453Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #237 line=46839 ts=2026-07-06T18:48:12.333Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #238 line=47316 ts=2026-07-06T23:51:50.419Z =====
+Relay for me the review packet with the stakes for each, and a proposed solution for each item.
+
+===== OWNER MSG #239 line=47330 ts=2026-07-06T23:55:23.442Z =====
+Ratify all with your best judgment. We shall adopt the glass-ui drawer, but ensure that we identify any gaps in that implementation and forward any and all glass-ui suggestions to that working agent's tranche execution (with the exhortation to research, plan, and fold into our running BG/BH wave set--no prefunctory implmentation)
+
+===== OWNER MSG #240 line=47462 ts=2026-07-07T04:39:48.543Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #241 line=47526 ts=2026-07-07T04:47:21.851Z =====
+Status?
+
+===== OWNER MSG #242 line=47793 ts=2026-07-09T21:41:31.086Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #244 line=48324 ts=2026-07-10T00:15:13.251Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #245 line=48531 ts=2026-07-10T01:31:18.196Z =====
+Why is this taking so long? Further, I see none of our code/module restructuring changes in this repo. Most of the demo and the library hereof is poorly encapsulated, contains long running dirs, etc--was this planned in this tranche? Any other tranche? What remains?
+
+===== OWNER MSG #246 line=48558 ts=2026-07-10T01:37:38.733Z =====
+Alright, that runner is entirely superfluous--our CI needs to be trimmed substantially (most of it's likely tautological).
+
+No more deferrals. This is now tranche development, with an emphasis on all of the above, plus a grand restructuring of our entire library and demo (all subcomponents, etc).
+
+DEEPLY audit with 32 agents in parallel our original plan and waves thereof, alongside all changes made herein.
+
+Devise a path forward: audit the hitherto made changes and the remaining plan; recapitulate our original prompts, plans, and precepts: NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+NO legacy code.
+
+Delineate any chronically deferred items and fold them into this tranche.
+
+Delineate any deferred items and fold them into this tranche.
+
+Recap ALL of our prompts and requests hitherto and ensure they've been addressed. 
+
+This is NOT an implementation phase. Tranche development only.
+
+Use your core model for orchestration, design (all design must be routed using Fable and the frontend design plugin), synthesis, but defer to Opus or Sonnet for workflow fanout. Use batches of three agents in parallel to avoid rate limit walls.
+
+Further, our frontend structure--and this is a grand edict for ALL file directories--needs to be wildly re-structured: components should be COLOCATED with their sub-components, composables, skeletons, constants, etc (and this should be done recursively for nested components).
+
+Composables that are truly module-level or global-level—and other dirs of that nature—can be found within a composables/ dir therein, but otherwise they're to be COLOCATED--same for styles, etc.
+
+Long running dirs must and always be broken into common modules and encapsulated thereof.
+
+Similar treatment and enforcement should be applied to all backend files, too—though abstracted and made befitting for those languages and implementations.
+
+Colocation, colocation, colocation. And performance is our grand edict.
+
+Further, what of value.js, parse-that, too--has parse-that been driven? value.js' most recent tranche is in active development, note.
+
+===== OWNER MSG #247 line=49039 ts=2026-07-10T04:26:31.758Z =====
+The trim is substantial. Total reimagining. KISS. Ensure no loss of functionality. We must get this sped up by at least an order of magnitude.
+
+demo/@/ is fine, but the core structure of the components themselves is to be redesigned and divined. Ensure homogenaity with our ther repos--what idioms have we established in glass-ui's post-BH component set? Is @ standard practice? Ensure we're not breaking our tool chaining, too.
+
+Glass-ui has a forthcoming 5.0.0 release. We use this.
+
+I'd like to keep monaco unless truly proven to be superior, and slimmer. No comporomises--is there not a better way? We want to have the fully featured editor + prettier on demand, language support, theming, etc.
+
+Tests stay in their own dir.
+
+5.3
+
+explicate 9--your language is recondite and cryptic.
+
+proof:scripts-colocated sounds overfit junk--unless this is turly well designed.
+
+proof:chunk-graph--no clue what you're trying to say here
+
+===== OWNER MSG #248 line=49184 ts=2026-07-10T05:27:50.768Z =====
+The primary issue with our animations was that the compositing and stacking and layering. Ensure that's assayed.
+
+===== OWNER MSG #249 line=49244 ts=2026-07-10T06:29:56.165Z =====
+Deploy a tranche spec coherence and cogency workflow, alongside another library and demo module restructuring pass. For example, long running dirs like:
+
+/Users/mkbabb/Programming/keyframes.js/src/animation/compile/easing-option.ts
+
+Should be broken into modules, like easing/, etc.
+
+Absurdly small modules should be abrogated for superfluity and instead made inline.
+
+All claude.md files should be deprecated and removed totally--that documentation can either live inline or briefly and deftly integrated into our readme.
+
+Files like /Users/mkbabb/Programming/keyframes.js/.dependency-cruiser-known-violations.json should be removed
+
+Every single component and library module should be assayed in an iterative, convergent loop, until perfected.
+
+Deploy several workflows to dissect the above and synthesize upon each pass.
+
+A pass should consist of the following, done sequentially in an iterative loop: 
+
+- 1. Deploy up to 8 agents in parallel to research the web, the extant codebase, the tranches hitherto, etc.
+- 2. Deploy an agent to then synthesize the result into a cogent specification and plan
+- 3. Deploy a fleet of prototyping agents—sometimes with concrete implementation, sometimes with prototype-augmented specification—to greenfield brainstorm and test-implement based on the begotten specification from 2.
+- 4. Deploy a fleet of critique agents to harden, challenge, and refine each begotten item: the hardened result should return with a percentage of convergence, alongside a critical analysis thereof
+- 5. A final synthesizing agent will then aggolmerate the above and begin the loop again with newfound contextual information.
+
+Whereupon 100% convergence, stop and develop out that exact tranche plan/wave set(s) to implement, refine, and align.
+
+NO quick solutions, NO workarounds: idiomatic, gestalt approaches. This is a development product, architectural transpositions in the sake of elegance, simplicity, and performance above all are both necessary and desirable.
+
+===== OWNER MSG #250 line=49312 ts=2026-07-10T06:53:34.613Z =====
+Ensure robustness: create a cron in light of any session limits. Note and mark your progress thereupon, with        
+    this exact command:                                                                                               
+                                                                                                                      
+    Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel      
+    to avoid rate limit walls.                                                                                        
+                                                                                                                      
+    The limit has been fully reset. Pick up where they left off with another workflow.                                
+                                                                                                                      
+  The current workflow died.
+
+===== OWNER MSG #251 line=49315 ts=2026-07-10T06:53:43.056Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel
+
+      to avoid rate limit walls.
+
+
+
+      The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #252 line=49409 ts=2026-07-10T18:11:29.288Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #253 line=49426 ts=2026-07-10T18:33:15.704Z =====
+'/var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/TemporaryItems/NSIRD_screencaptureui_5JpdWe/Screenshot 2026-07-10 at 14.27.42.png''/Users/mkbabb/Downloads/Screenshot 2026-07-10 at 14.27.34.png'
+
+I really, really do not like the wildly confusing structure of our components within the demo, too. The sub-components, like the keyframes/ one seems reasonable. But why are some stured in @, some stured in custom, some stored in /Users/mkbabb/Programming/keyframes.js/demo/app, some in /Users/mkbabb/Programming/keyframes.js/demo/app/dock (this needs to be straight up extirpated).
+
+The entire demo process, AND our library needs to be analyzed: every file, every component, to create a perfected module structure. All Claude.md files are to be removed, too. And legacy and meta files like /Users/mkbabb/Programming/keyframes.js/demo/glass-ui-gaps.ts are to as well be deleted.
+
+/Users/mkbabb/Programming/keyframes.js/src/animation as exploded in complexity and line count.
+
+This should be a grand restructuring and refactoring. What items are needlessly complex and overblown, over-modularized and broken out. We seek encapsulation and compartmentalization, but only when befitting: pointlessly small files are to be abrogated and melded into better modules, too.
+
+There's likely a great deal of duplication in functionality between the demo and the library that needs to be excised from the demo.
+
+How has our codebase grown to be 10x the size in the last few months?
+
+===== OWNER MSG #254 line=49549 ts=2026-07-10T23:43:45.062Z =====
+Continue. Re-deploy all workflows and agents thereof--no exceptions. Use batches of three agents in parallel to avoid rate limit walls.
+
+The limit has been fully reset. Pick up where they left off with another workflow.
+
+===== OWNER MSG #255 line=49604 ts=2026-07-11T04:20:36.920Z =====
+Explicate the asks alongside your potential answers.
+
+===== OWNER MSG #256 line=49624 ts=2026-07-11T04:23:39.254Z =====
+Ratify all. Prepare for compaction and tranche execution.
+
+===== OWNER MSG #257 line=49651 ts=2026-07-11T04:32:18.217Z =====
+Update your task list and note any memories accordingly.
+
+===== OWNER MSG #258 line=49677 ts=2026-07-11T04:53:07.228Z =====
+/compact
+

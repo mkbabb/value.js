@@ -1,0 +1,575 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.benchmark-capture/v1",
+  "status": "THIRD_CAPTURE_RUN_AFTER_TWO_UNPERSISTED_RUNS_ZERO_QUALIFICATION_CREDIT",
+  "disclosure": {
+    "first_run": "TIMING_COMPLETED_SUCCESSFULLY_BUT_RAW_JSON_WAS_RETURNED_ONLY_TO_THE_ORCHESTRATOR_AND_NOT_PERSISTED",
+    "second_run": "TIMING_COMPLETED_SUCCESSFULLY_BUT THE APPLY_PATCH_CAPTURE FAILED BEFORE PERSISTENCE",
+    "known_disposition_of_prior_runs": "ALL_FOUR_BEAT_LIVE_REGEX_AND_C14; NONE_BEAT_DEPOSED; ALL_FOUR_FAILED_QUALIFICATION",
+    "retry_rule": "NO_RETRY_WAS_PREDECLARED",
+    "consequence": "THIS THIRD CAPTURE IS REPRODUCIBLE PROTOTYPE EVIDENCE BUT CANNOT EARN G14 PERFORMANCE QUALIFICATION"
+  },
+  "exact_third_run": {
+    "schema": "value.pi.syntax-consume-number.g14.benchmark-result/v1",
+    "status": "TIMING_COMPLETE_CORRECTNESS_GATED_PROTOTYPE_EVIDENCE",
+    "manifest_sha256": "652f3f5056ff5d4fbcec69bba1b009a4a9612516d31da0a33ee4665b9a7e0807",
+    "harness_sha256": "90ee2014b7e8705208c0d45c6ebf245f53ec7be3a573512fec32fb3890193540",
+    "corpus_sha256": "d72a498433318ba9e8f25c34332afafea7f63caae24fcfaddc5ce429352732b5",
+    "validation": {
+      "h": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "b": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "s": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "d": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "live_regex": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "deposed": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64",
+      "c14": "PASS_24_OF_24_EXACT_LEAF_END_AND_BINARY64"
+    },
+    "protocol": {
+      "clock": "process.hrtime.bigint",
+      "lane_order": [
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14"
+      ],
+      "corpus_order": "fixed manifest row order; never shuffled",
+      "warmup_rounds": 7,
+      "warmup_repetitions": 500,
+      "trials": 21,
+      "repetitions_per_trial": 2000,
+      "operations_per_trial": 48000,
+      "schedule": "deterministic rotating round-robin; round/trial r begins at lane_order[r mod 7] and preserves cyclic order, so 7 warmups give every lane each position once and 21 trials give every lane each position three times",
+      "outlier_policy": "none; all 21 predeclared paired trials are retained",
+      "throughput_units_reported": false,
+      "statistics": {
+        "pairing": "candidate and peer elapsed nanoseconds at the same trial index",
+        "transform": "d_i = ln(candidate_elapsed_ns_i / peer_elapsed_ns_i)",
+        "estimator": "arithmetic mean of the 21 paired log ratios",
+        "confidence_rule": "upper = mean(d) + t_0.95,20 * sample_sd(d) / sqrt(21)",
+        "t_critical_one_sided_95_df_20": 1.7247182429207857,
+        "strict_pair_pass": "upper < 0, equivalently exp(upper) < 1; equality is failure",
+        "comparisons": [
+          "h < live_regex",
+          "h < deposed",
+          "h < c14",
+          "b < live_regex",
+          "b < deposed",
+          "b < c14",
+          "s < live_regex",
+          "s < deposed",
+          "s < c14",
+          "d < live_regex",
+          "d < deposed",
+          "d < c14"
+        ],
+        "candidate_qualification": "candidate passes only if its strict one-sided paired 95% rule passes against live_regex, deposed, and c14",
+        "multiplicity": "The requested 95% rule is per predeclared candidate-peer comparison; no post-hoc comparison, alpha change, or outlier removal is permitted."
+      }
+    },
+    "environment": {
+      "node": "v26.0.0",
+      "v8": "14.6.202.33-node.19",
+      "platform": "darwin",
+      "arch": "arm64",
+      "cpu_model": "Apple M5 Max",
+      "logical_cpus": 18,
+      "total_memory_bytes": 137438953472,
+      "exec_argv": [
+        "--require",
+        "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/node_modules/tsx/dist/preflight.cjs",
+        "--import",
+        "file:///Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/node_modules/tsx/dist/loader.mjs"
+      ]
+    },
+    "round_robin_orders": [
+      [
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14"
+      ],
+      [
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h"
+      ],
+      [
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b"
+      ],
+      [
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s"
+      ],
+      [
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d"
+      ],
+      [
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex"
+      ],
+      [
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed"
+      ],
+      [
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14"
+      ],
+      [
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h"
+      ],
+      [
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b"
+      ],
+      [
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s"
+      ],
+      [
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d"
+      ],
+      [
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex"
+      ],
+      [
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed"
+      ],
+      [
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14"
+      ],
+      [
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h"
+      ],
+      [
+        "s",
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b"
+      ],
+      [
+        "d",
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s"
+      ],
+      [
+        "live_regex",
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d"
+      ],
+      [
+        "deposed",
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex"
+      ],
+      [
+        "c14",
+        "h",
+        "b",
+        "s",
+        "d",
+        "live_regex",
+        "deposed"
+      ]
+    ],
+    "samples_elapsed_ns": {
+      "h": [
+        3881917,
+        5982458,
+        5041750,
+        3964125,
+        3878167,
+        6080375,
+        4862750,
+        3884416,
+        5040625,
+        5524584,
+        3836125,
+        5093958,
+        3818375,
+        4896417,
+        3947792,
+        5458834,
+        5917167,
+        5672709,
+        5544041,
+        5038708,
+        6251500
+      ],
+      "b": [
+        12306583,
+        13195000,
+        12858459,
+        13241416,
+        14489000,
+        14490583,
+        13750708,
+        12063208,
+        13581667,
+        14316750,
+        15405292,
+        13644291,
+        14193709,
+        13790125,
+        12054208,
+        13434209,
+        14422959,
+        14294042,
+        15070958,
+        14150167,
+        14363666
+      ],
+      "s": [
+        10331833,
+        10587458,
+        11022750,
+        10252459,
+        10404709,
+        10340792,
+        10322000,
+        10179708,
+        11949125,
+        11386917,
+        10352416,
+        10713792,
+        10164541,
+        10305750,
+        10228125,
+        12033084,
+        12828791,
+        11051167,
+        10939208,
+        10648416,
+        10308750
+      ],
+      "d": [
+        4161000,
+        3941083,
+        3915542,
+        3880542,
+        3819000,
+        3863375,
+        3754250,
+        3904583,
+        3878750,
+        3948292,
+        3939917,
+        3780334,
+        3798250,
+        3806500,
+        3884083,
+        3877042,
+        4041625,
+        4163542,
+        3940625,
+        3836417,
+        4149042
+      ],
+      "live_regex": [
+        19131917,
+        18893792,
+        19009500,
+        20245208,
+        19100125,
+        18763792,
+        18778625,
+        19357833,
+        18787959,
+        18905625,
+        19495625,
+        19134875,
+        19101083,
+        18908334,
+        18749375,
+        19173042,
+        19818875,
+        19823917,
+        20575542,
+        19464250,
+        19072917
+      ],
+      "deposed": [
+        2858292,
+        2799917,
+        2908041,
+        2877791,
+        2865917,
+        3005791,
+        2813125,
+        3020208,
+        2866500,
+        2784416,
+        2943584,
+        2857875,
+        2823292,
+        2759167,
+        2827041,
+        2876708,
+        2806541,
+        2976542,
+        3044208,
+        2861708,
+        2843250
+      ],
+      "c14": [
+        119649584,
+        114330292,
+        120981833,
+        118170417,
+        118261750,
+        113283125,
+        115922750,
+        115901791,
+        116419792,
+        117016125,
+        118089375,
+        117453750,
+        115562333,
+        115325375,
+        115156791,
+        121792667,
+        130258834,
+        119319833,
+        120497625,
+        118852292,
+        118017875
+      ]
+    },
+    "comparisons": {
+      "h": {
+        "live_regex": {
+          "samples": 21,
+          "mean_log_ratio": -1.3757121893235544,
+          "standard_deviation_log_ratio": 0.1786878415396555,
+          "one_sided_95_upper_log_ratio": -1.3084604513040796,
+          "geometric_mean_ratio": 0.25265959025066786,
+          "one_sided_95_upper_ratio": 0.2702357774299114,
+          "pass_strict_candidate_lt_peer": true
+        },
+        "deposed": {
+          "samples": 21,
+          "mean_log_ratio": 0.5251507139207033,
+          "standard_deviation_log_ratio": 0.17909328569927427,
+          "one_sided_95_upper_log_ratio": 0.5925550466784058,
+          "geometric_mean_ratio": 1.6907136432600036,
+          "one_sided_95_upper_ratio": 1.8086035834806893,
+          "pass_strict_candidate_lt_peer": false
+        },
+        "c14": {
+          "samples": 21,
+          "mean_log_ratio": -3.1895879155782816,
+          "standard_deviation_log_ratio": 0.17297475528000483,
+          "one_sided_95_upper_log_ratio": -3.124486379705221,
+          "geometric_mean_ratio": 0.04118884072194617,
+          "one_sided_95_upper_ratio": 0.043959506320608216,
+          "pass_strict_candidate_lt_peer": true
+        }
+      },
+      "b": {
+        "live_regex": {
+          "samples": 21,
+          "mean_log_ratio": -0.33713706698865953,
+          "standard_deviation_log_ratio": 0.06424054295677743,
+          "one_sided_95_upper_log_ratio": -0.31295921511058855,
+          "geometric_mean_ratio": 0.7138109932737817,
+          "one_sided_95_upper_ratio": 0.7312797371238897,
+          "pass_strict_candidate_lt_peer": true
+        },
+        "deposed": {
+          "samples": 21,
+          "mean_log_ratio": 1.563725836255598,
+          "standard_deviation_log_ratio": 0.06966600153586515,
+          "one_sided_95_upper_log_ratio": 1.5899456374675038,
+          "geometric_mean_ratio": 4.776584905562543,
+          "one_sided_95_upper_ratio": 4.9034823553620095,
+          "pass_strict_candidate_lt_peer": false
+        },
+        "c14": {
+          "samples": 21,
+          "mean_log_ratio": -2.151012793243387,
+          "standard_deviation_log_ratio": 0.0684567221607722,
+          "one_sided_95_upper_log_ratio": -2.125248121709166,
+          "geometric_mean_ratio": 0.1163662431272001,
+          "one_sided_95_upper_ratio": 0.11940333803060696,
+          "pass_strict_candidate_lt_peer": true
+        }
+      },
+      "s": {
+        "live_regex": {
+          "samples": 21,
+          "mean_log_ratio": -0.581746661311192,
+          "standard_deviation_log_ratio": 0.06509112190352125,
+          "one_sided_95_upper_log_ratio": -0.5572486818184025,
+          "geometric_mean_ratio": 0.5589212673294522,
+          "one_sided_95_upper_ratio": 0.5727828056711838,
+          "pass_strict_candidate_lt_peer": true
+        },
+        "deposed": {
+          "samples": 21,
+          "mean_log_ratio": 1.3191162419330653,
+          "standard_deviation_log_ratio": 0.07224516179928385,
+          "one_sided_95_upper_log_ratio": 1.3463067471886887,
+          "geometric_mean_ratio": 3.740114559849281,
+          "one_sided_95_upper_ratio": 3.8432053585204677,
+          "pass_strict_candidate_lt_peer": false
+        },
+        "c14": {
+          "samples": 21,
+          "mean_log_ratio": -2.3956223875659197,
+          "standard_deviation_log_ratio": 0.04789623413028539,
+          "one_sided_95_upper_log_ratio": -2.3775959512841065,
+          "geometric_mean_ratio": 0.09111595183583274,
+          "one_sided_95_upper_ratio": 0.09277334126753678,
+          "pass_strict_candidate_lt_peer": true
+        }
+      },
+      "d": {
+        "live_regex": {
+          "samples": 21,
+          "mean_log_ratio": -1.5920905134802612,
+          "standard_deviation_log_ratio": 0.033588982193284385,
+          "one_sided_95_upper_log_ratio": -1.5794488171491639,
+          "geometric_mean_ratio": 0.2034997477861688,
+          "one_sided_95_upper_ratio": 0.20608865944034102,
+          "pass_strict_candidate_lt_peer": true
+        },
+        "deposed": {
+          "samples": 21,
+          "mean_log_ratio": 0.30877238976399657,
+          "standard_deviation_log_ratio": 0.037049325375879114,
+          "one_sided_95_upper_log_ratio": 0.3227164359985242,
+          "geometric_mean_ratio": 1.3617523864449308,
+          "one_sided_95_upper_ratio": 1.3808737293031457,
+          "pass_strict_candidate_lt_peer": false
+        },
+        "c14": {
+          "samples": 21,
+          "mean_log_ratio": -3.4059662397349886,
+          "standard_deviation_log_ratio": 0.032715129107636,
+          "one_sided_95_upper_log_ratio": -3.3936534305753807,
+          "geometric_mean_ratio": 0.03317474982922627,
+          "one_sided_95_upper_ratio": 0.03358574927922714,
+          "pass_strict_candidate_lt_peer": true
+        }
+      }
+    },
+    "qualification": {
+      "h": "FAIL_NOT_STRICTLY_FASTER_THAN_ALL_THREE_PEERS",
+      "b": "FAIL_NOT_STRICTLY_FASTER_THAN_ALL_THREE_PEERS",
+      "s": "FAIL_NOT_STRICTLY_FASTER_THAN_ALL_THREE_PEERS",
+      "d": "FAIL_NOT_STRICTLY_FASTER_THAN_ALL_THREE_PEERS"
+    },
+    "allocation_evidence": {
+      "status": "UNAVAILABLE_PINNED_RUNTIME",
+      "rationale": "Pinned Node v26.0.0/V8 exposes no stable synchronous API for exact lane-attributable allocation counts or bytes. process.memoryUsage, heap deltas, and snapshots are GC- and heap-state-dependent; inspector/profiler instrumentation would perturb and cease to be the declared operation. Therefore this prototype emits no allocation estimate, comparison, or claim."
+    }
+  },
+  "credits": {
+    "benchmark": 0,
+    "performance": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

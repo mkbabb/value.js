@@ -1,0 +1,25 @@
+{
+  "schema": "value.pi.percentage-literal.g1.correctness/v1",
+  "candidateSha256": "1d1c37d20a9ef97f13466e96fbd65175d7c387aebd877ef400c81951fda23dc3",
+  "numeric": {
+    "acceptedReferenceSha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "differentialEvaluatorSha256": "49d393cdfe4c9b3fb8ee3dce5093ee7e1921fefaf69f91ebbef9832c06cb445a",
+    "differentialSources": 1468,
+    "differentialTransactions": 2936,
+    "inheritedPublicEvaluatorSha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "inheritedSuccesses": 77,
+    "failureRuns": 336,
+    "status": "PASS"
+  },
+  "percentage": {
+    "publicSuccesses": 5,
+    "publicFailures": 6,
+    "holdoutSuccesses": 5,
+    "holdoutFailures": 10,
+    "negativeZero": "Object.is(value, -0)",
+    "status": "PASS"
+  },
+  "strictTypeScript": "PASS",
+  "candidateMutationAfterBenchmark": false,
+  "featureCredit": 0
+}

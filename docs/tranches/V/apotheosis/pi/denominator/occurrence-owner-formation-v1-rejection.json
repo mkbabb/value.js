@@ -1,0 +1,61 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v1",
+  "status": "REJECTED_ZERO_DENOMINATOR_OWNER_GRAPH_COST_WAVE_OR_PARSER_CREDIT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v1.json",
+    "bytes": 12766323,
+    "sha256": "86d021681ed0e46c067b7a103c35f34ec0793d8eca90059e0d50c6a554f46407",
+    "payload_sha256": "b448dd79cc2d55c92e30305145949255cbf8f027c754ee8b36149ae358be5c92"
+  },
+  "generator": {
+    "path": "tools/occurrence-owner-formation-v1.mjs",
+    "bytes": 51103,
+    "sha256": "74105301b0dcf66f1c4b014c18e52479e2799edcb6bfd626fd5c4ea68c3b4863"
+  },
+  "challenges": [
+    {
+      "path": "../formation/occurrence-owner-v1-challenge-spec.md",
+      "verdict": "REJECT",
+      "bytes": 19828,
+      "sha256": "7171bfac873e7d224f7fe82487ea00bd29c166c27dbbe79cbb53a1b29a2a68e0"
+    },
+    {
+      "path": "../formation/occurrence-owner-v1-challenge-architecture.md",
+      "verdict": "REJECT",
+      "bytes": 21630,
+      "sha256": "6f127a66edca2a96123e2e3a08772c016c0c6578b9d87dcc51ecef3e1bdfad35"
+    }
+  ],
+  "root_gestalt": {
+    "path": "../formation/occurrence-owner-v1-root-gestalt.md",
+    "verdict": "REJECT",
+    "bytes": 6665,
+    "sha256": "0712c58b6cab1b7eef3dd67006f3b35b15c222fb54eeb7a0edf7cb6d9929021b"
+  },
+  "confirmed_blockers": [
+    "Informative, historical, context-truncated, and operation-incomplete carriers can receive successful non-RED semantic status.",
+    "Multi-domain functions, same-symbol multi-owner rows, and multi-name definitions can be forced to one owner without RED ambiguity.",
+    "Scoped references and target occurrence identity are lost, producing exact false joins such as set/Remove to unrelated remove definitions.",
+    "ATX and legacy operation structures are incompletely captured while the artifact describes a full-source occurrence formation.",
+    "The weighted lattice double-counts overlapping extraction roles and is not a cost over reviewed unique operations.",
+    "Owner-input and compatibility mappings include successful heuristic joins without exact authority; timing and diagnostic/result ownership conflict with the acknowledged DAG boundary."
+  ],
+  "retained_evidence": {
+    "authority": "REJECTED_CONTENT_ADDRESSED_DISCOVERY_ASSAY_ONLY",
+    "authenticated_sources": 168,
+    "authenticated_source_bytes": 14609103,
+    "stable_carrier_rows": 17079,
+    "syntactic_reference_discovery_rows": 4075,
+    "mandatory_counterexample_slices": 10,
+    "exact_legacy_export_names": 52,
+    "exact_consumer_symbol_names": 37,
+    "deterministic_replay": true,
+    "semantic_owner_edges_accepted": 0,
+    "owner_lattice_accepted": false,
+    "terminal_source_exclusions_authorized": 0
+  },
+  "parser_source_changes": 0,
+  "active_grammar_typescript_sources": 0,
+  "next": "A v2 formation may reuse exact authenticated source/carrier identities only with this rejection attached. It must default unreviewed semantics to RED, preserve context/scopes/target carrier IDs, repair compatibility ownership, remove heuristic cost, and pass two fresh challenges plus root gestalt."
+}

@@ -1,0 +1,10 @@
+# u-gestalt probe leg=dock @ 2026-07-12T20:05:41.848Z
+DOCK light-1440 box: {"x":16,"y":8,"w":1408,"h":71}
+DOCK light-1440 Tools-clicked=true scene-top before=0 after=0 shift=0
+DOCK light-390 box: {"x":16,"y":16,"w":358,"h":64}
+DOCK light-390 Tools-clicked=false scene-top before=29 after=29 shift=0
+DOCK dark-1440 box: {"x":16,"y":8,"w":1408,"h":71}
+DOCK dark-1440 Tools-clicked=true scene-top before=0 after=0 shift=0
+DOCK dark-390 box: {"x":16,"y":16,"w":358,"h":64}
+DOCK dark-390 Tools-clicked=false scene-top before=29 after=29 shift=0
+DONE dock

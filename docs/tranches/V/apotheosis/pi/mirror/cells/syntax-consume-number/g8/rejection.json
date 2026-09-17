@@ -1,0 +1,89 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G8-TERMINAL-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "date": "2026-07-22",
+  "status": "REJECTED_BEFORE_AUTHORS_ZERO_CREDIT",
+  "subject": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba",
+      "bytes": 9872
+    },
+    "precursor_closure_sha256": "ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d",
+    "authority_closure_sha256": "32ba6ab38f3169e57f180b14ee38654a1f8b8246e031a5bbea3d06a6cb7aad0d",
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9",
+      "bytes": 5651
+    },
+    "holdout_ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319",
+      "bytes": 287609
+    }
+  },
+  "challenges": [
+    {
+      "id": "A",
+      "reviewer_id": "g8-boundary-challenge-a-codex",
+      "verdict": "REJECT",
+      "path": "reviews/challenge-a.json",
+      "sha256": "34d9293325b088346a159867e59663c78cc68ff576cd24c5da369faa36644118",
+      "bytes": 9079
+    },
+    {
+      "id": "B",
+      "reviewer_id": "g8-boundary-challenge-b",
+      "verdict": "REJECT",
+      "path": "reviews/challenge-b.json",
+      "sha256": "2f6ce247be13d93c9fa780dd762ea684d88ec7c08dc46bada019ff3ae69daa21",
+      "bytes": 11375
+    }
+  ],
+  "root_gestalt": {
+    "reviewer_id": "value-pi-root-g8",
+    "verdict": "REJECT",
+    "path": "root-gestalt.json",
+    "sha256": "3a0a048d8b5e1466de7fb2339529022ac184782f5b9dc0e07e5de64c29f52da1",
+    "bytes": 3419
+  },
+  "holdout_destruction": {
+    "path": "holdout-destruction.json",
+    "sha256": "30862497e808cfc0795f73f80c98c8f2788e98e8b54d48f94369f19653d3dece",
+    "bytes": 5827,
+    "plaintext_revealed": false,
+    "secret_material_recoverable": false,
+    "reusable": false
+  },
+  "confirmed_blockers": [
+    "The actual pre-author CLI does not pin or fully validate the frozen G8 formation, precursor rows, authority closure, G7 terminal chain, or phase-appropriate zero-candidate state.",
+    "Boundary reviews and root are not schema-validated or joined to the exact subject and exact challenged review bytes; foreign minimal ACCEPT objects can authorize authors.",
+    "The boundary manifest requires the hashes of future reviews and root while claiming to be sealed before them; no immutable pre-review subject exists.",
+    "Boundary actor identities are not carried into the later evidence root, permitting actor-name substitution and reuse across skeptic/adjudicator roles.",
+    "The strict replay rejects legitimate post-holdout artifacts, while the admission path does not replace it with full phase-aware closure validation.",
+    "Holdout comparison inputs are unresolved, pre-reveal authenticity and freshness are not executable, and custody lacks a durable reveal/destruction transition.",
+    "Benchmark validation binds opaque files and arbitrary positive samples without independently proving execution, work units, observations, schedule, environment, statistics, or strict peer wins.",
+    "Required negative controls for foreign bundles, subject/review/root swapping, actor overlap, synthetic holdouts, and fabricated benchmarks are absent."
+  ],
+  "required_next": "G9 must be a smaller admission formation: freeze an immutable reviewed subject that contains no future review/root hashes; make both challenges bind that exact subject; make root bind the exact two challenges; add a final admission envelope; completely validate subject, formation, holdout, review, root, and actor joins; make replay lifecycle-aware; treat loss of private custody as terminal rejection; and move benchmark qualification to the post-candidate correctness gate where exact execution can be proved. G8 secret material is destroyed and forbidden from reuse.",
+  "state": {
+    "candidates": 0,
+    "authors": 0,
+    "skeptics": 0,
+    "adjudicators": 0,
+    "selected_hashes": 0,
+    "parser_sources": 0,
+    "benchmarks": 0,
+    "integrations": 0,
+    "production_mutations": 0
+  },
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

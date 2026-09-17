@@ -1,0 +1,10 @@
+{
+  "success": [
+    ["-0%", 3, {"kind":"percentage","number":{"sign":"-","type":"integer","value":0}}],
+    ["+.0e-0%", 7, {"kind":"percentage","number":{"sign":"+","type":"number","value":0}}],
+    ["000%", 4, {"kind":"percentage","number":{"sign":null,"type":"integer","value":0}}],
+    ["1E-2%tail", 5, {"kind":"percentage","number":{"sign":null,"type":"number","value":0.01}}],
+    ["999999999999999999999%", 22, {"kind":"percentage","number":{"sign":null,"type":"integer","value":1e+21}}]
+  ],
+  "failure": ["+%", "-.%", ".%", "1\n%", "1\t%", "1/*x*/%", "1e%", "1E-%", "--1%", "+-1%"]
+}

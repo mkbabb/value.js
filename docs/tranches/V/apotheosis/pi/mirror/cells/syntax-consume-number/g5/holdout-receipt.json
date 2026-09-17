@@ -1,0 +1,208 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G5-HOLDOUT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "status": "SEALED_PRE_AUTHOR_CIPHERTEXT_ONLY_ZERO_FEATURE_CREDIT",
+  "corpus_id": "8e9365ff-36fc-43f9-8698-a4b431902d21",
+  "custodian": {
+    "role": "sole-fresh-hidden-corpus-custodian",
+    "independence": "No candidate source existed or was accessed; no prior-generation corpus, generator, plaintext, result, key, nonce, or ciphertext was reused.",
+    "custody": "Plaintext and 256-bit key are retained only in this custodian tool-session store. No plaintext/key file was created in the workspace or private temp."
+  },
+  "precursor_closure": {
+    "row_count": 14,
+    "canonicalization": "<sha256><two spaces><decimal bytes><two spaces><cell-relative path><LF>, rows in declared precursor order",
+    "sha256": "67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682",
+    "rows": [
+      {
+        "path": "author-admission-protocol.json",
+        "sha256": "346541456cac4c2fd8c60e91d1e8e623043a4aec45d7a82c84381e19a0c812f8",
+        "bytes": 6528
+      },
+      {
+        "path": "author-admission-validator.mjs",
+        "sha256": "83473bf5bfa7e98ff38ba779f6faa710ef21e1de3eddfa726aa6c3e3895c8b7b",
+        "bytes": 39605
+      },
+      {
+        "path": "authorities/css-syntax-3.Overview.bs",
+        "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+        "bytes": 144427
+      },
+      {
+        "path": "authorities/css-values-4.Overview.bs",
+        "sha256": "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc",
+        "bytes": 230907
+      },
+      {
+        "path": "benchmark-receipt.schema.json",
+        "sha256": "821be7a472a626d6be6d76f812a0e0890df848c9efaac0a05a002e19e63fb91d",
+        "bytes": 8207
+      },
+      {
+        "path": "benchmark-runner.mjs",
+        "sha256": "a339be4caa600de623c078811fc305d422a3a3e5e3bc3c8202143b1445001ab3",
+        "bytes": 18274
+      },
+      {
+        "path": "contract.ts",
+        "sha256": "2ad6a53493e4fda84409aed74845102fed178d73daa6150ad574fb7ec35a7966",
+        "bytes": 1740
+      },
+      {
+        "path": "feature-public.json",
+        "sha256": "7404bd80e67e30ac7f1e6a952c60ffcf2bc6147e4fa3ebb58d1b8cfe8221c58c",
+        "bytes": 11210
+      },
+      {
+        "path": "fixtures/public-cases.json",
+        "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+        "bytes": 5213
+      },
+      {
+        "path": "formation-receipt.json",
+        "sha256": "07794e3eb427457745f32c48d75dff2e8c8e2eaa90adf0572d77e7414ce21dd3",
+        "bytes": 4837
+      },
+      {
+        "path": "harness.ts",
+        "sha256": "9e20d1f8519767fb619163e29583f3eb7c5bb6d56e240fce1d2fec1cf10eccc3",
+        "bytes": 12797
+      },
+      {
+        "path": "parse-that-package.ledger",
+        "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d",
+        "bytes": 5665
+      },
+      {
+        "path": "proof-inputs.ledger",
+        "sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1",
+        "bytes": 539
+      },
+      {
+        "path": "typescript-package.ledger",
+        "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+        "bytes": 12054
+      }
+    ]
+  },
+  "authorities": {
+    "css_syntax_3": {
+      "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "path": "authorities/css-syntax-3.Overview.bs",
+      "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "bytes": 144427,
+      "section": "4.3.13"
+    },
+    "css_values_4": {
+      "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "path": "authorities/css-values-4.Overview.bs",
+      "sha256": "7051146f8adf0b8c0e9243dd75dab39f18efe3e0905d86afb8abd43fe58d45bc",
+      "bytes": 230907,
+      "sections": [
+        "5.2",
+        "5.3",
+        "5.4",
+        "5.5"
+      ]
+    },
+    "module_dag": {
+      "path": "../../../../MODULE-DAG.md",
+      "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+      "bytes": 4880
+    },
+    "addenda_07": {
+      "path": "../../../../ADDENDA-07.md",
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5",
+      "bytes": 20954
+    },
+    "g4_rejection": {
+      "path": "../g4/rejection.json",
+      "sha256": "fb9f537f283f89587b8b6f45d28f5a9f56a22d1e5a0f80a37e6006af42c3f217",
+      "bytes": 1235
+    }
+  },
+  "plaintext_commitment": {
+    "sha256": "c3fb6a05c90a3dd5269cec18b7853de8cf19cf8c49aae111c15fdfbf579a127a",
+    "bytes": 82851,
+    "canonicalization": "UTF-8 JSON, two-space indentation, one final LF",
+    "disclosure": "HASH_AND_LENGTH_ONLY_PRE_AUTHOR"
+  },
+  "encryption": {
+    "algorithm": "AES-256-GCM",
+    "key_bits": 256,
+    "nonce_bytes": 12,
+    "authentication_tag_bytes": 16,
+    "envelope": "raw bytes: 8-byte ASCII magic VPI5CN1 plus NUL; 12-byte nonce; 16-byte authentication tag; ciphertext",
+    "aad": "canonical compact UTF-8 JSON binding receipt_id, feature_id, generation, corpus_id, precursor_closure_sha256, and plaintext_sha256",
+    "key_disclosure": "WITHHELD_PRE_AUTHOR"
+  },
+  "ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "encoding": "base64-with-final-lf",
+    "sha256": "a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212",
+    "bytes": 111971,
+    "decoded_envelope_bytes": 82887
+  },
+  "aggregate_coverage": {
+    "literal_cases": 150,
+    "literal_success": 116,
+    "literal_failure": 34,
+    "literal_by_category": {
+      "binary64-boundary": 24,
+      "malformed-start": 30,
+      "maximal-prefix-tail": 28,
+      "nonzero-offset-unicode-neighbor": 12,
+      "offset-after-combining": 1,
+      "offset-at-eof": 1,
+      "sign-mantissa-exponent-matrix": 48,
+      "utf16-after-astral": 1,
+      "utf16-after-high-surrogate": 1,
+      "utf16-after-low-surrogate": 1,
+      "utf16-high-surrogate-position": 1,
+      "utf16-low-surrogate-position": 1,
+      "utf16-low-surrogate-prefix": 1
+    },
+    "composition_cases": 32,
+    "composition_by_category": {
+      "dimension-accept": 4,
+      "dimension-reject": 4,
+      "integer-accept": 3,
+      "integer-reject": 4,
+      "number": 5,
+      "percentage-accept": 4,
+      "percentage-reject": 4,
+      "tail-boundary": 4
+    },
+    "state_invariance_sequences": 16,
+    "hostile_constructions": 12,
+    "semantic_leaf_success_assertions": 116,
+    "total_case_descriptors": 210
+  },
+  "coverage_law": [
+    "maximal-prefix tails and all sign/mantissa/exponent arms",
+    "guarded incomplete fraction and exponent cases",
+    "negative zero, underflow, subnormal, overflow, and binary64 rounding",
+    "nonzero offsets and Unicode/UTF-16 boundary neighbors",
+    "malformed starts with no-consumption failure",
+    "exact ordinary semantic-leaf shape and property descriptors",
+    "diagnostic mode, seeded state, source, and parser-instance invariance",
+    "number, integer, percentage, and dimension compositions",
+    "large hostile constructions with no-throw/work-limit evidence"
+  ],
+  "anti_duplication": {
+    "hidden_literal_source_offset_duplicates": 0,
+    "collisions_with_public_literal_source_offset_pairs": 0,
+    "hidden_ids_unique": true,
+    "composition_tuples_unique": true
+  },
+  "reveal_law": "Only after all four exact candidate authors close: recover this exact committed plaintext, verify hash/length and AES-GCM authentication against the published envelope/AAD, then reveal identical bytes to all candidates and reviewers. A mismatch destroys this generation.",
+  "workspace_absence": {
+    "plaintext_files": 0,
+    "key_files": 0,
+    "candidate_files_observed": 0,
+    "production_mutations": 0
+  },
+  "receipt_self_identity": "Externally report this exact receipt's SHA-256 and byte length; it cannot self-contain its own digest.",
+  "credit": "ZERO: ciphertext sealing grants no feature, parser, benchmark, conformance, acceptance, integration, movement, or production credit."
+}

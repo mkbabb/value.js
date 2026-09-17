@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "value.pi.syntax-consume-number.g11.author-task-witness/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "feature_id", "generation", "formation", "accepted_root", "root_external_receipt_adjudication", "tasks", "verdict"],
+  "properties": {
+    "schema": { "const": "value.pi.syntax-consume-number.g11.author-task-witness/v1" },
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 11 },
+    "formation": { "$ref": "#/$defs/identity" },
+    "accepted_root": { "$ref": "#/$defs/identity" },
+    "root_external_receipt_adjudication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["root_actor", "external_tool", "tool_receipts_observed_outside_workspace", "content_hashes_do_not_prove_task_identity"],
+      "properties": {
+        "root_actor": { "type": "string", "minLength": 1 },
+        "external_tool": { "const": "codex.collaboration.spawn_agent" },
+        "tool_receipts_observed_outside_workspace": { "const": true },
+        "content_hashes_do_not_prove_task_identity": { "const": true }
+      }
+    },
+    "tasks": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": { "$ref": "#/$defs/task" }
+    },
+    "verdict": { "const": "PREFLIGHT_TASKS_AUTHENTICATED_NO_WRITES" }
+  },
+  "$defs": {
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+        "bytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["seat", "canonical_task_id", "served_model", "served_model_receipt", "external_creation_receipt", "prompt", "inputs", "isolated_root", "preflight_output", "no_writes", "no_peer_access"],
+      "properties": {
+        "seat": { "enum": ["h", "b", "s", "d"] },
+        "canonical_task_id": { "type": "string", "pattern": "^/root/g11_author_[hbsd]$" },
+        "served_model": { "type": "string", "minLength": 1 },
+        "served_model_receipt": { "type": "string", "minLength": 1 },
+        "external_creation_receipt": { "type": "string", "minLength": 1 },
+        "prompt": { "$ref": "#/$defs/identity" },
+        "inputs": { "type": "array", "minItems": 5, "items": { "$ref": "#/$defs/identity" } },
+        "isolated_root": { "type": "string", "pattern": "^candidates/[hbsd]$" },
+        "preflight_output": { "type": "string", "pattern": "^READY_NO_WRITES" },
+        "no_writes": { "const": true },
+        "no_peer_access": { "const": true }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "v-pi-receiving-audit-subject/1",
+  "brief": "docs/tranches/V/apotheosis/pi/formation/session-audit/AUDIT-BRIEF.md",
+  "note": "Complete V·π tree INCLUDING the handoff packet and the raw archives. Excludes only formation/session-audit/receiving/** so the receiving audit does not self-hash. The inherited SUBJECT.json is untouched and still binds the pre-handoff tree.",
+  "repository": {
+    "root": "value.js",
+    "head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "branch": "tranche-u",
+    "treeOfHead": "948411a82365d90fd9e0ed16801a36079520c777",
+    "porcelainSha256": "dcd883ddfbaf6cb3f245ae6cdd84d62fd372f6407124edb462189920d65ab8c2",
+    "dirtyPathCount": 20
+  },
+  "tranche": {
+    "path": "docs/tranches/V/apotheosis/pi",
+    "fileCount": 2324,
+    "totalBytes": 354220932,
+    "ledger": "formation/session-audit/receiving/audit-subject-ledger.tsv",
+    "ledgerSha256": "b723e3cc25a3d30463cb331ff35f1502bdd676c0da264d218f50a5af8f593aea",
+    "trackedFilesInHead": 0,
+    "entirelyUntracked": true
+  },
+  "inherited": {
+    "subject": "formation/session-audit/SUBJECT.json",
+    "subjectSha256": "2c1891ebcb8cf257ec5d1d8aec4bb0e19f030f52f3f408b19d1c60c2f237237e",
+    "handoffManifestSha256": "f33585d4c59e3a3b0ec7e6f21ec5aecbe2190f9f36b916ba01f4b2ea95a87bdb"
+  },
+  "rawArchiveIndexSha256": "e28db08232fd1e447a7667a37ed89d0700e6ba7f862c86a83cd82dc815818cf3"
+}

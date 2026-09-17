@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g7:pre-author-receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "status", "manifest", "formation", "precursor_closure_sha256", "holdout_receipt", "holdout_ciphertext", "challenges", "root_gestalt", "candidates_absent", "closed_at", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 7 }, "status": { "const": "AUTHORS_MAY_BE_INVITED" },
+    "manifest": { "$ref": "#/$defs/identityRow" }, "formation": { "$ref": "#/$defs/identityRow" }, "precursor_closure_sha256": { "$ref": "#/$defs/sha256" },
+    "holdout_receipt": { "$ref": "#/$defs/identityRow" }, "holdout_ciphertext": { "$ref": "#/$defs/identityRow" },
+    "challenges": { "type": "array", "minItems": 2, "maxItems": 2, "items": { "type": "object", "additionalProperties": false, "required": ["id", "reviewer_id", "sha256", "bytes", "verdict"], "properties": { "id": { "enum": ["A", "B"] }, "reviewer_id": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 }, "verdict": { "const": "ACCEPT" } } } },
+    "root_gestalt": { "type": "object", "additionalProperties": false, "required": ["reviewer_id", "sha256", "bytes", "verdict"], "properties": { "reviewer_id": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 }, "verdict": { "const": "ACCEPT" } } },
+    "candidates_absent": { "const": true }, "closed_at": { "type": "string", "format": "date-time" },
+    "credit": { "const": "ZERO_AUTHOR_INVITATION_ONLY" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "identityRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } }
+  }
+}

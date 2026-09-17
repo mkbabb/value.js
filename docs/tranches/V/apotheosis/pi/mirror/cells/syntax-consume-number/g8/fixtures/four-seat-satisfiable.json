@@ -1,0 +1,50 @@
+{
+  "fixture_id": "G8-DETACHED-RECEIPT-FOUR-SEAT-SATISFIABLE",
+  "seats": [
+    {
+      "seat": "h",
+      "delivered_input": {
+        "common_rows": [{ "path": "common-law.json", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "bytes": 10 }, { "path": "contract.ts", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "bytes": 11 }],
+        "seat_packet": { "path": "seat-packets/h.json", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "bytes": 20 },
+        "seat_source_rows": [{ "path": "lineage/h.input", "sha256": "5555555555555555555555555555555555555555555555555555555555555555", "bytes": 30 }],
+        "closure_sha256": "ffb9508c075ba641880cf11ef82c16776f265b9ee5aadd8e985cb1be3e792e31"
+      },
+      "payload_rows": [{ "path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "bytes": 101 }],
+      "detached_author_receipt": { "candidate": { "payload_closure_sha256": "c4b2d98adf720d507789271a987f5c7ec2c534fca7be3edcbc6c143add2c2d84", "source_path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "source_sha256": "1111111111111111111111111111111111111111111111111111111111111111", "source_bytes": 101, "detached_receipt_excluded": true } }
+    },
+    {
+      "seat": "b",
+      "delivered_input": {
+        "common_rows": [{ "path": "common-law.json", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "bytes": 10 }, { "path": "contract.ts", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "bytes": 11 }],
+        "seat_packet": { "path": "seat-packets/b.json", "sha256": "2222222222222222222222222222222222222222222222222222222222222222", "bytes": 21 },
+        "seat_source_rows": [{ "path": "lineage/b.input", "sha256": "6666666666666666666666666666666666666666666666666666666666666666", "bytes": 31 }],
+        "closure_sha256": "ec284c68c8378923a19b71b04bdc9f201d34c94d6f2df66c3fe9ea707ee9bd45"
+      },
+      "payload_rows": [{ "path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "sha256": "2222222222222222222222222222222222222222222222222222222222222222", "bytes": 102 }],
+      "detached_author_receipt": { "candidate": { "payload_closure_sha256": "50ee1580ec42446b9b1e96329f0652ecb8b3c4da149e6980ce67eaadf5612e6a", "source_path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "source_sha256": "2222222222222222222222222222222222222222222222222222222222222222", "source_bytes": 102, "detached_receipt_excluded": true } }
+    },
+    {
+      "seat": "s",
+      "delivered_input": {
+        "common_rows": [{ "path": "common-law.json", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "bytes": 10 }, { "path": "contract.ts", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "bytes": 11 }],
+        "seat_packet": { "path": "seat-packets/s.json", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "bytes": 22 },
+        "seat_source_rows": [{ "path": "lineage/s.input", "sha256": "7777777777777777777777777777777777777777777777777777777777777777", "bytes": 32 }],
+        "closure_sha256": "87066d26eb57bb4bb9214419d1cb857fd886b05b7a5b7968e1f3673a7be13325"
+      },
+      "payload_rows": [{ "path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "bytes": 103 }],
+      "detached_author_receipt": { "candidate": { "payload_closure_sha256": "9399002c3991ee54c4d762f585ee794512ca0fdd002d65fa81ea75464851f36d", "source_path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "source_sha256": "3333333333333333333333333333333333333333333333333333333333333333", "source_bytes": 103, "detached_receipt_excluded": true } }
+    },
+    {
+      "seat": "d",
+      "delivered_input": {
+        "common_rows": [{ "path": "common-law.json", "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "bytes": 10 }, { "path": "contract.ts", "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "bytes": 11 }],
+        "seat_packet": { "path": "seat-packets/d.json", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "bytes": 23 },
+        "seat_source_rows": [{ "path": "lineage/d.input", "sha256": "8888888888888888888888888888888888888888888888888888888888888888", "bytes": 33 }],
+        "closure_sha256": "9e2d430faafed6aaccc9ae05a1460c274fa10529b7123fc43ed75a00122a1ffa"
+      },
+      "payload_rows": [{ "path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "bytes": 104 }],
+      "detached_author_receipt": { "candidate": { "payload_closure_sha256": "6b045aae1144ed0706e7de6f2426281918915e6fd8207d9c806a93d2ce69c4c7", "source_path": "overlay/grammar/css/l4/value-unit/consume-number.ts", "source_sha256": "4444444444444444444444444444444444444444444444444444444444444444", "source_bytes": 104, "detached_receipt_excluded": true } }
+    }
+  ],
+  "notice": "Identity-only proof fixture; it contains no candidate source or author receipt file."
+}

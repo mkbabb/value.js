@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "apotheosis/**/*.ts",
+    "cells/**/*.ts"
+  ],
+  "exclude": [
+    ".dts",
+    "bench",
+    "deps",
+    "grammar",
+    "harness",
+    "stylesheet",
+    "support",
+    "test",
+    "tools",
+    "*.ts"
+  ]
+}

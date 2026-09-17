@@ -1,0 +1,73 @@
+{
+  "subject": {
+    "status": "GREEN_BOUNDED_RESEARCH_PROTOTYPE_ZERO_DENOMINATOR_CREDIT",
+    "analyzer": {
+      "path": "denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "sha256": "8d31d5189599f03be502aab450b5f17a9615d499c29dabc9a657eda4e69323da",
+      "bytes": 27806
+    },
+    "oracle": {
+      "path": "denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "sha256": "19c9dd905990129d48a37eeb7d8667482cf61f8fec9b95e2574ddacdbd659ec2",
+      "bytes": 14073
+    },
+    "test": {
+      "path": "denominator/tools/occurrence-owner-v9/test.mjs",
+      "sha256": "7378e6514359252e9fcd6ce726f9c76053a1d913b73e7d9e0c8f4430aeaa56ab",
+      "bytes": 19213
+    },
+    "evidence": {
+      "path": "denominator/occurrence-owner-formation-v9-prototype-evidence.json",
+      "sha256": "1fcbcfc2c637d2add7dbedf3c6de1e8c7f150f69c8bd804dbaa19a308b845722",
+      "bytes": 6053
+    }
+  },
+  "challenges": [
+    {
+      "path": "formation/occurrence-owner-v9-prototype-challenge-a.json",
+      "sha256": "d37b05dedab2973f10b09dcc86a24b9ed5919473e2a1f528b2af758ee4bbd2ad",
+      "bytes": 26357,
+      "verdict": "REJECT"
+    },
+    {
+      "path": "formation/occurrence-owner-v9-prototype-challenge-b.json",
+      "sha256": "33cdf9e8e3b220b093d96658fa6fa3012de8b11d6b1f3141e4030a19c65f08b5",
+      "bytes": 30503,
+      "verdict": "REJECT"
+    }
+  ],
+  "verdict": "REJECT_REPAIR_REQUIRED_NO_FULL_CORPUS_RUN",
+  "gestalt": {
+    "total_denominator": "REJECT: the bounded prototype is useful research but has no complete operation ledger, 168-source launcher, shards, publication lifecycle, or independently adequate semantic oracle. Running the full corpus now would produce unauditable volume rather than denominator proof.",
+    "wave": "REJECT: the one-stream direction, exact zero-credit labels, parsed attributes, byte ranges, and isolated research root are sound; the implemented state, structure, owner, work, and oracle semantics contain confirmed counterexamples.",
+    "features": {
+      "source_partition": "REJECT: malformed raw closing tags and astral escapes cross state boundaries incorrectly.",
+      "reference_candidates": "REJECT: empty hrefs violate the oracle; excluded raw references can receive semantic definition targets; candidate collision handling truncates and silently drops.",
+      "structure_and_ownership": "REJECT: headings can begin mid-line, tag-split ATX and Setext forms are omitted, same-name nesting is paired with the first later close, and carrier provenance can be self-consistently fabricated.",
+      "operation_ledger": "REJECT: explicit operations bind by sequence and duplicate heading rows can claim the same interval; required source and byte locators are not executable join keys.",
+      "oracle": "REJECT: it validates internal consistency rather than independently deriving required discoveries; empty, fabricated, state-substituted, source-base-substituted, owner-substituted, and work-suppressed analyses can pass.",
+      "work_bound": "REJECT: transition_count counts source movement while omitting repeated suffix parsing, whole-source lowercase/search, prefix byte-length conversion, relation joins, URL work, and other helpers; measured false raw-end families are superlinear."
+    }
+  },
+  "accepted_narrow_evidence": [
+    "The V9 fixtures expose the right V8 defect classes and the analyzer/oracle split is a better research topology than the rejected V8 shared generator-oracle path.",
+    "The exact bounded suite deterministically replayed 18 V9 fixtures, 29 inherited regression cases, 512 no-throw inputs, 13 declared states, seven malformed scale points, and 15 named mutations; those facts remain evidence about the exact rejected subject only.",
+    "This analyzer is corpus research tooling and creates no lexer, scanner, token, atom, CST, or parser authority in the direct parse-that grammar."
+  ],
+  "required_repair": [
+    "Repair every reproduced state, heading, nesting, href, disposition, carrier, operation-ledger, collision, and UTF-8 counterexample and add it to the exact test corpus.",
+    "Make the oracle derive required semantics from source plus independently frozen expected inputs, including omissions and fabrications; do not accept self-consistency as semantic truth.",
+    "Eliminate hidden superlinear paths and count all bounded work, or replace the transition claim with an honest measured resource contract.",
+    "After a new exact repaired subject earns two fresh challenges and root acceptance, materialize and independently review the normative operation ledger before any 168-source execution.",
+    "A later full-source run still requires content-addressed cwd-independent launcher/import closure, resource limits, arbitrary-output publication, and real crash/fault evidence."
+  ],
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "operation": 0,
+    "owner": 0,
+    "compatibility": 0,
+    "parser": 0,
+    "production": 0
+  }
+}

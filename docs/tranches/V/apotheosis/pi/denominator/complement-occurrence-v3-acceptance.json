@@ -1,0 +1,27 @@
+{
+  "schema_version": "value.pi.css-source-complement-occurrence-v3-acceptance/v1",
+  "status": "ACCEPTED_NEUTRAL_DISCOVERY_ROUTING_ONLY",
+  "subject": {
+    "tool_sha256": "507c271018ce902d6ce4be824e46a0c2a37d7b714ae583eb4f2b11f6b683f8aa",
+    "artifact_sha256": "e84fd664badd815754337bff733dc796caa073314d40481c21442f9f22598bd2",
+    "artifact_bytes": 170987,
+    "payload_sha256": "fd831705a7d29d7fca52df2338185a5b448fb2477ad07280dc5d3e5bc5e8758b",
+    "receipt_sha256": "88c343dd58b87312df454b7da037bfbf8c6ac339dbe894e403975968713aa2de"
+  },
+  "challenges": [
+    {
+      "path": "../formation/denominator-complement-v3-challenge-a.md",
+      "bytes": 7666,
+      "sha256": "bc1f62007df6f6457e58fa7314d2699ed41f479f536792ea377bb0564e3504c4",
+      "verdict": "ACCEPT"
+    },
+    {
+      "path": "../formation/denominator-complement-v3-challenge-b.md",
+      "bytes": 11146,
+      "sha256": "e1fbfd9f4a0650f085a82c7446ca7b971afe6e4b18196d7f1e1bf5cbd90e51f7",
+      "verdict": "ACCEPT"
+    }
+  ],
+  "scope": "Next full-source occurrence-owner/fixed-point formation only; operation denominator and parser code remain RED.",
+  "next": "Union 76 seed plus 92 complement plus owner experiments and compatibility/consumer/DAG obligations into exact occurrence-to-owner rows, then two fresh challenges and gestalt."
+}

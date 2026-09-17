@@ -1,0 +1,241 @@
+{
+    "schema_version": "value.pi.full-source-occurrence-owner-formation/v9-blueprint",
+    "date": "2026-07-22",
+    "status": "RED_PREAUTHOR_BLUEPRINT_INCOMPLETE_ZERO_CREDIT",
+    "authority": {
+        "formation_only": true,
+        "may_generate_denominator_shards": false,
+        "may_promote": false,
+        "red_only": true
+    },
+    "v8_terminal_inputs": {
+        "subject": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v8.json",
+            "bytes": 24485,
+            "sha256": "1491335ca478a942efdbd7000f62a4e4aa57ce32b7db93af18ddeb346f5767af"
+        },
+        "challenge_a": {
+            "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-challenge-a.md",
+            "bytes": 13805,
+            "sha256": "6d0c14190c5632994e4c2e9cbfdd5b16867d8a8689e7f7191f61dfbfc8cdd56d"
+        },
+        "challenge_b": {
+            "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-challenge-b.md",
+            "bytes": 17864,
+            "sha256": "2c10bab979b0e2ef3c13d344e0ea2667b2950fba0fa41a0cde174024e67b018f"
+        },
+        "root": {
+            "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v8-root-gestalt.md",
+            "bytes": 7305,
+            "sha256": "d27225314682318d98c5bfde5abcfd4831949fa8d2d4ee9ac777fd8ff7e94f11"
+        },
+        "rejection": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v8-rejection.json",
+            "bytes": 3272,
+            "sha256": "1b34b1e557d8131a0d63647da2bb7418ea1347e9d9fd9e6d8c27b7eb09c634f5"
+        }
+    },
+    "reused_zero_credit_inputs": {
+        "source_universe": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/source-universe.json",
+            "bytes": 75132,
+            "sha256": "c1b823396dcc38607d23243f578e58ef08de79136edd52abd1bbdf6a64f606b7",
+            "sources": 168,
+            "source_bytes": 14609103,
+            "exact_paths_sha256": "5282efdfe9db215382a223e8393944227be8b5940bb3047129125daa61e19a15"
+        },
+        "v8_source_shard": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v8.shards/sources.json",
+            "bytes": 24279,
+            "sha256": "ff44e41c3767f3941f9dc5fe01089c8cbcdac1c50cbd0ce0751190b65d3c6373"
+        },
+        "v8_compatibility_shard": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v8.shards/compatibility.json",
+            "bytes": 3102,
+            "sha256": "882687365568d26319288652c5911e7845d651efc4db0722f131805e02445aa4",
+            "exports": 52,
+            "consumer_symbols": 37,
+            "dag_family_joined": 0
+        }
+    },
+    "formation_assets": {
+        "fixture_closure": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+            "bytes": 12452,
+            "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a"
+        },
+        "blueprint_schema": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.schema.json",
+            "bytes": 7029,
+            "sha256": "7eeb8244a5efb423e20dd3241884365ec60f1edd9b5786a4da421639f6ea579c"
+        },
+        "fixture_schema": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.schema.json",
+            "bytes": 4160,
+            "sha256": "da938323a26b645753a6b33653ab58a2523acd70b4607391a971f53a3cdb825c"
+        },
+        "internal_verifier": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9-blueprint/verify.mjs",
+            "bytes": 13064,
+            "sha256": "ad5033e87d62377069ca973e0b51147ab505531039359c1264501d3cd15e6c0a"
+        }
+    },
+    "required_analyzer_contract": {
+        "architecture": "ONE_SOURCE_ORDER_BYTE_POSITIONED_STREAM",
+        "coordinate_system": "UTF8_BYTE_HALF_OPEN",
+        "states": [
+            "VISIBLE_TEXT",
+            "ESCAPE",
+            "HTML_COMMENT",
+            "FENCED_BLOCK",
+            "DATABLOCK",
+            "RAW_SCRIPT",
+            "RAW_STYLE",
+            "RAW_XMP",
+            "RAW_PRE",
+            "PROCESSED_CODE",
+            "TAG",
+            "TAG_ATTRIBUTE",
+            "MALFORMED_TAG_RECOVERY"
+        ],
+        "single_stream_consumers": [
+            "carriers",
+            "headings",
+            "containers",
+            "definitions",
+            "operations",
+            "references"
+        ],
+        "laws": [
+            "Every transition advances the UTF-8 byte cursor or closes the current bounded construct.",
+            "Delimiter openers and closers pair only inside one eligible compatible state.",
+            "Every exact candidate interval has exactly one INCLUDED or REVIEWED_EXCLUDED disposition.",
+            "Only parsed attributes establish hrefs, identifiers, classes, definition scope, type, or alternate names.",
+            "Relative hrefs resolve against the pinned source URL before classification.",
+            "An absent URL path segment is data, never an exception.",
+            "Heading, container, definition, and operation ownership uses byte order and nesting, never line numbers alone.",
+            "Malformed input never throws and consumes at most 8*N+64 state transitions for N UTF-8 bytes."
+        ]
+    },
+    "normative_operation_ledger_contract": {
+        "status": "REQUIRED_NOT_YET_FULLY_MATERIALIZED",
+        "independence": "Declared and reviewed from pinned normative algorithms before analyzer output exists.",
+        "required_fields": [
+            "operation_id",
+            "source_id",
+            "source_byte_anchor_or_reviewed_locator",
+            "normative_family",
+            "entry_conditions",
+            "outputs",
+            "owner_candidate",
+            "citation_identity",
+            "review_status"
+        ],
+        "fixture_rows": [
+            {
+                "operation_id": "FIXTURE-PROCEDURE",
+                "fixture_case": "V8B-NORMATIVE-PROCEDURE",
+                "review_status": "FIXTURE_ONLY_NOT_NORMATIVE_CREDIT"
+            },
+            {
+                "operation_id": "FIXTURE-CONVERT-COLOR",
+                "fixture_case": "V8B-CONVERT-A-COLOR",
+                "review_status": "FIXTURE_ONLY_NOT_NORMATIVE_CREDIT"
+            },
+            {
+                "operation_id": "EXPLICIT-ALGORITHM-A",
+                "fixture_case": "V8A-SAME-LINE-BYTE-OWNERSHIP",
+                "review_status": "FIXTURE_ONLY_NOT_NORMATIVE_CREDIT"
+            },
+            {
+                "operation_id": "EXPLICIT-ALGORITHM-B",
+                "fixture_case": "V8A-SAME-LINE-BYTE-OWNERSHIP",
+                "review_status": "FIXTURE_ONLY_NOT_NORMATIVE_CREDIT"
+            }
+        ]
+    },
+    "independent_oracle_contract": {
+        "implementation_boundary": "NO_IMPORT_FROM_ANALYZER_GENERATOR_DISCOVERY_OR_TABLE_ASSEMBLY",
+        "required_relations": [
+            "state_partition_is_gapless_nonoverlapping_and_covers_source_bytes",
+            "candidate_to_disposition_is_total_and_one_to_one",
+            "reference_byte_slice_replays_exact_source",
+            "relative_href_resolution_matches_platform_URL_semantics",
+            "parsed_attribute_provenance_matches_attribute_byte_interval",
+            "ancestry_intervals_are_properly_nested_or_explicitly_recovered",
+            "operation_rows_biject_to_reviewed_normative_ledger_rows",
+            "stable_ids_are_collision_checked_without_truncation_silence",
+            "publication_never_exposes_manifest_for_incomplete_shards"
+        ],
+        "mutations": [
+            "opaque_state_delimiter_cross_pair",
+            "duplicate_disposition_same_interval",
+            "missing_disposition",
+            "relative_href_left_unresolved",
+            "draft_root_path_underflow",
+            "raw_attribute_prose_scope_fabrication",
+            "same_line_heading_owner_swap",
+            "processed_code_heading_promotion",
+            "unledgered_operation_admission",
+            "reviewed_operation_omission",
+            "stable_id_collision",
+            "launcher_substitution",
+            "dependency_restore_race",
+            "work_counter_suppression",
+            "publication_failure_each_rename_and_fsync"
+        ]
+    },
+    "execution_and_evidence_contract": {
+        "pre_execution": [
+            "A non-executing preflight authenticates the launcher bytes.",
+            "The launcher authenticates the complete transitive local module and schema set before dynamic import.",
+            "Runtime binary and validator dependency trees are content-addressed."
+        ],
+        "post_import": [
+            "All local modules, schemas, runtime, and validator identities are rechecked on every command path.",
+            "Fixture-only and failure paths cannot return before post-import attestation."
+        ],
+        "resource_evidence": [
+            "Raw /usr/bin/time maximum-RSS output with command, environment, exit, and artifact identities.",
+            "Analyzer transition counts for geometric malformed-input sizes.",
+            "No-throw results for every malformed fixture and arbitrary byte corpus.",
+            "Fault-injection receipts for every fsync, shard rename, manifest rename, and cleanup boundary."
+        ],
+        "publication": "STAGED_CONTENT_ADDRESSED_DIRECTORY_PLUS_ATOMIC_POINTER_AFTER_COMPLETE_VERIFICATION"
+    },
+    "fixture_closure": {
+        "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+        "bytes": 12452,
+        "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a",
+        "case_count": 18
+    },
+    "required_before_full_v9_subject": [
+        "Implement the analyzer and independent oracle in separate import closures.",
+        "Materialize and independently review the complete normative operation ledger for all 168 pinned sources.",
+        "Run inherited V6-V8 fixtures plus the V9 hostile closure.",
+        "Regenerate every shard twice into distinct arbitrary output roots and prove exact equality.",
+        "Run all invariant-specific mutations and demonstrate each named rejecting invariant.",
+        "Freeze raw RSS, work-scaling, no-throw, dependency, launcher, and publication-fault evidence.",
+        "Obtain two fresh independent exact-byte challenges and root gestalt."
+    ],
+    "known_unresolved_limitations": [
+        "No V9 analyzer, generator, semantic oracle, normative operation ledger, shards, or publication launcher exists in this blueprint.",
+        "The exact 168-source universe and compatibility identities are retained as zero-credit inputs only.",
+        "The fixture expectations are a pre-author contract and do not prove Bikeshed, HTML, CSS, or normative-operation completeness.",
+        "No resource, malformed-scaling, mutation, arbitrary-output, or publication-fault run can be credited before executable V9 tooling exists."
+    ],
+    "credits": {
+        "denominator": 0,
+        "semantic": 0,
+        "owner": 0,
+        "operation": 0,
+        "compatibility": 0,
+        "conformance": 0,
+        "parser": 0,
+        "feature": 0,
+        "cost_lattice": 0,
+        "movement": 0,
+        "integration": 0,
+        "production": 0
+    }
+}

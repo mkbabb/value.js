@@ -1,0 +1,51 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 3,
+  "number_start_prefix_evidence": [
+    { "id": "ns-digit", "arm": "digit", "source": "7x", "offset": 0, "representation": "7" },
+    { "id": "ns-plus-digit", "arm": "plus-digit", "source": "+7x", "offset": 0, "representation": "+7" },
+    { "id": "ns-minus-digit", "arm": "minus-digit", "source": "-7x", "offset": 0, "representation": "-7" },
+    { "id": "ns-dot-digit", "arm": "dot-digit", "source": ".7x", "offset": 0, "representation": ".7" },
+    { "id": "ns-plus-dot-digit", "arm": "plus-dot-digit", "source": "+.7x", "offset": 0, "representation": "+.7" },
+    { "id": "ns-minus-dot-digit", "arm": "minus-dot-digit", "source": "-.7x", "offset": 0, "representation": "-.7" }
+  ],
+  "prefix_cases": [
+    { "id": "zero-before-percent", "source": "0%", "offset": 0, "expected": { "representation": "0", "value": 0, "type": "integer", "sign": null, "start": 0, "end": 1 } },
+    { "id": "positive-zero", "source": "+0;", "offset": 0, "expected": { "representation": "+0", "value": 0, "type": "integer", "sign": "+", "start": 0, "end": 2 } },
+    { "id": "negative-zero", "source": "-0;", "offset": 0, "expected": { "representation": "-0", "value": -0, "type": "integer", "sign": "-", "start": 0, "end": 2 } },
+    { "id": "leading-zeros", "source": "00px", "offset": 0, "expected": { "representation": "00", "value": 0, "type": "integer", "sign": null, "start": 0, "end": 2 } },
+    { "id": "leading-dot", "source": ".5%", "offset": 0, "expected": { "representation": ".5", "value": 0.5, "type": "number", "sign": null, "start": 0, "end": 2 } },
+    { "id": "fraction", "source": "1.0rem", "offset": 0, "expected": { "representation": "1.0", "value": 1, "type": "number", "sign": null, "start": 0, "end": 3 } },
+    { "id": "lower-exponent", "source": "1e3px", "offset": 0, "expected": { "representation": "1e3", "value": 1000, "type": "number", "sign": null, "start": 0, "end": 3 } },
+    { "id": "upper-signed-exponent", "source": "1E+3%", "offset": 0, "expected": { "representation": "1E+3", "value": 1000, "type": "number", "sign": null, "start": 0, "end": 4 } },
+    { "id": "signed-fraction-exponent", "source": "x:+12.50E-2px", "offset": 2, "expected": { "representation": "+12.50E-2", "value": 0.125, "type": "number", "sign": "+", "start": 2, "end": 11 } },
+    { "id": "astral-prefix-offset", "source": "🙂-.5;", "offset": 2, "expected": { "representation": "-.5", "value": -0.5, "type": "number", "sign": "-", "start": 2, "end": 5 } },
+    { "id": "incomplete-dot", "source": "1.e2", "offset": 0, "expected": { "representation": "1", "value": 1, "type": "integer", "sign": null, "start": 0, "end": 1 } },
+    { "id": "incomplete-exponent", "source": "1e+px", "offset": 0, "expected": { "representation": "1", "value": 1, "type": "integer", "sign": null, "start": 0, "end": 1 } },
+    { "id": "adjacent-sign-boundary", "source": "10-20", "offset": 0, "expected": { "representation": "10", "value": 10, "type": "integer", "sign": null, "start": 0, "end": 2 } },
+    { "id": "empty", "source": "", "offset": 0, "expected": null },
+    { "id": "plus-only", "source": "+", "offset": 0, "expected": null },
+    { "id": "minus-only", "source": "-", "offset": 0, "expected": null },
+    { "id": "dot-only", "source": ".", "offset": 0, "expected": null },
+    { "id": "plus-dot-only", "source": "+.", "offset": 0, "expected": null },
+    { "id": "identifier", "source": "e1", "offset": 0, "expected": null },
+    { "id": "leading-trivia", "source": " 1", "offset": 0, "expected": null },
+    { "id": "non-ascii-digit", "source": "١", "offset": 0, "expected": null },
+    { "id": "replacement-character", "source": "�1", "offset": 0, "expected": null },
+    { "id": "nonzero-invalid", "source": "x+.", "offset": 1, "expected": null }
+  ],
+  "composition_cases": [
+    { "id": "number-composition", "kind": "number", "source": "pre;12.5]", "prefix": "pre;", "suffix": "]", "accepts": true, "representation": "12.5", "type": "number" },
+    { "id": "integer-composition", "kind": "integer", "source": "pre;+12]", "prefix": "pre;", "suffix": "]", "accepts": true, "representation": "+12", "type": "integer" },
+    { "id": "integer-rejects-fraction", "kind": "integer", "source": "pre;12.0]", "prefix": "pre;", "suffix": "]", "accepts": false },
+    { "id": "percentage-composition", "kind": "percentage", "source": "pre;1e2%]", "prefix": "pre;", "suffix": "]", "accepts": true, "representation": "1e2", "type": "number" },
+    { "id": "dimension-composition", "kind": "dimension", "source": "pre;-.5px]", "prefix": "pre;", "suffix": "]", "accepts": true, "representation": "-.5", "type": "number", "unit": "px" },
+    { "id": "percentage-is-not-number-only", "kind": "number", "source": "pre;5%]", "prefix": "pre;", "suffix": "%]", "accepts": true, "representation": "5", "type": "integer" }
+  ],
+  "hostile_cases": [
+    { "id": "digits-32768", "construction": "digits", "count": 32768 },
+    { "id": "fraction-32768", "construction": "fraction", "count": 32768 },
+    { "id": "exponent-32768", "construction": "exponent", "count": 32768 },
+    { "id": "incomplete-exponent-32768", "construction": "incomplete-exponent", "count": 32768 }
+  ]
+}

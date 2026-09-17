@@ -1,0 +1,8 @@
+{
+  "extends": "../../../../tsconfig.apotheosis.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["./benchmark.mts", "./bindings.ts", "./lanes.ts", "./protocol.ts"]
+}

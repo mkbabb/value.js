@@ -1,0 +1,218 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.h2.holdout-supplement/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 15,
+  "optimization_candidate": "h2",
+  "status": "PASS",
+  "evaluation": {
+    "executed_at": "2026-07-22T21:07:51.544Z",
+    "run_count": 1,
+    "candidate_loaded_once": true,
+    "benchmark_timing_performed": false,
+    "hidden_plaintext_persisted": false,
+    "failure_disclosure": "stable case IDs and assertion codes only"
+  },
+  "frozen_bindings": {
+    "candidate_set_sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40",
+    "receipt_sha256": "2ee93b9a8d239c9ecd6bd27762b826da69231a0bbb1b3f5def3fb7679b00dd1d",
+    "ciphertext_file_sha256": "5ff5a6b3f6bd9586711ec82a8f61a155ceeced7ac499a82bb6f9d08ba6c40ffe",
+    "ciphertext_sha256": "8b6476c3331f2f699566ed0da7f7a9e24693ab32e682a54ea8fe2054d621a01a",
+    "plaintext_sha256": "95c202bc1a7459c05fdf4beb573958e671256c228a515b661424713390ae1f11",
+    "aad_sha256": "1c9910aae04446f6c154586e93aeb9680a2555f2992a6f9ec9d690650582fbc4",
+    "semantic_contract_sha256": "2112d1d17c6463c5b1e81750bdbd4de6e32dbe0a23fec3723c2d6d4a9707b2c4",
+    "evaluator_sha256": "81e91458842749407d82043b9d93cd7cc1ad8a94c2d11be3a0d371ceca127e09",
+    "original_evidence_sha256": "b06c6345fe88149eb5cb90ff38a617dc08d5b26e8ae081ddfe80b9178322c63c",
+    "h2_source_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "h2_source_bytes": 560,
+    "h2_source_lines": 17,
+    "h2_source_mode": "0444"
+  },
+  "runtime_bindings": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "parse_that": {
+      "package": "@mkbabb/parse-that",
+      "version": "1.0.0",
+      "package_json_sha256": "f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff",
+      "import": "@mkbabb/parse-that/core"
+    },
+    "tsx": {
+      "version": "4.20.3",
+      "package_json_sha256": "6a87ac1c6bafd1620e605b25c31d7910c24373ec3688613cbd6c3a2f6937b2aa"
+    }
+  },
+  "corpus": {
+    "total_cases": 180,
+    "family_counts": {
+      "descriptors-mutability": 8,
+      "hostile-bounded-strings": 16,
+      "incomplete-exponents": 18,
+      "maximal-prefix": 24,
+      "no-per-call-parser-id-growth": 8,
+      "parent-composition": 24,
+      "parser-introspection": 8,
+      "repeated-call-stability": 10,
+      "repeated-fraction": 16,
+      "signs-leading-zeroes": 18,
+      "transaction-ahead-diagnostics": 14,
+      "utf16-offsets-surrogates": 16
+    },
+    "family_order": [
+      "maximal-prefix",
+      "repeated-fraction",
+      "signs-leading-zeroes",
+      "incomplete-exponents",
+      "utf16-offsets-surrogates",
+      "transaction-ahead-diagnostics",
+      "descriptors-mutability",
+      "parent-composition",
+      "hostile-bounded-strings",
+      "repeated-call-stability",
+      "parser-introspection",
+      "no-per-call-parser-id-growth"
+    ]
+  },
+  "result": {
+    "total_cases": 180,
+    "passed_cases": 180,
+    "failed_cases": 0,
+    "families": {
+      "maximal-prefix": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "repeated-fraction": {
+        "total": 16,
+        "passed": 16,
+        "failed": 0,
+        "failures": []
+      },
+      "signs-leading-zeroes": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0,
+        "failures": []
+      },
+      "incomplete-exponents": {
+        "total": 18,
+        "passed": 18,
+        "failed": 0,
+        "failures": []
+      },
+      "utf16-offsets-surrogates": {
+        "total": 16,
+        "passed": 16,
+        "failed": 0,
+        "failures": []
+      },
+      "transaction-ahead-diagnostics": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "failures": []
+      },
+      "descriptors-mutability": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "parent-composition": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "hostile-bounded-strings": {
+        "total": 16,
+        "passed": 16,
+        "failed": 0,
+        "failures": []
+      },
+      "repeated-call-stability": {
+        "total": 10,
+        "passed": 10,
+        "failed": 0,
+        "failures": []
+      },
+      "parser-introspection": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "no-per-call-parser-id-growth": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      }
+    },
+    "construction_stability": {
+      "total": 9,
+      "passed": 9,
+      "failed": 0,
+      "assertions": {
+        "exported_parser_instance": true,
+        "id_safe_integer": true,
+        "id_stable": true,
+        "context_object": true,
+        "context_identity_stable": true,
+        "own_keys_stable": true,
+        "to_string_non_throwing": true,
+        "to_string_nonempty": true,
+        "to_string_stable": true
+      },
+      "failures": []
+    },
+    "transaction": {
+      "total": 14,
+      "passed": 14,
+      "failed": 0,
+      "failures": []
+    },
+    "parent_composition": {
+      "total": 24,
+      "passed": 24,
+      "failed": 0,
+      "failures": []
+    },
+    "introspection": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "failures": []
+    },
+    "parser_id_growth": {
+      "total": 8,
+      "passed": 8,
+      "failed": 0,
+      "failures": []
+    },
+    "failures": [],
+    "verdict": "PASS"
+  },
+  "verdict": {
+    "accepted": true,
+    "candidate": "h2",
+    "hidden_failures": 0,
+    "construction_failures": 0
+  },
+  "authorship_receipt": {
+    "role": "independent preauthor holdout custodian and post-freeze optimization evaluator",
+    "agent": "Codex",
+    "model_family": "OpenAI GPT-5",
+    "exact_provider_checkpoint_available_to_agent": false,
+    "runtime_surface": "Codex desktop agent",
+    "h2_source_inspected_only_after_exact_hash_verification": true,
+    "h2_author_hidden_case_access": "reported false by root; not independently audited here",
+    "h3_or_h4_inspected_or_evaluated": false,
+    "hidden_corpus_decrypted_in_memory_only": true,
+    "hidden_plaintext_or_key_persisted_in_repository": false,
+    "original_holdout_evidence_mutated": false,
+    "benchmark_timing_performed": false
+  }
+}

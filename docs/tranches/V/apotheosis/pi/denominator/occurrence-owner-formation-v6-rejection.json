@@ -1,0 +1,61 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v6",
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_CHALLENGES_AND_ROOT_GESTALT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v6.json",
+    "bytes": 20149,
+    "sha256": "13c212e58c45f685e2a7cb5a1bd6a63c1f964a318a2701e2912edfdeb414564d"
+  },
+  "schemas": [
+    { "path": "occurrence-owner-formation-v6.schema.json", "bytes": 11617, "sha256": "b3a7131d643b469bdce4b1538ae1946d5cec19b970de71a2026078c9262f53ba" },
+    { "path": "occurrence-owner-formation-v6-shard.schema.json", "bytes": 13811, "sha256": "23eaa9f7f7895c4c7c47005e56f06300cf4097a4b3d8ccbbd61c332e15c6dc48" }
+  ],
+  "formation_receipt": {
+    "path": "../formation/occurrence-owner-v6-formation-2026-07-22.md",
+    "bytes": 8717,
+    "sha256": "019d1e1c4f988ec5046700ad44cf82fd6e90df1ffc19984181fed21ddec8097f"
+  },
+  "challenges": [
+    { "path": "../formation/occurrence-owner-v6-challenge-a.md", "bytes": 12626, "sha256": "54b847e2054302f6940eb609807c75e73145cbf82027fedd0c16e5d1dfca6008", "verdict": "REJECT" },
+    { "path": "../formation/occurrence-owner-v6-challenge-b.md", "bytes": 10279, "sha256": "bf9aa9249e42df1a27656b470c0d4f767c0573bfd6f30ac0f482dbfb1948ec5f", "verdict": "REJECT" }
+  ],
+  "root_gestalt": {
+    "path": "../formation/occurrence-owner-v6-root-gestalt.md",
+    "bytes": 5598,
+    "sha256": "36be4af93d420403b66022db7f4a29039404c6bd85773c162349be64cff0a5f5",
+    "verdict": "REJECT"
+  },
+  "root_reproduction": {
+    "direct_discovery_failures_reproduced": 3,
+    "false_heading_context_rows_reproduced": 1,
+    "unregenerated_semantic_dictionaries_confirmed": 2
+  },
+  "confirmed_blockers": [
+    "valid LF and CRLF multiline Bikeshed delimiters are categorically omitted",
+    "six authenticated multiline bibliography and 22 multiline definition occurrences are absent",
+    "blanket code and samp opacity erases genuine Bikeshed-processed links",
+    "mixed Bikeshed and HTML heading levels plus multiline HTML openings produce false section ancestry",
+    "owner source-line text is not compared to authenticated source bytes or its stored SHA-256",
+    "semantic code strings are not independently rederived or bound to the exact RED vocabulary"
+  ],
+  "accepted_narrow_facts": [
+    "exact replay canonical sharding staged publication disclosure and residual TOCTOU disclosure remain truthful",
+    "independent full runs remain below 900 MiB",
+    "168-source 52-export and 37-consumer inputs remain RED and unjoined",
+    "311 current algorithm-bearing openings including 293 literal-div openings remain a snapshot fact",
+    "all semantic owner operation compatibility conformance parser audit movement and production credits remain zero"
+  ],
+  "credit": {
+    "denominator": 0,
+    "parser": 0,
+    "owner_graph": 0,
+    "cost_lattice": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "audit": 0,
+    "movement": 0,
+    "production": 0
+  },
+  "next": "Cut a fresh RED-only V7 subject repairing multiline reference discovery, Bikeshed code-span processing, heading ancestry, owner-line provenance, and semantic code vocabulary binding; then obtain two fresh challenges and root gestalt."
+}

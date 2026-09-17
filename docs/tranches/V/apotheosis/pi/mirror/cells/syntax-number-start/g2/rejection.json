@@ -1,0 +1,31 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 2,
+  "verdict": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "manifest_sha256": "72183fb4dc3dae48c0e554bda1846beefcc57fcb1fe7874db7b092e2d23df9f5",
+  "challenges": [
+    {
+      "axis": "specification",
+      "verdict": "REJECT",
+      "receipt": "reviews/specification-boundary.md"
+    },
+    {
+      "axis": "architecture",
+      "verdict": "REJECT",
+      "receipt": "reviews/architecture-boundary.md"
+    }
+  ],
+  "blocker_classes": [
+    "diagnostic profile and equality law",
+    "complete public semantic-arm fixtures",
+    "global diagnostics-mode determinism",
+    "benchmark corpus/schedule/allocation reproducibility",
+    "transitive byte-exact promotion",
+    "candidate lineage versus bounded-work contract",
+    "raw/preprocessed mapped-position domain"
+  ],
+  "candidate_sources_authored": false,
+  "holdout_revealed": false,
+  "credit": "FORMATION_EVIDENCE_ONLY",
+  "next_generation": 3
+}

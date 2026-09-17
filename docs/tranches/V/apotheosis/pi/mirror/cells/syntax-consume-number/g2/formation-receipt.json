@@ -1,0 +1,78 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G2-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 2,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "cell": "cells/syntax-consume-number/g2",
+  "formation": {
+    "reason": "G1 was rejected before holdout because the package-default strict proof configuration could not resolve its explicit static JSON fixture import. G2 preserves the semantic boundary and public cases while binding the corrected shared proof configuration.",
+    "g1_rejection": { "path": "../g1/rejection.json", "sha256": "64b8a26e8bdd42fbf9e9b12cfccac314d530488ffe7950f365752367e6b5ad89", "bytes": 2797 },
+    "selected_boundary": "Consume the maximal CSS Syntax §4.3.13 number representation at the current parse-that position and return exactly Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>.",
+    "smallest_public_seam": true,
+    "representation_and_extent": "The representation and entry/final offsets are external ParserState/source observations only; they are not fields of the semantic result.",
+    "carrier": "ECMAScript binary64 Number(consumedRepresentation), compared with Object.is so negative zero is preserved; precision rounding, signed Infinity overflow, and signed-zero underflow are explicit. No broader numeric evaluation or serialization credit follows.",
+    "composition_witnesses": ["number", "integer", "percentage", "dimension"],
+    "subordinate_number_start_evidence": "Exactly six §4.3.10 true arms are public fixtures only, with no exported number-start predicate."
+  },
+  "proof_config_transition": {
+    "package_json": { "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af", "bytes": 755 },
+    "rejected_g1_config": { "path": "../../../tsconfig.apotheosis.json", "sha256": "8e4d9009e5d4678542ca908c842f391aa7faa8caff43c388d8f77d979ed3ac68", "bytes": 257, "result": "npm run check exited 2 with TS2732" },
+    "g2_config": { "path": "../../../tsconfig.apotheosis.json", "sha256": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39", "bytes": 315, "change": "compilerOptions.resolveJsonModule=true", "scope": "shared proof infrastructure only; no active grammar or runtime change" }
+  },
+  "precursor_byte_closure": [
+    { "path": "benchmark-protocol.json", "sha256": "aae13c726871fbbf8cd103307f2906a5736c47196cf25edb9662f304f712b846", "bytes": 2249 },
+    { "path": "contract.ts", "sha256": "71693f18f033adfe31cd5b564dedd9dc2a3c7c792fa2f021e95eef302dd63c6f", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "f2669394be758d484f8ed8397a0070873f62f30e323674ff6c88a73f012de268", "bytes": 7432 },
+    { "path": "fixtures/public-cases.json", "sha256": "900654022529f7207d4fb2421ba86bc27a02c2b24a029508becb7e44c7770232", "bytes": 5213 },
+    { "path": "harness.ts", "sha256": "61f96c0f117a56a6e806a28fb69daa2c12d4ceb48e7a5980a387071f79684ecc", "bytes": 11961 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "promotion-protocol.json", "sha256": "9358ee58e341c07c5a687eed4ff8f2564c701ce8b138941adbb7a115a9f2f81a", "bytes": 2417 },
+    { "path": "promotion-verifier.mjs", "sha256": "c6c0513e6bdc7dc8620bedbb821f62c940aaca727fcbd59831d4f9b49e5eabc4", "bytes": 23539 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "public_fixture_counts": {
+    "number_start_prefix_evidence": 6,
+    "prefix_cases": 23,
+    "composition_cases": 6,
+    "hostile_cases": 4,
+    "total_rows": 39
+  },
+  "executable_closure": {
+    "local": ["contract.ts", "harness.ts"],
+    "fixtures": ["fixtures/public-cases.json"],
+    "external_imports": ["@mkbabb/parse-that/core", "@mkbabb/parse-that/diagnostics"],
+    "parse_that_package_ledger_rows": 65,
+    "typescript_package_ledger_rows": 130,
+    "clean_base_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "clean_base_typescript_sources": 0
+  },
+  "formation_assays": [
+    { "name": "package-default-check", "command": "npm run check", "result": "PASS_EXIT_0" },
+    { "name": "package-default-test", "command": "npm test", "result": "PASS_EXIT_0_NO_TEST_FILES" },
+    { "name": "verifier-syntax", "command": "node --check cells/syntax-consume-number/g2/promotion-verifier.mjs", "result": "PASS" },
+    { "name": "strict-contract-harness", "command": "./node_modules/.bin/tsc --noEmit --strict --target ES2022 --module ESNext --moduleResolution Bundler --types node --resolveJsonModule --allowSyntheticDefaultImports --verbatimModuleSyntax cells/syntax-consume-number/g2/contract.ts cells/syntax-consume-number/g2/harness.ts", "result": "PASS" },
+    { "name": "recursive-self-check", "command": "node cells/syntax-consume-number/g2/promotion-verifier.mjs --self-check", "result": "PASS" },
+    { "name": "public-harness-negative-control", "input": "deliberately incomplete digits-only ConsumeNumberParser", "result": "REJECTED" },
+    { "name": "verifier-forbidden-state-import", "input": "candidate importing ParserState", "result": "REJECTED_EXIT_1" },
+    { "name": "verifier-wrong-payload", "input": "candidate exporting Parser<string>", "result": "REJECTED_EXIT_1" },
+    { "name": "verifier-custom-constructor", "input": "candidate using new Parser", "result": "REJECTED_EXIT_1" }
+  ],
+  "formation_state": {
+    "candidate_source_files": 0,
+    "candidate_directories": 0,
+    "manifest_files": 0,
+    "holdout_files": 0,
+    "challenge_files": 0,
+    "root_gestalt_files": 0,
+    "active_grammar_mutations": 0
+  },
+  "next_owner_actions": [
+    "Freeze the exact G2 precursor bytes, including this receipt and the bound proof configuration.",
+    "Generate a wholly fresh G2 holdout receipt after freeze.",
+    "Obtain two fresh exact-byte challenges and a root gestalt.",
+    "Seal the exact manifest and communicate its SHA-256 out of band.",
+    "Only then invite the H/B/S/D/R candidate authors."
+  ],
+  "receipt_self_identity": "This receipt cannot contain its own digest. Its exact bytes must be bound by the future owner-sealed manifest; the formation handoff reports its current SHA-256 and byte length externally.",
+  "nonclaims": "No candidate exists. No holdout, challenge, root gestalt, or manifest has been generated. No feature, parser, benchmark, integration, production, active-grammar, or promotion credit is claimed."
+}

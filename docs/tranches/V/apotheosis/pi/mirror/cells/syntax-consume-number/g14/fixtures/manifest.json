@@ -1,0 +1,16 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.fixtures/v1",
+  "status": "PUBLIC_PREAUTHOR",
+  "base": {
+    "path": "../../g13/public-corpus.json",
+    "sha256": "5056de266d0379ec3ae63b8a56d1a9c07f0607ff264aa22d6c7a7a177e7edd48",
+    "disposition": "REUSED_EXACT_G13_PUBLIC_CASES"
+  },
+  "repairs": {
+    "path": "repairs.json",
+    "sha256": "d9e94359c3cac96ba44f151debed534042aabbca85e82d9e59c6022267bc18f2",
+    "disposition": "G14_PUBLIC_BORN_RED_REPEATED_FRACTION_AND_MUTABLE_RESULT_REPAIR"
+  },
+  "holdout": "ABSENT_PREAUTHOR_BY_DESIGN",
+  "benchmark": "ABSENT_PREAUTHOR_BY_DESIGN"
+}

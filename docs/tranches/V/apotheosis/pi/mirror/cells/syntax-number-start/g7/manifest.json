@@ -1,0 +1,166 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 7,
+  "status": "SEALED_AWAITING_TWO_CHALLENGES_AND_ROOT_GESTALT",
+  "sealed_at": "2026-07-22",
+  "owner_seal": {
+    "rule": "The SHA-256 of these canonical manifest bytes is the sole external trust anchor supplied to promotion-verifier.mjs. The manifest does not and cannot contain its own digest.",
+    "candidate_authority": "No candidate source may exist until two fresh exact-byte challenges and one root gestalt ACCEPT this manifest.",
+    "full_feature_credit": "FORBIDDEN_UNTIL_THE_COMPLETE_CSS_DENOMINATOR_AND_POST_CANDIDATE_5_BY_3_ADJUDICATION_CLOSE"
+  },
+  "public_precursor": {
+    "path": "feature-public.json",
+    "bytes": 15611,
+    "sha256": "b3cf8f8f0dc4d84399dd853ca93070ac5f412ff1fa99d316f856ec82f3f90a46",
+    "public_input_closure_entries": 22,
+    "public_input_closure_mismatches": 0,
+    "immutability": "The fresh custodian bound these exact bytes and reproduced all 22 public closure identities before hidden formation. Any public-byte change invalidates this seal."
+  },
+  "holdout_receipt": {
+    "path": "holdout-receipt.json",
+    "bytes": 11856,
+    "sha256": "fc5fda34c0912fcbf7b1cd45797871b3734fbed6cfad5a4732adee854354682f",
+    "status": "SEALED_CONFIDENTIAL",
+    "cases": 256,
+    "true": 128,
+    "false": 128,
+    "observations_per_case": 196,
+    "total_observations": 50176,
+    "plaintext_sha256": "c4b818a063dbc163a693cd7abebeb2d62850b331d419d15f80c92c6a7e2aa449",
+    "plaintext_bytes": 148269,
+    "plaintext_filesystem_copies_remaining": 0,
+    "ciphertext_sha256": "9c5b1b2af3b95ea9eaaf27fd7bbf3efb0ed98e8f82b6a1cbdfa3abf9a3102614",
+    "ciphertext_bytes": 148301,
+    "secret_disclosed": false,
+    "ciphertext_locator_disclosed": false,
+    "candidate_executions": 0,
+    "reveal": "Only the confidential custodian may execute the corpus, and only after all five candidate source, overlay, projected, isolated-program, and exact-type identities close."
+  },
+  "public_input_closure": [
+    {
+      "path": "contract.ts",
+      "bytes": 190,
+      "sha256": "9e8a24d12444f7631bf5fa66e1c7011a20e32f1bc0d80ac488df758b9f96db3e"
+    },
+    {
+      "path": "harness.ts",
+      "bytes": 188,
+      "sha256": "c595d3ad5ddba2996bf55c7e166e5f6f08342fffa668e20687087d0f09e56932"
+    },
+    {
+      "path": "benchmark-protocol.json",
+      "bytes": 1054,
+      "sha256": "b3939805eb229ce6b010386db04a833a2ed22a4ab61bcb245703a911410a6e90"
+    },
+    {
+      "path": "promotion-protocol.json",
+      "bytes": 7286,
+      "sha256": "64e37760ea312f69759800abc6a9d593bcdaa583b2cbb4d7268bdc91beb9dab8"
+    },
+    {
+      "path": "promotion-verifier.mjs",
+      "bytes": 31585,
+      "sha256": "7e22b43b386ff4a38d24f6f6f978a13ca0310b9ea06fac1140eb3737821badf5"
+    },
+    {
+      "path": "../g6/contract.ts",
+      "bytes": 175,
+      "sha256": "e8e1f82bd0eafafc3795fa4cddbd04dd22d5653e4364b5b6e6f3468017b3d51e"
+    },
+    {
+      "path": "../g6/harness.ts",
+      "bytes": 187,
+      "sha256": "8de9fbd556b3f4cc95e3d99fd32615401c4ebb7fdc26500231d1a37d2ad7cb4d"
+    },
+    {
+      "path": "../g6/benchmark-protocol.json",
+      "bytes": 7220,
+      "sha256": "a3cfc5356d535c4a8a100bb7301cf58b7775479db04d5d0b69249b58bf72a4ed"
+    },
+    {
+      "path": "../g6/feature-public.json",
+      "bytes": 19707,
+      "sha256": "8a5559937ce73bd0db576fb36a35427a182c0cf682cae42c50781552e6a8c667"
+    },
+    {
+      "path": "../g6/manifest.json",
+      "bytes": 7663,
+      "sha256": "fc3c059accc160841c391bb20bee0364e2defb3b69a8661ae00cfc9fa0e1f064"
+    },
+    {
+      "path": "../g6/reviews/challenge-a-specification.md",
+      "bytes": 12889,
+      "sha256": "89b112ab2621b4a21c281af706c826ff218875833c61430b432fa4312dbcb29c"
+    },
+    {
+      "path": "../g6/reviews/challenge-b-architecture.md",
+      "bytes": 8468,
+      "sha256": "0809fb83866d14fddf22eb795a1ec136d11485d42e8a3f48116292428eb5ff2c"
+    },
+    {
+      "path": "../g6/root-gestalt.md",
+      "bytes": 3160,
+      "sha256": "3866bc53927393dab1372598db5ca6510bd98c8aec7d3a11a15fcf4962ceb6da"
+    },
+    {
+      "path": "../g6/rejection.json",
+      "bytes": 1861,
+      "sha256": "ce4ad499fcb180b79826036c6798528ad8490367924982c409d7f7d40d790612"
+    },
+    {
+      "path": "../g6/typescript-package.ledger",
+      "bytes": 12054,
+      "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47"
+    },
+    {
+      "path": "../g3/parse-that-dist.ledger",
+      "bytes": 5586,
+      "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b"
+    },
+    {
+      "path": "../../../apotheosis/clean-base.json",
+      "bytes": 1177,
+      "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2"
+    },
+    {
+      "path": "../../../package.json",
+      "bytes": 755,
+      "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af"
+    },
+    {
+      "path": "../../../package-lock.json",
+      "bytes": 69400,
+      "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"
+    },
+    {
+      "path": "../../../../MODULE-DAG.md",
+      "bytes": 4880,
+      "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f"
+    },
+    {
+      "path": "../../../../FEATURE-LEDGER.md",
+      "bytes": 13998,
+      "sha256": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3"
+    },
+    {
+      "path": "../../../../ADDENDA-07.md",
+      "bytes": 20954,
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5"
+    }
+  ],
+  "trust_closure": {
+    "manifest_invocation": "node promotion-verifier.mjs <exact-owner-sealed-manifest-sha256> <candidate-overlay-root>",
+    "running_verifier_manifest_row_count": 1,
+    "isolated_compiler_roots": [
+      "exact candidate source",
+      "in-memory verifier-generated exact-type probe"
+    ],
+    "exact_export_type": "numberStart: Parser<boolean>",
+    "parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "typescript_package_ledger_sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+    "active_clean_base_manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2"
+  },
+  "candidate_sources_present": false,
+  "active_grammar_typescript_sources": 0,
+  "admission": "Two fresh, independent, exact-byte boundary challenges and one root gestalt must ACCEPT this manifest before five isolated H/B/S/D/R authors may create candidate source. Challenge must include whether a standalone zero-width Parser<boolean> number-start production is itself an optimal and idiomatic direct-combinator boundary rather than a disguised lexical seam."
+}

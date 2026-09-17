@@ -1,0 +1,197 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.formation/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 13,
+  "status": "FROZEN_PUBLIC_PREAUTHOR_FORMATION",
+  "redresses": {
+    "g12_subject_sha256": "56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a",
+    "g12_review_a_sha256": "07687017ce0f7068f2cac7547a5bcd281453fb4c37c0464e36e8ede5ba922933",
+    "g12_review_b_sha256": "4cdee4d24e38e2eccedd56d993959cd7120b8e759573e8225b21487ac4972874",
+    "g12_root_sha256": "517f605f0a295927a027e6eb5022159991d5228f6a762d7d5dd7576743a15656"
+  },
+  "redress_summary": "Compiler-API AST allowlist and exact topology/dataflow replace raw-source regex policy; six frozen architecture controls fail closed; exact guarded-suffix, nonzero failure-transaction, and result-descriptor observations are public.",
+  "rows": [
+    {
+      "path": "candidate-ast-policy.mjs",
+      "sha256": "c11eb55a2844db81ac09e09658a8e61461a29b8713c8e1f8945cb35a04f75112",
+      "bytes": 19342
+    },
+    {
+      "path": "candidate-closure.mjs",
+      "sha256": "a0bc717084b72c1dd734cbc5796bd686ae6d33b5f1f6421f2b30f43410c6bc05",
+      "bytes": 6622
+    },
+    {
+      "path": "candidate.d.ts",
+      "sha256": "2723548e6e93857baa733f62c78917294ad773dc6bfaae135ac6a0ff93401956",
+      "bytes": 212
+    },
+    {
+      "path": "contract.json",
+      "sha256": "0ebfc475f02d6339e77cbd33277ed3546f83f9b96fd3455ffe8ec4c2cba0b06c",
+      "bytes": 3093
+    },
+    {
+      "path": "formation-validator.mjs",
+      "sha256": "9ad7c64e6c68a6596c3b4bcd187d99fb73988553fba49d32bce12546de6772e0",
+      "bytes": 6551
+    },
+    {
+      "path": "lib.mjs",
+      "sha256": "e14c4ce869f96d06703d43dde1444bf24cf6976c435868ccc54a02eb4b806334",
+      "bytes": 4145
+    },
+    {
+      "path": "peer-corpus.json",
+      "sha256": "ecfdc4670008ef924703eb26ed8557b226d62799a6fe843bb463c9310c84b64c",
+      "bytes": 2107
+    },
+    {
+      "path": "peer-expected.json",
+      "sha256": "df4614057684de772581120a971aae95b020203489c84768a49f548b48f67e50",
+      "bytes": 1242
+    },
+    {
+      "path": "peer-harness.mjs",
+      "sha256": "87eb237901242f2562eb26d1e4080690e9010eab7a9c4386fcc4b070fc6ae9d8",
+      "bytes": 2403
+    },
+    {
+      "path": "peer-worker.mts",
+      "sha256": "91a147132507ad1653763eb57ecbc98d18fab279ada29084ba88d99c5138f746",
+      "bytes": 1959
+    },
+    {
+      "path": "public-corpus-generator.mjs",
+      "sha256": "9c56f5770261b2ed28d7b4acbdb3e4bc9a2b0ddc07ed9cf48d0ce2568bf5bfd8",
+      "bytes": 4469
+    },
+    {
+      "path": "public-corpus.json",
+      "sha256": "5056de266d0379ec3ae63b8a56d1a9c07f0607ff264aa22d6c7a7a177e7edd48",
+      "bytes": 4739
+    },
+    {
+      "path": "public-harness.mjs",
+      "sha256": "6a91e44d661f6ee558ae93aab60fc3bcba6a9ff76856e36cecd1a83fb5375699",
+      "bytes": 1203
+    },
+    {
+      "path": "public-worker.ts",
+      "sha256": "b4856ddd51bddfbf0cdc5e2ea1f250c8c2eaf2a66d4026a73b7dee44fd21777a",
+      "bytes": 8694
+    },
+    {
+      "path": "root-check.mjs",
+      "sha256": "1a8618cb0162814e85ae4a3192b70f2425fba4c7f84505ca0515a5fd614eff46",
+      "bytes": 3484
+    },
+    {
+      "path": "root/incomplete-maximal-prefix.ts",
+      "sha256": "948d0eb212d1a6448b43a3b078c2447605cc27334fe6630470ac8bec4cc187a2",
+      "bytes": 363
+    },
+    {
+      "path": "root/incomplete-signed-exponent.ts",
+      "sha256": "3b62f3a782e93ef863ee558190ba1c583f5926ef3c380f253bbe333a74c83c74",
+      "bytes": 527
+    },
+    {
+      "path": "root/negative-controls/comment-markers/index.ts",
+      "sha256": "d9a0d9047551ee325778b5a91bbda01eeac3d8cb7d879e93946928927461d71e",
+      "bytes": 534
+    },
+    {
+      "path": "root/negative-controls/computed-global/index.ts",
+      "sha256": "414ea37297036542bd9e268384193d9183f474f84c118d6326bab0f5e3714562",
+      "bytes": 402
+    },
+    {
+      "path": "root/negative-controls/computed-state/index.ts",
+      "sha256": "4d6200c2490ff5f92784f56eb44131dff8e999f9eba89ca6ddadf2b1168a724c",
+      "bytes": 564
+    },
+    {
+      "path": "root/negative-controls/constructed-recognizer/index.ts",
+      "sha256": "1e41b5d3fff192e0965dd050e4dbecebb638c1561501e6c9681f2146b1c26789",
+      "bytes": 430
+    },
+    {
+      "path": "root/negative-controls/h-suffix-broadening/index.ts",
+      "sha256": "72ea00bbbea0dec8b644d236022b66fd4ee98f977b9a11641bb374ab57a3bf47",
+      "bytes": 400
+    },
+    {
+      "path": "root/negative-controls/wrong-wrapper/index.ts",
+      "sha256": "c46216a7f84fe4bb5fdb0f511f6dbe1225ce498211fb325af5bfe4168e4c1c79",
+      "bytes": 655
+    },
+    {
+      "path": "root/probes/b/index.ts",
+      "sha256": "a2762b19ec764d08ff1fa7704881a4a7a7c97a8601f966d6630cef15bc6d7049",
+      "bytes": 983
+    },
+    {
+      "path": "root/probes/d/index.ts",
+      "sha256": "ba5f1130003deabe638501997bf2a7a7a334fd25d984206287f6f01ec7b57b75",
+      "bytes": 561
+    },
+    {
+      "path": "root/probes/h/index.ts",
+      "sha256": "9dda4a9e1892e6e7eef7feb9e0c99a5744ef0f88d0110bfd0e656f3bcc840d74",
+      "bytes": 390
+    },
+    {
+      "path": "root/probes/s/index.ts",
+      "sha256": "e365919f9f3963d95a47d4fac4336a703620dc790d78c4bfb9b76aa1edf5ee2c",
+      "bytes": 966
+    },
+    {
+      "path": "runtime-closure-generator.mjs",
+      "sha256": "5504ef5e9960f0d15e24e54cc3c730a66a651277d7b98dd3af6f1901c0051050",
+      "bytes": 3007
+    },
+    {
+      "path": "runtime-closure.json",
+      "sha256": "c99ab98cd0cea2fcd3bcdbaa93019fcebdcd75aaaf158022a6588063c985597c",
+      "bytes": 5076
+    },
+    {
+      "path": "seat-packets/b.json",
+      "sha256": "70d1e16f124e4f636e1b56e0bfb00fb89f94524bbf35ec62232a7b09a4e8829a",
+      "bytes": 1817
+    },
+    {
+      "path": "seat-packets/d.json",
+      "sha256": "41e41c581d09ac8b2ba0d92a47e1883879ff4e29757057257e931936bbbde82d",
+      "bytes": 1759
+    },
+    {
+      "path": "seat-packets/h.json",
+      "sha256": "17b38772629d789c6d757de2c4e11d4cf92e45212072feb1e12a2d574b110f61",
+      "bytes": 1735
+    },
+    {
+      "path": "seat-packets/s.json",
+      "sha256": "e7b74d75ff08e4ae203652255d2c11a86708f945a035f1cd67229f3fb16bfaf4",
+      "bytes": 1827
+    }
+  ],
+  "row_count": 33,
+  "closure_sha256": "53c79dd64ae4cc93ab497ae712e6d06b601c8c61fbaae49b5277d117c2f4c73c",
+  "candidate_roots": {
+    "h": "ABSENT",
+    "b": "ABSENT",
+    "s": "ABSENT",
+    "d": "ABSENT"
+  },
+  "holdout_artifacts": 0,
+  "boundary_reviews": 0,
+  "root_adjudications": 0,
+  "author_tasks": 0,
+  "actor_identity_law": "Local JSON and hashes prove bytes and structural distinctness only. Root records actual independent review, custodian, and author collaboration task IDs outside candidate-controlled bytes.",
+  "chronology": "PUBLIC_FORMATION -> TWO_PUBLIC_REVIEWS -> ROOT_ACCEPT -> INDEPENDENT_UNREVEALED_HOLDOUT_SEAL -> FOUR_EXTERNAL_AUTHOR_TASKS -> FOUR_CANDIDATE_CLOSURES -> HOLDOUT_REVEAL -> FIVE_SKEPTICS -> THREE_ADJUDICATORS",
+  "timing_gates": 0,
+  "next": "Two independent hostile reviews over this exact public receipt and closure only. No custodian or author exists until root ACCEPT; after ACCEPT the custodian must seal before any author starts.",
+  "credit": "ZERO_FORMATION_ZERO_CANDIDATE_ZERO_PARSER_ZERO_BENCHMARK"
+}

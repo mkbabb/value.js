@@ -1,0 +1,95 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.acceptance/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 13,
+  "status": "REJECT_ALL_QUINTET_COMPLETE_NO_SYNTHESIS",
+  "subject": {
+    "formation_sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572",
+    "candidates": {
+      "h": "d1e98dfe1d3f818ad690137b17f076fd59f2e27b3418e48c0a60c08a3389c8a0",
+      "b": "00d6bf2fba70a6e7600bec2d9d3b136eff41eb066de5d27918976ec8d7b333f1",
+      "s": "f2f379b0bcd5248c0839145ebc6566a23078415b3f97c4927e7bf20e9ef8606d",
+      "d": "552389f9c6212c274afad38b43130889f3f65f43c2bb9f3e091ed72ab0c3b4e1"
+    },
+    "candidate_evidence_sha256": "d22fc7c2609dbfa45f48d65341c9c6a915a4383d821147c12cfbfbf6afdeda2d",
+    "benchmark_evidence_sha256": "7676055df3e903076eb8f135feb65a07bd048daa0279db06a57b875b59ebfe37"
+  },
+  "skeptic_reviews": [
+    {
+      "seat": 1,
+      "task": "/root/g13_skeptic_a",
+      "sha256": "9f6a60fbe26310cae4bc83f15a6283d7010931b91d0056318b117cd3f1541b60",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 2,
+      "task": "/root/g13_skeptic_b",
+      "sha256": "f445479d0a14d795aec6cc179bbd9abbc561dbae4ff3103266fa9d9bda768d11",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 3,
+      "task": "/root/g13_skeptic_c",
+      "sha256": "81eb057bb370b35e669f56ba6f21093b49d6ad7c497600a6add5dc5e11185691",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 4,
+      "task": "/root/g13_skeptic_d",
+      "sha256": "8ff697866c531cc9c16a4d25ca24a77e805d002e79889b4bbea9db024bd0e2ba",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 5,
+      "task": "/root/g13_skeptic_e",
+      "sha256": "3c88419beecf8f696ea1a074ecc2ed9777a9d076df21bec068d627ca1fcb4f4f",
+      "verdict": "REJECT_ALL"
+    }
+  ],
+  "confirmed_blockers": [
+    {
+      "id": "S-1",
+      "scope": "candidate-s",
+      "kind": "normative-maximal-prefix",
+      "evidence": "S consumes repeated-fraction inputs such as .0.0 and .5.6 through the second fraction and returns NaN; CSS Syntax consume-number stops after the first fractional digits."
+    },
+    {
+      "id": "C-1",
+      "scope": "observable-result-contract",
+      "kind": "unproved-freeze",
+      "evidence": "The generation requires Object.freeze without the consumer proof required by CHARTER freeze-parity."
+    },
+    {
+      "id": "P-1",
+      "scope": "all-candidates",
+      "kind": "non-qualifying-performance-evidence",
+      "evidence": "The benchmark declares no performance gate, does not normalize peers to the same observable result work, lacks a presealed run manifest and paired confidence interval, and supplies no allocation evidence or UNAVAILABLE disposition. Every candidate is slower than the deposed parser on all eleven recorded pairs."
+    }
+  ],
+  "candidate_disposition": {
+    "h": "RETAIN_SEMANTIC_KISS_SPECIMEN_ZERO_CREDIT",
+    "b": "RETAIN_PRODUCTION_TREE_SPECIMEN_ZERO_CREDIT",
+    "s": "REJECT_CONFIRMED_SEMANTIC_DEFECT_ZERO_CREDIT",
+    "d": "RETAIN_ENGINE_NATIVE_PERFORMANCE_SPECIMEN_ZERO_CREDIT"
+  },
+  "feature_boundary_disposition": "RETAIN_VALUE_UNIT_DIRECTION_FOR_NEXT_GENERATION_ZERO_CREDIT",
+  "synthesis_adjudicators": {
+    "status": "NOT_DISPATCHED",
+    "reason": "No exact candidate survived all five skeptic axes; ADDENDA-07 requires a new generation before synthesis."
+  },
+  "next_generation_requirements": [
+    "Remove result freezing unless an exact consumer proves it necessary.",
+    "Repair the specification-first repeated-fraction branch and publish its counterexamples before authoring.",
+    "Seal a fresh hostile holdout before any repaired candidate is authored.",
+    "Time semantically identical normalized operations under a presealed manifest and immutable raw-result path.",
+    "Predeclare a one-sided paired confidence interval and record allocation evidence or an exact UNAVAILABLE tool reason.",
+    "Rerun all five independent skeptic seats over the new exact candidate, contract, corpus, comparator, and benchmark hashes."
+  ],
+  "credits": {
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-resolved-reopenings-1.json",
+  "title": "V-next C09 resolved dependency receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "wave_id",
+    "static_dependencies",
+    "resolved_dependencies",
+    "corpus_epoch",
+    "c08",
+    "owner_returns_root",
+    "owner_returns_root_sha256",
+    "resolved_reopenings",
+    "receipt_hash"
+  ],
+  "properties": {
+    "schema": { "const": "vnext-resolved-reopenings/1" },
+    "wave_id": { "const": "C09" },
+    "static_dependencies": { "const": ["C08"] },
+    "resolved_dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/waveId" }
+    },
+    "corpus_epoch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "c08": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "attempts_root",
+        "attempts_root_sha256",
+        "latest_return_path",
+        "latest_file_sha256",
+        "latest_return_hash",
+        "latest_attempt",
+        "latest_validation",
+        "status",
+        "verdict"
+      ],
+      "properties": {
+        "attempts_root": { "$ref": "#/$defs/nonEmpty" },
+        "attempts_root_sha256": { "$ref": "#/$defs/sha256" },
+        "latest_return_path": { "$ref": "#/$defs/nonEmpty" },
+        "latest_file_sha256": { "$ref": "#/$defs/sha256" },
+        "latest_return_hash": { "$ref": "#/$defs/sha256" },
+        "latest_attempt": { "type": "integer", "minimum": 1 },
+        "latest_validation": { "const": "live-pin-at-scheduling" },
+        "status": { "const": "COMPLETE" },
+        "verdict": { "const": "clean" }
+      }
+    },
+    "owner_returns_root": { "$ref": "#/$defs/nonEmpty" },
+    "owner_returns_root_sha256": { "$ref": "#/$defs/sha256" },
+    "resolved_reopenings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "wave_id",
+          "path",
+          "file_sha256",
+          "owner_return_hash",
+          "status",
+          "accepted_in_corpus_sha256"
+        ],
+        "properties": {
+          "wave_id": { "$ref": "#/$defs/waveId" },
+          "path": { "$ref": "#/$defs/nonEmpty" },
+          "file_sha256": { "$ref": "#/$defs/sha256" },
+          "owner_return_hash": { "$ref": "#/$defs/sha256" },
+          "status": { "enum": ["COMPLETE", "KEEP", "PRUNE", "REFUSED"] },
+          "accepted_in_corpus_sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "receipt_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "waveId": { "type": "string", "pattern": "^[PVKAGDMC][0-9]{2}[A-Z]?$" }
+  }
+}
