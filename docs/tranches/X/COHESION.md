@@ -862,3 +862,35 @@ spec files (the X·V W4-D2 lesson, now law)."* **This is the F.W0 half.**
 **What this addendum does not do.** It stamps no verb, adds no wave, moves no ruling, and creates no
 obligation on any sub-tranche but the one it names. §1a's superseded cell and §2's graph are **left
 exactly as their seats wrote them**; this block is the dated record beside them.
+
+## §0l ADDENDUM 2026-09-17 — THE X.P.W1 CLOSE DOCKET, RULED (same sitting, third session)
+
+**Provenance.** X.P.W1 closed with 9 of 10 gates GREEN and two escalations returned
+(`execution/D/X-P-W1.md` §Close). X.P.W0 is CLOSED CONFORMANT. E-3: no wave file is edited here.
+
+- **E-1 — the literal `npx tsx …` gates cannot run from `<p2>`: the fresh root OWNS ITS TOOLCHAIN.**
+  Measured cause: `<p2>` (`/Users/mkbabb/Programming/parse-that-css-totality-p2`) has no root
+  `package.json`, so npm's up-walk terminates at a stray `/Users/mkbabb/package.json` and the home
+  directory becomes the prefix. That file is the owner's and is **not touched**. The cure is the
+  idiomatic one: **X.P.W2's first commit lands `<p2>/package.json`** (`"private": true`; exact-pinned
+  devDependencies `tsx` · `typescript` · `vitest`) **and its lockfile**, under a dated E-3 addendum to
+  `parse-that/waves/W2.md` §4 admitting those two paths (Q-1's named §3a expansion, granted here).
+  G-2/G-4/G-5's literal invocations are then re-run from `<p2>` at X.P.W2's open and their readings
+  banked beside X.P.W1's; §7's `tsc --noEmit` limb over `harness/bench/bench.ts` (3 diagnostics, R-1)
+  and the `vitest` limb (R-2) are cured in the same opening unit. No global install, no `npx` from a
+  foreign cwd recorded as the gate's form.
+- **E-2 — G-8 is HONEST-RED by its own falsifier** (*"the probe stays wired until the whole surface is
+  total"*; §3 L109 forbids this wave the grammar). Owner: **X.P.W3** (the 52-export universe TOTAL; the
+  R1 throw class dead). W1.md §6's preamble and §12 are read with that relief; X.P.W1 closes
+  IMPLEMENTED with G-8 carried, never GREEN-by-assertion.
+- **R-7** (roots-census.sh's missing EPERM disposition) → X.P.W2's open, under the same dated §4
+  addendum (one path: `docs/tranches/X/parse-that/evidence/W0/roots-census-v2.sh`, a successor beside
+  the sealed original, never an edit of it).
+- **R-5 MAJOR — `harvest-journals.mjs` drops every CONFORMANCE-schema row** (severity/claim/receipt):
+  1,487 of `DEFECT-LEDGER.md`'s rows are empty stubs. Owner: **X-W11**, which §0k.1 already charges
+  with the once-only X-track harvest — the harvester's row template gains the conformance schema
+  **before** that harvest runs; falsifier `grep -c '^\*\*Defect\.\*\* $'` → 0. Hand-editing generated
+  bytes stays forbidden. R-8/R-9 (79 unharvested runs; the NAMES map's missing X·P entry) ride the
+  same X-W11 unit.
+- **R-13** — `<p2>` is pinned by convention only; X.P.W2's opening commit states its base
+  (`f5757082`) in its body, which is the ref-of-record from then on.
