@@ -1326,3 +1326,309 @@ pathspec commits with the session trailer · **this wave measures; it authors no
 no CI colour** · line 1 of any file created = `SERVED MODEL: <model id>`.
 
 ## Unit receipts — SECOND SITTING
+
+### KF.W9.d — contrast / forced-colors / AT · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `dde0629a` — *"the contrast/forced-colors/AT cell — the BEFORE witness taken with its
+falsifier, forced-colors measured UNREACHABLE on this platform with a live control, and the KF.W13
+redundancy ground found false as worded"*. **23 files**, all inside `.d`'s writable set
+⟨`git show --stat HEAD`⟩ → `23 files changed, 3214 insertions(+)`. Every PNG **force-added** — the
+`safari-real` tree carries `docs/tranches/V/megatranche/.gitignore:11` `audit/visual/safari-real/*.png`
+⟨`git check-ignore -v <shot>`⟩, which is **exactly the L-7 mechanism** this wave's born-RED witness
+convicts ("27 witnesses uncommitted and therefore nonexistent"), and exactly why §Bounds says
+*"Every capture force-added"*.
+
+**Status: PARTIAL.** Every act this unit could lawfully take landed. **One cell closed mid-seat** (act
+6) and **two cells were never openable** (acts 1 and 7) — each booked with a measured bound, none
+faked, none inferred from a sibling cell.
+
+---
+
+#### Act 0 — anchors verified at true bytes, before anything was written
+
+Both G-KFW9-9 anchors re-read in the capture clone at the pin, and **both hold exactly**:
+⟨`sed -n '70,82p' demo/styles/design-idioms.css`⟩ → `.focus-ring:focus-visible {` at **`:76`**,
+`box-shadow: var(--focus-ring-shadow);` `:77`, `outline: none;` `:78`, `}` `:79` — **`:76-79` exact**;
+⟨`sed -n '66,78p' demo/styles/playback-idiom.css`⟩ → `.btn-playback:focus-visible {` at **`:72`**,
+same pair, `}` `:75` — **`:72-75` exact**. **No anchor drifted; no INTENT was taken.**
+
+#### Act 1 — §0m.2 shape (b): the capture clone, built and hashed
+
+The ruling's own command, run verbatim:
+⟨`git clone --no-hardlinks ../keyframes.js ../keyframes-w9-capture`⟩ → done ·
+⟨`git -C … checkout 55e9bf0d`⟩ → `HEAD is now at 55e9bf0d` · ⟨`rev-parse HEAD`⟩ →
+`55e9bf0d2391bbc6d9871bb3f0555a6225daae92` · ⟨`status --porcelain | wc -l`⟩ → **0** ·
+⟨`npm ci`⟩ → `added 325 packages` · ⟨`npm run gh-pages`⟩ → `✓ built in 1.15s` ·
+⟨`find dist/gh-pages -type f | wc -l`⟩ → **54**.
+
+**`bundleSha256`, MEASURED and DOUBLE-RUN identical:**
+⟨`find dist/gh-pages -type f | LC_ALL=C sort | xargs shasum -a 256 | shasum -a 256`⟩ →
+**`1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`** (twice). The tree was
+re-verified at the pin **after** the build and is still clean. **`.a`'s residual 2 is discharged**:
+no seat defaulted the field; it was hashed from the bytes actually served.
+**`.a`'s residual 1 (the destroyed bundle) and its ADDENDUM's second blocker (KF.W4 editing `demo/`
+under the wave's feet) are BOTH dissolved by the ruling's design** — a clone at a named ref is immune
+to the frontier's motion, which is why §0m.2 chose shape (b) over a quiescence window. The frontier is
+now `3e81f500` ⟨`rev-parse origin/master`⟩, **10 commits past the pin**, and the pin is still an
+ancestor ⟨`merge-base --is-ancestor 55e9bf0d HEAD`⟩ → yes. **NO RE-PIN on this seat's authority.**
+
+**ZERO keyframes.js bytes.** The clone holds no commit of ours and was never pushed; the sacred
+checkout was not touched.
+
+#### Act 2 — OP-4, taken inside each cell (never inherited)
+
+`safari-app/desktop`, Safari **26.4** / macOS **26.4.1** (25E253), `safari:useSimulator: false`,
+window requested 1280×900 / **actual 1280×848** (the clamp recorded):
+`{"fc":{"(forced-colors: active)",false},"fcNone":{…,true},"prt":{…,false},"prm":{…,false},
+"pcMore":{"(prefers-contrast: more)",false},"pcNoPref":{…,true},"dark":{…,true},"dpr":2}`.
+`chromium/emulated-forced-colors`: **`fcMatch: true`**. `chromium` (control): `fcMatch: false`.
+Four of ten cells now carry a reading or a **named** foreclosure from this seat.
+
+#### Act 3 — **CAN THIS HOST ENTER FORCED-COLORS AT ALL?** — the measurement, with its control
+
+`.a` measured that the three `.media` strings **parse** and correctly concluded the column is *"NOT
+foreclosed by UA capability"*. **That is a different question from whether the mode can be entered**,
+and S-13's escape is worded on the first one — so a seat that conflates them books a **false**
+`UNREACHABLE`. This seat measured the second, reversibly:
+
+| host state | `prefers-contrast: more` | `forced-colors: active` |
+|---|---|---|
+| `increaseContrast` absent (as found) | `false` | `false` |
+| ⟨`defaults write com.apple.universalaccess increaseContrast -int 1`⟩ | **`true`** | **`false`** |
+| ⟨`defaults delete …`⟩ (restored; re-read → *"does not exist"*) | `false` | `false` |
+
+**The control is the whole point**: `prefers-contrast: more` **flipped live**, same session, same
+`matchMedia` batch, no restart — so the host setting demonstrably *does* reach Safari's media-query
+engine. `forced-colors` did not move. **macOS/WebKit implements no forced-colors mode.** The
+`safari-app` forced-colors arm is **UNREACHABLE-IN-CELL by PLATFORM** — not by capability (the query
+parses), not by omission. The host a11y setting is **fully restored**.
+
+#### Act 4 — the cascade, re-derived at the bytes (not argued)
+
+Eight links, each a command (full table at `hcm-CELL-RECORD` §3.1):
+
+- producer `…/dist/styles/utilities/a11y-overrides.css` ships
+  `@media (forced-colors: active) { .focus-ring:focus-visible, … { outline: 2px solid Highlight; outline-offset: 2px } }`
+  and ⟨`grep -c '@layer' …`⟩ → **0** — **UNLAYERED**.
+- producer `…/utilities/base.css` ships `.focus-ring:focus-visible { outline: none; border-radius: var(--radius-pill); box-shadow: var(--focus-ring-shadow) }` — **inside `@layer components`** (brace-depth 1).
+- demo copy A `design-idioms.css:76-79` — **UNLAYERED**, and the file's **own comment at `:10`** says so:
+  *"OUTSIDE @layer so the demo's copy overrides glass-ui's incidental same-named"*. **The defeat is AUTHORED.**
+- demo copy B `playback-idiom.css:72-75` — ⟨`grep -c '@layer'`⟩ → **0**, UNLAYERED.
+- order: `style.css:3` glass · `:14` design-idioms (→ its `:6` playback-idiom). **The demo imports later.**
+
+Identical selector + both unlayered ⇒ specificity and layer tie ⇒ **source order decides, the demo
+wins, `outline: none`**. *(§B's cell reads "different selectors, same (0,2,0)", which describes the two
+DEMO copies; the producer↔demo pair measured here is the **same selector** — a stronger form of the
+same finding, recorded as such and **not** as a correction of the bank.)*
+
+#### Act 5 — **G-KFW9-9's BEFORE WITNESS, TAKEN** — with its falsifier run as a control
+
+Method: navigate the served bundle, press **Tab** to establish keyboard modality, focus the subject,
+read `getComputedStyle` **and** `:focus-visible` **separately** — the built-in **DISCRIMINATOR**, so
+*"no indicator"* can never be confused with *"focus never happened"*.
+
+**`chromium/emulated-forced-colors`, `forced-colors: active` genuinely matching:**
+
+| subject | `:focus-visible` | `outline-style` | `box-shadow` |
+|---|---|---|---|
+| `.btn-playback` (ribbon Play) | **`true`** | **`none`** | **`none`** |
+| `.focus-ring` (demo-wide) | **`true`** | **`none`** | **`none`** |
+| `.seq-handle` (ST-1's row slider) | **`true`** | **`none`** | **`none`** |
+
+**FALSIFIER, same engine / bundle / substrate, `forcedColors: "none"`:** all three show
+`box-shadow: color(srgb 0.109804 0.0980392 0.0901961 / 0.3) 0px 0px 0px 2px, …` — **an indicator
+paints.** The row is falsifiable and **survives**: the affordance exists in normal mode and is
+**wholly absent** under forced colors, with focus provably active in every cell of both tables, and
+the producer's `outline: 2px solid Highlight` **never appeared**. Shots `bb2434b5…` · `32c0504d…`.
+
+**`safari-app/desktop`, normal state** (forced colors not enterable, act 3): `.focus-ring` reached in
+**3** tabs and `.seq-handle` in **1**, both `:focus-visible true` with **`outline-style: none`** —
+**RB-1's antecedent measured in real Safari.** Shots `9c357c5f…` · `ed0e28d4…` · `631c27a9…`.
+
+**GATE READING — G-KFW9-9: RED → RED.** The witness now **exists**, but the gate names *"the
+safari-app **and** real-HCM cells"* and **neither carries a forced-colors shot** (act 3's platform
+bound; act 7's missing Windows host). *Recording a witness taken in a third cell as the two the gate
+names is the failure this wave exists to convict, and it is not done here.* The **AFTER** witness
+reads **UNMEASURED** — the two-deletion act is KF.W13's and **this seat spent no cure and deleted no
+byte** (S-9).
+
+#### Act 6 — **the re-derivation obligation, DISCHARGED — and the ground is FALSE as worded**
+
+§Carry §B hands this wave: *"the redundancy ground for `.btn-playback:focus-visible` is UNTESTED here
+and must be re-derived at KF.W13 before the deletion lands; this wave measures it and hands the
+finding over."* The bank's ground is *"both demo copies are wholly redundant against producer
+base.css's identical rule."* Measured per copy at glass **7.0.0**'s shipped dist:
+
+| copy | producer counterpart | ground |
+|---|---|---|
+| `design-idioms.css:76-79` `.focus-ring:focus-visible` | `base.css` ships the **identical selector** with the same two declarations | **TRUE AS STATED** |
+| `playback-idiom.css:72-75` `.btn-playback:focus-visible` | ⟨`find …/dist -name '*.css' \| xargs grep -l 'btn-playback'`⟩ → **exit 1, no output**; widened to **all file types** → **no output** | **FALSE AS STATED** — no producer rule at any coordinate |
+
+**The row survives by a different path, and the path is the finding.** Measured live in the real
+Safari cell, the ribbon's own class lists:
+`"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent"`
+and `"… focus-ring … btn-playback h-10 w-full rounded-full …"` ⟨`hasFocusRing`⟩ → **true, true**;
+⟨`querySelectorAll('.focus-ring').length`⟩ → **44**. **Both ribbon buttons carry `.focus-ring` too**,
+so the producer reaches them once *both* demo copies are gone.
+
+**This makes K-5 MEASURED rather than argued**: delete only `design-idioms` → `.btn-playback:focus-visible
+{ outline: none }` still matches **the same buttons**; delete only `playback-idiom` →
+`.focus-ring:focus-visible { outline: none }` still matches **the same buttons**. **ONE ACT, NEVER
+SPLIT — proved by the buttons' class list, not by inference.** Handed to KF.W13: the ground must be
+re-worded to *redundancy via the co-present `.focus-ring` class*, not via a producer `.btn-playback`
+rule, **before** the deletion lands.
+
+#### Act 7 — G-KFW9-8: the count re-recorded, the producer re-enumerated, the WHC bound stated
+
+⟨`git -C …/keyframes-w9-capture grep -c 'forced-colors' -- demo/`⟩ → **exit 1, no output — 0**.
+**Ninth independent seat.** This is the gate's *recorded result* exactly as R-9a item 4 / D-9 re-cut
+it, and **no demo-side `forced-colors` rule is authored by this wave**.
+
+The **FOUR-FILE CORRECTION** (kf-SequenceAxis ruling 7) re-measured at glass 7.0.0:
+⟨`find …/dist -name '*.css' | LC_ALL=C sort | xargs grep -l 'forced-colors'`⟩ → **TWELVE files**. The
+ruling's four are **all present and all four still resolve**; the figure is larger, not different in
+kind, and the ruling's conclusion — *no "sole forced-colors rule is X" cell survives* — is
+**reinforced**. Published as an enumeration, not a numeral, so the next census reproduces. **No bank
+row re-graded**; routed to `.e` as a dated addendum.
+
+**`windows/real-HCM` — UNREACHABLE-IN-CELL, bound stated**: ⟨`uname -a`⟩ → `Darwin 25.4.0` ·
+⟨`ls /Applications | grep -iE 'parallels|vmware|utm|virtualbox|crossover'`⟩ → **no matches** ·
+⟨`command -v qemu-system-x86_64`⟩ → **no output**. No Windows host **and no virtualization host**.
+**The chromium rows are NOT labelled WHC** — S-13 names that substitution as *the I-20 failure by
+name*, and it is not committed here under any spelling. The **sixteen** §B fold families therefore
+receive **no** WHC capture; each reads UNREACHABLE-IN-CELL on the `windows` column and UNMEASURED on
+`safari-app`. **canvas bitmaps EXEMPT** is carried as a mechanism fact, measured:
+`forced-color-adjust` computed **`auto`** on the 781×792 amiga canvas.
+
+**GATE READING — G-KFW9-8: RED → RED.** The count half is re-recorded at 0 and the producer
+enumeration republished; **the WHC half cannot close on this host.**
+
+#### Act 8 — the AT arm (§0j.C KF-AT), run here, with the line drawn first
+
+**An AT cell's verdict is what an AT UTTERS.** All three AT cells are **UNREACHABLE-IN-CELL**:
+`at/voiceover-safari` on **both** legs (safaridriver refused, act 9; VoiceOver ⟨`pgrep -x VoiceOver | wc -l`⟩
+→ **0** and ⟨`osascript … exists application process "VoiceOver"`⟩ → **`false`**, and starting it takes
+over the owner's live machine with no grant); `at/nvda` and `at/jaws` on the missing Windows host.
+
+What was produced is the **AT-PRECONDITION INVENTORY** over six routes, booked in the `chromium` cell
+(**not** labelled `webkit-engine` — playwright 1.60.0 wants `webkit-2287`, only `webkit-2311` is
+installed, so `webkit.launch()` throws, and labelling a chromium read as webkit is **I-20 in its other
+direction**). Thirteen §F rows dispositioned — **CONFIRMED 8 · DIVERGENT 1 · UNMEASURED 3 ·
+UNREACHABLE-IN-CELL 2**. The sharpest:
+
+- **D-2** ⟨kf-AmigaScene⟩ — **every clause reproduces, in one read**: the subject is `.amiga-canvas`,
+  **781×792 CSS px**, and its **complete attribute list** is
+  `["data-v-c2735272","class","data-engine","width","height","style"]` — **no ARIA attribute of any
+  kind, no `role`, no `tabindex`, no `title`**, `textContent` length **0**, `hasOnKeyDown` **false**,
+  `cursor: "grab"`. *Not "unset in the ones we checked" — absent from the element's entire attribute
+  set.* **FALSIFIER** (*"any announced accessible name kills the row"*) **not satisfied: the row
+  survives.** The trap §F names — the surrounding `<main>` — is present (`landmarks: 1`) and
+  distinguished.
+- **D-B3** ⟨kf-SpringHeatmap⟩ — `role="application"`, `tabindex="0"`, `aria-valuenow: null`,
+  `aria-valuetext: null`, `childCount: 2`, `childrenAriaHidden: ["true","true"]` — **the EMPTY
+  application subtree, exactly as banked.**
+- **D-1 / L-i1** ⟨kf-PlaybackRibbon⟩ — of 4 `role="slider"` on `/#/easing`, one has **no
+  `aria-label`, no `aria-labelledby`, no `title`** and a bare `aria-valuenow: "1500"` against
+  `max 5000`. *"All three glass naming seams unused"* — **confirmed**; N-2's *"no meaningful value
+  either"* — **confirmed** (`aria-valuetext: null`).
+- **D-12's valuetext limb** — `/#/sequence`, **6 of 6** sliders with `aria-valuetext: null`, read
+  **identically in real Safari and in chromium**; five announce bare **ms** (`max 1600`), the master
+  scrubber a bare **percent** (`max 100`) — S-14's *"no honest millisecond exists until the scene
+  picks a clock"* in one table. The **uppercase-render** limb reads **UNMEASURED** with its
+  precondition named.
+- **D-6** ⟨kf-SpringTarget⟩ — `/#/spring` headings **`[]`**, `/#/easing` headings **`["H2:ease"]`**,
+  measured **in the same pass**: the intra-repo divergence now rests on a side-by-side reading.
+- **D-14 + N-4** — `/#/spring`, **16 of 16** sliders `aria-valuetext: null`; names are **positional**
+  (`"Value 1 of 5"`), and `aria-valuenow` runs `0…1` against a declared `max` of **110**.
+- **KF-APP-33** — `{"tag":"button","role":"combobox","aria-label":"Scene","innerText":""}` on **6 of 6**
+  routes: accname §4.3.1-2C takes the label and the selected scene never reaches the name.
+
+**S-8 family (vi) is DECLARED UNSPENT** — the AT pass did not happen, so **no probe in it is spent**
+and none may later be skipped on the ground that this seat "already looked". Per-member state at
+`at-CELL-RECORD` §4.
+
+#### Act 9 — the `safari-app/desktop` cell CLOSED MID-SEAT — recorded, not hidden
+
+The cell was open and productive (4 sessions created and **deleted**, including on the failure path;
+OP-4 taken; 3 shots captured). Then session creation began returning *"You must enable 'Allow remote
+automation' in the Developer section of Safari Settings"*. Recovery **measured, not assumed**: driver
+restarted (`/status → ready:true`, still refused) · ⟨`safaridriver --enable`⟩ →
+**`Password:Password is not valid`** — the same interactive admin bound `.a` recorded at open ·
+⟨`defaults write com.apple.Safari AllowRemoteAutomation -bool true`⟩ → written (`read → 1`), still
+refused because the running Safari holds its own copy · **restarting Safari: NOT DONE** —
+⟨`ps -o pid,ppid,lstart -p 23725`⟩ → started **16:23:59**, parent `launchd`, and
+⟨`osascript … count of windows`⟩ → **6**. **That is the owner's Safari with six open windows**, no
+grant covers quitting it, and a capture seat does not close a person's browser to get a screenshot.
+
+**Declared host-state change, with its revert**: `com.apple.Safari AllowRemoteAutomation = 1` is left
+set — it restores the capability the cell was found with and takes effect at Safari's next launch;
+revert with ⟨`defaults delete com.apple.Safari AllowRemoteAutomation`⟩. **The act-3 accessibility
+probe was fully restored**; no host a11y setting is left changed.
+
+**Consequence, stated at the gate rather than averaged away**: the safari-app arms of the targeted
+ribbon probe and of the AT inventory are **UNMEASURED with an exact precondition** — *"Allow Remote
+Automation" re-enabled by a hand that can answer an admin prompt, or the owner's Safari restarted* —
+which is the shape §0j.C authorizes a downstream wave to close `complete_with_misses` on.
+
+#### Gate readings — BEFORE → AFTER at this unit's limb
+
+| gate | BEFORE (this sitting's baseline) | AFTER |
+|---|---|---|
+| **G-KFW9-8** | RED — *"no WHC capture exists in any cell"* ⟨`ls …safari-real/ \| grep -c 'hcm-\|at-'`⟩ → **0** | **RED** — count re-recorded **0** (ninth seat), producer re-enumerated at **twelve** files; **WHC half cannot close** (no Windows host, no VM host) |
+| **G-KFW9-9** | RED — *"The BEFORE witness is a shot; none exists"* | **RED** — the witness **exists** with its falsifier as a control, but in the `chromium/emulated-forced-colors` cell; the two cells the gate names carry no forced-colors shot (bounds at acts 3 and 7). **The re-derivation obligation is DISCHARGED** (act 6) |
+| **G-KFW9-1** (share) | RED — ⟨`git ls-files …safari-real/ \| wc -l`⟩ → **7** tracked, ⟨`\| grep -ci sha256`⟩ → **0** | **MOVED** — **24** tracked; **7** captures force-added, **7** sha256 sidecars, each with cell + substrate ref |
+| **G-KFW9-2** (share) | RED — 10 cells `UNMEASURED`, **9 of 10** `capability: null` | **MOVED** — 4 cells carry a reading or a **named** foreclosure from this seat; every row carries its own cell; **no verdict crosses a column** |
+| **G-KFW9-4** (share) | RED — 0 of 590 terminal | **MOVED** — this unit's probes reach terminal states (EXECUTED / UNREACHABLE-IN-CELL / UNMEASURED-with-precondition); `.e` folds the tally |
+| **G-KFW9-14** (share) | RED — **0** captures name substrate ref + sha + cell | **MOVED** — every capture names `substrateRef` + `substrateSha` + **measured** `bundleSha256` + cell; `.a`'s residual 2 discharged |
+
+#### Locks, bounds, probes and mail
+
+- **Locks honoured**: the two-deletion act is **KF.W13's** — no cure spent, **no byte deleted**, AFTER
+  witness **UNMEASURED** (S-9) · ST-1's re-point is **KF.W11's**, after KF.W13 (S-15) — untouched ·
+  **AT ran here by ruling** (§0j.C KF-AT), no new lane minted · `safari-real-matrix.js`
+  **EXECUTE-NO-WRITE** and `capture.mjs`/`states.mjs` `.a`-alone — **none written**, no harness
+  redesign, S-13 unarmed · **cell-disjoint**: wrote only `hcm-*`/`at-*`; `desktop-*`/`mobile-*`
+  untouched · `REPORT.*`/`STATES.json` untouched (`.a`/`.e` alone) · **no adjudicated-record byte
+  written** — E-1/E-3 reserve addenda to `.e`, and the material is handed over, not landed.
+- **Bounds clean**: ⟨`git show --stat HEAD`⟩ → **23 files**, every one inside `.d`'s writable set.
+  **Zero keyframes.js bytes** (the clone is a §0m.2 grant, not a repo write grant; it holds no commit
+  and was never pushed). **Zero glass-ui bytes** — read-only always.
+  `scripts/dev/dev.sh` **never touched**; `LEDGER.md` is not in `.d`'s writable set and was **not**
+  edited.
+- **Probe parsimony**, self-counted: **4** safaridriver sessions (all deleted, including on the
+  failure path) and **8** `chromium.launch()` calls across 5 script runs; **0** `webkit.launch()` (it
+  throws on this host). No DevTools-MCP. Files were read to plan; the browser was driven only for
+  cells needing pixels or live computed style.
+- **Mail (E13)**, swept at this seat's clock **19:07:29**, six paths:
+  ⟨`find <each> -maxdepth 1 -type f -newermt '2026-09-17 17:43'`⟩ →
+  `V/ 0 · V/coordination/ 1 · glass BK/ 3 · kf V/coordination/ 0 · atlas P/ 0 · atlas Q/ 0`. The **1**
+  is `INBOX.md` itself (SELF-COUNT). The **3** are already rowed ⟨`grep -c <basename> INBOX.md`⟩ →
+  **1 · 2 · 1**. ⟨`grep -c '^| I-' INBOX.md`⟩ → **36**, tail **I-34**;
+  ⟨`grep '^| I-' INBOX.md | grep -c 'UNREAD'`⟩ → **5** (`I-30 I-31 I-32 I-33 I-34`), **none in
+  KF.W9's scope** — I-32/-33/-34 are Track A's glass consumer-band acts, I-31 the atlas contract, and
+  I-30 the SS-6 ACK **this wave feeds with captures and does not send**.
+  **0 unrowed · 0 UNREAD in scope · no `INBOX.md` byte written.**
+
+#### Residuals handed forward (each with a named owner and an exact precondition)
+
+1. **The `safari-app` + `windows/real-HCM` forced-colors arms of G-KFW9-8/-9 stay OWED.** Preconditions:
+   (a) forced colors is **not enterable on macOS** — measured with a control — so the safari-app arm
+   needs a different platform, not a different seat; (b) the WHC arm needs a Windows host, and none
+   exists. → `.e` books both; §0j.C's `complete_with_misses` shape fits them exactly.
+2. **The `safari-app/desktop` cell needs its automation re-authorized** — an interactive admin prompt
+   or a Safari restart, neither available to this seat (act 9). Its targeted-probe and AT-inventory
+   arms are UNMEASURED, not failed.
+3. **KF.W13 must re-word the redundancy ground before the two-deletion act lands** (act 6). The act
+   itself is unchanged and still ONE act.
+4. **Four addendum facts for `.e`, under ORIGINAL ids, no re-booking and no re-grade**: D-m8's label is
+   **23** words, not 33 · `role="application"` appears **twice** on the spring route · the copy button
+   ships in **two divergent forms**, one with **no** nested `role="status"` at all (a third outcome
+   KF-CB-9's two-branch framing does not enumerate) · the spring sliders declare `max 110` for values
+   that run `0…1`. Plus the producer's forced-colors files now number **twelve**, with ruling 7's four
+   all present and its conclusion reinforced.
+5. **`webkit-engine` is UNMEASURED** on a measured, cheap-to-cure bound: playwright 1.60.0 resolves
+   webkit to `webkit-2287` and only `webkit-2311` is installed. **A chromium reading was not given
+   that label**, which is why the cell is empty rather than wrong.
+6. **The capture clone `/Users/mkbabb/Programming/keyframes-w9-capture` is left in place** at the pin,
+   clean, built and hashed — so `.e` (or a re-authorized safari-app seat) can re-serve the *same*
+   bytes without rebuilding. Its `bundleSha256` is published on every row.
