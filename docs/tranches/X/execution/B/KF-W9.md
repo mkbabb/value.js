@@ -218,3 +218,251 @@ no CI colour**.
 ## Unit receipts
 
 *(empty — appended by each unit as it lands)*
+
+### `.a` — chassis · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `dfe890e1` — *"feat(X·KF.W9/.a): the chassis — substrate pinned, 590-probe surface list
+published, both registers, I-20 roster carved into the harness"*. **ONE commit** because G-KFW9-12
+requires the registers be published **WITH** the list and S-1 names the four as one chassis (a family
+that must not split). 13 paths, all inside `.a`'s writable set; `scripts/dev/dev.sh` and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` were dirty on arrival and are **untouched and unstaged**.
+
+**Status: PARTIAL.** Every act `.a` owns landed. **One wave-level precondition is BROKEN and escalated**
+(act 2 below) — it is a sibling's collateral, not this seat's, and curing it is outside this unit's
+bounds.
+
+---
+
+#### Act 0 — inherited state, measured before writing
+
+`capture.mjs` arrived **already `M`** with an *"X.KF.W9 `.a` CARVE"* header and a live
+`ROSTER_DIGEST_PLACEHOLDER`, and `evidence/W9/SUBSTRATE-PIN.md` existed untracked (mtime **15:24**) —
+an **interrupted prior `.a` run, never committed**. Its work is completed and corrected here rather
+than duplicated. `states.mjs` was **clean** (`git status --short` → empty): the carve had not reached it.
+
+#### Act 1 — OP-3: a real Safari session, opened and recorded (§0j.C **KF-ODV3**, *"measured at run, never assumed"*)
+
+⟨`safaridriver --version`⟩ → `Included with Safari 26.4 (21624.1.16.11.4)` · ⟨`sw_vers`⟩ → macOS
+**26.4.1** (25E253) · ⟨`defaults read com.apple.Safari IncludeDevelopMenu`⟩ → `1`.
+
+⟨`defaults read com.apple.Safari AllowRemoteAutomation`⟩ → **`does not exist`** (key absent from the
+container plist on macOS 26) and `safaridriver --enable` needs an interactive admin authorization this
+seat cannot supply. **Neither is claimed as run.** What is claimed is measured:
+
+⟨`nohup /usr/bin/safaridriver -p 4601 &` ; `lsof -nP -iTCP:4601 -sTCP:LISTEN`⟩ → `com.apple 85467 …
+TCP 127.0.0.1:4601 (LISTEN)` + `[::1]:4601 (LISTEN)`; ⟨`curl -s :4601/status`⟩ →
+`{"value":{"message":"","ready":true}}`.
+
+⟨`curl -s -X POST :4601/session -d '{"capabilities":{"alwaysMatch":{"browserName":"safari"}}}'`⟩ →
+**HTTP 200**, `sessionId 7BB393EF-45A2-4EB5-9B01-C12155925F97`, `browserVersion 26.4`,
+`safari:platformVersion 26.4.1`, `safari:platformBuildVersion 25E253`, **`safari:useSimulator: false`**.
+**OP-3 = MET**, in the `safari-app/desktop` cell — and `useSimulator: false` is carried so the app cell
+is never read as the simulator cell (I-20's whole subject).
+
+**OP-4 baseline, `safari-app/desktop`** ⟨`POST /session/<id>/execute/sync`⟩ →
+`{"fc":"(forced-colors: active)","prt":"(prefers-reduced-transparency: reduce)","prm":"(prefers-reduced-motion: reduce)","fcMatch":false,"prtMatch":false,"prmMatch":false,"dpr":2,"iw":800,"ih":600}`.
+**All three `.media` strings round-trip byte-identical** (a query Safari cannot parse serialises
+`not all`; none does) ⇒ **that column is NOT foreclosed by UA capability**, so a row reporting
+UNREACHABLE-IN-CELL there must name a reason that is not capability. The three `*Match` are `false`:
+the host is not *in* those modes — a **baseline, not a finding**, and it binds **no other cell**.
+
+⟨`curl -s -X DELETE :4601/session/7BB393EF-…`⟩ → **200** · ⟨`pkill -f 'safaridriver -p 4601'` ;
+`lsof … | grep -c LISTEN`⟩ → **0**. Single-session discipline: `.b`/`.c`/`.d` open their own.
+
+#### Act 2 — G-KFW9-14: the substrate pinned · **and OP-5 found BROKEN**
+
+`evidence/W9/SUBSTRATE-PIN.md`. Pin, by command: ⟨`rev-parse --abbrev-ref HEAD`⟩ → `master`;
+⟨`rev-parse HEAD`⟩ = ⟨`rev-parse origin/master`⟩ = **`55e9bf0d2391bbc6d9871bb3f0555a6225daae92`**;
+⟨`rev-parse kf-sacred-snapshot-2026-09-17`⟩ → `6d280ee7…`; ⟨`merge-base --is-ancestor 8281638c
+kf-sacred-snapshot-2026-09-17`⟩ → exit 0; ⟨`rev-parse kf-sacred-snapshot-2026-09-17^`⟩ →
+**`8281638c0ac4…`** — the disqualified head is the snapshot's **direct parent**, preserved by ref and
+never a witness substrate. ⟨`git diff --name-only 81a56990..55e9bf0d`⟩ → **exactly one docs path**, so
+the source trees are identical and every byte-offset receipt the spec carries holds at the execution
+substrate **without re-anchoring**.
+
+**Six untracked kf files** named ⟨`ls-files --others --exclude-standard`⟩: 2 coordination letters + 4
+`src/` files. The four are **orphans at pre-carve paths** — the live modules are at
+`src/animation/compile/frame/{compiled-frame,interp-slot}.ts` ⟨`git ls-files | grep -E …`⟩, `value-ast`
+and `composite-storage` have **no tracked file at any path**, **no importer resolves to an orphan**
+⟨`git grep -nE '…' -- src demo test scripts | wc -l`⟩ → **0**, and mtimes are 2026-07-16.
+
+**TWO tracked modifications, and the earlier draft's `0` is STRUCK.** ⟨`git diff --name-only`⟩ →
+`package.json` · `package-lock.json` (⟨`--stat`⟩ → 2 files, +1007/−5). Content: a `vue-tsc` `check`
+script + `eslint`/`eslint-plugin-vue`/`vue-tsc` devDeps — **KF.W4's type-cure chassis**, which OP-6
+authorises to run concurrent with this wave. **This wave wrote none of it** (zero kf write grants).
+⟨`git diff --name-only -- src/ demo/`⟩ → **0** and ⟨`ls-files --others -- demo/`⟩ → **0**: every byte
+the gh-pages bundle compiles is identical to `55e9bf0d`.
+
+> **THE BREAK.** ⟨`ls -la ../keyframes.js/dist/gh-pages/`⟩ → **`No such file or directory`**. The
+> bundle the wave opened against (index.html 8,381 B + assets/ 53 entries, 13:37) **is gone**, and the
+> earlier draft's hashes `bad6ea59…` / `5abf8bf7…` are **STRUCK** — they describe bytes nobody can
+> re-hash. **Mechanism measured, not guessed**: ⟨`grep -n 'outDir:\|emptyOutDir:' vite.config.ts`⟩ →
+> the production/lib branch sets **no** `outDir` ⇒ vite's default self-emptying `dist/`;
+> ⟨`grep -n '"prepare"' package.json`⟩ → `36: "prepare": "npm run build:lib"`;
+> ⟨`stat -f '%N %Sm'`⟩ → `package.json` **15:26:13** → `package-lock.json`/`node_modules/vue-tsc`
+> **15:26:16** → `dist/keyframes.js` **15:26:18**. A sibling's install fired `prepare` → `build:lib`,
+> which emptied `dist/` and took `dist/gh-pages/` with it.
+>
+> **`.a` does NOT rebuild.** A rebuild writes kf bytes; §Bounds is *"Do NOT touch — any keyframes.js
+> byte"*; S-13 makes it a **bounds expansion → triumvirate, never a quiet build**. Booked whole at
+> `SUBSTRATE-PIN.md` §7 with the fix, the grant it needs, and what must not happen instead.
+
+**Gate reading — G-KFW9-14: RED → RED (correctly).** The pin is published and the harness stamps
+`substrateRef`/`substrateSha`/`bundleSha256` on every row, but the gate closes on **captures** and `.a`
+takes none: ⟨`git ls-files …/safari-real/ | wc -l`⟩ → **4** vs **31** on disk; ⟨`git ls-files …/shots/
+| wc -l`⟩ → **0** vs **11**. *Recording a precondition holding as a gate closing is the failure this
+wave exists to convict, and it is not done here.*
+
+#### Act 3 — G-KFW9-4: the denominator re-derived with the AMENDED command
+
+One script, both variants side by side, **run twice, identical**:
+
+```
+h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58
+```
+
+**Reproduces the published figure to the digit, including the struck 563.** The delta is *located*:
+⟨`--delta`⟩ → `DELTA +2  kf-ChannelOptions.md`, and the pair is exactly the one the spec names —
+⟨`sed -n '174p;223p;225p;226p'`⟩ → `## ADDENDUM R2` (`:174`) · **`### G. SS-13 additions (append to the
+standing list)`** (`:223`, an **h3** nested under a non-matching h2) · item **11** dropdown WIDTH
+overflow (`:225`) · item **12** focus-ring 2px bleed (`:226`). **563 + 2 = 565.**
+⟨`--per-record | awk '$1==0'`⟩ → `kf-CubeAxisLines.md` — the one record of 58 with zero enumerated
+items, which is why the figure is **57 of 58**.
+
+The **25 prose-carried** re-read at their bytes: `kf-CubeAxisLines:104` *"nine-item queue … three
+sharpenings"* (**9**) · `kf-TransportDock:122` *"1–8 carried from r1"* (**8**) · `kf-CubeTarget:83`
+*"r1 items 1–4 and 6–8 unchanged"* + *"r1 item 5 is amended"* (**8**). **9+8+8 = 25. 565+25 = 590.**
+
+**S-13's material-divergence trigger is NOT armed** — measured with the amended form, exactly 565, zero
+divergence. *A seat that measures 563 has run the retired command, not found a corpus change*; the
+retired form is named as a trap in the published list so it cannot manufacture one.
+
+**Gate reading — G-KFW9-4: RED → RED.** The denominator re-derives (the gate's *precondition*); **0 of
+590** probes have reached a terminal state. `.a`'s limb only.
+
+#### Act 4 — G-KFW9-3: the scoped surface list PUBLISHED
+
+`evidence/W9/SURFACE-LIST.md` + `SURFACE-LIST.json`. **590 addressable probe rows**, self-counted from
+the settled bytes ⟨`node -e '…d.probes.length'`⟩ → **590** (565 enumerated + **the 25 prose-carried made
+individually addressable** — a queue that is counted but not itemised is not a list and cannot reach a
+terminal state per probe).
+
+B18-26 carried verbatim from ⟨`sed -n '151p' …/intakes/lane-keyframes-b10-b21.md`⟩: *"TRUE as
+arithmetic; UNPROVEN as coverage (manufactured denominator) … a Kronecker self-cross-product with no
+product consumer … **the denominator must be replaced by KF.W9's own scoped surface list, not
+inherited**"*. **73,568 REJECTED**; it appears in this wave only as the thing rejected.
+
+**Seeds never denominators** ⟨`sed -n '215p' …/INTAKE-ADJUDICATION-2026-08-03.md`⟩ →
+*"VISUAL-AUDIT-INPUT (marker; **10 rows — enumeration seeds, never denominators**)"*; V6-18/-19/-21/-22/-23/-28
+(catalog-only) · V6-33 · V6-34 · CM-15 · XF-6 carried as **seeds**, none multiplied into anything.
+**KF-AX-26 honoured and measured**: `excludedSurfacesInherited: 0`, `e2eExists: false` — the demo
+gate's own exclusions are **not** inherited, because *the excluded surface is exactly the one no
+instrument has ever seen*.
+
+**Gate reading — G-KFW9-3: RED → GREEN.** BEFORE ⟨`head -10 REPORT.md`⟩ → *"4 matrices × 15 routes =
+**60 captures**"*, the 2026-07-24 **value.js** corpus, *"not a kf-scoped list"*. AFTER: the list is
+published, derived from the banked 590, seeds as seeds, KF-AX-26 honoured — and **no fraction is quoted
+anywhere before it**, which is this gate's explicit fail condition.
+
+#### Act 5 — G-KFW9-12: BOTH registers published WITH the list
+
+`NEGATIVE-REGISTER.md`/`.json` — **6 records · 11 probes · 4 traps**, self-counted ⟨`node -e`⟩ →
+`retired rows: 11 | traps: 4 | distinct records: 6`. **All fifteen re-read at their banked bytes**, not
+carried from the spec's prose: `kf-KeyboardShortcutsModal:114` (*"R-A's Tab-reach probe is retired …
+do not spend a probe on it"*) · `kf-KeyframesStringControls:161` (the four, with `:86`'s
+`origin/master:77` measurement and `:194`'s two-limb disambiguation) · `kf-KeyframeCard:25`/`:109`
+(L-10/C-5 **struck**, containment; KF-KC-28 survives) · `kf-MbabbMenu:165` (`useHideOthers` **MOOTED**
++ D-7's leading question) · `kf-TimelineTrack:146` (#12 checked-and-negative) · `kf-SequenceAxis:84`
+(#5 killed). The **4 traps** verified byte-exact: ChromeDock `:23` (*"the discriminating observation is
+combobox-vs-bare-div — handed to KF.W9"*) · SpringHeatmap `:107` (*"(Light→dark is NOT the tell — K-6.)"*
+· *"cured-by-resize-not-by-retoggle is the signature"*) · EasingTarget `:66` (KF-ET-24, *"observable
+only on a filter change while paused mid-scrub"*) · SquareScene `:145` (*"if the pixel tracks the swept
+hue the row dies"*).
+
+`ESCALATION-REGISTER.md`/`.json` — **13 armed triggers over 12 records**, self-counted ⟨`node -e`⟩ →
+`triggers: 13 | distinct records: 12 | canReachBlocker: 3`. **The record figure is DERIVED, not
+inherited**: each trigger homed by ⟨`grep -l`⟩ then its decisive line read. Two homings corrected in
+the process — **KF-TD-8 is `kf-TypingDots`, not TransportDock**, and **KF-ES-3 is
+`kf-EasingScene:42`** (the `jump-none`-faults-render limb), **not** `kf-EasingSidebar:41`'s
+smooth-step-3 polarity row of the same id. Twelve records because (5)+(10) share
+`kf-KeyframesAddDialog`, (7) and (13)'s KF-TFP-19 limb share `kf-TimingFunctionPanel`, and (13)'s other
+limb `L-M-10/N-3` at `kf-KeyframesStringControls:159` supplies the twelfth. §H's figures **reproduce at
+the bank**.
+
+**Every probe carries a DISCRIMINATOR and a FALSIFIER** ⟨`node -e`⟩ → `every trigger has
+discriminator+falsifier: true` · `every trap has discriminator+falsifier: true`. Baseline re-measured:
+⟨`grep -rl 'PROVISIONAL' kf-*.md | wc -l`⟩ → **0** · ⟨`grep -rl 'ADDENDUM.*2026-09-17' kf-*.md | wc -l`⟩
+→ **0**.
+
+**Gate reading — G-KFW9-12: RED → GREEN.** BEFORE ⟨`ls …/evidence/W9/`⟩ → *"No such file or
+directory"*, **no register exists**. AFTER: both published **with** the list, and both rules
+**mechanized** rather than requested (act 6).
+
+#### Act 6 — G-KFW9-2: the I-20 roster carved into the harness
+
+**Witness moved**: ⟨`grep -c 'safari-app\|webkit-engine\|ios-device\|ios-simulator' capture.mjs
+states.mjs`⟩ → **`capture.mjs:0 · states.mjs:0`** (born-RED) → **`capture.mjs:14 · states.mjs:10`**.
+Ten cells in both files, with `ROSTER_DIGEST =
+255695bc616c2a1420639ccf56848bdaf5df2c87618587c0c736fda4ef762035` — each file hashes its own `CELLS`
+literal at run time, so **editing one roster without the other aborts the run**. (`REPORT.json`'s
+`rosterDigest` matches the harness's: `true`.) The roster is duplicated because §Bounds makes those two
+files the only writable harness surface; **divergence is made DETECTABLE rather than trusted**.
+
+**The guards are exercised, not asserted** — lifted verbatim out of `capture.mjs` into a scratchpad
+harness and run against real inputs:
+
+```
+-- assertCell (I-20) --
+  THROWS: webkit driver wearing a safari-app label   -> I-20 VIOLATION: cell 'safari-app/desktop' requires driver 'safaridriver'…
+  THROWS: chromium emulation wearing windows/real-HCM -> I-20 VIOLATION: cell 'windows/real-HCM' requires driver 'windows-host'…
+  THROWS: a cell outside the ten-cell roster          -> I-20: 'safari-app/ipad' is not in the ten-cell roster
+  PASSES: webkit driver in the webkit-engine cell · PASSES: safaridriver in safari-app/desktop
+-- assertProbeTerminal (G-KFW9-12) --
+  THROWS: a RETIRED probe re-entering · no discriminator · no falsifier · no sha256 · no cell
+  PASSES: a fully-formed EXECUTED probe · PASSES: an UNMEASURED probe with nothing filled
+```
+
+⟨`node capture.mjs`⟩ (no `--bundle-sha`) → **aborts at `assertSubstrate`, before any browser launch** —
+which also proves `rosterGuard()` passed with the injected digest, since execution reached it.
+⟨`node states.mjs`⟩ → the same abort. Both ⟨`node --check`⟩ clean.
+
+`states.mjs` additionally labels `forced-colors-desktop` as `chromium/emulated-forced-colors` under
+`ENGINE=chromium` and **never** `windows/real-HCM` — *a chromium emulation labelled as WHC is the I-20
+failure by name* (S-13). `safari-real-matrix.js` was **executed-not-written** (untouched: not in the
+commit).
+
+**Gate reading — G-KFW9-2: RED → GREEN at `.a`'s limb** (every roster label is expressible and
+enforced, per-shot sha256 mandatory, OP-4 recorded per cell). The wave-level gate turns when results
+exist.
+
+#### Act 7 — the `REPORT.*` / `STATES.json` skeleton
+
+Rewritten as the **kf-scoped** skeleton: substrate, ten-cell ledger (**all `UNMEASURED`**, every cell
+present with its owning seat — *an absent cell is how a webkit reading lands in a safari column by
+default*), denominator 590, both registers' figures, probe tally `UNMEASURED: 590`, and the OP-5 break
+as a standing blocker. **Nothing destroyed**: the 2026-07-24 value.js corpus these files held is
+tracked and recovers with ⟨`git show c0078d96:<path>`⟩ — named inside the new files, not merely known.
+
+#### Locks, bounds and mail
+
+- **S-1 discharged**: the chassis is committed at `dfe890e1`; **phase 2 may dispatch** (subject to the
+  OP-5 blocker below, which `.b`/`.c`/`.d` cannot capture around).
+- **Bounds clean**: ⟨`git diff --cached --name-only`⟩ → the 13 intended paths, nothing else.
+  `scripts/dev/dev.sh` and `CARRY-LEDGER.md` arrived dirty and are **untouched/unstaged**;
+  `docs/tranches/X/keyframes/waves/evidence/KF-W4/` (15:54) is a **sibling's**, not this seat's.
+  `LEDGER.md` is not in `.a`'s writable set and was **not** edited.
+- **Zero keyframes.js bytes written.** Zero glass-ui bytes. `safari-real-matrix.js` unmodified.
+- **Mail**: no new mail in scope since seat 0's four-path sweep at open; `INBOX.md` tail remains
+  **I-30**. **0 UNREAD.**
+
+#### Residuals handed forward
+
+1. **OP-5 / the gh-pages bundle — ESCALATED** (`SUBSTRATE-PIN.md` §7). Blocks `.b`/`.c`/`.d`'s capture
+   limbs and therefore G-KFW9-1/-2/-14's capture halves. Needs a **named grant to write the kf tree**;
+   the act itself is one command at `55e9bf0d` and moves no substrate.
+2. **`bundleSha256` is unfilled by design.** Both harnesses abort without `--bundle-sha=`. Whoever
+   rebuilds hashes the tree and passes it; **no seat may default it**.
+3. **OP-4 is owed per cell.** Only `safari-app/desktop` has a reading, and it is a baseline that binds
+   only that cell.
+4. **Two kf tracked rows are dirty from KF.W4's chassis.** Recorded so no later seat reads a nonzero
+   `git status` as a moved substrate; the source trees are identical.
