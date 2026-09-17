@@ -1203,3 +1203,28 @@ inherits one named obligation from F-9**: `constants/types.ts:9`'s `timingFuncti
 is a live C1 red sitting in `.e`'s file but **outside** its `:25`/`:27`/`:195` carve — it is
 routed, not silently handed over. **The push is the wave close seat's** (§0j.C KF-WRITE); this
 unit leaves `c5c0b889` local and unpushed by design.
+
+##### Dated addendum-beside — E13, appended by `.d` at 17:16, after its commits landed
+
+**THREE glass-ui BK outbound letters arrived DURING this wave and are UNROWED.** The seat-0
+sweep recorded BK at *"4 files; newest `glass-outbound-2026-08-29-valuejs-o20-ack.md` @Aug 29"*.
+Re-swept at this seat's clock: ⟨`ls -lt ../glass-ui/docs/tranches/BK/coordination/`⟩ →
+**7 files**, three of them minted after this wave opened —
+`glass-outbound-2026-09-17-valuejs-o20-disposition.md` **@17:13** ·
+`glass-outbound-2026-09-17-bbnf-lang-9.0.0-addendum.md` **@17:14** ·
+`glass-outbound-2026-09-17-constellation-o20-relay.md` **@17:15**.
+
+**One of them is addressed to THIS repo**: the constellation relay's **§2 · keyframes.js**
+(`:64`) carries six producer rows against glass 9.0.0 — A-13 (`--rainbow-*` override partial,
+`demo/styles/design-idioms.css:12-21`) · **B-3 `text-admin-label`, 16 sites / 10 files, gone
+since 8.0.0 → `text-mono-micro`** · A-9 (THP ceiling) · A-7 (`useSelectionGroup` roving door) ·
+A-2 (`glass-chip.css`). Its own framing is *"facts found on your bytes, not asks … no edits were
+made in any of these trees; every action is yours, in your tranche, at your adopt."*
+
+**Disposition, and its bound.** **NONE of it touches this unit's cures** — A-13's anchor is
+`design-idioms.css:12-21` and this unit wrote `:3` and `:43` only; no other row names a file in
+`.d`'s writable set. **`docs/tranches/V/coordination/INBOX.md` is NOT in this unit's writable
+set**, so rowing these letters would be a write outside §Bounds — an ESCALATION, not a
+convenience. They are therefore **HANDED UP, named by path and mtime, to the wave close seat /
+orchestrator**, whose E13 obligation (*"no wave closes with UNREAD mail in scope"*) they are.
+Recorded here rather than left for the close seat to rediscover.
