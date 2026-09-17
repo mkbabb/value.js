@@ -429,3 +429,121 @@ parsing sheet stays blocked — which is the finding, not a defect.
 ## Unit receipts
 
 *(empty at open; each unit appends its own receipts here, with its SERVED MODEL line and its commits)*
+
+### F.W0.a
+
+**SERVED MODEL: claude-opus-5[1m]** · substrate settle · **gate G-1** · 2026-09-17 ·
+repo `/Users/mkbabb/Programming/fourier-analysis`, branch `m/w1-bump-migration`.
+
+**Sections executed**: §4 G-1 · §2a + §2a-i · §2b · §2c · §3 rows 2 · 24 · 25 · 3 · 4 · §5 OG-F1 ·
+§6a locks 1 · 9 · 10 · §7b commit plan · `COHESION.md` §0j.D (OG-F1).
+
+#### Acts, in order
+
+**Act 1 — the ruling read, never presumed.** ⟨cmd⟩ `/usr/bin/grep -n 'OG-F1' docs/tranches/X/COHESION.md`
+→ `599:` ; quoted whole at §0j.D: **FREEZE-WITH-ADOPTION AND WORKTREE-AS-BASELINE**, *"G-1's minute becomes
+a disclosure + the LAND set … GAB-13 discharges to a disclosure line."* Both limbs are what §1 of the ledger
+now is.
+
+**Act 2 — the bounds re-verified at the tree, not adopted from a ledger.** ⟨cmd⟩
+`git rev-parse --abbrev-ref HEAD` → `m/w1-bump-migration` · `git rev-parse --short HEAD` → `cd26c65` ·
+`git status --porcelain | wc -l` → **28** · `… | /usr/bin/grep -c '^ M'` → **27** ·
+`… | /usr/bin/grep -c '^??'` → **1**. **Double-run: 28, 28.** The live listing reproduces F-W0 §2a-i
+**item-for-item, in the same order, with no addition and no omission** — matching the baseline row banked at
+this record's open.
+
+**Act 3 — every one of the 27 diffs read line-by-line** (the reason column of the minute is that reading, not
+a template). ⟨cmd⟩ `for f in $(git diff --name-only …); do git diff -U0 -- "$f" | /usr/bin/grep -E '^[+-]' …`
+→ all 27 are M.W1a glass-ui-4.0.0 API-migration deltas in exactly five classes: the glass ladder renames
+(`glass-subtle`→`glass-wash`, `glass-elevated`→`glass-floating`, `glass-medium`→`glass-resting`|`glass-floating`),
+`UnderlineTabs`→`SegmentedTabs variant="underline"`, `Slider variant="glass-scrubber"`→`variant="standard"`,
+MetricBadge `:amount`→`:value`, `DialogContent variant="opaque"`→`surface="opaque"`; plus the manifest/lock
+bump (25+/25− and 1132+/1189−) and RUN-BOARD's S1 status row.
+
+**Act 4 — the two NAMED EXCEPTIONS enumerated BEFORE ruling on the rest** (§3 row 25's explicit ordering
+demand). ⟨cmd⟩ `git diff -- <EquationModeToggle.vue> <PaperSearchDropdown.vue>` → **exactly one changed line
+each**: `glass-subtle` → `glass-wash` (§3 row 24, `FR-EMT-25`) and `glass-elevated` → `glass-floating`
+(§3 row 25, `C:S-2`). Ledger §1.3.
+
+**Act 5 — the disclosure measured** (§1.1). ⟨cmd⟩ `git show HEAD:web/package.json | /usr/bin/grep -E
+'glass-ui|keyframes|value\.js'` at `cd26c65` → `^3.1.0` / `^2.2.0` / `^0.10.0`, against the worktree's
+`^4.0.0` / `^4.3.0` / `^0.13.0`; ⟨cmd⟩ `/usr/bin/grep -m1 '"version"'
+web/node_modules/@mkbabb/glass-ui/package.json` → `"version": "4.0.0",`.
+
+**Act 6 — the 28-path minute written, then the LAND set committed by pathspec.** `SUBSTRATE-LEDGER.md`
+created (line 1 = `SERVED MODEL: claude-opus-5[1m]`), §1.4's table carrying **one row per §2a-i path**, each
+with a disposition and a reason, plus an explicit disambiguation that the table's `#` is the §2a-i path index
+and **not** a §3 carry-row number (§3 row 24 is path 4; §3 row 25 is path 13).
+
+**Act 7 — the after-porcelain banked from the settled bytes** (§1.8), and G-1's reading stated at §1.9.
+
+#### Dispositions — all 28, by name
+
+| disposition | count | note |
+|---|---|---|
+| **LAND** | **28** | 27 ` M` executed at `1193003`; the 1 `??` (O-14 letter) ruled LAND with its act routed to **G-2, unit *b*** |
+| **LAND-WITH-CORRECTION** | **0** | empty for a BOUNDS reason, stated: F.W0 does not edit ` M` SFC contents (§2a; writable set = the 28 paths **as commit objects only**), so a correction is an F.W1/W3/W4 act by construction. No correction was suppressed to reach the empty set. |
+| **ABANDON** | **0** | empty by RULING: OG-F1 adopts the worktree as baseline, and *"a wholesale reset is a gate FAILURE, not a gate pass"*. |
+
+**GAB-13 (§3 row 2) DISCHARGED** to the one-line disclosure §0j.D prescribes; worker-DU's dissent recorded
+verbatim, and the ruling makes DU's INFO grading right. **L-1's conditional (§3 row 3) did NOT fire** — the
+ruling is not ABANDON, so the governance limb does not fall to MAJOR.
+
+#### Commits
+
+| # | hash | message |
+|---|---|---|
+| 1 | **`3079a92`** | `docs(F.W0): substrate ledger + 28-path land-or-abandon minute` |
+| 2 | **`1193003`** | `chore(F.W0): LAND the 27 M.W1a working-tree paths (G-1, OG-F1 worktree-as-baseline)` — 27 files, both exceptions named in the message body |
+| 3 | **`c429d7b`** | `docs(F.W0): bank the G-1 after-porcelain and the honest gate reading` |
+
+Commit 3 exists because the AFTER porcelain and the LAND-set hash are only knowable **after** commit 2, and
+WRITE-THEN-MEASURE forbids predicting either into commit 1. It splits no declared family (the only
+must-not-split family in this wave is G-10's, at unit *f*).
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (open) | AFTER (this unit's close) |
+|---|---|---|
+| **G-1** | **RED** — porcelain **28** (27 ` M` + 1 `??`); no `SUBSTRATE-LEDGER.md`, so **no path carried a disposition** | **RED-BY-RESIDUE-1.** Disposition limb **COMPLETE, 28/28**. Porcelain limb: **28 → 1** (double-run: 1, 1), the residue being exactly the ruled-LAND O-14 letter. **Turns GREEN at unit *b*'s G-2 act** (`chore(F.W0): commit the O-14 letter`), the next unit in the serial order — not claimed here. |
+
+**Settled-tree receipts** (⟨cmd⟩, this seat, after commit 2): `git rev-parse --short HEAD` → **`1193003`** ·
+`git diff --name-only HEAD | /usr/bin/grep -c .` → **0** (no tracked path diverges from HEAD) ·
+`git show HEAD:web/package.json | /usr/bin/grep -E 'glass-ui|keyframes|value\.js'` → **`^4.0.0` / `^4.3.0` /
+`^0.13.0`** — **the 4.0.0 premise is now held by a commit** · `git show 1193003 --name-only --format= |
+/usr/bin/grep -c .` → **27** · both exceptions verified inside `1193003` at the bytes.
+
+#### Law compliance
+
+**No `git add -A`** (all three commits staged by explicit pathspec; the 27 were named individually) ·
+**no `git stash` anywhere** (§6a lock 10 — so **no stash artefact exists** for G-15(a), as the lock promises) ·
+**no `reset --hard`**, no `checkout --`, no force-push · **`value.js/scripts/dev/dev.sh` never touched and
+never staged** (§6a lock 9) · **no contents of any ` M` SFC edited** — the 28 paths were handled **as commit
+objects only** · **no write outside the writable set**: the only file authored is
+`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md`, and the porcelain before/after is banked **inside** it
+because §2a declares it the wave's single durable artefact and the unit's writable set contains no second
+path · **no worktree** (§2c: one writer, in place) · **E-3 honored**: nothing existing was patched in place.
+
+**One self-caught defect, disclosed rather than quietly fixed.** The ledger's first draft cited the LAND-set
+commit by a hash that **did not yet exist** — a predicted figure, which is exactly what WRITE-THEN-MEASURE
+forbids. It was caught before any commit and replaced at both sites with a forward reference to §1.8, where
+the hash is read from the settled tree. Recorded here because a seat's own bytes are the least-audited ones.
+
+#### Residuals and routing — nothing dropped
+
+| item | routed to |
+|---|---|
+| The `??` O-14 letter's commit | **G-2, unit *b*** — one act |
+| `RUN-BOARD.md` content-claims (J/K-deploy/M interlock; dead M.W1b glass-4.1.0 gate) | **G-14, unit *e*** |
+| `InfoCard.vue` (landed at `1193003`, then deleted) + `CanvasOverlayButton.vue` + the 8-site lift | **G-10, unit *f*** — ONE commit |
+| Manifest DECLARE+LOCK banding | **F.W1** (R-4a). **G-6 is stamped `BRANCH = LAND`**: unit *d* measures against the landed 4.0.0 manifest at `1193003`; the ABANDON arm of §6a lock 5 did not fire. |
+| Anchor re-resolution before any line-number act | **G-11, unit *e*** (§6a lock 3's first edge is now satisfied — the tree is settled) |
+| `web/dist` quarantine | **does not run this wave** (§6a lock 2) |
+
+**Releases**: all 28 paths are **RELEASED** as of `1193003` (§2b). The two G-10 lift sites carried in the
+` M` set — `EditorControlsDock.vue` and `ConvergenceTimeline.vue` — are committed, so unit *f* lifts against
+a base a commit holds. **Record D-4 re-confirmed**: `ConvergenceTimeline.vue` lives under
+`equation/convergence/`, not `visualization/`.
+
+**Escalations**: none. **`execution/LEDGER.md` untouched** — not in this unit's writable set; its F.W0 row is
+the wave seat's.
