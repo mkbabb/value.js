@@ -1850,3 +1850,64 @@ two the close charges and no third**, never forced:
 
 **Not pushed, and declined on the record**: the snapshot ref (R-2). See that row for why and for the
 one command that discharges it.
+
+### §10 · Push receipts — E-3 addendum-beside, amending §9's prose in nothing
+
+**(1) value.js — PUSHED, clean fast-forward.**
+
+```
+⟨git -C /Users/mkbabb/Programming/value.js push origin HEAD⟩
+      → To https://github.com/mkbabb/value.js.git
+           76e727be..3a7efda5  HEAD -> tranche-u          exit 0, no --force anywhere
+⟨git ls-remote origin refs/heads/tranche-u⟩ → 3a7efda5d199d32246974eef7ba33b2504f85768
+⟨git rev-parse HEAD⟩                        → 3a7efda5d199d32246974eef7ba33b2504f85768   ← equal
+```
+
+All nineteen wave commits plus this close are published on `tranche-u`.
+
+**(2) keyframes.js — REFUSED BY THE REMOTE, and the refusal is residual R-3 arriving on schedule.**
+§9 predicted this push *inert*; it is inert, but it **failed rather than no-op'd**, and the difference
+is stated rather than smoothed:
+
+```
+⟨git -C /Users/mkbabb/Programming/keyframes.js push origin HEAD⟩
+      → ! [rejected]  HEAD -> master (fetch first)
+        error: failed to push some refs … remote contains work that you do not have locally
+```
+
+**The cause, measured and not inferred** (resolved **read-only in the sibling clone
+`/Users/mkbabb/Programming/keyframes-v-exec`**, so that no fetch ran in the sacred checkout):
+
+```
+⟨git ls-remote origin refs/heads/master⟩ → 55e9bf0d2391bbc6d9871bb3f0555a6225daae92
+⟨git rev-parse HEAD⟩                     → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨merge-base --is-ancestor 81a56990 55e9bf0d⟩ → exit 0     ← the remote ALREADY CONTAINS every local commit
+⟨git log --oneline 81a56990..55e9bf0d⟩ → 55e9bf0d docs(coordination): value.js amendment-addendum to O-8/O-11 …
+⟨git show --name-only --format= 55e9bf0d⟩ → docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md
+```
+
+**The reading.** The rejection is *"the remote is AHEAD"*, not *"the local ref diverged"*. **This push
+had nothing to publish**: the wave's one keyframes commit (`6d280ee7`) lives on the local snapshot ref
+and was never on `master`, and `master` itself is an exact ancestor of the remote tip. The one commit
+the remote holds and the checkout does not is **KF.W1's own delivery** — a docs-only, single-file
+addendum that touches **zero** paths in this wave's gate surface, which `.c` measured at act 6 and
+booked as **R-3** before this close existed.
+
+**Three things this seat refused, each for a stated reason.** (i) **No `--force`, no
+`--force-with-lease`** — the standing law forbids it absent a prescribing spec clause, and here it
+would *delete a sibling wave's published delivery* to publish nothing. (ii) **No `git fetch` or
+`git pull` in the sacred checkout** — that is precisely the hazard R-3 names: fetching moves the ref
+`origin/master` to `55e9bf0d`, after which `git diff --name-only origin/master` no longer measures the
+pin and **every `origin/master`-relative reading in this record, in `SUBSTRATE-SETTLE-2026-09-17.md`
+and in all 58 registry stamps silently changes its subject**. A close seat is the last seat that
+should move the coordinate its own evidence is written against. (iii) **No third push** — the
+snapshot ref stays unpushed per R-2.
+
+**Consequence for the wave: NONE, and it is checked rather than asserted.** The ref of record is a
+**sha**, not a branch name — `81a56990736ced5b5edde0b84c527680ac7689b1`, published and immutable on
+the remote as an ancestor of its tip. Every gate reading, every stamp and every artefact in this wave
+anchors on that sha, and this is exactly why `.c` wrote *"every anchor in the settle record names the
+**sha**, for that reason."* **R-3 is upgraded from a predicted hazard to a MEASURED one, still
+non-blocking**, and the fetch-decision is handed to the orchestrator with its cost stated: a later
+fetch in the sacred checkout is lawful and probably necessary, but the seat that runs it must know it
+retires the branch-relative form of every command in this record.
