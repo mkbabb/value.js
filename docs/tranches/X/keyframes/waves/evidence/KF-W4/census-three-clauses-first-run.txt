@@ -1,0 +1,49 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.KF.W4 .d — scripts/gates/census.mjs, the THREE CLAUSES, first run and settled run.
+Path DISTINCT from .b's census-first-run.txt by its declared name-collision note.
+Substrate: /Users/mkbabb/Programming/keyframes.js, branch master. Double-run; both runs identical.
+
+================ RUN 1 — BEFORE this unit's cures (the born-RED reading) ================
+(re-derived at this seat from the pre-cure bytes: 33 citation lines / 19 distinct names
+ at the eight targets; C1 measured 13 false attributions before .c landed backward.ts)
+
+census C1 provenance — 13 false attribution(s)  [4 backward.ts · 3 format/options.ts ·
+  1 constants/types.ts · 2 resize-tracks.test.ts · 2 computed-resolution.test.ts ·
+  1 fixtures/compile/scroll-driven.css]
+census C2 citations  — 34 dead citation(s) at 8 enumerated site(s) (38 proof: tokens over
+  33 lines; 3 live proof:publish, 1 carved proof:brittleness)
+census C3 manifest   — PASS (46 devDependencies, every one consumed; monaco-themes deleted by .b)
+census — FAIL: provenance · citations
+
+================ RUN 2 — AFTER this unit's cures, at the settled bytes ================
+captured 2026-09-17 17:16:04 EDT
+
+census C1 provenance — value.js 4.0.0, 7 subpaths, 141 exported names; 504 source files scanned, 313 attributing sentence(s), 28 attributed identifier(s).
+  MISATTRIBUTED  src/animation/compile/emit/backward/backward.ts:296  `serializeScrollOptions` (A1 possessive) — exported by THIS repo's src/, not by value.js
+  MISATTRIBUTED  src/animation/compile/emit/format/options.ts:10  `reverseAnimationShorthand` (A1 possessive) — exported by THIS repo's src/, not by value.js
+  MISATTRIBUTED  src/animation/compile/emit/format/options.ts:81  `reverseAnimationShorthand` (A1 possessive) — exported by THIS repo's src/, not by value.js
+  MISATTRIBUTED  src/animation/compile/emit/format/options.ts:148  `serializeStylesheetItem` (A1 possessive) — exported by THIS repo's src/, not by value.js
+  PHANTOM  src/animation/constants/types.ts:9  `timingFunctions` (A1 possessive) — exported by neither
+  MISATTRIBUTED  test/engine/computed-resolution.test.ts:23  `convertToPixels` (A1 possessive) — exported by THIS repo's src/, not by value.js
+  PHANTOM  test/engine/computed-resolution.test.ts:50  `dvh` (A1 possessive) — exported by neither
+  PHANTOM  test/fixtures/compile/scroll-driven.css:6  `extractTimelineOptions` (A1 possessive) — exported by neither
+census C1 provenance — FAIL: 8 false attribution(s).
+census C2 citations — site roster: embedded roster (X.KF.W4 §Bounds)
+census C2 citations — DECLARED CARVE: `proof:brittleness` at demo/styles/layout.css is OUT of this clause's denominator BY NAME; routed whole to KF.W6 (X.KF.W4 §Excluded 17). Subject present: 1 citation(s).
+  demo/DESIGN.md  sha256 1a87e42b5191  4 citation(s)
+  demo/components/instrument/shell/EditorStartScreen.vue  sha256 e0bfb51ae907  0 citation(s)
+  demo/app/App.vue  sha256 189a6fecd2fd  0 citation(s)
+  demo/components/instrument/shell/HeroAurora.vue  sha256 6983e02f5767  0 citation(s)
+  demo/components/instrument/shell/TypingDots.vue  sha256 ba5f33e5c204  0 citation(s)
+  demo/styles/layout.css  sha256 3468a7776afc  1 citation(s)
+  demo/styles/design-idioms.css  sha256 156a17cb7316  0 citation(s)
+  demo/scenes/spring/SpringPhysicsFacet.vue  sha256 2c64b9c5642d  0 citation(s)
+census C2 citations — PASS: every citation at 8 enumerated site(s) resolves to an executable (runnable: proof:owner-golden, proof:publish, proof:structure).
+census C3 manifest — 46 devDependencies declared; consumers sought as import specifier (src/ demo/ test/ scripts/), config reference (12 files), or npm script.
+census C3 manifest — PASS: every declared devDependency has a consumer.
+census — FAIL: provenance
+
+exit=1   (C1 RED: 8 residue rows, every one OUTSIDE this wave's writable set — routed in the record.
+        C2 GREEN. C3 GREEN. The script exits non-zero while ANY requested clause is red,
+        so the three gates read three verdicts off one run.)
