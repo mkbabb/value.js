@@ -1968,3 +1968,24 @@ prohibition) and once where the seven measured leg rows could have been given a 
 are published with A-1 open beside them); and no diagnose→edit→re-measure loop on any gate reached a
 third iteration — the four self-count corrections were one measure→cure→re-measure cycle each on a
 *receipt figure*, never on a gate. **No escalation arose.**
+
+##### X.P.W1.e — dated self-correction, 2026-09-17 (E-3: appended beside, nothing above rewritten)
+
+**WRITE-THEN-MEASURE caught a fifth self-referential figure — this time in the receipt itself, and
+after it had landed.** Residual 2's second paragraph published *"412 insertions"* and *"⟨`wc -c`⟩
+152,369"* for this record's own append. **Both were measured before that paragraph was added to the
+append they describe**, so adding it moved them — the exact recursion **E-F2** names, recurring one
+level up. The settled values, read from the **committed** bytes:
+
+```
+⟨cmd⟩ git show --stat HEAD -- execution/D/X-P-W1.md   →  421 insertions(+), 0 deletions
+⟨cmd⟩ git show HEAD:…/X-P-W1.md | wc -c               →  153,089
+⟨cmd⟩ git show HEAD:…/X-P-W1.md | tr -d NUL | wc -c   →  153,089      ZERO NUL BYTES
+⟨cmd⟩ git diff --check (at the commit)                →  0 flagged lines
+```
+
+**The substance is unchanged**: the append is **purely additive** (0 deletions), NUL-free, and
+`git diff --check` clean. Only the two magnitudes moved, by the nine lines of the paragraph that
+reported them. Recorded rather than silently corrected in place, because the receipt is landed
+evidence and **E-3 makes a correction an addendum, never an edit** — and because the *shape* of this
+miss is the wave's own §12 exposure and is worth one more pasted instance.
