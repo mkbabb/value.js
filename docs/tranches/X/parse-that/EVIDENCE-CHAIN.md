@@ -119,6 +119,51 @@ rebuilds the whole file, so "append" had to be verified at the bytes rather than
 
 **Zero rows lost; 1,473 recovered** from runs whose journals had never been harvested.
 
+### §4a A MAJOR defect in the harvester, found by committing its output — do not read `7,506` at face value
+
+`git diff --check` over the regenerated ledger returned **2,946 trailing-whitespace rows**, all of
+them machine-emitted and all in the 1,473 recovered rows. Chasing the whitespace found the real
+defect underneath it, which is not cosmetic:
+
+**The harvester's row template assumes the _challenger_ result schema and silently drops every row
+written in the _conformance_ schema.** Measured over all 128 journals:
+
+```
+⟨cmd⟩ (node, over every result with an Array `defects`) key histogram of the 1473 empty-subject rows
+      → { severity: 1473, claim: 1473, receipt: 1473 }        ← every one of them, exactly these keys
+```
+
+The template emits `id`, `defect`, `mechanism`, `evidence`, `reproduction`, `proposedCure` and a
+subject taken from `component ?? slug ?? axis`. A conformance-round seat returns
+`{ severity, claim, receipt }` instead. The consequence, stated plainly:
+
+- the heading degenerates to `###` · · ``and the body to`**Defect.** ` — hence the 2,946
+  trailing-whitespace rows, which are a **symptom**, not the finding;
+- **`claim` and `receipt` are never emitted at all**, so all 1,473 rows are banked as **empty stubs**;
+- the file's own headline therefore reads **"7506 defects"** when **6,033** carry their content and
+  **1,473 carry none**.
+
+**Read the count as `7,506 = 6,033 with content + 1,473 empty stubs`.** The stubs are still worth
+banking — before this harvest those 1,473 rows were absent from the ledger entirely, so their
+_existence_ is now recorded — but a reader who takes `7506` as 7,506 readable defects is misled, and
+this paragraph exists so that no reader is.
+
+**Not cured here, and deliberately so.** The cure is two string templates in
+`harvest-journals.mjs` (emit `claim`/`receipt` when present; omit the separators when a field is
+empty). `W0.md` §4 gives this wave **execute, no write to itself** over that file, and hand-editing
+the generated ledger would be worse than the defect — it would diverge the bytes from their
+generator, and the next harvest would re-introduce the loss. **Filed as a MAJOR finding for whichever
+wave owns the harvester**, with its falsifier: after the cure, a re-harvest must show `grep -c
+'^\*\*Defect\.\*\* $'` → **0** and the headline count unchanged at 7,506.
+
+**Cadence reading, stated per path rather than as a blanket claim** (§7): `git diff --check` is
+**CLEAN** on all four hand-authored paths of this commit — `EVIDENCE-CHAIN.md`, `x-p-w0.json`,
+`census-after.txt`, `COHESION.md` — and **RED, 2,946 rows, on `DEFECT-LEDGER.md` alone**, for
+machine-emitted whitespace this unit is forbidden to hand-correct. Prettier: applied to
+`EVIDENCE-CHAIN.md` (`--check` exits 0 after); **never** run on `DEFECT-LEDGER.md`, which would be a
+hand rewrite of a generated artifact, nor on `COHESION.md`, where it would reformat a live document
+far outside a two-line carve.
+
 **Naming.** The harvester's `NAMES` map (its runId → stable-name table) has **no entry for
 `wf_c431fb2c-82d`**, so the script's own output for this run is named `wf_c431fb2c-82d.json` and the
 lane's stable name is applied by the consumer. `x-p-w0.json` is therefore a **byte-identical copy** of
