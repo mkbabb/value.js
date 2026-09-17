@@ -797,3 +797,206 @@ orchestrator's shared-minute check against `.b`'s mtime).
 - **Numbers**: zero from memory; every one in the draft's §1 with its command.
 - **Bar**: none set; the draft's bench language is limited to *"G-8 measures the leg"* and *"the reject path is its own leg"* — no ratio, no verdict.
 - **Commit**: this record only, pathspec on the commit itself; `scripts/dev/dev.sh` never staged.
+
+---
+
+### X.P.W2.b
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 1, the **Opus arm of the blind
+pair** (`W2.md` §5 `.b`, L598–601: goal / mechanism / sub-gate are `.a`'s). **Sections executed
+exactly**: `W2.md` §5 `.b` L598–601 · §3 items 1–3 L139–162 · §3b L224–302 · §3d L409–423 · §6 G-1
+L682–691 · §6 G-6 L741–754. Consumed for rulings: `COHESION.md` §0j (begin-word, §0j.E OP-1/OC-1)
+and every later addendum to the file end (§0k ×2, §0l) — §0l's four rulings land on `.0`, not here;
+**OC-1 sets no bar and this seat sets none**.
+
+**Writable set, hard bound (1 path, written, nothing else):**
+`docs/tranches/X/parse-that/algebra/draft-opus.md` — plus this record (the D-4 standing
+orchestration path admitted by `.0`'s dated addendum `W2-ADDENDA-2026-09-17.md` §A-1.3).
+
+**Commits:** the draft is **NOT committed by this seat**, by the unit's own lock — *"BLIND PAIR
+with .a — same lock; phase 1 is ONE orchestrator-made commit after both return"* (= §9's
+`docs(x-p/w2): blind algebra drafts — Fable and Opus arms` and P.1's *"Neither seat commits; the
+orchestrator commits after both return, so the blindness is not broken by a seat reading the other's
+staged file"*). This seat's only commit is this record.
+
+---
+
+#### B.0 — Blindness, and how it survived the append
+
+`draft-fable.md` was **never opened**, its commit and any diff containing it never read, no summary
+of it read, and **the `algebra/` directory was never listed** — a listing would have disclosed the
+sibling's mtime minute, which §5's own falsifiability clause makes evidence. The two sealed author
+arms (`W2-fable-author.md`, `W2-opus-author.md`) were never opened either.
+
+**This block was appended by shell redirection (`cat >> …`), not by reading the record and
+rewriting it.** By the time this seat finished, ⟨`grep -c '^### X.P.W2.a$'`⟩ → **1**: `.a`'s receipts
+are already in this file, and reading the record to edit it would have read `.a`'s account of its own
+draft — a summary, and therefore a blindness breach. Appending blind satisfies the ledger law
+(*"append lines"*) without touching the sibling's bytes; ⟨`git status --porcelain docs/tranches/X/execution/`⟩
+was **clean** before the append, so this commit carries **only** this block.
+
+#### B.1 — E13, at this seat's own clock
+
+⟨cmd⟩ `find <the four coordination paths> -maxdepth 1 -type f -newermt "2026-09-17 18:00"` → no
+hits beyond what seat 0 rowed. **UNREAD mail in X.P.W2.b's scope: 0.** Seat 0 rowed **I-32 · I-33 ·
+I-34** (the three glass letters) and appended the wave's sweep line; a second sweep line for one wave
+manufactures a second record of one act, so **this seat appends none**. This unit wrote zero glass
+bytes (READ-ONLY always), zero value.js `src/**` or `demo/**` bytes, and zero `<p2>` bytes.
+
+#### B.2 — Anchors verified at true bytes BEFORE citing (the method's requirement)
+
+Four spec cites verified; **all four HOLD**, and one supporting coordinate in a gate's born-RED prose
+**DRIFTED** and is recorded with INTENT at the true bytes (draft §13):
+
+```
+⟨cmd⟩ grep -n "export type ParseIssue\|export type ParseResult\|export type CssTimingFunction" src/css/types.ts
+10:export type ParseIssue = Readonly<{        …closing `}>;` at :24        §3b's ":10-24"  HOLDS
+25:export type ParseResult<T> =              …the ok:false arm at :27     §3b's ":27"     HOLDS
+32:export type CssTimingFunction =           …the 4 kind arms at :33-36   §3d's ":32-36"  HOLDS
+⟨cmd⟩ sed -n '2,34p' src/css/index.ts | grep -cE '^\s+[A-Za-z]'          → 33   §3's ":1-35"   HOLDS
+⟨cmd⟩ sed -n '36,60p' src/css/index.ts | grep -oE '…' | wc -l            → 19   §3's ":36-60"  HOLDS
+
+DRIFT — W2.md §6 G-4 cites the substrate's `recover` at `typescript/src/parse/parser.ts:653`.
+⟨cmd⟩ grep -n "recover" <p2>/typescript/src/parse/parser.ts
+671: (doc comment opens)   679:    recover(sync, sentinel): Parser<T> {   …body to :723
+INTENT AT THE TRUE BYTES: parser.ts:679-723. The gate's SUBSTANCE is unaffected and was re-measured
+(the mechanisms are there; the assertions are not) — only the line coordinate moved.
+```
+
+#### B.3 — The deliverables, and where each lives in the draft
+
+| §5.a deliverable | where | measured content |
+|---|---|---|
+| closed operator enumeration **with a count** | §5.1 | **22 operators**, each with arity, argument kinds and law notes; ⟨`grep -cE '^\| [0-9]+ +\| \`'` over §5.1⟩ → **22** |
+| the four state parts | §3 | `(V, C, P, D)` with a per-part "why separate" and a measured anchor |
+| COMP-1 | §4 | stated, then **decomposed into COMP-1a/b/c** so a violation names which sub-condition broke |
+| six products, each with a **stated comparison** | §6 | EQ-1..EQ-6, one comparison mechanism + one falsifier per row |
+| five recovery laws, each with a **falsifiable probe** | §7 | R-LAW-1..5 + the R-LAW-5 policy **stated, not deferred** (`recover-final-only`, with the rejected reading's cost written) |
+| the 52→named-production map | §8 | 52 rows; ⟨`grep -cE '^\| [0-9]+ +\| \`'` over §8⟩ → **52**; set-difference **EMPTY both ways** |
+| every §3 debt clause with its cite | §9 | CL-D1..CL-D5 + CL-PT01 + CL-O8 + CL-PT07 — 8 clauses, each with provenance **and** an in-seat re-measurement |
+| declared marks as rows | §10 | DM-1..DM-4, each with a declared position, today's measurement, and an **owner-escalation path** |
+| all §3b capability families | §5.3 | **13 of 13**; ⟨`grep -cE '^\| [0-9]+ +\|'` over §5.3⟩ → **13**; the 6 residual operators justified individually |
+| zero CST | §12 | **NC-TEST** stated as a discriminator, then applied to the one construct that tests it (`StylesheetItem.children`) |
+| model receipt in-file | line 1 | ⟨`head -1`⟩ → `SERVED MODEL: claude-opus-5[1m]` |
+
+#### B.4 — Measurements taken in-seat (zero numbers from memory); full transcript = draft Appendix A
+
+Read-only throughout. ⟨`git -C <p2> status --porcelain | wc -l`⟩ → **0** before and after every
+command. `/Users/mkbabb/Programming/parse-that` was **not read and not written**.
+
+```
+A.1  33 types + 19 runtime = 52 · index.ts sha c09d076e…f90c (= the W1 manifest's derivation source)
+A.2  node harness/totality/derive.mjs --check  EXIT=0  "GREEN — manifest 52 == derived 52"
+       published-4.0.0  51 TOTAL / 1 PARTIAL / 0 ABSENT     p2-native  0 / 0 / 52 ABSENT
+A.3  ParseIssue codes 8 · CssColorSpace 13 · StylesheetItem 9 (4 aliases + 5 inline)
+       ColorIssue 7 codes (src/color/model.ts:29-37) — DISJOINT from the 8
+A.4  GROUND-A 21 × 10 = 210 (GROUND-A-denominator.md:207) · R1 corpus 18×9+10 = 172 · 172×9 = 1548
+A.5  vendored css.js sha 8b5381…0c42 == pinned · R1: 5/5 empty-arg heads THROW ·
+       juxtaposition 3/3 ok:false css_syntax · A-F2 color-mix ok:false · D-F2 "@@@ { }" ok:true ·
+       non-string 7/7 THREW · O-NONEMPTY 0 empty tuples of 8 · V frozen 7/7 ·
+       Object.is(0,-0) false / Object.is(NaN,NaN) true · rgb(300 0 0) NOT clamped · hsl(480…) NOT wrapped ·
+       R-LAW-3 probe positive control: 11 clean / 0 printed
+A.6  named colours 148 (transparent/currentcolor absent from the table) · v*0.01 ≠ v/100 for 114/1001 ·
+       cand-O 112+223+480+200+194 = 1209
+A.7  <p2> committed wasm32 → exit 1 / working tree 0 · scan census 13 : 0 : 0 · 24 public Parser methods ·
+       PT-01 at parser.ts:66-68 + utils.ts:6 · PACKRAT at packrat.ts:158/224/269/273/297 ·
+       NESTING_LIMIT = 256 at state.ts:51, enforced in enterLazy() :111-124 ·
+       depth probes: linear-chain 1,048,575 OK · self-referential deepest OK 256 / first FAIL 257,
+         double-run stable, and it RETURNS A FAILURE, never a RangeError ·
+       PT-07 second half: .parse() failure indistinguishable from a successful undefined
+A.8  debt-1 census: 25 rejections — 6 expected:[] · 18 named · 1 carrying a ColorIssue CODE
+A.9  52-map: universe 52 · mapped 52 · both set-differences EMPTY · 52 distinct names · 0 duplicates ·
+       classes {V:31,K:2,P:10,W:2,X:7} · 1 DECLARED HOLE · double-run IDENTICAL
+```
+
+**Two numbers deliberately NOT re-derived** (epoch rule): W1's bar-ledger arithmetic and the
+**1,636,680 µs** reconstruction. **No speed sentence appears anywhere in the draft**, and **no bar is
+set** — §3a's trigger stays armed.
+
+**The `Parser.lazy` ceiling, and R-8.** W1's R-8 says G-11's margin is computed against the ceiling
+the seat measures, never against `W2.md`'s 7,761. This seat measured a **third** coordinate on a
+**third** shape (256, from a named constant) and draws the conclusion into the contract rather than
+into a number: **the emergent ceiling is shape-dependent and cannot be a contract property; only a
+declared `DEPTH(T, N)` parameter can be** (draft CL-D3).
+
+#### B.5 — A RECORDED ACT, DISCLOSED IN FULL: the first draft was written, measured, and discarded
+
+§7's cadence (*"Prettier over touched `.md`"*) was applied, and the measurement caught a defect this
+seat had authored. The first write used absolute-value bars for lengths (`|D|`, `|C|`, `|P|`). Inside
+a Markdown table cell an unescaped bar is a column separator: ⟨`grep -n "| 14 |"`⟩ after the first
+prettier pass showed the `MARK` row split across **seven** phantom cells and the EQ-5 row across
+twelve. **The file was removed and re-authored with `len(X)` notation** — not patched, because a
+half-fixed table is the more dangerous artifact. Nothing was committed in between; the discarded
+bytes never left this seat.
+
+```
+⟨cmd⟩ npx prettier --write draft-opus.md  (pass 1) → 29b24b4029f72f662fa23afca81bc03c1745e49ede2fd55b1e65338a0b2b9830
+⟨cmd⟩ npx prettier --write draft-opus.md  (pass 2) → 29b24b4029f72f662fa23afca81bc03c1745e49ede2fd55b1e65338a0b2b9830   IDEMPOTENT
+⟨cmd⟩ node -e '(walk every table; compare per-row cell counts)'
+      tables: 13 · ragged tables: 0
+⟨cmd⟩ git diff --check                    → exit 0
+```
+
+**Settled bytes, self-counted (double-measured, identical both reads):**
+`docs/tranches/X/parse-that/algebra/draft-opus.md` — **743 L · 106,130 B** · sha256
+**`29b24b4029f72f662fa23afca81bc03c1745e49ede2fd55b1e65338a0b2b9830`**.
+
+Probe files were written **only** to this session's scratchpad (`…/scratchpad/wb/`), never into any
+repository. Two of the five depth probes were wrong-shaped (a linear `lazy` chain, and one that read
+through `.parse()` and therefore could not distinguish failure from a successful `undefined`); both
+are **kept in the draft as evidence**, because the disagreement between the three shapes is the
+finding, not an error to hide.
+
+#### B.6 — Gate readings, BEFORE → AFTER
+
+| gate | BEFORE (§Baseline, seat 0) | AFTER this unit | verdict |
+|---|---|---|---|
+| **sub-gate §5.b** (= §5.a's: all §3b capability families covered · zero CST · model receipt in-file) | the file did not exist; `docs/tranches/X/parse-that/` held no `algebra/` directory | **13 of 13** families covered (§5.3, counted) · **zero CST** — no operator constructs a node referring to another operator's node, and §12 states the discriminator and applies it to `StylesheetItem.children` · line 1 = `SERVED MODEL: claude-opus-5[1m]` | **GREEN** |
+| **G-1** (one-algebra, ratified) | RED — both `ALGEBRA.md` ABSENT | **still RED, correctly**: `ALGEBRA.md` is `.c`'s file in both homes. This unit supplies one of the two inputs and **makes G-1's structural conditions checkable** against a candidate text (§5.5 states the registry form the gate prints; §1 A-3 states the no-target-conditional clause) | **RED, unchanged** |
+| **G-6** (totality mapped and reported) | RED — mapped productions **0** | **still RED, correctly**: G-6 reads `ALGEBRA.md`, which does not exist. This unit lands a **52-row map with both set-differences EMPTY** as a candidate mapping, and re-measures the fresh root's own distance (**0 / 0 / 52 ABSENT**). §8 reports; it does not cure (OP-8) | **RED, unchanged** |
+
+**No gate was declared GREEN by this seat beyond its own sub-gate, and no bar was set.**
+
+#### ESCALATIONS
+
+**ESC-B1 — DM-3: `color_non_finite` cannot be expressed through the frozen `D` journal, and three
+candidate seats are about to need it.** Measured, not inferred: the band's adjudication is
+*"cand-O clamps where clamps exist and returns `color_non_finite` on unclamped channels"*
+(`parser-band.md:15`, `:97`, `:141`), but **`color_non_finite` is a `ColorIssue` code**
+(`src/color/model.ts:29-37`, 7 codes) and **not** one of the frozen **8** `ParseIssue` codes
+(`types.ts:12-19`). The two unions are disjoint; `src/css/grammar.ts:295` returns it from
+`serializeCssColor`, whose type is `Result<string, ColorIssue>`. **A `ParseIssue` carrying
+`code:"color_non_finite"` is not constructible.** The shipped behaviour today rejects
+`lab(50 1e400 0)` as `css_syntax` with `expected: []`, and already smuggles one colour code through a
+label slot (`rgb(0 0 0 / 200%)` → `expected:["color_out_of_range"]`). **Consequence if unruled**: each
+of `.d`/`.e`/`.f` will invent a different answer (a ninth code, a label-slot smuggle, or a silent
+drop), and EQ-4 will then compare three incompatible diagnostics. **Owner: the owner, routed through
+`.c`** — the draft carries it as declared mark DM-3 with the escalation path written, and asks that it
+be ruled **before phase 4 dispatches**. This seat rules nothing.
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+|---|---|---|---|
+| **R-B1** | INFO | `W2.md` §6 G-4's `parser.ts:653` coordinate has drifted; the true bytes are `parser.ts:679-723`. E-3 forbids editing the spec — recorded here and in draft §13 as INTENT at the true bytes, never as a patch | `.c` / the close seat (a dated addendum-beside if it is worth carrying) |
+| **R-B2** | INFO | Prettier inflates this file from 65,437 B to 106,130 B by padding table cells, and an unescaped `\|` inside a cell silently shatters a table (measured, B.5). Any later seat authoring a table-heavy `.md` under §7's cadence should avoid bar-delimited notation and re-check cell counts after formatting | every later seat |
+| **R-B3** | MINOR | The 52-map needs a **class column** in G-6's coverage reporter: 7 of the 19 runtime exports (the X class) consume zero input bytes, so a single "TOTAL" verb column would mean two different things in one table. Raised as draft Q-B4 | `.g` (reporter author) / `.c` |
+| **R-B4** | INFO | The depth ceiling is shape-dependent at the clone point: 1,048,575 (linear `lazy` chain) against 256 (self-referential back-edge, from `NESTING_LIMIT` at `state.ts:51`) against the inherited 7,761 / 7,759. Any seat quoting "the ceiling" must quote the shape with it | `.g`, `.d`/`.e`/`.f` |
+| **R-B5** | INFO | Scratchpad-only probe artifacts (`…/scratchpad/wb/*.{ts,mjs}`) are **not** committed anywhere; the draft's Appendix A is their durable form. A later seat wanting them re-run must re-author them from the appendix — deliberately, so no uncommitted script becomes a cited instrument | none — recorded only |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: exactly one product path written — `docs/tranches/X/parse-that/algebra/draft-opus.md` —
+  plus this record. **0 bytes** outside. `W2.md` re-verified byte-untouched at close: ⟨`shasum -a 256
+  docs/tranches/X/parse-that/waves/W2.md`⟩ → `248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd`
+  = the §Open digest of record. Untouched by this seat: `/Users/mkbabb/Programming/parse-that`,
+  `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` · `api/**` ·
+  `demo/**` · `package.json` · `package-lock.json`, `scripts/dev/dev.sh`, W1's
+  `harness/{totality,equivalence,bench}/**` (executed read-only, zero writes), the two sealed W2
+  author arms, and `draft-fable.md`.
+- **`<p2>` end state**: ⟨`git -C <p2> status --porcelain | wc -l`⟩ → **0**. This seat wrote no `<p2>`
+  byte; it only executed W1's instrument and read source.
+- **Locks honoured**: the draft is uncommitted, awaiting the orchestrator's single phase-1 commit over
+  both arms (§9 / P.1). This seat's one commit carries this record alone.
+- **Gates**: sub-gate §5.b **GREEN** (mechanically verified, B.6). G-1 and G-6 remain **RED**, as they
+  must until `.c` ratifies — this unit is an input to them, not a cure for them.
