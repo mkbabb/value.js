@@ -440,3 +440,40 @@ law — is a new row, measured and adjudicated on its own bytes.
 **Written by X-W0.i · Opus (`claude-opus-5[1m]`) · 2026-09-17 · branch `tranche-u`.**
 Commit: `docs(x-w0/routing-law)` — the rewritten laws, the DAG node identifiers, the §0 alias and this
 tombstone land as **one** commit, as §Commit Plan row 8 locks.
+
+---
+
+## §9 ADDENDUM 2026-09-17 — the post-commit re-measure (WRITE-THEN-MEASURE; §5 is not rewritten)
+
+**E-3 posture.** §5's bytes stand as landed. This section corrects **one published figure** by reading
+it back from the settled tree, and states the cause.
+
+§5 projected **56** tracked files at the landed commit (55 measured before the carve's commit, + this
+tombstone). Re-measured from the settled bytes at commit **`2012dbfa`**
+⟨`git ls-files -z docs/ | xargs -0 grep -lI 'V·L5\|V\.L5' | wc -l`⟩ → **57**, double-run **57**.
+
+| class | open | **post-commit** | Δ |
+|---|---:|---:|---|
+| law-bearing sites | 6 | **0** | −6 — this unit's act |
+| frozen 7e28 copies | 20 | 20 | — |
+| `codex-provenance` proofs | 2 | 2 | — |
+| live V-tranche restatement/evidence + the ledger | 11 | 11 | — |
+| X-tranche records | 22 | **24** | +2 |
+| **total** | **61** | **57** | **−4** |
+
+**The +2 is one file of mine and one that is not.** ⟨`comm -13 open post`⟩ names them exactly:
+
+```
+docs/tranches/X/W0/ROUTING-LAW-V-L5.md          <- this tombstone (mine, the sanctioned class)
+docs/tranches/X/parse-that/waves/W0-CLOSE.md    <- written and tracked by the concurrent X·P (Track D) seat
+```
+
+⟨`git log --oneline -1 -- docs/tranches/X/parse-that/waves/W0-CLOSE.md`⟩ confirms it is not in
+`2012dbfa`. **This unit added exactly one file to the census**, as §5 states; the denominator moved by
+two because a sibling track was authoring during the same minutes — the same live-census effect
+X-W0.a recorded as CR-2/CR-4 and X-W0.e re-measured at its own close. The projection was arithmetic
+over a frozen set; **57 is the measurement**, and it is the figure a later sweep will reproduce.
+
+⟨`comm -23 open post`⟩ is unchanged: **exactly the six law-bearing sites**, nothing else removed.
+The validator re-run at the settled bytes is double-run identical and carries **0** `V.L5` node
+identifiers ⟨`grep -c 'V·L5\|V\.L5' …/validate-constellation-dag.mjs`⟩ → **0**.
