@@ -299,4 +299,166 @@ the dated Step-0 four-path sweep line at the file end. No tooling, no script, no
 
 ## Unit receipts
 
-_(appended by each unit as it closes; nothing here yet)_
+### KF.W1.a
+
+**Unit**: X.KF.W1.a · Retention and Re-anchoring. **Seat model**: `claude-opus-5[1m]`. **Date**:
+2026-09-17. **Status**: **DONE**. **Commits**: `426761a7` (the two back-fills) · this record.
+**Writable set honoured exactly**: the two `value-inbox-2026-07-{24,27}-*.md` files and nothing else.
+Zero writes, zero git mutations, zero npm in `/Users/mkbabb/Programming/keyframes.js`
+(SACRED-CHECKOUT LAW, spec `:27-28`). Every figure below is this seat's own command output; the
+load-bearing ones are double-run and were re-read from the **settled bytes** after the commit.
+
+#### Act 1 — OP-1 re-`ls` FIRST (the wave's largest liveness risk)
+
+⟨cmd⟩ in `/Users/mkbabb/Programming/keyframes.js`:
+`ls -lT docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-2*.md`
+```
+7064   Jul 24 16:41:17 2026  VALUEJS-INBOUND-2026-07-24-parser-totality-exposure.md
+15633  Jul 27 12:27:59 2026  VALUEJS-INBOUND-2026-07-27-library-band-r1-widened-k1-k4.md
+```
+⟨cmd⟩ `stat -f '%N %z bytes mtime=%Sm' -t '%Y-%m-%d %H:%M:%S' …` → the same two tuples.
+**OP-1 MET — byte-for-byte and mtime-for-mtime the spec's `:74` record and the wave-open baseline.**
+Nothing had to be reconstructed; the Triumvirate trigger (i) did **not** fire.
+
+#### Act 2 — the verbatim copy-out (C-11 `KF-MAIL-COPY`; scope item 1, `:83`)
+
+Mechanism: `cat <provenance-header> <original> > <target>` — a **read** of the sacred checkout and a
+write only into value's tree. Each target carries a two-line prefix (line 1 the standing SERVED MODEL
+receipt, line 2 the spec's **one-line provenance header**: absolute source path · original mtime ·
+byte count) then one blank line, then the body **verbatim**.
+
+| target (in `docs/tranches/V/coordination/`) | prefix B | body B | file B |
+|---|---:|---:|---:|
+| `value-inbox-2026-07-24-parser-totality-exposure.md` | 339 | **7,064** | **7,403** |
+| `value-inbox-2026-07-27-library-band-r1-widened-k1-k4.md` | 345 | **15,633** | **15,978** |
+
+**VERBATIM PROOF — body-vs-original, by command, double-run and then re-run from the git object:**
+```
+$ tail -c 7064  <copy 07-24> | cmp - <sacred original 07-24>   → identical (run 1, run 2)
+$ tail -c 15633 <copy 07-27> | cmp - <sacred original 07-27>   → identical (run 1, run 2)
+$ shasum -a 256 <sacred 07-24>                 1b8581cc53af37e21e6eeafaf4b0432fc082cdd22db10bbabc5631eb6e250a23
+$ tail -c 7064  <copy 07-24>  | shasum -a 256  1b8581cc53af37e21e6eeafaf4b0432fc082cdd22db10bbabc5631eb6e250a23
+$ shasum -a 256 <sacred 07-27>                 5f34ab67a2764e6a3e4b94dbc7f7eae40b74bf6a767d574a850b49f9ab25bd8b
+$ tail -c 15633 <copy 07-27> | shasum -a 256   5f34ab67a2764e6a3e4b94dbc7f7eae40b74bf6a767d574a850b49f9ab25bd8b
+# after the commit, from the git object rather than the worktree:
+$ git show HEAD:…/value-inbox-2026-07-24-… | tail -c 7064  | cmp - <sacred 07-24>  → identical
+$ git show HEAD:…/value-inbox-2026-07-27-… | tail -c 15633 | cmp - <sacred 07-27>  → identical
+```
+**Originals NEVER corrected in place** — C-11's lock and the evidence that I-26 happened. The two
+drifted anchors the packets carry (`browser.ts:165`, `package.json:69`) stand **uncorrected** in the
+retained bodies; their corrections live in the drift table below, which is `.b`'s payload item (a) —
+*amend, do not re-send*.
+
+#### Act 3 — the §5a drift table, RE-DERIVED WHOLE (D-19: anchors re-resolved, never copied)
+
+Substrate written into every command: **`keyframes-v-exec`**, ref **`origin/master`** =
+`81a56990736ced5b5edde0b84c527680ac7689b1`, porcelain **0**. **Bare `HEAD` never used.** Method per
+row: `git cat-file -e origin/master:<path>` (PRESENT/ABSENT) **plus** a line-content assertion
+(`git show origin/master:<path> | sed -n '<n>p'`). Nothing is inherited from the spec's table or from
+the wave-open baseline — both were read only *after* this derivation, to compare.
+
+| # | packet anchor | `cat-file -e` | line-content assertion at `origin/master` |
+|---|---|---|---|
+| 1 | `src/animation/compile/value-ast.ts` | **ABSENT** | live `compile/value/compile.ts` PRESENT; `:32` = `        const parsed = parseCssValues(value);` |
+| 2 | `resolve/browser.ts:165` | PRESENT | `:165` = `    }` (**not** the call) → `:162` = `    const parsed = parseCssScalar(source);`; import at `:3`. **DRIFT −3** |
+| 3 | `compile/easing/easing-registry.ts:36` | **ABSENT** | live `compile/easing/registry.ts` PRESENT; `:36` = `/** Stable identities let the serializer distinguish named curves from closures. */` — **same docstring, same line** |
+| 4 | `emit/easing-serialize.ts:70-71` | PRESENT | `:70` = `    if (easing.css !== undefined) return easing.css;`; the reverse-map spans **`:71-73`** = `const registryName = timingFunctionEntries.find(` / `([_name, func]) => func === easing.fn,` / `)?.[0];` |
+| 5 | `emit/backward.ts:47` | **ABSENT** | `git ls-tree --name-only origin/master -- 'src/animation/compile/emit/backward/'` → exactly `backward.ts` · `color.ts` · `index.ts` · `walk.ts`. **PATH drift (file → dir)** |
+| 6 | `emit/backward-color.ts:171` | **ABSENT** (path) | live `emit/backward/color.ts`, **385 lines**; `:171` = `const sampleRamp = (` — **EXACT** |
+| 7 | `…:250` | — | `:250` = `        const ramp = sampleRamp(fromColor, toColor_, stopCount, space, hueOpt.hueMethod);` — **EXACT** |
+| 8 | `…:263` | — | `:263` = `        const kfRefRamp = sampleRamp(fromColor, toColor_, 1024, space, hueOpt.hueMethod);` — **EXACT**; this is O-11 `:175`'s *"`count=1024`"* evidence tuple |
+| 9 | `package.json:69` | PRESENT | `:69` = `    "dependencies": {` → `git grep -n '"@mkbabb/value.js"' origin/master -- package.json` → **`:70`** = `        "@mkbabb/value.js": "4.0.0"`. **DRIFT +1** |
+| 10 | `engine/options.ts:31` | PRESENT | `:31` = `    const parsed = parseCssScalar(raw);` — **EXACT** |
+| 11 | `internal/leaves.ts:28` | PRESENT | `:28` = `export { clamp, scale, lerp, lerpArray } from "@mkbabb/value.js/math";` — **EXACT** |
+| 12 | `load-engine.ts:65` | PRESENT | `:65` = `import type { Stylesheet } from "@mkbabb/value.js/css";` — **EXACT** |
+| 13 | `emit/css-text.ts:41` | PRESENT | `:41` = `export const serializeCssValue = (value: CssValue): string => {` — **EXACT** |
+| 14 | `test/internal/leaves-parity.test.ts` | **PRESENT** | existence-only row, as specced |
+
+**VERDICT: 14 of 14 rows re-derived independently; every row reproduces the spec's §5a reading and the
+wave-open baseline exactly. ZERO corrections owed; ZERO anchors failed to resolve to a live path**, so
+the Triumvirate trigger (ii) did **not** fire. Shape of the drift, restated from the measurement:
+**4 PATH-drifted (rows 1 · 3 · 5 · 6–8) · 2 LINE-drifted (row 2 `−3`, row 9 `+1`) · 8 EXACT**, and
+rows 6–8 are **path drift with ZERO line drift**.
+
+#### Act 4 — §5b, the three censuses (ANCHOR DUALITY), re-run and double-run
+
+```
+(A) SACRED CHECKOUT, UNCOMMITTED WORKTREE  [/Users/mkbabb/Programming/keyframes.js, read-only]
+$ git rev-parse HEAD → 8281638c…  · git rev-list --left-right --count origin/master...master → 41  1
+$ git status --porcelain | wc -l → 252   (double-run: 252 · 252)
+$ grep -h -o -E 'from "@mkbabb/value\.js[^"]*"' -r src | sort | uniq -c
+   7 /color   29 /css   3 /easing   5 /math   2 /transform   15 /value      → 61   (61 · 61)
+  # BYTE-IDENTICAL to O-11 :52's certified split — all six lines and the total.
+
+(B) BARE 8281638c — DISQUALIFIED, contrast only, never "the tree measured"
+$ git grep -h -o -E 'from "@mkbabb/value\.js[^"]*"' 8281638c -- src | sort | uniq -c
+  10 (root)  9 /color  5 /easing  5 /math  24 /parsing  2 /transform  26 /units  → 81   (81 · 81)
+  # DISJOINT ALPHABET: /css and /value absent; /parsing and /units present. ZERO of six lines reproduce.
+
+(C) FRONTIER OF RECORD  [keyframes-v-exec @ origin/master 81a56990, porcelain 0]
+$ git grep -h -o -E 'from "@mkbabb/value\.js[^"]*"' origin/master -- src | sort | uniq -c
+   7 /color  29 /css  3 /easing  5 /math  2 /transform  16 /value            → 62   (62 · 62)
+```
+**61 / 81 / 62 confirmed at three named substrates.** Corroborating receipt, same seat, same clock —
+**two independent instruments name the same substrate**: the sacred **worktree**'s
+`backward-color.ts` is **385 lines** (as is the frontier's `backward/color.ts`) and `:171`/`:250`/`:263`
+there read byte-identically to rows 6–8 above, while **bare `8281638c`** at those same three lines
+reads docblock prose (`:171` *"The WORST midpoint ΔE this key drifts…"* · `:250` ` *` · `:263`
+*"ΔE-ε — NOT a finished color-ONLY `@keyframes` block. `compileChild` threads"*). The certification's
+fault is therefore **not arithmetic** — it is the un-named substrate, exactly as C-6 holds.
+
+#### THE TUPLE HANDED TO `.b` (C-6 / G-KF1-4 SUBSTRATE-NAMING RULE — fill these, copy nothing else)
+
+> **WORKTREE-STATE RECORD** ⟪ HEAD **`8281638c0ac4ac8c54a67a018ca5bf6a9117174f`** · porcelain
+> **252** · import split **61** = `/css` **29** · `/value` **15** · `/color` **7** · `/math` **5** ·
+> `/easing` **3** · `/transform` **2** · measured **2026-09-17** ⟫ — **no sha addresses this state and
+> the recipient cannot re-derive it.**
+> **FRONTIER** ⟪ `origin/master` = **`81a56990`**, porcelain **0** · **62** = `/css` 29 · `/value`
+> **16** · `/color` 7 · `/math` 5 · `/easing` 3 · `/transform` 2 · measured **2026-09-17** ⟫.
+> **DISQUALIFIED CONTRAST** ⟪ bare `8281638c` → **81** over a disjoint subpath alphabet ⟫ — a
+> contrast reading, **never** "the tree matched".
+
+`.b` re-runs all three commands at its own authoring clock (C-6's anti-copy lock); the tuple above is
+handed over as **this seat's measurement at 2026-09-17**, not as a literal to inscribe. Note for `.b`:
+the sacred worktree is **unchanged since wave-open**, so no delta addendum is owed **at this seat's
+clock** — `.b` re-measures and books any movement itself.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (this seat's own re-measure) | AFTER | verdict |
+|---|---|---|---|
+| **G-KF1-9** OUTBOUND RETAINED | `find . -name '*parser-totality-exposure*' -o -name '*library-band-r1-widened*'` from the value.js root → **0 hits**; retained `value-inbox-*` set = **7** | → **2 hits** (both under `docs/tranches/V/coordination/`, both `git ls-files`-tracked at `426761a7`); retained set = **9**; bodies verbatim by `cmp` + sha256; originals uncorrected | **RED → GREEN** |
+| **G-KF1-2** ANCHOR LIVENESS (**table-produced half only**) | no re-derived table existed at this wave's seats | all **14** rows re-derived at `origin/master` with `cat-file -e` + line-content assertion, above | **table PRODUCED**; the gate's own GREEN is `.b`'s (the table must be the addendum's FIRST payload section) — **still RED at this seat, by design** |
+| **G-KF1-12** SACRED CHECKOUT (stay-GREEN INVARIANT) | HEAD `8281638c` · `41  1` · porcelain **252** · mtimes Jul 24 16:41:17 / Jul 27 12:27:59 | **identical on all five** after every act; `git reflog -n 1` head unmoved (`8281638c HEAD@{0}: commit: fix(demo-shell)…`); zero writes, zero git mutations, zero npm | **GREEN → GREEN (STAYED)** |
+
+Untouched by this unit and **unchanged**, re-read only where a command above happened to cross them:
+G-KF1-1 · -3 · -4 · -5 · -6 · -7 · -8 · -10 remain **RED-AS-EXPECTED** (they are `.b`'s and `.c`'s);
+**G-KF1-11** remains DECLARED-SATISFIED.
+
+#### Locks discharged
+
+**C-11 SEQ-LOCK** — `.a` ran first and `.b` may now open: the packet bodies are inside value's git at
+`426761a7`, so the addendum's source text no longer depends on an untracked file in a frozen tree.
+**C-5 / D-19** — every anchor re-resolved, none copied. **ANCHOR DUALITY (§5b)** — two substrates,
+each named in its own command; bare `HEAD` never used; `8281638c` appears only as a named historical
+context and as the disqualified contrast. **§4a disjointness** — this unit wrote two files, neither of
+them `.b`'s or `.c`'s.
+
+#### Residuals · escalations
+
+- **Escalations: NONE.** Neither Triumvirate trigger (i) nor (ii) fired; (iii) is not in this unit's scope.
+- **Bounds note (recorded, not a deviation)**: each back-fill carries the standing seat receipt
+  `SERVED MODEL: …` as line 1 **above** the spec's one-line provenance header. Both are *prefix*
+  matter; the body is byte-identical to the original by `cmp` and sha256, so §3 item 1's "verbatim"
+  and the session's receipt law are both satisfied. Byte accounting is published above.
+- **Dated delta against the spec's 2026-08-28 readings**: **none in this unit's surface.** All 14
+  drift rows, all three censuses, both packet mtimes/bytes and the sacred worktree tuple reproduce the
+  spec's figures exactly at 2026-09-17. (The spec's dated *silence* intervals are `.b`'s to re-run;
+  the wave-open baseline already re-measured them at **61 / 55 / 52 days**.)
+- **OPEN residual, out of bounds, routed OWNER (§4c)**: the memory limb
+  `~/.claude/projects/-Users-mkbabb-Programming-value-js/memory/feedback-mail-inbox-law.md` still
+  codifies the frozen keyframes sweep path. Not this unit's and not any unit's to edit unasked; `.b`
+  states it in the addendum's self-defect paragraph and `.c` cannot close it from `INBOX.md` alone.
+- **E13 mail**: no unread mail in this unit's scope — the wave-open Step-0 sweep returned **0 unrowed**
+  letters addressed to value.js, and this unit *added* two value-authored bodies to value's own tree
+  (outbound retention, not inbound), minting no `I-n`.
