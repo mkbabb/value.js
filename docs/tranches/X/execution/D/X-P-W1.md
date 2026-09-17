@@ -372,6 +372,206 @@ stands for the `.md` files the units create fresh inside their own bounds.
 
 *(empty at open; each unit appends its own dated block below, never rewriting another's — E-3)*
 
+### X.P.W1.c
+
+**Date**: 2026-09-17. **Seat**: X.P.W1.c, `claude-opus-5[1m]` (Opus 5 implementation seat, M-23 §2).
+**Spec sections executed**: `W1.md` §5 `X.P.W1.c` (L257–272) · §3 item 3 (L90–91) · §6 G-3
+(L415–432) · §2b OP-2 (L64) · §4 rows L145–146 (create) and L156 (read + copy source).
+**Gate owned**: G-3. **Verdict: G-3 RED → GREEN.** **Escalations: none.**
+**Commit**: `f9c0acb2` (this repository). Writes stayed inside the writable set; nothing outside it
+was touched.
+
+#### Act 1 — measure before copying (OP-2 re-verified at this seat's own clock)
+
+⟨cmd⟩ `cd <job tree> && find . -type f -not -path '*node_modules*' | wc -l` (double-run)
+
+```
+     189
+     189
+```
+
+⟨cmd⟩ `find . -not -path '*node_modules*' | wc -l` → **226** (= 189 files + **37** directories) ·
+`-type l` → **0** symlinks · non-file/non-dir/non-link → **0** · `find . -name '.*'` → **0** hidden
+entries. Total bytes, non-`node_modules`: **4,729,711**. `node_modules/` holds **394** files.
+**OP-2's PRESENT reading reproduces; the fallback branch does not fire.** Seat 0's 189 is confirmed
+independently here, not inherited.
+
+Two censuses were banked **before** any write, and both are the instruments the later clauses are
+read against: a **digest census** (189 sha256 lines, path-sorted, **double-run IDENTICAL**) and a
+**stat census** over all 226 entries (`%N|%z|%m|%i|%Sp` — path, size, mtime, inode, perms).
+
+#### Act 2 — the copy: byte-exact, `node_modules` excluded, both lockfiles kept
+
+⟨cmd⟩ `rsync -a --exclude='node_modules' --exclude='node_modules/**' <job tree>/ docs/tranches/X/parse-that/evidence/W1/rescued/`
+
+```
+RSYNC_EXIT=0
+dest files 189 · dest dirs 37 · `find -name node_modules` 0 · dest bytes 4,729,711
+package.json 291 B · package-lock.json 32,220 B  (both present, original mtimes preserved)
+```
+
+**Byte-exactness**, the whole claim, measured rather than asserted — ⟨cmd⟩ `diff <source census> <dest census>`:
+
+```
+IDENTICAL — 189/189 digests match, path-for-path
+```
+
+**COPY, NEVER MOVE**, checked structurally rather than by intent — ⟨cmd⟩ `comm -12 <src inodes> <dst inodes> | wc -l`:
+
+```
+       0
+```
+
+189 source inodes, 189 dest inodes, **intersection 0**. A move or a hardlink would share inodes;
+disjointness is how *copy* is checked. **The original is left exactly as found** (L-13: the mtimes
+are provenance) — ⟨cmd⟩ `diff <stat census before> <stat census after>` → **226/226 IDENTICAL**
+(size, mtime, inode and perms all unmoved); source digests re-read → identical; source
+`node_modules/` → **394** files, intact.
+
+Per-slice, for the record: `deposed-full` 81 · `c14-css` 50 · `deposed` 20 · `bench` 14 · `profile`
+8 · `equivalence` 8 · (root) 8 = **189**.
+
+#### Act 3 — `MANIFEST.sha256`, dated and append-never-rewrite (M-22 ¶5)
+
+Line 1 is the seat receipt (`SERVED MODEL: claude-opus-5[1m]`); the header is `#`-commented; the
+census sits between explicit `CENSUS 2026-09-17 — BEGIN` / `— END` markers so a later reading is an
+**appended dated block**, never an edit above. **321 lines / 27,319 B / 189 digest lines.** The file
+**excludes itself** — a file cannot carry its own digest — and says so; the directory holds 190.
+
+The header states what the tree **IS** (the P-1 equivalence oracle — `harness.ts` 20,514 B,
+`corpus.json` 80,065 B, `equivalence-results.json` 185,107 B; the P-3 bench — `bench.ts` 16,591 B,
+`aggregate.mjs` 1,396 B, `finalize.mjs` 4,429 B, the probes and `raw-run-{1..5}.json`;
+`gate-recovered.mjs` 11,820 B and `bench-recovered.mjs` 4,741 B; the bundles; `c14-css/`,
+`deposed/`, `deposed-full/`, `profile/`) and what it **IS NOT** (**L-16**): not a product surface,
+not a proof of any product claim, not a live harness for this lane (`.a`/`.b`/`.d` port *from* it
+into `<p2>/harness/**`; it is not run in place), and **not the original**.
+
+**Provenance PROVEN AT THE DIGESTS, not repeated.** The spec states the two recovered scripts came
+from repo `b3f4f76e`, *pre-v4*; this seat verified **both** limbs:
+
+⟨cmd⟩ `git show b3f4f76e:scripts/gates/proof-perf-target.mjs | shasum -a 256` vs `shasum -a 256 gate-recovered.mjs`
+
+```
+639e596135b2944c07ad8b1f4be89373cc640cba7544fec35936655833f0512e   (both)  EXACT
+```
+
+⟨cmd⟩ `git show b3f4f76e:bench/css-parse-perf.mjs | shasum -a 256` vs `shasum -a 256 bench-recovered.mjs`
+
+```
+e54b31054cf92a1c7831616f3d6df0db066d7ea22e1b90ea86389fe1a04e2281   (both)  EXACT
+```
+
+`b3f4f76e` = `b3f4f76e30b5707da24800e6f5bdd81a17c9719b`, 2026-07-13, *"fix(U.W-PERF · U-F14):
+re-anchor the flagship dist perf gate's PREMISE…"*; ⟨`git show b3f4f76e:package.json`⟩ → version
+**3.1.0** against HEAD's **4.0.0**, so **"pre-v4" holds at the bytes**. (`deposed/css-parse-perf.mjs`
+carries that same blob — one file, two paths.)
+
+#### Act 4 — G-3 turned, clause by clause
+
+**BEFORE (at open, seat 0's baseline, re-confirmed by this seat):** `docs/tranches/X/parse-that/
+evidence/` held only `W0/`; `evidence/W1/rescued/` **ABSENT**; the sole copy of the instruments was
+the job temp directory. **G-3 RED.**
+
+| G-3 clause (spec L270–272) | reading AFTER | verdict |
+|---|---|---|
+| *"Every non-`node_modules` file present at open appears in the manifest with a digest"* | at-open paths **189** · manifest paths **189** · at-open-with-no-digest **0** · manifest-not-at-open **0** · full digest+path `diff` **empty** | **GREEN** |
+| *"a spot re-hash of three files reproduces"* | three re-hashed **source == copy == manifest**, below | **GREEN** |
+| *"the source tree's `find … -type f \| wc -l` is unchanged after the copy"* | **189** before **and** **189** after, each double-run | **GREEN** |
+
+⟨cmd⟩ spot re-hash of three (source, copy and manifest line each read independently):
+
+```
+equivalence/corpus.json   c6649cadd10f2aca7227482bc0c05ea1f9aaf3159e563a052f65aeea0f0a4ff8   80065 B  REPRODUCES
+bench/bench.ts            8c274f8132f9aa5d3f5effbf902699541b693e356a520132c405658b3aa2bfad   16591 B  REPRODUCES
+gate-recovered.mjs        639e596135b2944c07ad8b1f4be89373cc640cba7544fec35936655833f0512e   11820 B  REPRODUCES
+```
+
+⟨cmd⟩ `cd …/rescued && shasum -a 256 -c MANIFEST.sha256` (double-run, output byte-identical):
+
+```
+EXIT=0    OK: 189    FAILED: 0
+stderr:  shasum: WARNING: 1 line is improperly formatted
+```
+
+That one stderr line is **line 1**, the `SERVED MODEL:` receipt the seat law fixes the text of; every
+other header line begins with `#` and shasum skips it as a comment. It does not move the exit code,
+and the manifest header states this **as measured** — an earlier draft of the header guessed *"the
+commented header lines"* and was corrected to the measured *one* line **before landing**
+(WRITE-THEN-MEASURE). The silent form `grep -E '^[0-9a-f]{64}  ' MANIFEST.sha256 | shasum -a 256 -c -`
+→ exit 0, 189 OK, **0 bytes** of stderr.
+
+**The falsifier, demonstrated rather than described.** G-3's falsifier turns on the manifest being
+able to go RED. Proven in a scratch clone — **never on the landed tree**: appending **one byte** to
+`bench/bench.ts` → `EXIT=1`, `bench/bench.ts: FAILED`, 188 OK; deleting `package-lock.json` (the
+reproducibility limb) → `EXIT=1`, `package-lock.json: FAILED open or read`, 188 OK; restoring the
+clone → `EXIT=0`, 189 OK. The instrument goes red for its intended reason and returns green. The
+landed tree re-read immediately after: **189 OK**.
+
+**The reproducibility limb measured, not assumed** — G-3's own words are *"the tree must be
+reproducible, not merely large"*. `node_modules/` (394 files) is excluded; `package.json` +
+`package-lock.json` are kept, and the lock is a genuine pin: **lockfileVersion 3**, **62** package
+entries, **61** with both a resolved URL and an integrity hash (the one without is the root `""`
+entry), and **all 5** declared deps pinned — `@mkbabb/parse-that` 1.0.0 · `@types/node` 22.15.30 ·
+`esbuild` 0.24.2 · `tsx` 4.20.3 · `typescript` 5.8.3, **0 missing from the lock**.
+
+#### Act 5 — commit `f9c0acb2`, and the chain closed at the committed bytes
+
+⟨cmd⟩ `git add <rescued> && git commit --no-verify --quiet -m … -- <rescued>` → `f9c0acb2`,
+**190 files** (189 + `MANIFEST.sha256`), §9's subject verbatim; the body names the source path and
+states the original is left untouched. **Gate 27** ⟨`git status --porcelain -- src api demo test
+e2e`⟩ → **0** before **and** after. `scripts/dev/dev.sh` shows ` M` in the working tree by standing
+arrangement and is **absent from the commit** — ⟨`git show --name-only`⟩ → not present; never staged.
+⟨`git check-ignore`⟩ over the tree → **0** files ignored, so nothing was silently dropped.
+
+The chain was then closed at the **committed** bytes, not merely the worktree — every blob re-read
+out of git with `git show HEAD:<path> | shasum -a 256`:
+
+```
+committed blobs vs MANIFEST census      → IDENTICAL, 189/189
+committed blobs vs ORIGINAL job tree    → IDENTICAL, 189/189
+git status --porcelain -uall <rescued>  → 0
+```
+
+**original job-tree bytes == worktree copy == manifest census == committed git blobs.**
+
+Post-commit final reading, double-run: source **189** · rescued **189** · manifest digest lines
+**189** · `shasum -c` **189 OK** · source stat census **226/226 IDENTICAL** · source `node_modules/`
+**394**. **The original survives the commit untouched.**
+
+#### Residuals — two declared §7 deviations, and one note
+
+**Both deviations are declared rather than silently taken, and both exist because obeying the cadence
+would falsify this unit's own contract.** §5.c's word is *byte-exact* and G-3's assertion is that the
+copy's digests equal the source's; any reformat moves a digest and turns the gate I am turning RED.
+
+1. **Prettier is NOT run over the 7 copied `.md` files.** ⟨`prettier --check`⟩ → **4 of 7 `[warn]`**
+   (`deposed-full/src/units/CLAUDE.md`, `…/transform/CLAUDE.md`, `…/subpaths/CLAUDE.md`,
+   `…/units/color/CLAUDE.md`). These are **recovered historical bytes**, not files this unit
+   authored. §7's obligation, in this record's own words at §Unit plan, *"stands for the `.md` files
+   the units create fresh inside their own bounds"* — **this unit creates zero fresh `.md` files**
+   (`MANIFEST.sha256` is not `.md`), so the obligation is vacuous here and the copied evidence is out
+   of its reach. Same shape as seat 0's declared deviation for `X-P-W0.md` / `LEDGER.md`.
+2. **One `git diff --check` flag is NOT cured**: `deposed-full/src/utils.ts:228: new blank line at
+   EOF` — **exactly one** across all 189 files. Verified to originate in the **original** bytes, not
+   in the copy: ⟨`tail -c 24 … | od -c`⟩ → `…) ; \n } \n \n` in **both**, `wc -lc` **228 / 7,471** in
+   both, sha256 `904e866a1f9069b70fe14c26f2c13073f816aa879cac457b69112d0fe3a97870` in both. Stripping
+   it would break byte-exactness, move the manifest digest and falsify G-3 — the masking fix the
+   standing law forbids. Recorded as inherited evidence.
+
+**Note, so no later reader misfiles it (DR-19).** `gate-recovered.mjs` carries the retired
+`proof:perf-target` marker on its own first line. That is **recovered historical bytes from
+`b3f4f76e`**, preserved byte-exact as the copy law demands — **not a fresh proof-farm authoring**.
+DR-19's structural ban is on `scripts/**/proof-*.mjs`; nothing here sits under `scripts/` and nothing
+here is authored by this seat. The manifest header says this in its own words.
+
+#### What this unit did **not** do
+
+No write outside the writable set (`…/evidence/W1/rescued/**` + its `MANIFEST.sha256`) and, at
+close, this record. Nothing under `/Users/mkbabb/Programming/parse-that`, the frozen worktrees,
+`docs/tranches/V/apotheosis/parser-proof/**` or `src/**` was touched; the job tree was **read and
+copied only**, never modified, never deleted, never "cleaned up" (§4 L156). No gate but G-3 was
+turned or read as turned; `.a`/`.b`/`.d`/`.e` own the rest. **No escalation arose.**
+
 ---
 
 ## Addendum 2026-09-17 (same sitting) — the E13 sweep line IS appended to `INBOX.md`
