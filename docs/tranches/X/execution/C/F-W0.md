@@ -547,3 +547,176 @@ a base a commit holds. **Record D-4 re-confirmed**: `ConvergenceTimeline.vue` li
 
 **Escalations**: none. **`execution/LEDGER.md` untouched** — not in this unit's writable set; its F.W0 row is
 the wave seat's.
+
+---
+
+### F.W0.b
+
+**SERVED MODEL: claude-opus-5[1m]** · the mail seat · **gates G-2, G-3** · 2026-09-17 ·
+repo `/Users/mkbabb/Programming/fourier-analysis`, branch `m/w1-bump-migration`.
+
+**Sections executed**: §4 G-2 · §4 G-3 · §3 rows 30 · 31 · 32 · §6a lock 4 · §2a rows for
+`CLAUDE.md` / `INBOX.md` / the O-14 letter · §6b glass-ui BH relay row + F.W10 row · §7b commit plan.
+
+#### Acts, in order
+
+**Act 1 — the baseline re-measured at the bytes, never inherited from the record's open.** ⟨cmd⟩
+`git rev-parse --abbrev-ref HEAD` → `m/w1-bump-migration` · `git rev-parse --short HEAD` → **`c429d7b`**
+(unit *a*'s close) · `git status --porcelain` → **exactly one row**, `?? docs/tranches/N/valuejs-inbound-2026-07-27-facility19-migration-table.md`.
+G-2 RED confirmed: `git ls-files <the O-14 path>` → **∅**. G-3 RED confirmed: `ls CLAUDE.md` →
+*No such file or directory*; `ls docs/tranches/F/coordination/INBOX.md` → *No such file or directory*;
+`ls docs/tranches/F/coordination/` → the **three** 2026-05-29 letters, untriaged.
+
+**Act 2 — the letter READ WHOLE before it was committed.** All 138 lines of the O-14 letter read at
+the bytes. It is a **log, not an ask** (its own §"What this letter is"), carrying value.js's facility-19
+`library-surface` law, a ten-row migration table `I-1`…`I-10`, and three born-RED probes against *this*
+tree. Committing bytes unread is not a thing this seat does.
+
+**Act 3 — G-2, one act** (§Brief: *"Commit the O-14 letter first — G-2 is one act"*). Staged by explicit
+pathspec, committed. **Bytes unedited**, proved rather than asserted: ⟨cmd⟩ `git diff HEAD --stat -- <path>`
+→ **∅**.
+
+**Act 4 — the mail surface INVENTORIED before the ledger was written** (D-8's whole point). ⟨cmd⟩
+`find docs -type d -name coordination` → **six** directories (`A`·`B`·`C`·`D`·`E`·`F`); the five non-`F`
+hold **contract/spec documents of closed tranches, not letters**. ⟨cmd⟩ `find docs -type f \( -iname
+'*inbound*' -o -iname '*outbound*' -o -iname '*relay*' -o -iname '*communique*' \)` → **exactly one**,
+the O-14 letter. **The letter class closes at four: three in `F/coordination/`, one in `N/`.** The gate's
+three-letter inventory is confirmed COMPLETE for its own scope, and the seat is demonstrably not
+created blind one level out either.
+
+**Act 5 — `CLAUDE.md` authored** (line 1 = `SERVED MODEL: claude-opus-5[1m]`). Every fact measured, none
+inherited: the stack table from `pyproject.toml` + `web/package.json` + `ls api/routers`, the command
+block from the live `scripts` object, the "no unit runner and no lint script" statement from ⟨cmd⟩
+`grep -c 'vitest'` → 0 and the five-script enumeration. Carries the nine standing laws (E13 mail-first ·
+producer trees READ-ONLY · root-cause-only cures · no back-compat shims · pathspec commits · E-1/E-3 ·
+write-then-measure · probe parsimony · LEAN/KISS) and the three measured substrate facts so no later
+session re-derives them.
+
+**Act 6 — the ledger, TRIAGE FIRST.** `docs/tranches/F/coordination/INBOX.md` created with §1 carrying
+**four** rows, each with a **status** and a **disposition**, written **before any new letter was logged**:
+`M-1` F-VHOST-CORRECTNESS **OPEN** → F.α/inv-22 binding · `M-2` F-OPERATOR-WINDOW **OPEN** → F.W3 binding ·
+`M-3` F-T-N1 **ANSWERED — DISCHARGED** · `M-4` the O-14 letter **LOGGED**, no reply owed.
+
+**Act 7 — the F-T-N1 ASK answered by MEASUREMENT, not deferred.** The spec permits *answer-or-defer*;
+this seat answered, read-only against the value.js tree, against the letter's own §4 acceptance criteria.
+The surface **moved**: ⟨cmd⟩ `ls value.js/api/src/format/palette.ts` → *No such file or directory*;
+⟨cmd⟩ `grep -rln 'FormattedPalette' api/src/` → `api/src/modules/palette/format.ts`. There:
+⟨cmd⟩ `grep -n 'status' api/src/modules/palette/format.ts` → **∅** (criterion §4.3 MET); `tier` is the
+sole curation field — `:30` on the type, `:82` in the formatter (§4.1 MET); and ⟨cmd⟩ `grep -rn 'palette.tier ?? palette.status' demo/`
+→ **∅** (§4.2 MET — *"gone, not merely unreached"*, the criterion's own wording). **Discharged on the
+value.js side exactly as the letter's §5 requires**, at value.js **L.W3** (the full-stack `status`→
+`(visibility,tier)` excision; tranche L closed 2026-06-04, six days after the ASK). **inv-16 intact** — no
+fourier commit touched `value.js/**`, and the row is a measurement, never a claim of authorship. §4.4/§4.5
+are value.js-side history and are recorded as residuals, not re-derived.
+
+**Act 8 — §6a lock 4 PERFORMED, not asserted. The self-caught defect of this seat.** The first write of
+`INBOX.md` emitted §1 **and** §2 in one act, under a sentence claiming §1 *"was written and the file
+measured on disk before this section was appended."* **That sentence was false when written** — the
+unreproduced-attestation class this spec convicts in all five of its repair rounds, committed by the seat
+whose own gate is about unlogged mail. **It was not softened; the act was performed.** The file was cut
+back to §1 alone and the seat measured standing empty: ⟨cmd⟩ `wc -l < INBOX.md` → **105** · ⟨cmd⟩
+`grep -c 'SENT 2026-09-17' INBOX.md` → **0** — *the seat exists and no letter has left* — and **only then**
+was §2 appended. The defect, both readings and the reasoning are disclosed **in the ledger itself** (§2's
+▲ note), not merely here. Nothing was committed before the cure: the false sentence never reached a commit.
+
+**Act 9 — P-1 assembled and SENT** (§3 row 30; nine entries, items 0–8). **`FR-NP-32` (≡ `fr-PaperSidebar M1`)
+is item 0, at the TOP, cited as the canonical PAIR at every occurrence — never substituted** (R4-9.8/S-23).
+`FR-MSP-12` is item 8, with fr-PaperSidebar `L-10`/`D-M4`'s ramp-headroom ask riding it. **Item 7 is
+RECORDED, NOT SENT as a defect** — the DOCK-ACTIVE ask was answered upstream. The roster is labelled
+**SPEC-VOICED**, not "verbatim"; the three byte-quotations were re-run by this seat and reproduce **EXACT**:
+⟨cmd⟩ `grep -o 'one relay letter, seven items[^|]*' fr-CanvasOverlayButton.md` · ⟨cmd⟩ `grep -o
+'near-collision naming hazard[^;]*' …` → *"…(FR-COB-3's mechanism — two utilities one letter-order apart in
+one file)"* (the FR-COB-3 attribution kept **inside** the quotation) · ⟨cmd⟩ `grep -o 'record DOCK-ACTIVE[^)]*)' …`
+→ *"record DOCK-ACTIVE satisfied upstream, do not re-send (FR-COB-11)"* (the bank's casing and comma kept;
+"NEGATIVE ask" left **outside** the quotation marks). The coin-flip tension is carried **split into its two
+real sentences, two homes, never fused** — ⟨cmd⟩ `sed -n '104p' fr-MorphShapePreview.md | grep -o 'the
+synthesis is a coin-flip[^*]*fires'` → the colon form the id itself carries, and ⟨cmd⟩ `sed -n '22p' …` →
+the fold-admission form with *"(7 files, 19 unguarded declarations)"*. Both EXACT. The 7/19 figure is
+attributed to **`FR-NP-8`** as a cross-reference **outside** the quotation.
+
+**Act 10 — P-6 assembled and SENT** (§3 row 32). **All six PAW ids were resolved at the bank before being
+booked** — the round-4 conviction class (*an identity that was never in the bank*) is checked, not assumed:
+⟨cmd⟩ `grep -c '<id>' fr-PaperArticleWindow.md` → `PAW-32` 1 · `PAW-38` 6 · `PAW-39` 2 · `PAW-45` 6 ·
+`PAW-46` 2 · `PAW-56` 2, each resolving to a real routing row. The **LATENT-today / margin-1** disclosure for
+`PAW-38`/`46`/`56` is stated in the letter **by name**, per the spec's *"the letters must say so, or the
+producer sizes an emergency."* fr-PaperSidebar `L-11` + `M2` ride **one** relay, as their record instructs,
+with `M2`'s **WAVE-LOCK** carried (F.W4 must not rename `.sidebar-top-btn` before the relay lands) and
+`L-11`'s doc limb marked **dated ERRATA ADDENDUM, never an in-place patch**.
+
+**Act 11 — G-3's clauses verified individually at the settled bytes**, then the commit. ⟨cmd⟩
+`grep -n '^## §1 — TRIAGE\|^### P-1\|^### P-6' INBOX.md` → **30 · 129 · 176** — the triage **precedes**
+both sends in the file, which is D-8's ordering made structural.
+
+#### The count-word divergence found at Act 10, and why nothing was dropped
+
+§3 row 32 and §4 G-3 both say *"fr-PaperView's **6** LATEX-RELAY riders"*, and that record's own closing
+verdict reads *"6 LATEX-RELAY"*. **The enumeration measures seven**: ⟨cmd⟩ `grep -n 'LATEX-RELAY'
+fr-PaperView.md` → the legend plus `:70` C-06 · `:75` L/D5+L/D30 · `:77` L/D8 · `:92` L/D29 · `:125` C-19 ·
+`:126` C-20 · `:130` L/D21. **All seven are carried in P-6 and the divergence is disclosed in the letter**,
+because dropping a measured row to satisfy a count word is fabrication and M-25 names silent drops as the
+defect class this programme exists to kill. A reconciliation is *visible* at the bytes — `C-20`'s cell is
+marked *"(headroom cell excised by K-6)"*, and four of the seven are riders alongside another route while
+three route to the relay alone — **but this seat does not rule it; that is not an implementer's call.**
+**Precedent applied: this record's own divergence D-3 — *"the enumeration governs."*** The registry is
+**E-1 immutable and was not touched**. Routed to **F.W10**, which §6b gives the reconciliation both
+directions and the terminal disposition.
+
+#### Commits
+
+| # | hash | message |
+|---|---|---|
+| 1 | **`cddd1fa`** | `chore(F.W0): commit the O-14 letter` |
+| 2 | **`8bc7736`** | `docs(F.W0): CLAUDE.md + INBOX — the E13 mail seat` |
+
+Two commits, one per meaning, exactly as §7b's plan sequences them. No declared family was split.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (this unit's open) | AFTER (this unit's close) |
+|---|---|---|
+| **G-2** | **RED** — `git ls-files <O-14 path>` → **∅**; the sole `??` row | **GREEN.** `git ls-files <O-14 path>` → the path (**double-run**: path, path). Bytes committed unedited (`git diff HEAD --stat` → ∅) |
+| **G-3** | **RED** — no `CLAUDE.md`, no `INBOX.md`; three letters untriaged | **GREEN.** Both files exist (**double-run**). Three extant letters **+ the O-14 letter** triaged at creation, each with a status and a disposition, **before** any new letter was logged (triage at `:30`, sends at `:129`/`:176`). **P-1 and P-6 logged SENT 2026-09-17.** |
+
+**Settled-tree receipts** (⟨cmd⟩, this seat, after commit 2): `git rev-parse --short HEAD` → **`8bc7736`** ·
+`git status --porcelain | wc -l` → **0** (double-run: 0, 0) · `git log --oneline -2` → `8bc7736` · `cddd1fa`.
+
+**Measured consequence, reported and NOT claimed as this unit's gate.** Unit *a* closed G-1
+**RED-BY-RESIDUE-1**, recording that it *"turns GREEN at unit b's G-2 act … not claimed here."* That act
+has now run: the residue was exactly the ruled-LAND O-14 letter, and porcelain reads **0** (double-run).
+**G-1's porcelain limb is therefore closed and its disposition limb was already 28/28 at unit *a*.**
+This seat states the measurement and routes the reading to the **wave seat**; **G-1 is not in this unit's
+gate set and is not claimed green by it.**
+
+#### Law compliance
+
+**No write outside the writable set** — the only paths written are `fourier/CLAUDE.md`,
+`fourier/docs/tranches/F/coordination/INBOX.md` and the O-14 letter (committed, **not edited**) ·
+**the three extant letters are READ-ONLY and were not rewritten**, proved: they never appear in
+`git status --porcelain`, and ⟨cmd⟩ `ls -lT` shows mtimes unchanged at `May 29 13:35` / `14:42` / `13:27` ·
+**`glass-ui` never written** — P-1 is assembled and dispatched as a ledger row, the same idiom value.js's
+own INBOX uses for outbound `O-*` letters, because producer trees are READ-ONLY always and F.W0's writable
+set contains no path in one (the delivery surface is stated plainly in the ledger's §2 rather than left
+implicit) · **producer rows ride the relay and became no frontend hack** (FR-COB-8 S-4) · **pathspec commits
+only**, both commits staged by explicit path, **no `git add -A`** · **no `git stash`, no `reset --hard`,
+no force-push** · **`value.js/scripts/dev/dev.sh` never touched, never staged** · **NO CRONS created** ·
+**E-1/E-3**: no registry byte, no dated spec byte, no prior-evidence byte patched — the one divergence found
+is a dated disclosure beside, never a patch · **`execution/LEDGER.md` untouched** (not in this unit's
+writable set; its F.W0 row is the wave seat's).
+
+#### Residuals and routing — nothing dropped
+
+| item | routed to |
+|---|---|
+| **P-1** answers (portal tiers · unlayered P9 sheet · color-mix fallback · chip/press rungs · was the v7/v8 pressed-paint removal intentional) | **F.W1 CONSUMES** — they change the uplift's break surface and therefore its sizing (§6b) |
+| **P-6** reconciliation, both directions + terminal disposition of every deferred row | **F.W10** (§6b; `CENSUS-2026-08-03.md` §4 item 11) |
+| The `fr-PaperView` **7-vs-6** LATEX-RELAY count word | **F.W10**, with all seven carried and the divergence disclosed. Not ruled here |
+| `M-1` F-VHOST-CORRECTNESS (**OPEN**) | **F.α first land · inv-22 binding** |
+| `M-2` F-OPERATOR-WINDOW (**OPEN**) | **F.W3** — incl. the flagged **host-side** cron at its §γ.4 (remote infrastructure, **not** a session cron, so the NO CRONS order is not breached; F.W3 reconciles it) |
+| `M-4` O-14 consumer obligations (5 specifier migrations · `colors.ts` deletions · the declared 3-line hex residual expiring at value.js 4.1) | **F.W1** — F.W0 is a substrate wave and edits no `web/src/**` byte |
+| `L-11`'s `lane-frontend` §8 amendment (the third ungated clock) | **dated ERRATA ADDENDUM** (E-3), owner of the doc limb per §2a |
+| `M2`'s WAVE-LOCK — no rename of `.sidebar-top-btn` before the relay lands | **F.W4** |
+
+**E13 at this seat's close**: **0 unread mail.** Four letters on the surface, four rowed; two packets
+assembled and SENT with dates. A sweep line is banked in the ledger's §3.
+
+**Escalations**: none.
