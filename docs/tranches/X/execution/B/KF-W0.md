@@ -1612,3 +1612,241 @@ G-0.7 **and** G-0.10 because the gates share one measurement surface, exactly as
 only**, and at this sitting not opened at all) · no blanket per-repo re-anchor (the pass is per-file
 by construction and the falsifier was run) · no MANIFEST MISMATCH surfaced by this unit · no third
 diagnostic iteration on any gate. Every write landed inside the unit's §File Bounds writable set.
+
+---
+
+## Close
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Seat**: KF.W0 CLOSE (Track B ·
+**VERIFY-ONLY — this seat cured nothing and wrote no byte in `keyframes.js` or any producer tree**).
+**Charge**: spec §Gates `:492-663` re-run whole at this seat's own clock · §Cadence/Artefacts `:747-753`
+· §State `:283-301` (the four-verb line) · §Bounds `:325-353` (every unit's commits audited against its
+writable set) · runbook §5.3 (E13) · COHESION §0j.C **KF-WRITE**.
+
+**Substrate at close, double-run** (both runs identical on every figure):
+
+```
+⟨git -C ../keyframes.js rev-parse HEAD⟩          → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨… rev-parse origin/master⟩                      → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨… rev-parse kf-sacred-snapshot-2026-09-17⟩      → 6d280ee7bec7793846b2e2e1d250e1ea0a21859a
+⟨… rev-list --count HEAD..origin/master⟩ → 0     ⟨… origin/master..HEAD⟩ → 0
+⟨… status --short | wc -l⟩ → 6  (tracked rows → 0)   ⟨… diff --name-only origin/master | wc -l⟩ → 0
+⟨… merge-base HEAD origin/master⟩ → 81a56990…    ⟨… diff --check⟩ → clean
+⟨git -C ../glass-ui status --short | wc -l⟩ → 0   HEAD 887a0db9   ← producer READ-ONLY, honoured
+```
+
+### §1 · Gate table — BEFORE → AFTER, every gate re-run by this seat
+
+Each AFTER cell is this seat's own reading against the spec's stated GREEN, not a unit's prose. Every
+count double-run.
+
+| gate | BEFORE (seat-0 baseline, 2026-09-17) | AFTER (re-run at the CLOSE seat's clock) | verdict |
+|---|---|---|---|
+| **G-0.1** Substrate settled | RED — 41 behind · 1 ahead · 252 status · 325 frontier-diff · 124 untracked; merge-base `a59d3a22`, neither ref an ancestor | **0 / 0 / 6 (0 tracked) / 0 / 6**, merge-base `81a56990`, `diff --check` clean; the 1-ahead commit COMMITTED to `6d280ee7`; **both enumerations dispositioned member-by-member** at `SUBSTRATE-SETTLE-2026-09-17.md` §4 (A=252) / §5 (B=225) / §6 (overlap=100), the three `comm` probes pasted and `325 − 252 = 73` used nowhere; the flat `emit/{backward,backward-walk,backward-color}.ts` triad **ABSENT ×3 by `test -e`** with `emit/` carrying `backward/` + `format/` as modules + 7 flat siblings (§7); C-15 **diffed at four coordinates**, `position="right"` and `mode="persistent"` both **0** at the settled worktree (§8) | **GREEN** |
+| **G-0.2** Manifest single-state | RED — four coordinates, **three** states (HEAD `6.0.0` optionalDeps · master `7.0.0` exact devDep · worktree DELETED from both manifests · installed `7.0.0`); `.npmrc` unruled | HEAD `:77` == origin/master `:77` == worktree `:77` == `"@mkbabb/glass-ui": "7.0.0"`, installed `7.0.0`, lock **3** — **four coordinates, ONE state**; **both written rulings present**: `MANIFEST-RULING.md` §2 (the worktree deletion **DISCARDED-AND-SUPERSEDED**, preserved only on the disqualified snapshot ref) and §3 (`legacy-peer-deps=true` **RULED INERT AND RETIRABLE** against the two genuinely-absent peers, both dry-run arms exit 0) | **GREEN** |
+| **G-0.3** EE-02 css-twin not regressed | RED — the four-path diff at `6 insertions(+) / 76 deletions(−)` | ⟨`git diff origin/master --stat -- <the four paths>`⟩ → **EMPTY**; the twin present at both write sites; **direction disk←master** proven by content, by the unmoved frontier ref, and by the snapshot holding the disk's prior bytes | **GREEN** |
+| **G-0.4** Re-regression guard | RED — three oracles red at the audited disk, green at the frontier | coordinate pasted beside each output (**2026-09-17 · HEAD `81a56990…`**): EE-01 `:42` = `timingFunction: "easeInBounce",` · FE-3 `:11` = `:frame-start="startScalar(frames[i].start)"` · EE-03 `:97` = `() => animation.templateFrames.length,`; negatives **on the settled worktree** — `bounceInEase` in `demo/` → **0**, `.start.toString()` in `demo/` → **0**. Run **after** the migration landed, never before | **GREEN** |
+| **G-0.5** Header-ribbon tripwire (negative) | RED-as-tripwire; **GREEN-BEFORE-CURE** on stated disjunct (a), HOLD undeclared | **disjunct (a) HOLDS** — installed 7.0.0 ≤ `4bf53962`, producer HEAD carries an empty `src/components/header-ribbon/`; consumer set re-derived **from the import graph**: 1 live specifier (`EditorShell.vue:116`) + 2 docs-prose hits never counted, symbol census `:16`/`:50`/`:116` all the same file through the same specifier ⇒ **EXACTLY ONE consumer, tests included**; `headerribbon-tripwire.txt` banked and the **HOLD** carried into `MANIFEST-RULING.md` §4, so **G-0.5 BOUNDS G-0.2** by name | **GREEN** |
+| **G-0.6** Counts re-run | RED — 153/58/185 banked without a re-run of SCH-1/2/5/7; SCH-4 banked as reproducing at no stateable spelling; no cascade column; no mint | SCH-3 **153** · SCH-6 **58** · X-2 **185**, double-run identical; all 8 rows with command + literal output + date at `COUNTS-2026-09-17.md` (434 L) + `counts-2026-09-17.txt` (412 L); **SCH-4 discharged** with its predicate stated ahead of both readings; the **cascade-coupled legend column** exists at `CENSUS-2026-08-03.md` §(ii) and landed **before** the F-1 disposition; §6.5's PRM roster + tally row + both z cells re-scoped **in one motion** at `lane-frontend.md`, CENSUS taking the pointer cell only; **the mint ran in ONE motion** — `^### S-` **8** (unchanged) · `^#### S-` **12** (`S-9`…`S-20`, each citing its record) · `^#{3,4} S-[0-9]` **20**, with 2 enumerated and 1 struck against C-17.R's 15 rows | **GREEN** |
+| **G-0.7** Gate-inventory truth | RED — 3 entry points · 9 gate files · 54 names + 1 bare token · 1 runnable → **53 dead** · 116/51; no roster artifact exists | roster present and dated (`GATE-ROSTER.md`, 351 L + `gate-roster.txt`, 508 L); the denominator re-run double: **55 tokens = 54 distinct + 1 bare**, `proof:publish` the sole runnable ⇒ **53 dead**, `116 hits / 51 files`, `build:gh-pages` → **0 hits**, `scripts/gates/` → **9 files** over 3 entry points; **coverage measured, not asserted** — ⟨`comm -23 <the sweep's 54> <the roster's names>`⟩ → **∅**; falsifier (c), the Dispatch-fatal one, checked at the bytes: ⟨`git -C ../keyframes.js status --short -- demo/`⟩ → **0 rows**, ⟨`… --untracked-files=no`⟩ → **0 rows** ⇒ **W0 STRUCK NOTHING** | **GREEN** |
+| **G-0.8** Codex v8 pin dispositioned | RED — `V8-DISPOSITION.md` does not exist; no disposition anywhere | `V8-DISPOSITION.md` (128 L) written **as ruled** at COHESION §0j.C `KF-OGKF1`: verdict token **STALE-BY-SUBSTRATE**, the seal citable only as `345 exact / 12 partial / 57 unresolved @ 8281638c`, the five conditional TCC re-reads **never open**, **185 adopted** (double-run; 183 at the disqualified pin, so the claimed 184 reproduces at no committed coordinate); the falsifier's tokens *"carried"* / *"pending"* appear as no verdict (⟨`grep -ci '^\*\*verdict.*(carried\|pending)'`⟩ → **0**); **`OG-KF1` NAMED and explicitly NOT RULED**, with the `KF-OGKF1` / `OG-KF1` distinction stated | **GREEN** |
+| **G-0.9** Registry re-anchor | RED — **58** records, **0** stamped; `D-19` reaches 42 by bare token; six inbound corrections absent | **58 records · 58 stamped · 0 duplicated** (double-run); append-only **measured**: `7c569bb0` → **58 files, 1204 added, 0 deleted**, `5645e476` → **14 added, 0 deleted**; the **six named corrections landed by id** — ⟨`grep -l 'of the six named at G-0.9' kf-*.md`⟩ → **exactly 6** (`kf-App` · `kf-App.skeleton` · `kf-AnimationVisualizer` · `kf-KeyboardShortcutsModal` · `kf-KeyframeTimeline` · `kf-TransportDock`); **the blanket-pass falsifier RUN and NOT FIRING** — `git diff --stat origin/master -- …/TypingDots.vue` is empty **and** that record's stamp states the measured per-file `+4/−9` against the disqualified pin rather than a *"stale HEAD"* verdict (the five `stale HEAD` strings in that file are pre-existing dated body prose, untouched under E-3) | **GREEN** |
+| **G-0.10** Source-over-dist provenance | RED — the corpus's byte-offset receipts ride a **Jul 16 09:11** artifact; no re-derivation | the **4** surviving `glass-ui/src/**` citations (1 line each, all meta-citations) re-derived against the **consumed dist**, pinned by digest ⟨`shasum -a 256 $(find node_modules/@mkbabb/glass-ui/dist -type f | sort) | shasum -a 256`⟩ → `3cc72cc9d848…da6f2`, **re-verified at this seat**; **BOTH repo-qualified letters present and named** — (a) value.js `V/archive/…-persistent-only.md`, (b) keyframes.js `origin/master:V/coordination/…-consumer-updates.md` — plus `dist/header-ribbon.js` re-read (`anchor` 4 · `pinned` 3 · `inert` 2 · `aria-hidden` 2 · `anchorLabel` **0** · `HeaderRibbonMode` **0**); **exactly one** `npm run gh-pages`, banked by hash — this seat re-hashed the tree without rebuilding: **54 files → `bad6ea595fb5…64d2`, byte-identical to the banked artefact**; the gate reading itself written at `REF-OF-RECORD.md` §9 | **GREEN** |
+
+**10 born-RED gates · 10 GREEN · 0 RED · 0 UNRUNNABLE · 0 DIVERGENT.** Not one AFTER figure needed
+correction against the unit that published it.
+
+### §2 · Verification Artefacts — §Cadence `:751` run as written
+
+All twelve banked, self-counted at the settled bytes by this seat (⟨`wc -l`⟩):
+
+| artefact | L | artefact | L |
+|---|---:|---|---:|
+| `substrate-open.txt` | 78 | `headerribbon-tripwire.txt` | 109 |
+| `substrate-close.txt` | 127 | `counts-2026-09-17.txt` | 412 |
+| `manifest-four-coordinates.txt` | 132 | `gate-roster.txt` | 508 |
+| `ee02-diff-open.txt` | 59 | `refofrecord-stamp-audit.txt` | 219 |
+| `ee02-diff-close.txt` | 79 | `glass-citation-rederivation.txt` | 197 |
+| `oracle-ee01-fe3-ee03.txt` | 76 | `v8-disposition.txt` | 69 |
+
+**12 of 12 present; 0 owed.** The `npm run gh-pages` **build hash** rides inside
+`glass-citation-rederivation.txt` (`:138`) as the spec requires — the artefact is the hash, not the
+bytes (`dist/gh-pages/**` is git-ignored at the frontier). Work product, self-counted:
+`SUBSTRATE-SETTLE-2026-09-17.md` **750 L** · `COUNTS-2026-09-17.md` **434 L** ·
+`MANIFEST-RULING.md` **356 L** · `GATE-ROSTER.md` **351 L** · `REF-OF-RECORD.md` **241 L** ·
+`V8-DISPOSITION.md` **128 L** — six of six §Bounds `create` rows landed.
+
+**E-3 held over the governing spec**: ⟨`shasum -a 256 docs/tranches/X/keyframes/waves/KF-W0.md`⟩ →
+`5c82b06d8e7f…ac4b` == ⟨`git show 97e6a5f2:<the same path> | shasum -a 256`⟩. **The spec's bytes did
+not move between the wave's opening commit and its close.** No executing seat edited it.
+
+### §3 · Commit roster
+
+**keyframes.js — 1 commit, the only product-byte act of the wave:**
+
+| sha | meaning |
+|---|---|
+| `6d280ee7bec7793846b2e2e1d250e1ea0a21859a` | `snapshot(kf): …` — the ruled OWNER'S-HAND snapshot, COHESION §0j.C step (2), message verbatim as ruled; 226 files (219 M + 7 D), 4483+/6156−. Held by the local ref `kf-sacred-snapshot-2026-09-17` |
+
+**value.js — 19 commits, in landing order:**
+
+| # | sha | family | unit |
+|---:|---|---|---|
+| 1 | `97e6a5f2` | `docs(X·exec)` — KF.W0 OPEN, baseline banked, 5 units planned | seat 0 |
+| 2 | `e898b65e` | `docs(kf-w0/op-1)` — receipt + `substrate-open.txt` + `substrate-close.txt` | OP-1 |
+| 3 | `a10e33ad` | `docs(X·exec)` — LEDGER, OP-1 line | OP-1 |
+| 4 | `388dbf1f` | `docs(kf-w0/settle)` — `SUBSTRATE-SETTLE-*.md` + 3 artefacts, family unsplit | `.c` |
+| 5 | `30110269` | `docs(kf-w0/manifest)` — the ruling + 2 artefacts, family unsplit | `.b` |
+| 6 | `ac5cc99c` | `docs(kf-w0/manifest)` — E13, the three relay packets at `INBOX.md` | `.b` |
+| 7 | `8ae115b2` | `docs(kf-w0/settle)` — `.c` receipts | `.c` |
+| 8 | `257fa20a` | `docs(kf-w0/manifest)` — `.b` receipts | `.b` |
+| 9 | `71bdf8d5` | `docs(kf-w0/manifest)` — the E-3 addendum-beside on `257fa20a`'s 231-vs-229 | `.b` |
+| 10 | `a331fae6` | `docs(kf-w0/counts)` — 5 paths, family unsplit | `.d` |
+| 11 | `6894d4ed` | `docs(X·exec)` — `.d` receipts | `.d` |
+| 12 | `71590e49` | `docs(X·exec/ledger)` — `.d` line | `.d` |
+| 13 | `e12eeb91` | `docs(kf-w0/roster+provenance)` — G-0.7 + G-0.10 | `.e` |
+| 14 | `7c569bb0` | `docs(kf-w0/ref-of-record)` — G-0.9, the 58 + `lane-docs` §B-12 row 16 | `.e` |
+| 15 | `fc92ed52` | `docs(kf-w0/v8)` — G-0.8 | `.e` |
+| 16 | `5645e476` | `docs(kf-w0/ref-of-record)` — correction (v) continued, slot `S-17` named | `.e` |
+| 17 | `58be3626` | `docs(kf-w0/roster+provenance)` — G-0.10's gate reading at `REF-OF-RECORD.md` §9 | `.e` |
+| 18 | `d7ae45ce` | `docs(X·exec)` — `.e` receipts | `.e` |
+| 19 | `821dee93` | `docs(X·exec/ledger)` — `.e` line | `.e` |
+
+**`scripts/dev/dev.sh` appears in ZERO of the twenty** — ⟨per-commit `git show --name-only | grep -c`, summed⟩ → **0**. It stayed dirty and unstaged throughout, as the standing arrangement requires.
+
+**The three declared commit families are intact and unsplit**: `settle` carries the record with its
+three artefacts; `manifest` carries the ruling with the two readings it rules on; `counts` carries all
+five of `.d`'s paths in one motion. `roster+provenance` carries G-0.7 **and** G-0.10, as the spec
+pairs them.
+
+### §4 · Landed-wrong — 2 findings, both bounds-shaped, neither byte-shaped
+
+Reported here and **not fixed** (this seat is verify-only, and both were already dispositioned at the
+receiving track's record by the seats whose bytes they are).
+
+**LW-1 · `a10e33ad` carries one path outside KF.W0's writable set** —
+`docs/tranches/X/execution/D/X-P-W0.md` (**+203 / −0**), the X.P.W0.b receipt block of **Track D**.
+This is the shared-index race between concurrent seats on one repository, already booked as **X.P.W0
+CHECK 1 · D-2** (*"§9's commit ④ family split across tracks by a shared-index race — 4 of `.d`'s 5
+paths rode `9c72f097`, `.b`'s block rode `a10e33ad`"*), with the disposition *recorded, not
+rewritten*. Nothing is lost or duplicated: the bytes are Track D's own, they are in `HEAD`, and no
+history was rewritten because a mid-flight reset would hand a live sibling seat an index it did not
+create.
+
+**LW-2 · `58be3626` carries six paths outside KF.W0's writable set** —
+`megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md` · `IN-FLIGHT-RESUME-HANDOFF-2026-07-29.md` ·
+`registry/COMPLETENESS-LEDGER.md` · `registry/HYDRATION-LEDGER.md` ·
+`workflows/hydrate-reports.mjs` · `workflows/validate-completeness.mjs`. Every one of the six is
+**Track A's X-W0.c** writable set (`X/waves/W0.md` §Bounds names all six), and that seat's record
+books the event at **§C9 · "Landing, and the shared-index event a fourth time"**, verifying all six
+⟨`diff <(git show HEAD:<f>) <f>`⟩ **IDENTICAL ×6** and noting that `58be3626`'s only *foreign* path
+from Track A's side is `.e`'s own `REF-OF-RECORD.md`. Same disposition: **recorded, not rewritten**;
+the follow-on `549353fd` was made with the pathspec on the commit itself.
+
+**What this seat adds rather than inherits**: the two events are the **same mechanism read from the
+other end**, and the mechanism is not a seat's carelessness but `git`'s shared index under the
+four-concurrent-workflow cap — an `add`-then-`commit` pair is not atomic across seats, so a sibling's
+`git commit <pathspec>` between them sweeps whatever is staged. **The lawful guard is to put the
+pathspec on the `commit` call, not on a preceding `add`** (X-W0.i's I10 guard, independently reached
+at `549353fd`). Booked here so the X·KF lane carries it too. **No KF.W0 byte landed in a foreign
+commit, and no foreign byte was altered by a KF.W0 seat** — in both events the sweeping commit
+*preserved* the sibling's bytes exactly.
+
+**Zero landed-wrong of the substantive kind**: no product byte moved in `keyframes.js` beyond the
+ruled reset (⟨`git status --short --untracked-files=no`⟩ → **0**, ⟨`status --short -- demo/`⟩ → **0**);
+no producer byte moved (glass-ui **0 rows**, HEAD `887a0db9`); the 58 records are append-only at
+**1204 + 14 added / 0 deleted**; the governing spec's hash is unmoved.
+
+### §5 · Escalations
+
+**None fired at any seat, and none fires at this one.** All five §Triumvirate Dispatch triggers
+re-checked at the close bytes: (1) the reset was performed by the **ruled OP-1 hand** under the
+owner's 2026-09-17 begin-word, in the §0j.C three-step order and no other — never by another seat and
+never as a bare reset; (2) **no write under `keyframes.js/{src,demo,test,scripts}/**`** beyond the
+reset's own act, and the two EE-02 paths were **verified, never authored**; (3) **no producer-repo
+write**; (4) **no blanket per-repo re-anchor** — the pass is per-file by construction and its
+falsifier was run and did not fire; (5) **no MANIFEST MISMATCH after the settle** — the four
+coordinates agree at `7.0.0`; and no gate took a third diagnostic iteration (every gate turned on its
+first run at the unit that owned it).
+
+**One escalation-shaped item that is NOT this wave's and is named so it is not read as ours**: Track
+A's **HG-7** is RED and escalated to the triumvirate at `X-W0.c`. It shares this repository and this
+session but no gate, no bound and no id with KF.W0.
+
+### §6 · E13 — mail, at the wave's scope, re-swept at the close seat
+
+Four paths swept read-only at this seat's clock, classified **per status cell** and never per
+`grep -i unread` line (X.P.W0 CHECK 1 · D-1):
+
+1. `docs/tranches/V/` (10) + `docs/tranches/V/coordination/` (17) — `INBOX.md` self-excluded
+   (SELF-COUNT law); the three files dated today are **our own outbound retained copies**
+   (`value-inbox-2026-09-17-o8-o11-amendment-addendum.md` = **O-21**, plus the two 07-24/07-27
+   back-fills), every one already rowed.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest glass tranche dir**
+   ⟨`ls -dlt ../glass-ui/docs/tranches/B*/`⟩ → `BK`@Sep 17 > `BJ`@Aug 3 > `BI`@Jul 28 > `BH`@Jul 15;
+   4 files, newest `glass-outbound-2026-08-29-valuejs-o20-ack.md` = **I-30, rowed**.
+3. `../keyframes.js/docs/tranches/V/coordination/` (the SACRED checkout, read-only) — 12 entries;
+   newest **content** date **2026-07-27**, ours. The uniform 2026-09-17 mtimes are OP-1's absorption
+   finding (`reset --hard` unlinked and recreated 175 V paths), **not mail** — the trap is named, not
+   tripped, for the third time in this record.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — 28 files; newest **2026-07-27**, ours,
+   outbound.
+
+**The one row in the whole ledger whose status cell literally reads `UNREAD 2026-09-17` is `I-31`**,
+and its own Routing cell assigns it to **X-W0 (Track A)** — *"X-W0 close reads this row and marks it
+FOLDED"* — **not to X·KF and not to KF.W0's scope**. **Result: 0 unrowed · 0 new `I-n` minted ·
+I-31 the inbound tail · O-21 the outbound tail · 0 UNREAD in KF.W0's scope.** The wave does not close
+with unread mail. `INBOX.md` was appended by `.b` alone, once, at close (§Disjointness) and this seat
+appends nothing to it.
+
+### §7 · Residuals — carried forward with named owners, none blocking
+
+| # | residual | owner |
+|---:|---|---|
+| R-1 | **The 118-file untracked absorption is IRREVERSIBLE** — `reset --hard` skips `verify_absent`, so 118 of 124 untracked files (97 of 99 V docs) were overwritten with `origin/master` bytes; no git object holds the prior bytes and no filesystem signal names the members. **E13 consequence NIL** (both value.js-delivered mail packets are among the 6 survivors, byte- and mtime-intact); the 97 are keyframes' own V docs now at their frontier state. Re-cut in the record as **226 COMMITTED · 118 DISCARDED · 6 KEPT** | **closed as a finding; the pre-act probe is booked for the next substrate seat anywhere in X** (§11.1 of the settle record) |
+| R-2 | **The snapshot ref `kf-sacred-snapshot-2026-09-17` is LOCAL-ONLY and not an ancestor of the frontier** — every "COMMITTED" disposition in the settle record cites it, so 226 tracked rows and 7 deletions lose their receipt if it is deleted. **STILL OPEN at this close, deliberately**: the close's push instruction is `push origin HEAD` and nothing else, and §Bounds grants this wave `keyframes.js` refs *"via the §0j.C three-step command sequence only"* — publishing a second branch to a sibling remote is outside both, so this seat declined it rather than widening its own grant to discharge a residual. **The act to perform, stated in its exact form so no seat has to re-derive it**: `git -C /Users/mkbabb/Programming/keyframes.js push origin kf-sacred-snapshot-2026-09-17` | **orchestrator / owner — OPEN** |
+| R-3 | **The remote advanced one docs-only commit past the pin** (`55e9bf0d`, KF.W1's own delivery, parent `81a56990`) — benign today, a live hazard for any later seat that fetches in the sacred checkout. **Every anchor in this wave names the sha, for that reason** | every later X·KF wave |
+| R-4 | **Four orphaned flat-layout `src/` drafts survive untracked** in keyframes.js (`compile/{compiled-frame,interp-slot,value-ast}.ts` · `group/composite-storage.ts`) — unreachable by any frontier specifier; the reset could not remove them because their paths are absent upstream. `src/**` is out of this wave's bounds, so the finding is stated and nothing is cured | a wave whose §Bounds carries `src/**` |
+| R-5 | **`.npmrc`'s retirement** — ruled INERT-and-retirable; the *act* is routed **NO-WAVE-OWNER** because `.npmrc` is named by no §Bounds row here, and deleting it would be the file-bound expansion the Dispatch calls wave-invalidating. Expires with the G-0.5 HOLD; both re-measured together | NO-WAVE-OWNER (SS-1/SS-2) |
+| R-6 | **The G-0.5 HOLD is live**: installed glass-ui may **not** advance past `4bf53962` while `origin/master:EditorShell.vue:116` imports `/header-ribbon`. Cheap to lift, but only by a **migration** (which chrome host replaces the band), never by a version bump | NO-WAVE-OWNER migration decision; HOLD carried at `MANIFEST-RULING.md` §4 |
+| R-7 | **The COHESION §4a (SS-6 accretion register) mirror is OWED, not written** — `COHESION.md` is outside every KF.W0 unit's writable set; the three relay packets are durable at `INBOX.md` | orchestrator |
+| R-8 | **glass-ui 7.0.0 packument ≠ tarball** by one peer entry (bare `embla-carousel` in the lock's recorded map, absent from the shipped `package.json`) — C-13's class inside this wave's own manifest surface. Relayed under KF-APP-59 | glass-ui producer |
+| R-9 | **`@mkbabb/parse-that@1.0.0` is EXTRANEOUS** in keyframes' `node_modules` — an install-state residue outside G-0.2's four coordinates; named so no later seat files it as a manifest defect | none; informational |
+| R-10 | **`KeyframeTimeline.vue:94` cites the WRONG vendor file** for its PRM delegation (`transitions.css`'s block is class-scoped) — correct conclusion, wrong file; recorded at `lane-frontend.md` §C.1, **not repaired**, a `demo/**` byte being Dispatch-fatal here | whichever wave owns that file's prose |
+| R-11 | **The cascade-coupled roster is a FLOOR, not a closure** (10 under the published eight-token predicate, 11 widened) — stated in place of a completeness claim | KF.W6 (the token-namespace probe half) |
+| R-12 | **`+5` dead `proof:*` names sit outside the 53** (`proof:easing-sidebar-minimal` · `proof:amiga-decay-visible` · `proof:bezier-{no-scroll,single-card,grown}`), recovered from line-wrapped tokens the denominator's own `-$` filter discards. Rostered as a **loud addendum-beside** at `GATE-ROSTER.md` §2.2 and deliberately **not** folded into the 53, because re-basing the spec's stated denominator here would mint a fifth basis (the X-4 lesson) | KF.W4 / OPTIONS-UNIT @ KF.W12 (the bezier trio's banked home) |
+| R-13 | **The `@layer` statement delta** between the corpus cell and the fresh build — declared and appended at `kf-EditorHeader`, charged nowhere | none; a reading delta |
+| R-14 | **`lane-library.md` §4.2/§4.3 anchors** (`ingest/cssom.ts`, the six Tier-C regexes) were not re-anchored and are **not** asserted to have moved or held — only Tier A was in scope | KF.W5 |
+| R-15 | **`dist/gh-pages/**` is git-ignored, so the one build commits nothing** — the witness is the banked hash `bad6ea59…`, re-verified at this close. A later seat that needs those bytes **re-runs the build and re-hashes**; it must not assume the tree it finds is this one | any consuming wave (KF.W6/KF.W9) |
+| R-16 | **`OG-KF1` remains OPEN by design** — NAMED here, **RULED at KF.W10**'s owner block beside OD-V3/OD-V5, never proxied | KF.W10 (owner) |
+| R-17 | **The shared-index commit-sweep hazard** of §4 — the guard (pathspec on the `commit`, never only on a preceding `add`) is booked here for the X·KF lane | every concurrent seat in this session |
+
+### §8 · The four-verb line — moved exactly as §State prescribes
+
+| verb | before | after | authority |
+|---|---|---|---|
+| AUDITED | YES | **YES** (unchanged) | 58 adjudicated records + CENSUS + INTAKE-ADJUDICATION |
+| SPECIFIED | YES | **YES** (unchanged) | `KF-W0.md`, 2026-08-28, L-20-validated through repair round 6 |
+| IMPLEMENTED | NO | **YES — 2026-09-17** | spec §State: *"stamped at this wave's own close"*; §Cadence: *"the last stamps **IMPLEMENTED**"*. Ten born-RED gates re-run GREEN by this seat |
+| VERIFIED | NO | **NO** | spec §State: *"stamped only at KF.W10's sub-tranche release close (R-A)"*. **This seat does not move it, and no KF.W0 seat may.** |
+
+**Goal criterion (§State `:299`), met at the bytes**: every adjudicated X·KF record now names the ref
+it cures against (58/58, stamped once each), **that ref is one ref** (`origin/master`
+`81a56990736ced5b5edde0b84c527680ac7689b1`, which since the settle **is** the sacred checkout's
+`HEAD`), and the counts, gates, glass-ui citations and Codex denominators a later wave may cite are
+each dated, commanded and measured on a named tree. The wave changed no product behaviour: the only
+product bytes that moved were moved by the owner's reset, toward the frontier.
+
+### §9 · Push
+
+The owner's 2026-09-17 begin-word authorizes publish/push/pull. Two pushes performed, **exactly the
+two the close charges and no third**, never forced:
+
+- `git -C /Users/mkbabb/Programming/keyframes.js push origin HEAD` — expected **inert**: `HEAD` ==
+  `origin/master` == `81a56990`, the wave's one keyframes commit lives on the local snapshot ref and
+  not on `master`, so this push publishes nothing and is run to *prove* that rather than to assume it.
+- `git -C /Users/mkbabb/Programming/value.js push origin HEAD` — publishes the wave's nineteen
+  commits on `tranche-u`.
+
+**Not pushed, and declined on the record**: the snapshot ref (R-2). See that row for why and for the
+one command that discharges it.
