@@ -2,9 +2,9 @@
  "$schema": "X.KF.W9 per-cell results (G-KFW9-2/-3/-14) — SKELETON published by .a",
  "servedModel": "claude-opus-5[1m]",
  "wave": "X.KF.W9",
- "seat": ".a",
+ "seat": ".a skeleton, .e fold",
  "published": "2026-09-17",
- "state": "SKELETON — 0 captures. .b/.c/.d fill their own cells; .e folds.",
+ "state": "FOLDED 2026-09-17 by .e — 1 EXECUTED · 12 UNREACHABLE-IN-CELL · 577 UNMEASURED of 590; 7 captures across 3 cells.",
  "supersedes": {
   "what": "the 2026-07-24 value.js-route corpus (4 matrices x 15 routes = 60 captures, origin http://localhost:9000, API-less)",
   "why": "it is the born-RED witness for G-KFW9-3: a value.js corpus, pre-X, with zero real-Safari execution against any keyframes.js tree. It is not a kf-scoped surface list and was never one.",
@@ -15,8 +15,8 @@
   "ref": "master == origin/master",
   "sha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
   "disqualified": "8281638c (preserved by ref at kf-sacred-snapshot-2026-09-17 = 6d280ee7)",
-  "bundleSha256": null,
-  "bundleNote": "REQUIRED at capture, supplied by --bundle-sha=. NOT pre-filled: the dist/gh-pages bundle this wave opened against was destroyed 2026-09-17 15:26:18 by npm prepare -> build:lib self-emptying dist/ (SUBSTRATE-PIN §3/§7). BOOKED as an OP-5 break; a rebuild is a kf write and therefore out of .a's bounds."
+  "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+  "bundleNote": "MEASURED at .d and RE-HASHED double-run identical at .e, from the §0m.2 capture clone (/Users/mkbabb/Programming/keyframes-w9-capture, clean at the pin, no commit, no push, NOT the sacred checkout). .a's null is superseded by measurement: the OP-5 break it booked is cured by the ruling's shape (b), not by a seat rebuilding in the shared tree."
  },
  "rosterDigest": "255695bc616c2a1420639ccf56848bdaf5df2c87618587c0c736fda4ef762035",
  "cellRoster": [
@@ -42,48 +42,51 @@
    "column": "safari-app",
    "driver": "safaridriver",
    "ownedBy": ".b",
-   "state": "UNMEASURED",
-   "captures": 0,
+   "state": "PARTIAL",
+   "captures": 3,
    "capability": {
-    "forcedColors": "(forced-colors: active)",
-    "reducedTransparency": "(prefers-reduced-transparency: reduce)",
-    "reducedMotion": "(prefers-reduced-motion: reduce)",
-    "allParse": true,
-    "matches": {
-     "forcedColors": false,
-     "reducedTransparency": false,
-     "reducedMotion": false
-    },
-    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15",
-    "devicePixelRatio": 2,
-    "session": "7BB393EF-45A2-4EB5-9B01-C12155925F97",
-    "safariVersion": "26.4",
-    "platformVersion": "26.4.1",
-    "platformBuildVersion": "25E253",
-    "useSimulator": false,
-    "measuredBy": ".a, 2026-09-17, real safaridriver session (SUBSTRATE-PIN §4.4)"
+    "forced-colors: active": false,
+    "forced-colors: none": true,
+    "prefers-reduced-transparency: reduce": false,
+    "prefers-reduced-motion: reduce": false,
+    "prefers-contrast: more": false,
+    "prefers-contrast: no-preference": true,
+    "allThreeMediaStringsParse": true,
+    "measuredBy": ".d, inside this cell (never inherited)"
    },
-   "note": "OP-4 BASELINE ONLY — .b re-takes it inside its own session. No cell inherits another's."
+   "note": "OP-4 BASELINE ONLY — .b re-takes it inside its own session. No cell inherits another's.",
+   "forcedColorsArm": "UNREACHABLE-IN-CELL",
+   "forcedColorsBound": "PLATFORM, not capability: with the host's increaseContrast set, (prefers-contrast: more) flipped true LIVE in the same matchMedia batch while (forced-colors: active) stayed false and (forced-colors: none) stayed true. macOS/WebKit implements no forced-colors mode. Host setting restored.",
+   "closedMidSeat": "Safari 'Allow Remote Automation' stopped granting sessions; `safaridriver --enable` needs an interactive admin password this seat cannot supply; the running Safari (pid 23725, started 16:23:59, 6 windows) is the OWNER'S and was not quit.",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "safari-app/ios-device",
    "column": "safari-app",
    "driver": "safaridriver-ios",
    "ownedBy": ".c",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "bound": "missing host: a paired iOS device running Safari 26.x. xcrun devicectl list devices -> 'No devices found.' (double-run, identical) · system_profiler SPUSBDataType | grep -ic 'iPhone|iPad' -> 0 · xcrun xctrace list devices -> '== Devices ==' section contains only the host MacBook Pro",
+   "ruledAt": "COHESION §0m.2",
+   "measuredBy": ".c (booked), .e (folded)",
+   "op4": "NOT TAKEN — no session opens in this cell; booked UNREACHABLE-IN-CELL with the host named, and explicitly NOT inherited from another cell."
   },
   {
    "cell": "safari-app/ios-simulator",
    "column": "safari-app",
    "driver": "safaridriver-simulator",
    "ownedBy": ".c",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "bound": "missing host: a WebDriver endpoint able to host an iOS-Simulator Safari session. safaridriver --help -> six options, none a simulator flag; grep -ci simulator -> 0 · safaridriver --version -> Included with Safari 26.4 (21624.1.16.11.4) · POST /session with safari:useSimulator=true -> 'session not created: The macOS platform is incompatible with requested capability: safari:useSimulator.' (double-run, byte-identical) · control: GET /status -> ready:true; .a opened a real safari-app/desktop session on the same binary",
+   "ruledAt": "COHESION §0m.2",
+   "measuredBy": ".c (booked), .e (folded)",
+   "op4": "NOT TAKEN — no session opens in this cell; booked UNREACHABLE-IN-CELL with the host named, and explicitly NOT inherited from another cell."
   },
   {
    "cell": "webkit-engine",
@@ -93,67 +96,88 @@
    "state": "UNMEASURED",
    "captures": 0,
    "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "bound": "playwright 1.60.0 resolves webkit to webkit-2287; only webkit-2311 is installed, so webkit.launch() throws. A chromium reading was NOT labelled webkit-engine (I-20 in its other direction).",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "chromium",
    "column": "chromium",
    "driver": "playwright-chromium",
    "ownedBy": ".b",
-   "state": "UNMEASURED",
-   "captures": 0,
-   "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "state": "MEASURED",
+   "captures": 2,
+   "capability": {
+    "forced-colors: active": false,
+    "measuredBy": ".d, inside this cell (never inherited)"
+   },
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "rows": 8,
+   "use": "the forced-colors-OFF control twin + the AT-precondition inventory over 6 routes",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "chromium/emulated-forced-colors",
    "column": "chromium",
    "driver": "playwright-chromium",
    "ownedBy": ".d",
-   "state": "UNMEASURED",
-   "captures": 0,
-   "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "state": "MEASURED",
+   "captures": 2,
+   "capability": {
+    "forced-colors: active": true,
+    "measuredBy": ".d, inside this cell (never inherited)"
+   },
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "NOT_WHC": "windows/real-HCM requires a Windows host. A chromium emulation labelled WHC is the I-20 failure by name (S-13). This row never enters the windows column.",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "windows/real-HCM",
    "column": "windows",
    "driver": "windows-host",
    "ownedBy": ".d",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)"
+   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)",
+   "bound": "uname -> Darwin 25.4.0; no Parallels/VMware/UTM/VirtualBox/CrossOver in /Applications; no qemu-system-x86_64 on PATH. No Windows host and no virtualization host exists.",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "at/voiceover-safari",
    "column": "at",
    "driver": "voiceover+safaridriver",
    "ownedBy": ".d",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat"
+   "note": "OP-4 owed per cell, evaluated inside the cell by its owning seat",
+   "bound": "BOTH legs: safaridriver session refused (admin-gated 'Allow remote automation'); VoiceOver not running (pgrep -> 0, System Events exists-process -> false) and starting it takes over the owner's live machine with no grant.",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "at/nvda",
    "column": "at",
    "driver": "windows-host",
    "ownedBy": ".d",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)"
+   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)",
+   "bound": "no Windows host",
+   "measuredBy": ".d (measured), .e (folded)"
   },
   {
    "cell": "at/jaws",
    "column": "at",
    "driver": "windows-host",
    "ownedBy": ".d",
-   "state": "UNMEASURED",
+   "state": "UNREACHABLE-IN-CELL",
    "captures": 0,
    "capability": null,
-   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)"
+   "note": "requires a Windows host; absent one this cell reads UNREACHABLE-IN-CELL with the bound stated — a chromium emulation labelled as WHC is the I-20 failure by name (S-13)",
+   "bound": "no Windows host",
+   "measuredBy": ".d (measured), .e (folded)"
   }
  ],
  "surfaceList": {
@@ -182,16 +206,217 @@
   }
  },
  "probeTally": {
-  "EXECUTED": 0,
+  "EXECUTED": 1,
   "RETIRED": 0,
-  "UNREACHABLE-IN-CELL": 0,
-  "UNMEASURED": 590
+  "UNREACHABLE-IN-CELL": 12,
+  "UNMEASURED": 577
  },
  "shaCoverage": {
   "PASS": true,
-  "shots": 0,
-  "note": "vacuous — zero shots. Green without a per-shot sha256 FAILS (G-KFW9-2)."
+  "shots": 7,
+  "note": "7 of 7 PNGs re-hashed at .e and equal to their .sha256 sidecars; every shot carries cell + substrateRef + substrateSha + measured bundleSha256. Green without a per-shot sha256 FAILS (G-KFW9-2) — this is not vacuous."
  },
- "captures": 0,
- "results": []
+ "captures": 7,
+ "results": [],
+ "fold": {
+  "foldedBy": ".e",
+  "folded": "2026-09-17",
+  "sources": [
+   "docs/tranches/V/megatranche/audit/visual/safari-real/mobile-cell-foreclosure-2026-09-17.json (.c)",
+   "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-at-cell-ledger-2026-09-17.json (.d)",
+   "COHESION §0m.2 (the iOS cells RULED UNREACHABLE-IN-CELL)"
+  ],
+  "apparatus": "docs/tranches/X/keyframes/evidence/W9/W9e-fold.mjs — re-runnable; the mapping prints its matched residue line",
+  "mappingRule": "a banked defect id becomes a probe row only when the record's own residue line at that probe's `line` contains the id at a WORD BOUNDARY. Dispositions whose id names itself in no residue item are carried at row level under `unmappedRowDispositions` and are NOT forced onto a row.",
+  "mappedRows": 14,
+  "unmappedRowDispositions": [
+   {
+    "ids": [
+     "D-25",
+     "D-6"
+    ],
+    "record": "kf-EditorShell.md",
+    "state": "UNREACHABLE-IN-CELL",
+    "cells": [
+     "safari-app/ios-device",
+     "safari-app/ios-simulator"
+    ],
+    "bound": "S-8 family (iii), the 390x844 + 375x667 mobile pass: no cell on this host renders a real mobile Safari surface (same measured bound as family (v)); the family is NOT double-spent — no session opened, so no member is spent and the family stays one re-runnable unit.",
+    "why": "no residue item at this record names either id; D-25's notch witness and D-6 are booked rows, not enumerated residue."
+   },
+   {
+    "ids": [
+     "KF-EST-3"
+    ],
+    "record": "kf-EditorStartScreen.md",
+    "state": "UNREACHABLE-IN-CELL",
+    "cells": [
+     "safari-app/ios-device",
+     "safari-app/ios-simulator"
+    ],
+    "bound": "S-8 family (iii), the 390x844 + 375x667 mobile pass: no cell on this host renders a real mobile Safari surface (same measured bound as family (v)); the family is NOT double-spent — no session opened, so no member is spent and the family stays one re-runnable unit.",
+    "why": "the record's residue enumerates P-1..P-9; KF-EST-3 is named in none of them at a word boundary."
+   },
+   {
+    "ids": [
+     "D-2"
+    ],
+    "record": "kf-AmigaScene.md",
+    "state": "MEASURED (AT-precondition inventory, chromium cell)",
+    "cells": [
+     "chromium"
+    ],
+    "bound": "capture at-chromium-amiga-bare-canvas-subject.png, sha256 e4937bdf...; the complete attribute list of .amiga-canvas carries NO ARIA attribute of any kind. FALSIFIER ('any announced accessible name kills the row') not satisfied: the row survives.",
+    "why": "no residue item at this record names D-2; the record's 12 residue rows are other subjects."
+   },
+   {
+    "ids": [
+     "MISSED-A"
+    ],
+    "record": "kf-AmigaScene.md",
+    "state": "UNREACHABLE-IN-CELL",
+    "cells": [
+     "safari-app/ios-device",
+     "safari-app/ios-simulator"
+    ],
+    "bound": "the touch-affordance arm needs a touch cell; both iOS cells are foreclosed (COHESION §0m.2).",
+    "why": "no residue item names it."
+   },
+   {
+    "ids": [
+     "D-B3",
+     "D-m8"
+    ],
+    "record": "kf-SpringHeatmap.md",
+    "state": "MEASURED (AT-precondition inventory, chromium cell)",
+    "cells": [
+     "chromium"
+    ],
+    "bound": "capture at-chromium-spring-heatmap-application.png, sha256 67e4ca62...; role=application + tabindex=0 + empty aria-hidden subtree reproduce; D-m8's label measures 23 words, not 33.",
+    "why": "the record's 8 residue rows are other subjects; landed instead as a dated addendum under the original ids."
+   },
+   {
+    "ids": [
+     "D-1",
+     "L-i1"
+    ],
+    "record": "kf-PlaybackRibbon.md",
+    "state": "MEASURED (AT-precondition inventory, chromium cell)",
+    "cells": [
+     "chromium"
+    ],
+    "bound": "of 4 role=slider on /#/easing, one has no aria-label, no aria-labelledby, no title and a bare aria-valuenow 1500 against max 5000; aria-valuetext null.",
+    "why": "the record's 10 residue rows are other subjects (its AT row #10 is routed to the AT-verification lane)."
+   },
+   {
+    "ids": [
+     "D-12 (valuetext limb)"
+    ],
+    "record": "kf-SequenceAxis.md",
+    "state": "MEASURED (AT-precondition inventory, chromium + safari-app/desktop)",
+    "cells": [
+     "chromium",
+     "safari-app/desktop"
+    ],
+    "bound": "/#/sequence: 6 of 6 sliders aria-valuetext null, read IDENTICALLY in real Safari and in chromium; five announce bare ms (max 1600), the master scrubber a bare percent (max 100). The uppercase-render limb reads UNMEASURED.",
+    "why": "no residue item names D-12."
+   },
+   {
+    "ids": [
+     "KF-APP-33"
+    ],
+    "record": "kf-App.md",
+    "state": "UNMEASURED (structurally confirmed; the UTTERANCE is unreachable)",
+    "cells": [
+     "at/voiceover-safari",
+     "at/nvda",
+     "at/jaws"
+    ],
+    "bound": "structurally CONFIRMED on 6 of 6 routes (role=combobox, aria-label 'Scene', innerText ''); the probe as worded asks for an NVDA/VoiceOver UTTERANCE and all three AT cells are UNREACHABLE-IN-CELL. S-8 family (vi) is DECLARED UNSPENT by .d, so this row is NOT closed on markup.",
+    "why": "App#14 IS the matching residue row; it is deliberately left UNMEASURED rather than closed on a structural read — recorded so the under-claim is a decision, not an oversight."
+   },
+   {
+    "ids": [
+     "D-6",
+     "D-14",
+     "N-4",
+     "D-5"
+    ],
+    "record": "kf-SpringTarget.md",
+    "state": "MEASURED (D-6/D-14/N-4) · UNMEASURED (D-5)",
+    "cells": [
+     "chromium"
+    ],
+    "bound": "/#/spring headings [] vs /#/easing ['H2:ease'] in ONE pass; 16 of 16 sliders aria-valuetext null, positional names, aria-valuenow 0..1 against max 110. D-5's aria-hidden half: UNMEASURED, precondition named.",
+    "why": "no residue item names these ids; landed as a dated addendum under the original ids."
+   },
+   {
+    "ids": [
+     "KF-CB-9"
+    ],
+    "record": "kf-CopyButton.md",
+    "state": "UNMEASURED (precondition confirmed; the UTTERANCE is unreachable)",
+    "cells": [
+     "at/voiceover-safari",
+     "at/nvda",
+     "at/jaws"
+    ],
+    "bound": "nested role=status inside <button> CONFIRMED, and the button ships in TWO divergent forms (one with no nested status region at all) — a third outcome the probe's two-branch framing does not enumerate. The utterance needs an AT cell; all three are foreclosed.",
+    "why": "S-8 family (vi) unspent."
+   },
+   {
+    "ids": [
+     "KF-KC-2",
+     "KF-KC-3",
+     "KF-KC-26",
+     "MM-2"
+    ],
+    "record": "kf-KeyframeCard.md / kf-MbabbMenu.md",
+    "state": "UNMEASURED",
+    "cells": [
+     "at/voiceover-safari"
+    ],
+    "bound": "the KeyframeCard surface was not isolated and the MbabbMenu was not opened in .d's pass; S-8 family (vi) is DECLARED UNSPENT.",
+    "why": "no member of family (vi) is spent; none may later be skipped on the ground that a seat 'already looked'."
+   },
+   {
+    "ids": [
+     "M-5/C-6",
+     "M-4 riders",
+     "MM-4"
+    ],
+    "record": "kf-ChromeDock.md / kf-MbabbMenu.md",
+    "state": "UNMEASURED (S-6 session NOT RUN)",
+    "cells": [
+     "safari-app/ios-device",
+     "safari-app/ios-simulator"
+    ],
+    "bound": "the ChromeDock touch/menu session did not run; ChromeDock.vue sits inside the 23-file pin-to-frontier demo delta .c measured.",
+    "why": "S-6's three members are a session, not residue ordinals."
+   },
+   {
+    "ids": [
+     "OD-V3 packet (16 cells)",
+     "OD-V5 390 at-rest"
+    ],
+    "record": "— (capture packet, not a residue row)",
+    "state": "NOT PRODUCED / NOT OBSERVED",
+    "cells": [
+     "safari-app/ios-device",
+     "safari-app/ios-simulator"
+    ],
+    "bound": "indexed whole at audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md §1(a)/(b) with the exact precondition; THIS WAVE RULES NOTHING (COHESION §0j.C, 'Never proxied').",
+    "why": "a capture packet is not a probe row and is not folded into the 590; it has its own receipt."
+   }
+  ],
+  "captureArtifacts": {
+   "png": 7,
+   "sidecarsAgree": "7 of 7, re-hashed at .e",
+   "rawMeasurementJson": [
+    "docs/tranches/X/keyframes/evidence/W9/W9d-raw-chromium-cells.json",
+    "docs/tranches/X/keyframes/evidence/W9/W9d-raw-safari-app-desktop.json"
+   ]
+  },
+  "surfaceReceipt": "docs/tranches/V/megatranche/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md"
+ }
 }
