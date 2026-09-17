@@ -7,7 +7,10 @@ SERVED MODEL: claude-opus-5[1m]
 open at the begin-word) · §3.4 (locks) · §5 (seat law). **Owner-gated items RULED** at
 `COHESION.md` §0j.C (`KF-WRITE`) and §0j (the begin-word, verbatim). Nothing here re-opens a ruling.
 
-**Status**: OPEN 2026-09-17 — baseline banked, 3 units planned.
+**Status**: **IMPLEMENTED 2026-09-17** — opened, three units DONE (`.a` → `.b` → `.c`), closed and
+verified at the CLOSE seat: **10 born-RED gates · 10 GREEN · 0 RED**, plus G-KF1-11
+DECLARED-SATISFIED and G-KF1-12 stay-GREEN STAYED. **VERIFIED stays NO** — stamped only at X·KF's
+close (KF.W10), per spec §1. See **§Close**.
 
 ---
 
@@ -966,3 +969,130 @@ load-bearing ones twice and from the git object as well.
 - **Note for the wave-close seat**: the repaired sweep law takes effect **at the very next wave-open,
   program-wide** (spec §7). Every track's Step-0 from here sweeps `../keyframes-v-exec/docs/tranches/V/coordination/`
   for delivery and treats `../keyframes.js/docs/tranches/V/coordination/` as inbound-only, READ-ONLY / NEVER-DELIVER.
+
+---
+
+## Close
+
+**Seat**: X.KF.W1 CLOSE (VERIFY-ONLY — cures nothing). **Seat model**: `claude-opus-5[1m]`.
+**Date**: 2026-09-17. **Verdict**: **IMPLEMENTED**.
+
+**Posture.** Every gate below was **re-run by this seat at its own clock**, not read from the unit
+receipts: the spec was read whole (§1–§14) and the record whole (§Open–§KF.W1.c) before any command,
+substrate written into every cross-repo command (`in keyframes-v-exec` / `in keyframes.js`, ref
+`origin/master`, **bare `HEAD` never used**), every load-bearing figure **double-run**, and the
+value-side readings taken from the **settled bytes** and, where the gate turns on them, from the git
+object as well. **Zero writes, zero git mutations, zero npm in `/Users/mkbabb/Programming/keyframes.js`
+by this seat** — every access was `ls` · `stat` · `git rev-parse` · `git status` · `git reflog` ·
+`git grep` · `grep` · `shasum`.
+
+### 1. Commit roster — every commit exists, and every one touches only its unit's writable set
+
+⟨cmd⟩ `git show --name-only --format='' <sha>` per commit, all seven read:
+
+| unit | commit | paths touched | in the unit's writable set? |
+|---|---|---|---|
+| **.a** | `426761a79ac109c78807498c12591f3a2f08a3be` | `docs/tranches/V/coordination/value-inbox-2026-07-24-parser-totality-exposure.md` · `…/value-inbox-2026-07-27-library-band-r1-widened-k1-k4.md` | **YES** — §4b row `.a`, exactly the two back-fills |
+| **.a** | `ceb5feeb53a032393340cf482cb6ad0c169adbae` | `docs/tranches/X/execution/B/KF-W1.md` | **YES** — the wave record (the seat brief's own instruction) |
+| **.a** | `c1ab070b7d95a306bf38d8c9164abf8c4554d338` | `docs/tranches/X/execution/B/KF-W1.md` | **YES** — the ADDENDUM-BESIDE (E-3, beside not over) |
+| **.b** | `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` ⟨**keyframes-v-exec**⟩ | `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` | **YES** — §4 Bounds' SOLE sibling-tree write; session trailer present ⟨cmd⟩ |
+| **.b** | `57dddee0` | `docs/tranches/V/coordination/value-inbox-2026-09-17-o8-o11-amendment-addendum.md` | **YES** — the retained copy |
+| **.b** | `4918cdcf` | `docs/tranches/X/execution/B/KF-W1.md` | **YES** — the record |
+| **.c** | `4ffa4f59` | `docs/tranches/V/coordination/INBOX.md` | **YES** — §4b row `.c`, **ONE commit, not split** (§7 SAME MOTION: C-9 + C-10 together) |
+| **.c** | `842a7e75` | `docs/tranches/X/execution/B/KF-W1.md` | **YES** — the record |
+
+**§4a disjointness holds at the bytes**: no path appears in two units' commits. `.a` wrote the two
+back-fills, `.b` the addendum + its retained copy, `.c` `INBOX.md` alone.
+**The spec is UNTOUCHED (E-3)** ⟨cmd⟩ `git log --oneline -1 -- docs/tranches/X/keyframes/waves/KF-W1.md`
+→ `3c4807d0` (the pass-8 CONFORMANT seal, pre-execution) — no execution seat edited it.
+**`scripts/dev/dev.sh` untouched and never staged** ⟨cmd⟩ `git status --porcelain scripts/dev/dev.sh`
+→ ` M` (the standing arrangement), and it appears in none of the seven commits.
+**`keyframes-v-exec` carries exactly ONE commit today** ⟨cmd⟩ `git log --oneline --since='2026-09-17 00:00'`
+→ `55e9bf0d` alone, porcelain **0**, and ⟨cmd⟩ `git ls-remote origin master` → `55e9bf0d…` — **the
+push is on the remote**, not merely local.
+
+### 2. Gate table — BEFORE (wave-open baseline) → AFTER (this close seat's own re-run)
+
+| gate | BEFORE | AFTER — this seat's command output | verdict |
+|---|---|---|---|
+| **G-KF1-1** DELIVERY | ⟨`ls`⟩ **9 entries + `vnext/`**; no addendum | ⟨cmd⟩ **11 entries**; `git cat-file -e origin/master:<letter>` → **PRESENT**; **309 L / 24,108 B**, sha256 `80b7c83183909ccb…1b8c8a34` (double-run, from the git object); the clone HEAD sha `81a56990736ced5b5edde0b84c527680ac7689b1` recorded **inside** the letter ⟨`grep -c`⟩ → **2**; remote ref `55e9bf0d` | **RED → GREEN** |
+| **G-KF1-2** ANCHOR LIVENESS | 3 packet paths ABSENT; `browser.ts` `:165`→`:162`; `package.json` `:69`→`:70`; no letter | **All 14 §5a rows re-derived by this seat** at `origin/master` with `cat-file -e` + a line-content assertion each: 4 PATH-drifted (1·3·5·6–8) · 2 LINE-drifted (row 2 −3, row 9 +1) · 8 EXACT; `color.ts` **385 L**, `:171`/`:250`/`:263` byte-exact; **every** `file:line` the letter asserts about the kf tree re-verified live (incl. `adapter.ts:7`/`:222` · `scroll/grammar.ts:37`/`:109`/`:57-63` · `validate.ts:47`/`:182` · `browser.ts:3` · `options.ts:17` · `compile.ts:1` · `leaves.ts:6` · `leaves-parity.test.ts:1-7`); the drift table is the letter's **FIRST** payload section (⟨cmd⟩ headings in order: §A … §I); the 4 value-side anchors are declared ours and re-verified in value's tree | **RED → GREEN** |
+| **G-KF1-3** `parseStylesheet` | grep → **9 lines**; O-11 §A3 names **0 of 3** | ⟨cmd⟩ **9 lines** unchanged; §B names all three at re-resolved anchors, and **each posture was re-read at the bytes by this seat**: `adapter.ts:222` inside `parseSource`'s `result.ok ? {ast,issues:[]} : {ast:[],issues:diagnostics}` → **absorb-to-diagnostics** · `scroll/grammar.ts:109` through `requireParsed` (`:57-63`, `throw new TypeError`) → **THROW** · `validate.ts:182` inside `keyframesNames`'s `try { … } catch { return [] }` → **swallow-to-`[]`**. §A3's end state **re-derived by this seat** ⟨cmd⟩ → **6** on the stated alphabet, never `3+3` | **RED → GREEN** |
+| **G-KF1-4** IMPORT CENSUS | frontier 62 · sacred worktree 61 · disqualified 81; certification un-withdrawn | **Six substrates re-measured by this seat, each named in its own command**: frontier `origin/master` **62** (double-run) = `/css` 29 · `/value` 16 · `/color` 7 · `/math` 5 · `/easing` 3 · `/transform` 2 · bare `8281638c` **81** over the disjoint alphabet · snapshot `6d280ee7` **48** · snapshot ∪ surviving-untracked **48 + 7 = 55** (the four untracked `src/` files measured: `value-ast.ts` 3 · `interp-slot.ts` 4 · two at 0) · worktree-now **69** · the 61-state **gone**. §E withdraws on the SUBSTRATE-NAMING RULE, all four legs. Falsifiers re-run: ⟨cmd⟩ *"matches your tree exactly"* → **1** (inside the quoted sentence being withdrawn) · *"off-by-one"* → **1**, at `:186`, an explicit **denial** · **no sha is cited as "the tree measured"** — the citability table refuses `6d280ee7`, `8281638c` and the post-reset worktree by name | **RED → GREEN** |
+| **G-KF1-5** VEHICLE QUESTION | O-8 `:101-103` asks it; **0** withdrawals; **0** hits under `keyframes-v-exec` | §C withdraws it in **one sentence** citing **CC-084**, re-verified by this seat at `CARRY-CUT-LEDGER.md:186` (*"no emergency 4.0.1 — ruled"*); ⟨cmd⟩ `4.0.1` in the letter → **exactly 2** — the quoted question (`:150`) and the ruling's own text (`:155`); **never re-asked, no cut date promised**, and the letter states kf's silence neither caused the ruling nor reads as consent; ⟨cmd⟩ `withdraw` over the exec tree → 6 hits, all the addendum (the 7th is `vnext/skeptic-H1-r2.md:65`, unrelated) | **RED → GREEN** |
+| **G-KF1-6** D-GAP-6 | I-10 carries *"only if a future 4.1 ships it"*; `library-band.md:205-206` the permanent DECLINE; **never joined** | §D joins them in **one line** — *"DECLINED permanently on measured zero demand … therefore resolves to NOT ADOPTED"* — against their `IN-VALUE-2`; grounds re-read by this seat at `library-band.md:205-206` and corroborated at `:173`; asymmetry **recorded, not litigated** | **RED → GREEN** |
+| **G-KF1-7** LEDGER VERBS | `I-26` `ROWED 2026-08-03`; max **`O-20`**; no `O-21` | ⟨cmd, double-run⟩ max → **`O-21`** at the worktree **and** from the git object; `I-26` reads **`ROWED 2026-08-03 → CURED 2026-09-17`** with the three-leg receipt (absolute delivered path · date · exec-clone HEAD `81a56990` at authoring / `55e9bf0d` after the docs-only delivery) and the kf mark as an **OPEN sub-row**; ⟨cmd⟩ `^| O-21 ` → **1** (naming (a)–(d) by letter and section); `^| I-26 ` → **1** (id kept); `AMENDED BY O-21` → **2**; **O-8's and O-11's own status text preserved byte-for-byte** ⟨cmd⟩ (each original string still matches at 1 hit; the `git diff` of `4ffa4f59` shows the rows changed by an **appended pointer only**) | **RED → GREEN** |
+| **G-KF1-8** SWEEP-PATH LAW | the gate's narrowed witness → **1 hit, `:15`**, naming the frozen tree as the keyframes exchange path | ⟨cmd⟩ narrowed witness → **still exactly 1 hit**, now `:17`, and it reads *"the SACRED checkout: **READ-ONLY / NEVER-DELIVER**"*; delivery rides a **new** bullet ⟨cmd⟩ `^- \`\.\./keyframes-v-exec` → **`:15`**; the grammar note is **verbatim** ⟨cmd⟩ → 1; the cure is **two bullet lines + one rationale parenthetical**, shaped on the `7a7dc6ef` glass limb at `:12-14` (rule sentence + recorded-cost sentence), re-read by this seat side by side; **no subsystem, no script, no linter, NO CRON** — the whole commit is *1 file changed, 11 insertions, 4 deletions* | **RED → GREEN** |
+| **G-KF1-9** OUTBOUND RETAINED | `find` from the value.js root → **0 hits**; retained set **7** | ⟨cmd, double-run⟩ `find` → **2 hits**, both tracked; retained `value-inbox-*` set → **10**. **Verbatim re-proven by this seat from the git objects against the sacred originals**: `git show HEAD:<copy> \| tail -c 7064 \| cmp - <original>` → identical; same at 15,633 B; the retained addendum's last 24,108 B → sha256 `80b7c83183909ccb…` = the delivered letter's. Provenance headers present on all three; **originals never corrected in place** (the two drifted anchors `browser.ts:165` / `package.json:69` stand uncorrected in the retained bodies — *amend, do not re-send*) | **RED → GREEN** |
+| **G-KF1-10** MARK REQUESTED (**ask half**) | `INBOUND-LEDGER.md` → **9 rows**, no `IN-VALUE-3/4` | §F carries the explicit minimal ask for **`IN-VALUE-3` (O-8) / `IN-VALUE-4` (O-11)** in their grammar, their numbering, their call, and says in its own voice that **nothing on our side gates on it**. Counterparty half re-measured by this seat after delivery ⟨cmd, double-run⟩ → **still 9 rows** — **RECORDED, NOT REPAIRED** | **ask half RED → GREEN**; counterparty half **NOT A GATE** (C-12) |
+| **G-KF1-11** SPEC HOME | DECLARED-SATISFIED | ⟨cmd⟩ `ls waves/` → **11** specs, all `KF-W<N>.md`; `KF-W1.md` **PRESENT**, `W1.md` **ABSENT** | **GREEN by declaration — recorded, never gated** |
+| **G-KF1-12** SACRED CHECKOUT | stay-GREEN INVARIANT | **(a) value-posture half — what the gate guards: GREEN, STAYED.** No KF.W1 seat wrote, git-mutated or ran npm there; ⟨cmd⟩ `git reflog -n 3` shows **only KF.W0's §B-12 acts** (`reset: moving to origin/master` ← `checkout` ← `commit: snapshot(kf)…`) and **no KF.W1 entry**; both packet originals survive byte-identical ⟨cmd⟩ sha256 `1b8581cc…` / `5f34ab67…`, mtimes `Jul 24 16:41:17` / `Jul 27 12:27:59` exact. **(b) the MEASURE-AT-OPEN quantity moved** — HEAD `8281638c`/porcelain **252** → HEAD `81a56990`/porcelain **6** (double-run), `0 0` ahead/behind — **by the authorized KF.W0 §B-12 act**, which **OP-4 explicitly anticipates** (*"If it lands first, this wave is unaffected — it anchors on `origin/master` either way"*) and §7 cross-edge 2 declares non-blocking | **GREEN → GREEN (STAYED)** |
+
+**TALLY AT CLOSE: 10 born-RED gates · 10 GREEN · 0 RED · 0 DIVERGENT · 0 UNRUNNABLE · 1
+DECLARED-SATISFIED · 1 stay-GREEN INVARIANT (STAYED).** This is exactly the spec's §1 tally
+(**10 · 1 · 1**), turned end to end. **No gate went GREEN before its cure** at any seat, and none
+regressed between the unit that turned it and this close.
+
+### 3. Verification artefacts
+
+The spec declares **no separate §Verification Artefacts section** — §6's twelve gates, each a literal
+command with a literal output, are the whole verification surface, and §5b's three-census receipt is
+the one standing measurement block. **Both were re-executed whole above**, at named substrates, and
+the §5a table was re-derived a **third** time (spec-authoring → `.a` → `.b` → this seat) with all
+fourteen rows reproducing every prior derivation exactly. The letter itself is the wave's product and
+was read **whole** at its published bytes (§A–§I, 309 L) rather than sampled.
+
+**Cross-edge state, re-checked from this end:** cross-edge 1's four consumers (KF.W2 · KF.W3 · KF.W4 ·
+KF.W10) are now unblocked on the O-8/O-11 axis — the addendum is exec-visible and the ledger row
+exists, which is precisely what KF-W10's `OP-3` names. Cross-edge 2's recorded conflict is **moot in
+fact**: this wave completed without depending on §B-12, and §B-12 landed anyway, by KF.W0's seat under
+§0j — the conflict stays **recorded, not resolved**, exactly as both specs require.
+
+### 4. Four-verb status — this close moves EXACTLY ONE
+
+| verb | value at close | authority |
+|---|---|---|
+| AUDITED | **YES** | unchanged (spec §1) |
+| SPECIFIED | **YES — 2026-08-28** | unchanged (spec §1) |
+| **IMPLEMENTED** | **YES — 2026-09-17** | spec §1: *"gates green + the addendum landed at the exec-visible path stamps this"*. Both conditions measured GREEN above |
+| VERIFIED | **NO** | spec §1, verbatim: *"stamped only at X·KF's close (**KF.W10**); no wave stamps VERIFIED at its own close."* This seat does **not** stamp it, and `LEDGER.md:11` says the same |
+
+**The spec file is NOT edited to carry this stamp** — `KF-W1.md` is IMMUTABLE under E-3 and outside
+every execution seat's writable set. The IMPLEMENTED stamp lives **here and in `execution/LEDGER.md`**,
+which are the execution layer's records of what happened, and the spec keeps its dated
+`IMPLEMENTED: NO` as the authoring-time reading it was.
+
+### 5. Residuals — each with a named owner
+
+| # | residual | owner | state |
+|---|---|---|---|
+| **R-1** | The **session-memory limb** `~/.claude/projects/-Users-mkbabb-Programming-value-js/memory/feedback-mail-inbox-law.md:16` still codifies the frozen keyframes sweep path (and a stale glass `BI` pin). It is **owner configuration, out of bounds for this and every wave** — re-verified present at this close. `INBOX.md` alone does not close the class: the frozen path re-injects at the next session open | **OWNER** | **OPEN** — disclosed in `INBOX.md`'s I-26 row **and** in the addressee's own copy of the letter (§H), so it cannot be lost with our tree. §4c's STABLE DENOMINATOR closes at **ONE**, not zero |
+| **R-2** | The **kf-side mark**: `INBOUND-LEDGER.md` at kf `origin/master` still reads **9 rows** — no `IN-VALUE-3`/`IN-VALUE-4` — re-measured by this seat after delivery | **keyframes** (external; census (c)5 — no owning formation their side) | **OPEN, NON-GATING BY CONSTRUCTION** (C-12). Recorded under I-26 as an OPEN sub-row; **not repaired, not chased** |
+| **R-3** | The **§B-12 reciprocity conflict** with KF-W0 (KF-W0 declares the reverse edge; this spec declares completability without it) | **OWNER / COHESION §3 check** | **RECORDED, NOT RESOLVED** — and now **moot in fact**: this wave completed independently and §B-12 landed under §0j the same day. Neither spec was rewritten |
+| **R-4** | The **`a59d3a22` dissent rider** (kf-DemoGlobalChrome:44, whether F-1's rider survives at `origin/master`) | **KF.W0** | **CARRIED, NOT RESOLVED** — explicitly KF.W0's re-measurement, never this wave's |
+| **R-5** | Dated deltas against the spec's 2026-08-28 readings, recorded not patched (E-3): the **61-state is not reconstructible even with the preservation snapshot** (snapshot ∪ surviving-untracked = **55**, re-measured by this seat) · the `4.0.1` three-tree sweep now returns **5** (the fifth hit is `.a`'s own retained O-8 copy — the G-KF1-9 cure entering G-KF1-5's census, §4c's self-reference class one file over) · `INBOX.md` grew 97 L → **128 L / 86,700 B** · I-10 moved `:47`→`:51` and I-26 `:92`→`:96` under `.c`'s own insertions (row ids are the anchors; every one resolves) | **this record** | **RECORDED** — none is operative; no gate turns on any of them |
+
+### 6. Escalations
+
+**NONE.** No Triumvirate trigger fired at any seat, re-checked at this close: **(i)** OP-1's bodies
+were live at `.a`'s open and are now inside value's git at `426761a7`, still byte-identical to the
+originals after §B-12 ⟨cmd⟩; **(ii)** **zero** anchors failed to resolve to a live path — all 14 drift
+rows plus 5 secondary anchors resolve at `origin/master`; **(iii)** the delivery succeeded on the
+**first** attempt (one commit, one push, no retry). **No bound was crossed in either repo**, and no
+write landed outside a unit's writable set.
+
+### 7. Landed wrong
+
+**NOTHING.** Seven commits, seven writable-set matches, zero shared modify paths, the spec untouched,
+`scripts/dev/dev.sh` untouched and unstaged, one commit in the sibling tree and it is the SOLE
+sibling-tree write §4 Bounds grants. The one deviation-shaped item is **recorded and is not a
+deviation**: each created file carries the standing `SERVED MODEL:` seat receipt as line 1 above its
+provenance header — *prefix* matter that carries no claim, with the body proven byte-identical by
+`cmp` + sha256 in every case.
+
+**Close reading, once, plainly.** The wave's own thesis was that a letter in a frozen checkout is not
+delivered — *the path, not the content, was the defect*. At this close the two letters are inside
+value's git, the amendment is at an exec-visible path **and pushed to kf `origin/master`**, the ledger
+says so with a receipt a reader can re-run, and the law that misrouted them no longer names the frozen
+tree. What the wave could not close it **named**: the memory limb, out of bounds, routed to the owner,
+written into the recipient's own copy so the disclosure outlives our tree.
