@@ -1550,3 +1550,227 @@ untracked `docs/tranches/V/coordination/` back-fills, **all pre-existing and non
 
 **The push is the wave close seat's** (§0j.C KF-WRITE); this unit leaves `92955f89`, `eea3475a` and
 `3e81f500` **local and unpushed by design**.
+
+---
+
+## Close
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Seat**: KF.W4 CLOSE (VERIFY-ONLY — this seat cured
+nothing and wrote no byte of keyframes.js) · **Dated** 2026-09-17 · **Substrate**
+`/Users/mkbabb/Programming/keyframes.js`, branch `master`, ⟨`git rev-parse --short=8 HEAD`⟩ →
+**`3e81f500`**, ⟨`… origin/master`⟩ → **`55e9bf0d`** at the moment of verification (ten local
+commits ahead; the push is this seat's act, below).
+**Every figure in this section was RE-MEASURED by this seat at the settled bytes and double-run;
+not one is inherited from a unit receipt.** Where a unit's figure and this seat's disagree, both
+are printed and the re-measurement governs (LAW D's numeric arm).
+
+### C.1 — Commit roster, verified to exist and verified against each unit's writable set
+
+⟨`git log --oneline` + `git show --stat <each>`⟩, keyframes.js:
+
+| # | commit | unit | §Commits row | files | writable-set verdict |
+|---|---|---|---|---|---|
+| 1 | **`5388907b`** | `.a` | commit 1 `build(kf/check)` | 26 — `package.json` · `package-lock.json` · `tsconfig.lib.json` · `demo/env.d.ts` · 22 × `demo/**` | **IN BOUNDS**. `demo/**` (R-10 type surface), `sceneExposedApi.ts` and `useSquareDemo.ts` all present; `TimelineCaret.vue` **not** touched (R-3) |
+| 2 | **`fb509edd`** | `.b` | commit 2 `ci(kf/merge-path)` | 6 — `.dependency-cruiser.cjs` · `ci.yml` · `eslint.config.js` · `package.json` · `package-lock.json` · `vitest.config.ts` | **IN BOUNDS, exactly the six rows.** `−monaco-themes` landed **with** the lock in this one commit |
+| 3 | **`ea126540`** | `.c` | commit 3 `refactor(kf/easing-identity)` | 2 — `registry.ts` · `test/compile/easing-identity.test.ts` (create) | **IN BOUNDS** |
+| 4 | **`736efdbb`** | `.c` | commit 4 `test(kf/leaves)` | 2 — `leaves.ts` · `leaves-parity.test.ts` (**delete**) | **IN BOUNDS — and this commit IS G-KFW4-6's oracle** |
+| 5 | **`3c8a5525`** | `.c` | commit 5 `build(kf/no-unused-locals)` | 10 — `tsconfig.json` · `load-engine.ts` · `engine/css/animation.ts` · `backward.ts` · 6 K3 demo sites | **IN BOUNDS** |
+| 5b | **`30ccd4dc`** | `.c` | *not in §Commits' roster* | 1 — `backward.ts` (§Bounds L70 provenance act) | **IN BOUNDS, ROSTER DEVIATION — see LW-5** |
+| 6 | **`c5c0b889`** | `.d` | commit 6 `feat(kf/gates-census)` | 16 — 8 citation targets · `font-roles.json` · 2 gate creates · 2 fixture creates · 3 spec cures | **IN BOUNDS. `scripts/observe/demo/usability.mjs` absent from the pathspec — the KF.W6 atomic bundle HELD** |
+| 7 | **`92955f89`** | `.e` | commit 7 `fix(kf/easing-names)` | 5 — `constants/types.ts` · `easing.ts` · `eligibility.ts` · `orchestration-api.test.ts` · `timing-function-names.test.ts` (create) | **IN BOUNDS; KF-CB-18 + KF-CB-24 + KF-CB-29's fixture in ONE commit, as the bank requires** |
+| 8 | **`eea3475a`** | `.e` | commit 8 `fix(kf/easing-catalogue)` | 2 — `EasingSidebar.vue` · `easing-catalogue.test.ts` (create) | **IN BOUNDS — the `EasingSidebar.vue` diff is THREE hunks at `:44-49`, `:86-89` and `:112`, entirely inside R-6's carve; `:159` untouched (F-E2)** |
+| 8b | **`3e81f500`** | `.e` | *not in §Commits' roster* | 1 — `animationDescriptions.ts` | **IN BOUNDS, ROSTER DEVIATION — see LW-5** |
+
+value.js (docs + evidence, all inside the wave's declared value.js writable set —
+`waves/evidence/KF-W4/`, `execution/B/KF-W4.md`, `execution/LEDGER.md`, and `.d`'s declared
+`execution/B/KF-W4-usability-bundle.patch`): `c20ac0b2` (`.a`) · `1e99ec31` + `1660618e` (`.b`) ·
+`9e60d4be` (`.c`) · `578d2813` + `13be3059` + `d354d144` (`.d`) · `0d911905` + `14bf76a8` (`.e`) ·
+`79431fb9` (seat 0) · this close's commit.
+
+**`scripts/dev/dev.sh` appears in no pathspec of any commit of this wave, in either tree.**
+⟨`git status --porcelain`⟩ keyframes.js → **6 rows, all `??`, 0 tracked modifications** (F-1's four
+untracked `src/` files + two untracked V back-fills, every one pre-existing). ⟨`git diff --check`⟩
+→ **clean**.
+
+### C.2 — The gate table, BEFORE → AFTER, re-run by this seat
+
+Every command below was executed by this seat, twice, with identical output.
+**BEFORE = the wave record's own §Baseline (all 14 RED-AS-EXPECTED).**
+
+| gate | AFTER — this seat's own reading | verdict |
+|---|---|---|
+| **G-KFW4-1** | ⟨`npm run check`⟩ → **exit ≠ 0**. leg 1 ⟨`npx vue-tsc --noEmit -p tsconfig.json`⟩ → exit 2, **31** `error TS` (⟨`grep -o '^[a-z]*/' \| sort \| uniq -c`⟩ → **27 demo/ · 4 src/**), RUN1 ≡ RUN2 (`diff -q` clean). leg 2 ⟨`npx tsc --noEmit -p tsconfig.test.json`⟩ → exit 2, **17**. leg 3 ⟨`npm run proof:structure`⟩ → exit 1, ***"FAIL: 24 violation(s) on scope=src [R1×0 R2×0 R3×0 R4×0 R5×0 R6×24]"*** — 24 of 24 from F-1's four untracked files. **The chassis IS wired**: `vue-tsc` present and invoked by `check`, 58 SFCs in the program, the `any`-shim narrowed | **RED — WIRED, NOT GREEN** |
+| **G-KFW4-2** | ⟨`npx vitest run --project demo`⟩ → **30 files / 191 tests passed**. ⟨`sed -n '30,70p' .github/workflows/ci.yml`⟩ → the merge job `gates` carries `- name: demo correctness suite / run: npm run test:demo` and `- name: lint … / run: npm run lint` as **blocking steps**; ⟨`grep -n 'if:' ci.yml`⟩ → **no job-level `if:` on `demo-correctness`** — the `schedule \|\| workflow_dispatch` gate is GONE. `census-first-run.txt` was frozen before the wiring (sha256 `8688d931…`) | **GREEN** |
+| **G-KFW4-3** | ⟨`npx eslint demo --ext .ts,.vue`⟩ → exit 1, ***"✖ 10 problems (10 errors, 0 warnings)"*** across **5 files**: ME-29 (`MatrixEditor.vue:8` `vue/require-v-for-key`) · `TransportDock.vue:124` `vue/valid-v-for` · `App.skeleton.vue:1` `vue/multi-word-component-names` · **7 × `vue/no-mutating-props`** (`TimingFunctionPanel` ×4, `ControlsPaneWrapper` ×3). Essentials-only tier confirmed. All ten sites lie outside every unit's writable set | **RED — WIRED, NOT GREEN** (F-8) |
+| **G-KFW4-4** | src arm ⟨`npx tsc --noEmit -p tsconfig.lib.json`⟩ → exit 2, **4**: `composite-storage.ts:2` TS2307 (F-1) + **`compositor.ts:79` · `waapi.ts:9` · `smooth.ts:194`**, all three TRACKED (⟨`git ls-files --error-unmatch`⟩ → ALL TRACKED) and in no unit's set. demo arm ⟨`npx vue-tsc --noEmit -p tsconfig.json`⟩ → **31**. The flag landed: ⟨`git show 55e9bf0d:tsconfig.json \| grep -c noUnusedLocals`⟩ → **0**, at HEAD → set. **Zero in-bounds sites survive** (`.c`'s falsifier clause closes); both arms' commands exit non-zero | **RED — FLAG LANDED, GREEN UNREACHABLE IN-BOUNDS** |
+| **G-KFW4-5** | ⟨`npx vitest run test/compile/easing-identity.test.ts`⟩ → **45 passed (45)** — the memoise arm landed and is proved. **But the gate's own falsifier — *"fails if the reverse-map survives"* — BITES**: ⟨`sed -n '69,73p' src/animation/compile/emit/easing-serialize.ts`⟩ → `const registryName = timingFunctionEntries.find(` / `([_name, func]) => func === easing.fn,` / `)?.[0];` — **the `.find` reverse-map SURVIVES at HEAD**, verbatim. R-2's retirement arm is unlanded and escalated (F-10) | **RED on the retirement arm** |
+| **G-KFW4-6** | ⟨`git show --stat 736efdbb`⟩ → `src/animation/internal/leaves.ts` **and** `test/internal/leaves-parity.test.ts` in **ONE** commit. *"Two commits fail this gate"* — there is one | **GREEN** |
+| **G-KFW4-7** | ⟨`node scripts/gates/census.mjs --clause provenance`⟩ → exit 1, ***"FAIL: 9 false attribution(s)"*** (4 MISATTRIBUTED + 5 PHANTOM), double-run. The two banked born-RED witnesses (`deltaEOK`, `sampleColorRamp`) are **CURED** and absent from the output. **The count is 9, not `.d`'s 8** — the ninth is `test/compile/timing-function-names.test.ts:16`, a file `.e` created after `.d` measured (LW-3) | **RED — WIRED, NOT GREEN** |
+| **G-KFW4-8** | ⟨`node scripts/gates/census.mjs --clause citations`⟩ → exit 0, ***"PASS: every citation at 8 enumerated site(s) resolves to an executable (runnable: proof:owner-golden, proof:publish, proof:structure)"***, double-run. Each of the eight sites re-hashed at use and printed; the **DECLARED CARVE** for `proof:brittleness` at `layout.css` prints in the run's own output, with *"Subject present: 1 citation(s)"* — the carve is stated, the byte is not cured | **GREEN** |
+| **G-KFW4-9** | `gate-audit.md` present (22 table rows; 10 cured / 8 booked with bounds). Rule (c)/(d) verified mechanically: ⟨`grep -rln 'readFileSync' test/ --include='*.ts'`⟩ → **6** files, and ⟨`grep -n 'readFileSync' <the two cure files>`⟩ → **`orbital-rotate3d.test.ts:37` and `resize-tracks.test.ts:27`, both PROSE, zero call sites**. Rule (e)'s `usability.mjs:239` cure is **HELD by design** in the KF.W6 atomic bundle: ⟨`git status --porcelain -- scripts/observe/demo/usability.mjs`⟩ → **empty**, ⟨`git apply --check …KF-W4-usability-bundle.patch`⟩ → **CLEAN** | **GREEN-WITH-BOOKED-RESIDUE** |
+| **G-KFW4-10** | ⟨`node scripts/gates/register-census.mjs`⟩ → exit 0, **2 static clauses PASS** (the KF-AT-24 fold holds; every role binds a register tuple; manifest 8 roles after the two empty-set deletions). **Clauses 1–3 — non-vacuity, `text-transform` semantics, no-laundering-by-descent, i.e. ALL THREE of the gate's falsifier conditions — did NOT run**: *"browser half SKIPPED — playwright not resolvable … Clauses 1–3 are UNMEASURED at this run (they did not pass)"*. ⟨`KF_REQUIRE_BROWSER=1 node …`⟩ → **throws `HarnessRequiredError`** — the vacuity guard bites, as authored | **STATIC GREEN · BROWSER HALF UNMEASURED — NOT BOOKED GREEN** |
+| **G-KFW4-11** | reach ⟨`npx depcruise --config .dependency-cruiser.cjs src demo --output-type json`⟩ → **439 modules**, ⟨`jq '[.modules[]\|select(.source\|startswith("demo/"))]\|length'`⟩ → **230** demo modules. oracle ⟨the F-5-corrected jq with `. as $m` and the space separator, `sort`ed⟩ → **7** lines; ⟨`diff actual-specifiers.txt evidence/KF-W4/pinned-seven.txt`⟩ → **exit 0, no output**. Set equality against the frozen seven, by DETECTION alone, no allowlist | **GREEN** |
+| **G-KFW4-12** | ⟨`node scripts/gates/census.mjs --clause manifest`⟩ → exit 0, ***"46 devDependencies declared … PASS: every declared devDependency has a consumer"***, double-run. `monaco-themes` removed with the lock in commit 2. **`.b` booked this ACT-COMPLETE / command-DEFERRED because `census.mjs` was `.d`'s create row; the command now exists and PASSES** | **GREEN** |
+| **G-KFW4-13** | runtime leg ⟨`npx vitest run test/compile/timing-function-names.test.ts`⟩ → **44 passed (44)**. type leg ⟨`npx tsc --noEmit -p tsconfig.test.json`⟩ → **TS2344 CURED** (the `"steps"` member is gone), **`test/compile/timing-function-names.test.ts(139,13): error TS2578: Unused '@ts-expect-error' directive` STANDS** — the live witness that the `\| string` arm has not fallen. KF-CB-18 ✔ · KF-CB-24 ✔ · **KF-CB-29 ESCALATED** | **RED on one of three limbs** |
+| **G-KFW4-14** | ⟨`npx vitest run --project demo test/demo/easing-catalogue.test.ts`⟩ → **31 passed (31)**, double-run. The cure-lock landed verbatim (`:112` reads `NAMED_EASING_BEZIER`), the catalogues are NOT merged, `animationDescriptions.ts` gained and lost no key | **GREEN** |
+
+**Tally, counting rule stated AT the figure (one unit = one distinct gate id; 14 ids):**
+**6 GREEN** (G-2 · G-6 · G-8 · G-11 · G-12 · G-14) · **1 GREEN-WITH-BOOKED-RESIDUE** (G-9) ·
+**1 STATIC-GREEN / BROWSER-UNMEASURED** (G-10) · **6 RED** (G-1 · G-3 · G-4 · G-5 · G-7 · G-13).
+**0 gates staged green that are not.** Every RED is wired and runs — none is RED for want of its
+artefact, which is what the born-RED column measured at open.
+
+### C.3 — Collateral, re-run at close
+
+⟨`npx vitest run --project library`⟩ → **99 passed \| 5 skipped (104 files) · 1124 passed \| 1
+expected fail \| 14 skipped**. ⟨`npx vitest run --project demo`⟩ → **30 files / 191 tests passed**.
+⟨`npx vite build --mode gh-pages`⟩ → **exit 0**. ⟨`git diff --check`⟩ → **clean**.
+⟨`npx depcruise --config .dependency-cruiser.cjs src demo`⟩ → **4 `no-cycle` violations**, all four
+the single `demo/scenes/cube/orbital-drag/` ring (`.b`'s F-7), unchanged by any later unit.
+
+### C.4 — LANDED-WRONG (this seat's findings; VERIFY-ONLY, none is fixed here)
+
+**LW-1 · CI merge path (MAJOR) — `npm run check:lib`, a PRE-EXISTING blocking merge-job step, is
+RED in a clean checkout after `.c`'s `noUnusedLocals` flip.** ⟨`npm run check:lib`⟩ → **exit 2**.
+Of its four diagnostics one is F-1's untracked `composite-storage.ts` TS2307 (absent in CI, which
+checks out tracked files only); the other **three are TRACKED `src/` TS6133s that did not exist
+before this wave**: `src/animation/group/composite/compositor.ts:79` · `src/animation/group/waapi.ts:9`
+· `src/animation/physics/smooth.ts:194`. ⟨`git show 55e9bf0d:tsconfig.json \| grep -c noUnusedLocals`⟩
+→ **0** — the flag is this wave's, so all three are this wave's product. `ci.yml`'s merge job step
+`- name: check library types / run: npm run check:lib` is **unchanged since before the wave and now
+fails every pull request.** `.c` booked the three as F-9 residue (*"3 are in no unit's"*) and
+routed them; **what no receipt states is the consequence — the library merge gate the wave did not
+author is now red.** Owner: **orchestrator / triumvirate** (the three sites are in no KF.W4 unit's
+writable set, so no seat of this wave could have cured them; the honest dispositions are a narrowed
+`noUnusedLocals` scope, a KF.W5 cure row, or an accepted red with a dated bound).
+
+**LW-2 · CI merge path (MAJOR) — `.b` wired `npm run lint` as a NEW blocking merge-job step while
+it is red at HEAD.** ⟨`npm run lint`⟩ → **exit 4** on depcruise's four `no-cycle` violations
+(F-7's orbital-drag ring) before `eslint demo` is ever reached; eslint would add F-8's ten. Both
+findings are disclosed in `.b`'s receipts; **the consequence — a blocking step that cannot pass at
+the bytes it was landed against — is not.** This is the same class as LW-1 at a second address.
+Owner: **orchestrator / triumvirate**, jointly with G-KFW4-3's escalation.
+
+**LW-3 · GATE REGRESSION AUTHORED IN-WAVE (MAJOR) — `.e` created a NEW G-KFW4-7 C1 red inside a
+file it owns.** `.d` measured C1 at **8** false attributions at its settled bytes; this seat
+measures **9**, double-run. The ninth is ⟨`census.mjs --clause provenance`⟩ →
+*"PHANTOM  test/compile/timing-function-names.test.ts:16  `bounceInEase` (A1 possessive) — exported
+by neither"* — `.e`'s own created fixture, landed at `92955f89` **after** `.d` built the gate that
+reads it. `.e` declared the mention as *"dated archaeology at the site of the cure"*; C1's stated
+bound counts a possessive form as an attribution regardless of tense, and **the file is inside
+`.e`'s writable set**, so the row was curable in-bounds and was not cured. Owner: **KF.W5 or a
+KF.W4 tail seat** — one comment reword at `:16` removes it.
+
+**LW-4 · CROSS-UNIT INTERACTION (MINOR) — `.d`'s created fixture reds `check`'s leg 2.**
+`test/demo/instrument/aurora-opacity-ceiling.test.ts(61,30): error TS2339: Property
+'HERO_AURORA_OPACITY_CEILING' does not exist on type 'typeof import("*.vue")'` — the `export const`
+`.d` authored in HeroAurora's module-scope `<script>` block is invisible through `.a`'s **narrowed**
+ambient `*.vue` shim, which is exactly what the narrowing was for. The spec **is the source**: it
+put the shim narrowing in `.a`'s §Bounds and the `export const` alternative in `.d`'s row L84 and
+never reconciled them; neither seat wrote outside its bounds and neither measured the interaction.
+The test passes at runtime (plugin-vue resolves the real SFC); only the `tsc` leg reds. Owner:
+**KF.W5 / the reconcile seat** — a typed module declaration for that one SFC, or a `.d.ts` beside it.
+
+**LW-5 · COMMIT-ROSTER DEVIATION (INFO, declared at both ends) — two commits beyond §Commits' nine.**
+`.c` landed `30ccd4dc` (the §Bounds L70 provenance act) beyond its rows 3/4/5, and `.e` landed
+`3e81f500` (the K3 residue `.c` handed it) beyond its rows 7/8. Both are declared in their receipts
+with their reason, both are one-meaning-per-commit, and **no commit family the spec declares
+unsplittable was split** — G-KFW4-6's oracle is verified above, KF-CB-18/24/29 rode `92955f89`
+together, and `−monaco-themes` rode `fb509edd` with its lock. Recorded as a roster fact, not a defect.
+
+**LW-6 · §Disjointness (INFO, spec-level) — *"No two units share a `modify`/`modify-carve` path"* is
+false as written.** `.a`'s `demo/**` type-surface row subsumes `.d`'s eight citation targets and
+`.e`'s `EasingSidebar.vue`. No concurrent write occurred (the phases are serial, and `.c` ∥ `.d` —
+the only parallel pair — are genuinely disjoint), and the one measurable consequence was recorded by
+the affected seat: `.d`'s F-12, `EditorStartScreen.vue`'s three citation anchors drifted **+4**
+(`:134/:159/:180` → `:138/:163/:184`) because of `.a`'s `5388907b`. **Intent was taken at the true
+bytes and the cause named by command** — the correct disposition. Owner: **the reconcile seat**
+(a §Disjointness wording correction, E-3 addendum-beside; no spec byte is edited here).
+
+### C.5 — Escalations carried out of this wave (three, all TRIUMVIRATE)
+
+1. **F-1 · the four untracked non-`origin/master` `src/` files** — `compiled-frame.ts` ·
+   `interp-slot.ts` · `value-ast.ts` · `composite-storage.ts`. Re-measured at close: they supply
+   **1 of leg 1's 4 `src/` diagnostics** and **24 of 24** `proof:structure` violations (R6×24,
+   double-run), i.e. **the whole of `check`'s leg 3**. Untouched by every seat: not deleted, edited,
+   `.gitignore`d, moved or gate-wrapped; no flag widened; no allowlist. **G-KFW4-1 cannot exit 0
+   while they stand.** The three honest dispositions the wave record names (owner removes them as a
+   §B-12 tail · owner moves them outside `src/` · book G-KFW4-1 GREEN-EXCEPT-F-1) are unchanged and
+   **this seat takes none of them.** Owner: **orchestrator / owner's hand**.
+2. **F-10 · R-2's reverse-map retirement is not executable inside any KF.W4 unit's §Bounds**
+   (G-KFW4-5). Verified at close: the `.find` survives at `easing-serialize.ts:71-73`. The blocker is
+   measured, not argued — `Easing` is `{ fn, css? }` at `constants/types.ts:57-62`, which is in **no**
+   unit's carve, and `defaults.ts:85`'s default easing carries no name, so a bare retirement makes
+   every default-easing serialization throw. Evidence:
+   `evidence/KF-W4/k1-reverse-map-escalation-2026-09-17.md`. Owner: **triumvirate → KF.W5**.
+3. **KF-CB-29 · the `\| string` arm** (G-KFW4-13). Both candidate cures were measured by `.e` and
+   both need a write outside §Bounds (`presets/catalog.ts` 13 diagnostics + `metadata.ts:63`; or
+   `metadata.ts:63` alone under an exported `CssEasingLiteral`). The RED is witnessed live —
+   `timing-function-names.test.ts:139` TS2578, re-measured at close. Three candidate rulings at
+   `evidence/KF-W4/kf-cb-29-string-arm-escalation-2026-09-17.md` §5. Owner: **triumvirate**.
+
+Plus the two gate-level escalations the units raised and this seat confirms at the bytes:
+**G-KFW4-3** (F-8 — ten sites, all outside §Bounds; GREEN unreachable in-wave) and **G-KFW4-4**
+(F-9 — 3 `src/` + 15 `demo/` survivors, all outside §Bounds).
+
+### C.6 — Residuals, each with a named owner
+
+| # | residual | owner |
+|---|---|---|
+| R1 | **8 PRODUCER-TYPE-GAP rows → SS-6 / BH mail packet, STILL UNSENT.** 6 glass-ui (`AuroraAtoms.medium` required · `InputProps.modelValue?: string\|number` · `Select.modelValue?: AcceptableValue` · `InputProps.type` lacks `"number"` · `LabeledSwitch` `checked`→`modelValue` drift · `EasingPicker.preset/steps/term`) + 1 vue-core (`VNodeProps.key?: PropertyKey`). Every one is assertable-green at the consumer and **none was asserted** — the demo-side hack the standing law forbids. `.a` could not author the packet (the glass-ui coordination inbox is outside its writable set) and neither can this seat: **`../glass-ui/**` is READ-ONLY always**, and `docs/tranches/V/coordination/` is outside this wave's §Bounds. Content drafted at `evidence/KF-W4/type-surface-residuals.md §A`. **OWED, NOT DISCHARGED.** | **X formation mail seat / orchestrator (SS-6)** |
+| R2 | 2 BEHAVIOURAL defects from `.a`'s inventory — `MbabbMenu.vue:100` `togglePpMode()` writing through a non-`Ref` (a live `TypeError` per pp-mode click, the gate's first real catch) and KC-37 (`KeyframesEditor.vue:38`/`:43` reading and writing `.value` on a `Readonly` union's wrong arm) | **dock-menu packet (KF.W13) · CARD/KFED-UNIT (KF.W12)** |
+| R3 | G-KFW4-3's ten eslint sites: ME-29 + `TransportDock.vue:124` + `App.skeleton.vue:1` + 7 `vue/no-mutating-props` | **KF.W6 / the UNIT packets** (behavioural; 7 are a child writing through a parent's prop) |
+| R4 | G-KFW4-4's 18 `noUnusedLocals` survivors (3 `src/` — see LW-1 — + 15 `demo/`), incl. `EasingScene.vue:8`/`:45` (F-E6) and `captureNonDefaultSnapshot` (§Excluded 10 → KF.W7) | **KF.W5 (src) · KF.W6/KF.W7/the UNITs (demo)** |
+| R5 | G-KFW4-7's 9 C1 rows: 8 outside every unit's set (F-9 at `.d`) + **the 1 this wave authored (LW-3)** | **KF.W5 · a KF.W4 tail seat for LW-3** |
+| R6 | G-KFW4-10's browser clauses 1–3, **UNMEASURED** — playwright is not installed in this substrate (⟨`ls node_modules/playwright-core node_modules/playwright`⟩ → both absent). The gate refuses to pass vacuously and says so in its own output | **KF.W9 / the chromium roster** |
+| R7 | F-7's four real `no-cycle` violations in `demo/scenes/cube/orbital-drag/` (one ring, one cure shape) — and LW-2 makes them merge-blocking | **KF.W8 (structure & colocation) / orchestrator** |
+| R8 | F-11 (`.d`) — glass-ui's dist self-imports `@mkbabb/keyframes.js`, unresolvable from inside `node_modules/@mkbabb/glass-ui`; **no demo spec can mount a component transitively importing glass-ui's runtime** without stubbing that seam. Two specs stub the vendor at its own module seam. Producer row — **rides SS-6/BH, never a demo-side hack** | **SS-6 / KF.W6** |
+| R9 | F-10 (`.d`) — `OrbitalDrag.vue`'s `containerStyle` registers `rotate.x` alone, so a y-or-z-only external write re-seeds the quaternion without invalidating the computed (measured 94.99999° divergence). Production does not hit it; an external y-only write does | **KF.W11 · cube packet** |
+| R10 | F-E1 (`.e`) — `useTimingFunctionEditor.ts:136`/`:157` TS2367, the `"steps"` deletion seen from its true consumer; two type-only sites, file outside `.e`'s set | **the OPTIONS-UNIT (KF.W12)** |
+| R11 | F-E2 / F-E3 — `EasingSidebar.vue:159`'s second `bezierPresets` reader (correct today by clause (1)'s measurement) and `useEasingDemo.ts:255-257`'s inert `[0,0,1,1]` reset | **the OPTIONS-UNIT (R-6's own split)** |
+| R12 | F-E5 — §Bounds L72's LAW A census is scoped to the wrong subject (it censuses the symbol `TimingFunctionNames` and concludes about the `\| string` arm, whose consumers never mention it). A §Bounds defect, E-3 addendum-beside only | **the reconcile seat** |
+| R13 | F-2 / F-5 / F-6 — G-KFW4-11's oracle pipeline defects (the `@src/` key, the unbound `. as $m`, the colon-vs-space separator, and part (1)'s false REACH premise). All four are cured **in execution** and recorded as a dated addendum-beside at `evidence/KF-W4/G11-oracle-addendum-2026-09-17.md`; **the spec's bytes are not edited (E-3)** and the gate is GREEN under the corrected pipeline | **the reconcile seat** |
+| R14 | F-13 / `.d`'s two declared residuals — `computed-resolution.test.ts:26`'s second `leaves-parity` prose citation; `DESIGN.md:245-247`'s tail prose; `font-roles.json:2`'s `_doc` `proof:font-census`. None carries a `proof:` token inside G-KFW4-8's denominator | **KF.W6** |
+| R15 | **The KF.W4 ∥ KF.W6 ATOMIC BUNDLE half, AUTHORED and LANDING-DEFERRED BY DESIGN.** `KF-W4-usability-bundle.patch` (265 L) applies clean; `usability.mjs` is unmodified in the working tree and in no commit of this wave. **W6's first commit lands both halves** | **KF.W6** |
+
+### C.7 — E13 mail sweep at this seat's own clock (VERIFY-ONLY close sweep)
+
+Four paths swept read-only and compared against **every row** of
+`docs/tranches/V/coordination/INBOX.md`, classification taken from each row's **status cell**,
+never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**).
+
+1. `docs/tranches/V/` + `V/coordination/` — `INBOX.md` self-excluded (SELF-COUNT law); newest
+   non-self `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09 = **ours** (O-21).
+2. `../glass-ui/docs/tranches/BK/coordination/` — BK re-confirmed newest ⟨`ls -dlt ../glass-ui/docs/tranches/B*/`⟩
+   → `BK`@17:52 > `BJ`@Aug 3 > `BI` > `BH`. **7 files; nothing newer than the three 2026-09-17
+   letters `.d` handed up**, now rowed **I-32 · I-33 · I-34**.
+3. `../keyframes.js/docs/tranches/V/coordination/` — 12 files + `vnext/`; newest
+   `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`@14:58 = **ours**.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — newest@Aug 3 15:01, pre-dating every sweep.
+
+**Result: 0 unrowed · 0 new `I-n` minted · 0 UNREAD addressed to KF.W4's scope.**
+Three rows carry the status cell `**UNREAD 2026-09-17**` — **I-32 · I-33 · I-34** — and **every one
+routes elsewhere by its own Routing cell**: I-32 → *"the X formation mail seat / X-W0.j … and
+X-EXT-1..6"*; I-34 → *"X-W0.j / X-EXT-1, beside I-32"*; **I-33** → *"the X formation mail seat,
+which relays each sibling's section to that sibling's lane (… kf → X·KF)"* — to the formation mail
+seat, not to this wave. **Bounded scope test rather than an assertion**, run at this seat: I-33's
+§2 names six kf producer rows against **glass 9.0.0**, while §0i.2 pins the registry election at
+**8.0.0**. Its two pathed rows measured against this wave's writable set — **A-13**'s anchor is
+`demo/styles/design-idioms.css:12-21` (the `--rainbow-*` family) and ⟨`git diff 55e9bf0d..HEAD --
+demo/styles/design-idioms.css`⟩ shows this wave wrote **`:1-4` and `:40-46` only — zero overlap**;
+**B-3**'s `text-admin-label` is a glass-9 class rename across ⟨`grep -rl … demo/ \| wc -l`⟩ → **10**
+files, an adoption act belonging to the pinned election, and **no unit of this wave wrote that class
+string anywhere**. **Producer rows ride SS-6/BH, never frontend hacks.** `INBOX.md` is **NOT in this
+wave's §Bounds writable set** and was **not touched** — the `.d`/`.e` precedent, held; this section
+is the sweep's receipt. **KF.W4 does not close with UNREAD mail in its scope.**
+
+### C.8 — The four-verb line, moved exactly as §State allows
+
+| verb | before | after | basis |
+|---|---|---|---|
+| AUDITED | **YES** | **YES** | unchanged |
+| SPECIFIED | **YES — by this file** | **YES** | unchanged |
+| IMPLEMENTED | **NO** | **PARTIAL — `complete_with_misses`** | §State's own cell reads *"stays NO until the gates are green after the begin-word"*, and **the gates are not green**: 6 of 14 GREEN, 6 RED, 1 green-with-booked-residue, 1 with its browser half unmeasured. **R-10 supplies the exact shape this close takes**: *"if it cannot be resolved in-wave the wave closes `complete_with_misses` with the gate wired and the miss dated. **It does not stage a RED gate and call it green.**"* Every gate is **wired and running**; every miss is **dated above** with its owner. The sequencing head G-KFW4-1 is WIRED, NOT GREEN — so `.vue` files now fail builds and demo tests now block merges, which is the goal criterion's first two clauses met, while its third (`npm run check` exit 0) is blocked on F-1, an orchestrator act |
+| VERIFIED | **NO** | **NO** | **unchanged and NOT stamped here.** §State: *"stamped only at the X·KF sub-tranche close"* — this wave's own seat is not designated to move it, and this seat does not |
+
+**A RED gate is recorded RED. Nothing above is staged.**
