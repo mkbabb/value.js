@@ -1173,3 +1173,288 @@ frozen surface — a value.js `types.ts` change routed through X·V, outside eve
 - **Bar**: none set. **Verbs**: none stamped.
 - **`<p2>` end state**: HEAD `9bf2da5aab257a64f2af2b36fa5be632dd2a8f48`, detached, porcelain **0**, `f5757082` an ancestor, `remote -v` → 0 lines (no push path in this lane).
 - **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh` never staged.
+
+---
+
+### X.P.W2.g
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 3, the **harness extension +
+Stage-0 admission** (`W2.md` §5 `.g` L617–630; M-23 §2, an Opus implementation seat).
+**Sections executed exactly**: §5 `.g` L617–630 · §3 items 5 and 7 L167–176 · §3d L409–423 ·
+§3e Stage 0 L425–431 · §4 Surface B L502–527 · §6 G-1..G-11 L682–837. Rulings consumed by id:
+COHESION §0j.E OC-1 (**no bar set anywhere**; §3a's last trigger stays armed) · §0l E-1/R-13 (the
+`<p2>` toolchain exists; the base of record `f5757082` is stated in the commit body) · X-P-W1.md
+**R-8** (the `Parser.lazy` ceiling is MEASURED, never inherited) · **R-9** (A-F2 / D-F2 carried as
+declared third-cell rows) · X.P.W2.c **R-c4** (the reporter's three obligations) and **R-c5** (the
+slice's two declared restrictions bound the corpus).
+
+**Writable set, hard bound (3 globs), all three written, nothing else:**
+`<p2>/harness/w2/**` · `<p2>/experiments/w2/corpus/**` · `<p2>/experiments/w2/stage0/**` — plus this
+record (the D-4 standing orchestration path admitted by `W2-ADDENDA-2026-09-17.md` §A-1.3).
+**0 bytes elsewhere**, and in particular 0 bytes under W1's `harness/{totality,equivalence,bench}/**`
+(§4 R-E; §3a calls a write there a law breach) — proven by digest below, not asserted.
+
+**Commits (two histories, never merged — §9):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | `<p2>` | **`81370815c59574f3bf1ed379142dac7cd944e420`** | `feat(w2/harness): dual-target probes + replayable corpora over W1's instruments` (§9's fresh-root commit 1; branch `w2/harness`; body states base `f5757082` and pastes the reproduction numbers) | **28 files changed, 8,259 insertions(+)** |
+| 2 | value.js | this record | the receipts below | — |
+
+The §9 lock holds: **ONE `<p2>` commit**, on `w2/harness`. Its pathspec rode the commit itself
+(`git commit … -- harness/w2 experiments/w2/corpus experiments/w2/stage0`); ⟨`git show --stat --name-only`⟩
+lists **28 files, every one under those three globs** — no sibling seat's staged work was swept in.
+`scripts/dev/dev.sh` appears in 0 commits and was never staged. ⟨`git status --porcelain`⟩ in `<p2>`
+→ **0** after the commit. `index.lock` never appeared.
+
+#### g.0 — E13 at this seat's own clock, bounded (§5.2 parsimony)
+
+⟨`find <the four coordination paths> -maxdepth 1 -type f -newermt "2026-09-17 19:00"`⟩ → two classes
+of hit, neither new mail: `docs/tranches/V/coordination/INBOX.md` (sibling seats' sweep lines) and
+five `../keyframes.js/.../coordination/*-INBOUND-*.md` files whose mtimes moved under a sibling
+track's checkout — every one addressed **to kf**, none to value.js. The three glass letters seat 0
+rowed are still rowed: ⟨`grep -c`⟩ → `valuejs-o20-disposition` **3** · `constellation-o20-relay` **3**
+· `bbnf-lang-9.0.0-addendum` **3** (I-32 · I-33 · I-34). **0 unrowed · 0 new `I-n` · 0 UNREAD in
+X.P.W2's scope.** No `INBOX.md` line appended (seat 0's sweep is the wave's).
+
+#### g.1 — What was built: ten probes, three corpora, four spikes — and what was NOT touched
+
+| surface | files | lines | note |
+| --- | --- | --- | --- |
+| `harness/w2/*.mjs` (the ten §4 probes) | 10 | 1,645 | one per §4 Surface-B row, at the row's own literal name |
+| `harness/w2/lib/*.mjs` (shared, never per-candidate) | 7 | 921 | contract reader · candidate adapter · serializers · terms · wasm · published third cell · report |
+| `harness/w2/README.md` | 1 | 113 | the adapter contract phase 4 implements, and §4's "what none of this proves" |
+| `experiments/w2/corpus/**` | 5 | 467 + 3 JSON | generator + `--check` re-derivation + the three corpora |
+| `experiments/w2/stage0/**` | 5 | 646 + `ADMISSION.md` | four spikes (179 · 168 · 164 · 135 lines — **each ≤ 200**) + the admission record |
+
+**W1's instruments, byte-identical across every run of this unit** (the §3a halt this seat did not
+approach), measured before the first probe ran and again after the last:
+
+```
+⟨cmd⟩ shasum -a 256 harness/equivalence/equivalence-results.json harness/bench/bench-raw.json \
+                    harness/bench/bench-results.json harness/totality/manifest.json   (before | after)
+4c82e91c…f2215  equivalence-results.json     IDENTICAL
+e5cc0440…8a0fa  bench-raw.json               IDENTICAL
+4282f579…6e0c3  bench-results.json           IDENTICAL
+f6b142a2…e80f13 totality/manifest.json       IDENTICAL
+⟨cmd⟩ diff <before> <after> → no output, exit 0
+```
+
+Two of W1's modules are **imported** rather than re-authored — `totality/lib/classify.mjs` (the verb
+assay G-6 re-runs) and `bench/lib/engines.mjs` (the parse-that dist path G-11's ceiling walk needs).
+Importing is reading; a second copy of either would have been a second definition of the thing being
+measured, which is the duplication-drift class the wave was formed to avoid.
+
+#### g.2 — THE SUB-GATE: the harness reproduces the pasted knowns with candidates ABSENT
+
+*"A harness that cannot reproduce the knowns may not judge the unknowns"* (§5 `.g`). Eleven
+invocations, candidates absent, each with its own literal command:
+
+| invocation | EXIT | reading |
+| --- | --- | --- |
+| `node harness/w2/op-bijection.mjs --structural` | 0 | **GREEN (contract half)** — 22 operators enumerated from §4.6's `algebra-registry` block, prose count 22, both `ALGEBRA.md` homes **sha256-equal** `14450aa4…66f7`, 0 target-conditional tokens, the R-LAW-5 checker **fires on its own negative control** (`ALT[RECOVER(a), b]` → 1). Prints `SUBJECT ABSENT — 0 of 4 candidates present` rather than a silent pass |
+| `node harness/w2/r1-candidates.mjs` | 0 | **GREEN** — the reproduction below |
+| `node harness/w2/eq-six.mjs --self-test` | 0 | **GREEN** — 11 comparator falsifiers all fire |
+| `node harness/w2/eq-six.mjs --third-cell` | 0 | **GREEN** — 527 slice rows through the third cell; the family census below |
+| `node harness/w2/recovery-laws.mjs --self-test` | 0 | **GREEN** — 9 positive controls all fire |
+| `node harness/w2/coverage-52-report.mjs` | 0 | **GREEN** — the 52-map joins W1's manifest **∅ both ways** |
+| `node --expose-gc harness/w2/alloc-latch.mjs --baseline` | 0 | **GREEN** — the incumbent reads history-invariant (warmed drift **1.000×**), so the instrument can be trusted to see a latch |
+| `node harness/w2/wasm-audit.mjs --self-test` | 0 | **GREEN** — 0 imports on a zero-import module, 1 on each of func/memory/global, and a START section the `Module` object does not reflect |
+| `node harness/w2/substrate-receipt.mjs` | 0 | the per-number stamp (below) |
+| `node harness/w2/idiom-nocst.mjs --self-test` | 0 | **GREEN** — the graph walk finds `opt` under `all` and is silent on a clean graph; the zeros count uses, not comments |
+| `node harness/w2/depth-scan.mjs` | 0 | **GREEN** — ceiling measured, census reproduced (below) |
+
+**G-5, the reproduction, pasted verbatim** — the vendored sha-pinned 4.0.0 (`8b5381…0c42`), *not* a
+freshly packed HEAD (that is `r1-published-totality.mjs`'s job, run unmodified by seat 0 at §B.1):
+
+```
+     parser                  throws (R1 corpus)  throws (JS boundary)
+RED  parseCssColor           102/172             7/7
+RED  parseCssScalar          102/172             7/7
+RED  parseCssValue            60/172             7/7
+RED  parseCssValues           60/172             7/7
+ok   parseKeyframeSelector     0/172             7/7
+ok   parseStylesheet           0/172             2/7
+ok   parseTimingFunction       0/172             7/7
+ok   parseAnimationTimeline    0/172             7/7
+ok   parseAnimationRange       0/172             7/7
+TOTAL 324 throws / 1548 calls · DISTINCT FAILURE MODES 1
+  324x TypeError: Cannot read properties of undefined (reading 'replace')
+
+known (W2.md §6 G-5 · X-P-W2.md B.1)   measured here             pasted                    reproduces
+parseCssColor throws                   102/172                   102/172                   YES
+parseCssColor boundary throws          7/7                       7/7                       YES
+total                                  324 throws / 1548 calls   324 throws / 1548 calls   YES
+distinct failure modes                 1                         1                         YES
+```
+
+**Four independent reproductions the third-cell census produced, each to the digit**, from
+⟨`node harness/w2/eq-six.mjs --third-cell`⟩ over the 527-row slice corpus:
+
+| family | rows | accept | reject | THROW | what it reproduces |
+| --- | --- | --- | --- | --- | --- |
+| `ground-a` | 210 | 0 | 0 | **210** | `denominator.test.ts:141-160`'s own assertion — 21 unguarded heads × 10 whitespace-or-solidus bodies, **every one a throw** |
+| `ground-a-guarded` | 60 | 0 | **60** | 0 | the same fixture's control — the six pre-empted heads **reject cleanly** |
+| `unsound-accept` | 7 | **7** | 0 | 0 | the band's seven unsound accepts (L86–95), all seven still admitted by the incumbent |
+| `juxtaposition` | 3 | 0 | **3** | 0 | DM-2's measured position — the incumbent rejects all three juxtaposition rows |
+
+**G-11, the ceiling and the census:**
+
+```
+Parser.lazy deepest OK, MEASURED in this process   7789        (RangeError thrown at depth 7790)
+Parser.lazy arity                                  1           (a depth-bound parameter would be ≥ 2)
+inherited coordinates, each with its own shape     7,761 (W2.md/O-15) · 7,759 (W1 F-1) · 7,773 (W1 census)
+                                                   · 256 (NESTING_LIMIT, a RETURNED failure) · 1,048,575 (linear lazy)
+scan census   committed Rust scan files 13 : committed wasm32 kernels 0 : TypeScript SIMD modules 0   == the pasted 13 : 0 : 0
+```
+
+**R-8 is obeyed and extended**: this seat's own process measured a **fifth** coordinate (7,789), and
+every margin the probe prints is computed against the measured ceiling, never against 7,761. The
+deep-nesting slice row (10,001 nested `var(`) sits **2,212 past** the measured ceiling — which is the
+point: the bound must be the algebra's `Θ.depthBound = 64`, not the host's stack.
+
+**G-6, the map joined (report, never cure — OP-8):**
+
+```
+manifest names 52 · contract rows 52 · universe−map ∅ · map−universe ∅
+by class V:31 · K:2 · P:10 · W:2 · X:7      declared holes (W+X) 9
+verbs, this run (W1's own assay, RE-RUN — never hand-edited): ABSENT:52
+aggregate {"TOTAL":0,"PARTIAL":0,"ABSENT":52}   throws recorded by the assay 0
+inherited · GATE-VERDICT P-2   0 TOTAL / 3 PARTIAL / 16 ABSENT runtime + 33 types ABSENT; kf seams 3/37
+inherited · X.P.W1 p2-native   0 TOTAL / 0 PARTIAL / 52 ABSENT
+```
+
+The reporter reproduces W1's `p2-native` reading **exactly**, by running W1's assay rather than by
+quoting it. R-c4's three obligations are discharged: the §9 row grammar is parsed, the **class
+column** is carried, and the join is against **W1's manifest only**.
+
+#### g.3 — The three corpora, derived by script and double-run identical
+
+```
+⟨cmd⟩ node experiments/w2/corpus/build-corpus.mjs
+wrote slice.json     165,472 B  sha256 1b3172e77fc7beb83bd956bb6de84dcb806a8ec7e12cc5814d3186d67e84b215
+wrote r1.json         15,179 B  sha256 fc00ee3528ecd8bfe28afbb9e5384103232f45a00caa762a0abe4d6d50ac6bf2
+wrote fuzz-seed.json     622 B  sha256 3726287bfc1184a2b82879393e4af75acca95a52ee9baa00d0e944c40be896d4
+⟨cmd⟩ node experiments/w2/corpus/build-corpus.mjs --check   → ok · ok · ok, EXIT=0
+slice rows 527 · GROUND-A 210 (21 × 10) · R1 inputs 172 + boundary 7 · fuzz 30,000 rows @ seed 1592639710 (0x5eedc0de)
+```
+
+- **`slice.json`** is §10 verbatim, including R-c5's two declared restrictions (an `@` prelude and a
+  non-colour declaration value are **outside** the corpus; W1's D-F2 row `@@@ { }` is therefore
+  **declared, not compared**). GROUND-A is **generated**, never hand-listed (debt 5), from
+  `denominator.test.ts:141-151`'s own `IDENTS`/`GUARDED`/`BODIES` transcribed as data. The eleven
+  §10.5 third-cell divergences ride as declared rows. **No expected values anywhere.**
+- **`r1.json`** derives the 172 from the probe of record's own `NAMES`/`BODIES`/base set
+  (`r1-published-totality.mjs:38-43`), so the count is *comparable* to the probe's rather than
+  merely similar.
+- **`fuzz-seed.json`** is the **pin, not the rows**: `mulberry32` seed `0x5eedc0de`, 30,000 rows
+  regenerated by `fuzz-gen.mjs`, `rowsSha256` banked so a replay that drifts is caught. `eq-six.mjs`
+  refuses to compare anything if the replay does not reproduce the digest.
+
+**A MEASURED CORRECTION TO AN INHERITED CORPUS, recorded loud (finding F-g1).** The nearest array in
+the evidence tree to "7 non-string" is `audit/probes/library-band-gates.mjs:68`'s
+`HOSTILE = [undefined, null, 42, {}, [], "", NaN]` — a **7-value JS-boundary** corpus, not seven
+non-strings: `""` is a string. Measured at the vendored 4.0.0 this seat's clock:
+
+```
+⟨cmd⟩ node -e '<vendored 4.0.0 parseCssColor over 13 boundary shapes>'
+undefined · null · 42 · {} · [] · NaN · true · Symbol · fn · 0 · [1,2] · 1n   → THREW  TypeError: … 'trim'
+""                                                                           → RETURNED ok:false, css_syntax
+```
+
+Against `HOSTILE` the published cell therefore reads **6/7**, not the pasted 7/7 — for a reason about
+the corpus, not the parser. The cure is the corpus: `""` is already row `r1-0` of the 172 (it is the
+first member of the probe of record's own base set), and `true` completes the seven **non-string**
+shapes. The cell then reproduces **7/7** as pasted, and the two corpora stop overlapping. Also
+recorded: the boundary's failure mode (`reading 'trim'`) is **distinct** from R1's
+(`reading 'replace'`), which is why the 324/1548 header — computed over the 172 string rows — still
+reads one distinct mode.
+
+#### g.4 — STAGE 0: four spikes, four numbers, one kill
+
+Each spike attacks **one** pre-declared falsifier quoted verbatim from `ALGEBRA.md` §12, builds
+nothing of its candidate, times nothing it did not have to, and sets no bar. Full record at
+`<p2>/experiments/w2/stage0/ADMISSION.md`.
+
+| candidate | spike (lines) | verdict | the number |
+| --- | --- | --- | --- |
+| **AC-1** TAGLESS-TWIN | `ac1-signature-instantiation.mjs` (179) | **SURVIVES** | the 20-line signature sketch is given BOTH instantiations; from a **non-zero** σ `(7,2,3,1,4,16)` the rollback trace restores **6/6 coordinates** in JS and in a hand-assembled **zero-import** module (409 B, imports 0); the recovery traces agree (`10 3 3 2 4 16` both); **the mutant emitter that drops the `lenP` restore is caught** (`7 2 4 1 4 16`), so the check is known to be able to fail |
+| **AC-2** CLOSED-IR | `ac2-ir-closure.mjs` (168) | **SURVIVES** | the slice fragment's IR uses **16 kinds, 0 outside** the ratified 22 (read from §4.6, never re-typed); **0** host functions (CL-1); the init-time compiler has **22/22** cases and **no default arm**, and a deliberate 23rd kind **throws**; `recover` is DEMONSTRATED by running it — `"GARBAGE ) ; b { }"` → `D` = one `css_syntax` issue `(0,11)`, `C` = one `skipped` span `[0,11]`, and the well-formed control `"b { }"` journals **0** |
+| **AC-3** SPAN-ALGEBRA | `ac3-boundary-cost.mjs` (164) | **SURVIVES** | a real zero-import class-table scan loop (97 B, imports 0, assembled by hand — K-9 untouched); median ratio **14.5 % · 17.9 % · 18.1 %** over three invocations of five forked replicates each, against the **smallest** budget (55.6 ns, the most kill-prone reading) and a screen of ≥ 20 % |
+| **AC-4** SIBLINGS-ORACLE | `ac4-table-expressibility.mjs` (135) | **KILLED** | **58 of 65** slice decisions are registry rows (counted from the contract's own bytes); **7** are carried by TERM SHAPE alone at §4.4's declared row shapes — S-1 hue unwrapping · S-2 juxtaposition width · S-3 the legacy arm's existence · S-4 R6's bare number · S-5 `CUT` placement · S-6 `recover-final-only` · S-7 the case-folding policy — against a falsifier whose threshold is **one** |
+
+**Kills: 1.** `W2.md` §3a's *"Stage 0 killing two or more of the four"* trigger does **NOT** fire, and
+no two-candidate race was manufactured. **The admission outcome, which fixes phase 4's
+candidate→seat assignment (the lock this unit carried):**
+
+| seat | candidate | home |
+| --- | --- | --- |
+| **X.P.W2.d** | **AC-1 TAGLESS-TWIN** | `experiments/w2/ac1-tagless/` |
+| **X.P.W2.e** | **AC-2 CLOSED-IR** | `experiments/w2/ac2-closed-ir/` |
+| **X.P.W2.f** | **AC-3 SPAN-ALGEBRA** | `experiments/w2/ac3-span/` (+ `typescript/src/**` on `w2/ac3-scan-union` only) |
+| **RESERVE** | **NONE** | `experiments/w2/ac4-siblings/` stays the empty RESERVE slot |
+
+**AC-4's kill is by rule and number, never by taste**, and the rule was declared before the
+measurement: a *semantic decision* is one that determines the VALUE or the ACCEPTANCE of an input;
+*expressible* means a row of a §4.4 registry **at §4.4's declared row shape**, which §12 pins AC-4 to
+by name. The spike says plainly what would change the verdict: an arbitrarily rich table with a
+`wrap`, `sep`, `forms` and `commit` column could hold all seven — and a table that holds term shape
+**is an IR**, i.e. AC-2 under another name, which FF-1 forbids as a merged candidate.
+
+#### g.5 — Substrate receipt (G-7's stamp, printed by `substrate-receipt.mjs`)
+
+```
+<p2>      /Users/mkbabb/Programming/parse-that-css-totality-p2   81370815…  w2/harness   base f5757082 (§0l R-13)
+value.js  /Users/mkbabb/Programming/value.js                     tranche-u              docs + the frozen surface
+parse-that (evidence, READ-ONLY)                                 ef10d5b7   master      K-10 forbids its uncommitted wasm32
+node v26.0.0 · v8 14.6.202.33-node.19 · darwin arm64
+third cell  vendored @mkbabb/value.js@4.0.0 /css · sha256 8b5381…0c42 == pinned · dist, never the working tree
+committed wasm32 in the evidence root (OP-6)   0 (exit 1, no output) — OP-6 holds, re-measured here
+ratio denominator (OP-5)                       1,636,680 µs
+bar                                            OWNER-GATED-PENDING-RATIFICATION
+```
+
+**No bar was set by this unit, anywhere.** The only threshold it applied is AC-3's 20 % screen, which
+`ALGEBRA.md` §12 itself calls *"a screen threshold internal to candidate selection, NOT a performance
+bar"*, and which the spike prints under the `BAR:` line verbatim. §3a's *"any pressure to set the
+bench bar"* trigger stays armed.
+
+#### g.6 — Gates, BEFORE → AFTER
+
+| gate | BEFORE (§Baseline, 2026-09-17) | AFTER this unit | verdict |
+| --- | --- | --- | --- |
+| **G-5** (this unit's own gate) | `r1-candidates.mjs` → `Cannot find module`, exit 1; the published baseline read only through the R-E probe at §B.1 | the probe EXISTS and **reproduces every pasted known to the digit** from the vendored pin: 102/172 · 7/7 · 324/1548 · 1 mode | **GREEN for the published-baseline half**; the candidate half stays RED-for-`.d/.e/.f` (ABSENT with the reason named, exit 1) |
+| **G-1** structural half | `op-bijection.mjs --structural` → module not found | the script EXISTS; contract half **GREEN** (22 enumerated, homes sha256-equal, 0 target-conditionals, control fires); prints `SUBJECT ABSENT — 0 of 4` | **instrument built**; the per-candidate walk turns at phase 4 |
+| **G-2 · G-3 · G-4 · G-8 · G-9 · G-10 · G-11** | every script ABSENT, `Cannot find module`, exit 1 | every script EXISTS, runs end-to-end, and **each proves it can fail** on a subject built to fail it (11 comparator falsifiers · 9 recovery controls · 3 import kinds + a START section · an `opt` under `all` · the measured ceiling + census) | **instruments built, RED-for-ABSENT-subject, correctly** |
+| **G-6** report half | `coverage-52-report.mjs` → module not found; mapped productions 0 | the reporter EXISTS; map joins W1's manifest **∅ both ways**; verbs from W1's **re-run** assay (`ABSENT:52`) | **GREEN for the report half** (OP-8: reports, never cures) |
+| **G-7** | no W2 cells; the bench entry unrunnable at W1 | the **substrate receipt** stamper exists (repo · commit · version · node · dist-or-tree) | unchanged otherwise — the three-leg table is phase 4's, through W1's bench |
+| **G-12** | ledger ABSENT; `typescript/src/css` ABSENT | unchanged — `.h`'s and `.i`'s | RED, correctly |
+
+**No verb was stamped. No gate was declared green on a subject that does not exist.**
+
+#### ESCALATIONS
+
+None. No §3a trigger fired: no write outside the three globs, no edit to W1's instruments, no bar
+set, **one** Stage-0 kill (not two), no third diagnostic iteration on any gate.
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **R-g1** | MAJOR — for `.f` and `.h` | **AC-3's Stage-0 screen is noise-dominated on this box.** Four tracks share it; per-replicate spreads were 9.9–19.7 % · 12.7–23.2 % · 14.9–20.8 % while the three medians (14.5 / 17.9 / 18.1 %) all cleared the 20 % screen. The margin at the tightest run is **1.9 percentage points**. `.f` re-measures its own declared posture at Stage 1 under the same replicate rule; `.h` reads the margin as a near-miss, never as comfort | `.f` · `.h` |
+| **R-g2** | MAJOR — for `.h` and the orchestrator | **RESERVE is NONE.** §3e names the RESERVE as *"the fourth, **if it survives its falsifier**"*; AC-4 did not. FF-6's entry rule therefore has **no subject**: if an admitted candidate dies structurally at Stage 2, there is nobody to promote and the field becomes two. Recorded, not ruled — the §3a path for "all admitted candidates dead" is the owner's, not a seat's | `.h` · orchestrator |
+| **F-g1** | MINOR — recorded for the close fold | the inherited "7 non-string" corpus and `library-band-gates.mjs:68`'s `HOSTILE` array are **not the same set** (§g.3). The corpus this wave uses is seven non-strings and reproduces 7/7; the finding belongs beside the probe, never inside it (E-3: the probe is dated evidence and was not touched) | close seat |
+| **R-g3** | INFO — for `.d`/`.e`/`.f` | the adapter contract (`harness/w2/README.md` §2) is the whole interface: `meta.sources` is **three disjoint lists** (G-1's import check is exactly *no algebra file imports a lowering file*), `meta.build.jsArtifactReproduction` is where **K-9** is read from, and `lowerings.wasm.wasmBytes()` is where **G-9** reads the START section the `Module` object does not reflect. A member a seat omits is printed as **UNREAD with the member named** — no probe invents a default | `.d` · `.e` · `.f` |
+| **R-g4** | INFO | EQ-1's canonical walk emits object keys in **lexicographic** order, not the frozen type's declaration order (§6's letter), because re-deriving `types.ts` in the harness would put a second copy of the frozen surface here. The equality relation is unchanged — any fixed total order on field names induces the same equality, and a field-set difference is caught by the emitted key list either way — and the **insertion** order is digested separately and printed as a NOTE, since it is EQ-3's subject. Declared in `lib/serialize.mjs`'s header, not hidden | `.h` (L-18 quartets) |
+| **R-g5** | INFO | G-8's literal §6 reading (*"parses 1–10k vs 90k–100k"*) measured **0.727×** on the incumbent — V8 tier-up, the **opposite** direction from a latch. The probe prints that literal leg AND a warmed leg (one discarded window), and reads its verdict on the warmed one, which measured **1.000×** on the same subject. Both are printed; the direction is stated | `.h` |
+| **R-g6** | INFO | `<p2>` has no `prettier` (its manifest pins `tsx`/`typescript`/`vitest` only, §0l E-1), so §7's Prettier cadence was **not** run over the two `<p2>` Markdown files; `git diff --check` ran clean on the commit. Nothing was installed to make a cadence runnable | close seat |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: written set = `{ <p2>/harness/w2/** (create), <p2>/experiments/w2/corpus/** (create), <p2>/experiments/w2/stage0/** (create) }` + this record. **0 bytes** outside it. W1's `harness/{totality,equivalence,bench}/**` **byte-identical** (four digests, before and after). `/Users/mkbabb/Programming/parse-that` (read, never written — and never its uncommitted `wasm32` bytes, K-10), `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` · `api/**` · `demo/**` · `package.json`, `scripts/dev/dev.sh`, the two sealed author arms, `W2.md`, `ALGEBRA.md`: **all untouched**.
+- **Locks honoured**: **ONE `<p2>` commit** on **`w2/harness`** (`81370815`), pathspec on the commit itself, 28 files all inside this unit's globs. The Stage-0 admission outcome is recorded (`ADMISSION.md` + §g.4) and **fixes** phase 4's candidate→seat assignment; groups 5/6 have their subject. **≥2 kills → halt** did not trigger (kills = 1).
+- **One harness, all candidates**: a single adapter shape, a single serializer, a single corpus set; **no per-candidate expectation exists anywhere** in `harness/w2/**` (⟨`grep -rniE "ac[1-4]" harness/w2/*.mjs`⟩ hits only the closed id list in `lib/candidate.mjs` and the usage strings).
+- **Numbers**: every published figure read back from the settled bytes and double-run (the corpora by `--check`; the spikes by re-running each — AC-3 three times, every median pasted); the two epoch-rule numbers (W1's bar-ledger arithmetic, the 1,636,680 µs reconstruction) cited, never re-derived; **no speed sentence outside a printed table**.
+- **Bar**: none set. **Verbs**: none stamped.
+- **`<p2>` end state**: HEAD `81370815c59574f3bf1ed379142dac7cd944e420`, branch `w2/harness`, porcelain **0**, `f5757082` an ancestor, `remote -v` → 0 lines.
+- **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh` never staged.
