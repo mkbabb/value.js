@@ -1,0 +1,684 @@
+{
+    "SERVED MODEL": "claude-opus-5[1m]",
+    "_receipt": "SERVED MODEL: claude-opus-5[1m] — carried as this file's first key because the artefact must stay valid JSON (KF.W4.a receipt, X.KF.W4 §Artefacts).",
+    "artefact": "vue-tsc-inventory.json",
+    "wave": "X.KF.W4",
+    "unit": "KF.W4.a",
+    "gate": "G-KFW4-1",
+    "dated": "2026-09-17",
+    "law": "R-10 (KF-W4.md L157) — this inventory is written BEFORE any demo/** file is opened for writing. It is the dated day-one diagnostic set and the wave's principal product.",
+    "substrate": {
+        "repo": "/Users/mkbabb/Programming/keyframes.js",
+        "branch": "master",
+        "head": "55e9bf0d",
+        "origin_master": "55e9bf0d",
+        "ruling": "COHESION §0j.C KF-WRITE (b)"
+    },
+    "command": "npx vue-tsc --noEmit -p tsconfig.json",
+    "vue_tsc_version": "6.0.3 (vue-tsc ^3.3.11 resolved)",
+    "exit_code": 2,
+    "double_run": "RUN1 == RUN2, byte-identical (diff -q clean)",
+    "manifest_state_at_run": "package.json check = \"vue-tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && npm run proof:structure\"; demo/env.d.ts STILL carries the DefineComponent<{},{},any> shim (unnarrowed) — this is the day-one reading, taken before the shim act.",
+    "counts": {
+        "total": 64,
+        "demo": 63,
+        "src": 1,
+        "files": 24,
+        "by_code": {
+            "TS4104": 1,
+            "TS2379": 11,
+            "TS2339": 15,
+            "TS2322": 7,
+            "TS2307": 2,
+            "TS2554": 1,
+            "TS2345": 3,
+            "TS2769": 2,
+            "TS18048": 9,
+            "TS2314": 1,
+            "TS2532": 12
+        },
+        "by_file": {
+            "demo/app/App.vue": 4,
+            "demo/app/dock/ChromeDock.vue": 1,
+            "demo/app/dock/MbabbMenu.vue": 2,
+            "demo/components/instrument/keyframes/CSSCodeEditor.vue": 2,
+            "demo/components/instrument/keyframes/KeyframesEditor.vue": 2,
+            "demo/components/instrument/shell/EditorShell.vue": 1,
+            "demo/components/instrument/shell/EditorStartScreen.vue": 1,
+            "demo/components/instrument/shell/HeroAurora.vue": 1,
+            "demo/components/instrument/timeline/components/TimelineTrack.vue": 1,
+            "demo/components/instrument/timeline/KeyframeTimeline.vue": 1,
+            "demo/components/instrument/transport/AnimationControlsGroup.vue": 1,
+            "demo/components/instrument/transport/channel-controls/ChannelControls.vue": 1,
+            "demo/components/instrument/transport/channel-controls/ChannelOptions.vue": 2,
+            "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue": 3,
+            "demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue": 1,
+            "demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue": 1,
+            "demo/scenes/cube/CubeScene.vue": 3,
+            "demo/scenes/cube/CubeTarget.vue": 1,
+            "demo/scenes/cube/matrix-editor/MatrixEditor.vue": 29,
+            "demo/scenes/cube/orbital-drag/OrbitalDrag.vue": 2,
+            "demo/scenes/easing/EasingSidebar.vue": 1,
+            "demo/scenes/easing/EasingTarget.vue": 1,
+            "demo/scenes/sequence/SequenceTarget.vue": 1,
+            "src/animation/group/composite-storage.ts": 1
+        }
+    },
+    "F1_substrate_row": {
+        "finding": "F-1 (wave record, MAJOR)",
+        "row": [
+            "src/animation/group/composite-storage.ts(2,32): error TS2307: Cannot find module './composite-state' or its corresponding type declarations."
+        ],
+        "note": "src/animation/group/composite-storage.ts is one of FOUR untracked non-origin/master files in the execution substrate (KF.W0 §B-12 absorption residue). It is in NO §Bounds row of this wave, exists at no committed coordinate, and unit .a neither deletes, edits, .gitignores nor wraps the gate around it. It is the ONLY non-demo diagnostic and the sole reason 'npm run check' cannot exit 0 after this unit's cures. ROUTED TO THE ORCHESTRATOR / TRIUMVIRATE."
+    },
+    "diagnostics": [
+        {
+            "file": "demo/app/App.vue",
+            "line": 16,
+            "col": 10,
+            "code": "TS4104",
+            "message": "The type 'readonly ControlSurface[]' is 'readonly' and cannot be assigned to the mutable type 'string[]'.",
+            "detail": []
+        },
+        {
+            "file": "demo/app/App.vue",
+            "line": 33,
+            "col": 6,
+            "code": "TS2379",
+            "message": "Argument of type '{ animationGroup: AnimationGroup<any>; channels: ChannelHandle[] | undefined; superKey: string; showStartScreen: boolean; autoPlay: boolean; stageMode: StageMode; hasControlSurfaces: boolean; onStartStateChange: any; onPlayStateChange: any; }' is not assignable to parameter of type '{ readonly animationGroup: AnimationGroup<any>; readonly channels?: TransportChannel[]; readonly superKey?: string; readonly showStartScreen?: boolean; ... 6 more ...; readonly onStartStateChange?: (started: boolean) => any; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & Record<...>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ animationGroup: AnimationGroup<any>; channels: ChannelHandle[] | undefined; superKey: string; showStartScreen: boolean; autoPlay: boolean; stageMode: StageMode; hasControlSurfaces: boolean; onStartStateChange: any; onPlayStateChange: any; }' is not assignable to type '{ readonly animationGroup: AnimationGroup<any>; readonly channels?: TransportChannel[]; readonly superKey?: string; readonly showStartScreen?: boolean; ... 6 more ...; readonly onStartStateChange?: (started: boolean) => any; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'channels' are incompatible.",
+                "Type 'ChannelHandle[] | undefined' is not assignable to type 'TransportChannel[]'.",
+                "Type 'undefined' is not assignable to type 'TransportChannel[]'."
+            ]
+        },
+        {
+            "file": "demo/app/App.vue",
+            "line": 60,
+            "col": 32,
+            "code": "TS2339",
+            "message": "Property 'tabsTrigger' does not exist on type 'SceneExposedApi'.",
+            "detail": []
+        },
+        {
+            "file": "demo/app/App.vue",
+            "line": 62,
+            "col": 33,
+            "code": "TS2339",
+            "message": "Property 'tabsTrigger' does not exist on type 'SceneExposedApi'.",
+            "detail": []
+        },
+        {
+            "file": "demo/app/dock/ChromeDock.vue",
+            "line": 128,
+            "col": 9,
+            "code": "TS2322",
+            "message": "Type '{ value: string; label: string; icon?: string; }[]' is not assignable to type 'readonly ControlSurfaceTab[]'.",
+            "detail": [
+                "Type '{ value: string; label: string; icon?: string; }' is not assignable to type 'ControlSurfaceTab' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'value' are incompatible.",
+                "Type 'string' is not assignable to type 'ControlSurface'."
+            ]
+        },
+        {
+            "file": "demo/app/dock/MbabbMenu.vue",
+            "line": 100,
+            "col": 12,
+            "code": "TS2339",
+            "message": "Property 'value' does not exist on type 'StoredAnimationGroupControlOptions'.",
+            "detail": []
+        },
+        {
+            "file": "demo/app/dock/MbabbMenu.vue",
+            "line": 100,
+            "col": 36,
+            "code": "TS2339",
+            "message": "Property 'value' does not exist on type 'StoredAnimationGroupControlOptions'.",
+            "detail": []
+        },
+        {
+            "file": "demo/components/instrument/keyframes/CSSCodeEditor.vue",
+            "line": 54,
+            "col": 16,
+            "code": "TS2307",
+            "message": "Cannot find module 'monaco-editor/esm/vs/editor/editor.api' or its corresponding type declarations.",
+            "detail": []
+        },
+        {
+            "file": "demo/components/instrument/keyframes/CSSCodeEditor.vue",
+            "line": 119,
+            "col": 5,
+            "code": "TS2554",
+            "message": "Expected 2 arguments, but got 3.",
+            "detail": []
+        },
+        {
+            "file": "demo/components/instrument/keyframes/KeyframesEditor.vue",
+            "line": 38,
+            "col": 73,
+            "code": "TS2339",
+            "message": "Property 'value' does not exist on type 'KeyframeSelector'.",
+            "detail": [
+                "Property 'value' does not exist on type 'Readonly<{ kind: \"named\"; name: \"entry\" | \"exit\" | \"cover\" | \"contain\"; offset?: number; }>'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/keyframes/KeyframesEditor.vue",
+            "line": 43,
+            "col": 41,
+            "code": "TS2339",
+            "message": "Property 'value' does not exist on type 'KeyframeSelector'.",
+            "detail": [
+                "Property 'value' does not exist on type 'Readonly<{ kind: \"named\"; name: \"entry\" | \"exit\" | \"cover\" | \"contain\"; offset?: number; }>'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/shell/EditorShell.vue",
+            "line": 171,
+            "col": 5,
+            "code": "TS2379",
+            "message": "Argument of type '{ superKey: undefined; showStartScreen: true; gridBackground: true; autoPlay: false; stageMode: \"subject\"; hasControlSurfaces: true; extraTabs: () => never[]; }' is not assignable to parameter of type 'InferDefaults<LooseRequired<__VLS_Props>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Types of property 'superKey' are incompatible.",
+                "Type 'undefined' is not assignable to type 'string | ((props: LooseRequired<__VLS_Props>) => string)'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/shell/EditorStartScreen.vue",
+            "line": 72,
+            "col": 5,
+            "code": "TS2379",
+            "message": "Argument of type '{ title: string; subtitle: string; subtitleSuffix: string; hint: undefined; }' is not assignable to parameter of type 'InferDefaults<LooseRequired<__VLS_Props>>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Types of property 'hint' are incompatible.",
+                "Type 'undefined' is not assignable to type 'string | ((props: LooseRequired<__VLS_Props>) => string)'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/shell/HeroAurora.vue",
+            "line": 63,
+            "col": 21,
+            "code": "TS2345",
+            "message": "Argument of type '{ seed: string; harmony: \"analogous\"; colorEnergy: number; zones: { count: number; arrangement: \"composed\"; }; noise: number; motion: \"drifting\"; interactivity: { light: true; }; }' is not assignable to parameter of type 'AuroraAtoms | undefined'.",
+            "detail": [
+                "Type '{ seed: string; harmony: \"analogous\"; colorEnergy: number; zones: { count: number; arrangement: \"composed\"; }; noise: number; motion: \"drifting\"; interactivity: { light: true; }; }' is not assignable to type 'AuroraAtomsBase & { medium: { kind: \"metal\" | \"pastel\" | \"watercolor\" | \"oil\" | \"crayon\" | \"vangogh\" | \"oil-pastel\" | \"kuwahara\" | \"metal-gradient\"; amount?: number; }; interactivity?: AuroraPainterlyInteractivityAtom; }'.",
+                "Property 'medium' is missing in type '{ seed: string; harmony: \"analogous\"; colorEnergy: number; zones: { count: number; arrangement: \"composed\"; }; noise: number; motion: \"drifting\"; interactivity: { light: true; }; }' but required in type '{ medium: { kind: \"metal\" | \"pastel\" | \"watercolor\" | \"oil\" | \"crayon\" | \"vangogh\" | \"oil-pastel\" | \"kuwahara\" | \"metal-gradient\"; amount?: number; }; interactivity?: AuroraPainterlyInteractivityAtom; }'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/timeline/components/TimelineTrack.vue",
+            "line": 87,
+            "col": 22,
+            "code": "TS2379",
+            "message": "Argument of type '{ keyframe: TimelineKeyframe; previewSrc: string | undefined; loading: boolean | undefined; ghostStyle: Record<string, string>; }' is not assignable to parameter of type '{ readonly keyframe: TimelineKeyframe; readonly previewSrc?: string; readonly loading?: boolean; readonly ghostStyle: Record<string, string>; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & Record<...>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ keyframe: TimelineKeyframe; previewSrc: string | undefined; loading: boolean | undefined; ghostStyle: Record<string, string>; }' is not assignable to type '{ readonly keyframe: TimelineKeyframe; readonly previewSrc?: string; readonly loading?: boolean; readonly ghostStyle: Record<string, string>; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'previewSrc' are incompatible.",
+                "Type 'string | undefined' is not assignable to type 'string'.",
+                "Type 'undefined' is not assignable to type 'string'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/timeline/KeyframeTimeline.vue",
+            "line": 105,
+            "col": 26,
+            "code": "TS2379",
+            "message": "Argument of type '{ class: string; modelValue: string | undefined; placeholder: string; }' is not assignable to parameter of type '{ readonly autocomplete?: string; readonly class?: ClassValue; readonly defaultValue?: string | number; readonly disabled?: boolean; readonly enterkeyhint?: \"search\" | \"enter\" | ... 5 more ... | undefined; ... 13 more ...; readonly \"onUpdate:modelValue\"?: ((value: string | number) => any) | undefined; } & VNodeProps...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ class: string; modelValue: string | undefined; placeholder: string; }' is not assignable to type '{ readonly autocomplete?: string; readonly class?: ClassValue; readonly defaultValue?: string | number; readonly disabled?: boolean; readonly enterkeyhint?: \"search\" | \"enter\" | \"done\" | ... 4 more ... | undefined; ... 13 more ...; readonly \"onUpdate:modelValue\"?: ((value: string | number) => any) | undefined; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'modelValue' are incompatible.",
+                "Type 'string | undefined' is not assignable to type 'string | number'.",
+                "Type 'undefined' is not assignable to type 'string | number'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/AnimationControlsGroup.vue",
+            "line": 18,
+            "col": 10,
+            "code": "TS2379",
+            "message": "Argument of type '{ animationGroup: AnimationGroup<any>; blendAvailable: boolean; channels: TransportChannel[] | undefined; storedControls: StoredAnimationGroupControlOptions; ... 12 more ...; onSliderUpdate: any; }' is not assignable to parameter of type '{ readonly animationGroup: AnimationGroup<any>; readonly blendAvailable: boolean; readonly channels?: TransportChannel[]; readonly storedControls: StoredAnimationGroupControlOptions; ... 12 more ...; readonly onKeyframesUpdate?: (val: { ...; }) => any; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & ...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ animationGroup: AnimationGroup<any>; blendAvailable: boolean; channels: TransportChannel[] | undefined; storedControls: StoredAnimationGroupControlOptions; ... 12 more ...; onSliderUpdate: any; }' is not assignable to type '{ readonly animationGroup: AnimationGroup<any>; readonly blendAvailable: boolean; readonly channels?: TransportChannel[]; readonly storedControls: StoredAnimationGroupControlOptions; ... 12 more ...; readonly onKeyframesUpdate?: (val: { ...; }) => any; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'channels' are incompatible.",
+                "Type 'TransportChannel[] | undefined' is not assignable to type 'TransportChannel[]'.",
+                "Type 'undefined' is not assignable to type 'TransportChannel[]'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/ChannelControls.vue",
+            "line": 103,
+            "col": 22,
+            "code": "TS2379",
+            "message": "Argument of type '{ animation: KeyframesAnimation<any>; isPlaying: boolean; layerConfig: AnimationLayerConfig | undefined; blendAvailable: boolean; active: boolean; ... 4 more ...; onSliderUpdate: any; }' is not assignable to parameter of type '{ readonly animation: KeyframesAnimation<any>; readonly isPlaying?: boolean; readonly layerConfig?: AnimationLayerConfig; readonly blendAvailable: boolean; ... 5 more ...; readonly onLayerConfigUpdate?: (val: Partial<...>) => any; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & Record<...>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ animation: KeyframesAnimation<any>; isPlaying: boolean; layerConfig: AnimationLayerConfig | undefined; blendAvailable: boolean; active: boolean; ... 4 more ...; onSliderUpdate: any; }' is not assignable to type '{ readonly animation: KeyframesAnimation<any>; readonly isPlaying?: boolean; readonly layerConfig?: AnimationLayerConfig; readonly blendAvailable: boolean; ... 5 more ...; readonly onLayerConfigUpdate?: (val: Partial<...>) => any; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'layerConfig' are incompatible.",
+                "Type 'AnimationLayerConfig | undefined' is not assignable to type 'AnimationLayerConfig'.",
+                "Type 'undefined' is not assignable to type 'AnimationLayerConfig'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/ChannelOptions.vue",
+            "line": 80,
+            "col": 38,
+            "code": "TS2322",
+            "message": "Type '(v: string) => void' is not assignable to type '(value: string | number) => any'.",
+            "detail": [
+                "Types of parameters 'v' and 'value' are incompatible.",
+                "Type 'string | number' is not assignable to type 'string'.",
+                "Type 'number' is not assignable to type 'string'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/ChannelOptions.vue",
+            "line": 204,
+            "col": 34,
+            "code": "TS2379",
+            "message": "Argument of type '{ modelValue: string | undefined; 'onUpdate:modelValue': any; }' is not assignable to parameter of type '{ readonly open?: boolean; readonly defaultOpen?: boolean; readonly defaultValue?: AcceptableValue | AcceptableValue[]; readonly modelValue?: AcceptableValue | AcceptableValue[]; ... 8 more ...; readonly \"onUpdate:open\"?: ((value: boolean) => any) | undefined; } & VNodeProps & AllowedComponentProps & ComponentCustom...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ modelValue: string | undefined; 'onUpdate:modelValue': any; }' is not assignable to type '{ readonly open?: boolean; readonly defaultOpen?: boolean; readonly defaultValue?: AcceptableValue | AcceptableValue[]; readonly modelValue?: AcceptableValue | AcceptableValue[]; ... 8 more ...; readonly \"onUpdate:open\"?: ((value: boolean) => any) | undefined; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'modelValue' are incompatible.",
+                "Type 'string | undefined' is not assignable to type 'AcceptableValue | AcceptableValue[]'.",
+                "Type 'undefined' is not assignable to type 'AcceptableValue | AcceptableValue[]'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+            "line": 16,
+            "col": 58,
+            "code": "TS2322",
+            "message": "Type 'string' is not assignable to type 'CompositeOperator'.",
+            "detail": []
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+            "line": 42,
+            "col": 17,
+            "code": "TS2322",
+            "message": "Type '\"number\"' is not assignable to type '\"search\" | \"text\" | \"email\" | \"password\" | \"tel\" | \"url\"'.",
+            "detail": []
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+            "line": 61,
+            "col": 10,
+            "code": "TS2345",
+            "message": "Argument of type '{ label: string; tooltip: string; checked: boolean; 'onUpdate:checked': any; }' is not assignable to parameter of type '{ readonly name?: string; readonly value?: string; readonly invalid?: boolean; readonly size?: ControlSize; readonly id?: string; readonly asChild?: boolean; readonly as?: Component | AsTag; ... 11 more ...; readonly \"onUpdate:modelValue\"?: ((value: boolean) => any) | undefined; } & VNodeProps & AllowedComponentProp...'.",
+            "detail": [
+                "Property 'modelValue' is missing in type '{ label: string; tooltip: string; checked: boolean; 'onUpdate:checked': any; }' but required in type '{ readonly name?: string; readonly value?: string; readonly invalid?: boolean; readonly size?: ControlSize; readonly id?: string; readonly asChild?: boolean; readonly as?: Component | AsTag; ... 11 more ...; readonly \"onUpdate:modelValue\"?: ((value: boolean) => any) | undefined; }'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue",
+            "line": 32,
+            "col": 14,
+            "code": "TS2379",
+            "message": "Argument of type '{ key: string; mode: \"steps\" | \"bezier\"; preset: string | undefined; steps: number; term: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; playback: false; label: string; 'onUpdate:modelValue': any; }' is not assignable to parameter of type '{ readonly mode?: EasingPickerMode; readonly preset?: string; readonly steps?: number; readonly term?: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; readonly readout?: boolean; readonly playback?: boolean; readonly label?: string; readonly modelValue?: EasingPickerValue; readonly \"onUpdate:modelValue\"?: ((v...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ key: string; mode: \"steps\" | \"bezier\"; preset: string | undefined; steps: number; term: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; playback: false; label: string; 'onUpdate:modelValue': any; }' is not assignable to type '{ readonly mode?: EasingPickerMode; readonly preset?: string; readonly steps?: number; readonly term?: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; readonly readout?: boolean; readonly playback?: boolean; readonly label?: string; readonly modelValue?: EasingPickerValue; readonly \"onUpdate:modelValue\"?: ((v...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'preset' are incompatible.",
+                "Type 'string | undefined' is not assignable to type 'string'.",
+                "Type 'undefined' is not assignable to type 'string'."
+            ]
+        },
+        {
+            "file": "demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue",
+            "line": 50,
+            "col": 26,
+            "code": "TS2379",
+            "message": "Argument of type '{ ref: (el: any) => void; animation: KeyframesAnimation<any>; isPlaying: boolean; layerConfig: AnimationLayerConfig | undefined; blendAvailable: boolean; ... 7 more ...; onSliderUpdate: any; }' is not assignable to parameter of type '{ readonly animation: KeyframesAnimation<any>; readonly isPlaying?: boolean; readonly layerConfig?: AnimationLayerConfig; readonly blendAvailable: boolean; ... 7 more ...; readonly onKeyframesUpdate?: (val: { ...; }) => any; } & VNodeProps & AllowedComponentProps & ComponentCustomProps & Record<...>' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ ref: (el: any) => void; animation: KeyframesAnimation<any>; isPlaying: boolean; layerConfig: AnimationLayerConfig | undefined; blendAvailable: boolean; ... 7 more ...; onSliderUpdate: any; }' is not assignable to type '{ readonly animation: KeyframesAnimation<any>; readonly isPlaying?: boolean; readonly layerConfig?: AnimationLayerConfig; readonly blendAvailable: boolean; ... 7 more ...; readonly onKeyframesUpdate?: (val: { ...; }) => any; }' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'layerConfig' are incompatible.",
+                "Type 'AnimationLayerConfig | undefined' is not assignable to type 'AnimationLayerConfig'.",
+                "Type 'undefined' is not assignable to type 'AnimationLayerConfig'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/CubeScene.vue",
+            "line": 119,
+            "col": 95,
+            "code": "TS2769",
+            "message": "No overload matches this call.",
+            "detail": [
+                "The last overload gave the following error.",
+                "Type '(v: boolean) => void' is not assignable to type '(value: boolean | undefined) => any'.",
+                "Types of parameters 'v' and 'value' are incompatible.",
+                "Type 'boolean | undefined' is not assignable to type 'boolean'.",
+                "Type 'undefined' is not assignable to type 'boolean'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/CubeScene.vue",
+            "line": 194,
+            "col": 34,
+            "code": "TS18048",
+            "message": "'storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/CubeScene.vue",
+            "line": 194,
+            "col": 72,
+            "code": "TS18048",
+            "message": "'storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/CubeTarget.vue",
+            "line": 175,
+            "col": 15,
+            "code": "TS2314",
+            "message": "Generic type 'CSSKeyframesAnimation<V>' requires 1 type argument(s).",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 22,
+            "col": 33,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 23,
+            "col": 38,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 29,
+            "col": 47,
+            "code": "TS2339",
+            "message": "Property 'payload' does not exist on type 'CssValue'.",
+            "detail": [
+                "Property 'payload' does not exist on type 'Readonly<{ kind: \"call\"; name: string; args: readonly CssValue[]; }>'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 34,
+            "col": 33,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 35,
+            "col": 31,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 36,
+            "col": 32,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 38,
+            "col": 29,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 38,
+            "col": 58,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 47,
+            "col": 30,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 50,
+            "col": 41,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 51,
+            "col": 32,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 53,
+            "col": 33,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 56,
+            "col": 45,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 64,
+            "col": 25,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 64,
+            "col": 54,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 67,
+            "col": 18,
+            "code": "TS2322",
+            "message": "Type '(val: number[]) => void' is not assignable to type '(payload: number[] | undefined) => any'.",
+            "detail": [
+                "Types of parameters 'val' and 'payload' are incompatible.",
+                "Type 'number[] | undefined' is not assignable to type 'number[]'.",
+                "Type 'undefined' is not assignable to type 'number[]'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 70,
+            "col": 29,
+            "code": "TS2345",
+            "message": "Argument of type 'number | undefined' is not assignable to parameter of type 'string | number'.",
+            "detail": [
+                "Type 'undefined' is not assignable to type 'string | number'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 71,
+            "col": 29,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 71,
+            "col": 58,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 76,
+            "col": 21,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 77,
+            "col": 25,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 77,
+            "col": 54,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 81,
+            "col": 21,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 82,
+            "col": 25,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 82,
+            "col": 54,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 86,
+            "col": 21,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 87,
+            "col": 25,
+            "code": "TS18048",
+            "message": "'__VLS_ctx.storedControls.matrixOptions' is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 87,
+            "col": 54,
+            "code": "TS2339",
+            "message": "Property 'selectedMatrixCell' does not exist on type '{ fixed: boolean; }'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+            "line": 133,
+            "col": 17,
+            "code": "TS2339",
+            "message": "Property 'payload' does not exist on type 'CssValue'.",
+            "detail": [
+                "Property 'payload' does not exist on type 'Readonly<{ kind: \"call\"; name: string; args: readonly CssValue[]; }>'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/orbital-drag/OrbitalDrag.vue",
+            "line": 257,
+            "col": 5,
+            "code": "TS2322",
+            "message": "Type 'vec3' is not assignable to type 'Float32Array<ArrayBufferLike>'.",
+            "detail": [
+                "Type '[number, number, number]' is not assignable to type 'Float32Array<ArrayBufferLike>'."
+            ]
+        },
+        {
+            "file": "demo/scenes/cube/orbital-drag/OrbitalDrag.vue",
+            "line": 339,
+            "col": 17,
+            "code": "TS2532",
+            "message": "Object is possibly 'undefined'.",
+            "detail": []
+        },
+        {
+            "file": "demo/scenes/easing/EasingSidebar.vue",
+            "line": 27,
+            "col": 14,
+            "code": "TS2379",
+            "message": "Argument of type '{ key: string; mode: \"steps\" | \"bezier\"; preset: string | undefined; steps: number | undefined; term: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\" | undefined; playback: false; label: string; 'onUpdate:modelValue': any; }' is not assignable to parameter of type '{ readonly mode?: EasingPickerMode; readonly preset?: string; readonly steps?: number; readonly term?: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; readonly readout?: boolean; readonly playback?: boolean; readonly label?: string; readonly modelValue?: EasingPickerValue; readonly \"onUpdate:modelValue\"?: ((v...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+            "detail": [
+                "Type '{ key: string; mode: \"steps\" | \"bezier\"; preset: string | undefined; steps: number | undefined; term: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\" | undefined; playback: false; label: string; 'onUpdate:modelValue': any; }' is not assignable to type '{ readonly mode?: EasingPickerMode; readonly preset?: string; readonly steps?: number; readonly term?: \"jump-start\" | \"jump-end\" | \"jump-none\" | \"jump-both\"; readonly readout?: boolean; readonly playback?: boolean; readonly label?: string; readonly modelValue?: EasingPickerValue; readonly \"onUpdate:modelValue\"?: ((v...' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.",
+                "Types of property 'preset' are incompatible.",
+                "Type 'string | undefined' is not assignable to type 'string'.",
+                "Type 'undefined' is not assignable to type 'string'."
+            ]
+        },
+        {
+            "file": "demo/scenes/easing/EasingTarget.vue",
+            "line": 54,
+            "col": 26,
+            "code": "TS2322",
+            "message": "Type '(v: ToggleValue | ToggleValue[]) => void' is not assignable to type '(payload: AcceptableValue | AcceptableValue[]) => any'.",
+            "detail": [
+                "Types of parameters 'v' and 'payload' are incompatible.",
+                "Type 'AcceptableValue | AcceptableValue[]' is not assignable to type 'ToggleValue | ToggleValue[]'.",
+                "Type 'bigint' is not assignable to type 'ToggleValue | ToggleValue[]'."
+            ]
+        },
+        {
+            "file": "demo/scenes/sequence/SequenceTarget.vue",
+            "line": 206,
+            "col": 21,
+            "code": "TS2769",
+            "message": "No overload matches this call.",
+            "detail": [
+                "Overload 1 of 2, '(getter: ComputedGetter<HTMLElement | null>, debugOptions?: DebuggerOptions | undefined): ComputedRef<HTMLElement | null>', gave the following error.",
+                "Type 'HTMLElement | null | undefined' is not assignable to type 'HTMLElement | null'.",
+                "Type 'undefined' is not assignable to type 'HTMLElement | null'.",
+                "Overload 2 of 2, '(options: WritableComputedOptions<HTMLElement | null, HTMLElement | null>, debugOptions?: DebuggerOptions | undefined): WritableComputedRef<...>', gave the following error.",
+                "Argument of type '() => HTMLElement | null | undefined' is not assignable to parameter of type 'WritableComputedOptions<HTMLElement | null, HTMLElement | null>'."
+            ]
+        },
+        {
+            "file": "src/animation/group/composite-storage.ts",
+            "line": 2,
+            "col": 32,
+            "code": "TS2307",
+            "message": "Cannot find module './composite-state' or its corresponding type declarations.",
+            "detail": []
+        }
+    ]
+}

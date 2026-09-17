@@ -385,4 +385,206 @@ retirement, any third diagnose→edit→re-measure iteration on one gate, and **
 
 ## Unit receipts
 
-*(appended by each unit as it lands; nothing here yet)*
+*(appended by each unit as it lands)*
+
+### KF.W4.a
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Opened** 2026-09-17 · **Gate** `G-KFW4-1` ·
+**Commit** keyframes.js **`5388907b`** (one commit, as §Commits commit 1 requires) ·
+**Substrate** `/Users/mkbabb/Programming/keyframes.js`, branch `master`,
+⟨`git rev-parse --short=8 origin/master`⟩ → **`55e9bf0d`** (COHESION §0j.C KF-WRITE (b)).
+Every figure below is read from settled bytes and double-run.
+
+#### Act 0 — FOUND-STATE, declared before anything else (honesty first)
+
+⟨`git -C ../keyframes.js status --porcelain`⟩ at open → **`M package.json` · `M package-lock.json`**
+plus the six known `??` rows. **An interrupted prior run of this same seat had already landed the
+manifest wiring on disk, uncommitted.** It was not adopted on trust: each byte was verified against the
+spec's prescribed after-form before this seat continued (Act 2), and the four untracked `src/` rows
+were left exactly as found. No other tracked file was modified at open.
+
+#### Act 1 — R-10's inventory, banked BEFORE any `demo/**` file was opened
+
+⟨`npx vue-tsc --version`⟩ → `Version 6.0.3` · ⟨`ls node_modules/.bin/vue-tsc`⟩ → **present** (the
+baseline's *ABSENT* is discharged).
+⟨`npx vue-tsc --noEmit -p tsconfig.json`⟩ → **exit 2**, RUN1 == RUN2 byte-identical
+(`diff -q` clean). Parsed to
+`docs/tranches/X/keyframes/waves/evidence/KF-W4/vue-tsc-inventory.json` (valid JSON; the receipt line
+rides as its **first key**, `"SERVED MODEL": "claude-opus-5[1m]"`, so the artefact stays parseable).
+
+**64 diagnostics over 24 files — 63 `demo/**` + 1 `src/`.** By code:
+`TS2339`×15 · `TS2532`×12 · `TS2379`×11 · `TS18048`×9 · `TS2322`×7 · `TS2345`×3 · `TS2769`×2 ·
+`TS2307`×2 · `TS4104`×1 · `TS2554`×1 · `TS2314`×1. Largest file: `MatrixEditor.vue` **29**.
+**This is the wave's principal product** and it is dated, not re-derivable: it is the first reading of
+a tree in which a `.vue` file can fail a build.
+
+**`import-graph-census.md` landed next, still before the first demo file was opened** — the TWELFTH
+act's census (spec §Artefacts: *"its absence at that moment is a triumvirate trigger"*). Derived from
+the inventory: of 63 demo rows **exactly ONE** names a module specifier (`CSSCodeEditor.vue:54`), so the
+repoint surface is one site; §Bounds' own `demo/env.d.ts` censuses were re-run at the tree of execution
+and **all four reproduce** (1 declaration + 1 prose · 62 specifiers · 0 test-side · 58 SFCs).
+
+**F-3 re-measured**: ⟨`npx tsc --noEmit --listFiles \| grep -c '/demo/'`⟩ → **127**, reproducing the
+wave record's dated 127 against the bank's 126; the load-bearing half (`.vue` = 0 under plain `tsc`)
+reproduces exactly.
+
+#### Act 2 — the chassis (NO-SILENT-DELETION, all five opened scripts)
+
+⟨`sed -n '37p;38p;44p;45p;46p' package.json`⟩ at close, byte-exact:
+
+```
+"check": "vue-tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json && npm run proof:structure",
+"check:lib": "tsc --noEmit -p tsconfig.lib.json",
+"lint": "depcruise src",
+"test": "vitest",
+"test:lib": "vitest run --project library",
+```
+
+**The `&& npm run proof:structure` tail SURVIVES VERBATIM (R2-3), and so does leg 2.** `check:lib`,
+`lint`, `test`, `test:lib` are **byte-identical to their `origin/master` before-forms** — the declared
+outcome, checkable against §Bounds' quoted befores. `lint` is `.b`'s to redefine; this seat did not
+touch it. devDeps: **+`vue-tsc ^3.3.11`** (`:116`), **+`eslint ^10.10.0`** (`:86`),
+**+`eslint-plugin-vue ^10.11.0`** (`:87`) for `.b`; **`monaco-themes` still present at `:94`** (its
+delete is `.b`'s, with the lock, in one commit) and **`@vitejs/plugin-vue` untouched at `:81`** (the
+spec struck that add as a no-op).
+
+`tsconfig.lib.json` (`:1-11` carve): the staged-Glass comment is **corrected, not deleted** — glass-ui
+7.0.0 is an installed exact devDep at the frontier, so the *"after that dependency is restored"* wait it
+described is over, and `check` now runs `vue-tsc`. **`"include": ["src/"]` is NOT widened**: it is what
+keeps A inv β (the release-path type-check is glass-ui-free), and the corrected comment says so.
+
+#### Act 3 — the shim (G-KFW4-1's own falsifier)
+
+`demo/env.d.ts:3-7` **NARROWED, not deleted**: `DefineComponent<{}, {}, any>` →
+`DefineComponent<Record<string, unknown>, Record<string, unknown>, unknown>`. The branch was chosen
+**from the census, before the field opened** (`tsconfig.test.json` includes this file; plain `tsc`
+cannot parse an SFC, so a deletion reds leg 2). Verified after: ⟨`npx tsc --noEmit -p
+tsconfig.test.json`⟩ → **exit 0**; ⟨`grep -c 'DefineComponent<{}, {}, any>' demo/env.d.ts`⟩ → **1**, the
+`*.svg?component` block alone, which is **outside this row's `:3-7` carve** and left byte-exact by
+design. `tsconfig.test.json` was **not touched** — the declared triumvirate trigger for it did not fire,
+because the narrowing leaves its `:12-15` prose true. Full diff + falsifiers in `env-shim-diff.md`.
+
+#### Act 4 — the type surface, cured TYPE-ONLY (R-10), and the riders
+
+**63 demo diagnostics → 12.** **51 cured**, every one an annotation, a guard, a type declaration or an
+import specifier; **no runtime expression value and no rendered output changed.** The load-bearing ones,
+by banked id:
+
+- **ChromeDock / C-8** — `BUILT_IN_CONTROL_TABS`, `controlSurfaces`, `extraControlTabs` re-narrowed to
+  the unions their own source modules export (`ControlSurfaceTab`, `readonly ControlSurface[]`). Kills
+  the banked `:128` TS2322 **and** `App.vue:16`'s TS4104 at one root. `:62`/`:66`/`:154` produce no
+  diagnostic and were **left alone** — C-8's MAJOR is its packet's, not this seat's.
+- **The protocol rider** — `sceneExposedApi.ts` gains `tabsTrigger?`, the member `App.vue:60-62` binds
+  and no scene exposes (CubeScene deleted its entry at `:152-156`). Its slot-props shape was **read off
+  the compiler**, not assumed: the first spelling (kebab keys, from the template source) was rejected by
+  `vue-tsc` with the true shape `{ selectedAnimation: string \| null; isPlaying: boolean }`, and the
+  measured shape is what landed. **`:33`'s `isStarted?: boolean` was measured and left**: scenes expose
+  a `Ref`, Vue's expose proxy unwraps it, and the shell binding's `sceneRef.value.isStarted = started`
+  writes back through `proxyRefs` — the declared `boolean` is the honest unwrapped type and **no
+  diagnostic exists at that line**. L-18/C-12a is discharged by measurement, not by an edit.
+- **MISS-6 (`useSquareDemo.ts`)** — `interface SquareVars extends Vars` declared and bound at the
+  custom transform function. The library's `Vars<T = any>` made every nested leaf of the one scene whose
+  point IS the nested-object primitive resolve to `any`. Landing it immediately caught a real
+  mis-typing (`backgroundColor` written onto `el.style.backgroundColor` is a **string**, never a
+  number), which is now declared. **Same commit, as the spec requires.**
+- **`matrixOptions` (CubeScene's five)** — the store type declared `{ fixed: boolean }` while
+  `MatrixEditor.vue` wrote and seeded `selectedMatrixCell`: **statically ill-typed at every read, in the
+  one authority for the stored shape**. Cured at that authority (`MatrixOptions`, exported through the
+  `@state` barrel), which killed **7** TS2339s; the remaining optionality is discharged at the editor by
+  an annotation naming the post-condition its own `??=` establishes.
+- **KF-CE-11 (monaco)** — the specifier is written the way the package's own exports map can resolve
+  it (`…/editor.api` → `…/editor.api.js`; `"./*": "./*"` maps to an extensionless path that is not a
+  file, which is why the type-checker alone could not see it). **Same file on disk, same chunk, no edge
+  moved** — census in `import-graph-census.md §A.1`. The TYPE side was repointed to match
+  (`import type * as Monaco from ".../editor.api.js"`): the namespace type must name the module the
+  runtime actually loads, and the two differ by the language contributions this editor registers by hand.
+- **KF-CE-16 (debounce)** — the phantom third argument at the call site is removed; `helpers.ts`'s
+  `debounce` takes two parameters and never read it, so **the expression's value is unchanged**. (Dated
+  delta: the spec cites `KeyframesStringControls:114-119`; the frontier's sole TS2554 is
+  `CSSCodeEditor.vue:119`.)
+- **L-D2 / the `exactOptionalPropertyTypes` chain** — nine optional props along
+  `EditorShell → AnimationControlsGroup → ControlsPaneWrapper → ChannelControls → ChannelOptions` and
+  `TimelineHoverPreview` now declare `| undefined`, because the parents **bind** those attributes rather
+  than omitting them (and two of them are index reads, `T | undefined` by construction).
+- **ST-5** — `activeRowEl`'s one-guard fix, exactly as banked: runtime-unaffected, an out-of-range row
+  is falsy either way.
+- **orbital-drag** — `useOrbitalInertia`'s params declared `Float32Array` for an axis and a callback
+  that the producer supplies as gl-matrix `vec3` (its sibling `useOrbitalPinch.ts:17` already said
+  `vec3`); the velocity dampen loop is keyed by the bucket's own keys, so the read is total without a
+  cast.
+- **A REVERT, recorded rather than smoothed.** This seat first narrowed `Matrix3dCall.args` to
+  `readonly MatrixScalar[]`. `check`'s **leg 2** then failed at
+  `test/demo/scenes/cube-scene.test.ts(120,24)` — a spec that authors a `var()` arg **to prove
+  `matrixValues` rejects it**. The narrowing would have made that guard's own falsifier inexpressible,
+  so it was **reverted**, the open union documented with the reason, and the two `payload` reads cast at
+  the editor that knows its matrix came from `createMatrix`. Leg 2 re-measured **exit 0**. *A type that
+  makes a rejection untestable is not a cure.*
+
+**Template TS syntax was PROVED, not assumed** before it was used (11 non-null assertions in
+`MatrixEditor.vue`, 1 in `CubeScene.vue`, 2 casts): a read-only `@vue/compiler-sfc` probe showed the
+compiler emits the assertion into the render function, and ⟨`npx vite build --mode gh-pages`⟩ → **exit
+0** proves the toolchain compiles it. No prior site in the tree used the idiom, so it was measured
+end-to-end before it was spent.
+
+**Prettier, measured before it was run.** 19 of the touched files fail `prettier --check` — but **17 of
+them fail identically at `origin/master`** (verified by checking pristine `git show` copies with the
+repo's own config and plugins). Only **2** files (`demo/env.d.ts`, `MatrixEditor.vue`) were made dirty
+by this seat's edits, and only those two were `--write`-formatted; reformatting the other 17 would have
+been a large write far outside this unit's bound, dressed as cadence.
+
+#### Act 5 — gate reading, BEFORE → AFTER
+
+| leg | command | BEFORE (baseline, `origin/master`) | AFTER (this unit) |
+|---|---|---|---|
+| chassis | ⟨`ls node_modules/.bin/vue-tsc`⟩ | **ABSENT** | **present**, and invoked by `check` |
+| the hole | ⟨`npx tsc --noEmit --listFiles \| grep -c '\.vue$'`⟩ | **0 `.vue` in the program** | leg 1 is `vue-tsc`: **58 SFCs parsed, 63 real SFC diagnostics produced day one** |
+| leg 1 | `vue-tsc --noEmit -p tsconfig.json` | 64 errors (63 demo + 1 src) | **13** (12 demo + 1 src) — **51 cured** |
+| leg 2 | `tsc --noEmit -p tsconfig.test.json` | 0 errors | **0 errors** (preserved verbatim; re-measured after the shim act and after the revert) |
+| leg 3 | `npm run proof:structure` | *(not separately measured at baseline)* | **FAIL: 24 violations, R6×24 — 24 of 24 from F-1's four untracked files** (double-run) |
+| **G-KFW4-1** | `npm run check`; exit 0 | **RED-AS-EXPECTED** | **RED — WIRED, NOT GREEN** |
+
+Collateral, re-run at close: ⟨`npx vitest run --project demo`⟩ → **27 files / 155 tests passed**;
+⟨`npx vitest run --project library`⟩ → **98 passed / 5 skipped, 1040 tests**;
+⟨`npx vite build --mode gh-pages`⟩ → **exit 0**; ⟨`git diff --check`⟩ → clean.
+
+#### Act 6 — residuals and escalations (R-10's register)
+
+Full detail, with per-row measurements and routing, in
+`docs/tranches/X/keyframes/waves/evidence/KF-W4/type-surface-residuals.md`. Summary:
+
+- **8 PRODUCER-TYPE-GAP rows → SS-6 / BH mail** (6 glass-ui: `AuroraAtoms.medium`, `InputProps.modelValue`,
+  `Select.modelValue`, `InputProps.type` lacking `"number"`, `LabeledSwitch`'s `checked`→`modelValue`
+  drift, `EasingPicker.preset/steps/term`; 1 vue-core: `VNodeProps.key?: PropertyKey`; counted as 8
+  diagnostics). **Every one is assertable-green at the consumer and NONE was asserted** — that is the
+  demo-side hack the standing law forbids, and the spec's own named example (KF-APP-45) is this shape.
+- **2 BEHAVIOURAL defects (4 diagnostics) → their packets.** **The gate's first real catch:**
+  `MbabbMenu.vue:100`'s `togglePpMode()` writes through `stored.value` on a **non-`Ref`** — a live
+  `TypeError` on every click of the pp-mode item, invisible to every instrument in the tree until now.
+  And KC-37 (`KeyframesEditor.vue:38/:43`), which reads and WRITES `.value` on a `Readonly` library
+  union's wrong arm.
+- **F-1 → ORCHESTRATOR / TRIUMVIRATE, WIDENED BY MEASUREMENT.** The four untracked `src/` files red
+  **two** of `check`'s three legs, not one: 1 of leg 1's 13 diagnostics **and all 24 of leg 3's
+  violations** (`value-ast.ts` 14 · `interp-slot.ts` 6 · `composite-storage.ts` 2 ·
+  `compiled-frame.ts` 2). They were not deleted, edited, `.gitignore`d, moved, or gate-wrapped, and no
+  flag was widened to tolerate them. The wave record's three honest dispositions stand; **this seat took
+  none of them.**
+
+**No suppression of any kind was used anywhere in this unit**: no `@ts-expect-error`, no `any`, no
+`test.skip`, no allowlist, no `skipLibCheck` widening, no `node_modules` patch. `scripts/dev/dev.sh`
+was never touched. The `.b`-owned rows (`ci.yml`, `vitest.config.ts`, `.dependency-cruiser.cjs`,
+`eslint.config.js`, `−monaco-themes`) were not touched.
+
+#### Artefacts landed (value.js `docs/tranches/X/keyframes/waves/evidence/KF-W4/`)
+
+`vue-tsc-inventory.json` (R-10's dated day-one set, 64 rows) · `import-graph-census.md` (LAW A's
+twelfth act + the §Bounds census deltas) · `env-shim-diff.md` · `type-surface-residuals.md`.
+
+#### Handover to `.b`
+
+`package.json` + `package-lock.json` are **committed and clean** — `.b` opens from a settled manifest
+(the internal lock is discharged). `eslint` and `eslint-plugin-vue` are already installed, so `.b`
+authors `eslint.config.js` without a manifest race. `monaco-themes` is **still present**, awaiting
+`.b`'s delete-with-lock in one commit. The demo lane's 27/155 pass state is re-measured **after** this
+unit's type surface landed, so `.b`'s `census-first-run.txt` starts from a known-good roster. **The push
+is the wave close seat's** (§0j.C KF-WRITE: *"every wave pushing `origin HEAD` at close"*); this unit
+leaves `5388907b` local and unpushed by design.
