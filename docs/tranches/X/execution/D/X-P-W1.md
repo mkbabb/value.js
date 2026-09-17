@@ -2182,3 +2182,202 @@ wave.**
 **X.P.W1 — PARTIAL, IMPLEMENTED 2026-09-17.** Eight gates GREEN · G-2 product-GREEN with its literal
 form BLOCKED and escalated · G-8 RED by its own design and escalated · **0 landed-wrong paths** ·
 **0 UNREAD mail in scope** · **VERIFIED untouched — X.P.W4's alone.**
+
+---
+
+## Close — CHECK 1 (2026-09-17, fresh VERIFY-ONLY adjudication; addendum-beside)
+
+**SERVED MODEL: claude-opus-5[1m]** · **Seat**: X.P.W1 CLOSE re-dispatch, **VERIFY-ONLY — this seat
+cured nothing and committed no product byte.** **Appended at the file's end, E-3: no block above is
+rewritten**, including §Close, the §Addendum and `.e`'s dated self-correction. Same instrument as
+X.P.W0 CHECK 1: an independent seat re-runs every gate against `W1.md` §6's **own** GREEN definitions
+and reports what reproduces, never what a receipt asserts.
+
+**Spec of record** ⟨cmd⟩ `shasum -a 256 …/W1.md && wc -lc` →
+`519df03ff21b48f3b2c4f352d6a4d8ae98c86d3dde117ba786b6c924204c6d09`, **718 L / 55,891 B** —
+**string-equal to §Open's and §Close's banked digest.** The spec has not moved; this is a re-check of
+the same wave, not a re-derivation.
+
+**What has moved since §Close**: the owner **RULED the close docket** at `COHESION.md` **§0l**
+(`acc652f5`). Both escalations are now owned, and this CHECK reads them as ruled rather than open.
+
+**Verdict: the close STANDS. PARTIAL — IMPLEMENTED 2026-09-17.** 8 of 10 gates reproduce GREEN at
+this seat's own clock, G-2 product-GREEN with its literal form still BLOCKED (ruled → X.P.W2), G-8
+honest-RED (ruled → X.P.W3). **0 landed-wrong paths. 1 new residual (K-R1), routed, not cured.**
+
+### K.1 — the ten gates, re-run by THIS seat
+
+Every AFTER below was measured **by this seat**, in this session, by the spec's own literal command
+where it runs. Machine: ⟨`node -v`⟩ **v26.0.0** · **darwin arm64**.
+
+| gate | §Close's reading | **CHECK 1 reading, at this seat's clock** | reproduces? |
+|---|---|---|---|
+| **G-1** | GREEN | `node harness/totality/derive.mjs --check` **EXIT=0**, stderr **0 B**, **double-run BYTE-IDENTICAL** (⟨`diff`⟩ → no output); printed `manifest 52 · derived 52 EQUAL`, `types 33·33 · runtime 19·19`, `sets names IDENTICAL · kinds+slices IDENTICAL`, `SEPARATION ASSERTED — manifest 52 exports · kf column 37 symbols · merged: false` | **YES — GREEN** |
+| **G-2** | PRODUCT GREEN / literal BLOCKED | `size 403` · provenance + hint maps byte-identical to the RED baseline · taxonomy `extracted 683 B · sha256 554c2993…5dd963a7 · UNMOVED` · tally `105/50/95/142/10/1` · `22 ruled divergence rows · 4 preserved DISSENTs` printed as a section distinct from the count · **`A/B/C = 0/0/0`** · `GATE: GREEN` · **exit 0**, stderr **0 B**, `real 1.39` | **YES — PRODUCT GREEN** |
+| **G-3** | GREEN | `shasum -a 256 -c MANIFEST.sha256` **EXIT=0**, **189 OK / 0 FAILED**, **double-run identical**; source **189** = rescued **189** = manifest digest lines **189** | **YES — GREEN** |
+| **G-4** | GREEN | 9 cells, **9 distinct PIDs `23186…23197`, none repeated**, `PACKRAT_ARMED === false` at **entry AND exit** of every cell; orchestrator pid `23185` loads no engine | **YES — GREEN** |
+| **G-5** | GREEN | `tsx harness/bench/bench.ts 2> harness/bench/bench.stderr` **EXIT=0**, ⟨`wc -c`⟩ → **0**; quarantined suite `node harness/bench/diagnostics-suite.mjs` **EXIT=0** in its own process (pid `23462`), PT-01's coupling re-measured at **76 bytes on ONE labelled parse** | **YES — GREEN** |
+| **G-6** | GREEN | four rows re-derived independently by this seat (below): **ALL FOUR ROWS REPRODUCE**; both consistency notes present; **0** lane artifacts publish a `1,870,633`-derived headroom as their own budget | **YES — GREEN** |
+| **G-7** | GREEN | **6** `OWNER-GATED-PENDING-RATIFICATION` marks; **3** ✓/✗ hits, **all three prose forbidding the column**, none a column or a data cell; the 2 `the bench passes`/`fails` hits are **one row quoting the forms in order to forbid them**; planes never merged | **YES — GREEN** |
+| **G-8** | RED (by design) | **324 throws / 1,548 calls**, **1** distinct failure mode, `parseCssColor` **102/172**, unpiped **EXIT=1** — **reproduced to the digit** | **YES — RED, as designed** |
+| **G-9** | GREEN | ceiling **MEASURED IN THE CENSUS PROCESS** `deepest OK = 7773 / RangeError at 7774`; four corpora at depths **2/3/1/3**; **margin 7,770 against a required 1,000** | **YES — GREEN** |
+| **G-10** | GREEN | `RED — 7 gap(s)`, unpiped **EXIT=1**, stderr **0 B**, **double-run**: every RED/ok row identical, the **UNARMED median line alone** differs (58.1 → 80.4 ns/parse); **none of the seven lowered** | **YES — GREEN** |
+
+**8 GREEN · 1 product-GREEN-with-literal-form-BLOCKED · 1 RED-by-design. 0 of 10 disagree with
+§Close.** `greenBeforeCure` remains **EMPTY**.
+
+**G-6's arithmetic re-derived from first principles by this seat, not read off the table** —
+⟨cmd⟩ `node -e` over `R=1,636,680` and the fixed native floor `F=311,883`:
+
+```
+k=10  budget 163668 (spec 163668) OK   headroom -148215 (spec -148215) OK
+k=3   budget 545560 (spec 545560) OK   headroom  233677 (spec  233677) OK
+k=2   budget 818340 (spec 818340) OK   headroom  506457 (spec  506457) OK
+k=1   budget 1636680 (spec 1636680) OK headroom 1324797 (spec 1324797) OK
+floor/budget 10x = 1.90558 -> 1.906      published 10x = 1.66726 -> 1.667
+published 3x headroom 311661  restated 233677  delta 25.0%
+published 2x headroom 623434  restated 506457  delta 18.8%
+ALL FOUR ROWS: REPRODUCE
+```
+
+**Both consistency checks reproduce independently**: the 10× impossibility strengthens **1.667× →
+1.906×**, and the restated headrooms land **25.0% / 18.8%** below the published pair — **F-1 to the
+digit**, computed here rather than copied.
+
+### K.2 — bounds audit, re-run: LANDED-WRONG = NONE
+
+⟨cmd⟩ `git show --name-only` over **all sixteen** commits of the wave, both histories.
+
+| history | commits | every path inside its unit's §4 writable set? |
+|---|---|---|
+| `<p2>` | `d8a529a` (10 files, **all** `harness/totality/`) · `d1458f4` (5, **all** `harness/equivalence/`) · `4df9e91` (16, **all** `harness/bench/`) · `336b2ad` (1 — `harness/README.md`) | **YES — three disjoint subtrees exactly as §4a promises; no unit's commit carries a byte of another's** |
+| value.js | 12 commits | **YES** — ⟨`git show --name-only f9c0acb2 \| grep -v '^docs/.../rescued/'`⟩ → **0** of **190** paths outside; the union of every other commit's paths is **9 files**, each a §4 row or a declared orchestration path |
+
+⟨cmd⟩ `git show --name-only` over all twelve value.js commits ⟨`grep -c 'scripts/dev/dev.sh'`⟩ →
+**0**. **`scripts/dev/dev.sh` appears in no commit of this wave**; it stays ` M` by standing
+arrangement and was never staged by this seat either.
+
+**Gate 27** ⟨`git status --porcelain -- src api demo test e2e`⟩ → **0 lines**, asserted by this seat
+**before and after** both probes that `npm pack` this repository. **`<p2>` left at porcelain 0** —
+the G-2 and bench re-runs regenerate three results JSONs, and each was restored by ⟨`git checkout
+--`⟩; the equivalence delta was measured first and is **the `generatedAt` line alone** (⟨`git diff`⟩
+1 insertion / 1 deletion, **0** non-`generatedAt` lines changed), confirming §Close's reading (i).
+**`/Users/mkbabb/Programming/parse-that`** read-only at `ef10d5b`, ⟨`rev-list --count
+origin/master..HEAD`⟩ → **0** — untouched, as §4's do-not-touch list binds.
+
+**The three declared non-§4 paths stand as §Close named them** (this record · `execution/LEDGER.md` ·
+one appended `INBOX.md` sweep line): `W1.md` was authored 2026-08-03, before this sitting's
+execution-record convention existed. A spec/convention seam, declared twice now — **not a bounds
+violation.**
+
+### K.3 — the two escalations, re-read against the owner's §0l ruling
+
+Both were returned by §Close and are now **RULED**. This seat re-measured each rather than assuming
+the ruling discharged it.
+
+**E-1 — the literal `npx`-from-`<p2>` form. STILL BLOCKED; the cure is scheduled, not taken.**
+Re-reproduced here, bounded: ⟨`cd <p2> && npx tsx --version`⟩ — a command running **none** of this
+wave's code — was **still running at a 30-second cap and was killed**. Root cause re-confirmed at the
+bytes: ⟨`npm prefix`⟩ → **`/Users/mkbabb`** · ⟨`ls <p2>/package.json`⟩ → **No such file** ·
+⟨`command -v tsx`⟩ → **ABSENT**. **§0l rules the cure: `<p2>/package.json` + lockfile as X.P.W2's
+first commit, under a dated E-3 addendum to `W2.md` §4** — *"No global install, no `npx` from a
+foreign cwd recorded as the gate's form."* This seat obeyed that word: the products of G-2, G-4 and
+G-5 were measured through the `_npx`-cached binary at an absolute path with the gate's own **relative**
+entry and cwd `<p2>`, and **no `<p2>` byte was written to make a gate run**. **G-2 stays recorded
+product-GREEN / literal-form-BLOCKED, never a plain GREEN.**
+
+**E-2 — G-8 honest-RED. RULED to X.P.W3.** §0l: *"G-8 is HONEST-RED by its own falsifier … Owner:
+X.P.W3 … X.P.W1 closes IMPLEMENTED with G-8 carried, never GREEN-by-assertion."* This seat discharged
+the **MEASURE-AT-OPEN** clause a **fourth** time (open · `.e` · §Close · here), each a fresh unpiped
+reading at the day's HEAD, and the figures reproduce to the digit. **The RED is carried, not cured,
+and not dressed.**
+
+### K.4 — E13 at this seat's clock, and the one thing that MOVED
+
+Four paths plus the bounded atlas **Q**-lane extension re-swept read-only, classification taken from
+each row's **STATUS CELL** (X.P.W0 CHECK 1 **D-1**), never from a `grep -i unread` line.
+
+**UNREAD in X.P.W1's scope: ZERO**, verified at the rows rather than by a count — the only row whose
+status cell ever read `UNREAD` in this wave's lifetime is **I-31**, and its cell now reads
+**`FOLDED 2026-09-17 at the X-W0 close`**, exactly as its own Routing cell assigned. **I-30**'s cell
+reads `ROWED 2026-08-30` with a three-end Routing disposition. **The wave does not close with unread
+mail.**
+
+**But the delta test is no longer empty, and this is a finding §Close could not have had.**
+⟨cmd⟩ `find <the five paths> -maxdepth 1 -type f -newermt "2026-09-17 16:20"` → **two** files:
+
+```
+docs/tranches/V/coordination/INBOX.md                                        16:44   (ours)
+../glass-ui/.../glass-outbound-2026-08-29-valuejs-o20-ack.md                 16:34   ← I-30, and its BYTES MOVED
+```
+
+§Close swept before 16:34 and correctly read this set as empty at **its** clock. At **this** seat's
+clock the I-30 letter's digest has moved: ⟨`shasum -a 256 … | cut -c1-12`⟩ → **`ec360555811b`**
+against the **`caed90705234`** the `INBOX.md` I-30 row banks. Measured, not inferred: glass-ui is
+clean at HEAD (⟨`git -C ../glass-ui status --porcelain -- docs/tranches/BK/coordination/`⟩ →
+**empty**), and the mover is glass commit **`81f7db0d`**, 2026-09-17 16:35:09, *"act-4 publish landed
+— 9.0.0 live with provenance, the wall struck where it stood"*, which **amended the letter in place**
+with one dated additive bracket:
+
+```
++ **[2026-09-17 · LIVE: 9.0.0 is on the registry — release.yml run 33273556530 attempt 3,
++ provenance (sigstore logIndex 2880033507), gitHead d4f7b24f = the v9.0.0 tag,
++ unpackedSize 2549378. The tag pin and the registry pin are now the same tree …]**
+```
+
+**The standing project reading — *"glass 9.0.0 PUT walled by npm token = OWNER ACT"* — is now FALSE:
+the owner supplied the token and the wall fell.** This is **not** in X·P's scope (no parse-that
+instrument reads a glass byte, and this wave writes no producer row), it is **not** an UNREAD row, and
+this VERIFY-ONLY seat **does not re-row it**. It is filed as **K-R1** below and routed. One dated
+sweep line is appended to `INBOX.md` in the file's own idiom recording the digest move; **no `I-n` row
+is written and no row above it is touched.**
+
+### K.5 — residuals
+
+**§Close's nine stand unchanged** (`W1-CLOSE.md` §5; R-1..R-9), and three are now **owned by the
+owner's §0l ruling** rather than merely routed: **R-1** (`tsc --noEmit` over `bench.ts`, 3
+diagnostics) and **R-2** (the `vitest` limb) → **X.P.W2's opening unit, same commit as the toolchain
+cure**; **R-5** (the harvester's conformance-schema drop) → **X-W11, before its harvest**; **R-7**
+(`roots-census-v2.sh`) → **X.P.W2's open**. **R-3 re-measured and reproduces exactly**: ⟨`node -e`⟩
+over `x-p-w1.json` → `resultCount 12`, of which the X.P.W1 unit rows are **`.c` DONE · `.a` DONE ·
+`.b` PARTIAL · `.d` DONE = 4**, with the **dispatch roster of 5** present inside the artifact's own
+`units` array. `.e` is structurally absent — a harvesting unit cannot appear in its own harvest.
+**This seat does not re-harvest**: that file is `.e`'s §4 create row, and re-running it would be a
+cure, which VERIFY-ONLY forbids.
+
+**One new residual, found by this seat and by no prior one:**
+
+| id | severity | residual | owner |
+|---|---|---|---|
+| **K-R1** | **INFO — outside X·P's scope, material to the union** | **The I-30 letter's bytes moved after it was rowed**: `INBOX.md` banks digest `caed90705234` @ glass `3a2329c1`; the live letter reads **`ec360555811b`** @ glass **`81f7db0d`**, carrying a dated LIVE bracket that **glass 9.0.0 is on the npm registry with SLSA provenance** (run 33273556530, `gitHead d4f7b24f` = the `v9.0.0` tag, `unpackedSize 2549378`). The **owner-act wall named in the standing project state has fallen.** The row is **ROWED, not UNREAD**, so E13's close condition is met; what is stale is the row's **digest coordinate**, and what is new is a **producer frontier** that X-W0.j's Glass-8 verdict and the registry-pin consumers care about. **Not cured here**: re-rowing is a ledger act, the glass frontier is Track A's and the orchestrator's, and `glass-ui` is READ-ONLY always. | **orchestrator** — re-row I-30's digest, and route the 9.0.0-live datum to X-W0.j's dated-addendum consumers |
+
+### K.6 — the four verbs, unmoved by this seat
+
+`W1.md` §2's table is **NOT edited** (dated spec, E-3 immutable). §Close's stamp stands and this CHECK
+adds nothing to it.
+
+| verb | value | moved by CHECK 1? |
+|---|---|---|
+| AUDITED | **YES** | no |
+| SPECIFIED | **YES — 2026-08-03** | no |
+| IMPLEMENTED | **YES — 2026-09-17; PARTIAL, qualified by E-1 (ruled → X.P.W2) and E-2 (ruled → X.P.W3)** | **no — re-confirmed, not re-stamped** |
+| VERIFIED | **NO** | **no — X.P.W4's alone, at the X·P sub-tranche release close (R-A). This seat is a close-check, not the release close, and does not touch it.** |
+
+**L-18 (§12) unchanged**: IMPLEMENTED is not ACCEPTED; acceptance still owes two quartet gestalt passes
+and a fresh Fable apotheosis. **§3a's *"single most likely place this wave goes wrong"* — pressure to
+set the bar — did not arise at this seat either. No bar is set by this CHECK.**
+
+### K.7 — push
+
+- **value.js** → pushed to `origin/tranche-u`, **no force**.
+- **`<p2>`** → **NO REMOTE**, ⟨`git -C <p2> remote -v | wc -l`⟩ → **0**, by W0 `.c`'s deliberate
+  `remote remove` (**R-2 UPHELD**). The four `<p2>` commits are unpushable **by design**; this seat
+  created no remote, because creating one is not a VERIFY-ONLY seat's act.
+- **`/Users/mkbabb/Programming/parse-that`** → **PUSH REFUSED, spec-forbidden** (§4 do-not-touch,
+  §3a). Read-only state: HEAD `ef10d5b`, ⟨`rev-list --count origin/master..HEAD`⟩ → **0** — nothing
+  to push even were it permitted.
+
+**X.P.W1 CHECK 1 — THE CLOSE STANDS. PARTIAL, IMPLEMENTED 2026-09-17.** 8 gates reproduce GREEN ·
+G-2 product-GREEN / literal-form BLOCKED (ruled → X.P.W2) · G-8 honest-RED (ruled → X.P.W3) ·
+**0 landed-wrong paths** · **0 UNREAD mail in scope** · **1 new residual K-R1 routed** ·
+**VERIFIED untouched — X.P.W4's alone.**
