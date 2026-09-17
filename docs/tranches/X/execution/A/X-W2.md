@@ -1009,3 +1009,277 @@ Any of the three makes W2.md §5's mechanism executable **as written**; none of 
 **Verb stamped: none.** This unit measures and escalates; IMPLEMENTED is the wave's own close and VERIFIED
 is X-W11's. The tree is handed on with `HeroBlob.vue` **byte-identical to HEAD**, the fixture and four specs
 untouched, `dist/gh-pages` built and present, and this record the only path this unit wrote.
+
+---
+
+## Close
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Seat**: X-W2 CLOSE (Track A), **VERIFY-ONLY — this seat cured
+nothing**. **Clock**: 2026-09-17, **19:00–19:40 EDT**. Branch `tranche-u`, HEAD at open `6c783f39`.
+**Sections executed**: W2.md §State (the four-verb line + Hard Gate) · §6 **G1–G8**, every gate re-run at
+this seat's own clock against its own command · §7 cadence · §8 Verification Artefacts · §9 Commit Plan ·
+§11 guardrails.
+**Rulings consumed**: COHESION §0j (the begin-word) · §0k.1 (pathspec-on-the-commit) · §0j.A **DR-24**
+(`scripts/dev/dev.sh` never read for write, never staged — it appears **0** times in any X-W2 commit,
+⟨cmd⟩ `git log fc7489d5^..HEAD --name-only --format="" | sort -u | grep -c dev.sh` → **0**) · **E-3**
+(no dated spec, registry or prior-evidence byte edited; units c/a/b's receipts above are read, never
+revised; the one §6 spelling correction lands below as a **dated addendum-beside**).
+
+### VERDICT — **PARTIAL** (`complete_with_misses`, and one unit UNRUN)
+
+Two of the four planned units landed (**c**, **a**); unit **b** **ESCALATED** under §3a and landed no
+product byte by design; unit **d** **NEVER RAN**. §11 guardrail 2 — *"There is no `escalate` arm — G2/G3
+pass or the wave closes `complete_with_misses` with the measured number"* — is met on its own terms (G2
+passes, G3 does not, and the measured number is published below with the bar untouched). But
+`complete_with_misses` understates this close: **five of §8's seven verification artefacts do not exist**,
+because the unit that authors them was never dispatched. **The wave is PARTIAL.**
+
+### The gate table, BORN → CLOSE (every reading taken by this seat, against the gate's own command)
+
+| gate | born (spec §6) | **at close, measured here** | verdict |
+|---|---|---|---|
+| **G1** blob barrel absent from the eager module set | **BORN-RED** — entry chunk `smin` 41/42 · `metaball` 17 · `satellite` 19/50 | **GREEN by the asserted property.** ⟨cmd⟩ a loop of `rg -o` for all three tokens over **each of the six eager chunks enumerated by the instrument's own module list** → `smin` **0 · 0 · 0 · 0 · 0 · 0`. ⟨cmd⟩ `rg -c smin dist/gh-pages/assets/*.js` → **one file only, `HeroBlob-CK6WV_Kd.js:41`**; ⟨cmd⟩ `rg -o 'HeroBlob-[A-Za-z0-9_-]+' dist/gh-pages/index.html \| sort -u \| wc -l` → **0** (neither entry nor `modulepreload`). Source side: ⟨cmd⟩ `grep -rn 'glass-ui/blob"' demo/` → **2 lines, both `HeroBlob.vue` (:34, :35)** — the lazy component, unit b's file; the **three boot-path sites are gone**; ⟨cmd⟩ `grep -rn blob-config demo/ src/ \| wc -l` → **3** | **GREEN** |
+| **G2** eager JS gzip ≤ 286,720 B | **BORN-RED** 313,585 (spec) / **313,601** (measured at open) | **GREEN — 280,811 B = 274.2 KiB, margin 5,909 B.** Instrument double-run on one clean build, ⟨cmd⟩ `diff` with `generatedAt` excluded → **identical**. Enforcing gate re-run from the spec file, not from prose: ⟨cmd⟩ `npx playwright test --project=smoke-perf … -g "G2"` → **1 passed**, `[X-W2 G2] eager JS modules=6 raw=886610 gz=280811 (274.2 KiB) bar=286720 B → GREEN`. **The bar is byte-identical to its wave-open value; no seat edited it (§11 guardrail 1).** | **GREEN** (see the Hard-Gate qualifier below — the *receipt* clause is half-met) |
+| **G3** p75 TBT ≤ 300 ms, N≥20, one pinned class | **BORN-RED** (N=5 pilot: 359 desktop / 734 mobile-4×) | **RED. Double-run at N=20 per config on the banked pin**: `desktop-unthrottled` **220 ms** / **218 ms** (GREEN both) · `mobile-4x-cpu` **616 ms** / **529 ms** (**RED both**). Strict Lighthouse window reads **0** on every leg, as unit c's window ruling predicted. §3a's *"TBT still red after the cut"* trigger **FIRES** | **RED** |
+| **G4** p75 LCP ≤ 2500 ms, N≥20, same class | **MEASURE-AT-OPEN** | **GREEN on both configs in both runs**: desktop **952 / 816 ms**, mobile-4× **1,136 / 780 ms**. The carried Q14 figures (5,141 ms CI / ~4,919 ms local) are **not reproduced** and stand **SUPERSEDED — never met**, exactly as §6 G4 wrote in the open | **GREEN** |
+| **G5** the wall-clock park replaced by the shipped `settled` seam | **BORN-RED** | **RED — ESCALATED.** ⟨cmd⟩ `rg -n "BLOB_IDLE_MS\|SLEEPY_POSE_MS" demo/ e2e/ \| wc -l` → **26**, ⟨cmd⟩ `rg -ln … \| wc -l` → **5** — unchanged from the open, to the number. ⟨cmd⟩ `sed -n '209,212p' demo/picker/visual/HeroBlob.vue` still reads the dead book and the two constants. §3a **"Quiescence does not park"** fired at unit b and the wall clock was **not** restored (it was never removed from the landed tree) | **RED — ESCALATED to the mandatory triumvirate** |
+| **G6** the o5 spike leg tells today's truth | **BORN-RED** | **RED — UNRUN.** ⟨cmd⟩ `grep -n "test.fail()" e2e/smoke/perf/o5-boot-pacing.spec.ts` → **`48:    test.fail();`**, and `:27` still binds the red to the dead V-prime *"W7"* prophecy. Unit **d**, which owns this gate, was never dispatched | **RED — UNRUN** |
+| **G7** the zero-reading telemetry artefact superseded | **BORN-RED** | **RED — UNRUN.** ⟨cmd⟩ `test -f docs/tranches/V/megatranche/audit/telemetry/PERF-X-W2.json` → **ABSENT**. **F-7 is intact**: ⟨cmd⟩ `git diff --stat -- …/PERF.json` → **0 lines**, the original untouched — so the gate's own falsifier does **not** fire; it is the successor that does not exist | **RED — UNRUN** |
+| **G8** `BLOB_HERO` consumed or tombstoned | **BORN-RED** (`grep -rn BLOB_HERO demo/ src/` → 0, three closes of silence) | **GREEN by the tombstone arm.** ⟨cmd⟩ `grep -rn "BLOB_HERO" demo/ src/ \| wc -l` → **0** (the consumption arm was evaluated at the bytes and declined); the one-line tombstone is unit b's, **carried into this close verbatim below**, which is where G8's asserted property says it lives. *"Silence fails"* — this is not silence | **GREEN** |
+
+**Tally at close: 4 GREEN (G1 · G2 · G4 · G8) · 4 RED (G3 measured-RED · G5 ESCALATED · G6 UNRUN ·
+G7 UNRUN).** 0 gates were moved; 0 bars were touched; 0 greps were narrowed.
+
+### The §State **Hard Gate**, clause by clause — **NOT MET**
+
+> *"eager JS gzip ≤ 280 KiB **with a before/after receipt** · p75 TBT ≤ 300 ms **and** p75 LCP ≤ 2500 ms
+> over N≥20 on ONE pinned runner class · the glass blob barrel absent from the eager module set · the
+> wall-clock park replaced by the shipped `settled` seam"*
+
+| clause | status |
+|---|---|
+| eager JS gz ≤ 280 KiB | **GREEN at the bytes** (280,811 B = 274.2 KiB) |
+| …**with a before/after receipt** | **HALF-MET** — `BEFORE.json` exists and is tracked; **`AFTER.json` does not exist** (unit d). A byte gate whose *receipt* clause is unsatisfied is not a discharged Hard-Gate clause, and this close declines to read it as one |
+| p75 TBT ≤ 300 ms on one pinned class | **RED** (mobile-4× 616 / 529 ms) |
+| p75 LCP ≤ 2500 ms on one pinned class | **GREEN** (952 / 816 · 1,136 / 780 ms) |
+| barrel absent from the eager module set | **GREEN** |
+| wall-clock park → `settled` | **RED — ESCALATED** |
+
+### Commit roster — **9 commits, all in bounds, 0 landed wrong**
+
+Every commit's file set was read with ⟨cmd⟩ `git show --stat --format="" <sha>` and compared against the
+writing seat's §4 / unit-plan writable set. Every one carries its `Claude-Session` trailer
+(⟨cmd⟩ `git log -1 --format=%B <sha> | grep -c 'Claude-Session:'` → **1**, ×8).
+
+| # | sha | seat | files | in bounds? |
+|---|---|---|---|---|
+| 1 | `fc7489d5` | seat 0 OPEN | `INBOX.md` (E13 grant) · `execution/A/X-W2.md` · `execution/LEDGER.md` | ✅ |
+| 2 | `188870c2` | seat 0 erratum | the record alone | ✅ |
+| 3 | `eaa70162` | **unit c, §9 row 1** | `BEFORE.json` · `eager-payload.spec.ts` · `eager-bytes.mjs` — **exactly 3**, the declared unsplittable family | ✅ |
+| 4 | `33de6349` | unit c receipts | the record alone | ✅ |
+| 5 | `4ca55e5d` | unit c post-commit confirmation | the record alone | ✅ |
+| 6 | `13f4ddc2` | **unit a, §9 row 2** | `useAtmosphere.ts` · `BlobPane.vue` — **exactly 2** | ✅ |
+| 7 | `48d921e4` | unit a receipts | the record alone | ✅ |
+| 8 | `6c783f39` | unit b receipts (**escalation; no product byte**) | the record alone | ✅ |
+| 9 | *this close* | close seat | the record · `LEDGER.md` · `W2.md` §State Status · `INBOX.md` sweep line | ✅ |
+
+**The modify-carve was honoured to the line.** ⟨cmd⟩ `git show 13f4ddc2 -- <the two files>` → **three
+changed lines and no others**: `useAtmosphere.ts:36`, `BlobPane.vue:12`, `BlobPane.vue:13`, each a bare
+`@mkbabb/glass-ui/blob` → `@mkbabb/glass-ui/blob-config` specifier swap with the imported symbols unmoved.
+
+**§9's plan, against what landed**: rows **1** and **2** landed; row **3** (the hero park) **did not land**
+— unit b escalated and, honouring §5's *"commit 3 is ONE commit and must not split"*, landed **none** of
+the six-file family rather than half of it; row **4** (the o5 re-measure) **did not land**; row **5** (the
+close) is this commit, **partial by its own admission**.
+
+**Nothing landed wrong.** ⟨cmd⟩ `git diff --stat a8d9af99..HEAD -- demo/picker/visual/HeroBlob.vue
+e2e/smoke/fixtures/blob-timing.ts e2e/smoke/webgl-blob-idle.spec.ts e2e/smoke/oracles/o12-blob-seat.spec.ts
+e2e/smoke/mobile/blob-presence-mobile.spec.ts e2e/smoke/perf/idle-frame-budget.spec.ts
+e2e/smoke/perf/o5-boot-pacing.spec.ts e2e/smoke/perf/serve-built.mjs docs/tranches/X/waves/W2.md` →
+**empty**: unit b's revert is clean to the byte, `serve-built.mjs` is unmodified as §4 requires, and the
+wave file was untouched until this close.
+*(⟨cmd⟩ `git diff --stat a8d9af99..HEAD -- src demo e2e scripts api vite.config.ts` additionally lists
+`scripts/ci/boot-smoke.mjs` — that is **X-W1's** `cad51f9e`, landed by a sibling track inside the same
+commit range and **not** in any X-W2 commit. Named so the range is not mistaken for this wave's footprint.)*
+
+### §8 Verification Artefacts — run as written, **2 of 7 present**
+
+| artefact | state |
+|---|---|
+| `evidence/W2/BEFORE.json` | **PRESENT**, tracked at `eaa70162`, 34,020 B, valid JSON, carries the pin verbatim |
+| `evidence/W2/AFTER.json` | **ABSENT** — unit d |
+| `evidence/W2/DELTA.md` | **ABSENT** — unit d |
+| `evidence/W2/o5-remeasure.txt` | **ABSENT** — unit d |
+| `telemetry/PERF-X-W2.json` | **ABSENT** — unit d |
+| the dated §D producer note (glass 7.0.0 ships the seam), filed per the BH/BI relay | **ABSENT** — unit d. **Non-gating by CC-035** (*"Producer half = one dated §D letter, never a gate"*), so it cannot block this close; it is owed all the same |
+| commit hashes for units a–d | **PARTIAL** — a ✅ `13f4ddc2` · c ✅ `eaa70162` · b **none by design** (escalation) · d **none** |
+
+### §7 cadence, re-run at close
+
+⟨cmd⟩ `npm run typecheck` (`vue-tsc -p tsconfig.lib.json` **and** `-p tsconfig.demo.json`) → **exit 0**.
+⟨cmd⟩ `npm test` (vitest) → **26 test files, 348 tests, ALL PASSED** (5.28 s).
+⟨cmd⟩ `npx eslint scripts/perf/eager-bytes.mjs e2e/smoke/perf/eager-payload.spec.ts
+demo/color-picker/composables/boot/useAtmosphere.ts demo/scenes/blob/BlobPane.vue --max-warnings=0` →
+**exit 0** — **all four files this wave wrote are clean**.
+⟨cmd⟩ `npm run lint` (repo-wide) → **exit 1, 50 problems (18 errors, 32 warnings)** — unit c's **c-F5**
+pre-existing baseline, **reproduced to the number a fourth time**; every offending file is under
+`docs/tranches/V/megatranche/**` or `docs/tranches/V/apotheosis/**`, outside W2.md §4. Carried, not cured.
+⟨cmd⟩ `git diff --check` and `git diff --check --cached` → **clean**.
+
+### Findings of the close (this seat's own; no gate moved, no bar touched, nothing cured)
+
+- **cl-F1 · MAJOR · THE BENCH IS NOT QUIESCENT, AND G3's PIN STRING DOES NOT PIN THAT.** Measured at this
+  seat: ⟨cmd⟩ `uptime` → load averages **19.46 · 26.40 · 30.24 · 32.38 · 37.12 · 74.18** across the close's
+  runs, with ⟨cmd⟩ `ps -Ao pcpu,comm -r` showing a **sibling** Playwright Chromium GPU helper at **852 %
+  CPU** and a sibling WebKit Playwright live — the owner's four-workflow cap, running. The consequence is
+  not hypothetical: **G3 `desktop-unthrottled` reads 220 / 218 ms at close against unit c's pre-cure
+  58 ms**, i.e. the number rose **~3.8×** *after* a 32,788 B gz eager cut, with **zero** product bytes
+  changed on that leg (⟨cmd⟩ `git log 13f4ddc2..HEAD -- src demo api vite.config.ts package.json` →
+  **empty**). G4 moves the same way (desktop 952/816 ms against 268 ms). Meanwhile the **byte** legs, read
+  from disk, are load-independent and reproduce exactly. **Therefore the BEFORE/AFTER CWV pair §8 owes
+  cannot be formed from unit c's `BEFORE.json` and any run taken under the four-track cap** — the two
+  halves would differ by machine load, not by the cure, and a DELTA.md built from them would publish a
+  fiction. G3's admissible pin (ii) records `sw_vers`, the CPU brand, node and Playwright versions; it
+  records **nothing about machine quiescence**, and a runner class that cannot be held still is not a
+  pinned class. **Owner**: X-W1 (pin (i), the `ubuntu-24.04` job) or a dated quiescent-bench sitting.
+  **This does not move G3's verdict**: mobile-4× is RED at **616** and at **529** ms, and was RED at unit
+  c's 386 ms too — every reading on that leg, at every load, exceeds 300 ms.
+- **cl-F2 · the `gh-pages` build is not byte-reproducible across runs, though its raw total is.** Same
+  tree, no product commits since unit a: **raw 886,610 — identical at both seats**; gz **280,813** (unit a)
+  vs **280,811** (here, double-run identical), and **every emitted chunk hash differs**
+  (`index-DOE-kt2B` → `index-hke8LSdx`, `_plugin-vue_export-helper-xmicxnVE` → `-Cq0YdSzc`,
+  `HeroBlob-D8K-tUyl` → `HeroBlob-CK6WV_Kd`). Raw is stable because the hashes are the same *length*; gz
+  drifts a few bytes because the hash text compresses differently. **2 B against a 5,909 B margin is
+  immaterial to the verdict and material to the receipt**: DELTA.md must publish the eager-gz delta with a
+  stated ±few-byte build tolerance, not to the byte. **Owner**: unit d.
+- **cl-F3 · `webgl-blob-idle.spec.ts` is load-flaky at this bench, and when it fails it fails on the
+  CANVAS, not on the park.** First close run, load ~30: **RED**, `getByTestId('goo-blob-canvas')`
+  **not attached within 8,000 ms** — and the error context shows the app itself rendered (the
+  `navigation "Application navigation"` node is present), so the page booted and the *hero engine* did not
+  arrive. Re-run at load 19.46: **PASSED (18.5 s)**, reproducing unit b's *"1 passed"* at HEAD. Recorded
+  because a seat reading only the first run would have filed a false regression against unit a's cut — and
+  because the cut **does** make the hero's engine a lazily fetched 94,593 B chunk where it was previously
+  resident in the eager entry, which is a live mechanism if this ever reproduces at a quiescent bench.
+  **Owner**: X-W1's pinned runner for the re-read; **not cured here** (VERIFY-ONLY).
+- **cl-F4 · `o12-blob-seat.spec.ts:139` (O-12·3, the hover-mood frame-diff floor) is RED at this bench and
+  UNDETERMINED as to cause.** Three runs: hover response **0.05/255** and **0.01/255** against the
+  **6/255** floor, plus one `toBeAttached` failure at load 26. Its three sibling legs in the same file
+  (O-12·1, ·4, ·5) **passed** in the same invocation. It is **not** an X-W2 gate; unit b never opened it;
+  no product byte outside the two import repoints moved in this wave. This seat **declines to call it
+  either a pre-existing red or a wave-induced one** — the bench cannot answer the question today. **Owner**:
+  **X-W5**, which §ENV already charges with the o12 / o24 re-read after the mobile-viewport fact lands.
+  **Re-trigger**: one run at a quiescent bench, or on X-W1's `ubuntu-24.04` job.
+- **cl-F5 · unit d is executable today and is blocked only by dispatch.** Its inputs all exist: the cut is
+  landed, `BEFORE.json` is tracked, the instrument runs, and `o5-boot-pacing.spec.ts` is untouched. It does
+  **not** depend on unit b's escalated cure — G6 measures the o5 spike leg after the *payload* cure (landed
+  at `13f4ddc2`), and G7 writes a telemetry successor. §9 merely *orders* d after b; nothing in §5 or §10
+  gates it on b. **The single largest miss of this wave is a dispatch gap, not a technical one.**
+
+### Dated addenda-beside (E-3 — §6's bytes are not edited)
+
+- **2026-09-17, close seat — F-1, carried as seat 0 promised.** §6 **G1**'s evidence block writes
+  ⟨cmd⟩ `grep -rn "glass-ui/blob\"" demo/ | wc -l` → **3** while its own parenthetical enumerates **five**
+  lines across three files. Measured at wave-open: **5 lines / 3 files**. Measured at close, after the cut:
+  **2 lines / 1 file**. A **spelling** defect in the evidence block; the asserted property, the born-RED
+  verdict and the falsifier are untouched. **No §6 byte was edited.**
+- **2026-09-17, close seat — the §6 G5 `sed` anchor.** §6 **G5** quotes `sed -n '213,214p'` for the two
+  constants; at true bytes they are **`:211-212`** (unit b measured this and worked the true bytes). Two
+  lines, no change of substance. **No §6 byte was edited.**
+- **2026-09-17, close seat — a-F1, the G1 token list.** Unit **a**'s §5 sub-gate is spelled
+  `rg -c "smin|metaball" <eager chunks> → 0`; its literal reading at close is **0 · 3**, the three being
+  `@mkbabb/glass-ui/aurora`'s GLSL **comments** citing `metaball.frag.ts` by filename. The discriminating
+  token is **`smin`**, measured exclusive to `blob.js` across every top-level module of the installed
+  producer. Recorded as the durable spelling of G1's property; **the token list was not narrowed and no
+  spec byte was edited.**
+
+### G8 — the tombstone, carried into the close verbatim (this is the line G8's asserted property asks for)
+
+> **`BLOB_HERO` — TOMBSTONED at X-W2.** The hero's register is an overlay on the app-wide
+> `BLOB_CONFIG_KEY` object that `BlobPane` live-tunes, so adopting the frozen preset as its base would
+> sever that seam; the residual delta (`satelliteCount` 3→4, `membrane.smoothK` .05→.06) is design
+> content, and design content is X-W10's by M-23. Re-trigger: X-W10's design canon may adopt it as the
+> hero's base **in the same ruling that re-homes the live-tuning seam**.
+
+### Escalations carried out of this wave
+
+1. **§3a "Quiescence does not park" — G5 (unit b).** `settled` is **unreachable** on the hero's
+   configuration: `isQuiescent()` requires every satellite simultaneously `orbiting`, while the resting
+   colony's merge chain (1,800 + ≤4,000 + 2,200 = **6,000–8,000 ms**) exceeds the global inter-event
+   cooldown (`3000 × mergeRate(sleepy 1.83)` = **5,490 ms**). Measured across 5 runs / 2 instruments /
+   45–75 s windows on software-GL against the built origin, with PRM excluded by measurement and the cause
+   isolated by a reverted counterfactual at `HERO_FISSION_AMP = 0`. **Dispatch is the mandatory triumvirate
+   (research + plan augment + redress); §3a forbids redispatching unit b alone.** **Owner: the X
+   orchestrator.**
+2. **§3a "TBT still red after the cut" — G3 (this close).** *"p75 TBT > 300 ms post-cure means the blocking
+   work is not the barrel parse; halt and research."* p75 TBT is **616 / 529 ms** on `mobile-4x-cpu` at
+   N=20, twice. The trigger is **FIRED and recorded, not discharged**: this seat is VERIFY-ONLY and halts,
+   as the trigger instructs. **It must be read together with cl-F1** — the bench was saturated, so the
+   *magnitude* is not trustworthy, but the *verdict* is: every reading on that leg at every load exceeds
+   the bar. **Owner: the X orchestrator**, at a quiescent bench or on X-W1's pinned runner.
+
+### Residuals, each with a named owner
+
+1. **G5's triumvirate** (above) — **X orchestrator**. Blocks §5's unit-b sub-gate, the fixture
+   re-derivation and the four consumer-spec adoptions, all deliberately unstarted.
+2. **G3's triumvirate** (above) — **X orchestrator**.
+3. **Unit d, entire**: G6, G7, `AFTER.json`, `DELTA.md`, `o5-remeasure.txt`, `PERF-X-W2.json`, the §D
+   producer note, and the W2.md four-verb `IMPLEMENTED` stamp. **Owner: X.W2.d** — dispatchable today
+   (cl-F5), subject to cl-F1's bench caveat for any CWV figure it publishes.
+4. **b-F1 and b-F2, the two producer rows** (`isQuiescent()` unreachable; the fission snap entering the
+   mood FSM through the `clicked` channel) — owed to the **glass-ui BH/BI relay**. `glass-ui` is
+   **READ-ONLY always**; these are authored in-bounds in unit b's receipts and route through the **X
+   formation mail seat**, never into `../glass-ui/**`.
+5. **b-F5**, `prefers-reduced-motion` as a fourth starvation path — **the triumvirate**, banked not chased.
+6. **c-F5's pre-existing repo-wide lint red** (50 problems / 30 files, all `docs/tranches/V/**`, all
+   unmodified, committed 2026-07-27 at `c0078d96`) — **X-W11 or a V-lane seat**. A write there from this
+   wave is an ESCALATION-by-write.
+7. **cl-F1's bench-quiescence defect** — **X-W1** (pin (i)) / the orchestrator's concurrency cap.
+8. **cl-F4's undetermined O-12·3 red** — **X-W5**.
+9. **G2's margin is 5,909 B**, not a wide one: any future boot-path import of a heavy subpath reds it
+   again — which is G2's stated falsifier working, not a weakness of the cure.
+10. **`AFTER.json` must carry `BEFORE.json`'s pin string verbatim**, or §6's delta gate is not comparing
+    like with like; and per the runbook it stays **non-terminal until X-W5's A1/A2 land**.
+
+### E13 — the four-path sweep at this seat's clock (19:2x EDT), read-only
+
+⟨cmd⟩ `/usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 18:53'` over all five paths
+(the four ⊕ the atlas **Q**-lane extension): `docs/tranches/V/coordination/` → **`INBOX.md` alone**
+(self-excluded, SELF-COUNT law) · `../glass-ui/docs/tranches/BK/coordination/` → **nothing**
+(BK re-confirmed the newest glass tranche dir) · `../sci-report/atlas/docs/tranches/P|Q/coordination/` →
+**nothing** · `../keyframes.js/docs/tranches/V/coordination/` → **ten paths, every one a false positive**:
+a Track C git operation rewrote that whole directory at **19:08** (⟨cmd⟩ `git -C ../keyframes.js log -1`
+→ `3e81f500` X.KF.W4; a first listing mid-operation showed **2** entries and a re-read showed **13**, the
+same set seat 0 swept). Not one file is new: the newest by **content** date is
+`VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`, **our own O-21 delivery**, already rowed.
+**Result: 0 unrowed · 0 new `I-n` minted · 0 new `O-n` minted.**
+
+**0 UNREAD in X-W2's scope**, re-measured at the letters' **current** bytes (glass re-saved all three at
+17:43; the rows are the durable mark — D37): ⟨cmd⟩ `grep -Eic "blob|settled|eager|metaball"` over
+I-32 / I-33 / I-34 → **1 · 2 · 0**, and **every hit is `defaultBlobColorResolver`**, which
+⟨cmd⟩ `grep -rn defaultBlobColorResolver demo/ src/ | wc -l` → **0** places nowhere in this tree.
+`grep -c HeroBlob` → **0 · 0 · 0**; `grep -c blob-config` → **0 · 0 · 0**. The three `UNREAD` status cells
+are **Track D's rows**, routed by their own Routing cells to **X-W0.j / the X formation mail seat**, and
+are **not rewritten here** (append-only). Two standing items carried unchanged, neither X-W2's: **K-R1**
+(I-30's stale digest) and the **9.0.0 re-trigger** — both the orchestrator's.
+
+### The four-verb line — what this close moves, and what it does not
+
+§State: *"Thereafter this wave's own close stamps **IMPLEMENTED** — **gates green, bytes landed**;
+**VERIFIED** is stamped only at X-W11's release close."*
+
+**IMPLEMENTED is NOT stamped.** The condition §State attaches to it is unmet on both halves: the gates are
+**4 GREEN / 4 RED**, and unit d's bytes did **not** land. This close therefore moves the wave's §State
+**Status** field to `PARTIAL` and leaves the four-verb line reading `IMPLEMENTED: no.` — because that is
+the measurement. A close that stamped IMPLEMENTED here would be the U-close disease named in §11's own
+archaeology: *"naming the obligation counted as satisfying it."*
+
+**VERIFIED is untouched** and remains X-W11's, against its browser / real-Safari and consumer-tuple
+receipts.
+
+**What the wave nevertheless achieved, stated plainly**: the four-close Q14 chronic **ends as §2a defines
+the end** — *"the gate becomes executable by one agent at one bench"*. Before this wave the byte gate had
+no command and the CWV gates had no instrument; today `node scripts/perf/eager-bytes.mjs` and
+`e2e/smoke/perf/eager-payload.spec.ts` answer both, the eager payload is **32,790 B gz lighter and under
+its untouched bar**, the barrel is out of the eager graph by an import-graph fact, and the carried
+5,141 / 4,919 ms LCP figures are **superseded by measurement** rather than re-booked. What did not happen
+is the park, the o5 verdict, the telemetry successor and the AFTER receipt.
