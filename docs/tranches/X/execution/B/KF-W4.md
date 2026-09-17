@@ -721,3 +721,243 @@ four untracked `src/` rows and two untracked V docs). **`.d` inherits two named 
 `census-first-run.txt` path collision above, and clause C3's denominator over the surviving devDeps
 (this unit deleted the one devDep §Bounds authorizes and no other). **The push is the wave close
 seat's** (§0j.C KF-WRITE); this unit leaves `fb509edd` local and unpushed by design.
+
+### KF.W4.c
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Opened** 2026-09-17 in phase 3, ∥ `.d` (disjoint by
+construction) · **Gates** `G-KFW4-4` · `G-KFW4-5` · `G-KFW4-6` ·
+**Commits** keyframes.js **`ea126540`** (3) · **`736efdbb`** (4) · **`3c8a5525`** (5) ·
+**`30ccd4dc`** (the §Bounds L70 provenance act) · **Substrate**
+`/Users/mkbabb/Programming/keyframes.js`, branch `master`,
+⟨`git rev-parse --short=8 origin/master`⟩ → **`55e9bf0d`**, local HEAD at open `fb509edd`
+(`.b`'s commit 2). Every figure below is read from settled bytes and double-run.
+
+**Status: PARTIAL. Two of the three gates are RED with their GREEN measured UNREACHABLE
+inside `.c`'s §Bounds, and both are escalated with their full enumerations rather than
+smoothed.** `G-KFW4-6` is **GREEN**.
+
+#### Act 0 — anchors re-verified at TRUE bytes before a byte was written
+
+| §Bounds row | anchor as spec'd | measured at this seat | verdict |
+|---|---|---|---|
+| `tsconfig.json` L57 | `noUnusedLocals` absent; `:8`/`:9` flags + `:47` include not weakened | ⟨`grep -c noUnusedLocals tsconfig.json tsconfig.lib.json tsconfig.test.json`⟩ → **0 · 0 · 0**; `:8` `noUncheckedIndexedAccess` · `:9` `exactOptionalPropertyTypes` · `:47` `"include": ["src/", "demo/"]` all exact | **reproduces** |
+| `registry.ts` L64 | `:30-34` `registryNames`, `:36` docstring, `:43` fence | all three byte-exact at their stated lines | **reproduces** |
+| `easing-serialize.ts` L65 | `:71-73` the `.find` reverse-map | byte-exact; ⟨`git grep -n '\bserializeEasing\b' origin/master -- src/ demo/ test/ scripts/ \| wc -l`⟩ → **49**, L65's partition **to the digit** | **reproduces** |
+| `leaves.ts` L66 | `:17-19` the drift-guard sentence, `:28` the re-export | ⟨`sed -n '17,19p'`⟩ → *"The drift guard / (`test/leaves-parity.test.ts`) now asserts the re-exported subpath values / match the value.js barrel."*; `:28` exact | **reproduces** |
+| `leaves-parity.test.ts` L67 | delete; consumer set ∅ | ⟨`git grep -nF 'leaves-parity' -- src/ demo/ test/ scripts/ \| wc -l`⟩ → **2**, both PROSE, 0 specifiers | **reproduces** |
+| `load-engine.ts` L68 | `:65` `Stylesheet`, dead | ⟨`git grep -c '\bStylesheet\b' -- src/animation/load-engine.ts`⟩ → **1** (the import) | **reproduces** |
+| `engine/css/animation.ts` L69 | 3 hits, 1 file, 0 reads | ⟨`git grep -n '_boundTimeline' -- src/ demo/ test/ scripts/`⟩ → `:5` · `:54` · `:82`, RUN1 == RUN2 | **reproduces** |
+| `backward/backward.ts` L70 | `:30` · `:32` · `:47` attributions | ⟨`git grep -n 'sampleColorRamp\|deltaEOK' -- <the file>`⟩ → `:30` · `:32` · `:47`, exactly three | **reproduces** |
+| the K3 demo sites L71 | AmigaScene `:21` · SquareScene/SequenceScene/SpringScene `computed` · TimelineTrack `:120` · ChannelOptions `:437` | `grep -c 'computed('` → **0 · 0 · 0 · 0**; ChannelOptions `grep -n 'Teleport'` → `:377`/`:401`/`:437`; `const props` at `TimelineTrack:120` | **reproduces** |
+| `test/compile/easing-identity.test.ts` L80 | create | ABSENT | **reproduces** |
+
+**No anchor drifted.** One §Bounds figure is re-measured and superseded, printed with both
+readings at the finding (F-9 below); one is re-measured and **reproduces exactly** where the
+program's recent history predicted it would not (§Gates' *"9 measured errors"* for the K3 src
+arm — measured **9**).
+
+#### Act 1 — R-9's DECISION, recorded before the field was opened
+
+`evidence/KF-W4/k3-decision.md` (landed first, as §Artefacts requires). The two commands
+re-run at this seat's clock, RUN1 == RUN2: **three hits, one file — `:5` docblock, `:54`
+declaration, `:82` a WRITE. Zero reads.** R-9's own definition governs (*"an assignment is
+not a named consumer"*), so **consumer set = ∅ ⇒ the ELSE-branch**: delete the field and its
+prose together, one commit. **Delta against §Bounds' round-3 census: NONE.**
+
+The artefact also books the finding that makes the else-branch more than arithmetic: the
+field's declaration docblock said it was *"Stored by `bindTimeline` for the no-timeline
+guard's check"*, and ⟨`git grep -c '_boundTimeline' -- src/animation/engine/interpolate.ts`⟩
+returns **nothing** — the guard that docblock names as the field's sole consumer does not
+read it. A phantom authority of exactly the class this wave extinguishes, inside the wave's
+own cure site.
+
+#### Act 2 — K1 (commit `ea126540`), and the half of R-2 that was genuinely missing
+
+**R-2's memoise arm was HALF-LANDED at the frontier, and the missing half is the one R-2
+names.** `registry.ts` did build its name→function map once at module evaluation — but
+`resolveTimingFunction` tried `parseTimingFunction` **FIRST**, so the four registry names
+that are *also* CSS keywords took the parse path and got a fresh `easing()` instance on every
+call, **outside the memo**. Probed live at the tree of execution:
+
+```
+BYPASS the memo (4): ease, ease-in, ease-out, ease-in-out
+UNSTABLE through resolveTimingFunction (4): ease, ease-in, ease-out, ease-in-out
+```
+
+R-2's words are *"every name hands out one stable reference **forever**"* — false for four of
+forty, and the consequence is a live shipping defect, not a tidiness point:
+**`serializeEasing({ fn: resolveTimingFunction("ease") })` THREW** *"a custom TimingFunction
+has no CSS animation-timing-function representation"* **on the library's own registry
+keyword**, because the fresh reference is absent from `timingFunctionEntries`. It is the
+first assertion of the created fixture that caught it.
+
+**The cure is the ordering and nothing else** — consult the memo, then the parser. Proved
+curve-preserving rather than asserted: the 40 names × the 33 grid points were sampled before
+and after through `vite-node`, and ⟨diff⟩ → **0 curve deltas · 4 newly stable · 40/40 in the
+memo · 0 unstable**. `registryNames` (`:30-34`) and the `:43` module-evaluation `throw` fence
+are **byte-identical to `origin/master`** — no key added, none removed.
+
+`registry.ts:36`'s *"Stable identities let the serializer distinguish named curves from
+closures"* is replaced by the measured truth: **stable (now), NOT injective** — 40 names onto
+**31** references, nine hyphen/camel twin pairs — plus R-2's named terminus (KF.W3's repin
+commit deletes the memo when value.js 4.1's memoised `easing()` lands).
+
+**`test/compile/easing-identity.test.ts`** is G-KFW4-5's fixture, created in the tree's own
+easing zone. Identity is proved by **sampled value-identity on the 33-point grid**
+(§0j.C **KF-SS3** — *"the mechanism, not a relabel"*), never by name equality, which is
+unattainable while nine references carry two names each and the `bezierPresets` fence forbids
+both a key removal and a key addition. **The oracle carries no tolerance band**: the
+round-tripped sample is compared for EXACT equality against the densify's own `round5`
+quantization (a band would let a real curve defect hide under it). **45 assertions, each with
+its BITE**, including a negative control that measures value.js's own instability at **21 of
+40** and a clause proving the nine collisions are value-identical twins.
+
+#### Act 3 — K2 (commit `736efdbb`), the gate's oracle satisfied by construction
+
+⟨`git show --stat 736efdbb`⟩ → **`src/animation/internal/leaves.ts` + `test/internal/
+leaves-parity.test.ts` in ONE commit** — which *is* G-KFW4-6's oracle (*"one commit contains
+both … `git show --stat` proves it"*). Both false halves of the `:17-19` sentence die with
+the spec: the *"parity with the value.js barrel"* claim (value.js 4.0.0 publishes **seven**
+subpaths and **no `.` root export** — ⟨`node -e` over the installed `package.json` exports⟩ →
+`./color ./value ./css ./easing ./math ./transform ./quantize`), and the citation at
+`test/leaves-parity.test.ts`, **a path that exists at no ref**.
+
+#### Act 4 — K3 + R-9 (commit `3c8a5525`), src arm before demo arm
+
+Full partition in `evidence/KF-W4/k3-residues-2026-09-17.md`. Headline, double-run:
+**30 `noUnusedLocals` diagnostics → 18. 12 cured, every one in-bounds. All 18 survivors live
+in files NO KF.W4 unit may write** (3 `src/` + 15 `demo/`), and `check` leg 2 adds **17**
+more (10 of them in `test/`). The flag was set in the shared base because that is the only
+tsconfig in `.c`'s writable set — `tsconfig.lib.json` and `tsconfig.test.json` both `extends`
+it, and neither is ours to narrow.
+
+R-9 landed on its measured else-branch: `_boundTimeline`'s `:5` prose, `:48-53` docblock,
+`:54` declaration and `:82` write die together. `bindTimeline` keeps its signature and every
+consumer (⟨`git grep -c 'bindTimeline' -- test/engine/nan-frame.test.ts`⟩ → **11** matching
+lines in that one spec); its docblock now states plainly that the parameter is not read and
+why, rather than leaving a silently-unused public parameter behind a deleted field.
+
+**Witnesses measured NOT red, recorded per L71's own instruction rather than cured on a
+guess**: ChannelOptions `:437` `Teleport` (the template's single `:377`/`:401` element uses
+it — the measurement L71 explicitly deferred to execution), `TimelineTrack.vue:120`
+`const props`, `TimelineCaret.vue:35` (**KF.W7's site, R-3 — no byte written here**), and two
+of KF-SS-34's four (`SCENE_ID`, `isStarted`; only `computed` and `isPlaying` red, and both
+are cured).
+
+#### Act 5 — the §Bounds L70 provenance act (commit `30ccd4dc`)
+
+Measured at the installed pin: **neither `sampleColorRamp` nor `deltaEOK` appears anywhere in
+`@mkbabb/value.js` 4.0.0's `dist/`** ⟨`grep -rl <name> node_modules/@mkbabb/value.js/dist/`⟩
+→ nothing, for either. Both were attributed to value.js **by name**, inside G-KFW4-7's own
+denominator. The real machinery is named instead — `./color`'s own `sampleRamp` driving
+value.js's `mixColors`/`convertColor` (**both verified present** in
+`dist/subpaths/color.d.ts`, as is `oklab`), and kf's own ΔE-ε check in `./color`. The `:47`
+BOUNDARY clause claimed the module *"statically imports `@mkbabb/value.js`"*; its imports are
+all relative kf modules, so it is restated as what it does reach.
+
+#### Act 6 — gate readings, BEFORE → AFTER (all double-run)
+
+| gate | BEFORE (this seat's own baseline) | AFTER |
+|---|---|---|
+| **G-KFW4-4** | `noUnusedLocals` = **0** in all three tsconfigs; src arm 9 unused + F-1's `TS2307`; demo arm 30 unused | **RED — FLAG LANDED, EVERY IN-BOUNDS SITE CURED, GREEN UNREACHABLE IN-BOUNDS.** src arm **4** (3 unused + F-1) · demo arm **31** (18 unused + 13 pre-existing) · leg 2 **17**. The gate's own falsifier clause (*"any **in-bounds** site survives"*) closes — **zero** in-bounds sites survive — while both arms' commands exit non-zero on 18 sites in no unit's writable set. Booked RED, not resolved in this seat's favour |
+| **G-KFW4-5** | fixture ABSENT; 21/40 unstable · 31 refs · 9 collisions (reproduced exactly); 4 names bypassing the memo (**new**) | **RED — MEMOISE ARM LANDED AND PROVED, RETIREMENT ARM ESCALATED.** Fixture **45/45 passed**, double-run; 0 curve deltas across 40×33; the four memo-bypasses cured. The falsifier clause *"fails if the reverse-map survives"* is **not executable inside §Bounds** — see F-10 |
+| **G-KFW4-6** | `leaves-parity.test.ts` PRESENT; no commit holds both acts | **GREEN.** ⟨`git show --stat 736efdbb`⟩ → both files, one commit. *"Two commits fail this gate"*; there is one |
+
+Collateral at close: ⟨`npx vitest run --project library`⟩ → **98 files / 1080 tests passed**
+(+1 expected fail, 14 skipped) · ⟨`--project demo`⟩ → **29 files / 160 passed** (the 27 plus
+`.d`'s two concurrent creates) · ⟨`npx vite build --mode gh-pages`⟩ → **exit 0** ·
+⟨`git diff --check`⟩ → clean.
+
+#### Act 7 — findings, routed not smoothed
+
+- **F-9 · SPEC (MAJOR, G-KFW4-4) — the K3 denominator is right and unpartitioned.** §Gates'
+  *"9 measured errors at HEAD, chief among them `load-engine.ts:65`"* **reproduces to the
+  digit at the frontier** (9 src `noUnusedLocals` diagnostics), and **6 of the 9 are in
+  `.c`'s files, 3 are in no unit's**; the demo arm had no denominator at all, because none
+  could exist before the flag and an SFC-parsing checker both existed — it measures **21**.
+  **This is F-8's shape at a third address** (`.b` found it at G-KFW4-3, R4-2 at
+  G-KFW4-11): a count carried forward without a partition by writable set. Full enumeration,
+  both arms plus leg 2, in `k3-residues-2026-09-17.md`. **TRIUMVIRATE** (§Sequencing trigger
+  1). Two of the fifteen demo survivors are worth naming for routing: `EasingScene.vue:8`/
+  `:45` are mechanically identical to the `SpringScene.vue` pair cured here, and
+  `animationDescriptions.ts:108`/`:116` sit in a file **`.e` holds outright**.
+- **F-10 · BOUNDS (MAJOR, G-KFW4-5) — R-2's reverse-map RETIREMENT is not executable inside
+  `.c`'s §Bounds, and the blocker is measured, not argued.** *"The name travels with the
+  serialized easing record"* requires the record to have somewhere to carry a name. `Easing`
+  is `{ fn, css? }` at `src/animation/constants/types.ts:57-62` — **`.e`'s file, and `.e`'s
+  carve is `:25`/`:27`/`:195`, so `:57-62` is in NO unit's carve in this wave** — and its
+  construction seams are `compile/easing/option.ts`, `easing.ts`, `constants/defaults.ts` and
+  `resolve/spring-css.ts`, **none of which any KF.W4 unit may write**. The decisive one is
+  `defaults.ts:85`: the library's DEFAULT easing is `{ fn: easeInOutCubic }` with **no `.css`
+  and no name**, and its reference was probed live into the memo as `"ease-in-out-cubic"` —
+  so retiring the `.find` while that record cannot carry a name makes **every default-easing
+  serialization throw**, the exact outcome §Bounds L65 forbids. **No substitute was
+  invented** — not a `Map`-keyed reverse index, not a name stamped on the function object,
+  not a parameter threaded through the seventeen call sites; each is the same act at a
+  different address, and R-2 rules out the injective-wrapper dodge by name. Dated
+  addendum-beside with every coordinate and the three honest dispositions:
+  `k1-reverse-map-escalation-2026-09-17.md`. **TRIUMVIRATE.**
+- **F-11 · TREE (MAJOR, routed) — `backward.ts` carries TWO further phantom value.js
+  attributions outside this row's carve, and a third lives in `src/animation/index.ts`.**
+  `reverseAnimationShorthand` is attributed to value.js at `:20` (*"value.js's OWN … the
+  published inverse of its shorthand parser"*) and `:46`, and is **kf's own**, declared at
+  `src/animation/compile/emit/css-text.ts:17` — ⟨`grep -rl reverseAnimationShorthand
+  node_modules/@mkbabb/value.js/dist/`⟩ → nothing. `:295` attributes `serializeScrollOptions`
+  to value.js; also kf's own. `src/animation/index.ts:233` repeats the `sampleColorRamp`
+  attribution. **The carve granted is `:30`·`:32`·`:47` and that is what was written**; these
+  four sites are the same class one round of widening later, and all four sit inside
+  G-KFW4-7's C1 denominator, so **`.d`'s census will red on them and no unit of this wave may
+  cure them**. Same shape as round 3's widening of this very row, at the symbols that sweep
+  did not grep.
+- **F-12 · LINE-ENUMERATION (INFO, declared not silent).** Four cured K3 sites sit in files
+  §Bounds opens for `.c` at coordinates the rows' line lists do not name
+  (`load-engine.ts:62`/`:63`, `animation.ts:32`, `backward.ts:72`). They were taken under
+  L71's own stated method — *"the flag itself is the instrument"*, *"the falsifier closes on
+  the sites that do red — never on a count this file guessed"* — because the enumeration
+  cannot exist before the flag lands. **No file outside `.c`'s writable set was written; that
+  bound was held absolutely.** Named here so the extension is falsifiable rather than folded
+  into the rows' counts.
+- **F-13 · RESIDUAL (INFO, K2).** `test/engine/computed-resolution.test.ts:26` carries the
+  second prose citation of `leaves-parity` (*"the leaves-parity precedent"*). The file is in
+  **no** KF.W4 unit's writable set. The citation is now stale in one word; recorded rather
+  than reached for.
+
+#### Act 8 — what was NOT done
+
+**No suppression of any kind**: no `@ts-expect-error`, no `@ts-ignore`, no `any`, no
+`test.skip`, no allowlist, no `exclude`, no per-file override, no `skipLibCheck` widening, no
+`--max-warnings`, no `|| true`, no `known-violations` file, no `node_modules` patch, no
+copied producer selector. The `noUnusedLocals` flag was not weakened and was not hidden in a
+narrower config to dodge its fallout. `registry.ts:43`'s module-evaluation `throw` fence was
+not disturbed and the roster gained and lost no key. **No byte of `easing-serialize.ts`** (the
+escalated act). **No byte of `TimelineCaret.vue`** (KF.W7's, R-3). No byte of any file outside
+`.c`'s writable set — including the four untracked F-1 `src/` files, which were not deleted,
+edited, `.gitignore`d, moved or gate-wrapped. No glass-ui byte. No `.d`-owned path
+(`scripts/gates/census.mjs` and the two `test/demo/**` specs were modified concurrently by
+that seat and are absent from every pathspec here). `scripts/dev/dev.sh` never touched.
+**Zero new prettier drift**, measured origin-vs-current per file on all ten touched files
+(the one file my edit *did* make drift — `load-engine.ts`, 0 → 7 — was reflowed to
+prettier's own output, back to 0; `registry.ts` and four `.vue` files fail `--check`
+identically at `origin/master` and were left alone rather than reformatted).
+
+#### Artefacts landed (value.js `docs/tranches/X/keyframes/waves/evidence/KF-W4/`)
+
+`k3-decision.md` (R-9's measured basis, written before the field opened) ·
+`easing-identity.json` (the 40→31 map before, the round-trip after; valid JSON, receipt line
+as its first key) · `k1-reverse-map-escalation-2026-09-17.md` ·
+`k3-residues-2026-09-17.md`.
+
+#### Handover to `.e`
+
+`.c` has **committed**, which is `.e`'s opening condition (both reach the easing family).
+`.e` inherits four named facts. **(1)** `resolveTimingFunction` now consults the memo before
+the parser — every registry name hands out one stable reference, and `serializeEasing` no
+longer throws on `ease`/`ease-in`/`ease-out`/`ease-in-out`. **(2)** `smooth-step-3`'s class is
+**preserved** (§0j.C KF-SS3) and `registryNames` is byte-identical to `origin/master`, so
+G-14 opens on exactly the roster its cure-lock assumes. **(3)** `noUnusedLocals` is ON:
+`animationDescriptions.ts:108`/`:116` and `EasingScene.vue:8`/`:45` are live diagnostics in
+files `.e` holds or opens — the first two are `.e`'s outright. **(4)** `types.ts:57-62` (the
+`Easing` record) is **not** in `.e`'s carve, and F-10 is why that matters.
+
+**The push is the wave close seat's** (§0j.C KF-WRITE); this unit leaves `30ccd4dc` local and
+unpushed by design.
