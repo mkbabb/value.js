@@ -1,0 +1,508 @@
+SERVED MODEL: claude-opus-5[1m]
+# KF.W0.e · G-0.7 GATE-INVENTORY TRUTH — the roster measurement transcript
+# Date: 2026-09-17 · Substrate: /Users/mkbabb/Programming/keyframes.js at origin/master 81a56990 (== HEAD, post-settle)
+# Every figure below is the literal output of the command printed above it, re-run at authoring, DOUBLE-RUN.
+
+$ git rev-parse origin/master
+81a56990736ced5b5edde0b84c527680ac7689b1
+$ git rev-parse HEAD
+81a56990736ced5b5edde0b84c527680ac7689b1
+
+=== (1) THE THREE npm proof:* ENTRY POINTS + check/lint/gh-pages ===
+$ git show origin/master:package.json | grep -n "proof:\|\"check\"\|\"lint\"\|\"gh-pages\""
+37:        "check": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json && npm run proof:structure",
+43:        "gh-pages": "vite build --mode gh-pages",
+44:        "lint": "depcruise src",
+50:        "proof:structure": "node scripts/gates/structure/index.mjs",
+51:        "proof:publish": "node scripts/gates/surface/index.mjs",
+52:        "proof:owner-golden": "node scripts/gates/visual/index.mjs",
+
+=== (2) THE NINE scripts/gates/ FILES, BY PATH ===
+$ git ls-tree --name-only origin/master scripts/gates/
+scripts/gates/structure
+scripts/gates/surface
+scripts/gates/visual
+$ git ls-tree -r --name-only origin/master scripts/gates/
+scripts/gates/structure/index.mjs
+scripts/gates/surface/agent-surface.mjs
+scripts/gates/surface/boundary.mjs
+scripts/gates/surface/consume-bundle.mjs
+scripts/gates/surface/index.mjs
+scripts/gates/surface/published-surface.mjs
+scripts/gates/surface/readme-runs.mjs
+scripts/gates/surface/verify-diff.mjs
+scripts/gates/visual/index.mjs
+$ git ls-tree -r --name-only origin/master scripts/gates/ | wc -l
+       9
+
+=== (3) THE DEAD-NAME UNIVERSAL (the gate denominator) ===
+$ git grep -ho 'proof:[a-z0-9-]*' origin/master -- demo/ | grep -v -- '-$' | sort -u | wc -l
+      55
+$ ... | grep -cx 'proof:'   (the bare token)
+1
+$ ... | grep -vx 'proof:' | wc -l   (DISTINCT NAMES)
+      54
+$ ... | grep -E 'proof:(publish|structure|owner-golden)$'   (runnable as an npm script)
+proof:publish
+  => 54 distinct names - 1 runnable = 53 DEAD
+$ git grep -c 'proof:' origin/master -- demo/ | wc -l                (FILES)
+      51
+$ git grep -c 'proof:' origin/master -- demo/ | awk -F: '{s+=$NF} END {print s}'   (LINES)
+116
+$ git grep -c 'build:gh-pages' origin/master
+  (no output = no hits; R-11 holds: the script is 'npm run gh-pages', package.json:43)
+
+=== (4) THE 54 DISTINCT NAMES, IN FULL ===
+     1	proof:accent-census
+     2	proof:amiga-subject-is-pivot
+     3	proof:amiga-tessellate-tilecount
+     4	proof:app-is-shell
+     5	proof:appearance-suffusion
+     6	proof:boundary
+     7	proof:brittleness
+     8	proof:colocation
+     9	proof:crayon-preserved
+    10	proof:cursor-light-subtle
+    11	proof:demo-no-oversize
+    12	proof:demo-title
+    13	proof:design-refinement
+    14	proof:dfa-derived
+    15	proof:dock-grammar
+    16	proof:dock-zorder
+    17	proof:dogfood
+    18	proof:drag-gesture
+    19	proof:easing-sidebar
+    20	proof:easing-sidebar-normalized
+    21	proof:font-census
+    22	proof:glass-and-cartoon
+    23	proof:group-snapshot-identity
+    24	proof:hero-deck-voice
+    25	proof:hero-two-focal
+    26	proof:icon-paint-live
+    27	proof:idioms
+    28	proof:lighthouse-a11y
+    29	proof:live-session-mobile
+    30	proof:mobile-single-page
+    31	proof:no-hand-rolled-cursor-tracker
+    32	proof:no-shadow-playback-authority
+    33	proof:one-adapter
+    34	proof:panel-naked-rail
+    35	proof:perf-counters
+    36	proof:phi-leaf-zero
+    37	proof:publish
+    38	proof:scene-contract-identity
+    39	proof:scene-control-dfa
+    40	proof:scene-facility
+    41	proof:scene-icons
+    42	proof:scene-machine-irrefragable
+    43	proof:sequence-rows-draggable
+    44	proof:single-writer
+    45	proof:stage-inventory
+    46	proof:stage-not-clipped
+    47	proof:stage-visible
+    48	proof:stage-within-docks
+    49	proof:style-file-ceiling
+    50	proof:styling-idioms
+    51	proof:transport-action-order
+    52	proof:typing-dots
+    53	proof:visual-lock
+    54	proof:zone-cohesion
+
+=== (5) PER-NAME SITE INVENTORY (name | citation lines | file:line ...) ===
+$ for N in <the 54>; do git grep -nE "${N}([^a-z0-9-]|$)" origin/master -- demo/; done
+proof:accent-census | 1 | demo/components/instrument/keyframes/KeyframeCard.vue:19 
+proof:amiga-subject-is-pivot | 1 | demo/scenes/amiga/useAmigaDemo.ts:20 
+proof:amiga-tessellate-tilecount | 1 | demo/scenes/amiga/utils.ts:49 
+proof:app-is-shell | 2 | demo/app/App.vue:322 demo/app/scene/useSceneMachineShellBinding.ts:8 
+proof:appearance-suffusion | 2 | demo/DESIGN.md:251 demo/styles/layout.css:31 
+proof:boundary | 2 | demo/app/main.ts:27 demo/kf-engine.ts:24 
+proof:brittleness | 2 | demo/styles/layout.css:152 demo/styles/style.css:38 
+proof:colocation | 4 | demo/DESIGN.md:224 demo/DESIGN.md:239 demo/DESIGN.md:240 demo/DESIGN.md:252 
+proof:crayon-preserved | 5 | demo/DESIGN.md:251 demo/scenes/cube/CubeTarget.css:107 demo/scenes/cube/useCubeRelit.ts:17 demo/styles/style.css:117 demo/styles/style.css:146 
+proof:cursor-light-subtle | 3 | demo/app/App.vue:49 demo/components/instrument/shell/HeroAurora.vue:18 demo/components/instrument/shell/HeroAurora.vue:44 
+proof:demo-no-oversize | 16 | demo/components/instrument/transport/AnimationControlsGroup.vue:117 demo/components/instrument/transport/AnimationControlsGroup.vue:301 demo/components/instrument/transport/AnimationControlsGroup.vue:309 demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupActions.ts:31 demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupPlayback.ts:151 demo/components/instrument/transport/AnimationControlsGroup/useControlsKeyboardShortcuts.ts:28 demo/components/instrument/transport/ControlsPaneWrapper/usePaneRegister.ts:23 demo/components/instrument/transport/channel-controls/ChannelControls.vue:383 demo/components/instrument/transport/channel-controls/ChannelControls.vue:397 demo/components/instrument/transport/channel-controls/composables/useKeyframesPaneReveal.ts:38 demo/components/instrument/transport/channel-controls/composables/useSelectedControlSurface.ts:29 demo/components/instrument/transport/channel-controls/composables/useTabStripScroll.ts:18 demo/components/instrument/transport/components/DemoGlobalChrome.vue:4 demo/scenes/cube/useCubeRelit.ts:9 demo/scenes/spring/useSpringHotPath.ts:36 demo/scenes/square/useSquareKeyboard.ts:8 
+proof:demo-title | 1 | demo/app/index.html:11 
+proof:design-refinement | 2 | demo/components/instrument/shell/EditorStartScreen.vue:56 demo/scenes/sequence/SequenceTarget.css:211 
+proof:dfa-derived | 1 | demo/state/controlSurfaces.ts:143 
+proof:dock-grammar | 1 | demo/composables/scene-runtime/useSceneTransport.ts:17 
+proof:dock-zorder | 1 | demo/components/instrument/transport/AnimationControlsGroup.css:132 
+proof:dogfood | 1 | demo/scenes/sequence/useSequenceDemo.ts:44 
+proof:drag-gesture | 1 | demo/components/playback/PlaybackRibbon.vue:162 
+proof:easing-sidebar | 1 | demo/components/instrument/transport/channel-controls/ChannelControls.vue:94 
+proof:easing-sidebar-normalized | 1 | demo/scenes/spring/SpringPhysicsFacet.vue:118 
+proof:font-census | 5 | demo/DESIGN.md:29 demo/DESIGN.md:250 demo/components/instrument/shell/EditorStartScreen.vue:180 demo/styles/font-roles.json:2 demo/styles/font-roles.json:62 
+proof:glass-and-cartoon | 1 | demo/styles/style.css:196 
+proof:group-snapshot-identity | 1 | demo/state/scenePlaybackAdapters.ts:19 
+proof:hero-deck-voice | 1 | demo/components/instrument/shell/EditorStartScreen.vue:134 
+proof:hero-two-focal | 1 | demo/components/instrument/shell/EditorStartScreen.vue:15 
+proof:icon-paint-live | 2 | demo/app/App.vue:117 demo/app/transition/useSceneTransition.ts:21 
+proof:idioms | 3 | demo/styles/design-idioms.css:3 demo/styles/design-idioms.css:43 demo/styles/layout.css:10 
+proof:lighthouse-a11y | 1 | demo/scenes/spring/SpringHeatmap.vue:26 
+proof:live-session-mobile | 3 | demo/components/instrument/transport/AnimationControlsGroup.css:165 demo/components/instrument/transport/TransportDock.vue:274 demo/components/instrument/transport/TransportDock.vue:282 
+proof:mobile-single-page | 5 | demo/app/scene/scenes.ts:46 demo/components/instrument/transport/AnimationControlsGroup.css:113 demo/components/instrument/transport/AnimationControlsGroup.css:162 demo/components/instrument/transport/TransportDock.vue:285 demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue:272 
+proof:no-hand-rolled-cursor-tracker | 1 | demo/components/instrument/shell/HeroAurora.vue:5 
+proof:no-shadow-playback-authority | 2 | demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupActions.ts:57 demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupPlayback.ts:35 
+proof:one-adapter | 3 | demo/app/scene/useSceneMachineShellBinding.ts:54 demo/app/scene/useSceneMachineShellBinding.ts:65 demo/app/scene/useSceneMachineShellBinding.ts:130 
+proof:panel-naked-rail | 2 | demo/components/instrument/transport/AnimationControlsGroup.vue:17 demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.css:26 
+proof:perf-counters | 3 | demo/scenes/cube/CubeTarget.css:32 demo/scenes/easing/EasingScene.vue:123 demo/scenes/spring/SpringScene.vue:192 
+proof:phi-leaf-zero | 1 | demo/scenes/sequence/SequenceTarget.css:95 
+proof:publish | 3 | demo/DESIGN.md:235 demo/DESIGN.md:243 demo/DESIGN.md:253 
+proof:scene-contract-identity | 1 | demo/scenes/easing/EasingScene.vue:129 
+proof:scene-control-dfa | 3 | demo/components/instrument/transport/channel-controls/ChannelControls.vue:73 demo/components/instrument/transport/channel-controls/ChannelControls.vue:343 demo/components/instrument/transport/channel-controls/composables/useSelectedControlSurface.ts:31 
+proof:scene-facility | 1 | demo/composables/scene-facility/index.ts:18 
+proof:scene-icons | 1 | demo/app/scene/scenes.ts:87 
+proof:scene-machine-irrefragable | 2 | demo/state/controlSurfaces.ts:27 demo/state/useSceneMachine.ts:305 
+proof:sequence-rows-draggable | 1 | demo/scenes/sequence/SequenceTarget.css:162 
+proof:single-writer | 1 | demo/state/useSceneMachine.ts:12 
+proof:stage-inventory | 1 | demo/scenes/amiga/AmigaScene.vue:11 
+proof:stage-not-clipped | 1 | demo/components/instrument/transport/AnimationControlsGroup.vue:62 
+proof:stage-visible | 1 | demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.css:21 
+proof:stage-within-docks | 2 | demo/components/instrument/transport/AnimationControlsGroup.css:127 demo/components/instrument/transport/AnimationControlsGroup.css:153 
+proof:style-file-ceiling | 3 | demo/DESIGN.md:224 demo/DESIGN.md:236 demo/DESIGN.md:252 
+proof:styling-idioms | 4 | demo/DESIGN.md:237 demo/DESIGN.md:250 demo/components/instrument/shell/EditorStartScreen.vue:159 demo/scenes/sequence/SequenceTarget.css:212 
+proof:transport-action-order | 1 | demo/composables/scene-runtime/useSceneTransport.ts:17 
+proof:typing-dots | 3 | demo/components/instrument/shell/TypingDots.vue:45 demo/components/instrument/shell/TypingDots.vue:51 demo/components/instrument/shell/TypingDots.vue:59 
+proof:visual-lock | 1 | demo/styles/style.css:146 
+proof:zone-cohesion | 2 | demo/DESIGN.md:238 demo/DESIGN.md:253 
+
+=== (6) THE ARITHMETIC THAT CLOSES THE SET (receipt-arithmetic-first) ===
+name-site PAIRS (sum of column 2 above)        : 116
+DISTINCT proof:-bearing lines in demo/         : 116
+distinct lines reached by the 54 names         : 109
+lines carrying TWO names each                  : 7
+    demo/DESIGN.md:224
+    demo/DESIGN.md:250
+    demo/DESIGN.md:251
+    demo/DESIGN.md:252
+    demo/DESIGN.md:253
+    demo/composables/scene-runtime/useSceneTransport.ts:17
+    demo/styles/style.css:146
+lines carrying NO full name (wrap/brace/bare)  : 7
+    demo/components/instrument/transport/channel-controls/ChannelControls.vue:28
+    demo/components/instrument/transport/channel-controls/ChannelControls.vue:341
+    demo/components/instrument/transport/channel-controls/ChannelOptions.vue:168
+    demo/scenes/amiga/AmigaScene.vue:182
+    demo/scenes/cube/CubeTarget.vue:132
+    demo/scenes/sequence/useSequenceDemo.ts:27
+    demo/state/scenePlaybackAdapters.ts:18
+  109 named lines + 7 unnamed = 116 lines ; 109 + 7 double-named = 116 name-site pairs.
+  THE TWO 116s ARE DIFFERENT QUANTITIES that coincide because both residues are 7. Stated so no seat reads one as the other.
+
+=== (7) THE SIX TRUNCATED / BRACE TOKENS the -$ filter drops (the +5 dead names beyond the 53) ===
+$ git grep -ho 'proof:[a-z0-9-]*' origin/master -- demo/ | grep -- '-$' | sort -u
+proof:amiga-decay-
+proof:bezier-
+proof:crayon-
+proof:demo-no-
+proof:easing-sidebar-
+proof:scene-contract-
+$ git grep -nE 'proof:[a-z0-9-]*-([^a-z0-9-]|$)' origin/master -- demo/
+demo/components/instrument/transport/channel-controls/ChannelControls.vue:28:                       pane probes key on (proof:easing-sidebar-{normalized,
+demo/components/instrument/transport/channel-controls/ChannelControls.vue:341:// projection all live in useSelectedControlSurface (the K.WZ proof:demo-no-
+demo/components/instrument/transport/channel-controls/ChannelOptions.vue:168:                                             pencil hook proof:bezier-{no-scroll,single-card,grown}
+demo/scenes/amiga/AmigaScene.vue:182:    // (the parked telemetry readout is gone). The re-armed proof:amiga-decay-
+demo/scenes/cube/CubeTarget.vue:132:// literals are HOISTED one-for-one into named --face-1…6 tokens (proof:crayon-
+demo/state/scenePlaybackAdapters.ts:18://     round-trips progress/isPlaying/startTime — the gate proof:scene-contract-
+
+=== (8) THE THREE R-8 RESIDUE FAMILIES, RE-DERIVED ===
+--- (i) kf-AnimationControlsGroup D-13 : the subject surface ---
+$ git grep -ho 'proof:[a-z0-9-]*' origin/master -- 'demo/components/instrument/transport/AnimationControlsGroup*' | sort | uniq -c | sort -rn
+   6 proof:demo-no-oversize
+   2 proof:stage-within-docks
+   2 proof:no-shadow-playback-authority
+   2 proof:mobile-single-page
+   1 proof:stage-not-clipped
+   1 proof:panel-naked-rail
+   1 proof:live-session-mobile
+   1 proof:dock-zorder
+  8 distinct names over 16 citations; the 8th is the carve-out:
+$ git show origin/master:scripts/demo-roster.mjs | sed -n '5,12p'
+export const DEMO_ROSTER = [
+    { name: "smoke", script: "scripts/observe/demo/smoke.mjs" },
+    { name: "occlusion", script: "scripts/observe/demo/occlusion.mjs" },
+    { name: "usability", script: "scripts/observe/demo/usability.mjs" },
+    { name: "subject-animates", script: "scripts/observe/demo/subject-animates.mjs" },
+    { name: "live-session", script: "scripts/observe/demo/live-session.mjs" },
+    { name: "live-session-mobile", script: "scripts/observe/demo/live-session-mobile.mjs" },
+];
+  live-session-mobile = ROW 6 of DEMO_ROSTER (file line :11); script present:
+$ git cat-file -e origin/master:scripts/observe/demo/live-session-mobile.mjs && echo PRESENT
+PRESENT
+  => 8 - 1 = the banked SEVEN, reproduced by measurement.
+--- (ii) kf-DemoGlobalChrome L-6 : proof:demo-no-oversize ---
+$ git grep -c 'proof:demo-no-oversize' origin/master -- demo/ | wc -l  (FILES)
+      13
+$ ... | awk -F: '{s+=$NF} END {print s}'  (HITS)
+16
+  16 hits / 13 files — reproduces L-6's banked figure EXACTLY.
+$ git grep -c 'proof:demo-no-oversize' origin/master | wc -l  (repo-wide FILES)
+      70
+$ ... | awk -F: '{s+=$NF} END {print s}'  (repo-wide HITS)
+121
+$ git grep -l 'proof:demo-no-oversize' origin/master -- docs/ | wc -l  (docs/ FILES, OUT OF SCOPE)
+      57
+--- (iii) kf-EditorStartScreen KF-EST-1 : eight sites over six names ---
+$ git grep -n 'proof:' origin/master -- 'demo/components/instrument/shell/EditorStartScreen.vue' 'demo/components/instrument/shell/TypingDots.vue'
+demo/components/instrument/shell/EditorStartScreen.vue:15:         the hero is ink, not chrome. Gated by proof:hero-two-focal (OWNER,
+demo/components/instrument/shell/EditorStartScreen.vue:56:         proof:design-refinement's S1 home arm was re-cut in the same motion
+demo/components/instrument/shell/EditorStartScreen.vue:134:   (proof:hero-deck-voice). */
+demo/components/instrument/shell/EditorStartScreen.vue:159:   silent-flatten (proof:styling-idioms membership). */
+demo/components/instrument/shell/EditorStartScreen.vue:180:   never render below the smallest display rung (proof:font-census clause b).
+demo/components/instrument/shell/TypingDots.vue:45:// holds under proof:typing-dots (d)'s ≤1.6s ceiling with margin.
+demo/components/instrument/shell/TypingDots.vue:51:// Rest opacity NEVER 0 (the perceptual fix + proof:typing-dots (c)'s ≥0.15
+demo/components/instrument/shell/TypingDots.vue:59:// (proof:typing-dots (b)). `stagger` is the library's own delay-distribution
+
+=== (9) proof:brittleness — THE R2-13 FAMILY, WHOLE ===
+$ git grep -n 'proof:brittleness' origin/master -- demo/ src/ scripts/
+demo/styles/layout.css:152:   dock bands, NOT a :has() test on a generic .z-dock utility class (proof:brittleness
+demo/styles/style.css:38:   value (proof:brittleness gates against drift). The one raw `z-index: -10`
+scripts/lib/demo-driver.mjs:69:// A STALE-KEY GUARD (mirrors the proof:brittleness LISTENER_ALLOWLIST stale
+$ git grep -l 'proof:brittleness' origin/master -- docs/ | wc -l   (keyframes docs/**, OUT OF SCOPE by bounds)
+      68
+
+=== (10) THE TWO NAMES THE NAIVE "DEAD" READING GETS WRONG — measured, not asserted ===
+--- proof:boundary NAMES A LIVE, EXECUTING CHECK (repoint, never strike) ---
+$ git grep -n 'proof:boundary' origin/master -- scripts/
+scripts/gates/surface/boundary.mjs:532:    console.log("proof:boundary — light-surface static module graphs");
+scripts/gates/surface/boundary.mjs:719:            "\nproof:boundary — FAIL (inv α — the boundary is broken):",
+scripts/gates/surface/boundary.mjs:731:        "\nproof:boundary — PASS: every barrel light entry is value.js-free, the\n" +
+scripts/gates/surface/boundary.mjs:738:    console.error("proof:boundary — ERROR:", err);
+$ git show origin/master:scripts/gates/surface/index.mjs | sed -n '16,22p'   (the proof:publish family list)
+const checks = [
+    "boundary.mjs",
+    "published-surface.mjs",
+    "consume-bundle.mjs",
+    "readme-runs.mjs",
+    "agent-surface.mjs",
+];
+  => boundary.mjs RUNS inside 'npm run proof:publish'. proof:boundary is NOT a phantom; it is UNROUTED.
+--- proof:visual-lock IS NAMED AS SUPERSEDED BY THE LIVE VISUAL GATE ---
+$ git grep -n 'proof:visual-lock' origin/master -- scripts/
+scripts/gates/visual/index.mjs:4: * owner-anchored perceptual reference oracle that SUPERSEDES proof:visual-lock's
+scripts/gates/visual/index.mjs:8: * proof:visual-lock (proof-visual-lock.mjs:10-17) declares itself a HYGIENE-tier
+scripts/gates/visual/index.mjs:38: * automated CI aggregation until the blessing token lands, exactly the proof:visual-lock
+  => its successor is 'npm run proof:owner-golden' (scripts/gates/visual/index.mjs).
+
+=== (11) THE SIX NAMES THAT REACH THE OBSERVE HARNESS (runnable by PATH, not as npm proof:*) ===
+--- proof:amiga-subject-is-pivot ---
+scripts/lib/console-budget.mjs:119:        // proof:amiga-subject-is-pivot clause (a)/(c) split. HARD tiers still charge
+scripts/observe/demo/live-session.mjs:63: * live [B2], proof:easing-editor-live [B4], proof:amiga-subject-is-pivot [B3],
+scripts/observe/demo/live-session.mjs:682:        //    sub-windows mirror the canonical proof:amiga-subject-is-pivot split:
+scripts/observe/demo/live-session.mjs:691:            // RC-2 mirror of proof:amiga-subject-is-pivot clause (c)). The RC-2
+--- proof:drag-gesture ---
+scripts/observe/demo/live-session.mjs:64: * proof:drag-gesture + proof:perf-frame-budget [B6/B8], proof:icon-paint-live
+--- proof:icon-paint-live ---
+scripts/lib/demo-driver.mjs:372: *              proof:icon-paint-live zero-asset-404 oracle consumes this. When
+scripts/observe/demo/live-session.mjs:64: * proof:drag-gesture + proof:perf-frame-budget [B6/B8], proof:icon-paint-live
+--- proof:live-session-mobile ---
+scripts/observe/demo/live-session.mjs:48: *   sibling proof:live-session-mobile (same harness, same budget allowlist by
+--- proof:scene-icons ---
+scripts/lib/demo-driver.mjs:137: * SAME shape `proof:scene-icons` uses to read the descriptor set — so the
+--- proof:brittleness ---
+scripts/lib/demo-driver.mjs:69:// A STALE-KEY GUARD (mirrors the proof:brittleness LISTENER_ALLOWLIST stale
+
+=== (12) FILE -> OWNING-WAVE GROUND (the 51 files; exact-path match inside each sibling spec §Bounds) ===
+$ awk '/^## §?Bounds/{f=1;next} f&&/^## /{f=0} f' KF-W<n>.md  |  grep -F <path>
+demo/DESIGN.md                                                                  W4 W6
+demo/app/App.vue                                                                W4 W6 W8
+demo/app/index.html                                                             W9
+demo/app/main.ts                                                                (no exact-path bounds row)
+demo/app/scene/scenes.ts                                                        W5
+demo/app/scene/useSceneMachineShellBinding.ts                                   (no exact-path bounds row)
+demo/app/transition/useSceneTransition.ts                                       (no exact-path bounds row)
+demo/components/instrument/keyframes/KeyframeCard.vue                           W6 W8
+demo/components/instrument/shell/EditorStartScreen.vue                          W4 W6 W8
+demo/components/instrument/shell/HeroAurora.vue                                 W4 W6 W8
+demo/components/instrument/shell/TypingDots.vue                                 W4 W6
+demo/components/instrument/transport/AnimationControlsGroup.css                 (no exact-path bounds row)
+demo/components/instrument/transport/AnimationControlsGroup.vue                 W6
+demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupActions.ts  (no exact-path bounds row)
+demo/components/instrument/transport/AnimationControlsGroup/useAnimationGroupPlayback.ts  (no exact-path bounds row)
+demo/components/instrument/transport/AnimationControlsGroup/useControlsKeyboardShortcuts.ts  W8
+demo/components/instrument/transport/ControlsPaneWrapper/usePaneRegister.ts     (no exact-path bounds row)
+demo/components/instrument/transport/TransportDock.vue                          W6
+demo/components/instrument/transport/channel-controls/ChannelControls.vue       W3 W6
+demo/components/instrument/transport/channel-controls/ChannelOptions.vue        W4 W6
+demo/components/instrument/transport/channel-controls/composables/useKeyframesPaneReveal.ts  (no exact-path bounds row)
+demo/components/instrument/transport/channel-controls/composables/useSelectedControlSurface.ts  (no exact-path bounds row)
+demo/components/instrument/transport/channel-controls/composables/useTabStripScroll.ts  W6
+demo/components/instrument/transport/components/DemoGlobalChrome.vue            W6
+demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.css      (no exact-path bounds row)
+demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue      W6
+demo/components/playback/PlaybackRibbon.vue                                     W6 W7
+demo/composables/scene-facility/index.ts                                        (no exact-path bounds row)
+demo/composables/scene-runtime/useSceneTransport.ts                             (no exact-path bounds row)
+demo/kf-engine.ts                                                               W5
+demo/scenes/amiga/AmigaScene.vue                                                W4 W6 W9
+demo/scenes/amiga/useAmigaDemo.ts                                               (no exact-path bounds row)
+demo/scenes/amiga/utils.ts                                                      (no exact-path bounds row)
+demo/scenes/cube/CubeTarget.css                                                 (no exact-path bounds row)
+demo/scenes/cube/CubeTarget.vue                                                 (no exact-path bounds row)
+demo/scenes/cube/useCubeRelit.ts                                                (no exact-path bounds row)
+demo/scenes/easing/EasingScene.vue                                              (no exact-path bounds row)
+demo/scenes/sequence/SequenceTarget.css                                         (no exact-path bounds row)
+demo/scenes/sequence/useSequenceDemo.ts                                         (no exact-path bounds row)
+demo/scenes/spring/SpringHeatmap.vue                                            W6
+demo/scenes/spring/SpringPhysicsFacet.vue                                       W4 W6 W7 W8
+demo/scenes/spring/SpringScene.vue                                              W4
+demo/scenes/spring/useSpringHotPath.ts                                          (no exact-path bounds row)
+demo/scenes/square/useSquareKeyboard.ts                                         (no exact-path bounds row)
+demo/state/controlSurfaces.ts                                                   (no exact-path bounds row)
+demo/state/scenePlaybackAdapters.ts                                             (no exact-path bounds row)
+demo/state/useSceneMachine.ts                                                   (no exact-path bounds row)
+demo/styles/design-idioms.css                                                   W4 W5 W6 W7 W9
+demo/styles/font-roles.json                                                     W4 W6
+demo/styles/layout.css                                                          W4 W6
+demo/styles/style.css                                                           W6
+
+=== (12b) THE EXACT-PATH READING IS SHORT — KF.W6 §Bounds CARRIES SEVERAL OF THEM IN COMPRESSED SPELLING ===
+A path-literal grep over a sibling §Bounds is a FLOOR on ownership, never a ceiling: KF-W6.md writes
+the cube row as "CubeTarget.vue"/".css" and the amiga row as "AmigaScene.vue" + "utils.ts" — ONE cell each.
+The rows, quoted by command:
+$ awk '/^## §Bounds/{f=1;next} f&&/^## /{f=0} f' KF-W6.md | grep -n 'demo/scenes/'
+64:| `demo/scenes/amiga/AmigaScene.vue` + `utils.ts` | — | modify | stage-surface + canvas-theme packet |
+65:| `demo/scenes/spring/SpringHeatmap.vue` | — | modify | canvas-colour + theme-flip decision |
+66:| `demo/scenes/spring/SpringPhysicsFacet.vue` · `SpringScene.vue` · `SpringTrace.vue` · `StartingStyleTarget.vue` | — | modify-carve | SPF-6, **SPF-10 (the `shape="cell"` erosion — booked as a row at W6-I wi
+67:| `demo/scenes/cube/CubeScene.vue` · `CubeTarget.vue`/`.css` · `CubeAxisLines.vue` · `matrix-editor/MatrixEditor.vue` | — | modify-carve | D-7 face palette · #58/#60 · KF-AX-3/-11/-12/-15/-25/-31 · ME-13/ME-
+68:| `demo/scenes/easing/EasingTarget.vue`/`.css` · `EasingSidebar.vue` · `EasingScene.vue` | — | modify-carve | KF-ET-10/-17/-21, KF-ES-21, KF-ES-45; **+ the inbound W5 easing prose ids KF-ET-33, KF-ES-36** (R
+69:| `demo/scenes/sequence/SequenceScrubber.vue` · `SequenceScene.vue` · `SequenceTarget.css` · **`SequenceTarget.vue`** · `SequencePlayhead.vue` | — | modify-carve | KF-SCR-2, **`D·D-7`** (the material-registe
+70:| `demo/scenes/square/SquareScene.vue`/`.css` · `SquareInstrument.vue` | — | modify-carve | D-23 collision, D-18, **SquareInstrument D-20** (the eight-selector token re-point + the BG-6 relay re-derivation) 
+
+$ ... | grep -n 'demo/styles/\|controls-pane\|DemoGlobalChrome\|TransportDock\|AnimationControlsGroup.vue\|DESIGN.md'
+17:| `demo/styles/tab-idiom.css` | 79 | modify/**delete** | 48-line `.tab-trigger-*` corpse — **LAW-A census A-10** (D-P4-6, repair round 4): the file's graph is ONE edge, `demo/styles/design-idioms.css:7` `@im
+18:| `demo/styles/design-idioms.css` | 300 | modify | `--rainbow-*`, `--amiga-red`, `.tap-floor`, `.text-gold`, `--scale-hover`, `.focus-ring`, `icon-*`, `--panel-max-h`, gold token, `.status-badge` precedent, 
+19:| `demo/styles/layout.css` | 210 | modify | `--dock-margin` chain (`:80,:92,:117,:135,:161,:166,:204`), `--start-hero-band`, `--controls-idle-opacity`, `@supports (anchor-name)` arm, override-policy block; *
+20:| `demo/styles/style.css` | 294 | modify | `--font-display-weight`, `font-synthesis`, `@layer demo-typography`, `.focus-ring`, z-contract block, `--z-behind` |
+21:| `demo/styles/font-roles.json` | — | modify | `filing-tab*` empty-set selectors; `.kf-pill-tab` vanity row; `hero-display` contract |
+22:| `demo/styles/playback-idiom.css` | — | modify | `--color-progress` wiring (KF-AV-11 token half) |
+52:| `demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue` + `.css` | — | modify-carve | D-m3 token + dead `#tabs-trigger` chain only; **+ KF-SKEL-9's `controls-drawer--stage-*`/`controls
+53:| `demo/components/instrument/transport/controls-pane/RibbonBar.vue` | — | modify-carve | D-3/m-1/C-2, RB-2, RB-5, D-8/C-9 |
+54:| `demo/components/instrument/transport/components/DemoGlobalChrome.vue` | — | modify-carve | M-4 token instance only; toast verdict census-owned |
+55:| `demo/components/instrument/transport/TransportDock.vue` | — | modify-carve | `--dock-margin` sites `:389`/`:395` only. **DOCK-CONTRACT RE-VERIFY — THIS END OF THE W10 SEAM, BOOKED AT REPAIR ROUND 4 (D-P4-
+71:| `demo/components/instrument/transport/AnimationControlsGroup.vue` | 336 | modify-carve | **KF-SKEL-9's nine dead stage-class emissions ONLY** (`:6` `controls-layout--stage-${stageMode}` + the `controls-dra
+75:| `demo/DESIGN.md` · `docs/**` in-file cites | — | modify-carve | prose-with-code only; the citation GATE is KF.W4's |
+87:- **A-1 · `transport/composables/useAnimationGroupPlayback.ts`** (the F-5 playback shim, 1 L: `export { useAnimationGroupPlayback } from "../AnimationControlsGroup/useAnimationGroupPlayback";`). **(1) SPECIF
+96:- **A-10 · `demo/styles/tab-idiom.css`** (ADDED at repair round 4, D-P4-6 — the wave's only stylesheet delete had no census at all while A-1…A-9 were all module-graph censuses; LAW A's scope sentence says *e
+100:  demo/styles/design-idioms.css:7:@import "./tab-idiom.css";
+103:  **Exactly ONE edge, corpus-wide** — a CSS `@import`, which is why nine module-graph censuses could not see it. **(2) CLASS-SPACE**, because a stylesheet's real consumers are its selectors' users: `git gre
+109:  demo/styles/layout.css:15:    --header-items-max-w: 500px; /* the EditorHeader expanded items-wrapper cap … */
+120:  demo/styles/layout.css:15:    --header-items-max-w: 500px;
+147:**SUBJECT-IDENTITY CHECK (R3-4.3, run over this spec's symbol-bearing §Bounds rows).** For each row naming a symbol, `git grep -n '<symbol>' origin/master -- '<the row's own file>'` must return the row's st
+
+KF.W6's OWN do-not-touch clause, which decides demo/state/**:
+81:**Not touched by any seat here**: keyframes.js `src/**` (KF.W5), `demo/components/instrument/timeline/composables/**` + `utils/timelineEngine.ts` (KF.W7), `demo/state/**` behavioural stores (**the demo's stores — NOT `test/demo/state/`, whose one file this wave now carries by row above**), value.js `src/**`, `scripts/dev/dev.sh` (unowned, either repo, **NEVER touch**).
+
+=== (13) KF.W4 R-7 / G-KFW4-8 — THE EIGHT CITATION TARGETS AND THEIR MEASURED LINE COUNTS ===
+DESIGN.md 13 · EditorStartScreen.vue 5 · App.vue 3 · HeroAurora.vue 3 · TypingDots.vue 3 · layout.css 3 · design-idioms.css 2 · SpringPhysicsFacet.vue 1  = 33 lines / 19 names
+re-derived at this seat from section (5) above:
+  demo/DESIGN.md                                                 13
+  demo/components/instrument/shell/EditorStartScreen.vue         5
+  demo/app/App.vue                                               3
+  demo/components/instrument/shell/HeroAurora.vue                3
+  demo/components/instrument/shell/TypingDots.vue                3
+  demo/styles/layout.css                                         3
+  demo/styles/design-idioms.css                                  2
+  demo/scenes/spring/SpringPhysicsFacet.vue                      1
+  SUM = 33   <- reproduces KF-W4.md §Bounds 'Citation targets' row and R-7's denominator EXACTLY
+  116 demo-wide lines - 33 at the eight targets = 83 lines OUTSIDE KF.W4's reach.
+
+=== (14) THE LIVENESS SWEEP — every one of the 54 names run against test/ AND scripts/ ===
+Predicate, stated so it reproduces:
+  file-basename-match : grep -iE "(^|/)<name-without-prefix>(\.|-)" over `git ls-tree -r --name-only origin/master test/ scripts/`
+  named-inside        : git grep -l "proof:<name>" origin/master -- test/ scripts/
+A name matching EITHER arm is NOT a phantom: it is an UNROUTED citation of a live instrument, and its cure
+is a REPOINT, never a strike. This arm did not exist in any prior reading of this gate.
+
+--- the FULL 54-row sweep ---
+proof:accent-census | file-basename-match: none | named-inside: none
+proof:amiga-subject-is-pivot | file-basename-match: none | named-inside: scripts/lib/console-budget.mjs scripts/observe/demo/live-session.mjs 
+proof:amiga-tessellate-tilecount | file-basename-match: none | named-inside: none
+proof:app-is-shell | file-basename-match: none | named-inside: none
+proof:appearance-suffusion | file-basename-match: none | named-inside: none
+proof:boundary | file-basename-match: scripts/gates/surface/boundary.mjs test/engine/boundary-cohesion.test.ts  | named-inside: scripts/gates/surface/boundary.mjs test/physics/oscillator.test.ts test/scroll/trigger-oracle.test.ts 
+proof:brittleness | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs 
+proof:colocation | file-basename-match: none | named-inside: none
+proof:crayon-preserved | file-basename-match: none | named-inside: none
+proof:cursor-light-subtle | file-basename-match: none | named-inside: none
+proof:demo-no-oversize | file-basename-match: none | named-inside: none
+proof:demo-title | file-basename-match: none | named-inside: none
+proof:design-refinement | file-basename-match: none | named-inside: none
+proof:dfa-derived | file-basename-match: none | named-inside: none
+proof:dock-grammar | file-basename-match: none | named-inside: none
+proof:dock-zorder | file-basename-match: none | named-inside: none
+proof:dogfood | file-basename-match: none | named-inside: none
+proof:drag-gesture | file-basename-match: none | named-inside: scripts/observe/demo/live-session.mjs 
+proof:easing-sidebar | file-basename-match: none | named-inside: none
+proof:easing-sidebar-normalized | file-basename-match: none | named-inside: none
+proof:font-census | file-basename-match: none | named-inside: none
+proof:glass-and-cartoon | file-basename-match: none | named-inside: none
+proof:group-snapshot-identity | file-basename-match: test/group/group-snapshot-identity.test.ts  | named-inside: test/demo/scenes/scene-contract-identity.test.ts test/group/group-snapshot-identity.test.ts 
+proof:hero-deck-voice | file-basename-match: none | named-inside: none
+proof:hero-two-focal | file-basename-match: none | named-inside: none
+proof:icon-paint-live | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs scripts/observe/demo/live-session.mjs 
+proof:idioms | file-basename-match: none | named-inside: none
+proof:lighthouse-a11y | file-basename-match: none | named-inside: none
+proof:live-session-mobile | file-basename-match: scripts/observe/demo/live-session-mobile.mjs  | named-inside: scripts/observe/demo/live-session.mjs 
+proof:mobile-single-page | file-basename-match: none | named-inside: none
+proof:no-hand-rolled-cursor-tracker | file-basename-match: none | named-inside: none
+proof:no-shadow-playback-authority | file-basename-match: test/demo/state/no-shadow-playback-authority.test.ts  | named-inside: test/demo/state/no-shadow-playback-authority.test.ts 
+proof:one-adapter | file-basename-match: none | named-inside: none
+proof:panel-naked-rail | file-basename-match: none | named-inside: none
+proof:perf-counters | file-basename-match: none | named-inside: none
+proof:phi-leaf-zero | file-basename-match: none | named-inside: none
+proof:publish | file-basename-match: none | named-inside: scripts/gates/surface/agent-surface.mjs scripts/gates/surface/index.mjs scripts/gates/surface/published-surface.mjs scripts/gates/surface/readme-runs.mjs scripts/gates/surface/verify-diff.mjs scripts/gen-agent-surface.mjs scripts/lib/agent-surface.mjs test/compile/agent-validate.test.ts 
+proof:scene-contract-identity | file-basename-match: test/demo/scenes/scene-contract-identity.test.ts  | named-inside: test/demo/scenes/scene-contract-identity.test.ts test/group/group-snapshot-identity.test.ts 
+proof:scene-control-dfa | file-basename-match: none | named-inside: none
+proof:scene-facility | file-basename-match: test/demo/scenes/scene-facility.test.ts  | named-inside: test/demo/scenes/scene-facility.test.ts 
+proof:scene-icons | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs 
+proof:scene-machine-irrefragable | file-basename-match: none | named-inside: test/demo/state/control-surface-dfa.test.ts 
+proof:sequence-rows-draggable | file-basename-match: none | named-inside: none
+proof:single-writer | file-basename-match: none | named-inside: none
+proof:stage-inventory | file-basename-match: none | named-inside: none
+proof:stage-not-clipped | file-basename-match: none | named-inside: none
+proof:stage-visible | file-basename-match: none | named-inside: none
+proof:stage-within-docks | file-basename-match: none | named-inside: none
+proof:style-file-ceiling | file-basename-match: none | named-inside: none
+proof:styling-idioms | file-basename-match: none | named-inside: none
+proof:transport-action-order | file-basename-match: none | named-inside: none
+proof:typing-dots | file-basename-match: none | named-inside: none
+proof:visual-lock | file-basename-match: none | named-inside: scripts/gates/visual/index.mjs 
+proof:zone-cohesion | file-basename-match: none | named-inside: none
+
+--- the rows that HIT (the roster-changing residue) ---
+proof:amiga-subject-is-pivot | file-basename-match: none | named-inside: scripts/lib/console-budget.mjs scripts/observe/demo/live-session.mjs 
+proof:boundary | file-basename-match: scripts/gates/surface/boundary.mjs test/engine/boundary-cohesion.test.ts  | named-inside: scripts/gates/surface/boundary.mjs test/physics/oscillator.test.ts test/scroll/trigger-oracle.test.ts 
+proof:brittleness | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs 
+proof:drag-gesture | file-basename-match: none | named-inside: scripts/observe/demo/live-session.mjs 
+proof:group-snapshot-identity | file-basename-match: test/group/group-snapshot-identity.test.ts  | named-inside: test/demo/scenes/scene-contract-identity.test.ts test/group/group-snapshot-identity.test.ts 
+proof:icon-paint-live | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs scripts/observe/demo/live-session.mjs 
+proof:live-session-mobile | file-basename-match: scripts/observe/demo/live-session-mobile.mjs  | named-inside: scripts/observe/demo/live-session.mjs 
+proof:no-shadow-playback-authority | file-basename-match: test/demo/state/no-shadow-playback-authority.test.ts  | named-inside: test/demo/state/no-shadow-playback-authority.test.ts 
+proof:publish | file-basename-match: none | named-inside: scripts/gates/surface/agent-surface.mjs scripts/gates/surface/index.mjs scripts/gates/surface/published-surface.mjs scripts/gates/surface/readme-runs.mjs scripts/gates/surface/verify-diff.mjs scripts/gen-agent-surface.mjs scripts/lib/agent-surface.mjs test/compile/agent-validate.test.ts 
+proof:scene-contract-identity | file-basename-match: test/demo/scenes/scene-contract-identity.test.ts  | named-inside: test/demo/scenes/scene-contract-identity.test.ts test/group/group-snapshot-identity.test.ts 
+proof:scene-facility | file-basename-match: test/demo/scenes/scene-facility.test.ts  | named-inside: test/demo/scenes/scene-facility.test.ts 
+proof:scene-icons | file-basename-match: none | named-inside: scripts/lib/demo-driver.mjs 
+proof:scene-machine-irrefragable | file-basename-match: none | named-inside: test/demo/state/control-surface-dfa.test.ts 
+proof:visual-lock | file-basename-match: none | named-inside: scripts/gates/visual/index.mjs 
+
+rows total                                    : 54
+rows with a hit on either arm                 : 14
+  of which proof:publish (already runnable, NOT one of the 53) : 1
+  of which proof:brittleness (a COMMENT MIRROR at demo-driver.mjs:69, not an instrument) : 1
+  => 12 of the 53 dead names resolve to a LIVE instrument  ->  REPOINT
+  => 53 - 12 = 41 true phantoms                            ->  strike-in-owner-wave / route / NO-WAVE-OWNER
+
+--- the live instruments, quoted by command ---
+$ git show origin/master:test/demo/state/no-shadow-playback-authority.test.ts | sed -n '1p'
+// proof:no-shadow-playback-authority — T.B8 (lane 30 rec 1), the vitest half.
+$ git show origin/master:scripts/gates/surface/boundary.mjs | sed -n '532p'
+    console.log("proof:boundary — light-surface static module graphs");
+$ git show origin/master:scripts/gates/visual/index.mjs | sed -n '4,8p'
+ * owner-anchored perceptual reference oracle that SUPERSEDES proof:visual-lock's
+ * self-captured baseline + full-subject mask.
+ *
+ * ── THE META-FACT IT CURES ─────────────────────────────────────────────────────
+ * proof:visual-lock (proof-visual-lock.mjs:10-17) declares itself a HYGIENE-tier
+$ git show origin/master:scripts/observe/demo/live-session.mjs | sed -n '63,64p'
+ * live [B2], proof:easing-editor-live [B4], proof:amiga-subject-is-pivot [B3],
+ * proof:drag-gesture + proof:perf-frame-budget [B6/B8], proof:icon-paint-live
