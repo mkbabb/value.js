@@ -456,3 +456,111 @@ HG-4 `:237` requires the loser marked *"SUPERSEDED **in place**"*. The loser is 
 **Done instead, wholly in bounds**: §2.2 is a dated tracked row naming **P** canon, marking **J** SUPERSEDED, annotating **both** readings at their exact byte coordinates, and proving it with three re-runnable probes. HG-4's falsifier — *"leaving both readings unannotated leaves the contradiction greppable"* — is therefore **met**.
 
 **The word wanted, in one sentence**: *does "in place" require a byte inside `FORMATION-CLEAN-PASSES.json` — in which case the gate is unsatisfiable as written and the honest act is a dated addendum-beside amending HG-4 — or is §2.2's dated annotation in tracked canon sufficient, this seat's reading and the only one its bounds permit?* **Returned to X-W0.g's sitting packet as a docketed row**, or to the owner directly; it is **not** one of COHESION §0j.A's seven and must not be presumed into them. **No act taken outside bounds.**
+
+---
+
+### X-W0.f — The Tombstone Set (CC-015..CC-018, CC-022) — **DONE**
+
+**Seat**: Opus (`claude-opus-5[1m]`) · group 3 · 2026-09-17
+**Sections executed**: `waves/W0.md` §Agent Units "X-W0.f" `:179–184` · §Scope 6 `:29` · HG-12 `:282–298` · §Commit Plan row 6 `:376` · §File Bounds Do-NOT-touch `:101`
+**Rulings consumed**: COHESION **§0j.A `:517`** (DR-14 = **DELETE**, routed to X-W1's config carve) · **§0j.A `:518`** (DR-16 = **RETIRE**, option a, **no** fresh bracket set at X-W10) · §0j preamble (the begin-word). No other §0j row gates this unit.
+**Artefact**: `docs/tranches/X/W0/TOMBSTONES.md` (created — **687 lines, 43,649 B**)
+**Commit**: **`b5673ae0`** — `docs(x-w0/tombstones): the five executable tombstones — CC-015/016/017/018/022, every probe pasted and reproducing; CC-022 FIXED at kf 6.0.0` · ONE commit, as locked · **687 insertions, 0 deletions, 1 file**
+**HEAD at open**: `a0d392dc` · **at the final probe re-run**: `ca5b7441` · **post-commit re-run**: `e12eeb91` (sibling Track seats commit concurrently; every probe was re-run at each clock)
+
+#### Acts, in order
+
+**F1 · The five probes run and double-run BEFORE a byte was written.** All five reproduce the spec's born-RED table (`W0.md:286–292`) exactly, and each was run twice with byte-identical output ⟨captured to one scratchpad file in a single shell so the two runs share a clock⟩:
+
+| row | ⟨cmd⟩ | output (verbatim, both runs identical) |
+|---|---|---|
+| **CC-015** | `grep -rn "glass-ui/blob" demo/` | **5** hits / **3** files — `scenes/blob/BlobPane.vue:12,13` · `picker/visual/HeroBlob.vue:34,35` · `color-picker/composables/boot/useAtmosphere.ts:36` |
+| **CC-016** | `grep -n siblingFsAllowTransient vite.config.ts` | `139:const siblingFsAllowTransient = [path.resolve(import.meta.dirname, "..")];` · `287:                fs: { allow: siblingFsAllowTransient },`; glass installed **7.0.0**, pin `^7.0.0` (`package.json:83`) |
+| **CC-017** | `git submodule status docs/precepts` ⧸ same in `../keyframes.js` | ` 63240e677dfd1d5b95e00710a1a4d64664624784 docs/precepts (heads/main-26-g63240e6)` ⧸ ` 8ccf9f4da0198e02382e673f253fe96c2ed03034 docs/precepts (heads/main)` |
+| **CC-018** | `sed -n 30p docs/tranches/T/audit/w8-certification/VERDICT-2026-07-12.md` | `> _(empty — the owner's verdict lands here)_` |
+| **CC-022** | `node -p "require('./node_modules/@mkbabb/keyframes.js/package.json').version"` | `6.0.0`, pin `^6.0.0` (`package.json:84`) |
+
+**F2 · Every "original mandate" resolved to an owner-or-origin byte, not to the registry's paraphrase of it.** HG-12 asks for the mandate *quoted verbatim*; a tombstone that quotes only the adjudicated summary quotes the summariser. Each row was chased to its minting byte and both are carried:
+
+| row | the minting byte | the adjudicated statement carried beside it |
+|---|---|---|
+| CC-015 | **`docs/tranches/D/D-PROMPTS.md:25`** — the owner's own words, *"Full validation and extirpation of the blob **faciilities** — align, update, and augment the glass-ui **glob** facilities …"* | `DISEASE-REGISTRY:123` + `:127` |
+| CC-016 | **`D/audit/D.W1-contract-v2.md:204` + `:210`** — the decision that minted the identifier *and* the retirement trigger in the same bullet list; restated at `D/FINAL.md:201` | `DISEASE-REGISTRY:243` |
+| CC-017 | **`F/coordination/Q.md:145`** + **`G/audit/G-AUDIT-2-deferred-ledger.md:145`** (CH-10's full row) + the finding that minted it, **`E/audit/E-AUDIT-4-cross-repo-state.md:232`** | `DISEASE-REGISTRY:253` + `:257` |
+| CC-018 | **`T/waves/T.W8.md:240–242`** (§Hard gate row 6) + `:246–247` (the *"critique is a PRE-FILTER, never a certification"* prohibition); restated at `PACKAGE.md:10` | `DISEASE-REGISTRY:263` |
+| CC-022 | **`S/audit/w7-furniture-records.md:24–29`** (the root cause) + **`:42–48`** (the named one-line cure) + **`U/FINAL.md:274`** (book **B1**, the retirement gate) + `U/DISPOSITION-LEDGER.md:57` | `DISEASE-REGISTRY:353` + `:357` |
+
+> **The owner's spellings are preserved** — `faciilities`, `glob` — for the reason X-W0.b measured on this same corpus at its B7: a search for the *corrected* spelling reaches the correcting file and never the owner's bytes. Every one of the sixteen anchors above was re-read at its line number at this clock; **none had drifted**.
+
+**F3 · CC-015 — a second probe, because the gate's probe answers the wrong question if read alone.** The mandate's verb is *"remove the hard-coded bespoke versions herein **to leverage that**"*, so a producer import is **compliance**, not violation. The mandate's actual predicate was measured directly: ⟨`find demo -iname '*metaball*' -o -iname '*WatercolorDot*' -o -iname '*useMetaballRenderer*'`⟩ → **empty**; ⟨`grep -rln "createQuadVAO\|compileShader\|metaball.frag" demo/ src/`⟩ → **`demo/picker/seat.css` only** (a CSS file — no GL call site survives); ⟨`grep -rn "watercolor-filter" demo/`⟩ → **1** hit, `SpectrumCanvas.vue:266`, *"no global #watercolor-filter override here"* — **a comment asserting its own absence**; ⟨`node -p "Object.keys(require('…/glass-ui/package.json').exports).filter(k=>/blob/.test(k)).join(',')"`⟩ → `./blob-config,./blob`. Landing re-verified: ⟨`git merge-base --is-ancestor e32111c7 HEAD`⟩ → **exit 0**. The inversion re-measured: ⟨`grep -rn "extirpat" docs/tranches/V/vnext/ | wc -l`⟩ → **0** (double-run **0**) — the registry's *"ZERO times in the entire vnext corpus"* reproduces.
+
+**Disposition: RETIRED — satisfied at `e32111c7`, inverted in the record and never in the tree.** The five HEAD imports are the mandate's second clause, not its debt; D18's KEEP ruling governs the instrument's *future* and is not disturbed; the residual lifecycle asks are **DR-03 / CC-035**, the split six closes failed to make.
+
+**F4 · CC-016 — the trigger evaluated ONCE, in both directions, and the finding that it fired four months ago.** The ledger's verb is *"evaluate the trigger ONCE at X-W0 against installed glass 7.0.0"*. **Producer half**: `E/audit/E-AUDIT-4-cross-repo-state.md:41`, verbatim — glass-ui `9275584` (2026-05-19) *"**Closes the contract-v2 §2.1 keystone gap.** … **value.js can now retire its `siblingFsAllowTransient` transient carve-out.**"* **The trigger was observed firing in value.js's own tracked canon on 2026-05-19 and the carve-out was carried through E, F, G, H and I..V anyway** — the FM-19 shape a second time. **Consumer half**: ⟨`awk 'NR>=130 && NR<=139' vite.config.ts`⟩ (read-only) shows the rationale has already migrated in the file's own comment — *"the SFC-scoped component-CSS half closed at E.W0; only font-asset resolution remains"* — so the trigger as **written** fired at E while the trigger as the file now **reasons about itself** (fonts inlined as data URLs) has not. A retirement condition that silently migrates across fourteen closes is the thing that may not survive X.
+
+**Disposition: RETIRED — trigger evaluated once and not re-armed; verb = DELETE (§0j.A `:517`), act routed to X-W1, NO delete performed here.** `vite.config.ts` is `W0.md:101` **Do NOT touch** for this entire wave; ⟨`git diff-tree --no-commit-id --name-only -r b5673ae0 | grep -c 'vite.config'`⟩ → **0**.
+
+**F5 · CC-017 — the gate's probe cannot tell a fork from a lag, so ten more were run.** Two differing SHAs are consistent with two incompatible facts, and the row rode six closes on the **fork** reading without anyone measuring which it was. Measured read-only inside value.js's own `docs/precepts` clone — **no `fetch`, no `update`, no write; `origin/main` is whatever this clone last held**:
+
+| ⟨cmd⟩ | output | what it settles |
+|---|---|---|
+| `git -C docs/precepts cat-file -t 8ccf9f4da019…` | `commit` | the peer's pin **is an object in this clone** → *"a separate precepts repository"* **refuted at the bytes** |
+| `git -C docs/precepts merge-base 63240e67 8ccf9f4d` | `63240e677dfd…` | the merge-base **is value.js's own pin** — linear, not divergent |
+| `git -C docs/precepts rev-list --left-right --count 63240e67...8ccf9f4d` | `0	1` | value.js **0 ahead**, keyframes.js **1 ahead**. The whole drift is **one commit** |
+| `git -C docs/precepts rev-list --count 63240e67..origin/main` | `16` | **value.js is the laggard**, 16 behind upstream |
+| `… --is-ancestor 8ccf9f4d origin/main` ⧸ `458c2d1 origin/main` ⧸ `68d9b20 63240e67` | exit `0` ×3 | peer pin **and both historically cited SHAs** are all on the one `mkbabb/precepts` line |
+| `git -C docs/precepts log -1 --format='%h %ad %s' --date=short` ×3 | `63240e6 2026-05-27 infra: promote tls/blob-backend-dr/deploy…` ⧸ `8ccf9f4 2026-06-04 spec(π-lane): edict — every-page paired before/after capture…` ⧸ `b0f6134 2026-07-17 precepts: truth-up against the glass-ui 7.0.0 surface` | the peer's pin **is value.js's pin plus one commit** |
+
+**The E-era grading — *"a separate precepts repository (or a fork) that does NOT share commits"*, *"drift of the highest severity"* — does not hold at today's bytes.** The registry was right that the `458c2d1` vs `68d9b20` framing is *"historical fiction"*; it is right for a stronger reason than it knew — **that pair was never a fork either.**
+
+**Disposition: RETIRED — the event-bound trigger is dead by six-close demonstration and is not re-armed; the chronic it named does not exist.** No rebase performed: `docs/precepts` appears in **no** X wave's §File Bounds, and the peer half is un-writable by us by standing law and by `G-PEER-KEYFRAMES-JS.md:188` (*"the fix is keyframes.js-internal … Per F3, value.js doesn't write keyframes.js"*). The surviving question — *do we advance our own pin the 16?* — is **new, small and not the carry**; returned as **RS-2**.
+
+**F6 · CC-018 — the "three closes" claim carried by history, not by a one-line probe.** ⟨`git log --format='%h %ad %s' --date=short -- …/VERDICT-2026-07-12.md`⟩ → **exactly one commit**, `286619e8` (2026-07-12, the hour it was assembled). **The file has never been edited** — 67 days and three tranche closes; ⟨`shasum -a 256`⟩ → `7119280ad5d6a8ead76e3518f13f012acc13f4b114475041eb9500f595d7a861`. Its own `:3` still reads *"**AWAITING THE OWNER**"* and its own `:39` *"**Wave close**: only on the owner's word. Until then, **OPEN, honestly**."* The bracket half: ⟨`grep -rn "B-02\|B-10\|B-20" docs/tranches/U/ | wc -l`⟩ → **0 · 0 · 0**.
+
+**Disposition: RETIRED (option a) per §0j.A `:518`, transcribed verbatim and not re-opened; tombstone is the act; NO fresh bracket set at X-W10.** Recorded explicitly at §4.4 of the artefact: **CC-018's *"optional CC-018 fresh brackets"* entry at `CARRY-CUT-LEDGER.md:256` is closed by this ruling** — the condition it was optional upon has been answered **NO**. `VERDICT-2026-07-12.md` stays byte-identical (G05 append-only; E-3): its emptiness is now evidence, not an open obligation.
+
+**F7 · CC-022 — the owed re-probe run against the installed bytes, and the cure FOUND.** The ledger's act is *"one re-probe at kf 6"*, not a version read. Run read-only over the package value.js consumes ⟨`shasum -a 256 node_modules/@mkbabb/keyframes.js/dist/sequence-BvpIpCGp.js`⟩ → `d13cab1bd6e1879acba3cde570656f3da1463c19c87a8fdf9d2c57c4e0cb9c56`. The bundle preserves its source-region markers, so the defect's exact file is locatable in the shipped artifact ⟨`grep -n "managed-play.ts\|managed-stepper.ts"`⟩ → `:229` and `:137`.
+
+- `springPlay` — `//#region src/animation/physics/spring/managed-play.ts`, `:233–235`: `function O(e, t) { S(e, t); }` → delegates to the managed-stepper.
+- **The PRM arm, `:141–147`**: `function S(e, t) { e.disposed || (e._onFrame = t, y(e.respectReducedMotion, () => { `**`e.snap(), e._emitManagedFrame()`**`; }, () => { e.settled ? e._emitManagedFrame() : x(e); })); }` — with `y` the PRM gate (`:85–87`, `_()` = the live media match).
+- **`_emitManagedFrame`, `:371–373`**: `this._onFrame?.(this.value, this.velocity);`
+
+Read against the cure S.W7 named term-for-term — `() => { spring.snap(); onFrame?.(spring.value, spring.velocity); }` ≡ `e.snap(), e._emitManagedFrame()` → `this._onFrame?.(this.value, this.velocity)` — **the cure is present.** The 2026-07-06 asymmetry is gone: **both** arms now route through `_emitManagedFrame()`, so the `onFrame` bound by `.play(onFrame)` fires under PRM in exactly one frame (*"jump, no motion frames"*).
+
+> **And the original mechanism is still visible beside it, which is why this is a cure and not a coincidence.** ⟨`awk 'NR>=447 && NR<=449'`⟩ → `emit() { if (this.subscribers.size !== 0) for (let e of this.subscribers) e(this.currentValue, this.currentVelocity); }` — **`emit()` is still subscribers-only.** S.W7's diagnosis was and remains exactly correct; what changed is that the PRM arm no longer *depends* on `emit()` to reach `onFrame`. The producer fixed **the arm, not the emitter** — precisely the one-line shape the letter asked for.
+
+**Disposition: RETIRED — FIXED at kf 6.0.0. The `fixed → tombstone with the probe pasted` branch is live and the probe is pasted. NO §D letter is owed, nothing is dispatched, and no fourth carry is created.** The gate (*"a kf tag > 5.2.0"*) fired and is now **observed** — DR-25's actual complaint (FM-19) is discharged on a dated run against installed bytes with the artifact's sha256 recorded.
+
+**F8 · The file left structurally open for `.g`, by construction and by measurement.** `W0.md:181` assigns CC-019/020/021/023 to X-W0.g. §4 of the artefact is a **reserved, empty** section naming the four by id with their §0j.A ruling lines (`:513` · `:514` · `:515` · `:516`, each re-read at its byte) so the addendum's roster is checkable by set-difference, and stating the arithmetic `5 + 4 = 9` against HG-12's *"nine tombstones"*. ⟨`grep -c '^### TS-.*CC-0\(19\|20\|21\|23\)'`⟩ → **0**: **not one of the four was pre-written.** §0 rule 3 states the append law in the file itself — *"§4 is reserved … nothing in §1–§3 is rewritten to accommodate them"* (E-3).
+
+**F9 · Landing, and the bounds proof.** ⟨`git diff --check`⟩ → clean (exit 0). Staged by exact pathspec, **one argument**, then committed **with the pathspec on the commit itself** ⟨`git commit … -- docs/tranches/X/W0/TOMBSTONES.md`⟩ — adopting X-W0.e's `:402` and X-W0.b's B10 finding about the shared index that four concurrent Track seats write. Result over `b5673ae0` ⟨`git diff-tree --no-commit-id --name-only -r`⟩: **1** path · foreign paths **0** · non-`docs/` **0** · `registry/adjudicated/` **0** (fold **G-H**) · `dev.sh` **0** · `vite.config` **0** · `docs/precepts` **0**. ⟨`--numstat`⟩ → **687 / 0** — a created file, nothing deleted, nothing rewritten anywhere.
+
+**SELF-COUNT, read back from the committed blob** ⟨`git show b5673ae0:…`⟩: `^### TS-` → **5**; §2 gate-table rows `^| \*\*CC-0(15|16|17|18|22)\*\*` → **5**; *"The original mandate, verbatim"* subsections → **5**; *"— Terminal disposition"* subsections → **5**; line 1 → `SERVED MODEL: claude-opus-5[1m]`; pre-written CC-019/020/021/023 entries → **0**. All six double-run identical.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (seat 0 open, HEAD `b42d775a`) | AFTER (committed blob `b5673ae0`; probes re-run post-commit at HEAD `e12eeb91`) | verdict |
+|---|---|---|---|
+| **HG-12** — nine tombstones, nine pasted probes — **the five executable rows** (`:282–298`) | `docs/tranches/X/W0/TOMBSTONES.md` **ABSENT**; 0/5 mandates quoted, 0/5 probes pasted, 0/5 dispositions named. All five probes reproducing RED-AS-EXPECTED | **5/5** complete: mandate quoted verbatim at its **minting** byte (16 anchors, all re-read, none drifted) · probe pasted **with** its output, each double-run identical · terminal disposition named with its ruling id where one exists. **Post-commit re-run, all five reproduce**: CC-015 **5/3** · CC-016 `139,287` + glass **7.0.0** · CC-017 `63240e67` vs `8ccf9f4d` · CC-018 `> _(empty — the owner's verdict lands here)_` · CC-022 kf **6.0.0** | **GREEN (the five-row half)** |
+
+*The gate's falsifier (`:298` — "a tombstone whose pasted probe does not reproduce when re-run at wave close") is discharged by construction for this half: four of the five probes read tracked or installed bytes that no X-W0 unit may write, and the fifth reads `demo/`, which `W0.md:101` forbids to this entire wave. **No unit of X-W0 can move any of them** — so a non-reproduction at close would itself name a §File Bounds breach, which is a useful thing for this gate to be able to catch.*
+
+**The remaining four rows are X-W0.g's, by the spec.** HG-12's full nine-row reading is not claimed here and is not claimable until that addendum lands.
+
+#### Residuals
+
+- **R-1 — HG-12 is HALF-GREEN at this unit's close, by design, not by shortfall.** The gate's denominator is nine; this unit owns five and turned five. The other four (CC-019/020/021/023) are assigned to X-W0.g at `W0.md:181` and their landing place — §4 of this same file — is written, named and empty.
+- **R-2 — `emit()` in kf 6.0.0 is still subscribers-only (F7), and that is stated as a fact, not filed as a defect.** The PRM arm no longer depends on it, so DR-25's consumer-visible symptom is cured. No new row is minted on the emitter's shape: that is the producer's design and value.js has **0 direct kf imports** (U-F28). Recorded so a later seat reading `emit()` alone does not re-open a cured row.
+- **R-3 — CC-015's D18 KEEP ruling is untouched.** This tombstone closes the *extirpation* mandate; it does not adjudicate the Blob instrument's future, which D18 rules and which no byte here disturbs.
+- **R-4 — no product byte, no producer byte, no sibling byte was written.** `demo/`, `vite.config.ts`, `docs/precepts`, `node_modules/**` and `../keyframes.js` were **read and hashed only**; ⟨`git status --porcelain -- demo vite.config.ts docs/precepts`⟩ → **empty** at close.
+
+#### Escalations returned — two docketed rows, neither blocking
+
+**RS-1 · the DR-14 route names a wave whose §File Bounds do not contain the file.**
+Not a challenge to the ruling — §0j.A's **DELETE** is transcribed and not re-opened. What is returned is a measured fact about its **route**. ⟨`grep -c 'vite.config' docs/tranches/X/waves/W1.md`⟩ → **0**; X-W1's §File Bounds `:143–170` holds `.github/workflows/{ci,deploy-pages}.yml` · `e2e/**` · `scripts/ci/*.mjs` · `scripts/visual/regenerate-goldens.mjs` · `playwright.config.ts` · `tsconfig.e2e.json` · `package.json` (scripts block only) · `docs/tranches/X/**` — **`vite.config.ts` absent**. ⟨`grep -n 'vite.config.ts' docs/tranches/X/waves/W5.md`⟩ → **`94:| \`vite.config.ts\` | modify-carve |`**. The sitting's own dossier states the premise at `SITTING-DOSSIER-2026-09-17.md:139–140` — *"the act routes to **X-W1** (the only wave holding a config carve)"* — and **that parenthetical does not hold at the authored bytes**: X-W1 holds a config carve, but not this file.
+**The word wanted, in one sentence**: *does DR-14's DELETE land at X-W1 under a dated E-3 addendum widening its §File Bounds to `vite.config.ts`, or does it ride X-W5's existing `modify-carve` on that same file?* Either is a one-line act for the seat that owns it; **choosing is a routing decision, not a tombstone seat's.** **No wave file edited, no route re-written** (E-3 — §0j.A's bytes are immutable). Returned to X-W0.g's sitting packet as a docketed row, or to the owner directly.
+
+**RS-2 · the precepts pin-bump is a new question, not the retired chronic.**
+CC-017's chronic is retired and does not carry. What the measurement **created** is a distinct, small, reviewable question the record never asked because for six closes it believed it faced a fork: **value.js's `docs/precepts` is 16 commits behind the last-fetched `origin/main`** (`63240e67`@2026-05-27 → `b0f6134`@2026-07-17, *"precepts: truth-up against the glass-ui 7.0.0 surface"* — whose subject names the very glass major this repo installs). It is **not** the DR-15 carry (that was the peer's SHA and an event-bound trigger, both dead); it is one checkout plus a gitlink commit with a reviewable diff, on a path in **no** X wave's §File Bounds including this one. **No act taken.** Returned to X-W0.g's sitting packet as a docketed row, or to the owner directly.
+
+*Neither is one of COHESION §0j.A's seven and neither may be presumed into them — the wave's standing law: anything owner-gated that §0j does not cover is an escalation returned, not a seat decision.*
