@@ -364,3 +364,78 @@ rowed; O-21 = the next mint). Status is **planned** everywhere; no product sourc
 point. **The owner's begin-word against `EXECUTION-RUNBOOK.md` is the sole remaining key.** Owner
 decision points standing: the L1/L5 adoption leg (§0g.1, G-9's A/B/C) · the glass 8-vs-9 election at
 X-W0.j (I-30; tag-pinned 9.0.0, registry walled) · ESC-1/G1 at F.W1.
+
+## §0i ADDENDUM 2026-09-17 — THE THREE STANDING DECISION POINTS, RATIFIED UNDER DELEGATION
+
+**Provenance.** The owner's instruction of 2026-09-17, verbatim: *"Ratify all that you may with your
+intelligence."* The orchestrator rules the three decision points §0h left standing, each with the
+receipts it was ruled on, measured this date. **This addendum is not the begin-word.** No wave opens,
+no gate runs, no product source is opened; status stays `planned` in all four sub-tranches. E-3:
+addendum-beside; §0g.1's dispositions table and the runbook's §3.2 keep their bytes.
+
+**Frontier receipts (2026-09-17):** value.js, keyframes.js, fourier-analysis, parse-that, glass-ui —
+zero commits since 2026-08-30 in all five. `npm view @mkbabb/glass-ui version` → **8.0.0**
+(`dist-tags.latest` 8.0.0; 9.0.0 absent from the registry's version list). glass `v9.0.0` =
+`d4f7b24f` (2026-08-29), `v8.0.0` = `17a11bc5` (2026-08-09). Exports delta 8.0.0→9.0.0: `./canvas`
+and `./search` removed, nothing added.
+
+### §0i.1 · S-4 — the L1/L5 parser-adoption leg: **DISPOSITION C** (BLOCKED-ON, with A named as the re-trigger's payload)
+
+**Ruled: C.** The row closes `BLOCKED-ON` + re-trigger, in G-9's own idiom, and RC-P stays FALSE
+meanwhile. **Exact condition:** the parser proof gate (`docs/tranches/V/apotheosis/parser-proof/
+GATE-VERDICT.md`, COMPOSITE 🔴 RED of distance, 2026-07-20 — R1 = the live `parseCssColor("oklch()")`
+crash) reads GREEN via mini-tranche V·π Phase A closing. **Re-trigger command:** X.P.W4's RC-P
+evaluator returning TRUE at a dated run. **What fires then: disposition A** — the owner authorizes a
+successor X·V wave consuming `SEAM-CONTRACT.md` at `src/css/**`; its authoring seat and boundary
+are named at that sitting, not here. **Why not A now:** a thirteenth X wave consuming a parser whose
+proof gate is RED would mint a wave against a contract with no green producer — the exact
+"repair-arms-a-defect" shape the registry forbids. **Why not B:** amending G31 to admit adoption
+inside X binds the leg to X-W9's 4.1 cut and X-W11's release; that couples value.js's release
+train to parse-that's readiness, and value.js is the paramount path (owner directive 2026-08-28).
+C keeps the leg honest, unhomed-with-a-fuse, and leaves value.js's cut unencumbered. OP-4's bar
+holds: **no wave is authored by this ruling**; X·P still does not get to author an X·V wave.
+
+### §0i.2 · X-W0.j — the glass election for value.js: **8.0.0**, registry-pinned (`v8.0.0` @ `17a11bc5`)
+
+**Ruled: 8.0.0.** Receipts: (1) PIN-LAW's registry half is satisfiable only at 8.0.0 — the registry
+holds 8.0.0 and does not hold 9.0.0; (2) §EXTERNAL X-EXT-1..6 were minted against the 8.0.0
+letter (I-28) and their receiving cells (X-W7 · X-W8 · X-W6 · X-W4.g · X-W1 · X-W0.j) are sized for it;
+(3) **9.0.0 removes `./search` whole, and value.js consumes it at four live sites** —
+`demo/palettes/BrowsePane.vue:195` · `PalettesPane.vue:149` · `admin/AdminPane.vue:87` ·
+`browser/slug/PaletteSlugBar.vue:132` (`import { SearchBar } from "@mkbabb/glass-ui/search"`) —
+an unbudgeted break no X·V wave carries a cure for (X-EXT-1 budgets the 8.0.0 `SearchBar` DELETE
+at X-W7, not the export's removal); (4) the runbook's own law at §3.2 — *"an owner electing 9.0.0
+knows it elects a tag."* Nothing here elects a tag. **9.0.0 is recorded as the successor fact** and
+re-enters X-W0.j's enumeration as a candidate the moment `npm view @mkbabb/glass-ui version`
+returns 9.0.0 (that is the re-trigger; the census re-runs, nothing is pre-decided). **The X-W0.j
+mechanism is unchanged**: it still runs CC-003's four conditions read-only and returns a dated
+verdict; this ruling fixes the *target* those conditions are read against, not the verdict.
+
+### §0i.3 · ESC-1 / G1 at F.W1 — the glass election for fourier: **8.0.0**, `v8.0.0` @ `17a11bc5`
+
+**Ruled: 8.0.0, same tag and hash as §0i.2.** Receipts: (1) the F.W1 corpus is sized for the 4→8
+hop at its own bytes — *"The hop is 4→8, not 4→7 — every producer `file:line` re-keys per G1"*
+(F-W1 §2, dock-member row), and three break/cure families exist **only at 8.0.0** (FR-TT-9's dock
+collapse cure; K-8/SR-1's `SliderVariant` re-book; M-2's `^0.11.2` floor); adopting 7.0.0 would
+stage a second uplift the budget never priced; (2) registry-pinned, so PIN-LAW's *"pins to the
+PUBLISHED artifact"* is discharged as written, without invoking the tag clause; (3) constellation
+cohesion — value.js and fourier now adopt the same producer major at the same hash, so the
+`fr-*` corpus's 66 records re-resolve their `file:line` at ONE audited hash (`17a11bc5`), never at
+`d4f7b24f`, whose bytes no seat has audited; (4) 9.0.0's `./canvas` removal is unpriced in every
+`fr-*` record. **G1's cell is filled by this ruling: TAG `v8.0.0` · ADOPTED COMMIT HASH `17a11bc5`.**
+BASELINE LAW stands (the adopted tag decides regardless of any working tree's self-report).
+**F.W0's FR-NP-32 (≡ fr-PaperSidebar M1) BLOCKER is untouched** — measured at the installed 4.0.0
+bytes, cured only by the producer's emitter fix (A-1 ACCEPTED at I-30), never by this election.
+
+### §0i.4 · the union check-2 carried tail — **SWEPT IN THE FIRST MAIL ROUND**, not a development round
+
+The 6 MINOR-mitigated + 2 INFO at `union/CHECK-2/` are receipt/citation hygiene in the union
+instruments (a blank-line anchor, a two-of-four paste, an emphasis minted into a quotation, a
+self-count arm gone stale, an unlanded fifth S-11 site at F-W0, an incomplete AuroraPane
+parenthetical). **Ruled:** they ride as the first work item of the §3.3 mail round (I-30
+obligations → O-21), executed under the write-then-measure and self-count laws, and are NOT a
+reason to reopen tranche development. §0h's COMPLETE stands.
+
+**What this addendum does not do.** It does not open execution. The begin-word remains the
+owner's, spoken against `EXECUTION-RUNBOOK.md`; when it comes, the five root waves open with
+these three cells already filled.

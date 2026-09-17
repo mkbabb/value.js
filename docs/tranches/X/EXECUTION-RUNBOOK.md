@@ -420,6 +420,13 @@ re-resolve at the adopted hash. **F.W0's FR-NP-32 BLOCKER stands regardless** �
 adopted 4.0.0 bytes; the ACK supplies the producer-side terminus (A-1 ACCEPTED), not a cure of
 the installed corruption.
 
+⟨**DATED ADDENDUM-BESIDE 2026-09-17 — THE DECISION IS RULED.** COHESION **§0i.2** elects **8.0.0**
+(registry-pinned, `v8.0.0` @ `17a11bc5`) at X-W0.j; **§0i.3** elects the same tag and hash at F.W1's
+ESC-1/G1; **§0i.1** disposes the L1/L5 leg as **C** (BLOCKED-ON the parser proof gate → GREEN via V·π
+Phase A; re-trigger = RC-P TRUE; payload = disposition A). 9.0.0 stays the recorded successor fact,
+re-entering the enumeration only when the registry returns it. The paragraph above is not rewritten
+(E-3); the election it describes as pending is now made, under the owner's 2026-09-17 delegation.⟩
+
 ### §3.3 The mail obligations — I-30 first, then O-21
 
 **Before any wave opens** (E13; the union boundary is a boundary):
