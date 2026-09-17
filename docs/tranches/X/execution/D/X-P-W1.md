@@ -1069,3 +1069,481 @@ carrying the four paths, the bounded atlas Q-lane extension, the delta test, and
 cell classification. **No `I-n` row is written; no row above it is touched.** The substantive result
 is unchanged: **0 unrowed · 0 new `I-n` · I-31 the inbound tail · O-21 the outbound tail · 0 UNREAD
 in X.P.W1's scope.**
+
+### X.P.W1.d
+
+**Date**: 2026-09-17. **Seat**: X.P.W1 unit `.d` (the honest bench), `claude-opus-5[1m]` (M-23 §2
+implementation seat, as §5 declares for all five units). **Appended at the file's end, E-3: no block
+above is rewritten, including the §Addendum that precedes this one.**
+**Spec sections executed**: `W1.md` §5 `X.P.W1.d` (L274–304) · §3 items 5–7 and 9 (L94–107) · §6
+**G-4** (L434–463) · **G-5** (L465–498) · **G-9** (L544–562) · **G-10** (L564–589) · §4 rows L142–143
+and L152 · §4b (L191–199).
+**Writable set**: `/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/bench/**` — and, at
+close, this record. Nothing outside it was written.
+**Gates owned**: **G-4, G-5, G-9, G-10**. **Verdict: all four RED → GREEN.** **Escalations: none.**
+**Commit (in `<p2>`, §9's one commit for this unit)**:
+`4df9e914bfa66e120aaba2ae34c00dae9106e6e5` — **16 files, 6,366 insertions**, every path inside
+`harness/bench/**`.
+**Rulings consumed**: COHESION **§0j.E OP-1** (both owner words given 2026-09-17 — the lane is open)
+and **§0j.E OC-1**, read and applied as a *prohibition*, not a licence: it rules the bench table
+**RECORDED-NOT-GATING** and ratifies **no** bar, so this harness prints no ✓/✗ column, emits no
+`verdict` field, and contains no sentence of the form *"the bench passes"*. §3a's *"any pressure to
+set the bar"* trigger was checked at every table decision and never fired.
+
+---
+
+#### Act 1 — measure before writing: every anchor verified at the true bytes
+
+**PT-03's latch coordinates, re-read in the installed dist at this seat's clock** —
+⟨cmd⟩ `grep -n "PACKRAT_ARMED" …/node_modules/@mkbabb/parse-that/dist/packrat-entry-CS1td-8B.js`
+
+```
+678:let PACKRAT_ARMED = false;
+682:  if (!PACKRAT_ARMED) return null;
+714:  if (!PACKRAT_ARMED) return;
+722:  PACKRAT_ARMED = true;
+```
+
+**The spec's four coordinates reproduce to the line.** `:722` sits inside `makeMemoized()`
+(⟨`sed -n '718,724p'`⟩ → `function makeMemoized(parser, name) { PACKRAT_ARMED = true; …`), `:714` is
+`resetPackrat()`'s early return, and **there is exactly one assignment in the module** — the latch is
+one-way at the bytes, not merely by report.
+
+**The two engine bundles carry their OWN inlined copy, and it is provably unarmable.**
+⟨cmd⟩ `grep -n "PACKRAT_ARMED" c14-bundle.mjs deposed-full/deposed-bundle.mjs live-bundle.mjs`
+
+```
+c14-bundle.mjs:683       var PACKRAT_ARMED = false;
+c14-bundle.mjs:687         if (!PACKRAT_ARMED) return null;
+deposed-full/deposed-bundle.mjs:727   var PACKRAT_ARMED = false;
+deposed-full/deposed-bundle.mjs:731     if (!PACKRAT_ARMED) return null;
+live-bundle.mjs:                       (no hits — the regex engine carries no parse-that)
+```
+
+**Two hits each, not four: esbuild tree-shook `makeMemoized` and `resetPackrat` out of both bundles,
+so neither contains a `PACKRAT_ARMED = true` site at all.** That is a *structural* fact about those
+bytes and the harness prints it beside the live reading (`arm-sites 0`) — it is evidence, and it is
+still not a substitute for reading the latch, which is why both are reported.
+
+**Subjects pinned** — ⟨cmd⟩ `shasum -a 256`:
+
+```
+published-4.0.0   8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42   43,972 B
+c14-bundle.mjs    2b57626fff0975276f7d46d84ffc01835bc83bfe4f28ce6b5855622f6a22f0d6   46,661 B
+deposed-bundle    6c62368f6b4e6c1c28e6c0542bc86004c243fba6bb6d70ac0bba8435a81618eb  202,595 B
+packrat chunk     1f8674c3d325579363356e1fd091a3735ae9a7ac9da0cb61a4ca0ebfb6d474a8   40,576 B
+```
+
+The published digest is **string-equal to unit `.b`'s engine of record** and to the digest
+`cand-o/equivalence.test.ts:76` asserts — the two instruments of this wave measure the *same* bytes.
+The `c14` and `deposed` bundles are read from **unit `.c`'s tracked rescued tree**, never from the job
+scratchpad: `.c` rescued them precisely so that a later instrument has a source, and this is the first
+instrument to consume it that way.
+
+**G-4/G-5/G-9/G-10 baseline re-measured at this seat's own clock, not inherited** — the probe of §4
+L152, unpiped:
+
+```
+RED  DEBT-1  cand-F reject() label, diagnostics OFF (shipping default) undefined
+RED  DEBT-1  Parser.prototype.label / .expected combinator      absent
+RED  DEBT-1  enableDiagnostics() is process-global (arity)      0 args
+RED  DEBT-3  Parser.lazy ceiling (deepest OK = 7759), failure mode RangeError thrown at depth 7760
+RED  DEBT-3  Parser.lazy depth-bound parameter                  arity 1 — (fn) only
+
+     UNARMED median 54.5 ns/parse  (compare the two runs)
+ok   LATCH   PACKRAT_ARMED is a module-global one-way flag      packrat-entry chunk :678,:722 — set by makeMemoized(), never cleared
+RED  GUARD   parseState(non-string) totality                    5/5 throw raw TypeError
+RED  GUARD   .parse() failure signal                            returns undefined — indistinguishable from .opt()
+
+RED — 7 gap(s)
+```
+
+**`EXIT=1`, stderr 0 bytes.** `<p2>/harness/bench` → **ABSENT**. **Four gates RED, measured.**
+
+#### Act 2 — §3a's "halt and research the observation mechanism", discharged
+
+§3a forbids the fallback *"we did not call `memoize`, therefore it is unarmed"* and requires the latch
+to be **observable from outside the bundle on the installed dist**. It is not observable by any public
+value, and that was measured before anything was built:
+
+⟨cmd⟩ `tail -c 2000 packrat-entry-CS1td-8B.js` → the chunk's export list is
+`{P,a,b,c,d,e,f,g,h,i,j,k,l,m,n,r,s,t,w}`; ⟨`cat dist/packrat.js`⟩ → the `./packrat` subpath
+re-exports **only** `memoize`, `mergeMemos`, `resetPackrat`. `packratEnter()` — whose return value
+*is* the latch (`null` when unarmed) — is **declared in `packrat.d.ts` but exported by neither**.
+Every behavioural oracle bottoms out the same way: the only state the latch gates is reachable solely
+through a memoized parser, and constructing one arms it. **So the value itself had to be read.**
+
+**The mechanism**: `module.registerHooks()` (node ≥22.15, synchronous, in-thread; ⟨`node -p "typeof
+require('node:module').registerHooks"`⟩ → `function`) loads the installed dist bytes through the
+ordinary resolver and appends **one** exported accessor whose body is `return PACKRAT_ARMED`. Because
+the ESM cache is keyed by URL, the instance the accessor reads **is** the instance every importer in
+that process gets — the latch the grammar would arm, not a copy.
+
+**Non-interference is measured, not argued**: the accessor reads and cannot assign (`armSites` is
+counted on the **original** source, so a reader can see the appended text adds none); the on-disk file
+is never written and is **re-hashed after every cell** (`verifyOnDisk()`, asserted in `bench.ts`); and
+the reader is proved to be a *live read rather than a constant* by the positive control in Act 6.
+
+#### Act 3 — the port, and its four declared changes
+
+Files created, all inside the writable set (⟨`git show --numstat`⟩, none binary):
+
+| file | lines | what it is |
+|---|---:|---|
+| `bench.ts` | 439 | the gate-invoked entry / orchestrator; loads no engine and parses nothing |
+| `cell.mjs` | 120 | one (engine, leg) cell — its own process, its own PID, latch at preload/entry/exit |
+| `census.mjs` | 158 | the pre-flight cell: ceiling, boundary, dispositions, round calibration |
+| `lib/latch.mjs` | 155 | the loader hook, the registry, `assertUnarmed`, `verifyOnDisk` |
+| `lib/engines.mjs` | 160 | the four subjects, pinned; the doors; the three-way `classify` |
+| `lib/corpora.mjs` | 144 | the three legs + the normaliser; `maxDepth`; the depth declaration |
+| `lib/boundary.mjs` | 79 | the JS-boundary invariant (§3 item 9) and its measurement |
+| `lib/stats.mjs` | 27 | median / min / max / spread — the only statistics published |
+| `aggregate.mjs` | 62 | port of the job tree's 1,396 B aggregate |
+| `finalize.mjs` | 136 | port of the job tree's 4,429 B finalize |
+| `diagnostics-suite.mjs` | 158 | **the quarantine** — labelled failure + the latch positive control |
+| `METHOD.md` | 94 | method + argv, for unit `.e`'s `harness/README.md` (a cross-wave coordinate) |
+| `package.json` | 6 | `"type": "module"` for this directory only — see Residual 2 |
+| `bench.stderr` · `bench-raw.json` · `bench-results.json` | 0 / 4,011 / 617 | the run's own artefacts |
+
+**The four declared changes to the port** (a port may not quietly improve the thing it ports, so each
+is stated in the files' own headers as well as here):
+
+1. **`live-bundle.mjs` is not timed.** The ported bench's fourth subject was an esbuild bundle of
+   value.js's **working tree**, taken 2026-07-20. The vendored sha-pinned **published 4.0.0 tarball**
+   replaces it as the incumbent of record — the parser band's G6 rule, the same rule unit `.b`
+   applied to the oracle, for the same reason: a ratio against bytes nobody ships is a ratio against
+   nothing anybody runs.
+2. **The `gate` block is removed; `verdict` and `meets_floor` do not exist in the output schema.**
+   The original emitted `verdict: "RED"` against absolute floors. Retaining it would fail **G-7**
+   ("a table that prints a ✓/✗ column for Plane B fails even if a footnote disclaims it") and trip
+   §3a. The floors survive in `bench-results.json` as `historicalFloorsRecordedNotApplied`, with
+   `appliedTo: "nothing in this file"`.
+3. **Median, not peak.** The original's ratio statistic was a PEAK over samples. A peak is the single
+   luckiest round on a shared box. The median of the scored rounds is reported, with `spread_pct`
+   printed beside every figure.
+4. **The human table moved from stderr to stdout.** The original printed JSON on stdout and its table
+   on stderr. **G-5 requires the bench's stderr to be byte-empty**, so the table is stdout and the
+   JSON is a file. This is a structural consequence of the gate, not a formatting preference.
+
+#### Act 4 — the grid is decided by measurement, and the measurement caught a corpus defect
+
+The census measures every (engine, leg) pair's disposition and prints all nine, timing only those
+whose leg contract holds. **`deposed` is excluded from two legs by its own numbers**, never by
+opinion: its value door **accepts 166/172** of the degenerate cross-product and **6/9** of the reject
+corpus, and its sheet door signals failure by **throwing** (3/9). An engine that accepts the reject
+corpus is not measuring a reject path, and timing it there would have published a successful parse
+under the label of a refusal.
+
+**The same contract caught a defect in this seat's own corpus.** The first reject corpus contained
+`@@@ { }`; the census printed `published-4.0.0 reject-non-throwing accept 1 / reject 8` and refused to
+time the pair. Measured cause — ⟨cmd⟩ over both engines:
+
+```
+"@@@ { }"   published-4.0.0 parseStylesheet = ACCEPT   ·   c14 parseStylesheet = reject
+```
+
+Published 4.0.0 **tolerates an unknown at-rule**; cand-O does not. The item was replaced with `{{{`
+(both reject) and the divergence is recorded as **finding D-F2**, routed to the equivalence oracle
+where an accept/reject divergence belongs. **Had the leg not asserted its own name, the "reject" leg
+would have silently timed one acceptance.**
+
+#### Act 5 — the four gates, BEFORE → AFTER, by literal command
+
+**G-4 — THE BENCH IS NEVER ARMED.** *BEFORE*: the latch confirmed live on this box; **no harness in
+the lane asserted anything about it** (the lane had no harness) — **RED**.
+*AFTER* — ⟨cmd⟩ (from `<p2>`) `tsx harness/bench/bench.ts` → **`EXIT=0`**:
+
+```
+── G-4 LEDGER · one PID per cell, entry AND exit, read from the dist ──
+       pid  cell                                    entry  exit
+     96134  census                                  false  false
+     96143  published-4.0.0/shared-accepted         false  false
+     96144  published-4.0.0/reject-non-throwing     false  false
+     96145  published-4.0.0/r1-throw-class          false  false
+     96146  c14/shared-accepted                     false  false
+     96147  c14/reject-non-throwing                 false  false
+     96148  c14/r1-throw-class                      false  false
+     96149  deposed/shared-accepted                 false  false
+     96150  json-normaliser/json-normaliser         false  false
+   PIDs 9, distinct 9 — NONE REPEATED. All cells were alive simultaneously, so distinctness is structural as well as asserted.
+   orchestrator pid 96133 — it loads no engine and parses nothing.
+```
+
+Each cell also prints its latch **at preload** (before the engine is in memory) and the per-module
+readings with their declaration line and arm-site count:
+
+```
+   false  decl :678  arm-sites 1 (:722)  dist/packrat-entry-CS1td-8B.js
+   false  decl :683  arm-sites 0  rescued/c14-bundle.mjs
+   false  decl :727  arm-sites 0  deposed-full/deposed-bundle.mjs
+```
+
+**G-4 GREEN.** The per-process claim is *checked* by the PID inequality, not asserted — and because
+all nine processes are alive simultaneously, the OS cannot have handed two of them the same PID.
+
+**G-5 — DIAGNOSTICS ARE QUARANTINED.** *BEFORE*: three DEBT-1 rows RED and **no harness in the lane
+separating them** — **RED**.
+*AFTER* — ⟨cmd⟩ (from `<p2>`, G-5's literal capture form), run twice:
+
+```
+$ tsx harness/bench/bench.ts 2> harness/bench/bench.stderr      EXIT=0
+$ wc -c < harness/bench/bench.stderr                                   0
+$ tsx harness/bench/bench.ts 2> harness/bench/bench.stderr      EXIT=0   (double-run)
+$ wc -c < harness/bench/bench.stderr                                   0
+```
+
+and the labelled-failure suite **in its own process**, which the bench never enters —
+⟨cmd⟩ `node harness/bench/diagnostics-suite.mjs` → **`EXIT=0`**, double-run identical:
+
+```
+ok   DEBT-1  labelled failure is a NO-OP with diagnostics off undefined
+ok   DEBT-1  Parser.prototype.label / .expected combinator    absent
+ok   DEBT-1  enableDiagnostics() is process-global (arity 0)  0 args — no scoped posture exists
+ok   DEBT-1  the label DOES surface once diagnostics are armed ["\"red\"","<named-color>"]
+ok   PT-01   arming diagnostics couples an unconditional stderr write 76 bytes on ONE labelled parse
+```
+
+**PT-01's coupling is measured, not quoted: one labelled parse with diagnostics armed writes 76 bytes
+to stderr.** Inside the bench that is exactly G-5's failure — which is why the suite is a separate
+file that `bench.ts` neither imports nor spawns. **G-5 GREEN.**
+
+**G-9 — DEPTH IS DECLARED, NOT DISCOVERED.** *BEFORE*: the ceiling measured; **no corpus in the lane
+declared a depth** — **RED**.
+*AFTER* — printed by the same command:
+
+```
+Parser.lazy ceiling MEASURED IN THE CENSUS PROCESS AT THIS CLOCK: deepest OK = 7773;
+failure mode = RangeError thrown at depth 7774; Parser.lazy arity 1 (fn only — no depth bound).
+   corpus                 items  bytes  depth  margin  all-strings
+   shared-accepted            7    306      2    7771  true
+   reject-non-throwing        9    100      3    7770  true
+   r1-throw-class           172   1419      1    7772  true
+   json-normaliser            1    220      3    7770  true
+   Declared bound: every corpus in this lane nests at most 3 deep, with margin ≥ 1000 required and 7770 measured.
+```
+
+**The ceiling was measured, never inherited — and it moved again**: **7,773** in the census process
+against **7,759** from the probe *at the same clock, on the same box, in the same session*
+(**finding D-F1**). W1.md and O-15 read 7,761; the wave's open read 7,759. The ceiling is a property
+of a **stack shape**, not of a box — which is why the gate's own words are *"a declared depth with no
+margin fails: the margin is the assertion"*. Margin ≥ 1,000 is required and **7,770** is measured.
+**G-9 GREEN.**
+
+**G-10 — THE FIVE DEBTS ARE MEASURED, NOT ASSUMED.** *BEFORE*: the seven gaps stood as the spec's
+2026-08-03 paste; **this lane had recorded no reading of its own for this wave** — **RED**.
+*AFTER* — ⟨cmd⟩ (run from the workspace, **unpiped**, stdout and stderr to separate files so `$?` is
+the probe's own), **double-run**:
+
+```
+run 1   RED — 7 gap(s)    EXIT=1   stderr 0 bytes
+run 2   RED — 7 gap(s)    EXIT=1   stderr 0 bytes
+diff run1 run2 → the UNARMED median line ALONE (56.2 vs 55.3 ns/parse); every RED/ok row identical
+```
+
+The full seven are pasted in Act 1. **None of the seven is lowered by this wave** — it records them so
+a later wave's claim to have cured one is measurable against a pasted prior. The two GUARD rows are
+answered **above** parse-that, per O-15's own posture and not as an ask of the library: the census
+prints
+
+```
+raw parse-that: 5/5 non-string inputs throw (TypeError) — PT-07 reproduced, not assumed.
+guarded above parse-that: 0/5 throw; every one returns the typed failure non_string_input.
+```
+
+and the guard types the **input edge only** — it deliberately does **not** catch an engine exception
+on a string input, because wrapping those would turn R1 into a tidy `ok:false` and delete the defect
+the r1 leg exists to price. **G-10 GREEN** (the gate's subject is the recording and the unpiped `$?`,
+both of which L-2 requires and both of which are above).
+
+#### Act 6 — the printed table, and the one cross-check that validates it
+
+```
+leg shared-accepted
+   engine               ns/call  spread%      MB/s  ×published  ÷jsonParser  acc/rej/thr
+   published-4.0.0       2085.1     11.9     20.96 1.000 (ref)       0.1921  7/0/0
+   c14                   8010.7     37.6      5.46       0.260       0.0500  7/0/0
+   deposed               2251.7      8.4     19.41       0.926       0.1779  7/0/0
+
+leg reject-non-throwing
+   published-4.0.0        146.8     12.6     75.69 1.000 (ref)       0.6937  0/9/0
+   c14                    801.5     26.7     13.86       0.183       0.1271  0/9/0
+
+leg r1-throw-class
+   published-4.0.0      18960.8      6.9      0.44 1.000 (ref)       0.0040  0/70/102
+   c14                     63.8      5.3    129.39     297.366       1.1858  0/172/0
+                     ↳ DISPOSITION DIFFERS from the reference (0/70/102): the ratio above is
+                       two different behaviours timed, not one behaviour compared.
+
+leg json-normaliser
+   json-normaliser       2016.3     11.5    109.11         n/a       1.0000  1/0/0
+```
+
+**The cross-check that makes the r1 leg credible rather than merely dramatic**: the bench's own count
+of published 4.0.0's throws on the degenerate cross-product is
+
+```
+R1 cross-check: published-4.0.0 parseCssColor throws 102/172 on the degenerate cross-product
+                — r1-published-totality.mjs reports 102/172.
+```
+
+**102/172, reproduced to the digit by an independent instrument**, against the figure the parser-band
+adjudication re-confirmed and §Baseline's G-8 re-measured at this wave's open. The `×297` figure in
+that leg is therefore the price of a thrown exception against a returned refusal — and the harness
+says so on the line beneath it rather than letting a reader take it for a parser-speed claim.
+
+**The falsifiers, proved in a scratch copy — never on the landed tree** (the landed tree was re-run
+clean after each and stayed `EXIT=0` / `status 0`):
+
+| # | mutation | reading | exit |
+|---|---|---|---|
+| 1 | a cell's grammar reaches `makeMemoized()` **before** the entry assertion | `Error: G-4 FAILED at entry: PACKRAT_ARMED === true in …/packrat-entry-CS1td-8B.js` | **1** |
+| 1b | the same, armed **after** entry has already passed — G-4's own "checks only at startup" case | all 8 `latch@entry … === false` still printed, then `Error: G-4 FAILED at exit` | **1** |
+| 2 | a labelled-failure expectation asserted **inside** a bench cell | `wc -c < bench.stderr` **0 → 608**, run still `EXIT=0` — the gate reads **stderr, not the exit code**, exactly as G-5's falsifier says | 0 |
+| 3 | one generated input at depth 7,700 admitted to a corpus | `FAIL G-9: corpus falsifier-near-ceiling margin 73 < 1000` · `RED — 1 failure(s)` | **1** |
+| 4 | the latch witness import removed, so nothing can observe the latch | `Error: HALT (W1.md §3a): 0 latch-bearing module(s) loaded at preload, expected at least 1. An unobserved latch is not an unarmed latch.` | **1** |
+
+**Falsifier 1b is the one G-4's wording exists for** — an entry-only harness passes it. **Falsifier 4
+is §3a's own clause, executable**: the harness halts rather than downgrading an unobserved latch to
+an unarmed one. **Falsifier 2 leaves the exit code at 0 and the gate still goes red**, which is the
+whole reason G-5 reads bytes.
+
+**The latch positive control — proof the reader is a live read, not a constant `false`** (quarantined,
+in a process the bench never enters):
+
+```
+ok   LATCH   reader returns false before any memoize()   57.5 ns/parse unarmed
+ok   LATCH   memoize() FLIPS the reader false -> true    96.6 ns/parse armed
+ok   LATCH   resetPackrat() does NOT disarm (one-way)    still 137.7 ns/parse
+     ratio armed/unarmed 1.68× (O-15 measured 1.47× on a different box-state)
+```
+
+**O-15 PT-03 reproduced in kind: the latch arms, and `resetPackrat()` does not disarm it.**
+
+#### Act 7 — commit, and the readings re-taken from the committed bytes
+
+⟨cmd⟩ `git add harness/bench && git diff --cached --check -- harness/bench && git commit --no-verify
+--quiet -m "feat(x-p-w1/bench): one process per cell, latch asserted, diagnostics quarantined"
+-m "<body>" -m "Claude-Session: …" -- harness/bench`
+
+**`4df9e914bfa66e120aaba2ae34c00dae9106e6e5`**, in `<p2>` (its history is never merged with this
+repository's — §9). `git diff --cached --check` → **exit 0**. §9's subject is verbatim; the body
+carries **the PT-03 latch coordinates** (`:678` / `:682` / `:714` / `:722`, the single assignment, the
+1.47×) **and the PT-01 coupling** (`diagnostics-*.js:14`, `packrat-entry-*.js:881`, arity 0, the 76
+measured bytes), as §9 requires of this unit.
+
+**WRITE-THEN-MEASURE, taken seriously enough to cost two amends.** The commit's `bench-raw.json` and
+`bench-results.json` are the artefacts of the run whose numbers this receipt publishes — so after the
+sealed run the commit was **amended** (`49a56f9` → `f8014e2` → `4df9e914`) rather than a second
+commit made, because **§9 binds this unit to ONE commit**. The amends are declared and were safe:
+⟨`git log --oneline -1`⟩ confirmed HEAD was still this unit's commit each time, and ⟨`git remote -v |
+wc -l`⟩ → **0** (W0 `.c`'s `remote remove`, R-2 UPHELD) — **no published history was rewritten and no
+force-push was taken.**
+
+Then verified **from the committed bytes, without dirtying the tree** — ⟨cmd⟩
+`tsx harness/bench/bench.ts --out=<scratch> --no-finalize 2> harness/bench/bench.stderr`:
+
+```
+EXIT=0 · bench.stderr 0 bytes · git status --porcelain --untracked-files=all → 0 lines
+GREEN — 8 timing cells + 1 census cell, each in its own process, each proving PACKRAT_ARMED === false
+        at entry and at exit, no PID repeated; three legs published separately; every corpus depth
+        declared with margin ≥ 1000 below a ceiling measured at this clock. No bar is set and no
+        verdict is issued.
+```
+
+**Gate 27** ⟨`git -C /Users/mkbabb/Programming/value.js status --porcelain -- src api demo test e2e`⟩
+→ **0 lines**, asserted before the commit and after both amends. `scripts/dev/dev.sh` shows ` M` in
+the working tree by standing arrangement and was **never touched and never staged**.
+⟨`git show --numstat`⟩ → **16 text files, no binary pair** (unit `.a`'s NUL-byte lesson checked
+explicitly: ⟨`for f in …; do cmp <(wc -c <$f) <(tr -d '\000' <$f | wc -c)`⟩ → no file changes size,
+i.e. **zero NUL bytes anywhere**; an earlier `grep -q $'\0'` form reported every file and was a shell
+artefact, not a reading).
+
+**E13, at this seat's own clock** — ⟨`find <the four paths + the atlas Q extension> -maxdepth 1
+-type f -newermt "2026-09-17 14:00"`⟩ → **two hits, both value's own** (`coordination/INBOX.md`, the
+sweep line seat 0's addendum appended, and our own retained O-21 copy in keyframes). **Nothing
+inbound, nothing unrowed. 0 UNREAD in X.P.W1.d's scope.**
+
+#### Findings — seven, each measured, none blocking
+
+| id | severity | finding | measurement | disposition |
+|---|---|---|---|---|
+| **D-F1** | **MINOR — material to G-9, and it sharpens F-1** | The `Parser.lazy` ceiling is **stack-shape dependent, not merely box-state dependent**: **7,773** in the census process vs **7,759** from the probe at the **same clock, same box, same session** | both pasted above; the probe's 7,759 reproduced on a double-run, the census's 7,773 on every run | **G-9's margin is computed against the ceiling the harness measures IN ITS OWN PROCESS, at its own clock — never 7,761, never 7,759, never an inherited number.** F-1 called the ceiling stable per box-state; it is stable per *stack shape*. The margin (7,770 against a required 1,000) is what makes the distinction harmless. Owner: this unit, discharged |
+| **D-F2** | **MINOR — the lane's standing input** | Published 4.0.0's `parseStylesheet` **ACCEPTS** `@@@ { }`; cand-O's **rejects** it | ⟨`parseStylesheet("@@@ { }")`⟩ → `ok:true` (published) / `ok:false` (c14) | An accept/reject divergence between the two engines is the **equivalence oracle's** subject, not the bench's. Recorded here because the bench's leg contract is what found it; **routed to unit `.b`'s instrument and to X.P.W2**, cured by nobody this wave (§3 L109: no grammar is written) |
+| **D-F3** | **MINOR — widens DEBT-2's axis rather than confirming its size** | The reject-path advantage measures **5.46×** (published 146.8 ns/call vs c14 801.5), where the adjudication's DEBT-2 records cand-F failing *"~1.3–1.4× faster"* than cand-O | the `reject-non-throwing` leg above, stable across four runs (0.187 / 0.188 / 0.183 / 0.183 as `×published`) | **Not a contradiction and not presented as one**: different corpus, and different subjects (published 4.0.0 vs cand-F source). It is a *recorded reading* that the axis DEBT-2 names is larger on this corpus than the adjudication's figure — which is the argument for the leg existing at all. No bar, no verdict, no claim beyond the table |
+| **D-F4** | **INFO** | The `deposed` engine is excluded from two legs **by measurement**: its value door accepts **166/172** of the degenerate cross-product and **6/9** of the reject corpus; its sheet door signals failure by **throwing** | the printed grid above | Its "reject path" is not a reject path. Printed with its tally and the reason, never silently dropped |
+| **D-F5** | **INFO — an environment defect, not a harness one** | **`npx` cannot be run from `<p2>`**: it OOMs at 4 GB after ~149 s | ⟨`cd <p2> && npx tsx …`⟩ → `EXIT=134`, `FATAL ERROR: Ineffective mark-compacts near heap limit`, 4,079.5 MB, and node's own hint naming the cause: *"add `"type": "module"` to `/Users/mkbabb/package.json`"* | Root cause measured: `<p2>` has no `package.json`, so npm's prefix walk climbs to **`/Users/mkbabb/package.json`** and treats the home directory as the project root. The same `npx tsx` with an absolute path from a cwd whose walk terminates (value.js) runs in **2.78 s, `EXIT=0`, stderr 0**. See Residual 1 |
+| **D-F6** | **INFO — F-5 measured rather than quoted** | **Ratios are portable across runs; bare nanoseconds and spreads are not.** Across four runs the `shared-accepted` c14 ratio read **0.276 / 0.264 / 0.270 / 0.260** and the r1 ratio **295.7 / 298.2 / 297.0 / 297.4**, while `spread_pct` on one cell ranged **5.3 % → 174.9 %** with box load | all four runs captured | This is the method's own justification, measured at this seat. The published figures are ratios between interleaved cells of one process-set; `spread_pct` is printed beside every median so a soft median is visible rather than hidden. **No bare-ns figure leaves this harness as a result** |
+| **D-F7** | **INFO** | In the quarantine the armed/unarmed ratio read **1.68×** (O-15: 1.47×), and the **post-reset** reading (137.7 ns) exceeded the **just-armed** reading (96.6 ns) | pasted in Act 6 | The middle reading is the noisy one (the memo tables are empty immediately after `memoize`). The two **structural** claims — the reader flips, and `resetPackrat()` does not disarm — both hold, and they are what the control exists to prove. Reported with its own caveat rather than rounded into agreement |
+
+#### Residuals — five, each declared rather than silently taken
+
+1. **`npx tsx harness/bench/bench.ts` RUN FROM `<p2>` CANNOT BE EXECUTED ON THIS BOX (D-F5), and the
+   gate's product was measured through the same entry three other ways.** The obstruction is npm's
+   prefix walk, not the harness: `<p2>` has no `package.json` (X-P-W1.md §Open Q-1 measured this and
+   declares creating one **NOT AUTHORIZED**), so the walk reaches the user's home directory.
+   **Everything in bounds was tried and the gate's subject is fully measured**:
+
+   | invocation | cwd | result |
+   |---|---|---|
+   | `npx tsx harness/bench/bench.ts` | `<p2>` | **`EXIT=134`, OOM at 4 GB after 149 s** — npm, before tsx starts |
+   | `<npx-cached>/tsx harness/bench/bench.ts` — *the exact binary `npx tsx` resolves* | `<p2>` | **`EXIT=0`**, stderr **0 bytes** |
+   | `node harness/bench/bench.ts` — same entry, node 26's native type stripping | `<p2>` | **`EXIT=0`**, stderr **0 bytes** |
+   | `npx tsx <abs>/harness/bench/bench.ts` | value.js | **`EXIT=0`** in 2.78 s, stderr **0 bytes** |
+
+   **Returned to the orchestrator, not resolved here**, because **X.P.W2 §4 binds that literal
+   command** as a cross-wave coordinate: either the coordinate gains a cwd note, or a later wave's
+   bounds admit a `<p2>` package root. This unit writes neither. No §3a trigger fired — the bench's
+   behaviour is measured, reproduced and double-run through the bound entry name.
+2. **`harness/bench/package.json` was authored, and it is in bounds.** Without it node resolves the
+   nearest `package.json` for `bench.ts` up to the stray one in the user's home, finds no `type`, and
+   writes `MODULE_TYPELESS_PACKAGE_JSON` **to stderr** — **448 bytes, measured, and a G-5 failure**.
+   Declaring the module type of the files this unit authored is that cause cured at the only place
+   this unit may write (§4: `harness/bench/**`, create); suppressing the warning, redirecting it, or
+   filtering stderr would each be the masking fix the standing law forbids. It is **not** the
+   `<p2>/package.json` Q-1 forbids: it installs nothing, declares no dependency, is scoped to this
+   directory, and `npm ci` is never run against it. After it: stderr **0 bytes**, twice.
+3. **§7's `npx vitest run` was NOT taken for the labelled-failure suite; the suite runs as its own
+   `node` process instead.** The blocker is measured and upstream of vitest: `npx` from `<p2>` does
+   not complete (Residual 1), and `<p2>` has no vitest config, no `package.json` and no
+   `node_modules` (Q-1). Running the globally-installed vitest inside `<p2>` to find out whether it
+   writes a cache directory there would risk a write outside §4 — **and a bounds violation
+   discovered after the fact is still a bounds violation**. G-5's *structural* requirement is met and
+   measured: the suite is a separate file, run as a separate process, which `bench.ts` neither
+   imports nor spawns, and whose 76 bytes of stderr never reach the bench's. This follows unit `.a`'s
+   landed precedent (its gate entry is `.mjs` run by plain `node`; *"no `tsx`, no `npx`, no `npm ci`,
+   no `<p2>/package.json`"*).
+4. **§7 prettier — run, and verified not to have mangled the text.** `<p2>` carries no prettier
+   configuration (⟨`ls -a <p2> | grep -i prettier`⟩ → none), so `--no-config` defaults are the only
+   available reading and value.js's `.prettierrc.json` is not imported into another repository.
+   `METHOD.md` was the only `.md` this unit authored: ⟨`--check`⟩ **[warn]** → ⟨`--write`⟩ → ⟨`--check`⟩
+   *"All matched files use Prettier code style!"*. The rewrite was verified to be **table-padding
+   only** — a character-frequency diff shows **spaces 1,184 → 1,199 and hyphens 155 → 159, and no
+   other character class moved** (unit `.a` lost a space inside a code span to this same formatter,
+   which is why the check was run).
+5. **`bench-raw.json` (106 KB) and `bench-results.json` are committed.** They are regenerated by
+   every run, so they will show as modified after any later invocation. They are committed because
+   they are the measured rows this receipt publishes; the code that produces them was re-verified
+   after the commit with `--out` pointed outside the tree, which left `git status` at **0**.
+
+#### What this unit did **not** do
+
+No write outside `harness/bench/**` and, at close, this record — ⟨`git show --name-only`⟩ lists
+**16 paths, every one under `harness/bench/`**. Nothing under `/Users/mkbabb/Programming/parse-that`,
+the frozen sibling worktrees, `docs/tranches/V/apotheosis/parser-proof/**`,
+`registry/adjudicated/**`, or this repository's `src/**` was written; the prototype workspace, the
+vendored tarball, the installed `node_modules` and unit `.c`'s rescued tree were **read-only**, and
+the rescued tree's bytes were re-hashed after every cell and found unmoved. `harness/totality/**` and
+`harness/equivalence/**` — units `.a` and `.b`'s subtrees — were not touched; the pathspec was on the
+`git commit` itself.
+
+**No bar was set, no verdict issued, no pass/fail column printed, and no speed claim made outside the
+printed table.** **G-1 · G-2 · G-3 · G-6 · G-7 · G-8 were neither turned nor read as turned**;
+`.a`/`.b`/`.c`/`.e` own them. **`scripts/dev/dev.sh` was never touched and never staged.**
+
+**No §3a trigger fired**, each checked rather than assumed: no write outside §4's table was needed or
+taken; the latch **was** observable, by a mechanism researched before anything was built, and the
+harness halts rather than inferring when it is not (falsifier 4); no pressure to set a bar arose — the
+one place it could have (the ported `gate`/`verdict` block) was removed *because* G-7 forbids it; and
+no diagnose→edit→re-measure loop on any gate reached a third iteration (the stderr warning and the
+`@@@ { }` corpus item were each one measure→cure→re-measure cycle, and the `npx` obstruction was
+diagnosed to its root cause, not iterated on). **No escalation arose.**
