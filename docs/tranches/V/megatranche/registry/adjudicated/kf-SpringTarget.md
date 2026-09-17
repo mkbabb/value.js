@@ -171,3 +171,18 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · `.d` measured, `.e` landed) — **D-14 · N-4 · D-6**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here; **measured by seat `.d`**, which
+was forbidden to land it. **Nothing above this line is rewritten** — no edit, no re-grade, no renumber, no
+deletion, no new id (E-1 / E-3). Every bullet is a dated MEASUREMENT; none re-books a row or moves a severity.*
+
+- **cell** — `chromium` · `safari-app/desktop` (both read in the same pass where the cell was open)
+- **capture** — none for these rows — live DOM/computed-style reads, banked unedited at `evidence/W9/W9d-raw-chromium-cells.json`
+- **stamp** — substrate keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD) · bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448` (built in the §0m.2 capture clone, **measured and double-run** at `.d` and **re-hashed identical at `.e`**)
+
+- **D-14 + N-4 CONFIRM as ONE BINDING**: on `/#/spring`, **16 of 16** sliders read `aria-valuetext: null`; names are **positional** (`"Value 1 of 5"`).
+- **NET-NEW: `aria-valuenow` runs `0…1` against a declared `max` of 110.** A value space and a declared range that do not describe each other — recorded as a dated measurement, **not** as a re-grade of either id, and not booked as a new defect: no id is minted here.
+- **D-6 CONFIRMS, and the intra-repo divergence now rests on a side-by-side reading rather than on two dates**: `/#/spring` headings **`[]`** and `/#/easing` headings **`["H2:ease"]`**, measured **in the same pass**.
+- **D-5's `aria-hidden` half stays UNMEASURED** with its precondition named, and **i-13/C-3's iOS symptom (residue #5) is UNREACHABLE-IN-CELL** — `xcrun devicectl list devices` → `No devices found.`, `safaridriver --help | grep -ci simulator` → **0**, ruled at COHESION §0m.2.

@@ -154,3 +154,17 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · `.d` measured, `.e` landed) — **D-11 (≡ banked D-16) · killed-claims #12 (ruling 7)**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here; **measured by seat `.d`**, which
+was forbidden to land it. **Nothing above this line is rewritten** — no edit, no re-grade, no renumber, no
+deletion, no new id (E-1 / E-3). Every bullet is a dated MEASUREMENT; none re-books a row or moves a severity.*
+
+- **cell** — producer bytes read at glass **7.0.0**'s shipped dist — **read-only; zero glass-ui bytes written**
+- **capture** — none — a file-level enumeration over the installed producer dist
+- **stamp** — substrate keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD) · bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448` (built in the §0m.2 capture clone, **measured and double-run** at `.d` and **re-hashed identical at `.e`**)
+
+- **Ruling 7's FOUR-FILE correction re-measured, and the figure is larger, not different in kind.** ⟨`find …/dist -name '*.css' | LC_ALL=C sort | xargs grep -l 'forced-colors'`⟩ → **TWELVE files**. **All four of the ruling's files are present and all four still resolve.**
+- **The ruling's CONCLUSION is REINFORCED, not disturbed**: if no *"the sole forced-colors rule is X"* cell survived four files, none survives twelve. **The verdict is unchanged; only its denominator is.**
+- Published as an **enumeration, not a numeral**, so the next census reproduces it rather than inheriting it. **No row is re-graded and no id is minted.**

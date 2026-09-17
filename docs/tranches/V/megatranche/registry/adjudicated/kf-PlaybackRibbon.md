@@ -178,3 +178,19 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · `.d` measured, `.e` landed) — **D-3 · DU-M-1 · D-12 (demo-side stopgap)**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here; **measured by seat `.d`**, which
+was forbidden to land it. **Nothing above this line is rewritten** — no edit, no re-grade, no renumber, no
+deletion, no new id (E-1 / E-3). Every bullet is a dated MEASUREMENT; none re-books a row or moves a severity.*
+
+- **cell** — `chromium/emulated-forced-colors` (the BEFORE witness + its falsifier) · `safari-app/desktop` (the normal-state antecedent)
+- **capture** — `…/audit/visual/safari-real/hcm-chromium-emulated-forced-colors-easing-ribbon.png` · shot-sha256 `bb2434b5c7bb9e17f29736ef8246b422e013ca7f3222af2b9dfd20bdcc1bdd88`
+- **stamp** — substrate keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD) · bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448` (built in the §0m.2 capture clone, **measured and double-run** at `.d` and **re-hashed identical at `.e`**)
+
+- **THE REDUNDANCY GROUND IS FALSE AS WORDED — measured, and handed to KF.W13 before its act lands.** The standing ground for deleting `playback-idiom.css:72-75` is *"both demo copies are wholly redundant against producer `base.css`'s identical rule."* Measured per copy at glass **7.0.0**'s shipped dist: `design-idioms.css:76-79` `.focus-ring:focus-visible` — the producer ships the **identical selector** with the same two declarations → **TRUE AS STATED**; `playback-idiom.css:72-75` `.btn-playback:focus-visible` — ⟨`find …/dist -name '*.css' | xargs grep -l 'btn-playback'`⟩ → **exit 1, no output**, widened to all file types → **no output** → **FALSE AS STATED: no producer rule at any coordinate.**
+- **The row survives by a different path, and the path is the finding.** Measured live, the ribbon's own class lists carry **both** `btn-playback` **and** `focus-ring` (`"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent"`), and ⟨`querySelectorAll('.focus-ring').length`⟩ → **44**. The producer reaches these buttons once *both* demo copies are gone — **via the co-present `.focus-ring` class, not via a producer `.btn-playback` rule.**
+- **This makes K-5 MEASURED rather than argued.** Delete only `design-idioms` → `.btn-playback:focus-visible { outline: none }` still matches **the same buttons**; delete only `playback-idiom` → `.focus-ring:focus-visible { outline: none }` still matches **the same buttons**. **ONE ACT, NEVER SPLIT — proved by the buttons' own class list, not by inference.**
+- **The BEFORE witness exists and is falsifiable.** Under `forced-colors: active` genuinely matching, `.btn-playback` reads `:focus-visible true` · `outline-style: none` · `box-shadow: none`; the FALSIFIER (same engine, same bundle, `forcedColors: "none"`) paints an indicator. **The AFTER witness reads UNMEASURED** — the two-deletion act is **KF.W13's**, this wave spent no cure and deleted no byte (S-9).
+- **The obligation this hands KF.W13**: the ground must be **re-worded to redundancy via the co-present `.focus-ring` class** before the deletion lands. **The act itself is unchanged and is still ONE act.** No severity moves here; the row's cure home is untouched.

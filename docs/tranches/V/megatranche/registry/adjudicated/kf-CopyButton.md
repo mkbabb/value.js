@@ -161,3 +161,17 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · `.d` measured, `.e` landed) — **KF-CB-9**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here; **measured by seat `.d`**, which
+was forbidden to land it. **Nothing above this line is rewritten** — no edit, no re-grade, no renumber, no
+deletion, no new id (E-1 / E-3). Every bullet is a dated MEASUREMENT; none re-books a row or moves a severity.*
+
+- **cell** — `chromium` (the AT cells are UNREACHABLE-IN-CELL — `at/voiceover-safari` on both legs, `at/nvda`/`at/jaws` for want of a Windows host)
+- **capture** — none for this row — the reading is a live DOM/computed-style read, banked unedited at `evidence/W9/W9d-raw-chromium-cells.json`
+- **stamp** — substrate keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD) · bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448` (built in the §0m.2 capture clone, **measured and double-run** at `.d` and **re-hashed identical at `.e`**)
+
+- **The PRECONDITION is CONFIRMED**: a nested `role="status"` inside a `<button>` is present on the shipped surface — the structural half of the registry's single highest-value SS-13 probe.
+- **NET-NEW: the probe has a THIRD possible outcome its two-branch framing does not enumerate.** The copy button ships in **two divergent forms on one route**: `"Copy curve literal"` carries **no nested `role="status"` at all**, while `"Copy easing literal"` carries one. A probe framed as *"the live region either is or is not announced"* cannot express *"the surface is not one surface."* **The row is not re-graded and the probe is not re-authored here** — the finding is recorded so whoever runs the AT pass runs it against both mounts.
+- **The UTTERANCE stays UNREACHABLE-IN-CELL**: what an AT says is what an AT cell measures, and all three are foreclosed on this host with their bounds measured. **S-8 family (vi) is DECLARED UNSPENT** — no probe in it is spent by this reading, and none may later be skipped on the ground that a seat "already looked".
