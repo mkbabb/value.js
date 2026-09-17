@@ -392,3 +392,205 @@ concurrent units share a `modify` path.
 
 *(empty at open — each unit appends its own block with commit hashes, gate transitions and
 ⟨cmd⟩ → output receipts; concurrent units write only inside their own evidence subdirectory.)*
+
+### X.W1.c
+
+**Boot truth, both modes (CC-032) · G-12 · G-13 · G-14 · opus (`claude-opus-5[1m]`) ·
+worktree `/Users/mkbabb/Programming/value-js-x-w1-c`** — 2026-09-17. Base `f62bf82b`; the worktree
+was moved to this unit's own script commit `cad51f9e` and every published figure RE-MEASURED there
+after a sibling seat's `composables/boot/useAtmosphere.ts` landing moved the entry chunk.
+Commits: **`cad51f9e`** (Commit Plan row 3, `ci(boot-smoke)`) · **`d677c30c`** (row 6, evidence).
+
+#### Act 0 — the worktree (the spec's, not yet made)
+
+`W1.md:192-199` assigns this unit `/Users/mkbabb/Programming/value-js-x-w1-c` and charges the
+orchestrator with creating it; at dispatch it did not exist (the open baseline says so at `:170-172`).
+⟨`git worktree add --detach /Users/mkbabb/Programming/value-js-x-w1-c HEAD`⟩ → `HEAD is now at
+f62bf82b`; ⟨`npm ci --no-audit --no-fund`⟩ → `added 438 packages in 7s`. **Detached, never a branch**:
+the commits land on `tranche-u` from the primary tree by pathspec, so nothing is owed an integration
+step. The worktree's purpose is WO-5's: it carries the `npm run gh-pages` builds so the primary
+tree's `dist/` — which `test/**` binds to and other Track A seats read — is never replaced by this
+unit. ⟨`node -p "require('…/value-js-x-w1-c/node_modules/@mkbabb/glass-ui/package.json').version"`⟩
+→ **`7.0.0`** (the declared `^7.0.0`, from the registry).
+
+#### Act 1 — G-13 MEASURE-AT-OPEN, pasted BEFORE any cure (the unit's first act, WO-5)
+
+⟨`npm run gh-pages`⟩ → rc 0 · a 40-line node static server at `127.0.0.1:0` serving `dist/gh-pages`
+· headless chromium `goto(origin + "/")`. Origin `http://127.0.0.1:53042` — **bare**: root path, no
+sub-path, no query, no fragment.
+
+```
+HTTP: 200
+MOUNT STATE: { "appTag": "BODY", "elementChildCount": 6,
+               "childTags": ["DIV","DIV","SPAN","DIV","DIV","DIV"],
+               "innerHTMLLength": 98826, "mainCount": 1, "styleSheetCount": 8 }
+PAGEERRORS: []   FAILED REQUESTS: []
+```
+
+**NV-7 DOES NOT REPRODUCE at `f62bf82b`.** Recorded as a **GREEN-BEFORE-CURE** finding
+(§READINESS R.2), not as a gate pass. The standing record it is measured against is
+`CARRY-LEDGER.md:116-118` — *"the PRODUCTION build previewed at a bare 127.0.0.1 origin mounts
+empty (boot-guard/ground-record quirk; dev witness green and canonical)"*. Full record:
+`docs/tranches/X/evidence/w1/boot/MEASURE-AT-OPEN-2026-09-17.md`.
+
+#### Act 2 — `scripts/ci/boot-smoke.mjs` (`cad51f9e`, 719 lines, one file)
+
+Restores what `d9c3b9f2` created as inv-N-1 and `6d6d3521` deleted as *"CI-orphaned; W44
+routed-mount witness supersedes"* eleven hours before W44 closed booking the empty mount as a carry.
+`--mode=dev|prod-preview` + an optional `--origin`; `--build`; `--json`; `--seed` (a triage
+diagnostic, never a gate posture — a gate run takes the whole matrix).
+
+- **The origin form is CHECKED, not assumed** (the unit's LOCK): loopback literal, explicit port,
+  ROOT path, no query, no fragment. ⟨`--origin=http://127.0.0.1:62922/gh-pages/`⟩ → exit 1,
+  *"ORIGIN-FORM: … sub-path /gh-pages/ — a sub-path origin masks base-path defects"*;
+  ⟨`--origin=http://localhost:62922`⟩ → exit 1, *"host localhost (want 127.0.0.1)"*.
+- **Four assertions per mode, per seed** (`W1.md:248-250`): A1 `#app` ≥1 element child · A2 a
+  `role=main` landmark · A3 `pageerror` collected `[]` · A4 ≥1 desktop utility class in the emitted
+  CSS, walked out of the **live CSSOM** with its enclosing media condition, never from a file guess.
+- **dev** spawns `vite --force` (COLD dep-optimizer cache — one of the three named silencers);
+  **prod-preview** serves `dist/gh-pages` from a built-in static server at a bare ephemeral origin,
+  with no SPA fallback (the router is `createWebHashHistory`, so a catch-all would hide a real 404).
+- Lint/format at the settled bytes: ⟨`npx prettier --check`⟩ → *All matched files use Prettier code
+  style!* · ⟨`npx eslint … --max-warnings=0`⟩ → rc 0 · ⟨`git diff --check`⟩ → rc 0.
+
+**Instrument defect found and cured during authoring, recorded because it would have been a false
+GREEN:** the first CSSOM walk treated *"has `cssRules`"* as *"is a grouping rule"*. In the nesting
+era a plain `CSSStyleRule` carries an empty `cssRules` list, so every style rule was skipped and A4
+read `0 desktop utility rule(s)` on a document that has 47. Cured by testing the selector first and
+descending after — A4 now reads `47 … @ (width >= 64rem)`.
+
+#### Act 3 — G-14: NV-7's root, NAMED, with its differential test
+
+> **THE ROOT — the Vue bootstrap was an INLINE `<script type="module">` in
+> `demo/color-picker/index.html`. Vite's production build does not traverse an inline module as a
+> build entry: it emitted the 698-byte modulepreload polyfill shell and dropped the entire
+> application module graph, the application stylesheet with it. Dev never had the defect — the
+> browser's own ESM loader executes an inline module directly and no build entry is involved.
+> Cured at `c4af0ef9` (2026-07-29), CC-002's product cut.**
+
+The differential — **one knob, both sides, at today's bytes**
+(⟨`git show c4af0ef9 -- demo/color-picker/index.html demo/color-picker/main.ts | git apply -R -`⟩,
+then ⟨`npm run gh-pages`⟩, changing nothing else):
+
+| reading | external entry (as shipped) | inline entry (the one knob) |
+|---|---|---|
+| emitted assets | **122** | **63** |
+| entry chunk | `index-DC7wNDmX.js` — **539,078 B** | `index-Dezn_h7o.js` — **698 B** |
+| `modulepreload` links | 5 | **0** |
+| application stylesheet | `index-CyBun992.css` | **absent** |
+| prod-preview A1 / A2 / A3 / A4 | 6 children / 1 landmark / `[]` / 47 rules | **0 / 0 / `[]` / 0** |
+| **prod-preview verdict** | `1/1 PASS` | **`0/1 FAIL`** |
+| **dev verdict, same knob** | `1/1 PASS` | **`1/1 PASS`** ← *dev cannot see it* |
+
+Independently reproduced at its own clock: a scratch worktree at **`91fa1368`** (the W44 close, the
+commit whose own §F booked the carry) builds the **byte-identical 698-byte entry** `index-Dezn_h7o.js`
+and probes `elementChildCount: 0`, `mainCount: 0`, `vueAppPresent: false`, `PAGEERRORS: []`,
+`FAILED REQUESTS: []`, `perfMarks: ["overture:b0"]`.
+
+**Two standing claims FALSIFIED, both recorded rather than quietly dropped:**
+
+1. *"boot-guard/ground-record quirk"* (`CARRY-LEDGER.md:117`) — **false**. On the RED arm the guard
+   ran to completion: `overture:b0` marked, `--saved-bg` written (`rgb(179, 114, 144)`), every
+   `__GROUND_*__` token injected (⟨`sed -n '185,200p' dist/gh-pages/index.html`⟩ → `=== 4`, no
+   unreplaced token). It is the one part of the boot that worked.
+2. **DR-22 / CC-034's `ref: tranche/BG` glass pin as the *"highest-probability root cause of NV-7"***
+   (`DISEASE-REGISTRY.md:327`; `W1.md:314` makes it a *candidate until G-16 shows the probe flips*)
+   — **falsified without needing G-16**: every arm of the differential is a LOCAL `npm run gh-pages`
+   against the registry's **7.0.0**; `deploy-pages.yml` participates in none of it, and the flip is
+   total on the entry form alone. **This does not retire CC-034** — the pin is a real
+   deploy-provenance defect and X.W1.d cures it under G-15 for its own reason; only its *claim to be
+   NV-7's root* is withdrawn. **Message to X.W1.d**: G-16 is the prod-preview probe against the
+   amended workflow's exact steps, and it should be read as that and not as the confirmation of a
+   root now identified elsewhere.
+
+Also named: the desktop/CSS-emission chronic (K.W2.6 → M.W2.A → N.W2.B → N.W10.D → R.W2) is **the
+same defect** — A4 reads `0 desktop utility rule(s)` on the RED arm because the stylesheet is emitted
+by the graph that was dropped. One root, two registry names.
+Full record: `docs/tranches/X/evidence/w1/nv-7-root.md`.
+
+#### Act 4 — the falsifier (`W1.md:253`, `:312-313`)
+
+Scratch build, `app.mount("#app")` commented out, **never committed** (⟨`git status --porcelain`⟩
+after restore → the unit's own new file alone; tree rebuilt):
+
+| mode | exit | A1 | A2 | A3 | A4 |
+|---|---|---|---|---|---|
+| `--mode=dev --seed=default` | **1** | **FAIL** 0 children | **FAIL** 0 landmarks | ok `[]` | ok 47 rules |
+| `--mode=prod-preview --build --seed=default` | **1** | **FAIL** 0 children | **FAIL** 0 landmarks | ok `[]` | ok 47 rules |
+
+**Both modes red, and red *for their reason*** — A1/A2 only, while A3/A4 stay green and the entry
+chunk is still 539,051 B. Recorded: the mount deletion produces **no `pageerror` in either mode**, so
+a gate that asserted only "console clean" would have passed this build — which is precisely how this
+row's predecessors failed. Full record: `docs/tranches/X/evidence/w1/boot/falsifier-2026-09-17.md`.
+
+#### Act 5 — G-12 / G-13 at `cad51f9e`, double-run, over the R16/R17 seed matrix
+
+Each mode takes a **seed matrix**, not one default boot (fold R16/R17): deep-linked and persisted
+achromatic seeds, none-hue `lch`/`oklch`, and a chromatic control. The 28/256 figure was
+re-derived at these bytes before the matrix was chosen — ⟨node over `dist/subpaths/color.js`,
+256 greys⟩ → **`hsv-powerless greys: 28 of 256`**, members
+`[0,3,6,23,26,43,46,50,51,52,62,74,96,122,135,143,157,159,160,161,187,225,228,243,247,248,251,253]`,
+and **`none-hue lch/oklch greys: 512 of 512`** (R15's 256/256-in-both figure, confirmed).
+
+| seed | class | dev | prod-preview |
+|---|---|---|---|
+| `default` | W1.md's literal cold boot | **PASS 4/4** | **PASS 4/4** |
+| `deep-link-grey-808080` | CONTROL (grey 128, not powerless) | **PASS 4/4** | **PASS 4/4** |
+| `deep-link-black` | R16 (`?color=black`, grey 0) | FAIL `PickerColorError: Missing hsv.h` | FAIL (same, console-only) |
+| `deep-link-grey-333333` | R16 (grey 51) | FAIL `Missing hsv.h` | FAIL |
+| `persisted-black` | R16, self-perpetuating arm | FAIL `Missing hsv.h` | FAIL |
+| `deep-link-lch-none` | R17 | FAIL `Missing lch.h` | **PASS 4/4** |
+| `deep-link-oklch-none` | R17 | FAIL `Missing oklch.h` | **PASS 4/4** |
+| `persisted-oklch-none` | R17 | FAIL `Missing oklch.h` | **PASS 4/4** |
+| **totals** | | **2/8** | **5/8** |
+
+Double-run at `cad51f9e`: dev `2/8` twice, prod-preview `5/8` twice, the same seeds both times (and
+`5/8`/`2/8` also at the base `f62bf82b`, four consecutive concordant readings in all). Transcripts:
+`boot/run-dev-2026-09-17.txt`, `boot/run-prod-preview-2026-09-17.txt`.
+
+**GATE READINGS, BEFORE → AFTER**
+
+| gate | BEFORE (open baseline) | AFTER | basis |
+|---|---|---|---|
+| **G-12** — `--mode=dev` passes the four assertions on a **cold dev boot** (`W1.md:312`) | **RED** — `ls scripts/ci/` → `verify-packed-surface.mjs`; `boot-smoke.mjs` absent | **GREEN** on its W1.md condition: `default` **4/4** on `vite --force`; falsifier reds it | `boot/run-dev-2026-09-17.txt` |
+| **G-12 · fold R16/R17 seed-matrix arm** | **RED** (no instrument existed) | **BORN-RED, as the fold declares it** — 6 of 8 legs fail; instrument delivered | R16 *"born-RED boot test over the seed matrix"* |
+| **G-13** — `--mode=prod-preview` at a **bare `127.0.0.1`** (`W1.md:313`) | **MEASURE-AT-OPEN** | **GREEN** on its W1.md condition: `default` **4/4**; origin form checked and demonstrated refusing a sub-path | `boot/run-prod-preview-2026-09-17.txt` |
+| **G-13 · fold R16 seed-matrix arm** | **RED** | **BORN-RED** — 3 of 8 legs fail (the hsv-powerless grey class) | same |
+| **G-14** — NV-7 re-classed with its root **named** and differentially evidenced | **RED** — booked as a carry, root undiagnosed, no `nv-7-root.md` in the tree | **GREEN** — root named, differential run both ways at today's bytes AND reproduced at `91fa1368`; two rival claims falsified | `evidence/w1/nv-7-root.md` |
+| **R42** (cl.3, MEASURE-AT-OPEN, INFO) | banked on a seat that ran no build | **CLOSED** — 122 assets CONFIRMED · vendor-katex emitted CONFIRMED · **not** in the 5-link modulepreload set CONFIRMED | `boot/artifact-census-r42-2026-09-17.md` |
+
+**The seed-matrix REDs are not this wave's to cure, and are not masked here.** No `test.skip`, no
+allowlist, no try/catch, no filtered assertion: `boot-smoke.mjs` exits non-zero on them and names
+them. The fold routes the cures — **R16 → X-W9** (*"the `none` protocol must be
+unrepresentable-to-forget at the demo boundary"*), **R17 → X-W5 + X-W9** (demo `Result` propagation
++ the library `Result` battery) — and states that **W1 owns the gate and the deploy-matrix state
+only**. Consequence for **X.W1.a**, stated so it is a decision and not a surprise: wiring
+`boot-smoke` as a HARD job makes CI red until those waves land. That is what a born-RED gate means;
+softening it with `continue-on-error` is exactly what G-2 forbids by name.
+
+#### Residuals and escalations
+
+- **NONE at ESCALATION level.** No Triumvirate trigger fired: no write under `src/`, `demo/` or
+  `api/` (the two scratch mutations were reverted and the tree left clean); NV-7 root-hunting
+  converged on the **second** measurement, not a third.
+- **R1 (hand-off to X.W1.a and X.W1.d) — `npm run gh-pages` has an undeclared build input.** There
+  is no `pregh-pages` hook (`package.json:62-64` — `prepare` and `pretypecheck` exist, `pregh-pages`
+  does not), while the demo reaches the library through the exports map to `dist/subpaths/*.js`.
+  Measured: with `npm ci --ignore-scripts` (so `prepare` never ran) the gh-pages build **fails** —
+  `[UNLOADABLE_DEPENDENCY] Could not load dist/subpaths/css.js ╭─[ demo/color-session/picker-color.ts:2:50 ]`.
+  An artifact built on a *stale* `dist/` therefore has undefined provenance and fails silently rather
+  than loudly. `package.json` is **X.W1.a's**; `deploy-pages.yml`'s build steps are **X.W1.d's**.
+  Outside this unit's writable set, so recorded, not cured.
+- **R2 (recorded finding) — A3 is blind in `prod-preview`.** The same boot crash raises a
+  `pageerror` in dev but only a `console.error` in prod (Vue's dev build rethrows to the window; the
+  prod build does not). A3 is kept exactly as `W1.md:249` words it; the console is printed beside
+  every failing case so the receipt carries the cause, and A1/A2 are the load-bearing assertions.
+- **R3 (recorded) — the local static preview emits the demo's own API-origin misconfiguration
+  notice** (no `VITE_API_URL`). Environment, not product; reported, never filtered, never an
+  assertion input.
+- **Unit d coordination (the LOCK: G-13 and G-16 on ONE commit).** The instrument is at
+  **`cad51f9e`** and both modes were re-measured there. X.W1.d should run G-16 — and re-run G-13
+  beside it — on d's own commit, which contains `cad51f9e`, so the two gates share one commit as the
+  lock requires.
+- **E13 mail**: no letter in this unit's scope; the wave's open sweep stands (0 unrowed, 0 UNREAD in
+  X-W1's scope). `scripts/dev/dev.sh` untouched and unstaged throughout.
