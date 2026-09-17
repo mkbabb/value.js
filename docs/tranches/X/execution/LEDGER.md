@@ -43,7 +43,7 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 | wave | opens after | status | commit(s) | notes |
 |---|---|---|---|---|
 | KF.W0 | begin-word; §B-12 = the reset (OP-1 ruled at §0j) | planned | | 5 units; then .b ∥ .c; then .d ∥ .e |
-| KF.W1 | begin-word (NOT after W0) | planned | | 3 Opus serial; MINTS O-21 (max-grep at open; MINT LAW) |
+| KF.W1 | begin-word (NOT after W0) | OPEN 2026-09-17 | | 3 Opus serial; MINTS O-21 (max-grep at open; MINT LAW). Baseline `execution/B/KF-W1.md`: 10/10 RED-AS-EXPECTED · 0 GREEN-BEFORE-CURE; OP-1/OP-2 MET at the bytes, OP-3 discharged by §0j.C KF-WRITE, OP-4 not required; mail sweep 0 unrowed; measured max `O-20` → mint `O-21` |
 | KF.W4 | KF.W0 | planned | | THE SEQUENCING HEAD (G-KFW4-1); peak concurrency 2; ∥-atomic with KF.W6 on usability.mjs |
 | KF.W2 | KF.W0 | planned | | opening commit states its ref; registries before any cure commit |
 | KF.W5 | KF.W4 | planned | | S-0: G-XSS commit 1; S-5 cure (4.0.0→V) before open |
@@ -75,7 +75,7 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 
 | wave | opens after | status | commit(s) | notes |
 |---|---|---|---|---|
-| X.P.W0 | begin-word | planned | | 4 (2 ∥ then serial); the fresh root opens at first write; G-1/G-2/G-3 authenticate the pause |
+| X.P.W0 | begin-word | OPEN 2026-09-17 | | 4 (2 ∥ then serial); the fresh root opens at first write; G-1/G-2/G-3 authenticate the pause. Record `execution/D/X-P-W0.md`; **8 of 8 gates RED before cure**, 0 GREEN-BEFORE-CURE; OP-1..OP-4 all MET (OP-2 GRANTED, dated) |
 | X.P.W1 | W0 closed | planned | | 5 (3 ∥ then serial); three instruments + bar ledger |
 | X.P.W2 | W1 IMPLEMENTED | planned | | 9 across 6 phases; Fable .a ∥ Opus blind algebra authors |
 | X.P.W3 | W2 | planned | | 5 (3 ∥ disjoint then serial) |
@@ -94,3 +94,4 @@ Workflow scripts (session-local, re-creatable from the runbook): `x-begin.js`, `
 - 2026-09-17 — begin-word received; ledger opened; P-1..P-3 dispatched as workflow `x-begin`.
 - 2026-09-17 — P-1 mail round: 0 rowed, 8 tail items cured, commit 642a0098.
 - 2026-09-17 — P-2 gates baseline banked (fd40535c · 0bed8379); P-3 sitting RULED at COHESION §0j; pre-acts CLOSED; Tracks A–D dispatched as workflows x-track-A..D.
+- 2026-09-17 — **X.P.W0 OPEN** (Track D seat 0): four-path mail sweep 0 unrowed (I-30 still the tail); OP-1 (§0j.E) / OP-2 GRANTED-dated / OP-3 85Gi avail vs 28M `.git` / OP-4 no §9 STOP — all MET; the eight W0 gates run read-only = **8 RED before cure, 0 GREEN-BEFORE-CURE**; 4 units planned (`.a` ∥ `.b` → `.c` → `.d`, all Opus 5, peak concurrency 2). Record: `execution/D/X-P-W0.md`.

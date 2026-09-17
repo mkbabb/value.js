@@ -1,0 +1,360 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X.P.W0 — EXECUTION RECORD (Track D · X·P · parse-that → fresh root)
+
+**Spec of record**: `docs/tranches/X/parse-that/waves/W0.md` (read whole by this seat).
+**Order of authority**: `EXECUTION-RUNBOOK.md` §1.4 (Track D, strictly serial) · §2.4 (the five X·P
+first gates) · §3.4 (locks) · §5 (seat law) · `COHESION.md` §0i + §0j (every owner-gated item RULED).
+**Seat**: SEAT 0 (OPEN), 2026-09-17. This record is read-only over every tree it measured.
+
+---
+
+## Open
+
+**Date**: 2026-09-17 (the owner's begin-word, verbatim at `COHESION.md` §0j).
+
+### Preconditions, verified at the bytes AND in the ledger
+
+| # | precondition (spec §2 "Opens after" / §2b) | ruling / receipt | state |
+|---|---|---|---|
+| — | tranche X opens (X ratified, SCOPE M-22 ¶1) | `COHESION.md` §0h (TRANCHE DEVELOPMENT COMPLETE, `31dcf279`) + §0j | **MET** |
+| — | no predecessor wave (X·P lane head) | `LEDGER.md` Track D: `X.P.W0 | begin-word | planned` — nothing upstream | **MET** |
+| — | pre-acts P-1 · P-2 · P-3 | `LEDGER.md` §Pre-acts, all three **CLOSED** (`642a0098` · `fd40535c`+`0bed8379` · §0j) | **MET** |
+| OP-1 | **owner begin-word for the X·P lane** | **RULED — `COHESION.md` §0j.E**: *"both owner words are given, dated 2026-09-17"* — the begin-word opens the lane; the release word (*"authorized to publish, push, and pull…"*) is separate and belongs to X.P.W4's release limb, not to W0 | **MET** |
+| OP-2 | `~/Documents` TCC grant | **DENIED at authoring (2026-08-03); GRANTED as measured 2026-09-17** — §0j records gate 24 as a fact for the waves. Re-measured by this seat: `ls -d …/2026-08-02/parser-novelty-v12-construction` → exit 0 | **GRANTED (dated)** |
+| OP-3 | disk headroom for the clone | ⟨cmd⟩ `df -h /Users/mkbabb` → `1.8Ti size / 1.7Ti used / **85Gi avail** / 96%` (08-03 read 165Gi/91%); ⟨cmd⟩ `du -sh /Users/mkbabb/Programming/parse-that/.git` → **28M**. A `--no-hardlinks` clone + one checkout is ≪ 85Gi | **MET, re-measured** |
+| OP-4 | handoff §9 STOP conditions **unfired** | all seven G-1 rows disposed below with **zero MISMATCH**; the v12 target is **verified ABSENT** (not inferred) — §9's *"a present v12 target"* is detectable for the first time and **does not fire** | **MET** |
+
+### Rulings consumed (cited, never presumed)
+
+- **`COHESION.md` §0j.E · OP-1** — both owner words given, dated 2026-09-17. W0 consumes the
+  begin-word only; the release word is X.P.W4's.
+- **`COHESION.md` §0j.E · OC-1 (OP-3)** — admission decided on correctness; the bench table is
+  **RECORDED-NOT-GATING**. **Not a W0 item** (it binds X.P.W3's three-leg table and X.P.W4's RC-P
+  conjunct 5); recorded here so no W0 seat presumes a bar.
+- **`COHESION.md` §0j (pre-acts block) · gate 24** — *"the `~/Documents/Codex` TCC wall is GONE …
+  so X.P.W0 G-2 records the three-state as PRESENT with date and the v12 target VERIFIED ABSENT,
+  builder + residue MATCH."* Binding on unit `.a`.
+- **`COHESION.md` §0j (pre-acts block) · gate 25** — *"every git identity of the eighteen roots
+  holds, but `git worktree list` returns 7, not 8 … X.P.W0 G-3 states the table at today's bytes."*
+  Binding on unit `.b`.
+- **E-3 throughout**: `W0.md`'s 2026-08-03 baselines are **IMMUTABLE**. Both facts above land as
+  **dated addenda beside**, never as edits to the 08-03 lines.
+
+### E13 Step-0 — four-path mail sweep, 2026-09-17 (X.P.W0 open)
+
+Newest item per path, by mtime, measured by this seat:
+
+| # | path | newest | rowed? |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` + `docs/tranches/V/coordination/` | `coordination/INBOX.md` @ `Sep 17 12:32` (this ledger — self-excluded, SELF-COUNT law) → next `value-inbox-2026-07-20-bbnf-coordination.md` @ `Jul 21 14:05` (an outbound draft of ours) · `V/*.md` newest = `DECISIONS.md` @ `Jul 17 22:15` | n/a — nothing addressed to us |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` | `glass-outbound-2026-08-29-valuejs-o20-ack.md` @ `Aug 29 16:41` | **ROWED = I-30** |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-07-27-library-band-r1-widened-k1-k4.md` @ `Jul 27 12:27` (ours, outbound) | ROWED (O-11) |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` @ `Aug 3 15:01` (ours, outbound) | ROWED |
+
+**BK confirmed still the newest glass tranche dir** ⟨cmd⟩ `ls -ltd ../glass-ui/docs/tranches/*/ | head -3` → `BK/` (`Sep 17 12:28`) · `BJ/` (`Aug 3`) · `BI/` (`Jul 28`).
+
+**Result: 0 unrowed letters. I-30 remains the ledger tail. Nothing new since the P-1 sweep
+(`642a0098`).** No row was added to `INBOX.md`; a dated sweep line for this wave-open is appended
+at the file end.
+
+---
+
+## Baseline — the eight gates, run READ-ONLY at wave-open (BEFORE)
+
+Standing law (§READINESS R.2, program-wide): *"Running them at wave-open re-dates the baselines; a
+PASS on any of them before its cure lands is itself a finding and goes to the sitting."* The
+2026-08-03 baselines in `W0.md` §6 are untouched; every reading below is this seat's own, dated
+2026-09-17, `cwd = /Users/mkbabb/Programming/value.js`, node v26.0.0, darwin arm64.
+
+| gate | subject | BEFORE verdict | one-line reading |
+|---|---|---|---|
+| **G-1** | handoff identities re-derived | **RED-AS-EXPECTED** (act-half UNRUN) | all four named digests MATCH byte-for-byte; the wave's dated ledger does not exist |
+| **G-2** | EPERM is not absence | **RED — of a changed kind** | the wall is GONE; three-state now PRESENT/ABSENT-verified/PRESENT. No lane artifact records it |
+| **G-3** | eighteen roots byte-unchanged | **RED-AS-EXPECTED** | 18 roots enumerated by this seat; `roots-census.sh` does not exist; 0 of 18 in any tracked file |
+| **G-4** | p2 absent today | **RED — and the RED is the point** | `ABSENT`; the ruled commit exists in the source repo and is **not** an ancestor of `master` |
+| **G-5** | object-store isolation | **RED, vacuously** | the fresh root does not exist, so the assertion has no subject; source quadruple captured |
+| **G-6** | evidence chain live | **RED-AS-EXPECTED** | `harvest/` holds 50 entries, **0** matching `x-p-*`; `EVIDENCE-CHAIN.md` absent |
+| **G-7** | pause law unbroken | **RED-AS-EXPECTED** | no such check exists in any tracked file; the value-source half reads clean (0 rows) |
+| **G-8** | PLAW-BIND both ends | **RED-AS-EXPECTED** | both fragment greps return 1 row each; the lane's own end absent — **1 of 2** |
+
+**Tally: 8 of 8 RED before cure. 0 GREEN-BEFORE-CURE. 0 UNRUNNABLE.** (R.2 finding count for this
+wave: **zero** — no gate passed ahead of its cure.)
+
+### G-1 — HANDOFF IDENTITIES RE-DERIVED
+
+⟨cmd⟩ `shasum -a 256 <the four paths>`
+
+```
+ced234406d3d9ad6bb13e4dce92452a596c9af55dd2091fd90a83f02502f20f7  docs/tranches/V/megatranche/coordination/PARSER-CSS-PAUSE-HANDOFF-2026-08-02.md
+244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7  /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md
+aa891714b3b6bb3386afda45201b203ac5aa1f2ef028466f303831197e992767  /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/audit/cross-repo/VALUE-CSS-DREI-V11-TWO-REVIEW-OWNER-INTAKE-2026-08-02.md
+0002ed933f7628797792c28258c37b150b2eb10a767eb5113db20225757d0f50  docs/tranches/V/megatranche/formation/codex-worktree-7e28/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md
+```
+
+⟨cmd⟩ `tail -c 30242 docs/tranches/V/megatranche/formation/codex-worktree-7e28/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md | shasum -a 256`
+
+```
+244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7  -
+```
+
+Builder + residue, now in reach ⟨cmd⟩ `shasum -a 256` · `stat -f '%z %p %l %N'`:
+
+```
+0732ebc27bc712d64d0b6ade30db13b9d8c7817524268af7d3d7474654b64ee8  …/parser-novelty-v12-construction/BUILD-V12.py
+de1d62ff18da4851968136b1e3190c00f6c463b9b8a5e7b5d23103155cc00937  …/__pycache__/BUILD-V12.cpython-314.pyc
+243827 100644 1 …/BUILD-V12.py
+154221 100644 1 …/__pycache__/BUILD-V12.cpython-314.pyc
+```
+
+**Seven-row disposition as measured today: 6 MATCH (incl. the two ex-EPERM rows on exact SHA-256,
+byte size, mode 0644 and nlink 1) · 1 EXPLAINED (the ADOPT-COPY, re-proved by `tail -c`) · 1
+verified ABSENT (the v12 target) · 0 MISMATCH.** The builder was hashed, never opened for edit and
+never run; the `__pycache__` residue was hashed and not removed, regenerated, normalized, or
+credited (handoff §3.2 + §7, verbatim).
+**RED because** `docs/tranches/X/parse-that/evidence/W0/PAUSE-AUTHENTICATION-*.md` does not exist —
+*"the gate closes when the wave's own dated ledger carries all seven with its own outputs pasted."*
+Writing it is unit `.a`'s act.
+
+### G-2 — EPERM IS NOT ABSENCE
+
+⟨cmd⟩ `ls -d /Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-v12-construction`
+
+```
+/Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-v12-construction
+```
+
+⟨cmd⟩ `ls -d /Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-and-experiment-v12`
+
+```
+ls: /Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-and-experiment-v12: No such file or directory
+```
+
+⟨cmd⟩ `ls -d /Users/mkbabb/Documents/Codex/2026-07-29/parser-p4-fresh-sol-adjudication/outputs`
+
+```
+/Users/mkbabb/Documents/Codex/2026-07-29/parser-p4-fresh-sol-adjudication/outputs
+```
+
+The 08-03 baseline was `Operation not permitted` on all three. **The access state changed; the gate
+did not.** Its content — that a failed `ls` is not an absence — now binds in the *other* direction:
+the v12 target is **ABSENT as measured on 2026-09-17 by a reader with listable-parent access**, and
+every sentence asserting it must carry that date and that access state (the gate's own falsifier).
+The gate's reverse clause governs too: *"the grant does not retroactively make today's EPERM a
+verification"* — so the 08-03 EPERM rows stay EPERM in the record, beside today's MATCHes.
+**RED because** no artifact in this lane records any of it. Unit `.a` writes it.
+
+### G-3 — EIGHTEEN ROOTS, BYTE-UNCHANGED
+
+This seat's own census, `rev-parse --short HEAD` + `find … -type f -not -path '*/.git/*' -not
+-path '*node_modules*' | wc -l`, **`--no-optional-locks`, no `status`** (so the measuring instrument
+cannot refresh a stat-cache and taint the later diff-to-empty):
+
+```
+01  /Users/mkbabb/Programming/parse-that                        PRESENT  ef10d5b   master                                    20261
+02  /Users/mkbabb/Programming/parse-that-css-totality           PRESENT  f575708   codex/css-totality-combinators-20260729     757
+03  /Users/mkbabb/Programming/parse-that-css-totality-p1-e      PRESENT  35fd252   codex/css-totality-p1-e                     277
+04  /Users/mkbabb/Programming/parse-that-css-totality-p1-r      PRESENT  4175325   codex/css-totality-p1-r                     277
+05  /Users/mkbabb/Programming/parse-that-css-totality-p1-vk     PRESENT  a0f122f   codex/css-totality-p1-vk                    277
+06  /Users/mkbabb/Programming/parse-that-runtime-probes         PRESENT  99e9862   codex/runtime-kernel-probes-20260729        337
+07  /Users/mkbabb/Programming/parse-that-skv26                  PRESENT  e31fbfe   codex/sk-v26-parse-that                   51162
+08  /private/tmp/parse-that-m2-baseline-20260729                ABSENT    -        -                                            -
+09  /Users/mkbabb/.codex/worktrees/7e28/value.js                PRESENT  e01d0065  HEAD (detached)                           3967
+10  /Users/mkbabb/.codex/worktrees/9167                         PRESENT  NOT-A-GIT-ROOT                                      2988
+11  /Users/mkbabb/.codex/worktrees/d0be                         PRESENT  NOT-A-GIT-ROOT                                      1100
+12  /Users/mkbabb/Programming/value-css-totality-audit          PRESENT  dea7a93c  codex/css-totality-prototype-20260729     3846
+13  /Users/mkbabb/Programming/value-xw1-demo-boot               PRESENT  d19da6d3  codex/xw1-demo-boot-20260729              3979
+14  …/Documents/Codex/2026-08-02/parser-novelty-v12-construction PRESENT NOT-A-GIT-ROOT                                         2
+15  …/Documents/Codex/2026-08-02/parser-novelty-and-experiment-v12 ABSENT  -        -                                            -
+16  …/Documents/Codex/2026-07-29/parser-p4-fresh-sol-adjudication/outputs PRESENT NOT-A-GIT-ROOT                                 8
+17  /Users/mkbabb/Programming/.p-totality                       PRESENT  NOT-A-GIT-ROOT                                     26056
+18  /Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof        PRESENT  NOT-A-GIT-ROOT                                       189
+```
+
+Identical in every cell to the P-2 census at `execution/gates/census-before-2026-09-17.txt`
+(which additionally carried a disclosed `DIRTY` column this seat deliberately omitted).
+
+**The structural fact**, ⟨cmd⟩ `git --no-optional-locks -C /Users/mkbabb/Programming/parse-that worktree list`:
+
+```
+/Users/mkbabb/Programming/parse-that                     ef10d5b [master]
+/Users/mkbabb/Programming/parse-that-css-totality        f575708 [codex/css-totality-combinators-20260729]
+/Users/mkbabb/Programming/parse-that-css-totality-p1-e   35fd252 [codex/css-totality-p1-e]
+/Users/mkbabb/Programming/parse-that-css-totality-p1-r   4175325 [codex/css-totality-p1-r]
+/Users/mkbabb/Programming/parse-that-css-totality-p1-vk  a0f122f [codex/css-totality-p1-vk]
+/Users/mkbabb/Programming/parse-that-runtime-probes      99e9862 [codex/runtime-kernel-probes-20260729]
+/Users/mkbabb/Programming/parse-that-skv26               e31fbfe [codex/sk-v26-parse-that]
+```
+
+**SEVEN entries, not the eight of 08-03** — ⟨cmd⟩ `ls -1 .git/worktrees | wc -l` → **6**; the
+`prunable` registry record for `/private/tmp/parse-that-m2-baseline-20260729` is **gone**. Ruled at
+`COHESION.md` §0j: *"X.P.W0 G-3 states the table at today's bytes."* Six frozen worktrees still
+share **one** object store, so the load-bearing consequence is unchanged — one `gc` reaches all of
+them, and the opening must therefore be a **clone**, never a `worktree add`.
+**RED because** `roots-census.sh` does not exist and 0 of 18 are enumerated in any tracked file.
+
+### G-4 — P2: ABSENT TODAY
+
+⟨cmd⟩ `test -e /Users/mkbabb/Programming/parse-that-css-totality-p2 && echo PRESENT || echo ABSENT`
+
+```
+ABSENT
+```
+
+Provenance of the ruled commit, re-derived in the source repository today:
+
+```
+⟨cmd⟩ git -C …/parse-that cat-file -t f5757082ca160dd5f25fcf437e692c9df8f7e78d      → commit
+⟨cmd⟩ git -C …/parse-that log -1 --format='%H%n%ad%n%s' f5757082…
+f5757082ca160dd5f25fcf437e692c9df8f7e78d
+Sun Aug 2 06:49:24 2026 -0400
+docs(parser-audit): bank N2 v10 two-review terminal intake and novelty boundary
+⟨cmd⟩ git -C …/parse-that merge-base --is-ancestor f5757082… HEAD                   → exit 1 (NOT an ancestor of master)
+```
+
+**The RED is the point**: at wave-open the root must not exist, and this line is that proof.
+
+### G-5 — OBJECT-STORE ISOLATION (pre-capture)
+
+Vacuously RED — the fresh root does not exist, so the assertion has no subject. The source
+repository's pre-state, captured for the after-diff:
+
+```
+⟨cmd⟩ git --no-optional-locks -C …/parse-that worktree list | wc -l      →        7
+⟨cmd⟩ git --no-optional-locks -C …/parse-that rev-parse HEAD             → ef10d5b78236c4a30a7bb22a6113b60bdc4bdf42
+⟨cmd⟩ git --no-optional-locks -C …/parse-that branch -a | wc -l          →       33
+⟨cmd⟩ git --no-optional-locks -C …/parse-that status --porcelain | wc -l →       31
+⟨cmd⟩ du -sh …/parse-that/.git                                           →      28M
+⟨cmd⟩ test -e …/parse-that/.git/gc.log                                   → NO-GC-LOG
+⟨cmd⟩ find …/parse-that/.git/objects -type f | wc -l                     →     4239
+```
+
+### G-6 — EVIDENCE CHAIN LIVE
+
+```
+⟨cmd⟩ ls docs/tranches/V/megatranche/registry/harvest/ | wc -l            →       50
+⟨cmd⟩ ls docs/tranches/V/megatranche/registry/harvest/ | grep -c '^x-p-'  →        0
+⟨cmd⟩ test -f docs/tranches/X/parse-that/EVIDENCE-CHAIN.md                → CHAIN-ABSENT
+⟨cmd⟩ wc -c docs/tranches/V/megatranche/workflows/harvest-journals.mjs    →     5445
+⟨cmd⟩ wc -c docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md         → 10494611
+```
+
+Dated addendum to the 08-03 baseline (E-3, never a rewrite): the harvest directory held **ten**
+entries on 2026-08-03 and holds **fifty** today (`parser-band.json` still among them). The gate's
+assertion is unaffected — **no `x-p-*` file exists** — and the harvester and defect ledger are at
+their recorded sizes to the byte.
+
+### G-7 — PAUSE LAW UNBROKEN
+
+⟨cmd⟩ `git status --porcelain -- src test e2e api package.json package-lock.json | wc -l`
+
+```
+       0
+```
+
+RED because no per-row check exists in any tracked file. Three of the seven prohibitions were
+EPERM-bounded at authoring; under today's grant **all seven are directly checkable**, and the
+wave's artifact must still state them **per row** — a blanket "pause law observed" fails the gate.
+
+### G-8 — PLAW-BIND DECLARED FROM BOTH ENDS
+
+```
+⟨cmd⟩ grep -n 'X·P release condition → KF.W3' docs/tranches/X/COHESION.md
+66:- **X·P release condition → KF.W3** (parser consumption): gate-keyed, never scheduled; routing is
+
+⟨cmd⟩ grep -n 'parse-that→fourier is FORBIDDEN' docs/tranches/X/COHESION.md
+68:  parse-that→fourier is FORBIDDEN** (standing routing law).
+```
+
+Each returns **1** row (≥1 required); neither second-falsifier fires. The `:66`/`:68` coordinates
+are recorded as **today's measurement, never as the citation** — COHESION is a live document.
+The lane's own end ⟨cmd⟩ `find docs/tranches/X/parse-that -type f` → nine files, all specs; **no
+`EVIDENCE-CHAIN.md`**. **1 of 2 ends declared** ⇒ RED.
+
+---
+
+## Unit plan
+
+**Agents (spec §State, binding)**: 4 — phase 1: 2 parallel (Opus 5 ∥ Opus 5) · phase 2: 1 serial
+(Opus 5, the FIRST WRITE) · phase 3: 1 serial (Opus 5). **All four are Opus 5 implementation seats
+(M-23 §2)** — every unit is mechanical (hashing, enumeration, a clone, a script invocation); there
+is no design work and no adjudication in this wave. The first Fable seat this lane spends is the
+§3a triumvirate, and only if a §9 STOP fires.
+
+| group | units | why this order |
+|---|---|---|
+| 1 | `.a` ∥ `.b` | §4b: disjoint new files under `docs/tranches/X/parse-that/`; both commit **before** phase 2 dispatches |
+| 2 | `.c` | serial — the lane's FIRST WRITE; requires `.b`'s `census-before.txt` to exist first (§3.6) |
+| 3 | `.d` | serial — needs the root open (`census-after.txt`, harvest seat count) and holds the sole `COHESION.md` carve |
+
+Peak concurrency **2**, inside the ≤4-workflow cap (§5.1) and inside the orchestrator's ≤3.
+No two concurrent units share a modify path (§4a).
+
+### X.P.W0.a — Pause authentication ledger (Opus 5)
+
+- **Sections**: §5 `X.P.W0.a` (L203–219) · §6 G-1 (L300–329) · §6 G-2 (L331–344) · §3.1 · §2c rows 1–2.
+- **Writable**: `docs/tranches/X/parse-that/evidence/W0/PAUSE-AUTHENTICATION-2026-09-17.md` (create).
+- **Gates**: G-1, G-2.
+- **Locks**: dated + **append-never-rewrite** (M-22 ¶5 / F-7) — no existing `.sha256` packet edited,
+  no 08-03 line in `W0.md` rewritten (E-3). A MISMATCH ⇒ §3a triumvirate + owner return, never a
+  local repair. Commit 1 of §9: `docs(x-p-w0/auth): …`.
+
+### X.P.W0.b — Frozen-roots census and the never-touch law (Opus 5)
+
+- **Sections**: §5 `X.P.W0.b` (L221–239) · §6 G-3 (L346–380) · §3.2/§3.3/§3.6 · §4's do-not-touch list.
+- **Writable**: `docs/tranches/X/parse-that/evidence/W0/FROZEN-ROOTS-CENSUS-2026-09-17.md`,
+  `docs/tranches/X/parse-that/evidence/W0/roots-census.sh`,
+  `docs/tranches/X/parse-that/evidence/W0/census-before.txt` (all create).
+- **Gates**: G-3 (before-half).
+- **Locks**: `census-before.txt` **must be captured before `.c` dispatches** (§3.6) — the
+  group-1→group-2 edge is this. `roots-census.sh` writes nowhere but stdout; `sh -n` clean; run
+  twice. Commit 2 of §9: `docs(x-p-w0/census): …`.
+
+### X.P.W0.c — The fresh root, opened (Opus 5)
+
+- **Sections**: §5 `X.P.W0.c` (L241–268) · §6 G-4 (L382–404) · §6 G-5 (L406–419) · §3.4/§3.5 · §3a.
+- **Writable**: `/Users/mkbabb/Programming/parse-that-css-totality-p2/**` (create, once).
+- **Gates**: G-4, G-5.
+- **Locks**: `../parse-that` **READ-ONLY permanently** (runbook §5.5); **clone, never `git worktree
+  add`**; `--no-hardlinks` is mandatory (G-5 falsifier ii); `--no-checkout` + `checkout --detach`
+  at the 40-hex commit, never `--branch` (G-4 falsifier). No remote, no push, no branch, no build,
+  no install, no execution. **Clone failing twice ⇒ §3a halt.** Commit 3 of §9 has an **empty diff
+  in this repository by design** — the commit body carrying the pre/post quadruple and the inode
+  intersection is mandatory, not optional.
+
+### X.P.W0.d — Evidence chain and routing declaration (Opus 5)
+
+- **Sections**: §5 `X.P.W0.d` (L270–290) · §6 G-6 (L421–432) · §6 G-7 (L434–447) · §6 G-8
+  (L449–476) · §3.7/§3.8 · §4a.
+- **Writable**: `docs/tranches/X/parse-that/EVIDENCE-CHAIN.md` (create),
+  `docs/tranches/V/megatranche/registry/harvest/x-p-w0.json` (create),
+  `docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md` (modify-append, **by script only**),
+  `docs/tranches/X/parse-that/evidence/W0/census-after.txt` (create),
+  `docs/tranches/X/COHESION.md` (**modify-carve — §0 X·P status row + §5 status-board line ONLY**).
+- **Gates**: G-3 (after-half), G-6, G-8; and it **collates G-7's seven-row table** for the close
+  report.
+- **Locks**: sole `modify-carve` on `COHESION.md`, taken **at close, after the root exists** (§4a);
+  `DEFECT-LEDGER.md` appended by the harvester, by this one unit, once — never by hand. G-8's
+  citation is by **section anchor + quoted sentence**, located by the two fragment greps; a line
+  coordinate is the defect the gate exists to catch. Commit 4 of §9: `docs(x-p-w0/chain): …`.
+
+### Standing invariants for every unit of this wave
+
+1. **Gate 27 / W4 G-2** — `git -C /Users/mkbabb/Programming/value.js status --porcelain -- src api
+   demo test e2e` is **empty at every X·P commit**, W0 through W4. Measured empty at open.
+2. `scripts/dev/dev.sh` — **NEVER touched, never staged** (unowned, dirty by standing arrangement).
+3. Pathspec commits only; one commit per meaning; `--no-verify --quiet`; `Claude-Session` trailer.
+4. **No `git stash`, no `reset --hard`, no `gc`, no `worktree prune`, no `force-push`** anywhere in
+   this wave — §4's do-not-touch list is absolute, and `worktree prune` would destroy a record.
+5. Sibling trees READ-ONLY (§5.5): `../parse-that` permanently; `../glass-ui` always; `~/.codex/**`
+   and `~/Documents/Codex/**` read/hash only (C-02 discipline), residue never cleaned.
+6. Receipts every seat: **line 1 = `SERVED MODEL: <model id>`**; ⟨cmd⟩ … → output for every claim;
+   write-then-measure, double-run every published count.
+7. **§3a triumvirate is mandatory** on: a §9 STOP firing · any write outside §4 · the clone failing
+   twice · any third diagnose→act→re-measure iteration on one gate.
+
+---
+
+## Unit receipts
+
+_(empty at open; each unit appends its own block with commit hash, gates turned, and receipts)_
