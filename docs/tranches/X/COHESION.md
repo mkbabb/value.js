@@ -681,6 +681,83 @@ X-W1's first commit); X-W11's Do-NOT-touch stands.
 wave that names it, at its own opening, cited by id; a wave that finds a ruling's measured predicate
 false at its own bytes returns to this sitting rather than presuming.
 
+## §0k ADDENDUM 2026-09-17 — THE X-W0 CLOSE DOCKET, RULED (same sitting, second session)
+
+**Provenance.** X-W0 closed IMPLEMENTED (`1246f859`; 17/18 hard gates + 8/8 fold gates GREEN at the
+close seat) with HG-7 RED, HG-10 SPLIT, and a docket of returned items its seats declined to presume:
+the X-W0.g packet's two unruled owner rows (DR-21 · CC-104/OP-1) and eight cross-wave escalations
+(S-1..S-8; `W0/OWNER-SITTING-2026-09-17.md` §1 items 8–17, §4, §5), plus X-W0.a/b/c/f's returned
+questions. Dossiers of record: `execution/SITTING-DOSSIER-2-2026-09-17.md` (`ee7c78ec`) and the X-W0
+close at `execution/A/X-W0.md`. E-3 throughout: no wave file is edited by this ruling; each consuming
+wave lands the dated addendum its ruling names at its own open.
+
+### §0k.1 · X-W0's own gates and returned questions
+
+- **HG-7 (E-1) — SCOPE now, HARVEST at X-W11, both.** The completeness validator's non-band law gains
+  a **corpus predicate**: it ranges over run records at or before the megatranche dispatch boundary
+  (timestamped ≤ 2026-08-03) plus any record a canonical row cites; live tranche-X session journals are
+  outside its corpus by construction. The 87 are X-track run records and are **harvested once, at
+  X-W11's close** (`harvest-journals.mjs`, which rewrites `registry/DEFECT-LEDGER.md` inside X-W11's
+  bounds by dated addendum), so the scope predicate suppresses nothing — the finding is dated and owed.
+  **Landed by X-W0's repair seat**: `docs/tranches/V/megatranche/workflows/validate-completeness.mjs`
+  is inside X-W0's COMPLETABLE clause (*"docs/** or docs/tranches/V/megatranche/workflows/**"*); the
+  self-test S1..S6 must then run and pass on the real tree. No run id borrowed, no allowlist, no cutoff
+  written into a fixture.
+- **HG-10 (E-2) — the supersession column IS the cure.** A canonical axis row's provenance word records
+  the truth of the canonical file and is never re-badged when a later witnessed round supersedes it;
+  the falsifier's *"fails the same check twice"* is read against the supersession column. HG-10 GREEN.
+- **E-3 (`docs/tranches/X/artefacts/W0/`)** — no new directory. §Verification Artefacts is amended by
+  dated addendum at `waves/W0.md` to point at the tracked homes the close record's §4 maps.
+- **X-6, the 255 MB rejected denominator — RETAIN (position A).** FINDINGS G05's append-only law
+  stands; the measured cost of TRACK was zero pack growth. The eight payloads stay tracked in place.
+- **HG-4's "SUPERSEDED in place" — GREEN as landed.** For a sealed record (schema-locked status,
+  `additionalProperties:false`, a manifest hash any edit destroys) "in place" means the dated ruling row
+  that annotates both readings at their byte coordinates; no byte inside the sealed JSON is owed.
+- **RS-1 — DR-14's DELETE rides X-W5's existing `vite.config.ts` modify-carve** (W5.md:94). §0j.A's
+  X-W1 routing is corrected by this line (X-W1's bounds do not hold the file); X-W1 owes nothing.
+- **RS-2 — `docs/precepts` fast-forwards to `origin/main` `b0f6134` at X-W11** by dated bounds addendum;
+  not earlier (precepts text may change law mid-tranche).
+- **Contamination (three LW rows)** — recorded, not rewritten: the standing law now reads *pathspec on
+  the commit itself* (`git commit … -- <paths>`); every seat from this ruling forward commits so.
+- **The `.gitignore` PNG shadow (8800 ignored files under docs/)** → X-W11's close walk; **CROSS R-07**
+  (a write into frozen `vnext/**`) → booked terminal at the G-F register (vnext is FROZEN-AS-INHERITED);
+  the two dangling e2e fixture imports of `demo/@/lib/palette/types` → X-W1 (owns `e2e/`).
+
+### §0k.2 · the two owner rows (packet §4)
+
+- **DR-21 — NO opt-out.** SCI-1 stands as ruled and sent (O-5: SHIP-4.1 `mixColorsInto`/`toRgba8Into`);
+  **CC-088 is BUILD at X-W9.f in the same dated cut as CC-084**; the ninth carry does not happen because
+  the row is executed, not carried. X-W9 §X.W9.f may open.
+- **CC-104 / OP-1 (X·V namespace, W10.md:368) — the SUBSTITUTE, named in writing, with D-20 amended
+  in the same ruling.** DesignSync is **not callable** in this harness: `list_projects` returns
+  *"needs design-system authorization — run /design-login"* (an owner act, measured 2026-09-17). The
+  substitute: **the design gate's frames are authored in-repo** — the twice-authored (Fable ∥ Opus →
+  fresh-Fable agglomeration, M-23 §3) design frames as source (HTML/Vue) under
+  `docs/tranches/X/W10/frames/`, rendered by the wave's own bounded Playwright pass to committed PNG at
+  390 and 1280, keyed to the design-gate rows. **D-20's frames obligation is amended**: *"Final form at
+  the design gate, with DesignSync frames"* → *"with committed rendered frames (source + PNG) at
+  `docs/tranches/X/W10/frames/`; a DesignSync push is optional once the owner has run `/design-login`,
+  never a precondition."* X-W10's open condition is discharged by this ruling. The three `OP-1`
+  spellings stay disambiguated as the packet's §4.3 records.
+
+### §0k.3 · the eight escalations (packet §5), each with the far-end byte it unblocks
+
+| id | ruling | rationale (dossier-2 measurements) |
+|---|---|---|
+| **S-1** bindPane vs `DockCommand` (X-W5 · X-W8) | **(b) R-8 governs.** `bindPane` narrowed to non-command instance uses (applyExternalColor / commitEdit / cancelEdit); the `DockCommand` provide/inject registry lands at **X-W8** (MT-DOCK-LAYERS-1); X-W5 may not claim C-3; A3's witness stays X-W5's, A3's cure moves to X-W8 | both cures are greenfield (0 sites of either); `usePaneRouter.ts:206-212` dispatches through `paneRefs.*.value?.…` optional chaining — the god-module smell the registry retires (no-god-modules law) |
+| **S-2** GAB-5/K-8 per-verb seat (X-W10) | **(a) the Dock set wins**; VC:194 + B-13 + R-B stand; challenge-D's per-verb table stays input; route-local Generate/Gradient/Mix verbs retire INTO the dock set, `seedFromPalette` receiving its dock seat there | the standing cl.2 prohibition; the dock is the action surface (admin-dock law); (b) would create a route-local seat that does not exist today |
+| **S-3** `src/color/model.ts` barred vs four W9 rows (X-W9) | **(a) narrow reading** — Do-NOT-touch governs the conversion mathematics; a pure read, a re-export and a return-type retarget are permitted; W9.5/W9.11 publish by re-export from outside `model.ts` with **zero bytes changed inside it** | `SPACE_SCHEMA` (:56), `SPACE_IDS` (:76), `Color<S>` (:38) are already exported; (b) would trip the wave's own Triumvirate trigger |
+| **S-4** `UserSortMenu.vue:8` (X-W7 ⟂ X-W8) | **CE-5's shape, order-agnostic**: the register decision (`quiet` vs ghost) is **X-W10's** design ruling; X-W8's G-9 deletes the dead attribute under a null-DELTA pair proving zero pixel change; if `quiet` wins, whichever of X-W8/X-W10 lands second re-stamps G-9's baseline in the same commit; a green G-9 is never cited as the cure of D-5's design limb | the deletion is mechanically safe either way; the paint question is design content (M-23 §3) |
+| **S-5** `PaletteCard.vue` verb (X-W7) | **§4 gains `delete` for `PaletteCard.vue` by dated E-3 addendum at W7.md** — X.W7.d deletes it once its three importing consumers have moved to `ActionFeedback.vue` (already in tree), within the same wave | a carved corpse behind a moved consumer set is the compat shim the no-backwards-compat law forbids; §5.d's intent and every AF row were authored against the delete reading |
+| **S-6** AdminGate seam (X-W3 ⟂ X-W7) | **X-W3 first**: F-1's guard lands behind the X-W3.6 gate; X-W7 inherits the seam; the edge law binds both — neither wave reports the identity closed alone, and X-W7's gate may not go green over X-W3's edit | §B fixes X-W3 first for the revert-payload edge; S-11 requires the born-RED route spec first; the 21 `if (!token)` sites across 5 composables reproduce unmoved |
+| **S-7** `ErrorBoundary.vue` path (X-W5 ⟂ X-W6 ⟂ X-W7) | **(a) `demo/color-picker/ErrorBoundary.vue`** — the only path that exists; X-W5's BD-07 `demo/shell/…` path is an authoring error, corrected by dated addendum at X-W5-FOLD. X-W5 owns the containment altitude only (App.vue:50/:140's wrap); the component's bytes are written by X-W7 (its §BoundsDelta names it); X-W6 and X-W10 read/cite. Write order on the shared file = stage order, each seat re-reading at open | `find demo -name 'ErrorBoundary*'` → one file; `test -f demo/shell/ErrorBoundary.vue` → NO |
+| **S-8** MT-CSP-1 ⇄ the carry-cut ledger (X-W6 · X-W8 · W0.1) | **Q1(a) mint the carry-cut id** — X-W6's open seat appends the row (⟨ConfigSliderPane · MT-CSP-1⟩) to `CARRY-CUT-LEDGER.md` by dated append, home **X-W6** (`demo/scenes/ConfigSliderPane.vue` is a scene); **Q2(b) curable now** via the CSP register's G-PAINT single cut (C-3/D-3/D-4/D-14) — the measurement-backed ruling — while CC-105's `--slider-track-bg` wait stays X-W4.g's own; W0.1 keeps the tension row, S-8 books the id: two rows, no double-book | no CC id names the component today; 8 live `slider-track-bg` sites are the glass-8 limb, separable |
+
+**Consequence.** X-W5 (S-1, S-7), X-W6 (S-7, S-8), X-W7 (S-4, S-5, S-6, S-7), X-W8 (S-4, S-8), X-W9
+(DR-21, S-3) and X-W10 (CC-104/OP-1, S-2) may open lawfully, each landing the dated addendum its
+ruling names as its first docs act. X-W0's repair seat lands §0k.1's HG-7 cure and the §Verification
+Artefacts pointer; its fresh check then adjudicates the close.
+
 ## §0k ADDENDUM 2026-09-17 — X·F: THE FOURIER MAIL-LEDGER SURFACE IS LIVE, AND ITS CROSS-EDGE IS DECLARED FROM THIS END
 
 **APPEND-ONLY (E-3). Nothing above this line is edited.** Authored by **X.F.W0 unit *e***
