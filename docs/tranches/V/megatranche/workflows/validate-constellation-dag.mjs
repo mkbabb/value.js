@@ -94,6 +94,18 @@ const exactRequiredSatisfiedInputs = {
   ],
 };
 
+// Carve, dated 2026-09-17 — X-W0.i / CC-011 / C-13. The Value library spine's fifth node
+// named a wave defined nowhere (zero hits in registry/adjudicated/layout-gestalt.md, against
+// STATE.md:97's "four born-RED waves V·L1..V·L4"). It is retired and the spine rewritten
+// against those four defined waves plus one explicitly defined new cut. The law reads:
+//   V·L1..V·L4 -> X-W9 -> X-W11
+//   X-W9  = docs/tranches/X/waves/W9.md  "Parser and library apotheosis (the 4.1 cut)"
+//   X-W11 = docs/tranches/X/waves/W11.md "Release and Verified Close"
+// encoded here as V.X.W9 / V.X.W11 — the graph's repo-prefixed period grammar (bare "X." is
+// already the constellation-root namespace). The middot form is canonical prose; the period
+// form is its registered search alias (registry/CARRY-CUT-LEDGER.md §0 clause 7 — L-5: an
+// alias is a search key, never a rename; V.L1..V.L4 and V.L6 keep their ids).
+// Tombstone: docs/tranches/X/W0/ROUTING-LAW-V-L5.md
 const requiredEdges = [
   ["P.form.P1", "P.form.P2"],
   ["P.form.P2", "P.form.P3"],
@@ -126,13 +138,14 @@ const requiredEdges = [
   ["F.form.cleanB", "F.form.admission"],
   ["V.L1.candidate", "V.L2.candidate"],
   ["V.L2.candidate", "V.L3.candidate"],
-  ["V.L2.candidate", "V.L5.candidate"],
-  ["V.L5.candidate", "V.L4.candidate"],
+  ["V.L3.candidate", "V.L4.candidate"],
+  ["V.L4.candidate", "V.X.W9.candidate"],
   ["V.F0", "V.L1"],
   ["V.L1", "V.L2"],
   ["V.L2", "V.L3"],
-  ["V.L2", "V.L5"],
-  ["V.L5", "V.L4"],
+  ["V.L3", "V.L4"],
+  ["V.L4", "V.X.W9"],
+  ["V.X.W9", "V.X.W11"],
   ["V.L3", "V.L6"],
   ["V.L4", "V.L6"],
   ["V.A3", "V.U4"],
@@ -141,7 +154,7 @@ const requiredEdges = [
   ["V.L2.candidate", "K.W2"],
   ["V.L3.candidate", "K.W2"],
   ["V.L4.candidate", "K.W2"],
-  ["V.L5.candidate", "K.W2"],
+  ["V.X.W9.candidate", "K.W2"],
   ["F.W2.U4", "F.W1.U5"],
   ["F.W1.U5", "F.W1.close"],
   ["F.W11.U2", "F.W6"],
@@ -165,7 +178,7 @@ const forbiddenEdges = [
   ["F.W11", "F.W6"],
   ["P.exec.consumer-proof", "P.form.prototype-proof-10x"],
   ["P.exec.PB1-order-ack", "P.exec.candidate-pack"],
-  ["V.L5", "V.L6"],
+  ["V.X.W9", "V.L6"],
   ["K.W3.tier-pack", "K.W10.demo-crater"],
   ["K.W3.tier-pack", "K.W10.glass-crater"],
   ["K.W3.tier-pack", "K.W10.atlas-crater"],
@@ -664,8 +677,8 @@ expectReject("M15", (g) => {
   p3.coverageManifestSha256 = "b".repeat(64);
 });
 expectReject("M16", (g) => {
-  removeEdge(g, "V.L5.candidate", "V.L4.candidate");
-  g.edges.push({ from: "V.L5", to: "V.L6", type: "depends" });
+  removeEdge(g, "V.L4.candidate", "V.X.W9.candidate");
+  g.edges.push({ from: "V.X.W9", to: "V.L6", type: "depends" });
 });
 expectReject("M17", (g) => {
   node(g, "V.form.P2").coverageManifestSha256 = "f".repeat(64);

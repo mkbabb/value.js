@@ -74,20 +74,39 @@ execution and cannot satisfy parser formation.
 
 ```text
 V.F0
-  ├─> V.L1 ─> V.L2 ─> V.L3
-  │              └────> V.L5 ─> V.L4
-  │                         └────┘
-  │                    V.L1–V.L5 ─> V.L6
+  ├─> V.L1 ─> V.L2 ─> V.L3 ─> V.L4 ─> V.X.W9 ─> V.X.W11
+  │                    │        └────> V.L6
+  │                    └─────────────> V.L6
   ├─> V.A1 ─> V.A2 ─> V.A3 ─> V.U4
   └─> V.U1 ─> V.U2 ─> V.U3
                    └──> V.U4
 V.L6 + V.U3 + V.U4 ─> V.H1 ─> V.G1 ─> V.Q1 ─> V.Q2
 ```
 
-`V.L4` depends on typed path ownership in `V.L5`; it may not create a
-temporary string path. `V.L6` closes only on Keyframes W2 deletion/adoption
-and W3 immutable tier proof; the root consumer edge stays open through
-Keyframes W10 Atlas.
+`V.X.W9` owns typed path semantics; it may not create a temporary string
+path. `V.L6` closes only on Keyframes W2 deletion/adoption and W3 immutable
+tier proof; the root consumer edge stays open through Keyframes W10 Atlas.
+
+**Carve, dated 2026-09-17 — X-W0.i / CC-011 / C-13.** The minted spine hung a
+fifth library node off `V.L2`, placed it before `V.L4`, and gave it typed
+path ownership. **That node named a wave defined nowhere** — zero hits in
+`../registry/adjudicated/layout-gestalt.md`,
+against `../STATE.md:97`'s *"four born-RED waves **V·L1..V·L4**"*, whose own
+sequencing rider reads *"Preferred order V·L1 → V·L2 → V·L3 → V·L4"*
+(`layout-gestalt.md:402`). The spine is rewritten against those four defined
+waves plus **one explicitly defined new cut**: `V.X.W9` ≡ **X-W9**
+(`docs/tranches/X/waves/W9.md`, *"Parser and library apotheosis (the 4.1
+cut)"*) → `V.X.W11` ≡ **X-W11** (`docs/tranches/X/waves/W11.md`, *"Release
+and Verified Close"*). The machine ids keep the graph's own repo-prefixed
+period grammar (`V.` = the value repository; bare `X.` is already the
+constellation-root namespace, so `X.W9` would collide) — the middot form
+`V·L1..V·L4 → X-W9 → X-W11` is the canonical prose form and the period form
+is registered as its **search alias** at `../registry/CARRY-CUT-LEDGER.md`
+§0 clause 7 (L-5: an alias is a search key, never a rename). The JSON twin
+and `../workflows/validate-constellation-dag.mjs` carry the identical carve.
+No other byte of this dated record is amended; every `V.L1`, `V.L2`,
+`V.L3`, `V.L4` and `V.L6` identifier keeps its id. Tombstone:
+`docs/tranches/X/W0/ROUTING-LAW-V-L5.md`.
 
 ### parse-that future execution
 
@@ -171,11 +190,11 @@ live-derived A2 fresh-Sol close.
 
 | Source milestone | Target wave / milestone | Type | Exact release condition |
 |---|---|---|---|
-| `P.exec.candidate-pack` | `V.L1`, `V.L5` candidate consumption | candidate package | exact tarball SHA; source-direct UTF-16 Result/span/recovery surface; no source alias |
+| `P.exec.candidate-pack` | `V.L1`, `V.X.W9` candidate consumption | candidate package | exact tarball SHA; source-direct UTF-16 Result/span/recovery surface; no source alias |
 | Value L1/L5 and named `jsonParser` exact-SHA receipts | `P.exec.consumer-proof` | consumer receipts | same generic primitives, equivalent products, net deletion and formal every-scale/result-plane ≥10× CI-low |
-| `P.exec.release` | `V.L1`, `V.L5` released rebind | published package | released tarball/tag/commit matches the admitted candidate |
+| `P.exec.release` | `V.L1`, `V.X.W11` released rebind | published package | released tarball/tag/commit matches the admitted candidate |
 | `P.exec.value-rebind` + `V.L6.css-path-abi-freeze` | `P.exec.bbnf-receipt` | ABI receipt | one generic-surface receipt; no competing CSS parser |
-| `V.L1`–`V.L5` candidate surface | `K.W2` | candidate consumer | exact owner operations/refusals; Keyframes deletes local grammar/scanner/serializer in the same adoption wave |
+| `V.L1`–`V.L4` + `V.X.W9` candidate surface | `K.W2` | candidate consumer | exact owner operations/refusals; Keyframes deletes local grammar/scanner/serializer in the same adoption wave |
 | `K.W2` + `K.W3.tier-pack` | `V.L6` | consumer closure | exact deletion/adoption receipt plus immutable tiered Keyframes pack |
 | `K.W10.integrated-pack` | demo/Glass/Atlas/Slides craters | packed consumer proof | distinct post-W4–W9 pack; every crater returns exact result |
 | conditional Keyframes Atlas delta | sci/Atlas receiver | consumer receipt | affected edge passes or receives one bounded conflict packet; absent edge returns graph-backed `NO_CONFLICT` |

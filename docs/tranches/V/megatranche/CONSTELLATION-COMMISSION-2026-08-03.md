@@ -73,8 +73,17 @@ Each row: GOAL → HORIZON CRITERION (the long-running convergence test) → ACC
   the ratified floor of the replacement portfolio; the CSS Syntax differential proof standing.
 - **Admission**: the RE-AUTHORED canonical parser addendum + differential proof + bench
   receipts under the ratified law; routing law absolute: parser → Value PLAW-BIND →
-  V.L1/V.L5 → packed Value release → Fourier F.W0; keyframes consumes as a TYPED consumer
-  after value.js; direct parse-that→Fourier credit forbidden.
+  V·L1..V·L4 → X-W9 → X-W11 (packed Value release) → Fourier F.W0; keyframes consumes as a
+  TYPED consumer after value.js; direct parse-that→Fourier credit forbidden.
+  **Carve, dated 2026-09-17 — X-W0.i / CC-011 / C-13**: the minted form of this clause routed
+  through a label that named a wave **defined nowhere** — zero hits in
+  `registry/adjudicated/layout-gestalt.md`, against `STATE.md:97`'s *"four born-RED waves
+  **V·L1..V·L4**"* — so the law is rewritten against the four defined waves plus one
+  explicitly defined new cut: **X-W9** (`X/waves/W9.md`, parser and library apotheosis) →
+  **X-W11** (`X/waves/W11.md`, release and verified close). No other byte of this dated record
+  is amended. The retired label is deliberately not re-spelled here so this law-bearing site
+  greps clean; it is quoted verbatim in the tombstone,
+  `docs/tranches/X/W0/ROUTING-LAW-V-L5.md`.
 
 ### keyframes.js
 - **Goal**: library + demo audited with the same burning lucidity (D/L/C per component, tri-fold

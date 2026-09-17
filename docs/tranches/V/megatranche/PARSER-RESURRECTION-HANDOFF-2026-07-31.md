@@ -61,7 +61,17 @@ preserve:
 
 The parser may affect Value only through:
 
-`parser law or no-runtime ruling → Value PLAW-BIND → V.L1/V.L5 → Value release/rebind`
+`parser law or no-runtime ruling → Value PLAW-BIND → V·L1..V·L4 → X-W9 → X-W11 (Value release/rebind)`
+
+**Carve, dated 2026-09-17 — X-W0.i / CC-011 / C-13.** The minted form of this law routed
+through a label that named a wave **defined nowhere** — zero hits in
+`registry/adjudicated/layout-gestalt.md`, against `STATE.md:97`'s *"four born-RED waves
+**V·L1..V·L4**"*. It is rewritten against those four defined waves plus **one explicitly
+defined new cut**: **X-W9**, `docs/tranches/X/waves/W9.md` *"Parser and library apotheosis
+(the 4.1 cut)"* → **X-W11**, `docs/tranches/X/waves/W11.md` *"Release and Verified Close"*.
+Nothing else in this dated record is amended. The retired label is deliberately **not
+re-spelled here**, so this law-bearing site greps clean; it is quoted verbatim, with its
+no-definition probe pasted, in the tombstone: `docs/tranches/X/W0/ROUTING-LAW-V-L5.md`.
 
 Fourier may receive parser effects only after packed Value:
 

@@ -38,6 +38,21 @@ itself mandated (formation blocker 3).
 6. Verbs: **BUILD → X-wave** · **FOLD → row/wave it lands in** · **RETIRE → rationale** ·
    **BLOCKED-ON → exact release condition** · **VERIFIED → landed and proven** (sanctioned for
    the `c4af0ef9` class only).
+7. **SEARCH ALIASES — the period form (added 2026-09-17 by X-W0.i, CC-011 / C-13).** The
+   **middot** form is canonical for every `V·Ln` / `V·MTn` / `V·Cn` identifier in prose. The
+   **period** form (`V.Ln`, `V.MTn`, `V.Cn`) is registered here as that identifier's **search
+   alias**: the two spellings name one identifier, and any grep, census or ledger sweep over
+   these ids is defective unless it matches **both** — the canonical probe is
+   `grep -n 'V·Ln\|V\.Ln'`. **An alias is a search key, never a rename** (L-5): **CC-011 keeps
+   its id, and `V·L1`, `V·L2`, `V·L3`, `V·L4` and `V·L6` keep theirs.** Machine identifiers in
+   the constellation graph (`coordination/CONSTELLATION-MEGATRANCHE-DAG-2026-07-29.{md,json}`,
+   `workflows/validate-constellation-dag.mjs`) keep the graph's own repo-prefixed **period**
+   grammar — `V.L1`, `V.X.W9`, `V.X.W11` — and resolve to the middot canon through this clause.
+   **Why the clause exists, measured**: the silent `·`→`.` drift is exactly how the retired
+   label escaped a grep-based ledger the first time (CC-011's own gist: *"used in 5 docs,
+   defined in none; silent `·`→`.` glyph drift"*). Registering the alias makes that escape
+   route a checkable one instead of a silent one. Tombstone:
+   `docs/tranches/X/W0/ROUTING-LAW-V-L5.md`.
 
 ---
 
@@ -60,7 +75,7 @@ four extractor corpora is absent from this table or §3.
 | CC-008 | V·MT7 | mt | parser + library apotheosis; small, total, consumer-proven 4.1 surface | **FOLD → X-W9** | MECHANISM-CUT:355 |
 | CC-009 | V·MT8 | mt | canonical design and motion: one normative design law + topology law | **FOLD → X-W10** | MECHANISM-CUT:393 |
 | CC-010 | V·MT9 · V·C6 | mt,vc | release + verified close across package, demo, bounded consumers | **FOLD → X-W11** (its completion law absorbs this ledger's final state: every row VERIFIED/RETIRED/BLOCKED-ON-with-exact-condition) | MECHANISM-CUT:435; CONVERGENCE-RESUME:198 |
-| CC-011 | V·L5 / "V.L5" | mt | parser routing label used in 5 docs, defined in none; silent `·`→`.` glyph drift | **RETIRE** — C-13: rewrite the routing law against V·L1..V·L4 + an explicitly defined new cut; normalize to middot with a period-form search alias | PROV C-13:211, §0.3#4 |
+| CC-011 | V·L5 / "V.L5" | mt | parser routing label used in 5 docs, defined in none; silent `·`→`.` glyph drift | **RETIRE — EXECUTED at X-W0.i, 2026-09-17.** The new cut is named: every law-bearing site now reads `V·L1..V·L4 → X-W9 → X-W11` (X-W9 = parser and library apotheosis, `X/waves/W9.md`; X-W11 = release and verified close, `X/waves/W11.md`). Six sites carved — the four routing-law statements, the DAG's JSON twin, and the executable encoding (8 node identifiers → **0**; the DAG graph validates 29/29 mutants rejecting, unchanged). Period form registered as a **search alias** at §0 clause 7; **no id renamed** (L-5) — this row's own original-ID cell keeps the retired label, which is why the token still greps here. Tombstone: `docs/tranches/X/W0/ROUTING-LAW-V-L5.md` (minted law quoted verbatim, no-definition probe pasted, live set enumerated before and after) | PROV C-13:211, §0.3#4; X-W0.i receipts at `X/execution/A/X-W0.md` |
 
 ### §1.B Formation / X-W0 rows
 

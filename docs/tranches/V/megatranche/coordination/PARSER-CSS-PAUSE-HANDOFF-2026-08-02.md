@@ -32,12 +32,24 @@ The only lawful receiver path remains:
 ```text
 parser law or durable no-runtime ruling
   -> Value PLAW-BIND
-  -> V.L1 / V.L5
-  -> Value release and rebind
+  -> V·L1..V·L4
+  -> X-W9   (parser and library apotheosis)
+  -> X-W11  (Value release and rebind)
   -> packed Value
   -> Fourier F.W0 atomic tuple
   -> F.W1
 ```
+
+**Carve, dated 2026-09-17 — X-W0.i / CC-011 / C-13.** The minted form of this receiver path
+routed through a label that named a wave **defined nowhere** — zero hits in
+`../registry/adjudicated/layout-gestalt.md`, against `../STATE.md:97`'s *"four born-RED waves
+**V·L1..V·L4**"* — and then stepped to a bare *"Value release and rebind"* with no wave to
+hold it. The path is rewritten against those four defined waves plus **one explicitly defined
+new cut**: **X-W9** (`docs/tranches/X/waves/W9.md`, *"Parser and library apotheosis (the 4.1
+cut)"*) → **X-W11** (`docs/tranches/X/waves/W11.md`, *"Release and Verified Close"*), which is
+that release/rebind step, now named. No other byte of this dated record is amended. The
+retired label is deliberately not re-spelled here so this law-bearing site greps clean; it is
+quoted verbatim in the tombstone, `docs/tranches/X/W0/ROUTING-LAW-V-L5.md`.
 
 ## 3. Exact pause coordinates
 
