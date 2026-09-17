@@ -1,0 +1,109 @@
+SERVED MODEL: claude-opus-5[1m]
+
+KF.W0.b — G-0.5 HEADER-RIBBON TRIPWIRE (negative gate) · banked from the LAW-A Census-2 IMPORT GRAPH
+Substrate: /Users/mkbabb/Programming/keyframes.js at origin/master 81a56990 (== HEAD, settled)
+Producer:  /Users/mkbabb/Programming/glass-ui — READ/HASH ONLY, always
+Date: 2026-09-17   Seat: KF.W0.b
+Spec: §Gates G-0.5 (:574-587) · §LAW-A CENSUSES, Census 2 (:134-152) · §Carry C-3 · §Sequencing OUTBOUND HOLD (:688)
+Law: the consumer set is derived FROM THE IMPORT GRAPH, never from a single-file grep —
+     "A GREEN reached by re-deriving the consumer set from anything other than the import graph is RED by LAW A."
+Double-run: every command below was run twice; both runs agreed.
+
+================================================================================
+A · THE PRODUCER SIDE — the delete is real, and it is an ancestor of producer HEAD
+================================================================================
+$ git -C ../glass-ui rev-parse HEAD
+        → 887a0db96630832b35035ea10a7d982d4794af1a
+$ git -C ../glass-ui ls-tree --name-only HEAD src/components/header-ribbon/
+        → (empty)                                   ← the directory is gone at producer HEAD
+$ git -C ../glass-ui ls-tree --name-only '4bf53962^' src/components/header-ribbon/
+        → src/components/header-ribbon/HeaderRibbon.vue
+          src/components/header-ribbon/README.md
+          src/components/header-ribbon/index.ts
+          src/components/header-ribbon/styles.css
+          src/components/header-ribbon/types.ts    ← five files, deleted WHOLE at 4bf53962
+$ git -C ../glass-ui log -1 --format='%H %ad %s' --date=short 4bf53962
+        → 4bf53962d255806a84d8fde48c049373f20cba3b 2026-08-04
+          feat(reduction): land BK #18 W-DELETE — the Φ5 deletion spine, adjudicated with all seven cures applied
+$ git -C ../glass-ui merge-base --is-ancestor 4bf53962 HEAD    → YES
+        → the delete is ANCESTRAL: every producer release cut at-or-after 4bf53962 lacks the subpath.
+$ grep -c header-ribbon ../glass-ui/package.json               → 0
+        → and the export is gone from the producer manifest (exports 73 → 68, C-3).
+
+================================================================================
+B · THE CONSUMER SIDE — LAW-A CENSUS 2, executed on the SETTLED tree
+================================================================================
+M = glass-ui's header-ribbon entry.  P = @mkbabb/glass-ui/header-ribbon.
+
+(1) SPECIFIER census — every path-tail and alias-root spelling that can reach P
+$ git grep -nF 'glass-ui/header-ribbon' origin/master -- .
+    origin/master:demo/components/instrument/shell/EditorShell.vue:116:
+        import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";      ← the ONE live import
+    origin/master:docs/tranches/H/audit/a-glass-ui-consumption.md:48:1 @mkbabb/glass-ui/header-ribbon
+    origin/master:docs/tranches/V/audit/R1-15-cross-repo.md:54:
+        `import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";` (plus other
+        → the last two are docs PROSE — non-import context, recorded and NEVER counted (LAW A).
+$ git grep -n 'header-ribbon' origin/master -- src/ demo/ test/ scripts/
+    origin/master:demo/components/instrument/shell/EditorShell.vue:116: (as above)
+        → one hit, the same :116.  No alias-root spelling (@src, @components, @kf-engine, …) reaches P.
+$ grep -rnF 'glass-ui/header-ribbon' src demo test scripts        (the WORKING TREE, post-settle)
+    demo/components/instrument/shell/EditorShell.vue:116:
+        import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";
+        → the worktree reproduces the frontier exactly; the settle did not change the consumer count.
+
+(2) SYMBOL census — each hit resolved to its OWN import specifier and compared against P
+$ git grep -n '\bHeaderRibbon\b' origin/master -- demo/ test/ src/ scripts/
+    :16   <HeaderRibbon placement="right">
+    :50   </HeaderRibbon>
+    :116  import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";
+        → resolved: all three are the SAME file and the SAME specifier.
+          No sibling-basename consumer exists; no consumer reaches the symbol through the root barrel.
+
+(3) CONSUMER SET of P = { demo/components/instrument/shell/EditorShell.vue } — EXACTLY ONE, tests included.
+    The blast radius is one BECAUSE THE GRAPH SAYS ONE, not because one file was grepped.
+
+================================================================================
+C · THE INSTALLED ARTIFACT — why the build is alive today
+================================================================================
+$ ls -la node_modules/@mkbabb/glass-ui/dist/header-ribbon.js
+        → -rw-r--r--  1 mkbabb  wheel  2420  node_modules/@mkbabb/glass-ui/dist/header-ribbon.js
+        → installed 7.0.0 (cut 2026-07-16, BEFORE the 2026-08-04 delete) STILL SHIPS the dist file.
+          The three legs therefore hold simultaneously:
+            producer HEAD has deleted it · the one consumer still imports it · the installed dist still has it.
+          "the shell still renders today against the installed artifact; the break is at the next producer advance."
+
+================================================================================
+D · C-15's RIDER, re-measured at the settled bytes (the phantom attr)
+================================================================================
+$ sed -n '16p;50p;116p' demo/components/instrument/shell/EditorShell.vue
+            <HeaderRibbon placement="right">
+            </HeaderRibbon>
+        import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";
+$ grep -n 'mode="persistent"\|position="right"' demo/components/instrument/shell/EditorShell.vue
+        → (no hit)
+    → the frontier's clean `placement="right"` is what the settle landed.  HEAD's `position="right"`
+      — also not a 7.0.0 prop — did NOT carry forward.  C-15's "a naive reconciliation would carry it
+      forward" is discharged BY MEASUREMENT of the reconciliation output, not by assumption.
+
+================================================================================
+E · THE GATE READING, and the HOLD
+================================================================================
+G-0.5 GREEN (spec :585): "either the installed producer stays at-or-below 4bf53962 (i.e. 7.0.0,
+today's state), or origin/master:EditorShell.vue:116 no longer imports the deleted subpath."
+
+    disjunct (a)  installed == 7.0.0, cut before 4bf53962           → HOLDS at today's bytes
+    disjunct (b)  :116 no longer imports the deleted subpath        → DOES NOT hold (the import stands)
+    → GREEN by (a).  Seat 0's R.2 FINDING is upheld: the STATE is safe, and what was missing
+      was the DECLARATION.  This seat performs the declaration; it changes no state and skips no cure.
+
+FALSIFIER, live and now declared: "the gate fires the moment a settle advances glass-ui past 4bf53962
+with :116 intact — the build dies at :116."
+
+THE HOLD (§Sequencing, glass-ui OUTBOUND HOLD + FYI row), carried into MANIFEST-RULING.md §4:
+    INSTALLED glass-ui MAY NOT ADVANCE PAST 4bf53962 WHILE origin/master:EditorShell.vue:116
+    IMPORTS /header-ribbon.
+    G-0.5 BOUNDS G-0.2 — it does not follow it.  A "declare the newest glass-ui and regenerate the
+    lock" remediation PASSES G-0.2 and DESTROYS THE BUILD.  The one-consumer count is what makes the
+    hold cheap to lift and the reason the lift is a MIGRATION, not a version bump:
+    the migration decision (which chrome host replaces the band) is NO-WAVE-OWNER, SS-1/SS-2's.
+    W0 carries only the tripwire.
