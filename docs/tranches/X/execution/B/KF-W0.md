@@ -1354,3 +1354,261 @@ No other gate was touched, cured or turned by this unit.
    coordinates agree, and the ruling is `.b`'s in any case); no second, let alone third, diagnostic
    iteration on G-0.6. The specified cure was possible at the bytes and was performed as specified;
    nothing was substituted, skipped, or masked.
+
+### KF.W0.e
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Ref of record**: keyframes.js `origin/master`
+**`81a56990736ced5b5edde0b84c527680ac7689b1`** (== `HEAD` since OP-1's settle; local `8281638c`
+**DISQUALIFIED**). **Sub-gates**: G-0.7 · G-0.8 · G-0.9 · G-0.10. **Concurrent with `.d`**; no shared
+modify path (spec §Disjointness).
+
+**Seat continuity, declared loudly rather than smoothed over.** This unit ran in **two sittings of the
+same seat** (identical `Claude-Session` trailer on every commit below). The first sitting landed the
+three commit families 13:46–14:23 and **ended before it could append this receipt**; the second
+sitting **re-measured every published figure from the settled bytes** before writing a word of it, so
+nothing below is inherited from the first sitting's prose. Where a figure is quoted it is **re-run and
+double-run at the second sitting's clock** and marked *reproduces*; two figures that could only be
+read at a superseded coordinate (`D-19`'s pre-stamp census; the pre-build asset) were re-derived from
+`git archive` of the parent commit and from the banked transcript respectively, and both are named as
+such.
+
+#### Act 1 — G-0.7: the gate roster, ROSTER + ROUTE, **zero struck** (`e12eeb91`)
+
+`docs/tranches/X/keyframes/W0/GATE-ROSTER.md` + `artefacts/W0/gate-roster.txt`.
+
+⟨`git ls-tree -r --name-only origin/master scripts/gates/`⟩ → **9 files**, printed by path ·
+⟨`git show origin/master:package.json | grep -n 'proof:'`⟩ → `:50` `proof:structure` · `:51`
+`proof:publish` · `:52` `proof:owner-golden` — **3 entry points**, with `:37` `check` (**no
+`vue-tsc`**), `:43` `"gh-pages": "vite build --mode gh-pages"`, `:44` `depcruise src` stated beside
+them. ⟨`git grep -c 'build:gh-pages' origin/master`⟩ → **no hits** (R-11 re-verified at execution).
+
+The denominator, **re-run at authoring and again at this sitting, double-run**:
+
+```
+git grep -ho 'proof:[a-z0-9-]*' origin/master -- demo/ | grep -v -- '-$' | sort -u   → 55 tokens
+   … | grep -cx 'proof:'            →  1   (the bare token)
+   … | grep -vx 'proof:' | wc -l    → 54   DISTINCT NAMES
+   runnable as an npm script        →  1   (proof:publish)      54 − 1 → 53 DEAD
+git grep -c 'proof:' origin/master -- demo/                     → 51 files / 116 lines
+```
+
+**Roster completeness, measured not asserted** — the §4 roster body (`GATE-ROSTER.md` lines 143–340)
+was scanned for backtick-quoted `proof:*` tokens, deduped ⟨`awk … | grep -oE … | sort -u | wc -l`⟩ →
+**54**, and diffed against the 54 the sweep measures ⟨`comm -23 <the sweep's 54> <the roster's 54>`⟩ →
+**∅ — not one name in the measured set is missing from the roster**. Every name carries its sites and a disposition under the six stated routing rules
+(R1 struck-in-owner-wave KF.W4 · R2 `proof:brittleness` → **KF.W6, family whole** (R2-13) · R3 routed
+with the grant word printed · R4 → the NO-WAVE-OWNER packet, homing left to SS-1/SS-2 · R5 a loud
+`NO-WAVE-OWNER` line terminalized at `KF-W10.md` §E `NWO-TERMINAL-SWEEP` · R6 repoint beats strike).
+The **three R-8 residue families are received by name AND by family**: D-13's seven (§6(i), derived as
+8 distinct names − the `live-session-mobile` carve-out = the banked seven), L-6's **16 hits / 13
+files** (§4.1, split per site), **KF-EST-1's eight sites over six names incl. `TypingDots.vue:45` /
+`:51` / `:59`** (§6(iii)).
+
+**W0 STRUCK NOTHING** — ⟨`git -C /Users/mkbabb/Programming/keyframes.js status --short -- demo/`⟩ →
+**0 rows**; ⟨`… --untracked-files=no`⟩ → **0 rows**. Every byte this unit wrote is under
+`value.js/docs/**`. Falsifier (c) — the Dispatch-fatal one — does not fire.
+
+#### Act 2 — G-0.10: provenance re-derived against the **consumed dist**, one build (`e12eeb91`)
+
+`artefacts/W0/glass-citation-rederivation.txt`, and the landings appended at the registry ids.
+
+⟨`grep -c 'glass-ui/src' registry/adjudicated/kf-*.md`⟩ → **4 records, 1 line each** —
+`kf-CSSPasteDialog` · `kf-KeyframeCardList` · `kf-KeyframeTimeline` · `kf-SharePopover`; each is a
+**meta-citation about the provenance defect**, not a live `file:line` claim into glass source, so none
+is struck and each is re-derived at its load-bearing token. The artifact is pinned **by bytes, never
+by a version string** (C-13's whole content): ⟨`shasum -a 256 $(find node_modules/@mkbabb/glass-ui/dist
+-type f | sort) | shasum -a 256`⟩ → `3cc72cc9d84879c7a1ada0ae2d210fbf11ca39904cb5909759c8717bc45da6f2`,
+**double-run identical at this sitting**.
+
+**C-14's re-read ran over BOTH repo-qualified letters AND the shipped artifact** — (a) value.js
+`V/archive/GLASS-INBOUND-2026-07-16-headerribbon-persistent-only.md:15-19`; (b) keyframes.js
+`origin/master:V/coordination/GLASS-INBOUND-2026-07-16-headerribbon-consumer-updates.md` (⟨`wc -l`⟩ →
+**26**); (c) `dist/header-ribbon.js` — ⟨`grep -c`⟩ → `anchor` **4** · `pinned` **3** · `inert` **2** ·
+`aria-hidden` **2** · `anchorLabel` **0** · `HeaderRibbonMode` **0**. **Five of letter (a)'s seven
+claimed deletions are falsified by the shipping 7.0.0**; EH-1 holds byte-exact. **XR-4 is FALSIFIED at
+the settled frontier**: ⟨`sed -n '16p' EditorShell.vue`⟩ → `<HeaderRibbon placement="right">` and
+⟨`grep -c 'defineExpose' EditorShell.vue`⟩ → **0** — both of letter (b)'s consumer updates already
+applied; C-15's HEAD-only `position="right"` did **not** carry forward.
+
+**ONE `npm run gh-pages`, run once at 13:37:14** (`package.json:43`; **no `build:gh-pages` at any
+coordinate**). `index-CL_QYCiO.css` (571142 B, Jul 16 09:11) → `index-CBB2Hr7m.css` (571192 B, Sep 17
+13:37). **The artefact banked is the hash**: ⟨`find dist/gh-pages -type f | sort | xargs shasum -a 256
+| shasum -a 256`⟩ → `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2` over **54**
+files — **re-verified double-run at this sitting, byte-identical**. **This sitting did NOT re-run the
+build**: a second run would breach the spec's *exactly one*, so the banked hash is the standing
+witness. All **seven** corpus byte-offset receipts re-derive GREEN in the fresh build; the one delta
+(the `@layer` statement order) is **declared, not absorbed**, and appended at `kf-EditorHeader`.
+⟨`grep -l 'index-CL_QYCiO' kf-*.md`⟩ → **10 records** carry the dead asset name; the coordinate is
+superseded and the findings are not — the supersession is appended at all ten (E-3), and the 14 dated
+challenge files under `audit/kf-components/` were **not touched**.
+
+#### Act 3 — G-0.9: all 58 records stamped, **append-only**, per-file, keyed to `D-19` (`7c569bb0`, continued at `5645e476`)
+
+`docs/tranches/X/keyframes/W0/REF-OF-RECORD.md` + `artefacts/W0/refofrecord-stamp-audit.txt` + the
+58 records + `lane-docs.md` §B-12 row 16.
+
+⟨`ls kf-*.md | wc -l`⟩ → **58** · ⟨`grep -l 'REF-OF-RECORD — KF.W0' kf-*.md | wc -l`⟩ → **58** ·
+⟨`grep -c … | awk -F: '$2!=1'`⟩ → **0** records carry the stamp more than once. **E-3 is measured, not
+promised**: ⟨`git show --numstat --format= 7c569bb0 -- …/adjudicated`⟩ → **58 files · 1204 added · 0
+deleted**; the continuation `5645e476` → **14 added · 0 deleted**. **Not one byte of dated evidence
+was rewritten.**
+
+**The stamp is keyed to `D-19` via C-1.R row 6.** The pre-stamp census cannot be read at today's bytes
+(the stamps themselves name the id), so it was re-derived from the settled coordinate
+⟨`git archive 7c569bb0^ …/adjudicated | tar -x`⟩ and re-run there: bare token → **42 records / 94
+lines**; by the row's stated re-anchor predicate → **34 records / 39 lines**; stamps present → **0**.
+**Both banked figures reproduce exactly.** The **eight** records whose `D-19` is a component-local id
+are named so a bare grep does not book a dead-token cluster, and the records the token never reaches
+are stamped anyway — which is why the stamp is written at all 58 and not at the 42.
+
+**C-19 resolved at its corrected denominator**: ⟨`sed -n '<the C-19 cell>p' KF-W0.md | grep -oE
+'kf-[A-Za-z.]+' | sort -u | wc -l`⟩ → **32 distinct records**, **minus the 2 declared ANTI-firings**
+(`kf-CubeAxisLines`, `kf-AnimatedText`) ⇒ **30 ledger members**, each to a named disposition, the two
+anti-firings carrying an anti-firing line and **never swept as firings**. **C-20 resolved by
+measurement** at both banks. **C-21 honoured — the pass is demonstrably PER-FILE**: every stamp
+carries that record's own subject and its own ⟨`git diff --numstat 8281638c 81a56990 -- <subject>`⟩
+offset; the corpus's one measured exemplar (kf-AmigaScene `:155`, *"comment-only drift, useAmigaDemo
+−2 below `:73`"*) is carried; `TypingDots.vue`'s inversion is stamped in its own polarity with its
+three travelling corrections **scoped to that file alone**. **The blanket-pass falsifier was run**:
+⟨`git diff --stat origin/master -- …/TypingDots.vue`⟩ is empty **and** the TypingDots stamp does not
+say *"stale HEAD"* — it states the measured `+4/−9` against the disqualified pin. **Not RED.**
+
+**The six named corrections landed by id** — ⟨`grep -l 'of the six named at G-0.9' kf-*.md`⟩ →
+**exactly 6 records**: `kf-App` (i, `demo/app/App.vue:176`, path-qualified) · `kf-TransportDock` (ii,
+9 live + 1 prose, with the second predicate declared) · `kf-App.skeleton` (iii, KF-SKEL-7) ·
+`kf-AnimationVisualizer` (iv, worktree-scope) · `kf-KeyboardShortcutsModal` (v, the renumber demoted
+to a claim-input — **continued at `5645e476`**, which names the mint's assigned slot **S-17**
+⟨`grep -n 'S-17' lane-frontend.md`⟩ → `:918`, discharging `.d`'s residual 3) · `kf-KeyframeTimeline`
+(vi, the *"working tree = the audited tree"* equation false at every coordinate).
+
+**§Excluded respected exactly**: ⟨`grep -oE '\*\*EH-[0-9]+' kf-EditorHeader.md | sort -u | wc -l`⟩ →
+**16 ids**, and ⟨`grep -oE 'EH-[0-9]+'` over this unit's appended stamp at that record⟩ → **`EH-1`
+×1, nothing else**. EH-4/5/8 (KF.W6, LIVE) · EH-9/10 (KF.W6, by twin) · EH-2/3/12/13/14/15
+(NO-WAVE-OWNER, G-2) · EH-6/7/11/16 (their banked homes) were **enumerated, never booked here**.
+
+**`lane-docs.md` §B-12 row 16** carved to **EXECUTED 2026-09-17** with the prior disposition carried
+**verbatim** inside the cell (E-3) and `:145`'s live-unexecuted-maintenance-act framing untouched —
+the only `modify-carve` row in the unit's bounds, and the carve is one cell.
+
+#### Act 4 — G-0.8: the v8 pin dispositioned as RULED (`fc92ed52`)
+
+`docs/tranches/X/keyframes/W0/V8-DISPOSITION.md` + `artefacts/W0/v8-disposition.txt` +
+`INTAKE-ADJUDICATION-2026-08-03.md` (modify-append).
+
+The ruling is **written as ruled at `COHESION.md` §0j.C `KF-OGKF1`** and neither made, softened,
+widened nor re-opened here: the lineage is **STALE-BY-SUBSTRATE and does not continue**; citable only
+as *"345 exact / 12 partial / 57 unresolved @ `8281638c`"*, never as HEAD coverage; **the five
+conditional TCC re-reads (B10-9 · B19-10 pin half · B19-11 · B20-6 · B21-7) NEVER OPEN** — closed by
+the ruling, enumerated so the closure is checkable by name. The verdict token is
+**STALE-BY-SUBSTRATE**; the falsifier's *"carried"* / *"pending"* appear nowhere.
+
+**X-2 — 185 adopted**, re-run and **double-run at this sitting**: ⟨`git ls-tree -r --name-only
+origin/master demo/ | grep -cE '\.(ts|vue)$'`⟩ → **185 · 185**; the same command at the disqualified
+pin → **183**. **The claimed 184 reproduces at NEITHER committed coordinate** — it is the pin's
+*dirty disk* reading, so the Codex/census agreement at 184 is upgraded from an inference to a
+demonstration of shared substrate error (C-19 at its largest amplitude). The 414 / 152 / 73 568
+denominators each carry an explicit disposition (**NEVER CITABLE** · **REJECTED** at B18-26) so no
+naive check leaves them live; B18-27 and B18-12/13/14 are carried unresolved **by design**, KF.W10's.
+
+**`OG-KF1` is NAMED and NOT RULED** — §6 states it, and states the distinction the spec's §Excluded
+turns on: **`KF-OGKF1`** (the §0j.C ruling on the contract's citability, *consumed* here) and
+**`OG-KF1`** (the owner row on the lineage's continuation, *named* here for KF.W10's owner block
+beside OD-V3/OD-V5) are **different items** — shared stem, different rows. A seat that ruled `OG-KF1`
+here would fail the wave; this seat did not.
+
+#### Act 5 — the verification sitting: every figure re-derived from the settled bytes
+
+Nothing in Acts 1–4 was accepted on its own prose. Re-run and double-run at this sitting: the 9 gate
+files · the 3 entry points · `55 tokens / 54 names / 1 runnable / 53 dead / 116 hits / 51 files` · the
+roster's 54-name coverage with an **empty** `comm -23` residue · 58 records / 58 stamps / 0 duplicates
+· `1204 + 0 −` and `14 + 0 −` · the pre-stamp `D-19` census at `7c569bb0^` (42/94, 34/39, 0 stamps) ·
+C-19's 32 → 30 + 2 · the 16 `EH-*` ids and the single `EH-1` booking · `185 · 185` vs `183` · the
+consumed-dist digest · the build hash over 54 files · the 4 `glass-ui/src` citations · the 10
+`index-CL_QYCiO` citers · `header-ribbon.js`'s six surface counts · `EditorShell.vue:16` and its
+`defineExpose` → 0 · letter (b) at 26 L · `0` tracked modifications and `0` `demo/` rows in
+keyframes.js. **Every one reproduced.** No figure needed correction, and none was written that this
+sitting had not itself produced.
+
+#### Act 6 — the one gap this sitting found and closed (`58be3626`)
+
+**G-0.10 was the only one of this unit's four gates whose reading reached no doc.** G-0.7's is
+`GATE-ROSTER.md` §7, G-0.8's is `V8-DISPOSITION.md` §7, G-0.9's is `REF-OF-RECORD.md` §8 — G-0.10's
+existed only inside a `.txt` transcript, discoverable by a seat that thinks to open it. A turned gate
+whose reading lives nowhere a conformance pass reads is a roster defect of exactly the class G-0.7
+exists to kill, one altitude up. **`REF-OF-RECORD.md` §9** now carries it: the three GREEN clauses,
+the three falsifiers run, the dead-asset disposition and the no-product-byte receipt — **appended, not
+rewritten** ⟨`git diff --numstat`⟩ → **47 added · 0 deleted**. No new claim is made there; every figure
+is one this sitting re-executed.
+
+#### E13 — mail, at this unit's scope
+
+Re-swept read-only at this sitting against all rowed entries. (1) `docs/tranches/V/coordination/` —
+17 entries, `INBOX.md` self-excluded (SELF-COUNT law); the three mtime-fresh files are **our own
+outbound retained copies**, `value-inbox-2026-09-17-o8-o11-amendment-addendum.md` being **O-21**,
+already rowed. (2) `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed newest**
+⟨`ls -dlt ../glass-ui/docs/tranches/B*/`⟩ → `BK`@Sep 17 12:49 > `BJ`@Aug 3 > `BI`@Jul 28; 4 files,
+newest = **I-30, rowed**. (3) `../keyframes.js/docs/tranches/V/coordination/` — 12 entries; ⟨`find …
+-newermt '2026-09-17 00:00'`⟩ returns 9, **every one a 2026-09-17 birthtime over a July content
+date** — the frontier's own V docs that `reset --hard` unlinked and recreated (OP-1's FINDING), **not
+new mail**; one of them is C-14's letter (b), consumed at G-0.10. (4)
+`../sci-report/atlas/docs/tranches/P/coordination/` — 28 files; newest is ours, outbound. **Result: 0
+unrowed · 0 new `I-n` · I-30 remains the inbound tail · 0 UNREAD in KF.W0.e's scope.** **`INBOX.md` is
+NOT in this unit's writable set** — it is `.b`'s alone, once, at close (spec §Disjointness), and `.b`
+already banked the post-settle close sweep; this unit appends nothing there.
+
+#### Gates — BEFORE → AFTER
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit, re-run at its own clock) |
+|---|---|---|
+| **G-0.7** | **RED-AS-EXPECTED** — 3 entry points · 9 gate files · 54 names + 1 bare token · 1 runnable → 53 dead · 116/51; no roster exists | **GREEN** — `GATE-ROSTER.md` dated in the tree; (i) roster of 3 entry points + 9 files by path + **all 53 dead names** enumerated, the command block re-run at authoring; (ii) **54 rows, every one disposed** (strike-in-owner-wave / routed-with-named-owner / repoint / loud NO-WAVE-OWNER), `proof:brittleness` → **KF.W6 family whole**; falsifiers (a) short roster, (b) non-disposition, (c) **a `demo/**` strike by W0 — 0 rows moved** all run and none fires |
+| **G-0.8** | **RED-AS-EXPECTED** — no disposition exists anywhere | **GREEN** — `V8-DISPOSITION.md`: the §0j.C ruling written as ruled, verdict token **STALE-BY-SUBSTRATE**; **185 adopted** (double-run; 184 reproduces at no committed coordinate); the seal citable only as `345/12/57 @ 8281638c`; the five TCC re-reads **never open**; **`OG-KF1` NAMED, explicitly not ruled** |
+| **G-0.9** | **RED-AS-EXPECTED** — 58 records, **0** stamped; `D-19` reaches 42 by bare token; six inbound corrections absent | **GREEN** — 58/58 stamped exactly once, **1204 + / 0 −** (append-only, E-3); keyed to `D-19` via C-1.R row 6 (42/94 bare, 34/39 re-anchor, re-derived at `7c569bb0^`); **C-19 at 30 members + 2 anti-firings enumerated separately**; C-20 resolved by measurement; the pass **demonstrably per-file** with the kf-AmigaScene exemplar and the TypingDots inversion in its own polarity; **the six named corrections landed by id**; blanket-pass falsifier run and not firing |
+| **G-0.10** | **RED-AS-EXPECTED** — the corpus's byte-offset receipts ride a **Jul 16 09:11** artifact | **GREEN** — the 4 surviving `glass-ui/src/**` citations re-derived against the consumed dist (digest `3cc72cc9…`, double-run); XR-4 / IN-GLASS-1 / `DISPOSITIONS.md:21` re-read against **both repo-qualified letters AND `dist/header-ribbon.js`** (XR-4 **falsified at the frontier**); **one** `npm run gh-pages`, hash `bad6ea59…` over 54 files banked; 7/7 byte-offset receipts re-derive, the `@layer` delta declared; **reading written at `REF-OF-RECORD.md` §9** |
+
+**4 of 4 sub-gates GREEN. 0 RED. 0 escalations.**
+
+#### Commits
+
+| hash | family | meaning |
+|---|---|---|
+| `e12eeb91` | `docs(kf-w0/roster+provenance)` | G-0.7 + G-0.10 — 53 dead names rostered and routed, **zero struck**; glass citations re-derived against the consumed dist; one fresh `gh-pages` banked |
+| `7c569bb0` | `docs(kf-w0/ref-of-record)` | G-0.9 — all 58 records stamped by appended correction, per-file, keyed to `D-19`; C-20 resolved; `lane-docs` §B-12 row 16 EXECUTED |
+| `fc92ed52` | `docs(kf-w0/v8)` | G-0.8 — the v8 pin **STALE-BY-SUBSTRATE** as ruled at §0j.C; 185 adopted; `OG-KF1` NAMED for KF.W10 |
+| `5645e476` | `docs(kf-w0/ref-of-record)` | correction (v) continued — the C-17 mint's assigned slot **S-17** named at the record, discharging `.d`'s residual 3 |
+| `58be3626` | `docs(kf-w0/roster+provenance)` | G-0.10's **gate reading** written at `REF-OF-RECORD.md` §9 (47 + / 0 −) |
+
+Pathspec commits only; `scripts/dev/dev.sh` never staged (⟨`git log --stat` over all five⟩ → it
+appears in none). The three declared families are intact and unsplit: `roster+provenance` carries
+G-0.7 **and** G-0.10 because the gates share one measurement surface, exactly as the spec pairs them.
+
+#### Residuals — carried, none blocking
+
+1. **`dist/gh-pages/**` is regenerate-only and git-ignored** at the frontier (`.gitignore:10`
+   `dist/`), so the one build **commits nothing**. The witness is the banked hash
+   `bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2`, not the bytes. A later seat
+   that needs those bytes **re-runs the build and re-hashes**; it must not assume the tree it finds
+   is this one.
+2. **The `@layer` statement delta** (corpus cell: *"base, components, demo, properties, theme,
+   utilities"*; fresh build: five layer-ats as `properties · theme · base · components · utilities`,
+   **no `demo` layer**) is **declared and appended at `kf-EditorHeader`**, never rewritten (E-3). It
+   is a reading delta, not a defect of this wave, and it is charged nowhere here.
+3. **`+5` dead names sit outside the 53** — `proof:easing-sidebar-minimal` ·
+   `proof:amiga-decay-visible` · `proof:bezier-{no-scroll,single-card,grown}` — recovered from the six
+   line-wrapped/brace-set tokens the denominator's own `-$` filter discards. They are rostered as a
+   **loud addendum-beside** (`GATE-ROSTER.md` §2.2), **not** folded into the 53, because the 53 is the
+   spec's stated denominator and re-basing it here would mint a fifth basis (the X-4 lesson). The
+   bezier trio already carries a banked home (OPTIONS-UNIT @ KF.W12).
+4. **Four untracked `src/` files survive in keyframes.js** (`compiled-frame.ts` · `interp-slot.ts` ·
+   `value-ast.ts` · `composite-storage.ts`) — OP-1's reset artefact, **not this unit's**, recorded
+   here only because this unit's no-strike receipt greps that tree: they are **untracked**, so
+   ⟨`git status --short --untracked-files=no`⟩ → **0**, and no product byte moved.
+5. **`OG-KF1` remains OPEN by design** — named here, **ruled at KF.W10**'s owner block beside
+   OD-V3/OD-V5, never proxied.
+
+#### Escalations
+
+**None.** No Dispatch trigger fired: no reset by this seat · no write under
+`keyframes.js/{src,demo,test,scripts}/**` · no producer-repo write (glass-ui was **read and hashed
+only**, and at this sitting not opened at all) · no blanket per-repo re-anchor (the pass is per-file
+by construction and the falsifier was run) · no MANIFEST MISMATCH surfaced by this unit · no third
+diagnostic iteration on any gate. Every write landed inside the unit's §File Bounds writable set.
