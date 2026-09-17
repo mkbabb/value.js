@@ -1559,3 +1559,309 @@ this section adds **no** rows. **It closes nothing**: whether the layer now carr
 twelve folds' own bytes under §1.G at a named HEAD — never in this seat's voice. Status remains
 **planned**; **no fold seat elects the G-F register's home, AB-17's shape, MT-CSS-2's owner, or
 MT-COLORINPUT-1's**; no product source was opened by this repair.
+
+---
+
+## 9. §SITTING ADDENDUM — the X-W0 owner sitting's register acts · dated 2026-09-17 · written by X-W0.g
+
+**What this section is.** The **X-W0 owner sitting** (2026-09-17) ruled the FORMATION-BOUNDARY packets
+and the G-F residuals at **COHESION `§0j.B` `:521–546`**, and that ruling names this file as the site
+for its rows, verbatim `:533–534`:
+
+> X-W0.g writes the five rows at `X-W0-FOLD.md`'s §8 idiom.
+
+and, for GF-R1, `:535–536`:
+
+> **GF-R1** — **BOOK slate entry 15** at `X-W0-FOLD.md` §8, all seven ⟨record · id⟩ id-for-id, and correct `×5`→`×7` **in the addendum, never in §4's bytes** (the recommended half).
+
+and, for R-2, `:545–546`:
+
+> **R-2**'s two `≡`-pointers (⟨AdminFlaggedPanel · AF-12⟩ ≡ AdminListItem D-5; ⟨ColorNutritionLabel · R6⟩) are written as two lines at X-W0-FOLD.md §8 by X-W0.g.
+
+This section is that writing. Its companion record is
+`docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md` (the sitting packet, eighteen docket items).
+
+**Posture — three statements, because this is the first §-section written by an execution seat rather
+than a fold seat.**
+
+1. **E-3 holds absolutely.** §§0–8 of this file are **byte-untouched**; so are
+   `docs/tranches/X/waves/**`, `COHESION.md` **§4** (the `×5` cell is corrected **here**, never
+   there), `registry/adjudicated/**` and `union/G-F-ADJUDICATION.md`. This is an **addendum beside**,
+   in §8's idiom, exactly as §8 was an addendum beside §7.
+2. **Nothing here is a fold seat's election.** §8.5's closing line holds: *"no **fold seat** elects the
+   G-F register's home, AB-17's shape, MT-CSS-2's owner, or MT-COLORINPUT-1's."* §9.4 below records
+   that the register's home question was answered **by the owner sitting at §0j.B**, which is a
+   different authority; **AB-17's shape, MT-CSS-2's owner and MT-COLORINPUT-1's remain unelected by
+   anyone**, here as before.
+3. **Dispositions, not new identities.** §9.2 disposes **five packets already booked** at slate entries
+   1–5 (W0.21 … W0.25). It books **no identity twice**: the disposition rows are keyed `FB-1..FB-5`,
+   a disposition namespace, and every identity they touch keeps its original id at its original slate
+   entry. **One new row is minted — W0.38, slate entry 15** (§9.3), which §0j.B directs by name.
+   Status remains **planned**; **no gate is minted, re-staged or re-weighted** by this section.
+
+### 9.1 §1.G compliance, and the two guards this addendum is bound by
+
+**Clause 1 (carriage is namespace-scoped; a bare id is never carriage).** Every identity below is
+spelled ⟨record.md · id⟩. Two namespace guards are live and are stated **before** the rows, because
+both are bare-id collisions of exactly the kind §8.1 was written for:
+
+1. ⟨**ApiOfflineChip**.md · AP-12 · AP-17 · AP-24 · AP-29 · AP-30 · AP-31 · AP-33⟩ (W0.38) **≠**
+   ⟨**AuroraPane**.md · AP-12 · AP-17 · AP-24 · AP-29 · AP-30 · AP-31 · AP-33⟩. **The two records
+   carry the same seven numerals**, and every `AP-*` hit in this fold layer today resolves to
+   **AuroraPane** — including this very file's own `:904`, `:924` and `:1021` (⟨AuroraPane.md ·
+   AP-31⟩) and `:998` (the bold-split-id census roster). The union's CHECK-2 tail cure published the
+   full scan at `union/G-F-ADJUDICATION.md:258`; it is *"never one an ApiOfflineChip booking."*
+   **W0.38 is the ApiOfflineChip namespace's first and only booking in this layer.**
+2. ⟨**AdminFlaggedPanel**.md · AF-12⟩ (§9.5) **≠** ⟨**ActionFeedback**.md · AF-12⟩
+   (`X-W7-FOLD.md:1097`, W7.363 — *"copy governance is entirely caller-dependent"*). Two records, one
+   bare id, two waves; the `≡`-pointer below cites the record, never the numeral.
+
+**Clause 4 (aliases derived AND declared).** This section uses the short forms `apiofflinechip`,
+`adminflaggedpanel`, `adminlistitem`, `nutritionlabel` — all derived suffix-joins (≥4 chars) of their
+stems. **Zero non-derivable short forms.**
+**Clause 5 (bold pseudo-headings do not scope).** Every row below carries its record on its own row and
+on its `⟨…⟩` provenance line.
+
+### 9.2 §FB — the five FORMATION-BOUNDARY packets, DISPOSITIONED (FB-1 … FB-5)
+
+**These are dispositions of packets already booked**, not new bookings. The mapping to the existing
+slate is exact and is stated first so no census reads five new rows here:
+
+| # | packet (§0j.B's spelling) | already booked at | disposition ruled at §0j.B |
+|---|---|---|---|
+| **FB-1** | PRE-X MT-REGISTER | **W0.24 · slate entry 4** (`:848`) | **BOOK TERMINAL** |
+| **FB-2** | BOUNDARY-SCOPE ⟨AboutPane · AB-4/AB-5⟩ | **W0.22 · slate entry 2** (`:803`) | **BOOK TERMINAL** |
+| **FB-3** | AUTH-SESSION SUBSTRATE ⟨AdminFlaggedPanel · AF-50⟩ | **W0.23 · slate entry 3** (`:827`) | **BOOK TERMINAL** |
+| **FB-4** | MIGRATE-DIALOG IDENTITY-FLOW | **W0.21 · slate entry 1** (`:750`) | **DECLINE-WITH-REASON** |
+| **FB-5** | W-HYGIENE H-c (packet 5's boundary limb) | **W0.25 · slate entry 5** (`:894`) | **BOOK TERMINAL, explicitly NOT ADOPTED** |
+
+**The governing clause, verbatim** (`COHESION.md:523–525`): *"the union was sealed UNION-CLEAN at
+`31dcf279`; **electing cargo into a sealed wave re-opens it**, so every packet is dispositioned as a
+**register row, never silence**."*
+
+---
+
+**FB-1 · PRE-X MT-REGISTER (packet 7) → BOOK TERMINAL.**
+- **Ruling, verbatim** (`:525–527`): *"(1) PRE-X MT-REGISTER → **BOOK TERMINAL** at the G-F register
+  (its live obligations already ride SS-8's zero-residue-cohort sweep, §4.1)"*.
+- **Why terminal and not an election**: the packet's live obligations are **already owned** — W0.24's
+  own cross-edge records that *"**SS-8 may not be called complete until this cohort is swept for
+  live-witness obligations**"*, so booking terminal leaves no obligation homeless; it leaves it where
+  it already lives.
+- **What rides, unchanged, at its original ids**: the four BLOCKER identities ⟨App.md · L-1⟩ ·
+  ⟨App.md · C-1⟩ · ⟨App.md · C-2⟩ ≡ ⟨App.md · D-1⟩ · ⟨App.md · D-4⟩ (rescoped), and the 15-of-16
+  cohort arithmetic W0.24 measured and reconciled. **No id moves, none is re-graded, and the C-2/D-1
+  cure limb stays homed at X-W5** exactly as W0.24 states.
+  ⟨W0.24 · slate entry 4 · this file `:848–892` — fold; COHESION §0j.B:525–527 — the sitting⟩
+
+**FB-2 · BOUNDARY-SCOPE ⟨AboutPane · AB-4 / AB-5⟩ (packet 12) → BOOK TERMINAL.**
+- **Ruling, verbatim** (`:527–528`): *"(2) BOUNDARY-SCOPE AB-4/AB-5 → **BOOK TERMINAL** (X-W6's fold
+  books them; the disposition is the boundary's, i.e. this row)"*.
+- **The distinction the ruling draws, carried so it is not collapsed**: X-W6's fold **books** the two
+  identities; **the disposition is the boundary's** — i.e. this register row. Booking and disposition
+  are two acts, and the second one is the one that was missing.
+- **What does NOT move with it — stated, because it is a different question in the same row**:
+  W0.22's `ErrorBoundary.vue` **two-path contention** (X-W5 `demo/shell/` vs X-W6/X-W7
+  `demo/color-picker/`) is **sitting business, escalation S-7**, and §0j rules it **not at all**. It
+  is docketed and **returned UNRULED** at `OWNER-SITTING-2026-09-17.md` §1 item 16 / §5. **The path
+  ruling still precedes X-W5/X-W6/X-W7 opening** (W0.22's own `seq` lock). §0j.B's own words keep it
+  here: *"The `ErrorBoundary.vue` contention at W0.22 stays X-W0's."*
+  ⟨AboutPane.md · AB-4 · AB-5 — record; W0.22 · slate entry 2 · this file `:803–825` — fold; COHESION §0j.B:527–528 — the sitting⟩
+
+**FB-3 · AUTH-SESSION SUBSTRATE ⟨AdminFlaggedPanel · AF-50⟩ (packet 15) → BOOK TERMINAL.**
+- **Ruling, verbatim** (`:528–529`): *"(3) AUTH-SESSION SUBSTRATE AF-50 → **BOOK TERMINAL**
+  (X-W3-FOLD F-4's NO-WAVE-OWNER banking stands as the record)"*.
+- **The GATE-READING LOCK rides with the disposition, verbatim and undischarged** (W0.23, from
+  X-W3-FOLD F-4): X.W3.6 is built ON TOP of the `localStorage` bearer PALETTE-CONTRACT §2 bans, and
+  **"G-18 green may never be read as discharging that row"**. Booking terminal **does not** discharge
+  it either: a terminal register row is a home, not a cure, and `PALETTE-CONTRACT.md` carries the row
+  forward **undischarged** exactly as F-4 requires.
+- **The cure shape stays locked in-record and unadopted**: *"move the session port to a
+  platform/shell-neutral home; the shell→palettes back edge dies with it."* **No wave adopts it**
+  under this disposition.
+  ⟨AdminFlaggedPanel.md · AF-50 — record; X-W3-FOLD F-4 · W0.23 · slate entry 3 · this file `:827–846` — fold; COHESION §0j.B:528–529 — the sitting⟩
+
+**FB-4 · MIGRATE-DIALOG IDENTITY-FLOW (packet 16) → DECLINE-WITH-REASON.**
+- **Ruling, verbatim** (`:529–531`): *"(4) MIGRATE-DIALOG IDENTITY-FLOW → **DECLINE-WITH-REASON**: no
+  wave in X owns an identity-flow migration and no probe resolves it; it stays behind the
+  OWNER-DECISION gate as a named register row with that gate as its re-trigger"*.
+- **The reason is the disposition** — the runbook forbids the silent outcome by name (*"silence is not
+  adoption"*), and the dossier measured this as the one packet with **no measurable side**:
+  `SITTING-DOSSIER-2026-09-17.md:219–220` — *"**The one packet with no measurable side is #4,
+  MIGRATE-DIALOG IDENTITY-FLOW — it sits behind the OWNER-DECISION gate and no probe can resolve
+  it.**"*
+- **Twenty identities stay on the register under their original ids, none moved, none re-graded**:
+  ⟨MigratePalettesDialog.md · A-1 · A-3 · A-4 · A-6 · A-7 · A-11 · A-12 · A-13 · A-14 · A-15 · A-18 ·
+  A-19 · A-20 · A-22 · A-23 · A-24 · A-25 · A-27 · A-28 · A-31⟩ — including **two BLOCKERs** (A-1,
+  A-3) and **A-4, whose cure is severed to this very decision**. The **re-trigger is the
+  OWNER-DECISION gate itself**; nothing else re-opens them.
+- **The order lock travels with the decline, verbatim** (W0.21): *"**A-1 must land BEFORE or WITH
+  A-3's sink repair — mounting the sink first converts a silent bug into a user-visible lie on a
+  successful login.**"* A decline that dropped this clause would hand the next formation a
+  cure-ordering trap.
+  ⟨MigratePalettesDialog.md · the twenty ids above — record; W0.21 · slate entry 1 · this file `:750–801` — fold; COHESION §0j.B:529–531 — the sitting⟩
+
+**FB-5 · W-HYGIENE H-c (packet 5's boundary limb) → BOOK TERMINAL, explicitly NOT ADOPTED.**
+- **Ruling, verbatim** (`:531–533`): *"(5) W-HYGIENE's boundary limb → **BOOK TERMINAL, explicitly NOT
+  ADOPTED** (*"silence is not adoption"* is honoured by saying the word: the 8 records' routing stays
+  on the register)"*.
+- **The word is said, which is the entire act.** `W8.md:112`'s explicit decline **GOVERNS** over the
+  eight records that route the identity in; the ruling does **not** overturn it, does **not** adopt the
+  limb into any wave, and says so in a byte a grep can find. W0.25's own framing — *"a decline GOVERNS
+  over eight records that route the identity in"* — is now matched by a disposition that is equally
+  explicit.
+- **The nine riders stay at their original ids, counted once**: ⟨ColorSpaceSelector.md · L-14⟩ ·
+  ⟨Dock.md · L-22⟩ · ⟨EmptyState.md · ES-18⟩ · ⟨wb-extract-imageeyedropper.md · EY-43⟩ ·
+  ⟨wb-mix-animationcanvas.md · MX-20⟩ · ⟨AuroraPane.md · AP-31⟩ · ⟨wb-generate-pane.md · GEN-23⟩ ·
+  ⟨wb-extract-controls.md · EC-30⟩ · ⟨wb-extract-pane.md · XP-21⟩.
+- **Two locks carried so the non-adoption cannot be misread**: (i) *"all 8 entries proven inert"* and
+  *"no live break (both workers' vue-tsc exit 0)"* — **this row may never be graded as a shipping
+  break**; (ii) **X-W8's gate N-2 still forces a per-limb close declaration**, so *"W-HYGIENE landed"*
+  can never be reported one limb short. **H-a and H-b remain X-W8 property and are not booked here.**
+- **⟨AuroraPane.md · AP-31⟩ is this rider's id and is NOT ⟨ApiOfflineChip.md · AP-31⟩** (§9.1 guard 1)
+  — the two sit eleven lines apart in this section and are different rows of different records.
+  ⟨the nine ids above — records; W8.md:112 — spec; W0.25 · slate entry 5 · this file `:894–924` — fold; COHESION §0j.B:531–533 — the sitting⟩
+
+### 9.3 §Rows — the G-F REGISTER SLATE, entry 15 (W0.38) — GF-R1
+
+**W0.38 — SLATE ENTRY 15 · ⟨ApiOfflineChip.md · AP-12 · AP-17 · AP-24 · AP-29 · AP-30 · AP-31 ·
+AP-33⟩ — the transport cluster: seven adjudicated rows, one CONFIRMED MAJOR, and a four-file surface
+no X wave claims** · **MAJOR-bearing (AP-17 CONFIRMED MAJOR · AP-12 MAJOR)** · cl.1 · → **slate**
+(claimant **X-W3**, ruled at §0j.B)
+
+- **why it is here at all**: `union/G-F-ADJUDICATION.md` §5 R-1 found all seven *"absent from the
+  entire X·V fold layer"*, triple-tested — no in-namespace occurrence, zero content greps
+  (`initApiEnvironment` → **0** layer-wide · `baseUrl` → **0** layer-wide · zero in-namespace
+  `cooldown`), and the layer's own enumerable ApiOfflineChip bookings not containing them. The
+  adjudication's own cure names this file and this idiom: *"Book the cluster as **G-F slate entry
+  15** at `X-W0-FOLD.md`'s §8 idiom — the identical treatment W0.29/W0.30 received for exactly this
+  class."*
+- **the seven, id-for-id, each with its record's own words (compressed) and its grade**:
+
+  | ⟨ApiOfflineChip.md · id⟩ | grade | substance, from the record |
+  |---|---|---|
+  | **AP-17** (`:58`) | **MAJOR — CONFIRMED** | *"The cooldown gate admits an **UNBOUNDED burst**, not the 'ONE probe' its docs promise twice (:9-11, :185-186): the allow branch (:193) neither re-arms `unavailableSince` nor holds an in-flight flag, so every caller between window-open and first-failure-resolution passes — N doomed requests + N console errors per cycle against a slow-failing backend, the exact scenario the latch exists for. Re-arm happens only on failure (:170)."* Cures named in-record: **re-arm on allow, or a `probeInFlight` flag** |
+  | **AP-12** (`:53`) | **MAJOR** | *"Third parallel ownership of 'the backend is not answering': 7 hand-written `is unreachable.` sentences … beside the latch, with two DIFFERENT trip conditions (latch = fetch rejection only, `availability.ts:167`; refs = any thrown error)"* — reader-2 re-read `browse.png` and confirmed the live contradiction. **Split route**: surface vocabulary → X-W7 rider; **latch/ref reconciliation lives in transport** |
+  | **AP-24** (`:70`) | MINOR | `initApiEnvironment(BASE_URL)` runs **at import time**: importing the transport module for any reason mutates global state and may `console.error`. **Coupled to AP-33** — *"the move makes repeat invocation reachable, so the guard lands first"* |
+  | **AP-33** (`:83`) | MINOR | `initApiEnvironment` is documented *"Idempotent"* (`:148`) **with no idempotence guard** — benign at module-eval-once, **load-bearing the day AP-24's cure moves the call**. Paired with AP-24 |
+  | **AP-29** (`:79`) | MINOR | `ApiClient.baseUrl` is a **dead member** of the otherwise-exemplary DI seam (sole external "consumer" is a comment) |
+  | **AP-30** (`:80`) | MINOR | `detectDevMisconfig`'s third conjunct is a **tautology at its only call site** — *"the unit test proves a matrix the wiring cannot produce"*; moot-on-AP-1 in effect |
+  | **AP-31** (`:81`) | MINOR | The misconfigured invariant is **defended on one side only**: `markApiUnreachable` refuses to relabel (`:169`); `markApiReachable`'s `!== "available"` guard (`:176`) does **not** protect `misconfigured` and would silently clear it. `test/status-lamp.test.ts:46` already calls it in the exact future-caller shape |
+
+- **CLAIMANT ELECTED — X-W3, with the widening it requires, ruled verbatim at `COHESION.md:536–542`**:
+
+  > **Claimant: X-W3**, by a dated E-3 addendum widening its bounds to `demo/platform/transport/**`
+  > (4 files) as one named unit carrying the seven rows with AP-17 (the unbounded probe burst against
+  > a *"ONE probe"* promise) as its born-RED gate. Rationale: the transport client is the API
+  > contract's client leg — probe cadence is a contract property under X-W3's route-spec-first law
+  > (a.4) — and X-W3 runs at stage 3 of Track A, so a CONFIRMED MAJOR is cured well before X-W11
+  > stamps.
+
+  **The surface is four files and single-owner-shaped** ⟨`ls demo/platform/transport/`⟩ →
+  `api-problem.ts` · `availability.ts` · `client.ts` · `useApiClient.ts` (`SITTING-DOSSIER:243–244`).
+  **X-W3 writes no byte on this row's account until its own dated E-3 bounds addendum lands** — this
+  register row records the claimant, it does not widen another wave's bounds from here.
+- **§4's `×5` is CORRECTED TO `×7` HERE, and only here (E-3).** `COHESION.md` §4's ApiOfflineChip cell,
+  verbatim at `:104`:
+
+  > | ApiOfflineChip | transport cluster ×5 (`demo/platform/transport/**` has no X-wave claimant; incl. the confirmed unbounded cooldown burst AP-17 MAJOR) | `registry/adjudicated/ApiOfflineChip.md` |
+
+  **Read `×5` as `×7`.** The adjudication's sub-finding is the measurement: *"§4's `×5` does not match
+  the **7** rows measured. The cluster is under-counted in the index by two."* **COHESION §4's bytes
+  are NOT edited** — the correction lives in this addendum, exactly as `§0j.B:535–537` directs
+  (*"correct `×5`→`×7` **in the addendum, never in §4's bytes**"*), and exactly as errata R1-A-1 and
+  R3-A-1 (§8.4) were registered rather than patched. **The claimant clause of that cell is also
+  superseded by this row**: it reads *"has no X-wave claimant"*; as of 2026-09-17 the claimant is
+  **X-W3**.
+- **NAMESPACE GUARD (guard 1 of §9.1)**: **≠** ⟨AuroraPane.md · AP-12 · AP-17 · AP-24 · AP-29 · AP-30 ·
+  AP-31 · AP-33⟩. Same seven numerals, different record, different wave. An unanchored `grep 'AP-31'`
+  additionally returns `AdminAuditPanel`'s `AAP-31` — the boundary-anchored form
+  `grep -rnE '(^|[^A-Za-z0-9-])AP-31([^0-9]|$)'` is the only correct probe.
+  ⟨ApiOfflineChip.md · AP-12 :53 · AP-17 :58 · AP-24 :70 · AP-29 :79 · AP-30 :80 · AP-31 :81 · AP-33 :83 — record; union/G-F-ADJUDICATION.md §5 R-1 :247–285 — adjudication; COHESION §0j.B:535–542 — the sitting; §4:104's `×5` corrected to `×7` here, never there⟩
+
+### 9.4 GF-R3 — §1 RATIFIED; the candidate A/B fork is retired as superseded
+
+**Ruled verbatim** (`COHESION.md:543–545`):
+
+> **GF-R3** — **RATIFY §1**: the fold + canonical layers ARE the register of record (the adjudicator's own recommendation; zero file motion; X-W11's 117-row walk reads what it already reads).
+
+**What this settles, said plainly because four documents have carried it as open.**
+
+1. **The G-F register's home is the fold layer itself** — these twelve `X-W*-FOLD.md` files plus the
+   canonical `registry/adjudicated/**` records, at identity grain. The slate entries **are** its
+   content: fifteen of them now (§9.6).
+2. **The candidate A / candidate B fork is RETIRED AS SUPERSEDED.** Candidate A
+   (`docs/tranches/X/W0/NO-WAVE-OWNER-REGISTER.md`) is **not created**; candidate B (a
+   `COHESION.md` §4 carve) is **not cut**. The adjudicator's reason is adopted with the ruling:
+   *"candidate A would be a pointer file standing in front of an identity-grain layer, which is the
+   weaker artifact the born-RED was complaining about."*
+3. **§BoundsDelta entries 2 and 9 are therefore MOOT, and this line says so** — which is the whole
+   point of writing it rather than leaving the fork unelected for a fifth round:
+   - **§3 entry 2** (`:562`) proposes *"`NO-WAVE-OWNER-REGISTER.md` **(candidate A)** — or
+     `COHESION.md` **modify-carve §4 only** **(candidate B)** … **ADD one of the two** (unelected —
+     the sitting or X-W11's walk elects)"*. **The sitting elected neither: it ratified §1.** No path
+     is added to X-W0's bounds on this account, and **X-W11's walk inherits no election to make**.
+   - **§6.7 entry 9** (`:1080`) proposes the same fork with *"the five boundary entries of §6.3 with
+     their **37 member ids**"* as its content delta. That content **already lives** at W0.21–W0.25
+     id-for-id; ratifying §1 means it needs no second home, and the entry's "content delta" is
+     **discharged in place**.
+   - **§3's and §6.7's bytes are untouched** (E-3). They stand as the record of a fork that was real
+     until 2026-09-17; this line records that it is closed.
+4. **Zero file motion, and that is the measurable half**: no register file is created, no row is
+   re-pointed, no id is re-homed, and the union's UNION-CLEAN seal at `31dcf279` is not disturbed.
+   **X-W11's 117-row terminal walk reads what it already reads.**
+5. **Scope guard, stated so this ratification is not read as more than it is**: it settles **where the
+   register lives**. It elects **nothing else** — **AB-17's shape, MT-CSS-2's owner and
+   MT-COLORINPUT-1's remain unelected**, precisely as §8.5's closing line leaves them.
+
+### 9.5 R-2 — the two `≡`-pointer lines
+
+**Ruled at `COHESION.md:545–546`**; the adjudication's cure is *"Two `≡`-pointer lines citing
+⟨record.md · id⟩, in the folds that already hold the target identities. Cost: two lines."* Both
+identities are **facets of identities the layer already carries** (§1.G clause 6), so these lines
+**close a byte census; they book nothing and mint nothing**:
+
+- ⟨**AdminFlaggedPanel**.md · **AF-12**⟩ **≡** ⟨**AdminListItem**.md · **D-5**⟩ — the record states its
+  own fold in-record (`AdminFlaggedPanel.md:71`): the boxed-row grammar is suite-wide, *"(= the
+  AdminListItem **D-5** NO-WAVE-OWNER identity, cross-booked)"*; the file-local delta is **the inner
+  rule only → X-W7**. The target identity **is carried** at `X-W10-FOLD.md:1518` (*"D-5 and L-3 are
+  banked NO-WAVE-OWNER"*) and `:1524`. **NAMESPACE GUARD (guard 2 of §9.1): ≠ ⟨ActionFeedback.md ·
+  AF-12⟩ (`X-W7-FOLD.md:1097`).**
+- ⟨**ColorNutritionLabel**.md · **R6**⟩ **≡** the four pre-banked identities it frames
+  (`ColorNutritionLabel.md:28`, *"Four of the readers' misses are PRE-BANKED identities — adopted as
+  true, KILLED as novel, cross-booked under original ids (anti-rename)"*): the Detailed-Guide orphan
+  incl. ictcp/jzazbz **≡** ⟨ColorSpaceSelector.md · L-1⟩'s `missingDoc(7)` **+** ⟨AboutPane.md ·
+  AB-2⟩; the `markdownModules` second partial table **≡** ⟨AboutPane.md · AB-2⟩ verbatim; the
+  pane-level RTL identity-line corruption **≡** ⟨AboutPane.md · AB-36⟩ (this file, **W0.36**); the
+  mount-violation root **≡** ⟨AboutPane.md · AB-10⟩'s carry-note + rider A-1. **All four targets are
+  carried**; R6 is the framing ruling over them, not a fifth row.
+
+**Neither line books a row.** §Rows is unchanged by §9.5 (§9.6), which is exactly what *"no identity is
+orphaned … real omissions of a cheap cure, not lost rows"* means.
+
+### 9.6 §-arithmetic — the OUT side, re-counted from this file's own bytes (2026-09-17, the sitting)
+
+**This block supersedes §8.5's row line; §8.5 stands as the round-3 record.**
+
+| unit | round 2 (§7.6) | round 3 (§8.5) | **the sitting (§9)** | delta | decomposition |
+|---|---|---|---|---|---|
+| §Rows | 30 (W0.1–W0.30) | 37 (W0.1–W0.37) | **38** (W0.1–**W0.38**) | **+1** | GF-R1 only — **W0.38**, slate entry 15, ⟨ApiOfflineChip.md · AP-12/17/24/29/30/31/33⟩. §9.2's five FB rows are **dispositions of W0.21–W0.25**, not new rows; §9.5's two lines book nothing |
+| G-F slate entries | 7 | 14 | **15** | **+1** | entry 15 = W0.38 |
+| FB packet dispositions | 0 | 0 | **5** | **+5** | FB-1…FB-5, a **disposition** namespace keyed to entries 1–5; **zero identities re-booked** |
+| Gates | 11 | 11 | **11** | 0 | **no gate minted, none re-staged or re-weighted**; a register row carries no predicate |
+| BoundsDelta | 10 | 10 | **10** | 0 | **entries 2 and 9 are MOOT** by §9.4's ratification — mooted, never deleted; their bytes stand (E-3) |
+| CrossEdges | 25 | 25 | **25** | 0 | §9 mints none; W0.38's claimant election is recorded here and executed by X-W3's own dated bounds addendum |
+| Declared silences | 5 | 5 | **5** | 0 | |
+| Identities carried id-for-life | 39 (+1 EXT) | 46 (+1 EXT) | **53 (+1 EXT)** | **+7** | the seven ⟨ApiOfflineChip.md · AP-*⟩ ids of W0.38, all NO-WAVE-OWNER on their own row line |
+| Errata / corrections registered | 1 | 2 | **3** | **+1** | the `×5`→`×7` correction to `COHESION.md` §4:104, registered here, **never patched there** |
+| `≡`-pointer lines (§1.G cl.6) | — | — | **2** | new | §9.5 — AF-12 ≡ AdminListItem D-5 · ColorNutritionLabel R6 ≡ its four carried targets |
+| declared aliases (§1.G cl.4) | — | 4 | **4** | 0 | §9.1's four are all derived; zero non-derivable short forms |
+
+Numbering stays **gapless and contiguous, W0.1 … W0.38**; W0.38 carries exactly one `⟨…⟩` provenance
+line; **zero ids minted, zero renamed** (the seven AP ids are ApiOfflineChip's own, carried id-for-id
+from the adjudicated record). **What this section closes**: §0j.B's five packet dispositions, GF-R1's
+booking and its `×5`→`×7` correction, GF-R3's ratification and the candidate A/B fork, and R-2's two
+pointers. **What it does not close**: the `ErrorBoundary.vue` path (escalation S-7, **returned
+UNRULED**), AB-17's shape, MT-CSS-2's owner, MT-COLORINPUT-1's, and the seven other sitting escalations
+— all docketed and returned at `docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md` §4–§5. Status remains
+**planned**; **no gate has run in this section and no product source was opened by it.**

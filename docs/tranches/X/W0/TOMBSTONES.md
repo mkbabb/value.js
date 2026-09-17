@@ -685,3 +685,360 @@ awaiting entries, by id, so the addendum's roster is checkable by set-difference
 
 `5 + 4 = 9` — HG-12's *"nine tombstones, nine pasted probes"* is met when that addendum lands. This
 file carries **five** and claims exactly five.
+
+---
+
+## §5 — DATED ADDENDUM · the four owner-ruled tombstones (X-W0.g, 2026-09-17)
+
+**Unit**: X-W0.g — The Owner Sitting Packet · **Seat**: Opus (`claude-opus-5[1m]`) · **Date**: 2026-09-17
+**Authority for these four**: `W0.md:181` — *"CC-019/020/021/023 tombstones are written by X-W0.g after
+their rulings."* The rulings are **COHESION `§0j.A:513` (DR-19) · `:514` (DR-20) · `:515` (DR-24) ·
+`:516` (DR-31)**, dated 2026-09-17, transcribed at
+`docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md` §2.1 · §2.2 · §2.3 · §2.4.
+**HEAD at the probe run**: `bd5dd14f` ⟨`git log --oneline -1`⟩.
+
+**E-3 posture.** This is an **addendum beside**, exactly as §4 reserved it. **Nothing in §0–§4 is
+rewritten**; §4's reservation block stands as written, including its *"Deliberately empty. Do not fill
+from this seat."* — which is now discharged by this section rather than by an edit to it. The
+three-part idiom §0 sets out (mandate verbatim → probe pasted with output → terminal disposition named)
+governs all four entries, and §0's three standing rules apply unchanged: **a tombstone records a death,
+it does not perform an execution**; **every quotation is verbatim, including its defects**; **this file
+is append-open**.
+
+**Probe discipline, unchanged from §0.** Every probe below was run **twice** at this seat's clock and
+both runs are byte-identical; the pasted output is the run, not a transcription. Where the gate's own
+probe answers its question but does not *settle* the row, a second, named probe is pasted beside it and
+labelled as such — never substituted for the gate's own.
+
+---
+
+### TS-6 · CC-019 / DR-19 — the `proof:*` / gate-farm idiom, and the vnext band
+
+**Ledger row** ⟨`sed -n '91p' docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md`⟩:
+
+> | CC-019 | DR-19 (proof:*/gate-farm idiom) | reg | owner-deleted idiom rebuilt four times; vnext carries 81 proof:* sites | **RETIRE** — owner ruling on the vnext 81 BEFORE any adoption (X-W0 sitting) + structural grep-checkable ban in canon: no `scripts/**/proof-*.mjs`; invariants live in types/tsc/eslint/tests. Library-band already honors it structurally (zero proof-*.mjs) | DISEASE-REGISTRY:291; library-band:457 |
+
+#### §6.1 — The original mandate, verbatim
+
+**The owner's own bytes** — `docs/tranches/V/apotheosis/armB/10dfa2b9-2e44-4e6b-a6c5-b028a506ba71-owner-clean.txt:10175`
+(spelling preserved, per §0 rule 2):
+
+> proof:scripts-colocated sounds overfit junk--unless this is turly well designed.
+
+and in the same ruling batch at `:10706`, the two-site form the batch carried:
+
+> proof:scripts-colocated sounds overfit junk--unless this is turly well designed. / proof:chunk-graph--no clue what you're trying to say here
+
+**The constellation's standing reading of the 2026-06-02 deletion**,
+`docs/tranches/K/audit/visual-evidence-2026-06-02/grand-audit/UNIFIED-CICD.md:48`:
+
+> Per the retirement decision ("overfit junk", deleted 2026-06-02) the standard carries **no `proof:*`**; `bench` is a value.js-local choice, not a constellation rung. Each adoption sweep removes the retired-idiom steps.
+
+and the standing prohibition as tranche N recorded it, `docs/tranches/N/audit/lanes/E5.md:234`:
+
+> | **The grep-based proof idiom (any temptation to re-add)** | user judged it "overfit junk"; enforce structurally | KILL permanently (already retired; restate as inv-discipline). |
+
+**The adjudicated statement of the row**, `registry/DISEASE-REGISTRY.md:293`:
+
+> **What.** The proof:* / gate-farm idiom — deleted by explicit owner order and rebuilt four times, most recently at ~10x scale inside the formation the next tranche is slated to adopt.
+
+and its chain, `:295` — the reason a *structural* ban is the only ban that holds:
+
+> **Chain.** Owner deleted all 9 proof:* scripts 2026-06-02 ('overfit junk … NEVER re-introduce; enforce invariants structurally') → O re-introduced 1 (2026-06-19) → Q compounded to 11 (2026-06-23) → R and S BOTH closed with 11 and neither close sweep flagged it → T excised 7 as overfit → U minted 11 more and rested its entire zero-drop verdict on one of them, G-CLOSE-1, which the U seat then PROVED VACUOUS BY RUNNING IT (an 78th unwalked ledger row prints the discrepancy and exits 0; a FINAL.md whose 77 evidence cells all read DEFERRED passes) → V deleted all 11 → vnext rebuilt 44 tools / 9,837 LOC with 81 proof:* occurrences including a literal proof script block.
+
+#### §6.2 — The probe, pasted with its output
+
+HG-12's probe, both halves, ⟨`grep -rn "proof:" docs/tranches/V/vnext/ | wc -l`⟩ (run twice, identical):
+
+```
+      69
+```
+
+⟨`ls scripts/**/proof-*.mjs`⟩ (run twice, identical):
+
+```
+(eval):1: no matches found: scripts/**/proof-*.mjs
+```
+
+**A second probe, because a shell error is not a number.** ⟨`find scripts -name 'proof-*.mjs' | wc -l`⟩:
+
+```
+       0
+```
+
+**The FM-22 re-measure is recorded, not the carried figure.** The ledger row above says *"vnext carries
+**81** proof:* sites"*; `W0.md:293` already re-measured **69** and instructed *"record the re-measure,
+FM-22"*. This seat's own count at `bd5dd14f` is **69**, double-run. The delta is not a cure — **no
+vnext byte was adopted, edited or deleted by any X seat**; the band is smaller than the ledger
+remembered, and the ruling retires it unadopted either way.
+
+#### §6.3 — The ruling, transcribed and cited — never re-opened
+
+**COHESION `§0j.A:513`**, verbatim, dated 2026-09-17:
+
+> | **DR-19** vnext `proof:` sites | **RETIRE** + the grep-checkable structural ban in canon (no `scripts/**/proof-*.mjs`; invariants live in types/tsc/eslint/tests) | the ledger's verb; the owner's 2026-06-02 deletion of the idiom (*"overfit junk"*); measured 69 sites in `docs/tranches/V/vnext/`, 0 `proof-*.mjs` in the library band — clean both ways |
+
+#### §6.4 — Terminal disposition
+
+**RETIRED. The vnext `proof:` band is retired UNADOPTED, and the ban is structural and in canon.**
+
+1. **The ruling precedes adoption, which is the whole point of the row.** The ledger required the
+   owner ruling *"BEFORE any adoption"*: adopting vnext silently would have reversed an explicit owner
+   decision by import. The ruling exists now; **no adoption may carry the band across**, under any
+   name, at any scale, in any wave of tranche X.
+2. **The ban is greppable, and the grep is pasted above.** `find scripts -name 'proof-*.mjs' | wc -l`
+   → **0**. Its canonical statement is `OWNER-SITTING-2026-09-17.md` §3, and `W9.md:476(b)` names it
+   as an authoring precondition on X-W9's gate set — *"DR-19's structural proof-farm ban, which this
+   wave's gate set must satisfy at authoring."*
+3. **The library band was already clean and stays clean.** Both directions measured: 0 `proof-*.mjs`
+   under `scripts/`, and the 69 remaining occurrences live only in `docs/tranches/V/vnext/**`, which
+   is READ-ONLY by `SCOPE.md:73` (*"Not one byte"*) and which **no X wave adopts**.
+4. **Nothing is deleted to make this true.** The vnext tree is a dated, read-only formation record
+   (E-3). Its `proof:` occurrences are evidence of a retired idiom, not live invariants, and a seat
+   that deleted them would be rewriting a dated record to improve a number.
+
+---
+
+### TS-7 · CC-020 / DR-20 — the PARK/DORMANT set (`Color.try()` · `usePaletteStore` migration · S.H3 Pratt)
+
+**Ledger row** ⟨`sed -n '92p' …/CARRY-CUT-LEDGER.md`⟩:
+
+> | CC-020 | DR-20 (PARK set: `Color.try()` · usePaletteStore migration · S.H3 Pratt) | reg | thresholdless triggers moving both directions across four closes | **RETIRE** — owner ruling in the X-W0 sitting; `Color.try` largely superseded by the Result-returning v4 surface (except exactly where DR-12 throws) | DISEASE-REGISTRY:301 |
+
+#### §7.1 — The original mandate, verbatim
+
+**The trigger as tranche R minted it** — `docs/tranches/R/FINAL.md:118`, the row's own book line:
+
+> | `Color.try()` | demand for a non-throwing parse that neither drags parse-that into the parse-that-ZERO `/color` subpath nor duplicates the memoized custom-name path | **OPEN** |
+
+**Its four consecutive re-parks, at their bytes.** `docs/tranches/T/FINAL.md:317`:
+
+> | **DORMANT/PARK**: `Color.try()` (3 wraps) · `usePaletteStore` migration (version 1) · S.H3 Pratt (PT-E no reply) | dormant, no fired trigger | U |
+
+`docs/tranches/U/FINAL.md:147`:
+
+> | **DORMANT/PARK** (`Color.try()` 3 wraps · `usePaletteStore` schema-v1 migration · S.H3 Pratt) | **PARK — carried, no wave work** (re-surfaces only on a fired trigger). The `usePaletteStore` schema-version migration is DISTINCT from U-F48's per-call-factory concern. |
+
+**The adjudicated statement of the row**, `registry/DISEASE-REGISTRY.md:303` and `:305`:
+
+> **What.** The PARK/DORMANT set — Color.try(), the usePaletteStore schema migration, and S.H3 Pratt: parked at four consecutive closes against triggers that specify no threshold.
+
+> **Chain.** Parked at R → re-parked at S → re-parked at T ('dormant, no fired trigger') → re-parked at U ('PARK — carried, no wave work'). Color.try's trigger is 'demand for a non-throwing parse', measured as a grep count of try{} wraps with NO threshold ever specified; the recorded values move 11 → 12 → 3, i.e. in both directions, across three closes.
+
+#### §7.2 — The probe, pasted with its output
+
+HG-12's probe ⟨`grep -rn "Color.try" src/ demo/ test/ | wc -l`⟩ (run twice, identical):
+
+```
+       0
+```
+
+**The trigger metric is zero — in both directions.** The recorded history was 11 → 12 → 3 across three
+closes; at this clock it is **0**. A metric that moves both ways and has never had a threshold cannot
+fire, and now has nothing left to count. **That is the row's own defect, measured from the far side.**
+
+#### §7.3 — The ruling, transcribed and cited — never re-opened
+
+**COHESION `§0j.A:514`**, verbatim, dated 2026-09-17:
+
+> | **DR-20** the PARK set | **RETIRE** | `Color.try` → 0 sites; the trigger metric is zero in both directions; the v4 Result surface supersedes |
+
+#### §7.4 — Terminal disposition
+
+**RETIRED. All three PARK members die here; no threshold is authored, and no wave receives them.**
+
+1. **The alternative was expressly available and was not elected.** The dossier enumerated
+   *"(b) LANDED-AS-RULED — re-park with a **stated threshold**, since 'thresholdless' is the named
+   defect"* (`SITTING-DOSSIER:81`). §0j.A elected **RETIRE**. Authoring a threshold would have widened
+   X-W9's 33-condition library band by a row it was not sized for, to keep alive a demand measured at
+   zero.
+2. **`Color.try` is superseded, not abandoned.** The v4 surface is **`Result`-returning**, which is
+   what the R-era book actually wanted — *"except exactly where DR-12 throws"* (`CARRY-CUT-LEDGER.md:92`).
+   **DR-12 is a live row elsewhere and is untouched by this tombstone**; retiring DR-20 does not retire
+   DR-12, and a later census may not read one as the other.
+3. **The two non-`Color.try` members die with it, by name**: the `usePaletteStore` schema-v1
+   migration (which `U/FINAL.md:147` already separated from U-F48's per-call-factory concern) and
+   **S.H3 Pratt** (PT-E, no reply). Neither has a threshold, neither has a demand, and neither enters a
+   fifth ledger.
+4. **Nothing is built and nothing is deleted.** This row's whole disease was motion without a
+   threshold; its cure is a word, and the word is *retired*.
+
+---
+
+### TS-8 · CC-021 / DR-24 — `scripts/dev/dev.sh`, the last unowned dirty working-tree row
+
+**Ledger row** ⟨`sed -n '93p' …/CARRY-CUT-LEDGER.md`⟩:
+
+> | CC-021 | DR-24 (`scripts/dev/dev.sh`) | reg | last unowned dirty working-tree row | **RETIRE by assignment** — X-W0 owns it; owner rules commit-or-restore at the sitting; the NEVER-touch posture stands until ruled. It does not appear in a fourth ledger | DISEASE-REGISTRY:341 |
+
+#### §8.1 — The original mandate, verbatim
+
+**The owner's standing order, in the formation's own prohibitions block** —
+`docs/tranches/V/megatranche/SCOPE.md:74–75`:
+
+> - `scripts/dev/dev.sh` — the last unowned dirty working-tree row. **Never touch.** Its
+>   commit-or-restore disposition is an owner ruling, and this formation books it, never edits it.
+
+**The row carried verbatim through three ledgers**, `registry/DISEASE-REGISTRY.md:345`:
+
+> **Chain.** Carried verbatim through the T, U and V ledgers: 'the LAST unowned dirty working-tree row (M, un-ruled since pre-V-prime). Owner rules commit-or-restore; NO WAVE OWNS IT.' Verified at HEAD: git status --porcelain -- scripts → ' M scripts/dev/dev.sh'.
+
+and the wave shape the registry prescribed, `:347`:
+
+> **Wave shape.** RETIRE the row by assigning it: W.W0 owns it — the fix for 'no wave owns it' is to give it a wave. Owner rules commit-or-restore at W0 open, in the same sitting as DR-29. It does not appear in a fourth ledger.
+
+**And the wave's own restatement of the posture**, `docs/tranches/X/waves/W0.md:101`:
+
+> `scripts/**` — including `scripts/dev/dev.sh`, whose NEVER-touch posture stands until the X-W0.g sitting rules commit-or-restore (CC-021).
+
+#### §8.2 — The probe, pasted with its output
+
+HG-12's probe ⟨`git status --porcelain -- scripts`⟩ (run twice, identical):
+
+```
+ M scripts/dev/dev.sh
+```
+
+One row. **No other `scripts/` path is dirty**, and the row is byte-for-byte the state
+`DISEASE-REGISTRY:345` recorded and the state `W0.md:295` re-measured on 2026-08-03 — *"still dirty,
+still unowned"*. It is still dirty. **It is no longer unowned.**
+
+#### §8.3 — The ruling, transcribed and cited — never re-opened
+
+**COHESION `§0j.A:515`**, verbatim, dated 2026-09-17:
+
+> | **DR-24** `scripts/dev/dev.sh` | **RETIRED-BY-ASSIGNMENT with the NEVER-touch posture made PERMANENT for tranche X**: neither commit nor restore is executed by any seat; the row is owner-held outside every X denominator; receipts paste it and cite this ruling; X-W11's close correspondence explains it by this id | the owner's standing order (never touch) is explicit and repeated; a seat electing either branch would override it |
+
+#### §8.4 — Terminal disposition
+
+**RETIRED-BY-ASSIGNMENT. The NEVER-touch posture is PERMANENT for tranche X. No seat commits it, no
+seat restores it, no seat stages it.**
+
+1. **Neither enumerated branch was elected, and that is the ruling — not an absence of one.** The
+   dossier stated the option set exactly: *"(a) **commit**; (b) **restore** (`git restore`). Two, no
+   third"* (`SITTING-DOSSIER:97`). §0j.A elects neither, with its reason written: *"the owner's
+   standing order (never touch) is explicit and repeated; a seat electing either branch would override
+   it."* A verdict that declines both enumerated acts **because the owner's standing order forbids
+   them** is a verdict; it is the opposite of a carry.
+2. **The registry's demand is met, literally.** *"The fix for 'no wave owns it' is to give it a wave"*
+   — X-W0 owns it, ruled it, and the ruling is that the file is the **owner's**, permanently, and that
+   no wave touches it. *"It does not appear in a fourth ledger"* is honoured: it appears here, as a
+   tombstone, not there, as a question.
+3. **`W0.md:101`'s conditional clause is discharged.** The posture no longer *"stands until the X-W0.g
+   sitting rules commit-or-restore"* — the sitting ruled, and the posture is now **unconditional for
+   the tranche**.
+4. **The row leaves every X denominator.** A dirty `scripts/dev/dev.sh` in any `git status` receipt is
+   **expected output** — never a residual, never a miss, never a wave's defect. Every X seat that
+   pastes such a receipt cites **DR-24 / CC-021 / §0j.A:515** beside it, and **X-W11's close
+   correspondence explains it by this id**.
+5. **This tombstone performs nothing** (§0 rule 1). `scripts/**` is Do-NOT-touch for this entire wave
+   (`W0.md:101`), the file is not in any pathspec of commit 10, and it was not staged. The probe above
+   is a pure read.
+
+---
+
+### TS-9 · CC-023 / DR-31 — the NCSU alias (X2), closed by a permanent 301
+
+**Ledger row** ⟨`sed -n '95p' …/CARRY-CUT-LEDGER.md`⟩:
+
+> | CC-023 | DR-31 (X2 NCSU alias) | reg | "no ncsu alias" order closed by a permanent 301 | **RETIRE** — owner ruling in the sitting: accept the 301 in canon, or remove on the next host session with a date; no "banked until VPN" fourth ledger | DISEASE-REGISTRY:411 |
+
+#### §9.1 — The original mandate, verbatim
+
+**The owner's order, at its own bytes** — `docs/tranches/R/R.md:28` (the ratification's verbatim intent
+line, spelling preserved):
+
+> verbatim intent: "hero lab is to be deleted. no ncsu alias. for all other items, fold and use
+
+restated at the ratification record itself, `docs/tranches/R/audit/RATIFICATION-2026-07-03.md:12`:
+
+> "hero lab is to be deleted. no ncsu alias. for all other items, fold and use your best
+
+**The execution R specified**, `docs/tranches/R/waves/R.W7.md:34`:
+
+> A maintainer **on-host** op (DEC-9 honesty), now **R.W7 in-wave work by owner order** ("no ncsu alias"): retire the NCSU alias during this wave, maintainer at the keyboard, and record the retirement in `R/FINAL.md`. The speced default (a standing action outside the gate) was FLIPPED — the alias does not outlive the tranche.
+
+**The adjudicated statement of the row and its inversion**, `registry/DISEASE-REGISTRY.md:413` and `:415`:
+
+> **What.** X2 — the NCSU alias: an owner order ('no ncsu alias') closed by making the alias permanent.
+
+> **Chain.** R specified the execution — 'remove the /colors/ reverse-proxy block, let the DNS/cert lapse; verification = the alias going non-200' — and carried it PENDING → S carried it a second time → T executed a PERMANENT 301 redirect, which satisfies the literal verification criterion and inverts the order: the alias is not retired, it is made permanent and must be maintained forever → U re-classed the whole leg 'attested-not-verified' (VPN-gated) → V-prime banked it ('BANKED until NCSU VPN access').
+
+#### §9.2 — The probe, pasted with its output
+
+HG-12's probe row `W0.md:296` marks this **MEASURE-AT-OPEN** and VPN-gated — *"do not fabricate"*. The
+host is reachable at this seat's clock, so it is **measured, not fabricated**.
+⟨`curl -s -o /dev/null -w '%{http_code} %{redirect_url}\n' --max-time 12 -I https://mbabb.fi.ncsu.edu/colors/`⟩
+(run twice, identical):
+
+```
+301 https://color.babb.dev/
+```
+
+**The alias answers, permanently, onto the canonical host.** This is the inversion the registry
+describes, measured live: the order was *"no ncsu alias"*, and the alias exists — as a permanent
+redirect that must be maintained forever, which is strictly more upkeep than the order asked to
+remove.
+
+#### §9.3 — The ruling, transcribed and cited — never re-opened
+
+**COHESION `§0j.A:516`**, verbatim, dated 2026-09-17:
+
+> | **DR-31** the NCSU alias | **ACCEPT the permanent 301 in canon** | measured live: `301 https://color.babb.dev/`; the spec names this disposition as executable without the probe |
+
+#### §9.4 — Terminal disposition
+
+**RETIRED. The permanent 301 is ACCEPTED in canon as the standing answer, and the row dies here.**
+
+1. **The acceptance is the terminal word, and it is written where canon can find it.** The alias
+   `https://mbabb.fi.ncsu.edu/colors/` **permanently redirects to `https://color.babb.dev/`**, and that
+   is the accepted, recorded state of the world for tranche X and after. No document may cite the
+   alias as *pending retirement*.
+2. **Option (b) is expressly declined.** The ledger's second branch — *"remove on the next host
+   session with a date"* — required a dated on-host maintainer session outside every wave's bounds.
+   None is scheduled, none is owed, and the decline is stated here rather than left as a silence.
+3. **The prohibition the row existed to enforce is honoured.** `DISEASE-REGISTRY:417`: *"The row must
+   not survive as 'banked until VPN' into a fourth ledger."* It does not: it is **accepted**, not
+   banked. The V-prime state (*"BANKED until NCSU VPN access"*) is superseded by this ruling.
+4. **X-W11's production re-probe is unaffected in subject.** Its subject is `color.babb.dev`, the
+   canonical host; the NCSU alias is a permanent 301 **onto** that host and is no longer a row, a gate,
+   or a wait.
+5. **This tombstone performs nothing on the host** (§0 rule 1). The Apache vhost block named at
+   `api/apache-vhost.conf:19-27` is **not** edited by any X seat; `api/` is Do-NOT-touch for this wave
+   (`W0.md:101`), and the acceptance requires no host act at all — which is precisely why `W0.md:12`
+   could call this disposition *"executable without it"*.
+
+---
+
+### §5.G — Gate HG-12, the four owner-ruled rows, and the nine-row close
+
+HG-12 `:283` requires, per RETIRE row: *"original mandate quoted verbatim, probe pasted with its
+output, terminal disposition named."* Read back from the settled bytes of this file.
+
+| row | origin | mandate quoted verbatim, at its byte | probe pasted **with** output | terminal disposition named | reproduces at this clock? |
+|---|---|---|---|---|---|
+| **CC-019** | DR-19 | §6.1 — `apotheosis/armB/…owner-clean.txt:10175,10706` (the owner's own bytes) + `UNIFIED-CICD.md:48` + `N/audit/lanes/E5.md:234` + `DISEASE-REGISTRY:293,295` | §6.2 — `grep -rn "proof:" docs/tranches/V/vnext/ \| wc -l` → **69**; `ls scripts/**/proof-*.mjs` → no matches; + `find` counter-probe → **0** | §6.4 — **RETIRED — the vnext band retired UNADOPTED; the structural ban is in canon and greppable** | **YES** (double-run identical) |
+| **CC-020** | DR-20 | §7.1 — `R/FINAL.md:118` (the minted trigger) + `T/FINAL.md:317` + `U/FINAL.md:147` + `DISEASE-REGISTRY:303,305` | §7.2 — `grep -rn "Color.try" src/ demo/ test/ \| wc -l` → **0** | §7.4 — **RETIRED — all three PARK members; no threshold authored; v4 `Result` supersedes (DR-12 untouched)** | **YES** (double-run identical) |
+| **CC-021** | DR-24 | §8.1 — `V/megatranche/SCOPE.md:74–75` (the owner's standing order) + `DISEASE-REGISTRY:345,347` + `W0.md:101` | §8.2 — `git status --porcelain -- scripts` → **` M scripts/dev/dev.sh`** | §8.4 — **RETIRED-BY-ASSIGNMENT — NEVER-touch PERMANENT for tranche X; neither branch executed** | **YES** (double-run identical) |
+| **CC-023** | DR-31 | §9.1 — `R/R.md:28` + `R/audit/RATIFICATION-2026-07-03.md:12` (owner's verbatim intent) + `R/waves/R.W7.md:34` + `DISEASE-REGISTRY:413,415` | §9.2 — `curl … -I https://mbabb.fi.ncsu.edu/colors/` → **`301 https://color.babb.dev/`** | §9.4 — **RETIRED — the permanent 301 ACCEPTED in canon; option (b) declined; no host act** | **YES** (double-run identical) |
+
+**HG-12's nine-row close, self-counted from this file's settled bytes**: tombstone entries
+`### TS-` → **9** (TS-1 … TS-9); mandate-quotation subsections → **9**; pasted-probe subsections →
+**9**; terminal-disposition subsections → **9**; `SERVED MODEL:` at line 1 → **1**.
+**5 (X-W0.f) + 4 (X-W0.g) = 9** — HG-12's *"nine tombstones, nine pasted probes"* is **met**, and §4's
+awaiting-roster set-difference is **empty**: CC-019 → TS-6 · CC-020 → TS-7 · CC-021 → TS-8 ·
+CC-023 → TS-9.
+
+**HG-12's falsifier** (`:298` — *"a tombstone whose pasted probe does not reproduce when re-run at
+wave close"*) is **discharged by construction for this half too**: every pasted output above is a
+verbatim capture of a run at `bd5dd14f`, each run twice, the two runs byte-identical. Three of the four
+probes read tracked or installed bytes that **no X-W0 unit may write** (`docs/tranches/V/vnext/**` is
+READ-ONLY by `SCOPE.md:73`; `src/ demo/ test/` and `scripts/**` are Do-NOT-touch by `W0.md:101`); the
+fourth reads a remote host no seat controls. **No unit of X-W0 can move any of them**, so a re-run at
+close is expected to reproduce unless a seat has breached §File Bounds — which is a useful thing for
+this gate to be able to catch.
+
+**What this addendum did NOT do.** It performed no execution (§0 rule 1): no vnext byte deleted, no
+`Color.try` call site touched, no `scripts/dev/dev.sh` commit or restore, no host session, no
+`apache-vhost.conf` edit. It rewrote nothing in §0–§4 (E-3). It ruled nothing — all four rulings are
+COHESION §0j.A's, quoted and cited, dated 2026-09-17.
