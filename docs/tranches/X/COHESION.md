@@ -439,3 +439,23 @@ reason to reopen tranche development. §0h's COMPLETE stands.
 **What this addendum does not do.** It does not open execution. The begin-word remains the
 owner's, spoken against `EXECUTION-RUNBOOK.md`; when it comes, the five root waves open with
 these three cells already filled.
+
+### §0i.5 · ERRATUM to §0i.2 receipt (3), and the producer-state reading — 2026-09-17, same sitting
+
+**Erratum (E-3: receipt (3) stands as written; this row corrects it).** The four `SearchBar` import
+sites are **already budgeted for removal**: §EXTERNAL **X-EXT-1** (glass 8.0.0 deleted `SearchBar`
+with the same four `demo/palettes` edges) lands their removal inside the X-W4.g atomic cut. So
+9.0.0's `./search` export removal is **not an additional break** once the cut lands; receipt (3)
+overstated it. **The ruling does not move**: receipts (1) registry-pinned vs tag-only, (2) the six
+§EXTERNAL rows sized at 8.0.0, and (4) the audited hash (`17a11bc5`; no seat has audited `d4f7b24f`'s
+bytes) carry it alone. value.js imports nothing from `./canvas` (measured: zero sites).
+
+**Producer state, read at the bytes (2026-09-17).** glass BK is **still executing** (carried-OPEN
+register; the A-2..A-14 disposition wave open). 9.0.0 is cut and pushed; the registry PUT is walled by
+**npm's account-wide token restriction** — the cure is an owner act (re-mint the token / `npm login`,
+then `npm publish` off the `v9.0.0` tag tree; BK's own cursor names it), not glass work. **Measured
+against the 8.0.0 tarball on the registry**: `exports["./styles"]` → `dist/styles/index.css` is
+**1,514 bytes** (the corpus's known stub figure), one string-interior `@source "../*.js"`, and it
+**parses under postcss** — the FR-NP-32 comment-corruption shape is absent at 8.0.0. Whether a
+1,514-byte styles entry is the intended shipped surface is exactly F.W0 **G-4**'s question and is
+measured there, not ruled here.
