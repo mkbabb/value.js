@@ -2402,12 +2402,36 @@ so it was **not written**; the honest-RED limb stands exactly as §Check 1 retur
 registry/tag datum *"does not gate the census"*. Re-running the census over both candidates is the
 orchestrator's and the owner's. `../glass-ui` stayed **READ-ONLY**; the only `npm` calls were `view`.
 
+#### §4.1 · WRITE-THEN-MEASURE addition (17:12 EDT) — **ESC-M2's rowing limb closed by Track D while this section was being written**
+
+**E-3: an addition, not a rewrite.** §4's readings were taken at **17:05** against HEAD `a6b72b90` and
+were true then ⟨`git show a6b72b90:…/INBOX.md \| grep -c 'ec360555\|81f7db0d'`⟩ → **0**. Seven minutes
+later the bytes moved, so the movement is recorded rather than left to contradict a stale line.
+
+⟨`git log --oneline -1 -- docs/tranches/V/coordination/INBOX.md`⟩ → **`f7f613e9`** (Track D's X.P.W1
+CHECK 1 seat). ⟨`grep -c 'ec360555\|81f7db0d'`⟩ → **1**, at `INBOX.md:144`: a dated E13 sweep line that
+names the amendment at the bytes — the letter's new digest **`ec360555811b`** against the row's banked
+**`caed90705234`**, glass commit **`81f7db0d`**@16:35:09, the 9.0.0-live provenance datum — classifies
+I-30 **ROWED, not UNREAD**, takes **no** disposition beyond the line, and **files the owed act as K-R1
+at `execution/D/X-P-W1.md` §Close, owner orchestrator** ⟨`grep -c 'K-R1'`⟩ → **4**.
+
+**Reclassified, by measurement**: the amendment is now **recorded in the durable ledger** and no row is
+classified UNREAD ⟨`grep -E '^\| [IO]-[0-9]+ \|' \| grep -c 'UNREAD'`⟩ → **3 rows carry the string, 0
+classified so** (O-20 `SENT` · I-30 `ROWED 2026-08-30` · I-31 `FOLDED 2026-09-17`), over **53** mail
+rows. **ESC-M2's *unrecorded* limb is therefore DISCHARGED — by Track D's hand, not by this seat's** —
+and what remains is exactly **I-30's stale digest coordinate plus the routing of the 9.0.0-live datum to
+X-W0.j's consumers**, which is **K-R1 ≡ ESC-M2 ≡ ESC-M1 seen from three tracks, one owner: the
+orchestrator.** Two VERIFY-ONLY seats on different tracks reached the same disposition independently
+and neither re-rowed: that agreement is the evidence, and **this seat still wrote no `INBOX.md` byte.**
+
 ---
 
 ### 5 · Residuals carried forward — owners named, nothing parked silently
 
 1. **ESC-N1** (§3) — HG-8's byte-diff clause vs. a live out-of-repo input · **X-W11 / orchestrator**.
-2. **ESC-M2** (§4) — the I-30 amendment unrowed; `INBOX.md` out of bounds here · **orchestrator**.
+2. **ESC-M2** (§4, as §4.1 re-reads it) — the amendment is now **recorded** (`INBOX.md:144`, Track D's
+   `f7f613e9`); what stands is **I-30's stale digest coordinate and the routing of the 9.0.0-live
+   datum**, filed there as **K-R1** · **orchestrator**.
 3. **ESC-M1** (§4) — §0i.2's re-trigger fired; receipt (1) false at the bytes · **orchestrator / owner**.
 4. **`waves/W0.md` §State `:9–10` still carry round-1's readings** (*complete_with_misses*, *HG-7 RED*,
    *HG-10 SPLIT*), which §0k.1 and two checks have since overtaken. **Not touched here** — §Check 1's
