@@ -894,3 +894,57 @@ exactly as their seats wrote them**; this block is the dated record beside them.
   same X-W11 unit.
 - **R-13** — `<p2>` is pinned by convention only; X.P.W2's opening commit states its base
   (`f5757082`) in its body, which is the ref-of-record from then on.
+
+## §0m ADDENDUM 2026-09-17 — THE TRACK B CLOSE DOCKET (KF.W0 · KF.W1 CLOSED; KF.W4 · KF.W9 PARTIAL), RULED
+
+### §0m.0 · A finding against this sitting's own ruling, recorded loud (E-3)
+
+§0j.C ruled the §B-12 reset "snapshot-first, untracked files left in place by the reset exactly as the
+spec requires." **That premise was wrong for one class**: `git reset --hard <t>` skips the
+untracked-overwrite guard `git checkout` applies, so an untracked file whose *path exists in `<t>`* is
+overwritten with `<t>`'s bytes. Measured by the OP-1 seat, double-run: untracked **124 → 6**; under
+`docs/tranches/V/` **99 → 2** — **118 files absorbed, 97 of them keyframes' own V-tranche docs**, every one
+present at `origin/master` and now carrying frontier bytes. No git object holds the prior bytes (the
+snapshot commit `6d280ee7` staged tracked rows only, as ruled); the loss is **irreversible** and the
+membership is unrecoverable (APFS birthtimes reset by git). **Bounded**: the six survivors include both
+value.js-delivered mail packets (I-26's O-8/O-11 cure, byte- and mtime-intact) — E13's consequence is
+nil; the absorbed 97 are the frontier's own authority for this wave (local `8281638c` DISQUALIFIED).
+**Owner-facing**: reported in the close report of this session by id. **Law minted**: a reset toward a
+target is preceded by `git ls-files --others --exclude-standard | while read p; do git cat-file -e
+"<t>:$p" 2>/dev/null && echo "$p"; done` — the untracked paths the target would overwrite — and those
+are committed to the snapshot branch first. The spec's own words (*"untracked V docs unharmed"*) were
+transcribed without this measurement; that is the defect, and it was this sitting's.
+
+### §0m.1 · KF.W4 — the sequencing head, its three escalations, ruled
+
+- **F-1 — the four orphaned flat-layout src drafts** (`compile/{compiled-frame,interp-slot,value-ast}.ts`,
+  `group/composite-storage.ts`; untracked survivors, unreachable by any frontier specifier; 1 of 4
+  lib diagnostics and 24/24 `proof:structure` violations): **PRESERVE THEN REMOVE** — the KF.W4 repair
+  seat commits them onto `kf-sacred-snapshot-2026-09-17` as a second dated snapshot commit (`git
+  checkout <branch> && git add <the four> && git commit`), then removes them from the `master`
+  worktree. N-2's orphan hazard, closed the reversible way.
+- **F-10 — R-2's reverse-map retirement** needs `constants/types.ts:57-62` (`Easing = {fn, css?}`) and
+  `defaults.ts:85` (the nameless default easing): **KF.W4's §Bounds are widened by dated E-3 addendum
+  at KF-W4.md to those two loci**, and the default easing gains a name so a bare retirement cannot
+  make default-easing serialization throw (§Bounds L65 honoured, not bypassed).
+- **KF-CB-29, the `| string` arm — candidate (ii)**: `CssEasingLiteral`, an exported template-literal
+  union declared in-bounds, replaces `| string`; §Bounds gain the single type-only token at
+  `compile/emit/css-text.ts:30`. (i)'s 14 errors in the shipped preset catalogue prove the bare
+  deletion is the wrong cure; (iii) re-routing carries the head's RED into a later wave.
+- G-KFW4-3's ten eslint sites (7 `vue/no-mutating-props`, behavioural) and R2's two behavioural defects
+  are **honest-RED with named owners** (KF.W6 / the UNIT packets KF.W12–13); G-KFW4-7's nine false
+  attributions are cured by the repair seat if in bounds, else routed with receipts. **KF.W4's next
+  close pushes its own commits** (`5388907b`, `fb509edd` + the repair) — a wave's close pushes `origin
+  HEAD` for the wave's own work; a sibling never pushes it.
+
+### §0m.2 · KF.W9 — the capture substrate, ruled
+
+- **Shape (b): build and serve from a SEPARATE CLONE at the named ref.** `git clone --no-hardlinks
+  /Users/mkbabb/Programming/keyframes.js /Users/mkbabb/Programming/keyframes-w9-capture && git -C … checkout
+  55e9bf0d` — a grant for that tree only, never the sacred checkout; `npm ci && npm run gh-pages` there;
+  the bundle's `bundleSha256` and `substrateSha` are then both measured, never asserted.
+- **Substrate: HOLD `55e9bf0d`** (the published pin = `origin/master`); no re-pin on a seat's authority.
+- **`--bundle-sha=` discipline unchanged.** iOS cells: **UNREACHABLE-IN-CELL** (no paired device;
+  `safari:useSimulator` refused) — recorded, never inferred from webkit-engine (I-20's law).
+- `.d` (contrast / forced-colors / AT — the AT arm per §0j.C) and `.e` (the 13 addenda write-back +
+  the fold of `.c`'s 27 rows) are dispatched at the relaunch; OD-V3/OD-V5 stay as §0j.C ruled.
