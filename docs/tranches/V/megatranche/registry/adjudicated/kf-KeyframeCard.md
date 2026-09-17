@@ -176,3 +176,18 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **KF-KC-25**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here. **Nothing above this line is
+rewritten** — no edit, no re-grade, no renumber, no deletion, no new id (E-1 immutable bytes / E-3
+addenda-not-patch). This addendum records a MEASUREMENT STATE, not a grade: **the banked severity is
+unchanged and stays exactly where the record put it.***
+
+- **armed trigger** — register row **1** of thirteen, `evidence/W9/ESCALATION-REGISTER.json` (id as banked there: `KC-25`); ceiling if it fires: **MAJOR**; roster cell(s): `safari-app/ios-device`.
+- **measurement named by the trigger** — the modal punch-through observed on the z-modal surface, and the iOS text mutation that is its tell.
+- **measured value** — **NONE. The trigger did not run.**
+- **resulting severity** — **PROVISIONAL (unrun)**. The banked grade stands; it is neither inherited as confirmed nor moved.
+- **exact precondition** — a real-iOS-Safari session. `xcrun devicectl list devices` → **`No devices found.`** (re-run at this seat, double-run) · `safaridriver --help | grep -ci simulator` → **0** · `POST /session {"safari:useSimulator":true}` → *"The 'macOS' platform is incompatible with requested capability: safari:useSimulator."* (`.c`, double-run byte-identical). **RULED UNREACHABLE-IN-CELL at COHESION §0m.2** — recorded, never inferred from `webkit-engine` (I-20). The record's own residue row **#9** (*"iOS device confirmation of the focus zoom + autocorrect rewriting (KF-KC-16/25 — mechanisms closed statically)"*) is booked **UNREACHABLE-IN-CELL** in the same motion at `SURFACE-LIST.json`.
+- **substrate of this wave** — keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD; frontier moved to `3e81f500`, the pin is its ancestor, **no re-pin on a seat's authority**). Served bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`, built in the §0m.2 capture clone and **re-hashed at this seat, double-run identical**. Capture: **none for this row**; shot-sha256: **none**.
+- **G-KFW9-13 reading** — this row closes the gate's *"unrun triggers reported PROVISIONAL at close"* arm, **not** its *"measured value written back"* arm. The gate stays **RED**.

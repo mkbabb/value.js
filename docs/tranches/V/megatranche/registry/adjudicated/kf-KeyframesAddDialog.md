@@ -159,3 +159,33 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **KAD-7 · D-2**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here. **Nothing above this line is
+rewritten** — no edit, no re-grade, no renumber, no deletion, no new id (E-1 immutable bytes / E-3
+addenda-not-patch). This addendum records a MEASUREMENT STATE, not a grade: **the banked severity is
+unchanged and stays exactly where the record put it.***
+
+- **armed trigger** — register row **5** of thirteen, `evidence/W9/ESCALATION-REGISTER.json` (id as banked there: `KAD-7/D-2`); ceiling if it fires: **BLOCKER (toward)**; roster cell(s): `safari-app/desktop · webkit-engine · chromium`.
+- **measurement named by the trigger** — the computed `pre[contenteditable].tabIndex`, **PER ENGINE** — read inside each engine cell SEPARATELY (I-20 in full; three separate rows).
+- **measured value** — **NONE. The trigger did not run.**
+- **resulting severity** — **PROVISIONAL (unrun) — 0 of 3 engine cells**. The banked grade stands; it is neither inherited as confirmed nor moved.
+- **exact precondition** — three readings in three cells. `safari-app/desktop`: the `safari-app/desktop` cell was open and productive at `.d` (4 sessions, OP-4 taken, 3 shots) and **closed mid-seat**: session creation began returning *"You must enable 'Allow remote automation'…"*; `safaridriver --enable` → **`Password:Password is not valid`** (an interactive admin authorization no seat here can supply); the running Safari is the **owner's** (pid 23725, started 16:23:59, 6 windows) and was not quit. **Precondition: 'Allow Remote Automation' re-enabled by a hand that can answer an admin prompt, or the owner's Safari restarted.** `webkit-engine`: `webkit-engine` is **UNMEASURED on a measured bound**: playwright 1.60.0 resolves webkit to `webkit-2287` and only `webkit-2311` is installed, so `webkit.launch()` throws. **A chromium reading was NOT given that label** (I-20 in its other direction), which is why the cell is empty rather than wrong. `chromium`: the `chromium` and `chromium/emulated-forced-colors` cells DID open at `.d` (8 rows, 2 + 2 captures), so this trigger is **unrun, not foreclosed** there: it needs a pass that mounts the subject. **A webkit-engine reading may NOT be written into a safari-app column** — no substitution is offered here.
+- **substrate of this wave** — keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD; frontier moved to `3e81f500`, the pin is its ancestor, **no re-pin on a seat's authority**). Served bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`, built in the §0m.2 capture clone and **re-hashed at this seat, double-run identical**. Capture: **none for this row**; shot-sha256: **none**.
+- **G-KFW9-13 reading** — this row closes the gate's *"unrun triggers reported PROVISIONAL at close"* arm, **not** its *"measured value written back"* arm. The gate stays **RED**.
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **KAD-F4**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here. **Nothing above this line is
+rewritten** — no edit, no re-grade, no renumber, no deletion, no new id (E-1 immutable bytes / E-3
+addenda-not-patch). This addendum records a MEASUREMENT STATE, not a grade: **the banked severity is
+unchanged and stays exactly where the record put it.***
+
+- **armed trigger** — register row **10** of thirteen, `evidence/W9/ESCALATION-REGISTER.json` (id as banked there: `KAD-F4`); ceiling if it fires: **MAJOR (R-A's, revivable)**; roster cell(s): `safari-app/ios-device`.
+- **measurement named by the trigger** — the `autocapitalize`/`autocorrect` mutation inside `pre[contenteditable]` on a **REAL iOS device** (G-KFW9-11's own close condition).
+- **measured value** — **NONE. The trigger did not run.**
+- **resulting severity** — **PROVISIONAL (unrun) — **R-A's MAJOR is neither revived nor resolved****. The banked grade stands; it is neither inherited as confirmed nor moved.
+- **exact precondition** — a real iOS device. `xcrun devicectl list devices` → **`No devices found.`** (re-run at this seat, double-run) · `safaridriver --help | grep -ci simulator` → **0** · `POST /session {"safari:useSimulator":true}` → *"The 'macOS' platform is incompatible with requested capability: safari:useSimulator."* (`.c`, double-run byte-identical). **RULED UNREACHABLE-IN-CELL at COHESION §0m.2** — recorded, never inferred from `webkit-engine` (I-20). **A desktop cell cannot revive this MAJOR** — the mutation is an iOS text-entry behaviour, so no cell this host can open substitutes. The record's residue row **#10** is booked **UNREACHABLE-IN-CELL** in the same motion. The row is governed by the **KF-AV-28** standing supersession rider: the witness is lawful now, a CURE is not this wave's to spend, and none was.
+- **substrate of this wave** — keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD; frontier moved to `3e81f500`, the pin is its ancestor, **no re-pin on a seat's authority**). Served bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`, built in the §0m.2 capture clone and **re-hashed at this seat, double-run identical**. Capture: **none for this row**; shot-sha256: **none**.
+- **G-KFW9-13 reading** — this row closes the gate's *"unrun triggers reported PROVISIONAL at close"* arm, **not** its *"measured value written back"* arm. The gate stays **RED**.

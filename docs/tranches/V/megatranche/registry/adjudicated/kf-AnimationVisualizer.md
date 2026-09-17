@@ -170,3 +170,18 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **KF-AV-41**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here. **Nothing above this line is
+rewritten** — no edit, no re-grade, no renumber, no deletion, no new id (E-1 immutable bytes / E-3
+addenda-not-patch). This addendum records a MEASUREMENT STATE, not a grade: **the banked severity is
+unchanged and stays exactly where the record put it.***
+
+- **armed trigger** — register row **9** of thirteen, `evidence/W9/ESCALATION-REGISTER.json` (id as banked there: `KF-AV-41`); ceiling if it fires: **promote**; roster cell(s): `—`.
+- **measurement named by the trigger** — **a live counterexample instance, captured** — not an argument that one could exist.
+- **measured value** — **NONE. The trigger did not run.**
+- **resulting severity** — **PROVISIONAL (unrun)**. The banked grade stands; it is neither inherited as confirmed nor moved.
+- **exact precondition** — a captured band wide enough for a counterexample to appear in. **This is NOT a reading of absence**: the falsifier (*"absence across the captured band leaves the grade where it stands"*) requires a captured band, and this wave produced **7 shots over 3 cells**, none on this component's surface. Absence across an unrun band is not absence, and is not recorded as one.
+- **substrate of this wave** — keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD; frontier moved to `3e81f500`, the pin is its ancestor, **no re-pin on a seat's authority**). Served bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`, built in the §0m.2 capture clone and **re-hashed at this seat, double-run identical**. Capture: **none for this row**; shot-sha256: **none**.
+- **G-KFW9-13 reading** — this row closes the gate's *"unrun triggers reported PROVISIONAL at close"* arm, **not** its *"measured value written back"* arm. The gate stays **RED**.

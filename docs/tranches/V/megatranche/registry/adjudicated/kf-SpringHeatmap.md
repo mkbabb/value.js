@@ -155,3 +155,18 @@ SERVED MODEL: claude-opus-5[1m] · seat **KF.W0.e**
 
 **Scope of this addendum**: it states WHICH REF this record cures against and the measured per-file offset that binds its anchors. It books no cure, spends no budget, re-opens no disposition and renames no id. Every correction above is an APPENDED statement beside dated evidence, per E-3.
 
+
+## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **D-M3**
+
+*Appended by seat `.e`, the only seat §Bounds `:69` permits to write here. **Nothing above this line is
+rewritten** — no edit, no re-grade, no renumber, no deletion, no new id (E-1 immutable bytes / E-3
+addenda-not-patch). This addendum records a MEASUREMENT STATE, not a grade: **the banked severity is
+unchanged and stays exactly where the record put it.***
+
+- **armed trigger** — register row **3** of thirteen, `evidence/W9/ESCALATION-REGISTER.json` (id as banked there: `D-M3 branch (a)`); ceiling if it fires: **BLOCKER**; roster cell(s): `safari-app/desktop`.
+- **measurement named by the trigger** — SS-13 residue **#1** — `getComputedStyle(field).getPropertyValue('--color-progress')` AND `ctx.fillStyle`, **logged together in one pass** after `paint()` in light mode.
+- **measured value** — **NONE. The trigger did not run.**
+- **resulting severity** — **PROVISIONAL (unrun)**. The banked grade stands; it is neither inherited as confirmed nor moved.
+- **exact precondition** — the three-branch probe run as worded. **Logging ONE value cannot pick a branch**, and S-13 halts a third such pass. the `chromium` and `chromium/emulated-forced-colors` cells DID open at `.d` (8 rows, 2 + 2 captures), so this trigger is **unrun, not foreclosed** there: it needs a pass that mounts the subject. the `safari-app/desktop` cell was open and productive at `.d` (4 sessions, OP-4 taken, 3 shots) and **closed mid-seat**: session creation began returning *"You must enable 'Allow remote automation'…"*; `safaridriver --enable` → **`Password:Password is not valid`** (an interactive admin authorization no seat here can supply); the running Safari is the **owner's** (pid 23725, started 16:23:59, 6 windows) and was not quit. **Precondition: 'Allow Remote Automation' re-enabled by a hand that can answer an admin prompt, or the owner's Safari restarted.** `.d`'s AT pass photographed this component's `role="application"` subtree in the `chromium` cell (`at-chromium-spring-heatmap-application.png`) — **that shot is not this probe** and is not offered as one.
+- **substrate of this wave** — keyframes.js `55e9bf0d2391bbc6d9871bb3f0555a6225daae92` (COHESION §0m.2 HOLD; frontier moved to `3e81f500`, the pin is its ancestor, **no re-pin on a seat's authority**). Served bundle `1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`, built in the §0m.2 capture clone and **re-hashed at this seat, double-run identical**. Capture: **none for this row**; shot-sha256: **none**.
+- **G-KFW9-13 reading** — this row closes the gate's *"unrun triggers reported PROVISIONAL at close"* arm, **not** its *"measured value written back"* arm. The gate stays **RED**.
