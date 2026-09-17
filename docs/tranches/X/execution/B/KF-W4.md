@@ -588,3 +588,136 @@ authors `eslint.config.js` without a manifest race. `monaco-themes` is **still p
 unit's type surface landed, so `.b`'s `census-first-run.txt` starts from a known-good roster. **The push
 is the wave close seat's** (§0j.C KF-WRITE: *"every wave pushing `origin HEAD` at close"*); this unit
 leaves `5388907b` local and unpushed by design.
+
+### KF.W4.b
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Opened** 2026-09-17 after `.a` committed (internal lock
+discharged: the manifest was settled and clean at open) · **Gates** `G-KFW4-2` · `G-KFW4-3` ·
+`G-KFW4-11` · `G-KFW4-12` · **Commit** keyframes.js **`fb509edd`** (ONE commit, §Commits commit 2) ·
+**Substrate** `/Users/mkbabb/Programming/keyframes.js`, branch `master`,
+⟨`git rev-parse --short=8 origin/master`⟩ → **`55e9bf0d`**, parent `5388907b` (`.a`'s commit 1).
+value.js evidence **`1e99ec31`**. Every figure below is read from settled bytes and double-run.
+
+#### Act 0 — anchors re-verified at TRUE bytes before a byte was written
+
+| §Bounds row | anchor as spec'd | measured at this seat | verdict |
+|---|---|---|---|
+| `package.json` L55 | `:92` `monaco-themes`, devDeps carve | present at **`:95`** after `.a`'s three adds | **DRIFTED — INTENT taken at the true bytes**, recorded |
+| `.github/workflows/ci.yml` L56 | merge job `:41-42`; nightly block `:53-55` | ⟨`git show origin/master:.github/workflows/ci.yml \| sed -n '41p;53p;54p;55p'`⟩ → `- name: check library types` · `demo-correctness:` · `name: demo correctness (nightly roster)` · `if: github.event_name == 'schedule' \|\| github.event_name == 'workflow_dispatch'` | **reproduces byte-exact**, all four lines at their stated coordinates (`.a` wrote no byte of this file) |
+| `vitest.config.ts` L59 | `projects` `:38-56`, `demo` `:48-55`, glob `:52`, **no `plugins`** | byte-exact; ⟨`grep -c plugins`⟩ → **0** | reproduces |
+| `.dependency-cruiser.cjs` L61 | 24 LIGHT entries, **5** dead | per-entry ⟨`git cat-file -e`⟩ → **5 DEAD / 19 LIVE of 24**, twins all EXIST | reproduces (the spec's round-4 **5**, not the bank's 4) |
+| `eslint.config.js` L62 | create | ⟨`git cat-file -e origin/master:eslint.config.js`⟩ → fatal | reproduces |
+| evidence dir L90 | create | present from `.a` | reproduces |
+
+#### Act 1 — the FROZEN artefacts, written BEFORE the first cure (ordering is law)
+
+1. **`census-first-run.txt`** — G-KFW4-2's falsifier demands the 27's roster *before the step is
+   marked blocking*. ⟨`npx vitest run --project demo --reporter=verbose`⟩ → **27 files / 155 tests
+   PASSED, exit 0**, both runs. SELF-COUNT over the settled artefact → 27 rows / 155 tests.
+   **NO RED among the 27 ⇒ the triumvirate trigger for the merge-path wiring DID NOT FIRE.**
+2. **`pinned-seven.txt`** — the frozen oracle RHS, derived from the **pre-cure** raw depcruise report
+   by the artefact's own writer (never hand-typed): **7 pairs / 6 distinct files**, byte-identical to
+   the wave record's frozen list. sha256 `9733d2e6…`.
+
+#### Act 2 — the cures (commit `fb509edd`, one commit)
+
+- **`vitest.config.ts`** — `plugins: [vue()]` at the config ROOT (both projects inherit through
+  `extends: true`). **The registration KF.W8's G10 leg (a) cites; W8 performs no edit of this file.**
+- **`ci.yml`** — `gates` (the merge job) gains two blocking steps, `npm run test:demo` and
+  `npm run lint`; `demo-correctness`'s `if: schedule || workflow_dispatch` is **REMOVED**, so the
+  browser roster runs on `pull_request`/`push` and blocks. Both stale comments asserting *"does not
+  block library merges"* corrected — a phantom authority is what this wave extinguishes. The
+  deploy-ancestry tag step is scoped to `push`/`schedule` **by event**: on a PR `github.sha` is the
+  ephemeral merge commit and a fork token carries no `contents: write`.
+- **`eslint.config.js`** — created; flat; **`eslint-plugin-vue` ESSENTIALS ONLY**. `lint` redefined
+  `depcruise src` → `depcruise --config .dependency-cruiser.cjs src demo && eslint demo`.
+- **`.dependency-cruiser.cjs`** — the five dead LIGHT entries repointed to their live twins (after:
+  **24/24 resolve**); rule 1 `from: "^src/"` → `"^(?:src|demo)/"`; the allowlist's prose corrected to
+  say why a dead entry is a defect and not a formality.
+- **`package.json` + `package-lock.json`** — `−monaco-themes` **with the lock regenerated in the same
+  commit** (LAW A census re-run at this seat: consumer set of the *package* = ∅; the two live imports
+  are the **vendored sibling directory** `./monaco-themes/*.json`, R3-1's same-basename trap).
+  `+test:demo`. **Two parser devDeps, declared**: `vue-eslint-parser` (a **required** peer of the
+  authorized `+eslint-plugin-vue` that npm will never auto-install here — ⟨`cat .npmrc`⟩ →
+  `legacy-peer-deps=true`) and `@typescript-eslint/parser` (measured necessity: without it
+  ⟨`npx eslint demo`⟩ → **55 fatal `Parsing error`s** and ZERO template findings). **Both are
+  parsers; neither adds a rule** — the essentials-only bound is intact.
+
+#### Act 3 — gate readings, BEFORE → AFTER
+
+| gate | BEFORE (baseline) | AFTER (this unit) |
+|---|---|---|
+| **G-KFW4-2** | RED — nightly-gated, no `plugins` array, 27 unmeasured | **GREEN** — roster frozen 27/155; plugin registered and **PROVED by mounting a real demo SFC**, with a negative control; both demo instruments blocking on the merge path |
+| **G-KFW4-3** | RED — no ESLint anywhere; `lint` = `depcruise src` | **RED — WIRED, NOT GREEN · TRIUMVIRATE** — the gate's own command now runs and reports **10 problems / 5 files**; ME-29 is row 1 |
+| **G-KFW4-11** | RED (config scope) · oracle unsatisfiable as spelled | **GREEN** — reach 439 modules / **230 demo**; ⟨`diff actual-specifiers.txt pinned-seven.txt`⟩ → **exit 0** |
+| **G-KFW4-12** | RED — `monaco-themes` present | **ACT-COMPLETE · command DEFERRED** — devDep + lock rows at **0**, ⟨`vite build --mode gh-pages`⟩ → **exit 0**; `node scripts/gates/census.mjs --clause manifest` is unrunnable here because `census.mjs` is `.d`'s create row. Not booked GREEN by assertion |
+
+Collateral after the cures: ⟨`npx vitest run --project demo`⟩ → **27/155** · ⟨`--project library`⟩ →
+**98 passed / 5 skipped, 1040 tests** · ⟨`npx vite build --mode gh-pages`⟩ → **exit 0** ·
+⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → **✔ no violations (164 modules)** — SCH-7's
+no-cycle baseline re-verified.
+
+#### Act 4 — findings, routed not smoothed
+
+- **F-5 · SPEC (MAJOR, G-KFW4-11) — the oracle's LHS has THREE defects, not one.** F-2 named the
+  `@src/` key and stopped there. Re-run at this seat, F-2's own corrected pipeline yields **7 lines
+  whose path column is the string `null`**: after `.dependencies[]` the jq context IS the dependency
+  object, which has no `source` key, so the module must be bound (`. as $m`); and the LHS spells a
+  **colon** separator where the frozen RHS uses a **space**. F-2's count was right and its content was
+  not. Full dated addendum-beside, with both readings at every correction, in
+  `evidence/KF-W4/G11-oracle-addendum-2026-09-17.md`.
+- **F-6 · SPEC (INFO, G-KFW4-11) — part (1)'s REACH premise is false at the bytes.** *"a config still
+  scoped to `src/` reports zero demo modules"*: measured **230** demo modules with the config
+  untouched. What a cruise REPORTS is fixed by the CLI argument list, not the rules' `from` scope.
+  Blindness still fails the gate — through the RHS's fixity (an LHS of 0 against a 7-line RHS), not
+  through rule scope. Recorded so no future seat rebuilds the mechanism on the stated premise.
+- **F-7 · TREE (MAJOR, routed) — four REAL runtime cycles, found by the extended rule.** One ring,
+  one directory: `demo/scenes/cube/orbital-drag/index.ts` ⇄ `OrbitalDrag.vue` (+ the same ring through
+  `useOrbitalPointer` / `useOrbitalPinch` / `useOrbitalInertia`). Verified not a parse artefact:
+  `index.ts:3` **value**-re-exports the SFC and `OrbitalDrag.vue:18` imports **values** back from the
+  barrel (`:16`/`:17` are `import type` and correctly exempt). **ONE cure shape** closes all four.
+  The directory is in **no** KF.W4 unit's writable set → routed.
+- **F-8 · SPEC (CRITICAL, G-KFW4-3) — the gate's witness column holds ONE site; the frontier holds
+  TEN.** ME-29 reproduces exactly; the other nine — one `vue/valid-v-for`, one
+  `vue/multi-word-component-names` and **seven `vue/no-mutating-props`** (behavioural: a child writing
+  through its parent's prop object) — are routed nowhere: ⟨`grep -c 'no-mutating-props' KF-W4.md`⟩ →
+  **0**, `'App.skeleton'` → **0**, `'valid-v-for'` → **0**. All ten live under `demo/**`, which is in
+  no unit's writable set for this wave. **This is the R4-2 disease at a second address** — a
+  denominator inherited and never re-derived — and it makes G-KFW4-3's GREEN **unreachable inside
+  §Bounds**, the born-RED-with-unreachable-GREEN class the §Gates head convicts. **TRIUMVIRATE**
+  (§Sequencing trigger 1: any write outside §Bounds).
+- **Artefact NAME COLLISION (E-3, declared).** The spec names `census-first-run.txt` twice with two
+  different contents — G-KFW4-2's falsifier (the 27's roster, written here) and §Artefacts *"the three
+  clauses, RED"* (unit `.d`'s `census.mjs` first run). This seat wrote the artefact its own binding
+  falsifier names. **`.d` must take a DISTINCT path** or the wave breaks its own G-KFW4-11 law *"ONE
+  PATH, ONE WRITER, ONE CONTENT"*. The note also rides inside `census-first-run.txt`'s header.
+- **Receipt-law exception, declared, one file.** `pinned-seven.txt` is the right-hand side of the
+  `diff` that IS G-KFW4-11; a `SERVED MODEL:` line or a header block inside it makes the spec's own
+  literal command unsatisfiable at every future run. It holds the seven pairs and nothing else; the
+  curated block (hash, the five dead LIGHT entries with their live twins, the config's literal path)
+  is written **beside** it, dated, in the G-11 addendum. Every other artefact carries its receipt line.
+
+#### Act 5 — what was NOT done
+
+**No suppression of any kind**: no `ignores` over a finding, no rule disabled, no `eslint-disable`, no
+`--max-warnings`, no severity downgrade, no `|| true`, no `known-violations` file, no `test.skip`, no
+allowlist, no `node_modules` patch, no copied producer selector. `scripts/dev/dev.sh` never touched.
+F-1's four untracked `src/` files not deleted, edited, `.gitignore`d, moved or gate-wrapped. `.npmrc`
+measured, not modified. No `demo/**`, `src/**`, `test/**`, `scripts/**` or `tsconfig*.json` byte. No
+glass-ui byte. No other unit's row. `prettier --check` flags exactly the 2 files that fail
+**identically at `origin/master`** (verified against pristine `git show` copies with the repo's own
+config) — **zero new drift**, so no unrelated reformat was spent.
+
+#### Artefacts landed (value.js `docs/tranches/X/keyframes/waves/evidence/KF-W4/`, commit `1e99ec31`)
+
+`census-first-run.txt` (sha256 `8688d931…`) · `pinned-seven.txt` (sha256 `9733d2e6…`) ·
+`depcruise-inventory.json` — depcruise's **RAW** output and nothing else (sha256 `fd4d4da3…`) ·
+`G11-oracle-addendum-2026-09-17.md` · `merge-path-gates-2026-09-17.md`.
+
+#### Handover
+
+`.c` and `.d` open on a settled manifest and a clean tree (⟨`git status --porcelain`⟩ → only F-1's
+four untracked `src/` rows and two untracked V docs). **`.d` inherits two named obligations**: the
+`census-first-run.txt` path collision above, and clause C3's denominator over the surviving devDeps
+(this unit deleted the one devDep §Bounds authorizes and no other). **The push is the wave close
+seat's** (§0j.C KF-WRITE); this unit leaves `fb509edd` local and unpushed by design.
