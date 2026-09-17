@@ -1228,3 +1228,325 @@ set**, so rowing these letters would be a write outside §Bounds — an ESCALATI
 convenience. They are therefore **HANDED UP, named by path and mtime, to the wave close seat /
 orchestrator**, whose E13 obligation (*"no wave closes with UNREAD mail in scope"*) they are.
 Recorded here rather than left for the close seat to rediscover.
+
+### KF.W4.e
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **Opened** 2026-09-17 after `.c` committed — the lock is
+*"opens AFTER `.c` commits"*, and `.c`'s tail **`30ccd4dc`** was at HEAD when this seat took its
+baseline · **Gates** `G-KFW4-13` · `G-KFW4-14` · **Commits** keyframes.js **`92955f89`**
+(§Commits commit 7) · **`eea3475a`** (commit 8) · **`3e81f500`** (`.c`'s handed-over K3 residue,
+declared below as a THIRD commit and why) · value.js: the artefacts + this record · **Substrate**
+`/Users/mkbabb/Programming/keyframes.js`, branch `master`. Every figure below is read from the
+settled bytes and **double-run** (RUN1/RUN2 identical unless stated).
+
+**Receipt-law exception, declared, two files** — the same one `.d` declared, for the same reason.
+The `SERVED MODEL` line is line 1 of every value.js artefact this unit wrote
+(`catalogue-divergence.json` carries it as its first KEY, `.c`'s `easing-identity.json` idiom). The
+two keyframes.js `.test.ts` fixtures carry provenance in their header docblock instead: a bare
+`SERVED MODEL:` line 1 makes a `.test.ts` a syntax error.
+
+**Headline, stated first so nothing below reads as a claim it is not.**
+**G-KFW4-14 is GREEN.** **G-KFW4-13 is RED on ONE of its three banked limbs** — KF-CB-18 and
+KF-CB-24 are cured and their fixture is landed; **KF-CB-29 (the `| string` arm) is ESCALATED**,
+because BOTH candidate cures were measured and BOTH need a write outside §Bounds (§Sequencing
+L276's first trigger, *"never an implementer's decision"*). The full measurement, both candidates,
+and the three rulings the triumvirate is asked for are at
+`evidence/KF-W4/kf-cb-29-string-arm-escalation-2026-09-17.md`.
+
+#### Act 0 — E13 mail sweep at this seat's own clock (17:52 EDT), and the anchors at TRUE bytes
+
+**Mail (4 paths, read-only).** (1) `docs/tranches/V/coordination/` — `INBOX.md`@17:47 (another
+track's sweep line; **self-excluded**, SELF-COUNT law), newest non-self
+`value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09 = **ours** (O-21). (2)
+`../glass-ui/docs/tranches/BK/coordination/` — 7 files; the three 2026-09-17 letters `.d` handed up
+at `d354d144` now read @17:43 (bytes re-synced, same names) and are **ROWED**: ⟨`grep -n
+'constellation-o20-relay\|bbnf-lang-9.0.0-addendum\|valuejs-o20-disposition'
+docs/tranches/V/coordination/INBOX.md`⟩ → **`I-32` · `I-33` · `I-34`**, minted by the Track D
+X.P.W2 seat-0 sweep at 17:47. (3) `../keyframes.js/docs/tranches/V/coordination/` — 12 files +
+`vnext/`, newest `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`@14:58 = **ours**. (4)
+`../sci-report/atlas/docs/tranches/P/coordination/` — newest@Aug 3 15:01, pre-dating every sweep
+since. **Result: 0 unrowed · 0 new `I-n` minted · 0 UNREAD in THIS UNIT's scope.** I-33 is the one
+row naming keyframes.js (its §2, six producer rows against glass 9.0.0) and its Routing cell sends
+it to *"the X formation mail seat … kf → X·KF"*, not to a unit seat. **Bounded scope test rather
+than an assertion**: its hardest kf row is B-3 (`text-admin-label`, *"16 sites / 10 files"*) —
+⟨`grep -n 'text-admin-label' demo/scenes/easing/EasingSidebar.vue
+demo/utils/reference-data/animationDescriptions.ts`⟩ → **no output, exit 1**, against
+⟨`grep -rl 'text-admin-label' demo/ | wc -l`⟩ → **10** repo-wide (the letter's own figure,
+reproduced). **Zero intersection with this unit's writable set.** `INBOX.md` is **not** in this
+unit's writable set and **was not touched** — the `.d` precedent, held.
+
+**Anchors** (§Bounds L72 · L73 · L74 · L86; every one re-executed at the true bytes before a byte
+was written):
+
+| anchor as spec'd | measured at this seat | verdict |
+|---|---|---|
+| `constants/types.ts` `:25` type opens · `:27` `\| "steps"` · `:194` `\| TimingFunctionNames` · `:195` `\| string` | ⟨`grep -n 'TimingFunctionNames\|"steps"' src/animation/constants/types.ts`⟩ → `25:` `27:` `194:`; ⟨`awk` `188..200`⟩ → `195:    \| string` | **all four reproduce exactly** |
+| `easing.ts:44` · `waapi/eligibility.ts:169`, the two `bounceInEase` prose phantoms | ⟨`grep -rn 'bounceInEase' src/ test/ demo/`⟩ → **4 lines**: `easing.ts:44`, `eligibility.ts:169`, and **`orchestration-api.test.ts:143` + `:146`** | **reproduces, and the grep is what proves the tautology row's subject is the SAME name** |
+| `orchestration-api.test.ts:142-148` the `cssTwinFor` tautology + `:147` its own falsifier | `:142` the `it(` header · `:146` `expect(cssTwinFor("bounceInEase")).toBeUndefined();` · **`:147` `expect(cssTwinFor("not-a-real-easing")).toBeUndefined();`** · `:148` close | **reproduces — `:147` IS the falsifier, verbatim** |
+| `EasingSidebar.vue` `:42-49` caption · `:86-89` comment · `:99` `seedFor` · `:112` the `bezierPresets` reach · `:132-137` `syncGap` | `:42-49` the `<p v-if="catalogueGap" … data-register="code">` block · `:86-89` the four comment lines · `:99 const seedFor = (name: string): PickerSeed \| null => {` · `:112 if (name in bezierPresets) {` · `:132 const syncGap = (name: string) => {` … `:137 };` | **all five reproduce exactly** (R3-4.2's re-anchoring holds at the frontier) |
+| `useEasingDemo.ts:255-257` the `[0,0,1,1]` reset | `255 } else {` · `256 // Non-bezier curve: reset to linear approximation` · `257 bezierControlPoints.value = [0, 0, 1, 1];` | **reproduces — and was NOT written** (see Act 5) |
+| OP-6 → COHESION §0j.C **KF-SS3** | ⟨`grep -n 'KF-SS3' docs/tranches/X/COHESION.md`⟩ → `:597` *"NOT repointed at `bezierPresets`; its class is preserved"* | **RULED — G-14 dispatches on the PRESERVE branch; the merge branch is dead by ruling** |
+
+**Baseline, this seat's own, before any byte (all double-run):**
+⟨`npx vue-tsc --noEmit -p tsconfig.json \| grep -c 'error TS'`⟩ → **31** ·
+⟨`npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'`⟩ → **18** ·
+⟨`npx tsc --noEmit -p tsconfig.lib.json \| grep -c 'error TS'`⟩ → **4** ·
+⟨`npx vitest run test/orchestration/orchestration-api.test.ts`⟩ → **13 passed** ·
+`test/compile/timing-function-names.test.ts` **ABSENT** · `test/demo/easing-catalogue.test.ts`
+**ABSENT** — the two `create` rows, i.e. the RED, not a measurement failure.
+
+#### Act 1 — G-13's fixture, created FIRST and measured RED before any cure
+
+`test/compile/timing-function-names.test.ts` (**149 L**, SELF-COUNT ⟨`wc -l`⟩). Its oracle is
+**two independently-authored sets compared** (G-L7 rule (e)): the union's members enumerated from
+the TYPE with a compile-time exhaustiveness bite, against the REGISTRY's runtime roster
+(`timingFunctionEntries`, built at module evaluation). It carries the `@ts-expect-error` the gate
+names, written at the surface where the `| string` arm actually lives —
+`InputAnimationOptions["timingFunction"]`.
+
+**Born-RED reading, measured before the `types.ts` edit:**
+⟨`npx tsc --noEmit -p tsconfig.test.json \| grep 'timing-function-names'`⟩ →
+```
+test/compile/timing-function-names.test.ts(102,13): error TS2344: Type '"steps"' does not satisfy the constraint 'never'.
+test/compile/timing-function-names.test.ts(139,13): error TS2578: Unused '@ts-expect-error' directive.
+```
+**Both RED clauses are the gate's own falsifier text.** TS2344 is `"steps"` escaping the roster;
+TS2578 is *"today the `@ts-expect-error` is unused (TS2578) — that is the RED"*, verbatim. Test
+perimeter 18 → **20**. The runtime lane passed 44/44 at that moment — which is exactly why the gate
+needed a TYPE clause: no runtime assertion can see either defect.
+
+**Two spelling drifts in the gate's own text, recorded not smoothed.** (1) The gate says
+`const x: TimingFunctionName = "banana"`, **singular**; ⟨`git grep -n 'TimingFunctionName\b' --
+src/`⟩ → the exported symbol is `TimingFunctionNames`, **plural** — the singular resolves to no
+symbol in the tree. (2) The RED the gate predicts (TS2578, *unused*) is only reachable at the
+OPTION surface: `TimingFunctionNames` alone already rejects `"banana"` today, so an expect-error
+written against the union directly would be USED before the cure and produce no RED at all. The
+`| string` arm the born-RED cell names (`types.ts:195`) sits on
+`InputAnimationOptions["timingFunction"]`, and that is where the clause is written. Both readings
+are the gate's own cell, applied at the bytes.
+
+#### Act 2 — the `types.ts` union (commit `92955f89`), and the arm that did NOT fall
+
+**LANDED — `:27` `| "steps"` DELETED (KF-CB-24)**, with a docblock stating why the member cannot be
+re-advertised: bare `steps` carries no count and no jump term, fails the CSS Easing L1 parse, is
+absent from `registryNames`, and ⟨`resolveTimingFunction("steps")`⟩ **throws** `TypeError` — the
+fixture asserts exactly that, beside the parametric `steps(4, jump-end)` which does NOT throw
+(it is a CSS literal, resolved through the parser branch, never a name).
+
+**NOT LANDED — `:195` `| string` (KF-CB-29): ESCALATED.** The spec's LAW A census for this row
+censused the symbol `TimingFunctionNames` (12 hits / 6 files) and concluded the blast radius is
+demo-side. **That census measured the wrong subject**: the act deletes an arm of
+`InputAnimationOptions["timingFunction"]`, whose consumers are the sites that ASSIGN a string to
+that field — none of which mentions the symbol. Re-measured by performing the deletion:
+
+- **candidate (i), the bare deletion** — ⟨`npx tsc --noEmit -p tsconfig.lib.json`⟩ → **14 new
+  `error TS` lines over the baseline 4**, in **`src/animation/presets/catalog.ts` (13 — the SHIPPED
+  preset catalogue's own `"cubic-bezier(…)"` / `"steps(…)"` literals at `:59 :73 :81 :107 :178 :185
+  :194 :202 :228 :236 :244 :252` plus `:320`'s `PresetSpec` argument)** and
+  **`src/animation/engine/css/metadata.ts:63`** (`serializeTimingFunction` returns `string`). Both
+  files are **outside `.e`'s §Bounds**.
+- **candidate (ii), `| string` → an exported `CssEasingLiteral` template-literal union in the same
+  in-bounds module** — probed by `cp`-to-scratchpad, apply, measure, restore (**no `git stash`**) →
+  **exactly ONE residual**, `metadata.ts(63,9)`, curable by one type-only token at
+  `src/animation/compile/emit/css-text.ts:30`. **Also outside §Bounds.**
+
+Both reach GREEN only through a write outside §Bounds. The spec's own §Sequencing L276 makes that a
+**triumvirate trigger, *"never an implementer's decision"***, and this unit's method forbids
+substituting a cure of its own choosing. **So the arm stands at `origin/master`'s bytes and the
+choice is handed up, with both measurements, at
+`evidence/KF-W4/kf-cb-29-string-arm-escalation-2026-09-17.md` §5 (three candidate rulings).** The
+RED is witnessed, not asserted: `timing-function-names.test.ts:139`'s TS2578 is still live and goes
+GREEN the moment the arm falls.
+
+#### Act 3 — the two prose phantoms and the tautology (same commit `92955f89`)
+
+**The phantoms.** `easing.ts:44` and `eligibility.ts:169` both named `bounceInEase` as a bespoke
+value.js curve. ⟨`grep -n 'easeInBounce' src/animation/compile/easing/registry.ts`⟩ → `:27`, inside
+`DIRECT_NAMES` — **the frontier's name is `easeInBounce`** (KF-CB-1's one-word repair), so both
+lines attributed a curve to a name that has not existed since. Cured in place, one word each.
+
+**The tautology (KF-CB-18 / G-L7 rule (e)).** `orchestration-api.test.ts:142-148` claimed *"a
+bespoke value.js curve name has NO faithful twin"* and proved it with
+`cssTwinFor("bounceInEase")`. But `cssTwinFor` is pure string logic — an unknown name and a real
+bespoke curve both return `undefined` — so that assertion was **byte-identical in content to
+`:147`'s explicit unknown-name control**, and passed for the wrong reason. The gate's own falsifier
+was sitting one line below the defect. **Cured at the root**: the clause now reads its names from
+the registry's own roster (`timingFunctionEntries`, never a list re-typed in the test) and asserts
+membership BEFORE asserting the absent twin, so the two clauses are distinguishable and the control
+is declared as a control. ⟨`npx vitest run test/orchestration/orchestration-api.test.ts`⟩ →
+**13 passed** before, **13 passed** after (double-run) — the count is unchanged because the defect
+was a false witness, not a missing one.
+
+**Two `bounceInEase` mentions survive, DECLARED**: ⟨`grep -rn 'bounceInEase' src/ test/ demo/`⟩ →
+`timing-function-names.test.ts:16` (*"the value.js `bounceInEase` → `easeInBounce` rename"*) and
+`orchestration-api.test.ts:152` (*"this clause used to name `bounceInEase`"*). Neither asserts the
+name exists; both are dated archaeology at the site of the cure. **Zero phantom CLAIMS remain.**
+
+**Commit `92955f89` — the bank's ONE-commit instruction honoured**: KF-CB-18 + KF-CB-24 + KF-CB-29's
+fixture ride together, five pathspec'd files, `git diff --check` clean.
+
+#### Act 4 — G-14 (commit `eea3475a`), on KF-SS3's PRESERVE branch
+
+**The fixture, created first and measured RED.** `test/demo/easing-catalogue.test.ts` (**252 L**,
+SELF-COUNT ⟨`wc -l`⟩), mounted — **never a source-text pin** (the shape G-L7 rule (c)/(d) convicts
+two rows away, at `resize-tracks.test.ts`). The vendor is stubbed at its own module seam
+(`vi.mock` over `@mkbabb/glass-ui`, `/easing`, `/labeled-field`), the `.d` seat's idiom, because
+glass-ui is **READ-ONLY always** and is not the subject. What is read is entirely ours: whether the
+caption `<p>` rendered, and what `preset` the real `EasingSidebar.vue` handed the picker.
+
+**Born-RED reading** ⟨`npx vitest run --project demo test/demo/easing-catalogue.test.ts`⟩ →
+**30 passed | 1 FAILED**, and the one failure is the cure-lock's own falsifier, at the one tile the
+whole gate exists for:
+```
+× (3) tile smooth-step-3 — caption, seed and seeded quad agree
+AssertionError: expected 'smooth-step-3' not to be 'smooth-step-3'
+```
+i.e. the tile printed *"is engine-native"* **and** received a `smooth-step-3` preset. *"Fails if the
+caption is corrected while `seedFor` still reaches `bezierPresets`"* — reachable for the first time,
+and it bit on first contact.
+
+**The cure, three carved edits and not one byte more.**
+- **`:112`** `if (name in bezierPresets)` → `if (name in NAMED_EASING_BEZIER)`. **The cure-lock,
+  verbatim.** The catalogues are **NOT merged**: `animationDescriptions.ts` gained and lost no key
+  (it is in this unit's writable set and was not touched for G-14 at all).
+- **`:86-89`**, both clauses false, both cured against measurement. It claimed the demo's map is
+  *"wider (quart/quint)"* and *"differs on some quads (sine)"*. Measured:
+  ⟨emitter → `catalogue-divergence.json`⟩ → `bezierPresets` **30** keys · `NAMED_EASING_BEZIER`
+  **29** · `onlyInPresets` **["smooth-step-3"]** · `onlyInNamed` **[]** ·
+  `valueDifferencesOnSharedKeys` **[]**. It is a **byte-exact strict SUBSET**, not wider, and it
+  differs on **nothing**. The comment now says so and names the ruling.
+- **`:42-49`**, the caption. Corrected from *"is engine-native — editing here authors a custom
+  cubic-bezier"* to *"is engine-native — no cubic-bezier reproduces it, so editing here departs
+  into a custom curve"*, which is the claim clause (2) MEASURES rather than asserts.
+
+**AFTER** ⟨same command, double-run⟩ → **31 passed (31)**. **G-KFW4-14 GREEN.**
+
+**The three clauses and what each bites on**: (1) the two catalogues — 29 ⊂ 30, sole delta
+`smooth-step-3`, zero value differences; **BITE: merging them reds.** (2) **KF-SS3 measured, not
+quoted** — the engine's `smooth-step-3` against the same-named preset `[0.65, 0, 0.35, 1]` on the
+33-point grid: **max |Δ| = 0.11092558145854126 at t = 0.65625**. The spec banks **0.111014**; this
+seat publishes **its own measurement with the delta stated (0.0000884)** rather than adopting the
+banked number (LAW D's numeric arm). A smoothstep polynomial is not a cubic bézier, and that is the
+number. (3) per tile, over all **29** tiles: caption-shown ⟺ `seedFor` returns no bezier seed ⟺ the
+name is outside the demo's catalogue; and when a preset IS seeded, `bezierPresets[name]` equals
+`NAMED_EASING_BEZIER[name]` — the seeded quad IS the stored quad. ⟨emitter⟩ `captionShownFor` →
+**["smooth-step-3", "ease-in-bounce"]**, the two engine-native tiles, exactly.
+
+#### Act 5 — what was NOT written, and the third commit
+
+**`useEasingDemo.ts:255-257` was NOT written.** It is in this unit's writable set and its anchor
+reproduces exactly, but the `[0,0,1,1]` reset is the declared *"this name has no faithful quad"*
+sentinel and is never read while the name is engine-native (`currentEasingFn` resolves
+`namedEasing(name)`; `cssValue` returns the name). Changing an inert value to make a gate look
+tidier is not a cure. Booked as F-E3 below.
+
+**`EasingSidebar.vue:159` was NOT written** — `bezierPresets[(seed.preset ?? "") as keyof typeof
+bezierPresets]`, the seed-echo quad lookup, is a SECOND reader of the vendor catalogue. It is
+**outside the `:42-49 · :86-89 · :99 · :112 · :132-137` carve** (R-6 gives the rest of the file to
+the OPTIONS-UNIT), and it is harmless at the frontier precisely because clause (1) proves the
+shared keys are byte-identical. Booked as F-E2.
+
+**`demo/utils/reference-data/animationDescriptions.ts` — commit `3e81f500`, declared as a THIRD
+commit.** `.c`'s handover names `:108`/`:116` as *"live diagnostics in files `.e` holds … the first
+two are `.e`'s outright"*. Consumer census, run at this seat:
+⟨`grep -rn 'COLOR_SPACE_DESCRIPTIONS\|HUE_METHOD_DESCRIPTIONS' src/ demo/ test/ scripts/`⟩ →
+**exactly two hits, both the declarations themselves — consumer set = ∅**, so R-9's else-branch
+applies and both maps are deleted. **It is a separate commit because it is a separate meaning**
+(K3 / G-KFW4-4, not the easing family), and §Commits' own law is one commit per meaning; the
+spec's commit plan had no row for a residue handed between units.
+
+**No suppression of any kind**: no `@ts-ignore`, no `any`, no `test.skip`, no allowlist, no
+`exclude`, no per-file override, no `known-violations`, no `node_modules` patch, no copied producer
+selector, no `|| true`. The one `@ts-expect-error` in this unit's tree is the **gate's own assertion
+clause**, named by G-KFW4-13's command, and it is currently the wave's witness that KF-CB-29 is
+unlanded. **Zero glass-ui bytes.** **No byte outside this unit's writable set** —
+`useTimingFunctionEditor.ts`, `catalog.ts`, `metadata.ts`, `css-text.ts`, `EasingScene.vue` and
+`constants/types.ts:9` are all named below and none is touched. `scripts/dev/dev.sh` never touched,
+never staged. **No prettier drift authored**: measured per file, origin-vs-current —
+`types.ts` 0→0 · `easing.ts` 0→0 · `eligibility.ts` **14→14** (fails `--check` identically at
+`origin/master`; left alone, `.c`'s precedent) · `orchestration-api.test.ts` **13→13** (same) ·
+`EasingSidebar.vue` **23→23** (same) · `animationDescriptions.ts` 0→0 · both created fixtures
+**prettier-clean** (⟨`npx prettier --check`⟩ → *"All matched files use Prettier code style!"*).
+
+#### Act 6 — gate readings, BEFORE → AFTER (every figure double-run)
+
+| gate | command | BEFORE | AFTER | verdict |
+|---|---|---|---|---|
+| **G-KFW4-13** runtime leg | `npx vitest run test/compile/timing-function-names.test.ts` | fixture **ABSENT** (unrunnable = RED) | **44 passed (44)** | **GREEN** |
+| **G-KFW4-13** type leg | `npx tsc --noEmit -p tsconfig.test.json` (the `check` leg that covers `test/`; `vue-tsc`'s program is `src/`+`demo/` per `tsconfig.json:include`) | fixture absent; after creation **TS2344 + TS2578** | **TS2344 CURED**; **TS2578 STANDS** at `:139` | **RED — KF-CB-29 escalated** |
+| **G-KFW4-14** | `npx vitest run --project demo test/demo/easing-catalogue.test.ts` | fixture **ABSENT**; on creation **30 passed \| 1 failed** (the `smooth-step-3` tile) | **31 passed (31)** | **GREEN** |
+
+**Whole-tree cadence, BEFORE → AFTER (all double-run):**
+`vue-tsc -p tsconfig.json` **31 → 31** (two CURED — `animationDescriptions.ts:108`/`:116`; two
+SURFACED — F-E1 below) · `tsc -p tsconfig.test.json` **18 → 17** (two cured, one born-RED added) ·
+`tsc -p tsconfig.lib.json` **4 → 4** (unchanged) · `vitest --project library`
+**99 passed | 5 skipped (104 files) · 1124 passed | 1 expected fail | 14 skipped** ·
+`vitest --project demo` **29 → 30 files · 191 tests, all passed** ·
+`eslint demo --ext .ts,.vue` **10 errors, unchanged** — ⟨`npx eslint demo … | grep '^/Users'`⟩ → five
+files (`App.skeleton.vue`, `TransportDock.vue`, `TimingFunctionPanel.vue`,
+`ControlsPaneWrapper.vue`, `MatrixEditor.vue`), **none of them touched by this unit** ·
+`depcruise --config .dependency-cruiser.cjs src demo` **4 violations, unchanged** — all four
+`no-cycle` inside `demo/scenes/cube/orbital-drag/`, **untouched by this unit** · `git diff --check`
+**clean before every commit**.
+
+#### Act 7 — findings, routed not smoothed
+
+- **F-E1 · TYPE SURFACE (MAJOR, G-KFW4-13's demo twin) — the `"steps"` deletion surfaced the defect
+  at its true consumer, and the cure site is out of bounds.**
+  `demo/components/instrument/transport/channel-controls/composables/useTimingFunctionEditor.ts`
+  `:136` and `:157` now read **TS2367 *"types 'TimingFunctionNames' and '"steps"' have no
+  overlap"***. This is not collateral: the demo's editor DRAFT kinds are `"cubic-bezier"` **and**
+  `"steps"` (`animationDescriptions.ts`'s `DETAIL_TIMING_FUNCTIONS`), and the composable typed only
+  the first as its own, **relying on the library's phantom `"steps"` member to type the second** —
+  which is KF-CB-24's defect, seen from the consumer end. Cure: widen `:129` and `:154`'s
+  parameter type to `TimingFunctionNames | "cubic-bezier" | "steps"`, two type-only sites.
+  **ROUTED** — the file is outside `.e`'s writable set, and G-KFW4-13's own row calls this *"the
+  demo twin [that] closes only behind G-1"*. Recorded at
+  `evidence/KF-W4/kf-cb-29-string-arm-escalation-2026-09-17.md` §6.
+- **F-E2 · BOUNDS (MINOR, G-KFW4-14) — a second `bezierPresets` reader survives at
+  `EasingSidebar.vue:159`.** `seedFor` no longer reaches the vendor catalogue; `isSeedEcho`'s quad
+  lookup still does. It is correct today **by clause (1)'s measurement** (the shared keys are
+  byte-identical, so the lookup returns the same quad the demo stores) and it is **outside the
+  carve** R-6 draws. **ROUTED to the OPTIONS-UNIT**, which takes the rest of this file.
+- **F-E3 · DESIGN (INFO, G-KFW4-14) — `useEasingDemo.ts:255-257`'s `[0,0,1,1]` reset is inert, not
+  wrong.** For an engine-native name the stage renders `namedEasing(name)` and the stored quad is
+  never read; the picker is not remounted, so nothing displays it either. Left exactly as found.
+  **ROUTED to the OPTIONS-UNIT** with the rest of the file.
+- **F-E4 · PROVENANCE (MINOR, G-KFW4-7 C1) — `.d`'s handover obligation, re-routed not absorbed.**
+  `.d` handed `.e` *"`constants/types.ts:9`'s `timingFunctions` attribution … a live C1 red sitting
+  in `.e`'s file but outside its `:25`/`:27`/`:195` carve."* Verified still standing at this seat
+  (⟨`sed -n '9p' src/animation/constants/types.ts`⟩ → the `keyof typeof timingFunctions` prose).
+  **NOT cured**: the spec's §Bounds row carves three coordinates in this file and `:9` is not among
+  them. Handed on, unchanged, to the wave close seat.
+- **F-E5 · SPEC (MAJOR, §Bounds L72) — the row's LAW A census is scoped to the wrong subject.**
+  It censuses the symbol `TimingFunctionNames` and concludes about the `| string` arm, whose
+  consumers do not mention that symbol. The consequence is Act 2's escalation. Stated here as the
+  §Bounds defect it is, per that block's own law (*"a row that prints nothing is a §Bounds defect,
+  never an implementer's judgement call"* — extended by R4-10(1)'s scope rule to a row that prints
+  the **wrong** thing). **ROUTED to the reconcile / close seat.**
+- **F-E6 · TREE (INFO) — `EasingScene.vue:8`/`:45`** (`.c`'s other two handed-over diagnostics)
+  remain live TS6133s. `demo/scenes/easing/EasingScene.vue` is **not** in this unit's writable set;
+  `.c` named them and they are carried forward unchanged.
+
+#### Artefacts landed (value.js `docs/tranches/X/keyframes/waves/evidence/KF-W4/`)
+
+`catalogue-divergence.json` — the §Artefacts row's own file, now due because OP-6 is RULED. Written
+by an emitter run under `vitest --project demo` and **not one figure hand-typed**; double-run,
+byte-identical. Carries the two catalogues' cardinalities and exact set deltas, the
+`smooth-step-3` divergence with its grid and its argmax, the banked 0.111014 **beside** the measured
+figure with the delta stated, the 29-tile roster and the two names the caption is shown for ·
+`kf-cb-29-string-arm-escalation-2026-09-17.md` — the escalation, both candidate cures measured, the
+three rulings requested, and F-E1's routing.
+
+#### Handover
+
+**`.e` is the wave's last implementation unit** (§Execution shape: *"phase 4: `.e` serial"*).
+It leaves the close seat **three** things. **(1) ONE ESCALATION** — KF-CB-29, ruling requested at
+the escalation file's §5; until it is ruled, **G-KFW4-13 is RED on that limb and the wave cannot
+honestly claim it green**. **(2) SIX findings** F-E1..F-E6, three of them routed to units/waves that
+exist (the OPTIONS-UNIT ×2, the reconcile seat ×1) and three to the close seat. **(3) A clean
+tree**: ⟨`git status --porcelain`⟩ shows only the four untracked F-1 `src/` files and the two
+untracked `docs/tranches/V/coordination/` back-fills, **all pre-existing and none this unit's**.
+
+**The push is the wave close seat's** (§0j.C KF-WRITE); this unit leaves `92955f89`, `eea3475a` and
+`3e81f500` **local and unpushed by design**.
