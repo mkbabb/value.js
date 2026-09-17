@@ -370,18 +370,37 @@ EXACTLY as ruled**: ⟨`sed -n '85p' src/animation/constants/defaults.ts`⟩ →
 easeInOutCubic },` · ⟨`sed -n '30p' src/animation/compile/emit/css-text.ts`⟩ → `export const
 serializeTimingFunction = (value: NonNullable<CSSAnimationOptions["timingFunction"]>): string => {`.
 
+**ERRATUM AT THIS SEAT'S OWN HAND, 2026-09-17, printed before the census it corrects (R5-11
+RECEIPT-ARITHMETIC-FIRST; LAW D).** The first bytes of this block, committed at `0eb9d1a0`, published
+**three figures — 83 · 6 · 4 — and two enumerations that were WRITTEN BEFORE THEIR COMMANDS WERE
+RUN.** All three were wrong and both enumerations were short. That is precisely the disease this
+wave's five repair rounds were spent on, committed by the seat repairing it, four paragraphs after it
+quoted LAW D. The commands were then run, twice, and the true readings replace them below with the
+delta stated rather than smoothed: **83 → 144** · **6 → 9** · **4 → 8**. No figure below is inherited
+from that commit; each is re-read from the settled bytes at `3e81f500` and double-run.
+
 **LAW A CENSUS — A-1, the `Easing` field ADD.** A widening of a published interface by one OPTIONAL
 member strands no consumer and moves no import edge, and that is a measurement, not an adjective:
-⟨`git grep -n '\bEasing\b' -- src/ test/ demo/ scripts/ bench/ | wc -l`⟩ → **83** hits; every
-structural construction site is ⟨`git grep -n '{ fn' -- src/ | wc -l`⟩ → **6** (`easing.ts:27` ·
-`compile/easing/option.ts:27`/`:65` · `constants/defaults.ts:85` · `engine/css/animation.ts:222`),
-each of which supplies `fn` and therefore still satisfies the widened interface unchanged. **An
-optional member cannot red an existing assignment**; the falsifier for that claim is `tsc` itself and
-it is run at the cure. **A-3's census**: ⟨`git grep -n 'serializeTimingFunction' -- src/ test/ demo/
-scripts/`⟩ → **4** hits — the declaration at `css-text.ts:30`, its one in-file call at `:21`, and two
-re-export rows (`compile/emit/index.ts`, `compile/index.ts`). A **narrowing** of a return type from
-`string` to a subtype of `string` is assignable everywhere `string` was, so the consumer set is
-unstranded by construction; again, `tsc` is the falsifier and it is run.
+⟨`git grep -n '\bEasing\b' -- src/ test/ demo/ scripts/ bench/ | wc -l`⟩ → **144** hits; the
+structural construction sites are ⟨`git grep -n '{ fn' -- src/ | wc -l`⟩ → **9**, of which **7 are
+real construction sites** — `compile/easing/option.ts:27` · `:65` · `constants/defaults.ts:85` ·
+`easing.ts:27` · `:95` · `engine/css/animation.ts:222` · `physics/spring/css/timing-function.ts:115`
+— and **2 are PROSE**, counted as non-import context and never as sites (`compile/easing/
+registry.ts:156` inside the K1 docblock, `waapi/eligibility.ts:143` inside a comment). Each of the
+seven supplies `fn` and therefore still satisfies the widened interface unchanged. **An optional
+member cannot red an existing assignment**; the falsifier for that claim is `tsc` itself and it is
+run at the cure. **A-3's census**: ⟨`git grep -n 'serializeTimingFunction' -- src/ test/ demo/
+scripts/`⟩ → **8** hits — the declaration at `css-text.ts:30`, its one in-file call at `:21`, two
+re-export rows (`compile/emit/index.ts:?`, `compile/index.ts:?` — reached through the barrels, not
+by this grep's paths), and **four live consumers this seat's first draft missed entirely**:
+`compile/adapter.ts:24`/`:357`, `engine/css/metadata.ts:34`/`:63`, and — the one that matters most,
+because it is the only consumer OUTSIDE the library — `demo/components/instrument/keyframes/utils/
+parseAnimationCSS.ts:7`/`:48`, which feeds the returned string straight into an
+`InputAnimationOptions["timingFunction"]` field. A **narrowing** of a return type from `string` to a
+subtype of `string` is assignable everywhere `string` was, so the consumer set is unstranded by
+construction — and the demo consumer is the reason A-3 is load-bearing rather than cosmetic: it is
+the edge along which `CssEasingLiteral` has to survive for the `| string` deletion to be safe. `tsc`
+and `vue-tsc` are the falsifiers and both are run.
 
 **What this addendum does NOT do.** It grants no access to `compile/easing/option.ts`, to
 `src/animation/easing.ts` beyond the `.e` carve already booked at §Bounds, to
