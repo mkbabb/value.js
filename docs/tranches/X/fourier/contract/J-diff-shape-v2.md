@@ -282,7 +282,12 @@ paranoia.** The posture covers three surfaces, not one:
   **not even**: it is silent on six live consuming sites.
 
 **DISPOSITION.** Booked: **`FR-CP-16`** (=C-17/L·A-3, the denominator) · **`GAB-12`** (C-7) ·
-**`GCM-10` ⊕ `GCM-55`** — the serialization-bypass family, where `json.dumps` bypasses the pydantic
+**`GCM-10`** ⟨**ADDENDUM 2026-09-17 (repair round 1, G19 ∅-closure; §Z)**: `fr-GalleryCardModal`
+**`GCM-10`** rides as a **LEG — held at F-W3** (canonical `conformance/CENSUS-CANONICAL.md` §1
+`fr-GalleryCardModal`: home **F.W3** <sub>file-criterion → §5.e</sub>, legs `F.W5-W8`); this clause
+carries its `F.W5-W8` leg and does **not** re-book the row, so of the pair below **only `GCM-55` is
+booked here**. Every word of the family sentence is unedited; the pair's shared emphasis is split so the
+leg mark stands at the token it qualifies⟩ ⊕ **`GCM-55`** — the serialization-bypass family, where `json.dumps` bypasses the pydantic
 model so `likes ?? 0` and a bare `{{ entry.likes }}` assert **opposite nullabilities** ·
 **`FR-FG-13`** (=C-9), which keeps C's own *"today it is safe"* honesty and is therefore a
 **latent-ordering** clause, not a live defect · **`C-15`** (FSE, build-time — surface 3 above) ·
@@ -1228,7 +1233,11 @@ drives a `[0,1]` fraction from a `0–20, step 0.5` axis, so every detent ≥ 1.
 `area ≥ A ∧ area ≤ 0.92·A` — **empty by construction** — with the default `0.001` rendering "0.0" under a
 "%" label: **a 100× unit lie in the dangerous direction**.
 
-**DISPOSITION.** Booked: **`m-7`** (=C-6-as-rescoped) · **`FR-AUL-46`** (LC-miss-M5) · **`FR-FG-21`**
+**DISPOSITION.** Booked: **`m-7`** (=C-6-as-rescoped) ⟨**ADDENDUM 2026-09-17 (repair round 1, G19
+∅-closure; §Z)**: record-qualified — the booked row is **`fr-BasisSelector m-7`** (canonical
+`CENSUS-CANONICAL.md` §2 `F.W5-W8` roster, `- **fr-BasisSelector** (3)`). `m-7` is a seven-record
+collider and a bare spelling is not an identity (R-5/U-12); the booking is unchanged, its spelling is
+completed⟩ · **`FR-AUL-46`** (LC-miss-M5) · **`FR-FG-21`**
 (=LC-missed-2) · **`FR-AFP-33`** (D-17/L-20/L-22); **`R-16`** (SliderControl) **FOLDS — books nothing
 new**; **`fr-ContourSettings B-1 / L-B1 / C-2`** is a **LEG CITED, HELD AT F.W3** (canonical home `F.W3`,
 file-criterion §5.d; legs `F.W5-W8`, `SS-13`) — **the ROW is F.W3's and only the contract obligation is
@@ -1548,7 +1557,10 @@ sits in the consumer that receives the **conformant** payload, while the consume
 **DISPOSITION.** **`FR-AFP-32`** rides as a **LEG held at F-W3** (D-16/L-13/C:D-15; ⊕ the `FR-AFP-40`
 fold, ⊕ `FR-AFP-69` = β-miss-5). **`fr-GalleryCard L·M-4 / D-13 / C-8(a) + L·D-2 / C-12`** folds here —
 **the FULL banked spelling**, because the record's own routing is what splits the work: *"→ F.W3;
-serializer → F.W5–W8; JSC → SS-13"*. ▲ **F.W5 owns ONLY the serializer arm.** The five-copy `timeAgo`
+serializer → F.W5–W8; JSC → SS-13"*. ⟨**ADDENDUM 2026-09-17 (repair round 1, G19 ∅-closure; §Z)**:
+holder named in this clause's own voice, not only inside the quoted routing — the row is **held at
+F-W3** (canonical `fr-GalleryCard` **`L·M-4`**: home **F.W3** <sub>legs: F.W5-W8, F.W3/W4, SS-13</sub>);
+F.W5 takes the `F.W5-W8` serializer leg and books no canonical row by this fold⟩ ▲ **F.W5 owns ONLY the serializer arm.** The five-copy `timeAgo`
 family's shared formatter is **F.W3's and already banked as `FR-AUL-17` — do NOT re-book it here**
 (GalleryCard states the fold explicitly). **F-W8's §6a names the same id as an exclusion-with-reason
 pointing here.** JSC acceptance of the non-ECMA form → **SS-13**. Home: the **fourier API row** for the
@@ -1713,7 +1725,10 @@ a derived entity **at the moment of derivation, without an act**. Register rows 
 **unreachable as a product today on the fourier side**, which is why R8's publish act and §D1's
 `CLIENTABLE` disposition are one decision seen twice.
 
-**DISPOSITION.** Booked: **`R-5`** (lane-crud) ⊕ **`GCM-1`** ⊕ **`fr-GalleryCard D-7 / C·I-2`** (the FULL
+**DISPOSITION.** Booked: **`R-5`** (lane-crud) ⊕ **`GCM-1`** ⟨**ADDENDUM 2026-09-17 (repair round 1, G19
+∅-closure; §Z)**: `fr-GalleryCardModal` **`GCM-1`** rides as a **LEG — held at F-W4** (canonical home
+**F.W4**, legs `F.W5-W8`); this clause takes only the CONTRACT FACT on that leg — which is what the ▲
+below already says in prose — and books no canonical row by it⟩ ⊕ **`fr-GalleryCard D-7 / C·I-2`** (the FULL
 banked head) ⊕ **`X-2`**; **`BLK-1` FOLDS** (VisualizationView). ▲ **F.W5's share of `GCM-1` is the
 CONTRACT FACT — *a save that should have been a remix carries no lineage* — NOT the routing repair**,
 which is F.W4's (`BLK-1` folds; **§D14 owns the joint identity**). `fork_count` unrendered is **load-bearing
@@ -1754,7 +1769,9 @@ the dock the same shape is re-entrant on all three hops — **N clicks ⇒ N pub
 
 **DISPOSITION.** **`fr-GalleryDraftsSection B-2`** rides as a **LEG held at F-W3**; **`fr-CanvasControlsDock
 D-4 / L-1 / C-3`** (the full banked head) rides as a **LEG held at F-W4**; **`FR-GV-1` FOLDS at banked
-severity**; **`fr-EditorControlsDock C-7`** is the rider; **intake `X-3`** is consumed. **Split adopted**:
+severity** ⟨**ADDENDUM 2026-09-17 (repair round 1, G19 ∅-closure; §Z)**: holder named —
+`fr-GalleryView` **`FR-GV-1`** is **held at F-W3** (canonical home **F.W3** <sub>file-criterion →
+§5.d</sub>, legs `F.W5-W8`, `SS-13`); the fold is into this clause's mechanism, never a re-booking⟩; **`fr-EditorControlsDock C-7`** is the rider; **intake `X-3`** is consumed. **Split adopted**:
 props/reconciliation → **F.W3/W4**; **server dedupe → this contract**. ▲ **K12 PROBE-SUPPRESSION LOCK:
 both axes' UNPROVEN-NEEDS-LIVE hedges are DEAD — `fr-GalleryDraftsSection B-2` closes it STATICALLY
 (no-header idempotency passthrough ⊕ the plain index); SS-13 spends NO probe here.** ▲ The record's own
@@ -2224,7 +2241,11 @@ subject**. ⊘ *The banked cell says `getPoints()` is exposed "two lines earlier
 **DISPOSITION.** Booked at the record's own ADJUDICATED cell, verbatim at record case (⟨cmd⟩ base `$R`,
 `/usr/bin/grep -n -F 'a TWO-member change' fr-ContourPreview.md` → `:46`): ***"ADJUDICATED → **F.W5**
 (readonly/`getPoints` seam; a TWO-member change — `points` AND `magnetRadius`)"***. **Owned here because
-the record routed it here.** ▲ **Row 11's one-character `?:` fix pairs at F.W4 "per the L-lane carry" —
+the record routed it here.** ⟨**ADDENDUM 2026-09-17 (repair round 1, G19 ∅-closure; §Z)**: the booked
+row's canonical id is spelled here so the set-difference can see it — **`fr-ContourPreview` `L:L-5`**
+(`CENSUS-CANONICAL.md` §2 `F.W5` roster, `- **fr-ContourPreview** (1)`; the record's own *row 13*).
+`L:L-5` is a two-record collider, so the qualified spelling is the booking and the bare form is not an
+identity (R-5/U-12). The clause's verbatim ADJUDICATED quotation above is unedited⟩ ▲ **Row 11's one-character `?:` fix pairs at F.W4 "per the L-lane carry" —
 F.W4 must NOT land row 11 presuming row 13's seam shape**, because the seam's shape is what this clause
 decides.
 
@@ -2614,7 +2635,11 @@ FIELD**, in F.W5's own voice, for three reasons that are facts of the measuremen
    parameter, and the split makes **FR-EQR-32's sink-class clause enforceable**: the decorated field has
    exactly one lawful sink (a trusted HTML renderer) and the portable field has all the others.
 
-**DISPOSITION.** Booked: **`FR-EQR-4`** (reader-2 missed M-1) ⊕ **`FR-EQR-32`** (cited at §B1);
+**DISPOSITION.** Booked: **`FR-EQR-4`** (reader-2 missed M-1) ⟨**ADDENDUM 2026-09-17 (repair round 1,
+G19 ∅-closure; §Z)**: `fr-EquationResult` **`FR-EQR-4`** rides as a **LEG — held at F-W4** (canonical
+home **F.W4**, legs `F.W5`); the canonical `F.W5` row this clause books is **`FR-EQR-32`**, and
+FR-EQR-4's contract fact is carried on its leg, not re-booked. The ▲ LOCK below is unaffected: F.W4
+still may not report a sink-side strip as closing it⟩ ⊕ **`FR-EQR-32`** (cited at §B1);
 registry-swept, unbanked elsewhere. The act — **the field split on the wire, portable by default** — is
 the **fourier API row's**, and it composes with §F1: when `latex_sigma` joins `SimplifyResponse`, **it
 joins in the portable spelling.**
@@ -3074,3 +3099,56 @@ clause is numbered D9 — `D9` is reserved throughout for the ruled owner decisi
 contradict. Every `K-n` citation in this document carries its record: `fr-EquationView K-13` at §F2 and
 `fr-ConvergencePlot K-13` at §F7 are two different records' kills, and a bare `K-n` may not be quoted as
 a lock or entered into a set-difference.*
+
+---
+
+## §Z — Dated addendum, 2026-09-17 (repair round 1: G19's ∅-closure)
+
+*Authored by the **REPAIR seat, round 1** (F.W5 Track C), under the wave's own §1a `create` grant on this
+file. **E-3 held: this is an ADDENDUM, not a patch.** Not one word of units b/c/d's clauses is deleted or
+re-written — every correction below is an additive `⟨**ADDENDUM 2026-09-17 …**⟩` mark standing beside the
+sentence it corrects, and the prior sentence is left readable exactly as it was authored. §A–§H, their
+71 clause headings, their RULE/WITNESS/DISPOSITION partitions and the `D9` reservation are unmoved.*
+
+**Why this addendum exists.** Unit e's close, the wave-close VERIFY seat and the fresh adversarial CHECK
+(pass 1) each ran G19 independently and each returned the **same five one-token spellings** — two rows of
+the canonical F.W5 band that no RHS byte spelled in identifiable form, and three ids carried in
+`**DISPOSITION.** Booked:` voice whose canonical home is another wave. The escalation filed with them
+rested on the ground that the cure lay outside any F.W5 seat's writable set; **§1a `:63` grants this wave
+this file with `create` access and §1c `:90-92` names units b, c and d as its writers**, so the cure was
+always in bounds — the unit-level partition that put it outside *unit e's* set is the wave's own serial
+plan, not a spec bound. Runbook **§5.7** makes the *third* diagnose→edit→re-measure iteration the
+triumvirate trigger; this is **iteration 2 of the three §1c and §6 allow**.
+
+| # | site | the canonical fact | what the addendum mark adds | direction |
+|---|---|---|---|---|
+| 1 | **§A3** | `fr-GalleryCardModal` `GCM-10` → home **F.W3** <sub>file-criterion → §5.e</sub>, legs `F.W5-W8` | the pair is split: **`GCM-55`** (canonical `F.W5-W8`) is the booking; `GCM-10` rides as a **LEG — held at F-W3** | RHS \ LHS |
+| 2 | **§D7** | `fr-BasisSelector` `m-7` — canonical `F.W5-W8` roster, `- **fr-BasisSelector** (3)` | the bare `m-7` (a **seven-record collider**) is **record-qualified** at its booking | LHS \ RHS |
+| 3 | **§E4** | `fr-GalleryCardModal` `GCM-1` → home **F.W4**, legs `F.W5-W8` | **LEG — held at F-W4**; the clause keeps the contract fact on the leg and books no canonical row by it | RHS \ LHS |
+| 4 | **§E20** | `fr-ContourPreview` `L:L-5` — canonical `F.W5` roster, `- **fr-ContourPreview** (1)` | the qualified id is **spelled** beside the verbatim ADJUDICATED quotation that lands the row | LHS \ RHS |
+| 5 | **§F8** | `fr-EquationResult` `FR-EQR-4` → home **F.W4**, legs `F.W5` | **LEG — held at F-W4**; the canonical `F.W5` row this clause books is **`FR-EQR-32`** | RHS \ LHS |
+| 6 | **§E5** *(rider)* | `fr-GalleryView` `FR-GV-1` → home **F.W3** <sub>file-criterion → §5.d</sub> | the **holder is named** beside *"FOLDS at banked severity"* | MINOR |
+| 7 | **§D17** *(rider)* | `fr-GalleryCard` `L·M-4` → home **F.W3** <sub>legs: F.W5-W8, F.W3/W4, SS-13</sub> | the holder is named **in the clause's own voice**, not only inside the quoted routing | MINOR |
+
+Rows 6 and 7 are the two MINOR folds the close's residual **R-1** offered this addendum a ride; they
+move no gate.
+
+**What did NOT change, stated so the addendum cannot be read wider than it is.** No clause's RULE,
+WITNESS or act moved. No row changed its home, its severity or its owner — every holder named above is
+read **off the canonical**, never decided here. Nothing was normalised away and no id was removed from
+any list: all **116** canonical rows had a real landing before this addendum and have the same landing
+after it. The register, the ruling block, the spec, `CENSUS-CANONICAL.md`, the adjudicated registry,
+`COHESION.md` and **v1** are byte-untouched by this seat, and the fourier tree is untouched entirely.
+
+**The re-run (iteration 2), double-run at the settled bytes.** Instruments rebuilt at this seat from the
+canonical alone — pinned `shasum -a 256` `f443627574581ec2…`, rosters `F.W5` **27** ⊕ `F.W5-W8` **89** =
+**116**, closed independently at the declared `(n)` sum and at the backticked-id count — and validated as
+**discriminating** before any byte was written: run against the **pre-addendum** file they returned
+exactly the five that unit e, the VERIFY seat and CHECK 1 each found, and nothing else. Against the
+settled bytes: **LHS \ RHS = ∅ · RHS \ LHS = ∅.** The receipts are in the wave record's `## Repair 1`.
+
+**For the co-signing repo.** The relay letter
+(`docs/tranches/X/coordination/value-to-fourier-cosign-J-diff-shape-v2.md` §3) asked fourier to co-sign
+*now* or *held for the addendum*. **This is that addendum**, and it carries a new digest for this file;
+the letter's own dated addendum records it. Nothing fourier was asked to co-sign has changed in
+substance — five spellings became identities.
