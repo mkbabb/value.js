@@ -371,9 +371,12 @@ by a hand that can answer an admin prompt, or the owner's Safari restarted* — 
 
 ## 8 · PROBE PARSIMONY · BOUNDS · MAIL
 
-- **Browser drives, total**: 4 safaridriver sessions (all created and **deleted**, including on the
-  failure path) + 3 playwright launches. No DevTools-MCP. Files were read to plan; the browser was
-  driven only for cells that need pixels or live computed style.
+- **Browser drives, total, self-counted**: **4** safaridriver sessions (all created and **deleted**,
+  including on the failure path) and **8** playwright `chromium.launch()` calls across 5 script runs
+  (2 + 3 on the two `W9d-cell-capture-chromium-webkit.mjs` runs, then 1 each for the amiga re-measure,
+  the two AT shots and the attribute-set verification). **0** `webkit.launch()` — it throws on this
+  host. No DevTools-MCP. Files were read to plan; the browser was driven only for cells that need
+  pixels or live computed style.
 - **Bounds**: this unit wrote only `safari-real/hcm-*`, `safari-real/at-*`,
   `docs/tranches/X/keyframes/evidence/W9/**` and `docs/tranches/X/execution/B/KF-W9.md`.
   `capture.mjs` / `states.mjs` / `safari-real-matrix.js` / `REPORT.*` / `STATES.json` were **not
