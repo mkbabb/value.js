@@ -1371,3 +1371,87 @@ src api demo test e2e` → **0** at close · `scripts/dev/dev.sh` never touched,
 
 `W0.md` is **not edited** — it is a dated spec and E-3 makes it immutable. This stamp is the dated
 record beside it.
+
+---
+
+## Check 1
+
+**Seat**: FRESH ADVERSARIAL CHECK, L-20 pass 1 (independent of every executing seat; this seat
+cured nothing and wrote nothing outside this record and `LEDGER.md`) · `claude-opus-5[1m]` ·
+2026-09-17 · `cwd = /Users/mkbabb/Programming/value.js`, darwin arm64, node v26.0.0.
+**Read whole**: `docs/tranches/X/parse-that/waves/W0.md` (602 L) · this record (1,374 L) ·
+`docs/tranches/X/parse-that/waves/W0-CLOSE.md` (578 L) · every commit the record names.
+
+**VERDICT: CONFORMANT.** Zero BLOCKER · zero CRITICAL · zero HIGH. **8 of 8 gates re-run by this
+seat against `W0.md` §6's own GREEN definitions, 8 of 8 reproduce. 0 failed.**
+
+### Gates re-run by this seat — every one reproduces
+
+| gate | this seat's own command | reading |
+|---|---|---|
+| **G-1** | ⟨cmd⟩ `shasum -a 256` ×4 · `tail -c 30242 <ADOPT-COPY> \| shasum -a 256` · `shasum -a 256 BUILD-V12.py __pycache__/*.pyc` | **GREEN.** `244c448a…504a7` · `aa891714…92767` · `0002ed93…7d0f50` · `tail -c` ⇒ `244c448a…504a7` · builder `0732ebc2…64ee8` · residue `de1d62ff…c00937` — all equal to the record. Row 1 (the handoff) re-derived at the close commit's blob ⟨cmd⟩ `git show 61217711:<handoff> \| shasum -a 256` → `ced23440…f20f7` (see D-5) |
+| **G-2** | ⟨cmd⟩ `ls -1 …/2026-08-02/ \| wc -l` → **133** · `grep -c '^parser-novelty-and-experiment-v12$'` → **0** · `grep -c '^parser-novelty-and-experiment-v[0-9]*$'` → **11** · `test -e` → **ABSENT** | **GREEN.** Absence by enumeration of a listable parent; the falsifier does not fire |
+| **G-3** | ⟨cmd⟩ `sh -n roots-census.sh` → exit 0 · `diff census-before census-after` → **(empty)** · a **fourth, independent capture by this seat** → `7f0c5b13a3e80f54d290008830024cd6c0f2300ea0a5898f91c4c88b431019d7`, `diff` vs `census-before` **(empty)**, stderr **0 bytes**, `ROOTS ENUMERATED: 18` ×1 | **GREEN whole.** Four captures, one digest |
+| **G-4** | ⟨cmd⟩ `rev-parse HEAD` → `f5757082ca160dd5f25fcf437e692c9df8f7e78d` · `status --porcelain` **0** · `rev-parse --abbrev-ref HEAD` → `HEAD` · `remote -v` **0** · `for-each-ref refs/heads refs/remotes` **0** · `cat-file -t HEAD` → commit · `HEAD^{tree}` → `3809a1ed…` · 691 files · `.git` a **DIRECTORY** | **GREEN**, all four conjuncts + both falsifier probes |
+| **G-5** | (i) `worktree list` **7** · HEAD `ef10d5b78236c4a30a7bb22a6113b60bdc4bdf42` · `branch -a` **33** · `status --porcelain` **31** — the quadruple unmoved · (ii) ⟨cmd⟩ `comm -12` over `stat -f '%i'` of both object stores → **0 lines / 0 bytes**, `4239` unique inodes each, `-links +1` → **0** in both · (iii) `du -sh …/parse-that/.git` **28M** · `NO-GC-LOG` · objects **4239** · `.git/worktrees` **6** · `worktree list \| grep -c totality-p2` **0** | **GREEN ×3** |
+| **G-6** | ⟨cmd⟩ `node …/harvest-journals.mjs` (**unmodified**, cwd sandboxed) → **EXIT=0** · `x-p-w0.json` present, `30067` B / `190` L / `cccd07a2…dabe0`, `runId wf_c431fb2c-82d`, `resultCount 4` = the **4 units dispatched** · `EVIDENCE-CHAIN.md` present · repo `registry/harvest` + `DEFECT-LEDGER.md` porcelain **0** after the sandbox run | **GREEN on the gate's stated GREEN condition** |
+| **G-7** | row 1 `stat -f '%z %p %l %i %Sm'` → `243827 100644 1 241579269 Aug 2 13:19:15 2026`, `find -newermt '2026-09-01'` → **0** · row 2 as G-2 · row 3 `<p2>` porcelain **0**, `NO-NODE_MODULES`, `target\|__pycache__` **0**, 691 files · row 4 `status --porcelain -- src test e2e api package.json package-lock.json` → **0**, `-- src api demo test e2e` → **0** · row 5 residue `de1d62ff…c00937`, `154221 100644 1`, mtime `Aug 2 11:36:36 2026`, root holds **2** files · row 6 the 4-unit roster · row 7 `grep -rn 'parse-that' X/{fourier,keyframes}/waves/ \| wc -l` → **47** | **GREEN — 7 rows, 7 PASS, 0 blanket claims** |
+| **G-8** | ⟨cmd⟩ `grep -c 'X·P release condition → KF.W3' COHESION.md` → **1** · `grep -c 'parse-that→fourier is FORBIDDEN'` → **1** · same against `HEAD`'s blob → **1** and **1** · chain block byte-compared against the handoff §2 *"The only lawful receiver path remains:"* fence → **verbatim** · `grep -c 'Fourier F.W0 atomic tuple' <chain>` → **1** · `grep -c 'COHESION.md:[0-9]' <chain>` → **0** | **GREEN — 2 of 2 ends** |
+
+### The other eight axes
+
+| axis | this seat's receipt | verdict |
+|---|---|---|
+| **bounds** | ⟨cmd⟩ `git show --name-only --format=''` over all eleven X.P.W0 commits: the union is the ten `W0.md` §4 rows plus the standing record/ledger paths. `8a83c8bb` prints **nothing** (empty by design). **Zero paths outside §4** | **CLEAN** |
+| **`dev.sh`** | ⟨cmd⟩ `git show --name-only` ×11 `\| grep -c 'scripts/dev/dev.sh'` → **0** at every commit; ⟨cmd⟩ `git status --porcelain -- scripts/dev/dev.sh` → ` M`, **unstaged** | **NEVER TOUCHED** |
+| **masking** | ⟨cmd⟩ `grep -nE 'test\.skip\|it\.skip\|xit\(\|allowlist\|catch *\(\|try *\{\|\|\| *true\|--force\|node_modules/'` over all five hand-authored artefacts → **1 hit**, and it is `EVIDENCE-CHAIN.md:292`'s *prose* citation of `KF-W0.md`'s `node_modules/@mkbabb/parse-that` inventory line. Zero test code touched; zero `node_modules` patched; the `DEFECT-LEDGER` whitespace was **deliberately not** hand-corrected (that would be the masking fix); the harvester ran **unmodified** | **NONE** |
+| **commit families** | `EXECUTION-RUNBOOK.md` §3.4 declares **no** X.P.W0 lock. §9's five subjects landed verbatim. One split — see **D-2** | **MINOR** |
+| **E-3** | ⟨cmd⟩ `shasum -a 256 W0.md` → `ab16168c…33bac`; ⟨cmd⟩ `git show 7d6b83fd:…/W0.md \| shasum -a 256` → `ab16168c…33bac` — **byte-identical from the pre-wave base to HEAD**. ⟨cmd⟩ `git diff --stat 7d6b83fd..HEAD -- registry/adjudicated/ parse-that/waves/W0.md` → **prints nothing**. No X.P.W0 commit names `registry/adjudicated/` or any conformance artefact. (The 58 `adjudicated/kf-*.md` rows dirty in the tree at this seat's clock are a **concurrent Track B KF.W0.e** append, mtime `Sep 17 13:52` — after this wave's close, and in none of its commits) | **HELD** |
+| **mail (E13)** | the scope claim holds — the one UNREAD row is **I-31**, an atlas→value consumer-contract letter whose own Routing cell reads *"X-W0 close reads this row"*, i.e. **Track A's**, not X.P.W0's. But the published *receipt* is wrong — see **D-1** | **GATE HELD; RECEIPT MINOR** |
+| **four-verb** | AUDITED YES · SPECIFIED YES 2026-08-04 · **IMPLEMENTED YES 2026-09-17 (the one moved)** · VERIFIED **NO**, reserved to X.P.W4 (R-A). `W0.md` not edited; the stamp is the dated record beside | **LAWFUL — exactly one moved** |
+| **§2a goal criterion, at the bytes** | a writer can begin on a **provably fresh** root (`<p2>/.git` a directory, absent from the source's worktree registry, inode intersection ∅) at the **provably ruled** commit (40-hex string equality, subject + date re-derived *in the clone*), with every handoff claim **re-derived from disk** (7/7 disposed, 0 quoted) and every preserved root **demonstrably untouched** (four captures, one digest, spanning the clone) | **MET** |
+| **published figures** | reproduced to the character by this seat: `36269`/`504`/`b7aa83e9…17535` · `25088`/`5821b5e1…2794` · `6575`/`56e3d6c4…83fd` · `3242`/`7f0c5b13…19d7` ×2 · `21964`/`317`/`34dd436c…43c4` · `30067`/`190`/`cccd07a2…dabe0` · `4239`→`4239` · `691` · `47` · `133` · **R-5's arithmetic exactly**: `grep -c '^\*\*Defect\.\*\* $'` → **1473**, `grep -c '^### '` → **7506**, and over `9c72f097^`→`9c72f097` **LOST 0 / RECOVERED 1473**, `10494611`→`10548743` B, `6033`→`7506` rows. Two receipts do not reproduce — **D-1**, and R-1 which the close **self-caught** | **REPRODUCE (2 MINOR)** |
+
+### Register — 5 defects, 0 blocking
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **MINOR** (mitigated) | The close's E13 receipt misclassifies one of its own eleven rows. `W0-CLOSE.md` §5 and this record's §Close both publish *"`grep -n -i 'unread'` on `INBOX.md` → 11 rows, **all** law text or prior sweep records; **no row's status cell reads UNREAD**."* At the close commit's own blob, line **103** is row **I-31**, whose status cell reads literally `**UNREAD 2026-09-17**` | ⟨cmd⟩ `git show 61217711:docs/tranches/V/coordination/INBOX.md \| grep -c -i 'unread'` → **11** (the count reproduces) ; ⟨cmd⟩ `… \| sed -n '103p' \| grep -o '\| \*\*UNREAD 2026-09-17\*\*'` → **1 hit**. Same at the working tree today | **NOT BLOCKING — the gate itself holds.** E13 binds *"UNREAD mail **in scope**"*, and I-31's own Routing cell assigns it to **X-W0 (Track A)**: *"X-W0 close reads this row and marks it FOLDED"*. Its subject — atlas's `/math` `/easing` `/color` consumer contract — touches no X·P byte. The wave's own scope sentence (*"0 UNREAD in X.P.W0's scope"*) is TRUE. Cure: the classifier sentence is corrected here as a **dated addendum beside**; neither receipt is rewritten (E-3). **X.P.W1 seat 0** carries the corrected reading — this is the same class as the close's self-caught **R-1**, and it is the second instance, so W1's E13 step must classify **per status cell**, not per `grep -i` line |
+| **D-2** | **MINOR** (mitigated) | §9's commit ④ family split across tracks. It designs unit `.d`'s five paths into one commit; only `EVIDENCE-CHAIN.md` (+45) landed in `6da438f6`. `DEFECT-LEDGER.md`, `x-p-w0.json`, `census-after.txt` and `COHESION.md` rode Track A's `9c72f097`; `.b`'s record block rode Track B's `a10e33ad` | ⟨cmd⟩ `git show --name-only --format='' 6da438f6` → **1 path** ; `… 9c72f097` → six paths, four of them `.d`'s ; `… a10e33ad` → `X-P-W0.md` + `LEDGER.md` | **NOT BLOCKING.** `EXECUTION-RUNBOOK.md` §3.4 declares **no** commit-family lock for X.P.W0, so no *binding* family was split. Every path is a `W0.md` §4 row — the bytes never left bounds. Byte-integrity verified by this seat: ⟨cmd⟩ `git diff HEAD --stat -- <all five>` → **0**; both G-8 fragment greps against `HEAD`'s `COHESION.md` → **1** and **1**. Cause is a shared-index race between concurrent tracks, not a seat's election; disclosed at the time by the units, by the absorbing Track A seat (`7f7455bd`), and ruled in `W0-CLOSE.md` §3 with the sharpened law (*the `--only`/`-- <path>` **commit** verb; stage late and commit in the same breath*). **No history rewritten** — correct. Cure: already law; **every concurrent-track seat** applies it |
+| **D-3** | **MINOR** | `roots-census.sh` cannot express the **EPERM** state `W0.md` §5 `.b` names. §5 asks for *"git identity … or 'not a repository', or 'EPERM'"*; the script's vocabulary is `ABSENT` / `PRESENT × {short-sha, NOT-A-GIT-ROOT}` only, and both `git rev-parse … 2>/dev/null` and `find … 2>/dev/null` swallow a permission error. Under a revoked `~/Documents` grant, rows 14 and 16 would print `PRESENT NOT-A-GIT-ROOT 0` — conflating exactly the two states **G-2** exists to separate | ⟨cmd⟩ `grep -c 'EPERM' docs/tranches/X/parse-that/evidence/W0/roots-census.sh` → **0**; the `census_row` branch set is `ABSENT` \| identity \| `NOT-A-GIT-ROOT` | **NOT BLOCKING, and nothing is conflated today**: the grant is live, all eighteen rows resolve, so no EPERM row exists to be mis-stated — ⟨cmd⟩ the capture's rows 14/16 read `PRESENT NOT-A-GIT-ROOT 2` / `8` with real file counts. It is disclosed *in prose* beside the instrument (`FROZEN-ROOTS-CENSUS-2026-09-17.md` §1b marks 14/15/16 as formerly-EPERM addenda) and by **R-10** (*the grant is dated, not durable*). Cure, owned by **X.P.W1**: add a third disposition to `census_row` — probe `[ -r "$p" ]` before the `find`, print `EPERM` and suppress the file count — landing as a dated successor script beside, never an edit that would move the `7f0c5b13…19d7` baseline mid-lane |
+| **D-4** | **INFO** | **R-2 re-ruled, and the ruling is upheld.** G-4's fourth conjunct (*"`remote -v` prints nothing"*) is unreachable by §5's two literal commands; `.c` reached it with `git remote remove origin` + `git branch -D master` | ⟨cmd⟩ `git -C <p2> config --local --list` → six `core.*` keys, **zero** `remote.*` / `branch.*` ; `for-each-ref --format='%(refname)'` → **9 rows, all `refs/tags/*`** ; objects **4239**, `-links +1` **0** — nothing pruned | **NOT A DEFECT AND NOT A MASK.** A mask hides a defect; this **removes** one — a live *push* URL into the shared repository of six frozen worktrees, sitting inside the root the wave exists to prove untouched. Both acts wrote only into `<p2>/.git`, which is `.c`'s own writable set, and they land exactly the end state §5's prose states twice (*"No remote is added … no branch is created"*; *"creates no branch ref in the clone that invites a push"*). The divergence is the **spec's**, disclosed with its cost, and routed to the L-18 quartets. Upheld |
+| **D-5** | **INFO** | The lane authority's bytes moved **after** the close and have since committed. ⟨cmd⟩ `shasum -a 256 <handoff>` at this seat's clock → `10a12719772f2aa954469450b2c3f1ab468519949fe4f5c8dcbfecabb83e7171`, `11163` B — not G-1 row 1's `ced23440…f20f7` / `10205` B | ⟨cmd⟩ `git show 61217711:<handoff> \| shasum -a 256` → **`ced234406d3d9ad6bb13e4dce92452a596c9af55dd2091fd90a83f02502f20f7`** — **G-1 row 1 reproduces exactly at the close commit's blob**. The mover is Track A's CC-011 / X-W0.i carve, uncommitted at close and committed since at `2012dbfa` | **NOT THIS WAVE'S ACT, AND ALREADY ABSORBED.** `W0-CLOSE.md` §9 (`76e727be`) books it as a dated addendum-beside with **R-18** telling X.P.W1 to record both digests as dated coordinates and **not** to read the difference as a MISMATCH. The close's own choice to pin row 1 at *"the committed blob at `61217711`"* rather than at a working-tree reading is what makes the coordinate durable — this seat re-derived it from that commit without touching a live byte. Confirms the disposition |
+
+### Superlatives, with provenance
+
+1. **The instrument-cleanliness proof.** `.b` measured `parse-that/.git/index` and all six worktree
+   `index` mtimes **before and after** its own capture run, found them unmoved, and from that derived
+   why the census may not run `git status` at all (`status` refreshes the stat-cache — a write into
+   the repository the census exists to prove untouched), *inside the interval G-3 measures*. This
+   seat re-ran the census a **fourth** time and the digest did not move: `7f0c5b13…19d7`. The
+   discipline propagated — `.c` and the close seat took every source reading with
+   `--no-optional-locks`. A gate that would have silently self-falsified instead holds.
+2. **G-5 (ii) proved non-vacuous before it was reported.** `.c` did not stop at an empty intersection;
+   it showed the two stores *could* share inodes (`stat -f 'dev=%d'` → `16777234` for both) and that
+   the same object path carries **different** inodes on that one device. Re-run here: `4239` unique
+   each, `comm -12` → **0 lines / 0 bytes**, `-links +1` → **0** in both.
+3. **A gate chased to a real defect in shared infrastructure.** `.d` followed `git diff --check`'s
+   2,946 whitespace rows to their cause and found **R-5**: the harvester assumes the *challenger*
+   row schema and silently drops every *conformance*-schema row. Reproduced here to the number —
+   **1473** stubs of **7506** rows, `LOST 0 / RECOVERED 1473`. It then **declined to cure it**,
+   correctly, because §4 gives this wave `execute, no write to itself` over the script and
+   hand-editing generated bytes is a masking fix by definition.
+4. **The escalation was refused rather than performed.** `git push` from `/Users/mkbabb/Programming/parse-that`
+   was returned with three spec citations **and** the measurement that made it moot
+   (`rev-list --count origin/master..HEAD` → **0**). A seat that pushed "harmlessly" would have
+   written remote-tracking state into the very `.git` G-5 (iii) certifies bit-identical.
+5. **The harvest's write surface was measured before the script was allowed to write** — 81 paths
+   outside every unit's bounds — and avoided by bounding the process `cwd` with the script
+   **unmodified**. Re-run by this seat from a sandbox: `EXIT=0`, and ⟨cmd⟩ `git status --porcelain --
+   docs/tranches/V/megatranche/registry/harvest …/DEFECT-LEDGER.md` → **0**. The bounds breach that
+   the naive reading of G-6 invites was found by measurement, not by luck.
+
+**Zero BLOCKER · zero CRITICAL · zero HIGH · 3 MINOR (all mitigated, none blocking) · 2 INFO.**
+**8 of 8 gates reproduce. CONFORMANT.** `W0.md`, `registry/adjudicated/**` and every sibling spec are
+byte-untouched by this wave; `scripts/dev/dev.sh` was never touched and never staged. **VERIFIED
+stays NO — X.P.W4's alone (R-A); this check does not move it.**
