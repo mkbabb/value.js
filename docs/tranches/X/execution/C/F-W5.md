@@ -607,8 +607,12 @@ and the unowned `dev.sh`).
 `glass-outbound-2026-08-29-valuejs-o20-ack.md`@Aug 29 16:41 = **I-30, rowed**. Nothing newer."* **That is
 no longer true at this unit's close**, and the honest act is to say so rather than to inherit a sweep.
 Re-swept read-only at this seat's own clock: ⟨cmd⟩
-`/usr/bin/find ../glass-ui/docs/tranches/BK/coordination -maxdepth 1 -name '*.md' -newermt '2026-09-17 16:05'` → **three letters, all dated 2026-09-17**, classified from each letter's own header block
-(never from a bare `grep -i unread`):
+`/usr/bin/find ../glass-ui/docs/tranches/BK/coordination -maxdepth 1 -name '*.md' -newermt '2026-09-17 16:05'` → **4** (double-run) — ⊘ **and the digit is 4, not the 3 this line first published, because
+`glass-outbound-2026-08-29-valuejs-o20-ack.md` is in the return with a REFRESHED mtime**. That file is
+**`I-30`, already ROWED 2026-08-30**; its *name* is dated Aug 29 and its *mtime* is not, so an
+mtime-keyed sweep counts it and a name-keyed reader would not. **Three of the four are genuinely new**,
+all dated 2026-09-17 in their own headers, classified from each letter's own header block (never from a
+bare `grep -i unread`):
 
 | letter | addressed to | disposition at this seat |
 |---|---|---|
