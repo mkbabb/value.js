@@ -1628,3 +1628,233 @@ the pointer cites) and **X-W0.c C1–C8** `:742–818` (the measured ground).
 ### Unit receipts (resume round)
 
 _(empty at open — each unit appends its own block below, newest last.)_
+
+#### X-W0.k — the HG-7 corpus predicate and the §Verification Artefacts pointer (COHESION §0k.1) — **DONE**
+
+**Seat**: Opus (`claude-opus-5[1m]`) · resume round group 1 · 2026-09-17
+**Sections executed**: `waves/W0.md` §Hard Gate **HG-7** `:251–259` · **HG-6** `:246–249` · **HG-8**
+`:261–264` · §Agent Units **X-W0.c** `:158–163` · §File Bounds `:75,:84,:85,:92,:93` · §Disjointness
+`:119` · §Format And Lint Cadence `:336–346` · §Commit Plan rows **5** `:375` + **11** idiom `:381` ·
+§Verification Artefacts `:350–363`; **COHESION §0k.1** `:696–715`; this record **§4** `:1345–1370` and
+**X-W0.c C1–C8** `:742–818`; §RESUME plan `:1503–1630`.
+**Rulings consumed**: §0k.1's **HG-7 (E-1)** row (SCOPE now, HARVEST at X-W11, both) · its **HG-10
+(E-2)** row (the supersession column IS the cure) · its **E-3** row (`X/artefacts/W0/` — no new
+directory) · its contamination row (**pathspec on the commit itself**).
+**HEAD at open**: `6d4221c5` ⟨`git log --oneline -1`⟩ · branch `tranche-u`.
+**Commits**: **`de85e26c`** (validator + regenerated ledgers, ONE commit, 2 paths) · **`04ea2ac6`**
+(`waves/W0.md` §ADDENDUM, 1 path) · this receipt.
+**Anchors verified at true bytes before editing** — none had drifted: `waves/W0.md` §Verification
+Artefacts at **`:350`**, *"Banked under …"* at **`:352`**, the ten artefact rows **`:354–363`**; this
+record's §4 heading at **`:1345`**. ⟨`sed -n '350,352p;362,363p' waves/W0.md`⟩.
+
+##### Acts, in order
+
+**K1 · HG-7 re-measured FIRST at this seat's own clock, double-run, before one byte moved.** The
+inherited figure is **not** carried forward (§RESUME **F-R1**). ⟨`node …/validate-completeness.mjs
+--self-test`⟩ → verbatim, both runs byte-identical ⟨`diff run1 run2`⟩ → empty:
+
+```
+baseline (unmutated tree): exit 1 · 89 uncovered · 264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED
+three integers (canonical roster): EXISTS-ORIGINAL 213 · UNWITNESSED-DIRECT 5 · REPORT-AUTHORED 46
+BASELINE IS NOT GREEN — self-test is meaningless until the real tree passes. Fix the tree first.
+```
+
+**89**, not 87 — seat 0's F-R1 reproduces exactly. ⟨`git status --porcelain`⟩ byte-identical across
+the two runs' ledger sha256s ⟨`shasum -a 256` before/after⟩ — **`--self-test` writes nothing**, proven
+rather than assumed.
+
+**K2 · The corpus measured before the predicate was written**, so the law would range over a datum
+that exists rather than one invented for it. ⟨`node -e` over `SESSION_WF`, read-only⟩: **128** run
+records, **128** carrying a `timestamp` field, **0** unreadable, **0** missing it. **33** timestamped
+on or before **2026-08-03**, **95** after. **The boundary is unambiguous at the bytes**: the last
+in-corpus record is `wf_b1903beb-e2b`@`2026-08-03T19:10:14Z` and the first out is
+`wf_a376b9ac-d45`@`2026-08-04T16:19:27Z` — a **21-hour gap**, so no UTC-vs-local reading can move a
+single row. Restricted to the **non-band** set the law governs: **122** records = **27 in corpus** +
+**95 out**.
+
+**K3 · The predicate, written into the non-band law in §0k.1's own words.** `validate-completeness.mjs`
+gains `CORPUS_BOUNDARY = '2026-08-03'` and `inCorpus()`, stated in the ruling's language — *"run
+records at or before the megatranche dispatch boundary (timestamped ≤ 2026-08-03) plus any record a
+canonical row cites; live tranche-X session journals are outside its corpus by construction"*. Three
+properties, each load-bearing, each written as a property rather than a comment:
+
+| property | how it is built | why it is not a suppression |
+|---|---|---|
+| **FAIL-CLOSED** | a record with no readable `timestamp` returns `{inside:true}` | the exclusion must be *positively established* from the record's own datum; absence never buys it |
+| **THE CITATION CLAUSE IS LIVE** | `citedByCanonicalRow` is built in `gather()` from the harvest payloads' `reportPath`s against the canonical-roster axis set — **the same construction the denominator uses**, so "canonical row" cannot mean two things in one script | a record of **any** date that actually produces megatranche coverage is in corpus; it admits **0** extra records today and is the seam that keeps that true |
+| **IT SUPPRESSES NOTHING** | out-of-corpus records are read, put through the *identical* `nonBandVerdict`, and printed in their own ledger section | the finding survives with a date, a breakdown and a named owner |
+
+**The record's own `timestamp` is the datum** (`startTime` its only in-record fallback). Neither is
+invented; `SESSION_WF` itself is untouched and unwritten.
+
+**K4 · WRITE-THEN-MEASURE caught my own first carve suppressing the record, and it was fixed at the
+generator.** The first version printed the out-of-corpus **count** and a per-workflow attribution but
+**stopped naming the 95 records by run id** — ⟨`grep -c 'wf_ca218d91-9c7' COMPLETENESS-LEDGER.md`⟩
+fell **1 → 0**, and a ledger that had named every non-band run since it was written would have
+silently dropped 95 identities. **A scope that stops NAMING what it stops gating has become a
+suppression.** The section now carries a full per-record table — run id, dispatching workflow, why it
+is out of corpus, record status, agents, harvested, and the verdict it **would** have taken.
+Re-measured after the fix: **122 non-band run ids in the session directory · 0 absent from the
+regenerated ledger** ⟨`node -e` set-difference over the ledger text⟩.
+
+**K5 · The printed complement, dated and owed — the ledger's own face.** Regenerated section
+`## Out-of-corpus run records — DATED AND OWED (COHESION §0k.1, 2026-09-17), never suppressed`:
+
+| owed shortfall | out-of-corpus records |
+|---|---:|
+| completed but NOT HARVESTED | **77** |
+| harvest short of seats | **12** |
+| stale harvest disposition | **0** |
+| record not terminal | **0** |
+| **total** | **89** of **95** |
+
+attributed by dispatching program (27 distinct workflow families; largest: `xf-repair-r*` **14** ·
+`adjudication-batch*` **9** · `fourier-saturation-batch*` **8** · `xp-fold-repair-r*` **8**), owed at
+**X-W11's close via `workflows/harvest-journals.mjs`**, which rewrites `registry/DEFECT-LEDGER.md`
+inside X-W11's own bounds. **The GREEN verdict line itself says so**: *"it does not discharge the 89
+owed out-of-corpus shortfalls above"*. The scope **gates less and hides nothing**.
+
+**K6 · Both ledgers regenerated through their generators only** (§Disjointness `:119` — a hand edit is
+forbidden). ⟨`node …/hydrate-reports.mjs`⟩ → `roster predicate: 283 rows = 264 canonical roster + 19
+non-roster` · `three integers (roster): EXISTS-ORIGINAL 213 · UNWITNESSED-DIRECT 5 · REPORT-AUTHORED
+46 → 264 = 218 CHALLENGED + 46 REPORT-AUTHORED`. ⟨`node …/validate-completeness.mjs`⟩ → `denominator:
+264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED`. **213 · 5 · 46 = 264 = 218 + 46**, moved
+by nothing. **`HYDRATION-LEDGER.md` carries no diff** — the hydration generator reproduced its
+committed bytes exactly, which is itself the reconciliation proof that this cure did not touch the
+denominator. It is named in the commit's pathspec regardless, because the family must not split.
+
+**K7 · HG-7 AFTER — GREEN, double-run.** ⟨`node …/validate-completeness.mjs --self-test`⟩, exit **0**
+both runs, ⟨`diff run1 run2`⟩ empty:
+
+```
+baseline (unmutated tree): exit 0 · 0 uncovered · 264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED
+three integers (canonical roster): EXISTS-ORIGINAL 213 · UNWITNESSED-DIRECT 5 · REPORT-AUTHORED 46
+corpus predicate (COHESION §0k.1, 2026-09-17): run records timestamped ≤ 2026-08-03, plus any record a canonical roster row cites
+non-band records: 27 IN CORPUS (gating) · 95 out of corpus, of which 89 OWED and dated — harvest at X-W11's close, via workflows/harvest-journals.mjs. Scoped, not suppressed.
+…
+SELF-TEST PASS — 6/6 injected violations correctly rejected.
+The gate can fail for each of its intended reasons, and does not fail on the real tree.
+```
+
+**All six rejected, each for its own reason** (⟨`grep -c 'PASS — correctly rejected'`⟩ → **6**): S1
+absent axis → `core / App — D` · S2 hash drift → `core / App — L` · S3 unharvested run →
+`(non-band) / wf_selftest-unharvested` · S4 short harvest → `(non-band) / wf_selftest-short` · S5
+ex-exempt-band regression → `frontend-omissions / shell-dock-genericactionbar — C` · S6 stale harvest
+disposition → `(non-band) / wf_a6f71311-4e5`. **Not one fixture was weakened, re-pointed or given a
+cutoff.**
+
+**K8 · The predicate carries its own falsifier, and it was FIRED, not paraphrased.** S3/S4 inject
+synthetic records that carry **no timestamp** — so they are exactly the fail-closed case. Inside the
+ephemeral worktree, `inCorpus` was flipped **fail-open** (a missing timestamp *excluded* instead of
+included) and the harness was re-run:
+
+```
+[S3] … FAIL — falsely accepted
+[S4] … FAIL — falsely accepted
+SELF-TEST FAIL — 4/6 injected violations correctly rejected.
+```
+
+**The fail-closed reading is therefore load-bearing**: a future weakening of this scope cannot pass
+HG-7 silently. Restored → ⟨`git diff --exit-code`⟩ **0**.
+
+**K9 · HG-8 — the ephemeral-worktree replay, run at two HEADs, twice each, with the `:264` falsifier
+executed.** §Worktree Plan's one exception: created, read, removed; **nothing committed from any of
+them**.
+
+| # | worktree HEAD | ⟨`node hydrate-reports.mjs && node validate-completeness.mjs`⟩ | ⟨`git diff --exit-code`⟩ | ⟨`status --porcelain`⟩ |
+|---|---|---|---|---|
+| 1 | `de85e26c` (the cure) | hydrate exit 0 · validate **exit 0** (was exit 1 at round 1) | **0**, and **0** on the double-run | **0 lines**, both |
+| 2 | `04ea2ac6` (settled HEAD) | same | **0**, and **0** on the double-run | **0 lines**, both |
+
+*Falsifier `:264` executed*: `[0-9a-f]{64}` → `[0-9a-f]{16}` inside the worktree → **88 incomplete
+component rows · 264 unbanked canonical axes · 264/264 exact files present · 0/264 hash-banked = 0
+CHALLENGED + 0 REPORT-AUTHORED**, **90** `NO-LEDGER` ledger lines. (Round 1 measured 175 rows at the
+same falsifier; the difference is exactly the 87 non-band rows now out of corpus — **88 + 87 = 175**,
+so the delta is explained by arithmetic, not by a weaker falsifier.) Restored → ⟨`git diff
+--exit-code`⟩ **0**; worktree removed; ⟨`git worktree list`⟩ back to its **four** standing entries.
+The main repository was untouched throughout.
+
+**K10 · HG-10 recorded GREEN under §0k.1 — and NO ledger byte was written for it.** Measured from the
+generated `HYDRATION-LEDGER.md` at HEAD: **6** canonical rows carry `r1 · re-run at r2 (witnessed)`,
+among them exactly the three slugs X-W0.e routed here, each beside a tracked r2 row reading
+`EXISTS-ORIGINAL` with harvest `wf_1a4c8a8c-557.json`; **34** r2 artefacts tracked across the three
+slugs ⟨`git ls-files …/*r2*`⟩. The canonical rows keep `REPORT-AUTHORED` **deliberately** — it is true
+of the canonical file, and re-badging it would falsify the one thing the provenance column records.
+§RESUME **F-R3** reproduces; the round **records** the gate and cures nothing that was not broken.
+
+**K11 · The `waves/W0.md` §ADDENDUM, appended-beside.** §Verification Artefacts' bank
+`docs/tranches/X/artefacts/W0/` re-measured ⟨`ls docs/tranches/X/artefacts`⟩ → **No such file or
+directory**, and ⟨`sed -n '73,101p' waves/W0.md | grep -n artefacts`⟩ finds it in **no** §File Bounds
+row (the single hit is the Do-NOT-touch paragraph's *"r2 artefacts"*). **§0k.1 rules no new directory
+and none was created.** The addendum reads the ten named artefacts as **pointers** into the tracked
+homes this record's §4 maps, quoted row for row, and adds this round's own evidence to three of them.
+**Append-only, proven**: ⟨`diff <(git show HEAD:waves/W0.md) <(sed -n '1,572p' waves/W0.md)`⟩ →
+**IDENTICAL** — zero bytes above `:572` moved; 572 → 683 lines.
+
+**K12 · Landing, both commits with the pathspec ON THE COMMIT ITSELF** (§0k.1's contamination row).
+⟨`git diff --cached --name-only`⟩ → **0** before each `add`, so nothing foreign was in the index.
+
+| # | commit | subject | paths |
+|---|---|---|---:|
+| 1 | **`de85e26c`** | `chore(megatranche/completeness): the non-band law gains its corpus predicate — HG-7 GREEN` | **2** |
+| 2 | **`04ea2ac6`** | `docs(x-w0/addendum): §Verification Artefacts points at its tracked homes; HG-10 GREEN, HG-7 cured` | **1** |
+
+**Union bounds over both commits** ⟨`git diff-tree --no-commit-id --name-only -r <h>` per commit⟩ —
+**3** paths, every one inside the writable set: non-`docs/` **0** · `registry/adjudicated/` **0** ·
+`codex-worktree-7e28` **0** · `challenge-*.md` **0** · `DEFECT-LEDGER` **0** · `registry/harvest` **0**
+· `X/keyframes` **0** · `scripts/dev/dev.sh` **0** (never touched, never staged). A sibling Track D
+commit landed **between** my two — `296db58b` — and carried **none** of my paths; the guard held.
+⟨`git diff --check`⟩ clean. **§Format And Lint Cadence `:346`**: `npm run lint` / `vue-tsc`
+intentionally skipped — this unit wrote **zero** `.ts`/`.vue`/`.css` bytes; replacement evidence is
+the two script gates plus `git diff --check`.
+
+##### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (open, HEAD `6d4221c5`) | AFTER (settled bytes, HEAD `04ea2ac6`) | verdict |
+|---|---|---|---|
+| **HG-7** — the validator's self-test is meaningful | `exit 1 · **89** uncovered · 264/264 = 218 + 46`; *"BASELINE IS NOT GREEN"*; S1..S6 unreachable by the harness's own guard | `exit 0 · **0** uncovered`; **SELF-TEST PASS — 6/6 injected violations correctly rejected**; double-run byte-identical; the predicate's own fail-open falsifier fired (**4/6**) | **RED → GREEN** |
+| **HG-6** — the challenged denominator gates, not the saturation count | same-line unqualified `264/264` over the five live sites → **0** | **0**, double-run **0**; three integers **213 · 5 · 46 = 264 = 218 + 46**, unmoved; `grep -c 218` in the ledger **7 → 6** — and the delta is fully explained: **two** of the seven were the coincidental substring in run id `wf_ca218d91-9c7`, one of which is now an out-of-corpus row; **all four true HG-6 sites (`:20`, `:22`, `:38`, `:40`) stand, plus the GREEN verdict line** | **stay-GREEN** |
+| **HG-8** — the GREEN is regenerable from a clean checkout | round-1 reading `exit 0`, inherited | ephemeral worktree ×2 HEADs × double-run: ⟨`git diff --exit-code`⟩ **0** every time, `status --porcelain` **0 lines**; `:264` falsifier fired (**0/264** hash-banked, 90 `NO-LEDGER`) and the tree restored to diff-0; worktree removed | **stay-GREEN** |
+| **HG-10** — the three axes are witnessed, not report-authored | SPLIT (E-2) at round 1 | **6** supersession cells · **34** tracked r2 artefacts · the three canonical rows named beside their witnessed r2 rows and harvest; **no ledger byte written for it** | **GREEN** (recorded under §0k.1) |
+| **HG-16** (collateral re-read) — COMPLETABLE in every X wave file | 12 files · 0 missing | ⟨`grep -aL COMPLETABLE docs/tranches/X/waves/W*.md`⟩ → **0** over **12** files; `W0.md` still carries it **4×** after the append | **stay-GREEN** |
+
+##### E13 mail — swept at close, **0 unrowed · 0 UNREAD in scope**
+
+Four paths swept read-only at this seat's clock; classification taken from each row's **status cell**,
+never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**). (1) `docs/tranches/V/coordination/` —
+newest non-self `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09, **ours (O-21)**, rowed.
+(2) `../glass-ui/docs/tranches/BK/coordination/` — newest `glass-outbound-2026-08-29-valuejs-o20-ack.md`@2026-08-29,
+**I-30**, rowed; BK re-confirmed as the newest glass tranche dir ⟨`ls -ltd ../glass-ui/docs/tranches/*/`⟩.
+(3) `../keyframes.js/docs/tranches/V/coordination/` — newest `VALUEJS-INBOUND-2026-09-17-…`@14:58,
+**ours outbound**. (4) `../sci-report/atlas/docs/tranches/{P,Q}/coordination/` — newest
+`ATLAS-TO-VALUE-2026-08-03-RULINGS.md`, **I-27**, rowed. **Status-cell scan**: exactly **3** rows
+contain the string `UNREAD` and **none** is classified so — O-20's status cell reads **SENT**
+(the word appears in its sweep note about glass's own 08-09 letters), I-30's reads **ROWED
+2026-08-30**, I-31's reads **FOLDED 2026-09-17**. `glass-ui` stayed **READ-ONLY**; **zero** bytes
+written to any sibling tree.
+
+##### Residuals and escalations
+
+**Escalations: none.** The specified cure was executable at the bytes and was executed as specified;
+nothing was substituted, and no third diagnose→edit→re-measure iteration occurred (§Triumvirate
+Dispatch `:65` never armed).
+
+| # | residual | owner |
+|---|---|---|
+| 1 | **The 89 out-of-corpus shortfalls (77 unharvested + 12 short) are OWED, not discharged** — printed by run id, by shortfall kind and by dispatching workflow on the ledger's own face | **X-W11's close**, via `workflows/harvest-journals.mjs` (§0k.1's own routing) |
+| 2 | The ledger's out-of-corpus section is a function of a **live session directory outside the repository**, so its figures move when four sibling tracks dispatch. This is a property of the datum, not of the cure — and is precisely the reason the law no longer *gates* on it | declared; X-W11's harvest retires it |
+| 3 | **HG-1 reads 3+ at this clock** and none of the carriers is X-W0's: `registry/harvest/x-p-w1.json` (Track D) and the `docs/tranches/X/keyframes/**` evidence trees (Track B); two more megatranche `audit/visual/safari-real/**` files appeared mid-round from Track B | §RESUME **F-R2** — this seat neither tracked nor deleted them; **X-W0.m** reads HG-1 against X-W0's own bounds |
+| 4 | `scripts/dev/dev.sh` remains dirty **by ruling** (DR-24 / CC-021 / §0j.A) — expected output in any `git status` receipt | owner-held, outside every X denominator |
+
+##### What this unit did NOT do
+
+Wrote **three** paths and nothing else: `workflows/validate-completeness.mjs`,
+`registry/COMPLETENESS-LEDGER.md` (generator output), `waves/W0.md` (append-beside) — plus this
+receipt. **No** `HYDRATION-LEDGER.md` byte (the generator reproduced it exactly) · **no** hand edit of
+either ledger · **no** `DEFECT-LEDGER.md` byte · **no** `registry/harvest/**` byte · **no**
+`registry/adjudicated/**` byte · **no** canonical `challenge-*.md` byte · **no** 7e28 byte · **no**
+`docs/tranches/X/artefacts/W0/` directory manufactured · **no** sibling-tree byte · **zero** product
+source. **No run id borrowed or invented, no `BANDS` re-point, no allowlist, no cutoff in a fixture,
+no fixture weakened, no `covered:true` short-circuit.** No verb stamped, no escalation answered, no
+close adjudicated — that is **X-W0.m**'s. No `git stash`, no `reset`, no force-push, no history
+rewritten; `scripts/dev/dev.sh` never touched and never staged.
