@@ -1,0 +1,78 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# substrate-open.txt — G-0.1 OPEN reading (the sacred checkout as OP-1 found it)
+# Wave KF.W0 (Track B / X.KF) - unit KF.W0.OP-1. Substrate: /Users/mkbabb/Programming/keyframes.js
+# Date: 2026-09-17. Read READ-ONLY, BEFORE the COHESION 0j.C three-step act. Every figure double-run; both runs agreed.
+
+## The G-0.1 sextuple (spec KF-W0.md 497, RED baseline)
+
+$ git rev-parse HEAD                               -> 8281638c0ac4ac8c54a67a018ca5bf6a9117174f
+$ git rev-parse origin/master                      -> 81a56990736ced5b5edde0b84c527680ac7689b1
+$ git rev-parse --abbrev-ref HEAD                  -> master
+$ git rev-list --count HEAD..origin/master         -> 41
+$ git rev-list --count origin/master..HEAD         -> 1
+$ git status --short | wc -l                       -> 252
+$ git diff --name-only origin/master | wc -l       -> 325
+$ git ls-files --others --exclude-standard | wc -l -> 124
+$ git merge-base HEAD origin/master                -> a59d3a22da080a8ed224e8d675112bb3bb0135b0
+$ git merge-base --is-ancestor HEAD origin/master; echo $?  -> 1
+$ git merge-base --is-ancestor origin/master HEAD; echo $?  -> 1
+
+## The D-2 falsifier: BOTH enumerations, never one plus a difference (KF-W0.md 499-506)
+
+$ comm -13 <(status paths) <(frontier-diff paths) | wc -l -> 225   frontier-diff files NOT in the status set
+$ comm -23 ...                                    | wc -l -> 152   status rows NOT in the frontier diff
+$ comm -12 ...                                    | wc -l -> 100   the overlap
+  (252 = 152 + 100 . 325 = 225 + 100 -- the two surfaces do NOT nest)
+
+## The 252 status rows partitioned by tracked-ness (OP-1 measurement; what `git add -u` can and cannot reach)
+
+$ git status --short | grep -c  "^??"  -> 26   untracked STATUS ROWS (2 of them are DIRECTORIES)
+$ git status --short | grep -vc "^??"  -> 226   TRACKED rows -- exactly what `git add -u` stages
+$ git status --short | grep -v "^??" | cut -c1-2 | sort | uniq -c ->
+         7  D
+       219  M
+$ git ls-files --others --exclude-standard | wc -l                  -> 124   untracked FILES (the dirs expanded)
+$ git ls-files --others --exclude-standard | grep -c "^docs/tranches/V/" -> 99   the V docs that MUST survive
+
+  NOTE (OP-1, dated addendum-beside per E-3): the COHESION 0j.C snapshot message reads "the sacred
+  checkout's 252 tracked modifications". 252 is the STATUS-ROW denominator; the TRACKED subset that
+  `git add -u` commits is 226 (219 M + 7 D). The ruled message is used VERBATIM as prescribed; this
+  line records the arithmetic beside it and amends nothing.
+
+## The 26 untracked status rows, listed whole (2 are directories)
+
+  ?? demo/utils/formatEditorCSS.ts
+  ?? demo/utils/keyframeSelector.ts
+  ?? docs/MIGRATION-6.0.0.md
+  ?? docs/tranches/U/AGENTIC-HANDOFF-2026-07-16.md
+  ?? docs/tranches/V/
+  ?? src/animation/compile/compiled-frame.ts
+  ?? src/animation/compile/emit/css-text.ts
+  ?? src/animation/compile/interp-slot.ts
+  ?? src/animation/compile/value-ast.ts
+  ?? src/animation/engine/compiler-state.ts
+  ?? src/animation/group/composite-storage.ts
+  ?? src/animation/internal/helpers.ts
+  ?? src/animation/resolve/browser.ts
+  ?? test/compile/authored-values.test.ts
+  ?? test/compile/frame-compiler-value4.test.ts
+  ?? test/compile/interp-slot.test.ts
+  ?? test/compile/selector-value4.test.ts
+  ?? test/compile/structural-emit.test.ts
+  ?? test/compile/value4-color-emit.test.ts
+  ?? test/compile/value4-easing-contract.test.ts
+  ?? test/demo/instrument/value4-editor-boundary.test.ts
+  ?? test/demo/reference-data/
+  ?? test/demo/scene-entries.test.ts
+  ?? test/group/structural-composition.test.ts
+  ?? test/resolve/value4-immutable-resolve.test.ts
+  ?? test/waapi/value4-layout-eligibility.test.ts
+
+## Recovery map for KF.W0.c (both enumerations remain addressable AFTER the reset)
+
+  the 226 tracked rows  -> committed to branch kf-sacred-snapshot-2026-09-17;
+                           re-derive: git diff --name-status 8281638c kf-sacred-snapshot-2026-09-17
+  the 325 frontier diff -> re-derive: git diff --name-only origin/master kf-sacred-snapshot-2026-09-17
+  the 124 untracked     -> UNTOUCHED ON DISK (add -u never stages them; reset --hard never removes them);
+                           re-derive: git ls-files --others --exclude-standard

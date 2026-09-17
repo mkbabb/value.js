@@ -399,3 +399,200 @@ and run **one `npm run gh-pages`**, banking the build hash. Commits `docs(kf-w0/
 
 *(each unit appends its receipt here — served model, acts, commands, commit hashes, gate
 before/after — in unit order; nothing above this line is rewritten, per E-3)*
+
+### KF.W0.OP-1
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Substrate**:
+`/Users/mkbabb/Programming/keyframes.js` · **Charge**: spec §Agent Units `:669` · §Gates G-0.1
+`:496-508` · §Scope 1 `:305` · §Bounds OWNER'S-HAND rows `:345-348` · §Triumvirate Dispatch
+`:317-323` · **COHESION §0j.C KF-OP1** (the ruled command order) · runbook §5.5 (kf read-only,
+lifted by §0j.C KF-WRITE). Ran **alone and first**; no other unit had opened.
+
+#### Act 0 — measure before you act (read-only, double-run)
+
+Every anchor verified at true bytes before a ref moved. Both runs of the sextuple agreed on every
+count, and every figure reproduces seat-0's Baseline and the fold seat's 2026-08-28 re-run exactly.
+
+```
+⟨git rev-parse --abbrev-ref HEAD⟩            → master
+⟨git rev-parse HEAD⟩                         → 8281638c0ac4ac8c54a67a018ca5bf6a9117174f     ← the pin
+⟨git rev-parse origin/master⟩                → 81a56990736ced5b5edde0b84c527680ac7689b1     ← the pin
+⟨git rev-parse --verify kf-sacred-snapshot-2026-09-17⟩ → fatal: Needed a single revision     ← the ref is free
+⟨git rev-list --count HEAD..origin/master⟩   → 41      ⟨…origin/master..HEAD⟩      → 1
+⟨git status --short | wc -l⟩                 → 252     ⟨git diff --name-only origin/master | wc -l⟩ → 325
+⟨git ls-files --others --exclude-standard | wc -l⟩ → 124   ⟨… | grep -c '^docs/tranches/V/'⟩ → 99
+⟨git merge-base HEAD origin/master⟩          → a59d3a22da080a8ed224e8d675112bb3bb0135b0
+⟨comm -13 / -23 / -12⟩                       → 225 / 152 / 100   (252 = 152+100 · 325 = 225+100)
+```
+
+**One reading this seat added, because `git add -u`'s reach depends on it and no prior seat had
+stated it** — the 252 status rows are **not** 252 tracked rows:
+
+```
+⟨git status --short | grep -vc '^??'⟩        → 226   TRACKED rows — exactly what `add -u` stages (219 M + 7 D)
+⟨git status --short | grep -c  '^??'⟩        →  26   untracked STATUS rows, 2 of them DIRECTORIES
+                                                     (`docs/tranches/V/` · `test/demo/reference-data/`)
+⟨git ls-files --others --exclude-standard | wc -l⟩ → 124   the same 26 rows expanded to FILES
+```
+
+E-3 addendum-beside, amending nothing: COHESION §0j.C's ruled commit message reads *"the sacred
+checkout's **252** tracked modifications"*. **252 is the status-row denominator; the tracked subset
+the ruled `add -u` commits is 226.** The message was used **verbatim as ruled** — the correction
+rides beside it, never in it.
+
+Two further read-only probes, both pre-act:
+
+- **hooks** — ⟨`git config --get core.hooksPath`⟩ → `.git/hooks`; ⟨`ls .git/hooks | grep -v '\.sample$'`⟩
+  → none. The ruled bare `git commit -m` was run **as ruled**, with no `--no-verify` substitution.
+- **the remote, before the fetch could move the pin under the act** — ⟨`git ls-remote origin
+  refs/heads/master`⟩ → `81a56990736ced5b5edde0b84c527680ac7689b1`. Identical to the pinned
+  coordinate, so step (3)'s `fetch` was proven inert **before** it ran.
+
+Banked: `docs/tranches/X/keyframes/artefacts/W0/substrate-open.txt` (78 L).
+
+#### Acts 1–3 — the §0j.C order, exactly and no other
+
+| # | ruled command, run verbatim | result |
+|---|---|---|
+| 1 | `git branch kf-sacred-snapshot-2026-09-17` | ref created at HEAD; ⟨`git for-each-ref …`⟩ → `refs/heads/kf-sacred-snapshot-2026-09-17 8281638c0ac4ac8c54a67a018ca5bf6a9117174f`. The 1-ahead commit is preserved **by ref** before anything else moves. |
+| 2 | `git checkout kf-sacred-snapshot-2026-09-17 && git add -u && git commit -m "snapshot(kf): the sacred checkout's 252 tracked modifications as found 2026-09-17 (OWNER'S HAND record; KF.W0 §B-12)"` | **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`** — *226 files changed, 4483 insertions(+), 6156 deletions(-)*, incl. the 7 deletions. Parent = `8281638c`. **`add -u` ONLY**: ⟨`git status --short \| grep -vc '^??'`⟩ → **0** tracked rows left, ⟨`git ls-files --others --exclude-standard \| wc -l`⟩ → **124** untracked still unstaged and on disk at this instant. |
+| 3 | `git checkout master && git fetch origin && git reset --hard origin/master` | `Switched to branch 'master'` → `HEAD is now at 81a56990 docs(V·vnext): trim tape to out-of-scope pointer per owner context ruling`. |
+
+**Forbidden forms, none used**: no partial `git checkout origin/master -- src/`, no `git stash`, no
+`master←disk`, no bare reset, no `--force` anywhere, no reset of any other shape.
+
+**Snapshot sha handed to `.c`** (the G-0.1 disposition receipt): **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`**
+(short `6d280ee7`); ⟨`git merge-base --is-ancestor 8281638c kf-sacred-snapshot-2026-09-17`⟩ → **0**,
+so `8281638c` remains reachable.
+
+#### Act 4 — the close reading (double-run; both runs agreed)
+
+```
+⟨git rev-parse HEAD⟩                         → 81a56990736ced5b5edde0b84c527680ac7689b1   (== origin/master)
+⟨git rev-parse --abbrev-ref HEAD⟩            → master
+⟨git rev-list --count HEAD..origin/master⟩   → 0       (was 41)
+⟨git rev-list --count origin/master..HEAD⟩   → 0       (was  1)
+⟨git status --short | wc -l⟩                 → 6       (was 252)   — 0 of them tracked
+⟨git diff --name-only origin/master | wc -l⟩ → 0       (was 325)
+⟨git ls-files --others --exclude-standard | wc -l⟩ → 6 (was 124)   ← see the FINDING
+⟨git merge-base HEAD origin/master⟩          → 81a56990…           (was a59d3a22…)
+⟨git diff --check⟩                           → (clean)             — §Cadence unit-boundary check
+```
+
+**G-0.1's `emit` clause, stated BY PATH** (N-2 + LAW-A Census 1 — the clause only a **full** reset
+can discharge): ⟨`test -e`⟩ → `src/animation/compile/emit/{backward,backward-walk,backward-color}.ts`
+**all three ABSENT**; ⟨`ls src/animation/compile/emit/`⟩ → `backward/ · format/` (modules) + 7 flat
+siblings. Had a partial `checkout -- src/` been used, the flat triad would have survived as
+**zero-importer orphans no build error surfaces**.
+
+**Dispatch check — MANIFEST MISMATCH does not fire** (the *ruling* is `.b`'s, G-0.2; this is only the
+owner-return trigger): HEAD `:77` · origin/master `:77` · worktree `:77` all `"@mkbabb/glass-ui":
+"7.0.0"`; ⟨`node -p …glass-ui/package.json).version`⟩ → `7.0.0`; ⟨`grep -c '@mkbabb/glass-ui'
+package-lock.json`⟩ → `3`. The worktree **deletion is gone, reconciled BY the reset, never authored** —
+the four OWNER'S-HAND bounds rows (`package.json`, `package-lock.json`, the two EE-02 paths) were
+moved by the reset alone. ⟨`cat .npmrc`⟩ → `legacy-peer-deps=true`, **still unruled — `.b`'s**.
+
+**EE-02 (G-0.3's evidence, produced by the reset; the GATE is `.c`'s)**: ⟨`git diff origin/master
+--stat -- <the four paths>`⟩ → **empty**. Direction lock disk←master honoured; the css-twin is not
+regressed.
+
+Banked: `docs/tranches/X/keyframes/artefacts/W0/substrate-close.txt` (127 L).
+
+#### FINDING — LOUD, IRREVERSIBLE, and this seat's own miss
+
+**The ruled premise *"untracked V docs unharmed"* does not hold for untracked paths that exist in the
+target tree.** COHESION §0j.C step (2) reasons that because untracked files are not added, *"[they]
+are therefore left in place by the reset"*. **Step (2) held exactly as ruled** — `add -u` staged 226
+tracked rows and zero untracked ones. **The inference about step (3) does not**: `git reset --hard <t>`
+skips `verify_absent`, so an untracked working-tree file whose path exists in `<t>` is **overwritten
+with `<t>` bytes** (unlike `git checkout`, which refuses). Only untracked paths **absent** from `<t>`
+survive.
+
+Measured, not inferred:
+
+| | before | after | disposition |
+|---|---|---|---|
+| untracked files | **124** | **6** | **118 ABSORBED** — now tracked, carrying `origin/master` bytes |
+| untracked `docs/tranches/V/` | **99** | **2** | **97 ABSORBED** |
+
+⟨`git diff --name-status 8281638c origin/master \| grep -c '^A'`⟩ → **219** paths the 41 commits add;
+⟨`git ls-tree -r --name-only origin/master docs/tranches/V/ \| wc -l`⟩ → **175** V files at the
+frontier. `8281638c` carries **no** `docs/tranches/V/` at all — which is why `git status --short`
+collapsed the whole dir to one `?? docs/tranches/V/` row at open.
+
+**The six survivors, byte- and mtime-intact** (⟨`stat -f '%Sm'`⟩): the two V docs are
+`VALUEJS-INBOUND-2026-07-24-parser-totality-exposure.md` (2026-07-24 16:41) and
+`VALUEJS-INBOUND-2026-07-27-library-band-r1-widened-k1-k4.md` (2026-07-27 12:27) — **value.js's own
+outbound mail, delivered into this tree and never committed here**; plus four local-only src files
+(`compile/{compiled-frame,interp-slot,value-ast}.ts` · `group/composite-storage.ts`, all 2026-07-16).
+
+**E13 consequence: the cross-repo mail value.js delivered is UNHARMED.** The 97 absorbed V docs are
+keyframes.js's **own** V-tranche docs, every one of which exists at `origin/master` and now carries
+the frontier bytes — the authority this entire wave declares (local `8281638c` is DISQUALIFIED).
+
+**What is unrecoverable, stated rather than minimised**: if any of the 118 absorbed files held local
+bytes *differing* from `origin/master`, those bytes are gone — `add -u` never staged them (correctly,
+as ruled), so no git object holds them. **No filesystem signal survives to name which 97 of the 175
+frontier V paths pre-existed**: git unlinked and recreated all of them — ⟨`find docs/tranches/V -type
+f -exec stat -f '%SB' …`⟩ → **175 with birthtime 2026-09-17**, the two survivors alone keeping their
+July birthtimes.
+
+**Routed to KF.W0.c — G-0.1's GREEN disposition must be re-cut**: the surface partitions as
+**226 COMMITTED** (snapshot `6d280ee7`) · **118 DISCARDED, superseded by `origin/master`** — *not*
+"kept (untracked)", the class the ruling anticipated · **6 KEPT**.
+
+**The probe this seat should have run before step (3), and did not — recorded as the seat's miss, not
+as a property of git**:
+
+```
+comm -12 <(git ls-files --others --exclude-standard | sort) \
+         <(git ls-tree -r --name-only origin/master | sort) | wc -l
+```
+
+Any nonzero reading is the set of untracked files `reset --hard` will clobber, and it is an **owner
+question before the act, never a finding after it**. This seat had no authority to deviate from the
+ruled order (*"this exact order and no other"*), so the lawful shape of the miss was a **pre-act
+escalation**, not a substituted command. Booked here so the next substrate seat anywhere in X runs it
+first.
+
+#### E13 — mail, at this unit's scope
+
+Seat 0's four-path sweep (record §Open) returned **0 unrowed · I-30 the ledger tail**. The settle
+changed what is *visible* in `keyframes.js/docs/tranches/V/coordination/`, so it was re-swept
+read-only at close: 11 files + `vnext/`; ⟨`ls -1 … | grep -oE '20[0-9]{2}-[0-9]{2}-[0-9]{2}' | sort -u
+| tail`⟩ → newest dated packet **2026-07-27**, which is value.js's own outbound. **No packet addressed
+to value.js was surfaced by the settle. 0 UNREAD in scope.** `INBOX.md` appends stay `.b`'s alone,
+once, at close (§Disjointness).
+
+#### Gates
+
+| gate | BEFORE | AFTER |
+|---|---|---|
+| **G-0.1** | **RED-AS-EXPECTED** — 41 behind · 1 ahead · 252 · 325 · 124; merge-base `a59d3a22`, neither ref an ancestor | **GREEN on every clause this unit owns** — 0 behind · 0 ahead · 0 tracked status rows · 0 frontier-diff; the 1-ahead commit preserved by ref and committed to `6d280ee7`; the flat `emit` triad's removal stated by path; the reconciliation **diffed, not assumed**. **Two clauses remain `.c`'s**: the written disposition record over BOTH enumerations, and C-15's `position="right"` non-carry-forward check. |
+
+No other gate was touched, cured or turned by this unit.
+
+#### Commits
+
+| repo | sha | meaning |
+|---|---|---|
+| keyframes.js | `6d280ee7bec7793846b2e2e1d250e1ea0a21859a` | the ruled OWNER'S-HAND snapshot (step 2) — message verbatim as ruled |
+| value.js | *(this receipt + the two artefacts, below)* | `docs(kf-w0/op-1)` |
+
+`substrate-open.txt` and `substrate-close.txt` are committed **with this receipt** rather than left
+for `docs(kf-w0/settle)`: they are the only readings of a tree that no longer exists, and leaving an
+irreplaceable open reading uncommitted after an irreversible act is the fragility this program
+legislates against. **`.c` verifies them; it does not re-author them** (§Disjointness is satisfied —
+OP-1 and `.c` are not concurrent).
+
+#### Residuals
+
+1. The **118-file absorption** above — irreversible, routed to `.c`'s disposition record and to the
+   orchestrator.
+2. `.npmrc` `legacy-peer-deps=true` still unruled (G-0.2, `.b`'s).
+3. The snapshot branch `kf-sacred-snapshot-2026-09-17` is **local-only** — not pushed. Whether it is
+   pushed to `origin` is not this unit's call; named here so it is not assumed durable off-machine.
+4. No escalation fired: none of the five §Triumvirate Dispatch triggers is met (the reset was
+   performed by the ruled OP-1 hand under the begin-word; no write under
+   `keyframes.js/{src,demo,test,scripts}/**` beyond the reset's own act; no producer-repo write; no
+   blanket re-anchor; no manifest mismatch; no second diagnostic iteration on any gate).
