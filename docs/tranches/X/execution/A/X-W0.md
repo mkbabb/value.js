@@ -198,3 +198,67 @@ Batches commit before the next dispatches (§Worktree Plan). Docs-only; no sibli
 ## Unit receipts
 
 _(appended by each unit's seat, in group order; one block per unit: gates turned, commands with output, commit hash)_
+
+---
+
+### X-W0.a — Track-or-Archive Disposition (CC-012 / DR-23) — **DONE**
+
+**Seat**: Opus (`claude-opus-5[1m]`) · group 1, alone and first · 2026-09-17
+**Sections executed**: `waves/W0.md` §Agent Units "X-W0.a" `:144–149` · §Scope 1 `:24` · HG-1 `:221–225` · HG-2 `:226–229` · §Commit Plan row 1 `:371` · fold `X-W0-FOLD.md` **G-G** `:533–544` · §3 BoundsDelta **4** `:564` / **5** `:565`
+**Artefact**: `docs/tranches/X/W0/TRACK-OR-ARCHIVE.md` (created)
+**Commit**: **`befbc05a`** — `docs(x-w0/track-or-archive): every untracked tree under docs/ dispositioned — 3 TRACK, 0 ARCHIVE, 0 DELETE` · ONE commit, as locked · 1826 files changed, 652,397 insertions
+
+#### Acts, in order
+
+**A1 · Census, frozen.** HEAD at freeze `fa9597cd` ⟨`git log --oneline -1`⟩. ⟨`git ls-files --others --exclude-standard docs/ | wc -l`⟩ → **1825** (double-run **1825**); ⟨`… | cut -d/ -f1-4 | sort -u`⟩ → **3** trees (double-run **3**) — `T/audit` · `V/apotheosis` · `W/audit`. Frozen to a scratchpad listing **before any staging**, and it reproduces seat 0's open measurement exactly.
+
+> **The census moved under the hand that took it.** This seat's *first* pass minutes earlier returned **1828 / 5 trees**; the extra two — `X/keyframes` (1 file) and `X/parse-that` (2) — were tracked by **their own seats** before the freeze: ⟨`git log --oneline -1 -- docs/tranches/X/keyframes/artefacts/W0/substrate-open.txt`⟩ → `e898b65e`; ⟨`… -- docs/tranches/X/parse-that/evidence/W0/`⟩ → `b69611a8`. No act of this unit touched them. Recorded at §2.3 of the ledger, and they are the measured precedent for the closure rule.
+
+**A2 · Bounds check (spec §Triumvirate Dispatch bullet 1).** The census reaches **nothing** outside `docs/` — no `src/ demo/ api/ test/ e2e/ scripts/ .github/` path enters the set. **No trigger fired.** Verified again on the landed commit: ⟨`git diff-tree --no-commit-id --name-only -r befbc05a | grep -vc '^docs/'`⟩ → **0**.
+
+**A3 · Dispositions ruled — TRACK 3 · ARCHIVE 0 · DELETE 0**, one row per censused tree (HG-2's set, exact):
+
+| row | tree | files | bytes | disposition | ground |
+|---|---|---:|---:|---|---|
+| D-1 | `docs/tranches/T/audit` | 11 | 44,669 | **TRACK** in place | u-gestalt probes + logs cited from ten tracked files (`T/audit/pi/w9/q14-close-escalation.md`, `U/FINAL.md`, `U/audit/w-visual/lane-a.md`, …) |
+| D-2 | `docs/tranches/V/apotheosis` | 1,798 | 305,427,148 | **TRACK** in place | the authority layer (`OWNER-RULINGS-2026-07-20.md`, `OWNER-RULING-D23`, `parser-proof/`) **and** the 181-prompt corpus **HG-3 `:232` pins by literal path** and **X-W0.b `:153` re-authors from** — so ARCHIVE (a move) is structurally barred |
+| D-3 | `docs/tranches/W/audit` | 16 | 696,656 | **TRACK** in place | the A→W tranche-history audit cited from `AUDIT-PLAN.md`, `STATE.md`, `excavation/TRUTH-TABLE.md` and seven more |
+
+**ARCHIVE 0** because ARCHIVE is *move-and-track* (`:147`) and every path is cited from tracked canon **at its present path** — a move manufactures exactly the dangling-reference disease G-G(b) exists to register. **DELETE 0** because E-3 binds this seat (prior evidence IMMUTABLE) and the one deletion tracked canon itself proposes is gated on an **unruled** owner question (R-2 below).
+
+**A4 · G-G(b) — five dangling receipts, all RE-SCRIPT, none STRIKE-THE-CITE.** ⟨`find docs -type f -name 'probe-state.mjs' -o -type f -name 'probe-deadlock.mjs' -o -type f -name 'probe-isolate.mjs' | wc -l`⟩ → **0**.
+- **DR-1/2/3** `probe-state.mjs` · `probe-deadlock.mjs` · `probe-isolate.mjs` → **X-W1**. They underwrite `registry/adjudicated/EmptyState.md:21`, where **C-1 is OVERRULED → CONFIRMED (BLOCKER)**; that record's own residue **U-3 `:117`** already names the disposition (*"Re-script and re-run at the next live session"*) and its adjudicator explicitly refused the downgrade (*"the un-banked probe script is a re-run residue (U-3), not a verdict downgrade"*). U-3's parenthesis re-measured: ⟨`ls …/EmptyState/probes/ | grep -cv '\.png$'`⟩ → **0** of **29**.
+- **DR-4** the EY-r3 `probe9` scripts → **X-W1**. `registry/adjudicated/wb-extract-imageeyedropper.md:150` — *"whose probe scripts live in a session scratchpad, not the tree"*; ⟨`ls …/wb-extract-imageeyedropper/probe/*.mjs`⟩ → `pixels probe probe2..probe6` — **no `probe9`**. Folded as `XP-7 ≡ XW-18 ≡ EY-46` at `X-W1-FOLD.md:379`.
+- **DR-5** GEN **R-5** → **split at its source**, transcribed not invented: `registry/adjudicated/wb-generate-pane.md:53` — *"→ CI: **X-W1** (CC-031); oracle repair + any unit coverage: **GEN-CLUSTER, NO-WAVE-OWNER**"*. CI half to X-W1; the oracle-repair half is the G-F register's, not this unit's to home.
+- Receiving seat named once: **X.W1.a**, `scripts/ci/oracle-slate.mjs` (`W1.md:159,178,218`), CC-031, gated by G-5 (`:305`).
+
+**A5 · G-G(c) — the closure rule, CR-1..CR-6.** CR-1 this unit's set is frozen; CR-2 **the authoring seat closes its own tree, in place, in its own commit** (precedent `e898b65e` · `b69611a8`); CR-3 never ARCHIVE a live sub-session tree (BoundsDelta 4/5, extended to `X/parse-that/**`, `X/fourier/**`, `X/execution/**`); **CR-4 HG-1's zero is read as a set-difference against CR-2, never as an absolute** — the falsifier survives intact, since an untracked tree *with no owning seat* is in the difference and prints itself; CR-5 X-W11 enforces; CR-6 the `.gitignore` shadow is measured and untouched.
+
+**A6 · Landing.** Staged by exact pathspec, four arguments only. ⟨`git diff --cached --name-only | wc -l`⟩ → **1826** = 1825 census + the ledger. ⟨`… | grep -vc '^docs/'`⟩ → **0** · ⟨`… | grep -c 'registry/adjudicated/'`⟩ → **0** (fold **G-H**) · ⟨`… | grep -c 'dev.sh'`⟩ → **0**. ⟨`git diff --check`⟩ clean. One commit, body carrying why / what / per-tree disposition counts as §Commit Plan row 1 requires.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (13:05:17 EDT, HEAD `fa9597cd`) | AFTER (post-commit, `befbc05a`) | verdict |
+|---|---|---|---|
+| **HG-1** — zero untracked bytes under `docs/` | **1825** files / 3 trees | **0** over the frozen census set ⟨`comm -12 <(live) <(frozen)`⟩ → **0**, double-run **0**; and all 1825 paths verify tracked ⟨`xargs git ls-files --error-unmatch \| wc -l`⟩ → **1825** | **GREEN as CR-4 reads it** |
+| **HG-2** — one disposition per censused tree | file **ABSENT** (`docs/tranches/X/W0/` did not exist) | **3 rows / 3 trees, set-equal**, each with a reason ⟨`grep -c '^| \*\*D-[123]\*\*'`⟩ → **3** | **GREEN** |
+| **G-G** — (a) tree rows + (b) dangling-receipt rows + (c) post-commit closure rule | all three **ABSENT** | (a) §2 · (b) §3, five rows · (c) §4, CR-1..CR-6 | **GREEN** |
+
+**The live absolute is non-zero and moving, by design.** ⟨`git ls-files --others --exclude-standard docs/`⟩ post-commit → `X/keyframes/artefacts/W0/headerribbon-tripwire.txt` · `manifest-four-coordinates.txt` — both written **after** the freeze by the open **X·KF (Track B)** seat, which has already shown it closes its own trees (`e898b65e`). It read **1** at 13:12:05 and **2** seconds later, while this record was being written: a count of it is false the instant it is written down, which is why the gate reading is the set-difference and the residual is stated as **one named tree with one named open owner**. This is **G-G's own prediction measured live** — *"a zero asserted at close is unreachable while X·KF/X·F author, so the rule must be written, not discovered"* — within seven minutes of this unit's census.
+
+#### Residuals
+
+- **R-1 — the `.gitignore` shadow (out of bounds, reported not touched).** ⟨`git ls-files --others --ignored --exclude-standard docs/ | wc -l`⟩ → **8800**: **6384** `.png` (repo-root `.gitignore:34 *.png`, `:35 !demo/**/*.png`), **2385** under `node_modules/`/`.dts/` (the two nested ignore files in `apotheosis/pi/mirror/`, correctly excluding a vendored tree), **31** logs / `.DS_Store` / vendored `dist/`. The PNG class is load-bearing — `adjudicated/EmptyState.md:117` cites `probes/` as holding *"only PNGs"*, and git sees none of them. `.gitignore` is at the repo root, **outside `docs/` and outside this unit's writable set**; measured, reported, untouched. Routed to the L-18 passes or X-W11.
+- **Measured cost of TRACK, against the intuition.** ⟨`git count-objects -vH`⟩ before staging → `count 9103 · size 202.32 MiB · in-pack 25736 · size-pack 190.90 MiB`; after staging all 1826 paths → `count 9111 · size 202.36 MiB · in-pack 25736 · size-pack 190.90 MiB` — **+8 loose objects, +0.04 MiB, zero pack growth**. The bytes were already in the object store: the 69,590,643-byte `occurrence-owner-formation-v3.json` stages as blob `d69892c8…`, which `git cat-file -t` resolves while `.git/objects/d6/9892c8…` does not exist (**packed**), and ⟨`git log --all --oneline -1 -- …/OWNER-RULINGS-2026-07-20.md`⟩ → *empty*. **This commit did not add 292 MB; it made bytes the repository already carried permanently reachable.**
+
+#### Escalation returned — **R-2 · X-6, the 255 MB rejected denominator**
+
+**Not a blocker on this unit; a question this unit's TRACK does not settle and must not be read as settling.**
+
+Tracked canon carries the dispute in full at `registry/harvest/v-pi-receiving-audit.json:2371–2374` — topic *"X-6 — retain or delete the 255 MB rejected denominator"*; **positionA** *"FINDINGS G05's append-only law: retain. A failed attempt may never be erased."*; **positionB** retain the eight `*-rejection.json` receipts and the tools (~30 KB) and delete the payloads and shards, *"~255,457,954 bytes recovered with zero loss of dispositioned truth, since all eight generations carry ZERO_CREDIT and v2/v3 are byte-equal across the 69.5 MB payload for a 1,194-byte header delta"*; **whatWouldSettleIt** *"An owner or ADDENDA-09 ruling … but **the append-only law is the owner's to relax, not mine.**"* Scheduling row **P3.1** at `:2395` is stamped **"[Gated on X-6]"**; the credit finding at `:2147` is *"Rejection upheld … all `*_ZERO_CREDIT`."*
+
+**Re-measured independently here, to the byte and to the file**: `pi/denominator/` = **157 files / 255,457,954 B** = **83.4% of the entire census**, agreeing exactly with `:2644`. Largest members `occurrence-owner-formation-v3.json` **69,590,643 B** and `-v2.json` **69,589,449 B** — `:2642`'s byte-near-identical twins.
+
+**Why TRACK and not DELETE, reviewably**: (1) ⟨`git grep -c '255,457,954\|255457954' -- docs/`⟩ → the figure occurs in **one** file; **COHESION §0j does not rule it**, and the wave's standing law is explicit — *anything owner-gated that §0j does not cover is an escalation returned, not a seat decision*; (2) **E-3** binds this seat and positionA *is* E-3 under another name; (3) the proposing auditor declined the identical act for the identical reason; (4) DELETE is irreversible, TRACK is not.
+
+**The word wanted, in one sentence**: *retain (positionA — the branch landed here) or delete-the-payloads-keep-the-receipts (positionB / P3.1)*. On a positionB ruling the act is one pathspec over `…/apotheosis/pi/denominator/occurrence-owner-formation-v*.json` + `…-v*.shards`, retaining every `*-rejection.json` receipt and the tools. **Returned to X-W0.g's sitting packet as a docketed row** — it is **not** one of §0j.A's seven and must not be presumed into them — or to the owner directly. **No act taken.**
