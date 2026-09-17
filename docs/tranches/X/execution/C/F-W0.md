@@ -720,3 +720,297 @@ writable set; its F.W0 row is the wave seat's).
 assembled and SENT with dates. A sweep line is banked in the ledger's §3.
 
 **Escalations**: none.
+
+---
+
+### F.W0.e
+
+**SERVED MODEL: claude-opus-5[1m]** · the three tables + the rulings ·
+**gates G-11, G-12, G-13, G-14, G-15(a)–(d)** · 2026-09-17 · repos
+`/Users/mkbabb/Programming/fourier-analysis` (branch `m/w1-bump-migration`) and
+`/Users/mkbabb/Programming/value.js` (branch `tranche-u`).
+
+**Sections executed**: §4 G-11 · G-12 · G-13 + its addendum + drift receipt · G-14 · G-15(a)–(d) ·
+§5 owner rulings · §1d · §3 rows 5 · 6 · 13 · 17 · 20 · 21 · 22 · 23 · 27 · 28 · 29 · 33 · 36 · 37 ·
+§6a locks 3 · 8 · 10 · §2a errata + COHESION rows · `COHESION.md` **§0j.D** (OG-F1 · OG-F2/OG-V2 ·
+G-15 ×4), taken **as ruled**.
+
+#### Acts, in order
+
+**Act 0 — E13 sweep at open.** ⟨cmd⟩ `grep -c 'UNREAD'` over `value.js/docs/tranches/V/coordination/INBOX.md`
+and `fourier/docs/tranches/F/coordination/INBOX.md` → the only hits are the **law text** and unit *b*'s
+own sweep line. **0 UNREAD mail addressed to this unit's scope**, at open and at close.
+
+**Act 1 — the rulings read at the bytes, never presumed.** `COHESION.md` §0j.D read whole: **OG-F1**
+(FREEZE-WITH-ADOPTION AND WORKTREE-AS-BASELINE ⇒ *"G-11 narrows to drift-correction; G-14's
+R-coordinate rows become records"*), **OG-F2/OG-V2** (CODEX-ERA-SPECIFIC), and the **four G-15
+rulings** — (a) LAND · (b) the 1.125rem root GOES · (c) FROZEN-FOREVER with a golden-file diff ·
+(d) UNDECIDABLE with the honest-RED relief by name. **None re-opened, none presumed.**
+
+**Act 2 — the locks verified before any write.** ⟨cmd⟩ `git rev-parse --short HEAD` → **`8bc7736`**;
+`git status --porcelain | wc -l` → **0** (double-run: 0, 0). **Lock 3's first edge satisfied** (G-1's
+porcelain limb closed at unit *b*, so anchors re-resolve against a tree a commit holds); **lock 10
+satisfied** (settled tree, and **no stash exists anywhere in this wave**); **lock 8** carried into
+every value.js write.
+
+**Act 3 — G-11: the anchor table, RE-RESOLVED, not transcribed.** Eleven register rows. Seven
+re-resolved live at `8bc7736`, and the re-resolutions reproduce the records **exactly**:
+`fr-ContourPreview 31`'s five C-lane cells — ⟨cmd⟩ greps over `ContourPreview.vue` (62 lines) → stroke
+**:45** (C: :44) · cartoon-card **:33** (:32) · `preserveAspectRatio` **:38** (:53) · flip
+`transform="scale(1,-1)"` **:41** (:55) · vector-effect **:47** (:48) — **5/5**;
+`fr-CollapsibleSection K-11`'s six +1 slips over `CollapsibleSection.vue` (72 lines) → **:26 · :14 ·
+:15 · :34 · :43 · :66** against L's `:27 · :15 · :16 · :33 · :44 · :65-70` — **6/6**;
+`fr-CanvasOverlayButton K-10` → `tsconfig.json` `"include"` **:19** (L-2: :20), `vendor-ui` **:52**
+(C: :53-57); `fr-App K-14` → `SvgFilters.vue` **178** lines (D: "168") **and at
+`src/components/decorative/`, not `layout/`** (an extra path drift this seat found), `index.html`
+**38** (D: "39"), `text-admin-label` **7** (DU: "8"); `fr-DarkModeToggle I-3` → `vendor-ui` at **:52**,
+independently agreeing with K-10. Three rows are **RECORDS** under OG-F1 (dead producer-path cites ·
+the version-string-keyed corpus · the D-axis EOF register), one is **DISCHARGED** by G-1
+(`m-18`'s dirty-tree attribution: ⟨cmd⟩ `git diff --name-only HEAD | grep -c .` → **0**), and baseline
+**D-1** is carried as a drift-correction row. **Both accuracy benchmarks are named** (L byte-exact at
+fr-ContourPreview; L 76 lines adrift at fr-CanvasOverlayButton superlative 3), **counting units sit
+beside every pattern**, and the standing rule is published: *producer-side evidence carries the
+producer COMMIT HASH, never the version string.*
+
+**Act 4 — the amber hexes re-derived rather than adopted.** `style.css:120` = `hsl(35 76% 35%)` and
+`:125` = `hsl(37 73% 67%)`, converted by this seat → **`#9D6515`** / **`#E8B96D`** — **byte-exact with
+K-14's correction, derived independently.** C's `#9d6415` is a transposition of the right value,
+*"reproduced unre-derived"* by a reader; D/L's `#a3702f` dies.
+
+**Act 5 — G-12: fifteen rows RECONCILED, not averaged.** Every headline pair resolved to a
+**denominator definition**, all figures **double-run** and both passes agreeing:
+`variant="glass"` raw **12**/8 → **9 LIVE / 7 FILES** (−2 prose at `CanvasOverlayButton.vue:5` and
+`GalleryCard.vue:253`, −1 dead site at `CanvasOverlayButton.vue:18`) — **exactly K-12's figure**;
+`size="icon"` raw **38**/21 → **36 real** (−2 prose, the second at `GalleryCard.vue:254`) → **35 live**
+(−1 dead at `:19`) — **the floor-drop denominator is 35, exactly as K-12 states**; `.cartoon-card`
+raw **25/15** → **21/14** (minus the shim's own 4 `style.css` lines) → **19/13** live — **three
+denominators, three right answers**, and the shim comment's FILE count (13) is exact at the strict
+reading while its SITE count is stale by 5 / by 7; `text-admin-label` **7/4**; routes **9 = 7 lazy +
+2 redirects + 1 alias over 6 modules** (**X-2 confirmed; the census's "8, all lazy" is wrong in both
+limbs**); Teleport **2**; CollapsibleSection **4/3**; `v-html` (L·§3c) **10/8** with the eight files
+matching the challenge's own enumeration under its "6 files" headline; `--viz-amber`
+**`#9d6515`/`#e8b96d`**; Button variants **13**, `link` the only member with no `aria-pressed` leg
+(node extraction of the installed CVA block — **K-5 confirmed on both limbs**); e2e **8**
+(7 FORBIDDEN); `lucide` **35**; `MetricBadge` **7 files** (not 6) ⇒ **6 live**; every
+`tsconfig.app.json` citation **DEAD**. **REGISTRY-FIRST bound as a PRECONDITION**, the ` M` SFC
+denominator published **ONCE** (**27 ⇒ 24 ⇒ 21 ⇒ 19**; "22 remaining" superseded), and a
+**forbidden-figure register** closes the section.
+
+**Act 6 — the dead-devDeps contradiction DECIDED AT THE BYTES** (§6a lock 5's mandatory same-act
+correction). `lane-frontend.md:70`'s probe reproduces — **0 `src/` imports for all four** — and the
+conclusion still fails, because **a peer's liveness is a property of the installed producer's import
+graph, not the consumer's `src/`.** Measured over the right denominator (double-run): `reka-ui`
+**40** glass-ui `dist/` importers · `class-variance-authority` **11** · `clsx` **2** (via
+`dist/cn-DJXf4yaB.js:1`) · `tailwind-merge` **0**. **Three are LIVE REQUIRED peers and must be MOVED,
+not deleted; `tailwind-merge` alone is genuinely dead.** Without this correction **F.W1 deletes live
+peers.**
+
+**Act 7 — G-13: the pin table, the lattice, the peer start state, the 4→8 delta, the asymmetry.**
+Producer cell measured at open — ⟨cmd⟩ `git -C ../glass-ui rev-parse --short=8 'v8.0.0^{commit}'` →
+**`17a11bc5`**, a **tag-resolved commit, stable by construction**; **ADOPTED cell PROSPECTIVE** for
+F.W1. Lattice by `node` over the installed manifests: `keyframes.js@4.3.0` **hard-deps**
+`value.js ^0.13.0` (+ `parse-that ^0.9.0`) and optional-deps `glass-ui **~4.0.0**` — **a TILDE, which
+admits `4.0.x` and nothing else**, so glass-8 adoption breaks keyframes' own pin unless keyframes
+moves in the same transaction: **that is the atomicity argument, measured.** Peer start state:
+**14 peers — 7 optional, 7 required** (`vue` included, completing row 11's enumeration), with
+`value.js` peer-declared `^0.10.0 || ^0.11.0` against installed 0.13.0. 4→8 re-derived at the producer
+bytes: **`EasingCurve` PRESENT at `v8.0.0^{commit}`, ABSENT at `v4.0.0^{commit}`**, extraction commit
+**`1bc09dde`** (2026-08-08), `strokes: EasingStroke[]` with **`d: string` — a PATH, not a callable**,
+and its header naming fourier's fork *"a 98-line name-colliding copy plus a 41-line preview"* against
+live `EasingPicker.vue` = **98** and `EasingCurvePreview.vue` = **41** — **byte-exact**. **The
+asymmetry is SAID**: findings survive, **cures die** — `<Card tier="opaque" surface="cartoon">` is
+**unspellable** at `17a11bc5` (the v8 header struck the prop in favour of the class), the surviving
+form is `<Card class="cartoon-surface">`, and the file **moved** as well. Budget in **CALLSITES**:
+**12 `<DockIconButton` · 2 `<HoverPopover` · 1 `<MetricBadge`** — exact.
+
+**Act 8 — the stale-dist admissibility rule published** (row 27): the artifact-date / subject-mtime /
+install-date predicate, with `web/dist` (`Jun 12 18:13`, `git ls-files` → **0**) **ADMISSIBLE** for
+clean pre-dating subjects (which is why FR-MSP-12's extraction is sound) and **INADMISSIBLE for
+anything the 4.0.0 install touched**. **The quarantine does not run this wave** (§6a lock 2).
+
+**Act 9 — G-14: every residue, worktree and board claim dispositioned.** R3-9 **recorded as an
+unverifiable provenance assertion, never a method guarantee**; R3-16+R4-11+R5-9+R6-10 → **the 14-wave
+M board** (`M.md`, M.W0→M.W13, `:91` read) dispositioned with the **72/158/P29/slot superstructure
+EXPLICITLY NOT TRANSFERRED** — four rows, one object, booked once; R4-12 → ⟨cmd⟩ `ls
+/tmp/fourier-r4-files.sha256` → *No such file or directory* ⇒ **EVAPORATED, CONSUME NOTHING, dated
+2026-09-17** (**not "delete"** — there is nothing to delete); R5-3 → **DROPPED** (nothing cites the
+coordinate); **X-7 registered**. Worktrees — ⟨cmd⟩ `ls ~/.codex/worktrees` → **`7e28` · `9167` ·
+`d0be`**, and the reading no prior seat had taken: ⟨cmd⟩ `git -C … worktree list` shows
+**`~/.codex/worktrees/d0be/fourier-analysis` at `cd26c65` (detached HEAD)** — **a live git
+registration pinned at the PRE-G-1 HEAD**, i.e. the rival substrate G-1 just cured, still addressable.
+**RULED RETIRE, command published, act ROUTED** (it writes `.git/worktrees/**`, outside this unit's
+bounds). `7e28` holds **value.js** (and owns `formation/codex-worktree-7e28/CENSUS.md`, 92,254 B) and
+`9167` holds **keyframes.js** — neither is a fourier registration and neither is X·F's to retire.
+`RUN-BOARD.md`'s content-claims (routed here by unit *a*): the **J/K-deploy/M interlock** dies — its
+root hinge E1 gates on *"`npm view @mkbabb/glass-ui version` ≥ 3.3.0"* and the producer reads **9.0.0**
+⇒ **unblocked by arithmetic, six majors ago**; the **dead M.W1b glass-`^4.1.0` gate** is
+**dead-by-supersession and now doubly so**. **The pin-hygiene rule published**: *unverified Codex pins
+are re-hashed at use or dropped.*
+
+**Act 10 — G-15(a): the falsifier RUN, and the contradiction settled by MEASUREMENT.** §6a lock 10
+satisfied. Five legs, this seat: (1) `git show cd26c65:web/package-lock.json` → typescript **5.9.3** /
+vue-tsc **2.2.12**; (2) `git show HEAD:web/package-lock.json` → **6.0.3 / 3.3.5** — **G-1's landing
+MOVED this operand, and the ledger says so rather than re-quoting the pre-bump figure**;
+(3) `(cd web && npx vue-tsc -b --force)` → **exit 1, ONE diagnostic, double-run identical**:
+`PaperView.vue(12,8): error TS2882 … '@mkbabb/latex-paper/theme'`; (4)
+`npx vue-tsc --noEmit --noUncheckedSideEffectImports false -p tsconfig.json` → **exit 0, ZERO
+diagnostics**; (5) the same forced **true** → the same single diagnostic. **The RED is entirely and
+only the flag's, whose default flips false→true at typescript 6.0.3: `PP-REDGATE`'s conclusion is
+CONFIRMED BY MEASUREMENT, the `M-15` + `fr-PaperView` + reader-A routing to F.W0 DIES, and
+`fr-PathPreview` K7's kill is SUSTAINED.** The honest half is stated too: **under LAND the committed
+lock IS the uplifted toolchain, so CI's `npx vue-tsc -b --force` (`ci.yml:95`, `deploy-pages.yml:114`,
+both read live) is RED at `8bc7736` TODAY** — handed to F.W1 as the born-RED witness §4 G-15(a)(3)
+reserved for it, **not** converted into an F.W0 cure. No tsconfig byte written; the run's
+`web/tsconfig.tsbuildinfo` is gitignored at `.gitignore:43-44` and porcelain re-read **0**.
+
+**Act 11 — G-15(b)/(c)/(d) ruled, each with its falsifier.** **(b)** the `html{font-size:1.125rem}`
+fork under 768px **GOES** — witness re-read at `style.css:40-50`, the 18px-mobile/16px-desktop
+inversion stated, the 12.5%×`--ui-scale:1.5` → **67.5px vs 60px** compounding carried, the split
+(F.W0 rules · F.W1 re-tunes · F.W4 executes) fixed, and the **FM-21 divergence minute re-affirmed
+rather than quietly inherited**. **(c)** FM-19 **FROZEN-FOREVER**, **and the golden-file baseline now
+EXISTS** — seven assets with sha256 + bytes + levels, ⟨cmd⟩ node over every `partial_sums` array:
+**512 points at EVERY level of ALL SEVEN assets**, and ⟨cmd⟩ grep for `fourier-paths` outside the
+asset dir → four import lines in two files naming only `sun.json`/`moon.json` ⇒ **5 orphans confirmed**.
+`lerpPoints` re-read at `svg-fourier.ts:94-107`: `const n = Math.min(a.length, b.length)` under a
+docstring promising *"same-length"* — **an assumption stated and never asserted**, latent **because**
+of the uniform 512, with FM-23's cure routed to F.W4 as a rider ON banked `N-15`. **(d)** the emission
+contradiction **UNDECIDABLE** — the two coordinates re-quoted at the bytes (`fr-PaperSearch.md:28` K1
+vs `fr-PaperSearchModal.md:63` PSM-24/R-3), the decider named (a 4.0.0 emitted stylesheet), both
+reasons it is unavailable stated (G-4 RED; `web/dist` inadmissible under the §2.4 rule), and the
+falsifier written — after G-5, `/usr/bin/grep 'class\*=size-'` on the emitted CSS, **the losing cell
+superseded by a DATED E-3 ADDENDUM, never an in-place registry patch.** The guard itself was confirmed
+live in the installed dist (`[&_svg:not([class*=size-])]:size-(--ui-glyph)`, byte-extracted).
+**Ruling-6's rider — which, read literally, asks for an edit to an immutable record — is RE-ROUTED to
+the addendum form rather than obeyed.**
+
+**Act 12 — the OPTIONs recorded, not taken.** Five, each with its reason and home: **`FR-AUL-23`'s
+base-layer `border-color` rule** (bounds: no `web/src/**` path in this unit's set · blast radius: it
+repaints every unpainted border with no visual review at F.W0 · and `FR-AUL-6`'s `Input` swap cures
+the defect for free at F.W4 — **the substrate option is recorded so F.W4 may still elect it as the
+systemic cure**) · `embla-carousel-vue`'s early declaration · the `d0be` retirement command ·
+the `web/dist` quarantine · the `tsconfig` `include` widening (G-8, unit *c*).
+
+**Act 13 — the honest-RED minute for G-4 · G-5 · G-15(d).** G-4 re-measured **17 `/*` against 8 `*/`**
+(double-run: 17/8, 17/8) at the **adopted** 4.0.0 bytes, with `web/src/style.css:3`'s live
+`@import "@mkbabb/glass-ui/styles";` re-confirmed; the O-20 §A-1 ask is **ANSWERED at I-30** and per
+SEAMS S-11/S-23 that *"discharges the ask, not the pre-gate"*. The minute names, as commitments, what
+this wave refused to do to make them read tidy: **no consumer patch · no `node_modules` patch · no
+quarantine · no stale-dist admission · no build forced past an unparseable sheet · no gate re-scoped
+to a condition it can meet.**
+
+**Act 14 — the value.js side: two DATED ERRATA ADDENDA and one APPEND-ONLY addendum.**
+`CENSUS-2026-08-03.md` (E9-1..E9-6: the route model ⇒ **X-2 confirmed**; `:152` sustained and
+re-based; `:360`'s R4-12 fact superseded to **evaporated**; the worktree observation completed;
+**4→7 superseded to 4→8**; the two standing rules). `lane-frontend.md` (LF9-1..LF9-10, headed by
+**the dead-devDeps correction that stops F.W1 deleting live peers**; the `DESIGN.md:32`→**`:33`**
+coordinate fixed at **three** inheriting sites; `:68`/`:69` fixed — ⟨cmd⟩ `sed -n '69p' | od -c` →
+`\n`, **a blank line**; `:478`'s 35 **sustained** with its three counting units; `:645` items 8/10/11;
+`:636`'s lattice; the CALLSITES budget; **`MetricBadge` 7 files, not 6**).
+`COHESION.md` **§0k** (§0k.1 the §1a register row — the fourier mail-ledger surface is **LIVE**, not a
+wave item; §0k.2 the **F.W0 → F.W7** cross-edge declared from this end, with G-F7-7's halt condition
+**acknowledged** and recorded as **NOT in force**, G-11/G-12 having closed GREEN).
+**Mechanically verified append-only** — ⟨cmd⟩ `git diff --numstat` over all three →
+**`119 0` · `194 0` · `89 0`: 402 insertions, ZERO deletions.**
+
+#### Commits
+
+| # | repo | hash | message |
+|---|---|---|---|
+| 1 | fourier-analysis | **`9930e80`** | `docs(F.W0): anchor, denominator and pin tables; Codex dispositions; four rulings` — `SUBSTRATE-LEDGER.md` §2, +797 lines |
+| 2 | value.js | **`ca5b7441`** | `docs(X·F): CENSUS + lane-frontend errata addenda; COHESION §1/§2` — 3 files, +402/−0 |
+
+Two commits, one per meaning, exactly as §7b's plan sequences them (*"…anchor, denominator and pin
+tables; Codex dispositions; four rulings"* → *"value.js side: CENSUS + lane-frontend errata addenda;
+COHESION §1/§2"*). **No declared family was split** — the only must-not-split family in this wave is
+G-10's, at unit *f*.
+
+#### Gate reading — BEFORE → AFTER
+
+| gate | BEFORE (this unit's open) | AFTER (this unit's close) |
+|---|---|---|
+| **G-11** | **RED** — `ls docs/tranches/F/SUBSTRATE-LEDGER.md §2` absent; ten drift registers NO-WAVE-OWNER with no terminal home | **GREEN.** Ledger §2.1 — dated, counting units beside every pattern, **both** accuracy benchmarks, the P-4 standing rule, **11 register rows** (7 re-resolved · 3 RECORDS per OG-F1 · 1 discharged by G-1) + baseline **D-1**. Narrowed to drift-correction, as ruled |
+| **G-12** | **RED** — no table; the live contradictions unreconciled | **GREEN.** Ledger §2.2 — **15 rows reconciled, not averaged**; 3 denominator DEFINITIONS fixed; **8 e2e** (7 FORBIDDEN); the ` M` SFC denominator **ONCE** (27⇒24⇒21⇒19); **REGISTRY-FIRST bound as a PRECONDITION**; a forbidden-figure register |
+| **G-13** | **RED** — no pin table; corpus/CENSUS/lane-frontend/apotheosis all keyed to a version string | **GREEN.** Ledger §2.3 — producer cell **`17a11bc5`** (`v8.0.0^{commit}`), **ADOPTED PROSPECTIVE**, the lattice (backward pin + TILDE), the true peer start state (14/7/7), the **4→8** delta with `EasingCurve` re-homed, **the asymmetry said**, the budget in **CALLSITES** (12/2/1) |
+| **G-14** | **RED** — `RUN-BOARD.md` ` M` and undispositioned; three worktrees; five residues | **GREEN.** Ledger §2.5 — 5 residues · 3 worktrees · the 14-wave M board (superstructure NOT transferred) · R4-12 evaporated/dated · R5-3 dropped · X-7 registered · **pin-hygiene rule published** · both RUN-BOARD content-claims **dead-by-supersession** |
+| **G-15(a)** | **RED** — ruling unwritten; `M-15` vs `PP-REDGATE` live | **GREEN.** Ledger §2.6.1 — ruled **LAND**, falsifier **RUN** (5 legs), conclusion **confirmed by measurement**. `M-15`'s F.W0 routing **SUPERSEDED by dated addendum**; the record **not edited** (E-1) |
+| **G-15(b)** | **RED** | **GREEN.** Ledger §2.6.2 — **the 1.125rem root GOES**, split fixed, falsifier stated |
+| **G-15(c)** | **RED** | **GREEN.** Ledger §2.6.3 — **FROZEN-FOREVER**, **and the golden-file baseline EXISTS** (7 assets; uniform 512 at every level), falsifier stated |
+| **G-15(d)** | **RED** | **RED — HONEST-RED CLOSE, and it SAYS SO.** Ledger §2.6.4 — the written ruling, the two measured coordinates, the decider, why it is unavailable, and the falsifier. **§7a relief held BY NAME**; the emission was never manufactured |
+
+**Settled-tree receipts** (⟨cmd⟩, this seat, after both commits): fourier
+`git rev-parse --short HEAD` → **`9930e80`** · `git status --porcelain | wc -l` → **0**
+(double-run: 0, 0) · value.js `git rev-parse --short HEAD` → **`ca5b7441`**, with
+`scripts/dev/dev.sh` still ` M` and **never staged**.
+
+#### Three defects this seat found in its OWN instruments, disclosed rather than absorbed
+
+A table that convicts other seats' instruments owes the same audit of its own. All three are published
+at their sites in the ledger, not only here.
+
+1. **A quote-restricted probe stood in for a census.** `grep -rn 'from "lucide-vue-next"' src` returned
+   **34** against a raw line count of **35**; the missing site is
+   `CollapsibleSection.vue:4`, `import { ChevronRight } from 'lucide-vue-next'` — **single-quoted**.
+   **The probe, not the tree, produced the 34**, and `lane-frontend.md:478`'s 35 is RIGHT. This is the
+   PASS-4 D-5 class (a position/quote-restricted probe) reproduced inside the wave that publishes the
+   counting-unit law. It is also an `fr-CollapsibleSection i-3` instance — **do not fix by hand; land
+   G-7 and let it drive.**
+2. **A banked headline and a live measure differed by one, and neither was wrong.** The
+   `EditorControlsDock` template block is **119** lines inclusive of both tags, **117** strictly
+   between, **118** inclusive of one — the banked figure. **Recorded as a pt-leaf K7 anchor/unit
+   difference rather than silently conformed to the bank.**
+3. **G-1's landing moved a gate's own read-only operand.** §4 G-15(a)(1) states
+   *"`git show HEAD:web/package-lock.json` resolves typescript 5.9.3 / vue-tsc 2.2.12"* — true at
+   `cd26c65`, **false at `8bc7736`**, because the bump G-1 landed carries the toolchain uplift. Both
+   readings are published with their commits. **A spec clause keyed to `HEAD` is staled by the very
+   wave that settles HEAD**, which is the same lesson as §2.3.7's thirteen producer drifts, one level
+   closer to home.
+
+#### Law compliance
+
+**No write outside the writable set** — the four paths written are exactly
+`fourier/docs/tranches/F/SUBSTRATE-LEDGER.md` (append), `CENSUS-2026-08-03.md` (**errata addendum
+only**), `lane-frontend.md` (**errata addendum only**) and `COHESION.md` (**append-only addendum**) ·
+**E-3 held MECHANICALLY, not merely asserted**: `git diff --numstat` over the three value.js files
+returns **0 deletions**, and the ledger is append-only by construction · **E-1 held**: no
+`registry/adjudicated/**` byte, no `INTAKE-ADJUDICATION-2026-08-03.md` byte, no
+`intakes/lane-fourier-r3-r6.md` byte, no prior-evidence byte written — and **the one instruction that
+asked for a registry edit (ruling-6's rider) was RE-ROUTED to an addendum, not obeyed literally** ·
+**no `web/src/**` byte, no `web/tsconfig.json` byte, no manifest byte** — the tsconfig/lint acts are
+unit *c*'s, the manifest authoring unit *d*'s, the `git rm` + lift unit *f*'s, and the declare+lock
+landing F.W1's · **no `.git/worktrees/**` write** — the `d0be` retirement is **ruled and routed**,
+never performed outside bounds · **`glass-ui` and every sibling tree READ-ONLY** — all producer reads
+were `git show`/`ls-tree` at `v4.0.0^{commit}`/`v8.0.0^{commit}` and reads of `web/node_modules` ·
+**no `node_modules` patched** · **no `git add -A`**, both commits staged by explicit pathspec · **no
+`git stash`, no `reset --hard`, no `checkout --`, no force-push** · **`value.js/scripts/dev/dev.sh`
+never touched, never staged** (verified after the commit: still ` M`, unstaged) · **NO CRONS
+created** · **no `test.skip`, no allowlist, no try/catch around a defect, no masking fallback** — the
+three RED gates are closed RED and said so · **`execution/LEDGER.md` untouched** (not in this unit's
+writable set; its F.W0 row is the wave seat's) · **every published figure double-run at the settled
+bytes.**
+
+#### Residuals and routing — nothing dropped
+
+| item | routed to |
+|---|---|
+| **Anchors re-resolved ⇒ §6a lock 3's second edge open**: unit *f* may now touch line numbers | **G-10, unit *f***. **D-3's count-word divergence stands unaltered** — §2.1 supplies anchors and does **not** re-open the seven-vs-eight question |
+| The four G-6 peer facts (`@lucide/vue` required-but-unlocked · `vaul-vue` unlocked · the five runtime devDeps · embla as an **optional non-operand**) | **G-6, unit *d*** — measured here as G-13 start-state rows, **authored** there; the declare+lock landing is **F.W1's** (R-4a) |
+| The `tsconfig` `include` scope option + the **8**-spec denominator (`PP-TSSCOPE`) | **G-8, unit *c*** |
+| The dead-devDeps manifest act (`cva`/`clsx`/`reka-ui` **MOVE**; `tailwind-merge` **DELETE**) | **F.W1**; the **doc half is discharged here** as dated errata |
+| Producer `file:line` re-resolution **at the ADOPTED hash** | **F.W1** (FR-EQR-33(a)) — F.W0 states the obligation, F.W1 discharges it |
+| The `EasingCurve` 4→8 **trade-off ruling** (MISSED-D) | **F.W3** — stated, **not pre-decided** |
+| FM-20 / FM-23 cures (FM-23 = a **uniform-length assertion** at `prepareFourierShape`, rider ON banked `N-15`) | **F.W4** |
+| The token-parity re-tune at a 16px root; per-component execution | **F.W1**, then **F.W4** within `F-W3.md` §X.1-v4's partition |
+| The vue-tsc cure (ambient `declare module`, or a latex-paper types fix riding **P-6**) | **F.W1/W2** — with the **live** CI RED at `8bc7736` handed over as F.W1's born-RED witness |
+| `d0be` worktree retirement — one command, published verbatim | the wave seat / a later X·F wave |
+| G-15(d)'s falsifier, once a build runs | the first wave with a green G-5; the losing cell takes a **dated E-3 addendum** |
+| `web/dist` quarantine | **does not run this wave** (§6a lock 2) |
+| The X-9 member-scope law (published here) and the FABRICATED-cardinality rider | **F.W4 CONSUMES** |
+| F.W7's consumption of the anchor + denominator tables; G-F7-7's halt condition | **F.W7** — declared from this end at `COHESION.md` **§0k.2**; the halt is **NOT in force** (G-11/G-12 GREEN) |
+
+**E13 at this seat's close**: **0 unread mail in scope** — swept at open and at close; the only
+`UNREAD` hits in either ledger are the law text and unit *b*'s own sweep line.
+
+**Escalations**: **none.** No §7a trigger fired — no bounds expansion, no unrulable disposition, no
+ruling returned empty, and no diagnostic loop reached a third iteration (the denominator table
+reconciled the 21-vs-25 and 9-vs-87 pairs on the **first** pass, and no anchor file needed a second
+re-resolution).
