@@ -2424,6 +2424,40 @@ X-W0.j's consumers**, which is **K-R1 ≡ ESC-M2 ≡ ESC-M1 seen from three trac
 orchestrator.** Two VERIFY-ONLY seats on different tracks reached the same disposition independently
 and neither re-rowed: that agreement is the evidence, and **this seat still wrote no `INBOX.md` byte.**
 
+#### §4.2 · WRITE-THEN-MEASURE addition (17:20 EDT) — the shared-index hazard measured a FIFTH time, in both directions, on this seat's own writes
+
+**Recorded because it happened to this check's own bytes, live, and the wave's LEDGER row is the
+subject.** Four tracks share one index and one `execution/LEDGER.md`.
+
+1. **A sibling's uncommitted hunk could not be separated by a pathspec.** When §Check 2's LEDGER write
+   was ready, ⟨`git diff -U0 -- execution/LEDGER.md`⟩ showed **three** hunks: my two (`:28` row cell,
+   `:128` event line) and **Track D's uncommitted X.P.W1 row at `:79`**. A pathspec commit takes the
+   **working-tree** content of the named path, so `git commit … -- LEDGER.md` would have swept their
+   row into a Track A commit — the contamination the standing law forbids, unavoidable by pathspec
+   because the two seats' edits are **in one file**. **Act taken**: the index was proven empty
+   ⟨`git diff --cached --name-only \| wc -l`⟩ → **0**, **only my two hunks** were staged
+   ⟨`git apply --cached <patch with hunk 2 dropped>`⟩, the staged set was re-proven to be exactly
+   `docs/tranches/X/execution/LEDGER.md`, and the commit was taken **from the index** so the sibling's
+   line stayed untouched in the working tree for its own seat. Landed **`5a2e0011`**, **1** path.
+   Their hunk verified still present and unstaged afterwards.
+2. **The reverse then happened, to me.** Track D's ⟨`5e9319a7`⟩ wrote `LEDGER.md` from a buffer read
+   **before** `5a2e0011` landed: it carried my then-uncommitted commit-cell edit **and reverted both
+   of `5a2e0011`'s writes** — the X-W0 notes cell and the appended CHECK 2 event line
+   ⟨`git show 5e9319a7 -U0 \| grep '^@@'`⟩ → `-28 +28` · `-79 +79` · **`-128 +127,0`**.
+3. **Their seat found it and repaired it**, unprompted: ⟨`8c771475`⟩ *"LEDGER REPAIR — restore Track
+   A's X-W0 CHECK 2 row cell and event line, which 5e9319a7 reverted; X.P.W1's CHECK 1 row kept"*,
+   **1** path. Re-measured after it: row `:28` carries **ESC-N1** ⟨`grep -c`⟩ → **1**, the event line
+   is back ⟨`grep -c 'X-W0 CHECK 2 — the close seat re-dispatched'`⟩ → **1**, file **128** lines. The
+   one byte the repair could not know to restore was the commit cell's `check-2` hashes (they had
+   ridden `5e9319a7`, not `5a2e0011`), re-applied and landed by this seat at **`3de35925`**, **1** path.
+
+**Net at the bytes: nothing lost, nothing of another track's rewritten, and no `reset`, `stash`,
+`force-push` or history rewrite anywhere.** The finding for the runbook, stated once: **a pathspec is
+not sufficient protection when two tracks edit the same file** — it protects against a sibling's
+*staged paths*, not against their *unstaged hunks in your path*. The index-staging idiom of (1) is,
+and it is cheap. Filed beside the three shared-index carries §6 already books (`47608b5c` ·
+`9c72f097` · `58be3626`), of which the third rode X-W0's own row-5.
+
 ---
 
 ### 5 · Residuals carried forward — owners named, nothing parked silently
