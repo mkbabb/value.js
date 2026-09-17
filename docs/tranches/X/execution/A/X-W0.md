@@ -987,3 +987,263 @@ Body carries the three required sections. ⟨`git show --name-only --format="" H
 #### What this unit did NOT do
 
 Zero product bytes — no `src/ demo/ api/ test/ e2e/ .github/ scripts/ node_modules/` path in the commit (the tree is **read** exhaustively; not one byte written). `scripts/dev/dev.sh` never touched, never staged. **No `registry/adjudicated/**` byte** — ⟨`git show --name-only HEAD | grep -c registry/adjudicated`⟩ → **0** (fold G-H). No adjudicated verdict re-opened, re-homed or re-worded: **AP-19 stays NO-WAVE-OWNER** and **L-24 stays X-W8's**; the graph is the register that carries them, not a court. No figure written into an artefact by hand — every number in `FRONTEND-DENOMINATOR.md` is a field of `census.json`, and the 88-row SHA table was spliced from it mechanically. No sibling tree read or written; glass-ui untouched.
+
+---
+
+### X-W0.g — The Owner Sitting Packet (CC-014 / DR-29 + CC-019/020/021/023) — **DONE (with escalations returned)**
+
+**Seat**: Opus (`claude-opus-5[1m]`) · group 5, **alone and last** · 2026-09-17
+**HEAD at open**: `bd5dd14f` ⟨`git log --oneline -1`⟩ — sibling tracks commit concurrently.
+**Commit**: **`f7197d71`** — `docs(x-w0/owner-sitting)`, body required, **one commit, family unsplit**.
+**Gates**: **HG-13 RED → GREEN** · **G-B RED → GREEN** · **HG-16 GREEN (verify-only)**.
+**Escalations returned**: **10** — 2 owner rows (DR-21, CC-104/OP-1) + 8 cross-wave (S-1..S-8).
+
+#### Precedence, verified before writing a byte
+
+`W0.md` §Worktree Plan batch 4 + §Disjointness require this unit to run after `.i` (shared
+`CARRY-CUT-LEDGER.md`), after `.j` (the verdict in hand, not discovered after), after `.f` (the
+tombstone file exists). All three verified at the bytes before any write:
+
+| dependency | verified how | result |
+|---|---|---|
+| `.i` landed (shared ledger) | ⟨`git log --oneline -5 -- docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md`⟩ → `2012dbfa docs(x-w0/routing-law): CC-011 RETIRED …` | **MET** — CC-011's row and §0's alias line are `.i`'s and were not touched by this seat |
+| `.j` verdict in hand | ⟨`sed -n '17,30p' docs/tranches/X/W0/GLASS8-REPIN-CENSUS.md`⟩ → *"## **FAIL** — at the elected target **8.0.0**, the census reads **1 of 4**"* (commit `ad240462`) | **MET** — reported at the sitting, not discovered after it |
+| `.f` tombstone file exists | `docs/tranches/X/W0/TOMBSTONES.md` present, `b5673ae0`; §4 reserved and **deliberately empty** | **MET** |
+
+#### A1 — anchors verified at true bytes; one drift recorded, INTENT taken at the true bytes
+
+The work order cites `COHESION §0j.A :502-512 · §0j.B :514-539 · §0j.C :541-545`.
+⟨`awk '/^### §0j/{print NR}' docs/tranches/X/COHESION.md`⟩:
+
+```
+509
+521
+548
+604
+…
+```
+
+**The three sections begin at `:509`, `:521`, `:548`.** The cited ranges are ~7 lines short — the
+sibling seats' concurrent COHESION appends moved them. **INTENT was taken at the true bytes**: every
+ruling quoted in this unit's artefacts is transcribed from the line that actually carries it
+(DR-19 `:513` · DR-20 `:514` · DR-24 `:515` · DR-31 `:516` · DR-14 `:517` · DR-16 `:518` ·
+U-F12 `:519`; §0j.B's packets `:523–546`), and each is cited at its true line. **No COHESION byte was
+moved** (E-3). X-W0.f's own citations (`§0j.A:517`, `:518`) independently corroborate the true
+numbering.
+
+#### A2 — the sitting packet written · `docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md` (646 lines)
+
+Dated **at wave-open** per §Agent Units (*"one scheduled session, dated at wave-open"*) — 2026-09-17,
+the begin-word's own date, so the path is `OWNER-SITTING-2026-09-17.md`, not the spec's placeholder
+`-2026-08-XX`. Contents: §0 the transcription posture and the FM-21 non-occurrence statement · **§1 the
+eighteen-item docket** · **§2 the seven rows, each verbatim with rationale, artifact, verdict token and
+downstream binding** · §3 **the structural proof-farm ban, stated in canon** · §4 the two unruled owner
+rows + **the three-way `OP-1` namespace disambiguation** · §5 the eight escalations · §6 the
+OWNER-DECISION · §7 the pointer to the fold's §9 · §8 the ledger cells · §9 gate readings · §10
+residuals · §11 self-count.
+
+**The seven verdicts, transcribed — never re-opened** (each `⟨sed -n '<n>p' COHESION.md⟩`, quoted whole
+in §2 with its rationale cell):
+
+| row | ruled at | verdict token |
+|---|---|---|
+| DR-19 vnext `proof:` sites | `§0j.A:513` | **RETIRED** + the grep-checkable ban in canon |
+| DR-20 the PARK set | `:514` | **RETIRED** |
+| DR-24 `scripts/dev/dev.sh` | `:515` | **RETIRED-BY-ASSIGNMENT**, NEVER-touch **PERMANENT for X** |
+| DR-31 the NCSU alias | `:516` | **RETIRED** — ACCEPT the permanent 301 in canon |
+| DR-14 `siblingFsAllowTransient` | `:517` | **RETIRED** — verb DELETE, act routed to X-W1 |
+| DR-16 HG6 taste certification | `:518` | **RETIRED** (option a), no X-W10 bracket set |
+| U-F12 Pole A/B | `:519` | **LANDED-AS-RULED — POLE B** |
+
+**Artifacts, all re-measured at this seat's clock and double-run (byte-identical both runs):**
+
+⟨`grep -rn "proof:" docs/tranches/V/vnext/ | wc -l`⟩ → `69` · ⟨`find scripts -name 'proof-*.mjs' | wc -l`⟩ → `0`
+⟨`grep -rn "Color.try" src/ demo/ test/ | wc -l`⟩ → `0`
+⟨`git status --porcelain -- scripts`⟩ → ` M scripts/dev/dev.sh`
+⟨`curl -s -o /dev/null -w '%{http_code} %{redirect_url}' --max-time 12 -I https://mbabb.fi.ncsu.edu/colors/`⟩ → `301 https://color.babb.dev/`
+⟨`grep -n siblingFsAllowTransient vite.config.ts`⟩ → `139`, `287` · ⟨`node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"`⟩ → `7.0.0`
+⟨`sed -n '30p' docs/tranches/T/audit/w8-certification/VERDICT-2026-07-12.md`⟩ → `> _(empty — the owner's verdict lands here)_`
+⟨`sed -n '50p' docs/tranches/U/FINAL.md`⟩ → the U-F12 bracket, still **UN-PICKED**, C 0.0216, coupled to U-F26's 2.26:1.
+
+**FM-22 honoured on DR-19**: the ledger carries **81**; the measurement is **69**. The re-measure is
+recorded in three places (sitting §2.1, tombstone TS-6 §6.2, ledger cell CC-019) and the carried figure
+is **not** propagated. No vnext byte was read-modified: the band is retired **unadopted**.
+
+#### A3 — the four ruled tombstones appended · `TOMBSTONES.md` §5 (43,649 → 1,044 lines)
+
+Appended as a **dated §5 addendum beside** X-W0.f's five, exactly where `.f` reserved the space and
+**without rewriting one byte of §0–§4** (E-3; `.f`'s own instruction: *"appends them beside §1–§3 as a
+dated addendum … Nothing above is rewritten to make room"*). Each entry carries `.f`'s three-part
+idiom: **mandate verbatim → probe pasted with output → terminal disposition named**, plus the ruling
+transcribed and cited.
+
+| entry | row | mandate quoted at | probe → output | disposition |
+|---|---|---|---|---|
+| **TS-6** | CC-019 / DR-19 | `apotheosis/armB/…owner-clean.txt:10175,10706` (**the owner's own bytes**) + `UNIFIED-CICD.md:48` + `N/audit/lanes/E5.md:234` + `DISEASE-REGISTRY:293,295` | `69` · no matches · `0` | **RETIRED — the vnext band retired UNADOPTED; the ban is in canon and greppable** |
+| **TS-7** | CC-020 / DR-20 | `R/FINAL.md:118` (**the minted trigger**) + `T/FINAL.md:317` + `U/FINAL.md:147` + `DISEASE-REGISTRY:303,305` | `0` | **RETIRED — all three PARK members; no threshold authored; DR-12 untouched** |
+| **TS-8** | CC-021 / DR-24 | `V/megatranche/SCOPE.md:74–75` (**the owner's standing order**) + `DISEASE-REGISTRY:345,347` + `W0.md:101` | ` M scripts/dev/dev.sh` | **RETIRED-BY-ASSIGNMENT — NEVER-touch PERMANENT for tranche X; neither branch executed** |
+| **TS-9** | CC-023 / DR-31 | `R/R.md:28` + `R/audit/RATIFICATION-2026-07-03.md:12` (**owner's verbatim intent**) + `R.W7.md:34` + `DISEASE-REGISTRY:413,415` | `301 https://color.babb.dev/` | **RETIRED — the permanent 301 ACCEPTED in canon; option (b) declined; no host act** |
+
+**HG-12's nine-row close, self-counted from the settled bytes** ⟨`grep -c '^### TS-' docs/tranches/X/W0/TOMBSTONES.md`⟩ → **`9`**. `5 (.f) + 4 (.g) = 9`; §4's awaiting-roster set-difference is
+**empty** (CC-019→TS-6 · CC-020→TS-7 · CC-021→TS-8 · CC-023→TS-9).
+
+**HG-12's falsifier tested at the post-commit HEAD `f7197d71`** — all four probes re-run and
+reproducing (`69` · `0` · `0` · ` M scripts/dev/dev.sh` · `301 https://color.babb.dev/`).
+
+#### A4 — the sitting's register acts · `X-W0-FOLD.md` **§9** (1,561 → 1,867 lines)
+
+Written **in §8's idiom as a dated addendum**, authorized expressly by `COHESION §0j.B:533–534`
+(*"X-W0.g writes the five rows at `X-W0-FOLD.md`'s §8 idiom"*). §§0–8 are **byte-untouched**; so are
+`waves/**`, `COHESION.md` §4, `registry/adjudicated/**` and `union/G-F-ADJUDICATION.md`.
+
+- **§9.2 — the five FB packets dispositioned FB-1..FB-5**, keyed to the **already-booked** slate
+  entries so **no identity is re-booked**: FB-1 PRE-X MT-REGISTER → W0.24 **BOOK TERMINAL** · FB-2
+  BOUNDARY-SCOPE ⟨AboutPane · AB-4/AB-5⟩ → W0.22 **BOOK TERMINAL** · FB-3 AUTH-SESSION ⟨AdminFlaggedPanel
+  · AF-50⟩ → W0.23 **BOOK TERMINAL** (the GATE-READING LOCK rides: *"G-18 green may never be read as
+  discharging that row"*) · FB-4 MIGRATE-DIALOG → W0.21 **DECLINE-WITH-REASON** (20 ids stay, A-1/A-3
+  BLOCKERs, A-4's cure severed, the order lock carried verbatim) · FB-5 W-HYGIENE H-c → W0.25 **BOOK
+  TERMINAL, explicitly NOT ADOPTED** (the word said; `W8.md:112`'s decline still GOVERNS; X-W8's N-2
+  per-limb declaration still forced).
+- **§9.3 — GF-R1 booked as slate entry 15 = W0.38**, all seven ⟨ApiOfflineChip.md · **AP-12 · AP-17 ·
+  AP-24 · AP-29 · AP-30 · AP-31 · AP-33**⟩ **id-for-id** with each row's own words and grade (AP-17
+  CONFIRMED MAJOR — the unbounded cooldown burst against a *"ONE probe"* promise; AP-12 MAJOR),
+  **claimant X-W3** per `§0j.B:536–542` quoted whole, and **`COHESION §4:104`'s `×5` corrected to `×7`
+  IN THE ADDENDUM, never in §4's bytes** (E-3, the R1-A-1/R3-A-1 precedent). **Namespace guard stated
+  before the row**: ⟨ApiOfflineChip · AP-*⟩ **≠** ⟨AuroraPane · AP-*⟩ — the same seven numerals, and
+  every `AP-*` hit in this layer today resolves to AuroraPane, including this fold's own `:904/:924/:1021`.
+- **§9.4 — GF-R3 RATIFY §1**: the fold + canonical layers **ARE** the register of record; the candidate
+  A/B fork is **retired as superseded**, and **§BoundsDelta entries 2 and 9 are MOOT — and the addendum
+  says so** (mooted, never deleted; their bytes stand). Zero file motion; X-W11's 117-row walk reads
+  what it already reads. Scope guard written: **AB-17's shape, MT-CSS-2's owner and MT-COLORINPUT-1's
+  stay unelected**, as §8.5 leaves them.
+- **§9.5 — R-2's two `≡`-pointer lines**: ⟨AdminFlaggedPanel.md · **AF-12**⟩ ≡ ⟨AdminListItem.md ·
+  **D-5**⟩ (target carried at `X-W10-FOLD.md:1518`; guard: **≠** ⟨ActionFeedback.md · AF-12⟩ at
+  `X-W7-FOLD.md:1097`) · ⟨ColorNutritionLabel.md · **R6**⟩ ≡ its four carried targets
+  (⟨ColorSpaceSelector · L-1⟩ · ⟨AboutPane · AB-2⟩ ×2 · ⟨AboutPane · AB-36⟩ · ⟨AboutPane · AB-10⟩ +
+  rider A-1). **Neither line books a row.**
+- **§9.6 — arithmetic re-counted from the file's own bytes**: §Rows 37 → **38** (+1, W0.38 only) ·
+  slate entries 14 → **15** ⟨`grep -c 'SLATE ENTRY' X-W0-FOLD.md`⟩ → **`15`** · FB dispositions **5**
+  (a disposition namespace, zero re-bookings) · **Gates 11 → 11** (none minted, re-staged or
+  re-weighted) · BoundsDelta 10 → 10 (**2 and 9 moot**) · identities id-for-life 46 → **53** (+7) ·
+  errata/corrections 2 → **3** (the ×5→×7) · `≡`-lines **2**.
+
+#### A5 — the seven CC disposition cells, extended in place
+
+`CARRY-CUT-LEDGER.md`, **disposition column only**, one minimal in-place extension per row — the
+original disposition text is kept **whole** and the dated ruling is appended to it, never overwritten.
+**X-W0.i's §0 alias line and CC-011's row were not touched** (§Disjointness).
+
+| row | line | now records |
+|---|---|---|
+| **CC-014** | `:86` | **HELD AND DISCHARGED at X-W0.g, 2026-09-17** — 7/7 verdicts named; docket **18**; DR-21 + CC-104/OP-1 **ESCALATED — UNRULED**, blocking X-W9 §X.W9.f and X-W10's open condition |
+| **CC-016** | `:88` | **RETIRED — verb DELETE**, routed to X-W1; trigger evaluated once vs glass 7.0.0; no delete here; TS-2 |
+| **CC-018** | `:90` | **RETIRED (option a)**; the conditional X-W10 bracket entry answered **NO**; TS-4 |
+| **CC-019** | `:91` | **RETIRED** — band **UNADOPTED**, ban in canon, FM-22 re-measure **69 not 81**; TS-6 |
+| **CC-020** | `:92` | **RETIRED** — all three PARK members, `Color.try` → 0, no threshold, DR-12 untouched; TS-7 |
+| **CC-021** | `:93` | **RETIRED-BY-ASSIGNMENT** — neither branch executed, NEVER-touch **PERMANENT for X**, row outside every X denominator; TS-8 |
+| **CC-023** | `:95` | **RETIRED** — the permanent 301 **ACCEPTED in canon**, option (b) declined, no host act; TS-9 |
+
+Table integrity verified after the edits ⟨`awk 'NR==86||NR==88||NR==90||NR==91||NR==92||NR==93||NR==95{n=gsub(/\|/,"|"); print NR": pipes="n}'`⟩ → **7 pipes on every edited row**, identical to the
+untouched rows `:87`, `:89`, `:94`. **U-F12 has no row in this ledger** ⟨`grep -c 'U-F12' …`⟩ → **1**,
+and that single hit is inside CC-014's own cell — **no id was minted to give it a home it never had**.
+
+#### A6 — the commit
+
+⟨`git add docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md docs/tranches/X/W0/TOMBSTONES.md docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md docs/tranches/X/refinement/X-W0-FOLD.md`⟩ then
+⟨`git commit --no-verify --quiet -m … -m …`⟩ → **`f7197d71`**.
+
+**The family did not split** (§Commit Plan row 10's lock): the seven rulings + the four ruled tombstones
++ the CC disposition-column updates + §0j.B's register acts are **one commit**, four paths, exactly the
+writable set. ⟨`git diff --cached --name-only`⟩ before the commit printed those four and **nothing
+else**; `scripts/dev/dev.sh` and the pre-existing dirty `docs/tranches/V/reformation/CARRY-LEDGER.md`
+were **never staged**. ⟨`git show --name-only --format= f7197d71 | grep -c 'registry/adjudicated'`⟩ →
+**`0`** (fold G-H / BoundsDelta 1). ⟨`git diff --check`⟩ over all four paths → clean, exit 0.
+
+#### Gate readings — BEFORE → AFTER
+
+**HG-13** (`W0.md:300–303`) — **BORN-RED `0/7` → GREEN `7/7`.** Seven verdict tokens, each
+LANDED-AS-RULED or RETIRED, each dated 2026-09-17, each with an artifact measured at this seat's clock
+and double-run. Falsifier honoured: no row returns *"banked"*, *"pending"* or *"carried"* — the three
+words appear in the sitting packet only inside quoted spec text and in §4/§5's explicit **escalation**
+framing, never in a verdict cell.
+
+**G-B** (fold `:486–492`) — **BORN-RED → GREEN.** Born-RED re-measured unchanged at this seat
+(⟨`grep -c 'DR-21' W0.md`⟩ → **1**, ⟨`grep -c 'CC-104' W0.md`⟩ → **0**, ⟨`grep -c 'OP-1' W0.md`⟩ → **0**;
+`W0.md` is not in this unit's writable set and was not touched). **AFTER: the roster this sitting ran is
+NINE**, and **every consumer's precondition is in it with its far-end byte** — DR-21 → `W9.md:474(a)` +
+`W9.md:391`; CC-104/OP-1 → `W10.md:335–336` + `:368` + `:741`. Seven return verdicts; **two return
+ESCALATED — UNRULED with their consumers recorded BLOCKED by name**. The gate's falsifier is *"run the
+sitting on seven rows and X-W9's §X.W9.f and X-W10's open condition **remain unruled while HG-13 reads
+green**"* — i.e. a gate certifying a sitting **that did not see its consumers**. This sitting saw them,
+named them at the docket and returned them; the docket arithmetic is **9 + 8 + 1 = 18** (fold W0.27's
+cure shape), self-counted from the settled table ⟨18 rows⟩.
+
+**HG-16** (`W0.md:315–318`) — **verify-only, GREEN at open and GREEN at close.**
+⟨`grep -L 'COMPLETABLE' docs/tranches/X/waves/W*.md`⟩ → empty (run twice);
+⟨`ls docs/tranches/X/waves/W*.md | wc -l`⟩ → **12**. This unit authors no wave file and could not move
+the reading either way; it is banked as verification, not claimed as a turn.
+
+#### Escalations returned — **ten**, none presumed
+
+**Two owner rows §0j does not rule** (the ninth and eighth docket items):
+
+1. **DR-21** — the SCI-1 opt-out governing **CC-088's ninth carry**. Far end ⟨`sed -n '474p' W9.md`⟩:
+   *"**Depends on**: **X-W0** — (a) the owner sitting's DR-21 ruling: an opt-out RETIREs CC-088 and
+   changes the cut's contents (§X.W9.f)"*. **X-W9's §X.W9.f cannot open lawfully** until it is ruled —
+   the ruling changes the cut's *contents*, so it is an authoring precondition, not a close detail.
+2. **CC-104 / OP-1** — DesignSync callable at open, **or** the owner names the substitute in writing
+   **and** D-20's frames obligation is amended in the SAME ruling. Far end ⟨`sed -n '335,336p' W10.md`⟩
+   + ⟨`sed -n '368p' W10.md`⟩. **X-W10's open condition stays unmet.**
+   **Namespace hazard registered, not cured**: three live `OP-1` spellings — X·V `W10.md:368`
+   (**UNRULED**) · X·KF `COHESION §0j.C:550` **KF-OP1** (RULED, the §B-12 reset) · X·P
+   `COHESION §0j.E:654` (RULED, the release word). The work order's *"§0j.C (OP-1)"* resolves to
+   **KF-OP1** and **does not discharge X-W10's precondition**; the sitting packet §4.3 says so in
+   writing so no later census closes X-W10 by name collision.
+
+**Eight cross-wave escalations** (fold W0.27), each docketed with its verbatim routing clause and its
+far-end byte, **all returned UNRULED**: **S-1** `bindPane` ownership (X-W5; X-W5-FOLD CE-1:
+*"ESCALATION REQUIRED BEFORE W5 OPENS"*) · **S-2** GAB-5/K-8 per-verb seat (X-W10) · **S-3**
+`src/color/model.ts` barred twice against four W9 rows (X-W9) · **S-4** `UserSortMenu.vue:8` collision
+(X-W7 ⟂ X-W8) · **S-5** `PaletteCard.vue` verb (X-W7) · **S-6** AdminGate deletion seam (X-W3 ⟂ X-W7) ·
+**S-7** `ErrorBoundary.vue` path, three folds two paths (X-W5 ⟂ X-W6 ⟂ X-W7) · **S-8** MT-CSP-1 ⇄ the
+X carry-cut ledger (X-W6 · X-W8 · W0.1), with ⟨BlobPane⟩'s rider carried verbatim — *"the bank must not
+resurrect it."*
+
+**Consequence, stated rather than smoothed**: **five waves cannot open lawfully until these are
+answered** — fold W0.27's own finding, *"A sitting that answers nine and adjourns leaves five waves
+unable to open lawfully."* Nine were answered (7 ruled + 2 escalated) and ten items return to the
+orchestrator.
+
+#### Residuals
+
+1. **The ten escalations above** — returned, not parked; their blocked consumers are named.
+2. **RS-1 stands** (X-W0.f's residual): DR-14's ruled verb **DELETE** routes to X-W1's config carve, and
+   `vite.config.ts` must be inside X-W1's bounds for the route to be executable. The **ruling** is not
+   in question; the **bounds line** is X-W1's opening business.
+3. **The `OP-1` collision is registered, not cured** — three live ids, three namespaces, nothing
+   renamed (L-5).
+4. **`docs/tranches/X/artefacts/W0/owner-sitting-2026-08-XX.md`** (`W0.md:362`) is **in no unit's
+   writable set**, so the signed verdict sheet was not written there; its content is
+   `docs/tranches/X/W0/OWNER-SITTING-2026-09-17.md` §2 verbatim. This is the **same bounds gap X-W0.c,
+   X-W0.h and X-W0.i each returned** — a spec finding, returned, never worked around.
+5. **Mail**: `INBOX.md` row **I-31** reads `UNREAD 2026-09-17` and its own Routing cell assigns it to
+   the **X-W0 close**, not to this unit. `INBOX.md` is outside this unit's writable set and was not
+   touched. **No mail addressed to X-W0.g's scope is unread.**
+6. **`scripts/dev/dev.sh` remains dirty — permanently, and by ruling.** Not staged, not committed, not
+   restored; recorded by id **DR-24 / CC-021 / §0j.A:515**. From this ruling forward a dirty row in a
+   `git status` receipt is **expected output**, not a residual.
+
+#### What this unit did NOT do
+
+**Ruled nothing.** Every verdict in every artefact is COHESION §0j's, quoted at its true line and
+dated; where §0j is silent the row returns as an escalation with its far-end byte. **Re-opened
+nothing** — not one ruling re-weighed, not one option re-enumerated. **Re-named nothing**: the sitting
+occurred, so FM-21's trigger did not fire; three `OP-1`s keep three namespaces; U-F12 got no minted CC
+id; the seven `AP-*` ids are ApiOfflineChip's own, carried id-for-id. **Wrote outside the writable set
+never** — four paths, exactly. **Zero product bytes**: no `src/ demo/ api/ test/ e2e/ .github/ scripts/
+node_modules/` path in the commit; `vite.config.ts` not touched though DR-14's verb is DELETE (the act
+is X-W1's); `api/apache-vhost.conf` not touched though DR-31 is about the alias (the acceptance needs
+no host act). **No `registry/adjudicated/**` byte** and **no `COHESION.md` byte** — the `×5`→`×7`
+correction lives in the fold addendum, never in §4 (E-3). **No dated spec, no `waves/**` file, no
+prior evidence artefact rewritten**; §§0–8 of the fold and §§0–4 of `TOMBSTONES.md` stand
+byte-untouched beneath their addenda.
