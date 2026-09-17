@@ -1072,3 +1072,18 @@ four writable paths). §Cadence's `git diff --check` ran clean at the unit bound
    MANIFEST MISMATCH** (the four coordinates agree — §1); no second, let alone third, diagnostic
    iteration on either gate. The specified cure was possible at the bytes and was performed as
    specified; nothing was substituted.
+
+**E-3 ADDENDUM-BESIDE — 2026-09-17, amending nothing above it.** This unit's third commit
+(`257fa20a`, the receipt commit) states in its own body *"append-only: **231** insertions, 0
+deletions."* **The measured figure is 229**, not 231: ⟨`git diff --numstat
+docs/tranches/X/execution/B/KF-W0.md`⟩, run immediately before staging → `229  0`; ⟨`git diff -U0 …
+\| grep -c '^-[^-]'`⟩ → **0** (the append-only half reproduces exactly). The 231 was written from the
+receipt file's own length **before** the six-line ordering note above was inserted, i.e. a figure
+carried forward by arithmetic instead of re-read at the settled bytes — **this wave's own §Carry
+law** (*"the denominator is re-counted at the bytes, never carried forward by arithmetic"*) convicting
+its own receipt, in the seat that quotes it. **The message is NOT amended** — the correction rides
+beside it, as OP-1's own `252`-vs-`226` addendum rides beside COHESION §0j.C's ruled wording.
+Declared rather than absorbed; **no gate reading, ruling, artefact figure or commit content depends on
+it** — the three insertion counts that are load-bearing (`3 files changed, 597 insertions(+)` ·
+`12 insertions, 0 deletions` · the per-file `wc -l` triple 356/132/109) were each re-read at the bytes
+and reproduce.
