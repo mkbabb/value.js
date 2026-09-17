@@ -462,3 +462,76 @@ them `.b`'s or `.c`'s.
 - **E13 mail**: no unread mail in this unit's scope — the wave-open Step-0 sweep returned **0 unrowed**
   letters addressed to value.js, and this unit *added* two value-authored bodies to value's own tree
   (outbound retention, not inbound), minting no `I-n`.
+
+#### ADDENDUM-BESIDE · 2026-09-17, post-commit — §B-12 LANDED MID-UNIT AND THE SUBSTRATE MOVED
+
+**E-3: this is an addendum beside the receipts above, not a correction of them.** Every figure in the
+acts above was true at its measurement clock and is preserved unedited; what follows is what the tree
+did afterwards, measured, with the consequences for `.b` named. **No act of this unit caused it.**
+
+**What happened.** Between this unit's last sacred-checkout read (~12:55) and its record commit
+(`ceb5feeb`), **KF.W0's §B-12 seat performed the reconciliation** — the act COHESION **§0j** rules
+performed *snapshot-first* under the owner's 2026-09-17 grant. Attribution is by the tree's own
+reflog, not by inference ⟨cmd⟩ in `/Users/mkbabb/Programming/keyframes.js`: `git reflog -n 3`
+```
+6d280ee7 HEAD@{0}: commit: snapshot(kf): the sacred checkout's 252 tracked modifications as found
+                   2026-09-17 (OWNER'S HAND record; KF.W0 §B-12)
+8281638c HEAD@{1}: checkout: moving from master to kf-sacred-snapshot-2026-09-17
+8281638c HEAD@{2}: commit: fix(demo-shell): provide tooltip context for the routed control group
+```
+Settled state, double-run ⟨cmd⟩: `git rev-parse HEAD` → **`81a56990`**, branch **`master`**;
+`git rev-list --left-right --count origin/master...master` → **`0  0`**;
+`git status --porcelain | wc -l` → **6** (6 · 6) — the two packet bodies plus four untracked
+`src/` files (`compile/value-ast.ts` · `compile/compiled-frame.ts` · `compile/interp-slot.ts` ·
+`group/composite-storage.ts`). Snapshot branch tip **`6d280ee7bec7793846b2e2e1d250e1ea0a21859a`**.
+**The sacred checkout is now the settled substrate COHESION §0j.C KF-WRITE(b) describes.**
+
+**OP-1 — the risk fired, and C-11's cure had already landed.** ⟨cmd⟩ `shasum -a 256` on both
+originals **after** the reset → `1b8581cc…` / `5f34ab67…`, **unchanged**; both survive as untracked
+rows 1–2 of the new porcelain-6. And the value-side copies committed at `426761a7` still verify
+byte-for-byte against them ⟨cmd⟩ `git show HEAD:…value-inbox-2026-07-24-… | tail -c 7064 | cmp -
+<original>` → identical; same for 07-27 at 15,633 B. **The spec called OP-1 "the wave's single largest
+liveness risk" and ordered `.a` first for exactly this reason; the tree moved under this wave inside
+the same hour. The ordering was not ceremony.**
+
+**G-KF1-12 — BOTH HALVES, stated separately because they now differ.**
+*(a) The value-posture half — what the gate actually guards* ⟨spec `:28`: *"the prohibition is
+value's own"*; `:356`: *"every access is a read (`ls`, `git show`, copy **out**)"*⟩: **GREEN and
+unmoved.** This unit performed **zero writes, zero git mutations, zero npm** in that tree; every one of
+its accesses was `ls` / `stat` / `grep` / `git rev-parse` / `git status` / `git show` / `shasum` / a
+copy **out**. Nothing this unit did is in that reflog.
+*(b) The MEASURE-AT-OPEN quantity* (`:355` — porcelain **252**, HEAD `8281638c`): **MOVED to porcelain
+6 / HEAD `81a56990`, by the authorized KF.W0 §B-12 act.** The spec anticipates precisely this at
+**OP-4** — *"**Explicitly NOT required.** … **If it lands first, this wave is unaffected — it anchors on
+`origin/master` either way**"* — and at §7 cross-edge 2. **The wave is unaffected on its forward axis**:
+§5a's fourteen rows were re-derived at `keyframes-v-exec` @ `origin/master` `81a56990`, which is
+**unmoved** (⟨cmd⟩ HEAD = origin/master = `81a56990`, porcelain **0**, re-verified after the reset).
+**NOT an escalation of this unit** — no Triumvirate trigger fired, no bound was crossed, no cure became
+impossible. Recorded as a **substrate event**, and the two halves are reported separately rather than
+collapsed into one verdict the reading no longer supports.
+
+**THE CONSEQUENCE `.b` MUST CONSUME — C-6 / G-KF1-4 is STRENGTHENED, and the handed tuple is now
+HISTORICAL.** Re-measured after the reset, double-run:
+
+| substrate | census | status for the withdrawal sentence |
+|---|---:|---|
+| the sacred **worktree as O-11 measured it** ⟪`8281638c` · porcelain 252 · `/css` 29 · `/value` 15 · `/color` 7 · `/math` 5 · `/easing` 3 · `/transform` 2⟫ | **61** | **NO LONGER EXISTS ON DISK.** This unit's 2026-09-17 reading is its last measurement; it is a dated historical record and **no sha addresses it** |
+| snapshot commit **`6d280ee7`** (the §B-12 receipt) | **48** ⟨cmd⟩ `git grep -h -o -E 'from "@mkbabb/value\.js[^"]*"' 6d280ee7 -- src \| wc -l` → 48 (48 · 48) | **DOES NOT REPRODUCE 61** — it captures only the *tracked* half; the 13 imports in untracked `src/` files are outside it. **Under C-6's LOCK it may NOT be cited as "the tree measured"** — it is citable only as *the tracked half of that state, preserved 2026-09-17* |
+| the sacred worktree **now** (post-reset) | **69** = `/css` 31 · `/value` 18 · `/color` 9 · `/math` 6 · `/easing` 3 · `/transform` 2 | = `origin/master`'s **62** plus **7** from the four untracked `src/` files. **Not O-11's tree and not the frontier** — never cite it as either |
+| **frontier of record** `origin/master` **`81a56990`**, porcelain 0 | **62** | **UNMOVED.** All forward anchors and payload item (a) bind here |
+
+**So the honest withdrawal `.b` writes is now sharper than the spec's exemplar, not weaker**: O-11's
+*"matches your tree exactly"* certified a worktree state that **has since been reconciled away (§B-12,
+2026-09-17)**, that **no sha addresses** — the snapshot that preserves its tracked half reads **48**, not
+61 — and that **the recipient could never have re-derived even before the reset**. That is the whole
+ground of the withdrawal, and it is now demonstrable rather than merely argued. **`.b` re-runs the three
+commands at its own clock regardless (C-6's anti-copy lock); the tuple this unit handed over above is
+re-labelled HISTORICAL and must be carried as ⟪measured by KF.W1.a, 2026-09-17, pre-§B-12⟫ or not at
+all.** **C-8 is untouched**: §B-12 was *asked* of the owner and performed by the owner's delegated hand
+under §0j — `.b`'s addendum still **asks and never claims to have performed** it, and may now record it
+as **DONE by the owner's hand on 2026-09-17** rather than as an open request, which is the truthful
+form at these bytes.
+
+**Nothing in Acts 1–4 is retracted.** The fourteen drift rows, the 61/81/62 triple and both verbatim
+proofs stand as measured; only their *substrate's tense* changed, and this addendum is where that is
+said.
