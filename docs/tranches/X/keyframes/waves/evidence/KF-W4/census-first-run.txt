@@ -1,0 +1,47 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.KF.W4 .b — G-KFW4-2 precondition census: the FIRST `--project demo` run
+# Written 2026-09-17 BEFORE the demo step was marked blocking on the CI merge job
+# (G-KFW4-2 falsifier: "the first --project demo run's full pass/fail roster is written
+#  to census-first-run.txt before the step is marked blocking").
+# Substrate: /Users/mkbabb/Programming/keyframes.js @ master, origin/master 55e9bf0d, HEAD 5388907b (.a's commit 1).
+# Command (double-run, RUN1 == RUN2): npx vitest run --project demo --reporter=verbose
+#
+# NAME COLLISION, DECLARED (E-3, dated 2026-09-17): the spec names this same path TWICE with
+# two different contents — §Gates G-KFW4-2's falsifier (this file: the 27's pass/fail roster)
+# and §Artefacts ("census-first-run.txt (the three clauses, RED)" = unit .d's scripts/gates/census.mjs
+# first run). This seat writes the roster its OWN binding falsifier names. Unit .d writes later:
+# its three-clause artefact must take a DISTINCT path, or the wave violates its own G-KFW4-11
+# law "ONE PATH, ONE WRITER, ONE CONTENT". Routed in the wave record, never smoothed.
+#
+# RESULT: 27 files PASSED / 27 · 155 tests PASSED / 155 · 0 FAILED · 0 SKIPPED · exit 0 (both runs).
+# NO RED among the 27 ⇒ the triumvirate trigger for the merge-path wiring DID NOT FIRE.
+#
+# file<TAB>verdict<TAB>tests
+test/demo/app/e-w1-encapsulation.test.ts	PASS	3
+test/demo/instrument/KfPillTabs.test.ts	PASS	7
+test/demo/instrument/ios-text-entry.test.ts	PASS	4
+test/demo/instrument/kf-toolbar-keyboard.test.ts	PASS	4
+test/demo/instrument/resize-tracks.test.ts	PASS	3
+test/demo/instrument/timeline-undo.test.ts	PASS	3
+test/demo/instrument/transport-play-actuation.test.ts	PASS	10
+test/demo/instrument/useAnimationGroupPlayback.test.ts	PASS	3
+test/demo/instrument/useThrottledReadout.test.ts	PASS	5
+test/demo/instrument/value4-editor-boundary.test.ts	PASS	4
+test/demo/reference-data/easing-catalog.test.ts	PASS	5
+test/demo/scene-entries.test.ts	PASS	2
+test/demo/scenes/amiga-sphere-spin.test.ts	PASS	5
+test/demo/scenes/cube-scene.test.ts	PASS	8
+test/demo/scenes/orbital-inertia-parity.test.ts	PASS	6
+test/demo/scenes/orbital-rotate3d.test.ts	PASS	5
+test/demo/scenes/scene-contract-identity.test.ts	PASS	5
+test/demo/scenes/scene-facility.test.ts	PASS	2
+test/demo/scenes/scene-raf-leak.test.ts	PASS	2
+test/demo/scenes/scene-visibility-pause.test.ts	PASS	3
+test/demo/scenes/sequence-scene.test.ts	PASS	4
+test/demo/scenes/square-scene.test.ts	PASS	7
+test/demo/state/control-surface-dfa.test.ts	PASS	16
+test/demo/state/no-shadow-playback-authority.test.ts	PASS	2
+test/demo/state/scene-machine-reducer.test.ts	PASS	15
+test/demo/state/scene-superkey-keyspace.test.ts	PASS	4
+test/demo/state/sharing.test.ts	PASS	18
+# TOTAL	27 files	155 tests
