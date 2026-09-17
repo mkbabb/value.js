@@ -602,8 +602,32 @@ wave"* condition is not tripped; F.W5's own serial head was clean at open and is
 `git status --porcelain` after commit → the two standing rows only: `CARRY-LEDGER.md` (another seat's)
 and the unowned `dev.sh`).
 
-**E13.** The wave's Step-0 sweep (this record) read **0 UNREAD in F.W5's scope**; no letter arrived in
-this unit's window and none is owed by it. The close sweep is unit e's.
+**E13 — and an ADDENDUM-BESIDE, because this unit's window was NOT empty.** The wave's Step-0 sweep
+(this record) read **0 UNREAD in F.W5's scope** and recorded of path 2 (`../glass-ui/docs/tranches/BK/coordination/`): *"4 files; newest
+`glass-outbound-2026-08-29-valuejs-o20-ack.md`@Aug 29 16:41 = **I-30, rowed**. Nothing newer."* **That is
+no longer true at this unit's close**, and the honest act is to say so rather than to inherit a sweep.
+Re-swept read-only at this seat's own clock: ⟨cmd⟩
+`/usr/bin/find ../glass-ui/docs/tranches/BK/coordination -maxdepth 1 -name '*.md' -newermt '2026-09-17 16:05'` → **three letters, all dated 2026-09-17**, classified from each letter's own header block
+(never from a bare `grep -i unread`):
+
+| letter | addressed to | disposition at this seat |
+|---|---|---|
+| `glass-outbound-2026-09-17-valuejs-o20-disposition.md` | **`**To**: value.js (X formation mail seat)`** — *"O-20 DISPOSITION — every item of your 2026-08-28 batch, re-read against published 9.0.0"* | **OURS, INBOUND, UNROWED** — handed to unit **e** |
+| `glass-outbound-2026-09-17-constellation-o20-relay.md` | the constellation (*"The O-20 batch was value.js's letter, but its re-read measured every sibling"*) | **value.js-relevant, UNROWED** — handed to unit **e** |
+| `glass-outbound-2026-09-17-bbnf-lang-9.0.0-addendum.md` | **bbnf-lang** (BK row #76) | **NOT value.js's** — named so the count is complete, not rowed here |
+
+⊘ **The material fact these letters carry, stated because it moves a pinned programme datum and a later
+reader must not miss it**: both value-facing letters take as their **datum** *"published 9.0.0
+(`gitHead`/`d4f7b24f`, provenance run 33273556530, `latest` on the registry)"* — i.e. **glass-ui 9.0.0 is
+PUBLISHED**, where the standing programme state (I-30, verified 2026-09-17) records the registry at
+**8.0.0** with the 9.0.0 PUT walled behind an owner npm act. The relay also states *"Installed pins at the
+census are stated per repo; **nobody is on 9.0.0**"* and *"**no edits were made in any of these
+trees**; every action is yours, in your tranche, at your adopt."* **This unit rules nothing on it and
+rows nothing**: `docs/tranches/V/coordination/INBOX.md` is **unit e's** writable path, not this unit's,
+and writing it here would be an ESCALATION. **Handed to unit e, whose close sweep owns the rowing** — and
+the sibling track saw the same three (X·KF W4 unit `.d`, commit `d354d144`, *"three glass-ui BK letters
+arrived mid-wave … unrowed and handed up"*), so the two independent detections agree. **No letter is
+suppressed and none is claimed as rowed.**
 
 #### Acts, in order
 
