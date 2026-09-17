@@ -1003,3 +1003,173 @@ be ruled **before phase 4 dispatches**. This seat rules nothing.
 
 **Commit of record for this unit** (the self-reference the block above could not carry until it existed):
 `013a4b59a4a6200e5ec62b4a1065dfc55d7f8f19` — ⟨`git show --stat`⟩ → **1 file changed, 203 insertions(+), 0 deletions(-)**, this record alone; `scripts/dev/dev.sh` in **0** of it. The draft remains uncommitted, per the phase-1 lock.
+
+---
+
+### X.P.W2.c
+
+**SERVED MODEL: claude-fable-5-1** · Track D · 2026-09-17 · phase 2, the **contract apotheosis**
+(`W2.md` §5 `.c` L603–615; M-23 §1, L-14 — the second of the wave's three Fable sittings).
+**Sections executed exactly**: §5 `.c` L603–615 · §3 item 4 L163–166 · §3b L224–302 · §3c L304–407 ·
+§6 G-1 L682–691 · G-6 L741–754 · §11 L943–970 — every anchor re-read at true bytes before citation
+(⟨`sed -n '603p;615p;163p;166p;224p;302p;304p;407p;682p;691p;741p;754p;943p;970p' W2.md`⟩ → the
+section heads and closing lines expected; **zero drift** in this unit's anchors). Rulings consumed by
+id: COHESION §0j.E OP-1 (the begin-word) · §0j.E OC-1 (**no bar set anywhere** — §3a's trigger stays
+armed) · §0l E-1/R-13 (the `<p2>` toolchain exists; the base of record `f5757082` is stated in the
+`<p2>` commit body) · X-P-W1.md R-8/F-1 (every ceiling quoted with its shape; the contract binds a
+declared parameter, never a measured ceiling) · R-9 (A-F2/D-F2 carried as third-cell rows §10.5 (i)).
+
+**Writable set, hard bound (2 paths), both written, nothing else:**
+`docs/tranches/X/parse-that/algebra/ALGEBRA.md` (create) ·
+`<p2>/experiments/w2/contract/ALGEBRA.md` (create, byte-equal) — plus this record block (the D-4
+standing orchestration path admitted by `W2-ADDENDA-2026-09-17.md` §A-1.3). **0 bytes elsewhere.**
+
+**Commits (two histories, never merged — §9):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | value.js | **`b5a0cb1fd0eea7017fc68d1a7b1374d8786aa0ce`** | `docs(x-p/w2): contract apotheosis — the one algebra ratified; candidate field fixed` (§9 commit 2; body names the refuted claims per draft) | **1 file changed, 876 insertions(+)** |
+| 2 | `<p2>` | **`9bf2da5aab257a64f2af2b36fa5be632dd2a8f48`** | `docs(w2/contract): the ratified ALGEBRA.md — execution copy, sha256-equal to the docs original` (body states base `f5757082`; sits on `99bd987d`) | **1 file changed, 876 insertions(+)** |
+| 3 | value.js | this record | the receipts below | — |
+
+Each commit carries its own pathspec on the commit itself (`git commit … -- <path>`); `scripts/dev/dev.sh`
+in **0** of them, never staged (⟨`git diff --cached --name-only \| wc -l`⟩ → 0 after each commit).
+`index.lock` never appeared; no retry was needed.
+
+#### c.0 — E13 at this seat's clock (19:00 EDT), bounded
+
+⟨`find <the four coordination paths> -maxdepth 1 -type f -newermt "2026-09-17 18:00"`⟩ → **one hit**,
+`docs/tranches/V/coordination/INBOX.md` (sibling seats' sweep lines). The three glass letters seat 0
+rowed: ⟨`grep -c <name> INBOX.md`⟩ → `valuejs-o20-disposition` **2** · `constellation-o20-relay` **1** ·
+`bbnf-lang-9.0.0-addendum` **1** — all rowed (I-32 · I-33 · I-34). **0 unrowed · 0 new `I-n` ·
+0 UNREAD in X.P.W2's scope.** No `INBOX.md` line appended (seat 0's sweep is the wave's).
+
+#### c.1 — The adjudication, read whole, measured, then written (the acts in order)
+
+1. **Both drafts read whole** (`draft-fable.md` 550 L · 53,945 B · sha256 `c185e15e…98509`;
+   `draft-opus.md` 743 L · 106,130 B · `29b24b40…b9830`; digests re-measured twice, quoted in
+   `ALGEBRA.md`'s preamble); the wave record §Open/§Baseline/`.0`/`.a`/`.b` blocks; COHESION §0j to
+   the file end; `parser-band.md` L10–35, L75–125, L135–148; cand-O `spec.ts` whole; the frozen
+   surface (`index.ts:1–60`, `types.ts:1–130`, `model.ts:25–40`, `grammar.ts` at every cited
+   line, `stylesheet.ts:386–430, 827–890`, `value.ts:3–23`); the `<p2>` substrate (`state.ts:51`,
+   `parser.ts:679`, `harness/totality/manifest.json`). **Read-only throughout**; nothing under
+   `/Users/mkbabb/Programming/parse-that` was read or written.
+2. **Load-bearing claims tested against the evidence corpus, not against the other draft** (L-14),
+   with the commands pasted in `ALGEBRA.md` §0.1/§0.2 — the decisive measurements:
+
+   ```
+   ⟨cmd⟩ node -e '<vendored 4.0.0: oklch(0.5 v% 100) chroma vs (v*4)/1000 over v = 0, 0.1, …, 100>'
+         differ on 370 of 1001; first [0.1, 0.0004000000000000001, 0.0004]        → F-R1
+   ⟨cmd⟩ same, vs (v*0.4)/100                                   → differ on 0 of 1001
+         + rgb (v*255)/100 · hsl (v*1)/100 · oklch-L (v*1)/100 · alpha (v*1)/100 · hex alpha (a*1)/255
+           · grad (v*0.9)/1 · turn (v*360)/1 · rad (v*180)/π · linear-stop (v*1)/100   → 0 of 1001 each (D-4 pinned)
+   ⟨cmd⟩ node -e '<Float64Array bytes of NaN, -NaN; Object.is(NaN,-NaN)>'
+         NaN 000000000000f87f  -NaN 000000000000f8ff  Object.is → true  bytes-equal → false   → F-R2
+   ⟨cmd⟩ sed -n '437p;176p;187p' draft-fable.md   → hue: DROP keyword (KW IDENT hue-unit); KW appends P; DROP appends C   → F-R3
+   ⟨cmd⟩ grep -n "REF " draft-fable.md            → L446 REF balanced-tail · L481 REF value · L518 "REF sites: 1"        → F-R4
+   ⟨cmd⟩ grep -rn AnimationTriggerValue src/css/*.ts
+         types.ts:105 (CSSTimelineOptions.trigger) · stylesheet.ts:53 parseAnimationTrigger · timeline.ts:101 serializeTrigger
+   ⟨cmd⟩ sed -n '386,430p;827,890p' src/css/stylesheet.ts
+         parseDeclarations :422 → parseAnimationTrigger (inside parseStylesheet); collectTimelineOptions :874–890 →
+         parseAnimationRange(serializeCssValue(…)) ×3 · parseTimelineScope(serializeCssValue(…)) · parseAnimationTrigger(serializeCssValue(…));
+         collectAnimationOptions :827–873 → no parse call                                         → O-R1, O-R2
+   ⟨cmd⟩ grep -nci "\bREF\b" draft-opus.md         → 0 (no back-edge reference operator)           → O-R3
+   ⟨cmd⟩ sed -n '161p;285,293p' draft-opus.md     → REP "infinity is not admissible"; recover-declared's construct "sits inside a loop"  → O-R4
+   ⟨cmd⟩ node -e '<vendored 4.0.0: Object.isFrozen on value/channels/stops/stops[1]/input/sheet/item/decls>' → 8 of 8 true  (DM-1 holds)
+   ⟨cmd⟩ node -e '<vendored 4.0.0 slice behaviours>'
+         "red x" → css_syntax (0,5) ["color"] · rgb(1, 2, 3, 0.5) → REJECT · hsl(120 50 50) → [120,50,50] · oklch(1.5 -1 30) → unclamped
+         · a{color:red} GARBAGE ) ; b{color:blue} → ok:false, ONE issue (13,38) ["rule"] (no recovery)
+         · a{color:red} → StyleRule{selectors:["a"], declarations:[{name:"color", value:{kind:"scalar",payload:{type:"color",…}}, important:false}]}
+         · A { Color : RED !important } → name "color" (folded), selectors ["A"] (preserved), important true
+   ⟨cmd⟩ sed -n '51p' <p2>/typescript/src/parse/state.ts → const NESTING_LIMIT = 256;   grep -n "recover(" parser.ts → 679
+   ⟨cmd⟩ node -e '<count index.ts>' ×2 → types 33 runtime 19 total 52 · named-colors 148 · 114/1001 ×2 · CONTEXT_COLOR 20 spellings
+   ```
+
+3. **`ALGEBRA.md` written**, then `npx prettier --write` **twice** — idempotent (sha256
+   `14450aa4e5fcc976dbdc2aa54b1608df5712e0f57975b00229e2666b151f66f7` both passes); ⟨`git diff --check`⟩
+   → exit 0. One authoring defect caught by WRITE-THEN-MEASURE before the first commit: the preamble's
+   quoted digest of `draft-fable.md` had one wrong character; re-measured and corrected
+   (⟨`grep -c c185e15e…4f69698509 ALGEBRA.md`⟩ → 1).
+4. **Every published count read back from the settled bytes, double-run identical** (the two runs
+   pasted verbatim in the shell; abridged):
+
+   ```
+   line 1                                  SERVED MODEL: claude-fable-5-1
+   G-1 grep pattern over ALGEBRA.md        0 hits            (the file never spells the tokens; the grep ranges over experiments/w2/*/)
+   OP rows §4.1 · registry block · ids     22 · 22 · 22
+   §4.2 families                           13 of 13
+   EQ rows · R-LAW rows · DM rows          6 · 5 · 8
+   F-R / O-R refutations                   4 / 4
+   §8 debt-clause rows                     10   (D-1..D-5 · PT-01 · PT-03/O-8 · PT-07 · R1 · band)
+   §12 AC/NC rows · FF clauses             6 · 7
+   52-map (by the §9 row grammar, joined against src/css/index.ts by name)
+        rows 52 · universe 52 (33 + 19) · universe−map [] · map−universe [] · distinct productions 52 · dupes 0
+        by class {V:31, K:2, P:10, W:2, X:7} · holes (W+X) 9 · index.ts file order preserved: true
+   tables 11 · ragged 0                    (no cell split by an unescaped bar — the Opus arm's R-B2 hazard avoided)
+   ```
+
+5. **The `<p2>` home landed**: ⟨`mkdir -p experiments/w2/contract && cp …`⟩; ⟨`cmp`⟩ → **BYTE-EQUAL**;
+   ⟨`shasum -a 256`⟩ both → `14450aa4…66f7`. Before the copy ⟨`ls <p2>/experiments`⟩ → `No such
+   file or directory` (the directory is this unit's, §4 Surface B row 1); porcelain before → 0, after
+   the copy → `?? experiments/` only.
+6. **G-1's literal grep run in its literal form**: ⟨`grep -rnE "<the §6 L686 pattern>" experiments/w2/*/`⟩
+   → no output, **exit 1 (0 hits)**. **The map joined against W1's manifest** (never a second one):
+   ⟨`node -e '<join manifest.json names vs the §9 rows>'`⟩ → `manifest names 52 · mapped 52 ·
+   manifest−map [] · map−manifest []`.
+7. Commits 1 and 2 (table above); the `<p2>` end state: ⟨`git status --porcelain \| wc -l`⟩ → **0**;
+   ⟨`git merge-base --is-ancestor f5757082 HEAD`⟩ → true; ⟨`git diff --stat HEAD~1 HEAD -- harness/
+   typescript/ rust/ \| wc -l`⟩ → **0** (W1's instruments and the library untouched).
+
+#### c.2 — What was ruled (the sub-gate, read at the bytes)
+
+| §5 `.c` sub-gate condition | reading |
+| --- | --- |
+| named refutations recorded, ≥1 load-bearing claim of EACH draft, against the evidence corpus | **4 + 4**: F-R1 (SCALE integer-only: 370/1001 against the adjudicated arithmetic) · F-R2 (EQ-1 stricter than `Object.is`) · F-R3 (the hue term double-owns the unit span) · F-R4 (a second `REF` into a W3 production — the slice not closed) · O-R1 (HOLE-1 misroutes `AnimationTriggerValue`) · O-R2 (the X class re-enters the parser at `collectTimelineOptions`) · O-R3 (no finite back-edge under A-1) · O-R4 (`recover-declared` has no subject; `REP` without ∞) |
+| the operator count, where the drafts disagree, RULED with the cost of the rejected reading | Fable **20** / Opus **22** → ratified **22, neither set** (row-by-row merge table §0.3; costs of both rejected readings stated) |
+| every §3 debt clause survives into the ratified text | §8: D-1..D-5 + PT-01 + PT-03/O-8 + PT-07 + R1 + band — **10 rows**, each with provenance and this seat's measurement |
+| the operator↔lowering bijection is printable from the contract | §4.6: the row shape, the fingerprint rule, and the 22-row `algebra-registry` block `.g`'s `--structural` walk reads |
+| G-1's structural conditions checkable against it | count enumerated (22); no target-conditional (0 hits, literal grep); imports neither lowering (a document); both homes sha256-equal |
+| the declared marks as rows with owner-escalation paths | §11 DM-1..DM-8; DM-3 rules the only constructible **binding** (`css_syntax` + `<finite-number>` at the constructor guard) and leaves the **posture** and the ninth-code question to the owner by name — `.b`'s ESC-B1 discharged as an interim row so three seats cannot invent three answers |
+| the §3c field fixed so phase 4 cannot re-scope | §12: AC-1..AC-4 with falsifiers quoted verbatim, NC-0/NC-1 with citations, FF-1..FF-7, the stated prior carried verbatim to be scored |
+
+#### c.3 — Gates, BEFORE → AFTER
+
+| gate | BEFORE (§Baseline) | AFTER this unit | verdict |
+| --- | --- | --- | --- |
+| **G-1** ratified-contract half | both `ALGEBRA.md` ABSENT; `algebra/` dir ABSENT; the grep's own path absent | both homes EXIST and are **sha256-equal** (`14450aa4…66f7` = `14450aa4…66f7`); operator set enumerated **with a count (22)**; the literal grep over `experiments/w2/*/` → **0 hits**; the contract imports neither lowering | **GREEN (this half)** |
+| **G-1** structural half | `node harness/w2/op-bijection.mjs --structural` → module not found | unchanged — `harness/w2/**` is `.g`'s; ⟨re-run⟩ → `Cannot find module` | **RED, correctly** (`.g`) |
+| **G-6** mapping half | mapped productions **0** | **52 rows, ∅ both ways** by name-join against `index.ts` AND against W1's `manifest.json`; class column; **9 declared holes** (W 2 + X 7), **0 vocabulary holes**; **no verb claimed** (OP-8) | **GREEN (this half)** |
+| **G-6** report half | `node harness/w2/coverage-52-report.mjs` → module not found | unchanged — the reporter is `.g`'s; the §9 row grammar is what it will parse | **RED, correctly** (`.g`) |
+| G-2..G-5, G-7..G-12 | RED | RED, untouched by this unit | — |
+
+**No bar was set; no verb was stamped.**
+
+#### ESCALATIONS
+
+None blocking. **Two owner questions are carried as marks, not raised as unit escalations**, because
+the contract binds phase 4 without them: **DM-2** (juxtaposition strictness — one notation flips it) and
+**DM-3** (GROUND-C: are `±Infinity` admitted; and whether a ninth `ParseIssue` code is wanted on the
+frozen surface — a value.js `types.ts` change routed through X·V, outside every X·P bound). `.b`'s
+**ESC-B1** is **discharged** by DM-3's interim binding: every phase-4 seat implements
+`⟨css_syntax, ["<finite-number>"]⟩` at the colour constructor's finiteness guard, identically.
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **R-c1** | MINOR | **§9 sequencing inversion, recorded loud**: the phase-1 commit (`docs(x-p/w2): blind algebra drafts — Fable and Opus arms`, P.1: *"the orchestrator commits after both return"*) had **not landed** when this seat opened — ⟨`git status --porcelain -- docs/tranches/X/parse-that/algebra/`⟩ → `?? …/algebra/` with both drafts untracked. This seat may not commit the drafts (outside its writable set; the orchestrator's act) and did not; commit `b5a0cb1f` therefore precedes §9's commit 1 in history. The lineage is pinned by **digest, not by order**: `ALGEBRA.md`'s preamble quotes both drafts' sha256 (`c185e15e…98509`, `29b24b40…b9830`), re-measured at this seat and byte-identical to the files `.a`/`.b` recorded. The orchestrator lands commit 1 next; a later reader compares the digests | orchestrator |
+| **R-c2** | INFO | `W2.md` §6 G-4's `parser.ts:653` coordinate has drifted (true bytes `:679–723`; `.b`'s R-B1, re-verified). E-3: recorded as INTENT in `ALGEBRA.md` §0.5, never patched into the spec | close seat (dated addendum if worth carrying) |
+| **R-c3** | INFO | Prettier inflates the file (876 L · 154,655 B) by padding table cells; idempotent, `git diff --check` clean, 0 ragged tables. `.h`'s `§Selected` append must be prettier-idempotent too, or the sha256 the two homes share breaks on the next format pass | `.h` |
+| **R-c4** | INFO — **for `.g`** | the G-6 reporter must (i) parse the §9 row grammar, (ii) carry the **class column** (P/V/K/W/X — Opus Q-B4 ratified), (iii) join against **W1's** manifest only; the `--structural` walk must read the `algebra-registry` fenced block and enforce `RECOVER-in-nonfinal-ALT: 0`, `CUT-outside-ALT: 0`, and the `Span`-ownership typing rule (§2.4 INV-OWN) | `.g` |
+| **R-c5** | INFO — **for `.g`** | the slice's two **declared restrictions** (§10.3: `rule := qualified-rule`; `value-slice := color`) bound the corpus: inputs whose stylesheet prelude begins with `@`, and declarations whose value is not a colour, are **outside the W2 slice corpus** — including W1's D-F2 row `@@@ { }`, which is therefore declared, not compared, in W2 | `.g` |
+| **R-c6** | INFO | `ALGEBRA.md` reserves no empty `§Selected` heading: `.h` **appends** it at the file end (§4a's one sequenced overlap) and re-lands the `<p2>` copy byte-equal in the same sitting, or G-1's equality breaks | `.h` |
+| **R-c7** | INFO | the four-anchor E-3 check on the sealed author arms: ⟨`shasum`⟩ `W2-fable-author.md` `59162207…` · `W2-opus-author.md` `f31d2cb2…` — read as evidence via the wave record only, never opened for modification; `W2.md` **`248eb088…4cd`** = the §Open digest of record, unchanged; `W2-ADDENDA-2026-09-17.md` `9fead53f…` unchanged | none — recorded |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: written set = `{ docs/…/algebra/ALGEBRA.md (create), <p2>/experiments/w2/contract/ALGEBRA.md (create), this record (append by shell redirection) }`. **0 bytes** outside it. `draft-fable.md` and `draft-opus.md` **untouched** (digests re-measured after both commits: unchanged). `/Users/mkbabb/Programming/parse-that`, `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` · `api/**` · `demo/**` · `package.json` · `package-lock.json`, `scripts/dev/dev.sh`, W1's `harness/{totality,equivalence,bench}/**` (read; `manifest.json` read-only), the two sealed author arms, `W2.md`: **all untouched**.
+- **Locks honoured**: `.c` alone created both `ALGEBRA.md` homes; they are sha256-equal (`14450aa4…66f7`) and landed in their own repos' commits in one sitting (P.1); `§Selected` is left to `.h`, sequenced after this file is closed — **this file is closed by this block**.
+- **Numbers**: zero from memory; every load-bearing number re-measured with the command's shape in `ALGEBRA.md` §0/§8/§10 and above; the two epoch-rule numbers cited, never re-derived; **no speed sentence anywhere**.
+- **Bar**: none set. **Verbs**: none stamped.
+- **`<p2>` end state**: HEAD `9bf2da5aab257a64f2af2b36fa5be632dd2a8f48`, detached, porcelain **0**, `f5757082` an ancestor, `remote -v` → 0 lines (no push path in this lane).
+- **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh` never staged.
