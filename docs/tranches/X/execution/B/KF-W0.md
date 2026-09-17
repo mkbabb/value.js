@@ -596,3 +596,250 @@ OP-1 and `.c` are not concurrent).
    performed by the ruled OP-1 hand under the begin-word; no write under
    `keyframes.js/{src,demo,test,scripts}/**` beyond the reset's own act; no producer-repo write; no
    blanket re-anchor; no manifest mismatch; no second diagnostic iteration on any gate).
+
+### KF.W0.c
+
+**SERVED MODEL: claude-opus-5[1m]** · **Date**: 2026-09-17 · **Substrate**:
+`/Users/mkbabb/Programming/keyframes.js` at the SETTLED coordinate — ⟨`date "+%Y-%m-%d"`⟩ →
+**2026-09-17**, ⟨`git rev-parse HEAD`⟩ → **`81a56990736ced5b5edde0b84c527680ac7689b1`** ·
+**Charge**: spec §Agent Units `:673` · §Gates G-0.3 `:526-538` + G-0.4 `:540-572` · §Scope 1, 3, 4
+(`:305`, `:307`, `:308`) · §Carry C-2 `:362` · C-4 `:364` · C-5 `:365` · C-6 `:366` · C-7 `:367` ·
+C-15 `:375` · §LAW-A Census 1 `:75-132` · §L-18 rider `:757` · COHESION §0j.C **KF-OP1**/**KF-WRITE**.
+Ran **after OP-1**, concurrent with `.b` (§Disjointness: `.b` writes `MANIFEST-RULING.md` +
+`INBOX.md`; `.c` writes `SUBSTRATE-SETTLE-*.md`; **no shared modify path**).
+
+**This unit moved no byte in `keyframes.js`.** Every command below is `git` / `ls` / `grep` / `sed` /
+`wc` / `diff`, read-only. The two EE-02 paths are OWNER'S-HAND bounds rows and were **verified,
+never authored**. No fetch was run — moving the `origin/master` ref under this wave's anchors is not
+this seat's act (see the finding at act 6).
+
+#### Act 1 — measure before you write: the settled coordinate, double-run
+
+```
+⟨git rev-parse HEAD⟩                        → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨git rev-parse origin/master⟩               → 81a56990736ced5b5edde0b84c527680ac7689b1
+⟨git rev-list --count HEAD..origin/master⟩  → 0     ⟨origin/master..HEAD⟩ → 0
+⟨git status --short | wc -l⟩                → 6     ⟨git ls-files --others --exclude-standard | wc -l⟩ → 6
+⟨git diff --name-only origin/master | wc -l⟩→ 0     ⟨git diff --check⟩ → (clean)
+⟨git rev-parse kf-sacred-snapshot-2026-09-17⟩  → 6d280ee7bec7793846b2e2e1d250e1ea0a21859a
+⟨git rev-parse kf-sacred-snapshot-2026-09-17^⟩ → 8281638c0ac4ac8c54a67a018ca5bf6a9117174f
+```
+
+Every figure double-run; both runs agreed. The open tree no longer exists, so both open enumerations
+were **re-derived from the snapshot commit** — declared at every use, never assumed silently.
+
+#### Act 2 — the 1-ahead commit dispositioned, and BOTH enumerations re-derived
+
+**1-ahead → COMMITTED to `6d280ee7`.** ⟨`git merge-base --is-ancestor 8281638c kf-sacred-snapshot-2026-09-17; echo $?`⟩ → **0**;
+⟨`git merge-base --is-ancestor kf-sacred-snapshot-2026-09-17 origin/master; echo $?`⟩ → **1** (an
+evidence ref, not on the frontier's history — stated, not glossed).
+
+```
+⟨git diff --name-status 8281638c kf-sacred-snapshot-2026-09-17 | wc -l⟩            → 226  (219 M · 7 D)
+  + the 26 untracked rows banked at artefacts/W0/substrate-open.txt                = 252  ✔
+⟨git diff --name-only origin/master kf-sacred-snapshot-2026-09-17 | sort -u | wc -l⟩ → 325 ✔
+⟨comm -13 <status-252> <frontier-325> | wc -l⟩ → 225   ← frontier-diff files NOT in the status set
+⟨comm -23 <status-252> <frontier-325> | wc -l⟩ → 152   ← status rows NOT in the frontier diff
+⟨comm -12 <status-252> <frontier-325> | wc -l⟩ → 100   ← the overlap
+252 = 152 + 100 ✔      325 = 225 + 100 ✔      (the two surfaces do NOT nest)
+```
+
+**`325 − 252 = 73` is used nowhere.** Both enumerations are dispositioned member-by-member — A at the
+record's §4, B at §5, the overlap at §6 — so all **477** distinct members resolve to a named
+disposition. Classification predicate for B and the overlap, stated so it reproduces: presence in
+⟨`git ls-tree -r --name-only origin/master`⟩ × presence in ⟨`git ls-tree -r --name-only kf-sacred-snapshot-2026-09-17`⟩.
+
+```
+enumeration B (225) = 196 CREATED + 24 UPDATED + 5 REMOVED                    ✔ sums to 225
+the overlap  (100) =  20 CREATED + 62 UPDATED + 18 REMOVED                    ✔ sums to 100
+enumeration A (252) = 226 tracked COMMITTED + 26 untracked rows → 124 files
+                    = 6 KEPT + 118 DISCARDED at the file altitude             ✔ 6 + 118 = 124
+```
+
+#### Act 3 — OP-1's routed clause re-cut: the 118 are **DISCARDED**, not "kept (untracked)"
+
+A per-row probe over all 26 untracked rows (`PRESENT at origin/master` is the predicate that decides
+the row) turns OP-1's aggregate finding into an addressable table (record §4.2): **20 named file rows
+PRESENT → DISCARDED · 4 named file rows ABSENT → KEPT · `docs/tranches/V/` → 97 DISCARDED + 2 KEPT ·
+`test/demo/reference-data/` → 1 DISCARDED.** The two V survivors are **value.js's own outbound mail**,
+byte- and mtime-intact.
+
+**The absorption figure derived twice, independently, agreeing at 118** — and neither number carried
+from the other:
+
+```
+untracked before − after                       : 124 − 6                        = 118
+index-class × disk-presence crossing (§5.4)    : 98 (enum B CREATED) + 20 (overlap CREATED) = 118
+```
+
+**Limit declared rather than papered over**: the COUNT of absorbed V docs is known (99 − 2 = 97);
+their MEMBERSHIP is not — git unlinked and recreated all 175 frontier V paths. The record states the
+count and declines to name the members.
+
+#### Act 4 — the flat `emit` triad's REMOVAL stated by path; LAW-A Census 1 re-run at the settled tree
+
+```
+⟨ls src/animation/compile/emit/backward.ts | backward-walk.ts | backward-color.ts⟩ → ABSENT ×3
+⟨ls src/animation/compile/emit/⟩ → backward/ · format/ (MODULES) + 7 flat siblings
+⟨git grep -nE 'backward-(walk|color)' -- src/ demo/ test/ scripts/⟩ → 5 hits, ALL stale doc-COMMENTS
+        (backward/backward.ts:158 · densify.ts:17 · densify.ts:70 · emit/index.ts:7 · emit/index.ts:8)
+   → ZERO import specifiers traverse the flat spelling
+⟨git grep -nF 'emit/backward' -- src/ demo/ test/ scripts/⟩ → 2 in-module docblocks + test/compile/value4-color-emit.test.ts:9
+⟨git grep -nE '"\.{1,2}/backward' -- src/ demo/ test/ scripts/⟩ → 14 specifier sites (12 + 2 intra-module)
+```
+
+CONSUMER SET reproduces the census exactly: **3 frontier source files + 1 test**. A sharper limb this
+seat measured and booked (labelled an inference about resolution order, not a measurement of it): the
+12 non-intra-module specifiers read `"./backward"`, which now resolves to the **directory module**; a
+surviving flat `backward.ts` would sit at the spelling standard file-over-directory resolution
+prefers and would **shadow** the module at every one of those sites, silently. Only the full
+`reset --hard` discharged it.
+
+**A fourth orphan class found and booked as a residual (not cured — `src/**` is out of bounds)**: the
+four KEPT untracked src files are flat-layout drafts of material the frontier ships in module dirs
+(⟨`diff … | grep -c '^[<>]'`⟩ → 4 · 24 · 6 differing lines for three of them; `value-ast.ts` 400 L
+corresponds to the `compile/value/` **module**, not to `ast.ts` 55 L — stated as it measures). No
+frontier specifier can reach them; the reset could not remove them because their paths are absent
+upstream.
+
+#### Act 5 — C-15: the reconciliation **DIFFED, never assumed** (and sharpened)
+
+Phantom-attr census at four coordinates, `demo/`-scoped:
+
+| coordinate | `position="right"` | `mode="persistent"` |
+|---|---|---|
+| HEAD `8281638c` | **1** | 0 |
+| snapshot `6d280ee7` (the disk as found) | 0 | **1** |
+| `origin/master` `81a56990` | 0 | 0 |
+| **the settled worktree** | **0** | **0** |
+
+```
+⟨git show 8281638c:…/EditorShell.vue | sed -n 16p⟩  → <HeaderRibbon ref="headerRibbonRef" position="right">
+⟨git show kf-sacred-snapshot-2026-09-17:… | sed -n 16p⟩ → <HeaderRibbon ref="headerRibbonRef" mode="persistent" placement="right">
+⟨sed -n 16p …/EditorShell.vue⟩ (settled)            → <HeaderRibbon placement="right">
+```
+
+**C-15 sharpened, as a dated observation beside the banked cell (E-3 — nothing at the bank is
+rewritten)**: the two phantom spellings are **disjoint by coordinate** — `position=` at HEAD only,
+`mode=` on the disk only. The disk had already half-migrated `position=`→`placement=` while acquiring
+a *second* phantom, which is precisely the carry-forward mechanism C-15 warns of. Neither survives.
+The live `/header-ribbon` import stands at `:116` (one consumer, as LAW-A Census 2 derives) — C-3's
+tripwire, `.b`'s gate, named here only so its survival is on the record.
+
+#### Act 6 — FINDING: the remote has advanced past the pin (hazard, not defect)
+
+```
+⟨git ls-remote origin refs/heads/master⟩ → 55e9bf0d2391bbc6d9871bb3f0555a6225daae92   (double-run)
+⟨git rev-parse origin/master⟩            → 81a56990736ced5b5edde0b84c527680ac7689b1   (local ref, unfetched)
+resolved read-only at /Users/mkbabb/Programming/keyframes-v-exec:
+⟨git log -1 --format='parent=%P' 55e9bf0d⟩ → parent=81a56990736ced5b5edde0b84c527680ac7689b1
+⟨git show --name-only --format= 55e9bf0d⟩  → docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md
+⟨… | grep -vc '^docs/'⟩                    → 0     (docs-only, +309 lines, one file)
+```
+
+It is **KF.W1's delivery**; the pin is its parent; it touches **zero** paths in this wave's gate
+surface, so no reading above is disturbed. **The hazard**: a later `git fetch` in the sacred checkout
+moves the *ref* `origin/master` to `55e9bf0d`, after which `git diff --name-only origin/master` no
+longer measures the pin. Every anchor in the settle record names the **sha**, for that reason.
+Handed to the orchestrator and to every later X·KF wave.
+
+#### Act 7 — G-0.3 verified (never authored)
+
+```
+OPEN, re-derived: ⟨git diff origin/master kf-sacred-snapshot-2026-09-17 --stat -- <the four paths>⟩
+    4 files changed, 6 insertions(+), 76 deletions(-)        ← reproduces the spec's RED baseline byte-for-byte
+CLOSE:            ⟨git diff origin/master --stat -- <the .ts/.vue pair>⟩            → (EMPTY)
+                  ⟨git diff origin/master --stat -- <the pair> package.json package-lock.json⟩ → (EMPTY)
+```
+
+**Emptiness is not the gate; the DIRECTION is** (the falsifier: master←disk also empties the diff
+while destroying the cure). Settled by three readings: (1) **content** — `:96-98`
+`setAnimationTimingFunction(timingFunction, css?)`, `:128` `timingFunctionLiteralFor`, `:170` the twin
+**passed**, and `TimingFunctionPanel.vue` `:144` the bezier-drag write with `:148`'s
+`{ fn, css: cubicBezierToString(...pts) }` — where the snapshot carries the one-arg `{ fn }` form at
+both sites; (2) the frontier ref did not move (`origin/master` = the pin; `origin/master..HEAD` = 0);
+(3) the disk's prior bytes live in `6d280ee7`, not upstream. **SUBJECT-IDENTITY holds at both §Bounds
+rows.** Artefacts `ee02-diff-open.txt` / `ee02-diff-close.txt`.
+
+#### Act 8 — G-0.4 run AFTER the migration landed
+
+Sequencing lock honoured (`:681`). Coordinate pasted beside each output: **2026-09-17 · HEAD
+`81a56990736ced5b5edde0b84c527680ac7689b1`**.
+
+```
+EE-01 ⟨sed -n 42p demo/components/CopyButton.vue⟩                                  →     timingFunction: "easeInBounce",
+FE-3  ⟨sed -n 11p demo/…/keyframes/components/KeyframeCardList.vue⟩                →     :frame-start="startScalar(frames[i].start)"
+EE-03 ⟨sed -n 97p demo/…/keyframes/composables/useKeyframesParsing.ts⟩             →     () => animation.templateFrames.length,
+NEG-1 ⟨git grep -n 'bounceInEase' -- demo/ | wc -l⟩        → 0      [coordinate = THE SETTLED WORKTREE, not a ref]
+NEG-2 ⟨git grep -n '\.start\.toString()' -- demo/ | wc -l⟩ → 0      [same]
+```
+
+N-3's guard observed (the bare `templateFrames.length` grep is not the witness). **EE-01's and FE-3's
+files carried NO status row** (they sit in enumeration B's UPDATED class), so the status surface
+could never have shown whether the dead name survived — only the probe on the settled tree can, and
+it did. **Runtime tier NAMED, wiring verified, deliberately NOT run** under the spec's own division
+(`:552`, the gate closes on the static tier) and probe parsimony: ⟨`git grep -ln 'console-budget' --
+scripts/observe/`⟩ → `live-session.mjs` · `live-session-mobile.mjs` (exactly two) ·
+⟨`git grep -c 'pageerror' -- scripts/observe/demo/smoke.mjs`⟩ → **0**, reproducing D-7 exactly.
+FE-3's `/\[object Object\]/` assertion is **not** asserted here (keyframes.js's own tranche-V W1
+born-RED gate; `test/**` is out of bounds — inventing it would be the vacuous evidence L-19 kills).
+Artefact `oracle-ee01-fe3-ee03.txt`.
+
+#### Act 9 — cadence
+
+⟨`git diff --check`⟩ in keyframes.js → clean. Prettier run over the one `.md` this unit authored
+(⟨`npx prettier --check`⟩ → *"All matched files use Prettier code style"*); **not** run over the
+shared execution record or any sibling doc — ⟨`npx prettier --check` on `waves/KF-W0.md`,
+`execution/B/KF-W0.md`, `COHESION.md`⟩ → all three `[warn]`, i.e. the lane's dated artifacts are not
+prettier-formatted, and reformatting another seat's committed prose would be an E-3 rewrite and a
+concurrent-edit hazard. The decision is recorded rather than taken silently.
+
+#### E13 — mail, at this unit's scope
+
+The only packet in `keyframes.js/docs/tranches/V/coordination/` dated after seat 0's sweep is
+`VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` — **value.js's own outbound**, delivered by
+KF.W1 (act 6), not inbound mail. The two untracked survivors are likewise value.js outbound and are
+unharmed. **0 UNREAD in this unit's scope.** `INBOX.md` appends remain `.b`'s alone, once, at close.
+
+#### Gates
+
+| gate | BEFORE (seat-0 baseline) | AFTER (this unit) |
+|---|---|---|
+| **G-0.3** | **RED-AS-EXPECTED** — the four-path diff at `6 insertions(+) / 76 deletions(−)`; disk carries `{ fn }` at both EE-02 write sites | **GREEN** — empty diff for the `.ts`/`.vue` pair (and all four paths); the twin present at **both** write sites; direction proven **disk←master** by content, by the unmoved frontier ref, and by the snapshot holding the disk's prior bytes |
+| **G-0.4** | **RED-AS-EXPECTED** — all three oracles red at the audited disk, green at the frontier | **GREEN** — 3 static + 2 negative probes on the **settled worktree**, date + `git rev-parse HEAD` beside each; runtime tier named and wiring-verified, not run (confirmation only, `:552`) |
+| **G-0.1** *(OP-1's gate; the two clauses it routed here)* | the written disposition over BOTH enumerations, and C-15's non-carry-forward check, were outstanding | **DISCHARGED** — `comm -13`/`-23`/`-12` pasted (225/152/100); both enumerations dispositioned member-by-member; the flat triad's removal stated by path; C-15 diffed at four coordinates, not assumed |
+
+No other gate was touched, cured or turned by this unit.
+
+#### Commits
+
+| sha | meaning |
+|---|---|
+| `388dbf1f64e5761c349350a2436ad86fa0fb0b4e` | `docs(kf-w0/settle)` — `SUBSTRATE-SETTLE-2026-09-17.md` (750 L) + `ee02-diff-open.txt` + `ee02-diff-close.txt` + `oracle-ee01-fe3-ee03.txt`; one commit, one meaning, the family not split |
+
+`substrate-open.txt` / `substrate-close.txt` were **verified, not re-authored** — they are OP-1's
+committed readings of a tree that no longer exists, and E-3 makes them immutable. Every figure in
+them that this unit re-derived reproduced exactly.
+
+#### Residuals
+
+1. **The 118-file absorption is irreversible** (act 3) — re-cut in the record as DISCARDED. The
+   pre-act probe that converts it from a finding into an owner question is booked at the record's
+   §11.1; at this act it would have read **118**.
+2. **The remote is one docs-only commit ahead of the pin** (act 6) — benign now, a live hazard for
+   any later seat that fetches in the sacred checkout. Anchors must name the sha.
+3. **The snapshot ref `kf-sacred-snapshot-2026-09-17` is local-only and not an ancestor of the
+   frontier** — every "COMMITTED" disposition in the record cites it, so 226 tracked rows and 23
+   removed files lose their receipt if it is deleted. Push is the orchestrator's call, not this
+   unit's (carried forward from OP-1's residual 3, now load-bearing for a written record).
+4. **Four orphaned flat-layout src drafts survive on disk** (act 4) — unreachable by any frontier
+   specifier; `src/**` is out of bounds for this wave, so the record states the finding and cures
+   nothing. Belongs to a wave whose §Bounds carries `src/**`.
+5. **FE-3's PARTIAL-cure residue is explicitly not G-0.4's** (fraction-for-percent, named-selector
+   fallthrough, `selectorText` uncalled at both seams) — KFED-UNIT's, after KF.W4. Named so a later
+   seat does not read G-0.4 GREEN as FE-3 fully cured.
+6. **No escalation fired**: none of the five §Triumvirate Dispatch triggers is met — the reset was
+   OP-1's ruled hand, not this seat's; no write under `keyframes.js/{src,demo,test,scripts}/**`
+   (this unit wrote **zero** bytes there); no producer-repo write; no blanket per-repo re-anchor (the
+   record's dispositions are per-file, C-21); no manifest mismatch surfaced at this unit's readings;
+   no second diagnostic iteration on either gate — both turned on their first run.
