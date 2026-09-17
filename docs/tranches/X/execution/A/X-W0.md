@@ -2244,3 +2244,194 @@ re-run above plus ⟨`git diff --check`⟩.
 
 **Nothing in §8's verdict moves**: X-W0 is **CLOSED (honest-RED: E13's rowing limb — ESC-M2)**, 18/18
 hard and 8/8 fold GREEN, **ESC-M1** and **ESC-M2** returned, **VERIFIED still ✗ and still X-W11's**.
+
+---
+
+## §CHECK 2 2026-09-17 (17:05 EDT) — a second VERIFY-ONLY re-run at a LATER clock; one gate no longer reproduces
+
+**SERVED MODEL: claude-opus-5[1m]** · **Seat**: the close seat, re-dispatched after X-W0.k's repair
+round. **VERIFY-ONLY — cured nothing, re-baselined nothing, stamped no verb.**
+**HEAD at open**: `a6b72b90` ⟨`git log --oneline -1`⟩ · branch `tranche-u` · clock **2026-09-17
+17:05:04 EDT** ⟨`date`⟩.
+**E-3 posture**: a dated **addendum-beside**. Not one byte of §Open … §Close … §RESUME … §Check 1
+`:1–2246` is rewritten. `waves/W0.md` was **not touched** (it is a gate's subject; §Check 1's
+residual 1 stands with its named owner).
+
+**Read whole before a byte was measured**: `waves/W0.md` **683 L** · this record **2,246 L** ·
+`execution/LEDGER.md` Track A row + event log.
+
+**Verdict, stated first**: the wave's implementation **stands** — **17 of 18 hard gates and 8 of 8
+fold gates reproduce GREEN at this seat's own clock**, none inherited, every published count
+double-run. **HG-8's literal byte-diff clause NO LONGER REPRODUCES** and is returned as **ESC-N1**
+(§3) — not a defect in a cure, but a structural consequence of one: the ledger's out-of-corpus block
+ranges over a live directory *outside the repository*. **E13's rowing limb is still open** (ESC-M2,
+re-measured at §4). **VERIFIED stays ✗ and stays X-W11's** (R-A).
+
+---
+
+### 1 · The roster re-opened at a third clock, and the bounds re-proven
+
+**20 commits** re-opened ⟨`git diff-tree --no-commit-id --name-only -r <hash>`⟩ — the fifteen
+artefact/close/repair hashes, the two LEDGER commits (`79298655`, `a6b72b90`) and §Check 1's two
+(`b92d6a38`, `7c700dc9`). **All twenty resolve**, each carrying the subject its cell names.
+
+| probe over the 20-commit union | result |
+|---|---:|
+| distinct paths | **1,859** |
+| ⟨`grep -cv '^docs/'`⟩ non-`docs/` | **0** |
+| ⟨`grep -c 'registry/adjudicated/'`⟩ | **0** |
+| 7e28 copies (excluding `CENSUS.md`) | **0** |
+| canonical `challenge-[A-Z]-[a-z]+\.md` | **0** |
+| ⟨`grep -c 'dev\.sh'`⟩ | **0** |
+| ⟨`grep -c 'registry/harvest'`⟩ | **0** |
+| ⟨`grep -c 'X/keyframes'`⟩ | **1** — `X/keyframes/W0/REF-OF-RECORD.md` in `58be3626`, the shared-index carry X-W0.c **C9** and §6 already book as landed-wrong; **no new finding** |
+
+Five bounds, five zeros, at a third independent clock.
+
+### 2 · The gates, re-run — reading, then verdict
+
+| gate | this seat's probe ⟨cmd⟩ | reading | verdict |
+|---|---|---|---|
+| **HG-1** | ⟨`git ls-files --others --exclude-standard docs/ \| wc -l`⟩ · and the same over the three frozen-census trees | live absolute **1**, double-run **1** — the sole carrier is `X/keyframes/waves/evidence/KF-W4/k3-decision.md`, **Track B**, `KF.W4` executing; **CR-4 set-difference over `T/audit` ∪ `V/apotheosis` ∪ `W/audit` = 0**, double-run; those trees hold **1,993** tracked files, **0** untracked | **GREEN** (CR-4). Neither tracked nor deleted by this seat |
+| **HG-2** | ⟨`grep -c '^\| \*\*D-'`⟩ | **3** rows ≡ **3** census trees, each with a reason; TRACK 3 · ARCHIVE 0 · DELETE 0 | **GREEN** |
+| **HG-3** | ⟨`git ls-files …/raw-prompts/ \| wc -l`⟩ · ⟨`grep -cE '^\\| [FRB]#[0-9]{3} \\|'`⟩ · **this seat's own anchor verifier** | corpus **4** tracked · **181** rows (**F 83 · R 28 · B 70**) · **181/181** anchors resolve to a real **non-blank** `<archive>:<line>`, **0** unresolved, double-run | **GREEN** |
+| **HG-4** | §2.2 read at the bytes; both losing readings re-read at their coordinates | dated **2026-09-17**, canon **P (0/2)**, loser **J SUPERSEDED, epoch-scoped**; `vnext/PROMPT-RECAP.md:88` and `"status":"clean"` both still live and annotated | **GREEN** |
+| **HG-5** | ⟨`grep -oE '\`[FRB]:[0-9]+\`'`⟩ over §3 + the same verifier | **13** restored rows (the union, 12 required); **19/19** anchors resolve, **0** unresolved | **GREEN** |
+| **HG-6** | ⟨`cat <3 gate-text files> \| grep '264/264' \| grep -vc 'CHALLENGED'`⟩ | **0**, double-run **0**, over all **6** occurrences at the five live sites; ⟨`grep -c 218`⟩ → **6** | **GREEN** |
+| **HG-7** | ⟨`node validate-completeness.mjs --self-test`⟩ ×2 | **exit 0** · `0 uncovered` · `264/264 = 218 CHALLENGED + 46 REPORT-AUTHORED` · **SELF-TEST PASS — 6/6**; ⟨`diff run1 run2`⟩ **empty**; ⟨`git status --porcelain`⟩ identical before/after — read-only proven | **GREEN** |
+| **HG-8** | this seat's **own** ephemeral worktree of `a6b72b90` | ⟨`git diff --exit-code`⟩ → **1**, double-run 1 — **the literal clause fails**. Partitioned at §3: the **gating half is byte-identical**, the whole diff is **8 / 5** lines inside the out-of-corpus block | **RED at the literal clause · GREEN in substance — ESC-N1 (§3)** |
+| **HG-9** | tree/tracked counts · **this seat re-parsed §2 and re-hashed independently** ⟨`tail -c <bytes> \| shasum -a 256`⟩ | **91** files / **91** tracked / **0** untracked; **90/90 MATCH · 0 DRIFT · 0 MISSING** (the 90th resolving at its `.WORKTREE-VARIANT.md` path, digest `91b9a0ce…` exact); accounting **90 + 36 = 126**; collision → **2** distinct tracked names; `~/.codex` worktree still listed, unmodified | **GREEN** |
+| **HG-10** | ⟨`grep -c 'r1 · re-run at r2 (witnessed)'`⟩ · per-slug ⟨`git ls-files … \| grep -c r2`⟩ | **6** supersession cells · r2 tracked **6 + 2 + 26 = 34** · the three r2 rows read **EXISTS-ORIGINAL** with harvest `wf_1a4c8a8c-557` | **GREEN**, read against **§0k.1** |
+| **HG-11** | marker ⟨`grep -c`⟩ · **coverage set-difference re-derived by this seat's own construction** (§7.1–§7.3 literal ∪ §7.4 subject×axes expansion) | marker **8**, double-run; **16 literal + 30 expanded = 46**, `sort -u` **46**; ledger−record **0**, record−ledger **0** | **GREEN** |
+| **HG-12** | ⟨`grep -c '^### TS-'`⟩ + **all nine probes re-run by this seat** | **9** tombstones; **9/9 reproduce** — CC-015 **5** hits / **3** files · CC-016 `139`,`287` + glass **7.0.0** · CC-017 `63240e67…` vs kf `8ccf9f4d…` · CC-018 `> _(empty — the owner's verdict lands here)_` · CC-022 kf **6.0.0** · CC-019 **69** / **0** · CC-020 **0** · CC-021 ` M scripts/dev/dev.sh` · CC-023 **301 → `https://color.babb.dev/`** | **GREEN** |
+| **HG-13** | the seven verdict cells read at the bytes; falsifier re-tested | **7/7** tokens — **6 RETIRED + 1 LANDED-AS-RULED (U-F12 POLE B)**; ⟨`grep -ciE '\| *(banked\|pending\|carried) *\|'`⟩ → **0** | **GREEN** |
+| **HG-14** | ⟨`node graph-v3.mjs --verify`⟩ ×2 | `ROUND-TRIP GREEN`, exit 0 both; committed↔live MATCH on all five digests (`0e75a1c9…` `4f1fb14f…` `bf9c9a20…` `e3a09112…` `b3a387c9…`); ⟨`diff run1 run2`⟩ **empty**; ⟨`git status --porcelain`⟩ unchanged | **GREEN** |
+| **HG-15** | **this seat re-hashed all 88 rows against live bytes** ⟨`shasum -a 256 \| cut -c1-16`⟩ + ⟨`wc -c`⟩ | **88 MATCH · 0 MISMATCH · 0 byte-count mismatches · 0 missing**; live ⟨`find demo -name '*.vue' \| wc -l`⟩ → **88**; the six figures **88 · 310 · 14+1 · 13 · 2 · 2** EXACT | **GREEN** |
+| **HG-16** | ⟨`grep -aL 'COMPLETABLE' docs/tranches/X/waves/W*.md \| wc -l`⟩ | **0** missing over **12** wave files, double-run | **GREEN** |
+| **HG-17** | per-site ⟨`grep -c 'V·L5\|V\.L5'`⟩ and ⟨`grep -c 'X-W9'`⟩ / ⟨`grep -c 'X-W11'`⟩ over all six law-bearing sites | token **0 · 0 · 0 · 0 · 0 · 0**; each site reads X-W9 and X-W11 (**2·2 / 2·2 / 2·2 / 7·4 / 11·4 / 10·4**); `validate-constellation-dag.mjs` carries **0** `V.L5` node ids; **59** residual carriers ⟨`git grep -l`⟩, every one in a class `:321` names legal (22 frozen 7e28 · 6 registry · 4 audit · 2 coordination · the rest X-tranche records) | **GREEN** |
+| **HG-18** | **all four re-measured read-only by this seat** | **c1** installed **7.0.0**, pin `^7.0.0` → **FAIL** · **c2** ⟨`…exports…/watercolor/…`⟩ → `./watercolor-dot` → **FAIL** · **c3** indicator-slot `.d.ts` decls → **0** → **FAIL** · **c4** target-relative at the elected **8.0.0**: `MIGRATION.md` §8.0.0 (510 L) names **keyboard 2 · orientation 2 · motion 1** → **PASS**; at 9.0.0 (105 L) **0 · 0 · 0**. **1/4 = FAIL at 8.0.0 · 0/4 at 9.0.0 → X-W4.g stays CLOSED, the §1.M bank stays shut** | **GREEN** (the gate returns its dated verdict) |
+
+**Fold gates, all eight re-run**: **G-A** ⟨`grep -ro 'X[-.]W4\.g' registry/adjudicated/*.md`⟩ → **62**
+across **10** records · **G-B** the docket self-counts **18 = 9 owner rows + 8 escalations + 1
+OWNER-DECISION** ⟨`grep -oE '^\| [0-9]+ \| (owner row\|escalation\|OWNER-DECISION)'`⟩ · **G-C**
+⟨`grep -nEi 'requestAnimationFrame\|\brAF\b\|animation-timeline\|scroll-timeline\|setInterval\|setTimeout'`
+over the 46 canonical paths⟩ → **0 lines** (the false clear stays unspellable) · **G-D** `EXISTS-ORIGINAL
+213 · UNWITNESSED-DIRECT 5 · REPORT-AUTHORED 46` → **213+5+46 = 264 = 218+46** · **G-E** `G-E closure
+GREEN 11 SCCs = 6 owned + 5 reasoned-no-owner + 0 unnamed`, twice · **G-F** RATIFIED (GF-R3);
+⟨`grep -c 'SLATE ENTRY'`⟩ → **15** · **G-G** `TRACK-OR-ARCHIVE.md` carries **3** tree rows + **5**
+DR rows, all **5** `RE-SCRIPT → X-W1`, and **6** `CR-1..CR-6` rules · **G-H** adjudicated ∩ union →
+**0**. **8 of 8 GREEN.**
+
+---
+
+### 3 · ESC-N1 — HG-8's byte-diff clause is no longer satisfiable by construction. Returned, not cured.
+
+**The replay, run by this seat's own hand** in an ephemeral `git worktree` of `a6b72b90`
+(created, read, restored, removed — nothing committed from it):
+
+⟨`node hydrate-reports.mjs && node validate-completeness.mjs`⟩ → both **exit 0** ·
+⟨`git diff --exit-code`⟩ → **1** · ⟨`git status --porcelain`⟩ → **1 line**, and the one line is
+`M registry/COMPLETENESS-LEDGER.md`. `HYDRATION-LEDGER.md` shows **no diff at all** — the hydration
+half reproduces its committed bytes exactly.
+
+**The diff is 8 insertions / 5 deletions and every hunk is inside the out-of-corpus block**
+⟨`git diff -U0 \| grep '^@@'`⟩ → `:203 · :208 · :210 · :228 · :320 · :324 · :350` — the owed-set
+headline (**95 → 97** records, **89 → 91** owed), its by-program table (`x-track-D` **+2**), two new
+per-record rows (`wf_b749e51e-e79` *killed* · `wf_c431fb2c-82d` harvest-short 14/12) and the VERDICT
+line's owed count.
+
+**Partition proof — the gating half did not move one byte**:
+⟨`git show HEAD:…/COMPLETENESS-LEDGER.md \| sed -n '1,199p' \| shasum -a 256`⟩ → **`a17320ee56ecb2ca`**
+and the regenerated file's own `sed -n '1,199p'` → **`a17320ee56ecb2ca`**. The roster, the
+`264/264 = 218 + 46` denominator, the three integers and the 27 in-corpus non-band records are
+**identical**. **No component, axis, hash or denominator moved.**
+
+**Determinism intact**: the regeneration was run twice inside the worktree and the two outputs are
+⟨`diff`⟩ **byte-identical** — the generator is deterministic *at a fixed clock*; it is not a pure
+function of *repository* bytes.
+
+**The gate's own falsifier still fires, by this seat's hand**: hash width **64 → 16** in
+`hydrate-reports.mjs` ⇒ ⟨`validate-completeness.mjs`⟩ **exit 1**, `0/264 hash-banked`. The tree was
+then ⟨`git checkout -- .`⟩ restored to ⟨`diff --exit-code`⟩ **0**, `status --porcelain` **0 lines**,
+and the worktree removed ⟨`git worktree list`⟩ → back to its **four** standing entries.
+
+**The finding, stated plainly.** §0k.1's scope cure — correctly — put the 89 (now 91) owed
+out-of-corpus shortfalls **on the ledger's own face, by run id**. That block is regenerated from the
+**live session-journal directory, which is outside this repository and moves under four concurrent
+tracks' hands**. Therefore **HG-8's literal test — "reproduces both committed ledgers,
+`git diff --exit-code`" — becomes RED the moment any sibling track dispatches a workflow, with no
+megatranche byte moved.** §Check 1 measured `diff 0` a few hours ago and was right then; two
+`x-track-D` runs have landed since. The ledger says this of itself in terms: *"A figure that moves
+when no megatranche byte moves is a measurement of another program."*
+
+**ESC-N1 — returned to the orchestrator, no act taken.** The candidate cures (date-stamp and pin the
+out-of-corpus block as a dated measurement rather than re-deriving it every run; or scope HG-8's
+byte-diff to the gating half it was written for) both edit `validate-completeness.mjs` /
+`hydrate-reports.mjs` **and the gate's own text**, and a check seat may not re-baseline the gate it is
+checking. **Natural owner: X-W11**, which already owns the harvest limb (`workflows/harvest-journals.mjs`)
+that rewrites exactly these figures. **Nothing was written to either generator, either ledger, or
+`waves/W0.md` by this seat.**
+
+---
+
+### 4 · E13 — the four paths swept again, and ESC-M2 re-measured as still open
+
+Classification from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**).
+
+| # | path | newest by mtime | disposition |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` + `V/coordination/` | `INBOX.md`@**16:44** self-excluded (SELF-COUNT); next `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`@13:09 | **ours (O-21)**, rowed |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` | `glass-outbound-2026-08-29-valuejs-o20-ack.md`@**16:34:58** | **I-30, rowed — still AMENDED-AND-UNROWED: ESC-M2 stands** |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md`@14:58 | **ours outbound** |
+| 4 | `../sci-report/atlas/docs/tranches/{P,Q}/coordination/` | `ATLAS-TO-VALUE-2026-08-03-RULINGS.md`@Aug 3 | **I-27 / O-12**, rowed |
+
+**Status-cell scan**: exactly **three** rows contain the string `UNREAD` and **none is classified so** —
+the three hits at `:4`, `:5`, `:23`, `:33` are the ledger's own *law text and status vocabulary*, and
+rows O-20 / I-30 / I-31 read `SENT` / `ROWED 2026-08-30` / `FOLDED 2026-09-17`. **0 rows UNREAD.**
+
+**ESC-M2, re-measured**: the I-30 row still pins ⟨`shasum \| cut -c1-12`⟩ **`caed90705234`**; the letter
+measures **`ec360555811b`** at mtime **2026-09-17 16:34:58**, 3,639 B. `INBOX.md` was written at 16:44
+(the X.P.W1 close sweep) and carries **no** row for the amendment ⟨`grep -c '9.0.0 is on the registry'`
+· `'ec360555'` · `'81f7db0d'` → **0 · 0 · 0**⟩. **`INBOX.md` is in no row of this wave's §File Bounds**,
+so it was **not written**; the honest-RED limb stands exactly as §Check 1 returned it.
+
+**ESC-M1, re-measured and still true**: ⟨`npm view @mkbabb/glass-ui version`⟩ → **9.0.0** ·
+⟨`dist-tags.latest`⟩ → **9.0.0** · ⟨`git -C ../glass-ui log --oneline -1`⟩ → `81f7db0d` · both tags
+`v8.0.0` and `v9.0.0` present. **It moves no HG-18 condition** — c1/c2/c3 read the *installed* tree
+(7.0.0) and c4 the *elected target's* receipt, and §ADDENDUM 2026-08-30 is explicit that the
+registry/tag datum *"does not gate the census"*. Re-running the census over both candidates is the
+orchestrator's and the owner's. `../glass-ui` stayed **READ-ONLY**; the only `npm` calls were `view`.
+
+---
+
+### 5 · Residuals carried forward — owners named, nothing parked silently
+
+1. **ESC-N1** (§3) — HG-8's byte-diff clause vs. a live out-of-repo input · **X-W11 / orchestrator**.
+2. **ESC-M2** (§4) — the I-30 amendment unrowed; `INBOX.md` out of bounds here · **orchestrator**.
+3. **ESC-M1** (§4) — §0i.2's re-trigger fired; receipt (1) false at the bytes · **orchestrator / owner**.
+4. **`waves/W0.md` §State `:9–10` still carry round-1's readings** (*complete_with_misses*, *HG-7 RED*,
+   *HG-10 SPLIT*), which §0k.1 and two checks have since overtaken. **Not touched here** — §Check 1's
+   residual 1, same reasoning: *a check that edits a gate's subject has stopped being a check* ·
+   **orchestrator, or a docs seat holding `waves/W0.md`, by dated addendum-beside**.
+5. The **nine owed acts** of §Check 1 §5 (E-1's harvest · RS-1 · RS-2 · DR-21 · CC-104/OP-1 · S-1..S-8)
+   and the **15 residuals** of §Close §8 stand exactly as listed there · **X-W5 · X-W9 · X-W10 · X-W11**.
+6. **`scripts/dev/dev.sh` dirty by ruling** (DR-24 / CC-021 / §0j.A) — never touched, never staged.
+7. **L-18's two challenging gestalt passes are not performed by a check seat**; X-W0 is IMPLEMENTED and
+   CLOSED, **not ACCEPTED** · **orchestrator**, scheduled with the X-W1 open.
+
+### 6 · What this seat did NOT do
+
+**Cured nothing · re-baselined nothing · stamped no verb · answered no escalation.** Wrote **two
+paths**: this §Check 2 and `execution/LEDGER.md`'s X-W0 row cell plus one appended event line —
+nothing else. **No** `waves/W0.md` byte · **no** `COHESION.md` byte · **no** `INBOX.md` byte · **no**
+`registry/**` byte · **no** workflow-script byte · **no** canonical `challenge-*.md` byte · **no** 7e28
+byte · **no** `registry/adjudicated/**` byte · **no** product source · **no** sibling-tree byte
+(`../glass-ui`, `../keyframes.js`, `../sci-report/atlas` read and hashed only). Tracked and deleted
+**none** of HG-1's cross-track carriers. One ephemeral worktree created, read, restored to diff-0 and
+removed; **nothing committed from it**. **No `git stash`, no `reset`, no force-push, no history
+rewritten.** ⟨`npm run lint`⟩ / ⟨`vue-tsc`⟩ intentionally skipped per §Format And Lint Cadence `:346` —
+**zero** `.ts`/`.vue`/`.css` bytes written; replacement evidence is the three script gates above plus
+⟨`git diff --check`⟩ clean. This section names **no hash of its own commit** — a pointer into nothing is
+the defect HG-17 and G-G(b) exist to catch; the commit is this record's newest
+⟨`git log -1 --format=%h -- docs/tranches/X/execution/A/X-W0.md`⟩, and it is written into the LEDGER's
+commit cell by the one follow-up WRITE-THEN-MEASURE line that can carry it — after it exists.
