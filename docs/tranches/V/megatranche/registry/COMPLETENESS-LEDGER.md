@@ -162,223 +162,186 @@ Challenge-axis file presence is **264/264 (100.0%)**; durable saturation is **26
 | shell-dock-parseechoreadout | CDL | CDL | — | BANKED |
 | shell-dock-genericactionbar | CDL | CDL | — | BANKED |
 
-## Non-band workflows (record vs harvest)
+## Non-band workflows (record vs harvest) — over the corpus
+
+**The corpus predicate (COHESION §0k.1, 2026-09-17), stated before the law it scopes:** this law ranges over run records at or before the megatranche dispatch boundary (**timestamped ≤ 2026-08-03**) plus **any record a canonical roster row cites**. Live tranche-X session journals are outside the corpus **by construction**, not by exception. The record's own `timestamp` field is the datum; a record carrying no readable timestamp stays **in** corpus (fail-closed — the exclusion is positively established or it does not happen). Nothing is suppressed: every out-of-corpus record is read, put through this same verdict, and its shortfall printed as a dated owed figure in the next section.
 
 Law: a record must be `completed` AND harvested, with harvested results accounting for every seat it dispatched. A stopped run needs a STOPPED-WITH-DISPOSITION reason; a short harvest needs a HARVEST-DISPOSITION whose pinned counts still match. Anything else is a violation and exits 1.
 
-| run | record status | agents | harvested results |
-|---|---|---|---|
-| `wf_03a25c76-f4f` | completed | 25 | **NOT HARVESTED** |
-| `wf_044be11b-f2a` | completed | 7 | **NOT HARVESTED** |
-| `wf_04aef74b-4a6` | completed | 24 | **NOT HARVESTED** |
-| `wf_05eaa1d4-a63` | completed | 25 | **NOT HARVESTED** |
-| `wf_05ffb10b-427` | completed | 24 | **NOT HARVESTED** |
-| `wf_060ffe39-0fd` | completed | 3 | 3 |
-| `wf_076062ab-dc8` | completed | 7 | 7 |
-| `wf_07e50fa4-5f1` | completed | 24 | **NOT HARVESTED** |
-| `wf_0a13b4b5-ca1` | completed | 6 | **NOT HARVESTED** |
-| `wf_0ddb79d6-164` | completed | 9 | 9 |
-| `wf_0e0ee049-c82` | completed | 3 | 3 |
-| `wf_14d5549b-eda` | completed | 3 | **NOT HARVESTED** |
-| `wf_15c8ac5b-f55` | completed | 2 | **NOT HARVESTED** |
-| `wf_169b668a-217` | completed | 6 | **NOT HARVESTED** |
-| `wf_191257b7-497` | completed | 18 | **NOT HARVESTED** |
-| `wf_19673577-a99` | completed | 13 | 13 |
-| `wf_1a4a0fe1-3ff` | completed | 6 | **NOT HARVESTED** |
-| `wf_1a4c8a8c-557` | completed | 4 | 4 |
-| `wf_1b88521c-7f1` | completed | 2 | **NOT HARVESTED** |
-| `wf_1f44462d-8d2` | completed | 25 | **26** |
-| `wf_247fe7fa-e67` | completed | 3 | **69** |
-| `wf_25826f53-4ac` | completed | 3 | **NOT HARVESTED** |
-| `wf_269fd543-c7f` | completed | 25 | 25 |
-| `wf_28c0c210-172` | completed | 25 | **38** |
-| `wf_2a50c13e-276` | completed | 24 | **NOT HARVESTED** |
-| `wf_2d1d368d-267` | completed | 38 | **NOT HARVESTED** |
-| `wf_30a8e858-e9a` | completed | 3 | 3 |
-| `wf_32f2ec24-abd` | completed | 3 | **NOT HARVESTED** |
-| `wf_3542b0db-204` | completed | 25 | **41** |
-| `wf_3a0fbf76-a67` | completed | 6 | 6 |
-| `wf_3b95205b-351` | completed | 26 | **NOT HARVESTED** |
-| `wf_3c34d986-c04` | completed | 10 | 10 |
-| `wf_3c41968c-46d` | completed | 25 | **NOT HARVESTED** |
-| `wf_401c495c-894` | completed | 2 | 2 |
-| `wf_403721b8-1f5` | completed | 24 | **NOT HARVESTED** |
-| `wf_407d36af-fe7` | completed | 24 | **64** |
-| `wf_45a2041e-cb2` | completed | 5 | **NOT HARVESTED** |
-| `wf_4a8ad4ff-130` | completed | 0 | n/a — 0 seats dispatched |
-| `wf_4bbf943f-9d5` | completed | 24 | **NOT HARVESTED** |
-| `wf_4e763b6a-224` | completed | 3 | 3 |
-| `wf_4e99884c-f44` | completed | 7 | **NOT HARVESTED** |
-| `wf_555977e4-0a4` | completed | 2 | **NOT HARVESTED** |
-| `wf_5ad9b912-b1f` | completed | 24 | 24 |
-| `wf_5ea8a490-613` | completed | 5 | 5 |
-| `wf_5f5140a6-4a0` | completed | 6 | 6 |
-| `wf_60fbe204-85e` | completed | 24 | **NOT HARVESTED** |
-| `wf_6574d0d0-c2b` | completed | 2 | **NOT HARVESTED** |
-| `wf_6d689565-61a` | completed | 24 | **NOT HARVESTED** |
-| `wf_6e1e7c6f-7af` | completed | 3 | 3 |
-| `wf_6f14e782-073` | completed | 15 | **NOT HARVESTED** |
-| `wf_6f552e12-062` | completed | 9 | **37** |
-| `wf_70e6e88e-e48` | completed | 25 | **NOT HARVESTED** |
-| `wf_72a24639-a1c` | completed | 2 | **NOT HARVESTED** |
-| `wf_73c61fe0-093` | completed | 3 | 3 |
-| `wf_76f092b7-f4b` | completed | 16 | 16 |
-| `wf_788e5d2b-d35` | completed | 24 | **NOT HARVESTED** |
-| `wf_78d86394-c63` | completed | 12 | **NOT HARVESTED** |
-| `wf_7a15d40a-d75` | completed | 24 | **NOT HARVESTED** |
-| `wf_7dcfb75f-51b` | completed | 24 | **NOT HARVESTED** |
-| `wf_7de7fe5a-62c` | completed | 25 | **NOT HARVESTED** |
-| `wf_7faa8ec3-9d4` | completed | 26 | **NOT HARVESTED** |
-| `wf_7fb0f086-8e8` | completed | 24 | **NOT HARVESTED** |
-| `wf_817b9a29-478` | completed | 25 | **NOT HARVESTED** |
-| `wf_83265e1d-a99` | completed | 15 | 15 |
-| `wf_83b2416f-85e` | completed | 12 | **NOT HARVESTED** |
-| `wf_86752d32-7d8` | completed | 27 | **NOT HARVESTED** |
-| `wf_88ec28d9-949` | completed | 3 | 3 |
-| `wf_8d60f0f3-954` | completed | 24 | **NOT HARVESTED** |
-| `wf_8fec86c6-82a` | completed | 24 | **NOT HARVESTED** |
-| `wf_92c8fc9d-011` | completed | 8 | 8 |
-| `wf_94bdaf23-45c` | completed | 3 | **NOT HARVESTED** |
-| `wf_94ea38b3-a88` | completed | 24 | **NOT HARVESTED** |
-| `wf_9bd0ecd0-037` | completed | 15 | 15 |
-| `wf_9e9b7e46-983` | completed | 24 | **NOT HARVESTED** |
-| `wf_9f41b649-cb5` | completed | 3 | **NOT HARVESTED** |
-| `wf_a0269d77-0da` | completed | 17 | **32** |
-| `wf_a03b3d1b-615` | completed | 25 | **26** |
-| `wf_a0fb250d-623` | completed | 24 | **NOT HARVESTED** |
-| `wf_a118e2e6-699` | completed | 25 | **NOT HARVESTED** |
-| `wf_a1dfbc84-113` | completed | 24 | **NOT HARVESTED** |
-| `wf_a376b9ac-d45` | completed | 6 | 6 |
-| `wf_a6f71311-4e5` | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
-| `wf_a6f87133-522` | completed | 15 | 15 |
-| `wf_a81123d3-f2c` | completed | 6 | **NOT HARVESTED** |
-| `wf_a9a18c03-e1b` | completed | 25 | **26** |
-| `wf_ac6fe562-e31` | completed | 21 | **NOT HARVESTED** |
-| `wf_ace0b58b-8b0` | completed | 41 | **NOT HARVESTED** |
-| `wf_b048077c-384` | completed | 7 | **NOT HARVESTED** |
-| `wf_b1903beb-e2b` | completed | 5 | 5 |
-| `wf_b37f674c-ec7` | completed | 3 | **NOT HARVESTED** |
-| `wf_b5545dc7-9a8` | completed | 4 | **NOT HARVESTED** |
-| `wf_b560c395-402` | completed | 6 | **NOT HARVESTED** |
-| `wf_bafca356-6f4` | completed | 5 | 5 |
-| `wf_bb1c807c-f47` | killed — STOPPED-WITH-DISPOSITION: redundant omission dispatch, stopped pre-write, 0 results, hashes intact | 6 | empty (dispositioned) |
-| `wf_bcbdee92-3f6` | completed | 12 | **NOT HARVESTED** |
-| `wf_bf198561-311` | completed | 15 | **NOT HARVESTED** |
-| `wf_c0e44b3d-354` | completed | 15 | **NOT HARVESTED** |
-| `wf_c7849121-1ee` | completed | 2 | **NOT HARVESTED** |
-| `wf_c88c8125-52c` | completed — HARVEST-DISPOSITION: STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold" | 8 | 3 of 8 (accounted) |
-| `wf_c8ee9ebc-6c9` | completed | 25 | 25 |
-| `wf_ca218d91-9c7` | completed | 24 | **NOT HARVESTED** |
-| `wf_cc685113-a5b` | completed | 4 | **NOT HARVESTED** |
-| `wf_cd3d324b-ced` | completed | 25 | **28** |
-| `wf_ce467a11-92a` | completed | 3 | **NOT HARVESTED** |
-| `wf_cfc338a0-be1` | completed | 25 | **NOT HARVESTED** |
-| `wf_d44c638e-155` | completed | 5 | **NOT HARVESTED** |
-| `wf_db5c0736-fa0` | completed | 15 | **17** |
-| `wf_e0a296ea-871` | completed | 25 | **36** |
-| `wf_e1dab279-105` | completed | 2 | **NOT HARVESTED** |
-| `wf_e231d455-de2` | completed | 9 | 9 |
-| `wf_e6117287-d7c` | completed | 3 | **NOT HARVESTED** |
-| `wf_e6e17ac0-4bd` | completed | 6 | **NOT HARVESTED** |
-| `wf_e725506c-74e` | completed | 2 | **NOT HARVESTED** |
-| `wf_ee039766-63b` | completed | 5 | **NOT HARVESTED** |
-| `wf_f00a1af2-4e8` | completed | 6 | **NOT HARVESTED** |
-| `wf_f231a063-28c` | completed | 6 | **NOT HARVESTED** |
-| `wf_f4fa59c9-25f` | completed | 3 | **NOT HARVESTED** |
-| `wf_f51d6dc4-dda` | completed | 2 | **NOT HARVESTED** |
-| `wf_f979cc3b-33e` | completed | 25 | 25 |
-| `wf_fd74ab59-579` | completed | 25 | **NOT HARVESTED** |
+| run | in corpus because | record status | agents | harvested results |
+|---|---|---|---|---|
+| `wf_060ffe39-0fd` | 2026-07-27 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_076062ab-dc8` | 2026-07-27 ≤ 2026-08-03 | completed | 7 | 7 |
+| `wf_0ddb79d6-164` | 2026-07-24 ≤ 2026-08-03 | completed | 9 | 9 |
+| `wf_0e0ee049-c82` | 2026-08-03 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_19673577-a99` | 2026-08-03 ≤ 2026-08-03 | completed | 13 | 13 |
+| `wf_1a4c8a8c-557` | 2026-08-03 ≤ 2026-08-03 | completed | 4 | 4 |
+| `wf_30a8e858-e9a` | 2026-08-03 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_3a0fbf76-a67` | 2026-08-03 ≤ 2026-08-03 | completed | 6 | 6 |
+| `wf_3c34d986-c04` | 2026-08-03 ≤ 2026-08-03 | completed | 10 | 10 |
+| `wf_4a8ad4ff-130` | 2026-07-24 ≤ 2026-08-03 | completed | 0 | n/a — 0 seats dispatched |
+| `wf_4e763b6a-224` | 2026-08-03 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_5ad9b912-b1f` | 2026-08-03 ≤ 2026-08-03 | completed | 24 | 24 |
+| `wf_5f5140a6-4a0` | 2026-08-03 ≤ 2026-08-03 | completed | 6 | 6 |
+| `wf_6e1e7c6f-7af` | 2026-07-27 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_73c61fe0-093` | 2026-07-27 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_76f092b7-f4b` | 2026-07-24 ≤ 2026-08-03 | completed | 16 | 16 |
+| `wf_83265e1d-a99` | 2026-08-03 ≤ 2026-08-03 | completed | 15 | 15 |
+| `wf_88ec28d9-949` | 2026-07-27 ≤ 2026-08-03 | completed | 3 | 3 |
+| `wf_92c8fc9d-011` | 2026-08-03 ≤ 2026-08-03 | completed | 8 | 8 |
+| `wf_9bd0ecd0-037` | 2026-07-27 ≤ 2026-08-03 | completed | 15 | 15 |
+| `wf_a6f71311-4e5` | 2026-07-27 ≤ 2026-08-03 | completed — HARVEST-DISPOSITION: STATE.md — "PHASE X excavation (M-14) · 15/15 ON DISK" | 15 | 14 of 15 (accounted) |
+| `wf_a6f87133-522` | 2026-07-27 ≤ 2026-08-03 | completed | 15 | 15 |
+| `wf_b1903beb-e2b` | 2026-08-03 ≤ 2026-08-03 | completed | 5 | 5 |
+| `wf_bafca356-6f4` | 2026-08-03 ≤ 2026-08-03 | completed | 5 | 5 |
+| `wf_bb1c807c-f47` | 2026-08-03 ≤ 2026-08-03 | killed — STOPPED-WITH-DISPOSITION: redundant omission dispatch, stopped pre-write, 0 results, hashes intact | 6 | empty (dispositioned) |
+| `wf_c88c8125-52c` | 2026-07-24 ≤ 2026-08-03 | completed — HARVEST-DISPOSITION: STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold" | 8 | 3 of 8 (accounted) |
+| `wf_e231d455-de2` | 2026-07-28 ≤ 2026-08-03 | completed | 9 | 9 |
+
+## Out-of-corpus run records — DATED AND OWED (COHESION §0k.1, 2026-09-17), never suppressed
+
+**95** run records in the live session directory fall outside the corpus predicate above — every one of them timestamped after **2026-08-03** and belonging to a tranche-X track, not to this megatranche. Put through the identical non-band verdict they would fail **89** times. **That finding is not discharged by this scope and is not excused here.** It is owed, in full, at X-W11's close, via `workflows/harvest-journals.mjs`, which rewrites `registry/DEFECT-LEDGER.md` by dated addendum inside X-W11's own bounds. A figure that moves when no megatranche byte moves is a measurement of another program, which is exactly why it is reported here rather than gating here.
+
+| owed shortfall | out-of-corpus records |
+|---|---:|
+| completed but NOT HARVESTED | **77** |
+| harvest short of seats | **12** |
+| stale harvest disposition | **0** |
+| record not terminal | **0** |
+| **total owed at X-W11's close, via workflows/harvest-journals.mjs** | **89** of 95 |
+
+By dispatching program (workflow name, trailing batch number folded to `*`) — so the owed set is attributable, not a bare integer:
+
+| dispatching workflow | owed records |
+|---|---:|
+| `xf-repair-r*` | 14 |
+| `adjudication-batch*` | 9 |
+| `fourier-saturation-batch*` | 8 |
+| `xp-fold-repair-r*` | 8 |
+| `fourier-adjudication-batch*` | 7 |
+| `kf-adjudication-batch*` | 7 |
+| `xkf-repair-r*` | 7 |
+| `kf-saturation-batch*` | 6 |
+| `xv-fold-repair-r*` | 3 |
+| `parsethat-saturation-batch*` | 2 |
+| `pt-adjudication-batch*` | 2 |
+| `adjudication-batch-9-tail*` | 1 |
+| `fourier-adjudication-batch-1-tail` | 1 |
+| `fourier-adjudication-batch-3-tail` | 1 |
+| `kf-adjudication-batch-3-tail` | 1 |
+| `x-begin` | 1 |
+| `x-track-A` | 1 |
+| `x-track-C` | 1 |
+| `x-union-repair-r*` | 1 |
+| `x-whole-union` | 1 |
+| `xf-authoring-ss3-ss*` | 1 |
+| `xf-conformance-pass*` | 1 |
+| `xkf-authoring-ss1-ss*` | 1 |
+| `xkf-conformance-pass*` | 1 |
+| `xp-fold-repair` | 1 |
+| `xp-refinement-fold` | 1 |
+| `xv-refinement-fold` | 1 |
+
+Every out-of-corpus record by name, so the owed set is enumerable and not merely counted:
+
+| run | dispatching workflow | out of corpus because | record status | agents | harvested | owed shortfall |
+|---|---|---|---|---|---|---|
+| `wf_03a25c76-f4f` | `xf-repair-r2` | 2026-08-28 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_044be11b-f2a` | `fourier-saturation-batch-9` | 2026-08-07 > 2026-08-03 | completed | 7 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_04aef74b-4a6` | `kf-adjudication-batch-7` | 2026-08-24 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_05eaa1d4-a63` | `fourier-saturation-batch-7` | 2026-08-06 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_05ffb10b-427` | `fourier-adjudication-batch-6` | 2026-08-25 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_07e50fa4-5f1` | `fourier-adjudication-batch-8` | 2026-08-24 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_0a13b4b5-ca1` | `kf-adjudication-batch-8` | 2026-08-25 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_14d5549b-eda` | `xp-refinement-fold` | 2026-08-07 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_15c8ac5b-f55` | `xp-fold-repair-r6` | 2026-08-08 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_169b668a-217` | `fourier-adjudication-batch-9` | 2026-08-25 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_191257b7-497` | `fourier-adjudication-batch-3-tail` | 2026-08-09 > 2026-08-03 | completed | 18 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_1a4a0fe1-3ff` | `xkf-repair-r6` | 2026-08-29 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_1b88521c-7f1` | `xp-fold-repair` | 2026-08-07 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_1f44462d-8d2` | `fourier-saturation-batch-1` | 2026-08-04 > 2026-08-03 | completed | 25 | **26** | **OWED — harvest short of seats — 25 agents, 26 results** |
+| `wf_247fe7fa-e67` | `adjudication-batch-3` | 2026-08-06 > 2026-08-03 | completed | 3 | **69** | **OWED — harvest short of seats — 3 agents, 69 results** |
+| `wf_25826f53-4ac` | `xf-repair-r9` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_269fd543-c7f` | `kf-saturation-batch-1` | 2026-08-04 > 2026-08-03 | completed | 25 | 25 | none |
+| `wf_28c0c210-172` | `fourier-saturation-batch-2` | 2026-08-04 > 2026-08-03 | completed | 25 | **38** | **OWED — harvest short of seats — 25 agents, 38 results** |
+| `wf_2a50c13e-276` | `adjudication-batch-10` | 2026-08-12 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_2d1d368d-267` | `xkf-authoring-ss1-ss2` | 2026-08-28 > 2026-08-03 | completed | 38 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_32f2ec24-abd` | `xf-repair-r10` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_3542b0db-204` | `kf-saturation-batch-2` | 2026-08-04 > 2026-08-03 | completed | 25 | **41** | **OWED — harvest short of seats — 25 agents, 41 results** |
+| `wf_3b95205b-351` | `xkf-repair-r4` | 2026-08-28 > 2026-08-03 | completed | 26 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_3c41968c-46d` | `xkf-repair-r5` | 2026-08-29 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_3c5db823-12e` | `x-track-C` | 2026-09-17 > 2026-08-03 | completed | 8 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_401c495c-894` | `xp-conformance-round3` | 2026-08-04 > 2026-08-03 | completed | 2 | 2 | none |
+| `wf_403721b8-1f5` | `kf-adjudication-batch-6` | 2026-08-24 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_407d36af-fe7` | `adjudication-batch-2` | 2026-08-04 > 2026-08-03 | completed | 24 | **64** | **OWED — harvest short of seats — 24 agents, 64 results** |
+| `wf_45a2041e-cb2` | `xf-repair-r6` | 2026-08-30 > 2026-08-03 | completed | 5 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_4bbf943f-9d5` | `kf-adjudication-batch-4` | 2026-08-09 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_4e99884c-f44` | `xf-repair-r5` | 2026-08-30 > 2026-08-03 | completed | 7 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_555977e4-0a4` | `xp-fold-repair-r5` | 2026-08-08 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_5ea8a490-613` | `xp-conformance-round2` | 2026-08-04 > 2026-08-03 | completed | 5 | 5 | none |
+| `wf_60fbe204-85e` | `fourier-adjudication-batch-4` | 2026-08-12 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_6574d0d0-c2b` | `xp-fold-repair-r8` | 2026-08-09 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_6d689565-61a` | `fourier-adjudication-batch-2` | 2026-08-08 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_6f14e782-073` | `xv-refinement-fold` | 2026-08-28 > 2026-08-03 | completed | 15 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_6f552e12-062` | `pt-adjudication-batch-1` | 2026-08-06 > 2026-08-03 | completed | 9 | **37** | **OWED — harvest short of seats — 9 agents, 37 results** |
+| `wf_70e6e88e-e48` | `kf-saturation-batch-7` | 2026-08-06 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_72a24639-a1c` | `xp-fold-repair-r3` | 2026-08-07 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_788e5d2b-d35` | `fourier-adjudication-batch-5` | 2026-08-24 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_78d86394-c63` | `xf-conformance-pass1` | 2026-08-28 > 2026-08-03 | completed | 12 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_7a15d40a-d75` | `kf-adjudication-batch-5` | 2026-08-12 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_7dcfb75f-51b` | `adjudication-batch-7` | 2026-08-08 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_7de7fe5a-62c` | `kf-saturation-batch-6` | 2026-08-06 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_7faa8ec3-9d4` | `xf-repair-r4` | 2026-08-29 > 2026-08-03 | completed | 26 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_7fb0f086-8e8` | `adjudication-batch-8` | 2026-08-08 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_817b9a29-478` | `fourier-saturation-batch-8` | 2026-08-07 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_83b2416f-85e` | `adjudication-batch-11` | 2026-08-24 > 2026-08-03 | completed | 12 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_86752d32-7d8` | `xkf-repair-r2` | 2026-08-28 > 2026-08-03 | completed | 27 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_8d60f0f3-954` | `adjudication-batch-5` | 2026-08-06 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_8fec86c6-82a` | `kf-adjudication-batch-2` | 2026-08-08 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_94bdaf23-45c` | `xf-repair-r13` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_94ea38b3-a88` | `xf-repair-r1` | 2026-08-28 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_9e9b7e46-983` | `xkf-repair-r1` | 2026-08-28 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_9f41b649-cb5` | `xf-repair-r14` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_a0269d77-0da` | `parsethat-saturation-batch-1` | 2026-08-04 > 2026-08-03 | completed | 17 | **32** | **OWED — harvest short of seats — 17 agents, 32 results** |
+| `wf_a03b3d1b-615` | `fourier-saturation-batch-3` | 2026-08-04 > 2026-08-03 | completed | 25 | **26** | **OWED — harvest short of seats — 25 agents, 26 results** |
+| `wf_a0fb250d-623` | `fourier-adjudication-batch-7` | 2026-08-25 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_a118e2e6-699` | `fourier-saturation-batch-6` | 2026-08-06 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_a1dfbc84-113` | `kf-adjudication-batch-1` | 2026-08-07 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_a376b9ac-d45` | `xp-parser-wave-specs` | 2026-08-04 > 2026-08-03 | completed | 6 | 6 | none |
+| `wf_a81123d3-f2c` | `xv-fold-repair-r3` | 2026-08-28 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_a9a18c03-e1b` | `kf-saturation-batch-4` | 2026-08-05 > 2026-08-03 | completed | 25 | **26** | **OWED — harvest short of seats — 25 agents, 26 results** |
+| `wf_ac6fe562-e31` | `pt-adjudication-batch-2` | 2026-08-06 > 2026-08-03 | completed | 21 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_ace0b58b-8b0` | `xf-authoring-ss3-ss4` | 2026-08-28 > 2026-08-03 | completed | 41 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_b048077c-384` | `kf-saturation-batch-8` | 2026-08-06 > 2026-08-03 | completed | 7 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_b37f674c-ec7` | `xf-repair-r8` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_b5545dc7-9a8` | `xkf-repair-r7` | 2026-08-29 > 2026-08-03 | completed | 4 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_b560c395-402` | `xv-fold-repair-r2` | 2026-08-28 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_bcbdee92-3f6` | `xkf-conformance-pass1` | 2026-08-28 > 2026-08-03 | completed | 12 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_bf198561-311` | `xv-fold-repair-r1` | 2026-08-28 > 2026-08-03 | completed | 15 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_c0e44b3d-354` | `adjudication-batch-9-tail2` | 2026-08-09 > 2026-08-03 | completed | 15 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_c7849121-1ee` | `xp-fold-repair-r4` | 2026-08-08 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_c8ee9ebc-6c9` | `kf-saturation-batch-5` | 2026-08-06 > 2026-08-03 | completed | 25 | 25 | none |
+| `wf_ca218d91-9c7` | `adjudication-batch-4` | 2026-08-06 > 2026-08-03 | completed | 24 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_cc685113-a5b` | `x-begin` | 2026-09-17 > 2026-08-03 | completed | 4 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_cd3d324b-ced` | `fourier-saturation-batch-4` | 2026-08-05 > 2026-08-03 | completed | 25 | **28** | **OWED — harvest short of seats — 25 agents, 28 results** |
+| `wf_ce467a11-92a` | `xf-repair-r12` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_cfc338a0-be1` | `xf-repair-r3` | 2026-08-29 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_d254e0d3-cc1` | `x-track-A` | 2026-09-17 > 2026-08-03 | completed | 12 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_d44c638e-155` | `x-union-repair-r1` | 2026-08-30 > 2026-08-03 | completed | 5 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_db5c0736-fa0` | `parsethat-saturation-batch-2` | 2026-08-04 > 2026-08-03 | completed | 15 | **17** | **OWED — harvest short of seats — 15 agents, 17 results** |
+| `wf_e0a296ea-871` | `kf-saturation-batch-3` | 2026-08-04 > 2026-08-03 | completed | 25 | **36** | **OWED — harvest short of seats — 25 agents, 36 results** |
+| `wf_e1dab279-105` | `xp-fold-repair-r10` | 2026-08-12 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_e6117287-d7c` | `xf-repair-r11` | 2026-08-30 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_e6e17ac0-4bd` | `adjudication-batch-6` | 2026-08-07 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_e725506c-74e` | `xp-fold-repair-r7` | 2026-08-09 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_ee039766-63b` | `xf-repair-r7` | 2026-08-30 > 2026-08-03 | completed | 5 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_f00a1af2-4e8` | `x-whole-union` | 2026-08-30 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_f231a063-28c` | `kf-adjudication-batch-3-tail` | 2026-08-08 > 2026-08-03 | completed | 6 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_f4fa59c9-25f` | `fourier-adjudication-batch-1-tail` | 2026-08-08 > 2026-08-03 | completed | 3 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_f51d6dc4-dda` | `xp-fold-repair-r9` | 2026-08-11 > 2026-08-03 | completed | 2 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
+| `wf_f979cc3b-33e` | `fourier-saturation-batch-5` | 2026-08-06 > 2026-08-03 | completed | 25 | 25 | none |
+| `wf_fd74ab59-579` | `xkf-repair-r3` | 2026-08-28 > 2026-08-03 | completed | 25 | **NOT HARVESTED** | **OWED — completed but NOT HARVESTED** |
 
 ## VERDICT
 
-**87 incomplete component rows · 0 unbanked canonical axes · 264/264 exact files present · 264/264 hash-banked = 218 CHALLENGED + 46 REPORT-AUTHORED.** 0 covered by an ACTIVE resume · 0 covered by a QUEUED resume (cap-4 sequencing) · 0 **BLOCKED-ON-CAPACITY** · **87 UNCOVERED** (violations).
-
-A run record saying "completed" and a merely present file do not clear a row. Bands re-open until every roster row has three exact, ledgered, current-hash challenge axes.
-
-- (non-band) / **wf_03a25c76-f4f** — missing completed but NOT HARVESTED (`wf_03a25c76-f4f` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_044be11b-f2a** — missing completed but NOT HARVESTED (`wf_044be11b-f2a` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_04aef74b-4a6** — missing completed but NOT HARVESTED (`wf_04aef74b-4a6` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_05eaa1d4-a63** — missing completed but NOT HARVESTED (`wf_05eaa1d4-a63` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_05ffb10b-427** — missing completed but NOT HARVESTED (`wf_05ffb10b-427` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_07e50fa4-5f1** — missing completed but NOT HARVESTED (`wf_07e50fa4-5f1` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_0a13b4b5-ca1** — missing completed but NOT HARVESTED (`wf_0a13b4b5-ca1` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_14d5549b-eda** — missing completed but NOT HARVESTED (`wf_14d5549b-eda` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_15c8ac5b-f55** — missing completed but NOT HARVESTED (`wf_15c8ac5b-f55` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_169b668a-217** — missing completed but NOT HARVESTED (`wf_169b668a-217` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_191257b7-497** — missing completed but NOT HARVESTED (`wf_191257b7-497` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_1a4a0fe1-3ff** — missing completed but NOT HARVESTED (`wf_1a4a0fe1-3ff` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_1b88521c-7f1** — missing completed but NOT HARVESTED (`wf_1b88521c-7f1` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_1f44462d-8d2** — missing harvest short of seats — 25 agents, 26 results (`wf_1f44462d-8d2` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_247fe7fa-e67** — missing harvest short of seats — 3 agents, 69 results (`wf_247fe7fa-e67` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_25826f53-4ac** — missing completed but NOT HARVESTED (`wf_25826f53-4ac` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_28c0c210-172** — missing harvest short of seats — 25 agents, 38 results (`wf_28c0c210-172` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_2a50c13e-276** — missing completed but NOT HARVESTED (`wf_2a50c13e-276` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_2d1d368d-267** — missing completed but NOT HARVESTED (`wf_2d1d368d-267` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_32f2ec24-abd** — missing completed but NOT HARVESTED (`wf_32f2ec24-abd` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_3542b0db-204** — missing harvest short of seats — 25 agents, 41 results (`wf_3542b0db-204` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_3b95205b-351** — missing completed but NOT HARVESTED (`wf_3b95205b-351` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_3c41968c-46d** — missing completed but NOT HARVESTED (`wf_3c41968c-46d` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_403721b8-1f5** — missing completed but NOT HARVESTED (`wf_403721b8-1f5` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_407d36af-fe7** — missing harvest short of seats — 24 agents, 64 results (`wf_407d36af-fe7` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_45a2041e-cb2** — missing completed but NOT HARVESTED (`wf_45a2041e-cb2` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_4bbf943f-9d5** — missing completed but NOT HARVESTED (`wf_4bbf943f-9d5` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_4e99884c-f44** — missing completed but NOT HARVESTED (`wf_4e99884c-f44` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_555977e4-0a4** — missing completed but NOT HARVESTED (`wf_555977e4-0a4` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_60fbe204-85e** — missing completed but NOT HARVESTED (`wf_60fbe204-85e` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_6574d0d0-c2b** — missing completed but NOT HARVESTED (`wf_6574d0d0-c2b` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_6d689565-61a** — missing completed but NOT HARVESTED (`wf_6d689565-61a` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_6f14e782-073** — missing completed but NOT HARVESTED (`wf_6f14e782-073` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_6f552e12-062** — missing harvest short of seats — 9 agents, 37 results (`wf_6f552e12-062` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_70e6e88e-e48** — missing completed but NOT HARVESTED (`wf_70e6e88e-e48` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_72a24639-a1c** — missing completed but NOT HARVESTED (`wf_72a24639-a1c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_788e5d2b-d35** — missing completed but NOT HARVESTED (`wf_788e5d2b-d35` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_78d86394-c63** — missing completed but NOT HARVESTED (`wf_78d86394-c63` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_7a15d40a-d75** — missing completed but NOT HARVESTED (`wf_7a15d40a-d75` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_7dcfb75f-51b** — missing completed but NOT HARVESTED (`wf_7dcfb75f-51b` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_7de7fe5a-62c** — missing completed but NOT HARVESTED (`wf_7de7fe5a-62c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_7faa8ec3-9d4** — missing completed but NOT HARVESTED (`wf_7faa8ec3-9d4` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_7fb0f086-8e8** — missing completed but NOT HARVESTED (`wf_7fb0f086-8e8` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_817b9a29-478** — missing completed but NOT HARVESTED (`wf_817b9a29-478` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_83b2416f-85e** — missing completed but NOT HARVESTED (`wf_83b2416f-85e` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_86752d32-7d8** — missing completed but NOT HARVESTED (`wf_86752d32-7d8` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_8d60f0f3-954** — missing completed but NOT HARVESTED (`wf_8d60f0f3-954` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_8fec86c6-82a** — missing completed but NOT HARVESTED (`wf_8fec86c6-82a` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_94bdaf23-45c** — missing completed but NOT HARVESTED (`wf_94bdaf23-45c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_94ea38b3-a88** — missing completed but NOT HARVESTED (`wf_94ea38b3-a88` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_9e9b7e46-983** — missing completed but NOT HARVESTED (`wf_9e9b7e46-983` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_9f41b649-cb5** — missing completed but NOT HARVESTED (`wf_9f41b649-cb5` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a0269d77-0da** — missing harvest short of seats — 17 agents, 32 results (`wf_a0269d77-0da` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a03b3d1b-615** — missing harvest short of seats — 25 agents, 26 results (`wf_a03b3d1b-615` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a0fb250d-623** — missing completed but NOT HARVESTED (`wf_a0fb250d-623` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a118e2e6-699** — missing completed but NOT HARVESTED (`wf_a118e2e6-699` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a1dfbc84-113** — missing completed but NOT HARVESTED (`wf_a1dfbc84-113` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a81123d3-f2c** — missing completed but NOT HARVESTED (`wf_a81123d3-f2c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_a9a18c03-e1b** — missing harvest short of seats — 25 agents, 26 results (`wf_a9a18c03-e1b` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_ac6fe562-e31** — missing completed but NOT HARVESTED (`wf_ac6fe562-e31` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_ace0b58b-8b0** — missing completed but NOT HARVESTED (`wf_ace0b58b-8b0` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_b048077c-384** — missing completed but NOT HARVESTED (`wf_b048077c-384` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_b37f674c-ec7** — missing completed but NOT HARVESTED (`wf_b37f674c-ec7` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_b5545dc7-9a8** — missing completed but NOT HARVESTED (`wf_b5545dc7-9a8` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_b560c395-402** — missing completed but NOT HARVESTED (`wf_b560c395-402` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_bcbdee92-3f6** — missing completed but NOT HARVESTED (`wf_bcbdee92-3f6` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_bf198561-311** — missing completed but NOT HARVESTED (`wf_bf198561-311` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_c0e44b3d-354** — missing completed but NOT HARVESTED (`wf_c0e44b3d-354` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_c7849121-1ee** — missing completed but NOT HARVESTED (`wf_c7849121-1ee` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_ca218d91-9c7** — missing completed but NOT HARVESTED (`wf_ca218d91-9c7` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_cc685113-a5b** — missing completed but NOT HARVESTED (`wf_cc685113-a5b` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_cd3d324b-ced** — missing harvest short of seats — 25 agents, 28 results (`wf_cd3d324b-ced` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_ce467a11-92a** — missing completed but NOT HARVESTED (`wf_ce467a11-92a` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_cfc338a0-be1** — missing completed but NOT HARVESTED (`wf_cfc338a0-be1` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_d44c638e-155** — missing completed but NOT HARVESTED (`wf_d44c638e-155` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_db5c0736-fa0** — missing harvest short of seats — 15 agents, 17 results (`wf_db5c0736-fa0` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_e0a296ea-871** — missing harvest short of seats — 25 agents, 36 results (`wf_e0a296ea-871` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_e1dab279-105** — missing completed but NOT HARVESTED (`wf_e1dab279-105` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_e6117287-d7c** — missing completed but NOT HARVESTED (`wf_e6117287-d7c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_e6e17ac0-4bd** — missing completed but NOT HARVESTED (`wf_e6e17ac0-4bd` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_e725506c-74e** — missing completed but NOT HARVESTED (`wf_e725506c-74e` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_ee039766-63b** — missing completed but NOT HARVESTED (`wf_ee039766-63b` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_f00a1af2-4e8** — missing completed but NOT HARVESTED (`wf_f00a1af2-4e8` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_f231a063-28c** — missing completed but NOT HARVESTED (`wf_f231a063-28c` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_f4fa59c9-25f** — missing completed but NOT HARVESTED (`wf_f4fa59c9-25f` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_f51d6dc4-dda** — missing completed but NOT HARVESTED (`wf_f51d6dc4-dda` · completed) — **UNCOVERED — queue a resume NOW**
-- (non-band) / **wf_fd74ab59-579** — missing completed but NOT HARVESTED (`wf_fd74ab59-579` · completed) — **UNCOVERED — queue a resume NOW**
+**GREEN — zero incomplete components.** Every roster component has all three exact challenge axes hash-banked (264/264 = 218 CHALLENGED + 46 REPORT-AUTHORED), and every **in-corpus** non-band run record (27) is completed with its seats accounted for. GREEN is a durability verdict over the saturation figure; it does not assert that the 46 REPORT-AUTHORED axes were ever challenged, **and it does not discharge the 89 owed out-of-corpus shortfalls above** — those are dated, attributed and owed at X-W11's close, via `workflows/harvest-journals.mjs`.

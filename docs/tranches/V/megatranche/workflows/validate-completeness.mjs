@@ -91,6 +91,57 @@ const HARVEST_DISPOSITION = {
   'wf_c88c8125-52c': { agents: 8, harvested: 3, where: 'STATE.md — "parser band (M-9) ground · 3/8 HARVESTED … superseded by the trifold"' },
 };
 
+// ---- THE CORPUS PREDICATE (COHESION §0k.1, ruled 2026-09-17) ------------------------------------
+// The non-band law below — "every run record must be completed AND harvested" — carried NO corpus
+// predicate at all. `SESSION_WF` is a live Claude Code session directory OUTSIDE this repository
+// which every program that dispatches a workflow in this session writes into, so the law was
+// adjudicating four other tranche-X tracks' dispatch discipline against the megatranche's harvest
+// law, and its subject set grew while no megatranche byte moved (87 uncovered at X-W0's round-1
+// close, 89 at its repair round, with no work done in between).
+//
+// The predicate, in the ruling's own words: the law "ranges over run records at or before the
+// megatranche dispatch boundary (timestamped ≤ 2026-08-03) plus any record a canonical row cites;
+// live tranche-X session journals are outside its corpus by construction."
+//
+// Three properties this is built to have, each of which is the reason it is a scope and not a
+// suppression:
+//
+//   * IT SUPPRESSES NOTHING. Every out-of-corpus record is still read, still put through the same
+//     `nonBandVerdict`, and its shortfall is printed as a dated, OWED figure in its own ledger
+//     section. The finding stands, dated, with a named owner: those records are X-track run
+//     journals and are harvested once, at X-W11's close, by `workflows/harvest-journals.mjs`.
+//   * IT IS FAIL-CLOSED. A record whose own `timestamp` is missing or unreadable is IN corpus. The
+//     exclusion must be positively established from the record's own datum; it is never assumed.
+//     (This is also why the S3/S4 synthetic records, which carry no timestamp, still fail.)
+//   * THE CITATION CLAUSE IS LIVE, not decorative. A record of ANY date whose harvest is cited by a
+//     canonical roster row is in corpus, so a late run that actually produces megatranche coverage
+//     cannot fall out of the law by being late. It admits 0 extra records today and is the seam
+//     that keeps that true tomorrow.
+//
+// What this predicate may never become: a borrowed run ID, a `BANDS` re-point, an allowlist, a
+// cutoff written into a self-test fixture, or a `covered:true` short-circuit. It is a stated scope
+// with a printed complement.
+const CORPUS_BOUNDARY = '2026-08-03';    // the megatranche dispatch boundary (the wave-spec's own date)
+const CORPUS_RULING = 'COHESION §0k.1, 2026-09-17';
+const HARVEST_OWED_AT = "X-W11's close, via `workflows/harvest-journals.mjs`";
+
+// A record is IN CORPUS iff a canonical roster row cites it, or its own timestamp places it at or
+// before the dispatch boundary. Anything else — including a record with no readable timestamp —
+// stays in corpus.
+function inCorpus(rid, run, citedByCanonicalRow) {
+  if (citedByCanonicalRow?.has(rid)) {
+    return { inside: true, why: 'cited by a canonical roster row' };
+  }
+  const raw = run?.timestamp;
+  const day = typeof raw === 'string' ? raw.slice(0, 10) : '';
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) {
+    return { inside: true, why: 'no readable timestamp — fail-closed into the corpus' };
+  }
+  return day <= CORPUS_BOUNDARY
+    ? { inside: true, why: `${day} ≤ ${CORPUS_BOUNDARY}` }
+    : { inside: false, why: `${day} > ${CORPUS_BOUNDARY}` };
+}
+
 // ---- gather -------------------------------------------------------------
 // `inject` is the self-test seam and nothing else. Normal runs pass nothing, so every value below
 // comes from the tree. `absent` simulates a vanished file; `rehash` simulates ledger/byte drift by
@@ -157,19 +208,40 @@ function gather(inject = {}) {
     }
   }
 
+  // The canonical-roster axis set, built here from `rosters` + AXIS_FILE — the same construction the
+  // denominator uses below, so the citation clause of the corpus predicate and the denominator can
+  // never mean two different things by "canonical row".
+  const canonicalAxisPaths = new Set();
+  for (const slugs of Object.values(rosters)) {
+    for (const slug of slugs) {
+      for (const axis of AXES) canonicalAxisPaths.add(`audit/components/${slug}/${AXIS_FILE[axis]}`);
+    }
+  }
+
   // harvest truth: slug → set of axes that RETURNED (parsed from reportPath)
   const harvest = {};
   const harvestMeta = {};
+  // The corpus predicate's citation clause: every durable identity of a harvest payload that carries
+  // at least one canonical-roster report path. Keyed the same way `harvestMeta` is, so a record is
+  // reachable by run ID, by workflow name, or by harvest filename.
+  const citedByCanonicalRow = new Set();
   const harvestDir = join(MEGA, 'registry/harvest');
   for (const f of readdirSync(harvestDir).filter((f) => f.endsWith('.json'))) {
     const d = JSON.parse(readFileSync(join(harvestDir, f), 'utf8'));
     const meta = { file: f, resultCount: d.resultCount ?? d.results?.length };
+    const identities = [...new Set([d.runId, d.workflow, basename(f, '.json')].filter(Boolean))];
+    for (const r of d.results || []) {
+      const p = r?.result?.reportPath;
+      if (typeof p !== 'string') continue;
+      // The canonical path is taken up to the `.md`; a seat that appended prose after the filename
+      // (the three dangling receipts) still cites the canonical row it wrote.
+      const c = /(audit\/components\/[^/\s]+\/challenge-[DLC]-[a-z]+\.md)/.exec(p);
+      if (c && canonicalAxisPaths.has(c[1])) for (const key of identities) citedByCanonicalRow.add(key);
+    }
     // Descriptive harvest filenames (for example `area-core.json`) are not run IDs.
     // Index every durable identity carried by the payload so non-band rows do not
     // report a false NOT HARVESTED merely because the file has a human name.
-    for (const key of new Set([d.runId, d.workflow, basename(f, '.json')].filter(Boolean))) {
-      harvestMeta[key] = meta;
-    }
+    for (const key of identities) harvestMeta[key] = meta;
     for (const r of d.results || []) {
       const res = r.result;
       if (!res || typeof res !== 'object' || !res.reportPath) continue;
@@ -195,13 +267,20 @@ function gather(inject = {}) {
     for (const f of readdirSync(SESSION_WF).filter((f) => f.endsWith('.json'))) {
       try {
         const d = JSON.parse(readFileSync(join(SESSION_WF, f), 'utf8'));
-        runs[d.runId || basename(f, '.json')] = { status: d.status, result: d.result, agentCount: d.agentCount };
+        // `timestamp` is the record's own datum and is what the corpus predicate ranges over;
+        // `startTime` is its only in-record fallback. Neither is invented, and a record that
+        // carries neither stays in corpus (fail-closed).
+        runs[d.runId || basename(f, '.json')] = {
+          status: d.status, result: d.result, agentCount: d.agentCount,
+          timestamp: d.timestamp ?? d.startTime, workflowName: d.workflowName,
+        };
       } catch { /* unreadable record — surfaced below as UNKNOWN */ }
     }
   }
 
   return {
     rosters, disk, banked, durabilityFailure, harvest, harvestMeta, adjudicated, runs, hydrationStatus,
+    citedByCanonicalRow,
     // STOPPED_WITH_DISPOSITION is read straight from the module constant by `nonBandVerdict` and
     // is deliberately NOT routed through state — that mechanism stays exactly as documented.
     // HARVEST_DISPOSITION is cloned per gather so a self-test case can drift the live counts
@@ -426,21 +505,81 @@ function adjudicate(state) {
     lines.push('');
   }
 
-  // non-band workflows: every run record must be completed + harvested
-  lines.push('## Non-band workflows (record vs harvest)');
+  // non-band workflows: every run record must be completed + harvested — OVER THE CORPUS.
+  const bandIds = new Set(Object.values(BANDS));
+  const outOfCorpus = [];
+  const inCorpusRows = [];
+  for (const [rid, run] of Object.entries(runs)) {
+    if (bandIds.has(rid)) continue;
+    const c = inCorpus(rid, run, state.citedByCanonicalRow);
+    (c.inside ? inCorpusRows : outOfCorpus).push([rid, run, c]);
+  }
+
+  lines.push('## Non-band workflows (record vs harvest) — over the corpus');
+  lines.push('');
+  lines.push(`**The corpus predicate (${CORPUS_RULING}), stated before the law it scopes:** this law ranges over run records at or before the megatranche dispatch boundary (**timestamped ≤ ${CORPUS_BOUNDARY}**) plus **any record a canonical roster row cites**. Live tranche-X session journals are outside the corpus **by construction**, not by exception. The record's own \`timestamp\` field is the datum; a record carrying no readable timestamp stays **in** corpus (fail-closed — the exclusion is positively established or it does not happen). Nothing is suppressed: every out-of-corpus record is read, put through this same verdict, and its shortfall printed as a dated owed figure in the next section.`);
   lines.push('');
   lines.push('Law: a record must be `completed` AND harvested, with harvested results accounting for every seat it dispatched. A stopped run needs a STOPPED-WITH-DISPOSITION reason; a short harvest needs a HARVEST-DISPOSITION whose pinned counts still match. Anything else is a violation and exits 1.');
   lines.push('');
-  lines.push('| run | record status | agents | harvested results |');
-  lines.push('|---|---|---|---|');
-  const bandIds = new Set(Object.values(BANDS));
-  for (const [rid, run] of Object.entries(runs)) {
-    if (bandIds.has(rid)) continue;
+  lines.push('| run | in corpus because | record status | agents | harvested results |');
+  lines.push('|---|---|---|---|---|');
+  for (const [rid, run, c] of inCorpusRows) {
     const v = nonBandVerdict(rid, run, harvestMeta, state.harvestDisposition);
-    lines.push(`| \`${rid}\` | ${run.status}${v.note} | ${run.agentCount ?? '?'} | ${v.cell} |`);
+    lines.push(`| \`${rid}\` | ${c.why} | ${run.status}${v.note} | ${run.agentCount ?? '?'} | ${v.cell} |`);
     if (v.violation) {
       incomplete.push({ band: '(non-band)', slug: rid, missing: [v.violation], runId: rid, runState: run.status });
     }
+  }
+  lines.push('');
+
+  // The complement of the predicate, printed — this section is what makes the scope a scope and not
+  // a suppression. These rows do not gate this ledger and they are not excused: they are OWED.
+  const owed = {
+    'completed but NOT HARVESTED': 0,
+    'harvest short of seats': 0,
+    'stale harvest disposition': 0,
+    'record not terminal': 0,
+  };
+  const owedByWorkflow = {};
+  const owedRows = [];
+  for (const [rid, run, c] of outOfCorpus) {
+    const v = nonBandVerdict(rid, run, harvestMeta, state.harvestDisposition);
+    if (!v.violation) { owedRows.push([rid, run, c, null]); continue; }
+    const kind = Object.keys(owed).find((k) => v.violation.startsWith(k)) ?? 'record not terminal';
+    owed[kind]++;
+    owedRows.push([rid, run, c, v.violation]);
+    const wf = (run.workflowName ?? 'unnamed').replace(/[-_]?\d+$/, '*');
+    owedByWorkflow[wf] = (owedByWorkflow[wf] ?? 0) + 1;
+  }
+  const owedTotal = Object.values(owed).reduce((a, b) => a + b, 0);
+  lines.push(`## Out-of-corpus run records — DATED AND OWED (${CORPUS_RULING}), never suppressed`);
+  lines.push('');
+  lines.push(`**${outOfCorpus.length}** run records in the live session directory fall outside the corpus predicate above — every one of them timestamped after **${CORPUS_BOUNDARY}** and belonging to a tranche-X track, not to this megatranche. Put through the identical non-band verdict they would fail **${owedTotal}** times. **That finding is not discharged by this scope and is not excused here.** It is owed, in full, at ${HARVEST_OWED_AT}, which rewrites \`registry/DEFECT-LEDGER.md\` by dated addendum inside X-W11's own bounds. A figure that moves when no megatranche byte moves is a measurement of another program, which is exactly why it is reported here rather than gating here.`);
+  lines.push('');
+  lines.push('| owed shortfall | out-of-corpus records |');
+  lines.push('|---|---:|');
+  for (const [kind, n] of Object.entries(owed)) lines.push(`| ${kind} | **${n}** |`);
+  lines.push(`| **total owed at ${HARVEST_OWED_AT.replace(/`/g, '')}** | **${owedTotal}** of ${outOfCorpus.length} |`);
+  lines.push('');
+  if (owedTotal > 0) {
+    lines.push('By dispatching program (workflow name, trailing batch number folded to `*`) — so the owed set is attributable, not a bare integer:');
+    lines.push('');
+    lines.push('| dispatching workflow | owed records |');
+    lines.push('|---|---:|');
+    for (const [wf, n] of Object.entries(owedByWorkflow).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))) {
+      lines.push(`| \`${wf}\` | ${n} |`);
+    }
+    lines.push('');
+  }
+  // Every out-of-corpus record by name, with the verdict it would have taken. A scope that stops
+  // NAMING the records it stops gating has become a suppression; this table is what keeps it one.
+  lines.push('Every out-of-corpus record by name, so the owed set is enumerable and not merely counted:');
+  lines.push('');
+  lines.push('| run | dispatching workflow | out of corpus because | record status | agents | harvested | owed shortfall |');
+  lines.push('|---|---|---|---|---|---|---|');
+  for (const [rid, run, c, violation] of owedRows) {
+    const v = nonBandVerdict(rid, run, harvestMeta, state.harvestDisposition);
+    lines.push(`| \`${rid}\` | \`${run.workflowName ?? '—'}\` | ${c.why} | ${run.status} | ${run.agentCount ?? '?'} | ${v.cell} | ${violation ? `**OWED — ${violation}**` : 'none'} |`);
   }
   lines.push('');
 
@@ -449,7 +588,7 @@ function adjudicate(state) {
   lines.push('');
   const uncovered = incomplete.filter((i) => !i.coverage?.covered);
   if (incomplete.length === 0) {
-    lines.push(`**GREEN — zero incomplete components.** Every roster component has all three exact challenge axes hash-banked (${bankedAxisTotal}/${axisTotal} = ${split}), and every non-band run record is completed with its seats accounted for. GREEN is a durability verdict over the saturation figure; it does not assert that the ${REPORT_AUTHORED} REPORT-AUTHORED axes were ever challenged.`);
+    lines.push(`**GREEN — zero incomplete components.** Every roster component has all three exact challenge axes hash-banked (${bankedAxisTotal}/${axisTotal} = ${split}), and every **in-corpus** non-band run record (${inCorpusRows.length}) is completed with its seats accounted for. GREEN is a durability verdict over the saturation figure; it does not assert that the ${REPORT_AUTHORED} REPORT-AUTHORED axes were ever challenged, **and it does not discharge the ${owedTotal} owed out-of-corpus shortfalls above** — those are dated, attributed and owed at ${HARVEST_OWED_AT}.`);
   } else {
     const nActive = incomplete.filter((i) => i.coverage?.status === 'ACTIVE').length;
     const nQueued = incomplete.filter((i) => i.coverage?.status === 'QUEUED').length;
@@ -471,6 +610,7 @@ function adjudicate(state) {
 
   return {
     lines, incomplete, uncovered, bankedAxisTotal, axisTotal, denom, CHALLENGED, REPORT_AUTHORED, split,
+    inCorpusCount: inCorpusRows.length, outOfCorpusCount: outOfCorpus.length, owedTotal, owed,
     exitCode: uncovered.length > 0 ? 1 : 0,
   };
 }
@@ -490,6 +630,9 @@ function selfTest() {
   const base = adjudicate(gather());
   say(`baseline (unmutated tree): exit ${base.exitCode} · ${base.uncovered.length} uncovered · ${base.bankedAxisTotal}/${base.axisTotal} hash-banked = ${base.split}`);
   say(`three integers (canonical roster): EXISTS-ORIGINAL ${base.denom['EXISTS-ORIGINAL']} · UNWITNESSED-DIRECT ${base.denom['UNWITNESSED-DIRECT']} · REPORT-AUTHORED ${base.denom['REPORT-AUTHORED']}`);
+  say(`corpus predicate (${CORPUS_RULING}): run records timestamped ≤ ${CORPUS_BOUNDARY}, plus any record a canonical roster row cites`);
+  say(`non-band records: ${base.inCorpusCount} IN CORPUS (gating) · ${base.outOfCorpusCount} out of corpus,`
+    + ` of which ${base.owedTotal} OWED and dated — harvest at ${HARVEST_OWED_AT.replace(/`/g, '')}. Scoped, not suppressed.`);
   if (base.exitCode !== 0) {
     say('BASELINE IS NOT GREEN — self-test is meaningless until the real tree passes. Fix the tree first.');
     return 1;
@@ -572,6 +715,9 @@ if (process.argv.includes('--self-test')) {
   console.log(`denominator: ${result.bankedAxisTotal}/${result.axisTotal} hash-banked = ${result.split}`);
   console.log(`three integers (canonical roster): EXISTS-ORIGINAL ${result.denom['EXISTS-ORIGINAL']}`
     + ` · UNWITNESSED-DIRECT ${result.denom['UNWITNESSED-DIRECT']} · REPORT-AUTHORED ${result.denom['REPORT-AUTHORED']}`);
+  console.log(`corpus predicate (${CORPUS_RULING}): run records timestamped ≤ ${CORPUS_BOUNDARY}, plus any record a canonical roster row cites`);
+  console.log(`non-band records: ${result.inCorpusCount} IN CORPUS (gating) · ${result.outOfCorpusCount} out of corpus,`
+    + ` of which ${result.owedTotal} OWED and dated — harvest at ${HARVEST_OWED_AT.replace(/`/g, '')}. Scoped, not suppressed.`);
   console.log(`\nwrote ${join(MEGA, 'registry/COMPLETENESS-LEDGER.md')}`);
   process.exit(result.exitCode);
 }
