@@ -680,3 +680,92 @@ X-W1's first commit); X-W11's Do-NOT-touch stands.
 **What this addendum does not do.** It does not stamp any verb. Every ruling above is consumed by the
 wave that names it, at its own opening, cited by id; a wave that finds a ruling's measured predicate
 false at its own bytes returns to this sitting rather than presuming.
+
+## §0k ADDENDUM 2026-09-17 — X·F: THE FOURIER MAIL-LEDGER SURFACE IS LIVE, AND ITS CROSS-EDGE IS DECLARED FROM THIS END
+
+**APPEND-ONLY (E-3). Nothing above this line is edited.** Authored by **X.F.W0 unit *e***
+(`claude-opus-5[1m]`, 2026-09-17) under `fourier/waves/F-W0.md` §2a
+(*"`value.js/docs/tranches/X/COHESION.md` — **append-only addendum** (E-3) — §1 register row for the
+fourier mail-ledger surface + the §2 cross-edge, declared from this end"*). It **stamps no verb**,
+**re-opens no ruling**, and **changes no §0j disposition**; it records two facts the register and the
+graph did not yet carry.
+
+### §0k.1 · §1a register row — the fourier **Mail-ledger surface** is no longer a wave *item*; it EXISTS
+
+**§1a's parity map carries, for the `Mail-ledger surface` treatment, the fourier cell
+`F.W0 wave item`.** That cell was correct when written and is **superseded as of 2026-09-17**: the
+item has landed. The row reads, at today's bytes:
+
+| treatment | fourier-analysis — **as of 2026-09-17** |
+|---|---|
+| **Mail-ledger surface** | **LIVE** — `fourier-analysis/docs/tranches/F/coordination/INBOX.md`, created at **X.F.W0 unit *b*** (`8bc7736`) together with a root `fourier-analysis/CLAUDE.md`. **G-3 GREEN.** |
+
+**What makes it a surface rather than a file**, stated because an empty ledger over unlogged letters
+is unread mail on day one: the **three extant 2026-05-29 letters** (`F-OPERATOR-WINDOW.md` ·
+`F-T-N1-status-field-drop.md` · `F-VHOST-CORRECTNESS.md`) **and** the O-14 inbound letter were
+**TRIAGED INTO the ledger at creation**, each with a status and a disposition, **before** any new
+letter was logged — the triage section precedes both send sections structurally. The letters
+themselves are **READ-ONLY**: the ledger records their state, it does not rewrite them. **Two packets
+were assembled and logged SENT with dates**: **P-1** (nine entries, 0–8, `FR-NP-32` ≡
+`fr-PaperSidebar M1` first — cite both, never substitute, R4-9.8/S-23) and **P-6**.
+
+**The parity map's sibling cells are unchanged**: value.js `INBOX (E13, live)` · keyframes.js
+`KF.W1 wave item (+ I-26 cure)` · parse-that `O-15 thread at their docs root`. **With this row, three
+of the four constellation repos now hold a live mail surface**, and the E13 law
+(*"no wave closes with UNREAD mail in scope"*) is enforceable in the fourier tree for the first time.
+
+**The standing orders are unchanged by this row**: **NO CRONS** (owner, 2026-07-17; §0j's single
+supervisor-cron grant is a stall guard and nothing else) — E13 sweeps are session-open acts. **Every
+component/glass-ui-level change relays to the active glass-ui BH inbox** (owner edict 2026-07-12), and
+**producer rows ride the relay and NEVER become frontend hacks** (FR-COB-8 S-4); `glass-ui` is
+**READ-ONLY, ALWAYS**.
+
+### §0k.2 · §2 cross-edge — **F.W0 → F.W7**, declared from the F.W0 end
+
+§2's graph carries the edges the sub-tranches cross on. One edge X·F depends on **hard** was declared
+from one end only, and §2's own closing law is *"Cross-repo edges are declared FROM BOTH ENDS in the
+spec files (the X·V W4-D2 lesson, now law)."* **This is the F.W0 half.**
+
+> **F.W7 DEPENDS ON F.W0, HARD. F.W0 DEPENDS ON NOTHING OF F.W7's.**
+>
+> **What F.W7 consumes**: F.W0's published re-grounding — **§4 G-11's corrected ANCHOR table** and
+> **§4 G-12's corrected-DENOMINATOR table**, both landed 2026-09-17 in
+> `fourier-analysis/docs/tranches/F/SUBSTRATE-LEDGER.md` **§2.1** and **§2.2**. **F.W7 QUOTES them; it
+> never re-performs the re-resolution as its own act**, and a divergence from them is a defect against
+> G-11, not a rival measurement.
+>
+> **The halt condition, acknowledged from this end**: F-W7's §6 gate **G-F7-7** carries
+> *"If F.W0 fails, the wave HALTS."* **F.W0 acknowledges it: an honest-RED G-11 close HALTS F.W7; it
+> does not license F.W7 to proceed on stale bytes.** **G-11 and G-12 both closed GREEN on 2026-09-17**
+> (ledger §2.9), so **the halt condition is NOT in force and F.W7's substrate predecessor is
+> satisfied.**
+>
+> **What crosses back: NOTHING.** F.W0 books **no** F.W7 registry row, mints none into F.W7's empty
+> column, and takes **no position on the trie question** — which is owner-owed and, per §0j.D's
+> **F-TRIE** ruling, already answered: **NO TRIE** (F.W7 unit *b* never opens;
+> `design/R4-variant-storage.md` is never created; G-F7-5 closes vacuously; unit *a*'s census runs).
+> **F.W7's routing census is a measured ∅ and that ∅ is a finding, not a gap** — no F.W0 act adds a
+> row to it.
+>
+> **Sequencing**: F.W7 opens after F.W0's substrate pre-gates, alongside F.W5's clause predecessors.
+> **F.W0 imposes no further order and owes F.W7 no artefact beyond the two tables and this
+> declaration.**
+
+**Two facts that travel with the edge, so a consuming seat does not re-derive them:**
+
+1. **The pin of record for X·F is a COMMIT, not a version string.** `v8.0.0^{commit}` =
+   **`17a11bc5`** — the ESC-1 election at §0i.3, taken as ruled. The producer HEAD drifted **twice
+   more inside X.F.W0's own sitting** (`e91b7b7e` → `887a0db9`, both banked as dated readings and
+   neither as a live fact), which is exactly why the cell is tag-resolved. **The standing rule X·F
+   exports: producer-side evidence carries the producer COMMIT HASH, never the version string.**
+2. **Three X·F gates close honest-RED and say so** — **G-4** (the adopted glass-ui 4.0.0
+   `dist/styles/index.css` does not parse: 17 `/*` against 8 `*/`, measured again 2026-09-17),
+   **G-5** (gated behind G-4, plus `MISS-A7`'s independent vite-8 break) and **G-15(d)** (the emission
+   contradiction, ruled UNDECIDABLE with its falsifier written). **G-4 is PRODUCER-OWNED**; the O-20
+   §A-1 ask is **ANSWERED** at **I-30** and, per SEAMS **S-11/S-23**, that *"discharges the ask, not
+   the pre-gate"* — **the corruption is in the ADOPTED 4.0.0 bytes, which no later tag alters.**
+   **A consumer-side patch would be a GATE FAILURE, not a gate pass**, and none was made.
+
+**What this addendum does not do.** It stamps no verb, adds no wave, moves no ruling, and creates no
+obligation on any sub-tranche but the one it names. §1a's superseded cell and §2's graph are **left
+exactly as their seats wrote them**; this block is the dated record beside them.

@@ -644,3 +644,197 @@ Pre-paint bootstrap at `index.html:22-32` reading `theme` ∥ `vueuse-color-sche
 9. **[P3] Reduced-motion gap** — `stores/animation.ts` + `ConvergencePlot.vue` rAF clocks are ungated; glass-ui 7 `DockBackgroundToggle` is the canonical seat.
 10. **[P3] Dead deps** — `class-variance-authority`, `clsx`, `tailwind-merge`, and direct `reka-ui` all have 0 src imports; `components.json` points at a nonexistent `@/lib/utils`. `DESIGN.md:32` already books the CVA row.
 11. **[P3] No unit-test runner.** vitest is ABSENT; the only automated frontend gate is 8 Playwright specs / 29 tests on a single chromium project + `vue-tsc -b` in CI.
+
+---
+
+## ERRATA ADDENDUM 2026-09-17 — X.F.W0 unit *e* (gate G-12; §6a lock 5's mandatory same-act correction)
+
+**SERVED MODEL: claude-opus-5[1m]** · authority `value.js/docs/tranches/X/fourier/waves/F-W0.md`
+§4 G-12 + §3 rows 10 · 17 · 23 + §2a (*"ERRATA ADDENDUM ONLY — never patched in place"*) + §6a lock 5
+(*"the doc half is F.W0's and lands in the same act as the authoring"*) + lock 8 (E-3).
+
+**E-3.** **NOT ONE BYTE ABOVE THIS LINE IS EDITED.** Every correction is a **dated supersession
+beside** the cell it names. Measurements at fourier **`8bc7736`** (the settled tree G-1 committed),
+producer glass-ui at `v8.0.0^{commit}` = **`17a11bc5`**, every count **double-run**. The full
+reconciled tables live at `fourier-analysis/docs/tranches/F/SUBSTRATE-LEDGER.md` **§2.2**.
+
+---
+
+### LF9-1 · THE DEAD-DEVDEPS ROW — three of the four are LIVE RUNTIME PEERS. **This is the correction that stops F.W1 deleting live peers.**
+
+**The cells superseded**, all three, by name:
+
+- **`:70`** — *"**Dead devDeps (measured, not estimated):** `class-variance-authority`, `clsx`,
+  `tailwind-merge` all have **0 import sites** in `src/` … `reka-ui` also has **0 direct imports**"*
+- **`:645`** (§ closing list, item 10) — *"**[P3] Dead deps** — `class-variance-authority`, `clsx`,
+  `tailwind-merge`, and direct `reka-ui` all have 0 src imports"*
+- **`:478`**'s neighbouring premise, insofar as it is read as licensing removal
+
+**THE FIGURE REPRODUCES. THE CONCLUSION DOES NOT.** Re-run at `8bc7736`, the row's own probe
+`grep -rn "from \"<pkg>\"" src/ | wc -l` returns **0** for all four — **the measurement is honest and
+the denominator is wrong.**
+
+> **A PEER'S LIVENESS IS A PROPERTY OF THE INSTALLED PRODUCER'S IMPORT GRAPH, NOT OF THE CONSUMER'S
+> `src/`.** A package the consumer never names in its own source is still load-bearing when the
+> producer it installs imports it.
+
+Measured over the correct denominator — the installed `@mkbabb/glass-ui@4.0.0` `dist/` — double-run:
+
+| package | fourier `src/` import sites | **glass-ui 4.0.0 `dist/` files importing it** | glass-ui 4.0.0 peer class | **VERDICT** |
+|---|---|---|---|---|
+| `reka-ui` | 0 | **40** | **REQUIRED** | **LIVE — MOVE to `dependencies`. DO NOT DELETE** |
+| `class-variance-authority` | 0 | **11** | **REQUIRED** | **LIVE — MOVE to `dependencies`. DO NOT DELETE** |
+| `clsx` | 0 | **2** (via `dist/cn-DJXf4yaB.js:1`, the `cn` chain) | **REQUIRED** | **LIVE — MOVE to `dependencies`. DO NOT DELETE** |
+| `tailwind-merge` | 0 | **0** | not a peer | **GENUINELY DEAD — delete.** Doc-comment-only; exactly `FR-AH-33`'s C-5 narrowing |
+
+**Three of the four rows are superseded; the fourth is sustained.** `FR-AH-33`'s reading is the
+correct one: `cva` / `clsx` / `reka-ui` are **live runtime peers on the button-chunk → `cn` → clsx
+chain**, and `tailwind-merge` **alone** is dead.
+
+**The aggravating fact, carried because it makes the correction urgent rather than tidy**: all five of
+FR-AH-33's runtime-reached packages sit in `devDependencies` with `"dev": true` in the lock, so
+**`npm ci --omit=dev` fails TODAY** — and vite's production `vendor-ui` chunk
+(`web/vite.config.ts:52`, keyed on the package root) names lucide, so **the manifest misdescribes the
+graph the build config asserts.**
+
+**The act, and its owner.** The manifest write is **F.W1's**, a limb of its atomic transaction
+(R-4a); **X.F.W0 authors the gate (G-6) and discharges the DOC half — which is this addendum.** The
+`web/DESIGN.md` line is `fourier/web/`'s own file and is **not** written here; see LF9-2 for the
+coordinate correction it needs.
+
+### LF9-2 · THE `web/DESIGN.md` COORDINATE IS STALE AT THREE SITES — the CVA row is at `:33`, not `:32`
+
+Both `:70` and `:645` close by citing **`DESIGN.md:32`** for the CVA row. **SUPERSEDED.** Measured
+live:
+
+| coordinate | what is actually there |
+|---|---|
+| `web/DESIGN.md:32` | *"Replace `.gallery-card`/`.modal-card` divs with glass-ui Card (filed as constellation carry — Card tier="cartoon" variant proposal)."* |
+| **`web/DESIGN.md:33`** | *"Remove unused CVA dependency or adopt it for button variants (filed as W2.a row D4; deferred to W4 or W6 close ceremony)."* — ⟨cmd⟩ `grep -n 'CVA dependency' web/DESIGN.md` → **`33:`** |
+
+**The stale `:32` is INHERITED at both sites of this file**, so the errata corrects **three sites, not
+one** (`:70`, `:645`, and the ruling that carried `:34`). **A ruling addressed to this row cited
+`:34`; the bytes say `:33`** — the ruling's LAW (re-resolve the anchor) is applied to the live
+coordinate and the divergence is minuted rather than silently adopted. **This is a D-19 instance
+inside a gate condition**, and G-11's re-resolution law reaches gate conditions too, not only registry
+quotes.
+
+### LF9-3 · `:68` / `:69` — the anchors, fixed, so the next seat does not re-derive them
+
+⟨cmd⟩ `grep -n 'lucide-vue-next' lane-frontend.md` → **`68:`** is the `lucide-vue-next` table row.
+⟨cmd⟩ `sed -n '69p' lane-frontend.md | od -c` → `0000000  \n` — **`:69` IS A BLANK LINE.** Any
+citation of *"`lane-frontend.md:69`, the `lucide-vue-next` table row"* is **false at the bytes**; the
+row is at **`:68`** and the *"Dead devDeps"* paragraph at **`:70`**. Recorded here because the false
+spelling was published inside a re-resolution minute, which is the model later waves are told to copy.
+
+### LF9-4 · `:478`'s 35 IS RIGHT — and the counting unit is stated so it stays right
+
+`:478` books *"`lucide-vue-next` → `@lucide/vue` | **35 import sites**
+(`grep -rn "lucide-vue-next" src/ | wc -l` → 35)"*. **SUSTAINED — reproduced exactly at `8bc7736`
+(double-run).** The counting units, because this is the row a careless re-measure gets wrong:
+
+| unit | value |
+|---|---|
+| raw grep-lines | **35** |
+| files | **35** (one hit per file) |
+| `from "lucide-vue-next"` — **double-quoted probe only** | **34** |
+
+The missing 35th is `src/components/ui/CollapsibleSection.vue:4`,
+`import { ChevronRight } from 'lucide-vue-next'` — a **single-quoted** import in a double-quoted
+codebase. **The probe, not the tree, produces the 34**, and the quote-restricted probe is the same
+defect class as a position-restricted one. It is also an `fr-CollapsibleSection i-3` instance:
+formatting diverges intra-file and no formatter exists — **do not fix by hand; land the gate and let
+it drive.** The rename itself is **F.W1's**.
+
+### LF9-5 · `:645` item 8 — the `cartoon-card` **25** is RIGHT under its own unit, and the other two readings are too
+
+Item 8 books *"`@utility cartoon-card` (25 sites)"*. **SUSTAINED under the raw-grep-lines unit** and
+reproduced exactly. The apparent conflict with the registry's **21 / 14** and with the shim's own
+committed comment (*"14 application sites (13 files; one uses it 5 times)"*) is a **denominator
+difference, not an error** — fr-ContourPreview 27's both-right reading:
+
+| denominator | value | definition |
+|---|---|---|
+| **raw grep-lines over `web/src`** | **25 / 15 files** | this file's figure — every matching line, prose and definition included |
+| **everything outside the shim's own block** | **21 / 14 files** | fr-AdminAuditLog K-13's figure — minus `style.css`'s 4 lines (`:98` `:99` `:101` comment + `:107` the `@utility` definition) |
+| **live application sites** | **19 / 13 files** | minus 2 comment-resident mentions (`GalleryCardModal.vue:247`, `VisualizationView.vue:192`) |
+
+**The shim comment's FILE count (13) is EXACT at the strict reading; its SITE count is stale by 5
+against 19 and by 7 against 21**, and its parenthetical *"one uses it 5 times"* still holds
+(`EquationView.vue` at `:230/:239/:243/:251/:308`). **All three published figures are right under
+their own unit; only one of them is a migration budget.**
+
+### LF9-6 · `:645` item 11 — the **8**-spec denominator is SUSTAINED and any 7 is FORBIDDEN
+
+Item 11 books *"8 Playwright specs"*. **SUSTAINED**: `ls web/e2e/*.spec.ts` → **8** —
+contour-extraction · gallery · paper-performance · settings-persistence · visual-baseline ·
+visualization-crud · visualization-ux · workspace-flow. Banked thrice
+(`fr-AdminFlaggedPanel.md:110` · `fr-CollapsibleSection.md:65` · `fr-CanvasOverlayButton.md:74`),
+live-measured at the fold seat, at X.F.W0's open, and here. **ANY 7-SPEC FIGURE IS A SUPERSEDED
+DENOMINATOR AND IS FORBIDDEN DOWNSTREAM.** Carried with it (`PP-TSSCOPE`, row 17): all 8 sit
+**outside `vue-tsc -b` entirely** — `web/tsconfig.json`'s `include` is
+`["src/**/*.ts","src/**/*.d.ts","src/**/*.vue","env.d.ts"]` and there is exactly **one** tsconfig in
+`web/`. That scope act is X.F.W0's **G-8**.
+
+### LF9-7 · `:636` item 1 — the tri-package hop is **4→8**, not 4→7, and the lattice is measured
+
+Item 1 books *"`glass-ui 4→7` ∧ `keyframes 4.3→6` ∧ `value.js 0.13→4.0` cannot be decomposed."*
+**The non-decomposability is SUSTAINED and now measured; the TARGET is SUPERSEDED — the elected pin is
+`v8.0.0^{commit}` = `17a11bc5`, so the hop is 4→8.** The lattice, read by `node` over the installed
+manifests:
+
+| holder | holds | kind | direction |
+|---|---|---|---|
+| `@mkbabb/keyframes.js@4.3.0` | `@mkbabb/value.js ^0.13.0` | **`dependencies` — HARD** | **BACKWARD** |
+| `@mkbabb/keyframes.js@4.3.0` | `@mkbabb/parse-that ^0.9.0` | `dependencies` — HARD | backward |
+| `@mkbabb/keyframes.js@4.3.0` | `@mkbabb/glass-ui ~4.0.0` | `optionalDependencies` — **TILDE** | backward |
+| `@mkbabb/glass-ui@4.0.0` | `@mkbabb/value.js ^0.10.0 \|\| ^0.11.0` | peer (optional) | forward |
+
+**The backward pin is the genuine increment, and the TILDE is the sharp edge**: `~4.0.0` admits
+`4.0.x` **and nothing else**, so adopting glass-ui at `17a11bc5` breaks keyframes' own optional pin
+unless keyframes moves in the same transaction. **That is the atomicity argument, stated as a measured
+lattice rather than an assertion, and F.W2 inherits it rather than re-deriving it.**
+
+**The true peer start state** (glass-ui 4.0.0: **14 peers — 7 optional, 7 required**) supersedes any
+"clean pin" premise in this file's sizing: `@mkbabb/value.js` is peer-declared `^0.10.0 || ^0.11.0`
+against an installed 0.13.0 (EBADPEER **warning**, not failure); **`@lucide/vue` is a REQUIRED peer on
+disk at 1.20.0 with ZERO `node_modules/@lucide/vue` entries in the committed lock** (`MISS-LC2` — the
+tree is not reproducible from its own lockfile); `vaul-vue` likewise absent from the committed lock
+(`FR-EQC-7`); and **`embla-carousel-vue` is OPTIONAL**, so it cannot fail `npm ci --omit=dev` and is
+**removed from the land-together set**.
+
+### LF9-8 · The migration budget is **CALLSITES**, not imports
+
+`L-7`'s correction, re-measured at `web/src/components/visualization/EditorControlsDock.vue`
+(double-run): **`<DockIconButton` × 12 · `<HoverPopover` × 2 · `<MetricBadge` × 1.** An
+import-denominated budget reads **3** and understates the transaction by an order of magnitude.
+Counting-unit note, because the banked headline and the live measure differ by one and **neither is
+wrong**: the template block is **119** lines inclusive of both `<template>` and `</template>`, **117**
+strictly between them, and **118** inclusive of one boundary — the banked figure. A pt-leaf K7
+anchor/unit difference, recorded rather than conformed.
+
+### LF9-9 · The `MetricBadge` importer figure — **7 files, not 6**
+
+This file books *"7 imports / 6 files"*; `FR-COB-10`/`FR-IC-8` restate it as *"5 live files + 1
+unmountable"*. **BOTH ARE ONE SHORT ON THE FILE COUNT.** Measured: **7 import statements across 7
+files** — one import per file — `GalleryAdminBanner` · `GalleryDraftsSection` · `EditorControlsDock` ·
+`EquationPanel` · `AnimationControls` · `EquationView` · `InfoCard`. **`InfoCard.vue` is the
+unmountable one (`F8-REACH-01`) ⇒ 6 LIVE FILES.** Identical at `cd26c65`, so **not a landing
+artefact**. After X.F.W0's G-10 DELETE the budget is **6 imports / 6 files, all live.**
+
+### LF9-10 · The standing laws this addendum binds
+
+> **REGISTRY-FIRST IS A PRECONDITION, NOT A COURTESY.** A finding, a budget or a severity is swept
+> against the adjudicated registry **before** it is filed. *"A re-reader's missed-find cell needs a
+> registry sweep before it needs a proof."*
+>
+> **PUBLISH THE DENOMINATOR DEFINITION, NOT JUST THE INTEGER.** Raw-grep-lines, application-
+> occurrences and live-application-sites are three different quantities. **Raw grep lines published as
+> site counts** is the single defect class this addendum corrects most often, and LF9-1 is what it
+> costs when a *denominator*, not a *count*, is the thing that is wrong.
+>
+> **PRODUCER-SIDE EVIDENCE CARRIES THE PRODUCER COMMIT HASH, NEVER THE VERSION STRING** (P-4).
+
+**Status**: no verb is stamped; no byte above this line is edited; **no `registry/adjudicated/**`
+byte, no intake-adjudication byte and no `web/DESIGN.md` byte was written** (E-1/E-3 and bounds).
+Every superseded cell is named, dated and left standing.
