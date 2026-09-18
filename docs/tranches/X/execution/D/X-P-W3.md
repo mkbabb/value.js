@@ -5681,9 +5681,26 @@ green is claimed that this seat did not re-measure at its own clock.
 ### C4.9 — Push receipt (the owner's 2026-09-17 authorization)
 
 ```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that push origin HEAD
+   Everything up-to-date            0 ahead / 0 behind origin/master; the frozen root sits at
+                                    `ef10d5b` with its pinned 31-path porcelain untouched — a no-op,
+                                    as the fresh-root law requires.
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js push origin HEAD
+   42381e83..f6edeab1  HEAD -> tranche-u
+   ⟨cmd⟩ git rev-list --left-right --count origin/tranche-u...HEAD → 0  0
 ⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 remote -v
    (empty)                          R-2: the fresh writer root has NO remote by construction. Its
                                     history — `6e584ba` (.f) and `41ee72e` (.g) — is local, and the
                                     hashes are recorded here and in the LEDGER's commit cell, which
-                                    is the only carrier §8 asks for.
+                                    is the only carrier §8 asks for. Porcelain after the push:
+                                    `?? .worktrees/` alone; HEAD still `41ee72e`.
 ```
+
+**Never force, never `-a`, never `-A`, never a reset, never a stash.** All five of this round's
+value.js commits carry their own pathspec **on the commit itself** (`8e1c2d81` = 7 paths ·
+`88713fac` = 6 · `f6edeab1` = 2 · this receipt = 1), and none swept in a byte of the four sibling
+seats sharing this index — the fourteen sibling dirty paths (ten `demo/**`, `CARRY-LEDGER.md`,
+`scripts/dev/dev.sh`, two untracked `e2e/**` specs and the untracked Track-A/C evidence dirs) are
+**untouched and unstaged** at this seat's exit, exactly as they were at its open.
+
+**Round 4 is CLOSED. Status: `PARTIAL 2026-09-17`. No verb moved.**
