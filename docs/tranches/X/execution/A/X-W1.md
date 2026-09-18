@@ -1613,3 +1613,329 @@ tombstone, G-7's falsifier run) are the two the tranche's own archaeology says h
 six and three times before.**
 
 **LEDGER: status left at PARTIAL; the row's check cell records this pass; one event line appended.**
+
+## Repair 1
+
+**REPAIR SEAT (round 1) · 2026-09-18 · `claude-opus-5[1m]` · primary tree, branch `tranche-u`.**
+This seat answers Check 1's register D-1..D-9. It cured every defect at ≥MEDIUM that lies inside
+X-W1's §File Bounds, both MINORs that carry a one-command cure, and it escalated the one whose cure
+does not. E-3 throughout: `W1.md`, `X-W1-FOLD.md`, the runbook, the adjudicated registry, every
+committed evidence file, every prior unit receipt, the RESUME block, the Close and Check 1 are
+**byte-untouched** — corrections to them are written as dated addenda-beside, never as edits. This
+section and one LEDGER event line are this seat's only writes to the record.
+
+**CRASH-RECOVERY (standing law).** ⟨`git status --porcelain`⟩ at open → 14 modified + 4 untracked
+paths. **None inside this unit's writable set** was a killed predecessor's partial work: the ten
+`demo/**/*.vue` edits, `scripts/dev/dev.sh`, `docs/tranches/V/reformation/CARRY-LEDGER.md`,
+`docs/tranches/X/execution/D/X-P-W3.md`, `docs/tranches/X/fourier/RULINGS-F.W2.md` and
+`docs/tranches/X/waves/evidence/` all belong to sibling seats and were neither read for adoption
+nor touched. **Nothing was stashed, restored or reset.** The two untracked `a11y-control-targets`
+specs are treated at **D-5** below.
+
+### R1.0 · The register, answered
+
+| # | sev | disposition | commit | the gate it moves, re-read |
+|---|---|---|---|---|
+| **D-1** | HIGH | **CURED** — falsifier demonstrated on a scratch branch, never merged | `3d029e44` (scratch, unmerged) ⊕ `dfc65a3e` | **G-7 RED → GREEN** |
+| **D-2** | HIGH | **CURED** — dated tombstone, the gate's second terminal state | `20a7b623` | **G-11 RED → GREEN** |
+| **D-3** | HIGH | **CURED** — the four files typed honestly; a live no-op found and fixed with them | `9ebb2020` | **G-1 RED → GREEN** |
+| **D-4** | MEDIUM | **CURED** — R2 ruling: the arms bind locators that exist | `190a2cd8` | **G-5 RED → GREEN** |
+| **D-5** | MEDIUM | **ESCALATED** — the paths are X-W4's by `W4.md:128-129`; a write there is out of bounds | — | G-3/G-5 denominator, unmoved |
+| **D-6** | MINOR | **CURED** — dated addendum-beside, below (R1.6) | this section | none (figure only) |
+| **D-7** | MINOR | **CURED** — the CI run id arrived and is recorded beside the baseline | `e5dea4a7` | **G-3's run-id clause, discharged** |
+| **D-8** | MINOR | **CURED** — the silent-green path now reds | `359af5bb` | **G-21 hardened** |
+| **D-9** | INFO | **no cure owed** — recorded by Check 1 so the roster reads true; this seat re-read `7bc72838` → `2e1fd65f` and concurs it is one meaning in two commits, the second a disclosed WRITE-THEN-MEASURE correction | — | none |
+
+**Cured: 8 of 9. Escalated: 1 (D-5).**
+
+### R1.1 · D-1 · G-7 — the falsifier, demonstrated with a control
+
+The gate authored to refuse its own waiver has been paid, at a URL, with a differential. Full
+record: `docs/tranches/X/evidence/w1/falsifier/G7-2026-09-18.md` ⊕ the committed diff
+`broken-spec-3d029e44.diff` (⟨`git ls-files docs/tranches/X/evidence/w1/falsifier | wc -l`⟩ → **2**;
+it read **0** at Check 1, on an empty directory).
+
+**One variable, two runs, same workflow of record.** `e2e/smoke/views/browse-loading.spec.ts` is
+byte-identical on `master` and `tranche-u` (⟨`git diff origin/master HEAD -- <path>`⟩ → prints
+nothing; last touched at `52acad46`, long before this wave) and it **passed** on master. One
+assertion was inverted on a scratch branch — `toHaveCount(0)` → `toHaveCount(1)`, a proposition the
+product genuinely satisfies — and the branch was pushed.
+
+| | **control** | **falsifier** |
+|---|---|---|
+| run · job | `35381701436` · `e2e-smoke` `105719151511` | **`35388604746`** · `e2e-smoke` **`105741411648`** |
+| branch / sha | `master` / `04d2d808` | **`x-w1-g7-falsifier`** / **`3d029e44`** |
+| collected | `Running 202 tests using 1 worker` | `Running 202 tests using 1 worker` |
+| **failed / passed** | **37** / 160 | **38** / 161 |
+| `browse-loading.spec.ts` | **absent from the failed list** | **failed — initial ⊕ `retry1` ⊕ `retry2`** |
+| conclusion | `failure` | **`failure`** |
+
+**Exactly one more failure, and it is the one that was planted.** The job's own log names it:
+
+```
+  30) [smoke] › e2e/smoke/views/browse-loading.spec.ts:16:1 › browse mid-fetch renders
+      developing-plate skeletons, never a spinner
+    Error: expect(locator).toHaveCount(expected) failed
+    Expected: 1
+    Received: 0
+    > 48 |     await expect(skeletons).toHaveCount(1);
+```
+
+**Neither historical waiver was used.** No `continue-on-error` (⟨`grep -c continue-on-error .github/workflows/ci.yml`⟩
+→ **2**, both comment prose) — D48's. No branch-push substitution — the trigger is
+`push: branches: "**"`, so the scratch branch ran **the same `ci.yml` as master**, unreduced —
+D55(iv)'s. And no local run stands in for the CI run: every figure is read from GitHub's API and
+the job log.
+
+The scratch branch is evidence, not a proposal: it is **never merged**
+(⟨`git log --oneline tranche-u | grep -c 3d029e44`⟩ → **0**).
+
+**G-7: RED → GREEN.** With it, `W3.md:15`'s Opens-after conjunct — *"X-W1 (re-gate: CI + falsifier
+demonstration must exist before born-RED gates can be trusted to flip)"* — **measures TRUE**, and
+the single byte Check 1 §C1.10 identified as standing between this wave and **X-W3** is gone.
+
+### R1.2 · D-2 · G-11 — the seventh carry, refused
+
+`docs/tranches/X/evidence/w1/real-gpu/TOMBSTONE.md`, dated **2026-09-18**, committed at
+`20a7b623` (⟨`git ls-files docs/tranches/X/evidence/w1/real-gpu | wc -l`⟩ → **1**; it read **0**
+before, and ⟨`git log --oneline -- docs/tranches/X/evidence/w1/real-gpu`⟩ read **0 commits**, so
+X.W1.f had never written a byte).
+
+It quotes DR-07's chain verbatim from the spec (N X14 → R R8-22 → S → T O-3 → U-F54/B8 → V-prime
+CH-7), gives the reason the spec dictates — *named six times, run zero times; naming is not
+discharge* — and states the cost rather than glossing it: ⟨`git ls-files 'e2e/visual/goldens/**/*.png' | grep -c swiftshader`⟩
+→ **207 of 207**, so no frame in this repository was rendered by a real GPU and any driver-only
+defect is invisible to this tranche's gates. It also refuses the escape hatch in advance: a session
+run after this date is a new row in the wave that hosts it, never a retroactive discharge of
+CC-029(b).
+
+**G-11: RED → GREEN by its second terminal state.** The third state — *owed*, *carried*,
+*scheduled* — is gone from the tree.
+
+### R1.3 · D-3 · G-1 — 14 → 0, and the defect the 14 were reporting
+
+⟨`npx tsc -p tsconfig.e2e.json --noEmit | grep -c 'error TS'`⟩ → **0**, **double-run 0**.
+⟨`npm run typecheck`⟩ (four programs: `tsconfig.lib.json` · `tsconfig.demo.json` ·
+`tsconfig.test.json` · `tsconfig.e2e.json`) → **exit 0**, **double-run exit 0**, `grep -c 'error TS'`
+→ **0**. The three surviving `demo/@/lib/palette` mentions are the same explanatory prose Check 1
+measured; **0 live imports**. Both halves of G-1's conjunction now hold.
+
+None of the four cures is a waiver. **No `any`, no `as any`, no `@ts-expect-error`, no
+`@ts-ignore`, no `eslint-disable`, and `e2e/visual` was not excluded from `tsconfig.e2e.json`'s
+`include`** — the third would have re-cut the exact B10 hole G-1 exists to close
+(⟨union of this seat's added lines, `grep -cE 'test\.skip\(|test\.only|: any|as any|@ts-expect-error|@ts-ignore|continue-on-error|eslint-disable'`⟩ → **1 hit, and it is prose** in the G-3 addendum
+naming `continue-on-error` as the thing that is absent).
+
+| file | diagnostics | the cure, and why it is the root |
+|---|---|---|
+| `capture.ts` | 2 × TS2339 | `document.getAnimations()` is typed as the base `Animation`; `animationName` belongs to `CSSAnimation`, `transitionProperty` to `CSSTransition`, and a script-driven animation has neither. Feature-tested with `in` rather than cast — `instanceof CSSAnimation` would narrow too, but those globals are absent in WebKit and the helper is shared with the safari arms. Runtime behaviour for CSS animations and transitions is unchanged (the properties were always present on the objects); only the both-absent case moves, from the string `undefined` to the animation's stable `id` |
+| `census-parity.spec.ts` | 7 (3 × TS2322 · 2 × TS2532 · TS2677 · TS2345) | one `required<T>()` helper earns what `noUncheckedIndexedAccess` cannot know and **throws the divergence sentence this guard exists to report**, instead of asserting it away with `!` or absorbing it with `?? ""`; the three union readers fold into `unionBody`/`unionMembers`; the `RightPane` predicate names `NonNullable<CensusRightPane>` and the `Set` is keyed on `string` so it can still be asked about a pane the census has never heard of — which is the one question the test exists to ask |
+| `golden-integrity.spec.ts` | 3 × TS2532 | the three channels are read as values and a mid-pixel truncation is **named and thrown**. This was not cosmetic: `undefined << 16` is `0`, so a truncated golden would have silently counted as one more black pixel and could have pushed a flat frame over the 16-colour floor — a defect of exactly the class this file exists to catch |
+| `modality.visual.spec.ts` | 2 × TS2353 | **the two diagnostics were reporting a live no-op** — see below |
+
+**The `census-parity` refactor is behaviour-identical, measured not assumed.** Old and new readers
+run side by side against the live `demo/color-picker/router/index.ts` and `demo/shell/viewSchema.ts`
+in one node process: `routerNames` **identical, n=14** · `viewIds` **identical, n=14** ·
+`rightPanes` **identical, n=4**. The guard asserts exactly what it asserted before; only its failure
+mode improved.
+
+**The finding the 14 were hiding.** `reducedMotion` and `forcedColors` are not test options in the
+installed Playwright: ⟨`grep -c reducedMotion node_modules/playwright/types/test.d.ts`⟩ → **1**, and
+that hit is a doc example showing the key nested *inside* `contextOptions`;
+⟨`grep -rn 'reducedMotion\|forcedColors' node_modules/playwright/lib/`⟩ → **0**;
+`_combinedContextOptions` — the one place a context's options are assembled — enumerates every
+option fixture it reads and names neither. Written at the top level they are accepted, ignored, and
+the arm runs anyway. Measured with a two-arm differential probe at this seat (chromium,
+`about:blank`, one run):
+
+```
+AS-WRITTEN         {"reduced":false,"forced":false}
+VIA-CONTEXTOPTIONS {"reduced":true,"forced":true}
+```
+
+Both arms were off. **28 committed goldens — 14 `reduced-motion-desktop` + 14
+`forced-colors-desktop` — therefore do not witness what their own filenames claim**, and with the
+cure in place the `visual` job reds on exactly those 28 until they are re-minted. That RED is
+honest and it is the correct state: the stale goldens are the false evidence, not the failure. The
+re-mint is **owed, named and owner-assigned** in
+`docs/tranches/X/evidence/w1/visual/MODALITY-NO-OP-2026-09-18.md`, with the reason it could not
+happen at this seat measured rather than asserted: `regenerate-goldens.mjs` refuses a tree dirty in
+any pixel-relevant path, and ten uncommitted `demo/**/*.vue` edits belonging to sibling seats are
+exactly that. A worktree does not escape it — `reuseExistingServer` points the suite at the same
+product source. Minting there would have ratified a sibling's half-finished edit as the product's
+appearance, which is the condition G-9's dirty-tree refusal exists to prevent.
+
+**G-1: RED → GREEN**, and the wave's own §3 LW-1 — *"the 'and passes' half of G-1 was never
+measured by any seat of this wave"* — is discharged by measurement, not by argument.
+
+### R1.4 · D-4 · G-5 — the dead-locator ruling, and two more the slate could not see
+
+The collision is ruled by R2's **second** arm: neither attribute belongs to a routed cure — nothing
+in the fold mints `data-palette-card`, `data-extract-swatch` or `data-palette-swatch` at any wave —
+so the arms bind the live hook instead. **No allowlist, no exemption list, no `SCHEDULED` class.**
+
+⟨`grep -rl <literal> demo/ src/ node_modules/@mkbabb/glass-ui/dist`⟩ per literal → **0 files**
+apiece for all three. Two further members of the same two selector lists are dead and die with
+them, neither visible to the slate:
+
+- **`.palette-card`** — the only class in the tree is `.palette-card-grid`
+  (`PaletteCardGrid.vue:4`), and class tokens match exactly.
+- **the CSS tag selector `article`** — ⟨`grep -rn '<article' demo/ --include='*.vue'`⟩ → **0**;
+  `PaletteCard.vue:22` carries `role="article"` on a `<div>`, which a tag selector never matches.
+
+So **both selector lists matched nothing under any product behaviour**, which made NG-8's falsifier
+unreadable: an arm that cannot pass however its cure lands is not born-RED, it is unfalsifiable.
+R14's recovery leg now binds `getByRole("article")` — what `views/browse-loading.spec.ts` already
+binds — and R18's palette leg binds `[aria-label^="Color swatch "]`, stamped by
+`SwatchHoverMenu.vue:18/:33` through `ExtractWorkbench.vue:145` → `PaletteCardSwatches.vue:25`.
+
+**What run `35381701436`'s own log says about the two arms — read, not assumed:**
+
+- **R14 fails at `crash-battery.spec.ts:60`**, `await expect(main(page)).toBeVisible()` — *before*
+  the cured line. Its RED is untouched by this cure.
+- **R18 fails AT the dead locator**, `crash-battery.spec.ts:294:7`:
+  *"Locator: `getByRole('main', { name: 'Color tool panes' }).locator('.extract-swatch, [data-extract-swatch], [data-palette-swatch]').first()` — element(s) not found"*. The assertion
+  immediately above it — the uploaded image is visible — **passed**. So R18 was redding for a
+  selector that could not match under any behaviour, and nobody could tell whether the extract flow
+  it prosecutes is broken at all.
+
+That second reading is stated plainly because it cuts both ways. After the cure R18's verdict
+becomes informative for the first time: if the flow does develop a palette the arm will **green**,
+and under NG-8's own falsifier — *"a battery that greens without its cure landing means the arm was
+authored to the cure, not to the defect"* — that is a finding about R18's authorship, to be
+reported by the next `e2e-smoke` run rather than pre-empted here. A dead locator that manufactures
+a RED is not a born-RED gate; it is R2's disease wearing a gate's clothes.
+
+⟨`node scripts/ci/oracle-slate.mjs`; `echo $?`⟩ → **`SLATE CLEAN — 0 findings (6 routed, named
+above)`, exit 0** — **double-run byte-identical** (⟨`diff -q`⟩ prints nothing). The 6 X-W8 lint
+globs are untouched and still ROUTED, excluded from the exit code as before. **G-5: RED → GREEN.**
+
+**Disclosed, not exploited — an instrument gap this cure sits inside.** The slate's E3 reads only
+`[data-…]` attribute selectors and E4 only `name: "…"` literals, so it **cannot see** the
+`[aria-label^=…]` binding this cure introduces; its silence about that binding is not evidence.
+Extending E3 to `aria-label` was measured and **declined as unsound**: of the 8 distinct
+`[aria-label…]` literals in `e2e/` (15 sites), **3 are composed at runtime from templates**
+(`l component value` ← `${channel} component value`; `Gradient stop at 80%` ←
+`Gradient stop at ${pct}%`; `Perceived-space…`) and appear in **0** product bytes verbatim, so the
+naive extension would red on live locators — a false positive is a worse instrument than a blind
+spot. It is the same class the slate already reports rather than exempts (*"67 dynamic
+(template/regex/variable) references are UNCHECKABLE by this instrument"*). A template-aware
+extension is a design question for a later wave, recorded here rather than silently benefited from.
+The new binding's runtime confirmation rides the next `e2e-smoke` run.
+
+### R1.5 · D-5 · ESCALATED — the two untracked specs are X-W4's, not X-W1's
+
+The defect is real and reproduces: ⟨`git status --porcelain e2e/`⟩ → `?? e2e/smoke/a11y-control-targets.spec.ts`
+· `?? e2e/smoke/mobile/a11y-control-targets.spec.ts`; the slate reads **tracked e2e specs 81 ·
+collected by ≥1 83**, so the locally collected suite is still not the suite CI collects.
+
+**But its premise is measurably wrong, and the correction is what makes it an escalation.** Both the
+Close (R-CL-8) and Check 1 (D-5) call these *"product test surface inside X.W1.a's bound"*. At the
+bytes they are **X-W4's**:
+
+| ⟨command⟩ | output |
+|---|---|
+| `grep -n 'a11y-control-targets' docs/tranches/X/waves/W4.md` | **`:128 \| e2e/smoke/a11y-control-targets.spec.ts \| create \|`** · **`:129 \| e2e/smoke/mobile/a11y-control-targets.spec.ts \| create \|`** (+ `:236`, `:378` A1's gate command, `:457` commit-plan row 2) |
+| `grep -n 'a11y-control-targets' docs/tranches/X/waves/W1.md` | **0** |
+| `grep -n 'a11y-control-targets' docs/tranches/X/refinement/X-W1-FOLD.md` | **0** — and §3's 36 additions plus §6.3's single 37th (`o7-card-census.spec.ts`) name neither |
+| the files' own first lines | *"X-W4 · X.W4.a — SHELL CONTROL TARGETS, NAMES AND THE SIZE AXIS (gates A1 · A3 · A4)"* … *"W4.md §4 File Bounds admits exactly these two paths"* |
+
+X-W1's §Disjointness grants X.W1.a *"`e2e/smoke/**` **fixtures** + `test.fail()` specs"* — these are
+neither. **A `git add` of them from this seat would be a write outside §File Bounds, and a `rm` of
+them would destroy an open sibling wave's work.** X-W4 is **OPEN** on this same track
+(`LEDGER.md:33`), so the cure has a live owner.
+
+> **ESCALATION ESC-W1R-1 → X-W4 (X.W4.a) / orchestrator.** Track or delete
+> `e2e/smoke/a11y-control-targets.spec.ts` and `e2e/smoke/mobile/a11y-control-targets.spec.ts` under
+> **W4.md:128-129**, which admits both as `create`. Until then the suite CI collects is 81 tracked
+> specs while the tree collects 83, and the 6 tests in those two files are measured by nothing.
+> R-CL-8's and D-5's *"inside X.W1.a's bound"* is corrected by this dated addendum-beside; the
+> defect they name is upheld in full.
+
+### R1.6 · D-6 · the job census — dated addendum-beside
+
+The Close's G-5/G-2 cell publishes **"10 jobs"**. **There are 9.** The Close is immutable (E-3), so
+the correction lives here:
+
+⟨`python3 -c "import yaml; print(len(yaml.safe_load(open('.github/workflows/ci.yml'))['jobs']))"`⟩ →
+**9** — the YAML parser's own count, not a grep's — enumerated `producer · api · oracle-slate ·
+e2e-smoke · e2e-safari · visual · boot-smoke · lhci · deploy-age`. ⟨`grep -cE '^    [a-z0-9_-]+:$' .github/workflows/ci.yml`⟩
+→ **11**, of which `push:` (`:4`) and `pull_request:` (`:7`) are trigger keys at the same
+indentation, not jobs. `ec654158`'s own commit body already said *"all nine jobs"*, and Check 1's
+own enumeration lists nine. **No gate verdict is affected.**
+
+### R1.7 · D-7 · G-3's run-id clause — discharged by arrival
+
+`docs/tranches/X/evidence/w1/baseline/g3-ci-run-id-2026-09-18.md` (commit `e5dea4a7`) records the
+second witness the baseline itself named as owed, **without editing the baseline** (E-3):
+
+**run `35381701436` · job `e2e-smoke` id `105719151511` · `push` / `master` / `04d2d808` ·
+2026-09-18T18:42:11Z → 19:38:21Z · conclusion `failure` · `Running 202 tests using 1 worker` →
+`37 failed · 3 flaky · 2 skipped · 160 passed (55.0m)`.**
+
+Scope, commit and retry policy differ from the local baseline (5 chromium projects at `04d2d808`,
+`retries: 2`, versus all six projects at `58d6f731`, `retries: 0`), and the difference is tabulated
+rather than conflated; the baseline's 187/145/40/2 classification is not re-opened. This reading
+also discharges the `e2e-smoke` half of **R-CL-10**.
+
+### R1.8 · D-8 · the one silent-green path in the job that refuses silent greens
+
+`ci.yml`'s `deploy-age` step read `if [ -z "$CLOSE_AT" ]; then echo "no close recorded…"; exit 0`.
+Its input is `git log … -- docs/tranches || true` under `set -euo pipefail`, so a **broken** query
+(path moved, subject grammar changed, shallow checkout) arrives as an empty string rather than a
+failure, and the job passed on it. It now **reds**, with the reason in the message.
+
+Differential at this seat: ⟨the live command⟩ → `2026-09-18T16:01:09-04:00`; ⟨the same command with
+the path moved⟩ → **empty** — which is precisely the reading that used to pass.
+⟨`actionlint .github/workflows/ci.yml .github/workflows/deploy-pages.yml`⟩ → **exit 0, no output**.
+The live inputs are unchanged, so `deploy-age`'s behaviour at the run of record is unchanged and
+**G-21 stays GREEN-as-gate**, now without a fail-open branch beneath it.
+
+### R1.9 · Gate re-readings — WRITE-THEN-MEASURE, every figure double-run
+
+| gate | before (Check 1) | after, at this seat's own command | verdict |
+|---|---|---|---|
+| **G-1** | RED — 14 `error TS`, `npm run typecheck` exit 2 | ⟨`npx tsc -p tsconfig.e2e.json --noEmit \| grep -c 'error TS'`⟩ → **0**, double-run **0**; ⟨`npm run typecheck`⟩ → **exit 0**, double-run **exit 0** | **RED → GREEN** |
+| **G-5** | RED — `SLATE RED — 3 finding(s)`, exit 1 | ⟨`node scripts/ci/oracle-slate.mjs; echo $?`⟩ → **`SLATE CLEAN — 0 findings (6 routed)`, exit 0**, double-run byte-identical | **RED → GREEN** |
+| **G-7** | RED — evidence dir empty, 0 tracked files | control `35381701436` vs falsifier `35388604746`, same job and same 202 tests: **37 failed → 38**, the delta being the planted assertion, named in the log at `browse-loading.spec.ts:48:29`; both runs' conclusion `failure`; scratch branch never merged | **RED → GREEN** |
+| **G-11** | RED — neither frames nor tombstone | ⟨`git ls-files docs/tranches/X/evidence/w1/real-gpu \| wc -l`⟩ → **1** (`TOMBSTONE.md`, dated 2026-09-18) | **RED → GREEN** |
+| **G-3** | GREEN, run-id clause RESIDUAL | run id `35381701436`, job `105719151511`, duration `55.0m`, conclusion `failure` — recorded beside the baseline | **residual discharged** |
+| **G-21** | GREEN as gate | unchanged at the live inputs; the fail-open branch removed; `actionlint` exit 0 | **GREEN, hardened** |
+| **G-8 · G-10** | GREEN | ⟨`git ls-files 'e2e/visual/goldens/**/*.png' \| wc -l`⟩ → **207**, all renderer-labelled — unmoved by this seat | **GREEN** |
+| lint | 23 `docs/**` parse errors (G-17's root, X-W8's carve) | ⟨`npm run lint`⟩ → **exit 1 · 55 problems (23 errors, 32 warnings)** — **all 23 under `docs/**`**, `0` from any file this seat touched; ⟨`npx eslint <this seat's 5 files> --max-warnings=0`⟩ → **exit 0** | unmoved, still X-W8's |
+| **G-17 · G-19 · G-20** | RED | not moved by this seat, and not claimed: G-17's lint root is `eslint.config.js`, X-W8's carve; G-19's push arm and G-20's served bytes need a deploy this repair does not perform | **RED, owners unchanged** |
+
+### R1.10 · Self-audit — bounds, masking, E-3, E13
+
+- **Bounds.** ⟨union of this seat's commits' `--name-only`⟩ → **9 distinct paths**:
+  `.github/workflows/ci.yml` (§File Bounds, `modify`) · `e2e/visual/` ×4 (X.W1.b's `create` set) ·
+  `e2e/smoke/crash-battery.spec.ts` (NG-8's battery, minted by X.W1.a at `a0df89d9` and inside the
+  325-path union Check 1 §C1.2 measured **CLEAN**) · `docs/tranches/X/evidence/w1/**` ×3 (`create`).
+  ⟨union grep⟩ → `src/` **0** · `demo/` **0** · `api/` **0** · `test/` **0** ·
+  `lighthouserc.json` **0** · `scripts/dev/dev.sh` **0** · any sibling track's index **0**.
+  The scratch branch's single commit touches one path, `e2e/smoke/views/browse-loading.spec.ts`,
+  and **is never merged**.
+- **Masking.** 0 live `test.skip(` · 0 `test.only` · 0 `any` · 0 `@ts-expect-error` · 0
+  `@ts-ignore` · 0 `eslint-disable` · 0 `continue-on-error` · 0 allowlists · 0 patched
+  `node_modules` · 0 narrowed assertions. Every cure adds a way to fail: a thrown divergence
+  sentence, a thrown truncation, a locator that can resolve, a job that reds on an empty input.
+- **E-3.** ⟨`git diff --stat` over `waves/W1.md`, `refinement/X-W1-FOLD.md`, `EXECUTION-RUNBOOK.md`
+  since Check 1⟩ → **prints nothing**. `g3-full-suite-2026-09-18.md`, `MANIFEST.json`,
+  `TOLERANCE.md`, `G9-INJECTION.md`, the Close and Check 1 are unedited; all three corrections this
+  seat makes (the modality no-op, the run id, the job census, the D-5 premise) are **addenda-beside**.
+- **E13 mail.** Four paths swept read-only at this seat's clock —
+  ⟨`find <each> -maxdepth 1 -type f -newermt "2026-09-18 14:46"`⟩ → **empty across all four**
+  (`docs/tranches/V/coordination` · `../glass-ui/docs/tranches/BK/coordination` ·
+  `../keyframes.js/docs/tranches/V/coordination` · `../sci-report/atlas/docs/tranches/P/coordination`).
+  BK re-confirmed the newest glass tranche dir. **0 unrowed · 0 new `I-n` minted · 0 UNREAD in
+  X-W1's scope.** `INBOX.md` not written by this seat.
+
+### R1.11 · What is still RED, and whose it is
+
+**G-17 · G-19 · G-20** stand RED with the owners Check 1 named — the lint root is X-W8's
+`eslint.config.js` carve, and the deploy arms need a `deploy-pages` run this repair does not
+perform. **G-13 · G-16** stay ADOPTED with X.W1.c ⊕ X.W1.d named. Two new REDs are minted by this
+seat's own honesty and are named rather than absorbed: the **28 stale modality goldens** (owner:
+the first seat that can run the regeneration on a pixel-clean tree) and **ESC-W1R-1** (owner:
+X-W4). The four-verb line is **not** advanced: `IMPLEMENTED` stays `NO`, and `VERIFIED` remains
+X-W11's alone.
