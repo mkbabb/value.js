@@ -2274,3 +2274,202 @@ so G-1's equality holds again; **F-h6** the phase-1 drafts commit is still unlan
 - **L-14**: the leader was attacked seven ways at the bytes before any verdict; every attempt and its number is in the ledger; the field was not averaged (no merged candidate, no ranking by taste); dissent preserved five ways.
 - **Numbers**: every kill-deciding figure re-measured by this seat and captured; sibling figures cited to their receipts; **no bar set; no speed sentence outside a printed table; no verb stamped** (IMPLEMENTED is the close's, on E-1).
 - **Commit of this record**: pathspec on the commit itself, this file + `LEDGER.md` (one appended line); `scripts/dev/dev.sh` never staged.
+
+---
+
+### X.P.W2.i
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 6, the **graduation seat**
+(`W2.md` §5 `.i` L660–670; M-23 §2). **Sections executed exactly**: §5 `.i` L660–670 · §3 item 10
+L183–185 · §6 **G-12** L839–852 · §10 Dependencies + alias table L908–941. Every anchor verified at
+true bytes, **zero drift**:
+
+```
+⟨cmd⟩ sed -n '183p;185p;660p;670p;839p;852p;908p;941p' docs/tranches/X/parse-that/waves/W2.md
+183  10. **Graduate the survivor** (`.i`): promote its slice realization into
+185      location — the seed W3 conforms to the full 52 and the Wasm-artifact lineage W4 admits.
+660  ### X.P.W2.i Graduation (Opus seat)
+670    `git -C <p2> status --porcelain` shows only the graduated paths before the closing commit.
+839  **G-12 — KILL LEDGER TERMINAL + THE SURVIVOR GRADUATED.** `W2-KILL-LEDGER.md` exists; every named
+852  fourth prototype). PEER-REVIEW-PENDING is not a terminal state.
+908  ## 10. Dependencies
+941    `package.json` (X-W9 G31 measures that set; it stays as measured) · the `~/Documents` TCC grant.
+
+⟨cmd⟩ shasum -a 256 docs/tranches/X/parse-that/waves/W2.md
+248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd   == §Open's pin (E-3 holds; 999 L)
+```
+
+**STATUS: ESCALATED. `<p2>` written 0 bytes; `typescript/src/css/**` NOT created.** The act this
+unit exists to perform is **mechanical promotion of a named survivor**, and **no survivor is named**
+at this seat's clock. Promoting anything would be this seat inventing the ruling `.h` measured itself
+unable to make and reserved to the owner — the G-12 falsifier *"two survivors **without** an owner
+escalation"* read from the other end. The seat therefore measured everything the word would unblock,
+wrote nothing, and returns.
+
+#### i.0 — E13 at this seat's clock, bounded
+
+⟨cmd⟩ `find <each of the four paths> -maxdepth 1 -type f -newermt "2026-09-17 22:00"` → **∅ on all
+four** (`docs/tranches/V/` · `../glass-ui/docs/tranches/BK/coordination/` ·
+`../keyframes.js/docs/tranches/V/coordination/` · `../sci-report/atlas/docs/tranches/P/coordination/`).
+The three `UNREAD 2026-09-17` rows are **I-32 · I-33 · I-34** (⟨cmd⟩ `awk 'NR>=105 && NR<=107'
+INBOX.md` → their status cells read verbatim, not from a bare `grep -i unread`, per X.P.W0 CHECK 1
+**D-1**). Every one of the three states its own non-applicability to this lane — I-32 *"Zero
+parse-that bytes; not X·P's"*, I-33 *"Not X·P's"*, I-34 *"no obligation is minted here"* — and all
+three route to X-W0.j / the X formation mail seat. **UNREAD in X.P.W2.i's scope: 0.** No row flipped;
+no line appended (this unit is not a close act).
+
+#### i.1 — ESC-i1, the blocking finding: the ruling this unit executes has an unmet precondition
+
+`W2.md` §5 `.i` fixes the mechanism as *"executing `.h`'s ruling mechanically: copy the **surviving
+candidate's** slice realization"*. `.h`'s ruling is `W2-KILL-LEDGER.md` **§11**, read at the settled
+bytes:
+
+```
+⟨cmd⟩ sed -n '436,438p;461,462p' docs/tranches/X/parse-that/waves/W2-KILL-LEDGER.md
+**Ruling.** `.i` opens **only on the owner's E-1 word**, and then executes mechanically — _"copy the
+surviving candidate's slice realization (no redesign, no 'improvements in passing')"_ — for whichever
+of AC-1 / AC-2 the owner names:
+6. **If the owner elects E-1(b) instead**, `.i` waits for K-5; the RESERVE rule (FF-6) is not in play
+   (RESERVE = NONE).
+```
+
+and §0's verdict table, ⟨cmd⟩ `sed -n '44,45p'` → *"**Candidates carried to a terminal verdict: 4 of
+4** … **Survivors: 2 — a MEASURED TIE on every kill rule that can be evaluated in this wave,
+escalated to the owner, Mike Babb, by name**"*. The tie-breaking rule, **K-5**, is
+**UNEVALUABLE in bounds** (§1 R-7 / §9 E-6: W1's bench has no cell-registration surface, and building
+one is a write under `harness/bench/**` — R-E execute-no-write, a §3a halt).
+
+**The owner's E-1 word does not exist at this seat's clock, proven by command, not by memory:**
+
+```
+⟨cmd⟩ grep -nE "AC-1|AC-2" docs/tranches/X/COHESION.md            → no output (exit 1)
+        (COHESION read WHOLE to the file end: 950 L; §0j · §0k ×2 · §0l · §0m — §0j.E is X·P's
+         only ruling block and rules OP-1 + OC-1 only; no successor addendum touches E-1)
+⟨cmd⟩ grep -rln "names AC-1\|names AC-2\|survivor is AC\|E-1 RULED\|E-1 ruled" docs/tranches/X/
+        → one hit, docs/tranches/X/execution/A/X-W2.md:331 — Track A's playwright cure, a
+          false positive on the pattern, not this wave's E-1
+⟨cmd⟩ grep -n "X.P.W2" docs/tranches/X/execution/LEDGER.md        → row 80 `OPEN 2026-09-17`;
+        journal line 167 = *"`.i` gated on the owner's E-1 word"*
+```
+
+The orchestration brief that dispatched this seat says *"copy the **survivor's** slice realization"*
+and **names no survivor** — it is a computed task text, not the owner's word, and carries no
+authority to make one (M-23; and the kill ledger's own sentence: *"The seat did not manufacture a
+single survivor by a criterion no measurement supports"*). Three unlawful substitutes were considered
+and refused: **(a)** promote both — two graduated trees contradicts §2a's *"exactly one architecture"*
+and §11.1's *"whichever … the owner names"*; **(b)** pick by a seat-local criterion — manufacturing a
+survivor, and the only lawful bench kill (K-5) is structurally unrunnable (E-6); **(c)** promote the
+`.h`-declared leader — **there is no leader**: §7.1 states *"no ranking is offered"*. **No substitute
+was performed. This is the §3a *"hard-gate failure that is not local-edit-recoverable"* posture and
+the METHOD's *"if the specified cure is impossible at the bytes, do NOT substitute"* clause.**
+
+#### i.2 — What is ready, measured, so the record shows the word is the ONLY missing input
+
+Both §11.1 sources exist at the ruled worktree HEADs, both porcelain **0**, both promotion sets
+computable today (⟨cmd⟩ `git -C <p2>/.worktrees/<id> ls-tree -r --name-only HEAD
+experiments/w2/<home> | grep -vE "/(probes|dev)/|VERDICT.md"`, double-run identical):
+
+| candidate | worktree HEAD (§11.1) | tracked files | §11.1 promotion set | excluded (`probes/` · `dev/` · `VERDICT.md`) | promotion-set bytes |
+| --- | --- | --- | --- | --- | --- |
+| **AC-1** TAGLESS-TWIN | `af40fb2db64726745c0ee9c593845448bb65a18a` (`w2/ac1`) | **20** | **17** | 3 | **382,945** |
+| **AC-2** CLOSED-IR | `a7ac4ea43d08ac609e6e0ec3e2c0551beb1a9959` (`w2/ac2`) | **36** | **24** | 12 | **325,943** |
+
+⟨cmd⟩ `git -C <p2>/.worktrees/{ac1,ac2,ac3} status --porcelain | wc -l` → **0 · 0 · 0** (before and
+after every read this seat took). ⟨cmd⟩ `git -C <p2> status --porcelain` → the same **one**
+pre-existing untracked line `?? .worktrees/` that `.h` recorded, byte-identical, before and after.
+The harness supports the graduated-location form the gate names: ⟨cmd⟩
+`grep -n -- "--at" harness/w2/op-bijection.mjs` → `L7` usage + `L147` header + `L188` dispatch, and
+`lib/candidate.mjs:68` `candidateDir(id, at)` short-circuits on `at` — so
+`--candidate survivor --at typescript/src/css` is a runnable form the moment the tree exists (it is
+runnable **now**, and reads ABSENT — §i.3).
+
+#### i.3 — Gate readings, BEFORE → AFTER (this unit's gate: G-12, graduation half)
+
+Every probe run **read-only at the graduated location**, twice, outputs byte-identical between runs
+(⟨cmd⟩ `diff -q run1 run2` → identical, 5 of 5):
+
+| gate | literal command (from `<p2>`) | BEFORE (§Baseline / `.h`) | AFTER this unit | verdict |
+| --- | --- | --- | --- | --- |
+| **G-12** graduation half | — | `typescript/src/css/` ABSENT; `.i` gated on E-1 | **unchanged — ABSENT**; ⟨`ls typescript/src/css`⟩ → `No such file or directory` (exit 1, both runs) | **RED, correctly (unmoved)** |
+| **G-2** | `node harness/w2/op-bijection.mjs --candidate survivor --at typescript/src/css` | no bijection at that location | `contract rows: 22` · `ABSENT — candidate survivor: candidate directory ABSENT (… /typescript/src/css)`, **exit 1** | RED (subject absent) |
+| **G-3** | `node harness/w2/eq-six.mjs --candidate survivor --at typescript/src/css --corpus experiments/w2/corpus/slice.json --fuzz-seed experiments/w2/corpus/fuzz-seed.json` | 0 comparisons at that location | `comparisons run 0 — no second lowering exists` · ABSENT, **exit 1** | RED (subject absent) |
+| **G-5** | `node harness/w2/r1-candidates.mjs --candidate survivor --at typescript/src/css` | — | ABSENT, **exit 1** | RED (subject absent) |
+| **G-9** | `node harness/w2/wasm-audit.mjs --candidate survivor --at typescript/src/css` | — | self-test `GREEN — the audit reads 0 imports on a zero-import module …` then ABSENT, **exit 1** (the instrument is live; the subject is not) | RED (subject absent) |
+| **G-10** | `node harness/w2/idiom-nocst.mjs --candidate survivor --at typescript/src/css` | — | self-test `GREEN — the graph walk finds "opt" under "all" …` then ABSENT, **exit 1** | RED (subject absent) |
+
+**Not one gate moved, and none was claimed moved.** Two of the five printed their own falsifier
+self-tests GREEN against controls before reporting ABSENT — the instruments can fail for their
+intended reasons (L-19); what is missing is the subject, and the subject is missing because the word
+is.
+
+#### i.4 — ESC-i2, a second structural blocker in `.i`'s own sub-gate, measured
+
+`W2.md` §5 `.i` sub-gate says *"`npx tsc --noEmit` clean in the fresh root"*. At the bytes that
+command has **no subject**, and its product form is **already RED before any graduation**:
+
+```
+⟨cmd⟩ ls /Users/mkbabb/Programming/parse-that-css-totality-p2/tsconfig.json
+        No such file or directory                      (the fresh root has NO tsconfig)
+⟨cmd⟩ cd <p2> && npx tsc --noEmit                      → exit 1, 141 lines, "Version 5.9.3 / COMMON
+        COMMANDS" — tsc's USAGE text: no inputs, nothing typechecked (double-run identical)
+⟨cmd⟩ cd <p2> && npx tsc --noEmit -p typescript/tsconfig.json
+        → exit 2, 343 lines, ⟨grep -c "error TS"⟩ = 343   (double-run identical)
+        TS2580 ×109 · TS2307 ×84 · TS7006 ×47 · TS2339 ×45 · TS2584 ×29 · TS2304 ×23 …
+⟨cmd⟩ ls -d <p2>/typescript/node_modules                → No such file or directory
+```
+
+**Measured cause**: the library's own workspace dependencies (`@types/node` et al.,
+`typescript/package.json` devDependencies) were never installed in the clone; `<p2>/package.json`
+(`.0`'s, per COHESION §0l E-1) pins the fresh root's own toolchain only, deliberately, and
+`typescript/tsconfig.json`'s `include: ["src/", "test/"]` therefore compiles the library against
+absent ambient types. **This is not graduation damage and not curable inside this unit's writable
+set** (`typescript/src/css/**`): the cure writes `typescript/node_modules` + a lockfile, outside the
+set — a §3a file-bound expansion, owed a dated E-3 addendum exactly as §0l E-1 granted for
+`<p2>/package.json`. Recorded now, BEFORE any promotion, so the graduated tree can never be blamed
+for a red that predates it; the 343 is the honest denominator any future `.i` sitting subtracts from.
+
+#### ESCALATIONS
+
+| id | to | what is owed | measured basis |
+| --- | --- | --- | --- |
+| **ESC-i1** | **the owner, Mike Babb, by name** (through the orchestrator) | **E-1, unchanged and unanswered: name AC-1 or AC-2 by word (a), or order Stage 4 (b).** `.i` is a mechanical unit with no input until then; §11.1's two source HEADs and promotion sets are measured above so the word alone completes the act. If the owner elects (b), the same dated addendum must widen W1's `harness/bench/**` bounds (E-6) before K-5 can be evaluated by a later sitting. | `W2-KILL-LEDGER.md` §11 · §0 · §9 E-1/E-6 · COHESION grep → 0 hits · this §i.1 |
+| **ESC-i2** | the orchestrator / the owner | **`.i`'s `tsc` sub-gate has no lawful subject in bounds.** The literal form typechecks nothing (no root tsconfig); the product form is RED 343 before graduation because `<p2>/typescript/node_modules` is absent. Owed: a dated E-3 addendum admitting the library workspace install (the §0l E-1 shape, one level down), or a restatement of the sub-gate to the graduated tree's own project. **No seat may presume either.** | this §i.4, double-run |
+| **(carried, not new)** | — | **E-2** stands as `.h` ruled it: at the graduated location G-3 will read EQ-6 = **2,035** until the contract addendum lands, so G-12's graduation half can stamp **GREEN-WITH-RESIDUALS (E-2)** at best — a future `.i` records it honest-RED with E-2's id and **does not touch the grammar** (§11.5). **E-7** likewise: the promoted seed carries its published-1.0.0 absolute import **exactly as declared**; `.i` may not re-point it (§11.3). | `W2-KILL-LEDGER.md` §9, §11.3, §11.5 |
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **R-i1** | MAJOR | `<p2>` cannot typecheck its own library: 343 `error TS` from absent workspace deps, independent of this wave (§i.4) | ESC-i2 |
+| **R-i2** | INFO | `op-bijection.mjs`'s ABSENT line reads *"phase 4 has not run"* for an `--at` subject; at the graduated location the true statement is *"the graduation has not run"*. The reading is correct, the sentence is candidate-shaped. Cosmetic; `.g`'s. | `.g` / L-18 |
+| **R-i3** | INFO | The graduation-location commands in §11.4 and G-12 L846 are runnable **today** and fail loudly with exit 1 — the gate can fail for its intended reason with no subject present, which is what made this unit's BEFORE honest rather than asserted | none — recorded |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: writable set = `{ <p2>/typescript/src/css/** }` — **written 0 bytes, created 0 paths**.
+  Outside it: this record block and one `LEDGER.md` line (the A-1.3 standing orchestration paths).
+  ⟨`git -C <p2> status --porcelain`⟩ → the one pre-existing `?? .worktrees/` line, unchanged before
+  and after; the three worktrees porcelain **0 · 0 · 0**. `/Users/mkbabb/Programming/parse-that`,
+  `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` · `api/**` ·
+  `demo/**` · `package.json`, W1's instruments, `.g`'s harness and corpora, the contract, the sealed
+  author arms, `W2.md`, the kill ledger, `W2-CLOSE.md` and every candidate directory: **untouched**.
+  `scripts/dev/dev.sh` never staged.
+- **Locks honoured**: `.i` ran after `.h` committed (`ba01b405` · `2e55ab59` both present at open);
+  `.i` alone would write `typescript/src/css/**` and wrote nothing; **no `feat(w2/graduate)` commit
+  exists, because there is nothing lawful to put in it** — a graduation commit here would be the
+  fourth prototype G-12's falsifier names.
+- **Numbers**: every figure above read from settled bytes and **double-run**; the two promotion-set
+  counts, the five gate exits and both `tsc` readings reproduce identically. No number inherited.
+- **No verb stamped**: G-12's graduation half stays **RED**, correctly; `W2-CLOSE.md` §6's
+  ORCHESTRATOR-AT-CLOSE checkbox *"`.i` dispatched on the owner's E-1 word"* remains **unticked**,
+  and its own alternative applies — the wave closes `complete_with_misses` with this docket if E-1
+  stays unruled.
+- **Format cadence (§7), stated rather than silently skipped**: ⟨`git diff --check`⟩ exit **0**;
+  ⟨`git diff --stat`⟩ → **193 insertions(+), 0 deletions** across the two files (⟨`git diff | grep -c
+  '^-[^-]'`⟩ → **0** — a pure append, no line above either insertion point moved). Prettier was **not
+  run**: ⟨`npx prettier --check`⟩ on **HEAD's** bytes of both files already warns, so `--write` here
+  would rewrite two concurrently-edited orchestration surfaces wholesale — forbidden for `LEDGER.md`
+  by standing law and hazardous for this record's sibling blocks. The pre-existing state is recorded,
+  not inherited silently.
+- **Commit of this record**: pathspec on the commit itself, this file + `LEDGER.md` (one appended
+  line).
