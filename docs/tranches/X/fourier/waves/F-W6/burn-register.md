@@ -635,6 +635,88 @@ written **in the row** rather than left to the close seat to infer.
 
 ---
 
+### §1.e Unit `e`'s six rows — the moderation band, ADMITTED not retired, and the one cut inside it
+
+**SERVED MODEL: claude-opus-5[1m]** · seat clock **2026-09-17** · base `F=/Users/mkbabb/Programming/fourier-analysis`
+(**READ-ONLY**), `V=/Users/mkbabb/Programming/value.js` · engine **`/usr/bin/grep`** (§0.2's pin; bare `grep`
+is ugrep in this shell). **Zero fourier bytes · zero value-tree product bytes.**
+
+**Substrate, re-measured before any citation** (D-19 MEASURE-AT-OPEN; the F.W0 pre-gate is unit `a`'s and is
+not re-litigated): ⟨cmd⟩ `git -C $F rev-parse --short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status
+--porcelain | wc -l` → **0**, both double-run. **Unmoved from units `a`–`d`**, so §0.1c's anchor
+re-resolution holds at this clock and every anchor above is cited from it rather than re-derived.
+
+**The admission gate is RULED and the band is OPEN — stated once, at the top, because five of these six rows
+were unburnable without it.** COHESION §0j.D **`F-PRODRET` (R3 ≡ D3 ≡ G11) = PRODUCER, as a PORT, homed at
+F.W8.** Two consequences this seat obeyed rather than interpreted: **(1)** the band's five server rows below
+are burnable — §2.4's *"F.W6 may not open the moderation band unruled"* is discharged by the ruling, not by
+this seat's judgement; **(2)** **F.W6 does not ship the flag-write operation** — the ruling homes the port at
+F.W8 **in its own words**, so §2.4's *"If PRODUCER: F.W6 ships the flag-write operation"* is superseded **on
+the homing only**. A seat reading §2.4 alone would have shipped it here; the row says so in the row.
+
+**The counts these six rows publish, each double-run, both runs identical** (WRITE-THEN-MEASURE):
+
+| figure | ⟨cmd⟩ | run 1 | run 2 |
+|---|---|---|---|
+| `FlagRequest` **source** references (the definition only) | `/usr/bin/grep -rn 'FlagRequest' $F/api $F/web/src --include='*.py' --include='*.ts' --include='*.vue' \| wc -l` | **1** | **1** |
+| …the same probe **unfiltered** (the `__pycache__` binary) | `/usr/bin/grep -rn 'FlagRequest' $F/api $F/web/src \| wc -l` | **2** | **2** |
+| `db.flags` **write** sites, non-test (the `$rename` migration) | `/usr/bin/grep -rn 'flags\.insert\|flags\.update\|flags\.replace' $F/api --include='*.py' \| /usr/bin/grep -v tests \| wc -l` | **1** | **1** |
+| `AdminFlaggedPanel.vue` lines (the spec's denominator) | `/usr/bin/wc -l < $F/web/src/components/visualization/gallery/AdminFlaggedPanel.vue` | **285** | **285** |
+| `pinned_cron.py` lines matching `flag` (the module summary's word — **zero flags-collection code**) | `/usr/bin/grep -c 'flag' $F/api/lib/crud/pinned_cron.py` | **1** | **1** |
+| `def hard_delete_past_grace` — the docstring's third name | `/usr/bin/grep -rn 'def hard_delete_past_grace' $F \| wc -l` | **0** | **0** |
+| `$slice` anywhere in the fourier API | `/usr/bin/grep -rn '\$slice' $F/api --include='*.py' \| wc -l` | **0** | **0** |
+| `?? item.slug` (the **K9** fallbacks that STAY) | `/usr/bin/grep -rn '?? item.slug' $F/web/src \| wc -l` | **5** | **5** |
+| `admin.py` `response_model` declarations | `/usr/bin/grep -cE 'response_model' $F/api/routers/admin.py` | **1** | **1** |
+| `admin.py` route decorators (the denominator; **K-1**: 45/30/13) | `/usr/bin/grep -cE '^@[a-z_]*router\.(get\|post\|put\|patch\|delete)' $F/api/routers/admin.py` | **13** | **13** |
+| `content_hash` sites, server | `/usr/bin/grep -rn 'content_hash' $F/api --include='*.py' \| wc -l` | **81** | **81** |
+| `content_hash\|contentHash` sites, client | `/usr/bin/grep -rn 'content_hash\|contentHash' $F/web/src \| wc -l` | **2** | **2** |
+| `"tier"` occurrences inside the flagged handler (**all emitted, none a predicate**) | `/usr/bin/sed -n '509,587p' $F/api/routers/admin.py \| /usr/bin/grep -c '"tier"'` | **1** | **1** |
+| `BatchResponse` / `errors=` in the fourier API, non-test | `/usr/bin/grep -rn 'BatchResponse\|errors=' $F/api --include='*.py' \| /usr/bin/grep -v tests \| wc -l` | **0** | **0** |
+
+**Three figures are published with their honest reading beside them, because the digit alone misleads.**
+(a) `FlagRequest` = **1** source site, and the naive unfiltered form returns **2** — the second is
+`api/models/__pycache__/admin.cpython-314.pyc` matching as a **binary**. (b) `pinned_cron` = **1** line
+matching `flag`, and that line is the module's own summary word — **the honest reading is zero flags
+code**, which is v2 D6's reading adopted rather than re-derived. (c) the flagged handler's `"tier"` = **1**,
+and that one is the **emitted field**, never a filter: *the count and the fact disagree, which is why the
+line is printed rather than the digit.*
+
+**The ONE CUT, and what makes it one.** `FR-AFP-66` ⊕ `FR-AFP-33` landed in **one commit** (§4 lock 3 and
+the unit plan's family): the cascade removes the **growth term** and the `$slice`/scoped aggregate removes
+the **per-request cost**, and each without the other leaves the mechanism the other names — *cascade
+without bound leaves the cost; bound without cascade leaves the growth.* Both evidence cells therefore
+carry the **same** stamping bar: **one landing, or neither cell is stamped.**
+
+**What this seat did NOT decide, enumerated so no later reading infers a choice:**
+
+1. **Flag identity vs dismiss scope** (`FR-AFP-7`). v2 D4 offers two shapes — key the entity, **or** scope
+   the dismiss to the slug — and says *the contract states which*. **This seat states neither**; it books
+   the obligation and records that **§D3's port is written against whichever settles**, so the settlement
+   is a precondition of F.W8's act rather than a taste question.
+2. **The module split** (`FR-AFP-71` ⊙). **R7 rules CODEGEN and nothing else.** The god-module measure
+   that raised the question is **re-measured at this seat, double-run** — ⟨cmd⟩ `/usr/bin/wc -l
+   $F/web/src/lib/api.ts $F/web/src/lib/types.ts` → **672** and **391**, reproducing v2 A4's figures — and
+   **no split is designed**.
+3. **The mechanism of the tier condition** (`FR-GV-9`). The act says *conditioned on the current tier*; it
+   does **not** choose between a filter-side predicate and a read-then-write, and it explicitly **does not**
+   reach for β's killed 428 escalation, nor sell `set_tier`'s existing `require_if_match` (`:179`) as the
+   missing predicate — that guard is real and is **not** this defect's cure.
+4. **Anything client-side.** FR-AFP-8's one-token label, FR-AFP-9/FR-GV-34's truthful copy, FR-AFP-70's
+   reflect-and-disable, FR-AFP-59's tier render, FR-AFP-33's collapse and FR-GFC-20's stale-slug pruning
+   are **EMITTED to F.W1/W3/W4 and claimed nowhere here** (the FR-GIG-5 standing bar).
+5. **Any magnitude.** FR-AFP-33's aggregate cost and β's sort-index note stay **SS-13's**. **This seat spent
+   zero probes**: every witness above is a static read of shipped bytes.
+
+**Six ids added to the `id` column FW6-G17 greps** — **four booked** (`FR-AFP-66` · `FR-AFP-33` · `FR-AFP-7`
+· `FR-AFP-36`) **⊕ one booked with its rider** (`FR-GV-9` ⊕ FR-GFC-20's server arm, **carried, not
+re-booked**) **⊕ one entered ADMITTED-and-ROUTED with no act and no gate** (`FR-AFP-1`) — and the
+distinction is written **in each row** rather than left to the close seat to infer. Record-qualification
+(R-5) is observed throughout: `fr-GalleryFeaturedCarousel FR-GFC-20` · `fr-AdminUserList FR-AUL-13` ·
+`fr-AdminUserList FR-AUL-17` · `fr-GalleryCard L·M-4 / D-13 / C-8(a) + L·D-2 / C-12` · `fr-ContourSettings
+B-1 / L-B1 / C-2` (**not** `fr-FourierShapeExtractor L-B1`, which is unit `g`'s TRIPWIRE row).
+
+---
+
 ## §2 Unit stamps
 
 | unit | gates turned | commit | stamp |
@@ -643,3 +725,4 @@ written **in the row** rather than left to the close seat to infer.
 | **b** | FW6-G1 · FW6-G2 · FW6-G3 · FW6-G4 — **all four RED with the commissioned act installed** (§3's split verdict; no landing claimed) | *(this commit — the **ONE COMMIT** family of §2.1's head: F-α ⊕ F-β ⊕ SS-C-1 land together)* | **CLOSED 2026-09-17** |
 | **c** | FW6-G5 · FW6-G11 — **both RED with the commissioned act installed** (§3's split verdict; no landing claimed) | *(this commit — the **ONE PRIVACY LIMB** of §2.2 ⊕ §4 lock 3: F-γ ⊕ FR-AFP-4 land together, because a redacted breadcrumb over a world-readable image leaf has not cured the leak)* | **CLOSED 2026-09-17** |
 | **d** | FW6-G6 · FW6-G7 — **both RED with the commissioned act installed** (§3's split verdict; no landing claimed). ⊘ **Two of this unit's four rows turn NO gate**: §2.8's born-visibility/lineage row has none in §3 (its GREEN condition is F.W5's `G5`; evidence read by FW6-G17), and §2.9's `FR-GFC-3` is **ruled-and-routed under F-SS4REST R4 — no F.W6 act, no F.W6 gate** | *(this commit)* | **CLOSED 2026-09-17** |
+| **e** | FW6-G8 · FW6-G10 · FW6-G12 — **all three RED with the commissioned act installed** (§3's split verdict; no landing claimed). ⊘ **Three of this unit's six rows turn NO gate**: `FR-AFP-1` is **ADMITTED-and-ROUTED** under **F-PRODRET** (the band opens; **the PORT is F.W8's act**, so no F.W6 act and no F.W6 gate), `FR-AFP-33` rides **FW6-G8**'s one-cut commit (§3 opens no gate for the bound), and `FR-AFP-7` settles an identity the **F.W8 port** is written against (§D3's lock) rather than a gate of this wave — each stated **in its row** | *(five commits: `ef284298` the admission row · `01d36470` the **ONE CUT** family `FR-AFP-66` ⊕ `FR-AFP-33` · `f411a369` `FR-AFP-7` · `39c02c50` `FR-AFP-36` ⊕ D17 · `af053a3b` `FR-GV-9` ⊕ the FR-GFC-20 rider; **this commit** carries §1.e and this stamp. **The one-cut family did not split**)* | **CLOSED 2026-09-17** |
