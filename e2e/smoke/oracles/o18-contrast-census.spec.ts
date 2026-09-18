@@ -1218,3 +1218,139 @@ for (const scheme of ["light", "dark"] as const) {
         });
     });
 }
+
+/**
+ * X-W1 · R27 (shell-dock-profilesection A-1 + N-3 + D-19/C-6) — THE CENSUS
+ * LEARNS ITS TWO BLIND ROWS.
+ *
+ * The census above is blind in three named ways, and two of them are hooks this
+ * wave owns:
+ *
+ * (i) **THE ADMIN BRANCH NEVER MOUNTS.** Every leg above boots through
+ *     `userTest`, which seeds a user slug — so `ProfileSection.vue` renders its
+ *     FIRST branch and the `v-else-if="pm.isAdminAuthenticated"` arm at `:95-99`
+ *     is unreachable to the census. That arm carries the ONE ink in the product
+ *     that bypasses certification entirely: an inline
+ *     `color: var(--color-gold)` where `--color-gold: #D4AF37` has sRGB relative
+ *     luminance 0.4494, so its ceiling against pure white is **2.10:1** — it
+ *     CANNOT pass in light scheme, statically, for any ground the app can paint.
+ *     This row is therefore born-RED by arithmetic, not by measurement drift.
+ *
+ * (ii) **THE MENU ROW LABELS ARE NOT ENROLLED.** The dropdown's own rows are the
+ *     one ink population with no contrast guard at all, and they composite over
+ *     LIVE PAGE CONTENT through a translucent panel — the hardest ground in the
+ *     app, and the only one the census never reads.
+ *
+ * The DESIGN decision (what the one admin treatment should be) is **X-W10's**,
+ * and the legibility bound that decision must satisfy is A-1's and rides with
+ * it. W1 owns only the hooks — this block is those hooks.
+ *
+ * Residue 11's superlative is preserved deliberately: *a census that can be
+ * shown wrong by construction is worth more than no census.* These rows are
+ * expected to fail; that is what makes them worth having.
+ */
+const ADMIN_TOKEN_STORAGE = "palette-admin-token";
+const USER_STORAGE_KEYS = [
+    "palette-user-slug",
+    "palette-user-token",
+    "palette-session-token",
+];
+
+/**
+ * Re-seed the browser as ADMIN-ONLY.
+ *
+ * `userTest`'s own init script has already registered a user slug; this one is
+ * registered after it, so it runs after it on every navigation and wins. The
+ * user keys are DELETED rather than blanked — `ProfileSection` branches on the
+ * presence of a slug, and an empty string is a present slug.
+ */
+async function seedAdminOnly(page: Page) {
+    await page.addInitScript(
+        ({ adminKey, adminVal, userKeys }) => {
+            for (const k of userKeys) {
+                localStorage.removeItem(k);
+                sessionStorage.removeItem(k);
+            }
+            localStorage.setItem(adminKey, adminVal);
+        },
+        {
+            adminKey: ADMIN_TOKEN_STORAGE,
+            adminVal: "test-admin-token",
+            userKeys: USER_STORAGE_KEYS,
+        },
+    );
+}
+
+for (const scheme of ["light", "dark"] as const) {
+    test.describe(`O-18 census · R27 blind rows (${scheme})`, () => {
+        test.use({ colorScheme: scheme });
+
+        test("the admin pill — the ONE ink that bypasses certification (A-1)", async ({
+            page,
+        }) => {
+            await seedAdminOnly(page);
+            await bootAtOwnerColor(page);
+            await expandDock(page);
+
+            const pill = page.locator(".slug-pill.gold-shimmer");
+            await expect(
+                pill,
+                "the admin branch mounts — if this fails the census is still blind and the row below proves nothing",
+            ).toBeVisible({ timeout: 8000 });
+
+            const row = await censusElement(
+                page,
+                ".slug-pill.gold-shimmer",
+                "admin-pill",
+            );
+            expect(row, "the admin pill is enrolled").not.toBeNull();
+            expect(
+                row!.ratio,
+                `admin gold ink ${row!.ink} vs ${row!.ground} — raw ${row!.rawColor}, stack [${row!.stack.join(" | ")}]. --color-gold #D4AF37 has luminance 0.4494, so its ceiling against pure white is 2.10:1: this ink cannot clear the text floor in light scheme for ANY ground the app paints. The treatment decision is X-W10's; the bound it must satisfy is this one.`,
+            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+        });
+
+        test("the profile menu ROW LABELS — the unguarded population, over live content (N-3)", async ({
+            page,
+        }) => {
+            await bootAtOwnerColor(page);
+            await expandDock(page);
+
+            const trigger = page.getByRole("button", { name: "Profile" });
+            await expect(trigger).toBeVisible();
+            await trigger.click();
+
+            const menu = page.getByRole("menu").filter({ visible: true }).first();
+            await expect(menu).toBeVisible({ timeout: 4000 });
+            const items = menu.getByRole("menuitem");
+            const count = await items.count();
+            expect(
+                count,
+                "the profile menu publishes rows — the census enrolls the population, not a sample",
+            ).toBeGreaterThan(0);
+
+            const failures: string[] = [];
+            for (let i = 0; i < count; i++) {
+                const name = (await items.nth(i).textContent())?.trim() ?? `row ${i}`;
+                const row = await censusElement(
+                    page,
+                    `[role="menu"] [role="menuitem"]:nth-of-type(${i + 1})`,
+                    `profile-row-${i}`,
+                );
+                if (!row) {
+                    failures.push(`${name}: not measurable`);
+                    continue;
+                }
+                if (row.ratio < TEXT_FLOOR) {
+                    failures.push(
+                        `${name}: ${row.ratio}:1 (ink ${row.ink} over ${row.ground}, α ${row.effectiveAlpha})`,
+                    );
+                }
+            }
+            expect(
+                failures,
+                "the menu rows are the ONE ink population with no contrast guard, compositing over live page content through a translucent panel — the census now learns them",
+            ).toEqual([]);
+        });
+    });
+}

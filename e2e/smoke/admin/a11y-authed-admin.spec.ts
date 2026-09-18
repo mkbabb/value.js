@@ -36,7 +36,10 @@ for (const view of ADMIN_VIEWS) {
     }) => {
         await page.goto(view.hash);
         await expect(
-            page.getByRole("heading", { name: view.heading }).filter({ visible: true }).first(),
+            page
+                .getByRole("heading", { name: view.heading })
+                .filter({ visible: true })
+                .first(),
         ).toBeVisible();
 
         const report = await runBattery(page, `admin-${view.heading}`);
@@ -84,7 +87,9 @@ test("BR-9: the admin user-row expander is keyboard-operable (role + focusable +
     const facts = await keyboardFacts(expander);
     // Born-RED: a bare <div> (focusable:false, role:null). GREEN: role=button,
     // tabindex 0, aria-expanded present.
-    expect(facts.focusable, `expander keyboard facts: ${JSON.stringify(facts)}`).toBe(true);
+    expect(facts.focusable, `expander keyboard facts: ${JSON.stringify(facts)}`).toBe(
+        true,
+    );
     expect(facts.role).toBe("button");
     expect(facts.ariaExpanded).not.toBeNull();
 
@@ -121,7 +126,15 @@ test("U-F58: an induced admin render error surfaces a focus-managed role=alert b
             // throws `Cannot read properties of null (reading 'length')` in the
             // v-for render, an UNCAUGHT throw over the authed surface.
             body: JSON.stringify({
-                data: [{ slug: null, createdAt: "2026-07-05T00:00:00.000Z", lastSeenAt: "2026-07-05T00:00:00.000Z", status: "active", paletteCount: 2 }],
+                data: [
+                    {
+                        slug: null,
+                        createdAt: "2026-07-05T00:00:00.000Z",
+                        lastSeenAt: "2026-07-05T00:00:00.000Z",
+                        status: "active",
+                        paletteCount: 2,
+                    },
+                ],
                 total: 1,
                 limit: 50,
                 offset: 0,
@@ -131,9 +144,25 @@ test("U-F58: an induced admin render error surfaces a focus-managed role=alert b
 
     await page.goto("/#/admin/users");
 
-    // The focus-managed announced boundary — a role=alert live region — appears
-    // in place of the dead plate.
-    const alert = page.getByRole("alert").filter({ visible: true }).first();
+    // ── X-W1 · R25 (ErrorBoundary EB-21) ────────────────────────────────────
+    // This bound `getByRole("alert").filter({visible:true}).first()`. MEASURED
+    // 2026-09-18: FOUR independently-owned `role="alert"` publishers exist —
+    // `ErrorBoundary.vue:19`, `EmptyState.vue:17`, `ApiOfflineChip.vue:13` and
+    // `status-lamp.ts:53`, the last of which mints its alert inside `<nav>`,
+    // which PRECEDES `<main>` in document order. So `.first()` is a race
+    // between four owners decided by DOM position, and the spec would assert
+    // the error boundary's contract against whichever publisher happened to
+    // mount first — passing or failing for a reason unrelated to its subject.
+    //
+    // The binding is now the component's own stable hook. `.vj-error-boundary`
+    // is unique in the tree (one declaration, `ErrorBoundary.vue:18`) and ships
+    // in the product, so no `demo/` byte moves — adding a `data-testid` would
+    // fire this wave's Triumvirate trigger for a hook that already exists.
+    const alert = page.locator(".vj-error-boundary").filter({ visible: true }).first();
+    await expect(
+        alert,
+        "the error boundary must be the alert this spec measures — not whichever of the four role=alert publishers sorts first",
+    ).toHaveAttribute("role", "alert");
     await expect(alert).toBeVisible({ timeout: 10_000 });
 
     // It is ANNOUNCED (assertive live region) and NAMED (a heading a screen
