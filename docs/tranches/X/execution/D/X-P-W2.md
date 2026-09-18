@@ -2142,3 +2142,135 @@ committed copy of a compiled library is a second source waiting to drift.
   worktree `<p2>/.worktrees/ac3`, porcelain **0**, ⟨`git remote -v`⟩ → 0 lines.
 - **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh`
   never staged.
+
+---
+
+### X.P.W2.h
+
+**SERVED MODEL: claude-fable-5-1** · Track D · 2026-09-17 · phase 5, the **kill adjudication**
+(`W2.md` §5 `.h` L647–658; M-23 §1, L-14 — the third and last Fable sitting of §5). **Sections
+executed exactly**: §5 `.h` L647–658 · §3e Stage 5 + K-1..K-10 L459–483 · §3c stated prior L402–407 ·
+§6 G-12 L839–852 · §8 L867–883 — every anchor re-read at true bytes (⟨`sed -n '647p;658p;459p;483p;402p;407p;839p;852p;867p;883p' W2.md`⟩
+→ the section heads and closing lines expected; **zero drift** in this unit's anchors). Rulings
+consumed by id: COHESION §0j OP-1 · §0j.E **OC-1** (no bar set anywhere; the only bench sentences
+in this unit's artifacts cite a candidate's printed table by section, and G-7's table does not
+exist) · §0l E-1/R-13 · E-3 throughout (contract, spec, harness, corpora, W1's instruments,
+sibling receipts all immutable to this seat) · X.P.W2.c **R-c3** (the `§Selected` append is
+prettier-idempotent) · **R-c6** (the `<p2>` copy re-land is outside this unit's set — escalated,
+not done) · X.P.W2.g **R-g1/R-g2** (AC-3's margin read as a near-miss; RESERVE = NONE) ·
+**R-g4/R-g5** · the `.d`/`.e`/`.f` findings F-1..F-8, F-e6/F-e8/F-e13, F-f1..F-f10 — each
+**re-measured, not cited** where it decides a kill.
+
+**Writable set, hard bound (4 paths), all written, nothing else:**
+`docs/tranches/X/parse-that/waves/W2-KILL-LEDGER.md` (create) · `…/waves/W2-CLOSE.md` (create,
+opened) · `…/algebra/ALGEBRA.md` (**`§Selected` append only** — pure tail, 25 insertions, 0
+deletions) · `…/evidence/W2/h/**` (create: 27 files + `SHA256SUMS`) — plus this record and one
+appended `LEDGER.md` line (the D-4 standing orchestration paths, `W2-ADDENDA-2026-09-17.md`
+§A-1.3). **0 bytes in `<p2>`** (every candidate worktree porcelain 0 before and after; the harness,
+corpora, contract copy and W1's instruments byte-identical); 0 under `/Users/mkbabb/Programming/parse-that`;
+`scripts/dev/dev.sh` never staged.
+
+**Commits (value.js only; `<p2>` has no `.h` commit by design):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | value.js | **`ba01b40594a961fdd54af91e736ad23b9b545c5a`** | `docs(x-p/w2.h): kill ledger + close report opened + evidence fold; §Selected appended — …` (the §9 close family, unsplit: ledger + close report + evidence fold + `§Selected`) | **31 files changed, 1,281 insertions(+)**; ⟨`git show --name-only --format= HEAD \| grep -vcE '<the four paths>'`⟩ → **0** |
+| 2 | value.js | this record + the LEDGER line | the receipts below | — |
+
+Pathspec on the commit itself (`git commit … -- <paths>`); ⟨`git diff --cached --name-only \| wc -l`⟩
+→ **0** after commit 1. `index.lock` never appeared.
+
+#### h.0 — E13 at this seat's clock, bounded
+
+The wave's four-path sweep is seat 0's (§O.1); `.g`/`.d`/`.e`/`.f` each re-swept at their clocks
+and found **0 unrowed · 0 new `I-n` · 0 UNREAD in scope**. This seat read the three UNREAD rows
+I-32/I-33/I-34 as routed (X-W0.j / the X formation mail seat; none names a W2 surface) and minted
+no letter: every finding rides this record and the kill ledger to `.i`, the orchestrator and the
+owner, which is where §5 `.h` puts them. No `INBOX.md` line appended.
+
+#### h.1 — The acts, in order
+
+1. **Read whole**: `W2.md` (1,000 L) · this record through `.f`'s block (2,144 L) · COHESION §0j to
+   the file end (§0k ×2, §0l, §0m) · `ALGEBRA.md` §2.2, §4.5, §5.2, §6, §10.1–10.3, §12, §13 ·
+   `stage0/ADMISSION.md` · the three `VERDICT.md`s (469 / 369 / 287 L) · `harness/w2/README.md`,
+   `harness/README.md` §3, `harness/bench/bench.ts:8-44`, `harness/bench/lib/engines.mjs:84-150` ·
+   AC-3's `lowering-wasm/compile.mjs` whole, AC-2's `lowering-js/parse-that.mjs` and `index.mjs:105`,
+   AC-1's `lowering-js/js-alg.mjs:25,36`. **Read-only throughout.**
+2. **L-14 refutation of the leader (AC-2), seven attempts, each measured** — kill ledger §1: the
+   six-product zero reproduced from a fresh process (all three candidates); `cut∉alt 0` traced to
+   encoding (`.f`'s inertness measurement); four G-8 draws instead of one (K-6 does not attach —
+   symmetric, faster-later, envelope narrower than the spread); the JS "reset residue" traced to a
+   **no-op reset**; `linear(…)` reproduced unreachable on AC-2's shipped bytes and reachable on AC-1's;
+   the library substrate both survivors stand on read at the bytes (the published 1.0.0 dist at an
+   absolute path in value.js's prototype workspace); **K-5 found unevaluable** — W1's bench has no
+   cell-registration surface. **Refutation failed on every rule**; the tie is measured.
+3. **K-3 measured over AC-3** (`evidence/W2/h/ac3-k3-operator-realization.{mjs,txt}`, double-run):
+   **12 of 22** operators (`SEQ ALT CUT PURE REP DROP FAIL EXPECT CTOR TRY RECOVER REF`) execute
+   their control flow in JavaScript for the Wasm target; their module calls are σ stores. The
+   seat's own header (`compile.mjs:5-14`) says so; its NC-1 justification is refuted by AC-1's
+   1,273-function and AC-2's 580-function Wasm parse graphs. **KILLED(K-3)**; dissent D-1 preserved.
+4. **Kill ledger written** (`W2-KILL-LEDGER.md`, 505 L after prettier): §0 verdict table · §1 the
+   seven refutation attempts · §2 per-candidate dockets · §3 the 10×4 K-rule matrix · §4 14/14
+   predictions · §5 the prior, 6 clauses · §6 NC-0/NC-1 · §7 the tie and the rule that would break
+   it · §8 D-1..D-5 · §9 E-1..E-8 to the owner **by name** · §10 F-h1..F-h8 · §11 the `.i` ruling
+   (conditional on E-1) · §12 the G-12 self-check · §13 the substrate receipt.
+5. **`W2-CLOSE.md` opened**: the four verbs; the twelve gates RED-before → state-at-`.h` (5 GREEN ·
+   2 GREEN-WITH-RESIDUALS/report-half · 4 RED with named non-candidate owners · G-12 SPLIT); the
+   Stage-0 admission record; the three Fable sittings; the escalation docket; the
+   ORCHESTRATOR-AT-CLOSE checklist.
+6. **`§Selected` appended** to `ALGEBRA.md`: the four verbs, the OWNER-OWED selection (E-1), the
+   five contract addenda owed. Prettier twice → sha256 `67c8253abaecb29a0b16a862bf63ad25ff1140d91f06248c843b9c253fc537de`
+   both passes; ⟨`git diff --stat`⟩ → `25 insertions(+)`, ⟨`git diff \| grep -c '^-[^-]'`⟩ → **0**
+   (no line above the append moved); ⟨`git diff --check`⟩ exit 0.
+7. **Evidence folded** under `evidence/W2/h/`: per candidate G-2 · G-1-structural · G-3 · G-4 · G-5 ·
+   G-9 · substrate receipt (21 files); G-8 draw D for ac1/ac2; the K-3 script + output; the
+   `linear()` reproduction; the G-7 registration-surface reading; `SHA256SUMS` (27 rows,
+   ⟨`shasum -c`⟩ → 0 failures). Line 1 of every file = this seat's served-model receipt.
+8. Commit 1; then this record and the LEDGER line (commit 2).
+
+#### h.2 — Gate readings, BEFORE → AFTER (this unit's gate: G-12, ledger half)
+
+| gate | BEFORE (§Baseline) | AFTER this unit | verdict |
+| --- | --- | --- | --- |
+| **G-12** ledger half | `W2-KILL-LEDGER.md` ABSENT; **0 of 4** dispositioned | ledger EXISTS; **4 of 4** terminal — AC-1 SURVIVES-TO-W3 · AC-2 SURVIVES-TO-W3 · AC-3 **KILLED(K-3)** (12/22) · AC-4 **KILLED(K-2)** (7/65); **≥ 3 carried** (4); **measured tie escalated to the owner, Mike Babb, by name** (E-1) — the gate's own alternative to one survivor, its falsifier being *"two survivors WITHOUT an owner escalation"*; NC-0/NC-1 restated with citations; **14/14** predictions dispositioned; the prior scored 6/6 clauses; D-1..D-5 preserved; no PEER-REVIEW-PENDING anywhere (⟨`grep -c`⟩ → 2, both the prohibition itself); the `.i` ruling issued | **GREEN** |
+| **G-12** graduation half | `typescript/src/css` ABSENT | unchanged — `.i` gated on E-1 | **RED, correctly** |
+| G-1 | contract half GREEN (`.c`) | **equality of the two homes broken by this unit's lawful append** (docs `67c8253a…`, `<p2>` still `14450aa4…`) until the orchestrator re-lands the copy (F-h7, R-c6) | GREEN-WITH-RESIDUAL |
+| G-7 | RED | **RED-STRUCTURAL** — no registration surface in W1's bench (E-6); K-5 unevaluable | RED (named) |
+| G-2 · G-3 · G-4 · G-5 · G-9 | per the seats | **re-run by this seat for ac1 · ac2 · ac3, every number reproduced to the digit** (`evidence/W2/h/*`) | as the seats read them |
+| G-8 | per the seats | four draws each for ac1/ac2: the seats' readings sit inside this seat's ranges; the instrument's spread exceeds its envelope (F-h3) | RED (instrument) |
+
+**Self-counts, read from the settled bytes, double-run identical**: line 1 `SERVED MODEL: claude-fable-5-1` ·
+terminal-verb rows **4** · `KILLED(K-2)` ×4 / `KILLED(K-3)` ×5 mentions · prediction rows **14** ·
+prior clauses **6** · owner escalations **8** · dissents **5** · `OWNER-GATED-PENDING-RATIFICATION` ×2.
+
+#### ESCALATIONS
+
+**To the owner, Mike Babb, by name** (kill ledger §9): **E-1 THE TIE** — AC-1 vs AC-2 on every
+evaluable rule; word (a) names the survivor, or (b) orders Stage 4 via a dated addendum to W1's
+bench bounds so K-5 can run. **E-2** §3a FIRED — G-3 red on the same product for all three (the
+§4.5 × §10.1 `keyword` kind, 2,035 rows / 2,047 occurrences in every lowering; three measured cures).
+**E-3** `CUT` scoping · **E-4** §10.2 `ALT` order · **E-5** EQ-5's sixth coordinate · **E-6** G-7's
+missing registration surface (W1's instruments — a §3a boundary) · **E-7** OP-7 × the graduated
+seed's library substrate · **E-8** the `REF` count. **To the orchestrator**: **F-h7** re-land
+`<p2>/experiments/w2/contract/ALGEBRA.md` byte-equal to the docs home (one `cp`, one `<p2>` commit)
+so G-1's equality holds again; **F-h6** the phase-1 drafts commit is still unlanded (R-c1).
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **F-h1** | MAJOR | G-2's registry pairing accepts a JS-executing symbol as a Wasm-row lowering (AC-3 printed GREEN 22/22); K-3 needed a measurement the harness does not take | `.g` / L-18 |
+| **F-h2** | MINOR | `eq-six.mjs`'s verdict line labels EQ-6's identical-in-both COMP-1 failures *"divergences between the two lowerings (K-1)"* | `.g` |
+| **F-h3** | MAJOR | G-8's envelope (0.80–1.25) is narrower than the instrument's four-draw spread on this box (ac2 wasm 0.782–0.917×, ac1 wasm 0.744–0.931×, all faster-later); the reject leg's exact zero sits inside a ±10 B/parse band (F-4/F-e8/F-f3 reproduced) | `.g` / L-18 |
+| **F-h4** | MINOR | the reset-residue leg runs on a no-op `reset` (ac2 js) and prints 0.57–0.68× | `.g` |
+| **F-h5** | INFO | the unit plan's G-7 parenthetical named no owner; beneath it the surface did not exist (E-6) | orchestrator |
+| **F-h8** | INFO | `w2/ac3-scan-union` `76033aac` (the scan union as a library citizen) is a §3 item-12 deliverable independent of AC-3's death — W3's open decides whether to consume it | W3 |
+| **R-h1** | INFO | G-8 draws A–C for ac1/ac2 were printed in-seat and transcribed into the ledger; draw D is the captured file. The ranges quoted include all four; a reader wanting bytes for A–C re-runs the literal command | none — recorded |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: written set = `{ W2-KILL-LEDGER.md (create), W2-CLOSE.md (create), ALGEBRA.md (§Selected append only), evidence/W2/h/** (create) }` + this record + one LEDGER line. **0 bytes** in `<p2>` (⟨`git -C <p2>/.worktrees/{ac1,ac2,ac3} status --porcelain`⟩ → 0 · 0 · 0 after every run; ⟨`git -C <p2> status --porcelain`⟩ → the same **1** untracked line present before this seat opened, untouched). `/Users/mkbabb/Programming/parse-that`, `~/.codex`, `~/Documents/Codex`, every frozen root, glass-ui, value.js `src/**` · `api/**` · `demo/**` · `package.json`, W1's instruments, `.g`'s harness and corpora, the sealed author arms, `W2.md`, the candidates' directories: **all untouched**.
+- **Locks honoured**: `.h` alone wrote the kill ledger; the `§Selected` append happened **after `.c`'s file was closed** (its block says *"this file is closed by this block"*) — the one sequenced overlap, sequenced; the §9 close family (ledger + close report + evidence fold + `§Selected`) travelled in **ONE** commit (`ba01b405`), pathspec on the commit itself; `.i` is not dispatched by this seat and is gated on E-1 by the ruling.
+- **L-14**: the leader was attacked seven ways at the bytes before any verdict; every attempt and its number is in the ledger; the field was not averaged (no merged candidate, no ranking by taste); dissent preserved five ways.
+- **Numbers**: every kill-deciding figure re-measured by this seat and captured; sibling figures cited to their receipts; **no bar set; no speed sentence outside a printed table; no verb stamped** (IMPLEMENTED is the close's, on E-1).
+- **Commit of this record**: pathspec on the commit itself, this file + `LEDGER.md` (one appended line); `scripts/dev/dev.sh` never staged.
