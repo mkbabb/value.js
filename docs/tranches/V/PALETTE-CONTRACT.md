@@ -65,11 +65,11 @@ source of truth (§4.6). Routes are shown at their honest target shape.
 | `DELETE /palettes/:slug` | cookie + owner | delete / trash |
 | `PUT /palettes/:slug/votes` · `DELETE /palettes/:slug/votes` | cookie | vote / unvote (declarative, idempotent) |
 | `POST /palettes/:slug/flag` | cookie | flag / report for moderation |
-| `POST /palettes/:slug/fork` | cookie | fork (cross-collection write) |
+| `POST /palettes/:slug/fork` | cookie | fork (cross-collection write; `Idempotency-Key` **required** — §5) |
 | `GET /palettes/:slug/forks` | — | list direct forks |
 | `GET /palettes/:slug/provenance` | — | ancestry chain (visibility-filtered; hidden/purged ancestors become non-correlatable steps — RF-24 item 4) |
 | `GET /palettes/:slug/versions` · `GET /palettes/:slug/versions/:hash` | — | immutable-release history (the right-sized release concept — RF-24 item 1) |
-| `POST /palettes/:slug/revert` | cookie + owner | restore a prior release |
+| `POST /palettes/:slug/revert` | cookie + owner | restore a prior release (`If-Match` **required**; `Idempotency-Key` **required**; answers `201` with the appended revision — §5) |
 
 ### Colors
 
@@ -159,6 +159,42 @@ Seven verified-RED reproductions turn green, re-using the conformant substrate:
 
 Gate (W45): the api suite is green; every mounted route appears in the generated OpenAPI; the
 seven RED reproductions turn green.
+
+---
+
+## 5. The write contract (X-W3 · X.W3.3, 2026-09-18 — full canon at `docs/tranches/X/contracts/WRITE-CONTRACT.md`)
+
+§4 item 7 landed *"idempotency where honest"*. X-W3 · X.A3 finishes the sentence: which writes
+are fenced, which REQUIRE a precondition, and what a write returns. The canon — including
+CC-039's replay-store relaxation and the demo-side deviations from the ETag — is
+`docs/tranches/X/contracts/WRITE-CONTRACT.md`; the rows that bind this contract's §1 table are:
+
+1. **Every palette write is fenceable against the state its caller read.**
+   `PaletteRepository.update` returns the driver's `UpdateResult` and takes the ETag-bearing
+   predicate in its filter (`paletteETagFilter`), and `assertFenceHeld` maps a lost race to
+   `412`. **The three product call sites (PATCH, revert, publish) are not yet wired** — they sit
+   outside X.W3.3's writable set and ride `ESC-W3.3-CAS-CALLERS`; until that is ruled, those
+   three writes carry the route-level `If-Match` pre-check and its narrow TOCTOU window
+   (ledger #16), and this contract does not describe that window as closed.
+2. **Strong `If-Match` is required on every verb that replaces a palette's payload** — PATCH and
+   publish since I.W4, and now `revert`: absent → `428`, stale → `412`.
+3. **`Idempotency-Key` is REQUIRED on the two APPENDING operations** — `POST /:slug/revert` and
+   fork create — absent → `400`. Everywhere else the key stays opt-in and replays when sent. A
+   retried revert would otherwise release a second revision and a retried fork create a second
+   palette; neither duplicate is one the caller can undo. The requirement is declared once in
+   `platform/http/idempotency.ts`, which runs ahead of routing, so a keyless request to those
+   two operations is refused before its auth guards run (`400`, not `401`).
+4. **`POST /:slug/revert` answers `201`** — it creates a release — and its body carries that
+   release beside the palette fields as `revision: { hash, revisionNo, payloadHash, … }`, the
+   same envelope `GET /:slug/versions` emits.
+5. **The replay store is per-process** (an in-process LRU, 24 h, 50 000 entries). On this
+   single-replica deployment that is equivalent to a durable store for what the key does. It
+   reopens on a **deployment fact — a second api replica** — and on no wave; see
+   `WRITE-CONTRACT.md §5`.
+
+The demo client does not yet satisfy (2) or (3) on revert and fork
+(`demo/palettes/api/versions.ts`): that file is in no X-W3 unit's bounds, and the break is
+returned as `ESC-W3.3-DEMO-WRITE-CONTRACT` under `W3.md §3a`'s named triumvirate trigger.
 
 ---
 
