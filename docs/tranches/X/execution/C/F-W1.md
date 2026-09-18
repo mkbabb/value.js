@@ -602,3 +602,402 @@ Each file's **line 1 is its own `SERVED MODEL: claude-opus-5[1m]`** (verified by
 #### Escalations
 
 **None.** Every specified cure was executable at the bytes. The one place the brief's own figure did not survive measurement (**the `^0.11.2` in-range set**) is a **published correction under WRITE-THEN-MEASURE and E-3**, not a substituted cure: the ask, the row, the id and the grade are unchanged, and only the measured cardinality moved — from two to one, in the direction that sharpens the ask.
+
+---
+
+### c
+
+**SERVED MODEL: claude-opus-5[1m]**
+
+**Unit**: `c` — the census acts at the adopted pin (**G7 → M-7 → G5 → G14 → K-1**), §4 step 3 `:275`.
+**Sections executed**: §4 step 3 `:275` · §3 **G7** `:253` · **G5** `:251` · **G14** `:260` · §2 **WU-C** `:72-82` (**M-7** `:78`) · **WU-D** `:84-90` · **WU-F** `:103-118` (**FM-2** `:108`) · **WU-G** `:120-128` · **WU-M** `:177-183`.
+**Writable set honoured, hard bound**: `docs/tranches/X/fourier/evidence/w1/` (**created**; five files) · this record. **No other path written. No product byte.** The fourier · glass-ui · pencil-boil · latex-paper trees and the npm registry were **READ-ONLY** throughout (`git show` · `git grep` · `git ls-tree` · `grep` · `sed` · `awk` · `wc` · `ls` · `perl -n`/`python3` as *readers* · `npm view` only; **zero** files opened for write outside the two docs paths). `scripts/dev/dev.sh` untouched and unstaged; `docs/tranches/V/reformation/CARRY-LEDGER.md` left dirty-as-found and unstaged. Pathspec commit only. **No `git stash`, no `reset`, no force-push.**
+**Clock**: 2026-09-17, ~21:5x EDT, following unit `b`'s landing at `70a87e7e`.
+
+#### Evidence landed
+
+| file | bytes | lines | gate |
+|---|---|---|---|
+| `evidence/w1/G7-BUTTON-BUDGET.md` | **15,402** | **220** | G7 |
+| `evidence/w1/M7-PROP-LEVEL-DIFF.md` | **20,577** | **282** | M-7 ⊕ FM-2 |
+| `evidence/w1/G5-CSS-CLASS-CENSUS.md` | **25,617** | **323** | G5 ⊕ AA-15 ⊕ GM-19 |
+| `evidence/w1/G14-PENCIL-BOIL-FLOOR.md` | **9,353** | **123** | G14 |
+| `evidence/w1/K1-RE-RESOLUTION.md` | **8,748** | **150** | K-1 |
+
+Self-counted at the settled bytes, **double-run** (identical). Line 1 of each is its own
+`SERVED MODEL:` line (⟨cmd⟩ `head -1 *.md` on all five). A **pipe-balance sweep counting UNESCAPED
+bars only** (a bar not preceded by a backslash — the round-2 defect §E-3·R2 minutes) reports every
+table internally uniform across all five files: **0 ragged rows**. ⟨cmd⟩ `git diff --check` → clean,
+exit 0. ⟨cmd⟩ `git diff --cached --numstat` → `123 0` · `323 0` · `220 0` · `150 0` · `282 0` —
+**1,098 insertions, 0 deletions**.
+
+#### Acts, in order
+
+**Act 1 — the order of §4 step 3 was executed as written, and the first act sized nothing.** The
+step's order is *"G7 grep of record → M-7 prop-level diff → G5 census → G4 emission build → G14
+floor read → K-1"*, and **M-7's own row says it *"precedes every per-file budget"***. Both were
+honoured: G7's grep ran first because it defines the counting units every later figure is stated
+in, and **no per-file budget was published before M-7's diff completed**. **G4 was NOT run** — it
+needs the bumped install and its command writes `web/dist`, a §1 read-only witness; it is unit
+`e`'s, as §Unit plan already routed it.
+
+**Act 2 — G7's grep of record, DEFINED before it was run.** A "stripped-comment grep" is a probe
+shape, not a flag, so the shape is published at `G7-BUTTON-BUDGET.md` §0 before any output: comment
+strip with **line numbering preserved** (every removed non-newline byte replaced by a space, so a
+coordinate quoted from the stripped stream is a coordinate in the real file), then tag attribution
+with quoted attribute values consumed as units. The second half is not optional — D-M3's own
+rejection cell convicts a rival tag-scan whose regex *"terminates at the `>` inside
+`v-if="navStack.length > 0"` (PaperView.vue:398-405), dropping a real `variant="glass" size="icon"`
+site"*; this probe keeps that site.
+
+**The probe carries its own closure proof**: ⟨cmd⟩ comment-stripped `variant=` occurrences over
+`web/src` → **106**; attributed `Button` **88** ⊕ `Slider` **9** ⊕ `SegmentedTabs` **3** ⊕ `Badge`
+**2** ⊕ `PaperSearch` **2** ⊕ `PaperSearchInput` **1** ⊕ `PaperSearchDropdown` **1** = **106**;
+**residue unattributed to any element open tag = 0**. Double-run on an independently rebuilt corpus.
+
+**THE BUDGET** (every row double-run, every row with its counting unit): Button `variant=`
+attributes **88** (86 static ⊕ 2 bound) · Button `size=` attributes **69** (icon 35 · sm 27 ·
+default 6 · lg 1) · **the breaking attribute surface 129** · Button-bearing files **34** ·
+`glass-ui/button` importers **34** · non-Button `variant=` **18** · comment-resident `variant=`
+**16** (of which **9** are `<Button variant=`) · comment-resident `size="icon"` **1** · raw
+unanchored `variant=` **122** · raw `size="icon"` **36**. Per arm: ghost **46/21** · outline
+**21/14** · glass **9/7** · default **4/4** · destructive **4/4** · secondary **1/1** · link
+**1/1** · bound **2/2**.
+
+**Act 3 — the five superseded cells, placed beside the budget; FOUR of five reproduce to the
+digit.** The disagreement G7 exists to arbitrate was never a measurement dispute — it was five
+objects wearing the same numerals:
+
+- **S1 `87 / 36 / 35`** (D-M3) — static `<Button variant=…>` · stripped `size="icon"` · Button files, **at the pre-`G-10` tree**: measured at `5842377^` → **87 / 36 / 35**. **EXACT.**
+- **S2 `37 files / 38 / 124`** (AA-2) — files containing `<Button` · **raw** `size="icon"` · **raw** `variant=`, pre-`G-10`: ⟨cmd⟩ at `5842377^` → **37 · 38 · 124**. **EXACT, all three.**
+- **S3 `9 glass / 7 files + 36 icon (35 live)`** (FR-COB-2) — **comment-stripped** glass / raw icon with the live count: → **9 / 7** stripped (raw **10 / 7**), **36** raw / **35** live. **EXACT — and this discharges §Baseline finding 3**: the banked 9 is the *stripped* unit, the 10 is the *raw* one. Resolved, not averaged.
+- **S4 `96 / 77 / 35`** (fr-GalleryCard D-8, *"D's repo-scale"*) — **NOT REPRODUCIBLE at these bytes** (the same units read 106 / 128 / 41); its operand is the megatranche audit's corpus moment. **Named as a prior run, never re-cut, never averaged.**
+- **S5 `icon ×38 / glass ×12`** (fr-ConvergenceTimeline) — **raw**, pre-`G-10`: → **38** and **12**. **EXACT, both.**
+
+**Act 4 — `162` entered as a MEMBER of the set, with its unit recovered, never as the answer.**
+`fr-EquationResult.md:37` states its own instrument in the same sentence — *"(124 / 38 / 21
+files)"* — and this seat reproduces all three at `5842377^`: **124 · 38 · 21**. **124 + 38 = 162.**
+So `162` = **raw `variant=` lines ⊕ raw `size="icon"` lines, comment-inclusive, all tags,
+pre-`G-10`** — an attribute count in the sense that each grep line is one attribute occurrence,
+**not** a site count and **not** a file count. **The derivation is disclosed as this seat's
+reconstruction** (the record does not spell the addition), and it is offered only because a member
+of a reconciliation set must carry a unit to be a member at all. The same unit at the settled bytes
+reads **158**; comment-stripped all-tag **141**; **the rewrite's operand is 129**, per G7's own
+clause that *"the transaction's limb is sized by THIS gate's output."*
+
+**Act 5 — the `G-10` drift, published as arithmetic and CORRECTED: it is TWO subtractions, not
+one.** §Baseline finding 1 reads it as one (*"the same subtraction moves Button-importing files 35
+→ 34"*). The bytes say otherwise: the **lucide** budget lost `components/equation/InfoCard.vue:3`;
+the **Button** budget lost `components/visualization/CanvasOverlayButton.vue:9`. Two different
+files. ⟨cmd⟩ `git show '5842377^:…/CanvasOverlayButton.vue' | grep -n 'variant=\|size="icon"\|glass-ui/button'` → `5:` (docblock, carrying BOTH a `variant=` and a `size="icon"` mention) · `9:import { Button } …` · `18: variant="glass"` · `19: size="icon"`; ⟨cmd⟩ the same on `InfoCard.vue` → `3:import { Info } from "lucide-vue-next";` **and no Button at all**. The equality `35 → 34` in both budgets is a coincidence of cardinality, **not a shared cause** — a successor reading it as one subtraction will look for a Button in `InfoCard.vue` and find none. Every affected figure is tabled at `G7-BUTTON-BUDGET.md` §2.
+
+**Act 6 — M-7's prop-level diff, run over every surviving subpath, and it changed the wave's shape.**
+Subpath survival read by **JSON parse** of both `exports` maps, not by grep. **Five subpaths die**
+under fourier's imports (`./metric-badge` 6/6 · `./hover-popover` 2/2 · `./hover-card` 2/2 ·
+`./dropdown-menu` 2/2 · `./animated-digit` 1/1 = **13 import sites**). Against that, the prop diff
+finds **139 breaking attribute occurrences ⊕ two deleted components at 20 callsites on a subpath
+that SURVIVES**:
+
+| break | occurrences | compiler-visible |
+|---|---|---|
+| `Button.variant` — the prop is gone | **88** | **no** (junk `$attrs`) |
+| `Button size="icon"` — value gone | **35** | yes |
+| **`Button size="default"` — value gone** | **6** | yes |
+| `Slider variant="standard"` — value renamed to `scrubber` | **9** | **no** |
+| `TooltipContent.collisionPadding` — prop gone | **1** | **no** |
+| **`DockIconButton` — COMPONENT DELETED** (`./dock` survives) | **19 callsites / 2 files** | yes |
+| **`DockDropdownTrigger` — COMPONENT DELETED** | **1 / 1** | yes |
+
+**Two findings the banked cells do not carry.** (i) ⟨cmd⟩ `git show 17a11bc5:src/components/button/Button.vue | grep -n "retired.push"` → `:134` variant · **`:136  if (size === "icon" || size === "default")`** — **the producer's own DEV watcher names `size="default"` too**, and §4 step 4's limb-2 spelling is silent on it; the six sites fire the same `[glass-ui]` `console.error` into the same four zero-console-error e2e specs G6 protects. (ii) `./dock` is present in **both** export maps, so its two deleted members are **invisible to every import-shaped probe** — which is M-7's thesis in its sharpest available form.
+
+**Act 7 — FALSIFICATION, before publication: four candidate breaks WITHDRAWN.** A prop diff that
+over-reports is worse than none, so every `NOT A PROP` hit was re-read at the producer's bytes.
+Withdrawn: `SegmentedTabs.modelValue` (3 — declared by **`defineModel`** at `SegmentedTabs.vue:145`,
+which no `interface Props` scan can see) · `GlassDock.startCollapsed`/`.collapseDelay` (5 — real
+props in the composable's `DockProps`, `useDockShellProps.ts:110`/`:105`) ·
+`DropdownMenuContent.align`/`.sideOffset` and `TooltipContent.side`/`.sideOffset` (6 — inherited
+through **`extends FloatingPlacementProps`**) · **`Tooltip.text` (33) and `Tooltip.side` (8) — not
+glass-ui's component at all**, but fourier's own shim `@/components/ui/tooltip/Tooltip.vue`, whose
+docblock says so; only `App.vue:4` imports from `@mkbabb/glass-ui/tooltip`, and it imports
+`TooltipProvider`. **That last one alone would have been 41 phantom breaks**, the largest single
+false figure available in this wave. The one survivor of the family is `Tooltip.vue:33`'s
+`:collision-padding="8"`, which **confirms FR-TT-5 at the adopted pin** (`FloatingPlacementProps` =
+`side | sideOffset | align | alignOffset`; the v7-era mechanism name `RETIRED_FLOATING_ATTRS` is
+**absent at 8.0.0** — the effect survives, the mechanism does not).
+
+**Measured NEGATIVES, kept in the record**: `SelectTrigger.size`/`.variant` (U-2's removal),
+`DialogContent.showClose`/`.spring`/`.scrimAnimation` (fr-ExportModal M-α's three),
+`Configurator.density` / `ConfiguratorRow.density` — **fourier passes NONE of them** (⟨cmd⟩ → **0**
+for each term). Those removals are real and cost this tree nothing, and saying so is what stops the
+transaction budgeting for them.
+
+**Act 8 — `./metric-badge` → `./metric` PRICED, and it is not one-for-one.** Of the 7 props fourier
+passes at 48 occurrences: `value` · `size` (value sets **identical**, `sm|md|lg|xl` both pins) ·
+`class` · `label` · `unit` map cleanly; **`labelPosition` → `posture`** is a rename with a value
+superset (`'inline'|'stacked'` ⊂ `"inline"|"stacked"|"cell"|"row"`) at **6 sites**; **`color` has NO
+successor** on `MetricProps` at **4 sites** (`var(--tier-saved…)` · `var(--tier-featured…)` ·
+`:color="eColor"` ×2). A mechanical port drops the tier tinting silently.
+
+**Act 9 — FM-2's token-level break-surface column, folded into the census as the row demands.** A
+`var(--x)` read is neither an import nor a prop, so no prop diff can see it. `--ring` is declared in
+**3 producer sheets at 4.0.0, all emitted**, and **0 at `17a11bc5`**; fourier reads it at **5 sites
+/ 4 files** (`style.css:140` · `ImageUpload.vue:200` · `GalleryCard.vue:222` · `:223` ·
+`AppHeader.vue:189`) — five focus/border declarations that resolve to the initial value at the hop
+with no build error, no type error, no lint. `--focus-ring` 1 → 0; its successor `--focus-ring-color`
+0 → 3. **Counting-unit difference disclosed**: FM-2 banks *"six read sites / five files"*; this seat
+measures **5 / 4**, and **the same 5 / 4 at `5842377^`** — so it is **not** `G-10` drift and **not** a
+code change, but a unit not recoverable from these bytes. Published as measured; **FM-2 not
+re-graded**; its one-edit F.W4 cure is unaffected in kind.
+
+**Act 10 — the two M-7 riders priced INSIDE the diff, per *"priced inside this diff or not priced at
+all"*.**
+- **`fr-BasisSelector i-4`** — **0 subpath breaks at the ADOPTED pin** (`./slider` · `./button` ·
+  `./configurator` all present at `17a11bc5`), so the thesis holds at 8 and not merely at 7. Prop
+  breaks **5** (`:125` ×2 · `:140` · `:168` · `:195`) ⊕ the lucide specifier `:9`. The banked *"six"*
+  does not reproduce under the unit this seat can measure at either ≥7 pin — **3** at `v7.0.0`,
+  **5** at `17a11bc5`. **i-4 is INFO and is NOT re-graded**; its load-bearing claim is the shape
+  `0 subpath : n prop`, confirmed and strengthened. **The file is WORSE at the adopted pin than at
+  the pin it was priced against**, and the whole delta is the Slider rename.
+- **`fr-NotationPills FR-NP-30` limb (c)** — **DISCHARGED BY THE HOP.** The fixed `px-3` is not in
+  fourier's bytes: it is the producer's `sm` arm, `h-(--control-h-sm) rounded-pill px-3` at the
+  installed pin (a `0.75rem` literal against a `--ui-scale` height) and
+  `.button[data-size="sm"] { padding-inline: var(--space-atom); }` (`button/styles.css:232-235`) at
+  `17a11bc5`. **A token, not a literal.** Zero consumer cost, zero F.W4 rider. **A credit row for
+  the close**: one banked defect the uplift retires unasked.
+
+**Act 11 — G5 run over the WHOLE emitted roster, with the discriminator run in BOTH forms — and the
+LAW vindicated four-for-four.** `fr-PaperSidebar M3`'s two-file recipe was run against each class
+alongside the whole-roster operand. Both named operands exist (`glass-ui.css` **42,082 B** ·
+`styles/components.css` **60,076 B**), so no zero is a missing-file artefact:
+
+| class | M3 two-file form @4.0.0 | WHOLE roster @4.0.0 | would M3 have been right? |
+|---|---|---|---|
+| `.paper-texture` | **0 / 0** | **6 artefacts**, live rule `styles/cards.css:10` | **NO** |
+| `text-admin-label` | **0 / 0** | **3 artefacts**, `@utility` `typography/semantic.css:213` | **NO** |
+| `.cartoon-card` | **0 / 0** | **1 artefact — and it is a COMMENT** (`cards.css:2`) | yes, by accident |
+| `.btn-pill` | **0 / 0** | **8 artefacts** (reproducing the spec's eight-name list exactly) | **NO** |
+
+**The two-file discriminator returns `0/0` for all four and is wrong on three.** §2·R2b.3 proved
+this for `.btn-pill`; it holds for the whole class-set, so R2-9's clause is a measured property of
+this probe and not a caution. Whole-roster column double-run **6 · 3 · 1 · 8**.
+
+**Act 12 — the census verdicts, and one of the four P0 instances DOES NOT BREAK.**
+- **`.paper-texture` (B-2) — TRUE UPLIFT BREAK.** Live rule at `cards.css:10` ⊕ dark arm `:17` at
+  4.0.0; **no rule** at `17a11bc5`; **1 application** (`App.vue:24`). **The cure is executable**:
+  both composing tokens survive (`--paper-clean-texture` `tokens/scale-paper.css:118` ·
+  `--paper-texture-size` `tokens/offsets.css:106`), and the only surviving `@utility paper-*`
+  recipes are `paper-underpaint` and `paper-grain-overlay` — **neither a drop-in**, so
+  `fr-SvgFilters M-1/R-3`'s cure-constraint reproduces at the adopted pin.
+- **`text-admin-label` (MG-β) — TRUE UPLIFT BREAK, the worse-than-absence kind.** `@utility`
+  declarations **1 · 1 · 0** across v4.0.0 · v7.0.0 · `17a11bc5`; **7 applications / 4 files**
+  (reproducing the banked 7/4 exactly); sole survivor `_shared/class-names.ts:84`'s allowlist, which
+  makes `cn()` **keep** a token that paints nothing. **No byte-equivalent successor exists**: the
+  closest is **`text-mono-micro`** (`typography/utilities.css:62` — mono ⊕ `--type-micro` ⊕ 0.025em)
+  **plus `uppercase font-medium`**, carrying a **disclosed design delta of 10px → 11px** and a
+  different tracking. WU-D's banked `--type-micro`/`--type-caption` spelling is **refined**:
+  `text-mono-micro` supplies the mono half for free and `--type-caption` is the wrong arm (fluid
+  where the retired rung was fixed).
+- **`.cartoon-card` (FR-EQC-3/K-13) — NOT AN UPLIFT BREAK.** Its only mention in the installed
+  emitted roster is a **comment** at `styles/cards.css:2` saying the recipe *"[was] removed at
+  C.W5"* — i.e. it was **already definition-absent at the pin fourier is leaving**, and fourier
+  already shims it (`style.css:107 @utility cartoon-card { @apply cartoon-surface; … }`).
+  **`cartoon-surface` SURVIVES** (`card/styles.css:256` at `17a11bc5`), so **the shim survives the
+  hop untouched** — confirming `fr-BasisCanvas D-corpus-C-1` at the adopted pin. **G5 returns
+  NOTHING here for commit #4 to land.**
+- **`.btn-pill` (FR-NP-13) — PRODUCER DELETION, ZERO CONSUMER CLASS LITERALS.** 8 emitted artefacts
+  at 4.0.0 (the Button cva base string composes it); **0 mentions in `src` at `17a11bc5`**; **0**
+  class literals in `web/src`. The live half is the **local shadow**: `NotationPills.vue:36-41`,
+  with `:38 border-radius: 9999px` **hardcoding past `--radius-pill`** — which **survives** at
+  `theme/radius.css:116`. **Anchor drift recorded, INTENT taken at the true bytes**: the banked
+  `:38/:40` names a block that is really `:37-41`; `:38` is exactly the line the row means, and
+  `:40` is `justify-content: center`, a member of the same block rather than a second radius source.
+
+Counting units published beside every figure. `.cartoon-card`: **18 class applications / 12 files**
+(load-bearing) · **24 substring occurrences / 14 files** (unanchored; the 6 non-applications
+enumerated) · banked **21 / 14** superseded with **its file count reproducing exactly** · and the
+shim's own comment (*"14 application sites (13 files)"*) **also** superseded — **both** its numbers
+are low, which extends FR-EQC-3's *"shim's '14' … wrong"* rather than contradicting it. This
+discharges §Baseline finding 2, which routed the 24-vs-21 shape difference here.
+
+**Act 13 — AA-15's cure/break collision RECONCILED IN WRITING, before either side executes.** The
+collision is measured, not argued: `@utility text-admin-label` declarations are **1 (v4.0.0) · 1
+(v7.0.0) · 0 (`17a11bc5`)**, so the rung **AA-15's banked cure adopts does not exist at the adopted
+pin**. Executing AA-15 as banked would add two more sites of the class MG-β books as broken —
+**7 sites / 4 files → 9 / 5** — a cure that manufactures more of the defect its sibling retires.
+**Four rulings, in force in this order** (full text at `G5-CSS-CLASS-CENSUS.md` §3):
+
+1. **`fr-AdminAuditLog K-1`'s kill INVERTS, and only its PREMISE moves.** AA-15's **defect stands**
+   (`text-[0.65rem]` at `AdminAuditLog.vue:134,:143` is a fourier fact, pin-independent); **AA-15's
+   CURE is dead as banked**.
+2. **AA-15 MUST NOT execute as written at F.W4.**
+3. **ONE RUNG, DECIDED ONCE, HERE**: MG-β's re-target picks `text-mono-micro uppercase font-medium`
+   and lands 7 sites / 4 files inside commit #4; **AA-15 at F.W4 re-points its two sites onto that
+   same rung**, never onto `text-admin-label`.
+4. **ORDER BINDING: MG-β (F.W1) FIRST, AA-15 (F.W4) SECOND** — the reverse order *is* the collision
+   executing rather than being reconciled.
+
+**No re-grade, no re-home, no cancelled relay**: AA-15 stays MAJOR at F.W4, and the
+producer-restoration ask stays on NWO-1 (a restored `@utility` makes the re-target redundant, never
+wrong).
+
+**Act 14 — the split the G5 LANDING CELL requires, stated as edits.**
+**CONSUMER RE-TARGETS — land inside commit #4** (3 edits, **9 application sites, 6 files**): **R1**
+`.paper-texture` texture-restore from the two surviving tokens (1 site, `App.vue:24`; block lands in
+`web/src/style.css`) · **R2** `text-admin-label` → `text-mono-micro uppercase font-medium` (7 sites /
+4 files) · **R3** `NotationPills.vue:38` `9999px` → `var(--radius-pill)` (1 site).
+**PRODUCER-OWNED — leave on NWO-1**: only the admin-label rung question, **already sent** at
+`70a87e7e`; **the wave does not wait on it.** **None of R1–R3 is a frontend workaround for a
+producer defect** — each lands on a token or utility the producer **publishes at the adopted pin**,
+which is the §5 bar applied rather than cited. `.cartoon-card` and `.btn-pill` return **no
+producer ask and no consumer edit beyond R3**.
+
+**Act 15 — GM-19's re-read at the target: OWED, PERFORMED, and it returns NO NEW CONSEQUENCE.**
+`a11y-overrides.css` read at both pins (installed **169** lines · `17a11bc5` **137**). The PRM
+blanket at the adopted pin is **`*, *::before, *::after { animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important; transition-duration: 0s !important }`** — **unconditional**,
+where the installed form carved `:not([data-allow-motion])`. **The masking survives and BROADENS**;
+masker (ii) holds. Masker (i) also holds — `./scrolling-text` is **absent at `17a11bc5`**, so
+`GalleryMarquee` still renders nowhere (FR-GFC-9). **F.W1 owes the re-read, not the cure, and this
+unit stamps the re-read and nothing else.** Two nuances recorded for the successor, neither owed
+here: at 8.0.0 a **narrow PRM-AUTHORIZED-SET beats the fallback by cascade LAYER, not specificity**,
+so a consumer rule placed inside a layer could defeat the blanket — a route that did not exist at
+the installed pin (→ F.W4 with GM-19); and the blanket's transition clock moved **0.1s → 0s** with
+the `transition-property` mint deliberately dropped (→ the WU-F ledger, unit `f`).
+
+**Act 16 — G14's floor read at the adopted tag, and the three drifted registry rows corrected as
+dated rows.** ⟨cmd⟩ `git show <pin>:package.json` parsed as JSON, double-run at `17a11bc5`:
+pencil-boil peer **`^0.4.1` (v4.0.0) · `^0.9.2` (v7.0.0) · `^0.11.2` optional (`17a11bc5`)**, with
+the adopted tag additionally carrying a **devDependency pinned exactly `0.11.2`**. Fourier declares
+`^0.4.1`. **M-2's own condition — *"correct only if G1 adopts 8"* — has fired**, so the correction of
+record inverts in the direction its author anticipated:
+
+- **D1 `fr-FourierShapeExtractor.md:100` (C-18.2)** — its *v7 attribution* is **FALSE**; its
+  *conclusion* is **TRUE AND NOW UNCONDITIONAL**. **C-18.2 is LIVE at F.W1.**
+- **D2 `fr-FourierMorphSvg.md:54` (FM-22)** — *"the F.W1 pencil-boil `0.4.1 → ^0.11.2` migration
+  surface"* is **CORRECT AT THE ADOPTED TAG**; it is exactly the migration this wave lands. **This
+  row's ratification, not its cure.**
+- **D3 `kf-HeroAurora.md:9`** — **correct as a v7.0.0 transcription, and NOT the F.W1 target.**
+  Quoting it as the floor would be a defect.
+- **D4 `M-2`'s own headline** (*"the floor is `^0.9.2`, not `^0.11.2`"*) — **FALSE at the adopted
+  tag**, by M-2's own stated condition. **M-2 is NOT re-graded**: it was right about v7.0.0, which
+  is what it measured.
+
+**M-2's constructive half was RE-DERIVED at the adopted floor rather than inherited**, because it
+was argued at v0.9.2 and the wave lands v0.11.x. All five consumed symbols are present at `v0.11.2`
+with **identical signatures** — `catmullRomToBezier` (`path.ts:27` at both) · `generateSunRays`
+(`celestial.ts:45`) · `wobbleDiamond` (`:4`) · `wobbleStarPolygon` (`:22`) · `useLineBoil` (same arg
+list, body re-implemented). ⟨cmd⟩ `diff` of the `^export function` lines on `celestial.ts` → **no
+output**; on `path.ts` → **additions only**. **"No-break at this site" HOLDS at `^0.11.2`.**
+
+**And the two legs that do not move**: the in-range published set of `^0.11.2` is **`{0.11.2}` — ONE
+version** (double-run), confirming unit `b`'s correction and giving unit `e`'s *"an in-range
+0.11.x"* a **unique referent**; and **L-2 splits** — the empty-loop rAF resume is **CURED** at the
+floor (`v0.11.2:src/vue.ts:277` `else if (schedulerRunning && hasActiveSubscriber())`, with the
+comment naming the exact defect) while the **false `sideEffects: false` is UNCHANGED at
+`package.json:9` with the listener still module-scope at `:274`** — so **NWO-6's manifest leg is
+measured undischarged**, exactly as its rider warns.
+
+**Act 17 — K-1 re-resolved, census leg.** Eight re-resolutions at `17a11bc5`
+(`K1-RE-RESOLUTION.md`), none re-grading a severity or touching a registry file:
+**K-1.b `K-8 / SR-1`'s CONDITIONAL RE-BOOK FIRES** — `SliderVariant` is `"standard"|"spectrum"` at
+v7.0.0 and **`"scrubber"|"spectrum"` at `17a11bc5`**; live surface **9 attribute callsites / 7
+files** (⊕ 5 prose), so **`MPC-21/BR-1`'s "9 / 7 (+5 prose)" is exact** and **K-8/SR-1's "8 files" is
+off by one** (dated correction). The cure is **delete-don't-rename** and the bytes make it free:
+`variant: "standard"` **is** the installed `defaultVariants` value and `scrubber` is the 8.0.0
+default, so deletion is a no-op today and correct tomorrow.
+**K-1.e `fr-FrequencyGraph`'s counting unit — DISCHARGED** (unit `a`'s residual 3): matching LINES
+over `src/styles` read **5 · 5 · 0** across v4.0.0 · v7.0.0 · `17a11bc5` and `@utility`
+DECLARATIONS **1 · 1 · 0`. **The banked "4" is a third unit and the 5 is not a v7 artefact** — it
+reproduces at v4.0.0 too. The declaration count is load-bearing; at the adopted tag every unit
+agrees on **0**. **Nothing moves.**
+**K-1.h the 69-vs-70 export-key residual — RESOLVED, unit named** (unit `a`'s residual 3, second
+half): by JSON parse, **80 keys @ 4.0.0 · 70 @ `17a11bc5` INCLUDING the root `"."`**, i.e. **79 /
+69** spelled `"./…"`. **WU-G's banked "80 @ 4.0.0 · 70 @ 8.0.0" is the whole-map unit and reproduces
+exactly**; unit `a`'s probe anchored on the `./` prefix and excluded the root key. **70 − 1 root =
+69.** Two units, both true, neither averaged. **Nothing moves.**
+**K-1.f `B-1`'s spring-clock kill — CONFIRMED and SHARPENED**: `--spring-smooth-settle` is **0 files
+at BOTH pins** (the dead claim names a token that never existed), while `--spring-present-duration`
+is **0 in the whole installed dist and 13 files at `17a11bc5`** — the "real clock" is an
+**8.0.0-only** fact, so quoting it as an installed-pin byte would be a pin error (→ G10, unit `e`;
+→ the WU-F ledger, unit `f`).
+**K-1.a · K-1.c · K-1.d · K-1.g** are recorded in the same file; K-1.d **independently reproduces
+unit `a`'s two suspects with a wider operand** (whole emitted roster, not `src` alone) rather than
+transcribing them.
+
+**Act 18 — the commit.** ⟨cmd⟩ `git add <the 5 exact paths>` then `git status --porcelain -uno` →
+the five staged `A`, with **`scripts/dev/dev.sh` and `docs/tranches/V/reformation/CARRY-LEDGER.md`
+present-but-unstaged**, exactly as the standing arrangement requires. §4's commit plan names **no**
+entry for the census evidence (its Cadence names the artefacts, not a commit), so the §Unit plan
+brief's spelling is the only governing one and is used verbatim.
+
+**Commit**: **`2a84bd5a`** — `docs(X·F/evidence/w1): the census acts at the adopted pin — G7 · M-7 · G5 · G14 · K-1`.
+
+#### Gate readings, BEFORE → AFTER
+
+| gate | BEFORE (§Baseline) | AFTER (this unit) | receipt |
+|---|---|---|---|
+| **G7** Button budget | **RED** — *"no grep of record at the adopted pin"*; six banked figures disagreeing; at the installed pin `variant=` **122** · `size="icon"` **36** · button-importers **34** · outline **30/16** · ghost **49** · glass **10/7** | **GREEN** | The grep of record is defined (§0), run, and published as the sole budget with a counting unit on every figure and its own closure proof (**106 attributed = 106 unattributed, residue 0**), double-run. Budget: **88 · 69 · 129 · 34 · 34 · 18 · 16 · 1**. **Four of the five superseded cells reproduce to the digit** once their units are named (S1 · S2 · S3 · S5); S4 is named a prior run against a corpus moment that no longer exists. **`162` entered as a member with its unit recovered (124 + 38, pre-`G-10`, raw, all-tag), never as the answer.** **Nothing averaged.** §Baseline findings 1 and 3 both discharged |
+| **G5** P0 CSS-class census | **RED** — *"no census exists; all four instances live"* | **GREEN** | Run over the **whole emitted roster** at both pins, both directions (§0), with the M3 discriminator run in **both forms** and shown wrong on 3 of 4 classes. Verdicts: `.paper-texture` **BREAKS** (1 site, cure executable from surviving tokens) · `text-admin-label` **BREAKS** (7/4, no byte-equivalent successor; `text-mono-micro uppercase font-medium` with a disclosed 10px→11px delta) · `.cartoon-card` **NOT AN UPLIFT BREAK** (already absent at the installed pin; the local shim survives because `cartoon-surface` does) · `.btn-pill` **no consumer class literal**, the live half is the local shadow `:38`. **AA-15's collision reconciled in writing (4 rulings) BEFORE either side executes.** Split published: **3 consumer re-targets / 9 sites / 6 files → commit #4**; **1 producer ask already on NWO-1**. **GM-19's re-read performed: masking survives and broadens ⇒ NO new painted consequence** |
+| **G14** pencil-boil floor | **RED** — floor unread at the adopted tag; three registry rows contradicting; in-range set banked as two versions | **GREEN** | Floor read at the adopted tag, double-run: **`^0.11.2`, optional**, with a devDep pinned `0.11.2` beside it. **Three drifted rows corrected as dated rows D1–D3, plus D4 against M-2's own headline** — and the inversion is G1's doing, not a miscount. **M-2's constructive half re-derived at the adopted floor and it SURVIVES** (five symbols, identical signatures, `diff` empty on `celestial.ts`). **C-18.2 LIVE, in-range set = `{0.11.2}`, one version.** **L-2 splits: mechanism CURED at the floor, manifest leg measured UNDISCHARGED** |
+| **M-7** prop-level diff *(precedes every per-file budget)* | not previously run at any pin | **RUN — and it re-shaped the wave** | **5 dead subpaths / 13 import sites** vs **139 breaking attribute occurrences ⊕ 2 deleted components at 20 callsites on a SURVIVING subpath**. Two findings no banked cell carries: **`size="default"` is retired alongside `size="icon"`** (producer's own `Button.vue:136`) and **`./dock`'s member deletions are invisible to every import-shaped probe**. **Four candidate breaks falsified and withdrawn** before publication, the largest being **41 phantom `Tooltip` breaks on a component fourier owns**. FM-2's token column folded (`--ring` 3 decls → 0; **5 read sites / 4 files**). Both riders priced: **i-4 confirmed at the adopted pin and re-priced 3 → 5**; **FR-NP-30 (c) DISCHARGED BY THE HOP** |
+| **G4** emission pre-gate | **UNRUNNABLE-AT-OPEN** | **untouched, deliberately** | Not this unit's (§Unit plan lock). It needs the bumped install and its command writes `web/dist`, a §1 read-only witness. Stated so the successor does not read silence as a claim |
+
+#### Residuals handed forward, by name
+
+1. **→ unit `e`, BINDING.** The breaking `size=` set is **`icon` (35) ⊕ `default` (6) = 41**, and the
+   rewrite's attribute operand is **129**, not 123 and not 162. The producer's own DEV watcher
+   (`Button.vue:136`) names both values, and **G6's four zero-console-error specs are the gate that
+   catches the omission** — a split or partial sweep turns them red for the wrong cause.
+2. **→ unit `e`, BINDING.** `./dock` survives but **`DockIconButton` (19 callsites / 2 files:
+   `EditorControlsDock.vue` · `CanvasControlsDock.vue`) and `DockDropdownTrigger` (1 / 1:
+   `AnimationControls.vue`) are DELETED**. Successors `DockControl` / `DockTrigger`
+   (`dock/index.ts` at `17a11bc5`). This is the wave's second-largest single cost after
+   `Button.variant` and **no import-shaped probe can see it**.
+3. **→ unit `e`, BINDING.** The **three consumer re-targets R1 · R2 · R3** (9 application sites, 6
+   files) land **inside commit #4** as the G5 LANDING CELL requires — they are a limb's resolution,
+   never a thirteenth limb. R2's successor rung is **`text-mono-micro uppercase font-medium`** and
+   it is **binding on F.W4's AA-15** by the §3 ordering ruling.
+4. **→ unit `e`.** `K-8/SR-1` fired: **9 `<Slider variant="standard">` attribute callsites / 7
+   files** — **delete, don't rename** (MPC-21/BR-1), free at both pins. And **`TooltipContent`'s
+   `:collision-padding="8"`** (`ui/tooltip/Tooltip.vue:33`) has no prop at 8.0.0.
+5. **→ unit `e`.** `MetricBadge.color` at **4 sites has NO successor** on `MetricProps`;
+   `labelPosition` → `posture` is a clean rename at 6. The `./metric` port is **not** one-for-one.
+6. **→ unit `f` / G19, a SHARPENING and never a ruling.** **ESC-7's operand is 21 occurrences / 14
+   files** under the grep of record (comment-stripped, `Button`-attributed), not the register's
+   **30 / 16** — the difference is 7 comment-resident mentions ⊕ 2 `<Badge variant="outline">` sites
+   (`GalleryCard.vue:115` · `GalleryCardModal.vue:129`) that are not Buttons. **The owner is being
+   asked to rule on a class whose live Button surface is smaller than the escalation states.** The
+   sweep still may not proceed on the map's silence.
+7. **→ unit `f` / G17 and the WU-F ledger.** `.cartoon-card` is **not an uplift break** — its 18
+   applications / 12 files are already carried by a local shim that survives the hop. G17's ordering
+   ruling is therefore a **design** ordering (retire vs adopt), not a break ordering, and `KILL-6`
+   is untouched. The shim's own stale comment is corrected inside R1's edit (WU-F `:114`).
+8. **→ unit `f` / the close.** Credit rows the uplift lands unasked: **FR-NP-30 (c)** (fixed `px-3`
+   → `var(--space-atom)`) and **L-2's mechanism** (the empty-loop resume, guarded at the floor).
+   Debt rows it does **not** land: **L-2's false `sideEffects: false`** and **C-18.2's one-version
+   in-range set**, both live on NWO-6.
+9. **→ F.W4.** FM-2's token column: **5 `var(--ring)` sites / 4 files** lose their register
+   silently — one edit to `--focus-ring-color`. **GM-19**: no painted consequence at the adopted
+   pin, but the **layered-`!important` route is new at 8.0.0** and is a changed hazard.
+10. **→ the owner, unanswered.** **ESC-5's premise is priced further, not answered**: `.paper-texture`
+    has no rule at `17a11bc5` **and** both composing tokens survive, so the restore arm is
+    executable and cheap. That sharpens the severity question ESC-5 asks. **A seat may not rule on
+    the owner's behalf.**
+11. **→ the close (E13).** **I-32 · I-33 · I-34 still read `UNREAD 2026-09-17`; this unit flipped
+    none and appended no INBOX row**, having sent no mail — its writable set holds neither path.
+    The marks are Track D's and route to X-W0.j / the X formation mail seat. Unchanged from unit
+    `b`'s residual 6.
+12. **→ unit `f`.** **`F-W1-LOG.md` was deliberately NOT created here.** §4's Cadence names it
+    beside a whole-wave evidence list (G4 · G6 · G10 · G12 · G13 · G18 entries this unit cannot
+    write). Opening it now would seat a partial log that later units must reconcile. **Disclosed so
+    it is a decision and not an oversight.**
+
+#### Escalations
+
+**None.** Every specified cure was executable at the bytes, and the two places a specified figure did
+not survive measurement are **published corrections under WRITE-THEN-MEASURE and E-3**, not
+substituted cures: the **34-not-35 drift is TWO subtractions in two different files** (§Act 5), and
+**`size="default"` joins `size="icon"` in the breaking set** (§Act 6) — the second enlarges a limb
+already chartered, adds no limb, and is handed to its owning unit by name. **No banked id was
+re-graded, no dated artefact was rewritten, no registry file was touched, and no product byte was
+written.**
