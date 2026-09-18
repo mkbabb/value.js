@@ -2794,3 +2794,164 @@ file here). **Each is an orchestrator row; `.e` grants itself no bound.** The wa
 | `.d` committed (§4a: *"`.e` writes only after `.d` commits"*) | `<p2>` HEAD **`dc52ed5`**; value.js `861941c2` — both `git branch --contains` → `tranche-u` | **MET** |
 
 **No precondition failed; the wave is not blocked.**
+
+---
+
+### X.P.W3.e
+
+**SERVED MODEL: claude-fable-5-1** (fresh — authored none of the wave's mechanism; M-23 §1) ·
+2026-09-18 **14:2x–14:5x EDT**, this seat's own clock (the sitting's date of record stays 2026-09-17)
+· **group 5, run ALONE** after `.d`'s commits (§4a lock **MET**: `<p2>` `dc52ed5`, value.js `861941c2`,
+both re-verified `git branch --contains` → `tranche-u`). Spec sections executed exactly: `W3.md` §5
+`.e` (L319–339) · §8 (L561–582) · §9 (L584–608) · §12 (L657–669) · §4 rows (L163–172) · §4a
+(L184–197) · COHESION §0j.E OC-1 · §0n.3–§0n.5 · this record's §Unit plan P.1/P.2 and §RESUME-2
+R2.1–R2.6. `W3.md` read WHOLE (673 L); `COHESION.md` read to the file end (§0o and its erratum the
+last headings); this record read whole before a byte was written.
+
+**The unit's own gates, as dispatched.** §5.e close sub-gate → **GREEN** (`W3-CLOSE.md` exists, 553 L,
+all ten gates' commands + exit codes + outputs pasted from this seat's own run files; **three**
+named refutation attempts with outcomes; no gate green on a narrative) · **L-13 harvest → RED under
+its letter** (exit 0 ×3 · `x-p-w3.json` present · 5 seats, none with zero rows · **5 of 6**, `.e`
+structurally absent) · **re-reads of all ten**: done, twice each, at §1 of `W3-CLOSE.md`.
+
+#### e.0 — CRASH-RECOVERY, first act (the standing law)
+
+⟨cmd⟩ `git status --porcelain` in value.js and `<p2>` before any other act. Inside this unit's
+writable set: ` M docs/tranches/X/COHESION.md` (+36) · ` M …/DIVERGENCE-LEDGER.md` (+37) ·
+` M …/registry/DEFECT-LEDGER.md` (+405/−1) · `?? …/registry/harvest/x-p-w3.json` (123,158 B) — the
+dead first `.e` seat's DRAFT (F-r2.1). `W3-CLOSE.md`: **ABSENT** (⟨cmd⟩ `find … -name '*W3-CLOSE*'` →
+nothing). Outside the set and never touched: `INBOX.md`, `CARRY-LEDGER.md`, `execution/{A,C}/*.md`,
+`execution/LEDGER.md`'s sibling hunks (X-W1 · F.W1 lines), ten `demo/**` + two `e2e/**` rows,
+`scripts/dev/dev.sh`. `<p2>`: `?? .worktrees/` alone. **Every draft hunk was read whole and re-measured;
+the draft was rewritten where measurement disagreed** — the itemized corrections are `W3-CLOSE.md` §0
+(the overflowing region is the **mark journal** `MARK_CAP` 32,768, not the `C` journal; the first
+throw is at **8,191** rules, not 8,192; the JS lowering does **not** die at 11/13 MB on this box — 13
+MB parses at 2,963 MB RSS and **24 MB** aborts with exit 134; 143 files per harvester run, not 141;
+**three** wave runs, not two). The draft's `DEFECT-LEDGER.md` bytes were **kept** because the
+unmodified script, run by this seat, wrote the identical bytes (sha256 `8092610b…`) — and in run B
+wrote them itself onto the repo path.
+
+#### e.1 — The ten gates, BEFORE → AFTER, at this seat's clock (full pastes: `W3-CLOSE.md` §1.1–1.8)
+
+BEFORE is the open's §Baseline (read-only, not re-taken — R.3/R2.3). AFTER is this seat's own run at
+`<p2>` `dc52ed5`, **14:29:45–14:33 EDT, each twice**; timing-free outputs byte-identical across the two
+runs; every generated JSON regenerated to the scratchpad and compared by sha256 to the committed one.
+
+| gate | BEFORE | AFTER (this seat) | verdict |
+|---|---|---|---|
+| **G-1** | 0 of 52 | `--check` exit 1 · **5 of 52 TOTAL** (0/3/16 · 5/0/28) · `tsc` exit 2, 56 diagnostics (54 TS2694 + 2 TS2724) · `universe-52.json` **sha256-equal** (`0005f26b…`) | **RED** — F-a.6 |
+| **G-2** | 324/1548 | probe **unmodified** (`77678a57…`): **324 / 1548 · 1 mode · 4 of 9 RED**, exit 1, ×2; `git status` on its dir empty before/after | **RED, structural** — ESC-d2 |
+| **G-3** | 10/10 throw | **0/10** heads throw (both lowerings) · **72** non-string cells → 0 throws, 0 `undefined`, one shape · R1 `oklch()` typed `[6,7)` · `no-throw` 19 ✓ · `boundary` 77 ✓ · `SHIELD.caught` 0 | **GREEN on its command legs; proof leg REFUTED (e.2 R-iii) — NOT reported green** |
+| **G-4** | checker absent | C-1/C-2/C-5..C-10 GREEN · **C-3 RED** (5 unemitted) · **C-4 RED** (2 inherited arms) · exit 1 · `recovery-closure.json` **sha256-equal** (`25fa6a4b…`) | **RED** — E-1 · E-2 (+ F-e10) |
+| **G-5** | comparator absent | **79,674 cells · 0 differing bytes · 0 threw** · 21/21 boundary · exit 0 · `dual-target-identity.json` **sha256-equal** (`b68bab94…`) | **GREEN on its command**; intent falls beyond the corpus (ESC-e1) |
+| **G-6** | suite absent | **72 / 72** (13 named + 59), ×2 | **GREEN** |
+| **G-7** | harness absent | **5,890** (3,982 spec-undecided) · rows 52 / COMPARED 8 / NO-PEER 44 · suite 1 ✗ / 23 ✓ · `--cross-check-ledger` GREEN 16/0 · `equivalence-full-surface.json` **sha256-equal** (`d03b458c…`) | **RED** — ESC-d1 |
+| **G-8** | suite absent | C-7 0/3,744 unnamed · C-8 false/false · C-9 0 writes · `--assert-no-console` exit 0 · `labels` 11 ✓ | **GREEN** |
+| **G-9** | 7,761/7,762 cliff; one-way latch | depth **64/65/7,761/7,762 → `ok:false`** both lowerings, `depth` 15 ✓ · latch `afterReset:true, symmetric:false`, `latch` 5 ✓ / 2 ✗ | **depth GREEN · latch RED** — ESC-c1 |
+| **G-10** | table absent | a **third run**, alone, 14:32:15: 9 rows · arm-state each · sink 580440 · budgets vs 1,636,680 only · `--denominator 1870633` **REFUSED exit 2** · `BAR: OWNER-GATED-PENDING-RATIFICATION` · `VERDICT: none` · exit 0 | **WELL-FORMED, NO VERDICT** |
+
+**F-e8, found by this re-read**: `.d`'s d.3 paste carries `COVERAGE_NARROWING 2320 · FIXTURE_R1 4585 ·
+DECLARED_DIVERGENCE 15` for `parseCssColor`; the settled program prints **84 · 211**, and `.d`'s own
+committed evidence carries `84 · 211 · 0` (+ `AGREE 22229`, summing exactly to 26,551). The gate's
+defect counts are unaffected. A record transcription defect, `.d`'s author's to correct beside.
+
+#### e.2 — L-14: three named refutation attempts (full text and pastes: `W3-CLOSE.md` §3)
+
+| claim | attempt (this seat's own instrument, scratchpad, read-only, ×2) | outcome |
+|---|---|---|
+| **(i) the union is closed** (`.b`) | two FRESH bands, seeds `0x9e3779b1` · `0x00c0ffee`, **20,000 distinct sources each** (mutation + hostile splices + random code points; 35 % non-ASCII-bearing), the eight read from value.js `6aca8602:src/css/types.ts` by `git show`, × 3 entries × 2 lowerings, public + RAW | **NOT refuted on ⊆ / tuple / span / labels / cross-target** — 240,000 calls: 0 outside the eight · 0 empty tuples · 0 raw throws · 0 `undefined` · 0 `far.code === null` · 0 target differences · `SHIELD.caught` 0. **REFUTED on the no-fallback conjunct through (iii)**: the shield's `catch → css_syntax` is an arm that answers "nothing raised" with a code of its own, reached by a valid input; C-4's `ABSENCE` regex does not see it (**F-e10**). ⊇ stays RED by `.b`'s own C-3. Acceptance rate of the bands (0.4 %) disclosed |
+| **(ii) a divergence row's spec reading** (`.d`) | drafts fetched 14:34 EDT, quotations found verbatim; 25 targeted inputs through the sha-pinned oracle and both lowerings (js ≡ wasm on all) | **PB-03 UPHELD** (§7.1 *"100% or 100"*) + a **NEW unrowed divergence**: legacy `hsl(120, 50, 50)` incumbent MIS-ACCEPTS, candidate rejects per `<legacy-hsl-syntax>` (**F-e2**). **S-1/ADJ-2 REFUTED as stated**: `hsl(120deg50%50%)` and `rgb(255none none)` ACCEPTED by both lowerings where css-syntax-3 §4.3.3 makes `120deg50` / `255none` single invalid dimension-tokens (**F-e1**). **ADJ-3/S-2 half-REFUTED**: css-color-4 §4.3 normalizes an infinite `<hue>` to 0deg, css-values-4 §5 clamps an over-range angle; candidate rejects `hsl(1e400 0% 50%)` with `<finite-number>`; the row's "§10.9" is *Type Checking* and its attributed sentence does not exist (**F-e3**); the `lab(50 1e400 0)` witness is vacuous — `lab` is a coverage narrowing (**F-e9**). ADJ-1 is a shared non-normalization (**F-e4**). GROUND-C stays OWNER-OWED |
+| **(iii) the shield is non-load-bearing** (`.c`) | grow a VALID stylesheet past the Wasm lowering's fixed regions (`layout.mjs`); cross `INPUT_CAP` by one code unit; both lowerings, public and RAW; bisect the threshold | **REFUTED.** `parseStylesheet` × `a{color:red}`: last OK **8,190** rules (98,280 B; 32,766 marks), first THROW **8,191** (98,292 B; **32,770 marks > `MARK_CAP` 32,768**) — RAW throws `HALT: a journal, the value stack or the arena overflowed its fixed region`; public **wasm** → `ok:false css_syntax [0,98292) ["<stylesheet>"]` **only because the shield fired** (`SHIELD.caught` +1); public **js** → `ok:true`. Same at 1,048,577 code units for all three entries (`INPUT_CAP`) and on one rule with 20,000 declarations. Six faults, all `kind: wasm`. G-3's falsifier fires by inspection of the entry module; **G-5's two targets diverge on valid input** in the §3a "Wasm memory model" direction. Beside it, **F-e6**: the JS lowering takes ~205 B of heap per input byte — 13 MB ok at 2,963 MB RSS, **24 MB → FATAL heap OOM, exit 134** (heap limit 4,192 MB) |
+
+**Signed reading.** Closure holds where `.b` measured it and fails where the gate's own falsifier
+looks; two of the three declared divergences are not yet defensible spec readings as rowed; the
+shield is load-bearing on one of the two targets. **Nothing was averaged.** `<p2>` was **not written**
+(⟨cmd⟩ `git -C <p2> status --porcelain` → `?? .worktrees/` after every run); the cures are lowering acts
+under `src/css/**` and grammar acts, none in this seat's set.
+
+#### e.3 — The evidence chain (full: `W3-CLOSE.md` §5)
+
+```
+⟨cmd⟩ shasum -a 256 docs/tranches/V/megatranche/workflows/harvest-journals.mjs → 77a6e04c…8a28 (c0078d96, tree clean)
+⟨cmd⟩ cd <mirror-A: workflows/harvest-journals.mjs SYMLINK→repo> && node docs/tranches/V/megatranche/workflows/harvest-journals.mjs
+harvested 2966 agent results · 7585 defects · {"BLOCKER":914,"MAJOR":3245,"MINOR":2196,"INFO":718,…}     EXIT=0   14:36:43
+      written 143 files · NEW 94 · CHANGED 2 (wf_247fe7fa-e67.json, wf_6f552e12-062.json) · UNCHANGED 47   ← K.7(i), third firing
+⟨cmd⟩ cd <mirror-B: + registry/DEFECT-LEDGER.md SYMLINK→repo> && node … harvest-journals.mjs               EXIT=0   14:36:55
+⟨cmd⟩ third run (mirror-A)                                                                                   EXIT=0   14:38
+⟨cmd⟩ shasum over the 143 harvest files, three runs → IDENTICAL · DEFECT-LEDGER.md mirror-A == repo → 8092610b…4356
+⟨cmd⟩ git diff --numstat -- registry/DEFECT-LEDGER.md → 405 1 · six hunks, all the script's · stubs 1,487 → 1,552 (+65 = every new row)
+      · git diff --check → 130 trailing-whitespace flags, the script's (W1 R-5's shape; not hand-edited)
+⟨cmd⟩ python3 fold-harvest.py (×2, byte-identical) → registry/harvest/x-p-w3.json 129,579 B sha256 f657d114…
+      dispatched 6 · harvested 5 (.0 DONE 8 · .a PARTIAL 6 · .b PARTIAL 6 · .c PARTIAL 4 · .d PARTIAL 9) · absent [X.P.W3.e] · zeroRowSeats []
+      runs embedded VERBATIM: wf_25c53370-7ee (81,320 B) · wf_3e7ab295-b6d (33,020 B) · wf_a9980aef-425 (4,191 B)
+```
+
+**5 of 6 — RED under L-13's letter (ESC-e2)**; W0 R-3 / W1 R-3 reproduced; the dead predecessor seat
+left no result row and is not counted. The COHESION §5 bullet carved (one bullet, 44 lines, one hunk,
+nothing else in the file touched). A note for the orchestrator: COHESION §0k.1 HG-7 says X-track run
+records are harvested once at X-W11's close for the validator's corpus; this fold is X·P's L-13
+evidence under `W3.md` §5.e and the seat-0 brief — compatible as read here, the orchestrator's to say
+otherwise.
+
+#### e.4 — The commits (pathspec on the commit itself; four tracks share the index)
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | value.js | **`313d5bac`** | `docs(x-p-w3): divergence ledger + closure adjudication` — `W3-CLOSE.md` (553 L, create) + `DIVERGENCE-LEDGER.md` §6.1 (+48, the §Adjudication block only; `.d`'s 631 generated lines untouched). §9's own subject, verbatim; body carries the model receipt and the refutation attempts |
+| 2 | value.js | **`c2bc7f5a`** | `docs(x-p-w3/chain): harvest x-p-w3.json + DEFECT-LEDGER append + COHESION §5 carve` — three files; body pastes exit 0 and 5 of 6 |
+| 3 | value.js | (this record's append) | `docs(x-p-w3/.e): unit receipt` |
+| 4 | value.js | (the LEDGER row) | `docs(x-p-w3/.e): ledger` — the X.P.W3 row's commit cell + note, and one timeline line; staged as **this seat's hunks only** through a temporary index (F-r.2: on a file four tracks write, pathspec-only is necessary and not sufficient — the sibling X-W1 and F.W1 hunks in the working tree are left unstaged and uncommitted) |
+| — | `<p2>` | **none** | this seat wrote zero bytes in the fresh root |
+
+`git diff --check` clean on #1 and #3; #2 carries the script's 130 flags, recorded above. Both landed
+commits verified ⟨cmd⟩ `git branch --contains` → `* tranche-u`. **No `-A`, no `-u`, no `commit -a`, no
+stash, no reset, no force, no push.** `scripts/dev/dev.sh` appears in 0 commits and was never opened.
+
+#### e.5 — Escalations returned (§3a; none is this seat's to rule)
+
+- **ESC-e1** — the shield is **load-bearing** on the Wasm lowering and the two targets **diverge on
+  valid input** beyond the corpus (e.2 iii). G-3's falsifier by inspection; G-5's §3a "memory model"
+  trigger → **X.P.W1/W2 (architecture) · X.P.W4 (adoption must not rest totality on a catch) · the
+  contract's owner**. Cure shape stated, not taken: a declared capacity bound answered by a typed
+  rejection in **both** lowerings (the depth bound's idiom), or growing regions — a `src/css/**` write
+  and a G-5 re-run.
+- **ESC-e2** — L-13's letter unmet by construction (5 of 6); only a post-return re-harvest can read six.
+- Carried unmoved: F-a.6 · E-1/E-2/E-3 · ESC-c1 · ESC-d1 · ESC-d2.
+
+#### e.6 — Findings (F-e1..F-e14, each with an owner — the table is `W3-CLOSE.md` §7)
+
+F-e1 dimension-merge MIS_ACCEPT (MAJOR, grammar/X.P.W4) · F-e2 unrowed legacy-`hsl` divergence
+(MAJOR, `.d`-emitter/X.P.W4) · F-e3 ADJ-3/S-2 REJECT half not spec-backed, citation wrong (MAJOR) ·
+F-e4 shared hue non-normalization (MINOR) · **F-e5 shield load-bearing (HIGH = ESC-e1)** · F-e6 JS
+memory ceiling (INFO) · F-e7 regeneration drops §6.1 (MINOR) · F-e8 `.d` d.3 tallies not reproducible
+(MINOR) · F-e9 vacuous `lab` witness (MINOR) · F-e10 the shield is a third, live fallback arm C-4 does
+not count (MAJOR, rides E-2) · F-e11 K.7(i) third firing + 65 stubs + 130 flags (MINOR, orchestrator
+addendum-beside) · F-e12 L-13 5/6 (MINOR) · F-e13 the draft's corrections (INFO) · F-e14 no
+`r1-anchor-before.txt` exists; the BEFORE lives in B.1 / `W3.md` §6 (INFO).
+
+#### e.7 — E13 and the standing invariants, at this seat's clock
+
+Four paths swept read-only (14:39 EDT), classification from each row's **Status cell**: `V/coordination`
+newest `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` (ours, O-28) · `../glass-ui/docs/tranches/BK/`
+(**BK newest**) newest `glass-outbound-2026-09-18-valuejs-o26-reply.md` — rowed **I-35**, Track B's, its
+Routing cell says so · keyframes `VALUEJS-INBOUND-…-o8-o11-…` ours · atlas P-lane newest 08-03, rowed.
+⟨cmd⟩ `grep -o '^| I-[0-9a-z]*' INBOX.md | sort -u | wc -l` → **37**. Status cells reading UNREAD: I-30 ·
+I-31 · I-32 · I-33 · I-34 · I-35, each re-read row by row, **none X·P's** (their own Routing cells:
+*"No X·P wave, no X·P act"*, *"Glass is READ-ONLY always"*, *"Not X·P's"*, *"Track B"*). **0 unrowed
+value-addressed · 0 new `I-n` · 0 UNREAD in X.P.W3.e's scope.** `INBOX.md` is dirty with a sibling's
+hunk and is **not in this unit's writable set** — no sweep line was appended there; this paragraph is
+the sweep's receipt. This seat minted no mail and wrote zero bytes in any producer tree.
+
+**Format cadence (§7).** Prettier checked, deliberately not applied to this record (it already warns
+before this append; `--write` would rewrite five other seats' receipts). `git diff --check` clean on
+this seat's hand-written files. Gate 27 ⟨cmd⟩ `git status --porcelain -- src api demo test e2e | wc -l`
+→ **12**, all the concurrent X·V W1.a seat's (`.d`'s addendum-beside measured the same twelve); this
+unit's value.js write set is `docs/tranches/**` exactly. `/Users/mkbabb/Programming/parse-that`,
+`~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`, `../keyframes.js/**`, `../fourier-analysis/**`
+and `<p2>` carry **no byte** from this unit.
+
+**Verbs.** IMPLEMENTED **not stamped by this seat** (gates not green; the orchestrator's §9 close
+commit is the stamping act, X.P.W2's `complete_with_misses` precedent theirs to apply or refuse);
+VERIFIED is X.P.W4's alone (R-A). Status returned: **PARTIAL** — the unit's own acts are complete
+(close report, adjudication, chain, carve), its L-13 sub-gate reads RED by construction, and ESC-e1
+is returned rather than cured.
