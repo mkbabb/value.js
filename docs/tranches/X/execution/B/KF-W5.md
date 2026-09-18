@@ -1463,6 +1463,7 @@ origin's head at push time, which sibling tracks had advanced past this seat's e
 shared branch, stated rather than read as this seat's own commits.
 
 Close commits: **`9063de78`** (this §Close + the LEDGER row) · **`7306904c`** (the row names its own
-close sha) · **`<this commit>`** (these push receipts). ⟨`git status --porcelain`⟩ after the pushes:
+close sha) · **`070ed342`** (these push receipts, whose own sha is filled in beside them by the
+follow-on commit below). ⟨`git status --porcelain`⟩ after the pushes:
 `scripts/dev/dev.sh` still modified and **never staged**, plus the pre-existing unowned rows — unchanged
 by this seat. **No force, no stash, no reset, either repo.**
