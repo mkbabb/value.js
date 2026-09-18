@@ -2031,3 +2031,177 @@ Read-only, classification from each row's status cell, `INBOX.md` self-excluded.
 **NONE that block.** The two that held this wave — `ESC-4` and `ESC-7` — were ruled at COHESION §0o and are executed above. The one open question this unit returns is **not** a blocker and is **not** a request for a new ruling: it is residual 1, the ULP reading of ESC-4's own gate clause, published in both readings so the close seat and the owner can decide which one G19's record should carry.
 
 **Self-count**: this `### e` block is not counted in any figure above. Every published count is of the settled fourier bytes at `538db90`, of the read-only producer tree at `17a11bc5`, or of a registry artifact at its version — each double-run.
+
+---
+
+## RESUME 2026-09-18 (second sitting) — unit `e` LANDED; unit `f` is the wave's last owed unit
+
+**SERVED MODEL: claude-opus-5[1m]** — seat 0 (RESUME), Track C. This seat **cured nothing and wrote
+no product byte**: it ran the crash-recovery sweep, verified at the bytes which units' commits
+exist, swept E13, re-ran the wave's gates READ-ONLY at its own clock as unit `f`'s BEFORE baseline,
+and re-planned the ONE unit the wave still owes.
+**Clock**: 2026-09-18. **Writable set honoured**: this record (**appended only** — E-3; no dated
+cell above is rewritten) · `docs/tranches/X/execution/LEDGER.md` (Track C row's cells + one
+appended event-log line). **`docs/tranches/V/coordination/INBOX.md` was NOT written — see the E13
+section: the one unrowed letter this seat found was rowed `I-35` by a CONCURRENT sibling seat
+between this seat's read and its write, and the file is now dirty with that seat's uncommitted row.**
+**No other path written.** fourier-analysis · glass-ui ·
+keyframes.js · latex-paper · pencil-boil and the npm registry were **READ-ONLY** throughout.
+`scripts/dev/dev.sh` untouched and unstaged. Pathspec commits only. No `git stash`, no `reset`,
+no force-push.
+
+### Crash-recovery sweep (STANDING LAW) — run BEFORE any other act
+
+⟨cmd⟩ `git status --porcelain` in **both** repos this seat may write:
+
+- **fourier-analysis** → **0 lines**, double-run. Nothing inherited; the transaction settled clean.
+- **value.js** → 25 lines. **Zero of them are inside this seat's writable set.** Classified, so
+  nothing is mistaken for this seat's inheritance:
+  - `docs/tranches/X/COHESION.md` · `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` ·
+    `docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md` · `docs/tranches/V/reformation/CARRY-LEDGER.md`
+    · `docs/tranches/X/waves/W1-LOG.md` · `docs/tranches/X/waves/evidence/` ·
+    `docs/tranches/X/evidence/w1/**` · `e2e/smoke/**a11y-control-targets.spec.ts` ·
+    `demo/**` (10 files) — **sibling seats' (Tracks A · D)**; untouched, unstaged, unread as work.
+  - `scripts/dev/dev.sh` — **the standing unowned dirty path**; never staged, never touched.
+  - **`docs/tranches/X/fourier/evidence/w1/g20-join.mjs` (5,983 B) and
+    `docs/tranches/X/fourier/evidence/w1/shots/` (11 JPGs ⊕ `capture-records.json` 17,796 B ⊕
+    `capture-transcript.json` 432,496 B), mtimes 12:08 – 12:24** — **a KILLED unit `f` seat's
+    partial work**, and its first line names its author: ⟨cmd⟩ `head -1 …/g20-join.mjs` →
+    `// SERVED MODEL: claude-fable-5-1 — F.W1 unit f, the G20 instrument as run (see G20-CLOSURE.md
+    for the receipts).` **It is inside unit `f`'s writable set and OUTSIDE this seat's**, so this
+    seat neither judges nor finishes it — it **names it, and hands it to `f`** (below), which is
+    exactly what the law asks of a seat that finds a sibling unit's dirt.
+
+**What `f` inherits, stated so it reads the diff whole rather than re-cutting it.** The
+`G20-CLOSURE.md` the instrument's own header cites **does not exist** (⟨cmd⟩ `ls evidence/w1/` →
+five `.md` from units `a`–`c`, `g20-join.mjs`, `shots/` — no closure file, no `F-W1-LOG.md`), and
+the capture family's 11 shots stop at `11-morph.jpg` with no ledger written. **Unit `f` judges every
+inherited byte against §3's own gate definitions before it keeps one**: the instrument's stated
+detector must be the canonical's RETAINED derivation and not a re-cut rival (G20's own FAIL clause),
+and the shots are evidence only once a WU-F ledger row cites each by name. **Nothing inherited is
+done until `f`'s own gates measure it green.**
+
+### Preconditions, re-verified at the BYTES and in the LEDGER
+
+| conjunct | ledger | bytes (this seat's own commands) | verdict |
+|---|---|---|---|
+| **F.W0 CLOSED** | Track C row: `CLOSED 2026-09-17 (honest-RED: G-4 · G-5 · G-8 · G-15(d))` | fourier `m/w1-bump-migration` HEAD **`538db90`**, atop `3bac3d5` ← `5842377` (F.W0's last) | **MET** |
+| **begin-word** | `COHESION.md` §0j, 2026-09-17 | §0j present at the bytes | **MET** |
+| **ESC-1 ruled (G1)** | §0i.3 | unchanged and NOT re-opened; `grep -c "17a11bc5" F-W1.md` → **18**, **18** | **MET** |
+| **ESC-2 … ESC-7 ruled** | COHESION **§0o** (+ its 2026-09-18 erratum, read to the file end) | ⟨cmd⟩ (cwd `docs/tranches/X/`) `grep -c "ESC-2\|ESC-3\|ESC-4\|ESC-5\|ESC-6\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → `COHESION.md:8` · `EXECUTION-RUNBOOK.md:0`, **exit 0** | **MET** |
+| **unit `e` LANDED** (the resume's own precondition) | row cell to be moved by this seat | value.js **`582d9b04`** (Act 0, spec §9) ⊕ **`4fbca898`** (the `e` receipts); fourier **`538db90`** `feat(fourier)!: the atomic tri-package uplift`, **58 files · 1,500 insertions · 744 deletions**, and ⟨cmd⟩ `git log --oneline --all \| grep -ci "feat(fourier)"` → **1**, **1** | **MET — and `e` is NEVER re-dispatched** |
+
+**Units `a` · `b` · `c` · `d` · `e` are DONE.** Their commits, verified at the bytes in both
+histories: value.js `c05fc57e` · `59bd88b9` · `d883c8f7` · `70a87e7e` · `2a84bd5a` · `dcc266f2` ·
+`473a8098` · `8a3c2f8e` · `04ca65cd` · `f5f62b91` · `582d9b04` · `4fbca898`; fourier `3bac3d5`
+(unit `d`, the severable palette cure) · **`538db90`** (unit `e`, the atomic transaction).
+**The L-18 failure did not occur**: the twelve-limb roster landed as ONE commit.
+
+### E13 Step-0 — the four-path sweep, at this seat's own clock
+
+Read-only, classification taken from each row's **status cell**, never from a bare `grep -i unread`;
+`INBOX.md` self-excluded (SELF-COUNT law). Delta taken against **2026-09-18 11:5x**, the re-open
+sweep's clock. ⟨cmd⟩ `/usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-18 00:00'`:
+
+| # | path | hits | classification |
+|---|---|---|---|
+| 1 | `docs/tranches/V/` | **∅** | — |
+| 1b | `docs/tranches/V/coordination/` | `INBOX.md` (self) · `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` | **OURS — outbound**, rowed `O-28` |
+| 2 | `../glass-ui/docs/tranches/BK/coordination/` | `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` (OURS, `O-26`) · **`glass-outbound-2026-09-18-valuejs-o26-reply.md`** (mtime **12:17**) | **ONE INBOUND, unrowed at this seat's READ — rowed `I-35` by a CONCURRENT sibling seat before this seat's write** |
+| 3 | `../keyframes.js/docs/tranches/V/coordination/` | **∅** | — |
+| 4 | `../sci-report/atlas/docs/tranches/P/coordination/` | **∅** | — |
+| 5 | *(Track-C extension, COHESION §0k.1)* `../fourier-analysis/docs/tranches/F/coordination/` | **∅** | no reciprocal to O-22/O-27 yet |
+
+**BK re-confirmed the newest glass tranche dir** — ⟨cmd⟩ `ls -dlt ../glass-ui/docs/tranches/*/ | head -3`
+→ `BK/` (Sep 17 20:15) · `BJ/` (Aug 3) · `BI/` (Jul 28).
+
+**Result: 0 unrowed letters at this seat's WRITE · 0 new `I-n` minted by this seat · 0 new `O-n` ·
+`INBOX.md` NOT touched and NOT in this seat's commit.** The letter was unrowed when this seat read
+the file (⟨cmd⟩ `grep -c "o26-reply" docs/tranches/V/coordination/INBOX.md` → **0**) and rowed when
+this seat re-read it immediately before editing (→ **3**, `| I-35 | 2026-09-18 12:17 (ROWED
+2026-09-18, X-W1 RESUME) |`, status **UNREAD 2026-09-18**). **A concurrent Track A seat minted it in
+that window, and its row is still UNCOMMITTED** (⟨cmd⟩ `git status --porcelain --
+docs/tranches/V/coordination/INBOX.md` → ` M …`). **So this seat writes nothing there**: minting a
+second `I-35` would duplicate the row, and committing the file would sweep a sibling seat's
+uncommitted bytes into a Track C commit — the measured X-W0 contamination class the LAW block names.
+The re-read-before-write rule is what caught it. `I-35` is glass-ui's **O-26
+reply** (41,738 B), addressed to **Track B (X·KF, the KF.W6 relay seat)** — its `§4` asks value.js
+to re-install glass from the registry and to name the demo's CSS entry. **It is NOT in F.W1's
+scope**: its only fourier token is `fourier-f`, a font-family name inside R-12's italic answer, and
+it mints no fourier obligation — a reading the sibling's own row reaches independently (*"Routing:
+X·KF (Track B)"*). `I-32` · `I-33` · `I-34` still carry
+`UNREAD 2026-09-17`, materially consumed by unit `b`, their durable cells Track D's — **named again
+so unit `f`, the seat that closes, meets them at its first line.**
+
+### Resume baseline — read-only at this seat's clock, double-run where load-bearing
+
+**R.2 declaration up front.** Every GREEN below is **by a unit that already landed** — `a` (G1),
+`b`/`c` (G5 · G7 · G14-condition · G16), `d` (the palette cure), `e` (G4 · G6-atomicity · G8 ·
+G10-deletion · G11 · G13 · G14-application · G19-at-the-spec · the G5 landing cell) — or by
+**predecessor** (G3, F.W0's landing). **None is unit `f`'s, and none was moved by this seat.**
+
+| gate | reading at this seat (⟨cmd⟩ → output) | verdict |
+|---|---|---|
+| **G1** RE-PIN | `grep -c "17a11bc5" docs/tranches/X/fourier/waves/F-W1.md` → **18**, **18** | **GREEN** (unit `a`) |
+| **G2** corrupt-dist *(F.W0's; F.W1 owed the RECORDING)* | recording discharged at `F-W1.md` §8.3; absence at the adopted pin confirmed by `e`'s green production build rather than re-asserted | **DISCHARGED as F.W1 owes it** |
+| **G3** substrate settle | `git -C ../fourier-analysis status --porcelain \| wc -l` → **0**, **0** | **GREEN** ⚠ green-before-cure, **by predecessor** |
+| **G4** emission pre-gate | GREEN at unit `e` (one clean production build; the four emitted-css probes `size-(--ui-glyph)` 0 · `.h-3\.5` 2 · `rounded-pill` 2 · `animate-collapsible` 0). Not re-run here: its `npm run build` writes `web/dist`, a §1 read-only witness | **GREEN** (unit `e`) |
+| **G5** P0 CSS-class census ⊕ landing cell | `evidence/w1/G5-CSS-CLASS-CENSUS.md` **25,617 B**; the three re-targets applied — `grep -rn 'text-admin-label' web/src` → **0** | **GREEN + APPLIED** (`c` ⊕ `e`) |
+| **G6** atomic land-or-lose | `git log --oneline --all \| grep -ci "feat(fourier)"` → **1**, **1**; `git show --stat 538db90` → **58 files, 1500 insertions, 744 deletions** | **GREEN on atomicity · the four e2e specs UNRUN — `f`'s half** |
+| **G7** Button budget ⊕ application | `evidence/w1/G7-BUTTON-BUDGET.md` **15,402 B**; applied at limb 2 (129 breaking occurrences / 34 files) | **GREEN + APPLIED** (`c` ⊕ `e`) |
+| **G8** touch-floor | 35 migrated icon sites carry `icon-only`; the coarse-pointer `min-block-size` rule keys off `[data-control-target]` in the emitted sheet | **GREEN** (unit `e`) |
+| **G9** token-family sweep *(acceptance only)* | `grep -rn -- "--slider-scrub" web/src \| wc -l` → **23**, `-l` → **7** — double-run identical | **RED — operand unchanged BY DESIGN; the execution is F.W3/W4's** |
+| **G10** disclosure-deletion | deletion GREEN at `e` (both twins, `animation:` → no output, `overflow: hidden` excluded on both) | **GREEN on the deletion · the five-surface close witness UNRUN — `f`'s half** |
+| **G11** module resolution | (cwd `web/`) `npx vue-tsc -b --force \| grep -c 'error TS2307'` → **0**; by code **17 `TS6133` ⊕ 1 `TS6196` = 18**, double-run identical, TS2882 and TS2769 both **cured** | **GREEN on its own condition** (unit `e`) |
+| **G12** easing re-point BY EXECUTION | `timingFunctions` and the bare-root specifier are gone (`grep -rn '"@mkbabb/value.js"' web/src` → 0 at `e`); the morph must still be RUN — `play()` resolves and `phase` returns to `"idle"` | **RED — probe UNRUN; `f`'s** |
+| **G13** peer-graph closure | (cwd `web/`) `npm ls --all` → **exit 0** at this seat's own clock; `@lucide/vue ^1.16.0` declared (`:14`), `lucide-vue-next` **0** in manifest and **0** in `web/src`; `vaul-vue` absent by limb 6's **second arm** (the producer retired the barrel edge; 0 `vaul-vue` edges at 8.0.0) | **GREEN** (unit `e`) |
+| **G14** pencil-boil floor ⊕ application | `grep -n "pencil-boil" web/package.json` → `:18 "^0.11.2"` | **GREEN + APPLIED** (`c` ⊕ `e`) |
+| **G15** non-credit discharge | (b) GREEN · (c) GREEN · **(a) half-GREEN**: the transaction's commit-body half LANDED — ⟨cmd⟩ `git show 538db90 --format=%B --no-patch \| grep -in "pagination"` → `:147 G15 NON-CREDIT, STATED IN TERMS: this uplift transaction is NOT credited with` · `:148 curing the whole-collection pagination drain.` · `:151 here is planned around ./pagination (AA-11 holds).` **The CLOSE-REPORT half does not exist** | **RED on (a)'s close-report half — `f`'s** |
+| **G16** latex-paper sufficiency | `grep -rn "hsl(var(" web/src \| wc -l` → **0**; seated on **arm 2** with NWO-5's named owner | **GREEN on the second arm** ⚠ green-before-`f`'s-cure — `f` only RE-STATES the seating |
+| **G17** cartoon-card order | no written ordering exists: ⟨cmd⟩ `grep -rln "FR-EQC-3" evidence/` → only `evidence/w1/G5-CSS-CLASS-CENSUS.md` (the census's finding, not the ruling) | **RED — an unpaid debt; `f`'s, the wave's only design seat** |
+| **G18** binding-verification probe | a real post-uplift drag must fire `anim.startScrub()` (`anim.scrubbing === true` mid-drag); I-32's `A-10` read against PD-1's disjunction is still unstated | **RED — probe UNRUN; `f`'s** |
+| **G19** owner rulings recorded | `grep -c "ESC-2\|…\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → `COHESION.md:8` · `EXECUTION-RUNBOOK.md:0`, exit 0, double-run; recorded at the SPEC too (`F-W1.md` §9, `582d9b04`) | **GREEN** (COHESION §0o ⊕ unit `e` Act 0) |
+| **G20** closure, both sources | leg (b)'s frozen operand `shasum -a 256 conformance/CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`**, **`f44362757458`** (double-run) — the pinned digest, unmoved; leg (a)'s operand `carry/F-W1-CARRY.md` present (**119,365 B**). **Neither set-difference has been RUN and no `G20-CLOSURE.md` exists**; the killed `f` seat's `g20-join.mjs` is inherited, unjudged | **RED — `f`'s act, still unpaid** |
+| **ESC-4 sampler gate** | `e` published it both ways: 14/14 orphans and 3/8 survivors BIT-EXACT, 1 signed-zero-only, **4 survivor keys ≤ 4.440892098500626e-16** | **GREEN on the ruling's purpose clause · RED on its literal clause for 4 keys — `f` + the owner read it** |
+
+**Tally at the resume — 20 gates: 13 GREEN · 6 RED · 1 DISCHARGED-as-owed (G2).** The six RED are
+**G9** (acceptance-only, deliberately unmoved — F.W3/W4 executes it), **G6**'s e2e half, **G10**'s
+witness half, **G12** · **G15(a)** · **G17** · **G18** · **G20** — **every one of them unit `f`'s**,
+and none of them blocked. **The delta against the re-open baseline is +6 gates GREEN, all by unit
+`e`'s one transaction.**
+
+**Two operand facts banked so `f` does not re-derive them.** (1) ⟨cmd⟩ `grep -rn 'variant="outline"'
+web/src | wc -l` → **9** over **5** files — **not a survival of the retired register**: seven are
+prose inside `/* */` CSS comments or a TS docblock (`BasisSelector.vue:248` · `GallerySearchBar.vue:205`
+· `GalleryCard.vue:267` · `GalleryCardModal.vue:205,233,246` · `notation.ts:6` — unit `e`'s residual 5,
+the "9 comment-resident mentions"), and the two live ones (`GalleryCard.vue:118` ·
+`GalleryCardModal.vue:132`) are **`<Badge variant="outline" size="sm">`**, read at the bytes, which
+is precisely what ESC-7's ruling preserves. (2) `web/e2e/` holds **8** `.spec.ts`; G6's four are
+`f`'s to name and run unfiltered.
+
+### Unit plan (resume) — ONE unit
+
+`[["f"]]` — the wave owes exactly one unit, so there is no concurrency question and no disjointness
+to enforce. **Units `a` · `b` · `c` · `d` · `e` are DONE and are never re-dispatched.** The unit's
+model, sections, writable set, gates and locks are the RE-OPEN plan's `#### Unit f` **unchanged and
+un-re-litigated** (this seat re-plans nothing that landed); what this section adds is the three
+facts the killed seat's death created:
+
+1. **`f` inherits `evidence/w1/g20-join.mjs` and `evidence/w1/shots/` (11 JPGs ⊕ two JSON).** Both
+   are inside its writable set. It reads the instrument whole and judges it against **G20's own
+   retained detector** — a rival re-cut is the gate's FAIL clause, not a shortcut — and it keeps the
+   shots only as rows of the WU-F ledger it must author anyway. **Nothing inherited counts until
+   `f`'s own gates measure it green**, and the receipt names every inherited path.
+2. **`f` reads unit `e`'s residual 1 (the ESC-4 ULP reading) and publishes a disposition** — the
+   purpose clause is met by measurement, the literal clause is not on four survivor keys. `f` states
+   which reading G19's record carries, or returns it to the owner named; it may not green the
+   literal clause by re-interpreting it.
+3. **`f` verifies `e`'s G15 commit-body half landed** (it did, `:147-151` above) **and writes the
+   close report's half**, which is the only thing standing between G15 and GREEN.
+
+**`f` is the seat that closes**, so E13's law binds it: no wave closes with UNREAD mail in scope —
+`I-32` · `I-33` · `I-34` (materially consumed by `b`, durable cells Track D's) and the sibling-minted
+**`I-35`** (Track B's, not F.W1's scope) are all named above so the close cannot forget them. **`f`
+re-runs the four-path sweep at its own clock rather than trusting this table** — `I-35` arrived
+inside this seat's own read-to-write window, which is the best available proof that a banked sweep
+goes stale within the hour.
