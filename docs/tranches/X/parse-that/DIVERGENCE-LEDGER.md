@@ -629,3 +629,51 @@ settled, named by this seat so the choice is not left to convenience:
 A fourth claim, outside the ledger but named in `.e`'s own obligations, is `.c`'s: that the retained
 shield is non-load-bearing. Its evidence is `.c`'s T-1/T-1b/T-2/T-3/T-4 and it is designed to be
 refutable at the bytes.
+
+### §6.1 — Adjudication, X.P.W3.e (SERVED MODEL: claude-fable-5-1 · 2026-09-18 14:29–14:40 EDT)
+
+**Standing.** This section is the one hand-written block in a generated file, by `W3.md` §4a's grant
+(*"`.e` writes … the ledger's adjudication section"*). Everything above it is `.d`'s emitter's and is
+untouched (631 L, sha256 `957f54f4…` at `0e9bac30`). **If the emitter is re-run, it will drop this
+section**: any regeneration must re-append it (F-e7 in `waves/W3-CLOSE.md` §7). A first `.e` seat
+died uncommitted with a draft of this block in the tree (`X-P-W3.md` F-r2.1); the draft was read
+whole, every measurement in it re-run at this seat's clock, and this block is the **rewritten**
+result — the full outputs, the fetched spec text and the corrections to the draft are in
+`waves/W3-CLOSE.md` §0 and §3 R-ii. This seat authored none of the wave's bytes before this block;
+every reading below was taken twice from the scratchpad against the settled `<p2>` bytes at `dc52ed5`
+and was identical across the two runs.
+
+**Method.** L-14: refute, never average. The three drafts were fetched at this clock
+(`drafts.csswg.org/{css-color-4,css-syntax-3,css-values-4}/`, 2026-09-18 14:34 EDT) and every quoted
+sentence was found verbatim in them. Targeted inputs were run through the sha-pinned published 4.0.0
+oracle (`7f80658c…`) and BOTH candidate lowerings (js ≡ wasm on every row). A row is UPHELD only where
+the spec's own sentence supports its reading and no measured input contradicts it.
+
+| row | attempt | outcome |
+|---|---|---|
+| **PB-03** — the two `hsl` spellings | (a) read css-color-4 §7.1 for the number/percentage equivalence; (b) look for an input the generalized reading mis-handles: the **legacy** comma form with bare numbers | **(a) UPHELD, verbatim**: `<modern-hsl-syntax> = hsl( [<hue> \| none] [<percentage> \| <number> \| none] [<percentage> \| <number> \| none] [ / [<alpha-value> \| none] ]? )` and *"For saturation, 100% or 100 is a fully-saturated, bright color … For lightness, 50% or 50 represents the "normal" color"* — a bare `50` **is** `50%`, so `[120, 0.5, 0.5]` is the spec's value and the incumbent's `[120, 50, 50]` is the defect. **(b) NOT refuted — but a NEW divergence surfaced**: `<legacy-hsl-syntax> = hsl( <hue>, <percentage>, <percentage>, <alpha-value>? )` admits **no** `<number>`; measured, `hsl(120, 50, 50)` → incumbent `ok {hsl,[120,50,50]}` (**MIS-ACCEPT**, an R-class instance), candidate `REJECT css_syntax [11,16) expected ["<percent-sign>"]` in both lowerings (spec-correct); `hsl(120, 50%, 50)` → incumbent `ok {hsl,[120,0.5,50]}`, candidate `REJECT [16,17)`. Neither input is in any ledger row; this is exactly the "unrowed intentional difference" G-7 counts as a defect. Returned as **F-e2** for a `.d`-emitted row at X.P.W4, not hand-added here |
+| **S-1 / ADJ-2** — token juxtaposition | find an input on which "the css-syntax token-stream reading browsers implement" and the candidate's acceptance part ways: a number immediately followed by an ident-start | **REFUTED as stated.** css-syntax-3 §4.3.3 (*consume a numeric token*): *"If the next 3 input code points would start an ident sequence, then: Create a <dimension-token> with the same value, type flag, and sign character as number, and a unit set initially to the empty string. Consume an ident sequence. Set the <dimension-token>'s unit to the returned value."* — so `120deg50` is ONE dimension-token with unit `deg50`, and `255none` ONE with unit `none`; both are invalid in any colour grammar. Measured: `hsl(120deg50%50%)` → candidate **`ok {hsl,[120,0.5,0.5]}`** (js and wasm), incumbent REJECT; `rgb(255none none)` → candidate **`ok {rgb,[255,"none","none"]}`**, incumbent REJECT. The three rowed inputs (`rgb(50%20%30%)` · `rgb(1.5.5 3)` · `hsl(120 50%50%)`) **remain correctly accepted** under §4.3.3 (a `%` cannot start an ident sequence; `.5` starts a number), as do `rgb(255-0 153 / 0.5)` (`-0` is a number-token) and `hsl(120 50%none)` (percentage-token, ident-token); `rgb(1e 2 3)` and `rgb(none255 0)` are rejected by both engines. The candidate therefore implements *whitespace-optional juxtaposition at the grammar level*, a strict superset of the tokenizer's maximal munch, and the row's spec citation does not license the dimension-merge acceptances. **Adjudication**: the row's *direction* ("WIDENS acceptance") stands but is understated — in this class the widening exceeds css-syntax, which is a candidate **MIS_ACCEPT against the spec** and the strongest evidence yet for the owner's reserved overrule toward cand-F's stricter line. Returned as **F-e1** (grammar act, X.P.W4) |
+| **ADJ-3 / S-2** — non-finite numerals | test the REJECT half ("reject the unclamped non-finite channel") against the spec's own words for hue, and check the row's citation | **REFUTED on the REJECT half for `<hue>`; UPHELD on the clamp half; the citation is wrong.** css-color-4 §4.3 (*the <hue> syntax*): *"This number is normalized to the range [0,360). … In hsl(calc(-infinity) 0 0) or hsl(calc(infinity) 0 0), the <hue> component is again normalized to 0 degrees."* css-values-4 §5 (Numeric Data Types, the paragraph before §5.1): *"When a value cannot be explicitly supported due to range/precision limitations, it must be converted to the closest value supported by the implementation … If an <angle> must be converted due to exceeding the implementation-defined range of supported values, it must be clamped to the nearest supported multiple of 360deg."* Neither sentence makes an over-range hue invalid; both give it a **finite** value. Measured: `hsl(1e400 0% 50%)` → candidate `REJECT css_syntax [17,17) expected ["<finite-number>"]`, `oklch(0.5 0.1 1e400)` → `REJECT [20,20)`, both lowerings — contrary to both sentences. The clamp half is upheld: `rgb(1e400 0 0)` → `[255,0,0]`, `rgb(-1e400 0 0)` → `[0,0,0]`, `rgb(0 0 0 / 1e400)` → alpha 1 (css-color-4 §4.2, alpha *"clamped to that range at parsed-value time"*). The row cites *"css-values-4 §10.9 — a numeric token outside the implementation range is not a <number>"*: **§10.9 exists and is *Type Checking*** (math functions); the sentence attributed to it appears **nowhere** in the current draft (0 regex hits for its phrases), and §10.12 *Range Checking* says out-of-range does *not* invalidate. **Adjudication**: the GROUND-C `±Infinity` contract question stays **OWNER-OWED** (`W3.md` §10) and is not ruled here; but the ledger may no longer describe the REJECT half as a spec reading — it is cand-O's *preference*, and the spec-aligned disposition for a non-finite hue is normalization to 0deg. Returned as **F-e3**. Beside it, **F-e9**: the row's `lab(50 1e400 0)` witness is honoured **vacuously** — `lab` is a declared coverage narrowing (`R_disp` carries no `lab` head), so `lab(50 10 10)` is rejected with the identical `[0,13) ["<color>"]` and the witness tests nothing about non-finite handling |
+| **ADJ-1** — hue not wrapped at parse time (observation, not a divergence) | read §4.3 against both engines | Both the incumbent and the candidate return `hue 480` for `hsl(480 50% 50%)`, `−120` for `hsl(-120 …)`, `360` for `hsl(360 …)`; §4.3 says the number *"is normalized to the range [0,360)"* and *"In hsl(360 0 0) the <hue> component is normalized to 0 degrees"*. This is a **shared** non-normalization, so it is not a candidate-vs-incumbent divergence and reddens nothing here; it is recorded for X.P.W4's adoption packet as a value-level question (**F-e4**) |
+| **PB-01 · PB-02 · PB-04 … PB-13** | not individually re-derived | Each is `parser-band.md`'s direct-probe finding against the published parser with a standard css-color-4 citation; this seat re-ran the twenty-two witnessed inputs through both lowerings at G-1's and G-6's own commands (`22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured`, twice) and did not attempt a per-row refutation beyond the three §6 named. **Carried as adjudicated**, not re-adjudicated |
+| §3 fixtures · §4 label · §5 narrowing | no spec reading is claimed by these rows | not adjudicated; `.d`'s own disclosure that R2/R4 are unreached and R5 has no corpus cell (F-d6) stands |
+
+**The signed reading.** Of the three rows §6 offered, **one is upheld (PB-03), one is refuted as
+stated (S-1/ADJ-2), and one is half-refuted with a wrong citation (ADJ-3/S-2)**. Two of the three
+"declared divergences" are therefore not yet *defensible readings of the specification* in the form
+the ledger carries them; they are convenient readings that the spec's own sentences overrun in at
+least one measured direction each. None of this moves G-7's number — the 5,890 cells stand as `.d`
+measured them and as this seat re-measured them (`equivalence-full-surface.json` regenerated
+sha256-equal) — but it does move the *character* of part of that number: the candidate's unadjudicated
+`MIS_ACCEPT` samples `.d` printed split in both directions (`rgb(255-0 153 / 0.5)` is spec-VALID under
+§4.3.3, `255` then `-0`; `hsl(120deg50%50%)`-class inputs are spec-INVALID), which is why the "counted
+AGAINST the candidate" convention was the right one and why a spec-executable oracle is the missing
+instrument. The consumer-direction fields of S-1/ADJ-2 and ADJ-3/S-2 are **amended beside, here, not
+edited above**: S-1/ADJ-2 — *widens acceptance, and in the dimension-merge class widens it beyond
+css-syntax*; ADJ-3/S-2 — *the REJECT half is not spec-backed for hue; the spec value is 0deg*.
+
+**The fourth claim** §6 named — that the retained shield is non-load-bearing — is **REFUTED** at
+`waves/W3-CLOSE.md` §3 R-iii (the Wasm lowering's fixed regions; ESC-e1) and is not a ledger matter,
+except in one respect recorded here: the rejection the shield emits (`css_syntax [0,len) ["<stylesheet>"]`
+for a valid 8,191-rule stylesheet) is a **FALSE_REJECT of a valid input** that no row of this ledger
+declares, because no corpus cell reaches it.
