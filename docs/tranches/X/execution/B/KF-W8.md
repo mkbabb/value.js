@@ -266,3 +266,165 @@ No two units share a modify path in adjacent groups by construction (there is no
 
 *(empty at open — each unit appends its own receipt, dated, with its served model on line 1 of any
 file it creates and its commands quoted ⟨cmd⟩ … → output)*
+
+### a
+
+**SERVED MODEL**: `claude-opus-5[1m]`. **Date**: 2026-09-18. **Unit**: `a` — re-baseline the census at
+the stated ref; publish `KF-W8-census.md`. **Gates**: *feeds all* · **binds G14's enumeration**.
+**Writable set**: `docs/tranches/X/keyframes/waves/KF-W8-census.md` (one path). **Status: DONE.**
+
+#### Act 1 — crash-recovery sweep (STANDING LAW), before any other act
+
+⟨cmd⟩ `git status --porcelain` in `/Users/mkbabb/Programming/value.js` → **15 rows**; in
+`/Users/mkbabb/Programming/keyframes.js` → **2 rows, both `??`** (our own two delivered letters).
+⟨cmd⟩ `ls docs/tranches/X/keyframes/waves/KF-W8-census.md` → **No such file or directory**.
+**No killed predecessor seat's work exists inside this unit's writable set — nothing inherited, nothing
+stashed, no dirty path outside the set touched.** `scripts/dev/dev.sh` (dirty by standing arrangement)
+was never opened.
+
+#### Act 2 — the substrate, stated
+
+⟨cmd⟩ `git rev-parse HEAD origin/master master` (kf) → **`1fa98a5d8fa53cd6b408b3094195b9f8c12ab32f`**
+three times. **`master == origin/master == HEAD == 1fa98a5d`, NOT the spec's `81a56990`**, which is
+seven waves stale (KF.W0·W1·W2·W4·W5·W6·W7 all landed since). Every figure below is re-derived at
+`1fa98a5d`, **double-run**, each command printed with its output beside the spec's dated reading;
+**E-3 — the spec's readings are RECORDED, never struck.**
+
+#### Act 3 — D-19 rows 1–12, re-derived (census §1)
+
+| row | spec @ `81a56990` | **this seat @ `1fa98a5d`** | verdict |
+|---|---|---|---|
+| D-19-1 | `debounce:16` · `convertPixelsToCh:28` · `helpers.ts:9` · `browser.ts:1-3`/`:23` | identical, coordinate for coordinate | **UNMOVED** |
+| D-19-2 | the `:1-8` docblock naming this wave | byte-identical at `:1-8` | **UNMOVED** |
+| D-19-3 | 2 in `keyframes/`; G1 = 7 stmts / 6 files / 4 modules | 2 in `keyframes/`; **G1 = 8 / 7 / 4** | **MOVED** — the 8th (`KeyframeTimeline.vue:363`) is **unbounded** |
+| D-19-4 | AV `:45` deep import · `:46` clamp · wire `:79` | **`:65`** · **`:66`** · wire **`:99`** | **UNMOVED in identity, +20 in coordinate** |
+| D-19-5 | one `src/` child; **8** stutters | one child; **8** stutters, path for path | **UNMOVED** |
+| D-19-6 | HeroAurora sole importer `App.vue:147` (static) | **2 consumers, both DYNAMIC**: `App.vue:163-164` · `aurora-opacity-ceiling.test.ts:62` | **basis MOVED, conclusion (duo) STANDS** |
+| D-19-7 | `controls-pane/` holds `ControlsPaneWrapper.{vue,css}` + `RibbonBar.vue` | identical | **UNMOVED — m-4 still does not reproduce as worded** |
+| D-19-8 | 130 tests / 27 `test/demo` / 9 `test/demo/instrument` | **152 / 35 / 16** (+2 `bench/`) | **MOVED** — the 7 new files are exactly DH-3's KF.W4(2)/W5(1)/W7(4) creates; the nine read-only are all present |
+| D-19-9 | up-imports RED at **3** | **RED at 2** | **MOVED** — the third died with `KfPillTabs.vue` in KF.W6's S-1/KPT-SUP-4 family (`git ls-tree … \| grep -i KfPillTabs` → exit 1). **DISCHARGED, not ignored** |
+| D-19-10 | AnimatedText one importer `EditorStartScreen.vue:62`; `TypingDots:4` prose | one importer **`:137`**; `TypingDots` prose at **`:4` AND `:93`** | **conclusion STANDS — AnimatedText stays in `shell/`** |
+| D-19-11 | `getBoundingClientRect()` = 11 lines / 10 files; `useDragScrub` zero | **13 lines / 11 files**; `useDragScrub` **still zero** (exit 1) | **MOVED** — enumerated at census §3 |
+| D-19-12 | the family is **FIVE** sites (4 `export *` barrels + KF-CE-40) | **TWO live in-bounds sites**: `instrument/index.ts` **ABSENT** · `transport/index.ts` **ABSENT** · `shell/index.ts` present but **NO-ACCESS (KF.W6's)** · `keyframes/index.ts` (**KF-CE-40 = its `:11`**) + `timeline/index.ts` live | **MOVED** — G4 clauses 1 and 4 GREEN-BEFORE-CURE |
+
+**KF-CE-40 located at the bytes** (the spec never pathed it): registry `kf-CSSCodeEditor.md:76`/`:101`
+name it as `keyframes/index.ts:11`'s lazy `CSSCodeEditor` export. Both registry statements reproduce —
+the two consumers (`KeyframesStringControls.vue:57` · `KeyframeTimeline.vue:357`) import the SFC
+**statically**. **The fifth site is a line of the second, not a fifth file.**
+
+#### Act 4 — LAW A census A-1…A-10, re-derived from the import graph (census §2)
+
+Nothing inherited from `KF-W6-CARRY.md`, the spec's text, this record, or a prior pass. Each census =
+specifier sweep ∪ symbol sweep with every hit resolved to its own specifier.
+
+| # | spec | **this seat** | verdict |
+|---|---|---|---|
+| A-1 | 0 | **MOOT** — `instrument/index.ts` absent (`git cat-file -e` → fatal) | module gone |
+| A-2 | 0 | **0** — specifier sweep exit 1 **and the umbrella `export *` is gone with the umbrella**; all 3 members resolve to SFCs | **0, and stronger** |
+| A-3 | 0 | **0** — same; `TimelineKeyframe`'s **9** consumers all import `timelineTypes` | **0, and stronger** |
+| A-4 | 0 | **MOOT** — `transport/index.ts` absent | module gone |
+| A-5 | 4 | **4** — `KeyframeCard.vue:133` · `KeyframesEditor.vue:233` · `EasingTarget.vue:181` · `StartingStyleTarget.vue:150` | **reproduces; 4 coordinates moved** |
+| A-6 | 1 | **1** — `KeyframeCardList.vue:46` | **reproduces** |
+| A-7 | 1 | **2** — `TimelineTrack.vue:296` **+ `test/demo/instrument/timeline-mount-keyboard.test.ts:28`** (KF.W7 create, **unbounded**) | **MOVED** |
+| A-8 | 1 | **2**, both dynamic — `App.vue:164` · `aurora-opacity-ceiling.test.ts:62`; **plus `scripts/gates/census.mjs:528`**, the literal path inside `EMBEDDED_SITES`, in **DO-NOT-TOUCH** territory | **MOVED + a new obligation** |
+| A-9 | 7 | **12** — 7 bounded (incl. the two declared exceptions), **5 unbounded** (KF.W7 creates/edits) | **MOVED** |
+| A-10 | 7 demo | **8 demo**; **the library half reproduces EXACTLY**, including the round-4 `3 → 4` on `compile/emit/css-text`; `resize-tracks.test.ts`'s relative reach survives at **`:41`** | **MOVED (demo half only)** |
+
+**Two findings the wave record's F-5 did not carry**: A-9's consumers 2 and 5
+(`useTimelineBuild.ts`, `timelineEngine.ts`) sit **one line above** their §Bounds grants (`:7` where
+the row says `:8`; `:15` where it says `:16`) — a seat executing from the coordinate column carves the
+wrong line in two files it *is* lawfully bounded for. **A-8's `scripts/gates/census.mjs:528` is new**:
+a `git mv` of `HeroAurora.vue` breaks a **KF.W4-owned** gate script this wave may not repair.
+**Recorded with its owner named; unit f's to escalate, never to widen.**
+
+#### Act 5 — G14's host enumeration (census §3) — **THIS UNIT'S, AND IT BINDS THE GATE**
+
+⟨cmd⟩ `git grep -n 'getBoundingClientRect()' HEAD -- demo` → **13 lines**; `-c` → **11 files**
+(run 1 = run 2). **All 13 lines across all 11 files are enumerated, classified and dispositioned —
+the falsifier's own requirement. Omitting one fails G14.**
+
+**Rule stated at the receipt**: *PROJECTOR* iff the rect produces a normalized position (0..1, or an
+affine remap — percent, NDC, a scaled unit); *BARE RECT READ* iff consumed as absolute geometry;
+*NON-CODE* otherwise.
+
+**Arithmetic**: 13 lines / 11 files raw → **1 NON-CODE** (`HeroAurora.vue:189`, a `//` comment in the
+KF-APP-49 decline note — **there is no rect read in that file**) → **12 executable / 10 files** →
+**9 PROJECTORS · 3 BARE READS** (`useMenubarMeasure.ts:13` · `AnimationVisualizer.vue:219` ·
+`SquareScene.vue:245`) → of the 9, **3 are SEAM-SEATED** (`SequenceScrubber.vue:92` ·
+`SequenceTarget.vue:215` · `SpringTarget.vue:238` — each *is* `useDragScrub`'s `project` callback) and
+**6 are HAND-ROLLED** → **exactly ONE hand-rolled projector is in this wave's bounds:
+`AnimationVisualizer.vue:124`**, body **`:121-130`**, call sites **`:230`/`:235`**, ball rect read
+**`:219`** (spec: `:104` / `:101-110` / `:210`/`:215` / `:199` — **+20 wave-wide**).
+⟨cmd⟩ `git grep -c 'getBoundingClientRect' HEAD -- demo/composables/useDragScrub.ts` → **exit 1, ZERO**
+(the falsifier's seam clause armed and satisfied).
+
+**TEN out-of-bounds hosts, each with its owner** (census §3.4): `useMenubarMeasure.ts` → **TD-1/TD-2,
+NO-WAVE-OWNER + BH rider, DO-NOT-TOUCH** · `useZoomPan.ts` + `TimelineTrack.vue` (**2** lines now, was
+1) → the W7-named `instrument/timeline/` cluster; this wave carves `:296` for the up-import repoint
+only · the six scene hosts (`useSphereSpin.ts` · `SequenceScrubber.vue` · `SequenceTarget.vue` ·
+`SpringHeatmap.vue` · `SpringTarget.vue` · `SquareScene.vue`) → the scene-repair packets, recorded as
+inbound cargo at `KF-W10 §6.D · SUCCESSOR-FORMATION REGISTER` (anchor-only) · **`HeroAurora.vue`, NEW**
+→ bounded for a **pure `move`** only, no body byte granted, its occurrence is prose and a `git mv`
+carries it unchanged. **This wave promises nothing on the ten and books no act against any of them.**
+
+⟨**E-3 observation, recorded not struck**⟩ The spec's G14 limb 3 is headed *"THE EIGHT OUT-OF-BOUNDS
+HOSTS"* and then **enumerates nine**. **The enumeration was right; the numeral was short by one.** Its
+numeral is recorded as its dated reading and is not corrected in it; this seat's enumeration is the
+binding one and reads **ten** at this substrate.
+
+⟨**charter observation, handed to unit h, ruled by nobody here**⟩ D-19-11 frames the seam as *"the seam
+owns projection, callers own rect reads."* At these bytes `useDragScrub.ts`'s own docblock says the
+opposite in its own voice — *"each scene now supplies ONLY its `project` … `project` is pure (the
+scene's geometry)"*. **The seam owns the drag LIFECYCLE and the select-suppression token; projection is
+the caller's by the seam's published contract**, which is why three scene hosts hold a rect-ratio inside
+a `project` callback and are **not** defects. Unit h's consolidation should therefore land the
+`AnimationVisualizer` projector **as a `project` callback on the seam**, the shape its three in-tree
+siblings already take — not by inventing a rival mechanism inside `useDragScrub.ts`.
+
+#### Act 6 — WRITE-THEN-MEASURE + SELF-COUNT
+
+⟨cmd⟩ a 16-figure double-run harness over the settled bytes → **`SAME` on all sixteen** (HEAD · src
+children 1 · stutters 8 · deep-import files 7 · statements 8 · rect lines 13 · rect files 11 ·
+up-imports 2 · tests 152 · test/demo 35 · test/demo/instrument 16 · barrels 3 · A-9 12 · A-5 4 ·
+A-7 2 · A-8 2). Pasted at census §4.
+
+**SELF-COUNT over the published artefact**, read back from the settled bytes:
+⟨cmd⟩ `wc -l KF-W8-census.md` → **637**; `head -1` → **`SERVED MODEL: claude-opus-5[1m]`**;
+§3.1 table rows → **13**, numbered `1…13` with no gap; §3.4 disposition rows → **10**;
+all 13 measured coordinates present (each ≥2 occurrences); `A-1…A-10` → **10/10**;
+`### D-19-1 … ### D-19-12` → **12/12**.
+
+#### Commits
+
+| hash | meaning | pathspec |
+|---|---|---|
+| `fa2417d7` | the census artefact | `docs/tranches/X/keyframes/waves/KF-W8-census.md` |
+| *(this record)* | unit `a` receipt | `docs/tranches/X/execution/B/KF-W8.md` |
+
+Pathspec on the commit itself, `--no-verify --quiet`, `-- <the same exact paths>`. **No `git add -A`,
+no `-u`, no `commit -a`, no reset, no stash.** Zero paths outside the writable set were staged.
+
+#### Gate readings BEFORE → AFTER
+
+| gate | before | after |
+|---|---|---|
+| *feeds all* | the wave's downstream numbers bound to a spec measured seven waves upstream | **bound to `KF-W8-census.md` at `1fa98a5d`**, every figure double-run |
+| **binds G14's enumeration** | G14 had **no** enumeration — its own text defers to unit a, and its falsifier fails the gate on an omission | **SUPPLIED**: 13/13 lines, 11/11 files, 9 projectors / 3 bare reads / 1 non-code, 1 in-bounds hand-rolled projector, **10 out-of-bounds hosts each with its owner**. G14 is now a gate with a reachable, scoped green |
+
+#### Residuals — measured, handed on, none cured here
+
+1. **G1 clause 1's 8th statement** `KeyframeTimeline.vue:363` — **unbounded**. Unit **c**'s escalation
+   (the record's F-1, now with the module-end derivation behind it).
+2. **A-9's five unbounded consumers** + **two in-bounds coordinate drifts** (`useTimelineBuild.ts:7`
+   not `:8`; `timelineEngine.ts:15` not `:16`). Unit **d**.
+3. **A-7's second consumer** `timeline-mount-keyboard.test.ts:28` — unbounded; a move+rename repoints
+   **two** files. Unit **f**.
+4. **A-8's `scripts/gates/census.mjs:528`** — a DO-NOT-TOUCH KF.W4 gate script holds
+   `HeroAurora.vue`'s literal path; the move breaks it and this wave may not repair it. Unit **f**,
+   **ESCALATION-shaped**.
+5. **The §Bounds coordinate column is stale wave-wide** (+20 in `AnimationVisualizer.vue`, larger
+   elsewhere). Every grant resolves **by subject**; the re-anchoring table is census §5. **No seat may
+   execute from the spec's numerals.**
+
+**Escalations raised by this unit: NONE.** Its writable set was sufficient, its gates are turned, and
+every out-of-bounds fact above is **recorded with its owner** rather than acted on.
