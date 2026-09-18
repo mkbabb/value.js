@@ -1360,3 +1360,58 @@ times; `npx eslint` has no config in this root (F-a.5). This repo: the wave is d
 seat — one generated JSON, `git diff --check` clean. **No proof-farm script was authored for any
 gate** (L-19): `css-universe.mjs` executes a 26,604-row corpus and compiles a program, and its
 output *is* the evidence.
+
+---
+
+### X.P.W3.b — ADDENDUM 2026-09-18 (same sitting), beside the receipt above, never over it
+
+**F-b5 — a committed act of this unit landed on a sibling seat's scratch branch and had to be
+re-landed. Recorded loud, because it is a cross-seat hazard of the shared worktree and not a
+property of this unit's bytes.** The receipt above names **`3c002f1c`** as the evidence commit. That
+commit exists, but it is **not reachable from `tranche-u`**: it landed while the X·V W1.a seat had
+the scratch branch `x-w1-falsifier-g7` checked out in this same worktree. Read from the reflog, not
+inferred:
+
+```
+⟨cmd⟩ git reflog
+HEAD@{6}  checkout: moving from tranche-u to x-w1-falsifier-g7      ← a sibling seat's scratch branch
+HEAD@{5}  commit: test(x-v/w1.a): G-7 falsifier — a deliberately broken spec, scratch branch only
+HEAD@{4}  commit: docs(x-p-w3/.b): evidence — the recovery-closure run   ← THIS UNIT, on that branch
+HEAD@{3}  commit: docs(x-p-w3/.a): evidence — the 52-row universe matrix ← X.P.W3.a, likewise
+HEAD@{2}  checkout: moving from x-w1-falsifier-g7 to tranche-u       ← both acts left behind
+⟨cmd⟩ git branch --contains 3c002f1c            →  x-w1-falsifier-g7        (NOT tranche-u)
+⟨cmd⟩ git cat-file -e HEAD:…/evidence/W3/recovery-closure.json  →  fatal: does not exist in 'HEAD'
+```
+
+**The cure, taken without any of the forbidden instruments.** No `reset`, no `rebase`, no
+`cherry-pick`, no `stash`, no force-push: the gate was **re-run at the settled bytes** and the file
+**re-landed by its own pathspec** as **`f7954997`**. The re-landed bytes are **byte-identical to the
+stranded blob** — ⟨cmd⟩ `diff <(git show 3c002f1c:…) <the fresh run>` → **empty** — which is this
+gate's determinism measured a **third** time (the first two are the double-runs in b.3).
+
+**The evidence commit of record for X.P.W3.b is therefore `f7954997`, not `3c002f1c`.** The receipt
+above is left exactly as it was written (E-3: a correction is an addendum-beside, never a rewrite),
+and this block is the correction.
+
+**The same hazard took `.a`'s `6021105a`**, which `.a` re-committed as `12564399` — two of the three
+commits made during that window were lost to it, so it is a **property of the window, not of either
+seat**. Routed to the orchestrator as a standing operational row: **a seat that checks out a scratch
+branch in the shared `value.js` worktree silently redirects every other seat's commits for the
+duration**, and the four-track pathspec discipline does not defend against it (the pathspec is
+correct; the *branch* is not). This unit's remaining acts were re-verified against `tranche-u` after
+the re-land:
+
+```
+⟨cmd⟩ git log --oneline -3
+f7954997 docs(x-p-w3/.b): evidence — RE-LANDED on tranche-u
+2456033b docs(x-p-w3/.b): unit receipt — G-8 GREEN, G-4 RED on two legs …      ← ON tranche-u
+12564399 docs(x-p-w3/.a): evidence — the generated 52-row universe matrix      ← .a's re-land
+⟨cmd⟩ git cat-file -e HEAD:docs/tranches/X/parse-that/evidence/W3/recovery-closure.json  →  PRESENT
+⟨cmd⟩ git -C <p2> log --oneline -3   →  f666b6f · 1cfa29b · 39503f8  (the fresh root was never
+                                        on any branch but its own working branch; unaffected)
+```
+
+**Re-verified after every sibling landing of this sitting** (`.a`'s scripts, suites and receipt all
+landed between this unit's commits): ⟨cmd⟩ the closure gate → **exit 1, 8 of 10 legs GREEN, evidence
+byte-identical**; ⟨cmd⟩ `npx vitest run --config typescript/test/css-recovery/vitest.config.ts` →
+**23 passed / 1 born-RED**, unchanged. Nothing `.a` landed moved a figure this unit published.
