@@ -1646,7 +1646,11 @@ specs are treated at **D-5** below.
 | **D-8** | MINOR | **CURED** — the silent-green path now reds | `359af5bb` | **G-21 hardened** |
 | **D-9** | INFO | **no cure owed** — recorded by Check 1 so the roster reads true; this seat re-read `7bc72838` → `2e1fd65f` and concurs it is one meaning in two commits, the second a disclosed WRITE-THEN-MEASURE correction | — | none |
 
-**Cured: 8 of 9. Escalated: 1 (D-5).**
+**SELF-COUNT, corrected at the table rather than published wrong: CURED 7 · ESCALATED 1 (D-5) ·
+NO CURE OWED 1 (D-9, which Check 1 itself dispositions `none`). 7 + 1 + 1 = the register's 9.**
+(Commit `54c66b64`'s message and the LEDGER's first cell of this repair both read *"8 of 9 cured"*,
+counting D-9 among the cures; a commit message cannot be rewritten in a four-track shared index, so
+the correction is recorded here and in the LEDGER cell. No cure and no gate verdict changes.)
 
 ### R1.1 · D-1 · G-7 — the falsifier, demonstrated with a control
 
