@@ -2704,3 +2704,12 @@ in hope. value.js's `origin` is `https://github.com/mkbabb/value.js.git` and the
 - **Bar**: none set, none implied. `bar applied: NONE` and `OWNER-GATED-PENDING-RATIFICATION` stand exactly as `.0` and `.g` printed them.
 - **E13**: 0 UNREAD in scope; a dated close sweep line appended to `INBOX.md`? **No** — this seat appends none: seat 0's line is this wave's, and `.i` recorded the same reasoning. The sweep is recorded here, in the wave's own record.
 - **Commits of this close**: pathspec on each commit itself; the close report and record in one, the LEDGER row in its own.
+
+#### C.9a — Push receipts, taken after the close commits
+
+| repo | command | reading at the close seat's clock |
+|---|---|---|
+| value.js | `git push origin HEAD` | **SUCCESS** — `To https://github.com/mkbabb/value.js.git` / `b3bf91bc..b84e579f  HEAD -> tranche-u`; ⟨`git status -sb`⟩ after → `## tranche-u...origin/tranche-u` (no `ahead`). The wave's fourteen unit commits plus the two close commits (`09a11b09` the close report + record, `b84e579f` the LEDGER row) are on the remote. |
+| `<p2>` | `git -C <p2> push origin HEAD` | **FAILS, as its standing condition requires**: `fatal: 'origin' does not appear to be a git repository` / `fatal: Could not read from remote repository.` ⟨`git -C <p2> remote -v \| wc -l`⟩ → **0**. The fresh writer root has had no remote since X.P.W0 opened it (X.P.W1's LEDGER row records the same: *"in `<p2>` (no remote, R-2)"*). **Its seven commits are durable on local branches `w2/harness` · `w2/ac1` · `w2/ac2` · `w2/ac3-scan-union`, and nothing was force-pushed, reset, or stashed anywhere.** Giving `<p2>` a remote is an owner act, not a close seat's. |
+
+*Close sealed 2026-09-17 by the X.P.W2 VERIFY-ONLY close seat (`claude-opus-5[1m]`).*
