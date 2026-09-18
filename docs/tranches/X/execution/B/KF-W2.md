@@ -1848,3 +1848,174 @@ assertion witnessed by a command that cannot fail is not witnessed.**
 recorded, 1 already-cured item not re-opened, 1 INFO left with its named owner. The wave's REDs are
 now exactly the two that are relieved and owner-named (G-W2-2 · G-W2-8's count arm), and both are
 out of every seat's bounds. The verb stays `PARTIAL`; the wave awaits Check 2.**
+
+---
+
+## Check 2 — FRESH ADVERSARIAL CHECK (L-20, pass 2, VERIFY-ONLY)
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-17 · **this seat authored none of the wave's bytes, none
+of the four unit receipts, neither close section, CHECK 1 or REPAIR 1; it cured nothing and wrote no
+product byte.** Every reading below was taken at the settled bytes by this seat's own commands and
+**double-run with identical output**. Where a figure agrees with a prior seat's it agrees because it
+was re-measured, never because it was copied.
+
+Substrate: keyframes.js **`ae83da0764a77ebe176d6314b179cfa5b3dd287b`** ≡ `origin/master`
+⟨`git rev-parse HEAD origin/master` → identical; `git rev-list --count origin/master..HEAD` → **0**⟩,
+the wave's ref `7d958f21` an ancestor ⟨`git merge-base --is-ancestor 7d958f21 HEAD` → YES⟩, kf worktree
+carrying the two untracked KF.W1 mail packets and **nothing else** ⟨`git status --porcelain` → 2 `??`,
+0 `M`⟩. value.js at `4ed1462c`. `@mkbabb/value.js` **4.0.0** installed — **NO REPIN** (OP-5 holds).
+
+### VERDICT: **CONFORMANT-HONEST-RED** — 0 BLOCKER/CRITICAL/HIGH · 2 MINOR · 1 INFO. **All nine clause verdicts reproduce at this seat's own commands.**
+
+---
+
+### THE NINE CLAUSES, RE-RUN AT THIS SEAT'S OWN COMMANDS (each double-run, identical)
+
+| # | clause | this seat's reading at `ae83da07` | verdict |
+|---|---|---|---|
+| 1 | **G-W2-1** | **Enumeration**: ⟨`ls …/keyframes/registries/`⟩ → `INGRESS-CENSUS.md POSTURES.md`; floor ⟨`awk '/^## §2/{exit} /^\| \*\*[0-9]+\*\*/{n++}' POSTURES.md`⟩ → **20**; corpus ⟨`ls …/registry/adjudicated/kf-*.md \| wc -l`⟩ → **58** — basis ≡ corpus, the "basis smaller than the corpus" falsifier does not arm. **Site limb, under TWO instruments that CAN fail** ⟨`git grep -nP '\.ok\b' HEAD -- src/ \| grep -v parse-facade \| wc -l`⟩ → **13** and ⟨`grep -rnE '\.ok[^a-zA-Z0-9_]' src --include='*.ts' \| grep -v parse-facade \| wc -l`⟩ → **13**, both twice; ⟨`git grep -nP '\.ok\b' HEAD -- src/animation/svg/draw-svg.ts`⟩ → **no hits, exit 1**. **The thirteen were resolved to their own import specifiers by this seat, not taken on the repair's word** ⟨per-file `perl -0777` whole-import-block read⟩: `easing/registry.ts` ×5 = `@mkbabb/value.js/**easing**` · `emit/backward/color.ts` ×3 + `emit/entry.ts` ×1 = `/**color**` · `emit/css-text.ts:55` + `frame/interp-slot.ts` ×2 = the **emit half** (`serializeCssColor`, out of denominator by G-W2-2's own words) · `resolve/function.ts:35` = the **declared stray** `coerceToSyntax`. **Not one is a `/css` grammar-entry Result.** | **GREEN — both limbs, reproduced** |
+| 2 | **G-W2-2** | command (ii) re-run whole, twice: **20 runtime specifiers over 5 modules** — `parse-facade.ts` **×15** · **`engine/css/metadata.ts` ×2** · `emit/css-text.ts` ×1 · `frame/interp-slot.ts` ×1 · `resolve/function.ts` ×1. Baseline re-derived **by this seat at `7d958f21`** ⟨same command⟩ → **25**. **Parse-surface paths 10 → 2** | **HONEST-RED, reproduces** (relief below) |
+| 3 | **G-W2-2b** (MONITOR) | ⟨`git grep -l … -- demo/ \| wc -l`⟩ → **7 files**; per-file runtime read → **8 specifiers over 6 modules**; `test/` → **10**; `scripts/` → **0**. **And the wave's non-authorship of the demo delta is measured, not asserted**: ⟨`git log --oneline 7d958f21..HEAD -- demo/`⟩ names **five commits, all `kf/w5.a`** — zero KF.W2 commits touch `demo/` | **TRUE — the monitor holds** |
+| 4 | **G-W2-3** | comment-stripped scan over the six members at HEAD → **0 SURVIVES of 6**, twice. **The control was re-derived by this seat at `7d958f21`, so the scan is not inert**: `catalog.ts` **1** · `CQ_UNIT_RE` **1** · `composition.ts` **1** · `format.ts` `let s = keyframe` **1** · `view-transition.ts` `matchAll` **1** · `draw-svg.ts` percentage token **1** = **6 of 6 before**. Second clause spot-verified per member ⟨`git show <h>`⟩: `55347314` lands the position-named strip **with** its measurement and the A-2 test-pin ground; `0cfd3b5f` lands `declaredDeclarationsFor`; `a461c78c` lands `parseCssValues`+`swallowParsed`; `0ecaadb3` lands `parseCssScalar` | **GREEN, reproduces** |
+| 5 | **G-W2-4** | ⟨comment-stripped `new RegExp(` in `cssom.ts`⟩ → **0**, twice; `test/ingest/keyframes-name-escapes.test.ts` → **17 passed (17)**; the VJ-9 `:28-33` comment correction verified **inside** `f7cbc41c`'s own diff ⟨`git show f7cbc41c -- …/cssom.ts`⟩ | **GREEN, reproduces** |
+| 6 | **G-W2-5** | ⟨`sed -n 42p GATE-VERDICT.md`⟩ → the phrase, **byte-unchanged**; ⟨`git log -1 -- GATE-VERDICT.md`⟩ → **`befbc05a`**, an X-W0 commit, **not this wave's** (E-3 by provenance, not only by inspection); `GATE-VERDICT-F2-ADDENDUM-2026-09-17.md` present **BESIDE** it, **145 L**, line 1 = `SERVED MODEL`; `INGRESS-CENSUS.md` self-count re-run by this seat → §2.a **8**, §5 boundary **32**, demo arm **7 · 6 · 8**; `grammar-fuzz.test.ts` → **9 passed (9)**, docblock `:8` byte-unchanged, both malformed classes present | **GREEN, reproduces** |
+| 7 | **G-W2-6** | `test/compile/valuejs-contract.test.ts` → **16 passed (16)**, twice; **6 clauses** ⟨`describe(` count⟩. **Re-checked at the bytes because this is how the clause could have shipped hollow**: every narrowing `if (…​.ok)` is preceded by a hard `expect(…​.ok).toBe(true\|false)` — **no freeze, shape or refusal assertion can pass vacuously**. **And the "0 deleted assertions" claim was re-derived rather than inherited**: ⟨`git diff 7d958f21 HEAD -- <the file> \| grep '^-' \| grep -c 'expect('`⟩ → **2**, and both were **read** — they are the `rejects empty and whitespace-only selectors` block MOVED under the new clause-1 `describe`, present verbatim at `:107-117`. `expect(` **8 → 44**, `it(` **4 → 16**; nothing narrowed, nothing dropped. Freeze invariant ⟨`git grep -c 'isFrozen\|Object.freeze' HEAD -- src/`⟩ → **23 LINES** over 5 modules; pins → **3** | **CONTRACT CLAUSE GREEN, reproduces** |
+| 8 | **G-W2-7** | ⟨`git diff --stat 7d958f21 HEAD -- test/fixtures/keyframes/`⟩ → **empty, 0 bytes** — the manifest's mode column is **provably unedited by any seat of this wave**; ⟨`git ls-tree … \| grep -c '\.css$'`⟩ → **14**; `roundtrip-fidelity.test.ts` → **57 passed (57)**, twice, and it names `parse-facade` ⟨2 hits⟩. *The simulated channel drop is `.d`'s measurement; re-running it needs a write into `.d`'s file and a VERIFY-ONLY seat has no such bounds. Stated, not inherited.* | **GREEN, reproduces** |
+| 9 | **G-W2-8** | three copies re-read at HEAD: `emit/format/format.ts:20` (private) · `emit/css-text.ts:59` (private) · `demo/utils/keyframeSelector.ts:7` (exported); ⟨`grep -cE 'selectorText\|serializeSelector' emit/index.ts`⟩ → **0**. Façade-side clause re-grounded and re-measured: ⟨`git grep -n 'serializeDeclaration\b' HEAD -- src/`⟩ → 4 hits inside `emit/css-text.ts` + `parse-facade.ts:66` (import) / `:206` (call) — **exactly one consumer outside its own module, and it is the façade**. Order ⟨LEDGER `KF.W8`⟩ → **`planned`** | **FAÇADE-SIDE GREEN · COUNT ARM RED-and-HOMED, reproduces** |
+
+**READ PLAINLY: 9 of 9 clause verdicts reproduce at this seat's own commands. CHECK 1's one HIGH is
+CURED at the bytes and the cure was re-measured here, not accepted.**
+
+### THE CURE ITSELF, AUDITED RATHER THAN ACCEPTED (Repair 1's `ae83da07`)
+
+The standing law names a try/catch around a defect a **HIGH**, and `swallowParsed` contains one — so the
+cure was read, not counted. ⟨`git show ae83da07`⟩ is **1 file, 21 ins / 13 del**, and **it is a posture
+collapse, not a mask**, on four measured grounds: (i) `swallowParsed` is the façade's **declared SWALLOW
+posture** (`parse-facade.ts:133-144`), published in `POSTURES.md` and pinned executably at contract
+clause 4, and its `try { … } catch { return fallback }` is byte-for-byte the shape **already standing in
+the tree at the ref** ⟨`git show 7d958f21:src/animation/validate.ts`, `keyframesNames`⟩ — a posture the
+wave collapsed, never one it invented; (ii) **nothing is swallowed to a caller** — the posture's
+`undefined` is converted into `fromDrawSVG`'s own thrown domain error on the very next line, so every
+bad input still throws; (iii) the **domain test stayed at the site** (`unit === "%"`, non-negative),
+which is `fromDrawSVG`'s and not CSS's, and only the branch on `ok` moved; (iv) the only other
+`swallowParsed` consumers are `validate.ts:185` (the pre-existing posture) and `composition.ts:202`
+(the sibling Tier-C cure), so no new swallowing surface was opened ⟨`git grep -n swallowParsed -- src/`
+→ 3 call sites, all named⟩. `test/svg/draw-svg.test.ts` → **13 passed (13)**.
+
+### BOUNDS · MASKING · FAMILIES · E-3 · MAIL — each re-derived at this seat
+
+```
+$ git show --name-only <each of the 14 kf + 11 value.js commits>
+    → every commit contains EXACTLY its declared paths; the kf set is a SUBSET of §Bounds'
+      Owned files, row for row; 0 sibling files swept in across four concurrent seats on
+      one index; `scripts/dev/dev.sh` in 0 of 25
+$ git log --oneline 7d958f21..HEAD -- src/animation/engine/css/metadata.ts   → 0 commits (un-widened)
+$ git log --oneline 7d958f21..HEAD -- demo/                                  → 5 commits, ALL `kf/w5.a`
+$ grep -nE '\.(skip|only|todo)\(|xit\(|xdescribe\(' <the wave's 5 test files> | wc -l   → 0
+$ git diff --stat 7d958f21 HEAD -- scripts/                       → (empty) — 0 allowlist entries
+$ <node_modules patched? copied producer selector? force/reset/stash/amend?>  → none, in any commit
+$ <added `catch` across every src-touching commit of the wave>    → 1, the façade SWALLOW, audited above
+$ git diff --stat 087599fb^..HEAD -- docs/tranches/X/keyframes/waves/ \
+      docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/conformance/ \
+      docs/tranches/V/apotheosis/parser-proof/GATE-VERDICT.md     → (empty) — E-3 HELD from the
+      wave's OWN OPENING COMMIT's parent, byte-exact, across close · CHECK 1 · REPAIR 1
+$ npx vitest run --project library   → 112 passed | 5 skipped (117) files
+                                       1256 passed | 3 expected fail | 14 skipped (1273)   [twice]
+$ npx vitest run --project library <the wave's 5 files>  → 112 passed (112) = 17+16+57+9+13  [twice]
+$ npx tsc --noEmit -p tsconfig.lib.json   → 3 (compositor.ts:79 · waapi.ts:9 · smooth.ts:194, all
+                                              TS6133, all pre-existing — 0 of the three files is in
+                                              any of the wave's commits)
+$ npx tsc --noEmit -p tsconfig.test.json  → 24 (pre-existing); 0 in ANY of the wave's test files
+$ npm run proof:structure                 → PASS: scope=src clean (0 violations across R1–R6)
+$ npx depcruise --config .dependency-cruiser.cjs src demo → 4 violations / 435 modules / 1557 deps
+$ wc -l src/animation/ingest/cssom.ts     → 499 (D-5's corrected integer, re-measured)
+```
+
+**Commit families**: `.a`'s ingress census + §F-2 addendum = ONE commit (`500c13fd`, exactly 2 files) ✓ ·
+`.b`'s façade + its nine Tier-A repoints = ONE commit (`49cd647b`, 10 files) ✓ · `.b`'s contract + its
+conformance test = ONE commit (`46f0b77b`, 3 files) ✓ · `.c`'s cssom cure + fixture + the `:28-33` VJ-9
+comment correction = ONE commit (`f7cbc41c`, 2 files, the comment correction verified **inside** the
+diff) ✓ · each Tier-C deletion with its replacement in the same commit ✓ · hard order 4 (`format.ts` is
+`.c`'s only) ✓ ⟨`git log --name-only -- …/format/format.ts` → `0cfd3b5f` · `5083c3f8`, both `.c`⟩.
+**One split, already on the record: D-4**, cured one commit later at `6e371fd4`; this seat does not
+re-open the ground `.c` stated for not amending a landed commit on a four-seat index.
+
+**E13 (runbook §5.3), swept at this seat's own clock, four paths + the atlas Q lane, read-only**:
+⟨`ls -t docs/tranches/V/coordination/`⟩ newest = `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`,
+**rowed** (`O-21`, `INBOX.md:104`) · ⟨`ls -dt ../glass-ui/docs/tranches/*/`⟩ → `BK/` newest, its three
+2026-09-17 letters all rowed I-32 · I-33 · I-34 · kf and kf-v-exec coordination hold only letters WE
+sent · atlas unchanged since 2026-08-03. **The status-cell scan, with the PREFIX instrument REPAIR 1
+installed** ⟨`awk -F'|' … $i ~ /^\*{0,2}UNREAD/`⟩ → **`105 col6` · `106 col6` · `107 col6`**, twice —
+**three UNREAD status cells, and this seat reproduces them rather than a zero.** Each row's **Routing**
+cell was read whole at this seat: `:105` → *"the **X formation mail seat / X-W0.j** … **No X·P wave, no
+X·P act, opens on this row**"* · `:106` → *"the X formation mail seat … Glass is **READ-ONLY always**"* ·
+`:107` → *"**X-W0.j / X-EXT-1**, beside I-32"*. **All three are glass-producer rows routed away from
+Track B; none is mail addressed to KF.W2's scope; `INBOX.md` was not written by this seat.** **E13's
+close condition is MET BY ROUTING** — the same ground KF.W4, KF.W5 and KF.W9 closed on at this clock.
+
+### THE HONEST-RED SET — each gate's relief re-cited at the SPEC's own bytes
+
+| gate | relief, established at the spec bytes by this seat | owner named in this record? |
+|---|---|---|
+| **G-W2-2** (Tier-A single entry) | **§Bounds' Owned-files table has NO row for `src/animation/engine/css/metadata.ts`** — re-enumerated here from the table itself ⟨30 rows extracted; `engine/css/animation.ts` is present, `engine/css/metadata.ts` is **absent**⟩ — **while G-W2-2's own witness enumerates that module on the parse surface** ⟨`KF-W2.md:484`, `:667`, `:686`: *"`engine/css/metadata` ×2"*⟩. The edge is **pre-existing, not created here** ⟨the module's `@mkbabb/value.js/css` runtime import reads identically at `7d958f21`⟩, and **no lawful in-bounds act can move it**: the import line and both call sites (`:42`, `:102`) live in that file. A write there is an **ESCALATION** under the standing law — *"stop and return it"* — not a licence. The record armed it **at OPEN**, `.b` **returned it un-widened**, and **0 commits touch the path** across close, CHECK 1 and REPAIR 1. **The gate is unreachable by any lawful act of this wave.** | **YES** — ESC-KFW2-1, owner *the X·KF formation*: a dated **§Bounds addendum-beside** naming the path, then one import repoint of 2 collectors + their 2 call sites. |
+| **G-W2-8** (count arm, 3 → 1) | **Routed to a successor by the spec itself** ⟨`KF-W2.md:777`: *"**The count is not abandoned — it is HOMED**: `KF-W8`'s MISS-β2 row (unit d / G3) is the publication act and the place the 3 → 1 is measured"*⟩; §Bounds row 122 marks `emit/index.ts` `modify-carve` — ***"ACT is KF.W8's"***. Order re-measured here ⟨LEDGER Track-B row⟩ → **`planned`**: W8 has **NOT** preceded, so the arming condition is met, the arm is RED, and **performing the act here is out of bounds.** | **YES** — `KF-W8 §Rows · MISS-β2 (unit d · G3)`; ledger row `KF.W8 … planned`. |
+| *(not a RED)* **G-W2-6 call-site limb** · **G-W2-2b** | Restricted by the gates' own words — *"**CONTRACT ONLY at this wave** … **This wave does not open the call site.**"*; the monitor asserts enumeration and non-growth, never a cure. Both hold at the bytes. | KFED-UNIT (NO-WAVE-OWNER, SS-1/SS-2) · the named per-module owners at G-W2-2b. |
+
+**No unrelieved RED survives.** CHECK 1's fourth row — G-W2-1's site limb, the one RED with **no**
+relief — is **GREEN at this seat's own instruments**, which is why this check closes where CHECK 1
+refused to.
+
+### DEFECT REGISTER
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **MINOR** | **CHECK 1's D-3 quoted a symbol the record does not contain, and REPAIR 1 struck a sentence that was never written — a misquote inside a quotation marked verbatim, in the one register whose whole subject is receipts that do not reproduce.** CHECK 1 published *"`.b`'s G-W2-8 AFTER-cell publishes a false receipt: … **`serializeTimingFunction` is imported at `parse-facade.ts` only**"*; REPAIR 1's D-3 then wrote **STRUCK** against that string. **`.b` never wrote it.** | ⟨`grep -n serializeTimingFunction docs/…/B/KF-W2.md`⟩ → `:642` (a KF.W5 note), `:1490`, `:1588`, `:1616`, `:1772-1773` — **every hit is CHECK 1's or REPAIR 1's own prose; not one is in a unit receipt.** The sentence `.b` actually wrote, re-read at its own commit ⟨`git log -p -S serializeTimelineOptions -- <the record>` → `b01b7472`⟩, names **`serializeTimelineOptions`**. That symbol's value.js import **does** live at `parse-facade.ts` alone ⟨cmd (ii): `parse-facade.ts` ×15 is the only `/css` runtime path besides `metadata.ts`/emit-half/stray⟩; `scroll/grammar.ts:46` imports it **from the façade** and calls it at `:144`, so the receipt's *"single `src/` caller"* half is loose **for that symbol** while true for the emit mirror it is about. | **Correction-beside, recorded here and nowhere else** (E-3: no prior seat's bytes are edited). The struck string is retired as a **phantom quotation**; `.b`'s real sentence is re-read above and is **not** the false receipt CHECK 1 convicted. **The gate verdict does not move in either direction**: G-W2-8's façade-side clause stands on **`serializeDeclaration`**, re-measured at this seat — 4 hits in `emit/css-text.ts` + `parse-facade.ts:66`/`:206`, exactly one consumer outside its own module. **The general lesson is the wave's own**: a quotation is a measurement, and a check that mis-transcribes the symbol it convicts has published a reading its own command cannot return. |
+| **D-2** | **MINOR-with-mitigation** *(does not block)* | **The declared commit-family split at `a461c78c` / `6e371fd4` is real and stands on the record** (CHECK 1's D-4). §Carry F2 binds the docblock correction **into** the cure commit; it landed one commit later. | ⟨`git show a461c78c -- …/composition.ts`⟩ adds the façade import + `numericLeaves` and does not touch the module docblock; ⟨`git show 6e371fd4`⟩ is that one-sentence correction, 1 file. | **Already cured in-wave**, both commits pushed, self-disclosed by `.c` with its ground (four seats on one index; amending a landed commit is the more dangerous act). **Not re-opened**; recorded so the family rule is never read as unbroken. |
+| **D-3** | **INFO** | **The spec's own floor integer is still internally inconsistent** — G-W2-1's assertion line, its second footnote and the §Goal-criterion sentence read **19 / five**; §Carry **F3** reads **20** with **six** positive bullets. | ⟨`KF-W2.md:649`⟩ *"a **FLOOR of 19** today"* · ⟨`:48`⟩ *"the **nineteen enumerated postures**"* · ⟨`:562`/`:564`⟩ row 20 = `KF-KE-58 · C-m7`, *"The registry's floor is therefore 20"*. `POSTURES.md` publishes **20** over **58**, re-measured here. | **`.a`'s disposition is CORRECT and this seat affirms it a second time**: the register is the gate, the latest repair round governs within it, and a registry publishing 19 while F3 enumerates 20 would red G-W2-1 by its own falsifier. **0 spec bytes moved by any seat of this wave** (E-3 verified above). **Owner unchanged: the next KF-W2 repair round / check**, to reconcile in the gate's own voice by a dated addendum-beside. |
+
+### THE FOUR-VERB LINE, AND WHY THE STATUS MOVES WHILE THE VERB DOES NOT
+
+The spec is **byte-untouched** (E-3 above), so **no verb in its own table moved** — correct: VERIFIED is
+*"stamped only at X·KF's close"*, and IMPLEMENTED is conditioned on *"gates green"* while **G-W2-2
+stands RED**. The close seat's correction of the LEDGER cell `IMPLEMENTED → PARTIAL` is **affirmed a
+second time and independently re-grounded** here; REPAIR 1 retired one of its two grounds (the site
+limb) and the other — metadata.ts — is measured RED again at this seat.
+
+**What moves is the LEDGER's state-machine STATUS, not the verb.** The ledger's own vocabulary makes
+`CLOSED` the state *"verify-only close + fresh check CONFORMANT"*, and that condition is now met: a
+verify-only close was performed, CHECK 1's register was discharged, and this fresh adversarial pass
+returns **CONFORMANT-HONEST-RED** with every remaining RED relieved and owner-named. The row therefore
+reads **CLOSED 2026-09-17 (honest-RED: G-W2-2 · G-W2-8's count arm)** with the four-verb line **still
+PARTIAL** — the same shape KF.W9 already carries in this ledger. **Nothing about ESC-KFW2-1 is
+discharged by closing**: it is an authoring act the X·KF formation owes, and it survives this close.
+
+### SUCCESSOR CONJUNCTS, VERIFIED AGAINST THIS WAVE ⟨LEDGER Track-B rows, read at this seat⟩
+
+- **KF.W7** (`opens after KF.W2 — posture registry`) — its conjunct is **GREEN**: `POSTURES.md` is
+  published, single-sourced, **20 floor rows over a 58-of-58 basis**, and §Sequencing hard order 2
+  (*"KF.W7 may not decide a failure posture before KF.W2 publishes the registry"*) is discharged.
+  **KF.W7 is NOT blocked by this wave.**
+- **KF.W8** (`W0·W4·W5 (+W6 SCOPED for G7)`) — **names no KF.W2 conjunct**; unblocked from this end, and
+  it carries G-W2-8's homed 3 → 1. Its own W6 conjunct is `planned` — not this wave's to move.
+- **KF.W10** (`W0·W1·W9 + W2·W4·W5·W6·W7·W8·W9 **IMPLEMENTED**`) — **LAWFULLY BLOCKED** from this end:
+  KF.W2's verb is **PARTIAL**, not IMPLEMENTED, and closing the row does not stamp the verb.
+- **KF.W3** — `GATE-KEYED` on `RC-P(V)`, untouched. **OP-5 held**: `4.0.0` installed, no repin, at every
+  seat of this wave and at this one.
+
+### THE GOAL CRITERION, MEASURED AT THE BYTES BY THIS SEAT
+
+*"exactly one module in `src/animation/**` that speaks to value.js's grammar"* — **2 paths**, the second
+(`engine/css/metadata.ts`) **omitted by the spec's own §Bounds** and relieved above. *"exactly one
+declared thing that happens when a CSS string is bad"* — **MET at these bytes**: four declared postures,
+**zero** `/css` parse-Result branches anywhere in `src/` outside the façade under two instruments that
+can fail, and a registry of **20** over **58**. *"one published answer to which grammar belongs at this
+seam"* — **MET**: the contract exists, is executable at **16 tests / 6 clauses**, and no assertion in it
+can pass vacuously. *"A wave that adds a wrapper and leaves the twenty-one call sites and the … postures
+standing has failed this goal"* — **not that failure**: 19 of 21 sites routed, 20 postures enumerated,
+6 Tier-C regex bodies dead, the identifier injection cured, and the two sites that stand are the single
+module the spec forgot to bound.
+
+**CHECK-2 VERDICT: CONFORMANT-HONEST-RED** — 0 BLOCKER/CRITICAL/HIGH · 2 MINOR · 1 INFO · **9 of 9
+clause verdicts reproduce**. **Honest-RED set, each relieved at the spec's bytes and owner-named:
+G-W2-2 (ESC-KFW2-1, owner the X·KF formation) · G-W2-8's count arm (owner KF.W8 `§Rows · MISS-β2`,
+unit d / G3).** **The wave CLOSES; the verb stays PARTIAL; ESC-KFW2-1 stays open.**
