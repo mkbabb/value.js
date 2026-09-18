@@ -40,9 +40,7 @@ test("W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→f
 
     // ── Prime the returning session via the app's own write-through.
     await page.goto("/#/?space=oklch&color=" + encodeURIComponent(SEED));
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
     await expect
         .poll(
             () =>
@@ -87,8 +85,16 @@ test("W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→f
     expect(series.length, "no boot frames sampled").toBeGreaterThanOrEqual(5);
 
     // Inter-beat bound: no consecutive-sample leap > 0.10 L (born-RED ref ≈0.25).
-    for (let i = 1; i < series.length; i++) {
-        const dL = Math.abs(series[i] - series[i - 1]);
+    //
+    // X-W1 · G-1 — `series[i]` is `number | undefined` under the repo's
+    // `noUncheckedIndexedAccess`; pairing the samples up front makes the
+    // walk's own bound the type's bound too, so the arithmetic below can
+    // never quietly become `NaN`.
+    const consecutive: Array<[number, number, number]> = series
+        .slice(1)
+        .map((value, k) => [k + 1, series[k]!, value]);
+    for (const [i, previous, value] of consecutive) {
+        const dL = Math.abs(value - previous);
         expect(
             dL,
             `ground-luma leap |ΔL|=${dL.toFixed(3)} between samples ${i - 1}→${i} exceeds the 0.10 inter-beat bound (F-2 class; series ${series.map((l) => l.toFixed(3)).join(",")})`,
@@ -97,11 +103,12 @@ test("W2-2 ground-luma — the boot's L trajectory is flat/monotone (no slab→f
 
     // Monotone-toward-terminal: the trajectory closes on the settled L without
     // doubling back beyond the noise band.
-    const terminal = series[series.length - 1];
+    // The length is already asserted ≥ 5 above, so the last sample exists.
+    const terminal = series[series.length - 1]!;
     let extremeGap = 0;
-    for (let i = 1; i < series.length; i++) {
-        const gapNow = Math.abs(terminal - series[i]);
-        const gapPrev = Math.abs(terminal - series[i - 1]);
+    for (const [, previous, value] of consecutive) {
+        const gapNow = Math.abs(terminal - value);
+        const gapPrev = Math.abs(terminal - previous);
         extremeGap = Math.max(extremeGap, gapNow - gapPrev);
     }
     expect(

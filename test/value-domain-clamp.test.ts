@@ -32,7 +32,7 @@ describe("clampPickerColor physical-coordinate contract", () => {
     it("clamps 999 to each non-hue channel's physical bound", () => {
         for (const space of SPACES) {
             for (const [index, meta] of PICKER_CHANNELS[space].entries()) {
-                if (meta.hue) continue;
+                if ("hue" in meta && meta.hue) continue;
                 const input = withRawChannel(seedColor(space), index, 999);
                 const output = clampPickerColor(input);
                 const expected = Math.min(meta.max, Math.max(meta.min, 999));
@@ -48,7 +48,7 @@ describe("clampPickerColor physical-coordinate contract", () => {
     it("clamps -999 to each non-hue channel's physical minimum", () => {
         for (const space of SPACES) {
             for (const [index, meta] of PICKER_CHANNELS[space].entries()) {
-                if (meta.hue) continue;
+                if ("hue" in meta && meta.hue) continue;
                 const input = withRawChannel(seedColor(space), index, -999);
                 const output = clampPickerColor(input);
 
@@ -60,7 +60,9 @@ describe("clampPickerColor physical-coordinate contract", () => {
 
     it("wraps physical degree hues into [0, 360)", () => {
         for (const space of SPACES) {
-            const index = PICKER_CHANNELS[space].findIndex((meta) => meta.hue);
+            const index = PICKER_CHANNELS[space].findIndex(
+                (meta) => "hue" in meta && meta.hue === true,
+            );
             if (index < 0) continue;
             const key = PICKER_CHANNELS[space][index]!.key;
 
@@ -72,7 +74,9 @@ describe("clampPickerColor physical-coordinate contract", () => {
             ] as const) {
                 const input = withRawChannel(seedColor(space), index, inputValue);
                 const output = clampPickerColor(input);
-                expect(output.channels[index], `${space}.${key}: ${inputValue}°`).toBe(expected);
+                expect(output.channels[index], `${space}.${key}: ${inputValue}°`).toBe(
+                    expected,
+                );
                 expect(input.channels[index]).toBe(inputValue);
             }
         }

@@ -14,10 +14,14 @@ import {
 describe("lerpArray", () => {
     it("matches scalar lerp across channel counts and progress samples", () => {
         for (const length of [1, 2, 5, 16, 64]) {
-            const start = Float64Array.from({ length }, (_, index) =>
-                Math.sin(index) * 100);
-            const stop = Float64Array.from({ length }, (_, index) =>
-                Math.cos(index) * 50 - 25);
+            const start = Float64Array.from(
+                { length },
+                (_, index) => Math.sin(index) * 100,
+            );
+            const stop = Float64Array.from(
+                { length },
+                (_, index) => Math.cos(index) * 50 - 25,
+            );
             const out = new Float64Array(length);
             for (const t of [0, 0.05, 0.25, 0.5, 0.9, 1]) {
                 lerpArray(start, stop, t, out);
@@ -299,7 +303,7 @@ describe("cubicBezier", () => {
 
 describe("interpBezier", () => {
     it("should return the first point at t=0", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [0.5, 1],
             [1, 0],
@@ -310,7 +314,7 @@ describe("interpBezier", () => {
     });
 
     it("should return the last point at t=1", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [0.5, 1],
             [1, 0],
@@ -321,7 +325,7 @@ describe("interpBezier", () => {
     });
 
     it("should evaluate a linear segment (two points)", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [10, 20],
         ];
@@ -331,7 +335,7 @@ describe("interpBezier", () => {
     });
 
     it("should evaluate a quadratic bezier (three points)", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [5, 10],
             [10, 0],
@@ -344,7 +348,7 @@ describe("interpBezier", () => {
     });
 
     it("should evaluate a cubic bezier (four points)", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [0.25, 0.1],
             [0.25, 1.0],
@@ -381,7 +385,7 @@ describe("interpBezier", () => {
     });
 
     it("should handle higher-degree curves (5+ points)", () => {
-        const points = [
+        const points: [number, number][] = [
             [0, 0],
             [1, 4],
             [3, 6],

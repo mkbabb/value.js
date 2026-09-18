@@ -5,7 +5,8 @@ import { resolve } from "node:path";
 /**
  * U.W-A11Y · U-F57 — THE HIGH-CONTRAST / CONTRAST-PREFERENCE SUPPORT LAYER.
  *
- * Born-RED headless gates for the modality support layer (demo/@/styles/style.css):
+ * Born-RED headless gates for the modality support layer (demo/styles/style.css —
+ * the path moved out of the deleted `demo/@` tree at `bc06a0cd`):
  *   BR-5 — @media (forced-colors: active): the color-DISPLAY surfaces keep their
  *          colors (`forced-color-adjust: none`) while the operable chrome stays
  *          visible; a real `outline` focus affordance is available (box-shadow
@@ -32,10 +33,7 @@ import { resolve } from "node:path";
  * 1.60 → driven via CDP `Emulation.setEmulatedMedia { features }`.
  */
 
-const PI_DIR = resolve(
-    process.cwd(),
-    "docs/tranches/U/audit/w-a11y/pi",
-);
+const PI_DIR = resolve(process.cwd(), "docs/tranches/U/audit/w-a11y/pi");
 
 function ensurePiDir() {
     mkdirSync(PI_DIR, { recursive: true });
@@ -43,11 +41,13 @@ function ensurePiDir() {
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible({ timeout: 20000 });
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+        timeout: 20000,
+    });
     // let the pane cards mount (the glass surfaces the gates probe)
-    await page.locator(".pane-wrapper .glass-resting, .glass-resting").first()
+    await page
+        .locator(".pane-wrapper .glass-resting, .glass-resting")
+        .first()
         .waitFor({ state: "attached", timeout: 8000 })
         .catch(() => void 0);
 }
@@ -55,10 +55,7 @@ async function ready(page: Page) {
 // Read the resolved value of a CSS custom property on :root.
 async function rootVar(page: Page, name: string): Promise<string> {
     return page.evaluate(
-        (n) =>
-            getComputedStyle(document.documentElement)
-                .getPropertyValue(n)
-                .trim(),
+        (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim(),
         name,
     );
 }
@@ -68,16 +65,19 @@ async function rootVar(page: Page, name: string): Promise<string> {
 // 3-component rgb() is fully opaque (the earlier naive regex mis-read the blue
 // channel of `rgb(253, 245, 236)` as alpha).
 function alphaOf(color: string): number {
-    const pct = (v: string) =>
-        v.endsWith("%") ? parseFloat(v) / 100 : parseFloat(v);
+    const pct = (v: string) => (v.endsWith("%") ? parseFloat(v) / 100 : parseFloat(v));
     // rgba(r, g, b, a) — exactly the 4th component
     const rgba = color.match(
         /rgba?\(\s*[\d.]+[\s,]+[\d.]+[\s,]+[\d.]+[\s,/]+([\d.]+%?)\s*\)/,
     );
-    if (rgba) return pct(rgba[1]);
+    // X-W1 · G-1 — a capture group is `string | undefined`; read it into a
+    // named const so the opaque fallback below covers a matched-but-empty
+    // group too, rather than handing `parseFloat(undefined)` → NaN onward.
+    const rgbaAlpha = rgba?.[1];
+    if (rgbaAlpha !== undefined) return pct(rgbaAlpha);
     // any function with a slash-alpha: color(srgb r g b / a) / oklab(l a b / a)
-    const slash = color.match(/\/\s*([\d.]+%?)\s*\)/);
-    if (slash) return pct(slash[1]);
+    const slashAlpha = color.match(/\/\s*([\d.]+%?)\s*\)/)?.[1];
+    if (slashAlpha !== undefined) return pct(slashAlpha);
     // plain rgb(...) / oklab(...) / keyword → opaque
     return 1;
 }
@@ -124,9 +124,7 @@ test("BR-5 · forced-colors:active — color surfaces preserved + chrome operabl
     await expect(
         page.getByRole("navigation", { name: "Application navigation" }),
     ).toBeVisible();
-    await expect(
-        page.getByRole("combobox", { name: "Select view" }),
-    ).toBeVisible();
+    await expect(page.getByRole("combobox", { name: "Select view" })).toBeVisible();
 
     // The U-F25 forced-colors focus bind: a real `outline` where the box-shadow
     // ring cannot paint. Tab through the chrome and confirm at least one operable
@@ -222,11 +220,9 @@ test("BR-7 · prefers-reduced-transparency:reduce — opaque glass fallback (blu
         { timeout: 5000 },
     );
 
-    await page
-        .locator(".app-layout")
-        .screenshot({
-            path: resolve(PI_DIR, "modality-reduced-transparency.png"),
-        });
+    await page.locator(".app-layout").screenshot({
+        path: resolve(PI_DIR, "modality-reduced-transparency.png"),
+    });
 
     const glassLevelAfter = await rootVar(page, "--glass-level");
     const bgAfter = await page.evaluate(() => {
@@ -281,18 +277,15 @@ test("U-F57 · screen-reader landmark structure + live region (role/landmark bat
     await expect(
         page.getByRole("navigation", { name: "Application navigation" }),
     ).toBeVisible();
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     // The picker exposes a live region for the color-change announcement (an
     // aria-live surface exists in the controls subtree). This is the SR
     // announcement grammar — presence gate (a real SR pass is owner-attested).
     const liveRegionCount = await page.evaluate(
         () =>
-            document.querySelectorAll(
-                '[aria-live], [role="status"], [role="alert"]',
-            ).length,
+            document.querySelectorAll('[aria-live], [role="status"], [role="alert"]')
+                .length,
     );
     console.log(`[U-F57 SR] aria-live / status / alert regions: ${liveRegionCount}`);
     expect(liveRegionCount).toBeGreaterThanOrEqual(1);

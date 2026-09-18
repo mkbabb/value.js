@@ -103,8 +103,10 @@ describe("D6 — resolveSurfaceLightness (the ladder referent)", () => {
         for (const dark of [false, true]) {
             for (const rung of ["resting", "floating"] as const) {
                 for (let i = 1; i < AMBIENTS.length; i++) {
-                    const a1 = AMBIENTS[i - 1];
-                    const a2 = AMBIENTS[i];
+                    // X-W1/NG-3: the unit tree is now typechecked. `i` runs
+                    // 1..length-1, so both reads are in-range by the loop bound.
+                    const a1 = AMBIENTS[i - 1]!;
+                    const a2 = AMBIENTS[i]!;
                     const L1 = resolveSurfaceLightness(rung, a1, dark);
                     const L2 = resolveSurfaceLightness(rung, a2, dark);
                     // A brighter ambient can only brighten the composite…

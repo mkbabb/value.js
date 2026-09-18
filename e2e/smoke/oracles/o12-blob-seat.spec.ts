@@ -11,11 +11,7 @@ import {
     waitMs,
 } from "../perf/frame-budget";
 import { decodePng, meanAbsDiff } from "../fixtures/frame-diff";
-import {
-    PARK_SETTLE_MS,
-    seatFootprintPx,
-    BEAD_RATIO,
-} from "../fixtures/blob-timing";
+import { PARK_SETTLE_MS, seatFootprintPx, BEAD_RATIO } from "../fixtures/blob-timing";
 
 /**
  * T.W4-5 · O-12 — THE BLOB SEAT SET (SYNTHESIS §6.1 O-12; D8 + the PI-3/PI-4
@@ -64,9 +60,7 @@ const BACKING_RATIO_FLOOR = 0.6;
 
 async function bootWithBlob(page: import("@playwright/test").Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
     const blob = page.locator(BLOB_CANVAS).last();
     await expect(blob).toBeAttached({ timeout: 15_000 });
     // Wait out the emerge pose (the W2-4 settle-stamp discipline).
@@ -147,12 +141,16 @@ test("O-12 · 3 — hover-mood frame-diff floor: the parked bead visibly answers
 
     const before = decodePng(await blob.screenshot());
     // Hover-in at the bead center (the wake + curious beat).
-    await blob.hover({ position: undefined, force: true });
+    // X-W1 · G-1 — under `exactOptionalPropertyTypes` an explicit `undefined`
+    // is not an omitted key; the intent here IS the default centre position.
+    await blob.hover({ force: true });
     await waitMs(page, 400);
     const after = decodePng(await blob.screenshot());
 
     const diff = meanAbsDiff(before, after);
-    console.log(`[o12-hover] mean abs frame diff over the bead box: ${diff.toFixed(2)}/255`);
+    console.log(
+        `[o12-hover] mean abs frame diff over the bead box: ${diff.toFixed(2)}/255`,
+    );
     expect(
         diff,
         `hover response ${diff.toFixed(2)}/255 < the 6/255 floor — the approach beat is sub-JND (D4 family)`,

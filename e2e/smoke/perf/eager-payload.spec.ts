@@ -104,8 +104,16 @@ interface CwvConfig {
 
 /** The two configs of the §6 G3 pilot table, at its exact viewports and rate. */
 const CONFIGS: CwvConfig[] = [
-    { name: "desktop-unthrottled", viewport: { width: 1440, height: 900 }, cpuThrottleRate: 1 },
-    { name: "mobile-4x-cpu", viewport: { width: 390, height: 844 }, cpuThrottleRate: 4 },
+    {
+        name: "desktop-unthrottled",
+        viewport: { width: 1440, height: 900 },
+        cpuThrottleRate: 1,
+    },
+    {
+        name: "mobile-4x-cpu",
+        viewport: { width: 390, height: 844 },
+        cpuThrottleRate: 4,
+    },
 ];
 
 interface LoadSample {
@@ -132,7 +140,10 @@ interface LoadSample {
  */
 function builtOrigin(): string {
     const baseURL = test.info().project.use.baseURL;
-    expect(baseURL, "MT-F011: the smoke-perf project must define a baseURL").toBeTruthy();
+    expect(
+        baseURL,
+        "MT-F011: the smoke-perf project must define a baseURL",
+    ).toBeTruthy();
     const port = Number(new URL(baseURL as string).port);
     expect(
         port,
@@ -155,11 +166,16 @@ function runnerPin(renderer: string, origin: string): string {
             ? [
                   `macOS ${execSync("sw_vers -productVersion", { encoding: "utf8" }).trim()} ` +
                       `(${execSync("sw_vers -buildVersion", { encoding: "utf8" }).trim()})`,
-                  execSync("sysctl -n machdep.cpu.brand_string", { encoding: "utf8" }).trim(),
+                  execSync("sysctl -n machdep.cpu.brand_string", {
+                      encoding: "utf8",
+                  }).trim(),
               ]
             : [`${os.type()} ${os.release()}`, os.cpus()[0]?.model ?? "unknown-cpu"];
     const pwVersion = JSON.parse(
-        readFileSync(resolve(REPO_ROOT, "node_modules/@playwright/test/package.json"), "utf8"),
+        readFileSync(
+            resolve(REPO_ROOT, "node_modules/@playwright/test/package.json"),
+            "utf8",
+        ),
     ).version as string;
     return [
         ...machine,
@@ -171,8 +187,15 @@ function runnerPin(renderer: string, origin: string): string {
 }
 
 /** One genuinely cold visit: fresh context (no cache, no storage), then read. */
-async function coldLoad(browser: Browser, origin: string, cfg: CwvConfig): Promise<LoadSample> {
-    const context = await browser.newContext({ baseURL: origin, viewport: cfg.viewport });
+async function coldLoad(
+    browser: Browser,
+    origin: string,
+    cfg: CwvConfig,
+): Promise<LoadSample> {
+    const context = await browser.newContext({
+        baseURL: origin,
+        viewport: cfg.viewport,
+    });
     try {
         const page = await context.newPage();
 
@@ -208,7 +231,9 @@ async function coldLoad(browser: Browser, origin: string, cfg: CwvConfig): Promi
         // COLD CACHE — the whole eager set is fetched on every measured load.
         await cdp.send("Network.setCacheDisabled", { cacheDisabled: true });
         if (cfg.cpuThrottleRate > 1) {
-            await cdp.send("Emulation.setCPUThrottlingRate", { rate: cfg.cpuThrottleRate });
+            await cdp.send("Emulation.setCPUThrottlingRate", {
+                rate: cfg.cpuThrottleRate,
+            });
         }
 
         await page.goto("/#/");
@@ -225,7 +250,11 @@ async function coldLoad(browser: Browser, origin: string, cfg: CwvConfig): Promi
                 cls: number;
             }
             const probe = (window as unknown as { __xw2: Probe }).__xw2;
-            const lcp = probe.lcp.length ? probe.lcp[probe.lcp.length - 1] : 0;
+            // X-W1 · G-1 — `probe.lcp[last]` is `number | undefined` under the
+            // repo's `noUncheckedIndexedAccess`, and `LoadSample.lcp` is a
+            // plain `number`. `.at(-1)` with the SAME zero fallback the guard
+            // already declares says the intent once.
+            const lcp = probe.lcp.at(-1) ?? 0;
             const fcpEntry = performance.getEntriesByName("first-contentful-paint")[0];
             const fcp = fcpEntry ? fcpEntry.startTime : 0;
             // Lighthouse's `calculateSumOfBlockingTime`, applied to TWO windows:
@@ -242,7 +271,8 @@ async function coldLoad(browser: Browser, origin: string, cfg: CwvConfig): Promi
                     if (t.dur < THRESHOLD) continue;
                     const end = t.start + t.dur;
                     if (end < windowStart || t.start > windowEnd) continue;
-                    const clipped = Math.min(end, windowEnd) - Math.max(t.start, windowStart);
+                    const clipped =
+                        Math.min(end, windowEnd) - Math.max(t.start, windowStart);
                     if (clipped > THRESHOLD) sum += clipped - THRESHOLD;
                 }
                 return sum;
@@ -254,9 +284,9 @@ async function coldLoad(browser: Browser, origin: string, cfg: CwvConfig): Promi
             const resourceEntries = performance.getEntriesByType(
                 "resource",
             ) as PerformanceResourceTiming[];
-            const nav = performance.getEntriesByType(
-                "navigation",
-            )[0] as PerformanceNavigationTiming | undefined;
+            const nav = performance.getEntriesByType("navigation")[0] as
+                | PerformanceNavigationTiming
+                | undefined;
             return {
                 lcp,
                 fcp,
@@ -296,19 +326,27 @@ test("X-W2 G2 — the eager module set's JS gzip budget, from the built artifact
             `→ ${record.budget.verdict}`,
     );
     for (const f of record.eagerJs.files) {
-        console.log(`[X-W2 G2]   ${f.role.padEnd(14)} ./${f.path}  raw=${f.raw} gz=${f.gz}`);
+        console.log(
+            `[X-W2 G2]   ${f.role.padEnd(14)} ./${f.path}  raw=${f.raw} gz=${f.gz}`,
+        );
     }
     console.log(
         `[X-W2 G2] render-block CSS raw=${record.renderBlockingCss.raw} ` +
             `gz=${record.renderBlockingCss.gz} (${kib(record.renderBlockingCss.gz)}) — measured, NOT gated`,
     );
-    console.log(`[X-W2 G2] TOTAL eager gz=${record.totals.eagerGz} (${kib(record.totals.eagerGz)})`);
+    console.log(
+        `[X-W2 G2] TOTAL eager gz=${record.totals.eagerGz} (${kib(record.totals.eagerGz)})`,
+    );
 
     // The set is non-empty and the entry module is in it — a gate that could go
     // green by measuring nothing is not a gate (L-19).
-    expect(record.eagerJs.count, "no eager JS modules collected — the parse found nothing").toBeGreaterThan(0);
     expect(
-        record.eagerJs.files.filter((f: { role: string }) => f.role === "entry-module").length,
+        record.eagerJs.count,
+        "no eager JS modules collected — the parse found nothing",
+    ).toBeGreaterThan(0);
+    expect(
+        record.eagerJs.files.filter((f: { role: string }) => f.role === "entry-module")
+            .length,
         "no `<script type=module>` entry in the eager set",
     ).toBeGreaterThan(0);
 
@@ -335,7 +373,9 @@ test("X-W2 G2 — the eager module set's JS gzip budget, from the built artifact
     ).toBeLessThanOrEqual(EAGER_JS_GZ_MAX);
 });
 
-test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", async ({ browser }) => {
+test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", async ({
+    browser,
+}) => {
     // N≥20 cold loads × 2 configs, each a fresh context on a software rasteriser
     // under a ×4 CPU throttle on one leg: minutes, by construction.
     test.setTimeout(20 * 60 * 1000);
@@ -352,7 +392,9 @@ test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", 
     const pin = runnerPin(renderer, origin);
     console.log(`[X-W2 CWV] pin: ${pin}`);
     console.log(`[X-W2 CWV] renderer(raw): ${renderer}`);
-    console.log(`[X-W2 CWV] origin=${origin} route=#/ N=${N_LOADS} settle=${SETTLE_MS}ms cold-cache=CDP Network.setCacheDisabled`);
+    console.log(
+        `[X-W2 CWV] origin=${origin} route=#/ N=${N_LOADS} settle=${SETTLE_MS}ms cold-cache=CDP Network.setCacheDisabled`,
+    );
 
     const configs: Record<string, unknown> = {};
     for (const cfg of CONFIGS) {
@@ -448,7 +490,8 @@ test("X-W2 G3/G4 — p75 TBT and p75 LCP over N≥20 cold loads, both configs", 
         pin,
         rendererRaw: renderer,
         origin,
-        originKind: "BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)",
+        originKind:
+            "BUILT dist/gh-pages via e2e/smoke/perf/serve-built.mjs (MT-F011: never a dev server)",
         route: "#/",
         n: N_LOADS,
         settleMs: SETTLE_MS,

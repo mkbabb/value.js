@@ -46,15 +46,12 @@ async function collectLcp(
         // Buffered LCP observer installed before any paint.
         (window as any).__lcpEntries = [];
         new PerformanceObserver((list) => {
-            for (const e of list.getEntries())
-                (window as any).__lcpEntries.push(e);
+            for (const e of list.getEntries()) (window as any).__lcpEntries.push(e);
         }).observe({ type: "largest-contentful-paint", buffered: true });
     }, scheme);
 
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
     // Let the boot settle so the FINAL LCP candidate is recorded (LCP stops
     // updating on first input; we provide none).
     await page.waitForTimeout(3000);
@@ -111,18 +108,29 @@ test("O-24 LCP identity + reveal-only law — both schemes, built bundle", async
     await page.goto("/");
     await page.waitForTimeout(1500);
 
-    const legs: Record<string, LcpRecord> = {};
-    for (const scheme of ["light", "dark"] as const) {
+    // X-W1 · G-1 — each leg is COLLECTED, not indexed out of a bag. The old
+    // shape built a `Record<string, LcpRecord>` and read `legs.light` back out,
+    // which under the repo's `noUncheckedIndexedAccess` is `LcpRecord |
+    // undefined` at all 20 downstream reads — a type hole where the record's
+    // absence would surface as `undefined.time` at runtime instead of as the
+    // "no LCP entry recorded" assertion below. The scheme legs stay SEQUENTIAL
+    // (the warm-then-measure ordering the doc block requires).
+    const collectLeg = async (scheme: "light" | "dark"): Promise<LcpRecord> => {
+        // `exactOptionalPropertyTypes`: `project.use.baseURL` is optional, so
+        // an explicit `undefined` is not the same as omitting the key.
+        const { baseURL } = test.info().project.use;
         const ctx = await browser.newContext({
-            baseURL: test.info().project.use.baseURL,
+            ...(baseURL === undefined ? {} : { baseURL }),
             viewport: { width: 1280, height: 720 },
         });
-        const p = await ctx.newPage();
-        legs[scheme] = await collectLcp(p, scheme);
-        await ctx.close();
-    }
-    const light = legs.light;
-    const dark = legs.dark;
+        try {
+            return await collectLcp(await ctx.newPage(), scheme);
+        } finally {
+            await ctx.close();
+        }
+    };
+    const light = await collectLeg("light");
+    const dark = await collectLeg("dark");
 
     console.log(
         `[O-24 light] t=${light.time.toFixed(0)}ms size=${light.size} <${light.tag}> testid=${light.testid} id=${light.id} cls="${light.cls}" text="${light.text}" opacity=${light.opacity}`,

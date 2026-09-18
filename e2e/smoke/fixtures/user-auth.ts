@@ -10,7 +10,8 @@
  *      (the keys useUserAuth.ts module reads on first call).
  *   2. page.route mocks /sessions, /sessions/me, /palettes/*, /colors/*,
  *      and /palettes/<slug>/{vote,flag,fork,versions} with shape-correct
- *      envelopes (matched against demo/@/lib/palette/types.ts).
+ *      envelopes (matched against e2e/fixtures/palette-envelopes.ts — the
+ *      e2e-owned DTOs, X-W1 G-1).
  *
  * Envelope shapes:
  *   PaginatedResponse<T> = { data: T[]; total: number; limit: number; offset: number }
@@ -36,7 +37,8 @@ const ME_BODY = JSON.stringify({ userSlug: FAKE_SLUG, slug: FAKE_SLUG });
 /**
  * True for the palette REST API surface — the `/palettes` path component and
  * its sub-paths — but never the demo's own Vite source modules (e.g.
- * `/@fs/.../demo/@/lib/palette/api/palettes.ts`, the H.W3 api.ts split). The
+ * `/@fs/.../demo/palettes/api/palettes.ts`, the H.W3 api.ts split — the path
+ * moved out of the deleted `demo/@` tree at `bc06a0cd`). The
  * REST path has no Vite source namespace and no module extension; the source
  * module lives under `/@fs/`, `/@id/`, or `/node_modules/` and ends in `.ts`.
  */
@@ -51,13 +53,23 @@ export const userTest = base.extend({
         // 1. Seed user creds BEFORE any page script runs. useUserAuth's
         //    lazy-init reads these on its first call — page boots as
         //    authenticated, no auto-register XHR fires.
+        // X-W1 · G-1 — a NAMED object arg: the five-element array inferred as
+        // `string[]`, so each destructured seed arrived as `string | undefined`
+        // inside the init script, where a silent `undefined` would seed the
+        // literal string "undefined" into storage instead of failing.
         await page.addInitScript(
-            ([slugKey, slugVal, tokenKey, tokenVal, sessionKey]) => {
+            ({ slugKey, slugVal, tokenKey, tokenVal, sessionKey }) => {
                 localStorage.setItem(slugKey, slugVal);
                 localStorage.setItem(tokenKey, tokenVal);
                 sessionStorage.setItem(sessionKey, tokenVal);
             },
-            [SLUG_STORAGE, FAKE_SLUG, TOKEN_STORAGE, FAKE_TOKEN, SESSION_STORAGE],
+            {
+                slugKey: SLUG_STORAGE,
+                slugVal: FAKE_SLUG,
+                tokenKey: TOKEN_STORAGE,
+                tokenVal: FAKE_TOKEN,
+                sessionKey: SESSION_STORAGE,
+            },
         );
 
         // 2. Session endpoints — POST /sessions (anonymous registration),
@@ -96,7 +108,7 @@ export const userTest = base.extend({
         //    fulfill a mutate endpoint with a custom shape.
         //
         //    NOTE: the glob must NOT swallow the demo's own Vite source
-        //    module `/@fs/.../demo/@/lib/palette/api/palettes.ts` (the
+        //    module `/@fs/.../demo/palettes/api/palettes.ts` (the
         //    H.W3 api.ts decomposition created that path). A `**/palettes**`
         //    glob matched it and fulfilled the JS module with a JSON body,
         //    so the browser failed the module load ("Expected a

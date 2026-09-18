@@ -1,0 +1,23 @@
+// The BROWSER-SUITE program (X-W1 · G-1 root cure).
+//
+// Before this file `e2e/` sat in NO TypeScript program: `tsconfig.lib.json`
+// includes `src/` subpaths, `tsconfig.demo.json` includes `demo/` +
+// `src/vite-env.d.ts`, and `tsconfig.json` is references-only. That absence —
+// not the two broken fixtures — is the ROOT of B9/B10: both dangling
+// specifiers were `import type`, which esbuild erases, so Playwright's
+// collector resolved 185 tests over a corpus with a deleted import in it and
+// no gate anywhere could see the break. `npm run typecheck` now runs this
+// program, so a dead specifier under `e2e/` is a compile error.
+//
+// `e2e/` speaks ONLY `@playwright/test` and `node:*` (measured: no other bare
+// specifier appears anywhere under the tree), so this program deliberately
+// carries no `paths` map — an e2e file that reaches into `demo/` or `src/` is
+// the coupling this cure exists to kill (W1.md:211-215), and it would fail
+// here loudly rather than silently.
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "types": ["node"]
+    },
+    "include": ["e2e/**/*.ts"]
+}

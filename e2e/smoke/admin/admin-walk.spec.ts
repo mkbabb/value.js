@@ -18,9 +18,7 @@ import { adminTest as test, expect } from "./fixtures/admin-auth";
  * specs' own convention); the Refresh buttons resolve with `.first()` (the
  * retired audit/flagged/tags specs' convention).
  */
-type Control =
-    | { kind: "search"; name: RegExp }
-    | { kind: "button"; name: string };
+type Control = { kind: "search"; name: RegExp } | { kind: "button"; name: string };
 
 const WALK: { path: string; heading: string; control: Control }[] = [
     {
@@ -61,8 +59,9 @@ test("walk all 5 admin views sequentially with zero console errors", async ({
 
     const main = page.getByRole("main", { name: "Color tool panes" });
 
-    for (let i = 0; i < WALK.length; i++) {
-        const { path, heading, control } = WALK[i];
+    // X-W1 · G-1 — `WALK[i]` is `| undefined` under the repo's
+    // `noUncheckedIndexedAccess`; `.entries()` carries the element type.
+    for (const [i, { path, heading, control }] of WALK.entries()) {
         // Boot / hash-navigate — vue-router re-resolves the ViewId in
         // useViewManager; usePaneRouter's KeepAlive wraps the admin sub-views,
         // so each step exercises mount/unmount races between sibling panels.

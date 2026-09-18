@@ -16,7 +16,7 @@
  * seam its pagination spec drives.
  */
 import type { Page } from "@playwright/test";
-import type { Palette } from "../../../demo/@/lib/palette/types";
+import type { Palette } from "../../fixtures/palette-envelopes";
 
 export const PAGE1_COUNT = 50;
 export const PAGE2_COUNT = 12;
@@ -44,8 +44,12 @@ function makePalette(i: number, page: 1 | 2): Palette {
     };
 }
 
-const PAGE1: Palette[] = Array.from({ length: PAGE1_COUNT }, (_, i) => makePalette(i + 1, 1));
-const PAGE2: Palette[] = Array.from({ length: PAGE2_COUNT }, (_, i) => makePalette(i + 1, 2));
+const PAGE1: Palette[] = Array.from({ length: PAGE1_COUNT }, (_, i) =>
+    makePalette(i + 1, 1),
+);
+const PAGE2: Palette[] = Array.from({ length: PAGE2_COUNT }, (_, i) =>
+    makePalette(i + 1, 2),
+);
 
 /**
  * S.W5-1 — the DELAYED-ROUTE fixture: hold `GET /palettes` open for
@@ -69,7 +73,11 @@ export async function routeBrowsePalettesDelayed(
                 .fulfill({
                     status: 200,
                     contentType: "application/json",
-                    body: JSON.stringify({ data: PAGE1, nextCursor: null, hasMore: false }),
+                    body: JSON.stringify({
+                        data: PAGE1,
+                        nextCursor: null,
+                        hasMore: false,
+                    }),
                 })
                 .catch(() => {}); // page may have closed mid-delay
         },

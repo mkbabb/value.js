@@ -60,7 +60,7 @@ const CONSOLE_FAIL_SUBSTRINGS = [
 const matchesFailure = (text: string): boolean =>
     CONSOLE_FAIL_SUBSTRINGS.some((sub) => text.includes(sub));
 
-function installFailureCapture(page: Page, sink: string[]): Promise<void> {
+async function installFailureCapture(page: Page, sink: string[]): Promise<void> {
     page.on("console", (msg) => {
         const text = msg.text();
         if (matchesFailure(text)) sink.push(`console.${msg.type()}: ${text}`);
@@ -69,7 +69,10 @@ function installFailureCapture(page: Page, sink: string[]): Promise<void> {
         if (matchesFailure(err.message)) sink.push(`pageerror: ${err.message}`);
     });
     // Surface a raw context-loss event even if no console.error is wired.
-    return page.addInitScript(() => {
+    // X-W1 · G-1 — `addInitScript` resolves to a `Disposable` handle in this
+    // Playwright; this function's contract is "installed", so the handle is
+    // awaited and dropped rather than widening the declared return type.
+    await page.addInitScript(() => {
         document.addEventListener(
             "webglcontextlost",
             () => console.error("webglcontextlost"),
@@ -84,7 +87,9 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+        await expect(
+            page.getByRole("main", { name: "Color tool panes" }),
+        ).toBeVisible();
 
         const atmosphere = page.getByTestId("atmosphere-canvas");
         await expect(atmosphere).toBeAttached();
@@ -126,12 +131,16 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
                 renderer,
             };
         });
-        console.log(`[w6-5 aurora] renderer=${mode.renderer} gradientFallback=${mode.hasGradientFallback}`);
+        console.log(
+            `[w6-5 aurora] renderer=${mode.renderer} gradientFallback=${mode.hasGradientFallback}`,
+        );
 
         // The cure gate (BINDING): the shader compiled — no init-failed fired.
         expect(
             failures.filter(
-                (f) => f.includes("[aurora] init failed") || f.includes("shader compile failed"),
+                (f) =>
+                    f.includes("[aurora] init failed") ||
+                    f.includes("shader compile failed"),
             ),
             "aurora shader must compile on WebKit (L1 cure)",
         ).toEqual([]);
@@ -155,7 +164,9 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         await installFailureCapture(page, failures);
 
         await page.goto(BOOT_URL);
-        await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
+        await expect(
+            page.getByRole("main", { name: "Color tool panes" }),
+        ).toBeVisible();
 
         // BOTH GL surfaces live — the dual-WebGL2-contention vehicle.
         const canvas = page.getByTestId("goo-blob-canvas").last();
@@ -246,7 +257,12 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
                         cy: n ? clipY + sy / n / dpr : null,
                     };
                 },
-                { dataUrl: `data:image/png;base64,${b64}`, clipX: cbox.x, clipY: cbox.y, threshold: INK_THRESHOLD },
+                {
+                    dataUrl: `data:image/png;base64,${b64}`,
+                    clipX: cbox.x,
+                    clipY: cbox.y,
+                    threshold: INK_THRESHOLD,
+                },
             );
         }
 
@@ -291,7 +307,10 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
         // Two settle samples after release.
         await page.waitForFunction(() => performance.now() > 0);
         samples.push(await sampleCentroid());
-        await page.waitForFunction((s) => performance.now() - s > 400, await page.evaluate(() => performance.now()));
+        await page.waitForFunction(
+            (s) => performance.now() - s > 400,
+            await page.evaluate(() => performance.now()),
+        );
         samples.push(await sampleCentroid());
 
         const wrap = await wrapperBox();
@@ -321,7 +340,11 @@ test.describe("S.W6-5 WebKit atmosphere + hero", () => {
                 w: Math.round(wrap.width),
                 h: Math.round(wrap.height),
             })} inkSamples=${inkSamples.length}/${samples.length} maxJumpPx=${maxJump.toFixed(1)} centroids=${JSON.stringify(
-                inkSamples.map((s) => ({ x: Math.round(s.cx!), y: Math.round(s.cy!), ink: s.inkCount })),
+                inkSamples.map((s) => ({
+                    x: Math.round(s.cx!),
+                    y: Math.round(s.cy!),
+                    ink: s.inkCount,
+                })),
             )}`,
         );
 
