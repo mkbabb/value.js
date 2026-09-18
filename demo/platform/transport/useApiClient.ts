@@ -14,6 +14,10 @@
  * call `request` / `adminRequest` directly, and the auth composables drive the
  * token via `setSessionToken`. This seam re-exposes that state reactively so
  * consumers depend on the provided client, not a hidden module import.
+ *
+ * X.W3.7 · AP-29 — the seam also carried a `baseUrl: string` member that no
+ * consumer read; its sole "consumer" was a comment. Deleted, so the object is
+ * exactly the three singletons its own first paragraph names.
  */
 import { inject, provide, type InjectionKey, type Ref } from "vue";
 import { request, adminRequest, sessionTokenRef, BASE_URL } from "./client.js";
@@ -30,8 +34,6 @@ export interface ApiClient {
     sessionToken: Ref<string | null>;
     /** The reactive availability latch — read by the degraded-state affordances. */
     availability: Ref<ApiAvailability>;
-    /** The resolved API base URL (frozen at client init). */
-    baseUrl: string;
 }
 
 export const API_CLIENT_KEY: InjectionKey<ApiClient> = Symbol("api-client");
@@ -43,7 +45,6 @@ export function createApiClient(): ApiClient {
         adminRequest,
         sessionToken: sessionTokenRef,
         availability: apiAvailability,
-        baseUrl: BASE_URL,
     };
 }
 
