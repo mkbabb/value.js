@@ -1541,3 +1541,156 @@ api/src src | wc -l` → **0**, before and after the commit.
    **cited (F.W4)** · `AA-44` **emitted (F.W9/W10)** — tabulated at §1.f so the closure reads it rather
    than re-deriving it.
 
+
+---
+
+### g — contour, cache identity, and the canonical-geometry TRIPWIRE
+
+**Seat**: Opus 5 (1M), **2026-09-18**. **Sections executed exactly as ordered**: spec §2.6 (`:210-217`) ·
+§3 **FW6-G13** (`:522`), **FW6-G14** (`:523`), **FW6-G15** (`:524`) · §4 **lock 7** (`:548`). **Writes**:
+the two paths of the unit's writable set and nothing else —
+`docs/tranches/X/fourier/waves/F-W6/burn-register.md` and this record. **Zero fourier bytes · zero
+value-tree product bytes.** Engine `/usr/bin/grep` (§0.2's pin). Every figure double-run; both runs agreed.
+
+#### Acts, in order
+
+**Act 1 — the spec read WHOLE, then the unit's five coordinates verified at the true bytes before any of
+them was consumed.** `F-W6.md` is **634 lines / 263,396 B** (unchanged; **nothing in it was edited** — E-3).
+Each ordered coordinate resolved to the section it names: `:210` `### §2.6 Contour, cache identity, and
+canonical geometry (3 rows)` · `:522` `FW6-G13` · `:523` `FW6-G14` · `:524` `FW6-G15` · `:548` the
+TRIPWIRE lock. **No anchor drifted; no INTENT substitution was needed.** The wave record's baseline, unit
+plan, brief `g` and the receipts of `a`–`f` were read before measuring, and **COHESION §0j.D** was read for
+the one ruling this unit consumes.
+
+**Act 2 — §4 lock 7 run FIRST, as the lock orders** (*"track the seam (G2c) before any geometry act"*).
+The seam, not the artifact, was measured first: ⟨cmd⟩ `git -C $F check-ignore -v
+scripts/precompute_svg_fourier.py scripts/raw-contours.json` → both → `.gitignore:53:scripts/*`; ⟨cmd⟩
+`git -C $F ls-files --error-unmatch scripts/precompute_svg_fourier.py` → *"did not match any file(s) known
+to git"*; ⟨cmd⟩ `git -C $F status --porcelain --ignored scripts` → **three `!!` rows**, two of them this
+seam's. **And the tree's own convention convicts it**: `.gitignore:52` reads *"# Scripts (private/local
+only — tracked scripts use negation)"*, with ⟨cmd⟩ `/usr/bin/grep -c '^!scripts/' $F/.gitignore` → **10**
+negation lines and ⟨cmd⟩ `git -C $F ls-files scripts | wc -l` → **16** tracked paths. **Sixteen siblings
+were added to the allowlist; the only claimed producer of canonical geometry never was** — which is G2c
+stated in one measurement rather than as an adjective.
+
+**Act 3 — substrate re-measured (D-19 MEASURE-AT-OPEN) and §0.1c CONSUMED, not re-derived.** ⟨cmd⟩
+`git -C $F rev-parse --short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**,
+both double-run — **unmoved from units `a`–`f`**. The register's §0.1c anchor table already holds this
+unit's four geometry rows (`image_storage.py:250-266` · `:285`/`:290`/`:318` · `contours.py:20-30` · the
+`order_contours` / `.gitignore:53` / `moon.json`-tracked rows), all marked **HOLDS**; they were re-read at
+the bytes and cited **from that table**, never re-resolved as a rival act (§4's F.W0 edge, R-9.1).
+
+**Act 4 — FW6-G13's witness re-cut as a SET DIFFERENCE.** The spec's witness is a list (*"a CLOSED
+10-field literal … that OMITS `ml_threshold` / `ml_detail_threshold`"*), and a list is the instrument that
+let the defect exist. Differenced mechanically instead: ⟨cmd⟩ `comm -23 <(/usr/bin/sed -n '44,62p'
+$F/api/models/shared.py | /usr/bin/grep -oE 'self\.[a-z_]+' | sed 's/self\.//' | sort -u)
+<(/usr/bin/sed -n '249,266p' $F/api/services/image_storage.py | /usr/bin/grep -oE 'settings\.[a-z_]+' |
+sed 's/settings\.//' | sort -u)` → **`ml_detail_threshold` · `ml_threshold`** — **exactly two, no third**,
+double-run. **The fields are consumed on the SHIPPED DEFAULT route**, which the spec asserts and this seat
+walked: `strategy` defaults `"auto"` (`models/shared.py:9`) → `extract_contours_result` routes AUTO to
+`extract_contours_pipeline` (`contours/extraction.py:161-162`) → Stage 1 `isolate_subject` thresholds at
+`contours/isolation.py:40 subject_mask = saliency >= config.ml.threshold`. The short-circuit is before
+compute (`routers/images.py:219-226` vs `:230`). **RED confirmed and sharpened.**
+
+**Act 5 — FW6-G14's destroy path walked end-to-end, and it is SHORTER than the spec's prose.** The write
+is provenance-free (`routers/contours.py:25`, the **one** `source="editor"` site; the callee sets the key
+only `if extraction_cache_key_value:` at `image_storage.py:321-322`). **The arming step the spec does not
+state**: `saveContourPoints` sets `epicycleData.value = null` · `basesData.value = null`
+(`stores/workspace.ts:276-277`), and those two nulls are **exactly** the guard under which
+`ContourSettings.vue:165` fires `runCompute()` from its `{ immediate: true }` watcher — **the save arms
+the recompute that destroys it**. `runCompute` → `store.extractContour()` (`:126`) → same `cache_key` →
+the ORIGINAL returns → `workspace.ts:251 contour.value = markRaw(result)`. M-14's second trigger
+reproduces (`ContourSettings.vue:141` carries `props.nHarmonics, props.nPoints`). E17/`fr-ContourEditorCanvas
+C-2` measured on both sides: the POST writes `image_bounds` verbatim `None`, backfill lives only inside
+`get_contour` (`dependencies.py:102-103`) which `save_contour` never calls, and both consumers fail
+**silently** (`ContourEditorCanvas.vue:100-101` · `useImageOverlay.ts:77-78`). ⟨cmd⟩ `/usr/bin/grep -rn
+'image_bounds' $F/api/ --include='*.py' | wc -l` → **29**, double-run — a **character-match** to v2 §E17.
+
+**Act 6 — FW6-G15's witness re-measured from the tracked artifacts, and M-10's rider PROVEN.** ⟨cmd⟩
+`/usr/bin/grep -rn 'def order_contours' $F/src $F/api --include='*.py' | wc -l` → **0** (the script imports
+it at `:40` and consumes it at `:81`); shipped `n_harmonics` **50** / **10** levels in *both* assets,
+read out of the JSON itself, against the script's hard-coded `100` / **12** (`:139-142`) — **50/10 vs
+100/12 reproduces exactly**. G5c's precondition at the bytes: three silent-drop gates
+(`svg-contours.ts:40` · the **bare** `catch { continue; }` at `:47-48` · the `>= 3` floor at `:52`) in a
+58-line file, with ⟨cmd⟩ `/usr/bin/grep -cE 'console|throw|warn'` → **0** on that file **and 0** on its
+caller, while the server twin ships `ContourDiagnostics` on the same operation. **M-10's innerPoly rider,
+asserted through four repair rounds, is now measured**: `@mkbabb/pencil-boil` **0.4.1**'s
+`celestial.ts:45-96` draws a **single** `mulberry32` stream **twelve** times per iteration of
+`numRays = 10` — outer **3**, mid **3** (both pushed into `outerPoints`), innerPoly **6** — and the
+innerPoly six sit **at the END of each iteration**, so deleting them shifts every later iteration's outer
+draws. ⊘ **The honest limit came with it**: ⟨cmd⟩ `/usr/bin/grep -rn 'innerPoly' $F/web/src | wc -l` → **0**
+— the discard happens at the consumer and the anti-cure would have to be performed inside a **read-only
+third-party package**, making the rider a bar on a non-act in either tree. **Both halves are in the row.**
+
+**Act 7 — the three register rows, §1.g and the §2 stamp written and committed.** Commit **`58c4bb15`**
+(pathspec `docs/tranches/X/fourier/waves/F-W6/burn-register.md`). **ONE commit, ONE meaning** — §2.6 is a
+single section and the spec declares **no** one-cut family inside it or across it; unit `d`'s
+four-rows-one-commit shape is followed. Register measured after the write (WRITE-THEN-MEASURE): **972
+lines / 227,813 B**, **213** table rows, the three new rows verified as well-formed 5-cell rows by
+unescaped-pipe count (`6` each, character-match to the seventeen rows already in the table).
+
+#### Gate readings — BEFORE → AFTER (§3's SPLIT VERDICT, never a claimed GREEN)
+
+| gate | BEFORE (baseline, unit `a`'s read) | AFTER (this unit) |
+|---|---|---|
+| **FW6-G13** | **RED-AS-EXPECTED** ⟨divergence D-1, form only⟩ | **RED — commissioned act INSTALLED**, witness **sharpened** from a list to a two-member set difference; D-1's operand retired rather than re-argued |
+| **FW6-G14** | **RED-AS-EXPECTED** | **RED — commissioned act INSTALLED**, with the **arming step** added to the witness and E17's 29-site read re-verified as a character-match |
+| **FW6-G15** | **RED-AS-EXPECTED** (stays RED by design) | **RED BY DESIGN — commissioned act INSTALLED, TRIPWIRE CHECKED**: fourier **0** dirty at open and close, assets byte-untouched; the interim **FROZEN** posture named with its ruled instrument |
+
+**No gate turned GREEN, and none could**: §3's split verdict makes GREEN the *landing's*, and this wave
+moves **zero fourier bytes** by its own §1 and §4. **FW6-G15 is the one gate in the wave whose RED is a
+conformance result rather than a debt** — a GREEN there would mean a regeneration had occurred, which
+§4 lock 7 makes a **FAILURE**.
+
+#### Divergences and errata — BESIDE, never over (E-3)
+
+- **D-9 · FW6-G13's GREEN fixture is homed at F.W3/W4 by v2, not here.** Spec §3's `FW6-G13` GREEN cell
+  names *"the named fixture: `contour_hash` INSTABILITY across an ML-threshold change"* with owner
+  **F.W6**; v2 §E13's disposition reads ***"F.W3/W4 owns the regression fixture"***. **Both are true and
+  not in conflict** — the gate's *falsifier* is the fixture, its *authoring home* is F.W3/W4 — but a burn
+  seat reading only §3 would author it here and **double-book against §4 lock 2**. The row states it:
+  **F.W6 burns the KEY and EMITS the fixture.** Neither document is amended.
+- **D-10 · `m-18` is a LEG held at F-W3, not a rider this wave books.** Spec §2.6 calls it a *"rider"*
+  whose coupling *"the cure must not preserve"*; v2 §E13 homes the limb — *"the `m-18` limb rides as a
+  LEG held at F-W3"*. **Reconciled by carrying only the PROHIBITION**, which is what "the cure must not
+  preserve it" actually asks of a server cure. No `m-18` booking is made.
+- **D-11 · the `10-field` reading (already D-1) is retired, not re-argued.** The live literal folds `_v`
+  plus ten parameters, of which **nine** are `settings.*`. This unit banks the **deficit**, never the
+  **cardinality**, so the disagreement has no operand left to bite on.
+- **D-12 · `fr-FourierShapeExtractor L-B3` is CLOSED at the record and is NOT re-opened.** Its concrete
+  `0.4.1 → 0.12.0` exposure measured **Δ 6.10e-6** (v2 §G2c's disposition) and **tracking
+  `raw-contours.json` IS the golden file, not a separate act**. This seat noticed the caret range
+  (`web/package.json:17 "@mkbabb/pencil-boil": "^0.4.1"`) and **declined to re-file it** — it is G2c's
+  already-booked *unpinned generator input* leg, and re-raising a closed measurement as a new finding is
+  the defect the census laws exist to stop.
+
+#### Residuals carried forward (none blocking)
+
+1. **The landings.** `FW6-G13` · `FW6-G14` stay **RED** until the fourier sub-session lands them
+   (COMMISSION §2); each row's evidence cell reads **PENDING** and its *Not stamped by* list is the
+   acceptance bar — including, for G13, *"a key that adds the two fields by hand without closing the
+   class"*, which would re-open the identical defect at the next consumed field.
+2. **`FW6-G15` stays RED by design until the pipeline lands**, and the ordered preconditions are in the
+   row: **G2c → G5c → G1c (+G10c) → G6c → G7c**. **G5c is a PRECONDITION, not a companion** — a
+   regeneration run today reports nothing, so a re-authored artifact would be trusted *for exactly the
+   reason the present one is not*.
+3. **Two rulings, one artifact, no contradiction — recorded so no seat reads one as barring the other.**
+   §0j.D **G-15(c)/FM-19** rules the frozen-asset class's **instrument**; v2 §G1c **adopts it without
+   re-opening it** and rules the artifact **RE-AUTHORED once the pipeline exists**. **FROZEN is the
+   interim, RE-AUTHOR is the act, the golden-file diff makes the interim auditable, and DO-NOT-REGENERATE
+   stands until F.W6 lands the pipeline.**
+4. **Client arms emitted, never claimed**: **L-2's orchestrator move is F.W3/W4's** (REQUIRED, urgency
+   rider at the data-loss class) — this unit's Act-5 arming step is the evidence that wave inherits; the
+   `m-18` limb and the slider's own behaviour are likewise F-W3's.
+5. **Magnitudes unspent**: **no probe was run**. `M-14`'s end-to-end arm and *"what `moon.json` WAS
+   generated from"* both stay **SS-13**, and v2 §G1c states the latter is **not** a precondition of the
+   RE-AUTHOR decision.
+6. **For unit `i`'s FW6-G17 closure**, this unit's identities resolve as: `fr-ContourSettings B-4`
+   **booked** · `fr-ContourSettings i-7` **folded (INFO, into B-4)** · `fr-ContourSettings m-18`
+   **cited-to-holder (F-W3), prohibition only** · `fr-ContourSettings M-13` **booked** ·
+   `fr-BasisSelector M-14` **carried on M-13** · `fr-ContourEditorCanvas C-2` **carried on M-13** ·
+   `fr-CoefficientsSpectrum M-13` **cited as a DISTINCT identity, booked nowhere** ·
+   `fr-FourierShapeExtractor L-B1` **booked** · `L-B2 / C-2` ⊕ `L-B3` ⊕ `L-M3/C-6` ⊕ `L-M5/C-5+C-15` ⊕
+   `C-7` ⊕ `L-m3/C-10+L-m5` **carried on L-B1** · `fr-FourierShapeExtractor M-10` **a PROHIBITION, not an
+   identity** (its head `D-16 ≡ C-9 ≡ L-m2-arm` is canonical **F.W4**'s) — tabulated at §1.g so the
+   closure reads it rather than re-deriving it.
