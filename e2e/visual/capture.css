@@ -1,0 +1,97 @@
+/* SERVED MODEL: claude-opus-5[1m] */
+/*
+ * X.W1.b — CAPTURE-INPUT STYLESHEET. Injected by Playwright at screenshot time
+ * (`toHaveScreenshot({ stylePath })`); it is never served to a user and it edits
+ * no `demo/` byte. W1.md's Triumvirate trigger fires on a write under `src/`,
+ * `demo/` or `api/`; this file is under `e2e/`, which is the whole point of
+ * R35's CURE-SHAPE LOCK: *"seeded storage, seeded fixtures and forced states are
+ * CAPTURE INPUTS, not product edits."*
+ *
+ * ── Rule 1: the two live WebGL surfaces are quiesced, and it is declared ──────
+ *
+ * `canvas.atmosphere-canvas` (the aurora) and `canvas.goo-blob-canvas` (the
+ * metaball hero) are BOTH created `preserveDrawingBuffer: false` and both run a
+ * continuous rAF loop — measured and written down long before this wave, at
+ * `e2e/smoke/fixtures/webgl-appearance.ts`: *"after the browser composites a
+ * frame the drawing buffer is cleared; a read landing between draws sees an
+ * empty buffer … the readPixels approach is inherently racy."* A surface that
+ * is racy to READ is racy to PHOTOGRAPH. Two consecutive frames of a live
+ * aurora are never equal, so `toHaveScreenshot`'s stabilisation loop cannot
+ * converge and every cell would time out.
+ *
+ * `visibility: hidden` and not `display: none` — deliberately. Visibility keeps
+ * the element's box in flow, so the golden still witnesses the LAYOUT the canvas
+ * occupies: a regression that moves, resizes or drops the hero still reds. Only
+ * the animated pixels inside the box are withheld.
+ *
+ * WHAT THIS COSTS, stated rather than buried (NG-12 instrument-caveat register,
+ * `docs/tranches/X/evidence/w1/instrument-caveats.md` row IC-5): this suite does
+ * NOT witness aurora or blob APPEARANCE. Those have their own oracles and they
+ * are not silently orphaned by this choice —
+ *   · `e2e/smoke/webgl-atmosphere.spec.ts` + `webgl-blob.spec.ts` (draw-count
+ *     liveness, via `webgl-appearance.ts`)
+ *   · `e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts` (pixel-read
+ *     perceptibility, via `frame-diff.ts`)
+ *   · `e2e/smoke/atmosphere-cold-load.spec.ts`
+ * A golden that silently absorbed a dead aurora would be worse than one that
+ * declares it never looked.
+ *
+ * ── Rule 2: the picker's WATERCOLOR DOT is a PERPETUAL animation too ─────────
+ *
+ * `.spectrum-dot` is glass-ui's `<WatercolorDot animate :cycle-duration="2000">`
+ * (`demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue:24-29`) — a producer
+ * component whose whole purpose is a living wet edge. It never settles, and
+ * measuring it said so plainly. Eight cold loads of one cell, reading
+ * `getComputedStyle(dot).transform` after `networkidle` + 3 s:
+ *
+ *   matrix(0.959938,  0.0205965, -0.00767353, 0.979184, 0, 0)
+ *   matrix(1.00828,  -0.0119702,  0.0127257,  0.998856, 0, 0)
+ *   matrix(0.986711, -0.021197,   0.0138283,  1.03384,  0, 0)   …
+ *
+ * and WITHIN one page, at t+0 / t+2 s / t+6 s, three more different matrices
+ * with `getAnimations()` reporting 4–5 running throughout. It is not a spring
+ * settling to a random rest; it is still moving at six seconds and it always
+ * will be.
+ *
+ * That is why `waitForQuiescence` cannot wait it out (an infinite animation is
+ * excluded from its signature, correctly — it never ends) and why Playwright's
+ * `animations: "disabled"` does not still it either.
+ *
+ * WHAT IT COST BEFORE THIS RULE, measured: the `.spectrum-dot` residue is the
+ * ONLY residue left in `TOLERANCE.md`'s Stage 4 strict run (4…58 px), and on
+ * `param-sweep · hsl · 1024 · light` — where the dot sits over a high-contrast
+ * blue field, so more of its antialiased edge clears the YIQ threshold — it
+ * measured **147 differing pixels against a 120-px bar**, i.e. the one cell that
+ * failed the first verification pass of the cured matrix. A residue whose tail
+ * crosses the bar makes the gate FLAKY, and a flaky gate is a gate someone turns
+ * off — this wave's Archaeology in one sentence. The bar was NOT moved.
+ *
+ * `transform` and `filter`, and nothing else: the dot's POSITION is `left`/`top`
+ * (measured static at `424.828px` / `32.4688px` across all eight loads), its
+ * SIZE is `1.75rem` from the stylesheet, and its COLOUR is the picked colour.
+ * All three are layout and state, all three still red on a regression. What is
+ * withheld is the ±3% scale/skew wobble and the animated wet-edge filter — the
+ * two things that have no settled value to assert.
+ *
+ * Recorded as IC-17. glass-ui is READ-ONLY always, so the producer's animation
+ * is not touched; only the darkroom is.
+ *
+ * ── Rule 3: nothing else is touched ──────────────────────────────────────────
+ *
+ * There is no blanket `* { animation: none }` here. Playwright's own
+ * `animations: "disabled"` already fast-forwards finite animations and cancels
+ * infinite ones to their initial state, and its stabilisation loop re-shoots
+ * until two frames agree. Adding a global animation kill on top would hide
+ * genuinely stuck UI — a spinner that never resolves must still be able to make
+ * a cell fail, not be styled into stillness.
+ */
+
+canvas.atmosphere-canvas,
+canvas.goo-blob-canvas {
+    visibility: hidden !important;
+}
+
+.spectrum-dot {
+    transform: none !important;
+    filter: none !important;
+}

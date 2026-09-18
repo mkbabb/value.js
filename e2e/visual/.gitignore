@@ -1,0 +1,21 @@
+# SERVED MODEL: claude-opus-5[1m]
+# X.W1.b — FM-12: "untracked evidence is not evidence."
+#
+# The repo root ignores every PNG (`.gitignore:34` `*.png`) with one carve-out
+# (`!demo/**/*.png`). Goldens ARE PNGs, so without this file a minted golden set
+# is invisible to `git status`, never lands in a commit, and G-8's suite asserts
+# against bytes no reviewer can see. That is the exact silent-drop shape the root
+# ignore file already warns about twice in its own comments — U-F49's `/auth/`
+# anchoring, and the `!test/dist/**` carve for U.W-CANON's hygiene gates.
+#
+# A nested negation is git's own mechanism for this, and the repo's own idiom.
+# It works here because the DIRECTORY is not excluded — only `*.png` files are —
+# and git cannot re-include a file whose parent directory is excluded. That is
+# also why the golden directory is `goldens/` and not `__goldens__/`: a leading
+# underscore would match the root `_*` rule, exclude the directory itself, and
+# make re-inclusion impossible.
+#
+# `scripts/visual/regenerate-goldens.mjs` verifies this holds on every run and
+# exits 4 if any minted golden is ignored — the rule is enforced, not trusted.
+
+!*.png
