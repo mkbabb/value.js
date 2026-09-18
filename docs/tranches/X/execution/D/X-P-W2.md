@@ -1458,3 +1458,168 @@ set, **one** Stage-0 kill (not two), no third diagnostic iteration on any gate.
 - **Bar**: none set. **Verbs**: none stamped.
 - **`<p2>` end state**: HEAD `81370815c59574f3bf1ed379142dac7cd944e420`, branch `w2/harness`, porcelain **0**, `f5757082` an ancestor, `remote -v` → 0 lines.
 - **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh` never staged.
+
+---
+
+### X.P.W2.d
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 4, **candidate AC-1
+TAGLESS-TWIN**, the §3d slice in BOTH lowerings (`W2.md` §5 `.d`/`.e`/`.f` L632–645; an Opus
+implementation seat). **Sections executed exactly**: §5 `.d` L632–645 · §3c AC-1 L313–324 · §3d
+L409–423 · §3e Stages 1–4 L425–461 · K-1..K-10 L463–483 · §4b Worktree Plan L563–577 · §6
+G-1..G-11. Rulings consumed by id: COHESION §0j.E **OC-1** (no bar set anywhere; **no speed
+sentence outside a printed table** — G-8's rows are G-8 legs, never bench cells) · §0l **E-1/R-13**
+(the `<p2>` toolchain exists; base of record `f5757082`) · X.P.W2.c **R-c4/R-c5** (the slice's two
+declared restrictions bound the corpus) · X.P.W2.g **R-g3** (the adapter contract is the whole
+interface — `meta.sources` three disjoint lists, `meta.build.jsArtifactReproduction` is K-9's
+reading, `wasmBytes()` is where G-9 reads the START section) · **R-g4** (EQ-1's lexicographic key
+walk; insertion order digested separately — this seat's two lowerings agree on **both**) ·
+**R-g5** (G-8's literal leg reads tier-up, the warmed leg is the verdict leg).
+
+**Writable set, hard bound (3 globs):** `<p2>/experiments/w2/ac1-tagless/**` ·
+`<p2>/rust/parse_that/**` on branch `w2/ac1` · `<p2>/.worktrees/ac1` — **plus this record**.
+**Written: the first glob only.** No Rust was elected, so `rust/parse_that/**` was never opened and
+`CARGO_TARGET_DIR` was never set — the Wasm lowering is assembled byte by byte by `node`, which is
+also K-9's whole answer. **0 bytes** under `harness/**` (W1's *and* `.g`'s: one harness, all
+candidates), 0 under `experiments/w2/{contract,corpus,stage0}/**`, 0 in value.js `src/**` ·
+`demo/**` · `api/**`, 0 in glass-ui (READ-ONLY always), 0 in `/Users/mkbabb/Programming/parse-that`
+(read-only, and **never** its uncommitted `wasm32` bytes — K-10, measured below, not asserted).
+`scripts/dev/dev.sh` appears in 0 commits and was never staged.
+
+**Commits (two histories, never merged — §9):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | `<p2>` | **`af40fb2db64726745c0ee9c593845448bb65a18a`** | `X.P.W2.d(ac1): AC-1 TAGLESS-TWIN — the §3d slice in BOTH lowerings, one grammar authored against the 22` (branch **`w2/ac1`**, in the worktree `<p2>/.worktrees/ac1` per §4b) | **20 files changed** |
+| 2 | value.js | this record | the receipts below | — |
+
+The §9 lock holds: **ONE `<p2>` commit**, on its own branch, in its own worktree with its own
+`node_modules`. Its pathspec rode the commit itself; every added path is under
+`experiments/w2/ac1-tagless/`; ⟨`git status --porcelain`⟩ → **0** after it; `index.lock` never
+appeared.
+
+#### d.0 — E13 at this seat's own clock, bounded (§5.2 parsimony)
+
+⟨`/usr/bin/find <each of the four coordination paths> -maxdepth 1 -name '*.md' -newermt '2026-09-17 19:11'`⟩
+→ **0 · 0 · 0 · 0** (`INBOX.md` self-excluded, SELF-COUNT law). ⟨`grep -rlic "experiments/w2\|ac1-tagless\|TAGLESS" ../glass-ui/docs/tranches/BK/coordination/*.md`⟩
+→ **no file**: not one rowed letter names this unit's surface. The three `UNREAD` rows **I-32 ·
+I-33 · I-34** are Track D seat 0's, routed by their own Routing cells to X-W0.j / the X formation
+mail seat, and are **not rewritten here** (append-only; the durable mark is theirs to move).
+**0 unrowed · 0 new `I-n` · 0 new `O-n` · 0 UNREAD in this unit's scope.** No `INBOX.md` line
+appended — seat 0's sweep is the wave's.
+
+#### d.1 — What was built
+
+One grammar file, authored against the twenty-two-operation signature and nothing else, and
+**three instantiations of it**:
+
+| surface | files | what |
+| --- | --- | --- |
+| `algebra/` | 3 (`ops.mjs` · `tables.mjs` · `grammar.mjs`) | the §4.6 registry as data · `R_cls`/`R_kw`/`R_disp`/`R_ctor`/`L` **once**, read by both lowerings · the §10 slice, 29 productions + 7 dispatch rows, `buildGrammar(A)` for any `A` |
+| `reify/term-alg.mjs` | 1 | the TERM instantiation — `grammar()` for **both** lowerings (byte-identical JSON) |
+| `lowering-js/` | 3 | `jsAlgebra` over parse-that's `Parser`/`createParserContext`: **the interpretation IS the parser**, no IR |
+| `lowering-wasm/` | 5 | `wasmAlgebra` = an **emitter**: each operation assembles a Wasm function, a term's value is a function index. `asm.mjs` (a minimal binary assembler with **no import section to emit** — G-9 met structurally), `layout.mjs`, `runtime.mjs`, `wasm-alg.mjs`, `index.mjs` (the module + BND-1 + the arena decoder) |
+| `probes/` | 2 | the seat's own instruments (§3c's predicted failures; the COMP-1 cause + third-cell census). **Not** `meta.sources`, **not** imported by any lowering |
+| `build/` + `build.mjs` | 3 + 1 | `ac1.wasm` (**187,341 B · 1,273 functions · 55,500 B of static data**, sha256 `049b9904e829bedadf2dc12287013e33279a2079a43ddd4dd88c3a82611c6e22`) · `ac1.js` (the JS artifact) · `ac1.d.ts` (the frozen surface **re-exported** from the vendored sha-pinned 4.0.0, never re-typed) |
+
+`VERDICT.md` (469 lines) carries the full reading; this record is its receipt, not its copy.
+
+**The one thing that had to be right before anything else could be measured**: `Number(s)` is one
+call in JS and a correctly-rounded 192-bit path in Wasm. It was written and validated **before a
+byte was emitted** — 0 mismatches against `Number()` over the **20,433** distinct number tokens of
+the slice+fuzz corpora and **0 unflagged** mismatches over 500,000 generated tokens (the routine
+**flags** what it cannot decide; it never guesses). Over the 30,527-row differential it flagged **0**.
+
+#### d.2 — The three §3c predicted failures, probed FIRST (VERDICT.md §1)
+
+| # | prediction | verdict | measurement |
+| --- | --- | --- | --- |
+| **PF-1** | signature leak | **NOT OBSERVED** | algebra→lowering imports **0**; target-conditionals **0** over all 12 declared sources; the grammar destructures exactly **22**, none outside the ratified set, none unused; `js.grammar() === wasm.grammar()` byte-identical; labels aligned. **Published honestly: the first K-2 reading was 3** — `/target\s*===/` matched three *dispatch-target* variables; renamed, behaviour unchanged, reading 0, and the false-positive class filed as **F-6** |
+| **PF-2** | megamorphic IC collapse on the short-string leg | **OBSERVED — not where predicted** | `--trace-ic` **does not exist on node v26** (`node: bad option`); its documented successor `--log-ic` used and the substitution declared. Diffing load-only against load+20,000 parses: the JS lowering's ~1,270 parser objects leave the parse loop at **336 monomorphic · 13 polymorphic · 1 megamorphic**, and that one site is **DM-1's deep-freeze walk** — the combinator dispatch does **not** collapse. The Wasm boundary introduced **17**, of which **15 were this seat's own defect** (the result block read by string key) — cured at the root and re-measured **17 → 2** |
+| **PF-3** | continuation inexpressibility | **OBSERVED — against the CONTRACT** | 0 host closures required; CL-1 leaks **0**; the four places §10's letter could not be transcribed are all expressible **within** the 22 (VERDICT.md §9). **One thing is not**: §10.3's `CUT` sites sit under `REP`/`RECOVER`, which OP-10 calls a walk error, and the cure is inexpressible because the only scope-opener is `ALT` and **OP-09 fixes its arity at n ≥ 2** — a one-arm `ALT` is not in the signature. Filed as **F-2** |
+
+#### d.3 — Stage 2: the bijection, printed BEFORE any timing
+
+⟨`node harness/w2/op-bijection.mjs --candidate ac1`⟩ → **GREEN — 22 rows, both lowerings,
+fingerprints pairwise equal**, `DECLARED-ABSENT wasm symbols 0`. The full OP-01..OP-22 pairing
+table is pasted in `VERDICT.md` §2. **No timing number exists anywhere in this unit's artifacts
+before that print** — the first is G-8's, taken after it. Stage 2 (ii) is G-5: **GREEN**.
+
+#### d.4 — The nine gates, BEFORE → AFTER (each double-run; both runs' verdict lines identical)
+
+| gate | before | after | reading |
+| --- | --- | --- | --- |
+| **G-1** | RED | **RED** (contract half GREEN) | homes sha256-equal · 22 enumerated == stated · 0 target-conditionals in the contract text **and** in all 12 declared sources; per-candidate walk, both lowerings: `ops∉22 0 · recover≺alt 0 · cut∉alt 7 · unowned-span 0 · closure-leak 0` — the 7 are **F-2** |
+| **G-2** | RED | **GREEN** | 22 rows, both lowerings, fingerprints pairwise equal |
+| **G-3** | RED | **RED** (EQ-1..EQ-5 GREEN) | 30,527 rows · **EQ-1 EQ-2 EQ-3 EQ-4 EQ-5 = 0 divergences** · labels aligned · key-insertion order identical · EQ-6 **2,035** rows — **F-1** |
+| **G-4** | RED | **RED** (R-LAW-1/3/4/5 GREEN) | **2,951** rollback sites per lowering, **0** coordinate mismatches · silent under the throwing instrument · **0** amplified · **0** zero-width · R-LAW-5 structural 0 with `.g`'s control firing; R-LAW-2's 13 rows are **F-1** |
+| **G-5** | RED | **GREEN** | **0/172** throws × 3 productions × 2 lowerings · 0 empty-diagnostic rejections · **7/7** non-strings refused above the algebra |
+| **G-8** | RED | **RED** (five legs GREEN) | history drift js **1.000×** / wasm **0.897×** (envelope 0.80–1.25) · steady-state js −3.3, wasm **0.0 B/parse** · wasm reset residue **1.001×** (re-runs 0.963× / 0.905×) · arena high-water **304 B** · DM-1 freeze as its own leg (js 4834→2166 ns, wasm 1125→917 ns) · **reject leg 2.1 B/parse** — **F-4** |
+| **G-9** | RED | **GREEN** | imports **0** over all kinds (`{}` by kind) · **no START section** · exports closed (`run setTheta highWater reset memory`) · memory **12,582,912 → 12,582,912 B** over 2,000 steady-state parses (no `memory.grow` exists in the module) · **K-9** `node …/build.mjs`, non-JS toolchain **none** · **K-10** 0 declared wasm sources byte-identical to the evidence root's 3 uncommitted `wasm32` files |
+| **G-10** | RED | **GREEN** | 139 graph nodes · `opt` under `all` **0** · `lazy` **0** · memoize **0** · all five textual zeros **0** over 7 files · the excess-property `tsc --noEmit --strict` fixture passes **both** halves |
+| **G-11** | RED | **GREEN** | the **50,008-byte** deep-nesting row → `ok:false, 1 issue` in BOTH lowerings, never a `RangeError`; scan primitives as algebra leaves: `DIGITS DISPATCH KW LIT SCAN TEXT` in both |
+
+G-7 is recorded through W1's bench and was **not** run here; no bench cell, no bar, no verb.
+
+#### d.5 — The two REDs, at their cause (not at their symptom)
+
+**G-3's EQ-6 and G-4's R-LAW-2 are the same finding, and neither is a divergence between the
+lowerings.** ⟨`node experiments/w2/ac1-tagless/probes/comp1-and-third-cell.mjs`⟩ →
+`rows failing COMP-1 · js 2035` · `· wasm 2035` · **`rows whose failure LISTS are identical 30527 of
+30527`**; `failures by law COMP-1c:2047`; `failures by kind keyword:2047`. Every one is §4.5's
+π_keyword (`/^[A-Za-z][A-Za-z0-9_-]*$/`) refusing bytes that §10.1's own
+`DROP keyword (SCAN any-but-paren 1 ∞)` gives it (`--brand, red`, `--x, rgb`, …). **No COMP-1a and
+no COMP-1b failure appears anywhere** — the tiling is complete and non-overlapping; only the kind
+column is rejected. Counterfactual, measured: reading that ONE kind the way π_skipped and π_residue
+are read (≥ 1 byte) and changing nothing else → **failures remaining 0 (rows 0)**. No other `K_C`
+kind is available (`skipped` is RECOVER's by §4.5; `punct` is one byte of `"(),/%#;:{}[]!"`; `ws`
+and `comment` are lexical; `residue` is ENTRY's). **F-1**, owner: the contract.
+
+**G-1's structural half** is **F-2**, above; and the seat measured the walk's own blind spot rather
+than leaving it implicit: running `.g`'s checkers over `dispatchTerms` as roots gives `ops outside
+the 22 none · closure leaks 0 · unowned spans 0 · RECOVER-in-non-final-arm 0` **and 7 more
+`cut∉alt`** — so the contract's `CUT` idiom is lexically outside an `ALT` arm at **14** sites, not
+7. The seven head `CUT`s do have an enclosing `ALT` at RUN TIME (a head is only entered through
+`color-body`'s/`timing`'s `ALT` via the `DISPATCH` arm) and the `R_disp` indirection is what hides
+that from a lexical checker; §10.3's seven have none in either reading.
+
+**G-8's reject leg** is **F-4**: the threshold is an exact `> 0` on a `heapUsed` delta across one
+`gc()`. Re-running that window three times in one process, after the same 100,000 accepts the
+harness runs first: wasm **+21,864 / −2,872 / +17,232 B**; js **−7,736 / +108,104 / +29,928 B** —
+the JS lowering, which the gate scored −0.1 B/parse and **passed**, reads **+10.8 B/parse** in the
+second window. The verdict is published as it printed; the instrument's resolution is the finding.
+**The seat did not give the Wasm boundary a leaner reject path to pass the leg**: both lowerings
+build the same product through the same code, and tuning one to a leg is the disease the gate
+exists to catch.
+
+#### d.6 — The cure log (diagnose → edit → re-measure; no gate took a third iteration)
+
+| # | what was measured | the cure | re-measured |
+| --- | --- | --- | --- |
+| 1 | K-2 grep = **3** (three `target === undefined` on *dispatch* targets) | renamed to `toName`/`to`/`rowNames`; **no behaviour changed** — the differential was re-run after it | **0**, and the false-positive class filed (**F-6**) |
+| 2 | 17 megamorphic IC sites introduced by the Wasm parse loop, 15 of them `RESULT[field]` keyed loads | the result block's fifteen fields are constants; bound once at module scope as constant word indices | **2** (DM-1's freeze walk, which both lowerings have, and the decoder's dynamic-key record store); differential re-run: still 0 divergences |
+
+#### RESIDUALS
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **F-1** | MAJOR — for `.h` | §4.5's π_keyword cannot admit the bytes §10.1's `balanced-tail` hands `DROP keyword`: **2,047 COMP-1c failures over 2,035 rows**, counterfactual **0**, no COMP-1a/b anywhere, identical in both lowerings. It is not this candidate's — **every candidate authoring §10.1 will read it** | the contract (§4.5 × §10.1) |
+| **F-2** | MAJOR — for `.h` | the contract's `CUT` idiom is lexically outside an `ALT` arm at **14** sites (§10.3's 7 have no enclosing `ALT` in any reading; §10.1/§10.2's 7 heads have one only at run time). OP-10 calls that a walk error and **the cure is inexpressible** — the only scope-opener is `ALT`, OP-09 fixes n ≥ 2 | the contract (§10.1/§10.2/§10.3 × §5.2/OP-09) |
+| **F-3** | MAJOR — for `.h` | EQ-5's sixth coordinate is specified two ways: line 238 and §6 EQ-5 say *the JS lowering reports `arena = 0`*, while `.g`'s serializer digests all six and EQ-5 demands value equality per site. **Any** Wasm lowering reporting a real watermark diverges on every mark by construction. This seat's declared posture: report 0 in both, truncate the byte arena exactly on every restore (the cursor is part of every mark), and put the real number on `arenaHighWater()` (**304 B**) | the contract (§2.3 × §6 EQ-5) |
+| **F-4** | MAJOR — for `.h` and `.g` | G-8's reject leg tests an exact zero with an instrument whose noise spans **±10 B/parse** at that window size — demonstrated **on the lowering the gate passed** | `.g`'s instrument |
+| **F-5** | INFO — for `.h` | the third cell's 233 differences are **210 incumbent THROWS** (the R1 class, `ground-a`) + 11 accepts-the-algebra-rejects + 8 rejects-the-algebra-accepts + 4 V-differs, every one inside §10.5's declared classes; the harness's `12 carrying a declared row` counts individually-tagged ROWS against eleven declared CLASSES | `.g`'s corpus tagging |
+| **F-6** | INFO — for `.g` | G-1's `target\s*===` has a false-positive class: a *dispatch* target reads as a compile-target conditional. A future candidate will hit it | `.g` / `W2.md` §6 G-1 |
+| **F-7** | MAJOR — for `.h` | §10.2's ALT order makes `linear(…)` **unreachable** under ordered committed choice: `KW ident timing-keyword` matches the ident run `linear`, the arm succeeds, `END` then fails on `(`. Measured with §10.2's literal order: `ok:false trailing_input @6 expected ["end of input"]` — one of the four `CssTimingFunction` kinds §10.2 itself puts in the slice cannot parse. The realization puts the `DISPATCH` arm first and changes no other input's verdict | the contract (§10.2) |
+| **F-8** | INFO — for `.h` | §10.3 writes `value-slice := CTOR value-color [REF color-body]` while §8 D-3 fixes the slice at exactly two `REF` sites; both cannot hold. The realization takes the debt clause and inlines `color-body` | the contract (§10.3 × §8 D-3) |
+| **R-d1** | INFO — for `.e`/`.f` | the boundary posture that made EQ-1..EQ-5 reachable: **one byte per code unit**, a code unit ≥ 128 written as the `0xFF` marker, and a span's **text** read back from the original string. Offsets are code-unit offsets in both lowerings and non-ASCII is never re-encoded. A sibling seat choosing UTF-8 bytes will diverge on every non-ASCII span's offsets | `.e` · `.f` |
+| **R-d2** | INFO — for `.h` | the seat's own instruments live at `experiments/w2/ac1-tagless/probes/**`, are **not** in `meta.sources`, and are imported by no lowering. They read the products the harness already produces and re-apply `.g`'s own checkers — **no probe of `.g`'s was edited, and `harness/**` has 0 bytes written by this unit** | `.h` |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: written set = `{ <p2>/experiments/w2/ac1-tagless/** (create) }` + this record. `rust/parse_that/**` **never opened** (no Rust elected); `.worktrees/ac1` used exactly as §4b prescribes (own branch, own `node_modules`). **0 bytes** under `harness/**`, `experiments/w2/{contract,corpus,stage0}/**`, value.js `src/**` · `demo/**` · `api/**` · `package.json`, glass-ui, `/Users/mkbabb/Programming/parse-that`, the frozen roots, `W2.md`, `ALGEBRA.md`. `scripts/dev/dev.sh`: untouched, never staged.
+- **Locks honoured**: **ONE `<p2>` commit** (`af40fb2d`) on **`w2/ac1`**, pathspec on the commit itself, 20 files all inside the unit's glob. **The Stage-2 bijection is printed before the first timing number**, which is G-8's. Per-candidate `CARGO_TARGET_DIR`: not applicable, and stated rather than assumed. No gate took a third diagnose→edit→re-measure iteration (two cures, one iteration each; §d.6).
+- **Kill rules**: K-1..K-10 each measured (VERDICT.md §8); **none hit**. K-1 in particular is not hit — EQ-6's 2,035 rows fail *identically* in both lowerings (30,527 of 30,527 failure lists equal), which is a property of the contract's kind predicate, not a divergence; and it is **declared and justified at its cause**, which is Stage 3's own path. K-7's shield clause is vacuous: ⟨`grep -rn "try {\|catch"`⟩ over all 12 declared sources → **1 hit, and it is a comment**.
+- **Numbers**: every published figure read back from settled bytes and **double-run** (all nine gates; both runs' verdict lines identical, G-8's two runs' legs pasted); the conversion validated against `Number()` before emission; **no speed sentence outside a printed table**.
+- **Bar**: none set. **Verbs**: none stamped — the terminal verb is G-12's and `.h`'s. The seat did **not** kill its own candidate, and did not rescue it: the falsifiers and the harness are exactly `.g`'s.
+- **`<p2>` end state**: worktree HEAD `af40fb2db64726745c0ee9c593845448bb65a18a`, branch `w2/ac1`, porcelain **0**.
+- **Commit of this record**: pathspec on the commit itself, this file alone.
