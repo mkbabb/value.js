@@ -1036,3 +1036,162 @@ commits returns **only files from this unit's writable set** (2 · 5 · 3 · 4 �
 `git log --format=%h 8cfee94e^..HEAD -- scripts/dev/dev.sh | wc -l` → **0**. `.d` committed twice into this
 worktree mid-unit and KF.W6's dirty tracked files sat beside mine throughout; **none was ever staged**. The
 record was re-read (⟨`wc -l`⟩ → 814, last entry `### X.KF.W7.b`, clean) immediately before this append.
+
+---
+
+### X.KF.W7.d
+
+SERVED MODEL: `claude-opus-5[1m]` · **2026-09-18** · Phase 3 implementation seat — **TRACK · CARET ·
+ZOOM/PAN · THE IDIOM**. Sections executed: §Carry **P3** (`:149-156`) · **P4** (`:157-170`) · **P5**
+(`:171-181`) · **P6** (`:182-197`) · the P0 **KF-AV-10** row (`:122`) · §Gates **G3 · G4 · G7 · G8 ·
+G13 · G11** (fixtures 1–2) · §Bounds' idiom carve rows (`:67-69`). **Status: DONE — G3 · G4 · G7 ·
+G8 · G13 RED → GREEN; G11's two fixtures EXIST, MOUNT and RUN.** Writable set honoured: **no write
+outside it → no escalation.**
+
+**Consumed before the first byte**: `.a`'s G1 (six KEEP-BESPOKE; **KF-AV-10 LIVE, NOT spent-unused**;
+C-10 ruled; both triggers ARMED) and OP-0/OP-1; `.b`'s `SEAM-DESIGN.md` **§4.1–§4.4** (the designs
+this seat implements) and its §7 addendum; `.c`'s **G14** ruling (P4(a) binds L-15; P3 binds L-11
+(KeyframeTimeline)). COHESION §0j + §0k..§0n re-read — nothing addressed to KF.W7 beyond standing law.
+
+**Step 0 (E13, seat level)**: ⟨cmd⟩ `/usr/bin/find <the four paths> -maxdepth 1 -name '*.md'
+-newermt '2026-09-18 01:00'` → **`INBOX.md` alone** (self). The only BK-side delta since `.b`'s sweep
+is **our own** `valuejs-outbound-2026-09-18-kfw6-bh-relay.md`, rowed by that seat. **0 new inbound in
+KF.W7's scope · 0 `I-n` minted · no INBOX row owed by this unit** (`INBOX.md` is `.f`'s surface).
+
+#### Act 0 — the measurement that unblocked G11, and made two escalations unnecessary
+
+`.a`'s residual 1 (`@vue/test-utils` in the manifest, **not on disk**) and `.b`'s §7.2 (SFC mounts
+cannot resolve glass-ui under this repo's `vitest.config.ts`) both predicted G11 unrunnable for this
+seat. **Both were re-measured at the bytes rather than inherited, and neither blocks these two
+fixtures.**
+
+- ⟨cmd⟩ `ls -d node_modules/@vue/test-utils` → **No such file or directory** — the residual STANDS,
+  and is **not needed**: the repo's own interaction-gate idiom is a plain `createApp` host attached
+  to `document.body` (`test/demo/instrument/kf-toolbar-keyboard.test.ts`, whose docblock says *"vitest
+  has no Vue-SFC plugin, so the composable … is exercised through a representative host"*). **KF.W4's
+  commit 2 retired that premise**: with `plugins: [vue()]` registered, `createApp` mounts the REAL
+  SFC. No devDependency of this seat's is required, and none was added.
+- ⟨cmd⟩ (probe, first version of fixture 1) importing `TimelineTrack.vue` → *"Cannot find package
+  '@mkbabb/keyframes.js' imported from …/@mkbabb/glass-ui/dist/useSpring-BCHxLjwv.js"* — **`.b`'s
+  §7.2 reproduces exactly.** The cure is neither a `vitest.config.ts` write (STRUCK at §Bounds), nor
+  a `vi.mock` of the producer, nor a node_modules patch — each of those is the masking class. It is
+  the **import specifier**: ⟨cmd⟩ `node -e` walking `dist/tooltip.js`'s transitive bare imports →
+  **`reka-ui`, `vue`** and nothing else, against the root barrel's `useSpring` chunk; and ⟨cmd⟩
+  `grep -rn 'from "@mkbabb/glass-ui' demo test | sed 's/.*from //' | sort | uniq -c` → **6** demo
+  call sites already import **`@mkbabb/glass-ui/tooltip`**. Narrowing `TimelineTrack.vue`'s tooltip
+  import to the published subpath is the house idiom, shrinks the runtime import graph, and lets both
+  fixtures mount **the real glass `Tooltip`**, not a stub. **G11's mounts cost this wave nothing.**
+
+#### Acts, in order (one commit per meaning; pathspec on the commit itself)
+
+| # | commit | meaning |
+|---|---|---|
+| 1 | `69e8ead4` | **G11 — the two fixtures, born RED, before the first cure commit** (§Sequencing 3's commit scope). `timeline-mount-projection.test.ts` (330 L) + `timeline-mount-keyboard.test.ts` (448 L at landing), plus Act 0's one-line import narrowing. **17 assertions RED**, and the two halves already landed by `.b` **GREEN BEFORE CURE** (the pointer policy; the G5 stop partition rendering one marker for two same-key keyframes and dragging it as one). |
+| 2 | `7225cdd1` | **G3 — grabDx + L-m-14, ONE family** (`TimelineTrack.vue`). |
+| 3 | `98be70f5` | **G4 — the dirty check + the ONE rAF latch** (`useTimelineOps.ts`), with L-m-14's *surface the miss* half. |
+| 4 | `e42e0aa3` | **G7 — the caret: compare-before-commit, MODEL precision, the identity/focus contract** (`TimelineCaret.vue` + the track's listener rename). Carries L-2/C-3/D·M-4 · MISS-α4 · m-1/L-10 · MISS-α2 · m-5/L-6/C-5 · m-4/MISS-α1 · L-9/m-8 · **C-10** (G1's ruling) · **L-15 under G14 P4(a)**. |
+| 5 | `9f585bee` | **G8 — keyboard parity, non-destructive** (`TimelineTrack.vue` + `useZoomPan.ts`): D-1's rail route, M3's Enter/Space, D-8's `data-state`, D-11's keyboard zoom arm. |
+| 6 | `a93bcd37` | **G13 — the wheel policy, FOUR CLAUSES IN ONE COMMIT** (`TimelineTrack.vue` + `useZoomPan.ts` + `TimelineCaret.vue`), with L-m-10 and D-11's reserved mount. |
+| 7 | `21267b91` · `22629e0f` | **OP-3 / D-19 — the geometry re-derivation, BEFORE any P4 cure** (value.js evidence + its dated §4 erratum). |
+| 8 | `aa3d4092` | **P4 — ONE geometry pass** (RR-B missed-5 · M1 · D-m2 · D-14/i-1 · D-17 · C-9 (TimelineCaret) · D-4). |
+| 9 | `8146cc5a` | **P5 — D-12 (KeyframeTimeline) + RR-A missed-2**, one element, one commit. |
+| 10 | `72cdc27a` | **KF-AV-10 + m-8 — the idiom family**, VERDICT-ADMITTED by `.a`'s G1 (`AnimationVisualizer.vue` · `SpringTarget.vue` · `SpringPhysicsFacet.vue`). |
+| 11 | (this commit) | these receipts. |
+
+#### Gate readings BEFORE → AFTER (settled bytes; measurement script double-run, `diff run1 run2` → **DOUBLE-RUN IDENTICAL**)
+
+| gate | BEFORE (this record's Baseline) | AFTER | witness at the settled bytes |
+|---|---|---|---|
+| **G3** | **RED** — `onMarkerPointerDown` records no offset; `:174-178` emits the ABSOLUTE pointer percent | **GREEN** | `grep -c 'grabDx' TimelineTrack.vue` → **4**; `grep -c 'sortedKeyframes.some' …` → **1**. **Executed**: grab a 50% marker at **+11px** on a 400px rail ⇒ first `pointermove` at the same `clientX` emits **`["a", 50]`**, not `52.75`; +50px ⇒ **62.5**; a mid-drag delete ⇒ **no further emit** and `hasPointerCapture(1)` → **false** |
+| **G4** | **RED** — `moveKeyframe` calls `rebuild()` unconditionally, no early-out on zero clamped delta | **GREEN** | `grep -c 'scheduleRebuild'` → **6**; bare `rebuild();` call sites → **0**; the dirty check → **1**. **Executed**: 60 moves in one frame ⇒ **0** builds during it, **1** rAF latched, **1** build on the frame; a rail-end hold of 60 moves ⇒ **0** scheduled, **0** built, and `JSON.stringify(state.keyframes)` **byte-identical** (hence zero `useRefHistory` entries) |
+| **G7** | **RED** — `@blur` alone commits, no compare; `Math.round` at three sites | **GREEN** | live `Math.round` in `TimelineCaret.vue` → **0** (the one hit is the comment naming the cured defect); `raw === openedWith` → **1**; `commitPercent` → **2** in the caret, **1** in the track. **Executed**: display of a 42.4 model reads **"42.4%"**; open+blur ⇒ **0** commits and the display returns unchanged; a typed 43 + Enter ⇒ **exactly one** commit; Escape after typing 77 ⇒ **none** |
+| **G8** | **RED** — Enter/Space discarded, `select` only paired with `moveKeyframe`; no keyboard zoom/pan route; keyboard snapshots at 0% | **GREEN** | rail `role="slider"` + `tabindex="0"` + `aria-valuenow`/`aria-valuetext`; `onTrackKeydown` → **2**; `data-state` → **1**. **Executed**: Arrow ⇒ **0.01**, Shift-Arrow ⇒ **0.11**, Home ⇒ **0**, End ⇒ **1**, PageDown ⇒ **0.9**; a handled key is `defaultPrevented`, an unrelated key is not; a marker keystroke emits **0** scrubs; **Enter and Space select with ZERO `moveKeyframe`**; the selected marker carries `data-state="selected"`; argless `snapshot()` at `scrubT = 0.42` lands a keyframe at **42%** |
+| **G13** | **RED** — `@wheel.prevent`; neither branch matches a plain wheel; `touch-none`; `deltaY` only; the pan readout inert | **GREEN** | live `@wheel.prevent` → **0**, `onTrackWheel` → **2**, `event.deltaX` in `useZoomPan` → **1**, live `touch-none` → **0** / `touch-pan-y` → **1**, `role="scrollbar"` → **1**, `onEditorWheel` → **2**, live `trackEl.value!` → **0**. **Executed**: a plain wheel is **NOT** `defaultPrevented`; ctrl-wheel **is**, and zooms; shift-wheel pans on **deltaY** and again on **deltaX-only**; ArrowRight on the pan bar moves the thumb; `+` on the rail zooms; a ctrl-wheel over the OPEN caret editor leaves the zoom readout **byte-identical** |
+| **G11** (fixtures 1–2) | **RED** — leg (i) `git grep … -- test/` → **0 hits**; no test named the surface | **GREEN for this seat's half** | leg (i) at HEAD → **11 hits**, all inside this seat's two fixtures and `.e`'s two; ⟨cmd⟩ `npx vitest run --project demo <both files>` → **23 tests passed (23)**. **Fixture 3/4 are `.e`'s**; the gate is read whole at `.f` |
+
+**The whole suite, at the settled bytes**: ⟨cmd⟩ `npx vitest run --project demo` → **35 files · 233
+tests passed**; ⟨cmd⟩ `npx vitest run --project library` → **112 passed | 5 skipped · 1256 passed |
+3 expected fail | 14 skipped**. **The twelve tracked `test/demo/instrument/` files are UNTOUCHED** —
+⟨cmd⟩ `git diff --name-only 69e8ead4~1..HEAD -- test/demo/instrument | grep -v timeline-mount | wc -l`
+→ **0**: no gate here was greened by editing a witness.
+
+**Typecheck (OP-2 is live)**: ⟨cmd⟩ `npx vue-tsc --noEmit -p tsconfig.json` → **56** errors, **0** of
+them in this unit's seven files (run twice, identical); ⟨cmd⟩ `npx tsc --noEmit -p tsconfig.test.json`
+→ **0** hits for either fixture. `npm run check`'s first leg is RED on the frontier's pre-existing
+errors and on sibling seats' in-flight files (`KeyframeTimeline.vue`, `snapshotCapture.ts` — `.e`'s
+own rows), so the count is published **scoped**, per LAW D(3), rather than as a green-or-red claim
+this seat cannot honestly make about another seat's bytes.
+
+#### Findings (measured; owners named; no cure spent outside bounds)
+
+1. **`.a`'s residual 1 and `.b`'s §7.2 do NOT block this seat's fixtures** (Act 0). The mount needs
+   no `@vue/test-utils`, no `vitest.config.ts` byte and no producer mock. **The install residual
+   still stands for any fixture that wants `@vue/test-utils` specifically** — owner unchanged (the
+   orchestrator) — but **G11 is no longer hostage to it**, and `.e`'s two fixtures can take the same
+   route. Recorded loud because the wave had two escalations queued against a premise that measurement
+   dissolved.
+2. **The D-19 lock's collapsed clearance cell does not reproduce, and the reason is now named**
+   (`evidence/W7/D-19-GEOMETRY-REDERIVATION.md` §2 + §4): the padding-box correction shifts the
+   diamond's centre and the caret's top by the same 1px and **cancels in their difference**, so the
+   banked `2.69` is the UNSELECTED clearance and **verifies at these bytes** (`2.686`), while K-13's
+   `≈1.7` is reproduced by no combination of the measured inputs. **The banked expanded vertex
+   `84.2132` reproduces EXACTLY.** Nothing in the cure depends on the unreproduced cell — it is
+   computed against the selected vertices, which do reproduce.
+3. **`--caret-offset: 14px` clears NOTHING when the rail is expanded**: the selected diamond reaches
+   `84.21px` against the caret's `77px` — a **7.21px** occlusion, plus a hit-steal (the marker carries
+   `z-controls`, the caret carried no stacking). The token lives in `demo/styles/layout.css`, **outside
+   §Bounds**; the rail therefore declares a scoped `--timeline-caret-offset` that falls back to it,
+   and the global token is **not touched**. Owner of any global re-tuning: the layout-token owner,
+   named here rather than pre-empted.
+
+#### Residuals, each with a named owner
+
+1. **RR-A missed-1 (TimelineTrack)** — the rail's accessible container (`role="group"`/`aria-label`)
+   and the AT-hidden tick labels are in **this seat's file** but belong to **G9's a11y commit family**
+   (MISSED-1 + D-10 (KeyframeTimeline) + M7 + RR-A missed-1), which §Sequencing declares MUST NOT
+   SPLIT and which is **`.e`'s gate**. This seat did not split it. **Owner: `.e` / seat 0** — the
+   phase-3 file-crossing `.c` raised as its residual 3 is REAL and is now witnessed from the other
+   end: `.e` cannot write `TimelineTrack.vue` under this plan's writable sets.
+2. **The expanded-timeline settlement** (D-10 (TimelineTrack, expanded mode) + RB-7 + D-16 +
+   kf-ChannelControls C-8/D-6 + KT D-7) — one settlement across `RibbonBar.vue` and
+   `ChannelControls.vue`, **both outside every KF.W7 writable set**. Not spent. **Owner:
+   NO-WAVE-OWNER / the expanded-timeline spec family**, per §Sequencing item 8.
+3. **ARB-1's auto-pan** (INFO) — the blind drag zone past the window edge. **Its precondition is now
+   met**: a pan WRITER exists (G13's `panBy`/`panTo`), which the row said the cure needed. The cure
+   itself is not spent. **Owner: KF.W9/SS-13's probe roster → the successor formation.**
+4. **m-8's fourth anchor authoring** (`.preset-ball`, `SpringPhysicsFacet.vue`) — three of four are
+   one rule now; the fourth is in another component's scoped block, and sharing it means hoisting the
+   x-anchor into `design-idioms.css`, **whose KF.W7 carve is stated not to widen** and whose seven
+   consumers would each have to survive the hoist (**kf-EasingTarget P-2**: the idiom leaves
+   `transform` — and the x-anchor — unclaimed BY DESIGN; *"one tidy-up would drop 28 balls out of
+   their rails"*). **DECLARED in the file** rather than unified silently. **Owner: the idiom's owner
+   (KF.W6's `design-idioms.css` surface) / KF.W10's ledger.**
+5. **D-3's SC 2.5.8 target-size arm** (the 40×20px caret editor) — deliberately NOT enlarged: the
+   caret and diamond spacing circles already intersect (**D-12/C-12/i-2**, RR-A's MAJOR preserved in
+   dissent), so growing the editor without the marker-vs-marker spacing decision trades one 2.5.8
+   failure for another. **Owner: `.f`'s close residuals / KF.W10**, with the three reopening probes
+   (SS-13 residue 1, 2, 6) unchanged.
+6. **RR-A missed-3's cure rode commit 6, not a P5 commit** — the rail's `transition-all duration-fast`
+   (which eased the 80px `h-12↔h-32` height while every mark SNAPPED) became `transition-colors` in
+   the same edit that replaced `touch-none`, because both are one class string. **Disclosed rather
+   than re-attributed**: the row is cured, and it is cured one commit away from the family the
+   Commit-families list would have put it in.
+7. **`@vue/test-utils` remains in the manifest and off the disk** — `.a`'s residual 1, owner
+   unchanged (the orchestrator). **No longer a G11 blocker** (finding 1).
+
+#### Escalations
+
+**NONE.** No write outside the writable set was attempted. Every specified cure was possible at the
+bytes and was implemented as specified; where a cure's natural home lay outside the carve (the
+`--caret-offset` token, the idiom's x-anchor, the expanded settlement, G9's a11y family), the seat
+**stopped at the bound and named the owner** rather than widening it.
+
+#### Index hygiene
+
+Every commit carried its own pathspec **on the commit itself**; ⟨cmd⟩ `git show --stat --format= <sha>`
+for all nine kf commits shows **only this unit's writable files** (three commits touch a fixture, six
+touch product files; none touches a tracked witness). ⟨cmd⟩
+`git log --format=%h 69e8ead4^..HEAD -- scripts/dev/dev.sh | wc -l` → **0**. `.e`'s seven commits and
+KF.W6.d's four interleaved with mine in this shared index throughout and **not one of their paths was
+ever staged by this seat**; no `git add -A`, no `-u`, no `commit -a`, no reset or unstage. The record
+was re-read (⟨`wc -l`⟩ → **1038**, last entry `### X.KF.W7.e`, clean) immediately before this append.
