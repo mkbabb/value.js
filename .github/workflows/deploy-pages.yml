@@ -97,13 +97,18 @@ jobs:
               run: npm ci
             # G-15's proof, structural rather than one-time: the producer the
             # deployed bundle links MUST come from the registry, and the subpaths
-            # the demo imports MUST be in that producer's exports map. `./blob`
-            # (5 sites, incl. demo/color-picker/composables/boot/useAtmosphere.ts)
-            # and `./chip` (EasingSpecimenStrip.vue) are named because they are the
-            # pair the tranche/BG head did not export — a build resolved through
-            # that tree dies at the first of them. This step reds the deploy BEFORE
-            # the build if a producer bump ever drops either subpath, or if
-            # resolution ever silently reverts to a linked sibling tree.
+            # the demo imports MUST be in that producer's exports map. The demo
+            # imports 20 glass-ui specifiers; the three named here are the family
+            # W1.md B13 measured absent from the branch head's map, re-measured at
+            # today's bytes (B13's own row is scoped to 5.0.0 and says `./blob`
+            # ×5 incl. useAtmosphere.ts — the sites have since moved and split):
+            #   ./blob        demo/picker/visual/HeroBlob.vue:34,:35
+            #   ./blob-config demo/scenes/blob/BlobPane.vue:12,:13 ·
+            #                 demo/color-picker/composables/boot/useAtmosphere.ts:36
+            #   ./chip        demo/workbenches/gradient/.../EasingSpecimenStrip.vue:14
+            # A build resolved through that branch tree dies at the first of them.
+            # This step reds the deploy BEFORE the build if a producer bump ever
+            # drops one, or if resolution silently reverts to a linked sibling.
             - name: "Assert producer provenance (registry) + the demo's subpaths resolve"
               run: |
                   set -euo pipefail
@@ -114,7 +119,7 @@ jobs:
                   if (!entry) throw new Error("@mkbabb/glass-ui is not installed");
                   if (entry.link) throw new Error(`@mkbabb/glass-ui is a link to ${entry.resolved} — the deploy must build against the registry`);
                   if (!/^https:\/\/registry\.npmjs\.org\//.test(entry.resolved ?? "")) throw new Error(`@mkbabb/glass-ui resolved from ${entry.resolved} — not the registry`);
-                  for (const subpath of ["blob", "chip"]) {
+                  for (const subpath of ["blob", "blob-config", "chip"]) {
                       console.log(`@mkbabb/glass-ui/${subpath} -> ${import.meta.resolve(`@mkbabb/glass-ui/${subpath}`)}`);
                   }
                   console.log(`@mkbabb/glass-ui ${entry.version} <- ${entry.resolved}`);
