@@ -1,0 +1,31 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W3.6 — born-RED baseline for G-17..G-21, measured read-only at HEAD 9455dc8f (2026-09-18).
+Every figure double-run back to back; both runs byte-identical.
+
+⟨cmd⟩ grep -n 'services.repositories' api/src/modules/admin/service/palettes.ts | wc -l
+G-17  admin-service unmediated repository reaches ............ 2   (:34, :59)
+⟨cmd⟩ test -f api/src/modules/admin/policy.ts
+G-17  api/src/modules/admin/policy.ts ......................... NO
+⟨cmd⟩ grep -rn 'ADMIN-POLICY' api/src | wc -l
+G-17  named ADMIN-POLICY branch in api/src .................... 0
+⟨cmd⟩ grep -rn 'beforeEach\|beforeEnter' demo --include='*.ts' --include='*.vue' | wc -l
+G-18  navigation guards anywhere in demo/ ..................... 0
+⟨cmd⟩ grep -c 'meta: { admin: true }' demo/color-picker/router/index.ts
+G-18  decorative meta:{admin:true} records .................... 5
+⟨cmd⟩ sed -n '81p;94p' demo/shell/usePaneRouter.ts
+G-19  :81  function componentFor(name: string | null): Component | null {
+G-19  :94      return ColorPicker;
+⟨cmd⟩ grep -c 'component: Stub' demo/color-picker/router/index.ts
+G-20  Stub route records ...................................... 14
+⟨cmd⟩ sed -n '37p' demo/color-picker/router/index.ts
+G-20  :37      { path: "/:pathMatch(.*)*", redirect: "/" },
+⟨cmd⟩ test -f demo/scenes/notfound/NotFoundPane.vue
+G-20  a source-realized not-found component ................... NO
+⟨cmd⟩ grep -c 'Stub' docs/tranches/X/waves/W5.md
+G-21  the Stub-render handoff row at W5.md .................... 0
+⟨cmd⟩ grep -c 'Stub' docs/tranches/X/refinement/X-W5-FOLD.md
+G-21  the Stub-render handoff row at X-W5-FOLD.md ............. 0
+
+VERDICT AT OPEN: G-17 RED · G-18 RED (P0) · G-19 RED · G-20 RED · G-21 ABSENT AT BOTH
+CANDIDATE HOMES, and neither file is inside W3.md §4 — returned as ESC-W3-G21.

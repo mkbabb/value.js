@@ -1,0 +1,27 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W3.6 — e2e/smoke/admin/route-guard.spec.ts, BORN-RED run (before the cure).
+⟨cmd⟩ npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts --reporter=list
+HEAD 9455dc8f · 2026-09-18
+
+  ✓  3 [smoke-admin] › route-guard.spec.ts:88:1 › G-18 falsifier — the guard fail-closes on the TOKEN, not on the admin route (2.1s)
+
+  1) route-guard.spec.ts:50:1 › G-18 — anonymous deep-link to every admin route fail-closes; AdminPane never mounts
+     Error: expect(locator).toBeVisible() failed
+     Locator: getByRole('heading', { name: 'Not Found' }).first()
+     Expected: visible ·  Error: element(s) not found
+     at route-guard.spec.ts:64:11
+
+  2) route-guard.spec.ts:71:1 › G-20 — an unknown URL renders the source-realized not-found route, not a redirect
+     Error: expect(locator).toBeVisible() failed
+     Locator: getByRole('heading', { name: 'Not Found' }).first()
+     Expected: visible ·  Error: element(s) not found
+     at route-guard.spec.ts:81:7
+
+  2 failed · 1 passed (35.9s)
+
+READING. The two born-RED tests fail for exactly their named reasons — there is no
+not-found record and no guard, so the anonymous admin deep-link mounts AdminPane and
+the unknown URL is rewritten to "/". The falsifier arm PASSES at the baseline by
+design: it asserts the AUTHENTICATED admin still reaches the pane, so it reds only if
+the cure fail-closes on the ROUTE rather than on the TOKEN.
