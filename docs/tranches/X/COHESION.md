@@ -1066,3 +1066,5 @@ interrupted by user]` — the harness's concurrent-agent ceiling, not a wall (A 
 no synthetic stop anywhere) — and the stall detector then declared the wave dead. Nothing was
 written by any of the eighteen attempts. Cure at the chassis: Tracks B and C relaunch at **one wave
 at a time** (`maxWaves: 1`), the fan-out the ceiling tolerates; the waves re-open in RESUME MODE.
+
+**§0o erratum, 2026-09-18 (E-3, dated beside).** The runner-dead paragraph above attributed the six-fold seat deaths to the harness's concurrent-agent ceiling. Measured afterwards in the dead seats' own transcripts: each death follows a tool result answered by **no model turn for > 180 s**, and the transcripts carry **twelve HTTP 429 responses** — the API's rate-limit backoff outran the runner's 180 s no-progress window. The ceiling was never the cause; the one-wave-at-a-time cure stands because it lowers request rate, which is the true lever. Relaunch remains the durability mechanism (the begin-word's *"survive … rate-limiting"*): a runner-dead wave re-opens in RESUME MODE with nothing lost.
