@@ -1623,3 +1623,279 @@ exists to catch.
 - **Bar**: none set. **Verbs**: none stamped — the terminal verb is G-12's and `.h`'s. The seat did **not** kill its own candidate, and did not rescue it: the falsifiers and the harness are exactly `.g`'s.
 - **`<p2>` end state**: worktree HEAD `af40fb2db64726745c0ee9c593845448bb65a18a`, branch `w2/ac1`, porcelain **0**.
 - **Commit of this record**: pathspec on the commit itself, this file alone.
+
+---
+
+### X.P.W2.e
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 4, **candidate seat AC-2
+CLOSED-IR** (`W2.md` §5 `.d/.e/.f` L632–645; M-23 §2, an Opus implementation seat).
+**Sections executed exactly**: §5 `.d/.e/.f` L632–645 · §3c AC-2 L326–344 · §3d L409–423 ·
+§3e Stages 1–4 L425–461 · kill rules L463–483 · §4b L563–577 · §6 G-1..G-11. Rulings consumed by
+id: COHESION §0j.E **OC-1** (no bar set anywhere in this unit; every duration printed carries
+`BAR: OWNER-GATED-PENDING-RATIFICATION` literally) · **E-3** (`ALGEBRA.md`, `.g`'s harness, `.g`'s
+corpora and W1's instruments are dated evidence — corrections are addenda-beside, and this seat
+wrote none of those files) · X.P.W2.g **R-g3** (the adapter contract is the whole interface:
+`meta.sources` three disjoint lists · `meta.build.jsArtifactReproduction` is where K-9 is read ·
+`wasmBytes()` is where G-9 reads the START section) · **R-g4** (EQ-1's lexicographic key order is
+the harness's declared divergence, not a candidate's to fix) · **R-g5** (G-8's two readings; the
+verdict is read on the warmed leg) · **R-g2** (RESERVE is NONE — so a structural death at Stage 2
+has no promotion path; recorded here because this seat's Stage 2 is **green** and that matters to
+the field's arithmetic) · X-P-W1.md **R-8** (a ceiling is measured, never inherited).
+
+**Writable set, hard bound, all of it inside ONE glob, nothing else:**
+`<p2>/experiments/w2/ac2-closed-ir/**` (incl. `VERDICT.md`) — plus this record. The brief also
+admitted `<p2>/rust/parse_that/**` on branch `w2/ac2`; **this seat wrote 0 bytes there**, because
+AC-2's Wasm lowering is assembled by a WebAssembly binary encoder written in JavaScript
+(`lowering-wasm/encoder.mjs`), so there was nothing to build in Rust. ⟨`git -C <p2>/.worktrees/ac2 log --oneline -1 -- rust/parse_that`⟩
+→ `634ec25 style(rust): apply cargo fmt …` — a pre-existing commit, unmoved.
+
+**Commits (two histories, never merged — §9):**
+
+| # | repo | hash | meaning | `git show --stat` |
+| --- | --- | --- | --- | --- |
+| 1 | `<p2>` | **`a7ac4ea43d08ac609e6e0ec3e2c0551beb1a9959`** | `feat(w2/ac2): AC-2 CLOSED-IR — one algebra, two lowerings, the §3d slice in both` (branch `w2/ac2`, worktree `<p2>/.worktrees/ac2`) | **36 files changed, 6,845 insertions(+)** |
+| 2 | value.js | this record | the receipts below | — |
+
+The §9 lock holds: **ONE `<p2>` commit**, on `w2/ac2`. Its pathspec rode the commit itself
+(`git add experiments/w2/ac2-closed-ir && git commit --no-verify --quiet … -- experiments/w2/ac2-closed-ir`);
+⟨`git show --name-only --format= HEAD | grep -cv '^experiments/w2/ac2-closed-ir/'`⟩ → **0**, so no
+sibling seat's staged work was swept in. ⟨`git rev-list --count 8137081..HEAD`⟩ → **1**: exactly one
+commit on this branch beyond `.g`'s, which is the §9 lock read as a count rather than as a claim. ⟨`git status --porcelain`⟩ → **0** after the commit.
+⟨`git remote -v | wc -l`⟩ → **0**. `index.lock` never appeared. `scripts/dev/dev.sh` appears in 0
+commits and was never staged.
+
+**The oracles did not move.** ⟨`git rev-parse HEAD:harness/{totality,equivalence,bench}`⟩ →
+`cd265cb2de790151a566b0053c9b745702f9914e` · `78829ab0c702ce4acb9baac2a4cf9163ccaa27f6` ·
+`ffe9a032c2aa5ae1b2d98bc79ad544fd4921617a`, `harness/README.md` blob `6cc408b932db1f83…` — W1's
+three instruments, untouched (§4 R-E). ⟨`git log --oneline -1 -- harness/w2 experiments/w2/corpus experiments/w2/contract`⟩
+→ `8137081` — still `.g`'s single commit; this seat edited no probe, no corpus, no `ALGEBRA.md`,
+and no falsifier. §3a's "a candidate that needs the oracle changed to pass has failed" was never
+approached.
+
+#### e.0 — E13 at this seat's own clock
+
+The wave's four-path sweep is the wave's (`.g` §g.0, this record's open). Two coordination-relevant
+facts at this seat's clock, both routed to `.h` and the owner **in this record** rather than by
+editing a ratified file:
+
+1. **F-e6 is an `ALGEBRA.md` correction this seat may not make**, and it expected both sibling
+   candidate seats to reproduce it. **X.P.W2.d does**, at the same number: its close conditions read
+   *"EQ-6's 2,035 rows fail identically in both lowerings (30,527 of 30,527 failure lists equal),
+   which is a property of the contract's kind predicate, not a divergence"*. Two admitted candidates,
+   built independently in separate worktrees, **2,035 of 30,527 both**. §3a's trigger — *"G-3 red on
+   the SAME product for all three admitted candidates (the contract is then suspect, not the
+   candidates)"* — now needs only `.f`.
+2. **`.d`'s receipt landed in this file while this unit was open.** The seat read it and **tested its
+   sibling's F-7 against its own bytes instead of citing it** — F-e13 below is that measurement, and
+   it reproduces at the same offset with the same label. A finding two seats reproduce independently
+   is worth more to `.h` than two seats agreeing.
+
+This receipt is a pure end-of-file append; ⟨`diff <(head -1625 X-P-W2.md) <the copy taken before>`⟩ →
+empty, so `.d`'s 165 lines are byte-identical and nothing of a sibling's was rewritten.
+
+#### e.1 — the candidate, and the axis it declares
+
+§3c gives AC-2 one axis with three moments and requires the candidate to declare its. **Declared in
+`harness-adapter.mjs` `meta.postures` BEFORE the first measurement (FF-4), and unedited since:**
+
+| moment | this candidate |
+| --- | --- |
+| **build-time emit** | **the Wasm lowering.** `node build.mjs` writes `artifacts/ac2.wasm`; the shipped artifact contains no IR at all. Absent the file the same walk runs at init, and `lowering.emittedAt` says which happened so no gate takes the moment on trust |
+| **init-time compile** | **the JS lowering.** The IR is walked ONCE at module load; what it leaves is a graph of the published `@mkbabb/parse-that@1.0.0` `Parser` nodes. Nothing dispatches on `node.op` during a parse |
+| **parse-time interpretation** | **THE DEGENERATION, NOT A MODE.** The candidate ships no interpreter and no flag selecting one; `probes/degenerate-interpreter.mjs` builds it on purpose so that it can be priced, and it is unreachable from `index.mjs` |
+
+The closed union is **22 kinds** in `algebra/ops.mjs`; the grammar is **one authenticated data
+object** (`algebra/grammar.mjs`, `treeify`d and frozen); `assertClosed()` runs at module load; and
+**both compilers switch over the union with NO `default:` arm**. That is the closed-union law made
+load-bearing rather than documented — e.3 shows it firing.
+
+#### e.2 — order of execution, and why it is this order
+
+§5 `.e` says *"Predicted failure modes probed FIRST"*; §3e says the Stage-2 bijection is printed
+*"before any timing"*. Both were honoured without interpretation: the six probes that carry **no
+duration** ran first (`p2 · p3 · p4 · p5 · p6 · p7`), the **Stage-2 bijection** was printed next, and
+`p1` — the only probe carrying a duration — ran after it. Timing an un-bijected candidate is the
+protocol violation §3e names; this seat did not commit it in either direction.
+
+#### e.3 — the four predicted failure modes (§3c AC-2), each with its number
+
+**(a) double-interpretation tax — NOT OBSERVED.** ⟨`node probes/p1-interpretation-tax.mjs`⟩. The
+grammar is handed to both compilers behind a Proxy counting every read of a node's `op`:
+
+```
+lowering                IR `op` reads while LOWERING  IR `op` reads over 527 PARSES  verdict
+js (init-time compile)  5973                          0                              TOTAL — no node fell back
+wasm (build-time emit)  5973                          0                              TOTAL — the artifact holds no IR
+```
+
+The degeneration was then built with the SAME runtime helpers and the SAME registry tables — so the
+only difference is **when the switch on `term.op` runs** — and its fidelity printed **before** its
+cost: **0 of 527 rows disagree** with the shipped lowering on EQ-1..EQ-5. Then, interleaved, 40
+rounds, first 10 discarded, median: js `0.563` ms/sweep (**1.00×**) · wasm `0.449` (**0.80×**) ·
+**the degeneration `0.867` (1.54×)**. `BAR: OWNER-GATED-PENDING-RATIFICATION` — a predicted-failure
+probe, not a bench cell; Stage 4 is W1's bench and no bar is read here.
+
+**(b) the `hostFn` escape-hatch node (K-3) — NOT OBSERVED.** ⟨`node probes/p2-hostfn-escape-hatch.mjs`⟩.
+The probe does not grep; it **welds the hatch in** at the tempting site (`balanced-tail`) and watches
+four things fire: `closureLeaks` → **1**, at `terms.balanced-tail.args.1.fn (function)`;
+`assertClosed(welded)` → `HALT (CL-1): 1 non-JSON value(s) under terms`; `compile.mjs` →
+`HALT (closed union): 'HOSTFN' is not one of the twenty-two — the JS lowering has no case for it`;
+`emit.mjs` → the same sentence for the Wasm emitter. Kinds with exactly one lowering: **0 of 22**;
+`DECLARED-ABSENT` symbols **0**. And the hard 20 % is not merely un-hatched but **lowered**:
+`var(--brand)` · `var(--a, rgb(1 2 3))` · `var(--x (nested (deeper)) tail)` · `currentcolor` ·
+`selecteditemtext` · `color-mix(in oklch, red, blue)` → **6 of 6 `js ≡ wasm`** on all five products.
+
+**(c) label/PC drift — the 18-vs-20 defect structurally — NOT OBSERVED.**
+⟨`node probes/p3-label-pc-drift.mjs`⟩. `js.labels() === wasm.labels() === LABELS` → **true** (one
+frozen object of 48 rows, not two equal ones). The implicit-`TRY` site index: **114 sites**, two
+independent walks agreeing (digest `e5bfd27f168dcbd0`). Over the slice, both lowerings: marks naming
+a site the walk never assigned **0**; P/C/D offsets outside `[0,|S|]` **0**; rows where the two
+lowerings' offsets disagree **0**. **And the instrument was shown able to see the defect**: one extra
+row at the head of `L` moves EQ-4's digest over the corpus's failing rows,
+`7cd3c35fb1ec87ee…` → `d0699f5b03436b0d…`.
+
+**(d) toolchain capture (K-9) — NOT OBSERVED.** ⟨`node probes/p4-toolchain-capture.mjs`⟩. `cargo`,
+`rustc`, `rustup`, `wasm-pack`, `wasm-bindgen`, `wasm-opt`, `clang`, `cc`, `gcc` all resolve on this
+box. The **declared** build command was then run in a child process with every one of them stripped
+from `PATH` (27 of 30 entries kept; **0 banned binaries still reachable**) and a scratch `HOME`:
+
+```
+node experiments/w2/ac2-closed-ir/build.mjs      → SUCCEEDED
+artifacts/ac2.wasm  117544 bytes  sha256 d70449e8b2eb637326dbc319cd8b2e7631178815ccc1dc141cc00a6ce15d33c7
+imports 0  exports 4  nodes 580  operators 22
+toolchain: node v22.15.0 — and nothing else
+```
+
+Byte-identical to the in-process emit — and produced by a **different node** (v22.15.0 in the
+stripped child, v26.0.0 in-process), so the emit is not node-version sensitive either.
+**K-10**, walked over the real module graph rather than grepped: 21 local files, 5 non-relative
+specifiers (`node:crypto` · `node:fs` · `node:path` · `node:url` · the published `@mkbabb/parse-that`
+dist). References into `/Users/mkbabb/Programming/parse-that`: **0**. Naming `wasm32`: **0**. Into
+`rust/parse_that` or any `.rs`: **0**. The emitted bytes do not contain the string `wasm32`.
+
+**The seat's own fifth probe (not one of the four) — OP-03's decimal→f64.**
+⟨`node probes/p5-number-agreement.mjs`⟩. 32 numeral edges through both lowerings — `-0`, `1.`,
+`1e400`, `5e-324`, `9007199254740993`, `2.2250738585072014e-308`, the 17-digit round-trip width —
+**32/32 `Object.is` ✓**. The exact paths measure **0 ULP** from `Number()` over the 30 corpus
+numerals that reach them; **the DECLARED fallback's worst distance is 3 ULP**, at
+`45679011934567900000e-164`, over 801 numerals. §4.1 declares the fallback non-correctly-rounded;
+this is how far it actually is, printed rather than assumed away.
+
+#### e.4 — AC-2's pre-declared Stage-0 falsifier, evaluated with its number
+
+⟨`node probes/p7-falsifier.mjs`⟩. The falsifier verbatim from §3c: *"the IR node set for the slice
+grammar exceeds its own declared closure, or the init-time compiler's totality cannot be demonstrated
+for `recover` → killed."* Two clauses joined by OR, so either kills.
+
+| clause | reading | hit? |
+| --- | --- | --- |
+| node set vs declared closure | 580 nodes over **20 of the 22** declared kinds. Used-but-not-declared **0**; argument tags outside the six **0**; `unionBreaches` **0**; `assertClosed` → `{terms:6, entries:3}`. Declared-but-unreached: 2 (`FAIL`, `TRY`) — **both still lowered in both backends**, so no K-3 | **no** |
+| `recover`'s totality, *demonstrated* | RECOVER lowered **1×** at init in JS and **1×** at emit in Wasm; **0** IR `op` reads at parse time in either; fires on **8 of 15** stylesheet rows producing **24 events → 24 diagnostics** (1:1, R-LAW-4's shape); **0** rows where the two lowerings' recoveries or `D` differ | **no** |
+
+**AC-2's Stage-0 falsifier: NOT HIT.** The seat did not change it, and states plainly that it may
+kill its candidate but may not rescue it.
+
+#### e.5 — Stage 2: the bijection, printed BEFORE any timing
+
+⟨`node harness/w2/op-bijection.mjs --candidate ac2`⟩ → **GREEN**, twice. 22 contract rows · 22 js rows ·
+22 wasm rows · fingerprints pairwise equal · `DECLARED-ABSENT` wasm symbols **0**. Every row `ok`,
+`OP-01 SCAN compileScan/emitScan` through `OP-22 REF compileRef/emitRef`. Stage 2 (ii) — zero throws —
+is e.6's G-5 row, and `eq-six.mjs` additionally ran 30,527 rows through both lowerings without its
+K-8 guard firing.
+
+#### e.6 — gate readings, BEFORE → AFTER, every one double-run
+
+BEFORE is §Baseline (2026-09-17), where all twelve were RED and the candidate directory did not
+exist. AFTER is this seat, from `<p2>/.worktrees/ac2`, **each command run twice with identical
+output**.
+
+| gate | BEFORE (§Baseline) | AFTER this unit | verdict |
+| --- | --- | --- | --- |
+| **G-1** | both `ALGEBRA.md` ABSENT; structural script `Cannot find module`, exit 1 | contract half: homes sha256-equal (`14450aa4e5fcc976…`), 22 enumerated = 22 stated, 0 target-conditionals. **Structural half, ac2's two lowerings:** `ops∉22` **0 · 0** · `recover≺alt` **0 · 0** · `cut∉alt` **0 · 0** · `unowned-span` **0 · 0** · `closure-leak` **0 · 0**; the algebra imports neither lowering | **GREEN** |
+| **G-2** | module not found, exit 1; op count 0; no bijection printed anywhere in the lane | 22 rows, both lowerings, fingerprints pairwise equal, 0 `DECLARED-ABSENT`; printed before any timing | **GREEN** |
+| **G-3** | module not found, exit 1; **no second lowering exists anywhere**; 0 comparisons run | **30,527 rows compared** (527 slice + 30,000 replayed fuzz), label indices aligned. **EQ-1 0 · EQ-2 0 · EQ-3 0 · EQ-4 0 · EQ-5 0** — K-1 satisfied. **EQ-6 2035**, first row `s0180 "var(--brand)"`. Third-cell differences 236 (12 carrying a declared row) | **RED (honest)** — one cause, e.9's F-e6 |
+| **G-4** | module not found, exit 1; **0 probes exist** | 2,942 TRY sites per lowering. R-LAW-1 mismatches **0 · 0** · R-LAW-3 **silent · silent** under the throwing console patch · R-LAW-4 amplified **0 · 0**, zero-width **0 · 0** · R-LAW-5 structural, **0** RECOVER in a non-final ALT arm. **R-LAW-2: 13 · 13** | **RED (honest)** — the same F-e6 rows |
+| **G-5** | published `parseCssColor` **102/172 throw** (324/1,548 across nine parsers); `r1-candidates.mjs` module not found | **0/172 throws** on `P:color`, `P:timing-function`, `P:stylesheet`, in **both** lowerings (6 rows of 0); **7/7** non-string boundary inputs returning `ok:false` with an issue; **0** empty-diagnostic rejections | **GREEN** |
+| **G-8** | module not found, exit 1. Inherited counter-example: UNARMED 93.9 ns → ARMED 138.2 = 1.47×, reset leaves 139.3 | history drift (warmed, the verdict leg) js **0.976×** · wasm **0.880×**; reset residue js **0.679×** · wasm **0.957×** (both *below* 1 — the opposite direction from a latch); steady-state heap **negative on both sides**; arena high-water read; DM-1 freeze leg priced separately (js 1917 vs 1708 ns · wasm 917 vs 834 ns). **The js reject path reads 13.1 B/parse** | **RED (honest, one leg)** — e.9's F-e8 |
+| **G-9** | module not found; **no module exists** | `WebAssembly.Module.imports(mod).length` → **0**, `imports by kind` → `{}`; **no start section**; closed export set (`memory` + exactly 3 entry functions); memory **33,554,432 B before and after 2,000 steady-state parses** (`memory.grow` never fires); K-9 *"non-JS toolchain in that path: none"*; K-10 intact, and the evidence root's 3 uncommitted `wasm32` files are listed by the probe as forbidden substrate this candidate does not touch | **GREEN** |
+| **G-10** | module not found; **no artifact** | **837 graph nodes walked**; `opt` under `all` **0** · `lazy` **0** · memoize **0**. All five comment-stripped textual zeros **0** over **11 declared source files** (`!` non-null · `as any` · `as unknown as` · `.parse(` · hand-rolled cursor). The excess-property fixture `tsc --noEmit --strict` **PASSES** — `V` assignable AND an excess property rejected | **GREEN** |
+| **G-11** | module not found. Census asymmetry: 13 Rust scan files : 0 wasm32 : 0 TS scan modules | the deep-nesting row `s0526` returns **`ok:false`, 1 issue** in BOTH lowerings — a returned failure from a constructed bound (Θ.depthBound = 64, threaded into the Wasm module as an entry parameter), **never a `RangeError`**. Scan primitives reached as algebra leaves: **DIGITS · DISPATCH · KW · LIT · SCAN · TEXT** in both | **GREEN** |
+
+**Six GREEN · three honest-RED, and neither RED is cured by touching an oracle.** G-6, G-7 and G-12
+are not this seat's (`.g`'s reporter, W1's bench at Stage 4, `.h`'s ledger).
+
+Substrate receipt ⟨`node harness/w2/substrate-receipt.mjs --candidate ac2`⟩: `<p2>` at
+`81370815c595` → now `a7ac4ea43d08`, branch `w2/ac2`; node v26.0.0 / v8 14.6.202.33-node.19, darwin
+arm64; third cell `@mkbabb/value.js@4.0.0` `/css` sha256 `8b5381305ea26236…` **== pinned**; committed
+`wasm32` in the evidence root **0** (OP-6 holds); `BAR: OWNER-GATED-PENDING-RATIFICATION`.
+
+#### e.7 — what was actually built
+
+| directory | files | what it is |
+| --- | --- | --- |
+| `algebra/` | 7 | the closed union (22 rows) · 148 named colours · the four registries + `L` + the frozen 8 codes + `K_C` + `SCALARS`/`BOUNDS` · 𝒦 · OP-03's arithmetic · **the grammar as one frozen JSON tree** · the three walks (`closureLeaks` · `unionBreaches` · `siteIndex`) with `assertClosed()` at load. **Imports neither lowering** |
+| `lowering-js/` | 4 | the published dist by absolute path and digest · σ, the journals, the §5.6 far-merge, the 18 constructors · **the init-time compiler**, one case per kind, no default arm · BND-1 and the `<Lowering>` shape |
+| `lowering-wasm/` | 7 | a **WebAssembly 1.0 binary encoder written from the specification** · the linear-memory layout and the data segments (the same registry objects the JS side reads) · the emitted runtime (class scan, case-folding literal match, decimal→f64, four journals, far-record, mark trace, arena, constructors) · **the build-time emitter**, one case per kind, no default arm · the marshalling · BND-1's freeze · the `<Lowering>` shape |
+| `probes/` | 10 | the four predicted-failure probes, the number-agreement probe, **two contract-defect cure measurements** (F-e6's three cures · F-e13's ALT reorder), the falsifier, the shared plumbing, **and the degeneration built on purpose**. None is in `meta.sources`; none is imported by either lowering |
+| root | 8 | `index.mjs` · `build.mjs` · `harness-adapter.mjs` · `types/ac2.d.ts` · `artifacts/ac2.wasm` + its receipt · `dev/sweep.mjs` · **`VERDICT.md`** |
+
+The Wasm module: **117,544 bytes**, sha256 `d70449e8b2eb6373…`, **580 node functions + 38 emitted
+runtime helpers**, sections `type · function · memory · global · export · code · data`, **zero
+imports**, no start section, 512 pages of linear memory fixed at instantiation.
+
+#### e.8 — Stage 3's numbers, in one place
+
+| reading | js | wasm | note |
+| --- | --- | --- | --- |
+| rows swept without a throw | 30,527 | 30,527 | K-8 clean; `eq-six`'s own guard never fired |
+| EQ-1..EQ-5 divergences | — | — | **0 · 0 · 0 · 0 · 0** |
+| COMP-1-failing rows | 2,035 | 2,035 | identical; see F-e6 |
+| rows where `C` and `P` are byte-identical across the lowerings | 30,527 of 30,527 | | the defect is not a divergence |
+| R-LAW-1 restored marks, exact | 2,942 | 2,942 | 0 mismatches |
+| recovery events → diagnostics | 24 → 24 | 24 → 24 | 1:1 over 8 of 15 stylesheet rows |
+| accept-path arena (`arenaHighWater()`) | — | 328 B / 5 cells (`rgb(1 2 3)`) · 608 B / 10 cells (`a{color:red}`) · 256 B / 5 cells (`oklch(50% 0.2 120 / 0.5)`) · 0 B / 0 cells (reject) | F-e10 |
+
+#### e.9 — residuals and escalations
+
+| id | severity | what | owner |
+| --- | --- | --- | --- |
+| **F-e6** | **MAJOR — wave-level, for `.h` and the owner** | **§10.1's `balanced-tail` writes `C` entries that fail §4.5's own predicate — a defect in the ratified contract, not in any lowering.** `balanced-tail := REP (ALT[ SEQ[TOK "(", REF balanced-tail, TOK ")"], DROP keyword (SCAN any-but-paren 1 ∞) ]) 0 ∞` consumes every code unit that is not a parenthesis, and `π_keyword = /^[A-Za-z][A-Za-z0-9_-]*$/` cannot admit `--brand`, `1 2 3`, `, `, `50%` or U+00E9. Measured (⟨`node probes/p6-comp1-kind-fidelity.mjs`⟩): **2,035 of 30,527 rows** fail COMP-1c, **identically in both lowerings**, over **2,047 occurrences, every one `kind 'keyword'`**; the two lowerings' `C` and `P` are byte-identical on **30,527 of 30,527** rows. Population: fuzz-wellformed 1262 · fuzz-malformed 760 · slice ground-a-guarded 9 · slice var-context 4. **No lawful kind cures it in place** — §OP-13 excludes `skipped` and `residue` from `DROP`, and of the four droppable kinds none admits `--brand`. Three cures measured on an **in-memory copy** (the shipped grammar stays §10 verbatim, FF-3), **each driving the population to 0**: (1) a seventh kind `opaque`, π = \|bytes\| ≥ 1 — but `K_C` grows 6→7 and every candidate's EQ-2 kind index shifts, and that list is `.g`'s; (2) widen `π_keyword` — but it stops meaning `keyword`; (3) re-kind that one `DROP` to `skipped` — but §OP-13's exclusion must be relaxed. **This seat cured none of them**: `ALGEBRA.md` is `.c`'s ratified file and E-3 makes corrections dated addenda-beside. §3a's own trigger anticipates it — *"G-3 red on the SAME product for all three admitted candidates (the contract is then suspect, not the candidates)"* — and this seat **expects AC-1 and AC-3 to reproduce it exactly**, because it is the shared slice that carries it | `.h` · `.c`-successor · owner |
+| **F-e13** | **MAJOR — a SECOND contract defect, for `.h` and the owner** | **§10.2's ALT order makes `linear()` unreachable, and this seat reproduced X.P.W2.d's F-7 rather than citing it.** `.d`'s receipt landed in this record while this unit was open; it reports the defect and **cures it in its realization** (*"the realization puts the `DISPATCH` arm first"*). This candidate ships §10.2 **verbatim** (FF-3), so the seat wrote ⟨`node probes/p8-alt-order.mjs`⟩ and tested the claim against its own bytes. It reproduces exactly: `linear` is a row of `R_kw.timing-keyword` **and** the key of the `linear` dispatch arm, the first ALT arm matches the ident run and **succeeds**, `END` then fails on the `(` — and nothing backtracks into an ALT that already returned. **All 5 `linear(…)` rows of the slice corpus's 29 `P:timing-function` rows are rejected in BOTH lowerings, every one reading `trailing_input@6 expected ["end of input"]`** — the same offset and the same label a different candidate measured from a different codebase. Cure measured on an in-memory copy (`structuredClone`, never a JSON round-trip — §4.2's `CLAMP 0 ∞` carries `Infinity`, which `JSON.stringify` writes as `null`, and that copier bug moved four `oklch` rows before it was caught): the `DISPATCH` arm first turns **3** rows REJECT → ok over all 527 slice rows and costs **0**; the other 2 reject lawfully and elsewhere (`linear(0)` has one stop against §10.2's own `REP linear-stop 2 ∞`; `linear()` is a GROUND-A row). **Two independent seats, one contract line.** *Consequence for the field's arithmetic, stated plainly*: `.d` and this seat took **opposite postures on the same defect** — `.d` cured it, this seat shipped it — so the two candidates' 5 `linear(…)` rows are **not comparable row-for-row**. Neither posture is wrong; they answer different questions, and `.h` should not read the difference as a capability gap | `.h` · `.c`-successor · owner |
+| **F-e8** | MAJOR — for `.h` | **G-8's reject-path leg is not reachable by a JS lowering that publishes `marks`.** Readings, identical across two runs: js **131,376 B / 10,000 rejects = 13.1 B/parse**; wasm **192 B / 10,000 = 0.019 B/parse**. Decay measured over five consecutive 10,000-reject windows with `gc()` at both ends: **10.88 → 1.71 → 1.38 → 6.02 → −0.29 B/parse** — the gate reads the FIRST, cold window, and **this seat did not re-run for a greener number**. Cause named: the JS lowering materializes `marks` and `D` as JS objects, which the `<Lowering>` contract requires (EQ-5 compares the mark trace); the Wasm lowering writes the same journals into linear memory. R-LAW-1 declares this cost asymmetry but declares it the other way round (*"arena truncation vs an allocation-free JS failing path"*); on this instrument it is inverted. Escalated as worded, not worked around | `.h` · owner |
+| **F-e7** | MINOR — **RETRACTED BY THIS SEAT** | mid-development this seat believed `experiments/w2/corpus/fuzz-seed.json`'s banked `rowsSha256` did not reproduce and was preparing to escalate it as a blocking `.g`-owned defect. **It reproduces.** `eq-six.mjs` passed its replay check and compared 30,527 rows, twice. The seat's own re-derivation was wrong; `.g`'s corpus is intact. Recorded because a retracted finding nobody writes down is a finding that gets re-discovered | — |
+| **F-e9** | MINOR — for `.h` and `.i` | `meta.artifacts.dts` re-exports the **vendored 4.0.0 `css.d.ts`**, not `value.js/src/css/types.ts`. The live `.ts` was tried first and fails G-10's own invocation for a reason unrelated to any candidate: `tsc --noEmit --strict --skipLibCheck` passes no `--target`, so the ES5 default lib applies and `value.js/src/color/**` reports 40+ `Property 'sign' does not exist on type 'Math'`. The vendored bundle is the same frozen surface, is a `.d.ts` (skipped by `--skipLibCheck`), and is the bytes `published.mjs` already pins as the third cell — so the type `V` is measured against and the implementation `V` is compared against are one artifact | `.h` · `.i` |
+| **F-e10** | INFO | `arenaHighWater()` reports the **last parse's** arena, not a cross-parse watermark, so G-8 — which reads it right after the reject window — honestly prints `0 B`. A cross-parse maximum would be process-global mutable state, which **O-8 forbids**; the seat chose the stateless reading and declares the consequence rather than adding the latch. Accept-path readings pasted in e.8 | `.h` |
+| **F-e1..F-e5, F-e11, F-e12** | INFO | the seven encoding declarations, each in `VERDICT.md` §F with its cite: §10.3's `sync-rule` written with bare `SCAN`/`LIT` against INV-OWN (encoded through `DROP`, identical under discard) · §10.3's two inert `CUT`s under `RECOVER`/`REP` (not encoded) · `DISPATCH` arms riding the node's argument list so the structural walk reaches them · `important` carried as `PURE 1/0` · OP-03's routine lowered twice from one source · EQ-5's sixth coordinate a **logical cell counter** identical in both (the byte watermark rides beside it, because conflating the two would make EQ-5 unfalsifiable) · BND-1 steps 4–5 in each lowering's glue, above the algebra | `.h` |
+
+#### CLOSE CONDITIONS FOR THIS UNIT
+
+- **Bounds**: written set = `{ <p2>/experiments/w2/ac2-closed-ir/** }` + this record. **0 bytes**
+  outside it, proven by ⟨`git show --name-only --format= HEAD | grep -cv '^experiments/w2/ac2-closed-ir/'`⟩ → **0**.
+  `<p2>/rust/parse_that/**` was admitted to this seat and **not written** (nothing to build: the Wasm
+  is emitted in JavaScript). W1's `harness/{totality,equivalence,bench}/**`, `.g`'s `harness/w2/**`
+  and `experiments/w2/corpus/**`, `experiments/w2/contract/ALGEBRA.md`,
+  `/Users/mkbabb/Programming/parse-that` (read, never written — and never its uncommitted `wasm32`
+  bytes, K-10), glass-ui, value.js `src/**` · `api/**` · `demo/**` · `package.json`,
+  `scripts/dev/dev.sh`, `W2.md`: **all untouched**, each proven by a digest or a `git log` above.
+- **Locks honoured**: **ONE `<p2>` commit** on `w2/ac2` (`a7ac4ea4`), pathspec on the commit itself,
+  36 files all inside the glob, ⟨`git rev-list --count 8137081..HEAD`⟩ → **1**. Stage-2 bijection printed **before any timing**. `CARGO_TARGET_DIR`
+  was set to `<p2>/target/w2-ac2` for every child process that could have used it; **no Rust ran**.
+  The **third-iteration halt** (§3a) never triggered: the seat developed against its own
+  `dev/sweep.mjs` and invoked each gate only when it believed it green — G-1, G-2, G-5, G-9, G-10,
+  G-11 were run **twice each and green both times**; G-3 and G-4 were run twice each and RED both
+  times with identical numbers; G-8 twice with identical numbers. No gate saw a third diagnostic
+  iteration.
+- **No oracle edited**: not the harness, not the corpora, not `ALGEBRA.md`, not W1's instruments, not
+  this candidate's falsifier. A candidate that needs the oracle changed to pass has failed, and this
+  one did not ask.
+- **Numbers**: every published figure read back from the settled bytes and **double-run**; the
+  degeneration's fidelity printed before its cost; the fallback's ULP distance printed rather than
+  argued; **no speed sentence outside a printed table**, and every duration carries
+  `BAR: OWNER-GATED-PENDING-RATIFICATION`.
+- **Bar**: none set. **Verbs**: none stamped — this seat does **not** claim its candidate survives;
+  that verdict is `.h`'s.
+- **`<p2>` end state**: HEAD `a7ac4ea43d08ac609e6e0ec3e2c0551beb1a9959`, branch `w2/ac2`, worktree
+  `<p2>/.worktrees/ac2`, porcelain **0**, ⟨`git remote -v`⟩ → 0 lines.
+- **Commit of this record**: pathspec on the commit itself, this file alone; `scripts/dev/dev.sh`
+  never staged.
