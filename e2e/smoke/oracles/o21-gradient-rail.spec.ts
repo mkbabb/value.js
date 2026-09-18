@@ -38,9 +38,7 @@ async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
     const main = page.getByRole("main", { name: "Color tool panes" });
-    await expect(
-        main.getByRole("heading", { name: "Gradient" }).last(),
-    ).toBeVisible();
+    await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
     // enter transition otherwise screenshots the rail mid-flight (see
     // paneSettled).
@@ -73,12 +71,8 @@ test("terminal truth: each rail edge paints ITS OWN stop's color (no mirrored bl
     const left = meanRGB(png, 3, 8, 0.4, 0.6);
     const right = meanRGB(png, png.w - 8, png.w - 3, 0.4, 0.6);
 
-    expect(rgbDistance(left, FIRST_STOP)).toBeLessThan(
-        rgbDistance(left, LAST_STOP),
-    );
-    expect(rgbDistance(right, LAST_STOP)).toBeLessThan(
-        rgbDistance(right, FIRST_STOP),
-    );
+    expect(rgbDistance(left, FIRST_STOP)).toBeLessThan(rgbDistance(left, LAST_STOP));
+    expect(rgbDistance(right, LAST_STOP)).toBeLessThan(rgbDistance(right, FIRST_STOP));
 
     expect(consoleErrors).toEqual([]);
 });
@@ -126,50 +120,21 @@ test("pill silhouette (T-46): the rail rounds on the glass-ui slider-track regis
     expect(consoleErrors).toEqual([]);
 });
 
-test("ruler grammar: two terminal caps at the track extremes, every rung strictly interior", async ({
-    page,
-}) => {
-    const consoleErrors = setupEnvNoise(page);
-    const main = await openGradient(page);
-
-    const caps = main.getByTestId("gradient-ruler-cap");
-    await expect(caps).toHaveCount(2);
-
-    const capBoxes = [
-        await caps.nth(0).boundingBox(),
-        await caps.nth(1).boundingBox(),
-    ];
-    if (!capBoxes[0] || !capBoxes[1]) throw new Error("caps not visible");
-    const capXs = capBoxes
-        .map((b) => b.x + b.width / 2)
-        .sort((a, b) => a - b);
-
-    // Caps share the handles' inset track: cap centers ≡ the 0%/100%
-    // handle centers (the default seed's stops; ±1.5px subpixel layout) —
-    // the congruence claim, measured against the REAL handles, not a
-    // re-derived formula.
-    const handles = bar(main).locator("[data-stop-id]");
-    const first = await handles.first().boundingBox();
-    const last = await handles.last().boundingBox();
-    if (!first || !last) throw new Error("handles not visible");
-    const handleXs = [first, last]
-        .map((b) => b.x + b.width / 2)
-        .sort((a, b) => a - b);
-    expect(Math.abs(capXs[0]! - handleXs[0]!)).toBeLessThan(1.5);
-    expect(Math.abs(capXs[1]! - handleXs[1]!)).toBeLessThan(1.5);
-
-    // Every iso-ΔE rung is INTERIOR (rungs are arc-length marks — the ends
-    // are not rungs; the caps carry the termination law).
-    const rungs = main.getByTestId("gradient-rung");
-    const count = await rungs.count();
-    expect(count).toBeGreaterThan(0);
-    for (let i = 0; i < count; i++) {
-        const box = await rungs.nth(i).boundingBox();
-        if (!box) continue;
-        const cx = box.x + box.width / 2;
-        expect(cx).toBeGreaterThan(capXs[0]!);
-        expect(cx).toBeLessThan(capXs[1]!);
-    }
-
-    expect(consoleErrors).toEqual([]);
-});
+/* ── X-W1 · R2 — DELETED: "ruler grammar: two terminal caps at the track
+ * extremes, every rung strictly interior".
+ *
+ * The test bound `getByTestId("gradient-ruler-cap")` and
+ * `getByTestId("gradient-rung")`. Measured 2026-09-18, both statically
+ * (`grep -rn 'gradient-ruler-cap\|gradient-rung' demo/` → 0 rows) and at the
+ * running app (`document.querySelectorAll` → 0 and 0): the ruler was removed
+ * from the product and NO successor element exists for either binding. There is
+ * nothing to re-point at, so R2's rule applies in its second arm — the spec is
+ * DELETED with this rationale rather than converted to `test.skip()`, which G-6
+ * names as the same deferral under a new name.
+ *
+ * What it asserted is not silently lost: the two surviving tests in this file
+ * cover the rail's paint contract and its pill silhouette, and the ruler's own
+ * re-introduction (if any) belongs to the wave that re-introduces it.
+ * `scripts/ci/oracle-slate.mjs` section E now reds on a `getByTestId` literal
+ * that appears in no product byte, so this class cannot return unobserved.
+ */

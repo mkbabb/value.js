@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { canonicalStops } from "../fixtures/color-dialect";
 import { expandDock, openView } from "../fixtures/dock";
 
 /**
@@ -33,8 +34,17 @@ import { expandDock, openView } from "../fixtures/dock";
  *     equality); this spec closes the sampler ≡ paint half in the live DOM.
  */
 
-/** The resolver's canonical output shape (view-accents/palettes-ramp). */
-const OKLCH_SHAPE = /^oklch\([\d.]+ [\d.]+ [\d.]+\)$/;
+/**
+ * X-W1 · R3 / NG-2 — the resolver's output shape, asserted WITHOUT a
+ * component-level pattern.
+ *
+ * This was `/^oklch\([\d.]+ [\d.]+ [\d.]+\)$/`, a hand-rolled shape whose
+ * separator class cannot cross a `%` or a `deg` — and `grammar.ts:309` emits
+ * `oklch(62% 0.27 9.8deg)`. The token is oklch-headed and the ENGINE decides
+ * whether it is a colour; a regex that re-implements the grammar is the disease
+ * this row exists to end.
+ */
+const OKLCH_HEAD = /^oklch\(/;
 
 async function readRampTokens(
     page: import("@playwright/test").Page,
@@ -42,9 +52,7 @@ async function readRampTokens(
 ) {
     return page.evaluate((prefix) => {
         const s = document.documentElement.style;
-        return [0, 1, 2].map((i) =>
-            s.getPropertyValue(`${prefix}-${i}`).trim(),
-        );
+        return [0, 1, 2].map((i) => s.getPropertyValue(`${prefix}-${i}`).trim());
     }, prefix);
 }
 
@@ -77,11 +85,14 @@ async function measureRampFeasibility(
                 ctx.fillRect(0, 0, 1, 1);
                 return ctx.getImageData(0, 0, 1, 1).data;
             };
-            const onBlack = draw("#000");
-            const onWhite = draw("#fff");
-            const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+            // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+            // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+            // `noUncheckedIndexedAccess`; destructuring names the channels once.
+            const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+            const [whiteR = 0] = draw("#fff");
+            const a = 1 - (whiteR - blackR) / 255;
             if (a <= 0) return [0, 0, 0, 0];
-            return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+            return [blackR / a, blackG / a, blackB / a, a];
         };
         const rootStyle = getComputedStyle(document.documentElement);
         const ambientL = Number.parseFloat(
@@ -139,8 +150,9 @@ async function measureRampFeasibility(
             ratios.push((Math.max(li, lg) + 0.05) / (Math.min(li, lg) + 0.05));
             // OKLab L proxy: the stop's own luminance-derived lightness is
             // enough to catch the L≈0.02 clamp (the wreck's monochrome face).
-            const oklL =
-                Math.cbrt(0.2126 * (r / 255) + 0.7152 * (g / 255) + 0.0722 * (b / 255));
+            const oklL = Math.cbrt(
+                0.2126 * (r / 255) + 0.7152 * (g / 255) + 0.0722 * (b / 255),
+            );
             maxL = Math.max(maxL, oklL);
         }
         return {
@@ -153,35 +165,39 @@ async function measureRampFeasibility(
 }
 
 /**
- * Parse every `oklch(L C H)` occurrence into numeric triples. The computed
- * `background-image` CANONICALIZES serialization (trailing zeros trimmed:
- * the resolver's `oklch(0.5500 0.1800 320.0)` computes as
- * `oklch(0.55 0.18 320)`), so identity is asserted at the VALUE level —
- * the stops are the same numbers, byte-identical through the one writer.
+ * X-W1 · R3 / NG-2 — identity through the app's OWN encoder.
+ *
+ * `parseOklchTriples` used to live here: a component-level regex over the
+ * serializer's output, returning **0** matches on the shipped `%`/`deg` dialect
+ * against **1** on the canonical form, while the caller asserted
+ * `painted.length === stamped.length` — defective on both branches. Both sides
+ * now go through the page's CSSOM, which is the same engine that produced the
+ * painted value, so equality is a fact about COLOUR and not about notation.
  */
-function parseOklchTriples(s: string): number[][] {
-    return [
-        ...s.matchAll(
-            /oklch\(([\d.]+)[ ,]+([\d.]+)[ ,]+([\d.]+)(?:\s*\/\s*[\d.%]+)?\)/g,
-        ),
-    ].map((m) => [Number(m[1]), Number(m[2]), Number(m[3])]);
-}
-
-function expectStopsEqual(painted: number[][], tokens: string[]) {
-    const expected = tokens.flatMap((t) => parseOklchTriples(t));
-    expect(painted.length, "3 painted stops").toBe(expected.length);
-    for (let i = 0; i < expected.length; i++) {
-        for (let c = 0; c < 3; c++) {
-            expect(
-                Math.abs(painted[i]![c]! - expected[i]![c]!),
-                `stop ${i} component ${c}: painted ${painted[i]![c]} vs token ${expected[i]![c]}`,
-            ).toBeLessThanOrEqual(1e-9);
-        }
-    }
+async function expectStopsEqual(
+    page: import("@playwright/test").Page,
+    paintedValue: string,
+    tokens: string[],
+    label: string,
+) {
+    const { painted, stamped } = await canonicalStops(page, paintedValue, tokens);
+    expect(
+        stamped,
+        `${label}: every stamped stop is a colour the engine accepts`,
+    ).not.toContain(null);
+    expect(
+        painted,
+        `${label}: every painted stop is a colour the engine accepts`,
+    ).not.toContain(null);
+    expect(painted, `${label}: painted stops ≡ stamped stops, one encoding`).toEqual(
+        stamped,
+    );
 }
 
 test.describe("O-14 · the T-10 letterform-ramp referent", () => {
-    test("dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8)", async ({ page }) => {
+    test("dropdown entry + Palettes title each render their per-site guarded stops — one resolver, per-site certified outputs (WR-8)", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
 
@@ -191,7 +207,7 @@ test.describe("O-14 · the T-10 letterform-ramp referent", () => {
         const titleTokens = await readRampTokens(page, "--palettes-ramp-title");
         for (const t of [...menuTokens, ...titleTokens]) {
             expect(t, "root ramp token present").not.toBe("");
-            expect(t, "the guard's canonical output shape").toMatch(OKLCH_SHAPE);
+            expect(t, "the guard's canonical output head").toMatch(OKLCH_HEAD);
         }
 
         // Site 1 — the dock view dropdown's "Palettes" entry letterforms:
@@ -207,11 +223,19 @@ test.describe("O-14 · the T-10 letterform-ramp referent", () => {
             const cs = getComputedStyle(el);
             return {
                 backgroundImage: cs.backgroundImage,
-                clip: cs.webkitBackgroundClip || (cs as CSSStyleDeclaration & { backgroundClip: string }).backgroundClip,
+                clip:
+                    cs.webkitBackgroundClip ||
+                    (cs as CSSStyleDeclaration & { backgroundClip: string })
+                        .backgroundClip,
             };
         });
         expect(entryPaint.clip).toBe("text");
-        expectStopsEqual(parseOklchTriples(entryPaint.backgroundImage), menuTokens);
+        await expectStopsEqual(
+            page,
+            entryPaint.backgroundImage,
+            menuTokens,
+            "dock entry",
+        );
         await page.keyboard.press("Escape");
 
         // Site 2 — the Palettes title letterforms: the display-scale TITLE
@@ -222,17 +246,20 @@ test.describe("O-14 · the T-10 letterform-ramp referent", () => {
         const titlePaint = await title.evaluate(
             (el) => getComputedStyle(el).backgroundImage,
         );
-        expectStopsEqual(parseOklchTriples(titlePaint), titleTokens);
+        await expectStopsEqual(page, titlePaint, titleTokens, "Palettes title");
     });
 
-    test("the excised legend stays dead — no per-view static tokens, no dot column", async ({ page }) => {
+    test("the excised legend stays dead — no per-view static tokens, no dot column", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         // The 9 `--accent-view-<id>` tokens died with the legend (R1); the
         // resurrection guard reads the live root inline style.
         const staleTokens = await page.evaluate(() =>
-            Array.from(document.documentElement.style)
-                .filter((p) => p.startsWith("--accent-view-")),
+            Array.from(document.documentElement.style).filter((p) =>
+                p.startsWith("--accent-view-"),
+            ),
         );
         expect(staleTokens).toEqual([]);
 
@@ -331,27 +358,47 @@ for (const scheme of ["light", "dark"] as const) {
 }
 
 test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
-    test("honest absence: with <2 operands the rows carry NO chip", async ({ page }) => {
+    test("honest absence: with <2 operands the rows carry NO chip", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         await openView(page, "Mix");
         await page.getByRole("combobox", { name: "Color space", exact: true }).click();
         await expect(page.getByRole("listbox")).toBeVisible();
-        expect(
-            await page.getByRole("listbox").locator("[data-stops]").count(),
-        ).toBe(0);
+        expect(await page.getByRole("listbox").locator("[data-stops]").count()).toBe(0);
         await page.keyboard.press("Escape");
     });
 
-    test("every open-menu chip's painted gradient carries exactly its stamped stops", async ({ page }) => {
+    test("every open-menu chip's painted gradient carries exactly its stamped stops", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         await openView(page, "Mix");
 
-        // Two REAL operands through the real flow (the add-slot ghost).
-        const addSlot = page.getByRole("button", {
-            name: "Add current color to the mix",
-        });
+        // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────
+        // The add-slot was bound by `getByRole("button", { name: "Add current
+        // color to the mix" })`, which can NEVER match. MEASURED at the running
+        // app, 2026-09-18: the slot renders `<span aria-hidden="true">` with no
+        // `aria-label`, no `role`, `pointer-events: none`, and a forced click
+        // adds no source. ROOT: glass-ui 7.0.0's `WatercolorDot` declares
+        // `inheritAttrs: false` and renders that span, so the demo's
+        // `tag="button"`, `aria-label`, `:disabled` and `@click` are all
+        // dropped at the seam (`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`).
+        // The affordance is therefore DEAD in the shipped product — a live
+        // BLOCKER, not a test defect. glass-ui is READ-ONLY here and `demo/` is
+        // this wave's Triumvirate trigger, so the CURE is routed (BH relay +
+        // the consumer wave) and the ORACLE is made honest: it binds the node
+        // that exists and asserts the contract that is broken, so it reds in
+        // one step with the cause on the failure line instead of timing out
+        // against a locator that matches nothing.
+        const addSlot = page.locator(".add-slot-ghost").first();
+        await expect(addSlot).toBeVisible();
+        await expect(
+            addSlot,
+            "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        ).toHaveAttribute("aria-label", /Add current color/, { timeout: 2000 });
         await addSlot.click();
         await addSlot.click();
 
@@ -367,24 +414,13 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                     paint: getComputedStyle(el).backgroundImage,
                 }));
                 expect(stops.length).toBeGreaterThanOrEqual(2);
-                // VALUE-level identity (computed-style canonicalization —
-                // see parseOklchTriples): every stamped stop appears in the
-                // painted gradient, in order, component-equal within the
-                // canonicalization rounding band.
-                const painted = parseOklchTriples(paint);
-                const stamped = stops.flatMap((s) => parseOklchTriples(s));
-                expect(
-                    painted.length,
-                    `${menuName} chip ${i}: painted stop count`,
-                ).toBe(stamped.length);
-                for (let j = 0; j < stamped.length; j++) {
-                    for (let c = 0; c < 3; c++) {
-                        expect(
-                            Math.abs(painted[j]![c]! - stamped[j]![c]!),
-                            `${menuName} chip ${i} stop ${j} component ${c}`,
-                        ).toBeLessThanOrEqual(1e-3);
-                    }
-                }
+                // X-W1 · R3 / NG-2 — VALUE-level identity through the page's own
+                // CSSOM, the encoder that produced `paint`. The retired form
+                // parsed both sides with a component regex that cannot read the
+                // shipped `%`/`deg` dialect, so this leg was RED-or-vacuous by
+                // construction and no green paint-oracle existed for either chip
+                // species anywhere in the repository.
+                await expectStopsEqual(page, paint, stops, `${menuName} chip ${i}`);
             }
             await page.keyboard.press("Escape");
         }
@@ -408,16 +444,33 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
         await page.waitForSelector(".glass-dock");
         await openView(page, "Mix");
 
-        const addSlot = page.getByRole("button", {
-            name: "Add current color to the mix",
-        });
+        // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────
+        // The add-slot was bound by `getByRole("button", { name: "Add current
+        // color to the mix" })`, which can NEVER match. MEASURED at the running
+        // app, 2026-09-18: the slot renders `<span aria-hidden="true">` with no
+        // `aria-label`, no `role`, `pointer-events: none`, and a forced click
+        // adds no source. ROOT: glass-ui 7.0.0's `WatercolorDot` declares
+        // `inheritAttrs: false` and renders that span, so the demo's
+        // `tag="button"`, `aria-label`, `:disabled` and `@click` are all
+        // dropped at the seam (`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`).
+        // The affordance is therefore DEAD in the shipped product — a live
+        // BLOCKER, not a test defect. glass-ui is READ-ONLY here and `demo/` is
+        // this wave's Triumvirate trigger, so the CURE is routed (BH relay +
+        // the consumer wave) and the ORACLE is made honest: it binds the node
+        // that exists and asserts the contract that is broken, so it reds in
+        // one step with the cause on the failure line instead of timing out
+        // against a locator that matches nothing.
+        const addSlot = page.locator(".add-slot-ghost").first();
+        await expect(addSlot).toBeVisible();
+        await expect(
+            addSlot,
+            "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        ).toHaveAttribute("aria-label", /Add current color/, { timeout: 2000 });
         await addSlot.click();
         await addSlot.click();
 
         for (const menuName of ["Color space", "Hue method"]) {
-            await page
-                .getByRole("combobox", { name: menuName, exact: true })
-                .click();
+            await page.getByRole("combobox", { name: menuName, exact: true }).click();
             const chips = page.getByRole("listbox").locator("[data-stops]");
             const n = await chips.count();
             expect(n, `${menuName}: preview chips render`).toBeGreaterThan(0);
@@ -426,9 +479,7 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                     const cv = document.createElement("canvas");
                     cv.width = cv.height = 1;
                     const ctx = cv.getContext("2d")!;
-                    const resolve = (
-                        css: string,
-                    ): [number, number, number, number] => {
+                    const resolve = (css: string): [number, number, number, number] => {
                         const draw = (ground: string) => {
                             ctx.fillStyle = ground;
                             ctx.fillRect(0, 0, 1, 1);
@@ -437,11 +488,14 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                             ctx.fillRect(0, 0, 1, 1);
                             return ctx.getImageData(0, 0, 1, 1).data;
                         };
-                        const onBlack = draw("#000");
-                        const onWhite = draw("#fff");
-                        const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                        // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+                        // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+                        // `noUncheckedIndexedAccess`; destructuring names the channels once.
+                        const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+                        const [whiteR = 0] = draw("#fff");
+                        const a = 1 - (whiteR - blackR) / 255;
                         if (a <= 0) return [0, 0, 0, 0];
-                        return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                        return [blackR / a, blackG / a, blackB / a, a];
                     };
                     // Composite the ancestor bg stack over the published page
                     // ambient — the option-row surface the chip sits on (the
@@ -454,9 +508,7 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                         ? resolve(`oklch(${ambientL} 0 0)`)
                         : resolve(
                               rootStyle.getPropertyValue("--saved-bg").trim() ||
-                                  rootStyle
-                                      .getPropertyValue("--background")
-                                      .trim(),
+                                  rootStyle.getPropertyValue("--background").trim(),
                           );
                     const layers: [number, number, number, number][] = [];
                     for (
@@ -466,9 +518,7 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                         node !== document.documentElement;
                         node = node.parentElement
                     ) {
-                        const c = resolve(
-                            getComputedStyle(node).backgroundColor,
-                        );
+                        const c = resolve(getComputedStyle(node).backgroundColor);
                         if (c[3] > 0) layers.push(c);
                     }
                     let ground: [number, number, number] = [
@@ -490,9 +540,7 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                                 ? s / 12.92
                                 : ((s + 0.055) / 1.055) ** 2.4;
                         };
-                        return (
-                            0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
-                        );
+                        return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
                     };
                     const lg = lum(ground);
                     // The PAINTED gradient's own stops (what actually renders),
@@ -534,7 +582,10 @@ test.describe("O-14 · the T-17 chip referent (mix Space/Hue ramps)", () => {
                 });
 
                 const tag = `${menuName} chip ${i}`;
-                expect(m.count, `${tag}: painted gradient has ≥2 stops`).toBeGreaterThanOrEqual(2);
+                expect(
+                    m.count,
+                    `${tag}: painted gradient has ≥2 stops`,
+                ).toBeGreaterThanOrEqual(2);
                 // OPAQUE — a near-transparent preview is a wreck the byte-
                 // identity leg cannot see.
                 expect(

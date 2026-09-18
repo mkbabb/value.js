@@ -27,14 +27,27 @@ test("save current palette persists to localStorage 'color-palettes'", async ({
     await openView(page, "Palettes");
 
     // Add the active color into the current-palette buffer (creates a
-    // non-empty palette ready to save). The button is icon-only with
-    // accessible label "Add current color … to palette". The editor mounts in
-    // both layout slots (the off-breakpoint copy is `display:none`), so target
-    // the visible copy rather than a positional `.last()`.
-    await main
-        .getByRole("button", { name: /Add current color .* to palette/ })
-        .filter({ visible: true })
-        .click();
+    // non-empty palette ready to save). The editor mounts in both layout slots
+    // (the off-breakpoint copy is `display:none`), so target the visible copy
+    // rather than a positional `.last()`.
+    //
+    // ── X-W1 · R2 (PP-2 = A-3 = SH-8) ───────────────────────────────────────
+    // This bound `/Add current color .* to palette/` by ROLE, which can never
+    // match. MEASURED at the running app, 2026-09-18: the slot renders
+    // `<span aria-hidden="true">` with no `aria-label`, no `role`,
+    // `pointer-events: none`, and a forced click adds nothing. ROOT: glass-ui
+    // 7.0.0's `WatercolorDot` declares `inheritAttrs: false` and renders that
+    // span, so `tag="button"`, `aria-label` and `@click` are dropped at the
+    // seam (`CurrentPaletteEditor.vue:96-105`). The affordance is DEAD in the
+    // shipped product. The cure is routed (glass-ui is READ-ONLY; `demo/` is
+    // this wave's Triumvirate trigger); the oracle is made honest.
+    const addSlot = main.locator(".add-slot-ghost").filter({ visible: true }).first();
+    await expect(addSlot).toBeVisible();
+    await expect(
+        addSlot,
+        "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+    ).toHaveAttribute("aria-label", /Add current color/, { timeout: 2000 });
+    await addSlot.click();
 
     // Save by typing a name + pressing Enter on the Input (the icon-only
     // Save button next to the Input lacks an aria-label; Enter-on-Input

@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { canonicalizeColors } from "../fixtures/color-dialect";
 import { openView } from "../fixtures/dock";
 
 /**
@@ -35,18 +36,16 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
 
         // The orphan is dead: EVERY Regenerate on the page lives inside the
         // plate (page-count ≡ plate-count).
-        expect(
-            await page.getByRole("button", { name: "Regenerate" }).count(),
-        ).toBe(await plate.getByRole("button", { name: "Regenerate" }).count());
+        expect(await page.getByRole("button", { name: "Regenerate" }).count()).toBe(
+            await plate.getByRole("button", { name: "Regenerate" }).count(),
+        );
 
         // seed = bench note, INSIDE the plate (provenance label, mono hex).
         const seedNote = plate.getByText(/seed: [0-9a-f]{8}/);
         await expect(seedNote).toBeVisible();
 
         // The plate's action chrome (the former card-menu verbs, first-class).
-        await expect(
-            plate.getByRole("button", { name: "Save palette" }),
-        ).toBeVisible();
+        await expect(plate.getByRole("button", { name: "Save palette" })).toBeVisible();
         await expect(
             plate.getByRole("button", { name: "Copy all colors" }),
         ).toBeVisible();
@@ -55,9 +54,7 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         // bench note (a new seed) in place.
         const seedBefore = ((await seedNote.textContent()) ?? "").trim();
         await regen.click();
-        await expect(plate.getByText(/seed: [0-9a-f]{8}/)).not.toHaveText(
-            seedBefore,
-        );
+        await expect(plate.getByText(/seed: [0-9a-f]{8}/)).not.toHaveText(seedBefore);
     });
 
     test("T-17 seed-exact strips: a preset row's stamped stops ≡ the palette selecting it yields", async ({
@@ -71,9 +68,7 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         await expect(plate).toBeVisible();
 
         // Open the Preset menu; every row carries a stamped preview strip.
-        await page
-            .getByRole("combobox", { name: "Generation preset" })
-            .click();
+        await page.getByRole("combobox", { name: "Generation preset" }).click();
         const listbox = page.getByRole("listbox");
         await expect(listbox).toBeVisible();
         const chips = listbox.locator("[data-stops]");
@@ -83,25 +78,42 @@ test.describe("O-20 · the Generate verb joins the plate chrome", () => {
         ).toBeGreaterThan(0);
 
         // Read a NON-selected row's stamp, then select it.
-        const target = listbox
-            .getByRole("option")
-            .filter({ hasText: "Pastel" });
+        const target = listbox.getByRole("option").filter({ hasText: "Pastel" });
         const stamped = (
-            (await target.locator("[data-stops]").getAttribute("data-stops")) ??
-            ""
+            (await target.locator("[data-stops]").getAttribute("data-stops")) ?? ""
         ).split("|");
         expect(stamped.length).toBeGreaterThanOrEqual(1);
         await target.click();
 
-        // The plate's live swatches ARE the stamped stops — same function,
-        // same args, same seed: byte-identical rgb() strings, same order.
+        // ── X-W1 · R3 / NG-2 — THE ORACLE DIALECT LAW ───────────────────────
+        // This compared `getComputedStyle().backgroundColor` to the raw
+        // `data-stops` tokens by STRING EQUALITY, under a comment claiming
+        // *"byte-identical rgb() strings"*. The serializer has never produced
+        // that: the stamp is written in the authored dialect (`oklch(62% 0.27
+        // 9.8deg)`) while the computed side is the engine's `rgb(...)`, so the
+        // two sides could never be equal and the record calls the leg
+        // *"unfixable as written"*. It is fixable exactly one way, the
+        // PreviewRamp R-2 lock: pass BOTH sides through the app's own encoder —
+        // here the page's CSSOM, the same engine that produced the live value —
+        // so what is compared is COLOUR and not notation.
         const live = await plate
             .locator(".generate-swatch")
             .evaluateAll((els) =>
-                els.map(
-                    (el) => getComputedStyle(el as HTMLElement).backgroundColor,
-                ),
+                els.map((el) => getComputedStyle(el as HTMLElement).backgroundColor),
             );
-        expect(live).toEqual(stamped);
+        const canonicalStamped = await canonicalizeColors(page, stamped);
+        const canonicalLive = await canonicalizeColors(page, live);
+        expect(
+            canonicalStamped,
+            "every stamped stop is a colour the engine accepts",
+        ).not.toContain(null);
+        expect(
+            canonicalLive,
+            "every painted swatch is a colour the engine accepts",
+        ).not.toContain(null);
+        expect(
+            canonicalLive,
+            "the plate's live swatches ARE the stamped stops — one encoding, same order",
+        ).toEqual(canonicalStamped);
     });
 });

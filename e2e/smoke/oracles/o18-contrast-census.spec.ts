@@ -73,6 +73,32 @@ const OWNER_URL = "/#/?space=lab&color=" + encodeURIComponent(OWNER_COLOR);
 const TEXT_FLOOR = 4.5;
 const GRAPHICS_FLOOR = 3;
 
+/**
+ * X-W1 · R33 / NG-2 — THE CERTIFIED-INK FLOOR, derived from its SUBJECT.
+ *
+ * NG-2's second clause: *no gate floor disagrees with its subject's declared
+ * law.* A row whose ink is produced by the guard (`useSafeAccentFn().safeCss`
+ * → `certifyAccentInk`) is not a bare WCAG row: the certifier does not walk to
+ * `TEXT_CONTRAST_FLOOR`, it walks to `TEXT_CONTRAST_FLOOR + CERTIFY_HEADROOM`
+ * (`demo/color-session/ink.ts:15,17,137` — 4.5 + 1.25 = **5.75**, the number
+ * `useContrastSafeColor.ts:168` calls *"the 5.75 walked target"*). Asserting
+ * 4.5 against a 5.75 walker measures the wrong thing EVEN WHEN GREEN: it
+ * passes a value the module itself would have rejected, which is exactly the
+ * blindness CNL-17 books.
+ *
+ * The number is NOT re-declared by hand here. `test/contrast-floor.test.ts`
+ * (the R33 unit oracle) imports the three constants from the module and fails
+ * if this literal and `TEXT_CONTRAST_FLOOR + CERTIFY_HEADROOM` ever part, so
+ * the gate cannot silently drift from its subject a second time. A spec body
+ * cannot import the module directly — `ink.ts` pulls `@mkbabb/value.js/color`,
+ * which would re-couple the browser suite to a built `dist/`.
+ *
+ * This floor binds ONLY guard-produced ink. Rows measuring plain product text,
+ * or `contrastInkFor` output (WCAG-MAXIMAL by construction, a different law),
+ * keep `TEXT_FLOOR`; raising them would be the G-4 idiom in reverse.
+ */
+const CERTIFIED_INK_FLOOR = 5.75;
+
 interface CensusRow {
     name: string;
     ink: string;
@@ -114,11 +140,15 @@ async function censusElement(
                     ctx.fillRect(0, 0, 1, 1);
                     return ctx.getImageData(0, 0, 1, 1).data;
                 };
-                const onBlack = draw("#000");
-                const onWhite = draw("#fff");
-                const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+                // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+                // `noUncheckedIndexedAccess`; destructuring names the four channels once
+                // instead of re-indexing five times.
+                const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+                const [whiteR = 0] = draw("#fff");
+                const a = 1 - (whiteR - blackR) / 255;
                 if (a <= 0) return [0, 0, 0, 0];
-                return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                return [blackR / a, blackG / a, blackB / a, a];
             };
 
             /** The page ground: the PUBLISHED ambient referent — the boot
@@ -195,8 +225,7 @@ async function censusElement(
             };
             const li = lum(ink);
             const lg = lum(ground);
-            const ratio =
-                (Math.max(li, lg) + 0.05) / (Math.min(li, lg) + 0.05);
+            const ratio = (Math.max(li, lg) + 0.05) / (Math.min(li, lg) + 0.05);
 
             return {
                 name,
@@ -240,11 +269,15 @@ async function censusSurface(
                     ctx.fillRect(0, 0, 1, 1);
                     return ctx.getImageData(0, 0, 1, 1).data;
                 };
-                const onBlack = draw("#000");
-                const onWhite = draw("#fff");
-                const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+                // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+                // `noUncheckedIndexedAccess`; destructuring names the four channels once
+                // instead of re-indexing five times.
+                const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+                const [whiteR = 0] = draw("#fff");
+                const a = 1 - (whiteR - blackR) / 255;
                 if (a <= 0) return [0, 0, 0, 0];
-                return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                return [blackR / a, blackG / a, blackB / a, a];
             };
 
             const rootStyle = getComputedStyle(document.documentElement);
@@ -312,8 +345,7 @@ async function censusSurface(
             };
             const lf = lum(fill);
             const lg = lum(ground);
-            const ratio =
-                (Math.max(lf, lg) + 0.05) / (Math.min(lf, lg) + 0.05);
+            const ratio = (Math.max(lf, lg) + 0.05) / (Math.min(lf, lg) + 0.05);
 
             return {
                 name,
@@ -394,9 +426,7 @@ const IDENTITY_C_FLOOR = 0.35;
 /** Boot to the owner color and wait for the ink writers (boot contract). */
 async function bootAtOwnerColor(page: Page) {
     await page.goto(OWNER_URL);
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
     for (const token of ["--accent-live", "--ink-muted", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -418,9 +448,7 @@ async function bootAtOwnerColor(page: Page) {
  *  "lavendi") and wait for the view-accent writer to stamp `--accent-view`. */
 async function bootAtDefaultSeed(page: Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
     for (const token of ["--accent-view", "--accent-live", "--ink-ambient-l"]) {
         await expect
             .poll(
@@ -464,9 +492,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const cv = document.createElement("canvas");
                 cv.width = cv.height = 1;
                 const ctx = cv.getContext("2d")!;
-                const resolve = (
-                    css: string,
-                ): [number, number, number, number] => {
+                const resolve = (css: string): [number, number, number, number] => {
                     const draw = (ground: string) => {
                         ctx.fillStyle = ground;
                         ctx.fillRect(0, 0, 1, 1);
@@ -475,11 +501,15 @@ for (const scheme of ["light", "dark"] as const) {
                         ctx.fillRect(0, 0, 1, 1);
                         return ctx.getImageData(0, 0, 1, 1).data;
                     };
-                    const onBlack = draw("#000");
-                    const onWhite = draw("#fff");
-                    const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                    // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+                    // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+                    // `noUncheckedIndexedAccess`; destructuring names the four channels once
+                    // instead of re-indexing five times.
+                    const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+                    const [whiteR = 0] = draw("#fff");
+                    const a = 1 - (whiteR - blackR) / 255;
                     if (a <= 0) return [0, 0, 0, 0];
-                    return [onBlack[0] / a, onBlack[1] / a, onBlack[2] / a, a];
+                    return [blackR / a, blackG / a, blackB / a, a];
                 };
                 const rootStyle = getComputedStyle(document.documentElement);
                 const accent = resolve(
@@ -511,9 +541,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const lum = ([r, g, b]: [number, number, number]) => {
                     const lin = (v: number) => {
                         const s = v / 255;
-                        return s <= 0.04045
-                            ? s / 12.92
-                            : ((s + 0.055) / 1.055) ** 2.4;
+                        return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
                     };
                     return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
                 };
@@ -534,17 +562,22 @@ for (const scheme of ["light", "dark"] as const) {
             const icon = page.locator(".view-select-trigger svg").first();
             if (await icon.count()) {
                 await expect(icon).toBeVisible();
-                const [iconRgb, tokenRgb] = await page.evaluate(() => {
+                // X-W1 · G-1 — the probe returns NAMED triples rather than a
+                // pair of loose arrays: `Uint8ClampedArray` indexing is
+                // `number | undefined` under `noUncheckedIndexedAccess`, and
+                // the old `for (let i = 0; i < 3; i++)` read both sides through
+                // that hole on every channel.
+                const { icon: iconRgb, token: tokenRgb } = await page.evaluate(() => {
                     const cv = document.createElement("canvas");
                     cv.width = cv.height = 1;
                     const ctx = cv.getContext("2d")!;
-                    const rgb = (css: string) => {
+                    const rgb = (css: string): [number, number, number] => {
                         ctx.fillStyle = "#000";
                         ctx.fillRect(0, 0, 1, 1);
                         ctx.fillStyle = css;
                         ctx.fillRect(0, 0, 1, 1);
-                        const d = ctx.getImageData(0, 0, 1, 1).data;
-                        return [d[0], d[1], d[2]];
+                        const [r = 0, g = 0, b = 0] = ctx.getImageData(0, 0, 1, 1).data;
+                        return [r, g, b];
                     };
                     const el = document.querySelector<HTMLElement>(
                         ".view-select-trigger svg",
@@ -552,12 +585,22 @@ for (const scheme of ["light", "dark"] as const) {
                     const token = getComputedStyle(document.documentElement)
                         .getPropertyValue("--accent-view")
                         .trim();
-                    return [rgb(getComputedStyle(el).color), rgb(token)];
+                    return {
+                        icon: rgb(getComputedStyle(el).color),
+                        token: rgb(token),
+                    };
                 });
-                for (let i = 0; i < 3; i++) {
+                // LITERAL indices on the returned triples — exact under
+                // `noUncheckedIndexedAccess`, so no assertion is needed here.
+                const channels: Array<[string, number, number]> = [
+                    ["r", iconRgb[0], tokenRgb[0]],
+                    ["g", iconRgb[1], tokenRgb[1]],
+                    ["b", iconRgb[2], tokenRgb[2]],
+                ];
+                for (const [channel, iconV, tokenV] of channels) {
                     expect(
-                        Math.abs(iconRgb[i] - tokenRgb[i]),
-                        `dock icon wears the CERTIFIED --accent-view (icon ${iconRgb} vs token ${tokenRgb})`,
+                        Math.abs(iconV - tokenV),
+                        `dock icon wears the CERTIFIED --accent-view, channel ${channel} (icon ${iconRgb} vs token ${tokenRgb})`,
                     ).toBeLessThanOrEqual(2);
                 }
             }
@@ -640,60 +683,31 @@ for (const scheme of ["light", "dark"] as const) {
             await expect(pill).toBeVisible();
             const pillRow = await settle(".slug-pill", "slug-pill");
             expect(pillRow, "slug pill mounted").not.toBeNull();
-            expect(pillRow!.ratio, diag(pillRow!)).toBeGreaterThanOrEqual(
-                TEXT_FLOOR,
-            );
+            expect(pillRow!.ratio, diag(pillRow!)).toBeGreaterThanOrEqual(TEXT_FLOOR);
         });
 
-        test("plate captions — the certified de-emphasis rung `--ink-muted` (F-4/F-10)", async ({
-            page,
-        }) => {
-            await bootAtOwnerColor(page);
-
-            // The spectrum-plate caption (the t-2001-51 owner-shot instance).
-            const caption = page.locator(".plate-caption").first();
-            await expect(caption).toBeVisible();
-            const row = await censusElement(
-                page,
-                ".plate-caption",
-                "spectrum-plate-caption",
-            );
-            expect(row).not.toBeNull();
-            expect(
-                row!.ratio,
-                `caption ink ${row!.ink} vs plate ground ${row!.ground}`,
-            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
-
-            // Membership by identity (the O-7 discipline): every ink-muted
-            // consumer computes to the SAME resolved token, so one measured
-            // instance certifies the class; the parse-echo verdict joins when
-            // mounted.
-            const identity = await page.evaluate(() => {
-                const token = getComputedStyle(document.documentElement)
-                    .getPropertyValue("--ink-muted")
-                    .trim();
-                const probe = document.createElement("div");
-                probe.style.color = token;
-                document.body.appendChild(probe);
-                const resolvedToken = getComputedStyle(probe).color;
-                probe.remove();
-                const caption = document.querySelector(".plate-caption");
-                const echo = document.querySelector(".gamut-verdict");
-                return {
-                    token: resolvedToken,
-                    caption: caption ? getComputedStyle(caption).color : null,
-                    echo: echo ? getComputedStyle(echo).color : null,
-                };
-            });
-            expect(identity.caption, "caption wears --ink-muted").toBe(
-                identity.token,
-            );
-            if (identity.echo !== null) {
-                expect(identity.echo, "parse echo wears --ink-muted").toBe(
-                    identity.token,
-                );
-            }
-        });
+        /* ── X-W1 · R2 (M-21) — DELETED: "plate captions — the certified
+         * de-emphasis rung `--ink-muted` (F-4/F-10)".
+         *
+         * The test bound `.plate-caption`, a class DELETED at `a68ecdc1`.
+         * Measured 2026-09-18, statically (`grep -rn 'plate-caption' demo/` → 4
+         * PROSE comments, zero markup, zero CSS) and at the running app
+         * (`document.querySelectorAll(".plate-caption").length` → 0, and the
+         * companion `.gamut-verdict` → 0 at the picker boot). Four live rows in
+         * an UN-SKIPPED `test(...)` asserted against it, and
+         * `playwright.config.ts`'s `testIgnore` does not carve `oracles/`, so
+         * the smoke project ran them: *"a structurally-red gate in the lane is
+         * either failing silently or the lane is not running."*
+         *
+         * No successor instance is reachable at the picker boot, so there is
+         * nothing to re-point at and R2's second arm applies: DELETED with this
+         * rationale, never `test.skip()` (G-6's named failure mode).
+         *
+         * The SUBJECT is not lost. The certified `--ink-muted` rung is still
+         * measured by the W4 row below — "readout fracs/units/commas wear the
+         * certified de-emphasis rung ≥4.5:1" — which binds a LIVE element and
+         * is RED today for a product reason, not for a dead binding.
+         */
 
         test("graph nodes — the F-3 fill/ink chain (hover commits fill + derived ink together)", async ({
             page,
@@ -730,6 +744,13 @@ for (const scheme of ["light", "dark"] as const) {
                 .toBeGreaterThanOrEqual(TEXT_FLOOR);
 
             // The component-name letters (the split's TEXT role, resting rung).
+            //
+            // ── X-W1 · R33 / NG-2 ───────────────────────────────────────────
+            // THIS ink is guard-produced: `ColorNutritionLabel.vue:198-199`
+            // computes it as `useSafeAccentFn("resting").safeCss(...)`, and
+            // that walker's target is 5.75, not 4.5 (see CERTIFIED_INK_FLOOR).
+            // The row asserted 4.5 — one notch below its own subject's law, so
+            // it would have certified green an ink the module rejects.
             const nameRow = await censusElement(
                 page,
                 '[data-o18="component-name"]',
@@ -738,8 +759,8 @@ for (const scheme of ["light", "dark"] as const) {
             expect(nameRow).not.toBeNull();
             expect(
                 nameRow!.ratio,
-                `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}]`,
-            ).toBeGreaterThanOrEqual(TEXT_FLOOR);
+                `component-name ink ${nameRow!.ink} vs ${nameRow!.ground} — raw ${nameRow!.rawColor} α ${nameRow!.effectiveAlpha} stack [${nameRow!.stack.join(" | ")}] — floor is the guard's WALKED target ${CERTIFIED_INK_FLOOR}, not the bare WCAG 4.5`,
+            ).toBeGreaterThanOrEqual(CERTIFIED_INK_FLOOR);
         });
 
         test("markdown About body — prose + code ink on the rung-1 plate (h-gaps G-2)", async ({
@@ -787,9 +808,7 @@ for (const scheme of ["light", "dark"] as const) {
                 const ctx = cv.getContext("2d")!;
                 /** Dual-ground resolve: color + alpha (the rung recipe is a
                  *  translucent tint — its alpha matters here). */
-                const resolve = (
-                    css: string,
-                ): [number, number, number, number] => {
+                const resolve = (css: string): [number, number, number, number] => {
                     const draw = (ground: string) => {
                         ctx.fillStyle = ground;
                         ctx.fillRect(0, 0, 1, 1);
@@ -798,16 +817,15 @@ for (const scheme of ["light", "dark"] as const) {
                         ctx.fillRect(0, 0, 1, 1);
                         return ctx.getImageData(0, 0, 1, 1).data;
                     };
-                    const onBlack = draw("#000");
-                    const onWhite = draw("#fff");
-                    const a = 1 - (onWhite[0] - onBlack[0]) / 255;
+                    // X-W1 · G-1 — a 1×1 `getImageData().data` is four bytes by spec, but
+                    // `Uint8ClampedArray` indexing is `number | undefined` under the repo's
+                    // `noUncheckedIndexedAccess`; destructuring names the four channels once
+                    // instead of re-indexing five times.
+                    const [blackR = 0, blackG = 0, blackB = 0] = draw("#000");
+                    const [whiteR = 0] = draw("#fff");
+                    const a = 1 - (whiteR - blackR) / 255;
                     if (a <= 0) return [0, 0, 0, 0];
-                    return [
-                        onBlack[0] / a,
-                        onBlack[1] / a,
-                        onBlack[2] / a,
-                        a,
-                    ];
+                    return [blackR / a, blackG / a, blackB / a, a];
                 };
                 const rootStyle = getComputedStyle(document.documentElement);
                 const accent = resolve(
@@ -844,13 +862,9 @@ for (const scheme of ["light", "dark"] as const) {
                 const lum = ([r, g, b]: [number, number, number]) => {
                     const lin = (v: number) => {
                         const s = v / 255;
-                        return s <= 0.04045
-                            ? s / 12.92
-                            : ((s + 0.055) / 1.055) ** 2.4;
+                        return s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
                     };
-                    return (
-                        0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b)
-                    );
+                    return 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
                 };
                 const la = lum([accent[0], accent[1], accent[2]]);
                 const lg = lum(ground);
@@ -1028,9 +1042,7 @@ for (const scheme of ["light", "dark"] as const) {
             expect(
                 triggerInk.C,
                 `trigger ink chroma ≥ ${IDENTITY_C_FLOOR}×α× pick (ink ${row!.ink} α ${row!.effectiveAlpha})`,
-            ).toBeGreaterThanOrEqual(
-                IDENTITY_C_FLOOR * pick.C * row!.effectiveAlpha,
-            );
+            ).toBeGreaterThanOrEqual(IDENTITY_C_FLOOR * pick.C * row!.effectiveAlpha);
         });
 
         test("the letterform gate — dropdown options compute weight 400; the specimen caption wears the certified rung (T-40a / row 8)", async ({
@@ -1134,9 +1146,7 @@ for (const scheme of ["light", "dark"] as const) {
                 "extract-k-rail",
             );
             expect(kRail, "K rail mounted").not.toBeNull();
-            expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(
-                GRAPHICS_FLOOR,
-            );
+            expect(kRail!.ratio, diag(kRail!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
 }
@@ -1166,9 +1176,7 @@ for (const scheme of ["light", "dark"] as const) {
                 page.getByRole("main", { name: "Color tool panes" }),
             ).toBeVisible();
             await expect(
-                page
-                    .locator(".config-console .configurator-row .slider-track")
-                    .first(),
+                page.locator(".config-console .configurator-row .slider-track").first(),
             ).toBeVisible();
             // The track material is the certified de-emphasis rung — wait for
             // the ink writer to stamp `--ink-muted` (the census certifies the
@@ -1206,9 +1214,7 @@ for (const scheme of ["light", "dark"] as const) {
                 "config-slider-track",
             );
             expect(track, "config slider track mounted").not.toBeNull();
-            expect(track!.ratio, diag(track!)).toBeGreaterThanOrEqual(
-                GRAPHICS_FLOOR,
-            );
+            expect(track!.ratio, diag(track!)).toBeGreaterThanOrEqual(GRAPHICS_FLOOR);
         });
     });
 }

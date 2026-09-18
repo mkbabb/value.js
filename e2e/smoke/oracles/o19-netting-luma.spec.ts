@@ -47,9 +47,14 @@ async function openGradient(page: Page) {
     await page.goto("/");
     await openView(page, "Gradient");
     const main = page.getByRole("main", { name: "Color tool panes" });
-    const plate = main
-        .getByRole("img", { name: /Perceived-space plate/ })
-        .last();
+    // X-W1 · R2 (minted at this seat): this bound
+    // `getByRole("img", { name: /Perceived-space plate/ })`, an accessible name
+    // that appears in NO product byte — the tile's live name is "Gradient
+    // render with type and direction applied" and it carries the stable test id
+    // `gradient-render-tile` (`GradientVisualizer.vue:220-225`). Bound by the
+    // test id per fold R25 (*"bind by a stable test id, not role-and-hope"*), so
+    // a future re-wording of the label cannot silently kill the census again.
+    const plate = main.getByTestId("gradient-render-tile").last();
     await expect(plate).toBeVisible();
     // Pixel probes judge a surface at rest — the cold-load stall-then-resume
     // enter transition otherwise screenshots the plate mid-flight (see
@@ -74,11 +79,7 @@ for (const viewport of [
             const plate = await openGradient(page);
 
             await page.evaluate(
-                (s) =>
-                    document.documentElement.classList.toggle(
-                        "dark",
-                        s === "dark",
-                    ),
+                (s) => document.documentElement.classList.toggle("dark", s === "dark"),
                 scheme,
             );
             await plate.scrollIntoViewIfNeeded();

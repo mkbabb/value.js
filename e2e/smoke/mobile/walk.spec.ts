@@ -44,18 +44,30 @@ import { openView } from "../fixtures/dock";
  *
  * The view-select reroute is proven by the segmented control's own
  * re-labelling + `aria-pressed` state, which is route-derived and
- * synchronous; the pane-content swap it triggers runs a `Transition
- * mode="out-in"` and is already covered by the in-view toggle steps.
+ * synchronous; the pane-content swap it triggers is already covered by the
+ * in-view toggle steps.
+ *
+ * ── X-W1 · R2 (PS-7) ────────────────────────────────────────────────────────
+ * This file asserted three times that the pane swap runs a `Transition
+ * mode="out-in"`. MEASURED 2026-09-18: `demo/shell/PaneSlot.vue:13-23` runs
+ * the DEFAULT (simultaneous) mode and says so in a standing comment — out-in
+ * was REMOVED at the R.W3 close because Vue 3.5's out-in handoff stranded the
+ * slot on a comment placeholder under vite dev. The two panes cross-fade
+ * SIMULTANEOUSLY here. The prose is corrected rather than deleted: it is the
+ * reason the timeout below exists, and a timeout resting on a false mechanism
+ * is a timeout nobody can re-derive.
  */
 
 test.use({ ...devices["Pixel 7"] });
 
-// Per-test timeout: this is a 6-step interaction walk — each pane swap runs
-// a `Transition mode="out-in"` (out-then-in) plus the dock view-select's
-// reka-ui open animation. The sequential animated transitions push the
-// wall-clock past the 30s playwright.config.ts default; 60s gives the walk
-// headroom without masking a genuine hang (same posture as
-// `e2e/smoke/safari/sustained-30s.spec.ts`).
+// Per-test timeout: this is a 6-step interaction walk — each step pays a pane
+// cross-fade (`PaneSlot.vue`'s default-mode Transition, both panes animating
+// at once) plus the dock view-select's reka-ui open animation, SEQUENTIALLY.
+// That is what pushes the wall-clock past the 30s playwright.config.ts
+// default; 60s gives the walk headroom without masking a genuine hang (same
+// posture as `e2e/smoke/safari/sustained-30s.spec.ts`). X-W1 · R2 (PS-7): the
+// retired wording attributed the cost to an out-then-in sequence the slot has
+// not run since the R.W3 close — same number, now a re-derivable reason.
 test.setTimeout(60_000);
 
 test("mobile walk: segmented control toggles panes + view-select re-routes", async ({
@@ -99,9 +111,7 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     await expect(
         main.getByRole("combobox", { name: "Select color space" }).first(),
     ).toBeVisible();
-    await expect(
-        main.getByRole("heading", { name: "Detailed Guide" }),
-    ).toHaveCount(0);
+    await expect(main.getByRole("heading", { name: "Detailed Guide" })).toHaveCount(0);
 
     // ── Step 3: toggle the segmented control → the right (About) pane ────
     await aboutTab.click();
@@ -109,9 +119,7 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     await expect(pickerTab).toHaveAttribute("aria-pressed", "false");
     // The mobile slot swapped to the About pane — its "Detailed Guide"
     // heading is now on screen.
-    await expect(
-        main.getByRole("heading", { name: "Detailed Guide" }),
-    ).toBeVisible();
+    await expect(main.getByRole("heading", { name: "Detailed Guide" })).toBeVisible();
 
     // ── Step 4: toggle back → the left (Picker) pane returns ────────────
     await pickerTab.click();
@@ -121,9 +129,7 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     await expect(
         main.getByRole("combobox", { name: "Select color space" }).first(),
     ).toBeVisible();
-    await expect(
-        main.getByRole("heading", { name: "Detailed Guide" }),
-    ).toBeHidden();
+    await expect(main.getByRole("heading", { name: "Detailed Guide" })).toBeHidden();
 
     // ── Step 5: re-route via the dock view-select → control re-labels ───
     // Switching to "Mix" (right === "mix") re-labels the segmented control
@@ -133,10 +139,9 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     // The segmented control's labels + `aria-pressed` are driven by
     // `currentConfig`/`mobilePaneIndex` (route-derived, synchronous), so
     // they re-render deterministically the moment the route resolves — the
-    // reliable signal for the reroute. The pane *content* swap behind it
-    // runs a `Transition mode="out-in"` and is verified separately by the
-    // toggle steps above; here we assert the control, the dock's own
-    // surface, which is what this lane targets.
+    // reliable signal for the reroute. The pane *content* swap behind it is
+    // verified separately by the toggle steps above; here we assert the
+    // control, the dock's own surface, which is what this lane targets.
     await openView(page, "Mix");
 
     // `nav`-scoped — the Mix pane carries its own "Mix" content button.
@@ -145,9 +150,9 @@ test("mobile walk: segmented control toggles panes + view-select re-routes", asy
     // `mix` defaults to pane-index 1 — the Mix tab is the active option.
     await expect(mixTab).toHaveAttribute("aria-pressed", "true");
     // The stale "About" option is gone from the re-labelled control.
-    await expect(
-        nav.getByRole("button", { name: "About", exact: true }),
-    ).toHaveCount(0);
+    await expect(nav.getByRole("button", { name: "About", exact: true })).toHaveCount(
+        0,
+    );
 
     // ── Step 6: toggle the re-labelled control → its state flips ───────
     const pickerTabMix = nav.getByRole("button", { name: "Picker", exact: true });
