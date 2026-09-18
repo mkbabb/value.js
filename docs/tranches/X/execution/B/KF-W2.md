@@ -1587,3 +1587,264 @@ does NOT close at this check.**
 **CHECK-1 VERDICT: NOT-CONFORMANT** — 1 HIGH (G-W2-1 site limb RED, in-bounds cure) · 3 MINOR
 (E13 instrument · a false `serializeTimingFunction` receipt · the declared family split, mitigated) ·
 2 INFO. **Honest-RED set, each relieved and owner-named: G-W2-2 · G-W2-8's count arm.**
+
+---
+
+## Repair 1 — CHECK 1's register, cured (repair round 1, 2026-09-17, THE REPAIR SEAT)
+
+**SERVED MODEL: claude-opus-5[1m]** · **This seat cured; it did not re-judge.** Every reading below was
+taken at the settled bytes by this seat's own commands and **double-run with identical output**.
+Nothing is inherited from Check 1, from `.d`'s close or from the close seat: where a figure agrees
+with a prior seat's it agrees because it was **re-measured**. **No prior seat's bytes were edited** —
+E-3 holds and every correction below is a **dated correction-beside**, written here rather than into
+the sentence it corrects.
+
+**Substrate at this round's OPEN**: keyframes.js **`e325018fb257540d6103950c3ab3c6195f51c5e2`** ≡
+`origin/master` — Check 1's substrate, unmoved — value.js `ec96a825`, `@mkbabb/value.js` **4.0.0**
+installed (**NO REPIN**; OP-5 holds). **Substrate at this round's CLOSE**: keyframes.js
+**`ae83da0764a77ebe176d6314b179cfa5b3dd287b`** ≡ `origin/master`, **pushed** under COHESION §0j.C
+**KF-WRITE** ⟨`git push origin HEAD` → `e325018f..ae83da07`⟩ ⟨`git rev-parse HEAD origin/master` →
+identical shas⟩ ⟨`git rev-list --count origin/master..HEAD` → **0**⟩. kf worktree carries the two
+untracked KF.W1 mail packets and nothing else ⟨`git status --porcelain` → 2 `??` lines, 0 `M`⟩.
+
+### DISPOSITION OF CHECK 1's REGISTER
+
+| # | severity | disposition at this round |
+|---|---|---|
+| **D-1** | **HIGH** | **CURED AT THE SITE** — one product commit, `ae83da07`, in bounds. The site limb now reads **0** at `src/animation/svg/draw-svg.ts` under three independent instruments. |
+| **D-2** | MINOR | **CURED as a correction-beside** — the word *measurement* is retracted; the E13 OUTCOME stands **by routing**, and the corrected instrument is published and double-run below. |
+| **D-3** | MINOR | **CURED as a correction-beside** — the `serializeTimingFunction` sentence is struck; G-W2-8's façade-side clause is re-grounded on `serializeDeclaration`, re-measured here. |
+| **D-4** | MINOR-with-mitigation | **NOT RE-OPENED.** Already cured in-wave at `6e371fd4`, both commits pushed; Check 1 recorded it so the family rule is not read as unbroken, and that record stands. |
+| **D-5** | INFO | **CURED as a correction-beside** — the integer is **499**, not 500; no act was owed and none was taken beyond the correction. |
+| **D-6** | INFO | **UNCHANGED, still owner-named.** The spec's 19-vs-20 floor inconsistency is a **spec** byte and the spec is E-3-frozen; Check 1's own §WHAT THIS CHECK ASKS FOR does not ask for it. **0 spec bytes moved this round** ⟨`git diff --stat f536b907..HEAD -- docs/tranches/X/keyframes/waves/ docs/tranches/V/megatranche/registry/adjudicated/ docs/tranches/X/keyframes/conformance/ docs/tranches/V/apotheosis/parser-proof/GATE-VERDICT.md` → **(empty)**⟩. Owner remains the next KF-W2 repair round / check, to reconcile **in the gate's own voice** by a dated addendum-beside. |
+
+---
+
+### D-1 (HIGH) — the G-W2-1 SITE LIMB: defect → cure → commit → gate re-reading
+
+**THE DEFECT, RE-MEASURED BEFORE ANY CURE BYTE** (at `e325018f`, this seat's own commands, twice):
+
+```
+$ git grep -cE '\.ok\b' HEAD -- src/ | wc -l          → 0    ← THE CONVICTED INSTRUMENT: it returns
+                                                               zero for EVERY possible tree, so the
+                                                               GREEN it published was inertness
+$ git grep -nP '\.ok\b' HEAD -- src/ | grep -v parse-facade | wc -l   → 14
+$ git grep -nP '\.ok\b' HEAD -- src/animation/svg/draw-svg.ts
+    → :109    percent.ok && percent.value.kind === "scalar"
+$ git grep -cP '\.ok\b' 7d958f21 -- src/animation/svg/draw-svg.ts     → (no hits; exit 1)
+```
+
+**The fourteenth was this wave's own.** Thirteen are out of the limb's subject and pre-existing —
+`easing/registry.ts` ×5 (value.js `/easing` construction Results) · `emit/backward/color.ts` ×3 +
+`emit/entry.ts` ×1 (`/color` conversion Results) · `emit/css-text.ts:55` + `frame/interp-slot.ts` ×2
+(the **emit half**, out of denominator by G-W2-2's own words) · `resolve/function.ts:35` (the
+**declared stray** `coerceToSyntax`, `.c`'s C-4). The fourteenth, `draw-svg.ts:109`, was a branch on a
+**`/css` grammar entry's parse Result** handled inline **outside the façade**, written by this wave at
+`.c`'s `0ecaadb3` — and it contradicted the contract the wave itself published in the same unit
+(`parse-facade.ts`: *"A call site declares WHICH posture it takes; no site writes `result.ok`"*), while
+the sibling Tier-C cure at `engine/composition.ts:202` (`a461c78c`) routed through `swallowParsed`
+correctly.
+
+**THE CURE — the branch is given back to the façade, the domain test kept at the site.** The read now
+runs inside **`swallowParsed`**, the declared SWALLOW posture, exactly as Check 1 prescribes and
+exactly as the sibling cure takes it:
+
+```ts
+const fraction = swallowParsed(
+    () => parseCssScalar(v.trim()),
+    ({ payload }): number | undefined =>
+        payload.type === "number" && payload.unit === "%" && payload.value >= 0
+            ? payload.value / 100
+            : undefined,
+    undefined,
+);
+if (fraction === undefined) { throw new Error(`fromDrawSVG(): invalid draw position …`); }
+return fraction;
+```
+
+Three things about this cure, each stated so a later seat does not have to re-derive it:
+
+1. **The domain test stays at the site, because it is the site's.** `unit === "%"` and non-negativity
+   are `fromDrawSVG`'s domain, not CSS's — `-5%` parses fine and is not a draw position. **Only the
+   branch on `ok` moved.** No new symbol was minted; `swallowParsed` is the façade's own export.
+2. **The `kind === "scalar"` limb is gone because the TYPE already says it** ⟨`grep -n
+   'parseCssScalar' node_modules/@mkbabb/value.js/dist/subpaths/css.d.ts` → `:225  export declare
+   function parseCssScalar(source: string): ParseResult<CssScalar>`, and `CssScalar` is
+   `Readonly<{ kind: "scalar"; payload: … }>`⟩. The deleted limb was a tautology, not a guard.
+3. **This is NOT a masking fallback, and the difference is measured, not asserted.** The posture's
+   `undefined` is converted into the function's **own thrown domain error on the very next line** —
+   nothing is swallowed to a caller. What changes is which error a caller sees on the **R1
+   empty-argument class**, the one `parse-facade.ts`'s docblock names. A transcription of the two
+   shapes over the **real** `parseCssScalar` at the installed 4.0.0 (labelled as a transcription: it
+   runs the grammar, not the tree's bytes):
+
+   ```
+   shape           "50%" " 50% " ".5%" "50.5%" "500%" "+5%" "1e2%" "50" "50px" "abc" "" "%" "-5%"  |  "calc()"   "oklch()"
+   BEFORE          0.5   0.5     0.005 0.505   5      0.05  1      DOMAIN-ERROR × 6                 |  RAW TypeError ×2
+   AFTER           0.5   0.5     0.005 0.505   5      0.05  1      DOMAIN-ERROR × 6                 |  DOMAIN-ERROR ×2
+                   └──────────────── 13 of 15 shapes IDENTICAL ────────────────┘                    └── 2 DIFFER ──┘
+   ```
+   ⟨`parseCssScalar("calc()")` and `parseCssScalar("oklch()")` **THROW a `TypeError`** at 4.0.0 —
+   verified directly⟩. Before the cure that raw `TypeError` escaped `fromDrawSVG`; after it, the
+   caller gets `fromDrawSVG(): invalid draw position "calc()" — pass a percent string …`. **An error
+   is still thrown on every bad input; the surface got narrower and the message got true.**
+
+**THE COMMIT** — pathspec-exact, one file, one meaning:
+
+```
+$ git show --stat ae83da07
+    fix(kf/w2.repair1): the last parse-failure branch outside the façade is routed
+    through the posture that owns it (G-W2-1 site limb, CHECK 1 D-1)
+    src/animation/svg/draw-svg.ts | 34 +++++++++++++++-------------   1 file changed, 21 ins, 13 del
+```
+**Bounds**: `src/animation/svg/draw-svg.ts` is §Bounds Owned-files `modify` **and** inside `.c`'s own
+declared writable set — the cure needed no widening and took none. `scripts/dev/dev.sh` untouched, in
+this commit and in every commit of this wave.
+
+**THE GATE RE-READING — the limb, under THREE instruments, at `ae83da07`, each double-run:**
+
+| instrument | at `e325018f` | at `ae83da07` | draw-svg's share |
+|---|---|---|---|
+| `git grep -nP '\.ok\b' HEAD -- src/ \| grep -v parse-facade \| wc -l` | **14** | **13** | 1 → **0** |
+| `grep -rnE '\.ok[^a-zA-Z0-9_]' src --include='*.ts' \| grep -v parse-facade \| wc -l` (no `\b` at all) | 14 | **13** | 1 → **0** |
+| `git grep -nP '\.ok\b' HEAD -- src/animation/svg/draw-svg.ts` | `:109` | **(no hits, exit 1)** | — |
+| *(the convicted instrument, kept as a CONTROL and never as a reading)* `git grep -cE '\.ok\b' HEAD -- src/ \| wc -l` | 0 | 0 | inert at both refs |
+
+The surviving **13** are, file by file ⟨third instrument, `sed 's/:.*//' \| sort \| uniq -c`⟩:
+`easing/registry.ts` **5** · `emit/backward/color.ts` **3** · `emit/css-text.ts` **1** ·
+`emit/entry.ts` **1** · `frame/interp-slot.ts` **2** · `resolve/function.ts` **1** — **the same
+thirteen Check 1 enumerated as out-of-subject and pre-existing, and not one of them a Tier-A parse
+site.** **G-W2-1's SITE LIMB IS GREEN**, and it is green under an instrument that can fail.
+
+**THE INSTRUMENT CORRECTION, RECORDED BESIDE THE GATE** (Check 1's own ask): **`git grep -E` with
+`\b` is banned at this gate.** POSIX ERE defines no `\b`; the `-E` engine matches nothing and the
+command returns 0 for every tree. The limb's readings of record are **`git grep -P`** and the
+`\b`-free `grep -rnE '\.ok[^a-zA-Z0-9_]'` control, and a reading is published only when **both**
+agree. This is the same fault the spec convicts at G-W2-2 fault 1 (`KF-W2.md:666`) — it reappeared
+inside the gate written to catch it, and the cure is structural: **the instrument carries no `\b`, so
+there is nothing left to be inert about.**
+
+---
+
+### D-2 (MINOR) — E13: the OUTCOME stands, the word *measurement* is RETRACTED
+
+**RETRACTED**: `.d`'s D-0 sentence *"E13's close condition … is MET at this wave's close, **by
+measurement** rather than by routing"*, and the close seat's ACT 4 sentence *"The bare string `UNREAD`
+appears on 32 lines of `INBOX.md` and **not one of them is a status cell**"*. **Three of them are
+status cells.** Both instruments were blind in the same way: `grep -cE '\| *UNREAD *\|'` and an
+`awk` column scan anchored on `$i ~ /^\*{0,2}UNREAD\*{0,2}$/` are **exact** matches, while every row
+in this file writes its status cell as `**UNREAD <date>** — <note>`.
+
+**THE CORRECTED INSTRUMENT — match the cell's PREFIX, not its whole text** (double-run, identical):
+
+```
+$ awk -F'|' '/^\|/{for(i=2;i<=NF;i++){gsub(/^ +| +$/,"",$i); if($i ~ /^\*{0,2}UNREAD/) print NR" col"i}}' \
+      docs/tranches/V/coordination/INBOX.md
+  → 105 col6
+    106 col6
+    107 col6          [run twice, identical]
+$ grep -c UNREAD docs/tranches/V/coordination/INBOX.md   → 33 at this seat's clock (32 at Check 1's;
+    INBOX.md is dirty in the worktree and edited concurrently by a sibling track — the drift is in the
+    prose lines, the three STATUS CELLS are the same three)
+```
+
+**THE OUTCOME IS UNMOVED, AND ITS GROUND IS ROUTING** — read at the cells themselves, this round:
+`:105` col 7 → *"the **X formation mail seat / X-W0.j** … **No X·P wave, no X·P act, opens on this
+row**"* · `:106` col 7 → *"the X formation mail seat … Glass is **READ-ONLY always**"* · `:107` col 7 →
+*"**X-W0.j / X-EXT-1**, beside I-32. **Not X·P's, not a value.js act today**"*. I-32 · I-33 · I-34 are
+**glass-producer rows routed to the X formation mail seat**, not mail addressed to KF.W2's scope, and
+glass is READ-ONLY always. **E13's close condition — *no wave closes with UNREAD mail addressed to its
+scope* — is MET BY ROUTING**, exactly as this record's Open section and `.a`/`.b`/`.c` each state, and
+**not** by a count of zero.
+
+**THE FOUR-PATH SWEEP, RE-RUN AT THIS SEAT'S CLOCK** (runbook §5.3; a repair round is a wave act):
+`docs/tranches/V/` + `…/coordination/` · `../glass-ui/docs/tranches/BK/coordination/` ·
+`../keyframes-v-exec/docs/tranches/V/coordination/` · `../keyframes.js/docs/tranches/V/coordination/`
+(READ-ONLY / NEVER-DELIVER) · `../sci-report/atlas/docs/tranches/P/coordination/` → the three
+2026-09-17 glass letters are the ones already rowed I-32/I-33/I-34; the one 09-17 value.js delivery is
+rowed and `SENT`; **0 unrowed, 0 UNREAD addressed to X·KF**. `INBOX.md` was **not written by this
+seat** — it is another track's dirty file and the three routed rows need no mark from Track B.
+
+---
+
+### D-3 (MINOR) — G-W2-8's façade-side receipt, re-grounded on the symbol that is actually there
+
+**STRUCK**: `.b`'s G-W2-8 AFTER-cell sentence *"`serializeTimingFunction` is imported at
+`parse-facade.ts` only"*. It is imported there **not at all** ⟨`grep -c serializeTimingFunction
+src/animation/compile/parse-facade.ts` → **0**⟩.
+
+**THE CLAUSE STANDS ON `serializeDeclaration`, re-measured at `ae83da07`** ⟨`git grep -n
+'serializeDeclaration\b' -- src/`⟩ → 4 hits inside `emit/css-text.ts` (`:72` definition, `:83`/`:100`/
+`:106` own calls) + **`parse-facade.ts:66` (import) and `:206` (call)** — **exactly one consumer
+outside its own module, and that consumer is the façade.** The declaration seam's emit half has one
+publisher and one external consumer; that is what the gate asserts and that is what reproduces.
+
+---
+
+### D-5 (INFO) — the integer
+
+**CORRECTED**: `.c`'s C-3 published `wc -l` → **500** for `src/animation/ingest/cssom.ts`. The file is
+**499** ⟨`wc -l src/animation/ingest/cssom.ts` → **499**⟩ and was 499 at the cure commit too. The R4
+ceiling is 500, so the gate's verdict is unchanged and **no act was owed**: `npm run proof:structure`
+→ **PASS: scope=src clean (0 violations across R1–R6)** at this seat's own run.
+
+---
+
+### THE GATE TABLE — CHECK 1 → REPAIR 1 (only what a cure could move; everything else re-run to prove it did NOT move)
+
+| gate | at Check 1 (`e325018f`) | at Repair 1 (`ae83da07`) | moved by |
+|---|---|---|---|
+| **G-W2-1** | ENUMERATION GREEN · **SITE LIMB RED** (14 out-of-façade, 1 of them a Tier-A site this wave wrote) | **GREEN — both limbs.** Enumeration: **20** postures over **58** records ⟨re-run twice⟩. Site limb: **13**, all pre-existing, **0** at draw-svg, under three instruments | `ae83da07` |
+| **G-W2-2** | HONEST-RED — 20 runtime specifiers over 5 modules; parse-surface paths **2** | **HONEST-RED, byte-identical**: `parse-facade.ts` ×15 · `engine/css/metadata.ts` ×2 · `emit/css-text.ts` ×1 · `frame/interp-slot.ts` ×1 · `resolve/function.ts` ×1 = **20 over 5** ⟨command (ii) re-run whole over the working tree⟩ | **nothing — the cure adds NO value.js edge**: `draw-svg.ts` imports `../compile/parse-facade`, never `@mkbabb/value.js/css` |
+| **G-W2-2b** (MONITOR) | TRUE | TRUE — untouched (this round opens no demo byte) | — |
+| **G-W2-3** | GREEN, 0-of-6 survives | **GREEN** — and re-checked **at the cured file**: the dead percentage-token regex has no survivor in `draw-svg.ts` on a comment-stripped scan ⟨exit 1⟩ | — |
+| **G-W2-4** · **G-W2-5** · **G-W2-6** · **G-W2-7** | GREEN | **GREEN** — the wave's four test files re-run twice: **99 passed (99)** = 17 + 16 + 57 + 9 | — |
+| **G-W2-8** | façade-side GREEN · count arm RED-and-HOMED | **unchanged** — façade-side re-grounded on `serializeDeclaration` (D-3); the count arm stays **HOMED** at `KF-W8 §Rows · MISS-β2 (unit d · G3)`, KF.W8 still `planned` | — |
+
+**READ PLAINLY: the wave now stands at 7 of 8 gates GREEN · 1 HONEST-RED (G-W2-2) · the MONITOR TRUE ·
+0 undeclared GREEN — and the one GREEN that Check 1 refused is GREEN on an instrument that can fail.**
+
+### TREE HEALTH AT THIS ROUND'S CLOSE (double-run, whole project)
+
+```
+$ npx vitest run --project library        → 1256 passed | 3 expected fail | 14 skipped (1273)   [twice]
+$ npx vitest run --project library <the wave's 4 files>   → 99 passed (99)                      [twice]
+$ npx vitest run --project library test/svg/draw-svg.test.ts  → 13 passed (13)  ← the cured file's own suite
+$ npx tsc --noEmit -p tsconfig.lib.json   → 3  (compositor.ts:79 · waapi.ts:9 · smooth.ts:194 —
+                                              all TS6133, all pre-existing, 0 in draw-svg.ts)
+$ npm run proof:structure                 → PASS: scope=src clean (0 violations across R1–R6)
+$ npx depcruise --config .dependency-cruiser.cjs src demo → 4 violations / 435 modules / 1557 deps
+                                              — IDENTICAL to Check 1: the cure adds no edge
+$ npx prettier --check src/animation/svg/draw-svg.ts → the ONLY delta is the pre-existing
+   `export class DrawSVG<V extends Vars = Vars>` wrap, present at HEAD before this round; the cured
+   block is prettier-conformant as written
+```
+
+### WHAT DOES **NOT** MOVE AT THIS ROUND, AND WHY
+
+- **The LEDGER verb stays `PARTIAL`.** The spec conditions IMPLEMENTED on *"gates green + bytes
+  landed"*, and **G-W2-2 is still RED** — its last parse-surface edge sits on
+  `src/animation/engine/css/metadata.ts`, which §Bounds' Owned-files table does not carry. The close
+  seat's correction was right for two reasons; this round retires **one** of them. **One ground
+  remains, so the verb does not move.** ⟨`git log --oneline 7d958f21..HEAD -- src/animation/engine/css/metadata.ts`
+  → **0 commits** — the escalation is still un-widened, by this seat as by every seat before it.⟩
+- **ESC-KFW2-1 stays open and un-widened**, owner the X·KF formation: a dated **§Bounds
+  addendum-beside** naming `engine/css/metadata.ts`, then one import repoint of 2 collectors + their
+  2 call sites. **No seat of this wave may lawfully perform it**, and this seat did not.
+- **G-W2-8's count arm stays HOMED** at KF.W8 (`planned`); performing the 3 → 1 here is out of bounds.
+- **The spec is byte-frozen** (E-3, verified above) — D-6's 19-vs-20 reconciliation is owed **in the
+  gate's own voice** by a later round, as a dated addendum-beside, and is not smuggled in here.
+
+### THE ONE THING THE NEXT SEAT MUST NOT RE-DISCOVER
+
+**A gate reading taken with `git grep -E '…\b…'` is not a reading — it is the number 0 wearing a
+verdict.** This wave has now produced that fault **twice**: once in G-W2-2's original witness (caught
+by the spec's own repair round 2) and once in G-W2-1's site limb (caught by Check 1, cured here). The
+limb's instrument of record is `git grep -P`, corroborated by a `\b`-free `grep -rnE` control, and
+**a limb is published only when both agree**. The general form is the wave's own doctrine: **an
+assertion witnessed by a command that cannot fail is not witnessed.**
+
+**REPAIR-1 VERDICT: the register is discharged — 1 HIGH cured at the site, 3 corrections-beside
+recorded, 1 already-cured item not re-opened, 1 INFO left with its named owner. The wave's REDs are
+now exactly the two that are relieved and owner-named (G-W2-2 · G-W2-8's count arm), and both are
+out of every seat's bounds. The verb stays `PARTIAL`; the wave awaits Check 2.**
