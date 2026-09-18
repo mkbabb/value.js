@@ -56,6 +56,33 @@ export class ApiUnavailableError extends Error {
     }
 }
 
+/**
+ * THE trip condition for "the backend is not answering" — one owner, so no
+ * surface hand-writes a second one (X.W3.7 · AP-12, transport limb).
+ *
+ * The defect this retires is a *disagreement*, not a missing message: the latch
+ * trips on a NETWORK-level rejection only, while the surfaces that spell the
+ * sentence trip on any thrown error — so a plate can say "unreachable" over a
+ * backend that answered, and did (`browse.png`, adjudicated). The two
+ * conditions become one by the surfaces reading this instead of a bare `catch`.
+ *
+ * True for `ApiUnavailableError` alone: the latch's own error, thrown both when
+ * a `fetch` REJECTED (`client.ts`) and when the latch short-circuited a call
+ * inside its cooldown. Deliberately FALSE for
+ *   - `ApiProblem` — the backend ANSWERED; an HTTP status is not an outage;
+ *   - `DevMisconfigError` — a designed dev-config state whose own message
+ *     forbids the conflation in so many words (*'NOT "backend offline"'*).
+ * A caller that needs those two apart reads `apiAvailability` — the state is
+ * the state; this predicate classifies a caught error against it.
+ *
+ * The seven hand-written "… is unreachable." sentences that re-derive this from
+ * a bare `catch` are **X-W7's** surface-vocabulary rider (AP-12 SPLITS); they
+ * consume this predicate, and are not rewritten here.
+ */
+export function isBackendUnreachable(error: unknown): boolean {
+    return error instanceof ApiUnavailableError;
+}
+
 /** Cooldown before the latch admits a single recovery probe. */
 const RETRY_COOLDOWN_MS = 30_000;
 
