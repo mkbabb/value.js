@@ -1562,3 +1562,142 @@ While building an error-set diff early in the sitting I ran **`git stash push` a
 10. **`EasingSidebar.vue`'s glass tier** — escalated to seat 0 **with the decision already made**, so the receiving seat applies a ruling rather than re-taking one.
 
 **Feeds, not gates** (this unit turns none): **G-W6-9** receives the KSM composition pass whole (act 4, plus R-1's consumer-end record); **G-W6-10** receives the `SpringSidebar` figure at **6 sites / 5 files** with its six declared files named, under the PROPAGATION LOCK, both ends in §9.
+
+### KF.W6.l
+
+SERVED MODEL: claude-fable-5-1
+**The closing measurement seat** — Track B · X·KF · 2026-09-18 (16:0x–17:3x EDT) · session `session_01QkbQV4VgkoQgSoUj2oKZim`. Spec sections executed: §Carry **W6-C** (`KF-W6.md:270-291`, the limbs no earlier unit's file-touch carried), §Gates **G-W6-10** (`:538`; the dispatch said `:540` — anchor drift of 2, recorded) and the whole fifteen-row table (`:527-546`), §Sequencing (`:547-579`). Substrate at open: keyframes.js `master` = `7152e2a0` (`.k`'s tail), `origin/master` = `3cc7e126`, **93 unpushed commits**, worktree clean but for two untracked sibling files under `docs/tranches/V/coordination/` (never touched); value.js `4150655b`. **Crash-recovery sweep** ⟨cmd⟩ `git status --porcelain` in both repos → no inherited partial work in this unit's writable set; nothing stashed, nothing restored. Probe parsimony held: zero browser tooling; every figure is a static read, a `node` arithmetic script in the scratchpad, or a gate command.
+
+**Substrate finding carried, not cured (I-35 §0)**: the installed `@mkbabb/glass-ui` is 7.0.0 by manifest ⟨cmd⟩ `node -p 'require("./node_modules/@mkbabb/glass-ui/package.json").version'` → `7.0.0`, pin `7.0.0` exact — and the producer's §0 measurement says those bytes are **not the published 7.0.0**. Every figure below is taken at the INSTALLED bytes, as every unit before it did; the re-install is act (b)'s escalation, not this seat's act.
+
+#### Act 1 — the cube theme packet, decided in ONE motion (dispatch (c) + (d)) · `0bd0215b`
+
+`fix(kf/cube-theme)` — `demo/styles/style.css` + `demo/DESIGN.md §2`, one commit. **CubeTarget #9 ≡ CubeScene D-7** (the six face crayons, `style.css` `--face-1..6`, at **`:173-178` before / `:189-194` after** — the spec and `.g` cited `:154-159`, drift recorded) and **#58 ≡ KF-AX-3** (`--axis-x/y/z`, at **`:134-137` before / `:147-150` after**; cited `:115-118`, drift recorded).
+
+**Re-derived at use, never quoted (KF-SKEL-22)** ⟨cmd⟩ `node scratchpad/cube-theme-derive.mjs` — WCAG relative luminance against the installed producer arms read at `dist/styles/tokens/light-dark.css` (`--background` = `--neutral-0` = `light-dark(hsl(40 30% 98%), hsl(24 9% 4%))`, `--foreground` = `light-dark(hsl(24 10% 10%), hsl(30 14% 90%))`), the numeral ink composited over face-at-0.8 over the page, the locked axis line at opacity 1 over the page. Shipped: faces **2 · 4 · 6 fail the DARK arm** (1.72 / 1.36 / 1.57) and **face 3 fails the LIGHT arm** (2.52 — a fact the bank did not carry; its "light arm passes on an 11 % technicality" was not true of the blue); 1 and 5 hold in both. Axes: **`--axis-y` fails light** (2.68), **`--axis-z` fails dark** (2.99), `--axis-x` holds in both (4.31 / 4.40) — the bank's "each theme fails on a different axis" reproduced, third seat.
+
+**The cure shape**: a `light-dark()` arm per FAILING token only, spelled in HSL so hue AND saturation are exact and only the lightness moves; the arms that held stay **byte-identical** to the lift (five light arms of the crayons, three dark arms, `--axis-x` whole). Chosen arms and their re-derived readings: `--face-2` dark `hsl(120 100% 33% / 0.8)` → 3.73 · `--face-3` light `hsl(240 100% 60% / 0.8)` → 3.64 · `--face-4` dark `hsl(60 100% 30% / 0.8)` → 3.55 · `--face-6` dark `hsl(180 100% 33% / 0.8)` → 3.46 · `--axis-y` light `hsl(120 47% 40%)` → 3.61 · `--axis-z` dark `hsl(240 76% 62%)` → 3.59. No consumer edited: `CubeTarget.vue` reads `var(--face-n)`, `CubeAxisLines.vue` and `MatrixEditor.vue` read `var(--axis-*)` (⟨cmd⟩ `grep -n 'axis-\|face-' demo/scenes/cube/*.vue demo/scenes/cube/matrix-editor/MatrixEditor.vue`) — no raw literal at any call site, no per-face override, the hoist's hue-exactness kept. **DESIGN.md §2** "Crayons are pinned" now states the rule the bytes obey: the pin is the HUE; an arm moves only for a measured ink failure; the axis tokens follow the same rule. **Built-sheet witness** ⟨cmd⟩ `npx vite build --mode gh-pages --outDir <scratch>` ×2 → `index-Dq8v8DBI.css`: `--face-3:var(--lightningcss-light,#33fc)var(--lightningcss-dark,#00fc)` · `--axis-y:var(--lightningcss-light,#369636)var(--lightningcss-dark,#40b040)` · `--face-1:#f00c` (unchanged) — the same `light-dark()` lowering `.e`'s `--specular` ships under. The rendered verdict with the lacquer sheen and the re-lit veil over the crayon, and over the stage substrate for the axes, is **KF.W9's** — this seat quotes no rendered ratio.
+
+**#8 — ESCALATED, never improvised (dispatch (d))**: the light-arm veil (`CubeTarget.css` `.face-relit` mixes `--background`, so an away face renders brighter in the default arm) needs ONE new material-register member that is dark in BOTH arms; its home is `design-idioms.css` + `DESIGN.md §2` — the sheet is in no owed unit's set, and I-35 **R-15** unblocks the producer side (mint `--specular`/`--shade` bare; no collision). **Routed to seat 0** with the two rows that wait on the same member (`.face-lacquer`'s shade stop; the amiga ground stop). **The G-W6-11 clause-2 §Bounds gap** — `demo/scenes/amiga/useAmigaThree.ts` (7 literal colour sites ⟨cmd⟩ `grep -cE '0x[0-9a-f]{6}|#[0-9a-f]{3,8}|rgba?\(' …` → **7**; no `onFlipSettled` anywhere under `demo/scenes/amiga/` → **0**) is granted to no unit of this wave — **ESCALATED to seat 0**, unchanged from `.g`'s reading. **Residual this cure creates (out of set, declared)**: `CubeTarget.vue:152-167` and `CubeAxisLines.vue:43-51` still read *"DECLARED, NOT CURED, and routed"* for #9 and #58 — true when written, stale at `0bd0215b`; both files are outside this unit's set and belong with the cube packet's next touch (KF-CE-41 owes the comment to the cure; the cure landed where the tokens live).
+
+#### Act 2 — §Carry W6-C, limb by limb at the bytes
+
+| limb (banked id) | at `7152e2a0` | disposition | commit |
+|---|---|---|---|
+| **CC-D-7/L-4** — the counterfactual rationale around `isSingleSurfaceScene` | template note `:5-13` + script note `:270-274` still argued *"easing → ['easing'], spring → ['spring']"* | Rewritten to the live derivation: `surfacesFor` (`state/controlSurfaces.ts:95-121`) gives easing and spring the built-in triad + their signature facet, so the computed is currently always `false` — **the branch-delete half is NOT spent** (NO-WAVE-OWNER, the bank's) | `86612f22` |
+| **CC-L-18** — "THE ONE WRITER" is N writers | 5 sites / 3 files (article-less grep; 2 in `ChannelControls.vue` `:228`,`:283`) | The two in-set sites renamed to *the derivation-sync writer (one watch PER HOST … N writers, `!==`-guarded)*; the 4 composable sites (`useSelectedControlSurface.ts:42/:88`, `useSceneMachineRouterBinding.ts:10/:86`) are **out of set — DECLARED** | `86612f22` |
+| **CC-L-19** non-authority limbs | `.tab-trigger-*` "HERE" claim → `:172-176` already states the skin is deleted; `SegmentedTabs` ownership prose → **0** in file; "no scroller is wired here" → **0** ⟨cmd⟩ `grep -c 'scroller' ChannelControls.vue` → 0 | Cured by `.c`'s file-touch; this seat measured, wrote nothing | — |
+| **CC-N-7** ≡ KPT L:D-8 | `KfPillTabs.vue` **absent** | Died with `.c`'s delete | — |
+| **KPT header mangle** · **KPT `:4-5` phantom consumers** | file absent | Died with `.c`'s delete (`test/demo/instrument/KfPillTabs.test.ts` keeps the NAME in its own history prose — 3 test files name it; declared under G-W6-2) | — |
+| **SpringTrace L-4/C-8** — "beside its string" ×3, the sidebar | `:2-8`, `:39-41` | Header and script note rewritten: the plot stands alone on the Sweep view; `StartingStyleTarget` renders the string on the Entry channel; only `useSpringLinearStops` is shared | `c2ec05ce` |
+| **SpringTrace L-7/C-6** — "red identity" | already the KF-SS-6 block (`.k`) | Landed at `.k`; measured, not re-written | — |
+| **SpringTrace L-13/C-7** — `useSpringLinearStops.ts:9` docblock | names the phantom file | **out of set — DECLARED** (rides G-W6-10's residue) | — |
+| **SPF-27** — the changelog template | header `:2-20` named the dissolved monolith + two deleted files; `:63-65` "RED-DASHED ring / red-accent hover"; `:132` "glass-ui 4.0.0 … contract"; `:118 proof:*` cite → ⟨cmd⟩ `grep -c 'proof:' SpringPhysicsFacet.vue` → **0** (KF.W4 took it) | Header is a description of what mounts; the preset prose reads the violet authority the scoped rules paint; the stale vendor stamp struck | `e3884bc5` |
+| **KF-CO-33 / KF-CO-37** | `easing-edit-btn` "NAMED BEHAVIORAL SEAM" at `:203-205` and `:727-728`; ⟨cmd⟩ `git grep -n easing-edit-btn -- demo/ test/ e2e/ scripts/` → only this file's four mentions — **no reader** | Prose limb: a label with no reader, delete-or-wire OPTIONS-UNIT's. **Hygiene body** (`.panel-stack` styled nowhere, `gap-4` with one child, the R3 ceiling — file now **729 L**) stays OPTIONS-UNIT's. **KF-CO-37**'s stale cite is `LayerConfigPanel.vue:3-4` (the host's `:deep` rule it names is gone) — **out of set — DECLARED** | `41a7ebb6` |
+| **CC-C-4** chain | — | Landed at `.c` | — |
+| **KF-EST-1** — eight `proof:*` cites | ⟨cmd⟩ `git grep -c 'proof:' -- demo/components/instrument/shell/EditorStartScreen.vue` → **0** | Nothing left to cure in-file (KF.W4's G-KFW4-8 struck the five here); `TypingDots.vue` is out of set and its three sites are KF.W4's roster, not re-counted | — |
+| **KF-AX-11/-12/-31** | — | Landed at `.e` | — |
+| **CubeScene D-20** — "glass-ui 4.0.0" header ×2 | `:39-48` named a superseded major, a strip in a file that does not exist, and an `extraControlTabs → SegmentedTabs :options strip`; `:148-150` cited the deleted `CONDITIONAL_SURFACES` table as present | Header rewritten to the live projection (`surfacesFor` → `machine.extraControlTabs()` → the dock's controls `<Select>`; `matrixControlsPanel` the body); the dead table named as deleted | `f2fe9a73` |
+| **`tab-idiom.css`** header · **`layout.css`** | header already self-describes the strike; `layout.css:152` `proof:brittleness` → ⟨cmd⟩ `git grep -c 'proof:brittleness' -- demo/` → 0 | Nothing owed in either; both untouched | — |
+
+**Own-prose discipline** (the `.d/.e/.j/.k` census-contamination rule): this seat's cures spell none of the retired names — ⟨cmd⟩ `grep -nE 'SpringSidebar|KfPillTabs|4\.0\.0|ONE WRITER' <the six files>` → 0 in any line this seat wrote, and 0 `ONE WRITER` in `ChannelControls.vue` at all (`:32`'s `proof:easing-sidebar-*` cite is KF.W4's authority limb and `:145`'s "easing/spring sidebars" is pre-existing prose, neither a retired-name hit).
+
+#### Act 3 — all fifteen gates, double-run at `41a7ebb6`
+
+⟨cmd⟩ `zsh scratchpad/w6-gates.sh` ×2 → `cmp` of the two runs **identical**. `vue-tsc --noEmit -p tsconfig.json` ×2 → **54 → 54** errors (the three hits in this unit's files — `ChannelControls.vue(329)` unused ref, `ChannelOptions.vue(272)` the `exactOptionalPropertyTypes` Select seam, `CubeScene.vue(27)` unused import — are pre-existing; count unchanged, none introduced). `vitest run --project demo` ×2 → **35 files / 233 tests passed** both runs. gh-pages build ×2 → `✓ built`.
+
+| gate | BEFORE (per unit receipts) | AFTER (this seat) | verdict |
+|---|---|---|---|
+| G-W6-1 | GREEN (`.e`) | `--dock-margin` 1 def / 10 reads; `--shadow-glass` 0/0; `--dock-label-padding-inline` 0/0 | **GREEN** |
+| G-W6-2 | honest-RED d2 (`.c`) | `demo/`: **2** prose sites — `SpringScene.vue:22` (`.k`'s census re-pin quotes the name), `useSpringDemo.ts:61` — both out of every closed unit's set; `.vue` absent; `filing-tab` in `font-roles.json` **0**; `test/`: 3 files carry the name in history prose | **honest-RED, distance 2** (composition moved: `SpringPhysicsFacet.vue:7` cured here) |
+| G-W6-3 | GREEN (`.c`) | four shims/barrels absent; `transport/composables/useAnimationGroupPlayback` specifiers **0**; the `:21` suite imports the real module and collects (in the 35) | **GREEN** |
+| G-W6-4 | GREEN (`.e`) | `btn-interactive` **0**; `tap-floor` 2 hits = disposition prose only (`KeyframeCard.vue:33`, `CSSPasteDialog.vue:150`), 0 selectors, 0 adopters; `proof-phantom-classes` 0 | **GREEN** |
+| G-W6-5 | GREEN (`.e`) | `--color-gold` 6 hits, all prose (0 defs, 0 `var()`); demo `.text-gold` rule 0; `--scale-hover` 0; demo `.focus-ring` rule 0; `.kf-focus-ring` defined ×2; `--rainbow-*` 7 demo defs = RETAINED-BY-POLICY row of `.e`'s table (27 rows in the record) | **GREEN** |
+| G-W6-6 | (`.f`, receipt absent) | demo `.focus-ring` rule **0**; `.kf-focus-ring` 12 hosts, forced-colors arm ×4 in `design-idioms.css`; bare `focus-ring` class hosts: **`SpringTarget.vue:63` · `SquareScene.vue:46` only** — out-of-bounds residuals (dispatch (e)), not a miss; `field-control` 9 refs remain (never erased) | **GREEN-WITH-RESIDUALS** |
+| G-W6-7 | (`.f`, receipt absent) | `touch-hit-area` 0 demo refs; KF-SST-30 cited ×1; "44px house" cites 0; the pencil's box rides `size` (`04274eee`); the 20 `.f` commits reconstructed below | **GREEN** |
+| G-W6-8 | GREEN (`.h`) | `max-h-24` **0**; `normal-case` live site `MbabbMenu.vue:14` paired with `tracking-normal` on the line (the 2 unpaired hits are comment lines `:5`, `:169`) | **GREEN** |
+| G-W6-9 | GREEN (`.i`) | `shape="cell"` 1 hit = the SPF-10 decision prose (retired, written); `FadingScroll` subpath import 2; **`Textarea` now 1 live mount** (`CSSPasteDialog.vue:53`, `.f`'s CPD cure — CONSUMED, the census's zero moved the right way); `NumberField` 17 hits all prose (K-9's evaluation, no mount); glass `Skeleton` 0; `/canvas` subpath 4 hits (2 imports, `.g`) | **GREEN** |
+| G-W6-10 | RED (witness re-pinned by `.k`) | **`SpringSidebar` 5 sites / 4 files** (was 6/5; `SpringPhysicsFacet.vue:2` cured here) — `KeyframesEditor.vue:5,:253` · `SpringHeatmap.vue:76` · `useSpringHotPath.ts:27` · `useSpringLinearStops.ts:9`; `ls-tree` → 0 such file · **`ONE WRITER` 4 sites / 2 files** (was 5/3) — all in composables out of set · `AnimationControls.vue` phantom name 4 hits, all self-describing history (`tab-idiom.css:13` says "does not exist") · `glass-ui 4.x` stale premise **7 sites / 7 files**, none in any closed unit's set (`KeyframesEditor.vue:8,:254` is `.f`'s file, left) · `tab-idiom.css` header correct · `transitions.css` cite at `KeyframeTimeline` corrected (`.k`) · `CONDITIONAL_SURFACES` cited as live 0 | **honest-RED** — every in-bounds cell cured; the residue is **16 comment sites in 13 files outside every unit's writable set**, enumerated above, routed to the owner |
+| G-W6-11 | honest-RED d1 (`.g`) | clause 1: `ctx.fillStyle` 3 assignments (gradient object · 2 through the resolver · 1 baked `rgb()`), `resolveCanvasColor` imports 2, `SpringHeatmap` `onFlipSettled` ×3; **CubeScene D-7's six theme-invariant literals → cured (4 face + 2 axis `light-dark()` arms)**; clause 2: amiga re-bake **0**, `useAmigaThree.ts` 7 literals — the §Bounds gap | **honest-RED, distance 1** (the amiga file; escalated) |
+| G-W6-12 | honest-RED d1 (`.j`) | `light: true` 0; `'eager'` 0; `--aurora-opacity-ceiling` 3 refs; `opacityCeiling` 2 — the installed-vs-published artefact stands until I-35 §4(1) is acted on | **honest-RED, distance 1** (substrate) |
+| G-W6-13 | GREEN (`.e`) | 96 distinct unprefixed demo custom-property defs, 0 `--kf-*`; the product is `.e`'s 27-row disposition table in this record, no blanket rename | **GREEN** |
+| G-W6-14 | GREEN (`.b`) | communiqué present 27,384 B at `docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md`; mirror `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` at the glass BK inbox; the reply is I-35 | **GREEN** |
+| G-W6-15 | GREEN (`.d`) | `EditorHeader` 0 · `header-items-max-w` 0 · shell barrel exactly `{EditorShell, EditorStartScreen, SharePopover}` | **GREEN** |
+
+**Tally: 11 GREEN (one with out-of-bounds residuals) · 4 honest-RED** — G-W6-2 (d2, out-of-set prose), G-W6-10 (out-of-set prose residue), G-W6-11 (d1, the amiga §Bounds gap), G-W6-12 (d1, substrate). No gate is RED for a convicted figure: G-W6-10's column now carries this seat's own measurement, not the bank's.
+
+#### Act 4 — `### KF.W6.f` — RECONSTRUCTED BY THE CLOSE SEAT (dispatch (a))
+
+The `.f` seat committed twenty times and wrote no receipt. Reconstructed from the commits alone ⟨cmd⟩ `git show -s --format='%ad %s' <hash>` + `git show --stat --format= <hash>`; 12:03–12:22 EDT 2026-09-18, oldest first. **Nothing here is `.f`'s testimony; it is what the tree says `.f` did.**
+
+| # | hash | act (subject gist) | files |
+|---|---|---|---|
+| 1 | `93d0fdc3` | `.kf-focus-ring` becomes demo-OWNED with its forced-colors restoration; contract restated (KF-KE-30 + KF-CE-46, one commit) | `design-idioms.css`, `KeyframeCard.vue` |
+| 2 | `294e649d` | the start field stops erasing `field-control` — one cure for KF-KC-4 / KF-KC-13 / KC-5 | `KeyframeCard.vue` |
+| 3 | `fe85f8d0` | row identity paints a muted rung, not 25 % alpha (KC-12) | `KeyframeCard.vue` |
+| 4 | `6c4e23bf` | the keyframes toolbar gets ONE focus vocabulary (KF-CB-12) | `CopyButton.vue`, `KeyframesEditor.vue` |
+| 5 | `8b633184` | CopyButton intrinsic box floor — interim W6-E answer for KF-CB-5/-14 / KF-ET-17 / KF-KC-33 / KC-23 | `CopyButton.vue` |
+| 6 | `0a828e05` (rewritten from `45bac4ae` by `.g`'s amend; cure bytes unchanged) | caret focus/selection/editable in ONE motion (TimelineCaret C-7 + D·M-5 + D·M-3 + D·M-7 + MISS-α3); K-9's inversion at the bytes | `TimelineCaret.vue` |
+| 7 | `f40ee3e5` | timeline glass controls stop overriding the producer's box; no opacity-as-contrast (KeyframeTimeline D-6 + D-8) | `KeyframeTimeline.vue` |
+| 8 | `645b8609` | rail + pan bar get a boundary rung (KeyframeTimeline D-7 + TimelineTrack D-5) | `TimelineTrack.vue` |
+| 9 | `018448b2` | the three bespoke sliders join the one focus vocabulary (KeyframeTimeline D-20) | `TimelineTrack.vue` |
+| 10 | `6821b0f6` | the timeline card gets ONE pointer regime (TimelineTrack RR-A missed-5) | `TimelineTrack.vue` |
+| 11 | `0633b547` | hover preview two-tone gets two real registers (THP D-5, D-17) | `TimelineHoverPreview.vue` |
+| 12 | `132802ce` | the paste well becomes a named, ringed, surfaced control (CPD R-6 + R-27 ≡ KAD-F2 + KAD-22, with R-24, R-12) — the live glass `Textarea` mount G-W6-9 now counts | `CSSPasteDialog.vue` |
+| 13 | `783602d0` | a plate reads the surface it is ON (KAD-18 / KF-KE-24 / KF-KE-32) — **landed with an HTML comment inside a start tag (TS1005 ×3, the parse abort `.g` recorded)** | `KeyframesEditor.vue`, `KeyframesAddDialog.vue` |
+| 14 | `1d097db4` | the easing pencil: legible ink + reachable box (KF-CO-19 + KF-CO-24), retired-idiom prose dies (KF-CE-41) | `ChannelOptions.vue` |
+| 15 | `62a2f663` | the advanced chevron takes a muted rung, not an alpha (KF-CO-20) | `ChannelOptions.vue` |
+| 16 | `0a846bbf` | SharePopover's three controls let `size` drive (SP-8 + SP-9 + SP-11) | `SharePopover.vue` |
+| 17 | `24f3f784` | share field focused on open (SP-20) | `SharePopover.vue` |
+| 18 | `efac3ee3` | **the fix for #13** — the KAD-18 note moves out of the start tag; found by running the gate | `KeyframesAddDialog.vue` |
+| 19 | `e081a5a7` | own prose stops spelling retired utility names (Tailwind scans comments), measured in the built sheet | `KeyframeCard.vue`, `TimelineCaret.vue`, `ChannelOptions.vue` |
+| 20 | `04274eee` | the pencil's target-size note stops naming a pixel figure (G-W6-7's "no 44px house-practice cite" bound) | `ChannelOptions.vue` |
+
+**Gates `.f` owned, measured at the settled bytes by this seat**: **G-W6-6 GREEN-WITH-RESIDUALS** and **G-W6-7 GREEN** (Act 3 rows). **`.f`'s one slip, from the tree**: #13 shipped a template parse error that blanked every other file's `vue-tsc` reading for the interval between `783602d0` and `efac3ee3` (four commits); it was cured by its own seat within the sitting. Files `.f` touched and left carrying G-W6-10 residue: `KeyframesEditor.vue:5,:8,:253,:254` (two phantom-file cites, two stale vendor stamps) — named to the owner, not re-attributed.
+
+#### Act 5 — I-35 CONSUMED WHOLE (dispatch (b); E13: no close with UNREAD in scope)
+
+**The letter as read**: `../glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md`, read whole at this seat — **476 L · 42,776 B · sha256 `1835cfa6636123fdb760fc359e8324c6aa63b55f44fed31240cdabe852712cf8`**. **The INBOX row carries 41,738 B / `9066b660…`**: the producer revised the letter after it was rowed (disk mtime 14:41) and has since **committed it** — ⟨cmd⟩ `git -C ../glass-ui ls-files <path>` → tracked; `git -C ../glass-ui show HEAD:<path> | shasum -a 256` → `1835cfa6…` = the bytes read; glass HEAD `c6251420`. The version consumed is the committed one. Rows matched against O-26's ids (`docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md:30-111`):
+
+| row | producer's disposition (as read) | what it moves in KF.W6 | owner |
+|---|---|---|---|
+| §0 | installed dist ≠ published 7.0.0 (bundle 70,109 B vs 69,884 B; scope hash; two chunk names in no published cut); line cites drift 8–19; **nothing withdrawn** | every banked dist figure is provisional until re-install; this seat's figures are at the installed bytes and say so | **seat 0 / KF.W0** (§B-12) |
+| R-1 | PARTIAL/ANSWER — `.glass-label` is unlayered; write the interim above (0,2,0); the LIFO/FIFO note was attached to the wrong row | `.k`'s interim stands; no byte moves | KF.W7 (label rows) |
+| R-2 | DEAD@9 — the unlayered `:root` in `design-idioms.css` fixes the radius at 7.0.0 | nothing owed at 7.0.0 | — |
+| R-3 | PARTIAL/CURE-NOW — keep the `MbabbMenu` `modal` interim until re-install | interim stays | X-W0.j / the repin |
+| R-4 | LIVE/ANSWER — `opacityCeiling` IS the API; hide-on-arm DECLINED | `.j`'s G-W6-12 reading confirmed; the DECLINE is written | KF.W9 (witness) |
+| R-5 | LIVE/CURE-NOW at HEAD; our stopgap acceptable | stopgap stands | next glass cut |
+| R-6 | LIVE/CURE-NOW; bridge DECLINED; delete the `light` atom; never hard-code the scope attr | `.j` deleted the atom ⟨cmd⟩ `git grep -E 'light: ?true' -- demo/` → 0 | — |
+| R-7 | DEAD@8.0.0 — `[data-control-target]` is available at 7.0.0 | no demo patch | KF.W7 |
+| R-8 | LIVE/CURE-NOW — `stopPropagation` keydown on the modal root today; `suspendShortcuts()` next cut | interim stands | KSM owner |
+| R-9 | ANSWER + DECLINE ChipGroup; ToggleGroup reshell caveats; `glass-chip--cell`'s rule unreachable | `.i`'s SPF-10 retirement cites it; consistent | — |
+| R-10 | PARTIAL — `surface="opaque"` / `data-surface="opaque"` | no byte here | KF.W7 |
+| R-11 | DEAD — the `#anchor` mechanism is not in published 7.0.0 | `.d`'s adoption is **substrate-dependent, carried not undone** — decided at re-install | seat 0 |
+| R-12 | LIVE — no italic face | consistent with KF-EST-2's reading in `EditorStartScreen.vue` | — |
+| R-13 | withdrawn, safe | nothing | — |
+| R-14 | agreed stale — confirm the styles entry | **§4(2) ANSWERED below** | — |
+| R-15 | NOT-APPLICABLE — mint `--specular`/`--shade` bare | `.e` minted them bare (`design-idioms.css:70-71`); **unblocks #8's member** (Act 1) | seat 0 |
+| R-16 | DEAD@8 — the 7.0.0 `:focus-visible` rule quoted | `.f`'s demo-owned `.kf-focus-ring` is the consistent answer at 7.0.0 | — |
+| §2 | `/timeline` is A-8 alone; **A-9 = `TooltipContent`'s ceiling, NOT cured at 9.0.0** | KF.W7 must not re-file A-9 under `/timeline` | KF.W7 |
+| §3 | the whole 7.0.0 interim table returned with their column, row by row | banked as the interim of record until re-install | seat 0 |
+| §4 (1) | **re-install from the registry and re-take every banked byte figure** | **ESCALATED to seat 0 / KF.W0 — this seat re-installed NOTHING** (a producer-install act invalidates figures across KF.W6/KF.W7 and is not a unit's to take) | seat 0 |
+| §4 (2) | **which CSS entry does the demo import?** | **ANSWERED**: `demo/styles/style.css:3` `@import "@mkbabb/glass-ui/styles";` → the package's `./styles` export → `dist/styles/index.css` (⟨cmd⟩ `node -e '…exports["./styles"]'` → `"./dist/styles/index.css"`), **not the `glass-ui.css` bundle**; R-14's two re-points therefore resolve | — |
+
+**INBOX**: I-35's status cell moved **UNREAD → READ+CONSUMED (this seat)** with the hash read; the close-sweep line appended (four paths at 17:17 EDT, `INBOX.md` self-excluded, **0 new files since the 16:30 sweep, 0 unrowed, 0 UNREAD in scope**, `I-35` still the tail).
+
+#### Residuals and escalations (named, owner-routed; none silently cured)
+
+1. **#8** both-arms-dark register member — `design-idioms.css` + `DESIGN.md §2`, no owed unit's set; producer-unblocked by R-15 → **seat 0**.
+2. **G-W6-11 clause 2** — `demo/scenes/amiga/useAmigaThree.ts` (7 literals, no re-bake) → **seat 0** (§Bounds addendum, E-3 beside the spec).
+3. **I-35 §4(1)** registry re-install + re-take of banked figures → **seat 0 / KF.W0**; R-11's `#anchor` adoption (`.d`) decided with it.
+4. **G-W6-10 residue**, 16 comment sites / 13 files outside every unit's set: `SpringSidebar` ×5 (4 files), `ONE WRITER` ×4 (2 files), `glass-ui 4.x` ×7 (7 files) — enumerated in Act 3 → **owner**.
+5. **G-W6-2** distance 2: `SpringScene.vue:22`, `useSpringDemo.ts:61` (+ 3 test-prose files) → **owner**.
+6. `CubeTarget.vue:152-167` / `CubeAxisLines.vue:43-51` "DECLARED, NOT CURED" notes, stale since `0bd0215b` → **the cube packet's next touch**.
+7. `LayerConfigPanel.vue:3-4` (KF-CO-37) · `useSpringLinearStops.ts:9` (SpringTrace L-13/C-7) → **OPTIONS-UNIT / owner**.
+8. `SpringTarget.vue:63` / `SquareScene.vue:46` bare `focus-ring` hosts — out-of-bounds residuals per dispatch (e).
+9. KF-CO-33's hygiene body and the 729 L R3 breach → **OPTIONS-UNIT (KF.W12)**.
+10. Rendered witnesses for #9/#58 (both arms, sheen and veil over the crayon; the axis over the stage substrate) → **KF.W9**.
+
+**Self-count**: keyframes.js commits this seat — **6**: `0bd0215b` · `f2fe9a73` · `86612f22` · `c2ec05ce` · `e3884bc5` · `41a7ebb6` (every one by pathspec on the commit itself, session trailer in the `-m` chain, `--no-verify`); kf `master` **`7152e2a0` → `41a7ebb6`**, then **pushed** at close per COHESION §0m.1 (receipt below). No `git stash`, no reset, no amend. No file outside the writable set written. No new `proof:*` mark. Status: **PARTIAL (`complete_with_misses`) — IMPLEMENTED; VERIFIED not stamped** (this seat authored bytes; the fresh L-20 pass is seat 0's).
+
+**Push receipt (§0m.1 — the wave pushes at close)** ⟨cmd⟩ `git -C ../keyframes.js push origin HEAD` → `3cc7e126..41a7ebb6  HEAD -> master`; after: `master` = `origin/master` = **`41a7ebb6`** (the 93 inherited unpushed commits + this seat's 6 = 99, all on `origin/master` now).
