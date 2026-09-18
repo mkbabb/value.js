@@ -799,3 +799,221 @@ family split. Stated, not smuggled.
    __tests__/**` to **no unit**, so this unit could not lawfully commit a repo test for its own
    runtime gate. The transcript and its falsifier are banked as §8 artefacts; a permanent api spec
    for the ADMIN-POLICY branch is **owed to a successor that holds the bounds**.
+
+---
+
+### X.W3.7
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **unit**: GF-R1 — the ApiOfflineChip transport cluster
+(seven adjudicated rows, one CONFIRMED MAJOR) · **Track A** · **wall clock at open**
+`2026-09-18 18:0x EDT`, at close `2026-09-18 18:2x EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at open**: `6ee51051` ⟨cmd⟩ `git rev-parse --short=8 HEAD` · branch `tranche-u`.
+**Gates**: **AP-17** (born-RED, CONFIRMED MAJOR) · AP-12 · AP-24 · AP-29 · AP-30 · AP-31 · AP-33.
+**Authority**: COHESION **§0j.B / GF-R1** (`:625-631`) · `X-W0-FOLD.md` **§9.3 / W0.38 slate entry
+15** (`:1725-1760`) · `EXECUTION-RUNBOOK.md` **§4.4 R-1** (`:531-548`) · `W3.md` §4 **as widened by
+this unit's own dated E-3 addendum-beside** · fold **§BoundsDelta** (`:704-708`, superseded for
+`client.ts` by §0j.B's election — recorded in the addendum, the fold's bytes untouched).
+
+#### 0. Crash-recovery + worktree
+
+⟨cmd⟩ `git status --porcelain` at open → 12 modified + 4 untracked. ⟨cmd⟩ per-path check over all
+six writable paths → **every one clean**. This unit inherited **no** partial work: no predecessor
+seat opened `X.W3.7`. The dirty rows are sibling seats' — X-W4 unit `a`'s ten `demo/palettes/**` ·
+`demo/picker/**` · `demo/shell/dock/layers/**` files and its two `a11y-control-targets` specs;
+X.W3.2's in-flight `palette-versions.test.ts` + `x-w3-visibility-payloadhash.ts`;
+`CARRY-LEDGER.md`; and `scripts/dev/dev.sh`, the standing unowned row (DR-24, COHESION §0j.A).
+**Nothing stashed, restored or reverted**; confirmed again at close — not one of those paths appears
+in any of this unit's eight commits (§8).
+
+**§4b worktree — DECLARED, per the spec's own escape clause** (`W3.md:198-199`). ⟨cmd⟩
+`git worktree list` → `/Users/mkbabb/Programming/value.js-x-w3-fe` **ABSENT**; X.W3.6 released it by
+running in the main tree for the same measured reason (no `node_modules` in a sibling worktree, and
+commits landing detached while siblings commit to `tranche-u`). **This unit ran in the main tree
+under strict pathspec disjointness** and states it here. Disjointness measured, not asserted: this
+unit writes `demo/platform/transport/**` + `W3.md` + `artefacts/W3/**`; **no** concurrent unit names
+any of them — X.W3.6 wrote `demo/color-picker/router/**`, `demo/shell/**`, `demo/scenes/**`,
+`api/src/modules/admin/**`; the api chain writes `api/src/modules/palette/**`. **Zero shared paths.**
+
+#### 1. Anchors verified at TRUE bytes before a byte was written
+
+| record anchor | true byte | verdict |
+|---|---|---|
+| **AP-17** allow branch `availability.ts:193` | `:193` `if (Date.now() - unavailableSince >= RETRY_COOLDOWN_MS) return;` | **exact** |
+| **AP-17** re-arm-only-on-failure `:170` | `:170` `unavailableSince = Date.now();` inside `markApiUnreachable` | **exact** |
+| **AP-17** the *"ONE probe"* promise `:9-11` / `:185-186` | `:9-11` = the *"instead of issuing repeated doomed requests"* half; the literal words **"ONE probe through."** are at `:186`, and the promise's other spelling (*"the next call is allowed through as the recovery probe"*) at `:12-13` | **:185-186 exact; :9-11 is the promise's first half, not the literal phrase** — recorded, INTENT taken at both |
+| **AP-31** `markApiUnreachable` refuses `:169` · `markApiReachable`'s guard `:176` | `:169` `if (apiAvailability.value === "misconfigured") return;` · `:176` `if (apiAvailability.value !== "available") {` | **exact, both** |
+| **AP-33** the *"Idempotent"* prose `:148` | `:148` `* \`misconfigured\` state and warn LOUD. Idempotent + browser-guarded (a no-op in` | **exact** |
+| **AP-24** `client.ts:37` / `:43` | `:37` `export const BASE_URL = …` · `:43` `initApiEnvironment(BASE_URL);` | **exact, both** (the record's own corrected citation) |
+| **AP-29** the dead member | `useApiClient.ts:29-30` (doc + field) · `:42` `baseUrl: BASE_URL,` | **exact** |
+| **AP-30** the third conjunct | `:115` `return isCrossOrigin(i.baseUrl, i.pageOrigin);` | **exact** |
+| **AP-12** the latch's trip condition `:167` | `:167` `export function markApiUnreachable(): void {` — the record cites the function, the rejection itself is `client.ts:79-84` | **exact as a function cite** |
+| the surface `ls demo/platform/transport/` = 4 files | `api-problem.ts` · `availability.ts` · `client.ts` · `useApiClient.ts` | **exact** — as `X-W0-FOLD.md:1760-1761` measured |
+
+**One drift, recorded not laundered**: the `:9-11` half of AP-17's *"promised twice"* citation points
+at the docstring's *"repeated doomed requests"* clause rather than the literal *"ONE probe"*, which
+lives at `:12-13` and `:186`. The claim is unaffected — the promise **is** made twice — and INTENT
+was taken at all three bytes. **No anchor was moved; no spec byte was edited.**
+
+#### 2. Act 1 — the dated E-3 addendum-beside, this unit's FIRST docs act
+
+Landed **before any transport byte**, because it is the act that lawfully widens §4 (COHESION §0k.3
+*Consequence*). Appended to `docs/tranches/X/waves/W3.md` (**433 → 538 lines**, +105, **pure
+append — no byte above the addendum line edited**). It: widens §4 to the four measured transport
+files; adds `X.W3.7` with AP-17 as its born-RED gate; records the **`×5`→`×7`** correction of
+COHESION **§4:104** *here and only here* (§0j.B:625-626: *"in the addendum, never in §4's bytes"*)
+together with the supersession of that cell's *"has no X-wave claimant"* clause; reads **§2's
+`Agents: 6` as 7** without editing its bytes (precedent: COHESION §0p, X.P.W3 `.f`/`.g`); and
+records that fold §BoundsDelta's *"Not proposed, deliberately"* premise for `client.ts` (*"in no X
+file list"*) is **false as of §0j.B** — the fold's bytes untouched.
+
+⟨cmd⟩ `git diff --check` → clean. **Commit `02238dbb`.**
+
+#### 3. Born-RED FIRST — the probe, run before any cure
+
+`W3.md` §4 grants this unit **no `test/**` path**, so the probe is **scratchpad-resident** and only
+its transcripts are banked — the identical shape X.W3.6 recorded for its G-17 probe. No
+`proof-*.mjs` is authored (CC-019). **The probe source is embedded verbatim** in
+`artefacts/W3/W3-7-transport-cluster-record.md` §5 so the successor holding `test/**` installs it by
+copy, not by re-derivation.
+
+⟨cmd⟩ `npx vitest run --config <scratchpad>/vitest.probe.config.ts` at `02238dbb`, **double-run
+identical**:
+
+```
+[AP-17] inside-window admitted = 0 of 10
+[AP-17] first-window-open admitted = 10 of 10          ← the UNBOUNDED BURST, reproduced
+[AP-17] window1 admitted = 10 of 10 · window2 admitted = 10 of 10
+[AP-31] after markApiReachable → available             ← the misconfig silently cleared
+[AP-33] console.error calls after 3 inits = 3
+[AP-24] after bare import of client.ts → availability=misconfigured · console.error=1
+ Test Files  1 failed (1) · Tests  6 failed | 5 passed (11)
+```
+
+**One probe was green for the wrong reason and was hardened before the baseline was banked**: the
+`provideApiClient()` row passed at the baseline *because the import-time side effect it exists to
+retire had already fired*. An `expect(availability).toBe("unknown")` was added **before** the mount,
+which turned it RED at the baseline and made its later green mean what it says. Stated because a
+baseline with a false green in it is not a baseline. Transcript: `W3-7-born-red-before.txt`.
+
+#### 4. The cures, in the ruled order, each measured at its landing
+
+| # | commit | row | BEFORE → AFTER |
+|---|---|---|---|
+| 1 | **`a5e88743`** | **AP-17** — the allow branch re-arms `unavailableSince` as it admits | first window **10 of 10 → 1 of 10**; window 2 **10 of 10 → 1 of 10** (it still OPENS) |
+| 2 | **`8a094ed8`** | **AP-31** — `markApiReachable` defends `misconfigured` | `available` → **`misconfigured`**; a real `unavailable` latch still releases |
+| 3 | **`2d9f45ff`** | **AP-12** (transport limb) — `isBackendUnreachable` is the ONE trip condition | two conditions → one: `ApiUnavailableError`=true · `ApiProblem`=false · `DevMisconfigError`=false · bare `Error`=false |
+| 4 | **`6090c798`** | **AP-33** — a real idempotence guard | 3 inits → **3** `console.error` → **1** |
+| 5 | **`c131f2da`** | **AP-24** — the init moves to `provideApiClient()` | bare import → `misconfigured`/1 → **`unknown`/0**; `provideApiClient()` → `misconfigured`/1 |
+| 6 | **`c6e67eb1`** | **AP-29** — the dead `baseUrl` member deleted | member present, zero readers → **deleted**, `vue-tsc` four bands exit 0 |
+| — | (record) | **AP-30** — the tautological third conjunct | **RECORDED terminally**, artefact §1 |
+
+**The PAIRED ORDER was honoured as an order, not a bundle**: AP-33's guard is commit 4, AP-24's move
+is commit 5 — **no commit in this history carries the reachable seat without the guard**, which is
+what *"the guard lands first"* means when the seat is a thing a caller can reach twice.
+
+**AP-17's cure was chosen between the record's two, and the refusal is written at the byte**: an
+in-flight flag must be cleared on both settle paths, and a never-settling request — the slow-failing
+backend this row is *about* — would leave it set and **wedge the latch shut**, trading a burst for a
+permanent outage. Re-arming holds no state that can leak. Both the choice and the refusal are in the
+docstring, not only in this receipt.
+
+**AP-12 SPLITS and only transport's half landed.** The seven hand-written `is unreachable.`
+sentences are **X-W7's** surface-vocabulary rider; census at close ⟨cmd⟩
+`grep -rn "is unreachable\." demo --include="*.vue" | wc -l` → **7**, enumerated file-by-file in the
+artefact. **Neither wave reports AP-12 closed alone** — the S-6 edge law's shape, applied to this
+seam.
+
+**AP-30 is RECORDED, not cured**, and the record is re-measured rather than quoted: legs 1+2 of
+`detectDevMisconfig` **force** leg 3 at the only call site (leg 1 passing pins `baseUrl` to the
+remote constant at `client.ts:35-36`; leg 2 pins the page to loopback), so the third conjunct cannot
+be false there. It is **not deleted**, for three stated reasons — its disposition is *moot-on-AP-1*
+and **AP-1 is X-W7's**; the predicate is documented *"Pure + total for testing"* and
+`test/status-lamp.test.ts:95-116` asserts each leg disarms the triad independently; and the unit
+plan's own lock says *"record, do not invent a matrix."*
+
+#### 5. Gate readings, BEFORE → AFTER
+
+| gate | BEFORE (born-RED, at `02238dbb`) | AFTER (at `c6e67eb1`) | verdict |
+|---|---|---|---|
+| **AP-17** (MAJOR) | 10 of 10 callers admitted per window | **1 of 10**, next window still 1 of 10 | **GREEN** |
+| **AP-12** (transport limb) | latch = fetch rejection · refs = any throw; no shared owner | one predicate owns it; the 7 sentences booked to X-W7 by name | **GREEN (transport limb); X-W7's limb OPEN by ruling)** |
+| **AP-24** | import-time global mutation + `console.error` | import is inert; `provideApiClient()` is the seat | **GREEN** |
+| **AP-29** | dead member on the DI seam | deleted | **GREEN** |
+| **AP-30** | tautology unrecorded | terminal record, re-measured | **GREEN (RECORDED)** |
+| **AP-31** | one-sided invariant | both sides refuse | **GREEN** |
+| **AP-33** | "Idempotent" was prose | idempotent in fact | **GREEN** |
+
+**7 of 7 turned. Zero RED. Zero escalations.**
+
+#### 6. §7 cadence, at the settled bytes
+
+| check | reading |
+|---|---|
+| `npx vitest run` (whole suite) | **2 failed / 460 passed (35 files)** — **double-run**, and **byte-identical to the baseline taken before this unit wrote anything**. Both failures are sibling waves' born-RED canaries: `test/spectrum-luma.test.ts` C-5 and `demo/test/shell/reka-binding-idiom.test.ts` NG-6 (the latter over `SearchFilterBar.vue`, an X-W4 dirty file). Neither is transport's, neither moved. |
+| `npm run typecheck` (lib · demo · test · e2e) | **exit 0**, all four bands, with its `pretypecheck` build green (`✓ built in 2.22s`) |
+| the cluster probe | **12 passed / 0 failed**, double-run identical |
+| `node scripts/ci/boot-smoke.mjs --mode=dev` | **2/8 seed cases** — *seed-for-seed and error-for-error identical to X-W1's recorded baseline* at `cad51f9e` (`X-W1.md:535-544`: `default` + `deep-link-grey-808080` pass; the other six fail on `PickerColorError: Missing hsv.h/lch.h/oklch.h`, the R16/R17 arms X-W1 relieved to **X-W5 · X-W9**). ⟨cmd⟩ a case-insensitive grep of the transcript for `apiunavailable\|provideApiClient\|useApiClient\|API_CLIENT_KEY\|initApiEnvironment\|MISCONFIGURED` → **0**. The AP-24 boot-path move changed the boot's truth by nothing. |
+| `npx prettier --check` over the touched paths | `client.ts` **clean** · `useApiClient.ts` **clean** · `availability.ts` **warns** — and it **warned before this unit**: ⟨cmd⟩ `git show 02238dbb:…/availability.ts \| npx prettier --stdin-filepath … --check` → warns. The sole complaint is the hand-wrapped `ApiAvailability` union at `:41-45`, **a line this unit never touched**; reformatting it would put bytes no row asks for into a cure commit. `api-problem.ts` likewise pre-existing, and untouched by this unit. Booked as residual 4. |
+| `git diff --check` | clean on every commit |
+| `cd api && npm run lint` | **not run — the script does not exist** in `api/package.json`; X.W3.6 booked the same wave-level fact. This unit wrote **no api byte**. |
+
+#### 7. E13 mail — swept at this seat's own clock
+
+⟨cmd⟩ `date` → `2026-09-18 18:20:59 EDT`. ⟨cmd⟩ `/usr/bin/find <the four paths> -maxdepth 1 -type f
+-name '*.md' -newermt "2026-09-18 17:10"` → exactly **two**: `INBOX.md` (**self-excluded**, SELF-COUNT
+law) and `../glass-ui/…/glass-outbound-2026-09-18-valuejs-o26-reply.md`, **already rowed `I-35`**,
+status READ+CONSUMED, routed **X·KF (Track B)** by its own Routing cell, and whose third revision was
+already declared by KF.W7's 17:54 seat. **0 unrowed · 0 new `I-n` minted · 0 `O-n` minted.**
+Vocabulary check against **this unit's** scope ⟨cmd⟩ `grep -ciE
+"transport|availability|cooldown|ApiOfflineChip|initApiEnvironment|baseUrl|unreachable"` over I-35 →
+**0**. **0 UNREAD in X.W3.7's scope**; glass-ui stayed **READ-ONLY** and no byte was written in any
+sibling tree.
+
+#### 8. Bounds and commits — measured, not asserted
+
+**Eight commits**, each with its pathspec **on the commit itself**, each carrying its
+`Claude-Session` trailer:
+
+| # | hash | meaning |
+|---|---|---|
+| 1 | **`02238dbb`** | `docs(X·W3)`: the E-3 addendum-beside (the widening) |
+| 2 | **`a5e88743`** | `fix(demo/transport)`: AP-17 — ONE probe per window |
+| 3 | **`8a094ed8`** | `fix(demo/transport)`: AP-31 — the misconfig defended on both sides |
+| 4 | **`2d9f45ff`** | `refactor(demo/transport)`: AP-12 — one owner for the trip condition |
+| 5 | **`6090c798`** | `fix(demo/transport)`: AP-33 — idempotent in fact |
+| 6 | **`c131f2da`** | `fix(demo/transport)`: AP-24 — the init moves to `provideApiClient()` |
+| 7 | **`c6e67eb1`** | `refactor(demo/transport)`: AP-29 — the dead member deleted |
+| 8 | **`cf7fb325`** | `docs(X·W3.7)`: the four §8 artefacts |
+
+⟨cmd⟩ `git show --name-only --format="" <the eight>` | `sort -u` → **8 distinct paths**:
+`demo/platform/transport/{availability,client,useApiClient}.ts` ·
+`docs/tranches/X/waves/W3.md` · the four `docs/tranches/X/waves/artefacts/W3/W3-7-*` files.
+**Every one inside this unit's writable set; zero outside it.**
+`demo/platform/transport/api-problem.ts` is in bounds and was **not** written — no row asked for it.
+⟨cmd⟩ the same list `| grep -c "dev.sh"` → **0**. No sibling seat's staged path appears in any commit
+of this unit; nothing was reset, unstaged or stashed.
+
+#### 9. Residuals carried out of this unit, each with a named owner
+
+1. **`App.vue:217`'s comment still enumerates `baseUrl`** among the provided members after AP-29
+   deleted it → **X-W5** (`demo/color-picker/App.vue` is its containment file, COHESION §0k.3 S-7).
+   Out of this unit's bounds; a one-word comment is still a write.
+2. **The seven `is unreachable.` sentences** → **X-W7** (AP-12's surface half, by the record's own
+   split). They consume `isBackendUnreachable`; until they do, the two trip conditions still
+   disagree **at the surfaces**, and this unit claims nothing else.
+3. **No permanent repo spec for these rows** → a successor holding `test/**`. The probe source is
+   embedded verbatim in the artefact so installing it is a copy.
+4. **`availability.ts` + `api-problem.ts` are prettier-nonconforming, and were before this unit** →
+   a formatting sitting. Not reformatted here, deliberately (§6).
+5. **AP-1 / AP-9 and `ApiOfflineChip.vue` itself** → **X-W7**. This unit's widening is
+   `demo/platform/transport/**` and nothing beside it.
+
+**Escalations: none.** Every cure the ruling named was reachable at the bytes inside the widened
+bounds.
+
+#### 10. §8 artefacts banked by this unit
+
+Under `docs/tranches/X/waves/artefacts/W3/`: `W3-7-born-red-before.txt` ·
+`W3-7-cluster-after.txt` · `W3-7-boot-smoke-dev.txt` · `W3-7-transport-cluster-record.md`
+(AP-30's terminal record · AP-12's split with the 7-sentence census · the five residuals · the
+cures considered and refused · the probe source verbatim).
