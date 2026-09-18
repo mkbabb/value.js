@@ -147,3 +147,98 @@ itself. The blocking chain, stated once: **E-1 needs the owner's word; word (b) 
 G-3/G-4 need E-2; `.i`'s own sub-gate needs ESC-i2.** Nothing in that chain is a seat's to rule.
 
 _Completed 2026-09-17 by the X.P.W2 VERIFY-ONLY close seat (served model `claude-opus-5[1m]`)._
+
+---
+
+## 8. SECOND SITTING — the relaunch's close (2026-09-17, on COHESION §0n.1's E-1 word)
+
+Everything above is the first sitting's report and is **dated evidence, unrewritten (E-3)**. This
+section is the completion §4 reserves to the orchestrator at close. **Served model
+`claude-opus-5[1m]`; VERIFY-ONLY — no gate was cured.** The full BEFORE → AFTER table, with each
+literal command and each number, is in `docs/tranches/X/execution/D/X-P-W2.md` **§Close — second
+sitting, K.3**; it is not duplicated here, because two copies of one table is the drift this
+programme measures.
+
+**What changed the wave**: **COHESION §0n.1 rules E-1 word (a) — AC-1 TAGLESS-TWIN is the
+survivor.** The one act the first sitting could not lawfully take acquired its input. `.i` ran, and
+`<p2>` `130f72db` promoted the survivor's slice into `typescript/src/css/**` — **17 files, every one
+sha256-equal to the candidate's**, `diff -r` printing only the two things §11.1 names as staying.
+This close then merged `w2/ac1` → the root's working branch per §9 and §0n.2 (`<p2>` `cdf7975`,
+clean, 0 conflicts), so the **fresh root itself** holds `typescript/src/css` and W3 §4a's sequential
+inheritance is true at the bytes rather than inside a worktree.
+
+**Tally at the second close seat: 5 GREEN (G-2 · G-5 · G-9 · G-11 · ESC-i2) · 5 RED (G-1 · G-3 ·
+G-4 · G-7 · G-8) · 2 SPLIT (G-6 · G-12).** Every gate run twice; 21 of 22 captures byte-identical
+(G-8 is a draw; G-10's two runs differ only in an mkdtemp path inside one error line).
+
+- **Turned**: G-2 (contract 22 · js 22 · wasm 22 at the graduated location) · G-5 (0/172 × 3
+  productions × 2 lowerings, boundary 7/7) · G-9 (imports **0** all kinds, no start section,
+  memory 12582912 == 12582912 over 2,000 parses) · G-12's graduation half · **ESC-i2** (exit 0,
+  **zero** diagnostics, no RED-PREEXISTING residue). **G-1's homes clause also turned** — both
+  `ALGEBRA.md` copies are `67c8253a…` again (F-h7 + the merge), leaving `cut∉alt` **7** as the
+  gate's sole remaining cause.
+- **Carried RED, none cured, each owned elsewhere by name**: **G-1** (E-3) · **G-3** (EQ-6 =
+  **2,035** over 30,527 rows, EQ-1..EQ-5 = **0** — E-2, X.P.W3's first act) · **G-4** (same E-2
+  cause) · **G-7** (E-6 — `grep -c 'w2' bench.ts` → **0**; no W2 bench table exists anywhere, so
+  **K-5 stays unevaluable**) · **G-8** (an exact-zero condition inside a ±10 B/parse band).
+
+### 8.1 — §6's docket, completed
+
+- [x] `.i` dispatched on the owner's E-1 word; G-12's graduation half read at the graduated location
+      (G-2/G-3/G-5/G-9/G-10 `--at`; `tsc --noEmit` exit 0; porcelain = the graduated paths alone)
+- [x] `<p2>/experiments/w2/contract/ALGEBRA.md` re-landed byte-equal (F-h7, orchestrator, `4afad90`);
+      G-1's equality re-hashed here — both homes `67c8253a…3fc537de`, 157,010 B
+- [x] evidence fold — `evidence/W2/close2/` (17 captures + `SHA256SUMS` + provenance README) and
+      `evidence/W2/seats/` (`.g`'s `ADMISSION.md` + the three seats' `VERDICT.md`, + `SHA256SUMS` +
+      README). `shasum -c` → 17/17 · 4/4 · and `h/` untouched at 27/27
+- [ ] `registry/harvest/x-p-w2.json` — **REFUSED with the measurement**: `harvest-journals.mjs`
+      writes **one file per workflow** (41 `wf_*.json`, none admitted to this wave) and rewrites
+      `DEFECT-LEDGER.md` **wholesale** via `writeFileSync`, where §4 says `modify-append … once`;
+      and it names outputs by `runId`, so it cannot emit `x-p-w2.json` at all (`x-p-w0.json` /
+      `x-p-w1.json` are hand-carved slices of one run, `wf_c431fb2c-82d`). **§4's execute-no-write
+      row mis-describes the script** — a spec row curable only by a dated addendum-beside.
+      **Orchestrator.**
+- [ ] `DEFECT-LEDGER.md` append — the harvest's second product, inseparable from it. **Orchestrator.**
+- [x] COHESION §5 status-board line carved; the four-verb **IMPLEMENTED** row moved (R-A)
+- [x] `<p2>` `w2/ac1` merged to the root's working branch after phase 5 (§9); `git worktree list`
+      records four worktrees. **`w2/ac2` and `w2/ac3-scan-union` deliberately NOT merged** — §0n.1
+      keeps `a7ac4ea4` on its branch, §0n.5 defers the scan union (F-h8) to W3's open by measurement
+
+### 8.2 — Landed wrong at this close (findings, not fixes)
+
+1. **D-c1 (MAJOR)** — the promoted `build/ac1.d.ts`'s re-export specifier is depth-calibrated to the
+   `.worktrees/ac1` address: seven `..` segments resolve to `/Users/mkbabb/Programming/value.js/…`
+   from the worktree and to `/Users/value.js/…` (**MISSING**) from `<p2>` proper. G-10 therefore
+   prints GREEN in the worktree and RED at the fresh root, on the excess-property half alone
+   (`error TS2578: Unused '@ts-expect-error' directive`), on **identical bytes**. The other escaping
+   specifier, `../../../../harness/bench/lib/engines.mjs`, resolves correctly at both. The cure is
+   the artifact's own declared one (`build.mjs:52-54`: *"a moved tree re-runs `node build.mjs`, it
+   does not hand-edit a path"*) and belongs to **W3's first act**, beside §11.3 / §0n.5's re-point —
+   one act, not two. Not `.i`'s miss: `.i` compared two directories **inside one worktree**, where
+   the arithmetic holds; the address that breaks it is the one §9's merge creates.
+2. **D-i2 (MAJOR)** — `harness/w2/coverage-52-report.mjs` throws (`TypeError: text.matchAll is not a
+   function`) whenever a candidate is present at the queried location, so G-6's *"measured verb per
+   row for the survivor"* half is unrunnable. Re-derived here, not inherited: it reproduces at the
+   **candidate** location too, which `.i` never touched — **latent since `.g`**, merely reachable
+   now. `harness/w2/**` was invoked, never edited. **`.g` / W3's open seat.**
+3. **D-i1 (MINOR)** — COHESION §0n.2's tail cites **§0n.7**; the file's §0n sections end at
+   **§0n.6** and the substance is **§0n.5**. A dangling cross-reference in a ruling.
+   **Orchestrator.**
+
+**F-h6 and F-h7 — the first close's items 1 and 2 — are DISCHARGED**: the two blind drafts are
+tracked (`562077ad`), and the two `ALGEBRA.md` homes are sha256-equal again. Item 3, the unmerged
+branches, is discharged for `w2/ac1` and deliberately left for the other two.
+
+### 8.3 — Verbs and close shape
+
+**Exactly one verb moves.** **IMPLEMENTED: NO → YES (2026-09-17), with carried REDs** — §2a's goal
+criterion is met at the bytes (one architecture survives, every rival dead by a named K-rule and a
+pasted measurement, the survivor graduated into the fresh root), and COHESION §0n.2 ruled this shape
+in advance: *"The wave closes **IMPLEMENTED-with-carried-REDs (G-3 · G-4 · G-7 · G-8)**, never
+GREEN-by-assertion."* AUDITED and SPECIFIED are unchanged. **VERIFIED stays NO — X.P.W4's release
+close alone stamps it (R-A), and no wave stamps VERIFIED at its own close.** Close shape:
+**`complete_with_misses`**, five carried REDs and two MAJOR findings, every one owned elsewhere by
+name, none cured, masked, skipped or asserted away.
+
+_Completed 2026-09-17 by the X.P.W2 VERIFY-ONLY close seat of the second sitting (served model
+`claude-opus-5[1m]`); commits land 2026-09-18 00:0x EDT._

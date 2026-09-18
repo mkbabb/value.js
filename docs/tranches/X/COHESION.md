@@ -157,6 +157,36 @@ the per-component apotheoses are authoritative.
   are never merged. **G-8 (R1 totality) stands RED by its own design** — re-measured `324 throws /
   1,548 calls`, unpiped exit 1 — because this wave writes no grammar. **IMPLEMENTED is the wave's
   own close report's stamp; VERIFIED is X.P.W4's alone (R-A).**
+- 2026-09-17 (later): **X·P W2 IMPLEMENTED-with-carried-REDs — one architecture survives and is
+  graduated; four candidates carry terminal verbs.** Ten units ran across two sittings; the second
+  opened on §0n.1's E-1 word (a) and owed exactly one act. `.i` promoted **AC-1 TAGLESS-TWIN**
+  into `<p2>/typescript/src/css/**` **mechanically** — 17 files, every one sha256-equal to the
+  candidate's, ⟨`diff -r experiments/w2/ac1-tagless typescript/src/css`⟩ printing only the two
+  things §11.1 names as staying (`<p2>` `130f72db`), **zero move-forced import edits, proven with
+  node's own resolver**; the close then merged `w2/ac1` → the root's working branch per §9 and
+  §0n.2 (`<p2>` `cdf7975`, clean, 0 conflicts), so the fresh root itself now holds `typescript/src/css`
+  and **W3 §4a's sequential inheritance is true at the bytes, not only in a worktree**. At the close
+  seat's own clock, twice-run: **GREEN** G-2 (contract 22 · js 22 · wasm 22, fingerprints pairwise
+  equal, at the graduated location) · G-5 (candidates 0/172 × 3 productions × 2 lowerings, boundary
+  7/7 — while the incumbent's published baseline re-reproduces **324 throws / 1,548 calls**, R1
+  still live) · G-6 (52 rows ∅ both ways, report half, OP-8) · G-9 (imports **0** over all kinds, no
+  start section, 5 enumerated exports, memory 12582912 == 12582912 over 2,000 parses, K-9/K-10
+  intact) · G-11 · **ESC-i2** (exit 0, **zero** diagnostics, no RED-PREEXISTING residue, no root
+  `tsconfig.json` minted). **CARRIED RED, every one owner- or instrument-owned and none cured
+  here**: G-1 (`cut∉alt` **7** — E-3; its other limb, the two `ALGEBRA.md` homes, is GREEN again
+  post-F-h7 and post-merge, both `67c8253a…`) · G-3 (**EQ-6 = 2,035** over 30,527 rows, **EQ-1..EQ-5
+  = 0** — E-2, W3's first act per §0n.3) · G-4 (R-LAW-2, same E-2 cause) · G-7 (**E-6**, no
+  registration surface: ⟨`grep -c 'w2' harness/bench/bench.ts`⟩ → 0; W3's per §0n.4) · G-8
+  (instrument band). **G-12 SPLIT→GREEN-WITH-RESIDUALS**: ledger 4/4 terminal, graduation landed.
+  Two findings the close surfaced and did not fix: **D-c1** — the promoted `build/ac1.d.ts`'s
+  re-export specifier is depth-calibrated to the `.worktrees/ac1` address and resolves to a
+  non-existent path at `<p2>` proper, so G-10 prints GREEN in the worktree and RED at the root on
+  the excess-property half alone; the cure is the artifact's own declared one, `node
+  typescript/src/css/build.mjs`, and it is W3's first act beside §11.3's re-point. **D-i2** —
+  `harness/w2/coverage-52-report.mjs` throws whenever a candidate is present at the queried
+  location, latent since `.g`, reachable only now. **No bar was set, implied, or printed**;
+  `OWNER-GATED-PENDING-RATIFICATION` stands (OP-4 / §0j.E OC-1). **IMPLEMENTED is this wave's own
+  close report's stamp; VERIFIED is X.P.W4's alone (R-A).**
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
