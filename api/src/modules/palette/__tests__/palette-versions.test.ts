@@ -134,9 +134,12 @@ describe("service.palette.versions", () => {
         expect(computeContentHash("Sample", colors)).toBe(expected);
     });
 
-    it("G-7: length framing defeats field-boundary confusion", () => {
-        // Without `uint64be(len)` framing these two collide under naive
-        // concatenation: ("ab","c") vs ("a","bc").
+    it("G-7: field boundaries are separated — ('ab','c') ≠ ('a','bc')", () => {
+        // These two collide under naive concatenation. NOTE what this row does
+        // and does not measure: the per-field domain labels alone are enough to
+        // separate them, so this stays green if the `uint64be(len)` prefix is
+        // removed. The length prefix is measured by the exact-digest
+        // reconstruction above, which reds the moment it is dropped.
         const x = computeContentHash("ab", [{ css: "#000", name: "c", position: 0 }]);
         const y = computeContentHash("a", [{ css: "#000", name: "bc", position: 0 }]);
         expect(x).not.toBe(y);
