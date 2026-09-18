@@ -841,3 +841,171 @@ Pathspec on every commit; **`scripts/dev/dev.sh` in 0 of 8**; zero glass-ui byte
 3. **A-c-3 — the morph bounds seam, the reciprocal face of `.a`'s `A-a-5`.** `MorphPhaseConfig.vue`/`MorphShapePreview.vue` are in `components/morph/`, outside this unit's grant, while their `MPC-*`/`FR-MSP-*`/`MSP-*` rows are in §2.K. ⊘ **`MPC-31` is declared a ONE CUT and cannot be half-landed across a bounds seam** — the brief ordered it second among this unit's acts, the bounds place its file elsewhere, and **the bounds govern**. One ruling closes both ends. ⊘ A third arm — splitting `MPC-31` across two seats — is named here so it is refused explicitly rather than by omission.
 
 **Carried, named, not landed** (no leaf grown, no silent drop): `fr-ContourPreview D:m-6` — **unruled, `SS-3` decides**, and this seat owes the decider one changed fact: arm (b) was priced *"with row 40 or not at all"*, row 40 landed without it, so **the joint pricing window closed by execution** (**A-c-7**) · `CCD-D-4/L-1/C-3`'s Publish re-entrancy — ⊘ **not authored as if the error channel worked**; `fr-VisualizationView L-26` is F.W3's and the server arm F.W5's, both cited, neither booked (§5.2 twin seam (1)) · `fr-CanvasControlsDock C-28` cited, booked F.W5 · `fr-BasisCanvas M-β1`'s ramp — only `canvas-drawing/transforms.ts` is this wave's, three of four homes are F.W3's, and **a unilateral edit at either end leaves the 213°-vs-262° divergence intact**, so the constraint is stated and nothing half-landed (§5.2 twin seam (3)) · `AC-D-1`'s `--dock-max-inline-size` rename + `SW-1`'s CAP→FLOOR amendment + the dock scoped-block frame break (a **GLASS-RELAY** ask, never a frontend hack) · `ECD D-26` and `CCD-L-9`'s latent rider · `CCD-M-1`'s exit-after-save BLOCKER, `CCD-M-3`, `ECD-M-2` · the §2.D `AC-*`/`EP-*`/`ECP-*` MINOR sweeps and `SS-C-8`/`SS-L-09` · SS-13 flags **deferred, never resolved inline** (`AC-D-1`/`SW-1` · `MPC-31`'s cured scheme at a non-boot state · the coarse-factor readbacks · `CCD-D-8`/`ECD-D-4` · `ECD-D-3`'s readback).
+
+---
+
+### `.b` — the `/equation` route, whole (instrument + authoring surface)
+
+**Seat**: `.b`, `claude-opus-5[1m]`, 2026-09-18. **Status: PARTIAL** (every act below landed; the residuals are named at §Residuals with why, and two contrast-registry rows are OWED to the path owner rather than written out of bounds).
+**Writable set honoured exactly**: `web/src/components/equation/**` · `web/src/components/visualization/{CoefficientsPanel,EquationPanel}.vue` · `web/src/lib/equation/**` · `web/e2e/unit/curve-transition.vitest.ts` (`.g`'s ruled runner home) · `docs/tranches/X/fourier/F-W4-ADDENDA-b-2026-09-18.md` ⊕ this receipt. **⊘ Not one byte outside it.**
+
+#### Act 0 — CRASH-RECOVERY sweep (standing law): nothing inherited
+
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **∅** (clean; branch `m/w1-bump-migration`, HEAD `e365203` = `.a`'s last).
+⟨cmd⟩ `git -C /Users/mkbabb/Programming/value.js status --porcelain` → 12 modified ⊕ 3 untracked, **none inside this unit's writable set**: ten `demo/**` SFCs and `CARRY-LEDGER.md` are sibling seats'; `scripts/dev/dev.sh` is the unowned standing-dirty path (**NEVER touched, never staged**); `docs/tranches/X/waves/evidence/` and the two `e2e/smoke/**a11y-control-targets.spec.ts` are Track A's.
+**Zero inherited paths. No killed predecessor seat's partial work exists on this unit.**
+
+#### Act 1 — anchors verified at the true bytes BEFORE any write
+
+Every line coordinate this unit's rows cite has drifted (`EquationView.vue` reads **478** lines against the registry's 469). **INTENT was taken at the true bytes in every case and the class is recorded** — the drift table is §1 of the addendum, and no coordinate was used as an identifier.
+
+⊘ **One bounds resolution, stated because it decided where a file could be written.** The dispatch's writable-set string is truncated mid-entry (`"web/src/... the snapshotForTransition test file at .g's ruled runner home"`). `src/lib/equation/**` is resolved to this unit by three independent readings that agree: the wave record's `.b` **Writable** line, §1 Bounds' **Equation** row (which names `lib/equation/*` in the same row that grants this unit its surface), and **this unit's own SP-18 LOCK**, which names `lib/equation/` as the singleton's required home. No other unit claims it. Files written there: `render.ts` (new) · `notation.ts` · `api.ts`.
+
+#### Act 2 — the born-RED readings (double-run, before any write)
+
+| gate / row | BEFORE (both runs agree) |
+|---|---|
+| **G-F4-KATEX-QUIET** | **4** `katex.renderToString` call sites, three byte-identical option triples, one omitting `trust`, three divergent fallbacks. ⟨cmd⟩ node, twice: a two-hook sigma render with `trust:true` and no `strict` → **`warns=2`** |
+| **G-F4-VUE-TSC-CLEAN** (this unit's four sites) | `useCoeffHover.ts(22,5) notation` · `EquationView.vue(57,7) loading` · `FrequencyGraph.vue(2,43) onUnmounted` — **3** of the four; `BasisSelector.vue(11,7)` is `.c`'s. Tree total **17** |
+| **G-F4-VITEST** | `Test Files 4 passed (4) · Tests 28 passed (28)` — no `snapshotForTransition` seam assertion for `L-M1` |
+| **G-F4-CONTRAST-FLOOR** | `FR-CP-D1` and `EV D·D-B3` both in `PAIRS_AWAITING_THEIR_OWNER` with `owner: ".b"`; `FR-EQR-7[instance]` in `CONTRAST_PAIRS` at `rgb(34 197 94)`. Measured: axes **1.190 L / 1.370 D** · original curve **1.404 / 3.102** · tier inks **2.127 / 1.979 / 3.503 L** · success glyph **2.110 L** |
+| **G-F4-PRM-CLOCK** | **2** rAF owners in this surface (`ConvergencePlot.vue` · `useCurveTransition.ts`), **0** consulting PRM. The autoplay clock started itself at mount |
+| **G-F4-DEAD-DEP** | `FrequencyGraph`'s selection contract live with **zero** consumers — ⟨cmd⟩ `grep -rn "activeIndices\|toggle-harmonic\|hover-harmonic" src/` minus the file itself → **∅** |
+| **G-F4-CENSUS-CELLS** | None of the six named cells is this unit's (enumerated at §Gate readings). Vacuously held, stated not assumed |
+
+#### Act 3 — SP-18, the KaTeX singleton, FIRST (`4a770c2`)
+
+The lock's own words: *four-site patching is an `FR-EQR-17` ESCALATION at wave-open*, so the singleton landed before anything else. `lib/equation/render.ts` carries **`FR-EQR-15`/`I-3`** (a trust **HANDLER** — `\htmlClass` only, over the closed class set the backend's four emission sites use, everything else refused; ⊘ never `trust:false`, which deletes the hover feature *silently*, and never a naive `() => true`), **`FR-EQR-16` ⊕ `fr-CP L-M8/C-9`** (`escapeHtml` in the one catch), **`FR-EQR-19`** (the `strict` callback), **`FR-EQR-4`** (`plainLatex()`). **`FR-EQR-18`**'s residue landed as the comment naming the four-file two-language contract at the DOM-owning component.
+
+⟨cmd⟩ (node, twice) handler + strict silencer over a two-hook sigma render → **`warns=0 hooks_intact=true`**. The feature and the silence are both real; that pair is the whole of I-3's constraint.
+⟨cmd⟩ `grep -rn "renderToString\|from \"katex\"" src/ | grep -vc "lib/equation/render.ts"` → **0**.
+
+Riding the same `useCoeffHover` edit: **`L·m-2`** (the `notation` ref it never read), **`L·m-3`** (ONE fold, ONE epsilon — the second ±n fold with a `1e-10` against the canonical `1e-14` is gone, and `fr-CP L-m12`'s O(n²) `find` pair with it), **`L·m-12`** (one `MAX_ROWS`, so six harmonics stop promising a seventh).
+
+#### Act 4 — the compute identity (`bfbc7ec`)
+
+**`M-CK`** first, because it *binds* `B-1`'s cure: the key returned 4 fields while the POST carried 7, two of them response-determining, which is why **both** prescribed `B-1` cures reproduced `B-1` one layer down. ONE normalization seam (`currentRequest()`) now produces the body **and** the keys, which discharges **`R2-N5`** (the key read the untrimmed expression while the body sent the trimmed one) in the same stroke.
+
+**`B-1` BLOCKER cured**: `notation` is in the compute identity, so the notation watcher routes through `doCompute` — the only operation that can refresh `latex_sigma`, since `/simplify` carries no such field on either side of the wire. ⊘ `budget` stays OUT and the comment states why the omission is **sound**: every response field is either keyed or repaired by the `doSimplify` the memo branch calls. **`L·m-1`**'s `force` memo comes alive as the budget-only cheap path — *after* the key fix, never before, exactly as the spec sequences it. **`L·M-3`**: the result record carries its own key, so a restore compares PROVENANCE instead of nullity and the corrective recompute that could never fire now does. **`C·D-04`**: both loaders shape-check between `JSON.parse` and the caller.
+
+#### Act 5 — `B-2`, the budget bound (`b34226a`)
+
+Three parts, none of them the slider-side clamp **`M-BR`** killed by enumeration (the restore path never passes through the slider): **`L·M-6`** deletes the rescale arm whose guard was a tautology and which IS the recurrence engine (`budget(v) = v − 10` on a monotone up-drag), keeping only the honest half and gaining `immediate: true` so a reload reconciles at all; the request seam clamps into `[2, 50]`, a local mirror of the server bound **until F.W5–W8 mints the shared constant, cited not booked**; **`FI-N-5`** clamps the Display-terms WRITE, so the control can no longer display a number the component will not send.
+
+#### Act 6 — the error channel, ONE edit (`063975f`)
+
+⊘ The lock is *"`EV-C·D-02` and its banner are ONE edit"*, because the two defects gate each other's reachability, and they landed as one. **`C·D-02`'s client half**: `title` falls back to an empty `statusText` over HTTP/2 and an empty string is falsy, so a real failure rendered as SILENCE; a failure names itself now whatever the envelope carried. **`D·D-B4`**: `loading` had zero consumers since it was written — it dims the stage and drives `aria-busy`, and doSimplify's terminal `/* silent */` catch gets doCompute's banner, which is the seam the user actually drives. **`L·m-10`**: any successful settle clears `error`. **`D·D-M6`**: `role="status"` / `role="alert"` / `aria-hidden` on the spinners, in ONE pass with the loading wiring as the record asks. **`D·D-M7`**: the message wraps and carries a `title` instead of truncating into nothing, and both error surfaces offer a retry.
+
+#### Act 7 — SP-1, abort identity and teardown (`bc90680`)
+
+**`L·M-2`**: a generation counter per abort key, so request A's `finally` stops clearing `computing` while B is in flight — the arm that dropped the template into the empty state mid-compute. doSimplify takes the same shape, because `D-B4` just gave `simplifying` the template consumer whose absence made its identical race consequence-free. **`L·M-7`**: `onScopeDispose(() => abortInflight([...]))`, with the two keys named once beside the calls that register them. ⊘ **`I-2` honoured**: the empty state is this defect's only visible symptom and was left standing, not cleaned up as an unused branch.
+
+#### Act 8 — SP-4, the three plot clocks under the terminal-frame law (`1e40f02`)
+
+⊘ **`M-D1` is the whole constraint and it is honoured literally.** Both prescribed gates freeze at `t = 0`, and at `t = 0` `easeInOutSine(0) = 0`, every `harmonicProgress` returns 0, every cursor is 0, the `cursors[hi] < 3` guard skips EVERY harmonic stroke and hit region, and the sum collapses to DC — a blank grid whose only escape is a keyboard-dead scrubber. **The reduced arm seeds `t = 1`, the TERMINAL frame.** The transition clock takes PRM as an **argument** rather than a media query (the module is pure and node-assertable) and settles at `progress = 1` — the NEW curve — and paints once. A user who presses Play still gets motion; what PRM gates is the clock nobody asked for.
+
+**`L-M3 + D-26`**: an IntersectionObserver gate, because the mobile panel is `display:none` WHILE MOUNTED and a `display:none` element never intersects. **`L-B2`**: the store's two guards ported (the old `rafId !== null` predicate was untruthful because `tick`'s early return never nulled it) and `playing` cleared on unmount, the arm where an orphan rAF retained the whole closure. **`M-L7`**: the component's own PRM media block deleted — ⟨cmd⟩ glass-ui `utilities/a11y-overrides.css` opens `@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:0.01ms !important;…}}`, so the one act of compliance was a no-op.
+
+#### Act 9 — SP-3, the contrast pairs (`99aea3e`)
+
+**`FR-CP-D1` BLOCKER**: theme-blind BY ENUMERATION, so three frozen greys painted the same pixels in both arms. The canvas already carries `text-muted-foreground`, so `getComputedStyle().color` hands back the USED value with `light-dark()` and the alias chain resolved by the engine — the sibling `FrequencyGraph`'s own in-tree probe, and the only form that follows a theme flip without a string-parsing guess. Hover moves to stroke WIDTH, which was always the second channel; the brightness step that used to carry it is what put the resting curve at 1.40.
+
+⊘ **The `golden` limb is NOT cured and is NOT silently dropped**: `VIZ_COLORS.golden` is absent from `resolveVizColors`'s token list in `lib/colors.ts` (**`.f`'s**) and the shimmer paint lives in `lib/golden-shimmer.ts` (**in no unit's writable set**). The spec routes the swatch/shimmer JOIN through `fr-ConvergenceLegend C-2` as an **F.W2 edge**; the resolver line is declared to `.f` at addendum §3.
+
+**`EV D·D-B3`**: three hard-coded sRGB triples bypassing the token layer, one import away from a `style.css` override that had already measured 3.54 as a failure. Routed through the app's ramp; the pill's plate goes transparent because a 15% tint OF THE INK darkened the ground under the colour it was tinting. **`FR-EQR-7` (instance)**: the success glyph leaves `text-green-500` for the same ramp — ⊘ adopting the producer's `--success` would have restated the defect in token clothing (it fails at 2.175 itself). **`L·m-7`**: `TIER_INFO` keyed by `EquationTier`, with the fallback the type system had proved dead surviving as a function, because the backend types `tier` as a bare `str`.
+
+| pair | BEFORE | AFTER | floor |
+|---|---|---|---|
+| `FR-CP-D1` axes | 1.190 L / 1.370 D | **3.380 / 4.038** | 3 |
+| `FR-CP-D1` original curve | 1.404 / 3.102 | **3.716 / 4.360** | 3 |
+| `EV D·D-B3` symbolic | 2.127 L | **4.272** / 7.193 | 4.5 — ⊘ **0.23 SHORT, disclosed** |
+| `EV D·D-B3` identified | 1.979 L | **4.532** / 7.715 | 4.5 |
+| `EV D·D-B3` spline | 3.503 L | **4.527** / 4.851 | 4.5 |
+| `FR-EQR-7` instance | 2.110 L | **4.272** / 7.193 | 3 |
+
+⊘ The banked figures reproduce within 0.05 (the record's ground is `--popover`, this seat's `--card`); conclusions unchanged. ⊘ The `symbolic` residual is a PRODUCER row: no light-arm stop in the ramp clears 4.5 (the nearest, `--section-color-10`, is 4.239) and minting a local hex is the exact defect `D·D-B3` charges. It rides the GLASS-RELAY letter.
+
+#### Act 10 — SP-5 ⊕ SP-7 ⊕ SP-8, and the `FR-EQR` hygiene sweeps (`2394f9a`)
+
+**`D·D-B2`** ×2 (the info button and the Wand2 auto-harmonics button — a Tooltip supplies a description, and a description is never a name) · **`FR-EQR-26`** (named by `title` alone, three lines from a sibling already using `aria-label`) · **`FR-EQR-6`** (the scroll region had no tabindex, no role, no name, over a KaTeX span tree with no focusable descendant) · **`FR-CL-D-7` ⊕ `FR-EQR-23`** — ONE `<FadingScroll>` adoption, two records, and ⊘ **`M-R2`'s ordering lock is discharged by construction**: the producer's port ships `tabindex="0"` and `role="region"` when named (byte-read at the installed dist), so `scrollable-region-focusable` cannot fire ahead of the hover findings · **`FR-EQR-8`** (`justify-content: safe center`; ⊘ K-7's kill honoured — deleting `text-align` alone is a no-op because the vendor sheet does the centring) · **`FR-EQR-5`** (awaited, and announced, with `status` read by name — the `failure` arm the callsite discarded) · **`FR-EQR-25`/`-13`** (`:disabled="!latex"`) · **`M-FR`** (glass-ui's ring is a purely OUTSET box-shadow with the native outline already deleted, and `overflow: hidden` clipped it off both toggle buttons; ⊘ `overflow: clip` does not help, so a frame gives the ring somewhere to land) · **`D·D-M12`** (aria-pressed on the toggle and the pills, against a primitive whose CVA ships the arms and a pattern `notation.ts`'s own docblock describes) · **`C·D-22`** (the `:disabled` that could fire from neither end) · **`D·D-m6`** (Compute with an empty expression was a dead button) · **`M-ZM`** (`--z-modal` → the exactly-named `--z-hovercard` rung) · **`M-US`** (the tier description is selectable again) · **`FR-EQR-22`** (the unearned `!important` and the `overflow: visible` that restated the initial value).
+
+#### Act 11 — `L-M1`, in ONE edit with its test (`8c74054`)
+
+The snapshot was taken from the NEW state and called previous: `trigHarmonics`/`dcTerm` are computeds and a pre-flush watcher runs after the source has mutated, so every harmonic and DC lerp was an IDENTITY for all `tp` and the bounds came from a hybrid state that never existed on screen. `old[1]` was in the watcher's hand the whole time. ⊘ **The `deep: true` drop is in the SAME edit and is not a tidy**: a deep watcher on in-place mutation returns the same reference as both arguments, destabilising the very `old` tuple the cure reads (`SP-16`'s member — the traversal was priced for nothing). The 6-line assertion lands at the seam `RD-8` named as the reason this survived (*"there is no seam at which the identity-lerp could have been observed"*): it asserts the snapshot's bounds depend on the harmonics argument at all.
+
+#### Act 12 — `L-B3`, memoised AND MEASURED before `.f`'s study (`b3b9a35`)
+
+Memo key exactly the record's — `[coefficients, nHarmonics, domain, transition.progress]`, identity-compared. **The measurement `G-F4-CONV-STUDY` is gated on**, double-run, at the component's own arithmetic (500-point grid):
+
+| N | per-frame (run 1 / run 2) | trig calls | allocations |
+|---|---|---|---|
+| 20 | 0.289 / 0.284 ms | 40,000 | ~10,520 |
+| 60 | 0.848 / 0.869 ms | 120,000 | ~30,560 |
+| **100** (UI ceiling) | **1.377 / 1.417 ms** | **200,000** | **~50,600** |
+
+Reproduces the record's ≈200k/≈51k estimate; ~8.5% of a 60 Hz frame budget at N=100 for work whose inputs did not change, **doubled** during the 500 ms transition window. **`.f` may open the study.** Rider in the same pass: the extents fold instead of spreading a 500-element array through `Math.min`/`Math.max`.
+
+#### Act 13 — `D2` and `D3`, executed as `.i` ruled them (`2808fb5`)
+
+⊘ **Nothing re-decided.** **D2(a) DELETE**: the selection contract's zero-consumer basis re-verified at the bytes before the cut — ⟨cmd⟩ `grep -rn "FrequencyGraph\|activeIndices\|toggle-harmonic\|hover-harmonic" src/` minus the file → the only other callsite (`visualization/CoefficientsPanel.vue`) passes `:components` and `:max-bars` alone. `FR-FG-22` stays INFO *because* this arm ruled delete, and its dead `onUnmounted` import goes with the contract. **D2(b) DEFERRED-WITH-DEFAULT**: the linear arm ships, no control is wired, and **nothing on the log side is deleted** — the annotated transform, the axis label's log branch and the tooltip's log row all survive; the D-axis minority routes to SS-3/SS-4 intact. ⊘ **The touch constraint binds under BOTH arms and was not deferred**: the hit-test moves into pointer handlers, because `onClick` read state only `mousemove` ever wrote. **D3 RE-WORD, do not fill**: the subtitle stops promising a spectrum the panel declines, the em-dash gloss goes with it, and **`FR-EQC-1`**'s honesty repair lands on the three surfaces that exist today with both real numbers. The FEATURE question routes to SS-3/SS-4 **carrying its consequence** — filling `#graph` re-opens this reconciliation at a fourth surface and must be re-priced there.
+
+#### Act 14 — the instrument stops lying about its inputs (`350e0bf`)
+
+**`L-M2` ⊕ `M-L1`**: `props.domain` feeds `omega`, the x-grid, the closing sample and `maxX` and had NO watcher; the callsite bound LIVE refs against last-response data while `onDomainInput` emits nothing, so a typed domain edit rendered wrong-frequency curves for an UNBOUNDED window. Both halves land, and the precondition nobody stated is stated. **`D-5` ⊕ `M-CP`**: `role="img"` with a name that carries the READING. **`L-m10` ⊕ `D·D-m9`**: one rect at the event instead of two per render, and `mousePos` written only when there is something to place. **ConvergenceTimeline** — `D·D-3`/`C·C-2` (the play control was named by nothing) · `D·D-4`/`C·C-3` (the `aria-valuenow/-valuemin/-valuemax` FALLTHROUGH trio announced the harmonic COUNT while the control moves the sweep POSITION; deleted for `aria-valuetext`, and the count span gets its live region) · `D·D-5`/`C·C-5` (the literal `1.75rem` box defeated both producer knobs — 31.5px rendered against a 49.5px coarse floor; **the delete is the leg that holds under either producer branch**).
+
+#### Act 15 — E13 mail (this seat's own act)
+
+⟨cmd⟩ `/usr/bin/grep -nE '\| *UNREAD' docs/tranches/V/coordination/INBOX.md` → **no output**. Four-path sweep ⟨cmd⟩ `find <each> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 17:11"` → three hits, **all already rowed** (`INBOX.md` self · `valuejs-outbound-…-kfw7-bh-relay-ADDENDUM-A9.md` = **O-31** · `glass-outbound-…-o26-reply.md` = **I-35**, routed Track B). **0 unrowed · 0 UNREAD in scope · 0 new `I-n`.** No row minted; this unit corresponds with no sibling repo, and its GLASS-RELAY asks are collected for `.z`'s ONE letter.
+
+#### Gate readings, BEFORE → AFTER (double-run at the settled bytes)
+
+| gate | BEFORE | AFTER | verdict |
+|---|---|---|---|
+| **G-F4-KATEX-QUIET** | 4 call sites; `warns=2` per sigma render | **1** home (⟨cmd⟩ `grep -rn "renderToString\|from \"katex\"" src/ \| grep -vc render.ts` → **0**); `warns=0`, hooks intact, both runs | **GREEN** |
+| **G-F4-VUE-TSC-CLEAN** | tree 17; this unit's sites **3 of 4** open | tree **6 / 6** (double-run); ⟨cmd⟩ `npx vue-tsc -b \| grep -cE "useCoeffHover\|EquationView\|FrequencyGraph"` → **0** | **GREEN for this unit**; tree RED on `.c`/`.d`/`.e`/`.f` sites |
+| **G-F4-VITEST** | `Tests 28 passed (28)` | `Tests 36 passed (36)`, twice — the `L-M1` seam assertion is among them | **GREEN** |
+| **G-F4-PRM-CLOCK** | 2 rAF owners in this surface, **0** consulting PRM | ⟨cmd⟩ `grep -rln requestAnimationFrame src/components/equation/` → the same 2; ⟨cmd⟩ `grep -lc "reducedMotion\|prefersReducedMotion"` → **both** | **GREEN for this surface**; `.f` owns the repo-wide closure over all eight owners |
+| **G-F4-CONTRAST-FLOOR** | axes 1.190/1.370 · curve 1.404/3.102 · tiers 2.127/1.979/3.503 · glyph 2.110 | **3.380/4.038 · 3.716/4.360 · 4.272/4.532/4.527 · 4.272** | **RED — the CURES landed, the REGISTRY ROWS are owed**; see Escalations |
+| **G-F4-DEAD-DEP** | the zero-consumer selection contract live | deleted with its proof taken at the bytes first; `katex` still imported (by `render.ts`), so no dependency was removed while still in use | **GREEN for this unit's deletions**; the SCRUB ledger is `.f`'s |
+| **G-F4-CENSUS-CELLS** | — | **No cell in the gate's set is this unit's**: `raw-findings.json:1393` + the HLG-8 claim are `.a`'s · `:2968` is `.c`'s · `lane-frontend.md:617` is `.e`'s · `:558-559`/`:624` is `.f`'s · `CENSUS-2026-08-03.md:362` is `.z`'s. This unit falsified none and invented none; the clock figure `.f` needs (**2** rAF owners here, both PRM-gated) is banked at addendum §3 | **HELD (vacuous, enumerated not assumed)** |
+
+#### Commits
+
+| hash | meaning |
+|---|---|
+| `4a770c2` | SP-18 — ONE `renderLatex()` home, and the trust that could not be withdrawn |
+| `bfbc7ec` | the compute identity — `B-1` dies with the key that under-determined it |
+| `b34226a` | `B-2` — the budget bound, clamped where the restore path can reach it |
+| `063975f` | the error channel — one edit, because the two defects gated each other's reachability |
+| `bc90680` | SP-1 — the loading flag stops belonging to whichever request finishes |
+| `1e40f02` | SP-4 — the plot's three clocks consult PRM, and the reduced arm shows the converged curve |
+| `99aea3e` | SP-3 — every meaning-bearing mark on this route stops being theme-blind |
+| `2394f9a` | SP-5 ⊕ SP-7 ⊕ SP-8 — every control gets a name, a state and an outcome |
+| `8c74054` | `L-M1` — the snapshot was taken from the new state and called previous (+ its test) |
+| `b3b9a35` | `L-B3` — the frame geometry is memoised, and MEASURED before the study reads it |
+| `2808fb5` | `D2` and `D3`, executed as `.i` ruled them |
+| `350e0bf` | the instrument stops lying about its inputs, and starts saying what it is |
+| `e8576d03` (value.js) | the dated addendum-beside |
+| *(this line's own)* | this receipt |
+
+⊘ Every commit carried its own pathspec on the commit itself; ⟨cmd⟩ `git show --name-only` on each returns **only** this unit's files. `scripts/dev/dev.sh` untouched. A concurrent `.c` committed to the same index throughout and **not one of its paths appears in any commit above**.
+
+#### Escalations
+
+**ONE, and it is a bounds escalation, not a cure failure.**
+
+**`G-F4-CONTRAST-FLOOR`'s registry rows for `FR-CP-D1` and `EV D·D-B3` are OWED, not written.** `.g`'s `e2e/contrast-pairs.ts` invites the owning unit to move its own row *"in the same commit as the cure"*, but the wave record's disjointness law states that **`web/e2e/**` is `.g`'s with exactly ONE declared exception, and that exception is `.a`'s**. Two authorities conflict; the wave-level partition is the binding one, and a seat that mints itself a second exception is widening its own bounds — the act `.c` was told in terms not to perform. **This seat did not write the file.** The rows are handed over complete at addendum §3 — ids, expression stacks, `kind`, banked figures, owner — so the move is a paste, and `FR-EQR-7[instance]`'s existing row needs its stack moved from `rgb(34 197 94)` to `var(--section-color-4)` by the same hand. **Until that lands the gate reads RED, which is the honest colour: the cures are in the bytes and the harness has not been told where to look.**
+
+#### Residuals
+
+- **Declared to `.f`** (files in `.f`'s set, cures in hand at addendum §3): `EV-L·M-4`'s three-part cure (surface `retryOn429` on `ApiFetchOptions` · make the backoff sleep **abortable** — `:174`'s `setTimeout` ignores `signal`, so a 30s sleep survives an abort and its generation clobbers the next · a client timeout posture) · `fr-CP D-1`'s `golden` resolver line in `lib/colors.ts` · `C·D-02`'s array-`detail` half in `api-problem.ts` · the clock census (**2** rAF owners here, both gated).
+- **DISCHARGED-BY-DELETION, stated id-for-id** (addendum §2.1; provenance F.W0 `5842377`): `FR-IC-2` · `FR-IC-3..24` · `FR-IC-6` · `FR-IC-25` · §5.2's 21/14 census line · `D·D-M5` · `D·D-M10`'s InfoCard site. ⊘ `InfoCard.vue` **not re-created**.
+- **DISCHARGED-BY-PREDECESSOR, with the arithmetic published**: **`FR-EQR-20`** — its mechanism was the root font dropping 18px→16px at the same 768px breakpoint as the `1.4em→1.8em` ramp (delivering +14.3% for an authored +28.6%). `.a`'s `G-15(b)` landing removed the root fork, so the ramp now delivers its authored figure. **No cure by this unit; `.z` should book none.**
+- **Carried, named, not landed** (addendum §7, each with why): `EV-D·D-B1` (the one-owner anchor row spans two components and its witness is SS-13-deferred) · `EV-D·D-M1` (the 160px stage's escape hatch, threshold SS-13) · `EV-L·m-13` (`useEquationSession()` — the roster it would carry is **already cured in place**; extracting now moves cured code for testability alone) · `EV-D·D-M13`/`m2`/`C·D-13` (the breakpoint authority pairs with `D·D-M2`'s unruled default-tab question) · `EV-M-TL` (**DECLINED per the spec's own cell**, the ratified `kf-KfPillTabs:85` kill) · `FR-CP-LM4`/`LM5`/`LM7` (LM7 blocked at the contract — ⊘ K-13: `latex` IS the truncated render and the original needs the F.W5 `sp.latex(expr)` field) · `FR-CP-C7` (⟨cmd⟩ `grep -rn trigAmplitude src` → **∅**, discharged at the bytes) · the four reader-unattacked `C·D-17/-19/-20/-21` carries.
+- **F.W3's, cited, no leaf grown**: `FR-CS-i1` · `shared/CoefficientsSpectrum.vue` · `FrequencyGraph`'s ramp home (§5.2 twin seam (3)).
+- **GLASS-RELAY for `.z`'s ONE letter**: a light-arm status ramp clearing 4.5:1 (blocks `FR-EQR-7`'s `--success` rung at 2.175 and `D·D-B3`'s `symbolic` at 4.272) · `SegmentedTabs`' `modelValue: string` (`C·D-23`) · is `glass-floating` reaching portaled content (`D·D-M4`).
+- **SS-13, deferred never resolved inline**: `FR-CP-D1` dark axes readback · `D·D-B1` coarse+fine · `M-FR`'s ring · `D·D-M1`'s truncation threshold · `D·D-M3` on BOTH engines (the `fr-CCD R-9/K-9` qualification travels with the row) · `FR-EQR-8`'s overflow onset.
+
+#### Negative roster — held
+
+⊘ `I-2`'s empty state **survives** (it is `L·M-2`'s only visible symptom, and was not deleted as an unused branch while that very defect was cured) · `InfoCard.vue` not re-created · `GM-19` not certified · CP KILL-6 not executed · `moon.json` not regenerated · the **Tooltip shim is not deleted** — `FunctionInput` still imports it, and SP-7's leg here was to add the NAME beside the description, never to remove the description.
