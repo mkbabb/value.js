@@ -7,10 +7,7 @@ import {
     recomposeMatrix3D,
     slerp,
 } from "@src/transform/decompose";
-import type {
-    DecomposedMatrix2D,
-    Vec4,
-} from "@src/transform/decompose";
+import type { DecomposedMatrix2D, Mat4, Vec4 } from "@src/transform/decompose";
 
 /**
  * Targeted decomposition tests covering branches not exercised by
@@ -19,15 +16,16 @@ import type {
  */
 
 // Helper: column-major identity matrix
-const identity = (): number[] => [
-    1, 0, 0, 0,
-    0, 1, 0, 0,
-    0, 0, 1, 0,
-    0, 0, 0, 1,
-];
+// X-W1/NG-3: typed `Mat4` — `decomposeMatrix3D` declares a 16-tuple, and the
+// unit tree is now inside a TypeScript program, so `number[]` no longer passes.
+const identity = (): Mat4 => [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
 
 // Helper: assert matrix equality
-const expectMat = (actual: number[], expected: number[], precision = 4) => {
+const expectMat = (
+    actual: readonly number[],
+    expected: readonly number[],
+    precision = 4,
+) => {
     for (let i = 0; i < 16; i++) {
         expect(actual[i]).toBeCloseTo(expected[i]!, precision);
     }
@@ -35,18 +33,19 @@ const expectMat = (actual: number[], expected: number[], precision = 4) => {
 
 describe("2D decomposition, recomposition, and interpolation", () => {
     it("round-trips identity, translation, rotation, skew, and reflection", () => {
-        const fixtures = [
+        const fixtures: readonly [number, number, number, number, number, number][] = [
             [1, 0, 0, 1, 0, 0],
             [1, 0, 0, 1, 100, -40],
             [0, 1, -1, 0, 0, 0],
             [2, 1, 0.5, 3, 10, 20],
             [-1, 0, 0, 1, 8, 9],
-        ] as const;
+        ];
         for (const fixture of fixtures) {
             const decomposed = decomposeMatrix2D(...fixture);
             const recomposed = recomposeMatrix2D(decomposed);
             recomposed.forEach((value, index) =>
-                expect(value, fixture.join(",")).toBeCloseTo(fixture[index]!, 10));
+                expect(value, fixture.join(",")).toBeCloseTo(fixture[index]!, 10),
+            );
         }
     });
 
@@ -66,12 +65,7 @@ describe("2D decomposition, recomposition, and interpolation", () => {
 
 describe("quaternion and dimensional interpolation", () => {
     const identityQuaternion: Vec4 = [0, 0, 0, 1];
-    const quarterTurn: Vec4 = [
-        0,
-        0,
-        Math.sin(Math.PI / 4),
-        Math.cos(Math.PI / 4),
-    ];
+    const quarterTurn: Vec4 = [0, 0, Math.sin(Math.PI / 4), Math.cos(Math.PI / 4)];
 
     it("slerps exact endpoints and the 45-degree midpoint", () => {
         expect(slerp(identityQuaternion, quarterTurn, 0)).toEqual(identityQuaternion);
@@ -85,10 +79,15 @@ describe("quaternion and dimensional interpolation", () => {
 
     it("interpolates 3D endpoints/midpoint and rejects mixed dimensions", () => {
         const start = decomposeMatrix3D(identity());
-        const endMatrix = identity();
-        endMatrix[12] = 10;
-        endMatrix[13] = 20;
-        endMatrix[14] = 30;
+        // X-W1/NG-3: `Mat4` is READONLY, so the translation column is BUILT
+        // rather than written into a returned identity.
+        // prettier-ignore
+        const endMatrix: Mat4 = [
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0,
+            10, 20, 30, 1,
+        ];
         const end = decomposeMatrix3D(endMatrix);
         if (!start || !end) throw new Error("3D fixture");
         expect(interpolateDecomposed(start, end, 0)).toEqual(start);
@@ -96,11 +95,13 @@ describe("quaternion and dimensional interpolation", () => {
         expect(interpolateDecomposed(start, end, 0.5)).toMatchObject({
             translate: [5, 10, 15],
         });
-        expect(() => interpolateDecomposed(
-            decomposeMatrix2D(1, 0, 0, 1, 0, 0) as DecomposedMatrix2D,
-            end as unknown as DecomposedMatrix2D,
-            0.5,
-        )).toThrow("cannot interpolate a 2D and a 3D decomposition");
+        expect(() =>
+            interpolateDecomposed(
+                decomposeMatrix2D(1, 0, 0, 1, 0, 0) as DecomposedMatrix2D,
+                end as unknown as DecomposedMatrix2D,
+                0.5,
+            ),
+        ).toThrow("cannot interpolate a 2D and a 3D decomposition");
     });
 });
 
@@ -112,7 +113,7 @@ describe("decomposeMatrix3D — scale-only", () => {
     it("non-uniform scale (2, 3, 4) extracts scale vector correctly", () => {
         // CSS column-major: scaleX=2, scaleY=3, scaleZ=4
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             2, 0, 0, 0,
             0, 3, 0, 0,
             0, 0, 4, 0,
@@ -133,7 +134,7 @@ describe("decomposeMatrix3D — scale-only", () => {
 
     it("uniform scale (5, 5, 5) extracts uniform scale", () => {
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             5, 0, 0, 0,
             0, 5, 0, 0,
             0, 0, 5, 0,
@@ -147,7 +148,7 @@ describe("decomposeMatrix3D — scale-only", () => {
 
     it("scale-only matrix round-trips", () => {
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             2, 0, 0, 0,
             0, 3, 0, 0,
             0, 0, 4, 0,
@@ -168,7 +169,7 @@ describe("decomposeMatrix3D — skew-only", () => {
         // skewX(α) where tan(α) = 0.5 →
         // column-major: col0=[1,0,0,0], col1=[0.5,1,0,0], col2=[0,0,1,0], col3=[0,0,0,1]
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0.5, 1, 0, 0,
             0, 0, 1, 0,
@@ -185,7 +186,7 @@ describe("decomposeMatrix3D — skew-only", () => {
 
     it("XY skew round-trips", () => {
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0.5, 1, 0, 0,
             0, 0, 1, 0,
@@ -199,7 +200,7 @@ describe("decomposeMatrix3D — skew-only", () => {
     it("XZ skew populates skew[1]", () => {
         // Skew along Z relative to X: col2 includes a row0 component
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0, 1, 0, 0,
             0.25, 0, 1, 0,
@@ -218,7 +219,7 @@ describe("decomposeMatrix3D — perspective-only", () => {
     it("perspective matrix extracts perspective vector + round-trips", () => {
         // Perspective with d=500 → column-major non-zero entry at (3, 2) = -1/500
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, 1, -1 / 500,
@@ -262,7 +263,7 @@ describe("decomposeMatrix3D — full compose round-trip", () => {
 
     it("scale + translation round-trips", () => {
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             2, 0, 0, 0,
             0, 3, 0, 0,
             0, 0, 4, 0,
@@ -282,7 +283,7 @@ describe("decomposeMatrix3D — full compose round-trip", () => {
         // col1 = R * [0,3,0]^T
         // col2 = R * [0,0,1]^T
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             2 * c, 2 * s, 0, 0,
             -3 * s, 3 * c, 0, 0,
             0, 0, 1, 0,
@@ -297,7 +298,7 @@ describe("decomposeMatrix3D — full compose round-trip", () => {
         const c = Math.cos(Math.PI / 4);
         const s = Math.sin(Math.PI / 4);
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             2 * c, 2 * s, 0, 0,
             -3 * s, 3 * c, 0, 0,
             0, 0, 4, 0,
@@ -344,7 +345,7 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
         const c = Math.cos(Math.PI / 2);
         const s = Math.sin(Math.PI / 2);
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             c, s, 0, 0,
             -s, c, 0, 0,
             0, 0, 1, 0,
@@ -363,7 +364,7 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
         // trace = 1 - 1 - 1 = -1 → not branch 1
         // m00 (=1) > m11 (=-1), m00 > m22 (=-1) → branch 2
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0, -1, 0, 0,
             0, 0, -1, 0,
@@ -385,7 +386,7 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
         // m00 (=-1) NOT > m11 (=1) → not branch 2
         // m11 (=1) > m22 (=-1) → branch 3
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             -1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, -1, 0,
@@ -407,7 +408,7 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
         // m00 (=-1) NOT > m11 (=-1) → not branch 2
         // m11 (=-1) NOT > m22 (=1) → not branch 3 → branch 4
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             -1, 0, 0, 0,
             0, -1, 0, 0,
             0, 0, 1, 0,
@@ -424,26 +425,11 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
     });
 
     it("all quaternion branches produce unit quaternions", () => {
-        const matrices = [
+        const matrices: Mat4[] = [
             identity(),
-            [
-                1, 0, 0, 0,
-                0, -1, 0, 0,
-                0, 0, -1, 0,
-                0, 0, 0, 1,
-            ],
-            [
-                -1, 0, 0, 0,
-                0, 1, 0, 0,
-                0, 0, -1, 0,
-                0, 0, 0, 1,
-            ],
-            [
-                -1, 0, 0, 0,
-                0, -1, 0, 0,
-                0, 0, 1, 0,
-                0, 0, 0, 1,
-            ],
+            [1, 0, 0, 0, 0, -1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1],
+            [-1, 0, 0, 0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1],
+            [-1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
         ];
         for (const m of matrices) {
             const d = decomposeMatrix3D(m)!;
@@ -458,13 +444,16 @@ describe("decomposeMatrix3D — quaternion extraction branches", () => {
 
 describe("decomposeMatrix3D — edge cases", () => {
     it("returns null for wrong-length input", () => {
-        expect(decomposeMatrix3D([1, 0, 0])).toBeNull();
+        // X-W1/NG-3: the runtime guard (`cssValues.length !== 16 → null`) is
+        // what this asserts; the cast names that the input is DELIBERATELY the
+        // wrong length, which the `Mat4` parameter type otherwise forbids.
+        expect(decomposeMatrix3D([1, 0, 0] as unknown as Mat4)).toBeNull();
     });
 
     it("returns null for matrix with zero homogeneous coordinate", () => {
         // m[15] = 0 → singular
         // prettier-ignore
-        const m = [
+        const m: Mat4 = [
             1, 0, 0, 0,
             0, 1, 0, 0,
             0, 0, 1, 0,

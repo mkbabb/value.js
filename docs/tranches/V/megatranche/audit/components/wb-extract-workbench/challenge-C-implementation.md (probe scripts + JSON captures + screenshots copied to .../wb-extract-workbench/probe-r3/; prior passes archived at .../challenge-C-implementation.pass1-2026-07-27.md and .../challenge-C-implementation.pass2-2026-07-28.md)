@@ -1,0 +1,125 @@
+<!-- HYDRATED-FROM-PAYLOAD 2026-07-28 · harvest area-workbenches.json · agent aa8f9abc7a9bad8f0 -->
+<!-- M-16 durability rule: the live seat wrote this file, the wall erased it, the returned payload
+     is materialized here verbatim. Not a rerun. Payloads seen for this path: 1. -->
+
+# CHALLENGE-C — implementation defect hunt (premise: the component is improperly implemented); subject `demo/workbenches/extract/ExtractWorkbench.vue` + its composables, children and gates. This is pass r3: prior passes r1 (2026-07-27) and r2 (2026-07-28) existed at the report path and are preserved verbatim as `.pass1-2026-07-27.md` / `.pass2-2026-07-28.md`. r3 is a verification pass that overturns an r2 negative result, re-scopes the r2 headline BLOCKER, upgrades one carried MINOR to MAJOR on a new measurement, and adds 6 new findings.
+
+## Model receipt
+
+Opus 5 — exact model id `claude-opus-5[1m]` (1M-context variant). This seat was spawned with an explicit Opus 5 declaration; the declaration is matched, not inherited. No undeclared/inherited seat.
+
+## Verdict: DEFECTIVE
+
+**Strongest defect:** C-29 / C-2 — the camera hardware is never released. Every teardown in the extract subtree is registered on `onBeforeUnmount`, but every pane is rendered inside `<KeepAlive>` (demo/shell/PaneSlot.vue:120, routed by usePaneRouter.ts:85), so a view change deactivates rather than unmounts and NO teardown ever runs. Open the camera on /#/extract, let it fully resolve, click any other view: measured `states:[["live"]]` at #/mix, at #/gradient, and 6s later, with `videos:0` and `fileInputs:0` proving the subtree left the document. The OS camera indicator stays lit with zero UI anywhere in the application that says the camera is on or can stop it; only a full page reload releases the hardware. Three steps, no timing dependency, measured twice by two different methods (WBX-probe6/7). This both re-scopes the r1/r2 blocker from "a race" to "unconditional" and overturns the r2 negative result that recorded the worker/listener/debounce teardowns as "Clean" on the basis of source presence — source-presence of a teardown hook is not evidence that teardown runs; only the host's lifecycle contract is. It also invalidates r2's proposed gestalt cure for C-2 (a request token "invalidated by scope disposal" never invalidates, because the scope is not disposed on a view change).
+
+**Negative proof:** Verdict is DEFECTIVE, so no negative is claimed for the component overall. What r3 DID prove clean, recorded so no seat re-walks it: (1) The k-slider debounce works — 8 ArrowRight presses at 35ms intervals produced `postsImmediatelyAfter8Presses: 0` and `postsAfterSettle: [13]`, exactly one worker message carrying the final k (useExtractSession.ts:159-162 behaves as designed). (2) The develop cycle is not wedged on the fast path — WBX-probe2 sampled at 150/400/900/2000/4000/7000ms: `shadowPalette 1 → 0` and `dominanceRow false → true` by t=400ms, stable through t=7000ms; the `<Transition mode="out-in">` at ExtractWorkbench.vue:102 completes, so pass-2's C-22 wedge is a slow-worker phenomenon and not a transition-mode bug. (3) The corrupt-file state is recoverable — WBX-probe4 `after-recover` shows a new gradient and a new readout; nothing latches. (4) `verbatimModuleSyntax` (edict 8) is clean across all six files — ExtractWorkbench.vue:189, useExtractSession.ts:14,18, useImageQuantize.ts:9,10, quantize-worker.ts:7, ExtractPane.vue:28, ImageEyedropper.vue:99 all use `import type`. (5) Route-level visual health is clean but uninformative — REPORT.json /#/extract, all four Safari matrices: overflowX 0, pageErrors [], consoleErrors [], main 1, imgNoAlt 0 — clean only because no capture ever hands the component a file. (6) None of the three named repo hazards apply: no ValueUnit wrapping, no defineModel, no oklch→HSV roundtrip, no ungated rAF loop (the single rAF at ExtractWorkbench.vue:249 is a one-shot await — its defect is the wrong primitive, carried finding C-18, not the PRM-RAF epidemic). CONVERSELY, the r2 negative result "Worker termination / debounce cleanup / eyedropper listener + sampler dispose — Clean" is WITHDRAWN by measurement (see C-29/C-30/C-31).
+
+## Defects (12)
+
+### C-29 — BLOCKER
+
+Every teardown in the extract subtree is registered on `onBeforeUnmount`, but every pane in this app is rendered inside `<KeepAlive>` (demo/shell/PaneSlot.vue:120, routed by demo/shell/usePaneRouter.ts:85). A view change DEACTIVATES the subtree — the DOM leaves the document but the component is not unmounted — so `onBeforeUnmount` never fires and NO teardown in this component ever runs on a view switch. Three independent resources leak as a result: the camera MediaStream, the quantize Worker, and the eyedropper's window keydown listener. This OVERTURNS the pass-2 negative result which recorded these same three hooks as 'Clean' on the basis of source presence.
+
+- **Evidence:** demo/shell/PaneSlot.vue:120 `<KeepAlive :max="max">` · demo/shell/usePaneRouter.ts:85 `if (name === "extract") return ExtractPane;` · ExtractWorkbench.vue:281 `onBeforeUnmount(stopCamera)` · useImageQuantize.ts:148-151 · useExtractSession.ts:194-196 · ImageEyedropper.vue:242-245. MEASURED (probe-r3/WBX-probe7.mjs): `after open : {"fileInputs":1,"videos":1,"videoHasSrcObject":[true],"streams":1,"states":[["live"]]}` → `at #/mix : {"fileInputs":0,"videos":0,"streams":1,"states":[["live"]]}` → `at #/gradient: {..."states":[["live"]]}` → `6s later : {..."states":[["live"]]}`. MEASURED (WBX-probe8.mjs): `boot {made:0,terminated:0,kd:3,files:1}` → `eyedrop open {made:1,terminated:0,kd:4,files:1}` → `at #/mix {made:1,terminated:0,kd:4,files:0}` → `at #/gradient {made:1,terminated:0,kd:4,files:0}`. The repo already documents this hazard for a sibling: demo/picker/visual/HeroBlob.vue:232-233 'The picker pane is KeepAlive-cached; navigating away parks the blob'.
+- **Mechanism:** lifecycle-hook mismatch with the host contract — teardown registered for an unmount the component never receives
+- **Reproduction:** http://localhost:9000/#/extract → click 'Open camera' → grant permission (let it fully resolve; videoHasSrcObject === true) → click any other view (Mix, Gradient). Camera hardware stays live indefinitely; only a full page reload releases it. Three steps, no timing dependency. Re-run: `node docs/tranches/V/megatranche/audit/components/wb-extract-workbench/probe-r3/WBX-probe7.mjs`
+- **Proposed cure:** Adopt the app's own <KeepAlive> contract instead of assuming an unmount. Hoist the camera into a `useCameraCapture()` composable that owns the stream in a shallowRef with an idempotent start() (which also kills C-3, the double-open), a stop() wired to BOTH `onDeactivated` (view change) and `onScopeDispose` (genuine unmount), and an `active` flag the button's disabled binds to directly. Same treatment for the worker in useImageQuantize. The eyedropper's Escape handler moves off `window` onto the overlay element so there is nothing to leak. NOTE: this invalidates pass-2's proposed gestalt cure for C-2 — a request token 'invalidated by scope disposal' never invalidates, because the scope is not disposed on a view change.
+
+### C-2 (re-scoped) — BLOCKER
+
+The camera-leak BLOCKER is unconditional, not a timing race. Passes r1 and r2 both diagnosed it as an await that resolves after teardown (r1 stubbed getUserMedia for timing; r2 left the view '200ms later mid-prompt'). Both variants are real, but they describe a second door. The front door needs no race: let getUserMedia fully resolve, then simply switch views.
+
+- **Evidence:** probe-r3/WBX-probe7.mjs, control case with the stream fully resolved before navigation: `after open {videoHasSrcObject:[true], states:[["live"]]}` then `at #/mix {fileInputs:0, videos:0, states:[["live"]]}`. The mid-flight variant is independently confirmed too (WBX-probe6.mjs: `midflightAfterUnmount {"states":[["live"]],"videoEls":0}`, still live 6s later). Mechanism per C-29: ExtractWorkbench.vue:281 is the only teardown and it never runs.
+- **Mechanism:** lifecycle-hook mismatch with the host contract (same as C-29)
+- **Reproduction:** Same as C-29. The user-visible consequence: OS camera indicator stays lit with zero UI anywhere in the application that says the camera is on or offers a way to stop it.
+- **Proposed cure:** See C-29 — the composable-owned stream with onDeactivated + onScopeDispose disposal.
+
+### C-30 — MAJOR
+
+The eyedropper adds a window-level keydown listener on mount and removes it on onBeforeUnmount; parked open by <KeepAlive>, the add runs and the remove never does. Compounding: the overlay has no modal semantics at all — no role="dialog", no aria-modal, no focus move on open, no focus trap, no focus restore on close, no inert on the covered content — so the leaked global Escape handler is also the ONLY keyboard dismissal the overlay has.
+
+- **Evidence:** ImageEyedropper.vue:237-245 (onMounted addEventListener / onBeforeUnmount removeEventListener) · ImageEyedropper.vue:8 is a bare `<div class="absolute inset-0 z-popover …">`. `grep -rn 'role="dialog"\|aria-modal\|useFocusTrap' demo/workbenches/extract/` → no output. MEASURED (WBX-probe8.mjs): window keydown listener count 3 → 4 on eyedropper open, and stays 4 at #/mix and at #/gradient.
+- **Mechanism:** lifecycle-hook mismatch with the host contract (C-29 family) + global listener where an element-scoped one belongs
+- **Reproduction:** /#/extract → upload an image → click the preview to open the eyedropper → switch to Gradient → press Escape. A hidden, parked component's close handler runs.
+- **Proposed cure:** Move the Escape handler onto the overlay element itself (it leaves the document with its subtree, so it cannot leak) and give the overlay real dialog semantics — role="dialog" + aria-modal + focus trap + focus restore — or stop shaping it like a modal.
+
+### C-31 — MAJOR
+
+The quantize Web Worker is never terminated. useImageQuantize's only disposal is onBeforeUnmount, which under <KeepAlive> never fires on a view change.
+
+- **Evidence:** useImageQuantize.ts:148-151 `onBeforeUnmount(() => { worker?.terminate(); worker = null; })`. MEASURED (WBX-probe8.mjs, Worker.prototype.terminate instrumented at page boot): `made: 1, terminated: 0` after leaving /#/extract for /#/mix and then /#/gradient (files: 1 → 0 proves the subtree left the document).
+- **Mechanism:** lifecycle-hook mismatch with the host contract (C-29 family)
+- **Reproduction:** /#/extract → upload any image (worker constructed) → navigate to /#/mix → /#/gradient. `Worker.prototype.terminate` is never called. Re-run: `node .../probe-r3/WBX-probe8.mjs`
+- **Proposed cure:** onScopeDispose + onDeactivated inside useImageQuantize (see C-29). Also required for pass-2's C-22 cure to terminate, since that cure assumes a worker-recreation path on a disposal that currently never happens.
+
+### C-14 (MINOR → MAJOR) — MAJOR
+
+`isProcessing` excludes the only phase that blocks the main thread. It is set inside runQuantize, AFTER `await imageFileToPixels(file)` — so createImageBitmap + drawImage + a 48MB getImageData, plus a second 48MB copy at `pixels.buffer.slice(0)`, all run on the main thread with the processing flag FALSE. The result: a half-second UI freeze during which the component's only accessible progress signal is provably absent. The module docstring advertising 'All run quantization off main thread with Transferable ArrayBuffer' is measurably false for the dominant cost.
+
+- **Evidence:** useImageQuantize.ts:87 (flag set) vs :106 (the await it sits behind) · :18-26 imageFileToPixels · :93 `const buffer = pixels.buffer.slice(0)` · docstring :1-6. MEASURED (WBX-probe5.mjs, 4000x3000 PNG, 6,824,131 bytes): `wall ms (upload -> readout): 1077` · `longTasks: [517,63]  maxLongTask: 517  totalLongMs: 580` · `anySkeleton (isProcessing ever rendered): false` · the 60ms sampling interval stops firing from t=181ms to t=700ms — a 519ms hole that is the long task itself. Corroborated by WBX-probe2.mjs (`skeletons: 0` at 150/400/900/2000/4000/7000ms) and all four WBX-probe4.mjs snapshots.
+- **Mechanism:** the async boundary is drawn in the wrong place — the worker offload offloads only the cheap part (k-means on <=10k sampled pixels) while two 48MB main-thread operations sit outside the state flag
+- **Reproduction:** /#/extract → upload a 4000x3000 image. Main thread blocks 517ms; PaletteCardSkeleton (its role="status" aria-label="Loading palette" being the only accessible progress signal) never renders. Re-run: `node .../probe-r3/WBX-probe5.mjs`
+- **Proposed cure:** createImageBitmap, OffscreenCanvas and getImageData are all available inside a worker. Post the File itself to quantize-worker.ts (File/Blob is structured-cloneable and cheap) and decode there. Main-thread pixel work drops to zero, the slice(0) copy disappears, decode failures arrive through the typed error channel that already exists, and isProcessing can honestly be set on the first synchronous line. One transposition folds C-5, C-7, C-14 and C-25.
+
+### C-5 (extended) — BLOCKER
+
+The corrupt-image failure is not merely silent — it is stale attribution. Run AFTER a successful extraction (the realistic sequence; r1 and r2 both reproduced only from a fresh pane), the workbench displays a broken <img> next to a k-rail gradient and a dominance readout that are byte-identical to the PREVIOUS image's, with no error line and an unhandled rejection. The preview is committed before anything decodes, and the fire-and-forget quantize call has no .catch.
+
+- **Evidence:** useExtractSession.ts:164-168 (previewDataUrl written before decode) · :153-157 (runQuantize discards the promise, no .catch) · useImageQuantize.ts:105-108 → :18-26 (createImageBitmap unguarded). MEASURED (WBX-probe4.mjs, one session): `after-good : railBg="linear-gradient(to right, oklch(0.543346 0.174006 29.6967) 0%, …" code="oklch(54.334570875357% …29.696692379622deg)" destructiveLines=[] imgNaturalW=64` then `after-corrupt: railBg="…oklch(0.543346 0.174006 29.6967)…" (IDENTICAL) code="oklch(54.334570875357% …)" (IDENTICAL) destructiveLines=[] imgNaturalW=0 unhandled=["InvalidStateError: The source image could not be decoded."]` · `PAGEERRORS: ["InvalidStateError: The source image could not be decoded."]`. Screenshot: probe-r3/WBX-corrupt.png. Contradicts the component's own comments: ExtractWorkbench.vue:79 'error ≠ empty: an explicit destructive line' and ImageDropZone.vue:3 'the specimen never lies'.
+- **Mechanism:** unguarded async with no error boundary; state committed ahead of validation, so a failure leaves a half-updated view that attributes old results to a new input
+- **Reproduction:** /#/extract → upload a valid image (palette develops) → upload a file with mimeType image/png whose bytes are not a PNG. Broken preview + previous image's palette + zero error + one unhandledrejection + one pageerror. Recovers on the next valid upload (verified: after-recover shows a new gradient and readout). Re-run: `node .../probe-r3/WBX-probe4.mjs`
+- **Proposed cure:** Decode first, commit second: one Result-returning intake pipeline where a decode failure sets quantizeError and leaves previewDataUrl and palette untouched. Falls out for free from the C-14 cure (decode in the worker, failure returns {type:'error', error:'image_decode_failed'} through the channel that already exists).
+
+### C-35 — MINOR
+
+The dominance readout renders an unbounded-precision color string into a `truncate` box, and the component's own comment claims a cure that is the same unusable string.
+
+- **Evidence:** MEASURED (WBX-probe3.mjs): `{"title":"oklch(54.014641044004% 0.18379799794 142.495345041445deg)","visible":"oklch(54.014641044004% 0.18379799794 142.495345041445deg)","clipped":true,"w":186}` — 54 characters in 186px, scrollWidth > clientWidth. ExtractWorkbench.vue:134-141 claims 'truncate may trim trailing digits at narrow widths; the full readout rides title + select-all (never a lying readout)' — but the title is the same 12-decimal string. Visible result in probe-r3/WBX-scrolled.png: `oklch(54.33457087…`.
+- **Mechanism:** raw library serialization rendered at a presentation surface with no rounding at the presentation boundary
+- **Reproduction:** /#/extract → upload any image → read the 'dominant' chip. Re-run: `node .../probe-r3/WBX-probe3.mjs`
+- **Proposed cure:** Round for display at the seam that already owns serialization — `presentedPalette` in useExtractSession.ts:51-64 — rather than leaking library float precision into a 186px chip.
+
+### C-32 — MINOR
+
+`DisplayColorSpace` is redeclared three times inside the extract subtree over a canonical exported type two directories up. All four declarations are structurally identical BY COINCIDENCE (PickerSpace is an alias of SpaceId), so there is no compiler-visible relation between them and a narrowing of the picker's union would silently fail to propagate.
+
+- **Evidence:** Canonical: demo/color-session/color-model.ts:29 `export type DisplayColorSpace = PickerSpace | "hex"`, with demo/color-session/picker-color.ts:37 `export type PickerSpace = SpaceId`. Copies: demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts:21, demo/workbenches/extract/ExtractWorkbench.vue:202, demo/workbenches/extract/ExtractPane.vue:30 — all `= SpaceId | "hex"`. The value is prop-drilled ExtractPane → ExtractWorkbench → ImageEyedropper and re-typed at every hop.
+- **Mechanism:** parallel type paths — a local declaration where a contract already exists (owner edict 2: no dual paths; edict 3: no contrivance)
+- **Reproduction:** NONE — static; the divergence is latent until PickerSpace is narrowed.
+- **Proposed cure:** `import type { DisplayColorSpace } from "../../color-session/color-model"` at all three sites; delete the three copies including the re-export in useImageSampler.ts.
+
+### C-33 — INFO
+
+Dead CSS: ExtractControls.vue declares a `.touch-gate-target` rule with a comment naming it 'Touch gate styling for extract sliders', but the class is applied nowhere in that file's template — the extract sliders get no touch gate at all.
+
+- **Evidence:** ExtractControls.vue:139-142 declares the rule. `grep -rn "touch-gate-target" demo/ | grep -i extract` → one hit, the rule itself (demo/workbenches/extract/ExtractControls.vue:140). Neither Slider (:24-34, :68-77) nor any wrapper carries the class; the real users define their own (demo/picker/controls/ComponentSliders/ComponentSliders.vue:58,253-262 and SpectrumCanvas.vue:11). SCOPING (so no seat mis-attributes this): it is NOT the cause of the 12x24 thumbs — the picker's genuinely gated sliders measure the same in REPORT.json (`/#/`: {"w":12,"h":24,"tag":"span","label":"L channel"}), so thumb geometry is a glass-ui Slider property (demo/ui/slider/index.ts is a one-line re-export from @mkbabb/glass-ui) and belongs to the producer under edict 4.
+- **Mechanism:** dead code whose comment asserts a behaviour the file does not implement
+- **Reproduction:** NONE — static grep.
+- **Proposed cure:** Delete the rule and its comment, or apply the class if the gate is wanted here. The tap-target fix itself is a glass-ui Slider change (edict 4 relay), not a demo patch.
+
+### C-34 — MINOR
+
+`dragleave` on the drop zone has no depth counter, so the drag-highlight state strobes whenever the pointer crosses onto any of the zone's children.
+
+- **Evidence:** ImageDropZone.vue:23-24 `@dragover.prevent="dragging = true"` / `@dragleave.prevent="dragging = false"`; the zone always has children (the <img> at :37-43, the placeholder block at :46-51, the corner tag at :56-61) and the highlight state is the `border-primary bg-primary/10 scale-[1.01]` branch at :12.
+- **Mechanism:** the standard HTML drag-and-drop dragenter/dragleave counter problem — no enter/leave depth tracking
+- **Reproduction:** NONE EXECUTED — HYPOTHESIS. I did not synthesise a drag gesture; the mechanism is read from source and is the well-known class.
+- **Proposed cure:** A dragenter/dragleave depth counter, or `pointer-events: none` on the zone's children.
+
+### C-11 (sharpened) — MAJOR
+
+Attribution and share of the app-wide weakly-named-button deficit. Pass-2's CORRECTION-A is upheld — the three buttons DO have computed accnames sourced from `title`, so 'weakly named' is the accurate word and the audit probe (capture.mjs:102-105) does not consult title. r3 adds the identity proof and the arithmetic: /#/extract owns 46% of the entire application's flagged instances.
+
+- **Evidence:** MEASURED identity (WBX-probe1.mjs), the three flagged buttons are exactly the ExtractControls triad: `{"title":"Upload image","rect":{"w":40,"h":40},"html":"<button … class=\"dock-icon-button …\" title=\"Upload image\" …>"}`, `{"title":"Open camera",…}`, `{"title":"Reset",… disabled aria-disabled=\"true\" …}` — ExtractControls.vue:40-46, :49-56, :83-90. SHARE, summing REPORT.md's own rows: 26 flagged instances app-wide (desktop-light 9, desktop-dark 9, mobile-light 4, mobile-dark 4); /#/extract contributes 3 x 4 = 12 = 46%, and is the only route above 1 in any matrix.
+- **Mechanism:** icon-only controls naming themselves through the weakest available accname source (title), at a producer component that does not require a name
+- **Reproduction:** Read docs/tranches/V/megatranche/audit/visual/REPORT.json, route /#/extract, a11y.namelessButtons = 3 in all four Safari matrices. Live identity: `node .../probe-r3/WBX-probe1.mjs`
+- **Proposed cure:** Route it to glass-ui rather than patching three call sites: DockControl should require an accessible name — an aria-label prop defaulting from title — so all 26 constellation instances die at the root (edict 4). Same applies to the four nameless DockControls in ImageEyedropper.vue:11,44,51 and ExtractWorkbench.vue:49-56, which the capture never reaches because they need an interaction.
+
+### C-8 (scoped) — MAJOR
+
+The dominance-vs-first-swatch disagreement that pass-2 derived is TIE-ONLY, and r3's live extraction is the non-tie case where the invariant holds. This scopes pass-2's finding rather than contradicting it — and makes its cure cheaper to justify.
+
+- **Evidence:** MEASURED live (WBX-probe4.mjs, after-good): `code="oklch(54.334570875357% 0.17400641367 29.696692379622deg)"` (hue 29.7deg = the red band) and `railBg="linear-gradient(to right, oklch(0.543346 0.174006 29.6967) 0%, …"` — the card's first swatch and the readout AGREE; the reported share is 38% on a 64x64 image whose red band is 24/64 = 37.5%. The override clause at useExtractSession.ts:132-137 only beats quantizePixels' ordering (src/quantize.ts:128, `b.population - a.population`) on an EXACT population tie, which is what pass-2's constructed two-pixel input produced.
+- **Mechanism:** a redundant re-ordering loop layered over an ordering the library already guarantees, diverging only on ties
+- **Reproduction:** Non-tie path verified live (see evidence). The tie path is pass-2's `npx tsx` derivation against src/quantize.ts; not re-run this pass.
+- **Proposed cure:** Pass-2's cure stands and is now easier to defend: delete the 22-line loop, `dominant = presented.value[0] ?? null`. quantizePixels already guarantees max-population-first, so the loop's only observable effect is to break that ordering in exactly the case where the component's own comment (ExtractWorkbench.vue:113-117, 'the card's first swatch IS the dominant specimen') is most visibly falsified.

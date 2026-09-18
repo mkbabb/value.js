@@ -1,0 +1,289 @@
+{
+  "type_isMobile_true": {
+    "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+    "typeMicro": "0.6875rem",
+    "fontDisplay": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "htmlFontSize": "16px",
+    "menu": {
+      "fam": "Fira Code",
+      "size": "16px",
+      "lh": "24px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "item": {
+      "fam": "Plus Jakarta Sans",
+      "size": "21px",
+      "lh": "29.4px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "desc": {
+      "fam": "Fraunces",
+      "size": "11px",
+      "lh": "13.75px",
+      "weight": "400",
+      "style": "italic",
+      "color": "rgb(112, 89, 66)"
+    },
+    "ghLink": {
+      "fam": "Fira Code",
+      "size": "14px",
+      "lh": "19.6px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "pill": {
+      "fam": "Fira Code",
+      "size": "14px",
+      "lh": "19.6px",
+      "weight": "700",
+      "style": "normal",
+      "color": "oklch(0.470927 0.188343 9.834023)"
+    }
+  },
+  "type_isMobile_false": {
+    "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+    "typeMicro": "0.6875rem",
+    "fontDisplay": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "htmlFontSize": "16px",
+    "menu": {
+      "fam": "Fira Code",
+      "size": "16px",
+      "lh": "24px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "item": {
+      "fam": "Plus Jakarta Sans",
+      "size": "14px",
+      "lh": "19.6px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "desc": {
+      "fam": "Fraunces",
+      "size": "11px",
+      "lh": "13.75px",
+      "weight": "400",
+      "style": "italic",
+      "color": "rgb(112, 89, 66)"
+    },
+    "ghLink": {
+      "fam": "Fira Code",
+      "size": "14px",
+      "lh": "19.6px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "pill": {
+      "fam": "Fira Code",
+      "size": "14px",
+      "lh": "19.6px",
+      "weight": "700",
+      "style": "normal",
+      "color": "oklch(0.470927 0.188343 9.834023)"
+    }
+  },
+  "twinCensus": {
+    "dropdownTriggers": 3,
+    "detail": [
+      {
+        "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+        "display": "flex",
+        "w": 42.7,
+        "h": 33.3,
+        "text": "",
+        "parentDisplay": "flex",
+        "parentCls": "lg:hidden flex items-center"
+      },
+      {
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+        "display": "inline-flex",
+        "w": 0,
+        "h": 0,
+        "text": "Profile",
+        "parentDisplay": "none",
+        "parentCls": "hidden lg:flex items-center gap-1"
+      },
+      {
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+        "display": "inline-flex",
+        "w": 0,
+        "h": 0,
+        "text": "@mbabb",
+        "parentDisplay": "none",
+        "parentCls": "hidden lg:flex items-center"
+      }
+    ],
+    "lgHiddenWrappers": [
+      {
+        "cls": "lg:hidden flex items-center",
+        "display": "flex",
+        "childCount": 1
+      },
+      {
+        "cls": "hidden lg:flex items-center gap-1",
+        "display": "none",
+        "childCount": 3
+      },
+      {
+        "cls": "hidden lg:flex items-center",
+        "display": "none",
+        "childCount": 1
+      }
+    ]
+  },
+  "github": {
+    "display": "block",
+    "alignItems": "normal",
+    "flexWrap": "nowrap",
+    "gap": "normal",
+    "padding": "0px",
+    "lineHeight": "29.4px",
+    "rect": {
+      "w": 68.6,
+      "h": 43.4,
+      "y": 400.6
+    },
+    "svgRect": {
+      "x": 15,
+      "y": 400.6,
+      "w": 14,
+      "h": 14
+    },
+    "textRect": {
+      "x": 15,
+      "y": 417,
+      "w": 68.6,
+      "h": 24.6
+    },
+    "sameLine": false
+  },
+  "iconAlign": [
+    {
+      "txt": "Copy slug",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": 37
+    },
+    {
+      "txt": "Switch account",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": 37
+    },
+    {
+      "txt": "Logout",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": 37
+    },
+    {
+      "txt": "Regenerate slug",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": 37
+    },
+    {
+      "txt": "Share color",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": 37
+    },
+    {
+      "txt": "GitHub",
+      "iconX": 15,
+      "iconW": 14,
+      "iconH": 14,
+      "textX": null
+    },
+    {
+      "txt": "Dark mode",
+      "iconX": 15,
+      "iconW": 16,
+      "iconH": 24,
+      "textX": 39
+    }
+  ],
+  "keyboard": {
+    "highlighted": "Copy slug",
+    "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+    "outline": "none 3px",
+    "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color",
+    "activeEl": "Copy slug"
+  },
+  "afterEscape": {
+    "menuPresent": false,
+    "activeEl": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-",
+      "label": "Menu"
+    }
+  },
+  "longSlug_390": {
+    "viewport": 390,
+    "menu": {
+      "x": 0,
+      "w": 590.8,
+      "right": 590.8,
+      "h": 440.5
+    },
+    "pill": {
+      "w": 560.8,
+      "right": 575.8
+    },
+    "overflowRight": 200.8,
+    "pillClipped": false,
+    "docScrollW": 390,
+    "docClientW": 390,
+    "bodyOverflowX": 0
+  },
+  "longSlug_320": {
+    "viewport": 320,
+    "menu": {
+      "x": 0,
+      "w": 590.8,
+      "right": 590.8,
+      "h": 440.2
+    },
+    "pill": {
+      "w": 560.8,
+      "right": 575.8
+    },
+    "overflowRight": 270.8,
+    "pillClipped": false,
+    "docScrollW": 320,
+    "docClientW": 320,
+    "bodyOverflowX": 0
+  },
+  "forcedColors": {
+    "menuPresent": true,
+    "menuBg": "rgb(255, 255, 255)",
+    "pillColor": "rgb(112, 89, 66)",
+    "pillBorder": "rgb(112, 89, 66)",
+    "forcedActive": true
+  },
+  "zoom200": {
+    "triggerPresent": true,
+    "display": "flex",
+    "menu": {
+      "x": 0,
+      "w": 349.5,
+      "h": 253.2,
+      "overflowRight": 154.5,
+      "maxH": "253.199982px"
+    }
+  }
+}

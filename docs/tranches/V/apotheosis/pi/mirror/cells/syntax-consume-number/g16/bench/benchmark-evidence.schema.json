@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "value.pi.syntax-consume-number.g16.correctness-evidence/v1",
+  "title": "G16 untimed two-lane correctness evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "cases",
+    "lane_observations",
+    "corpus_sha256",
+    "h2_sha256",
+    "deposed_sha256",
+    "benchmark_source_sha256",
+    "observations_sha256"
+  ],
+  "properties": {
+    "schema": { "const": "value.pi.syntax-consume-number.g16.correctness-evidence/v1" },
+    "status": { "const": "PASS_EXACT_TWO_LANES_64_CASES_NO_TIMING" },
+    "cases": { "const": 64 },
+    "lane_observations": { "const": 128 },
+    "corpus_sha256": { "$ref": "#/$defs/sha256" },
+    "h2_sha256": { "const": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa" },
+    "deposed_sha256": { "const": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4" },
+    "benchmark_source_sha256": { "$ref": "#/$defs/sha256" },
+    "observations_sha256": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

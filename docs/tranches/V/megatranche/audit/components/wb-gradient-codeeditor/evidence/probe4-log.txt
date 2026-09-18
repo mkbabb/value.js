@@ -1,0 +1,24 @@
+
+===== m-desk-light =====
+FOCUS {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none"}
+OVERFLOW {"scrollH":237,"clientH":190,"h":192,"w":462}
+FORCED {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none","bg":"rgba(0, 0, 0, 0)","border":"oklab(0.00111 0.000017 0.000049 / 0.997868)","borderStyle":"solid","color":"rgb(28, 25, 23)","forced":true}
+ZOOM-200 {"w":700,"h":211.8,"scrollH":104,"clientH":104,"overflowing":false,"docOverflowX":false,"docScrollW":1440,"docClientW":1440}
+
+===== m-desk-dark =====
+FOCUS {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none"}
+OVERFLOW {"scrollH":237,"clientH":190,"h":192,"w":462}
+FORCED {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none","bg":"rgba(0, 0, 0, 0)","border":"oklab(0.998702 0.000027 0.000063 / 0.996372)","borderStyle":"solid","color":"rgb(233, 230, 226)","forced":true}
+ZOOM-200 {"w":700,"h":211.8,"scrollH":104,"clientH":104,"overflowing":false,"docOverflowX":false,"docScrollW":1440,"docClientW":1440}
+
+===== m-mob-light =====
+FOCUS {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none"}
+OVERFLOW {"scrollH":252,"clientH":190,"h":192,"w":324}
+FORCED {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none","bg":"rgba(0, 0, 0, 0)","border":"oklab(0.000842 0.000013 0.000037 / 0.998381)","borderStyle":"solid","color":"rgb(28, 25, 23)","forced":true}
+ZOOM-200 {"w":258,"h":370.5,"scrollH":184,"clientH":184,"overflowing":false,"docOverflowX":false,"docScrollW":390,"docClientW":390}
+
+===== m-mob-dark =====
+FOCUS {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none"}
+OVERFLOW {"scrollH":252,"clientH":190,"h":192,"w":324}
+FORCED {"boxShadow":"rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px","outlineStyle":"none","bg":"rgba(0, 0, 0, 0)","border":"oklab(0.999477 0.000011 0.000025 / 0.998536)","borderStyle":"solid","color":"rgb(233, 230, 226)","forced":true}
+ZOOM-200 {"w":258,"h":370.5,"scrollH":184,"clientH":184,"overflowing":false,"docOverflowX":false,"docScrollW":390,"docClientW":390}

@@ -1,0 +1,32 @@
+{
+  "selectionText": "f\n(\nt\n)\n=\n{\nt\n3\nt\n>\nϵ\nκ\nt\n+\n16\n116\notherwise\n \nf(t)={ \n3\n  \nt\n​\t\n \n116\nκt+16\n​\t\n \n​\t\n  \nt>ϵ\notherwise\n​\t\n \n",
+  "textContent": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}f(t)={3t​116κt+16​​t>ϵotherwise​",
+  "annotationText": "f(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}",
+  "mathmlText": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cases} \\sqrt[3]{t} & t > \\epsilon \\\\ \\frac{\\kappa\\, t + 16}{116} & \\text{otherwise} \\end{cases}",
+  "htmlLayerText": "f(t)={3t​116κt+16​​t>ϵotherwise​",
+  "duplicated": true,
+  "orphanRoot": {
+    "display": "inline-block",
+    "overflowX": "visible",
+    "padding": "0px",
+    "margin": "0px",
+    "width": 256.52,
+    "hostWidth": 800,
+    "scrollW": 257,
+    "clientW": 257,
+    "clipsSilently": false
+  },
+  "overflowingPorts": 2,
+  "portsWithTabindex": 0,
+  "portsWithRole": 0,
+  "portsWithAriaLabel": 0,
+  "portStyle": {
+    "maskImage": "none",
+    "webkitMaskImage": "none",
+    "backgroundImage": "none",
+    "boxShadow": "none",
+    "after": "none",
+    "before": "none",
+    "scrollbarWidthReserved": 0
+  }
+}

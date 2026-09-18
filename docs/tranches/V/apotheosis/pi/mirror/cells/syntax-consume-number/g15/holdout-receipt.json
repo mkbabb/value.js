@@ -1,0 +1,90 @@
+{
+  "schema": "value.pi.holdout-receipt/v2",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 15,
+  "status": "SEALED_PREAUTHOR",
+  "created_at": "2026-07-22T19:53:20.483Z",
+  "artifacts": {
+    "ciphertext_path": "holdout-ciphertext.b64",
+    "ciphertext_encoding": "base64 with line wrapping; decode whitespace-insensitively",
+    "ciphertext_bytes": 268070,
+    "ciphertext_sha256": "8b6476c3331f2f699566ed0da7f7a9e24693ab32e682a54ea8fe2054d621a01a",
+    "ciphertext_file_sha256": "5ff5a6b3f6bd9586711ec82a8f61a155ceeced7ac499a82bb6f9d08ba6c40ffe",
+    "plaintext_bytes": 268070,
+    "plaintext_sha256": "95c202bc1a7459c05fdf4beb573958e671256c228a515b661424713390ae1f11",
+    "plaintext_canonicalization": "recursive lexicographic object-key order; arrays preserve order; JSON.stringify scalars; UTF-8; no trailing newline"
+  },
+  "encryption": {
+    "algorithm": "AES-256-GCM",
+    "key_encoding": "lowercase hex plus LF in external escrow file",
+    "nonce_b64": "iLkPkLRQFfhMUsZQ",
+    "auth_tag_b64": "Y/9jyr7hDby7S2FHhNwm8g==",
+    "aad": {
+      "schema": "value.pi.holdout-aad/v1",
+      "feature_id": "SYNTAX-CONSUME-NUMBER",
+      "generation": 15,
+      "corpus_schema": "value.pi.hidden-corpus/v2",
+      "base_contract": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g14/feature.json",
+        "sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29"
+      },
+      "semantic_contract_sha256": "2112d1d17c6463c5b1e81750bdbd4de6e32dbe0a23fec3723c2d6d4a9707b2c4",
+      "normative_source": {
+        "commit": "08f2f799da6a306e8bf5daca208683717f26d643",
+        "path": "css-syntax-3/Overview.bs",
+        "document_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+        "line_start": 1610,
+        "line_end": 1678,
+        "excerpt_sha256": "3d9bc61ac4fbaa5a1038354c260e2289bc334b9837b9faf5acab840439cc5708"
+      },
+      "purpose": "candidate-independent-preauthor-holdout"
+    },
+    "aad_canonical_sha256": "1c9910aae04446f6c154586e93aeb9680a2555f2992a6f9ec9d690650582fbc4",
+    "aad_canonicalization": "same canonicalization as plaintext"
+  },
+  "corpus_summary": {
+    "total_cases": 180,
+    "family_counts": {
+      "maximal-prefix": 24,
+      "repeated-fraction": 16,
+      "signs-leading-zeroes": 18,
+      "incomplete-exponents": 18,
+      "utf16-offsets-surrogates": 16,
+      "transaction-ahead-diagnostics": 14,
+      "descriptors-mutability": 8,
+      "parent-composition": 24,
+      "hostile-bounded-strings": 16,
+      "repeated-call-stability": 10,
+      "parser-introspection": 8,
+      "no-per-call-parser-id-growth": 8
+    },
+    "candidate_independent": true,
+    "prior_generation_case_permutation": false
+  },
+  "escrow": {
+    "key_path": "/tmp/value-js-g15-syntax-consume-number-holdout-key-fe37f6a3e1dd.hex",
+    "required_mode": "0600",
+    "reveal_gate": "Do not disclose plaintext, corpus cases, or key material until root supplies the exact frozen G15 candidate-set SHA-256.",
+    "frozen_candidate_set_sha256": null
+  },
+  "source_verification": {
+    "method": "downloaded official raw GitHub content at immutable commit and independently hashed bytes and requested line excerpt",
+    "verified_document_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "verified_excerpt_sha256": "3d9bc61ac4fbaa5a1038354c260e2289bc334b9837b9faf5acab840439cc5708"
+  },
+  "authorship_receipt": {
+    "role": "independent preauthor holdout custodian",
+    "agent": "Codex",
+    "model_family": "OpenAI GPT-5",
+    "exact_provider_checkpoint_available_to_agent": false,
+    "runtime_surface": "Codex desktop agent",
+    "candidate_source_content_inspected": false,
+    "candidate_path_names_incidentally_observed_in_initial_listing": true,
+    "g14_holdout_plaintext_or_cases_inspected": false,
+    "g14_feature_json_inspected": true,
+    "parse_that_1_0_public_dist_api_inspected_for_stateful_harness_contract": true,
+    "normative_source_inspected_and_verified": true,
+    "production_or_candidate_files_modified": false,
+    "statement": "Corpus content was authored before G15 candidates existed, without inspecting G14/G15 candidate implementation content or prior holdout cases."
+  }
+}

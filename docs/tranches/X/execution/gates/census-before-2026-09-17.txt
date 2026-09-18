@@ -1,0 +1,44 @@
+SERVED MODEL: claude-opus-5[1m]
+# X·P gate 25 (parse-that/waves/W0.md §6 G-3) — EIGHTEEN-ROOT CENSUS, 'BEFORE'
+# Measured 2026-09-17 (begin-word), read-only, by the gates-baseline seat. Double-run identical.
+# Per-root commands: git -C <root> rev-parse --short HEAD  ·  find <root> -type f -not -path '*/.git/*' -not -path '*node_modules*' | wc -l
+# DISCLOSED SIDE-EFFECT: the DIRTY column is this seat's ADDITION to the G-3 command pair and was taken with
+#   'git -C <root> status --porcelain', which may refresh a worktree's index stat-cache (.git/worktrees/<name>/index mtime).
+#   No tracked content, HEAD, ref, branch, or object-store byte was changed; parse-that/.git is 28M, unchanged; no gc.log exists.
+#   The wave's own census should run rev-parse + find ONLY (or --no-optional-locks) so that before/after diff to empty is untainted.
+# Columns: idx <TAB> root <TAB> REACH <TAB> HEAD <TAB> BRANCH <TAB> FILES <TAB> DIRTY
+#
+01	/Users/mkbabb/Programming/parse-that	REACH=PRESENT	HEAD=ef10d5b	BRANCH=master	FILES=20261	DIRTY=31
+02	/Users/mkbabb/Programming/parse-that-css-totality	REACH=PRESENT	HEAD=f575708	BRANCH=codex/css-totality-combinators-20260729	FILES=757	DIRTY=2
+03	/Users/mkbabb/Programming/parse-that-css-totality-p1-e	REACH=PRESENT	HEAD=35fd252	BRANCH=codex/css-totality-p1-e	FILES=277	DIRTY=0
+04	/Users/mkbabb/Programming/parse-that-css-totality-p1-r	REACH=PRESENT	HEAD=4175325	BRANCH=codex/css-totality-p1-r	FILES=277	DIRTY=0
+05	/Users/mkbabb/Programming/parse-that-css-totality-p1-vk	REACH=PRESENT	HEAD=a0f122f	BRANCH=codex/css-totality-p1-vk	FILES=277	DIRTY=0
+06	/Users/mkbabb/Programming/parse-that-runtime-probes	REACH=PRESENT	HEAD=99e9862	BRANCH=codex/runtime-kernel-probes-20260729	FILES=337	DIRTY=0
+07	/Users/mkbabb/Programming/parse-that-skv26	REACH=PRESENT	HEAD=e31fbfe	BRANCH=codex/sk-v26-parse-that	FILES=51162	DIRTY=0
+08	/private/tmp/parse-that-m2-baseline-20260729	REACH=ABSENT	HEAD=-	BRANCH=-	FILES=-	DIRTY=-
+09	/Users/mkbabb/.codex/worktrees/7e28/value.js	REACH=PRESENT	HEAD=e01d0065	BRANCH=HEAD	FILES=3967	DIRTY=15
+10	/Users/mkbabb/.codex/worktrees/9167	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=2988	DIRTY=-
+11	/Users/mkbabb/.codex/worktrees/d0be	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=1100	DIRTY=-
+12	/Users/mkbabb/Programming/value-css-totality-audit	REACH=PRESENT	HEAD=dea7a93c	BRANCH=codex/css-totality-prototype-20260729	FILES=3846	DIRTY=0
+13	/Users/mkbabb/Programming/value-xw1-demo-boot	REACH=PRESENT	HEAD=d19da6d3	BRANCH=codex/xw1-demo-boot-20260729	FILES=3979	DIRTY=2
+14	/Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-v12-construction	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=2	DIRTY=-
+15	/Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-and-experiment-v12	REACH=ABSENT	HEAD=-	BRANCH=-	FILES=-	DIRTY=-
+16	/Users/mkbabb/Documents/Codex/2026-07-29/parser-p4-fresh-sol-adjudication/outputs	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=8	DIRTY=-
+17	/Users/mkbabb/Programming/.p-totality	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=26056	DIRTY=-
+18	/Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof	REACH=PRESENT	HEAD=NOT-A-GIT-ROOT	BRANCH=-	FILES=189	DIRTY=-
+#
+# STRUCTURAL FACT (G-3's load-bearing claim), measured 2026-09-17:
+#   git -C /Users/mkbabb/Programming/parse-that worktree list  ->  7 entries (the 08-03 baseline recorded EIGHT)
+#   /Users/mkbabb/Programming/parse-that                     ef10d5b [master]
+#   /Users/mkbabb/Programming/parse-that-css-totality        f575708 [codex/css-totality-combinators-20260729]
+#   /Users/mkbabb/Programming/parse-that-css-totality-p1-e   35fd252 [codex/css-totality-p1-e]
+#   /Users/mkbabb/Programming/parse-that-css-totality-p1-r   4175325 [codex/css-totality-p1-r]
+#   /Users/mkbabb/Programming/parse-that-css-totality-p1-vk  a0f122f [codex/css-totality-p1-vk]
+#   /Users/mkbabb/Programming/parse-that-runtime-probes      99e9862 [codex/runtime-kernel-probes-20260729]
+#   /Users/mkbabb/Programming/parse-that-skv26               e31fbfe [codex/sk-v26-parse-that]
+#   .git/worktrees/ registry holds 6 entries; the PRUNABLE record for /private/tmp/parse-that-m2-baseline-20260729 is GONE.
+#   Registry parent mtime: Aug 26 16:33:38 2026. No .git/gc.log present.
+#   parse-that/.git size:  28M
+#   .codex/worktrees/9167 -> keyframes.js ; .codex/worktrees/d0be -> fourier-analysis (sub-roots, first enumeration)
+#   .p-totality entries: atlas audit-snapshots demo-audit-2026-07-17 evidence-archive-2026-08-03.tar.zst primary-salvage-2026-08-03.tar.zst sci
+#   evidence-archive-2026-08-03.tar.zst = 323894591 B (unchanged from the 08-03 baseline)

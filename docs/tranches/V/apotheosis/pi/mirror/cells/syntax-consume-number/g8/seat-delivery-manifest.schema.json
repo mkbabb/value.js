@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:seat-delivery-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "seat", "formation_sha256", "common_rows", "seat_packet", "seat_source_rows", "delivered_input_row_count", "delivered_input_closure_sha256", "exclusions"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "seat": { "enum": ["h", "b", "s", "d"] }, "formation_sha256": { "$ref": "#/$defs/sha256" },
+    "common_rows": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/pathRow" } }, "seat_packet": { "$ref": "#/$defs/pathRow" }, "seat_source_rows": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/pathRow" } }, "delivered_input_row_count": { "type": "integer", "minimum": 4 }, "delivered_input_closure_sha256": { "$ref": "#/$defs/sha256" },
+    "exclusions": { "type": "object", "additionalProperties": false, "required": ["peer_packets", "peer_sources", "peer_notes", "candidate_sources", "reviews", "benchmark_results"], "properties": { "peer_packets": { "const": true }, "peer_sources": { "const": true }, "peer_notes": { "const": true }, "candidate_sources": { "const": true }, "reviews": { "const": true }, "benchmark_results": { "const": true } } }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }, "pathRow": { "type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes"], "properties": { "path": { "type": "string", "minLength": 1 }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } } }
+}

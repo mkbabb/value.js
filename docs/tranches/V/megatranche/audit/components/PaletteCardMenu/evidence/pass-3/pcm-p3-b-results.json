@@ -1,0 +1,132 @@
+{
+  "B2_browse_duplicateNames": {
+    "cards": 2,
+    "dupes": [
+      [
+        "0 votes, click to vote",
+        2
+      ],
+      [
+        "Palette menu",
+        2
+      ]
+    ]
+  },
+  "B1_realAnnotation": {
+    "itemText": "Make private publicpublicpublicpublic",
+    "annotationTextContent": "public",
+    "inlineStyle": "font-variant: small-caps;",
+    "className": "ml-auto fira-code text-mono-caption opacity-55 tracking-wide",
+    "computed": {
+      "textTransform": "uppercase",
+      "fontVariant": "small-caps",
+      "fontVariantCaps": "small-caps",
+      "fontFeatureSettings": "\"calt\", \"liga\"",
+      "fontSize": "14.384px",
+      "letterSpacing": "0.3596px"
+    },
+    "widths": {
+      "asShipped_smallCapsPlusUppercase": 55.266,
+      "smallCapsRemoved_uppercaseKept": 55.266,
+      "uppercaseRemoved_smallCapsKept": 39.094,
+      "bothRemoved": 55.266
+    },
+    "smallCapsIsInert": true,
+    "smallCapsWouldMatterWithoutUppercase": true
+  },
+  "B3_itemsWithAnnotation": [
+    {
+      "text": "Save",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Make private public",
+      "annotationSpans": 1,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Remix",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Rename",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Edit Tags",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Versions 3",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Export",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    },
+    {
+      "text": "Delete",
+      "annotationSpans": 0,
+      "ariaLabel": null,
+      "ariaDisabled": null
+    }
+  ],
+  "B3_axMenuItems": [
+    "Save",
+    "Make private PUBLIC",
+    "Remix",
+    "Rename",
+    "Edit Tags",
+    "Versions 3",
+    "Export",
+    "Delete"
+  ],
+  "B1_syntheticControl": {
+    "withUppercaseUtility": [
+      {
+        "cls": "ml-auto fira-code text-mono-caption opacity-55 tracking-wide",
+        "style": "font-variant: small-caps",
+        "w": 64.469,
+        "textTransform": "",
+        "fontVariantCaps": ""
+      },
+      {
+        "cls": "ml-auto fira-code text-mono-caption opacity-55 tracking-wide",
+        "style": "",
+        "w": 64.469,
+        "textTransform": "",
+        "fontVariantCaps": ""
+      }
+    ],
+    "withoutUppercaseUtility": [
+      {
+        "cls": "ml-auto fira-code opacity-55 tracking-wide",
+        "style": "font-variant: small-caps",
+        "w": 59.266,
+        "textTransform": "",
+        "fontVariantCaps": ""
+      },
+      {
+        "cls": "ml-auto fira-code opacity-55 tracking-wide",
+        "style": "",
+        "w": 83.391,
+        "textTransform": "",
+        "fontVariantCaps": ""
+      }
+    ]
+  },
+  "errs": []
+}

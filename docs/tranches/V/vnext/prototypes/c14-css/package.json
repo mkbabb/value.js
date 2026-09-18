@@ -1,0 +1,23 @@
+{
+  "name": "@value-js/c14-css-formation-prototype",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "tsx --test test/**/*.test.ts",
+    "proof:modules": "node tools/verify-module-isomorphism.mjs",
+    "proof:receipt": "node tools/verify-package-receipt.mjs",
+    "proof": "npm run proof:receipt && npm run proof:modules",
+    "reproduce": "node tools/reproduce-from-commit.mjs",
+    "bench": "tsx bench/compare.ts"
+  },
+  "dependencies": {
+    "@mkbabb/parse-that": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3"
+  }
+}

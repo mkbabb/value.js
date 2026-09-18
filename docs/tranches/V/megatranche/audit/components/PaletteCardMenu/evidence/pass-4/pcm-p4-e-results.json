@@ -1,0 +1,273 @@
+{
+  "E1_desktopSweep": [
+    {
+      "opened": 0,
+      "owner": "Probe Palette 0",
+      "side": "bottom",
+      "menuY": 516,
+      "menuH": 240.1,
+      "covered": [
+        {
+          "trigger": 1,
+          "item": "Publish",
+          "offsetFromItemCentre": 19.5
+        },
+        {
+          "trigger": 2,
+          "item": "Delete",
+          "offsetFromItemCentre": -9.5
+        }
+      ]
+    },
+    {
+      "opened": 1,
+      "owner": "Probe Palette 1",
+      "side": "bottom",
+      "menuY": 627.7,
+      "menuH": 239.3,
+      "covered": [
+        {
+          "trigger": 2,
+          "item": "Publish",
+          "offsetFromItemCentre": 20
+        },
+        {
+          "trigger": 3,
+          "item": "Delete",
+          "offsetFromItemCentre": -8.5
+        }
+      ]
+    },
+    {
+      "opened": 2,
+      "owner": "Probe Palette 2",
+      "side": "top",
+      "menuY": 455.3,
+      "menuH": 239.6,
+      "covered": [
+        {
+          "trigger": 1,
+          "item": "Export",
+          "offsetFromItemCentre": -16.5
+        }
+      ]
+    },
+    {
+      "opened": 3,
+      "owner": "Probe Palette 3",
+      "side": "top",
+      "menuY": 567.7,
+      "menuH": 239.1,
+      "covered": [
+        {
+          "trigger": 2,
+          "item": "Export",
+          "offsetFromItemCentre": -16.5
+        }
+      ]
+    },
+    {
+      "opened": 4,
+      "owner": "Probe Palette 4",
+      "side": "bottom",
+      "menuY": 515.7,
+      "menuH": 239.3,
+      "covered": [
+        {
+          "trigger": 5,
+          "item": "Publish",
+          "offsetFromItemCentre": 20
+        },
+        {
+          "trigger": 6,
+          "item": "Delete",
+          "offsetFromItemCentre": -8.5
+        }
+      ]
+    },
+    {
+      "opened": 5,
+      "owner": "Probe Palette 5",
+      "side": "bottom",
+      "menuY": 628,
+      "menuH": 240.1,
+      "covered": [
+        {
+          "trigger": 6,
+          "item": "Publish",
+          "offsetFromItemCentre": 19.5
+        },
+        {
+          "trigger": 7,
+          "item": "Delete",
+          "offsetFromItemCentre": -9.5
+        }
+      ]
+    },
+    {
+      "opened": 6,
+      "owner": "Probe Palette 6",
+      "side": "top",
+      "menuY": 455,
+      "menuH": 240.1,
+      "covered": [
+        {
+          "trigger": 5,
+          "item": "Export",
+          "offsetFromItemCentre": -16.5
+        }
+      ]
+    },
+    {
+      "opened": 7,
+      "owner": "Probe Palette 7",
+      "side": "top",
+      "menuY": 567,
+      "menuH": 240.1,
+      "covered": [
+        {
+          "trigger": 6,
+          "item": "Export",
+          "offsetFromItemCentre": -16.5
+        }
+      ]
+    }
+  ],
+  "E1_summary": {
+    "cards": 8,
+    "openingsWithACoveredTrigger": 8,
+    "openingsThatCoverDelete": 4,
+    "distinctCoveredItems": [
+      "Publish",
+      "Delete",
+      "Export"
+    ]
+  },
+  "E3_keyboardWhileOpen": [
+    {
+      "key": "Tab",
+      "menus": 1,
+      "active": "DIV{menu}",
+      "activeText": "Probe Palette 3 Publish ",
+      "insideMenu": true
+    },
+    {
+      "key": "Shift+Tab",
+      "menus": 1,
+      "active": "DIV{menu}",
+      "activeText": "Probe Palette 3 Publish ",
+      "insideMenu": true
+    },
+    {
+      "key": "ArrowDown",
+      "menus": 1,
+      "active": "DIV{menuitem}",
+      "activeText": "Publish",
+      "insideMenu": true
+    },
+    {
+      "key": "Escape",
+      "menus": 0,
+      "active": "BUTTON",
+      "activeText": "Palette menu",
+      "insideMenu": false
+    }
+  ],
+  "E2_mobileSweep": [
+    {
+      "opened": 0,
+      "owner": "Probe Palette 0",
+      "side": "top",
+      "menuY": 235.7,
+      "menuH": 245.6,
+      "covered": []
+    },
+    {
+      "opened": 1,
+      "owner": "Probe Palette 1",
+      "side": "top",
+      "menuY": 350.7,
+      "menuH": 245.6,
+      "covered": []
+    },
+    {
+      "opened": 2,
+      "owner": "Probe Palette 2",
+      "side": "bottom",
+      "menuY": 411,
+      "menuH": 245.6,
+      "covered": [
+        {
+          "trigger": 3,
+          "item": "Rename",
+          "offsetFromItemCentre": -21.1
+        },
+        {
+          "trigger": 4,
+          "item": "Delete",
+          "offsetFromItemCentre": 11.9
+        }
+      ]
+    },
+    {
+      "opened": 3,
+      "owner": "Probe Palette 3",
+      "side": "top",
+      "menuY": 232.7,
+      "menuH": 245.6,
+      "covered": []
+    },
+    {
+      "opened": 4,
+      "owner": "Probe Palette 4",
+      "side": "top",
+      "menuY": 350.7,
+      "menuH": 245.6,
+      "covered": []
+    },
+    {
+      "opened": 5,
+      "owner": "Probe Palette 5",
+      "side": "bottom",
+      "menuY": 411,
+      "menuH": 245.6,
+      "covered": [
+        {
+          "trigger": 6,
+          "item": "Rename",
+          "offsetFromItemCentre": -21.1
+        },
+        {
+          "trigger": 7,
+          "item": "Delete",
+          "offsetFromItemCentre": 11.9
+        }
+      ]
+    },
+    {
+      "opened": 6,
+      "owner": "Probe Palette 6",
+      "side": "top",
+      "menuY": 232.7,
+      "menuH": 245.6,
+      "covered": []
+    },
+    {
+      "opened": 7,
+      "owner": "Probe Palette 7",
+      "side": "top",
+      "menuY": 350.7,
+      "menuH": 245.6,
+      "covered": []
+    }
+  ],
+  "E2_summary": {
+    "cards": 8,
+    "openingsWithACoveredTrigger": 2,
+    "openingsThatCoverDelete": 2,
+    "sides": [
+      "top",
+      "bottom"
+    ]
+  }
+}

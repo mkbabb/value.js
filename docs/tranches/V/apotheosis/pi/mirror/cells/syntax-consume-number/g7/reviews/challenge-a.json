@@ -1,0 +1,273 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "review_id": "A",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "identity": {
+    "reviewer_id": "g7-boundary-spec-a",
+    "role": "independent-specification-and-semantic-boundary-challenger",
+    "served_model": "gpt-5.6-sol",
+    "reasoning_effort": "inherited-not-exposed",
+    "independent": true,
+    "candidate_author": false,
+    "root_adjudicator": false,
+    "peer_review_access": false,
+    "hidden_plaintext_or_key_access": false
+  },
+  "model_receipt": {
+    "served_model": "gpt-5.6-sol",
+    "input_manifest_sha256": "4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422",
+    "review_input_sha256": "39ea67fbd47ccd69426cf3146e130587b81b7b14213a282295d7cb0abf36393a",
+    "commands": [
+      "shasum -a 256 cells/syntax-consume-number/g7/manifest.json && wc -c cells/syntax-consume-number/g7/manifest.json",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --self-check",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --negative-controls",
+      "node --check cells/syntax-consume-number/g7/author-admission-validator.mjs",
+      "tsc --noEmit --strict --target ES2022 --module NodeNext --moduleResolution NodeNext --types node --resolveJsonModule --allowSyntheticDefaultImports --verbatimModuleSyntax cells/syntax-consume-number/g7/contract.ts cells/syntax-consume-number/g7/harness.ts",
+      "printf <public H loop-and-mutation negative control> | node cells/syntax-consume-number/g7/author-admission-validator.mjs --assay-stdin h",
+      "printf <public reachable whole-prefix wrapper negative control> | node cells/syntax-consume-number/g7/author-admission-validator.mjs --assay-stdin b",
+      "printf <public reachable whole-prefix wrapper negative control> | node cells/syntax-consume-number/g7/author-admission-validator.mjs --assay-stdin s",
+      "printf <public equivalent whole-prefix dispatch negative control> | node cells/syntax-consume-number/g7/author-admission-validator.mjs --assay-stdin d",
+      "node cells/syntax-consume-number/g7/benchmark-validator.mjs --self-check",
+      "node <public envelope, public-case-ID, review-input, binary64-edge, and hostile-length verification scripts>"
+    ],
+    "closed_at": "2026-07-22T12:38:46.000Z"
+  },
+  "subject": {
+    "formation": {
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+    "holdout_receipt": {
+      "sha256": "6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2",
+      "bytes": 2363
+    },
+    "holdout_ciphertext": {
+      "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+      "bytes": 129225
+    }
+  },
+  "three_altitude_findings": {
+    "total_tranche": {
+      "sequencing": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The corrected ledger retires standalone SYNTAX-NUMBER-START, names SYNTAX-CONSUME-NUMBER as the active pilot, and permits pilot preparation without feature acceptance or broad fan-out. G7 begins from the terminal G6 rejection, freezes zero candidates, seals a fresh ciphertext before authors, and requires two challenges plus a distinct root before author invitation.",
+          "This is formation sequencing only. The BORN-RED full denominator remains incomplete, and no candidate, parser, benchmark, integration, or production credit follows."
+        ]
+      },
+      "denominator": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The row is the smallest coherent consuming numeric operation: one maximal CSS Syntax §4.3.13 prefix, one semantic value/type/sign leaf, one value-unit owner, and percentage/dimension dispatch left above it.",
+          "The six §4.3.10 true arms are correctly subordinate branch fixtures rather than a zero-width exported Parser<boolean>; source preprocessing/mapping, contextual bounds, units, tokens, CST, and serialization are explicitly outside this pilot row."
+        ]
+      },
+      "boundary": {
+        "verdict": "REJECT",
+        "findings": [
+          "The semantic operation is well chosen, but the author-isolation boundary, holdout proof/custody boundary, benchmark evidence join, and post-author five-plus-three owner-law gate are not closed by the frozen precursor.",
+          "The public boundary therefore cannot safely advance to author invitation even though its formation and exact semantic leaf are useful design evidence."
+        ]
+      }
+    },
+    "feature_cell": {
+      "correctness": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The accepted-prefix expression matches the pinned §4.3.13 order: optional sign, digits or guarded dot-plus-digit fraction, then only a fully guarded exponent. Incomplete 1., 1e, and 1e+ tails remain unconsumed.",
+          "Public-only edge classification remained coherent for +00.5E-00, -.0e-324, 1e309, -1e309, 9007199254740993, 1e+, 1.e1, +.e1, 0e999999, -0e999999, 5e-324, and 2.2250738585072012e-308."
+        ]
+      },
+      "result": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "Number(exact consumed representation) supplies an explicit ECMAScript binary64 carrier. Object.is checks preserve negative zero and distinguish the declared underflow, signed-infinity, and rounding behavior.",
+          "Reflect.ownKeys, Object.prototype, and exact writable/enumerable/configurable data-descriptor checks close the ordinary three-property value/type/sign result shape without raw, span, accessor, symbol, or surplus fields."
+        ]
+      },
+      "diagnostics": {
+        "verdict": "REJECT",
+        "findings": [
+          "feature-row.json claims every public failure is exercised against both modes, both profiles, and all seven predecessor classes, but harness.ts chooses predecessors[caseIndex % predecessors.length] once per case. Each failure sees one predecessor, yielding 40 failure executions instead of the claimed 280-cell predecessor cross-product.",
+          "Enabled ordinary failure accepts any nonempty expected strings, and ordinary success does not constrain furthest, expected, suggestions, or secondarySpans. Candidate-specific observable diagnostic side effects can therefore diverge while all public checks pass."
+        ]
+      },
+      "limits": {
+        "verdict": "REJECT",
+        "findings": [
+          "The field named sizes_utf16_code_units is passed as a repeated-digit count. The declared 4096 schedule produces sources of 4097 code units for digits and 4099 for fraction, exponent, and incomplete-exponent; the same +1/+3 error persists at every doubling.",
+          "Warmups are not timed, measured calls have no external watchdog, and a <=8 doubling ratio does not establish the declared O(n) law. The hostile H assay also proved that the topology validator admits an explicit loop and mutation despite the stated construction floor."
+        ]
+      },
+      "hostility": {
+        "verdict": "REJECT",
+        "findings": [
+          "runWorkLimitHarness checks only isError and final offset; it does not validate the hostile semantic leaf, binary64 value, type, sign, ordinary object shape, same-state return, or no-throw/global-diagnostic guarantees.",
+          "The exact ciphertext framing is public-consistent, but the hidden coverage, cross-generation anti-duplication, candidate-access, freshness, and future revealability claims are assertions rather than publicly bound, recomputable custody evidence."
+        ]
+      },
+      "composition": {
+        "verdict": "REJECT",
+        "findings": [
+          "The composition harness verifies acceptance and only leaf.type plus the dimension unit. It does not verify composed value, sign, exact consumed prefix, final offset, ordinary leaf shape, or the rollback/diagnostic state of the integer rejection path.",
+          "Consequently a context-specific wrong Number/sign mapping or non-transactional failure can pass all six public composition witnesses."
+        ]
+      }
+    },
+    "author_admission_and_tooling": {
+      "review_integrity": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The exact review/root schemas and validator require distinct reviewer identities, model/input receipts, full three-altitude axis sets, evidence, blockers, zero credit, exact subject hashes, and unanimous ACCEPT before pre-author admission.",
+          "The official self-check reproduced 34 rows and closure 8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73 and rejected a content-free ACCEPT plus an ACCEPT carrying a blocker."
+        ]
+      },
+      "holdout_integrity": {
+        "verdict": "REJECT",
+        "findings": [
+          "The receipt/ciphertext hashes, canonical one-line base64, decoded length, VPI7CN1 NUL magic, plaintext-plus-36 framing, and sorted-LF hash of all 39 unique public case IDs were independently reproduced.",
+          "Neither the schema nor validateHoldout binds a custodian identity/model/commands/close time, generator bytes, canonical hidden-case digest, prior-generation comparison inputs, or a durable reveal-custody route. The 184-case category and zero-duplication/freshness fields are accepted by value alone."
+        ]
+      },
+      "provenance": {
+        "verdict": "REJECT",
+        "findings": [
+          "The repaired H authority is truthfully authenticated to commit 9fce504a5764258c8e56b0ce77cd656c725a4907, blob cbb57ab5327bc0afa667fbd13ad98d77f3b610de, and historical line 96; H/B non-independence is also candidly disclosed.",
+          "The claimed author isolation is nevertheless false as a delivery boundary: the common 34-row precursor contains every seat's H source, B BBNF, S specification, D package/fixtures, the all-seat lineage design, and validator source examples for H/B/S/D. Author receipts merely self-assert peer-source/design-note non-access while all seats bind the same manifest."
+        ]
+      },
+      "topology": {
+        "verdict": "REJECT",
+        "findings": [
+          "The official negative controls close only exact old bytes and top-level dead declarations. Public assays admitted an H exact-regex mapper containing while(false) and assignment at 49cf5e633036bbac8e3141b8b47f24f20ccbfcef9f8e338659ea443d37d61843, disproving the promised loop/mutation ban.",
+          "Reachable impossible/no-op wrappers around the H whole-prefix recognizer passed B and S at 1390077a331f2de3797cca7c53bcb7fab38095e7c9fc33927e8cc92364053278 and 6b8d818b11e4f6eb7ba67ae24078fc96f31630de1f36a93b4b6d974ac27b4476; an equivalent whole-prefix regex with textual grouping changes passed the D dispatch rule at f389f3e8b066f630e255efda5ffa025e05808ce05069a51b3b8cb01d34eb16fc.",
+          "B's frozen authority is itself one regex, yet B is forced into arbitrary any/all quotas; §4.3.13 is sequential, yet S is forced to reify six §4.3.10 start arms. Those quotas manufacture cosmetic difference rather than proving idiomatic, KISS, non-contrived construction."
+        ]
+      },
+      "benchmark": {
+        "verdict": "REJECT",
+        "findings": [
+          "benchmark-validator.mjs self-check passes recomputation and append-only mechanics, but its synthetic manifest uses fabricated repeated-character hashes and is accepted because validateManifest checks hash syntax rather than reading the bound evidence.",
+          "The validator does not authenticate the exact pre-author receipt, feature row, public/revealed corpora, normalized observations, candidate sources and author receipts, build manifests/bundles, green receipts, comparator semantic receipts, runner, or order bytes. The claimed correctness-qualified source-to-build attribution is therefore not executable."
+        ]
+      },
+      "owner_law": {
+        "verdict": "REJECT",
+        "findings": [
+          "The frozen 34-row closure has no five-skeptic receipt schema, candidate-review manifest/schema, three synthesis-adjudicator schema, or final apotheosis validator. author-admission-validator.mjs terminates at FOUR_SEATS_ADMITTED_FOR_REVIEW_ONLY.",
+          "Text saying five plus three will happen later cannot enforce author/reviewer/adjudicator disjointness, common candidate-set binding, five all-axis unblocked reviews, three blind nominations, unanimous exact-hash selection, or the prohibition on unseen composite bytes."
+        ]
+      }
+    }
+  },
+  "evidence": [
+    "manifest.json reproduced SHA-256 4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422 / 878 bytes; its review-input digest independently recomputed to 39ea67fbd47ccd69426cf3146e130587b81b7b14213a282295d7cb0abf36393a.",
+    "formation-receipt.json reproduced 171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0 / 6565 and the official self-check reproduced the 34-row closure 8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73.",
+    "The pinned CSS Syntax authority slice at lines 1610-1679 reproduced the optional sign, digit loop, guarded fraction, guarded exponent, base-10 value, type, and sign sequence used by the row.",
+    "contract.ts plus harness.ts passed strict NodeNext TypeScript checking; author-admission-validator.mjs and benchmark-validator.mjs passed node syntax and official self-checks.",
+    "The public holdout inspection reproduced receipt 6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2 / 2363, ciphertext 019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3 / 129225, canonical envelope framing, and public case-ID hash f63f9d26b7aa44c13d5d4287e692c7e6dbc9949cb70fbd658d107ee9f152ef72 without accessing plaintext or key.",
+    "harness.ts lines 138-175 select one predecessor per case; lines 90-97 accept arbitrary nonempty enabled expectations; lines 191-202 omit value/sign/shape/rollback checks for composition; lines 269-315 omit hostile semantic-leaf checks and timing of warmups.",
+    "Public topology assays returned ACCEPT identities 49cf5e633036bbac8e3141b8b47f24f20ccbfcef9f8e338659ea443d37d61843, 1390077a331f2de3797cca7c53bcb7fab38095e7c9fc33927e8cc92364053278, 6b8d818b11e4f6eb7ba67ae24078fc96f31630de1f36a93b4b6d974ac27b4476, and f389f3e8b066f630e255efda5ffa025e05808ce05069a51b3b8cb01d34eb16fc for constructions forbidden by the declared loop/mutation and operative-orthogonality laws.",
+    "No Challenge B bytes, hidden plaintext, hidden key, candidate source, feature/parser implementation, production file, or benchmark evidence were accessed or authored."
+  ],
+  "defects": [
+    {
+      "id": "G7-A-01-DIAGNOSTIC-CONTRACT-AND-PREDECESSOR-MATRIX",
+      "severity": "BLOCKER",
+      "summary": "The public failure matrix is materially smaller than claimed and observable diagnostic behavior remains candidate-specific.",
+      "evidence": [
+        "feature-row.json says every public failure is tested against all seven predecessor classes, but harness.ts line 141 selects exactly one predecessor from caseIndex before the mode/profile loops.",
+        "Ten failures receive 10 x 2 modes x 2 profiles = 40 executions; the claimed cross-product requires 10 x 2 x 2 x 7 = 280.",
+        "assertOrdinaryFailureDiagnostics accepts any nonempty expected strings, while ordinary successful parses have no diagnostic-state assertion."
+      ],
+      "required_repair": "Freeze exact ordinary enabled expectations and success/backtracking diagnostic effects, then execute every public failure against every predecessor class in both modes and both profiles with exact same-state/value/offset/ownership assertions."
+    },
+    {
+      "id": "G7-A-02-COMPOSITION-OBSERVATION-UNDERCHECKED",
+      "severity": "BLOCKER",
+      "summary": "The composition witnesses do not verify the semantic leaf or transactional failure contract they claim to protect.",
+      "evidence": [
+        "assertComposition checks accepts, leaf.type, and dimension unit only; it never checks leaf.value, leaf.sign, own keys/descriptors/prototype, or exact final offset.",
+        "The integer-rejects-fraction path returns immediately on expected rejection and does not check rollback of offset/value/diagnostics after the numeric prefix was consumed."
+      ],
+      "required_repair": "Assert the complete Object.is binary64/type/sign/shape leaf and exact composed extent for every accepting witness, and assert same-state transactional rollback plus the frozen diagnostic contract for rejecting outer compositions."
+    },
+    {
+      "id": "G7-A-03-HOSTILE-LIMIT-NOT-THE-DECLARED-LAW",
+      "severity": "BLOCKER",
+      "summary": "The hostile harness neither uses the declared exact UTF-16 sizes nor enforces semantic completion, every-invocation timing, or the stated O(n) bound.",
+      "evidence": [
+        "At declared size 4096, generated source lengths are 4097 for digits and 4099 for the other three constructions; the mismatch scales unchanged through 32768.",
+        "Warmups are untimed, synchronous measurements have no timeout watchdog, and success checks only isError/offset rather than the complete semantic leaf.",
+        "A doubling ceiling of 8 permits cubic growth and does not prove O(n); the topology assay separately admits an explicit loop and mutation."
+      ],
+      "required_repair": "Generate inputs by exact total UTF-16 length, validate full semantics and state invariants on every warmup/sample, run each invocation under an enforceable external timeout, reject loop/mutation and unsafe regex topology, and use a rail that substantiates the declared linear bound."
+    },
+    {
+      "id": "G7-A-04-HOLDOUT-COVERAGE-FRESHNESS-AND-CUSTODY-UNPROVEN",
+      "severity": "BLOCKER",
+      "summary": "The ciphertext is well framed, but the public receipt cannot substantiate hidden coverage/anti-duplication/freshness or guarantee a later reveal.",
+      "evidence": [
+        "validateHoldout verifies category names and zero-valued claims but has no generator bytes, canonical hidden-case index/digest, or prior-generation comparison inputs from which to recompute 184 unique cases and zero duplicate counts.",
+        "The receipt has no custodian identity, served model, input receipt, commands, close time, custody location, reveal protocol, or evidence that the fresh key will remain available after author close.",
+        "Publicly reproducible ciphertext hash, base64 canonicality, decoded length, magic, AAD metadata, and the 39-public-ID hash do not prove the encrypted plaintext's asserted contents."
+      ],
+      "required_repair": "Reform a fresh post-repair holdout with an independent custodian receipt, content-addressed generator/canonicalization and comparison inputs, a committed hidden-case index/digest sufficient for reveal-time recomputation, and a durable non-author reveal-custody protocol while keeping plaintext and key secret before author close."
+    },
+    {
+      "id": "G7-A-05-AUTHOR-ISOLATION-CONTRADICTS-FROZEN-INPUTS",
+      "severity": "BLOCKER",
+      "summary": "Every author is bound to a common precursor that exposes every peer lineage input and peer construction notes, contradicting the claimed isolation law.",
+      "evidence": [
+        "formation-receipt.json includes historical-utils.ts, the BBNF file, the specification, parse-that leaf declarations, public fixtures, and all-seat lineage.json in the one 34-row common closure.",
+        "lineage.json publishes every seat's operative topology, and author-admission-validator.mjs topologyControls contains source examples for H, B, S, and D.",
+        "author-receipt.schema.json binds all seats to the same admitted_manifest_sha256 and can only self-assert peer_source_access=false and peer_design_notes_accessed=false; no per-seat delivered-input closure exists."
+      ],
+      "required_repair": "Split the common contract/harness from four exact per-seat input manifests, remove peer sources/design examples from each author context, bind each receipt to the bytes actually delivered, and obtain fresh isolated authors after the repaired boundary is accepted."
+    },
+    {
+      "id": "G7-A-06-TOPOLOGY-QUOTAS-DO-NOT-PROVE-ORTHOGONAL-IDIOM",
+      "severity": "BLOCKER",
+      "summary": "The operative AST walk is bypassable and the forced B/S shapes are quota-driven distortions rather than affirmative orthogonal, idiomatic, KISS constructions.",
+      "evidence": [
+        "The H assay accepted a mapper containing a while statement and assignment, despite protocol text forbidding loops and mutation.",
+        "B and S assays accepted the H exact whole-prefix recognizer padded with reachable impossible/no-op all/any/string branches; D accepted an equivalent whole-prefix regex after textual regrouping inside the required dispatch table.",
+        "B's actual BBNF input defines number as one regex, so mandatory >=2 any and >=2 all is not a near one-for-one transpose. The §4.3.13 algorithm is sequential, so mandatory six start-clause branching makes S reify the already-retired §4.3.10 predicate shape."
+      ],
+      "required_repair": "Replace call-count/text-equality quotas with construction rules derived truthfully from each lineage, reject loops/mutation and semantically dead padding across the reachable initializer, prevent equivalent H recognizers from qualifying B/S/D, and allow reviewers to reject rather than preordain contrived shapes."
+    },
+    {
+      "id": "G7-A-07-BENCHMARK-CORRECTNESS-AND-BUILD-JOIN-IS-NOMINAL",
+      "severity": "BLOCKER",
+      "summary": "The benchmark validator preserves raw attempts but does not authenticate the correctness, candidate, build, corpus, comparator, runner, or schedule evidence named by the manifest.",
+      "evidence": [
+        "validateManifest validates most evidence references as lowercase 64-character strings and never reads or cross-validates the referenced receipts, sources, manifests, bundles, corpora, observations, runner, or order bytes.",
+        "The official self-check demonstrates acceptance of fabricated repeated-character identities for pre-author receipt, sources, author receipts, builds, bundles, public/holdout green receipts, observations, runner, and order.",
+        "Append-only raw retention and statistical recomputation cannot make an unbound synthetic measurement correctness-qualified or attributable to admitted candidate bytes."
+      ],
+      "required_repair": "Validate an immutable evidence root containing the exact successful pre-author/four-seat receipts, sources, reproducible builds and bundles, revealed/public corpora, expected/actual semantic observations, comparator rulings, runner, and schedule order before sealing or crediting any timing attempt."
+    },
+    {
+      "id": "G7-A-08-FIVE-PLUS-THREE-OWNER-LAW-HAS-NO-EXECUTABLE-GATE",
+      "severity": "BLOCKER",
+      "summary": "The frozen precursor states the post-author owner law but contains no schemas or validator that can enforce it.",
+      "evidence": [
+        "The 34-row closure defines boundary reviews, a pre-author root, author receipts, and benchmark receipts, but no five-skeptic, candidate-ranking, synthesis-adjudicator, or final-apotheosis receipt.",
+        "fourSeat returns FOUR_SEATS_ADMITTED_FOR_REVIEW_ONLY and no frozen command consumes five all-axis reviews plus three independent blind nominations to authorize one exact already-reviewed hash.",
+        "Thus author/reviewer/adjudicator disjointness, shared candidate-set identity, blocker discharge, unanimity, and no-unseen-composite law are prose-only."
+      ],
+      "required_repair": "Freeze exact post-author review/adjudication schemas and an executable final gate before inviting authors; bind identities, common candidate/corpus/benchmark inputs, all-axis findings, blockers, five unblocked reviews, three independent nominations, and unanimous selection of one already reviewed exact hash."
+    }
+  ],
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

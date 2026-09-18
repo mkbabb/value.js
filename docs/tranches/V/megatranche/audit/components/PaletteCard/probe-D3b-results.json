@@ -1,0 +1,55 @@
+{
+  "cleanExport": {
+    "runs": [
+      {
+        "idx": 0,
+        "fmt": "PNG Swatch",
+        "filename": "sunset.png",
+        "head": "<5794 bytes> sig=137,80,78,71,13,10,26,10"
+      },
+      {
+        "idx": 0,
+        "fmt": "JSON",
+        "filename": "sunset.json",
+        "head": "{\n  \"name\": \"Sunset\",\n  \"slug\": \"sunset\",\n  \"colors\": [\n    {\n      \"css\": \"#ff6b6b\",\n      \"position\": 0\n    },\n    {\n      \"css\": \"#f7b267\",\n      \"position\": 1\n    },\n    {\n      \"css\": \"#f79d65\",\n      \"position\": 2\n    },\n    {\n      \"css\": \"#f4845f\",\n      \"position\": 3\n    },\n    {\n      \"css"
+      },
+      {
+        "idx": 1,
+        "fmt": "JSON",
+        "filename": "oklch-set.json",
+        "head": "{\n  \"name\": \"Oklch Set\",\n  \"slug\": \"oklch-set\",\n  \"colors\": [\n    {\n      \"css\": \"oklch(0.7 0.15 30)\",\n      \"position\": 0\n    },\n    {\n      \"css\": \"oklch(0.5 0.1 200)\",\n      \"position\": 1\n    }\n  ]\n}"
+      },
+      {
+        "idx": 1,
+        "fmt": "SVG Swatch",
+        "filename": "oklch-set.svg",
+        "head": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"110\" viewBox=\"0 0 120 110\">\n  <rect x=\"0\" y=\"0\" width=\"60\" height=\"80\" fill=\"oklch(0.7 0.15 30)\" />\n  <rect x=\"60\" y=\"0\" width=\"60\" height=\"80\" fill=\"oklch(0.5 0.1 200)\" />\n  <text x=\"60\" y=\"100\" text-anchor=\"middle\" font-family=\"system-ui,"
+      }
+    ],
+    "console": [
+      "debug: [vite] connecting...",
+      "debug: [vite] connected.",
+      "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https:",
+      "debug: [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 "
+    ]
+  },
+  "browseReach": {
+    "offOriginRequests": [],
+    "skeletons": 0,
+    "cards": 2,
+    "text": "Browse\n\nDiscover palettes from the community.\n\nThe commons is unreachable.\n\nFailed to load palettes\n\nRetry\nMy Palettes2 (2 saved)\n\nSave, organize, and share your colors.\n\nStart a new palette\nSunset\n5\n"
+  },
+  "expandedGeom": {
+    "cardH": 172,
+    "cardW": 462,
+    "cardLeft": 754,
+    "cardRight": 1216,
+    "swatchRow": {
+      "left": 768,
+      "right": 1000,
+      "n": 5,
+      "size": 40
+    },
+    "fillPct": 50
+  }
+}

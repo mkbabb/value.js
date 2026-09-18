@@ -1,0 +1,214 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "review_id": "B",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "identity": {
+    "reviewer_id": "g7-quality-b",
+    "role": "independent public-boundary quality reviewer",
+    "served_model": "gpt-5.6-sol",
+    "reasoning_effort": "inherited-not-exposed",
+    "independent": true,
+    "candidate_author": false,
+    "root_adjudicator": false,
+    "peer_review_access": false,
+    "hidden_plaintext_or_key_access": false
+  },
+  "model_receipt": {
+    "served_model": "gpt-5.6-sol",
+    "input_manifest_sha256": "4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422",
+    "review_input_sha256": "39ea67fbd47ccd69426cf3146e130587b81b7b14213a282295d7cb0abf36393a",
+    "commands": [
+      "sha256sum cells/syntax-consume-number/g7/manifest.json && wc -c cells/syntax-consume-number/g7/manifest.json",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --self-check",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --negative-controls",
+      "node cells/syntax-consume-number/g7/author-admission-validator.mjs --pre-author cells/syntax-consume-number/g7/manifest.json",
+      "git cat-file blob 9fce504a5764258c8e56b0ce77cd656c725a4907:src/parsing/utils.ts",
+      "node cells/syntax-consume-number/g7/benchmark-validator.mjs --self-check"
+    ],
+    "closed_at": "2026-07-22T12:35:29Z"
+  },
+  "subject": {
+    "formation": {
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+    "holdout_receipt": {
+      "sha256": "6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2",
+      "bytes": 2363
+    },
+    "holdout_ciphertext": {
+      "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+      "bytes": 129225
+    }
+  },
+  "three_altitude_findings": {
+    "total_tranche": {
+      "sequencing": {
+        "verdict": "REJECT",
+        "findings": [
+          "The required pre-author command cannot reach the review/root gate over the exact frozen manifest, so the prescribed reviewer-to-author sequence is not executable."
+        ]
+      },
+      "denominator": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The boundary, author, benchmark, and owner-law artifacts consistently retain zero credit before later unanimous selection and integration gates."
+        ]
+      },
+      "boundary": {
+        "verdict": "REJECT",
+        "findings": [
+          "The manifest/validator shape contradiction and later self-referential candidate-root digest prevent the frozen boundary from admitting the documented evidence objects."
+        ]
+      }
+    },
+    "feature_cell": {
+      "correctness": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The public operation is precisely bound to CSS Syntax section 4.3.13, maximal guarded fraction/exponent consumption, binary64 conversion, offset behavior, and retained positive/negative cases."
+        ]
+      },
+      "result": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The contract and harness require the exact ordinary three-property value/type/sign leaf, Object.is value comparison, negative zero, and no surplus keys, symbols, or accessors."
+        ]
+      },
+      "diagnostics": {
+        "verdict": "REJECT",
+        "findings": [
+          "The feature row says every public failure is exercised against all seven predecessor classes, but assertRawCase selects only predecessors[caseIndex % predecessors.length] and loops only over diagnostic mode and state profile."
+        ]
+      },
+      "limits": {
+        "verdict": "REJECT",
+        "findings": [
+          "The controls call their values sizes_utf16_code_units, but materializeHostile treats each size as a digit count; fraction, exponent, and incomplete-exponent source constructions therefore exceed the documented exact 4096/8192/16384/32768 code-unit sizes."
+        ]
+      },
+      "hostility": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "Public fixtures cover malformed starts, non-ASCII input, offsets, guarded dot/exponent boundaries, long prefixes, and four hostile construction families."
+        ]
+      },
+      "composition": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The public harness composes the leaf in number, integer-guard, percentage, and dimension contexts while keeping suffix dispatch outside this row."
+        ]
+      }
+    },
+    "author_admission_and_tooling": {
+      "review_integrity": {
+        "verdict": "REJECT",
+        "findings": [
+          "Self-check and recorded negative controls pass, but the exact real pre-author command exits 1 with 'manifest holdout receipt keys mismatch: bytes,path,sha256' before reading either challenge."
+        ]
+      },
+      "holdout_integrity": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "Public receipt validation binds the exact formation/closure, ciphertext identity, canonical base64 envelope, AES-256-GCM metadata, coverage categories, anti-duplication facts, and absence/freshness attestations without exposing plaintext or key material."
+        ]
+      },
+      "provenance": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The H authority exactly matches Git commit 9fce504a5764258c8e56b0ce77cd656c725a4907, blob cbb57ab5327bc0afa667fbd13ad98d77f3b610de, and the 92-byte LF-terminated production line hash; B/S/D inputs are identity-bound and the H/B non-independence is disclosed."
+        ]
+      },
+      "topology": {
+        "verdict": "REJECT",
+        "findings": [
+          "The H/B/S/D target constructions are intelligible, lineage-specific uses of parse-that (historical regex, BBNF any/all, spec-clause terminals, and native dispatch), but assertTopology does not reject MethodDeclaration nodes and accepts allowed method names on unproven receivers, leaving a reachable inline-object helper/indirection bypass."
+        ]
+      },
+      "benchmark": {
+        "verdict": "REJECT",
+        "findings": [
+          "The statistical recomputation and exact seven peer keys are coherent, but validateManifest merely shape-checks candidate/build/correctness/pre-author hashes and never resolves them to exact evidence bytes; its own passing synthetic manifest uses invented repeated-character hashes. The ledger is also first-created mode 0444, so a later distinct attempt cannot normally append."
+        ]
+      },
+      "owner_law": {
+        "verdict": "ACCEPT",
+        "findings": [
+          "The public protocol reserves selection for five pairwise-distinct skeptics and three further unanimous adjudicators over an already reviewed unblocked candidate hash."
+        ]
+      }
+    }
+  },
+  "evidence": [
+    "manifest.json is exactly 878 bytes with SHA-256 4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422.",
+    "author-admission-validator.mjs --self-check reports 34 precursor rows, closure 8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73, eight topology negative controls, and seven schemas.",
+    "author-admission-validator.mjs --negative-controls reports PASS, yet --pre-author over the exact manifest exits before challenge loading with the path-bearing holdout row key mismatch.",
+    "author-admission-validator.mjs lines 106-115 define identityRow as an exact sha256/bytes object; lines 720-723 pass manifest.holdout_receipt and manifest.holdout_ciphertext, each frozen with path/sha256/bytes, to that exact-key check.",
+    "author-admission-validator.mjs lines 595-605 hash every file below each seat root, while lines 766-769 read author-receipt.json from that root and require its candidate.isolated_root_sha256 to equal that whole-tree hash.",
+    "harness.ts lines 143-180 select one predecessor per case; the only nested loops are diagnostics modes and profiles, contradicting feature-row.json failure_contract.public_test.",
+    "benchmark-validator.mjs --self-check passes recomputation, but lines 46-84 never read the evidence named by the manifest hashes and lines 222-250 demonstrate acceptance using synthetic hash strings."
+  ],
+  "defects": [
+    {
+      "id": "G7-B-PREAUTHOR-MANIFEST-ROW-SHAPE",
+      "severity": "BLOCKER",
+      "summary": "The exact documented pre-author command rejects the exact frozen manifest before reaching the expected review stage.",
+      "evidence": [
+        "From the mirror root, `node cells/syntax-consume-number/g7/author-admission-validator.mjs --pre-author cells/syntax-consume-number/g7/manifest.json` exits 1 with `manifest holdout receipt keys mismatch: bytes,path,sha256`.",
+        "manifest.json requires path-bearing holdout_receipt and holdout_ciphertext rows, but sameIdentity calls identityRow, whose exactKeys permits only sha256 and bytes."
+      ],
+      "required_repair": "Make preAuthor validate each frozen path separately and compare only its sha256/bytes identity fields (or define and consistently use one path-bearing row validator), add a real-manifest negative/positive control proving execution reaches the missing-review gate, then reform and reseal because the validator is inside the precursor closure."
+    },
+    {
+      "id": "G7-B-SELF-REFERENTIAL-CANDIDATE-ROOT",
+      "severity": "BLOCKER",
+      "summary": "The four-seat candidate-root identity requires a SHA-256 fixed point over the receipt that contains that identity.",
+      "evidence": [
+        "fourSeat reads <seat>/author-receipt.json and then compares author.candidate.isolated_root_sha256 with treeIdentity(seatRoot).",
+        "treeIdentity recursively hashes every file in seatRoot, including author-receipt.json itself, so changing isolated_root_sha256 changes the digest it must equal."
+      ],
+      "required_repair": "Define a non-self-referential candidate payload closure (for example, hash an exact allowed payload file set that excludes the detached author receipt), verify candidate.source_path equals the canonical seat path, and add an executable four-seat fixture proving one ordinary receipt can satisfy the identity gate."
+    },
+    {
+      "id": "G7-B-TOPOLOGY-HELPER-BYPASS",
+      "severity": "BLOCKER",
+      "summary": "The mechanical topology gate does not enforce the documented no-local-function/direct-construction floor.",
+      "evidence": [
+        "assertTopology rejects FunctionExpression and ClassExpression but not an object-literal MethodDeclaration nested in the export initializer.",
+        "Property calls are accepted solely by method-name membership; the receiver is not proven to be a parser combinator or an inline mapper parameter. The author receipt API list is not compared with the AST counts."
+      ],
+      "required_repair": "Reject every function-like/helper node except narrowly validated inline mapper arrows, reject statement-bearing method bodies and loops, prove allowed call receivers arise from the direct combinator graph or mapper parameters, compare receipt API declarations with observed topology, and add bypass-specific negative controls before reforming the closure."
+    },
+    {
+      "id": "G7-B-PUBLIC-DIAGNOSTIC-AND-SIZE-COVERAGE",
+      "severity": "BLOCKER",
+      "summary": "Executable public coverage is weaker than the frozen diagnostics and exact-size limit claims.",
+      "evidence": [
+        "assertRawCase chooses one predecessor using caseIndex modulo seven; it does not run each public failure against all seven predecessor classes as feature-row.json states.",
+        "materializeHostile adds syntax around count digits, so non-digit constructions are not the exact UTF-16 code-unit sizes named by g7-controls.json and feature-row.json."
+      ],
+      "required_repair": "Nest every public failure across all seven predecessor values and update assertion accounting; construct each hostile source/consumed representation to the exact declared UTF-16 lengths, assert those lengths in validatePublicFixtures/runWorkLimitHarness, and reform the frozen precursor."
+    },
+    {
+      "id": "G7-B-BENCHMARK-EVIDENCE-NOT-AUTHENTICATED",
+      "severity": "BLOCKER",
+      "summary": "The benchmark validator can certify a receipt whose source, build, correctness, and admission hashes do not identify any supplied evidence.",
+      "evidence": [
+        "validateManifest checks hash syntax and distinctness but never reads or compares pre-author receipts, candidate sources, author receipts, build manifests, bundles, correctness receipts, corpora, normalized observations, or the runner bytes.",
+        "The self-check's synthetic manifest uses repeated-character placeholder hashes and passes. appendLedger creates ledger.jsonl with mode 0444, which prevents a normal later invocation from appending a distinct attempt despite the multi-attempt contract."
+      ],
+      "required_repair": "Require an evidence-root closure, resolve every identity-bearing manifest field to exact immutable bytes before timing/receipt validation, cross-check admitted sources and correctness observations, and add a two-distinct-attempt self-check using an append design that retains and verifies both rows without retry erasure."
+    }
+  ],
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "review_id": "B",
+  "verdict": "REJECT",
+  "reviewer": {
+    "task_id": "/root/g9_boundary_challenge_b2",
+    "served_model": "gpt-5.6-sol",
+    "independent": true,
+    "candidate_author": false,
+    "root": false,
+    "custodian": false,
+    "peer_review_access": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade",
+    "bytes": 944
+  },
+  "axes": {
+    "exact_subject_identity": "ACCEPT",
+    "normative_consume_number_semantics": "ACCEPT",
+    "direct_parse_that_runtime_closure": "REJECT",
+    "immutable_chronology": "REJECT",
+    "g8_repair_closure": "REJECT",
+    "candidate_provenance_topology": "REJECT",
+    "author_isolation_and_receipts": "REJECT",
+    "external_actor_provenance": "REJECT",
+    "candidate_census": "REJECT",
+    "holdout_public_commitment_identity": "ACCEPT",
+    "custody_gcm_liveness": "REJECT",
+    "comparator_predeclaration": "REJECT",
+    "hostile_killability": "REJECT",
+    "review_substance_schema": "REJECT",
+    "foreign_or_fabricated_admission": "REJECT",
+    "lifecycle_replay": "REJECT",
+    "negative_control_adequacy": "REJECT",
+    "replacement_roster_liveness": "REJECT"
+  },
+  "evidence": [
+    "Fresh byte replay, with g9/reviews/** pruned from discovery, confirmed reviewed-subject.json c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade/944, formation-receipt.json 21991b481df84081f105581bcbb80ff49f98e1688b080046a33e6688047e353a/3562, holdout-receipt.json c9006ca78471593933f1c8a14b38d19b63b04c0182c8a5fae2dea0c7fd359144/2368, and holdout-ciphertext.b64 44abeb756059679db7fc09554c4ac159abee8ed625cf5f96f204d7a01dedb4c6/181721. The subject's precursor closure is 0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991.",
+    "`node .../g9/admission-validator.mjs --precursor-check` passed the 20-row formation and reported zero .ts candidates; `--negative-controls` passed seven in-memory controls; and `--subject .../reviewed-subject.json` passed with 188 claimed hidden cases. These are narrow current-byte replays, not proof of the rejected axes below.",
+    "The pinned authority slice at lines 1610-1679 independently rehashed to 3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3/2303. Its seven consume-number steps agree with the observable value/type/sign contract and the guarded maximal prefix. No semantic defect in this narrow numeric boundary was found.",
+    "The G9 formation binds only `node_modules/@mkbabb/parse-that/dist/leaf.d.ts` for the engine. It does not bind the installed package manifest/exports, lockfile, `dist/core.js`, diagnostics runtime, or imported runtime chunk. Current examples are package.json f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff/2772, core.js d577cc3e19b3a7e138ad433670ebdf4857776744c3375ae174391e2f68e642f5/1336, and diagnostics.js 006aee90367d191fcc89340d1912be999009b9850b23ea6dc17a2c0c286b9522/282. The subject therefore does not freeze the parser implementation candidates will actually execute.",
+    "The exact bound `../g8/feature-row.json` remains status `FROZEN_PILOT_ROW_UNACCEPTED_PRE_HOLDOUT_PRE_AUTHOR`; its holdout law mandates a fresh G8 custodian and its admission law mandates the rejected G8 path-bearing-manifest sequence. G9 binds that contradictory row unchanged while claiming a new reviewed-subject/envelope protocol.",
+    "The H authority already contains one direct regex number terminal and the B authority contains another single-regex number production. The four seat packets label provenance but contain no required provenance graph, pairwise construction review, or predeclared materially different topologies. Nothing prevents H/B/S/D from closing four cosmetically distinct wrappers around the same recognizer, contrary to ADDENDA-07 section 3.",
+    "No author task identities, served-model receipts, input-manifest roots, isolated candidate-root hashes, close-time schema, or author-disjointness join exists in the reviewed subject, formation, protocol, or validator. The admission output merely returns the four seat letters. Consequently one actor can occupy multiple or all author seats without the machine gate noticing.",
+    "Actor provenance is string equality only. `validateReviewValue` accepts any nonempty served_model, any twelve ACCEPT/REJECT-valued axis names, and any nonempty evidence string; the built-in fixture itself uses `served_model: fixture`, `axis_0` through `axis_11`, and `evidence: fixture`. Neither the subject nor final envelope binds an external Codex task receipt. A local writer can therefore self-assert the frozen task IDs and manufacture both reviews and root.",
+    "Admission review/root paths are merely local path rows, not the canonical challenge/root paths, signatures, or append-only receipts. Hash joins make the fabricated bundle internally consistent but do not establish who created it or that the actors were independent. This preserves the central G8 actor-laundering defect despite improving subject/content joins.",
+    "`assertNoCandidates` checks only regular files ending in `.ts` beneath two roots. It misses `.tsx`, `.mts`, `.cts`, `.js`, `.mjs`, `.cjs`, parser sources elsewhere, and symlinked files/directories. The reported zero is therefore not a complete candidate census and cannot support pre-author chronology.",
+    "The public receipt self-asserts `recoverable_while_task_live: true`, but `readSubject` and `validateAdmission` never query or bind a fresh possession/liveness response from the custodian. If the private task/store dies after sealing, the same stale bytes still authorize authors even though protocol.json says loss before reveal terminates G9. Public validation also checks only base64 shape/length, not an authenticated-decryption challenge tied to this subject.",
+    "The contract names generic live-regex, deposed, and C14 peers but freezes no exact comparator source/build/bundle hashes, operation adapter, normalized-observation contract, corpus, runner, paired schedule, environment, or strict-win statistic. Comparator selection can therefore occur after candidates are known, violating the predeclared benchmark law.",
+    "The retained work-limit harness invokes `parser.call` in-process and tests elapsed time only after the call returns. An infinite loop or catastrophic call cannot reach the 1000 ms assertion. The bound feature row itself requires a killable isolated runner, but no subprocess runner, kill deadline, or runner identity appears in G9.",
+    "The reviewed subject is an ordinary mutable workspace path. The validator proves only its bytes at the instant of a command and has no append-only/object-store identity, before/after review continuity witness, or mutation epoch. A modify-review-restore sequence is invisible as long as the final bytes regain c7704187...; the content DAG alone does not prove immutable chronology.",
+    "The seven negative controls exercise value validators in memory. They do not execute a complete forged on-disk admission, mutate-and-restore chronology, stale/dead custodian admission, non-.ts or symlink candidate, unbound runtime swap, arbitrary-axis ceremonial ACCEPT, missing author provenance, or hanging candidate. Thus they do not kill the concrete defects above.",
+    "The frozen subject names `/root/g9_boundary_challenge_b`, while this independently assigned replacement is `/root/g9_boundary_challenge_b2`. Because the rostered B seat became unusable and G9 has no content-addressed substitution/restart transition, this exact review is intentionally terminal evidence rather than admission-capable evidence. The exact generation cannot lawfully reach AUTHORS_MAY_BEGIN."
+  ],
+  "blockers": [
+    "The exact closure is internally contradictory: it binds the unaccepted G8 feature row whose holdout/admission clauses still require the terminally rejected G8 protocol. G9 must freeze one generation-consistent feature row and subject.",
+    "The subject freezes a TypeScript declaration but not the installed parse-that package manifest, lock, core/diagnostics/runtime chunks, or complete package ledger. Candidate semantics can change while every G9 identity remains green.",
+    "ADDENDA-07's pre-author provenance graph, pairwise construction review, materially different candidate topology, distinct author identities, and exact author-receipt schema are absent. Four labels do not establish four independently and orthogonally begotten candidates.",
+    "Reviewer/root/custodian provenance is unauthenticated self-report. Arbitrary local files with the expected task-id strings, arbitrary twelve axis names, and fixture evidence can form an internally consistent unanimous bundle; the final envelope binds content but not actors or independence.",
+    "The mutable subject path has no continuity or append-only witness, so modification during a review followed by restoration is undetectable. Exact final bytes do not prove the claimed freeze chronology.",
+    "The zero-candidate gate recognizes only regular `.ts` files in two directories and misses other executable TypeScript/JavaScript extensions, alternate roots, and symlinks. Its zero census is not exhaustive.",
+    "Admission performs no fresh custodian possession/liveness proof. A dead private store leaves a stale receipt that still passes and authorizes work, contradicting the fail-closed loss policy; ciphertext base64 validation is not an authenticated-decryption proof.",
+    "Exact comparator identities and a correctness-normalized paired benchmark protocol are not predeclared. The generic live-regex/deposed/C14 labels permit post-candidate comparator and operation selection.",
+    "The hostile timeout is post-return and in-process. No bound killable runner can terminate a hanging parser, despite the bound row explicitly requiring isolated killability.",
+    "The negative-control set does not exercise the actual filesystem/envelope attacks, liveness loss, runtime substitution, incomplete candidate census, ceremonial review schema, author collision, or non-returning parser.",
+    "The exact subject roster cannot accept the independently assigned replacement B2 reviewer after the original B seat became unusable. This generation has no lawful reviewer-substitution mechanism and is terminally rejected before authors."
+  ],
+  "credit": "ZERO_BOUNDARY_CHALLENGE_ONLY"
+}

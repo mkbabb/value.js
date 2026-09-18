@@ -1,0 +1,76 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# oracle-ee01-fe3-ee03.txt — G-0.4 the rebase oracle, run ON THE SETTLED TREE
+# Wave KF.W0 (Track B / X.KF) - unit KF.W0.c. Substrate: /Users/mkbabb/Programming/keyframes.js
+# Date: 2026-09-17. Every probe double-run; both runs agreed.
+#
+# SEQUENCING LOCK HONOURED (spec :681, :571): "G-0.4's oracles run AFTER the migration lands, never
+# before." OP-1's reset landed first (snapshot 6d280ee7, then `reset --hard origin/master`); this
+# seat opened after it. A wave that runs these probes before the migration measures the FRONTIER
+# and proves nothing about the rebase.
+#
+# THE COORDINATE, pasted beside each output as the spec requires (:562) - the coordinate of the two
+# negative probes is THE SETTLED WORKTREE and deliberately NOT a ref:
+$ date "+%Y-%m-%d"    -> 2026-09-17
+$ git rev-parse HEAD  -> 81a56990736ced5b5edde0b84c527680ac7689b1
+
+## ================= STATIC TIER (the gate's closing condition; three file:line assertions) ========
+
+EE-01  [date 2026-09-17 | HEAD 81a56990736ced5b5edde0b84c527680ac7689b1]
+$ sed -n '42p' demo/components/CopyButton.vue
+      timingFunction: "easeInBounce",                                            <- EXPECTED, GREEN
+  (RED form, for contrast: HEAD 8281638c and the disk both carried `"bounceInEase"`, which resolves
+   to nothing under value.js 4.0.0 and throws inside an uncaught async onMounted.)
+
+FE-3   [date 2026-09-17 | HEAD 81a56990736ced5b5edde0b84c527680ac7689b1]
+$ sed -n '11p' demo/components/instrument/keyframes/components/KeyframeCardList.vue
+      :frame-start="startScalar(frames[i].start)"                                <- EXPECTED, GREEN
+  (RED form: `:frame-start="frames[i].start.toString()"` -> `[object Object]` on every start field.)
+
+EE-03  [date 2026-09-17 | HEAD 81a56990736ced5b5edde0b84c527680ac7689b1]
+$ sed -n '97p' demo/components/instrument/keyframes/composables/useKeyframesParsing.ts
+      () => animation.templateFrames.length,                                     <- EXPECTED, GREEN
+  (N-3's guard observed: the bare `templateFrames.length` grep is NOT the witness - it returns two
+   unrelated guard sites. The oracle is the cure LINE at its file:line, and that is what is read.)
+
+## ================= THE TWO NEGATIVE PROBES (scope word carried: demo/) ======================
+
+  [date 2026-09-17 | HEAD 81a56990736ced5b5edde0b84c527680ac7689b1 | coordinate = THE SETTLED WORKTREE]
+$ git grep -n 'bounceInEase' -- demo/        | wc -l   -> 0        <- GREEN (the dead name is gone)
+$ git grep -n '\.start\.toString()' -- demo/ | wc -l   -> 0        <- GREEN (the `[object Object]` form is gone)
+
+  Note on the coordinate, restated because it is the whole point of these two probes: they are run
+  with NO REF, against the reconciled working tree. Running them at `origin/master` would measure
+  the frontier and prove nothing about the rebase - the same failure the gate's own falsifier names,
+  in the other direction.
+
+## ================= RUNTIME TIER (confirmation only; NAMED, NOT RUN) ========================
+
+The spec closes this gate on the static tier: "The gate closes on the STATIC tier, which is wholly
+addressable; the runtime tier is confirmation, named by literal path" (:552). Under probe parsimony
+(runbook 5.2) this seat NAMES the instruments and VERIFIES their wiring read-only; it runs neither.
+The declaration is loud rather than silent, so a later seat knows exactly what was and was not run.
+
+$ ls -l scripts/observe/demo/live-session.mjs scripts/lib/console-budget.mjs scripts/observe/demo/smoke.mjs
+      scripts/observe/demo/live-session.mjs   94142 B      <- THE warn-count instrument (loads the budget)
+      scripts/lib/console-budget.mjs           8323 B
+      scripts/observe/demo/smoke.mjs           8680 B      <- the weaker oracle
+
+$ git grep -ln 'console-budget' -- scripts/observe/
+      scripts/observe/demo/live-session-mobile.mjs
+      scripts/observe/demo/live-session.mjs
+      -> exactly two, as the spec's D-7 correction states; no other file in scripts/observe/ loads it.
+
+$ git grep -c 'pageerror' -- scripts/observe/demo/smoke.mjs   -> (no match; 0 files)
+      -> smoke.mjs installs NO pageerror handler, exactly as D-7 records. EE-03's watch-warn-count
+         confirmation has ONE instrument, not two.
+
+FE-3's /\[object Object\]/ smoke assertion is NOT asserted here and is not an instrument in this
+tree: it is a planned born-RED gate of keyframes.js's OWN tranche V (W1 . Render Truth), declared
+as an outbound cross-edge. This wave's Bounds forbid writing test/**, and a substrate wave that
+invents a test file to green its own gate is the vacuous evidence L-19 exists to kill.
+
+## G-0.4: RED -> GREEN on all five addressable probes (3 static + 2 negative).
+## Residue explicitly NOT this gate's (spec :571): FE-3's PARTIAL-cure residue - the fraction-for-
+## percent ("0.5" where the commit parser demands "50%"), the NAMED-selector fallthrough, and
+## `selectorText` still uncalled at both seams - belongs to KFED-UNIT, after KF.W4.

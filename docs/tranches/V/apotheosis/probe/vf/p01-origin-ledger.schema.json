@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-origin-ledger-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "origins", "shared_artifacts", "ledger_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-origin-ledger/1" },
+    "origins": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["p00", "v01", "v02", "value_commit", "bbnf_terminal_freeze", "parse_that_package"],
+      "properties": {
+        "p00": { "$ref": "#/$defs/p00Return" },
+        "v01": { "$ref": "#/$defs/v01Return" },
+        "v02": { "$ref": "#/$defs/v02Return" },
+        "value_commit": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "repository", "commit", "committed_tree_sha256"],
+          "properties": {
+            "kind": { "const": "committed-value" },
+            "repository": { "const": "/Users/mkbabb/Programming/value.js" },
+            "commit": { "$ref": "#/$defs/gitCommit" },
+            "committed_tree_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "bbnf_terminal_freeze": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "state", "repository", "commit", "committed_tree_sha256", "snapshot_event_sha256", "module_manifest_sha256", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+          "properties": {
+            "kind": { "const": "terminal-bbnf-css-union" },
+            "state": { "const": "frozen" },
+            "repository": { "const": "/Users/mkbabb/Programming/bbnf-lang" },
+            "commit": { "$ref": "#/$defs/gitCommit" },
+            "committed_tree_sha256": { "$ref": "#/$defs/sha256" },
+            "snapshot_event_sha256": { "$ref": "#/$defs/sha256" },
+            "module_manifest_sha256": { "$ref": "#/$defs/sha256" },
+            "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+            "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+            "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "parse_that_package": { "$ref": "#/$defs/publishedPackage" }
+      }
+    },
+    "shared_artifacts": {
+      "type": "array",
+      "minItems": 9,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "origin", "purpose", "path", "sha256"],
+        "properties": {
+          "id": {
+            "enum": [
+              "p00-return",
+              "v01-return",
+              "v02-return",
+              "host-capsule",
+              "css-execution-manifest",
+              "css-corpus",
+              "standards-lock",
+              "value-css-signatures",
+              "parse-that-package-receipt"
+            ]
+          },
+          "origin": { "enum": ["P00", "V01", "V02", "published-parse-that-1.0.0"] },
+          "purpose": {
+            "enum": [
+              "terminal-predecessor-return",
+              "historical-host-control",
+              "terminal-css-runtime-partition",
+              "pinned-css-differential-corpus",
+              "standards-lock",
+              "value-css-signature-lock",
+              "published-package-receipt"
+            ]
+          },
+          "path": { "$ref": "#/$defs/absolutePath" },
+          "sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "ledger_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "returnBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "wave_id", "path", "file_sha256", "return_hash", "wave_contract_sha256"],
+      "properties": {
+        "kind": { "const": "terminal-predecessor-return" },
+        "wave_id": { "enum": ["P00", "V01", "V02"] },
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "return_hash": { "$ref": "#/$defs/sha256" },
+        "wave_contract_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "p00Return": {
+      "allOf": [
+        { "$ref": "#/$defs/returnBinding" },
+        { "properties": { "wave_id": { "const": "P00" } } }
+      ]
+    },
+    "v01Return": {
+      "allOf": [
+        { "$ref": "#/$defs/returnBinding" },
+        { "properties": { "wave_id": { "const": "V01" } } }
+      ]
+    },
+    "v02Return": {
+      "allOf": [
+        { "$ref": "#/$defs/returnBinding" },
+        { "properties": { "wave_id": { "const": "V02" } } }
+      ]
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "publishedPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "name", "version", "registry_spec", "integrity", "receipt", "receipt_hash", "tarball_sha256", "files_sha256", "runtime_files_sha256", "declaration_files_sha256", "export_conditions_sha256", "no_link_tree_sha256"],
+      "properties": {
+        "kind": { "const": "published-package" },
+        "name": { "const": "@mkbabb/parse-that" },
+        "version": { "const": "1.0.0" },
+        "registry_spec": { "const": "@mkbabb/parse-that@1.0.0" },
+        "integrity": { "type": "string", "pattern": "^sha512-[A-Za-z0-9+/]+={0,2}$" },
+        "receipt": { "$ref": "#/$defs/evidence" },
+        "receipt_hash": { "$ref": "#/$defs/sha256" },
+        "tarball_sha256": { "$ref": "#/$defs/sha256" },
+        "files_sha256": { "$ref": "#/$defs/sha256" },
+        "runtime_files_sha256": { "$ref": "#/$defs/sha256" },
+        "declaration_files_sha256": { "$ref": "#/$defs/sha256" },
+        "export_conditions_sha256": { "$ref": "#/$defs/sha256" },
+        "no_link_tree_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

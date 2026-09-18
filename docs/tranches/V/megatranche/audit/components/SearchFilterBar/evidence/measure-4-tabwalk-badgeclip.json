@@ -1,0 +1,344 @@
+{
+ "webkit_tabStops": [
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "Search by CSS color",
+   "tag": "INPUT",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+   "cls": "field-control glass-defined w-full pr-16 font-mono truncate"
+  },
+  {
+   "name": "SPAN",
+   "tag": "SPAN",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "none",
+   "cls": ""
+  },
+  {
+   "name": "BODY"
+  }
+ ],
+ "webkit_badgeClip": {
+  "present": true,
+  "badge": {
+   "x": 926.1,
+   "y": 635.3,
+   "right": 942.3,
+   "bottom": 651.5
+  },
+  "clippers": [
+   {
+    "cls": "glass-resting card rounded-card text-card-foregrou",
+    "overflow": "hidden/auto",
+    "rect": {
+     "x": 464,
+     "y": 536,
+     "right": 976,
+     "bottom": 959.7
+    },
+    "clipsBadge": false,
+    "overhangRight": -33.7,
+    "overhangTop": -99.3
+   },
+   {
+    "cls": "app-layout",
+    "overflow": "hidden/hidden",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "right": 1440,
+     "bottom": 1400
+    },
+    "clipsBadge": false,
+    "overhangRight": -497.7,
+    "overhangTop": -635.3
+   }
+  ]
+ },
+ "chromium_tabStops": [
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "Open color picker, current color #4488cc",
+   "tag": "BUTTON",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "oklab(0.383963 0.108624 0.0288463 / 0.308805) -0.88054px 0.88054px 0px 1.11946px, oklab(0.",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-car"
+  },
+  {
+   "name": "Search by CSS color",
+   "tag": "INPUT",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "field-control glass-defined w-full pr-16 font-mono truncate"
+  },
+  {
+   "name": "Search",
+   "tag": "BUTTON",
+   "role": null,
+   "fv": true,
+   "outline": "auto/1px/rgb(50, 92, 143)",
+   "shadow": "none",
+   "cls": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-f"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  },
+  {
+   "name": "Open color picker, current color #4488cc",
+   "tag": "BUTTON",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "oklab(0.364701 0.0916076 0.0281089 / 0.31082) -1.082px 1.082px 0px 0.918px, oklab(0.342829",
+   "cls": "block h-7 w-7 rounded-full border-2 border-border shadow-car"
+  },
+  {
+   "name": "Search by CSS color",
+   "tag": "INPUT",
+   "role": null,
+   "fv": true,
+   "outline": "none/3px/rgb(28, 25, 23)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "field-control glass-defined w-full pr-16 font-mono truncate"
+  },
+  {
+   "name": "Search",
+   "tag": "BUTTON",
+   "role": null,
+   "fv": true,
+   "outline": "auto/1px/rgb(61, 92, 129)",
+   "shadow": "none",
+   "cls": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-f"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "radio",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "none",
+   "cls": "radio-group__item shrink-0"
+  },
+  {
+   "name": "BUTTON",
+   "tag": "BUTTON",
+   "role": "checkbox",
+   "fv": true,
+   "outline": "none/3px/rgb(251, 250, 248)",
+   "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000",
+   "cls": "checkbox control-surface glass-control-edge focus-ring tap-s"
+  }
+ ],
+ "chromium_badgeClip": {
+  "present": true,
+  "badge": {
+   "x": 926.1,
+   "y": 635.3,
+   "right": 942.3,
+   "bottom": 651.6
+  },
+  "clippers": [
+   {
+    "cls": "glass-resting card rounded-card text-card-foregrou",
+    "overflow": "hidden/auto",
+    "rect": {
+     "x": 464,
+     "y": 536,
+     "right": 976,
+     "bottom": 959.8
+    },
+    "clipsBadge": false,
+    "overhangRight": -33.7,
+    "overhangTop": -99.3
+   },
+   {
+    "cls": "app-layout",
+    "overflow": "hidden/hidden",
+    "rect": {
+     "x": 0,
+     "y": 0,
+     "right": 1440,
+     "bottom": 1400
+    },
+    "clipsBadge": false,
+    "overhangRight": -497.7,
+    "overhangTop": -635.3
+   }
+  ]
+ }
+}

@@ -1,0 +1,185 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 5,
+  "status": "HIDDEN_HOLDOUT_SEALED",
+  "custodian_task_id": "/root/number_start_g5_holdout",
+  "precursor": {
+    "path": "feature-public.json",
+    "sha256": "87e3f7bda096701bbe7faad422db37351e67f1b71c1957bdb9e980f91bc3d7ed",
+    "bytes": 16915,
+    "public_input_closure_entries": 28,
+    "public_input_closure_mismatches": 0
+  },
+  "public_corpora": {
+    "generation_3_fixture_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "generation_3_materialized_cases": 406,
+    "generation_4_endpoint_fixture_sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187",
+    "generation_4_endpoint_cases": 23
+  },
+  "clean_base": {
+    "manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "active_typescript_sources": 0,
+    "grammar_ledger_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "parse_that_dist_ledger": {
+    "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "entries": 64,
+    "installed_path_mismatches": 0,
+    "installed_byte_mismatches": 0
+  },
+  "hidden": {
+    "sha256": "3dac39da917de45aa9a0c45f76d177a33294c174f76e30d7cbc4294cbfa626b0",
+    "bytes": 85849,
+    "case_count": 192,
+    "true_count": 96,
+    "false_count": 96
+  },
+  "canonicalization": {
+    "encoding": "UTF-8",
+    "byte_order_mark": false,
+    "newlines": "LF",
+    "serialization": "JSON.stringify(value, null, 2) followed by exactly one terminal LF"
+  },
+  "coverage": {
+    "basis": "CSS Syntax Module Level 3 §4.3.10 and §3.3 mapped retained positions",
+    "all_offsets_nonzero": 192,
+    "number_spelling_ending_at_eof": 18,
+    "actual_operation_at_eof": 18,
+    "astral_prefix_cases": 62,
+    "unpaired_surrogate_prefix_cases": 82,
+    "mapped_preprocessing_pairs": 18,
+    "mapped_retained_cases": 36,
+    "true_false_near_misses": 78,
+    "positive_arms": [
+      "digit",
+      "plus-digit",
+      "minus-digit",
+      "dot-digit",
+      "plus-dot-digit",
+      "minus-dot-digit"
+    ],
+    "balance": "96 true / 96 false"
+  },
+  "disjointness": {
+    "machine_verified": true,
+    "semantic_tuple": "[source, offset, starts, continuation, positionKind]",
+    "categories": [
+      {
+        "category": "hidden_internal_case_id_duplicates",
+        "hidden_count": 192,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_source_duplicates",
+        "hidden_count": 192,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_source_offset_duplicates",
+        "hidden_count": 192,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_semantic_tuple_duplicates",
+        "hidden_count": 192,
+        "duplicate_count": 0
+      },
+      {
+        "category": "case_id_vs_generation_3_materialized",
+        "hidden_count": 192,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_vs_generation_3_materialized",
+        "hidden_count": 192,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_offset_vs_generation_3_materialized",
+        "hidden_count": 192,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "semantic_tuple_vs_generation_3_materialized",
+        "hidden_count": 192,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "case_id_vs_generation_4_endpoints",
+        "hidden_count": 192,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_vs_generation_4_endpoints",
+        "hidden_count": 192,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_offset_vs_generation_4_endpoints",
+        "hidden_count": 192,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "semantic_tuple_vs_generation_4_endpoints",
+        "hidden_count": 192,
+        "compared_count": 23,
+        "intersection_count": 0
+      }
+    ]
+  },
+  "g5_harness_applicability": {
+    "harness_path": "harness.ts",
+    "harness_sha256": "3f60d0be173947d93d1bf2cc1b55d38314d0146ef74b2b8c4e3b84c36999bf1b",
+    "entrypoint": "assertNumberStartCase",
+    "candidate_scope": "Every exact identity-closed H/B/S/D/R candidate runs every hidden case through the complete G5 harness.",
+    "diagnostics_modes": [
+      "disabled",
+      "enabled"
+    ],
+    "diagnostic_profiles": 7,
+    "lanes_per_predecessor": [
+      "raw-child",
+      "ordinary-parent-composition"
+    ],
+    "predecessor_representatives": {
+      "package_default": "undefined",
+      "inherited_six": [
+        "null",
+        "false",
+        "0",
+        "empty string",
+        "frozen array",
+        "frozen object"
+      ]
+    },
+    "observations_per_case": 196,
+    "observations_per_candidate": 37632,
+    "custodian_spec_oracle_witness": "PASS"
+  },
+  "candidate_identity_gate": {
+    "required_seats": [
+      "H",
+      "B",
+      "S",
+      "D",
+      "R"
+    ],
+    "required_closed_identities_per_seat": [
+      "source_sha256",
+      "overlay_ledger_sha256",
+      "projected_grammar_ledger_sha256"
+    ],
+    "status": "SEALED_AWAITING_ALL_FIVE_IDENTITY_CLOSES",
+    "execution_and_reveal_rule": "Do not execute candidates against or reveal hidden cases until all five source+overlay+projected identities close."
+  },
+  "prior_holdout_access": "NONE",
+  "prior_holdout_material_reused": false,
+  "public_input_integrity": "PRECURSOR_AND_ALL_28_PUBLIC_INPUTS_REMAIN_UNTOUCHED"
+}

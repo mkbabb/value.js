@@ -1,0 +1,134 @@
+{
+  "radioFaceFocus": {
+    "itemBoxShadow": "none",
+    "itemOutline": "3px none",
+    "itemRect": {
+      "w": 44,
+      "h": 44
+    },
+    "itemMargin": "-13px",
+    "faceClass": "radio-group__face",
+    "faceBoxShadow": "none",
+    "faceRect": {
+      "w": 18,
+      "h": 18
+    },
+    "faceHasRing": false,
+    "matchesFocusVisible": false,
+    "radioGroupGap": "26px",
+    "radioGroupAlignItems": "flex-start",
+    "radioSeat": "2.75rem",
+    "radioFace": "1.125rem"
+  },
+  "colorInputTruth": [
+    {
+      "typed": "rebeccapurple",
+      "before": {
+        "badge": null,
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "rebeccapurple",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    },
+    {
+      "typed": "hsl(200 80% 50%)",
+      "before": {
+        "badge": "1",
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "hsl(200 80% 50%)",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    },
+    {
+      "typed": "oklch(0.72 0.14 244)",
+      "before": {
+        "badge": "1",
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "oklch(0.72 0.14 244)",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    },
+    {
+      "typed": "#f00",
+      "before": {
+        "badge": "1",
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "#f00",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    },
+    {
+      "typed": "not-a-color",
+      "before": {
+        "badge": "1",
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "not-a-color",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    },
+    {
+      "typed": "#4488CC",
+      "before": {
+        "badge": "1",
+        "cards": 0
+      },
+      "after": {
+        "badge": "1",
+        "inputValue": "#4488CC",
+        "inputAriaInvalid": null,
+        "inputBorder": "color(srgb 0.11 0.098 0.09 / 0.05)",
+        "anyErrorText": false,
+        "swatchAriaLabel": "Open color picker, current color #4488cc",
+        "liveRegions": []
+      },
+      "newPageErrors": []
+    }
+  ],
+  "pageErrors": [],
+  "translucencyClip": {
+    "x": 432.5,
+    "y": 430,
+    "width": 240,
+    "height": 670.4375
+  }
+}

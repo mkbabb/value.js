@@ -1,0 +1,45 @@
+{
+  "engine": "chromium",
+  "steps": {
+    "fieldOverflow": {
+      "value": "oklch(0.7043 0.1889 25.331 / 0.85)",
+      "valueLen": 34,
+      "clientWidth": 146,
+      "scrollWidth": 381,
+      "scrollLeft": 234,
+      "selectionStart": 34,
+      "contentBoxWidth": 66,
+      "overflow": "clip",
+      "textOverflow": "ellipsis",
+      "paddingRight": "64px",
+      "caretCanReachEnd": true
+    },
+    "fieldOverflowHome": {
+      "scrollLeft": 0
+    },
+    "mobileTriggerVisible": 1,
+    "mobile": {
+      "present": true,
+      "viewport": {
+        "w": 390,
+        "h": 664
+      },
+      "panel": {
+        "top": 297.3,
+        "bottom": 756.7,
+        "h": 459.4,
+        "w": 240
+      },
+      "maxHeight": "none",
+      "overflowY": "visible",
+      "availableHeight": "366.6856079101563px",
+      "fieldBottom": 723.4,
+      "fieldBelowFold": true,
+      "searchBtnBottom": 708.4,
+      "searchBelowFold": true,
+      "pxBelowFold": 92.7
+    },
+    "mobileSearchClickable": false,
+    "mobileSearchClickError": "TimeoutError: locator.click: Timeout 4000ms exceeded."
+  }
+}

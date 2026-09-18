@@ -1,0 +1,157 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G9-HOLDOUT-DESTRUCTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS_UNREVEALED_SECRET_AND_GENERATOR_DESTROYED",
+  "destroyed_at": "2026-07-22T14:32:43Z",
+  "plaintext_revealed": false,
+  "secret_recoverable": false,
+  "precursor": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "21991b481df84081f105581bcbb80ff49f98e1688b080046a33e6688047e353a",
+      "bytes": 3562
+    },
+    "precursor_row_count": 20,
+    "precursor_closure_sha256": "0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991"
+  },
+  "terminal_rejection": {
+    "scope": "PUBLIC_PREAUTHOR_BOUNDARY_AND_ADMISSION",
+    "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+    "subject": {
+      "path": "reviewed-subject.json",
+      "sha256": "c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade",
+      "bytes": 944
+    },
+    "challenges": [
+      {
+        "seat": "a",
+        "task_id": "/root/g9_boundary_challenge_a",
+        "path": "reviews/challenge-a.json",
+        "sha256": "b9f97284fff79c313c583bd8beae0b4abd6a02cbe86e53365ede1edc6882924d",
+        "bytes": 9094,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      },
+      {
+        "seat": "b",
+        "task_id": "/root/g9_boundary_challenge_b2",
+        "path": "reviews/challenge-b.json",
+        "sha256": "885859d8cc1d72f27669a153572dc6df5cc7a36f10b7d43b97d8f9e6ebde39f5",
+        "bytes": 10487,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      }
+    ],
+    "root_gestalt": {
+      "actor": "value-pi-root-g9",
+      "path": "root-gestalt.json",
+      "sha256": "84a1826fac44505ba2ae3fbcc918b7684b0e94104b5d05421c1b385f4df1e412",
+      "bytes": 4619,
+      "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+      "hidden_plaintext_or_key_access": false
+    },
+    "consequence": "G9 cannot admit H/B/S/D authors. No candidate, parser, benchmark, integration, conformance, movement, or production credit exists."
+  },
+  "sealed_public_evidence_retained_unchanged": {
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "c9006ca78471593933f1c8a14b38d19b63b04c0182c8a5fae2dea0c7fd359144",
+      "bytes": 2368
+    },
+    "ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "44abeb756059679db7fc09554c4ac159abee8ed625cf5f96f204d7a01dedb4c6",
+      "bytes": 181721,
+      "decoded_ciphertext_bytes": 136288,
+      "envelope": "AES-256-GCM",
+      "disposition": "Retained solely as content-addressed evidence of the rejected sealed generation; not decrypted, altered, deleted, or reusable."
+    },
+    "plaintext_commitment": {
+      "sha256": "5f78128b3bdc08301415a648ce022be9baa8d8b025a2dcf1812ab1d1c96ec794",
+      "revealed": false
+    },
+    "hidden_index_commitment": {
+      "sha256": "fb5f71efc4d2295d2020cbe07446d0dda360896dfeb3ef5a68e02ba6d205ba06",
+      "case_count": 188,
+      "categories": [
+        "positive",
+        "negative",
+        "boundary",
+        "offset",
+        "diagnostics",
+        "hostile",
+        "binary64",
+        "composition"
+      ],
+      "revealed": false
+    },
+    "generator_commitment": {
+      "sha256": "57bdd26af83d04f69dae2b18f945510d9d4dfdbdcb3611631c56f8b3c333d959",
+      "bytes": 6697,
+      "revealed": false
+    }
+  },
+  "chronology_violation": {
+    "finding": "After reviewed-subject.json froze the c9006ca7 holdout receipt, the custodian transiently changed only the receipt's generator SHA-256 and byte-count fields while attempting to strengthen private deterministic reproduction, then restored the exact original bytes.",
+    "transient_receipts": [
+      {
+        "sha256": "02375432c20d22876136c01678a86f26ae46c0fc080f8dd0720ae5ea4d1dd889",
+        "bytes": 2368,
+        "generator_sha256": "37847230e5a1c7b0f1180f2023514ed95f47300905907e1300154d53911e2bb2",
+        "generator_bytes": 6738,
+        "note": "The generator digest was produced by a flawed local SHA implementation and was immediately superseded."
+      },
+      {
+        "sha256": "395c941c709275108eaf6ec2b182db2111801c3630eea627b90e7ae91d353bce",
+        "bytes": 2368,
+        "generator_sha256": "13f8a76d3f59246110d4f3a20c1f706ffe28bbd8dcd6f15418059407403d7f4e",
+        "generator_bytes": 6738,
+        "note": "Challenge A observed this post-freeze receipt identity before restoration."
+      }
+    ],
+    "current_receipt_restored_exactly": true,
+    "ciphertext_or_hidden_commitment_changed": false,
+    "effect": "Restoration cannot repair the chronology. This immutable-byte violation independently requires terminal rejection and fresh generation."
+  },
+  "secret_destruction": {
+    "original_custody": "The AES-256-GCM key, nonce, authentication tag, AAD, plaintext, deterministic generator bytes and seed, canonical hidden corpus/index, fresh corpus identity, and recovery metadata existed only in the live private custodian tool store. No plaintext, key, generator, hidden-index, or reveal workspace/private-temp file was created.",
+    "pre_destruction_live_probe": "The sole custody bundle remained present with all required recovery fields and matched the public plaintext, hidden-index, ciphertext, and case-count commitments immediately before authorized destruction.",
+    "explicit_overwrite": "All 21 fields of the sole known custody bundle were overwritten with null; the sole known private-store key was then overwritten with null and immediately reread as null.",
+    "separate_post_destruction_probe": "A separate later tool call reread the sole known custody key as null before this receipt was written.",
+    "destroyed_material": [
+      "AES-256-GCM key",
+      "holdout plaintext",
+      "exact deterministic generator bytes and seed",
+      "canonical hidden case corpus and hidden index",
+      "fresh corpus identity",
+      "private nonce, authentication tag, AAD, and recovery metadata"
+    ],
+    "verification": {
+      "private_store_after_is_null": true,
+      "separate_store_probe_after_is_null": true,
+      "plaintext_revealed": false,
+      "workspace_plaintext_files": 0,
+      "workspace_key_files": 0,
+      "workspace_generator_files": 0,
+      "workspace_reveal_files": 0,
+      "candidates_directory_exists": false,
+      "candidate_files": 0,
+      "active_grammar_typescript_files": 0,
+      "recoverable_secret_material_from_known_custody_locations": false
+    },
+    "result": "The unrevealed G9 plaintext, AES key/nonce/tag, AAD, generator, seed, hidden corpus/index, corpus identity, and recovery metadata cannot be recovered from the custodian tool store or workspace. The retained ciphertext is intentionally undecryptable within project custody.",
+    "disclosure": "No key, plaintext, hidden case or identifier, generator byte, seed, corpus identity, nonce, authentication tag, AAD byte, or decrypted result was revealed to root, either challenger, any prospective author, or the workspace."
+  },
+  "generation_state": {
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "revealed_holdout_files": 0,
+    "secret_files": 0,
+    "production_mutations": 0
+  },
+  "no_reuse": "Neither the G9 ciphertext nor any unrevealed G9 plaintext, key, case, identifier, result, generator, seed, corpus identity, nonce, tag, AAD, or secret-generation material may seed or support a later generation. A later holdout must be independently regenerated after a newly frozen precursor.",
+  "receipt_self_identity": "Externally report this exact destruction receipt's SHA-256 and byte length; it cannot self-contain its own digest.",
+  "credit": "ZERO: terminal rejection, secret destruction, and retained ciphertext are evidence only."
+}

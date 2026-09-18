@@ -1,0 +1,538 @@
+{
+  "tabWalkChromium": [
+    {
+      "tag": "BUTTON",
+      "name": "Select view",
+      "w": 121,
+      "h": 32,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "none",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Toggle action bar",
+      "w": 105,
+      "h": 32,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Login",
+      "w": 86,
+      "h": 28,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "@mbabb",
+      "w": 77,
+      "h": 28,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Select color space",
+      "w": 112,
+      "h": 85,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "l component value",
+      "w": 115,
+      "h": 61,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "a component value",
+      "w": 115,
+      "h": 61,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "b component value",
+      "w": 115,
+      "h": 61,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "l channel",
+      "w": 24,
+      "h": 24,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "L channel",
+      "w": 12,
+      "h": 24,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "A channel",
+      "w": 12,
+      "h": 24,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "B channel",
+      "w": 12,
+      "h": 24,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "ALPHA channel",
+      "w": 12,
+      "h": 24,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "INPUT",
+      "name": "Search your palettes...",
+      "w": 414,
+      "h": 25,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "none",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Delete all saved palettes",
+      "w": 28,
+      "h": 28,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "w": 36,
+      "h": 36,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": true,
+      "clippedTop": false
+    },
+    {
+      "tag": "BODY"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Select view",
+      "w": 121,
+      "h": 32,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "none",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Toggle action bar",
+      "w": 105,
+      "h": 32,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Login",
+      "w": 86,
+      "h": 28,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "@mbabb",
+      "w": 77,
+      "h": 28,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": true
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Select color space",
+      "w": 112,
+      "h": 85,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    },
+    {
+      "tag": "SPAN",
+      "name": "l component value",
+      "w": 115,
+      "h": 61,
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "shadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px ",
+      "inPane": false,
+      "clippedTop": false
+    }
+  ],
+  "strip": [
+    {
+      "name": "Autumnal Ridgeline Chromat",
+      "stripW": 458,
+      "stripH": 40,
+      "segCount": 1,
+      "minSegW": 458,
+      "maxSegW": 458,
+      "segAreaPx2": 18320,
+      "cardH": 100
+    },
+    {
+      "name": "Fifty",
+      "stripW": 458,
+      "stripH": 40,
+      "segCount": 50,
+      "minSegW": 9.16,
+      "maxSegW": 9.16,
+      "segAreaPx2": 366,
+      "cardH": 100
+    },
+    {
+      "name": "Zephyr",
+      "stripW": 458,
+      "stripH": 40,
+      "segCount": 5,
+      "minSegW": 91.59,
+      "maxSegW": 91.59,
+      "segAreaPx2": 3664,
+      "cardH": 100
+    },
+    {
+      "name": "One",
+      "stripW": 458,
+      "stripH": 40,
+      "segCount": 1,
+      "minSegW": 458,
+      "maxSegW": 458,
+      "segAreaPx2": 18320,
+      "cardH": 100
+    },
+    {
+      "name": "Sunset Ridge 1",
+      "stripW": 458,
+      "stripH": 40,
+      "segCount": 3,
+      "minSegW": 152.66,
+      "maxSegW": 152.66,
+      "segAreaPx2": 6106,
+      "cardH": 100
+    }
+  ],
+  "ramp": {
+    "backgroundImage": "linear-gradient(90deg, oklch(0.471189 0.188448 329.834), oklch(0.471189 0.188448 9.83402), oklch(0.471189 0.124865 49.834))",
+    "color": "rgba(0, 0, 0, 0)",
+    "backgroundClip": "text",
+    "tokens": {
+      "t0": "oklch(47.118925176164% 0.188447570516 329.83402284231deg)",
+      "t1": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+      "t2": "oklch(47.118925176164% 0.124864700704 49.83402284231deg)",
+      "g0": "oklch(47.118925176164% 0.188447570516 329.83402284231deg)",
+      "g1": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+      "g2": "oklch(45.781615126109% 0.121320841872 49.83402284231deg)"
+    }
+  },
+  "materialLight": [
+    {
+      "tag": "pane Card(tier=resting)",
+      "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+      "border": "oklab(0.216128 0.00350075 0.00518669 / 0.04) solid 1px",
+      "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+      "backdrop": "none",
+      "radius": "16px"
+    },
+    {
+      "tag": "SearchBar .search-seated",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "border": "oklab(0.216128 0.00350075 0.00518669 / 0.12) solid 1px",
+      "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px",
+      "backdrop": "none",
+      "radius": "16px"
+    },
+    {
+      "tag": "CurrentPaletteEditor plate",
+      "missing": true
+    },
+    {
+      "tag": "PaletteCard",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "border": "oklab(0.216128 0.00350075 0.00518669 / 0.12) solid 2px",
+      "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px",
+      "backdrop": "none",
+      "radius": "16px"
+    }
+  ],
+  "cardStates": {
+    "rest": {
+      "t": "none",
+      "s": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, okl"
+    },
+    "hover": {
+      "t": "none",
+      "s": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, okl",
+      "cursor": "pointer"
+    }
+  },
+  "filterZero": {
+    "headingText": "My Palettes12 (12 saved)",
+    "cards": 0,
+    "liveRegions": [
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+      }
+    ],
+    "trashStillOffered": true
+  },
+  "forcedColors": {
+    "card": {
+      "bg": "rgb(255, 255, 255)",
+      "border": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "strip": {
+      "bg": "rgba(255, 255, 255, 0)",
+      "border": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "segment": {
+      "bg": "rgb(255, 255, 255)",
+      "border": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "trash": {
+      "bg": "rgb(255, 255, 255)",
+      "border": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    },
+    "pane": {
+      "bg": "rgb(255, 255, 255)",
+      "border": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 0)"
+    }
+  },
+  "zoom200": {
+    "paneRect": {
+      "x": 104,
+      "y": 104,
+      "width": 512,
+      "height": 338,
+      "top": 104,
+      "right": 616,
+      "bottom": 442,
+      "left": 104
+    },
+    "docOverflow": 0,
+    "cards": 12,
+    "firstCardW": 462,
+    "minSeg": 9.15625
+  },
+  "rtl": {
+    "dir": "rtl",
+    "paneX": 199,
+    "stripFirstSegX": 675,
+    "stripX": 226,
+    "stripFlexDir": "row"
+  }
+}

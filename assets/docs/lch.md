@@ -1,22 +1,12 @@
 <script setup>
-import { lab2lch, lch2lab } from "@src/units/color/conversions/lab?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { l, c, h } = getFormattedColorSpaceRange("lch");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `L`: Lightness ({{l.min}} to {{l.max}})
--   `C`: Chroma ({{c.min}} to {{c.max}})
--   `H`: Hue ({{h.min}} to {{h.max}})
+-   `L`: Lightness (0 to 100)
+-   `C`: Chroma (0 upward)
+-   `H`: Hue (0° to 360°)
 
 ### Historical Context
 
@@ -73,15 +63,11 @@ Cartesian to polar—extract chroma (magnitude) and hue (angle) from the `a*`/`b
 
 <Katex expression="C = \sqrt{a^{*2} + b^{*2}}, \quad H = \frac{\operatorname{atan2}(b^*,\, a^*)}{2\pi}" />
 
-<div v-html="lab2lch" />
-
 ### LCh to Lab
 
 Polar back to Cartesian—recover `a*` and `b*` from chroma and hue:
 
 <Katex expression="a^* = C \cos(2\pi H), \quad b^* = C \sin(2\pi H)" />
-
-<div v-html="lch2lab" />
 
 ---
 

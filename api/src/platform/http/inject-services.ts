@@ -17,7 +17,7 @@ import type { MiddlewareHandler } from "hono";
 import type { ClientSession, MongoClient, TransactionOptions } from "mongodb";
 import { getClient, getDb } from "../db/db.js";
 import { makeCollections, type Collections } from "../db/collections.js";
-import { AdminAuditRepository } from "../../modules/admin/repository/adminAudit.js";
+import { AdminAuditRepository } from "../../modules/admin/repository/audit.js";
 import { FlagRepository } from "../../modules/palette/repository/flag.js";
 import { PaletteRepository } from "../../modules/palette/repository/palette.js";
 import { PaletteVersionRepository } from "../../modules/palette/repository/paletteVersion.js";

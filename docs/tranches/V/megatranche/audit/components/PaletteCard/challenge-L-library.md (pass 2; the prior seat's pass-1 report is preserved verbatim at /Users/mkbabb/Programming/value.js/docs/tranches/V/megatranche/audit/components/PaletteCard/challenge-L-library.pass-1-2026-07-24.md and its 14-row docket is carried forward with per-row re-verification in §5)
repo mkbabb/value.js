@@ -1,0 +1,107 @@
+<!-- HYDRATED-FROM-PAYLOAD 2026-07-28 · harvest area-palettes.json · agent aa6aae8812d23e3ce -->
+<!-- M-16 durability rule: the live seat wrote this file, the wall erased it, the returned payload
+     is materialized here verbatim. Not a rerun. Payloads seen for this path: 1. -->
+
+# CHALLENGE-L — library structure (module boundaries, ownership, dependency direction, public surface) under demo/palettes/browser/card/PaletteCard/PaletteCard.vue
+
+## Model receipt
+
+Opus 5 (1M context) — exact model id `claude-opus-5[1m]`, the tier explicitly declared at spawn. Declared, not inherited.
+
+## Verdict: DEFECTIVE
+
+**Strongest defect:** L-15 + L-16 together: the swatch hover popover — the card's entire expanded interaction surface — is built on a CSS class no module defines (`.floating-panel`, measured ruleCount 0, computing to position:static) positioned by a composable that reads `e.currentTarget` after event dispatch and therefore throws `TypeError: … null (reading 'getBoundingClientRect')` on every hover (captured live). The result renders at {x:-720, y:900, w:1440, h:40} — a transparent full-viewport-width strip at the bottom of the document — while eight lines above, the same file already imports and correctly uses @mkbabb/glass-ui/popover on its touch branch. Two implementations of one concept in one file; the broken one is the desktop path.
+
+**Negative proof:** Not applicable to the verdict (DEFECTIVE), but recorded as verified negatives so the next pass need not re-derive them: (1) Published-surface hygiene HOLDS — no file in the card's dependency cone imports @mkbabb/value.js at all, the whole demo/palettes/ feature touches it exactly twice and both are correct published subpaths (mix.ts:14 and export/png.ts:11 → @mkbabb/value.js/color); `grep -rn 'from \"@mkbabb/value.js\"' demo/` returns ZERO bare-root imports, which matters because package.json#exports has no \".\" key, so a bare-root specifier would be one a real consumer could not write; no @src/*, no dist/*, no path alias anywhere in the six files. The T.W1 demo-dogfood keystone is intact. (2) verbatimModuleSyntax (edict 8) is CLEAN across all six files — PaletteCard.vue:168-169, PaletteCardMenu.vue:177-178, PaletteCardSwatches.vue:72, PaletteCardMeta.vue:59 all use `import type` or an inline `type` specifier. (3) No global keyframe is forked into a component — both scoped <style> blocks (PaletteCard.vue:337-364, ActionFeedback.vue:50-58) contain only geometry custom properties for the shared vj-morph / vj-celebrate families; the retired golden-text-shimmer fork is genuinely gone (edict 6 respected). (4) card/index.ts is a NAMED re-export barrel, not a star re-export — correct for SFCs whose scoped style makes the import side-effecting (PI-6). (5) useTemplateRef is used correctly at PaletteRenameInput.vue:48. (6) PaletteColorStrip.vue (72 L) carries no colour maths and no glass-ui edge — vue + own types only. (7) useHoverPopover.close() is bypassed at four sites in PaletteCard.vue (277, 322, 327, 332) which null openPopoverIndex without cancelling the leave timer; I traced every re-open path (onHover, onSwatchClick) and each calls cancelLeave() first, so the divergence is currently BENIGN — recorded as an unowned invariant, deliberately NOT filed as a defect.
+
+## Defects (10)
+
+### L-15 — BLOCKER
+
+`.floating-panel` — the class that is supposed to make the swatch hover popover a floating surface — is defined by NO module: not in demo/styles/, not anywhere in the repo's CSS, not in @mkbabb/glass-ui 7.0.0. The teleported popover therefore computes to position:static with no background, shadow or z-index, so its inline top/left are inert and it lands in normal flow at the end of <body>.
+
+- **Evidence:** SwatchHoverMenu.vue:37-51 applies `class="floating-panel"` + inline :style. `grep -rn "floating-panel" --include='*.css' . --exclude-dir=node_modules` → one hit, and it is a COMMENT (demo/styles/animations.css:2). `grep -rln "floating-panel" node_modules/@mkbabb/` → no output. Live probe (synthetic element + full document.styleSheets scan): {"computed":{"position":"static","transform":"none","background":"rgba(0, 0, 0, 0)","zIndex":"auto","border":"0px","boxShadow":"none"},"rules":[],"ruleCount":0}. Measured rendered geometry: rect {x:-720, y:900, w:1440, h:40}, parentIsBody:true. Spec: CSS Positioned Layout L3, `static` — "the box's top, right, bottom, and left properties have no effect."
+- **Mechanism:** Ownership vacuum / dangling design-system reference. Glass 7.0.0 was 'adopted whole' at W44; `.floating-panel` was a glass-ui recipe the demo never owned and glass-ui 7 does not ship. No toolchain can see it — a CSS class is a string.
+- **Reproduction:** http://localhost:9000/#/palettes with ≥1 saved palette in localStorage key `color-palettes` → click a card to expand → hover any swatch. Popover renders as a transparent full-viewport-width strip at the bottom of the document instead of a panel over the swatch.
+- **Proposed cure:** Delete the hand-rolled hover branch entirely. glass-ui 7 ships ./popover and SwatchHoverMenu ALREADY uses it on the touch branch (line 61). Fold the swatch + its popover into ONE glass-ui `Swatch` component that owns its own surface; `.floating-panel` ceases to exist rather than being redefined in demo/.
+
+### L-16 — BLOCKER
+
+useHoverPopover reads `e.currentTarget` inside a nextTick callback — i.e. after event dispatch has completed, when the DOM spec guarantees it is null. Every swatch hover throws `TypeError: Cannot read properties of null (reading 'getBoundingClientRect')` and the popover's position is never applied. The `as Element` cast is the masking assertion that hid it from vue-tsc.
+
+- **Evidence:** demo/palettes/browser/card/composables/useHoverPopover.ts:30 — `nextTick(() => positionPanel(e.currentTarget as Element));`. Live capture with an unhandledrejection listener: {"captured":["REJ:TypeError: Cannot read properties of null (reading 'getBoundingClientRect')"],"inline":"top: 0px; left: 0px; transform: translateX(-50%);"} — the inline top/left are still the reactive initial 0px, proving positionPanel never completed. Spec: DOM Standard §2.2 — "The currentTarget attribute … When an event is dispatched, this is set to the object whose listener is being invoked, and reset to null afterwards."
+- **Mechanism:** Hand-rolled floating positioning inside a demo composable, duplicating @mkbabb/glass-ui/popover which the same component already imports and uses on its other branch. A dual path (edict 2) reimplementing a design-system primitive (edict 4); the `as Element` cast (edict 2 — masking fallback) let the null flow through typecheck.
+- **Reproduction:** http://localhost:9000/#/palettes, seed one palette, expand the card, dispatch/perform pointerenter on a swatch wrapper with `window.addEventListener('unhandledrejection', …)` installed. The rejection fires on every hover, on every desktop browser (canHover = matchMedia('(hover: hover)')).
+- **Proposed cure:** Capture the element at dispatch time (`const el = e.currentTarget as Element` BEFORE nextTick) is the patch; the transposition is to delete the branch — let the design-system Popover anchor to its own trigger so no coordinate is ever computed in demo/ at all.
+
+### L-17 — MAJOR
+
+The swatches pass `tag="button"` and `:aria-label` to glass-ui 7's WatercolorDot, which declares neither. Both are silently dropped: every colour swatch renders as `<span aria-hidden="true">`. The only focusable element in an expanded PaletteCard is the 'Palette menu' button — the card's primary content is keyboard-unreachable and invisible to assistive technology.
+
+- **Evidence:** SwatchHoverMenu.vue:14-20 and :29-36 pass tag="button" + :aria-label; CurrentPaletteEditor.vue:62,64,95-105 the same. glass-ui 7.0.0 contract (node_modules/@mkbabb/glass-ui/dist/components/watercolor-dot/WatercolorDot.vue.d.ts): `type __VLS_Props = { color: string; variant?: "solid"|"ghost"; animate?: boolean; cycleDuration?: number; range?: [number,number]; seed?: string; }` — no `tag`, no name plumbing. Live DOM: {"tag":"SPAN","attrs":{"aria-hidden":"true","data-testid":"watercolor-swatch","data-variant":"solid", …no aria-label, no tabindex},"focusablesInCard":["BUTTON:Palette menu"]}.
+- **Mechanism:** Stale design-system prop contract surviving the Glass-7 adoption. vue-tsc cannot catch it: unknown attributes on a component are legal fallthrough attrs, not prop errors — so a green typecheck is not evidence the contract is current.
+- **Reproduction:** http://localhost:9000/#/palettes, seed a palette, expand the card, then query the swatch element's attributes and the card's focusable set: `[...card.querySelectorAll('a[href],button,input,select,textarea,[tabindex]:not([tabindex="-1"])')]` returns exactly one entry, the menu button.
+- **Proposed cure:** The Swatch belongs in glass-ui as a first-class component that renders a real <button> with an accessible name — not a WatercolorDot the consumer tries to retag from outside. Interim: stop passing props the DS does not declare and wrap the dot in a real button in SwatchHoverMenu.
+
+### L-18 — MAJOR
+
+Palette export has two live homes: the file demo/palettes/export.ts (132 L — the ONLY path the card's five export menu items reach) and the directory demo/palettes/export/ (914 L across 13 files, the byte-exact W51 serializer set) whose sole consumer is one test. Two implementations of json/css/tailwind/svg/png, one explicitly labelled legacy in-source and still the only one a user can reach.
+
+- **Evidence:** PaletteCardMenu.vue:113-128 → PaletteCard.vue:308-312 → usePaletteExport.ts:15-19 imports "./export" which resolves to the FILE export.ts. `wc -l demo/palettes/export/*.ts` → 914 total. `grep -rn "palettes/export/" --include='*.ts' --include='*.vue' demo/ test/ src/` → exactly one hit: demo/test/export/byte-exact.test.ts:23. The collision is admitted at demo/palettes/export/serializers.ts:5-9: "the sibling legacy `../export.ts` (the pre-contract routed seat that W50 will replace) still resolves `./export`". Compounding: usePaletteExport.ts:21 swallows all failures into console.warn while the card owns a user-visible feedback rail used by save/delete/visibility.
+- **Mechanism:** A migration that shipped the replacement but never retired the incumbent, then documented the collision instead of resolving it. Edict 2 (no dual paths) named and deferred.
+- **Reproduction:** Static and deterministic: node module resolution prefers ./export.ts over ./export/ (which has no index.ts); the byte-exact set is import-dead outside the test. Verified by the grep above.
+- **Proposed cure:** One home: demo/palettes/export/ with serializers.ts as its barrel. Delete export.ts, route usePaletteExport through the byte-exact serializers, and surface failures on the card's existing feedback rail instead of console.warn.
+
+### L-19 — MAJOR
+
+18 of the 19 demo/ui/* one-line shim barrels re-export from the glass-ui ROOT barrel rather than the per-component subpath glass-ui 7 publishes, so importing `{ Badge }` drags the whole design system into the module graph.
+
+- **Evidence:** All 19 demo/ui/*/index.ts are single re-export lines (e.g. `export { Button } from "@mkbabb/glass-ui";`); only demo/ui/input targets a subpath. glass-ui 7 publishes 70 subpaths incl. ./button ./badge ./card ./popover ./dropdown-menu. The root barrel dist/glass-ui.js statically imports 42 chunk files totalling 167,733 bytes. Live on /#/palettes: {"name":"@mkbabb_glass-ui.js?v=3094e483","decodedBodySize":234309}. The three chunks PaletteCard needs total 8,123 B (badge 2,011 + button 2,960 + DropdownMenuTrigger 3,152). Repo census of the three doors in demo/: 90 shim sites, 37 direct-root, 82 direct-subpath — and PaletteCard.vue:165,166,170,171 uses all three in seven lines.
+- **Mechanism:** The shadcn-vue → glass-ui migration left a rename table in place of a boundary; nobody revisited which door it opens. docs/tranches/V/ARCHITECTURE.md §1 forbids "one-line glass-ui forwarding directory" verbatim.
+- **Reproduction:** Load http://localhost:9000/#/palettes and read `performance.getEntriesByType('resource')` for `@mkbabb_glass-ui.js` — 234,309 B decoded. NOTE (honest scope): this is a DEV-graph number; the gh-pages Rollup build tree-shakes the root barrel and 37 sites import the root directly regardless, so no production payload regression is claimed — I did not measure one.
+- **Proposed cure:** Delete demo/ui/ (19 directories). Every consumer imports `@mkbabb/glass-ui/<subpath>` directly — one door, per-component chunks, and the architecture doc's own prohibition satisfied by construction.
+
+### L-20 — MAJOR
+
+The glass-ui icon-button atom is used ONCE in PaletteCard.vue, and the same recipe is hand-rolled 10 more times inside the palettes card cluster (15 repo-wide). Measured, the hand-rolled twins are 18×18 CSS px with aria-label null, against the atom's 36×36 named — below the WCAG 2.5.8 AA 24×24 floor, in the same card, twenty lines apart.
+
+- **Evidence:** PaletteCard.vue:96-104 uses `Button icon-only variant="ghost" size="sm"` under a comment (93-95) claiming the recipe 'dies onto the glass-ui atom' and 'cures the ~24px touch target'. Counts: PaletteCardSwatches.vue 4, CurrentPaletteEditor.vue 3, PaletteRenameInput.vue 2, PaletteCardMeta.vue 1; `grep -rn "rounded-sm hover:bg-accent" --include='*.vue' demo/ | wc -l` → 15. Live measurement, rename state on /#/palettes: [{"type":"submit","w":18,"h":18,"aria":null},{"type":"button","w":18,"h":18,"aria":null}] with rootFont 16px; the atom in the same card: {"name":"Palette menu","w":36,"h":36,"cls":"button tap-squish focus-ring glass-wash "}.
+- **Mechanism:** A cure applied at one site and not propagated; the design-system atom that owns min-size, focus ring and accessible naming is imported into the file and then not used. Edicts 4 and 5.
+- **Reproduction:** http://localhost:9000/#/palettes with a saved palette → click the palette title (PalettesPane passes editable-name) to enter rename → measure the two form buttons: 18×18, no aria-label. PaletteCardSwatches.vue:13-19 (p-0.5 + w-3 h-3) computes to 16px by the same arithmetic.
+- **Proposed cure:** Every icon button in the cluster becomes `Button icon-only variant="ghost" size="sm"` (add an `xs` size producer-side if 36px is too large for the rename row). Zero hand-rolled recipes; min-size, ring and naming are inherited, not re-typed.
+
+### L-21 — MINOR
+
+useHeightTransition's onAfterEnter calls scrollIntoView({behavior:"smooth"}), which by spec bypasses the app's global prefers-reduced-motion guard: every card expansion smooth-scrolls the page for a user who asked for reduced motion.
+
+- **Evidence:** demo/palettes/browser/card/composables/useHeightTransition.ts:48 — `htmlEl.scrollIntoView({ behavior: "smooth", block: "nearest" });`. The guard at demo/styles/animations.css:184-192 sets `scroll-behavior: auto !important` on `*`. CSSOM-View defers to the CSS scroll-behavior property only when the `behavior` option is "auto"; an explicit "smooth" forces a smooth scroll regardless. (The same composable's inline `style.transition` writes ARE caught, by the !important duration override — so the guard works everywhere except where JS overrides it explicitly.)
+- **Mechanism:** A height-morph composable that also performs document navigation — two unrelated responsibilities in one seam, and the second one escapes the CSS-level motion policy.
+- **Reproduction:** Deterministic from the spec + source: enable prefers-reduced-motion: reduce, expand a palette card whose body is off-screen; the page scrolls smoothly. No probe run.
+- **Proposed cure:** Scroll-into-view is the pane's decision, not the transition's — hoist it out of the composable. If it stays, read the motion preference and pass behavior: prm ? "auto" : "smooth".
+
+### L-22 — MINOR
+
+useHoverPopover computes `left = rect.left + rect.width/2` — a CENTRE coordinate — but leaves the required translateX(-50%) to its consumers, and only one of the two supplies it.
+
+- **Evidence:** useHoverPopover.ts:20-24 (positionPanel). SwatchHoverMenu.vue:44 applies floatingStyle verbatim and adds no transform. PaletteCardSwatches.vue:31 → `:floating-style="{ ...floatingStyle, transform: 'translateX(-50%)' }"`. CurrentPaletteEditor.vue:35 → `:floating-style="currentFloatingStyle"` — no transform.
+- **Mechanism:** Split ownership: the correction that makes the composable's output mean what it computes is not owned by the composable (nor by SwatchHoverMenu, the single component that consumes floatingStyle).
+- **Reproduction:** NONE — currently unobservable because L-15/L-16 destroy the position entirely. This is a LATENT defect that becomes live the moment those two are cured.
+- **Proposed cure:** Either return a left-edge coordinate, or fold the -50% into the composable's returned style object. Better: the design-system Popover anchors itself and no centering arithmetic exists anywhere.
+
+### L-23 — MINOR
+
+`cssColor` is a public prop on the card that five host call sites are obliged to pass, and it reaches exactly one style binding — the slug chip's colour — only when `showSlug` is also passed AND the palette has zero colours.
+
+- **Evidence:** Declared PaletteCard.vue:186; its only use is PaletteCard.vue:226 `props.palette.colors[0]?.css ?? props.cssColor ?? EMPTY_PALETTE_SWATCH`. Chain: firstColor → safeFirstColor (230) → :safe-first-color (144) → PaletteCardSwatches.vue:10, the slug chip's color/borderColor. `show-slug` is passed by only 2 of 5 hosts (BrowsePane.vue:101, AdminUsersPanel.vue:147). Passed by BrowsePane.vue:98, PalettesPane.vue:88, ExtractWorkbench.vue:149, AdminUsersPanel.vue:145, MixSourceSelector.vue:266 — the last as `""`, which `??` does not catch.
+- **Mechanism:** Derived state computed at the wrong level: the value is needed by one leaf for one binding, so the leaf should compute it (useSafeAccentFn is already a composable). Instead a five-link chain and a public prop exist to carry it down.
+- **Reproduction:** Static: grep shows two uses of cssColor in the component and one consumer of safeFirstColor. The empty-string path (MixSourceSelector.vue:266) would send "" into safeCss(), i.e. into the pass-1 L-1 throw path, for a zero-colour palette.
+- **Proposed cure:** Delete the prop from the card's surface. PaletteCardSwatches calls useSafeAccentFn("well") itself for the one chip that needs it.
+
+### L-24 — MINOR
+
+tsconfig.demo.json's `paths` map has drifted from package.json#exports in both directions: three dangling entries (two of them retired subpaths) and two published subpaths with no entry.
+
+- **Evidence:** package.json#exports = ./color ./value ./css ./easing ./math ./transform ./quantize (no "." root). tsconfig.demo.json paths, checked against the filesystem: `@mkbabb/value.js` → ./dist/index.d.ts MISSING; `/parsing` → ./dist/subpaths/parsing.d.ts MISSING; `/units` → ./dist/subpaths/units.d.ts MISSING; color/math/easing/transform/quantize EXIST. Missing entries: `/value`, `/css` — and `/css` is imported at 10 demo sites. vite.config.ts:37-50 GENERATES the runtime alias set from exports precisely so it 'can never drift'; its TS twin is hand-maintained.
+- **Mechanism:** Two authorities for one published surface, one generated and one hand-written. `/parsing` and `/units` are retired subpaths — migration residue (edict 2).
+- **Reproduction:** node script comparing Object.keys(package.json.exports) against the tsconfig.demo.json paths entries and fs.existsSync on each target; output pasted in the report §L-24. Inert today (a missing paths target falls back to node resolution, which also fails), so dead config rather than an exploitable false public surface.
+- **Proposed cure:** Generate the tsconfig `paths` map from package.json#exports the same way vite.config.ts already generates the alias set, so the two authorities cannot disagree.

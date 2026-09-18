@@ -23,7 +23,7 @@ import type { Db, MongoClient } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../helpers.js";
 import sessions from "../../src/modules/session/routes.js";
 import colors from "../../src/modules/color/routes.js";
-import { resolveSession } from "../../src/modules/session/resolve-session.js";
+import { resolveSession } from "../../src/modules/session/resolve.js";
 import { toResponseEnvelope } from "../../src/platform/http/errors/index.js";
 import { asUserSlug, hashSessionToken } from "../../src/modules/session/model.js";
 import type { AppEnv } from "../../src/types.js";
@@ -97,11 +97,15 @@ describe("routes.sessions — register/me/logout round-trip (N.W3.H-tests)", () 
         expect(typeof meBody.createdAt).toBe("string");
     });
 
-    it("GET /sessions/me → 401 problem+json with no token", async () => {
+    it("GET /sessions/me → 401 problem+json with no token, and NO Set-Cookie mutation (V·W45 item 7)", async () => {
         const res = await app.request("/sessions/me", { method: "GET" });
         expect(res.status).toBe(401);
         const body = (await res.json()) as { type: string };
         expect(body.type).toBe("urn:contract:session-invalid");
+        // The cookie-recovery invariant: an absent/invalid session is a generic
+        // 401 that does NOT clear or mutate a cookie, so a cross-tab lease can
+        // re-derive auth without deleting a newer cookie (no clear-on-any-401).
+        expect(res.headers.get("Set-Cookie")).toBeNull();
     });
 
     it("GET /sessions/me → 401 with an invalid token (no resolve)", async () => {
@@ -199,16 +203,28 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
         });
     });
 
-    it("POST /colors/propose → 201", async () => {
+    it("POST /colors/propose → 201, attributed to the authed Principal (V·W45 item 3)", async () => {
         const res = await app.request("/colors/propose", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "X-Session-Token": "tok-c",
             },
-            body: JSON.stringify({ name: "dusk-rose", css: "#c97" }),
+            // Attempt to SPOOF attribution via the body. The schema carries no
+            // such field, so it is dropped; attribution is derived from the
+            // session (carol), never from the caller (item 3).
+            body: JSON.stringify({
+                name: "dusk-rose",
+                css: "#c97",
+                proposerSlug: "eve",
+                contributor: "eve",
+            }),
         });
         expect(res.status).toBe(201);
+        const body = (await res.json()) as { proposerSlug: string };
+        expect(body.proposerSlug).toBe("carol");
+        const stored = await services.repositories.proposedNames.findByName("dusk-rose");
+        expect(stored?.proposerSlug).toBe("carol");
     });
 
     it("POST /colors/propose → 400 problem+json on an invalid name", async () => {
@@ -237,6 +253,35 @@ describe("routes.colors — propose + public listings (N.W3.H-tests)", () => {
         expect(res.status).toBe(200);
         const body = (await res.json()) as { data: unknown[] };
         expect(body.data).toEqual([]);
+    });
+
+    it("GET /colors/search returns BYTE-PREFIX matches only (V·W45 item 2 — no substring/regex)", async () => {
+        // Seed approved names. `hazel` and `mauve` contain the substring "aze"
+        // /"azu" nowhere at their START — the retired $regex fallback matched
+        // them anywhere; the indexed prefix search must NOT.
+        const now = new Date();
+        const seed = (name: string) =>
+            services.repositories.proposedNames.insert({
+                name,
+                css: "#abcabc",
+                status: "approved",
+                proposerSlug: null,
+                createdAt: now,
+                approvedAt: now,
+            });
+        await Promise.all([seed("azure"), seed("azure-sky"), seed("hazel")]);
+
+        // Prefix "azu" → the two azure* names, in name order; hazel excluded.
+        const hit = await app.request("/colors/search?q=azu", { method: "GET" });
+        expect(hit.status).toBe(200);
+        const hitBody = (await hit.json()) as { data: { name: string }[] };
+        expect(hitBody.data.map((d) => d.name)).toEqual(["azure", "azure-sky"]);
+
+        // Prefix "aze" → nothing STARTS with it; the old regex-substring rail
+        // would have surfaced `hazel` (and `azure`). Prefix search returns [].
+        const miss = await app.request("/colors/search?q=aze", { method: "GET" });
+        const missBody = (await miss.json()) as { data: unknown[] };
+        expect(missBody.data).toEqual([]);
     });
 
     it("GET /colors/tags → 200 array", async () => {

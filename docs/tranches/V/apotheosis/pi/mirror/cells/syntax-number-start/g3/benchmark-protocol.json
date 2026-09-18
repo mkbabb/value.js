@@ -1,0 +1,100 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G3-BENCH",
+  "status": "SEALED_BEFORE_CANDIDATE_CODE",
+  "correctness_gate": {
+    "admission": "Every candidate must pass every public matrix case, deterministic hostile case, and revealed hidden case across both diagnostics modes, all seven diagnostic profiles, and all six predecessor classes before any timing sample is retained.",
+    "timed_validation": "No assertion, fixture construction, source normalization, diagnostic comparison, or result comparison occurs inside a timed block."
+  },
+  "corpus_order": {
+    "public": "materializePublicCases(cases.json) exact return order",
+    "hostile": ["H-PREFIX-1M-TRUE", "H-ASTRAL-PREFIX-1M-FALSE", "H-CR-PREFIX-1M-TRUE"],
+    "holdout": "revealed canonical JSON array order",
+    "base": "public followed by hostile followed by holdout",
+    "profiles": [
+      "default-present-undefined",
+      "absent-before",
+      "undefined-before-multi",
+      "empty-at",
+      "multi-at",
+      "multi-beyond",
+      "multi-source-end"
+    ],
+    "predecessors": ["null", "false", "0", "empty-string", "case-id-array", "case-id-mode-object"]
+  },
+  "strict_parser_only_lane": {
+    "purpose": "Rank the exact candidate raw-child operation without ParserState construction or diagnostic restoration inside timing.",
+    "pool_per_mode": 50000,
+    "pool_entry_algorithm": "For diagnostics mode M, form V by nested order base-case outermost, profile next, predecessor innermost. Pool entry i is V[i mod V.length]. Preconstruct its ParserState at the candidate offset. Before each candidate block, restore the exact assigned offset, predecessor, isError=false, furthest, expected property presence/reference/contents, suggestion array/reference/contents, and secondary-span array/reference/contents outside timing.",
+    "block_algorithm": "Set the package diagnostics mode outside timing. Start process.hrtime.bigint(); for i=0..49999 invoke candidate.parser(pool[i]) exactly once and store the returned state back at pool[i]; stop the clock. A measured candidate sample is the disabled-block nanoseconds plus the enabled-block nanoseconds. Disable diagnostics after every block.",
+    "warmup_rounds": 20,
+    "measured_rounds": 60,
+    "candidate_order_latin_cycle": [
+      ["H", "B", "S", "D", "R"],
+      ["B", "S", "D", "R", "H"],
+      ["S", "D", "R", "H", "B"],
+      ["D", "R", "H", "B", "S"],
+      ["R", "H", "B", "S", "D"],
+      ["R", "D", "S", "B", "H"],
+      ["H", "R", "D", "S", "B"],
+      ["B", "H", "R", "D", "S"],
+      ["S", "B", "H", "R", "D"],
+      ["D", "S", "B", "H", "R"]
+    ],
+    "schedule": "Warmup round r uses cycle row r mod 10. Measured round r uses cycle row r mod 10. Every candidate sees the same two pools once per round; pool restoration occurs before its block.",
+    "forbidden_inside_timing": [
+      "ParserState construction",
+      "pool/profile/predecessor selection",
+      "state or diagnostic restoration",
+      "diagnostics-mode toggle",
+      "fixture materialization",
+      "assertion/comparison/normalization/stringification"
+    ]
+  },
+  "statistics": {
+    "pairing": "For each candidate pair, pair the total nanoseconds from the same measured round.",
+    "pairwise_matrix": [
+      "H:B", "H:S", "H:D", "H:R", "B:S", "B:D", "B:R", "S:D", "S:R", "D:R"
+    ],
+    "raw_report": "All 60 per-candidate disabled, enabled, and summed nanosecond observations in round order.",
+    "summary": ["median", "MAD", "geometric mean paired ratio"],
+    "median_rule": "Sort ascending; for even N use the arithmetic mean of elements N/2-1 and N/2.",
+    "mad_rule": "Median of absolute deviations from the median using the same median rule.",
+    "paired_log_ratio": "ln(candidate summed ns / peer summed ns) per round.",
+    "bootstrap_prng": "xoshiro256** over unsigned 64-bit words. Expand seed 0x42535452504e5354 into four words by four standard SplitMix64 next operations using increment 0x9e3779b97f4a7c15, multiply constants 0xbf58476d1ce4e5b9 and 0x94d049bb133111eb, and 64-bit masking after every operation. xoshiro output is rotl(s1*5,7)*9; transition is the published reference transition.",
+    "bootstrap_resamples": 10000,
+    "bootstrap_index": "For every one of 60 draws in one resample, index = Number(nextUint64 % 60n). Compute the arithmetic mean of the selected paired log-ratios.",
+    "upper_endpoint": "Sort 10000 bootstrap means ascending and take zero-based element 9499 as the one-sided 95% upper endpoint.",
+    "strict_win": "A selected candidate has a strict measured win only if its upper endpoint is below 0 against every other semantically accepted candidate. Otherwise performance is a tie on this cell and cannot distinguish selection."
+  },
+  "descriptive_end_to_end_lane": {
+    "credit": "DESCRIPTIVE_ONLY",
+    "pool": "The same exact V ordering and 50000-entry pool per diagnostics mode.",
+    "operation": "Use one prebuilt string(prefix).map(predecessor).next(candidate).skip(string(continuation)) parser per V entry. Inside timing construct one fresh ParserState and invoke the prebuilt outer parser. No semantic assertion occurs inside timing.",
+    "warmup_rounds": 8,
+    "measured_rounds": 32,
+    "candidate_schedule": "The same ten-row Latin cycle, indexed by round modulo 10."
+  },
+  "allocation_sampling_lane": {
+    "credit": "DESCRIPTIVE_STACK_ATTRIBUTED",
+    "process_isolation": "Fresh Node process per candidate with --expose-gc; exact candidate and harness hashes passed in the receipt.",
+    "tool": "node:inspector HeapProfiler allocation sampling",
+    "sampling_interval_bytes": 32768,
+    "procedure": "After correctness and timing warmup, call global.gc(), start HeapProfiler sampling, execute 20 disabled and 20 enabled parser-only 50000-state blocks with pool restoration between blocks, stop sampling, and retain the raw profile. Attribute sample sizes only where the recorded stack contains the exact candidate target source URL; report all unattributed/harness samples separately.",
+    "unavailable": "If inspector sampling or global.gc is unavailable, report UNAVAILABLE with exact Node/V8 invocation and error. Never substitute post-GC heapUsed deltas as allocation counts."
+  },
+  "environment_receipt": [
+    "Node and V8 versions",
+    "process.arch and process.platform",
+    "CPU model and logical core count",
+    "OS release",
+    "power/governor state when observable",
+    "package.json/package-lock/parse-that dist identities",
+    "feature/contract/harness/corpus/holdout/candidate hashes",
+    "raw append-only result SHA-256"
+  ],
+  "raw_output": "bench/raw-g3.json",
+  "external_peers": {
+    "live_regex_css": "NON_COMPARABLE_COMPLETE_TOKEN_OPERATION",
+    "bbnf_runtime": "NON_COMPARABLE_NO_ACKNOWLEDGED_STANDALONE_RUNTIME"
+  }
+}

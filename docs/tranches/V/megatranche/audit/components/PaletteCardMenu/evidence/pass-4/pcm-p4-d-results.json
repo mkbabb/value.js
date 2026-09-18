@@ -1,0 +1,95 @@
+{
+  "D1_coveredTriggerVisibility": {
+    "cropRect": {
+      "x": 1166,
+      "y": 700,
+      "width": 36,
+      "height": 36
+    },
+    "closed": {
+      "minLum": 73.1,
+      "maxLum": 239.4,
+      "meanLum": 222.9,
+      "inRectContrast": 7.85
+    },
+    "openUnderMenu": {
+      "minLum": 182.3,
+      "maxLum": 236.4,
+      "meanLum": 229.8,
+      "inRectContrast": 1.72
+    },
+    "pixelsChangedGt8": 366,
+    "totalPixels": 1296,
+    "maxLumDelta": 157.7,
+    "note": "closed inRectContrast = the real ⋯ glyph against the card; open = whatever survives at the same rect through the menu surface"
+  },
+  "D2_determinism": [
+    {
+      "run": 0,
+      "menuOwner": "Probe Palette 0",
+      "clickedTriggerIndex": 2,
+      "at": {
+        "x": 1184,
+        "y": 717.6
+      },
+      "storeBefore": 8,
+      "storeAfter": 7,
+      "removed": [
+        "Probe Palette 0"
+      ],
+      "dialogs": 0,
+      "undoAffordance": {
+        "hasUndoText": false,
+        "hasRestore": false
+      }
+    },
+    {
+      "run": 1,
+      "menuOwner": "Probe Palette 1",
+      "clickedTriggerIndex": 2,
+      "at": {
+        "x": 1184,
+        "y": 717.6
+      },
+      "storeBefore": 7,
+      "storeAfter": 6,
+      "removed": [
+        "Probe Palette 1"
+      ],
+      "dialogs": 0,
+      "undoAffordance": {
+        "hasUndoText": false,
+        "hasRestore": false
+      }
+    },
+    {
+      "run": 2,
+      "menuOwner": "Probe Palette 2",
+      "clickedTriggerIndex": 2,
+      "at": {
+        "x": 1184,
+        "y": 717.6
+      },
+      "storeBefore": 6,
+      "storeAfter": 5,
+      "removed": [
+        "Probe Palette 2"
+      ],
+      "dialogs": 0,
+      "undoAffordance": {
+        "hasUndoText": false,
+        "hasRestore": false
+      }
+    }
+  ],
+  "D4_mobileCollision": {
+    "side": "top",
+    "menuRect": {
+      "y": 235.7,
+      "h": 245.6
+    },
+    "cardPitch": 130,
+    "itemPitch": 44,
+    "covered": []
+  }
+}

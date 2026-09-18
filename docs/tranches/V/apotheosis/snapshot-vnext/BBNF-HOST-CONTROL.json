@@ -1,0 +1,56 @@
+{
+  "schema": "vnext-bbnf-host-control/1",
+  "purpose": "A clean historical TypeScript BBNF execution capsule for the P01 declarative CSS prototype; it is evidence-only and cannot import the active SK-V25 BBNF/parse-that uplift.",
+  "imports_active_novelty": false,
+  "runtime": {
+    "node": "v26.0.0",
+    "npm": "11.12.1"
+  },
+  "bbnf": {
+    "repository": "/Users/mkbabb/Programming/bbnf-lang",
+    "ref": "v1.0.5",
+    "commit": "6914618918e3e76b47be66006810b708b8443425",
+    "archive_paths": ["typescript", "grammar"],
+    "archive_sha256": "9ef86e1587c0de3aa8c7ac26d2b43483b972a60cc3d577e3e77a24e53330dfc2",
+    "package_json_sha256": "b5285dcad6446fae15154c9d5c81428a65d89837cb0c8bc16a9253195549f560",
+    "package_lock_sha256": "0aafe59811738491216bfecb371cac86855dce572e3aea418e3bf258ad96b5ee"
+  },
+  "parse_that": {
+    "repository": "/Users/mkbabb/Programming/parse-that",
+    "ref": "fe25063c9f122926608156f71f2396c11497fb7b",
+    "commit": "fe25063c9f122926608156f71f2396c11497fb7b",
+    "archive_paths": ["typescript", "grammar"],
+    "archive_sha256": "0995a14d6082d33ee598130dc2fb6f669d825242947633e0e753473b97dc3c4d",
+    "package_json_sha256": "ee210fc7c7be2eaf56bfb8445aafb66ae8005d4fa6e1a222c6e759dab38d6259",
+    "package_lock_sha256": "fdaff1de3cab84f8f66ffca6abaf814f6f8371cd8c9b6dc4bf1089f231d2933e",
+    "package_version": "0.6.0",
+    "packed_tarball": "mkbabb-parse-that-0.6.0.tgz",
+    "packed_tarball_sha256": "b6a8433cc2378314c9b718bb025c68399e38ab24fb74be6de92b87c53304cd15"
+  },
+  "commands": {
+    "parse_that": [
+      "npm ci --ignore-scripts",
+      "npm run build",
+      "npm pack --json"
+    ],
+    "bbnf": [
+      "npm ci --ignore-scripts",
+      "npm install --no-save <absolute-packed-parse-that-tarball>"
+    ],
+    "css_control": [
+      "npx vitest run test/imports.test.ts test/first-sets.test.ts test/optimize.test.ts test/analysis.test.ts",
+      "npx vitest run test/bbnf.test.ts -t CSS"
+    ]
+  },
+  "known_upstream_defects": [
+    {
+      "id": "registry-parse-that-0.6.0-export-drift",
+      "disposition": "The registry tarball lacks dispatch/regexSpan required by BBNF v1.0.5; the capsule builds the exact historical parse-that commit that introduced those 0.6.0 exports and verifies its reproducible tarball hash twice. No active parse-that source is consumed or changed."
+    },
+    {
+      "id": "bbnf-v1.0.5-missing-json-fixture",
+      "disposition": "The unrelated full-suite JSON test references an absent data/json/data.json. The capsule runs the complete import/analysis/optimization controls plus all five CSS grammar executions; P01 must not claim the unrelated JSON fixture green."
+    }
+  ],
+  "manifest_hash": "1c9a2f829ed2c79f6fbd0b246567e57900df58e6d13a9646b57a04cb65262776"
+}

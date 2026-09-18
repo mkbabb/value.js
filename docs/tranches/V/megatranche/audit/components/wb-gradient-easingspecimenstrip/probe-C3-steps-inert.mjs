@@ -1,0 +1,22 @@
+import { webkit } from "playwright";
+const b = await webkit.launch();
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+const page = await ctx.newPage();
+await page.goto("http://localhost:9000/#/gradient", { waitUntil: "domcontentloaded" });
+await page.waitForSelector(".strip-row", { timeout: 20000 });
+await page.waitForTimeout(2500);
+const st = () => page.evaluate(() => ({ pressed: [...document.querySelectorAll(".specimen-tile[data-state='on']")].map(e=>e.getAttribute("data-specimen")), readout: document.querySelector(".readout-rail code")?.textContent, head: [...document.querySelectorAll(".interval-head span")].pop()?.textContent.trim() }));
+await page.click("[data-specimen='steps']", { force: true });
+await page.waitForTimeout(600);
+console.log("A after pressing generic steps :", JSON.stringify(await st()));
+await page.click("button[aria-label='Author a custom curve']");
+await page.waitForTimeout(600);
+const slider = page.locator("[role='slider'][aria-label='Step count']").first();
+await slider.focus();
+for (let i = 0; i < 3; i++) { await page.keyboard.press("ArrowRight"); await page.waitForTimeout(150); }
+await page.waitForTimeout(600);
+console.log("B after bumping n to 7      :", JSON.stringify(await st()));
+await page.click("[data-specimen='steps']", { force: true });
+await page.waitForTimeout(700);
+console.log("C after pressing lit 'steps':", JSON.stringify(await st()));
+await b.close();

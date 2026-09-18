@@ -1,0 +1,30 @@
+{
+  "inkMuted": "oklch(44.712054906087% 0.003861589952 34.629978305623deg)",
+  "mutedForeground": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+  "wellBg": "color-mix(in oklab, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) 92%, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) 8%)",
+  "cardEdge": "color-mix(in oklab, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) 12%, transparent)",
+  "durationFast": "0.2s",
+  "durationNormal": "0.3s",
+  "defaultTransitionDuration": "0.2s",
+  "zone": {
+    "inlineStyleAttr": "transition-duration: var(--duration-normal); transition-timing-function: var(--ease-standard);",
+    "classAttr": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer border-primary/30 bg-primary/5 hover:border-primary/50 hover:bg-primary/10 min-h-[180px] max-h-[min(320px,40dvh)]",
+    "ariaLabel": "Upload image, click to browse or drop an image here",
+    "tabIndex": "0",
+    "transitionDuration": "0.3s",
+    "transitionTimingFunction": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "transitionProperty": "all",
+    "backgroundColor": "oklab(0.471189 -0.0810328 0.0971413 / 0.05)",
+    "borderColor": "oklab(0.471189 -0.0810328 0.0971413 / 0.3)",
+    "borderWidth": "2px",
+    "borderStyle": "dashed",
+    "borderRadius": "12px",
+    "boxShadow": "none",
+    "rect": {
+      "w": 462,
+      "h": 180
+    }
+  },
+  "plateInkResolved": "oklch(0.447121 0.00386159 34.63)",
+  "dashedWellPresent": true
+}

@@ -1,0 +1,380 @@
+{
+ "desktop-light": {
+  "H1": {
+   "beforeSearchClick": "oklch(0.72 0.31 145)",
+   "childSearchClicked": true,
+   "afterSearchClick": "#4488cc",
+   "clobberedWithZeroPointerContact": true
+  },
+  "census": {
+   "child": {
+    "x": 462,
+    "y": 560,
+    "w": 208,
+    "h": 218.7,
+    "r": 670,
+    "bo": 778.7
+   },
+   "parent": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 521.1,
+    "r": 673,
+    "bo": 902.1
+   },
+   "edgeDelta": {
+    "left": 29,
+    "right": 3
+   },
+   "childSide": "top",
+   "childAlign": "start",
+   "childPadding": "20.351999px 16px",
+   "spacing": {
+    "svMarginTop": "0px",
+    "railMarginTop": "8px",
+    "rowMarginTop": "8px",
+    "rowGap": "6px",
+    "childPaddingBlock": "20.351999px",
+    "childPaddingInline": "16px"
+   },
+   "tokens": {
+    "overlayPadInline": "",
+    "overlayPadBlock": "",
+    "spacing": "0.25rem",
+    "phi3": "",
+    "phi4": "",
+    "phi5": "2.618rem"
+   },
+   "handleBox": {
+    "top": "0px",
+    "transform": "none",
+    "h": 12,
+    "railH": 12
+   },
+   "thumbBox": {
+    "bg": "rgb(68, 136, 204)",
+    "border": "rgb(255, 255, 255)",
+    "w": 16
+   },
+   "svBackgroundImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(0, 128, 255))",
+   "railBackgroundImage": "linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0))",
+   "routeError": false,
+   "disabledInFindByColor": {
+    "input": {
+     "disabled": false,
+     "readOnly": false
+    },
+    "swatch": {
+     "disabled": false
+    },
+    "childButtons": [
+     {
+      "t": "Search",
+      "disabled": false,
+      "ariaDisabled": null
+     }
+    ]
+   },
+   "childA11y": {
+    "role": "dialog",
+    "labelledby": "reka-popover-trigger-v-1-17",
+    "describedby": null,
+    "modal": null,
+    "focusables": [
+     {
+      "tag": "button",
+      "name": "Search"
+     }
+    ],
+    "colourEncodings": [
+     "sv-thumb-fill",
+     "output-dot",
+     "hex-text",
+     "trigger-swatch",
+     "sibling-input-text"
+    ]
+   }
+  },
+  "H2": {
+   "names": [
+    "Open color picker, current color #4488cc",
+    "Open color picker, current color #889199",
+    "Open color picker, current color #778999",
+    "Open color picker, current color #668199",
+    "Open color picker, current color #557999",
+    "Open color picker, current color #447199",
+    "Open color picker, current color #336999",
+    "Open color picker, current color #226199",
+    "Open color picker, current color #115999"
+   ],
+   "distinct": 9,
+   "samples": 9
+  },
+  "H3": {
+   "svThumb": {
+    "thumbFill": [
+     64,
+     103,
+     142
+    ],
+    "fieldNear": [
+     36,
+     69,
+     103
+    ],
+    "contrastFillVsField": 1.672,
+    "ringTop": [
+     72,
+     110,
+     147
+    ],
+    "contrastRingVsField": 1.851
+   },
+   "hueHandle": {
+    "handleFill": [
+     0,
+     128,
+     255
+    ],
+    "railNear": [
+     4,
+     0,
+     255
+    ],
+    "contrastFillVsRail": 2.259,
+    "ringPx": [
+     255,
+     255,
+     255
+    ],
+    "contrastRingVsRail": 8.574
+   },
+   "readout": {
+    "colorComputed": "rgb(112, 89, 66)",
+    "fontSize": "14.384px",
+    "fontStyle": "italic",
+    "darkestTextPx": [
+     112,
+     89,
+     66
+    ],
+    "lightestBgPx": [
+     241,
+     231,
+     223
+    ],
+    "contrast": 5.392
+   }
+  },
+  "H3b": {
+   "hex": "#8e8e40",
+   "handleFill": [
+    255,
+    255,
+    0
+   ],
+   "railNear": [
+    127,
+    255,
+    0
+   ],
+   "ringPx": [
+    255,
+    255,
+    13
+   ],
+   "contrastFillVsRail": 1.207,
+   "contrastRingVsRail": 1.207
+  }
+ },
+ "desktop-dark": {
+  "H1": {
+   "beforeSearchClick": "oklch(0.72 0.31 145)",
+   "childSearchClicked": true,
+   "afterSearchClick": "#4488cc",
+   "clobberedWithZeroPointerContact": true
+  },
+  "census": {
+   "child": {
+    "x": 462,
+    "y": 560,
+    "w": 208,
+    "h": 218.7,
+    "r": 670,
+    "bo": 778.7
+   },
+   "parent": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 521.1,
+    "r": 673,
+    "bo": 902.1
+   },
+   "edgeDelta": {
+    "left": 29,
+    "right": 3
+   },
+   "childSide": "top",
+   "childAlign": "start",
+   "childPadding": "20.351999px 16px",
+   "spacing": {
+    "svMarginTop": "0px",
+    "railMarginTop": "8px",
+    "rowMarginTop": "8px",
+    "rowGap": "6px",
+    "childPaddingBlock": "20.351999px",
+    "childPaddingInline": "16px"
+   },
+   "tokens": {
+    "overlayPadInline": "",
+    "overlayPadBlock": "",
+    "spacing": "0.25rem",
+    "phi3": "",
+    "phi4": "",
+    "phi5": "2.618rem"
+   },
+   "handleBox": {
+    "top": "0px",
+    "transform": "none",
+    "h": 12,
+    "railH": 12
+   },
+   "thumbBox": {
+    "bg": "rgb(68, 136, 204)",
+    "border": "rgb(255, 255, 255)",
+    "w": 16
+   },
+   "svBackgroundImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(0, 128, 255))",
+   "railBackgroundImage": "linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0))",
+   "routeError": false,
+   "disabledInFindByColor": {
+    "input": {
+     "disabled": false,
+     "readOnly": false
+    },
+    "swatch": {
+     "disabled": false
+    },
+    "childButtons": [
+     {
+      "t": "Search",
+      "disabled": false,
+      "ariaDisabled": null
+     }
+    ]
+   },
+   "childA11y": {
+    "role": "dialog",
+    "labelledby": "reka-popover-trigger-v-1-17",
+    "describedby": null,
+    "modal": null,
+    "focusables": [
+     {
+      "tag": "button",
+      "name": "Search"
+     }
+    ],
+    "colourEncodings": [
+     "sv-thumb-fill",
+     "output-dot",
+     "hex-text",
+     "trigger-swatch",
+     "sibling-input-text"
+    ]
+   }
+  },
+  "H2": {
+   "names": [
+    "Open color picker, current color #4488cc",
+    "Open color picker, current color #889199",
+    "Open color picker, current color #778999",
+    "Open color picker, current color #668199",
+    "Open color picker, current color #557999",
+    "Open color picker, current color #447199",
+    "Open color picker, current color #336999",
+    "Open color picker, current color #226199",
+    "Open color picker, current color #115999"
+   ],
+   "distinct": 9,
+   "samples": 9
+  },
+  "H3": {
+   "svThumb": {
+    "thumbFill": [
+     64,
+     103,
+     142
+    ],
+    "fieldNear": [
+     36,
+     69,
+     103
+    ],
+    "contrastFillVsField": 1.672,
+    "ringTop": [
+     72,
+     110,
+     147
+    ],
+    "contrastRingVsField": 1.851
+   },
+   "hueHandle": {
+    "handleFill": [
+     0,
+     128,
+     255
+    ],
+    "railNear": [
+     4,
+     0,
+     255
+    ],
+    "contrastFillVsRail": 2.259,
+    "ringPx": [
+     255,
+     255,
+     255
+    ],
+    "contrastRingVsRail": 8.574
+   },
+   "readout": {
+    "colorComputed": "rgb(195, 185, 172)",
+    "fontSize": "14.384px",
+    "fontStyle": "italic",
+    "darkestTextPx": [
+     73,
+     63,
+     55
+    ],
+    "lightestBgPx": [
+     195,
+     185,
+     172
+    ],
+    "contrast": 5.297
+   }
+  },
+  "H3b": {
+   "hex": "#8e8e40",
+   "handleFill": [
+    255,
+    255,
+    0
+   ],
+   "railNear": [
+    127,
+    255,
+    0
+   ],
+   "ringPx": [
+    255,
+    255,
+    13
+   ],
+   "contrastFillVsRail": 1.207,
+   "contrastRingVsRail": 1.207
+  }
+ }
+}

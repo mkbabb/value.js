@@ -1,0 +1,87 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/PI-DELTA-MANIFEST-2026-07-29.json
+  original-mtime: 2026-07-29T17:40:26
+  original-sha256: 7db1a144b038203417e405b9180041baedc0fb6229dcab3cf7a326aeff20487e
+  original-bytes: 2495
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 1,
+  "status": "formation-admitted",
+  "authority": "V.G1, V.Q1, and V.Q2 must copy this manifest byte-for-byte into each browser receipt and fill every null environment coordinate before evaluation.",
+  "environment": {
+    "browserName": null,
+    "browserVersion": null,
+    "operatingSystem": null,
+    "fontManifestSha256": null,
+    "glassTagObjectSha": null,
+    "glassCommitSha": null,
+    "glassTarballSha256": null,
+    "parseThatTarballSha256": null,
+    "keyframesTarballSha256": null,
+    "valueTarballSha256": null,
+    "deviceScaleFactor": 1,
+    "colorProfile": "srgb",
+    "animationSamplingMs": [0, 120, 420]
+  },
+  "requiredViewports": [
+    { "id": "desktop", "widthCssPx": 1440, "heightCssPx": 900 },
+    { "id": "mobile", "widthCssPx": 390, "heightCssPx": 844 },
+    { "id": "short-landscape", "widthCssPx": 720, "heightCssPx": 450 }
+  ],
+  "semanticGates": {
+    "exact": true,
+    "requiredAssertions": [
+      "route identity",
+      "route H1",
+      "focus owner",
+      "scroll owner",
+      "loading|empty|error|offline|auth|Admin state",
+      "accessible name",
+      "forced-colors state channel",
+      "RTL action reachability"
+    ]
+  },
+  "geometryGates": {
+    "measurement": "getBoundingClientRect in CSS pixels after fonts.ready and two requestAnimationFrame callbacks",
+    "maxUnexpectedAbsDeltaCssPx": 0.5,
+    "maxUnexpectedScrollOffsetDeltaCssPx": 0.5,
+    "maxViewportEscapeCssPx": 0,
+    "immediateFinalSeating": {
+      "appliesWhenCaseDeclaresImmediate": true,
+      "deadlineAnimationFrames": 1,
+      "maxRunningDocumentAnimations": 0,
+      "maxAbsDeltaFromDeclaredFinalCssPx": 0.5
+    }
+  },
+  "pixelGates": {
+    "comparison": "settled-frame RGBA in sRGB at identical immutable environment coordinates",
+    "pngByteIdentityRequired": false,
+    "maxChangedPixelRatio": 0.005,
+    "maxMeanAbsoluteChannelDelta": 1,
+    "maxP99AbsoluteChannelDelta": 8,
+    "dynamicMasks": "forbidden unless a case names the exact DOM owner, rectangle derivation, and semantic reason"
+  },
+  "caseRequirements": {
+    "manifestPath": "docs/tranches/V/megatranche/formation/PI-DELTA-MANIFEST-2026-07-29.json",
+    "requiredFields": [
+      "caseId",
+      "route",
+      "viewportId",
+      "media",
+      "direction",
+      "state",
+      "piArtifactSha256",
+      "deltaArtifactSha256",
+      "expectedSemanticDelta",
+      "geometryMeasurements",
+      "pixelMeasurements",
+      "verdict"
+    ],
+    "missingFieldVerdict": "FAIL"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS",
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade",
+    "bytes": 944
+  },
+  "challenge_a": {
+    "path": "reviews/challenge-a.json",
+    "sha256": "b9f97284fff79c313c583bd8beae0b4abd6a02cbe86e53365ede1edc6882924d",
+    "bytes": 9094,
+    "verdict": "REJECT"
+  },
+  "challenge_b": {
+    "path": "reviews/challenge-b.json",
+    "sha256": "885859d8cc1d72f27669a153572dc6df5cc7a36f10b7d43b97d8f9e6ebde39f5",
+    "bytes": 10487,
+    "verdict": "REJECT"
+  },
+  "root": {
+    "path": "root-gestalt.json",
+    "sha256": "84a1826fac44505ba2ae3fbcc918b7684b0e94104b5d05421c1b385f4df1e412",
+    "bytes": 4619,
+    "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS"
+  },
+  "holdout_destruction": {
+    "path": "holdout-destruction.json",
+    "sha256": "32dab18505059a4dd73005f3695ab6aaa054f2baee30e964bcabdfb35be2eada",
+    "bytes": 7748,
+    "plaintext_revealed": false,
+    "secret_recoverable": false
+  },
+  "decisive_reasons": [
+    "The holdout receipt changed after subject freeze and was later restored; ADDENDA-07 requires a new generation after any holdout-byte change.",
+    "The exact subject roster names an unusable B reviewer and contains no lawful substitution transition for the independent B2 reviewer.",
+    "Actor independence, author isolation, and materially different construction topologies are not bound strongly enough to prevent one fabricated or same-shape candidate set.",
+    "The installed parser runtime and benchmark comparators are incompletely pinned; the candidate census and killability rails overclaim what they check.",
+    "The stale G8 feature row and G9 protocol disagree about the generation lifecycle."
+  ],
+  "surviving_inputs": [
+    "The pinned normative CSS Syntax slice and semantic value/type/sign contract may be reused by identity in a fresh generation.",
+    "A parse-that regex terminal remains an allowed direct combinator leaf and creates no lexical-runtime authority.",
+    "The four lineage source packets remain evidence only; their next generation must assign and review materially different construction topologies."
+  ],
+  "counts": {
+    "candidate_files": 0,
+    "candidate_sets": 0,
+    "holdout_reveals": 0,
+    "benchmark_runs": 0,
+    "skeptic_reviews": 0,
+    "synthesis_adjudications": 0,
+    "accepted_features": 0
+  },
+  "credit": "ZERO_TERMINAL_REJECTION_ONLY"
+}

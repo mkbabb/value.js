@@ -1,0 +1,4386 @@
+{
+  "s1-empty-desktop-light": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 114.11
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 2,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Start a new palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 147.19,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": null,
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 1,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [],
+    "input": null,
+    "tabbables": [],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  },
+  "s2-five-desktop-light": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  },
+  "s3-five-desktop-dark": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "dark",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.925202 0.002342 0.005724 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.345296 0.010372 0.017546)",
+        "box-shadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.345296 0.010372 0.017546)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(195, 185, 172)"
+      },
+      "contrastOnWell": 10.85
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(195, 185, 172)"
+      },
+      "contrastOnWell": 10.85
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  },
+  "s4-one-desktop-light": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "1 color",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 2,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  },
+  "s5-five-mobile-390": {
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 33,
+        "y": 292.95,
+        "w": 324,
+        "h": 248.53
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 46,
+            "y": 305.95,
+            "w": 298,
+            "h": 19.59
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 46,
+            "y": 335.55,
+            "w": 298,
+            "h": 110.34
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 46,
+            "y": 455.89,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 46,
+            "y": 488.48,
+            "w": 298,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 46,
+        "y": 305.95,
+        "w": 104.75,
+        "h": 19.59
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "14px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "19.6px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "14px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 46,
+        "y": 335.55,
+        "w": 298,
+        "h": 110.34
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 46,
+            "y": 335.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 100,
+            "y": 335.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 154,
+            "y": 335.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 208,
+            "y": 335.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 262,
+            "y": 335.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 46,
+            "y": 395.72,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 46,
+          "y": 335.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 100,
+          "y": 335.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 154,
+          "y": 335.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 208,
+          "y": 335.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 262,
+          "y": 335.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 46,
+          "y": 395.72,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 312,
+          "y": 488.48,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "14px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 46,
+        "y": 490.48,
+        "w": 258,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "12.179px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 844,
+      "docClientH": 844,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  },
+  "s6-hover-desktop": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 940,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": {
+      "rect": {
+        "x": 0,
+        "y": 900,
+        "w": 1440,
+        "h": 40
+      },
+      "position": "static",
+      "inlineStyle": "top: 335.59375px; left: 791px;",
+      "ariaHidden": "true",
+      "buttons": [
+        "Edit color rgb(226 87 31)",
+        "Copy color rgb(226 87 31)",
+        "Remove color rgb(226 87 31) from palette"
+      ]
+    },
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "hover"
+  },
+  "s7-tap-touch": {
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 33,
+        "y": 294.95,
+        "w": 324,
+        "h": 262.53
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 46,
+            "y": 307.95,
+            "w": 298,
+            "h": 19.59
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 46,
+            "y": 337.55,
+            "w": 298,
+            "h": 110.34
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 46,
+            "y": 457.89,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 46,
+            "y": 490.48,
+            "w": 298,
+            "h": 54
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 46,
+        "y": 307.95,
+        "w": 104.75,
+        "h": 19.59
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "14px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "19.6px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "14px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 46,
+        "y": 337.55,
+        "w": 298,
+        "h": 110.34
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 46,
+            "y": 337.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 100,
+            "y": 337.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 154,
+            "y": 337.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 208,
+            "y": 337.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 262,
+            "y": 337.55,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 46,
+            "y": 397.72,
+            "w": 44,
+            "h": 50.17
+          },
+          "display": "block",
+          "lineHeight": "24px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 46,
+          "y": 337.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 100,
+          "y": 337.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 154,
+          "y": 337.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 208,
+          "y": 337.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 262,
+          "y": 337.55,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 46,
+          "y": 397.72,
+          "w": 44,
+          "h": 44
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 300,
+          "y": 495.48,
+          "w": 44,
+          "h": 44
+        },
+        "style": {
+          "height": "44px",
+          "min-height": "44px",
+          "width": "44px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "21px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 46,
+        "y": 490.48,
+        "w": 246,
+        "h": 54
+      },
+      "style": {
+        "height": "54px",
+        "font-size": "18.268499px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 844,
+      "docClientH": 844,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "tap",
+    "canHoverMq": false,
+    "tapErr": null,
+    "domClick": true
+  },
+  "s8-addslot": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "addslot",
+    "addSlot": {
+      "found": true,
+      "tag": "SPAN",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "role": null,
+      "tabIndex": -1,
+      "pointerEvents": "none",
+      "childCount": 2,
+      "htmlLen": 1299,
+      "innerHTML": "<svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-6\" x=\"-15%\" y=\"-15%\" width=\"13"
+    },
+    "dotsBefore": 6,
+    "dotsAfter": 6,
+    "tabNames": [
+      "INPUT:",
+      "BUTTON:"
+    ]
+  },
+  "s9-dup-stale": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 332.78,
+        "w": 462,
+        "h": 114.11
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 2,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 345.78,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 378.72,
+            "w": 436,
+            "h": 55.17
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Start a new palette",
+      "rect": {
+        "x": 767,
+        "y": 345.78,
+        "w": 147.19,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": null,
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 378.72,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 1,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 767,
+            "y": 378.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 378.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [],
+    "input": null,
+    "tabbables": [],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "dup",
+    "heightBefore": 196.703125,
+    "collided": {
+      "text": "Current Palette5 colors dev misconfigured — run `npm run dev` \"Palette 2\" already exists. Update Cancel",
+      "h": 242.703125
+    },
+    "afterRetype": {
+      "inputValue": "Zebra Sunset",
+      "stillShowsCollision": true,
+      "collisionText": "\"Palette 2\" already exists. Update Cancel",
+      "updateBtn": [
+        "Update",
+        "Cancel"
+      ]
+    },
+    "overwrote": [
+      {
+        "name": "Palette 1",
+        "n": 1
+      },
+      {
+        "name": "Palette 2",
+        "n": 5
+      }
+    ]
+  },
+  "s10-placeholder-collision": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 328.78,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 341.78,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 374.72,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 439.89,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 472.48,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 341.78,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 374.72,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 374.72,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 374.72,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 472.48,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 3",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 474.48,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 3"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "placeholder",
+    "withTwo": {
+      "placeholder": "Palette 3"
+    }
+  },
+  "s11-long-name": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 331.66,
+        "w": 462,
+        "h": 196.7
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 344.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 436,
+            "h": 55.17
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 442.77,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 475.36,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 344.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "5 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 377.59,
+        "w": 436,
+        "h": 55.17
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 6,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 1057,
+            "y": 377.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 377.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 475.36,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 477.36,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "226"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "87"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "31"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ],
+    "probe": "longname",
+    "longName": {
+      "valueLen": 160,
+      "maxLength": -1,
+      "scrollW": 1645,
+      "clientW": 394,
+      "wellH": 196.703125
+    }
+  },
+  "s12-many24-desktop": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "scheme": "light",
+    "well": {
+      "rect": {
+        "x": 754,
+        "y": 256.66,
+        "w": 462,
+        "h": 392.22
+      },
+      "style": {
+        "display": "flex",
+        "flex-direction": "column",
+        "gap": "10px",
+        "padding": "12px",
+        "border": "1px dashed oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "border-radius": "16px",
+        "background-color": "oklab(0.913299 0.005463 0.013024)",
+        "box-shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "align-items": "normal"
+      },
+      "paintedBg": "oklab(0.913299 0.005463 0.013024)",
+      "childCount": 4,
+      "zones": [
+        {
+          "cls": "flex items-center justify-between gap-2",
+          "rect": {
+            "x": 767,
+            "y": 269.66,
+            "w": 436,
+            "h": 22.94
+          }
+        },
+        {
+          "cls": "swatch-row flex items-center gap-2.5 flex-wrap",
+          "rect": {
+            "x": 767,
+            "y": 302.59,
+            "w": 436,
+            "h": 250.69
+          }
+        },
+        {
+          "cls": "api-offline-chip api-misconfig-chip fira-code self-start",
+          "rect": {
+            "x": 767,
+            "y": 563.28,
+            "w": 255.19,
+            "h": 22.59
+          }
+        },
+        {
+          "cls": "flex items-center gap-2",
+          "rect": {
+            "x": 767,
+            "y": 595.88,
+            "w": 436,
+            "h": 40
+          }
+        }
+      ]
+    },
+    "label": {
+      "text": "Current Palette",
+      "rect": {
+        "x": 767,
+        "y": 269.66,
+        "w": 122.42,
+        "h": 22.94
+      },
+      "style": {
+        "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+        "font-size": "16.4px",
+        "font-weight": "600",
+        "font-style": "normal",
+        "line-height": "22.959999px",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "count": {
+      "text": "24 colors",
+      "style": {
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "font-size": "16.4px",
+        "font-weight": "400",
+        "color": "rgb(112, 89, 66)"
+      },
+      "contrastOnWell": 3.193
+    },
+    "row": {
+      "rect": {
+        "x": 767,
+        "y": 302.59,
+        "w": 436,
+        "h": 250.69
+      },
+      "style": {
+        "display": "flex",
+        "flex-wrap": "wrap",
+        "gap": "10px",
+        "align-items": "center"
+      },
+      "childCount": 25,
+      "children": [
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1057,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1115,
+            "y": 302.59,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1057,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1115,
+            "y": 367.77,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 941,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 999,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1057,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 1115,
+            "y": 432.94,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 767,
+            "y": 498.11,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 825,
+            "y": 498.11,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "relative",
+          "rect": {
+            "x": 883,
+            "y": 498.11,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "rect": {
+            "x": 941,
+            "y": 498.11,
+            "w": 48,
+            "h": 55.17
+          },
+          "display": "block",
+          "lineHeight": "27.911999px"
+        }
+      ]
+    },
+    "dots": [
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1115,
+          "y": 302.59,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1115,
+          "y": 367.77,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 999,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1057,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 1115,
+          "y": 432.94,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 767,
+          "y": 498.11,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 825,
+          "y": 498.11,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "solid",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 883,
+          "y": 498.11,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 1,
+        "hasSvgNonFilter": false
+      },
+      {
+        "variant": "ghost",
+        "ariaHidden": "true",
+        "pointerEvents": "none",
+        "tag": "SPAN",
+        "rect": {
+          "x": 941,
+          "y": 498.11,
+          "w": 48,
+          "h": 48
+        },
+        "childElementCount": 2,
+        "hasSvgNonFilter": false
+      }
+    ],
+    "buttons": [
+      {
+        "accName": "",
+        "disabled": false,
+        "rect": {
+          "x": 1171,
+          "y": 595.88,
+          "w": 32,
+          "h": 40
+        },
+        "style": {
+          "height": "40px",
+          "min-height": "40px",
+          "width": "32px",
+          "border-radius": "340282346638528859811704183484516925440px",
+          "font-size": "16.4px"
+        }
+      }
+    ],
+    "input": {
+      "placeholder": "Palette 1",
+      "value": "",
+      "maxLength": -1,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "rect": {
+        "x": 767,
+        "y": 597.88,
+        "w": 396,
+        "h": 36
+      },
+      "style": {
+        "height": "36px",
+        "font-size": "14.384px",
+        "text-overflow": "clip"
+      }
+    },
+    "tabbables": [
+      {
+        "tag": "INPUT",
+        "name": "Palette 1"
+      },
+      {
+        "tag": "BUTTON",
+        "name": ""
+      }
+    ],
+    "liveRegions": [
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "0deg"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "70%"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "50%"
+      },
+      {
+        "role": null,
+        "live": "off",
+        "text": "100%"
+      },
+      {
+        "role": "alert",
+        "live": null,
+        "text": "dev misconfigured — run `npm run dev`"
+      },
+      {
+        "role": "status",
+        "live": null,
+        "text": "· empty plate ·No saved palettes yet.Add colors above, then "
+      }
+    ],
+    "dupRow": null,
+    "docScroll": {
+      "bodyScrollH": 900,
+      "docClientH": 900,
+      "bodyOverflow": "visible",
+      "htmlOverflow": "visible"
+    },
+    "floatingPanel": null,
+    "popoverContent": null,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+    ]
+  }
+}

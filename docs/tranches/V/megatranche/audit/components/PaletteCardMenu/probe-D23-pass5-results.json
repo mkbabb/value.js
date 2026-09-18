@@ -1,0 +1,33 @@
+{
+  "box": {
+    "x": 121,
+    "y": 41.25,
+    "width": 192,
+    "height": 135
+  },
+  "state": {
+    "scrollTop": 102,
+    "scrollHeight": 235,
+    "clientHeight": 133,
+    "gutterPx": 2,
+    "gutterPctOfPanelWidth": 1.04,
+    "rows": [
+      {
+        "text": "Publish",
+        "insidePanel": false
+      },
+      {
+        "text": "Rename",
+        "insidePanel": false
+      },
+      {
+        "text": "Export",
+        "insidePanel": true
+      },
+      {
+        "text": "Delete",
+        "insidePanel": true
+      }
+    ]
+  }
+}

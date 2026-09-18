@@ -1,0 +1,59 @@
+{
+ "runId": "wf_0e0ee049-c82",
+ "workflow": "wf_0e0ee049-c82",
+ "resultCount": 3,
+ "results": [
+  {
+   "agentId": "a9d1aafd946c98fde",
+   "key": "v2:25ce78bc2eecae05f7e1b8a434240b504970164a3ffff4c4bd0c83760fbffbc2",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W10.md",
+    "fixed": [
+     "W10-D1 (fifth pass §(c), part 1 of the prescribed fix) — §2 COMPLETABLE (C-06), W10.md:17-21: the false universal \"Its file bounds intersect no other X wave's bounds\" is replaced verbatim with the prescribed restatement — \"Its bounds intersect only closed predecessors' surfaces (X-W5 ×4, X-W7 ×1), inherited after their closes; no concurrently-open wave shares a write path\" — plus a pointer to the new §4a Cross-wave line. The wave's own-surface listing (demo/DESIGN.md, PaneHeader.vue, PaletteCard.vue, foundation.css's survivor recipe, the design satellites) is preserved as a standalone sentence; the sibling-ownership parenthetical that existed only to argue the false disjointness — and that the defect itself flagged as self-contradicting on PaletteCard.vue ('X-W7 owns palette panes' vs 'this wave owns PaletteCard.vue') — is retired with it.",
+     "W10-D1 (part 2 of the prescribed fix) — §4a Disjointness, W10.md:139-146: ONE new **Cross-wave.** line added after the existing disjointness paragraph, matching the corpus idiom (W7.md:150, W9.md:138-152), naming all five paths with their holders and the access verbs exactly as cited in the defect: PaletteCard/PaletteCard.vue by X-W7 (`modify-carve`, `W7.md:98`) · styles/animations.css by X-W5 (`modify-carve`, `W5.md:104`) · styles/foundation.css by X-W5 (`W5.md:103`) · shell/PaneSegmentedControl.vue by X-W5 (`delete`, `W5.md:100`) · VISUAL-CONSTITUTION.md + OPTICAL-BENCH-COMPOSITIONS.md by X-W5.e's E1/E2 strike (`W5.md:110,112`), closing with the sequencing rationale (inherited after that wave's close, already required by §2 Opens-after).",
+     "Cite verification (read-only, no edit): all five anchors re-measured against the sibling files this pass — W7.md:98 = `demo/palettes/browser/card/PaletteCard/PaletteCard.vue | modify-carve`; W5.md:100 = `demo/shell/PaneSegmentedControl.vue | delete`; W5.md:103 = `demo/styles/foundation.css | modify-carve`; W5.md:104 = `demo/styles/animations.css | modify-carve`; W5.md:110/:112 = the two satellite `modify-carve` rows whose gates are W5's E1/E2 (`W5.md:231,291,292`, and W5.md:348 already names X-W10 as the inheritor of that strike). Zero drift; no anchor rewritten."
+    ],
+    "residual": [
+     "Untouched by design, per the work order: the G-6 observation (fifth pass §Observations — 'W10 G-6 may open GREEN' via X-W7's G11/CC-069, and the recommendation to extend the predecessor-discharge idiom to G-6) and the existing predecessor-discharge idiom in the §4 PaneSegmentedControl.vue row note (W10.md:117). Neither was booked as a defect; both remain open for a future edit.",
+     "The restated §2 sentence no longer asserts anything about X-W6 or X-W8. Their non-intersection with W10's bounds is still true (measured: no shared §4 path), but it is now unclaimed prose rather than a stated universal — deliberate, since a universal is exactly what W10-D1 condemned.",
+     "W10.md:115 `demo/styles/foundation.css | modify-carve (.underline-tabs:554 survivor only)` carries a line-number anchor into a deletable file, which G-3's own falsifier calls a failure mode for canon anchors. Out of scope for this defect (the §4 bounds table is not canon), not booked by any pass — noted only so a later editor may convert it.",
+     "W6-D1 (gate c3's descriptive `npx vite-node` invocation, W6.md:208) is the other open fifth-pass defect and belongs to a different file/seat; untouched here."
+    ]
+   }
+  },
+  {
+   "agentId": "ac24c32499f5ea6b6",
+   "key": "v2:01161dea7d7cba609bb3f5f4ffda44a9a6b80fcecf1a72ebc17ea7dd838dc40a",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W6.md",
+    "fixed": [
+     "W6-D1 (§FIFTH PASS (c) defect 1 — gate c3 runs a script it does not name, R-E): took **option (b)**, because c3's own gate text asserts \"authored and minted stops print in one grammar\" — a mint-then-print comparison — while the existing execute row's `…/evidence/parse-probe.ts` runs only a serialize-then-parse acceptance leg (eight empty-argument colour functions into `parseCssColor`, three literal CSS strings into `parseGradientCSS`); it mints no stop and prints no literal, so no existing row carries c3's chain.",
+     "§5 X.W6.c sub-gate table, c3 command cell (W6.md:209, was :208): replaced the pathless \"`npx vite-node` mint chain against the tree\" with the literal `npx vite-node docs/tranches/X/gates/gate-literal-dialect.mjs` (new; mints a stop through the model's own mint path and prints its literal beside an authored stop's, headless against the tree), preserving the \"never the long-running server — GRADSTOP-A §7\" stale-server clause verbatim.",
+     "§4 File Bounds (new row at W6.md:93): added `| docs/tranches/X/gates/gate-literal-dialect.mjs (c3) | create |`, first in the `docs/tranches/X/gates/` group by gate-id order (c3 < f1 < f5 < h2 < i2 < H1), matching the wave's nine-instrument `create` idiom.",
+     "§4 Bounds law (W6.md:118): \"The nine new instruments — invoked by d1, d2, …\" → \"The ten new instruments — invoked by c3, d1, d2, …\", so the count and invoker enumeration stay true after the tenth create row (required for the fix's own integrity; the '`docs/tranches/X/gates/` absent today (measured 2026-08-03)' clause is still true and untouched — the directory does not exist).",
+     "§4a Disjointness (W6.md:133): \"The nine new gate/probe scripts…\" → \"The ten new gate/probe scripts are each `create`d by exactly one unit — c3 (.c), d1/d2 (.d) and e2 (.e) in Lane 1, …\"; .c is Lane 1 per §4a bullet 1, so the one-unit-per-script and no-two-lanes-write-one-path claims remain true.",
+     "§FIFTH PASS Observations bullet 1 (P∧¬P vs W0.md:279), site 1 — .e's MOTION-SOURCED · PENDING-QUARANTINE block (new line W6.md:242, beside the dated \"does not exist (verified 2026-08-03)\" claim at :239): added the prescribed dated addendum line verbatim; the dated claim itself is unrewritten.",
+     "§FIFTH PASS Observations bullet 1, site 2 — wave gate H2 (W6.md:338, formerly :335): appended the identical dated addendum sentence after H2's Falsifier, at the end of the bullet; H2's \"RED today: the file does not exist (verified 2026-08-03…)\" sentence is unrewritten."
+    ],
+    "residual": [
+     "`docs/tranches/X/gates/gate-literal-dialect.mjs` does not exist on disk today (nor does `docs/tranches/X/gates/`) — it is authored at wave execution exactly like the other nine `create` instruments (f1, f5, h2, i2, H1, d1, d2, e2, g1); §4's \"absent today *(measured 2026-08-03)*\" measurement was verified still true and left unchanged.",
+     "CONFORMANCE-2026-08-03.md §(b) records \"W6 9-create + 12-execute\" and cites c3 at `W6.md:208`; both are now one off (10-create; c3 at :209). Not edited — dated adjudication records are immutable, E-3 addenda only, and the D-19 line-anchor law governs drift.",
+     "`docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/serialize-cost.ts` sits in the same evidence directory with no §4 bounds row, but no W6 gate invokes it (GRADSTOP-A §8 bans citing any serialization-cost win, restated in §8 EXPLICITLY NOT CLAIMED), so R-E is unaffected. Observed, not touched.",
+     "The addendum sentence is repeated verbatim at both quarantine sites rather than once, since both :239 and the H2 bullet independently assert non-existence; a single placement would leave one half of the P∧¬P standing.",
+     "Fifth-pass observation 3 (`W4.md:293`'s anchor to `W0.md` drifted to :331) is a different file and was not touched. No sibling file anywhere under `docs/tranches/X/` carries a `W6.md:<line>` anchor outside the dated conformance record, so the two insertions shift no live cross-file citation.",
+     "W10-D1 (the fifth pass's other numbered defect) is untouched — out of this seat's scope."
+    ]
+   }
+  },
+  {
+   "agentId": "a7420c016267b086d",
+   "key": "v2:d2aeccee4b0beac14f31cefc67f395a13cc0356f07a4f8c282dd2a946d5ed1f7",
+   "result": {
+    "conformant": 12,
+    "defective": 0,
+    "remaining": [],
+    "tranchReady": true
+   }
+  }
+ ]
+}

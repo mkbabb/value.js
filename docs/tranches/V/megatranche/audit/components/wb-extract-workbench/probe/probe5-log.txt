@@ -1,0 +1,143 @@
+=== P6. populated 1440x900, measured ===
+{
+ "dropZone": {
+  "rect": {
+   "x": 224,
+   "y": 200.7,
+   "w": 462,
+   "h": 320
+  },
+  "maxHeight": "320px",
+  "minHeight": "180px",
+  "cls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-crosshair border-transparent hover:border-primary/50 bg-primary/5 min-h-[180px] max-h-[min(320px,40dvh)]"
+ },
+ "img": {
+  "x": 226,
+  "y": 131.7,
+  "w": 458,
+  "h": 458
+ },
+ "scroller": {
+  "clientH": 772,
+  "scrollH": 774
+ },
+ "dominanceRow": {
+  "x": 224,
+  "y": 624.7,
+  "w": 462,
+  "h": 43.3
+ },
+ "displaySpan": {
+  "rect": {
+   "x": 228,
+   "y": 624.7,
+   "w": 168.1,
+   "h": 43.3
+  },
+  "fs": "41.888px",
+  "ff": "Fraunces, \"Fraunces Fallba",
+  "text": "25% of the image"
+ },
+ "eyebrow": {
+  "rect": {
+   "x": 404.1,
+   "y": 645.5,
+   "w": 91.5,
+   "h": 21.6
+  },
+  "fs": "14.384px",
+  "ls": "2.58912px"
+ },
+ "code": {
+  "rect": {
+   "x": 503.6,
+   "y": 644.2,
+   "w": 178.4,
+   "h": 22.9
+  },
+  "clientW": 178,
+  "scrollW": 585,
+  "visibleFrac": 0.3,
+  "full": "oklch(73.892055422424% 0.217857767251 137.844885067367deg)",
+  "fullLen": 58
+ },
+ "cardRoot": {
+  "rect": {
+   "x": 224,
+   "y": 673.9,
+   "w": 462,
+   "h": 188.2
+  },
+  "cls": "group rounded-card cartoon-surface border-card-edge bg-well "
+ },
+ "stripCells": [
+  {
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 458
+  },
+  {
+   "bg": "oklch(0.544872 0.202432 7.683829)",
+   "w": 115
+  },
+  {
+   "bg": "oklch(0.738921 0.217858 137.844879)",
+   "w": 115
+  },
+  {
+   "bg": "oklch(0.497787 0.182301 261.30661)",
+   "w": 115
+  },
+  {
+   "bg": "oklch(0.908697 0.023126 84.592789)",
+   "w": 115
+  },
+  {
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 458
+  },
+  {
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 203
+  },
+  {
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 165
+  }
+ ],
+ "swatchSeats": [
+  {
+   "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+   "x": 636
+  },
+  {
+   "bg": "oklch(0.544872 0.202432 7.683829)",
+   "x": 238
+  },
+  {
+   "bg": "oklch(0.738921 0.217858 137.844879)",
+   "x": 302
+  },
+  {
+   "bg": "oklch(0.497787 0.182301 261.30661)",
+   "x": 366
+  },
+  {
+   "bg": "oklch(0.908697 0.023126 84.592789)",
+   "x": 430
+  }
+ ],
+ "gaps": [
+  {
+   "t": "25% of the image",
+   "x": 228,
+   "r": 396.1
+  },
+  {
+   "t": "dominantoklch(73.89205",
+   "x": 404.1,
+   "r": 682
+  }
+ ]
+}
+=== dominant serialized ===
+oklch(73.892055422424% 0.217857767251 137.844885067367deg)

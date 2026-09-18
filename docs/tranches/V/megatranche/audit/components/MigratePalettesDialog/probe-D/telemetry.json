@@ -1,0 +1,1062 @@
+{
+  "desktop-light": {
+    "consoleErrors": [],
+    "regenerate": {
+      "present": true,
+      "dialog": {
+        "rect": {
+          "x": 528,
+          "y": 330.25,
+          "w": 384,
+          "h": 239.25
+        },
+        "borderRadius": "16px",
+        "classList": [
+          "fixed",
+          "left-1/2",
+          "top-1/2",
+          "z-modal",
+          "grid",
+          "w-full",
+          "gap-4",
+          "[--overlay-pad-inline:--spacing(6)]",
+          "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+          "px-(--overlay-pad-inline)",
+          "py-(--overlay-pad-block)",
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "glass-reveal",
+          "glass-floating",
+          "rounded-dialog",
+          "max-w-sm"
+        ],
+        "ariaLabelledby": "reka-dialog-title-v-61",
+        "ariaDescribedby": "reka-dialog-description-v-62",
+        "ariaModal": null,
+        "radiusCtx": "1rem",
+        "radiusDialog": "1rem"
+      },
+      "title": {
+        "text": "What about your palettes?",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "20.351999px",
+        "fontWeight": "500",
+        "lineHeight": "20.351999px",
+        "color": "rgb(28, 25, 23)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 361.77,
+          "w": 334,
+          "h": 20.34
+        },
+        "accName": "What about your palettes?"
+      },
+      "description": {
+        "text": "You have 3 local palettes. What would you like to do before ",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "400",
+        "lineHeight": "22.959999px",
+        "color": "rgb(112, 89, 66)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 388.11,
+          "w": 334,
+          "h": 45.88
+        },
+        "accName": "You have 3 local palettes. What would yo"
+      },
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(0, 0, 0)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+          "borderColor": "rgb(0, 0, 0)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 449.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Publish, then regenerate"
+        },
+        {
+          "text": "Just regenerate",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(0, 0, 0)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+          "borderColor": "rgb(0, 0, 0)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 497.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Just regenerate"
+        },
+        {
+          "text": "Close",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "lineHeight": "27.911999px",
+          "color": "rgb(28, 25, 23)",
+          "borderRadius": "4px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgb(198, 180, 159)",
+          "cursor": "default",
+          "justifyContent": "normal",
+          "minHeight": "auto",
+          "rect": {
+            "x": 871,
+            "y": 361.77,
+            "w": 16,
+            "h": 16
+          },
+          "accName": "Close"
+        }
+      ],
+      "buttonGaps": [
+        8,
+        -176.22
+      ],
+      "activeElement": {
+        "tag": "BUTTON",
+        "text": "Publish, then regenerate",
+        "inDialog": true
+      },
+      "closeButtons": [
+        "Close"
+      ],
+      "overflowX": 0
+    },
+    "afterEsc": {
+      "dialogPresent": false,
+      "activeElement": {
+        "tag": "BODY",
+        "cls": "relative",
+        "text": "→lab(92% 88.8 20 / 82.7%)HomeToolsPicker"
+      },
+      "paletteCount": 3,
+      "slug": "quiet-amber-river-fox"
+    },
+    "switch": {
+      "present": true,
+      "dialog": {
+        "rect": {
+          "x": 528,
+          "y": 306.25,
+          "w": 384,
+          "h": 287.25
+        },
+        "borderRadius": "16px",
+        "classList": [
+          "fixed",
+          "left-1/2",
+          "top-1/2",
+          "z-modal",
+          "grid",
+          "w-full",
+          "gap-4",
+          "[--overlay-pad-inline:--spacing(6)]",
+          "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+          "px-(--overlay-pad-inline)",
+          "py-(--overlay-pad-block)",
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "glass-reveal",
+          "glass-floating",
+          "rounded-dialog",
+          "max-w-sm"
+        ],
+        "ariaLabelledby": "reka-dialog-title-v-61",
+        "ariaDescribedby": "reka-dialog-description-v-62",
+        "ariaModal": null,
+        "radiusCtx": "1rem",
+        "radiusDialog": "1rem"
+      },
+      "title": {
+        "text": "What about your palettes?",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "20.351999px",
+        "fontWeight": "500",
+        "lineHeight": "20.351999px",
+        "color": "rgb(28, 25, 23)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 337.77,
+          "w": 334,
+          "h": 20.34
+        },
+        "accName": "What about your palettes?"
+      },
+      "description": {
+        "text": "You have 3 local palettes. What would you like to do with th",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "400",
+        "lineHeight": "22.959999px",
+        "color": "rgb(112, 89, 66)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 364.11,
+          "w": 334,
+          "h": 45.88
+        },
+        "accName": "You have 3 local palettes. What would yo"
+      },
+      "buttons": [
+        {
+          "text": "Publish, then switch",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(0, 0, 0)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+          "borderColor": "rgb(0, 0, 0)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 425.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Publish, then switch"
+        },
+        {
+          "text": "Transfer to new account",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(0, 0, 0)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+          "borderColor": "rgb(0, 0, 0)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 473.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Transfer to new account"
+        },
+        {
+          "text": "Just switch",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(0, 0, 0)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+          "borderColor": "rgb(0, 0, 0)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 521.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Just switch"
+        },
+        {
+          "text": "Close",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "lineHeight": "27.911999px",
+          "color": "rgb(28, 25, 23)",
+          "borderRadius": "4px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgb(198, 180, 159)",
+          "cursor": "default",
+          "justifyContent": "normal",
+          "minHeight": "auto",
+          "rect": {
+            "x": 871,
+            "y": 337.77,
+            "w": 16,
+            "h": 16
+          },
+          "accName": "Close"
+        }
+      ],
+      "buttonGaps": [
+        8,
+        8,
+        -224.22
+      ],
+      "activeElement": {
+        "tag": "BUTTON",
+        "text": "Publish, then switch",
+        "inDialog": true
+      },
+      "closeButtons": [
+        "Close"
+      ],
+      "overflowX": 0
+    }
+  },
+  "desktop-dark": {
+    "consoleErrors": [],
+    "regenerate": {
+      "present": true,
+      "dialog": {
+        "rect": {
+          "x": 528,
+          "y": 330.25,
+          "w": 384,
+          "h": 239.25
+        },
+        "borderRadius": "16px",
+        "classList": [
+          "fixed",
+          "left-1/2",
+          "top-1/2",
+          "z-modal",
+          "grid",
+          "w-full",
+          "gap-4",
+          "[--overlay-pad-inline:--spacing(6)]",
+          "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+          "px-(--overlay-pad-inline)",
+          "py-(--overlay-pad-block)",
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "glass-reveal",
+          "glass-floating",
+          "rounded-dialog",
+          "max-w-sm"
+        ],
+        "ariaLabelledby": "reka-dialog-title-v-61",
+        "ariaDescribedby": "reka-dialog-description-v-62",
+        "ariaModal": null,
+        "radiusCtx": "1rem",
+        "radiusDialog": "1rem"
+      },
+      "title": {
+        "text": "What about your palettes?",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "20.351999px",
+        "fontWeight": "500",
+        "lineHeight": "20.351999px",
+        "color": "rgb(233, 230, 226)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(101, 87, 73)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 361.77,
+          "w": 334,
+          "h": 20.34
+        },
+        "accName": "What about your palettes?"
+      },
+      "description": {
+        "text": "You have 3 local palettes. What would you like to do before ",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "400",
+        "lineHeight": "22.959999px",
+        "color": "rgb(195, 185, 172)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(101, 87, 73)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 388.11,
+          "w": 334,
+          "h": 45.88
+        },
+        "accName": "You have 3 local palettes. What would yo"
+      },
+      "buttons": [
+        {
+          "text": "Publish, then regenerate",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "borderColor": "rgb(255, 255, 255)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 449.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Publish, then regenerate"
+        },
+        {
+          "text": "Just regenerate",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "borderColor": "rgb(255, 255, 255)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 497.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Just regenerate"
+        },
+        {
+          "text": "Close",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "lineHeight": "27.911999px",
+          "color": "rgb(233, 230, 226)",
+          "borderRadius": "4px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgb(101, 87, 73)",
+          "cursor": "default",
+          "justifyContent": "normal",
+          "minHeight": "auto",
+          "rect": {
+            "x": 871,
+            "y": 361.77,
+            "w": 16,
+            "h": 16
+          },
+          "accName": "Close"
+        }
+      ],
+      "buttonGaps": [
+        8,
+        -176.22
+      ],
+      "activeElement": {
+        "tag": "BUTTON",
+        "text": "Publish, then regenerate",
+        "inDialog": true
+      },
+      "closeButtons": [
+        "Close"
+      ],
+      "overflowX": 0
+    },
+    "afterEsc": {
+      "dialogPresent": false,
+      "activeElement": {
+        "tag": "BODY",
+        "cls": "relative",
+        "text": "→lab(92% 88.8 20 / 82.7%)HomeToolsPicker"
+      },
+      "paletteCount": 3,
+      "slug": "quiet-amber-river-fox"
+    },
+    "switch": {
+      "present": true,
+      "dialog": {
+        "rect": {
+          "x": 528,
+          "y": 306.25,
+          "w": 384,
+          "h": 287.25
+        },
+        "borderRadius": "16px",
+        "classList": [
+          "fixed",
+          "left-1/2",
+          "top-1/2",
+          "z-modal",
+          "grid",
+          "w-full",
+          "gap-4",
+          "[--overlay-pad-inline:--spacing(6)]",
+          "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+          "px-(--overlay-pad-inline)",
+          "py-(--overlay-pad-block)",
+          "-translate-x-1/2",
+          "-translate-y-1/2",
+          "glass-reveal",
+          "glass-floating",
+          "rounded-dialog",
+          "max-w-sm"
+        ],
+        "ariaLabelledby": "reka-dialog-title-v-61",
+        "ariaDescribedby": "reka-dialog-description-v-62",
+        "ariaModal": null,
+        "radiusCtx": "1rem",
+        "radiusDialog": "1rem"
+      },
+      "title": {
+        "text": "What about your palettes?",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "20.351999px",
+        "fontWeight": "500",
+        "lineHeight": "20.351999px",
+        "color": "rgb(233, 230, 226)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(101, 87, 73)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 337.77,
+          "w": 334,
+          "h": 20.34
+        },
+        "accName": "What about your palettes?"
+      },
+      "description": {
+        "text": "You have 3 local palettes. What would you like to do with th",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "400",
+        "lineHeight": "22.959999px",
+        "color": "rgb(195, 185, 172)",
+        "borderRadius": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(101, 87, 73)",
+        "cursor": "auto",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 553,
+          "y": 364.11,
+          "w": 334,
+          "h": 45.88
+        },
+        "accName": "You have 3 local palettes. What would yo"
+      },
+      "buttons": [
+        {
+          "text": "Publish, then switch",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "borderColor": "rgb(255, 255, 255)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 425.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Publish, then switch"
+        },
+        {
+          "text": "Transfer to new account",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "borderColor": "rgb(255, 255, 255)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 473.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Transfer to new account"
+        },
+        {
+          "text": "Just switch",
+          "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+          "fontSize": "16.4px",
+          "fontWeight": "500",
+          "lineHeight": "18.040001px",
+          "color": "rgb(255, 255, 255)",
+          "borderRadius": "340282346638528859811704183484516925440px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "borderColor": "rgb(255, 255, 255)",
+          "cursor": "pointer",
+          "justifyContent": "flex-start",
+          "minHeight": "40px",
+          "rect": {
+            "x": 553,
+            "y": 521.98,
+            "w": 334,
+            "h": 40
+          },
+          "accName": "Just switch"
+        },
+        {
+          "text": "Close",
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "18.608px",
+          "fontWeight": "400",
+          "lineHeight": "27.911999px",
+          "color": "rgb(233, 230, 226)",
+          "borderRadius": "4px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderColor": "rgb(101, 87, 73)",
+          "cursor": "default",
+          "justifyContent": "normal",
+          "minHeight": "auto",
+          "rect": {
+            "x": 871,
+            "y": 337.77,
+            "w": 16,
+            "h": 16
+          },
+          "accName": "Close"
+        }
+      ],
+      "buttonGaps": [
+        8,
+        8,
+        -224.22
+      ],
+      "activeElement": {
+        "tag": "BUTTON",
+        "text": "Publish, then switch",
+        "inDialog": true
+      },
+      "closeButtons": [
+        "Close"
+      ],
+      "overflowX": 0
+    }
+  },
+  "mobile-light": {
+    "consoleErrors": [],
+    "regenerateError": "TimeoutError: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Regenerate slug')\u001b[22m\n",
+    "afterEsc": {
+      "dialogPresent": false,
+      "activeElement": {
+        "tag": "BODY",
+        "cls": "relative",
+        "text": "→PickerAbout Profile  @mbabb Lab92.0%,88"
+      },
+      "paletteCount": 3,
+      "slug": "quiet-amber-river-fox"
+    }
+  },
+  "mobile-dark": {
+    "consoleErrors": [],
+    "regenerateError": "TimeoutError: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Regenerate slug')\u001b[22m\n",
+    "afterEsc": {
+      "dialogPresent": false,
+      "activeElement": {
+        "tag": "BODY",
+        "cls": "relative",
+        "text": "→PickerAbout Profile  @mbabb Lab92.0%,88"
+      },
+      "paletteCount": 3,
+      "slug": "quiet-amber-river-fox"
+    }
+  },
+  "count-1": {
+    "description": "You have 1 local palette. What would you like to do before r",
+    "title": "What about your palettes?",
+    "dialog": {
+      "x": 528,
+      "y": 330.5,
+      "w": 384,
+      "h": 239.25
+    }
+  },
+  "count-137": {
+    "description": "You have 137 local palettes. What would you like to do befor",
+    "title": "What about your palettes?",
+    "dialog": {
+      "x": 528,
+      "y": 319,
+      "w": 384,
+      "h": 262.19
+    }
+  },
+  "narrow-320": {
+    "error": "TimeoutError: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Regenerate slug')\u001b[22m\n"
+  },
+  "zoom-200": {
+    "error": "TimeoutError: page.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('text=Regenerate slug')\u001b[22m\n"
+  },
+  "reduced-motion": {
+    "present": true,
+    "dialog": {
+      "rect": {
+        "x": 720,
+        "y": 450,
+        "w": 384,
+        "h": 239.25
+      },
+      "borderRadius": "16px",
+      "classList": [
+        "fixed",
+        "left-1/2",
+        "top-1/2",
+        "z-modal",
+        "grid",
+        "w-full",
+        "gap-4",
+        "[--overlay-pad-inline:--spacing(6)]",
+        "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+        "px-(--overlay-pad-inline)",
+        "py-(--overlay-pad-block)",
+        "-translate-x-1/2",
+        "-translate-y-1/2",
+        "glass-reveal",
+        "glass-floating",
+        "rounded-dialog",
+        "max-w-sm"
+      ],
+      "ariaLabelledby": "reka-dialog-title-v-61",
+      "ariaDescribedby": "reka-dialog-description-v-62",
+      "ariaModal": null,
+      "radiusCtx": "1rem",
+      "radiusDialog": "1rem"
+    },
+    "title": {
+      "text": "What about your palettes?",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "fontSize": "20.351999px",
+      "fontWeight": "500",
+      "lineHeight": "20.351999px",
+      "color": "rgb(28, 25, 23)",
+      "borderRadius": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "borderColor": "rgb(198, 180, 159)",
+      "cursor": "auto",
+      "justifyContent": "normal",
+      "minHeight": "auto",
+      "rect": {
+        "x": 745,
+        "y": 481.52,
+        "w": 334,
+        "h": 20.34
+      },
+      "accName": "What about your palettes?"
+    },
+    "description": {
+      "text": "You have 3 local palettes. What would you like to do before ",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "fontSize": "16.4px",
+      "fontWeight": "400",
+      "lineHeight": "22.959999px",
+      "color": "rgb(112, 89, 66)",
+      "borderRadius": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "borderColor": "rgb(198, 180, 159)",
+      "cursor": "auto",
+      "justifyContent": "normal",
+      "minHeight": "auto",
+      "rect": {
+        "x": 745,
+        "y": 507.86,
+        "w": 334,
+        "h": 45.88
+      },
+      "accName": "You have 3 local palettes. What would yo"
+    },
+    "buttons": [
+      {
+        "text": "Publish, then regenerate",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "500",
+        "lineHeight": "18.040001px",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+        "borderColor": "rgb(0, 0, 0)",
+        "cursor": "pointer",
+        "justifyContent": "flex-start",
+        "minHeight": "40px",
+        "rect": {
+          "x": 745,
+          "y": 569.73,
+          "w": 334,
+          "h": 40
+        },
+        "accName": "Publish, then regenerate"
+      },
+      {
+        "text": "Just regenerate",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "500",
+        "lineHeight": "18.040001px",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "backgroundColor": "oklab(0.721325 0.00492 0.010865 / 0.6)",
+        "borderColor": "rgb(0, 0, 0)",
+        "cursor": "pointer",
+        "justifyContent": "flex-start",
+        "minHeight": "40px",
+        "rect": {
+          "x": 745,
+          "y": 617.73,
+          "w": 334,
+          "h": 40
+        },
+        "accName": "Just regenerate"
+      },
+      {
+        "text": "Close",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "18.608px",
+        "fontWeight": "400",
+        "lineHeight": "27.911999px",
+        "color": "rgb(28, 25, 23)",
+        "borderRadius": "4px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "default",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 1063,
+          "y": 481.52,
+          "w": 16,
+          "h": 16
+        },
+        "accName": "Close"
+      }
+    ],
+    "buttonGaps": [
+      8,
+      -176.22
+    ],
+    "activeElement": {
+      "tag": "BUTTON",
+      "text": "Publish, then regenerate",
+      "inDialog": true
+    },
+    "closeButtons": [
+      "Close"
+    ],
+    "overflowX": 0
+  },
+  "forced-colors": {
+    "present": true,
+    "dialog": {
+      "rect": {
+        "x": 528,
+        "y": 330.5,
+        "w": 384,
+        "h": 239.25
+      },
+      "borderRadius": "16px",
+      "classList": [
+        "fixed",
+        "left-1/2",
+        "top-1/2",
+        "z-modal",
+        "grid",
+        "w-full",
+        "gap-4",
+        "[--overlay-pad-inline:--spacing(6)]",
+        "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+        "px-(--overlay-pad-inline)",
+        "py-(--overlay-pad-block)",
+        "-translate-x-1/2",
+        "-translate-y-1/2",
+        "glass-reveal",
+        "glass-floating",
+        "rounded-dialog",
+        "max-w-sm"
+      ],
+      "ariaLabelledby": "reka-dialog-title-v-61",
+      "ariaDescribedby": "reka-dialog-description-v-62",
+      "ariaModal": null,
+      "radiusCtx": "1rem",
+      "radiusDialog": "1rem"
+    },
+    "title": {
+      "text": "What about your palettes?",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "fontSize": "20.351999px",
+      "fontWeight": "500",
+      "lineHeight": "20.351999px",
+      "color": "rgb(28, 25, 23)",
+      "borderRadius": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "borderColor": "rgb(198, 180, 159)",
+      "cursor": "auto",
+      "justifyContent": "normal",
+      "minHeight": "auto",
+      "rect": {
+        "x": 553,
+        "y": 362.02,
+        "w": 334,
+        "h": 20.34
+      },
+      "accName": "What about your palettes?"
+    },
+    "description": {
+      "text": "You have 3 local palettes. What would you like to do before ",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+      "fontSize": "16.4px",
+      "fontWeight": "400",
+      "lineHeight": "22.959999px",
+      "color": "rgb(112, 89, 66)",
+      "borderRadius": "0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)",
+      "borderColor": "rgb(198, 180, 159)",
+      "cursor": "auto",
+      "justifyContent": "normal",
+      "minHeight": "auto",
+      "rect": {
+        "x": 553,
+        "y": 388.36,
+        "w": 334,
+        "h": 45.88
+      },
+      "accName": "You have 3 local palettes. What would yo"
+    },
+    "buttons": [
+      {
+        "text": "Publish, then regenerate",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "500",
+        "lineHeight": "18.040001px",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "backgroundColor": "oklab(0.822364 0.005206 0.012001)",
+        "borderColor": "rgb(0, 0, 0)",
+        "cursor": "pointer",
+        "justifyContent": "flex-start",
+        "minHeight": "40px",
+        "rect": {
+          "x": 553,
+          "y": 450.23,
+          "w": 334,
+          "h": 40
+        },
+        "accName": "Publish, then regenerate"
+      },
+      {
+        "text": "Just regenerate",
+        "fontFamily": "Fraunces, \"Fraunces Fallback\", serif",
+        "fontSize": "16.4px",
+        "fontWeight": "500",
+        "lineHeight": "18.040001px",
+        "color": "rgb(0, 0, 0)",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "backgroundColor": "oklab(0.822364 0.005206 0.012001)",
+        "borderColor": "rgb(0, 0, 0)",
+        "cursor": "pointer",
+        "justifyContent": "flex-start",
+        "minHeight": "40px",
+        "rect": {
+          "x": 553,
+          "y": 498.23,
+          "w": 334,
+          "h": 40
+        },
+        "accName": "Just regenerate"
+      },
+      {
+        "text": "Close",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "18.608px",
+        "fontWeight": "400",
+        "lineHeight": "27.911999px",
+        "color": "rgb(28, 25, 23)",
+        "borderRadius": "4px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "default",
+        "justifyContent": "normal",
+        "minHeight": "auto",
+        "rect": {
+          "x": 871,
+          "y": 362.02,
+          "w": 16,
+          "h": 16
+        },
+        "accName": "Close"
+      }
+    ],
+    "buttonGaps": [
+      8,
+      -176.22
+    ],
+    "activeElement": {
+      "tag": "BUTTON",
+      "text": "Publish, then regenerate",
+      "inDialog": true
+    },
+    "closeButtons": [
+      "Close"
+    ],
+    "overflowX": 0
+  }
+}

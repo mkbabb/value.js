@@ -87,16 +87,12 @@ export async function detectRenderer(page: Page): Promise<string> {
             (canvas.getContext("webgl") as WebGLRenderingContext | null);
         if (!gl) return "no-webgl";
         const ext = gl.getExtension("WEBGL_debug_renderer_info");
-        return ext
-            ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL))
-            : "masked";
+        return ext ? String(gl.getParameter(ext.UNMASKED_RENDERER_WEBGL)) : "masked";
     });
 }
 
 export function isSoftwareGL(renderer: string): boolean {
-    return /swiftshader|llvmpipe|software|microsoft basic|no-webgl/i.test(
-        renderer,
-    );
+    return /swiftshader|llvmpipe|software|microsoft basic|no-webgl/i.test(renderer);
 }
 
 /**
@@ -139,8 +135,7 @@ export async function installFrameCollector(page: Page): Promise<void> {
         };
         try {
             new PerformanceObserver((list) => {
-                for (const e of list.getEntries())
-                    w.__longtasks.push(e.duration);
+                for (const e of list.getEntries()) w.__longtasks.push(e.duration);
             }).observe({ entryTypes: ["longtask"] });
         } catch {
             /* longtask API absent (WebKit) — the specs run Chromium-only */
@@ -170,7 +165,11 @@ export function readLongTasks(page: Page): Promise<number[]> {
 export function percentile(values: number[], p: number): number {
     if (!values.length) return NaN;
     const sorted = [...values].sort((a, b) => a - b);
-    return sorted[Math.min(sorted.length - 1, Math.floor((p / 100) * sorted.length))];
+    // X-W1 · G-1 — the index is clamped into range on the line above, so the
+    // read cannot miss; `?? NaN` keeps the empty-input contract (NaN) as the
+    // single way this function reports "no value" rather than adding a second.
+    const rank = Math.min(sorted.length - 1, Math.floor((p / 100) * sorted.length));
+    return sorted[rank] ?? NaN;
 }
 
 /** Read-only wall-clock wait — the reactivity/idle-spec `performance.now()` idiom. */

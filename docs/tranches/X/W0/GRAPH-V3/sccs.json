@@ -1,0 +1,2518 @@
+{
+  "digest": "bf9c9a20cb4c4ca2c0dc28c7349851a0aec5709a2bd375caa615ad80412c82a3",
+  "counts": {
+    "runtime": 1,
+    "load": 4,
+    "ownership": 1,
+    "ownership.pair": 5,
+    "total": 11,
+    "owned": 6,
+    "reasonedNoOwner": 5,
+    "unnamed": 0
+  },
+  "sccs": [
+    {
+      "class": "load",
+      "size": 7,
+      "members": [
+        "demo/palettes/browser/admin/AdminAuditPanel.vue",
+        "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+        "demo/palettes/browser/admin/AdminTagsPanel.vue",
+        "demo/palettes/browser/admin/AdminUsersPanel.vue",
+        "demo/palettes/browser/admin/index.ts",
+        "demo/palettes/useAdminUsers.ts",
+        "demo/palettes/usePalettePorts.ts"
+      ],
+      "witnessEdges": 10,
+      "witnesses": [
+        {
+          "from": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 104,
+          "spec": "../../usePalettePorts"
+        },
+        {
+          "from": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 146,
+          "spec": "../../usePalettePorts"
+        },
+        {
+          "from": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 119,
+          "spec": "../../usePalettePorts"
+        },
+        {
+          "from": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 200,
+          "spec": "../../usePalettePorts"
+        },
+        {
+          "from": "demo/palettes/browser/admin/index.ts",
+          "to": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 5,
+          "spec": "./AdminAuditPanel.vue"
+        },
+        {
+          "from": "demo/palettes/browser/admin/index.ts",
+          "to": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 6,
+          "spec": "./AdminFlaggedPanel.vue"
+        },
+        {
+          "from": "demo/palettes/browser/admin/index.ts",
+          "to": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 7,
+          "spec": "./AdminTagsPanel.vue"
+        },
+        {
+          "from": "demo/palettes/browser/admin/index.ts",
+          "to": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 3,
+          "spec": "./AdminUsersPanel.vue"
+        },
+        {
+          "from": "demo/palettes/useAdminUsers.ts",
+          "to": "demo/palettes/browser/admin/index.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 14,
+          "spec": "./browser/admin"
+        },
+        {
+          "from": "demo/palettes/usePalettePorts.ts",
+          "to": "demo/palettes/useAdminUsers.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 9,
+          "spec": "./useAdminUsers"
+        }
+      ],
+      "name": "Admin/provider",
+      "owner": "X.W8.c",
+      "reasonForNoOwner": null,
+      "record": "waves/W8.md G-7 (7 nodes) · registry/adjudicated/Admin*.md",
+      "note": "CC-079's fourth: the seven-node admin cluster (`AdminTagsPanel` · `AdminFlaggedPanel` · `AdminAuditPanel` · `AdminUsersPanel` · `browser/admin/index.ts` · `useAdminUsers.ts` · `usePalettePorts.ts`). Cure per W8.md:176 — the cluster's shared types move to one owner, no forwarding directory.",
+      "ownerState": "OWNED"
+    },
+    {
+      "class": "load",
+      "size": 3,
+      "members": [
+        "demo/workbenches/gradient/composables/gradientParse.ts",
+        "demo/workbenches/gradient/composables/useGradientCSS.ts",
+        "demo/workbenches/gradient/composables/useGradientModel.ts"
+      ],
+      "witnessEdges": 9,
+      "witnesses": [
+        {
+          "from": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "to": "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 22,
+          "spec": "./useGradientCSS"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "to": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 23,
+          "spec": "./useGradientModel"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "to": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 31,
+          "spec": "./useGradientModel"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 17,
+          "spec": "./gradientParse"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 16,
+          "spec": "./gradientParse"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "kind": "reexport.type",
+          "domain": "module",
+          "line": 29,
+          "spec": "./gradientParse"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/gradientParse.ts",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 28,
+          "spec": "./gradientParse"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 15,
+          "spec": "./useGradientCSS"
+        },
+        {
+          "from": "demo/workbenches/gradient/composables/useGradientModel.ts",
+          "to": "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 22,
+          "spec": "./useGradientCSS"
+        }
+      ],
+      "name": "Gradient",
+      "owner": "X.W8.c",
+      "reasonForNoOwner": null,
+      "record": "waves/W8.md G-7 · X-W6.a/.c riders",
+      "note": "CC-079's third. Type-only trio. Cure per W8.md:175 — `linearInterval` and the shared result types move to a leaf both `gradientParse` and `useGradientModel` sit above. W8.md:131 allows for this SCC already reading zero when X.W8.c opens.",
+      "ownerState": "OWNED"
+    },
+    {
+      "class": "load",
+      "size": 2,
+      "members": [
+        "demo/scenes/about/markdown/Markdown.vue",
+        "demo/scenes/about/markdown/index.ts"
+      ],
+      "witnessEdges": 2,
+      "witnesses": [
+        {
+          "from": "demo/scenes/about/markdown/Markdown.vue",
+          "to": "demo/scenes/about/markdown/index.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 40,
+          "spec": "./"
+        },
+        {
+          "from": "demo/scenes/about/markdown/index.ts",
+          "to": "demo/scenes/about/markdown/Markdown.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 1,
+          "spec": "./Markdown.vue"
+        }
+      ],
+      "name": "Markdown",
+      "owner": "X.W8.c",
+      "reasonForNoOwner": null,
+      "record": "waves/W8.md G-7",
+      "note": "CC-079's second. Type-only: `Markdown.vue` imports type `DocModule` from its own barrel. Cure per W8.md:174 — `DocModule`/`DocItem` move below the component into a types module both sides import.",
+      "ownerState": "OWNED"
+    },
+    {
+      "class": "load",
+      "size": 2,
+      "members": [
+        "demo/shell/dock/Dock.vue",
+        "demo/shell/dock/index.ts"
+      ],
+      "witnessEdges": 2,
+      "witnesses": [
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/shell/dock/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 4,
+          "spec": "./"
+        },
+        {
+          "from": "demo/shell/dock/index.ts",
+          "to": "demo/shell/dock/Dock.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 5,
+          "spec": "./Dock.vue"
+        }
+      ],
+      "name": "Dock",
+      "owner": "X.W8.c",
+      "reasonForNoOwner": null,
+      "record": "registry/adjudicated/Dock.md · waves/W8.md G-7",
+      "note": "CC-079's first named SCC. `Dock.vue:4` imports `GlassDock, DockLayerGroup, DockLayer` from \"./\", the barrel that re-exports `Dock.vue` itself. Cure per W8.md:172 — the dock kit comes from `@mkbabb/glass-ui/dock` directly; the barrel exports only `Dock`.",
+      "ownerState": "OWNED"
+    },
+    {
+      "class": "ownership",
+      "size": 8,
+      "members": [
+        "assets",
+        "demo/color-picker",
+        "demo/palettes",
+        "demo/picker",
+        "demo/scenes",
+        "demo/shell",
+        "demo/workbenches",
+        "route"
+      ],
+      "witnessEdges": 179,
+      "witnesses": [
+        {
+          "from": "assets/docs/hex.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hex.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsl.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsl.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsv.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsv.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hwb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hwb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/kelvin.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/kelvin.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/rgb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/rgb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/xyz.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/xyz.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "MigratePalettesDialog"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/palettes/browser/dialog/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 176,
+          "spec": "../palettes/browser/dialog"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/palettes/browser/dialog/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../palettes/browser/dialog"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/picker/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 164,
+          "spec": "../picker"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/PaneSlot.vue",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 177,
+          "spec": "../shell/PaneSlot.vue"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/PaneSlot.vue",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../shell/PaneSlot.vue"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/dock/Dock.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "Dock"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/dock/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 167,
+          "spec": "../shell/dock"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/dock/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../shell/dock"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/usePaneRouter.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 187,
+          "spec": "../shell/usePaneRouter"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "di.provide",
+          "domain": "di",
+          "line": null,
+          "spec": "VIEW_MANAGER_KEY"
+        },
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 185,
+          "spec": "../shell/useViewManager"
+        },
+        {
+          "from": "demo/color-picker/composables/boot/useAtmosphere.ts",
+          "to": "demo/scenes/atmosphere/aurora-atoms.ts",
+          "kind": "di.provide",
+          "domain": "di",
+          "line": null,
+          "spec": "AURORA_ATOMS_KEY"
+        },
+        {
+          "from": "demo/color-picker/composables/boot/useAtmosphere.ts",
+          "to": "demo/scenes/atmosphere/aurora-atoms.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 35,
+          "spec": "../../../scenes/atmosphere/aurora-atoms"
+        },
+        {
+          "from": "demo/color-picker/composables/boot/useAtmosphereBoot.ts",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 55,
+          "spec": "../../../shell/useViewManager"
+        },
+        {
+          "from": "demo/color-picker/composables/boot/useViewAccents.ts",
+          "to": "demo/shell/viewSchema.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 45,
+          "spec": "../../../shell/viewSchema"
+        },
+        {
+          "from": "demo/color-picker/composables/usePaletteWiring.ts",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 24,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/color-picker/composables/usePaletteWiring.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 21,
+          "spec": "../../picker"
+        },
+        {
+          "from": "demo/color-picker/composables/usePaletteWiring.ts",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 22,
+          "spec": "../../shell/useViewManager"
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/:pathMatch(.*)*",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/admin/audit",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/admin/flagged",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/admin/names",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/admin/tags",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/admin/users",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/atmosphere",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/blob",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/browse",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/extract",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/generate",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/gradient",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/mix",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/index.ts",
+          "to": "route:/palettes",
+          "kind": "route.record",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/color-picker/router/useDocumentTitle.ts",
+          "to": "demo/shell/viewSchema.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 32,
+          "spec": "../../shell/viewSchema"
+        },
+        {
+          "from": "demo/palettes/usePalettePorts.ts",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 19,
+          "spec": "../shell/useViewManager"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/color-picker/composables/boot/useOverture.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "OVERTURE_KEY"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/color-picker/composables/boot/useOverture.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 129,
+          "spec": "../color-picker/composables/boot/useOverture"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "COLOR_TARGET_PORT_KEY"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 131,
+          "spec": "../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "VIEW_MANAGER_KEY"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 130,
+          "spec": "../shell/useViewManager"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        },
+        {
+          "from": "demo/scenes/atmosphere/aurora-harmony-stops.ts",
+          "to": "demo/color-picker/composables/boot/atmosphere-calibration.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 23,
+          "spec": "../../color-picker/composables/boot/atmosphere-calibration"
+        },
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 18,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/DockViewSelect.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/DockViewSelect.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 8,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/layers/SlugEditLayer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/layers/SlugEditLayer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 5,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 13,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/menus/ProfileSection.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/menus/ProfileSection.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 14,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/BrowsePane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 71,
+          "spec": "../palettes/BrowsePane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/BrowsePane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/PalettesPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 70,
+          "spec": "../palettes/PalettesPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/PalettesPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 76,
+          "spec": "../palettes/admin/AdminPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/ColorPicker.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "ColorPicker"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 21,
+          "spec": "../picker"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/about/AboutPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 69,
+          "spec": "../scenes/about/AboutPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/about/AboutPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/atmosphere/AuroraPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 77,
+          "spec": "../scenes/atmosphere/AuroraPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/atmosphere/AuroraPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/blob/BlobPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 78,
+          "spec": "../scenes/blob/BlobPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/scenes/blob/BlobPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/extract/ExtractPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 72,
+          "spec": "../workbenches/extract/ExtractPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/extract/ExtractPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/generate/GeneratePane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 73,
+          "spec": "../workbenches/generate/GeneratePane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/generate/GeneratePane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/gradient/GradientPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 74,
+          "spec": "../workbenches/gradient/GradientPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/gradient/GradientPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/mix/MixPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 75,
+          "spec": "../workbenches/mix/MixPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/workbenches/mix/MixPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractPane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "COLOR_TARGET_PORT_KEY"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractPane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 27,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "PaletteCard"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "PaletteCardSkeleton"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/ShadowPalette.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "ShadowPalette"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 196,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/extract/ExtractWorkbench.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/extract/composables/useExtractSession.ts",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 18,
+          "spec": "../../../palettes/types"
+        },
+        {
+          "from": "demo/workbenches/extract/composables/useExtractSession.ts",
+          "to": "demo/palettes/usePaletteStore.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 17,
+          "spec": "../../../palettes/usePaletteStore"
+        },
+        {
+          "from": "demo/workbenches/extract/composables/useExtractSession.ts",
+          "to": "demo/palettes/usePaletteStore.ts",
+          "kind": "state.module",
+          "domain": "state",
+          "line": 17,
+          "spec": "../../../palettes/usePaletteStore"
+        },
+        {
+          "from": "demo/workbenches/generate/GenerateControls.vue",
+          "to": "demo/palettes/browser/card/PaletteColorStrip.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "PaletteColorStrip"
+        },
+        {
+          "from": "demo/workbenches/generate/GenerateControls.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 16,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/generate/GenerateControls.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/generate/GenerateControls.vue",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 21,
+          "spec": "../../palettes/types"
+        },
+        {
+          "from": "demo/workbenches/generate/GeneratePane.vue",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 8,
+          "spec": "../../palettes/types"
+        },
+        {
+          "from": "demo/workbenches/generate/GeneratePane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "LIBRARY_PORT_KEY"
+        },
+        {
+          "from": "demo/workbenches/generate/GeneratePane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 6,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "LIBRARY_PORT_KEY"
+        },
+        {
+          "from": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 27,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/workbenches/mix/MixConfigBar.vue",
+          "to": "demo/palettes/mix.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 14,
+          "spec": "../../palettes/mix"
+        },
+        {
+          "from": "demo/workbenches/mix/MixPane.vue",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 13,
+          "spec": "../../palettes/types"
+        },
+        {
+          "from": "demo/workbenches/mix/MixPane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "LIBRARY_PORT_KEY"
+        },
+        {
+          "from": "demo/workbenches/mix/MixPane.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 10,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "PaletteCard"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/browser/card/PaletteColorStrip.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "PaletteColorStrip"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 8,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/browser/card/index.ts",
+          "kind": "render.tag",
+          "domain": "render",
+          "line": null,
+          "spec": "../../palettes/browser/card"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 10,
+          "spec": "../../palettes/types"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "LIBRARY_PORT_KEY"
+        },
+        {
+          "from": "demo/workbenches/mix/MixSourceSelector.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 6,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/workbenches/mix/composables/useMixingState.ts",
+          "to": "demo/palettes/mix.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 21,
+          "spec": "../../../palettes/mix"
+        },
+        {
+          "from": "demo/workbenches/mix/composables/useMixingState.ts",
+          "to": "demo/palettes/types.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 20,
+          "spec": "../../../palettes/types"
+        },
+        {
+          "from": "route:/admin/audit",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/admin/flagged",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/admin/names",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/admin/tags",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/admin/users",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/atmosphere",
+          "to": "demo/scenes/atmosphere/AuroraPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/blob",
+          "to": "demo/scenes/blob/BlobPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/browse",
+          "to": "demo/palettes/BrowsePane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/extract",
+          "to": "demo/workbenches/extract/ExtractPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/generate",
+          "to": "demo/workbenches/generate/GeneratePane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/gradient",
+          "to": "demo/workbenches/gradient/GradientPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/mix",
+          "to": "demo/workbenches/mix/MixPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "route:/palettes",
+          "to": "demo/palettes/PalettesPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        }
+      ],
+      "name": "demo feature lattice (coarse ownership component)",
+      "owner": null,
+      "reasonForNoOwner": "NOT A CYCLE ANY WAVE CAN OWN — it is the transitive closure of the five ownership PAIRS below it, and owning it would mean owning the whole demo. Area-level Tarjan collapses a lattice with any two-way coupling into one component, so this component's membership is an artefact of granularity, not a finding. The load-bearing statements are the `ownership.pair` rows, which is why that refinement class exists and why G-E's falsifier (\"a graph that can only print one big ownership component proves only what the graph was shaped to show\") is answered by emitting both.",
+      "record": "this tool §10 (the ownership.pair refinement) · G-E",
+      "note": "Members are the eight areas mutually reachable over ALL domains: assets · demo/color-picker · demo/palettes · demo/picker · demo/scenes · demo/shell · demo/workbenches · route. Two of the five pairs inside it are adjudicated (CPE L-24 · AP-19); the other three are reasoned below.",
+      "ownerState": "NO-OWNER-WITH-REASON"
+    },
+    {
+      "class": "ownership.pair",
+      "size": 2,
+      "members": [
+        "assets",
+        "demo/scenes"
+      ],
+      "witnessEdges": 55,
+      "witnesses": [
+        {
+          "from": "assets/docs/hex.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hex.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsl.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsl.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsv.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hsv.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hwb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/hwb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/kelvin.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/kelvin.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/lch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklab.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/oklch.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/rgb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/rgb.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/xyz.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "assets/docs/xyz.md",
+          "to": "demo/scenes/about/katex/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 2,
+          "spec": "../../demo/scenes/about/katex"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hex.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 83,
+          "spec": "../../../assets/docs/hex.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsl.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 84,
+          "spec": "../../../assets/docs/hsl.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hsv.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 85,
+          "spec": "../../../assets/docs/hsv.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/hwb.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 86,
+          "spec": "../../../assets/docs/hwb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/kelvin.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 92,
+          "spec": "../../../assets/docs/kelvin.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lab.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 87,
+          "spec": "../../../assets/docs/lab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/lch.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 88,
+          "spec": "../../../assets/docs/lch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklab.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 89,
+          "spec": "../../../assets/docs/oklab.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/oklch.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 90,
+          "spec": "../../../assets/docs/oklch.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/rgb.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 82,
+          "spec": "../../../assets/docs/rgb.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "asset.url",
+          "domain": "asset",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "boundary.package",
+          "domain": "boundary",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        },
+        {
+          "from": "demo/scenes/about/AboutPane.vue",
+          "to": "assets/docs/xyz.md",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 91,
+          "spec": "../../../assets/docs/xyz.md"
+        }
+      ],
+      "name": "About reference-page lattice · assets ↔ scenes",
+      "owner": null,
+      "reasonForNoOwner": "NO OWNER NEEDED — not load-time and not a defect. `demo/scenes/about/AboutPane.vue` reaches the eleven `assets/docs/*.md` reference pages by `import()` ONLY (import.dynamic + asset.url), and each page imports the one shared `demo/scenes/about/katex` barrel back. The cycle therefore exists in the ownership class alone: it is absent from both the runtime and the load class, because no static edge closes it. No adjudicated record raises it and no X wave claims it; it is recorded here so a later wave meets it as a known shape rather than a discovery.",
+      "record": "measured — 11 pages × (import.dynamic + asset.url) out, 11 × import.value back",
+      "note": "Content lattice: the reference pages are authored documents that render a component the About scene owns. Guard of record: `assets/**`'s only edge into `demo/**` stays the Katex barrel.",
+      "ownerState": "NO-OWNER-WITH-REASON"
+    },
+    {
+      "class": "ownership.pair",
+      "size": 2,
+      "members": [
+        "demo/color-picker",
+        "demo/picker"
+      ],
+      "witnessEdges": 4,
+      "witnesses": [
+        {
+          "from": "demo/color-picker/App.vue",
+          "to": "demo/picker/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 164,
+          "spec": "../picker"
+        },
+        {
+          "from": "demo/color-picker/composables/usePaletteWiring.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 21,
+          "spec": "../../picker"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/color-picker/composables/boot/useOverture.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "OVERTURE_KEY"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/color-picker/composables/boot/useOverture.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 129,
+          "spec": "../color-picker/composables/boot/useOverture"
+        }
+      ],
+      "name": "Picker DI inversion · color-picker ↔ picker",
+      "owner": null,
+      "reasonForNoOwner": "NO OWNER NEEDED — this is the provide/inject inversion working as designed. `demo/color-picker/App.vue:164` imports the picker barrel downward; `demo/picker/ColorPicker.vue` injects `OVERTURE_KEY`, whose InjectionKey module lives in the boot cone it was mounted by. A DI key is owned above and consumed below BY CONSTRUCTION, so the area edge closes whenever the consumer is also a child — the alternative (keys in a third leaf area) is a new directory no X wave mints. Recorded, not routed.",
+      "record": "measured — App.vue:164 · usePaletteWiring.ts:21 down; ColorPicker.vue di.inject OVERTURE_KEY up",
+      "note": "Absent from the runtime and load classes at file granularity; visible only once areas are projected.",
+      "ownerState": "NO-OWNER-WITH-REASON"
+    },
+    {
+      "class": "ownership.pair",
+      "size": 2,
+      "members": [
+        "demo/color-picker",
+        "demo/scenes"
+      ],
+      "witnessEdges": 3,
+      "witnesses": [
+        {
+          "from": "demo/color-picker/composables/boot/useAtmosphere.ts",
+          "to": "demo/scenes/atmosphere/aurora-atoms.ts",
+          "kind": "di.provide",
+          "domain": "di",
+          "line": null,
+          "spec": "AURORA_ATOMS_KEY"
+        },
+        {
+          "from": "demo/color-picker/composables/boot/useAtmosphere.ts",
+          "to": "demo/scenes/atmosphere/aurora-atoms.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 35,
+          "spec": "../../../scenes/atmosphere/aurora-atoms"
+        },
+        {
+          "from": "demo/scenes/atmosphere/aurora-harmony-stops.ts",
+          "to": "demo/color-picker/composables/boot/atmosphere-calibration.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 23,
+          "spec": "../../color-picker/composables/boot/atmosphere-calibration"
+        }
+      ],
+      "name": "AuroraPane AP-19 · atmosphere ↔ boot",
+      "owner": null,
+      "reasonForNoOwner": "NO-WAVE-OWNER, adjudicated. `registry/adjudicated/AuroraPane.md:83` rules it MAJOR and states the reason in its own words: \"The aurora concept has no home … No X wave mints `demo/atmosphere/` (X-W8 is subtraction-only for `demo/ui`). Recorded for the next formation boundary; interim guard: no new edge in either direction.\" This graph is the register that carries it into X-W8 unforgotten; it does not re-home it.",
+      "record": "registry/adjudicated/AuroraPane.md:83 (AP-19 · L/L-1 · MAJOR)",
+      "note": "ADJUDICATED CYCLE OUTSIDE CC-079's FOUR, AND OUTSIDE EVERY X WAVE. Both cited edges reproduce here at the bytes: `color-picker/composables/boot/useAtmosphere.ts` → `scenes/atmosphere/aurora-atoms.ts` (value import + the `AURORA_ATOMS_KEY` di.provide) and `scenes/atmosphere/aurora-harmony-stops.ts:23` → `color-picker/composables/boot/atmosphere-calibration.ts` — \"a bidirectional area edge, both edges aurora's\".",
+      "ownerState": "NO-OWNER-WITH-REASON"
+    },
+    {
+      "class": "ownership.pair",
+      "size": 2,
+      "members": [
+        "demo/palettes",
+        "demo/shell"
+      ],
+      "witnessEdges": 17,
+      "witnesses": [
+        {
+          "from": "demo/palettes/usePalettePorts.ts",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.type",
+          "domain": "module",
+          "line": 19,
+          "spec": "../shell/useViewManager"
+        },
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 18,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/DockViewSelect.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/DockViewSelect.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 8,
+          "spec": "../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/layers/SlugEditLayer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/layers/SlugEditLayer.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 5,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 13,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/dock/menus/ProfileSection.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "SESSION_PORT_KEY"
+        },
+        {
+          "from": "demo/shell/dock/menus/ProfileSection.vue",
+          "to": "demo/palettes/usePalettePorts.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 14,
+          "spec": "../../../palettes/usePalettePorts"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/BrowsePane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 71,
+          "spec": "../palettes/BrowsePane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/BrowsePane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/PalettesPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 70,
+          "spec": "../palettes/PalettesPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/PalettesPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "import.dynamic",
+          "domain": "module",
+          "line": 76,
+          "spec": "../palettes/admin/AdminPane.vue"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/palettes/admin/AdminPane.vue",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        }
+      ],
+      "name": "CPE L-24 · palettes ↔ shell",
+      "owner": "X-W8 (SCC subtraction) — adjudicated CONFIRMED",
+      "reasonForNoOwner": null,
+      "record": "registry/adjudicated/CurrentPaletteEditor.md:71",
+      "note": "ADJUDICATED CYCLE OUTSIDE CC-079's FOUR. `usePalettePorts.ts:19` type-imports `ViewId` up from `../shell/useViewManager`; five `SESSION_PORT_KEY` value-imports come back down into `shell/dock/**`. The record's own words: \"lattice cycle, not load-time\" — which is why it is an OWNERSHIP SCC here and appears in neither the runtime nor the load class.",
+      "ownerState": "OWNED"
+    },
+    {
+      "class": "ownership.pair",
+      "size": 2,
+      "members": [
+        "demo/picker",
+        "demo/shell"
+      ],
+      "witnessEdges": 5,
+      "witnesses": [
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "di.inject",
+          "domain": "di",
+          "line": null,
+          "spec": "VIEW_MANAGER_KEY"
+        },
+        {
+          "from": "demo/picker/ColorPicker.vue",
+          "to": "demo/shell/useViewManager.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 130,
+          "spec": "../shell/useViewManager"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/ColorPicker.vue",
+          "kind": "render.mount",
+          "domain": "render",
+          "line": null,
+          "spec": "ColorPicker"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 21,
+          "spec": "../picker"
+        },
+        {
+          "from": "demo/shell/usePaneRouter.ts",
+          "to": "demo/picker/index.ts",
+          "kind": "route.pane",
+          "domain": "route",
+          "line": null,
+          "spec": null
+        }
+      ],
+      "name": "Pane DI inversion · picker ↔ shell",
+      "owner": null,
+      "reasonForNoOwner": "NO OWNER NEEDED — same mechanism as the pair above, one level out. `demo/shell/usePaneRouter.ts:21` imports the picker barrel (the picker is the one eagerly-bound pane); `demo/picker/ColorPicker.vue` injects `VIEW_MANAGER_KEY` from `demo/shell/useViewManager.ts`. The pane registry must know its panes and a pane must reach the view manager that mounted it; that is the router contract, not a cycle to subtract.",
+      "record": "measured — usePaneRouter.ts:21 down; ColorPicker.vue di.inject VIEW_MANAGER_KEY up",
+      "note": "Absent from the runtime and load classes at file granularity; visible only once areas are projected.",
+      "ownerState": "NO-OWNER-WITH-REASON"
+    },
+    {
+      "class": "runtime",
+      "size": 2,
+      "members": [
+        "demo/shell/dock/Dock.vue",
+        "demo/shell/dock/index.ts"
+      ],
+      "witnessEdges": 2,
+      "witnesses": [
+        {
+          "from": "demo/shell/dock/Dock.vue",
+          "to": "demo/shell/dock/index.ts",
+          "kind": "import.value",
+          "domain": "module",
+          "line": 4,
+          "spec": "./"
+        },
+        {
+          "from": "demo/shell/dock/index.ts",
+          "to": "demo/shell/dock/Dock.vue",
+          "kind": "reexport.value",
+          "domain": "module",
+          "line": 5,
+          "spec": "./Dock.vue"
+        }
+      ],
+      "name": "Dock",
+      "owner": "X.W8.c",
+      "reasonForNoOwner": null,
+      "record": "registry/adjudicated/Dock.md · waves/W8.md G-7",
+      "note": "CC-079's first named SCC. `Dock.vue:4` imports `GlassDock, DockLayerGroup, DockLayer` from \"./\", the barrel that re-exports `Dock.vue` itself. Cure per W8.md:172 — the dock kit comes from `@mkbabb/glass-ui/dock` directly; the barrel exports only `Dock`.",
+      "ownerState": "OWNED"
+    }
+  ]
+}

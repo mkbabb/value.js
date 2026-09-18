@@ -1,0 +1,15 @@
+{
+  "schema": "value.pi.percentage-literal.skeptic-subject/v1",
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "brief": ["BRIEF.md", "842e0873ab5a3e9b3a5e64dbfda85db1ca860e8a60f1daec63dc2c7cbd68b193"],
+  "candidateSet": ["candidate-set.json", "a73cdcd6f8dcf4f8002b3cf0d76105d762dc0b47893453a15cc748bf0c06f6e1"],
+  "correctness": ["evidence/correctness.json", "bcda3c31143f0ed09d47ca8ff750af30c8b3a1fd1e69c8d109f03daf74e62579"],
+  "benchmarkHarness": ["benchmark.mts", "701a0848ba7416a0dcc259bfd82f152be2e130f4f11c9a6fb57995e484761e81"],
+  "benchmarkFirstAttempt": ["evidence/benchmark-first-attempt.json", "7b954f247eb7f7127b15f126c3681587c6efff925ca8cf009e7a7b449a0ddad3"],
+  "benchmarkSecondAttempt": ["evidence/benchmark-second-attempt.json", "30ff0f2dacdc4fc617d8cebb1ad6235ef1a1dbe8a6e0588d7d8a9dd37d758808"],
+  "livePeer": ["../../../../../../../../../src/css/grammar.ts", "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69"],
+  "rejectedPeer": ["../../../grammar/value.ts", "36e7d92aae4e71b8682847584eabfd0b89f9dd952f52c5c1c62108c5a0c3480f"],
+  "candidateMutationAfterFreeze": false,
+  "requiredVerdict": "ACCEPT or REJECT with reproduced evidence; assume all candidates and evidence are wrong",
+  "featureCredit": 0
+}

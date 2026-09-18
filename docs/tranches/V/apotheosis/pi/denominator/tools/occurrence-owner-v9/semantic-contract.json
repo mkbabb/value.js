@@ -1,0 +1,144 @@
+{
+  "schema": "value.pi.occurrence-owner-v9-repair3-semantic-contract/v1",
+  "authority": {
+    "classification": "DECLARATIVE_RESEARCH_WITNESS_ZERO_DENOMINATOR_CREDIT",
+    "sources": [
+      "Bikeshed Documentation sections 5.7, 5.8, 6.7, 6.9, 7.3, and 8.1",
+      "WHATWG HTML character-reference parsing for attribute values",
+      "RFC 3986 section 3.1 ASCII-case-insensitive scheme names",
+      "V9 blueprint source-order and container-nesting ownership contract"
+    ]
+  },
+  "rules": [
+    { "id": "BIBLIO", "text": "A bibliographic target is a valid spec key optionally preceded by ! and followed only by current, snapshot, inline, direct, index, or obsolete modifiers." },
+    { "id": "DFN_SLASH", "text": "A definition reference has zero or one slash and no whitespace immediately adjacent to that slash." },
+    { "id": "PRE", "text": "Ordinary pre and Bikeshed datablocks suppress shorthand activation; an explicit l descendant of ordinary pre re-enables shorthand recognition." },
+    { "id": "MARKUP_SHORTHANDS", "text": "Markup Shorthands: css no disables CSS shorthand activation after metadata processing." },
+    { "id": "ATTRIBUTES", "text": "Raw attribute bytes remain provenance while semantic attribute values are HTML-character-reference decoded before URL, scope, and target use." },
+    { "id": "DEFINITIONS", "text": "Href-less a manual autolinks, definition-bearing headings, and nearest-ancestor definition attributes are occurrence carriers." },
+    { "id": "CONTAINERS", "text": "Operation owners are selected in the active structural-container ancestry, never from a closed nested container." },
+    { "id": "SETEXT", "text": "A Setext underline is consumed exactly once." },
+    { "id": "LEDGER", "text": "Only REVIEWED_ACCEPTED is an admitted ledger review status and stable IDs are unique across candidates, operations, and carriers." },
+    { "id": "INPUT", "text": "The analyzer returns explicit input-contract errors rather than throwing for hostile source and option values." }
+  ],
+  "witnesses": [
+    {
+      "id": "BIBLIO_INVALID_STATUS_EXACT",
+      "source": "[[CSS-VALUES-4 status]]",
+      "expect": { "included_raw": [], "candidate_absent_raw": ["[[CSS-VALUES-4 status]]"] }
+    },
+    {
+      "id": "DEFINITION_SLASH_EXACT",
+      "source": "[=foo / bar=] [=foo/ bar=] [=foo /bar=]",
+      "expect": {
+        "included_raw": [],
+        "candidate_absent_raw": ["[=foo / bar=]", "[=foo/ bar=]", "[=foo /bar=]"]
+      }
+    },
+    {
+      "id": "BIBLIO_AND_SLASH",
+      "source": "[[as?!]] [[ABC current]] [=foo / bar=] [=scope/name=]",
+      "expect": {
+        "included_raw": ["[[ABC current]]", "[=scope/name=]"],
+        "candidate_absent_raw": ["[[as?!]]", "[=foo / bar=]"]
+      }
+    },
+    {
+      "id": "STALE_STACK",
+      "source": "<a><b><b></a><code>[=first=]</b>[=must-remain-code=]</code>",
+      "expect": {
+        "included_raw": ["[=first=]", "[=must-remain-code=]"],
+        "candidate_states": { "[=first=]": "PROCESSED_CODE", "[=must-remain-code=]": "PROCESSED_CODE" }
+      }
+    },
+    {
+      "id": "STALE_STACK_FIRST_EXACT",
+      "source": "<a><b><b></a><code>[=should-be-code=]</code></b>[=after=]",
+      "expect": {
+        "included_raw": ["[=after=]", "[=should-be-code=]"],
+        "candidate_states": { "[=should-be-code=]": "PROCESSED_CODE", "[=after=]": "VISIBLE_TEXT" }
+      }
+    },
+    {
+      "id": "ORDINARY_PRE_EXACT",
+      "source": "<pre>[=not-active=]</pre>",
+      "expect": { "included_raw": [], "excluded_raw": ["[=not-active=]"] }
+    },
+    {
+      "id": "PRE_EXPLICIT_L",
+      "source": "<pre>[=not-active=]<l>[=active=]</l></pre>",
+      "expect": {
+        "included_raw": ["[=active=]"],
+        "excluded_raw": ["[=not-active=]"]
+      }
+    },
+    {
+      "id": "DATABLOCK_OPAQUE",
+      "source": "<pre class=anchors>[=not-active=]\n# Not a heading {#not}\n</pre>",
+      "expect": { "included_raw": [], "heading_titles": [] }
+    },
+    {
+      "id": "DATABLOCK_EXPLICIT_L_STILL_OPAQUE",
+      "source": "<pre class=anchors><l>[=not-active=]</l></pre>",
+      "expect": { "included_raw": [], "excluded_raw": ["[=not-active=]"] }
+    },
+    {
+      "id": "MARKUP_SHORTHANDS_DISABLED",
+      "source": "<pre class=metadata>Markup Shorthands: css no</pre> 'not-active'",
+      "expect": { "included_raw": [], "candidate_absent_raw": ["'not-active'"] }
+    },
+    {
+      "id": "MANUAL_AUTOLINK",
+      "source": "<a dfn for=scope lt=\"term\">visible</a>",
+      "expect": { "candidate_types": ["manual_autolink"] }
+    },
+    {
+      "id": "HEADING_DEFINITION",
+      "source": "<h2 id=term data-dfn-type=dfn>Term</h2> [=Term=]",
+      "expect": { "carrier_names": [["Term"]], "resolved_definition_count": 1 }
+    },
+    {
+      "id": "INHERITED_DEFINITION",
+      "source": "<section data-lt=\"alias\"><dfn>visible</dfn></section> [=alias=]",
+      "expect": { "carrier_names": [["alias", "visible"]], "resolved_definition_count": 1 }
+    },
+    {
+      "id": "PARSED_ATTRIBUTE_URL",
+      "source": "<a href=\"https&#x3A;//drafts.csswg.org/css-values-4/?a=1&amp;b=2\">x</a>",
+      "source_url": "https://drafts.csswg.org/base/Overview.bs",
+      "expect": {
+        "href_values": ["https://drafts.csswg.org/css-values-4/?a=1&b=2"],
+        "resolved_urls": ["https://drafts.csswg.org/css-values-4/?a=1&b=2"]
+      }
+    },
+    {
+      "id": "PARSED_ATTRIBUTE_RELATIVE_QUERY_EXACT",
+      "source": "<a href=\"?a=1&amp;b=2\">x</a>",
+      "source_url": "https://drafts.csswg.org/base/Overview.bs",
+      "expect": {
+        "href_values": ["?a=1&b=2"],
+        "resolved_urls": ["https://drafts.csswg.org/base/Overview.bs?a=1&b=2"]
+      }
+    },
+    {
+      "id": "PARSED_ATTRIBUTE_SCOPE",
+      "source": "<div dfn-for=\"A&amp;B\"><dfn>X</dfn></div>[=a&b/x=]",
+      "expect": { "carrier_scopes": [["a&b"]], "resolved_definition_count": 1 }
+    },
+    {
+      "id": "CONTAINER_OWNER",
+      "source": "# Outer {#outer}\n<section>\n## Inner {#inner}\n</section>\n<div algorithm>Op</div>",
+      "expect": { "operation_owner_titles": ["Outer"] }
+    },
+    {
+      "id": "SETEXT_CONSUMED",
+      "source": "Title\n---\n===\n",
+      "expect": { "heading_titles": ["Title"] }
+    },
+    {
+      "id": "ASCII_CASE_URL",
+      "source": "HTTPS://drafts.csswg.org/css-values-4/",
+      "expect": { "included_raw": ["HTTPS://drafts.csswg.org/css-values-4/"] }
+    }
+  ]
+}

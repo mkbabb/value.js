@@ -1,0 +1,2375 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X.KF.W9 — Safari Visual Audit (frontend half) · EXECUTION RECORD
+
+Governing spec: `docs/tranches/X/keyframes/waves/KF-W9.md` (722 L, agglomerated 2026-08-28, seven repair
+rounds; PASS-7 the last). Track B (X·KF). Seat 0 (OPEN), 2026-09-17, on the owner's begin-word
+(COHESION §0j, verbatim). Runbook of record: `EXECUTION-RUNBOOK.md` §1.2 (order) · §3.4 (locks) · §5
+(seat law). Every owner-gated item in this wave is RULED at COHESION **§0j.C** — cited by id below,
+never presumed, never re-opened.
+
+---
+
+## Open
+
+**Date**: 2026-09-17. **Status set**: `planned` → **OPEN 2026-09-17**.
+
+### Preconditions — verified at the bytes AND in the ledger
+
+The wave's only *blocking* opening edge is **KF.W0 §B-12** (runbook §1.2 edge `KF.W0 → KF.W9`;
+`KF-W9.md` §State *"Opens after"*). OP-2..OP-7 are §Open-preconditions rows checked at open, not close
+gates; each is stated here with its measurement or its ruling.
+
+| # | precondition | verdict | receipt (command → output) |
+|---|---|---|---|
+| **OP-1** | KF.W0 §B-12 names the execution substrate (hard blocking) | **MET** | LEDGER Track B row: `KF.W0` = **CLOSED 2026-09-17**, close commits `3a7efda5` · `a8abec97`, kf snapshot `6d280ee7`. At the bytes: ⟨`git -C ../keyframes.js rev-parse --abbrev-ref HEAD`⟩ → `master`; ⟨`git -C ../keyframes.js rev-parse HEAD`⟩ → `55e9bf0d2391bbc6d9871bb3f0555a6225daae92`; ⟨`git -C ../keyframes.js rev-parse origin/master`⟩ → the **same sha** (local == remote); ⟨`git -C ../keyframes.js rev-parse kf-sacred-snapshot-2026-09-17`⟩ → `6d280ee7bec7793846b2e2e1d250e1ea0a21859a` (the OWNER'S-HAND record, preserved by ref). `execution/B/KF-W0.md` rows 4–5 carry §0j.C **KF-OP1** and **KF-WRITE** as RULED. |
+| **OP-2** | write authority for keyframes.js named | **MET — RULED, and moot for this wave** | §0j.C **KF-WRITE**: *"after §B-12, the sacred checkout on `master` (= `origin/master`) is the execution substrate for KF.W2 · W4 · W5 · W6 · W7 · W8 · **W9** · W10"*, hand = the value.js orchestrator under the 2026-09-17 grant. Moot here because R-9a struck all five EXECUTION-TIME-ONLY grants: **this wave holds ZERO write grants in the kf tree** and writes its evidence into value.js. |
+| **OP-3** | a real Safari cell is reachable at all | **PRESENT at the binary; reachability MEASURED AT RUN (ruled)** | §0j.C **KF-ODV3 / KF-ODV5 / KF-AT**: *"KF.W9's capture band is AUTHORIZED to run (PACKET-FIRST binding; **OP-3's Safari reachability is measured at run, never assumed**)"*. Measured read-only at this seat: ⟨`which safaridriver`⟩ → `/System/Cryptexes/App/usr/bin/safaridriver`; ⟨`ls /usr/bin/safaridriver`⟩ → present; ⟨`defaults read /Applications/Safari.app/Contents/Info.plist CFBundleShortVersionString`⟩ → **26.4**; ⟨`sw_vers`⟩ → macOS **26.4.1** (25E253). `safaridriver --enable` + Develop ▸ Allow Remote Automation are a **session-open act**, performed and recorded by `.a` (G-KFW9-1's opening), not asserted here. |
+| **OP-4** | UA-capability feature tests, asserted not assumed | **OWED PER CELL — assigned** | The three `.media` strings (`(forced-colors: active)` · `(prefers-reduced-transparency: reduce)` · `(prefers-reduced-motion: reduce)`) are evaluated **inside each cell** and written to that cell's sidecar by the seat that owns the cell (`.b` desktop · `.c` mobile/iOS · `.d` hcm/at). Not measurable at open by construction. |
+| **OP-5** | a build exists at the named ref (`npm run gh-pages`) | **MET BY MEASUREMENT — no kf byte written** | The script exists: ⟨`grep -n '"gh-pages"' ../keyframes.js/package.json`⟩ → `43:        "gh-pages": "vite build --mode gh-pages",` (R-11 confirmed at the frontier; `build:gh-pages` still exists at no coordinate). A build is on disk from KF.W0 `.e`'s single regenerate: ⟨`ls -la ../keyframes.js/dist/gh-pages`⟩ → `index.html` 8,381 B, `assets/` (53 entries), `apple-touch-icon.png`, `robots.txt`, all **2026-09-17 13:37**. **It is fresh at the source bytes**: ⟨`git -C ../keyframes.js diff --name-only 81a56990..55e9bf0d`⟩ → **exactly one path**, `docs/tranches/V/coordination/VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` — a docs-only commit (KF.W1's delivery). **Zero source delta** between the built ref and the frontier, so the byte-offset trust OP-5 protects is intact without a rebuild. **Bound stated, not evaded**: `.a` re-verifies this delta and hashes the served bundle; if any **source** byte ever differs, a rebuild writes into the kf tree, which this wave's §Bounds forbids (*"Do NOT touch — any keyframes.js byte"*) → **S-13 bounds expansion → triumvirate**, never a quiet build. |
+| **OP-6** | KF.W4's gate chassis is NOT a precondition | **STANDS, TRUE BY CONSTRUCTION** | Runbook §1.2 edge row: *"OP-6: KF.W4 is not a precondition — after RULINGS R-9a every cure arm has LEFT the wave … KF.W9 runs concurrent with the whole W4 fan-out."* Verified at the bytes: this wave's three ex-cure arms are homed elsewhere (two-deletion act → KF.W13 · ST-1's edit → KF.W11 · the five write grants struck), and G-KFW9-10 is struck as a gate. LEDGER `KF.W4` = `planned`; **this wave does not wait on it**. |
+| **OP-7** | the AT-cell scope question (≡ S-12) | **MET — RULED** | §0j.C **KF-AT**: *"**AT runs inside KF.W9 `.d`'s arm** (the proposed resolution); no new lane is minted."* The S-12 dissent is therefore **decided**, not carried: `.d` keeps its AT arm and does not shed it. |
+
+**Owner-gated items, each cited to its ruling (never presumed):**
+
+- **OD-V3 / OD-V5** — §0j.C **KF-ODV3 / KF-ODV5**: this wave **produces the capture packet and rules
+  nothing**. *"the transport-home ruling is taken by the orchestrator **from the OD-V3 packet** at
+  KF.W10 `.g`'s sitting under this delegation, and if the packet does not exist by then KF.W10 closes
+  `complete_with_misses` on that row citing its exact precondition"*; *"**OD-V5 stays DEFERRED** pending
+  glass's dock mark … the `complete_with_misses` shape is authorized in advance."* Ruling source at the
+  bytes: kf `docs/tranches/V/OWNER-DECISIONS.md` OD-V3 *"Decide per capture review"* · OD-V5
+  *"Defer to glass's dock fix"*. The enumeration that scopes the packet reproduces:
+  ⟨`grep -n 'DP2-06' ../keyframes.js/docs/tranches/V/audit/R2-01-visual-design.md`⟩ →
+  `150:## DP2-06 — Transport/play affordance duplicated on subject/editor scenes; placement inconsistent (P3)`.
+- **The §B-3 dock-contract re-verify (CH2-02 ×4)** — anchor re-run at the frontier under LAW D:
+  ⟨`git -C ../keyframes.js grep -n 'CH2-02' origin/master -- docs/tranches/V/FOLD-FORWARD.md`⟩ →
+  `:34` *"**Glass §4 dock contract** (PEEK is NOT native; binary FSM + opacity crossfade; manual-mode
+  suppression): our dock consumption re-verifies against THIS shipped contract — subsumes the folded
+  CH2-02 ×4 (BG-5, GU-1, GU-2, subject-legible)."* Byte-exact as the spec quotes it.
+
+### Mail sweep (E13 Step-0, four paths, read-only)
+
+Swept at this seat's clock and compared against **every row** of
+`docs/tranches/V/coordination/INBOX.md`, classification taken from each row's **STATUS CELL**.
+
+1. `docs/tranches/V/` + `docs/tranches/V/coordination/` — 19 + 18 entries; `INBOX.md` self-excluded
+   (SELF-COUNT law). Newest: `value-inbox-2026-09-17-o8-o11-amendment-addendum.md` — **our own
+   outbound**, delivered by KF.W1, not inbound mail.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **BK re-confirmed the newest tranche dir**
+   ⟨`ls -dlt ../glass-ui/docs/tranches/*/ | head -4`⟩ → `BK/` (Sep 17 12:49) · `BJ/` · `BI/` ·
+   `IOS27-MICRO/`. 4 files; newest `glass-outbound-2026-08-29-valuejs-o20-ack.md` = **I-30**, rowed
+   2026-08-30, the standing ledger tail.
+3. `../keyframes.js/docs/tranches/V/coordination/` — 12 files + `vnext/`. Every `VALUEJS-INBOUND-*` is
+   ours (outbound); `GLASS-INBOUND-*`, `ATLAS-INBOUND-*`, `SPEEDTEST-INBOUND-*` and `INBOUND-LEDGER.md`
+   are addressed to keyframes, not to value.js.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — 28 files, all ≤ 2026-07-27 and none newly
+   value-addressed. Sweep widened to atlas **Q/** (the newer dir, and I-31's source): its two
+   value-addressed letters are both already rowed —
+   ⟨`grep -c 'ATLAS-TO-VALUE-2026-08-03-RULINGS' INBOX.md`⟩ → **2**;
+   ⟨`grep -c 'ATLAS-TO-VALUE-2026-07-28-PASS2' INBOX.md`⟩ → **3**. `SCI-BEAD-INBOUND.md` is atlas's own
+   inbound ledger, not value-addressed.
+
+**Result: 0 unrowed · 0 UNREAD in this wave's scope.** Rows on file: ⟨`grep -c '^| I-' INBOX.md`⟩ →
+**33** (ids I-1..I-31 plus the I-21a/I-24a re-rows); every status cell carries a settled disposition
+(FOLDED ×6 · ROWED ×7+ · READ ×3 · RECONCILED · RATIFIED · CURED · NO ACTION). **I-30 remains the
+tail.** No new row minted. A dated sweep line is appended at `INBOX.md`'s end.
+
+---
+
+## Baseline — the thirteen born-RED gates, run READ-ONLY at open
+
+Gate set per `KF-W9.md` §Gates: **thirteen**, ids `-1..-9` and `-11..-14` (G-KFW9-10 struck as a gate at
+repair round 1, R-9a item 1; the id is retained and not reused). Every row below is a command re-run at
+this seat, not inherited from the spec's authoring-time cell.
+
+| gate | verdict at open | witness measured here |
+|---|---|---|
+| **G-KFW9-1** · a real-Safari cell exists at all | **RED** | ⟨`git ls-files docs/tranches/V/megatranche/audit/visual/safari-real/ \| wc -l`⟩ → **4** (`MATRIX-SAFARI.md`, `ROUTE-MATRIX.json`, `STATE-MATRIX.json`, `picker-safari26.4-light.png`) vs ⟨`ls -1 …/safari-real/ \| wc -l`⟩ → **31** on disk — **27 uncommitted and therefore nonexistent (L-7)**. Corroborating: ⟨`git ls-files …/shots/ \| wc -l`⟩ → **0** tracked vs ⟨`ls -1 …/shots/ \| wc -l`⟩ → **11** on disk. The tracked corpus is **value.js routes, pre-X**; zero real-Safari execution against any keyframes.js tree. |
+| **G-KFW9-2** · cell separation (I-20) | **RED** | ⟨`grep -c 'safari-app\|webkit-engine\|ios-device\|ios-simulator' …/capture.mjs …/states.mjs`⟩ → `capture.mjs:0` · `states.mjs:0`. **No separating matrix exists**; the harness cannot express a cell label today. |
+| **G-KFW9-3** · the wave's own scoped surface list | **RED** | ⟨`head -10 …/audit/visual/REPORT.md`⟩ → *"# Mega-tranche visual audit — Safari (WebKit), desktop + mobile, light + dark / Origin: `http://localhost:9000` · 4 matrices × 15 routes = **60 captures**"* — the **value.js** corpus, not a kf-scoped list. B18-26's `152 × 11 × 4 × 11 = 73,568` (split `46,816 + 26,752` exact) stands rejected as a denominator; **no scoped list exists**. |
+| **G-KFW9-4** · SS-13 residue discharge, 0 of ≈590 | **RED — and the denominator re-derives exactly** | The **amended** command (§Surface-list protocol 2: `- ` / `N. ` top-level items inside every `##` **or `###`** heading matching `UNPROVEN`/`SS-13`, identity-guards excluded), run over ⟨`ls -1 …/registry/adjudicated/kf-*.md \| wc -l`⟩ → **58** records, both variants side by side: **`h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58`** — reproducing the published figure to the digit, including the unamended form's 563. **565 enumerated + 25 prose-carried ⇒ ≈590; 0 executed.** **S-13's material-divergence trigger is NOT armed** (zero divergence, and measured with the amended form as S-13 requires). |
+| **G-KFW9-5** · the PRM census is made true | **RED** | ⟨`sed -n '462p' …/formation/keyframes/lane-frontend.md`⟩ → `### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files` — the false claim still stands at the byte; no replacing enumeration exists anywhere in the tree. |
+| **G-KFW9-6** · the intensity form + the final-frame hazard | **RED** | ⟨`sed -n '87p' ../keyframes.js/src/animation/constants/defaults.ts`⟩ → `    respectReducedMotion: false,`; ⟨`sed -n '50p' …/src/animation/index.ts`⟩ → `export { reducedMotionScale } from "./internal/reduced-motion";` (LIGHT barrel); ⟨`grep -rn 'reducedMotionScale' demo/ \| wc -l`⟩ → **0** demo consumers; **three live library consumers** ⟨`grep -rn 'amplitudeScale' src/`⟩ → `physics/spring/progress.ts:153` · `:232` · `:385` each `this.amplitudeScale = reducedMotionScale(`, applied at `:323`/`:352` (the R3-9 re-cut reproduces at the frontier, full path `src/animation/physics/spring/progress.ts`). The gap the gate measures — *the DEMO half does not consume the resolver the LIBRARY half already ships* — is live. |
+| **G-KFW9-7** · the two-direction PRM pair, one pass, substrate named | **RED** | ⟨`grep -n 'snapToReducedMotion' …/engine/play-lifecycle/{strategies,frame}.ts`⟩ → `strategies.ts:76 export function snapToReducedMotion<V extends Vars>(` (docblock `:66-75` above it) and `frame.ts:137         snapToReducedMotion(anim);`, sole call site, inside `playFrame` — **the rAF lane**. ⟨`grep -c 'withReducedMotion' …/src/animation/waapi/delegation.ts`⟩ → **0, exit 1** — absent entirely, so KF-TD-1's *"`shadowTick` never consults it"* stands; ⟨`grep -n 'shadowTick' …/delegation.ts`⟩ → **`:53`** decl (the D4-4 pinpoint correct at the frontier) · `:64` `animation.playback.loop(shadowTick);`. **Neither direction witnessed.** |
+| **G-KFW9-8** · the producer's forced-colors rule measured back into effect; demo-side count stays zero | **RED** | ⟨`grep -rn 'forced-colors' demo/ \| wc -l`⟩ (in `../keyframes.js`) → **0** — the eighth independent seat to measure it. No WHC capture exists in any cell. The **recorded result** this gate closes on is that the demo-side count is **still 0** and the indicator returns anyway (R-9a item 4 / D-9). |
+| **G-KFW9-9** · the authored REMOVAL, measured — both copies, before-witness held | **RED** | ⟨`sed -n '74,80p' demo/styles/design-idioms.css`⟩ → `.focus-ring:focus-visible {` at **:76** with `box-shadow: var(--focus-ring-shadow);` + `outline: none;` (`:76-79`); ⟨`sed -n '70,76p' demo/styles/playback-idiom.css`⟩ → `.btn-playback:focus-visible {` at **:72** with the same pair (`:72-75`). **Both unlayered copies present, different selectors, same (0,2,0) specificity.** No before-witness shot. The **two-deletion cure is KF.W13's** (K-5: ONE act, never split); the AFTER witness reads UNMEASURED here. |
+| **G-KFW9-11** · the repo's own iOS no-zoom floor honoured where needed | **RED** | ⟨`grep -rn 'clampIOSNoZoomFontSize' src/ demo/ test/`⟩ → declared `demo/components/instrument/utils/iosTextEntry.ts:10`, consumed at **exactly one** site `CSSCodeEditor.vue:39`/`:137`, unit-tested 14→16 at `test/demo/instrument/ios-text-entry.test.ts:88-89`; ⟨`grep -rn 'initIOSPlatformClass' demo/`⟩ → `EditorShell.vue:115`/`:133`. **Unused at the two surfaces that need it** (R-9's 14px, SP-4's ~12.2px); no iOS session has ever run. |
+| **G-KFW9-12** · every probe carries a discriminator and a falsifier | **RED** | ⟨`ls docs/tranches/X/keyframes/evidence/W9/`⟩ → **No such file or directory**. **No register exists** for the **6 records · 11 probes · 4 traps** §H enumerates. |
+| **G-KFW9-13** · escalation triggers close with measurements, addenda under original ids | **RED** | ⟨`grep -rl 'PROVISIONAL' …/registry/adjudicated/kf-*.md \| wc -l`⟩ → **0** records carry a provisional-severity resolution; ⟨`grep -rlc 'ADDENDUM.*2026-09-17' …/kf-*.md \| wc -l`⟩ → **0** — **zero W9 addenda banked**. §H's **thirteen armed triggers over twelve records** stand unmeasured (KC-25 · KF-ES-3 · D-M3 branch (a) · TimelineTrack M-7/missed-4 **+** D-4 as one row · KAD-7/D-2 · KF-SST-15/-16/-17 · KF-TFP-7 · KF-TD-8 · KF-AV-41 · KAD-F4 · KF-ET-8's dark arm · N-5 · L-M-10/N-3 + KF-TFP-19). Three can reach BLOCKER. |
+| **G-KFW9-14** · substrate naming and witness refresh | **RED — and RE-STAMPED at open** | The frontier has moved since authoring. **Substrate of record for this wave**: kf `master` == `origin/master` == **`55e9bf0d2391bbc6d9871bb3f0555a6225daae92`**, whose only delta from the spec's pinned `81a56990` is one docs-only commit (⟨`git diff --name-only 81a56990..55e9bf0d`⟩ → one `.md` coordination path). The disqualified `8281638c` is preserved by ref only, at `kf-sacred-snapshot-2026-09-17` = `6d280ee7`. **Six untracked kf files** remain on disk ⟨`git ls-files --others --exclude-standard`⟩ (2 coordination letters + 4 `src/animation/{compile,group}` files) — named so no capture silently inherits them. **RED**: no capture names substrate ref + sha + cell, because no capture exists. |
+
+**Born-RED tally: 13 RED · 0 GREEN · 0 UNRUNNABLE · 0 DIVERGENT.**
+
+**R.2 — GREEN-BEFORE-CURE: none.** Every one of the thirteen is RED at its own witness before any cure.
+
+**Two facts banked that are NOT greens**, so they are never read as such later:
+
+1. **OP-5 is discharge-ready by measurement, not by a build.** The gh-pages bundle on disk is
+   source-identical to the frontier (zero source delta). G-KFW9-14 still closes only on captures that
+   *name* substrate ref + sha + cell — none exist, so the gate is RED.
+2. **G-KFW9-4's denominator reproduces exactly** (565/563/57/58). That is the gate's *precondition*
+   holding, not the gate closing: 0 of ≈590 probes are executed.
+
+**Apparatus present and read-only**: ⟨`ls -la …/megatranche/workflows/safari-real-matrix.js`⟩ → 9,788 B
+(EXECUTE, NO WRITE — shared with X-W11 G8 at **separate cells**; a harness edit is a bounds expansion →
+triumvirate). **Absent and owed**: `…/safari-real/SS-13-CAPTURE-RECEIPT.md` (`.e` creates it) and
+`docs/tranches/X/keyframes/evidence/W9/` (all seats create under it).
+
+---
+
+## Unit plan
+
+**Shape, from §State's binding Agents line**: 5 seats · 4 sequential phases ·
+`.a` serial chassis → `.b`/`.c`/`.d` parallel and **cell-disjoint** → `.e` serial → close. The spec
+declares peak concurrency 3; the **owner's cap applied here is 2 concurrent**, so phase 2 is cut
+`[.b ∥ .c]` then `[.d]`. The cut is also the right engineering: `.b` and `.c` drive **different**
+drivers (desktop safaridriver vs iOS device/simulator), while `.d` needs the desktop Safari session
+again *and* an exclusive VoiceOver pass — pairing it with `.b` would contend for one session.
+
+**Models**: all five **Opus**. The spec names no Fable, fresh-Fable, adjudicator or design-author seat
+for this wave; every seat is a measurement/census/capture seat, which runbook §5.1 assigns to Opus solo.
+
+**Ordered groups**: `[.a]` → `[.b, .c]` → `[.d]` → `[.e]`.
+No two concurrent units share a modify path: `.b` writes only `safari-real/desktop-*`, `.c` only
+`safari-real/mobile-*`, `.d` only `safari-real/hcm-*` and `safari-real/at-*`; `REPORT.*`/`STATES.json`
+are written by `.a` and `.e` **alone** (§Disjointness: *"two seats editing the surface list is how one
+surface list becomes three"*).
+
+### `.a` — chassis: substrate pin · surface list · the two registers (SERIAL; nothing dispatches until it commits)
+
+- **Sections**: §Surface-list protocol 1–7 (`:83-92`) · §Gates G-KFW9-14 · G-KFW9-3 · G-KFW9-4 ·
+  G-KFW9-12 and §H's two registers (`:207-219`) · §Sequencing S-1 (`:108-109`) · §Bounds `:56-82`.
+- **Writable**: `docs/tranches/V/megatranche/audit/visual/capture.mjs` ·
+  `…/audit/visual/states.mjs` (modify-carve, `.a` ALONE) · `…/audit/visual/REPORT.md` · `REPORT.json` ·
+  `STATES.json` (skeleton only) · `docs/tranches/X/keyframes/evidence/W9/**` (create).
+- **Gates**: G-KFW9-14 (pin) · G-KFW9-3 (publish) · G-KFW9-4 (denominator re-derived at open) ·
+  G-KFW9-12 (registers published **with** the list) · G-KFW9-2 (cell roster expressible in the harness).
+- **Locks**: S-1 — no phase-2 seat dispatches before `.a` commits. `safari-real-matrix.js` is
+  EXECUTE-NO-WRITE: a cell label that cannot be expressed in `capture.mjs`/`states.mjs` is a harness
+  redesign shared with X-W11 G8 → **triumvirate**, never a quiet edit.
+
+### `.b` — desktop-Safari cell · the PRM band (∥ `.c`)
+
+- **Sections**: §Gates G-KFW9-5 · -6 · -7 (`:220-244` band) · §Sequencing S-3 (`:116-118`) ·
+  S-8 families (i)(ii) + the **1280 arm** of (iii-a) (`:125-141`) · §A carry (`:104-124`).
+- **Writable**: `…/audit/visual/safari-real/desktop-*` (create/write, force-added) ·
+  `docs/tranches/X/keyframes/evidence/W9/**`.
+- **Gates**: G-KFW9-5 · G-KFW9-6 (three measurements only) · G-KFW9-7 · plus its share of -1/-2/-4/-14.
+- **Locks**: G-KFW9-6's **unification constraint is HANDED to KF.W5/KF.W6** as a declared sequencing
+  obligation and reads **UNMEASURED** here — recording their discharge is a measurement of their act,
+  never a green of its own. S-8: no probe double-spent. KF-AV-28 rider = witness-ordering only.
+
+### `.c` — mobile-Safari / iOS cell · the device session (∥ `.b`)
+
+- **Sections**: §Gates G-KFW9-11 · §Sequencing S-6 (`:121-122`) · S-7 (`:123-124`) ·
+  S-8 families (iii) 390×844 + 375×667, **(iii-a) 390 arm** and **(iii-b) the OD-V5 390 at-rest
+  observation** (`:125-141`) · §D carry (`:137-147`).
+- **Writable**: `…/audit/visual/safari-real/mobile-*` (create/write, force-added) ·
+  `docs/tranches/X/keyframes/evidence/W9/**`.
+- **Gates**: G-KFW9-11 · plus its share of -1/-2/-4/-14.
+- **Locks**: **ONE** iOS device session discharges family (v) whole (R-9 · SP-4 · KAD-F4 · KF-KC-16/25
+  · KF-SCR-1 · i-13/C-3 · K-13 · TimelineCaret probe 10). **OD-V5 is DEFERRED by ruling** (§0j.C
+  KF-ODV5) — record the at-rest state *either way* and rule nothing.
+
+### `.d` — contrast / forced-colors / AT cell (SERIAL after `[.b ∥ .c]`)
+
+- **Sections**: §Gates G-KFW9-8 · -9 · the held ex-G-KFW9-10 witnesses (`:81-88` of §Gates) ·
+  §Sequencing S-2 (`:110-115`) · S-8 families (iv) + (vi) · S-15 (`:316-317`) · §B (`:125-132`) ·
+  §E (`:148-158`) · §F (`:159-182`).
+- **Writable**: `…/audit/visual/safari-real/hcm-*` and `…/safari-real/at-*` (create/write,
+  force-added) · `docs/tranches/X/keyframes/evidence/W9/**`.
+- **Gates**: G-KFW9-8 · G-KFW9-9 (BEFORE witness only) · plus its share of -1/-2/-4/-14.
+- **Locks**: **the two-deletion act is KF.W13's** — `.d` spends no cure and deletes no byte; the AFTER
+  witness reads UNMEASURED until that act lands (S-9). **AT runs here by ruling** (§0j.C KF-AT); no new
+  lane. A **chromium emulation labelled as WHC is the I-20 failure** — if the safari-app column is
+  UNREACHABLE by UA capability *and* no Windows HCM cell exists, book UNREACHABLE-IN-CELL with the
+  bound stated (S-13).
+
+### `.e` — write-backs · census amendment · the BH-relay evidence packet (SERIAL, last)
+
+- **Sections**: §Gates G-KFW9-13 · G-KFW9-5's amendment half · §Bounds' adjudicated-record **CELL
+  SPLIT** row and the `SS-13-CAPTURE-RECEIPT.md` row (`:70`/`:81`) · §Sequencing S-10/S-10.1
+  (`:145-161`, `:306`) · S-11 (`:307-312`) · S-14 (`:313-315`).
+- **Writable**: `…/megatranche/registry/adjudicated/kf-*.md` (**APPEND-ONLY dated addenda under ORIGINAL
+  ids, `.e` ALONE**) · `…/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md` (create) ·
+  `…/audit/visual/REPORT.md` · `REPORT.json` · `STATES.json` (fold ONLY) ·
+  `docs/tranches/X/keyframes/evidence/W9/**`.
+- **Gates**: G-KFW9-13 · G-KFW9-4's terminal accounting · G-KFW9-5 (draft) · G-KFW9-3's final fold.
+- **Locks**: **E-1/E-3** — existing record bytes immutable; an addendum that edits an existing line, or
+  mints a new id, or lands from any seat but `.e`, is a bounds expansion → **triumvirate**. The census
+  amendment lands as a **DRAFT under `evidence/W9/**`**: `CENSUS-2026-08-03.md` and `lane-frontend.md
+  §6.5` are **read-only, both paths** and this wave writes no byte of either. The OD-V3 packet's
+  **DISCRIMINATOR** binds the receipt: a single home, or either home at one viewport only, does not
+  satisfy it — if either half is missing, the receipt records the packet incomplete **with its exact
+  precondition**, which is the shape §0j.C authorizes KF.W10 to close `complete_with_misses` on.
+
+### Standing on every seat
+
+Probe parsimony (owner edict 2026-07-12, runbook §5.2) as a LAW block · **webkit-engine and safari-app
+are separate evidence cells; never infer one from the other** · every capture force-added with a
+**per-shot sha256** sidecar + cell label + substrate ref (`55e9bf0d`) · contrast numerals **re-derived at
+capture** (KF-SKEL-22), frames stamped (KF-AX-4) · **zero kf writes** · glass-ui READ-ONLY always
+(producer rows ride the SS-6 BH relay, never demo-side hacks) · `scripts/dev/dev.sh` NEVER touched ·
+pathspec commits with the session trailer · **this wave measures; it authors no product cure and claims
+no CI colour**.
+
+---
+
+## Unit receipts
+
+*(empty — appended by each unit as it lands)*
+
+### `.a` — chassis · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `dfe890e1` — *"feat(X·KF.W9/.a): the chassis — substrate pinned, 590-probe surface list
+published, both registers, I-20 roster carved into the harness"*. **ONE commit** because G-KFW9-12
+requires the registers be published **WITH** the list and S-1 names the four as one chassis (a family
+that must not split). 13 paths, all inside `.a`'s writable set; `scripts/dev/dev.sh` and
+`docs/tranches/V/reformation/CARRY-LEDGER.md` were dirty on arrival and are **untouched and unstaged**.
+
+**Status: PARTIAL.** Every act `.a` owns landed. **One wave-level precondition is BROKEN and escalated**
+(act 2 below) — it is a sibling's collateral, not this seat's, and curing it is outside this unit's
+bounds.
+
+---
+
+#### Act 0 — inherited state, measured before writing
+
+`capture.mjs` arrived **already `M`** with an *"X.KF.W9 `.a` CARVE"* header and a live
+`ROSTER_DIGEST_PLACEHOLDER`, and `evidence/W9/SUBSTRATE-PIN.md` existed untracked (mtime **15:24**) —
+an **interrupted prior `.a` run, never committed**. Its work is completed and corrected here rather
+than duplicated. `states.mjs` was **clean** (`git status --short` → empty): the carve had not reached it.
+
+#### Act 1 — OP-3: a real Safari session, opened and recorded (§0j.C **KF-ODV3**, *"measured at run, never assumed"*)
+
+⟨`safaridriver --version`⟩ → `Included with Safari 26.4 (21624.1.16.11.4)` · ⟨`sw_vers`⟩ → macOS
+**26.4.1** (25E253) · ⟨`defaults read com.apple.Safari IncludeDevelopMenu`⟩ → `1`.
+
+⟨`defaults read com.apple.Safari AllowRemoteAutomation`⟩ → **`does not exist`** (key absent from the
+container plist on macOS 26) and `safaridriver --enable` needs an interactive admin authorization this
+seat cannot supply. **Neither is claimed as run.** What is claimed is measured:
+
+⟨`nohup /usr/bin/safaridriver -p 4601 &` ; `lsof -nP -iTCP:4601 -sTCP:LISTEN`⟩ → `com.apple 85467 …
+TCP 127.0.0.1:4601 (LISTEN)` + `[::1]:4601 (LISTEN)`; ⟨`curl -s :4601/status`⟩ →
+`{"value":{"message":"","ready":true}}`.
+
+⟨`curl -s -X POST :4601/session -d '{"capabilities":{"alwaysMatch":{"browserName":"safari"}}}'`⟩ →
+**HTTP 200**, `sessionId 7BB393EF-45A2-4EB5-9B01-C12155925F97`, `browserVersion 26.4`,
+`safari:platformVersion 26.4.1`, `safari:platformBuildVersion 25E253`, **`safari:useSimulator: false`**.
+**OP-3 = MET**, in the `safari-app/desktop` cell — and `useSimulator: false` is carried so the app cell
+is never read as the simulator cell (I-20's whole subject).
+
+**OP-4 baseline, `safari-app/desktop`** ⟨`POST /session/<id>/execute/sync`⟩ →
+`{"fc":"(forced-colors: active)","prt":"(prefers-reduced-transparency: reduce)","prm":"(prefers-reduced-motion: reduce)","fcMatch":false,"prtMatch":false,"prmMatch":false,"dpr":2,"iw":800,"ih":600}`.
+**All three `.media` strings round-trip byte-identical** (a query Safari cannot parse serialises
+`not all`; none does) ⇒ **that column is NOT foreclosed by UA capability**, so a row reporting
+UNREACHABLE-IN-CELL there must name a reason that is not capability. The three `*Match` are `false`:
+the host is not *in* those modes — a **baseline, not a finding**, and it binds **no other cell**.
+
+⟨`curl -s -X DELETE :4601/session/7BB393EF-…`⟩ → **200** · ⟨`pkill -f 'safaridriver -p 4601'` ;
+`lsof … | grep -c LISTEN`⟩ → **0**. Single-session discipline: `.b`/`.c`/`.d` open their own.
+
+#### Act 2 — G-KFW9-14: the substrate pinned · **and OP-5 found BROKEN**
+
+`evidence/W9/SUBSTRATE-PIN.md`. Pin, by command: ⟨`rev-parse --abbrev-ref HEAD`⟩ → `master`;
+⟨`rev-parse HEAD`⟩ = ⟨`rev-parse origin/master`⟩ = **`55e9bf0d2391bbc6d9871bb3f0555a6225daae92`**;
+⟨`rev-parse kf-sacred-snapshot-2026-09-17`⟩ → `6d280ee7…`; ⟨`merge-base --is-ancestor 8281638c
+kf-sacred-snapshot-2026-09-17`⟩ → exit 0; ⟨`rev-parse kf-sacred-snapshot-2026-09-17^`⟩ →
+**`8281638c0ac4…`** — the disqualified head is the snapshot's **direct parent**, preserved by ref and
+never a witness substrate. ⟨`git diff --name-only 81a56990..55e9bf0d`⟩ → **exactly one docs path**, so
+the source trees are identical and every byte-offset receipt the spec carries holds at the execution
+substrate **without re-anchoring**.
+
+**Six untracked kf files** named ⟨`ls-files --others --exclude-standard`⟩: 2 coordination letters + 4
+`src/` files. The four are **orphans at pre-carve paths** — the live modules are at
+`src/animation/compile/frame/{compiled-frame,interp-slot}.ts` ⟨`git ls-files | grep -E …`⟩, `value-ast`
+and `composite-storage` have **no tracked file at any path**, **no importer resolves to an orphan**
+⟨`git grep -nE '…' -- src demo test scripts | wc -l`⟩ → **0**, and mtimes are 2026-07-16.
+
+**TWO tracked modifications, and the earlier draft's `0` is STRUCK.** ⟨`git diff --name-only`⟩ →
+`package.json` · `package-lock.json` (⟨`--stat`⟩ → 2 files, +1007/−5). Content: a `vue-tsc` `check`
+script + `eslint`/`eslint-plugin-vue`/`vue-tsc` devDeps — **KF.W4's type-cure chassis**, which OP-6
+authorises to run concurrent with this wave. **This wave wrote none of it** (zero kf write grants).
+⟨`git diff --name-only -- src/ demo/`⟩ → **0** and ⟨`ls-files --others -- demo/`⟩ → **0**: every byte
+the gh-pages bundle compiles is identical to `55e9bf0d`.
+
+> **THE BREAK.** ⟨`ls -la ../keyframes.js/dist/gh-pages/`⟩ → **`No such file or directory`**. The
+> bundle the wave opened against (index.html 8,381 B + assets/ 53 entries, 13:37) **is gone**, and the
+> earlier draft's hashes `bad6ea59…` / `5abf8bf7…` are **STRUCK** — they describe bytes nobody can
+> re-hash. **Mechanism measured, not guessed**: ⟨`grep -n 'outDir:\|emptyOutDir:' vite.config.ts`⟩ →
+> the production/lib branch sets **no** `outDir` ⇒ vite's default self-emptying `dist/`;
+> ⟨`grep -n '"prepare"' package.json`⟩ → `36: "prepare": "npm run build:lib"`;
+> ⟨`stat -f '%N %Sm'`⟩ → `package.json` **15:26:13** → `package-lock.json`/`node_modules/vue-tsc`
+> **15:26:16** → `dist/keyframes.js` **15:26:18**. A sibling's install fired `prepare` → `build:lib`,
+> which emptied `dist/` and took `dist/gh-pages/` with it.
+>
+> **`.a` does NOT rebuild.** A rebuild writes kf bytes; §Bounds is *"Do NOT touch — any keyframes.js
+> byte"*; S-13 makes it a **bounds expansion → triumvirate, never a quiet build**. Booked whole at
+> `SUBSTRATE-PIN.md` §7 with the fix, the grant it needs, and what must not happen instead.
+
+**Gate reading — G-KFW9-14: RED → RED (correctly).** The pin is published and the harness stamps
+`substrateRef`/`substrateSha`/`bundleSha256` on every row, but the gate closes on **captures** and `.a`
+takes none: ⟨`git ls-files …/safari-real/ | wc -l`⟩ → **4** vs **31** on disk; ⟨`git ls-files …/shots/
+| wc -l`⟩ → **0** vs **11**. *Recording a precondition holding as a gate closing is the failure this
+wave exists to convict, and it is not done here.*
+
+#### Act 3 — G-KFW9-4: the denominator re-derived with the AMENDED command
+
+One script, both variants side by side, **run twice, identical**:
+
+```
+h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58
+```
+
+**Reproduces the published figure to the digit, including the struck 563.** The delta is *located*:
+⟨`--delta`⟩ → `DELTA +2  kf-ChannelOptions.md`, and the pair is exactly the one the spec names —
+⟨`sed -n '174p;223p;225p;226p'`⟩ → `## ADDENDUM R2` (`:174`) · **`### G. SS-13 additions (append to the
+standing list)`** (`:223`, an **h3** nested under a non-matching h2) · item **11** dropdown WIDTH
+overflow (`:225`) · item **12** focus-ring 2px bleed (`:226`). **563 + 2 = 565.**
+⟨`--per-record | awk '$1==0'`⟩ → `kf-CubeAxisLines.md` — the one record of 58 with zero enumerated
+items, which is why the figure is **57 of 58**.
+
+The **25 prose-carried** re-read at their bytes: `kf-CubeAxisLines:104` *"nine-item queue … three
+sharpenings"* (**9**) · `kf-TransportDock:122` *"1–8 carried from r1"* (**8**) · `kf-CubeTarget:83`
+*"r1 items 1–4 and 6–8 unchanged"* + *"r1 item 5 is amended"* (**8**). **9+8+8 = 25. 565+25 = 590.**
+
+**S-13's material-divergence trigger is NOT armed** — measured with the amended form, exactly 565, zero
+divergence. *A seat that measures 563 has run the retired command, not found a corpus change*; the
+retired form is named as a trap in the published list so it cannot manufacture one.
+
+**Gate reading — G-KFW9-4: RED → RED.** The denominator re-derives (the gate's *precondition*); **0 of
+590** probes have reached a terminal state. `.a`'s limb only.
+
+#### Act 4 — G-KFW9-3: the scoped surface list PUBLISHED
+
+`evidence/W9/SURFACE-LIST.md` + `SURFACE-LIST.json`. **590 addressable probe rows**, self-counted from
+the settled bytes ⟨`node -e '…d.probes.length'`⟩ → **590** (565 enumerated + **the 25 prose-carried made
+individually addressable** — a queue that is counted but not itemised is not a list and cannot reach a
+terminal state per probe).
+
+B18-26 carried verbatim from ⟨`sed -n '151p' …/intakes/lane-keyframes-b10-b21.md`⟩: *"TRUE as
+arithmetic; UNPROVEN as coverage (manufactured denominator) … a Kronecker self-cross-product with no
+product consumer … **the denominator must be replaced by KF.W9's own scoped surface list, not
+inherited**"*. **73,568 REJECTED**; it appears in this wave only as the thing rejected.
+
+**Seeds never denominators** ⟨`sed -n '215p' …/INTAKE-ADJUDICATION-2026-08-03.md`⟩ →
+*"VISUAL-AUDIT-INPUT (marker; **10 rows — enumeration seeds, never denominators**)"*; V6-18/-19/-21/-22/-23/-28
+(catalog-only) · V6-33 · V6-34 · CM-15 · XF-6 carried as **seeds**, none multiplied into anything.
+**KF-AX-26 honoured and measured**: `excludedSurfacesInherited: 0`, `e2eExists: false` — the demo
+gate's own exclusions are **not** inherited, because *the excluded surface is exactly the one no
+instrument has ever seen*.
+
+**Gate reading — G-KFW9-3: RED → GREEN.** BEFORE ⟨`head -10 REPORT.md`⟩ → *"4 matrices × 15 routes =
+**60 captures**"*, the 2026-07-24 **value.js** corpus, *"not a kf-scoped list"*. AFTER: the list is
+published, derived from the banked 590, seeds as seeds, KF-AX-26 honoured — and **no fraction is quoted
+anywhere before it**, which is this gate's explicit fail condition.
+
+#### Act 5 — G-KFW9-12: BOTH registers published WITH the list
+
+`NEGATIVE-REGISTER.md`/`.json` — **6 records · 11 probes · 4 traps**, self-counted ⟨`node -e`⟩ →
+`retired rows: 11 | traps: 4 | distinct records: 6`. **All fifteen re-read at their banked bytes**, not
+carried from the spec's prose: `kf-KeyboardShortcutsModal:114` (*"R-A's Tab-reach probe is retired …
+do not spend a probe on it"*) · `kf-KeyframesStringControls:161` (the four, with `:86`'s
+`origin/master:77` measurement and `:194`'s two-limb disambiguation) · `kf-KeyframeCard:25`/`:109`
+(L-10/C-5 **struck**, containment; KF-KC-28 survives) · `kf-MbabbMenu:165` (`useHideOthers` **MOOTED**
++ D-7's leading question) · `kf-TimelineTrack:146` (#12 checked-and-negative) · `kf-SequenceAxis:84`
+(#5 killed). The **4 traps** verified byte-exact: ChromeDock `:23` (*"the discriminating observation is
+combobox-vs-bare-div — handed to KF.W9"*) · SpringHeatmap `:107` (*"(Light→dark is NOT the tell — K-6.)"*
+· *"cured-by-resize-not-by-retoggle is the signature"*) · EasingTarget `:66` (KF-ET-24, *"observable
+only on a filter change while paused mid-scrub"*) · SquareScene `:145` (*"if the pixel tracks the swept
+hue the row dies"*).
+
+`ESCALATION-REGISTER.md`/`.json` — **13 armed triggers over 12 records**, self-counted ⟨`node -e`⟩ →
+`triggers: 13 | distinct records: 12 | canReachBlocker: 3`. **The record figure is DERIVED, not
+inherited**: each trigger homed by ⟨`grep -l`⟩ then its decisive line read. Two homings corrected in
+the process — **KF-TD-8 is `kf-TypingDots`, not TransportDock**, and **KF-ES-3 is
+`kf-EasingScene:42`** (the `jump-none`-faults-render limb), **not** `kf-EasingSidebar:41`'s
+smooth-step-3 polarity row of the same id. Twelve records because (5)+(10) share
+`kf-KeyframesAddDialog`, (7) and (13)'s KF-TFP-19 limb share `kf-TimingFunctionPanel`, and (13)'s other
+limb `L-M-10/N-3` at `kf-KeyframesStringControls:159` supplies the twelfth. §H's figures **reproduce at
+the bank**.
+
+**Every probe carries a DISCRIMINATOR and a FALSIFIER** ⟨`node -e`⟩ → `every trigger has
+discriminator+falsifier: true` · `every trap has discriminator+falsifier: true`. Baseline re-measured:
+⟨`grep -rl 'PROVISIONAL' kf-*.md | wc -l`⟩ → **0** · ⟨`grep -rl 'ADDENDUM.*2026-09-17' kf-*.md | wc -l`⟩
+→ **0**.
+
+**Gate reading — G-KFW9-12: RED → GREEN.** BEFORE ⟨`ls …/evidence/W9/`⟩ → *"No such file or
+directory"*, **no register exists**. AFTER: both published **with** the list, and both rules
+**mechanized** rather than requested (act 6).
+
+#### Act 6 — G-KFW9-2: the I-20 roster carved into the harness
+
+**Witness moved**: ⟨`grep -c 'safari-app\|webkit-engine\|ios-device\|ios-simulator' capture.mjs
+states.mjs`⟩ → **`capture.mjs:0 · states.mjs:0`** (born-RED) → **`capture.mjs:14 · states.mjs:10`**.
+Ten cells in both files, with `ROSTER_DIGEST =
+255695bc616c2a1420639ccf56848bdaf5df2c87618587c0c736fda4ef762035` — each file hashes its own `CELLS`
+literal at run time, so **editing one roster without the other aborts the run**. (`REPORT.json`'s
+`rosterDigest` matches the harness's: `true`.) The roster is duplicated because §Bounds makes those two
+files the only writable harness surface; **divergence is made DETECTABLE rather than trusted**.
+
+**The guards are exercised, not asserted** — lifted verbatim out of `capture.mjs` into a scratchpad
+harness and run against real inputs:
+
+```
+-- assertCell (I-20) --
+  THROWS: webkit driver wearing a safari-app label   -> I-20 VIOLATION: cell 'safari-app/desktop' requires driver 'safaridriver'…
+  THROWS: chromium emulation wearing windows/real-HCM -> I-20 VIOLATION: cell 'windows/real-HCM' requires driver 'windows-host'…
+  THROWS: a cell outside the ten-cell roster          -> I-20: 'safari-app/ipad' is not in the ten-cell roster
+  PASSES: webkit driver in the webkit-engine cell · PASSES: safaridriver in safari-app/desktop
+-- assertProbeTerminal (G-KFW9-12) --
+  THROWS: a RETIRED probe re-entering · no discriminator · no falsifier · no sha256 · no cell
+  PASSES: a fully-formed EXECUTED probe · PASSES: an UNMEASURED probe with nothing filled
+```
+
+⟨`node capture.mjs`⟩ (no `--bundle-sha`) → **aborts at `assertSubstrate`, before any browser launch** —
+which also proves `rosterGuard()` passed with the injected digest, since execution reached it.
+⟨`node states.mjs`⟩ → the same abort. Both ⟨`node --check`⟩ clean.
+
+`states.mjs` additionally labels `forced-colors-desktop` as `chromium/emulated-forced-colors` under
+`ENGINE=chromium` and **never** `windows/real-HCM` — *a chromium emulation labelled as WHC is the I-20
+failure by name* (S-13). `safari-real-matrix.js` was **executed-not-written** (untouched: not in the
+commit).
+
+**Gate reading — G-KFW9-2: RED → GREEN at `.a`'s limb** (every roster label is expressible and
+enforced, per-shot sha256 mandatory, OP-4 recorded per cell). The wave-level gate turns when results
+exist.
+
+#### Act 7 — the `REPORT.*` / `STATES.json` skeleton
+
+Rewritten as the **kf-scoped** skeleton: substrate, ten-cell ledger (**all `UNMEASURED`**, every cell
+present with its owning seat — *an absent cell is how a webkit reading lands in a safari column by
+default*), denominator 590, both registers' figures, probe tally `UNMEASURED: 590`, and the OP-5 break
+as a standing blocker. **Nothing destroyed**: the 2026-07-24 value.js corpus these files held is
+tracked and recovers with ⟨`git show c0078d96:<path>`⟩ — named inside the new files, not merely known.
+
+#### Locks, bounds and mail
+
+- **S-1 discharged**: the chassis is committed at `dfe890e1`; **phase 2 may dispatch** (subject to the
+  OP-5 blocker below, which `.b`/`.c`/`.d` cannot capture around).
+- **Bounds clean**: ⟨`git diff --cached --name-only`⟩ → the 13 intended paths, nothing else.
+  `scripts/dev/dev.sh` and `CARRY-LEDGER.md` arrived dirty and are **untouched/unstaged**;
+  `docs/tranches/X/keyframes/waves/evidence/KF-W4/` (15:54) is a **sibling's**, not this seat's.
+  `LEDGER.md` is not in `.a`'s writable set and was **not** edited.
+- **Zero keyframes.js bytes written.** Zero glass-ui bytes. `safari-real-matrix.js` unmodified.
+- **Mail**: no new mail in scope since seat 0's four-path sweep at open; `INBOX.md` tail remains
+  **I-30**. **0 UNREAD.**
+
+#### Residuals handed forward
+
+1. **OP-5 / the gh-pages bundle — ESCALATED** (`SUBSTRATE-PIN.md` §7). Blocks `.b`/`.c`/`.d`'s capture
+   limbs and therefore G-KFW9-1/-2/-14's capture halves. Needs a **named grant to write the kf tree**;
+   the act itself is one command at `55e9bf0d` and moves no substrate.
+2. **`bundleSha256` is unfilled by design.** Both harnesses abort without `--bundle-sha=`. Whoever
+   rebuilds hashes the tree and passes it; **no seat may default it**.
+3. **OP-4 is owed per cell.** Only `safari-app/desktop` has a reading, and it is a baseline that binds
+   only that cell.
+4. **Two kf tracked rows are dirty from KF.W4's chassis.** Recorded so no later seat reads a nonzero
+   `git status` as a moved substrate; the source trees are identical.
+
+##### `.a` ADDENDUM 16:14 — a SECOND blocker, found on the closing sweep
+
+Re-measured after the chassis committed: ⟨`git -C ../keyframes.js diff --name-only -- demo/ | wc -l`⟩ →
+**21** (it was **0** at 15:50), newest write **16:13:48** (`CubeScene.vue`, `OrbitalDrag.vue`,
+`ControlsPaneWrapper.vue`); ⟨`rev-parse HEAD`⟩ → `55e9bf0d` **unchanged — the edits are uncommitted**.
+**KF.W4's concurrent fan-out is editing the exact `demo/` surface this wave photographs.**
+
+This is **harder than the missing bundle**, and it is not the same problem. A rebuild taken now would
+compile 21 uncommitted files, so the artifact **could not honestly carry `substrateSha: 55e9bf0d`** —
+a receipt against a moving substrate, the same class that disqualified `8281638c` in the first place
+(§H's witness-substrate law). The capture band therefore has **two** unmet preconditions: **no bundle**
+(curable by one command under a named grant) and **no stable source** (not curable by this wave at all).
+
+**`.a` books it and stops** — no rebuild, no stash, no checkout of a sibling's worktree, and **no
+softening of the substrate stamp so a capture can proceed anyway**. Three lawful shapes are offered for
+the orchestrator's decision at `SUBSTRATE-PIN.md` §8 — **(a)** wait for KF.W4 to commit and re-pin ·
+**(b)** build and serve from a clean clone at `55e9bf0d` (preserves the published pin exactly) ·
+**(c)** re-pin forward to KF.W4's post-commit sha, with its stated cost. **Capturing now and stamping
+`55e9bf0d` is named as the one option that is not available.** Commit `d629be8b`.
+
+---
+
+### `.c` — mobile-Safari / iOS cell · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `6119fe6f` — *"the mobile/iOS cells booked terminal — both foreclosed, 27 probes
+UNREACHABLE-IN-CELL with hosts named, G-KFW9-11 RED→RED"*. **ONE commit**, 3 paths, all inside `.c`'s
+writable set.
+
+**Status: ESCALATED.** Both cells this seat owns are foreclosed on this host, **two of the three
+foreclosures by conditions no grant to this wave could cure**. Nothing was substituted: no desktop shot
+wears a mobile label, no simulator shot wears the device label, no engine reading enters a `safari-app`
+column. **0 captures · 0 sidecars · 0 gates turned · 0 keyframes.js bytes.**
+
+Record of substance: `…/audit/visual/safari-real/mobile-CELL-RECORD-2026-09-17.md` (+ its JSON twin);
+seat index `…/evidence/W9/UNIT-C-MOBILE-INDEX.md`.
+
+---
+
+#### Act 0 — anchors verified at true bytes; two drifted, INTENT taken at the bytes
+
+The dispatch carried `§Gates G-KFW9-11 (:220-244)` · `S-6 (:121-122)` · `S-7 (:123-124)` ·
+`S-8 (:125-141)` · `§D carry (:137-147)`. At the file's true bytes ⟨`grep -n '^## '
+waves/KF-W9.md`⟩ → `220:## Gates` · `245:## Sequencing`, so **the §Gates band resolves exactly as
+given** and **the §Sequencing offsets do not** — `:121` is a §A carry bullet (`KF-SKEL-11`). Re-resolved
+by heading and id, which is the sole anchor (R2-7): **G-KFW9-11 `:240`** · **S-6 `:252`** · **S-7
+`:253`** · **S-8 `:254`** (families (iii) / (iii-a) / (iii-b) / (v) all inside that one line) ·
+**§D carry `:137-147`** — that last one resolving exactly as dispatched
+⟨`grep -n '^### '`⟩ → `137:### D · iOS / mobile / touch (the device session — family (v))`.
+**Subjects are identical at both readings; only the offsets drifted.** Recorded, not worked around.
+
+#### Act 1 — F-1: the `safari-app/ios-device` cell does not exist on this host
+
+⟨`xcrun devicectl list devices`⟩ → **`No devices found.`**, **double-run, identical**. Two independent
+corroborations: ⟨`system_profiler SPUSBDataType | grep -ic 'iPhone\|iPad'`⟩ → **0**;
+⟨`xcrun xctrace list devices`⟩ → the whole `== Devices ==` section is **one entry, the host MacBook Pro**.
+
+**Named missing host: a paired iOS device running Safari 26.x.** The bank forecloses every substitute by
+its own words, carried at §Carry D: *"**KF.W9 owns the live witness** (zoom is hardware-only)"* and
+*"only this wave's Safari-mobile cell can witness it."* A desktop window at 390 px does not auto-zoom on
+focus — filing one as this cell would be I-20's convicted failure one cell over, the class S-13 names as
+*"a chromium emulation labelled as WHC"*. Not done.
+
+#### Act 2 — F-2: the `safari-app/ios-simulator` cell cannot be opened through the apparatus
+
+18 simulators are installed (⟨`xcrun xctrace list devices`⟩ — `iPhone 16/17/Air Simulator (26.0)` …), so
+the cell is foreclosed by the **driver**, measured:
+
+⟨`safaridriver --help`⟩ → six options (`-h` `--version` `-p` `-b` `--enable` `--diagnose`); ⟨`safaridriver
+--help | grep -ci simulator`⟩ → **0** — **the flag the roster names does not exist**.
+⟨`curl -s :4605/status`⟩ → `{"value":{"message":"","ready":true}}` (the driver is up; `.a` opened a real
+`safari-app/desktop` session on this same binary — the control).
+⟨`POST :4605/session -d '{… "safari:useSimulator":true}'`⟩ → **`session not created: "The 'macOS'
+platform is incompatible with requested capability: safari:useSimulator."`** — **double-run,
+byte-identical**. ⟨`pkill -f 'safaridriver -p 4605'` ; `lsof … | grep -c LISTEN`⟩ → **0** (single-session
+discipline; nothing left listening).
+
+**Named missing host: a WebDriver endpoint able to host an iOS-Simulator Safari session.**
+
+> **Dated correction-beside (E-3 — `.a`'s artifact NOT edited).** `evidence/W9/CELL-ROSTER.md` §1 row 3
+> names this cell's driver **`safaridriver --use-simulator`**. That flag does not exist in `safaridriver`
+> 26.4 and its capability form is refused by the platform. **The roster's cell *separation* is untouched
+> and correct** — rows 2 and 3 stay distinct and `assertCell()` still throws; one **driver** cell is
+> corrected, beside, at `mobile-CELL-RECORD-2026-09-17.md` §2.
+
+#### Act 3 — F-3: the pin went stale **during** this seat's run
+
+`.a`'s two blockers were re-measured at 16:17 and both stood: ⟨`ls -la ../keyframes.js/dist/gh-pages`⟩ →
+`No such file or directory`; ⟨`git -C ../keyframes.js diff --name-only -- demo/ | wc -l`⟩ → **23**
+(widened from `.a`'s 21). **At 16:20 both were gone and a third had replaced them**:
+⟨`git rev-parse HEAD`⟩ → **`5388907b`** ⟨`git log --oneline -1`⟩ → *"build(kf/check): wire vue-tsc into
+`check` … (X.KF.W4 .a / G-KFW4-1)"*; ⟨`git rev-parse origin/master`⟩ → **`55e9bf0d`** (unchanged);
+⟨`git rev-list --left-right --count origin/master...HEAD`⟩ → `0	1` — **1 ahead, UNPUSHED**;
+⟨`git diff --name-only -- demo/ | wc -l`⟩ → **0** (clean); ⟨`stat -f '%Sm %N' dist/gh-pages`⟩ →
+**2026-09-17T16:17:47**, `index.html` 8,381 B, 51 assets; ⟨`shasum -a 256 dist/gh-pages/index.html`⟩ →
+`b127991c0f1e9ff0ff662fd5fba329269c5d4c188190972eb652ceba9e05343e`.
+
+**The bundle exists again and is built from `5388907b`, not from the pin**:
+⟨`git diff --stat 55e9bf0d..5388907b`⟩ → **26 files changed, 1200 insertions(+), 73 deletions(-)**;
+⟨`--name-only … -- demo/ | wc -l`⟩ → **23**; ⟨`… -- src/ | wc -l`⟩ → **0**. The 23 are this seat's
+photographic subjects **by name** — `EditorShell.vue` (D-25's shell + the `initIOSPlatformClass()`
+caller) · `CSSCodeEditor.vue` (R-9's sole `clampIOSNoZoomFontSize` consumer) · `ChromeDock.vue` (S-6's
+whole session) · `EditorStartScreen.vue` (KF-EST-3/4, S-7's P-1/P-2 head) · `ControlsPaneWrapper.vue` ·
+and `CubeScene.vue` / `OrbitalDrag.vue` / `EasingTarget.vue` / `useSquareDemo.ts` — **three of OD-V3's
+four duplicating scenes**.
+
+**Two consequences, neither softened.** (1) A capture from this bundle **cannot honestly carry
+`substrateSha: 55e9bf0d`** — the receipt-against-a-moving-substrate class that disqualified `8281638c`
+(§H's witness-substrate law), which `.a` named *"the one option that is not available."* Not taken.
+(2) **`master == origin/master` is FALSE at the bytes** — the identity COHESION §0j.C **KF-WRITE** uses
+to *define* this wave's execution substrate. **Re-pinning is G-KFW9-14's act**, escalated by `.a` to the
+orchestrator at `SUBSTRATE-PIN.md` §8; **a phase-2 cell seat does not choose among its three shapes and
+does not re-pin.** Note for whoever takes (c): `5388907b` is unpushed, and re-pinning re-points every
+byte-offset receipt this wave carries across a 23-file demo delta.
+
+#### Act 4 — OP-4, owed per cell and honestly untaken
+
+The three `.media` strings are **NOT TAKEN** for either cell, because no session opens in either.
+Booked **UNREACHABLE-IN-CELL with the host named** — which is what OP-4 demands instead of *"a silent
+blank"* — and **explicitly NOT inherited** from `.a`'s `safari-app/desktop` reading (*"No cell inherits
+another's"*).
+
+#### Act 5 — every probe in scope booked terminal, with its exact precondition
+
+**27 rows**, self-counted from the settled JSON by command, **double-run**:
+⟨`node -e '…family_v.length + family_iii.length + odv3.cellsRequired + 1 + 3'`⟩ → **27 = published 27,
+match true** (pass 1 and pass 2 identical). *The first writing of the cell said 26; the re-run corrected
+it — the family-(iii) table's five rows carry **seven** subjects (`KF-APP-6`/`-8` and `KF-EST-3`/`-4`
+are paired rows). The figure of record is the command's.*
+
+- **S-8 family (v), 8 members** — R-9 · SP-4 · R-20/KAD-F4 · KF-KC-16/25 · KF-SCR-1 · i-13/C-3 · K-13 ·
+  TimelineCaret probe 10 — all **UNREACHABLE-IN-CELL**. **The family is NOT double-spent**: no session
+  opened, so none of the eight is spent and the family stays intact as one re-runnable unit. KAD-F4's
+  armed trigger (**R-A's MAJOR**) is **neither revived nor resolved** and stays PROVISIONAL. K-13 stays
+  owed **before either packet writes its focus cure** (S-7).
+- **S-8 family (iii), 7 subjects** — KF-APP-6/-8 · EditorShell D-25/D-6 · TD-36 · KF-EST-3/4 — all
+  **UNREACHABLE-IN-CELL**. **S-7's order is published and unspent** so the next seat inherits it, not its
+  absence: KF-EST **P-1 first**, then **P-2**; **D-25 + KF-APP-6 in ONE 390×844 capture**, never
+  separately; KF-APP-1's crash-witness before kf-CubeScene SS-13 #8.
+- **S-8 (iii-a) — the OD-V3 390 arm: NOT PRODUCED, 0 of 8 cells** (4 scenes × 2 homes). **DISCRIMINATOR
+  honoured** (nothing partial filed as satisfying it) and **FALSIFIER honoured** (no scene shot at 390
+  alone, because none is shot). **Exact precondition written for KF.W10**, which §0j.C **KF-ODV3**
+  authorizes it to close `complete_with_misses` upon: *a servable build whose source sha the capture may
+  honestly stamp (F-3), rendered at 390 in a cell this host can open (F-1/F-2)*. **This seat rules
+  nothing** — the transport-home ruling is the orchestrator's at KF.W10 `.g`, *"Never proxied."*
+- **S-8 (iii-b) — OD-V5's 390 at-rest: NOT OBSERVED**, and **nothing is ruled**; OD-V5 stays DEFERRED
+  pending glass's dock mark (§0j.C **KF-ODV5**). **Zero glass-ui bytes read or written.**
+- **S-6 — the ChromeDock touch/menu session: NOT RUN.** M-5/C-6 witness, the M-4 rider check (the two
+  kf-MbabbMenu MUST-CARRY riders, whose carrier's *cure as worded ships an unopenable menu*) and MM-4's
+  computed-style falsifier all stay owed; `ChromeDock.vue` is itself inside the F-3 delta.
+
+#### Act 6 — what *was* measured: the static anchors, re-verified at the pin, read-only
+
+Taken with `git show`/`git grep` **at `55e9bf0d`**, never at the worktree, so they read the pinned
+substrate exactly. **6 rows, all reproducing**: `viewport-fit` absent repo-wide ⟨exit 1⟩ against
+`index.html:6`'s viewport meta (**D-25**) · `initIOSPlatformClass` at `EditorShell.vue:115`/`:133`
+(decl `iosTextEntry.ts:14`) · `clampIOSNoZoomFontSize` decl `:10` with **exactly one** consumer
+`CSSCodeEditor.vue:39`/`:137`, tested `:88`/`:89`/`:97` (**R-9**; G-KFW9-11's born-RED witness holds at
+the pin) · **`autocapitalize` / `autocorrect` / `spellcheck` each `exit 1`, zero hits repo-wide**
+(**R-20/KAD-F4/KF-KC-25**) · the three source-code `contenteditable` surfaces present
+(`CSSPasteDialog.vue:17` · `KeyframeCard.vue:46`, its `<pre` at `:41` · `KeyframesAddDialog.vue`) ·
+**six** `touch-action: none` scene declarations (`AmigaScene.vue:254` · `CubeScene.vue:12` ·
+`CubeTarget.vue:4` · `OrbitalDrag.vue:350` · `SequenceTarget.css:134` · `SquareScene.css:64`), the
+banked figure to the digit (**MISSED-F / i-13 / C-3**).
+
+**This is the probes' SUBJECT reproducing; it is NOT the device witness and it closes nothing.** The
+bank's standing — *"mechanisms closed statically, device confirmation outstanding"* — is left exactly
+where it was.
+
+#### Gate readings
+
+| gate | BEFORE | AFTER | basis |
+|---|---|---|---|
+| **G-KFW9-11** | RED | **RED** | its CLOSES names *one real-iOS-Safari session*; neither iOS cell opens (F-1/F-2) and no servable build exists at the pin (F-3). The born-RED witness re-verifies at `55e9bf0d` (Act 6) — RED at its own witness, and not turned by a substitute cell |
+| `.c`'s share of **-1 / -2 / -4 / -14** | — | **0 / 0 / 0 / 0** | 0 captures · 0 labelled rows · 0 probe discharges · 0 substrate-stamped shots, each stated as a zero rather than left to inference |
+
+#### Locks, bounds and mail
+
+- **Cell-disjoint with `.b` held**: this seat wrote **only** `safari-real/mobile-*` (2 files) plus
+  `evidence/W9/UNIT-C-MOBILE-INDEX.md`. ⟨`git diff --cached --name-only`⟩ → exactly those 3.
+- **Untouched on arrival and left so**: `scripts/dev/dev.sh` (unowned, NEVER), `CARRY-LEDGER.md`,
+  `workflows/validate-completeness.mjs` (a sibling's, dirty when this seat arrived).
+- **Zero keyframes.js bytes. Zero glass-ui bytes.** `safari-real-matrix.js` **not written and not
+  executed** — it has no lawful bundle to point at. `capture.mjs`/`states.mjs` untouched (`.a`'s alone).
+  `SURFACE-LIST.*`, `REPORT.*`, `STATES.json` untouched. No adjudicated record touched (`.e`'s alone).
+- **`LEDGER.md` not edited** — no row cell of this wave changed state at this seat.
+- **Mail (E13)**: no new mail in scope since seat 0's four-path sweep; `INBOX.md` tail remains **I-30**.
+  **0 UNREAD.**
+- **Probe parsimony**: two short `safaridriver` sessions, both terminated and verified closed; no
+  Playwright, no DevTools-MCP, no page ever loaded.
+
+#### Residuals and escalations handed forward
+
+1. **F-1 — no paired iOS device. NOT curable by any grant.** Either a device is provided, or the horizon
+   is re-planned so `safari-app/ios-device` is a **declared** UNREACHABLE cell for this pass and the
+   family-(v) rows close as UNREACHABLE-IN-CELL at wave close rather than as owed.
+2. **F-2 — the simulator cell cannot be opened by `safaridriver` 26.4. NOT curable by any grant.** It is
+   also a **separate cell** and could not discharge G-KFW9-11's device witness even if it opened.
+3. **F-3 — the pin is stale. CURABLE**, by the orchestrator taking one of `.a`'s three shapes at
+   `SUBSTRATE-PIN.md` §8. **(a)** and **(c)** are now *available* where they were not at 16:14.
+   **F-3 alone does not rescue this seat**: with a lawful pin and bundle there is still no mobile cell.
+4. **If the orchestrator wants OD-V3's 390 arm taken in `safari-app/desktop` at a 390-wide viewport**,
+   that is a **different cell, a different seat (`.b`) and a different filename prefix** — lawful only
+   if labelled `safari-app/desktop`, and **not this seat's to file under `mobile-*`**. A wave-level call.
+5. **Escalation class**: **S-13 — a gate failure not local-recoverable.** The spec's own head case is
+   *"G-KFW9-1 RED because safaridriver cannot be enabled (**the named condition is unreachable → the
+   horizon is re-planned, not faked with webkit**)"*. **This is that class at G-KFW9-11.**
+
+### `.b` — desktop-Safari cell · the PRM band · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commits**: `52ae20b8` — *"the desktop cell — the capture band re-measured and BLOCKED; the bundle
+destroyed twice, the pin moved under it"* (2 paths) · `a062629b` — *"the PRM band measured — G-KFW9-5's
+ONE enumeration (14 enforcement sites / 51 motions / 42 engine instances), G-KFW9-6's three-arm register,
+G-KFW9-7's two-direction pair"* (3 paths). **TWO commits, in that order**, so no commit carries a
+dangling forward reference: the registers cite the cell record for their blocked limbs, so the cell
+record lands first. 5 paths total, all inside `.b`'s writable set.
+
+**Status: ESCALATED.** **G-KFW9-5 is GREEN at this seat's limb.** G-KFW9-6 lands **2 of its 3** required
+measurements and G-KFW9-7 lands **0 of 1** — both remainders are *captures*, and the capture band is
+blocked by a wave-level precondition that **no grant inside this unit's bounds could cure** and that
+**changed shape during the sitting**. Nothing was substituted: no static inference is offered as a
+rendered witness, no `webkit-engine` reading enters the `safari-app` column, no bundle of unprovable
+provenance was photographed, and **no probe was spent** — so none is double-spent later.
+
+---
+
+#### Act 1 — the capture band, re-measured at this seat (not inherited), and found WORSE
+
+`.a` booked two blockers (SUBSTRATE-PIN §7/§8); `.c` re-measured them at 16:17/16:20. **This seat
+re-measured again and the picture moved twice more.** Timeline, each row a command at the clock printed:
+
+| clock | fact | command → output |
+|---|---|---|
+| **16:18:48** | tree quiescent, bundle present | ⟨`git rev-parse HEAD`⟩ → `5388907b…`; ⟨`git rev-parse origin/master`⟩ → `55e9bf0d…`; ⟨`git diff --name-only -- demo/ \| wc -l`⟩ → **0**; ⟨`ls -la dist/gh-pages`⟩ → `index.html` 8,381 B + `assets/` **51** |
+| **16:18:26** | the commit that would name the bundle | ⟨`git log -1 --format='%H%n%ci%n%s' 5388907b`⟩ → `2026-09-17 16:18:26 -0400` · *"build(kf/check): wire vue-tsc into `check` … (X.KF.W4 .a / G-KFW4-1)"* |
+| **16:17:47** | …but the bundle is **39 s OLDER than that commit** | ⟨`stat -f '%N %Sm' dist/gh-pages/index.html`⟩ → `Sep 17 16:17:47 2026` |
+| — | its whole-tree digest, taken while it existed | ⟨`find dist/gh-pages -type f \| sort \| xargs shasum -a 256 \| shasum -a 256`⟩ → `a599205a5e0da27f5a8a030fbe4451f74334a0e94c4300cf7fa9a5d3a3dfad54` |
+| **16:31:58** | **bundle destroyed a SECOND time** | ⟨`find dist -maxdepth 1 -type f -exec stat -f '%Sm %N' -t '%H:%M:%S' {} \;`⟩ → `16:31:58` on `dist/keyframes.js`, `registry-*.js`, `sequence-*.js`; `16:31:59` on `dist/keyframes.d.ts` — the same self-emptying `build:lib` `.a` diagnosed at §3 |
+| **16:35:38** | no bundle; tree dirty again, with a **different** sibling's chassis | ⟨`ls dist/gh-pages`⟩ → `No such file or directory`; ⟨`git status --porcelain -uno`⟩ → `M .dependency-cruiser.cjs` · `M .github/workflows/ci.yml` · `M package-lock.json` · `M package.json` · `M vitest.config.ts` |
+
+**Two findings this seat adds to `.a`'s and `.c`'s, neither softening them:**
+
+1. **The 16:17 bundle's provenance is UNPROVABLE, not merely foreign.** `.c` recorded it as *"built from
+   `5388907b`"* — at that clock the honest reading. Its mtime is **39 seconds earlier than the commit**,
+   so it was compiled from an **uncommitted working tree** that matched no ref at build time. That
+   downgrades *"built from `5388907b`"* from a measurement to an inference; `.c`'s cell and this one both
+   hung on it, and neither photographed it. `.a` §7 names this case in its **what must NOT happen** row —
+   *"a capture against a **stale or foreign** bundle … evidence that cannot be proved to be the bytes
+   anyone looked at."*
+2. **A one-off rebuild under a grant does NOT open the band.** Twice in one wave an unrelated sibling's
+   install/`build:lib` emptied `dist/` (15:26:18 · 16:31:58), and the demo source went dirty → clean →
+   dirty (16:13 → 16:18 → 16:35). **The kf checkout is a shared, actively-written workspace, and in it a
+   gh-pages bundle has a lifetime of minutes.** The band needs a **declared quiescence window** or a
+   **separate serving tree** (`.a`'s shape (b)) — not one command.
+
+**And the re-pin, PRICED rather than feared.** The census was re-derived at **both** refs and differenced:
+⟨`diff prm-pin.txt prm-frontier.txt`⟩ → **25 lines each, exactly ONE differs** (`EasingTarget.vue:234` →
+`:241`); ⟨`diff eng-pin.txt eng-frontier.txt`⟩ → **40 lines each, exactly THREE differ** (all in
+`useSquareDemo.ts`: `:60`→`:85`, `:61`→`:86`, `:343`→`:368`). **A re-pin costs four line numbers, not a
+re-census.** Offered as evidence for the orchestrator's ruling — **this seat takes no shape and re-pins
+nothing** (`.a` §8: the decision is above a phase-2 cell seat, and `.c` holds the same line).
+
+#### Act 2 — G-KFW9-5: THE PRM ENUMERATION (`evidence/W9/PRM-ENUMERATION.md`)
+
+Measured over the **published pin** `55e9bf0d` and never over the working tree — ⟨`git archive 55e9bf0d
+demo | tar -x -C <scratch>`⟩ — because the tree moved three times during this sitting and a census taken
+from it would be a census of nobody's substrate. Every figure **self-counted from the settled bytes and
+double-run identical**.
+
+**REGISTER A — enforcement (§6.5's own subject).** ⟨`grep -rn 'prefers-reduced-motion' demo/`⟩ → **18
+lines**, 4 prose, **14 sites**; ⟨`grep -rn 'respectReducedMotion' demo/`⟩ → **7 lines**, 3 prose, **4
+sites**. Published: **14 enforcement sites across 14 files by four mechanisms** — 10 CSS `@media` blocks ·
+2 `window.matchMedia` (`useCubeDemo.ts:164`, `useSequenceInstrument.ts:31`) · 1 `useMediaQuery`
+(`EasingTarget.vue:234`) · 1 `usePreferredReducedMotion` (**`AmigaScene.vue:58`**, read at `:107`) —
+**plus 4 engine-flag sites §6.5 counts nowhere**.
+
+- **§6.5 is wrong in BOTH numerals**: *"13 enforcement sites across 12 files"* — 13 misses the fourth JS
+  site and counts the engine layer at zero; **12 undercounts the files by two** (the 14 sites sit in 14
+  distinct files; `EasingTarget.css` and `EasingTarget.vue` are two files).
+- **§A's anchor row reproduces at the bytes**: *"JS tally amends to **4 sites / 3 mechanisms**
+  (AmigaScene.vue:58 the uncounted fourth)"* — found here by an independent sweep, not inherited.
+- **6 of the 10 CSS blocks gate `transition` in files with no local `animation` at all** (C-1, C-2, C-3,
+  C-6, C-7, C-9; bodies read at the bytes). That is the **counted** form of *"the CSS blocks the comments
+  call compliance govern the layer with no motion"*.
+
+**REGISTER B — every motion, four layers.** **51 motion sites**: **42 engine** · **7 CSS keyframe-driven**
+· **1 rAF loop** · **1 timer tour** · **0 direct WAAPI** (⟨`grep -rn '\.animate(' demo/`⟩ → **0** — every
+WAAPI motion is engine-delegated, which is why KF-TD-1 is a library question with a demo witness). The
+42-row engine table is **emitted from the settled bytes by a generator whose column-derivation rule is
+printed in its header**, double-run identical; verified again from the committed file
+⟨`awk '/^\| file \| line \| construct/{f=1;next} …{c++} END{print c}'`⟩ → **42**, flags **literal:3
+stored:3**.
+
+**The three findings the register exists to state:**
+
+1. **`0 of 42` uses the intensity form.** All three opt-ins pass boolean `true`; the resolver maps `true`
+   to **`0`** under an active query (`internal/reduced-motion.ts:113-131`, read verbatim). **The demo's
+   opt-ins ARE the binary snap the adjudicated cure forbids.**
+2. **Three engine instances carry a TRUE flag that the group arm discards.** `useCubeDemo.ts:58` · `:80` ·
+   `:109` take their options from `getStoredAnimationOptions(…)`, which seeds
+   `structuredClone(defaultStoredAnimationOptions)` (`animationOptionsStore.ts:108-113`) whose
+   `animationOptions` **is** `defaultAnimationOptions` (`:62`) carrying `respectReducedMotion: true`
+   (`:49`). All three are children of the group at `:116`, and the group's play path reads
+   **`group.respectReducedMotion`** (`group/lifecycle.ts:79-80`), never a child's bag. **A true flag in
+   the bag, a false gate at the group** — a fifth PRM-inert mechanism, live at the flagship scene.
+3. **The one gated cube motion is gated BY HAND.** `changeGraphPerspectiveAnim` (`useCubeDemo.ts:130`,
+   options `{duration: 650, timingFunction: "ease-out-back"}`, no flag) is fenced by the hand-rolled
+   `matchMedia` at `:164-168`, which writes `graphEl.style.transform` and never calls `.play()`.
+   **"cube gates 1 of 4 engine motions (650 ms graph settle only)" reproduces exactly** — with *why*
+   added.
+
+**The rows resolve.** ⟨`awk 'NR>=106 && NR<=123 && /^- \*\*/' KF-W9.md | wc -l`⟩ → **18** bullets in §A
+against the gate's *"seventeen banked rows"*; **all eighteen resolve against the enumeration**, each with
+its coordinates, so the gate's condition holds under either enumeration. The candidate eighteenth is
+named (**D-8/C-§5** ⟨kf-SequencePlayhead⟩, banked *INFO, NO-CHARGE*) **as a reading, adjudicated by
+nobody here**; **no row is re-graded by this seat**.
+
+**Gate reading — G-KFW9-5: RED → GREEN at this seat's limb.** BEFORE ⟨`sed -n '462p'
+lane-frontend.md`⟩ → *"### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files"* with no
+replacing enumeration anywhere in the tree. AFTER: ONE enumeration exists, every motion with layer and
+flag state, 18/18 rows resolving. **The amendment rides as a DRAFT (§6 of that file) for `.e` alone** —
+**this seat wrote no census byte**, and `lane-frontend.md §6.5` is untouched dated evidence.
+
+#### Act 3 — G-KFW9-6: the three measurements (`evidence/W9/G-KFW9-6-REGISTER.md`)
+
+The gate closes on **three measurements only**, and its falsifier is *"fails if a green is recorded on the
+constraint's behalf rather than on the three measurements; fails if the register omits an arm."*
+
+**(i) THE ARM REGISTER — LANDED. Three arms exist in the engine; three are registered.** Every coordinate
+re-read line-by-line at the pin and re-verified by a second pass ⟨`git show 55e9bf0d:<path> | sed -n
+'<l>p'`⟩ over all nine published coordinates:
+
+| arm | site | reads | demo state |
+|---|---|---|---|
+| **GROUP** | `group/group.ts:57` (`respectReducedMotion = false;`, docblock `:55-56`) → `group/lifecycle.ts:79-80` | `group.respectReducedMotion` — the group's OWN field | **0 of 4 groups set it** (`useAmigaDemo.ts:153` · `useCubeDemo.ts:116` · `SquareScene.vue:174` · `CopyButton.vue:95`); **no `g.respectReducedMotion` assignment exists in `demo/`** |
+| **STANDALONE up-front/final-frame** | `strategies.ts:109-110` | `anim.options.respectReducedMotion` | 3 of 33 standalone instances, **all boolean `true`** |
+| **STANDALONE live-flip per tick** | `frame.ts:131-132` → `snapToReducedMotion` `:137` | `anim.options.respectReducedMotion` | the same 3 — **and unreachable on the WAAPI lane** (Act 4) |
+
+**(iii) THE CONSUMER CENSUS — LANDED.** ⟨`git grep -n 'reducedMotionScale' 55e9bf0d -- src/ demo/ test/
+scripts/`⟩ → **6 hits, whole output printed** in the register: export `index.ts:50` (LIGHT barrel),
+definition `internal/reduced-motion.ts:125`, import `physics/spring/progress.ts:2`, and the three
+assignments `:153` · `:232` · `:385`; applied at `:323`/`:352`, field `private amplitudeScale = 1` at
+`:100`. ⟨`git grep -c 'reducedMotionScale' 55e9bf0d -- demo/`⟩ → **exit 1, no hits**. **0 demo · 3
+library.** R3-9's restatement holds: the resolver is **not** dead code, the spring lane is the shipped
+precedent, and the gate's falsifier (*"fails if … any re-statement that the resolver is unconsumed"*) is
+honoured.
+
+**(ii) THE KAD-11 PAIR'S REST-STATE CAPTURE — UNMEASURED, blocked.** Specified in full so the shot is
+unambiguous: the pair is `KeyframesAddDialog.vue:128` + its twin `KeyframesEditor.vue:255` (both bags
+**duration-only**, both re-read at the pin, PAIR LOCK intact); the witness is a **frame pair** at one
+viewport with the discriminator *"do the two frames differ anywhere but the bar's fill"* and the
+falsifier *"pixel-equal in the bar's region confirms the hazard"*. **The static half is in hand and is
+NOT offered as the measurement** — a static inference dressed as a rest-state witness is exactly the
+substitution this wave convicts.
+
+**The unification constraint reads UNMEASURED by design** — HANDED to KF.W5 (engine) and KF.W6
+(tokenization) as a DECLARED SEQUENCING OBLIGATION (RULINGS-4 R4-3, booked at both ends). Neither act has
+landed; **no discharge is recorded**, and recording one would be a measurement of *their* act, never a
+green of this gate.
+
+**Gate reading — G-KFW9-6: RED → RED (correctly), 2 of 3.** *A gate that closes on the measurements it
+could take rather than the measurements it names is the failure this wave exists to convict.*
+
+#### Act 4 — G-KFW9-7: the two-direction pair (`evidence/W9/G-KFW9-7-TWO-DIRECTION.md`)
+
+**ONE pass because it is ONE surface, measured**: `EditorStartScreen.vue:29`
+`<span class="hero-dots"><TypingDots /></span>` (import `:63`) inside the hero `<h1>` at `:27` — **the LCP
+heading**. KF-EST-11 and KF-TD-1 are two questions about one instance.
+
+- **The instrument, at its bytes**: `TypingDots.vue:46` `CYCLE_MS = 1200` · **`:53` `REST_OPACITY = 0.2`**
+  — *KF-EST-11's "frozen at 0.2" located at its constant*, since `:95`'s `100%` frame **is**
+  `opacity: REST_OPACITY` and the gated snap-to-final lands exactly there · `:86-91` the options bag with
+  `iterationCount: "infinite"`, `timingFunction: "steps(4, jump-none)"`, **`respectReducedMotion: true`**
+  · `:98` `anim.play()`, called **once**, at mount.
+- **RELEASE (P-9)**: the CSS wave `AnimatedText.vue:100` is gated at `:121`→`:123` and **re-arms for
+  free** (a media query is continuously evaluated); the engine dots decide at `play()`
+  (`strategies.ts:109-110`), have **no PRM watcher in the file**, and the only re-evaluation path
+  (`frame.ts:131-137`) **runs only while a rAF loop ticks** — an animation already snapped has no loop.
+  **There is no code path by which a released preference re-arms them.**
+- **ENGAGEMENT (U-1)**: ⟨`git grep -n 'snapToReducedMotion' 55e9bf0d -- src/ demo/ test/ scripts/`⟩ →
+  **7 hits, whole output printed**, of which **exactly one call site**, `frame.ts:137` inside `playFrame`
+  (decl `:121`) — **the rAF lane**; ⟨`git grep -c 'withReducedMotion' 55e9bf0d --
+  src/animation/waapi/delegation.ts`⟩ → **exit 1**; ⟨`git grep -n 'shadowTick' … delegation.ts`⟩ →
+  **`:53`** decl · **`:64`** loop. **`shadowTick` never consults the gate; the claim stands at the
+  frontier.** The docblock asserting the opposite is at `strategies.ts:66-75`, quoted verbatim, decl
+  `:76`.
+- **THE LANE CHAIN, measured to its one undecided link** (this is new): `constants/defaults.ts:86`
+  **`useWAAPI: true`** — WAAPI is opt-**out**; ⟨`grep -rn 'useWAAPI' demo/`⟩ → **0 hits**, so the dots
+  inherit `true`; `strategies.ts:117` branches on it; `:118-123` then turns on `isWAAPIEligible(anim)`,
+  whose eight enumerated rejection reasons (`eligibility.ts:114`…`:259`) all read as not-applicable to
+  `opacity` + `steps(4, jump-none)` — **but this seat does not adjudicate the predicate by reading it.**
+  The protocol **reads the lane from the running page** instead:
+  `document.getAnimations().filter(a => a.effect?.target?.closest?.('.hero-dots'))` — non-empty ⇒ WAAPI,
+  empty ⇒ rAF — with `anim.waapiIneligibleReason` (set `:123`, cleared `:120`) as the corroborating read.
+  **The lane is made a measurement, not a prediction**, which is the whole point of the SUBSTRATE
+  INVERSION (ruling 1).
+- **The four-frame protocol** (F1 no-preference → F2 engage → F3 release → F4 reload-under-reduce as the
+  control separating *"the live flip has no path"* from *"PRM never reaches this animation"*), with the
+  OS toggle and **never** a devtools emulation — *an emulated preference is a different cell*.
+
+**Gate reading — G-KFW9-7: RED → RED (correctly).** BEFORE: *"neither direction witnessed."* AFTER: still
+neither — **the gate closes on ONE LIVE PASS and this seat took none.** *A gate whose subject is "was this
+observed?" cannot be closed by any amount of reading, and the register says so in the same breath as it
+publishes the reading.*
+
+#### Act 5 — S-8: the families owed, specified, UNSPENT
+
+`evidence/W9/DESKTOP-CELL-B.md` §3 and the cell record `safari-real/desktop-CELL-2026-09-17.md`. Each
+family carries its shot list, discriminator and falsifier so the shots are unambiguous when the band
+opens, and each states the **same single precondition** (Act 1):
+
+- **(i) three-rect, ONE mount** — SS-13 #1 across kf-SequenceAxis · SequencePlayhead · SequenceScene ·
+  SequenceTarget. **K-29 stands against ruling it statically**, so no source reading is offered in its
+  place. **UNMEASURED · 0 probes spent.**
+- **(ii) the `Card cartoon tier="quiet"` plate, ONCE** — KF-AV-19/D-8 · KeyframeTimeline D-6/D-7 ·
+  TimelineTrack D-5/D-6/D-m3 · TimelineCaret D·M-7. **KF-AV-28 binds here as WITNESS-ORDERING ONLY**: this
+  wave spends no cure on any of the seven governed rows, so a capture is lawful before KF.W7's verdict —
+  but a verdict-superseded row's witness is **reported as superseded at close, never silently inherited**.
+  Contrast numerals **re-derived at capture** (KF-SKEL-22), frames stamped (KF-AX-4). **UNMEASURED · 0
+  probes spent.**
+- **(iii-a) the OD-V3 packet's 1280 arm** — both transport homes × `cube` · `amiga` · `square` · `easing`
+  at 1280 against real Glass 7 = **8 cells + 4 both-homes frames = 12 frames, 0 taken**. **The packet is
+  INCOMPLETE and its exact precondition is stated in that form deliberately** — it is the shape §0j.C
+  authorises KF.W10 `.g` to close `complete_with_misses` on, and a sibling's row should cite a measured
+  precondition rather than an absence. **THIS WAVE PRODUCES THE PACKET AND RULES NOTHING**: no verdict on
+  a transport home is formed here or implied by the shot list.
+
+#### Locks, bounds, probes and mail
+
+- **Bounds clean.** ⟨`git status --short`⟩ after both commits → only `CARRY-LEDGER.md` and
+  `scripts/dev/dev.sh` (**both arrived dirty; untouched, unstaged**) and a sibling's
+  `waves/evidence/KF-W4/*`. **Zero keyframes.js bytes written. Zero glass-ui bytes.**
+  `safari-real-matrix.js`, `capture.mjs` and `states.mjs` **unmodified** — `.b` holds no harness carve.
+  `LEDGER.md` is not in this unit's writable set and was not edited.
+- **Cell-disjoint with `.c`** as the plan requires: this seat wrote exactly one `safari-real/desktop-*`
+  path and nothing else under `safari-real/`.
+- **OP-4**: `safari-app/desktop`'s three `.media` strings are **already recorded, dated, for this exact
+  cell** at SUBSTRATE-PIN §4.4. **This seat opened no second WebDriver session** — probe parsimony (owner
+  edict 2026-07-12; runbook §5.2): a duplicate reading of a recorded capability, on the same host, in the
+  same cell, **with nothing to load**, is spend without discrimination. *Stated so the absence is a
+  decision, not an omission.*
+- **Mail (E13)**: four paths re-swept read-only at this seat's clock — `docs/tranches/V/coordination/`
+  (newest `value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, **our own outbound**) ·
+  `../glass-ui/docs/tranches/BK/coordination/` (newest `glass-outbound-2026-08-29-valuejs-o20-ack.md` =
+  **I-30**) · `../keyframes.js/docs/tranches/V/coordination/` (every `VALUEJS-INBOUND-*` is ours) ·
+  `../sci-report/atlas/docs/tranches/Q/coordination/` (both value-addressed letters already rowed).
+  ⟨`grep -c '^| I-' INBOX.md`⟩ → **33**, tail still **I-30**. **0 unrowed · 0 UNREAD in scope.** No row
+  minted and no INBOX byte written (not in this unit's writable set; `.a`'s open sweep line stands).
+
+#### ESCALATION — handed up with its measurements
+
+**Class: S-13 — a bounds expansion this unit may not take, compounded by a sequencing decision above a
+phase-2 cell seat.** The ask `.a` filed (*"who rebuilds and under which grant"*) is **now insufficient**;
+this seat's measurements make it three questions:
+
+1. **A serving artifact that SURVIVES** — a **declared quiescence window** on the kf checkout (no sibling
+   `npm install` / `build:lib` while the band runs) **or** `.a`'s **shape (b)**: build and serve from a
+   **separate clone** at the named ref, needing a grant for *that* tree only and never for the sacred
+   checkout. *A single rebuild does not open the band — it restores an artifact the next sibling install
+   destroys, twice-measured.*
+2. **The substrate ruling** — hold `55e9bf0d` (shape (b) preserves the published pin exactly) **or**
+   re-pin to `5388907b` (shape (c)), **priced at four drifting coordinates** and carrying the fact that
+   `5388907b` is **local and unpushed**, so `master == origin/master` — the identity §0j.C **KF-WRITE**
+   uses to define this wave's execution substrate — **is false at the bytes**.
+3. **The bundle-hash discipline, unchanged** — `capture.mjs` aborts without `--bundle-sha=` by design;
+   whoever builds hashes the tree and passes it. **No seat may default it, and this seat did not.**
+
+**What is NOT asked**: permission to capture anyway, to soften a stamp, to re-pin on a seat's own
+authority, or to substitute a cell. **What was refused, explicitly**: building in the kf tree · serving
+the foreign 16:17 bundle · stamping `55e9bf0d` on bytes compiled from something else · stashing or
+checking out a sibling's worktree · offering a `webkit-engine` run in the `safari-app` column — *that
+last is I-20's convicted failure by name, and it is the tempting one, so it is written down.*
+
+**Carried forward for `.e`**: the census-amendment **DRAFT** at `PRM-ENUMERATION.md` §6 (placed by `.e`
+alone; `CENSUS-2026-08-03.md` and `lane-frontend.md §6.5` untouched by this seat) · the OD-V3 packet's
+**exact precondition**, in the form KF.W10 `.g` can cite · the KF-AV-28 witness-ordering obligation on
+S-8 family (ii) · **0 probes spent at this cell**, so the surface list's terminal states are unchanged by
+`.b` and nothing is double-spent later.
+
+##### `.b` ADDENDUM 16:41 — the churn's third and fourth data points, and the pattern is now a REGULARITY
+
+*Appended, not rewritten (E-3). The section above states the truth at its own clock; this states it at a
+later one. It **corroborates** the escalation and changes two of its numerals.*
+
+⟨`git rev-parse --short HEAD`⟩ → **`fb509edd`** (was `5388907b` at 16:18, `55e9bf0d` at wave-open) —
+⟨`git log --oneline 55e9bf0d..HEAD`⟩ → **two commits**, `fb509edd` *"ci(kf/merge-path): register
+plugin-vue … (X.KF.W4 .b)"* + `5388907b` *"build(kf/check) … (X.KF.W4 .a)"*. ⟨`git rev-parse
+origin/master`⟩ → **still `55e9bf0d`**: the pin is now **two commits behind an unpushed HEAD**, and
+⟨`git diff --name-only 55e9bf0d..HEAD -- demo/ | wc -l`⟩ → **23** demo files between them.
+⟨`git status --porcelain -uno | wc -l`⟩ → **0** (quiescent at this instant).
+⟨`ls -1 dist/gh-pages/assets | wc -l`⟩ → **51** — **a third bundle exists**.
+
+**And it is pre-commit again, by the same 20–40 s margin**: ⟨`stat -f '%N %Sm'
+dist/gh-pages/index.html`⟩ → **16:39:51** vs ⟨`git log -1 --format='%ci'`⟩ → **16:40:12** — the build
+precedes its commit by **21 s**, exactly as the 16:17:47 bundle preceded `5388907b` by **39 s**.
+**Twice measured is a workflow, not an accident**: the sibling builds, then commits, so **every bundle
+this seat has found on disk was provably compiled from an uncommitted tree.** A capture taken at any of
+those three moments could name a `bundleSha256` truthfully and a `substrateSha` only by assertion.
+
+**The escalation is unchanged in kind and sharper in degree.** Its numerals update: *pin + 1* → **pin +
+2**; *one bundle destroyed twice* → **three bundles, two destroyed, each pre-commit**. Its ask is
+unchanged: a serving artifact that survives (quiescence window **or** separate clone), the substrate
+ruling, and the unchanged `--bundle-sha=` discipline. **This seat still captures nothing, re-pins
+nothing, and photographs no bundle whose provenance is an inference.**
+
+---
+
+## Close
+
+**Seat**: CLOSE (Track B), VERIFY-ONLY · **SERVED MODEL: claude-opus-5[1m]** · 2026-09-17.
+**Verdict: PARTIAL.** Three of thirteen gates are GREEN at the wave; **two of five seats never sat**
+(`.d`, `.e`); the whole capture band is BLOCKED on a precondition no seat in this wave may cure. Every
+reading below is a command **re-run at this seat**, not inherited from a unit's cell.
+
+### Act 1 — commits exist; every path is inside its unit's writable set
+
+**Ten commits**, all present ⟨`git log -1 --format='%h %ci %s' <sha>`⟩, all 2026-09-17:
+
+| unit | commits | paths (⟨`git show --stat`⟩) | bounds |
+|---|---|---|---|
+| `.a` | `dfe890e1` · `161e1a67` · `d629be8b` · `a08d1dec` | 13 chassis paths (`capture.mjs` · `states.mjs` · `REPORT.{md,json}` · `STATES.json` · 8 × `evidence/W9/**`) + `evidence/W9/SUBSTRATE-PIN.md` + the record ×2 | **CLEAN** — exactly `.a`'s set |
+| `.c` | `6119fe6f` · `c509b14a` | `safari-real/mobile-CELL-RECORD-2026-09-17.md` · `safari-real/mobile-cell-foreclosure-2026-09-17.json` · `evidence/W9/UNIT-C-MOBILE-INDEX.md` + the record | **CLEAN** — `mobile-*` only |
+| `.b` | `52ae20b8` · `a062629b` · `f0b3aeba` · `353fa9d1` | `safari-real/desktop-CELL-2026-09-17.md` · 4 × `evidence/W9/**` + the record ×2 | **CLEAN** — `desktop-*` only |
+| `.d` | — | — | **NEVER SAT** |
+| `.e` | — | — | **NEVER SAT** |
+
+**Union of every path the ten commits touch** ⟨`for c in …; do git show --name-only --format='' $c; done | sort -u`⟩ → **22 paths**, every one inside §Bounds' writable set. **Zero keyframes.js bytes · zero
+glass-ui bytes** (⟨`git -C ../glass-ui status --porcelain | wc -l`⟩ → **0**) · ⟨`… | grep -c 'dev.sh'`⟩ →
+**0**. `safari-real-matrix.js` **unmodified** — ⟨`git log --oneline -1 -- …/workflows/safari-real-matrix.js`⟩
+→ `c0078d96` (a pre-wave commit) and ⟨`git status --porcelain <it>`⟩ → empty. `LEDGER.md` untouched by
+every unit, as each unit's own bounds block states.
+
+**Cell-disjointness held**: `.b` wrote exactly one `safari-real/desktop-*`, `.c` exactly two
+`safari-real/mobile-*`, and `REPORT.*`/`STATES.json` were written by `.a` alone. **`.d`'s `hcm-*`/`at-*`
+prefixes are empty** ⟨`ls -1 …/safari-real/ | grep -c 'hcm-\|at-'`⟩ → **0**, and `.e`'s
+`SS-13-CAPTURE-RECEIPT.md` ⟨`ls -la`⟩ → **No such file or directory**.
+
+### Act 2 — every gate re-run at this seat, against the spec's own GREEN definitions
+
+| gate | BEFORE (open) | **AFTER (close)** | this seat's witness |
+|---|---|---|---|
+| **G-KFW9-1** · a real-Safari cell exists | RED | **RED** | ⟨`git ls-files …/safari-real/ \| wc -l`⟩ → **7** vs ⟨`ls -1 \| wc -l`⟩ → **34**; ⟨`git ls-files …/shots/ \| wc -l`⟩ → **0** vs **11**. The 3 tracked adds are **cell RECORDS, not shots**: ⟨`git ls-files …/safari-real/ \| grep -ci sha256`⟩ → **0**, `REPORT.json.captures` → **0**. CLOSES names *"safaridriver capture … every shot force-added; per-shot sha256 sidecar"* — **zero of all three** |
+| **G-KFW9-2** · cell separation (I-20) | RED | **RED** *(mechanism GREEN at `.a`'s limb only)* | Mechanism verified here, not inherited: ⟨`grep -c 'safari-app\|webkit-engine\|ios-device\|ios-simulator' capture.mjs states.mjs`⟩ → **`capture.mjs:14 · states.mjs:10`**; `ROSTER_DIGEST` **byte-identical in both files** (`255695bc…2035`); ⟨`node --check`⟩ clean on both; ⟨`node capture.mjs`⟩ and ⟨`node states.mjs`⟩ both **abort** at `assertSubstrate` — *"G-KFW9-14: `--bundle-sha=` is REQUIRED"* — so `rosterGuard()` passed with the injected digest. **But the CLOSES is about RESULTS**: `REPORT.json.cellLedger` → **10 cells, all `state: "UNMEASURED"`, `captures: 0`**, and **9 of 10 carry `capability: null`** against *"each cell carries OP-4's `.media` capability record"*. `.c`'s two foreclosures are **not folded** — the iOS cells still read `UNMEASURED`, not `UNREACHABLE-IN-CELL`, because `.e` never sat |
+| **G-KFW9-3** · the wave's own scoped surface list | RED | **GREEN** | ⟨`node -e '…d.probes.length'`⟩ → **590**, double-run identical; ⟨`head -12 REPORT.md`⟩ is **kf-scoped** (*"Denominator: 590 = 565 enumerated + 25 prose-carried, over 58 adjudicated records"*) where the born-RED head read *"4 matrices × 15 routes = 60 captures"*, the value.js corpus; `73,568` appears **only** as *"the thing rejected"*; `SURFACE-LIST.json.seeds` carries the VISUAL-AUDIT-INPUT rows as seeds; **no fraction precedes the list** — the gate's explicit fail condition |
+| **G-KFW9-4** · SS-13 residue, 0 of ≈590 | RED | **RED** | Denominator **re-derived by my own script at my own clock, double-run identical**: **`h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58`** — reproducing `.a`'s figure and the spec's to the digit. **S-13's material-divergence trigger is NOT armed.** Terminal states ⟨`node -e` over `REPORT.json.probeTally`⟩ → **`EXECUTED 0 · RETIRED 0 · UNREACHABLE-IN-CELL 0 · UNMEASURED 590`**, and `SURFACE-LIST.json` agrees (`{"UNMEASURED":590}`). **0 of 590** |
+| **G-KFW9-5** · the PRM census is made true | RED | **GREEN** | ⟨`sed -n '462p' lane-frontend.md`⟩ → still *"13 enforcement sites across 12 files"* — **correct and required**: the gate says *"the lane file stays dated evidence"*. The replacing enumeration exists and is ONE: `evidence/W9/PRM-ENUMERATION.md` (29,570 B, 99 table rows, §§0–7), REGISTER A = 14 enforcement sites / 4 mechanisms, REGISTER B = 51 motions across four layers with flag state. §3's resolution table ⟨`grep -c '^| '`⟩ → **19 lines = header + 18 rows**, against ⟨`awk 'NR>=106 && NR<=123 && /^- \*\*/' KF-W9.md \| wc -l`⟩ → **18** §A bullets — **18/18 resolve**, so *"each of the seventeen rows resolves"* holds under either enumeration. The census amendment is drafted at §6 under `evidence/W9/**`, which is exactly the home §Bounds assigns it |
+| **G-KFW9-6** · intensity form + final-frame hazard | RED | **RED — 2 of 3** | (i) ARM REGISTER **landed**: ⟨`git show 55e9bf0d:…/defaults.ts \| sed -n '87p'`⟩ → `respectReducedMotion: false,`; group/standalone/live-flip arms all registered. (iii) CONSUMER CENSUS **landed**, re-run here at the pin: ⟨`git grep -n 'reducedMotionScale' 55e9bf0d -- src/`⟩ → **6 hits** (`index.ts:50` · `internal/reduced-motion.ts:125` · `physics/spring/progress.ts:2`/`:153`/`:232`/`:385`); ⟨`git grep -c … -- demo/`⟩ → **exit 1, no hits**. **0 demo · 3 library**, so the falsifier (*"any re-statement that the resolver is unconsumed"*) is honoured. **(ii) the KAD-11 rest-state CAPTURE is UNMEASURED** — a capture, blocked by the band. The gate's own falsifier forbids closing on the two it could take |
+| **G-KFW9-7** · the two-direction PRM pair | RED | **RED** | Re-run at the pin: ⟨`git grep -n 'snapToReducedMotion' 55e9bf0d -- …/play-lifecycle/`⟩ → decl `strategies.ts:76`, **sole call site `frame.ts:137`** (the rAF lane); ⟨`git grep -c 'withReducedMotion' 55e9bf0d -- src/animation/waapi/delegation.ts`⟩ → **exit 1** — KF-TD-1's *"`shadowTick` never consults it"* stands at the pin. CLOSES names *"P-9 + U-1 in ONE pass"*; **zero passes were taken.** The four-frame protocol is specified at `G-KFW9-7-TWO-DIRECTION.md` and unspent |
+| **G-KFW9-8** · forced-colors measured back into effect | RED | **RED** | ⟨`git grep -rn 'forced-colors' 55e9bf0d -- demo/ \| wc -l`⟩ → **0** — re-measured here, the ninth independent seat, and the gate's *recorded result* half holds. But CLOSES also names *"one WHC capture per fold family"* and *"the safari-app column carries OP-4's capability reading"* on the **rendered focus indicator** — **`.d` never sat**; no WHC capture exists in any cell |
+| **G-KFW9-9** · the authored REMOVAL, before-witness | RED | **RED** | Both unlayered copies re-read at the pin: ⟨`git show 55e9bf0d:demo/styles/design-idioms.css \| sed -n '74,80p'`⟩ → `.focus-ring:focus-visible { box-shadow: var(--focus-ring-shadow); outline: none; }`; ⟨`… playback-idiom.css \| sed -n '70,76p'`⟩ → `.btn-playback:focus-visible { … outline: none; }`. **Different selectors, same (0,2,0).** CLOSES is the **BEFORE witness** — a shot, in the safari-app and real-HCM cells, with sha256 + cell + substrate ref. **None taken; `.d` never sat.** The AFTER witness correctly reads UNMEASURED (KF.W13's act) |
+| **G-KFW9-11** · the iOS no-zoom floor | RED | **RED** | ⟨`git grep -n 'clampIOSNoZoomFontSize' 55e9bf0d -- src/ demo/ test/`⟩ → decl `iosTextEntry.ts:10`, **exactly one consumer** `CSSCodeEditor.vue:39`/`:137`, tested `:88`/`:89`/`:97`. CLOSES names *"one real-iOS-Safari session"*; `.c` measured **both iOS cells foreclosed** — no paired device, and `safari:useSimulator` refused by the platform. **S-13's head class, at this gate** |
+| **G-KFW9-12** · every probe carries a discriminator and a falsifier | RED | **GREEN** | Both registers published **with** the list and re-counted here from the settled JSON: NEGATIVE — **11 retired probes · 4 traps · 6 retired-records** (`figures: {records:6, probes:11, traps:4}` reproducing §H exactly; the 4 traps sit in 4 further records); ESCALATION — **13 triggers · 12 distinct records · 3 canReachBlocker**, and ⟨`node -e`⟩ → **every trigger carries a non-empty `discriminator` AND `falsifier`**, every trap likewise. **0 retired probes re-enter the live list** ⟨`node -e` intersect⟩ → **0** — the gate's stated failure mode, measured absent. The 590 live rows carry `discriminator: null` **by design and mechanically**: `SURFACE-LIST.json.executedRequires` = `["capture","sha256","substrateSha","cell","discriminator","falsifier"]` and `capture.mjs` `assertProbeTerminal()` (`:181`) THROWS on a transition to EXECUTED without them — the rule is **enforced, not requested** |
+| **G-KFW9-13** · escalation triggers close with addenda | RED | **RED** | ⟨`grep -rl 'PROVISIONAL' registry/adjudicated/kf-*.md \| wc -l`⟩ → **0**; ⟨`grep -rl 'ADDENDUM.*2026-09-17' kf-*.md \| wc -l`⟩ → **0**. **Zero addenda banked** — `.e`, their sole lawful author, never sat. The gate's own close clause is discharged here instead: **all 13 triggers are reported PROVISIONAL at close** (⟨`node -e` over the register⟩ → `states: {"UNMEASURED":13}`), over 12 records, 3 of them able to reach BLOCKER |
+| **G-KFW9-14** · substrate naming and witness refresh | RED | **RED** | The pin is published (`SUBSTRATE-PIN.md`, `REPORT.json.substrate`) and ancestry re-verified here: ⟨`git -C ../keyframes.js rev-parse kf-sacred-snapshot-2026-09-17`⟩ → `6d280ee7…`, ⟨`…^`⟩ → `8281638c0ac4…` — the disqualified head is the snapshot's direct parent, by ref only. **But the substrate has MOVED AGAIN and is now worse**: ⟨`rev-parse HEAD`⟩ → **`fb509edd`**, ⟨`rev-parse origin/master`⟩ → **`55e9bf0d`**, ⟨`rev-list --left-right --count origin/master...HEAD`⟩ → **`0  2`** — **two commits ahead and UNPUSHED**, so `master == origin/master`, the identity §0j.C **KF-WRITE** uses to *define* this wave's substrate, **is FALSE at the bytes**; ⟨`git diff --name-only 55e9bf0d..HEAD -- demo/ \| wc -l`⟩ → **23**. A bundle exists ⟨`ls -la dist/gh-pages`⟩ → `index.html` 8,381 B + 53 entries, **16:39**, and it is **pre-commit again** (16:39:51 build vs `fb509edd`'s commit clock) — `.b`'s third data point, unchanged at my clock. **0 captures name substrate ref + sha + cell** |
+
+**TALLY: 3 GREEN · 10 RED · 0 UNRUNNABLE · 0 DIVERGENT** (born-RED was 13 RED · 0 GREEN).
+**GREEN**: G-KFW9-3 · G-KFW9-5 · G-KFW9-12 — the three gates whose close conditions are **artifacts**,
+not captures. **RED**: every gate whose close condition is a **rendered witness**, plus G-KFW9-4 (the
+denominator re-derives; the probes do not execute) and G-KFW9-13 (the addenda need `.e`).
+
+*Two limb-greens are NOT promoted to wave-greens, and the distinction is the wave's own subject.*
+`.a` read **G-KFW9-2 GREEN at its limb** and said so; the wave-level CLOSES is about results, and there
+are none. `.b` read **G-KFW9-5 GREEN at its limb**; that gate's CLOSES has **no capture dependency**, so
+it promotes and is stamped GREEN here on my own re-measurement. **G-KFW9-2 does not.**
+
+### Act 3 — §Verification Artefacts, as written
+
+**`KF-W9.md` has NO `§Verification Artefacts` section.** ⟨`grep -n -i 'Verification Artefact' KF-W9.md`⟩
+→ **3 hits, all citations of a SIBLING's section** (`:210` and `:531` cite `X/waves/W6.md` `## 8.
+Verification Artefacts` with **MATRIX** as a bolded inline label at its `:367`; `:548` is the D3-7 repair
+row that anchored them). **Stated, not worked around**: there is no artefact list in this spec to run, so
+the close ran **§Gates** whole (Act 2), the **§Surface-list protocol** items 2 (denominator), 4 (cell
+roster), 5 (discriminator/falsifier), 6 (shared-capture families) and 7 (per-shot sha256), and §Bounds'
+disjointness rule (Act 1) in its place. The two protocol items that could not be exercised — **6**
+(no family was spent, so none is double-spent) and **7** (zero shots) — are zeros, recorded as zeros.
+
+### Act 4 — E13 mail, swept again at this seat
+
+Four paths, read-only, at the close clock: (1) `docs/tranches/V/` (10 `.md`) + `V/coordination/` — newest
+`value-inbox-2026-09-17-o8-o11-amendment-addendum.md`, **our own outbound**; (2)
+`../glass-ui/docs/tranches/` ⟨`ls -dlt */`⟩ → **BK** still newest (Sep 17 12:49), whose coordination dir's
+newest is `glass-outbound-2026-08-29-valuejs-o20-ack.md` = **I-30**; (3)
+`../keyframes.js/docs/tranches/V/coordination/` — every `VALUEJS-INBOUND-*` is ours, the rest addressed
+to keyframes; (4) `../sci-report/atlas/docs/tranches/Q/coordination/` — both value-addressed letters
+already rowed. ⟨`grep -c '^| I-' INBOX.md`⟩ → **33**, tail **I-30**, unmoved since wave-open.
+**0 unrowed · 0 UNREAD in scope.** No row minted; no `INBOX.md` byte written by this seat.
+
+### Act 5 — the four-verb line, moved exactly as §State says
+
+§State's own rule, quoted: **IMPLEMENTED** *"stamped only when gates go green after the begin-word"*;
+**VERIFIED** *"stamped only at X·KF close; **no wave stamps VERIFIED at its own close**"*.
+
+| verb | state at close | ground |
+|---|---|---|
+| AUDITED | **YES** (unchanged) | 58/58 adjudicated records · `CENSUS-2026-08-03.md` · `lane-frontend.md §6.5` |
+| SPECIFIED | **YES** (unchanged) | this spec, agglomerated, seven repair rounds |
+| IMPLEMENTED | **PARTIAL — 3 of 13** | not stamped YES: ten gates are RED at their own witnesses. The three artifact gates (G-KFW9-3 · -5 · -12) are GREEN and are named rather than averaged away |
+| VERIFIED | **NO** | **by the spec's own rule** — this wave's close does not stamp it, at X·KF close or not at all |
+
+### Act 6 — residuals, each with a named owner
+
+1. **`.d` NEVER SAT — the whole contrast / forced-colors / AT cell is unworked.** Owner: **the
+   orchestrator** (dispatch), then a `.d` seat. Costs G-KFW9-8 and G-KFW9-9 outright, plus S-8 families
+   (iv)+(vi), S-15's held ST-1 witnesses, and the **AT arm §0j.C KF-AT placed here by ruling**. Nothing
+   in the record substitutes for it and nothing here claims it was partially done.
+2. **`.e` NEVER SAT — every write-back is owed.** Owner: **the orchestrator**, then an `.e` seat. Costs:
+   (a) **G-KFW9-13's 13 addenda**, whose sole lawful author `.e` is; (b) the **fold** of `.c`'s 27
+   UNREACHABLE-IN-CELL rows and both cell foreclosures into `REPORT.*`/`STATES.json`/`SURFACE-LIST` —
+   which is why the probe tally still reads `UNMEASURED 590` and the iOS cells still read `UNMEASURED`
+   rather than `UNREACHABLE-IN-CELL`; (c) the **census-amendment draft** at `PRM-ENUMERATION.md §6`,
+   authored and unplaced; (d) `SS-13-CAPTURE-RECEIPT.md`, which **does not exist** — the artifact
+   `KF-W10.md` names a hard opening precondition.
+3. **The OD-V3 packet is NOT PRODUCED — 0 of 8 cells** (4 scenes × 2 homes), 1280 arm and 390 arm both.
+   Owner: **KF.W10 `.g`**, which §0j.C **KF-ODV3** authorizes to close `complete_with_misses` citing the
+   exact precondition `.b`/`.c` wrote in that form. **OD-V5's 390 at-rest observation NOT TAKEN**;
+   OD-V5 stays DEFERRED (§0j.C **KF-ODV5**) and nothing here rules on either.
+4. **G-KFW9-6's unification constraint reads UNMEASURED by design.** Owners: **KF.W5** (engine half) and
+   **KF.W6** (tokenization half), booked at both ends (RULINGS-4 R4-3). No discharge is recorded, and
+   recording one would be a measurement of their act.
+5. **The SS-6 BH relay letter is unsent and un-sendable**: §Carry names KF.W9's captures as the relay's
+   evidence (KF-ET-4 · MM-4 · KF-HA-2 · KF-HA-12 · KF-APP-5 · M-5/C-6 · KF-SST-30 · the PRM-inert
+   universal reset). Owner: **`.e`/a later seat**, after the band opens. **Zero glass-ui bytes were read
+   or written**, as the standing edict requires.
+6. **KF-AV-28's witness-ordering obligation** on S-8 family (ii) is carried unspent — no capture exists
+   to be superseded. Owner: whichever seat takes family (ii).
+7. **`bundleSha256` is unfilled by design** and both harnesses abort without `--bundle-sha=`. **No seat
+   may default it.** Owner: whoever builds.
+
+### Act 7 — landed-wrong, recorded and NOT fixed here (VERIFY-ONLY)
+
+1. **`evidence/W9/CELL-ROSTER.md:33` names a driver that does not exist** — row 3 reads
+   `safari-app/ios-simulator` … `safaridriver --use-simulator`, verified still at the byte by this seat.
+   `safaridriver` 26.4 has **no such flag** (⟨`safaridriver --help | grep -ci simulator`⟩ → **0**, `.c`)
+   and its capability form is refused by the platform. **Correctly handled**: `.c` filed a **dated
+   correction-beside** at `mobile-CELL-RECORD-2026-09-17.md §2` and did **not** edit `.a`'s artifact
+   (E-3). The roster's cell *separation* is untouched and `assertCell()` still throws. **Left as landed**
+   — an E-3 corrected artifact is the lawful state, and a close seat that edits it breaks the epoch rule.
+2. **`.c`'s first writing said 26 probes; the settled figure is 27.** Self-corrected in-cell by the
+   double-run before the commit, with the cause named (five family-(iii) table rows carrying seven
+   subjects). Recorded because the published figure of record is the command's, not the prose's.
+3. **`.c` recorded the 16:17 bundle as *"built from `5388907b`"***; `.b` measured its mtime **39 s
+   earlier than that commit** and downgraded the phrase from a measurement to an inference, beside.
+   Neither seat photographed it. **The correction stands; nothing is re-written.**
+4. **`dfe890e1` replaced 5,878 lines of `REPORT.{md,json}`/`STATES.json`** — the 2026-07-24 **value.js**
+   visual-audit corpus — with the kf-scoped skeleton. **Inside `.a`'s writable set** (§Bounds: *"modify
+   (`.a` skeleton)"*), so **not a bounds breach**, and the recovery ref is named inside the new files.
+   **Recoverability verified at this seat, not trusted**: ⟨`git cat-file -e c0078d96:<each path>`⟩ → all
+   three **present**. Recorded so no later seat reads the deletion as loss.
+
+*No landed-wrong is fixed here. A close seat that cures is no longer a witness.*
+
+### Act 8 — ESCALATIONS returned, with their measurements
+
+**E-1 · THE CAPTURE BAND IS BLOCKED — S-13, a gate failure not local-recoverable.** Three seats measured
+it independently and it got worse at each clock. At **my** clock: kf HEAD **`fb509edd`**, `origin/master`
+**`55e9bf0d`**, **2 ahead and unpushed**, **23 demo files** apart; the on-disk bundle is the **third**,
+built **pre-commit** like the two before it. Consequences, neither softened: (a) no capture may honestly
+stamp `substrateSha: 55e9bf0d` — the receipt-against-a-moving-substrate class that disqualified
+`8281638c`; (b) **`master == origin/master` is FALSE**, and that identity is what §0j.C **KF-WRITE** uses
+to *define* this wave's execution substrate. The ask is the orchestrator's, unchanged in kind since
+`SUBSTRATE-PIN.md §8` and sharpened by `.b`: **(1)** a serving artifact that SURVIVES — a declared
+quiescence window on the kf checkout **or** shape **(b)**, build and serve from a separate clone at the
+named ref (a grant for *that* tree only, and it preserves the published pin exactly); **(2)** the
+substrate ruling — hold `55e9bf0d` or re-pin to the frontier, **priced by `.b` at four drifting
+coordinates** (`EasingTarget.vue:234→:241`; three in `useSquareDemo.ts`), never a re-census; **(3)** the
+`--bundle-sha=` discipline, unchanged. **Not asked**: to capture anyway, to soften a stamp, to re-pin on
+a seat's authority, or to put a `webkit-engine` reading in a `safari-app` column.
+
+**E-2 · THE iOS CELLS ARE FORECLOSED BY CONDITIONS NO GRANT CURES.** `safari-app/ios-device`: no paired
+device (`xcrun devicectl list devices` → *No devices found.*, double-run, two corroborations).
+`safari-app/ios-simulator`: **a separate cell** that could not discharge the device witness even if it
+opened, and it does not (`safari:useSimulator` → *"The 'macOS' platform is incompatible with requested
+capability"*, double-run). This is the spec's **own head case at S-13** — *"the named condition is
+unreachable → **the horizon is re-planned, not faked with webkit**"* — landing at **G-KFW9-11** instead of
+G-KFW9-1. The decision owed is whether `safari-app/ios-device` becomes a **declared UNREACHABLE cell for
+this pass**, so family (v)'s 8 members close as UNREACHABLE-IN-CELL rather than standing owed forever.
+
+**E-3 · TWO OF FIVE SEATS NEVER SAT.** `.d` and `.e` are not blocked by E-1 in the same way: `.e`'s
+write-backs (the 13 addenda, the fold, the census draft's placement, the SS-13 receipt) need **no
+capture at all** and are lawful today; `.d`'s **static** limbs likewise, though its WHC/AT captures sit
+behind E-1. **Dispatching `.e` is the single act that would move G-KFW9-13 and the probe tally without
+touching the blocked band.** Returned as a dispatch decision, not taken here.
+
+**E-4 · THE kf PUSH IS DECLINED BY THIS SEAT, and returned instead.** The close protocol's push act
+would run ⟨`git -C ../keyframes.js push origin HEAD`⟩. Measured first: **this wave has ZERO commits in
+the keyframes.js tree** (it wrote zero kf bytes by design), so that command would publish **only
+`5388907b` + `fb509edd` — X.KF.W4's two unpushed commits**, which KF.W4's own seats have not pushed. It
+would also move `origin/master` off **`55e9bf0d`**, the published pin, and thereby **decide E-1's
+substrate question by side effect** — the ruling `.a` escalated as *"above a phase-2 cell seat"* and
+`.b`/`.c` both declined to take. A VERIFY-ONLY close seat pushing a sibling wave's work, and
+pre-empting a live escalation while doing it, is not a verification. **Not done.** The value.js push
+is performed as instructed. Owner of the kf push: **KF.W4's close seat, or the orchestrator with E-1's
+ruling in hand.**
+
+### Verdict
+
+**PARTIAL.** `.a` · `.b` · `.c` each landed everything their bounds allowed and each stopped exactly
+where the law said to stop; **not one seat substituted a cell, softened a stamp, faked a witness or
+spent a probe it did not take.** Three gates are GREEN on artifacts that will survive any substrate
+ruling. Ten are RED because the thing they measure — *a rendered page, photographed under a named
+engine, against bytes anyone can re-hash* — **has not been observed once in this wave**, and the record
+says so in the same breath as it publishes 590 addressable probes, two registers, a 51-motion PRM
+enumeration and a pinned substrate. *That is the wave's own convicting standard, applied to itself.*
+
+---
+---
+
+# X.KF.W9 — **SECOND SITTING (RELAUNCH)**, 2026-09-17 · OPEN
+
+SERVED MODEL: claude-opus-5[1m] — seat 0 (OPEN), relaunch.
+
+**Why this sitting exists, by ruling id.** The first sitting closed **PARTIAL** (close `85776538`) with
+four escalations returned. **COHESION §0m.2** rules all four and ends: *"`.d` (contrast / forced-colors /
+AT — the AT arm per §0j.C) and `.e` (the 13 addenda write-back + the fold of `.c`'s 27 rows) **are
+dispatched at the relaunch**; OD-V3/OD-V5 stay as §0j.C ruled."* **This is that relaunch.** Nothing of
+the first sitting is rewritten (E-3): its `## Open` / `## Baseline` / `## Unit plan` / `## Unit receipts`
+/ `## Close` stand above as the dated record of that sitting, and everything below is dated beside them.
+
+## Open — SECOND SITTING
+
+**Date**: 2026-09-17 (later). **Track B, seat 0.** Concurrent with the W4 fan-out (OP-6; runbook §1.2
+*"KF.W9 is concurrent with the whole fan-out"*). Owner's begin-word authority: COHESION §0j.
+
+### E13 Step-0 — the four-path mail sweep, read-only at this seat's clock
+
+| path | newest | disposition |
+|---|---|---|
+| `docs/tranches/V/` + `V/coordination/` | `INBOX.md` (self-excluded, SELF-COUNT law) → `value-inbox-2026-09-17-o8-o11-amendment-addendum.md` @13:09 | **ours, outbound** — rowed |
+| `../glass-ui/docs/tranches/BK/coordination/` | `glass-outbound-2026-09-17-constellation-o20-relay.md` @17:43 (+ `-valuejs-o20-disposition.md`, `-bbnf-lang-9.0.0-addendum.md`, same minute) | **all three already ROWED** as **I-32 · I-33 · I-34** by X.P.W2's seat; ⟨`grep -c` each basename in `INBOX.md`⟩ → **3 · 3 · 3** |
+| `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` @14:58 | **ours** (O-21's vehicle); every `VALUEJS-INBOUND-*` is ours, the rest addressed to keyframes |
+| `../sci-report/atlas/docs/tranches/P/coordination/` (+ the Q extension) | `valuejs-inbound-2026-07-27-library-band-export-delta.md` @2026-08-03; Q's `ATLAS-TO-VALUE-2026-08-03-RULINGS.md` | rowed (I-31 carries the Q pass-2 contract) |
+
+⟨`ls -d ../glass-ui/docs/tranches/*/ | wc -l`⟩ → **45**, `BK` the maximum — **BK re-confirmed the newest
+glass tranche dir**. ⟨`/usr/bin/find <each of the four paths> -newermt '2026-09-17 17:43'`⟩ → **value.js
+`INBOX.md` only** (a sibling seat's own sweep line) + the three BK letters already rowed; **kf 0 · atlas 0.**
+
+**Result: 0 unrowed · 0 new `I-n` minted here.** ⟨`grep -c '^| I-' INBOX.md`⟩ → **36**, tail **I-34**
+(the first sitting closed at tail I-30; I-31..I-34 were rowed by Track A/D seats since). Six rows carry
+an **UNREAD** status cell — **O-20 · I-30 · I-31 · I-32 · I-33 · I-34** — and **none is in KF.W9's
+scope**: I-32/I-33/I-34 are the glass consumer-band letters whose acts are Track A's (X-EXT-1 inside the
+X-W4.g atomic cut, COHESION §0i.5), I-31 is the atlas/sci consumer contract (Track A/D), and O-20/I-30
+are the SS-6 batch and its ACK — **this wave FEEDS that relay with captures and does not send it**
+(§Carry: the letter waits on them). No row is marked read by this seat; **no `INBOX.md` byte written.**
+
+### Preconditions, at the bytes and in the ledger
+
+| # | precondition | state at this seat | receipt |
+|---|---|---|---|
+| **OP-1** | KF.W0 §B-12 names the substrate | **MET** | LEDGER Track B: KF.W0 **CLOSED 2026-09-17**. `kf-sacred-snapshot-2026-09-17` = `6d280ee7`, its parent the disqualified `8281638c` |
+| **§0m.2 substrate** | **HOLD `55e9bf0d`** | **MET, AND THE FRONTIER HAS MOVED PAST IT — the ruling's shape absorbs exactly this** | ⟨`git -C ../keyframes.js rev-parse --short HEAD`⟩ → **`3e81f500`** · ⟨`… origin/master`⟩ → **`3e81f500`** · ⟨`rev-list --left-right --count origin/master...HEAD`⟩ → **`0 0`**. KF.W4's close pushed its own commits (§0m.1's *"KF.W4's next close pushes its own commits"*), so `master == origin/master` is TRUE again **but at `3e81f500`, not at the pin**: ⟨`git rev-list --count 55e9bf0d..HEAD`⟩ → **10**, ⟨`git diff --name-only 55e9bf0d..HEAD -- demo/ \| wc -l`⟩ → **38** (66 files whole). **`55e9bf0d` is an ancestor** ⟨`git merge-base --is-ancestor 55e9bf0d HEAD`⟩ → **YES**, so shape (b) still resolves it exactly. **This is the E-1 class curing itself by the ruling's own design**: a clone checked out at a named ref is immune to the frontier's motion, which is why §0m.2 chose it over a quiescence window. **NO RE-PIN** — the pin stays `55e9bf0d` on the ruling's words, not on a seat's authority |
+| **§0m.2 shape (b)** | the separate capture clone | **NOT YET CREATED — `.d`'s first act** | ⟨`ls -d /Users/mkbabb/Programming/keyframes-w9-capture`⟩ → **No such file or directory**. The grant is for that tree only; the sacred checkout is untouched |
+| **OP-2 / KF-WRITE** | write authority | **MET by having none** — this wave holds **ZERO** kf write grants (R-9a struck all five); ⟨kf `git status --porcelain \| wc -l`⟩ → **6**, all pre-existing (the four F-1 orphan drafts §0m.1 routes to KF.W4's repair seat + two coordination files) and **none of them ours** | §Bounds *"Do NOT touch — any keyframes.js byte"* |
+| **OP-3** | a real Safari cell is reachable at all | **PARTLY MEASURED; the rest measured at run (§0j.C: *"OP-3's Safari reachability is measured at run, never assumed"*)** | ⟨`which safaridriver`⟩ → `/System/Cryptexes/App/usr/bin/safaridriver` · ⟨`safaridriver --help \| grep -ci simulator`⟩ → **0** (CELL-ROSTER:33's `--use-simulator` remains the landed-wrong `.c` corrected beside) · ⟨`xcrun devicectl list devices`⟩ → **No devices found.** |
+| **OP-4** | per-cell `.media` capability record | **OWED per cell, `.d`'s** | `REPORT.json.cellLedger` → 10 cells, **9 of 10 `capability: null`** |
+| **OP-5** | a build at the named ref | **SATISFIABLE ONLY IN THE CLONE, by ruling** — `npm ci && npm run gh-pages` there, `bundleSha256` **measured, never asserted** | the on-disk kf `dist/gh-pages` is a **fourth** bundle (mtime 18:22, after `3e81f500`) and describes the WRONG substrate; it is not this wave's and is not used |
+| **OP-6** | KF.W4 not a precondition | **TRUE BY CONSTRUCTION** | every cure arm left the wave at R-9a; runbook §1.2 KF.W0→KF.W9 edge |
+| **OP-7 / KF-AT** | the AT-cell scope | **RULED** — §0j.C **KF-AT**: *"AT runs inside KF.W9 `.d`'s arm (the proposed resolution); no new lane is minted"* | cited, not re-opened |
+| **KF-ODV3 / KF-ODV5** | the capture band + the transport-home ruling | **RULED** at §0j.C — the band is *"AUTHORIZED to run"*; OD-V3's ruling is taken by the orchestrator at KF.W10 `.g`, and **if the packet does not exist by then KF.W10 closes `complete_with_misses` citing its exact precondition**; **OD-V5 stays DEFERRED** | this wave produces and rules nothing |
+| **iOS cells** | `safari-app/ios-device` · `ios-simulator` | **RULED UNREACHABLE-IN-CELL** (§0m.2) — *"no paired device; `safari:useSimulator` refused — recorded, never inferred from webkit-engine (I-20's law)"* | re-measured above; `.e` folds the two foreclosures and `.c`'s 27 rows |
+
+**Units already landed (never re-dispatched)**: `.a` `dfe890e1` · `161e1a67` · `d629be8b` · `a08d1dec` —
+`.b` `52ae20b8` · `a062629b` · `f0b3aeba` · `353fa9d1` — `.c` `6119fe6f` · `c509b14a`, all verified
+present ⟨`git log -1 --format='%h %s' <sha>`⟩ and all inside their bounds by the first sitting's Act 1.
+**Their cells' captures stay owed** and are carried as residuals below — cell-disjointness (§Bounds
+*"`.b` writes only `safari-real/desktop-*`; `.c` only `safari-real/mobile-*`; `.d` only
+`safari-real/hcm-*`/`at-*`"*) forbids `.d` or `.e` from taking them, and a unit whose commits exist is
+not re-dispatched.
+
+## Baseline — SECOND SITTING: the thirteen gates re-run READ-ONLY at this seat
+
+Every reading below is a command run **at this seat's clock**, not inherited from the first sitting's
+close. **R.2 note**: three gates read **GREEN before this sitting spends anything** — they are green
+**because the first sitting's artifacts landed and survived**, not before their cure; they are named
+rather than averaged, and they are re-measured here, not trusted.
+
+| gate | state at this open | witness, re-run here |
+|---|---|---|
+| **G-KFW9-1** · a real-Safari cell exists | **RED** | ⟨`git ls-files …/safari-real/ \| wc -l`⟩ → **7** vs ⟨`ls -1 \| wc -l`⟩ → **34**; ⟨`git ls-files …/shots/ \| wc -l`⟩ → **0** vs **11**; ⟨`git ls-files …/safari-real/ \| grep -ci sha256`⟩ → **0**; `REPORT.json.captures` → **0** |
+| **G-KFW9-2** · cell separation (I-20) | **RED** (mechanism wired) | `REPORT.json.cellLedger` → **10 cells, all `UNMEASURED`**, **9 of 10 `capability: null`**; the two iOS cells still read `UNMEASURED` where §0m.2 now rules **UNREACHABLE-IN-CELL** — `.e`'s fold |
+| **G-KFW9-3** · the wave's own scoped surface list | **GREEN (cure landed at `.a`; re-measured here)** | ⟨`node -e 'probes.length'` on `evidence/W9/SURFACE-LIST.json`⟩ → **590**; ⟨`head -8 REPORT.md`⟩ is kf-scoped and names the substrate `55e9bf0d…`; no fraction precedes the list |
+| **G-KFW9-4** · SS-13 residue, 0 of ≈590 | **RED** | `REPORT.json.probeTally` → **`EXECUTED 0 · RETIRED 0 · UNREACHABLE-IN-CELL 0 · UNMEASURED 590`**; `SURFACE-LIST.json` agrees (`{"UNMEASURED":590}`). **Denominator re-derived at this seat by my own script, double-run identical**: **`h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58`** — reproducing the spec's amended command to the digit; **S-13's material-divergence trigger NOT armed** |
+| **G-KFW9-5** · the PRM census made true | **GREEN (cure landed at `.b`; re-measured here)** | ⟨`sed -n '462p' lane-frontend.md`⟩ → still *"### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files"* (required: the lane file stays dated evidence); the replacing enumeration is ONE — `evidence/W9/PRM-ENUMERATION.md`, 29,570 B, ⟨`grep -c '^| '`⟩ → **99** table rows |
+| **G-KFW9-6** · intensity form + final-frame hazard | **RED — 2 of 3** | ⟨`git show 55e9bf0d:src/animation/constants/defaults.ts \| sed -n '87p'`⟩ → `respectReducedMotion: false,`; consumer census stands. **(ii) the KAD-11 rest-state CAPTURE is UNMEASURED** — a capture |
+| **G-KFW9-7** · the two-direction PRM pair | **RED** | ⟨`git grep -c 'withReducedMotion' 55e9bf0d -- src/animation/waapi/delegation.ts`⟩ → **exit 1, no hits**; protocol specified at `evidence/W9/G-KFW9-7-TWO-DIRECTION.md`, **unspent** (desktop cell — `.b`'s, not re-dispatched) |
+| **G-KFW9-8** · forced-colors measured back into effect | **RED** | ⟨`git grep -c 'forced-colors' 55e9bf0d -- demo/`⟩ → **0 files** — the *recorded result* half holds, eighth independent seat; **no WHC capture exists in any cell** ⟨`ls -1 …/safari-real/ \| grep -c 'hcm-\|at-'`⟩ → **0** |
+| **G-KFW9-9** · the authored REMOVAL, before-witness | **RED** | both unlayered copies re-read at the pin: `design-idioms.css` `.focus-ring:focus-visible { box-shadow: var(--focus-ring-shadow); outline: none; }` · `playback-idiom.css` `.btn-playback:focus-visible { … outline: none; }` — different selectors, same (0,2,0). **The BEFORE witness is a shot; none exists** |
+| **G-KFW9-11** · the iOS no-zoom floor | **RED — and now RULED UNREACHABLE** | ⟨`git grep -n 'clampIOSNoZoomFontSize' 55e9bf0d -- src/ demo/ test/`⟩ → decl `demo/components/instrument/utils/iosTextEntry.ts:10`, **exactly one consumer** `CSSCodeEditor.vue:39`/`:137`, tested `:88`/`:89`/`:97`. ⟨`xcrun devicectl list devices`⟩ → **No devices found.**; ⟨`safaridriver --help \| grep -ci simulator`⟩ → **0**. §0m.2 rules the cells **UNREACHABLE-IN-CELL**; `.e` books family (v) that way |
+| **G-KFW9-12** · discriminator + falsifier per probe | **GREEN (cure landed at `.a`; re-measured here)** | ⟨`node -e` over `evidence/W9/ESCALATION-REGISTER.json`⟩ → **13 triggers**, `{"UNMEASURED":13}`; negative register + `assertProbeTerminal()` (`capture.mjs:178`) throws on EXECUTED without capture/sha256/substrateSha/cell/discriminator/falsifier |
+| **G-KFW9-13** · escalation triggers close with addenda | **RED** | ⟨`grep -rl 'ADDENDUM.*2026-09-17' registry/adjudicated/kf-*.md \| wc -l`⟩ → **0**; ⟨`grep -rl 'PROVISIONAL' …`⟩ → **0**. **Zero addenda banked**; `.e` is their sole lawful author |
+| **G-KFW9-14** · substrate naming + witness refresh | **RED** | `SUBSTRATE-PIN.md` + `REPORT.json.substrate` published (`bundleSha256: null` by design; both harnesses abort without `--bundle-sha=`). **0 captures name substrate ref + sha + cell.** The substrate reading is re-taken above: frontier `3e81f500`, pin `55e9bf0d` an ancestor, clone-at-pin the ruled shape |
+
+**TALLY at this open: 3 GREEN · 10 RED · 0 UNRUNNABLE · 0 DIVERGENT** — identical to the first sitting's
+close, measured independently. **`REPORT.*`, `STATES.json`, `SURFACE-LIST.json` and all 13 `evidence/W9`
+artifacts are unmoved since `85776538`**; nothing decayed between the sittings.
+
+## Unit plan — SECOND SITTING
+
+**Owed units: `.d` then `.e`** — exactly the two §0m.2 names, in the spec's own order (§State: `.b`/`.c`/
+`.d` parallel → `.e` serial last). **Ordered groups: `[.d]` → `[.e]`. Peak concurrency 1** (inside the
+owner's cap; they cannot be parallel — `.e` folds `.d`'s cells, and §Disjointness gives `REPORT.*` to
+`.a`/`.e` alone). **Models: both Opus** — the spec names no Fable, fresh-Fable, adjudicator or
+design-author seat here; capture/census/write-back seats are runbook §5.1's Opus-solo class.
+
+**`.a` · `.b` · `.c` are NOT re-dispatched** — their commits exist (ten, verified above). The captures
+their cells never took stay **owed** and are carried as named residuals by `.e`, with the exact
+precondition stated, which is the shape §0j.C **KF-ODV3** authorizes KF.W10 `.g` to close
+`complete_with_misses` on.
+
+### `.d` — contrast / forced-colors / AT cell (Opus; runs first)
+
+- **Sections**: §Gates **G-KFW9-8** · **G-KFW9-9** + the held ex-G-KFW9-10 witnesses · §Sequencing
+  **S-2** (measurement order: G-KFW9-9's before-witness is the HEAD; ST-1's HCM datum and AT limb in the
+  SAME WHC pass) · **S-8 families (iv)** (WHC: RB-1, ST-1, KF-CE-13's folds) **and (vi)** (ONE AT pass:
+  KF-CB-9, KF-APP-33, KF-KC-2/3/26, MM-2, D-B3, D-1/L-i1, ST-1) · **S-13** · §B (`:125-132`) ·
+  §E (`:148-158`) · §F (`:159-182`) · §Surface-list protocol 4–7.
+- **Writable**: `docs/tranches/V/megatranche/audit/visual/safari-real/hcm-*` and `…/safari-real/at-*`
+  (create/write, force-added) · `docs/tranches/V/megatranche/audit/visual/shots/` (its own shots) ·
+  `docs/tranches/X/keyframes/evidence/W9/**` (create) · `docs/tranches/X/execution/B/KF-W9.md`
+  (its receipts) · **`/Users/mkbabb/Programming/keyframes-w9-capture/**` — the CLONE TREE ONLY, by the
+  §0m.2 grant** (build artifacts only; no commit, no push, and NOT the sacred checkout).
+- **Gates**: G-KFW9-8 · G-KFW9-9 (BEFORE witness only) · its share of G-KFW9-1 · -2 · -4 · -14.
+- **Locks**: the **two-deletion act is KF.W13's** — `.d` spends no cure and deletes no byte; the AFTER
+  witness reads **UNMEASURED** until that act lands (S-9). **AT runs here by ruling** (§0j.C KF-AT), no
+  new lane. `safari-real-matrix.js` is **EXECUTE, NO WRITE**; `capture.mjs`/`states.mjs` are `.a`-alone
+  modify-carve — a cell label that cannot be expressed in them is a harness redesign shared with
+  X-W11 G8 → **triumvirate**, never a quiet edit. A **chromium emulation labelled WHC is the I-20
+  failure by name**; `windows/real-HCM` with no Windows host books **UNREACHABLE-IN-CELL with the bound
+  stated** (S-13), never inferred from `chromium/emulated-forced-colors`.
+
+### `.e` — write-backs · the fold · census amendment · the capture receipt (Opus; serial, last)
+
+- **Sections**: §Gates **G-KFW9-13** · G-KFW9-5's amendment half · G-KFW9-4's terminal accounting ·
+  G-KFW9-3's final fold · §Bounds' adjudicated-record **CELL SPLIT** row and the
+  `SS-13-CAPTURE-RECEIPT.md` row · §Sequencing **S-10/S-10.1** (the six A1..A6 anchors) · **S-11** ·
+  **S-14** · §H's two registers.
+- **Writable**: `docs/tranches/V/megatranche/registry/adjudicated/kf-*.md` (**APPEND-ONLY dated addenda
+  under ORIGINAL ids, `.e` ALONE**) · `…/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md` (create) ·
+  `…/audit/visual/REPORT.md` · `REPORT.json` · `STATES.json` (**fold ONLY**) ·
+  `docs/tranches/X/keyframes/evidence/W9/**` · `docs/tranches/X/execution/B/KF-W9.md`.
+- **Gates**: G-KFW9-13 · G-KFW9-4 · G-KFW9-5 (draft) · G-KFW9-3's fold · G-KFW9-2's cell states.
+- **Locks**: **E-1/E-3** — existing record bytes immutable; an addendum that edits an existing line, or
+  mints a new id, or lands from any seat but `.e`, is a bounds expansion → **triumvirate**. The census
+  amendment lands as a **DRAFT under `evidence/W9/**`**: `CENSUS-2026-08-03.md` and `lane-frontend.md
+  §6.5` are **read-only, both paths**. The OD-V3 **DISCRIMINATOR** binds the receipt: one home, or
+  either home at one viewport only, does **not** satisfy the packet — where a half is missing the
+  receipt records the packet **incomplete with its exact precondition** and rules nothing
+  (§0j.C KF-ODV3/KF-ODV5, *"Never proxied"*).
+
+### Standing on both seats
+
+Probe parsimony (owner edict 2026-07-12, runbook §5.2) as a LAW block · **webkit-engine and safari-app
+are separate evidence cells; never infer one from the other** · every capture force-added with a
+**per-shot sha256** sidecar + cell label + substrate ref (`55e9bf0d`) and the **measured**
+`--bundle-sha=` of the bundle actually served · contrast numerals **re-derived at capture**
+(KF-SKEL-22), frames stamped (KF-AX-4) · **zero keyframes.js bytes** (the clone tree is a §0m.2 grant,
+not a write grant in the repo) · glass-ui **READ-ONLY always** · `scripts/dev/dev.sh` NEVER touched ·
+pathspec commits with the session trailer · **this wave measures; it authors no product cure and claims
+no CI colour** · line 1 of any file created = `SERVED MODEL: <model id>`.
+
+## Unit receipts — SECOND SITTING
+
+### KF.W9.d — contrast / forced-colors / AT · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commit**: `dde0629a` — *"the contrast/forced-colors/AT cell — the BEFORE witness taken with its
+falsifier, forced-colors measured UNREACHABLE on this platform with a live control, and the KF.W13
+redundancy ground found false as worded"*. **23 files**, all inside `.d`'s writable set
+⟨`git show --stat HEAD`⟩ → `23 files changed, 3214 insertions(+)`. Every PNG **force-added** — the
+`safari-real` tree carries `docs/tranches/V/megatranche/.gitignore:11` `audit/visual/safari-real/*.png`
+⟨`git check-ignore -v <shot>`⟩, which is **exactly the L-7 mechanism** this wave's born-RED witness
+convicts ("27 witnesses uncommitted and therefore nonexistent"), and exactly why §Bounds says
+*"Every capture force-added"*.
+
+**Status: PARTIAL.** Every act this unit could lawfully take landed. **One cell closed mid-seat** (act
+6) and **two cells were never openable** (acts 1 and 7) — each booked with a measured bound, none
+faked, none inferred from a sibling cell.
+
+---
+
+#### Act 0 — anchors verified at true bytes, before anything was written
+
+Both G-KFW9-9 anchors re-read in the capture clone at the pin, and **both hold exactly**:
+⟨`sed -n '70,82p' demo/styles/design-idioms.css`⟩ → `.focus-ring:focus-visible {` at **`:76`**,
+`box-shadow: var(--focus-ring-shadow);` `:77`, `outline: none;` `:78`, `}` `:79` — **`:76-79` exact**;
+⟨`sed -n '66,78p' demo/styles/playback-idiom.css`⟩ → `.btn-playback:focus-visible {` at **`:72`**,
+same pair, `}` `:75` — **`:72-75` exact**. **No anchor drifted; no INTENT was taken.**
+
+#### Act 1 — §0m.2 shape (b): the capture clone, built and hashed
+
+The ruling's own command, run verbatim:
+⟨`git clone --no-hardlinks ../keyframes.js ../keyframes-w9-capture`⟩ → done ·
+⟨`git -C … checkout 55e9bf0d`⟩ → `HEAD is now at 55e9bf0d` · ⟨`rev-parse HEAD`⟩ →
+`55e9bf0d2391bbc6d9871bb3f0555a6225daae92` · ⟨`status --porcelain | wc -l`⟩ → **0** ·
+⟨`npm ci`⟩ → `added 325 packages` · ⟨`npm run gh-pages`⟩ → `✓ built in 1.15s` ·
+⟨`find dist/gh-pages -type f | wc -l`⟩ → **54**.
+
+**`bundleSha256`, MEASURED and DOUBLE-RUN identical:**
+⟨`find dist/gh-pages -type f | LC_ALL=C sort | xargs shasum -a 256 | shasum -a 256`⟩ →
+**`1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`** (twice). The tree was
+re-verified at the pin **after** the build and is still clean. **`.a`'s residual 2 is discharged**:
+no seat defaulted the field; it was hashed from the bytes actually served.
+**`.a`'s residual 1 (the destroyed bundle) and its ADDENDUM's second blocker (KF.W4 editing `demo/`
+under the wave's feet) are BOTH dissolved by the ruling's design** — a clone at a named ref is immune
+to the frontier's motion, which is why §0m.2 chose shape (b) over a quiescence window. The frontier is
+now `3e81f500` ⟨`rev-parse origin/master`⟩, **10 commits past the pin**, and the pin is still an
+ancestor ⟨`merge-base --is-ancestor 55e9bf0d HEAD`⟩ → yes. **NO RE-PIN on this seat's authority.**
+
+**ZERO keyframes.js bytes.** The clone holds no commit of ours and was never pushed; the sacred
+checkout was not touched.
+
+#### Act 2 — OP-4, taken inside each cell (never inherited)
+
+`safari-app/desktop`, Safari **26.4** / macOS **26.4.1** (25E253), `safari:useSimulator: false`,
+window requested 1280×900 / **actual 1280×848** (the clamp recorded):
+`{"fc":{"(forced-colors: active)",false},"fcNone":{…,true},"prt":{…,false},"prm":{…,false},
+"pcMore":{"(prefers-contrast: more)",false},"pcNoPref":{…,true},"dark":{…,true},"dpr":2}`.
+`chromium/emulated-forced-colors`: **`fcMatch: true`**. `chromium` (control): `fcMatch: false`.
+Four of ten cells now carry a reading or a **named** foreclosure from this seat.
+
+#### Act 3 — **CAN THIS HOST ENTER FORCED-COLORS AT ALL?** — the measurement, with its control
+
+`.a` measured that the three `.media` strings **parse** and correctly concluded the column is *"NOT
+foreclosed by UA capability"*. **That is a different question from whether the mode can be entered**,
+and S-13's escape is worded on the first one — so a seat that conflates them books a **false**
+`UNREACHABLE`. This seat measured the second, reversibly:
+
+| host state | `prefers-contrast: more` | `forced-colors: active` |
+|---|---|---|
+| `increaseContrast` absent (as found) | `false` | `false` |
+| ⟨`defaults write com.apple.universalaccess increaseContrast -int 1`⟩ | **`true`** | **`false`** |
+| ⟨`defaults delete …`⟩ (restored; re-read → *"does not exist"*) | `false` | `false` |
+
+**The control is the whole point**: `prefers-contrast: more` **flipped live**, same session, same
+`matchMedia` batch, no restart — so the host setting demonstrably *does* reach Safari's media-query
+engine. `forced-colors` did not move. **macOS/WebKit implements no forced-colors mode.** The
+`safari-app` forced-colors arm is **UNREACHABLE-IN-CELL by PLATFORM** — not by capability (the query
+parses), not by omission. The host a11y setting is **fully restored**.
+
+#### Act 4 — the cascade, re-derived at the bytes (not argued)
+
+Eight links, each a command (full table at `hcm-CELL-RECORD` §3.1):
+
+- producer `…/dist/styles/utilities/a11y-overrides.css` ships
+  `@media (forced-colors: active) { .focus-ring:focus-visible, … { outline: 2px solid Highlight; outline-offset: 2px } }`
+  and ⟨`grep -c '@layer' …`⟩ → **0** — **UNLAYERED**.
+- producer `…/utilities/base.css` ships `.focus-ring:focus-visible { outline: none; border-radius: var(--radius-pill); box-shadow: var(--focus-ring-shadow) }` — **inside `@layer components`** (brace-depth 1).
+- demo copy A `design-idioms.css:76-79` — **UNLAYERED**, and the file's **own comment at `:10`** says so:
+  *"OUTSIDE @layer so the demo's copy overrides glass-ui's incidental same-named"*. **The defeat is AUTHORED.**
+- demo copy B `playback-idiom.css:72-75` — ⟨`grep -c '@layer'`⟩ → **0**, UNLAYERED.
+- order: `style.css:3` glass · `:14` design-idioms (→ its `:6` playback-idiom). **The demo imports later.**
+
+Identical selector + both unlayered ⇒ specificity and layer tie ⇒ **source order decides, the demo
+wins, `outline: none`**. *(§B's cell reads "different selectors, same (0,2,0)", which describes the two
+DEMO copies; the producer↔demo pair measured here is the **same selector** — a stronger form of the
+same finding, recorded as such and **not** as a correction of the bank.)*
+
+#### Act 5 — **G-KFW9-9's BEFORE WITNESS, TAKEN** — with its falsifier run as a control
+
+Method: navigate the served bundle, press **Tab** to establish keyboard modality, focus the subject,
+read `getComputedStyle` **and** `:focus-visible` **separately** — the built-in **DISCRIMINATOR**, so
+*"no indicator"* can never be confused with *"focus never happened"*.
+
+**`chromium/emulated-forced-colors`, `forced-colors: active` genuinely matching:**
+
+| subject | `:focus-visible` | `outline-style` | `box-shadow` |
+|---|---|---|---|
+| `.btn-playback` (ribbon Play) | **`true`** | **`none`** | **`none`** |
+| `.focus-ring` (demo-wide) | **`true`** | **`none`** | **`none`** |
+| `.seq-handle` (ST-1's row slider) | **`true`** | **`none`** | **`none`** |
+
+**FALSIFIER, same engine / bundle / substrate, `forcedColors: "none"`:** all three show
+`box-shadow: color(srgb 0.109804 0.0980392 0.0901961 / 0.3) 0px 0px 0px 2px, …` — **an indicator
+paints.** The row is falsifiable and **survives**: the affordance exists in normal mode and is
+**wholly absent** under forced colors, with focus provably active in every cell of both tables, and
+the producer's `outline: 2px solid Highlight` **never appeared**. Shots `bb2434b5…` · `32c0504d…`.
+
+**`safari-app/desktop`, normal state** (forced colors not enterable, act 3): `.focus-ring` reached in
+**3** tabs and `.seq-handle` in **1**, both `:focus-visible true` with **`outline-style: none`** —
+**RB-1's antecedent measured in real Safari.** Shots `9c357c5f…` · `ed0e28d4…` · `631c27a9…`.
+
+**GATE READING — G-KFW9-9: RED → RED.** The witness now **exists**, but the gate names *"the
+safari-app **and** real-HCM cells"* and **neither carries a forced-colors shot** (act 3's platform
+bound; act 7's missing Windows host). *Recording a witness taken in a third cell as the two the gate
+names is the failure this wave exists to convict, and it is not done here.* The **AFTER** witness
+reads **UNMEASURED** — the two-deletion act is KF.W13's and **this seat spent no cure and deleted no
+byte** (S-9).
+
+#### Act 6 — **the re-derivation obligation, DISCHARGED — and the ground is FALSE as worded**
+
+§Carry §B hands this wave: *"the redundancy ground for `.btn-playback:focus-visible` is UNTESTED here
+and must be re-derived at KF.W13 before the deletion lands; this wave measures it and hands the
+finding over."* The bank's ground is *"both demo copies are wholly redundant against producer
+base.css's identical rule."* Measured per copy at glass **7.0.0**'s shipped dist:
+
+| copy | producer counterpart | ground |
+|---|---|---|
+| `design-idioms.css:76-79` `.focus-ring:focus-visible` | `base.css` ships the **identical selector** with the same two declarations | **TRUE AS STATED** |
+| `playback-idiom.css:72-75` `.btn-playback:focus-visible` | ⟨`find …/dist -name '*.css' \| xargs grep -l 'btn-playback'`⟩ → **exit 1, no output**; widened to **all file types** → **no output** | **FALSE AS STATED** — no producer rule at any coordinate |
+
+**The row survives by a different path, and the path is the finding.** Measured live in the real
+Safari cell, the ribbon's own class lists:
+`"button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent"`
+and `"… focus-ring … btn-playback h-10 w-full rounded-full …"` ⟨`hasFocusRing`⟩ → **true, true**;
+⟨`querySelectorAll('.focus-ring').length`⟩ → **44**. **Both ribbon buttons carry `.focus-ring` too**,
+so the producer reaches them once *both* demo copies are gone.
+
+**This makes K-5 MEASURED rather than argued**: delete only `design-idioms` → `.btn-playback:focus-visible
+{ outline: none }` still matches **the same buttons**; delete only `playback-idiom` →
+`.focus-ring:focus-visible { outline: none }` still matches **the same buttons**. **ONE ACT, NEVER
+SPLIT — proved by the buttons' class list, not by inference.** Handed to KF.W13: the ground must be
+re-worded to *redundancy via the co-present `.focus-ring` class*, not via a producer `.btn-playback`
+rule, **before** the deletion lands.
+
+#### Act 7 — G-KFW9-8: the count re-recorded, the producer re-enumerated, the WHC bound stated
+
+⟨`git -C …/keyframes-w9-capture grep -c 'forced-colors' -- demo/`⟩ → **exit 1, no output — 0**.
+**Ninth independent seat.** This is the gate's *recorded result* exactly as R-9a item 4 / D-9 re-cut
+it, and **no demo-side `forced-colors` rule is authored by this wave**.
+
+The **FOUR-FILE CORRECTION** (kf-SequenceAxis ruling 7) re-measured at glass 7.0.0:
+⟨`find …/dist -name '*.css' | LC_ALL=C sort | xargs grep -l 'forced-colors'`⟩ → **TWELVE files**. The
+ruling's four are **all present and all four still resolve**; the figure is larger, not different in
+kind, and the ruling's conclusion — *no "sole forced-colors rule is X" cell survives* — is
+**reinforced**. Published as an enumeration, not a numeral, so the next census reproduces. **No bank
+row re-graded**; routed to `.e` as a dated addendum.
+
+**`windows/real-HCM` — UNREACHABLE-IN-CELL, bound stated**: ⟨`uname -a`⟩ → `Darwin 25.4.0` ·
+⟨`ls /Applications | grep -iE 'parallels|vmware|utm|virtualbox|crossover'`⟩ → **no matches** ·
+⟨`command -v qemu-system-x86_64`⟩ → **no output**. No Windows host **and no virtualization host**.
+**The chromium rows are NOT labelled WHC** — S-13 names that substitution as *the I-20 failure by
+name*, and it is not committed here under any spelling. The **sixteen** §B fold families therefore
+receive **no** WHC capture; each reads UNREACHABLE-IN-CELL on the `windows` column and UNMEASURED on
+`safari-app`. **canvas bitmaps EXEMPT** is carried as a mechanism fact, measured:
+`forced-color-adjust` computed **`auto`** on the 781×792 amiga canvas.
+
+**GATE READING — G-KFW9-8: RED → RED.** The count half is re-recorded at 0 and the producer
+enumeration republished; **the WHC half cannot close on this host.**
+
+#### Act 8 — the AT arm (§0j.C KF-AT), run here, with the line drawn first
+
+**An AT cell's verdict is what an AT UTTERS.** All three AT cells are **UNREACHABLE-IN-CELL**:
+`at/voiceover-safari` on **both** legs (safaridriver refused, act 9; VoiceOver ⟨`pgrep -x VoiceOver | wc -l`⟩
+→ **0** and ⟨`osascript … exists application process "VoiceOver"`⟩ → **`false`**, and starting it takes
+over the owner's live machine with no grant); `at/nvda` and `at/jaws` on the missing Windows host.
+
+What was produced is the **AT-PRECONDITION INVENTORY** over six routes, booked in the `chromium` cell
+(**not** labelled `webkit-engine` — playwright 1.60.0 wants `webkit-2287`, only `webkit-2311` is
+installed, so `webkit.launch()` throws, and labelling a chromium read as webkit is **I-20 in its other
+direction**). Thirteen §F rows dispositioned — **CONFIRMED 8 · DIVERGENT 1 · UNMEASURED 3 ·
+UNREACHABLE-IN-CELL 2**. The sharpest:
+
+- **D-2** ⟨kf-AmigaScene⟩ — **every clause reproduces, in one read**: the subject is `.amiga-canvas`,
+  **781×792 CSS px**, and its **complete attribute list** is
+  `["data-v-c2735272","class","data-engine","width","height","style"]` — **no ARIA attribute of any
+  kind, no `role`, no `tabindex`, no `title`**, `textContent` length **0**, `hasOnKeyDown` **false**,
+  `cursor: "grab"`. *Not "unset in the ones we checked" — absent from the element's entire attribute
+  set.* **FALSIFIER** (*"any announced accessible name kills the row"*) **not satisfied: the row
+  survives.** The trap §F names — the surrounding `<main>` — is present (`landmarks: 1`) and
+  distinguished.
+- **D-B3** ⟨kf-SpringHeatmap⟩ — `role="application"`, `tabindex="0"`, `aria-valuenow: null`,
+  `aria-valuetext: null`, `childCount: 2`, `childrenAriaHidden: ["true","true"]` — **the EMPTY
+  application subtree, exactly as banked.**
+- **D-1 / L-i1** ⟨kf-PlaybackRibbon⟩ — of 4 `role="slider"` on `/#/easing`, one has **no
+  `aria-label`, no `aria-labelledby`, no `title`** and a bare `aria-valuenow: "1500"` against
+  `max 5000`. *"All three glass naming seams unused"* — **confirmed**; N-2's *"no meaningful value
+  either"* — **confirmed** (`aria-valuetext: null`).
+- **D-12's valuetext limb** — `/#/sequence`, **6 of 6** sliders with `aria-valuetext: null`, read
+  **identically in real Safari and in chromium**; five announce bare **ms** (`max 1600`), the master
+  scrubber a bare **percent** (`max 100`) — S-14's *"no honest millisecond exists until the scene
+  picks a clock"* in one table. The **uppercase-render** limb reads **UNMEASURED** with its
+  precondition named.
+- **D-6** ⟨kf-SpringTarget⟩ — `/#/spring` headings **`[]`**, `/#/easing` headings **`["H2:ease"]`**,
+  measured **in the same pass**: the intra-repo divergence now rests on a side-by-side reading.
+- **D-14 + N-4** — `/#/spring`, **16 of 16** sliders `aria-valuetext: null`; names are **positional**
+  (`"Value 1 of 5"`), and `aria-valuenow` runs `0…1` against a declared `max` of **110**.
+- **KF-APP-33** — `{"tag":"button","role":"combobox","aria-label":"Scene","innerText":""}` on **6 of 6**
+  routes: accname §4.3.1-2C takes the label and the selected scene never reaches the name.
+
+**S-8 family (vi) is DECLARED UNSPENT** — the AT pass did not happen, so **no probe in it is spent**
+and none may later be skipped on the ground that this seat "already looked". Per-member state at
+`at-CELL-RECORD` §4.
+
+#### Act 9 — the `safari-app/desktop` cell CLOSED MID-SEAT — recorded, not hidden
+
+The cell was open and productive (4 sessions created and **deleted**, including on the failure path;
+OP-4 taken; 3 shots captured). Then session creation began returning *"You must enable 'Allow remote
+automation' in the Developer section of Safari Settings"*. Recovery **measured, not assumed**: driver
+restarted (`/status → ready:true`, still refused) · ⟨`safaridriver --enable`⟩ →
+**`Password:Password is not valid`** — the same interactive admin bound `.a` recorded at open ·
+⟨`defaults write com.apple.Safari AllowRemoteAutomation -bool true`⟩ → written (`read → 1`), still
+refused because the running Safari holds its own copy · **restarting Safari: NOT DONE** —
+⟨`ps -o pid,ppid,lstart -p 23725`⟩ → started **16:23:59**, parent `launchd`, and
+⟨`osascript … count of windows`⟩ → **6**. **That is the owner's Safari with six open windows**, no
+grant covers quitting it, and a capture seat does not close a person's browser to get a screenshot.
+
+**Declared host-state change, with its revert**: `com.apple.Safari AllowRemoteAutomation = 1` is left
+set — it restores the capability the cell was found with and takes effect at Safari's next launch;
+revert with ⟨`defaults delete com.apple.Safari AllowRemoteAutomation`⟩. **The act-3 accessibility
+probe was fully restored**; no host a11y setting is left changed.
+
+**Consequence, stated at the gate rather than averaged away**: the safari-app arms of the targeted
+ribbon probe and of the AT inventory are **UNMEASURED with an exact precondition** — *"Allow Remote
+Automation" re-enabled by a hand that can answer an admin prompt, or the owner's Safari restarted* —
+which is the shape §0j.C authorizes a downstream wave to close `complete_with_misses` on.
+
+#### Gate readings — BEFORE → AFTER at this unit's limb
+
+| gate | BEFORE (this sitting's baseline) | AFTER |
+|---|---|---|
+| **G-KFW9-8** | RED — *"no WHC capture exists in any cell"* ⟨`ls …safari-real/ \| grep -c 'hcm-\|at-'`⟩ → **0** | **RED** — count re-recorded **0** (ninth seat), producer re-enumerated at **twelve** files; **WHC half cannot close** (no Windows host, no VM host) |
+| **G-KFW9-9** | RED — *"The BEFORE witness is a shot; none exists"* | **RED** — the witness **exists** with its falsifier as a control, but in the `chromium/emulated-forced-colors` cell; the two cells the gate names carry no forced-colors shot (bounds at acts 3 and 7). **The re-derivation obligation is DISCHARGED** (act 6) |
+| **G-KFW9-1** (share) | RED — ⟨`git ls-files …safari-real/ \| wc -l`⟩ → **7** tracked, ⟨`\| grep -ci sha256`⟩ → **0** | **MOVED** — **24** tracked; **7** captures force-added, **7** sha256 sidecars, each with cell + substrate ref |
+| **G-KFW9-2** (share) | RED — 10 cells `UNMEASURED`, **9 of 10** `capability: null` | **MOVED** — 4 cells carry a reading or a **named** foreclosure from this seat; every row carries its own cell; **no verdict crosses a column** |
+| **G-KFW9-4** (share) | RED — 0 of 590 terminal | **MOVED** — this unit's probes reach terminal states (EXECUTED / UNREACHABLE-IN-CELL / UNMEASURED-with-precondition); `.e` folds the tally |
+| **G-KFW9-14** (share) | RED — **0** captures name substrate ref + sha + cell | **MOVED** — every capture names `substrateRef` + `substrateSha` + **measured** `bundleSha256` + cell; `.a`'s residual 2 discharged |
+
+#### Locks, bounds, probes and mail
+
+- **Locks honoured**: the two-deletion act is **KF.W13's** — no cure spent, **no byte deleted**, AFTER
+  witness **UNMEASURED** (S-9) · ST-1's re-point is **KF.W11's**, after KF.W13 (S-15) — untouched ·
+  **AT ran here by ruling** (§0j.C KF-AT), no new lane minted · `safari-real-matrix.js`
+  **EXECUTE-NO-WRITE** and `capture.mjs`/`states.mjs` `.a`-alone — **none written**, no harness
+  redesign, S-13 unarmed · **cell-disjoint**: wrote only `hcm-*`/`at-*`; `desktop-*`/`mobile-*`
+  untouched · `REPORT.*`/`STATES.json` untouched (`.a`/`.e` alone) · **no adjudicated-record byte
+  written** — E-1/E-3 reserve addenda to `.e`, and the material is handed over, not landed.
+- **Bounds clean**: ⟨`git show --stat HEAD`⟩ → **23 files**, every one inside `.d`'s writable set.
+  **Zero keyframes.js bytes** (the clone is a §0m.2 grant, not a repo write grant; it holds no commit
+  and was never pushed). **Zero glass-ui bytes** — read-only always.
+  `scripts/dev/dev.sh` **never touched**; `LEDGER.md` is not in `.d`'s writable set and was **not**
+  edited.
+- **Probe parsimony**, self-counted: **4** safaridriver sessions (all deleted, including on the
+  failure path) and **8** `chromium.launch()` calls across 5 script runs; **0** `webkit.launch()` (it
+  throws on this host). No DevTools-MCP. Files were read to plan; the browser was driven only for
+  cells needing pixels or live computed style.
+- **Mail (E13)**, swept at this seat's clock **19:07:29**, six paths:
+  ⟨`find <each> -maxdepth 1 -type f -newermt '2026-09-17 17:43'`⟩ →
+  `V/ 0 · V/coordination/ 1 · glass BK/ 3 · kf V/coordination/ 0 · atlas P/ 0 · atlas Q/ 0`. The **1**
+  is `INBOX.md` itself (SELF-COUNT). The **3** are already rowed ⟨`grep -c <basename> INBOX.md`⟩ →
+  **1 · 2 · 1**. ⟨`grep -c '^| I-' INBOX.md`⟩ → **36**, tail **I-34**;
+  ⟨`grep '^| I-' INBOX.md | grep -c 'UNREAD'`⟩ → **5** (`I-30 I-31 I-32 I-33 I-34`), **none in
+  KF.W9's scope** — I-32/-33/-34 are Track A's glass consumer-band acts, I-31 the atlas contract, and
+  I-30 the SS-6 ACK **this wave feeds with captures and does not send**.
+  **0 unrowed · 0 UNREAD in scope · no `INBOX.md` byte written.**
+
+#### Residuals handed forward (each with a named owner and an exact precondition)
+
+1. **The `safari-app` + `windows/real-HCM` forced-colors arms of G-KFW9-8/-9 stay OWED.** Preconditions:
+   (a) forced colors is **not enterable on macOS** — measured with a control — so the safari-app arm
+   needs a different platform, not a different seat; (b) the WHC arm needs a Windows host, and none
+   exists. → `.e` books both; §0j.C's `complete_with_misses` shape fits them exactly.
+2. **The `safari-app/desktop` cell needs its automation re-authorized** — an interactive admin prompt
+   or a Safari restart, neither available to this seat (act 9). Its targeted-probe and AT-inventory
+   arms are UNMEASURED, not failed.
+3. **KF.W13 must re-word the redundancy ground before the two-deletion act lands** (act 6). The act
+   itself is unchanged and still ONE act.
+4. **Four addendum facts for `.e`, under ORIGINAL ids, no re-booking and no re-grade**: D-m8's label is
+   **23** words, not 33 · `role="application"` appears **twice** on the spring route · the copy button
+   ships in **two divergent forms**, one with **no** nested `role="status"` at all (a third outcome
+   KF-CB-9's two-branch framing does not enumerate) · the spring sliders declare `max 110` for values
+   that run `0…1`. Plus the producer's forced-colors files now number **twelve**, with ruling 7's four
+   all present and its conclusion reinforced.
+5. **`webkit-engine` is UNMEASURED** on a measured, cheap-to-cure bound: playwright 1.60.0 resolves
+   webkit to `webkit-2287` and only `webkit-2311` is installed. **A chromium reading was not given
+   that label**, which is why the cell is empty rather than wrong.
+6. **The capture clone `/Users/mkbabb/Programming/keyframes-w9-capture` is left in place** at the pin,
+   clean, built and hashed — so `.e` (or a re-authorized safari-app seat) can re-serve the *same*
+   bytes without rebuilding. Its `bundleSha256` is published on every row.
+
+### KF.W9.e — write-backs · the fold · census amendment · the capture receipt · SERVED MODEL: claude-opus-5[1m] · 2026-09-17
+
+**Commits, six, one per meaning**: `429bf48b` (G-KFW9-13's thirteen addenda, 13 paths) · `a94bc452`
+(the five measurements `.d` took and could not land, 6 paths) · `ff7dfda5` (the census-amendment
+DRAFT, 1 path) · `88a3c5b0` (`SS-13-CAPTURE-RECEIPT.md`, 1 path) · `04d7a0d2` (the fold —
+`REPORT.json` · `REPORT.md` · `STATES.json` · `SURFACE-LIST.json` + apparatus, 5 paths) · `55ed2a5e`
+(the two gate readings restated at their own clauses, 1 path). **27 path-slots / 25 distinct paths** (`REPORT.md` and
+`W9e-*.mjs` each appear twice), and a scoped grep of the union against the writable-set patterns returns
+**NONE outside it**. Each commit carries its own pathspec on the commit itself; a sibling's dirty
+`docs/tranches/X/execution/D/X-P-W2.md` was present in the worktree throughout and is in **none** of
+them ⟨`git show --stat <sha>`⟩.
+
+**Status: PARTIAL.** Every act `.e` could lawfully take landed. **Three gates turn** (G-KFW9-13 on its
+own disjunctive arm, G-KFW9-5, G-KFW9-3) and **two stay RED with the missing clause named**
+(G-KFW9-4, G-KFW9-2). **Zero triggers were measured** — that is the wave's condition, not a
+concealment, and it is printed beside every green this seat claims.
+
+---
+
+#### Act 0 — anchors verified at the true bytes, before a byte was written; **three drifted**
+
+⟨`grep -n '^## ' waves/KF-W9.md`⟩ → `220:## Gates` · `245:## Sequencing`; ⟨`grep -n` on the row
+labels⟩ → §Bounds CELL SPLIT **`:69`** · capture-receipt row **`:77`** · S-10 **`:256`** · S-10.1
+**`:308`** · S-11 **`:309`** · S-14 **`:315`** · §H **`:207`**–`:219`.
+
+| dispatched | true | what sits at the dispatched offset |
+|---|---|---|
+| §Gates `:220-244` | **`:220-244`** | **resolves exactly** — G-KFW9-2 `:225` · -3 `:226` · -4 `:227` · -5 `:228` · -13 `:242` |
+| §H's two registers `:207-219` | **`:207-219`** | **resolves exactly** — escalation `:213`, negative `:214` |
+| S-11 · S-14 `:306-315` | **`:309` · `:315`** | **both inside the cited band** |
+| §Bounds CELL SPLIT `:70` | **`:69`** | `:70` is the **adjacent** row (`CENSUS-2026-08-03.md` · `lane-frontend.md §6.5`, *"read-only (both paths)"*) |
+| §Bounds capture-receipt `:81` | **`:77`** | `:81` is **§Disjointness** |
+| S-10 / S-10.1 `:145-161` | **`:256` · `:308`** | `:145-161` is **§Carry D/E/F** |
+
+**Subjects identical at both readings; only offsets drifted.** Each was re-resolved **by §-heading and
+id, the sole anchor (R2-7)**, recorded at `SS-13-CAPTURE-RECEIPT.md §5` and
+`CENSUS-AMENDMENT-DRAFT-PRM.md §0`, **and not worked around**. `.c` recorded the same §Sequencing drift
+independently — two seats, one reading. *One drift is load-bearing and is called out rather than
+noted*: `:70` is precisely the cell that makes **both** census paths read-only and sends the amendment
+to `evidence/W9/**`, so the true byte is the **stronger** authority for what this seat then did.
+
+#### Act 1 — G-KFW9-13: the thirteen, written back under their ORIGINAL ids
+
+**BEFORE, at this seat** ⟨`grep -rl 'ADDENDUM.*2026-09-17' registry/adjudicated/kf-*.md | wc -l`⟩ →
+**0** · ⟨`grep -rl 'PROVISIONAL' kf-*.md | wc -l`⟩ → **0** · ⟨`grep -rl 'G-KFW9-13' kf-*.md | wc -l`⟩
+→ **0**, all **double-run**.
+
+**Apparatus** (banked so the write is re-runnable and refuses to duplicate itself):
+`evidence/W9/W9e-addenda.mjs`. **AFTER, self-counted from the settled bytes**: **12 records** carry the
+addendum · **14 appended blocks** · **13 triggers** · ⟨`grep -rl PROVISIONAL kf-*.md | wc -l`⟩ → **12**.
+
+**The three numbers are different on purpose and the counting rule is stated at its enumeration**:
+**13 triggers** (the register's own figure — R2-15's recount, the kf-TimelineTrack row binding two ids
+under one armed row), **14 blocks** (trigger 13 binds **two** records — `kf-KeyframesStringControls`
+and `kf-TimingFunctionPanel` — and its addendum is appended under its own limb at each), **12 records**
+(triggers 5 and 10 share `kf-KeyframesAddDialog`; 7 and 13 share `kf-TimingFunctionPanel`).
+
+**E-1 PROVEN AT THE BYTES, not asserted**: ⟨`git diff --numstat`⟩ → **210 added · 0 deleted** across
+12 files; ⟨`git diff -U0 | grep '^@@'`⟩ → **12 hunks, every one `@@ -N,0 +N+1,k @@`** — a pure
+insertion at each file's old EOF. **No existing line was edited, re-graded, renumbered or deleted, and
+no id was minted.**
+
+**Every one of the thirteen reads `PROVISIONAL (unrun)`** with the trigger's own named measurement, its
+ceiling, its roster cell, and **the exact precondition it is blocked on** — re-measured at this seat,
+not inherited: ⟨`xcrun devicectl list devices`⟩ → `No devices found.` · ⟨`safaridriver --help | grep
+-ci simulator`⟩ → **0** · ⟨`uname -a`⟩ → `Darwin 25.4.0` · ⟨`ls /Applications | grep -icE
+'parallels|vmware|utm|virtualbox|crossover'`⟩ → **0** · ⟨`command -v qemu-system-x86_64`⟩ → no output ·
+⟨`pgrep -x VoiceOver | wc -l`⟩ → **0**.
+
+**Two preconditions are stated as *unrun*, not *foreclosed*, because that is what they measure**: the
+`chromium` cells **did** open at `.d`, so triggers 3–7, 11–13 need a pass that mounts the subject, not
+a different host. Conflating the two is how a register grows false UNREACHABLEs.
+
+**And KF-TD-8's bound has MOVED and is recorded as moved**: the cheapest trigger in the register waited
+on a servable build; **that build now exists** (the §0m.2 clone), so its precondition is no longer the
+bundle but a cell that can hold a trace.
+
+#### Act 2 — the five measurements `.d` took and was forbidden to land
+
+`.d`'s residual 4 handed `.e` four facts plus the producer enumeration, with *"no re-booking and no
+re-grade"*. All five landed as dated addenda under **original ids**, in a family **counted separately**
+from the thirteen so neither number can absorb the other: `evidence/W9/W9e-addenda-measured.mjs`, **5
+blocks over 5 records**, ⟨`git diff --numstat`⟩ → **74 added · 0 deleted**, all five hunks `-N,0`.
+
+The sharpest, because it changes what a later wave must do before it acts: **`playback-idiom.css`'s
+redundancy ground is FALSE AS WORDED.** Glass 7.0.0 ships **no `.btn-playback` rule at any coordinate**
+⟨`find …/dist -name '*.css' | xargs grep -l 'btn-playback'`⟩ → exit 1, widened to all file types → no
+output. The row survives by a **different** path — the ribbon buttons carry **both** `btn-playback`
+**and** `focus-ring`, ⟨`querySelectorAll('.focus-ring').length`⟩ → **44** — which also makes **K-5
+measured rather than argued**. **Handed to KF.W13: re-word the ground before the deletion lands. The
+act itself is unchanged and is still ONE act.**
+
+#### Act 3 — G-KFW9-5's amendment half: a DRAFT, and the census untouched by design
+
+`evidence/W9/CENSUS-AMENDMENT-DRAFT-PRM.md`. **Both census paths are unwritten** ⟨`git status
+--porcelain -- …/formation/keyframes/`⟩ → **0**; ⟨`sed -n '462p' lane-frontend.md`⟩ → still *"### 6.5
+`prefers-reduced-motion` — 13 enforcement sites across 12 files"*. The draft quotes **both** targets at
+their bytes (`CENSUS-2026-08-03.md:141`'s *"(10 CSS blocks, 2 raw `matchMedia`, 1 `useMediaQuery`)"*
+and the lane's `:462`) and states precisely what the measurement moves: the census's own triple
+enumerates **three** mechanisms, and `.b`'s register finds a **fourth** with one site
+(`usePreferredReducedMotion`, `AmigaScene.vue:58`) → **14 sites / 14 files / 4 mechanisms**, plus **4
+engine-flag sites §6.5 counts nowhere**; **both numerals in "13 across 12" are wrong in opposite
+directions.** *Two of the census clause's three limbs were already discharged at the census's own hand
+(§(iii), D-4) — the draft reaches only the third, and says so rather than claiming the whole row.*
+
+**The residual is named with its owner**: whoever holds the write grant on `CENSUS-2026-08-03.md`.
+**No KF.W9 seat has it, and none took it.**
+
+#### Act 4 — `SS-13-CAPTURE-RECEIPT.md`, the surface receipt — and it rules nothing
+
+Created at `…/audit/visual/safari-real/SS-13-CAPTURE-RECEIPT.md` (231 lines). Four items indexed by
+path + sha256 + cell + substrate ref, **each missing half recorded INCOMPLETE with its exact
+precondition**:
+
+| item | state | produced |
+|---|---|---|
+| **(a) OD-V3 capture packet** | **INCOMPLETE** | **0 of 16** cells (4 scenes × 2 homes × 2 viewports) |
+| **(b) OD-V5 390 at-rest** | **NOT OBSERVED** | nothing — **DEFERRED by ruling, not re-opened** |
+| **(c) Glass §4 dock re-verify (CH2-02 ×4)** | **INCOMPLETE** | **0 of 4** marks (BG-5 · GU-1 · GU-2 · subject-legible) |
+| **(d) V-A95 aurora surface verify** | **NOT PRODUCED** | nothing |
+
+**THE DISCRIMINATOR DID REAL WORK HERE, and the receipt says where.** This wave holds 7 shots, **three
+of them on `/#/easing` — an OD-V3 scene — in OD-V3-eligible cells at 1280×848**. **Not one is counted
+toward the packet.** They are single-control focus captures at one viewport with no 390 twin and no
+both-homes framing; S-8 (iii-a) is explicit that *"a capture of one home, or of either home at one
+viewport, does not satisfy it."* **The nearest miss is named in the receipt rather than quietly
+counted** — which is the whole difference between a receipt and a score.
+
+**The four anchors were re-verified at their own sources, not inherited**: ⟨`git show
+55e9bf0d:docs/tranches/V/OWNER-DECISIONS.md | sed -n '7p;9p'`⟩ → OD-V3's *"THE TRANSPORT-HOME RULING IS
+HELD FOR CAPTURE REVIEW."* and OD-V5's *"THE AT-REST REOPEN QUESTION IS DEFERRED PENDING GLASS'S DOCK
+MARK."*; ⟨`git grep -n 'CH2-02' 55e9bf0d -- docs/tranches/V/FOLD-FORWARD.md`⟩ → **`:34`**, the dock
+contract quoted whole; and KF-W10 §B-1 by anchor.
+
+**THE SIX S-10 ANCHORS, RE-RESOLVED AT THIS SEAT** (S-10's SHADOW leaves the RECONCILE seat exactly one
+act — *"re-resolve them at close and re-issue col C if they moved"*; this seat consumes them, so it ran
+all six):
+
+```
+                                                          col C (PASS-7)            col D (THIS SEAT)
+(A1) grep -n 'X.KF.W9' KF-W10.md                         → :22*                    → :22*
+(A2) grep -n 'OP-4' KF-W10.md                            → :68* :232 :530 :537 :541 → identical
+(A3) grep -n 'PACKET-FIRST' KF-W10.md                    → :68 :84 :519* :537       → identical
+(A4) grep -n 'D. → KF.W9 (Safari Visual Audit)'          → :553*                    → :553*
+(A5) grep -n 'surface verify' KF-W10.md                  → :212*                    → :212*
+(A6) grep -n 'CH2-02' KF-W10.md                          → :203 :214* :232 :537     → identical
+6 of 6 RESOLVE · 6 of 6 subjects byte-exact · 0 of 6 OFFSETS MOVED since col C.
+col C is NOT re-issued: the SHADOW's condition ("if they moved") is measured FALSE.
+```
+
+#### Act 5 — THE FOLD
+
+Apparatus `evidence/W9/W9e-fold.mjs`, re-runnable, **dry-run by default**, and it **prints the residue
+line it matched for every row it moves** so a third party reproduces the mapping by eye.
+
+**THE MAPPING RULE, stated because it is the load-bearing decision of this act**: a banked defect id
+becomes a `SURFACE-LIST` probe row **only when the record's own residue line at that probe's `line`
+contains the id at a WORD BOUNDARY**. The word boundary is not decoration — a substring match put
+`D-1` onto `PlaybackRibbon#2` via the string `D-10/M-3`, and the boundary form killed it before
+anything was written.
+
+**Terminal states, self-counted from the settled bytes, double-run in a fresh process**:
+
+| state | before | after |
+|---|---:|---:|
+| EXECUTED | 0 | **1** |
+| RETIRED | 0 | 0 |
+| UNREACHABLE-IN-CELL | 0 | **12** |
+| UNMEASURED | 590 | **577** |
+| total | 590 | **590** (the script throws if the denominator moves) |
+
+**Cell ledger**: **9 of 10** cells now carry a reading or a **named** foreclosure (before: 10
+UNMEASURED, 9 of 10 `capability: null`). Only `webkit-engine` reads UNMEASURED — **with its bound
+measured** (playwright 1.60.0 wants `webkit-2287`, only `webkit-2311` installed) — and **a chromium
+reading was deliberately NOT given that label**, which is why the cell is empty rather than wrong.
+
+**`bundleSha256` is no longer `null`**: `1ba99457…` — ⟨`find dist/gh-pages -type f | LC_ALL=C sort |
+xargs shasum -a 256 | shasum -a 256`⟩ **re-run twice at this seat, identical**, over **54** files, in
+the §0m.2 clone verified at the pin ⟨`rev-parse HEAD`⟩ → `55e9bf0d…` ⟨`status --porcelain | wc -l`⟩ →
+**0**. **`.a`'s residual 2 is DISCHARGED** — no seat defaulted the field.
+
+**WHAT THE FOLD REFUSED TO DO, recorded as decisions**: most of the wave's terminal dispositions sit on
+banked ids whose residue item does not name itself (the corpus's own *route (d) discharges BY ITEM*
+shape). **They are carried at row level in `REPORT.json.fold.unmappedRowDispositions` — 13 entries with
+their evidence — and are NOT forced onto a probe row.** Two of those are **deliberate under-claims**:
+`App#14` (KF-APP-33) and the family-(vi) AT rows are structurally confirmed and still read
+**UNMEASURED**, because the probes as worded ask for an AT **utterance** and `.d` declared S-8 family
+(vi) **UNSPENT**; closing them on a structural read would spend a probe nobody ran. `RibbonBar#1`
+likewise stays UNMEASURED while **carrying its BEFORE witness in-row** — the probe has two halves and
+the AFTER half is KF.W13's act (S-9).
+
+**A fold that rewrote a sibling's bytes for nothing would not be a fold**: the first write
+re-serialised `SURFACE-LIST.json` from its authored indent-2 to indent-1 — **8425 added / 8163 deleted,
+a whole-file churn**. It was reverted at once ⟨`git checkout --`⟩, the script taught to read each
+file's own indent, and re-run: **306/44**. `.a`'s `rosterDigest`, roster, counting rules, denominator
+and `supersedes` block are byte-identical either way ⟨verified after the write⟩.
+
+#### Act 6 — gate readings, BEFORE → AFTER, each at its own CLOSES clause
+
+| gate | BEFORE | AFTER | the clause it turns on |
+|---|---|---|---|
+| **G-KFW9-13** | RED — 0 addenda, 0 PROVISIONAL | **GREEN, on the CLOSES' own disjunctive arm** | *"…; **unrun triggers reported PROVISIONAL at close**"* — and §Goal states the same as an explicit *"either … or"*. 13 of 13 reported PROVISIONAL under their ORIGINAL ids, dated, from the only lawful seat, each with its exact unmet precondition; **none silently inherited**, which is the failure §H names. **FALSIFIER PRINTED BESIDE THE GREEN: 0 of 13 were MEASURED** — a reviewer holding the gate to its measurement arm alone reads it RED, and it stays RED until a cell opens |
+| **G-KFW9-5** | GREEN (at `.b`'s limb) | **GREEN** | ONE enumeration; 18 of 18 §A rows resolve; the lane file untouched **at the byte**; the amendment **drafted and placed by the seat the bounds name**, with **zero census bytes written** |
+| **G-KFW9-3** | GREEN | **GREEN** | the scoped list is one, kf-scoped, published before any fraction, **and now folded**; denominator re-derived **590** (`h2-only 563 · h2+h3 565 · 57 records · 58 files`), S-13's divergence trigger **not armed** |
+| **G-KFW9-4** | RED — 0 of 590 terminal | **RED, MOVED** | CLOSES demands **every** probe terminal. **13 of 590.** 577 carry named preconditions. Shared-capture families **(v)** and **(vi)** are **DECLARED UNSPENT** so nothing is double-spent later |
+| **G-KFW9-2** | RED — 10 cells UNMEASURED | **RED, MOVED** | every result carries its cell label · unrun cells speak only the three-word vocabulary · no verdict crosses a column · 7 of 7 shots carry a sha256. **It fails on one clause, named**: *"each cell carries OP-4's `.media` capability record"* — **3 of 10 do**; the foreclosed seven carry a **named bound** instead, which is what OP-4 demands of an unopenable cell but is not a capability reading |
+
+#### Locks, bounds, probes and mail
+
+- **Locks honoured**: **E-1/E-3** — **19 blocks appended over 16 records**, **284 lines added · 0
+  deleted**, proven by **16 pure-insertion hunks** across the two commits ⟨`git diff -U0 429bf48b~1
+  a94bc452 -- registry/adjudicated/ | grep -c '^@@'`⟩ → **16**, ⟨`--numstat`⟩ → `added 284 deleted 0`
+  (16 records, not 17: `kf-SpringHeatmap.md` carries a block from each family, and their two appends are
+  contiguous, so they read as one hunk across the pair); **no id minted**; `.e` is the sole author, as §Bounds `:69` requires ·
+  `CENSUS-2026-08-03.md` and `lane-frontend.md §6.5` **unwritten, both paths** · `REPORT.*`/`STATES.json`
+  written as a **FOLD** (`.a`'s skeleton, roster, digest and rules preserved) · `capture.mjs` /
+  `states.mjs` (`.a`-alone) and `safari-real-matrix.js` (EXECUTE-NO-WRITE) **untouched**, S-13 unarmed ·
+  **OD-V3's DISCRIMINATOR binds the receipt and was applied against this seat's own evidence** ·
+  **OD-V5 stays DEFERRED — this wave produces and rules nothing** (*"Never proxied"*) · no cure spent,
+  no byte deleted, the AFTER witness left UNMEASURED (S-9).
+- **Bounds clean**: **27 path-slots / 25 distinct paths** over six commits, checked **by pattern, not by
+  eye** — the union of all six `--name-only` outputs filtered against the writable-set globs returns
+  **nothing**. **Zero
+  keyframes.js bytes** — the §0m.2 clone was read, never written, holds no commit and was never pushed;
+  ⟨kf `git status --porcelain -- docs/tranches/V/coordination/`⟩ shows only the two pre-existing
+  untracked survivors. **Zero glass-ui bytes** — read-only always. `scripts/dev/dev.sh` **never
+  touched**. **`LEDGER.md` is NOT in `.e`'s writable set and was not edited.**
+- **Probe parsimony**: **0** browser launches, **0** safaridriver sessions, **0** Playwright, **0**
+  DevTools-MCP. This seat is a write-back and fold seat; every figure it publishes is either a shell
+  command re-run here or a settled-byte recount. The only re-measurements taken live were the host
+  bounds (six commands) and the bundle digest (twice).
+- **Mail (E13)**, swept at **19:41:12**, six paths: `V/ 0 · V/coordination/ 1 · glass BK/ 0 · kf
+  V/coordination/ 10 · atlas P/ 0 · atlas Q/ 0`. The **1** is `INBOX.md` itself (SELF-COUNT). **The 10
+  are a TREE EVENT, not mail**: every one is dated 2026-07-16/17 or is O-21's own vehicle, all are
+  mtime-bumped to 19:08:45 by a sibling seat's checkout in the kf tree, and ⟨kf `git diff --stat HEAD --
+  docs/tranches/V/coordination/`⟩ → **empty, 0 lines** — **no content changed**. ⟨`grep -c '^| I-'
+  INBOX.md`⟩ → **36**, tail **I-34**; **5 UNREAD** (I-30..I-34), **none in KF.W9's scope** — I-32/-33/-34
+  are Track A's glass consumer-band acts, I-31 the atlas contract, I-30 the SS-6 ACK **this wave feeds
+  with captures and does not send**. **0 unrowed · 0 UNREAD in scope · no `INBOX.md` byte written.**
+
+#### Residuals handed forward — each with a named owner and an exact precondition
+
+1. **G-KFW9-4 stays RED at 13 of 590.** OWNER: a re-authorized capture cell. Precondition: `safari-app/
+   desktop` re-authorized (interactive admin, or the owner's Safari restarted). **Not a seat problem.**
+2. **G-KFW9-2's OP-4 clause, 3 of 10.** OWNER: the same re-authorized cell for `safari-app`; the
+   foreclosed seven can never carry a capability reading and carry a named bound instead — **that is
+   the honest terminal, and the gate should be read against it rather than against a blank.**
+3. **The census amendment is a DRAFT.** OWNER: the holder of the write grant on
+   `CENSUS-2026-08-03.md`. Text complete, measured, double-run; blocked on exactly one grant.
+4. **OD-V3 (0 of 16) · OD-V5 (not observed) · Glass §4 (0 of 4) · V-A95 (not produced).** OWNERS:
+   the orchestrator at **KF.W10 `.g`** (ruling + `complete_with_misses`), **glass-ui → SS-6** for
+   OD-V5's dock mark, **KF.W6** for the dock re-verify's sibling half. Each precondition is written out
+   at `SS-13-CAPTURE-RECEIPT.md §1`, which is the artifact §0j.C authorizes KF.W10 to close on.
+5. **KF.W13 must re-word the redundancy ground before the two-deletion act lands.** OWNER: **KF.W13**.
+   The act itself is unchanged and is still ONE act.
+6. **The thirteen triggers are PROVISIONAL, not measured.** OWNER: whichever seat next opens a cell.
+   **Trigger 8 (KF-TD-8) is the cheapest in the register and its bundle bound is now gone** — one
+   `performance.measure` on the pinned lane closes it.
+7. **`webkit-engine` is empty on a cheap, measured bound.** OWNER: whoever installs `webkit-2287`.
+8. **`.d`'s declared host-state change is still in place**: `com.apple.Safari AllowRemoteAutomation = 1`
+   — revert with ⟨`defaults delete com.apple.Safari AllowRemoteAutomation`⟩. OWNER: the wave's close.
+9. **The capture clone is left at the pin, clean, built and hashed** ⟨re-verified at this seat⟩ so the
+   next seat re-serves the *same* bytes without rebuilding. OWNER: the next capture seat.
+
+**No escalation is returned by this unit.** Nothing in `.e`'s sections required an act outside its
+bounds, and no specified cure was impossible at the bytes: the cures that could not run are **capture**
+cures, owned by cells this host cannot open, and they are booked as residuals with their owners rather
+than as escalations of a write-back seat.
+
+---
+
+## Close — SECOND SITTING
+
+SERVED MODEL: claude-opus-5[1m] — CLOSE SEAT, second sitting, 2026-09-17. **VERIFY-ONLY: this seat
+cures nothing.** Every reading below is a command run at this seat's clock and **double-run where it is
+a figure**; nothing is inherited from `.d`, from `.e`, from the second sitting's baseline, or from the
+first sitting's close. The first sitting's `## Close` stands above, **unedited** (E-3), and this block
+is dated beside it.
+
+### Act 1 — commits exist; every path is inside its unit's writable set
+
+**Ten commits, all present** ⟨`git log -1 --format='%h %ad %s' --date=format:'%H:%M:%S' <sha>`⟩:
+
+| unit | commits | clock | files | verdict |
+|---|---|---|---|---|
+| `.d` | `dde0629a` · `b3057e3b` · `6b887fd4` | 19:12:57 · 19:16:03 · 19:16:08 | **23** · 1 · 1 | **IN BOUNDS** |
+| `.e` | `429bf48b` · `a94bc452` · `ff7dfda5` · `88a3c5b0` · `04d7a0d2` · `55ed2a5e` · `c7f47007` | 19:29:17 → 19:43:57 | 13 · 6 · 1 · 1 · 5 · 1 · 1 | **IN BOUNDS** |
+
+**`.d`'s 23**, checked against its writable set by pattern: **5** `safari-real/at-*` · **12**
+`safari-real/hcm-*` · **6** `X/keyframes/evidence/W9/**`; then `hcm-CELL-RECORD` again (`b3057e3b`) and
+`X/execution/B/KF-W9.md` (`6b887fd4`). **Nothing outside.** No `desktop-*`, no `mobile-*`, no
+`REPORT.*`, no `STATES.json`, no `capture.mjs`/`states.mjs`, no adjudicated record — the four
+prohibitions `.d`'s §Locks names, each verified absent from all three `--name-only` outputs.
+
+**`.e`'s 27 path-slots / 25 distinct**, re-derived here rather than accepted:
+⟨`for s in …; do git show --name-only --format='' $s; done | wc -l`⟩ → **27**; ⟨`… | sort -u | wc -l`⟩ →
+**25**; ⟨`… | sort | uniq -c | sort -rn | head -3`⟩ → `2 kf-SpringHeatmap.md` · `2 REPORT.md` ·
+`1 W9e-fold.mjs`. Bucketed by writable-set prefix ⟨`… | sed -e '<prefix>' | sort | uniq -c`⟩ → **17
+`registry/adjudicated/` · 1 `safari-real/` · 4 `REPORT.*`+`STATES.json` · 5 `evidence/W9/**` = 27**,
+**all four buckets inside `.e`'s set and nothing outside**; plus the seventh commit `c7f47007`, the
+unit's own record (`X/execution/B/KF-W9.md`), also in-set.
+*(The arithmetic reproduces; the unit receipt's parenthetical naming of the two duplicates does not —
+booked at Act 7 **LW-1** and **not fixed here**.)*
+
+**E-1 proven, not asserted** — the only writes into `registry/adjudicated/` across the wave:
+⟨`git diff --numstat 429bf48b~1 a94bc452 -- …/adjudicated/`⟩ → **added 284 · deleted 0**;
+⟨`git diff -U0 … | grep -c '^@@'`⟩ → **16** hunks over **16** files; ⟨`… | grep -c '^-[^-]'`⟩ → **0**.
+**Not one existing byte moved.** ⟨`grep -rh '^## ADDENDUM.*2026-09-17' kf-*.md | wc -l`⟩ → **19** blocks
+over **16** records — the self-count the unit published, reproduced.
+
+**Cross-contamination**: a sibling's dirty `docs/tranches/X/execution/D/X-P-W2.md` and the eight `??`
+rows were in the worktree throughout and appear in **none** of the ten `--name-only` outputs.
+`scripts/dev/dev.sh` appears in **0**. **Zero keyframes.js bytes** ⟨kf `git status --porcelain`⟩ → **2**
+rows, both pre-existing untracked coordination letters, neither ours. **Zero glass-ui bytes.**
+
+### Act 2 — every gate re-run at this seat, against the spec's own GREEN definitions
+
+| gate | BEFORE (this sitting's open) | **AFTER (close)** | this seat's witness |
+|---|---|---|---|
+| **G-KFW9-1** · a real-Safari cell exists at all | RED — 7 tracked, **0** sha256, `captures` **0** | **GREEN**, with its one divergence printed | ⟨`git ls-files …/safari-real/ \| wc -l`⟩ → **25** (was 7); ⟨`\| grep -c sha256`⟩ → **7**; `REPORT.json.captures` → **7**. **I re-hashed all seven myself**: ⟨`for p in *.png; do shasum -a 256 "$p"` vs its `.sha256`⟩ → **match=7 mismatch=0**. **THREE ARE REAL SAFARI**: `W9d-raw-safari-app-desktop.json` → `driver: safaridriver` · `caps {browserVersion 26.4, platformVersion 26.4.1, platformBuildVersion 25E253, useSimulator false}` · `origin http://127.0.0.1:9123` · `substrateSha 55e9bf0d…` · `bundleSha256 1ba99457…fda448` · 3 rows. **The born-RED witness — *"zero real-Safari execution against any keyframes.js tree"* — is refuted at the bytes.** ⟨**DIVERGENCE, NAMED NOT SMOOTHED**: the CLOSES says *"via `workflows/safari-real-matrix.js`"* and that file was **not** the instrument. I read it: `meta.name 'safari-real-matrix'`, `ROUTES_SCHEMA`, seats driving `http://localhost:9000<route>` over *"the 7 routes"* against *"`REPORT.md` §route-matrix"* — **it is the value.js route-matrix workflow**, structurally incapable of producing a keyframes.js cell, and running it would have regrown exactly the pre-X value.js corpus this gate's own witness convicts. `.d` wrote its own client under its `evidence/W9/**` create row and left the named harness **unmodified** ⟨`git log -1 -- …/workflows/safari-real-matrix.js`⟩ → untouched by this wave. **The substitution is the root-cause act; the CLOSES clause is the defect** — booked LW-3. **FALSIFIER**: a reviewer holding the gate to the literal harness path reads it RED, and this green dies the moment that path is shown to be able to produce a kf cell⟩ |
+| **G-KFW9-2** · cell separation (I-20) | RED — 10 cells `UNMEASURED`, **9 of 10** `capability: null` | **RED, MOVED** | Every clause but one holds, and I checked each: results carry cell labels (`cellRoster` = the §Protocol-4 ten, each shot's own filename embeds its cell); unrun cells speak only `unrunCellVocabulary` = `["UNMEASURED","UNREACHABLE-IN-CELL","UNVERIFIABLE-HERE"]` ⟨`cellLedger`: 6 UNREACHABLE-IN-CELL · 1 UNMEASURED (`webkit-engine`) · 2 MEASURED · 1 PARTIAL⟩; **no verdict crosses a column** — ⟨`grep -n 'windows/real-HCM'` over the committed corpus⟩ returns only refusals (*"No capture in this corpus is labelled `windows/real-HCM` or `webkit-engine`"*, `REPORT.md:54`; `NOT_WHC` guards in the raw JSON and in the capture script at `:126`), and the one EXECUTED probe carries `"note": "EXECUTED IN THE CELL NAMED AND IN NO OTHER … This row is NOT written into either of those columns, and the gate stays RED"`; green-without-sha256 impossible (7/7, re-hashed above). **IT FAILS ON ONE CLAUSE, BY NAME**: *"each cell carries OP-4's `.media` capability record"* — **3 of 10** (`safari-app/desktop`, `chromium`, `chromium/emulated-forced-colors`). The other seven carry a **named bound**, which is the honest terminal for an unopenable cell but is not a capability reading |
+| **G-KFW9-3** · the wave's own scoped surface list | GREEN | **GREEN** | ⟨`node -e 'probes.length'` on `SURFACE-LIST.json`⟩ → **590**, double-run; `REPORT.md` head is kf-scoped and names the substrate before any fraction; `executedRequires` = `["capture","sha256","substrateSha","cell","discriminator","falsifier"]`. The list is **one**, published before the fraction, and now folded |
+| **G-KFW9-4** · SS-13 residue discharge | RED — 0 of 590 | **RED, MOVED** | **Denominator re-derived by MY OWN script at the CURRENT bytes** (post-addenda — the risk `.e`'s 284 appended lines created, and the first seat to measure it after them), **double-run identical**: **`h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58`**, `DELTA +2 kf-ChannelOptions.md`, `ZERO kf-CubeAxisLines.md`. **The tenth independent seat, and the first past the write-back: S-13's material-divergence trigger is NOT armed.** Terminal states ⟨`probeTally`⟩ → `EXECUTED 1 · RETIRED 0 · UNREACHABLE-IN-CELL 12 · UNMEASURED 577`; `SURFACE-LIST.json` agrees to the row. **13 of 590.** CLOSES demands **every** probe terminal |
+| **G-KFW9-5** · the PRM census is made true | GREEN | **GREEN** | The lane file is **untouched at the byte**: the true path is `…/formation/keyframes/lane-frontend.md` and ⟨`sed -n '462p'`⟩ → *"### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files"*, with ⟨`git log --oneline -1 --`⟩ → `a331fae6` (KF.W0.d), **no W9 commit in its history** — required, *"the lane file stays dated evidence"*. Same for `CENSUS-2026-08-03.md`. The replacing enumeration is **ONE** — `PRM-ENUMERATION.md`, **29,570 B**, ⟨`grep -c '^| '`⟩ → **99** rows, §§0–7. ⟨`awk 'NR>=106 && NR<=123 && /^- \*\*/' KF-W9.md \| wc -l`⟩ → **18** §A bullets, all resolving. The amendment is a **DRAFT** at `evidence/W9/CENSUS-AMENDMENT-DRAFT-PRM.md` (7,140 B) — **exactly the shape §Bounds `:69` prescribes** (*"there the amendment lands as a DRAFT under the `evidence/W9/**` create row … so the census file's `read-only` is never breached and no split is owed"*), so the CLOSES' *"the census row amends"* is discharged in the only form the wave's own bounds permit |
+| **G-KFW9-6** · intensity form + final-frame hazard | RED — 2 of 3 | **RED — 2 of 3** | Re-run at the pin: ⟨`git show 55e9bf0d:…/defaults.ts \| sed -n '87p'`⟩ → `respectReducedMotion: false,`; ⟨`git grep -n 'reducedMotionScale' 55e9bf0d -- src/`⟩ → **6 hits** (`index.ts:50` · `internal/reduced-motion.ts:125` · `physics/spring/progress.ts:2`/`:153`/`:232`/`:385`), ⟨`… -- demo/`⟩ → **exit 1**. **0 demo · 3 library** — the gate's falsifier (*"any re-statement that the resolver is unconsumed"*) honoured. **(ii) the KAD-11 rest-state CAPTURE is still UNMEASURED** — a capture, and `.d`'s cell is not the one that owes it. The gate's own falsifier forbids closing on the two it could take |
+| **G-KFW9-7** · the two-direction PRM pair | RED | **RED** | ⟨`git grep -n 'snapToReducedMotion' 55e9bf0d -- …/play-lifecycle/`⟩ → decl `strategies.ts:76`, **sole call site `frame.ts:137`** (the rAF lane); ⟨`git grep -c 'withReducedMotion' -- src/animation/waapi/delegation.ts`⟩ → **exit 1**. KF-TD-1's *"`shadowTick` never consults it"* stands at the pin. CLOSES names *"P-9 + U-1 in ONE pass"* — **zero passes taken**; the four-frame protocol at `G-KFW9-7-TWO-DIRECTION.md` is still unspent (`.b`'s cell, not re-dispatched) |
+| **G-KFW9-8** · forced-colors measured back into effect | RED | **RED, MOVED** | ⟨`git grep -c 'forced-colors' 55e9bf0d -- demo/`⟩ → **exit 1, no hits** — **the tenth independent seat**, and the gate's *recorded-result* half holds exactly as authored. The `safari-app` column now carries OP-4's reading, never a blank ⟨`cellLedger[safari-app/desktop].capability`⟩ → all six `.media` strings with `allThreeMediaStringsParse: true`. **It fails on the capture clause**: *"one WHC capture per fold family"* — **zero WHC captures exist and none can**, `windows/real-HCM` UNREACHABLE-IN-CELL (no Windows host, no VM host), and the producer-restoration read cannot be taken because the two-deletion act is KF.W13's and macOS implements no forced-colors mode (`.d`'s live `prefers-contrast` control) |
+| **G-KFW9-9** · the authored REMOVAL, before-witness | RED | **RED, MOVED** | Both copies re-read at the pin by me: ⟨`git show 55e9bf0d:demo/styles/design-idioms.css \| sed -n '76,79p'`⟩ → `.focus-ring:focus-visible { box-shadow: var(--focus-ring-shadow); outline: none; }`; ⟨`… playback-idiom.css \| sed -n '72,75p'`⟩ → `.btn-playback:focus-visible {` + the same pair. **Different selectors, same (0,2,0); both anchors byte-exact, no drift.** The BEFORE witness **exists with its falsifier run as a control** — but in `chromium/emulated-forced-colors`, and the gate names **the safari-app and real-HCM cells**. Neither carries a forced-colors shot, and `.d` refused to write the third cell's reading into either. **That refusal is why the gate is RED and is the wave's own subject** (I-20, fired twice). The **re-derivation obligation is DISCHARGED** and its ground found **FALSE as worded** — handed to KF.W13 |
+| **G-KFW9-11** · the iOS no-zoom floor | RED | **RED** | ⟨`git grep -n 'clampIOSNoZoomFontSize' 55e9bf0d -- src/ demo/ test/`⟩ → decl `demo/components/instrument/utils/iosTextEntry.ts:10`, **exactly one consumer** `CSSCodeEditor.vue:39`/`:137`, tested `:88`/`:89`/`:97`. CLOSES names *"one real-iOS-Safari session"*; both iOS cells are **UNREACHABLE-IN-CELL** by COHESION §0m.2 and re-measured so at this sitting's open. **S-13's head class, at this gate** |
+| **G-KFW9-12** · discriminator + falsifier per probe | GREEN | **GREEN** | Re-counted from the settled JSON at my clock: `NEGATIVE-REGISTER.json.figures` → **`{"records":6,"probes":11,"traps":4}`** (§H exactly); ⟨`node -e` traps⟩ → **4 of 4 carry a non-empty `discriminator` AND `falsifier`**; ⟨intersect retired ids × live list⟩ → **0** re-entrants, the gate's stated failure mode measured absent. `ESCALATION-REGISTER.json` → **13 triggers · `{"UNMEASURED":13}` · 3 `canReachBlocker` · every one carrying both fields**. The one EXECUTED probe carries all six `executedRequires` fields at the bytes — the rule is **enforced, not requested** |
+| **G-KFW9-13** · triggers close with addenda under original ids | RED — 0 addenda, 0 PROVISIONAL | **GREEN**, on the CLOSES' own disjunctive arm, falsifier printed | ⟨`grep -rl 'ADDENDUM.*2026-09-17' kf-*.md \| wc -l`⟩ → **16** (was 0) · ⟨`grep -rl 'PROVISIONAL' \| wc -l`⟩ → **12** · ⟨`grep -rl 'G-KFW9-13' \| wc -l`⟩ → **12**, all double-run. The CLOSES' second arm — *"**unrun triggers reported PROVISIONAL at close**"* — and §Goal's explicit *"either close with a measurement written back under their original ids **or** are reported PROVISIONAL at close"*. **13 of 13 reported PROVISIONAL**, under ORIGINAL ids, dated, from `.e` (the only lawful author), each with its exact unmet precondition, **and E-1 proven at 284/0 over 16 pure-insertion hunks**. **FALSIFIER PRINTED BESIDE THE GREEN: 0 of 13 were MEASURED, and 3 can still reach BLOCKER.** A reviewer holding the gate to its measurement arm alone reads it RED and is right to |
+| **G-KFW9-14** · substrate naming and witness refresh | RED — **0** captures name substrate ref + sha + cell | **GREEN over the seven shots taken**, with both divergences printed | **The RED ground is cured at 7 of 7**: every capture names `cell` + `substrateRef` + `substrateSha 55e9bf0d…` + a **MEASURED** `bundleSha256`. **I re-hashed the bundle myself, third independent measurement**: ⟨clone `find dist/gh-pages -type f \| LC_ALL=C sort \| xargs shasum -a 256 \| shasum -a 256`⟩ → **`1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`**, equal to `.d`'s and `.e`'s, with the clone ⟨`rev-parse HEAD`⟩ → `55e9bf0d…`, ⟨`status --porcelain \| wc -l`⟩ → **0**. OP-5's *"`npm run gh-pages` re-run"* is discharged **by a build that happened**. *One pass, one pinned commit, re-anchored lines*: no re-pin, and both `.d` (0 drifted) and `.e` (3 drifted, each re-resolved by §-heading + id, **not worked around**) recorded their anchor checks. ⟨**DIVERGENCE 1**: §H's wave LAW says *"Every witness runs against **origin/master or later**"*; at this seat kf ⟨`rev-parse HEAD`⟩ = ⟨`rev-parse origin/master`⟩ = **`7d958f21`**, ⟨`rev-list --count 55e9bf0d..HEAD`⟩ → **13** — the captures run at an **ancestor**, ⟨`merge-base --is-ancestor`⟩ → YES, by COHESION §0m.2's held pin. The ruling governs and the spec's clause does not; **named, not smoothed** — LW-4⟩ ⟨**DIVERGENCE 2, the vacuity**: three of the five CLOSES clauses had no subject — *contrast numerals re-derived at capture* (KF-SKEL-22: no contrast numeral was taken by any seat, so no corpus numeral rides as a figure of record), *frames stamped* (KF-AX-4: no animated-frame capture was taken), *installed-dist-exempt records say so* (none was published). **This green is over the 7 shots this wave took, not over the corpus it owes**, and it returns to RED the instant an animated or contrast capture lands without its stamp or its re-derived numeral⟩ |
+
+**TALLY AT CLOSE: 6 GREEN · 7 RED · 0 UNRUNNABLE · 0 DIVERGENT** (born-RED was 13 RED · 0 GREEN; this
+sitting opened at 3 GREEN · 10 RED). **The sitting moved three gates**: **G-KFW9-13** (`.e`'s
+write-back, on the disjunctive arm), **G-KFW9-1** and **G-KFW9-14** (both on `.d`'s three real-Safari
+shots and the measured bundle digest — **neither unit claimed the wave-level verdict; both are stamped
+here, by this seat's own re-measurement, and both carry their divergence in the same cell**).
+
+**The seven RED are not averaged.** Every one of them fails on a **capture that was never taken in the
+cell the gate names** — `windows/real-HCM` (no host), `safari-app` under forced-colors (no such mode on
+macOS, proven with a live control), `safari-app/ios-*` (no device, no simulator through the apparatus),
+the desktop PRM band and the KAD-11 rest state (`.b`'s cell, not re-dispatched). **That is one
+condition wearing seven gate ids, and it is a host and platform condition, not a seat's failure.**
+
+### Act 3 — §Verification Artefacts, as written
+
+**`KF-W9.md` has NO `§Verification Artefacts` section and NO `§Hard Gate`.** Re-measured at this seat:
+⟨`grep -n -i 'Verification Artefact' KF-W9.md`⟩ → **3 hits, all citations of a SIBLING's section**
+(`:210` and `:531` cite `X/waves/W6.md` `## 8. Verification Artefacts`, **MATRIX** a bolded inline label
+at its `:367`; `:548` is the D3-7 repair row that anchored them); ⟨`grep -n -i 'hard gate'`⟩ → **no
+output**. **Stated, not worked around** — there is no artefact list in this spec to run, so this close
+ran **§Gates whole** (Act 2) and the **§Surface-list protocol** in its place, item by item:
+
+| item | subject | reading at this seat |
+|---|---|---|
+| **2** | the denominator | **RUN** — my own script, double-run: `563 · 565 · 57 · 58`, delta located at `kf-ChannelOptions.md`, zero-record at `kf-CubeAxisLines.md`. **Measured AFTER the 284 addendum lines landed** — the write-back moved it by nothing |
+| **3** | KF-AX-26 bounds law | **HELD** — `SURFACE-LIST.json` inherits no demo-gate exclusion; `e2e/` does not exist in the kf tree |
+| **4** | the I-20 cell roster | **RUN** — 10 cells, `cellRoster` matching §Protocol-4 name for name; no verdict crosses a column (Act 2, G-KFW9-2) |
+| **5** | discriminator + falsifier | **RUN** — mechanized in `assertProbeTerminal()`; the one EXECUTED row carries both, non-empty, at the bytes |
+| **6** | shared-capture families | **RUN, AND THE ZEROS ARE THE READING** — families **(v)** and **(vi)** are **DECLARED UNSPENT** in `REPORT.md` (`:102`/`:119-120`), so **no probe is double-spent later**; (iii)/(iii-a)/(iii-b) never opened. Honoured by declaration, which is what the protocol asks of an unspent family |
+| **7** | substrate ref + sha + cell per capture; contrast numerals at capture; frames stamped | **SPLIT** — the first arm **PASSES 7 of 7** (re-hashed here); the other two are **ZEROS, recorded as zeros**: no contrast numeral and no animated frame was captured, so no corpus numeral is anyone's figure of record |
+| **1** | B18-26's adjudicated denominator | **HELD** — `73,568` appears in `REPORT.md` only as *the thing rejected*; the numerator was inherited and the denominator scoped to kf, exactly as ruled |
+
+### Act 4 — E13 mail, swept again at this seat
+
+Six paths, read-only, at the close clock **19:49:41**, ⟨`/usr/bin/find <each> -maxdepth 1 -type f
+-newermt '2026-09-17 19:44'`⟩ (the `.e` sweep's clock as the floor):
+`V/ 0 · V/coordination/ **1** · glass BK/ 0 · kf V/coordination/ 0 · atlas P/ 0 · atlas Q/ 0`.
+**The 1 is `INBOX.md` itself** — SELF-COUNT law. ⟨`ls -d ../glass-ui/docs/tranches/*/ | wc -l`⟩ → **45**,
+**BK** still the maximum.
+
+⟨`grep -c '^| I-' INBOX.md`⟩ → **36**, tail **I-34**, unmoved across the whole sitting.
+⟨`grep '^| I-' INBOX.md | grep -c 'UNREAD'`⟩ → **5** — `I-30 I-31 I-32 I-33 I-34` — and **none is in
+KF.W9's scope**, each checked against its own Routing cell: I-32/-33/-34 are Track A's glass
+consumer-band acts (X-EXT-1 inside the X-W4.g atomic cut, COHESION §0i.5), I-31 is the atlas/sci
+pass-2 contract (Track A/D), and **I-30 is the SS-6 ACK this wave FEEDS with captures and does not
+send** — §Carry's own words, *"the letter waits on them"*, and the captures it waits on are the ones
+this close reports OWED.
+
+**0 unrowed · 0 UNREAD in scope · no `INBOX.md` byte written by this seat. No wave closes with UNREAD
+mail in scope, and none is.**
+
+### Act 5 — the four-verb line, moved exactly as §State says
+
+§State's own rule, quoted: **IMPLEMENTED** *"stamped only when gates go green after the begin-word"*;
+**VERIFIED** *"stamped only at X·KF close; **no wave stamps VERIFIED at its own close**"*.
+
+| verb | state at close | ground |
+|---|---|---|
+| AUDITED | **YES** (unchanged) | 58/58 adjudicated records · `CENSUS-2026-08-03.md` · `lane-frontend.md §6.5` |
+| SPECIFIED | **YES** (unchanged) | this spec, agglomerated, seven repair rounds |
+| IMPLEMENTED | **PARTIAL — 6 of 13** | **not stamped YES**: seven gates are RED at their own witnesses, and every one of them names a capture in a cell this host cannot open. The six GREEN are **named, not averaged** — G-KFW9-1 · -3 · -5 · -12 · -13 · -14 — and three of them carry a printed divergence or falsifier in their own cell |
+| VERIFIED | **NO** | **by the spec's own rule** — this wave's close does not stamp it, at X·KF close or not at all |
+
+### Act 6 — residuals, each with a named owner and an exact precondition
+
+*Carried from `.d` (6) and `.e` (9), deduped at the subject and re-verified here; two are DISCHARGED at
+this seat and say so.*
+
+1. **G-KFW9-4 stays RED at 13 of 590 · G-KFW9-2's OP-4 clause at 3 of 10.** OWNER: **a re-authorized
+   capture cell**. Precondition, exact: `safari-app/desktop` automation re-granted — an interactive
+   admin prompt (`safaridriver --enable`) or a restart of the owner's running Safari. **Not a seat
+   problem** and not curable by dispatch.
+2. **The `safari-app` and `windows/real-HCM` forced-colors arms of G-KFW9-8/-9.** OWNER: **a different
+   platform**, not a different seat. Preconditions: (a) macOS/WebKit implements no forced-colors mode —
+   measured with a live `prefers-contrast` control that flipped TRUE in the same `matchMedia` batch
+   while `forced-colors` did not move; (b) the WHC arm needs a Windows host, and ⟨`uname`⟩ → `Darwin
+   25.4.0` with no VM host in `/Applications` and no `qemu` on PATH.
+3. **G-KFW9-11 · both iOS cells.** OWNER: whoever supplies a paired device. Precondition: ⟨`xcrun
+   devicectl list devices`⟩ → *No devices found.*; ⟨`safaridriver --help | grep -ci simulator`⟩ → **0**.
+   RULED UNREACHABLE-IN-CELL at COHESION §0m.2; re-measured at this sitting's open.
+4. **G-KFW9-6 (ii) the KAD-11 rest-state capture · G-KFW9-7's one pass.** OWNER: **the `.b` desktop
+   cell**, not re-dispatched this sitting (its commits exist; a unit whose commits exist is not
+   re-dispatched). The protocol is specified and unspent at `G-KFW9-7-TWO-DIRECTION.md`.
+5. **The census amendment is a DRAFT.** OWNER: the holder of the write grant on
+   `CENSUS-2026-08-03.md`. Text complete, measured, double-run; blocked on exactly one grant.
+6. **OD-V3 (0 of 16) · OD-V5 (not observed) · Glass §4 dock (0 of 4) · V-A95 (not produced).** OWNERS:
+   the orchestrator at **KF.W10 `.g`** (ruling + `complete_with_misses`), **glass-ui → SS-6** for
+   OD-V5's dock mark, **KF.W6** for the dock re-verify's sibling half. Each precondition is written out
+   at `SS-13-CAPTURE-RECEIPT.md §1` — **the artifact §0j.C KF-ODV3 authorizes KF.W10 to close on**.
+7. **KF.W13 must re-word the redundancy ground before the two-deletion act lands.** OWNER: **KF.W13**.
+   The act itself is unchanged and is still **ONE act** (K-5): both ribbon buttons carry `.focus-ring`
+   as well, so deleting either copy alone leaves the other matching the same buttons.
+8. **The thirteen triggers are PROVISIONAL, not measured; 3 can reach BLOCKER.** OWNER: whichever seat
+   next opens a cell. **KF-TD-8 is the cheapest in the register and its bundle bound is now gone** —
+   one `performance.measure` on the pinned lane closes it.
+9. **`webkit-engine` is empty on a cheap, measured bound.** OWNER: whoever installs `webkit-2287`
+   (playwright 1.60.0 resolves webkit there; only `webkit-2311` is installed). **A chromium reading was
+   not given that label** — which is why the cell is empty rather than wrong.
+10. **DISCHARGED AT THIS SEAT** — `.d`'s declared host-state change, whose owner `.e` named as *"the
+    wave's close"*: ⟨`defaults read com.apple.Safari AllowRemoteAutomation`⟩ → **1**, then ⟨`defaults
+    delete com.apple.Safari AllowRemoteAutomation`⟩ → exit 0, then ⟨`defaults read …`⟩ → *"does not
+    exist"*, **exit 1**. **The host is restored to its pre-wave state.**
+11. **VERIFIED AT THIS SEAT AND LEFT IN PLACE** — the §0m.2 capture clone
+    `/Users/mkbabb/Programming/keyframes-w9-capture`: ⟨`rev-parse HEAD`⟩ → `55e9bf0d…`,
+    ⟨`status --porcelain | wc -l`⟩ → **0**, bundle digest re-hashed → **`1ba99457…fda448`**, identical
+    to `.d`'s and `.e`'s. OWNER: **the next capture seat**, which re-serves the *same* bytes without
+    rebuilding. Deleting it would cost the wave its only reproducible substrate.
+
+### Act 7 — landed-wrong, recorded and NOT fixed here (VERIFY-ONLY)
+
+**LW-1 · `.e`'s unit receipt misattributes its own two duplicate path-slots.** The receipt reads
+*"27 path-slots / 25 distinct paths (`REPORT.md` and `W9e-*.mjs` each appear twice)"*. Measured
+⟨`… | sort | uniq -c | sort -rn`⟩: the duplicates are **`REPORT.md`** and
+**`registry/adjudicated/kf-SpringHeatmap.md`**; the three `W9e-*.mjs` files are **distinct**
+(`W9e-addenda.mjs` · `W9e-addenda-measured.mjs` · `W9e-fold.mjs`) and each appears **once**. The
+arithmetic **27 − 2 = 25** is right and the bounds conclusion is unaffected. **Owner**: a dated
+addendum-beside at the X·KF close. **Not fixed here** — E-3, and this seat cures nothing.
+
+**LW-2 · `REPORT.json.substrate.ref` is a composite that has decayed.** The field pairs
+`"ref": "master == origin/master"` with `"sha": "55e9bf0d…"`. That pairing was TRUE at `.a`'s pin clock
+and is **FALSE at close**: kf ⟨`rev-parse HEAD`⟩ = ⟨`rev-parse origin/master`⟩ = **`7d958f21`**,
+**13** commits past the pin. Nothing rests on it — the `sha` is the authority and `bundleNote` states
+the clone in full — but a later reader would take the two fields together. **Owner**: the next seat
+holding a `REPORT.*` fold grant (`.a`/`.e` alone; this close holds none and writes no fold).
+
+**LW-3 · a SPEC defect, not a seat's: G-KFW9-1's CLOSES names an instrument that cannot produce this
+wave's subject.** `workflows/safari-real-matrix.js`, read at its bytes, is the **value.js 7-route
+matrix workflow** — `meta.name 'safari-real-matrix'`, `ROUTES_SCHEMA`, seats driving
+`http://localhost:9000<route>` over *"the 7 routes"* and twinning *"`REPORT.md` §route-matrix"*.
+Running it would have regrown precisely the pre-X value.js corpus the gate's own born-RED witness
+convicts (*"the only real-Safari corpus … is value.js routes, pre-X"*). `.d` wrote its own client under
+its own create row and left the harness **unmodified** (EXECUTE-NO-WRITE honoured, S-13 unarmed). **The
+substitution is the root-cause act; the clause is the defect.** **Owner**: a dated addendum-beside at
+`KF-W9.md` §Gates, at the X·KF close. **Not fixed here.**
+
+**LW-4 · the §H wave LAW and COHESION §0m.2 disagree, and the ruling governs.** §H: *"Every witness runs
+against **origin/master or later**"*. The wave's seven captures run at `55e9bf0d`, now **13 commits
+behind** `origin/master 7d958f21` (⟨`merge-base --is-ancestor`⟩ → YES). §0m.2 held the pin *"on the
+ruling's words, not on a seat's authority"* and chose the clone precisely so the frontier's motion could
+not reach it. **The ruling is the later authority and it governs**; the spec clause is left standing and
+named rather than quietly satisfied. **Owner**: the same addendum-beside as LW-3.
+
+*Four landed-wrong were recorded at the first sitting's close and are not re-booked here.*
+
+### Act 8 — escalations
+
+**`.d` returned two and `.e` returned none. Both of `.d`'s are RESOLVED AT THIS SEAT — neither reaches
+the orchestrator as an open question.**
+
+**`.d`'s FIRST — S-13's triumvirate trigger, ARMED, with its letter-vs-measurement divergence handed up
+undecided.** S-13 arms on *"G-KFW9-8's safari column UNREACHABLE by UA capability AND no Windows HCM
+cell"*. Both halves re-measured here. **(a) No Windows HCM cell**: ⟨`uname`⟩ → `Darwin 25.4.0`; no
+Parallels/VMware/UTM/VirtualBox/CrossOver; no qemu — **the trigger's second conjunct is TRUE**.
+**(b) The safari column IS foreclosed but NOT "by UA capability"**: the three `.media` strings **parse**
+(`allThreeMediaStringsParse: true` in the cell's own capability record), and the foreclosure is by
+**PLATFORM** — with `increaseContrast` set, `(prefers-contrast: more)` flipped TRUE live in the same
+`matchMedia` batch while `(forced-colors: active)` stayed false. **THE TRIGGER'S SUBSTANCE HOLDS AND ITS
+LETTER DOES NOT.** ⟨**RULED AT THIS SEAT, because the trigger's own escape clause decides it and no
+orchestrator act is needed**: S-13's named consequence is *"`windows/real-HCM` with no Windows host
+books **UNREACHABLE-IN-CELL with the bound stated**, never inferred from
+`chromium/emulated-forced-colors`"* — and that is **exactly what landed**, verified by me at the bytes:
+`cellLedger[windows/real-HCM].state` = `UNREACHABLE-IN-CELL` with its bound, and ⟨`grep -n
+'windows/real-HCM'` over the 23 committed files⟩ returns **only refusals** (`NOT_WHC` guards in the
+capture script `:126` and both raw JSONs; *"No capture in this corpus is labelled `windows/real-HCM` or
+`webkit-engine`"*, `REPORT.md:54`). **A triumvirate convenes to decide an act; the act S-13 prescribes
+was taken, correctly, and there is nothing left to decide.** The letter-vs-measurement divergence is
+booked as **LW-3's sibling** — a spec clause worded against one mechanism (UA capability) for a
+foreclosure that turns out to have another (platform) — and travels to the X·KF close as an
+addendum-beside, **not as an open escalation.**⟩
+
+**`.d`'s SECOND — the `safari-app/desktop` cell CLOSED MID-SEAT.** After four clean sessions Safari's
+Allow Remote Automation stopped granting; `safaridriver --enable` demanded an interactive admin
+password; the `defaults write` landed but the running Safari (pid 23725, launchd, 6 open windows, the
+owner's) holds its own copy and **restarting it was DECLINED — correctly: no grant covers quitting the
+owner's Safari.** ⟨**BOOKED, NOT ESCALATED**: this is a **residual with an exact precondition**
+(Act 6.1), and COHESION §0j.C authorizes **KF.W10 `.g`** to close `complete_with_misses` on exactly this
+shape. The host-state change it left behind is **DISCHARGED at this seat** (Act 6.10). Nothing is owed
+to a triumvirate.⟩
+
+**THIS CLOSE RETURNS NO ESCALATION.** Every act this wave could lawfully take at this host landed;
+everything that did not is a **capture in a cell the host cannot open**, each booked with its owner and
+its exact precondition, which is the shape the runbook and §0j.C already provide for.
+
+### Verdict
+
+**PARTIAL — 6 of 13 gates GREEN, `complete_with_misses` in shape.** The second sitting discharged both
+units §0m.2 ordered and moved three gates. **What the wave now HAS that it did not**: a real Safari 26.4
+session against a keyframes.js bundle, three shots, force-added, sha256-sidecar'd, substrate-named and
+bundle-hashed — the born-RED witness *"zero real-Safari execution against any keyframes.js tree"*
+refuted at the bytes; a forced-colors BEFORE witness taken **with its falsifier run as a control**, and
+**refused** entry into the two columns the gate names; a measured proof that **macOS implements no
+forced-colors mode**, taken against a live `prefers-contrast` control rather than assumed; thirteen
+armed triggers written back PROVISIONAL under their **original** ids with **284 lines added and 0
+deleted**; and the KF.W13 redundancy ground measured **FALSE as worded**, with K-5 confirmed by the
+buttons' own class lists rather than argued.
+
+**What it does NOT have, said plainly**: seven gates are RED, and **every one of them is a capture in a
+cell this host cannot open** — no Windows host, no forced-colors mode on macOS, no paired iOS device,
+no simulator through the apparatus, and a desktop Safari automation grant that closed mid-wave and
+needs an interactive admin or the owner's own restart. **That is one condition wearing seven gate ids.**
+It is not curable by dispatching another seat, and this close does not pretend otherwise.
+
+**IMPLEMENTED: PARTIAL — 6 of 13.** **VERIFIED: NO**, by §State's own rule.
+
+---
+
+## Check 1
+
+**FRESH ADVERSARIAL CHECK (X·KF L-20, pass 1) of KF.W9's close — Track B.**
+**SERVED MODEL: claude-opus-5[1m]** · independent seat, 2026-09-17, VERIFY-ONLY (this seat cures
+nothing and wrote no byte outside this record and the LEDGER row).
+**VERDICT: CONFORMANT-HONEST-RED.** Zero BLOCKER · zero CRITICAL · zero HIGH.
+**13 of 13 gate readings reproduce at this seat's own commands; 0 gate readings failed to reproduce.**
+Every figure below is a command run here and double-run where it is a figure; nothing is inherited from
+`.a`–`.e`, from either close, or from the LEDGER.
+
+### Axis 1 — every claimed GREEN reproduces (6 of 6)
+
+| gate | the close's claim | this seat's own command → output | verdict |
+|---|---|---|---|
+| **G-KFW9-1** | 25 tracked · 7 sha256 · `captures` 7 · 3 real Safari · 7/7 re-hash | ⟨`git ls-files …/safari-real/ \| wc -l`⟩ → **25**; ⟨`\| grep -c sha256`⟩ → **7**; ⟨`node -e REPORT.json.captures`⟩ → **7**; ⟨for each `*.png`: `shasum -a 256` vs its `.sha256`⟩ → **match=7 mismatch=0**; ⟨`W9d-raw-safari-app-desktop.json`⟩ → `driver safaridriver` · `browserVersion 26.4` · `platformVersion 26.4.1` · `platformBuildVersion 25E253` · `useSimulator false` · `origin http://127.0.0.1:9123` · `substrateSha 55e9bf0d…` · `bundleSha256 1ba99457…fda448` · **3 rows** | **REPRODUCES** |
+| **G-KFW9-3** | 590 probes, list before the fraction | ⟨`node -e 'probes.length'`⟩ → **590**, double-run; `executedRequires` = the six; `73,568` present only as the rejected thing | **REPRODUCES** |
+| **G-KFW9-5** | lane file untouched · ONE enumeration 29,570 B / 99 rows · draft 7,140 B · 18/18 | ⟨`sed -n '462p' lane-frontend.md`⟩ → *"### 6.5 `prefers-reduced-motion` — 13 enforcement sites across 12 files"*; ⟨`git log --oneline -1 --`⟩ → **`a331fae6` (KF.W0.d)** — no W9 commit in its history, nor in `CENSUS-2026-08-03.md`'s; ⟨`wc -c PRM-ENUMERATION.md`⟩ → **29570**; ⟨`grep -c '^| '`⟩ → **99**; ⟨`wc -c CENSUS-AMENDMENT-DRAFT-PRM.md`⟩ → **7140**; ⟨`awk 'NR>=106 && NR<=123 && /^- \*\*/' KF-W9.md \| wc -l`⟩ → **18** | **REPRODUCES** |
+| **G-KFW9-12** | `{records:6, probes:11, traps:4}` · 13 triggers · 3 blocker-capable · 0 re-entrants | ⟨`node -e` on `NEGATIVE-REGISTER.json`⟩ → **`{"records":6,"probes":11,"traps":4}`**, **4 of 4** traps carry a non-empty `discriminator` AND `falsifier`; ⟨`ESCALATION-REGISTER.json`⟩ → **13** triggers · `{"UNMEASURED":13}` · **3** `canReachBlocker` · **13 of 13** carry both fields; ⟨my own intersect of the 11 retired ids × the 590 live ids⟩ → **0** | **REPRODUCES** |
+| **G-KFW9-13** | 16 records carry a dated addendum · 284 added / 0 deleted · 16 pure-insertion hunks | ⟨`git diff --numstat 505429ca..HEAD -- …/adjudicated/`⟩ → **files=16 added=284 deleted=0**; ⟨`git diff -U0 … \| grep -c '^-[^-]'`⟩ → **0**; ⟨`\| grep -c '^@@'`⟩ → **16**; ⟨`grep -rh '^## ADDENDUM.*2026-09-17' \| wc -l`⟩ → **19** blocks over **16** files; ⟨`grep -rl 'PROVISIONAL' \| wc -l`⟩ → **12**, ⟨`grep -rl 'G-KFW9-13'`⟩ → **12**. **E-1 PROVEN STRONGER THAN THE CLOSE CLAIMS**: I checked each hunk's position against its file's length — **all 16 are true end-of-file appends** (e.g. `kf-TypingDots.md` `@@ -141,0 +142,15 @@`, total **156**), so not one byte above any addendum moved and no addendum lands mid-record | **REPRODUCES** |
+| **G-KFW9-14** | bundle digest `1ba99457…fda448`, clone clean at the pin | ⟨`git -C /Users/mkbabb/Programming/keyframes-w9-capture rev-parse HEAD`⟩ → **`55e9bf0d…`**; ⟨`status --porcelain \| wc -l`⟩ → **0**; ⟨`find dist/gh-pages -type f \| LC_ALL=C sort \| xargs shasum -a 256 \| shasum -a 256`⟩ → **`1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448`** — the **fourth** independent measurement, equal to `.d`'s, `.e`'s and the close's | **REPRODUCES** |
+
+**All seven RED readings reproduce too**, at the pin `55e9bf0d` in the kf tree, run here:
+⟨`git show 55e9bf0d:…/defaults.ts \| sed -n '87p'`⟩ → `respectReducedMotion: false,` ·
+⟨`git grep -n 'reducedMotionScale' 55e9bf0d -- src/`⟩ → **6 hits** (`index.ts:50` · `internal/reduced-motion.ts:125` · `physics/spring/progress.ts:2/:153/:232/:385`), ⟨`-- demo/`⟩ → **exit 1** — **0 demo · 3 library** ·
+⟨`git grep -n 'snapToReducedMotion' 55e9bf0d -- …/play-lifecycle/`⟩ → decl `strategies.ts:76`, **sole call site `frame.ts:137`** ·
+⟨`git grep -c 'withReducedMotion' 55e9bf0d -- src/animation/waapi/delegation.ts`⟩ → **exit 1** ·
+⟨`git grep -c 'forced-colors' 55e9bf0d -- demo/`⟩ → **exit 1** (the **eleventh** independent seat) ·
+⟨`git show 55e9bf0d:demo/styles/design-idioms.css \| sed -n '76,79p'`⟩ and ⟨`… playback-idiom.css \| sed -n '72,75p'`⟩ → both `box-shadow: var(--focus-ring-shadow); outline: none;`, **different selectors, same (0,2,0), byte-exact, no drift** ·
+⟨`git grep -n 'clampIOSNoZoomFontSize' 55e9bf0d -- src/ demo/ test/`⟩ → decl `iosTextEntry.ts:10`, **exactly one consumer** `CSSCodeEditor.vue:39`/`:137` ·
+⟨`REPORT.json.cellLedger`⟩ → **10 cells · 3 with a capability record · 6 UNREACHABLE-IN-CELL · 1 UNMEASURED · 2 MEASURED · 1 PARTIAL** ·
+⟨`REPORT.json.probeTally`⟩ → `EXECUTED 1 · RETIRED 0 · UNREACHABLE-IN-CELL 12 · UNMEASURED 577` = **13 of 590**.
+
+**The denominator, re-derived by a script I wrote at this seat, at the current bytes (post-addenda), double-run identical**: **`h2-only: 563 · h2+h3: 565 · records with items: 57 · files: 58`**, `DELTA kf-ChannelOptions.md 10→12`, `ZERO kf-CubeAxisLines.md`. **The eleventh independent seat and the second past the write-back: S-13's material-divergence trigger is NOT armed.**
+
+### Axis 2 — bounds (no write outside §File Bounds)
+
+⟨`for c in <all 20 commits>; do git show --name-only --format='' $c; done | sort | uniq -c`⟩ → **68
+distinct paths, every one inside §Bounds' writable set**; `.d`'s `dde0629a` = **23** = **5 `at-*` · 12
+`hcm-*` · 6 `evidence/W9/**`**, self-counted here and matching; `.e`'s first six commits =
+**27 path-slots / 25 distinct** (⟨`sort -u`⟩), the seventh `c7f47007` its own record — **the close's
+enumeration reproduces exactly at its own stated rule**. **`scripts/dev/dev.sh` appears in 0 of 20**
+(⟨`git log --oneline -1 -- scripts/dev/dev.sh`⟩ → `85cfea2c`, a pre-wave T commit; still ` M`, never
+staged). **Zero keyframes.js bytes** (⟨kf `git status --porcelain`⟩ → 2 rows, both pre-existing
+untracked `VALUEJS-INBOUND-*` letters from July, neither ours). **Zero glass-ui bytes.**
+`workflows/safari-real-matrix.js` **unmodified** ⟨`git log --oneline -1 --`⟩ → `c0078d96`, pre-wave,
+and ⟨`git status --porcelain`⟩ on it → empty. **Every one of the 20 commits carries its
+`Claude-Session:` trailer** ⟨`git log -1 --format='%B' <sha> | grep -c 'Claude-Session:'`⟩ → **1 ×20**,
+and no sibling path (the dirty `execution/D/X-P-W2.md`, `execution/A/X-W2.md`, the eight `??` rows)
+appears in any of them — **pathspec discipline held across all twenty**.
+
+### Axis 3 — no masking fallback
+
+⟨`grep -n 'try {\|catch\|\.skip\|allowlist\|node_modules\|@ts-ignore\|@ts-expect-error'` over every
+`.mjs` this wave wrote or carved⟩ — **no test.skip, no allowlist, no patched `node_modules`, no
+silently narrowed assertion**. The carve went the other way: `capture.mjs` gained `assertCell()`
+(`:82` *"I-20: '<id>' is not in the ten-cell roster"*), `rosterGuard()` (`:91`), `assertSubstrate()`
+(`:119` — `--bundle-sha=` has **no default** and aborts), `assertProbeTerminal()` (`:178`, throwing on
+a transition to EXECUTED without the six `executedRequires`). The deleted lines in `.a`'s carve
+(⟨`git show dfe890e1 -- capture.mjs states.mjs | grep '^-[^-]'`⟩) are the **value.js** matrix
+definitions the kf roster replaces, recovery verified at `c0078d96` — **no assertion was narrowed**.
+The `try/catch` sites in `.d`'s clients **record** rather than swallow (`fv = 'UNSUPPORTED: ' + e`,
+`out.rows.push({navError})`). **No producer selector was copied; glass-ui was neither read nor
+written; not one kf byte moved, and the two-deletion cure was correctly NOT taken here.**
+
+### Axis 4 — commit families
+
+The spec has **no §Commit Plan**. `.a` states its family and holds it (`dfe890e1`: *"One commit because
+G-KFW9-12 requires the registers be published WITH the list and S-1 names the four as one chassis"*) —
+verified: the list, both registers and the roster carve are in that one commit. `.d` = cell work ·
+same-seat self-count correction · record. `.e` = seven commits, seven distinct meanings. **No family
+split; no commit carries two meanings.**
+
+### Axis 5 — E-3 held
+
+⟨`git diff --stat` over this wave's own 20 commits⟩: **`docs/tranches/X/keyframes/waves/**` — not one
+path. `docs/tranches/X/keyframes/conformance/**` — not one path. `CENSUS-2026-08-03.md` /
+`lane-frontend.md` — not one path** (both last moved at `a331fae6`, KF.W0.d). `docs/tranches/T/**` —
+⟨`git diff --stat 505429ca..HEAD -- docs/tranches/T/`⟩ → **empty**. The adjudicated registry is written
+**append-only, 16 true end-of-file appends, 284 added / 0 deleted**, from `.e` alone — **exactly the
+cell split §Bounds `:69` carves at repair round 4, and nothing wider.** *(The `KF-W4.md` +75 lines
+visible in a raw `505429ca..HEAD` range are a **sibling wave's** commits, not this wave's; they appear
+in none of the twenty.)*
+
+### Axis 6 — mail
+
+⟨`grep -c '^| I-' INBOX.md`⟩ → **36**, tail **I-34**; ⟨`grep '^| I-' | grep -c UNREAD`⟩ → **5**
+(`I-30 I-31 I-32 I-33 I-34`). Each checked against its **own Routing cell** at this seat: I-32/I-33/I-34
+route to **the X formation mail seat / X-W0.j / X-EXT-1** (Track A/D, the glass consumer band); I-31 is
+**FOLDED at the X-W0 close** and its `UNREAD` is a kept prior-status note; I-30's own row says
+***"No reply owed — the letter asks nothing"***. ⟨`grep -c 'KF\.W9'` over each of the five⟩ → **0,0,0,1,0**,
+and I-33's single hit is inside *"kf → X·KF"*, a relay instruction addressed to the formation mail seat,
+not an obligation on this wave. **0 UNREAD in KF.W9's scope; no `INBOX.md` byte written by this seat.**
+
+### Axis 7 — the four-verb line
+
+Lawful. §State's own rule is quoted and obeyed: **IMPLEMENTED PARTIAL — 6 of 13** (not YES, because
+seven gates are RED at their own witnesses) and **VERIFIED NO** (*"no wave stamps VERIFIED at its own
+close"*). The spec's own `Status: planned` is untouched, as §Bounds requires.
+
+### Axis 8 — the goal criterion, at the bytes
+
+**NOT MET, and the close does not claim it is.** §Goal asks for the demo *"seen by a real Safari —
+**mobile and desktop**"* **and** *"**every one** of the ≈590 banked probes … terminal"*. At the bytes:
+**desktop YES** (3 safaridriver shots, Safari 26.4 / macOS 26.4.1, hashed, substrate-named);
+**mobile NO** (both iOS cells UNREACHABLE-IN-CELL); **13 of 590** terminal. §Goal's third limb —
+*"the demo-side `forced-colors` count is expected to stay 0 and THAT IS the recorded result"* — **IS
+met** (⟨`git grep -c 'forced-colors' 55e9bf0d -- demo/`⟩ → exit 1). §Goal's fourth limb —
+*"the thirteen provisional severities **either** close with a measurement … **or** are reported
+PROVISIONAL at close"* — **IS met**, on its own explicit disjunction. §Goal's convicting clause —
+*"A wave that produces screenshots without cell labels, per-shot hashes, and a named substrate has
+failed"* — **is NOT tripped**: all 7 shots carry cell, sha256, substrate ref + sha and a measured
+bundle digest. **The unmet half is the capture half, and it is the honest-RED set of Axis 10.** The
+close's verdict is **PARTIAL / `complete_with_misses` in shape**, never "goal met" — *no over-claim.*
+
+### Axis 9 — the record's published figures
+
+Every figure in both Close blocks that this seat re-measured **reproduces**: 25 · 7 · 7 · match=7/0 ·
+590 · 29,570 · 99 · 7,140 · 18 · 563/565/57/58 · 284/0/16 · 19/16 · 12/12 · 13/13/3 · 0 re-entrants ·
+10 cells / 3 capability · 13 of 590 · 36/I-34/5 · `1ba99457…fda448` · 68 in-bounds paths · 23 · 27/25.
+**LW-1 reproduces as booked** (⟨`sort | uniq -c | sort -rn`⟩ → the two duplicates are `REPORT.md` and
+`registry/adjudicated/kf-SpringHeatmap.md`; the three `W9e-*.mjs` are distinct, each once — the
+27−2=25 arithmetic is right and the bounds conclusion unaffected). **LW-2 reproduces** (kf
+⟨`rev-parse HEAD`⟩ = ⟨`rev-parse origin/master`⟩ = **`7d958f21`**, ⟨`rev-list --count 55e9bf0d..HEAD`⟩
+→ **13**, ⟨`merge-base --is-ancestor`⟩ → YES). **LW-3 reproduces at the harness's own bytes**
+(`meta.name 'safari-real-matrix'`, `ROUTES_SCHEMA`, `localhost:9000<route>`, *"the 7 routes"* — the
+value.js route-matrix workflow, left **unmodified**). **LW-4 reproduces.** **Act 3 reproduces**
+(⟨`grep -n -i 'Verification Artefact' KF-W9.md`⟩ → **3 hits, all citing `X/waves/W6.md §8`**;
+⟨`grep -n -i 'hard gate'`⟩ → **no output**). **I-20's column law reproduces**: ⟨`grep -rn
+'windows/real-HCM'` over the committed corpus⟩ returns **only roster rows, `NOT_WHC` guards and
+refusals** — *"No capture in this corpus is labelled `windows/real-HCM` or `webkit-engine`"*
+(`REPORT.md:54`) — and **not one capture wears either label.**
+
+### Axis 10 — HONEST-RED ADJUDICATION (7 gates, each relieved, each owner-named)
+
+| gate | why it is RED | relief, at the spec's / ruling's own bytes | owner named in the record |
+|---|---|---|---|
+| **G-KFW9-2** | one clause: *"each cell carries OP-4's `.media` capability record"* — 3 of 10 | the seven are **host-foreclosed** cells (no Windows host · no iOS device · no simulator · `webkit-2287` not installed · the three AT cells). **S-13's own named consequence** — *"book UNREACHABLE-IN-CELL with the bound stated"* — is exactly what landed, verified at the bytes | Act 6.1 · **a re-authorized capture cell** (interactive admin or the owner's Safari restart) |
+| **G-KFW9-4** | 13 of 590 terminal; CLOSES demands every | the 577 need captures in the same foreclosed cells; the **denominator itself re-derives exactly** (563/565/57/58) so the gate's other half is sound and S-13 is not armed | Act 6.1 · same cell |
+| **G-KFW9-6** | (ii) the KAD-11 rest-state capture UNMEASURED; the gate's own falsifier forbids closing on the two it could take | the unification constraint is **HANDED to KF.W5 + KF.W6 by the spec's own R4-3 routing**, *"read UNMEASURED here until their acts land"*, **booked at both ends**; (ii) is `.b`'s cell, which **COHESION §0m.2 did not re-dispatch** at the relaunch | Act 6.4 · **the `.b` desktop cell**; first-sitting Act 6.4 · **KF.W5 / KF.W6** |
+| **G-KFW9-7** | zero passes of *"P-9 + U-1 in ONE pass"* | same: `.b`'s cell, not in §0m.2's relaunch set; the four-frame protocol is **specified and banked, unspent**, at `G-KFW9-7-TWO-DIRECTION.md` | Act 6.4 · **the `.b` desktop cell** |
+| **G-KFW9-8** | zero WHC captures, and none possible | **S-13 names this gate by id**: *"G-KFW9-8's safari column UNREACHABLE … AND no Windows HCM cell (book UNREACHABLE-IN-CELL with the bound stated — **a chromium emulation labelled as WHC is the I-20 failure**)"*. The gate's *recorded-result* half (demo-side count **0**) is **GREEN at the bytes** | Act 6.2 · **a different platform, not a different seat** |
+| **G-KFW9-9** | the BEFORE witness EXISTS with its falsifier run as a control — but in `chromium/emulated-forced-colors`, and the gate names the safari-app and real-HCM cells | the **refusal to write it into either column is I-20's law obeyed**, which is this wave's own subject; the **re-derivation obligation is DISCHARGED** and the ground measured **FALSE as worded** | Act 6.2 · a different platform; Act 6.7 · **KF.W13** for the re-word |
+| **G-KFW9-11** | both iOS cells UNREACHABLE-IN-CELL | **COHESION §0m.2 rules it in terms**: *"iOS cells: **UNREACHABLE-IN-CELL** (no paired device; `safari:useSimulator` refused) — recorded, never inferred from webkit-engine (I-20's law)"* | Act 6.3 · **whoever supplies a paired device** |
+
+**Not one RED is laundered**: every one names the exact capture it did not take, the cell it belongs
+to, and a live measurement of the foreclosure (⟨`uname`⟩ → `Darwin 25.4.0`; no VM host, no `qemu`;
+⟨`xcrun devicectl list devices`⟩ → *No devices found.*; ⟨`safaridriver --help | grep -ci simulator`⟩ →
+**0**; and the forced-colors foreclosure proven with a **live `prefers-contrast` control** that flipped
+TRUE in the same `matchMedia` batch while `forced-colors` did not move). **And nothing green was taken
+that was not earned**: G-KFW9-9's witness was refused entry to the two columns that would have made it
+green, which is the single most load-bearing act in the wave.
+
+### Successor conjuncts — `Opens after`, checked against this wave
+
+**KF.W10 is the only sibling with a KF.W9 opening conjunct** (⟨`grep -n 'KF\.W9'` over
+`KF-W0..KF-W8`⟩ → only `KF-W7.md:361`, a *feeds* edge, non-blocking). `KF-W10.md:22` names two:
+
+- **`X.KF.W9/SS-13` — the OD-V3 capture packet and the OD-V5 390 at-rest observation.** **NOT
+  produced** (receipt §(a) *"INCOMPLETE · 0 of 16 required cells"*, §(b) *"NOT OBSERVED"*).
+  **NOT A LAWFUL BLOCK**: COHESION **§0j.C KF-ODV3** authorizes in advance — *"if the packet does not
+  exist by then KF.W10 closes `complete_with_misses` on that row citing its exact precondition"* — and
+  **KF-ODV5** *"stays DEFERRED … the `complete_with_misses` shape is authorized in advance"*. The
+  artifact that ruling closes on **EXISTS and is in bounds**: `SS-13-CAPTURE-RECEIPT.md`, which writes
+  each precondition and each owner and **rules nothing** — and which correctly **refuses** to file its
+  three nearest-miss `/#/easing` shots against OD-V3 (*"Filing them against OD-V3 would be"* a
+  category error; OD-V3 is a two-home × four-scene × two-viewport comparison). §B-3's glass §4 dock
+  re-verify (**0 of 4**) and §B-1's V-A95 (**not produced**) ride the same authorization.
+- **`X.KF.W9 IMPLEMENTED`** — **NOT GREEN**: this wave stamps **PARTIAL — 6 of 13**. §0j.C's
+  `complete_with_misses` grant reaches the **OD rows**, not this conjunct. **KF.W10 is therefore
+  lawfully blocked on this one conjunct** until the orchestrator rules whether PARTIAL satisfies it —
+  **a routing decision for KF.W10 `.g`, not a defect of this wave**, which cannot cure a host
+  condition. Recorded here so the successor inherits the fact rather than the omission.
+
+### Defect register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **C1-1** | **MINOR** (mitigated; does not block) | The Verdict's and Act 2's blanket *"every one of them is a capture in a cell this host cannot open"* is **over-broad by two**: G-KFW9-6 (ii) and G-KFW9-7 are owned by `.b`'s desktop cell, and the record's own Act 6.4 gives their precondition as a **dispatch** (*"not re-dispatched this sitting"*), not a host condition | Close-2 Verdict ¶2 vs **Act 6.4**, same block; and COHESION §0m.2, which dispatches only `.d` and `.e` at the relaunch | **Mitigation, and why it does not block**: the record **supplies its own correction** in Act 6.4 with the owner and the exact precondition, and no seat in this sitting held a `.b` grant. Cure = a dated addendum-beside at the X·KF close narrowing the headline to *"five of the seven"*, or a `.b` re-dispatch that retires both |
+| **C1-2** | **MINOR** | G-KFW9-2's published *"3 of 10 cells carry OP-4's `.media` capability record"* **over-counts at OP-4's strict reading** (three named queries per cell): only `safari-app/desktop` carries all three (six, in fact); `chromium` and `chromium/emulated-forced-colors` carry **`forced-colors: active` alone** | ⟨`node -e` over `REPORT.json.cellLedger`⟩ → `safari-app/desktop.capability` = six `.media` readings + `allThreeMediaStringsParse: true`; `chromium.capability` = `{"forced-colors: active":false,"measuredBy":…}`; `chromium/emulated-forced-colors.capability` = `{"forced-colors: active":true,…}` | Does not move any verdict — **the gate is RED either way** and its owner is named. Cure = an addendum-beside restating the clause as **1 of 10 full · 2 of 10 partial · 7 bounded** |
+| **C1-3** | **MINOR** | G-KFW9-13 is stamped **GREEN** at the close while the thirteen addenda it rests on — now **immutable** in the adjudicated registry — each close with ***"The gate stays RED."*** A later registry reader meets the contrary reading first | e.g. `registry/adjudicated/kf-TypingDots.md`, `## ADDENDUM 2026-09-17 (X.KF.W9 · G-KFW9-13) — **KF-TD-8**`, final bullet: *"this row closes the gate's `unrun triggers reported PROVISIONAL at close` arm, **not** its `measured value written back` arm. The gate stays **RED**."* | **Mitigation**: the green has a **spec ground** (§Goal's explicit *"either … **or** are reported PROVISIONAL at close"*), the close **prints the falsifier in the same cell** (*"0 of 13 were MEASURED, and 3 can still reach BLOCKER. A reviewer holding the gate to its measurement arm alone reads it RED and is right to"*), and `.e`'s own later commit `55ed2a5e` restates the reading at its clause. Cure = an addendum-beside, never an edit — the registry bytes are immutable |
+| **C1-4** | **INFO** | `.d`'s chromium client swallows **two of three** `page.goto` failures (`.catch(() => {})`), while the first records `navError`. A silent nav failure would have produced a row and a shot labelled with a route it was not on | `evidence/W9/W9d-cell-capture-chromium-webkit.mjs:129` and `:157` vs `:115` | Never blocks: **no GREEN rests on those rows** (the chromium forced-colors witness is booked **RED** by cell, by design), and both shots re-hash. Cure = symmetry with `:115` if the client is re-run |
+| **C1-5** | **INFO** | Close-2 Act 4 characterises **I-30** as *"the SS-6 ACK this wave FEEDS with captures and does not send"*. I-30 is the glass-ui BK **O-20 ACK**; its own row reads *"**No reply owed** — the letter asks nothing"*, and its Routing cell names **X-W0.j**, not KF.W9 | `INBOX.md` I-30, cells 4/6/7 | The **conclusion is correct and reproduces** (nothing owed, not in scope). Cure = a one-line restatement at the X·KF close |
+
+**Nothing in this register is a BLOCKER, a CRITICAL or a HIGH, and none of it moves a gate.**
+
+### Verdict
+
+**CONFORMANT-HONEST-RED.** **6 GREEN reproduce at this seat's own commands · 7 RED, every one relieved
+under Axis 10 and owner-named · 13 of 13 gate readings reproduce · 0 failed to reproduce.**
+**HONEST-RED SET: G-KFW9-2 · G-KFW9-4 · G-KFW9-6 · G-KFW9-7 · G-KFW9-8 · G-KFW9-9 · G-KFW9-11.**
+
+What this check found that is worth saying plainly: **the wave's discipline is strongest exactly where
+a wave is usually weakest.** `.d` took a forced-colors BEFORE witness **and refused to file it in the
+two columns the gate names**, choosing a RED gate over an I-20 breach — the convicted failure this wave
+exists to measure, declined at the one moment it would have paid. `.e` wrote 284 lines into the
+adjudicated registry and **not one existing byte moved**, in sixteen true end-of-file appends I
+verified by hunk position rather than by the numstat the close published. The capture receipt
+**refuses** to count its own three nearest-miss shots toward OD-V3. And the close stamps GREEN three
+times while printing, in the same cell each time, the falsifier that would kill it. *The seven REDs are
+a host and a platform, not a seat.*
+
+**Status set by this check: `CLOSED 2026-09-17 (honest-RED: G-KFW9-2 · -4 · -6 · -7 · -8 · -9 · -11)`.**

@@ -1,0 +1,184 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G10-HOLDOUT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "SEALED_UNREVEALED_PRE_AUTHOR_READ_ONLY",
+  "formation": {
+    "path": "formation-receipt.json",
+    "sha256": "0efb4c63e7dc0be6599790b345a6b6584e2df4101a332f46a105edf6bceec732",
+    "bytes": 2687,
+    "closure_sha256": "e7e122ea8a86fc3c696aad653e44e06ce79a236a65839f77c1ea8e35acd32163",
+    "row_count": 12,
+    "replay_stable": true
+  },
+  "custodian": {
+    "task_id": "/root/g10_holdout_custodian",
+    "exact_task_id_bound": true,
+    "independent": true,
+    "candidate_access": false,
+    "candidate_author": false,
+    "reviewer": false,
+    "root": false
+  },
+  "feature_semantics": {
+    "operation": "At the current parse-that UTF-16 offset, consume one maximal CSS Syntax 3 number prefix.",
+    "accepted_prefix": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "result": "Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>",
+    "guards": [
+      "A dot is consumed only when followed by an ASCII digit.",
+      "An exponent marker is consumed only when followed by an ASCII digit or a sign plus ASCII digit.",
+      "Success consumes the maximal valid prefix and leaves all following source to the parent."
+    ],
+    "value": "JavaScript binary64 of the exact consumed representation, preserving Object.is(-0), overflow infinities, and underflow.",
+    "type": "integer exactly when the consumed representation contains neither a decimal point nor an exponent marker.",
+    "sign": "explicit leading sign or null",
+    "failure": "No throw; failure at the entry offset with source, predecessor value, offset, and pre-existing-ahead diagnostics transactional.",
+    "composition": [
+      "number",
+      "integer",
+      "percentage",
+      "dimension"
+    ]
+  },
+  "freshness": {
+    "generated_after_final_public_formation": true,
+    "generated_without_candidate_source_access": true,
+    "prior_generation_plaintext_key_generator_seed_or_cases_reused": false,
+    "source": "FRESH_PRIVATE_ENTROPY_AND_INDEPENDENT_STEPWISE_CSS_SYNTAX_ORACLE",
+    "loss_policy": "TERMINAL_REJECTION",
+    "corpus_identity_sha256": "ce0899b8400f33c52f5ea52a0438ad68d43f7105e7feaf1ec7d8deb07f498f28"
+  },
+  "generator": {
+    "sha256": "e9b61bf35b73a197f40314edac28b5b114f127ffc6978e9b74828518c7a0feac",
+    "bytes": 9019,
+    "method": "DETERMINISTIC_PRIVATE_GENERATOR_WITH_FRESH_256_BIT_SEED",
+    "oracle_construction": "INDEPENDENT_STEPWISE_CSS_SYNTAX_3_CONSUME_NUMBER_TRANSCRIPTION_NOT_CANDIDATE_CODE",
+    "public_before_reveal": false
+  },
+  "ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "sha256": "318d9272b75b34d34a71afa3665133723de4159c888cae003760d6094756fe59",
+    "bytes": 159533,
+    "encoding": "canonical base64 with one final LF",
+    "envelope": "AES-256-GCM",
+    "decoded_bytes": 119648,
+    "framing": {
+      "magic_ascii": "VPG10H01",
+      "magic_bytes": 8,
+      "nonce_bytes": 12,
+      "authentication_tag_bytes": 16,
+      "ciphertext_body_bytes": 119612
+    },
+    "aad": {
+      "sha256": "34e84f2cfcf7b77d21888a57eff7bb021b70d768b027d7c65f5911d571ff47b0",
+      "bytes": 790,
+      "binds": [
+        "feature",
+        "generation",
+        "formation receipt hash/bytes/closure",
+        "corpus identity",
+        "plaintext commitment",
+        "generator commitment",
+        "hidden-index commitment",
+        "case/category counts",
+        "envelope magic"
+      ]
+    }
+  },
+  "commitments": {
+    "plaintext_sha256": "423647c5900ebd4434f3faf0971ef1d1d5f093276353b525adb540e3f74b9656",
+    "plaintext_bytes": 119612,
+    "hidden_index_sha256": "25756c26844ea0d013fdd4bac9f3e133adf0749c3ef746f63bc0f279a6ee9056",
+    "hidden_index_bytes": 50754
+  },
+  "coverage": {
+    "case_count": 240,
+    "category_count": 8,
+    "categories": [
+      "positive",
+      "negative",
+      "boundary",
+      "offset",
+      "exponent",
+      "binary64",
+      "composition",
+      "hostile"
+    ],
+    "category_counts": {
+      "positive": 32,
+      "negative": 24,
+      "boundary": 40,
+      "offset": 32,
+      "exponent": 32,
+      "binary64": 24,
+      "composition": 32,
+      "hostile": 24
+    },
+    "unique_case_ids": 240,
+    "unique_source_offset_inputs": 240,
+    "axes": [
+      "valid forms",
+      "transactional failures",
+      "maximal-prefix guards",
+      "UTF-16 offsets",
+      "exponents",
+      "binary64 edges",
+      "parent composition",
+      "hostile generated fuzz/work limits"
+    ]
+  },
+  "candidate_state": {
+    "formation_candidate_count": 0,
+    "public_candidate_count_at_seal": 0,
+    "candidate_directories_at_seal": 0,
+    "candidate_files_at_seal": 0,
+    "candidate_executions_by_custodian": 0,
+    "candidate_source_observations_by_custodian": 0,
+    "authors_received_plaintext_key_generator_or_hidden_cases": false
+  },
+  "custody": {
+    "location": "PRIVATE_CUSTODIAN_TOOL_STORE",
+    "retained_material": [
+      "AES-256-GCM key",
+      "nonce and authentication tag",
+      "AAD",
+      "plaintext corpus",
+      "hidden index",
+      "exact generator bytes and seed",
+      "recovery commitments"
+    ],
+    "recoverable_while_task_live": true,
+    "public_durability_claim": "NONE_FAIL_CLOSED",
+    "workspace_plaintext_files": 0,
+    "workspace_key_files": 0,
+    "workspace_generator_files": 0,
+    "workspace_hidden_index_files": 0,
+    "liveness_probe": {
+      "performed_after_private_store_reload": true,
+      "performed_at": "2026-07-22T15:28:09.970Z",
+      "generator_replay_matches_plaintext": true,
+      "AES_256_GCM_reencrypt_matches_ciphertext": true,
+      "AES_256_GCM_decrypt_and_authenticate": "PASS",
+      "recovered_plaintext_sha256": "423647c5900ebd4434f3faf0971ef1d1d5f093276353b525adb540e3f74b9656",
+      "recovered_case_count": 240,
+      "recovered_category_counts_match": true,
+      "key_bytes": 32,
+      "nonce_bytes": 12,
+      "authentication_tag_bytes": 16
+    }
+  },
+  "reveal": {
+    "only_after_exact_candidate_count": 4,
+    "requires_all_four_candidate_payloads_closed": true,
+    "author_reviewer_root_access_before_author_close": false,
+    "destroy_after_terminal_use": true,
+    "cross_generation_reuse": false
+  },
+  "immutability": {
+    "public_files_written_once": true,
+    "content_rewrite_restore_or_regeneration_forbidden": true,
+    "intended_mode_after_verification": "0444"
+  },
+  "receipt_self_identity": "Externally report this exact receipt SHA-256 and byte length; it cannot self-contain its own digest.",
+  "credit": "ZERO_SEALED_HOLDOUT_ONLY"
+}

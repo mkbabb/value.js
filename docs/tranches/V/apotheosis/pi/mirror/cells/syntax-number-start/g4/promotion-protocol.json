@@ -1,0 +1,23 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G4-PROMOTION",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR",
+  "base_protocol": "../g3/promotion-protocol.json",
+  "base_protocol_sha256": "b0b79f1aa27de96f69eb42207b75632f6ff746c7313f164396df6283dfd4acd1",
+  "target_path": "grammar/css/l4/value-unit/number-start.ts",
+  "allowed_overlay_paths": ["grammar/css/l4/value-unit/number-start.ts"],
+  "allowed_runtime_imports": ["@mkbabb/parse-that/core"],
+  "mechanical_verifier": "promotion-verifier.ts",
+  "mechanical_checks": [
+    "exactly one target-relative UTF-8 overlay file",
+    "ordinary imports restricted to @mkbabb/parse-that/core",
+    "all export declarations/assignments rejected and exactly one direct exported variable named numberStart required",
+    "computed element access, source-property spelling/access, object destructuring/spread, source-bearing state helpers, imperative loops, dangerous reflection/serialization/dynamic constructors, direct string indexing/slicing, token/CST names, and broad remainder patterns rejected",
+    "frozen base-ledger bytes and every live grammar/**/*.ts path/hash revalidated",
+    "frozen parse-that dist-ledger bytes and every installed dist path/hash revalidated",
+    "installed parse-that package.json and mirror package/package-lock identities revalidated",
+    "source, overlay-ledger, and projected aggregate grammar-ledger hashes emitted"
+  ],
+  "human_review_boundary": "JavaScript source policy is not decidable by substring/AST gates alone. All five skeptics still inspect exact candidate bytes for aliases, indirection, recursion, or semantic source access; the verifier is a necessary mechanical rejection floor, not sufficient idiom acceptance.",
+  "integration": "Apply only the exact selected source bytes to target_path after all checks reproduce; then require the selected projected aggregate hash and semantic/type/benchmark replay.",
+  "drift_rule": "Any live grammar, parse-that dist/package, mirror package/lock, verifier, source, import, overlay, or projected identity drift starts a new generation."
+}

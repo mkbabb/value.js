@@ -1,0 +1,1683 @@
+{
+  "webkit-light": {
+    "closed": {
+      "trigger": {
+        "rect": {
+          "x": 640.5,
+          "y": 335.67,
+          "w": 32,
+          "h": 40,
+          "top": 335.67,
+          "bottom": 375.67,
+          "left": 640.5,
+          "right": 672.5
+        },
+        "declaredClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+        "computed": {
+          "width": "32px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "0px",
+          "padding": "0px",
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+          "color": "rgb(28, 25, 23)",
+          "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px ",
+          "border": "0px none rgb(28, 25, 23)",
+          "fontSize": "16.4px",
+          "position": "relative"
+        },
+        "ariaLabel": "Filters",
+        "ariaExpanded": "false",
+        "ariaHasPopup": "dialog",
+        "accName": "Filters"
+      },
+      "ancestry": [
+        {
+          "i": 0,
+          "tag": "BUTTON",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+          "rect": {
+            "x": 640.5,
+            "y": 335.67,
+            "w": 32,
+            "h": 40,
+            "top": 335.67,
+            "bottom": 375.67,
+            "left": 640.5,
+            "right": 672.5
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "9999px",
+          "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+          "minH": "40px",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 1,
+          "tag": "DIV",
+          "cls": "flex items-center gap-1.5",
+          "rect": {
+            "x": 640.5,
+            "y": 335.67,
+            "w": 32,
+            "h": 40,
+            "top": 335.67,
+            "bottom": 375.67,
+            "left": 640.5,
+            "right": 672.5
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "auto",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 2,
+          "tag": "DIV",
+          "cls": "input-bar search-seated",
+          "rect": {
+            "x": 224,
+            "y": 337.67,
+            "w": 462,
+            "h": 36,
+            "top": 337.67,
+            "bottom": 373.67,
+            "left": 224,
+            "right": 686
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "16px",
+          "bg": "oklab(0.913299 0.005463 0.013024)",
+          "minH": "auto",
+          "height": "36px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 3,
+          "tag": "DIV",
+          "cls": "px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0",
+          "rect": {
+            "x": 200,
+            "y": 321.67,
+            "w": 510,
+            "h": 304.52,
+            "top": 321.67,
+            "bottom": 626.19,
+            "left": 200,
+            "right": 710
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "304.515625px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 4,
+          "tag": "DIV",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-",
+          "rect": {
+            "x": 199,
+            "y": 232.02,
+            "w": 512,
+            "h": 515.84,
+            "top": 232.02,
+            "bottom": 747.86,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "hidden auto",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "borderRadius": "16px",
+          "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)",
+          "minH": "auto",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 5,
+          "tag": "DIV",
+          "cls": "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+          "rect": {
+            "x": 199,
+            "y": 232.02,
+            "w": 512,
+            "h": 515.84,
+            "top": 232.02,
+            "bottom": 747.86,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 6,
+          "tag": "DIV",
+          "cls": "pane-container pane-container--dual",
+          "rect": {
+            "x": 199,
+            "y": 232.08,
+            "w": 1042,
+            "h": 515.84,
+            "top": 232.08,
+            "bottom": 747.92,
+            "left": 199,
+            "right": 1241
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 7,
+          "tag": "MAIN",
+          "cls": "pane-main",
+          "rect": {
+            "x": 16,
+            "y": 88,
+            "w": 1408,
+            "h": 804,
+            "top": 88,
+            "bottom": 892,
+            "left": 16,
+            "right": 1424
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "804px",
+          "clipPath": "none",
+          "maskImage": "none"
+        }
+      ],
+      "docDir": "ltr"
+    },
+    "tokens": {
+      "--leading-small": "1.4",
+      "--type-leading-small": "1.4",
+      "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+      "--font-serif": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-stack-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+      "--font-mono": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "--duration-fast": "0.2s",
+      "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "--radius-md": "6px",
+      "--accent": "light-dark(hsl(33 30% 82%), hsl(30 18% 22%))",
+      "--type-micro": "0.6875rem",
+      "--type-caption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+      "--primary": "oklch(0.470927 0.096235 89.834023)",
+      "--primary-foreground": "light-dark(hsl(40 30% 98%), hsl(24 9% 4%))",
+      "--muted-foreground": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+      "--border": "light-dark(hsl(32 26% 70%), hsl(30 16% 34%))"
+    },
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "open": {
+      "popover": {
+        "rect": {
+          "x": 432.5,
+          "y": 380,
+          "w": 240,
+          "h": 468.06
+        },
+        "width": "240px",
+        "padding": "20.351999px 16px",
+        "background": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+        "backdropFilter": "blur(11px) saturate(1.6)",
+        "boxShadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11",
+        "maxHeight": "none",
+        "overflow": "visible",
+        "zIndex": "130",
+        "role": "dialog",
+        "ariaLabel": null,
+        "ariaLabelledby": "reka-popover-trigger-v-1-0"
+      },
+      "dividerWrapperClass": "flex flex-col divide-y divide-border",
+      "dividerBorderColor": "rgb(198, 180, 159)",
+      "sections": [
+        {
+          "label": "Sort",
+          "padding": "12px",
+          "h": 197.38,
+          "borderTop": "0px rgb(198, 180, 159)"
+        },
+        {
+          "label": "Tier",
+          "padding": "12px",
+          "h": 140.44,
+          "borderTop": "0px rgb(198, 180, 159)"
+        },
+        {
+          "label": "Find by Color",
+          "padding": "12px",
+          "h": 87.56,
+          "borderTop": "0px rgb(198, 180, 159)"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Sort",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.014425 0.03273)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Tier",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.014425 0.03273)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Find by Color",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.014425 0.03273)",
+          "marginBottom": "6px"
+        }
+      ],
+      "opts": [
+        {
+          "text": "Newest",
+          "rect": {
+            "w": 121.42,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Popular",
+          "rect": {
+            "w": 165.44,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Forked",
+          "rect": {
+            "w": 159.69,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "All",
+          "rect": {
+            "w": 61.14,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Featured",
+          "rect": {
+            "w": 132.92,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        }
+      ],
+      "focusables": [
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "NewestMost PopularMost Forked",
+          "w": 182,
+          "h": 144.81,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "AllFeatured",
+          "w": 182,
+          "h": 87.88,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": "button",
+          "name": "Open color picker, current color #4488cc",
+          "w": 28,
+          "h": 28,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "INPUT",
+          "role": null,
+          "type": "text",
+          "name": "Search by CSS color",
+          "w": 148,
+          "h": 36,
+          "disabled": false,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": null,
+          "name": "Search",
+          "w": 52.59,
+          "h": 24,
+          "disabled": false,
+          "cursor": "pointer"
+        }
+      ],
+      "swatch": {
+        "rect": {
+          "x": 461.5,
+          "y": 781.72,
+          "w": 28,
+          "h": 28
+        },
+        "bg": "rgb(68, 136, 204)",
+        "cs": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0",
+        "name": "Open color picker, current color #4488cc",
+        "type": "button"
+      },
+      "input": {
+        "rect": {
+          "x": 495.5,
+          "y": 778.72,
+          "w": 148,
+          "h": 36
+        },
+        "paddingRight": "64px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontSize": "14.384px",
+        "placeholder": "#hex, hsl(...)",
+        "inputMode": null,
+        "autocomplete": null,
+        "spellcheck": null,
+        "form": false
+      },
+      "searchBtn": {
+        "rect": {
+          "x": 586.91,
+          "y": 784.72,
+          "w": 52.59,
+          "h": 24
+        },
+        "type": null,
+        "cls": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disable",
+        "computedTransition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        "computedDuration": "0.2s",
+        "bg": "oklab(0.965259 0.00091 0.006098 / 0.5)",
+        "color": "rgb(112, 89, 66)",
+        "fontSize": "11px"
+      },
+      "radiogroups": [
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 3
+        },
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 2
+        }
+      ],
+      "tagScroller": null,
+      "clearAllPresent": false
+    }
+  },
+  "webkit-dark": {
+    "closed": {
+      "trigger": {
+        "rect": {
+          "x": 640.5,
+          "y": 335.67,
+          "w": 32,
+          "h": 40,
+          "top": 335.67,
+          "bottom": 375.67,
+          "left": 640.5,
+          "right": 672.5
+        },
+        "declaredClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+        "computed": {
+          "width": "32px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "0px",
+          "padding": "0px",
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "color": "rgb(233, 230, 226)",
+          "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px ",
+          "border": "0px none rgb(233, 230, 226)",
+          "fontSize": "16.4px",
+          "position": "relative"
+        },
+        "ariaLabel": "Filters",
+        "ariaExpanded": "false",
+        "ariaHasPopup": "dialog",
+        "accName": "Filters"
+      },
+      "ancestry": [
+        {
+          "i": 0,
+          "tag": "BUTTON",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+          "rect": {
+            "x": 640.5,
+            "y": 335.67,
+            "w": 32,
+            "h": 40,
+            "top": 335.67,
+            "bottom": 375.67,
+            "left": 640.5,
+            "right": 672.5
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "9999px",
+          "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)",
+          "minH": "40px",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 1,
+          "tag": "DIV",
+          "cls": "flex items-center gap-1.5",
+          "rect": {
+            "x": 640.5,
+            "y": 335.67,
+            "w": 32,
+            "h": 40,
+            "top": 335.67,
+            "bottom": 375.67,
+            "left": 640.5,
+            "right": 672.5
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "auto",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 2,
+          "tag": "DIV",
+          "cls": "input-bar search-seated",
+          "rect": {
+            "x": 224,
+            "y": 337.67,
+            "w": 462,
+            "h": 36,
+            "top": 337.67,
+            "bottom": 373.67,
+            "left": 224,
+            "right": 686
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "16px",
+          "bg": "oklab(0.345296 0.010372 0.017546)",
+          "minH": "auto",
+          "height": "36px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 3,
+          "tag": "DIV",
+          "cls": "px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0",
+          "rect": {
+            "x": 200,
+            "y": 321.67,
+            "w": 510,
+            "h": 304.52,
+            "top": 321.67,
+            "bottom": 626.19,
+            "left": 200,
+            "right": 710
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "304.515625px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 4,
+          "tag": "DIV",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-",
+          "rect": {
+            "x": 199,
+            "y": 232.02,
+            "w": 512,
+            "h": 515.84,
+            "top": 232.02,
+            "bottom": 747.86,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "hidden auto",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "borderRadius": "16px",
+          "bg": "oklab(0.395241 0.00968 0.016528 / 0.7536)",
+          "minH": "auto",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 5,
+          "tag": "DIV",
+          "cls": "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+          "rect": {
+            "x": 199,
+            "y": 232.02,
+            "w": 512,
+            "h": 515.84,
+            "top": 232.02,
+            "bottom": 747.86,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 6,
+          "tag": "DIV",
+          "cls": "pane-container pane-container--dual",
+          "rect": {
+            "x": 199,
+            "y": 232.08,
+            "w": 1042,
+            "h": 515.84,
+            "top": 232.08,
+            "bottom": 747.92,
+            "left": 199,
+            "right": 1241
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "515.84375px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 7,
+          "tag": "MAIN",
+          "cls": "pane-main",
+          "rect": {
+            "x": 16,
+            "y": 88,
+            "w": 1408,
+            "h": 804,
+            "top": 88,
+            "bottom": 892,
+            "left": 16,
+            "right": 1424
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "804px",
+          "clipPath": "none",
+          "maskImage": "none"
+        }
+      ],
+      "docDir": "ltr"
+    },
+    "tokens": {
+      "--leading-small": "1.4",
+      "--type-leading-small": "1.4",
+      "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+      "--font-serif": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-stack-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+      "--font-mono": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "--duration-fast": "0.2s",
+      "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "--radius-md": "6px",
+      "--accent": "hsl(30 18% 22%)",
+      "--type-micro": "0.6875rem",
+      "--type-caption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+      "--primary": "oklch(0.958322 0.052509 89.834023)",
+      "--primary-foreground": "hsl(24 9% 4%)",
+      "--muted-foreground": "hsl(34 14% 62%)",
+      "--border": "hsl(30 16% 34%)"
+    },
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "open": {
+      "popover": {
+        "rect": {
+          "x": 432.5,
+          "y": 380,
+          "w": 240,
+          "h": 468.06
+        },
+        "width": "240px",
+        "padding": "20.351999px 16px",
+        "background": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+        "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+        "boxShadow": "oklab(1 0 0 / 0.4) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.91",
+        "maxHeight": "none",
+        "overflow": "visible",
+        "zIndex": "130",
+        "role": "dialog",
+        "ariaLabel": null,
+        "ariaLabelledby": "reka-popover-trigger-v-1-0"
+      },
+      "dividerWrapperClass": "flex flex-col divide-y divide-border",
+      "dividerBorderColor": "rgb(101, 87, 73)",
+      "sections": [
+        {
+          "label": "Sort",
+          "padding": "12px",
+          "h": 197.38,
+          "borderTop": "0px rgb(101, 87, 73)"
+        },
+        {
+          "label": "Tier",
+          "padding": "12px",
+          "h": 140.44,
+          "borderTop": "0px rgb(101, 87, 73)"
+        },
+        {
+          "label": "Find by Color",
+          "padding": "12px",
+          "h": 87.56,
+          "borderTop": "0px rgb(101, 87, 73)"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Sort",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "rgb(195, 185, 172)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Tier",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "rgb(195, 185, 172)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Find by Color",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "rgb(195, 185, 172)",
+          "marginBottom": "6px"
+        }
+      ],
+      "opts": [
+        {
+          "text": "Newest",
+          "rect": {
+            "w": 121.42,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Popular",
+          "rect": {
+            "w": 165.44,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Forked",
+          "rect": {
+            "w": 159.69,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "All",
+          "rect": {
+            "w": 61.14,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Featured",
+          "rect": {
+            "w": 132.92,
+            "h": 30.94
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.959999px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        }
+      ],
+      "focusables": [
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "NewestMost PopularMost Forked",
+          "w": 182,
+          "h": 144.81,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "AllFeatured",
+          "w": 182,
+          "h": 87.88,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": "button",
+          "name": "Open color picker, current color #4488cc",
+          "w": 28,
+          "h": 28,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "INPUT",
+          "role": null,
+          "type": "text",
+          "name": "Search by CSS color",
+          "w": 148,
+          "h": 36,
+          "disabled": false,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": null,
+          "name": "Search",
+          "w": 52.59,
+          "h": 24,
+          "disabled": false,
+          "cursor": "pointer"
+        }
+      ],
+      "swatch": {
+        "rect": {
+          "x": 461.5,
+          "y": 781.72,
+          "w": 28,
+          "h": 28
+        },
+        "bg": "rgb(68, 136, 204)",
+        "cs": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0",
+        "name": "Open color picker, current color #4488cc",
+        "type": "button"
+      },
+      "input": {
+        "rect": {
+          "x": 495.5,
+          "y": 778.72,
+          "w": 148,
+          "h": 36
+        },
+        "paddingRight": "64px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontSize": "14.384px",
+        "placeholder": "#hex, hsl(...)",
+        "inputMode": null,
+        "autocomplete": null,
+        "spellcheck": null,
+        "form": false
+      },
+      "searchBtn": {
+        "rect": {
+          "x": 586.91,
+          "y": 784.72,
+          "w": 52.59,
+          "h": 24
+        },
+        "type": null,
+        "cls": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disable",
+        "computedTransition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        "computedDuration": "0.2s",
+        "bg": "oklab(0.228631 0.003632 0.007323 / 0.5)",
+        "color": "rgb(195, 185, 172)",
+        "fontSize": "11px"
+      },
+      "radiogroups": [
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 3
+        },
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 2
+        }
+      ],
+      "tagScroller": null,
+      "clearAllPresent": false
+    }
+  },
+  "chromium-light": {
+    "closed": {
+      "trigger": {
+        "rect": {
+          "x": 641,
+          "y": 336.2,
+          "w": 32,
+          "h": 40,
+          "top": 336.2,
+          "bottom": 376.2,
+          "left": 641,
+          "right": 673
+        },
+        "declaredClass": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+        "computed": {
+          "width": "32px",
+          "height": "40px",
+          "minHeight": "40px",
+          "minWidth": "0px",
+          "padding": "0px",
+          "borderRadius": "9999px",
+          "backgroundColor": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "color": "rgb(28, 25, 23)",
+          "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px ",
+          "border": "0px none rgb(28, 25, 23)",
+          "fontSize": "16.4px",
+          "position": "relative"
+        },
+        "ariaLabel": "Filters",
+        "ariaExpanded": "false",
+        "ariaHasPopup": "dialog",
+        "accName": "Filters"
+      },
+      "ancestry": [
+        {
+          "i": 0,
+          "tag": "BUTTON",
+          "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover relative h-8 w-8",
+          "rect": {
+            "x": 641,
+            "y": 336.2,
+            "w": 32,
+            "h": 40,
+            "top": 336.2,
+            "bottom": 376.2,
+            "left": 641,
+            "right": 673
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "9999px",
+          "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+          "minH": "40px",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 1,
+          "tag": "DIV",
+          "cls": "flex items-center gap-1.5",
+          "rect": {
+            "x": 641,
+            "y": 336.2,
+            "w": 32,
+            "h": 40,
+            "top": 336.2,
+            "bottom": 376.2,
+            "left": 641,
+            "right": 673
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "auto",
+          "height": "40px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 2,
+          "tag": "DIV",
+          "cls": "input-bar search-seated",
+          "rect": {
+            "x": 224,
+            "y": 338.2,
+            "w": 462,
+            "h": 36,
+            "top": 338.2,
+            "bottom": 374.2,
+            "left": 224,
+            "right": 686
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "16px",
+          "bg": "oklab(0.913295 0.00550478 0.0130424)",
+          "minH": "auto",
+          "height": "36px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 3,
+          "tag": "DIV",
+          "cls": "px-4 sm:px-6 py-4 flex flex-col gap-3 min-h-0",
+          "rect": {
+            "x": 200,
+            "y": 322.2,
+            "w": 510,
+            "h": 304.56,
+            "top": 322.2,
+            "bottom": 626.77,
+            "left": 200,
+            "right": 710
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "304.562px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 4,
+          "tag": "DIV",
+          "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-full mx-auto overflow-y-auto overflow-x-hidden min-",
+          "rect": {
+            "x": 199,
+            "y": 232.52,
+            "w": 512,
+            "h": 514.7,
+            "top": 232.52,
+            "bottom": 747.22,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "hidden auto",
+          "overflowX": "hidden",
+          "overflowY": "auto",
+          "borderRadius": "16px",
+          "bg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+          "minH": "auto",
+          "height": "514.703px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 5,
+          "tag": "DIV",
+          "cls": "pane-wrapper pane-wrapper--left w-full min-w-0 min-h-0 h-full flex-col justify-center",
+          "rect": {
+            "x": 199,
+            "y": 232.52,
+            "w": 512,
+            "h": 514.7,
+            "top": 232.52,
+            "bottom": 747.22,
+            "left": 199,
+            "right": 711
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "514.703px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 6,
+          "tag": "DIV",
+          "cls": "pane-container pane-container--dual",
+          "rect": {
+            "x": 199,
+            "y": 232.64,
+            "w": 1042,
+            "h": 514.7,
+            "top": 232.64,
+            "bottom": 747.34,
+            "left": 199,
+            "right": 1241
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "514.703px",
+          "clipPath": "none",
+          "maskImage": "none"
+        },
+        {
+          "i": 7,
+          "tag": "MAIN",
+          "cls": "pane-main",
+          "rect": {
+            "x": 16,
+            "y": 88,
+            "w": 1408,
+            "h": 804,
+            "top": 88,
+            "bottom": 892,
+            "left": 16,
+            "right": 1424
+          },
+          "overflow": "visible",
+          "overflowX": "visible",
+          "overflowY": "visible",
+          "borderRadius": "0px",
+          "bg": "rgba(0, 0, 0, 0)",
+          "minH": "0px",
+          "height": "804px",
+          "clipPath": "none",
+          "maskImage": "none"
+        }
+      ],
+      "docDir": "ltr"
+    },
+    "tokens": {
+      "--leading-small": "1.4",
+      "--type-leading-small": "1.4",
+      "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+      "--font-serif": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-stack-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+      "--font-mono": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "--duration-fast": "0.2s",
+      "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "--radius-md": "6px",
+      "--accent": "light-dark(hsl(33 30% 82%), hsl(30 18% 22%))",
+      "--type-micro": "0.6875rem",
+      "--type-caption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+      "--primary": "oklch(0.471189 0.0962884 89.834)",
+      "--primary-foreground": "light-dark(hsl(40 30% 98%), hsl(24 9% 4%))",
+      "--muted-foreground": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+      "--border": "light-dark(hsl(32 26% 70%), hsl(30 16% 34%))"
+    },
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "open": {
+      "popover": {
+        "rect": {
+          "x": 433,
+          "y": 380.5,
+          "w": 240,
+          "h": 468.27
+        },
+        "width": "240px",
+        "padding": "20.352px 16px",
+        "background": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+        "backdropFilter": "blur(11px) saturate(1.6)",
+        "boxShadow": "oklab(0.999994 0.0000455678 0.0000200868 / 0.3) 0px 1px 0px 0px inset, oklab(0.999994 0.0000455678 0.0000200868 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 ",
+        "maxHeight": "none",
+        "overflow": "visible",
+        "zIndex": "130",
+        "role": "dialog",
+        "ariaLabel": null,
+        "ariaLabelledby": "reka-popover-trigger-v-1-0"
+      },
+      "dividerWrapperClass": "flex flex-col divide-y divide-border",
+      "dividerBorderColor": "rgb(198, 180, 159)",
+      "sections": [
+        {
+          "label": "Sort",
+          "padding": "12px",
+          "h": 197.48,
+          "borderTop": "0px rgb(198, 180, 159)"
+        },
+        {
+          "label": "Tier",
+          "padding": "12px",
+          "h": 140.52,
+          "borderTop": "0px rgb(198, 180, 159)"
+        },
+        {
+          "label": "Find by Color",
+          "padding": "12px",
+          "h": 87.58,
+          "borderTop": "0px rgb(198, 180, 159)"
+        }
+      ],
+      "labels": [
+        {
+          "text": "Sort",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.0144455 0.0327382)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Tier",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.0144455 0.0327382)",
+          "marginBottom": "6px"
+        },
+        {
+          "text": "Find by Color",
+          "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "fontSize": "14.384px",
+          "textTransform": "uppercase",
+          "letterSpacing": "1.4384px",
+          "color": "oklab(0.457941 0.0144455 0.0327382)",
+          "marginBottom": "6px"
+        }
+      ],
+      "opts": [
+        {
+          "text": "Newest",
+          "rect": {
+            "w": 121.39,
+            "h": 30.97
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Popular",
+          "rect": {
+            "w": 165.41,
+            "h": 30.97
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Most Forked",
+          "rect": {
+            "w": 159.64,
+            "h": 30.97
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "All",
+          "rect": {
+            "w": 61.14,
+            "h": 30.97
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        },
+        {
+          "text": "Featured",
+          "rect": {
+            "w": 132.89,
+            "h": 30.97
+          },
+          "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+          "fontSize": "16.4px",
+          "lineHeight": "22.96px",
+          "padding": "4px 8px",
+          "borderRadius": "6px",
+          "cursor": "pointer",
+          "transition": "background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+          "inlineLineHeightSpecified": ""
+        }
+      ],
+      "focusables": [
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "NewestMost PopularMost Forked",
+          "w": 182,
+          "h": 144.91,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "DIV",
+          "role": "radiogroup",
+          "type": null,
+          "name": "AllFeatured",
+          "w": 182,
+          "h": 87.94,
+          "disabled": null,
+          "cursor": "auto"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": "radio",
+          "type": "button",
+          "name": "(none)",
+          "w": 44,
+          "h": 44,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": "button",
+          "name": "Open color picker, current color #4488cc",
+          "w": 28,
+          "h": 28,
+          "disabled": false,
+          "cursor": "pointer"
+        },
+        {
+          "tag": "INPUT",
+          "role": null,
+          "type": "text",
+          "name": "Search by CSS color",
+          "w": 148,
+          "h": 36,
+          "disabled": false,
+          "cursor": "text"
+        },
+        {
+          "tag": "BUTTON",
+          "role": null,
+          "type": null,
+          "name": "Search",
+          "w": 52.58,
+          "h": 24,
+          "disabled": false,
+          "cursor": "pointer"
+        }
+      ],
+      "swatch": {
+        "rect": {
+          "x": 462,
+          "y": 782.42,
+          "w": 28,
+          "h": 28
+        },
+        "bg": "rgb(68, 136, 204)",
+        "cs": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(",
+        "forcedColorAdjust": "auto",
+        "name": "Open color picker, current color #4488cc",
+        "type": "button"
+      },
+      "input": {
+        "rect": {
+          "x": 496,
+          "y": 779.42,
+          "w": 148,
+          "h": 36
+        },
+        "paddingRight": "64px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "fontSize": "14.384px",
+        "placeholder": "#hex, hsl(...)",
+        "inputMode": null,
+        "autocomplete": null,
+        "spellcheck": null,
+        "form": false
+      },
+      "searchBtn": {
+        "rect": {
+          "x": 587.42,
+          "y": 785.42,
+          "w": 52.58,
+          "h": 24
+        },
+        "type": null,
+        "cls": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground bg-muted/50 hover:bg-muted transition-colors duration-fast cursor-pointer disable",
+        "computedTransition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        "computedDuration": "0.2s",
+        "bg": "oklab(0.965254 0.000953913 0.00611699 / 0.5)",
+        "color": "rgb(112, 89, 66)",
+        "fontSize": "11px"
+      },
+      "radiogroups": [
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 3
+        },
+        {
+          "ariaLabel": null,
+          "ariaLabelledby": null,
+          "items": 2
+        }
+      ],
+      "tagScroller": null,
+      "clearAllPresent": false
+    }
+  }
+}

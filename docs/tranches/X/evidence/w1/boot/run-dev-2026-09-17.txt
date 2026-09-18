@@ -1,0 +1,98 @@
+SERVED MODEL: claude-opus-5[1m]
+
+X.W1.c · G-12 · `node scripts/ci/boot-smoke.mjs --mode=dev` — settled run at `cad51f9e`, 2026-09-17
+Tree: worktree /Users/mkbabb/Programming/value-js-x-w1-c @ cad51f9e · `vite --force` (cold dep-optimizer cache)
+Double-run: this reading and its immediate repeat both report 2/8, failing the same six seeds.
+
+[boot-smoke] mode=dev origin=http://127.0.0.1:9203 seeds=8
+
+[boot-smoke] PASS · default · http://127.0.0.1:9203/
+             the W1.md literal — a cold boot with no seed at all
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 32 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · deep-link-black · http://127.0.0.1:9203/#/?space=rgb&color=black
+             R16 — `?color=black` at minimum; grey 0 is hsv-powerless
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing hsv.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · deep-link-grey-333333 · http://127.0.0.1:9203/#/?space=hex&color=%23333333
+             R16 — grey 51, a member of the 28/256 hsv-powerless set
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing hsv.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] PASS · deep-link-grey-808080 · http://127.0.0.1:9203/#/?space=hex&color=%23808080
+             CONTROL — grey 128 is NOT hsv-powerless; a matrix that reds this row is reporting something other than the seed class
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 32 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · deep-link-lch-none · http://127.0.0.1:9203/#/?space=lch&color=lch(50%25%200%20none)
+             R17 — the legal `none` hue reaching the picker through the URL
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing lch.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · deep-link-oklch-none · http://127.0.0.1:9203/#/?space=oklch&color=oklch(0.5%200%20none)
+             R17 — the same in oklch; 256/256 greys emit `none` in both
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing oklch.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · persisted-black · http://127.0.0.1:9203/
+             R16 — the self-perpetuating arm: the seed that crashed the last session is still in localStorage on the next one
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing hsv.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] FAIL · persisted-oklch-none · http://127.0.0.1:9203/
+             R17 — a persisted none-hue string, the returning-user path
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             FAIL A3 pageerror collected []
+                  1 pageerror(s): PickerColorError: Missing oklch.h
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 28 sheet(s) — e.g. .lg\:-top-14 @ (no media), .lg\:-right-12 @ (no media), .lg\:col-start-1 @ (no media)
+
+[boot-smoke] dev: 2/8 seed cases passed
+[boot-smoke] FAIL — 6 case(s): deep-link-black, deep-link-grey-333333, deep-link-lch-none, deep-link-oklch-none, persisted-black, persisted-oklch-none

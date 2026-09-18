@@ -1,0 +1,189 @@
+{
+  "schema_version": "value.pi.syntax-consume-number.g10.boundary-review/v1",
+  "review_id": "SYNTAX-CONSUME-NUMBER-G10-CHALLENGE-B",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "reviewed_at": "2026-07-22T15:37:19Z",
+  "verdict": "REJECT",
+  "presumption": "WRONG_UNTIL_INDEPENDENT_REPLAY",
+  "reviewer": {
+    "task_id": "/root/g10_boundary_challenge_b",
+    "served_model": "gpt-5.6-sol",
+    "candidate_author": false,
+    "custodian": false,
+    "root": false,
+    "challenge_a_read": false,
+    "candidate_source_access": false,
+    "hidden_holdout_access": false
+  },
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "589ed5ffe9c75416f4ffb8cdafe4ee776fecae27c4d6b16e2a3372c5c01c62c3",
+    "bytes": 1886,
+    "binding_replay": "PASS"
+  },
+  "authority": {
+    "addenda_07": {
+      "path": "../../../../ADDENDA-07.md",
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5",
+      "bytes": 20954
+    },
+    "g9_terminal_rejection": {
+      "path": "../g9/rejection.json",
+      "sha256": "5c0a532b45a3f44c59f28a4fea5e058dadeea19a3d9608fd6d5632b442e90ae4",
+      "bytes": 2510,
+      "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS"
+    },
+    "g9_root_gestalt": {
+      "path": "../g9/root-gestalt.json",
+      "sha256": "84a1826fac44505ba2ae3fbcc918b7684b0e94104b5d05421c1b385f4df1e412",
+      "bytes": 4619,
+      "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS"
+    }
+  },
+  "replays": {
+    "formation_content_closure": {
+      "verdict": "PASS",
+      "rows": 12,
+      "row_identity_mismatches": 0,
+      "closure_sha256": "e7e122ea8a86fc3c696aad653e44e06ce79a236a65839f77c1ea8e35acd32163"
+    },
+    "runtime_package_closure": {
+      "verdict": "PASS",
+      "package": "@mkbabb/parse-that",
+      "version": "1.0.0",
+      "ledger_rows": 65,
+      "installed_files": 65,
+      "path_closure": true,
+      "identity_mismatches": 0
+    },
+    "source_census_exact_replay": {
+      "verdict": "PASS_AS_IMPLEMENTED",
+      "command": "cmp <(node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g10/source-census.mjs) docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g10/source-census.json",
+      "result": "exit 0",
+      "scope_warning": "The implementation's two roots and executable-extension allowlist are not an exhaustive proof that no candidate payload exists."
+    },
+    "peer_smoke_and_builtin_timeout": {
+      "verdict": "PASS_AS_IMPLEMENTED",
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g10/correctness-harness.mjs --self-test",
+      "stdout": "{\"status\":\"PASS\",\"peers\":3,\"cases_per_peer\":6,\"killability\":\"SIGKILL_AFTER_50MS\"}",
+      "scope_warning": "This proves the three adapter smoke paths and the harness's own --hang worker timeout only."
+    },
+    "holdout_public_envelope": {
+      "verdict": "PASS_PUBLIC_BYTES_ONLY",
+      "receipt_sha256": "7d1e635bd274f95c3fe8b885af52b84a3c0640e4d682fd89e4f3a695aea95058",
+      "receipt_bytes": 6564,
+      "ciphertext_sha256": "318d9272b75b34d34a71afa3665133723de4159c888cae003760d6094756fe59",
+      "ciphertext_bytes": 159533,
+      "canonical_base64_one_lf": true,
+      "decoded_bytes": 119648,
+      "magic_ascii": "VPG10H01",
+      "mode": "0444"
+    },
+    "formation_validator_after_lifecycle_advance": {
+      "verdict": "FAIL",
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g10/formation-validator.mjs",
+      "exit": 1,
+      "stderr": "later-phase artifact exists: holdout-receipt.json"
+    }
+  },
+  "axes": {
+    "semantic_contract": {
+      "verdict": "ACCEPT_DEFINITION_ONLY",
+      "evidence": [
+        "The exact G9 contract is bound at SHA-256 92cc3f90352c2e6250f16d93587ebfd74f51d2878fd5e8fdf312035b60514a1a and 3945 bytes.",
+        "Its maximal-prefix grammar, value/type/sign observation, negative-zero rule, and overflow/underflow behavior are internally consistent with the G10 holdout receipt."
+      ],
+      "credit": 0
+    },
+    "public_correctness_harness": {
+      "verdict": "REJECT",
+      "finding_id": "G10-B1",
+      "finding": "The candidate door runs only the six positive peer-comparable smoke cases. It does not execute the contract's bound public evidence, any rejection case, maximal-prefix guard, transactional failure, overflow/underflow case, or parent-composition case.",
+      "benign_counterexample": {
+        "description": "A direct parse-that regex parser recognizing only 12, -7, .5, -.25, 1e2, and -0, then mapping the common result, passed --candidate even though it rejects ordinary valid inputs such as +3 and 42.",
+        "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g10/correctness-harness.mjs --candidate /tmp/g10-challenge-b-smoke-only.mjs",
+        "stdout": "{\"status\":\"PASS\",\"mode\":\"--candidate\",\"export\":\"consumeNumber\",\"cases\":6}",
+        "temporary_fixture_removed": true
+      },
+      "effect": "The common harness can admit a plainly incomplete parser and therefore is not the born-RED correctness corpus required for four isolated authors."
+    },
+    "parser_state_contract_and_topology_realizability": {
+      "verdict": "REJECT",
+      "finding_id": "G10-B2",
+      "finding": "The B topology's prescribed optional-sign plus factorized all/any construction is not transactionally safe under the pinned runtime without an additional rollback design that the topology and harness do not specify or test. The S topology also names guard composition, but @mkbabb/parse-that@1.0.0 exports no guard combinator or Parser.guard method.",
+      "benign_counterexample": {
+        "construction": "all(regex(/[+-]/).opt(), regex(/[0-9]+/))",
+        "input": "+",
+        "entry_offset": 0,
+        "predecessor_value": "Object.freeze({tag:'predecessor'})",
+        "observed": {
+          "isError": true,
+          "offset": 0,
+          "predecessorPreserved": false,
+          "actualValue": "+"
+        },
+        "contract_violation": "Failure restores the offset but not the predecessor value."
+      },
+      "feasibility_by_seat": {
+        "h": "FEASIBLE_IN_PRINCIPLE: one sticky whole-prefix regex plus semantic map can preserve the predecessor on entry failure.",
+        "b": "BLOCKED_AS_WRITTEN: the prescribed factorized aggregate needs an explicit reachable rollback construction and tests.",
+        "s": "BLOCKED_AS_WRITTEN: guard is not a published 1.0.0 API; no exact substitute is assigned.",
+        "d": "UNPROVEN: dispatch is available, but invalid sign/dot continuations must satisfy the same transactional predecessor rule and are not exercised."
+      }
+    },
+    "peer_identity_and_comparability": {
+      "verdict": "REJECT",
+      "finding_id": "G10-B3",
+      "finding": "The sources are content-addressed, but peer-adapters.mjs does not execute those pinned implementations. The deposed peer bypasses its parse-that regex(...).map(Number) parser; the C14 peer bypasses pattern(...).map(NumericCst) and its allocation; the live adapter changes a whole-token /^...$/ finite-number validator into a prefix recognizer. These are synthetic recognizers derived from peer regexes, not the retained peer execution doors.",
+      "effect": "A later strict-win result over these adapters would not establish a strict win over the named live, deposed, and C14 implementations. Exact benchmark credit remains zero, but comparator identity must be repaired before author results can be fairly judged."
+    },
+    "candidate_absence": {
+      "verdict": "REJECT_AS_PROOF",
+      "finding_id": "G10-B4",
+      "finding": "source-census.mjs exactly reproduces its frozen 39 rows and finds no symlink, but it scans only two roots and a fixed TypeScript/JavaScript extension set plus executable extensionless files. It does not enumerate all regular files, module-resolution inputs, or candidate paths, while candidate_count is asserted as zero elsewhere.",
+      "effect": "The census is useful drift evidence, not exhaustive candidate-absence evidence."
+    },
+    "chronology_and_replay": {
+      "verdict": "REJECT",
+      "finding_id": "G10-B5",
+      "finding": "All G10 files are currently untracked, and the 0444 modes are reversible permission bits rather than an append-only chronology. More directly, the only formation validator rejects the legitimate current holdout/reviewed-subject phase before checking the bound formation, despite holdout-receipt.json asserting formation.replay_stable=true.",
+      "effect": "Final hashes prove current bytes, but neither the validator nor versioned history proves the claimed write-once order or permits a stable post-seal replay. This fails the exact class of immutable-chronology repair required by G9."
+    },
+    "actor_and_author_lifecycle": {
+      "verdict": "REJECT",
+      "finding_id": "G10-B6",
+      "finding": "author-roster.json correctly says formation_validator_claim=NONE and requires a manual external witness before candidate writing, but author-task-witness.json is absent. Local task-id strings in the roster and holdout receipt do not bind task creation, served model, isolation prompt, or absence of prior candidate access.",
+      "effect": "The four named authors may not begin under the subject's own actor-identity law."
+    },
+    "holdout_fail_closed_behavior": {
+      "verdict": "REJECT_FOR_ADMISSION_EVIDENCE",
+      "finding_id": "G10-B7",
+      "finding": "The public receipt and ciphertext envelope are internally consistent and explicitly declare terminal rejection on custody loss. However, key possession, generator replay, and custodian identity remain private self-attestations with public durability NONE_FAIL_CLOSED; no independent external custody/liveness witness is bound to the reviewed subject.",
+      "effect": "The policy is fail-closed in prose, but the exact subject does not provide replayable evidence that the future reveal can occur."
+    },
+    "killability": {
+      "verdict": "ACCEPT_NARROW_BUILTIN_CHECK_ONLY",
+      "finding": "The self-test's non-returning worker was killed by SIGKILL after 50 ms, and candidate runs have a 5 s worker timeout. No broader claim is credited.",
+      "credit": 0
+    }
+  },
+  "blockers": [
+    "Replace the six-case candidate smoke door with the bound public contract corpus, including positive, negative, maximal-prefix, offset, binary64, composition, transactional failure, and work-limit observations.",
+    "Demonstrate an exact transaction-safe reachable construction for B, S, and D under @mkbabb/parse-that@1.0.0; remove or define the nonexistent guard obligation.",
+    "Make peer doors execute the content-addressed live/deposed/C14 implementations before common observation, or rename and justify the synthetic adapters without claiming wins over the implementations.",
+    "Provide exhaustive candidate-root closure and a post-seal formation replay that remains valid after lawful lifecycle artifacts appear.",
+    "Before any author writes, bind the external task-creation, served-model, prompt/isolation, and no-prior-access witness required by author-roster.json and reviewed-subject.json.",
+    "Bind an independent public custodian liveness/identity witness or accept terminal rejection before spending author work."
+  ],
+  "disposition": {
+    "authors_may_begin": false,
+    "candidate_count": 0,
+    "feature_credit": 0,
+    "parser_credit": 0,
+    "benchmark_credit": 0,
+    "integration_credit": 0,
+    "required_next": "Repair the public pre-author boundary in a fresh reviewed subject before dispatching any author."
+  },
+  "credit": "ZERO_BOUNDARY_REVIEW_ONLY"
+}

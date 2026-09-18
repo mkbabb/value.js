@@ -1,0 +1,1374 @@
+{
+  "desktop": {
+    "railFound": true,
+    "kcFound": true,
+    "clusterCls": "flex flex-col gap-3 shrink-0",
+    "buttons": [
+      {
+        "title": "Upload image",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 224,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Open camera",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 272,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Reset",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": true,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 646,
+          "y": 530.66
+        }
+      }
+    ],
+    "separators": [
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 326,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      },
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 631,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      }
+    ],
+    "thumbs": [
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "relative flex-1 h-6 flex items-center"
+      },
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 364.53,
+          "y": 494.66
+        },
+        "valuenow": "5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "glass-slider relative w-full"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 276,
+          "h": 24,
+          "x": 341,
+          "y": 538.66
+        },
+        "parentCls": "flex items-center gap-1.5 flex-1 min-w-0"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 433.36,
+          "y": 538.66
+        },
+        "valuenow": "0.5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "parentCls": "glass-slider flex-1"
+      }
+    ],
+    "labels": [
+      {
+        "text": "5",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": null,
+        "cls": "text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right",
+        "rect": {
+          "w": 20,
+          "h": 22.94,
+          "x": 224,
+          "y": 495.19
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "16.4px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "20px",
+          "line-height": "22.959999px"
+        },
+        "scrollW": 20,
+        "clientW": 20
+      },
+      {
+        "text": "kC",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": "Chroma weight",
+        "cls": "fira-code text-micro plate-ink whitespace-nowrap",
+        "rect": {
+          "w": 13.55,
+          "h": 13.75,
+          "x": 341,
+          "y": 543.78
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "11px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "13.546875px",
+          "line-height": "13.75px"
+        },
+        "scrollW": 14,
+        "clientW": 14
+      }
+    ],
+    "kcReadout": {
+      "text": "",
+      "cls": "glass-slider flex-1",
+      "rect": {
+        "w": 230.45,
+        "h": 24,
+        "x": 360.55,
+        "y": 538.66
+      },
+      "cs": {
+        "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "font-size": "18.608px",
+        "font-weight": "400",
+        "color": "rgb(28, 25, 23)",
+        "width": "230.453125px",
+        "line-height": "27.911999px"
+      },
+      "scrollW": 230,
+      "clientW": 230
+    },
+    "rail": {
+      "rect": {
+        "w": 434,
+        "h": 24,
+        "x": 252,
+        "y": 494.66
+      },
+      "cs": {
+        "background-image": "none",
+        "background-color": "oklch(0.545141 0.218024 9.834023)",
+        "box-shadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+        "border-radius": "340282346638528859811704183484516925440px"
+      },
+      "inlineStyle": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.834023); box-shadow: oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset;"
+    },
+    "grounds": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+      },
+      {
+        "cls": "relative",
+        "bg": "rgb(200, 70, 215)"
+      }
+    ],
+    "touchGateInMain": 0,
+    "touchGateGlobal": 0,
+    "icons": [
+      {
+        "cls": "lucide lucide-upload-icon lucide-upload w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 234,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-camera-icon lucide-camera w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 282,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 656,
+          "y": 540.66
+        }
+      }
+    ],
+    "tokens": {
+      "text-micro": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 16.05
+      },
+      "text-mono-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 30.28
+      },
+      "text-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 23.93
+      },
+      "text-body": {
+        "fontSize": "18.608px",
+        "lineHeight": "27.911999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 27.16
+      },
+      "fira-code text-micro tabular-nums": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 20.31
+      }
+    },
+    "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+    "mutedFg": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+    "ariaSnapshot": "  - button \"Upload image, click to browse or drop an image here\":\n  - slider \"Number of colors\"\n  - button \"Upload image\":\n  - button \"Open camera\":\n  - separator\n  - slider \"Chroma weight\"\n  - separator\n  - button \"Reset\" [disabled]:"
+  },
+  "mobile": {
+    "railFound": true,
+    "kcFound": true,
+    "clusterCls": "flex flex-col gap-3 shrink-0",
+    "buttons": [
+      {
+        "title": "Upload image",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 44,
+          "h": 44,
+          "x": 33,
+          "y": 494.97
+        }
+      },
+      {
+        "title": "Open camera",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 44,
+          "h": 44,
+          "x": 85,
+          "y": 494.97
+        }
+      },
+      {
+        "title": "Reset",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": true,
+        "rect": {
+          "w": 44,
+          "h": 44,
+          "x": 313,
+          "y": 494.97
+        }
+      }
+    ],
+    "separators": [
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 143,
+          "y": 516.97
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      },
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 298,
+          "y": 516.97
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      }
+    ],
+    "thumbs": [
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 296,
+          "h": 44,
+          "x": 61,
+          "y": 448.97
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 296,
+          "h": 24,
+          "x": 61,
+          "y": 458.97
+        },
+        "parentCls": "relative flex-1 h-6 flex items-center"
+      },
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 44,
+          "x": 136.72,
+          "y": 448.97
+        },
+        "valuenow": "5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 296,
+          "h": 44,
+          "x": 61,
+          "y": 448.97
+        },
+        "parentCls": "glass-slider relative w-full"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 80.45,
+          "h": 44,
+          "x": 177.55,
+          "y": 494.97
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 126,
+          "h": 44,
+          "x": 158,
+          "y": 494.97
+        },
+        "parentCls": "flex items-center gap-1.5 flex-1 min-w-0"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 44,
+          "x": 200.36,
+          "y": 494.97
+        },
+        "valuenow": "0.5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 80.45,
+          "h": 44,
+          "x": 177.55,
+          "y": 494.97
+        },
+        "parentCls": "glass-slider flex-1"
+      }
+    ],
+    "labels": [
+      {
+        "text": "5",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": null,
+        "cls": "text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right",
+        "rect": {
+          "w": 20,
+          "h": 19.59,
+          "x": 33,
+          "y": 461.17
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "14px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "20px",
+          "line-height": "19.6px"
+        },
+        "scrollW": 20,
+        "clientW": 20
+      },
+      {
+        "text": "kC",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": "Chroma weight",
+        "cls": "fira-code text-micro plate-ink whitespace-nowrap",
+        "rect": {
+          "w": 13.55,
+          "h": 13.75,
+          "x": 158,
+          "y": 510.09
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "11px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "13.546875px",
+          "line-height": "13.75px"
+        },
+        "scrollW": 14,
+        "clientW": 14
+      }
+    ],
+    "kcReadout": {
+      "text": "",
+      "cls": "glass-slider flex-1",
+      "rect": {
+        "w": 80.45,
+        "h": 44,
+        "x": 177.55,
+        "y": 494.97
+      },
+      "cs": {
+        "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "font-size": "16px",
+        "font-weight": "400",
+        "color": "rgb(28, 25, 23)",
+        "width": "80.453125px",
+        "line-height": "24px"
+      },
+      "scrollW": 80,
+      "clientW": 80
+    },
+    "rail": {
+      "rect": {
+        "w": 296,
+        "h": 24,
+        "x": 61,
+        "y": 458.97
+      },
+      "cs": {
+        "background-image": "none",
+        "background-color": "oklch(0.545141 0.218024 9.834023)",
+        "box-shadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+        "border-radius": "340282346638528859811704183484516925440px"
+      },
+      "inlineStyle": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.834023); box-shadow: oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset;"
+    },
+    "grounds": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+      },
+      {
+        "cls": "relative",
+        "bg": "rgb(200, 70, 215)"
+      }
+    ],
+    "touchGateInMain": 0,
+    "touchGateGlobal": 0,
+    "icons": [
+      {
+        "cls": "lucide lucide-upload-icon lucide-upload w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 45,
+          "y": 506.97
+        }
+      },
+      {
+        "cls": "lucide lucide-camera-icon lucide-camera w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 97,
+          "y": 506.97
+        }
+      },
+      {
+        "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 325,
+          "y": 506.97
+        }
+      }
+    ],
+    "tokens": {
+      "text-micro": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 16.05
+      },
+      "text-mono-small": {
+        "fontSize": "14px",
+        "lineHeight": "19.6px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 25.85
+      },
+      "text-small": {
+        "fontSize": "14px",
+        "lineHeight": "19.6px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 20.43
+      },
+      "text-body": {
+        "fontSize": "16px",
+        "lineHeight": "24px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 23.35
+      },
+      "fira-code text-micro tabular-nums": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 20.31
+      }
+    },
+    "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+    "mutedFg": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+    "ariaSnapshot": "  - button \"Upload image, click to browse or drop an image here\":\n  - slider \"Number of colors\"\n  - button \"Upload image\":\n  - button \"Open camera\":\n  - separator\n  - slider \"Chroma weight\"\n  - separator\n  - button \"Reset\" [disabled]:"
+  },
+  "reduced-motion": {
+    "railFound": true,
+    "kcFound": true,
+    "clusterCls": "flex flex-col gap-3 shrink-0",
+    "buttons": [
+      {
+        "title": "Upload image",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 224,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Open camera",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 272,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Reset",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": true,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 646,
+          "y": 530.66
+        }
+      }
+    ],
+    "separators": [
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 326,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      },
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 631,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      }
+    ],
+    "thumbs": [
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "relative flex-1 h-6 flex items-center"
+      },
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 364.53,
+          "y": 494.66
+        },
+        "valuenow": "5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "glass-slider relative w-full"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 276,
+          "h": 24,
+          "x": 341,
+          "y": 538.66
+        },
+        "parentCls": "flex items-center gap-1.5 flex-1 min-w-0"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 433.36,
+          "y": 538.66
+        },
+        "valuenow": "0.5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "parentCls": "glass-slider flex-1"
+      }
+    ],
+    "labels": [
+      {
+        "text": "5",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": null,
+        "cls": "text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right",
+        "rect": {
+          "w": 20,
+          "h": 22.94,
+          "x": 224,
+          "y": 495.19
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "16.4px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "20px",
+          "line-height": "22.959999px"
+        },
+        "scrollW": 20,
+        "clientW": 20
+      },
+      {
+        "text": "kC",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": "Chroma weight",
+        "cls": "fira-code text-micro plate-ink whitespace-nowrap",
+        "rect": {
+          "w": 13.55,
+          "h": 13.75,
+          "x": 341,
+          "y": 543.78
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "11px",
+          "font-weight": "400",
+          "color": "oklch(0.446872 0.003862 34.629978)",
+          "width": "13.546875px",
+          "line-height": "13.75px"
+        },
+        "scrollW": 14,
+        "clientW": 14
+      }
+    ],
+    "kcReadout": {
+      "text": "",
+      "cls": "glass-slider flex-1",
+      "rect": {
+        "w": 230.45,
+        "h": 24,
+        "x": 360.55,
+        "y": 538.66
+      },
+      "cs": {
+        "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "font-size": "18.608px",
+        "font-weight": "400",
+        "color": "rgb(28, 25, 23)",
+        "width": "230.453125px",
+        "line-height": "27.911999px"
+      },
+      "scrollW": 230,
+      "clientW": 230
+    },
+    "rail": {
+      "rect": {
+        "w": 434,
+        "h": 24,
+        "x": 252,
+        "y": 494.66
+      },
+      "cs": {
+        "background-image": "none",
+        "background-color": "oklch(0.545141 0.218024 9.834023)",
+        "box-shadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+        "border-radius": "340282346638528859811704183484516925440px"
+      },
+      "inlineStyle": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.834023); box-shadow: oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset;"
+    },
+    "grounds": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+      },
+      {
+        "cls": "relative",
+        "bg": "rgb(200, 70, 215)"
+      }
+    ],
+    "touchGateInMain": 0,
+    "touchGateGlobal": 0,
+    "icons": [
+      {
+        "cls": "lucide lucide-upload-icon lucide-upload w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "opacity, color, background-color, border-color, box-shadow",
+          "transition-duration": "0.1s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 234,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-camera-icon lucide-camera w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "opacity, color, background-color, border-color, box-shadow",
+          "transition-duration": "0.1s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 282,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "opacity, color, background-color, border-color, box-shadow",
+          "transition-duration": "0.1s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 656,
+          "y": 540.66
+        }
+      }
+    ],
+    "tokens": {
+      "text-micro": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 16.05
+      },
+      "text-mono-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 30.28
+      },
+      "text-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 23.93
+      },
+      "text-body": {
+        "fontSize": "18.608px",
+        "lineHeight": "27.911999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 27.16
+      },
+      "fira-code text-micro tabular-nums": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 20.31
+      }
+    },
+    "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+    "mutedFg": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+    "ariaSnapshot": "  - button \"Upload image, click to browse or drop an image here\":\n  - slider \"Number of colors\"\n  - button \"Upload image\":\n  - button \"Open camera\":\n  - separator\n  - slider \"Chroma weight\"\n  - separator\n  - button \"Reset\" [disabled]:"
+  },
+  "forced-colors": {
+    "railFound": true,
+    "kcFound": true,
+    "clusterCls": "flex flex-col gap-3 shrink-0",
+    "buttons": [
+      {
+        "title": "Upload image",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 224,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Open camera",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": false,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 272,
+          "y": 530.66
+        }
+      },
+      {
+        "title": "Reset",
+        "ariaLabel": null,
+        "ariaPressed": null,
+        "dataActive": null,
+        "text": "",
+        "disabled": true,
+        "rect": {
+          "w": 40,
+          "h": 40,
+          "x": 646,
+          "y": 530.66
+        }
+      }
+    ],
+    "separators": [
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 326,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      },
+      {
+        "rect": {
+          "w": 1,
+          "h": 0,
+          "x": 631,
+          "y": 550.66
+        },
+        "cls": "dock-separator",
+        "style": {
+          "background-color": "color(srgb 0.11 0.098 0.09 / 0.15)",
+          "width": "1px",
+          "height": "0px",
+          "opacity": "1",
+          "border-left-width": "0px"
+        }
+      }
+    ],
+    "thumbs": [
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "relative flex-1 h-6 flex items-center"
+      },
+      {
+        "label": "Number of colors",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 364.53,
+          "y": 494.66
+        },
+        "valuenow": "5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 434,
+          "h": 24,
+          "x": 252,
+          "y": 494.66
+        },
+        "parentCls": "glass-slider relative w-full"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": null,
+        "rect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "valuenow": null,
+        "valuetext": null,
+        "tabindex": null,
+        "parentRect": {
+          "w": 276,
+          "h": 24,
+          "x": 341,
+          "y": 538.66
+        },
+        "parentCls": "flex items-center gap-1.5 flex-1 min-w-0"
+      },
+      {
+        "label": "Chroma weight",
+        "tag": "span",
+        "role": "slider",
+        "rect": {
+          "w": 12,
+          "h": 24,
+          "x": 433.36,
+          "y": 538.66
+        },
+        "valuenow": "0.5",
+        "valuetext": null,
+        "tabindex": "0",
+        "parentRect": {
+          "w": 230.45,
+          "h": 24,
+          "x": 360.55,
+          "y": 538.66
+        },
+        "parentCls": "glass-slider flex-1"
+      }
+    ],
+    "labels": [
+      {
+        "text": "5",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": null,
+        "cls": "text-mono-small plate-ink whitespace-nowrap tabular-nums w-5 text-right",
+        "rect": {
+          "w": 20,
+          "h": 22.94,
+          "x": 224,
+          "y": 495.19
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "16.4px",
+          "font-weight": "400",
+          "color": "oklch(0.492722 0.003862 34.629978)",
+          "width": "20px",
+          "line-height": "22.959999px"
+        },
+        "scrollW": 20,
+        "clientW": 20
+      },
+      {
+        "text": "kC",
+        "htmlFor": "",
+        "hasControl": false,
+        "title": "Chroma weight",
+        "cls": "fira-code text-micro plate-ink whitespace-nowrap",
+        "rect": {
+          "w": 13.55,
+          "h": 13.75,
+          "x": 341,
+          "y": 543.78
+        },
+        "cs": {
+          "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+          "font-size": "11px",
+          "font-weight": "400",
+          "color": "oklch(0.492722 0.003862 34.629978)",
+          "width": "13.546875px",
+          "line-height": "13.75px"
+        },
+        "scrollW": 14,
+        "clientW": 14
+      }
+    ],
+    "kcReadout": {
+      "text": "",
+      "cls": "glass-slider flex-1",
+      "rect": {
+        "w": 230.45,
+        "h": 24,
+        "x": 360.55,
+        "y": 538.66
+      },
+      "cs": {
+        "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "font-size": "18.608px",
+        "font-weight": "400",
+        "color": "rgb(28, 25, 23)",
+        "width": "230.453125px",
+        "line-height": "27.911999px"
+      },
+      "scrollW": 230,
+      "clientW": 230
+    },
+    "rail": {
+      "rect": {
+        "w": 434,
+        "h": 24,
+        "x": 252,
+        "y": 494.66
+      },
+      "cs": {
+        "background-image": "none",
+        "background-color": "oklch(0.594176 0.237635 9.834023)",
+        "box-shadow": "oklch(0.594176 0.237635 9.834023) 0px 0px 0px 1.5px inset",
+        "border-radius": "340282346638528859811704183484516925440px"
+      },
+      "inlineStyle": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.594176 0.237635 9.834023); box-shadow: oklch(0.594176 0.237635 9.834023) 0px 0px 0px 1.5px inset;"
+    },
+    "grounds": [
+      {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scrol",
+        "bg": "oklab(0.943611 0.005549 0.013365)"
+      },
+      {
+        "cls": "relative",
+        "bg": "rgb(200, 70, 215)"
+      }
+    ],
+    "touchGateInMain": 0,
+    "touchGateGlobal": 0,
+    "icons": [
+      {
+        "cls": "lucide lucide-upload-icon lucide-upload w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 234,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-camera-icon lucide-camera w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 282,
+          "y": 540.66
+        }
+      },
+      {
+        "cls": "lucide lucide-rotate-ccw-icon lucide-rotate-ccw w-5 h-5 transition-colors",
+        "cs": {
+          "transition-property": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transition-duration": "0.2s",
+          "transition-timing-function": "cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "rect": {
+          "w": 20,
+          "h": 20,
+          "x": 656,
+          "y": 540.66
+        }
+      }
+    ],
+    "tokens": {
+      "text-micro": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 16.05
+      },
+      "text-mono-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 30.28
+      },
+      "text-small": {
+        "fontSize": "16.4px",
+        "lineHeight": "22.959999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 23.93
+      },
+      "text-body": {
+        "fontSize": "18.608px",
+        "lineHeight": "27.911999px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallba",
+        "inkWidth": 27.16
+      },
+      "fira-code text-micro tabular-nums": {
+        "fontSize": "11px",
+        "lineHeight": "13.75px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\"",
+        "inkWidth": 20.31
+      }
+    },
+    "inkMuted": "oklch(49.27224168876% 0.003861589952 34.629978305623deg)",
+    "mutedFg": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+    "ariaSnapshot": "  - button \"Upload image, click to browse or drop an image here\":\n  - slider \"Number of colors\"\n  - button \"Upload image\":\n  - button \"Open camera\":\n  - separator\n  - slider \"Chroma weight\"\n  - separator\n  - button \"Reset\" [disabled]:"
+  }
+}

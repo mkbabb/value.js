@@ -1,0 +1,13 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "seat": "s",
+  "lineage": "CSS Syntax consume-number algorithm steps",
+  "private_design": "Construct direct sign, mantissa, guarded-fraction, and guarded-exponent stages using only @mkbabb/parse-that/core regex and Parser.then/opt/map. The exact 1.0.0 API has no guard method: encode each look condition atomically in its small stage regex. Locally wrap the reachable staged parser with public ParserState.save/restore through Parser for predecessor rollback. No whole-number regex, all/any aggregate, dispatch, scanner, or source access.",
+  "verified_apis": ["Parser", "Parser.call", "ParserState.save", "ParserState.restore", "regex", "Parser.then", "Parser.opt", "Parser.map"],
+  "feasibility_probe": "probes/s.ts",
+  "named_lineage_source": "../g5/authorities/css-syntax-3.Overview.bs#consume-number",
+  "candidate_root": "candidates/s",
+  "required_export": "consumeNumber",
+  "credit": "ZERO_PRIVATE_DESIGN_PACKET_ONLY"
+}

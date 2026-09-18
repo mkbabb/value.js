@@ -1,0 +1,67 @@
+{
+  "schema": "v-pi-session-audit-subject/1",
+  "capturedAt": "2026-07-24T17:27:13.007Z",
+  "repository": "/Users/mkbabb/Programming/value.js",
+  "repositoryHead": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+  "repositoryStatusShort": [
+    " M docs/tranches/V/coordination/INBOX.md",
+    " M docs/tranches/V/reformation/CARRY-LEDGER.md",
+    " M scripts/dev/dev.sh",
+    "?? docs/tranches/T/audit/pi/u-bh-communique-draft.md",
+    "?? docs/tranches/T/audit/pi/u-gestalt/",
+    "?? docs/tranches/V/apotheosis/",
+    "?? docs/tranches/V/audit/POST-U-AUDIT.md",
+    "?? docs/tranches/V/audit/bootstrap/",
+    "?? docs/tranches/V/audit/rehearsal/",
+    "?? docs/tranches/V/coordination/keyframes-inbox-2026-07-17-glass7-consumed-wl-marked.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-19-union-apotheosis-relay.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-bbnf-coordination.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-d23-ruled-mirror-primary.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-owner-rulings-relay.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-parser-proof-evidence.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-pi-minitranche-notice.md",
+    "?? docs/tranches/V/coordination/value-inbox-2026-07-20-residual-repairs.md",
+    "?? docs/tranches/V/evidence/",
+    "?? docs/tranches/V/research/",
+    "?? docs/tranches/V/vnext/"
+  ],
+  "trancheRoot": "docs/tranches/V/apotheosis/pi",
+  "exclusion": "formation/session-audit/**",
+  "subjectFiles": 1146,
+  "subjectBytes": 265252791,
+  "ledger": "formation/session-audit/subject-ledger.tsv",
+  "ledgerSha256": "aa6d17cb1c1cd9a34d0e9430db5344d046e8a54de0780c553d74fb55749a271f",
+  "activeRoot": "mirror/apotheosis",
+  "activeFiles": [
+    {
+      "path": "mirror/apotheosis/README.md",
+      "bytes": 1218,
+      "sha256": "e4208434ad66441450ad19c8ecc2c49623f23ee6e551de10071dc0c7da11cb39"
+    },
+    {
+      "path": "mirror/apotheosis/clean-base.json",
+      "bytes": 1505,
+      "sha256": "186d247804484c57b9c62c20b891f16178f20b34fdae2b33679bb07e10f643c2"
+    },
+    {
+      "path": "mirror/apotheosis/grammar/css/l4/README.md",
+      "bytes": 324,
+      "sha256": "0f4a6cc66c88e5c6e4436d4bdc6faea0ff670ea4af28d7d4f386a2b9b5925e6b"
+    },
+    {
+      "path": "mirror/apotheosis/grammar/css/l4/value-unit/numeric.ts",
+      "bytes": 560,
+      "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+    },
+    {
+      "path": "mirror/apotheosis/test/value-unit/numeric.test.ts",
+      "bytes": 1957,
+      "sha256": "4000f5dd78437292fdcd2895e75db1d68f9aaf6ef6a832cd80fb45b8be3fe8da"
+    },
+    {
+      "path": "mirror/apotheosis/vitest.config.ts",
+      "bytes": 216,
+      "sha256": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9"
+    }
+  ]
+}

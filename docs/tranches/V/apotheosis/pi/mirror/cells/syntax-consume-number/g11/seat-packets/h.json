@@ -1,0 +1,13 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "seat": "h",
+  "lineage": "historical direct parse-that numeric terminal",
+  "private_design": "Construct one whole-prefix @mkbabb/parse-that/core regex terminal and one direct semantic map. Repair explicit plus, leading-zero, leading-dot, maximal guarded fraction/exponent, type, sign, binary64, and failure transactionality. Do not use all, any, dispatch, a scanner, source access, or peer design notes.",
+  "verified_apis": ["regex", "Parser.map"],
+  "feasibility_probe": "probes/h.ts",
+  "named_lineage_source": "../g7/authorities/historical-utils.ts",
+  "candidate_root": "candidates/h",
+  "required_export": "consumeNumber",
+  "credit": "ZERO_PRIVATE_DESIGN_PACKET_ONLY"
+}

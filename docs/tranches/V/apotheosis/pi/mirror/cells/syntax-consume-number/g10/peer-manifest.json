@@ -1,0 +1,28 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_PREAUTHOR_PEER_ADAPTERS",
+  "adapter": { "path": "peer-adapters.mjs", "sha256": "99b8f7691e3a5a6ebf6c6ca07aa5221c94a65246edc8315c60a88effa5af39c8", "bytes": 989 },
+  "common_smoke_cases": { "path": "peer-comparable-cases.json", "sha256": "1283b615d2a12e75eb217624af4fb8643376ad3dc762c05917c14769bea9d7a7", "bytes": 1151, "count": 6 },
+  "peers": {
+    "live_regex": {
+      "source": { "path": "/Users/mkbabb/Programming/value.js/src/css/grammar.ts", "sha256": "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69", "bytes": 22182, "git_blob": "ff476e64431355af7265231817e9809b4f443d01" },
+      "production": { "name": "numberToken", "line_start": 128, "line_end_inclusive": 133, "exact_lf_slice_sha256": "22e4222fe9bf60eff4f3fc37b783bc0b1e487870d856816c7166f60e0418ae51", "exact_lf_slice_bytes": 218 },
+      "adapter_law": "Source-faithful anchored numeric recognizer plus finite-number rejection and the common semantic observation wrapper."
+    },
+    "deposed": {
+      "source": { "path": "../g7/authorities/historical-utils.ts", "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4", "bytes": 7656, "origin_commit": "9fce504a5764258c8e56b0ce77cd656c725a4907", "origin_path": "src/parsing/utils.ts", "origin_git_blob": "cbb57ab5327bc0afa667fbd13ad98d77f3b610de" },
+      "production": { "name": "number", "line": 96, "exact_lf_line_sha256": "545226e90f05ae9beb0759a9b7ebf831bfb92eb0d36dcc212d9fad73e1f29169", "exact_lf_line_bytes": 92 },
+      "adapter_law": "Exact historical anchored regex with common extent/type/sign observation; no repair is credited to the peer."
+    },
+    "c14": {
+      "source": { "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/vnext/prototypes/c14-css/src/css/grammar/l4/value-unit.ts", "sha256": "da738397cf4504a7c3438b9823a861fcd9e55f016175ce0c5436cb2f2d811890", "bytes": 1265, "git_hash_object": "a21725fa558903a6880a2c116a2795c8e5a80f0d" },
+      "production": { "name": "numberValue/numericSource", "line_start": 5, "line_end_inclusive": 18, "exact_lf_slice_sha256": "f7df101a0b3477ae76a6c6d47d7bb8d6f8dac1849c3d4348d90b1d9810519bf5", "exact_lf_slice_bytes": 577 },
+      "adapter_law": "Exact C14 numericSource recognition with common extent/type/sign observation; CST allocation is excluded because the G10 feature result is a semantic leaf."
+    }
+  },
+  "historical_bench_receipt": { "path": "../../../../../parser-proof/bench-results.json", "sha256": "08b927753ee717c67a3031861a88e35e629ecb585d5f84f7e1ba9e4378070be2", "bytes": 11910 },
+  "qualification_law": "After candidate and revealed-holdout correctness, the benchmark runner must derive and emit each peer-specific case-ID intersection whose success/failure, extent, binary64 value, type, and sign observations match the candidate. Timing uses identical ordered cases, allocations, calls, observations, retained digest, build flags, and schedule. A win on an intersection is never semantic parity outside it.",
+  "performance_gate": "Strict candidate win over live_regex, deposed, and c14 on every nonempty comparable intersection; no retry substitution, denominator borrowing, or correctness relaxation.",
+  "credit": "ZERO_PEER_IDENTITY_ONLY"
+}

@@ -1,0 +1,181 @@
+{
+  "C0_storeBefore": [
+    "Probe Palette 0",
+    "Probe Palette 1",
+    "Probe Palette 2",
+    "Probe Palette 3",
+    "Probe Palette 4",
+    "Probe Palette 5"
+  ],
+  "C1_collisionMap": {
+    "menuRect": {
+      "x": 1010,
+      "y": 516,
+      "w": 192,
+      "h": 240.1,
+      "bottom": 756.1
+    },
+    "menuStyle": {
+      "background": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "backdropFilter": "blur(11px) saturate(1.6)",
+      "opacity": "1",
+      "zIndex": "130"
+    },
+    "cardPitch": 112,
+    "itemPitch": 44,
+    "items": [
+      {
+        "text": "Publish",
+        "x": 1017,
+        "y": 564.1,
+        "w": 178,
+        "h": 44,
+        "top": 564.1,
+        "bottom": 608.1
+      },
+      {
+        "text": "Rename",
+        "x": 1017,
+        "y": 608.1,
+        "w": 178,
+        "h": 44,
+        "top": 608.1,
+        "bottom": 652.1
+      },
+      {
+        "text": "Export",
+        "x": 1017,
+        "y": 661.1,
+        "w": 178,
+        "h": 44,
+        "top": 661.1,
+        "bottom": 705.1
+      },
+      {
+        "text": "Delete",
+        "x": 1017,
+        "y": 705.1,
+        "w": 178,
+        "h": 44,
+        "top": 705.1,
+        "bottom": 749.1
+      }
+    ],
+    "trigs": [
+      {
+        "cardIndex": 0,
+        "cardName": "Palette: Probe Palette 0",
+        "cx": 1184,
+        "cy": 493.6,
+        "insideMenuRect": false,
+        "landsOnItem": null,
+        "elementFromPoint": "html"
+      },
+      {
+        "cardIndex": 1,
+        "cardName": "Palette: Probe Palette 1",
+        "cx": 1184,
+        "cy": 605.6,
+        "insideMenuRect": true,
+        "landsOnItem": "Publish",
+        "elementFromPoint": "div{menuitem}"
+      },
+      {
+        "cardIndex": 2,
+        "cardName": "Palette: Probe Palette 2",
+        "cx": 1184,
+        "cy": 717.6,
+        "insideMenuRect": true,
+        "landsOnItem": "Delete",
+        "elementFromPoint": "div{menuitem}"
+      },
+      {
+        "cardIndex": 3,
+        "cardName": "Palette: Probe Palette 3",
+        "cx": 1184,
+        "cy": 829.6,
+        "insideMenuRect": false,
+        "landsOnItem": null,
+        "elementFromPoint": "html"
+      },
+      {
+        "cardIndex": 4,
+        "cardName": "Palette: Probe Palette 4",
+        "cx": 1184,
+        "cy": 941.6,
+        "insideMenuRect": false,
+        "landsOnItem": null,
+        "elementFromPoint": null
+      },
+      {
+        "cardIndex": 5,
+        "cardName": "Palette: Probe Palette 5",
+        "cx": 1184,
+        "cy": 1053.6,
+        "insideMenuRect": false,
+        "landsOnItem": null,
+        "elementFromPoint": null
+      }
+    ]
+  },
+  "C2_coveredTriggers": [
+    {
+      "cardIndex": 1,
+      "cardName": "Palette: Probe Palette 1",
+      "cx": 1184,
+      "cy": 605.6,
+      "insideMenuRect": true,
+      "landsOnItem": "Publish",
+      "elementFromPoint": "div{menuitem}"
+    },
+    {
+      "cardIndex": 2,
+      "cardName": "Palette: Probe Palette 2",
+      "cx": 1184,
+      "cy": 717.6,
+      "insideMenuRect": true,
+      "landsOnItem": "Delete",
+      "elementFromPoint": "div{menuitem}"
+    }
+  ],
+  "C3_deleteVictimTrigger": {
+    "cardIndex": 2,
+    "cardName": "Palette: Probe Palette 2",
+    "cx": 1184,
+    "cy": 717.6,
+    "insideMenuRect": true,
+    "landsOnItem": "Delete",
+    "elementFromPoint": "div{menuitem}"
+  },
+  "C3_afterClickOnThatTrigger": {
+    "store": [
+      "Probe Palette 1",
+      "Probe Palette 2",
+      "Probe Palette 3",
+      "Probe Palette 4",
+      "Probe Palette 5"
+    ],
+    "cards": 5,
+    "menus": 0,
+    "dialogs": 0
+  },
+  "C4_control_storeBeforeControlClick": [
+    "Probe Palette 1",
+    "Probe Palette 2",
+    "Probe Palette 3",
+    "Probe Palette 4",
+    "Probe Palette 5"
+  ],
+  "C4_control_afterClick": {
+    "store": [
+      "Probe Palette 1",
+      "Probe Palette 2",
+      "Probe Palette 3",
+      "Probe Palette 4",
+      "Probe Palette 5"
+    ],
+    "menus": 1,
+    "openOwner": "Probe Palette 3"
+  },
+  "pageErrors": []
+}

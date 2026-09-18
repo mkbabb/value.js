@@ -1,0 +1,291 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/ROUTE-PARSE-RAW.json
+  original-mtime: 2026-08-01T20:31:35
+  original-sha256: 09b13fd8d86d76817062c1cf8eb3e38386b761096198e2ba7aa64434cec437ae
+  original-bytes: 8215
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "routerRoutes": [
+    {
+      "path": "/",
+      "name": "picker",
+      "line": 22
+    },
+    {
+      "path": "/palettes",
+      "name": "palettes",
+      "line": 23
+    },
+    {
+      "path": "/browse",
+      "name": "browse",
+      "line": 24
+    },
+    {
+      "path": "/extract",
+      "name": "extract",
+      "line": 25
+    },
+    {
+      "path": "/mix",
+      "name": "mix",
+      "line": 26
+    },
+    {
+      "path": "/generate",
+      "name": "generate",
+      "line": 27
+    },
+    {
+      "path": "/gradient",
+      "name": "gradient",
+      "line": 28
+    },
+    {
+      "path": "/atmosphere",
+      "name": "atmosphere",
+      "line": 29
+    },
+    {
+      "path": "/blob",
+      "name": "blob",
+      "line": 30
+    },
+    {
+      "path": "/admin/users",
+      "name": "admin-users",
+      "line": 31
+    },
+    {
+      "path": "/admin/names",
+      "name": "admin-names",
+      "line": 32
+    },
+    {
+      "path": "/admin/audit",
+      "name": "admin-audit",
+      "line": 33
+    },
+    {
+      "path": "/admin/flagged",
+      "name": "admin-flagged",
+      "line": 34
+    },
+    {
+      "path": "/admin/tags",
+      "name": "admin-tags",
+      "line": 35
+    }
+  ],
+  "routeSpecs": [
+    {
+      "name": "picker",
+      "path": "/",
+      "job": "author one color; color specimen",
+      "primaryWorkflow": "VC-038 with VC-040/042/059/064 children",
+      "requiredStates": "local ready/invalid; parser refusal",
+      "formationDisposition": "KEEP scene; PRUNE debug VC-043/045"
+    },
+    {
+      "name": "palettes",
+      "path": "/palettes",
+      "job": "manage viewer palettes; owned collection",
+      "primaryWorkflow": "VC-007 with VC-018/021/023/024",
+      "requiredStates": "anonymous/auth, loading, empty, error, offline, policy",
+      "formationDisposition": "KEEP"
+    },
+    {
+      "name": "browse",
+      "path": "/browse",
+      "job": "discover readable palettes; public collection",
+      "primaryWorkflow": "VC-006 with VC-024/034",
+      "requiredStates": "loading, empty, error, offline, filtered policy",
+      "formationDisposition": "KEEP"
+    },
+    {
+      "name": "extract",
+      "path": "/extract",
+      "job": "turn an image into a palette; source image/result",
+      "primaryWorkflow": "VC-071/072",
+      "requiredStates": "idle, acquiring, processing, result, refusal",
+      "formationDisposition": "KEEP"
+    },
+    {
+      "name": "mix",
+      "path": "/mix",
+      "job": "combine selected colors; result color",
+      "primaryWorkflow": "VC-086/087",
+      "requiredStates": "zero selection, configured, mixing, result, refusal",
+      "formationDisposition": "KEEP local Mix/Copy/Reset"
+    },
+    {
+      "name": "generate",
+      "path": "/generate",
+      "job": "generate a palette; generated swatches",
+      "primaryWorkflow": "VC-076",
+      "requiredStates": "configured, generating, result, save/copy outcome",
+      "formationDisposition": "KEEP local seats"
+    },
+    {
+      "name": "gradient",
+      "path": "/gradient",
+      "job": "author a gradient; gradient specimen",
+      "primaryWorkflow": "VC-077/081",
+      "requiredStates": "valid, parser refusal, inverse refusal, copy/reset outcome",
+      "formationDisposition": "KEEP; delete implicit Seed"
+    },
+    {
+      "name": "atmosphere",
+      "path": "/atmosphere",
+      "job": "tune a color field; aurora field",
+      "primaryWorkflow": "VC-051",
+      "requiredStates": "ready, reduced-motion final, copy/reset outcome",
+      "formationDisposition": "KEEP one motion owner"
+    },
+    {
+      "name": "blob",
+      "path": "/blob",
+      "job": "tune color geometry; blob specimen",
+      "primaryWorkflow": "VC-052",
+      "requiredStates": "ready, reduced-motion final, copy/reset outcome",
+      "formationDisposition": "KEEP one motion owner"
+    },
+    {
+      "name": "admin-users",
+      "path": "/admin/users",
+      "job": "administer accounts; user roster",
+      "primaryWorkflow": "VC-015 with VC-012 loading geometry",
+      "requiredStates": "auth/Admin gate, loading, empty, error, offline",
+      "formationDisposition": "KEEP explicit Admin policy"
+    },
+    {
+      "name": "admin-names",
+      "path": "/admin/names",
+      "job": "adjudicate names; proposal queue",
+      "primaryWorkflow": "VC-013 with VC-011/012",
+      "requiredStates": "auth/Admin gate, loading, empty, error, offline, action result",
+      "formationDisposition": "KEEP"
+    },
+    {
+      "name": "admin-audit",
+      "path": "/admin/audit",
+      "job": "inspect audit history; chronology",
+      "primaryWorkflow": "VC-009 with VC-012/016",
+      "requiredStates": "auth/Admin gate, loading, empty, error, offline",
+      "formationDisposition": "KEEP immutable order"
+    },
+    {
+      "name": "admin-flagged",
+      "path": "/admin/flagged",
+      "job": "triage reports; flagged queue",
+      "primaryWorkflow": "VC-010 with VC-012/016",
+      "requiredStates": "auth/Admin gate, loading, empty, error, offline, action result",
+      "formationDisposition": "KEEP"
+    },
+    {
+      "name": "admin-tags",
+      "path": "/admin/tags",
+      "job": "administer tag taxonomy; tag definitions",
+      "primaryWorkflow": "VC-014",
+      "requiredStates": "auth/Admin gate, loading, empty, error, offline, action result",
+      "formationDisposition": "KEEP"
+    }
+  ],
+  "viewRows": [
+    {
+      "routeName": "picker",
+      "left": "color-picker",
+      "right": "about",
+      "sourceBlockSha256": "e030f9fac57f962151755780afefe63f28ff94d21c611f71d8de21428b10ab29"
+    },
+    {
+      "routeName": "palettes",
+      "left": "color-picker",
+      "right": "palettes",
+      "sourceBlockSha256": "ab480b5c0ddc7b90af1e7343e08e8c33d095b4ffb33d40d9e24625b3ab4d593f"
+    },
+    {
+      "routeName": "browse",
+      "left": "browse",
+      "right": "palettes",
+      "sourceBlockSha256": "a0cbc9090cdb99229f4a0e5c5d3c290ff0da88b883cfd59257f0d79648dfeb71"
+    },
+    {
+      "routeName": "extract",
+      "left": "extract",
+      "right": "palettes",
+      "sourceBlockSha256": "c29ab92d4679b0acb35eb32e465776f9c0e0db4b6a3c1881b99a57e7da393f36"
+    },
+    {
+      "routeName": "mix",
+      "left": "color-picker",
+      "right": "mix",
+      "sourceBlockSha256": "82726a1bd9bba4b3c8c413a000250bee564edd20faf17b9085725955de97dbec"
+    },
+    {
+      "routeName": "generate",
+      "left": "generate",
+      "right": "palettes",
+      "sourceBlockSha256": "2d7d600895702ca7d2cfff908c50446d489abe65bd75fad2775126aac9c6a27a"
+    },
+    {
+      "routeName": "gradient",
+      "left": "gradient",
+      "right": "palettes",
+      "sourceBlockSha256": "3c9e44c998a07909b422cd958c16c07166c0f5b7afd7f1b9318bae3508c073f6"
+    },
+    {
+      "routeName": "atmosphere",
+      "left": "atmosphere",
+      "right": null,
+      "sourceBlockSha256": "9d0b25069cf37ca515368578181209b2cda5c00ec0ffade6be0268aaf389c74b"
+    },
+    {
+      "routeName": "blob",
+      "left": "color-picker",
+      "right": "blob",
+      "sourceBlockSha256": "5ac731917cc8050e0b9c367d32d2e0ddc5c0d593477d91ee59f10adcd57bfee4"
+    },
+    {
+      "routeName": "admin-users",
+      "left": "admin-users",
+      "right": "palettes",
+      "sourceBlockSha256": "a4f0d1ec236ad5591433c191ef7d199a642fbb79eaf32c30c81f3c4a3d6be057"
+    },
+    {
+      "routeName": "admin-names",
+      "left": "admin-names",
+      "right": "palettes",
+      "sourceBlockSha256": "4831ac2b43d744cf30dd3902210bb95e2794ac766b5e756735998b20974906cc"
+    },
+    {
+      "routeName": "admin-audit",
+      "left": "admin-audit",
+      "right": "palettes",
+      "sourceBlockSha256": "0a24ee10c4c40d52e5926cce26ba6df8b8c64dadcad3f86d095635e7ecbff9be"
+    },
+    {
+      "routeName": "admin-flagged",
+      "left": "admin-flagged",
+      "right": "palettes",
+      "sourceBlockSha256": "9d9f6294cd1f7ca008def699ef7051d6bc91437b7c0653f0f09faa50c75a5d97"
+    },
+    {
+      "routeName": "admin-tags",
+      "left": "admin-tags",
+      "right": "palettes",
+      "sourceBlockSha256": "59b42b2ff60a3789d3455794417ca2a422641d922b766e3aa7a6af819e9e8c75"
+    }
+  ],
+  "wildcard": {
+    "path": "/:pathMatch(.*)*",
+    "redirect": "/"
+  }
+}

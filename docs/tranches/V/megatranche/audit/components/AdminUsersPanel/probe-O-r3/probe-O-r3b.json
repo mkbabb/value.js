@@ -1,0 +1,176 @@
+{
+  "chromium": {
+    "rowCount": 2,
+    "aria": [
+      "- button \"ghost-empt y-1733 3 Palettes Delete user ghost-empty-1733\":\n  - text: ghost-empt y-1733 3\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user ghost-empty-1733\"",
+      "- button \"an-extremely-long-anonymous-visitor-slug-from-the-wild-2 f9a-33 7 Palettes Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33\":\n  - text: an-extremely-long-anonymous-visitor-slug-from-the-wild-2 f9a-33 7\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33\""
+    ],
+    "rowNames": [
+      {
+        "spans": [
+          "ghost-empt",
+          "y-1733"
+        ],
+        "pillText": "ghost-empty-1733",
+        "pillDisplay": "flex",
+        "spanDisplay": [
+          "block",
+          "block"
+        ],
+        "badgeText": "3"
+      },
+      {
+        "spans": [
+          "an-extremely-long-anonymous-visitor-slug-from-the-wild-2",
+          "f9a-33"
+        ],
+        "pillText": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33",
+        "pillDisplay": "flex",
+        "spanDisplay": [
+          "block",
+          "block"
+        ],
+        "badgeText": "7"
+      }
+    ],
+    "disabledPrune": {
+      "disabled": true,
+      "opacity": "0.5",
+      "color": "rgb(28, 25, 23)",
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "filter": "none",
+      "tabIndex": 0
+    },
+    "mobileButtons": [
+      {
+        "text": "Palettes",
+        "w": 57.5,
+        "h": 26.3,
+        "minH": "auto"
+      },
+      {
+        "text": "Prune empty",
+        "w": 107.9,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Refresh",
+        "w": 79.7,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Palettes",
+        "w": 82,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Palettes",
+        "w": 82,
+        "h": 36,
+        "minH": "36px"
+      }
+    ],
+    "mobileIconButtons": [
+      {
+        "label": "Delete user ghost-empty-1733",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "label": "Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33",
+        "w": 28,
+        "h": 36
+      }
+    ]
+  },
+  "webkit": {
+    "rowCount": 2,
+    "aria": [
+      "- button \"ghost-empt y-1733 3 Palettes Delete user ghost-empty-1733\":\n  - text: ghost-empt y-1733 3\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user ghost-empty-1733\"",
+      "- button \"an-extremely-long-anonymous-visitor-slug-from-the-wild-2 f9a-33 7 Palettes Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33\":\n  - text: an-extremely-long-anonymous-visitor-slug-from-the-wild-2 f9a-33 7\n  - button \"Palettes\":\n    - img\n    - text: Palettes\n  - button \"Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33\""
+    ],
+    "rowNames": [
+      {
+        "spans": [
+          "ghost-empt",
+          "y-1733"
+        ],
+        "pillText": "ghost-empty-1733",
+        "pillDisplay": "flex",
+        "spanDisplay": [
+          "block",
+          "block"
+        ],
+        "badgeText": "3"
+      },
+      {
+        "spans": [
+          "an-extremely-long-anonymous-visitor-slug-from-the-wild-2",
+          "f9a-33"
+        ],
+        "pillText": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33",
+        "pillDisplay": "flex",
+        "spanDisplay": [
+          "block",
+          "block"
+        ],
+        "badgeText": "7"
+      }
+    ],
+    "disabledPrune": {
+      "disabled": true,
+      "opacity": "0.5",
+      "color": "rgb(28, 25, 23)",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)",
+      "filter": "none",
+      "tabIndex": 0
+    },
+    "mobileButtons": [
+      {
+        "text": "Palettes",
+        "w": 57.5,
+        "h": 26.3,
+        "minH": "auto"
+      },
+      {
+        "text": "Prune empty",
+        "w": 107.9,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Refresh",
+        "w": 79.7,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Palettes",
+        "w": 82,
+        "h": 36,
+        "minH": "36px"
+      },
+      {
+        "text": "Palettes",
+        "w": 82,
+        "h": 36,
+        "minH": "36px"
+      }
+    ],
+    "mobileIconButtons": [
+      {
+        "label": "Delete user ghost-empty-1733",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "label": "Delete user an-extremely-long-anonymous-visitor-slug-from-the-wild-2f9a-33",
+        "w": 28,
+        "h": 36
+      }
+    ]
+  }
+}

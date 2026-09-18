@@ -1,0 +1,9 @@
+{
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "phase": "PREAUTHOR",
+  "sealedAt": "2026-07-22T22:41:31Z",
+  "caseCount": 15,
+  "plaintextBytes": 593,
+  "plaintextSha256": "689f68dd26ced87c895431a34b36b8fd3a33723736f904d2f84fc7430a1a9c76",
+  "disclosure": "withheld until all candidate source hashes are frozen"
+}

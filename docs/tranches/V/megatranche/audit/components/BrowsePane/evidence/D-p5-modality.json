@@ -1,0 +1,333 @@
+{
+  "normal": {
+    "stripSegCount": 5,
+    "stripSegs": [
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(229, 83, 61)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(242, 166, 90)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(247, 214, 160)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(140, 95, 77)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(59, 44, 42)",
+        "fca": "auto",
+        "pca": "economy"
+      }
+    ],
+    "stripDistinctBg": [
+      "rgb(229, 83, 61)",
+      "rgb(242, 166, 90)",
+      "rgb(247, 214, 160)",
+      "rgb(140, 95, 77)",
+      "rgb(59, 44, 42)"
+    ],
+    "watercolorCount": 6,
+    "watercolorSample": [
+      {
+        "tag": "span",
+        "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+        "onRoster": true,
+        "bg": "lab(92 88.8 20)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "span",
+        "cls": "dock-seal-wax watercolor-swatch",
+        "onRoster": true,
+        "bg": "lab(92 88.8 20)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "onRoster": true,
+        "bg": "color(srgb 1.51088 0.562414 0.782924 / 0.12)",
+        "fca": "auto",
+        "pca": "economy"
+      }
+    ],
+    "cardCount": 3
+  },
+  "forcedColors": {
+    "collapsed": {
+      "stripSegCount": 5,
+      "stripSegs": [
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        }
+      ],
+      "stripDistinctBg": [
+        "rgb(255, 255, 255)"
+      ],
+      "watercolorCount": 6,
+      "watercolorSample": [
+        {
+          "tag": "span",
+          "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+          "onRoster": true,
+          "bg": "lab(92 88.8 20)",
+          "fca": "none",
+          "pca": "economy"
+        },
+        {
+          "tag": "span",
+          "cls": "dock-seal-wax watercolor-swatch",
+          "onRoster": true,
+          "bg": "lab(92 88.8 20)",
+          "fca": "none",
+          "pca": "economy"
+        },
+        {
+          "tag": "span",
+          "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+          "onRoster": true,
+          "bg": "color(srgb 1.51088 0.562414 0.782924 / 0.12)",
+          "fca": "none",
+          "pca": "economy"
+        }
+      ],
+      "cardCount": 3
+    },
+    "expanded": {
+      "stripSegCount": 5,
+      "stripSegs": [
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        },
+        {
+          "tag": "div",
+          "cls": "shrink-0 h-full",
+          "onRoster": false,
+          "bg": "rgb(255, 255, 255)",
+          "fca": "auto",
+          "pca": "economy"
+        }
+      ],
+      "stripDistinctBg": [
+        "rgb(255, 255, 255)"
+      ],
+      "watercolorCount": 11,
+      "watercolorSample": [
+        {
+          "tag": "span",
+          "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+          "onRoster": true,
+          "bg": "lab(92 88.8 20)",
+          "fca": "none",
+          "pca": "economy"
+        },
+        {
+          "tag": "span",
+          "cls": "dock-seal-wax watercolor-swatch",
+          "onRoster": true,
+          "bg": "lab(92 88.8 20)",
+          "fca": "none",
+          "pca": "economy"
+        },
+        {
+          "tag": "span",
+          "cls": "w-9 h-9 sm:w-10 sm:h-10 shrink-0 cursor-pointer watercolor-swatch",
+          "onRoster": true,
+          "bg": "rgb(229, 83, 61)",
+          "fca": "none",
+          "pca": "economy"
+        }
+      ],
+      "cardCount": 3
+    }
+  },
+  "print": {
+    "stripSegCount": 5,
+    "stripSegs": [
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(229, 83, 61)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(242, 166, 90)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(247, 214, 160)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(140, 95, 77)",
+        "fca": "auto",
+        "pca": "economy"
+      },
+      {
+        "tag": "div",
+        "cls": "shrink-0 h-full",
+        "onRoster": false,
+        "bg": "rgb(59, 44, 42)",
+        "fca": "auto",
+        "pca": "economy"
+      }
+    ],
+    "stripDistinctBg": [
+      "rgb(229, 83, 61)",
+      "rgb(242, 166, 90)",
+      "rgb(247, 214, 160)",
+      "rgb(140, 95, 77)",
+      "rgb(59, 44, 42)"
+    ],
+    "watercolorCount": 6,
+    "watercolorSample": [
+      {
+        "tag": "span",
+        "cls": "w-7 h-7 shrink-0 watercolor-swatch",
+        "onRoster": true,
+        "bg": "lab(92 88.8 20)",
+        "fca": "none",
+        "pca": "exact"
+      },
+      {
+        "tag": "span",
+        "cls": "dock-seal-wax watercolor-swatch",
+        "onRoster": true,
+        "bg": "lab(92 88.8 20)",
+        "fca": "none",
+        "pca": "exact"
+      },
+      {
+        "tag": "span",
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "onRoster": true,
+        "bg": "color(srgb 1.51088 0.562414 0.782924 / 0.12)",
+        "fca": "none",
+        "pca": "exact"
+      }
+    ],
+    "cardCount": 3
+  },
+  "loadMoreFocus": {
+    "present": 1,
+    "before": {
+      "tag": "BUTTON",
+      "name": "More from the commons"
+    },
+    "during": {
+      "tag": "BODY",
+      "isBody": true,
+      "skeletons": 0
+    },
+    "after": {
+      "tag": "BODY",
+      "isBody": true,
+      "name": "→BrowseToolsBrowsePalettes Login  @mbabb"
+    }
+  }
+}

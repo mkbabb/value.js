@@ -1,0 +1,162 @@
+{
+  "material": {
+    "backgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+    "backgroundImage": "none",
+    "backdropFilter": "blur(11px) saturate(1.6)",
+    "opacity": "1",
+    "isolation": "auto",
+    "rect": {
+      "t": 430.5,
+      "l": 433,
+      "w": 240,
+      "h": 468.3
+    },
+    "underneath": [
+      {
+        "tag": "P",
+        "text": "The commons is unreachable.",
+        "rect": {
+          "t": 502,
+          "l": 265
+        }
+      },
+      {
+        "tag": "P",
+        "text": "Failed to load palettes",
+        "rect": {
+          "t": 548,
+          "l": 339
+        }
+      },
+      {
+        "tag": "BUTTON",
+        "text": "Retry",
+        "rect": {
+          "t": 581,
+          "l": 421
+        }
+      }
+    ]
+  },
+  "buttonTypes": [
+    {
+      "name": "",
+      "role": "radio",
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "",
+      "role": "radio",
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "",
+      "role": "radio",
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "",
+      "role": "radio",
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "",
+      "role": "radio",
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 44,
+        "h": 44
+      }
+    },
+    {
+      "name": "Open color picker, current color #4488cc",
+      "role": null,
+      "typeAttr": "button",
+      "typeProp": "button",
+      "rect": {
+        "w": 28,
+        "h": 28
+      }
+    },
+    {
+      "name": "Search",
+      "role": null,
+      "typeAttr": null,
+      "typeProp": "submit",
+      "rect": {
+        "w": 52.6,
+        "h": 24
+      }
+    }
+  ],
+  "afterSearch": {
+    "badge": "1",
+    "inputValue": "#ff0000",
+    "clearAllPresent": true,
+    "controlsNamed": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Open color picker, current col",
+      "Search",
+      "Clear all filters"
+    ]
+  },
+  "afterEmptyingField": {
+    "badge": "1",
+    "inputValue": "",
+    "clearAllPresent": true,
+    "controlsNamed": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Open color picker, current col",
+      "Search",
+      "Clear all filters"
+    ]
+  },
+  "afterEnterOnEmpty": {
+    "badge": "1",
+    "inputValue": "",
+    "clearAllPresent": true,
+    "controlsNamed": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Open color picker, current col",
+      "Search",
+      "Clear all filters"
+    ]
+  },
+  "prm": {
+    "animationName": "spin",
+    "animationDuration": "1s"
+  }
+}

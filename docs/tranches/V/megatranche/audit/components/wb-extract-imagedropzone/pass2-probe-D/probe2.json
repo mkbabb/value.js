@@ -1,0 +1,116 @@
+{
+  "drag": [
+    {
+      "step": "rest",
+      "dragging": false,
+      "cls": "border-2 border-dashed border-primary/30 bg-primary/5"
+    },
+    {
+      "step": "dragover on ZONE",
+      "dragging": true,
+      "cls": "border-2 border-dashed border-primary bg-primary/10 scale-[1.01]"
+    },
+    {
+      "step": "dragleave bubbling from CHILD (pointer still inside)",
+      "dragging": false,
+      "cls": "border-2 border-dashed border-primary/30 bg-primary/5"
+    },
+    {
+      "step": "dragover from CHILD",
+      "dragging": true,
+      "cls": "border-2 border-dashed border-primary bg-primary/10 scale-[1.01]"
+    }
+  ],
+  "beforeReject": 337,
+  "afterReject": {
+    "bodyTextLen": 337,
+    "hasPreview": false,
+    "zoneClass": "border-2 border-dashed border-primary/30 bg-primary/5",
+    "anyDestructiveText": [],
+    "ariaLive": [
+      "dev misconfigured — run `npm run dev`",
+      "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+    ]
+  },
+  "heights_beforeSwap": 320,
+  "swapSamples": [
+    {
+      "t": 12,
+      "h": 320,
+      "img": true,
+      "ph": false
+    }
+  ],
+  "swapMinHeight": 320,
+  "swapMaxHeight": 320,
+  "framesWithNoContent": 0,
+  "tabOrder": 510710,
+  "tabWalk": {
+    "steps": 40,
+    "reachedZone": false,
+    "trail": [
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login",
+      "span:Number of colors",
+      "span:Chroma weight",
+      "input:",
+      "body:→ExtractToolsExtractPalettes Login"
+    ]
+  },
+  "consoleMsgs": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected.",
+    "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",
+    "debug: [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",
+    "warning: The resource http://localhost:9000/fonts/fraunces-latin-normal.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it wasn't preloaded for nothing."
+  ],
+  "forced_rest": {
+    "borderColor": "rgb(0, 0, 0)",
+    "borderStyle": "dashed",
+    "background": "rgba(255, 255, 255, 0.05)",
+    "forcedColorAdjust": "auto",
+    "transform": "none"
+  },
+  "forced_dragging": {
+    "borderColor": "rgb(0, 0, 0)",
+    "borderStyle": "dashed",
+    "background": "rgba(255, 255, 255, 0.09)",
+    "forcedColorAdjust": "auto",
+    "transform": "none"
+  },
+  "forced_draggingClass": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-pointer border-primary bg-primary/10 scale-[1.01] min-h-[180px] max-h-[min(320px,40dvh)]"
+}

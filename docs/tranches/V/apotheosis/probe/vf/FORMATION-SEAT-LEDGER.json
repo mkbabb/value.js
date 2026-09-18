@@ -1,0 +1,1629 @@
+{
+  "schema": "vnext-formation-seat-ledger/1",
+  "control": {
+    "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+    "parent_session_file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T01-00-39-019f7399-10f6-7743-8494-a4574b44d604.jsonl",
+    "seat_budget": 32,
+    "required_model": "gpt-5.6-sol",
+    "required_effort": "ultra",
+    "maximum_iteration": 3,
+    "owner_after_iteration_3": "formation-root",
+    "requested_concurrency": {
+      "minimum": 5,
+      "maximum": 6,
+      "status": "capability-limited"
+    },
+    "runtime_capacity": {
+      "root_agents": 1,
+      "child_agents": 3,
+      "total_agents": 4
+    },
+    "capability_evidence": [
+      {
+        "call_id": "call_n1ptW16RfutQFekOZud3X6NJ",
+        "line": 6465,
+        "result": "collab spawn failed: agent thread limit reached"
+      },
+      {
+        "call_id": "call_4S5fjNlqNuPx25Q6eWMrTKN0",
+        "line": 7304,
+        "result": "collab spawn failed: agent thread limit reached"
+      }
+    ],
+    "scheduling_law": "The runtime admits root plus three children. Dispatch cells rotate at no more than three child seats, never 5–6 simultaneously; session lifetime overlap can include idle or reopened agents and is not a concurrency claim."
+  },
+  "batches": [
+    {
+      "id": "B01",
+      "seats": [
+        1,
+        2,
+        3
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B02",
+      "seats": [
+        4,
+        5
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B03",
+      "seats": [
+        6,
+        7
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B04",
+      "seats": [
+        8
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B05",
+      "seats": [
+        9,
+        10,
+        11
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B06",
+      "seats": [
+        12,
+        13,
+        14
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B07",
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B08",
+      "seats": [
+        18,
+        19,
+        21
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B09",
+      "seats": [
+        20,
+        22,
+        24
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B10",
+      "seats": [
+        23,
+        25,
+        27
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B11",
+      "seats": [
+        26,
+        28
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B12",
+      "seats": [
+        29
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B13",
+      "seats": [
+        30,
+        31
+      ],
+      "maximum_dispatched_children": 3
+    },
+    {
+      "id": "B14",
+      "seats": [
+        32
+      ],
+      "maximum_dispatched_children": 3
+    }
+  ],
+  "panels": [
+    {
+      "id": "AUDIT-TOPOLOGY",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        1
+      ],
+      "finding_family": "F-04",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "topology audit folded"
+    },
+    {
+      "id": "AUDIT-PROVENANCE",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        2
+      ],
+      "finding_family": "F-01",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "provenance audit folded"
+    },
+    {
+      "id": "AUDIT-PARSER",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        3,
+        5
+      ],
+      "finding_family": "F-02",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "parser audits folded and bounded"
+    },
+    {
+      "id": "AUDIT-RECAP",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        4
+      ],
+      "finding_family": "F-10",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "zero-drop census folded"
+    },
+    {
+      "id": "AUDIT-API",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        6
+      ],
+      "finding_family": "F-06",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "API audit folded"
+    },
+    {
+      "id": "AUDIT-DESIGN",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        7
+      ],
+      "finding_family": "F-08",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "design audit folded"
+    },
+    {
+      "id": "AUDIT-ARCHITECTURE",
+      "kind": "portfolio",
+      "status": "closed",
+      "seats": [
+        8
+      ],
+      "finding_family": "F-04",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "base architecture folded then hardened"
+    },
+    {
+      "id": "BASE-CHALLENGE",
+      "kind": "challenge",
+      "status": "closed",
+      "seats": [
+        9,
+        10,
+        11
+      ],
+      "finding_family": "F-09",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "hostile base challenge reopened formation; no false third-Sol claim"
+    },
+    {
+      "id": "P-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        12,
+        13,
+        14
+      ],
+      "finding_family": "F-02",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "bounded P replacement accepted"
+    },
+    {
+      "id": "V-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        15,
+        16,
+        17
+      ],
+      "finding_family": "F-03",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "44-row V replacement accepted"
+    },
+    {
+      "id": "K-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        18,
+        19,
+        20
+      ],
+      "finding_family": "F-05",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "27-row K replacement accepted"
+    },
+    {
+      "id": "A-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        21,
+        22,
+        23
+      ],
+      "finding_family": "F-06",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "36-row A replacement accepted"
+    },
+    {
+      "id": "GD-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        24,
+        25,
+        26
+      ],
+      "finding_family": "F-08",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "G10/D33 replacement accepted"
+    },
+    {
+      "id": "MC-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        27,
+        28,
+        29
+      ],
+      "finding_family": "F-07",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "M13/C19 replacement accepted"
+    },
+    {
+      "id": "X-TRIAD",
+      "kind": "triad",
+      "status": "closed",
+      "seats": [
+        30,
+        31,
+        32
+      ],
+      "finding_family": "F-09",
+      "owner_after_iteration_3": "formation-root",
+      "outcome": "cross-band adjudication returned NOT CLEAN amendments"
+    }
+  ],
+  "seats": [
+    {
+      "seat": 1,
+      "agent_path": "/root/value_topology_audit",
+      "nickname": "Laplace",
+      "role": "auditor",
+      "finding_family": "F-04",
+      "panel": "AUDIT-TOPOLOGY",
+      "iteration": 1,
+      "batch": "B01",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "current and target topology evidence folded into V and DAG contracts",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7399-119c-7f72-8b33-f818701591d2",
+        "spawn_call_id": "call_9qag1HWztz4ECNrg7jJt3sI0",
+        "spawn_line": 48,
+        "context_line": 8,
+        "record_sha256": "8e1848c21335fa26673c9bdd26c86a81d49c1472ec10577d661be084bb597ff3"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T01-01-41-019f739a-0549-7f22-bf9d-af3937e0f7a9.jsonl",
+        "sha256": "0711d91852dccc0fbba855b28331280fad7028687510597320c49f7455dd4b95",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f739a-0549-7f22-bf9d-af3937e0f7a9",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 626,
+        "task_complete_line": 634,
+        "final_report_kind": "final_answer",
+        "final_report_line": 632,
+        "final_report_sha256": "60a060b74987b7d9e9a9c4facd901751259434a1fc9ac160f826e20a9f97badd",
+        "started_at": "2026-07-18T05:01:41.716Z",
+        "completed_at": "2026-07-18T05:39:11.582Z"
+      }
+    },
+    {
+      "seat": 2,
+      "agent_path": "/root/keyframes_session_audit",
+      "nickname": "Herschel",
+      "role": "auditor",
+      "finding_family": "F-01",
+      "panel": "AUDIT-PROVENANCE",
+      "iteration": 1,
+      "batch": "B01",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "Claude-session provenance and keyframes demo failures folded into K/M",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7399-119c-7f72-8b33-f818701591d2",
+        "spawn_call_id": "call_uTTdPGdgpRWQgDfDfkk2ogJz",
+        "spawn_line": 52,
+        "context_line": 8,
+        "record_sha256": "0aaa2b559370eff3788f325c3228f42268bde3ce3caf1d80735d553e6ad8068a"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T01-01-58-019f739a-45be-7653-bdb1-ace65891ae7f.jsonl",
+        "sha256": "f83df688919e5dd64bf6f43fb0ab9b8becc4c7a9d77425bb770fc1f33af81756",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f739a-45be-7653-bdb1-ace65891ae7f",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 238,
+        "task_complete_line": 627,
+        "final_report_kind": "final_answer",
+        "final_report_line": 625,
+        "final_report_sha256": "a4589c00382170dcc7ce8e23293cbb22b8832f1c8d5ed831a89b5cd08b8e1161",
+        "started_at": "2026-07-18T05:01:58.211Z",
+        "completed_at": "2026-07-18T05:30:18.704Z"
+      }
+    },
+    {
+      "seat": 3,
+      "agent_path": "/root/parser_constellation_audit",
+      "nickname": "Parfit",
+      "role": "auditor",
+      "finding_family": "F-02",
+      "panel": "AUDIT-PARSER",
+      "iteration": 1,
+      "batch": "B01",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "parser archaeology folded into the bounded P charter",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7399-119c-7f72-8b33-f818701591d2",
+        "spawn_call_id": "call_FgU5SXMBW1nWlJmhy2UW25bm",
+        "spawn_line": 56,
+        "context_line": 8,
+        "record_sha256": "441ce927fd1494c1658cb8664e91a613ffe0f2062b4e232929a625833cc8f13c"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T01-02-06-019f739a-6526-7060-b66a-c6856d01ab06.jsonl",
+        "sha256": "dea5272d8a6eacaca4fa2f74a2548020bd4fa770c7048518d85ff888b96db5ab",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f739a-6526-7060-b66a-c6856d01ab06",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 906,
+        "task_complete_line": 934,
+        "final_report_kind": "final_answer",
+        "final_report_line": 932,
+        "final_report_sha256": "1a9feec821ca7033b58ba0ccb85130e1e8c7fdf3f6f1cef8173966a04c2d6fc9",
+        "started_at": "2026-07-18T05:02:06.244Z",
+        "completed_at": "2026-07-18T06:36:16.219Z"
+      }
+    },
+    {
+      "seat": 4,
+      "agent_path": "/root/history_prompt_registry",
+      "nickname": "Nash",
+      "role": "auditor",
+      "finding_family": "F-10",
+      "panel": "AUDIT-RECAP",
+      "iteration": 1,
+      "batch": "B02",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "prompt recap and deferred/chronic census folded into ledgers",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_2j0qltUMcZ3mDnCaN8QuHcp7",
+        "spawn_line": 920,
+        "context_line": 894,
+        "record_sha256": "69faa13912c2f319e5859d8925a18f4e2b09bffee8e180bc7307b9e3ddf25522"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T02-20-42-019f73e2-5ba4-7c70-a4aa-449ab232f771.jsonl",
+        "sha256": "6b173fb01264309e3cf254ef716846dbc2ad158cc0623cbe2b7e7faa62e61bbc",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f73e2-5ba4-7c70-a4aa-449ab232f771",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 591,
+        "task_complete_line": 619,
+        "final_report_kind": "final_answer",
+        "final_report_line": 617,
+        "final_report_sha256": "cf6457c59ecf4100d9f59db22b4cf370f80ac55b71661421d194c698039d7112",
+        "started_at": "2026-07-18T06:20:42.423Z",
+        "completed_at": "2026-07-18T06:31:54.785Z"
+      }
+    },
+    {
+      "seat": 5,
+      "agent_path": "/root/parser_uplift_archaeology",
+      "nickname": "Peirce",
+      "role": "auditor",
+      "finding_family": "F-02",
+      "panel": "AUDIT-PARSER",
+      "iteration": 1,
+      "batch": "B02",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "substrate research retained as prior art without automatic adoption",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_u0y01Oovwze6n8Pk3kkBtXm3",
+        "spawn_line": 924,
+        "context_line": 894,
+        "record_sha256": "6c092eaadfd6b85adfef8d13bb397b95bbba906d06d86ad562be2741a927217f"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T02-20-55-019f73e2-8fca-7560-8524-5a94918e03a7.jsonl",
+        "sha256": "ab6c0f5dbc426bc52fe49616de812a20b79ded28bc800eb35319830c9b62aee4",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f73e2-8fca-7560-8524-5a94918e03a7",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 1705,
+        "task_complete_line": 1585,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1583,
+        "final_report_sha256": "fabe0b3da0e10575b67360f44ab25a8c3407b2bdbbd8a93e525c6f41d14f6492",
+        "started_at": "2026-07-18T06:20:55.760Z",
+        "completed_at": "2026-07-18T09:06:52.171Z"
+      }
+    },
+    {
+      "seat": 6,
+      "agent_path": "/root/palette_crud_api_audit",
+      "nickname": "Galileo",
+      "role": "auditor",
+      "finding_family": "F-06",
+      "panel": "AUDIT-API",
+      "iteration": 1,
+      "batch": "B03",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "value/Fourier CRUD findings folded into the API program",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_s8lGWsSxxBWjxJh2Hjn5rO3j",
+        "spawn_line": 1244,
+        "context_line": 1021,
+        "record_sha256": "bd782b00191d115b9b22ccbc822e67c60a7083d4d78ed7ba9785634df25b6aab"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T02-32-22-019f73ed-09b5-76d3-92b3-30cc3b0f2cb4.jsonl",
+        "sha256": "abc76defe2454c33bd75d3669a84a60baab1dabdb67f91e9deb33c3126d3ae31",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f73ed-09b5-76d3-92b3-30cc3b0f2cb4",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 1833,
+        "task_complete_line": 1597,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1595,
+        "final_report_sha256": "766cf3d23053edcd169c482f36f3baa48fed13c4ef583a411a081a8d233fc411",
+        "started_at": "2026-07-18T06:32:22.365Z",
+        "completed_at": "2026-07-18T07:27:13.280Z"
+      }
+    },
+    {
+      "seat": 7,
+      "agent_path": "/root/frontend_breath_architecture",
+      "nickname": "Euclid",
+      "role": "auditor",
+      "finding_family": "F-08",
+      "panel": "AUDIT-DESIGN",
+      "iteration": 1,
+      "batch": "B03",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "every-route design and Breath findings folded into G/D/M",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_dOcsrxsLD40hUndgLY6mvTUi",
+        "spawn_line": 1344,
+        "context_line": 1021,
+        "record_sha256": "baa409a91b7dec3f6ec0a32484d2aa75f5e4cb683cf72e6cb8960d5995cc7273"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T02-36-58-019f73f1-4292-71b0-8583-afbe886df161.jsonl",
+        "sha256": "b890d8673bca38d3c12a7584d869621b39525f9c960954fe3ea058b24bfba283",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f73f1-4292-71b0-8583-afbe886df161",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 771,
+        "task_complete_line": 1082,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1080,
+        "final_report_sha256": "ebd847af2d625904215fb6440086aa2fddf1b08ca0c62b9615dbc92c353d5f2b",
+        "started_at": "2026-07-18T06:36:59.073Z",
+        "completed_at": "2026-07-18T07:04:53.736Z"
+      }
+    },
+    {
+      "seat": 8,
+      "agent_path": "/root/library_wave_architecture",
+      "nickname": "Jason",
+      "role": "auditor",
+      "finding_family": "F-04",
+      "panel": "AUDIT-ARCHITECTURE",
+      "iteration": 1,
+      "batch": "B04",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "base wave and component architecture supplied then superseded by hardening",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_FLhEhqwO1c1dEL0NqBMc5ldu",
+        "spawn_line": 1901,
+        "context_line": 1889,
+        "record_sha256": "689c9845510b7d0e4dc9725b8d36aa53206bf534219d9ad74be6e6f95960b6cb"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T03-06-46-019f740c-8ac5-78d0-aa46-aea10068decb.jsonl",
+        "sha256": "583cce18f535e39460e6f8e8dad4f7923264b24dd44a329f5db77a20117cf612",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f740c-8ac5-78d0-aa46-aea10068decb",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 883,
+        "task_complete_line": 1105,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1103,
+        "final_report_sha256": "ed7e57703aa9f297f8e59827eeb7d123b6a92168e84fb8d26d35b04d30d8eec6",
+        "started_at": "2026-07-18T07:06:47.033Z",
+        "completed_at": "2026-07-18T07:21:43.815Z"
+      }
+    },
+    {
+      "seat": 9,
+      "agent_path": "/root/sol_skeptic_a_pass1",
+      "nickname": "Kepler",
+      "role": "skeptic_a",
+      "finding_family": "F-09",
+      "panel": "BASE-CHALLENGE",
+      "iteration": 1,
+      "batch": "B05",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "whole-corpus findings reopened formation",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_G6X0MaKBMbLvukAlAYAn4GPB",
+        "spawn_line": 2198,
+        "context_line": 1889,
+        "record_sha256": "7834ef39ba3856e0a65ad53a7e7c9aeda01886f2cb1f8064865f9cd9cc6df610"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T03-23-45-019f741c-171e-7681-99c3-a68154b4056d.jsonl",
+        "sha256": "3c9ffac1df6382e880cf09a59dc37639248899b80d7200ad3c72d8d0166d0f57",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f741c-171e-7681-99c3-a68154b4056d",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 1493,
+        "task_complete_line": 1505,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1503,
+        "final_report_sha256": "12fa161520489d2cb6936b33e8fd1220a47ad01ddb9dd433de2e60e5e23897a8",
+        "started_at": "2026-07-18T07:23:46.013Z",
+        "completed_at": "2026-07-18T09:07:01.552Z"
+      }
+    },
+    {
+      "seat": 10,
+      "agent_path": "/root/sol_skeptic_b_pass1",
+      "nickname": "Lorentz",
+      "role": "skeptic_b",
+      "finding_family": "F-09",
+      "panel": "BASE-CHALLENGE",
+      "iteration": 2,
+      "batch": "B05",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "independent whole-corpus findings reopened formation",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_cvZNlbMI5ehyXdCoDxq5xqwZ",
+        "spawn_line": 2202,
+        "context_line": 1889,
+        "record_sha256": "5bad67974ba1047653a2c1494beb183ea07ef57fde3331a5098aab9c6f72114c"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T03-24-05-019f741c-6550-7ad1-b110-da592d1bc020.jsonl",
+        "sha256": "6741fd48062c0b65e6816ac21a3733c47e5c49723bc4c04a1d5ca8f8619d6d57",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f741c-6550-7ad1-b110-da592d1bc020",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 1788,
+        "task_complete_line": 1821,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1819,
+        "final_report_sha256": "0aaeeb17cf002a4c8bf3eec8415fabe0bdde83eaabaa900e227dd2f377acfd37",
+        "started_at": "2026-07-18T07:24:06.006Z",
+        "completed_at": "2026-07-18T17:39:55.775Z"
+      }
+    },
+    {
+      "seat": 11,
+      "agent_path": "/root/sol_skeptic_a_pass2",
+      "nickname": "Mill",
+      "role": "auditor",
+      "finding_family": "F-09",
+      "panel": "BASE-CHALLENGE",
+      "iteration": 3,
+      "batch": "B05",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "rotated amendments recovered into the base corpus; not mislabelled an adjudicator",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f73e1-14e1-7ee0-9ad4-1b4fdfad2f3e",
+        "spawn_call_id": "call_eJVqQ9uydy4UFyRuI0tEMMfL",
+        "spawn_line": 2858,
+        "context_line": 2774,
+        "record_sha256": "74f07cf0a35f7d2766808bb5ab82f9c5ea9983df257a2dbb8cc40024ec952fb5"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T04-19-20-019f744e-f85a-7033-ab63-ab7a0bb92831.jsonl",
+        "sha256": "c004efd4779d6870e65ca5c9ea2dcd8fc7247689c4674555558da34f799c6765",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f744e-f85a-7033-ab63-ab7a0bb92831",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 1864,
+        "task_complete_line": 1889,
+        "final_report_kind": "final_answer",
+        "final_report_line": 1887,
+        "final_report_sha256": "8d741f0914111642cc05457cb5c6f8472858708da9ecd5fbe9ec313fdff17acf",
+        "started_at": "2026-07-18T08:19:20.433Z",
+        "completed_at": "2026-07-18T17:39:42.073Z"
+      }
+    },
+    {
+      "seat": 12,
+      "agent_path": "/root/p_skeptic_a",
+      "nickname": "Huygens",
+      "role": "skeptic_a",
+      "finding_family": "F-02",
+      "panel": "P-TRIAD",
+      "iteration": 1,
+      "batch": "B06",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "concrete published parse-that defects preserved",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_OwMs10bk1717eesvInUjE3up",
+        "spawn_line": 4513,
+        "context_line": 4352,
+        "record_sha256": "3a44ead1fc7a91d84b49f440d0565a6d41dfb824a36484b2c446be99e7311255"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T13-50-56-019f765a-4b37-7eb3-a8d4-7b3eec4698c3.jsonl",
+        "sha256": "800f18e4cad62aa5ff6bd9b1a8ac896e9730f6b3dd178c9b2fb563b94328edb6",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f765a-4b37-7eb3-a8d4-7b3eec4698c3",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 8,
+        "task_complete_line": 310,
+        "final_report_kind": "final_answer",
+        "final_report_line": 308,
+        "final_report_sha256": "8b8304c3dc3501c8478e0920eb834ab336a697ba399e7885531778397e3f04c5",
+        "started_at": "2026-07-18T17:50:56.969Z",
+        "completed_at": "2026-07-18T18:09:22.408Z"
+      }
+    },
+    {
+      "seat": 13,
+      "agent_path": "/root/p_skeptic_b",
+      "nickname": "Mendel",
+      "role": "skeptic_b",
+      "finding_family": "F-02",
+      "panel": "P-TRIAD",
+      "iteration": 2,
+      "batch": "B06",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "scope and conflation defects preserved",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_x6DN9HWXqk2WjqGR3Rgd4Sg5",
+        "spawn_line": 4517,
+        "context_line": 4352,
+        "record_sha256": "108e882fa40bc0329d41ad82eb39963404bcce65a3f947ede71c70c1cfd2cd89"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T13-51-03-019f765a-6467-73e0-8597-53cdb6912ea5.jsonl",
+        "sha256": "a9d702f09e9b1083ad2524af5fbe265742ee91c78ebad8c29b0fed92b9abb4de",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f765a-6467-73e0-8597-53cdb6912ea5",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 8,
+        "task_complete_line": 243,
+        "final_report_kind": "final_answer",
+        "final_report_line": 241,
+        "final_report_sha256": "e2d46d010a615b29601acc4e247da435bb9e025350f283236d404d44887901f8",
+        "started_at": "2026-07-18T17:51:03.417Z",
+        "completed_at": "2026-07-18T18:05:22.941Z"
+      }
+    },
+    {
+      "seat": 14,
+      "agent_path": "/root/p_adjudicator",
+      "nickname": "Bernoulli",
+      "role": "adjudicator",
+      "finding_family": "F-02",
+      "panel": "P-TRIAD",
+      "iteration": 3,
+      "batch": "B06",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "P band replaced and novelty routed to the external campaign",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_Nn2mdN90fNiV6y84NWdSuXmD",
+        "spawn_line": 4509,
+        "context_line": 4352,
+        "record_sha256": "0076e86f82feb203e980626b20572a7b35d7399db72316b331103a34e3e0fed5"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T13-50-24-019f7659-cc67-7df2-b4fc-caf304771d39.jsonl",
+        "sha256": "ee95bc634903379ebc25e9913f5e8bd10e91c1f78d80a34712a844a5b3b65315",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7659-cc67-7df2-b4fc-caf304771d39",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 377,
+        "task_complete_line": 441,
+        "final_report_kind": "final_answer",
+        "final_report_line": 439,
+        "final_report_sha256": "3aba307a86133ace65d7bcdf3b1c7013cd435ca4a2eec4c26a34816a28f1e7c1",
+        "started_at": "2026-07-18T17:50:24.508Z",
+        "completed_at": "2026-07-18T18:24:13.042Z"
+      }
+    },
+    {
+      "seat": 15,
+      "agent_path": "/root/v_skeptic_a",
+      "nickname": "Godel",
+      "role": "skeptic_a",
+      "finding_family": "F-03",
+      "panel": "V-TRIAD",
+      "iteration": 1,
+      "batch": "B07",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "value semantics and restoration plan refuted",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_XLssIPeOpVqqQ7p6zIMYRrt8",
+        "spawn_line": 4937,
+        "context_line": 4610,
+        "record_sha256": "a3049e7e10c6d6285cdd7002baf1c5f48b6fc4aafeb0fd6a54fe6388576b0ec7"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-18-40-019f7673-ad88-7912-a91c-c7b327a6f30d.jsonl",
+        "sha256": "6e57c4930073aa9f0d112b10074d85aa18eacabd86721fc925dfc6a57afc671d",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7673-ad88-7912-a91c-c7b327a6f30d",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 8,
+        "task_complete_line": 338,
+        "final_report_kind": "final_answer",
+        "final_report_line": 336,
+        "final_report_sha256": "2ece9b0bcdaefda9080eb79fb162b09a18d45dc057593fa32528187d4547f0ec",
+        "started_at": "2026-07-18T18:18:40.540Z",
+        "completed_at": "2026-07-18T18:35:14.737Z"
+      }
+    },
+    {
+      "seat": 16,
+      "agent_path": "/root/v_skeptic_b",
+      "nickname": "Volta",
+      "role": "skeptic_b",
+      "finding_family": "F-03",
+      "panel": "V-TRIAD",
+      "iteration": 2,
+      "batch": "B07",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "standards, parser, color, and performance defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_djqjkUXD6vQdYZRab6sA0pGD",
+        "spawn_line": 4942,
+        "context_line": 4610,
+        "record_sha256": "97c1dbbbd62d66ad4267a0a2f98132e40748b47700fbada1506f3719498eb77e"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-19-10-019f7674-2293-7ab0-9471-169c573cd373.jsonl",
+        "sha256": "72694bfdc3f89b7f8213b5686372cfffab25b8805f879dcd3443e598f614ee00",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7674-2293-7ab0-9471-169c573cd373",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 345,
+        "task_complete_line": 416,
+        "final_report_kind": "final_answer",
+        "final_report_line": 414,
+        "final_report_sha256": "afbbc5b007b4fb2f2b2fa37f468f044e239ec5d3ac2cb3193ecf36e223b6d6e6",
+        "started_at": "2026-07-18T18:19:10.475Z",
+        "completed_at": "2026-07-18T18:45:17.725Z"
+      }
+    },
+    {
+      "seat": 17,
+      "agent_path": "/root/v_adjudicator",
+      "nickname": "Goodall",
+      "role": "adjudicator",
+      "finding_family": "F-03",
+      "panel": "V-TRIAD",
+      "iteration": 3,
+      "batch": "B07",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "prior V band rejected and 44-row replacement accepted",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_BwlXCy2A2ZGDSE7ANBnZdhcy",
+        "spawn_line": 5025,
+        "context_line": 4610,
+        "record_sha256": "f3b207f02a9a6d9ae01b696b847e21dc4e9e9c98eea25a5449f236cba7d8e12a"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-24-54-019f7679-62b1-7a73-ae8e-f02245336fff.jsonl",
+        "sha256": "af5ea9aa526136932b2044a84f92eb2da262e5b745714ac4c72487784eaefcf4",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7679-62b1-7a73-ae8e-f02245336fff",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 385,
+        "task_complete_line": 473,
+        "final_report_kind": "final_answer",
+        "final_report_line": 471,
+        "final_report_sha256": "26ac398599be73c2fdc418c758f6e9a03e1d2c68e7f3d070d8e29f764e791c0d",
+        "started_at": "2026-07-18T18:24:54.581Z",
+        "completed_at": "2026-07-18T18:47:41.061Z"
+      }
+    },
+    {
+      "seat": 18,
+      "agent_path": "/root/k_skeptic_a",
+      "nickname": "Franklin",
+      "role": "skeptic_a",
+      "finding_family": "F-05",
+      "panel": "K-TRIAD",
+      "iteration": 1,
+      "batch": "B08",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "Program, WAAPI, state, and dependency defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_C1n9HHiZ8MFTj7qxDoRXHh7R",
+        "spawn_line": 5207,
+        "context_line": 5173,
+        "record_sha256": "c2bc44e47aa5644a4fb4c734f4a439363511b8a8b9b205bb7b7b5bd6965967d5"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-37-33-019f7684-f67d-7600-bcb7-66b14cb3ca56.jsonl",
+        "sha256": "7f04e06411bf685d29bb5e3d9f22b6935f973a1233ba4fb9b4ce65761c3747a0",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7684-f67d-7600-bcb7-66b14cb3ca56",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 275,
+        "task_complete_line": 652,
+        "final_report_kind": "final_answer",
+        "final_report_line": 650,
+        "final_report_sha256": "4255a928cb95691adb587b7ecd3ad3b1bdfbf13a6ddd84c00fd65d162ea83b29",
+        "started_at": "2026-07-18T18:37:33.345Z",
+        "completed_at": "2026-07-18T19:08:45.796Z"
+      }
+    },
+    {
+      "seat": 19,
+      "agent_path": "/root/k_skeptic_b",
+      "nickname": "Bacon",
+      "role": "skeptic_b",
+      "finding_family": "F-05",
+      "panel": "K-TRIAD",
+      "iteration": 2,
+      "batch": "B08",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "terminal-prune and consumer-casualty defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_vGG0AFf3zOkZifk7PgkjECdB",
+        "spawn_line": 5328,
+        "context_line": 5173,
+        "record_sha256": "ea3cc83956ad3be0f10fba700fa4e2fcdf844ff1138909bea4521ede1adbf672"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-45-31-019f768c-44a2-7a30-b2d1-d726c1addebe.jsonl",
+        "sha256": "f34dc6ab6ebd629de30c9ee0c98a734f8d3c61a9c200692c5a2eae47ed4c1241",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f768c-44a2-7a30-b2d1-d726c1addebe",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 372,
+        "task_complete_line": 528,
+        "final_report_kind": "final_answer",
+        "final_report_line": 526,
+        "final_report_sha256": "7b314a1681e98d19894f26e02f210d422a6d3a899227ad8a42c6453f4681baa4",
+        "started_at": "2026-07-18T18:45:32.090Z",
+        "completed_at": "2026-07-18T19:14:55.899Z"
+      }
+    },
+    {
+      "seat": 20,
+      "agent_path": "/root/k_adjudicator",
+      "nickname": "Hooke",
+      "role": "adjudicator",
+      "finding_family": "F-05",
+      "panel": "K-TRIAD",
+      "iteration": 3,
+      "batch": "B09",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "27-row K replacement and consumer migrations accepted",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_7GRIR1v3BgzrYqECX0hQpDYR",
+        "spawn_line": 5734,
+        "context_line": 5173,
+        "record_sha256": "cc702e22ce300978f335a6c91e165cbae963413f577869131106fba276e22b92"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-09-21-019f76a2-14c9-7280-9e11-6a91e1976a62.jsonl",
+        "sha256": "86edfb205fbfddbc731bdb37bafc33b0fd1e51520185419d3ea219c533a5ef83",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76a2-14c9-7280-9e11-6a91e1976a62",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 172,
+        "task_complete_line": 492,
+        "final_report_kind": "final_answer",
+        "final_report_line": 490,
+        "final_report_sha256": "ae1484a093839ac1c02c59c36cb643c003c3d0259e23cfc715b2c9fcd37e3cf0",
+        "started_at": "2026-07-18T19:09:21.648Z",
+        "completed_at": "2026-07-18T19:35:02.341Z"
+      }
+    },
+    {
+      "seat": 21,
+      "agent_path": "/root/a_skeptic_a",
+      "nickname": "Zeno",
+      "role": "skeptic_a",
+      "finding_family": "F-06",
+      "panel": "A-TRIAD",
+      "iteration": 1,
+      "batch": "B08",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "API lifecycle, authority, and resource defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_QAaX126Q6GomyqtqoqV1wjtz",
+        "spawn_line": 5364,
+        "context_line": 5173,
+        "record_sha256": "0ad668119ee6071c2405340658ec4fd07572740970210a18254cca4e4427f97a"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-48-09-019f768e-aabe-7123-bd87-b2499cedfce3.jsonl",
+        "sha256": "babf56af8aa3ce83c487fa047d9edf500a04ecb2fad11138942972a84e21132f",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f768e-aabe-7123-bd87-b2499cedfce3",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 178,
+        "task_complete_line": 523,
+        "final_report_kind": "final_answer",
+        "final_report_line": 521,
+        "final_report_sha256": "a6736f3d64ca07dfd08e92485c193293dc6c58499dd1e8af6c095cc2e287d37e",
+        "started_at": "2026-07-18T18:48:09.310Z",
+        "completed_at": "2026-07-18T19:16:15.692Z"
+      }
+    },
+    {
+      "seat": 22,
+      "agent_path": "/root/a_skeptic_b",
+      "nickname": "James",
+      "role": "skeptic_b",
+      "finding_family": "F-06",
+      "panel": "A-TRIAD",
+      "iteration": 2,
+      "batch": "B09",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "Fourier isomorphism and CRUD falsifiers reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_P1g5YioVyqs8Fc67JrdaZTgI",
+        "spawn_line": 5888,
+        "context_line": 5173,
+        "record_sha256": "cbd56475ba5a7ccf07ba2dabea8cb9e9c355bc756f3047e85cc4a9a9ee9712ef"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-16-41-019f76a8-cc06-7451-b776-114f2f4df884.jsonl",
+        "sha256": "2a558eee3867cc1b3c137feaa271ab2d2e4321eaf71e42820b28cb5590209ec1",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76a8-cc06-7451-b776-114f2f4df884",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 191,
+        "task_complete_line": 317,
+        "final_report_kind": "final_answer",
+        "final_report_line": 315,
+        "final_report_sha256": "9276fccd2e4de42bddcd198847abf334b8beeb9bc3e337301bf61ce31552bd5b",
+        "started_at": "2026-07-18T19:16:41.799Z",
+        "completed_at": "2026-07-18T19:37:55.202Z"
+      }
+    },
+    {
+      "seat": 23,
+      "agent_path": "/root/a_adjudicator",
+      "nickname": "Dirac",
+      "role": "adjudicator",
+      "finding_family": "F-06",
+      "panel": "A-TRIAD",
+      "iteration": 3,
+      "batch": "B10",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "36-row API replacement and authority law accepted",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_1CAHQodL12QtTHlsrPDUJpYY",
+        "spawn_line": 6256,
+        "context_line": 5899,
+        "record_sha256": "42695e92fc1dbfb972bb95b37cdf8d36e590a2370a6532ffd579a25a57a9b22e"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-38-42-019f76bc-f483-7f40-9c09-8af3cb0a06ae.jsonl",
+        "sha256": "785b956754ba5072926b3249819f3583937a43c42342e43d6be846c0ffa1c052",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76bc-f483-7f40-9c09-8af3cb0a06ae",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 3146,
+        "task_complete_line": 3329,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3327,
+        "final_report_sha256": "f57817030e023b43109c8951f8729514bbe1d07bd0bc2d0ca90508ee4735d8ac",
+        "started_at": "2026-07-18T19:38:42.914Z",
+        "completed_at": "2026-07-18T20:20:59.650Z"
+      }
+    },
+    {
+      "seat": 24,
+      "agent_path": "/root/gd_skeptic_a",
+      "nickname": "Socrates",
+      "role": "skeptic_a",
+      "finding_family": "F-08",
+      "panel": "GD-TRIAD",
+      "iteration": 1,
+      "batch": "B09",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "topology, shadcn, route, state, and design-gate defects reproduced",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_kPL4W8uaYBKmpcpvtXhIWx6z",
+        "spawn_line": 6007,
+        "context_line": 5899,
+        "record_sha256": "d1eea410c103828fed6dab6ab5f8b030c051057592ec9467523cafb8d5a86b34"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-23-52-019f76af-5e8e-7e43-8d4e-04d3f41975b5.jsonl",
+        "sha256": "a782f2be55623c76173014e226d19f52719e06cc226806c6f2da6ddfb19e3e18",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76af-5e8e-7e43-8d4e-04d3f41975b5",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 2629,
+        "task_complete_line": 2936,
+        "final_report_kind": "final_answer",
+        "final_report_line": 2934,
+        "final_report_sha256": "aabac84ff8ddc266b28390af46cc9a1c2dc16f40cbff8d0abd85841c1eb63f85",
+        "started_at": "2026-07-18T19:23:52.568Z",
+        "completed_at": "2026-07-18T19:41:09.546Z"
+      }
+    },
+    {
+      "seat": 25,
+      "agent_path": "/root/gd_skeptic_b",
+      "nickname": "Hegel",
+      "role": "skeptic_b",
+      "finding_family": "F-08",
+      "panel": "GD-TRIAD",
+      "iteration": 2,
+      "batch": "B10",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "mobile easing, Breath, field, and visual-proof defects reproduced",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_JWO7gob2BPKtcrdK2WspcQbF",
+        "spawn_line": 6288,
+        "context_line": 5899,
+        "record_sha256": "27b7f0652582f83dbd25994d2c0f54794a8f8e9d540e9444df667f2fa6e96fbf"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-41-33-019f76bf-90dd-7352-a224-99c6f1bfedcb.jsonl",
+        "sha256": "a3cc5bf3f144b4fa53e5d152724011bcdd7cd4097f8889db53bd3f5b3dc8bbd9",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76bf-90dd-7352-a224-99c6f1bfedcb",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 2728,
+        "task_complete_line": 3152,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3150,
+        "final_report_sha256": "8f08708998d24861f07e96bf1fb822b1e4006e572af2c2e911903528b93b6a32",
+        "started_at": "2026-07-18T19:41:33.997Z",
+        "completed_at": "2026-07-18T19:59:32.780Z"
+      }
+    },
+    {
+      "seat": 26,
+      "agent_path": "/root/gd_adjudicator",
+      "nickname": "Pauli",
+      "role": "adjudicator",
+      "finding_family": "F-08",
+      "panel": "GD-TRIAD",
+      "iteration": 3,
+      "batch": "B11",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "G10/D33 replacement and visual laws accepted",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_a1FNYVRwXkWhmRuF2d1ljrwN",
+        "spawn_line": 6460,
+        "context_line": 6356,
+        "record_sha256": "f6550ff091d97cab9301d2c3585328928fb5254d004a0d53117a035b3d0a01a2"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-01-04-019f76d1-6f4d-77f2-b99f-41a7e25becb0.jsonl",
+        "sha256": "88e4945102ebb269644c061ea38bd2b3e30554556055187126f8a6c12794b8ad",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76d1-6f4d-77f2-b99f-41a7e25becb0",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 3169,
+        "task_complete_line": 3209,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3207,
+        "final_report_sha256": "777cd8cc91efa0e805af9b9de8d233737f5fb305f47f76968bcb93ab50fdb838",
+        "started_at": "2026-07-18T20:01:05.066Z",
+        "completed_at": "2026-07-18T20:33:33.584Z"
+      }
+    },
+    {
+      "seat": 27,
+      "agent_path": "/root/mc_skeptic_a",
+      "nickname": "Lagrange",
+      "role": "skeptic_a",
+      "finding_family": "F-07",
+      "panel": "MC-TRIAD",
+      "iteration": 1,
+      "batch": "B10",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "mobile gesture, state, consumer-universe, and cutover defects reproduced",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "019f7653-2eb3-7342-8b38-2f5a053d2b13",
+        "spawn_call_id": "call_L893zlPwY7BKP8KqraYa1uKD",
+        "spawn_line": 6293,
+        "context_line": 5899,
+        "record_sha256": "dd23bf7c88be0d80a33e1b8101cc2a67b8ba5fa289ce8dc529aa83d9e983310f"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-41-43-019f76bf-b6d8-7531-8744-6c5d0c8aec50.jsonl",
+        "sha256": "6a3a12d42d98593a497c2d64d931f72206e098a782112682fd9d317b7672c39a",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76bf-b6d8-7531-8744-6c5d0c8aec50",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 2730,
+        "task_complete_line": 3045,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3043,
+        "final_report_sha256": "6251d084622c0cbee45078d8a9a96a73e0c8714c4d8dd8231f95717838ec4c08",
+        "started_at": "2026-07-18T19:41:43.923Z",
+        "completed_at": "2026-07-18T20:02:10.436Z"
+      }
+    },
+    {
+      "seat": 28,
+      "agent_path": "/root/mc_skeptic_b",
+      "nickname": "Curie",
+      "role": "skeptic_b",
+      "finding_family": "F-07",
+      "panel": "MC-TRIAD",
+      "iteration": 2,
+      "batch": "B11",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "canonical keyframes, multi-pointer, census, and physical-gate defects reproduced",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_IbwIcW1gIHYozikdy6XE6mG3",
+        "spawn_line": 6483,
+        "context_line": 6356,
+        "record_sha256": "52c813a74dd46d8c62029467a13fa8d5d7851fa983f285ff261db1d93f7d286c"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-02-13-019f76d2-7c9a-7923-bed4-ca2950b8d053.jsonl",
+        "sha256": "51fac62e7fd253a8b2e6cd37f729f6df1ff4888784ee77416cbbf5768db6999d",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76d2-7c9a-7923-bed4-ca2950b8d053",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 2798,
+        "task_complete_line": 3204,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3202,
+        "final_report_sha256": "b5ba909818875986d8f168274564f8f3488a6720fe86feb46e60b5809b3eaf11",
+        "started_at": "2026-07-18T20:02:14.017Z",
+        "completed_at": "2026-07-18T20:23:40.886Z"
+      }
+    },
+    {
+      "seat": 29,
+      "agent_path": "/root/mc_adjudicator",
+      "nickname": "Ptolemy",
+      "role": "adjudicator",
+      "finding_family": "F-07",
+      "panel": "MC-TRIAD",
+      "iteration": 3,
+      "batch": "B12",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "M13/C19 replacement and exact state/easing/cutover laws accepted",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_vi7j1uU0kyXrHqUL4xNgu1CD",
+        "spawn_line": 6811,
+        "context_line": 6502,
+        "record_sha256": "a2268abab0aa10b0e2d34ffa3d0cafa41230facc8fc0fb498abc2772e8d76628"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-23-33-019f76e6-02cd-73c2-a19f-7bcbdb51e5c3.jsonl",
+        "sha256": "2b8ad0b68958a336854902b02343e9f216b1d5abaed53583b83e38ee82e91d22",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76e6-02cd-73c2-a19f-7bcbdb51e5c3",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 2909,
+        "task_complete_line": 3174,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3172,
+        "final_report_sha256": "f11bcf3bb0beae3921ef75907845636ab5b3881d97cb8f7126787b97903dea42",
+        "started_at": "2026-07-18T20:23:33.545Z",
+        "completed_at": "2026-07-18T20:38:04.322Z"
+      }
+    },
+    {
+      "seat": 30,
+      "agent_path": "/root/x_skeptic_a",
+      "nickname": "Descartes",
+      "role": "skeptic_a",
+      "finding_family": "F-09",
+      "panel": "X-TRIAD",
+      "iteration": 1,
+      "batch": "B13",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "cross-band DAG, prompt, chronic, and ownership defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_ZzMGkW2QCIT3O8XFmDtO01ew",
+        "spawn_line": 7299,
+        "context_line": 7204,
+        "record_sha256": "126f8601041479a98fbf9afd647b908a5717a96a9d4bfb7a3398b615e60aa6a9"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-50-25-019f76fe-9c31-76e2-9585-ae2acaa619a8.jsonl",
+        "sha256": "bceb57302f2d78634283ffe7830ac57477014ca8b6d986e3b921e3e36e98a51a",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f76fe-9c31-76e2-9585-ae2acaa619a8",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 346,
+        "task_complete_line": 478,
+        "final_report_kind": "final_answer",
+        "final_report_line": 476,
+        "final_report_sha256": "cd5c3a2ea547dc398843e0091d0f34bb11a1b1b698f1b5a1978d42170fbe2d3b",
+        "started_at": "2026-07-18T20:50:25.621Z",
+        "completed_at": "2026-07-18T21:10:31.076Z"
+      }
+    },
+    {
+      "seat": 31,
+      "agent_path": "/root/x_skeptic_b",
+      "nickname": "Wegener",
+      "role": "skeptic_b",
+      "finding_family": "F-09",
+      "panel": "X-TRIAD",
+      "iteration": 2,
+      "batch": "B13",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "return-schema, gate-soundness, and zero-drop defects reproduced",
+      "request": {
+        "mode": "explicit",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_LLVfAuSNscaHoTinIE8X9jdJ",
+        "spawn_line": 7445,
+        "context_line": 7204,
+        "record_sha256": "26a3a9a8694c801e969c3d3c3e8d95302ebdeef19e367122ef07c64fbac7b79a"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-56-08-019f7703-d726-7de3-b0de-35a79a9f1645.jsonl",
+        "sha256": "d0590f23b3e83f4f9c68517dc175880a45f04a89289406affad212435a022fc8",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7703-d726-7de3-b0de-35a79a9f1645",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 831,
+        "task_complete_line": 854,
+        "final_report_kind": "message_to_root",
+        "final_report_line": 848,
+        "final_report_sha256": "394e975534160faf340f23bab21547251a7924c33a7dff505def0972350d42e5",
+        "started_at": "2026-07-18T20:56:08.469Z",
+        "completed_at": "2026-07-18T21:34:18.160Z"
+      }
+    },
+    {
+      "seat": 32,
+      "agent_path": "/root/cross_adjudicator",
+      "nickname": "Raman",
+      "role": "adjudicator",
+      "finding_family": "F-09",
+      "panel": "X-TRIAD",
+      "iteration": 3,
+      "batch": "B14",
+      "runtime_child_capacity": 3,
+      "status": "completed",
+      "outcome": "cross-band amendments adjudicated NOT CLEAN and routed to formation owners",
+      "request": {
+        "mode": "inherited",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "parent_turn_id": "a2bd47e1-e782-445c-b43e-c8bf5fa05178",
+        "spawn_call_id": "call_Eu16EABGV1rrqTs5an8EMEJ4",
+        "spawn_line": 8041,
+        "context_line": 7982,
+        "record_sha256": "ceb6936cce11320db2f7c416f945acc3ca2112fb93dc41838f440c1d6f52917d"
+      },
+      "session": {
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T17-34-35-019f7727-0d5f-7e23-8de5-94bd36dbdcad.jsonl",
+        "sha256": "eab66a4b39cff77959c0c4049566aae407ea8d963518db869d62078ddcb74559",
+        "formation_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+        "agent_thread_id": "019f7727-0d5f-7e23-8de5-94bd36dbdcad",
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "meta_line": 1,
+        "turn_context_line": 3378,
+        "task_complete_line": 3726,
+        "final_report_kind": "final_answer",
+        "final_report_line": 3724,
+        "final_report_sha256": "9a0a55723eef44807404779ba936f5f1af147c9b5533cb2cf823c80865d1494b",
+        "started_at": "2026-07-18T21:34:36.048Z",
+        "completed_at": "2026-07-18T21:52:37.322Z"
+      }
+    }
+  ],
+  "external_upstream_bbnf": {
+    "scope": "external-active-bbnf-parse-that-campaign",
+    "counted_in_formation_seats": false,
+    "campaign_session_id": "019f7685-254a-7a22-9917-1da91f977861",
+    "campaign_parent_file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-37-45-019f7685-254a-7a22-9917-1da91f977861.jsonl",
+    "ruling": "This active upstream BBNF/parse-that campaign is coordinated evidence, not a V-next seat; Sol xhigh there neither weakens nor masquerades as V-next Sol ultra service.",
+    "evidence": [
+      {
+        "agent_path": "/root/bbnf_census",
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-39-16-019f7686-8903-79a1-9e09-b08faa8d0492.jsonl",
+        "sha256": "5fe769275d3187528ac7a2f9b557eb2d750deaa94206b01e2f1040dd78c4923a",
+        "agent_thread_id": "019f7686-8903-79a1-9e09-b08faa8d0492",
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "meta_line": 1,
+        "turn_context_line": 195,
+        "task_complete_line": 201
+      },
+      {
+        "agent_path": "/root/graph_p1_adjudicator",
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T15-56-42-019f76cd-6cbe-78d3-8567-d7516affe13c.jsonl",
+        "sha256": "fcee7f33f13ddaa2500f292255f14a41d3970db887c5945a5701529c44570249",
+        "agent_thread_id": "019f76cd-6cbe-78d3-8567-d7516affe13c",
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "meta_line": 1,
+        "turn_context_line": 474,
+        "task_complete_line": 677
+      },
+      {
+        "agent_path": "/root/pt_execution_adjudicator",
+        "file": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T16-10-56-019f76da-75df-71e3-9ba7-0489f572e059.jsonl",
+        "sha256": "ffd4bc65046c4df6c665354660fe46c57fc3fe8d73af5e1a023c5193bd4bef21",
+        "agent_thread_id": "019f76da-75df-71e3-9ba7-0489f572e059",
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "meta_line": 1,
+        "turn_context_line": 522,
+        "task_complete_line": 670
+      }
+    ]
+  }
+}

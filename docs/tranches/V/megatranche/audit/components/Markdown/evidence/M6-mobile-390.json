@@ -1,0 +1,31 @@
+{
+  "pre": {
+    "hasMarkdown": false,
+    "dockText": [
+      "Picker",
+      "About",
+      "Login",
+      "@mbabb"
+    ]
+  },
+  "clicked": true,
+  "data": {
+    "reached": true,
+    "bodyWidthPx": 332,
+    "chPx": 9.34,
+    "bodyWidthCh": 35.5,
+    "ulPaddingLeft": "41.888px",
+    "h2Size": "30px",
+    "proseSize": {
+      "fontSize": "16px",
+      "lineHeight": "28px"
+    },
+    "codeSize": "12px",
+    "katexOverflowing": [],
+    "katexCount": 4,
+    "preOverflowing": 0,
+    "docHorizontalOverflow": 0,
+    "cardHorizontalOverflow": 0,
+    "cardScrollHeight": 7993
+  }
+}

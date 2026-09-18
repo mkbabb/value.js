@@ -1,0 +1,24 @@
+{
+  "swatchNames": [
+    {
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+      "ariaLabel": "Palette menu",
+      "title": null,
+      "text": "",
+      "html": "<button data-v-f5b813f2=\"\" data-slot=\"dropdown-menu-trigger\" data-emphasis=\"secondary\" data-tone=\"neutral\" data-size=\"sm\" data-icon-only=\"true\" data-control-target=\"\" data-press-armed=\"\" type=\"button\" class=\"button tap-s"
+    }
+  ],
+  "axButtons": [
+    {
+      "i": 0,
+      "name": "Palette menu",
+      "text": ""
+    }
+  ],
+  "dragGhost": {
+    "declaredGhostClass": "opacity-30 (PalettesPane.vue:186)",
+    "opacityBefore": "1",
+    "opacityAfter": "0.3",
+    "segDeclaredBg": "rgb(244, 162, 97)"
+  }
+}

@@ -1,0 +1,27 @@
+// r3 part 7 — is the "syntax highlighting" live while the user authors?
+import { webkit } from "playwright";
+const DIR = "docs/tranches/V/megatranche/audit/components/wb-gradient-codeeditor/evidence";
+const EDITOR = '[role="textbox"][aria-label="Gradient CSS"]';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const log = (o) => console.log(JSON.stringify(o));
+const browser = await webkit.launch();
+const page = await (await browser.newContext({ viewport: { width: 1440, height: 1000 } })).newPage();
+await page.goto("http://localhost:9000/#/gradient", { waitUntil: "load" });
+await page.reload({ waitUntil: "load" });
+await page.waitForSelector(EDITOR, { timeout: 20000 });
+await sleep(2200);
+const spans = () => page.evaluate((s) => document.querySelector(s).querySelectorAll("span[class^=hljs-]").length, EDITOR);
+const html = () => page.evaluate((s) => document.querySelector(s).innerHTML.slice(0, 220), EDITOR);
+log({ tag: "P1-at-rest", hljsSpans: await spans(), html: await html() });
+await page.locator(EDITOR).last().click();
+await page.keyboard.press("Meta+a");
+await page.keyboard.type("linear-gradient(45deg, red 0%, blue 100%)", { delay: 4 });
+await sleep(200);
+log({ tag: "P2-while-authoring", hljsSpans: await spans(), html: await html() });
+await sleep(1400);
+log({ tag: "P3-after-parse-applied-still-focused", hljsSpans: await spans(), html: await html() });
+await page.locator("h3", { hasText: "Interpolation" }).first().click();
+await sleep(600);
+log({ tag: "P4-after-blur", hljsSpans: await spans(), html: await html() });
+await page.screenshot({ path: `${DIR}/r3-P-highlight-dead-while-typing.png`, clip: { x: 200, y: 780, width: 520, height: 200 } });
+await browser.close();

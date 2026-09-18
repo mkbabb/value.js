@@ -30,10 +30,10 @@ import {
     type AuroraConfig,
 } from "@mkbabb/glass-ui/aurora";
 import { resolveCalibratedAtmosphere } from "./atmosphere-calibration";
-import { debounce } from "@utils/utils";
+import { debounce } from "../../../shared/utils";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "@composables/color/aurora-atoms";
-import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob";
+import { AURORA_ATOMS_KEY, DEFAULT_AURORA_ATOMS } from "../../../scenes/atmosphere/aurora-atoms";
+import { BLOB_CONFIG_KEY, BLOB_CONFIG_DEFAULTS } from "@mkbabb/glass-ui/blob-config";
 import { cssToOklch, deriveBlobPalette, oklchStopToHex } from "@mkbabb/glass-ui/color";
 import { clamp } from "@mkbabb/value.js/math";
 import {
@@ -337,27 +337,22 @@ export function useAtmosphere(
     // derive, so the W3-1 coalescing discipline holds. The `"css"` substrate
     // has no frame loop (a static placeholder): skip the listeners entirely.
     if (auroraRenderMode === "webgl" && typeof window !== "undefined") {
-        let lastPointerX: number | null = null;
-        let lastPointerY: number | null = null;
         useEventListener(
             window,
             "pointermove",
             (e: PointerEvent) => {
                 const x = e.clientX / Math.max(window.innerWidth, 1);
                 const y = e.clientY / Math.max(window.innerHeight, 1);
+                // V-W44 (Glass 7): `injectCursorVelocity` was removed — the
+                // shared aurora pointer field now DERIVES velocity/acceleration/
+                // burst from consecutive `setCursor` position deltas internally,
+                // so the per-move delta bookkeeping is retired here.
                 aurora.setCursor(x, y, ATMOSPHERE_POINTER_STRENGTH);
-                if (lastPointerX !== null && lastPointerY !== null) {
-                    aurora.injectCursorVelocity(x - lastPointerX, y - lastPointerY);
-                }
-                lastPointerX = x;
-                lastPointerY = y;
             },
             { passive: true },
         );
         useEventListener(document, "pointerleave", () => {
             aurora.clearCursor(); // decay-to-rest, never a snap
-            lastPointerX = null;
-            lastPointerY = null;
         });
     }
 

@@ -1,0 +1,350 @@
+[
+ {
+  "probe": "loopback-desktop",
+  "geo": {
+   "vw": 1440,
+   "cards": [
+    {
+     "x": 199,
+     "w": 512,
+     "h": 516,
+     "title": "Browse"
+    },
+    {
+     "x": 729,
+     "w": 512,
+     "h": 516,
+     "title": "My Palettes"
+    }
+   ],
+   "alertText": "dev misconfigured — run `npm run dev`",
+   "deadSpaceBelowAlert": 693,
+   "browseH": 516,
+   "mainCount": 1,
+   "h1": 0,
+   "paneTitleTag": "H3",
+   "loadingDivs": [],
+   "apiAvail": "n/a"
+  },
+  "msgs": [
+   "debug: [vite] connecting...",
+   "debug: [vite] connected.",
+   "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run de",
+   "debug: [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list",
+   "warning: Failed to load remote palettes: DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette "
+  ]
+ },
+ {
+  "probe": "populated-desk",
+  "geo": {
+   "vw": 1440,
+   "cards": [
+    {
+     "x": 199,
+     "w": 512,
+     "h": 774,
+     "title": "Browse"
+    },
+    {
+     "x": 729,
+     "w": 512,
+     "h": 774,
+     "title": "My Palettes"
+    }
+   ],
+   "artCount": 5,
+   "arts": [
+    {
+     "label": "Palette: Sunset Commons",
+     "tabindex": null,
+     "w": 462,
+     "h": 100
+    },
+    {
+     "label": "Palette: A Very Long Palette Name That Should ",
+     "tabindex": null,
+     "w": 462,
+     "h": 100
+    },
+    {
+     "label": "Palette: Mine",
+     "tabindex": null,
+     "w": 462,
+     "h": 100
+    },
+    {
+     "label": "Palette: Twelve",
+     "tabindex": null,
+     "w": 462,
+     "h": 100
+    },
+    {
+     "label": "Palette: Two",
+     "tabindex": null,
+     "w": 462,
+     "h": 100
+    }
+   ],
+   "gridRole": "list",
+   "gridChildRoles": [
+    "article",
+    "article",
+    "article",
+    "article",
+    "article"
+   ],
+   "gridClass": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px] transition-opacity duration-fast",
+   "gridDur": "0.2s",
+   "searchInput": {
+    "sw": 373,
+    "cw": 373,
+    "ph": "Search the commons...",
+    "fs": "16.4px"
+   },
+   "overflowX": 0,
+   "buttonsInWall": 10,
+   "bodyText": 413
+  },
+  "msgs": [
+   "debug: [vite] connecting...",
+   "debug: [vite] connected."
+  ]
+ },
+ {
+  "probe": "populated-mob",
+  "geo": {
+   "vw": 390,
+   "cards": [
+    {
+     "x": 16,
+     "w": 358,
+     "h": 732,
+     "title": "Browse"
+    }
+   ],
+   "artCount": 5,
+   "arts": [
+    {
+     "label": "Palette: Sunset Commons",
+     "tabindex": null,
+     "w": 324,
+     "h": 125
+    },
+    {
+     "label": "Palette: A Very Long Palette Name That Should ",
+     "tabindex": null,
+     "w": 324,
+     "h": 125
+    },
+    {
+     "label": "Palette: Mine",
+     "tabindex": null,
+     "w": 324,
+     "h": 100
+    },
+    {
+     "label": "Palette: Twelve",
+     "tabindex": null,
+     "w": 324,
+     "h": 100
+    },
+    {
+     "label": "Palette: Two",
+     "tabindex": null,
+     "w": 324,
+     "h": 100
+    }
+   ],
+   "gridRole": "list",
+   "gridChildRoles": [
+    "article",
+    "article",
+    "article",
+    "article",
+    "article"
+   ],
+   "gridClass": "palette-card-grid grid grid-cols-1 gap-3 min-h-[120px] transition-opacity duration-fast",
+   "gridDur": "0.2s",
+   "searchInput": {
+    "sw": 235,
+    "cw": 235,
+    "ph": "Search the commons...",
+    "fs": "14px"
+   },
+   "overflowX": 0,
+   "buttonsInWall": 10,
+   "bodyText": 257
+  },
+  "msgs": [
+   "debug: [vite] connecting...",
+   "debug: [vite] connected."
+  ]
+ },
+ {
+  "probe": "reduced-motion",
+  "anims": [
+   {
+    "name": "pane-header-veil-19daabcf",
+    "el": "div.pane-header.px-4",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   },
+   {
+    "name": "pane-title-shrink-19daabcf",
+    "el": "h3.pane-header-title.font-display",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   },
+   {
+    "name": "pane-desc-shrink-19daabcf",
+    "el": "p.pane-header-desc.text-caption",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   },
+   {
+    "name": "pane-header-veil-19daabcf",
+    "el": "div.pane-header.px-4",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   },
+   {
+    "name": "pane-title-shrink-19daabcf",
+    "el": "h3.pane-header-title.font-display",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   },
+   {
+    "name": "pane-desc-shrink-19daabcf",
+    "el": "p.pane-header-desc.text-caption",
+    "playState": "running",
+    "timeline": "ScrollTimeline"
+   }
+  ]
+ },
+ {
+  "probe": "keyboard-chromium",
+  "artCount": 5,
+  "artTabIndex": [
+   -1,
+   -1,
+   -1,
+   -1,
+   -1
+  ],
+  "wallStops": 24,
+  "walk": [
+   {
+    "tag": "button",
+    "role": "combobox",
+    "name": "Select view",
+    "inWall": false,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Login",
+    "inWall": false,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "@mbabb",
+    "inWall": false,
+    "ring": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "",
+    "inWall": false,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Filters",
+    "inWall": false,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "7 votes, click to vote",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Palette menu",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "14 votes, click to vote",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Palette menu",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "21 votes, click to vote",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Palette menu",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "5 votes, click to vote",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Palette menu",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "12 votes, click to vote",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Palette menu",
+    "inWall": true,
+    "ring": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "More from the commons",
+    "inWall": false,
+    "ring": false
+   }
+  ]
+ }
+]

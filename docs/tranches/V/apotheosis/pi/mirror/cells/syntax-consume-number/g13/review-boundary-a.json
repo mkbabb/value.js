@@ -1,0 +1,46 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.boundary-review/v1",
+  "boundary": "A",
+  "verdict": "ACCEPT",
+  "reviewed_files": [
+    {
+      "path": "contract.json",
+      "sha256": "0ebfc475f02d6339e77cbd33277ed3546f83f9b96fd3455ffe8ec4c2cba0b06c"
+    },
+    {
+      "path": "candidate-ast-policy.mjs",
+      "sha256": "c11eb55a2844db81ac09e09658a8e61461a29b8713c8e1f8945cb35a04f75112"
+    },
+    {
+      "path": "root/probes/b/index.ts",
+      "sha256": "a2762b19ec764d08ff1fa7704881a4a7a7c97a8601f966d6630cef15bc6d7049"
+    },
+    {
+      "path": "root/probes/d/index.ts",
+      "sha256": "ba5f1130003deabe638501997bf2a7a7a334fd25d984206287f6f01ec7b57b75"
+    },
+    {
+      "path": "root/probes/h/index.ts",
+      "sha256": "9dda4a9e1892e6e7eef7feb9e0c99a5744ef0f88d0110bfd0e656f3bcc840d74"
+    },
+    {
+      "path": "root/probes/s/index.ts",
+      "sha256": "e365919f9f3963d95a47d4fac4336a703620dc790d78c4bfb9b76aa1edf5ee2c"
+    }
+  ],
+  "assessment": {
+    "distinct_compositions": "PASS: H is one whole-prefix regex, B is factorized all/any, S is a staged then chain, and D is first-character dispatch over three atomic regex parsers.",
+    "idiomatic_parse_that": "PASS: all four exports are direct core-combinator Parser productions; B and S alone use the narrow save/call/restore failure transaction required to preserve predecessor state.",
+    "contract_policy_alignment": "PASS: the closed TypeScript AST policy fixes per-seat imports and regexes, restricts syntax, identifiers, calls, properties, and result keys, connects each exported map to its required seat topology, forbids wrappers for H/D, and checks the exact four-statement B/S wrapper.",
+    "findings": []
+  },
+  "formation_validator": {
+    "runs": 1,
+    "file_sha256": "9ad7c64e6c68a6596c3b4bcd187d99fb73988553fba49d32bce12546de6772e0",
+    "status": "BOUNDARY_READY_FOR_TWO_PUBLIC_REVIEWS_NOT_AUTHORS",
+    "subject_sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572",
+    "closure_sha256": "53c79dd64ae4cc93ab497ae712e6d06b601c8c61fbaae49b5277d117c2f4c73c",
+    "strict_typescript": "PASS",
+    "ast_negative_controls": 6
+  }
+}

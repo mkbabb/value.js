@@ -1,0 +1,70 @@
+{
+ "afterFirst": {
+  "streams": 1,
+  "live": [
+   [
+    "live"
+   ]
+  ],
+  "videos": 1
+ },
+ "afterSecond": {
+  "streams": 2,
+  "live": [
+   [
+    "live"
+   ],
+   [
+    "live"
+   ]
+  ],
+  "videos": 1
+ },
+ "capCount": 1,
+ "afterCapture": {
+  "streams": 2,
+  "live": [
+   [
+    "live"
+   ],
+   [
+    "ended"
+   ]
+  ],
+  "videos": 0,
+  "posts": 1
+ },
+ "kInfo": {
+  "thumbFound": 1,
+  "postsImmediatelyAfter8Presses": 0,
+  "postsAfterSettle": [
+   13
+  ]
+ },
+ "readout": {
+  "title": "oklch(54.014641044004% 0.18379799794 142.495345041445deg)",
+  "visible": "oklch(54.014641044004% 0.18379799794 142.495345041445deg)",
+  "clipped": true,
+  "w": 186
+ },
+ "fold": {
+  "found": true,
+  "rowTop": 624,
+  "viewportH": 900,
+  "belowFold": false,
+  "scroller": null,
+  "liveRegions": [
+   {
+    "role": "status",
+    "live": null,
+    "label": "· empty plate ·No saved palettes yet.Add"
+   }
+  ]
+ },
+ "logs": [
+  "[debug] [vite] connecting...",
+  "[debug] [vite] connected.",
+  "[error] [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev",
+  "[debug] [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL "
+ ]
+}

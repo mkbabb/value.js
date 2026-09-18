@@ -1,0 +1,321 @@
+
+=== BUTTONS (capture-script nameless rule) ===
+[
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Save edit",
+  "title": null,
+  "text": "",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Cancel edit",
+  "title": null,
+  "text": "",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Switch to slug",
+  "title": null,
+  "text": "",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Generate new slug",
+  "title": null,
+  "text": "",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Cancel",
+  "title": null,
+  "text": "",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-trigger.dock-select-trigger",
+  "ariaLabel": "Select view",
+  "title": null,
+  "text": "Extract",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": "Toggle action bar",
+  "title": null,
+  "text": "Tools",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "button.tap-squish",
+  "ariaLabel": null,
+  "title": null,
+  "text": "Login",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "button.tap-squish",
+  "ariaLabel": null,
+  "title": null,
+  "text": "@mbabb",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "div",
+  "cls": "group.relative",
+  "ariaLabel": "Upload image, click to browse or drop an image here",
+  "title": null,
+  "text": "Drop an image or click t",
+  "NAMELESS_BY_CAPTURE": false
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": null,
+  "title": "Upload image",
+  "text": "",
+  "NAMELESS_BY_CAPTURE": true
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": null,
+  "title": "Open camera",
+  "text": "",
+  "NAMELESS_BY_CAPTURE": true
+ },
+ {
+  "tag": "button",
+  "cls": "dock-icon-button.glass-specular-track",
+  "ariaLabel": null,
+  "title": "Reset",
+  "text": "",
+  "NAMELESS_BY_CAPTURE": true
+ }
+]
+playwright accname role=button name="Upload image" -> 1 match(es)
+playwright accname role=button name="Open camera" -> 1 match(es)
+playwright accname role=button name="Reset" -> 1 match(es)
+
+=== RAIL pre-image ===
+{
+ "backgroundColor": "oklch(0.545141 0.218024 9.834023)",
+ "backgroundImage": "none",
+ "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+ "boxShadowHasInset": true,
+ "overflow": "hidden",
+ "rect": {
+  "w": 434,
+  "h": 24
+ }
+}
+
+=== LABELS @ default k=5 kC=0.5 ===
+{
+ "kLabel": {
+  "text": "5",
+  "clientW": 20,
+  "scrollW": 20,
+  "OVERFLOWS": false,
+  "overflow": "visible",
+  "rectW": 20,
+  "whiteSpace": "nowrap"
+ },
+ "kcReadout": {
+  "text": "",
+  "clientW": 230,
+  "scrollW": 230,
+  "OVERFLOWS": false,
+  "overflow": "visible",
+  "rectW": 230.45,
+  "whiteSpace": "normal"
+ }
+}
+
+=== LABELS @ k=16 kC=1.5 ===
+{
+ "kLabel": {
+  "text": "16",
+  "clientW": 20,
+  "scrollW": 20,
+  "OVERFLOWS": false,
+  "overflow": "visible",
+  "rectW": 20,
+  "whiteSpace": "nowrap"
+ },
+ "kcReadout": {
+  "text": "",
+  "clientW": 230,
+  "scrollW": 230,
+  "OVERFLOWS": false,
+  "overflow": "visible",
+  "rectW": 230.45,
+  "whiteSpace": "normal"
+ }
+}
+
+=== SLIDER aria after End ===
+[
+ {
+  "n": "Number of colors",
+  "role": null,
+  "valuenow": null,
+  "valuetext": null,
+  "min": null,
+  "max": null,
+  "w": 434,
+  "h": 24
+ },
+ {
+  "n": "Chroma weight",
+  "role": null,
+  "valuenow": null,
+  "valuetext": null,
+  "min": null,
+  "max": null,
+  "w": 230.5,
+  "h": 24
+ }
+]
+
+=== ORPHAN LABELS ===
+[
+ {
+  "text": "16",
+  "htmlFor": null,
+  "controlInside": false,
+  "title": null
+ },
+ {
+  "text": "kC",
+  "htmlFor": null,
+  "controlInside": false,
+  "title": "Chroma weight"
+ }
+]
+
+=== RESET pre-image, k=16 ===
+{
+ "disabled": true,
+ "ariaDisabled": "true"
+}
+
+=== RAIL developed — inset ring vs the gradient it is painted ON ===
+{
+ "backgroundColor": "oklch(0.545141 0.218024 9.834023)",
+ "boxShadow": "oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset",
+ "ringColor": "oklch(0.545141 0.218024 9.834023)",
+ "gradientStopCount": 4,
+ "ringVsStop": [
+  {
+   "stop": "oklch(0.578513 0.213789 27.172258)",
+   "pos": "0%",
+   "contrastVsRing": 1.168
+  },
+  {
+   "stop": "oklch(0.471973 0.216301 267.259979)",
+   "pos": "33%",
+   "contrastVsRing": 1.294
+  },
+  {
+   "stop": "oklch(0.701065 0.208852 144.531006)",
+   "pos": "67%",
+   "contrastVsRing": 2.273
+  },
+  {
+   "stop": "oklch(0.767351 0.016744 73.637039)",
+   "pos": "100%",
+   "contrastVsRing": 2.673
+  }
+ ],
+ "backgroundImageHead": "linear-gradient(to right, oklch(0.578513 0.213789 27.172258) 0%, oklch(0.471973 0.216301 267.259979) 33%, oklch(0.701065 0.208852 144.531006) 67%, oklch(0.767351 0.016744 73.637039) 100%)"
+}
+
+=== DISABLED census (steady, hasImage=true) ===
+{
+ "upload": false,
+ "camera": false,
+ "reset": false,
+ "kSlider_dataDisabled": false,
+ "kcSlider_dataDisabled": false
+}
+
+=== kC keyboard walk (aria-valuenow vs the .toFixed(1) readout) ===
+[
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ },
+ {
+  "aria": null,
+  "readout": ""
+ }
+]
+
+pageErrors []
+consoleErrors []

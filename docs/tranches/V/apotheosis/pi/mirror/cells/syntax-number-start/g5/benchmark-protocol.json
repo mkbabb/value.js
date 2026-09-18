@@ -1,0 +1,98 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G5-BENCH",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR",
+  "correctness_gate": {
+    "admission": "Every candidate passes raw-child and ordinary-parent lanes for all 406 generation-3 public cases, 23 generation-4 endpoint cases, three deterministic hostiles, and every revealed generation-5 holdout case across two diagnostics modes, seven diagnostic profiles, and seven predecessor classes before any timing sample is retained.",
+    "candidate_cost": "The exact candidate.parser call is timed unchanged. Candidate-local diagnostic snapshot/restoration is candidate code and remains inside timing.",
+    "harness_work": "Fixture construction, pool restoration, global diagnostics toggles, assertions, comparisons, normalization, and result formatting are harness work outside timing.",
+    "failure": "Any throw, nonconformance, mode mismatch, root/hash drift, timer anomaly, or incomplete block invalidates the complete run. No partial candidate or round sample survives. The finally path disables diagnostics but does not rescue evidence."
+  },
+  "corpus_order": {
+    "base": "materializePublicCases(g3 cases) exact return order; endpoint-cases.json array order; H-PREFIX-1M-TRUE, H-ASTRAL-PREFIX-1M-FALSE, H-CR-PREFIX-1M-TRUE; revealed holdout canonical array order",
+    "profiles": [
+      "default-present-undefined",
+      "absent-before",
+      "undefined-before-multi",
+      "empty-at",
+      "multi-at",
+      "multi-beyond",
+      "multi-source-end"
+    ],
+    "predecessors": ["undefined", "null", "false", "0", "empty-string", "case-id-array", "case-id-mode-object"],
+    "modes": ["disabled", "enabled"]
+  },
+  "strict_parser_only_lane": {
+    "pool_per_mode": 50000,
+    "variant_order": "For one mode, form V with base case outermost, profile next, predecessor innermost in the exact listed order. Pool entry i is V[i mod V.length].",
+    "construction": "Preconstruct each ParserState with assigned source own-property/value, offset, predecessor, isError=false, furthest, expected own-property/reference/contents, suggestions array/reference/entry identities/fields, and secondarySpans array/reference/entry identities/fields.",
+    "restoration": "Restore every listed field including src and all reference identities before each candidate block, outside timing.",
+    "timed_block": "Start process.hrtime.bigint(); for i=0..49999 assign pool[i] = candidate.parser(pool[i]); stop. Candidate-internal work of every kind is included; no harness restoration occurs inside.",
+    "mode_block_sequence": [
+      "call disableDiagnostics(); restore disabled pool; time disabled block",
+      "call enableDiagnostics(); restore enabled pool; time enabled block",
+      "call disableDiagnostics() after the enabled timer stops"
+    ],
+    "toggle_timing": "All three toggles and both pool restorations are outside timing. The retained sample is disabled nanoseconds plus enabled nanoseconds from the same candidate/round.",
+    "exception_rule": "Wrap a complete run in try/finally solely to disable diagnostics. Any exception or incomplete block discards every sample and produces a RED run receipt.",
+    "warmup_rounds": 20,
+    "measured_rounds": 60,
+    "candidate_order_latin_cycle": [
+      ["H", "B", "S", "D", "R"],
+      ["B", "S", "D", "R", "H"],
+      ["S", "D", "R", "H", "B"],
+      ["D", "R", "H", "B", "S"],
+      ["R", "H", "B", "S", "D"],
+      ["R", "D", "S", "B", "H"],
+      ["H", "R", "D", "S", "B"],
+      ["B", "H", "R", "D", "S"],
+      ["S", "B", "H", "R", "D"],
+      ["D", "S", "B", "H", "R"]
+    ],
+    "schedule": "Round r uses row r mod 10 independently for warmup and measurement. Sixty measured rounds yield six complete cycles and exact position balance."
+  },
+  "statistics": {
+    "ordered_pairwise_matrix": [
+      "H:B", "H:S", "H:D", "H:R",
+      "B:H", "B:S", "B:D", "B:R",
+      "S:H", "S:B", "S:D", "S:R",
+      "D:H", "D:B", "D:S", "D:R",
+      "R:H", "R:B", "R:S", "R:D"
+    ],
+    "pairing": "Pair summed disabled+enabled nanoseconds from the same measured round.",
+    "raw_report": "All 60 disabled, enabled, and summed values per candidate in round order.",
+    "summary": ["median", "MAD", "geometric mean paired ratio"],
+    "median": "Sort ascending; for even N use arithmetic mean of elements N/2-1 and N/2.",
+    "mad": "Median by the same rule over absolute deviations from the median.",
+    "paired_log_ratio": "For ordered X:Y, ln(X summed ns / Y summed ns) for rounds 0..59.",
+    "bootstrap_prng": "Unsigned-64 xoshiro256**. For each ordered pair independently, reset to base seed 0x42535452504e5354 and expand four state words with four standard SplitMix64 operations (increment 0x9e3779b97f4a7c15; multiply 0xbf58476d1ce4e5b9 then 0x94d049bb133111eb; mask after every operation). Output rotl(s1*5,7)*9 and use the published reference transition.",
+    "bootstrap": "For each ordered pair, start a fresh PRNG. For each of 10000 resamples draw exactly 60 indices as Number(nextUint64 % 60n), average its paired log-ratios, and continue only that pair's stream.",
+    "upper_endpoint": "Sort 10000 means and take zero-based element 9499.",
+    "strict_win": "Selected X wins only if each of its four ordered X:peer one-sided 95% upper endpoints is below 0. Otherwise performance is tied and cannot select."
+  },
+  "descriptive_end_to_end_lane": {
+    "credit": "DESCRIPTIVE_ONLY",
+    "operation": "Use one prebuilt string(prefix).map(predecessor).next(candidate).skip(string(continuation)) parser per variant; inside timing construct one fresh ParserState and invoke the outer parser. Candidate-internal sandbox work is included; assertions are outside.",
+    "pool_per_mode": 50000,
+    "warmup_rounds": 10,
+    "measured_rounds": 30,
+    "mode_and_candidate_order": "Use the identical explicit disable/enable/disable sequence and ten-row candidate cycle; any exception invalidates the run."
+  },
+  "allocation_sampling_lane": {
+    "credit": "DESCRIPTIVE_STACK_ATTRIBUTED",
+    "process": "Fresh Node --expose-gc process per candidate; correctness and timing warmup first.",
+    "tool": "node:inspector HeapProfiler allocation sampling at 32768-byte interval",
+    "procedure": "Call global.gc(), start sampling, execute 20 disabled then 20 enabled parser-only 50000-state blocks with exact toggles and harness restoration between blocks, stop sampling, retain raw profile, and attribute bytes only to stacks containing the exact candidate target URL. Report harness/unattributed separately.",
+    "unavailable": "Report UNAVAILABLE with exact Node/V8 command and error; never substitute post-GC heapUsed deltas."
+  },
+  "environment_receipt": [
+    "Node/V8 versions, architecture/platform, CPU/core count, OS release and observable power state",
+    "active clean-base, package/lock/config, installed parse-that package/dist, feature/harness/corpus/holdout/candidate identities",
+    "canonical resolved roots from promotion verification",
+    "raw append-only result SHA-256"
+  ],
+  "raw_output": "bench/raw-g5.json",
+  "external_peers": {
+    "live_regex_css": "NON_COMPARABLE_COMPLETE_TOKEN_OPERATION",
+    "bbnf_runtime": "NON_COMPARABLE_NO_ACKNOWLEDGED_STANDALONE_RUNTIME"
+  }
+}

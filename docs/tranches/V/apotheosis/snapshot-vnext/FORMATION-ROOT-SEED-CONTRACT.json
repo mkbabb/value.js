@@ -1,0 +1,80 @@
+{
+  "schema": "vnext-formation-root-seed-contract/1",
+  "owner": "formation-root",
+  "requirements": [
+    {
+      "id": "H-L-L476",
+      "source": { "seed": "handoff", "excerpt_sha256": "6f8fd06d9d1d7725ae9f7ac77400a491bc441c1f74a6f35265886f9327391a73" },
+      "phase": "both",
+      "disposition": "folded",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": ["OA-14"]
+    },
+    {
+      "id": "H-P-L322",
+      "source": { "seed": "handoff", "excerpt_sha256": "70b0121b7c492e60f70ab429f0f3ed0a96b478de8c34f01598da7500867670dc" },
+      "phase": "both",
+      "disposition": "folded",
+      "decision": "Fold every clause of this exact paragraph into formation-root; its hashed excerpt is the acceptance boundary.",
+      "amendments": []
+    },
+    {
+      "id": "K-L-L021",
+      "source": { "seed": "kickoff", "excerpt_sha256": "655b31c3c12c41da679f3596f10c225d7c73c8717a894130747513ecea6be5ff" },
+      "phase": "formation",
+      "disposition": "folded",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary.",
+      "amendments": []
+    },
+    {
+      "id": "K-L-L026",
+      "source": { "seed": "kickoff", "excerpt_sha256": "d6b12e0d1bf39e1f874622afcb0877176b58b7a553dd745bc9a000695dde0eba" },
+      "phase": "formation",
+      "disposition": "folded",
+      "decision": "Apply OA-01 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": ["OA-01"]
+    },
+    {
+      "id": "K-L-L038",
+      "source": { "seed": "kickoff", "excerpt_sha256": "4050ddac62fd7eba9fe3520d956fdfdf38a3fbb96a787ebc07f559e0ed7f8310" },
+      "phase": "formation",
+      "disposition": "folded",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary.",
+      "amendments": []
+    },
+    {
+      "id": "K-L-L201",
+      "source": { "seed": "kickoff", "excerpt_sha256": "afd16dec0e74744a717facd960605ff507656bf4e90d3fc4f8210c508166024b" },
+      "phase": "formation",
+      "disposition": "folded",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": ["OA-14"]
+    },
+    {
+      "id": "K-L-L242",
+      "source": { "seed": "kickoff", "excerpt_sha256": "095f62cb396e5573993d5e592cd2e366a7ed79e0adbdce7d997d229a62b28999" },
+      "phase": "both",
+      "disposition": "folded",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary.",
+      "amendments": []
+    },
+    {
+      "id": "K-L-L277",
+      "source": { "seed": "kickoff", "excerpt_sha256": "0c46592a386dfe99d7e34eefc957018ca7e49e1bd24734e831f39c30bc268760" },
+      "phase": "formation",
+      "disposition": "folded",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary.",
+      "amendments": []
+    },
+    {
+      "id": "ORCH-07",
+      "source": { "seed": "kickoff", "excerpt_sha256": "829708ced25371ff6434169ab502614f53bcd14d8c71ad33a7e6c51c06e44084" },
+      "phase": "formation",
+      "disposition": "banked",
+      "decision": "DesignSync is unavailable and no substitute may claim equivalence.",
+      "amendments": ["OA-01"],
+      "retrigger": "DesignSync becomes callable; formation-root routes re-review to G00, D00A, and M00 before those visual programs close."
+    }
+  ],
+  "contract_hash": "a4e77aa7a321605ad4267aef149f6424d190865fee8164fb1fea4dd273b4f7bd"
+}

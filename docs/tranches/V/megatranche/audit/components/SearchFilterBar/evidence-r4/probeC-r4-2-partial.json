@@ -1,0 +1,129 @@
+{
+  "engine": "chromium",
+  "viewport": "1440x900",
+  "steps": {
+    "namesViaCDP": [
+      {
+        "tag": "DIV",
+        "role": "radiogroup",
+        "name": "",
+        "nameFrom": null,
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "name": "Newest",
+        "nameFrom": "relatedElement",
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "name": "Most Popular",
+        "nameFrom": "relatedElement",
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "name": "Most Forked",
+        "nameFrom": "relatedElement",
+        "ignored": false
+      },
+      {
+        "tag": "DIV",
+        "role": "radiogroup",
+        "name": "",
+        "nameFrom": null,
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "name": "All",
+        "nameFrom": "relatedElement",
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "radio",
+        "name": "Featured",
+        "nameFrom": "relatedElement",
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "name": "Open color picker, current color #4488cc",
+        "nameFrom": "attribute",
+        "ignored": false
+      },
+      {
+        "tag": "INPUT",
+        "role": "textbox",
+        "name": "Search by CSS color",
+        "nameFrom": "attribute",
+        "ignored": false
+      },
+      {
+        "tag": "BUTTON",
+        "role": "button",
+        "name": "Search",
+        "nameFrom": "contents",
+        "ignored": false
+      }
+    ],
+    "ariaSnapshot": "- dialog \"Filters\":\n  - text: Sort\n  - radiogroup:\n    - radio \"Newest\" [checked]\n    - img\n    - text: Newest\n    - radio \"Most Popular\"\n    - img\n    - text: Most Popular\n    - radio \"Most Forked\"\n    - img\n    - text: Most Forked\n  - text: Tier\n  - radiogroup:\n    - radio \"All\" [checked]\n    - text: All\n    - radio \"Featured\"\n    - img\n    - text: Featured\n  - text: Find by Color\n  - 'button \"Open color picker, current color #4488cc\"'\n  - textbox \"Search by CSS color\":\n    - /placeholder: \"#hex, hsl(...)\"\n  - button \"Search\"",
+    "swatchAttrs": {
+      "expanded": "false",
+      "haspopup": "dialog",
+      "controls": "reka-popover-content-v-1-8",
+      "type": "button"
+    },
+    "filterTriggerAttrs": {
+      "expanded": "true",
+      "haspopup": "dialog",
+      "type": "button",
+      "w": 32.5,
+      "h": 40.6
+    },
+    "miniOpen": {
+      "count": 1,
+      "rect": {
+        "x": 462,
+        "y": 560,
+        "width": 208,
+        "height": 218.6875
+      }
+    },
+    "panelRectWhileMiniOpen": {
+      "x": 433,
+      "y": 381,
+      "width": 240,
+      "height": 468.265625
+    },
+    "clobber": {
+      "typed": "rebeccapurple",
+      "beforeDrag": "rebeccapurple",
+      "afterDrag": "#081f33",
+      "clobbered": true,
+      "swatchAria": "Open color picker, current color #081f33"
+    },
+    "afterOutsideClick1": {
+      "count": 0,
+      "outer": false,
+      "mini": false
+    },
+    "afterOutsideClick2": {
+      "count": 0,
+      "outer": false,
+      "mini": false
+    },
+    "leakOnReopen": {
+      "count": 1,
+      "outer": true,
+      "miniStillOpen": false
+    }
+  }
+}

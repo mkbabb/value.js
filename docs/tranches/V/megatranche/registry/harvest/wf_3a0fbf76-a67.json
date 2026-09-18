@@ -1,0 +1,103 @@
+{
+ "runId": "wf_3a0fbf76-a67",
+ "workflow": "wf_3a0fbf76-a67",
+ "resultCount": 6,
+ "results": [
+  {
+   "agentId": "af67f500fe10ec403",
+   "key": "v2:c9512ba4a46bf9310ae3c6b6c77e9e16e65c472a3b3bb1bdd8d6474481131411",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W11.md",
+    "fixed": [
+     "W11-D1 (i) — §File Bounds table (W11.md:94, appended after the `INBOX.md` row): added `| `scripts/ci/verify-packed-surface.mjs` | execute, no write (G3's packed-surface probe; X-W9 owns the bytes) |`, giving G3's invoker-side disposition its own R-E row (previously the path appeared only in **Do NOT touch**, attributed to its owner X-W9).",
+     "W11-D1 (ii) — §File Bounds table (W11.md:95): added `| `docs/tranches/V/megatranche/workflows/safari-real-matrix.js` | execute, no write (G8's real-Safari matrix) |`, lifting G8's probe out from under the `docs/tranches/V/megatranche/workflows/**` Do-NOT-touch glob (whose stated reason is the X-W8 G-6 lint cure) and dispositioning the invocation explicitly.",
+     "W11-D1 (iii) — §File Bounds table (W11.md:96): added `| `scripts/ci/boot-smoke.mjs` | execute, no write (G5's both-mode boot witness; X-W1 authors it) |`, the path having had no bounds disposition in either table (it was named only in prose as \"X-W1's restored boot-smoke\").",
+     "W11-D1 (write-side preservation) — §File Bounds **Do NOT touch** paragraph (W11.md:98-104) left verbatim: `eslint.config.js` + `docs/tranches/V/megatranche/workflows/**` (X-W8 G-6), `scripts/ci/verify-packed-surface.mjs` (X-W9 owns the behavioural half and the `strictTypes` deletion), `package.json#version`, `scripts/dev/dev.sh`, `CARRY-CUT-LEDGER.md` §0–§3 all stand as the write-side statement per the stated fix."
+    ],
+    "residual": [
+     "Bounds idiom conformed to the existing tranche exemplars — W1.md:161 (`verify-packed-surface.mjs` | execute, no write (…)) and W10.md:122 (`prm-scroll-timeline.mjs`) — unbacked-ticked `execute, no write` with the invoking gate id parenthesized; no prose exemption or universal claim added.",
+     "No other edit made: §Dispositions, §Hard Gate G3/G5/G8, §Disjointness, the L-18 rider and the X.W4.g alias law were not touched; no unit ids re-glyphed; docs-only, no git mutation, no src/demo/api/test/e2e/scripts/dev/dev.sh access.",
+     "The three new rows are `execute` bounds only — none of the three scripts becomes writable by X-W11, and ownership stays with X-W9 (verify-packed-surface.mjs), X-W8 G-6 (the megatranche workflows tree) and X-W1 (boot-smoke.mjs) respectively."
+    ]
+   }
+  },
+  {
+   "agentId": "a31d1378bea29a08b",
+   "key": "v2:9ee74b007b3adbbc5f94a09b59eb6f136dae200a622be2f85001bf9e6232e833",
+   "result": {
+    "fixed": [
+     "W8-D1 — §Disjointness · Cross-wave (W8.md:133-135): appended one line after the ARCHITECTURE.md/X-W9.g sequencing sentence — \"`eslint.config.js` is also written by X-W4 (.d) and X-W9.f; this wave's two carves are the `demo/@/**` globs + docs ignore (.b) and the `max-lines` ratchet (.e); the three waves never run concurrently on it (W9 §4a).\" This closes the one-directional sequencing (the W4-D2 twin): W8 holds the file `modify-carve` at :79 and writes it in .b (§3 six dead `demo/@/**` globs + G-6 docs-tree ignore + `no-restricted-imports`) and .e (:201 Files row, \"after X.W8.b\"), which the Cross-wave block previously left undeclared."
+    ],
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",
+    "residual": [
+     "None for W8 in §THIRD PASS — W8-D1 was the wave's sole numbered defect and is now discharged. Verified the fix's factual predicates against the file rather than assuming them: .b writes the globs/docs-ignore (W8.md:42-43, :263) and .e the max-lines ratchet (W8.md:197, :201). No File Bounds row was added or altered (the `eslint.config.js` modify-carve row at :79 already existed and is untouched), no R-E script rows were in scope for this defect, and no unit ids were re-glyphed (X.W4.g alias law untouched — it is stated once in W4 §10a only).",
+     "Out of scope by construction, noted for the parent's ledger only: the reciprocal halves of this three-way sequencing live in other files — W4-D2 (add the same cross-wave line to X-W4 naming X-W8 (.b/.e) and X-W9.f) and W9's already-FIXED §4a third Cross-wave block (W9.md:147-157). W8's side is now consistent with both; if W4-D2 is not repaired by its own agent the tranche-level reciprocity claim still has one open edge, but nothing further is owed by W8.md."
+    ]
+   }
+  },
+  {
+   "agentId": "a4a0386ee4848dba4",
+   "key": "v2:1226ba3e177182b3ce74be7cf5df4ae716208d100b859e6e942d11636e589040",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W4.md",
+    "fixed": [
+     "W4-D1 (§4a Disjointness · Cross-wave, new bullet after the ConsoleRail/X-W9.h bullet, W4.md:198-201): added the line verbatim — \"`X.W4.g` additionally holds `MixSourceSelector.vue` (X-W5/X-W6/X-W7), `ColorSpaceSelector.vue` (X-W6/X-W7), `EmptyState.vue` (X-W7) and `Dock.vue` (X-W5/X-W8); on a census PASS the orchestrator lands g on clean main with **no other X wave open**, which is what W0 §3a's 'a PASS is a re-plan event' already requires.\"",
+     "W4-D1 (§4 File Bounds · unit .g trigger-gated preamble, W4.md:151-157): added the matching one sentence to the CLOSED-unless-PASS preamble — the same four shared paths with their holding waves, the clean-main/no-other-X-wave-open landing rule, the W0 §3a re-plan-event citation, and a pointer to §4a Cross-wave.",
+     "W4-D2 (§4a Disjointness · Cross-wave, new final bullet, W4.md:202-204): added the line verbatim — \"`eslint.config.js` is also written by X-W8 (.b/.e) and X-W9.f; this wave writes only the action-path `no-explicit-any` object, and the three waves never run concurrently on it (W9 §4a).\" The path is already bounded `modify` at W4.md:148 (unit .d)."
+    ],
+    "residual": [
+     "Unit-letter discrepancy carried, not resolved: the third-pass W4-D2 fix text names X-W8's writers as \"(.b/.e)\" while the second-pass W9-D2 entry named them \"(.b/.d)\". I wrote the assigned fix verbatim (.b/.e); reconciling the W8 unit letters belongs to W8/W9, not to this file.",
+     "No R-E work was owed or performed here: W4's only gate-invoked script outside its own specs is `docs/tranches/V/megatranche/audit/probes/navprobe.mjs`, which already carries an `execute, no write (…artefact 7's re-run… A4's evidence row invokes it)` row (W4.md:149); §4 contains no universal or prose-argued exemption. Unit .g's G1–G4 and §6's 16 gates invoke only `npx playwright`/`vue-tsc`/`eslint` over bounded specs.",
+     "Not touched (out of scope, still one-directional elsewhere): `GenerateControls.vue` and `ConsoleRail.vue` appear in both the open-partition and unit .g bounds tables — declared intra-wave in §4a, unchanged by this round."
+    ]
+   }
+  },
+  {
+   "agentId": "a8b54405cc81f16a6",
+   "key": "v2:4907acee6688142291a926328fc745df8f5b0a325ae7c4d4b56e4f0d6b0fdd3e",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W6.md",
+    "fixed": [
+     "W6-D1 (§4 Bounds law, W6.md:117 — formerly :105): DELETED the prose-argued exemption sentence \"The instruments invoked read-only — …/probes/wb-gradient-stopeditor/gate-{axis,gesture,seat,structure}.mjs and …/components/wb-gradient-stopeditor/evidence/* (all verified present today) — take no bounds row, because a gate that reads them writes nothing.\" Replaced by an inclusion statement: the twelve read-only instruments \"each carry their own row above, marked `execute, no write` with the invoking gate id named; no invocation is exempted by prose (R-E, W10's idiom).\" The first clause (\"every script a gate invokes is bounded above\") is unchanged and now true as written; the §3a halt-on-edit clause (\"A unit that concludes it must *edit* one of those existing instruments halts under §3a instead.\") is carried verbatim.",
+     "W6-D1 (§4 File Bounds table, W6.md:104-115): ADDED twelve File Bounds rows, each `execute, no write` naming its invoking gate id(s), at the full paths the wave already cites (all twelve verified present on disk today) — :104 `docs/tranches/V/megatranche/audit/probes/wb-gradient-stopeditor/gate-axis.mjs` (a3 + a4's G1b arm) · :105 `…/probes/wb-gradient-stopeditor/gate-gesture.mjs` (a5 arm A, a6 arm B, a7 arm C) · :106 `…/probes/wb-gradient-stopeditor/gate-seat.mjs` (b1 keyboard, b2 add-path, b4 removal) · :107 `…/probes/wb-gradient-stopeditor/gate-structure.mjs` (c1) · :108 `docs/tranches/V/megatranche/audit/components/wb-gradient-stopeditor/evidence/parse-probe.ts` (a1, under vite-node) · :109 `…/evidence/WBGSE-O-r3-crossdrag-forcedcolors.mjs` (a2 first block) · :110 `…/evidence/WBGSE-O-r3-gestures.mjs` (a7 block C14) · :111 `…/evidence/p3.mjs` (a8 T9) · :112 `…/evidence/p4.mjs` (a9 T11, playwright-webkit iPhone-14 cell) · :113 `…/evidence/p2.mjs` (a10 T2) · :114 `…/evidence/WBGSE-D-probe4.mjs` (a11 contrast floor) · :115 `…/evidence/WBGSE-D-probe2.mjs` (a12 block 5).",
+     "W6-D1 verification: re-extracted every `node`/`npx vite-node` invocation in W6.md and matched it against §4 — 9 new instruments carry `create` rows (d1/d2/e2/f1/f5/g1/h2/i2/H1), 12 existing instruments now carry `execute, no write` rows, and c3's unnamed `npx vite-node` mint chain invokes no script path. Zero unbounded gate-invoked scripts remain in the file."
+    ],
+    "residual": [
+     "Out of scope by instruction, unchanged: §4a Disjointness bullet (W6.md:132) still reads \"The nine new gate/probe scripts are each `create`d by exactly one unit\" — correct as written, since the twelve added rows are read-only executions written by no unit; no edit was owed and none was made.",
+     "Not my defect (belongs to W4-D1, a W4 edit): X.W4.g's trigger-gated bounds share `MixSourceSelector.vue` (W6.md:78) and `ColorSpaceSelector.vue` (W6.md:65) with this wave, and W6 carries no reciprocal cross-wave sequencing statement. The conformance file books the fix in W4 §4a only; no drive-by line was added here.",
+     "Unchanged and still accurate: the §3a Triumvirate halt trigger and the `Do NOT touch` list (W6.md:119) were not modified — the twelve new rows are execute-only and add no write surface, so no Do-NOT-touch entry was owed."
+    ]
+   }
+  },
+  {
+   "agentId": "a124e5e295558b781",
+   "key": "v2:bf3aced5162f85c8fc28ad41a777b0b488906707f5dd018bd60a5c5ee4038370",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W2.md + /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W1.md",
+    "fixed": [
+     "W2-D1 (CONFORMANCE-2026-08-03.md §THIRD PASS (c)-(g), W2 defect 1) — /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W2.md §4 File Bounds, new line 65: added the single R-E bounds row `| `e2e/smoke/perf/serve-built.mjs` | execute, no write (G3's and G4's built-bundle origin, re-run unmodified) |`, inserted after the `o5-boot-pacing.spec.ts` row so all `e2e/**` rows stay contiguous ahead of the docs rows. Access cell written unquoted, matching the ratified W10 idiom (`W10.md:122`) and W1's existing row (`W1.md:161`), not the conformance doc's citation backticks. Nothing else in W2 touched — no Do-NOT-touch edit, no §4a edit, no gate text edit.",
+     "Third-pass UNBOOKED OBSERVATION (§Ordering reciprocity, bullet 3: \"W1 `Blocks: X-W5` is unreciprocated *and contradicted*\"), adopted by the orchestrator — /Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W1.md §Dependencies: the `**X-W5** (CC-054's frame-budget oracle and CC-048's measured viewport cap need the browser gate)` item was removed from the **Blocks** cell (was lines 374-375, now line 377 reads `… prod-preview build) · **X-W6**`) and restated as a new sibling bullet at lines 373-376 in W9's exact idiom (`W9.md:480-481`): `- **Soft-couples to**: **X-W5** — … D1's budget oracle is a node script, so X-W5 is decidable without CI and does not block on it (`W5.md:345`: \"No dependency on … X-W1's gates\"). The ordering is transitive in any case: W5 ← W4 ← W1.` The Blocks list's remaining items (X-W2, X-W6, X-W7, X-W11) and its trailing decidability sentence (CC-015/029/030/032/036/065/073 — none of which are CC-054 or CC-048) are byte-identical. W5.md untouched."
+    ],
+    "residual": [
+     "The conformance doc offered the fix at either end (\"W1's Blocks cell should be softened … or W5's §10 should say 'soft'\"). Only the W1 end was taken, per the standing instruction not to touch W5. W5.md:345's \"No dependency on … X-W1's gates\" now agrees with W1 verbatim and needs no edit — the edge is one-directional no longer, but it is declared as *soft* from W1 only; W5 still declares nothing about X-W1 in either direction. If a later pass wants both-ends declaration, that is a one-line W5 §10 addition, not a W1 change.",
+     "CONFORMANCE-2026-08-03.md's own tallies are now stale by design (it is dated evidence and is explicitly \"not rewritten\"): §Tranche-level read still reads \"W2 ×1 of 2\" bounded and lists \"W2 ×1\" unbounded — after this repair W2 is 2 of 2, and R-E coverage is 6 of 12 rather than 5 of 12 counting W2 alone. Sibling agents are concurrently repairing W4/W6/W8/W11 (all four show modified in `git status`), so the closing-paragraph roster line will need one consolidated restatement by the fourth pass, not per-agent edits.",
+     "W1.md:214's `X-W5/X-W8` mention was inspected and left alone — it is a rationale about a moved demo path, not an ordering claim, so it is unaffected by the softening.",
+     "No git mutation performed; both files are left modified in the working tree for the orchestrator to stage under the pathspec-only rule."
+    ]
+   }
+  },
+  {
+   "agentId": "a3c91ab3ec77019e7",
+   "key": "v2:2632136ae1652ee05b4bfb5e2aecf18ba086f0488e7bc9117049b3701df10d97",
+   "result": {
+    "conformant": 10,
+    "defective": 2,
+    "remaining": [
+     "W0-D1: X-W0.e's declared write surface — 'the 46 report-authored axis files' (W0.md:174 Files clause; HG-11 at :275 stamps every motion/PRM assertion across the 46 axes) — has no File Bounds row: §4 bounds only the three named slugs' trees (audit/components/{ActionFeedback,picker-pointerdebugoverlay,picker-componentsliders-consolerail}/**) and §Disjointness books e as those three trees, so ~43 of the 88 component slugs' axis files are written outside every bounds row. Fix: add one §4 row — docs/tranches/V/megatranche/audit/components/** | modify (X-W0.e's HG-11 quarantine stamps in the 46 REPORT-AUTHORED axes only) — and widen §Disjointness's e-line to match; or re-point HG-11's stamps at the now-landed, tracked audit/codex-provenance/motion-quarantine.md (32,260 B, 2026-08-03 12:21, per-assertion two-guard rulings) and drop the axis-file writes entirely.",
+     "W8-D1: G-7 invokes X-W0's typed-graph oracle (docs/tranches/V/megatranche/workflows/graph-v3.mjs) by description ('Run under X-W0's typed graph authority over demo/**') with no named command and no bounds row, against R-E and WAVE_SPEC §6 — the wave executes the script (Verification Artefacts bank 'the G-7 graph-oracle output before and after'; the falsifier re-runs it on a mutated tree), and the descriptive invocation is exactly the prose exemption R-E abolishes. Fix: one File Bounds row — docs/tranches/V/megatranche/workflows/graph-v3.mjs | execute, no write (G-7's SCC oracle over demo/**; X-W0 authors the bytes) — and G-7's probe line states the command (node docs/tranches/V/megatranche/workflows/graph-v3.mjs …), matching W10's ratified idiom."
+    ],
+    "tranchReady": false
+   }
+  }
+ ]
+}

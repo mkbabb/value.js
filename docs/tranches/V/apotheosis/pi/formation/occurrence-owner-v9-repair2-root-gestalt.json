@@ -1,0 +1,142 @@
+{
+  "schema": "value.pi.occurrence-owner-v9-repair2-root-gestalt/v1",
+  "date": "2026-07-22",
+  "scope": "CORPUS_ANALYSIS_TOOLING_ONLY",
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "sha256": "919af7dbd7a094e13c2d72d8e82684b5f9d9201f88aaa462bccfeb1fdeb107cd",
+      "bytes": 46651
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "sha256": "899cf3d2c336c4ac84b855da902cb00e6269336080b19ae051e1ec0fc66a881e",
+      "bytes": 44369
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "sha256": "6c4da44635d2a1e31f68966360a5fdaa5483240ff1780a60561c069e33e75ebb",
+      "bytes": 31914
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json",
+      "sha256": "c82f75e684f1990d1e458a124f7c8ca592377a0bf01f0bf1b473108d17963cb4",
+      "bytes": 7894
+    },
+    "deterministic_stdout": {
+      "sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+      "bytes": 14468
+    }
+  },
+  "independent_challenges": [
+    {
+      "task": "/root/v9_repair2_challenge_a",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-challenge-a.json",
+      "sha256": "bd1c979b6cae4a234c17406b9966f18ccea367281304a8da39eab463c1b9f98c",
+      "bytes": 18176,
+      "verdict": "REJECT"
+    },
+    {
+      "task": "/root/v9_repair2_challenge_b",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-challenge-b.json",
+      "sha256": "0cbb4a4293cf96d8e5d1ac2896938991ce453e416f2398779dfa8b060656d4e6",
+      "bytes": 21312,
+      "verdict": "REJECT"
+    }
+  ],
+  "root_replay": {
+    "workspace_stdout_sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+    "tmp_stdout_sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+    "byte_identical": true,
+    "full_168_source_run": false
+  },
+  "adjudication": [
+    {
+      "id": "V9R2-R-01",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Bibliographic shorthand parsing uses a literal-s split and both omits valid whitespace/modifier forms and admits invalid targets. The analyzer contradicts its own oracle on bounded examples.",
+      "sources": ["V9R2-A-01-BIBLIOGRAPHIC-VALIDATION", "R2B-01-ANALYZER-ORACLE-BIBLIOGRAPHIC-DIVERGENCE"]
+    },
+    {
+      "id": "V9R2-R-02",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Mismatched closes leave stale same-name openings, allowing later closes to remove live processed-code state. The source-state relation is not total or transactionally correct.",
+      "sources": ["V9R2-A-02-STACK-STATE-CORRUPTION"]
+    },
+    {
+      "id": "V9R2-R-03",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Ordinary pre blocks, Bikeshed datablocks, explicit l exceptions, and document-level shorthand settings are not modeled. References and headings are fabricated inside opaque or disabled regions.",
+      "sources": ["V9R2-A-03-BIKESHED-SOURCE-STATE"]
+    },
+    {
+      "id": "V9R2-R-04",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Manual autolinks, heading definition carriers, and nearest-ancestor inherited definition attributes are absent, so a generated occurrence ledger would be incomplete even when emitted rows are locally correct.",
+      "sources": ["V9R2-A-04-REFERENCE-AND-CARRIER-DENOMINATOR"]
+    },
+    {
+      "id": "V9R2-R-05",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Raw attribute spelling is used as semantic href and definition-scope value. HTML character references are not decoded before URL or scope resolution; both analyzer and oracle share the defect.",
+      "sources": ["V9R2-A-05-PARSED-ATTRIBUTE-SEMANTICS", "R2B-04-ATTRIBUTE-CHARACTER-REFERENCES-NOT-DECODED"]
+    },
+    {
+      "id": "V9R2-R-06",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Operation-ledger authority accepts arbitrary nonempty review status, and analyzer collision reporting does not cover the union stable-ID namespace. Rejected rows can be admitted as operations.",
+      "sources": ["V9R2-A-06-LEDGER-AUTHORITY"]
+    },
+    {
+      "id": "V9R2-R-07",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Heading and operation ownership are not container-nesting-aware. A globally preceding heading remains owner after its nested section has closed.",
+      "sources": ["R2B-06-CONTAINER-NESTING-NOT-IN-OPERATION-OWNERSHIP"]
+    },
+    {
+      "id": "V9R2-R-08",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Setext underline lines can be reused as subsequent heading content; definition separator whitespace semantics and uppercase URL schemes also diverge or share untested common modes.",
+      "sources": ["R2B-02-ANALYZER-ORACLE-DEFINITION-SHAPE-DIVERGENCE", "R2B-03-SETEXT-UNDERLINE-REUSED-AS-NEXT-HEADING", "R2B-05-UPPERCASE-URL-SCHEME-OMITTED"]
+    },
+    {
+      "id": "V9R2-R-09",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The separately authored oracle duplicates source-state, attribute, reference, carrier, ownership, and ledger policies closely enough to accept multiple demonstrated defects. File separation is not semantic independence.",
+      "sources": ["V9R2-A-07-ORACLE-COMMON-MODE", "R2B-03-SETEXT-UNDERLINE-REUSED-AS-NEXT-HEADING", "R2B-04-ATTRIBUTE-CHARACTER-REFERENCES-NOT-DECODED", "R2B-06-CONTAINER-NESTING-NOT-IN-OPERATION-OWNERSHIP"]
+    },
+    {
+      "id": "V9R2-R-10",
+      "status": "CONFIRMED_HIGH",
+      "finding": "The qualification path retains uncounted repeated scans and output-sensitive relations, and malformed option objects can throw. Repair2 provides bounded research evidence, not a safe full-corpus launcher or resource proof.",
+      "sources": ["V9R2-A-08-RESOURCE-RAIL", "R2B-07-HOSTILE-OPTION-INPUTS-THROW"]
+    }
+  ],
+  "retained_green_facts": [
+    "The exact repair2 subject and 14,468-byte stdout replay identically from the workspace and /tmp.",
+    "Previously reproduced Unicode raw-close, duplicate interval, direct owner-equality, and disposition-totality cases remain repaired on the sealed subject.",
+    "The bounded 18 V9, 29 inherited, 26 counterexample, 16 mutation, 512 arbitrary-byte, and seven geometric-family rail is useful regression evidence only."
+  ],
+  "next_generation_law": [
+    "Repair the exact reproduced cases without running the 168-source corpus.",
+    "Model Bikeshed source states, container nesting, carrier inheritance, and parsed attribute values from an independently reviewed semantic contract.",
+    "Use an oracle derived from that contract or an authenticated independent witness, not a second implementation of the analyzer's policies.",
+    "Count analyzer and verifier work separately, eliminate repeated qualification scans, and define the option-input/no-throw boundary.",
+    "Only a twice-ACCEPTED subsequent exact subject may seed a reviewed normative operation ledger and then the full source traversal."
+  ],
+  "verdict": "TERMINAL_REJECT_REPAIR2_ZERO_DENOMINATOR_CREDIT",
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

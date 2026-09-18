@@ -1,0 +1,132 @@
+SERVED MODEL: claude-opus-5[1m]
+
+KF.W0.b — G-0.2 MANIFEST SINGLE-STATE · the four coordinates, re-measured on the SETTLED tree
+Substrate: /Users/mkbabb/Programming/keyframes.js   Date: 2026-09-17   Seat: KF.W0.b
+Spec: docs/tranches/X/keyframes/waves/KF-W0.md §Gates G-0.2 (:510-524) · §Scope 2 (:306) · §Carry C-1 · C-16
+Law: WRITE-THEN-MEASURE — every figure below was DOUBLE-RUN; both runs agreed on every byte.
+
+================================================================================
+A · THE REFS (the settle is in force)
+================================================================================
+$ git rev-parse --abbrev-ref HEAD                          → master
+$ git rev-parse HEAD                                       → 81a56990736ced5b5edde0b84c527680ac7689b1
+$ git rev-parse origin/master                              → 81a56990736ced5b5edde0b84c527680ac7689b1
+  HEAD == origin/master.  Local 8281638c is preserved by ref at kf-sacred-snapshot-2026-09-17
+  (snapshot commit 6d280ee7bec7793846b2e2e1d250e1ea0a21859a, KF.W0.OP-1) and stays DISQUALIFIED.
+
+================================================================================
+B · THE FOUR COORDINATES (spec G-0.2 RED baseline vs this seat's reading)
+================================================================================
+coordinate     RED baseline (fold, 2026-08-28)              AFTER the settle (this seat, 2026-09-17)
+-----------    ------------------------------------------   ----------------------------------------
+HEAD           :71 "6.0.0"  under optionalDependencies       :77 "7.0.0"  under devDependencies, EXACT
+origin/master  :77 "7.0.0"  under devDependencies, EXACT     :77 "7.0.0"  under devDependencies, EXACT
+worktree       row DELETED from package.json AND the lock    :77 "7.0.0"  under devDependencies, EXACT
+installed      7.0.0                                        7.0.0
+               → FOUR coordinates, THREE distinct states     → FOUR coordinates, ONE state
+
+$ git show HEAD:package.json | grep -n glass-ui            → 77:        "@mkbabb/glass-ui": "7.0.0",
+$ git show origin/master:package.json | grep -n glass-ui   → 77:        "@mkbabb/glass-ui": "7.0.0",
+$ grep -n glass-ui package.json                            → 77:        "@mkbabb/glass-ui": "7.0.0",
+$ node -p "require('./node_modules/@mkbabb/glass-ui/package.json').version"  → 7.0.0
+
+EXACTNESS AND PLACEMENT, resolved by parser rather than by grep (a grep proves the string, not the section):
+$ node -e "const p=require('./package.json'); …"
+    devDependencies['@mkbabb/glass-ui']       = "7.0.0"      ← EXACT (no ^, no ~, no range)
+    dependencies['@mkbabb/glass-ui']          = undefined
+    optionalDependencies['@mkbabb/glass-ui']  = undefined
+    peerDependencies['@mkbabb/glass-ui']      = undefined
+$ grep -c optionalDependencies package.json                → 0
+    The whole optionalDependencies SECTION is gone at the frontier — HEAD's :71 placement
+    (the kf-CubeAxisLines β-miss-1 `npm ci --omit=optional` failure SHAPE) is killed by the settle,
+    not merely re-versioned.  §Excluded carries it as narrative, booked as nothing.
+
+================================================================================
+C · THE LOCK — three entries, integrity, dev:true (§Bounds owner-hand lock row)
+================================================================================
+$ git show HEAD:package-lock.json | grep -c glass-ui            → 3
+$ git show origin/master:package-lock.json | grep -c glass-ui   → 3
+$ grep -c glass-ui package-lock.json                            → 3
+$ grep -n glass-ui package-lock.json
+     19:                "@mkbabb/glass-ui": "7.0.0",            ← the root package's devDependencies mirror
+    612:        "node_modules/@mkbabb/glass-ui": {              ← the installed-tree node
+    614:            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-7.0.0.tgz",
+$ sed -n '613,617p' package-lock.json
+            "version": "7.0.0",
+            "resolved": "https://registry.npmjs.org/@mkbabb/glass-ui/-/glass-ui-7.0.0.tgz",
+            "integrity": "sha512-iK2DaPNbnEOkcI6deSyYZ1mCbDyHCY+IGFeKtsKb800WzApX0uL/Pq6FA9EomqCcBWWDrPSa7iydk7kg9sH2ww==",
+            "dev": true,
+            "license": "MIT",
+    → the §Bounds row's two named facts hold at the bytes: lock :612's integrity is present and
+      dev:true is set.  The worktree lock is byte-identical to origin/master's
+      (KF.W0.OP-1 close: git diff --name-only origin/master → 0).
+
+================================================================================
+D · THE PEER MAP — measured at BOTH recording surfaces, resolved against the tree
+================================================================================
+$ ls node_modules/@mkbabb/                                 → glass-ui  parse-that  value.js   (no pencil-boil)
+$ cat .npmrc                                               → legacy-peer-deps=true
+$ npm config get legacy-peer-deps                          → true
+$ npm --version → 11.12.1     $ node --version → v26.0.0
+
+INSTALLED ARTIFACT (node_modules/@mkbabb/glass-ui/package.json — 10 peers), each resolved in-tree:
+    REQUIRED  @lucide/vue                  want=^1.16.0   installed=1.17.0
+    optional  @mkbabb/keyframes.js         want=^6.0.0    installed=ABSENT   (the tree itself; self-peer)
+    optional  @mkbabb/pencil-boil          want=^0.9.2    installed=ABSENT   ← C-16's first absent peer
+    optional  @mkbabb/value.js             want=^4.0.0    installed=4.0.0
+    optional  @vueuse/core                 want=^14.0     installed=14.3.0
+    optional  embla-carousel-vue           want=^8.0      installed=ABSENT   ← C-16's second absent peer
+    REQUIRED  reka-ui                      want=^2.0      installed=2.9.9
+    REQUIRED  tailwindcss                  want=^4.0      installed=4.3.0
+    optional  tw-animate-css               want=^1.2.5    installed=1.4.0
+    REQUIRED  vue                          want=^3.5      installed=3.5.35
+    → 4 REQUIRED peers, ALL FOUR SATISFIED.  6 optional, 3 of them absent.
+    → BOTH of C-16's "genuinely absent" peers are producer-declared OPTIONAL at the shipped artifact.
+
+LOCK-RECORDED MANIFEST (package-lock.json :624-658 — 11 peers) — DRIFT, declared loudly:
+    the lock's peer map carries an ELEVENTH entry the shipped tarball does not:
+$ grep -n 'embla' node_modules/@mkbabb/glass-ui/package.json → 544: "embla-carousel-vue": "^8.0",
+                                                               554: "embla-carousel-vue": { (meta)
+                                                               582: "embla-carousel-vue": "^8.6.0", (its own devDep)
+$ grep -n 'embla' package-lock.json                          → 630: "embla-carousel": "^8.0",
+                                                               631: "embla-carousel-vue": "^8.0",
+                                                               650: "embla-carousel": { (meta, optional)
+                                                               653: "embla-carousel-vue": { (meta, optional)
+    → the packument the lock recorded and the tarball on disk DISAGREE by one peer entry
+      (`embla-carousel`, bare).  It changes no verdict — the entry is optional in the map that has it
+      and absent from the map that does not — but it is a VERSION-STRING-vs-ARTIFACT divergence
+      inside this wave's own manifest surface, i.e. C-13's class, and is banked rather than absorbed.
+
+================================================================================
+E · THE DECISIVE PROBE — is `legacy-peer-deps=true` load-bearing?  (DRY RUN; writes nothing)
+================================================================================
+$ npm ci --dry-run --no-legacy-peer-deps --ignore-scripts        run1 exit=0   run2 exit=0
+    remove @mkbabb/parse-that 1.0.0
+    removed 1 package in 190ms
+    79 packages are looking for funding
+$ grep -ci 'ERESOLVE|peer dep|could not resolve' <both runs>   → 0  and  0
+CONTROL, the same command WITH the flag (the tree's own default):
+$ npm ci --dry-run --ignore-scripts                              exit=0
+$ diff <control, timings elided> <--no-legacy-peer-deps, timings elided>   → IDENTICAL
+    → STRICT peer resolution SUCCEEDS.  The flag changes NOTHING at this coordinate.
+    → node_modules verified intact after the probes: ls → glass-ui parse-that value.js; installed 7.0.0.
+
+SIDE DATUM, banked not cured: `@mkbabb/parse-that@1.0.0` is present in node_modules, is NOT in
+package.json ($ grep -n parse-that package.json → no hit), is NOT in package-lock.json
+($ grep -c parse-that package-lock.json → 0), and is neither a dependency nor a peer of glass-ui
+($ node -e "…glass-ui/package.json" → dependencies: undefined; peer has parse-that: false).
+It is EXTRANEOUS — an install-state residue, not a manifest coordinate.  Routed, not ruled here.
+
+================================================================================
+F · G-0.2 READING
+================================================================================
+BEFORE (spec RED baseline, fold 2026-08-28; reproduced by seat 0 read-only 2026-09-17):
+    four coordinates, three states; `.npmrc` unruled.                       RED
+AFTER (this seat, settled tree, double-run):
+    HEAD == origin/master == worktree == installed at "@mkbabb/glass-ui": "7.0.0" EXACT devDep + lock,
+    AND the two written rulings landed at MANIFEST-RULING.md §2 (the worktree deletion) and §3
+    (`legacy-peer-deps=true` vs the two absent peers).                       GREEN
+The version half was reconciled BY THE RESET (KF.W0.OP-1), never authored — no seat wrote a manifest byte.
+The ruling half is this seat's, and it is the half the gate's own falsifier exists to catch:
+"A settle that leaves `.npmrc` unruled passes a naive 'one version' check and fails here —
+ silence is not a disposition."

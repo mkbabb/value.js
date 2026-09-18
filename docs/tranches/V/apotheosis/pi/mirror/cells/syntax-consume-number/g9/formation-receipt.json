@@ -1,0 +1,38 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G9-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "status": "FROZEN_PRE_HOLDOUT_ZERO_CANDIDATES",
+  "rows": [
+    { "path": "../../../../ADDENDA-07.md", "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5", "bytes": 20954 },
+    { "path": "../../../../MODULE-DAG.md", "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f", "bytes": 4880 },
+    { "path": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts", "sha256": "ca3a8e2cb9257f9d56e95b247c4b58e46524ae68a84172ea217d3eb3c4a24869", "bytes": 2014 },
+    { "path": "../g5/authorities/css-syntax-3.Overview.bs", "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390", "bytes": 144427 },
+    { "path": "../g5/fixtures/public-cases.json", "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3", "bytes": 5213 },
+    { "path": "../g7/authorities/historical-utils.ts", "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4", "bytes": 7656 },
+    { "path": "../g8/contract.ts", "sha256": "7dec8367db6040150e8be4e31eb762e2c5927c1b86e7d54671277545ddf2f73d", "bytes": 2725 },
+    { "path": "../g8/feature-row.json", "sha256": "558dabbd0c8b9a22346d04be0b8dc759321cfc3d9dd08bb193b7b4e90acb8958", "bytes": 5329 },
+    { "path": "../g8/fixtures/g8-controls.json", "sha256": "3a9e47f7bff1e08f3ba2cd8d7c3aef6dd3fef06de77d049f6d38bea949d27d82", "bytes": 888 },
+    { "path": "../g8/harness.ts", "sha256": "5a5f9a440f0d2df0f1bdeced756b304224b33e8c794cecc4ef830bef74226864", "bytes": 18556 },
+    { "path": "../g8/holdout-destruction.json", "sha256": "30862497e808cfc0795f73f80c98c8f2788e98e8b54d48f94369f19653d3dece", "bytes": 5827 },
+    { "path": "../g8/rejection.json", "sha256": "2b4c7d38a48a4d850f5dd9fde2e3ab821404675c5155ad103c601bccdc524b24", "bytes": 4310 },
+    { "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf", "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b", "bytes": 3084 },
+    { "path": "admission-validator.mjs", "sha256": "f8a00dc67637ab968a00480f6c3a3bcede6b50adb0bc4186fca345b235d697cb", "bytes": 30798 },
+    { "path": "feature-contract.json", "sha256": "92cc3f90352c2e6250f16d93587ebfd74f51d2878fd5e8fdf312035b60514a1a", "bytes": 3945 },
+    { "path": "protocol.json", "sha256": "31cb95bc9c16767cf584453a97a6f217b67e71700e85fd80d5caeb03024d4496", "bytes": 2501 },
+    { "path": "seat-packets/b.json", "sha256": "93d5b9cbb79fb3a4a7005fa7bf3179d2039bd3005b37617a2d6e4ed21ad68916", "bytes": 620 },
+    { "path": "seat-packets/d.json", "sha256": "4ecacaad93c3914bc7e981dc43562d777882e983c17e1ded7c78d103c94b72d0", "bytes": 705 },
+    { "path": "seat-packets/h.json", "sha256": "0fad6c8846af8c487d45ff7d3b3355c8cd2a0a35ad9cf926596af3dc671b7b14", "bytes": 556 },
+    { "path": "seat-packets/s.json", "sha256": "ed4244f51a3b5a0ab2b18151fbfc0f871037395737c8f23c9b99d15c69bdc72a", "bytes": 606 }
+  ],
+  "row_count": 20,
+  "precursor_closure_sha256": "0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991",
+  "g8_terminal": {
+    "rejection": { "path": "../g8/rejection.json", "sha256": "2b4c7d38a48a4d850f5dd9fde2e3ab821404675c5155ad103c601bccdc524b24", "bytes": 4310 },
+    "destruction": { "path": "../g8/holdout-destruction.json", "sha256": "30862497e808cfc0795f73f80c98c8f2788e98e8b54d48f94369f19653d3dece", "bytes": 5827 },
+    "plaintext_revealed": false,
+    "secret_recoverable": false,
+    "reusable": false
+  },
+  "credit": "ZERO_FORMATION_ONLY"
+}

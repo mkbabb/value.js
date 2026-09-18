@@ -32,7 +32,7 @@ export type {
     TriggerType,
     ViewInset,
     ViewTimelineDescriptor,
-} from "../v4/css";
+} from "../css/index";
 export {
     coerceToSyntax,
     collectAnimationOptions,
@@ -53,4 +53,4 @@ export {
     parseTimingFunction,
     serializeCssColor,
     serializeTimelineOptions,
-} from "../v4/css";
+} from "../css/index";

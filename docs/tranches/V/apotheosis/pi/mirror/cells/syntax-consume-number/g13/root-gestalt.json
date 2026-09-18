@@ -1,0 +1,92 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.root-gestalt/v1",
+  "date": "2026-07-22",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 13,
+  "scope": "PUBLIC_PREAUTHOR_BOUNDARY_ONLY",
+  "subject": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/formation-receipt.json",
+    "sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572",
+    "bytes": 7167,
+    "mode": "0444",
+    "row_count": 33,
+    "closure_sha256": "53c79dd64ae4cc93ab497ae712e6d06b601c8c61fbaae49b5277d117c2f4c73c"
+  },
+  "root_replay": {
+    "workspace_validator_stdout_sha256": "41c254be53acf3d043deb5775c5344e286af2ed9f5558f963186913be560774c",
+    "tmp_validator_stdout_sha256": "41c254be53acf3d043deb5775c5344e286af2ed9f5558f963186913be560774c",
+    "byte_identical": true,
+    "strict_typescript": "PASS",
+    "sealed_row_drift": 0
+  },
+  "independent_reviews": [
+    {
+      "actual_collaboration_task": "/root/g13_topology_review",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/review-boundary-a.json",
+      "sha256": "663dc9abcb89652797199e76bfd1880c5bd91c05edcf2b177ddfe3cbad25be70",
+      "bytes": 2140,
+      "axis": "FOUR_TOPOLOGIES_AND_AST_CONTRACT",
+      "verdict": "ACCEPT",
+      "independence": "The task was dispatched without review B and did not read it.",
+      "model_route": "INHERITED_CODEX_RUNTIME; no separate model-served field was exposed by the collaboration service"
+    },
+    {
+      "actual_collaboration_task": "/root/g13_public_review_b2",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/review-boundary-b.json",
+      "sha256": "e7ab6509aa0b760c6f33cfa0bae48be94c1af694282762ead91444d08328b4fe",
+      "bytes": 10217,
+      "axis": "SEMANTICS_RUNTIME_CLOSURE_AND_CHRONOLOGY",
+      "verdict": "ACCEPT",
+      "independence": "The task explicitly reports that review A was not read.",
+      "model_route": "INHERITED_CODEX_RUNTIME; no separate model-served field was exposed by the collaboration service"
+    }
+  ],
+  "root_adjudication": [
+    {
+      "id": "G13-R-01",
+      "status": "ACCEPT",
+      "finding": "The raw-source topology gate rejected in G12 is replaced by a closed TypeScript compiler-API AST policy over one index.ts, exact core imports, fixed per-seat regex and combinator dataflow, closed syntax and identifiers, and exact B/S transaction statements. Six sealed negative controls fail through that policy."
+    },
+    {
+      "id": "G13-R-02",
+      "status": "ACCEPT",
+      "finding": "H, B, S, and D are genuinely distinct direct parse-that constructions: whole-prefix regex, factorized all/any, staged then composition, and first-character dispatch. No lexical, token-object, atom, CST, or scanner runtime is introduced."
+    },
+    {
+      "id": "G13-R-03",
+      "status": "ACCEPT",
+      "finding": "The public semantic rail closes the G12 observation gaps: 77 exact successes include seven incomplete-decimal/exponent maximal-prefix cases; 336 failures cross zero/nonzero offsets, seven predecessor values, and ordinary/preseeded diagnostics; result prototypes, own keys, enumerability, immutability, and descriptors are exact."
+    },
+    {
+      "id": "G13-R-04",
+      "status": "ACCEPT",
+      "finding": "Exact installed parse-that, TypeScript, esbuild, runtime, comparator, peer, and candidate-import closure identities are sealed. Workspace and /tmp emit the same validator result under bounded subprocesses, and no timing threshold affects admission."
+    },
+    {
+      "id": "G13-R-05",
+      "status": "ACCEPT_WITH_ZERO_FEATURE_CREDIT",
+      "finding": "Public-review-first chronology is internally possible: no candidate, holdout, custodian, author, review claim, or future root hash was embedded in the reviewed subject. Local JSON authenticates bytes only; root records actual collaboration task identities."
+    }
+  ],
+  "limits": {
+    "candidate_roots": 0,
+    "holdout_artifacts": 0,
+    "custodian_tasks": 0,
+    "author_tasks": 0,
+    "candidate_closures": 0,
+    "holdout_reveals": 0,
+    "skeptic_reviews": 0,
+    "synthesis_adjudications": 0,
+    "benchmarks": 0,
+    "parser_credit": 0,
+    "feature_credit": 0,
+    "production_authority": 0
+  },
+  "next_phase_authority": {
+    "permitted": "Dispatch exactly one independent custodian to generate and seal an unrevealed preauthor holdout against this accepted subject and root identity.",
+    "forbidden_now": "No candidate author may start; no holdout bytes may be revealed; no benchmark, parser, feature, integration, package, consumer, clean-chain, or production action is authorized.",
+    "after_custodian": "Root must verify the immutable ciphertext/receipt and record the actual custodian task before dispatching four independent H/B/S/D authors with common public inputs and only their seat packet."
+  },
+  "verdict": "ACCEPT_PUBLIC_BOUNDARY_ONLY_CUSTODIAN_MAY_SEAL",
+  "credit": 0
+}

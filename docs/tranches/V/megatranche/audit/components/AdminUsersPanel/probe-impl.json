@@ -1,0 +1,463 @@
+{
+  "engine": {
+    "chromium": {
+      "C1_errorState": {
+        "mainText": "Users 0 Manage accounts and permissions. 0 users Prune empty Refresh The roster is unreachable. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "0 users",
+        "emptyLine": null,
+        "rowsRendered": 0,
+        "interactiveRows": 0,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": true
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": true,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_unfiltered": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users · 3 empty Prune empty Refresh beta-drifte r-0002 2 Palettes alpha-keepe r-0001 4 Palettes epsilon-empt y-0005 0 delta-empt y-0004 0 gamma-empt y-0003 0 My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": "· 3 empty",
+        "rowsRendered": 5,
+        "interactiveRows": 2,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": false
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_filtered": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users · 1 empty Prune empty Refresh gamma-empt y-0003 0 My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": "· 1 empty",
+        "rowsRendered": 1,
+        "interactiveRows": 0,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": false
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_pruneDialog": {
+        "text": "Prune 1 empty users? This will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone. Cancel Prune"
+      },
+      "C2_filteredNoEmpty": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users Prune empty Refresh alpha-keepe r-0001 4 Palettes My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": null,
+        "rowsRendered": 1,
+        "interactiveRows": 1,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": true
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C3_midflight": {
+        "expandedSlugRow": [
+          "beta-drifte"
+        ],
+        "skeletons": 0
+      },
+      "C3_afterBetaResolve": {
+        "expandedRowText": "alpha-keepe r-0001 4 Palettes",
+        "disclosureText": "",
+        "skeletons": 2
+      },
+      "C3_afterAlphaResolve": {
+        "expandedRowText": "alpha-keepe r-0001 4 Palettes",
+        "disclosureText": "ALPHA-PALETTE-AAA 2 0"
+      },
+      "C3_consoleErrors": [],
+      "C4_failedDisclosure": {
+        "disclosureText": "· NONE PINNED · No palettes.",
+        "saysNoPalettes": true,
+        "saysUnreachableOrError": false,
+        "hasRetryButton": false
+      },
+      "C4_consoleErrors": [
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      ],
+      "C5_a11y": {
+        "rows": [
+          {
+            "ariaExpanded": "false",
+            "ariaControls": null,
+            "focusableDescendants": 2,
+            "descendantLabels": [
+              "Palettes",
+              "Delete user beta-drifter-0002"
+            ],
+            "accName": "beta-drifte r-0002 2 Palettes"
+          },
+          {
+            "ariaExpanded": "false",
+            "ariaControls": null,
+            "focusableDescendants": 2,
+            "descendantLabels": [
+              "Palettes",
+              "Delete user alpha-keeper-0001"
+            ],
+            "accName": "alpha-keepe r-0001 4 Palettes"
+          }
+        ],
+        "liveRegions": [
+          {
+            "tag": "DIV",
+            "role": "status",
+            "live": null,
+            "text": "· empty plate ·No saved palettes yet.Add colors ab"
+          }
+        ],
+        "rowBoxes": [
+          {
+            "w": 460,
+            "h": 56
+          },
+          {
+            "w": 460,
+            "h": 56
+          }
+        ]
+      },
+      "C5_doubleBeat": {
+        "beat1": "No empty users to prune",
+        "beat2": "No empty users to prune",
+        "beat2AtMs": 2332,
+        "at3350": "No empty users to prune",
+        "at4300": null
+      },
+      "C5_beatLiveRegion": [],
+      "C6_focusBefore": {
+        "tag": "BUTTON",
+        "label": "Delete user gamma-empty-0003"
+      },
+      "C6_focusAfter": {
+        "tag": "BODY",
+        "isBody": true,
+        "label": "→UsersToolsUsersPalettes admin  @mbabb U",
+        "rowStillPresent": false
+      },
+      "C7_mobile": {
+        "docScrollW": 390,
+        "innerW": 390,
+        "under24": [],
+        "buttons": [
+          {
+            "label": "Sort users",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Prune empty",
+            "w": 107.9,
+            "h": 54
+          },
+          {
+            "label": "Refresh",
+            "w": 79.7,
+            "h": 54
+          },
+          {
+            "label": "Palettes",
+            "w": 85,
+            "h": 54
+          },
+          {
+            "label": "Delete user beta-drifter-0002",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Palettes",
+            "w": 85,
+            "h": 54
+          },
+          {
+            "label": "Delete user alpha-keeper-0001",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user epsilon-empty-0005",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user delta-empty-0004",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user gamma-empty-0003",
+            "w": 28,
+            "h": 54
+          }
+        ]
+      }
+    },
+    "webkit": {
+      "C1_errorState": {
+        "mainText": "Users 0 Manage accounts and permissions. 0 users Prune empty Refresh The roster is unreachable. Internal Server Error Retry My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "0 users",
+        "emptyLine": null,
+        "rowsRendered": 0,
+        "interactiveRows": 0,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": true
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": true,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_unfiltered": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users · 3 empty Prune empty Refresh beta-drifte r-0002 2 Palettes alpha-keepe r-0001 4 Palettes epsilon-empt y-0005 0 delta-empt y-0004 0 gamma-empt y-0003 0 My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": "· 3 empty",
+        "rowsRendered": 5,
+        "interactiveRows": 2,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": false
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_filtered": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users · 1 empty Prune empty Refresh gamma-empt y-0003 0 My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": "· 1 empty",
+        "rowsRendered": 1,
+        "interactiveRows": 0,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": false
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C2_pruneDialog": {
+        "text": "Prune 1 empty users? This will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone. Cancel Prune"
+      },
+      "C2_filteredNoEmpty": {
+        "mainText": "Users 5 Manage accounts and permissions. 5 users Prune empty Refresh alpha-keepe r-0001 4 Palettes My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE · No saved palettes yet. Add colors above, then save the set.",
+        "countLine": "5 users",
+        "emptyLine": null,
+        "rowsRendered": 1,
+        "interactiveRows": 1,
+        "toolbar": [
+          {
+            "text": "Prune empty",
+            "disabled": true
+          },
+          {
+            "text": "Refresh",
+            "disabled": false
+          }
+        ],
+        "hasUnreachable": false,
+        "hasNoUsersFound": false,
+        "skeletons": 0
+      },
+      "C3_midflight": {
+        "expandedSlugRow": [
+          "beta-drifte"
+        ],
+        "skeletons": 0
+      },
+      "C3_afterBetaResolve": {
+        "expandedRowText": "alpha-keepe r-0001 4 Palettes",
+        "disclosureText": "",
+        "skeletons": 2
+      },
+      "C3_afterAlphaResolve": {
+        "expandedRowText": "alpha-keepe r-0001 4 Palettes",
+        "disclosureText": "ALPHA-PALETTE-AAA 2 0"
+      },
+      "C3_consoleErrors": [],
+      "C4_failedDisclosure": {
+        "disclosureText": "· NONE PINNED · No palettes.",
+        "saysNoPalettes": true,
+        "saysUnreachableOrError": false,
+        "hasRetryButton": false
+      },
+      "C4_consoleErrors": [
+        "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+      ],
+      "C5_a11y": {
+        "rows": [
+          {
+            "ariaExpanded": "false",
+            "ariaControls": null,
+            "focusableDescendants": 2,
+            "descendantLabels": [
+              "Palettes",
+              "Delete user beta-drifter-0002"
+            ],
+            "accName": "beta-drifte r-0002 2 Palettes"
+          },
+          {
+            "ariaExpanded": "false",
+            "ariaControls": null,
+            "focusableDescendants": 2,
+            "descendantLabels": [
+              "Palettes",
+              "Delete user alpha-keeper-0001"
+            ],
+            "accName": "alpha-keepe r-0001 4 Palettes"
+          }
+        ],
+        "liveRegions": [
+          {
+            "tag": "DIV",
+            "role": "status",
+            "live": null,
+            "text": "· empty plate ·No saved palettes yet.Add colors ab"
+          }
+        ],
+        "rowBoxes": [
+          {
+            "w": 460,
+            "h": 56
+          },
+          {
+            "w": 460,
+            "h": 56
+          }
+        ]
+      },
+      "C5_doubleBeat": {
+        "beat1": "No empty users to prune",
+        "beat2": "No empty users to prune",
+        "beat2AtMs": 2045,
+        "at3350": "No empty users to prune",
+        "at4300": null
+      },
+      "C5_beatLiveRegion": [],
+      "C6_focusBefore": {
+        "tag": "BUTTON",
+        "label": "Delete user gamma-empty-0003"
+      },
+      "C6_focusAfter": {
+        "tag": "BODY",
+        "isBody": true,
+        "label": "→UsersToolsUsersPalettes admin  @mbabb U",
+        "rowStillPresent": false
+      },
+      "C7_mobile": {
+        "docScrollW": 390,
+        "innerW": 390,
+        "under24": [],
+        "buttons": [
+          {
+            "label": "Sort users",
+            "w": 44,
+            "h": 44
+          },
+          {
+            "label": "Prune empty",
+            "w": 107.9,
+            "h": 54
+          },
+          {
+            "label": "Refresh",
+            "w": 79.7,
+            "h": 54
+          },
+          {
+            "label": "Palettes",
+            "w": 85,
+            "h": 54
+          },
+          {
+            "label": "Delete user beta-drifter-0002",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Palettes",
+            "w": 85,
+            "h": 54
+          },
+          {
+            "label": "Delete user alpha-keeper-0001",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user epsilon-empty-0005",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user delta-empty-0004",
+            "w": 28,
+            "h": 54
+          },
+          {
+            "label": "Delete user gamma-empty-0003",
+            "w": 28,
+            "h": 54
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "origin": "http://localhost:9077",
+    "globalEmpty": 3,
+    "users": 5
+  }
+}

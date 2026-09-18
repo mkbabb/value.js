@@ -1,0 +1,17 @@
+[console.error] [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev
+=== pre-upload result column head === <div data-v-ce26fe94="" class="flex flex-col gap-3 min-w-0"><div data-v-bfbc09b0="" data-v-ce26fe94="" class="flex flex-col gap-3 shrink-0"><!-- K slider — own row, full width, tall track with gradient.
+             T-44a (T.W6.5 row 9): the rail's COLOR channel is the certified
+             track ink. E1-R3 (T.W8 remediation_1): pre-image the track ink
+             carries the rail (≥3:1 on its g
+=== post-upload layout ===
+{
+ "layoutClass": "flex flex-col gap-3",
+ "colCount": 1,
+ "hasPaletteCard": false,
+ "hasSkeleton": false,
+ "hasShadow": false,
+ "codeCount": 1
+}
+=== k-rail gradient (proves quantize returned) === {
+ "railBg": "linear-gradient(to right, oklch(0.544872 0.202432 7.683829) 0%, oklch(0.738921 0.217858 137.844879) 33%, oklch(0.497787 0.182301 261.30661) 67%, oklch(0.908697 0.023126 84.592789) 100%)"
+}

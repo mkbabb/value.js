@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-typescript-combinators-proposal-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "slot", "input_epoch_hash", "execution_manifest", "origin_ledger_hash", "css_corpus_hash", "parse_that_package_receipt_hash", "proposal_root", "typescript_root", "modules", "runtime_contract", "manifest_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-typescript-combinators-proposal/1" },
+    "slot": { "const": "typescript-combinators" },
+    "input_epoch_hash": { "$ref": "#/$defs/sha256" },
+    "execution_manifest": { "$ref": "#/$defs/executionBinding" },
+    "origin_ledger_hash": { "$ref": "#/$defs/sha256" },
+    "css_corpus_hash": { "$ref": "#/$defs/sha256" },
+    "parse_that_package_receipt_hash": { "$ref": "#/$defs/sha256" },
+    "proposal_root": { "$ref": "#/$defs/absolutePath" },
+    "typescript_root": { "$ref": "#/$defs/absolutePath" },
+    "modules": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bbnf_path", "typescript_path", "sha256"],
+        "properties": {
+          "bbnf_path": { "$ref": "#/$defs/bbnfPath" },
+          "typescript_path": { "$ref": "#/$defs/typescriptPath" },
+          "sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "runtime_contract": {
+      "const": {
+        "translation": "handwritten-parse-that-combinators",
+        "package_name": "@mkbabb/parse-that",
+        "package_version": "1.0.0",
+        "import_specifier": "@mkbabb/parse-that",
+        "public_entry_only": true,
+        "original_string_input": true,
+        "encoded_token_buffer": false,
+        "generated_runtime": false,
+        "alternate_runtime": false,
+        "workspace_link": false,
+        "active_t_u_or_bank_input": false
+      }
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "bbnfPath": { "type": "string", "pattern": "^grammar/css/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.bbnf$" },
+    "typescriptPath": { "type": "string", "pattern": "^src/css/grammar/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.ts$" },
+    "executionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/.*/test/proof/p00/css-module-isomorphism\\.execution\\.json$" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

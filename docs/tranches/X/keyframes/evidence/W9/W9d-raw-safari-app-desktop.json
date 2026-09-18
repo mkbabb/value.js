@@ -1,0 +1,240 @@
+{
+ "cell": "safari-app/desktop",
+ "driver": "safaridriver",
+ "state": "default",
+ "caps": {
+  "browserVersion": "26.4",
+  "platformVersion": "26.4.1",
+  "platformBuildVersion": "25E253",
+  "useSimulator": false
+ },
+ "substrateSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+ "bundleSha256": "1ba994574a250fcc1ffe4655fdee0249a235c2824a2692a6dcfe785d2afda448",
+ "origin": "http://127.0.0.1:9123",
+ "capability": {
+  "fc": {
+   "media": "(forced-colors: active)",
+   "matches": false
+  },
+  "fcNone": {
+   "media": "(forced-colors: none)",
+   "matches": true
+  },
+  "prt": {
+   "media": "(prefers-reduced-transparency: reduce)",
+   "matches": false
+  },
+  "prm": {
+   "media": "(prefers-reduced-motion: reduce)",
+   "matches": false
+  },
+  "pcMore": {
+   "media": "(prefers-contrast: more)",
+   "matches": false
+  },
+  "pcNoPref": {
+   "media": "(prefers-contrast: no-preference)",
+   "matches": true
+  },
+  "dark": {
+   "media": "(prefers-color-scheme: dark)",
+   "matches": true
+  },
+  "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.4 Safari/605.1.15",
+  "dpr": 2,
+  "iw": 1280,
+  "ih": 848
+ },
+ "rows": [
+  {
+   "probe": "G-KFW9-9 BEFORE · ribbon .btn-playback focus indicator",
+   "route": "/#/easing",
+   "cell": "safari-app/desktop",
+   "driver": "safaridriver",
+   "state": "default",
+   "tabWalk": {
+    "landed": false,
+    "tabs": 60
+   },
+   "active": {
+    "tag": "span",
+    "cls": "slider-thumb glass-specular-track",
+    "id": null,
+    "text": "",
+    "ariaLabel": null,
+    "role": "slider",
+    "focusVisible": true,
+    "outlineStyle": "auto",
+    "outlineWidth": "5px",
+    "outlineColor": "rgb(26, 169, 255)",
+    "outlineOffset": "0px",
+    "boxShadow": "none",
+    "borderTop": "0px none rgb(233, 230, 226)",
+    "rect": {
+     "x": 166,
+     "y": 337,
+     "w": 0,
+     "h": 20
+    }
+   },
+   "shot": {
+    "path": "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-safari-app-desktop-easing-ribbon-default.png",
+    "sha256": "631c27a9a8851d20f559001d5ca269d9de89f7983f5c4d6e277e44421f43c538",
+    "bytes": 1022964
+   },
+   "presence": {
+    "btnPlayback": [
+     {
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback btn-playback-accent",
+      "text": "",
+      "hasFocusRing": true,
+      "tabindex": null,
+      "tag": "button"
+     },
+     {
+      "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover btn-playback h-10 w-full rounded-full gap-2 btn-interactive aria-pressed:bg-primary/10 aria-pressed:border-primary/40",
+      "text": "",
+      "hasFocusRing": true,
+      "tabindex": null,
+      "tag": "button"
+     }
+    ],
+    "focusRingCount": 44
+   }
+  },
+  {
+   "probe": "G-KFW9-9 BEFORE · .focus-ring focus indicator (the producer-identical selector)",
+   "route": "/#/easing",
+   "cell": "safari-app/desktop",
+   "driver": "safaridriver",
+   "state": "default",
+   "tabWalk": {
+    "landed": true,
+    "tabs": 3
+   },
+   "active": {
+    "tag": "button",
+    "cls": "toggle-group__item tap-squish focus-ring",
+    "id": null,
+    "text": "All",
+    "ariaLabel": null,
+    "role": null,
+    "focusVisible": true,
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "outlineOffset": "0px",
+    "boxShadow": "oklab(0.926152 0.001586 0.006089 / 0.06) 0px 2px 8px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px",
+    "borderTop": "1px solid rgb(101, 87, 73)",
+    "rect": {
+     "x": 490,
+     "y": 121,
+     "w": 38,
+     "h": 36
+    }
+   },
+   "shot": {
+    "path": "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-safari-app-desktop-easing-focusring-default.png",
+    "sha256": "9c357c5f352c647b6277c3fcc6a51101a4b6f82f90caa2cd19eecebda9820356",
+    "bytes": 1017958
+   }
+  },
+  {
+   "probe": "ST-1 · the sequence row sliders' focus indication (HCM datum)",
+   "route": "/#/sequence",
+   "cell": "safari-app/desktop",
+   "driver": "safaridriver",
+   "state": "default",
+   "tabWalk": {
+    "landed": true,
+    "tabs": 1
+   },
+   "active": {
+    "tag": "div",
+    "cls": "seq-handle",
+    "id": null,
+    "text": "",
+    "ariaLabel": "Re-time row 1 start offset",
+    "role": "slider",
+    "focusVisible": true,
+    "outlineStyle": "none",
+    "outlineWidth": "3px",
+    "outlineColor": "rgb(233, 230, 226)",
+    "outlineOffset": "0px",
+    "boxShadow": "color(srgb 0.729412 0.717647 0.670588 / 0.3) 0px 0px 0px 2px, color(srgb 0.729412 0.717647 0.670588 / 0.15) 0px 0px 8px 0px",
+    "borderTop": "0px solid rgb(101, 87, 73)",
+    "rect": {
+     "x": 358,
+     "y": 329,
+     "w": 44,
+     "h": 32
+    }
+   },
+   "shot": {
+    "path": "docs/tranches/V/megatranche/audit/visual/safari-real/hcm-safari-app-desktop-sequence-slider-default.png",
+    "sha256": "ed0e28d46e55dc28208744f39481a5f0af4ec2c1ecaf0d5d39c06ef871936105",
+    "bytes": 419716
+   },
+   "presence": {
+    "seqHandleCount": 5,
+    "sliders": [
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 1 start offset",
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "1600",
+      "ti": "0"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 2 start offset",
+      "now": "260",
+      "vt": null,
+      "min": "0",
+      "max": "1600",
+      "ti": "0"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 3 start offset",
+      "now": "520",
+      "vt": null,
+      "min": "0",
+      "max": "1600",
+      "ti": "0"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 4 start offset",
+      "now": "780",
+      "vt": null,
+      "min": "0",
+      "max": "1600",
+      "ti": "0"
+     },
+     {
+      "cls": "seq-handle",
+      "label": "Re-time row 5 start offset",
+      "now": "1040",
+      "vt": null,
+      "min": "0",
+      "max": "1600",
+      "ti": "0"
+     },
+     {
+      "cls": "seq-scrub relative w-full h-9 cursor-pointer select-none",
+      "label": "Scrub the sequence master playhead",
+      "now": "0",
+      "vt": null,
+      "min": "0",
+      "max": "100",
+      "ti": "0"
+     }
+    ],
+    "sliderCount": 6
+   }
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "value.pi.syntax-consume-number.g11.source-census/v1",
+  "active_root": {
+    "path": "apotheosis",
+    "rows": [
+      { "kind": "regular", "path": "README.md", "sha256": "42f54a96f931ab6a1b8a473b4a02aaa40b4f6e4ee94ffab8e31357f6053bdcd0", "bytes": 1107, "extension": ".md", "importable": false, "executable": false },
+      { "kind": "regular", "path": "clean-base.json", "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2", "bytes": 1177, "extension": ".json", "importable": true, "executable": false },
+      { "kind": "regular", "path": "grammar/css/l4/README.md", "sha256": "77f8aaf85e4cf7dc85a7b3fc890a7bb63ba25018a5f10db9ebe55ad2a38b71b2", "bytes": 241, "extension": ".md", "importable": false, "executable": false },
+      { "kind": "regular", "path": "vitest.config.ts", "sha256": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9", "bytes": 216, "extension": ".ts", "importable": true, "executable": false }
+    ]
+  },
+  "candidate_roots": {
+    "h": { "path": "candidates/h", "state": "ABSENT", "rows": [] },
+    "b": { "path": "candidates/b", "state": "ABSENT", "rows": [] },
+    "s": { "path": "candidates/s", "state": "ABSENT", "rows": [] },
+    "d": { "path": "candidates/d", "state": "ABSENT", "rows": [] }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G8-AUTHOR-ADMISSION",
+  "scope": "FORMATION_ONLY_PUBLIC_BOUNDARY_AUTHOR_AND_OWNER_LAW",
+  "status": "FROZEN_PRECURSOR_AWAITING_FRESH_G8_HOLDOUT_TWO_CHALLENGES_AND_ROOT",
+  "commands": {
+    "strict": "node cells/syntax-consume-number/g8/formation-validator.mjs --strict-check",
+    "negative_controls": "node cells/syntax-consume-number/g8/formation-validator.mjs --negative-controls",
+    "path_bearing_pre_author_fixture": "node cells/syntax-consume-number/g8/formation-validator.mjs --pre-author-fixture",
+    "detached_four_seat_fixture": "node cells/syntax-consume-number/g8/formation-validator.mjs --four-seat-fixture",
+    "holdout_schema_fixture": "node cells/syntax-consume-number/g8/formation-validator.mjs --holdout-schema-fixture",
+    "seat_delivery": "node cells/syntax-consume-number/g8/formation-validator.mjs --seat-delivery <h|b|s|d>",
+    "source_assay": "node cells/syntax-consume-number/g8/formation-validator.mjs --assay-stdin",
+    "pre_author": "node cells/syntax-consume-number/g8/formation-validator.mjs --pre-author <boundary-manifest.json>",
+    "benchmark": "node cells/syntax-consume-number/g8/benchmark-validator.mjs --self-check",
+    "owner_law": "node cells/syntax-consume-number/g8/owner-law-validator.mjs --self-check"
+  },
+  "sequence": [
+    "Freeze this exact precursor only after G7 terminal rejection and unrevealed secret destruction reproduce exactly.",
+    "An independent custodian forms a wholly fresh G8 generator, hidden corpus, key, nonce, plaintext commitment, ciphertext and durable custody route with zero candidate-source access and no G7 secret reuse.",
+    "Seal one boundary manifest whose path-bearing rows all validate; obtain two distinct substantive independent ACCEPT boundary challenges and one third distinct ACCEPT root with zero union blockers.",
+    "Run --pre-author over the exact sealed manifest. It captures every path once, validates the holdout/ciphertext and reviews/root, then emits hashes for four deterministic seat-specific delivery manifests.",
+    "Each isolated author receives common rows plus exactly that seat packet and its named source inputs. Peer packets, sources, design notes, candidates, reviews and benchmark results are excluded.",
+    "Each author closes one exact candidate payload closure excluding the detached author receipt. The four-seat gate binds the satisfiable payload closure, source and delivered-input identities.",
+    "Reveal and verify the fresh holdout only after all four payloads close; then destroy secret custody and retain a destruction receipt.",
+    "Resolve the exact 40-row benchmark evidence root and retain at least two append-only attempts without retry erasure.",
+    "Five independent skeptics review the same exact candidate set on all common axes. Three further independent blinded adjudicators unanimously nominate one already reviewed unblocked exact payload hash."
+  ],
+  "candidate_floor": {
+    "target": "overlay/grammar/css/l4/value-unit/consume-number.ts",
+    "source_shape": "Imports plus exactly one exported initialized const consumeNumber. Only expression-bodied inline map/chain callbacks are allowed.",
+    "directness": "Every parser method receiver must be the directly reachable initializer combinator graph; every value-method receiver must be an inline mapper parameter. All helper/function/method/receiver indirection, loops, mutation, state/source/manual scanning, lexer/token/atom/component/CST and broad remainder terminals are rejected.",
+    "orthogonality": "No combinator-call quota exists. H and B may converge; D remains mandatory. Five skeptics make the substantive lineage, provenance, idiom, KISS and orthogonality conclusion for exact candidate bytes."
+  },
+  "payload_identity": "The candidate payload closure hashes an exact sorted path/hash/bytes set and excludes detached author-receipt.json, removing self-reference. The receipt separately binds the payload closure and exact source row.",
+  "delivery_identity": "seat-delivery-manifest.schema.json and --seat-delivery compute the exact common rows plus one seat packet and only that packet's source rows. author-receipt.schema.json binds manifest identity, delivered-input closure and row count.",
+  "holdout_identity": "holdout-receipt.schema.json and executable validation bind generator bytes/method/canonicalization, hidden index and plaintext commitments, comparison inputs, custodian identity/model/commands/time, secret location, reveal/destroy/no-reuse protocol, ciphertext framing, exact coverage, freshness and explicit pre-/post-reveal public-verifiability limits.",
+  "benchmark_identity": "benchmark-validator.mjs resolves all pre-author, feature, corpus, observation, candidate source, author, build, bundle, correctness, comparator, runner and schedule files before binding attempt/raw identities. It demonstrates two retained writable append-only attempts and rejects retry reuse.",
+  "owner_law": "candidate-set.schema.json, skeptic-receipt.schema.json, adjudicator-receipt.schema.json and owner-law-validator.mjs enforce four exact candidate payloads, five unique complete skeptic roles and three further unique roles, actor disjointness, common exact inputs, zero blocker on the selected candidate, unanimous exact-hash nomination and no unseen composite.",
+  "credit": "ZERO: the frozen formation, later admission, authors, evidence and reviews cannot by themselves accept, integrate, project, move or produce the feature."
+}

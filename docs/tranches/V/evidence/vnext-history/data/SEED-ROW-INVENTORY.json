@@ -1,0 +1,2947 @@
+{
+  "schema": "vnext-seed-row-inventory/2",
+  "atomicity": "Every paragraph, top-level Markdown list item, and data-table row from kickoff §0 through §9 and handoff P1 through P5 is one block. The mixed kickoff method paragraph is replaced by four disjoint sentence-level blocks so DesignSync unavailability has an independent terminal disposition.",
+  "amendment_authority": {
+    "path": "OWNER-AMENDMENTS.md",
+    "sha256": "892c496056809c0d7ae3fa8fe34bfc45a09d8884cd0465b7fbdd8b0197c764f2"
+  },
+  "seeds": {
+    "kickoff": {
+      "path": "../coordination/keyframes-inbox-2026-07-18-vnext-ingestion-prompt.md",
+      "sha256": "ea0f570406f425fab867916de728701f6b7851bcb74a2a66ccc9f5caa7af4399"
+    },
+    "handoff": {
+      "path": "../coordination/keyframes-inbox-2026-07-18-vnext-formation-handoff.md",
+      "sha256": "a8457da2ec7e7bf16d700a23ab66dda7d851028a570700de2cbf67190b41b20c"
+    }
+  },
+  "rows": [
+    {
+      "id": "K-L-L021",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          21,
+          1
+        ],
+        "end": [
+          25,
+          24
+        ],
+        "excerpt_sha256": "655b31c3c12c41da679f3596f10c225d7c73c8717a894130747513ecea6be5ff"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L026",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          26,
+          1
+        ],
+        "end": [
+          31,
+          30
+        ],
+        "excerpt_sha256": "d6b12e0d1bf39e1f874622afcb0877176b58b7a553dd745bc9a000695dde0eba"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Apply OA-01 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": [
+        "OA-01"
+      ]
+    },
+    {
+      "id": "K-L-L032",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          32,
+          1
+        ],
+        "end": [
+          37,
+          82
+        ],
+        "excerpt_sha256": "4ea4c8c23d9b09cf83966006e9b3eec0ff2e38edbaabbadb144c4871a46fc9c5"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C00U",
+      "decision": "Fold every clause of this exact list-item into C00U; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L038",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          38,
+          1
+        ],
+        "end": [
+          49,
+          61
+        ],
+        "excerpt_sha256": "4050ddac62fd7eba9fe3520d956fdfdf38a3fbb96a787ebc07f559e0ed7f8310"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L053",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          53,
+          1
+        ],
+        "end": [
+          62,
+          26
+        ],
+        "excerpt_sha256": "5f28898f9c420e69f1d1b142a92b443188086344a2f917e000bdf0737b6a2631"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Apply OA-02 only on their named axes; fold every unaffected clause of this exact block into C08.",
+      "amendments": [
+        "OA-02"
+      ]
+    },
+    {
+      "id": "K-P-L066",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          66,
+          1
+        ],
+        "end": [
+          67,
+          40
+        ],
+        "excerpt_sha256": "83b723e759d81f273720ac331331755f5c0229da53dcb524c0fa5e2f303ece67"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact paragraph into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L069",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          69,
+          1
+        ],
+        "end": [
+          75,
+          41
+        ],
+        "excerpt_sha256": "37538eed3494e3f355d420e0db241e107f448586b511cb40798b8647b3554b23"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K02",
+      "decision": "Fold every clause of this exact list-item into K02; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L076",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          76,
+          1
+        ],
+        "end": [
+          81,
+          22
+        ],
+        "excerpt_sha256": "5fd82aa8161bc82953a045a1a00b5bfef3d3c5f4738f3328a5d5bde11bb402cc"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact list-item into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L083",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          83,
+          1
+        ],
+        "end": [
+          94,
+          27
+        ],
+        "excerpt_sha256": "4fef99099590894883d28e2c901253e0598ed8316fe5bbc440066d4480ac04dd"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Apply OA-10 only on their named axes; fold every unaffected clause of this exact block into P00.",
+      "amendments": [
+        "OA-10"
+      ]
+    },
+    {
+      "id": "K-P-L096",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          96,
+          1
+        ],
+        "end": [
+          114,
+          59
+        ],
+        "excerpt_sha256": "9470b9cf494fe51f986a1216ce8d80d7d028955dd4413e5f1c1260616a96afaa"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Apply OA-10 only on their named axes; fold every unaffected clause of this exact block into P01.",
+      "amendments": [
+        "OA-10"
+      ]
+    },
+    {
+      "id": "K-P-L118",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          118,
+          1
+        ],
+        "end": [
+          123,
+          42
+        ],
+        "excerpt_sha256": "3de995117ca29c9d92c73807b69fc93523956c483c950f282ce3f8e895808cc9"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V30",
+      "decision": "Fold every clause of this exact paragraph into V30; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L125",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          125,
+          1
+        ],
+        "end": [
+          137,
+          59
+        ],
+        "excerpt_sha256": "177440db23b78b10abc1f2654fd31a36857348acf473e0c0203aedb6835f7071"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V15",
+      "decision": "Fold every clause of this exact paragraph into V15; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L141",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          141,
+          1
+        ],
+        "end": [
+          145,
+          51
+        ],
+        "excerpt_sha256": "08c0366e7f536dad8c29909fec019ec806067c7567d51bf90c41745ea3732de5"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact paragraph into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L146",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          146,
+          1
+        ],
+        "end": [
+          149,
+          76
+        ],
+        "excerpt_sha256": "81a712422262676c6489a698ad7beaa68d0f3a8474a53e466719eea890949743"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L150",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          150,
+          1
+        ],
+        "end": [
+          154,
+          14
+        ],
+        "excerpt_sha256": "9c4814bb2d5f3a103503233ea40002b5a2128b98c0e6417cf09b5725845e9a7e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L155",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          155,
+          1
+        ],
+        "end": [
+          159,
+          34
+        ],
+        "excerpt_sha256": "a25539aed962b09643902bf0ed291661532258ae23fefb4c4a7af45fee331951"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V29T",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into V29T.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "K-L-L160",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          160,
+          1
+        ],
+        "end": [
+          165,
+          82
+        ],
+        "excerpt_sha256": "7bd2a1794f4c4a068691715bf28362b5d9a4ada936a20fb51a7c6c9cc7b80741"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V00C",
+      "decision": "Apply OA-05 and OA-14 only on their named axes; fold every unaffected clause of this exact block into V00C.",
+      "amendments": [
+        "OA-05",
+        "OA-14"
+      ]
+    },
+    {
+      "id": "K-L-L166",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          166,
+          1
+        ],
+        "end": [
+          168,
+          76
+        ],
+        "excerpt_sha256": "07b351df22022d77d0bc33ae471520407fcbcfd63fb15cd97b48d19201e8b595"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact list-item into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L169",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          169,
+          1
+        ],
+        "end": [
+          171,
+          25
+        ],
+        "excerpt_sha256": "c734ba64bd42869a59f80ceedaff12d7fa24ab807920a95d6219483aa6b5bbec"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact list-item into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L173",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          173,
+          1
+        ],
+        "end": [
+          184,
+          59
+        ],
+        "excerpt_sha256": "1e553846c39c22a1860d2407ec8de765d35f0bc7acaac1d9ca2ea150330f4b6a"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D00",
+      "decision": "Apply OA-02 only on their named axes; fold every unaffected clause of this exact block into D00.",
+      "amendments": [
+        "OA-02"
+      ]
+    },
+    {
+      "id": "K-P-L188",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          188,
+          1
+        ],
+        "end": [
+          190,
+          49
+        ],
+        "excerpt_sha256": "8b80888efa216d8ef3c47413cf6f59a846674783c381cbda4c19cbd25b57248d"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C00U",
+      "decision": "Fold every clause of this exact paragraph into C00U; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L192",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          192,
+          1
+        ],
+        "end": [
+          197,
+          85
+        ],
+        "excerpt_sha256": "a4d531a8b6f593b3b954573e8e970b30336d779dabf26579b487e7ba3e5c431e"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact list-item into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L198",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          198,
+          1
+        ],
+        "end": [
+          200,
+          44
+        ],
+        "excerpt_sha256": "ac7043fc71ab0f61cfa1db21d2af69a287fa7d661f3185fb700f6fc1c0c22c68"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K24.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "K-L-L201",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          201,
+          1
+        ],
+        "end": [
+          206,
+          47
+        ],
+        "excerpt_sha256": "afd16dec0e74744a717facd960605ff507656bf4e90d3fc4f8210c508166024b"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "K-L-L207",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          207,
+          1
+        ],
+        "end": [
+          210,
+          27
+        ],
+        "excerpt_sha256": "dad15cabfd7d18e1f42164a6469ee245cc888d35e14c085d37b193b32db1163e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K22T.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "K-L-L211",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          211,
+          1
+        ],
+        "end": [
+          212,
+          44
+        ],
+        "excerpt_sha256": "539ade92f3fb676af50742f6d10418f45effe4b3a840cb93a2d4c2affe9105f2"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact list-item into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L213",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          213,
+          1
+        ],
+        "end": [
+          214,
+          62
+        ],
+        "excerpt_sha256": "bbe1fb28f945c66e9527849772af94d4c7a8e0e356a8df296ac4307466cdba56"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C00U",
+      "decision": "Fold every clause of this exact list-item into C00U; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L216",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          216,
+          1
+        ],
+        "end": [
+          226,
+          47
+        ],
+        "excerpt_sha256": "ccf8c5814eb688d07600ac112b8dcf07057de9ca8c4fabfdbc77bfc503a79952"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact paragraph into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L230",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          230,
+          1
+        ],
+        "end": [
+          237,
+          83
+        ],
+        "excerpt_sha256": "8ab67b309206ed728ead4772d04a918f894ed00da0e5e1b494fc61350b08de2c"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact list-item into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L238",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          238,
+          1
+        ],
+        "end": [
+          241,
+          24
+        ],
+        "excerpt_sha256": "d227441882812052c8fafec806320c912a50ce8c17b3faa6aed4e5d1a8fc0a75"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact list-item into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L242",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          242,
+          1
+        ],
+        "end": [
+          243,
+          22
+        ],
+        "excerpt_sha256": "095f62cb396e5573993d5e592cd2e366a7ed79e0adbdce7d997d229a62b28999"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L247",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          247,
+          1
+        ],
+        "end": [
+          264,
+          68
+        ],
+        "excerpt_sha256": "9229a83e031a9495ba0b0462cf031bbcf4e019ce65a2e934de41af34cf581866"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact paragraph into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L266",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          266,
+          1
+        ],
+        "end": [
+          273,
+          48
+        ],
+        "excerpt_sha256": "050e9ec82faf64f6ec7aa52806351a3d0dd8db5773fa2bd996c8293e3f6cdf7c"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact list-item into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L274",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          274,
+          1
+        ],
+        "end": [
+          274,
+          51
+        ],
+        "excerpt_sha256": "7f86409646fcdd77eb8c48d1834dce9f2fdec17b2c63388dd6ea6b3b597a1aa7"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C00U",
+      "decision": "Fold every clause of this exact list-item into C00U; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L275",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          275,
+          1
+        ],
+        "end": [
+          276,
+          74
+        ],
+        "excerpt_sha256": "6e67dbe2d3e96f8fb638686aeda8b6eaa4b5ed3fa51c42857d8d956f3d0e114b"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-L-L277",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          277,
+          1
+        ],
+        "end": [
+          279,
+          44
+        ],
+        "excerpt_sha256": "0c46592a386dfe99d7e34eefc957018ca7e49e1bd24734e831f39c30bc268760"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Fold every clause of this exact list-item into formation-root; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-M1-L283",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          283,
+          1
+        ],
+        "end": [
+          288,
+          63
+        ],
+        "excerpt_sha256": "960d126b0e4cdb4c7c8cb7717543a3cd1223269de6a6286602c0946bf3c64a91"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Apply OA-01 only on their named axes; fold every unaffected clause of this exact block into C08.",
+      "amendments": [
+        "OA-01"
+      ]
+    },
+    {
+      "id": "K-M2-L288C64",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          288,
+          64
+        ],
+        "end": [
+          290,
+          59
+        ],
+        "excerpt_sha256": "e5bde1320e00b2f666eb16604b11600f1708c7a9917ef3d3e877ccdd1404899b"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact method-convergence into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "ORCH-07",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          290,
+          60
+        ],
+        "end": [
+          291,
+          28
+        ],
+        "excerpt_sha256": "829708ced25371ff6434169ab502614f53bcd14d8c71ad33a7e6c51c06e44084"
+      },
+      "phase": "formation",
+      "disposition": "banked",
+      "owner": "formation-root",
+      "decision": "DesignSync is unavailable and no substitute may claim equivalence.",
+      "amendments": [
+        "OA-01"
+      ],
+      "retrigger": "DesignSync becomes callable; formation-root routes re-review to G00, D00A, and M00 before those visual programs close."
+    },
+    {
+      "id": "K-M4-L291C29",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          291,
+          29
+        ],
+        "end": [
+          291,
+          83
+        ],
+        "excerpt_sha256": "524bf05a5fba0d75077fc6cb06d8cb6de4cd4954a6abbede147f840b3da21706"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact method-parallelism into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "K-P-L295",
+      "source": {
+        "seed": "kickoff",
+        "start": [
+          295,
+          1
+        ],
+        "end": [
+          304,
+          5
+        ],
+        "excerpt_sha256": "76dfd0f6df80ce8638b5def48679e45bb0f5f500274e74184d4b5818145a53a0"
+      },
+      "phase": "formation",
+      "disposition": "folded",
+      "owner": "C08",
+      "decision": "Fold every clause of this exact paragraph into C08; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L135",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          135,
+          1
+        ],
+        "end": [
+          141,
+          83
+        ],
+        "excerpt_sha256": "a23d47f4f95cb4fed8c5702ab93f081a720abd6507a3d08bcbe49f37f1de3c7f"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact paragraph into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L143",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          143,
+          1
+        ],
+        "end": [
+          150,
+          54
+        ],
+        "excerpt_sha256": "66830d2b881ea3c80191700de8400b1f6ab1102d693921bc4a29da5db74c5f5e"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "V00A",
+      "decision": "Fold every clause of this exact paragraph into V00A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L156",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          156,
+          1
+        ],
+        "end": [
+          156,
+          159
+        ],
+        "excerpt_sha256": "fe5c9c241b88bd0dc73df4f12a7bd34feedbe372999ebae7a7c41384bbe5b2a3"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L157",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          157,
+          1
+        ],
+        "end": [
+          157,
+          85
+        ],
+        "excerpt_sha256": "c2b6a44b39604812e9a90a051d10d4ec2164b94de6cb06d2aebb0c0282a1893e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L158",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          158,
+          1
+        ],
+        "end": [
+          158,
+          38
+        ],
+        "excerpt_sha256": "efdbbdd3cc5cef7ce28771f60cada8bc355b18bb18082a0e481f8eb91c4e5afa"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L159",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          159,
+          1
+        ],
+        "end": [
+          159,
+          36
+        ],
+        "excerpt_sha256": "ee35b60c370d4cbb27aedd337571bae390aaabd65b3d16325bb6242eb2e38fe5"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L160",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          160,
+          1
+        ],
+        "end": [
+          160,
+          95
+        ],
+        "excerpt_sha256": "7ee4ad7323abff8a5b73a76b17e1e243ecdaf34feef5e31f7aa1670f8d865282"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L161",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          161,
+          1
+        ],
+        "end": [
+          161,
+          83
+        ],
+        "excerpt_sha256": "7181f44ae072c9b9f7e2ab2c2013263f5dfb64d55f6be4332edfae15ec0554f8"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact table-row into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L163",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          163,
+          1
+        ],
+        "end": [
+          166,
+          43
+        ],
+        "excerpt_sha256": "b8fb58cb53a477dc17257ca6edda5e82cb6cbffb66694a211e057981a911e682"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact paragraph into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L170",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          170,
+          1
+        ],
+        "end": [
+          174,
+          43
+        ],
+        "excerpt_sha256": "f7c57aee287019c95bc6160b846eb48ca3c047ec53adbc57a88d0bb17c225077"
+      },
+      "phase": "both",
+      "disposition": "retired",
+      "owner": "P07",
+      "decision": "Retire Tape, Pratt, and new-substrate execution from V-next; P07 routes any necessity to the active upstream campaign."
+    },
+    {
+      "id": "H-P-L178",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          178,
+          1
+        ],
+        "end": [
+          191,
+          19
+        ],
+        "excerpt_sha256": "997bdd8cc0c78d6a2911af17019f1e1ca57338292f99a6c948c3723ecccc48e0"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K02",
+      "decision": "Fold every clause of this exact paragraph into K02; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L195",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          195,
+          1
+        ],
+        "end": [
+          198,
+          79
+        ],
+        "excerpt_sha256": "47ab2ead21f9f8a277abf9e6c106682f11e2048bfafd19532d98dac793385ffe"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Apply OA-10 only on their named axes; fold every unaffected clause of this exact block into P00.",
+      "amendments": [
+        "OA-10"
+      ]
+    },
+    {
+      "id": "H-L-L199",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          199,
+          1
+        ],
+        "end": [
+          200,
+          60
+        ],
+        "excerpt_sha256": "ad18237ca30f4fd9659bc7c4f8760e3edeafa772964759aa177e52018c03bd99"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact list-item into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L201",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          201,
+          1
+        ],
+        "end": [
+          203,
+          70
+        ],
+        "excerpt_sha256": "e4db0a570959e63771a268a2aa4ffae708785c682e31f806593ae2c536f49a35"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact list-item into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L204",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          204,
+          1
+        ],
+        "end": [
+          206,
+          52
+        ],
+        "excerpt_sha256": "b6c242e39c7f89eb6acb095cefabf0c40a504e68b9b549bca86791c68c1f8b38"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact list-item into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L207",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          207,
+          1
+        ],
+        "end": [
+          207,
+          79
+        ],
+        "excerpt_sha256": "370c1dcd6e04a3fffbadb2e3d96576724ec23163d927aa98ec5ff2a8c57d0e6b"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact list-item into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L208",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          208,
+          1
+        ],
+        "end": [
+          209,
+          57
+        ],
+        "excerpt_sha256": "168babaab67adbd53e94f4450d4085bda92e1b4c0c50dd6f858c5aa20fa1f9e2"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P00",
+      "decision": "Fold every clause of this exact list-item into P00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L211",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          211,
+          1
+        ],
+        "end": [
+          216,
+          41
+        ],
+        "excerpt_sha256": "91e9496bf117026a1c3f79e038f66c97a60b5e41c0162e7cf7a0cf74421eadbf"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Apply OA-10 and OA-13 only on their named axes; fold every unaffected clause of this exact block into P01.",
+      "amendments": [
+        "OA-10",
+        "OA-13"
+      ]
+    },
+    {
+      "id": "H-P-L220",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          220,
+          1
+        ],
+        "end": [
+          223,
+          81
+        ],
+        "excerpt_sha256": "4c4a4d40371179cd00abf95de018b1caeafabd1e46c1302c905d25bf3c512b19"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "V03",
+      "decision": "Fold every clause of this exact paragraph into V03; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L231",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          231,
+          1
+        ],
+        "end": [
+          242,
+          28
+        ],
+        "excerpt_sha256": "522ed984c77858b75554ff87c996b0d6e242aebd1da5a38503cb12be46acbd63"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "V00A",
+      "decision": "Fold every clause of this exact paragraph into V00A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L244",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          244,
+          1
+        ],
+        "end": [
+          246,
+          41
+        ],
+        "excerpt_sha256": "11b64ff736ae1e7ebf5fd28488df4c822a7e9758e5ae8db4f60f236b102d8dc2"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact paragraph into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L248",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          248,
+          1
+        ],
+        "end": [
+          251,
+          20
+        ],
+        "excerpt_sha256": "be0aebb656b2d6469108af55091c7b9abdc3024cfdedee399468b531d3b26f4c"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V15",
+      "decision": "Fold every clause of this exact paragraph into V15; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L257",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          257,
+          1
+        ],
+        "end": [
+          257,
+          136
+        ],
+        "excerpt_sha256": "4fe20ba9b7cb263f2a761f0dae95d5a2f12f4f7ef2615a551b2f7a44594d8d74"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V13",
+      "decision": "Fold every clause of this exact table-row into V13; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L258",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          258,
+          1
+        ],
+        "end": [
+          258,
+          216
+        ],
+        "excerpt_sha256": "0e4a6baa2e8744b795cc016a3a6889fea6697de23ed9d9f4b8a562869a9966c9"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V15",
+      "decision": "Fold every clause of this exact table-row into V15; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L259",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          259,
+          1
+        ],
+        "end": [
+          259,
+          233
+        ],
+        "excerpt_sha256": "46cab8ff403599202ff9eeec4cd9d45274e0ff8c1b0dc878c997efe74a92c986"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V16A",
+      "decision": "Fold every clause of this exact table-row into V16A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L260",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          260,
+          1
+        ],
+        "end": [
+          260,
+          336
+        ],
+        "excerpt_sha256": "b3158b2b565e144987ed4b6c09c3da2ac763a8c97c1d2071fc3fb5f7be12a87e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Apply OA-10 only on their named axes; fold every unaffected clause of this exact block into P01.",
+      "amendments": [
+        "OA-10"
+      ]
+    },
+    {
+      "id": "H-T-L261",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          261,
+          1
+        ],
+        "end": [
+          261,
+          120
+        ],
+        "excerpt_sha256": "12edff424b65bb3c28123763370e3ec5750aa517e00d1bcbe8d2c55af2963985"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V17",
+      "decision": "Fold every clause of this exact table-row into V17; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L262",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          262,
+          1
+        ],
+        "end": [
+          262,
+          103
+        ],
+        "excerpt_sha256": "b7574f5e762e0c32bbe6607e64c6acd6e31eec089f53390a33b180a5cdc4a970"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V17",
+      "decision": "Fold every clause of this exact table-row into V17; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L263",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          263,
+          1
+        ],
+        "end": [
+          263,
+          90
+        ],
+        "excerpt_sha256": "51986e71e6e50923e7e6c49915572d0cfc176ba1cbc5ed715e64697a418ba6be"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V14",
+      "decision": "Fold every clause of this exact table-row into V14; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L264",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          264,
+          1
+        ],
+        "end": [
+          264,
+          106
+        ],
+        "excerpt_sha256": "e656dc0fdc8758059806ecb9bb543e85858a4a655d7680baad57fd2ad1f28e74"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V20",
+      "decision": "Fold every clause of this exact table-row into V20; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L265",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          265,
+          1
+        ],
+        "end": [
+          265,
+          66
+        ],
+        "excerpt_sha256": "f228607e7219a2b51639cb960ffadb1d7fa18deae0858c2a8d4f6eea07289b3a"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V18H",
+      "decision": "Fold every clause of this exact table-row into V18H; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L266",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          266,
+          1
+        ],
+        "end": [
+          266,
+          97
+        ],
+        "excerpt_sha256": "b35638b076afa62f68ad0ba20fc994ef4062c141096e97008fb95cffc447e9de"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V19",
+      "decision": "Fold every clause of this exact table-row into V19; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L267",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          267,
+          1
+        ],
+        "end": [
+          267,
+          209
+        ],
+        "excerpt_sha256": "652f7fd3276bfd98f6ced3c3ca59d1fed954307f96fede197a29791bc8d15b16"
+      },
+      "phase": "implementation",
+      "disposition": "retired",
+      "owner": "V25",
+      "decision": "Retire non-standard CSS spring grammar; K10 retains the programmatic solver and standard linear() emission."
+    },
+    {
+      "id": "H-T-L268",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          268,
+          1
+        ],
+        "end": [
+          268,
+          129
+        ],
+        "excerpt_sha256": "9c06fe010734f30c1cdc017083399aa4d712d69826204bde9d38faae781d0a06"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V05",
+      "decision": "Fold every clause of this exact table-row into V05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L269",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          269,
+          1
+        ],
+        "end": [
+          269,
+          135
+        ],
+        "excerpt_sha256": "300fc9a954d53ae5cf9796a02173764dde7ddedffa98decd3e488c28f80294f6"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V16B",
+      "decision": "Fold every clause of this exact table-row into V16B; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L270",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          270,
+          1
+        ],
+        "end": [
+          270,
+          123
+        ],
+        "excerpt_sha256": "6a6989a53ef4cea4b6e01015d837d3c3aa94b57c4aa427a735f3f6398f4a8afa"
+      },
+      "phase": "implementation",
+      "disposition": "banked",
+      "owner": "D17",
+      "decision": "Do not create a speculative reusable boundary-sampler surface.",
+      "retrigger": "D17 proves the perceived-space plate requires a reusable gamut-boundary sampler."
+    },
+    {
+      "id": "H-P-L272",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          272,
+          1
+        ],
+        "end": [
+          277,
+          30
+        ],
+        "excerpt_sha256": "a664da3c222f1f3b4f719cb01c85f67aa4017a140a9c05cbfea4c6ef7d563fa7"
+      },
+      "phase": "both",
+      "disposition": "retired",
+      "owner": "C08",
+      "decision": "Keep the exact RIGHTLY tombstoned set retired; no row may re-litigate it."
+    },
+    {
+      "id": "H-P-L283",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          283,
+          1
+        ],
+        "end": [
+          288,
+          38
+        ],
+        "excerpt_sha256": "b8de1a7629bcf3162e68f7f19de32ba15da6b74761444bba3e0e2e1ba9990418"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "C00U",
+      "decision": "Fold every clause of this exact paragraph into C00U; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L294",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          294,
+          1
+        ],
+        "end": [
+          294,
+          86
+        ],
+        "excerpt_sha256": "c577ebbd9fa8733a47774a297895f5ecf6553bf5a1efdbb442a9cc42c326f708"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K03",
+      "decision": "Fold every clause of this exact table-row into K03; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L295",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          295,
+          1
+        ],
+        "end": [
+          295,
+          162
+        ],
+        "excerpt_sha256": "a299823f81ebed42f8b4eecb1f260acf308d9d2e30e96bf19d715477b2c60a5a"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact table-row into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L296",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          296,
+          1
+        ],
+        "end": [
+          296,
+          73
+        ],
+        "excerpt_sha256": "5a8848b180e4193e936b27797b8645607469b6e702c01df1c4453058096ccd86"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K02",
+      "decision": "Fold every clause of this exact table-row into K02; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L297",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          297,
+          1
+        ],
+        "end": [
+          297,
+          90
+        ],
+        "excerpt_sha256": "643a07fa986c891fdd70d5107813af508b3a5a2160b53ab314f336c3445691bf"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K11",
+      "decision": "Fold every clause of this exact table-row into K11; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L298",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          298,
+          1
+        ],
+        "end": [
+          298,
+          87
+        ],
+        "excerpt_sha256": "b218dd029107c21b4e8319a3a78668cbde72fb6d4451e7f4fba5be3a3a15cfc6"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K04",
+      "decision": "Fold every clause of this exact table-row into K04; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L299",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          299,
+          1
+        ],
+        "end": [
+          299,
+          114
+        ],
+        "excerpt_sha256": "a26977b718cf82316480e992be57573795acddb7d2748cfe2c42d4f4513a69d5"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K10",
+      "decision": "Fold every clause of this exact table-row into K10; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L300",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          300,
+          1
+        ],
+        "end": [
+          300,
+          142
+        ],
+        "excerpt_sha256": "627aa96436245b1ebbe7b4c3358717148ef4ee8296d005c6efc91e828a5725b7"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K10",
+      "decision": "Fold every clause of this exact table-row into K10; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L301",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          301,
+          1
+        ],
+        "end": [
+          301,
+          176
+        ],
+        "excerpt_sha256": "6cfd922a0f93e2000672d9dc44b8db9b12afe996c645d3d9e1d8961b1849e864"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K20",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K20.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L302",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          302,
+          1
+        ],
+        "end": [
+          302,
+          91
+        ],
+        "excerpt_sha256": "b949b032a9cefd3d597e69fe327b79e9e2ce05ac755bec0a4fa7770da10e6ee8"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K21",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K21.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L303",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          303,
+          1
+        ],
+        "end": [
+          303,
+          164
+        ],
+        "excerpt_sha256": "495472d58c5f75fec8aad1739ca902346e48254fa8e56df7d8b306871be2ea8f"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K11",
+      "decision": "Fold every clause of this exact table-row into K11; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L304",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          304,
+          1
+        ],
+        "end": [
+          304,
+          104
+        ],
+        "excerpt_sha256": "0948a0ecc7e044f06313525406bb324dd25bedf226cba64ced06291335651101"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K14",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K14.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L305",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          305,
+          1
+        ],
+        "end": [
+          305,
+          99
+        ],
+        "excerpt_sha256": "0ca907099b79c92fd90988f3b4f3048e7f477ab33304f6195ba8b44b80819940"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K12",
+      "decision": "Fold every clause of this exact table-row into K12; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L306",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          306,
+          1
+        ],
+        "end": [
+          306,
+          181
+        ],
+        "excerpt_sha256": "ea616ba0343442cb88ed9c21353a727e2ce92928ecfbe36ab2c3361b4d7e8fc3"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K19",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K19.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L307",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          307,
+          1
+        ],
+        "end": [
+          307,
+          118
+        ],
+        "excerpt_sha256": "59f5cd1b3e5eba3d549107f66a55a2914d19dfb6338cc30f6a920cfe7cffcdde"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K16",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K16.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L308",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          308,
+          1
+        ],
+        "end": [
+          308,
+          81
+        ],
+        "excerpt_sha256": "4caeb1093b11cb8df9b8592a65a54129a63c9819e865ffbca0bc99a32fd6e406"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K17",
+      "decision": "Fold every clause of this exact table-row into K17; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L309",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          309,
+          1
+        ],
+        "end": [
+          309,
+          85
+        ],
+        "excerpt_sha256": "c5209baae54098de9f3d8605c3722905db30038b1cca52f34aabeb7a08c678a0"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K18",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K18.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L310",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          310,
+          1
+        ],
+        "end": [
+          310,
+          95
+        ],
+        "excerpt_sha256": "a880a20eecb875ebd9d75fad308d460140f62d61cd0bb02376e9ac3fca084ad9"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K07",
+      "decision": "Fold every clause of this exact table-row into K07; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L311",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          311,
+          1
+        ],
+        "end": [
+          311,
+          114
+        ],
+        "excerpt_sha256": "a978c44e33ca1daae287aa4650c512dfa01362cb2937ab842d080455e7650bb3"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K09",
+      "decision": "Fold every clause of this exact table-row into K09; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L312",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          312,
+          1
+        ],
+        "end": [
+          312,
+          98
+        ],
+        "excerpt_sha256": "b2a6eba5f1358935979f4f0198dd3fe9a1b511cb8aee461de991f4fed5aa0159"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K22",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K22.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L313",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          313,
+          1
+        ],
+        "end": [
+          313,
+          111
+        ],
+        "excerpt_sha256": "6324f68ce5bcbe8dbee7506cbc3725daf2adb07937b1878ba004c0e628c2a24e"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into K22T.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L314",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          314,
+          1
+        ],
+        "end": [
+          314,
+          129
+        ],
+        "excerpt_sha256": "14c13662d1e84593bc91e42d19d8fdde91a47e870cbb4e377d72857a4f60fd51"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K23",
+      "decision": "Fold every clause of this exact table-row into K23; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L316",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          316,
+          1
+        ],
+        "end": [
+          320,
+          78
+        ],
+        "excerpt_sha256": "a6c1c8baf672450c779a6e8eda716172e339a180f45e11d7b214fe619d01e3a9"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact paragraph into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L322",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          322,
+          1
+        ],
+        "end": [
+          327,
+          36
+        ],
+        "excerpt_sha256": "70b0121b7c492e60f70ab429f0f3ed0a96b478de8c34f01598da7500867670dc"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Fold every clause of this exact paragraph into formation-root; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L333",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          333,
+          1
+        ],
+        "end": [
+          333,
+          124
+        ],
+        "excerpt_sha256": "44db6317f8dd55266a463f33f2db4ce6a49b61bd153aadfcb5e4b7449151830e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V12",
+      "decision": "Fold every clause of this exact table-row into V12; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L334",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          334,
+          1
+        ],
+        "end": [
+          334,
+          124
+        ],
+        "excerpt_sha256": "0f79507013a517fe58a88e0cebfed1870754cb4c7412ab117c0bdb73ea5316c3"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V03",
+      "decision": "Fold every clause of this exact table-row into V03; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L335",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          335,
+          1
+        ],
+        "end": [
+          335,
+          239
+        ],
+        "excerpt_sha256": "278c123c973e3b3a6d2cd0458714fc1749e20c71cc429859b3beaf0168f53e18"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V29T",
+      "decision": "Fold every clause of this exact table-row into V29T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L336",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          336,
+          1
+        ],
+        "end": [
+          336,
+          112
+        ],
+        "excerpt_sha256": "bf53fe93451f3154e69408cb6d520ecfcd37b06d6fe7abaf779d646c7c43f040"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V24",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into V24.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L337",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          337,
+          1
+        ],
+        "end": [
+          337,
+          90
+        ],
+        "excerpt_sha256": "171a328be1d838b8da49fdfa4fd418cc2d4aa7d30d25a45fe9a115cef8d6bbc5"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D13",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into D13.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L338",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          338,
+          1
+        ],
+        "end": [
+          338,
+          146
+        ],
+        "excerpt_sha256": "49bd9406cc3b449732812f7ac0a9788b846a7cca493845f2ec4759a523aaf2c6"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V29T",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into V29T.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-T-L339",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          339,
+          1
+        ],
+        "end": [
+          339,
+          100
+        ],
+        "excerpt_sha256": "d5a3f6498cf866b20b19977d4fea430244c96686c003f00c2aa17ee32a934015"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "A00",
+      "decision": "Apply OA-05 only on their named axes; fold every unaffected clause of this exact block into A00.",
+      "amendments": [
+        "OA-05"
+      ]
+    },
+    {
+      "id": "H-T-L340",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          340,
+          1
+        ],
+        "end": [
+          340,
+          191
+        ],
+        "excerpt_sha256": "2d7cc0141e951a5f4380c5000e8e220d672ca4eb4cbbfe21e2c9cb126714ce39"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V00C",
+      "decision": "Fold every clause of this exact table-row into V00C; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L341",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          341,
+          1
+        ],
+        "end": [
+          341,
+          103
+        ],
+        "excerpt_sha256": "4eb861444b590fa648f11b194e588fac5850c7892e06b4d1ea9256efc366821d"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D00",
+      "decision": "Fold every clause of this exact table-row into D00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L342",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          342,
+          1
+        ],
+        "end": [
+          342,
+          51
+        ],
+        "excerpt_sha256": "24ce2799270019a944830ec8dfc4b732ca28e0b4877e4a3be337af4d847adb06"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D25",
+      "decision": "Fold every clause of this exact table-row into D25; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-T-L343",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          343,
+          1
+        ],
+        "end": [
+          343,
+          109
+        ],
+        "excerpt_sha256": "b9bbfb368d77f8fe8049aa14b99915e784c9f765a0ee671f63f6b54ef242da7a"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D00",
+      "decision": "Apply OA-02 only on their named axes; fold every unaffected clause of this exact block into D00.",
+      "amendments": [
+        "OA-02"
+      ]
+    },
+    {
+      "id": "H-P-L345",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          345,
+          1
+        ],
+        "end": [
+          349,
+          79
+        ],
+        "excerpt_sha256": "f0ee0254e72b5b162a386b7b37717a71c70029d8ade36679528b44c8ea4fc8f8"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "V00A",
+      "decision": "Fold every clause of this exact paragraph into V00A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L353",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          353,
+          1
+        ],
+        "end": [
+          356,
+          60
+        ],
+        "excerpt_sha256": "34ec7a247091761afdab27da163668c19cf85a8a50b6207d1e488680d97ae823"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact paragraph into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L358",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          358,
+          1
+        ],
+        "end": [
+          361,
+          36
+        ],
+        "excerpt_sha256": "f940f57e0ca74bb13c760e94ceb14806275d6dc6677b07fc82e609195955b055"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L362",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          362,
+          1
+        ],
+        "end": [
+          364,
+          52
+        ],
+        "excerpt_sha256": "fe0578070a6d8407ccc303fb01681f3e4131858386e875b657f24421c87ea822"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L365",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          365,
+          1
+        ],
+        "end": [
+          365,
+          66
+        ],
+        "excerpt_sha256": "3f012d51fab4eabb73f02f8617fd54a28cf9e82a4300abcad638e0094ae465f6"
+      },
+      "phase": "implementation",
+      "disposition": "retired",
+      "owner": "K00",
+      "decision": "Retire Lighthouse from gate status; retain it only as an explicitly nonblocking audit."
+    },
+    {
+      "id": "H-L-L366",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          366,
+          1
+        ],
+        "end": [
+          367,
+          16
+        ],
+        "excerpt_sha256": "6d45908245b65330224dced8b7d6d83ff6fa133d4262d2e2d2e87e691ee71dd0"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L368",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          368,
+          1
+        ],
+        "end": [
+          369,
+          80
+        ],
+        "excerpt_sha256": "342bcfeb496fb75268fbb5aea42c0170c79cb5ebc8ff74744f35c96b8fed8902"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L370",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          370,
+          1
+        ],
+        "end": [
+          370,
+          60
+        ],
+        "excerpt_sha256": "e7d72c32b91e2241d41d1be0dc65778c41051c02a388b170f27149e944b0bfe5"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K24",
+      "decision": "Fold every clause of this exact list-item into K24; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L371",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          371,
+          1
+        ],
+        "end": [
+          372,
+          10
+        ],
+        "excerpt_sha256": "adfd60d0e531a47db7ecdb9c932eee62f79ffb1170bc6b268fabfb2b0599195f"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L373",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          373,
+          1
+        ],
+        "end": [
+          375,
+          42
+        ],
+        "excerpt_sha256": "269c692c6be91c9cdb9fffa919b7d7bb48d1a7eaa4d3c6111635994cb7f0a6e1"
+      },
+      "phase": "implementation",
+      "disposition": "retired",
+      "owner": "K00",
+      "decision": "Retire both named phantom rows for the exact reasons in the hashed source block."
+    },
+    {
+      "id": "H-L-L379",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          379,
+          1
+        ],
+        "end": [
+          380,
+          78
+        ],
+        "excerpt_sha256": "1d6cedad5e1485dca34026a5bfb387a7e0c5a7ccb3282df13c1bac71916887fb"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V31",
+      "decision": "Fold every clause of this exact list-item into V31; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L381",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          381,
+          1
+        ],
+        "end": [
+          389,
+          34
+        ],
+        "excerpt_sha256": "38f1db1cdd5454b15bad367d4aa3fabb9c3960b35209ae7ea988219afe881453"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "D25",
+      "decision": "Fold every clause of this exact list-item into D25; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L390",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          390,
+          1
+        ],
+        "end": [
+          391,
+          48
+        ],
+        "excerpt_sha256": "0b28140554e6488d885394f61f1aebb2cf7caa2904a78935e20ee5b72b29985b"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V29T",
+      "decision": "Fold every clause of this exact list-item into V29T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L392",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          392,
+          1
+        ],
+        "end": [
+          392,
+          67
+        ],
+        "excerpt_sha256": "6dbd297329e25516c0ec48b96293461daf811c2512de4dc0d18376505291104e"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V00C",
+      "decision": "Fold every clause of this exact list-item into V00C; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L393",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          393,
+          1
+        ],
+        "end": [
+          393,
+          61
+        ],
+        "excerpt_sha256": "a4cee2f97fca2715406e3492e9d1d989f45f634a1ebb6ac17f8d50d56c515290"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P01",
+      "decision": "Fold every clause of this exact list-item into P01; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L394",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          394,
+          1
+        ],
+        "end": [
+          395,
+          47
+        ],
+        "excerpt_sha256": "cc47e0871c14d8eb9b858260faa9b295029c063bad0d6bbd6a0f07deaed87c86"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V29T",
+      "decision": "Fold every clause of this exact list-item into V29T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L403",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          403,
+          1
+        ],
+        "end": [
+          409,
+          15
+        ],
+        "excerpt_sha256": "c6b49ed6163db6af978c66ce01c03137637a113284231cffbb7d2776dec1acfa"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L410",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          410,
+          1
+        ],
+        "end": [
+          411,
+          43
+        ],
+        "excerpt_sha256": "b4eb8910e19800f598566cf4238e2bd9cae6bde0d59cb214fd39bf33d8d74020"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K23",
+      "decision": "Fold every clause of this exact list-item into K23; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L412",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          412,
+          1
+        ],
+        "end": [
+          412,
+          77
+        ],
+        "excerpt_sha256": "33da46b6308aac756a516f9e003998f0c6b048784ddc360c48c9f53b39bbf229"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact list-item into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L413",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          413,
+          1
+        ],
+        "end": [
+          414,
+          68
+        ],
+        "excerpt_sha256": "4f03254726460001f6108454abb34502751f254d310eb584b21ff60afd0f4071"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L415",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          415,
+          1
+        ],
+        "end": [
+          415,
+          57
+        ],
+        "excerpt_sha256": "2008e8e556f19a8946bef00a19500dfb227cf678e040e2895a01a541b0d51368"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact list-item into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L419",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          419,
+          1
+        ],
+        "end": [
+          423,
+          48
+        ],
+        "excerpt_sha256": "83aa5b7e6ed2adc160a9ef30d9c14669e5265c173b2e1057e9c67d5d25381d3c"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact list-item into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L424",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          424,
+          1
+        ],
+        "end": [
+          427,
+          41
+        ],
+        "excerpt_sha256": "94cd60074e020bba08539191cc5407873743c8897042dc8e89b6b60f2a886435"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V00C",
+      "decision": "Fold every clause of this exact list-item into V00C; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L428",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          428,
+          1
+        ],
+        "end": [
+          429,
+          65
+        ],
+        "excerpt_sha256": "b4802662f5c353f2a479271b972a08e474e7e12c931c8613cc65eed5614849b9"
+      },
+      "phase": "implementation",
+      "disposition": "retired",
+      "owner": "C05",
+      "decision": "Retire a stale-Atlas catch-up wave; only the active Atlas tree crosses at co-land."
+    },
+    {
+      "id": "H-L-L430",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          430,
+          1
+        ],
+        "end": [
+          431,
+          78
+        ],
+        "excerpt_sha256": "ed48f3a66f258935f83f9bf61b07c042ef9bf57f8676f7c8eaba184dce8e0960"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact list-item into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L435",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          435,
+          1
+        ],
+        "end": [
+          443,
+          20
+        ],
+        "excerpt_sha256": "f8d336a24921934c4b4c45de464beaf2ad9bdd85eaecc6733e81eb3507f4f521"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact paragraph into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L447",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          447,
+          1
+        ],
+        "end": [
+          451,
+          63
+        ],
+        "excerpt_sha256": "22bc3fcf3c4c4daf456b22c0426d81d6f137bf26e16a6cfaa52fdd2741fc590c"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K22T",
+      "decision": "Fold every clause of this exact paragraph into K22T; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-P-L455",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          455,
+          1
+        ],
+        "end": [
+          459,
+          7
+        ],
+        "excerpt_sha256": "cf32376eff78156ea427d48b035fa84a648fc4d47c07715ebbbdf9d4aff8131c"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "C05",
+      "decision": "Fold every clause of this exact paragraph into C05; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L465",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          465,
+          1
+        ],
+        "end": [
+          466,
+          70
+        ],
+        "excerpt_sha256": "175983f3ed55418e2ecc160ec57240153b5682f183da41215e484b9e823599bb"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "V16A",
+      "decision": "Fold every clause of this exact list-item into V16A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L467",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          467,
+          1
+        ],
+        "end": [
+          469,
+          73
+        ],
+        "excerpt_sha256": "fe594570d83395c976faf3b342b8e0719c6878790aa8d7cd1af88a8f51bf1bf2"
+      },
+      "phase": "implementation",
+      "disposition": "banked",
+      "owner": "V25",
+      "decision": "Keep sampleBezier declined and preserve the named-code reopen law.",
+      "retrigger": "A compatible future value release ships sampleBezier, or a named ParseIssue code reopens the disposition."
+    },
+    {
+      "id": "H-L-L470",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          470,
+          1
+        ],
+        "end": [
+          472,
+          24
+        ],
+        "excerpt_sha256": "aea6b41684c296137b9501e4a98d3de214abf2bece7186a36ba7120fc59ed7d1"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "P07",
+      "decision": "Apply OA-10 and OA-13 only on their named axes; fold every unaffected clause of this exact block into P07.",
+      "amendments": [
+        "OA-10",
+        "OA-13"
+      ]
+    },
+    {
+      "id": "H-L-L473",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          473,
+          1
+        ],
+        "end": [
+          475,
+          37
+        ],
+        "excerpt_sha256": "564953971726e91a4d0e3c31958bdb172197d06f60a47a3915fdcded332b6d26"
+      },
+      "phase": "implementation",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L476",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          476,
+          1
+        ],
+        "end": [
+          479,
+          74
+        ],
+        "excerpt_sha256": "6f8fd06d9d1d7725ae9f7ac77400a491bc441c1f74a6f35265886f9327391a73"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "formation-root",
+      "decision": "Apply OA-14 only on their named axes; fold every unaffected clause of this exact block into formation-root.",
+      "amendments": [
+        "OA-14"
+      ]
+    },
+    {
+      "id": "H-L-L480",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          480,
+          1
+        ],
+        "end": [
+          483,
+          57
+        ],
+        "excerpt_sha256": "95d494cd34f8e814fcae3a5ffc57abed2655792ea458e12cd6be175b9609eb9f"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K00",
+      "decision": "Fold every clause of this exact list-item into K00; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L484",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          484,
+          1
+        ],
+        "end": [
+          486,
+          29
+        ],
+        "excerpt_sha256": "4c91dcbe5f3bda33503e3248bfe25b207880e35cdc244790967ad88e1863826e"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "V00A",
+      "decision": "Fold every clause of this exact list-item into V00A; its hashed excerpt is the acceptance boundary."
+    },
+    {
+      "id": "H-L-L487",
+      "source": {
+        "seed": "handoff",
+        "start": [
+          487,
+          1
+        ],
+        "end": [
+          489,
+          47
+        ],
+        "excerpt_sha256": "0073fde7d6185ba6536adac653a971d66cb094c05f56846828e1fe8833ba517a"
+      },
+      "phase": "both",
+      "disposition": "folded",
+      "owner": "K20",
+      "decision": "Fold every clause of this exact list-item into K20; its hashed excerpt is the acceptance boundary."
+    }
+  ]
+}

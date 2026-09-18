@@ -1,0 +1,15 @@
+{
+  "name": "parser-proof-workspace",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@mkbabb/parse-that": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "esbuild": "^0.24.2",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3"
+  }
+}

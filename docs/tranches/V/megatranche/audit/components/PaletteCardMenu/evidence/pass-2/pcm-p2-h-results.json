@@ -1,0 +1,92 @@
+{
+  "apiHits": 2,
+  "browseEmptyState": "→ Browse Tools Login @mbabb backend offline — saved locally Browse Discover palettes from the community. The commons is unreachable. Failed to load palettes Retry My Palettes3 (3 saved) Save, organize, and share your colors. Start a new palette Probe Palette 0 2 Probe Palette 1 2 Probe Palette 2 2",
+  "lampVariants": [
+    {
+      "v": "solid",
+      "role": null,
+      "text": ""
+    },
+    {
+      "v": "solid",
+      "role": null,
+      "text": ""
+    },
+    {
+      "v": "unavailable",
+      "role": "status",
+      "text": "backend offline — saved locally"
+    },
+    {
+      "v": "secondary",
+      "role": null,
+      "text": "3"
+    },
+    {
+      "v": "ghost",
+      "role": null,
+      "text": ""
+    },
+    {
+      "v": "secondary",
+      "role": null,
+      "text": "2"
+    },
+    {
+      "v": "secondary",
+      "role": null,
+      "text": "2"
+    },
+    {
+      "v": "secondary",
+      "role": null,
+      "text": "2"
+    }
+  ],
+  "cards": 3,
+  "itemsUnderUnavailableLatch": [
+    {
+      "text": "Publish offline",
+      "ariaDisabled": "true",
+      "dataDisabled": "",
+      "pe": "none"
+    },
+    {
+      "text": "Rename",
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto"
+    },
+    {
+      "text": "Export",
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto"
+    },
+    {
+      "text": "Delete",
+      "ariaDisabled": null,
+      "dataDisabled": null,
+      "pe": "auto"
+    }
+  ],
+  "axNames": [
+    {
+      "name": "Publish OFFLINE",
+      "disabled": true
+    },
+    {
+      "name": "Rename",
+      "disabled": null
+    },
+    {
+      "name": "Export",
+      "disabled": null
+    },
+    {
+      "name": "Delete",
+      "disabled": null
+    }
+  ],
+  "errs": []
+}

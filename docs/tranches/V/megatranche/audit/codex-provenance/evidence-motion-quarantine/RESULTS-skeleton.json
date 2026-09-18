@@ -1,0 +1,38 @@
+{
+  "skeleton.no-preference": {
+    "mode": "no-preference",
+    "realSkeletonOnScreen": false,
+    "scopedInjection": {
+      "animationName": "skeleton-scan-cd03d0b0",
+      "animationDuration": "5s",
+      "animationIterationCount": "infinite",
+      "transform": "matrix(1, 0, 0, 1, -88, 0)",
+      "willChange": "transform"
+    },
+    "adminListSkeletonNode": {
+      "animationName": "skeleton-scan-cd03d0b0",
+      "animationDuration": "5s",
+      "animationIterationCount": "infinite",
+      "transform": "matrix(1, 0, 0, 1, -35.2, 0)",
+      "willChange": "transform"
+    }
+  },
+  "skeleton.reduce": {
+    "mode": "reduce",
+    "realSkeletonOnScreen": false,
+    "scopedInjection": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transform": "none",
+      "willChange": "auto"
+    },
+    "adminListSkeletonNode": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transform": "none",
+      "willChange": "auto"
+    }
+  }
+}

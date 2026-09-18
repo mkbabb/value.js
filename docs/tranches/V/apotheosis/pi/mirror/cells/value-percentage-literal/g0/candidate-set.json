@@ -1,0 +1,37 @@
+{
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "frozenAt": "2026-07-22T22:43:33Z",
+  "briefSha256": "842e0873ab5a3e9b3a5e64dbfda85db1ca860e8a60f1daec63dc2c7cbd68b193",
+  "publicCasesSha256": "35304fbed79db3827e1b83631f7e5ea8ecfca883dbc7dff4aaec726f692549b0",
+  "evaluatorSha256": "e9326867cb1ae4f3f3fa71189a3955be307b1c54744c93a6529e95df2dfd0b02",
+  "holdoutReceiptSha256": "0e71b964306f8533b09f25f2704d80fdbcad4efeaa676d2e0673a9e0e2198f1c",
+  "acceptedNumericSha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+  "candidates": [
+    {
+      "seat": "H",
+      "topology": "Parser.skip then map",
+      "path": "candidates/h/index.ts",
+      "sha256": "82d426f494fed3e14cac1ddf7c20ca787b1f731fe11c7e48d422a0a1b8c4a02a",
+      "lines": 7,
+      "bytes": 283
+    },
+    {
+      "seat": "B",
+      "topology": "all fused sequence then map",
+      "path": "candidates/b/index.ts",
+      "sha256": "2b3ffe8e18d32d62c25de28ad4ef2d0246c23ab81440fcc83bf3faf5c4d445c2",
+      "lines": 7,
+      "bytes": 287
+    },
+    {
+      "seat": "S",
+      "topology": "lookAhead guard then sequence and map",
+      "path": "candidates/s/index.ts",
+      "sha256": "0657c2bb60a9200c5ffc26aef3d7a1049219657757797901bc4b4a435f14b654",
+      "lines": 10,
+      "bytes": 332
+    }
+  ],
+  "publicDisposition": "3/3 PASS; strict TypeScript PASS",
+  "featureCredit": 0
+}

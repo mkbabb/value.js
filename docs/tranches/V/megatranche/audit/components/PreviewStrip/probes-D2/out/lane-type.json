@@ -1,0 +1,104 @@
+{
+  "/#/generate@1440": {
+    "chip": {
+      "w": 41.923,
+      "h": 16.292,
+      "ratio": 2.5731,
+      "fontSize": 16.4,
+      "fontSizeDeclaredBy": "max-h-[inherit] overflow-y-auto px-(--overlay-pad-inline)"
+    },
+    "copy": {
+      "cls": "text-micro text-muted-foreground",
+      "fontSize": 11,
+      "family": "\"Plus Jakarta Sans\"",
+      "h": 13.668
+    },
+    "name": {
+      "cls": "font-display",
+      "fontSize": 16.4,
+      "family": "Fraunces",
+      "weight": "400"
+    },
+    "chipHeightOverCopyFont": 1.481,
+    "option": {
+      "w": 262.3,
+      "h": 54.67
+    }
+  },
+  "/#/atmosphere@1440": {
+    "chip": {
+      "w": 42.117,
+      "h": 15.89,
+      "ratio": 2.6505,
+      "fontSize": 16.4,
+      "fontSizeDeclaredBy": "max-h-[inherit] overflow-y-auto px-(--overlay-pad-inline)"
+    },
+    "copy": {
+      "cls": "",
+      "fontSize": 16.4,
+      "family": "\"Plus Jakarta Sans\"",
+      "h": 20.677
+    },
+    "name": {
+      "note": "no .font-display name lane (atmosphere rows are bare text)",
+      "fontSize": 16.4,
+      "family": "\"Plus Jakarta Sans\""
+    },
+    "chipHeightOverCopyFont": 0.969,
+    "option": {
+      "w": 895.01,
+      "h": 50.14
+    }
+  },
+  "/#/generate@390": {
+    "chip": {
+      "w": 41.923,
+      "h": 13.916,
+      "ratio": 3.0126,
+      "fontSize": 14,
+      "fontSizeDeclaredBy": "max-h-[inherit] overflow-y-auto px-(--overlay-pad-inline)"
+    },
+    "copy": {
+      "cls": "text-micro text-muted-foreground",
+      "fontSize": 11,
+      "family": "\"Plus Jakarta Sans\"",
+      "h": 13.667
+    },
+    "name": {
+      "cls": "font-display",
+      "fontSize": 14,
+      "family": "Fraunces",
+      "weight": "400"
+    },
+    "chipHeightOverCopyFont": 1.265,
+    "option": {
+      "w": 262.3,
+      "h": 49.7
+    }
+  },
+  "/#/atmosphere@390": {
+    "chip": {
+      "w": 41.932,
+      "h": 13.9,
+      "ratio": 3.0166,
+      "fontSize": 14,
+      "fontSizeDeclaredBy": "max-h-[inherit] overflow-y-auto px-(--overlay-pad-inline)"
+    },
+    "copy": {
+      "cls": "",
+      "fontSize": 14,
+      "family": "\"Plus Jakarta Sans\"",
+      "h": 18.058
+    },
+    "name": {
+      "note": "no .font-display name lane (atmosphere rows are bare text)",
+      "fontSize": 14,
+      "family": "\"Plus Jakarta Sans\""
+    },
+    "chipHeightOverCopyFont": 0.993,
+    "option": {
+      "w": 234.21,
+      "h": 45.86
+    }
+  }
+}

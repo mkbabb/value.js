@@ -1,0 +1,34 @@
+{
+  "swatchCount": 3,
+  "swatchBox": {
+    "x": 768,
+    "y": 629.125,
+    "width": 40,
+    "height": 40
+  },
+  "swatchPointerEvents": "none",
+  "swatchAriaHidden": "true",
+  "swatchTag": "SPAN",
+  "hitTest": {
+    "tag": "DIV",
+    "cls": "relative",
+    "testid": null
+  },
+  "afterHover": {
+    "floatingPanels": 1,
+    "bodyLastChildren": [
+      "DIV.",
+      "DIV.",
+      "DIV.floating-panel p-1.5 flex items-center g"
+    ]
+  },
+  "afterClick": {
+    "floatingPanels": 1,
+    "cardStillExpanded": true,
+    "textLen": 191,
+    "textLenBefore": 191
+  },
+  "tabOrder": [
+    "BUTTON:Palette menu"
+  ]
+}

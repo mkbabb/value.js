@@ -1,0 +1,2302 @@
+[
+  {
+    "id": "logged-out-light",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": false
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 92.5,
+        "y": 69.5,
+        "w": 214.6,
+        "h": 269.1
+      },
+      "overflowRight": -82.9,
+      "overflowBottom": -505.4,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 4,
+      "items": [
+        {
+          "text": "Login",
+          "w": 200.6,
+          "h": 44,
+          "y": 76.5,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 200.6,
+          "h": 44,
+          "y": 179.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 200.6,
+          "h": 55.4,
+          "y": 223.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 200.6,
+          "h": 44,
+          "y": 287.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 129.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 179.3
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 223.3
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 287.6
+        }
+      ],
+      "pill": null,
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)"
+    }
+  },
+  {
+    "id": "logged-out-dark",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 1 1 1 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": false
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 92.5,
+        "y": 69.5,
+        "w": 214.6,
+        "h": 269.1
+      },
+      "overflowRight": -82.9,
+      "overflowBottom": -505.4,
+      "font": "Fira Code",
+      "bg": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 4,
+      "items": [
+        {
+          "text": "Login",
+          "w": 200.6,
+          "h": 44,
+          "y": 76.5,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 200.6,
+          "h": 44,
+          "y": 179.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 200.6,
+          "h": 55.4,
+          "y": 223.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 200.6,
+          "h": 44,
+          "y": 287.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 129.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 179.3
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 223.3
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 287.6
+        }
+      ],
+      "pill": null,
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(233, 230, 226)",
+      "boxShadow": "color(srgb 1 0.924654 0.933001 / 0.3) 0px 0px 0px 2px, color(srgb 1 0.924654 0.933001 / 0.",
+      "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)"
+    }
+  },
+  {
+    "id": "logged-in-light",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": true
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 0,
+        "y": 69.5,
+        "w": 349.5,
+        "h": 440.5
+      },
+      "overflowRight": -40.5,
+      "overflowBottom": -334,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 7,
+      "items": [
+        {
+          "text": "Copy slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 115.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Switch account",
+          "w": 335.5,
+          "h": 44,
+          "y": 159.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Logout",
+          "w": 335.5,
+          "h": 44,
+          "y": 203.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Regenerate slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 247.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 335.5,
+          "h": 44,
+          "y": 350.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 335.5,
+          "h": 55.4,
+          "y": 394.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 335.5,
+          "h": 44,
+          "y": 459,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.4,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 115.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 159.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 203.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 247.9
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 300.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 350.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 394.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 459
+        }
+      ],
+      "pill": {
+        "text": "amaranthine-quokka-northern-marches",
+        "w": 319.5,
+        "h": 23.2,
+        "right": 334.5,
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "border": "oklch(0.470927 0.188343 9.834023)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)"
+    }
+  },
+  {
+    "id": "logged-in-dark",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 1 1 1 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": true
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 0,
+        "y": 69.5,
+        "w": 349.5,
+        "h": 440.5
+      },
+      "overflowRight": -40.5,
+      "overflowBottom": -334,
+      "font": "Fira Code",
+      "bg": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 7,
+      "items": [
+        {
+          "text": "Copy slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 115.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Switch account",
+          "w": 335.5,
+          "h": 44,
+          "y": 159.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Logout",
+          "w": 335.5,
+          "h": 44,
+          "y": 203.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Regenerate slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 247.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 335.5,
+          "h": 44,
+          "y": 350.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 335.5,
+          "h": 55.4,
+          "y": 394.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 335.5,
+          "h": 44,
+          "y": 459,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.4,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 115.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 159.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 203.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 247.9
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 300.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 350.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 394.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 459
+        }
+      ],
+      "pill": {
+        "text": "amaranthine-quokka-northern-marches",
+        "w": 319.5,
+        "h": 23.2,
+        "right": 334.5,
+        "color": "oklch(0.958322 0.021053 9.834023)",
+        "border": "oklch(0.958322 0.021053 9.834023)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(233, 230, 226)",
+      "boxShadow": "color(srgb 1 0.924654 0.933001 / 0.3) 0px 0px 0px 2px, color(srgb 1 0.924654 0.933001 / 0.",
+      "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)"
+    }
+  },
+  {
+    "id": "admin-light",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": false
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 92.5,
+        "y": 69.5,
+        "w": 214.6,
+        "h": 264.5
+      },
+      "overflowRight": -82.9,
+      "overflowBottom": -510,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 3,
+      "items": [
+        {
+          "text": "Share color",
+          "w": 200.6,
+          "h": 44,
+          "y": 174.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 200.6,
+          "h": 55.4,
+          "y": 218.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 200.6,
+          "h": 44,
+          "y": 283,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 119.9,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 278,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.4,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 119.9
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 124.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 174.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 218.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 278
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 283
+        }
+      ],
+      "pill": {
+        "text": "admin",
+        "w": 61.1,
+        "h": 23.2,
+        "right": 168.6,
+        "color": "rgb(112, 89, 66)",
+        "border": "rgb(112, 89, 66)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)"
+    }
+  },
+  {
+    "id": "admin-dark",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 1 1 1 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": false
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 92.5,
+        "y": 69.5,
+        "w": 214.6,
+        "h": 264.5
+      },
+      "overflowRight": -82.9,
+      "overflowBottom": -510,
+      "font": "Fira Code",
+      "bg": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 3,
+      "items": [
+        {
+          "text": "Share color",
+          "w": 200.6,
+          "h": 44,
+          "y": 174.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 200.6,
+          "h": 55.4,
+          "y": 218.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 200.6,
+          "h": 44,
+          "y": 283,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(233, 230, 226)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 119.9,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 278,
+          "bg": "color(srgb 0.3944 0.34 0.2856 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.4,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 119.9
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 124.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 174.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 218.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 278
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 283
+        }
+      ],
+      "pill": {
+        "text": "admin",
+        "w": 61.1,
+        "h": 23.2,
+        "right": 168.6,
+        "color": "rgb(195, 185, 172)",
+        "border": "rgb(195, 185, 172)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(233, 230, 226)",
+      "boxShadow": "color(srgb 1 0.924654 0.933001 / 0.3) 0px 0px 0px 2px, color(srgb 1 0.924654 0.933001 / 0.",
+      "bg": "oklab(0.414856 0.009409 0.016128 / 0.6304)"
+    }
+  },
+  {
+    "id": "logged-in-320",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 230.2,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 47.1,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 119.9,
+        "w": 103.3,
+        "h": 32
+      },
+      "plate": {
+        "x": 33.1,
+        "w": 253.8,
+        "h": 59.5
+      },
+      "profileTriggerPresent": true
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 0,
+        "y": 69.5,
+        "w": 349.5,
+        "h": 384
+      },
+      "overflowRight": 29.5,
+      "overflowBottom": -186.5,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "384px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 7,
+      "items": [
+        {
+          "text": "Copy slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 115.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Switch account",
+          "w": 335.5,
+          "h": 44,
+          "y": 159.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Logout",
+          "w": 335.5,
+          "h": 44,
+          "y": 203.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Regenerate slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 247.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 335.5,
+          "h": 44,
+          "y": 350.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 335.5,
+          "h": 55.4,
+          "y": 394.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 335.5,
+          "h": 44,
+          "y": 458.7,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.6,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 453.7,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.1,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 115.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 159.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 203.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 247.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.6
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 300.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 350.3
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 394.3
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 453.7
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 458.7
+        }
+      ],
+      "pill": {
+        "text": "amaranthine-quokka-northern-marches",
+        "w": 319.5,
+        "h": 23.2,
+        "right": 334.5,
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "border": "oklch(0.470927 0.188343 9.834023)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)"
+    }
+  },
+  {
+    "id": "logged-out-rtl",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 81.7,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "background-color, color, scale, opacity / 0.2s, 0.2s, 0.35s, 0.2s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 249.6,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 131.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": false
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 82.5,
+        "y": 69.5,
+        "w": 214.6,
+        "h": 269.1
+      },
+      "overflowRight": -92.9,
+      "overflowBottom": -505.4,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0s",
+      "transProp": "scale, translate, opacity, filter, display, overlay",
+      "transDur": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+      "itemCount": 4,
+      "items": [
+        {
+          "text": "Login",
+          "w": 200.6,
+          "h": 44,
+          "y": 76.5,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 200.6,
+          "h": 44,
+          "y": 179.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 200.6,
+          "h": 55.4,
+          "y": 223.3,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 200.6,
+          "h": 44,
+          "y": 287.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 124.5
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 129.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 179.3
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 223.3
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 282.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 287.6
+        }
+      ],
+      "pill": null,
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "bg": "oklab(0.915631 0.00547 0.013051 / 0.52)"
+    }
+  },
+  {
+    "id": "logged-in-reduced",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+    ],
+    "trigger": {
+      "tag": "BUTTON",
+      "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+      "rect": {
+        "x": 265.6,
+        "y": 32.2,
+        "w": 42.7,
+        "h": 33.3
+      },
+      "glyph": {
+        "w": 24,
+        "h": 24
+      },
+      "ariaLabel": "Menu",
+      "ariaExpanded": "false",
+      "ariaHasPopup": "menu",
+      "ariaControls": null,
+      "dataState": "closed",
+      "type": "button",
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "color(srgb 0 0 0 / 0.8)",
+      "padding": "4.68px 9.36px",
+      "minW": "auto",
+      "minH": "auto",
+      "transition": "opacity / 0.15s",
+      "wrapperDisplay": "flex"
+    },
+    "siblings": {
+      "selectTrigger": {
+        "x": 81.7,
+        "w": 58.7,
+        "h": 33.3
+      },
+      "segmented": {
+        "x": 154.4,
+        "w": 104.2,
+        "h": 32.3
+      },
+      "plate": {
+        "x": 67.6,
+        "w": 254.7,
+        "h": 59.5
+      },
+      "profileTriggerPresent": true
+    },
+    "afterOpen": {
+      "ariaExpanded": "true",
+      "dataState": "open"
+    },
+    "menu": {
+      "rect": {
+        "x": 0,
+        "y": 69.5,
+        "w": 349.5,
+        "h": 440.5
+      },
+      "overflowRight": -40.5,
+      "overflowBottom": -334,
+      "font": "Fira Code",
+      "bg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "minW": "128px",
+      "maxH": "506.399963px",
+      "overflowY": "auto",
+      "animName": "none",
+      "animDur": "0.00001s",
+      "transProp": "opacity",
+      "transDur": "0.15s",
+      "itemCount": 7,
+      "items": [
+        {
+          "text": "Copy slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 115.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Switch account",
+          "w": 335.5,
+          "h": 44,
+          "y": 159.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Logout",
+          "w": 335.5,
+          "h": 44,
+          "y": 203.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Regenerate slug",
+          "w": 335.5,
+          "h": 44,
+          "y": 247.9,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Share color",
+          "w": 335.5,
+          "h": 44,
+          "y": 350.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "GitHub",
+          "w": 335.5,
+          "h": 55.4,
+          "y": 394.6,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 14,
+            "h": 14
+          }
+        },
+        {
+          "text": "Dark mode",
+          "w": 335.5,
+          "h": 44,
+          "y": 459,
+          "font": "Plus Jakarta Sans",
+          "size": "21px",
+          "weight": "400",
+          "color": "rgb(28, 25, 23)",
+          "pad": "6px 8px",
+          "gap": "8px",
+          "icon": {
+            "w": 16,
+            "h": 24
+          }
+        }
+      ],
+      "seps": [
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        },
+        {
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454,
+          "bg": "color(srgb 0.778 0.7052 0.622 / 0.7)"
+        }
+      ],
+      "nonItemBlocks": [
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "dropdown-menu__label px-2 py-1.5",
+          "h": 39.4,
+          "y": 76.5
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 115.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 159.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 203.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 247.9
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 295.9
+        },
+        {
+          "tag": "DIV",
+          "role": null,
+          "cls": "flex items-center gap-2 px-2 py-1.5",
+          "h": 49.8,
+          "y": 300.9
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 350.6
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 55.4,
+          "y": 394.6
+        },
+        {
+          "tag": "DIV",
+          "role": "separator",
+          "cls": "dropdown-menu__separator",
+          "h": 1,
+          "y": 454
+        },
+        {
+          "tag": "DIV",
+          "role": "menuitem",
+          "cls": "dropdown-menu__item interactive-item glass-menu-ro",
+          "h": 44,
+          "y": 459
+        }
+      ],
+      "pill": {
+        "text": "amaranthine-quokka-northern-marches",
+        "w": 319.5,
+        "h": 23.2,
+        "right": 334.5,
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "border": "oklch(0.470927 0.188343 9.834023)",
+        "bw": "1px",
+        "font": "Fira Code",
+        "size": "14px",
+        "overflowsMenu": false
+      },
+      "avatarLink": {
+        "w": 51.7,
+        "h": 17.2,
+        "text": "@mbabb"
+      },
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+    },
+    "focus": {
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0px 0px",
+      "bg": "oklab(0 0 0 / 0)"
+    }
+  }
+]

@@ -1,0 +1,122 @@
+{
+  "w320": {
+    "viewport": {
+      "w": 320,
+      "h": 640
+    },
+    "dialogRect": {
+      "x": 0,
+      "w": 320,
+      "y": 174,
+      "h": 292.16
+    },
+    "titleRect": {
+      "x": 25,
+      "right": 295,
+      "w": 270
+    },
+    "closeRect": {
+      "x": 279,
+      "right": 295,
+      "w": 16,
+      "h": 16
+    },
+    "titleClosePx": -16,
+    "titleAlign": "center",
+    "descAlign": "center",
+    "actionAlign": [
+      "flex-start",
+      "flex-start"
+    ],
+    "actionLabelWraps": [
+      true,
+      true
+    ],
+    "scrim": {
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "backdrop": "blur(1px) saturate(1.4)",
+      "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+    },
+    "bodyScrollLocked": "hidden"
+  },
+  "w390": {
+    "viewport": {
+      "w": 390,
+      "h": 664
+    },
+    "dialogRect": {
+      "x": 3,
+      "w": 384,
+      "y": 195.5,
+      "h": 272.56
+    },
+    "titleRect": {
+      "x": 28,
+      "right": 362,
+      "w": 334
+    },
+    "closeRect": {
+      "x": 346,
+      "right": 362,
+      "w": 16,
+      "h": 16
+    },
+    "titleClosePx": -16,
+    "titleAlign": "center",
+    "descAlign": "center",
+    "actionAlign": [
+      "flex-start",
+      "flex-start"
+    ],
+    "actionLabelWraps": [
+      true,
+      true
+    ],
+    "scrim": {
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "backdrop": "blur(1px) saturate(1.4)",
+      "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+    },
+    "bodyScrollLocked": "hidden"
+  },
+  "w1440": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "dialogRect": {
+      "x": 528,
+      "w": 384,
+      "y": 330.5,
+      "h": 239.25
+    },
+    "titleRect": {
+      "x": 553,
+      "right": 887,
+      "w": 334
+    },
+    "closeRect": {
+      "x": 871,
+      "right": 887,
+      "w": 16,
+      "h": 16
+    },
+    "titleClosePx": -16,
+    "titleAlign": "left",
+    "descAlign": "left",
+    "actionAlign": [
+      "flex-start",
+      "flex-start"
+    ],
+    "actionLabelWraps": [
+      true,
+      true
+    ],
+    "scrim": {
+      "bg": "color(srgb 0.11 0.098 0.09 / 0.5)",
+      "backdrop": "blur(1px) saturate(1.4)",
+      "cls": "fixed inset-0 z-overlay [backdrop-filter:var(--glass-blur-wash)] bg-overlay-scrim sheet-animate"
+    },
+    "bodyScrollLocked": "hidden"
+  }
+}

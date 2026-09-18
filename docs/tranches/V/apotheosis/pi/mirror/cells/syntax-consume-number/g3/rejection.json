@@ -1,0 +1,19 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G3-PRE-HOLDOUT-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 3,
+  "status": "REJECTED_BEFORE_HOLDOUT_OWNER_LAW_UNDERCOUNT",
+  "formation": { "sha256": "bcf360cad50ce4e0f05c5bec301b73be3711dc44dcebc54f409526207bc5de0d", "bytes": 7148 },
+  "authority": { "path": "../../../../ADDENDA-07.md", "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5", "bytes": 20954 },
+  "defect": "Owner law requires five independent skeptic roles and three independent synthesis adjudicators unanimously nominating the same exact reviewed candidate hash. G3 repeatedly requires four skeptics and one singular adjudicator.",
+  "exact_offending_lines": [
+    { "path": "feature-public.json", "lines": [62, 66, 67] },
+    { "path": "author-admission-protocol.json", "lines": [65, 69] },
+    { "path": "formation-receipt.json", "lines": [19, 66] },
+    { "path": "author-admission-validator.mjs", "line": 569 }
+  ],
+  "retained": "The §4.3.13 boundary, semantic-leaf repair, proof closure, captured-buffer compiler, four H/B/S/D author seats, positive construction floor, and executable benchmark remain eligible for byte-preserving recut.",
+  "state": { "holdout_files": 0, "ciphertext_files": 0, "manifest_files": 0, "challenge_files": 0, "candidate_files": 0, "active_grammar_mutations": 0 },
+  "next": "Recut narrowly as G4 with five named independent skeptic receipts and three named independent synthesis-adjudicator receipts, all binding one exact candidate set and unanimously nominating the same exact reviewed hash.",
+  "credit": "ZERO: no feature, parser, holdout, benchmark result, integration, conformance, production, or promotion credit."
+}

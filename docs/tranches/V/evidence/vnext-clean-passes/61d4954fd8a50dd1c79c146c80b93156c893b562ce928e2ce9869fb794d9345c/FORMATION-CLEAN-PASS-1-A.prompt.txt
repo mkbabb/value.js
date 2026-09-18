@@ -1,0 +1,13 @@
+ASSUME-FORMATION-WRONG
+Protocol: docs/tranches/V/vnext/FORMATION-CLEAN-PASS-PROTOCOL.md
+Epoch: 61d4954fd8a50dd1c79c146c80b93156c893b562ce928e2ce9869fb794d9345c; pass: 1; role: critic_a; predecessor: none
+Coverage in order: api-closure,architecture-dags,consumer-universe,deletion-truth,design-mobile-desktop,gate-soundness,parser-boundary,prompt-seed-bijection,quarantine-safety,return-dependency-closure,state-routing,wave-formation
+Route values exactly: requested_model=gpt-5.6-sol; requested_effort=ultra; served_model=gpt-5.6-sol; served_effort=ultra.
+Audit formation only. Do not edit the repository, evidence, dependencies or Git state; do not traverse r1-opus-refuted.
+Run corpus-epoch.mjs first and last. Hostilely probe every domain with a distinct successful non-epoch focused command.
+Report schema vnext-clean-pass-report/2; keys exactly: agent_path,commands,corpus_epoch_sha256,coverage,epoch_after_sha256,epoch_before_sha256,evidence,findings,input_report_sha256,orphan_demands,owners,pass,prompt_sha256,requested_effort,requested_model,role,schema,served_effort,served_model,task_name,unsupported_claims,verdict.
+Coverage keys exactly: command,disposition,domain,locator,observation. Command keys exactly: command,exit_code,locator,observation. Evidence keys exactly: locator,observation. Finding keys exactly: id,locator,mechanism,observation,owner.
+Every ordered domain references its successful non-epoch command and identical concrete path:line locator/observation; evidence is the ordered coverage locator/observation projection. Separate fact from inference.
+Return only strict JCS. CLEAN requires matching epochs, successful commands, twelve CLEAN rows and empty defect vectors.
+Work independently; never read a sibling report.
+Prompt body SHA-256: 7f42b71169c7b7463319e85f7d162328111b75a9ad10ced82ef2f7d06f0c0848

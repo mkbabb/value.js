@@ -1,0 +1,62 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_DISTINCT_TOPOLOGIES",
+  "seats": {
+    "h": {
+      "lineage": "historical direct parse-that number production",
+      "source": {
+        "path": "../g7/authorities/historical-utils.ts",
+        "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4",
+        "bytes": 7656,
+        "origin_commit": "9fce504a5764258c8e56b0ce77cd656c725a4907",
+        "origin_path": "src/parsing/utils.ts",
+        "origin_git_blob": "cbb57ab5327bc0afa667fbd13ad98d77f3b610de",
+        "line": 96,
+        "exact_lf_line_sha256": "545226e90f05ae9beb0759a9b7ebf831bfb92eb0d36dcc212d9fad73e1f29169",
+        "exact_lf_line_bytes": 92
+      },
+      "topology": "One whole-prefix parse-that regex terminal mapped directly to the semantic leaf; repair plus, leading-zero, maximal-prefix, type, and sign behavior. No all, any, opt, chain, or dispatch construction."
+    },
+    "b": {
+      "lineage": "acknowledged BBNF value-unit number production",
+      "source": {
+        "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf",
+        "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+        "bytes": 3084,
+        "repository_head": "af15f63e0d2d3d719938c13b906a50acbb92ea3b",
+        "git_blob": "0a13f1b3b6211cae5766fd212e815507c8c2a0bb",
+        "rule_line": 15,
+        "exact_lf_rule_sha256": "bf492607b5363e2df2877928f38a73afb39c310fbfb44ea67c02f7df60d851e0",
+        "exact_lf_rule_bytes": 60
+      },
+      "topology": "A factorized direct production: optional sign, any of integer-mantissa and leading-dot-mantissa, optional exponent, composed with all/any/opt before one semantic projection. No whole-prefix regex and no dispatch."
+    },
+    "s": {
+      "lineage": "CSS Syntax consume-number algorithm",
+      "source": {
+        "path": "../g5/authorities/css-syntax-3.Overview.bs",
+        "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+        "bytes": 144427,
+        "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+        "anchor": "consume-number",
+        "line_start": 1610,
+        "line_end_inclusive": 1679,
+        "exact_lf_slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3",
+        "exact_lf_slice_bytes": 2303
+      },
+      "topology": "A specification-step direct production using parser chain/then/guard composition for sign, integer, guarded fraction, and guarded exponent stages. It may use small leaf regexes but no whole-prefix regex, no all/any aggregate topology, and no dispatch."
+    },
+    "d": {
+      "lineage": "parse-that first-character dispatch clean room",
+      "source": {
+        "path": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts",
+        "sha256": "ca3a8e2cb9257f9d56e95b247c4b58e46524ae68a84172ea217d3eb3c4a24869",
+        "bytes": 2014
+      },
+      "topology": "One first-character dispatch over sign, dot, and digit buckets; each bucket owns a direct continuation parser and all arms project through one semantic map. No whole-prefix regex and no all/any aggregate topology."
+    }
+  },
+  "independence_law": "Topologies are obligations judged from each exported parser's reachable construction, not call quotas or dead syntax. Authors receive no peer candidate or peer design notes.",
+  "credit": "ZERO_LINEAGE_TOPOLOGY_ONLY"
+}

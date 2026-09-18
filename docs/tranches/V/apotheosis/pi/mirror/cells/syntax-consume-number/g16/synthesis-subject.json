@@ -1,0 +1,97 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.synthesis-subject/v1",
+  "status": "QUINTETTO_COMPLETE_FROZEN_FOR_THREE_INDEPENDENT_ADJUDICATORS",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "skeptic_subject": {
+    "path": "skeptic-subject-v2.json",
+    "sha256": "9747e051bc0f34fbe354dac311bba2e9322f4a2ca9f4d670a1548b49f0bcc749"
+  },
+  "skeptic_reports": [
+    {
+      "id": 1,
+      "verdict": "ACCEPT",
+      "path": "reviews/v2-1.md",
+      "sha256": "7c745c81b132206477d4ec977f2fb423e2c6c9e23dff876c452702eaf05d7444"
+    },
+    {
+      "id": 2,
+      "verdict": "ACCEPT",
+      "path": "reviews/v2-2.md",
+      "sha256": "1aca79a5c466f0904dcf559921b36373f39ce9c411037df429dd117f254cb5bb"
+    },
+    {
+      "id": 3,
+      "verdict": "ACCEPT",
+      "path": "reviews/v2-3.md",
+      "sha256": "3ccf3d16aa71dc2f0d4cdfb7d52c817b66adb910094f018803aea554fc0ece26"
+    },
+    {
+      "id": 4,
+      "verdict": "ACCEPT",
+      "path": "reviews/v2-4.md",
+      "sha256": "f4dc9dbc5f8e2db1f1c445bb8340f99b78cee2a373e67df4959717147bbc7286"
+    },
+    {
+      "id": 5,
+      "verdict": "ACCEPT",
+      "path": "reviews/v2-5.md",
+      "sha256": "b76c6164362849866205fbee64a2357299ae95a387f935a718606190dfd4ab65"
+    }
+  ],
+  "reviewed_candidates": [
+    {
+      "id": "h",
+      "path": "../g15/candidates/h/index.ts",
+      "sha256": "b78dfcd5194ec2480d4ce480417555fffb10788e9ea0cdef1fa4d778af901a0f"
+    },
+    {
+      "id": "b",
+      "path": "../g15/candidates/b/index.ts",
+      "sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7"
+    },
+    {
+      "id": "s",
+      "path": "../g15/candidates/s/index.ts",
+      "sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169"
+    },
+    {
+      "id": "d",
+      "path": "../g15/candidates/d/index.ts",
+      "sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137"
+    },
+    {
+      "id": "h2",
+      "path": "../g15/optimization/h2/index.ts",
+      "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+    }
+  ],
+  "controlling_evidence": {
+    "architecture_path": "correction/architecture-selection.json",
+    "architecture_sha256": "7373c68757ee787948e807cbc95ee764e4d891e6acf8f297d33a99ff8e497ce7",
+    "correctness_path": "correctness/evidence.json",
+    "correctness_sha256": "4eac6a187ef7f615152f364ff52e33ecaa2890c3595313fd6f40ae3714cd13d8",
+    "benchmark_erratum_path": "correction/benchmark-erratum.json",
+    "benchmark_erratum_sha256": "54f1b3eaadd7198e22bc6d3ef9b0d8211933069efe0b179cec49906938a9f323",
+    "benchmark_raw_path": "bench/evidence/raw-first-attempt.ndjson",
+    "benchmark_raw_sha256": "372fef4094e34b1b78d9ab8e48fcf36bcda7557f2e8ba54cac637c222de11e54"
+  },
+  "adjudication_law": {
+    "independent_adjudicators": 3,
+    "roles": [
+      "semantic",
+      "parser-architecture",
+      "performance-gestalt"
+    ],
+    "each_must_nominate": "exactly one reviewed candidate id and SHA-256, or REJECT_ALL",
+    "composite_forbidden": true,
+    "candidate_edit_forbidden": true,
+    "fresh_timing_forbidden": true,
+    "unanimity_required": true,
+    "dissent_effect": "No feature acceptance or promotion; any new bytes restart candidate review."
+  },
+  "credit": {
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

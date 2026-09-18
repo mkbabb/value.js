@@ -1,0 +1,71 @@
+{
+  "schema": "vnext-wave-edge-policy/1",
+  "orientation": "producer-to-consumer",
+  "formation_graph_sha256": "e8942c859b776f8793e6ade34a34f6d828735a8037a3736aa5ac1a25021839ea",
+  "policy_schema_sha256": "66b2e25174fdd54669c67671c9487ff0aff15bfb5a97c728135fb90756506f04",
+  "classes": {
+    "complete": {
+      "edge_role": "completion-predecessor",
+      "advancing_statuses": ["COMPLETE"]
+    },
+    "conditional-disposition": {
+      "edge_role": "conditional-disposition",
+      "advancing_statuses": ["KEEP", "PRUNE"]
+    },
+    "fixed-keep": {
+      "edge_role": "requires-keep",
+      "advancing_statuses": ["KEEP"]
+    },
+    "fixed-prune": {
+      "edge_role": "requires-prune",
+      "advancing_statuses": ["PRUNE"]
+    }
+  },
+  "default_wave_class": "complete",
+  "wave_class_overrides": [
+    {
+      "class": "conditional-disposition",
+      "waves": ["V15P", "V16B", "V18H", "V18V", "V24"]
+    },
+    {
+      "class": "fixed-keep",
+      "waves": ["K16", "K17"]
+    },
+    {
+      "class": "fixed-prune",
+      "waves": ["K14", "K15", "K18", "K19", "K20", "K21", "K22"]
+    }
+  ],
+  "edge_overrides": [
+    {
+      "from": "V24",
+      "to": "V24C",
+      "role": "requires-keep",
+      "allowed_statuses": ["KEEP"]
+    },
+    {
+      "from": "V24",
+      "to": "V24M",
+      "role": "requires-keep",
+      "allowed_statuses": ["KEEP"]
+    }
+  ],
+  "supersession": {
+    "role": "reopening-supersession",
+    "static_edge": false,
+    "allowed_statuses": "owner-advancing-plus-refused"
+  },
+  "expected": {
+    "wave_count": 190,
+    "edge_count": 759,
+    "role_counts": {
+      "completion-predecessor": 723,
+      "conditional-disposition": 24,
+      "requires-keep": 4,
+      "requires-prune": 8
+    },
+    "wave_outcomes_sha256": "2bafaacf6454fa303fa28a59b34f091751b7179897d28c61e65d5e5fff29c97f",
+    "edges_sha256": "e11350d27d9680550863487717582ecd6f3d3f3e188028dd0d654cea45492566"
+  },
+  "manifest_hash": "d4c9b937a939adfb0602083198323eeec1a51533644071e889a15456bfeaae1f"
+}

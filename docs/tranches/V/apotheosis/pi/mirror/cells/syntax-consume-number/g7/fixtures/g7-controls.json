@@ -1,0 +1,30 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "failure_case_ids": [
+    "empty",
+    "plus-only",
+    "minus-only",
+    "dot-only",
+    "plus-dot-only",
+    "identifier",
+    "leading-trivia",
+    "non-ascii-digit",
+    "replacement-character",
+    "nonzero-invalid"
+  ],
+  "diagnostics": {
+    "modes": ["disabled", "enabled"],
+    "profiles": ["ordinary", "preseeded-ahead"],
+    "preseed_ahead_delta": 17
+  },
+  "work_limit": {
+    "constructions": ["digits", "fraction", "exponent", "incomplete-exponent"],
+    "sizes_utf16_code_units": [4096, 8192, 16384, 32768],
+    "warmups": 2,
+    "samples": 5,
+    "median_pair_ratio_ceiling": 8,
+    "timing_floor_ms": 0.05,
+    "per_case_ceiling_ms": 1000
+  }
+}

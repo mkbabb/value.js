@@ -1,0 +1,18 @@
+{
+  "feature_id": "SYNTAX-NUMBER-REPR",
+  "generation": 0,
+  "status": "BOUNDARY_REJECTED",
+  "reviewed": {
+    "feature_sha256": "44a353d64d019d3adce27ccecec8b81143d386dda89db5e9d695d9bc7863a392",
+    "cases_sha256": "47062dda39ebb355f1610103f09e147b6209bb2b055191093c7520db1660e1b1",
+    "manifest_sha256": "b1637fe1c5fb923ef04cba34fbc447df46045f387589573d8be41e20ec7f0b05"
+  },
+  "verdicts": [
+    "reviews/boundary-spec.md",
+    "reviews/boundary-architecture.md"
+  ],
+  "candidate_source_authored": false,
+  "benchmark_run": false,
+  "acceptance_credit": false,
+  "disposition": "Immutable failed formation evidence. Do not mutate or author against generation 0; recut number-start and whole consume-number operations in new cells."
+}

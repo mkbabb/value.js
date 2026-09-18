@@ -1,7 +1,7 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
 import type { MongoClient, Db } from "mongodb";
 import { cleanCollections, connect } from "../../../../test/helpers.js";
-import { AdminAuditRepository } from "../repository/adminAudit.js";
+import { AdminAuditRepository } from "../repository/audit.js";
 import type { AdminAuditEvent } from "../model.js";
 
 describe("repository.adminAudit", () => {

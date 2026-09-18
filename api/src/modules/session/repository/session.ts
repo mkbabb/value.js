@@ -6,7 +6,7 @@
  * RAW token via `hashSessionToken` before filtering, mirroring the mint — so the
  * cleartext token never appears in a query and the digest-at-rest seam round-
  * trips. The `findAndTouch` method IS the session-validation read
- * `modules/session/resolve-session.ts` consumes via the DI seam — an atomic find
+ * `modules/session/resolve.ts` consumes via the DI seam — an atomic find
  * (gated on `expiresAt > now`) + `lastSeenAt` touch.
  */
 

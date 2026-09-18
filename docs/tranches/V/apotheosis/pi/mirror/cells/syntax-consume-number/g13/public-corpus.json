@@ -1,0 +1,50 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.public-corpus/v1",
+  "derivation": {
+    "oracle": "Cartesian product generated independently from CSS consume-a-number alternatives, followed by Number(representation).",
+    "expectation": "The harness independently derives representation, end, Number value, type, and sign from these axes; expected observations are not copied from candidate output."
+  },
+  "success_matrix": {
+    "signs": ["", "+", "-"],
+    "mantissas": ["7", "7.5", ".5"],
+    "exponents": ["", "e2", "E+2", "e-2"],
+    "offset_by_sign": { "none": 2, "+": 3, "-": 4 }
+  },
+  "incomplete_exponent_matrix": {
+    "signs": ["", "+", "-"],
+    "mantissas": ["7", "7.5", ".5"],
+    "suffixes": ["e", "e+", "e-"]
+  },
+  "guarded_suffix_cases": [
+    { "id": "incomplete-decimal/unsigned", "source": "1.", "offset": 0, "representation": "1", "end": 1, "value": 1, "value_kind": "finite", "type": "integer", "sign": null },
+    { "id": "incomplete-decimal/plus", "source": "+7.", "offset": 0, "representation": "+7", "end": 2, "value": 7, "value_kind": "finite", "type": "integer", "sign": "+" },
+    { "id": "incomplete-decimal/minus-exponent-tail", "source": "-7.e2", "offset": 0, "representation": "-7", "end": 2, "value": -7, "value_kind": "finite", "type": "integer", "sign": "-" },
+    { "id": "malformed-exponent/double-plus", "source": "1e++2", "offset": 0, "representation": "1", "end": 1, "value": 1, "value_kind": "finite", "type": "integer", "sign": null },
+    { "id": "malformed-exponent/double-minus", "source": "1e--2", "offset": 0, "representation": "1", "end": 1, "value": 1, "value_kind": "finite", "type": "integer", "sign": null },
+    { "id": "incomplete-decimal/nonzero-plus", "source": "@@+7.", "offset": 2, "representation": "+7", "end": 4, "value": 7, "value_kind": "finite", "type": "integer", "sign": "+" },
+    { "id": "incomplete-decimal/nonzero-minus-exponent-tail", "source": "@@@-7.e2", "offset": 3, "representation": "-7", "end": 5, "value": -7, "value_kind": "finite", "type": "integer", "sign": "-" }
+  ],
+  "signed_integer_exponents_required": ["+7e2", "-7e2", "+7E+2", "-7e-2"],
+  "special_success_cases": [
+    { "id": "max-binary64", "source": "1.7976931348623157e308x", "offset": 0, "representation": "1.7976931348623157e308", "end": 22, "value": 1.7976931348623157e+308, "value_kind": "finite", "type": "number", "sign": null },
+    { "id": "min-subnormal", "source": "5e-324x", "offset": 0, "representation": "5e-324", "end": 6, "value": 5e-324, "value_kind": "finite", "type": "number", "sign": null },
+    { "id": "positive-underflow", "source": "1e-324x", "offset": 0, "representation": "1e-324", "end": 6, "value": 0, "value_kind": "finite", "type": "number", "sign": null },
+    { "id": "negative-underflow", "source": "-1e-324x", "offset": 0, "representation": "-1e-324", "end": 7, "value": 0, "value_kind": "negative-zero", "type": "number", "sign": "-" },
+    { "id": "positive-overflow", "source": "+1e309x", "offset": 0, "representation": "+1e309", "end": 6, "value": null, "value_kind": "positive-infinity", "type": "number", "sign": "+" },
+    { "id": "negative-overflow", "source": "-1e309x", "offset": 0, "representation": "-1e309", "end": 6, "value": null, "value_kind": "negative-infinity", "type": "number", "sign": "-" },
+    { "id": "integer-rounding", "source": "9007199254740993x", "offset": 0, "representation": "9007199254740993", "end": 16, "value": 9007199254740992, "value_kind": "finite", "type": "integer", "sign": null }
+  ],
+  "failure_sources": ["", "+", "-", ".", "+.", "-.", "e1", "+e1", "--1", "+-1", ".e1", "🙂+"],
+  "failure_offsets": [0, 3],
+  "hostile_no_throw_sources": ["\u0000", "\ud800", "\udfff", "∞", "1e++2", "1e--2", "+.e2", "-e+2", "9e999999999999999999999999x", "🙂-1e+"],
+  "predecessor_profiles": ["undefined", "null", "false", "zero", "empty-string", "array", "object"],
+  "diagnostics_profiles": ["ordinary", "preseeded-ahead"],
+  "composition_cases": [
+    { "id": "percentage", "source": "+12.5e-1%;", "prefix": "", "suffix": ";", "kind": "percentage", "accepts": true, "value": 1.25 },
+    { "id": "dimension", "source": "-3.5e2px!", "prefix": "", "suffix": "!", "kind": "dimension", "accepts": true, "value": -350, "unit": "px" },
+    { "id": "integer-accept", "source": "+12!", "prefix": "", "suffix": "!", "kind": "integer", "accepts": true, "value": 12 },
+    { "id": "integer-reject", "source": "+12e2!", "prefix": "", "suffix": "!", "kind": "integer", "accepts": false },
+    { "id": "delimited", "source": "(-.5e+2)", "prefix": "(", "suffix": ")", "kind": "delimited", "accepts": true, "value": -50 }
+  ],
+  "limits": { "subprocess_timeout_ms": 5000, "max_stdout_bytes": 1048576, "max_stderr_bytes": 1048576 }
+}

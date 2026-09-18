@@ -1,0 +1,117 @@
+{
+    "schema_version": "value.pi.occurrence-owner-v9-research-prototype-evidence/v1",
+    "date": "2026-07-22",
+    "status": "RED_RESEARCH_PROTOTYPE_AWAITING_CHALLENGE_ZERO_CREDIT",
+    "authority": {
+        "formation_only": true,
+        "full_source_denominator": false,
+        "normative_operation_ledger": false,
+        "may_generate_denominator_shards": false,
+        "may_promote": false,
+        "parser": false,
+        "production": false
+    },
+    "blueprint": {
+        "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json",
+        "bytes": 11406,
+        "sha256": "fbaaadb4e3de6fc5fcef756e6bd4a1824514faac5360afa2d4c8450caf170bb3"
+    },
+    "fixtures": {
+        "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+        "bytes": 12452,
+        "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a",
+        "v9_cases": 18,
+        "v9_input_bytes": 1121
+    },
+    "implementation": {
+        "analyzer": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+            "bytes": 27806,
+            "sha256": "8d31d5189599f03be502aab450b5f17a9615d499c29dabc9a657eda4e69323da",
+            "imports": ["node:crypto"]
+        },
+        "oracle": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+            "bytes": 14073,
+            "sha256": "19c9dd905990129d48a37eeb7d8667482cf61f8fec9b95e2574ddacdbd659ec2",
+            "imports": ["node:crypto"],
+            "imports_analyzer_or_generator": false
+        },
+        "test": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+            "bytes": 19213,
+            "sha256": "7378e6514359252e9fcd6ce726f9c76053a1d913b73e7d9e0c8f4430aeaa56ab"
+        }
+    },
+    "test_replay": {
+        "command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+        "syntax_checks": [
+            "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+            "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+            "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs"
+        ],
+        "runs": 3,
+        "exact_output_equality": true,
+        "output_bytes": 4208,
+        "output_sha256": "86514d8b2a9a1d5978c102cf8cad77974ff002f45a382f2952e7755cded2e04e",
+        "status": "GREEN_V9_RESEARCH_PROTOTYPE_ZERO_DENOMINATOR_CREDIT"
+    },
+    "coverage": {
+        "v9_hostile_cases": 18,
+        "inherited_v8_cases": 29,
+        "inherited_v8_fixture_path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/fixtures.mjs",
+        "inherited_v8_fixture_bytes": 22402,
+        "inherited_v8_fixture_sha256": "3c5926b4911b0826fe86d4252aa93110083c22744bd2ffb4de5b3dd45d3ebc0a",
+        "inherited_v8_digest_sha256": "89bef854a071f9566924a9dc62da511d78c12de1e5589bf7adc3b448c668d870",
+        "states_declared": 13,
+        "states_exercised": 13,
+        "deterministic_no_throw_cases": 512,
+        "deterministic_no_throw_bytes": 82055,
+        "maximum_observed_transition_per_byte": 1,
+        "malformed_scale_min_bytes": 52,
+        "malformed_scale_max_bytes": 3076,
+        "malformed_scale_max_transitions": 3076,
+        "malformed_scale_max_limit": 24672,
+        "mutations_declared": 15,
+        "mutations_rejected": 15
+    },
+    "resource_sample": {
+        "command": "/usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+        "raw_path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-time.txt",
+        "raw_bytes": 777,
+        "raw_sha256": "9eebe53f5e4fd99e0da9ec6cb7b36152d622020824ae9cef0cf0e1c117284cb1",
+        "elapsed_seconds": 0.08,
+        "maximum_resident_set_size_bytes": 73023488,
+        "classification": "SINGLE_LOCAL_PROTOTYPE_SAMPLE_NOT_A_FULL_SOURCE_RESOURCE_GATE"
+    },
+    "known_limitations": [
+        "The analyzer has not run over the pinned 168-source corpus and generates no denominator shards.",
+        "The complete independently reviewed normative-operation ledger is absent; only four fixture identities exist.",
+        "The inherited V8 cases replay their authenticated frozen V8 fixture module; their raw case inputs are not exported into the V9 analyzer closure.",
+        "The analyzer is a research implementation for the frozen hostile boundary, not a complete Bikeshed or HTML parser.",
+        "The source-order work counter records consumed source positions; helper comparisons and platform URL work are not yet included in a machine-operation bound.",
+        "The evidence-envelope mutations use synthetic identities and publication transcripts; no real launcher, transitive dependency seal, arbitrary-output publication, or crash-injection harness exists.",
+        "No second independent challenge or root gestalt has adjudicated this implementation."
+    ],
+    "required_next": [
+        "Obtain two independent exact-byte hostile challenges of this RED prototype evidence.",
+        "Correct and re-freeze any confirmed analyzer, oracle, fixture, or evidence defects.",
+        "Materialize and independently review the full normative-operation ledger before any source-corpus operation claim.",
+        "Build a frozen launcher and disjoint transitive import manifests before full-source execution.",
+        "Only then run the exact 168-source corpus, arbitrary-output equality, full mutations, raw resource assays, and publication fault injection."
+    ],
+    "credits": {
+        "denominator": 0,
+        "semantic": 0,
+        "owner": 0,
+        "operation": 0,
+        "compatibility": 0,
+        "conformance": 0,
+        "parser": 0,
+        "feature": 0,
+        "cost_lattice": 0,
+        "movement": 0,
+        "integration": 0,
+        "production": 0
+    }
+}

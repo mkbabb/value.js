@@ -1,0 +1,56 @@
+{
+  "schema": "v-pi-raw-prompts/1",
+  "sessions": [
+    {
+      "label": "value-tranche-v-formation",
+      "threadId": "019f6619-f1b0-7cf0-94af-27f579ff4fba",
+      "source": "/Users/mkbabb/.codex/sessions/2026/07/15/rollout-2026-07-15T10-06-44-019f6619-f1b0-7cf0-94af-27f579ff4fba.jsonl",
+      "sourceSha256": "61be5f25c8cbbab0290d2d5ad8ae76df7a70230e1324650014291418a0523bb2",
+      "sourceBytes": 106745658,
+      "prompts": 83,
+      "uniquePrompts": 83,
+      "archive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-prompts/value-tranche-v-formation.md",
+      "archiveSha256": "c044568945cfd5c311010bb2fee4d5192bd9e913fb167de502f4b76bbbdf4658",
+      "agentMessages": 546,
+      "agentArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-messages/value-tranche-v-formation.md",
+      "agentArchiveSha256": "4f9e8994f916aa947987bc115ade3093a160e7ebe6149a73a01514f280ca9a70",
+      "agentEnvelopes": 886,
+      "agentEnvelopeArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-envelopes/value-tranche-v-formation.jsonl",
+      "agentEnvelopeArchiveSha256": "54b5b6e55d2f72cec3704a308526d1cc01d13bed00ad560b271dbd5ec15f6f20"
+    },
+    {
+      "label": "value-v-pi-refinement",
+      "threadId": "019f85f6-8ef9-7251-bcdb-8fc66cfda83d",
+      "source": "/Users/mkbabb/.codex/sessions/2026/07/21/rollout-2026-07-21T14-35-56-019f85f6-8ef9-7251-bcdb-8fc66cfda83d.jsonl",
+      "sourceSha256": "35798d5ce80fa2fc687acc117e57c0594697e4a0cfaf8310b9b75bd29b010c87",
+      "sourceBytes": 54294682,
+      "prompts": 28,
+      "uniquePrompts": 28,
+      "archive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-prompts/value-v-pi-refinement.md",
+      "archiveSha256": "96d94a82ab6d123678b366ebe96891a28c777bbb2bd24072d9e6fff71b1b4e19",
+      "agentMessages": 578,
+      "agentArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-messages/value-v-pi-refinement.md",
+      "agentArchiveSha256": "aa38fc6c905822a3321e87129a8ccca61a35651a7771acfac6ac374bd4dde1e0",
+      "agentEnvelopes": 820,
+      "agentEnvelopeArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-envelopes/value-v-pi-refinement.jsonl",
+      "agentEnvelopeArchiveSha256": "0873a02ec67c671da91e7e63b2f6abe1f121e652334c2dcc0667402e2f65dfcf"
+    },
+    {
+      "label": "bbnf-greenfield-coordination",
+      "threadId": "019f7685-254a-7a22-9917-1da91f977861",
+      "source": "/Users/mkbabb/.codex/sessions/2026/07/18/rollout-2026-07-18T14-37-45-019f7685-254a-7a22-9917-1da91f977861.jsonl",
+      "sourceSha256": "4a13a4f54335613ef8e0b5397a863bd42ffad809fe355dba4c928a84f9f31e7e",
+      "sourceBytes": 126996634,
+      "prompts": 70,
+      "uniquePrompts": 69,
+      "archive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-prompts/bbnf-greenfield-coordination.md",
+      "archiveSha256": "73612abe625958ccfef8262d71504f11590fdb3bddb62199089181fd100b18f1",
+      "agentMessages": 1738,
+      "agentArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-messages/bbnf-greenfield-coordination.md",
+      "agentArchiveSha256": "05206c438f08689aada8684aaeaeef1280ecd6ab699450c27b15e03b56ab0e60",
+      "agentEnvelopes": 1577,
+      "agentEnvelopeArchive": "docs/tranches/V/apotheosis/pi/formation/session-audit/raw-agent-envelopes/bbnf-greenfield-coordination.jsonl",
+      "agentEnvelopeArchiveSha256": "04798e765ea409b9c90be16e1caaa5bc0337dfae382e6d9a2370a95f197e2ca8"
+    }
+  ]
+}

@@ -1,0 +1,530 @@
+[
+ {
+  "file": "demo/color-picker/App.vue",
+  "slug": "color-picker-app",
+  "area": "demo/color-picker",
+  "loc": 418
+ },
+ {
+  "file": "demo/picker/ColorPicker.vue",
+  "slug": "picker-colorpicker",
+  "area": "demo/picker",
+  "loc": 415
+ },
+ {
+  "file": "demo/scenes/about/markdown/Markdown.vue",
+  "slug": "scenes-about-markdown-markdown",
+  "area": "demo/scenes",
+  "loc": 409
+ },
+ {
+  "file": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+  "slug": "picker-controls-componentsliders-componentsliders",
+  "area": "demo/picker",
+  "loc": 396
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-gradientstopeditor",
+  "area": "demo/workbenches",
+  "loc": 393
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+  "slug": "palettes-browser-admin-adminuserspanel",
+  "area": "demo/palettes",
+  "loc": 392
+ },
+ {
+  "file": "demo/shell/dock/ColorInput.vue",
+  "slug": "shell-dock-colorinput",
+  "area": "demo/shell",
+  "loc": 378
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+  "slug": "palettes-browser-card-palettecard-palettecard",
+  "area": "demo/palettes",
+  "loc": 365
+ },
+ {
+  "file": "demo/palettes/BrowsePane.vue",
+  "slug": "palettes-browsepane",
+  "area": "demo/palettes",
+  "loc": 361
+ },
+ {
+  "file": "demo/shell/dock/Dock.vue",
+  "slug": "shell-dock-dock",
+  "area": "demo/shell",
+  "loc": 360
+ },
+ {
+  "file": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+  "slug": "picker-controls-componentsliders-consolerail",
+  "area": "demo/picker",
+  "loc": 330
+ },
+ {
+  "file": "demo/picker/visual/HeroBlob.vue",
+  "slug": "picker-visual-heroblob",
+  "area": "demo/picker",
+  "loc": 318
+ },
+ {
+  "file": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+  "slug": "palettes-browser-card-currentpaletteeditor",
+  "area": "demo/palettes",
+  "loc": 313
+ },
+ {
+  "file": "demo/color-session/ColorSpaceSelector.vue",
+  "slug": "color-session-colorspaceselector",
+  "area": "demo/color-session",
+  "loc": 312
+ },
+ {
+  "file": "demo/workbenches/generate/GenerateControls.vue",
+  "slug": "workbenches-generate-generatecontrols",
+  "area": "demo/workbenches",
+  "loc": 312
+ },
+ {
+  "file": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+  "slug": "workbenches-extract-imageeyedropper-imageeyedropper",
+  "area": "demo/workbenches",
+  "loc": 299
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-gradienteasingeditor",
+  "area": "demo/workbenches",
+  "loc": 296
+ },
+ {
+  "file": "demo/workbenches/extract/ExtractWorkbench.vue",
+  "slug": "workbenches-extract-extractworkbench",
+  "area": "demo/workbenches",
+  "loc": 294
+ },
+ {
+  "file": "demo/picker/visual/PointerDebugOverlay.vue",
+  "slug": "picker-visual-pointerdebugoverlay",
+  "area": "demo/picker",
+  "loc": 287
+ },
+ {
+  "file": "demo/workbenches/mix/MixSourceSelector.vue",
+  "slug": "workbenches-mix-mixsourceselector",
+  "area": "demo/workbenches",
+  "loc": 283
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-gradientvisualizer",
+  "area": "demo/workbenches",
+  "loc": 280
+ },
+ {
+  "file": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+  "slug": "picker-controls-spectrumcanvas-spectrumcanvas",
+  "area": "demo/picker",
+  "loc": 273
+ },
+ {
+  "file": "demo/scenes/ConfigSliderPane.vue",
+  "slug": "scenes-configsliderpane",
+  "area": "demo/scenes",
+  "loc": 253
+ },
+ {
+  "file": "demo/palettes/browser/search/SearchFilterBar.vue",
+  "slug": "palettes-browser-search-searchfilterbar",
+  "area": "demo/palettes",
+  "loc": 250
+ },
+ {
+  "file": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+  "slug": "palettes-browser-slug-paletteslugbar",
+  "area": "demo/palettes",
+  "loc": 244
+ },
+ {
+  "file": "demo/scenes/about/ColorNutritionLabel.vue",
+  "slug": "scenes-about-colornutritionlabel",
+  "area": "demo/scenes",
+  "loc": 243
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+  "slug": "palettes-browser-card-palettecard-palettecardmenu",
+  "area": "demo/palettes",
+  "loc": 229
+ },
+ {
+  "file": "demo/shared/ui/PaneHeader.vue",
+  "slug": "shared-ui-paneheader",
+  "area": "demo/shared",
+  "loc": 225
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-easing-easingspecimenstrip",
+  "area": "demo/workbenches",
+  "loc": 216
+ },
+ {
+  "file": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+  "slug": "picker-display-colorcomponentdisplay-colorcomponentdisplay",
+  "area": "demo/picker",
+  "loc": 215
+ },
+ {
+  "file": "demo/palettes/PalettesPane.vue",
+  "slug": "palettes-palettespane",
+  "area": "demo/palettes",
+  "loc": 213
+ },
+ {
+  "file": "demo/scenes/atmosphere/AuroraPane.vue",
+  "slug": "scenes-atmosphere-aurorapane",
+  "area": "demo/scenes",
+  "loc": 202
+ },
+ {
+  "file": "demo/shell/dock/menus/ProfileSection.vue",
+  "slug": "shell-dock-menus-profilesection",
+  "area": "demo/shell",
+  "loc": 182
+ },
+ {
+  "file": "demo/workbenches/mix/MixConfigBar.vue",
+  "slug": "workbenches-mix-mixconfigbar",
+  "area": "demo/workbenches",
+  "loc": 173
+ },
+ {
+  "file": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+  "slug": "palettes-browser-dialog-versionhistorydrawer",
+  "area": "demo/palettes",
+  "loc": 169
+ },
+ {
+  "file": "demo/palettes/browser/search/MiniColorPicker.vue",
+  "slug": "palettes-browser-search-minicolorpicker",
+  "area": "demo/palettes",
+  "loc": 165
+ },
+ {
+  "file": "demo/shell/dock/DockViewSelect.vue",
+  "slug": "shell-dock-dockviewselect",
+  "area": "demo/shell",
+  "loc": 163
+ },
+ {
+  "file": "demo/shell/dock/ActionBarToggle.vue",
+  "slug": "shell-dock-actionbartoggle",
+  "area": "demo/shell",
+  "loc": 160
+ },
+ {
+  "file": "demo/shell/dock/layers/ActionBarLayer.vue",
+  "slug": "shell-dock-layers-actionbarlayer",
+  "area": "demo/shell",
+  "loc": 159
+ },
+ {
+  "file": "demo/workbenches/mix/MixResultDisplay.vue",
+  "slug": "workbenches-mix-mixresultdisplay",
+  "area": "demo/workbenches",
+  "loc": 159
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+  "slug": "palettes-browser-admin-adminflaggedpanel",
+  "area": "demo/palettes",
+  "loc": 154
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+  "slug": "palettes-browser-admin-adminnamespanel",
+  "area": "demo/palettes",
+  "loc": 153
+ },
+ {
+  "file": "demo/workbenches/extract/ExtractControls.vue",
+  "slug": "workbenches-extract-extractcontrols",
+  "area": "demo/workbenches",
+  "loc": 152
+ },
+ {
+  "file": "demo/shell/dock/ActionButton.vue",
+  "slug": "shell-dock-actionbutton",
+  "area": "demo/shell",
+  "loc": 138
+ },
+ {
+  "file": "demo/picker/visual/DebugEventLog.vue",
+  "slug": "picker-visual-debugeventlog",
+  "area": "demo/picker",
+  "loc": 137
+ },
+ {
+  "file": "demo/palettes/admin/AdminPane.vue",
+  "slug": "palettes-admin-adminpane",
+  "area": "demo/palettes",
+  "loc": 136
+ },
+ {
+  "file": "demo/scenes/blob/BlobPane.vue",
+  "slug": "scenes-blob-blobpane",
+  "area": "demo/scenes",
+  "loc": 131
+ },
+ {
+  "file": "demo/shell/PaneSlot.vue",
+  "slug": "shell-paneslot",
+  "area": "demo/shell",
+  "loc": 130
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+  "slug": "palettes-browser-admin-admintagspanel",
+  "area": "demo/palettes",
+  "loc": 127
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+  "slug": "palettes-browser-card-palettecardskeleton",
+  "area": "demo/palettes",
+  "loc": 125
+ },
+ {
+  "file": "demo/shell/dock/DockStatusLamp.vue",
+  "slug": "shell-dock-dockstatuslamp",
+  "area": "demo/shell",
+  "loc": 124
+ },
+ {
+  "file": "demo/workbenches/mix/MixPane.vue",
+  "slug": "workbenches-mix-mixpane",
+  "area": "demo/workbenches",
+  "loc": 124
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+  "slug": "palettes-browser-admin-adminauditpanel",
+  "area": "demo/palettes",
+  "loc": 121
+ },
+ {
+  "file": "demo/shell/dock/layers/SlugEditLayer.vue",
+  "slug": "shell-dock-layers-slugeditlayer",
+  "area": "demo/shell",
+  "loc": 120
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-gradientcodeeditor",
+  "area": "demo/workbenches",
+  "loc": 117
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+  "slug": "workbenches-gradient-gradientvisualizer-easing-easingauthoringstage",
+  "area": "demo/workbenches",
+  "loc": 117
+ },
+ {
+  "file": "demo/palettes/browser/card/ShadowPalette.vue",
+  "slug": "palettes-browser-card-shadowpalette",
+  "area": "demo/palettes",
+  "loc": 116
+ },
+ {
+  "file": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+  "slug": "shell-dock-menus-mobilemenudropdown",
+  "area": "demo/shell",
+  "loc": 116
+ },
+ {
+  "file": "demo/workbenches/extract/ImageDropZone.vue",
+  "slug": "workbenches-extract-imagedropzone",
+  "area": "demo/workbenches",
+  "loc": 114
+ },
+ {
+  "file": "demo/shared/ui/EmptyState.vue",
+  "slug": "shared-ui-emptystate",
+  "area": "demo/shared",
+  "loc": 106
+ },
+ {
+  "file": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+  "slug": "palettes-browser-dialog-flagreportdialog",
+  "area": "demo/palettes",
+  "loc": 102
+ },
+ {
+  "file": "demo/scenes/about/AboutPane.vue",
+  "slug": "scenes-about-aboutpane",
+  "area": "demo/scenes",
+  "loc": 101
+ },
+ {
+  "file": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+  "slug": "palettes-browser-dialog-migratepalettesdialog",
+  "area": "demo/palettes",
+  "loc": 98
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+  "slug": "palettes-browser-card-palettecard-palettecardswatches",
+  "area": "demo/palettes",
+  "loc": 97
+ },
+ {
+  "file": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+  "slug": "palettes-browser-card-swatchhovermenu",
+  "area": "demo/palettes",
+  "loc": 94
+ },
+ {
+  "file": "demo/shell/dock/ActionToolbar.vue",
+  "slug": "shell-dock-actiontoolbar",
+  "area": "demo/shell",
+  "loc": 93
+ },
+ {
+  "file": "demo/palettes/browser/status/ApiOfflineChip.vue",
+  "slug": "palettes-browser-status-apiofflinechip",
+  "area": "demo/palettes",
+  "loc": 92
+ },
+ {
+  "file": "demo/color-picker/ErrorBoundary.vue",
+  "slug": "color-picker-errorboundary",
+  "area": "demo/color-picker",
+  "loc": 88
+ },
+ {
+  "file": "demo/palettes/browser/search/TagEditPopover.vue",
+  "slug": "palettes-browser-search-tageditpopover",
+  "area": "demo/palettes",
+  "loc": 88
+ },
+ {
+  "file": "demo/color-session/color-chips/PreviewStrip.vue",
+  "slug": "color-session-color-chips-previewstrip",
+  "area": "demo/color-session",
+  "loc": 77
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteColorStrip.vue",
+  "slug": "palettes-browser-card-palettecolorstrip",
+  "area": "demo/palettes",
+  "loc": 73
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+  "slug": "palettes-browser-card-palettecard-paletterenameinput",
+  "area": "demo/palettes",
+  "loc": 67
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+  "slug": "palettes-browser-card-palettecard-palettecardmeta",
+  "area": "demo/palettes",
+  "loc": 65
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+  "slug": "palettes-browser-card-palettecard-actionfeedback",
+  "area": "demo/palettes",
+  "loc": 59
+ },
+ {
+  "file": "demo/palettes/browser/search/UserSortMenu.vue",
+  "slug": "palettes-browser-search-usersortmenu",
+  "area": "demo/palettes",
+  "loc": 59
+ },
+ {
+  "file": "demo/palettes/browser/card/PaletteCardGrid.vue",
+  "slug": "palettes-browser-card-palettecardgrid",
+  "area": "demo/palettes",
+  "loc": 54
+ },
+ {
+  "file": "demo/shell/PaneSegmentedControl.vue",
+  "slug": "shell-panesegmentedcontrol",
+  "area": "demo/shell",
+  "loc": 53
+ },
+ {
+  "file": "demo/color-session/color-chips/PreviewRamp.vue",
+  "slug": "color-session-color-chips-previewramp",
+  "area": "demo/color-session",
+  "loc": 51
+ },
+ {
+  "file": "demo/scenes/about/katex/Katex.vue",
+  "slug": "scenes-about-katex-katex",
+  "area": "demo/scenes",
+  "loc": 50
+ },
+ {
+  "file": "demo/shell/dock/ParseEchoReadout.vue",
+  "slug": "shell-dock-parseechoreadout",
+  "area": "demo/shell",
+  "loc": 50
+ },
+ {
+  "file": "demo/palettes/browser/admin/PaginationBar.vue",
+  "slug": "palettes-browser-admin-paginationbar",
+  "area": "demo/palettes",
+  "loc": 49
+ },
+ {
+  "file": "demo/workbenches/generate/GeneratePane.vue",
+  "slug": "workbenches-generate-generatepane",
+  "area": "demo/workbenches",
+  "loc": 41
+ },
+ {
+  "file": "demo/workbenches/extract/ExtractPane.vue",
+  "slug": "workbenches-extract-extractpane",
+  "area": "demo/workbenches",
+  "loc": 38
+ },
+ {
+  "file": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+  "slug": "workbenches-mix-mixanimationcanvas-mixanimationcanvas",
+  "area": "demo/workbenches",
+  "loc": 36
+ },
+ {
+  "file": "demo/shell/dock/layers/GenericActionBar.vue",
+  "slug": "shell-dock-layers-genericactionbar",
+  "area": "demo/shell",
+  "loc": 33
+ },
+ {
+  "file": "demo/workbenches/gradient/GradientPane.vue",
+  "slug": "workbenches-gradient-gradientpane",
+  "area": "demo/workbenches",
+  "loc": 30
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminListItem.vue",
+  "slug": "palettes-browser-admin-adminlistitem",
+  "area": "demo/palettes",
+  "loc": 25
+ },
+ {
+  "file": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+  "slug": "palettes-browser-admin-adminlistskeleton",
+  "area": "demo/palettes",
+  "loc": 25
+ }
+]

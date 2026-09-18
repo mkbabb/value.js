@@ -1,0 +1,418 @@
+{
+  "schema": "p3-comparative-bench-aggregate/1",
+  "generated": "2026-07-20T15:56:43.680Z",
+  "invocations": 5,
+  "samples_per_invocation": 15,
+  "inner_iterations_N": 1000,
+  "machine": {
+    "node": "v26.0.0",
+    "v8": "14.6.202.33-node.19",
+    "os": "darwin",
+    "os_release": "25.4.0",
+    "cpu": "Apple M5 Max",
+    "cores": 18
+  },
+  "method": {
+    "inner_iterations_N": 1000,
+    "samples": 15,
+    "warmup_per_sample": 50,
+    "json_normaliser": {
+      "payload_bytes": 220,
+      "iterations": 20000,
+      "warmup": 100
+    },
+    "ratio_statistic": "peak MB/s of engine ÷ peak MB/s of jsonParser (co-scaling; U-F14 recipe)",
+    "note": "engines interleaved with the jsonParser normaliser within each sample so numerator+denominator share machine/load state"
+  },
+  "corpus": {
+    "value_historical": {
+      "items": 10,
+      "bytes": 185,
+      "sha256": "27d54ed8ea6b809a4d1e60063274b0aa00ba2fbd172dc8f712d27e3102bcdf09"
+    },
+    "sheet_historical": {
+      "bytes": 315,
+      "sha256": "3c85ecaf55dd5e25e8658b95553d890bac57d452f61f926bbb5c3343f90bce55"
+    },
+    "c14_common": {
+      "items": 3,
+      "bytes": 201,
+      "sha256": "ab43f1dcc6bcfba1d9558e50947587f1a4deb5def4885272a9ab41db07889b4f"
+    },
+    "value_common": {
+      "items": 2,
+      "bytes": 59,
+      "sha256": "b6a3c77f3986efd0d882c10b16e8707a5ff31e606a34c79d238e9180655906e5"
+    },
+    "demo_sheet": {
+      "path": "demo/styles/animations.css",
+      "bytes": 12748,
+      "sha256": "a64eb64fc847b1f1feffe49fd8b211f2aa335f43ceeac8bb626095e89968444b"
+    },
+    "json_payload": {
+      "bytes": 220,
+      "sha256": "2b6bdeda7926c96ba17103aff37175282fd70b3e830ad7a22dc2ccc433f0fef4"
+    }
+  },
+  "subjects": {
+    "live": {
+      "grammar_ts": "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69",
+      "stylesheet_ts": "882317b69427bc6e23199e615941a13c5ce367064ef475eef03f075f821d2ec7",
+      "bundle": "c73c8ff2ca2da3ed9bcd7b2016ef00aba0416a79d1787d88943fc3ab0bdccad0"
+    },
+    "c14": {
+      "api_ts": "ce547d18ea38adc6048727739b89cf12bd8967e5527078b259a30f5ab0035951",
+      "bundle": "2b57626fff0975276f7d46d84ffc01835bc83bfe4f28ce6b5855622f6a22f0d6"
+    },
+    "deposed": {
+      "bundle": "6c62368f6b4e6c1c28e6c0542bc86004c243fba6bb6d70ac0bba8435a81618eb",
+      "esbuild_flags": "--bundle --format=esm --platform=node --define:import.meta.env.DEV=false --external:prettier"
+    }
+  },
+  "json_normaliser_MBs_across_runs": {
+    "peak_median": 113.5861270034893,
+    "peak_min": 105.7768589080996,
+    "peak_max": 113.94179355984436,
+    "doc_reference_MBs": 90
+  },
+  "rows": [
+    {
+      "engine": "live",
+      "scenario": "value-historical",
+      "kind": "value",
+      "corpus_items": 10,
+      "corpus_bytes": 185,
+      "mbps_peak": {
+        "median": 8.719217626958983,
+        "min": 8.32805027333376,
+        "max": 8.837157601343145
+      },
+      "mbps_sample_median": {
+        "median": 8.249414492232606
+      },
+      "ns_per_call": {
+        "median": 2242.583399999967
+      },
+      "ratio_peak": {
+        "median": 0.07755852637778346,
+        "min": 0.07666413316623343,
+        "max": 0.07926889597748385
+      },
+      "floor": 0.05,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "live",
+      "scenario": "sheet-historical",
+      "kind": "sheet",
+      "corpus_items": 1,
+      "corpus_bytes": 315,
+      "mbps_peak": {
+        "median": 18.062271487179565,
+        "min": 17.53742974658724,
+        "max": 18.65225110169715
+      },
+      "mbps_sample_median": {
+        "median": 17.146317199683246
+      },
+      "ns_per_call": {
+        "median": 18371.291999999812
+      },
+      "ratio_peak": {
+        "median": 0.16369982004803743,
+        "min": 0.15881337590385955,
+        "max": 0.1657964693565348
+      },
+      "floor": 0.1,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "live",
+      "scenario": "sheet-demo",
+      "kind": "sheet",
+      "corpus_items": 1,
+      "corpus_bytes": 12748,
+      "mbps_peak": {
+        "median": 33.815482124050675,
+        "min": 32.73102714610431,
+        "max": 34.359476530410205
+      },
+      "mbps_sample_median": {
+        "median": 33.28514932852996
+      },
+      "ns_per_call": {
+        "median": 382993.6249999998
+      },
+      "ratio_peak": {
+        "median": 0.30155288465214447,
+        "min": 0.29687707536891683,
+        "max": 0.309804251497191
+      },
+      "floor": 0.1,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "live",
+      "scenario": "value-common",
+      "kind": "value",
+      "corpus_items": 2,
+      "corpus_bytes": 59,
+      "mbps_peak": {
+        "median": 12.731524938899957,
+        "min": 12.327408446533767,
+        "max": 12.925251735708288
+      },
+      "mbps_sample_median": {
+        "median": 12.245109739017085
+      },
+      "ns_per_call": {
+        "median": 2409.1249999992215
+      },
+      "ratio_peak": {
+        "median": 0.11316857881355184,
+        "min": 0.1113625987712046,
+        "max": 0.11841611261682669
+      },
+      "floor": 0.05,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "live",
+      "scenario": "sheet-common",
+      "kind": "sheet",
+      "corpus_items": 3,
+      "corpus_bytes": 201,
+      "mbps_peak": {
+        "median": 14.058196316626283,
+        "min": 13.67187991545666,
+        "max": 14.365437871410947
+      },
+      "mbps_sample_median": {
+        "median": 13.590339959311416
+      },
+      "ns_per_call": {
+        "median": 4929.972333333353
+      },
+      "ratio_peak": {
+        "median": 0.12607698564851844,
+        "min": 0.1237668427253834,
+        "max": 0.12925208837345964
+      },
+      "floor": 0.1,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "deposed",
+      "scenario": "value-historical",
+      "kind": "value",
+      "corpus_items": 10,
+      "corpus_bytes": 185,
+      "mbps_peak": {
+        "median": 5.155082003840034,
+        "min": 4.967543147140316,
+        "max": 5.34087792485254
+      },
+      "mbps_sample_median": {
+        "median": 4.996410281769743
+      },
+      "ns_per_call": {
+        "median": 3702.658299999984
+      },
+      "ratio_peak": {
+        "median": 0.04638657597068727,
+        "min": 0.0453177287663991,
+        "max": 0.047020512678352624
+      },
+      "floor": 0.05,
+      "meets_floor_median": false
+    },
+    {
+      "engine": "deposed",
+      "scenario": "sheet-historical",
+      "kind": "sheet",
+      "corpus_items": 1,
+      "corpus_bytes": 315,
+      "mbps_peak": {
+        "median": 10.974637716757284,
+        "min": 10.408105105340502,
+        "max": 11.098143703345455
+      },
+      "mbps_sample_median": {
+        "median": 10.586619010972974
+      },
+      "ns_per_call": {
+        "median": 29754.542000000583
+      },
+      "ratio_peak": {
+        "median": 0.09706302753285924,
+        "min": 0.09592551334878681,
+        "max": 0.09839680637882439
+      },
+      "floor": 0.1,
+      "meets_floor_median": false
+    },
+    {
+      "engine": "deposed",
+      "scenario": "sheet-demo",
+      "kind": "sheet",
+      "corpus_items": 1,
+      "corpus_bytes": 12748,
+      "mbps_peak": {
+        "median": 30.860915569141852,
+        "min": 28.58099447359531,
+        "max": 31.822766422482147
+      },
+      "mbps_sample_median": {
+        "median": 30.519867810283863
+      },
+      "ns_per_call": {
+        "median": 417695.1250000002
+      },
+      "ratio_peak": {
+        "median": 0.2788364403724304,
+        "min": 0.2618479182835583,
+        "max": 0.28450129304943556
+      },
+      "floor": 0.1,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "deposed",
+      "scenario": "value-common",
+      "kind": "value",
+      "corpus_items": 2,
+      "corpus_bytes": 59,
+      "mbps_peak": {
+        "median": 6.790487562761832,
+        "min": 6.412492143339033,
+        "max": 6.959461842509921
+      },
+      "mbps_sample_median": {
+        "median": 6.449115061175934
+      },
+      "ns_per_call": {
+        "median": 4574.270999999953
+      },
+      "ratio_peak": {
+        "median": 0.060622826292377384,
+        "min": 0.059705682900449746,
+        "max": 0.061624301979324496
+      },
+      "floor": 0.05,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "deposed",
+      "scenario": "sheet-common",
+      "kind": "sheet",
+      "corpus_items": 3,
+      "corpus_bytes": 201,
+      "mbps_peak": {
+        "median": 7.62590077633195,
+        "min": 7.197915827356949,
+        "max": 7.905125592977884
+      },
+      "mbps_sample_median": {
+        "median": 7.409944839043581
+      },
+      "ns_per_call": {
+        "median": 9041.902666666525
+      },
+      "ratio_peak": {
+        "median": 0.06825270457946328,
+        "min": 0.06713760718417389,
+        "max": 0.06950619047310394
+      },
+      "floor": 0.1,
+      "meets_floor_median": false
+    },
+    {
+      "engine": "c14",
+      "scenario": "value-common",
+      "kind": "value",
+      "corpus_items": 2,
+      "corpus_bytes": 59,
+      "mbps_peak": {
+        "median": 7.128760149117481,
+        "min": 6.814868101692691,
+        "max": 7.3772666651836545
+      },
+      "mbps_sample_median": {
+        "median": 6.82505024798654
+      },
+      "ns_per_call": {
+        "median": 4322.312499999953
+      },
+      "ratio_peak": {
+        "median": 0.06399324907105239,
+        "min": 0.06276083477076817,
+        "max": 0.06474592363959039
+      },
+      "floor": 0.05,
+      "meets_floor_median": true
+    },
+    {
+      "engine": "c14",
+      "scenario": "sheet-common",
+      "kind": "sheet",
+      "corpus_items": 3,
+      "corpus_bytes": 201,
+      "mbps_peak": {
+        "median": 6.0902784702565995,
+        "min": 5.704204313586934,
+        "max": 6.309924069638528
+      },
+      "mbps_sample_median": {
+        "median": 5.814850642523534
+      },
+      "ns_per_call": {
+        "median": 11522.222000000209
+      },
+      "ratio_peak": {
+        "median": 0.05369129530077819,
+        "min": 0.053167134083085654,
+        "max": 0.05537848644031076
+      },
+      "floor": 0.1,
+      "meets_floor_median": false
+    }
+  ],
+  "gate": {
+    "bar_source": "scripts/gates/proof-perf-target.mjs @ b3f4f76e (U-F14 re-anchor)",
+    "VALUE_RATIO_FLOOR": 0.05,
+    "SHEET_RATIO_FLOOR": 0.1,
+    "statistic": "peak of 15 samples, ratio vs parse-that jsonParser peak",
+    "assay": "c14 (@mkbabb/parse-that 1.0.0 combinator prototype)",
+    "assay_value_ratio_median": 0.06399324907105239,
+    "assay_value_meets": true,
+    "assay_sheet_ratio_median": 0.05369129530077819,
+    "assay_sheet_meets": false,
+    "verdict_all_runs": [
+      "RED",
+      "RED",
+      "RED",
+      "RED",
+      "RED"
+    ],
+    "verdict": "RED",
+    "calibration_crosscheck": {
+      "note": "deposed engine on its native historical corpus — the gate's own calibration subject. Documented cured PEAK on the Vite-built dist / 18-core box was ~0.0596 value / ~0.1250 sheet.",
+      "deposed_value_historical_ratio_median": 0.04638657597068727,
+      "deposed_sheet_historical_ratio_median": 0.09706302753285924,
+      "floor_portability": "On THIS machine (M5 Max) + uniform-esbuild build, the deposed calibration subject ITSELF undershoots both floors (~0.046 value / ~0.097 sheet). The absolute floors were calibrated on a Vite-built dist + slower reference box (jsonParser ~90 MB/s vs ~113 here); the co-scaling ratio did not fully hold across this arch+build delta. Absolute-bar transfer to this environment: OWNER-CONFIRM."
+    },
+    "comparative_reading": {
+      "note": "assay vs baselines on the identical common corpus + uniform esbuild build (the fair apples-to-apples).",
+      "value_common_ratio": {
+        "live": 0.11316857881355184,
+        "deposed": 0.060622826292377384,
+        "c14": 0.06399324907105239
+      },
+      "sheet_common_ratio": {
+        "live": 0.12607698564851844,
+        "deposed": 0.06825270457946328,
+        "c14": 0.05369129530077819
+      }
+    }
+  }
+}

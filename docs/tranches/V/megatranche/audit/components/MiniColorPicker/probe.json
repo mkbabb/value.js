@@ -1,0 +1,451 @@
+{
+  "desktop-light": {
+    "matrix": "desktop-light",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+    ],
+    "pageErrs": [],
+    "swatchCount": 1,
+    "census": {
+      "dialogCount": 2,
+      "nested": false,
+      "miniRect": {
+        "x": 462,
+        "y": 560,
+        "w": 208,
+        "h": 218.7
+      },
+      "outerRect": {
+        "x": 433,
+        "y": 381,
+        "w": 240,
+        "h": 468.1
+      },
+      "miniAriaLabel": null,
+      "miniAriaLabelledby": "reka-popover-trigger-v-1-7",
+      "miniAriaDescribedby": null,
+      "miniStyle": {
+        "width": "208px",
+        "padding": "20.351999px 16px",
+        "borderRadius": "12px",
+        "backgroundColor": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+        "backdropFilter": "blur(11px) saturate(1.6)",
+        "boxShadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.25) 0px 0.5px 0px 0px inset",
+        "zIndex": "130"
+      },
+      "canvasRect": {
+        "x": 479,
+        "y": 581.3,
+        "w": 174,
+        "h": 112
+      },
+      "canvasStyle": {
+        "touchAction": "auto",
+        "overflow": "hidden",
+        "borderRadius": "8px",
+        "borderColor": "rgb(198, 180, 159)",
+        "cursor": "crosshair",
+        "backgroundImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(0, 128, 255))"
+      },
+      "canvasRole": null,
+      "canvasAriaLabel": null,
+      "canvasTabIndex": null,
+      "thumbRect": {
+        "x": 586.7,
+        "y": 596.3,
+        "w": 16,
+        "h": 16
+      },
+      "thumbStyle": {
+        "borderColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "backgroundColor": "rgb(68, 136, 204)",
+        "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+        "left": "114.65625px",
+        "top": "22px"
+      },
+      "clip": {
+        "thumbArea": 256,
+        "visibleArea": 256,
+        "hiddenPct": 0
+      },
+      "railRect": {
+        "x": 479,
+        "y": 701.3,
+        "w": 174,
+        "h": 12
+      },
+      "railStyle": {
+        "touchAction": "auto",
+        "overflow": "hidden",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "cursor": "pointer",
+        "backgroundImage": "linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0))"
+      },
+      "railRole": null,
+      "railTabIndex": null,
+      "railHandleRect": {
+        "x": 574.5,
+        "y": 701.3,
+        "w": 12,
+        "h": 12
+      },
+      "railHandleStyle": {
+        "borderColor": "rgb(255, 255, 255)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px",
+        "left": "101.5px",
+        "top": "0px",
+        "position": "absolute"
+      },
+      "readoutText": "#4488cc",
+      "readoutStyle": {
+        "fontSize": "14.384px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "color": "rgb(112, 89, 66)",
+        "lineHeight": "18.6992px",
+        "letterSpacing": "normal"
+      },
+      "readoutDir": "ltr",
+      "swatchDotRect": {
+        "x": 479,
+        "y": 726.3,
+        "w": 24,
+        "h": 24
+      },
+      "miniSearchRect": {
+        "x": 600.4,
+        "y": 721.3,
+        "w": 52.6,
+        "h": 36
+      },
+      "miniSearchStyle": {
+        "fontSize": "11px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "height": "36px",
+        "minHeight": "36px"
+      },
+      "allSearchButtons": [
+        {
+          "x": 587.4,
+          "y": 785.7,
+          "w": 52.6,
+          "h": 24,
+          "fs": "11px",
+          "inMini": false
+        },
+        {
+          "x": 600.4,
+          "y": 721.3,
+          "w": 52.6,
+          "h": 36,
+          "fs": "11px",
+          "inMini": true
+        }
+      ],
+      "focusables": [
+        {
+          "tag": "button",
+          "name": "Search"
+        }
+      ],
+      "eclipsePct": 40.5
+    },
+    "keyboard": {
+      "canvasFocusable": false,
+      "railFocusable": false,
+      "activeBefore": "button"
+    },
+    "drive": {
+      "start": {
+        "hex": "#4488cc",
+        "thumbLeft": "66.666667%",
+        "thumbTop": "20%",
+        "thumbBg": "rgb(68, 136, 204)",
+        "hueLeft": "58.333333%",
+        "thumbHiddenPct": 0,
+        "parentSwatchBg": "rgb(68, 136, 204)"
+      },
+      "center": {
+        "hex": "#406080",
+        "thumbLeft": "50%",
+        "thumbTop": "49.803922%",
+        "thumbBg": "rgb(64, 96, 128)",
+        "hueLeft": "58.333333%",
+        "thumbHiddenPct": 0,
+        "parentSwatchBg": "rgb(64, 96, 128)"
+      },
+      "bottomCenter": {
+        "hex": "#020203",
+        "thumbLeft": "33.333333%",
+        "thumbTop": "98.823529%",
+        "thumbBg": "rgb(2, 2, 3)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 35.6,
+        "parentSwatchBg": "rgb(2, 2, 3)"
+      },
+      "topLeft": {
+        "hex": "#f7f7fb",
+        "thumbLeft": "1.593625%",
+        "thumbTop": "1.568627%",
+        "thumbBg": "rgb(247, 247, 251)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 50.9,
+        "parentSwatchBg": "rgb(247, 247, 251)"
+      },
+      "rightEdge": {
+        "hex": "#010180",
+        "thumbLeft": "99.21875%",
+        "thumbTop": "49.803922%",
+        "thumbBg": "rgb(1, 1, 128)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 35.4,
+        "parentSwatchBg": "rgb(1, 1, 128)"
+      }
+    },
+    "hueRail": {
+      "handleLeft": "1.181102%",
+      "handleBg": "rgb(255, 18, 0)",
+      "handleHiddenPct": 32.9,
+      "railH": 12,
+      "handleH": 12
+    }
+  },
+  "desktop-dark": {
+    "matrix": "desktop-dark",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+    ],
+    "pageErrs": [],
+    "swatchCount": 1,
+    "census": {
+      "dialogCount": 2,
+      "nested": false,
+      "miniRect": {
+        "x": 462,
+        "y": 560,
+        "w": 208,
+        "h": 218.7
+      },
+      "outerRect": {
+        "x": 433,
+        "y": 381,
+        "w": 240,
+        "h": 468.1
+      },
+      "miniAriaLabel": null,
+      "miniAriaLabelledby": "reka-popover-trigger-v-1-7",
+      "miniAriaDescribedby": null,
+      "miniStyle": {
+        "width": "208px",
+        "padding": "20.351999px 16px",
+        "borderRadius": "12px",
+        "backgroundColor": "oklab(0.37944 0.009899 0.01685 / 0.8944)",
+        "backdropFilter": "blur(11px) saturate(1.28) brightness(1.1)",
+        "boxShadow": "oklab(1 0 0 / 0.4) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.04) 1px 0px 0px 0px inset, oklch(0 0 0 / 0.12) 0px 8px 32px -4px, color(srgb 0.11 0.098 0.09 / 0.14) 0px 8px 24px 0px, color(srgb 0.11 0.098 0.09 / 0.05) 0px 0px 0px 0.5px, rgba(255, 255, 255, 0.08) 0px 0.5px 0px 0px inset",
+        "zIndex": "130"
+      },
+      "canvasRect": {
+        "x": 479,
+        "y": 581.3,
+        "w": 174,
+        "h": 112
+      },
+      "canvasStyle": {
+        "touchAction": "auto",
+        "overflow": "hidden",
+        "borderRadius": "8px",
+        "borderColor": "rgb(101, 87, 73)",
+        "cursor": "crosshair",
+        "backgroundImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(0, 128, 255))"
+      },
+      "canvasRole": null,
+      "canvasAriaLabel": null,
+      "canvasTabIndex": null,
+      "thumbRect": {
+        "x": 586.7,
+        "y": 596.3,
+        "w": 16,
+        "h": 16
+      },
+      "thumbStyle": {
+        "borderColor": "rgb(255, 255, 255)",
+        "borderWidth": "2px",
+        "backgroundColor": "rgb(68, 136, 204)",
+        "boxShadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -4px 4px 0px 0px",
+        "left": "114.65625px",
+        "top": "22px"
+      },
+      "clip": {
+        "thumbArea": 256,
+        "visibleArea": 256,
+        "hiddenPct": 0
+      },
+      "railRect": {
+        "x": 479,
+        "y": 701.3,
+        "w": 174,
+        "h": 12
+      },
+      "railStyle": {
+        "touchAction": "auto",
+        "overflow": "hidden",
+        "borderRadius": "340282346638528859811704183484516925440px",
+        "cursor": "pointer",
+        "backgroundImage": "linear-gradient(to right, rgb(255, 0, 0), rgb(255, 255, 0), rgb(0, 255, 0), rgb(0, 255, 255), rgb(0, 0, 255), rgb(255, 0, 255), rgb(255, 0, 0))"
+      },
+      "railRole": null,
+      "railTabIndex": null,
+      "railHandleRect": {
+        "x": 574.5,
+        "y": 701.3,
+        "w": 12,
+        "h": 12
+      },
+      "railHandleStyle": {
+        "borderColor": "rgb(255, 255, 255)",
+        "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px",
+        "left": "101.5px",
+        "top": "0px",
+        "position": "absolute"
+      },
+      "readoutText": "#4488cc",
+      "readoutStyle": {
+        "fontSize": "14.384px",
+        "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "color": "rgb(195, 185, 172)",
+        "lineHeight": "18.6992px",
+        "letterSpacing": "normal"
+      },
+      "readoutDir": "ltr",
+      "swatchDotRect": {
+        "x": 479,
+        "y": 726.3,
+        "w": 24,
+        "h": 24
+      },
+      "miniSearchRect": {
+        "x": 600.4,
+        "y": 721.3,
+        "w": 52.6,
+        "h": 36
+      },
+      "miniSearchStyle": {
+        "fontSize": "11px",
+        "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+        "height": "36px",
+        "minHeight": "36px"
+      },
+      "allSearchButtons": [
+        {
+          "x": 587.4,
+          "y": 785.7,
+          "w": 52.6,
+          "h": 24,
+          "fs": "11px",
+          "inMini": false
+        },
+        {
+          "x": 600.4,
+          "y": 721.3,
+          "w": 52.6,
+          "h": 36,
+          "fs": "11px",
+          "inMini": true
+        }
+      ],
+      "focusables": [
+        {
+          "tag": "button",
+          "name": "Search"
+        }
+      ],
+      "eclipsePct": 40.5
+    },
+    "keyboard": {
+      "canvasFocusable": false,
+      "railFocusable": false,
+      "activeBefore": "button"
+    },
+    "drive": {
+      "start": {
+        "hex": "#4488cc",
+        "thumbLeft": "66.666667%",
+        "thumbTop": "20%",
+        "thumbBg": "rgb(68, 136, 204)",
+        "hueLeft": "58.333333%",
+        "thumbHiddenPct": 0,
+        "parentSwatchBg": "rgb(68, 136, 204)"
+      },
+      "center": {
+        "hex": "#406080",
+        "thumbLeft": "50%",
+        "thumbTop": "49.803922%",
+        "thumbBg": "rgb(64, 96, 128)",
+        "hueLeft": "58.333333%",
+        "thumbHiddenPct": 0,
+        "parentSwatchBg": "rgb(64, 96, 128)"
+      },
+      "bottomCenter": {
+        "hex": "#020203",
+        "thumbLeft": "33.333333%",
+        "thumbTop": "98.823529%",
+        "thumbBg": "rgb(2, 2, 3)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 35.6,
+        "parentSwatchBg": "rgb(2, 2, 3)"
+      },
+      "topLeft": {
+        "hex": "#f7f7fb",
+        "thumbLeft": "1.593625%",
+        "thumbTop": "1.568627%",
+        "thumbBg": "rgb(247, 247, 251)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 50.9,
+        "parentSwatchBg": "rgb(247, 247, 251)"
+      },
+      "rightEdge": {
+        "hex": "#010180",
+        "thumbLeft": "99.21875%",
+        "thumbTop": "49.803922%",
+        "thumbBg": "rgb(1, 1, 128)",
+        "hueLeft": "66.666667%",
+        "thumbHiddenPct": 35.4,
+        "parentSwatchBg": "rgb(1, 1, 128)"
+      }
+    },
+    "hueRail": {
+      "handleLeft": "1.181102%",
+      "handleBg": "rgb(255, 18, 0)",
+      "handleHiddenPct": 32.9,
+      "railH": 12,
+      "handleH": 12
+    }
+  },
+  "mobile-light": {
+    "matrix": "mobile-light",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+    ],
+    "pageErrs": [],
+    "swatchCount": 1,
+    "error": "Error: locator.click: Element is outside of the viewport\nCall log:\n\u001b[2m  - waiting for locator('button[aria-label^=\"Open color picker\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-ace91ae4=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-haspopup=\"dialog\" id=\"reka-popover-trigger-v-0-7\" aria-controls=\"reka-popover-content-v-0-8\" aria-label=\"Open color picker, current"
+  },
+  "mobile-dark": {
+    "matrix": "mobile-dark",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+    ],
+    "pageErrs": [],
+    "swatchCount": 1,
+    "error": "Error: locator.click: Element is outside of the viewport\nCall log:\n\u001b[2m  - waiting for locator('button[aria-label^=\"Open color picker\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-ace91ae4=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-haspopup=\"dialog\" id=\"reka-popover-trigger-v-0-7\" aria-controls=\"reka-popover-content-v-0-8\" aria-label=\"Open color picker, current"
+  },
+  "zoom-200": {
+    "matrix": "zoom-200",
+    "consoleErrs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+    ],
+    "pageErrs": [],
+    "swatchCount": 1,
+    "error": "Error: locator.click: Element is outside of the viewport\nCall log:\n\u001b[2m  - waiting for locator('button[aria-label^=\"Open color picker\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-v-ace91ae4=\"\" data-state=\"closed\" aria-expanded=\"false\" aria-haspopup=\"dialog\" id=\"reka-popover-trigger-v-0-7\" aria-controls=\"reka-popover-content-v-0-8\" aria-label=\"Open color picker, current"
+  }
+}

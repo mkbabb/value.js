@@ -1,0 +1,55 @@
+{
+ "structure": {
+  "radiogroups": [
+   {
+    "ariaLabel": null,
+    "ariaLabelledby": null,
+    "items": 3,
+    "itemNames": [
+     "(none)",
+     "(none)",
+     "(none)"
+    ]
+   },
+   {
+    "ariaLabel": null,
+    "ariaLabelledby": null,
+    "items": 2,
+    "itemNames": [
+     "(none)",
+     "(none)"
+    ]
+   }
+  ],
+  "groupsWithRoleGroup": 0,
+  "headings": 0,
+  "liveRegions": 0,
+  "sectionLabelTags": [
+   "div#-",
+   "div#-",
+   "div#-"
+  ],
+  "dialogAriaModal": null,
+  "triggerAria": {
+   "ariaLabel": "Filters",
+   "innerText": "",
+   "iconAriaHidden": null
+  }
+ },
+ "nameWithBadge": {
+  "ariaLabel": "Filters",
+  "textContent": "1"
+ },
+ "afterEscape": {
+  "popoverOpen": false,
+  "focusIsTrigger": true,
+  "focusTag": "button",
+  "focusName": "Filters",
+  "triggerAriaExpanded": "false"
+ },
+ "afterOutside": {
+  "popoverOpen": false,
+  "focusIsTrigger": false,
+  "focusTag": "body"
+ }
+}

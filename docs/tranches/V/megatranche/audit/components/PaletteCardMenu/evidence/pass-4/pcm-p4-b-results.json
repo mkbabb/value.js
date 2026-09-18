@@ -1,0 +1,376 @@
+{
+  "B_baseline": {
+    "menuCount": 0,
+    "openMenuOwner": [],
+    "expanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "cardHeights": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "bodyPE": "auto",
+    "bodyOverflowInline": "",
+    "lastClickTarget": null
+  },
+  "B1_openCard0": {
+    "clickedAt": {
+      "cx": 1184,
+      "cy": 493.6
+    },
+    "menuCount": 1,
+    "openMenuOwner": [
+      "Probe Palette 0"
+    ],
+    "expanded": [
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "cardHeights": [
+      100,
+      100,
+      100,
+      100,
+      100,
+      100
+    ],
+    "bodyPE": "none",
+    "bodyOverflowInline": "hidden",
+    "lastClickTarget": {
+      "path": [
+        "button[Palette menu]",
+        "div",
+        "div",
+        "div",
+        "div[Palette: Probe Palette 0]{article}"
+      ],
+      "defaultPrevented": false
+    }
+  },
+  "B0_hitTestUnderLock": {
+    "point": {
+      "x": 1184,
+      "y": 605.6
+    },
+    "topMost": "div",
+    "stack": [
+      "div pe=auto",
+      "div pe=auto",
+      "html pe=auto"
+    ],
+    "triggerIsTopMost": false,
+    "triggerComputedPE": "none",
+    "bodyPE": "none"
+  },
+  "B4_scrollUnderLock": {
+    "window": {
+      "before": 0,
+      "after": 0,
+      "moved": false
+    },
+    "inner": {
+      "before": 0,
+      "after": 200,
+      "moved": true,
+      "cls": "glass-resting card rounded-card text-card-foreground scrollb"
+    },
+    "bodyOverflowInline": "hidden",
+    "bodyPE": "none"
+  },
+  "B2_crossCardSequence": [
+    {
+      "click": 1,
+      "at": {
+        "cx": 1184,
+        "cy": 605.6
+      },
+      "menuCount": 0,
+      "openMenuOwner": [],
+      "expanded": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        128,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "bodyPE": "auto",
+      "bodyOverflowInline": "",
+      "lastClickTarget": {
+        "path": [
+          "div{menuitem}",
+          "div{menu}",
+          "div"
+        ],
+        "defaultPrevented": false
+      }
+    },
+    {
+      "click": 2,
+      "at": {
+        "cx": 1184,
+        "cy": 633.6
+      },
+      "menuCount": 1,
+      "openMenuOwner": [
+        "Probe Palette 1"
+      ],
+      "expanded": [
+        "false",
+        "true",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        128,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "bodyPE": "none",
+      "bodyOverflowInline": "hidden",
+      "lastClickTarget": {
+        "path": [
+          "button[Palette menu]",
+          "div",
+          "div",
+          "div",
+          "div[Palette: Probe Palette 1]{article}"
+        ],
+        "defaultPrevented": false
+      }
+    },
+    {
+      "click": 3,
+      "at": {
+        "cx": 1184,
+        "cy": 633.6
+      },
+      "menuCount": 0,
+      "openMenuOwner": [],
+      "expanded": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        128,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "bodyPE": "auto",
+      "bodyOverflowInline": "",
+      "lastClickTarget": {
+        "path": [
+          "html"
+        ],
+        "defaultPrevented": false
+      }
+    },
+    {
+      "click": 4,
+      "at": {
+        "cx": 1184,
+        "cy": 633.6
+      },
+      "menuCount": 1,
+      "openMenuOwner": [
+        "Probe Palette 1"
+      ],
+      "expanded": [
+        "false",
+        "true",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        128,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "bodyPE": "none",
+      "bodyOverflowInline": "hidden",
+      "lastClickTarget": {
+        "path": [
+          "button[Palette menu]",
+          "div",
+          "div",
+          "div",
+          "div[Palette: Probe Palette 1]{article}"
+        ],
+        "defaultPrevented": false
+      }
+    }
+  ],
+  "B3_clicksToMoveMenu": {
+    "opened": true,
+    "clicksNeeded": 3
+  },
+  "B_pageErrors_desktop": [],
+  "B5_mobile_openCard0": {
+    "menuCount": 1,
+    "openMenuOwner": [
+      "Probe Palette 0"
+    ],
+    "expanded": [
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "cardHeights": [
+      118,
+      118,
+      118,
+      118,
+      118,
+      118
+    ],
+    "bodyPE": "none",
+    "bodyOverflowInline": "hidden",
+    "lastClickTarget": {
+      "path": [
+        "button[Palette menu]",
+        "div",
+        "div",
+        "div",
+        "div[Palette: Probe Palette 0]{article}"
+      ],
+      "defaultPrevented": false
+    }
+  },
+  "B6_mobile_crossCardSequence": [
+    {
+      "tap": 1,
+      "menuCount": 0,
+      "openMenuOwner": [],
+      "expanded": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "bodyPE": "auto",
+      "bodyOverflowInline": "",
+      "lastClickTarget": {
+        "path": [
+          "html"
+        ],
+        "defaultPrevented": false
+      }
+    },
+    {
+      "tap": 2,
+      "menuCount": 1,
+      "openMenuOwner": [
+        "Probe Palette 1"
+      ],
+      "expanded": [
+        "false",
+        "true",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "bodyPE": "none",
+      "bodyOverflowInline": "hidden",
+      "lastClickTarget": {
+        "path": [
+          "button[Palette menu]",
+          "div",
+          "div",
+          "div",
+          "div[Palette: Probe Palette 1]{article}"
+        ],
+        "defaultPrevented": false
+      }
+    },
+    {
+      "tap": 3,
+      "menuCount": 0,
+      "openMenuOwner": [],
+      "expanded": [
+        "false",
+        "false",
+        "false",
+        "false",
+        "false",
+        "false"
+      ],
+      "cardHeights": [
+        118,
+        118,
+        118,
+        118,
+        118,
+        118
+      ],
+      "bodyPE": "auto",
+      "bodyOverflowInline": "",
+      "lastClickTarget": {
+        "path": [
+          "html"
+        ],
+        "defaultPrevented": false
+      }
+    }
+  ],
+  "B_pageErrors_mobile": []
+}

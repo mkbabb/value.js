@@ -1,0 +1,71 @@
+
+=== ON /#/extract — rail state ===
+{
+ "connected": true,
+ "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.834023); box-shadow: oklch(0.545141 0.218024 9.834023) 0px 0px 0px 1.5px inset;"
+}
+
+=== AFTER route change to /#/ — is the rail still in the document? ===
+{
+ "railStillInDocument": false,
+ "isConnected": false,
+ "parentTag": "DIV",
+ "inMain": false,
+ "railInDomQuery": false
+}
+
+=== PARKED-RAIL style mutations while OFF the extract route ===
+{
+ "totalMutations": 144,
+ "anyWhileDetached": 144,
+ "firstFive": [
+  {
+   "t": 6055,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.835019); box-shadow: oklch(0.545141 0.218024 9.835019) 0px 0px 0px 1.5px inset;"
+  },
+  {
+   "t": 6055,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.835019); box-shadow: oklch(0.545141 0.218024 9.835019) 0px 0px 0px 1.5px inset;"
+  },
+  {
+   "t": 6055,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.835019); box-shadow: oklch(0.545141 0.218024 9.835019) 0px 0px 0px 1.5px inset;"
+  },
+  {
+   "t": 6141,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.836014); box-shadow: oklch(0.545141 0.218024 9.836014) 0px 0px 0px 1.5px inset;"
+  },
+  {
+   "t": 6141,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545141 0.218024 9.836014); box-shadow: oklch(0.545141 0.218024 9.836014) 0px 0px 0px 1.5px inset;"
+  }
+ ],
+ "lastTwo": [
+  {
+   "t": 11330,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545137 0.218017 9.879722); box-shadow: oklch(0.545137 0.218017 9.879722) 0px 0px 0px 1.5px inset;"
+  },
+  {
+   "t": 11330,
+   "connected": false,
+   "style": "background-image: ; background-position-x: ; background-position-y: ; background-size: ; background-repeat: ; background-attachment: ; background-origin: ; background-clip: ; background-color: oklch(0.545137 0.218017 9.879722); box-shadow: oklch(0.545137 0.218017 9.879722) 0px 0px 0px 1.5px inset;"
+  }
+ ],
+ "distinctStyles": 48
+}
+
+=== PARKED-RAIL mutation RATE ===
+{
+ "windowMs": 4182,
+ "mutations": 96,
+ "mutationsPerSecond": 23
+}
+
+=== pageErrors ===
+[]

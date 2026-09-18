@@ -1,0 +1,1355 @@
+{
+  "desktopPopulated": {
+    "popover": {
+      "x": 432.5,
+      "y": 380,
+      "w": 240,
+      "h": 632.63,
+      "top": 380,
+      "bottom": 1012.63,
+      "left": 432.5,
+      "right": 672.5
+    },
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "popoverBottomOverflowsViewport": true,
+    "popoverComputed": {
+      "maxHeight": "none",
+      "overflow": "visible",
+      "overflowY": "visible",
+      "height": "632.625px",
+      "backgroundColor": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "backdropFilter": "blur(11px) saturate(1.6)",
+      "opacity": "1"
+    },
+    "sections": [
+      {
+        "label": "Sort",
+        "rect": {
+          "x": 449.5,
+          "y": 401.34,
+          "w": 206,
+          "h": 197.38,
+          "top": 401.34,
+          "bottom": 598.72,
+          "left": 449.5,
+          "right": 655.5
+        },
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgb(198, 180, 159)",
+        "borderTopWidth": "0px"
+      },
+      {
+        "label": "Tier",
+        "rect": {
+          "x": 449.5,
+          "y": 598.72,
+          "w": 206,
+          "h": 140.44,
+          "top": 598.72,
+          "bottom": 739.16,
+          "left": 449.5,
+          "right": 655.5
+        },
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgb(198, 180, 159)",
+        "borderTopWidth": "0px"
+      },
+      {
+        "label": "Tags",
+        "rect": {
+          "x": 449.5,
+          "y": 739.16,
+          "w": 206,
+          "h": 164.56,
+          "top": 739.16,
+          "bottom": 903.72,
+          "left": 449.5,
+          "right": 655.5
+        },
+        "borderBottomWidth": "1px",
+        "borderBottomColor": "rgb(198, 180, 159)",
+        "borderTopWidth": "0px"
+      },
+      {
+        "label": "Find by Color",
+        "rect": {
+          "x": 449.5,
+          "y": 903.72,
+          "w": 206,
+          "h": 87.56,
+          "top": 903.72,
+          "bottom": 991.28,
+          "left": 449.5,
+          "right": 655.5
+        },
+        "borderBottomWidth": "0px",
+        "borderBottomColor": "rgb(198, 180, 159)",
+        "borderTopWidth": "0px"
+      }
+    ],
+    "rows": [
+      {
+        "text": "Newest",
+        "label": {
+          "x": 461.5,
+          "y": 440.91,
+          "w": 121.42,
+          "h": 30.94,
+          "top": 440.91,
+          "bottom": 471.84,
+          "left": 461.5,
+          "right": 582.92
+        },
+        "control": {
+          "x": 456.5,
+          "y": 434.38,
+          "w": 44,
+          "h": 44,
+          "top": 434.38,
+          "bottom": 478.38,
+          "left": 456.5,
+          "right": 500.5
+        },
+        "controlRole": "radio",
+        "controlAccName": null,
+        "textRect": {
+          "x": 469.5,
+          "y": 447.38,
+          "w": 18,
+          "h": 18,
+          "top": 447.38,
+          "bottom": 465.38,
+          "left": 469.5,
+          "right": 487.5
+        }
+      },
+      {
+        "text": "Most Popular",
+        "label": {
+          "x": 461.5,
+          "y": 497.84,
+          "w": 165.44,
+          "h": 30.94,
+          "top": 497.84,
+          "bottom": 528.78,
+          "left": 461.5,
+          "right": 626.94
+        },
+        "control": {
+          "x": 456.5,
+          "y": 491.31,
+          "w": 44,
+          "h": 44,
+          "top": 491.31,
+          "bottom": 535.31,
+          "left": 456.5,
+          "right": 500.5
+        },
+        "controlRole": "radio",
+        "controlAccName": null,
+        "textRect": {
+          "x": 469.5,
+          "y": 504.31,
+          "w": 18,
+          "h": 18,
+          "top": 504.31,
+          "bottom": 522.31,
+          "left": 469.5,
+          "right": 487.5
+        }
+      },
+      {
+        "text": "Most Forked",
+        "label": {
+          "x": 461.5,
+          "y": 554.78,
+          "w": 159.69,
+          "h": 30.94,
+          "top": 554.78,
+          "bottom": 585.72,
+          "left": 461.5,
+          "right": 621.19
+        },
+        "control": {
+          "x": 456.5,
+          "y": 548.25,
+          "w": 44,
+          "h": 44,
+          "top": 548.25,
+          "bottom": 592.25,
+          "left": 456.5,
+          "right": 500.5
+        },
+        "controlRole": "radio",
+        "controlAccName": null,
+        "textRect": {
+          "x": 469.5,
+          "y": 561.25,
+          "w": 18,
+          "h": 18,
+          "top": 561.25,
+          "bottom": 579.25,
+          "left": 469.5,
+          "right": 487.5
+        }
+      },
+      {
+        "text": "All",
+        "label": {
+          "x": 461.5,
+          "y": 638.28,
+          "w": 61.14,
+          "h": 30.94,
+          "top": 638.28,
+          "bottom": 669.22,
+          "left": 461.5,
+          "right": 522.64
+        },
+        "control": {
+          "x": 456.5,
+          "y": 631.75,
+          "w": 44,
+          "h": 44,
+          "top": 631.75,
+          "bottom": 675.75,
+          "left": 456.5,
+          "right": 500.5
+        },
+        "controlRole": "radio",
+        "controlAccName": null,
+        "textRect": {
+          "x": 469.5,
+          "y": 644.75,
+          "w": 18,
+          "h": 18,
+          "top": 644.75,
+          "bottom": 662.75,
+          "left": 469.5,
+          "right": 487.5
+        }
+      },
+      {
+        "text": "Featured",
+        "label": {
+          "x": 461.5,
+          "y": 695.22,
+          "w": 132.92,
+          "h": 30.94,
+          "top": 695.22,
+          "bottom": 726.16,
+          "left": 461.5,
+          "right": 594.42
+        },
+        "control": {
+          "x": 456.5,
+          "y": 688.69,
+          "w": 44,
+          "h": 44,
+          "top": 688.69,
+          "bottom": 732.69,
+          "left": 456.5,
+          "right": 500.5
+        },
+        "controlRole": "radio",
+        "controlAccName": null,
+        "textRect": {
+          "x": 469.5,
+          "y": 701.69,
+          "w": 18,
+          "h": 18,
+          "top": 701.69,
+          "bottom": 719.69,
+          "left": 469.5,
+          "right": 487.5
+        }
+      },
+      {
+        "text": "pastel",
+        "label": {
+          "x": 461.5,
+          "y": 778.72,
+          "w": 182,
+          "h": 30.94,
+          "top": 778.72,
+          "bottom": 809.66,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 786.19,
+          "w": 16,
+          "h": 16,
+          "top": 786.19,
+          "bottom": 802.19,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 772.19,
+          "w": 44,
+          "h": 44,
+          "top": 772.19,
+          "bottom": 816.19,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "neon",
+        "label": {
+          "x": 461.5,
+          "y": 811.66,
+          "w": 182,
+          "h": 30.94,
+          "top": 811.66,
+          "bottom": 842.59,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 819.13,
+          "w": 16,
+          "h": 16,
+          "top": 819.13,
+          "bottom": 835.13,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 805.13,
+          "w": 44,
+          "h": 44,
+          "top": 805.13,
+          "bottom": 849.13,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "earth",
+        "label": {
+          "x": 461.5,
+          "y": 844.59,
+          "w": 182,
+          "h": 30.94,
+          "top": 844.59,
+          "bottom": 875.53,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 852.06,
+          "w": 16,
+          "h": 16,
+          "top": 852.06,
+          "bottom": 868.06,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 838.06,
+          "w": 44,
+          "h": 44,
+          "top": 838.06,
+          "bottom": 882.06,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "monochrome",
+        "label": {
+          "x": 461.5,
+          "y": 877.53,
+          "w": 182,
+          "h": 30.94,
+          "top": 877.53,
+          "bottom": 908.47,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 885,
+          "w": 16,
+          "h": 16,
+          "top": 885,
+          "bottom": 901,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 871,
+          "w": 44,
+          "h": 44,
+          "top": 871,
+          "bottom": 915,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "retro",
+        "label": {
+          "x": 461.5,
+          "y": 910.47,
+          "w": 182,
+          "h": 30.94,
+          "top": 910.47,
+          "bottom": 941.41,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 917.94,
+          "w": 16,
+          "h": 16,
+          "top": 917.94,
+          "bottom": 933.94,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 903.94,
+          "w": 44,
+          "h": 44,
+          "top": 903.94,
+          "bottom": 947.94,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "vaporwave",
+        "label": {
+          "x": 461.5,
+          "y": 943.41,
+          "w": 182,
+          "h": 30.94,
+          "top": 943.41,
+          "bottom": 974.34,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 950.88,
+          "w": 16,
+          "h": 16,
+          "top": 950.88,
+          "bottom": 966.88,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 936.88,
+          "w": 44,
+          "h": 44,
+          "top": 936.88,
+          "bottom": 980.88,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "muted",
+        "label": {
+          "x": 461.5,
+          "y": 976.34,
+          "w": 182,
+          "h": 30.94,
+          "top": 976.34,
+          "bottom": 1007.28,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 983.81,
+          "w": 16,
+          "h": 16,
+          "top": 983.81,
+          "bottom": 999.81,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 969.81,
+          "w": 44,
+          "h": 44,
+          "top": 969.81,
+          "bottom": 1013.81,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "high-contrast",
+        "label": {
+          "x": 461.5,
+          "y": 1009.28,
+          "w": 182,
+          "h": 30.94,
+          "top": 1009.28,
+          "bottom": 1040.22,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 1016.75,
+          "w": 16,
+          "h": 16,
+          "top": 1016.75,
+          "bottom": 1032.75,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 1002.75,
+          "w": 44,
+          "h": 44,
+          "top": 1002.75,
+          "bottom": 1046.75,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "duotone",
+        "label": {
+          "x": 461.5,
+          "y": 1042.22,
+          "w": 182,
+          "h": 30.94,
+          "top": 1042.22,
+          "bottom": 1073.16,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 1049.69,
+          "w": 16,
+          "h": 16,
+          "top": 1049.69,
+          "bottom": 1065.69,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 1035.69,
+          "w": 44,
+          "h": 44,
+          "top": 1035.69,
+          "bottom": 1079.69,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "sunset",
+        "label": {
+          "x": 461.5,
+          "y": 1075.16,
+          "w": 182,
+          "h": 30.94,
+          "top": 1075.16,
+          "bottom": 1106.09,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 1082.63,
+          "w": 16,
+          "h": 16,
+          "top": 1082.63,
+          "bottom": 1098.63,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 1068.63,
+          "w": 44,
+          "h": 44,
+          "top": 1068.63,
+          "bottom": 1112.63,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "forest",
+        "label": {
+          "x": 461.5,
+          "y": 1108.09,
+          "w": 182,
+          "h": 30.94,
+          "top": 1108.09,
+          "bottom": 1139.03,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 1115.56,
+          "w": 16,
+          "h": 16,
+          "top": 1115.56,
+          "bottom": 1131.56,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 1101.56,
+          "w": 44,
+          "h": 44,
+          "top": 1101.56,
+          "bottom": 1145.56,
+          "left": 455.5,
+          "right": 499.5
+        }
+      },
+      {
+        "text": "oceanic",
+        "label": {
+          "x": 461.5,
+          "y": 1141.03,
+          "w": 182,
+          "h": 30.94,
+          "top": 1141.03,
+          "bottom": 1171.97,
+          "left": 461.5,
+          "right": 643.5
+        },
+        "control": {
+          "x": 469.5,
+          "y": 1148.5,
+          "w": 16,
+          "h": 16,
+          "top": 1148.5,
+          "bottom": 1164.5,
+          "left": 469.5,
+          "right": 485.5
+        },
+        "controlRole": "checkbox",
+        "controlAccName": null,
+        "textRect": {
+          "x": 455.5,
+          "y": 1134.5,
+          "w": 44,
+          "h": 44,
+          "top": 1134.5,
+          "bottom": 1178.5,
+          "left": 455.5,
+          "right": 499.5
+        }
+      }
+    ],
+    "tagScroller": {
+      "rect": {
+        "x": 461.5,
+        "y": 778.72,
+        "w": 182,
+        "h": 112,
+        "top": 778.72,
+        "bottom": 890.72,
+        "left": 461.5,
+        "right": 643.5
+      },
+      "maxHeight": "112px",
+      "scrollHeight": 400,
+      "clientHeight": 112,
+      "overflowY": "auto",
+      "tabIndex": -1,
+      "role": null,
+      "ariaLabel": null,
+      "scrollable": true,
+      "tagCount": 12
+    },
+    "placeholderFits": {
+      "placeholder": "#hex, hsl(...)",
+      "needPx": 123.94,
+      "needValPx": 177.05,
+      "availPx": 65,
+      "paddingLeft": "16px",
+      "paddingRight": "64px",
+      "clientWidth": 145,
+      "truncated": true,
+      "valTruncated": true
+    },
+    "radiogroupNames": [
+      {
+        "ariaLabel": null,
+        "ariaLabelledby": null
+      },
+      {
+        "ariaLabel": null,
+        "ariaLabelledby": null
+      }
+    ],
+    "checkboxNames": [
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      },
+      {
+        "name": null,
+        "w": 16,
+        "h": 16
+      }
+    ]
+  },
+  "activeState": {
+    "popover": {
+      "x": 432.5,
+      "y": 380,
+      "w": 240,
+      "h": 685.63,
+      "top": 380,
+      "bottom": 1065.63,
+      "left": 432.5,
+      "right": 672.5
+    },
+    "popoverBottom": 1065.63,
+    "viewportH": 900,
+    "overflowsViewport": true,
+    "clearAll": {
+      "rect": {
+        "x": 461.5,
+        "y": 1000.28,
+        "w": 182,
+        "h": 36,
+        "top": 1000.28,
+        "bottom": 1036.28,
+        "left": 461.5,
+        "right": 643.5
+      },
+      "text": "Clear all filters",
+      "fontSize": "16.4px",
+      "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+      "height": "36px",
+      "minHeight": "36px"
+    }
+  },
+  "badge": {
+    "text": "1",
+    "rect": {
+      "x": 660.5,
+      "y": 331.66,
+      "w": 16,
+      "h": 16,
+      "top": 331.66,
+      "bottom": 347.66,
+      "left": 660.5,
+      "right": 676.5
+    },
+    "triggerRect": {
+      "x": 640.5,
+      "y": 335.66,
+      "w": 32,
+      "h": 40,
+      "top": 335.66,
+      "bottom": 375.66,
+      "left": 640.5,
+      "right": 672.5
+    },
+    "computed": {
+      "position": "absolute",
+      "top": "-4px",
+      "right": "-4px",
+      "left": "20px",
+      "insetInlineEnd": "-4px",
+      "insetInlineStart": "20px",
+      "background": "oklch(0.470927 0.096235 89.834023)",
+      "color": "rgb(251, 250, 248)",
+      "fontSize": "11px",
+      "fontWeight": "700",
+      "width": "16px",
+      "height": "16px",
+      "borderRadius": "340282346638528859811704183484516925440px",
+      "zIndex": "auto"
+    },
+    "ariaHidden": null,
+    "triggerAccName": "Filters",
+    "triggerAccNameIncludesCount": false,
+    "clippingAncestors": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden pane-scroll-fade w-f",
+        "overflow": "hidden auto",
+        "overflowX": "hidden",
+        "overflowY": "auto",
+        "clipPath": "none",
+        "maskImage": "none",
+        "rect": {
+          "x": 199,
+          "y": 232,
+          "w": 512,
+          "h": 515.84,
+          "top": 232,
+          "bottom": 747.84,
+          "left": 199,
+          "right": 711
+        }
+      },
+      {
+        "tag": "DIV",
+        "cls": "app-layout",
+        "overflow": "hidden",
+        "overflowX": "hidden",
+        "overflowY": "hidden",
+        "clipPath": "none",
+        "maskImage": "none",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "w": 1440,
+          "h": 900,
+          "top": 0,
+          "bottom": 900,
+          "left": 0,
+          "right": 1440
+        }
+      }
+    ]
+  },
+  "mobile390": {
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "trigger": {
+      "x": 299.34,
+      "y": 297.97,
+      "w": 44.66,
+      "h": 44.66,
+      "top": 297.97,
+      "bottom": 342.63,
+      "left": 299.34,
+      "right": 344
+    },
+    "popover": {
+      "x": 104,
+      "y": 346.67,
+      "w": 240,
+      "h": 620.66,
+      "top": 346.67,
+      "bottom": 967.32,
+      "left": 104,
+      "right": 344
+    },
+    "popoverOverflowsBottom": 123.32,
+    "popoverOverflowsTop": -346.67,
+    "popoverMaxHeight": "none",
+    "popoverOverflowY": "visible",
+    "docScrollW": 390,
+    "hOverflow": false,
+    "smallTargets": [
+      {
+        "name": "radio",
+        "w": 44,
+        "h": 44,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "Open color picker, current color #4488cc",
+        "w": 28,
+        "h": 28,
+        "under44": true
+      },
+      {
+        "name": "Search",
+        "w": 52.6,
+        "h": 24,
+        "under44": true
+      }
+    ]
+  },
+  "narrow320": {
+    "viewport": {
+      "w": 320,
+      "h": 568
+    },
+    "trigger": {
+      "x": 229.34,
+      "y": 194.47,
+      "w": 44.66,
+      "h": 44.66,
+      "top": 194.47,
+      "bottom": 239.13,
+      "left": 229.34,
+      "right": 274
+    },
+    "popover": {
+      "x": 34,
+      "y": 243,
+      "w": 240,
+      "h": 619.84,
+      "top": 243,
+      "bottom": 862.84,
+      "left": 34,
+      "right": 274
+    },
+    "popoverOverflowsBottom": 294.84,
+    "popoverOverflowsTop": -243,
+    "popoverMaxHeight": "none",
+    "popoverOverflowY": "visible",
+    "docScrollW": 320,
+    "hOverflow": false,
+    "smallTargets": [
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "checkbox",
+        "w": 16,
+        "h": 16,
+        "under44": true
+      },
+      {
+        "name": "Open color picker, current color #4488cc",
+        "w": 28,
+        "h": 28,
+        "under44": true
+      },
+      {
+        "name": "Search",
+        "w": 52.6,
+        "h": 24,
+        "under44": true
+      }
+    ]
+  },
+  "reducedMotion": {
+    "prefers": true,
+    "popoverAnimation": "0.00001s",
+    "popoverTransition": "opacity 0.15s cubic-bezier(0, 0, 0.2, 1) allow-discrete",
+    "searchBtnFound": true,
+    "animateSpin": {
+      "animationName": "spin",
+      "animationDuration": "0.00001s",
+      "animationIterationCount": "1",
+      "animationPlayState": "running"
+    }
+  },
+  "forcedColors": {
+    "active": true,
+    "swatch": {
+      "bg": "rgb(68, 136, 204)",
+      "color": "rgb(28, 25, 23)",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "2px",
+      "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab("
+    },
+    "swatchInlineStyle": "background-color: rgb(68, 136, 204);",
+    "option": {
+      "bg": "rgba(0, 0, 0, 0)",
+      "color": "rgb(28, 25, 23)",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "0px",
+      "boxShadow": "none"
+    },
+    "popover": {
+      "bg": "rgb(255, 255, 255)",
+      "color": "rgb(28, 25, 23)",
+      "borderColor": "rgb(0, 0, 0)",
+      "borderWidth": "1px",
+      "boxShadow": "oklab(1 0 0 / 0.3) 0px 1px 0px 0px inset, oklab(1 0 0 / 0.18"
+    },
+    "sectionBorderBottom": "1px rgb(198, 180, 159)",
+    "hoverMixResolves": "color(srgb 0.874 0.8254 0.766 / 0.5)"
+  },
+  "tabOrder": [
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "name": "(none)",
+      "inPopover": true,
+      "outline": "3px none rgb(251, 250, 248)",
+      "boxShadow": "none",
+      "w": 44,
+      "h": 44
+    },
+    {
+      "tag": "BUTTON",
+      "role": "radio",
+      "name": "(none)",
+      "inPopover": true,
+      "outline": "3px none rgb(251, 250, 248)",
+      "boxShadow": "none",
+      "w": 44,
+      "h": 44
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "Search by CSS color",
+      "inPopover": true,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.",
+      "w": 148,
+      "h": 36
+    },
+    {
+      "tag": "SPAN",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 0,
+      "h": 0
+    },
+    {
+      "tag": "BODY",
+      "role": null,
+      "name": "→BrowseToolsBrowsePalettes Login  ",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 373,
+      "h": 24.6
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 413,
+      "h": 24.6
+    },
+    {
+      "tag": "BODY",
+      "role": null,
+      "name": "→BrowseToolsBrowsePalettes Login  ",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 373,
+      "h": 24.6
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 413,
+      "h": 24.6
+    },
+    {
+      "tag": "BODY",
+      "role": null,
+      "name": "→BrowseToolsBrowsePalettes Login  ",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 1440,
+      "h": 900
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 373,
+      "h": 24.6
+    },
+    {
+      "tag": "INPUT",
+      "role": null,
+      "name": "(none)",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 413,
+      "h": 24.6
+    },
+    {
+      "tag": "BODY",
+      "role": null,
+      "name": "→BrowseToolsBrowsePalettes Login  ",
+      "inPopover": false,
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "w": 1440,
+      "h": 900
+    }
+  ],
+  "escapeRestoresFocus": {
+    "tag": "INPUT",
+    "name": "",
+    "isTrigger": false
+  },
+  "zoom200": {
+    "viewport": {
+      "w": 1440,
+      "h": 900
+    },
+    "popover": {
+      "x": 1031,
+      "y": 22,
+      "w": 480,
+      "h": 1265.5,
+      "bottom": 1287.5,
+      "top": 22,
+      "right": 1511
+    },
+    "bottomOverflow": 387.5,
+    "maxHeight": "none",
+    "hOverflow": false
+  }
+}

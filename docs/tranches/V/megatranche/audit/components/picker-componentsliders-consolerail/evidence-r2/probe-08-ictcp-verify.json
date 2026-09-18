@@ -1,0 +1,84 @@
+{
+  "ICtCp": {
+    "pick": {
+      "picked": true,
+      "chosenOptionText": "ICtCpictcp · 0.5591 · 0.0437 · 0.1739"
+    },
+    "truth": {
+      "tag": "ICtCp",
+      "comboLabel": "ICtCp",
+      "railGlyphs": [
+        "I",
+        "Cᴛ",
+        "Cᴘ",
+        "α"
+      ],
+      "railAria": [
+        "i channel",
+        "ct channel",
+        "cp channel",
+        "alpha channel"
+      ],
+      "sliderAria": [
+        "I channel",
+        "CT channel",
+        "CP channel",
+        "ALPHA channel"
+      ],
+      "meters": [
+        "0.6",
+        "0.0",
+        "0.2",
+        "82.7%"
+      ],
+      "tooltipSource": [
+        "i channel",
+        "ct channel",
+        "cp channel",
+        "alpha channel"
+      ]
+    },
+    "tooltip": "Ct (tritan)(-0.5 - 0.5)Ct (tritan)(-0.5 - 0.5)"
+  },
+  "Jzazbz": {
+    "pick": {
+      "picked": true,
+      "chosenOptionText": "Jzazbzjzazbz · 0.2215 · 0.1177 · 0.0428"
+    },
+    "truth": {
+      "tag": "Jzazbz",
+      "comboLabel": "OKLCh",
+      "railGlyphs": [
+        "L",
+        "C",
+        "h",
+        "α"
+      ],
+      "railAria": [
+        "l channel",
+        "c channel",
+        "h channel",
+        "alpha channel"
+      ],
+      "sliderAria": [
+        "L channel",
+        "C channel",
+        "H channel",
+        "ALPHA channel"
+      ],
+      "meters": [
+        "95.8%",
+        "0.3",
+        "9.8deg",
+        "82.7%"
+      ],
+      "tooltipSource": [
+        "l channel",
+        "c channel",
+        "h channel",
+        "alpha channel"
+      ]
+    },
+    "tooltip": "C (Chroma)(0 - 0.5)C (Chroma)(0 - 0.5)"
+  }
+}

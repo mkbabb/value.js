@@ -1,0 +1,11 @@
+{
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "revealSha256": "689f68dd26ced87c895431a34b36b8fd3a33723736f904d2f84fc7430a1a9c76",
+  "classification": "ORACLE_EXPECTATION_ERROR",
+  "case": "-0%",
+  "incorrectJsonExpectation": 0,
+  "correctBinary64Expectation": "Object.is(value, -0)",
+  "basis": "The already-accepted consumeNumber production preserves Number('-0') and records sign separately.",
+  "candidateMutation": false,
+  "revealMutation": false
+}

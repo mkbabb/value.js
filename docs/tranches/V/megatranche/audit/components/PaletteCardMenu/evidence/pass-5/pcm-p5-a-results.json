@@ -1,0 +1,173 @@
+{
+  "A0_state": {
+    "triggers": 8,
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 8
+  },
+  "A1_menuOpen": {
+    "openOwner": "Probe Palette 0 Publish  Rename  Export ",
+    "bodyPE": "none",
+    "bodyPEComputed": "none",
+    "bodyOverflow": "hidden",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 18,
+    "menus": 1,
+    "cards": 8
+  },
+  "A2_afterOwnerUnmounted": {
+    "filtered": {
+      "found": true,
+      "placeholder": "Search your palettes..."
+    },
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 1,
+    "cardNames": [
+      "Palette: Probe Palette 7"
+    ]
+  },
+  "A3_afterClickAttempt": {
+    "clickErr": null,
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 1,
+    "expandedSwatches": 0,
+    "hitTestAtCardCentre": "DIV.px-3 py-2.5 flex items-center justify-be"
+  },
+  "A4_searchBoxReachable": {
+    "searchErr": null,
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 1
+  },
+  "B1_afterEscape": {
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 8
+  },
+  "B2_afterOutsideClick": {
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 8
+  },
+  "B3_afterClearingFilter": {
+    "bodyPE": "",
+    "bodyPEComputed": "auto",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "ariaHiddenCount": 0,
+    "menus": 0,
+    "cards": 8
+  },
+  "pageErrors_phaseAB": [],
+  "C1_leak60Cycles": {
+    "before": {
+      "nodes": 516,
+      "bodyChildren": 6,
+      "reka": 10,
+      "menus": 0,
+      "heap": 39600000
+    },
+    "after": {
+      "nodes": 519,
+      "bodyChildren": 6,
+      "reka": 10,
+      "menus": 0,
+      "heap": 39600000
+    },
+    "deltaNodes": 3,
+    "deltaBodyChildren": 0,
+    "deltaReka": 0
+  },
+  "pageErrors_phaseC": [],
+  "D0_cards": [
+    "Palette: ",
+    "Palette: Inf",
+    "Palette: Neg",
+    "Palette: Huge"
+  ],
+  "D1_boundaryMenus": [
+    {
+      "open": true,
+      "labelText": "\"\"",
+      "labelRect": {
+        "width": 178.4,
+        "height": 11.9
+      },
+      "items": [
+        "Publish",
+        "Rename",
+        "Export",
+        "Delete"
+      ]
+    },
+    {
+      "open": true,
+      "labelText": "\"Inf\"",
+      "labelRect": {
+        "width": 178.5,
+        "height": 31.7
+      },
+      "items": [
+        "Publish",
+        "Rename",
+        "Export",
+        "Delete"
+      ]
+    },
+    {
+      "open": true,
+      "labelText": "\"Neg\"",
+      "labelRect": {
+        "width": 178.9,
+        "height": 31.3
+      },
+      "items": [
+        "Publish",
+        "Rename",
+        "Export",
+        "Delete"
+      ]
+    },
+    {
+      "open": true,
+      "labelText": "\"Huge\"",
+      "labelRect": {
+        "width": 178.7,
+        "height": 31.5
+      },
+      "items": [
+        "Publish",
+        "Rename",
+        "Export",
+        "Delete"
+      ]
+    }
+  ],
+  "pageErrors_phaseD": []
+}

@@ -1,0 +1,170 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G10-HOLDOUT-DESTRUCTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS_UNREVEALED_RECOVERABILITY_DESTROYED",
+  "destroyed_at": "2026-07-22T15:43:49.273Z",
+  "plaintext_revealed": false,
+  "secret_recoverable": false,
+  "terminal_rejection": {
+    "scope": "PUBLIC_PREAUTHOR_BOUNDARY_AND_ADMISSION",
+    "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+    "subject": {
+      "path": "reviewed-subject.json",
+      "sha256": "589ed5ffe9c75416f4ffb8cdafe4ee776fecae27c4d6b16e2a3372c5c01c62c3",
+      "bytes": 1886
+    },
+    "challenges": [
+      {
+        "seat": "a",
+        "task_id": "/root/g10_boundary_challenge_a",
+        "path": "reviews/challenge-a.json",
+        "sha256": "3b87be4d5d129eb2b9e405988325417110e3dc3fb406e286e595c3ae2cc851e4",
+        "bytes": 13648,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      },
+      {
+        "seat": "b",
+        "task_id": "/root/g10_boundary_challenge_b",
+        "path": "reviews/challenge-b.json",
+        "sha256": "dc9ebf11104c6cd396a194ffd20e685c46f578de2de49b60aa8c028b01a964f1",
+        "bytes": 11632,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      }
+    ],
+    "root_gestalt": {
+      "actor": "value-pi-root-g10",
+      "path": "root-gestalt.json",
+      "sha256": "7b645062395fd5bf4fd4b0fa25b501d88be50c0e3b627e068dc16e92a05f78aa",
+      "bytes": 4675,
+      "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+      "hidden_plaintext_or_key_access": false
+    },
+    "consequence": "G10 cannot admit H/B/S/D authors. No candidate, parser, benchmark, review, adjudication, integration, conformance, movement, or production credit exists."
+  },
+  "precursor": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "0efb4c63e7dc0be6599790b345a6b6584e2df4101a332f46a105edf6bceec732",
+      "bytes": 2687,
+      "closure_sha256": "e7e122ea8a86fc3c696aad653e44e06ce79a236a65839f77c1ea8e35acd32163"
+    },
+    "reviewed_subject": {
+      "path": "reviewed-subject.json",
+      "sha256": "589ed5ffe9c75416f4ffb8cdafe4ee776fecae27c4d6b16e2a3372c5c01c62c3",
+      "bytes": 1886
+    }
+  },
+  "sealed_public_evidence_retained_unchanged": {
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "7d1e635bd274f95c3fe8b885af52b84a3c0640e4d682fd89e4f3a695aea95058",
+      "bytes": 6564,
+      "mode": "0444"
+    },
+    "ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "318d9272b75b34d34a71afa3665133723de4159c888cae003760d6094756fe59",
+      "bytes": 159533,
+      "decoded_bytes": 119648,
+      "envelope": "AES-256-GCM",
+      "magic": "VPG10H01",
+      "mode": "0444",
+      "disposition": "Retained solely as content-addressed evidence of the rejected sealed generation; not decrypted, altered, deleted, or reusable."
+    },
+    "plaintext_commitment": {
+      "sha256": "6e7668414092c6e8ab07cc58ae854e5c4bdc69c7c7985ea92eea742ac3d8c71e",
+      "bytes": 119612,
+      "revealed": false
+    },
+    "hidden_index_commitment": {
+      "sha256": "a13c7de1c7a5c1fcd144914b8cd9f6c9db41b1f3b8780b1310c476f80c2f9e44",
+      "bytes": 52615,
+      "case_count": 240,
+      "categories": [
+        "positive",
+        "negative",
+        "boundary",
+        "offset",
+        "exponent",
+        "binary64",
+        "composition",
+        "hostile"
+      ],
+      "revealed": false
+    },
+    "generator_commitment": {
+      "sha256": "63542842925a5607038dcc45e4cdedb3079a3981969436265782437676e06b4f",
+      "bytes": 9455,
+      "revealed": false
+    }
+  },
+  "custody_destruction": {
+    "original_custodian_task_id": "/root/g10_holdout_custodian",
+    "original_custody": "The AES-256-GCM key, nonce, authentication tag, AAD, plaintext, exact generator bytes and seed, hidden index/cases, corpus identity, and recovery metadata were retained only under the live private custodian tool-store key; no workspace secret file was created.",
+    "destruction_turn_pre_overwrite_probe": {
+      "custody_key_state": "MISSING_UNDEFINED",
+      "publication_key_state": "MISSING_UNDEFINED",
+      "interpretation": "The private tool store did not preserve the prior-turn custody bundle after the original custodian task closed. The unrevealed secret and generator material were already unavailable and unrecoverable at the start of this destruction turn."
+    },
+    "explicit_overwrite": "Both known private-store keys were overwritten with null after the missing-state probe and immediately reread as null.",
+    "destroyed_material": [
+      "AES-256-GCM key",
+      "nonce and authentication tag",
+      "AAD and all decryption/recovery metadata",
+      "holdout plaintext and canonical hidden cases",
+      "exact deterministic generator bytes and private seed",
+      "hidden index and private corpus identity"
+    ],
+    "immediate_post_overwrite_probe": {
+      "secret_key_null": true,
+      "publication_key_null": true
+    },
+    "independent_post_destruction_null_probes": [
+      {
+        "probe": 1,
+        "at": "2026-07-22T15:44:01.490Z",
+        "secret_key_null": true,
+        "publication_key_null": true
+      },
+      {
+        "probe": 2,
+        "at": "2026-07-22T15:44:07.239Z",
+        "secret_key_null": true,
+        "publication_key_null": true
+      }
+    ],
+    "verification": {
+      "prior_turn_bundle_unavailable_before_overwrite": true,
+      "known_private_store_keys_after_are_null": true,
+      "two_separate_later_null_probes": true,
+      "plaintext_revealed": false,
+      "workspace_plaintext_files": 0,
+      "workspace_key_files": 0,
+      "workspace_generator_files": 0,
+      "workspace_hidden_index_files": 0,
+      "workspace_reveal_files": 0,
+      "candidates_directory_exists": false,
+      "candidate_files": 0,
+      "recoverable_secret_material_from_known_custody_locations": false
+    },
+    "result": "The unrevealed G10 plaintext, AES key/nonce/tag, AAD, generator, seed, hidden corpus/index, corpus identity, and recovery metadata cannot be recovered from the custodian tool store or workspace. The retained ciphertext is intentionally undecryptable within project custody.",
+    "disclosure": "No key, plaintext, hidden case or identifier, generator byte, seed, corpus identity, nonce, authentication tag, AAD byte, or decrypted result was revealed to root, either challenger, any prospective author, or the workspace."
+  },
+  "generation_state": {
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "holdout_reveals": 0,
+    "holdout_executions": 0,
+    "benchmark_runs": 0,
+    "skeptic_reviews": 0,
+    "synthesis_adjudications": 0,
+    "production_mutations": 0
+  },
+  "no_reuse": "Neither the G10 ciphertext nor any unrevealed G10 plaintext, key, case, identifier, result, generator, seed, corpus identity, nonce, tag, AAD, or secret-generation material may seed or support a later generation. A later holdout must be independently regenerated after a newly frozen precursor.",
+  "receipt_self_identity": "Externally report this exact destruction receipt SHA-256 and byte length; it cannot self-contain its own digest.",
+  "credit": "ZERO: terminal rejection, secret destruction, and retained ciphertext are evidence only."
+}

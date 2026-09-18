@@ -35,7 +35,7 @@ import { SessionRepository } from "../src/modules/session/repository/session.js"
 import { ProposedNameRepository } from "../src/modules/color/repository/proposedName.js";
 import { TagRepository } from "../src/modules/color/repository/tag.js";
 import { FlagRepository } from "../src/modules/palette/repository/flag.js";
-import { AdminAuditRepository } from "../src/modules/admin/repository/adminAudit.js";
+import { AdminAuditRepository } from "../src/modules/admin/repository/audit.js";
 import { UserRepository } from "../src/modules/session/repository/user.js";
 
 export interface TestConnection {

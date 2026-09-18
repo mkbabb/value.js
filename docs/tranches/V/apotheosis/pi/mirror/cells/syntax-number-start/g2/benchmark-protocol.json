@@ -1,0 +1,71 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G2-BENCH",
+  "status": "SEALED_BEFORE_CANDIDATE_CODE",
+  "correctness_gate": {
+    "timing_admission": "Every public, deterministic-hostile, and revealed-holdout case must pass both seed modes and all six predecessor classes before any timing result is retained.",
+    "validation_location": "All semantic assertions and fixture materialization occur before timed regions."
+  },
+  "strict_parser_only_lane": {
+    "purpose": "Candidate ranking for the exact raw child-parser operation.",
+    "setup": "Preconstruct a pool of 100000 ParserState objects spanning the exact corpus, both seed modes, and all six predecessor classes. Before every candidate sample, restore every pool member to its assigned predecessor, offset, isError, and diagnostic snapshot outside timing. Each state is invoked exactly once inside that sample; the timed loop performs only pool indexing and `candidate.parser(state)`.",
+    "warmup_batches": 20,
+    "warmup_invocations_per_batch": 100000,
+    "measured_samples": 60,
+    "invocations_per_sample": 100000,
+    "schedule": "Interleaved paired candidate permutations with identical case index and invocation count.",
+    "schedule_prng": "xoshiro256**",
+    "schedule_seed_hex": "0x564e554d53544152",
+    "clock": "process.hrtime.bigint()",
+    "forbidden_inside_timing": [
+      "ParserState construction",
+      "state restoration or diagnostic seeding",
+      "fixture materialization",
+      "assertion",
+      "normalization",
+      "stringification",
+      "comparison"
+    ]
+  },
+  "descriptive_end_to_end_lane": {
+    "purpose": "Report construction plus ordinary outer-combinator cost without influencing winner selection.",
+    "operation": "For a prebuilt outer parser and selected case, construct one ParserState and invoke the outer parser once.",
+    "warmup_batches": 10,
+    "warmup_invocations_per_batch": 50000,
+    "measured_samples": 30,
+    "invocations_per_sample": 100000,
+    "credit": "DESCRIPTIVE_ONLY"
+  },
+  "statistics": {
+    "raw_unit": "nanoseconds per measured sample",
+    "reported": ["median", "MAD", "geometric mean paired ratio"],
+    "pairwise_matrix": ["H:B", "H:S", "H:D", "B:S", "B:D", "S:D"],
+    "bootstrap": "percentile bootstrap over paired log-ratios",
+    "bootstrap_resamples": 10000,
+    "bootstrap_prng": "xoshiro256**",
+    "bootstrap_seed_hex": "0x42535452504e5354",
+    "strict_win": "The selected candidate's one-sided 95% upper endpoint must be below 0 against every other semantically accepted candidate. Otherwise performance is tied and cannot distinguish selection."
+  },
+  "allocation_lane": {
+    "runtime": "Node with --expose-gc",
+    "operation": "Parser-only raw-child calls, once per preconstructed and externally restored pool state",
+    "batches": 9,
+    "invocations_per_batch": 1000000,
+    "measurement": "Call global.gc() before and after each batch and record process.memoryUsage().heapUsed raw deltas; report median and every raw delta.",
+    "credit": "DESCRIPTIVE_NOISY; absence is recorded as UNAVAILABLE with runtime and tool reason"
+  },
+  "environment_receipt": [
+    "Node and V8 versions",
+    "process.arch and process.platform",
+    "CPU model and logical core count",
+    "OS release",
+    "governor/power state when observable",
+    "package-lock and parse-that integrity",
+    "candidate hashes",
+    "raw append-only result hash"
+  ],
+  "raw_output": "bench/raw-g2.json",
+  "external_peers": {
+    "live_regex_css": "NON_COMPARABLE_COMPLETE_TOKEN_OPERATION",
+    "bbnf_runtime": "NON_COMPARABLE_NO_ACKNOWLEDGED_STANDALONE_RUNTIME"
+  }
+}

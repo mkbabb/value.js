@@ -1,0 +1,20 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const ctx = await b.newContext({viewport:{width:1440,height:900}});
+await ctx.addInitScript(() => localStorage.setItem("palette-admin-token", "test-admin-token"));
+const page = await ctx.newPage();
+page.on("request", r => { if(/admin|sessions/.test(r.url())) console.log("REQ", r.method(), r.url()); });
+page.on("requestfailed", r => { if(/admin/.test(r.url())) console.log("FAIL", r.url(), r.failure()?.errorText); });
+page.on("console", m => { if(m.type()!=="log") console.log("["+m.type()+"]", m.text().slice(0,160)); });
+await page.route("**/*", async (route) => {
+  const u = new URL(route.request().url());
+  if (u.hostname === "localhost") return route.continue();
+  console.log("  INTERCEPT", route.request().method(), u.href);
+  if (u.pathname === "/admin/users") return route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:JSON.stringify({data:[{slug:"azure-fox-01",paletteCount:4},{slug:"verdant-mole-33",paletteCount:0}],total:2,limit:50,offset:0})});
+  return route.fulfill({status:200,contentType:"application/json",headers:{"access-control-allow-origin":"*"},body:"{}"});
+});
+await page.goto("http://localhost:9000/#/admin/users",{waitUntil:"domcontentloaded"});
+await page.waitForSelector("main");
+await new Promise(r=>setTimeout(r,3500));
+console.log("TEXT:", (await page.locator("main").innerText()).replace(/\n+/g," | ").slice(0,400));
+await b.close();

@@ -64,13 +64,15 @@ services:
     # replica set, so this is the minimal correct artifact (no extra members,
     # no arbiter). The healthcheck below performs the one-shot `rs.initiate`
     # idempotently, so the COMMITTED compose can execute every transaction.
-    # No SCRAM auth / --keyFile and --bind_ip_all is a WRITTEN justified
-    # divergence from the Mongo-discipline precept (docs/precepts/infra/
-    # domains.md:149-155), NOT a silent one — see api/CLAUDE.md "Mongo
-    # discipline — justified divergence (U-F37)". Bounded: mongo publishes no
-    # host port (internal compose bridge only) + the api is loopback-bound
-    # (127.0.0.1:8130). mongod must still bind for the api on the bridge, so
-    # --bind_ip_all stays; SCRAM+keyFile is the owner's deploy-time election.
+    # No SCRAM auth / --keyFile and --bind_ip_all is the
+    # "Mongo-discipline justified-residual (U-F37)": a WRITTEN, bounded
+    # divergence from the precept (docs/precepts/infra/domains.md:149-155), NOT
+    # a silent one. (This residual of record lived in the since-deleted
+    # api/CLAUDE.md and now rides the diverging config itself; V·W45/D52.i.)
+    # Bounded: mongo publishes no host port (internal compose bridge only) + the
+    # api is loopback-bound (127.0.0.1:8130). mongod must still bind for the api
+    # on the bridge, so --bind_ip_all stays; SCRAM+keyFile is the owner's
+    # deploy-time election.
     command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
     volumes:
       - mongo-data:/data/db

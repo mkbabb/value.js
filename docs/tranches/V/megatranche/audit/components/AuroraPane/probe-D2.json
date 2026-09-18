@@ -1,0 +1,82 @@
+{
+  "labelClick": {
+    "before": {
+      "expanded": "false",
+      "focused": "BODY"
+    },
+    "after": {
+      "expanded": "false",
+      "focused": "BODY",
+      "listboxOpen": false,
+      "labelCursor": "auto"
+    }
+  },
+  "voice": {
+    "rowLabel": {
+      "text": "Harmony",
+      "font": "\"Fira Code\"",
+      "size": "16.4px",
+      "weight": "400",
+      "ls": "1.64px",
+      "tt": "uppercase",
+      "color": "rgb(112, 89, 66)"
+    },
+    "sectionTitle": {
+      "text": "Field",
+      "font": "\"Fira Code\"",
+      "size": "16.4px",
+      "weight": "400",
+      "ls": "1.64px",
+      "tt": "uppercase",
+      "color": "rgb(112, 89, 66)"
+    },
+    "sliderRowLabel": {
+      "text": "Colour Energy",
+      "font": "\"Plus Jakarta Sans\"",
+      "size": "16.4px",
+      "weight": "500",
+      "ls": "normal",
+      "tt": "none",
+      "color": "rgb(28, 25, 23)"
+    }
+  },
+  "deadDeclarations": {
+    "classList": "control-surface glass-control-edge glass-capsule-hover tap-squish focus-ring flex w-full items-center justify-between rounded-pill px-3 py-2 text-dropdown placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-disabled [&>span]:line-clamp-1 transition-control aria-invalid:border-(--destructive) user-invalid:border-(--destructive) focus-visible:aria-invalid:shadow-(--invalid-ring) focus-visible:user-invalid:shadow-(--invalid-ring) h-9 text-caption min-w-menu",
+    "selectFontToken": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "fontMonoToken": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "computedFontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "computedFontStyle": "italic",
+    "typeCaptionToken": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+    "typeCaptionResolvedPx": "14.375px",
+    "computedFontSize": "16.4px",
+    "computedMaxHeightOfTrigger": "none"
+  },
+  "persistence": {
+    "set": "Still",
+    "afterReload": "Drifting",
+    "persisted": false
+  },
+  "forcedColorsFocus": {
+    "forcedColorsActive": true,
+    "outline": "solid 2px rgba(128, 188, 254, 0.6)",
+    "boxShadow": "color(srgb 0.758618 0 0.302633 / 0.3) 0px 0px 0px 2px, color(srgb 0.758618 0 0.302633 / 0.15) 0px 0px 8px 0px",
+    "border": "solid 1px color(srgb 0.11 0.098 0.09 / 0.14)",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "rgb(28, 25, 23)"
+  },
+  "zoomMenu": {
+    "found": true,
+    "rect": {
+      "y": 27,
+      "h": 270,
+      "bottom": 297
+    },
+    "viewportH": 450,
+    "overflowBottom": -153,
+    "scrollable": false,
+    "scrollH": 268,
+    "clientH": 268,
+    "optionsVisible": 7,
+    "optionsTotal": 7
+  }
+}

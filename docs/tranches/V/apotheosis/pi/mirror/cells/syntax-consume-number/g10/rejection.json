@@ -1,0 +1,45 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS",
+  "subject": {
+    "sha256": "589ed5ffe9c75416f4ffb8cdafe4ee776fecae27c4d6b16e2a3372c5c01c62c3",
+    "bytes": 1886
+  },
+  "challenge_a": {
+    "sha256": "3b87be4d5d129eb2b9e405988325417110e3dc3fb406e286e595c3ae2cc851e4",
+    "bytes": 13648,
+    "verdict": "REJECT"
+  },
+  "challenge_b": {
+    "sha256": "dc9ebf11104c6cd396a194ffd20e685c46f578de2de49b60aa8c028b01a964f1",
+    "bytes": 11632,
+    "verdict": "REJECT"
+  },
+  "root": {
+    "sha256": "7b645062395fd5bf4fd4b0fa25b501d88be50c0e3b627e068dc16e92a05f78aa",
+    "bytes": 4675,
+    "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS"
+  },
+  "holdout_destruction": {
+    "sha256": "d843ffa3ad5e015ce17597fd245d707aabc689a166aa3afec4278f5d050939c8",
+    "bytes": 7301,
+    "plaintext_revealed": false,
+    "secret_recoverable": false
+  },
+  "decisive_reasons": [
+    "The six-success candidate harness admits a reproducibly incomplete parser and omits the actual born-RED contract matrix.",
+    "The B and S construction obligations are not transaction-safe or realizable as written under the pinned parse-that runtime.",
+    "Synthetic regex adapters do not execute the pinned live, historical, or C14 implementations and cannot support peer-win claims.",
+    "The tsx execution closure, complete candidate/import census, phase-aware admission join, external author task witness, and independent live-custody witness are absent."
+  ],
+  "counts": {
+    "candidates": 0,
+    "holdout_reveals": 0,
+    "benchmarks": 0,
+    "skeptic_reviews": 0,
+    "synthesis_adjudications": 0,
+    "accepted_features": 0
+  },
+  "credit": "ZERO_TERMINAL_REJECTION_ONLY"
+}

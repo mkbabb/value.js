@@ -1,0 +1,52 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.benchmark-result/v2",
+  "status": "COMPLETE_NO_CANDIDATE_QUALIFIED",
+  "subject": {
+    "manifest_sha256": "ea5049fa0e57be4008f8887dd3bf67537693b4e1d1a4dce7f1165fc602210dd7",
+    "harness_sha256": "0763a4f9233f43f264b1663efe823bd36b1b47187ad1994d9bc67dc2143dfd82",
+    "candidate_set_sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40",
+    "raw_path": "raw-v2-first-attempt.ndjson",
+    "raw_sha256": "0bb3348aa75deb938fef37735fa4a4b69a7f4312f26a73c48e7ccb3828b48ee1",
+    "raw_bytes": 29249,
+    "raw_lines": 37,
+    "attempt_id": "83c9b462-2f9a-4fe2-a7ed-6cc6a942683e",
+    "sample_blocks": 30,
+    "status": "COMPLETE_FIRST_ATTEMPT"
+  },
+  "operation": "One parse-that state, one consume-number invocation, one intrinsic mutable sign/type/value leaf and end; deposed constructs exactly one equivalent leaf in its adapter.",
+  "comparisons_against_deposed": {
+    "h": {
+      "median_elapsed_ns": 1392771,
+      "geometric_mean_ratio": 1.0299151832831084,
+      "one_sided_95_upper_ratio": 1.0771975948060564,
+      "qualified": false
+    },
+    "b": {
+      "median_elapsed_ns": 6194646,
+      "geometric_mean_ratio": 4.413858132461207,
+      "one_sided_95_upper_ratio": 4.526138874583213,
+      "qualified": false
+    },
+    "s": {
+      "median_elapsed_ns": 5342500,
+      "geometric_mean_ratio": 3.773581909731049,
+      "one_sided_95_upper_ratio": 3.908278864869679,
+      "qualified": false
+    },
+    "d": {
+      "median_elapsed_ns": 1473937.5,
+      "geometric_mean_ratio": 1.0748432592353385,
+      "one_sided_95_upper_ratio": 1.1179034211378167,
+      "qualified": false
+    },
+    "deposed": {
+      "median_elapsed_ns": 1362562.5
+    }
+  },
+  "verdict": {
+    "correctness_preflight": "PASS_ALL_FOUR",
+    "strict_faster_than_deposed": "FAIL_ALL_FOUR",
+    "performance_credit": 0,
+    "next": "Optimize the fused whole-terminal grammar before skeptic selection; preserve v1/v2 evidence and do not relax correctness or the peer bar."
+  }
+}

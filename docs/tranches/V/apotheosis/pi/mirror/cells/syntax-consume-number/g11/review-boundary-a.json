@@ -1,0 +1,186 @@
+{
+  "schema": "value.pi.syntax-consume-number.g11.boundary-review/v1",
+  "review_seat": "A",
+  "reviewer_task_evidence": {
+    "canonical_task_id": "/root/g11_boundary_review_a2",
+    "parent_task_id": "/root",
+    "basis": "External collaboration NEW_TASK envelope observed outside the reviewed workspace bytes",
+    "served_model_receipt": "NOT_EXPOSED_IN_TASK_ENVELOPE",
+    "review_boundary_b_read": false,
+    "parser_candidates_created": false,
+    "holdout_data_created": false
+  },
+  "subject": {
+    "path": "formation-receipt.json",
+    "sha256": "5db00f55de4a125a2710b4cf63114fbf5f34dd83c382b973d54652e8f0278ca2",
+    "bytes": 4833,
+    "closure_sha256": "cfa716718a9faf1b10d500660819cf30ea1271a6ea60d73fc0ede9603c6e9924",
+    "row_count": 30
+  },
+  "commands": [
+    {
+      "command": "shasum -a 256 docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/formation-receipt.json && wc -c docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/formation-receipt.json",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: SHA-256 5db00f55de4a125a2710b4cf63114fbf5f34dd83c382b973d54652e8f0278ca2; 4833 bytes"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/phase-validator.mjs --phase formation",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "exit 0; PASS/FROZEN_FORMATION_BORN_RED; exact subject and closure identities; candidates 0; holdout 0; credit 0"
+    },
+    {
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/phase-validator.mjs --phase formation",
+      "cwd": "/tmp",
+      "result": "exit 0; same PASS/FROZEN_FORMATION_BORN_RED summary and exact subject identities"
+    },
+    {
+      "command": "node -e '<independent per-row SHA-256, byte, mode, and closure verifier>'",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "PASS: all 30 declared rows matched SHA-256 and byte count, all were non-writable mode 0444, and independently recomputed closure was cfa716718a9faf1b10d500660819cf30ea1271a6ea60d73fc0ede9603c6e9924"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/public-harness.mjs --born-red",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "exit 0; BORN_RED; three negative controls rejected; four topology probes passed correctness and work gates; SIGKILL_AFTER_50MS; candidates 0"
+    },
+    {
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/public-harness.mjs --born-red",
+      "cwd": "/tmp",
+      "result": "exit 0; same BORN_RED summary"
+    },
+    {
+      "command": "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/peer-harness.mjs",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "exit 0; EXACT_PINNED_DOORS_BEFORE_NORMALIZATION; 13 cases; seven-case exact common lane; per-peer exclusions retained"
+    },
+    {
+      "command": "node --input-type=module -e '<parse frozen runtime/source JSON, execute both generators by absolute path, compare JSON.stringify values>'",
+      "cwd": "/tmp",
+      "result": "runtime-closure_structural_equal=true; source-census_structural_equal=true"
+    },
+    {
+      "command": "test -e <each named later-phase artifact and candidate root>",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "result": "holdout-receipt.json, holdout-ciphertext.b64, reviewed-subject.json, root-gestalt.json, author-task-witness.json, reviews, and candidates were all absent"
+    }
+  ],
+  "positive_evidence": [
+    "The exact 4,833-byte receipt and its 30-row closure are internally self-consistent. Every frozen row matched its identity and was non-writable; the receipt itself was mode 0444.",
+    "The formation validator is independent of the caller working directory and passed from both the repository and /tmp with no candidate or holdout artifacts present.",
+    "The runtime replay structurally matches 139 rows for @mkbabb/parse-that 1.0.0, tsx 4.20.3, esbuild 0.25.12, @esbuild/darwin-arm64 0.25.12, get-tsconfig 4.14.0, and resolve-pkg-maps 1.0.0, along with the package lock, Node binary, and eleven named peer-source identities.",
+    "The peer worker imports and calls the actual live parseCssScalar, historical parse-that number parser, and C14 numberValue parser before normalization. The harness retains separate lane exclusions and derives a seven-case intersection from thirteen cases.",
+    "The public suite exercises six number-start arms, inherited success and failure prefixes, eight binary64/offset additions, seven predecessor profiles, ordinary and preseeded-ahead diagnostics, six parent-composition cases, twelve no-throw extras, and four geometric work constructions at four UTF-16 sizes.",
+    "All three deliberate negative controls were rejected, all four frozen feasibility probes passed, and the subprocess hang control was killed after 50 ms.",
+    "The planned H, B, S, and D implementations are mechanically distinct: whole-prefix regex/map; factorized all/any with save/restore; staged then/opt with save/restore; and first-character dispatch with atomic arms. Their frozen probes establish API feasibility under the pinned runtime.",
+    "The formation carries zero feature credit and does not falsely claim that current hashes establish actor identity."
+  ],
+  "findings": [
+    {
+      "id": "G11-A2-01",
+      "severity": "BLOCKER",
+      "category": "phase-ordering-and-holdout-timing",
+      "finding": "The governed order is contradictory. feature-row.json says holdout_phase is ONLY_AFTER_ALL_FOUR_CANDIDATES_CLOSE, while every candidate root must remain absent until phase-validator outputs AUTHORS_MAY_WRITE. Yet validateChallenged requires --holdout-receipt before boundary acceptance, and admit can output AUTHORS_MAY_WRITE only after that challenged path. validateRuntimeAndExecutableProofs also requires the frozen census with all candidate roots absent in challenged and admit phases.",
+      "exact_evidence": [
+        "feature-row.json: candidate_phase=ONLY_AFTER_PHASE_VALIDATOR_OUTPUTS_AUTHORS_MAY_WRITE",
+        "feature-row.json: holdout_phase=ONLY_AFTER_ALL_FOUR_CANDIDATES_CLOSE",
+        "phase-validator.mjs: challenged/admit call validateChallenged, whose first required argument is --holdout-receipt",
+        "phase-validator.mjs: all phases replay source-census.json and reject any present candidate root"
+      ],
+      "impact": "A lawful execution cannot both keep candidates unwritten before admission and create the required holdout only after all four candidates close. The only machine path to admission necessarily consumes a pre-candidate object named holdout-receipt."
+    },
+    {
+      "id": "G11-A2-02",
+      "severity": "BLOCKER",
+      "category": "reviewer-root-and-task-authentication",
+      "finding": "The later-phase validator cannot establish the independence and external identities that the receipt says are mandatory. --review-a and --review-b may resolve to the same file; the two root challenge rows may duplicate one identity because membership uses reusable sha256/bytes matches; review/root actors, schemas, task IDs, and file regularity/immutability are not checked. In the author witness, root_actor is not checked, and served_model, served_model_receipt, and external_creation_receipt only need to be nonempty strings.",
+      "exact_evidence": [
+        "validateChallenged compares review verdict and subject identity but never requires distinct review paths, hashes, actors, or models",
+        "root challenges require length 2, but each expected review is accepted by Array.some over only sha256 and bytes",
+        "validateAuthorWitness accepts any nonempty served_model/served_model_receipt/external_creation_receipt and does not validate root_actor",
+        "author-task-witness.schema.json is frozen but phase-validator.mjs does not execute JSON Schema validation"
+      ],
+      "impact": "Locally authored assertions can satisfy the admission join without proving two independent challenges, a distinct root decision, four actual collaboration task creations, or served models. This violates formation-receipt.json's own identity_law. No counterfeit lifecycle files were created during this review."
+    },
+    {
+      "id": "G11-A2-03",
+      "severity": "BLOCKER",
+      "category": "author-input-isolation-and-preflight-feasibility",
+      "finding": "The exact no-write author task cannot discover its assigned input identities without violating its own input boundary. Each prompt says to read only files assigned by author-preflight-plan.json and return exact input identities, but the plan itself is not a common or seat-specific input, and the exact prompt is required to be the complete initial task message. Reading the plan would add an unenumerated input and expose all-seat task, packet, lineage, and root metadata.",
+      "exact_evidence": [
+        "author-preflight-plan.json law requires the exact seat prompt as the complete initial message",
+        "the prompt names no common-input paths, packet path, lineage path, hashes, or byte counts",
+        "common_inputs plus each task's packet and lineage omit author-preflight-plan.json",
+        "validateAuthorWitness requires the exact eight expected inputs but provides no authenticated external assignment object"
+      ],
+      "impact": "A truthful READY_NO_WRITES receipt cannot be both based only on the enumerated inputs and independently know which exact inputs and hashes it must attest."
+    },
+    {
+      "id": "G11-A2-04",
+      "severity": "BLOCKER",
+      "category": "author-peer-isolation",
+      "finding": "The assigned shared harness has an executable transitive dependency on every private feasibility probe. public-harness.mjs --born-red calls selfTest, which imports negative-controls.ts and probes/h.ts, probes/b.ts, probes/s.ts, and probes/d.ts. None of those five files is in common_inputs, and three of the four probes are expressly forbidden peer material for each author.",
+      "exact_evidence": [
+        "all author prompts require verification of the public harness command and assertion of no peer access",
+        "public-harness.mjs selfTest calls prove(join(root, `probes/${seat}.ts`), name) for all four seats",
+        "author-preflight-plan.json common_inputs includes public-harness.mjs and public-worker.ts but not negative-controls.ts or any probe"
+      ],
+      "impact": "Executing the only frozen born-red harness during preflight loads peer design code; refusing to execute it leaves the demanded harness verification unsupported. The no-peer assertion and executable assignment cannot both be true."
+    },
+    {
+      "id": "G11-A2-05",
+      "severity": "BLOCKER",
+      "category": "candidate-file-and-import-inventory",
+      "finding": "The formation proves only pre-admission absence, not a closeable candidate inventory. source-census.mjs recursively inventories a root if present but the frozen formation validator rejects any such presence; no candidate-closure phase or artifact is defined. public-harness.mjs --candidate accepts resolve(modulePath) for any filesystem path, and neither it nor phase-validator computes a candidate's transitive imports, rejects symlink/import escapes, binds candidate bytes, or enforces its seat root.",
+      "exact_evidence": [
+        "source-census.json contains only four ABSENT candidate roots",
+        "lifecycle-artifacts.schema.json's required_chain has no candidate receipt or import closure",
+        "phase-validator.mjs supports only formation, challenged, and admit",
+        "public-harness.mjs candidate mode passes arbitrary resolve(modulePath) to a dynamic import in public-worker.ts"
+      ],
+      "impact": "After admission, a candidate may execute mutable or out-of-seat imports that are absent from every frozen identity ledger, and no exact candidate/import closure is available for the later holdout or reviews."
+    },
+    {
+      "id": "G11-A2-06",
+      "severity": "BLOCKER",
+      "category": "public-semantic-kill-strength",
+      "finding": "The public cases do not cover an explicit sign followed by an integer mantissa and exponent, such as +1e2 or -1e2. They cover unsigned 1e3 and explicit-plus exponents only when the mantissa has a fraction (+12.50E-2 and +.75e+2). All four work constructions are unsigned. A branch-factorized parser can therefore omit exponent handling for signed integer mantissas while satisfying every enumerated public observation and work construction.",
+      "exact_evidence": [
+        "g5 public prefix cases contain 1e3, 1E+3, and +12.50E-2 but no signed integer-mantissa exponent",
+        "g11 additional_prefix_cases contains +.75e+2 but no signed integer-mantissa exponent",
+        "makeWork constructs digits, fraction, exponent, and incomplete-exponent sources with no leading sign",
+        "the three negative controls target broad missing families, not this branch cross-product"
+      ],
+      "impact": "The born-red proof does not establish maximal-prefix grammar for a basic branch cross-product. The contradictory holdout lifecycle means this gap is not backed by a mandatory post-candidate secret semantic gate. This review used static corpus analysis and created no candidate file."
+    },
+    {
+      "id": "G11-A2-07",
+      "severity": "MAJOR",
+      "category": "runtime-hermeticity",
+      "finding": "The byte ledger pins Node, loader packages, and peer sources, but both child harnesses spread process.env, and the phase validator's child processes inherit its environment. Loader-affecting variables such as NODE_OPTIONS are neither cleared nor included in runtime-closure.json.",
+      "exact_evidence": [
+        "public-harness.mjs child env is { ...process.env, NODE_PATH: nodePath }",
+        "peer-harness.mjs child env is { ...process.env, NODE_PATH: join(mirror, `node_modules`) }",
+        "phase-validator.mjs spawnSync calls do not provide a sanitized env"
+      ],
+      "impact": "The structurally replayed package/source identities do not by themselves prove that the exact imports and observations were produced without an unbound preload hook or environment override."
+    },
+    {
+      "id": "G11-A2-08",
+      "severity": "MAJOR",
+      "category": "frozen-control-consumption",
+      "finding": "public-corpus.json binds the inherited G8 controls, and phase-validator checks their identity, but public-worker.ts never loads that controls file. In particular, its declared diagnostics modes disabled/enabled are not routed into the current suite; the current transaction_profiles substitute ordinary/preseeded-ahead only.",
+      "impact": "A frozen control identity is presented as inherited evidence without an executable join showing that all of its declared profiles remain enforced."
+    }
+  ],
+  "required_repairs": [
+    "Separate pre-author boundary acceptance from the post-four-candidate semantic holdout, and encode one satisfiable phase order in the feature row, lifecycle schema, and validator.",
+    "Require distinct immutable review identities and externally authenticated actor/model/task receipts; do not permit content-authored receipt strings or one review identity to satisfy two challenge seats.",
+    "Give each author a complete seat-specific initial assignment containing only that seat's exact input identities, and make its executable harness closure exclude all peer prompts, packets, probes, roots, and future payloads.",
+    "Add a post-admission candidate-close phase that binds regular non-symlink seat-root files, full transitive import/runtime identities, export identity, and exact immutable candidate hashes before holdout generation.",
+    "Add branch cross-product public cases including signed integer exponents and negative signed variants, and route every inherited control profile into executable checks.",
+    "Sanitize or bind loader-affecting environment state for validator, public, and peer child processes."
+  ],
+  "verdict": "REJECT",
+  "credit": "ZERO_PREAUTHOR_BOUNDARY_ONLY",
+  "rationale": "The exact immutable formation rows, pinned runtime, executable peer doors, public transaction/composition/work checks, negative controls, and four distinct feasibility styles are substantial positive evidence. They do not form a consistent admission boundary: holdout order is impossible, reviewer/task identities are self-asserted, author input isolation is internally unsatisfiable, candidate/import closure is absent, and a basic signed-exponent grammar branch is not killed. Any one of the first five defects is sufficient to reject formation before authors."
+}

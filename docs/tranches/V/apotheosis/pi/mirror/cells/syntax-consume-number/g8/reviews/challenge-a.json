@@ -1,0 +1,77 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "review_id": "A",
+  "verdict": "REJECT",
+  "reviewer": {
+    "id": "g8-boundary-challenge-a-codex",
+    "served_model": "OpenAI Codex (GPT-5 family)",
+    "independent": true,
+    "candidate_author": false,
+    "root": false,
+    "peer_review_access": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "formation": {
+      "sha256": "ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba",
+      "bytes": 9872
+    },
+    "closure_sha256": "ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d",
+    "holdout_receipt": {
+      "sha256": "bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9",
+      "bytes": 5651
+    },
+    "holdout_ciphertext": {
+      "sha256": "bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319",
+      "bytes": 287609
+    }
+  },
+  "axes": {
+    "frozen_subject_byte_identity": "ACCEPT",
+    "precursor_closure_identity": "ACCEPT",
+    "ciphertext_byte_identity": "ACCEPT",
+    "path_confinement": "ACCEPT",
+    "zero_candidate_state": "ACCEPT",
+    "boundary_replayability": "REJECT",
+    "review_schema_enforcement": "REJECT",
+    "root_schema_enforcement": "REJECT",
+    "review_subject_binding": "REJECT",
+    "root_review_binding": "REJECT",
+    "actor_independence_enforcement": "REJECT",
+    "foreign_receipt_resistance": "REJECT",
+    "formation_validation_at_admission": "REJECT",
+    "holdout_authenticity_validation": "REJECT",
+    "comparison_input_resolution": "REJECT",
+    "temporal_ordering": "REJECT",
+    "negative_control_adequacy": "REJECT",
+    "author_admission_safety": "REJECT",
+    "owner_law_sequence": "REJECT",
+    "zero_credit_claim": "ACCEPT"
+  },
+  "evidence": [
+    "Independent byte replay on 2026-07-22 reproduced formation ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba/9872, holdout receipt bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9/5651, and ciphertext bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319/287609. The reviewed frozen identities are exact.",
+    "The advertised strict replay is not stable after the authorized holdout seal. Running `node cells/syntax-consume-number/g8/formation-validator.mjs --strict-check` from mirror now exits nonzero with `forbidden formation artifacts exist: holdout-ciphertext.b64,holdout-receipt.json`. `selfCheck()` unconditionally calls `censusForbidden()`, whose formation-only census forbids the two artifacts that the next protocol step requires. Thus the exact precursor cannot be replayed through its own advertised strict command at the present pre-author boundary.",
+    "The public commands `--negative-controls`, `--pre-author-fixture`, and `--holdout-schema-fixture` returned PASS (topology positive 1/negative 7, MISSING_REVIEW_A, and one holdout omission control respectively), but none attacks review/root subject substitution, schema omission, foreign receipts, root/review disagreement, or an alternate formation/holdout bundle.",
+    "`actualPreAuthor()` reads exact manifest paths and byte identities, but never invokes a JSON Schema validator for `boundary-review.schema.json` or `root-gestalt.schema.json`. `verifySchemas()` merely checks each schema document's `$schema`, `$id`, top-level type, and `additionalProperties`; it does not validate instances.",
+    "For each challenge, `actualPreAuthor()` tests only `review_id`, `verdict`, `blockers.length`, and later `reviewer?.id`. It does not require feature_id, generation, reviewer independence flags, subject, axes, evidence, credit, or exact formation/closure/holdout identities. A minimal or foreign JSON receipt with the four inspected values is therefore admission-capable despite violating the frozen boundary-review schema and not reviewing this subject.",
+    "For root, `actualPreAuthor()` tests only `verdict`, `union_blockers.length`, and `root?.id` distinct from the two reviewer IDs. It does not require the root schema, subject identities, the two exact review rows/hashes/verdicts, root independence/candidate/challenge/hidden-access flags, feature/generation, or zero credit. A foreign root can therefore bless two foreign challenges and authorize authors.",
+    "The root's claimed review list is never joined to manifest.review_a or manifest.review_b. Conversely, review subjects are never joined to manifest.formation, manifest.precursor_closure_sha256, manifest.holdout_receipt, or manifest.holdout_ciphertext. Exact byte capture of unbound receipts is not semantic binding and does not resist bundle substitution.",
+    "`actualPreAuthor()` does not call `validateFormation()` on the captured formation. Its only formation-content test is `parsed.formation.precursor_closure_sha256 === manifest.precursor_closure_sha256`. The fixed receipt ID, generation/status, 28 path identities, closure recomputation, authority closure, G7 terminal bindings, and zero-artifact state are not admission requirements.",
+    "`validateHoldoutReceipt()` checks holdout field shapes and base64 envelope magic/length, but performs no AES-256-GCM authentication/decryption, no AAD recomputation, no generator-byte resolution, and no plaintext/hidden-index/coverage recomputation. The built-in `syntheticHoldout()` demonstrates that an envelope containing literal `fixture`, repeated placeholder hashes, fictional comparison identities, and no authenticated hidden corpus is accepted by the same validator used by `actualPreAuthor()`.",
+    "Holdout comparison inputs are passed only through `pathRow`; their referenced paths, bytes, and hashes are never resolved during pre-author admission. Consequently the G7 no-reuse/destruction proof and public-corpus comparison can be replaced by syntactically valid fictional rows in an alternate admitted holdout.",
+    "The protocol says to seal one manifest and then obtain reviews/root, while the manifest itself contains the exact hashes and sizes of those later review/root bytes. No immutable staged subject manifest exists separately. In practice either the manifest is assembled after the reviews (contradicting the sequence) or it must be resealed after them; because the reviews do not bind a manifest identity, the final bundle can be assembled or substituted without reviewer acknowledgement.",
+    "`resolveUnder()` provides a useful path escape guard and all six manifest rows are captured once before semantic checks. Those mechanical protections do not cure the missing joins: the captured files can be exact but unrelated to this formation and to one another.",
+    "The holdout receipt candidly grants zero feature credit and declares pre-reveal limits. No candidate source exists in the reviewed generation. The rejection is therefore pre-author and does not invalidate any parser implementation; it prevents admission from being issued on an unproven boundary bundle."
+  ],
+  "blockers": [
+    "G8-A1 — Make pre-author admission execute the frozen boundary-review and root-gestalt schemas (or equivalent complete exact-key validation), then require every review subject to equal the manifest's exact formation, precursor closure, holdout receipt, and ciphertext identities.",
+    "G8-A2 — Join the root to the exact two manifest review paths/hashes/bytes, IDs, reviewer IDs, and verdicts; enforce all reviewer/root independence, author/root/challenge/peer/hidden-access flags and actor disjointness instead of trusting three optional ID strings.",
+    "G8-A3 — Validate the captured formation as the exact frozen G8 formation, including receipt identity/status, all 28 resolved precursor rows, closure recomputation, authority closure, G7 terminal proof, and allowed current lifecycle state. Do not accept an arbitrary JSON object that merely repeats a closure string.",
+    "G8-A4 — Harden holdout admission against a fictional alternate bundle: resolve exact comparison inputs, authenticate or otherwise content-addressedly verify the ciphertext/AAD/generator custody contract to the extent publicly possible, and add negative controls proving the synthetic fixture cannot be mistaken for an actual admitted holdout.",
+    "G8-A5 — Split immutable precursor validation from lifecycle census, or parameterize the strict command, so the frozen formation remains replayable after its legitimate holdout/review/root artifacts appear while still rejecting premature candidates and production mutations.",
+    "G8-A6 — Define a non-circular immutable reviewed-subject manifest sealed before reviews and a separate final admission bundle that adds exact review/root identities; have both reviews and root bind the former and have the root bind the exact review pair.",
+    "G8-A7 — Add executable negative controls for malformed/minimal reviews, foreign subject identities, swapped review hashes, a root naming different reviews, duplicate/forbidden actors, fake formation closure, fake holdout/comparison rows, and post-holdout strict replay. The current seven negative controls exercise source-topology only."
+  ],
+  "credit": "ZERO_BOUNDARY_REVIEW_ONLY"
+}

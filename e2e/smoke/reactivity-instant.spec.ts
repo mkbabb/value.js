@@ -43,9 +43,7 @@ test("spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 pa
 }) => {
     await page.goto("/");
 
-    const spectrum = page
-        .getByRole("img", { name: /Color spectrum/ })
-        .last();
+    const spectrum = page.getByRole("img", { name: /Color spectrum/ }).last();
     await expect(spectrum).toBeVisible();
 
     // ColorComponentDisplay textboxes carry the live reactive readout —
@@ -120,16 +118,17 @@ test("spectrum-drag → component-readout wall-clock ≤ 50ms median across 5 pa
     }
 
     deltas.sort((a, b) => a - b);
-    const median = deltas[Math.floor(deltas.length / 2)];
+    // X-W1 · G-1 — the median is ASSERTED to exist rather than read through an
+    // `| undefined` index. An empty sample would otherwise have reached
+    // `median.toFixed(2)` as a TypeError with no statement of what went wrong.
+    expect(deltas.length, "no reactivity samples were collected").toBeGreaterThan(0);
+    const median = deltas[Math.floor(deltas.length / 2)]!;
 
     console.log(
         "[reactivity-instant] spectrum-drag deltas (ms):",
         deltas.map((d) => d.toFixed(2)).join(", "),
     );
-    console.log(
-        "[reactivity-instant] spectrum-drag median (ms):",
-        median.toFixed(2),
-    );
+    console.log("[reactivity-instant] spectrum-drag median (ms):", median.toFixed(2));
 
     expect(median).toBeLessThanOrEqual(50);
 });
@@ -147,9 +146,7 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
     const slider = page.getByRole("slider", { name: "L channel" });
     await expect(slider).toBeVisible();
 
-    const readout = page
-        .getByRole("textbox", { name: /l component value/ })
-        .last();
+    const readout = page.getByRole("textbox", { name: /l component value/ }).last();
     await expect(readout).toBeVisible();
 
     const deltas: number[] = [];
@@ -165,8 +162,11 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
     // is read-only timing instrumentation — explicitly permitted by the
     // banned-pattern carve-out at line 13.
     await page.evaluate(() => {
+        // X-W1 · G-1 — the marker is DELETED, not set to `undefined`. Under
+        // `exactOptionalPropertyTypes` an optional property does not accept an
+        // explicit `undefined`, and "clear the marker" is what the reset means.
         const w = window as unknown as { __reactivityT0?: number };
-        w.__reactivityT0 = undefined;
+        delete w.__reactivityT0;
         window.addEventListener(
             "keydown",
             () => {
@@ -194,8 +194,7 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
         // inside the in-page evaluate (no extra protocol traffic that
         // could front-load CPU time before the press).
         await page.evaluate(() => {
-            (window as unknown as { __reactivityT0?: number }).__reactivityT0 =
-                undefined;
+            delete (window as unknown as { __reactivityT0?: number }).__reactivityT0;
         });
 
         await page.keyboard.press(key);
@@ -234,20 +233,21 @@ test("slider-keyboard → component-readout wall-clock ≤ 100ms median across 3
             { timeout: 2000, polling: "raf" },
         );
 
-        deltas.push(await delta.jsonValue() as number);
+        deltas.push((await delta.jsonValue()) as number);
     }
 
     deltas.sort((a, b) => a - b);
-    const median = deltas[Math.floor(deltas.length / 2)];
+    // X-W1 · G-1 — the median is ASSERTED to exist rather than read through an
+    // `| undefined` index. An empty sample would otherwise have reached
+    // `median.toFixed(2)` as a TypeError with no statement of what went wrong.
+    expect(deltas.length, "no reactivity samples were collected").toBeGreaterThan(0);
+    const median = deltas[Math.floor(deltas.length / 2)]!;
 
     console.log(
         "[reactivity-instant] slider-keyboard deltas (ms):",
         deltas.map((d) => d.toFixed(2)).join(", "),
     );
-    console.log(
-        "[reactivity-instant] slider-keyboard median (ms):",
-        median.toFixed(2),
-    );
+    console.log("[reactivity-instant] slider-keyboard median (ms):", median.toFixed(2));
 
     // 100ms threshold — see file-header docblock for the calibration
     // rationale (CDP keyboard.press has higher latency variance than

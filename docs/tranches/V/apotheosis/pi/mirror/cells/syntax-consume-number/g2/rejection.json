@@ -1,0 +1,62 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G2-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 2,
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_BOUNDARY_CHALLENGES_BEFORE_CANDIDATES",
+  "date": "2026-07-22",
+  "formation": {
+    "sha256": "f3e5a6c708129d8578364245d5c5da098def327533b89d431d7106e14cca1b67",
+    "bytes": 6506
+  },
+  "holdout": {
+    "receipt_sha256": "bb6a4b9a5a57ba43cc7fb4ed6ceb2f9566e1928b768194bf620f026b94429380",
+    "receipt_bytes": 4854,
+    "ciphertext_sha256": "911371622d319acbaf8d5fac706244048bdfef3fcabd43620aee332e529489e8",
+    "ciphertext_bytes": 56833,
+    "plaintext_revealed": false,
+    "candidate_reuse_authorized": false,
+    "destruction_pending": false,
+    "destruction_receipt": {
+      "path": "holdout-destruction.json",
+      "sha256": "350e21848aed779e6c46f0057f1636fced97c243b01c7a3ba18b221c2923caf2",
+      "bytes": 2072,
+      "surviving_copies": 0
+    }
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a-specification.md",
+      "sha256": "7e555146be8158ec9ba1c3c67b3fb9d6bc4546116e73470a22ff4364e2f97e48",
+      "bytes": 11880,
+      "verdict": "REJECT"
+    },
+    {
+      "path": "reviews/challenge-b-architecture.md",
+      "sha256": "26f5b9ca277a4c7c7eb89e36a444f74fc2729a28e1dc98a60f8e60282d643007",
+      "bytes": 12361,
+      "verdict": "REJECT"
+    }
+  ],
+  "confirmed_blockers": [
+    "semantic leaf exactness ignores non-enumerable and symbol keys",
+    "proof-input and clean-base closures are incomplete",
+    "author admission is mislabeled and insufficient as promotion",
+    "verdicts and ciphertext/results are not executable gate prerequisites",
+    "compiler and manifest inputs have check/use gaps",
+    "anti-scanner and topology gates are bypassable",
+    "five seats are not parsimoniously justified",
+    "benchmark schedule and statistic are not executable or fully specified"
+  ],
+  "retained_boundary": "Prefix-consuming CSS Syntax 4.3.13 semantic triple with subordinate number-start fixtures.",
+  "candidate_source_files": 0,
+  "active_grammar_mutations": 0,
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "conformance": 0,
+    "production": 0
+  },
+  "next": "Cut G3 with the root union docket, destroy G2 holdout ciphertext/key, form a wholly fresh holdout, then obtain two fresh challenges and root gestalt."
+}

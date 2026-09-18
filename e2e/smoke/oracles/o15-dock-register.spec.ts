@@ -22,7 +22,9 @@ import { expandDock, openView } from "../fixtures/dock";
  */
 
 test.describe("O-15a · the seal abrogation (negative watch)", () => {
-    test("the collapsed seal computes border-style none — no rim resurrection", async ({ page }) => {
+    test("the collapsed seal computes border-style none — no rim resurrection", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         // The desktop dock auto-collapses ~5s after the pointer leaves it
@@ -45,13 +47,35 @@ test.describe("O-15a · the seal abrogation (negative watch)", () => {
         expect(computed.padding).toBe("0px");
     });
 
-    test("the register-law sibling stays dispositioned — no geometric ring on mix dots", async ({ page }) => {
+    test("the register-law sibling stays dispositioned — no geometric ring on mix dots", async ({
+        page,
+    }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
         await openView(page, "Mix");
-        await page
-            .getByRole("button", { name: "Add current color to the mix" })
-            .click();
+        // ── X-W1 · R2 (SH-8 = PP-2 = A-3 = MX-3 = MSS-2 = MR-2) ─────────────
+        // The add-slot was bound by `getByRole("button", { name: "Add current
+        // color to the mix" })`, which can NEVER match. MEASURED at the running
+        // app, 2026-09-18: the slot renders `<span aria-hidden="true">` with no
+        // `aria-label`, no `role`, `pointer-events: none`, and a forced click
+        // adds no source. ROOT: glass-ui 7.0.0's `WatercolorDot` declares
+        // `inheritAttrs: false` and renders that span, so the demo's
+        // `tag="button"`, `aria-label`, `:disabled` and `@click` are all
+        // dropped at the seam (`node_modules/@mkbabb/glass-ui/dist/watercolor-dot.js`).
+        // The affordance is therefore DEAD in the shipped product — a live
+        // BLOCKER, not a test defect. glass-ui is READ-ONLY here and `demo/` is
+        // this wave's Triumvirate trigger, so the CURE is routed (BH relay +
+        // the consumer wave) and the ORACLE is made honest: it binds the node
+        // that exists and asserts the contract that is broken, so it reds in
+        // one step with the cause on the failure line instead of timing out
+        // against a locator that matches nothing.
+        const addSlot = page.locator(".add-slot-ghost").first();
+        await expect(addSlot).toBeVisible();
+        await expect(
+            addSlot,
+            "the add-slot must be an OPERABLE control, not an aria-hidden decoration — glass-ui 7.0.0 WatercolorDot drops tag/aria-label/@click (inheritAttrs:false)",
+        ).toHaveAttribute("aria-label", /Add current color/, { timeout: 2000 });
+        await addSlot.click();
         const dot = page.locator("[data-mix-source] .watercolor-swatch").first();
         await expect(dot).toBeVisible();
         const cls = await dot.evaluate((el) => el.className);
@@ -87,13 +111,9 @@ test.describe("O-15b · the Tools clip release + register pass (W6-8)", () => {
         let shadow = "none";
         for (let i = 0; i < 20; i++) {
             await page.keyboard.press("Tab");
-            const isTools = await tools.evaluate(
-                (el) => el === document.activeElement,
-            );
+            const isTools = await tools.evaluate((el) => el === document.activeElement);
             if (isTools) {
-                shadow = await tools.evaluate(
-                    (el) => getComputedStyle(el).boxShadow,
-                );
+                shadow = await tools.evaluate((el) => getComputedStyle(el).boxShadow);
                 break;
             }
         }

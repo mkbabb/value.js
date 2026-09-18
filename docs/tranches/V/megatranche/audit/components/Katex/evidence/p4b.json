@@ -1,0 +1,60 @@
+[
+  {
+    "tag": "light-dpr1",
+    "scheme": "light",
+    "dpr": 1,
+    "info": {
+      "fracRect": {
+        "x": 965.02,
+        "y": 219.08,
+        "w": 39.45,
+        "h": 1
+      },
+      "borderBottomWidth": "1px",
+      "borderBottomColor": "rgb(28, 25, 23)",
+      "devicePixelRatio": 1,
+      "ground": {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+        "bg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+      },
+      "tokenCard": "light-dark(hsl(30 85% 96%), hsl(26 22% 17%))",
+      "tokenBackground": "light-dark(hsl(40 30% 98%), hsl(24 9% 4%))",
+      "tokenDestructive": "light-dark(hsl(0 72% 50%), hsl(0 80% 60%))"
+    },
+    "resolved": {
+      "destructive": "rgb(219, 36, 36)",
+      "card": "rgb(253, 245, 236)",
+      "bg": "rgb(251, 250, 248)",
+      "fg": "rgb(28, 25, 23)"
+    }
+  },
+  {
+    "tag": "dark-dpr1",
+    "scheme": "dark",
+    "dpr": 1,
+    "info": {
+      "fracRect": {
+        "x": 965.02,
+        "y": 219.08,
+        "w": 39.45,
+        "h": 1
+      },
+      "borderBottomWidth": "1px",
+      "borderBottomColor": "rgb(233, 230, 226)",
+      "devicePixelRatio": 1,
+      "ground": {
+        "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+        "bg": "oklab(0.395241 0.00968 0.016528 / 0.7536)"
+      },
+      "tokenCard": "hsl(26 22% 17%)",
+      "tokenBackground": "hsl(24 9% 4%)",
+      "tokenDestructive": "hsl(0 80% 60%)"
+    },
+    "resolved": {
+      "destructive": "rgb(235, 71, 71)",
+      "card": "rgb(53, 42, 34)",
+      "bg": "rgb(11, 10, 9)",
+      "fg": "rgb(233, 230, 226)"
+    }
+  }
+]

@@ -1,0 +1,785 @@
+{
+ "runId": "wf_3542b0db-204",
+ "workflow": "wf_3542b0db-204",
+ "resultCount": 41,
+ "results": [
+  {
+   "agentId": "ab39c54b9d33415c9",
+   "key": "v2:378794e5e0d6b9aab1ff8e77739614de6b6fa2e81d3a5e35a3686aa7b2278a9c",
+   "result": {
+    "components": [
+     {
+      "slug": "AmigaScene",
+      "path": "demo/scenes/amiga/AmigaScene.vue",
+      "lines": 271
+     },
+     {
+      "slug": "AnimatedText",
+      "path": "demo/components/instrument/shell/AnimatedText.vue",
+      "lines": 126
+     },
+     {
+      "slug": "AnimationControlsGroup",
+      "path": "demo/components/instrument/transport/AnimationControlsGroup.vue",
+      "lines": 336
+     },
+     {
+      "slug": "AnimationVisualizer",
+      "path": "demo/components/playback/AnimationVisualizer.vue",
+      "lines": 256
+     },
+     {
+      "slug": "App",
+      "path": "demo/app/App.vue",
+      "lines": 387
+     },
+     {
+      "slug": "App.skeleton",
+      "path": "demo/app/App.skeleton.vue",
+      "lines": 101
+     },
+     {
+      "slug": "CSSCodeEditor",
+      "path": "demo/components/instrument/keyframes/CSSCodeEditor.vue",
+      "lines": 229
+     },
+     {
+      "slug": "CSSPasteDialog",
+      "path": "demo/components/instrument/timeline/CSSPasteDialog.vue",
+      "lines": 80
+     },
+     {
+      "slug": "ChannelControls",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelControls.vue",
+      "lines": 456
+     },
+     {
+      "slug": "ChannelOptions",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelOptions.vue",
+      "lines": 609
+     },
+     {
+      "slug": "ChromeDock",
+      "path": "demo/app/dock/ChromeDock.vue",
+      "lines": 385
+     },
+     {
+      "slug": "ControlsPaneWrapper",
+      "path": "demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue",
+      "lines": 319
+     },
+     {
+      "slug": "CopyButton",
+      "path": "demo/components/CopyButton.vue",
+      "lines": 113
+     },
+     {
+      "slug": "CubeAxisLines",
+      "path": "demo/scenes/cube/CubeAxisLines.vue",
+      "lines": 90
+     },
+     {
+      "slug": "CubeScene",
+      "path": "demo/scenes/cube/CubeScene.vue",
+      "lines": 287
+     },
+     {
+      "slug": "CubeTarget",
+      "path": "demo/scenes/cube/CubeTarget.vue",
+      "lines": 239
+     },
+     {
+      "slug": "DemoGlobalChrome",
+      "path": "demo/components/instrument/transport/components/DemoGlobalChrome.vue",
+      "lines": 49
+     },
+     {
+      "slug": "EasingScene",
+      "path": "demo/scenes/easing/EasingScene.vue",
+      "lines": 133
+     },
+     {
+      "slug": "EasingSidebar",
+      "path": "demo/scenes/easing/EasingSidebar.vue",
+      "lines": 234
+     },
+     {
+      "slug": "EasingTarget",
+      "path": "demo/scenes/easing/EasingTarget.vue",
+      "lines": 335
+     },
+     {
+      "slug": "EditorHeader",
+      "path": "demo/components/instrument/shell/EditorHeader.vue",
+      "lines": 108
+     },
+     {
+      "slug": "EditorShell",
+      "path": "demo/components/instrument/shell/EditorShell.vue",
+      "lines": 261
+     },
+     {
+      "slug": "EditorStartScreen",
+      "path": "demo/components/instrument/shell/EditorStartScreen.vue",
+      "lines": 191
+     },
+     {
+      "slug": "HeroAurora",
+      "path": "demo/components/instrument/shell/HeroAurora.vue",
+      "lines": 128
+     },
+     {
+      "slug": "KeyboardShortcutsModal",
+      "path": "demo/components/instrument/shell/KeyboardShortcutsModal.vue",
+      "lines": 69
+     },
+     {
+      "slug": "KeyframeCard",
+      "path": "demo/components/instrument/keyframes/KeyframeCard.vue",
+      "lines": 81
+     },
+     {
+      "slug": "KeyframeCardList",
+      "path": "demo/components/instrument/keyframes/components/KeyframeCardList.vue",
+      "lines": 82
+     },
+     {
+      "slug": "KeyframeTimeline",
+      "path": "demo/components/instrument/timeline/KeyframeTimeline.vue",
+      "lines": 312
+     },
+     {
+      "slug": "KeyframesAddDialog",
+      "path": "demo/components/instrument/keyframes/components/KeyframesAddDialog.vue",
+      "lines": 161
+     },
+     {
+      "slug": "KeyframesEditor",
+      "path": "demo/components/instrument/keyframes/KeyframesEditor.vue",
+      "lines": 284
+     },
+     {
+      "slug": "KeyframesStringControls",
+      "path": "demo/components/instrument/keyframes/KeyframesStringControls.vue",
+      "lines": 185
+     },
+     {
+      "slug": "KfPillTabs",
+      "path": "demo/components/instrument/transport/KfPillTabs.vue",
+      "lines": 124
+     },
+     {
+      "slug": "LayerConfigPanel",
+      "path": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+      "lines": 92
+     },
+     {
+      "slug": "MatrixEditor",
+      "path": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+      "lines": 158
+     },
+     {
+      "slug": "MbabbMenu",
+      "path": "demo/app/dock/MbabbMenu.vue",
+      "lines": 121
+     },
+     {
+      "slug": "OrbitalDrag",
+      "path": "demo/scenes/cube/orbital-drag/OrbitalDrag.vue",
+      "lines": 352
+     },
+     {
+      "slug": "PlaybackRibbon",
+      "path": "demo/components/playback/PlaybackRibbon.vue",
+      "lines": 244
+     },
+     {
+      "slug": "RibbonBar",
+      "path": "demo/components/instrument/transport/controls-pane/RibbonBar.vue",
+      "lines": 151
+     },
+     {
+      "slug": "SequenceAxis",
+      "path": "demo/scenes/sequence/SequenceAxis.vue",
+      "lines": 49
+     },
+     {
+      "slug": "SequencePlayhead",
+      "path": "demo/scenes/sequence/SequencePlayhead.vue",
+      "lines": 87
+     },
+     {
+      "slug": "SequenceScene",
+      "path": "demo/scenes/sequence/SequenceScene.vue",
+      "lines": 43
+     },
+     {
+      "slug": "SequenceScrubber",
+      "path": "demo/scenes/sequence/SequenceScrubber.vue",
+      "lines": 162
+     },
+     {
+      "slug": "SequenceTarget",
+      "path": "demo/scenes/sequence/SequenceTarget.vue",
+      "lines": 252
+     },
+     {
+      "slug": "SharePopover",
+      "path": "demo/components/instrument/shell/SharePopover.vue",
+      "lines": 62
+     },
+     {
+      "slug": "SpringHeatmap",
+      "path": "demo/scenes/spring/SpringHeatmap.vue",
+      "lines": 338
+     },
+     {
+      "slug": "SpringPhysicsFacet",
+      "path": "demo/scenes/spring/SpringPhysicsFacet.vue",
+      "lines": 242
+     },
+     {
+      "slug": "SpringScene",
+      "path": "demo/scenes/spring/SpringScene.vue",
+      "lines": 204
+     },
+     {
+      "slug": "SpringTarget",
+      "path": "demo/scenes/spring/SpringTarget.vue",
+      "lines": 470
+     },
+     {
+      "slug": "SpringTrace",
+      "path": "demo/scenes/spring/SpringTrace.vue",
+      "lines": 129
+     },
+     {
+      "slug": "SquareInstrument",
+      "path": "demo/scenes/square/SquareInstrument.vue",
+      "lines": 212
+     },
+     {
+      "slug": "SquareScene",
+      "path": "demo/scenes/square/SquareScene.vue",
+      "lines": 331
+     },
+     {
+      "slug": "StartingStyleTarget",
+      "path": "demo/scenes/spring/StartingStyleTarget.vue",
+      "lines": 216
+     },
+     {
+      "slug": "TimelineCaret",
+      "path": "demo/components/instrument/timeline/TimelineCaret.vue",
+      "lines": 70
+     },
+     {
+      "slug": "TimelineHoverPreview",
+      "path": "demo/components/instrument/timeline/components/TimelineHoverPreview.vue",
+      "lines": 38
+     },
+     {
+      "slug": "TimelineTrack",
+      "path": "demo/components/instrument/timeline/components/TimelineTrack.vue",
+      "lines": 246
+     },
+     {
+      "slug": "TimingFunctionPanel",
+      "path": "demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue",
+      "lines": 166
+     },
+     {
+      "slug": "TransportDock",
+      "path": "demo/components/instrument/transport/TransportDock.vue",
+      "lines": 403
+     },
+     {
+      "slug": "TypingDots",
+      "path": "demo/components/instrument/shell/TypingDots.vue",
+      "lines": 125
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "ad5f915fc9298e136",
+   "key": "v2:41349ccf5c4eacd84e70ab3bd1cd55e93552a26c7a704355b0d95f9c7bf2c9d8",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a996fc0fb238e0eed",
+   "key": "v2:ae36d526cda76ea458e1f0875a940cc7bfc237c9c028cfb02332e35f4facfed6",
+   "result": {
+    "slug": "ChannelControls",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelControls/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a0eeef582e1238404",
+   "key": "v2:08223662cc0a9a7a15b6b8b6799e828c2c589b04040740b9e8f63e68899296ef",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-D-design.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "abf973614f731418d",
+   "key": "v2:78517e366a5b7dbb1c337167487573253aa223bacce9144b4352285deed75369",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-D-design.md",
+    "defects": 16,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a4d21e0056f2ae844",
+   "key": "v2:1e0895cbebfbc6c6fe462ee3f1654a498cae249424f14e793e2a512edd78fe87",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-L-library.md",
+    "defects": 18,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a4e4009bceb2b21b1",
+   "key": "v2:1988fb4c2688919e6ac67a73fa6867e3fe6dbd649c566d5d68501f23b39d318d",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a0afb472f9838dceb",
+   "key": "v2:1d02460aeb0a254bb49b291487792a3844d8473bfa6b24b0b7e2ec28b5ad4055",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a14641900ddcfae5c",
+   "key": "v2:7042965874ca382fda6025978b2c8176f7b6952a5ff53ceb1042e7232bc6b43d",
+   "result": {
+    "slug": "ChannelControls",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelControls/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a36da9a813d29b470",
+   "key": "v2:263bd4c1701a2633dae27a3e156224af162e492f7507f39ad31d0def860a53dc",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-D-design.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aba0146b19e3894a9",
+   "key": "v2:2c7e6a2e7e8abc58b64601975e25f67048e57ded873c688fbf91b2440355c125",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-C-consumption.md",
+    "defects": 12,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a92b2997346e35ae5",
+   "key": "v2:ec1ab501bb256b6ae234e001e2accece737b8093a5799643f10931bfd1f6bcad",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-L-library.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a37459c265a5761e6",
+   "key": "v2:3c5997ec8f465210381de6a21e367c35d58f7ee5d6c1de08502c05222e08b719",
+   "result": {
+    "slug": "ChannelControls",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelControls/challenge-D-design.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9535a8cc0a24f010",
+   "key": "v2:df422fbed27157065161feb85dc8cc2781b7cba9381c855258f351cea928f3b9",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-D-design.md",
+    "defects": 20,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aba16c6191f20949b",
+   "key": "v2:aa7d0b31ba01b76fa48e84410b2b27af4c382f8e0d7b38035fdf308a44c2ed44",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a27ceb60975632535",
+   "key": "v2:3746569cc7d466a433c3191a4d8eefb57583a6582cb2f3a8b2f7651ddada9a6d",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ab9a81af3c2c2c6fd",
+   "key": "v2:0df0bd817fb316ac9ea968612c75176a64647a2b3e4ff501380764335da42315",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-C-consumption.md",
+    "defects": 11,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a41ead7fa16eebd33",
+   "key": "v2:27c4d07d6d2c1e71fbd92700c4e22f790f1f330e600c9c30fe4ead76a0c380bd",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aed987daccb1bfcb9",
+   "key": "v2:764b5cc6a5dc1ae1e91daff5e154a17f7b9c172c252ddd3eeea1bab8cf461f4b",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a995493ae66fb848a",
+   "key": "v2:136ab4b810414b353832b30bf9b91a8801209c891adf28c20688dc22ad57840b",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a86a10c8ad6c5342c",
+   "key": "v2:0d0859608d23b9a70eb8efde4c4a304a2d30e87dee71402bc73b2738f1eaff93",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 1,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "abd1c3fc919e28235",
+   "key": "v2:263bd4c1701a2633dae27a3e156224af162e492f7507f39ad31d0def860a53dc",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-D-design.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aaf465babbfa682bc",
+   "key": "v2:27c4d07d6d2c1e71fbd92700c4e22f790f1f330e600c9c30fe4ead76a0c380bd",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-L-library.md",
+    "defects": 16,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a412b3b942837c89f",
+   "key": "v2:1988fb4c2688919e6ac67a73fa6867e3fe6dbd649c566d5d68501f23b39d318d",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-C-consumption.md",
+    "defects": 16,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "ac63af6b7787fa563",
+   "key": "v2:78517e366a5b7dbb1c337167487573253aa223bacce9144b4352285deed75369",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "adb24c6967efaa9ca",
+   "key": "v2:917894f91412c56c604fc99a18e51b279d581a2b13ddd9d64e4256d15b5405a3",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-D-design.md",
+    "defects": 25,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9215140124ed5acc",
+   "key": "v2:41349ccf5c4eacd84e70ab3bd1cd55e93552a26c7a704355b0d95f9c7bf2c9d8",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ad7c4670a357b32b2",
+   "key": "v2:0d0859608d23b9a70eb8efde4c4a304a2d30e87dee71402bc73b2738f1eaff93",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-L-library.md",
+    "defects": 31,
+    "blockers": 1,
+    "superlatives": 9
+   }
+  },
+  {
+   "agentId": "a9e6f116162bc378e",
+   "key": "v2:0df0bd817fb316ac9ea968612c75176a64647a2b3e4ff501380764335da42315",
+   "result": {
+    "slug": "CubeAxisLines",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeAxisLines/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "aea2a0163e2802539",
+   "key": "v2:1d02460aeb0a254bb49b291487792a3844d8473bfa6b24b0b7e2ec28b5ad4055",
+   "result": {
+    "slug": "CopyButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CopyButton/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac0d10539784976be",
+   "key": "v2:1e0895cbebfbc6c6fe462ee3f1654a498cae249424f14e793e2a512edd78fe87",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-L-library.md",
+    "defects": 24,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a0db71b10651b22d8",
+   "key": "v2:ec1ab501bb256b6ae234e001e2accece737b8093a5799643f10931bfd1f6bcad",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a53e8c9d1ef3ebf62",
+   "key": "v2:2c7e6a2e7e8abc58b64601975e25f67048e57ded873c688fbf91b2440355c125",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-C-consumption.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9786b499e6e2e441",
+   "key": "v2:42700c4e91745d1b769edccb097c95c2c34aeeb8bbf9976b654dcb180408dde4",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ab1dd97b266360ccd",
+   "key": "v2:d139421e751dbd5e9b3b074dd2456f2a72b9fab48199cdc257ecacf219030a95",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a053bdd24580632b7",
+   "key": "v2:764b5cc6a5dc1ae1e91daff5e154a17f7b9c172c252ddd3eeea1bab8cf461f4b",
+   "result": {
+    "slug": "CubeScene",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeScene/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a244a0cb75a22e886",
+   "key": "v2:136ab4b810414b353832b30bf9b91a8801209c891adf28c20688dc22ad57840b",
+   "result": {
+    "slug": "CubeTarget",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/CubeTarget/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a2d5ff121e552f325",
+   "key": "v2:3746569cc7d466a433c3191a4d8eefb57583a6582cb2f3a8b2f7651ddada9a6d",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-C-consumption.md",
+    "defects": 25,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a249ed584fdf0d07b",
+   "key": "v2:7b371bcef06d485e0288fd10da510a3b797059ee3d4b0cd18a1bf1b993da762d",
+   "result": {
+    "slug": "ChannelOptions",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChannelOptions/challenge-L-library.md",
+    "defects": 37,
+    "blockers": 4,
+    "superlatives": 9
+   }
+  },
+  {
+   "agentId": "aa81274824bee204c",
+   "key": "v2:aa7d0b31ba01b76fa48e84410b2b27af4c382f8e0d7b38035fdf308a44c2ed44",
+   "result": {
+    "slug": "ControlsPaneWrapper",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ControlsPaneWrapper/challenge-D-design.md",
+    "defects": 34,
+    "blockers": 4,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a4a7cba25e88ca6a8",
+   "key": "v2:08223662cc0a9a7a15b6b8b6799e828c2c589b04040740b9e8f63e68899296ef",
+   "result": {
+    "slug": "ChromeDock",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/ChromeDock/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  }
+ ]
+}

@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:vnext:api-contract-source:1",
+  "title": "V-next semantic API contract source",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema",
+    "sourceDocument",
+    "closedCounts",
+    "runtimeBoundary",
+    "referenceLaw",
+    "profiles",
+    "http",
+    "headless"
+  ],
+  "properties": {
+    "$schema": { "const": "./api-contract.source.schema.json" },
+    "schema": { "const": "vnext.api-contract.source/1" },
+    "sourceDocument": { "const": "API-OPERATIONS.md" },
+    "closedCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["http", "headless"],
+      "properties": {
+        "http": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "fourier", "total"],
+          "properties": {
+            "value": { "const": 89 },
+            "fourier": { "const": 41 },
+            "total": { "const": 130 }
+          }
+        },
+        "headless": { "const": 17 }
+      }
+    },
+    "runtimeBoundary": { "$ref": "#/$defs/runtimeBoundary" },
+    "referenceLaw": { "$ref": "#/$defs/referenceLaw" },
+    "profiles": { "$ref": "#/$defs/profiles" },
+    "http": {
+      "type": "array",
+      "minItems": 130,
+      "maxItems": 130,
+      "items": { "$ref": "#/$defs/httpOperation" }
+    },
+    "headless": {
+      "type": "array",
+      "minItems": 17,
+      "maxItems": 17,
+      "items": { "$ref": "#/$defs/headlessOperation" }
+    }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "wave": { "type": "string", "pattern": "^A(?:0[0-9]|1[0-9]|2[0-6]|0[0-9][A-Z]|1[0-9][A-Z]|2[0-6][A-Z])$" },
+    "schemaRef": { "type": "string", "pattern": "^urn:vnext-api-schema:[a-z0-9.-]+:[a-z0-9-]+$" },
+    "media": { "type": "string", "pattern": "^[a-z0-9.+*-]+/[a-z0-9.+*-]+$" },
+    "stringArray": { "type": "array", "items": { "$ref": "#/$defs/nonEmpty" }, "uniqueItems": true },
+    "runtimeBoundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "fourier", "sharing"],
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["location", "language", "paletteApiRetainedInCurrentApi"],
+          "properties": {
+            "location": { "const": "value.js/api" },
+            "language": { "const": "TypeScript" },
+            "paletteApiRetainedInCurrentApi": { "const": true }
+          }
+        },
+        "fourier": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["location", "language", "independentRuntime"],
+          "properties": {
+            "location": { "const": "fourier-analysis Python service" },
+            "language": { "const": "Python" },
+            "independentRuntime": { "const": true }
+          }
+        },
+        "sharing": { "const": "wire-contract-and-neutral-vectors-only" }
+      }
+    },
+    "referenceLaw": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["none", "problem", "rule"],
+      "properties": {
+        "none": { "const": "urn:vnext-api-schema:common:none" },
+        "problem": { "const": "urn:vnext-api-schema:protocol:problem" },
+        "rule": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "policy", "errors"],
+      "properties": {
+        "authority": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/authorityProfile" }
+        },
+        "policy": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "$ref": "#/$defs/policyProfile" }
+        },
+        "errors": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/errorResponse" }
+          }
+        }
+      }
+    },
+    "authorityProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["principals", "decision", "existence", "credentials"],
+      "properties": {
+        "principals": { "$ref": "#/$defs/stringArray" },
+        "decision": { "$ref": "#/$defs/nonEmpty" },
+        "existence": { "$ref": "#/$defs/nonEmpty" },
+        "credentials": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "policyProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cache", "cors", "privacy", "idempotency", "cas"],
+      "properties": {
+        "cache": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "directive", "vary"],
+          "properties": {
+            "mode": { "$ref": "#/$defs/nonEmpty" },
+            "directive": { "$ref": "#/$defs/nonEmpty" },
+            "vary": { "$ref": "#/$defs/stringArray" }
+          }
+        },
+        "cors": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "credentials", "origins"],
+          "properties": {
+            "mode": { "$ref": "#/$defs/nonEmpty" },
+            "credentials": { "type": "boolean" },
+            "origins": { "$ref": "#/$defs/nonEmpty" }
+          }
+        },
+        "privacy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["classification", "redaction", "logging"],
+          "properties": {
+            "classification": { "$ref": "#/$defs/nonEmpty" },
+            "redaction": { "$ref": "#/$defs/nonEmpty" },
+            "logging": { "$ref": "#/$defs/nonEmpty" }
+          }
+        },
+        "idempotency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "retention", "replay"],
+          "properties": {
+            "mode": { "$ref": "#/$defs/nonEmpty" },
+            "retention": { "$ref": "#/$defs/nonEmpty" },
+            "replay": { "$ref": "#/$defs/nonEmpty" }
+          }
+        },
+        "cas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "failureStatuses"],
+          "properties": {
+            "mode": { "$ref": "#/$defs/nonEmpty" },
+            "failureStatuses": { "type": "array", "items": { "type": "integer", "minimum": 400 }, "uniqueItems": true }
+          }
+        }
+      }
+    },
+    "profileRefs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority", "policy", "errors"],
+      "properties": {
+        "authority": { "$ref": "#/$defs/nonEmpty" },
+        "policy": { "$ref": "#/$defs/nonEmpty" },
+        "errors": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "preconditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["etag", "idempotencyKey", "customHeaders", "credentialBindings"],
+      "properties": {
+        "etag": { "enum": ["required-strong-if-match", "not-required"] },
+        "idempotencyKey": { "enum": ["required-durable", "method-semantics", "not-required", "not-used"] },
+        "customHeaders": { "$ref": "#/$defs/stringArray" },
+        "credentialBindings": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["inputs", "outputs", "secretHandling"],
+          "properties": {
+            "inputs": { "$ref": "#/$defs/stringArray" },
+            "outputs": { "$ref": "#/$defs/stringArray" },
+            "secretHandling": { "const": "never-url-query-log-audit-cache-or-idempotency-receipt" }
+          }
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pathSchema", "querySchema", "headerSchema", "bodySchema", "media"],
+      "properties": {
+        "pathSchema": { "$ref": "#/$defs/schemaRef" },
+        "querySchema": { "$ref": "#/$defs/schemaRef" },
+        "headerSchema": { "$ref": "#/$defs/schemaRef" },
+        "bodySchema": { "$ref": "#/$defs/schemaRef" },
+        "media": { "type": "array", "items": { "$ref": "#/$defs/media" }, "uniqueItems": true }
+      }
+    },
+    "successResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "schema", "media", "headerSchema"],
+      "properties": {
+        "status": { "type": "integer", "minimum": 200, "maximum": 299 },
+        "schema": { "$ref": "#/$defs/schemaRef" },
+        "media": { "type": "array", "items": { "$ref": "#/$defs/media" }, "uniqueItems": true },
+        "headerSchema": { "$ref": "#/$defs/schemaRef" }
+      }
+    },
+    "errorResponse": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "schema", "media"],
+      "properties": {
+        "status": { "type": "integer", "minimum": 400, "maximum": 599 },
+        "schema": { "$ref": "#/$defs/schemaRef" },
+        "media": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/media" }, "uniqueItems": true }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["resource", "transition", "effect"],
+      "properties": {
+        "resource": { "$ref": "#/$defs/nonEmpty" },
+        "transition": { "$ref": "#/$defs/nonEmpty" },
+        "effect": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "httpOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "service", "transport", "headless", "method", "path", "owner", "authorityText", "profiles", "preconditions", "request", "success", "successText", "lifecycle", "consumers"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(value|fourier)\\.[a-z0-9.-]+$" },
+        "service": { "enum": ["value", "fourier"] },
+        "transport": { "const": "http" },
+        "headless": { "const": false },
+        "method": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] },
+        "path": { "type": "string", "pattern": "^/api/" },
+        "owner": { "$ref": "#/$defs/wave" },
+        "authorityText": { "$ref": "#/$defs/nonEmpty" },
+        "profiles": { "$ref": "#/$defs/profileRefs" },
+        "preconditions": { "$ref": "#/$defs/preconditions" },
+        "request": { "$ref": "#/$defs/request" },
+        "success": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/successResponse" } },
+        "successText": { "$ref": "#/$defs/nonEmpty" },
+        "lifecycle": { "$ref": "#/$defs/lifecycle" },
+        "consumers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/nonEmpty" }, "uniqueItems": true }
+      }
+    },
+    "headlessOperation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "service", "transport", "headless", "owner", "inputSchema", "outputSchema", "authorityProfile", "policyProfile", "idempotency", "retry", "lifecycle", "consumers"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(value|fourier)\\.[a-z0-9.-]+$" },
+        "service": { "enum": ["value", "fourier"] },
+        "transport": { "const": "headless" },
+        "headless": { "const": true },
+        "owner": { "$ref": "#/$defs/wave" },
+        "inputSchema": { "$ref": "#/$defs/schemaRef" },
+        "outputSchema": { "$ref": "#/$defs/schemaRef" },
+        "authorityProfile": { "$ref": "#/$defs/nonEmpty" },
+        "policyProfile": { "$ref": "#/$defs/nonEmpty" },
+        "idempotency": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "key", "replay"],
+          "properties": { "mode": { "$ref": "#/$defs/nonEmpty" }, "key": { "$ref": "#/$defs/nonEmpty" }, "replay": { "$ref": "#/$defs/nonEmpty" } }
+        },
+        "retry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "maximumAttempts", "poisonDisposition"],
+          "properties": { "mode": { "$ref": "#/$defs/nonEmpty" }, "maximumAttempts": { "type": "integer", "minimum": 1 }, "poisonDisposition": { "$ref": "#/$defs/nonEmpty" } }
+        },
+        "lifecycle": { "$ref": "#/$defs/lifecycle" },
+        "consumers": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/nonEmpty" }, "uniqueItems": true }
+      }
+    }
+  }
+}

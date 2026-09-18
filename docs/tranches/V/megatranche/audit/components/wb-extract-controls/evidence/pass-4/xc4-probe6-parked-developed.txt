@@ -1,0 +1,45 @@
+
+=== developed rail — payload size ===
+{
+ "k": "16",
+ "gradientLen": 634,
+ "inlineAttrLen": 752
+}
+
+=== (a) VISIBLE on /#/extract, idle, no interaction ===
+{
+ "windowMs": 6002,
+ "mutations": 0,
+ "distinctStyleValues": 0,
+ "writesPerSecond": 0,
+ "charsRewrittenPerSecond": 0,
+ "allConnected": true
+}
+
+=== park state after route change ===
+{
+ "inDocument": false,
+ "isConnected": false
+}
+
+=== (b) PARKED + DETACHED, idle, no interaction — off-route work ===
+{
+ "windowMs": 6003,
+ "mutations": 0,
+ "distinctStyleValues": 0,
+ "writesPerSecond": 0,
+ "charsRewrittenPerSecond": 0,
+ "anyConnected": false,
+ "allDetached": false
+}
+
+=== does the INVARIANT gradient get re-written? ===
+{
+ "writes": 0,
+ "distinctGradientValues": 0,
+ "distinctBackgroundColorValues": 0,
+ "conclusion": "gradient changed"
+}
+
+=== pageErrors ===
+[]

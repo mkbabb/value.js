@@ -1,0 +1,95 @@
+{
+  "schema": "value.pi.syntax-consume-number.g12.root-gestalt/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 12,
+  "date": "2026-07-22",
+  "subject": {
+    "path": "formation-receipt.json",
+    "sha256": "56598281f4e1f0206f3ce034d443b7a1c2fefcce79b79db5695e385f254ba05a",
+    "bytes": 4922,
+    "closure_sha256": "28ce596310273a53cb257ade553999afc9b0574ec8f3b2f16c4d96a34fd1e278",
+    "rows": 25
+  },
+  "independent_reviews": [
+    {
+      "task": "/root/g12_boundary_review_a",
+      "path": "review-boundary-a.json",
+      "sha256": "07687017ce0f7068f2cac7547a5bcd281453fb4c37c0464e36e8ede5ba922933",
+      "bytes": 14855,
+      "verdict": "REJECT"
+    },
+    {
+      "task": "/root/g12_boundary_review_b2",
+      "path": "review-boundary-b.json",
+      "sha256": "4cdee4d24e38e2eccedd56d993959cd7120b8e759573e8225b21487ac4972874",
+      "bytes": 10641,
+      "verdict": "REJECT"
+    }
+  ],
+  "root_replay": {
+    "workspace_output_sha256": "f94433b22c80bed7850a111b59ca473300008bb55cef5f45d6f56f77526d4707",
+    "tmp_output_sha256": "f94433b22c80bed7850a111b59ca473300008bb55cef5f45d6f56f77526d4707",
+    "byte_identical": true,
+    "candidates": 0,
+    "holdout": 0,
+    "timing_gates": 0
+  },
+  "adjudication": [
+    {
+      "id": "G12-R-01",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "Candidate topology and wrapper laws are inferred from regular expressions over raw source text. Comments and strings can supply required markers, while a split or constructed whole recognizer evades the forbidden H-pattern check. The reported H/B/S/D distinction is therefore not mechanically established for future candidates.",
+      "sources": ["G12-A-01", "G12-B-02"]
+    },
+    {
+      "id": "G12-R-02",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The candidate capability rule is a textual deny-list. Computed access to Node globals and computed ParserState keys can reach ambient files or source/offset state without a static import or forbidden literal. One-file and esbuild closure evidence does not make ordinary Node globals disappear.",
+      "sources": ["G12-A-02"]
+    },
+    {
+      "id": "G12-R-03",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The public candidate corpus omits exact incomplete-decimal and malformed-exponent maximal-prefix observations. Inputs such as 1., -7.e2, 1e++2, and 1e--2 are either absent or checked only for no throw and an in-range offset. A broadened H continuation can pass the frozen suite while consuming invalid suffix bytes.",
+      "sources": ["G12-A-03", "G12-B-01", "G12-B-02"]
+    },
+    {
+      "id": "G12-R-04",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Exact result validation checks own-key names but not property enumerability, so a frozen ordinary object with three non-enumerable properties satisfies the harness while violating the contract.",
+      "sources": ["G12-B-03"]
+    },
+    {
+      "id": "G12-R-05",
+      "status": "CONFIRMED_HIGH",
+      "finding": "All explicit failure-transaction cases start at UTF-16 offset zero. The arbitrary-current-offset failure law is not observed with predecessor and ahead-diagnostic preservation.",
+      "sources": ["G12-A-03", "G12-B-04"]
+    }
+  ],
+  "retained_green_facts": [
+    "The 25 immutable formation rows and exact receipt replay byte-identically from the workspace and /tmp.",
+    "The public contract, phase chronology, absence of holdout/candidates, separately sealed pre-author holdout law, exact peer execution, runtime closure, sanitized subprocesses, and removal of timing from admission are sound at the formation-sequencing altitude.",
+    "The four honest root probes demonstrate that whole-regex, factorized all/any, staged then, and dispatch constructions are feasible on published parse-that 1.0.0; they do not prove future candidate topology.",
+    "G12 correctly rejects the G11 signed-integer-exponent incomplete parser and binds strict one-file candidate compilation/import closure for ordinary non-adversarial source."
+  ],
+  "next_generation_law": [
+    "Replace raw-text topology/capability checks with a TypeScript-AST allowlist over the single candidate file. Count actual imports, declarations, call expressions, regex literals, property access, and wrapper statements; reject computed/global/ambient forms rather than trying to enumerate spellings.",
+    "Add frozen negative-control candidate sources for comment-only topology markers, a constructed H-equivalent recognizer, computed global/state access, and an H recognizer with a broadening continuation. The closure assay must reject each exact file.",
+    "Promote incomplete decimal and malformed exponent suffixes to exact candidate-facing success-prefix observations, including signs and nonzero caller offsets.",
+    "Cross failure transactions with nonzero UTF-16 offsets, all predecessor profiles, and ahead diagnostics.",
+    "Validate exact property descriptors, including enumerability, writability/configurability after freeze, prototype, own keys, and values.",
+    "Preserve G12's small public-review-first chronology, zero timing gates, separate holdout custodian, and exact peer/runtime closure; do not add a generalized execution framework."
+  ],
+  "visualization_phase_boundary": "Glass/SCI/Atlas remains formation-only and paused for assay/compaction. This parser prototype creates no visualization execution, package, repin, consumer migration, or cross-repo product authority.",
+  "verdict": "TERMINAL_REJECT_BEFORE_CUSTODIAN_OR_AUTHORS",
+  "credit": {
+    "formation": 0,
+    "holdout": 0,
+    "candidate": 0,
+    "feature": 0,
+    "parser": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G3-PROMOTION",
+  "status": "SEALED_BEFORE_CANDIDATE_CODE",
+  "target_path": "grammar/css/l4/value-unit/number-start.ts",
+  "candidate_overlay_root": "candidates/<seat>/overlay",
+  "candidate_source_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+  "allowed_overlay_paths": ["grammar/css/l4/value-unit/number-start.ts"],
+  "allowed_imports": ["@mkbabb/parse-that/core"],
+  "forbidden_dependencies": "Every relative, absolute, dynamic, require, diagnostics-subpath, retired-tree, candidate-cross-import, or other package import is rejected. The pinned package-lock and parse-that dist ledger close the only transitive runtime dependency.",
+  "base_ledger": "../g2/integration-base.ledger",
+  "base_ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+  "ledger_format": "UTF-8/LF. Each line is `<lowercase sha256><two spaces><mirror-relative path>\\n`; paths are sorted by raw UTF-8 byte order.",
+  "overlay_algorithm": "The overlay contains exactly one valid UTF-8 file at target_path. Its ledger is exactly one ledger-format line using the source SHA-256.",
+  "projection_algorithm": "Parse and validate the frozen base ledger, reject an existing target_path, append the overlay row, byte-sort by path, serialize with exactly one LF per row and no other bytes, then SHA-256 the serialized bytes.",
+  "mechanical_authority": "promotion-verifier.ts",
+  "candidate_identity": "source SHA-256 + overlay-ledger SHA-256 + projected grammar-ledger SHA-256",
+  "integration": "Apply the selected source bytes verbatim at target_path, recompute the complete grammar ledger by the same format, and require the selected projected hash before semantic/type/benchmark replay.",
+  "drift_rule": "Any base drift, target collision, extra import/path, formatter rewrite, source-byte change, or projected mismatch starts a new generation.",
+  "base_disposition": "The base records the current rejected grammar only as a drift witness and grants it no architecture or conformance credit. Its later retirement is a distinct aggregate change requiring replay."
+}

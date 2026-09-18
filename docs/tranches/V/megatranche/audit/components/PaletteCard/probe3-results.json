@@ -1,0 +1,24 @@
+{
+ "light": {
+  "badgeColor": "rgb(28, 25, 23)",
+  "textFill": "rgb(28, 25, 23)",
+  "bgClip": "text",
+  "anim": "metal-shimmer-sweep 5s infinite",
+  "colorDecls": [],
+  "emptyStripH": 40,
+  "emptyStripChildren": 0,
+  "emptyBadgeText": "0",
+  "emptyCardH": 100
+ },
+ "dark": {
+  "badgeColor": "rgb(233, 230, 226)",
+  "textFill": "rgb(233, 230, 226)",
+  "bgClip": "text",
+  "anim": "metal-shimmer-sweep 5s infinite",
+  "colorDecls": [],
+  "emptyStripH": 40,
+  "emptyStripChildren": 0,
+  "emptyBadgeText": "0",
+  "emptyCardH": 100
+ }
+}

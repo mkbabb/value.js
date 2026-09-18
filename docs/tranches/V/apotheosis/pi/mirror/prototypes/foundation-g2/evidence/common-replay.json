@@ -1,0 +1,20 @@
+{
+  "schema": "value.pi.foundation-g2.common-replay/v1",
+  "status": "PASS_ALL_CANDIDATES",
+  "subject": {
+    "brief_sha256": "2c611bb84c27600f2e1e49d48b2e9285e295d54c7411cacce9fbcafa2ce0112f",
+    "fixtures_sha256": "138820f96520045ab4c866e4e3172cda609cd4355b7c8db2ec254b4b403f5be6",
+    "evaluator_sha256": "3bc93bba42ce5c637eb922c0f1d2b6c3b8bf062ac998d9484b2fd84292c021e3"
+  },
+  "per_candidate": {
+    "h": { "verdict": "PASS", "success_transactions": 20, "failure_transactions": 9, "unicode_transactions": 1114112, "hostile_calls": 276000, "scale": "PASS" },
+    "b": { "verdict": "PASS", "success_transactions": 20, "failure_transactions": 9, "unicode_transactions": 1114112, "hostile_calls": 276000, "scale": "PASS" },
+    "s": { "verdict": "PASS", "success_transactions": 20, "failure_transactions": 9, "unicode_transactions": 1114112, "hostile_calls": 276000, "scale": "PASS" }
+  },
+  "observations": [
+    "The exact CSS Syntax non-ASCII identifier domain was exercised over every Unicode scalar/code point value representable from U+0000 through U+10FFFF.",
+    "Failure transactions used a nontrivial predecessor value and required offset and predecessor-value restoration.",
+    "The evaluator is candidate-neutral and imports only each candidate barrel plus the exact fixture file."
+  ],
+  "credit": "COMMON_CORRECTNESS_EVIDENCE_ONLY; skeptic, synthesis, integration, public parser, and full CSS credit remain zero"
+}

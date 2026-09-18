@@ -1,0 +1,43 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.candidate-set/v1",
+  "status": "SEALED_PRE_TIMING",
+  "feature_sha256": "a88dc7dfb1d452d8bcf103d359cd058722db7ad93ed598622f6e1cfc8d5b3a58",
+  "predecessor_candidate_set_sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40",
+  "selection_reason": "H2 preserves H's fused topology and full semantics while removing the measured decimal-first integer double-scan; B, S, and D remain frozen comparison witnesses.",
+  "candidates": [
+    {
+      "id": "h",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/optimization/h2/index.ts",
+      "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+      "bytes": 560,
+      "lines": 17
+    },
+    {
+      "id": "b",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/b/index.ts",
+      "sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7",
+      "bytes": 1999,
+      "lines": 64
+    },
+    {
+      "id": "s",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/s/index.ts",
+      "sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169",
+      "bytes": 2238,
+      "lines": 81
+    },
+    {
+      "id": "d",
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/d/index.ts",
+      "sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137",
+      "bytes": 884,
+      "lines": 21
+    }
+  ],
+  "credit": {
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

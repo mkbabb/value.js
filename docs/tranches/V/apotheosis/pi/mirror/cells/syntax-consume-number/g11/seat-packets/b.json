@@ -1,0 +1,13 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "seat": "b",
+  "lineage": "acknowledged BBNF value-unit production",
+  "private_design": "Construct factorized sign, integer/leading-dot mantissa, fraction, and exponent productions with @mkbabb/parse-that/core all/any/regex plus Parser.opt/map. Because 1.0.0 aggregate failures restore offsets but not predecessor values, locally wrap the reachable aggregate with public ParserState.save/restore through Parser; do not read src or assign offset. No whole-number regex or dispatch.",
+  "verified_apis": ["Parser", "Parser.call", "ParserState.save", "ParserState.restore", "all", "any", "regex", "Parser.opt", "Parser.map"],
+  "feasibility_probe": "probes/b.ts",
+  "named_lineage_source": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf",
+  "candidate_root": "candidates/b",
+  "required_export": "consumeNumber",
+  "credit": "ZERO_PRIVATE_DESIGN_PACKET_ONLY"
+}

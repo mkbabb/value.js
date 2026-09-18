@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-keyframes-target-transpose-validation-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "mode", "ledger", "wave_id", "scope", "repository_state_sha256", "current_inventory_hash", "current_inventory_return_hash", "target_manifest_sha256", "files", "current_files", "introduced", "deleted", "runtime_graph_hash", "type_graph_hash", "physical_truth_receipt_hash", "git_truth_receipt_hash", "owner_authorization", "git_after", "delivery", "test_execution", "semantic_hash", "receipt_hash"],
+  "properties": {
+    "schema": { "const": "vnext-keyframes-target-transpose-validation/1" },
+    "mode": { "const": "immutable-git-replay" },
+    "ledger": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash"],
+      "properties": { "path": { "$ref": "#/$defs/absolutePath" }, "file_sha256": { "$ref": "#/$defs/sha256" }, "manifest_hash": { "$ref": "#/$defs/sha256" } }
+    },
+    "wave_id": { "enum": ["K22T", "M10T"] },
+    "scope": { "enum": ["library", "demo"] },
+    "repository_state_sha256": { "$ref": "#/$defs/sha256" },
+    "current_inventory_hash": { "$ref": "#/$defs/sha256" },
+    "current_inventory_return_hash": { "$ref": "#/$defs/sha256" },
+    "target_manifest_sha256": { "$ref": "#/$defs/sha256" },
+    "files": { "type": "integer", "minimum": 1 },
+    "current_files": { "type": "integer", "minimum": 1 },
+    "introduced": { "type": "integer", "minimum": 0 },
+    "deleted": { "type": "integer", "minimum": 0 },
+    "runtime_graph_hash": { "$ref": "#/$defs/sha256" },
+    "type_graph_hash": { "$ref": "#/$defs/sha256" },
+    "physical_truth_receipt_hash": { "$ref": "#/$defs/sha256" },
+    "git_truth_receipt_hash": { "$ref": "#/$defs/sha256" },
+    "owner_authorization": {
+      "type": "object", "additionalProperties": false,
+      "required": ["nodes", "nodes_sha256"],
+      "properties": {
+        "nodes": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/authorityNode" } },
+        "nodes_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "git_after": {
+      "type": "object", "additionalProperties": false,
+      "required": ["head", "snapshot_hash", "files_sha256"],
+      "properties": { "head": { "type": "string", "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$" }, "snapshot_hash": { "$ref": "#/$defs/sha256" }, "files_sha256": { "$ref": "#/$defs/sha256" } }
+    },
+    "delivery": { "$ref": "#/$defs/delivery" },
+    "test_execution": {
+      "type": "object", "additionalProperties": false,
+      "required": ["command", "args", "timeout_ms", "script_sha256", "loader", "exit_code", "signal"],
+      "properties": {
+        "command": { "const": "node" },
+        "args": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+        "timeout_ms": { "type": "integer", "minimum": 1000, "maximum": 120000 },
+        "script_sha256": { "$ref": "#/$defs/sha256" },
+        "loader": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/loader" }] },
+        "exit_code": { "const": 0 },
+        "signal": { "const": "" }
+      }
+    },
+    "semantic_hash": { "$ref": "#/$defs/sha256" },
+    "receipt_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    { "if": { "properties": { "scope": { "const": "library" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "K22T" }, "test_execution": { "properties": { "loader": { "type": "null" } } } } } },
+    { "if": { "properties": { "scope": { "const": "demo" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "M10T" }, "test_execution": { "properties": { "loader": { "$ref": "#/$defs/loader" } } } } } }
+  ],
+  "$defs": {
+    "absolutePath": { "type": "string", "pattern": "^/" },
+    "relativePath": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//).+$" },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "authorityNode": {
+      "type": "object", "additionalProperties": false,
+      "required": ["wave_id", "path", "file_sha256", "return_hash", "wave_contract_sha256", "status"],
+      "properties": {
+        "wave_id": { "type": "string", "pattern": "^[PVKAGDMC][0-9]{2}[A-Z]?$" },
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "return_hash": { "$ref": "#/$defs/sha256" },
+        "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+        "status": { "enum": ["COMPLETE", "KEEP", "PRUNE"] }
+      }
+    },
+    "loader": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": { "path": { "const": "proof/demo-text-loader.mjs" }, "sha256": { "$ref": "#/$defs/sha256" } }
+    },
+    "delivery": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "tests", "support", "removed_paths", "replaced_paths"],
+      "properties": {
+        "source": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "tests": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "support": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "removed_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "replaced_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "value.pi.foundation-g2.browser-witness/v1",
+  "status": "PASS_ALL_CANDIDATES",
+  "witness_sha256": "f6eb3e1d9a6688b26685813060575dc12a94731f61dd19977188aa9a7e7daf27",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/148.0.7778.96 Safari/537.36",
+  "candidates": ["h", "b", "s"],
+  "observations": {
+    "escaped_color_supported": true,
+    "comment_spacing_supported": true,
+    "raw_feff_custom_property_supported": true,
+    "computed_color": "rgb(255, 0, 0)",
+    "computed_content": "\"aAb\""
+  },
+  "credit": "BROWSER_WITNESS_ONLY; this does not establish complete CSS Syntax or public parser conformance"
+}

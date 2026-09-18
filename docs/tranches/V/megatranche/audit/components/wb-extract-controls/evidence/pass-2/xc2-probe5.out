@@ -1,0 +1,128 @@
+
+=== certifyAccentInk COST ===
+{
+ "N": 400,
+ "totalMs": 519,
+ "perCallMs": 1.2975,
+ "sixteenPerFrameMs": 20.76
+}
+
+=== certifyAccentInk MALFORMED INPUT (parseCssColor crash class) ===
+[
+ {
+  "in": "oklch()",
+  "THREW": "TypeError: undefined is not an object (evaluating 'g[0].replace')"
+ },
+ {
+  "in": "",
+  "out": ""
+ },
+ {
+  "in": "rgb(",
+  "out": "rgb("
+ },
+ {
+  "in": "oklch(none none none)",
+  "THREW": "Error: Ink certification failed: color_missing_channel"
+ },
+ {
+  "in": "color(display-p3 1 0 0)",
+  "out": "oklch(45.755013744803% 0.187586319686 28.958132730804de"
+ },
+ {
+  "in": "oklch(0 0 0)",
+  "out": "oklch(0 0 0)"
+ },
+ {
+  "in": "oklch(1 0 0)",
+  "out": "oklch(43.486329261214% 0 0deg)"
+ },
+ {
+  "in": "transparent",
+  "THREW": "Error: Ink certification failed: color_invalid_input"
+ },
+ {
+  "in": "rgb(0 0 0 / 0)",
+  "THREW": "Error: Ink certification failed: color_invalid_input"
+ },
+ {
+  "in": "NaN",
+  "out": "NaN"
+ },
+ {
+  "in": "oklch(NaN NaN NaN)",
+  "out": "oklch(NaN NaN NaN)"
+ },
+ {
+  "in": "oklch(Infinity 0 0)",
+  "out": "oklch(Infinity 0 0)"
+ },
+ {
+  "in": "#",
+  "out": "#"
+ },
+ {
+  "in": "var(--nope)",
+  "out": "var(--nope)"
+ },
+ {
+  "in": "oklch(-0 0 0)",
+  "out": "oklch(-0 0 0)"
+ }
+]
+
+=== CAMERA — three clicks on the Open camera control ===
+[
+ {
+  "t": "before",
+  "gum": 0,
+  "stops": 0,
+  "live": [],
+  "videos": 0,
+  "camBtnDisabled": [
+   false
+  ]
+ },
+ {
+  "t": "after-click-1",
+  "gum": 0,
+  "stops": 0,
+  "live": [],
+  "videos": 1,
+  "camBtnDisabled": [
+   false
+  ]
+ },
+ {
+  "t": "after-click-2",
+  "gum": 0,
+  "stops": 0,
+  "live": [],
+  "videos": 1,
+  "camBtnDisabled": [
+   false
+  ]
+ },
+ {
+  "t": "after-click-3",
+  "gum": 0,
+  "stops": 0,
+  "live": [],
+  "videos": 1,
+  "camBtnDisabled": [
+   false
+  ]
+ }
+]
+
+=== AFTER LEAVING THE ROUTE ===
+{
+ "t": "after-route-change",
+ "gum": 0,
+ "stops": 0,
+ "live": [],
+ "videos": 0,
+ "camBtnDisabled": []
+}
+
+pageErrors: []

@@ -1,0 +1,80 @@
+{
+  "interRowGaps": [
+    8,
+    8,
+    8
+  ],
+  "panelGap": "10px",
+  "panelPad": "0px 12px 12px 12px",
+  "headPad": "8px 12px 8px 12px",
+  "headGap": "10px",
+  "panelChildren": [
+    {
+      "cls": "h-5 rounded-md border border-card-edge",
+      "y": 592.13,
+      "b": 612.13,
+      "h": 20,
+      "w": 436,
+      "x": 237,
+      "right": 673
+    },
+    {
+      "cls": "fading-scroll fading-scroll--x specimen-",
+      "y": 622.13,
+      "b": 693.55,
+      "h": 71.42,
+      "w": 436,
+      "x": 237,
+      "right": 673
+    },
+    {
+      "cls": "readout-rail flex items-center gap-1.5 r",
+      "y": 703.55,
+      "b": 735.55,
+      "h": 32,
+      "w": 436,
+      "x": 237,
+      "right": 673
+    },
+    {
+      "cls": "",
+      "y": 0,
+      "b": 0,
+      "h": 0,
+      "w": 0,
+      "x": 0,
+      "right": 0
+    }
+  ],
+  "intraGaps": [
+    10,
+    10,
+    -735.55
+  ],
+  "openRow": {
+    "y": 552.19,
+    "b": 748.55,
+    "h": 196.36,
+    "w": 462,
+    "x": 224,
+    "right": 686
+  },
+  "closedRow": {
+    "y": 756.55,
+    "b": 797.48,
+    "h": 40.94,
+    "w": 462,
+    "x": 224,
+    "right": 686
+  },
+  "curvatureOpen": 0.081,
+  "curvatureClosed": 0.391,
+  "nameSpanW": 296.53,
+  "nameTextW": 60.55,
+  "nameSlackPx": 235.98,
+  "headW": 460,
+  "headSlackPct": 51.3,
+  "hasDisabled": 0,
+  "ariaBusy": 0,
+  "liveRegions": 2
+}

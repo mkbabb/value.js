@@ -1,0 +1,19 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_PREAUTHOR_FEATURE_ROW",
+  "owner": "value-unit",
+  "semantic_contract": {
+    "path": "../g9/feature-contract.json",
+    "sha256": "92cc3f90352c2e6250f16d93587ebfd74f51d2878fd5e8fdf312035b60514a1a",
+    "bytes": 3945,
+    "source_generation": 9,
+    "reuse": "Exact operation, accepted prefix, guards, result, failure, composition, implementation law, candidate law, benchmark law, normative authority, and public evidence. G9 status/generation/credit are historical metadata and are not inherited."
+  },
+  "operation": "At the current parse-that UTF-16 offset, consume one maximal CSS Syntax 3 number prefix and return Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>.",
+  "runtime": "@mkbabb/parse-that@1.0.0 exact, installed closure bound by runtime-package-ledger.tsv",
+  "candidate_count": 4,
+  "candidate_phase": "AFTER_BOUNDARY_ACCEPTANCE_ONLY",
+  "holdout_phase": "AFTER_FINAL_PUBLIC_G10_FORMATION_BYTES_ONLY",
+  "credit": "ZERO_PREAUTHOR_FORMATION_ONLY"
+}

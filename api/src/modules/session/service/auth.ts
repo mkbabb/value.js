@@ -56,15 +56,49 @@ export interface MeResult {
     createdAt: Date;
 }
 
+export interface CreateSessionResult {
+    token: string;
+}
+
+/**
+ * Mint a fresh session for `userSlug` and return its raw token — THE single
+ * session-mint seam for the whole capsule.
+ *
+ * Hashing the raw uuid into the branded at-rest `_id` (U-F38) and stamping the
+ * canonical 30-day `expiresAt` horizon (U-F36, CRUD-CONTRACT §6) both live here,
+ * so `hashSessionToken`/`SESSION_TTL_MS` never leave `session/`. Register, login
+ * AND the admin impersonate op mint through this one function — admin now depends
+ * on this session-service boundary instead of reaching into `session/model.ts`
+ * token internals (W43 · RF-23).
+ */
+export async function createUserSession(
+    services: Services,
+    userSlug: string,
+    ipHash: string,
+): Promise<CreateSessionResult> {
+    const { sessions } = services.repositories;
+    const token = crypto.randomUUID();
+    const now = new Date();
+    await sessions.insert({
+        // Construction mint: the freshly generated uuid is hashed (U-F38) into
+        // this new session's branded `_id`; the raw `token` is returned.
+        _id: hashSessionToken(token),
+        ipHash,
+        userSlug,
+        createdAt: now,
+        lastSeenAt: now,
+        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
+    });
+    return { token };
+}
+
 export async function registerSession(
     services: Services,
     ipHash: string,
 ): Promise<RegisterResult> {
-    const { users, sessions } = services.repositories;
+    const { users } = services.repositories;
 
-    const token = crypto.randomUUID();
     const now = new Date();
-
     const userSlug = await generateUniqueSlug(users);
 
     // N.W3.B — no transaction. The two writes (user row, then its first
@@ -75,7 +109,7 @@ export async function registerSession(
     // self-healing, so the replica-set transaction bought nothing here (unlike
     // `createPalette`/`remix`/`revert`, where a partial write is a real
     // referential break — a version row pointing at a palette that never
-    // landed). The session insert runs AFTER the user insert so the live
+    // landed). The user insert runs BEFORE the session mint so the live
     // session always names an existing user.
     await users.insert({
         // Construction mint: the freshly generated slug becomes this new
@@ -84,16 +118,7 @@ export async function registerSession(
         createdAt: now,
         lastSeenAt: now,
     });
-    await sessions.insert({
-        // Construction mint: the freshly generated uuid is hashed (U-F38) into
-        // this new session's branded `_id`; the raw `token` is returned below.
-        _id: hashSessionToken(token),
-        ipHash,
-        userSlug,
-        createdAt: now,
-        lastSeenAt: now,
-        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
-    });
+    const { token } = await createUserSession(services, userSlug, ipHash);
 
     return { token, userSlug };
 }
@@ -104,7 +129,7 @@ export async function loginSession(
     ipHash: string,
     input: { slug: string },
 ): Promise<LoginResult> {
-    const { users, sessions } = services.repositories;
+    const { users } = services.repositories;
     const { slug } = input;
 
     // Refuse switching to the slug the current session already owns.
@@ -122,27 +147,15 @@ export async function loginSession(
         throw new NotFoundError("User not found");
     }
 
-    const token = crypto.randomUUID();
-    const now = new Date();
-
     // N.W3.B — no transaction. The session insert + the `lastSeenAt` touch are
     // NOT a referential invariant: `lastSeenAt` is advisory presence metadata,
     // so a session that lands without its touch (or a touch without its
     // session, on the inverse failure) is harmless and self-heals on the next
-    // request. The session insert runs FIRST so the user is never touched for
+    // request. The session mint runs FIRST so the user is never touched for
     // a session that failed to land. This mirrors `registerSession`'s
     // benign-orphan reasoning — neither outcome is a cross-collection break.
-    await sessions.insert({
-        // Construction mint: the freshly generated uuid is hashed (U-F38) into
-        // this new session's branded `_id`; the raw `token` is returned below.
-        _id: hashSessionToken(token),
-        ipHash,
-        userSlug: slug,
-        createdAt: now,
-        lastSeenAt: now,
-        expiresAt: new Date(now.getTime() + SESSION_TTL_MS),
-    });
-    await users.touchLastSeen(slug, now);
+    const { token } = await createUserSession(services, slug, ipHash);
+    await users.touchLastSeen(slug, new Date());
 
     return { token, userSlug: slug };
 }

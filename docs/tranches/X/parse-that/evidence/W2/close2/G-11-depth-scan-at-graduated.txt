@@ -1,0 +1,8 @@
+=== X.P.W2.g — depth-scan --candidate ac1 (G-11) ===
+lowering  row                                        reading
+--------  -----------------------------------------  -------------------------------------
+js        s0526                                      ok:false, 1 issue(s)
+js        scan primitives reached as algebra leaves  DIGITS, DISPATCH, KW, LIT, SCAN, TEXT
+wasm      s0526                                      ok:false, 1 issue(s)
+wasm      scan primitives reached as algebra leaves  DIGITS, DISPATCH, KW, LIT, SCAN, TEXT
+GREEN — the constructed bound returns ok:false in both lowerings; every scan primitive is an algebra leaf

@@ -13,6 +13,22 @@ concurrency:
     group: ci-${{ github.workflow }}-${{ github.ref }}
     cancel-in-progress: true
 
+# ─────────────────────────────────────────────────────────────────────────────
+# X-W1 (CC-031 / CC-029a / CC-032 / CC-033) — THE VERIFICATION SURFACE.
+#
+# Before this wave this file held TWO jobs (`producer`, `api`) and the string
+# `playwright` appeared nowhere in `.github/workflows/`: all six Playwright
+# projects were CI-orphaned, `lighthouserc.json`'s four budgets were read by
+# nothing, `boot-smoke.mjs` had been deleted, and the visual oracle did not
+# exist. Nineteen independent audit seats measured that same zero.
+#
+# Two waiver mechanisms are FORBIDDEN BY NAME here (W1.md G-2): D48 waived the
+# falsifier with `continue-on-error`, D55(iv) waived it by running the suite on
+# a scratch branch instead of on the real push. Neither appears below, and
+# `scripts/ci/oracle-slate.mjs` reds if a project loses its job again — the
+# exact silent deletion (`6d6d3521`) this wave is the fourth attempt to undo.
+# ─────────────────────────────────────────────────────────────────────────────
+
 jobs:
     producer:
         name: producer / Node ${{ matrix.node }}
@@ -31,18 +47,319 @@ jobs:
                   cache: npm
             - run: npm ci
             - run: npm run lint
-            - run: npx vue-tsc -p tsconfig.lib.json --noEmit
             - run: npm run build
+            # X-W1 G-1 / NG-3: ONE definition of "typecheck", shared by CI and
+            # the workstation. The two `vue-tsc -p` lines that used to sit here
+            # named only the lib and demo programs, so `e2e/` and `test/` stayed
+            # outside every program and a deleted import survived in both trees.
+            # `npm run typecheck` now runs FOUR programs; inlining any subset
+            # here would be the drift this replaces.
+            - run: npm run typecheck
             - run: npm test
             - name: pack producer bytes
               id: pack
               shell: bash
               run: |
-                  npm pack --json --ignore-scripts > /tmp/value-pack.json
-                  node --input-type=module <<'NODE'
-                  import { appendFileSync, readFileSync } from "node:fs";
-                  const [packed] = JSON.parse(readFileSync("/tmp/value-pack.json", "utf8"));
-                  appendFileSync(process.env.GITHUB_OUTPUT, `filename=${packed.filename}\n`);
-                  NODE
+                  # npm's stdout differs across npm 10/11 (the prepare script's vite banner
+                  # polluted `--json` on Node 22) — derive the tarball name deterministically
+                  # from package.json instead of parsing pack output.
+                  FILE="$(node -p "const p=require('./package.json'); p.name.replace(/^@/,'').replace('/','-')+'-'+p.version+'.tgz'")"
+                  npm pack --ignore-scripts > /dev/null
+                  test -f "$FILE"
+                  echo "filename=$FILE" >> "$GITHUB_OUTPUT"
             - name: verify packed runtime and strict declarations
               run: node scripts/ci/verify-packed-surface.mjs "${{ steps.pack.outputs.filename }}"
+
+    # api re-gate (V·W45 / bracket B3): the standalone api package typechecks and
+    # runs its full vitest suite (integration tests boot an ephemeral
+    # mongodb-memory-server replica set — no external service). A broken api test
+    # now fails CI, closing the "prod runs untested api code" gap.
+    api:
+        name: api / Node 22
+        runs-on: ubuntu-latest
+        defaults:
+            run:
+                working-directory: api
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+                  cache-dependency-path: api/package-lock.json
+            - run: npm ci
+            - run: npx tsc --noEmit
+            - run: npm test
+
+    # ── G-5 · the oracle slate ───────────────────────────────────────────────
+    # T built five CI jobs and they were un-wired at `164343c1` and deleted at
+    # `6d6d3521` as "prune proof-theater", silently. This job is what makes the
+    # next such deletion loud: it reds when a Playwright project has no job,
+    # when a tracked spec is collected by zero projects, when a named engine
+    # reaches none of a subtree the corpus routes engine rows against, when two
+    # oracles claim one ordinal, or when a spec binds a class, attribute or path
+    # that resolves to nothing.
+    oracle-slate:
+        name: oracle slate
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: node scripts/ci/oracle-slate.mjs
+
+    # ── G-2 · the browser suite, HARD ────────────────────────────────────────
+    # The five Chromium projects. `npm run build` first because `smoke-perf`
+    # measures the BUILT bundle (playwright.config.ts's S.W3 ORACLE note) and
+    # because `e2e/smoke/perf/serve-built.mjs` otherwise pays a cold gh-pages
+    # build inside the webServer timeout.
+    e2e-smoke:
+        name: e2e-smoke
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps chromium
+            - run: npm run build
+            - run: npm run gh-pages
+            - run: >-
+                  npx playwright test
+                  --project=smoke
+                  --project=smoke-admin
+                  --project=smoke-mobile
+                  --project=smoke-reactivity
+                  --project=smoke-perf
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: e2e-smoke-report
+                  path: playwright-report/
+                  retention-days: 7
+
+    # ── G-2 · the WebKit arm, HARD ───────────────────────────────────────────
+    # The iOS-Safari engine class (the ValueUnit-nesting frame-294 stack
+    # overflow, WebGL-on-WebKit shader divergence) is unreachable from Chromium.
+    e2e-safari:
+        name: e2e-safari
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps webkit
+            - run: npm run build
+            # `oracles-safari` rides here, not in `e2e-smoke`: it is the SAME
+            # engine install and the same WebKit cost centre. It exists because
+            # PH-4 measured the oracles subtree as reachable from no WebKit
+            # project at all while the corpus cited engine-specific rows against
+            # it — G-5 section C reds until a WebKit project collects it.
+            - run: >-
+                  npx playwright test
+                  --project=smoke-safari
+                  --project=oracles-safari
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: e2e-safari-report
+                  path: playwright-report/
+                  retention-days: 7
+
+    # ── G-8/G-9/G-10 · the visual oracle, HARD ───────────────────────────────
+    # `macos-15` is LOAD-BEARING, not a preference: text rasterisation is an OS
+    # property, `{platform}` is in the golden path, and the committed goldens
+    # were minted on darwin. Moving this to `ubuntu-latest` without minting a
+    # linux golden set is a G-10 failure, not a cost saving
+    # (`e2e/visual/visual.project.ts` §PLATFORM).
+    visual:
+        name: visual
+        runs-on: macos-15
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps chromium
+            - run: npm run build
+            - run: npx playwright test --project=visual
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: visual-report
+                  path: |
+                      playwright-report/
+                      test-results/
+                  retention-days: 7
+
+    # ── G-12/G-13 · boot truth, both modes, HARD ─────────────────────────────
+    # `boot-smoke.mjs` was created as inv-N-1 at `d9c3b9f2` and deleted at
+    # `6d6d3521` as "CI-orphaned; W44 routed-mount witness supersedes" — eleven
+    # hours before W44 closed booking a production empty mount as a carry. It is
+    # restored here in BOTH modes, and it runs the WHOLE seed matrix, which is
+    # the instrument's own declared gate posture (`--seed` is a triage
+    # diagnostic, never a gate posture).
+    #
+    # STATED PLAINLY, because it decides how to read a red run: three of the
+    # eight seeds FAIL today for a live product reason — `?color=black` and the
+    # other hsv-powerless greys throw `PickerColorError: Missing hsv.h` before
+    # mount, outside the ErrorBoundary. Those cures are ROUTED (fold R16 →
+    # X-W9, R17 → X-W5 + X-W9); X-W1 owns the gate and the measured state, not
+    # the cure. No `continue-on-error` hides it and no `--seed` narrows it: a
+    # born-RED gate that is softened to go green is the exact waiver this wave
+    # exists to undo.
+    boot-smoke:
+        name: boot-smoke
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+            - run: npm ci
+            - run: npx playwright install --with-deps chromium
+            - run: npm run build
+            - name: boot-smoke — dev (cold optimizer cache)
+              run: node scripts/ci/boot-smoke.mjs --mode=dev --json=boot-smoke-dev.json
+            - name: boot-smoke — prod-preview (bare 127.0.0.1)
+              if: always()
+              run: >-
+                  node scripts/ci/boot-smoke.mjs --mode=prod-preview --build
+                  --json=boot-smoke-prod.json
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: boot-smoke-reports
+                  path: boot-smoke-*.json
+                  retention-days: 7
+
+    # ── G-4 · the Lighthouse budgets, HARD ───────────────────────────────────
+    # `lighthouserc.json` is consumed UNMODIFIED — its four thresholds ARE the
+    # gate, and re-baselining any of them is an automatic G-4 failure. Its
+    # `staticDistDir` is `./value.js/dist/gh-pages`, CWD-relative, because it was
+    # written for the nested-workspace layout the deploy workflow runs under; so
+    # this job reproduces that layout by checking the repo out at `value.js/`
+    # and running LHCI from the parent. Adjusting the config to suit the runner
+    # would be editing the gate.
+    lhci:
+        name: lhci
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  path: value.js
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  cache: npm
+                  cache-dependency-path: value.js/package-lock.json
+            - name: install
+              working-directory: value.js
+              run: npm ci
+            - name: build the shipped artifact
+              working-directory: value.js
+              run: npm run gh-pages
+            - name: assert the four budgets
+              run: npx --yes @lhci/cli@0.15.x autorun --config=value.js/lighthouserc.json
+            - uses: actions/upload-artifact@v4
+              if: always()
+              with:
+                  name: lhci-report
+                  path: .lighthouseci/
+                  retention-days: 7
+
+    # ── G-21 · the standing deploy-age check ─────────────────────────────────
+    # DR-11 recurred across M → N → R → S → T because every close reported CI
+    # green ON ITS OWN BRANCH and no gate measured deploy age: the last
+    # successful `deploy-pages` run sat 27 days stale, then 72, unobserved.
+    #
+    # This job reds when the newest successful deploy is OLDER than the newest
+    # close recorded in the repository. It is a job in `ci.yml` and not a third
+    # `scripts/ci/*` path because W1.md's §File Bounds admits exactly two
+    # creates there (WO-3).
+    #
+    # The two override inputs exist for G-21's OWN falsifier — back-date the
+    # comparison input by a day and the check must red. They are read from the
+    # environment, printed, and never defaulted to a value that could turn a red
+    # into a green: with neither set, both sides are measured.
+    deploy-age:
+        name: deploy-age
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+            - name: the newest deploy vs the newest close
+              env:
+                  GH_TOKEN: ${{ github.token }}
+                  VJS_DEPLOY_AGE_DEPLOY_OVERRIDE: ${{ vars.VJS_DEPLOY_AGE_DEPLOY_OVERRIDE }}
+                  VJS_DEPLOY_AGE_CLOSE_OVERRIDE: ${{ vars.VJS_DEPLOY_AGE_CLOSE_OVERRIDE }}
+              shell: bash
+              run: |
+                  set -euo pipefail
+
+                  if [ -n "${VJS_DEPLOY_AGE_DEPLOY_OVERRIDE:-}" ]; then
+                      DEPLOY_AT="$VJS_DEPLOY_AGE_DEPLOY_OVERRIDE"
+                      DEPLOY_SRC="override"
+                  else
+                      DEPLOY_AT="$(gh run list \
+                          --workflow deploy-pages.yml \
+                          --branch master \
+                          --status success \
+                          --limit 1 \
+                          --json createdAt \
+                          --jq '.[0].createdAt // ""')"
+                      DEPLOY_SRC="gh run list --workflow deploy-pages.yml --status success"
+                  fi
+
+                  if [ -n "${VJS_DEPLOY_AGE_CLOSE_OVERRIDE:-}" ]; then
+                      CLOSE_AT="$VJS_DEPLOY_AGE_CLOSE_OVERRIDE"
+                      CLOSE_SRC="override"
+                  else
+                      # The newest close the repository itself records: the most
+                      # recent commit whose subject announces one. Grepping the
+                      # log rather than a hand-maintained date file means the
+                      # input cannot go stale without the close going missing.
+                      CLOSE_AT="$(git log -1 --date=iso-strict --format=%cd \
+                          --extended-regexp --grep='(close|CLOSE|CLOSED|FINAL)' \
+                          -- docs/tranches || true)"
+                      CLOSE_SRC="git log -- docs/tranches (subject names a close)"
+                  fi
+
+                  echo "newest successful deploy : ${DEPLOY_AT:-<none>}  [$DEPLOY_SRC]"
+                  echo "newest recorded close    : ${CLOSE_AT:-<none>}  [$CLOSE_SRC]"
+
+                  if [ -z "$CLOSE_AT" ]; then
+                      echo "no close recorded — nothing to be stale against"
+                      exit 0
+                  fi
+                  if [ -z "$DEPLOY_AT" ]; then
+                      echo "FAIL — no successful deploy-pages run exists at all," \
+                           "while the repository records a close at $CLOSE_AT"
+                      exit 1
+                  fi
+
+                  DEPLOY_EPOCH="$(date -u -d "$DEPLOY_AT" +%s 2>/dev/null || python3 -c \
+                      'import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace("Z","+00:00")).timestamp()))' "$DEPLOY_AT")"
+                  CLOSE_EPOCH="$(date -u -d "$CLOSE_AT" +%s 2>/dev/null || python3 -c \
+                      'import sys,datetime;print(int(datetime.datetime.fromisoformat(sys.argv[1].replace("Z","+00:00")).timestamp()))' "$CLOSE_AT")"
+
+                  if [ "$DEPLOY_EPOCH" -lt "$CLOSE_EPOCH" ]; then
+                      echo "FAIL — production is older than the newest close by" \
+                           "$(( (CLOSE_EPOCH - DEPLOY_EPOCH) / 86400 )) day(s)."
+                      echo "A close that has not shipped is a close that reported" \
+                           "green on its own branch. That is DR-11."
+                      exit 1
+                  fi
+                  echo "OK — the deploy of record is newer than the newest close."

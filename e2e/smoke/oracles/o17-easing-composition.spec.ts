@@ -48,8 +48,24 @@ async function openEasingBench(page: Page): Promise<Locator> {
 async function discloseAuthoring(row: Locator): Promise<Locator> {
     const tune = row.getByRole("button", { name: "Author a custom curve" });
     if ((await tune.getAttribute("aria-expanded")) !== "true") await tune.click();
-    const svg = row.locator("#easing-authoring-0 svg[role='img']");
+    // ── X-W1 · R2 (EAS-3) ───────────────────────────────────────────────────
+    // This bound `#easing-authoring-0 svg[role='img']`, which matches nothing.
+    // MEASURED 2026-09-18 in the shipped producer
+    // (`node_modules/@mkbabb/glass-ui/dist/easing.js:338`): the EasingPicker's
+    // canvas renders `role: "group"`, never `"img"`. The dead selector is not
+    // only in this oracle — `EasingAuthoringStage.vue:104` keys its **Law 3
+    // (zero letterbox)** override on the same `svg[role="img"]`, so that whole
+    // rule has never applied at this seat and the geometry the assertions
+    // below measure is the producer's own `aspect-ratio: 1` clamp. The oracle
+    // binds the node that EXISTS and states the broken contract on its own
+    // line; glass-ui is READ-ONLY (BH relay) and `demo/` is this wave's
+    // Triumvirate trigger, so the cure is routed, not hacked in here.
+    const svg = row.locator("#easing-authoring-0 svg");
     await expect(svg).toBeVisible();
+    await expect(
+        svg,
+        'the authoring canvas must wear the role the seat\'s Law-3 override keys on — glass-ui EasingPicker ships role="group", so `.easing-authoring :deep(svg[role="img"])` never matches and the zero-letterbox law is unenforced',
+    ).toHaveAttribute("role", "img", { timeout: 2000 });
     return svg;
 }
 
@@ -125,9 +141,7 @@ for (const viewport of [
     });
 }
 
-test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({
-    page,
-}) => {
+test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({ page }) => {
     const consoleErrors = setupEnvNoise(page);
     const row = await openEasingBench(page);
 
@@ -191,9 +205,7 @@ test("O-17 composition: stamps, dot rest, one-literal, mint law", async ({
         "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
     );
     // The head speaks the NAME, never the literal (closed-row anatomy).
-    const head = page
-        .locator("button[aria-controls='easing-interval-0']")
-        .first();
+    const head = page.locator("button[aria-controls='easing-interval-0']").first();
     await expect(head).toContainText("ease-out-back");
     await head.click(); // close the row
     const benchLiteral = await page.evaluate(() => {

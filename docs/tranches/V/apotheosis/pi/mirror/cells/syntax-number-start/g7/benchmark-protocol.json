@@ -1,0 +1,17 @@
+{
+  "protocol_id": "SYNTAX-NUMBER-START-G7-BENCH",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_G7_HOLDOUT",
+  "inherited_protocol": {
+    "path": "../g6/benchmark-protocol.json",
+    "bytes": 7220,
+    "sha256": "a3cfc5356d535c4a8a100bb7301cf58b7775479db04d5d0b69249b58bf72a4ed"
+  },
+  "inheritance": "Every correctness, pool, restoration, diagnostics-toggle, exception, warmup, measured-round, Latin-cycle, ordered-pair, bootstrap, endpoint, strict-win, descriptive, allocation, environment, and external-peer clause is inherited without semantic or numeric change.",
+  "generation_substitutions": {
+    "holdout": "The wholly fresh, unrevealed G7 holdout replaces the destroyed G6 holdout only after all five candidate identities close.",
+    "raw_output": "bench/raw-g7.json",
+    "identity": "Every retained run binds the owner-sealed G7 manifest digest and each candidate's promotion receipt, including the complete isolated compiler resolved-input ledger."
+  },
+  "semantic_delta_from_g6": "NONE",
+  "performance_delta_from_g6": "NONE"
+}

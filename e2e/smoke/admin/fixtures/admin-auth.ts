@@ -13,7 +13,9 @@
  * envelopes. Anonymous-session POST /sessions is also stubbed so boot
  * stays offline-deterministic.
  *
- * Envelope shapes match `demo/@/lib/palette/types.ts`:
+ * Envelope shapes match `e2e/fixtures/palette-envelopes.ts` (X-W1 G-1 — the
+ * e2e-owned DTOs; the `demo/@/lib/palette/types` path this line used to name
+ * was deleted at `a61094e3`):
  *   PaginatedResponse<T> = { data: T[]; total: number; limit: number; offset: number }
  *   getAdminTags returns Tag[] (no envelope) — see api.ts line 421.
  */
@@ -30,11 +32,14 @@ export const adminTest = base.extend({
         // 1. Seed the admin token BEFORE any page script runs. useAdminAuth's
         //    lazy-init reads this value on its first call, treating the page
         //    as authenticated for the entire test lifetime.
+        // X-W1 · G-1 — the seed travels as a NAMED object, not a positional
+        // array: an array argument infers as `string[]`, so every destructured
+        // element arrived as `string | undefined` inside the init script.
         await page.addInitScript(
-            ([key, val]) => {
+            ({ key, val }) => {
                 localStorage.setItem(key, val);
             },
-            [STORAGE_KEY, FAKE_TOKEN],
+            { key: STORAGE_KEY, val: FAKE_TOKEN },
         );
 
         // 2. Anonymous session POST — useSession.ensureSession() hits this

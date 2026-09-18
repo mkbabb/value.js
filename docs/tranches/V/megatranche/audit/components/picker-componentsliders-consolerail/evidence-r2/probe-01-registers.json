@@ -1,0 +1,1343 @@
+{
+  "URL": "http://localhost:9000/",
+  "headNote": "read-only probe; no source edits",
+  "A_default": {
+    "rail": {
+      "box": {
+        "x": 235.58,
+        "y": 627.87,
+        "w": 31.79,
+        "h": 166.55
+      },
+      "innerW": 25.79,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 630.89,
+      "h": 160.51,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 169.36
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": false,
+        "tabindex": "0",
+        "focused": false,
+        "box": {
+          "x": 239,
+          "y": 638.61,
+          "w": 24.03,
+          "h": 24.52,
+          "cy": 650.88
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.02,
+          "h": 25.18,
+          "y": 638.29
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 239.38,
+          "y": 678.41,
+          "w": 23.86,
+          "h": 24.52,
+          "cy": 690.67
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.86,
+          "h": 25.18,
+          "y": 678.08
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 239.7,
+          "y": 718.21,
+          "w": 23.82,
+          "h": 24.52,
+          "cy": 730.47
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.82,
+          "h": 25.18,
+          "y": 717.88
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 239.62,
+          "y": 766,
+          "w": 24.72,
+          "h": 25.62,
+          "cy": 778.81
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 8)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.71,
+          "h": 25.14,
+          "y": 766.79
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 624.76,
+        "h": 38.86,
+        "cy": 644.19
+      },
+      {
+        "y": 668.26,
+        "h": 38.86,
+        "cy": 687.69
+      },
+      {
+        "y": 711.76,
+        "h": 38.86,
+        "cy": 731.19
+      },
+      {
+        "y": 763.25,
+        "h": 38.86,
+        "cy": 782.69
+      }
+    ]
+  },
+  "B_afterSelectFirst": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-59\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "C_hoverNonSelected": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-59\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "rgb(28, 25, 23)",
+        "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none rgb(28, 25, 23)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "D_hoverSelected": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-59\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "E_press": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": true,
+        "tabindex": "0",
+        "focused": false,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "oklab(0.973923 0.005635 0.013706 / 0.011289)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.81,
+          "y": 644.72,
+          "w": 25.84,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-59\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": true,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklab(0.220142 0.003485 0.005131)",
+        "bg": "oklab(0.895279 0.005412 0.012822 / 0.652502)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklab(0.220142 0.003485 0.005131)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "F_keyboardArrowDown": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "a",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": {
+          "x": 236.89,
+          "y": 684.52,
+          "w": 25.67,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.89,
+          "y": 684.52,
+          "w": 25.67,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-61\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "G_keyboardArrowDown2": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": {
+          "x": 236.91,
+          "y": 724.31,
+          "w": 25.64,
+          "h": 26.34
+        },
+        "dot": {
+          "x": 236.91,
+          "y": 724.31,
+          "w": 25.64,
+          "h": 26.34,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-62\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      },
+      {
+        "text": "α",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": null,
+        "dot": null
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  },
+  "H_mouseClickAlpha": {
+    "rail": {
+      "box": {
+        "x": 234.47,
+        "y": 635,
+        "w": 30.53,
+        "h": 166.33
+      },
+      "innerW": 24.53,
+      "border": "1px",
+      "padding": "2px",
+      "radius": "9999px",
+      "borderColor": "oklab(0.470927 0.185576 0.032168 / 0.6)",
+      "restInk": "oklch(44.716162788315% 0.003861589952 34.629978305623deg)",
+      "accentView": "oklch(0.470927 0.188343 9.834023)"
+    },
+    "lettersBox": {
+      "y": 638,
+      "h": 160.33,
+      "justify": "space-around",
+      "rowGap": "normal"
+    },
+    "rowsMeta": {
+      "rowGap": "7.68px",
+      "justify": "space-around",
+      "h": 166.33
+    },
+    "items": [
+      {
+        "text": "L",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.81,
+          "y": 645.72,
+          "w": 23.84,
+          "h": 24.34,
+          "cy": 657.89
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.83,
+          "h": 25.09,
+          "y": 645.34
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "a",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.89,
+          "y": 685.52,
+          "w": 23.67,
+          "h": 24.34,
+          "cy": 697.69
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.67,
+          "h": 25.09,
+          "y": 685.14
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "b",
+        "selected": false,
+        "tabindex": "-1",
+        "focused": false,
+        "box": {
+          "x": 237.91,
+          "y": 725.31,
+          "w": 23.64,
+          "h": 24.34,
+          "cy": 737.48
+        },
+        "color": "oklch(0.447162 0.003862 34.629978)",
+        "bg": "rgba(0, 0, 0, 0)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0.447162 0.003862 34.629978)",
+        "inlineStyleColor": null,
+        "glyphBox": {
+          "w": 11.63,
+          "h": 25.09,
+          "y": 724.94
+        },
+        "seat": null,
+        "dot": null
+      },
+      {
+        "text": "α",
+        "selected": true,
+        "tabindex": "0",
+        "focused": true,
+        "box": {
+          "x": 237.47,
+          "y": 765.11,
+          "w": 24.53,
+          "h": 25.44,
+          "cy": 777.83
+        },
+        "color": "oklch(0 0 0)",
+        "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+        "boxShadow": "none",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "outline": "3px none oklch(0 0 0)",
+        "inlineStyleColor": "oklch(0 0 0)",
+        "glyphBox": {
+          "w": 12.52,
+          "h": 25.05,
+          "y": 765.85
+        },
+        "seat": {
+          "x": 236.47,
+          "y": 764.11,
+          "w": 26.53,
+          "h": 27.44
+        },
+        "dot": {
+          "x": 236.47,
+          "y": 764.11,
+          "w": 26.53,
+          "h": 27.44,
+          "bg": "lab(92 88.800003 20)",
+          "filter": "url(\"#watercolor-filter-v-63\")",
+          "radius": "20.817698% 78.671432% 23.579817% 35.568096% / 39.82502% 37.372818% 42.955162% 39.706631%"
+        }
+      }
+    ],
+    "rows": [
+      {
+        "y": 635,
+        "h": 35.83,
+        "cy": 652.91
+      },
+      {
+        "y": 678.5,
+        "h": 35.83,
+        "cy": 696.41
+      },
+      {
+        "y": 722,
+        "h": 35.83,
+        "cy": 739.91
+      },
+      {
+        "y": 765.5,
+        "h": 35.83,
+        "cy": 783.41
+      }
+    ]
+  }
+}

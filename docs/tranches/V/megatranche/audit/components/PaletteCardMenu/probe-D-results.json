@@ -1,0 +1,899 @@
+{
+  "desktop-light": {
+    "contentRect": {
+      "x": 1010,
+      "y": 610,
+      "w": 192,
+      "h": 240.1
+    },
+    "contentStyles": {
+      "font-size": "16.4px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "600px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "0s",
+      "transition-property": "scale, translate, opacity, filter, display, overlay",
+      "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s"
+    },
+    "docScrollW": 1440,
+    "innerW": 1440,
+    "label": {
+      "text": "Muted Terracotta and Deep Sea Foam Study",
+      "font-size": "14.384px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "600",
+      "line-height": "20.1376px",
+      "max-width": "180px",
+      "overflow": "hidden",
+      "text-overflow": "ellipsis",
+      "padding-inline": "8px",
+      "scrollW": 319,
+      "clientW": 178,
+      "rect": {
+        "w": 178
+      }
+    },
+    "separators": [
+      {
+        "y": 653.1
+      },
+      {
+        "y": 750.1
+      }
+    ],
+    "items": [
+      {
+        "text": "Publish",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 658.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Rename",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 702.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Export",
+        "slot": "dropdown-menu-sub-trigger",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 755.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Delete",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 799.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      }
+    ]
+  },
+  "desktop-light-submenu": {
+    "rect": {
+      "x": 1195,
+      "y": 754,
+      "w": 242,
+      "h": 243
+    },
+    "right": 1437,
+    "innerW": 1440,
+    "innerH": 1000,
+    "docScrollW": 1440,
+    "items": [
+      {
+        "text": "JSON",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "CSS Custom Properties",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "Tailwind Config",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "SVG Swatch",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "PNG Swatch",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      }
+    ]
+  },
+  "mobile-light": {
+    "contentRect": {
+      "x": 151,
+      "y": 594.5,
+      "w": 192,
+      "h": 237
+    },
+    "contentStyles": {
+      "font-size": "14px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "506.4px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "0s",
+      "transition-property": "scale, translate, opacity, filter, display, overlay",
+      "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s"
+    },
+    "docScrollW": 390,
+    "innerW": 390,
+    "label": {
+      "text": "Muted Terracotta and Deep Sea Foam Study",
+      "font-size": "12.179px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "600",
+      "line-height": "17.0506px",
+      "max-width": "180px",
+      "overflow": "hidden",
+      "text-overflow": "ellipsis",
+      "padding-inline": "8px",
+      "scrollW": 273,
+      "clientW": 178,
+      "rect": {
+        "w": 178
+      }
+    },
+    "separators": [
+      {
+        "y": 634.5
+      },
+      {
+        "y": 731.5
+      }
+    ],
+    "items": [
+      {
+        "text": "Publish",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 158,
+          "y": 639.5,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "14px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Rename",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 158,
+          "y": 683.5,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "14px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Export",
+        "slot": "dropdown-menu-sub-trigger",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 158,
+          "y": 736.5,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "14px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Delete",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 158,
+          "y": 780.5,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "14px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      }
+    ]
+  },
+  "mobile-light-submenu": {
+    "rect": {
+      "x": 0,
+      "y": 536.5,
+      "w": 210.9,
+      "h": 243
+    },
+    "right": 210.9,
+    "innerW": 390,
+    "innerH": 844,
+    "docScrollW": 390,
+    "items": [
+      {
+        "text": "JSON",
+        "fontSize": "14px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 196.9,
+        "scrollW": 197,
+        "clientW": 197
+      },
+      {
+        "text": "CSS Custom Properties",
+        "fontSize": "14px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 196.9,
+        "scrollW": 197,
+        "clientW": 197
+      },
+      {
+        "text": "Tailwind Config",
+        "fontSize": "14px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 196.9,
+        "scrollW": 197,
+        "clientW": 197
+      },
+      {
+        "text": "SVG Swatch",
+        "fontSize": "14px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 196.9,
+        "scrollW": 197,
+        "clientW": 197
+      },
+      {
+        "text": "PNG Swatch",
+        "fontSize": "14px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 196.9,
+        "scrollW": 197,
+        "clientW": 197
+      }
+    ]
+  },
+  "desktop-dark": {
+    "contentRect": {
+      "x": 1010,
+      "y": 610,
+      "w": 192,
+      "h": 240.1
+    },
+    "contentStyles": {
+      "font-size": "16.4px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "600px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "oklab(0.379439 0.00991643 0.0168573 / 0.8944)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "0s",
+      "transition-property": "scale, translate, opacity, filter, display, overlay",
+      "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s"
+    },
+    "docScrollW": 1440,
+    "innerW": 1440,
+    "label": {
+      "text": "Muted Terracotta and Deep Sea Foam Study",
+      "font-size": "14.384px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "600",
+      "line-height": "20.1376px",
+      "max-width": "180px",
+      "overflow": "hidden",
+      "text-overflow": "ellipsis",
+      "padding-inline": "8px",
+      "scrollW": 319,
+      "clientW": 178,
+      "rect": {
+        "w": 178
+      }
+    },
+    "separators": [
+      {
+        "y": 653.1
+      },
+      {
+        "y": 750.1
+      }
+    ],
+    "items": [
+      {
+        "text": "Publish",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 658.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(233, 230, 226)",
+        "trailing": []
+      },
+      {
+        "text": "Rename",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 702.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(233, 230, 226)",
+        "trailing": []
+      },
+      {
+        "text": "Export",
+        "slot": "dropdown-menu-sub-trigger",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 755.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(233, 230, 226)",
+        "trailing": []
+      },
+      {
+        "text": "Delete",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 799.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(233, 230, 226)",
+        "trailing": []
+      }
+    ]
+  },
+  "desktop-dark-submenu": {
+    "rect": {
+      "x": 1195,
+      "y": 754,
+      "w": 242,
+      "h": 243
+    },
+    "right": 1437,
+    "innerW": 1440,
+    "innerH": 1000,
+    "docScrollW": 1440,
+    "items": [
+      {
+        "text": "JSON",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "CSS Custom Properties",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "Tailwind Config",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "SVG Swatch",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      },
+      {
+        "text": "PNG Swatch",
+        "fontSize": "16.4px",
+        "fontFamily": "\"Fira Code\"",
+        "w": 228,
+        "scrollW": 228,
+        "clientW": 228
+      }
+    ]
+  },
+  "rtl-desktop": {
+    "contentRect": {
+      "x": 238,
+      "y": 610,
+      "w": 192,
+      "h": 240.1
+    },
+    "contentStyles": {
+      "font-size": "16.4px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "600px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "0s",
+      "transition-property": "scale, translate, opacity, filter, display, overlay",
+      "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s"
+    },
+    "docScrollW": 1440,
+    "innerW": 1440,
+    "label": {
+      "text": "Muted Terracotta and Deep Sea Foam Study",
+      "font-size": "14.384px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "600",
+      "line-height": "20.1376px",
+      "max-width": "180px",
+      "overflow": "hidden",
+      "text-overflow": "ellipsis",
+      "padding-inline": "8px",
+      "scrollW": 319,
+      "clientW": 178,
+      "rect": {
+        "w": 178
+      }
+    },
+    "separators": [
+      {
+        "y": 653.1
+      },
+      {
+        "y": 750.1
+      }
+    ],
+    "items": [
+      {
+        "text": "Publish",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 245,
+          "y": 658.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Rename",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 245,
+          "y": 702.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Export",
+        "slot": "dropdown-menu-sub-trigger",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 245,
+          "y": 755.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      },
+      {
+        "text": "Delete",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 245,
+          "y": 799.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(28, 25, 23)",
+        "trailing": []
+      }
+    ]
+  },
+  "forced-colors": {
+    "contentRect": {
+      "x": 1010,
+      "y": 609,
+      "w": 192,
+      "h": 240.1
+    },
+    "contentStyles": {
+      "font-size": "16.4px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "600px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "rgb(255, 255, 255)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "1e-05s",
+      "transition-property": "opacity",
+      "transition-duration": "0.15s"
+    },
+    "docScrollW": 1440,
+    "innerW": 1440,
+    "label": {
+      "text": "Muted Terracotta and Deep Sea Foam Study",
+      "font-size": "14.384px",
+      "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+      "font-weight": "600",
+      "line-height": "20.1376px",
+      "max-width": "180px",
+      "overflow": "hidden",
+      "text-overflow": "ellipsis",
+      "padding-inline": "8px",
+      "scrollW": 319,
+      "clientW": 178,
+      "rect": {
+        "w": 178
+      }
+    },
+    "separators": [
+      {
+        "y": 652.1
+      },
+      {
+        "y": 749.1
+      }
+    ],
+    "items": [
+      {
+        "text": "Publish",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 657.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(0, 0, 0)",
+        "trailing": []
+      },
+      {
+        "text": "Rename",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 701.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(0, 0, 0)",
+        "trailing": []
+      },
+      {
+        "text": "Export",
+        "slot": "dropdown-menu-sub-trigger",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 754.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(0, 0, 0)",
+        "trailing": []
+      },
+      {
+        "text": "Delete",
+        "slot": "dropdown-menu-item",
+        "disabled": false,
+        "ariaDisabled": null,
+        "tabindex": "-1",
+        "role": "menuitem",
+        "rect": {
+          "x": 1017,
+          "y": 798.1,
+          "w": 178,
+          "h": 44
+        },
+        "font-size": "16.4px",
+        "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+        "cursor": "default",
+        "gap": "8px",
+        "column-gap": "8px",
+        "padding-inline-start": "8px",
+        "opacity": "1",
+        "color": "rgb(0, 0, 0)",
+        "trailing": []
+      }
+    ]
+  },
+  "zoom200": {
+    "contentRect": {
+      "x": 385,
+      "y": 213,
+      "w": 192,
+      "h": 238
+    },
+    "contentStyles": {
+      "font-size": "14.6px",
+      "width": "192px",
+      "min-width": "128px",
+      "max-height": "300px",
+      "overflow-y": "auto",
+      "border-radius": "12px",
+      "background-color": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+      "z-index": "130",
+      "animation-name": "none",
+      "animation-duration": "0s",
+      "transition-property": "scale, translate, opacity, filter, display, overlay",
+      "transition-duration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s"
+    },
+    "innerH": 500,
+    "itemCount": 4,
+    "overflowsViewport": false
+  }
+}

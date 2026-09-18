@@ -1,0 +1,86 @@
+{
+  "desktopLight": {
+    "label": "desktop-light",
+    "measured": {
+      "found": false
+    },
+    "toggle": {
+      "attempted": true,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] label').first()\u001b[22m\n"
+    },
+    "afterClose": {
+      "stillOpen": false,
+      "active": {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+        "text": "",
+        "isBody": false
+      }
+    },
+    "consoleErrs": [],
+    "pageErrs": []
+  },
+  "desktopDark": {
+    "label": "desktop-dark",
+    "measured": {
+      "found": false
+    },
+    "toggle": {
+      "attempted": true,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] label').first()\u001b[22m\n"
+    },
+    "afterClose": {
+      "stillOpen": false,
+      "active": {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+        "text": "",
+        "isBody": false
+      }
+    },
+    "consoleErrs": [],
+    "pageErrs": []
+  },
+  "mobile": {
+    "label": "mobile",
+    "measured": {
+      "found": false
+    },
+    "toggle": {
+      "attempted": true,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] label').first()\u001b[22m\n"
+    },
+    "afterClose": {
+      "stillOpen": false,
+      "active": {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+        "text": "",
+        "isBody": false
+      }
+    },
+    "consoleErrs": [],
+    "pageErrs": []
+  },
+  "emptyCatalog": {
+    "label": "empty",
+    "measured": {
+      "found": false
+    },
+    "toggle": {
+      "attempted": true,
+      "error": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[role=\"dialog\"] label').first()\u001b[22m\n"
+    },
+    "afterClose": {
+      "stillOpen": false,
+      "active": {
+        "tag": "BUTTON",
+        "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover dropdown-menu__trigger shrink-0",
+        "text": "",
+        "isBody": false
+      }
+    },
+    "consoleErrs": [],
+    "pageErrs": []
+  }
+}

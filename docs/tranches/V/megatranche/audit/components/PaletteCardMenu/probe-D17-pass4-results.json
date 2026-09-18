@@ -1,0 +1,285 @@
+{
+ "A_pressLeak": {
+  "trigger": {
+   "x": 1166,
+   "y": 496.6,
+   "w": 36,
+   "h": 36
+  },
+  "rest": {
+   "pressT": "0.0000",
+   "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+   "transform": "none",
+   "scale": "none",
+   "w": 462,
+   "h": 100
+  },
+  "hover": {
+   "pressT": "0.0000",
+   "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+   "transform": "none",
+   "scale": "none",
+   "w": 462,
+   "h": 100
+  },
+  "downEarly": {
+   "pressT": "0.1034",
+   "inlineStyle": "--card-press-t: 0.1034; --flex-vel: 0.1034; scale: 1.001 0.9948;",
+   "transform": "none",
+   "scale": "1.001 0.9948",
+   "w": 462.46,
+   "h": 99.48
+  },
+  "downSettled": {
+   "pressT": "1.0000",
+   "inlineStyle": "--card-press-t: 1.0000; --flex-vel: 1.0000; scale: 1.0094 0.9515;",
+   "transform": "none",
+   "scale": "1.0094 0.9515",
+   "w": 466.34,
+   "h": 95.15
+  },
+  "menuOpenDuringHold": 0,
+  "upEarly": {
+   "pressT": "0.0275",
+   "inlineStyle": "--card-press-t: 0.0275; --flex-vel: 0.0275; scale: 1.0003 0.9986;",
+   "transform": "none",
+   "scale": "1.0003 0.9986",
+   "w": 462.14,
+   "h": 99.86
+  },
+  "upSettled": {
+   "pressT": "0.0000",
+   "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+   "transform": "none",
+   "scale": "none",
+   "w": 462,
+   "h": 100
+  },
+  "menuOpenAfter": 1,
+  "bodyPE": {
+   "bodyPointerEvents": "none",
+   "cardPointerEvents": "none",
+   "elementAtCardCorner": "HTML."
+  },
+  "control": {
+   "controlDown": {
+    "pressT": "1.0125",
+    "inlineStyle": "--card-press-t: 1.0125; --flex-vel: 1.0000; scale: 1.0091 0.9512;",
+    "transform": "none",
+    "scale": "1.0091 0.9512",
+    "w": 466.2,
+    "h": 95.12
+   },
+   "controlUp": {
+    "pressT": "0.0000",
+    "inlineStyle": "--card-press-t: 0.0000; --flex-vel: 0.0000;",
+    "transform": "none",
+    "scale": "none",
+    "w": 462,
+    "h": 171.91
+   }
+  }
+ },
+ "B_destructiveRowPosition": {
+  "cardsRendered": 11,
+  "first": {
+   "trigger": {
+    "x": 1166,
+    "y": 469.6,
+    "cy": 487.6
+   },
+   "geo": {
+    "side": "bottom",
+    "align": "end",
+    "rect": {
+     "x": 1010,
+     "y": 510,
+     "w": 192,
+     "h": 240.1
+    },
+    "rows": [
+     {
+      "text": "Publish",
+      "y": 558.1,
+      "cy": 580.1
+     },
+     {
+      "text": "Rename",
+      "y": 602.1,
+      "cy": 624.1
+     },
+     {
+      "text": "Export",
+      "y": 655.1,
+      "cy": 677.1
+     },
+     {
+      "text": "Delete",
+      "y": 699.1,
+      "cy": 721.1
+     }
+    ]
+   },
+   "deleteOffsetFromTrigger": 233.5
+  },
+  "last": {
+   "trigger": {
+    "x": 1166,
+    "y": 736.6,
+    "cy": 754.6
+   },
+   "geo": {
+    "side": "top",
+    "align": "end",
+    "rect": {
+     "x": 1010,
+     "y": 492,
+     "w": 192,
+     "h": 240.1
+    },
+    "rows": [
+     {
+      "text": "Publish",
+      "y": 540.1,
+      "cy": 562.1
+     },
+     {
+      "text": "Rename",
+      "y": 584.1,
+      "cy": 606.1
+     },
+     {
+      "text": "Export",
+      "y": 637.1,
+      "cy": 659.1
+     },
+     {
+      "text": "Delete",
+      "y": 681.1,
+      "cy": 703.1
+     }
+    ]
+   },
+   "deleteOffsetFromTrigger": -51.5
+  },
+  "swingPx": 285
+ },
+ "C_rtl": {
+  "dir": {
+   "html": "ltr",
+   "computed": "ltr",
+   "bodyComputed": "ltr"
+  },
+  "rtlGeo": {
+   "menu": {
+    "x": 1010,
+    "right": 1202,
+    "w": 192
+   },
+   "trigger": {
+    "x": 1166,
+    "right": 1202
+   },
+   "card": {
+    "x": 754,
+    "right": 1216
+   },
+   "menuDirection": "ltr",
+   "side": "bottom",
+   "align": "end",
+   "endEdgeDeltaLTRsense": 0,
+   "startEdgeDeltaRTLsense": -156,
+   "headerTextAlign": "start",
+   "headerOverflow": "ellipsis"
+  },
+  "annotation": {
+   "rowRect": {
+    "x": 1017,
+    "right": 1195,
+    "w": 178
+   },
+   "annRect": {
+    "x": 1122.5,
+    "right": 1187,
+    "w": 64.5
+   },
+   "annMarginInlineStart": "0px",
+   "annMarginInlineEnd": "0px",
+   "annMarginLeft": "0px",
+   "annMarginRight": "0px",
+   "distanceFromRowStart": -8,
+   "distanceFromRowEnd": 105.5
+  },
+  "submenu": {
+   "menus": 2,
+   "parent": {
+    "x": 1010,
+    "right": 1202
+   },
+   "child": {
+    "x": 1195,
+    "right": 1437
+   },
+   "childSide": "right"
+  }
+ },
+ "D_disabledAffordance": {
+  "before": {
+   "text": "Publish",
+   "cursor": "default",
+   "pointerEvents": "auto",
+   "classList": "dropdown-menu__item interactive-item glass-menu-row gap-2 cursor-pointer"
+  },
+  "afterDisabled": {
+   "cursor": "not-allowed",
+   "pointerEvents": "none",
+   "opacity": "0.5",
+   "userSelect": "none"
+  },
+  "hitTestIsTheRow": false
+ },
+ "E_reducedMotion_no-preference": {
+  "menu": {
+   "animationName": "none",
+   "animationDuration": "0s",
+   "transitionProperty": "scale, translate, opacity, filter, display, overlay",
+   "transitionDuration": "0.35s, 0.35s, 0.35s, 0.35s, 0.35s, 0.35s",
+   "transform": "none",
+   "opacity": "1",
+   "activeAnimations": [],
+   "wrapperTransform": "matrix(1, 0, 0, 1, 1010, 516)",
+   "prm": false,
+   "motionWeight": "0.618"
+  },
+  "cardWhilePressingTrigger": {
+   "pressT": "0.1034",
+   "inlineStyle": "--card-press-t: 0.1034; --flex-vel: 0.1034; scale: 1.001 0.9948;",
+   "transform": "none",
+   "scale": "1.001 0.9948",
+   "w": 462.46,
+   "h": 99.48
+  }
+ },
+ "E_reducedMotion_reduce": {
+  "menu": {
+   "animationName": "none",
+   "animationDuration": "1e-05s",
+   "transitionProperty": "opacity",
+   "transitionDuration": "0.15s",
+   "transform": "none",
+   "opacity": "1",
+   "activeAnimations": [],
+   "wrapperTransform": "matrix(1, 0, 0, 1, 1010, 516)",
+   "prm": true,
+   "motionWeight": "0"
+  },
+  "cardWhilePressingTrigger": {
+   "pressT": "1.0000",
+   "inlineStyle": "--card-press-t: 1.0000; --flex-vel: 1.0000; scale: 1.0094 0.9515;",
+   "transform": "none",
+   "scale": "1.0094 0.9515",
+   "w": 466.34,
+   "h": 95.15
+  }
+ }
+}

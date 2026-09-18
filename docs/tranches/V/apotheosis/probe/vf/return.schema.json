@@ -1,0 +1,1431 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-wave-return-2.json",
+  "title": "V-next canonical wave return",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "wave_id",
+    "status",
+    "return_hash",
+    "evidence_inputs",
+    "quarantine_attestation",
+    "pins",
+    "scope",
+    "born_red",
+    "delivery",
+    "dag_delta",
+    "gates",
+    "api_contract",
+    "visual",
+    "performance",
+    "limits",
+    "consumers",
+    "terminal_disposition",
+    "standards_operation_vector",
+    "routed_remainder",
+    "verdict",
+    "annexes"
+  ],
+  "properties": {
+    "schema": { "const": "vnext-wave-return/2" },
+    "wave_id": { "$ref": "#/$defs/waveId" },
+    "status": {
+      "description": "Syntactic status universe. The validator intersects this value with the returning wave's central outcome policy; REFUSED is non-advancing reopening evidence and never satisfies a static edge.",
+      "enum": ["COMPLETE", "KEEP", "PRUNE", "REFUSED", "BLOCKED", "NOT_CLEAN"]
+    },
+    "return_hash": { "$ref": "#/$defs/sha256" },
+    "evidence_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "sha256", "purpose", "class"],
+        "properties": {
+          "path": { "$ref": "#/$defs/nonEmpty" },
+          "sha256": { "$ref": "#/$defs/sha256" },
+          "purpose": { "$ref": "#/$defs/nonEmpty" },
+          "class": { "enum": ["seed", "packet", "pull-on-demand", "repository", "standard", "generated", "runtime"] }
+        }
+      }
+    },
+    "quarantine_attestation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["forbidden_path", "read", "tool_log_path", "tool_log_sha256"],
+      "properties": {
+        "forbidden_path": { "const": "/Users/mkbabb/Programming/keyframes-v-exec/docs/tranches/V/coordination/vnext/r1-opus-refuted/" },
+        "read": { "const": false },
+        "tool_log_path": { "$ref": "#/$defs/nonEmpty" },
+        "tool_log_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "pins": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/pin" }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mission", "wave_contract_sha256", "seed_requirements_verified", "dependency_returns", "files_intended", "files_changed"],
+      "properties": {
+        "mission": { "$ref": "#/$defs/nonEmpty" },
+        "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+        "seed_requirements_verified": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/seedRequirement" }
+        },
+        "dependency_returns": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/dependencyReturn" }
+        },
+        "files_intended": { "$ref": "#/$defs/stringArray" },
+        "files_changed": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "born_red": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["witness", "reproduction", "observed_failure", "evidence"],
+      "properties": {
+        "witness": { "$ref": "#/$defs/nonEmpty" },
+        "reproduction": { "$ref": "#/$defs/nonEmpty" },
+        "observed_failure": { "$ref": "#/$defs/nonEmpty" },
+        "evidence": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "tests", "exports", "deleted_paths", "migrations"],
+      "properties": {
+        "source": { "$ref": "#/$defs/stringArray" },
+        "tests": { "$ref": "#/$defs/stringArray" },
+        "exports": { "$ref": "#/$defs/stringArray" },
+        "deleted_paths": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "migrations": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "dag_delta": { "$ref": "#/$defs/dagSection" },
+    "gates": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/gate" }
+    },
+    "api_contract": { "$ref": "#/$defs/apiSection" },
+    "visual": { "$ref": "#/$defs/visualSection" },
+    "performance": { "$ref": "#/$defs/performanceSection" },
+    "limits": { "$ref": "#/$defs/limitsSection" },
+    "consumers": { "$ref": "#/$defs/consumerSection" },
+    "terminal_disposition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kept", "pruned", "deletions", "refusals", "no_legacy_paths", "standards_compatibility"],
+      "properties": {
+        "kept": { "$ref": "#/$defs/stringArray" },
+        "pruned": { "$ref": "#/$defs/stringArray" },
+        "deletions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/deletionDecision" }
+        },
+        "refusals": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/refusal" }
+        },
+        "no_legacy_paths": { "type": "boolean" },
+        "standards_compatibility": { "$ref": "#/$defs/stringArray" }
+      }
+    },
+    "standards_operation_vector": { "$ref": "#/$defs/standardsSection" },
+    "routed_remainder": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/remainder" }
+    },
+    "verdict": { "$ref": "#/$defs/nonEmpty" },
+    "annexes": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[a-z][a-z0-9-]*$" },
+      "required": ["implementation-challenge"],
+      "properties": {
+        "implementation-challenge": { "$ref": "#/$defs/implementationChallengeAnnex" },
+        "parser": { "$ref": "#/$defs/parserAnnex" },
+        "closure": { "$ref": "#/$defs/closureAnnex" },
+        "release": { "$ref": "#/$defs/releaseAnnex" },
+        "consumer-universe": { "$ref": "#/$defs/consumerUniverseAnnex" },
+        "deletion-judgment": { "$ref": "#/$defs/deletionJudgmentAnnex" },
+        "value-current-inventory": { "$ref": "#/$defs/valueCurrentInventoryAnnex" },
+        "value-target-disposition": { "$ref": "#/$defs/valueTargetDispositionAnnex" },
+        "value-target-transpose": { "$ref": "#/$defs/valueTargetTransposeAnnex" },
+        "keyframes-current-inventory": { "$ref": "#/$defs/keyframesCurrentInventoryAnnex" },
+        "keyframes-target-decisions": { "type": "object" },
+        "keyframes-target-transpose": { "$ref": "#/$defs/keyframesTargetTransposeAnnex" },
+        "keyframes-public-package": { "$ref": "#/$defs/keyframesPublicPackageAnnex" }
+      },
+      "additionalProperties": { "type": "object" }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "wave_id": { "pattern": "^P0[0-7]$" } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "parser"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "const": "V29T" } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "deletion-judgment", "value-target-transpose"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "const": "V00A" } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "value-current-inventory"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "enum": ["K00", "M00"] } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "keyframes-current-inventory"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "enum": ["K22T", "M10T"] } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "deletion-judgment", "keyframes-target-transpose"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "const": "K23" } }, "required": ["wave_id"] },
+      "then": { "properties": { "annexes": { "required": ["implementation-challenge", "deletion-judgment", "keyframes-public-package"] } } }
+    },
+    {
+      "if": { "properties": { "wave_id": { "const": "C00U" } }, "required": ["wave_id"] },
+      "then": {
+        "properties": {
+          "annexes": { "required": ["implementation-challenge", "consumer-universe"] }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "status": { "const": "COMPLETE" },
+              "annexes": {
+                "properties": {
+                  "consumer-universe": {
+                    "properties": {
+                      "wave_id": { "const": "C00U" },
+                      "resolvable": { "const": true },
+                      "blockers": { "const": [] }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "properties": {
+              "status": { "const": "BLOCKED" },
+              "annexes": {
+                "properties": {
+                  "consumer-universe": {
+                    "properties": {
+                      "wave_id": { "const": "C00U" },
+                      "resolvable": { "const": false },
+                      "blockers": { "$ref": "#/$defs/nonEmptyUniqueStringArray" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "if": { "properties": { "wave_id": { "const": "C05" } }, "required": ["wave_id"] },
+      "then": {
+        "properties": {
+          "annexes": {
+            "required": ["implementation-challenge", "consumer-universe"],
+            "properties": {
+              "consumer-universe": {
+                "properties": {
+                  "wave_id": { "const": "C05" },
+                  "resolvable": { "const": true },
+                  "blockers": { "const": [] }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "sha512": { "type": "string", "pattern": "^[0-9a-f]{128}$" },
+    "waveId": { "type": "string", "pattern": "^[PVKAGDMC][0-9]{2}[A-Z]?$" },
+    "decisionId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*(?:^|/)\\.(?:/|$))(?!.*\\\\).+$"
+    },
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "nonEmptyStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "nonEmptyUniqueStringArray": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "description"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "description": { "$ref": "#/$defs/nonEmpty" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "line": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "evidenceArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/evidence" }
+    },
+    "refusal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "capability", "context", "no_fallback", "evidence"],
+      "properties": {
+        "code": { "$ref": "#/$defs/decisionId" },
+        "capability": { "$ref": "#/$defs/nonEmpty" },
+        "context": { "$ref": "#/$defs/nonEmpty" },
+        "no_fallback": { "const": true },
+        "evidence": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "path", "branch", "head", "dirty_before_sha256", "dirty_after_sha256"],
+      "properties": {
+        "repository": { "$ref": "#/$defs/nonEmpty" },
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "branch": { "$ref": "#/$defs/nonEmpty" },
+        "head": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "dirty_before_sha256": { "$ref": "#/$defs/sha256" },
+        "dirty_after_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "repositoryState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "path", "sha256"],
+      "properties": {
+        "repository": { "$ref": "#/$defs/nonEmpty" },
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "seedRequirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": { "disposition": { "const": "banked" } },
+            "required": ["disposition"]
+          },
+          "then": { "required": ["retrigger"] },
+          "else": { "not": { "required": ["retrigger"] } }
+        }
+      ],
+      "required": ["id", "source", "phase", "disposition", "decision", "amendments"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmpty" },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["seed", "excerpt_sha256"],
+          "properties": {
+            "seed": { "enum": ["kickoff", "handoff"] },
+            "excerpt_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "phase": { "enum": ["formation", "implementation", "both"] },
+        "disposition": { "enum": ["folded", "banked", "retired"] },
+        "decision": { "$ref": "#/$defs/nonEmpty" },
+        "retrigger": { "$ref": "#/$defs/nonEmpty" },
+        "amendments": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "dependencyReturn": {
+      "description": "One exact direct producer return bound by a canonical producer-to-consumer edge and its central allowed-status policy.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wave_id", "path", "file_sha256", "return_hash", "wave_contract_sha256", "repository_states", "corpus_epoch"],
+      "properties": {
+        "wave_id": { "$ref": "#/$defs/waveId" },
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "return_hash": { "$ref": "#/$defs/sha256" },
+        "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+        "repository_states": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/repositoryState" }
+        },
+        "corpus_epoch": {
+          "oneOf": [
+            { "$ref": "#/$defs/notApplicable" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["applicability", "path", "sha256"],
+              "properties": {
+                "applicability": { "const": "applicable" },
+                "path": { "$ref": "#/$defs/nonEmpty" },
+                "sha256": { "$ref": "#/$defs/sha256" }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "notApplicable": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["applicability", "reason"],
+      "properties": {
+        "applicability": { "const": "not_applicable" },
+        "reason": { "$ref": "#/$defs/nonEmpty" }
+      }
+    },
+    "repositoryPath": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "path"],
+      "properties": {
+        "repository": { "$ref": "#/$defs/nonEmpty" },
+        "path": { "$ref": "#/$defs/relativePath" }
+      }
+    },
+    "decisionFileEffects": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["deleted", "modified"],
+      "properties": {
+        "deleted": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        },
+        "modified": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/repositoryPath" }
+        }
+      }
+    },
+    "deletionDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "decision_hash", "file_effects"],
+      "properties": {
+        "decision_id": { "$ref": "#/$defs/decisionId" },
+        "decision_hash": { "$ref": "#/$defs/sha256" },
+        "file_effects": { "$ref": "#/$defs/decisionFileEffects" }
+      }
+    },
+    "deletionJudgmentAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "phase", "path", "file_sha256", "annex_hash"],
+      "properties": {
+        "schema": { "const": "vnext-deletion-judgment-return-annex/1" },
+        "wave_id": { "$ref": "#/$defs/waveId" },
+        "phase": { "enum": ["owner-precut", "c05-rehearsal", "c10-final"] },
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "annex_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueTargetNodeDecision": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "kind", "disposition", "target_id", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/decisionId" },
+            "kind": { "enum": ["source", "test", "export"] },
+            "disposition": { "const": "introduce" },
+            "target_id": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "kind", "current_id", "current_sha256", "disposition", "tombstone", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/decisionId" },
+            "kind": { "enum": ["source", "test", "export"] },
+            "current_id": { "$ref": "#/$defs/nonEmpty" },
+            "current_sha256": { "$ref": "#/$defs/sha256" },
+            "disposition": { "const": "delete" },
+            "tombstone": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["decision_id", "kind", "current_id", "current_sha256", "disposition", "target_id", "decision_hash"],
+          "properties": {
+            "decision_id": { "$ref": "#/$defs/decisionId" },
+            "kind": { "enum": ["source", "test", "export"] },
+            "current_id": { "$ref": "#/$defs/nonEmpty" },
+            "current_sha256": { "$ref": "#/$defs/sha256" },
+            "disposition": { "enum": ["keep", "move", "fold"] },
+            "target_id": { "$ref": "#/$defs/nonEmpty" },
+            "decision_hash": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "valueTargetConditionalDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "kind", "source", "test", "outcome", "decision_hash"],
+      "properties": {
+        "decision_id": { "$ref": "#/$defs/decisionId" },
+        "kind": { "const": "conditional-pair" },
+        "source": { "$ref": "#/$defs/relativePath" },
+        "test": { "$ref": "#/$defs/relativePath" },
+        "outcome": { "enum": ["KEEP", "PRUNE"] },
+        "decision_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueTargetPackageTombstoneDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["decision_id", "kind", "specifier", "disposition", "rationale", "decision_hash"],
+      "properties": {
+        "decision_id": { "$ref": "#/$defs/decisionId" },
+        "kind": { "const": "package-tombstone" },
+        "specifier": { "enum": [".", "./quantize", "./value"] },
+        "disposition": { "const": "tombstone" },
+        "rationale": { "$ref": "#/$defs/nonEmpty" },
+        "decision_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueTargetDispositionAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "decisions"],
+      "properties": {
+        "schema": { "const": "vnext-value-target-disposition-return-annex/1" },
+        "wave_id": { "$ref": "#/$defs/waveId" },
+        "decisions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              { "$ref": "#/$defs/valueTargetNodeDecision" },
+              { "$ref": "#/$defs/valueTargetConditionalDecision" },
+              { "$ref": "#/$defs/valueTargetPackageTombstoneDecision" }
+            ]
+          }
+        }
+      }
+    },
+    "valueTargetArtifactBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "contract_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "contract_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueCurrentInventoryAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "inventory", "capture_receipt", "replay_receipt"],
+      "properties": {
+        "schema": { "const": "vnext-value-current-inventory-return-annex/1" },
+        "wave_id": { "const": "V00A" },
+        "inventory": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "capture_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" },
+        "replay_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" }
+      }
+    },
+    "valueTargetReceiptBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "receipt_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "receipt_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueTargetReturnBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "return_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "return_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "valueTargetTransposeAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "value_root", "repository_state_sha256", "ledger", "current_inventory", "current_inventory_return", "target_paths", "conditional_resolutions", "css_execution_manifest", "public_surface", "physical_truth_receipt", "validation_receipt"],
+      "properties": {
+        "schema": { "const": "vnext-value-target-transpose-return-annex/1" },
+        "wave_id": { "const": "V29T" },
+        "value_root": { "$ref": "#/$defs/nonEmpty" },
+        "repository_state_sha256": { "$ref": "#/$defs/sha256" },
+        "ledger": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "current_inventory": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "current_inventory_return": { "$ref": "#/$defs/valueTargetReturnBinding" },
+        "target_paths": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "conditional_resolutions": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "css_execution_manifest": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "public_surface": { "$ref": "#/$defs/valueTargetArtifactBinding" },
+        "physical_truth_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" },
+        "validation_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" }
+      }
+    },
+    "keyframesInventoryBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "inventory_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "inventory_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "keyframesManifestBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "keyframesTargetBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "keyframesDecisionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "annex_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/nonEmpty" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "annex_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "keyframesDelivery": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "tests", "support", "removed_paths", "replaced_paths"],
+      "properties": {
+        "source": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "tests": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "support": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "removed_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "replaced_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } }
+      }
+    },
+    "keyframesCurrentInventoryAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "scope", "inventory", "capture_receipt", "replay_receipt"],
+      "properties": {
+        "schema": { "const": "vnext-keyframes-current-inventory-return-annex/1" },
+        "wave_id": { "enum": ["K00", "M00"] },
+        "scope": { "enum": ["library", "demo"] },
+        "inventory": { "$ref": "#/$defs/keyframesInventoryBinding" },
+        "capture_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" },
+        "replay_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" }
+      },
+      "allOf": [
+        { "if": { "properties": { "scope": { "const": "library" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "K00" } } } },
+        { "if": { "properties": { "scope": { "const": "demo" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "M00" } } } }
+      ]
+    },
+    "keyframesTargetTransposeAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "scope", "repository_state_sha256", "ledger", "current_inventory", "current_inventory_return", "target_paths", "local_decisions", "physical_truth", "delivery", "validation_receipt"],
+      "properties": {
+        "schema": { "const": "vnext-keyframes-target-transpose-return-annex/1" },
+        "wave_id": { "enum": ["K22T", "M10T"] },
+        "scope": { "enum": ["library", "demo"] },
+        "repository_state_sha256": { "$ref": "#/$defs/sha256" },
+        "ledger": { "$ref": "#/$defs/keyframesManifestBinding" },
+        "current_inventory": { "$ref": "#/$defs/keyframesInventoryBinding" },
+        "current_inventory_return": { "$ref": "#/$defs/valueTargetReturnBinding" },
+        "target_paths": { "$ref": "#/$defs/keyframesTargetBinding" },
+        "local_decisions": { "$ref": "#/$defs/keyframesDecisionBinding" },
+        "physical_truth": { "$ref": "#/$defs/valueTargetReceiptBinding" },
+        "delivery": { "$ref": "#/$defs/keyframesDelivery" },
+        "validation_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" }
+      },
+      "allOf": [
+        { "if": { "properties": { "scope": { "const": "library" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "K22T" } } } },
+        { "if": { "properties": { "scope": { "const": "demo" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "M10T" } } } }
+      ]
+    },
+    "keyframesPublicPackageAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "manifest", "source_transpose_return", "target_paths", "package", "validation_receipt"],
+      "properties": {
+        "schema": { "const": "vnext-keyframes-public-package-return-annex/1" },
+        "wave_id": { "const": "K23" },
+        "manifest": { "$ref": "#/$defs/keyframesManifestBinding" },
+        "source_transpose_return": { "$ref": "#/$defs/valueTargetReturnBinding" },
+        "target_paths": { "$ref": "#/$defs/keyframesTargetBinding" },
+        "package": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "tarball_sha256", "tarball_sha512", "integrity", "archive_files_sha256"],
+          "properties": {
+            "name": { "const": "@mkbabb/keyframes.js" },
+            "version": { "const": "7.0.0" },
+            "tarball_sha256": { "$ref": "#/$defs/sha256" },
+            "tarball_sha512": { "$ref": "#/$defs/sha512" },
+            "integrity": { "$ref": "#/$defs/nonEmpty" },
+            "archive_files_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "validation_receipt": { "$ref": "#/$defs/valueTargetReceiptBinding" }
+      }
+    },
+    "gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "command_or_probe", "expected", "result", "receipt", "evidence"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "kind": { "enum": ["command", "probe", "manual"] },
+        "command_or_probe": { "$ref": "#/$defs/nonEmpty" },
+        "expected": { "$ref": "#/$defs/nonEmpty" },
+        "result": { "enum": ["pass", "fail", "not_run"] },
+        "receipt": { "$ref": "#/$defs/evidence" },
+        "evidence": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "dagSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "nodes_before", "nodes_after", "edges_before", "edges_after", "runtime_scc_before", "runtime_scc_after", "public_edges_added", "public_edges_removed", "test_isomorphism", "evidence"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "nodes_before": { "type": "integer", "minimum": 0 },
+            "nodes_after": { "type": "integer", "minimum": 0 },
+            "edges_before": { "type": "integer", "minimum": 0 },
+            "edges_after": { "type": "integer", "minimum": 0 },
+            "runtime_scc_before": { "type": "integer", "minimum": 0 },
+            "runtime_scc_after": { "type": "integer", "minimum": 0 },
+            "public_edges_added": { "$ref": "#/$defs/stringArray" },
+            "public_edges_removed": { "$ref": "#/$defs/stringArray" },
+            "test_isomorphism": { "$ref": "#/$defs/nonEmpty" },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        }
+      ]
+    },
+    "apiSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "api_source_sha256", "api_return_coverage_sha256", "owned_http_operation_ids", "owned_headless_operation_ids", "audited_http_operation_ids", "audited_headless_operation_ids", "validators", "authority_vectors", "representations", "cas_etag_idempotency", "authorization_privacy", "migrations", "evidence"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "api_source_sha256": { "$ref": "#/$defs/sha256" },
+            "api_return_coverage_sha256": { "$ref": "#/$defs/sha256" },
+            "owned_http_operation_ids": { "$ref": "#/$defs/stringArray" },
+            "owned_headless_operation_ids": { "$ref": "#/$defs/stringArray" },
+            "audited_http_operation_ids": { "$ref": "#/$defs/stringArray" },
+            "audited_headless_operation_ids": { "$ref": "#/$defs/stringArray" },
+            "validators": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "authority_vectors": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "representations": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "cas_etag_idempotency": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "authorization_privacy": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "migrations": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        }
+      ]
+    },
+    "visualSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "captures"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "captures": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["route_state", "viewport_theme", "pi", "delta", "semantic_input_evidence"],
+                "properties": {
+                  "route_state": { "$ref": "#/$defs/nonEmpty" },
+                  "viewport_theme": { "$ref": "#/$defs/nonEmpty" },
+                  "pi": { "$ref": "#/$defs/evidence" },
+                  "delta": { "$ref": "#/$defs/evidence" },
+                  "semantic_input_evidence": { "$ref": "#/$defs/evidenceArray" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "performanceSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "environment", "workload", "warmup", "samples", "metrics", "allocation_memory", "bundle_frame_energy", "decision", "evidence"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "environment": { "$ref": "#/$defs/nonEmpty" },
+            "workload": { "$ref": "#/$defs/nonEmpty" },
+            "warmup": { "$ref": "#/$defs/nonEmpty" },
+            "samples": { "type": "integer", "minimum": 1 },
+            "metrics": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "allocation_memory": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "bundle_frame_energy": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "decision": { "$ref": "#/$defs/nonEmpty" },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        }
+      ]
+    },
+    "limitsSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "manifest_sha256", "at_limit", "plus_one", "work_counters", "child_process", "poisoned_globals", "evidence"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "manifest_sha256": { "$ref": "#/$defs/sha256" },
+            "at_limit": { "$ref": "#/$defs/nonEmpty" },
+            "plus_one": { "$ref": "#/$defs/nonEmpty" },
+            "work_counters": { "$ref": "#/$defs/nonEmptyStringArray" },
+            "child_process": { "$ref": "#/$defs/nonEmpty" },
+            "poisoned_globals": { "$ref": "#/$defs/stringArray" },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        }
+      ]
+    },
+    "consumerClass": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "items"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "items": { "$ref": "#/$defs/nonEmptyStringArray" }
+          }
+        }
+      ]
+    },
+    "consumerSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "direct", "peer", "transitive", "casualties", "migrations", "packed_evidence"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "direct": { "$ref": "#/$defs/consumerClass" },
+            "peer": { "$ref": "#/$defs/consumerClass" },
+            "transitive": { "$ref": "#/$defs/consumerClass" },
+            "casualties": { "$ref": "#/$defs/stringArray" },
+            "migrations": { "$ref": "#/$defs/stringArray" },
+            "packed_evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        }
+      ]
+    },
+    "implementationChallengeAxes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tranche_fit_optimality", "wave_contract_adherence_friction", "feature_behavior"],
+      "properties": {
+        "tranche_fit_optimality": { "$ref": "#/$defs/evidenceArray" },
+        "wave_contract_adherence_friction": { "$ref": "#/$defs/evidenceArray" },
+        "feature_behavior": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "implementationChallengeCritic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "posture", "session_id", "session_jsonl", "report", "axes", "verdict", "unresolved_findings"],
+      "properties": {
+        "role": { "enum": ["critic_a", "critic_b"] },
+        "posture": { "const": "assume-wave-wrong" },
+        "session_id": { "$ref": "#/$defs/nonEmpty" },
+        "session_jsonl": { "$ref": "#/$defs/evidence" },
+        "report": { "$ref": "#/$defs/evidence" },
+        "axes": { "$ref": "#/$defs/implementationChallengeAxes" },
+        "verdict": { "const": "clean" },
+        "unresolved_findings": {
+          "type": "array",
+          "maxItems": 0,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "implementationChallengeAdjudicator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "posture", "session_id", "session_jsonl", "report", "input_report_sha256", "axes", "verdict", "unresolved_findings"],
+      "properties": {
+        "role": { "const": "adjudicator" },
+        "posture": { "const": "adjudicate-not-vote" },
+        "session_id": { "$ref": "#/$defs/nonEmpty" },
+        "session_jsonl": { "$ref": "#/$defs/evidence" },
+        "report": { "$ref": "#/$defs/evidence" },
+        "input_report_sha256": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "axes": { "$ref": "#/$defs/implementationChallengeAxes" },
+        "verdict": { "const": "ratified" },
+        "unresolved_findings": {
+          "type": "array",
+          "maxItems": 0,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        }
+      }
+    },
+    "implementationChallengeAnnex": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "applicability", "wave_id", "wave_contract_sha256", "repository_states", "critics", "adjudicator"],
+          "properties": {
+            "schema": { "const": "vnext-implementation-challenge/1" },
+            "applicability": { "const": "applicable" },
+            "wave_id": { "$ref": "#/$defs/waveId" },
+            "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+            "repository_states": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "#/$defs/repositoryState" }
+            },
+            "critics": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": { "$ref": "#/$defs/implementationChallengeCritic" }
+            },
+            "adjudicator": { "$ref": "#/$defs/implementationChallengeAdjudicator" }
+          }
+        }
+      ]
+    },
+    "closureAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["attempt", "verdict", "inspected_corpus_sha256", "reopened_owners", "resolved_reopenings"],
+      "properties": {
+        "attempt": { "type": "integer", "minimum": 1 },
+        "verdict": { "enum": ["clean", "not_clean"] },
+        "inspected_corpus_sha256": { "$ref": "#/$defs/sha256" },
+        "reopened_owners": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/waveId" }
+        },
+        "resolved_reopenings": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["wave_id", "owner_return_hash"],
+            "properties": {
+              "wave_id": { "$ref": "#/$defs/waveId" },
+              "owner_return_hash": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "resolved_dependency_receipt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "sha256", "receipt_hash"],
+          "properties": {
+            "path": { "$ref": "#/$defs/nonEmpty" },
+            "sha256": { "$ref": "#/$defs/sha256" },
+            "receipt_hash": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      }
+    },
+    "consumerUniverseDeltaEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "change", "before_sha256", "after_sha256", "owner_wave", "decision", "evidence"],
+      "properties": {
+        "id": { "$ref": "#/$defs/nonEmpty" },
+        "change": { "enum": ["added", "removed", "changed"] },
+        "before_sha256": {
+          "oneOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "const": "absent" }
+          ]
+        },
+        "after_sha256": {
+          "oneOf": [
+            { "$ref": "#/$defs/sha256" },
+            { "const": "absent" }
+          ]
+        },
+        "owner_wave": { "$ref": "#/$defs/waveId" },
+        "decision": { "$ref": "#/$defs/nonEmpty" },
+        "evidence": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "consumerUniverseBaseline": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "c00u_return_path", "c00u_return_file_sha256", "c00u_return_hash", "c00u_receipt_hash", "c00u_epoch_sha256", "roots", "edges", "delta_sha256"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "c00u_return_path": { "$ref": "#/$defs/nonEmpty" },
+            "c00u_return_file_sha256": { "$ref": "#/$defs/sha256" },
+            "c00u_return_hash": { "$ref": "#/$defs/sha256" },
+            "c00u_receipt_hash": { "$ref": "#/$defs/sha256" },
+            "c00u_epoch_sha256": { "$ref": "#/$defs/sha256" },
+            "roots": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/consumerUniverseDeltaEntry" }
+            },
+            "edges": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/consumerUniverseDeltaEntry" }
+            },
+            "delta_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "consumerBoundsAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/", "minLength": 2 },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "consumerUniverseAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "wave_id", "receipt_path", "receipt_file_sha256", "receipt_hash", "input_path", "input_file_sha256", "universe_hash", "resolver_sha256", "input_schema_sha256", "receipt_schema_sha256", "bounds_authority", "bounds_sha256", "formation_wave_registry_sha256", "observed_at", "resolved_at", "epoch", "counts", "roots_sha256", "edges_sha256", "resolvable", "blockers", "baseline"],
+      "properties": {
+        "schema": { "const": "vnext-consumer-universe-return-annex/1" },
+        "wave_id": { "enum": ["C00U", "C05"] },
+        "receipt_path": { "$ref": "#/$defs/nonEmpty" },
+        "receipt_file_sha256": { "$ref": "#/$defs/sha256" },
+        "receipt_hash": { "$ref": "#/$defs/sha256" },
+        "input_path": { "$ref": "#/$defs/nonEmpty" },
+        "input_file_sha256": { "$ref": "#/$defs/sha256" },
+        "universe_hash": { "$ref": "#/$defs/sha256" },
+        "resolver_sha256": { "$ref": "#/$defs/sha256" },
+        "input_schema_sha256": { "$ref": "#/$defs/sha256" },
+        "receipt_schema_sha256": { "$ref": "#/$defs/sha256" },
+        "bounds_authority": { "$ref": "#/$defs/consumerBoundsAuthority" },
+        "bounds_sha256": { "$ref": "#/$defs/sha256" },
+        "formation_wave_registry_sha256": { "$ref": "#/$defs/sha256" },
+        "observed_at": { "type": "string", "format": "date-time" },
+        "resolved_at": { "type": "string", "format": "date-time" },
+        "epoch": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["started_at", "completed_at", "max_age_seconds", "bounds_sha256", "observed_roots_sha256", "observed_edges_sha256", "epoch_sha256"],
+          "properties": {
+            "started_at": { "type": "string", "format": "date-time" },
+            "completed_at": { "type": "string", "format": "date-time" },
+            "max_age_seconds": { "type": "integer", "minimum": 1 },
+            "bounds_sha256": { "$ref": "#/$defs/sha256" },
+            "observed_roots_sha256": { "$ref": "#/$defs/sha256" },
+            "observed_edges_sha256": { "$ref": "#/$defs/sha256" },
+            "epoch_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["roots", "included_roots", "excluded_roots", "unavailable_roots", "edges", "included_edges", "excluded_edges", "unavailable_edges", "observations"],
+          "properties": {
+            "roots": { "type": "integer", "minimum": 0 },
+            "included_roots": { "type": "integer", "minimum": 0 },
+            "excluded_roots": { "type": "integer", "minimum": 0 },
+            "unavailable_roots": { "type": "integer", "minimum": 0 },
+            "edges": { "type": "integer", "minimum": 0 },
+            "included_edges": { "type": "integer", "minimum": 0 },
+            "excluded_edges": { "type": "integer", "minimum": 0 },
+            "unavailable_edges": { "type": "integer", "minimum": 0 },
+            "observations": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "roots_sha256": { "$ref": "#/$defs/sha256" },
+        "edges_sha256": { "$ref": "#/$defs/sha256" },
+        "resolvable": { "type": "boolean" },
+        "blockers": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/nonEmpty" }
+        },
+        "baseline": { "$ref": "#/$defs/consumerUniverseBaseline" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "wave_id": { "const": "C00U" } }, "required": ["wave_id"] },
+          "then": {
+            "oneOf": [
+              {
+                "properties": {
+                  "resolvable": { "const": true },
+                  "blockers": { "const": [] }
+                }
+              },
+              {
+                "properties": {
+                  "resolvable": { "const": false },
+                  "blockers": { "$ref": "#/$defs/nonEmptyUniqueStringArray" }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": { "properties": { "wave_id": { "const": "C05" } }, "required": ["wave_id"] },
+          "then": {
+            "properties": {
+              "resolvable": { "const": true },
+              "blockers": { "const": [] }
+            }
+          }
+        }
+      ]
+    },
+    "releaseAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "parse_that", "packages", "api_migrations", "removed_surfaces", "consumers", "smoke", "temporary_tag", "rollback", "unresolved_waves", "new_contracts_only"],
+      "properties": {
+        "sequence": {
+          "const": ["parse-that", "value", "keyframes", "glass-ui", "value-api", "fourier-api", "consumers", "smoke", "promote", "remove-temp-tag"]
+        },
+        "parse_that": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["branch", "version", "published", "evidence"],
+          "properties": {
+            "branch": { "const": "unchanged-1.0.0-no-republish" },
+            "version": { "const": "1.0.0" },
+            "published": { "const": false },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        },
+        "packages": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "version", "registry_integrity", "tarball_sha512", "manifest_sha256", "peer_dependencies", "evidence"],
+            "properties": {
+              "name": { "enum": ["@mkbabb/value.js", "@mkbabb/keyframes.js", "@mkbabb/glass-ui"] },
+              "version": { "enum": ["5.0.0", "7.0.0", "8.0.0"] },
+              "registry_integrity": { "type": "string", "pattern": "^sha512-[A-Za-z0-9+/]+={0,2}$" },
+              "tarball_sha512": { "type": "string", "pattern": "^[0-9a-f]{128}$" },
+              "manifest_sha256": { "$ref": "#/$defs/sha256" },
+              "peer_dependencies": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["name", "range", "optional"],
+                  "properties": {
+                    "name": { "$ref": "#/$defs/nonEmpty" },
+                    "range": { "$ref": "#/$defs/nonEmpty" },
+                    "optional": { "type": "boolean" }
+                  }
+                }
+              },
+              "evidence": { "$ref": "#/$defs/evidenceArray" }
+            }
+          }
+        },
+        "api_migrations": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["service", "migration_id", "before_schema_sha256", "after_schema_sha256", "result", "rollback_id", "evidence"],
+            "properties": {
+              "service": { "enum": ["value", "fourier"] },
+              "migration_id": { "$ref": "#/$defs/nonEmpty" },
+              "before_schema_sha256": { "$ref": "#/$defs/sha256" },
+              "after_schema_sha256": { "$ref": "#/$defs/sha256" },
+              "result": { "const": "applied" },
+              "rollback_id": { "$ref": "#/$defs/nonEmpty" },
+              "evidence": { "$ref": "#/$defs/evidenceArray" }
+            }
+          }
+        },
+        "removed_surfaces": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["decision_id", "decision_hash", "owner_wave", "surface", "tombstone"],
+            "properties": {
+              "decision_id": { "$ref": "#/$defs/decisionId" },
+              "decision_hash": { "$ref": "#/$defs/sha256" },
+              "owner_wave": { "$ref": "#/$defs/waveId" },
+              "surface": { "$ref": "#/$defs/nonEmpty" },
+              "tombstone": { "$ref": "#/$defs/nonEmpty" }
+            }
+          }
+        },
+        "consumers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["root", "branch", "head", "lock_sha256", "deployed_versions", "evidence"],
+            "properties": {
+              "root": { "$ref": "#/$defs/nonEmpty" },
+              "branch": { "$ref": "#/$defs/nonEmpty" },
+              "head": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+              "lock_sha256": { "$ref": "#/$defs/sha256" },
+              "deployed_versions": { "$ref": "#/$defs/nonEmptyStringArray" },
+              "evidence": { "$ref": "#/$defs/evidenceArray" }
+            }
+          }
+        },
+        "smoke": { "$ref": "#/$defs/evidenceArray" },
+        "temporary_tag": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "removed", "evidence"],
+          "properties": {
+            "name": { "$ref": "#/$defs/nonEmpty" },
+            "removed": { "const": true },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        },
+        "rollback": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["boundary", "procedure", "evidence"],
+          "properties": {
+            "boundary": { "$ref": "#/$defs/nonEmpty" },
+            "procedure": { "$ref": "#/$defs/nonEmpty" },
+            "evidence": { "$ref": "#/$defs/evidenceArray" }
+          }
+        },
+        "unresolved_waves": { "const": [] },
+        "new_contracts_only": { "const": true }
+      }
+    },
+    "parserAnnex": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "scope_class", "package", "coordinate_domains", "parser_invocations", "route_coverage", "control_receipt_sha256", "external_handoff_sha256", "blockers", "evidence"],
+      "properties": {
+        "schema": { "const": "vnext-parser-annex/1" },
+        "scope_class": { "enum": ["baseline", "prototype", "necessity-adjudication", "banked-proposal", "published-control", "control-crater", "consumer-crater", "acceptance"] },
+        "package": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "registry_spec", "branch", "integrity", "tarball_sha256", "package_json_sha256", "file_count", "file_manifest_sha256", "runtime_files_sha256", "declaration_files_sha256", "export_conditions_sha256", "no_link_install_sha256", "receipt_hash"],
+          "properties": {
+            "name": { "const": "@mkbabb/parse-that" },
+            "version": { "const": "1.0.0" },
+            "registry_spec": { "const": "@mkbabb/parse-that@1.0.0" },
+            "branch": { "const": "unchanged-1.0.0-no-republish" },
+            "integrity": { "type": "string", "pattern": "^sha512-[A-Za-z0-9+/]+={0,2}$" },
+            "tarball_sha256": { "$ref": "#/$defs/sha256" },
+            "package_json_sha256": { "$ref": "#/$defs/sha256" },
+            "file_count": { "type": "integer", "minimum": 1 },
+            "file_manifest_sha256": { "$ref": "#/$defs/sha256" },
+            "runtime_files_sha256": { "$ref": "#/$defs/sha256" },
+            "declaration_files_sha256": { "$ref": "#/$defs/sha256" },
+            "export_conditions_sha256": { "$ref": "#/$defs/sha256" },
+            "no_link_install_sha256": { "$ref": "#/$defs/sha256" },
+            "receipt_hash": { "$ref": "#/$defs/sha256" }
+          }
+        },
+        "coordinate_domains": { "const": ["original-utf16", "processed-utf16", "utf8-byte", "grammar-byte"] },
+        "parser_invocations": { "type": "integer", "minimum": 0 },
+        "route_coverage": { "$ref": "#/$defs/stringArray" },
+        "control_receipt_sha256": { "$ref": "#/$defs/sha256" },
+        "external_handoff_sha256": { "$ref": "#/$defs/sha256" },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["defect_id", "disposition", "owner", "evidence_sha256"],
+            "properties": {
+              "defect_id": { "$ref": "#/$defs/nonEmpty" },
+              "disposition": { "enum": ["not-reproduced", "external-routed", "blocks-adoption"] },
+              "owner": { "const": "active-bbnf-parse-that-campaign" },
+              "evidence_sha256": { "$ref": "#/$defs/sha256" }
+            }
+          }
+        },
+        "evidence": { "$ref": "#/$defs/evidenceArray" }
+      }
+    },
+    "operationOutcome": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "evidence"],
+          "properties": { "status": { "const": "implemented" }, "evidence": { "$ref": "#/$defs/evidenceArray" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "capability", "evidence"],
+          "properties": { "status": { "const": "delegated" }, "capability": { "$ref": "#/$defs/nonEmpty" }, "evidence": { "$ref": "#/$defs/evidenceArray" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "evidence"],
+          "properties": { "status": { "const": "preserved_syntax_only" }, "evidence": { "$ref": "#/$defs/evidenceArray" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "code", "evidence"],
+          "properties": { "status": { "const": "refused" }, "code": { "$ref": "#/$defs/nonEmpty" }, "evidence": { "$ref": "#/$defs/evidenceArray" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "reason"],
+          "properties": { "status": { "const": "not_applicable" }, "reason": { "$ref": "#/$defs/nonEmpty" } }
+        }
+      ]
+    },
+    "standardsSection": {
+      "oneOf": [
+        { "$ref": "#/$defs/notApplicable" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["applicability", "manifest_sha256", "rows"],
+          "properties": {
+            "applicability": { "const": "applicable" },
+            "manifest_sha256": { "$ref": "#/$defs/sha256" },
+            "rows": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["feature_key", "parse", "type", "evaluate", "resolve", "adapt", "exact", "edit", "canonical", "maturity_interop"],
+                "properties": {
+                  "feature_key": { "$ref": "#/$defs/nonEmpty" },
+                  "parse": { "$ref": "#/$defs/operationOutcome" },
+                  "type": { "$ref": "#/$defs/operationOutcome" },
+                  "evaluate": { "$ref": "#/$defs/operationOutcome" },
+                  "resolve": { "$ref": "#/$defs/operationOutcome" },
+                  "adapt": { "$ref": "#/$defs/operationOutcome" },
+                  "exact": { "$ref": "#/$defs/operationOutcome" },
+                  "edit": { "$ref": "#/$defs/operationOutcome" },
+                  "canonical": { "$ref": "#/$defs/operationOutcome" },
+                  "maturity_interop": { "$ref": "#/$defs/nonEmpty" }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "remainder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["finding", "owner", "blocking"],
+      "properties": {
+        "finding": { "$ref": "#/$defs/nonEmpty" },
+        "owner": { "oneOf": [{ "$ref": "#/$defs/waveId" }, { "type": "string", "pattern": "^handoff:[a-z0-9-]+$" }] },
+        "blocking": { "type": "boolean" }
+      }
+    }
+  }
+}

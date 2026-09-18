@@ -1,0 +1,37 @@
+{
+  "schema": "vnext-clean-provider-bootstrap-authority/1",
+  "purpose": "Pre-campaign provider bootstrap authority for the two frozen-corpus clean passes. This calibration is part of the corpus epoch and cannot be supplied or changed by the eventual clean-pass manifest.",
+  "calibrated_at": "2026-07-19T20:05:53.477Z",
+  "calibration": {
+    "agent_path": "/root/rr14_18_skeptic_a",
+    "session_id": "019f7bfc-2eb2-7a70-b52a-d6be55dea6b7",
+    "parent_session_id": "019f7399-10f6-7743-8494-a4574b44d604",
+    "session_jsonl": "/Users/mkbabb/.codex/sessions/2026/07/19/rollout-2026-07-19T16-05-52-019f7bfc-2eb2-7a70-b52a-d6be55dea6b7.jsonl",
+    "prefix_end_line": 8,
+    "prefix_sha256": "f05b09d551cbc22d968d76466d8a8172f9c404b16947ec2df8c6999b0305474d"
+  },
+  "bootstrap": {
+    "baseInstructions": "cbefa6b0bede0e332d957fca70ccacf9f12f4c0ecdf81b819e5cbe1a3b16e265",
+    "worldState": "90fbb1217873479c64d94d943c7f9811ba34b3b522f958d6cd29b87d3f3fa726",
+    "turnContext": "afa7a4b6d825984b3551ab4770235c831f9f4ef14150ac7633c79280cb81dc12",
+    "developer": [
+      [
+        "681b5ba580483b28751dbafd95e30f80ebb6ab9cc2d3ca4462f0f187d0784070",
+        "b420a9492c85fc1ae4d8a759725e3e74a49f7f0a68f1f4132c914f0c1d46af62",
+        "b4536c3dbcedfee06f46c2230eb1080dc225b45187715f41095289bacba3759a",
+        "81d37acb6feff552b562f712b1e854339d90a0b19aa9f271047cca787f77a51a",
+        "b7e58cc21e84ee00cb12f118e0533850770e6f9f407863f641e4c11b2035e7a1"
+      ],
+      ["d7bb637eba8b08ab8a07b90ddb0d8c6718545aad42d53b4566b4800604f4cc81"],
+      ["97019a876be50b868f7630b3171f2a01de836d60cbe417420695eabd897d170d"]
+    ],
+    "user": [
+      [
+        "81da1dc4dab7b01d42257e40fb23ae98015dde03171ee59573839c2189825370",
+        "e3c6dcff02eb4536f08f7adc387049441a19aa9b67cb9b7ccf133f9951d3a84f",
+        "f93547e5fea2a02a4595dc3dd19ad73bc2f133a6b6ec26a048d9a160348fbdff"
+      ]
+    ]
+  },
+  "manifest_hash": "8f0a30a2f6321ee4682dc8aa3646ef8ff31c0e6b888a331f8c75aca43f410f08"
+}

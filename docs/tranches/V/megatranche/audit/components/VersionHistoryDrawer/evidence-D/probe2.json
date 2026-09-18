@@ -1,0 +1,2932 @@
+{
+ "requestLog": [
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes/census-palette/versions?limit=20&offset=20",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest",
+  "/palettes/census-palette/versions?limit=20&offset=0",
+  "/palettes?limit=50&sort=newest"
+ ],
+ "firstOpen": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 0,
+  "versionLabels": [],
+  "scrollerScrollH": 759,
+  "scrollerClientH": 759,
+  "scrollerOverflows": false,
+  "innerIsScroller": true,
+  "swatchRows": [],
+  "plusChips": [],
+  "truncated": [],
+  "rowInfo": [],
+  "loadMore": null,
+  "revertButtons": [],
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": null,
+  "timeSemantics": 0
+ },
+ "firstOpenVersionRequests": [
+  "http://localhost:9111/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/versions.ts"
+ ],
+ "secondOpen": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "secondOpenVersionRequests": [
+  "http://localhost:9111/@fs/Users/mkbabb/Programming/value.js/demo/palettes/api/versions.ts",
+  "http://localhost:9111/palettes/census-palette/versions?limit=20&offset=0"
+ ],
+ "scrolledBottom": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": true,
+   "top": 833
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "afterLoadMore": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 24,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5",
+   "v4",
+   "v3",
+   "v2",
+   "v1"
+  ],
+  "scrollerScrollH": 3266,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": null,
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B1-desktop-dark": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B2-mobile-390-light": {
+  "viewport": {
+   "w": 390,
+   "h": 844
+  },
+  "contentRect": {
+   "x": 97.5,
+   "w": 292.5,
+   "h": 844
+  },
+  "computedWidth": "292.5px",
+  "computedMaxWidth": "none",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 703,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 217
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 242.5,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "1",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 242.5,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 136,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "12.179px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "1",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B3-mobile-390-dark": {
+  "viewport": {
+   "w": 390,
+   "h": 844
+  },
+  "contentRect": {
+   "x": 97.5,
+   "w": 292.5,
+   "h": 844
+  },
+  "computedWidth": "292.5px",
+  "computedMaxWidth": "none",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 703,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 217
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 242.5,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.348597 0.008654 0.02038 / 0.5)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "1",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 242.5,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 242.5,
+    "bg": "oklab(0.345296 0.010372 0.017546)",
+    "border": "rgb(101, 87, 73)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 84,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 136,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "12.179px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "1",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 84,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B4-narrow-320-light": {
+  "viewport": {
+   "w": 320,
+   "h": 568
+  },
+  "contentRect": {
+   "x": 80,
+   "w": 240,
+   "h": 568
+  },
+  "computedWidth": "240px",
+  "computedMaxWidth": "none",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2774,
+  "scrollerClientH": 407,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 164
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 99.3,
+    "w": 190,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 190,
+    "bg": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "1",
+    "revertRect": {
+     "w": 83,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 190,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 83,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 190,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 83,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 190,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 83,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 190,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 83,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 134,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "12.032px",
+   "inViewport": false,
+   "top": 2867
+  },
+  "revertButtons": [
+   {
+    "w": 83,
+    "h": 36,
+    "opacity": "1",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 83,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 83,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B5-rtl-desktop": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B6-reduced-motion": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B7-zoom200": {
+  "viewport": {
+   "w": 720,
+   "h": 450
+  },
+  "contentRect": {
+   "x": 336,
+   "w": 384,
+   "h": 450
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 309,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 86,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 86,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 86,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 86,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 86,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 142,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "12.872px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 86,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 86,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 86,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "B8-short-viewport": {
+  "viewport": {
+   "w": 1440,
+   "h": 400
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 400
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 259,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "C1-error": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 0,
+  "versionLabels": [],
+  "scrollerScrollH": 759,
+  "scrollerClientH": 759,
+  "scrollerOverflows": false,
+  "innerIsScroller": true,
+  "swatchRows": [],
+  "plusChips": [],
+  "truncated": [],
+  "rowInfo": [],
+  "loadMore": null,
+  "revertButtons": [],
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": null,
+  "timeSemantics": 0
+ },
+ "C1-error-console": [
+  "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+  "Failed to load versions: ApiProblem: Internal Server Error"
+ ],
+ "C2-slow-loading": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056.1,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 0,
+  "versionLabels": [],
+  "scrollerScrollH": 759,
+  "scrollerClientH": 759,
+  "scrollerOverflows": false,
+  "innerIsScroller": true,
+  "swatchRows": [],
+  "plusChips": [],
+  "truncated": [],
+  "rowInfo": [],
+  "loadMore": null,
+  "revertButtons": [],
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": null,
+  "timeSemantics": 0
+ },
+ "C2-slow-loading-console": [],
+ "D1-hover": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "contentRect": {
+   "x": 1056,
+   "w": 384,
+   "h": 900
+  },
+  "computedWidth": "384px",
+  "computedMaxWidth": "384px",
+  "classList": [
+   "[--overlay-pad-inline:--spacing(6)]",
+   "[--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)]",
+   "px-(--overlay-pad-inline)",
+   "py-(--overlay-pad-block)",
+   "rounded-l-dialog",
+   "border-l",
+   "glass-floating",
+   "w-[380px]",
+   "sm:max-w-[420px]",
+   "flex",
+   "flex-col"
+  ],
+  "hasW380": true,
+  "hasSmMax420": true,
+  "ruleFor380": [
+   "@layer utilities {\n  .\\@container\\/aspect-ratio { container-type: inline-size; container-name: aspect-ratio; }\n  .\\@container\\/block-size { container-type: inli",
+   "@layer components {\n  :root { --animate-spin: spin 1s linear infinite; --container-lg: 32rem; --default-transition-duration: var(--duration-fast, 150ms); --defa"
+  ],
+  "rowCount": 20,
+  "versionLabels": [
+   "v24 (current)",
+   "v23",
+   "v22",
+   "v21",
+   "v20",
+   "v19",
+   "v18",
+   "v17",
+   "v16",
+   "v15",
+   "v14",
+   "v13",
+   "v12",
+   "v11",
+   "v10",
+   "v9",
+   "v8",
+   "v7",
+   "v6",
+   "v5"
+  ],
+  "scrollerScrollH": 2760,
+  "scrollerClientH": 759,
+  "scrollerOverflows": true,
+  "innerIsScroller": true,
+  "swatchRows": [
+   5,
+   8,
+   1,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "plusChips": [
+   "+6"
+  ],
+  "truncated": [
+   {
+    "t": "The Unabridged Chromatic Atlas of ",
+    "sw": 461,
+    "cw": 308
+   }
+  ],
+  "rowInfo": [
+   {
+    "text": "v24 (current)Mar 26 at 12:30 AMCensus Palette",
+    "h": 85.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": null,
+    "revertRect": null
+   },
+   {
+    "text": "v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "1",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert",
+    "h": 147.3,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   },
+   {
+    "text": "v19 Mar 21 at 12:30 AMCensus Palette rev 19 Revert",
+    "h": 129.5,
+    "w": 334,
+    "bg": "oklab(0.913299 0.005463 0.013024)",
+    "border": "rgb(198, 180, 159)",
+    "boxShadow": "none",
+    "transition": "color 0.2s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), outline-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), text-decoration-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), fill 0.2s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-from 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-via 0.2s cubic-bezier(0.4, 0, 0.2, 1), --tw-gradient-to 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+    "revertOpacity": "0",
+    "revertRect": {
+     "w": 90,
+     "h": 36
+    }
+   }
+  ],
+  "loadMore": {
+   "w": 156,
+   "h": 36,
+   "disabled": false,
+   "fontSize": "14.384px",
+   "inViewport": false,
+   "top": 2834
+  },
+  "revertButtons": [
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "1",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   },
+   {
+    "w": 90,
+    "h": 36,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "transition": "opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s cubi"
+   }
+  ],
+  "bodyText": "Version HistoryCensus Palette — 24 versions v24 (current)Mar 26 at 12:30 AMCensus Palette v23 Mar 25 at 12:30 AMCensus Palette rev 23 +6 Revert v22 Mar 24 at 12:30 AMCensus Palette rev 22 Revert v21 Mar 23 at 12:30 AMThe Unabridged Chromatic Atlas of Every Sunset We Have Ever Archived Together, Vol. II Revert v20 Mar 22 at 12:30 AMCensus Palette rev 20 Forked from cccccccc... Revert v19 Mar 21 at 12:30 AMCensus Palet",
+  "liveRegions": 0,
+  "headings": [
+   "H2:Version History"
+  ],
+  "listSemantics": {
+   "ul": 0,
+   "li": 0,
+   "roleList": 0
+  },
+  "swatchA11y": {
+   "ariaHidden": null,
+   "role": null,
+   "title": null,
+   "tag": "DIV",
+   "inlineStyle": "background-color: rgb(225, 29, 72);"
+  },
+  "timeSemantics": 0
+ },
+ "D2-tab-order": [
+  {
+   "tag": "BUTTON",
+   "text": "Revert",
+   "opacity": "1",
+   "visible": true,
+   "outline": "3px none",
+   "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px"
+  },
+  {
+   "tag": "BODY",
+   "text": "→BrowseToolsBrowsePalettes",
+   "opacity": "1",
+   "visible": true,
+   "outline": "3px none",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Revert",
+   "opacity": "1",
+   "visible": true,
+   "outline": "3px none",
+   "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0."
+  },
+  {
+   "tag": "BODY",
+   "text": "→BrowseToolsBrowsePalettes",
+   "opacity": "1",
+   "visible": true,
+   "outline": "3px none",
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Revert",
+   "opacity": "1",
+   "visible": true,
+   "outline": "3px none",
+   "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0."
+  }
+ ],
+ "E1-forced-colors": {
+  "error": "TimeoutError: locator.click: Timeout 20000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Palette menu' }).filter({ visible: true }).first()\u001b[22m\n"
+ }
+}

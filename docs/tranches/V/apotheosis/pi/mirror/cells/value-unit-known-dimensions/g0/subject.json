@@ -1,0 +1,53 @@
+{
+  "schema": "value.pi.value-unit-known-dimensions.subject/v1",
+  "feature": "VALUE-UNIT-KNOWN-DIMENSIONS",
+  "status": "CANDIDATES_CLOSED_AWAITING_SKEPTICS",
+  "brief": {
+    "path": "BRIEF.md",
+    "sha256": "5ca2a681200b98961d5815bddd9213c5ac82da353e226ed6ca20c0fa6959d07c"
+  },
+  "acceptedDependency": {
+    "path": "../../../apotheosis/grammar/css/l4/value-unit/numeric.ts",
+    "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+  },
+  "candidates": [
+    {
+      "seat": "h",
+      "path": "candidates/h/index.ts",
+      "sha256": "3d3580394d991e7d269e0f8269accb9466eed4221a6f60cbaaecb9be032a438e"
+    },
+    {
+      "seat": "b",
+      "path": "candidates/b/index.ts",
+      "sha256": "19bfcd4f5e94ac221d571c4eb72fa9f16c23f11cc95a23bceed74bb8798d3561"
+    },
+    {
+      "seat": "s",
+      "path": "candidates/s/index.ts",
+      "sha256": "ea6668ee8814057dcdd307f1b5056aa9e0fa0293f5a3a1b26d904f7a8575b713"
+    }
+  ],
+  "candidateNeutralEvidence": {
+    "fixtures": {
+      "path": "fixtures/manifest.json",
+      "sha256": "fddbdbaba3b6437c85950a412d2cb11f525a12ce57e61e4495f199b524321c2a"
+    },
+    "evaluator": {
+      "path": "evaluate-all.mts",
+      "sha256": "ec98929fd3c1b26a4fcad998a258b7eba603b3d82199be021c00110d44fb7f15"
+    },
+    "result": {
+      "status": "PASS",
+      "units": 62,
+      "successTransactions": 1131,
+      "failureTransactions": 36,
+      "hostileTransactions": 36,
+      "strictTypescript": "PASS"
+    }
+  },
+  "credit": {
+    "feature": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

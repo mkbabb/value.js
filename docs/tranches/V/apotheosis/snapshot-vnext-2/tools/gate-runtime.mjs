@@ -1,0 +1,33 @@
+import{createHash as L}from"node:crypto";import{execFileSync as u}from"node:child_process";import{existsSync as E,lstatSync as w,readdirSync as N,readFileSync as A,readlinkSync as C,realpathSync as d,statSync as _}from"node:fs";import{delimiter as j,isAbsolute as l,join as T,relative as h,resolve as y}from"node:path";import{canonicalize as a}from"./json-contract.mjs";const p=t=>L("sha256").update(t).digest("hex"),v=Object.freeze(["CI","FORCE_COLOR","HOME","LANG","LC_ALL","NODE","NO_COLOR","PATH","TERM","TMPDIR","TZ"]),x="VNEXT_PROOF_ENV_JCS",m=".vnext/proof-runner.mjs",O=/^(?!\/)(?!.*(?:^|\/)\.\.(?:\/|$))[a-zA-Z0-9._/-]+\.mjs$/,I=JSON.stringify(v),k=`import { lstatSync, realpathSync } from "node:fs";
+import { isAbsolute, relative, resolve } from "node:path";
+import { pathToFileURL } from "node:url";
+
+const carrierKey = ${JSON.stringify(x)};
+const expectedKeys = ${I};
+const carrier = process.env[carrierKey];
+if (typeof carrier !== "string") throw new Error("missing exact proof-environment carrier");
+const proofEnvironment = JSON.parse(carrier);
+const keys = Object.keys(proofEnvironment).sort();
+if (JSON.stringify(keys) !== JSON.stringify(expectedKeys) || JSON.stringify(proofEnvironment) !== carrier) {
+    throw new Error("proof-environment carrier is not the exact canonical projection");
+}
+for (const key of Object.keys(process.env)) delete process.env[key];
+Object.assign(process.env, proofEnvironment);
+if (JSON.stringify(Object.keys(process.env).sort()) !== JSON.stringify(expectedKeys)) {
+    throw new Error("proof environment was not scrubbed to its exact allowlist");
+}
+const entry = process.argv[2];
+if (typeof entry !== "string" || !${O}.test(entry)) {
+    throw new Error("invalid repository-relative proof entrypoint");
+}
+const root = realpathSync(process.cwd());
+const target = resolve(root, entry);
+const fromRoot = relative(root, target);
+if (fromRoot.startsWith("..") || isAbsolute(fromRoot)) throw new Error("proof entrypoint escapes its repository");
+const metadata = lstatSync(target);
+if (!metadata.isFile() || metadata.isSymbolicLink() || realpathSync(target) !== target) {
+    throw new Error("proof entrypoint must be a canonical regular non-symlink file");
+}
+process.argv.splice(1, 2, target);
+await import(pathToFileURL(target).href);
+`,D=p(k);function S(t){if(!O.test(t))throw new Error("invalid repository-relative proof entrypoint");return`"$NODE" ${m} ${t}`}function U(t){const e=`"$NODE" ${m} `;if(typeof t!="string"||!t.startsWith(e))throw new Error(`proof script must use the exact committed ${m} runner`);const r=t.slice(e.length);if(t!==S(r))throw new Error("proof script must use one exact repository-relative .mjs entrypoint");return r}function V(t){return Object.freeze({relative_path:m,source:k,sha256:D,package_script:S(t)})}function H(t){return p(A(t))}function X(t,e){const r=e.toLowerCase(),o=["node",m,`test/proof/${r}/run.mjs`,"--manifest",`test/proof/${r}/manifest.json`],n=t.split(" ");if(a(n)!==a(o))throw new Error(`gate subject is not the canonical ${e} proof argv`);return{commandToken:n[0],args:n.slice(1),entrypointRelative:n[2],manifestRelative:n[4]}}function q(t,e=process.env){if(t.includes("/")||t.includes("\\"))throw new Error("gate command token must be a PATH-resolved basename");for(const r of(e.PATH??"").split(j)){if(!r)continue;const o=y(r,t);if(!E(o))continue;const n=d(o);if(_(n).isFile())return n}throw new Error(`cannot resolve gate executable ${t}`)}function R(t=process.env){const e={CI:"1",FORCE_COLOR:"0",HOME:t.HOME??"",LANG:t.LANG??"C",LC_ALL:t.LC_ALL??"",NODE:process.execPath,NO_COLOR:"1",PATH:t.PATH??"",TERM:"dumb",TMPDIR:t.TMPDIR??"",TZ:"UTC"},r=Object.keys(e).sort();if(a(r)!==a(v))throw new Error("proof environment projection differs from its exact allowlist");return Object.freeze(e)}function Q(t=process.env){const e=R(t);return Object.freeze({...e,[x]:a(e)})}function Y(t=process.env){const e=R(t);return p(a(e))}function tt(t,e){if(l(e))throw new Error("proof manifest must be repository-relative");const r=d(t),o=y(r,e),n=h(r,o);if(n.startsWith("..")||l(n))throw new Error("proof manifest escapes gate cwd");return o}function F(t,e){const r=y(t,e),o=h(t,r);if(o.startsWith("..")||l(o))throw new Error(`untracked path escapes repository: ${e}`);const n=w(r);if(n.isSymbolicLink()){const s=C(r);return{path:e,kind:"symlink",sha256:p(s)}}if(!n.isFile())throw new Error(`untracked repository entry is not a file: ${e}`);return{path:e,kind:"file",sha256:H(r)}}function P(t){const e=u("git",["-C",t,"ls-files","--stage","-z"],{encoding:"utf8",maxBuffer:134217728}),r=[];for(const o of e.split("\0").filter(Boolean)){const n=/^(\d{6}) ([0-9a-f]+) (\d)\t([\s\S]+)$/.exec(o);if(!n)throw new Error("malformed git index entry");const[,s,c,i,f]=n;if(i!=="0")throw new Error(`repository has an unresolved index stage: ${f}`);s==="160000"&&r.push({path:f,index_oid:c})}return r.sort((o,n)=>Buffer.from(o.path).compare(Buffer.from(n.path)))}function z(t,e,r,o){const n=y(t,r.path),s=h(t,n);if(s.startsWith("..")||l(s))throw new Error(`gitlink escapes repository: ${r.path}`);if(!E(n))return{...r,checkout:"UNINITIALIZED"};const c=w(n);if(c.isSymbolicLink()||!c.isDirectory())throw new Error(`gitlink checkout is not a canonical directory: ${r.path}`);const i=d(n);if(h(t,i).startsWith("..")||l(h(t,i)))throw new Error(`gitlink checkout resolves outside repository: ${r.path}`);if(!E(T(i,".git"))){if(N(i).length!==0)throw new Error(`uninitialized gitlink contains unbound bytes: ${r.path}`);return{...r,checkout:"UNINITIALIZED"}}const f=u("git",["-C",i,"rev-parse","HEAD"],{encoding:"utf8",maxBuffer:1024*1024}).trim();return{...r,checkout:"INITIALIZED",checked_out_head:f,repository_state_sha256:J(i,{identityRoot:`${e}#gitlink:${r.path}`,_ancestry:o})}}function J(t,{identityRoot:e,_ancestry:r=new Set}={}){const o=d(t);if(r.has(o))throw new Error(`recursive gitlink checkout: ${o}`);const n=new Set(r).add(o),s=e??o,c={encoding:null,maxBuffer:128*1024*1024},i=u("git",["-C",o,"rev-parse","HEAD"],{encoding:"utf8"}).trim(),f=u("git",["-C",o,"diff","--binary","HEAD","--"],c),b=u("git",["-C",o,"ls-files","--others","--exclude-standard","-z"],c).toString("utf8").split("\0").filter(Boolean).sort().map(g=>F(o,g)),$=P(o).map(g=>z(o,s,g,n));return p(a({schema:"vnext-repository-state/2",root:s,head:i,diff_sha256:p(f),untracked:b,submodules:$}))}export{X as canonicalGateArgv,S as canonicalProofScript,H as fileSha256,Y as gateEnvironmentSha256,R as liveGateEnvironment,U as proofEntrypointFromScript,x as proofEnvironmentCarrierKey,v as proofEnvironmentKeys,tt as proofManifestPath,Q as proofRunnerEnvironment,V as proofRunnerFixture,m as proofRunnerRelativePath,D as proofRunnerSha256,k as proofRunnerSource,J as repositoryStateSha256,q as resolveCommand};

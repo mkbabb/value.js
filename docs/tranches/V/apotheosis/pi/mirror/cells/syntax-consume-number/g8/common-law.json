@@ -1,0 +1,36 @@
+{
+  "law_id": "SYNTAX-CONSUME-NUMBER-G8-COMMON-LAW",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "status": "FROZEN_COMMON_AUTHOR_LAW_ZERO_CANDIDATES",
+  "shared_author_inputs": [
+    "common-law.json",
+    "contract.ts",
+    "feature-row.json",
+    "fixtures/g8-controls.json",
+    "../g5/fixtures/public-cases.json",
+    "../g5/authorities/css-syntax-3.Overview.bs",
+    "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts",
+    "../../../package.json",
+    "../../../tsconfig.apotheosis.json",
+    "../../../tsconfig.json"
+  ],
+  "delivery_rule": "Each author receives these common rows plus exactly one seat-packets/<seat>.json and the external/source rows named by that packet. No author receives another seat packet, another seat's source, peer design notes, validator topology fixtures, candidate bytes, review bytes, or benchmark results.",
+  "target": "overlay/grammar/css/l4/value-unit/consume-number.ts",
+  "export": "consumeNumber",
+  "allowed_runtime_import": "@mkbabb/parse-that/core",
+  "observable_contract": "At the current UTF-16 offset consume the maximal CSS Syntax 3 §4.3.13 number prefix and return exactly one ordinary {value,type,sign} leaf while preserving the transactional failure and diagnostics contracts in feature-row.json.",
+  "direct_ast_floor": {
+    "source_shape": "Imports plus exactly one exported initialized const named consumeNumber; the export initializer is the entire reachable construction graph.",
+    "allowed_callbacks": "Only expression-bodied inline arrows passed directly to a recognized combinator map/chain call; no callback may name state, src, source, cursor, offset, index, slice, scanner, token, atom, CST, or component value.",
+    "forbidden": "Every other function-like node; helpers; receiver aliases or unproven receivers; statements; loops; mutation; constructors; classes; dynamic import; lazy/recursive graphs; manual state/source access; slicing/indexing; broad remainder regexes; lexer/scanner/token/atom/component/CST aggregates.",
+    "orthogonality": "No combinator-call count is evidence. Mechanical directness is necessary only. Five skeptics must reach a substantive provenance, lineage, idiom, KISS, and construction conclusion for the exact candidate set, and three adjudicators must unanimously select one already unblocked exact hash."
+  },
+  "clean_base": {
+    "path": "../../../apotheosis/clean-base.json",
+    "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "bytes": 1177,
+    "typescript_sources": 0
+  },
+  "credit": "ZERO_COMMON_LAW_ONLY"
+}

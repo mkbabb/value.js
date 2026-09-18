@@ -1,0 +1,600 @@
+{
+  "crops": [
+    {
+      "n": 1280,
+      "ground": [
+        233,
+        226,
+        217
+      ],
+      "darkest": [
+        91,
+        70,
+        51
+      ],
+      "lightest": [
+        237,
+        230,
+        222
+      ],
+      "groundVsDarkest": 6.9,
+      "groundVsLightest": 1.04,
+      "span": 7.17,
+      "scheme": "light",
+      "part": "trigger"
+    },
+    {
+      "n": 5328,
+      "ground": [
+        243,
+        236,
+        226
+      ],
+      "darkest": [
+        112,
+        89,
+        66
+      ],
+      "lightest": [
+        246,
+        242,
+        235
+      ],
+      "groundVsDarkest": 5.6,
+      "groundVsLightest": 1.05,
+      "span": 5.89,
+      "scheme": "light",
+      "part": "input"
+    },
+    {
+      "n": 3822,
+      "ground": [
+        241,
+        230,
+        222
+      ],
+      "darkest": [
+        101,
+        84,
+        66
+      ],
+      "lightest": [
+        241,
+        230,
+        222
+      ],
+      "groundVsDarkest": 5.9,
+      "groundVsLightest": 1.0,
+      "span": 5.9,
+      "scheme": "light",
+      "part": "label"
+    },
+    {
+      "n": 784,
+      "ground": [
+        68,
+        136,
+        204
+      ],
+      "darkest": [
+        130,
+        117,
+        106
+      ],
+      "lightest": [
+        241,
+        230,
+        222
+      ],
+      "groundVsDarkest": 1.2,
+      "groundVsLightest": 3.03,
+      "span": 3.64,
+      "scheme": "light",
+      "part": "swatch"
+    },
+    {
+      "n": 1248,
+      "ground": [
+        244,
+        240,
+        233
+      ],
+      "darkest": [
+        112,
+        89,
+        66
+      ],
+      "lightest": [
+        244,
+        240,
+        233
+      ],
+      "groundVsDarkest": 5.78,
+      "groundVsLightest": 1.0,
+      "span": 5.78,
+      "scheme": "light",
+      "part": "btn"
+    },
+    {
+      "n": 3630,
+      "ground": [
+        240,
+        229,
+        221
+      ],
+      "darkest": [
+        28,
+        25,
+        23
+      ],
+      "lightest": [
+        251,
+        250,
+        248
+      ],
+      "groundVsDarkest": 14.12,
+      "groundVsLightest": 1.19,
+      "span": 16.77,
+      "scheme": "light",
+      "part": "option"
+    },
+    {
+      "n": 1280,
+      "ground": [
+        77,
+        66,
+        59
+      ],
+      "darkest": [
+        62,
+        52,
+        44
+      ],
+      "lightest": [
+        213,
+        208,
+        200
+      ],
+      "groundVsDarkest": 1.25,
+      "groundVsLightest": 6.34,
+      "span": 7.9,
+      "scheme": "dark",
+      "part": "trigger"
+    },
+    {
+      "n": 5328,
+      "ground": [
+        63,
+        55,
+        49
+      ],
+      "darkest": [
+        47,
+        41,
+        37
+      ],
+      "lightest": [
+        195,
+        185,
+        172
+      ],
+      "groundVsDarkest": 1.23,
+      "groundVsLightest": 6.02,
+      "span": 7.41,
+      "scheme": "dark",
+      "part": "input"
+    },
+    {
+      "n": 3822,
+      "ground": [
+        74,
+        63,
+        55
+      ],
+      "darkest": [
+        74,
+        63,
+        55
+      ],
+      "lightest": [
+        195,
+        185,
+        172
+      ],
+      "groundVsDarkest": 1.0,
+      "groundVsLightest": 5.28,
+      "span": 5.28,
+      "scheme": "dark",
+      "part": "label"
+    },
+    {
+      "n": 784,
+      "ground": [
+        68,
+        136,
+        204
+      ],
+      "darkest": [
+        67,
+        55,
+        42
+      ],
+      "lightest": [
+        68,
+        136,
+        204
+      ],
+      "groundVsDarkest": 3.1,
+      "groundVsLightest": 1.0,
+      "span": 3.1,
+      "scheme": "dark",
+      "part": "swatch"
+    },
+    {
+      "n": 1248,
+      "ground": [
+        47,
+        41,
+        37
+      ],
+      "darkest": [
+        47,
+        41,
+        37
+      ],
+      "lightest": [
+        195,
+        185,
+        172
+      ],
+      "groundVsDarkest": 1.0,
+      "groundVsLightest": 7.41,
+      "span": 7.41,
+      "scheme": "dark",
+      "part": "btn"
+    },
+    {
+      "n": 3630,
+      "ground": [
+        74,
+        64,
+        56
+      ],
+      "darkest": [
+        11,
+        10,
+        9
+      ],
+      "lightest": [
+        233,
+        230,
+        226
+      ],
+      "groundVsDarkest": 1.96,
+      "groundVsLightest": 8.11,
+      "span": 15.9,
+      "scheme": "dark",
+      "part": "option"
+    },
+    {
+      "n": 17424,
+      "ground": [
+        233,
+        226,
+        217
+      ],
+      "darkest": [
+        91,
+        70,
+        51
+      ],
+      "lightest": [
+        233,
+        226,
+        217
+      ],
+      "groundVsDarkest": 6.9,
+      "groundVsLightest": 1.0,
+      "span": 6.9,
+      "scheme": "mobile",
+      "part": "trigger"
+    },
+    {
+      "n": 71928,
+      "ground": [
+        243,
+        236,
+        226
+      ],
+      "darkest": [
+        112,
+        89,
+        66
+      ],
+      "lightest": [
+        246,
+        242,
+        235
+      ],
+      "groundVsDarkest": 5.6,
+      "groundVsLightest": 1.05,
+      "span": 5.89,
+      "scheme": "mobile",
+      "part": "input"
+    },
+    {
+      "n": 29484,
+      "ground": [
+        240,
+        230,
+        223
+      ],
+      "darkest": [
+        101,
+        84,
+        66
+      ],
+      "lightest": [
+        240,
+        230,
+        223
+      ],
+      "groundVsDarkest": 5.89,
+      "groundVsLightest": 1.0,
+      "span": 5.89,
+      "scheme": "mobile",
+      "part": "label"
+    },
+    {
+      "n": 7056,
+      "ground": [
+        68,
+        136,
+        204
+      ],
+      "darkest": [
+        129,
+        118,
+        107
+      ],
+      "lightest": [
+        240,
+        230,
+        223
+      ],
+      "groundVsDarkest": 1.19,
+      "groundVsLightest": 3.03,
+      "span": 3.61,
+      "scheme": "mobile",
+      "part": "swatch"
+    },
+    {
+      "n": 11232,
+      "ground": [
+        244,
+        240,
+        233
+      ],
+      "darkest": [
+        112,
+        89,
+        66
+      ],
+      "lightest": [
+        244,
+        240,
+        233
+      ],
+      "groundVsDarkest": 5.78,
+      "groundVsLightest": 1.0,
+      "span": 5.78,
+      "scheme": "mobile",
+      "part": "btn"
+    },
+    {
+      "n": 27216,
+      "ground": [
+        240,
+        230,
+        223
+      ],
+      "darkest": [
+        28,
+        25,
+        23
+      ],
+      "lightest": [
+        251,
+        250,
+        248
+      ],
+      "groundVsDarkest": 14.23,
+      "groundVsLightest": 1.18,
+      "span": 16.77,
+      "scheme": "mobile",
+      "part": "option"
+    },
+    {
+      "n": 1280,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "trigger"
+    },
+    {
+      "n": 5328,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "input"
+    },
+    {
+      "n": 3822,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "label"
+    },
+    {
+      "n": 784,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "swatch"
+    },
+    {
+      "n": 1248,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "btn"
+    },
+    {
+      "n": 3630,
+      "ground": [
+        255,
+        255,
+        255
+      ],
+      "darkest": [
+        0,
+        0,
+        0
+      ],
+      "lightest": [
+        255,
+        255,
+        255
+      ],
+      "groundVsDarkest": 21.0,
+      "groundVsLightest": 1.0,
+      "span": 21.0,
+      "scheme": "forced",
+      "part": "option"
+    }
+  ],
+  "figureGround": {
+    "light": {
+      "triggerFill": [
+        233,
+        226,
+        217
+      ],
+      "fieldFill": [
+        233,
+        225,
+        217
+      ],
+      "contrast": 1.01,
+      "triggerPt": [
+        645,
+        226
+      ],
+      "fieldPt": [
+        344,
+        226
+      ]
+    },
+    "dark": {
+      "triggerFill": [
+        77,
+        66,
+        59
+      ],
+      "fieldFill": [
+        66,
+        55,
+        47
+      ],
+      "contrast": 1.19,
+      "triggerPt": [
+        645,
+        226
+      ],
+      "fieldPt": [
+        344,
+        226
+      ]
+    }
+  }
+}

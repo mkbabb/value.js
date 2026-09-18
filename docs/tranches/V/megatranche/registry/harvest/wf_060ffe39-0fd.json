@@ -1,0 +1,334 @@
+{
+ "runId": "wf_060ffe39-0fd",
+ "workflow": "wf_060ffe39-0fd",
+ "resultCount": 3,
+ "results": [
+  {
+   "agentId": "ad200899e24642335",
+   "key": "v2:01218f865affbccfa7336cad7445e5a8166d66af2bcdaa1f99e393399f29c561",
+   "result": {
+    "modelObserved": "claude-opus-5[1m] — Opus 5, 1M-context variant (exact model id as observed: claude-opus-5[1m])",
+    "cells": [
+     {
+      "route": "#/",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'lab(92% 88.8 20 / 82.7%) — Color Picker' (app rewrote hash to #/?space=lab&color=...); bodyText 69 chars; main=1 (358x680), canvas 1, 17 buttons, 228 DOM nodes, 104 visible boxes; scrollWidth==innerWidth (no overflow). Mobile collapses to dock+picker card only; the desktop cell of the same route expands to h2=10 / 855 chars."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'Gradient — Color Picker'; bodyText 502 chars ('Build gradients with per-interval easing and CSS output. Interpolation TYPE...'); main=1, 58 buttons, 518 nodes, 334 visible boxes, 57 svg. Richest mobile route."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. Shell paints (main=1, 266 nodes, 19 buttons) but bodyText reads 'Browse Discover palettes from the community. The commons is unreachable. Failed to load'. API-less environment fact — NO defect booked."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "PARTIAL",
+      "note": "title 'Blob — Color Picker' but the DOM is the shape of #/ at this width: 228 nodes / 104 visible boxes / 17 buttons / bodyText 68 (vs 69 on #/). The blob right-pane does not mount at 390, while #/mix — also a right-pane view — DOES mount at 390 (309 nodes, 171 chars, 'Mix Mix colors and palettes together'). That asymmetry is the finding."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 199 chars incl. 'Generate Create pleasing random palettes with aesthetic presets. 5 Regenerate seed:'; 352 nodes, 176 visible boxes, 26 buttons."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 171 chars incl. 'Mix Mix colors and palettes together. Colors Palettes Selected COLOR SPACE OKLab HUE METHOD'; canvas 2, 309 nodes, 26 buttons."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "390x844",
+      "actualViewport": "390x792",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 194 chars incl. 'Extract Pull palettes from any image. Drop an image or click to browse'; 312 nodes, 163 visible boxes, 20 buttons."
+     },
+     {
+      "route": "#/",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "title 'Color Picker'; h2=10; bodyText 855 chars (About-the-color-spaces pane fully populated); main=1 (1408x752), 1741 nodes, 991 visible boxes, 26 buttons; scrollWidth 1440 = no overflow. Heaviest cell in the matrix."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 659 chars; 586 nodes, 367 visible boxes, 58 buttons, 62 svg."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. 'Browse Discover palettes from the community. The commons is unreachable. Failed to load' — API-less environment, no defect booked. Shell healthy: main=1, 326 nodes, 157 visible boxes."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 710 chars ('Blob Tune metaball geometry, membrane, lit-glass surface, and satellite behavior. GEOMETRY...'); 642 nodes, 477 visible boxes. Visually verified at the widest tier: picker card + Blob control panel (sliders, Copy JSON/Reset) paint, but NO metaball is visible in the frame and canvas count is 1 here (the webkit-engine REPORT.md row for this route records 2 — recorded as an observation only, NOT copied as a verdict, per I-20)."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "PARTIAL",
+      "note": "SCREENSHOT-VERIFIED: only the dock (label reads 'Generate') + the Lab picker card paint; the Generate panel and the palettes pane are absent. bodyText 84 chars vs 199 at mobile and 356 at widest; 258 nodes / 123 visible boxes (vs 412/209 at 3440). A repeat at 1440 with a 4s settle measured 227 chars, so this reads as a SLOW PANE MOUNT at the ~2.3s settle rather than a hard blank — booked PARTIAL with that caveat, not a blank defect."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 183 chars; canvas 2, 342 nodes, 166 visible boxes, 30 buttons."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "1440x900",
+      "actualViewport": "1440x848",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "bodyText 345 chars; 372 nodes, 196 visible boxes, 20 buttons."
+     },
+     {
+      "route": "#/",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "CLAMP RECORD: the OS did NOT clamp — Safari accepted the 3440x1440 window rect verbatim and innerWidth measured 3440 (innerHeight 1388 after chrome). But the logical display is only 2048x1152 (avail 2048x1122, dpr 2), so ~1392 CSS px of the window sits OFF-SCREEN. Window snapshot succeeded here (6880x2776, 16.9 MB) and is visually verified. h2=10, 855 chars, 1741 nodes. Layout observation: content occupies a narrow centre band with very large empty gutters at this width."
+     },
+     {
+      "route": "#/gradient",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "Window snapshot succeeded (16.4 MB). bodyText 659 chars, 586 nodes, 367 visible boxes, 62 svg, scrollWidth 3440 = no overflow."
+     },
+     {
+      "route": "#/browse",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "UNVERIFIABLE-HERE",
+      "note": "DATA-BACKED. Window snapshot succeeded (16.7 MB). bodyText 223 chars reading 'My Palettes Save, organize, and share your colors. Start a new palette · EMPTY PLATE' — the empty-state, i.e. the API-less environment. No defect booked."
+     },
+     {
+      "route": "#/blob",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "Window snapshot succeeded (17.6 MB) and is visually verified: picker card + Blob control panel paint. 710 chars, 642 nodes, 477 visible boxes. No metaball visible in the frame; canvas count 1."
+     },
+     {
+      "route": "#/generate",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (356 chars, 412 nodes, 209 visible boxes, main 3408x1288) and VISUALLY VERIFIED via an element snapshot of <main>: Generate panel, picker card and My Palettes pane all painted. The WINDOW snapshot returned an all-black frame — a safaridriver failure, NOT an app blank (proof: the black is pure black while the page's own body background computes to rgb(38,0,27), and the element snapshot taken at the same instant carries 11.6 MB of real pixels). Failing frame preserved as generate-3440-windowsnap-black.png."
+     },
+     {
+      "route": "#/mix",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (183 chars, 342 nodes, canvas 2, main 3408x1288); deliverable PNG is an element snapshot of <main> (11.6 MB) because the window snapshot returned the same all-black driver frame; preserved as mix-3440-windowsnap-black.png."
+     },
+     {
+      "route": "#/extract",
+      "requestedViewport": "3440x1440",
+      "actualViewport": "3440x1388",
+      "h1": 0,
+      "verdict": "RENDERS",
+      "note": "DOM healthy (345 chars, 372 nodes, 196 visible boxes, main 3408x1288); deliverable PNG is an element snapshot of <main> (11.4 MB); window snapshot black, preserved as extract-3440-windowsnap-black.png."
+     }
+    ],
+    "shots": [
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-390.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-1440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/root-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/gradient-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/browse-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/blob-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-3440.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/generate-3440-windowsnap-black.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/mix-3440-windowsnap-black.png",
+     "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/extract-3440-windowsnap-black.png"
+    ],
+    "limitations": "SHA256 of every PNG plus the full per-cell measurements are in the machine-readable sidecar /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/ROUTE-MATRIX.json (all 21 deliverable PNGs have distinct shas; the 3 preserved windowsnap-black frames share sha 914cfe439270b331..., which is itself the evidence). Harness scripts live in the scratchpad: safari-route-matrix.mjs, safari-recheck.mjs, safari-discriminate.mjs, safari-widest-retry.mjs, safari-widest-element.mjs. Routes were taken verbatim from ROUTES[] in docs/tranches/V/megatranche/audit/probes/layout-utilization.mjs; none invented. Browser: Safari 26.4 (AppleWebKit/605.1.15) on macOS 26.4.1 (25E253). LIMITS: (1) CONSOLE/BOOT ERRORS — WebDriver classic cannot inject before load; window.onerror + unhandledrejection hooks were installed AFTER load, so early-boot errors are a DECLARED BLIND SPOT. Post-install error arrays were empty on all 21 cells; that is NOT a claim of zero boot errors. (2) WIDEST WINDOW-SNAPSHOT FAILURE — at 3440x1440 the safaridriver window-screenshot endpoint returns a pixel-identical all-black 6880x2776 frame. Four valid frames were captured first (root/gradient/browse/blob), then it degraded permanently: 9 further attempts across 3 FRESH sessions, including as the very first capture of a session and for the previously-good #/ control, all returned the identical black frame; a repaint nudge did not revive it. Proven a driver failure, not an app blank: the frame is pure black while the page's own body background computes to rgb(38,0,27), and an element snapshot of <main> taken at the same instant returns 11.3-11.6 MB of real painted content. generate/mix/extract widest PNGs are therefore ELEMENT snapshots of <main> (3408x1288 CSS px = the viewport minus its 16px gutters); the failing window frames are preserved alongside. root/gradient/browse/blob widest PNGs remain true window snapshots. (3) VIEWPORT CLAMP — no clamp by the OS: Safari accepted all three window rects verbatim (390x844, 1440x900, 3440x1440) and innerWidth matched the request exactly at every tier; innerHeight is 52px short of the request at every tier (browser chrome). The real constraint is the DISPLAY: screen 2048x1152, avail 2048x1122, dpr 2 — so at the widest tier roughly 1392 CSS px of window width sits off-screen. 3440 is wider than the display can present, not wider than Safari will accept. (4) ENV — dev server API-less (no mongo); #/browse is the one data-backed primary surface among the 7 and is marked UNVERIFIABLE-HERE at all three widths with no defect booked; the right-hand 'palettes' pane on browse/extract/generate/gradient is empty for the same reason and was not counted against those routes. (5) SETTLE — ~1.5s base + 0.8s post-hook (~2.3s), with +2.5s extra on the first route of each viewport; #/generate at 1440 is settle-sensitive (84 chars at 2.3s vs 227 at 4s), which is why it is PARTIAL-with-caveat rather than a booked blank. (6) SCOPE — light appearance only (no dark-mode twin), first paint only: no interaction, no scroll state, no tap-target or contrast measurement. (7) CRASH ARM — Safari did NOT die: zero Safari/WebContent .ips written during any of the four runs (the only report on the machine, com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips, predates this seat by ~70 minutes and is NOT attributable to it). (8) SESSION HYGIENE — every session created was deleted, including on the discriminator paths; safaridriver /status reads {ready:true} with no session outstanding. (9) I-20 — every row above was measured in the safari-app cell; no webkit-engine verdict was copied. The single cross-engine remark (canvas count on #/blob: 1 measured here vs 2 in the webkit REPORT.md row) is flagged as an observation for the parent, not scored. (10) WRITES — only under docs/tranches/V/megatranche/audit/visual/safari-real/ and the scratchpad; src/ demo/ api/ test/ e2e/ untouched."
+   }
+  },
+  {
+   "agentId": "a8a18de575aa5d404",
+   "key": "v2:a13527f25a0f9f92624cb2548e9140fd839d5133368670808cdb098d79384070",
+   "result": {
+    "cells": [
+     {
+      "cell": "rtl-desktop · #/",
+      "webkitVerdict": "dir=rtl post-load (MT-F022 #1 fix); overflowX 0; clipped list CAPPED at 8 by states.mjs .slice(0,8) — spectrum-dot, an SVG path, and six katex MathML nodes",
+      "safariVerdict": "MEASURED — dir=rtl takes post-load in real Safari too; overflowX 0 / overflowY 0; exactly TWO elements sit outside the viewport in the entire document: span.spectrum-dot.absolute and one SVG path",
+      "inverted": true,
+      "note": "PARTIAL INVERSION, and it is the katex half: webkit-engine names six MathML nodes (math/semantics/mrow/msup/mi/mo) as outside the viewport, real Safari names none of them — Safari lays the visually-hidden .katex-mathml copy out inside its overflow:hidden parent. Neither is a product defect. The two cells AGREE on everything load-bearing: dir flips, overflowX 0, RTL is an UNCLAIMED capability, not a broken one (MT-F022 consequence 4 re-derived in the safari-app cell)."
+     },
+     {
+      "cell": "rtl-desktop · #/gradient",
+      "webkitVerdict": "8 clipped (CAPPED) — strip-row, strip-family, family-eyebrow, family-tiles, glass-chip, svg, path",
+      "safariVerdict": "MEASURED — 77 elements outside the viewport; the first 8 are spectrum-dot plus the SAME strip-row / strip-family / family-eyebrow / family-tiles / glass-chip / svg / path set",
+      "inverted": false,
+      "note": "AGREEMENT on the real signal: the gradient family-strip overhangs the viewport edge under RTL in BOTH cells. The 8-vs-77 delta is NOT an inversion — the webkit harness truncates at 8 and never measured a total, so comparing the numbers is a category error. Only the first-8 identities are comparable."
+     },
+     {
+      "cell": "rtl-desktop · #/browse",
+      "webkitVerdict": "0 clipped, overflowX 0",
+      "safariVerdict": "MEASURED — 1 clipped (span.spectrum-dot.absolute), overflowX 0, textLen 337",
+      "inverted": false,
+      "note": "Effective agreement. The single delta is the spectrum-dot, which real Safari places just past the edge on every RTL route — it is the ONLY offender on 4 of the 5 RTL routes."
+     },
+     {
+      "cell": "rtl-desktop · #/blob",
+      "webkitVerdict": "1 clipped (spectrum-dot)",
+      "safariVerdict": "MEASURED — 1 clipped (spectrum-dot), overflowX 0, textLen 726",
+      "inverted": false,
+      "note": "AGREEMENT, exactly, including the identity of the single offender."
+     },
+     {
+      "cell": "rtl-desktop · #/admin/users",
+      "webkitVerdict": "0 clipped, textLen 273",
+      "safariVerdict": "UNVERIFIABLE-HERE for the data surface (API-LESS, no mongo — the roster cannot render). The SHELL measured clean: dir=rtl, overflowX 0, 1 clipped (spectrum-dot), textLen 328",
+      "inverted": false,
+      "note": "The layout shell is measurable and clean; every authenticated/roster state on this route is UNVERIFIABLE-HERE and owed to the first API-backed capture cell. ENVIRONMENT fact, not a defect."
+     },
+     {
+      "cell": "keyboard-focus-desktop · #/gradient",
+      "webkitVerdict": "after 12 Tabs focus NEVER LEAVES body; focusRingVisible null — MT-F022 #3 attributed this to macOS Full Keyboard Access being off under Playwright WebKit",
+      "safariVerdict": "MEASURED — after 12 Tabs focus is on main>…>div:nth-child(10)>div:nth-child(1), focusRingVisible TRUE",
+      "inverted": true,
+      "note": "THE INVERSION, and it is MT-F022 #3 resolved from the other side. The safari-app cell reaches a real ring-bearing stop where webkit-engine sat on body. MT-F022's rule ('a WebKit-only gap is presumed Full-Keyboard-Access until Chromium agrees') is confirmed: the real browser agrees with Chromium, not with Playwright WebKit. No keyboard defect may be booked from the webkit rows of this matrix."
+     },
+     {
+      "cell": "keyboard-focus-desktop · #/",
+      "webkitVerdict": "focus reached span[l component value], focusRingVisible TRUE",
+      "safariVerdict": "MEASURED — focus reached a DIFFERENT stop (…h3>span>span, a pane-header title span), focusRingVisible FALSE",
+      "inverted": true,
+      "note": "INVERTED ring, but NOT like-for-like and it must not be booked as 'the ring was lost'. The engines walk different tab orders, so the 12th stop is a different element; what is established is that real Safari's 12th stop is a non-interactive header span with no ring. A ring claim needs a per-stop DOM-path-keyed walk (the kbd-reach.mjs shape) in the safari-app cell, which this cell did not run."
+     },
+     {
+      "cell": "keyboard-focus-desktop · #/blob",
+      "webkitVerdict": "focus reached span[Sat Radius], ring TRUE",
+      "safariVerdict": "MEASURED — focus reached a deep slider span, ring TRUE",
+      "inverted": false,
+      "note": "AGREEMENT on the verdict that matters (a ring-bearing stop is reachable within 12 Tabs), on different elements."
+     },
+     {
+      "cell": "zoom-200-desktop · #/",
+      "webkitVerdict": "textLen 859 → 70, clipped [], overflowX 0 — MT-F022 #4 ruled this CORRECT BEHAVIOUR (the 720px breakpoint, same path as mobile)",
+      "safariVerdict": "MEASURED at a real 720-CSS-px Safari window (inner 720x398): textLen 78, clipped 0, overflowX 0",
+      "inverted": false,
+      "note": "MT-F022 #4 RE-DERIVED IN REAL SAFARI: 1440-desktop 874 → 720-window 78 → 390-mobile 78, the same three-way identity, now in the safari-app cell. Reflow is correct and content stays reachable through the pane router. CAVEAT: a 720px WINDOW, not a 200% zoom — safaridriver cannot set deviceScaleFactor, and MT-F022 #4 is itself the authority for treating the two as one code path."
+     },
+     {
+      "cell": "zoom-200-desktop · #/gradient",
+      "webkitVerdict": "8 clipped (CAPPED), overflowX 0",
+      "safariVerdict": "MEASURED — 152 outside the viewport, overflowX 0, textLen 553",
+      "inverted": false,
+      "note": "Same capped-list category error as the RTL gradient row; the first-8 sets overlap. The load-bearing agreement is overflowX 0 at the reflow breakpoint."
+     },
+     {
+      "cell": "rtl-mobile · #/",
+      "webkitVerdict": "2 clipped (spectrum-dot, canvas.goo-blob-canvas), textLen 70",
+      "safariVerdict": "MEASURED — 1 clipped (spectrum-dot), textLen 78, overflowX 0, inner 390x792",
+      "inverted": false,
+      "note": "AGREEMENT. Real Safari does NOT report the goo-blob canvas as overhanging where webkit-engine does — a sub-pixel canvas sizing difference with no product consequence."
+     },
+     {
+      "cell": "rtl-mobile · #/blob",
+      "webkitVerdict": "2 clipped (spectrum-dot, canvas.goo-blob-canvas)",
+      "safariVerdict": "MEASURED — 1 clipped (spectrum-dot), textLen 77, overflowX 0",
+      "inverted": false,
+      "note": "Same as the rtl-mobile picker row; the canvas delta is the only difference and it is not a defect in either cell."
+     },
+     {
+      "cell": "dark-desktop · #/ (NEW cell — no webkit counterpart)",
+      "webkitVerdict": "NOT IN THE WEBKIT MATRIX — states.mjs never ran a dark arm; this cell is UNMEASURED on the webkit side and must not be read as green there",
+      "safariVerdict": "MEASURED via the app's OWN toggle, not media emulation: localStorage['vueuse-color-scheme'] drives demo/color-picker/index.html:169-172, which stamps class='dark' on <html>. 'dark' → htmlClass 'dark', body rgb(38,0,27); forced 'light' → htmlClass '', body rgb(179,114,144). Both directions confirmed on #/ and #/gradient, same textLen and same clipped set in each",
+      "inverted": false,
+      "note": "REACHABLE-IN-CELL because the app persists its own scheme — no prefers-color-scheme emulation was needed or used. CONFOUND DECLARED FOR THE WHOLE MATRIX: this machine prefers dark, so the DEFAULT boot is dark and the rtl-desktop + keyboard-focus-desktop safari rows above were measured in DARK while the webkit rows beside them ran in Playwright's default LIGHT. None of the compared quantities (dir, overflowX, textLen, focus, clipped identity) is scheme-dependent; the zoom-200 and rtl-mobile rows were measured in LIGHT and are scheme-matched."
+     },
+     {
+      "cell": "LTR baseline · #/ — the '694 clipped' signal",
+      "webkitVerdict": "NOT COMPARABLE — the webkit harness caps its clipped list at 8 and states no total",
+      "safariVerdict": "MEASURED and RUN TO GROUND rather than booked: 694 of 1560 visible elements report right>clientWidth, but only 9 are ROOTS and one root carries 1454 descendants",
+      "inverted": false,
+      "note": "AN MT-F022-CLASS FALSE SIGNAL CAUGHT IN MY OWN HANDS. The one real root is div.glass-resting.card inside div.pane-wrapper--right at left=1280 right=1817 — 377 CSS px past a 1440 viewport, parent overflow visible, document overflowX 0 so it cannot be scrolled to. The other 8 roots are katex-mathml nodes and one SVG path inside overflow:hidden parents, i.e. probe false positives. The honest statement is ONE overhanging right-pane card, not 694 clipped elements. Under dir=rtl the same page reports 2 because the pane flips. Whether the overhang is a defect belongs to the layout seat; this cell records the measurement and its mechanism."
+     }
+    ],
+    "limitations": "CELL BOUNDS, all declared rather than papered over. (1) HIDDEN WINDOW — the safaridriver automation window reports document.visibilityState 'hidden' and hasFocus() false even after AppleScript raise (set index of window to 1 + activate). Consequences: rAF is throttled to ~1 Hz (my own rAF chain ticked ONCE in 1500 ms; a 16 ms setInterval sampler yielded 6-7 samples across ~60 s), so every rafPer1500ms in my rows reads 0 and MEANS NOTHING ABOUT THE APP — it is not a motion finding; and the window never paints, which bounds the morph arm and the pixel path. document.getAnimations() still returns 19-31 running CSS animations per route and IS reported. (2) WINDOW SCREENSHOTS BROKEN, and this now reproduces at DESKTOP size — GET /session/<id>/screenshot at 1440x900 returned a pure-black 2880x1696 PNG, byte-identical across two routes and two colour schemes (sha256 592299a3b4b3cf2e55eb855f4ad350c8427c3e1367f7dd3a019c170203f658c8), widening the prior seat's 3440-only finding; the mechanism is the same hidden window. ELEMENT snapshots are unaffected and paint real content (dock-morph-safari26.4-element.png, 928x122, dock rendered correctly). Black frames preserved as rtl-desktop-picker-1440-windowsnap-black.png and dark-desktop-picker-1440-windowsnap-black.png. (3) CONSOLE ERRORS — WebDriver classic cannot inject before load; onerror/unhandledrejection were installed after a forced reload. All 15 rows show an empty post-install error array; that is NOT a claim of zero boot errors. (4) UNREACHABLE-IN-CELL: reduced-motion (5 webkit rows) and forced-colors (5 webkit rows) are macOS system settings with no WebDriver hook — MT-F022 #2's rAF finding cannot be re-derived here at all, and the rAF blind spot would defeat it even if the media query could be set; pointer:coarse was not reached; prefers-color-scheme as MEDIA state is unreachable, dark was reached through the app's own persisted toggle instead. (5) UNVERIFIABLE-HERE: #/admin/users authenticated and roster states (API-LESS, no mongo). (6) CLIPPED-COUNT COMPARABILITY: states.mjs truncates with .slice(0,8), so no webkit row states a total — only first-8 identities are comparable to my clippedTotal. (7) DRIVER DEFECT: POST /session/<id>/actions with a pointerMove HUNG safaridriver indefinitely (no response in ~25 min; the session's entire command queue blocked, DELETE included, so both drivers on :4599 and :4622 returned 'already paired'). Recovery was minimal and non-destructive — the automation window alone was closed by URL match (osascript, every document whose URL starts with http://localhost:9000), leaving the user's two Safari windows and every process untouched; the driver freed immediately. KEY actions (Tab) work normally and carried the 12-Tab walks. Later seats should drive pointers by dispatched DOM events, never by the actions endpoint. SESSION DISCIPLINE: every session was deleted, including on the failure path; the driver was verified free and empty at exit.",
+    "modelObserved": "claude-opus-5[1m] (Opus 5, 1M context)",
+    "morphArm": {
+     "driven": false,
+     "outcome": "NOT-DRIVEN",
+     "evidence": "WHAT DRIVES EXPANSION (read, not guessed): demo/shell/dock/Dock.vue:133 renders <GlassDock :collapse-delay=\"5000\" :start-collapsed=\"false\" :fit-content=\"true\" :always-expanded=\"!isDesktop\">. Posture is glass-ui useDockState's three-state FSM (collapsed|hover|pinned) driven by mouseenter / mouseleave+timer / click-on-collapsed, plus the consumer's ref-counted keepOpen()/release() hold (Dock.vue:86-88) and expand() on edit (Dock.vue:90). The morph is useDockMorphOrchestrator projecting the face onto the shared --dock-morph-t spring; morph.css then sets --dock-expand-t := --dock-morph-t under [data-morphing] and feeds it to the nested color-mix on .dock-plate background. HOW I DROVE IT: dispatched real DOM events via execute/sync (pointerover/enter/move + mouseover/enter/move, the leave/out pair, and a full pointerdown/up + click on the collapsed dock) — exactly what useDockState listens to; WebDriver pointer actions were tried first and hung the driver, so they were abandoned. WHAT HAPPENED: the FSM ran — the dock left .expanded (--dock-expand-t 1, width 464-469) and entered .collapsed[data-morphing] (--dock-expand-t 'calc(1 - 0)', width 56 observed once), then returned. But --dock-morph-t stayed EXACTLY 0 in every sample across 4+3 reversal-storm passes, the width never took an intermediate value, and the sampler captured 6-7 frames in ~60 s. The spring is rAF-driven and rAF is throttled to ~1 Hz in the hidden automation window, so --dock-expand-t never traversed (0,1): ZERO frames of genuine morph were driven. Reporting SURVIVED would be a false green, so the verdict is NOT-DRIVEN. SAFARI DID NOT CRASH: sessions stayed alive and were deleted cleanly on every run and NO Safari .ips was written at any point. SUPPLEMENTARY, LABELLED SYNTHETIC (not the morph): with data-morphing forced on, --dock-expand-t was written across 246 fractional values (6 passes x 41 steps, both directions) while reading .dock-plate's resolved backgroundColor/borderColor each step. All resolved cleanly (t=0 -> color(srgb 0.384505 0.327291 0.27789 / 0.4544), t=1 -> color(srgb 0.390253 0.334104 0.290184 / 0.5776)); no throw, no crash. That exercises the STYLE-RESOLUTION path of the nested color-mix but cannot exercise paint. CRASH REPORTS OBSERVED BUT NOT MINE (I-20, stated so no one mis-attributes them): TWO reports of the EXACT glass-S0 signature exist on this machine today — com.apple.WebKit.WebContent.Development-2026-07-27-111524.ips and -131147.ips — and BOTH are webkit-engine, not safari-app: procPath /Users/USER/Library/Caches/*/com.apple.WebKit.WebContent.Development (the Playwright-bundled build, 625.1.21+), coalitionName com.microsoft.VSCode, parentProc launchd, both SIGABRT (Abort trap: 6) ~1.2-1.7 s after process launch. Neither is attributable to this arm. KEY FRAMES (identical in both): std::terminate() <- WebCore::Style::Color::resolvedColor() const <- WebCore::Style::toStyleColor(WebCore::CSS::ColorMix const&, ColorResolutionState) <- WebCore::Style::toStyleColor(WebCore::CSS::Color const&, WTF::Ref<Document const>) <- WebCore::Style::CSSValueConversion<Style::Color>::operator()(BuilderState) <- WebCore::Style::BuilderFunctions::applyValueBackgroundColor(BuilderState&) <- Style::Builder::applyProperty(CSSPropertyID, CSSValue&) <- applyNonHighPriorityProperties() <- Style::Resolver::applyMatchedProperties() <- TreeResolver::resolveElement/resolveComposedTree/resolve() <- WebCore::Document::resolveStyle(). WHAT THAT ESTABLISHES: the crash class aborts inside toStyleColor(CSS::ColorMix) while the style builder applies BACKGROUND-COLOR during Document::resolveStyle — at STYLE RESOLUTION, not paint, and on precisely the property morph.css nests color-mix into (.dock-plate background). Strongest available corroboration of the mechanism, and it means the arm does not in principle require a visible window. The safari-app non-repro therefore says only what it says: real Safari 26.4 (605.1.15) resolved 246 fractional nested-color-mix backgrounds without aborting, while the Playwright WebKit build carries a signature that aborts on exactly that path. TO FINISH THE ARM: one safari-app run in a VISIBLE, focused window (visibilityState 'visible', rAF >= 20 Hz) so the spring traverses (0,1) and the page paints; everything else is wired and reproducible from scratchpad morph-arm3.mjs. Full record: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/STATE-MATRIX.json (morphArm section, plus both raw run objects)."
+    }
+   }
+  },
+  {
+   "agentId": "a38b8957d03c84725",
+   "key": "v2:c9acfcb32d9e11739ab5e943adca46e719d85c71706356aba7bae67d823d997b",
+   "result": {
+    "modelObserved": "claude-opus-5[1m] — Opus 5, 1M-context variant (exact model id as observed: claude-opus-5[1m])",
+    "matrixPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/visual/safari-real/MATRIX-SAFARI.md",
+    "inversions": 3,
+    "headline": "safari-app cell landed whole (564 lines, 10 tables, 0 ragged): 21 route cells + 15 state cells + the morph arm, every cited artifact ls-verified and every sha256 recomputed at synthesis time — 30 name↔sha pairings checked programmatically, 0 mismatches, 0 cited-but-absent files. THREE INVERSIONS booked, all in the state matrix, all flagged in a §1 ledger ahead of any data: (1) keyboard-focus · #/gradient — webkit sat on `body` after 12 Tabs, real Safari reaches a ring-bearing stop with focusRingVisible TRUE, which RESOLVES MT-F022 #3 from the other side and means NO KEYBOARD DEFECT IS BOOKABLE from the webkit rows; (2) keyboard-focus · #/ — ring TRUE→FALSE but NOT like-for-like (different tab orders → different 12th stop; real Safari's is a non-interactive header span), so the #/ ring question is recorded OPEN in BOTH cells, never green; (3) rtl-desktop · #/ — partial, the katex half: webkit names six MathML nodes as bleeding, Safari names none, neither a product defect, and MT-F022 consequence 4 (RTL is UNCLAIMED, not broken) re-derived in-cell. FOUR further divergences examined and DECLINED as inversions with reasons, two strengthened by evidence I verified myself in the twin REPORT.json: the #/blob canvas 1-vs-2 delta is not cross-engine truth because the webkit cell disagrees with ITSELF (#/ reads canvas 1 in desktop-light, 2 in desktop-dark), and the #/generate PARTIAL is settle-bound on a monotone curve (safari 2.3s→84 chars, safari 4s→227, webkit 3.55s→310); also the clipped-count 8-vs-77/152/694 category error (states.mjs .slice(0,8) states no total) and the rtl-mobile goo-blob canvas sub-pixel delta. Route matrix: no horizontal overflow on any of 21 cells, main==1 and h1==0 everywhere, no OS clamp (Safari accepted 3440 verbatim; the DISPLAY is the constraint, ~1392 CSS px off-screen). Real findings preserved: the #/blob right-pane does not mount at 390 while #/mix — also a right-pane view — does (independently corroborated by the webkit mobile rows), and the \"694 clipped\" signal run to ground as ONE unscrollable overhanging right-pane card 377px past a 1440 viewport, an MT-F022-class false signal caught in the seat's own hands. Morph arm NOT-DRIVEN and reported as such rather than a false green: the FSM ran but --dock-morph-t stayed exactly 0 across 7 passes because the hidden automation window throttles rAF to ~1Hz — zero frames of genuine morph; the 246-step fractional sweep is labelled SYNTHETIC (style resolution only, cannot exercise paint), and glass-S0 is explicitly NOT closed. Both glass-S0-signature .ips confirmed on disk and attributed AWAY from this cell (procPath …WebContent.Development, coalition com.microsoft.VSCode — Playwright's build, one predating the seat by ~70 min), with the full toStyleColor(CSS::ColorMix)→applyValueBackgroundColor→Document::resolveStyle frame stack recorded as corroboration that the crash class is STYLE RESOLUTION, not paint, on precisely the property morph.css nests color-mix into. Eleven declared blind spots including the widened window-snapshot failure (now reproduces at 1440, not just 3440, byte-identical across route AND scheme), the pointer-actions driver hang with a standing instruction for later seats, and the emulation-locked reduced-motion/forced-colors states where NEITHER cell has evidence. §0 CELL-SEPARATION preamble states the I-20 law four ways and §7 closes with an explicit does/does-not-settle split; every webkit row appears only in its own column, verbatim, never merged into a safari verdict. READ-ONLY honored (src/ demo/ api/ test/ e2e/ untouched); safaridriver verified free at exit ({ready:true}, no session outstanding) — no browser was driven by this synthesis seat, per probe parsimony."
+   }
+  }
+ ]
+}

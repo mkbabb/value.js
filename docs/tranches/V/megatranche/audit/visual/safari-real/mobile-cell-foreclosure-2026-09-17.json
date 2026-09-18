@@ -1,0 +1,142 @@
+{
+  "servedModel": "claude-opus-5[1m]",
+  "wave": "X.KF.W9",
+  "unit": ".c",
+  "date": "2026-09-17",
+  "record": "docs/tranches/V/megatranche/audit/visual/safari-real/mobile-CELL-RECORD-2026-09-17.md",
+  "substrate": {
+    "repo": "keyframes.js",
+    "pinnedRef": "master == origin/master",
+    "pinnedSha": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+    "pinnedBy": "docs/tranches/X/keyframes/evidence/W9/SUBSTRATE-PIN.md (seat .a)",
+    "observedHeadAtThisSeat": "5388907b1d0b9c67926a071a70d1fb76aed96609",
+    "observedOriginMaster": "55e9bf0d2391bbc6d9871bb3f0555a6225daae92",
+    "headAheadOfOrigin": 1,
+    "headPushed": false,
+    "pinStillValid": false,
+    "bundleOnDisk": {
+      "path": "../keyframes.js/dist/gh-pages",
+      "mtime": "2026-09-17T16:17:47",
+      "builtFromSha": "5388907b1d0b9c67926a071a70d1fb76aed96609",
+      "indexHtmlSha256": "b127991c0f1e9ff0ff662fd5fba329269c5d4c188190972eb652ceba9e05343e",
+      "servableForThisWave": false,
+      "reason": "built from 5388907b, not the pinned 55e9bf0d; 23 demo/ files differ"
+    },
+    "pinToHeadDelta": { "filesChanged": 26, "demoFilesChanged": 23, "srcFilesChanged": 0 }
+  },
+  "cells": [
+    {
+      "id": "safari-app/ios-device",
+      "column": "safari-app",
+      "owningSeat": ".c",
+      "state": "UNREACHABLE-IN-CELL",
+      "missingHost": "a paired iOS device running Safari 26.x",
+      "witnesses": [
+        "xcrun devicectl list devices -> 'No devices found.' (double-run, identical)",
+        "system_profiler SPUSBDataType | grep -ic 'iPhone|iPad' -> 0",
+        "xcrun xctrace list devices -> '== Devices ==' section contains only the host MacBook Pro"
+      ],
+      "op4": { "taken": false, "fc": null, "prt": null, "prm": null, "inheritedFrom": null },
+      "captures": 0,
+      "sha256Sidecars": 0
+    },
+    {
+      "id": "safari-app/ios-simulator",
+      "column": "safari-app",
+      "owningSeat": ".c",
+      "state": "UNREACHABLE-IN-CELL",
+      "missingHost": "a WebDriver endpoint able to host an iOS-Simulator Safari session",
+      "witnesses": [
+        "safaridriver --help -> six options, none a simulator flag; grep -ci simulator -> 0",
+        "safaridriver --version -> Included with Safari 26.4 (21624.1.16.11.4)",
+        "POST /session with safari:useSimulator=true -> 'session not created: The macOS platform is incompatible with requested capability: safari:useSimulator.' (double-run, byte-identical)",
+        "control: GET /status -> ready:true; .a opened a real safari-app/desktop session on the same binary"
+      ],
+      "simulatorsInstalled": 18,
+      "op4": { "taken": false, "fc": null, "prt": null, "prm": null, "inheritedFrom": null },
+      "captures": 0,
+      "sha256Sidecars": 0,
+      "datedCorrectionBeside": "evidence/W9/CELL-ROSTER.md sec.1 row 3 names the driver 'safaridriver --use-simulator'; that flag does not exist in safaridriver 26.4. Cell separation is untouched and correct; only the driver cell is corrected. .a's bytes are NOT edited (E-3)."
+    }
+  ],
+  "foreclosures": [
+    { "id": "F-1", "scope": "cell", "curableByGrant": false, "summary": "no paired iOS device on this host" },
+    { "id": "F-2", "scope": "apparatus", "curableByGrant": false, "summary": "safaridriver 26.4 cannot open an iOS-Simulator session on macOS" },
+    { "id": "F-3", "scope": "wave", "curableByGrant": true, "summary": "pinned substrate stale; bundle built from 5388907b, pin is 55e9bf0d; re-pin is G-KFW9-14's act, escalated by .a at SUBSTRATE-PIN sec.8" }
+  ],
+  "gates": [ { "id": "G-KFW9-11", "before": "RED", "after": "RED", "turned": false } ],
+  "probes": {
+    "family_v_oneIosDeviceSession": [
+      { "id": "R-9", "record": "kf-CSSPasteDialog", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "SP-4", "record": "kf-SharePopover", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "R-20 / KAD-F4", "record": "kf-CSSPasteDialog + kf-KeyframesAddDialog", "state": "UNREACHABLE-IN-CELL", "armedTrigger": "R-A MAJOR, unrevived and unresolved" },
+      { "id": "KF-KC-16 / KF-KC-25", "record": "kf-KeyframeCard", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "KF-SCR-1", "record": "kf-SequenceScrubber", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "i-13 / C-3", "record": "MISSED-F family (kf-AmigaScene house-wide)", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "K-13", "record": "kf-SequenceScrubber probe 4", "state": "UNREACHABLE-IN-CELL", "note": "cure-HOME decider; still owed before either packet writes its focus cure" },
+      { "id": "TimelineCaret probe 10", "record": "kf-TimelineCaret (rides banked D-9's fold)", "state": "UNREACHABLE-IN-CELL" }
+    ],
+    "familyDoubleSpent": false,
+    "family_iii_mobilePass": [
+      { "id": "KF-APP-6", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "KF-APP-8", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "D-25", "record": "kf-EditorShell", "state": "UNREACHABLE-IN-CELL", "note": "notch witness; pairs with KF-APP-6 in ONE 390x844 capture, unspent" },
+      { "id": "D-6", "record": "kf-EditorShell", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "TD-36", "state": "UNREACHABLE-IN-CELL", "note": "S-5 before/after pair, neither end taken" },
+      { "id": "KF-EST-3", "state": "UNREACHABLE-IN-CELL" },
+      { "id": "KF-EST-4", "state": "UNREACHABLE-IN-CELL" }
+    ],
+    "family_iiia_odv3_390arm": {
+      "state": "NOT PRODUCED",
+      "required": { "viewport": 390, "homes": ["in-panel transport card", "bottom-center floating transport pill"], "scenes": ["cube", "amiga", "square", "easing"], "against": "real Glass 7" },
+      "cellsRequired": 8,
+      "cellsProduced": 0,
+      "discriminatorHonoured": true,
+      "falsifierHonoured": true,
+      "exactPrecondition": "a servable keyframes.js demo build whose source sha the capture may honestly stamp (F-3), rendered at 390 in a cell this host can open (F-1/F-2)",
+      "rulesNothing": true,
+      "kfW10Shape": "COHESION sec.0j.C KF-ODV3 authorizes KF.W10 to close complete_with_misses on that row citing this exact precondition"
+    },
+    "family_iiib_odv5_390atRest": {
+      "state": "NOT OBSERVED",
+      "ruled": false,
+      "note": "OD-V5 stays DEFERRED pending glass's dock mark (sec.0j.C KF-ODV5); complete_with_misses authorized in advance; no glass-ui byte read or written"
+    },
+    "s6_chromeDockTouchMenuSession": {
+      "state": "NOT RUN",
+      "members": ["M-5/C-6 witness", "M-4 rider check (two kf-MbabbMenu MUST-CARRY riders)", "MM-4 computed-style falsifier"],
+      "note": "app/dock/ChromeDock.vue is itself inside the 23-file pin-to-HEAD delta"
+    },
+    "s7_probeOrder": {
+      "spent": false,
+      "published": [
+        "KF-EST P-1 (home Play control) FIRST, then P-2",
+        "K-13 before either packet writes its focus cure",
+        "KF-APP-1 crash-witness before kf-CubeScene SS-13 #8",
+        "D-25 + KF-APP-6 in ONE 390x844 capture, never separately"
+      ]
+    }
+  },
+  "staticAnchorsReverifiedAtPin": [
+    { "row": "D-25", "result": "viewport-fit absent repo-wide (exit 1); demo/app/index.html:6 viewport meta without it", "reproduces": true },
+    { "row": "D-25 shell", "result": "initIOSPlatformClass at EditorShell.vue:115/:133, decl iosTextEntry.ts:14", "reproduces": true },
+    { "row": "R-9", "result": "clampIOSNoZoomFontSize decl iosTextEntry.ts:10, exactly one consumer CSSCodeEditor.vue:39/:137, tested :88/:89/:97", "reproduces": true },
+    { "row": "R-20 / KAD-F4 / KF-KC-25", "result": "autocapitalize / autocorrect / spellcheck each exit 1, zero hits repo-wide", "reproduces": true },
+    { "row": "contenteditable surfaces", "result": "CSSPasteDialog.vue:17, KeyframeCard.vue:46 (pre at :41), KeyframesAddDialog.vue", "reproduces": true },
+    { "row": "MISSED-F / i-13 / C-3", "result": "6 scene declarations of touch-action:none (AmigaScene.vue:254, CubeScene.vue:12, CubeTarget.vue:4, OrbitalDrag.vue:350, SequenceTarget.css:134, SquareScene.css:64)", "reproduces": true }
+  ],
+  "staticIsNotTheWitness": "these re-verify the probes' SUBJECT at the pin and close nothing; the bank's standing is 'mechanisms closed statically, device confirmation outstanding'",
+  "selfCount": {
+    "captures": 0,
+    "sha256Sidecars": 0,
+    "probesBookedTerminal": 27,
+    "probesExecuted": 0,
+    "probesRetired": 0,
+    "probesGreen": 0,
+    "gatesTurned": 0,
+    "keyframesJsBytesWritten": 0,
+    "glassUiBytesWritten": 0,
+    "filesWrittenBySeat": 3
+  },
+  "escalation": "S-13 gate-failure-not-local-recoverable, the class the spec names at G-KFW9-1 ('the named condition is unreachable -> the horizon is re-planned, not faked with webkit'), one cell over at G-KFW9-11"
+}

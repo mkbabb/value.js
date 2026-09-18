@@ -1,0 +1,432 @@
+{
+  "Q1": {
+    "text-caption": {
+      "with": {
+        "fontSize": "14.384px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "18.6992px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "without": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "changedProps": [
+        "fontSize",
+        "lineHeight"
+      ],
+      "isNoOp": false
+    },
+    "text-small": {
+      "with": {
+        "fontSize": "16.4px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "22.96px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "without": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "changedProps": [
+        "fontSize",
+        "lineHeight"
+      ],
+      "isNoOp": false
+    },
+    "text-mono-small": {
+      "with": {
+        "fontSize": "16.4px",
+        "fontFamily": "Fira Code",
+        "fontWeight": "400",
+        "lineHeight": "22.96px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "without": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "changedProps": [
+        "fontSize",
+        "fontFamily",
+        "lineHeight"
+      ],
+      "isNoOp": false
+    },
+    "mono-caption": {
+      "with": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "without": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "changedProps": [],
+      "isNoOp": true
+    },
+    "btn-interactive": {
+      "with": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "without": {
+        "fontSize": "18.608px",
+        "fontFamily": "Plus Jakarta Sans",
+        "fontWeight": "400",
+        "lineHeight": "27.912px",
+        "letterSpacing": "normal",
+        "transitionProperty": "all",
+        "transitionDuration": "0s"
+      },
+      "changedProps": [],
+      "isNoOp": true
+    }
+  },
+  "Q2": {
+    "dotCount": 4,
+    "plusGlyphsInWell": 0,
+    "svgsInWell": [
+      "watercolor-filter-host",
+      "watercolor-filter-host",
+      "watercolor-filter-host",
+      "watercolor-filter-host",
+      "lucide lucide-check-icon lucide-check w-4 h-4 text-foreground"
+    ],
+    "dots": [
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "tagName": "SPAN",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "pointerEvents": "none",
+        "dataVariant": "solid",
+        "childCount": 1,
+        "childTags": [
+          "svg.[object SVGAnimatedStr"
+        ]
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "tagName": "SPAN",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "pointerEvents": "none",
+        "dataVariant": "solid",
+        "childCount": 1,
+        "childTags": [
+          "svg.[object SVGAnimatedStr"
+        ]
+      },
+      {
+        "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+        "tagName": "SPAN",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "pointerEvents": "none",
+        "dataVariant": "solid",
+        "childCount": 1,
+        "childTags": [
+          "svg.[object SVGAnimatedStr"
+        ]
+      },
+      {
+        "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-p",
+        "tagName": "SPAN",
+        "ariaHidden": "true",
+        "ariaLabel": null,
+        "tagAttr": null,
+        "role": null,
+        "pointerEvents": "none",
+        "dataVariant": "ghost",
+        "childCount": 2,
+        "childTags": [
+          "svg.[object SVGAnimatedStr",
+          "SPAN.watercolor-ghost-strok"
+        ]
+      }
+    ],
+    "focusables": [
+      {
+        "tag": "INPUT",
+        "name": "",
+        "type": "text"
+      },
+      {
+        "tag": "BUTTON",
+        "name": "",
+        "type": "button"
+      }
+    ],
+    "consoleWarnings": [
+      "warning: No available adapters.",
+      "warning: [.WebGL-0x11400556a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels",
+      "warning: [.WebGL-0x11400556a00]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)"
+    ]
+  },
+  "Q34_light": {
+    "wellBg": "oklab(0.913295 0.00550478 0.0130424)",
+    "wellRgb": [
+      233,
+      225,
+      217,
+      255
+    ],
+    "wellLum": 0.76184,
+    "hostCls": "glass-resting card rounded-card text-card-foreground scrollb",
+    "hostBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "hostRgb": [
+      238,
+      229,
+      220,
+      169
+    ],
+    "hostLum": 0.79383,
+    "toneStepDelta": -0.03199,
+    "toneStepSign": "well DARKER than host (recessed)",
+    "wellEdge": "1px dashed oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "addSlotStroke": {
+      "borderColor": "lab(30 -70 80)",
+      "rgb": [
+        0,
+        90,
+        0,
+        255
+      ],
+      "borderWidth": "2px",
+      "borderStyle": "dashed",
+      "w": 48
+    },
+    "emptyMarkStrokes": [
+      {
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "rgb": [
+          21,
+          75,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 32
+      },
+      {
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "rgb": [
+          21,
+          75,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 44
+      },
+      {
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "rgb": [
+          21,
+          75,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 24
+      }
+    ]
+  },
+  "Q34_dark": {
+    "wellBg": "oklab(0.345295 0.0103877 0.0175526)",
+    "wellRgb": [
+      66,
+      55,
+      47,
+      255
+    ],
+    "wellLum": 0.04096,
+    "hostCls": "glass-resting card rounded-card text-card-foreground scrollb",
+    "hostBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "hostRgb": [
+      78,
+      68,
+      60,
+      192
+    ],
+    "hostLum": 0.0608,
+    "toneStepDelta": -0.01984,
+    "toneStepSign": "well DARKER than host (recessed)",
+    "wellEdge": "1px dashed oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "addSlotStroke": {
+      "borderColor": "lab(30 -70 80)",
+      "rgb": [
+        0,
+        90,
+        0,
+        255
+      ],
+      "borderWidth": "2px",
+      "borderStyle": "dashed",
+      "w": 48
+    },
+    "emptyMarkStrokes": [
+      {
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "rgb": [
+          77,
+          215,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 32
+      },
+      {
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "rgb": [
+          77,
+          215,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 44
+      },
+      {
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "rgb": [
+          77,
+          215,
+          0,
+          255
+        ],
+        "borderWidth": "2px",
+        "borderStyle": "dashed",
+        "w": 24
+      }
+    ]
+  },
+  "Q5": {
+    "storeBefore": [
+      {
+        "name": "Zebra",
+        "n": 3,
+        "positions": [
+          0,
+          1,
+          2
+        ]
+      }
+    ],
+    "afterCommitAttempt": {
+      "well": "Current Palette2 colors \"Zebra\" already exists. Update Cancel",
+      "store": [
+        {
+          "name": "Zebra",
+          "n": 3,
+          "positions": [
+            0,
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    "drain": [
+      {
+        "iter": 0,
+        "facesBefore": 2,
+        "removeBtnBox": {
+          "x": 70,
+          "y": 1006,
+          "width": 28,
+          "height": 28
+        },
+        "facesAfter": 1
+      },
+      {
+        "iter": 1,
+        "facesBefore": 1,
+        "removeBtnBox": {
+          "x": 70,
+          "y": 1006,
+          "width": 28,
+          "height": 28
+        },
+        "facesAfter": 0
+      }
+    ],
+    "afterDrain": {
+      "well": "Start a new palette \"Zebra\" already exists. Update Cancel",
+      "store": [
+        {
+          "name": "Zebra",
+          "n": 3,
+          "positions": [
+            0,
+            1,
+            2
+          ]
+        }
+      ],
+      "draftColors": 0
+    },
+    "updateVisible": 1,
+    "afterUpdate": {
+      "well": "Start a new palette",
+      "store": [
+        {
+          "name": "Zebra",
+          "n": 0,
+          "positions": []
+        }
+      ]
+    }
+  }
+}

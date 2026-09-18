@@ -1,0 +1,17 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h — G-7's 'with the W2 cells registered': does W1's bench expose a registration surface?
+# ⟨cmd⟩ grep -n 'argv\|--' harness/bench/bench.ts | head
+9://   --rounds=<n>   total rounds per cell          (default 40)
+10://   --warmup=<n>   leading rounds discarded       (default 10)
+11://   --out=<path>   raw JSON destination           (default harness/bench/bench-raw.json)
+12://   --no-finalize  skip aggregate.mjs/finalize.mjs invocation (rows still written)
+36:const argv = process.argv.slice(2);
+# ⟨cmd⟩ grep -n 'export async function loadEngine' -A70 harness/bench/lib/engines.mjs | grep -n 'case\|if (name'
+2:    if (name === "published-4.0.0") {
+19:    if (name === "c14") {
+32:    if (name === "deposed") {
+46:    if (name === "json-normaliser") {
+55:    throw new Error(`unknown engine ${name}`);
+63: *   throw   — the call crossed the JS boundary as an exception.
+64: * A throw is COUNTED, never swallowed into "reject": the R1 leg exists precisely because
+# reading: the argv contract is rounds/warmup/out/no-finalize only; loadEngine is a closed switch over W1's named engines; no external-engine path, env or manifest exists. Registering a W2 cell requires a write under harness/bench/** — W2.md §4 R-E execute-no-write, §3a halt.

@@ -1,0 +1,90 @@
+{
+  "SERVED MODEL": "claude-opus-5[1m]",
+  "artefact": "easing-identity.json",
+  "unit": "X.KF.W4.c",
+  "gate": "G-KFW4-5",
+  "date": "2026-09-17",
+  "substrate": {
+    "repo": "keyframes.js",
+    "branch": "master",
+    "originMaster": "55e9bf0d",
+    "valueJsPin": "4.0.0"
+  },
+  "countingRule": "one unit = one registry NAME; the 40 are timingFunctionEntries.map(([name]) => name), the module-evaluation roster",
+  "before": {
+    "names": 40,
+    "distinctFunctionReferences": 31,
+    "valueJsEasingUnstable": 21,
+    "referenceCollisionGroups": 9,
+    "collisions": [
+      [
+        "smooth-step-3",
+        "smoothStep3"
+      ],
+      [
+        "ease-in-out-sine",
+        "easeInOutSine"
+      ],
+      [
+        "ease-in-out-quad",
+        "easeInOutQuad"
+      ],
+      [
+        "ease-out-cubic",
+        "easeOutCubic"
+      ],
+      [
+        "ease-in-out-cubic",
+        "easeInOutCubic"
+      ],
+      [
+        "ease-out-expo",
+        "easeOutExpo"
+      ],
+      [
+        "ease-in-out-expo",
+        "easeInOutExpo"
+      ],
+      [
+        "ease-in-out-circ",
+        "easeInOutCirc"
+      ],
+      [
+        "ease-in-bounce",
+        "easeInBounce"
+      ]
+    ],
+    "memoBypassed": [
+      "ease",
+      "ease-in",
+      "ease-out",
+      "ease-in-out"
+    ],
+    "unstableThroughResolveTimingFunction": [
+      "ease",
+      "ease-in",
+      "ease-out",
+      "ease-in-out"
+    ],
+    "note": "resolveTimingFunction tried parseTimingFunction FIRST, so the four registry names that are also CSS keywords took the parse path and got a fresh easing() instance per call. serializeEasing({fn: resolveTimingFunction('ease')}) THREW on the library's own registry keyword."
+  },
+  "after": {
+    "memoBypassed": [],
+    "unstableThroughResolveTimingFunction": [],
+    "curveDeltas": [],
+    "grid": "t = i/32, i in [0,32] — 33 points, linearDensifyEasing's own sample set",
+    "proof": "40 names x 33 samples compared before/after the cure: 0 deltas. 4 names newly stable. 40/40 resolve to the module-evaluation memo. 0 unstable.",
+    "distinctFunctionReferences": 31,
+    "referenceCollisionGroupsUnchanged": 9,
+    "rosterUntouched": "registryNames :30-34 and the :43 module-evaluation throw fence are byte-identical to origin/master — no key added, none removed (the bezierPresets fence)."
+  },
+  "roundTrip": {
+    "fixture": "test/compile/easing-identity.test.ts",
+    "result": "45 passed / 45",
+    "oracle": "serialize -> re-resolve -> sample the 33 grid points; EXACT equality against the densify's own round5 quantization (no tolerance band)."
+  },
+  "residual": {
+    "id": "R-2 reverse-map retirement",
+    "status": "ESCALATED — see k1-reverse-map-escalation-2026-09-17.md"
+  }
+}

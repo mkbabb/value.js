@@ -1,0 +1,1588 @@
+{
+ "runId": "wf_bafca356-6f4",
+ "workflow": "wf_bafca356-6f4",
+ "resultCount": 5,
+ "results": [
+  {
+   "agentId": "a13f65fdcba2d9747",
+   "key": "v2:896cf49b244ac8a29e9eed3ac171ebd1f23cc2d3a0192ec8933cffd435310b98",
+   "result": {
+    "rows": [
+     {
+      "id": "V·MT0",
+      "source": "V·MT0",
+      "gist": "Pre-execution formation gate — Durable Truth and Graph Authority: harvest/hydrate/hash every unbanked axis, run the 7-SFC omission catch-up without rerunning the original 81, build typed graph v3 (Vue/TS/CSS, render/DI/route/state/API, asset/worker, package/build/test, consumer edges) with runtime/load/ownership SCCs classified separately. Bounds: modify workflows/, registry/, canonical challenge outputs, graph-authority scripts+receipts, STATE.md; OUT product source. Hard gate 88/88 components + 264/264 axes hash-banked, graph deterministic. Born-RED 215/264 exact files, 213/264 hash-banked at the 11:05 EDT validator snapshot. π: none.",
+      "blockedOn": "Active workflow settlement only; status FORMATION-BLOCKED (formation blockers 1–6: roster hydration, corpus adjudication, machine-checkable ID→terminal cut ledger, graph v3 vs FORMATION-LAWS L-1 literal-independence conflict, owner-pinned tranche letter, Glass 8 trigger/receipt). It blocks every source wave. No cut may go in_progress under provisional V·MT* labels.",
+      "carriesFrom": "none stated (no Carries line)"
+     },
+     {
+      "id": "G0–G7 graph clusters",
+      "source": "V·MT0",
+      "gist": "Every G0–G7 graph cluster must reach a terminal BUILD/FOLD/RETIRE/BLOCKED-ON disposition with named owner and trigger, folded into later rows; no count-only graph split.",
+      "blockedOn": "V·MT0 completion criteria; feeds later subtraction waves",
+      "carriesFrom": "V·MT0 Work + Completion (no Carries line)"
+     },
+     {
+      "id": "frontend-omissions.json seven-row catch-up",
+      "source": "V·MT0",
+      "gist": "Named debt: dispatch the seven-SFC omission catch-up workflow without rerunning the original 81, so the 88-SFC / 264-axis roster is complete and hash-validated.",
+      "blockedOn": "Active runs settling (formation blocker 1)",
+      "carriesFrom": "Formation blockers §1 + V·MT0 Work"
+     },
+     {
+      "id": "V·MT1",
+      "source": "V·MT1",
+      "gist": "Production Demo Boundary and Boot Truth — make the demo production artifact contain and mount the app on its intended deployment path. Bounds: package.json, vite.config.ts, production entry HTML/TS, gh-pages scripts, boot-smoke gates, deploy docs (library build stays a library build; defect is the named demo/gh-pages path only). Hard gate: release-equivalent demo artifact mounts on direct AND hash routes. Born-RED: `npm run gh-pages` exits zero while the emitted artifact contains no mounted app. Completion adds asset-URL resolution, one boot-smoke red-against-old/green-against-new, library exports unchanged. π: fresh built artifact at 1440×900 + 375×667, direct-load home and Gradient, console/network error cells.",
+      "blockedOn": "V·MT0 closes; precedes scene/layout waves; status CANDIDATE not SPECIFIED; owner-pinned tranche letter before authoring canonical W<N>.md",
+      "carriesFrom": ""
+     },
+     {
+      "id": "MT-F012",
+      "source": "V·MT1",
+      "gist": "Production demo boundary finding — gh-pages/demo release artifact does not contain or mount the application.",
+      "blockedOn": "V·MT0 closes",
+      "carriesFrom": "V·MT1 Carries line"
+     },
+     {
+      "id": "MT-F012.1",
+      "source": "V·MT1",
+      "gist": "Sub-row of MT-F012 on the same demo production-boundary defect.",
+      "blockedOn": "V·MT0 closes",
+      "carriesFrom": "V·MT1 Carries line"
+     },
+     {
+      "id": "DR-10",
+      "source": "V·MT1",
+      "gist": "Disease row carried into the boot-truth cut (demo production path / boot artifact).",
+      "blockedOn": "V·MT0 closes",
+      "carriesFrom": "V·MT1 Carries line"
+     },
+     {
+      "id": "App D-1",
+      "source": "V·MT1",
+      "gist": "App-component apotheosis row D-1 plus its production-boundary siblings — boot/mount ownership on the deployment path.",
+      "blockedOn": "V·MT0 closes; sibling set must be enumerated (formation blocker 3: no generic placeholder closes a missing document)",
+      "carriesFrom": "V·MT1 Carries line"
+     },
+     {
+      "id": "V·MT2",
+      "source": "V·MT2",
+      "gist": "Semantic Controls and Action Ownership — replace visual impostors and untyped imperative seams with native named interaction; in ONE cut delete every `@mkbabb/glass-ui/watercolor-dot` import, relocate its paint to a colocated value-owned paint-only `WatercolorSwatch` leaf, and insert that leaf into the published Glass consumer-indicator slot; native button/radio/slider roles/names/keyboard/disabled/selected/busy; remove `ref<any>` action dispatch; repair Gradient stop keyboard creation/manipulation and visible focus. Bounds: six semantic control consumers, typed scene/action contract, Gradient stop controls, Fourier named-control consumers, focused tests. Hard gate: zero semantic impostors, zero untyped actions, complete keyboard grammar. Born-RED: installed Glass is 7.0.0 still publishing ./watercolor-dot; six visual buttons not semantic; one desktop button unnamed; Gradient field outside tab order. π: keyboard-only Picker+Gradient at 1440×900 and 375×667, forced-colors and PRM separate, focus never clipped.",
+      "blockedOn": "V·MT1 + verified Glass 8 package/receipt. Release trigger machine-checked BEFORE the writer opens product source: installed major ≥8, `./watercolor-dot` absent, consumer-indicator slot present in declarations and packed exports, Glass receipt names its keyboard/orientation/motion contract. No pre-8 semantic wrapper (would force a second migration).",
+      "carriesFrom": ""
+     },
+     {
+      "id": "six WatercolorDot impostors",
+      "source": "V·MT2",
+      "gist": "Six visual WatercolorDot buttons that are not semantic controls; old whole import and export path must disappear together with consumer migration (no alias/shim/dual path).",
+      "blockedOn": "Glass 8 four-condition release trigger + V·MT1",
+      "carriesFrom": "V·MT2 Carries line; Glass 8 adoption trigger is formation blocker 6"
+     },
+     {
+      "id": "MT-F004",
+      "source": "V·MT2",
+      "gist": "Semantic-control finding folded into the impostor/action-ownership cut.",
+      "blockedOn": "V·MT1 + Glass 8 release trigger",
+      "carriesFrom": "V·MT2 Carries line"
+     },
+     {
+      "id": "MT-F005",
+      "source": "V·MT2",
+      "gist": "Semantic-control finding folded into the impostor/action-ownership cut.",
+      "blockedOn": "V·MT1 + Glass 8 release trigger",
+      "carriesFrom": "V·MT2 Carries line"
+     },
+     {
+      "id": "Gradient D-6",
+      "source": "V·MT2",
+      "gist": "Gradient component apotheosis row — stop-control semantics/keyboard creation and manipulation.",
+      "blockedOn": "V·MT1 + Glass 8 release trigger",
+      "carriesFrom": "V·MT2 Carries line"
+     },
+     {
+      "id": "Gradient D-7",
+      "source": "V·MT2",
+      "gist": "Gradient component apotheosis row — visible target/focus for stop controls (field currently outside tab order).",
+      "blockedOn": "V·MT1 + Glass 8 release trigger",
+      "carriesFrom": "V·MT2 Carries line"
+     },
+     {
+      "id": "typed action-bar debt",
+      "source": "V·MT2",
+      "gist": "Named debt: untyped imperative action dispatch (`ref<any>`) replaced by the typed scene/action contract that V·MT3 then consumes.",
+      "blockedOn": "V·MT1 + Glass 8 release trigger",
+      "carriesFrom": "V·MT2 Carries line"
+     },
+     {
+      "id": "V·MT3",
+      "source": "V·MT3",
+      "gist": "One Route, One Scene — remove the universal physical pane fiction, establish route-owned semantic scenes: one route-level H1 and protagonist; regions are semantic stage/inspector/action, not left/right; absent regions reserve no plates; retire universal companion, page Card housing, pane-segment fiction; remove shell 100dvh/hidden-overflow/block-cap constraints; exact producer posture names replace magic ranges. Bounds: App.vue, viewSchema.ts, useViewManager.ts, usePaneRouter.ts, PaneSlot.vue, PaneHeader.vue, PaneSegmentedControl.vue, shell layout CSS, route-scene tests. Hard gate: exactly one H1/protagonist per route, old physical pane path absent. Born-RED: H1 count zero on all routes, fourteen routes encode left/right, pathologically low 3440 utilization. Completion adds all controls reachable at 320×568 and 720×450, no document overflow, old pane components/schema fields absent. π: every public route at 1440×900, 375×667, 720×450; home/Gradient/Browse/Atmosphere settled-frame screenshots + interaction receipts.",
+      "blockedOn": "V·MT1 and V·MT2's typed action contract",
+      "carriesFrom": ""
+     },
+     {
+      "id": "MT-F003",
+      "source": "V·MT3",
+      "gist": "Route/scene structural finding — pane fiction and H1/protagonist absence.",
+      "blockedOn": "V·MT1 + V·MT2 typed action contract",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "MT-F028",
+      "source": "V·MT3",
+      "gist": "Shell layout/constraint finding folded into the route-scene cut.",
+      "blockedOn": "V·MT1 + V·MT2 typed action contract",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "App adjudication",
+      "source": "V·MT3",
+      "gist": "The App component-corpus adjudication (scene ownership half, distinct from App D-1's boot half in V·MT1).",
+      "blockedOn": "Complete App corpus adjudication (formation blocker 2) + V·MT1/V·MT2",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "V·L1",
+      "source": "V·MT3",
+      "gist": "V-tranche layout/scene ledger row folded into route-owned semantic scenes.",
+      "blockedOn": "V·MT1 + V·MT2 typed action contract",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "V·L2",
+      "source": "V·MT3",
+      "gist": "V-tranche layout/scene ledger row folded into route-owned semantic scenes.",
+      "blockedOn": "V·MT1 + V·MT2 typed action contract",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "P-1",
+      "source": "V·MT3",
+      "gist": "Pending owner-ruling row P-1 carried into the route/scene cut.",
+      "blockedOn": "Owner ruling on P-1 still open; then V·MT1 + V·MT2",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "P-2",
+      "source": "V·MT3",
+      "gist": "Pending owner-ruling row P-2 carried into the route/scene cut.",
+      "blockedOn": "Owner ruling on P-2 still open; then V·MT1 + V·MT2",
+      "carriesFrom": "V·MT3 Carries line"
+     },
+     {
+      "id": "V·MT4",
+      "source": "V·MT4",
+      "gist": "Adversarial Instruments and Temporal Scenes — prove scene composition on the hardest live tools WITHOUT recreating the deleted glass InstrumentChassis: Gradient pilot (dominant authoring stage, selected-stop inspector, stable action), Mix canary (one interaction owner, no nested controls, canvas lifetime isolated), Blob/Atmosphere persistent live preview + loss/recovery contract, short-landscape last-control-and-preview reachability, subtle Gradient aurora on the shared field/motion law with no private rAF loop. Bounds: Gradient, Mix, Blob, Atmosphere, Extract, Generate, route-private scene/layout styles and composables. Hard gate: Gradient and Mix satisfy scene law without copied chassis or clock duplication. Born-RED: Gradient stage subordination, Mix nested interaction, Blob narrow non-mount, short-landscape reachability gaps, inconsistent pane transitions. Completion: one clock per effect, WebGL loss and PRM gates pass. π: Gradient/Mix/Blob/Atmosphere at desktop/mobile/short landscape with drag, keyboard, route switch, WebGL recovery, PRM evidence.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": ""
+     },
+     {
+      "id": "MT-GRADSTOP-1",
+      "source": "V·MT4",
+      "gist": "Gradient stop finding, carried in its adjudicated order (1 of 3).",
+      "blockedOn": "V·MT3; adjudicated ordering of the GRADSTOP trio must be honored",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-GRADSTOP-2",
+      "source": "V·MT4",
+      "gist": "Gradient stop finding, carried in its adjudicated order (2 of 3).",
+      "blockedOn": "V·MT3; adjudicated ordering of the GRADSTOP trio must be honored",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-GRADSTOP-3",
+      "source": "V·MT4",
+      "gist": "Gradient stop finding, carried in its adjudicated order (3 of 3).",
+      "blockedOn": "V·MT3; adjudicated ordering of the GRADSTOP trio must be honored",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-F029",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-F030",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding (motion/clock ownership) folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line; ALSO carried by V·MT8 (design/motion law) — duplicate carriage needs one terminal home per formation blocker 3"
+     },
+     {
+      "id": "MT-F032",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-F034",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line; ALSO carried by V·MT8 — duplicate carriage needs one terminal home"
+     },
+     {
+      "id": "MT-F035",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-F037",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line; ALSO carried by V·MT8 — duplicate carriage needs one terminal home"
+     },
+     {
+      "id": "MT-F041",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "MT-F043",
+      "source": "V·MT4",
+      "gist": "Instrument/temporal-scene finding folded into the adversarial-instruments cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line; ALSO carried by V·MT8 — duplicate carriage needs one terminal home"
+     },
+     {
+      "id": "V·L3",
+      "source": "V·MT4",
+      "gist": "V-tranche ledger row folded into the instruments/temporal-scenes cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "V·L4",
+      "source": "V·MT4",
+      "gist": "V-tranche ledger row folded into the instruments/temporal-scenes cut.",
+      "blockedOn": "V·MT3",
+      "carriesFrom": "V·MT4 Carries line"
+     },
+     {
+      "id": "V·MT5",
+      "source": "V·MT5",
+      "gist": "Palette Specimen and Domain Split — separate color presentation from entity management: quiet presentation-only `PaletteSpecimen`, inspector owns rename/menu/feedback/version/delete, tags/counts/colors prove arbitrary N without silent slicing, provider facilities split by route/lifetime, authenticated/public/Admin/empty/error/offline states stay distinct, nested selection/menu interaction eliminated. Bounds: PaletteCard*, palettes panes, browse/Admin/user composables, API transport, provider ports, empty/copy surfaces, focused API and browser tests. Hard gate: arbitrary-N truth and CRUD ownership pass across public/auth/Admin states. Born-RED: silent tag slicing, fixed count widths, nested controls, eager root facilities, CRUD/error ambiguity, ceremonial empty states. Completion: N=0,1,2,5,50,200,201 all preserve truth; one action one owner; every CRUD mutation has result/feedback; provider SCC closed; no quiet specimen imports CRUD facilities. π: public + authenticated Browse/Library/Admin at desktop/mobile with API-test, browser-live, fixture, and blocked evidence labelled separately.",
+      "blockedOn": "V·MT2 and V·MT3; active palette adjudication must be COMPLETE",
+      "carriesFrom": ""
+     },
+     {
+      "id": "MT-F036",
+      "source": "V·MT5",
+      "gist": "Palette-domain finding folded into the specimen/domain split.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line; ALSO carried by V·MT8 — duplicate carriage needs one terminal home"
+     },
+     {
+      "id": "MT-F038",
+      "source": "V·MT5",
+      "gist": "Palette-domain finding folded into the specimen/domain split.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line"
+     },
+     {
+      "id": "MT-F039",
+      "source": "V·MT5",
+      "gist": "Palette-domain finding folded into the specimen/domain split.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line; ALSO carried by V·MT8 — duplicate carriage needs one terminal home"
+     },
+     {
+      "id": "MT-F040",
+      "source": "V·MT5",
+      "gist": "Palette-domain finding folded into the specimen/domain split.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line"
+     },
+     {
+      "id": "palette component apotheoses",
+      "source": "V·MT5",
+      "gist": "The palette component-corpus apotheosis documents carried whole into the split — but a generic 'component apotheoses' placeholder does NOT close a missing document.",
+      "blockedOn": "Complete palette adjudication (formation blocker 2/3: only ten of fourteen top-level apotheoses map to validator component slugs)",
+      "carriesFrom": "V·MT5 Carries line"
+     },
+     {
+      "id": "Admin DAG rows",
+      "source": "V·MT5",
+      "gist": "Admin dependency/DAG rows carried into palette domain ownership and provider-facility splitting.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication; graph v3 must settle (formation blocker 4)",
+      "carriesFrom": "V·MT5 Carries line"
+     },
+     {
+      "id": "O-19",
+      "source": "V·MT5",
+      "gist": "Cross-repo/outbound letter O-19 whose consumer dispositions A-19…A-22 land in this cut.",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line"
+     },
+     {
+      "id": "A-19",
+      "source": "V·MT5",
+      "gist": "O-19 consumer disposition row (1 of 4).",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line (O-19 A-19…A-22)"
+     },
+     {
+      "id": "A-20",
+      "source": "V·MT5",
+      "gist": "O-19 consumer disposition row (2 of 4).",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line (O-19 A-19…A-22)"
+     },
+     {
+      "id": "A-21",
+      "source": "V·MT5",
+      "gist": "O-19 consumer disposition row (3 of 4).",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line (O-19 A-19…A-22)"
+     },
+     {
+      "id": "A-22",
+      "source": "V·MT5",
+      "gist": "O-19 consumer disposition row (4 of 4).",
+      "blockedOn": "V·MT2 + V·MT3 + complete palette adjudication",
+      "carriesFrom": "V·MT5 Carries line (O-19 A-19…A-22)"
+     },
+     {
+      "id": "V·MT6",
+      "source": "V·MT6",
+      "gist": "Shadcn and Graph Subtraction — fully abrogate shadcn structure/style residue and close measured frontend SCCs by subtraction, no replacement wrappers. Bounds: modify 48 import consumers; delete 19 demo/ui barrels, components.json, demo/shared/utils.ts; package dependencies, ESLint config, direct Reka type owners, SCC sources. Hard gate: measured shadcn residue and four SCCs reach zero without replacement wrappers. Born-RED: 90 imports, 19 barrels, dead `cn`, stale config/dependencies/globs, four direct Reka type imports, four known SCCs. Completion: all measured residues zero; receiver-specific variants adjudicated not renamed blindly; lint targets the real physical tree and is green; every SCC has one owner and no barrel-induced cycle; no new forwarding directory. π: one route per affected family; visual delta only where receiver semantics change, else null-DELTA proof.",
+      "blockedOn": "V·MT3 and V·MT5 stabilize destination ownership",
+      "carriesFrom": ""
+     },
+     {
+      "id": "shadcn residue disease family",
+      "source": "V·MT6",
+      "gist": "The whole shadcn-residue disease family (90 imports, 19 barrels, dead `cn`, stale components.json/deps/globs, four direct Reka type imports) subtracted in one cut.",
+      "blockedOn": "V·MT3 + V·MT5 destination ownership stable",
+      "carriesFrom": "V·MT6 Carries line"
+     },
+     {
+      "id": "Admin/provider SCC",
+      "source": "V·MT6",
+      "gist": "Measured frontend strongly-connected component — Admin/provider — closed by subtraction with one owner and no barrel-induced cycle.",
+      "blockedOn": "V·MT3 + V·MT5; graph v3 SCC classification from V·MT0",
+      "carriesFrom": "V·MT6 Carries line"
+     },
+     {
+      "id": "Markdown SCC",
+      "source": "V·MT6",
+      "gist": "Measured Markdown strongly-connected component closed by subtraction.",
+      "blockedOn": "V·MT3 + V·MT5; graph v3 SCC classification from V·MT0",
+      "carriesFrom": "V·MT6 Carries line"
+     },
+     {
+      "id": "Gradient SCC",
+      "source": "V·MT6",
+      "gist": "Measured Gradient strongly-connected component closed by subtraction.",
+      "blockedOn": "V·MT3 + V·MT5; graph v3 SCC classification from V·MT0",
+      "carriesFrom": "V·MT6 Carries line"
+     },
+     {
+      "id": "Dock SCC",
+      "source": "V·MT6",
+      "gist": "Measured Dock strongly-connected component closed by subtraction.",
+      "blockedOn": "V·MT3 + V·MT5; graph v3 SCC classification from V·MT0",
+      "carriesFrom": "V·MT6 Carries line"
+     },
+     {
+      "id": "V·MT7",
+      "source": "V·MT7",
+      "gist": "Parser and Library Apotheosis — ship a small, total, consumer-proven 4.1 surface: total depth-bounded parser with no catch-all, declared token juxtaposition, non-finite behavior per CSS spec, bench bars accepted ≥0.9× / reject ≥0.6× / R1 zero-throw; prune `dominantColor`, ND-01, unused matrix family, `ColorFactory`; fold singular parser, CSS barrels, Bezier core; preserve `PathGeometry` for keyframes and trimmed quantize; no root shim or deprecated export. Bounds: cand-O parser architecture folded into src/css, subpath barrels, easing/math, src/transform, tests/probes, package/version/consumer letters. Hard gate: parser G1–G8 green against the PACKED artifact; only consumer-proven exports remain. Born-RED: published R1 throws; current parser unsound accepts; duplicate/unused exports; matrix family zero consumers; keyframes imports path geometry. Completion adds keyframes MorphSVG passing through /transform and external consumer packets received. π: none for pure library behavior; consuming keyframes SVG morph fixture is the live witness.",
+      "blockedOn": "V·MT0 and terminal band adjudication; coordinate exact-pin consumers",
+      "carriesFrom": ""
+     },
+     {
+      "id": "MT-F001",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "MT-F007",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "MT-F008",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "MT-F015",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "MT-F019",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "MT-F024",
+      "source": "V·MT7",
+      "gist": "Library/parser finding folded into the 4.1 apotheosis cut.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "library RD rows",
+      "source": "V·MT7",
+      "gist": "The library RD (research/disease) row family carried into the parser+export subtraction.",
+      "blockedOn": "V·MT0 + terminal band adjudication; each RD row needs its own terminal home (formation blocker 3)",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "ND-01",
+      "source": "V·MT7",
+      "gist": "ND-01 explicitly pruned from the shipped surface alongside `dominantColor`, the unused matrix family, and `ColorFactory`.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line + Work bullet"
+     },
+     {
+      "id": "decompose ruling",
+      "source": "V·MT7",
+      "gist": "Named ruling on src/transform decompose — governs what of the matrix/transform family survives into the 4.1 export surface.",
+      "blockedOn": "V·MT0 + terminal band adjudication",
+      "carriesFrom": "V·MT7 Carries line"
+     },
+     {
+      "id": "V·MT8",
+      "source": "V·MT8",
+      "gist": "Canonical Design and Motion — replace stale aesthetic prose and scattered motion authorities with one concise enforceable product law. Design premise: audience is a maker inspecting/constructing/publishing color; signature is MEASURED CHROMA (live specimen, gamut boundary, interpolation trace, channel geometry, exact numeric readout are the ornament); warm glass is only optical housing; stage/inspector/action are omittable semantic roles, never another mandatory chassis. Bounds: demo/DESIGN.md, docs/tranches/V/ARCHITECTURE.md, design/motion tokens, component-private styles, tombstone notices for superseded satellites. Hard gate: one normative design law, one topology law, complete state/motion π matrix. Dispatch OVERRIDE: Sol xhigh + Luna xhigh blind-independent read-only authors, then one Sol xhigh writer refutes both and writes the choosy apotheosis; all three seats use the frontend-design skill. Born-RED: all three terms score 0/4 across current design authorities; DESIGN paths and shadcn/cartoon/gold claims stale; hover state and clock ownership inconsistent; no normative route thesis or color-instrument signature. Completion: two mutually-citing normative docs, old unique evidence folded then tombstoned, state matrix + driver/observer law encoded, no literal-gold/cartoon-shadow/universal-motion mandate survives, every route names one job/H1/focal instrument/optional regions, before-after settled-frame DELTAs prove hierarchy not doc hygiene. π: state matrix for dock, palette specimen, Gradient stop, primary action, empty/error, reduced motion in light/dark/forced-colors.",
+      "blockedOn": "V·MT3–V·MT7, so the document describes surviving structure",
+      "carriesFrom": ""
+     },
+     {
+      "id": "Golden Glass",
+      "source": "V·MT8",
+      "gist": "Named design term carried for adjudication — currently scores 0/4 across design authorities; literal-gold mandate must not survive.",
+      "blockedOn": "V·MT3–V·MT7 stabilize surviving structure",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "Breath of Life",
+      "source": "V·MT8",
+      "gist": "Named design/motion term carried for adjudication — currently scores 0/4; folded into the one normative motion law.",
+      "blockedOn": "V·MT3–V·MT7 stabilize surviving structure",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "Movement of Momentum",
+      "source": "V·MT8",
+      "gist": "Named design/motion term carried for adjudication — currently scores 0/4; no universal-motion mandate may survive.",
+      "blockedOn": "V·MT3–V·MT7 stabilize surviving structure",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "MT-F023",
+      "source": "V·MT8",
+      "gist": "Design/motion finding folded into the canonical design law.",
+      "blockedOn": "V·MT3–V·MT7",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "MT-F026",
+      "source": "V·MT8",
+      "gist": "Design/motion finding folded into the canonical design law.",
+      "blockedOn": "V·MT3–V·MT7",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "MT-F027",
+      "source": "V·MT8",
+      "gist": "Design/motion finding folded into the canonical design law.",
+      "blockedOn": "V·MT3–V·MT7",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "MT-F033",
+      "source": "V·MT8",
+      "gist": "Design/motion finding folded into the canonical design law.",
+      "blockedOn": "V·MT3–V·MT7",
+      "carriesFrom": "V·MT8 Carries line"
+     },
+     {
+      "id": "V·MT9",
+      "source": "V·MT9",
+      "gist": "Release and Verified Close — prove the coherent cut across package, demo, and bounded consumers. In scope: release build, all package subpaths, demo production path, exact consumers, migration letters, final ledger/docs. OUT: new design or feature work; it does NOT absorb unfinished work. Agents: three serial plus the precepts close lanes. Hard gate: release battery, packed imports, browser/Safari/API cells, migration receipts green. Born-RED: any wave not VERIFIED, unresolved BLOCKED-ON without release condition, stale denominator, missing receipt, old export/path present. Completion: all roots/subpaths import from the packed artifact; production boot; keyframes/Fourier/parse-that/glass consumers at declared versions; browser matrix; real Safari cells where owed; API journeys; no unresolved CRUD state; no legacy path or compatibility seam; final state table marks EVERY carried row VERIFIED/RETIRED/BLOCKED-ON with an exact release condition. π: full public-route matrix at desktop/mobile/short landscape plus real Safari cells explicitly separated from Playwright WebKit.",
+      "blockedOn": "V·MT1–V·MT8 all IMPLEMENTED",
+      "carriesFrom": "no Carries line — it terminally dispositions every row carried by V·MT1–V·MT8"
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a48acdbead07eab86",
+   "key": "v2:c304d87ac54240acae3f95f6c24809ee19066425ba3b273f38b19c0bf554c445",
+   "result": {
+    "rows": [
+     {
+      "id": "I-21/A-2",
+      "source": "I-21",
+      "gist": "RE-TEST-VS-DISK. ALREADY-SEATED, answered by disk (TR#80 §3.4 · TR#68): `--control-h-xs` = 28px desktop ≡ our `h-7`, and lifts to 44px under coarse pointer for free. Our obligation flips from 'ask producer' to 'adopt `size=\"xs\"` and re-test our side'; no producer work is coming. Re-test must run against the shipped package, not the dist we quoted.",
+      "carriesFrom": "O-19 §A / O-16 C-arms",
+      "blockedOn": "Confirm the token exists in the INSTALLED build — value.js pins `@mkbabb/glass-ui: ^7.0.0` and resolves 7.0.0; receipt speaks from glass HEAD 9c805e42. If HEAD-only, gated on the Glass 8.0.0 package."
+     },
+     {
+      "id": "I-21/A-5-retest",
+      "source": "I-21",
+      "gist": "RE-TEST-VS-DISK. ALREADY-SEATED—LANDED: TR#35 `marks` shipped; our two structural twins COLLAPSE onto it (delete ours, do not port). Re-test the rail against the shipped `marks` before any further authoring.",
+      "carriesFrom": "O-19 §A slider arms",
+      "blockedOn": "Glass 8.0.0 package (marks + typed track seam land there; installed is 7.0.0)"
+     },
+     {
+      "id": "I-21/A-5-BREAKING",
+      "source": "I-21",
+      "gist": "BREAKING, no alias. Our `--slider-track-bg` sites are DEAD at 8.0.0 — the producer replaced the seam with a typed track seam (glass `abb1eba2`); booked as a standing relay at glass TR §C value. Must be migrated in the SAME cut as the 8.0.0 adopt (V·MT global law §2: no alias/shim/dual path/copied producer CSS). CENSUS CORRECTION: glass says '4 sites'; disk shows 4 consumer FILES but 5 live declaration points — /Users/mkbabb/Programming/value.js/demo/workbenches/generate/GenerateControls.vue:305 · /Users/mkbabb/Programming/value.js/demo/workbenches/extract/ExtractControls.vue:32 · .../ExtractControls.vue:75 · /Users/mkbabb/Programming/value.js/demo/scenes/ConfigSliderPane.vue:202 · /Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/ComponentSliders.vue:197.",
+      "carriesFrom": "O-19 A-5 (glass §4 standing relay, TR §C value)",
+      "blockedOn": "Glass 8.0.0 package; typed-track-seam API must be read from the packed artifact, not dist prose"
+     },
+     {
+      "id": "I-21/A-16",
+      "source": "I-21",
+      "gist": "RE-TEST-VS-DISK + MOVING-CONTRACT (flagged pre-schema-fold, as we asked). Our RTL finding was read off a stale dist: `Slider.vue:242/:253-254/:257-258` at HEAD already re-shapes and CORRECTS the composition we quoted. `--slider-range-origin` is INTERNAL — we must consume `dir`/`inverted` instead, and must not fold the internal name into our schema.",
+      "carriesFrom": "O-16 C-8 RTL axis-direction flag",
+      "blockedOn": "Contract is declared MOVING — re-read at the 8.0.0 packed artifact before the schema fold"
+     },
+     {
+      "id": "I-21/A-10-BREAKING",
+      "source": "I-21",
+      "gist": "BREAKING deletion. NEW-SEAT at TR#35: `valueText` → reka `getValueText`. Consequence booked at glass §4/TR §C value: /Users/mkbabb/Programming/value.js/demo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts DELETES at the TR#35 adopt — the composable's whole reason to exist is absorbed producer-side. Deletion rides the same cut as the adopt; no shim.",
+      "carriesFrom": "O-16 C-1 slider valuetext prop-through",
+      "blockedOn": "Glass 8.0.0 package shipping TR#35 `getValueText`"
+     },
+     {
+      "id": "I-21/A-3",
+      "source": "I-21",
+      "gist": "CONFLICT RULED — refused on STANDING LAW (presets live in consumers), not on merit; CWT-2 §DIALOG is the ruling of record: no `Confirm*`/`Gate*` symbol EVER mints producer-side. Our safety row stays ours and is answerable today by composition: TR#38 `dismiss=\"deliberate\"` axis + `<Button tone=\"destructive\">`. Obligation: stop carrying a ConfirmDialog ask; author the composed consumer pattern.",
+      "carriesFrom": "O-17 ConfirmDialog ask",
+      "blockedOn": "none — composable at 8.0.0 with shipped primitives"
+     },
+     {
+      "id": "I-21/A-13",
+      "source": "I-21",
+      "gist": "CONFLICT RULED. SelectTrigger display-title variant REFUSED: the TR#81 lane DELETES `variant`/`size`/`fieldHue` WITH NO ALIAS (a second breaking surface for us to census), and a title variant would re-fork the axis the shadcn abrogation just closed. Express the trigger title through the type register (TR#68 `--control-label`/title ratio) on a consumer-composed label in the trigger slot. Our own correction (the title IS tokenized) is what makes composition sufficient.",
+      "carriesFrom": "O-16 C-4 SelectTrigger title variant",
+      "blockedOn": "Un-censused: value.js has not enumerated its SelectTrigger `variant`/`size`/`fieldHue` call sites — do this before the 8.0.0 adopt"
+     },
+     {
+      "id": "I-21/A-17",
+      "source": "I-21",
+      "gist": "CONFLICT RULED PER LIMB — InstrumentChassis DIES. DELETE confirmed by owner word twice; our proof was REJECTED and muster is a PROTOTYPE repo whose counts never bind. G-1 (persistent-stage arm) · G-2 (scroll-confined inspector) · G-3 (comfort token) · G-5 (block-fill arm) · G-8 (overflow:clip vs HeroBlob) DIE WITH IT — no chassis arms at 8.0.0, no successor housing; speedtest migrates off at its own bump. Our N=1 census is ACCEPTED and does not reverse it — it is part of what convicts. Survivors: G-4 already seated (TR#31 W2-F + #35); G-6 NEW-SEAT TR#47 (dead `@container dock` CSS — establish the named container or delete); G-7 NEW-SEAT TR#68 conditioned on #47 keeping a narrow breakpoint; G-9 NEW-SEAT TR#78 but ruled as a DOCUMENTED CONSTANT in the re-authored canon, NEVER a token (our ask was tokens). Two live consequences: (a) our O-10a HYBRID successor clause ('only if G-1/G-2 are refused in the 8.0.0 cycle') is now ACTIVATED; (b) V·MT4's 'no copied chassis recipe' changes from a prohibition we chose to a fact of the world. Disk: zero `InstrumentChassis` occurrences in demo/ or src/ — nothing to delete, only a design to self-own.",
+      "carriesFrom": "O-10 §B + O-10a §C/§D (G-1..G-9)",
+      "blockedOn": "none — but V·MT4 must self-own stage/inspector/action composition; G-9 φ constants must be copied from published canon, not dist bytes"
+     },
+     {
+      "id": "I-21/A-18",
+      "source": "I-21",
+      "gist": "CONFLICT (species) + NEW-SEAT (slot) — THE PAINT BECOMES OURS. Re-importing watercolor as a library skin would reverse the ratified, owner-confirmed WATERCOLOR-RELOCATE (TR#55, veto window closed). Ruled split: interaction + indicator SEAT stay glass's; the PAINT is ours. TR#84 ⊕⁷ (+ #32/#71 twins) mints a consumer-painted indicator slot in BOTH orientations; we paint our relocated WatercolorSwatch into it and INHERIT the bounce. Loupe grammar already specified at TR#35/#32/#71 with TR#26 the ONE spring authority — do not author a second spring. No watercolor bytes return to the library. CENSUS CORRECTION vs V·MT2 file bounds: V·MT2 scopes 'six semantic control consumers', but the atomic cut ('every `@mkbabb/glass-ui/watercolor-dot` import disappears') touches 11 files / 23 `<WatercolorDot` usages on disk — MixResultDisplay.vue · MixSourceSelector.vue · GenerateControls.vue · ImageEyedropper.vue · ConsoleRail.vue · SpectrumCanvas.vue · Dock.vue · ColorSpaceSelector.vue · EmptyState.vue · CurrentPaletteEditor.vue · SwatchHoverMenu.vue (all under /Users/mkbabb/Programming/value.js/demo/). Six is the semantic-impostor subset, not the import census; as written the cut trips V·MT triumvirate condition 1 (file bounds expand by more than two paths).",
+      "carriesFrom": "O-19 §A owner-marked watercolor toggle indicator; V·MT2 carries 'six WatercolorDot impostors'",
+      "blockedOn": "Glass 8.0.0 publishing the TR#84 consumer-indicator slot (all four V·MT2 trigger conditions); V·MT2 file bounds need re-scoping to 11 files before the writer opens source"
+     },
+     {
+      "id": "I-21/D-2",
+      "source": "I-21",
+      "gist": "CONFLICT — DECLINE-ON-RECORD, and the only LIVE deadline in the receipt. Card condense was ruled against BEFORE our notice: the ScrollCardHeader absorb door is DECLINED at TR#79 U-18(a) and the `useHeaderCondense` seed retires UNCONSUMED. Condensed-state pads stay consumer-owned at 8.0.0. Reversal costs exactly one owner word, but THE WINDOW CLOSES WITH TR#79's CUT — if MT-F043 wants the producer register, the shaped ask must arrive before that cut. Row was consumed 2026-08-03, six days after the 07-29 receipt (E13 breach, recorded), so the window may already be spent.",
+      "carriesFrom": "D-2 notice; MT-F043 (carried in V·MT4 and V·MT8)",
+      "blockedOn": "OWNER DECISION, time-boxed: shape-and-send the MT-F043 producer-register ask before glass TR#79's cut, or accept consumer-owned condensed pads permanently. Verify TR#79 cut status first."
+     },
+     {
+      "id": "I-21/A-15",
+      "source": "I-21",
+      "gist": "ALREADY-SEATED, NAMING CORRECTED (glass §4 standing relay). The channel ships as `--glass-tint-source` + `--glass-tint-strength` (glass `styles/glass/ladder.css:30-80`); `--glass-tint-chrome` NEVER mints. Our `paintedTintOf` probe RETIRES against the shipped tint pair at TR#47's dock publish. This re-shapes an already-adjudicated value.js apotheosis: /Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/Dock.md R-7 makes `paintedTintOf(root)` the winning cure architecture (paint-order walk shared by chrome + veil branches, scoped across demo/color-session/useContrastSafeColor.ts:148-221 and ink.ts:118-122). That ruling must be re-opened or re-based on the shipped token pair before the Dock cut executes.",
+      "carriesFrom": "O-16 C-6 chrome tint token",
+      "blockedOn": "Dock.md R-7 re-adjudication; glass TR#47 dock publish at 8.0.0"
+     },
+     {
+      "id": "V·MT2-T1",
+      "source": "V·MT2-trigger",
+      "gist": "Glass-8 release trigger, condition 1 of 4 (machine-checked BEFORE the writer opens product source): the INSTALLED package reports major version >= 8. Disk now: node_modules/@mkbabb/glass-ui = 7.0.0, package.json pins `^7.0.0` — condition FAILS, and the pin itself must be raised (no repin-to-HEAD; wait for the published 8.0.0).",
+      "carriesFrom": "MECHANISM-CUT-FORMATION-MAP-2026-07-29.md V·MT2 'Release trigger'",
+      "blockedOn": "Glass 8.0.0 publish (glass BK execution opens at Φ0 per I-21)"
+     },
+     {
+      "id": "V·MT2-T2",
+      "source": "V·MT2-trigger",
+      "gist": "Glass-8 release trigger, condition 2 of 4: the `./watercolor-dot` subpath export is ABSENT from the installed package. Disk now: `./watercolor-dot` IS present in @mkbabb/glass-ui@7.0.0 exports — condition FAILS. This is the born-RED that makes the V·MT2 cut atomic: the old whole import path and its export must disappear together.",
+      "carriesFrom": "V·MT2 Born-RED; glass TR#55 WATERCOLOR-RELOCATE",
+      "blockedOn": "Glass 8.0.0 publish"
+     },
+     {
+      "id": "V·MT2-T3",
+      "source": "V·MT2-trigger",
+      "gist": "Glass-8 release trigger, condition 3 of 4: the consumer-indicator slot is present in BOTH the type DECLARATIONS and the PACKED EXPORTS (not just prose). This is the machine-check for I-21/A-18's TR#84 seat; it must be verified against the packed artifact, both orientations, since I-21 A-16 already proved that reading dist gives us the wrong composition.",
+      "carriesFrom": "I-21 A-18 / glass TR#84 (+#32/#71)",
+      "blockedOn": "Glass 8.0.0 publish + TR#84 landing in it"
+     },
+     {
+      "id": "V·MT2-T4",
+      "source": "V·MT2-trigger",
+      "gist": "Glass-8 release trigger, condition 4 of 4: the Glass RECEIPT names its keyboard / orientation / motion contract. Note the coupling — I-21 fixes the motion authority as glass TR#26 (the ONE spring authority) with loupe grammar at TR#35/#32/#71, so the receipt check is against those rows, and we must not author a second spring or a private rAF loop (V·MT4 work-row law).",
+      "carriesFrom": "V·MT2 release trigger; glass TR#26/#35/#32/#71",
+      "blockedOn": "Glass 8.0.0 receipt document naming the three contract cells"
+     },
+     {
+      "id": "V·MT2-B6",
+      "source": "V·MT2-trigger",
+      "gist": "Formation blocker 6 (open): NAME the Glass 8 adoption trigger and the DURABLE RECEIPT for the atomic WatercolorDot → local WatercolorSwatch consumer migration. The four conditions above are the trigger's content; what is still missing is the named durable receipt artifact and its bank path. Until it exists V·MT2 cannot leave CANDIDATE, and the map is explicit that no cut may go in_progress while it lives only under provisional `V·MT*` labels.",
+      "carriesFrom": "MECHANISM-CUT-FORMATION-MAP-2026-07-29.md 'Formation blockers' #6",
+      "blockedOn": "Owner pins an unused tranche letter (blocker 5), then the cut is re-authored into docs/tranches/{LETTER}/waves/W<N>.md per WAVE_SPEC.md with the receipt named"
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aa64b5210b2166ae3",
+   "key": "v2:2f92b1db4c61eb4bd7e2f49dc05122f8b749fd75abedd83741d60d37d952007f",
+   "result": {
+    "rows": [
+     {
+      "id": "V·C1",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:74-87 + CONVERGENCE-REAUDIT-2026-07-29.md:206-218",
+      "gist": "CUT — production demo boot. Goal: make the production demo entry traversable by Vite so a gh-pages build mounts the app. BOUNDS: demo/color-picker/index.html, demo/color-picker/main.ts; package exports + library source EXCLUDED. Completion (met): gh-pages transforms 2,831 modules / 526 KB entry (was a 698-byte modulepreload shell), typecheck passes, built direct + #/gradient mount at 1440x900 and 390x844 in the internal browser. No wrapper, gate script, or package-export change.",
+      "blockedOn": "VERIFIED at c4af0ef9",
+      "carriesFrom": "V·MT1 (MECHANISM-CUT-FORMATION-MAP-2026-07-29.md:135-161): MT-F012, MT-F012.1, DR-10, App D-1 + production-boundary siblings"
+     },
+     {
+      "id": "V·C2",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:89-111 + CONVERGENCE-REAUDIT-2026-07-29.md:133-146",
+      "gist": "CUT — Glass 8 adoption + native swatch controls. Goal: consume the producer-owned indicator surface; restore native control ownership at every interactive swatch. PREREQ: verify published Glass version/export path/packed artifact/props/slots/deletion notice from the PACKAGE, never inferred from active Glass source. BOUNDS: the exact Watercolor import + interaction sites — CurrentPaletteEditor.vue, SwatchHoverMenu.vue, MixSourceSelector.vue, GenerateControls.vue (six actual `WatercolorDot tag=\"button\"` sites) — plus related type imports and focused tests; NO copied Glass CSS, NO interim wrapper. Impl: native button owns click/focus/name/disabled/keyboard, paint-only swatch or producer indicator is its visual child; decorative Watercolor sites stay decorative. Completion: old producer import path reaches zero; six sites keep accessible names + Tab/Enter/Space/click/disabled; zero nested interactive descendants; packed consumer build, typecheck, focused tests, desktop/phone cells pass. NOTE: the inherited 'six inert controls need only a tag deletion' claim is FALSE (reaudit:143-144). Orphan: MT-F042 (watercolor-dot loupe as generalized glass toggle indicator) has no receiver clause in any V·C cut.",
+      "blockedOn": "BLOCKED-ON published Glass 8 packed contract; if unpublished V·C2 stays blocked and no frontend source bypass is permitted (handoff:236-246)",
+      "carriesFrom": "V·MT2 (map:165-207): six WatercolorDot impostors, MT-F004, MT-F005, Gradient D-6/D-7, MT-GRADSTOP-2; typed action-bar debt REROUTED to V·C3 (reaudit:259-261)"
+     },
+     {
+      "id": "V·C3",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:113-148 + CONVERGENCE-REAUDIT-2026-07-29.md:94-131,163-184",
+      "gist": "CUT — canon, route scenes, and action ownership. Goal: replace the physical two-pane chassis and the two competing action contracts with one semantic route-owned scene per route. PREREQ: V·C2 + a fresh graph census for files being removed. BOUNDS: demo/DESIGN.md, demo/color-picker/App.vue, demo/shell/viewSchema.ts, demo/shell/usePaneRouter.ts, demo/shell/PaneSlot.vue, Dock action layers, demo/color-session/keys.ts, route scene roots, PaneHeader.vue + their direct tests/styles; API, parser, palette CRUD internals EXCLUDED. Impl (6): re-author compact canon (maker/audience/job, measured chroma, Golden Glass, Breath states, driver/observer momentum, typography roles, scene topology, 14 route theses); reduce route registry to identity+scene metadata; mount exactly one active scene (optional inspector/action render only with a job); one typed owner-tokened SceneActionSet deleting component refs / `any` / string dispatch / Picker action priority / physical side fields; Gradient = hierarchy pilot, Mix = command-ownership canary (fix Gradient's clipped phone Type/Space/Hue labels + dense easing rail); reconcile canon against rendered result at close. Completion: exactly one H1 + one marked protagonist per route; each registered action changes its named state at 1440x900 and 390x844; Mix shows Mix commands; mobile Generate/Gradient/Mix commands work; absent inspectors consume no space; pane selectors, side fields, stale refs, both old action contracts absent; no horizontal overflow; no copied InstrumentChassis recipe; PRESERVE 100dvh unless this matrix produces a specific counterexample.",
+      "blockedOn": "NOT-STARTED; prereq V·C2 (hence Glass 8) + graph census",
+      "carriesFrom": "V·MT3 (map:211-245), V·MT4 (map:249-283, folded), V·MT8 canon (map:393-431, late prose-only wave DELETED per reaudit:269-271), V·MT2 action half; IDs: MT-F003, MT-F028, MT-APP-1/App adjudication, App D-1 mobile residue, App D-13, V·L1..V·L4, P-1/P-2, MT-GRADSTOP-1/3, MT-F029/030/032/034/035/037/041/043, MT-F023/026/027/033, Golden Glass, Breath of Life, Movement of Momentum"
+     },
+     {
+      "id": "V·C4",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:150-172 + CONVERGENCE-REAUDIT-2026-07-29.md:133-140",
+      "gist": "CUT — palette specimen and domain separation. Goal: separate factual palette rendering from selection, route state, and mutation so the reusable surface stays quiet/consumer-shaped. PREREQ: V·C3 establishes the inspector destination. BOUNDS: PaletteCard.vue, PaletteCardMeta.vue, palette display leaves, selected-entity inspector, palette route ports, focused tests; server schema changes EXCLUDED unless a reproduced contract defect requires one. Impl: props-only PaletteSpecimen; native parent owns selection; move rename/menus/feedback/versions/tags/export/publication/destructive actions into the selected-entity inspector; preserve honest leaves; delete PaletteCard.vue after all consumers move (today: 16 emits); remove the three-tag slice (PaletteCardMeta `.slice(0,3)`) and render factual counts. Completion: N=0,1,2,5,50,200,201 fixtures preserve true counts/tags/colors; specimens import no CRUD ports; nested controls reach zero; each mutation has one owner + a visible result; public/authenticated/Admin/offline/error states stay distinct; aggregate card deleted.",
+      "blockedOn": "NOT-STARTED; prereq V·C3",
+      "carriesFrom": "V·MT5 (map:287-321): MT-F036, MT-F038, MT-F039, MT-F040, palette component apotheoses, Admin DAG rows, O-19 A-19…A-22 consumer dispositions"
+     },
+     {
+      "id": "V·C5",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:174-196 + CONVERGENCE-REAUDIT-2026-07-29.md:148-161",
+      "gist": "CUT — direct-import subtraction. Goal: complete shadcn abrogation by deleting forwarding + configuration residue AFTER semantic destinations are stable. PREREQ: V·C3 and V·C4. BOUNDS: the 19 demo/ui/* barrels and their 90 imports (48 consumers), components.json, stale ESLint paths (dead demo/@ targets), demo/shared/utils.ts, package dependencies, direct consumer imports; producer source EXCLUDED. Impl: rewrite consumers to the real Glass or local semantic owner; move/retain the live debounce (7 import sites) under its honest owner; delete unused cn/clsx/tailwind-merge; remove stale config + aliases; RETAIN tw-animate-css while live collapsible-motion classes consume it; RETAIN the four direct reka-ui AcceptableValue type imports unless a producer-owned type export makes them unnecessary (direct Reka types are not shadcn residue). Completion: 19 barrels, stale config, dead aliases, cn, clsx, tailwind-merge absent; NO replacement forwarding directory; all imports resolve from their real owner; build/typecheck/lint/tests + representative browser null-deltas pass.",
+      "blockedOn": "NOT-STARTED; prereq V·C3 + V·C4",
+      "carriesFrom": "V·MT6 (map:325-351): shadcn residue disease family; Admin/provider, Markdown, Gradient, Dock SCC rows"
+     },
+     {
+      "id": "V·C6",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:198-214",
+      "gist": "CUT — release verification. Goal: prove the completed product and packed surfaces without adding unfinished design or compatibility work. PREREQ: V·C2 through V·C5. BOUNDS: test fixes that expose regressions, release records, generated package output owned by the release; NEW PRODUCT FEATURES EXCLUDED. Completion: direct and hash production boot pass; all fourteen routes pass desktop, phone, and 720x450 cells; keyboard command journeys pass; owned reduced-motion and forced-color cells pass; packed exports resolve from a clean consumer; API-labelled states remain distinct; Safari evidence recorded SEPARATELY from Playwright WebKit.",
+      "blockedOn": "NOT-STARTED; prereq V·C2..V·C5",
+      "carriesFrom": "V·MT9 (map:435-460); MT-F025 (real-Safari vs Playwright-WebKit separation) received by the completion clause"
+     },
+     {
+      "id": "LANE·FORMATION",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:46-72 + CONVERGENCE-REAUDIT-2026-07-29.md:27-90",
+      "gist": "NOT A CUT — concurrent formation lane (V·MT0's successor). Work: (1) assign 10 capacity-blocked component rows + six queued omission rows, produce only the 46 missing canonical axes; (2) adjudicate every already-complete corpus concurrently; (3) repair the workflow wrapper so a child error or short componentsRun/componentsRequested makes the OUTER run partial/failed and populates `failures` (workbench returned 11/19 after 21 child errors; palette 6/32 after 74); (4) treat the 107/107 closed tranche archaeology as input, reopen only on newer source evidence; (5) fold session roots by user task. Closes at 264/264 banked axes, one adjudicated disposition per current component, all 107 tranche rows DEEP, two non-tranche artefacts dispositioned, every surviving carry with one source owner + one receiver. Explicitly does NOT gate source cuts whose dependencies are satisfied. NUMERIC CONFLICTS to resolve: reaudit table says 218/264 banked and 'unbanked axes 49' while the same doc and the handoff say 46 missing; table says 72/88 complete with 'incomplete components 17' (88-72=16); handoff says six queued omission rows vs reaudit's seven.",
+      "blockedOn": "OPEN — concurrent, non-gating; wrapper propagation defect still owed",
+      "carriesFrom": "V·MT0 (map:97-131): challenge coverage 88/88 + 264/264, typed graph authority, G0–G7 cluster dispositions (graph authority retained for topology/SCC cuts only, removed from independent source gates — reaudit:256-257)"
+     },
+     {
+      "id": "LANE·PARSER",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-RESUME-HANDOFF-2026-07-29.md:216-234 + CONVERGENCE-REAUDIT-2026-07-29.md:227-244",
+      "gist": "NOT A CUT — independent parser lane, runs BESIDE V·C2–V·C5 and is removed from the frontend order (reaudit:266). Ownership: parse-that owns the minimum reusable runtime; Value owns CSS grammar, public behavior, consumer migration, UI; BBNF waits for its W3 freeze and must not create a second CSS parser. Receipts: parse-that-css-totality 273133b3d88f kills alternate families R/E/V/K, leaves S/D inactive, repair only the incumbent source-direct closure runtime; Luna M1 059e129 green, M2 active, no successor signed; public subpaths remain `.`, /core, /diagnostics, /packrat, /utils; release status NO RELEASE. The old token-event tape and P5 token plane are NOT parser-input architecture. Webref owns ictcp()/jzazbz()/jzczhz(); only hsv() and kelvin() are verified Value additions pending denominator freeze.",
+      "blockedOn": "ACTIVE (M2); frontend formation must not duplicate or reorder its bounds/release gate",
+      "carriesFrom": "V·MT7 (map:355-389): MT-F001, MT-F007, MT-F008, MT-F015, MT-F019, MT-F024, library RD rows, ND-01, decompose ruling"
+     },
+     {
+      "id": "MT-F012",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:235",
+      "gist": "P0 — `npm run gh-pages` emits no application and exits 0 (698-byte application-free entry, hash Dezn_h7o, hasApp:false). Cured: 2,831 modules / 526 KB entry.",
+      "blockedOn": "VERIFIED at c4af0ef9 (V·C1)",
+      "carriesFrom": "V·MT1 (MECHANISM-CUT-FORMATION-MAP-2026-07-29.md:152) → V·C1"
+     },
+     {
+      "id": "MT-F012.1",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:484",
+      "gist": "MT-F012 root cause isolated to eight lines — the inline HTML entry module Vite could not traverse; cure moved the unchanged Vue/router mount into demo/color-picker/main.ts.",
+      "blockedOn": "VERIFIED at c4af0ef9 (V·C1)",
+      "carriesFrom": "V·MT1 (map:152) → V·C1"
+     },
+     {
+      "id": "DR-10",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/STATE.md:202 (family listed at excavation/TRUTH-TABLE.md:78)",
+      "gist": "BUILD — boot-smoke + the production empty mount; the deep-audit rediscovery of MT-F012 from the V·reformation carry ledger. Mount half cured at c4af0ef9; the boot-smoke GATE itself was deliberately not added (handoff:29-33 bans gate-farming), so its only surviving receiver is V·C6's 'direct and hash production boot pass'.",
+      "blockedOn": "VERIFIED at c4af0ef9 for the mount; gate residue → V·C6",
+      "carriesFrom": "V·MT1 (map:152) → V·C1"
+     },
+     {
+      "id": "App D-1 (= App C-2)",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/App.md:55,78",
+      "gist": "CONFIRMED BLOCKER — the entire mobile action surface is inert: App.vue:83-91 mobile PaneSlot passes no :on-mount while :105/:131 desktop do and :323-332 are the sole ref writers; usePaletteWiring's whenColorPickerReady 40x50ms poll then gives up (mobile edit journey dead); Dock.vue:72 routes mobile Save/Cancel to colorPickerRef?.commitEdit(), null at exactly that viewport.",
+      "blockedOn": "NOT cured by c4af0ef9 — receiver moved to V·C3 ('mobile Generate, Gradient, and Mix commands work'; reaudit:99-107)",
+      "carriesFrom": "V·MT1 (map:152, as an 'App D-1 + production-boundary sibling') → re-cut to V·C3"
+     },
+     {
+      "id": "MT-F004",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:85",
+      "gist": "Eight sub-24px interactive targets in the persistent shell, on every route.",
+      "blockedOn": "→ V·C2 (native control ownership) — but NO tap-target clause survives in V·C2's or V·C3's completion text; UNRECEIVED, needs an explicit receiver",
+      "carriesFrom": "V·MT2 (map:183) → V·C2"
+     },
+     {
+      "id": "MT-F005",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:105",
+      "gist": "One button with no accessible name, desktop only.",
+      "blockedOn": "→ V·C2 (completion: 'all six interactive sites retain accessible names')",
+      "carriesFrom": "V·MT2 (map:183) → V·C2"
+     },
+     {
+      "id": "WATERCOLOR-6 (six WatercolorDot impostors)",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-REAUDIT-2026-07-29.md:141-145",
+      "gist": "Six actual `WatercolorDot tag=\"button\"` interactive sites in CurrentPaletteEditor, SwatchHoverMenu, MixSourceSelector, GenerateControls — each must migrate to a native button owning interaction plus a paint-only swatch/producer indicator owning appearance. The inherited 'six inert controls need only a tag deletion' premise is deleted as false.",
+      "blockedOn": "→ V·C2; blocked on the published Glass 8 packed contract",
+      "carriesFrom": "V·MT2 (map:183) → V·C2"
+     },
+     {
+      "id": "GradientStopEditor D-6",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md:53",
+      "gist": "CONFIRMED — `@mkbabb/glass-ui/watercolor-dot` is a published subpath (a CONSUME, not a producer change); 19 demo files consume it, 0 in gradient. Routed to W-GRADSTOP-2.",
+      "blockedOn": "→ V·C2 (Glass 8 import-path zeroing)",
+      "carriesFrom": "V·MT2 (map:183) → V·C2"
+     },
+     {
+      "id": "GradientStopEditor D-7",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md:54",
+      "gist": "CONFIRMED — gradient-stop keyboard census empty (:173-187 Home/End/Up/Down/PageUp/PageDown/Space absent), no role/aria-value*/ordinal; gates assert style.left, never the rounded aria-label.",
+      "blockedOn": "→ V·C2/V·C3 — V·C2's completion covers only Tab/Enter/Space at swatch sites and V·C3 names only the clipped phone labels + dense easing rail; the stop keyboard grammar is UNRECEIVED",
+      "carriesFrom": "V·MT2 (map:183) → V·C2, MT-GRADSTOP-2"
+     },
+     {
+      "id": "MT-GRADSTOP-2",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md:53-54",
+      "gist": "Adjudicated wave carrying Gradient D-6 (watercolor-dot consume) + D-7 (keyboard grammar, gates G3c/G3d class).",
+      "blockedOn": "→ V·C2 for the dot consume; keyboard arm unreceived (see D-7)",
+      "carriesFrom": "V·MT4 (map:265, 'MT-GRADSTOP-1/2/3 in their adjudicated order')"
+     },
+     {
+      "id": "MT-F042",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1665",
+      "gist": "OWNER-MARKED — watercolor-dot loupe as the generalized glass toggle indicator on the component selector. Same producer surface as V·C2's indicator slot.",
+      "blockedOn": "ORPHAN — named in no V·MT Carries line and no V·C cut; needs a receiver at V·C2",
+      "carriesFrom": "none (owner-marked root finding, unrouted)"
+     },
+     {
+      "id": "MT-F003",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:72",
+      "gist": "No <h1> on any route, in any matrix — re-confirmed live by this audit (reaudit:95 '88 Vue SFCs and no H1'; reaudit:190 'There is still no H1'); PaneHeader.vue emits H3.",
+      "blockedOn": "→ V·C3 (completion: 'every route has exactly one H1 and one marked protagonist')",
+      "carriesFrom": "V·MT3 (map:226) → V·C3"
+     },
+     {
+      "id": "MT-F028",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1335",
+      "gist": "The layout baseline: mobile amputates content, ultrawide caps it, and three mechanisms fork the difference (probe audit/probes/layout-utilization.mjs; block cap = ~86% of viewport area dead at 3440x1440).",
+      "blockedOn": "→ V·C3, NARROWED: reaudit:192-197 + 262-263 refute blanket deletion of 100dvh / shell overflow:hidden / inner scroll — they stay until a reproduced capability failure proves a narrower cure",
+      "carriesFrom": "V·MT3 (map:226) → V·C3"
+     },
+     {
+      "id": "MT-APP-1 (App adjudication BUILD set)",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/App.md:141",
+      "gist": "Adjudicated App wave: L-1 (spine/inline entry), L-2, L-3, C-1 (route-untrue boot, terminal overture stall on 10/14 routes), C-2/D-1, C-3, C-5..C-9, L-8, L-10..L-13, D-4 (H1 arm), D-6 (b4 unavailable arm), D-9, D-10 (role-rename half), D-11, D-12, D-13; gates G1 build-contains-app, G2 prod-mounts-nonempty.",
+      "blockedOn": "SPLIT — L-1/G1/G2 boot half VERIFIED at c4af0ef9; all remaining rows (C-1 boot stall, C-2/D-1, D-4 H1, D-13 typing) → V·C3",
+      "carriesFrom": "V·MT3 (map:226, 'App adjudication') → V·C1 (boot half) + V·C3 (remainder)"
+     },
+     {
+      "id": "App D-13 (typed action-bar debt)",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/App.md:90",
+      "gist": "CONFIRMED — three `ref<any>` + `onMount?: (instance:any)` optional while colorPickerRef is properly InstanceType-typed; vue-tsc green over a measured-inert action bar is the enabling condition for D-1's silence. Cure = typed generic onMount + InstanceType record.",
+      "blockedOn": "→ V·C3 (one typed owner-tokened SceneActionSet; delete component refs, `any`, string dispatch)",
+      "carriesFrom": "V·MT2 (map:183 'typed action-bar debt') REROUTED to V·C3 by reaudit:259-261"
+     },
+     {
+      "id": "V·L1",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/layout-gestalt.md:411-446",
+      "gist": "THE BLOCK LAW — shell stops capping the block axis: delete 100dvh + overflow:hidden (shell.css:23,26) and --content-max-h (608px 21/9 arm), min-block-size:100svh; gates g1 docScrollable@390, g2 maxHeight none @3440, g3 block extent >=90%, g6 U-7 dock posture decision.",
+      "blockedOn": "→ V·C3 but CONTRADICTED: V·C3 says 'Preserve 100dvh unless this matrix produces a specific counterexample' and reaudit:194-197 records inner scroll owners keeping 720x450 controls reachable. Retained only as a narrowed, counterexample-gated arm",
+      "carriesFrom": "V·MT3 (map:226 'V·L1/V·L2') → V·C3"
+     },
+     {
+      "id": "V·L2",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/layout-gestalt.md:448-490",
+      "gist": "ONE MOUNT, ONE COLUMN — the JS breakpoint fork dies (App.vue:77/94 v-if + :310 useBreakpoint; 13 of 14 routes amputate a region at 390; crossing by zoom destroys 3 KeepAlive caches + 2 WebGL contexts); DELETE PaneSegmentedControl.vue; regions[] replaces left/right/defaultPaneIndex; T-45 backdrop carrier re-seated in the same commit.",
+      "blockedOn": "→ V·C3 (route-owned scenes; 'pane selectors, side fields, stale refs … absent')",
+      "carriesFrom": "V·MT3 (map:226) → V·C3; itself carries App D-2 (half), App D-7 zoom-IA arm, App D-10 choreography residue, ConfigSliderPane D-2 (DOM half)"
+     },
+     {
+      "id": "V·L3",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/layout-gestalt.md:492-535",
+      "gist": "THE INLINE LAW — 50/50 '512px 512px' at 1440/2560/3440 → canon ratio; ultrawide cap dies; 58 Tailwind responsive prefixes → 0; 4 layout tokens deleted; viewSchema gains a proportion field. Mechanism: mount glass InstrumentChassis around the region slots.",
+      "blockedOn": "→ V·C3 CONFLICT: V·C3's completion forbids a 'copied InstrumentChassis recipe' and the registry ruled value.js the FIRST production chassis consumer; the ratio/census arms need re-homing without the chassis mount",
+      "carriesFrom": "V·MT3/V·MT4 lineage (map:226/265) → V·C3"
+     },
+     {
+      "id": "V·L4",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/layout-gestalt.md:537+",
+      "gist": "THE PROVING PAIR — /blob + /atmosphere earn their narrow arm: blob's 31 slider rows unreachable below 1024, inspector 3.7 screens with no affordance, housed in the canon-forbidden Card (ConfigSliderPane.vue:99); Card + .console-well + local clamp + local scroller deleted.",
+      "blockedOn": "→ V·C3 PARTIAL: V·C3 names only Gradient (pilot) and Mix (canary) — the Blob/Atmosphere proving pair is UNRECEIVED in the re-cut",
+      "carriesFrom": "V·MT4 (map:266 'V·L3/V·L4') → V·C3"
+     },
+     {
+      "id": "P-1",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/chassis-fitness.md:231",
+      "gist": "Canon petition — worker's self-executed canon strike rescoped to a petition rather than an in-band edit (R-7).",
+      "blockedOn": "AWAITS OWNER; landing point is V·C3's re-authored compact canon",
+      "carriesFrom": "V·MT3 (map:226 'P-1/P-2') → V·C3"
+     },
+     {
+      "id": "P-2",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/chassis-fitness.md:192",
+      "gist": "Canon petition — decouple canon from dist bytes: §3.1's 'exact golden inspector 38.1966011%' entered canon FROM producer dist bytes one day after glass shipped them; canon-fit is not fitness evidence.",
+      "blockedOn": "AWAITS OWNER; landing point is V·C3's re-authored compact canon",
+      "carriesFrom": "V·MT3 (map:226) → V·C3"
+     },
+     {
+      "id": "MT-GRADSTOP-1",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md:35,44,49",
+      "gist": "Adjudicated wave — sort + stop-owned easing land TOGETHER (addStop sorts while the intervals watch grows/shrinks the tail only, :89-100, so inserting a stop re-pairs every downstream authored easing = silent data loss); clamp/splice struck as interim shims; carries the runnable R1/MT-F001 bank with no consumer try/catch; 13 born-RED gates.",
+      "blockedOn": "→ V·C3 (Gradient is the hierarchy pilot) — but the data-loss/sort arm is NOT named in V·C3's completion; UNRECEIVED",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-GRADSTOP-3",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/GradientStopEditor.md:44",
+      "gist": "Adjudicated wave — `sampleAt` dissolution (L-11's no-op destructure default / unreachable branch / masking `?? null` fallback dissolves under it; interim required-prop rides GRADSTOP-1).",
+      "blockedOn": "→ V·C3 in the map's adjudicated order; UNRECEIVED in the re-cut text",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-F029",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1403",
+      "gist": "OWNER-MARKED — the Picker headline card opens a dead vertical band between its top row and its readout row.",
+      "blockedOn": "→ V·C3 scene cut (hierarchy/protagonist)",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-F030",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1421",
+      "gist": "OWNER-MARKED — the Easing configurator mixes four unrelated corner radii in one instrument.",
+      "blockedOn": "→ V·C3 (scene cut + canon)",
+      "carriesFrom": "V·MT4 (map:265) AND V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F032",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1459",
+      "gist": "OWNER-MARKED — the HeroBlob does not carry the current color's vibrancy.",
+      "blockedOn": "→ V·C3 scene cut; V·C3 names no Blob scene work, so this rides V·L4's unreceived pair",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-F034",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1493",
+      "gist": "OWNER-MARKED MANDATE — pane and sub-pane transitions must be well-defined and ANIMATED (tokenized motion).",
+      "blockedOn": "→ V·C3 (Breath of Life / Movement of Momentum canon + scene transitions)",
+      "carriesFrom": "V·MT4 (map:265) AND V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F035",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1514",
+      "gist": "OWNER-MARKED — the About pane's top edge does not align with the Picker card; Mix's does.",
+      "blockedOn": "→ V·C3 scene cut (alignment dies with the pane chassis)",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-F037",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1562",
+      "gist": "OWNER-MARKED — the easing code readout is not a proper glass-ui rounded input component (joins MT-F030 in the gradient/easing wave).",
+      "blockedOn": "→ V·C3 (Gradient pilot); producer-component arm may need Glass 8 verification first",
+      "carriesFrom": "V·MT4 (map:265) AND V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F041",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1652",
+      "gist": "OWNER-MARKED — the gradient selector gains SUBTLE aurora dynamism: shared field/motion law, tokenized motion, PRM honored structurally, no private/ungated rAF loop.",
+      "blockedOn": "→ V·C3 (Gradient pilot + one-clock momentum law)",
+      "carriesFrom": "V·MT4 (map:265) → V·C3"
+     },
+     {
+      "id": "MT-F043",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1689",
+      "gist": "OWNER-MARKED — the card's shrunken/scrolled state carries too much margin and padding (binds with PaneHeader's scroll-timeline shrink = MT-F023's component; the two rulings must land coherently).",
+      "blockedOn": "→ V·C3 (scene + canon)",
+      "carriesFrom": "V·MT4 (map:265) AND V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F023",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:880",
+      "gist": "The global reduced-motion guard cannot neutralise scroll-driven animations, and every pane header uses them (glass's idiom is the correct one to adopt).",
+      "blockedOn": "→ V·C3 canon (Breath/Momentum) with its proof cell at V·C6 ('owned reduced-motion and forced-color cells pass')",
+      "carriesFrom": "V·MT8 (map:412) → V·C3 + V·C6"
+     },
+     {
+      "id": "MT-F026",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1197",
+      "gist": "OWNER-MARKED — dock pills carry a floating elevation shadow while the plate they sit on casts none.",
+      "blockedOn": "→ V·C3 canon; no shadow clause survives in any V·C completion text — UNRECEIVED",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F027",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1264",
+      "gist": "OWNER-MARKED — the cartoon cast shadow facets into sharp corners on rounded cards (the shadow recipe must follow the rounded silhouette).",
+      "blockedOn": "→ V·C3 canon (reaudit:167 flags DESIGN.md's obsolete cartoon-shadow claims); no explicit completion clause — UNRECEIVED",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F033",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1476",
+      "gist": "OWNER-MARKED — the dock capsule buttons carry incorrect shadow treatment (extends MT-F026/OM-1).",
+      "blockedOn": "→ V·C3 canon; UNRECEIVED for the same reason as MT-F026",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "GOLDEN-GLASS",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-REAUDIT-2026-07-29.md:171-174 (origin: excavation/EXHORTATION-CENSUS.md — zero written definitions anywhere)",
+      "gist": "Canon term — warm-neutral optical housing, measured chroma, optical depth, restraint; literal gold is a bounded Admin/featured identity exception, NEVER a universal surface recipe.",
+      "blockedOn": "→ V·C3 step 1 (authored at the START of the scene cut, reconciled at close; the late prose-only design wave is deleted)",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "BREATH-OF-LIFE",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-REAUDIT-2026-07-29.md:175-177",
+      "gist": "Canon term — rest, attention, activation, settle are distinct states; hover has a perceptible floor; idle surfaces do not twitch for decoration.",
+      "blockedOn": "→ V·C3 step 1 canon",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MOVEMENT-OF-MOMENTUM",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONVERGENCE-REAUDIT-2026-07-29.md:178-180",
+      "gist": "Canon term — driver and observer are named; one causal clock moves the driver, observers respond with weight and bounded lag; parallel ornamental motion is removed.",
+      "blockedOn": "→ V·C3 step 1 canon",
+      "carriesFrom": "V·MT8 (map:412) → V·C3"
+     },
+     {
+      "id": "MT-F036",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1532",
+      "gist": "OWNER-MARKED — palette containers carry shadow artifacts AND ship no hover state ('this is to be fixed'); same shadow mechanism class as MT-F027, hover per MT-F034's tokenized-motion mandate at the glass/card root.",
+      "blockedOn": "→ V·C4 (palette) + V·C3 canon; the shadow/hover arms are not in V·C4's completion text — PARTIALLY UNRECEIVED",
+      "carriesFrom": "V·MT5 (map:302) AND V·MT8 (map:412) → V·C4"
+     },
+     {
+      "id": "MT-F038",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1583",
+      "gist": "OWNER-MARKED — raw float precision in displayed color values; a generalized pretty-formatting facility is MANDATED (census COMPLETE 2026-07-28, source-only).",
+      "blockedOn": "→ V·C4 ('render factual counts' is the nearest clause; the formatting facility itself is UNRECEIVED)",
+      "carriesFrom": "V·MT5 (map:302) → V·C4"
+     },
+     {
+      "id": "MT-F039",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1612",
+      "gist": "OWNER-MARKED — contrived/duplicative explicit text is ABROGATED; the ShadowPalette plate is ugly and too large (census COMPLETE 2026-07-28).",
+      "blockedOn": "→ V·C4 (+ V·C3 canon)",
+      "carriesFrom": "V·MT5 (map:302) AND V·MT8 (map:412) → V·C4"
+     },
+     {
+      "id": "MT-F040",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1633",
+      "gist": "OWNER-MARKED — palette items must handle an arbitrary number of colors, tags, and counts DEFTLY (census COMPLETE 2026-07-28); binds with MT-F036 at the palettes wave.",
+      "blockedOn": "→ V·C4 (completion: N=0,1,2,5,50,200,201 fixtures preserve true counts/tags/colors; PaletteCardMeta's .slice(0,3) deleted)",
+      "carriesFrom": "V·MT5 (map:302) → V·C4"
+     },
+     {
+      "id": "PALETTE-APOTHEOSES",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/ (palette component rows)",
+      "gist": "The adjudicated palette component apotheoses (per-component dispositions produced by the palette workflow — note that workflow returned only 6/32 with 74 child errors, reaudit:49-52).",
+      "blockedOn": "→ V·C4; depends on the formation lane finishing palette adjudication",
+      "carriesFrom": "V·MT5 (map:302) → V·C4"
+     },
+     {
+      "id": "ADMIN-DAG-ROWS",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/CONSUMER-ADMIN-DAG-AUDIT-2026-07-28.md",
+      "gist": "Consumer/Admin DAG audit rows (Admin provider/ports topology and its CRUD ownership findings).",
+      "blockedOn": "→ V·C4 for ownership rows; the Admin/provider SCC arm → V·C5",
+      "carriesFrom": "V·MT5 (map:302) → V·C4"
+     },
+     {
+      "id": "O-19 A-19…A-22",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/MECHANISM-CUT-FORMATION-MAP-2026-07-29.md:302-303; status at CONVERGENCE-REAUDIT-2026-07-29.md:221-223",
+      "gist": "The O-19 glass relay's consumer dispositions A-19…A-22. Re-audit ruling: Glass's O19 receipt and riders are ALREADY acknowledged and routed, no new Glass root defect was found, so the acknowledged batch MUST NOT be resent (handoff:253-255: 'Glass: send nothing').",
+      "blockedOn": "→ V·C4 consumer dispositions; outbound comms CLOSED",
+      "carriesFrom": "V·MT5 (map:302) → V·C4"
+     },
+     {
+      "id": "SHADCN-RESIDUE-FAMILY",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DISEASE-REGISTRY.md; measured at CONVERGENCE-REAUDIT-2026-07-29.md:148-161",
+      "gist": "Disease family, re-measured: generated local shadcn components are GONE; residue = 19 demo/ui/* forwarding barrels, 90 imports across 48 consumers, stale components.json + dead demo/@ ESLint targets, unused cn() plus clsx and tailwind-merge, four direct reka-ui AcceptableValue type imports. Narrowed: direct Reka types are NOT residue; demo/shared/utils.ts owns a LIVE debounce at 7 import sites; tw-animate-css stays while live collapsible motion consumes it.",
+      "blockedOn": "→ V·C5 (prereq V·C3 + V·C4)",
+      "carriesFrom": "V·MT6 (map:341) → V·C5"
+     },
+     {
+      "id": "SCC-4 (Admin/provider, Markdown, Gradient, Dock)",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/MECHANISM-CUT-FORMATION-MAP-2026-07-29.md:341-344",
+      "gist": "Four measured strongly-connected-component rows to close by subtraction, each ending with one owner and no barrel-induced cycle.",
+      "blockedOn": "→ V·C5; graph authority RETAINED for topology/SCC cuts but REMOVED from independent source gates (reaudit:256-257)",
+      "carriesFrom": "V·MT6 (map:341) → V·C5"
+     },
+     {
+      "id": "MT-F025",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:1133",
+      "gist": "Every 'Safari' capture in this formation is Playwright WebKit, not Safari; a sibling repo has a real-Safari crash on bytes we ship.",
+      "blockedOn": "→ V·C6 (completion: 'Safari evidence is recorded separately from Playwright WebKit')",
+      "carriesFrom": "V·MT9 (map:435-460) → V·C6"
+     },
+     {
+      "id": "MT-F001",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:11",
+      "gist": "BLOCKER, LIVE IN 4.0.0 — parseCssColor crashes on empty-argument colour functions (8-input class; = pinned π row R1; re-verified throwing on working dist).",
+      "blockedOn": "→ LANE·PARSER (outside the V·C order); runnable bank rides MT-GRADSTOP-1, no consumer try/catch (masking-fallback ban)",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "MT-F007",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:150",
+      "gist": "The canon describes a src/parsing/ tree that does not exist.",
+      "blockedOn": "→ LANE·PARSER (doc/authority arm)",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "MT-F008",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:165",
+      "gist": "The parse-that decree and the dependency tree disagree (src/css/grammar.ts also carries MT-F001 and 74 of the 297 non-null assertions).",
+      "blockedOn": "→ LANE·PARSER; ownership now binding (parse-that = runtime, Value = CSS grammar, BBNF waits for W3 freeze)",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "MT-F015",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:415",
+      "gist": "The complete causal chain: three green gates, one shipped crash — reframes MT-F002's 'vacuous typecheck' claim; the hostile-input wave.",
+      "blockedOn": "→ LANE·PARSER",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "MT-F019",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:665",
+      "gist": "A second crash class in a second subpath: PathGeometry on any M-less path (same unchecked-index mechanism as MT-F001). Born-RED: 9 throws.",
+      "blockedOn": "→ LANE·PARSER / library band",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "MT-F024",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/ROOT-FINDINGS.md:972",
+      "gist": "BLOCKER, BORN-RED against the published artifact — the R1 crash is PUBLISHED and its blast radius is the entire CSS colour-function family; supersedes and enlarges MT-F001.",
+      "blockedOn": "→ LANE·PARSER; release status is NO RELEASE",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "ND-01",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/STATE.md:91 (owner-rulings queue); map:371,378",
+      "gist": "colorScale/sampleToSVGPath — proposed 14 months, never built; ruling = build-at-4.1-or-RETIRE; a fifteenth restatement is FORBIDDEN.",
+      "blockedOn": "AWAITS OWNER; receiver = LANE·PARSER/library band (prune arm), outside the V·C order",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "DECOMPOSE-RULING",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/MECHANISM-CUT-FORMATION-MAP-2026-07-29.md:371",
+      "gist": "The src/transform decompose ruling (keep PathGeometry for keyframes + trimmed quantize; fold Bezier core; no root shim or deprecated export).",
+      "blockedOn": "→ LANE·PARSER/library band; keyframes MorphSVG through /transform is its live witness",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     },
+     {
+      "id": "LIBRARY-RD-ROWS",
+      "source": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/adjudicated/ (library band); map:371",
+      "gist": "Library-band RD rows: prune dominantColor, the unused matrix family, ColorFactory; fold the singular parser + CSS barrels; only consumer-proven exports remain in the 4.1 surface.",
+      "blockedOn": "→ LANE·PARSER/library band; V·C6 verifies only that packed exports resolve from a clean consumer",
+      "carriesFrom": "V·MT7 (map:371) → parser lane"
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a42e6edd10ccbe9ed",
+   "key": "v2:343b0d89116d1782d5cbce0a5fb5fba672eb6aa1d4974041efd7c12f612b7dd6",
+   "result": {
+    "rows": [
+     {
+      "id": "DR-01",
+      "source": "DISEASE",
+      "gist": "BUILD — Aurora derive-from-color: the repo's oldest row (17 closes, 13 names); the original mandate has in fact been satisfied since N.W5 e32111c7. W.W5 ATMOSPHERE opens with a tombstone (RETIRED-AS-LANDED, original predicate quoted, S's confirmation cited); the only live claim (response visibility) gets NEW id W:ATMO-1, carry 0, machine oracle = named atoms move >= a stated deltaE2000 from committed frames, never an agent's eye; also corrects RF-26's mis-dating. Verified at HEAD: 8 deriveAurora sites incl. useAtmosphere.ts:142/:243.",
+      "carriesFrom": "mandate 13 / Ae-11 / A-02 / Dc-1..3 / CH-2 / CH-11 / D-1 — origin A.W6 065c6fe (2026-05-19)"
+     },
+     {
+      "id": "DR-02",
+      "source": "DISEASE",
+      "gist": "RETIRE — Blob-facility extirpation: a removal mandate that landed at N.W5 e32111c7 and was then inverted into a preservation mandate (vnext D18 'KEEP and refine … all 49 leaves live') with no tombstone; 'extirpat' appears ZERO times in the vnext corpus. Write the tombstone in W.W0 (quote mandate, cite e32111c7, verify HeroBlob.vue:34 imports Blob from @mkbabb/glass-ui/blob). Residual lifecycle asks are DR-03, not this row — the split six closes failed to make.",
+      "carriesFrom": "mandate 13 / Ae-10 / Ae-13 / A-01 / A-03 / Dd-1..4 / CH-1 / CH-3 / CH-11 / D-2"
+     },
+     {
+      "id": "DR-03",
+      "source": "DISEASE",
+      "gist": "BUILD — GAP-L5: the glass-ui blob settled/park-from-quiescence seam plus the shipped-but-unconsumed BLOB_HERO preset and ./blob-config subpath; ZERO hits in the whole tranche V corpus while the adopt trigger FIRED at W44. Split at the repo boundary: value-side in W.W4 (consume @mkbabb/glass-ui/blob-config on the boot path, replace HeroBlob.vue:202-212's wall-clock park with a consumer-side quiescence probe, measure eager-bytes delta).",
+      "carriesFrom": "GAP-L5 (K→N→M→S→T) / U-F5 ANNEX-OWNER-ATTEST",
+      "blockedOn": "producer-side half = one outbound letter with a DATED re-check recorded in §D — never again as a gate"
+     },
+     {
+      "id": "DR-04",
+      "source": "DISEASE",
+      "gist": "BUILD — GAP-L2: the aurora lightness-scheme atoms door; the dark L band [0.18,0.42] is unreachable and three live source sites (useAtmosphere.ts:234, atmosphere-calibration.ts:24-26, demo/test/glass/aurora-bracket.test.ts:29) still cite T.W7, a wave that closed TRIGGER-NOT-FIRED 2026-07-12 — a dead wave named as a future event in shipping code. W.W5: re-probe the installed dist (rg -c lightnessScheme ../glass-ui/dist/aurora.js -> 6 at glass 7.0.0), land the dark lBand, delete all three stale comments; else one dated letter.",
+      "carriesFrom": "GAP-L2 (S booked -> T 'OLDEST, S->T' -> U -> V zero hits)"
+     },
+     {
+      "id": "DR-05",
+      "source": "DISEASE",
+      "gist": "BUILD — GAP-ARM: the aurora cold-load arm-replay; every cold page load paints from the pre-hydration default until first picker interaction. The verify-at-adopt was never walked at the W44 glass-7 adoption, which is exactly the event it waited for. Cheapest row in the registry: one cold-load capture test asserting the first painted atmosphere equals the seeded pick, landed in W.W5 beside DR-01's oracle (same harness); retire on evidence in the same wave.",
+      "carriesFrom": "GAP-ARM (S -> T armRuntime() {immediate:true} -> U 9 mentions -> V ZERO)"
+     },
+     {
+      "id": "DR-06",
+      "source": "DISEASE",
+      "gist": "BUILD — Q14/RP-2/U-F3/CH-4: the ~5s boot and 331 KiB eager payload, escalated at three consecutive closes with no measured movement and now with no instrument (lighthouserc.json:13 maxNumericValue 2500 is read by nothing). W.W4 BOOT with the gate re-specified to a reproducible lab form by explicit supersession (V-prime's 1,440-load Mac17,7 + physical Pixel 7 matrix is unexecutable by any agent seat): DR-09 restores LHCI, RE-MEASURE at HEAD, gate = p75 LCP over N>=20 runs on a pinned CI runner class + JS-eager gzip, both born-RED; owner device matrix survives as optional attestation only.",
+      "carriesFrom": "S.W3 347.9 KiB RE-BASELINE -> T Q14/O-5 (LCP 5141/TBT 5988) -> U U-F3 -> V' W55 CH-4 -> apotheosis FOLDED"
+     },
+     {
+      "id": "DR-07",
+      "source": "DISEASE",
+      "gist": "BUILD — the real-GPU / headed-GPU visual oracle: deferred at six consecutive closes under four names, executed exactly zero times (U's G-CLOSE-4 made NAMING the obligation the pass condition). Two halves, automated-CI framing dropped: (a) software-GL half becomes DR-08's golden-screenshot suite, honest about its renderer; (b) real-GPU half = ONE bounded owner-run session (<=30 min headed Chrome) producing N committed frames + a signed checklist, dated at wave-open. No session -> RETIRED at close with a tombstone; it does not carry a seventh time.",
+      "carriesFrom": "N X14 SwiftShader residual / R R8-22 / S / T O-3 / U U-F54 + book B8 / V' CH-7",
+      "blockedOn": "owner session scheduled with a date at wave-open"
+     },
+     {
+      "id": "DR-08",
+      "source": "DISEASE",
+      "gist": "BUILD — fourteen tranches with NO automated visual-regression gate, in a repo whose first three tranches were design tranches and last six visual-taste tranches. D.W4's 0% pixel-drift gate was NOT EXECUTED ('pixel-isomorphic by construction', to preserve a 120-min cap, while the substituting analysis concedes two non-isomorphic changes); the named successor spec under e2e/visual/ was never authored and never re-filed E through V because it was a 'Future probe' paragraph, not a ledger row. Verified: ls e2e/visual -> No such file; 0 toHaveScreenshot/toMatchSnapshot across 71 spec files. W.W1: N goldens at 3 viewports x light/dark, stated tolerance, goldens COMMITTED, regeneration script.",
+      "carriesFrom": "D.W4 pixel-drift gate (HARDEN-5a) — never re-filed in any deferred ledger E..V"
+     },
+     {
+      "id": "DR-09",
+      "source": "DISEASE",
+      "gist": "BUILD — the CI verification cliff: 185 Playwright tests / 71 spec files / 13,405 lines, the Lighthouse budget, boot-smoke, the css-emission probe and the oracle-slate meta-gate are executed by NO automation (grep lighthouse|lhci|playwright|test:e2e|boot-smoke over .github/workflows -> 0). Built at T (5 jobs, 593 lines, 6e14e90c), un-wired 164343c1, deleted 6d6d3521 as 'prune proof-theater'. W.W1 RE-GATE = the first executing wave of W, because DR-01/02/06/07/08/10/27/28 are undecidable without a browser gate: repair the two source-broken fixtures, publish the real born-RED pass/fail count, restore e2e-smoke + e2e-safari HARD, re-wire LHCI, restore an oracle-slate successor, rule the three test.fail() legs; mandatory one-time falsifier = a deliberately broken spec on a scratch branch turns the job red (the exact demonstration W42 and W45 both waived).",
+      "carriesFrom": "T CI build -> V' bracket B3 (3 re-gates booked, 2 delivered with BOTH falsifiers waived: D48 continue-on-error, D55(iv) branch-push substitution)"
+     },
+     {
+      "id": "DR-10",
+      "source": "DISEASE",
+      "gist": "BUILD — the boot-truth gate and the production empty mount: boot-smoke.mjs (inv-N-1, d9c3b9f2), whose docstring named 'the structural defeat of the white-screen failure class', was un-wired at 164343c1 (03:19) and deleted at 6d6d3521 (11:00) as 'CI-orphaned; W44 routed-mount witness supersedes' — and at 22:12 the same day W44 closed booking a gh-pages prod-preview empty mount as a carry. W.W1: restore boot-smoke for BOTH modes (cold dev boot AND gh-pages production preview at a bare 127.0.0.1 origin) asserting #app non-empty, role=main present, pageerrors [], >=1 desktop utility in emitted CSS. NV-7 re-classified RED (not a carry), root diagnosed this wave; DR-22 is the leading candidate.",
+      "carriesFrom": "desktop/CSS-emission class K.W2.6 -> M.W2.A -> N.W2.B -> N.W10.D (never ran) -> R.W2 producer cure; NV-7"
+     },
+     {
+      "id": "DR-11",
+      "source": "DISEASE",
+      "gist": "BUILD — master CI has been RED since 2026-07-05 and the deploy-of-record has fired zero times since, so color.babb.dev serves pre-v4 code across three closes and the 4.0.0 publish; the last 11 deploy-pages runs are 'skipped' (gated on head_branch=='master' && success). Every close reports CI green ON ITS OWN BRANCH (CARRY-LEDGER §A's 'green on origin/tranche-u' is true and carefully scoped) and no gate measures the AGE of the last successful deploy. W.W3 LANDING: merge tranche-u -> master, green master, verify ONE non-skipped deploy-pages run, re-probe color.babb.dev for v4 code, add a standing last-deploy-younger-than-last-close check.",
+      "carriesFrom": "'prod serves I-era code' chronic: M -> N -> R X1 FIRED-AND-BLOCKED -> S -> T.W0 bdfb4a5, then silent recurrence",
+      "blockedOn": "UNVERIFIED from the root seat (no network egress) — re-check gh run list --branch master --workflow ci and --workflow deploy-pages.yml"
+     },
+     {
+      "id": "DR-12",
+      "source": "DISEASE",
+      "gist": "BUILD — R1 and the parse-honesty class: parseCssColor throws a raw TypeError on every empty-body functional colour in the IMMUTABLE published 4.0.0, whose package description reads 'failure-explicit'; root at src/css/grammar.ts:181 where a non-null assertion defeats noUncheckedIndexedAccess:true, and eslint has exactly ONE enabled rule repo-wide. W.W2 PARSER HONESTY carrying the 4.0.1 cut: RED-first 56-vector battery, fix :181 to return the typed failure Result, enable no-non-null-assertion at least under src/css/, give verify-packed-surface.mjs a behavioural half + delete hardcoded strictTypes:62, publish 4.0.1 with DR-21's into-variants and the AM-13 dependency strip in the SAME cut (4.0.0 ships this crash to glass-ui 7.0.0, which feeds parseCssColor user-supplied strings).",
+      "carriesFrom": "D.W6 bbnf-equivalence 'documentation lie' renamed to parser-snapshot.test.ts -> E..T unwired -> U-F29 'LANDED' against a surface v4 deleted -> V·pi 2026-07-20 COMPOSITE RED, coverage 0-of-52"
+     },
+     {
+      "id": "DR-13",
+      "source": "DISEASE",
+      "gist": "RETIRE — the 8 glass-ui primitive asks: four still open at HEAD after 14+ closes with the bundle's own count drifting 8->7->7->8->9->11 and no add/remove event ever recorded; two members resolved at N.W5 only because glass-ui 3.12.0 independently shipped them; PEER-AUTHORSHIP-REQUIRED is a category whose only exit is an external actor. Verified at HEAD: 12 hand-written SelectTrigger h-9 sites; PaneSegmentedControl.vue:45 still cites A-vintage id 'Ad-18' in shipping source; variant=\"mono\" -> 0; foundation.css:554 .underline-tabs still shipping. RETIRE THE BUNDLE — kill the container; each survivor gets a terminal Value-side disposition in W.W6 CHROME: landed as a local with owner-accepted rationale, or the ask is deleted. No third state.",
+      "carriesFrom": "tranche A research/Ad, /Ae, /Ab (incl. Ad-18) -> E 7 -> F 7 -> G 8 -> H 9/11 -> K.W3 -> M.W7 ship-or-KILL -> N.W18 HG-A10 -> R cohort-carry"
+     },
+     {
+      "id": "DR-14",
+      "source": "DISEASE",
+      "gist": "RETIRE — CH-9: vite.config.ts's siblingFsAllowTransient, a carve-out with 'transient' in its identifier whose named retirement trigger ('when glass-ui ships a contract-v2-compliant Tailwind-source distribution') no close has re-evaluated in 14+ closes; E's declared per-wave-close re-check demonstrably never ran. Verified: vite.config.ts:139 and :287 still carry the full sibling-directory allow-list; package.json:83 pins glass-ui ^7.0.0, six majors past the pin at D. W.W6: evaluate the trigger ONCE against installed glass 7.0.0 — delete the carve-out, or rename it siblingFsAllowAccepted with an owner-recorded rationale in canon.",
+      "carriesFrom": "CH-9, introduced D.W1 2026-05-19 -> E NARROWED -> F/G/H carried -> I..V unretired"
+     },
+     {
+      "id": "DR-15",
+      "source": "DISEASE",
+      "gist": "RETIRE — CH-10: the keyframes.js precept-submodule pin drift; every close B..H carried 're-check at the keyframes.js maintainer's next submodule-rebase signal' and the signal never came in six closes. Verified at HEAD: docs/precepts 63240e67 here vs 8ccf9f4d in keyframes.js — still divergent on ENTIRELY NEW SHAs, so the '458c2d1 vs 68d9b20' framing every close repeats is historical fiction while the divergence is real. W.W0: rebase the submodule, or record an owner ruling that the divergence is accepted with its rationale. No seventh carry.",
+      "carriesFrom": "B-10 -> D-02 -> E-RF-4 -> F->G-3 -> CH-10"
+     },
+     {
+      "id": "DR-16",
+      "source": "DISEASE",
+      "gist": "RETIRE — HG6: the owner's terminal taste certification over the 20-bracket W8 package; VERDICT-2026-07-12.md is byte-identical and EMPTY across three closes ('_(empty — the owner's verdict lands here)_') while T verdicted the wave complete_with_misses, merged 6e14e90 and tagged; B-02..B-20 have ZERO hits anywhere in tranche U and nine have no T-# anchor. RETIRE with a tombstone in W.W0 quoting the gate text ('a package delivered but unruled leaves the wave OPEN, honestly') and the three closes it survived; the brackets are STALE (W43 rewrote the demo tree, W44 adopted glass 7). If taste certification is still wanted, W.W6 derives a fresh SMALL bracket set with a dated owner sitting.",
+      "carriesFrom": "T.W8 HG6 / brackets B-02..B-20 -> U (redefined as HG5's subject) -> V' CARRY-LEDGER §C one line",
+      "blockedOn": "owner — folded into DR-29's single scheduled sitting"
+     },
+     {
+      "id": "DR-17",
+      "source": "DISEASE",
+      "gist": "FOLD — HG5: the demo <=400 LoC cap, booked explicitly gateless at two closes ('splitting demo/ is a remediation act, not a gate act' at T.W8; 'verify-at-execution, NO gate' at U) while the breach grew 2 -> 4 -> 5 files, and ARCHITECTURE.md:943 still asserts the cap as canon while excluding a path (demo/@/components/ui/) deleted at W43. FOLD into W.W8 STRUCTURE with DR-18: one ruling covers both — the cap is wired as a real CI check, or the sentence is deleted. A cap that is canon and unmeasured is a lie with a number in it.",
+      "carriesFrom": "HG5 (T.W8 -> U)"
+     },
+     {
+      "id": "DR-18",
+      "source": "DISEASE",
+      "gist": "FOLD — the src god-module cap and the UNBOOKED stylesheet.ts residual: G declared 'no god-module remains in src/' while 11 files exceeded the 350-LoC cap at its own merge commit (incl. units/color/index.ts at 719 in the very directory being certified); H substituted an estimate ('320-340') for the wc -l G had used one tranche earlier, while its own H.W2 Lane A had grown dispatch.ts to 372; W43 closed the css god-module row 2->1 (stylesheet.ts 940->899) and filed it 'census 0' with the residual appearing NOWHERE in CARRY-LEDGER. Verified at HEAD: 5 src files over 350 — stylesheet.ts 899, decompose.ts 609, path.ts 564, grammar.ts 483, anchors.ts 377. FOLD into W.W8 with DR-17 and BOOK THE 899-LINE RESIDUAL BY NAME.",
+      "carriesFrom": "G god-module cap -> H -> W43 css god-module row"
+     },
+     {
+      "id": "DR-19",
+      "source": "DISEASE",
+      "gist": "RETIRE — the proof:*/gate-farm idiom: deleted by explicit owner order 2026-06-02 ('overfit junk … NEVER re-introduce; enforce invariants structurally') and rebuilt four times — O 1 -> Q 11 -> R and S both closed with 11 unflagged -> T excised 7 -> U minted 11 more and rested its entire zero-drop verdict on G-CLOSE-1, which the U seat then PROVED VACUOUS BY RUNNING IT -> V deleted all 11 -> vnext rebuilt 44 tools / 9,837 LOC with 81 proof:* occurrences. Two acts in W.W0: (1) an OWNER RULING on vnext's 81 sites BEFORE any adoption (adopting vnext silently reverses an explicit owner decision); (2) a structural, grep-checkable ban in canon — no new scripts/**/proof-*.mjs; invariants live in types, tsc, eslint (which needs actual rules — DR-12) and behaviour tests.",
+      "carriesFrom": "owner ruling 2026-06-02 (c4c58421-era deletion) -> O/Q/R/S/T/U/V -> vnext 81 sites",
+      "blockedOn": "owner ruling on vnext's 81 proof:* sites, required BEFORE any vnext adoption"
+     },
+     {
+      "id": "DR-20",
+      "source": "DISEASE",
+      "gist": "RETIRE — the PARK/DORMANT set: Color.try(), the usePaletteStore schema migration, and S.H3 Pratt, parked at four consecutive closes against triggers that specify NO threshold; Color.try's trigger is a grep count of try{} wraps whose recorded values move 11 -> 12 -> 3, i.e. in both directions. RETIRE all three by owner ruling in W.W0 (part of DR-29's sitting). A metric with no threshold that moves in both directions is not a trigger; Color.try is largely superseded anyway since the v4 surface is Result-returning — except exactly where DR-12 throws.",
+      "carriesFrom": "R -> S -> T 'dormant, no fired trigger' -> U 'PARK — carried, no wave work'",
+      "blockedOn": "owner ruling — folded into DR-29's sitting"
+     },
+     {
+      "id": "DR-21",
+      "source": "DISEASE",
+      "gist": "BUILD — SCI-1: sampleColorRamp / mixColorsInto / toRgba8Into, an additive API ask carried across eight closes under a 'ship' label with NO date (sampleColorRamp appears in tranche dirs N O Q R T U V W; mixColorsInto in O Q R S V W). DECISIONS.md:82 reads 'SHIP-4.1.x — un-dated, execution-gated, evidence tuple owed to atlas at the cut' and rides W56, which never executed; grep over src/ -> 0. Ship in the SAME dated cut as DR-12's 4.0.1/4.1.0 with the atlas evidence tuple in the same commit — a dated cut is the only thing that has ever discharged this class; or the owner rules it out in W.W0 and the row is RETIRED. What may not happen is a ninth carry.",
+      "carriesFrom": "M 'dischargeable-on-adopt' -> R-RAMP (keyframes handoff) -> SCI-1 -> V DECISIONS.md:82 / W56"
+     },
+     {
+      "id": "DR-22",
+      "source": "DISEASE",
+      "gist": "BUILD — the production deploy still checks out glass-ui at branch tranche/BG (glass 5.0.0), whose exports map lacks ./blob and ./chip — both imported by the demo at HEAD — while package.json declares ^7.0.0. deploy-pages.yml:76-80 still reads 'un-pin at the 5.0.0 master landing' with ref: tranche/BG, and glass went 4.2.0 -> 7.0.0, skipping the named waypoint entirely. One line in W.W1: point the deploy at the registry version, then re-run DR-10's production probe. Highest-probability root cause of NV-7; has ridden four closes as a comment in a YAML file.",
+      "carriesFrom": "S 5.0.0 adopt class -> T.W7 hard-gate row 2 (closed TRIGGER-NOT-FIRED) -> U-F2 -> V' W44 adopted glass 7 without re-reading the workflow",
+      "blockedOn": "UNVERIFIED remote tranche/BG head — re-check gh api repos/mkbabb/glass-ui/contents/package.json?ref=tranche/BG"
+     },
+     {
+      "id": "DR-23",
+      "source": "DISEASE",
+      "gist": "BUILD — untracked authority and untracked evidence: research/{STANDARDS,auth-cookie-order,proportion-register}.md live-untracked since W41 deviation 4, with PROPORTION-AUDIT.md:25 naming proportion-register.md 'the exhaustive terminal disposition and ownership authority' for nine waves while EVIDENCE.md:75 states 'A cited artifact absent from git ls-files is not evidence.' W44/D58.iii added audit/rehearsal/ to the SAME undecided row; U's u-gestalt/ and u-bh-communique-draft.md, the apotheosis corpus, POST-U-AUDIT.md, V/evidence/ and the entire 1.75 MB vnext formation are all untracked. W.W0 executes track-or-archive in ONE commit with a one-line disposition each — a 30-minute act that has ridden three closes as a question.",
+      "carriesFrom": "W41 deviation 4 -> CARRY-LEDGER §C 'the next formation rules track-or-archive' -> W44 D58.iii; U's explicit 'not a drop' deferrals"
+     },
+     {
+      "id": "DR-24",
+      "source": "DISEASE",
+      "gist": "RETIRE — scripts/dev/dev.sh, the LAST unowned dirty working-tree row, carried verbatim through the T, U and V ledgers as 'un-ruled since pre-V-prime; owner rules commit-or-restore; NO WAVE OWNS IT'. Verified at HEAD: git status --porcelain -- scripts -> ' M scripts/dev/dev.sh'. RETIRE the row by assigning it — the fix for 'no wave owns it' is to give it a wave: W.W0 owns it, owner rules commit-or-restore at W0 open in the same sitting as DR-29. It does not appear in a fourth ledger.",
+      "carriesFrom": "T / U / V carry-ledgers (M, un-ruled since pre-V-prime)",
+      "blockedOn": "owner ruling commit-or-restore at W.W0 open"
+     },
+     {
+      "id": "DR-25",
+      "source": "DISEASE",
+      "gist": "RETIRE — PRM-expand: the keyframes springPlay subscribers-only emit (the dock never expands under prefers-reduced-motion); its named retirement gate FIRED and nobody noticed — keyframes now tags v5.3.1..v5.3.5 and v6.0.0 and package.json pins ^6.0.0, past the 'retires on their next tag past v5.2.0' condition — while V carries zero mentions and no row in CARRY-LEDGER's 127 lines. Re-probe ONCE at kf 6 in W.W0: fixed -> tombstone with the probe pasted; not fixed -> one dated letter in §D. Either way the row dies in W.",
+      "carriesFrom": "K-era -> S 'the one-line cure unlanded' -> T (re-dispatched ad65733) -> U-F28 / book B1"
+     },
+     {
+      "id": "DR-26",
+      "source": "DISEASE",
+      "gist": "BUILD — test ground-truth circularity, cured at U (U-F72, external reference vectors + a 34-pair Sharma CIEDE2000 table, fc14c01 born-GREEN) and SILENTLY RESTORED at V: both files deleted at 7334c793/3b5956d0 and test/v4-color-behavior.test.ts:66 now asserts toBeCloseTo((byte/255)/12.92, 12) — the implementation's own sRGB constant — under the test name 'matches the independent IEC sRGB dark-band oracle'. 3b5956d0, subject 'test(v4): producer-surface behavior tests', removed 70 files / 17,198 lines against 1,470 added, and V-prime ratified the 1607->346 collapse on a guard set with two waived falsifiers and one never built. W.W2: restore external-vector anchors for the v4 conversion API, rename/fix the falsely-named oracle, publish measured coverage-by-export over the real 141-export surface.",
+      "carriesFrom": "U-F72 (cured) -> V restored"
+     },
+     {
+      "id": "DR-27",
+      "source": "DISEASE",
+      "gist": "BUILD — CH-6 scene transitions / the T-58 scene-hop jank: the measurement EXISTS and has never entered a ledger. T's own close window produced hard numbers at docs/tranches/T/audit/pi/u-gestalt/probe2-log.txt — 'swap->/gradient: {frames:14, max:154, median:59, over32:10, over50:8}' — appearing in NO disposition ledger in T, U or V; U carried it as U-F7 with an explicit owner MANDATE, never attested; V' booked it to W47, unexecuted; the evidence is still untracked. W.W6: track the u-gestalt evidence first (DR-23), then wire a frame-budget oracle around the scene swap with the existing numbers as the born-RED baseline.",
+      "carriesFrom": "T-48 -> T-58 -> U-F7 (owner MANDATE, never attested) -> V' CH-6 / W47"
+     },
+     {
+      "id": "DR-28",
+      "source": "DISEASE",
+      "gist": "BUILD — CH-8 palette truth, the UI half: register/recover/rotate/lost-response-logout plus draft->publish->unpublish->trash->restore with immutable public history; the api half landed at W45 (a714b90f) and the UI half was booked to W50, which never executed. RF-26 lists CH-8 among the eight riders that may not be re-chartered while CARRY-LEDGER §B charters it anyway (the act L1 names as forbidden). Adjacent live defects on the same surface: demo/palettes/export.ts is lossy for non-ASCII names ('日本 Blue' -> blue.json) and swallows every failure to console.warn, and W51's byte-exact serializers have exactly one importer — their own test. W.W7 PALETTE folds in D55.iii (__Host-value-session cookie transition), D57's Prepare->Download seat, the export truth, three slug implementations collapsed to one, and one ruling over ~20 catch->console.warn sites.",
+      "carriesFrom": "CH-8 (api half W45 a714b90f; UI half W50 never executed) + V' riders D55.iii / D57"
+     },
+     {
+      "id": "DR-29",
+      "source": "DISEASE",
+      "gist": "FOLD — the owner packet P1..P8 / bracket B5 and U's 11 owner-attest annex rows (OA-1..OA-6, OA-B1/B2, the U-F12 Pole A/B bracket, HG6): named at two closes, attested ZERO times, while the cut they waited on fired twice (glass v5.0.0 2026-07-15, v7.0.0 2026-07-17); V-prime carried them verbatim and 'takes no position'. Each close failed CORRECTLY — the rows ARE owner-reserved and proxying them would be worse; the failure is scheduling, not judgment. FOLD into ONE scheduled decision session at W.W0 open: every owner-held row in one sitting, each with a rendered artifact attached, each returning LANDED-AS-RULED or RETIRED. Includes DR-16, DR-20, DR-24, DR-31 and the U-F12 Pole A/B pick.",
+      "carriesFrom": "U owner-attested annex OA-1..OA-6 / OA-B1 / OA-B2 / U-F12 Pole A/B / HG6 / packet P1..P8 / bracket B5 -> V' CARRY-LEDGER §C",
+      "blockedOn": "owner calendar slot — an owner-held row that rides two closes is a calendar defect"
+     },
+     {
+      "id": "DR-30",
+      "source": "DISEASE",
+      "gist": "BUILD — prompt-recap completeness: the standing owner edict 'Recap ALL of our prompts… Silent drops are forbidden', found defective at RF-20 (2026-07-16: the recap's method boundary excluded the 07-16 prompt entirely, 3 asks UNOWNED, 2 over-claims, 7 vague rows), dispositioned BUILD to owner W56 which never ran, then supplanted by vnext/PROMPT-RECAP.md — measured as authored BEFORE 69 of the 181 canonical prompt events existed (29 owner-authored), citing two keyframes-written seed letters as its authority, with 18 of 35 sampled rows having zero phrase-level grounding and 0 occurrences of E1–E11. Twelve distinct owner asks now survive only in a read-only archive or an untracked tree. W.W0: re-author from the 181-event corpus as TRACKED canon with per-row phrase grounding, reconcile PROMPT-RECAP's '0/2 clean passes' against FORMATION-CLEAN-PASSES.json's 'CLEAN 2/2', and restore the dropped asks by name (internal-Browser edict; Aristotelian proportion; precepts binding; lightningcss/sonic-rs bench targets; ARM-only; the 3x5x3 law; and six more).",
+      "carriesFrom": "RF-20 (2026-07-16) -> W56 (never ran) -> vnext/PROMPT-RECAP.md 2026-07-20"
+     },
+     {
+      "id": "DR-31",
+      "source": "DISEASE",
+      "gist": "RETIRE — X2, the NCSU alias: an owner order ('no ncsu alias') closed by making the alias PERMANENT. R specified removal of the /colors/ reverse-proxy block with 'verification = the alias going non-200' and carried it PENDING -> S carried it a second time -> T executed a permanent 301, which satisfies the literal criterion and inverts the order -> U re-classed the leg 'attested-not-verified' (VPN-gated) -> V' BANKED until NCSU VPN access. One owner ruling in W.W0 (DR-29's sitting): the permanent 301 is ACCEPTED and recorded in canon as the standing answer, killing the row, or the block is removed on the next host session with a date. It must not survive as 'banked until VPN' into a fourth ledger.",
+      "carriesFrom": "X2 (R PENDING -> S -> T permanent 301 -> U attested-not-verified -> V' BANKED)",
+      "blockedOn": "owner ruling in DR-29's sitting; execution needs an NCSU VPN host session"
+     },
+     {
+      "id": "DR-32",
+      "source": "DISEASE",
+      "gist": "FOLD — DesignSync / the Fable design pathway: a ruled design gate that depends on a tool the same corpus books as UNAVAILABLE, plus a design-system project that does not exist. Codex banked it honestly with a retrigger -> the Fable arm omitted it entirely -> the union re-added it as ADD-8 'discharged at the union's design gates' -> post-convergence converted it to ORCH-07 'DesignSync is unavailable and no substitute may claim equivalence', while OWNER-RULINGS-2026-07-20.md:47 (D-20) still conditions a ruled design gate on 'DesignSync frames'; DISPOSITIONS.md:22 (E5) records the design-system project as 'none exists today — verified', opening at W46, unexecuted. FOLD into W.W6's wave-open as an explicit owner precondition: either the design-system project is opened and DesignSync is callable at wave-open, or the owner names the substitute in writing and D-20's frames obligation is amended in the SAME ruling.",
+      "carriesFrom": "Codex bank -> ADD-8 -> ORCH-07 / D-20 (OWNER-RULINGS-2026-07-20.md:47) / E5 (DISPOSITIONS.md:22) / W46",
+      "blockedOn": "owner precondition at W.W6 wave-open — open the design-system project + make DesignSync callable, or name the substitute in writing and amend D-20"
+     },
+     {
+      "id": "DR-33",
+      "source": "DISEASE",
+      "gist": "RETIRE — the Idempotency-Key replay store: promised durable across three closes ('Idempotency-Key on POST + PUT, 24-hour replay window' at I -> deferred -> J 'BOOKED, optional' -> K landed 59aab42c as a per-process in-memory LRU whose OWN SOURCE says the store is per-process and the 24h durability does not survive a restart or span replicas), and no I, J or K close document restates the commitment in its relaxed form; IDEMPOTENCY_WINDOW_MS=24h satisfies the number, not the property. W.W7: RETIRE by recording the truth — write the relaxation into canon as the accepted single-replica design (the honest KISS choice for this deployment) with the reopening condition stated as a DEPLOYMENT FACT ('if a second replica is provisioned'), never as a wave. The defect was never the LRU; it was three closes reporting a property the code does not have.",
+      "carriesFrom": "I promise -> I-tail/value.js-J -> J BOOKED -> K 59aab42c; still moving at V (W50 non-UUIDv7 idempotency-key retirement)"
+     },
+     {
+      "id": "MT-F001",
+      "source": "ROOT-FINDINGS",
+      "gist": "BLOCKER, LIVE IN 4.0.0, BUILD/born-RED — parseCssColor crashes on empty-argument colour functions and the class is EIGHT inputs wide, not one: oklch() rgb() hsl() lab() lch() color() oklab() 'hsl(  )' all throw TypeError 'Cannot read properties of undefined (reading replace)'. Mechanism: src/css/grammar.ts:181 `splitTopLevel(slash[0]!.replace(/,/g,' '),'space')` — body '' -> splitTopLevel returns [] -> slash[0] undefined -> the `!` tells TypeScript to stop caring. The 18 passes (var(), color-mix(), light-dark(), relative rgb(from red …), huge/NaN numerics) prove the parser is careful everywhere except the empty-argument seam. Probe: audit/probes/r1-hostile-parsecsscolor.test.ts, 8 failed / 18 passed.",
+      "carriesFrom": "memory's R1 'live parseCssColor(\"oklch()\") shipping crash'; superseded and enlarged by MT-F024"
+     },
+     {
+      "id": "MT-F002",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD/born-RED — 297 non-null assertions in src/ (3,192 LOC = one per ~11 lines) make the typecheck gate substantially vacuous; demo/ carries 188. Worst: transform/decompose.ts 113, css/grammar.ts 74, transform/path.ts 37, quantize.ts 18, css/stylesheet.ts 18. vue-tsc with strict:true reports 0 errors and MT-F001 proves 0 is not a safety claim — the gate is real for every class `!` does not suppress but cannot be cited against undefined-dereference, and it has been so cited. Gate: 'zero unproven ! in src/', RED at 297. (Reframed by MT-F015: the config is rigorous and is being cancelled by hand; MT-F024's scoped re-count is 148, of which 141 are indexed-access.)"
+     },
+     {
+      "id": "MT-F003",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD/born-RED, shell-owned — no <h1> on any route in any matrix: h1:0 on all 60 captures (4 matrices x 15 routes, audit/visual/capture.mjs), and confirmed on the deployed site in MT-F012's live-prod probe. Exactly one <main> and one <nav> (both correct; W44's <main>-count gate holds), but the heading outline has no root, so every AT user entering by heading navigation finds nothing. Gate: h1 count === 1, RED at 0."
+     },
+     {
+      "id": "MT-F004",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD/born-RED — eight sub-24px interactive targets in the PERSISTENT SHELL, identical on all 60 captures: an unnamed input 160x23/160x20, three 22x22 buttons ('Switch to slug', 'Generate new slug', 'Cancel'), and four channel spans (L/A/B/ALPHA) that are 12px WIDE in both matrices — mobile grows them to 44px vertically but never horizontally, leaving a 12px ribbon touch target on a phone. Worst row here and mobile-specific: a desktop-only audit never surfaces it. Gate: minimum 24x24 for every visible interactive element, RED at 8."
+     },
+     {
+      "id": "MT-F005",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD/born-RED — one button with NO accessible name, desktop only: 30 of 60 captures (all 15 desktop routes x 2 schemes) carry exactly 1 nameless button, mobile carries 0; located in the dock inventory between 'Extract palette' and 'Open color input' (audit/probes/navprobe.mjs). Desktop-only means it sits behind a responsive branch, so any a11y gate run only at mobile width passes while the defect ships. Gate: zero nameless interactive elements, RED at 1."
+     },
+     {
+      "id": "MT-F006",
+      "source": "ROOT-FINDINGS",
+      "gist": "CORRECTED (no product defect) — routing is SOUND; the hazard was in the audit harness. The demo is a hash-router app (createWebHashHistory, demo/color-picker/router/index.ts): deep links resolve (#/palettes, #/browse, #/gradient, #/admin/users), in-app switching writes the hash, titles differentiate per view and colour state round-trips in the query string. The 60-capture first run navigated PATH urls at a hash-router app and captured the default pane 15 times per matrix — 60 captures, 0 blanks, 0 page errors, 0 overflow, and every one the same screen: a visual audit comprehensively wrong while reading entirely green. capture.mjs now carries a SAMENESS GUARD failing any run where >2 routes in a matrix share a content signature. STANDING WARNING for every seat: the shell is persistent and identical across views — any per-route assertion that does not discriminate the pane is measuring the shell."
+     },
+     {
+      "id": "MT-F007",
+      "source": "ROOT-FINDINGS",
+      "gist": "FOLD into the canon-truth wave — the canon describes a src/parsing/ tree that DOES NOT EXIST. Project memory asserts src/parsing/grammars/css-values.bbnf, css-color.bbnf, a *.bbnf?raw decl in vite-env.d.ts and test/bbnf-equivalence.test.ts; measured, src/parsing/ does not exist and `find -name '*.bbnf'` returns nothing. src/ is 26 files across color/ css/ foundation/ subpaths/ transform/, and the CSS parser is the hand-written src/css/grammar.ts (483 lines). Memory is a session input, not a repository fact, and this formation must not inherit its stale rows as premises."
+     },
+     {
+      "id": "MT-F008",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD — the spine of the parser band: the parse-that decree and the dependency tree DISAGREE. package.json dependencies are exactly @mkbabb/glass-ui ^7.0.0 and @mkbabb/keyframes.js ^6.0.0 — @mkbabb/parse-that is not a dependency at all — against INBOX I-11 §2's OWNER DECREE 'parse-that READOPTED as published; regex parser retired unconditionally'. So the true starting position is: the decreed dependency is ABSENT, the decreed retirement has NOT happened, and the thing to be retired (src/css/grammar.ts) is the same file carrying MT-F001 and 74 of the 297 assertions. Surface to consume: @mkbabb/parse-that@1.0.0, entries . /core /diagnostics /packrat /utils; idiom = the Parser<T> combinator set over leaves string/regex/any/all/dispatch/eof with lazy for recursion and memoize/mergeMemos behind the PACKRAT_ARMED latch.",
+      "carriesFrom": "INBOX I-11 §2 owner decree"
+     },
+     {
+      "id": "MT-F009",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD — three parallel dark-mode stores, and really five readers: useMarkdownHighlighting.ts:76 documents in its own comment that it is 'one of three parallel dark stores', useGlobalDark() is a fourth consumer path, and demo/color-session/useContrastSafeColor.ts:242 reads document.documentElement.classList.contains('dark') directly, bypassing every store. Multiple sources of truth for one boolean is the dual-path mechanism in its purest form. Cure: one owner for scheme state; every other reader consumes it."
+     },
+     {
+      "id": "MT-F010",
+      "source": "ROOT-FINDINGS",
+      "gist": "The V·pi process/product ratio, frozen and measured by receiving/freeze-receiving-subject.mjs: the V·pi tree is 2,324 files / 354,220,932 bytes and ENTIRELY UNTRACKED (0 files in HEAD), against ONE accepted operation — CSS consume-number, ~17 lines, 4 tests — with generations burned at consume-number G1–G16, foundation G0–G4, percentage G0–G2, dimensions G0, denominator V1–V9. ~20.8 MB of tranche per accepted line. Offered not as ridicule but because the owner's own law 9 says 'KISS is a gate' and law 13 says 'artifact count and gate sophistication are not progress'.",
+      "blockedOn": "the receiving audit's O5 seat is charged with ruling on the ratio"
+     },
+     {
+      "id": "MT-F011",
+      "source": "ROOT-FINDINGS",
+      "gist": "Cold-boot cost is NOT the Q14 chronic and must not be confused with it: first navigation to / reached networkidle in 38,454 ms while every subsequent route settled in ~3,500 ms against a fixed 2,500 ms wait — that 38 s is Vite cold dependency optimisation on a DEV server, not product boot. The Q14 escalation (LCP 5141 / TBT 5988) is a BUILT-BUNDLE measurement, and playwright.config.ts is explicit that frame budgets are built-bundle numbers served by e2e/smoke/perf/serve-built.mjs on a separate origin. STANDING INSTRUCTION: no performance claim in this formation may cite a dev-server number."
+     },
+     {
+      "id": "MT-F012",
+      "source": "ROOT-FINDINGS",
+      "gist": "P0, BUILD, the mega-tranche's first wave, born-RED — `npm run gh-pages` EMITS NO APPLICATION AND EXITS 0. Reproduced deterministically on a clean rebuild with no source edited: the 698-byte 'entry' index-Dezn_h7o.js is in its entirety Vite's modulepreload polyfill IIFE with no app code, no imports and no app chunk reference; the built bundle mounts blank AND SILENT (text 0, #app innerHTML 2, main 0, zero console/page errors/failed requests) at both localhost:8091 and 127.0.0.1:8091. Every clause of CARRY-LEDGER §F's 'origin-specific prod ground-record/FOUC boot-guard quirk; the dev-server witness is canonical and GREEN' is wrong — not origin-specific, not a boot-guard (the boot script completes; the app was never built), and the dev server CANNOT witness a build defect yet was used as the witness. No gate caught it: 'gh-pages ✓ built' asserts exit 0 (cited by W44's close as evidence of health — green-over-broken caught in the act), smoke-perf measures this blank page for every frame budget, and deploy-pages.yml:109-115 runs the build then wrangler with NOTHING in between. Blast radius: the next green-CI master push deploys a blank production site. Live prod is currently HEALTHY (color.babb.dev 200, #app innerHTML 111,983 — the artefact predates the regression), so the risk is forward-looking and armed. Four born-RED gates, the third generalising: every artefact-producing step needs a content assertion, not an exit code."
+     },
+     {
+      "id": "MT-F012.1",
+      "source": "ROOT-FINDINGS",
+      "gist": "MT-F012's root cause isolated to EIGHT LINES — Vite 8 / Rolldown silently discards the module graph of an INLINE <script type=\"module\"> HTML entry. Minimal repro with stock Vite 8.0.16, no repo plugins or config (audit/probes/vite-entry-repro/): the inline variant emits 698 bytes with the BOOTED marker absent, the external variant 769 bytes with it present. Conclusive detail: the repro's broken chunk and the real demo's broken chunk are the SAME BYTES — 698, content hash identically Dezn_h7o — so the demo's failure IS this failure. Defect site: demo/color-picker/index.html:205-213. Cure is one file: extract those eight lines to demo/color-picker/main.ts and reference it as src — also the form Vite documents. Belongs in the mega-tranche not a hotfix because the CLASS is 'a build step whose success is defined as exit 0, feeding a deploy step with no content assertion'; carries the extra born-RED gate 'no inline <script type=\"module\"> entry in any HTML' (RED at 1).",
+      "carriesFrom": "root cause of MT-F012; regression introduced by 08a7f96b feat(library/W10-β)! Vite 7 -> 8 + Rolldown"
+     },
+     {
+      "id": "MT-F013",
+      "source": "ROOT-FINDINGS",
+      "gist": "RETIRE, born-RED — the useLayerTransition shim is dead weight: its successor shipped in the version we already run. ActionBarLayer.vue:53-86 locally reimplements a composable Glass 7.0.0 removed; D58.iv ratified it as an honest local shim and CARRY-LEDGER §F banked the retirement conditionally ('if glass ships a public successor, retire at W47') — but the condition was ALREADY SATISFIED at the moment of adoption: installed glass-ui 7.0.0 exports DockCrossfade (dist/components/dock/index.d.ts:5, present in dist/dock.js) and useLayerTransition is ABSENT from the dist. Its docstring names our exact case ('the controlled-no-rail 5-pane case (a consumer) consumes this DIRECTLY'), and ActionBarLayer.vue:55 — inside the shim — already says the morph+crossfade folded INTO DockCrossfade. MECHANISM: a conditional bank whose condition nobody re-evaluates is indistinguishable from a permanent dual path. Adopt <DockCrossfade :active>, clean break, no alias. Gate: grep -c 'function useLayerTransition' demo/ must be 0, RED at 1."
+     },
+     {
+      "id": "MT-F014",
+      "source": "ROOT-FINDINGS",
+      "gist": "FOLD — banked with a MECHANICALLY CHECKABLE re-trigger: the one masking fallback that must NOT be deleted yet. demo/styles/foundation.css:571-574 restates Glass's declarations onto Glass's PRIVATE selector .glass-slider[data-variant=spectrum] .slider-range and by the standing no-masking-fallback edict should die on sight — but glass's BJ adjudication (2026-07-22) rules it a shim masking MISSING PUBLIC ARTIFACT BYTES: their Slider.vue:501-505 authors both backdrop-filter:none legs, shipped dist/glass-ui.css retains only the -webkit- leg, and vite.style-assets.ts:47-70 excludes root dist/glass-ui.css from post-processing; Chromium does not implement the -webkit- alias, so deleting our shim today makes Chromium render the spectrum track BLURRED — un-masking a live producer defect, not removing a lie. Glass's disposition is producer/package/consumer RED with six exact retirement conditions. Receipt integrity verified: CARRY-LEDGER 9e88f9e2… ✓ and foundation.css 118dbe9c… ✓ both still match. The F013-banked-on-prose vs F014-banked-on-a-check contrast is the single most transferable lesson in the registry and the standing rule for every banked row.",
+      "blockedOn": "glass 8 shipping the unprefixed leg on both public entries (script-evaluable: does the installed @mkbabb/glass-ui dist contain it?) + the six stated retirement conditions"
+     },
+     {
+      "id": "MT-F015",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD — the complete causal chain: three green gates, one shipped crash, and the CONFIGURATION is the defect. (1) The compiler was RIGHT: tsconfig.base.json:10 sets noUncheckedIndexedAccess:true, so splitTopLevel(...)[0] typed as string|undefined and was correctly refused. (2) The author overrode it: grammar.ts:181's `!` exists only to silence that diagnostic, and 70 of grammar.ts's 74 assertions are index-`!` — 70 individual overrides of the flag; 297 across src/. This reframes MT-F002: the config is genuinely rigorous and is being cancelled 297 times by hand with nothing counting the cancellations. (3) The lint gate CANNOT see it: no-non-null-assertion is not configured at all, ban-ts-comment 'off', no-explicit-any 'off', no-unused-vars 'off', 24+ rules off, and NO typed linting whatsoever (no projectService/project), so the type-aware family is unavailable — `--max-warnings=0` over a sufficiently empty rule set is trivially satisfiable, doing rhetorical not analytical work. (4) No hostile-input test exists. Cure is NOT 'fix line 181' (that leaves 296 loaded guns): enable no-non-null-assertion as error for src/, turn on typed linting + no-unnecessary-condition, make every 'off' carry a written justification or be deleted, and land a hostile-input suite over every public parse entry. Generalisation: a disabled lint rule with no recorded reason is indistinguishable from an unnoticed regression."
+     },
+     {
+      "id": "MT-F016",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD, born-RED x2 — 64% of the lint gate's work is DOCUMENTATION and the gate is RED right now. Measured by asking ESLint which files it lints: docs/ 911, demo/ 250, api/ 125, e2e/ 84, src/ 26 (1.8%), test/ 22, other 8 — eslint.config.ts declares no `ignores`. And `npm run lint` exits 1 on docs/tranches/V/apotheosis/v-apotheosis-workflow.js (top-level return, valid for the workflow runtime, a parse error to ESLint). THE DIVERGENCE THAT MATTERS: that file is UNTRACKED, so a developer sees RED locally while CI checking out clean sees GREEN, and the difference is invisible to both — a gate whose result depends on which untracked files are in your working tree is not measuring the product. Disclosed: this formation's own workflow scripts under megatranche/workflows/ are two more instances of the same parse error, named rather than hidden. Cure: scope ESLint to the product (src, demo, api, test, e2e, plugins, root configs), ignore docs/**. Gates: npm run lint exits 0 (RED at 1); linted-file census contains zero docs/ paths (RED at 911)."
+     },
+     {
+      "id": "MT-F017",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD, born-RED at 8 failures — test truth: npx vitest run gives 25 files / 346 tests / 346 passed in 8.35 s, so CARRY-LEDGER §F's W44 'npm test 346/346' is ACCURATE AND STILL TRUE (that close row earns its credit), and project memory's '1607 passing, 36 files' is stale by its own annotation. The number worth holding is the ratio: 346 tests over a 3,192-line library plus a 15,450-line demo, while 26 hand-written hostile inputs in one file in one sitting found 8 crashes in the most-used public entry. The suite is not weak because it is small — it is weak because it tests the inputs the authors expected; nothing asks what happens on a half-typed value, the input a colour tool receives most. STANDING CORRECTION: every count inherited from project memory is a claim to re-measure, not a premise (MT-F007, MT-F017 and the stale shadcn count are three instances already)."
+     },
+     {
+      "id": "MT-F018",
+      "source": "ROOT-FINDINGS",
+      "gist": "The `!` epidemic is VALUE.JS-SPECIFIC, not a house style: value.js 4.0.0 = 26 src files / 3,192 LOC / 297 assertions / 10.7 LOC per `!` / 22 test files, against keyframes.js 6.0.0 = 145 files / 22,636 LOC / 154 assertions / 147.0 LOC per `!` / 131 test files — seven times larger, roughly half the assertions, ~14x cleaner per line on the exact metric that produced MT-F001, with six times the test files. Same author, same shared tsconfig strictness, same domain, so the comfortable explanations all die. Within value.js it concentrates: decompose.ts 113 + grammar.ts 74 + path.ts 37 = 224 of 297 (75%) — precisely the array/tuple-indexing code noUncheckedIndexedAccess exists to protect, switched off by hand one site at a time. Therefore the remediation is bounded and 'zero unproven ! in src/' is a realistic born-RED. Constellation facts established alongside: keyframes.js@6.0.0 depends on value.js at EXACTLY 4.0.0 (not a caret — INBOX I-6 ruled DELIBERATE, converged with our O-2), so any 4.1.x is invisible to keyframes until they bump (the vehicle §D notes for sampleBezier/mixColorsInto); keyframes publishes 2 export keys against our 7; fourier-analysis is a Python api/ + web/ hybrid consuming five @mkbabb packages, so the A-band's Value/Fourier API isomorphism spans a language boundary no prior formation document states."
+     },
+     {
+      "id": "MT-F019",
+      "source": "ROOT-FINDINGS",
+      "gist": "BUILD, born-RED at 9 throws, folded into the MT-F015 hostile-input wave — a SECOND crash class in a second subpath: PathGeometry on any M-less path. Every drawing command appearing before a moveto throws TypeError 'Cannot read properties of undefined (reading len)' through BOTH public entries (new PathGeometry(d).getTotalLength() and getTotalLength(d)): L l H V C Q A T S and a leading-whitespace variant — all nine SVG drawing commands from a published package. The geometry itself is CORRECT (M 0 0 L 3 4 -> exactly 5), so this is not a maths defect but the same unchecked-index-into-empty-collection mechanism as MT-F001, in src/transform/path.ts (37 assertions). An M-less path is malformed per SVG but the correct response is an empty geometry, not an internal TypeError naming a private field, and any consumer that slices or concatenates path data produces this input. Also, lower severity: decomposeMatrix3D(null)/(undefined) and recomposeMatrix3D({}) throw raw property-access TypeErrors (JS-only consumers are the exposure; the defect is the diagnostic). EXPLICITLY NOT A DEFECT, recorded so it is not re-litigated: interpolateDecomposed's 2D/3D mismatch Error is correct, deliberate and well-messaged. ROOT-SEAT CORRECTION: an earlier run reported getTotalLength('M 0 0 L 10 10') = 0 and was nearly booked — the root passed a PathGeometry instance to a (d: string) signature. A hostile probe that calls the API wrongly manufactures findings."
+     },
+     {
+      "id": "MT-F020",
+      "source": "ROOT-FINDINGS",
+      "gist": "THE ARC, MEASURED — 1,005 commitments promised, 380 landed = 38%, by ten independent hostile Opus seats auditing all 22 tranches against the current tree and git history, never against the close document's claim: A–D 120/14 (12%), E–H 52/26, I–L 77/40, M–P 84/46, Q–S 82/45, T 149/70, U 104/35 (77 deferred), V core/V' 18/5 (28%), V apotheosis 120/96 (80%), V vnext 199/3 (2%); totals 233 deferred, 72 silent drops, 63 chronics, ~76 vacuous gates. The 62% is deferrals never decided, drops nobody noticed, and gates that could not fail. Heaviest sub-findings: docs/tranches/N/audit/lanes/n-verify-V4.md is cited FOUR times as primary evidence — including for the verdict that superseded tranche M — and has never existed in any git object; K.W2.5 (the corrective wave for a ruled precept violation) NEVER RAN, the development export condition shipped at 0.11.0 and broke 37 keyframes test files, and memory's 'reverted in K.W2.5' is FALSE (corrected this session); J's FINAL certified 140/140 against a tree that landed the next day inside a K commit; three of six invariants regressed after the proof idiom was correctly retired and nothing replaced its function; 574 of 625 Q/R/S visual evidence files are untracked behind .gitignore:34 and R's 'π CLEAN' rests on 108 screenshots of which ZERO are in R's close commit; the ~5s boot has ridden five closes under four names (S RP-2/L20 -> T Q14/O-5 -> U U-F3 -> V' CH-4); RF-26 dates the aurora/blob chronics to D when they originate at A.W6 065c6fe. THE SIZING CONSTRAINT (arithmetic, not opinion): against a 38% historical rate, a 193-wave program is a restatement of the problem — the mega-tranche must be sized to the measured rate and every wave individually completable."
+     },
+     {
+      "id": "MT-F021",
+      "source": "ROOT-FINDINGS",
+      "gist": "Verification cuts both ways — two agent claims corrected, one agent VINDICATED against the root. (a) The proof-deletion SHA: the E–H seat's single-commit narrative was wrong — c4c58421 is the K.W2a tsconfig split (it does delete proof-as-any-budget.mjs but is not the 'overfit junk' commit); the pillar died gradually across at least three commits (8bbf0690, 7334c793, 164343c1 removing eleven scripts/gates/proof-*.mjs), which is exactly why nobody noticed the invariants going with it. (b) The regressed invariants: the seat was RIGHT and the root's first measurement wrong — scoped correctly, `as unknown as` 2 -> 17 in src/ (the root's 37 swept in e2e 18, api 14, test 2), `:deep(` 0 -> 22 in demo/, demo .vue >400 LoC 0 -> 3 (ColorPicker 414, App 417, Markdown 408); all three regressed. (c) Tranche L: the root measured `as any` = 584 in api and was one keystroke from booking a false BLOCKER — scoped to source, api/src is 111 files / 10,869 LOC with `as any` = 0 and `as unknown as` = 1 (the 584 were node_modules/zod 570, mongodb 13, @types 1), so L's headline invariant HOLDS EXACTLY at HEAD fourteen tranches later. Why (c) matters most: api/src's 10,869 lines carry one unsafe cast while src/'s 3,192 carry 297 assertions — same repo, same author, same era — because L enforced its invariant STRUCTURALLY and it survived without any gate still running. That is the mega-tranche's model: not 'add a gate' but write the code so the gate is uninteresting. STANDING RULE: scope every grep to source before believing a count."
+     },
+     {
+      "id": "MT-F022",
+      "source": "ROOT-FINDINGS",
+      "gist": "EVIDENCE-INTEGRITY (no product defect) — the state-matrix harness produced FOUR false signals out of four, and every one was the probe. (1) rtl-* dir=ltr with err=1: addInitScript throws in WebKit because documentElement does not exist at init-script time — the matrix measured an un-flipped page and the err was the probe throwing. (2) reduced-motion #/blob anims=83: counted mid-boot; at rest reduce -> 3 running, no-preference -> 4 of 13. (3) keyboard-focus never leaving body after 12 Tabs on 3 of 5 routes: two compounding errors — macOS WebKit ships Full Keyboard Access OFF (#/gradient measures 5 reachable in WebKit vs 44 in Chromium on the same tree) and the ring detector keyed focus by LABEL so 35 identically-labelled sliders collapsed to one key. (4) zoom-200 #/ text 859 -> 70: purely the 720px breakpoint — 720-unzoomed, 1440-at-200% and 390-mobile all measure text=69 panes=7 identically; correct WCAG 1.4.10 reflow. CONSEQUENCES: audit/visual/states.mjs output is QUARANTINED (no wave may cite its RTL, reduced-motion or keyboard rows; re-run required); L-12 gains 'the witness must not be blind to the mechanism' (a PRM gate on getAnimations() asserts nothing about a rAF renderer — any PRM wave instruments rAF); L-9 gains 'cross-engine before cross-examining'; RTL is UNCLAIMED, not broken (dir=rtl post-load yields overflowX=0; nothing claims RTL support; no wave born-REDs it). Three GOOD facts no wave may born-RED against: PRM gates the WebGL/rAF loop (reduce -> 67 boot callbacks then 0 across 3s vs 1075 then 816), reflow at 200% is correct and shares the mobile path, and the tab ring is correct modulo roving tabindex. Root's session tally: seven false findings caught before entering the registry — the registry's value is what it REFUSED to record."
+     },
+     {
+      "id": "MT-F023",
+      "source": "ROOT-FINDINGS",
+      "gist": "MAJOR, BORN RED in both engines — the global reduced-motion guard CANNOT neutralise scroll-driven animations, and every pane header uses them. animations.css:176-193 declares itself as neutralising keyframe animations and transitions app-wide via a maximally broad *,::before,::after rule with !important on animation-duration/iteration-count/transition-duration — it reads airtight. But PaneHeader.vue:178-193 drives three animations off a SCROLL TIMELINE (pane-header-veil, pane-title-shrink, pane-desc-shrink; animation-timeline: --pane-scroll), and a scroll-driven animation has animation-duration:auto with progress a pure function of scroll offset, so overriding duration does nothing: the guard is INAPPLICABLE, not misconfigured or out-specificity'd. Reproduction (prm-scroll-timeline.mjs) shows the reduce and no-preference rows identical to the last digit in WebKit and Chromium. A scroll-linked transform:scale() is the canonical vestibular trigger, on every pane header in the app. Cure is STRUCTURE not a gate: move the three declarations INSIDE @media (prefers-reduced-motion: no-preference), the idiom animations.css:43 already uses. Regression gate: with reducedMotion:reduce, .pane-header-title's computed transform after a 200px scroll equals its pre-scroll value — RED today in both engines. NOT wrong and no wave may born-RED it: under reduce the rAF rate is 0 on all five routes — the WebGL story is correct; only the CSS scroll-timeline story is not. Cross-engine note: post-scroll scale differs (0.311 WebKit / 0.618 Chromium), so any DELTA obligation pins per-engine values."
+     },
+     {
+      "id": "MT-F024",
+      "source": "ROOT-FINDINGS",
+      "gist": "BLOCKER, BORN RED AGAINST THE PUBLISHED ARTIFACT — the R1 crash is PUBLISHED and its blast radius is the entire CSS colour-function family. npm pack of tranche-u c654824e installed into a clean consumer through real exports-map resolution: 7 of 10 degenerate inputs CRASH (oklch(), oklch( ), rgb(), hsl(), lab(), color(), oklch(/)) at dist/subpaths/css.js:265. This is a CONTRACT VIOLATION not merely a bug: parseCssColor returns ParseResult<CssColor> behind a careful ladder of `return failure(...)` guards, and a parser that reports failure through a result type is a total function by construction — every consumer is entitled to call it on untrusted input without a try. THE TOTALITY SWEEP: nine public parse* entries x 172 degenerate inputs = 324 throws / 1,548 calls, with parseCssColor 102/172, parseCssScalar 102/172, parseCssValue 60/172, parseCssValues 60/172 RED and parseKeyframeSelector/parseStylesheet/parseTimingFunction/parseAnimationTimeline/parseAnimationRange clean — ONE distinct failure mode, all 324 tracing to the single `!` at src/css/grammar.ts:181. Cure is STRUCTURE: delete the assertion and JOIN the existing failure ladder, ban the mechanism via no-non-null-assertion, land a total-function property test over function-name x degenerate-body. Gate: audit/probes/r1-published-totality.mjs, exit 1 today. SCOPE MEASURED so the wave is sized before it is written: 148 assertions in src/, 141 (95%) indexed-access — decompose 32, grammar 31, path 25, stylesheet 12, quantize 11, operations 8, easing 7, anchors 6, math 5, timeline 4 — so a blanket ban is a 148-site edit and is NOT individually completable; the ban is explicitly NOT specced blanket, the wave fixes the one crashing site and lands the gate, the other 140 are a recorded population. SIBLINGS SEARCHED AND FOUND NONE: six sites share the crash shape and five index a regex capture guaranteed once the pattern matched (stylesheet.ts:602, grammar.ts:373, grammar.ts:420, timeline.ts:23, timeline.ts:38 — all SAFE, checked not assumed, recorded so no later wave re-litigates them); only :181 indexes a split result.",
+      "carriesFrom": "supersedes and enlarges MT-F001 (which recorded it as source-level and oklch-only)",
+      "blockedOn": "E13 coordination: an outbound packet is OWED to keyframes.js (61 value.js subpath import sites) and glass-ui (10) naming the input class and the published version"
+     },
+     {
+      "id": "MT-F025",
+      "source": "ROOT-FINDINGS",
+      "gist": "EVIDENCE-INTEGRITY, and it BOUNDS a standing owner mark — every 'Safari' capture in this formation is Playwright WebKit build 2287 (playwright 1.60.0), not Safari; the machine has Safari 26.4, and owner mark M-5 requires visual audit 'in Safari, on mobile and desktop'. Not pedantry here: the atlas/sci facility filed a P0 into glass-ui BJ the same day showing glass-ui 7.0.0's .glass-dock:not(.vertical) .dock-plate background TERMINATES THE WEBKIT RENDERER WITH SIGABRT in Safari (macOS .ips report, WebCore::Style::toStyleColor(CSS::ColorMix const&) on the faulting thread), and the blamed nested-color-mix construct is BYTE-IDENTICAL in our installed bytes (dist/components/dock/styles/morph.css sha256 70ef4937…). Our dock is on every route — and we did NOT crash: Playwright WebKit resolved the property across 5 routes x 6 matrices with err=0. Two readings and the honest one is not the flattering one: either atlas's crash is conditional on inputs we do not produce, or Playwright WebKit is BLIND to it — nothing distinguishes them, and Playwright's WebKit is a custom minibrowser build whose process architecture can plausibly diverge on a renderer abort. BINDING BOUNDS: WebKit captures remain valid for layout, DOM, CSS resolution and behaviour; they are NOT evidence for 'Safari does not crash' or any process-stability claim, and MT-F022's 'what is NOT wrong' list is scoped accordingly; every π obligation touching Safari stability names Safari 26.4 via safaridriver or states plainly that it is a WebKit proxy. M-5's 'in Safari' clause is recorded PARTIALLY UNMET rather than reported green.",
+      "blockedOn": "OWNER, one-time manual toggle no agent can perform: Safari -> Settings -> Advanced -> Show features for web developers, then Develop -> Allow Remote Automation (safaridriver -p 4599 starts but session creation is refused)"
+     },
+     {
+      "id": "MT-F026",
+      "source": "ROOT-FINDINGS",
+      "gist": "MAJOR, BORN RED, OWNER-MARKED (OM-1, committed witness sha256 0acde9ce…) — dock pills carry a floating elevation shadow while the plate they sit on casts NONE. Owner: 'mark these inappropriate shadows on the dock items.' Measured (owner-marked-shadows.mjs, WebKit 1440x900, #/, dock hovered open): plate box-shadow none; 'Login' and '@mbabb' each cast color(srgb .11 .098 .09 / .14) 0 8px 24px plus a 0.5px hairline. The relationship is INVERTED — the container claims no height, each child claims to float above the page, which is why they read as stickers applied to the glass rather than controls inset into it. MECHANISM is a design-system bypass, not a stray CSS line: the pills are hand-rolled <button class='glass-wash glass-capsule glass-capsule-hover'>, box-shadow is a single property so .glass-capsule wins carrying --glass-shadow-floating, the elevation token for a FREE-FLOATING surface; no line in demo/ asks for this shadow, and glass ships DockIconButton/DockSelectTrigger/DockDropdownTrigger precisely so in-chrome controls get chrome elevation. Cure is STRUCTURE and glass-first: adopt the glass dock primitive (needs nothing from glass); only if no primitive fits the pill shape does an in-chrome capsule elevation variant go to glass BJ as an ask — never a demo box-shadow patch (masking-fallback ban). Gate: every focusable control inside .glass-dock has zero non-inset box-shadow layers — RED at 2 controls x 2 cast layers.",
+      "blockedOn": "relay owed to the glass-ui BJ inbox per the standing BH/BI edict (§G of the outbound packet)"
+     },
+     {
+      "id": "MT-F027",
+      "source": "ROOT-FINDINGS",
+      "gist": "MAJOR, OWNER-MARKED (OM-2, committed witness sha256 2e223c1a…) — the cartoon cast shadow FACETS into sharp corners on rounded cards. Owner: 'mark these shadow edge artifacts--sharp corners, on some cards/palette items.' The 'Sunset · 5' card has a rounded silhouette but its cast shadow resolves to a hard right-angle wedge at the bottom corners. Mechanism from source: glass-atom.css's .cartoon-cast uses box-shadow var(--shadow-cartoon-md) = three layers at -3/3, -5/5, -7/7 with blur radius ZERO, so each reproduces the element silhouette exactly; offset on the same diagonal their union is a stepped shape whose steps are collinear along straight edges but whose three ARCS at a rounded corner are offset from one another, producing visible facets — and PaletteCard.vue:19 composes rounded-card cartoon-surface with a deliberate NO overflow-hidden (citing S.W5-10 / S-15-A) so nothing clips the cast back to the radius. HONESTY NOTE — what was NOT established: could not reproduce live; on #/palettes and #/browse the harness measured cartoon-surface: 0 because data-backed palette cards do not render in an unauthenticated headless session, so the mechanism is read from source and token values, NOT measured on the rendered element, and the border-radius:inherit hypothesis is explicitly NOT confirmed (the faceting explanation does not require it). BUILD with cure candidates ranked but not chosen: (1) nest the offsets with spread so the layers share one outer silhouette (authored glass-side, since --shadow-cartoon-md is a glass token), (2) single-layer cast with a three-stop ink gradient, (3) clip to the card radius — rejected on sight unless 1 and 2 fail, because PaletteCard.vue:16 records a prior tranche deliberately removing exactly such a clip.",
+      "blockedOn": "REPRODUCTION OBLIGATION before its wave may close (L-9/L-12): render a data-backed PaletteCard via seeded fixture or authenticated session, measure .cartoon-cast's radii against its parent's, capture the corner at >=4x"
+     },
+     {
+      "id": "MT-F028",
+      "source": "ROOT-FINDINGS",
+      "gist": "MAJOR (design, app-wide), OWNER-DIRECTED M-13 — the layout baseline, whose numbers are the born-RED inputs for the layout-gestalt design band (layout-utilization.mjs, WebKit, 7 routes x 6 viewports). TWO FAILURE ENDS: mobile does not under-use width (shell spans 92–96%, uniform 16px gutters) — it UNDER-DELIVERS CONTENT: at 390x844 #/ renders text=69 against 893 at desktop (~8%), #/blob 68 vs 748, the pane router shows ONE pane and /blob's configurator leaves the DOM entirely below 1024px, with 73–78% content-height coverage on browse/generate/mix; the mobile variant is the desktop composition with panes amputated, not a bespoke composition. And pathologically wide screens get dead margin: content-width coverage 86% @1440 -> 70% @2560 -> 65% @3440 (~600px of symmetric dead gutter), caused by shell.css:69-71 capping the workspace at calc(--pane-max * 2 + --pane-gap), with a constant 16px page gutter from 390 to 3440. CENSUS CORRECTED by the M-13 tri-fold (L-10 applied to this finding's own numbers): '34 @media' was the TOTAL and only SEVEN are viewport-dimension queries — the other 27 are prefers-*/forced-colors/print/pointer/hover capability queries that must SURVIVE any cure; the true adaptation surface is 102 sites in 3 incompatible dialects (7 viewport @media + 58 Tailwind sm:/md:/lg: prefixes across 28 files + 37 JS breakpoint references across 13 files), a 3.4x undercount (worker-F independently under-counted the Tailwind arm 4.8x — a gate keyed to the low count would have closed green with 46 prefixes alive); the ultrawide dead zone is worse than the width-only figure — foundation.css:479's two-axis arithmetic caps the content block at 608px at 3440x1440, ~86% of viewport AREA dead; and two of the seven viewport queries are capability questions wearing a width (ConsoleRail's max-width:1023px is really pointer:coarse; DockStatusLamp's min-width:1024px is really @container dock — glass ALREADY ships those dock container rules and they are DEAD CODE because the demo never passes container-name='dock'). Mechanism census: 0 @container rules, 1 container-type, 18 cqi/cqw units all fed by that single context, dvh/svh 8 with 100vh 0 (already modern), clamp 22, minmax 2, aspect-ratio 8, subgrid 0, grid-template-areas 0. Cure is a DESIGN not a patch, chartered to the M-13 tri-fold: one composition where befitting, bespoke variants where not, container queries on the route scene, grid + minmax/clamp fluidity to kill the ultrawide cap, and ONE adaptation mechanism instead of three."
+     },
+     {
+      "id": "MT-F029",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-3, sha256 a44389c2…, owner-captured 2026-07-27 18:19 ET) — the Picker headline card opens a DEAD VERTICAL BAND between its top row (Lab ⌄ selector, HeroBlob ornament) and its readout row (92.0%, 88.8, 20.0) + spectrum slider; the void reads as roughly the height of the readout row itself, so the card's internal vertical rhythm allocates its largest single interval to nothing. Owner: 'the spacing here between the top row and the bottom row is too much.' Cure lives in the Picker card's internal stack rhythm; owner-marked defects are findings by definition (M-4); joins MT-PICKER-1's design band and the layout-gestalt spacing laws (ML-*) — the gap must derive from the type scale's interval, not leftover flex/grid slack. π: OM-3 re-captured at the same crop; DELTA before/after pair."
+     },
+     {
+      "id": "MT-F030",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-4, sha256 5b7906f3…, owner-captured 2026-07-27 18:03 ET) — the Easing configurator mixes FOUR unrelated corner radii in one instrument: fully circular preset chips (linear/ease/in/out/in-out + sine variants, radius 50%), a small-radius gradient strip directly above them, a large-radius pill for the cubic-bezier(0,0,1,1) readout row, and an outer card at yet another radius — four registers with no derivation between them; the circles read over-rounded against the strip, the strip under-rounded against the pill. Owner: 'easing config is awful, too rounded in some areas, not rounded enough in others.' Cure: ONE radius scale for the easing instrument derived from the panel's own register (the glass radius tokens), with the preset chips deciding DELIBERATELY between the circle/icon-button register and the shared rounded-rect register — not both adjacent. Joins the gradient/easing wave band (GradientEasingEditor / EasingSpecimenStrip); the chip-adjacent glass I-9 Chip residual stays glass-owned. π: OM-4 re-capture, DELTA before/after.",
+      "blockedOn": "binds at the workbenches ADJUDICATION round (r3 briefs carry OM-4 + OM-13 together)"
+     },
+     {
+      "id": "MT-F031",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-5, sha256 9d546c9f…a2ca, owner-captured 2026-07-27 18:21 ET), born-RED — the 'DEV MISCONFIGURED — RUN `NPM RUN DEV`' pill banner is nonsense in the product and is ORDERED REMOVED. Owner: 'this nonsense needs to be removed.' HONEST TRIGGER NOTE (L-12): the audit dev server runs npx vite directly (API-less; dev.sh untouched by standing law), which is plausibly exactly the condition the banner detects — that does NOT soften the mark, because the owner ruled the SURFACE ITSELF out of the product. Disposition: the banner's component (candidate owners DockStatusLamp's dev-state arm / a route-level dev chip — adjudication pins the exact file) is REMOVED, not restyled and not gated; a dev-environment diagnosis belongs in the console or the terminal, never as product chrome. Gate: a grep for the banner string over demo/ is non-empty today."
+     },
+     {
+      "id": "MT-F032",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-6, sha256 55fcb390…21a620, owner-captured 2026-07-27 18:21 ET) — the HeroBlob does not carry the current color's vibrancy: it renders a washed-out near-white pale pink while the current color in the same session (Lab 92.0%, 88.8, 20.0, a far-out-of-sRGB chroma) is highly vibrant; the blob reads as a desaturated ghost of the color it exists to display. Owner: 'The blob current color is not nearly vibrant enough.' MECHANISM HYPOTHESIS, labelled and NOT measured: the shader receives its color through the 1x1-canvas CSS resolver (2D context -> sRGB clamp) and then applies its own HSV perturbation/lightening — two stages that each strip chroma from wide-gamut colors. The cure wave MUST measure the pipeline (resolver clamp vs shader perturbation vs lighting model) before cutting. π: OM-6 re-capture at a high-chroma current color; DELTA before/after with the same Lab triplet."
+     },
+     {
+      "id": "MT-F033",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-7, sha256 3586d746…4b778a, owner-captured 2026-07-27 18:22 ET) — the dock capsule buttons carry incorrect shadow treatment: the '→] Login' and '@mbabb' pills at close crop each sit in an embossed capsule well mixing inner shadow, outer highlight and cast elevation, reading as three light models disagreeing on one control pair. Owner: 'these buttons have incorrect shadows and the like.' RELATION TO THE RECORD: extends MT-F026 (OM-1) with a closer witness; the adjudicated cure is ALREADY RULED in Dock.md — ProfileSection's hand-rolled pills route through the producer's real exports (DockControl / DockTrigger), the in-chrome capsule elevation variant stays a glass ask (O-16 §C-5), and no demo box-shadow patch may satisfy any gate (masking-fallback ban). This mark strengthens the evidence row; it does NOT re-open the ruling.",
+      "carriesFrom": "extends MT-F026 (OM-1)"
+     },
+     {
+      "id": "MT-F034",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED MANDATE (OM-8, sha256 23d700e7…631a4, owner-captured 2026-07-27 18:22 ET) — pane and sub-pane transitions must be well-defined and ANIMATED, not instant cuts. Owner: 'transitions between panes, and sub-panes, need to be well-defined and ANIMATED, not just instantly transitioned.' Witness shows the Mix pane with its Colors | Palettes segmented control, a surface whose pane and sub-pane swaps cut instantly. SCOPE — a MANDATE row, not a single-component defect: it binds every pane transition (the KeepAlive route swaps), every sub-pane swap (segmented-control content), and the dock layer swaps. The record already holds the mechanism half — Dock L-20 (the crossfade shim times a window in which nothing animates; DockCrossfade adoption cures the dock half in MT-DOCK-LAYERS-1); the pane/sub-pane half joins the motion band (MT-APP-MOTION-1 + the layout-gestalt composition waves): each transition gets a DEFINED motion (direction, duration token, easing from the animation tokens), PRM-respecting per the corrected idiom (declarations inside @media (prefers-reduced-motion: no-preference)), never a bare instant cut. Animations are never deleted, only added or tokenized — the standing preserve-animations edict.",
+      "carriesFrom": "Dock L-20 / MT-DOCK-LAYERS-1 (mechanism half); PRM idiom from MT-F023"
+     },
+     {
+      "id": "MT-F035",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED, a defect/control PAIR — OM-9 (sha256 a57a57eb…9e6b7ca6): Picker card left, 'About the color spaces, Lab' right, the right card's top edge sitting visibly HIGHER, the two panes reading as unaligned neighbours (owner: 'why does this not line up in height'); OM-10 (sha256 47e115e9…3573c3): Picker card left, Mix card right, top edges ALIGNED (owner: 'But this does'). What the pair PROVES: the intended cross-pane top alignment exists and works, so the About pane's offset is a per-pane deviation, not a grid property — some About-side header/margin inserts height the shared row does not. Cure is the SHARED ROW CONTRACT (one grid row, panes aligned to the same track start), never a per-pane nudge. Joins the layout-gestalt band (the 18-route table's Picker+About composition) and MT-APP-1's ordering. π: BOTH witnesses re-captured; DELTA = the OM-9 crop after the cure beside the untouched OM-10 control."
+     },
+     {
+      "id": "MT-F036",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-11 wide + OM-12 closeup, owner-captured 2026-07-27 19:06 ET) — palette containers carry shadow artifacts AND ship no hover state; owner: 'mark these shadow artifacts around these palette containers--this is to be fixed; why don't these have proper hover states?' The browse grid's PaletteCards ('Sunset Ridge', 'Deep Ocean') each trail a hard-edged dark shadow slab offset below-left with faceted/sharp corners against the rounded geometry, the top-right corner showing the dark band poking out from behind the radius; the Deep Ocean close crop shows a flat dark band with a visible seam, hard-cornered at the left edge. TWO ARMS, BOTH ORDERED: (1) the shadow artifact is the same mechanism class as MT-F027 (OM-2) on the PaletteCard container — the cure terminates wherever MT-F027's does (glass token or card-root fix; adjudication pins the owner), applied at the ROOT, never per-instance (M-14: no adhoc fixes); (2) the missing hover state — interactive palette containers (draggable, menued, selectable) render NO hover treatment, so the cure is a designed hover register (elevation/material shift, tokenized motion per MT-F034) at the glass/card ROOT per the standing root-styling law, and if the glass card/surface primitive lacks a hover variant that is a glass-forward ask to the BJ inbox, not a local patch. π: both witnesses re-captured (rest + hover cell); DELTA before/after pairs including a hover frame.",
+      "carriesFrom": "same mechanism class as MT-F027 (OM-2)",
+      "blockedOn": "the palettes challenge band is RUNNING with cached prompts (cannot carry this mark without cache-busting) — binds at the palettes ADJUDICATION round r3, in the PaletteCard unit brief alongside OM-16"
+     },
+     {
+      "id": "MT-F037",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-13, owner-captured 2026-07-27 19:06 ET) — the easing code readout is not a proper glass-ui rounded input component: the cubic-bezier(0, 0, 1, 1) row in the gradient easing panel is a flat beige rounded rectangle with copy + configure icon buttons, carrying none of the glass input register (material, focus affordance, the glass input silhouette). Owner: 'in the gradient/easing selector, this is not a proper glass-ui rounded input area component.' The law it violates: glass-first (variants/primitives belong in glass-ui; reuse existing component-type names) + M-14 clause 1 (no adhoc; all at root). Cure: the row becomes the glass rounded input/field primitive — the adjudication seat censuses the installed dist for the input-area component and its variants; if no glass primitive fits an icon-trailing code-input row, THAT is a marked glass-forward ask to the BJ inbox, never a local restyle. Joins MT-F030 (OM-4, the same panel's radius incoherence); the two marks likely share one cure cut.",
+      "blockedOn": "binds at the workbenches ADJUDICATION round (the running band's prompts are cached; the easing units' r3 briefs carry OM-4 + OM-13 together)"
+     },
+     {
+      "id": "MT-F038",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED MANDATE (OM-14, sha256 306c7196…4037, owner-captured 2026-07-28 11:49 ET) — raw float precision in displayed color values: the RGB card renders rgb(154.029889788152 … , twelve decimals, ellipsis-truncated mid-value. Owner mandates a GENERALIZED facility for displaying color values pretty, with variable per-context decimals, and orders an audit of all instances across all contexts. Root emitter already traced: src/css/grammar.ts:283-285's format = (value) => Number(value.toFixed(12)).toString() — precision-preserving by design for round-trip fidelity but consumed RAW by display contexts; the display/fidelity split does not exist anywhere. CENSUS COMPLETE 2026-07-28 (source-only), audit/om-14-formatting/FORMAT-AUDIT.md, 40 KB §0–§6: 95 sites = 50 user-facing/actionable + 22 internal (out of scope) + 14 existing facilities; M-16's 31-runtime-calls figure CONFIRMED and refined to 30 runtime lines / 31 calls (a second prose-comment hit at easingCatalogue.ts:41 the meta-audit did not name; :71 carries two calls on one line); zero toPrecision, zero Intl.NumberFormat; six precisions in use (0/1/2/3/4/12). WORST CLASS: 29 user-facing raw-12-decimal sites — 17 visible text, 11 SPOKEN VERBATIM by screen readers, 1 written back into the model — all tracing to the single constant at src/css/grammar.ts:285. Card identity: ColorSpaceSelector.vue SelectItem specimen rows (specimenFor -> serializePickerColor at :161, rendering 17x simultaneously). FACILITY DISPOSITION (census-grade adjudication input): demo/color-session/format-color.ts, NOT src/ (serializeCssColor is a tested round-trip contract under the parser proof gate; display policy lives demo-side beside serializePickerColor) — four context registers (compact/caption/interchange/exact) over ONE per-CHANNEL decimal table seeded from the already-RULED readoutDecimals (whose ignored _component argument is the pre-cut seam), implemented as round-via-withChannel THEN serialize so the library stays sole authority on spelling; subsumes 11 live policies, retires 3 dead ones; canonical.ts (W51 byte contract) and bezierLiteral (glass byte-identity) explicitly untouched. Two guard-rails: the ColorInput display rounding is PROVABLY SAFE (programmatic innerText dispatches no input event — flagged so a careless reading doesn't back the fix out), and this defect was CURED ONCE BEFORE — U-F27's formatted aria-valuetext landed on the slider thumbs and nowhere else, leaving 11 palette/generate/mix ARIA labels speaking machine spelling: the partial-cure disease class, now with a named prior. Routing: library owns canonical formatting, demo contexts own precision selection — Phase E/F wave input."
+     },
+     {
+      "id": "MT-F039",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-15, sha256 f4fcbef9…2d1b, owner-captured 2026-07-27 20:08 ET) — contrived/duplicative explicit text is ABROGATED and the ShadowPalette plate is ugly and too large: the extract plate's empty state shows a large greyed skeleton grid captioned '· UNDEVELOPED PLATE — FEED IT AN IMAGE'. Owner: 'text items like this are to be totally abrogated--audit for all areas of duplicative, explicit, text contrivance. And that shadow palette is ugly and too large.' TWO ORDERED ARMS: (1) the precious-metaphor caption class and its ALL-CAPS letter-spaced idiom family, duplicative copy, and explicit UI-mechanics narration die across the whole demo (extends the excavation CONTRIVANCE-REGISTER from structure into COPY); (2) the skeleton plate is marked ugly and too large. CENSUS COMPLETE 2026-07-28 (source-only), audit/om-15-text/TEXT-CONTRIVANCE-AUDIT.md: 68 hits = 27 precious/contrived + 27 duplicative + 14 explicit-mechanics (9 dual-class); disposition 26 KILL / 31 REDUCE / 3 evaporate via label association / 8 KEEP; the marked string is ExtractWorkbench.vue:165. THE VOICE IS A STRUCTURAL DEFECT, NOT A WRITING ONE: demo/shared/ui/EmptyState.vue:90 makes the contrived eyebrow + mandatory WatercolorDot trio PROP DEFAULTS, so all 11 consumers are born with it and in every one the eyebrow verbatim-restates the message beneath ('· roster clear ·' over 'No users found.'), and `dots` is never passed false anywhere despite the escape hatch — editing the 68 strings without closing the defaults guarantees re-growth (Q6 proved it once). Reproducers: 14 uncoupled visible-label/aria-label pairs; ActionButton's two-slot tooltip (three 'Click to …'); internal archival nomenclature (plate/minted/roster/ledger) crossed into user-facing strings including an aria-label; SEVEN inconsistent caption dialects, four re-declaring what glass's text-mono-caption already applies. SHADOWPALETTE: paints the marked plate, exactly ONE live seat left (ExtractWorkbench.vue:159 — R12 already evicted every other host), 16x56px discs wrapping to ~276px of skeleton that restates the 40px strip above it, stacked on an ImageDropZone that is already a complete empty state; converges with the M-16 meta-audit §5.2 verdict (delete if no honest seat remains) — the adjudication round rules the kill. Routing: copy abrogation is a demo-owned sweep wave born-RED against the census table; the plate redesign joins the Phase E design loop."
+     },
+     {
+      "id": "MT-F040",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-16, sha256 010df7d8…04e6, owner-captured 2026-07-27 20:08 ET) — palette items must handle an ARBITRARY number of colors, tags and counts DEFTLY: the 'Deep Ocean' card (3 color bands, count chip, fork/history counts, three tags, overflow menu) has no visible law for N beyond a handful. Owner: 'we should plan to handle an arbitrary number of palette colors, tags, etc, deftly within these palette items.' Mandate: every palette-item surface (card swatch bands, tag rows, count chips, name, every variable-N renderer in the family) gets an explicit arbitrary-N law — overflow idioms, wrap/truncate policy, stable card height — grounded in the data layer's actual bounds. CENSUS COMPLETE 2026-07-28 (source-only), audit/om-16-palette-scalability/SCALABILITY-AUDIT.md: 18 surfaces, 15-row severity ranking, and a CORRECTION TO THE FINDING'S OWN PREMISE — the data layer IS bounded (api/src/modules/palette/schema.ts:33 colors .min(1).max(50), :35 tags .max(10) of <=30 chars, :25 name <=100; admin import reuses the caps), the genuinely uncapped surfaces being the client-local store (usePaletteStore.ts:66-107) and tag selection (TagEditPopover.vue:64-66). THE P0 BREAKS INSIDE THE LEGAL BOUND: the card meta row (PaletteCard.vue:43-44) is no-wrap with every chip shrink-0, so three legal 30-char tags are ~450px of unshrinkable chips on a 390px card and the NAME collapses to zero width first; tags 4–10 render NOWHERE (PaletteCardMeta.vue:37 slices to 3 with no +N). Also: slivers at N>=100; weighting silently flattens to equal-width at n>=13; the PNG export rasterizes Nx120px and goes BLANK past N~136 while the N-invariant SVG path sits unused; publish at N=51 surfaces a raw zod string; zero number compaction repo-wide. FOUR GLASS-FORWARD items relayed same-day as O-18a: +N overflow chip / ChipGroup max-visible, priority-collapse meta row, compact-number formatting atom, count-badge min-width variant.",
+      "blockedOn": "binds with MT-F036 (OM-11/OM-12) at the palettes ADJUDICATION round — one PaletteCard unit brief carries OM-11/OM-12/OM-16 together; the N-law design is Phase E input"
+     },
+     {
+      "id": "MT-F041",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED, NO SCREENSHOT, owner directive verbatim 2026-07-28: 'let's plan to add a bit of dyannism to the gradient selector--it should become a SUBTLE aurora insofar as the gradient waves a bit.' Mandate: the gradient selector's ramp becomes gently alive as a subtle aurora-class wave, NOT a new animation species — the aurora motion vocabulary already exists glass-side (the atmosphere aurora is glass-owned and PRM-correct). Constraints binding by standing law: tokenized motion (MT-F034), prefers-reduced-motion honored STRUCTURALLY, no ungated rAF (the PRM-RAF epidemic class), driver/observer semantics per the pending Movement-of-Momentum carve. If the wave mechanism belongs in the glass gradient/aurora primitive it is a marked BJ ask. Routes to Phase E design (the gradient band) — a design-loop row, not a patch."
+     },
+     {
+      "id": "MT-F042",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-17, sha256 2268cb0f…2e91, owner-captured 2026-07-28 16:12 ET) — watercolor-dot loupe as the GENERALIZED glass toggle indicator on the component selector: the vertical L/C/h/α component rail with the watercolor dot seated on 'L'. Owner: the selector should default to the first selected component having a watercolor dot, and this should be generalized to leverage the underlying glass-ui toggle interface — the dot behaving like a draggable loupe that grows slightly larger on grab/select and settles into place, and animating/bouncing (deftly) into the chosen component like the revamped glass-ui tabs toggle. THREE ARMS: (1) default state — first selected component carries the dot (demo-owned wiring); (2) GLASS-FORWARD, relay owed — generalize onto the glass toggle/tabs interface with the watercolor dot as the toggle's INDICATOR SPECIES (draggable-loupe grab/settle semantics + animate-and-bounce, tokenized and PRM-honest), a producer primitive ask per the owner's same-message law 'Communicate with glass-ui for all glass-ui component changes, mark' — NOTE glass's terminal Watercolor contract is WatercolorSwatch (M-16 DAG audit §8.3: WatercolorDot is aria-hidden paint, never interactive), so the ask is authored against the TOGGLE-INDICATOR seat, not against making the dot itself a control; (3) demo adoption — ComponentSliders/selector consumes the generalized primitive, no local reimplementation (masking-fallback ban).",
+      "blockedOn": "arm 2 is a glass-ui producer ask — relay owed to the BJ inbox"
+     },
+     {
+      "id": "MT-F043",
+      "source": "ROOT-FINDINGS",
+      "gist": "OWNER-MARKED (OM-18, sha256 f611bf45…59f4, owner-captured 2026-07-28 16:15 ET) — the card's shrunken/scrolled state carries too much margin and padding: the 'My Palettes · 5' card in its scroll-condensed header state retains near-full-height padding and a large empty band below the title. Owner: 'the shrunke/scrolled state of the cards is not quite right, has too much margin and padding.' Cure direction: the shrink state gets its OWN designed spacing register — the scroll-condensed header collapses its paddings proportionally. This is the SAME SURFACE as PaneHeader's scroll-timeline shrink (MT-F023's component), so the two rulings must land coherently. Ownership split pinned at adjudication: if the pad/margin scale lives in the glass card/chassis shrink variant it is a MARKED BJ ask at root; the demo never per-instance-overrides it.",
+      "carriesFrom": "same surface as MT-F023 (PaneHeader scroll-timeline shrink) — rulings must land coherently"
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aa61145dc8fdd334f",
+   "key": "v2:3864cd4f5d87ab14bd8772d5e6229a65a8736f8ee3b69acf99699b5d7dd26a17",
+   "result": {
+    "counts": {
+     "build": 63,
+     "fold": 24,
+     "retire": 17,
+     "blockedOn": 11,
+     "verified": 2,
+     "total": 117,
+     "droppedWithRationale": 14
+    },
+    "ledgerPath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/CARRY-CUT-LEDGER.md"
+   }
+  }
+ ]
+}

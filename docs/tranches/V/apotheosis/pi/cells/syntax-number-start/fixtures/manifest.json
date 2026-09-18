@@ -1,0 +1,43 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 0,
+  "sealed": true,
+  "sealed_at": "2026-07-22",
+  "public_inputs": [
+    {
+      "path": "../feature.json",
+      "bytes": 9223,
+      "sha256": "03da844c3a8801339a548771c10fa91376d3d4390c15519d94ae5449559e82ac"
+    },
+    {
+      "path": "cases.json",
+      "bytes": 3039,
+      "sha256": "376607cc0dbc50c275bc2643e77a01d046858e088e39ec83e1d405bd5859757b"
+    },
+    {
+      "path": "../contract.ts",
+      "bytes": 672,
+      "sha256": "254ea7f5b77c2b56a3843d2942814f63c87e8c64a9a8f1d3182d4a5fbbc21df8"
+    },
+    {
+      "path": "../harness.ts",
+      "bytes": 1904,
+      "sha256": "d9ad931dc11919f5344cff005bb0576b73d0cd64c2f15c555b2081be57a3819d"
+    }
+  ],
+  "counts": {
+    "public_cases": 28,
+    "deterministic_hostile": 4,
+    "hidden_holdout": 18
+  },
+  "holdout": {
+    "status": "SEALED_WITHHELD",
+    "custodian_task": "/root/number_start_holdout",
+    "bytes": 1860,
+    "cases": 18,
+    "sha256": "d7caadc82173dc9a602c0f5a4f0e41197b7d59b530b703dc92b1e4ec59134c1c",
+    "canonicalization": "UTF-8 JSON, 2-space indentation, exactly one trailing newline",
+    "reveal": "Only after all candidate author hashes close; custodian must return bytes matching this hash."
+  },
+  "receipt_boundary": "Boundary challenge and adjudication receipts are stored outside this immutable manifest and do not mutate it. Any public input or holdout byte change creates generation 1."
+}

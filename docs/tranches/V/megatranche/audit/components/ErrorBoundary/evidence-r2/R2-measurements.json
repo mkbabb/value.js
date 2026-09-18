@@ -1,0 +1,195 @@
+{
+  "seeds": {
+    "default": {
+      "caught": true,
+      "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+      "messageInk": [
+        28,
+        25,
+        23
+      ],
+      "messageBackdrop": [
+        242,
+        92,
+        163
+      ],
+      "messageContrast": 5.69,
+      "iconInk": [
+        219,
+        36,
+        36
+      ],
+      "iconBackdrop": [
+        242,
+        93,
+        163
+      ],
+      "iconContrast": 1.6,
+      "iconRect": {
+        "x": 706,
+        "y": 409,
+        "width": 28,
+        "height": 28
+      }
+    },
+    "crimson": {
+      "caught": true,
+      "accentLive": "oklch(42.991019561879% 0.172166730651 17.58462281322deg)",
+      "messageInk": [
+        28,
+        25,
+        23
+      ],
+      "messageBackdrop": [
+        229,
+        22,
+        117
+      ],
+      "messageContrast": 3.92,
+      "iconInk": [
+        219,
+        36,
+        36
+      ],
+      "iconBackdrop": [
+        229,
+        22,
+        117
+      ],
+      "iconContrast": 1.1,
+      "iconRect": {
+        "x": 706,
+        "y": 409,
+        "width": 28,
+        "height": 28
+      }
+    },
+    "paper": {
+      "caught": true,
+      "accentLive": "oklch(44.643075321103% 0.001319014789 106.42380068999deg)",
+      "messageInk": [
+        28,
+        25,
+        23
+      ],
+      "messageBackdrop": [
+        164,
+        164,
+        163
+      ],
+      "messageContrast": 7.01,
+      "iconInk": [
+        219,
+        36,
+        36
+      ],
+      "iconBackdrop": [
+        164,
+        164,
+        163
+      ],
+      "iconContrast": 1.96,
+      "iconRect": {
+        "x": 706,
+        "y": 409,
+        "width": 28,
+        "height": 28
+      }
+    },
+    "ink": {
+      "caught": true,
+      "accentLive": "rgb(11 16 32)",
+      "messageInk": [
+        28,
+        25,
+        23
+      ],
+      "messageBackdrop": [
+        53,
+        73,
+        96
+      ],
+      "messageContrast": 1.89,
+      "iconInk": [
+        219,
+        36,
+        36
+      ],
+      "iconBackdrop": [
+        53,
+        74,
+        97
+      ],
+      "iconContrast": 1.86,
+      "iconRect": {
+        "x": 706,
+        "y": 409,
+        "width": 28,
+        "height": 28
+      }
+    }
+  },
+  "paintIdentity": {
+    "note": "identical digests ⇒ the ink contributes ZERO pixels; no cure mutation was applied",
+    "messageRect": {
+      "x": 498,
+      "y": 449,
+      "width": 445,
+      "height": 36
+    },
+    "iconRect": {
+      "x": 706,
+      "y": 409,
+      "width": 28,
+      "height": 28
+    },
+    "messageWithInk": "5f496f2d7679e26f",
+    "messageInkHidden": "329ff51c2fbec3e7",
+    "messageIdentical": false,
+    "iconWithInk": "3540b88f0285c9bd",
+    "iconInkHidden": "28337ef55828a1c7",
+    "iconIdentical": false
+  },
+  "mobileTap": {
+    "caught": true,
+    "buttonRect": {
+      "w": 159.2,
+      "h": 54,
+      "x": 115.4,
+      "y": 522.4
+    },
+    "meets44": true,
+    "buttonClasses": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover font-display mt-1",
+    "accessibleName": "Try again",
+    "boundaryRect": {
+      "w": 358,
+      "h": 732
+    },
+    "inkAreaShare": null,
+    "winW": 390,
+    "winH": 844,
+    "buttonCentreY": 549.4
+  },
+  "motion": {
+    "boundary": {
+      "animationName": "none",
+      "transition": "all 0s",
+      "running": []
+    },
+    "button": {
+      "animationName": "none",
+      "transitionProperty": "background-color, border-color, box-shadow, color, opacity, scale",
+      "transitionDuration": "0.2s, 0.2s, 0.2s, 0.2s, 0.2s, 0.2s",
+      "running": []
+    },
+    "canvasStillPresent": true,
+    "canvasAnimations": [],
+    "documentAnimations": 3
+  },
+  "reducedMotion": {
+    "caught": true,
+    "rafPer1_5s": 148,
+    "docAnimations": [],
+    "boundaryAnimations": 0
+  }
+}

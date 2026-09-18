@@ -1,0 +1,73 @@
+{
+  "schema": "value.constellation-dag-validation.v1",
+  "date": "2026-07-29",
+  "mode": "tranche-development-only",
+  "authorityState": "boundary-receipt-not-final-close",
+  "command": "node docs/tranches/V/megatranche/workflows/validate-constellation-dag.mjs",
+  "exit": 0,
+  "graph": {
+    "nodes": 130,
+    "edges": 177,
+    "sha256": "b4d46ec1a6b95f9cb7059ef7fa6a8cda3e18e7486c391f4df3757888e45373ae"
+  },
+  "artifacts": [
+    {
+      "path": "coordination/CONSTELLATION-MEGATRANCHE-DAG-2026-07-29.json",
+      "sha256": "b4d46ec1a6b95f9cb7059ef7fa6a8cda3e18e7486c391f4df3757888e45373ae"
+    },
+    {
+      "path": "coordination/CONSTELLATION-MEGATRANCHE-DAG-2026-07-29.md",
+      "sha256": "f77870b0727b89d0c98b6a72b95bb18d018de79859d968e0b25e163227650036"
+    },
+    {
+      "path": "workflows/validate-constellation-dag.mjs",
+      "sha256": "9073d0f74cbd425c712340239a058df54e7990804f09c170854097a4812558c0"
+    },
+    {
+      "path": "audit/cross-repo/VALUE-FORMATION-ADMISSION-BINDING-2026-07-29.json",
+      "sha256": "a27d72a4aac639995f45959aa4086b423db04c5b633b45b1eccfa3140baa44ad"
+    },
+    {
+      "path": "audit/cross-repo/CONSTELLATION-DAG-SOL-ADJUDICATION-2026-07-29.md",
+      "sha256": "c1365e1db0d786829b96e2d180ae218a23bfe86e399263e8ce88cdde3985757d"
+    }
+  ],
+  "wrongAnswerMutants": [
+    {"id": "M01", "rejected": true, "witness": "satisfied formation node without evidence"},
+    {"id": "M02", "rejected": true, "witness": "P2 predecessor hash mismatch"},
+    {"id": "M03", "rejected": true, "witness": "Clean B does not bind Clean A corpus"},
+    {"id": "M04", "rejected": true, "witness": "parser execution proof feeds formation"},
+    {"id": "M05", "rejected": true, "witness": "P-B1 acknowledgment reused as candidate credit"},
+    {"id": "M06", "rejected": true, "witness": "required Value-to-Keyframes edge deleted"},
+    {"id": "M07", "rejected": true, "witness": "Fourier exact unit edge replaced by whole wave"},
+    {"id": "M08", "rejected": true, "witness": "Keyframes W3/W10 pack identity reused"},
+    {"id": "M09", "rejected": true, "witness": "receipt issuer and recipient swapped"},
+    {"id": "M10", "rejected": true, "witness": "unresolved Fourier tuple marked satisfied"},
+    {"id": "M11", "rejected": true, "witness": "stale Value W3 prerequisite restored"},
+    {"id": "M12", "rejected": true, "witness": "Atlas crater removed"},
+    {"id": "M13", "rejected": true, "witness": "root close precedes repository admissions"},
+    {"id": "M14", "rejected": true, "witness": "superseded evidence supplies admission"},
+    {"id": "M15", "rejected": true, "witness": "Fourier P3 attempts to close before R2a-reseal or inventory-A2 Sol"},
+    {"id": "M16", "rejected": true, "witness": "Value L5-to-L4 spine removed or L5-to-L6 bypass restored"},
+    {"id": "M17", "rejected": true, "witness": "Value full-subject coverage binding drift"},
+    {"id": "M18", "rejected": true, "witness": "satisfied evidence path or byte digest mismatch"},
+    {"id": "M19", "rejected": true, "witness": "required-input authority deleted or weakened"},
+    {"id": "M20", "rejected": true, "witness": "one primary receipt replayed as multiple formation stages"},
+    {"id": "M21", "rejected": true, "witness": "coverage authority file or membership deleted or changed"},
+    {"id": "M22", "rejected": true, "witness": "Value Clean B predecessor differs from replacement Clean A"},
+    {"id": "M23", "rejected": true, "witness": "Value admission family-denominator binding drifts"},
+    {"id": "M24", "rejected": true, "witness": "Value Clean B required-input declaration is omitted"},
+    {"id": "M25", "rejected": true, "witness": "Value Clean B exact report/validation/receipt/owner-intake tuple is incomplete"},
+    {"id": "M26", "rejected": true, "witness": "Value admission replays a secondary Clean B receipt"},
+    {"id": "M27", "rejected": true, "witness": "Value admission grants execution credit"},
+    {"id": "M28", "rejected": true, "witness": "Value admission predecessor differs from Clean B"},
+    {"id": "M29", "rejected": true, "witness": "Value admission required-input declaration is omitted"}
+  ],
+  "open": [
+    "parse-that full-subject formation chain and isolated >=10x proof",
+    "Fourier R2a-reseal-B Luna amendment and fresh Sol adjudication",
+    "Fourier live-derived inventory A2 fresh Sol adjudication",
+    "Fourier full-subject P3 close after sealed N.P3 record input",
+    "two constellation-wide clean audits, final evidence rehash, and root close"
+  ]
+}

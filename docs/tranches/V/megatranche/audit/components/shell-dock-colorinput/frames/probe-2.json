@@ -1,0 +1,184 @@
+{
+  "G-mobile": {
+    "opened": {
+      "present": false,
+      "inert": null
+    },
+    "missing": true,
+    "dockHTML": 2625,
+    "toggles": [
+      "Application navigation",
+      "Save edit",
+      "Cancel edit",
+      "Switch to slug",
+      "Generate new slug",
+      "Cancel",
+      "Select view",
+      "Toggle action bar",
+      "Menu",
+      "Color tool panes",
+      "Select color space",
+      "l component value",
+      "a component value",
+      "b component value",
+      "Color spectrum, saturation 63%, lightness 100%",
+      "Color channels",
+      "l channel",
+      "a channel",
+      "b channel",
+      "alpha channel",
+      "L channel",
+      "L channel",
+      "A channel",
+      "A channel",
+      "B channel",
+      "B channel",
+      "ALPHA channel",
+      "ALPHA channel"
+    ]
+  },
+  "H-kbd-type-popover": {
+    "tabIndexIdl": {
+      "tabIndex": -1,
+      "hasAttr": false,
+      "isContentEditable": true
+    },
+    "tabWalk": {
+      "reachedColorInput": true,
+      "steps": 13,
+      "order": [
+        {
+          "tag": "BUTTON",
+          "cls": "bg-transparent border-none shadow-none tap-squish focus-ring",
+          "label": "Select color space"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "readout-fig",
+          "label": "l component value"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "readout-fig",
+          "label": "a component value"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "readout-fig",
+          "label": "b component value"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "channel-rail-item font-display text-subheading italic",
+          "label": "l channel"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "slider-thumb glass-specular-track",
+          "label": "L channel"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "slider-thumb glass-specular-track",
+          "label": "A channel"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "slider-thumb glass-specular-track",
+          "label": "B channel"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "slider-thumb glass-specular-track",
+          "label": "ALPHA channel"
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "bg-transparent border-none shadow-none tap-squish focus-ring",
+          "label": "Select color space"
+        },
+        {
+          "tag": "BODY",
+          "cls": "relative",
+          "label": null
+        },
+        {
+          "tag": "BUTTON",
+          "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+          "label": "Back"
+        },
+        {
+          "tag": "SPAN",
+          "cls": "color-input w-full block border overflow-hidden items-center",
+          "label": "Enter a CSS color"
+        }
+      ]
+    },
+    "typeRegister": {
+      "tokenMonoSmall": "",
+      "tokenSmall": "",
+      "tokenXs": "0.75rem",
+      "colorInput": {
+        "fs": "18.608px",
+        "ff": "\"Fira Code\""
+      },
+      "loginBtn": {
+        "fs": "16.4px",
+        "ff": "\"Fira Code\""
+      },
+      "toolsLabel": {
+        "fs": "16.4px",
+        "ff": "Fraunces"
+      }
+    },
+    "hoverPopover": {
+      "count": 2,
+      "texts": [
+        "lab(92% 88.8 20 / 82.7%)",
+        "Enter a colorAny valid CSS color string is accepted. lab(92% 88.8 20 / 82.7%)labl 92%a 88.8b 20α 0.827outside srgb gamut"
+      ]
+    }
+  },
+  "I-forced-colors": {
+    "rest": {
+      "borderColor": "rgb(0, 0, 0)",
+      "outlineStyle": "none",
+      "bg": "rgb(255, 255, 255)",
+      "color": "rgb(0, 0, 0)",
+      "mask": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0) 100%)"
+    },
+    "focused": {
+      "borderColor": "rgb(0, 0, 0)",
+      "outlineStyle": "none",
+      "outlineColor": "rgba(5, 0, 73, 0.8)",
+      "boxShadow": "none"
+    },
+    "deltaBorder": false
+  },
+  "J-zoom200-equiv": {
+    "opened": {
+      "present": false,
+      "inert": null
+    },
+    "missing": true
+  },
+  "K-propose": {
+    "canPropose": true,
+    "propose": {
+      "text": "",
+      "html": "",
+      "dataPlaceholder": "propose a name...",
+      "ariaLabel": "Propose a color name",
+      "disabled": true,
+      "btnRect": {
+        "w": 24,
+        "h": 24
+      },
+      "btnOpacity": "1",
+      "btnCursor": "not-allowed",
+      "svgStroke": "stroke: oklch(0.471189 0.188448 9.83402);",
+      "focused": true,
+      "placeholderShows": "\"propose a name...\""
+    }
+  }
+}

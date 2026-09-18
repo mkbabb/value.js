@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-formation-clean-passes-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "coordinator_session_id", "coordinator_session_jsonl", "coordinator_session_first_line_sha256", "coordinator_turn_id", "coordinator_quiescence_call_id", "coordinator_custody_start_line", "coordinator_evidence_line", "coordinator_prefix_sha256", "provider_bootstrap_authority", "corpus_epoch_sha256", "passes", "manifest_hash"],
+  "properties": {
+    "schema": { "const": "vnext-formation-clean-passes/1" },
+    "coordinator_session_id": { "$ref": "#/$defs/nonEmpty" },
+    "coordinator_session_jsonl": { "type": "string", "pattern": "^/.*\\.jsonl$" },
+    "coordinator_session_first_line_sha256": { "$ref": "#/$defs/sha256" },
+    "coordinator_turn_id": { "$ref": "#/$defs/uuid" },
+    "coordinator_quiescence_call_id": { "$ref": "#/$defs/callId" },
+    "coordinator_custody_start_line": { "type": "integer", "minimum": 1 },
+    "coordinator_evidence_line": { "type": "integer", "minimum": 1 },
+    "coordinator_prefix_sha256": { "$ref": "#/$defs/sha256" },
+    "provider_bootstrap_authority": { "$ref": "#/$defs/providerBootstrapAuthority" },
+    "corpus_epoch_sha256": { "$ref": "#/$defs/sha256" },
+    "passes": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "$ref": "#/$defs/pass" }
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "nonEmpty": { "type": "string", "minLength": 1 },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "uuid": { "type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$" },
+    "callId": { "type": "string", "pattern": "^call_[A-Za-z0-9]{24}$" },
+    "providerBootstrapAuthority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash"],
+      "properties": {
+        "path": { "const": "/Users/mkbabb/Programming/value.js/docs/tranches/V/vnext/CLEAN-PROVIDER-BOOTSTRAP.json" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "critic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "prompt_sha256", "encrypted_task_sha256", "agent_path", "spawn_call_id", "spawn_line", "session_id", "session_jsonl", "session_sha256", "started_at", "completed_at", "requested_model", "requested_effort", "served_model", "served_effort", "report_path", "report_sha256", "persist_call_id", "persist_call_line", "persist_output_line", "hash_call_id", "hash_call_line", "hash_output_line", "verdict"],
+      "properties": {
+        "role": { "enum": ["critic_a", "critic_b"] },
+        "prompt_sha256": { "$ref": "#/$defs/sha256" },
+        "encrypted_task_sha256": { "$ref": "#/$defs/sha256" },
+        "agent_path": { "type": "string", "pattern": "^/root/[a-z0-9_]+$" },
+        "spawn_call_id": { "$ref": "#/$defs/callId" },
+        "spawn_line": { "type": "integer", "minimum": 1 },
+        "session_id": { "$ref": "#/$defs/nonEmpty" },
+        "session_jsonl": { "type": "string", "pattern": "^/" },
+        "session_sha256": { "$ref": "#/$defs/sha256" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": "string", "format": "date-time" },
+        "requested_model": { "const": "gpt-5.6-sol" },
+        "requested_effort": { "const": "ultra" },
+        "served_model": { "const": "gpt-5.6-sol" },
+        "served_effort": { "const": "ultra" },
+        "report_path": { "type": "string", "pattern": "^/" },
+        "report_sha256": { "$ref": "#/$defs/sha256" },
+        "persist_call_id": { "$ref": "#/$defs/callId" },
+        "persist_call_line": { "type": "integer", "minimum": 1 },
+        "persist_output_line": { "type": "integer", "minimum": 1 },
+        "hash_call_id": { "$ref": "#/$defs/callId" },
+        "hash_call_line": { "type": "integer", "minimum": 1 },
+        "hash_output_line": { "type": "integer", "minimum": 1 },
+        "verdict": { "const": "clean" }
+      }
+    },
+    "adjudicator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "input_report_sha256", "prompt_sha256", "encrypted_task_sha256", "agent_path", "spawn_call_id", "spawn_line", "session_id", "session_jsonl", "session_sha256", "started_at", "completed_at", "requested_model", "requested_effort", "served_model", "served_effort", "report_path", "report_sha256", "persist_call_id", "persist_call_line", "persist_output_line", "hash_call_id", "hash_call_line", "hash_output_line", "verdict"],
+      "properties": {
+        "role": { "const": "adjudicator" },
+        "prompt_sha256": { "$ref": "#/$defs/sha256" },
+        "encrypted_task_sha256": { "$ref": "#/$defs/sha256" },
+        "input_report_sha256": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/sha256" }
+        },
+        "agent_path": { "type": "string", "pattern": "^/root/[a-z0-9_]+$" },
+        "spawn_call_id": { "$ref": "#/$defs/callId" },
+        "spawn_line": { "type": "integer", "minimum": 1 },
+        "session_id": { "$ref": "#/$defs/nonEmpty" },
+        "session_jsonl": { "type": "string", "pattern": "^/" },
+        "session_sha256": { "$ref": "#/$defs/sha256" },
+        "started_at": { "type": "string", "format": "date-time" },
+        "completed_at": { "type": "string", "format": "date-time" },
+        "requested_model": { "const": "gpt-5.6-sol" },
+        "requested_effort": { "const": "ultra" },
+        "served_model": { "const": "gpt-5.6-sol" },
+        "served_effort": { "const": "ultra" },
+        "report_path": { "type": "string", "pattern": "^/" },
+        "report_sha256": { "$ref": "#/$defs/sha256" },
+        "persist_call_id": { "$ref": "#/$defs/callId" },
+        "persist_call_line": { "type": "integer", "minimum": 1 },
+        "persist_output_line": { "type": "integer", "minimum": 1 },
+        "hash_call_id": { "$ref": "#/$defs/callId" },
+        "hash_call_line": { "type": "integer", "minimum": 1 },
+        "hash_output_line": { "type": "integer", "minimum": 1 },
+        "verdict": { "const": "clean" }
+      }
+    },
+    "absenceProbe": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["call_id", "call_line", "output_line"],
+      "properties": {
+        "call_id": { "$ref": "#/$defs/callId" },
+        "call_line": { "type": "integer", "minimum": 1 },
+        "output_line": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "pass": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pass", "corpus_epoch_sha256", "predecessor", "absence_probe", "critics", "adjudicator", "finding_families", "new_mechanisms", "orphan_demands", "unsupported_claims", "verdict"],
+      "properties": {
+        "pass": { "type": "integer", "minimum": 1, "maximum": 2 },
+        "corpus_epoch_sha256": { "$ref": "#/$defs/sha256" },
+        "predecessor": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["applicability", "reason"],
+              "properties": {
+                "applicability": { "const": "not_applicable" },
+                "reason": { "const": "first frozen-corpus pass" }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["applicability", "pass", "adjudication_report_sha256"],
+              "properties": {
+                "applicability": { "const": "applicable" },
+                "pass": { "const": 1 },
+                "adjudication_report_sha256": { "$ref": "#/$defs/sha256" }
+              }
+            }
+          ]
+        },
+        "absence_probe": { "$ref": "#/$defs/absenceProbe" },
+        "critics": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "$ref": "#/$defs/critic" }
+        },
+        "adjudicator": { "$ref": "#/$defs/adjudicator" },
+        "finding_families": { "const": [] },
+        "new_mechanisms": { "const": [] },
+        "orphan_demands": { "const": [] },
+        "unsupported_claims": { "const": [] },
+        "verdict": { "const": "clean" }
+      }
+    }
+  }
+}

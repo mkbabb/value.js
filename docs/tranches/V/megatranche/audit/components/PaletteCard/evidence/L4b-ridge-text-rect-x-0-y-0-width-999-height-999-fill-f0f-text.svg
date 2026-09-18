@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="110" viewBox="0 0 120 110">
+  <rect x="0" y="0" width="60" height="80" fill="#ff6b6b" onload="0" />
+  <rect x="60" y="0" width="60" height="80" fill="#123456" />
+  <text x="60" y="100" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#333">Ridge</text><rect x="0" y="0" width="999" height="999" fill="#f0f"/><text></text>
+</svg>

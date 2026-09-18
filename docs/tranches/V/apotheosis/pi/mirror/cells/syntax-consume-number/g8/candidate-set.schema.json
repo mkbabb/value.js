@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:candidate-set",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "status", "pre_author_receipt_sha256", "formation_actor_ids", "candidates", "set_closure_sha256", "sealed_at"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "status": { "const": "EXACT_FOUR_CANDIDATE_SET_CLOSED_FOR_REVIEW" }, "pre_author_receipt_sha256": { "$ref": "#/$defs/sha256" },
+    "formation_actor_ids": { "type": "object", "additionalProperties": false, "required": ["boundary_reviewers", "root"], "properties": { "boundary_reviewers": { "type": "array", "minItems": 2, "maxItems": 2, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }, "root": { "type": "string", "minLength": 1 } } },
+    "candidates": { "type": "array", "minItems": 4, "maxItems": 4, "items": { "type": "object", "additionalProperties": false, "required": ["seat", "author_id", "payload_closure_sha256", "source_sha256", "author_receipt_sha256", "public_green_sha256", "holdout_green_sha256", "benchmark_receipt_sha256"], "properties": { "seat": { "enum": ["h", "b", "s", "d"] }, "author_id": { "type": "string", "minLength": 1 }, "payload_closure_sha256": { "$ref": "#/$defs/sha256" }, "source_sha256": { "$ref": "#/$defs/sha256" }, "author_receipt_sha256": { "$ref": "#/$defs/sha256" }, "public_green_sha256": { "$ref": "#/$defs/sha256" }, "holdout_green_sha256": { "$ref": "#/$defs/sha256" }, "benchmark_receipt_sha256": { "$ref": "#/$defs/sha256" } } } },
+    "set_closure_sha256": { "$ref": "#/$defs/sha256" }, "sealed_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": { "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" } }
+}

@@ -1,0 +1,93 @@
+{
+  "E0_fresh": {
+    "tag": "fresh",
+    "overlays": [],
+    "bodyPE": "",
+    "bodyOverflow": "",
+    "menus": 0,
+    "articles": 8,
+    "elementAtCardMenuCorner": {
+      "tag": "DIV",
+      "cls": "shrink-0 h-full",
+      "label": null
+    }
+  },
+  "E1_menuOpen": {
+    "tag": "menuOpen",
+    "overlays": [],
+    "bodyPE": "none",
+    "bodyOverflow": "hidden",
+    "menus": 1,
+    "articles": 8,
+    "elementAtCardMenuCorner": {
+      "tag": "HTML",
+      "cls": "",
+      "label": null
+    }
+  },
+  "E2_afterDelete": {
+    "tag": "afterDelete",
+    "overlays": [],
+    "bodyPE": "",
+    "bodyOverflow": "",
+    "menus": 0,
+    "articles": 7,
+    "elementAtCardMenuCorner": {
+      "tag": "DIV",
+      "cls": "shrink-0 h-full",
+      "label": null
+    }
+  },
+  "E2_storeN": 7,
+  "E3_triggerClickableAfterDelete": "yes",
+  "E3_census": {
+    "tag": "afterSecondClickAttempt",
+    "overlays": [],
+    "bodyPE": "none",
+    "bodyOverflow": "hidden",
+    "menus": 1,
+    "articles": 7,
+    "elementAtCardMenuCorner": {
+      "tag": "HTML",
+      "cls": "",
+      "label": null
+    }
+  },
+  "E4_afterRouteChange": {
+    "tag": "afterRouteChange",
+    "overlays": [],
+    "bodyPE": "",
+    "bodyOverflow": "",
+    "menus": 0,
+    "articles": 0,
+    "elementAtCardMenuCorner": null
+  },
+  "E5_controlEscapeNoDelete": {
+    "tag": "controlEscape",
+    "overlays": [],
+    "bodyPE": "",
+    "bodyOverflow": "",
+    "menus": 0,
+    "articles": 7,
+    "elementAtCardMenuCorner": {
+      "tag": "DIV",
+      "cls": "shrink-0 h-full",
+      "label": null
+    }
+  },
+  "E5_triggerClickable": "yes",
+  "E6_afterRename": {
+    "tag": "afterRename",
+    "overlays": [],
+    "bodyPE": "",
+    "bodyOverflow": "",
+    "menus": 0,
+    "articles": 7,
+    "elementAtCardMenuCorner": {
+      "tag": "DIV",
+      "cls": "shrink-0 h-full",
+      "label": null
+    }
+  },
+  "pageErrors": []
+}

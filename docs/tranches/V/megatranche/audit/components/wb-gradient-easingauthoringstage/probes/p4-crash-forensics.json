@@ -1,0 +1,44 @@
+{
+  "forensics": {
+    "errs": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "boundaryPresent": true,
+    "boundaryText": "This panel hit an unexpected error.\n\nGradient color mix failed: color_progress_out_of_range\n\nTry again",
+    "boundaryRect": {
+      "x": 16,
+      "y": 88,
+      "w": 1408,
+      "h": 804
+    },
+    "statement": {
+      "text": "This panel hit an unexpected error.",
+      "color": "rgb(28, 25, 23)",
+      "fontSize": "25.888px",
+      "opacity": "1",
+      "visibility": "visible",
+      "rect": {
+        "x": 498,
+        "y": 437,
+        "w": 445,
+        "h": 36
+      }
+    },
+    "detailLine": {
+      "text": "Gradient color mix failed: color_progress_out_of_range",
+      "color": "oklch(0.447121 0.00386159 34.63)"
+    },
+    "focusedAfterCatch": "vj-error-boundary flex flex-col items-center justify-center ",
+    "remainingRouteNodes": {
+      "easingHeads": 0,
+      "gradientRail": 0,
+      "main": 1
+    }
+  },
+  "logs": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected.",
+    "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backe",
+    "debug: [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm "
+  ]
+}

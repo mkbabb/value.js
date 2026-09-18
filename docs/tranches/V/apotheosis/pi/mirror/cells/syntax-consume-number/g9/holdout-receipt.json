@@ -1,0 +1,79 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G9-HOLDOUT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "status": "SEALED_UNREVEALED_PRE_AUTHOR",
+  "formation": {
+    "sha256": "21991b481df84081f105581bcbb80ff49f98e1688b080046a33e6688047e353a",
+    "bytes": 3562
+  },
+  "precursor_closure_sha256": "0ad9085e51ca6ad9d97db9930a730063468d566d3061c35cc47ef406ba419991",
+  "custodian": {
+    "task_id": "/root/g9_holdout_custodian",
+    "served_model": "gpt-5.6-sol",
+    "independent": true,
+    "candidate_access": false,
+    "reviewer": false,
+    "root": false
+  },
+  "freshness": {
+    "generated_after_formation": true,
+    "g8_material_reused": false,
+    "loss_policy": "TERMINAL_REJECTION"
+  },
+  "generator": {
+    "sha256": "57bdd26af83d04f69dae2b18f945510d9d4dfdbdcb3611631c56f8b3c333d959",
+    "bytes": 6697,
+    "method": "DETERMINISTIC_PRIVATE_GENERATOR",
+    "public_before_reveal": false
+  },
+  "ciphertext": {
+    "sha256": "44abeb756059679db7fc09554c4ac159abee8ed625cf5f96f204d7a01dedb4c6",
+    "bytes": 181721,
+    "encoding": "base64",
+    "envelope": "AES-256-GCM",
+    "decoded_bytes": 136288
+  },
+  "commitments": {
+    "plaintext_sha256": "5f78128b3bdc08301415a648ce022be9baa8d8b025a2dcf1812ab1d1c96ec794",
+    "hidden_index_sha256": "fb5f71efc4d2295d2020cbe07446d0dda360896dfeb3ef5a68e02ba6d205ba06",
+    "case_count": 188,
+    "categories": [
+      "positive",
+      "negative",
+      "boundary",
+      "offset",
+      "diagnostics",
+      "hostile",
+      "binary64",
+      "composition"
+    ]
+  },
+  "comparison_inputs": [
+    {
+      "path": "../g8/holdout-destruction.json",
+      "sha256": "30862497e808cfc0795f73f80c98c8f2788e98e8b54d48f94369f19653d3dece",
+      "bytes": 5827
+    },
+    {
+      "path": "../g5/fixtures/public-cases.json",
+      "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+      "bytes": 5213
+    }
+  ],
+  "custody": {
+    "location": "PRIVATE_CUSTODIAN_TOOL_STORE",
+    "recoverable_while_task_live": true,
+    "workspace_plaintext_files": 0,
+    "workspace_key_files": 0,
+    "workspace_generator_files": 0,
+    "public_durability_claim": "NONE_FAIL_CLOSED"
+  },
+  "reveal": {
+    "only_after_candidate_count": 4,
+    "reviewer_root_author_access_before_reveal": false,
+    "destroy_after_terminal_use": true,
+    "reuse": false
+  },
+  "credit": "ZERO_SEALED_HOLDOUT_ONLY"
+}

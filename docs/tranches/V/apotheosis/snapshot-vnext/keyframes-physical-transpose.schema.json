@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-keyframes-physical-transpose-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "wave_id", "scope", "current_snapshot", "final_repository_state_sha256", "target_manifest_sha256", "git_truth", "effects", "delivery", "receipt_hash"],
+  "properties": {
+    "schema": { "const": "vnext-keyframes-physical-transpose/1" },
+    "wave_id": { "enum": ["K22T", "M10T"] },
+    "scope": { "enum": ["library", "demo"] },
+    "current_snapshot": {
+      "type": "object", "additionalProperties": false,
+      "required": ["file_sha256", "files_sha256"],
+      "properties": { "file_sha256": { "$ref": "#/$defs/sha256" }, "files_sha256": { "$ref": "#/$defs/sha256" } }
+    },
+    "final_repository_state_sha256": { "$ref": "#/$defs/sha256" },
+    "target_manifest_sha256": { "$ref": "#/$defs/sha256" },
+    "git_truth": { "$ref": "#/$defs/receiptEvidence" },
+    "effects": { "type": "array", "items": { "$ref": "#/$defs/effect" } },
+    "delivery": { "$ref": "#/$defs/delivery" },
+    "receipt_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "relativePath": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))(?!.*\\\\)(?!.*//).+$" },
+    "waveId": { "type": "string", "pattern": "^[PVKAGDMC][0-9]{2}[A-Z]?$" },
+    "absolutePath": { "type": "string", "pattern": "^/" },
+    "receiptEvidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "file_sha256", "receipt_hash"],
+      "properties": { "path": { "$ref": "#/$defs/absolutePath" }, "file_sha256": { "$ref": "#/$defs/sha256" }, "receipt_hash": { "$ref": "#/$defs/sha256" } }
+    },
+    "effect": {
+      "type": "object", "additionalProperties": false,
+      "required": ["decision_id", "kind", "effect", "current_path", "current_sha256", "target_path", "target_sha256", "decision_owner_wave_id", "physical_owner_wave_id"],
+      "properties": {
+        "decision_id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["source", "test", "support"] },
+        "effect": { "enum": ["materialize", "remove-and-materialize", "replace-in-place", "remove"] },
+        "current_path": { "oneOf": [{ "$ref": "#/$defs/relativePath" }, { "type": "null" }] },
+        "current_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "target_path": { "oneOf": [{ "$ref": "#/$defs/relativePath" }, { "type": "null" }] },
+        "target_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "decision_owner_wave_id": { "$ref": "#/$defs/waveId" },
+        "physical_owner_wave_id": { "$ref": "#/$defs/waveId" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "effect": { "const": "materialize" } }, "required": ["effect"] },
+          "then": { "properties": { "current_path": { "type": "null" }, "current_sha256": { "type": "null" }, "target_path": { "$ref": "#/$defs/relativePath" }, "target_sha256": { "$ref": "#/$defs/sha256" } } },
+          "else": { "properties": { "current_path": { "$ref": "#/$defs/relativePath" }, "current_sha256": { "$ref": "#/$defs/sha256" } } }
+        },
+        {
+          "if": { "properties": { "effect": { "const": "remove" } }, "required": ["effect"] },
+          "then": { "properties": { "target_path": { "type": "null" }, "target_sha256": { "type": "null" } } },
+          "else": { "properties": { "target_path": { "$ref": "#/$defs/relativePath" }, "target_sha256": { "$ref": "#/$defs/sha256" } } }
+        }
+      ]
+    },
+    "delivery": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "tests", "support", "removed_paths", "replaced_paths"],
+      "properties": {
+        "source": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "tests": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "support": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "removed_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } },
+        "replaced_paths": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/relativePath" } }
+      }
+    }
+  }
+}

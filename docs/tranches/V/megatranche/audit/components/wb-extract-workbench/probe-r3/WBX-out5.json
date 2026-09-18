@@ -1,0 +1,123 @@
+{
+ "wall": 1077,
+ "bigBytes": 6824131,
+ "longTasks": [
+  517,
+  63
+ ],
+ "maxLongTask": 517,
+ "totalLongMs": 580,
+ "anySkeleton": false,
+ "firstPlateAt": 1081,
+ "samples": [
+  {
+   "t": 61,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 121,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 181,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 700,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 721,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 781,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 852,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 901,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 1052,
+   "skel": 0,
+   "ghost": false,
+   "plate": false
+  },
+  {
+   "t": 1081,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1172,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1201,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1261,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1322,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1381,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1442,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1501,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  },
+  {
+   "t": 1561,
+   "skel": 0,
+   "ghost": false,
+   "plate": true
+  }
+ ],
+ "mem": 225
+}

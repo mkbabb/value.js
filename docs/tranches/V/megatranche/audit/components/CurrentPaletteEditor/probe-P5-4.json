@@ -1,0 +1,238 @@
+{
+  "roleQueries": {
+    "addByRole": 0,
+    "addByRoleAnyName": 1,
+    "swatchByRole": 0,
+    "tooltipNodes": 0
+  },
+  "addSlot": {
+    "tagName": "SPAN",
+    "ariaHidden": "true",
+    "ariaLabel": null,
+    "tabIndex": -1,
+    "pointerEvents": "none",
+    "display": "inline-flex",
+    "box": {
+      "w": 48,
+      "h": 48
+    },
+    "innerHTML": "<svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-4\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" co",
+    "hasPlusSvg": false,
+    "svgClasses": [
+      "watercolor-filter-host"
+    ],
+    "attrs": {
+      "data-v-292b9032": "",
+      "data-v-0ce6f2b0": "",
+      "aria-hidden": "true",
+      "class": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor-swatch",
+      "data-testid": "watercolor-swatch",
+      "data-variant": "ghost",
+      "style": "border-radius: 44.6236% 79.1753% 62.4072% 78.4038% / 40.2248% 78.7871% 59.2455% 42.178%; pointer-events: none; --watercolor-color: oklch(70% 0.15 30deg); --watercolor-filter: url(#watercolor-filter-v-1-4); --watercolor-wobble: none;"
+    }
+  },
+  "swatchDots": [
+    {
+      "tagName": "SPAN",
+      "variant": "solid",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tabIndex": -1,
+      "pointerEvents": "none"
+    },
+    {
+      "tagName": "SPAN",
+      "variant": "solid",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tabIndex": -1,
+      "pointerEvents": "none"
+    },
+    {
+      "tagName": "SPAN",
+      "variant": "solid",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tabIndex": -1,
+      "pointerEvents": "none"
+    },
+    {
+      "tagName": "SPAN",
+      "variant": "ghost",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "tabIndex": -1,
+      "pointerEvents": "none"
+    }
+  ],
+  "classRuleCounts": {
+    "dashed-well": 1,
+    "floating-panel": 0,
+    "btn-interactive": 0,
+    "add-slot-ghost": 1,
+    "edit-overlay": 1,
+    "swatch-row": 4
+  },
+  "keyboardWalkFromNameField": [
+    {
+      "tag": "INPUT",
+      "name": "Palette 2",
+      "cls": "field-control glass-defined flex-1",
+      "box": {
+        "w": 396,
+        "h": 36
+      }
+    },
+    {
+      "tag": "BUTTON",
+      "name": "",
+      "cls": "button tap-squish focus-ring glass-wash glass-ca",
+      "box": {
+        "w": 32,
+        "h": 40
+      }
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Delete all saved palettes",
+      "cls": "button tap-squish focus-ring glass-wash glass-ca",
+      "box": {
+        "w": 28,
+        "h": 28
+      }
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palette menu",
+      "cls": "button tap-squish focus-ring glass-wash glass-ca",
+      "box": {
+        "w": 36,
+        "h": 36
+      }
+    },
+    {
+      "tag": "BODY",
+      "name": "→oklch(70% 0.15 30deg)Pa",
+      "cls": "relative",
+      "box": {
+        "w": 1440,
+        "h": 900
+      }
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Select view",
+      "cls": "dock-trigger dock-select-trigger view-select-tri",
+      "box": {
+        "w": 121,
+        "h": 32
+      }
+    }
+  ],
+  "hoverPanelButtons": {
+    "panelAriaHidden": "true",
+    "panelPosition": "static",
+    "panelRect": {
+      "x": 0,
+      "y": 900,
+      "w": 1440,
+      "h": 40
+    },
+    "viewportH": 900,
+    "belowTheFold": true,
+    "buttons": [
+      {
+        "accName": "Edit color oklch(60% 0.18 140deg)",
+        "box": {
+          "w": 28,
+          "h": 28
+        },
+        "tabIndex": 0,
+        "outlineOnFocus": "none",
+        "classes": "p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
+        "under24": false,
+        "under44": true
+      },
+      {
+        "accName": "Copy color oklch(60% 0.18 140deg)",
+        "box": {
+          "w": 28,
+          "h": 28
+        },
+        "tabIndex": 0,
+        "outlineOnFocus": "none",
+        "classes": "p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
+        "under24": false,
+        "under44": true
+      },
+      {
+        "accName": "Remove color oklch(60% 0.18 140deg) from palette",
+        "box": {
+          "w": 28,
+          "h": 28
+        },
+        "tabIndex": 0,
+        "outlineOnFocus": "none",
+        "classes": "p-1.5 rounded-sm hover:bg-accent active:scale-95 active:bg-accent/70 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40",
+        "under24": false,
+        "under44": true
+      }
+    ]
+  },
+  "duplicateBranch": {
+    "buttons": [
+      {
+        "text": "",
+        "variantAttr": "outline",
+        "dataEmphasis": "secondary",
+        "dataTone": "neutral",
+        "dataSize": "md",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "borderWidth": "0px",
+        "borderColor": "oklab(0.779404 0.0118501 0.0342689 / 0.5)",
+        "box": {
+          "w": 32,
+          "h": 40
+        },
+        "classes": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0"
+      },
+      {
+        "text": "Update",
+        "variantAttr": "outline",
+        "dataEmphasis": "secondary",
+        "dataTone": "neutral",
+        "dataSize": "sm",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "borderWidth": "0px",
+        "borderColor": "rgb(28, 25, 23)",
+        "box": {
+          "w": 61.8,
+          "h": 36
+        },
+        "classes": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-6 px-2 text-caption cursor-pointer font-display rounded-full"
+      },
+      {
+        "text": "Cancel",
+        "variantAttr": "ghost",
+        "dataEmphasis": "secondary",
+        "dataTone": "neutral",
+        "dataSize": "sm",
+        "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+        "color": "rgb(28, 25, 23)",
+        "borderWidth": "0px",
+        "borderColor": "rgb(28, 25, 23)",
+        "box": {
+          "w": 59.2,
+          "h": 36
+        },
+        "classes": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-6 px-2 text-caption cursor-pointer font-display rounded-full"
+      }
+    ],
+    "bannerText": "\"Dup\" already exists.",
+    "bannerLiveAncestor": null,
+    "focusAfterRefusal": "INPUT.field-control glass-defined flex-1",
+    "updateAndCancelIdentical": true
+  }
+}

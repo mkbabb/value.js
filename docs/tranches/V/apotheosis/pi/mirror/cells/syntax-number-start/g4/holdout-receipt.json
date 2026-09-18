@@ -1,0 +1,106 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 4,
+  "status": "HIDDEN_HOLDOUT_SEALED",
+  "custodian_task_id": "/root/number_start_g4_holdout",
+  "precursor": {
+    "sha256": "f3ff92a0b3589c00e3ec6a2b29e0394961db1b9a7bc63a3521c30209852acb1a",
+    "bytes": 16016
+  },
+  "public_corpora": {
+    "generation_3_fixture_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "generation_4_endpoint_fixture_sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187"
+  },
+  "parse_that_dist_ledger": {
+    "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b"
+  },
+  "hidden": {
+    "sha256": "2883fbf1e3eb152723528c76fa2f53e139a529428c5a4ac01b1455401a8303dd",
+    "bytes": 35169,
+    "case_count": 160,
+    "true_count": 80,
+    "false_count": 80
+  },
+  "canonicalization": {
+    "encoding": "UTF-8",
+    "byte_order_mark": false,
+    "newlines": "LF",
+    "serialization": "JSON.stringify(value, null, 2) followed by exactly one terminal LF"
+  },
+  "disjointness": {
+    "machine_verified": true,
+    "categories": [
+      {
+        "category": "hidden_internal_case_id_duplicates",
+        "hidden_count": 160,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_source_duplicates",
+        "hidden_count": 160,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_source_offset_duplicates",
+        "hidden_count": 160,
+        "duplicate_count": 0
+      },
+      {
+        "category": "hidden_internal_semantic_tuple_duplicates",
+        "hidden_count": 160,
+        "duplicate_count": 0
+      },
+      {
+        "category": "case_id_vs_generation_3_materialized",
+        "hidden_count": 160,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_vs_generation_3_materialized",
+        "hidden_count": 160,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_offset_vs_generation_3_materialized",
+        "hidden_count": 160,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "semantic_tuple_vs_generation_3_materialized",
+        "hidden_count": 160,
+        "compared_count": 406,
+        "intersection_count": 0
+      },
+      {
+        "category": "case_id_vs_generation_4_endpoints",
+        "hidden_count": 160,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_vs_generation_4_endpoints",
+        "hidden_count": 160,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "source_offset_vs_generation_4_endpoints",
+        "hidden_count": 160,
+        "compared_count": 23,
+        "intersection_count": 0
+      },
+      {
+        "category": "semantic_tuple_vs_generation_4_endpoints",
+        "hidden_count": 160,
+        "compared_count": 23,
+        "intersection_count": 0
+      }
+    ]
+  },
+  "prior_holdout_access": "NONE",
+  "reveal_rule": "ONLY_AFTER_ALL_FIVE_CANDIDATE_SOURCE_OVERLAY_PROJECTED_IDENTITIES_CLOSE",
+  "public_input_integrity": "PRECURSOR_AND_PUBLIC_INPUTS_REMAIN_UNTOUCHED"
+}

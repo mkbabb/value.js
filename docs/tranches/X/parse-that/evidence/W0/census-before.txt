@@ -1,0 +1,25 @@
+SERVED MODEL: claude-opus-5[1m] -- authoring seat of roots-census.sh; this stream is that script's verbatim stdout
+X.P.W0 FROZEN-ROOTS CENSUS -- the eighteen preserved roots of the parser lane's blast radius
+INSTRUMENT: git rev-parse (--no-optional-locks) + find ONLY. No status. No gc. No prune. No write. No timestamp.
+COLUMNS: ##  path  state  identity  branch  files (-type f, excluding .git and node_modules)
+--
+1   /Users/mkbabb/Programming/parse-that                                      PRESENT  ef10d5b         master                                        20261
+2   /Users/mkbabb/Programming/parse-that-css-totality                         PRESENT  f575708         codex/css-totality-combinators-20260729         757
+3   /Users/mkbabb/Programming/parse-that-css-totality-p1-e                    PRESENT  35fd252         codex/css-totality-p1-e                         277
+4   /Users/mkbabb/Programming/parse-that-css-totality-p1-r                    PRESENT  4175325         codex/css-totality-p1-r                         277
+5   /Users/mkbabb/Programming/parse-that-css-totality-p1-vk                   PRESENT  a0f122f         codex/css-totality-p1-vk                        277
+6   /Users/mkbabb/Programming/parse-that-runtime-probes                       PRESENT  99e9862         codex/runtime-kernel-probes-20260729            337
+7   /Users/mkbabb/Programming/parse-that-skv26                                PRESENT  e31fbfe         codex/sk-v26-parse-that                       51162
+8   /private/tmp/parse-that-m2-baseline-20260729                              ABSENT   -               -                                                 -
+9   /Users/mkbabb/.codex/worktrees/7e28/value.js                              PRESENT  e01d0065        HEAD (detached)                                3967
+10  /Users/mkbabb/.codex/worktrees/9167                                       PRESENT  NOT-A-GIT-ROOT  -                                              2988
+11  /Users/mkbabb/.codex/worktrees/d0be                                       PRESENT  NOT-A-GIT-ROOT  -                                              1100
+12  /Users/mkbabb/Programming/value-css-totality-audit                        PRESENT  dea7a93c        codex/css-totality-prototype-20260729          3846
+13  /Users/mkbabb/Programming/value-xw1-demo-boot                             PRESENT  d19da6d3        codex/xw1-demo-boot-20260729                   3979
+14  /Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-v12-construction  PRESENT  NOT-A-GIT-ROOT  -                                                 2
+15  /Users/mkbabb/Documents/Codex/2026-08-02/parser-novelty-and-experiment-v12  ABSENT   -               -                                                 -
+16  /Users/mkbabb/Documents/Codex/2026-07-29/parser-p4-fresh-sol-adjudication/outputs  PRESENT  NOT-A-GIT-ROOT  -                                                 8
+17  /Users/mkbabb/Programming/.p-totality                                     PRESENT  NOT-A-GIT-ROOT  -                                             26056
+18  /Users/mkbabb/.claude/jobs/9e7dadd0/tmp/parser-proof                      PRESENT  NOT-A-GIT-ROOT  -                                               189
+--
+ROOTS ENUMERATED: 18

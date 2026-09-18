@@ -1,0 +1,46 @@
+{
+ "runId": "wf_401c495c-894",
+ "workflow": "wf_401c495c-894",
+ "resultCount": 2,
+ "results": [
+  {
+   "agentId": "a03d17bca6274d8c8",
+   "key": "v2:d4807acd27e15a91325799a87e32fa2fce18d322fbd6c80e111f0da825e5027e",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W4.md, /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W0.md, /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W1.md",
+    "fixed": [
+     "W4-D4 FIXED — W4.md §4b (Worktree Plan) resited inside the fresh root, adopting the ratified ONE-root law verbatim per W2 §4b / W3 §4b. The table row for X.P.W4.b is now `<p2>/.worktrees/w4b` with `own typescript/node_modules; CARGO_TARGET_DIR=<p2>/target/w4b` (was `/Users/mkbabb/Programming/parse-that-css-totality-p2-w4b` with `CARGO_TARGET_DIR=<worktree>/rust/target/w4b`). Column header `Sibling worktree absolute path` -> `Worktree`; `Build dir` -> `Build dirs`, matching W2/W3.",
+     "W4-D4 supporting prose (named in the conformance fix): the header sentence 'Phase 1's two seats run in sibling worktrees of the fresh root' became 'Phase 1 is one docs-only seat and **one** build seat; that build seat runs in a git worktree of the **fresh root**, not of value.js, and — per the ONE-root law canonical X.P.W2 §4b states and this wave adopts unchanged — **inside** that root, never beside it', quoting W2 verbatim: *\"worktrees **inside** the fresh root, never beside it (ONE named root, no siblings ever created)\"*. `<p2>` is now defined in-section as /Users/mkbabb/Programming/parse-that-css-totality-p2. Added W3's census-grep rationale ('a sibling of the form `<p2>-w4b` would be indistinguishable by name from an unlawful root in X.P.W0's census grep of ~/Programming') and extended the orchestrator sentence to record both that no worktree of the read-only parse-that root exists and that the fresh root has no sibling.",
+     "W4-D5 FIXED (W0 half) — W0.md §2's one-line verb string ('AUDITED ✓ (the pause handoff + the megatranche provenance audit) · SPECIFIED ✓ (this file) · IMPLEMENTED ✗ · VERIFIED ✗ …') converted to the four-verb table under a new `### Four-verb status (separate fields; this file moves exactly one)` heading, W2/W3/W4 exemplar form. Content-preserving: truth values unchanged (YES/YES/NO/NO); the file's own evidence strings carried into the evidence column; the R-A sentence preserved in the VERIFIED row ('stamped **only** at X.P.W4's X·P sub-tranche release close (R-A); never at this wave's own close'); IMPLEMENTED cites W0's own §9/§12 ('the eight gates green + the close report'). Placed between `**Status**: planned` and the COMPLETABLE (C-06) paragraph.",
+     "W4-D5 FIXED (W1 half) — same conversion in W1.md §2, identical table form; AUDITED evidence carries W1's own strings (`GATE-VERDICT.md` + the `registry/adjudicated/parser-band.md` adjudication + INBOX O-15); IMPLEMENTED cites W1's ten gates.",
+     "W4-D5 tail (the explicitly-optional half, taken to remove the dangling forward-pointer): W4's stale 'round-2' tense retired in three places — §4's carve row now reads 'W0/W1 normalized at the X·P round-3 L-20 repair, 2026-08-04' (its 'All four carry that table' assertion is now TRUE at the bytes); OP-6's state cell keeps the dated authoring measurement (`0,0,1,1,1`, sum 3) but records the conversion as PERFORMED at the round-3 repair with the re-measurement `1,1,1,1,1`, **sum 5**, replacing 'is the X·P round-2 L-20 repair, owed to W0's and W1's own seats' (the unowned-promise shape the defect was booked for); G-10's RED baseline gains 'the sum is **5 as of 2026-08-04**, re-measured with the command above; the open-state check is still run at open, not inherited'.",
+     "VERIFIED — G-10 grep receipt, its command run verbatim from W4 §6 against the post-edit bytes:\n\n  $ cat docs/tranches/X/parse-that/waves/W[0-4].md | grep -c 'VERIFIED | \\*\\*NO\\*\\*'\n  5\n\nThe open sum now reads 5 (was 3), so G-10 no longer opens against a sum of 3. Per-file breakdown (the misreading G-10's load-bearing `cat` exists to prevent) confirms one VERIFIED row per file, i.e. the sum is not an artifact of one file:\n\n  $ grep -c 'VERIFIED | \\*\\*NO\\*\\*' docs/tranches/X/parse-that/waves/W[0-4].md\n  W0.md:1\n  W1.md:1\n  W2.md:1\n  W3.md:1\n  W4.md:1\n\nOP-6's own command, verbatim, likewise returns 1 for each of the five files:\n\n  $ grep -c '^### Four-verb status' docs/tranches/X/parse-that/waves/W[0-4].md\n  W0.md:1\n  W1.md:1\n  W2.md:1\n  W3.md:1\n  W4.md:1\n\n=> W4 §4's carve row now has a real target in every sibling; OP-6 reads 1 five times; G-10's open sum reads 5.",
+     "VERIFIED — no unlawful sibling path survives in any wave spec: `grep -rn 'parse-that-css-totality-p2-' docs/tranches/X/parse-that/waves/` returns only two hits, both inside CONFORMANCE-2026-08-03.md (:151 W3-D1's and :349 W4-D4's own defect descriptions) — the dated passes, which are never rewritten.",
+     "VERIFIED — write scope: `git status --porcelain` shows exactly three newly-modified files, all three the named ones (W0.md, W1.md, W4.md). CARRY-LEDGER.md and scripts/dev/dev.sh were already dirty at session start (pre-existing, untouched by me; dev.sh is the unowned never-touch row). No product source, no frozen root, no sealed author arm, no conformance file written. The fresh root was NOT created (never touched). All verification read-only. `git diff --check` clean."
+    ],
+    "residual": [
+     "A third L-20 pass over the repaired bytes is still owed, then a clean declared-Fable final pass (COHESION §3.5), before the root session may carve COHESION §0/§1 SS-5 to SPECIFIED. Not performed here — this was a repair round, not an adjudication.",
+     "CONFORMANCE-2026-08-03.md is unamended by design (dated passes are never rewritten), so its §SECOND PASS roster still shows W4 DEFECTIVE with 2 defects. That roster is now stale-by-construction relative to the bytes; only the next pass may supersede it.",
+     "W4 OP-6/G-10 now carry a dated 2026-08-04 measurement (sum 5). Both texts state explicitly that the open-state check is re-run at open and not inherited, so the dated figure is a receipt, not a substitute for the gate.",
+     "Prettier reports style issues on ALL FIVE wave files including the two I did not touch (W2.md, W3.md) — a pre-existing lane-wide condition, not introduced by these edits. Not fixed: `prettier --write` would reflow prose corpus-wide and would write W2/W3, both outside this repair's permitted write set. W4 §7's Prettier cadence applies at execution, to the wave's own touched files.",
+     "The SPECIFIED rows I authored for W0/W1 carry the date 2026-08-03, matching W3's and W4's self-declared authoring date and both files' own dated RED baselines (HEAD 2636c238, measured 2026-08-03). The original one-line form carried no date; if the next pass wants the bank-commit date instead (03e4bfef is dated 2026-08-04), that is a one-cell edit in each file."
+    ]
+   }
+  },
+  {
+   "agentId": "a9775df9c1043bb51",
+   "key": "v2:066b0b91618db5e7c33652a1e3af7b728cfe186b484235097eae4cf0ab80d650",
+   "result": {
+    "conformant": 5,
+    "defective": 0,
+    "tranchReady": true,
+    "remaining": [
+     "Root session carves COHESION.md §0 / §1 SS-5 to SPECIFIED (not a wave-file act; the clean declared-Fable pass condition is now met)",
+     "Commit the three repaired wave files (W0.md, W1.md, W4.md) plus the THIRD PASS append to the conformance ledger",
+     "Owner's begin-word — the standing execution gate; status fields stay planned and the fresh root stays uncreated until it",
+     "Plane B bench bar remains OWNER-GATED-PENDING-RATIFICATION (OC-1) — an owner ruling, not a conformance item; RC-P conjunct 5 evaluates honestly either way"
+    ]
+   }
+  }
+ ]
+}

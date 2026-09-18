@@ -1,0 +1,93 @@
+{
+  "fromPalettesVisible": true,
+  "collapsibleAnimation": {
+    "state": "open",
+    "animationName": "collapsible-down",
+    "animationDuration": "0.2s",
+    "heightVarReka": "398.90625px",
+    "heightVarDisclosure": "398.90625px"
+  },
+  "paletteDropdownSwatches": [
+    {
+      "tag": "SPAN",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "title": null,
+      "pointerEvents": "none"
+    },
+    {
+      "tag": "SPAN",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "title": null,
+      "pointerEvents": "none"
+    },
+    {
+      "tag": "SPAN",
+      "ariaHidden": "true",
+      "ariaLabel": null,
+      "title": null,
+      "pointerEvents": "none"
+    }
+  ],
+  "chipsAfterPaletteSwatchClick": 0,
+  "palettesMode": [
+    {
+      "ariaPressed": "false",
+      "ariaLabel": "Select palette Sunset",
+      "nestedInteractive": 1,
+      "nestedInteractiveTags": [
+        "BUTTON[Palette menu]"
+      ],
+      "rect": {
+        "w": 462,
+        "h": 100
+      }
+    },
+    {
+      "ariaPressed": "false",
+      "ariaLabel": "Select palette Forest",
+      "nestedInteractive": 1,
+      "nestedInteractiveTags": [
+        "BUTTON[Palette menu]"
+      ],
+      "rect": {
+        "w": 462,
+        "h": 100
+      }
+    },
+    {
+      "ariaPressed": "false",
+      "ariaLabel": "Select palette Berry",
+      "nestedInteractive": 1,
+      "nestedInteractiveTags": [
+        "BUTTON[Palette menu]"
+      ],
+      "rect": {
+        "w": 462,
+        "h": 100
+      }
+    }
+  ],
+  "selectedCount": 2,
+  "mixEnabledAfterTwoPalettes": true,
+  "afterDeletingASelectedPalette": {
+    "renderedCards": 2,
+    "stillSelectedVisible": 1,
+    "mixStillEnabled": true
+  },
+  "removeButtonGeometry": {
+    "widthPx": 16,
+    "heightPx": 16,
+    "opacity": "0",
+    "pointerEvents": "auto",
+    "typeAttr": null,
+    "defaultTypeProperty": "submit",
+    "accessibleTextContent": "",
+    "ariaLabel": null,
+    "title": null,
+    "hitTestableWhileInvisible": true,
+    "wcag258Min": 24,
+    "passesWcag258": false
+  }
+}

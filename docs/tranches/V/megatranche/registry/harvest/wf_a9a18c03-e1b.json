@@ -1,0 +1,605 @@
+{
+ "runId": "wf_a9a18c03-e1b",
+ "workflow": "wf_a9a18c03-e1b",
+ "resultCount": 26,
+ "results": [
+  {
+   "agentId": "a8710684bbb8349d0",
+   "key": "v2:378794e5e0d6b9aab1ff8e77739614de6b6fa2e81d3a5e35a3686aa7b2278a9c",
+   "result": {
+    "components": [
+     {
+      "slug": "AmigaScene",
+      "path": "demo/scenes/amiga/AmigaScene.vue",
+      "lines": 271
+     },
+     {
+      "slug": "AnimatedText",
+      "path": "demo/components/instrument/shell/AnimatedText.vue",
+      "lines": 126
+     },
+     {
+      "slug": "AnimationControlsGroup",
+      "path": "demo/components/instrument/transport/AnimationControlsGroup.vue",
+      "lines": 336
+     },
+     {
+      "slug": "AnimationVisualizer",
+      "path": "demo/components/playback/AnimationVisualizer.vue",
+      "lines": 256
+     },
+     {
+      "slug": "App",
+      "path": "demo/app/App.vue",
+      "lines": 387
+     },
+     {
+      "slug": "App.skeleton",
+      "path": "demo/app/App.skeleton.vue",
+      "lines": 101
+     },
+     {
+      "slug": "CSSCodeEditor",
+      "path": "demo/components/instrument/keyframes/CSSCodeEditor.vue",
+      "lines": 229
+     },
+     {
+      "slug": "CSSPasteDialog",
+      "path": "demo/components/instrument/timeline/CSSPasteDialog.vue",
+      "lines": 80
+     },
+     {
+      "slug": "ChannelControls",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelControls.vue",
+      "lines": 456
+     },
+     {
+      "slug": "ChannelOptions",
+      "path": "demo/components/instrument/transport/channel-controls/ChannelOptions.vue",
+      "lines": 609
+     },
+     {
+      "slug": "ChromeDock",
+      "path": "demo/app/dock/ChromeDock.vue",
+      "lines": 385
+     },
+     {
+      "slug": "ControlsPaneWrapper",
+      "path": "demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.vue",
+      "lines": 319
+     },
+     {
+      "slug": "CopyButton",
+      "path": "demo/components/CopyButton.vue",
+      "lines": 113
+     },
+     {
+      "slug": "CubeAxisLines",
+      "path": "demo/scenes/cube/CubeAxisLines.vue",
+      "lines": 90
+     },
+     {
+      "slug": "CubeScene",
+      "path": "demo/scenes/cube/CubeScene.vue",
+      "lines": 287
+     },
+     {
+      "slug": "CubeTarget",
+      "path": "demo/scenes/cube/CubeTarget.vue",
+      "lines": 239
+     },
+     {
+      "slug": "DemoGlobalChrome",
+      "path": "demo/components/instrument/transport/components/DemoGlobalChrome.vue",
+      "lines": 49
+     },
+     {
+      "slug": "EasingScene",
+      "path": "demo/scenes/easing/EasingScene.vue",
+      "lines": 133
+     },
+     {
+      "slug": "EasingSidebar",
+      "path": "demo/scenes/easing/EasingSidebar.vue",
+      "lines": 234
+     },
+     {
+      "slug": "EasingTarget",
+      "path": "demo/scenes/easing/EasingTarget.vue",
+      "lines": 335
+     },
+     {
+      "slug": "EditorHeader",
+      "path": "demo/components/instrument/shell/EditorHeader.vue",
+      "lines": 108
+     },
+     {
+      "slug": "EditorShell",
+      "path": "demo/components/instrument/shell/EditorShell.vue",
+      "lines": 261
+     },
+     {
+      "slug": "EditorStartScreen",
+      "path": "demo/components/instrument/shell/EditorStartScreen.vue",
+      "lines": 191
+     },
+     {
+      "slug": "HeroAurora",
+      "path": "demo/components/instrument/shell/HeroAurora.vue",
+      "lines": 128
+     },
+     {
+      "slug": "KeyboardShortcutsModal",
+      "path": "demo/components/instrument/shell/KeyboardShortcutsModal.vue",
+      "lines": 69
+     },
+     {
+      "slug": "KeyframeCard",
+      "path": "demo/components/instrument/keyframes/KeyframeCard.vue",
+      "lines": 81
+     },
+     {
+      "slug": "KeyframeCardList",
+      "path": "demo/components/instrument/keyframes/components/KeyframeCardList.vue",
+      "lines": 82
+     },
+     {
+      "slug": "KeyframeTimeline",
+      "path": "demo/components/instrument/timeline/KeyframeTimeline.vue",
+      "lines": 312
+     },
+     {
+      "slug": "KeyframesAddDialog",
+      "path": "demo/components/instrument/keyframes/components/KeyframesAddDialog.vue",
+      "lines": 161
+     },
+     {
+      "slug": "KeyframesEditor",
+      "path": "demo/components/instrument/keyframes/KeyframesEditor.vue",
+      "lines": 284
+     },
+     {
+      "slug": "KeyframesStringControls",
+      "path": "demo/components/instrument/keyframes/KeyframesStringControls.vue",
+      "lines": 185
+     },
+     {
+      "slug": "KfPillTabs",
+      "path": "demo/components/instrument/transport/KfPillTabs.vue",
+      "lines": 124
+     },
+     {
+      "slug": "LayerConfigPanel",
+      "path": "demo/components/instrument/transport/channel-controls/LayerConfigPanel.vue",
+      "lines": 92
+     },
+     {
+      "slug": "MatrixEditor",
+      "path": "demo/scenes/cube/matrix-editor/MatrixEditor.vue",
+      "lines": 158
+     },
+     {
+      "slug": "MbabbMenu",
+      "path": "demo/app/dock/MbabbMenu.vue",
+      "lines": 121
+     },
+     {
+      "slug": "OrbitalDrag",
+      "path": "demo/scenes/cube/orbital-drag/OrbitalDrag.vue",
+      "lines": 352
+     },
+     {
+      "slug": "PlaybackRibbon",
+      "path": "demo/components/playback/PlaybackRibbon.vue",
+      "lines": 244
+     },
+     {
+      "slug": "RibbonBar",
+      "path": "demo/components/instrument/transport/controls-pane/RibbonBar.vue",
+      "lines": 151
+     },
+     {
+      "slug": "SequenceAxis",
+      "path": "demo/scenes/sequence/SequenceAxis.vue",
+      "lines": 49
+     },
+     {
+      "slug": "SequencePlayhead",
+      "path": "demo/scenes/sequence/SequencePlayhead.vue",
+      "lines": 87
+     },
+     {
+      "slug": "SequenceScene",
+      "path": "demo/scenes/sequence/SequenceScene.vue",
+      "lines": 43
+     },
+     {
+      "slug": "SequenceScrubber",
+      "path": "demo/scenes/sequence/SequenceScrubber.vue",
+      "lines": 162
+     },
+     {
+      "slug": "SequenceTarget",
+      "path": "demo/scenes/sequence/SequenceTarget.vue",
+      "lines": 252
+     },
+     {
+      "slug": "SharePopover",
+      "path": "demo/components/instrument/shell/SharePopover.vue",
+      "lines": 62
+     },
+     {
+      "slug": "SpringHeatmap",
+      "path": "demo/scenes/spring/SpringHeatmap.vue",
+      "lines": 338
+     },
+     {
+      "slug": "SpringPhysicsFacet",
+      "path": "demo/scenes/spring/SpringPhysicsFacet.vue",
+      "lines": 242
+     },
+     {
+      "slug": "SpringScene",
+      "path": "demo/scenes/spring/SpringScene.vue",
+      "lines": 204
+     },
+     {
+      "slug": "SpringTarget",
+      "path": "demo/scenes/spring/SpringTarget.vue",
+      "lines": 470
+     },
+     {
+      "slug": "SpringTrace",
+      "path": "demo/scenes/spring/SpringTrace.vue",
+      "lines": 129
+     },
+     {
+      "slug": "SquareInstrument",
+      "path": "demo/scenes/square/SquareInstrument.vue",
+      "lines": 212
+     },
+     {
+      "slug": "SquareScene",
+      "path": "demo/scenes/square/SquareScene.vue",
+      "lines": 331
+     },
+     {
+      "slug": "StartingStyleTarget",
+      "path": "demo/scenes/spring/StartingStyleTarget.vue",
+      "lines": 216
+     },
+     {
+      "slug": "TimelineCaret",
+      "path": "demo/components/instrument/timeline/TimelineCaret.vue",
+      "lines": 70
+     },
+     {
+      "slug": "TimelineHoverPreview",
+      "path": "demo/components/instrument/timeline/components/TimelineHoverPreview.vue",
+      "lines": 38
+     },
+     {
+      "slug": "TimelineTrack",
+      "path": "demo/components/instrument/timeline/components/TimelineTrack.vue",
+      "lines": 246
+     },
+     {
+      "slug": "TimingFunctionPanel",
+      "path": "demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue",
+      "lines": 166
+     },
+     {
+      "slug": "TransportDock",
+      "path": "demo/components/instrument/transport/TransportDock.vue",
+      "lines": 403
+     },
+     {
+      "slug": "TypingDots",
+      "path": "demo/components/instrument/shell/TypingDots.vue",
+      "lines": 125
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a36fc40f0bc729baf",
+   "key": "v2:9d0a87e8f660d92a81d0ec8d8a4b0d8ae4f49bd61da4fb6cddb20b45166451e6",
+   "result": {
+    "slug": "KeyboardShortcutsModal",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyboardShortcutsModal/challenge-L-library.md",
+    "defects": 9,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a5f5a066d7078b16b",
+   "key": "v2:3bd4e80dd98a408fac17e6284b5ae9fde06895b97967395a036691124764cb05",
+   "result": {
+    "slug": "KeyboardShortcutsModal",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyboardShortcutsModal/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 0,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "af246d7bbf6400b2d",
+   "key": "v2:d237cbc1218258f0bd571e51956d80b039ccdfa460270d718eb04b52085304ee",
+   "result": {
+    "slug": "KeyframeCard",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCard/challenge-C-consumption.md",
+    "defects": 12,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a8929e09c69e663a5",
+   "key": "v2:5cab1499d8e8a690eed8fb9ccc3316abac6321ad29bf1ff20c18be69cdfdbd1b",
+   "result": {
+    "slug": "KeyframeCardList",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCardList/challenge-C-consumption.md",
+    "defects": 10,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a3a51cf291d619c73",
+   "key": "v2:5cafd143c3122d443db81bb6c23275f056a20cf82e4270c52d6bdb245ca99fe1",
+   "result": {
+    "slug": "KeyframeTimeline",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeTimeline/challenge-L-library.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a8e43794cb963179a",
+   "key": "v2:b7f7209d17429f8eea620a55aa0dfebc2538a8c2945db130b0bc521fdf765568",
+   "result": {
+    "slug": "KeyframeCardList",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCardList/challenge-D-design.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a58604a7beea6e811",
+   "key": "v2:910342e705d9e9875a283b715d0c0bcd9fd88a588f30edfdec1c42252d430361",
+   "result": {
+    "slug": "KeyframeCardList",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCardList/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "acfcc6ac93a49acb0",
+   "key": "v2:de1824439a1bb52d7c443570492cdfc7917f8f7f755ac736df3feaf8e16d971e",
+   "result": {
+    "slug": "KeyframesAddDialog",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesAddDialog/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ae67119b15c17528d",
+   "key": "v2:3a54bfd0aeb31f2dce3815717aabcb5b4232a3dc8d381152b4e02e680818395d",
+   "result": {
+    "slug": "KeyframeTimeline",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeTimeline/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "abb1c95d41963019a",
+   "key": "v2:1ef09b03fb049c3a8a092c9a8794ad1fcd4995890e840252ce5d743108d634bf",
+   "result": {
+    "slug": "KeyframeCard",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCard/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a6b6e19a742109920",
+   "key": "v2:0c6c5bed1bf26fdb1ad29bb77665b63a006b7e08ff1ab8b7ad1a07e8ccade133",
+   "result": {
+    "slug": "KeyframesAddDialog",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesAddDialog/challenge-D-design.md",
+    "defects": 27,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a1dbc68f21ea09535",
+   "key": "v2:48cca3adab5400be63f7051a70c9a91ef4883b3010f4a09aa38d6d58e302e4bd",
+   "result": {
+    "slug": "KeyframesAddDialog",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesAddDialog/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a6b9cb3e8692b7bc1",
+   "key": "v2:3eaeb46f790759579798c1a12df44b41164a8d7acf6784316ead658952952168",
+   "result": {
+    "slug": "KeyframeCard",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeCard/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 6,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ad138f1f911c5a740",
+   "key": "v2:429644fefd41cf83d690d3e0a0557e3475753b6faf9cad1a3716e088befe2dc7",
+   "result": {
+    "slug": "KeyframesEditor",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesEditor/challenge-D-design.md",
+    "defects": 36,
+    "blockers": 4,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "ab5b11c991371f151",
+   "key": "v2:e1508197e91dd3f053c262c3ca7482a7de60fbffba1f1b80a8780d4fd6613462",
+   "result": {
+    "slug": "KeyframeTimeline",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframeTimeline/challenge-D-design.md",
+    "defects": 28,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac793408b846bdcd3",
+   "key": "v2:fd686086de617c3a4e42aed14433fd9e83347768b64d9aad774d6f3af5170486",
+   "result": {
+    "slug": "KeyboardShortcutsModal",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyboardShortcutsModal/challenge-D-design.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a61fe3265621dbdfd",
+   "key": "v2:d1785a2945a48ff0d08c53664dc03edcd4f78bc4121de3310e729df53441cf07",
+   "result": {
+    "slug": "KeyframesEditor",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesEditor/challenge-L-library.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aa49688bd7efb0102",
+   "key": "v2:dfa4b90fce16a5193788091275a3b1192ccddde66fa0b45dc1c8b0bdcbef9c92",
+   "result": {
+    "slug": "KfPillTabs",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KfPillTabs/challenge-D-design.md",
+    "defects": 22,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aaf21a267aba60284",
+   "key": "v2:634c4908e7f5c8cd210989e6f69a1ee9d4b4ab2bea47b7d0a35d90e0fb9ffcd9",
+   "result": {
+    "slug": "KfPillTabs",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KfPillTabs/challenge-C-consumption.md",
+    "defects": 11,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a47a5fb2310e5f5d1",
+   "key": "v2:ae68c70449581ba66142a382c902fbb52bc8dd1ded3a06239846754c3bddfaba",
+   "result": {
+    "slug": "KfPillTabs",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KfPillTabs/challenge-L-library.md",
+    "defects": 16,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a709df9bf98a342f1",
+   "key": "v2:537dc1f1ccf821ba5044cc946866f3d7ad410ee309e517ab0468134dada39331",
+   "result": {
+    "slug": "KeyframesStringControls",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesStringControls/challenge-C-consumption.md",
+    "defects": 15,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a47a55a194f139d33",
+   "key": "v2:225ca070eb90e1d704ee703d20369a8aadd0364c0b45ebfb71c8dfcbbd93754f",
+   "result": {
+    "slug": "KeyframesEditor",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesEditor/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a365a04d374752811",
+   "key": "v2:dfa4b90fce16a5193788091275a3b1192ccddde66fa0b45dc1c8b0bdcbef9c92",
+   "result": {
+    "slug": "KfPillTabs",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KfPillTabs/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a673a3c167a7ddcd4",
+   "key": "v2:6d027fe076bd43a88f843ff661799ae13a9b9be598407980978ad546f7fd8ef2",
+   "result": {
+    "slug": "KeyframesStringControls",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesStringControls/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aba1e5b348f3deed7",
+   "key": "v2:39e337062587b747e38dbd6169cc64920777f107f899b7d67c7fd74f6c277309",
+   "result": {
+    "slug": "KeyframesStringControls",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/kf-components/KeyframesStringControls/challenge-L-library.md",
+    "defects": 24,
+    "blockers": 4,
+    "superlatives": 4
+   }
+  }
+ ]
+}

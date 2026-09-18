@@ -10,7 +10,10 @@
  * entries / pending color-names / tags — and drive the moderation actions
  * (feature / dismiss / delete) against live rows.
  *
- * Envelope shapes track `demo/@/lib/palette/types.ts`:
+ * Envelope shapes track `e2e/fixtures/palette-envelopes.ts`, the e2e-OWNED
+ * DTOs re-derived from the server (X-W1 G-1; the old `demo/@/lib/palette/types`
+ * was deleted at `a61094e3` and this file kept importing it, invisibly, because
+ * `e2e/` sat in no TypeScript program):
  *   PaginatedResponse<T> = { data: T[]; total; limit; offset }
  *   getAdminTags / getUserPalettes return the RAW array (no envelope).
  *
@@ -25,7 +28,11 @@ import type {
     ProposedColorName,
     Tag,
     Palette,
-} from "../../../../demo/@/lib/palette/types";
+} from "../../../fixtures/palette-envelopes";
+import {
+    ADMIN_DELETE_PALETTE_BODY,
+    ADMIN_DELETE_PALETTE_STATUS,
+} from "../../../fixtures/palette-envelopes";
 
 const STORAGE_KEY = "palette-admin-token";
 const FAKE_TOKEN = "test-admin-token";
@@ -54,9 +61,27 @@ function palette(slug: string, name: string, userSlug: string): Palette {
 }
 
 export const USERS: User[] = [
-    { slug: "azure-fox-01", createdAt: NOW, lastSeenAt: NOW, status: "active", paletteCount: 4 },
-    { slug: "crimson-owl-77", createdAt: NOW, lastSeenAt: NOW, status: "active", paletteCount: 1 },
-    { slug: "verdant-mole-33", createdAt: NOW, lastSeenAt: NOW, status: "suspended", paletteCount: 0 },
+    {
+        slug: "azure-fox-01",
+        createdAt: NOW,
+        lastSeenAt: NOW,
+        status: "active",
+        paletteCount: 4,
+    },
+    {
+        slug: "crimson-owl-77",
+        createdAt: NOW,
+        lastSeenAt: NOW,
+        status: "active",
+        paletteCount: 1,
+    },
+    {
+        slug: "verdant-mole-33",
+        createdAt: NOW,
+        lastSeenAt: NOW,
+        status: "suspended",
+        paletteCount: 0,
+    },
 ];
 
 const FLAGGED: FlaggedPalette[] = [
@@ -66,26 +91,65 @@ const FLAGGED: FlaggedPalette[] = [
         flagCount: 2,
         flags: [
             { reporterSlug: "azure-fox-01", reason: "spam", createdAt: NOW },
-            { reporterSlug: "verdant-mole-33", reason: "offensive", detail: "harsh clash", createdAt: NOW },
+            {
+                reporterSlug: "verdant-mole-33",
+                reason: "offensive",
+                detail: "harsh clash",
+                createdAt: NOW,
+            },
         ],
     },
     {
         paletteSlug: "neon-haze-1b2c",
         palette: palette("neon-haze-1b2c", "Neon Haze", "azure-fox-01"),
         flagCount: 1,
-        flags: [{ reporterSlug: "crimson-owl-77", reason: "duplicate", createdAt: NOW }],
+        flags: [
+            { reporterSlug: "crimson-owl-77", reason: "duplicate", createdAt: NOW },
+        ],
     },
 ];
 
 const AUDIT: AuditEntry[] = [
-    { id: "a1", timestamp: NOW, action: "palette.feature", target: "sunset-riot-9a3f", ipHash: "ip-3f9a" },
-    { id: "a2", timestamp: NOW, action: "user.delete", target: "spammer-42", ipHash: "ip-7c1d" },
-    { id: "a3", timestamp: NOW, action: "flag.dismiss", target: "neon-haze-1b2c", ipHash: "ip-b2c0" },
+    {
+        id: "a1",
+        timestamp: NOW,
+        action: "palette.feature",
+        target: "sunset-riot-9a3f",
+        ipHash: "ip-3f9a",
+    },
+    {
+        id: "a2",
+        timestamp: NOW,
+        action: "user.delete",
+        target: "spammer-42",
+        ipHash: "ip-7c1d",
+    },
+    {
+        id: "a3",
+        timestamp: NOW,
+        action: "flag.dismiss",
+        target: "neon-haze-1b2c",
+        ipHash: "ip-b2c0",
+    },
 ];
 
 export const QUEUE: ProposedColorName[] = [
-    { id: "c1", name: "Wax Seal", css: "oklch(0.52 0.18 25)", status: "proposed", contributor: "azure-fox-01", createdAt: NOW },
-    { id: "c2", name: "Field Floor", css: "oklch(0.74 0.06 120)", status: "proposed", contributor: "crimson-owl-77", createdAt: NOW },
+    {
+        id: "c1",
+        name: "Wax Seal",
+        css: "oklch(0.52 0.18 25)",
+        status: "proposed",
+        contributor: "azure-fox-01",
+        createdAt: NOW,
+    },
+    {
+        id: "c2",
+        name: "Field Floor",
+        css: "oklch(0.74 0.06 120)",
+        status: "proposed",
+        contributor: "crimson-owl-77",
+        createdAt: NOW,
+    },
     // S.W5-12 (F-1 fence): the min-width-chain stressor — an un-breakable
     // long name + a wide function css literal, the exact string class that
     // pushed approve/reject ~250px off-card at 390px pre-fix.
@@ -117,10 +181,12 @@ function paginated<T>(data: T[]): string {
 export const adminPopulatedTest = base.extend({
     page: async ({ page }, use) => {
         // 1. Seed the admin token before any page script runs (same as admin-auth).
-        await page.addInitScript(
-            ([key, val]) => localStorage.setItem(key, val),
-            [STORAGE_KEY, FAKE_TOKEN],
-        );
+        // X-W1 · G-1 — a NAMED object arg (see admin-auth.ts): an array
+        // argument infers as `string[]` and destructures to `| undefined`.
+        await page.addInitScript(({ key, val }) => localStorage.setItem(key, val), {
+            key: STORAGE_KEY,
+            val: FAKE_TOKEN,
+        });
 
         // 2. Anonymous session POST — keep boot deterministic without the API.
         await page.route("**/sessions", (route) => {
@@ -128,10 +194,17 @@ export const adminPopulatedTest = base.extend({
                 return route.fulfill({
                     status: 200,
                     contentType: "application/json",
-                    body: JSON.stringify({ token: "test-session-token", userSlug: "test-user" }),
+                    body: JSON.stringify({
+                        token: "test-session-token",
+                        userSlug: "test-user",
+                    }),
                 });
             }
-            return route.fulfill({ status: 200, contentType: "application/json", body: "{}" });
+            return route.fulfill({
+                status: 200,
+                contentType: "application/json",
+                body: "{}",
+            });
         });
 
         // 3. Populated admin surface — routed per-endpoint, most-specific first.
@@ -149,26 +222,49 @@ export const adminPopulatedTest = base.extend({
 
             // Mutations answer a shape-correct success so click-throughs never error.
             if (method === "DELETE") {
-                if (url.includes("/flags/")) return json(JSON.stringify({ dismissed: 1 }));
-                if (url.includes("/palettes/")) return json("", 204);
-                if (url.includes("/users/") && url.includes("/palettes")) return json(JSON.stringify({ deleted: 1 }));
-                if (url.includes("/users/")) return json(JSON.stringify({ deleted: true, palettesDeleted: 0 }));
+                if (url.includes("/flags/"))
+                    return json(JSON.stringify({ dismissed: 1 }));
+                // ── X-W1 · R32 ────────────────────────────────────────────
+                // This answered `204` with an empty body. The route answers
+                // **200** with `{"deleted":true}`
+                // (`api/src/modules/admin/routes/palettes.ts:37-40`), so the
+                // fixture was teaching the admin flows a status the server
+                // never sends — a consumer that branches on 204 would pass
+                // here and fail in production. The constants come from the
+                // re-derived DTO so the two cannot drift apart again.
+                if (url.includes("/palettes/")) {
+                    return json(
+                        JSON.stringify(ADMIN_DELETE_PALETTE_BODY),
+                        ADMIN_DELETE_PALETTE_STATUS,
+                    );
+                }
+                if (url.includes("/users/") && url.includes("/palettes"))
+                    return json(JSON.stringify({ deleted: 1 }));
+                if (url.includes("/users/"))
+                    return json(JSON.stringify({ deleted: true, palettesDeleted: 0 }));
                 return json("{}");
             }
             if (method === "POST") {
-                if (url.includes("/feature")) return json(JSON.stringify({ slug: "sunset-riot-9a3f", tier: "featured" }));
-                if (url.includes("/prune-empty")) return json(JSON.stringify({ pruned: 1 }));
-                if (url.includes("/approve") || url.includes("/reject")) return json("{}");
+                if (url.includes("/feature"))
+                    return json(
+                        JSON.stringify({ slug: "sunset-riot-9a3f", tier: "featured" }),
+                    );
+                if (url.includes("/prune-empty"))
+                    return json(JSON.stringify({ pruned: 1 }));
+                if (url.includes("/approve") || url.includes("/reject"))
+                    return json("{}");
                 return json("{}");
             }
 
             // GET envelopes.
             if (url.includes("/admin/tags")) return json(JSON.stringify(TAGS));
-            if (url.includes("/admin/users/") && url.includes("/palettes")) return json(JSON.stringify(USER_PALETTES));
+            if (url.includes("/admin/users/") && url.includes("/palettes"))
+                return json(JSON.stringify(USER_PALETTES));
             if (url.includes("/admin/users")) return json(paginated(USERS));
             if (url.includes("/admin/flagged")) return json(paginated(FLAGGED));
             if (url.includes("/admin/audit")) return json(paginated(AUDIT));
-            if (url.includes("/admin/queue") || url.includes("/admin/approved")) return json(paginated(QUEUE));
+            if (url.includes("/admin/queue") || url.includes("/admin/approved"))
+                return json(paginated(QUEUE));
             return json(paginated([]));
         });
 

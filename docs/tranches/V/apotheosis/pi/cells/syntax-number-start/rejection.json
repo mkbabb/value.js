@@ -1,0 +1,15 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 0,
+  "status": "BOUNDARY_REJECTED",
+  "manifest_sha256": "8083052ad158dc9381c877ce1d0ead1b459749498f142a0a654cf323fde96960",
+  "holdout_sha256": "d7caadc82173dc9a602c0f5a4f0e41197b7d59b530b703dc92b1e4ec59134c1c",
+  "candidate_source_authored": false,
+  "benchmark_run": false,
+  "acceptance_credit": false,
+  "reviews": [
+    "reviews/boundary-spec.md",
+    "reviews/boundary-architecture.md"
+  ],
+  "disposition": "Immutable failed formation evidence; generation 1 must recut public inputs and obtain a fresh hidden holdout before review."
+}

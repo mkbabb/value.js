@@ -1,0 +1,47 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 6,
+  "status": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "subject": {
+    "path": "manifest.json",
+    "bytes": 7663,
+    "sha256": "fc3c059accc160841c391bb20bee0364e2defb3b69a8661ae00cfc9fa0e1f064"
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a-specification.md",
+      "verdict": "REJECT",
+      "bytes": 12889,
+      "sha256": "89b112ab2621b4a21c281af706c826ff218875833c61430b432fa4312dbcb29c"
+    },
+    {
+      "path": "reviews/challenge-b-architecture.md",
+      "verdict": "REJECT",
+      "bytes": 8468,
+      "sha256": "0809fb83866d14fddf22eb795a1ec136d11485d42e8a3f48116292428eb5ff2c"
+    }
+  ],
+  "root_gestalt": {
+    "path": "root-gestalt.md",
+    "verdict": "REJECT",
+    "bytes": 3160,
+    "sha256": "3866bc53927393dab1372598db5ca6510bd98c8aec7d3a11a15fcf4962ceb6da"
+  },
+  "confirmed_blockers": [
+    "The broad project typecheck resolves unbound inputs and does not isolate or necessarily include the candidate overlay.",
+    "The verifier does not enforce the exported numberStart type as Parser<boolean>; a nonfunctional number passed promotion and the emitted typecheck.",
+    "The verifier does not verify or emit its exact manifest-bound byte identity."
+  ],
+  "candidate_sources_written": 0,
+  "active_grammar_typescript_sources": 0,
+  "holdout": {
+    "sha256": "04905e995203db11d833c3e5398f756b097609a1c5b4ea2683e81beb3258fbc6",
+    "bytes": 94812,
+    "revealed": false,
+    "reused": false,
+    "disposition": "IRREVERSIBLY_DESTROYED_AND_DISCARDED",
+    "custodian_accessible_copies_remaining": 0,
+    "workspace_or_temporary_same_byte_copies_found": 0
+  },
+  "next": "Fresh G7 must isolate and ledger the candidate compiler program, enforce Parser<boolean>, and bind the running verifier through the sealed manifest digest before another holdout/challenge cycle."
+}

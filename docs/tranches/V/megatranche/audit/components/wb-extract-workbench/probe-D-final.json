@@ -1,0 +1,51 @@
+{
+ "occ": [
+  [
+   0,
+   "ghost"
+  ],
+  [
+   2894,
+   "card"
+  ]
+ ],
+ "m": {
+  "viewportH": 900,
+  "docH": 900,
+  "dropZone": {
+   "x": 224,
+   "y": 200.7,
+   "w": 462,
+   "h": 320,
+   "bottom": 520.7
+  },
+  "dropMaxH": "320px",
+  "dropClasses": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-crosshair border-transparent hover:border-primary/50 bg-primary/5 min-h-[180px] max-h-[min(320px,40dvh)]",
+  "img": {
+   "x": 226,
+   "y": 131.7,
+   "w": 458,
+   "h": 458,
+   "bottom": 589.7
+  },
+  "card": {
+   "x": 224,
+   "y": 672.7,
+   "w": 462,
+   "h": 187.9,
+   "bottom": 860.6
+  },
+  "cardCursor": "pointer",
+  "cardRole": "article",
+  "dominanceRow": {
+   "x": 224,
+   "y": 624.7,
+   "w": 462,
+   "h": 42,
+   "bottom": 666.7
+  },
+  "cardBelowFold": -39.4,
+  "cardVisibleFrac": 100,
+  "scrollY": 0
+ }
+}

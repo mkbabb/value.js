@@ -1,0 +1,39 @@
+{
+  "pass": 3,
+  "head": "9268f054",
+  "server": "http://localhost:9000 (live dev, VITE_API_URL unset)",
+  "probe-L3-mix-relay.mjs": {
+    "route": "/#/mix, source mode = Palettes, 2 seeded local palettes",
+    "cards": 2,
+    "nestedButtonInButton": [
+      { "outerAria": "Select palette Probe Alpha", "inner": "Palette menu" },
+      { "outerAria": "Select palette Probe Beta", "inner": "Palette menu" }
+    ],
+    "menuItemsCollapsed": ["Publish", "Rename", "Export", "Delete"],
+    "menuItemsWithSubmenuExpanded": [
+      "Publish", "Rename", "Export", "Delete",
+      "JSON", "CSS Custom Properties", "Tailwind Config", "SVG Swatch", "PNG Swatch"
+    ],
+    "deadActionCount": 8,
+    "storeBeforeDelete": ["Probe Alpha", "Probe Beta"],
+    "storeAfterDelete": ["Probe Alpha", "Probe Beta"],
+    "downloadFiredAfterExportJSON": false
+  },
+  "probe-L3-misconfig-latch.mjs": {
+    "route": "/#/browse then /#/palettes, 1 seeded local palette",
+    "latchStateSurfaces": [
+      "dev misconfigured — run `npm run dev`",
+      "The commons is unreachable."
+    ],
+    "consoleError": "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost",
+    "transportProof": "Failed to load remote palettes: DevMisconfigError: …",
+    "menuWhileLatchTripped": [
+      { "text": "Publish", "ariaDisabled": null, "dataDisabled": false },
+      { "text": "Rename", "ariaDisabled": null, "dataDisabled": false },
+      { "text": "Export", "ariaDisabled": null, "dataDisabled": false },
+      { "text": "Delete", "ariaDisabled": null, "dataDisabled": false }
+    ],
+    "inMenuAnnotationsRendered": [],
+    "conclusion": "availability === 'misconfigured'; apiOffline === (availability === 'unavailable') === false; Publish renders ENABLED and UNANNOTATED while assertApiAttemptAllowed() throws DevMisconfigError for every request. K-INV5 violated live."
+  }
+}

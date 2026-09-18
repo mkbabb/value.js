@@ -1,0 +1,23 @@
+{
+  "name": "@value-js/pi-css-mirror",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc -p tsconfig.apotheosis.json --noEmit",
+    "test": "vitest run --config apotheosis/vitest.config.ts --passWithNoTests",
+    "check:rejected-g0": "tsc -p tsconfig.json --noEmit",
+    "test:rejected-g0": "vitest run",
+    "dts-parity:rejected-g0": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.declarations.json && tsc -p tsconfig.source-contract.json && tsx tools/dts-parity.ts",
+    "bench:rejected-g0": "tsx bench/stub.ts"
+  },
+  "dependencies": {
+    "@mkbabb/parse-that": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3",
+    "vitest": "3.2.7"
+  }
+}

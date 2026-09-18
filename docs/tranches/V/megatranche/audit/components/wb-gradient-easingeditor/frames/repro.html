@@ -1,0 +1,59 @@
+<!doctype html><meta charset="utf-8">
+<title>challenge-D repro — GradientEasingEditor</title>
+<style>
+:root{
+  --card-edge: oklab(0.216128 0.00350075 0.00518669 / 0.12);
+  --focus-ring-shadow: 0 0 0 2px color-mix(in srgb, oklch(46.593567414209% 0.188890583941 25deg) 30%, transparent),
+                       0 0 8px color-mix(in srgb, oklch(46.593567414209% 0.188890583941 25deg) 15%, transparent);
+  --foreground: oklch(0.30 0.02 60);
+  --muted-foreground: rgb(112,89,66);
+  --duration-fast:.2s; --ease-standard:cubic-bezier(.4,0,.2,1);
+  font-family: ui-monospace, "Fira Code", monospace;
+}
+body{margin:0;padding:24px;background:oklab(0.928268 0.00554796 0.0132111);display:flex;gap:32px;flex-wrap:wrap}
+.case{width:462px}
+h2{font:600 13px/1.4 system-ui;color:#333;margin:0 0 8px}
+/* ── EXACT source: GradientEasingEditor.vue:114 ── */
+.row{border-radius:16px;border:1px solid var(--card-edge);overflow:hidden}
+/* control: the same row WITHOUT overflow-hidden */
+.row--noclip{border-radius:16px;border:1px solid var(--card-edge)}
+.interval-head{width:100%;display:flex;align-items:center;gap:.625rem;padding:.5rem .75rem;text-align:left;cursor:pointer;
+  background:transparent;border:0;font:inherit;transition:background-color var(--duration-fast) var(--ease-standard)}
+.interval-head:focus-visible{outline:none;box-shadow:var(--focus-ring-shadow)}
+.interval-head:focus{outline:none;box-shadow:var(--focus-ring-shadow)}   /* forced on for the frame */
+/* ── EXACT source: GradientEasingEditor.vue:235-251 ── */
+.specimen-dots{display:inline-flex;align-items:center}
+.specimen-dot{inline-size:.625rem;block-size:.625rem;border-radius:9999px;border:1px solid var(--card-edge);
+  background:linear-gradient(var(--dot-c),var(--dot-c));background-size:cover}
+.specimen-dot + .specimen-dot{margin-left:-3px}
+.lbl{font-size:.8125rem;color:var(--muted-foreground)}
+.dir{border:1px dashed #999;padding:8px;margin-top:8px}
+</style>
+<div class="case">
+  <h2>A — as shipped: row has <code>overflow:hidden</code></h2>
+  <div class="row">
+    <button class="interval-head" autofocus>
+      <span class="lbl">1 &rarr; 2</span>
+      <span class="specimen-dots"><span class="specimen-dot" style="--dot-c:oklch(.75 .15 145)"></span><span class="specimen-dot" style="--dot-c:oklch(.65 .18 265)"></span></span>
+      <span class="lbl">linear</span>
+    </button>
+  </div>
+</div>
+<div class="case">
+  <h2>B — control: identical row, no <code>overflow:hidden</code></h2>
+  <div class="row--noclip">
+    <button class="interval-head">
+      <span class="lbl">1 &rarr; 2</span>
+      <span class="specimen-dots"><span class="specimen-dot" style="--dot-c:oklch(.75 .15 145)"></span><span class="specimen-dot" style="--dot-c:oklch(.65 .18 265)"></span></span>
+      <span class="lbl">linear</span>
+    </button>
+  </div>
+</div>
+<div class="case">
+  <h2>C — endpoint dots: LTR vs RTL (<code>margin-left:-3px</code>)</h2>
+  <div class="dir" dir="ltr">LTR &nbsp;<span class="specimen-dots"><span class="specimen-dot" style="--dot-c:oklch(.75 .15 145)"></span><span class="specimen-dot" style="--dot-c:oklch(.65 .18 265)"></span></span></div>
+  <div class="dir" dir="rtl">RTL &nbsp;<span class="specimen-dots"><span class="specimen-dot" style="--dot-c:oklch(.75 .15 145)"></span><span class="specimen-dot" style="--dot-c:oklch(.65 .18 265)"></span></span></div>
+</div>
+<script>
+addEventListener('load',()=>{document.querySelector('.row .interval-head').focus();});
+</script>

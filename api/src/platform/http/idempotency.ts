@@ -23,7 +23,7 @@
  *             content-type) AND the request body-hash with a 24h expiry.
  *
  * Store: the in-process `LRU` at `cache/lru.ts` — the SAME primitive
- * `rate-limit.ts` + `resolve-session.ts` use. NOT a Mongo collection: this
+ * `rate-limit.ts` + `session/resolve.ts` use. NOT a Mongo collection: this
  * keeps the replay store bounded (FIFO + TTL eviction) and avoids a write per
  * mutation. Consequence — like rate-limit, the store is PER-PROCESS, so the
  * 24h durability is best-effort and does NOT survive a restart or span
@@ -62,7 +62,12 @@ interface StoredResponse {
     bodyHash: string;
     status: number;
     body: string;
-    contentType: string | null;
+    /** The FULL response header tuple captured verbatim (V·W45 item 7), so a
+     * replay reproduces the byte-identical status/body/header result — incl.
+     * `ETag` / `Set-Cookie` where the mutation emitted them. (CORS headers are
+     * added by the outer middleware AFTER this capture, so they are re-applied
+     * to the replayed response too — never double-stored.) */
+    headers: [string, string][];
 }
 
 const replayStore = new LRU<string, StoredResponse>(
@@ -118,9 +123,11 @@ export const idempotency: MiddlewareHandler = async (c, next) => {
         if (hit.bodyHash !== bodyHash) {
             throw new IdempotencyConflictError();
         }
-        // HIT, SAME body — replay the stored response verbatim; handler skipped.
-        const headers = new Headers();
-        if (hit.contentType) headers.set("Content-Type", hit.contentType);
+        // HIT, SAME body — replay the stored response verbatim; handler
+        // skipped. The FULL captured header tuple (incl. ETag/Set-Cookie) is
+        // reproduced, plus the `Idempotency-Replayed` marker so the caller can
+        // tell a replay from a fresh execution.
+        const headers = new Headers(hit.headers);
         headers.set("Idempotency-Replayed", "true");
         return new Response(hit.body, { status: hit.status, headers });
     }
@@ -142,7 +149,7 @@ export const idempotency: MiddlewareHandler = async (c, next) => {
             bodyHash,
             status: res.status,
             body,
-            contentType: res.headers.get("Content-Type"),
+            headers: [...res.headers.entries()],
         });
     }
 };

@@ -1,0 +1,834 @@
+{
+  "light": {
+    "name": "p5-3-light",
+    "occ": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "cardCount": 12,
+      "cardsInViewport": 6,
+      "popoverRect": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84,
+        "top": 251,
+        "bottom": 883.84,
+        "left": 433,
+        "right": 673
+      },
+      "popoverArea": 151881.6,
+      "wallUnion": {
+        "left": 224,
+        "top": 256.69,
+        "right": 686,
+        "bottom": 1588.69,
+        "w": 462,
+        "h": 1332
+      },
+      "popoverOverWallUnion": {
+        "w": 240,
+        "h": 627.15,
+        "area": 150516
+      },
+      "pctOfWallUnionCovered": 24.5,
+      "perVisibleCardCoverage": [
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.419,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleCardsWithAnyCoverage": 6,
+      "visibleCardsOver50": 5,
+      "browsePaneRect": {
+        "x": 199,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "top": 103,
+        "bottom": 877,
+        "left": 199,
+        "right": 711
+      },
+      "pctOfBrowsePaneCovered": 37.9,
+      "pctOfViewport": 11.7
+    },
+    "rects": {
+      "label": {
+        "x": 462,
+        "y": 284.34,
+        "w": 182,
+        "h": 21.58
+      },
+      "option": {
+        "x": 462,
+        "y": 311.92,
+        "w": 121.39,
+        "h": 30.97
+      },
+      "input": {
+        "x": 496,
+        "y": 814.5,
+        "w": 148,
+        "h": 36
+      },
+      "btn": {
+        "x": 587.42,
+        "y": 820.5,
+        "w": 52.58,
+        "h": 24
+      },
+      "swatch": {
+        "x": 462,
+        "y": 817.5,
+        "w": 28,
+        "h": 28
+      },
+      "trigger": {
+        "x": 640.76,
+        "y": 206.39,
+        "w": 32.48,
+        "h": 40.6
+      },
+      "field": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36
+      },
+      "popover": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84
+      }
+    },
+    "focusReg": {
+      "radio": {
+        "tag": "BUTTON",
+        "role": "radio",
+        "outline": "rgb(251, 250, 248) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "checkbox": {
+        "tag": "BUTTON",
+        "role": "checkbox",
+        "outline": "rgb(251, 250, 248) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, col",
+        "ring": "0 0 #0000"
+      },
+      "swatch": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(28, 25, 23) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4p",
+        "ring": "0 0 #0000"
+      },
+      "input": {
+        "tag": "INPUT",
+        "role": null,
+        "outline": "rgb(28, 25, 23) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+        "ring": "0 0 #0000"
+      },
+      "searchBtn": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(112, 89, 66) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      }
+    },
+    "badge": {
+      "trigger": {
+        "x": 641,
+        "y": 206.69,
+        "w": 32,
+        "h": 40,
+        "top": 206.69,
+        "left": 641,
+        "right": 673,
+        "bottom": 246.69
+      },
+      "badge": {
+        "x": 661,
+        "y": 202.69,
+        "w": 16,
+        "h": 16,
+        "top": 202.69,
+        "left": 661,
+        "right": 677,
+        "bottom": 218.69
+      },
+      "text": "1",
+      "bg": "oklch(0.471189 0.0962884 89.834)",
+      "fg": "rgb(251, 250, 248)",
+      "fontSize": "11px",
+      "triggerOverflow": "visible",
+      "triggerClip": "none",
+      "triggerBorderRadius": "9999px",
+      "outsideLeft": -20,
+      "outsideTop": 4,
+      "fieldRect": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36,
+        "top": 208.69,
+        "left": 224,
+        "right": 686,
+        "bottom": 244.69
+      },
+      "fieldOverflow": "visible"
+    },
+    "crops": {
+      "label": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-label.png",
+      "option": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-option.png",
+      "input": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-input.png",
+      "btn": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-btn.png",
+      "swatch": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-swatch.png",
+      "trigger": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-trigger.png",
+      "field": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-field.png",
+      "popover": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-light-crop-popover.png"
+    }
+  },
+  "dark": {
+    "name": "p5-3-dark",
+    "occ": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "cardCount": 12,
+      "cardsInViewport": 6,
+      "popoverRect": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84,
+        "top": 251,
+        "bottom": 883.84,
+        "left": 433,
+        "right": 673
+      },
+      "popoverArea": 151881.6,
+      "wallUnion": {
+        "left": 224,
+        "top": 256.69,
+        "right": 686,
+        "bottom": 1588.69,
+        "w": 462,
+        "h": 1332
+      },
+      "popoverOverWallUnion": {
+        "w": 240,
+        "h": 627.15,
+        "area": 150516
+      },
+      "pctOfWallUnionCovered": 24.5,
+      "perVisibleCardCoverage": [
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.419,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleCardsWithAnyCoverage": 6,
+      "visibleCardsOver50": 5,
+      "browsePaneRect": {
+        "x": 199,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "top": 103,
+        "bottom": 877,
+        "left": 199,
+        "right": 711
+      },
+      "pctOfBrowsePaneCovered": 37.9,
+      "pctOfViewport": 11.7
+    },
+    "rects": {
+      "label": {
+        "x": 462,
+        "y": 284.34,
+        "w": 182,
+        "h": 21.58
+      },
+      "option": {
+        "x": 462,
+        "y": 311.92,
+        "w": 121.39,
+        "h": 30.97
+      },
+      "input": {
+        "x": 496,
+        "y": 814.5,
+        "w": 148,
+        "h": 36
+      },
+      "btn": {
+        "x": 587.42,
+        "y": 820.5,
+        "w": 52.58,
+        "h": 24
+      },
+      "swatch": {
+        "x": 462,
+        "y": 817.5,
+        "w": 28,
+        "h": 28
+      },
+      "trigger": {
+        "x": 640.76,
+        "y": 206.39,
+        "w": 32.48,
+        "h": 40.6
+      },
+      "field": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36
+      },
+      "popover": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84
+      }
+    },
+    "focusReg": {
+      "radio": {
+        "tag": "BUTTON",
+        "role": "radio",
+        "outline": "rgb(11, 10, 9) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "checkbox": {
+        "tag": "BUTTON",
+        "role": "checkbox",
+        "outline": "rgb(11, 10, 9) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "rgba(255, 255, 255, 0.4) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.24) -1px 0px 0px 0px inset, color(srgb 0.914 0.9 0.886 / 0.06) 0px -1px 0px 0px inset, col",
+        "ring": "0 0 #0000"
+      },
+      "swatch": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(233, 230, 226) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -4px 4p",
+        "ring": "0 0 #0000"
+      },
+      "input": {
+        "tag": "INPUT",
+        "role": null,
+        "outline": "rgb(233, 230, 226) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+        "ring": "0 0 #0000"
+      },
+      "searchBtn": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(195, 185, 172) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      }
+    },
+    "badge": {
+      "trigger": {
+        "x": 641,
+        "y": 206.69,
+        "w": 32,
+        "h": 40,
+        "top": 206.69,
+        "left": 641,
+        "right": 673,
+        "bottom": 246.69
+      },
+      "badge": {
+        "x": 661,
+        "y": 202.69,
+        "w": 16,
+        "h": 16,
+        "top": 202.69,
+        "left": 661,
+        "right": 677,
+        "bottom": 218.69
+      },
+      "text": "1",
+      "bg": "oklch(0.958322 0.0525094 89.834)",
+      "fg": "rgb(11, 10, 9)",
+      "fontSize": "11px",
+      "triggerOverflow": "visible",
+      "triggerClip": "none",
+      "triggerBorderRadius": "9999px",
+      "outsideLeft": -20,
+      "outsideTop": 4,
+      "fieldRect": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36,
+        "top": 208.69,
+        "left": 224,
+        "right": 686,
+        "bottom": 244.69
+      },
+      "fieldOverflow": "visible"
+    },
+    "crops": {
+      "label": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-label.png",
+      "option": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-option.png",
+      "input": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-input.png",
+      "btn": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-btn.png",
+      "swatch": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-swatch.png",
+      "trigger": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-trigger.png",
+      "field": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-field.png",
+      "popover": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-dark-crop-popover.png"
+    }
+  },
+  "mobile": {
+    "name": "p5-3-mobile",
+    "occ": {
+      "viewport": {
+        "w": 390,
+        "h": 844
+      },
+      "cardCount": 12,
+      "cardsInViewport": 5,
+      "popoverRect": {
+        "x": 104.33,
+        "y": 243.33,
+        "w": 240,
+        "h": 620.66,
+        "top": 243.33,
+        "bottom": 863.99,
+        "left": 104.33,
+        "right": 344.33
+      },
+      "popoverArea": 148958.4,
+      "wallUnion": {
+        "left": 33,
+        "top": 255.98,
+        "right": 357,
+        "bottom": 1874.61,
+        "w": 324,
+        "h": 1618.63
+      },
+      "popoverOverWallUnion": {
+        "w": 240,
+        "h": 608.01,
+        "area": 145922.4
+      },
+      "pctOfWallUnionCovered": 27.8,
+      "perVisibleCardCoverage": [
+        0.741,
+        0.741,
+        0.741,
+        0.741,
+        0.741,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleCardsWithAnyCoverage": 5,
+      "visibleCardsOver50": 5,
+      "browsePaneRect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 732,
+        "top": 104,
+        "bottom": 836,
+        "left": 16,
+        "right": 374
+      },
+      "pctOfBrowsePaneCovered": 54.3,
+      "pctOfViewport": 45.3
+    },
+    "rects": {
+      "label": {
+        "x": 133.33,
+        "y": 276.68,
+        "w": 182,
+        "h": 18.25
+      },
+      "option": {
+        "x": 133.33,
+        "y": 300.93,
+        "w": 112.98,
+        "h": 27.59
+      },
+      "input": {
+        "x": 167.33,
+        "y": 776.65,
+        "w": 148,
+        "h": 54
+      },
+      "btn": {
+        "x": 258.76,
+        "y": 791.65,
+        "w": 52.58,
+        "h": 24
+      },
+      "swatch": {
+        "x": 133.33,
+        "y": 788.65,
+        "w": 28,
+        "h": 28
+      },
+      "trigger": {
+        "x": 299.67,
+        "y": 194.65,
+        "w": 44.66,
+        "h": 44.66
+      },
+      "field": {
+        "x": 33,
+        "y": 189.98,
+        "w": 324,
+        "h": 54
+      },
+      "popover": {
+        "x": 104.33,
+        "y": 243.33,
+        "w": 240,
+        "h": 620.66
+      }
+    },
+    "focusReg": {
+      "radio": {
+        "tag": "BUTTON",
+        "role": "radio",
+        "outline": "rgb(251, 250, 248) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "checkbox": {
+        "tag": "BUTTON",
+        "role": "checkbox",
+        "outline": "rgb(251, 250, 248) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, col",
+        "ring": "0 0 #0000"
+      },
+      "swatch": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(28, 25, 23) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4p",
+        "ring": "0 0 #0000"
+      },
+      "input": {
+        "tag": "INPUT",
+        "role": null,
+        "outline": "rgb(28, 25, 23) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+        "ring": "0 0 #0000"
+      },
+      "searchBtn": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(112, 89, 66) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      }
+    },
+    "badge": {
+      "trigger": {
+        "x": 300,
+        "y": 194.98,
+        "w": 44,
+        "h": 44,
+        "top": 194.98,
+        "left": 300,
+        "right": 344,
+        "bottom": 238.98
+      },
+      "badge": {
+        "x": 332,
+        "y": 190.98,
+        "w": 16,
+        "h": 16,
+        "top": 190.98,
+        "left": 332,
+        "right": 348,
+        "bottom": 206.98
+      },
+      "text": "1",
+      "bg": "oklch(0.471189 0.0962884 89.834)",
+      "fg": "rgb(251, 250, 248)",
+      "fontSize": "11px",
+      "triggerOverflow": "visible",
+      "triggerClip": "none",
+      "triggerBorderRadius": "9999px",
+      "outsideLeft": -32,
+      "outsideTop": 4,
+      "fieldRect": {
+        "x": 33,
+        "y": 189.98,
+        "w": 324,
+        "h": 54,
+        "top": 189.98,
+        "left": 33,
+        "right": 357,
+        "bottom": 243.98
+      },
+      "fieldOverflow": "visible"
+    },
+    "crops": {
+      "label": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-label.png",
+      "option": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-option.png",
+      "input": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-input.png",
+      "btn": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-btn.png",
+      "swatch": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-swatch.png",
+      "trigger": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-trigger.png",
+      "field": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-field.png",
+      "popover": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-mobile-crop-popover.png"
+    }
+  },
+  "forced": {
+    "name": "p5-3-forced",
+    "occ": {
+      "viewport": {
+        "w": 1440,
+        "h": 900
+      },
+      "cardCount": 12,
+      "cardsInViewport": 6,
+      "popoverRect": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84,
+        "top": 251,
+        "bottom": 883.84,
+        "left": 433,
+        "right": 673
+      },
+      "popoverArea": 151881.6,
+      "wallUnion": {
+        "left": 224,
+        "top": 256.69,
+        "right": 686,
+        "bottom": 1588.69,
+        "w": 462,
+        "h": 1332
+      },
+      "popoverOverWallUnion": {
+        "w": 240,
+        "h": 627.15,
+        "area": 150516
+      },
+      "pctOfWallUnionCovered": 24.5,
+      "perVisibleCardCoverage": [
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.519,
+        0.419,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "visibleCardsWithAnyCoverage": 6,
+      "visibleCardsOver50": 5,
+      "browsePaneRect": {
+        "x": 199,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "top": 103,
+        "bottom": 877,
+        "left": 199,
+        "right": 711
+      },
+      "pctOfBrowsePaneCovered": 37.9,
+      "pctOfViewport": 11.7
+    },
+    "rects": {
+      "label": {
+        "x": 462,
+        "y": 284.34,
+        "w": 182,
+        "h": 21.58
+      },
+      "option": {
+        "x": 462,
+        "y": 311.92,
+        "w": 121.39,
+        "h": 30.97
+      },
+      "input": {
+        "x": 496,
+        "y": 814.5,
+        "w": 148,
+        "h": 36
+      },
+      "btn": {
+        "x": 587.42,
+        "y": 820.5,
+        "w": 52.58,
+        "h": 24
+      },
+      "swatch": {
+        "x": 462,
+        "y": 817.5,
+        "w": 28,
+        "h": 28
+      },
+      "trigger": {
+        "x": 640.76,
+        "y": 206.39,
+        "w": 32.48,
+        "h": 40.6
+      },
+      "field": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36
+      },
+      "popover": {
+        "x": 433,
+        "y": 251,
+        "w": 240,
+        "h": 632.84
+      }
+    },
+    "focusReg": {
+      "radio": {
+        "tag": "BUTTON",
+        "role": "radio",
+        "outline": "rgb(0, 0, 0) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "checkbox": {
+        "tag": "BUTTON",
+        "role": "checkbox",
+        "outline": "rgb(0, 0, 0) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "swatch": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(0, 0, 0) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "input": {
+        "tag": "INPUT",
+        "role": null,
+        "outline": "rgba(5, 0, 73, 0.8) solid 2px",
+        "outlineOffset": "2px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      },
+      "searchBtn": {
+        "tag": "BUTTON",
+        "role": null,
+        "outline": "rgb(0, 0, 0) none 3px",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "ring": "0 0 #0000"
+      }
+    },
+    "badge": {
+      "trigger": {
+        "x": 641,
+        "y": 206.69,
+        "w": 32,
+        "h": 40,
+        "top": 206.69,
+        "left": 641,
+        "right": 673,
+        "bottom": 246.69
+      },
+      "badge": {
+        "x": 660,
+        "y": 203.69,
+        "w": 16,
+        "h": 16,
+        "top": 203.69,
+        "left": 660,
+        "right": 676,
+        "bottom": 219.69
+      },
+      "text": "1",
+      "bg": "rgb(255, 255, 255)",
+      "fg": "rgb(0, 0, 0)",
+      "fontSize": "11px",
+      "triggerOverflow": "visible",
+      "triggerClip": "none",
+      "triggerBorderRadius": "9999px",
+      "outsideLeft": -19,
+      "outsideTop": 3,
+      "fieldRect": {
+        "x": 224,
+        "y": 208.69,
+        "w": 462,
+        "h": 36,
+        "top": 208.69,
+        "left": 224,
+        "right": 686,
+        "bottom": 244.69
+      },
+      "fieldOverflow": "visible"
+    },
+    "crops": {
+      "label": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-label.png",
+      "option": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-option.png",
+      "input": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-input.png",
+      "btn": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-btn.png",
+      "swatch": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-swatch.png",
+      "trigger": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-trigger.png",
+      "field": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-field.png",
+      "popover": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/components/SearchFilterBar/evidence-p5/p5-3-forced-crop-popover.png"
+    }
+  }
+}

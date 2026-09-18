@@ -1,0 +1,669 @@
+{
+ "runId": "wf_cd3d324b-ced",
+ "workflow": "wf_cd3d324b-ced",
+ "resultCount": 28,
+ "results": [
+  {
+   "agentId": "a1157c6cb0f253cba",
+   "key": "v2:2b631df559232c0c2ba5b0ba57fda974680fdba6cc19c84e8b6ed858bacdad18",
+   "result": {
+    "components": [
+     {
+      "slug": "AdminAuditLog",
+      "path": "web/src/components/visualization/gallery/AdminAuditLog.vue",
+      "lines": 190
+     },
+     {
+      "slug": "AdminFlaggedPanel",
+      "path": "web/src/components/visualization/gallery/AdminFlaggedPanel.vue",
+      "lines": 285
+     },
+     {
+      "slug": "AdminUserList",
+      "path": "web/src/components/visualization/gallery/AdminUserList.vue",
+      "lines": 529
+     },
+     {
+      "slug": "AnimationControls",
+      "path": "web/src/components/visualization/AnimationControls.vue",
+      "lines": 224
+     },
+     {
+      "slug": "App",
+      "path": "web/src/App.vue",
+      "lines": 32
+     },
+     {
+      "slug": "AppHeader",
+      "path": "web/src/components/layout/AppHeader.vue",
+      "lines": 354
+     },
+     {
+      "slug": "BasisCanvas",
+      "path": "web/src/components/visualization/BasisCanvas.vue",
+      "lines": 547
+     },
+     {
+      "slug": "BasisSelector",
+      "path": "web/src/components/visualization/BasisSelector.vue",
+      "lines": 324
+     },
+     {
+      "slug": "CanvasControlsDock",
+      "path": "web/src/components/visualization/CanvasControlsDock.vue",
+      "lines": 132
+     },
+     {
+      "slug": "CanvasOverlayButton",
+      "path": "web/src/components/visualization/CanvasOverlayButton.vue",
+      "lines": 25
+     },
+     {
+      "slug": "CoefficientsPanel",
+      "path": "web/src/components/visualization/CoefficientsPanel.vue",
+      "lines": 26
+     },
+     {
+      "slug": "CoefficientsSpectrum",
+      "path": "web/src/components/shared/CoefficientsSpectrum.vue",
+      "lines": 168
+     },
+     {
+      "slug": "CollapsibleSection",
+      "path": "web/src/components/ui/CollapsibleSection.vue",
+      "lines": 72
+     },
+     {
+      "slug": "ContourEditorCanvas",
+      "path": "web/src/components/visualization/ContourEditorCanvas.vue",
+      "lines": 340
+     },
+     {
+      "slug": "ContourPreview",
+      "path": "web/src/components/visualization/ContourPreview.vue",
+      "lines": 62
+     },
+     {
+      "slug": "ContourSettings",
+      "path": "web/src/components/visualization/ContourSettings.vue",
+      "lines": 470
+     },
+     {
+      "slug": "ConvergenceLegend",
+      "path": "web/src/components/equation/convergence/ConvergenceLegend.vue",
+      "lines": 97
+     },
+     {
+      "slug": "ConvergencePlot",
+      "path": "web/src/components/equation/ConvergencePlot.vue",
+      "lines": 410
+     },
+     {
+      "slug": "ConvergenceTimeline",
+      "path": "web/src/components/equation/convergence/ConvergenceTimeline.vue",
+      "lines": 146
+     },
+     {
+      "slug": "DarkModeToggle",
+      "path": "web/src/components/layout/DarkModeToggle.vue",
+      "lines": 109
+     },
+     {
+      "slug": "EasingCurvePreview",
+      "path": "web/src/components/visualization/EasingCurvePreview.vue",
+      "lines": 41
+     },
+     {
+      "slug": "EasingPicker",
+      "path": "web/src/components/visualization/EasingPicker.vue",
+      "lines": 98
+     },
+     {
+      "slug": "EditorControlsDock",
+      "path": "web/src/components/visualization/EditorControlsDock.vue",
+      "lines": 230
+     },
+     {
+      "slug": "EqCoefficientsPanel",
+      "path": "web/src/components/equation/EqCoefficientsPanel.vue",
+      "lines": 17
+     },
+     {
+      "slug": "EquationModeToggle",
+      "path": "web/src/components/equation/EquationModeToggle.vue",
+      "lines": 80
+     },
+     {
+      "slug": "EquationPanel",
+      "path": "web/src/components/visualization/EquationPanel.vue",
+      "lines": 134
+     },
+     {
+      "slug": "EquationResult",
+      "path": "web/src/components/equation/EquationResult.vue",
+      "lines": 101
+     },
+     {
+      "slug": "EquationView",
+      "path": "web/src/components/equation/EquationView.vue",
+      "lines": 469
+     },
+     {
+      "slug": "ExportModal",
+      "path": "web/src/components/visualization/ExportModal.vue",
+      "lines": 114
+     },
+     {
+      "slug": "FourierMorphDemo",
+      "path": "web/src/components/morph/FourierMorphDemo.vue",
+      "lines": 330
+     },
+     {
+      "slug": "FourierMorphSvg",
+      "path": "web/src/components/decorative/FourierMorphSvg.vue",
+      "lines": 41
+     },
+     {
+      "slug": "FourierShapeExtractor",
+      "path": "web/src/components/morph/FourierShapeExtractor.vue",
+      "lines": 191
+     },
+     {
+      "slug": "FrequencyGraph",
+      "path": "web/src/components/equation/FrequencyGraph.vue",
+      "lines": 247
+     },
+     {
+      "slug": "FullscreenViewer",
+      "path": "web/src/components/visualization/FullscreenViewer.vue",
+      "lines": 245
+     },
+     {
+      "slug": "FunctionInput",
+      "path": "web/src/components/equation/FunctionInput.vue",
+      "lines": 261
+     },
+     {
+      "slug": "GalleryAdminBanner",
+      "path": "web/src/components/visualization/gallery/GalleryAdminBanner.vue",
+      "lines": 107
+     },
+     {
+      "slug": "GalleryCard",
+      "path": "web/src/components/visualization/gallery/GalleryCard.vue",
+      "lines": 309
+     },
+     {
+      "slug": "GalleryCardModal",
+      "path": "web/src/components/visualization/gallery/GalleryCardModal.vue",
+      "lines": 261
+     },
+     {
+      "slug": "GalleryDraftsSection",
+      "path": "web/src/components/visualization/gallery/GalleryDraftsSection.vue",
+      "lines": 108
+     },
+     {
+      "slug": "GalleryFeaturedCarousel",
+      "path": "web/src/components/visualization/gallery/GalleryFeaturedCarousel.vue",
+      "lines": 91
+     },
+     {
+      "slug": "GalleryInfiniteGrid",
+      "path": "web/src/components/visualization/gallery/GalleryInfiniteGrid.vue",
+      "lines": 54
+     },
+     {
+      "slug": "GalleryMarquee",
+      "path": "web/src/components/visualization/gallery/GalleryMarquee.vue",
+      "lines": 134
+     },
+     {
+      "slug": "GallerySearchBar",
+      "path": "web/src/components/visualization/gallery/GallerySearchBar.vue",
+      "lines": 223
+     },
+     {
+      "slug": "GalleryView",
+      "path": "web/src/components/visualization/GalleryView.vue",
+      "lines": 442
+     },
+     {
+      "slug": "GlassTimeline",
+      "path": "web/src/components/visualization/GlassTimeline.vue",
+      "lines": 127
+     },
+     {
+      "slug": "HarmonicLevelGrid",
+      "path": "web/src/components/morph/HarmonicLevelGrid.vue",
+      "lines": 286
+     },
+     {
+      "slug": "ImageUpload",
+      "path": "web/src/components/visualization/ImageUpload.vue",
+      "lines": 207
+     },
+     {
+      "slug": "InfoCard",
+      "path": "web/src/components/equation/InfoCard.vue",
+      "lines": 43
+     },
+     {
+      "slug": "MobileFloatingToc",
+      "path": "web/src/components/paper/MobileFloatingToc.vue",
+      "lines": 397
+     },
+     {
+      "slug": "MorphPhaseConfig",
+      "path": "web/src/components/morph/MorphPhaseConfig.vue",
+      "lines": 212
+     },
+     {
+      "slug": "MorphShapePreview",
+      "path": "web/src/components/morph/MorphShapePreview.vue",
+      "lines": 175
+     },
+     {
+      "slug": "NotationPills",
+      "path": "web/src/components/equation/NotationPills.vue",
+      "lines": 47
+     },
+     {
+      "slug": "PaperArticleWindow",
+      "path": "web/src/components/paper/PaperArticleWindow.vue",
+      "lines": 212
+     },
+     {
+      "slug": "PaperSearch",
+      "path": "web/src/components/paper/PaperSearch.vue",
+      "lines": 397
+     },
+     {
+      "slug": "PaperSearchDropdown",
+      "path": "web/src/components/paper/search/PaperSearchDropdown.vue",
+      "lines": 70
+     },
+     {
+      "slug": "PaperSearchInput",
+      "path": "web/src/components/paper/search/PaperSearchInput.vue",
+      "lines": 69
+     },
+     {
+      "slug": "PaperSearchModal",
+      "path": "web/src/components/paper/search/PaperSearchModal.vue",
+      "lines": 124
+     },
+     {
+      "slug": "PaperSidebar",
+      "path": "web/src/components/paper/PaperSidebar.vue",
+      "lines": 283
+     },
+     {
+      "slug": "PaperView",
+      "path": "web/src/components/paper/PaperView.vue",
+      "lines": 685
+     },
+     {
+      "slug": "PathPreview",
+      "path": "web/src/components/ui/PathPreview.vue",
+      "lines": 69
+     },
+     {
+      "slug": "SliderControl",
+      "path": "web/src/components/ui/SliderControl.vue",
+      "lines": 150
+     },
+     {
+      "slug": "SpeedSelect",
+      "path": "web/src/components/visualization/SpeedSelect.vue",
+      "lines": 70
+     },
+     {
+      "slug": "SvgFilters",
+      "path": "web/src/components/decorative/SvgFilters.vue",
+      "lines": 178
+     },
+     {
+      "slug": "Tooltip",
+      "path": "web/src/components/ui/tooltip/Tooltip.vue",
+      "lines": 38
+     },
+     {
+      "slug": "UserSlugBar",
+      "path": "web/src/components/visualization/gallery/UserSlugBar.vue",
+      "lines": 168
+     },
+     {
+      "slug": "VisualizationView",
+      "path": "web/src/components/visualization/VisualizationView.vue",
+      "lines": 486
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "a5d24d52a5f243807",
+   "key": "v2:282c3a8c9967f0a2eb15976880ba6573e293953ae5d2661b2331960e35b1b981",
+   "result": {
+    "slug": "EquationResult",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-C-consumption.md",
+    "defects": 12,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a36c3de48af4b9e24",
+   "key": "v2:31cd4ed9cec771e7219b68584b14e79d06a9186c82a5386a4abade80ce9bb336",
+   "result": {
+    "slug": "EquationView",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a0a4fa8283f26f87b",
+   "key": "v2:1cb60e7b15a539b6a0eb56264da865398f265dfc57c9c3e3522a6fbb44f39dd2",
+   "result": {
+    "slug": "EquationModeToggle",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-L-library.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a6b00e2a8cf14e046",
+   "key": "v2:a7e74321e9480013a1fb3fb65ec1e38cd55710acab74c816d8c71f7e5ed74ffb",
+   "result": {
+    "slug": "EquationPanel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-L-library.md",
+    "defects": 19,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a24fb07da63aeed22",
+   "key": "v2:13fec500a04a8d6f7321a76c3f4096fcdd99cc6d707d578bfffd9188b6cba9d7",
+   "result": {
+    "slug": "EquationView",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-D-design.md",
+    "defects": 29,
+    "blockers": 5,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a5d81fdc07354af1f",
+   "key": "v2:a9c2dfdc51a3e013941736040d496c549f0a2e35a898d9fc47a4dd8163756ece",
+   "result": {
+    "slug": "EquationModeToggle",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-D-design.md",
+    "defects": 18,
+    "blockers": 4,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "aa37164f8151f413b",
+   "key": "v2:262a371eee462b4e08eae54a65aa31bf9e088eae4a7d269693925d970a398714",
+   "result": {
+    "slug": "EquationPanel",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-C-consumption.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a3bbe01d0c32c769b",
+   "key": "v2:7aee72cf9a83925c2dcac97ca2020f619571684879bc57f5f634bdd14113041c",
+   "result": {
+    "slug": "EquationResult",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-D-design.md",
+    "defects": 22,
+    "blockers": 3,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a0194737489316960",
+   "key": "v2:bfcc2842d485d2dd389c9ea2785cae3e0ed232ffe7bab630e4f11db6a7a38f8d",
+   "result": {
+    "slug": "ExportModal",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-L-library.md",
+    "defects": 18,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "af306990be3f7be5e",
+   "key": "v2:cd062ed7047234aeaea740e5bc8181116d6e2aca622a0ce912b69542fd048d52",
+   "result": {
+    "slug": "EquationResult",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationResult/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a04c07089a870de1a",
+   "key": "v2:a5bddf1a08edf7f40875f275daf50a6a3e11b07aa49c7f8054a74c2b16986b3f",
+   "result": {
+    "axis": "D",
+    "blockers": 3,
+    "defects": 21,
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationPanel/challenge-D-design.md",
+    "slug": "EquationPanel",
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a2cb8883f1fb089b7",
+   "key": "v2:60f7dad7625e0d89434772d88d56c61ea8d98dbd8f49833a2dd0ef81531a08e6",
+   "result": {
+    "slug": "EquationModeToggle",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationModeToggle/challenge-C-consumption.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a28df5cf76f850a3f",
+   "key": "v2:6f8d97a0d115934ebee5994cd1fb7d673fcec83ae3ef807e987f6288eeeacbd4",
+   "result": {
+    "slug": "ExportModal",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-D-design.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a4fe1c21cdc2b9070",
+   "key": "v2:eedd209927599f20f7f90f4f351690bee63f1698c9408d00af7072103bf53dcc",
+   "result": {
+    "slug": "FourierMorphDemo",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-D-design.md",
+    "defects": 33,
+    "blockers": 3,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "a2d20d76ba4d41318",
+   "key": "v2:58af77dd37acaea49dcb5372779b93eb55b309e4edcb51c546a4e8c7c0286964",
+   "result": {
+    "slug": "EquationView",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/EquationView/challenge-C-consumption.md",
+    "defects": 37,
+    "blockers": 5,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a7ae377845f23ad14",
+   "key": "v2:e53e4ff33f76c6d89876ec53744e240807e7f589f54546f3e02a19aef39e848d",
+   "result": {
+    "slug": "FourierMorphSvg",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-D-design.md",
+    "defects": 9,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ae76da6dbb285427b",
+   "key": "v2:439f6c07787c3b47fae50b909272d33c8563e28863e0f6a15afef6cea714fa2d",
+   "result": {
+    "slug": "FourierMorphDemo",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-L-library.md",
+    "defects": 22,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a7a11b49cac146f78",
+   "key": "v2:12813ef7bb6ee7c29ce2587cebeccc84ecb2e1d61ae092e137661fd403e93dc1",
+   "result": {
+    "slug": "FourierMorphSvg",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-C-consumption.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "aab94ea2b02186bff",
+   "key": "v2:e53e4ff33f76c6d89876ec53744e240807e7f589f54546f3e02a19aef39e848d",
+   "result": {
+    "slug": "FourierMorphSvg",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-D-design.md",
+    "defects": 13,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ab2a1ec8395de7334",
+   "key": "v2:1af9f5f0c65f159649c8704653732a5038bb34e987a080cd17101d3567cace57",
+   "result": {
+    "slug": "FourierShapeExtractor",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-C-consumption.md",
+    "defects": 18,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a6ebf50b9fd0653ba",
+   "key": "v2:b221bd11e7dee213ac2b2c585a8ac146295805d214fb21ffd939700a92d2b52c",
+   "result": {
+    "slug": "FourierMorphDemo",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-C-consumption.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a00a2d5f9a305be95",
+   "key": "v2:1e85f4c3e7a9eec7289980980c0a82cb4b92c6a58041091ece9c5ed23680be35",
+   "result": {
+    "slug": "FourierMorphSvg",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphSvg/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a395530f3905ff296",
+   "key": "v2:b4a76d0a1491478d7653c9d8e026959afeffa9a3cbd81ba3a61535bb99a98478",
+   "result": {
+    "slug": "ExportModal",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ExportModal/challenge-C-consumption.md",
+    "defects": 30,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a42c2a833ce00fc76",
+   "key": "v2:439f6c07787c3b47fae50b909272d33c8563e28863e0f6a15afef6cea714fa2d",
+   "result": {
+    "slug": "FourierMorphDemo",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-L-library.md",
+    "defects": 31,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac72f272e65d12e01",
+   "key": "v2:27fa5faa1cc00f08adeeb4f16770b546dd11da6e1188a0dd2eea1bc2231ad7cb",
+   "result": {
+    "slug": "FourierShapeExtractor",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a7ad8060f79d3b106",
+   "key": "v2:c991932d57c7db6b028580f07fcc734f5be8459779b78e57bf88bd5ae315dc63",
+   "result": {
+    "slug": "FourierShapeExtractor",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierShapeExtractor/challenge-D-design.md",
+    "defects": 16,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a5cccb13bca3225a9",
+   "key": "v2:eedd209927599f20f7f90f4f351690bee63f1698c9408d00af7072103bf53dcc",
+   "result": {
+    "slug": "FourierMorphDemo",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/FourierMorphDemo/challenge-D-design.md",
+    "defects": 46,
+    "blockers": 5,
+    "superlatives": 9
+   }
+  }
+ ]
+}

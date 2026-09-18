@@ -1,0 +1,47 @@
+{
+  "rtl": {
+    "dir": "rtl",
+    "ul": {
+      "paddingLeft": "41.888px",
+      "paddingRight": "0px",
+      "direction": "rtl"
+    },
+    "bulletGutterSide": "left",
+    "ulRect": {
+      "l": 224,
+      "r": 686
+    },
+    "liRect": {
+      "l": 265.9,
+      "r": 686
+    },
+    "katexPad": {
+      "paddingLeft": "25.888px",
+      "paddingRight": "0px"
+    },
+    "bodyOverflowX": false
+  },
+  "forcedColors": {
+    "h2": {
+      "color": "rgb(0, 0, 0)",
+      "fontFamily": "Fraunces, \"Fraunces Fallback\", serif"
+    },
+    "h3": {
+      "color": "rgb(0, 0, 0)"
+    },
+    "mark": {
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgba(255, 255, 0, 0)",
+      "fontWeight": "600"
+    },
+    "code": {
+      "color": "rgb(0, 0, 0)",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "hr": {
+      "borderTopColor": "rgb(0, 0, 0)",
+      "opacity": "0.3"
+    },
+    "forcedActive": true
+  }
+}

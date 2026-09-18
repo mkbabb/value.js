@@ -1,0 +1,83 @@
+{
+ "inputGeometry": {
+  "inputClass": "field-control glass-defined w-full pr-16 font-mono truncate",
+  "paddingRight": "64px",
+  "paddingLeft": "16px",
+  "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+  "textOverflow": "ellipsis",
+  "inputRect": {
+   "x": 496,
+   "w": 148,
+   "h": 36
+  },
+  "searchBtnRect": {
+   "x": 587.4,
+   "w": 52.6,
+   "h": 24
+  },
+  "textLaneRightEdge": 580,
+  "buttonLeftEdge": 587.4,
+  "overlapPx": -7.4,
+  "btnDisabledAttr": null,
+  "btnClass": "absolute right-1 top-1/2 -translate-y-1/2 h-6 px-2 rounded-full text-micro text-muted-foreground hover:text-foreground b"
+ },
+ "checkbox": {
+  "before": {
+   "n": 3,
+   "states": [
+    "unchecked",
+    "unchecked",
+    "unchecked"
+   ],
+   "badge": "",
+   "checkedAttr": [
+    "false",
+    "false",
+    "false"
+   ]
+  },
+  "afterSync": [
+   "unchecked",
+   "unchecked",
+   "unchecked"
+  ]
+ },
+ "checkboxAfter": {
+  "states": [
+   "unchecked",
+   "checked",
+   "unchecked"
+  ],
+  "aria": [
+   "false",
+   "true",
+   "false"
+  ],
+  "badgeText": ""
+ },
+ "netAfterTagClick": [
+  "GET https://api.color.babb.dev/colors/approved",
+  "GET https://api.color.babb.dev/palettes?limit=50&sort=newest",
+  "GET https://api.color.babb.dev/colors/tags"
+ ],
+ "garbageSearch": {
+  "badgeText": "1",
+  "fieldStillReads": "totally-not-a-color",
+  "swatchLabel": "Open color picker, current color #4488cc",
+  "errorTextPresent": false,
+  "clearAllPresent": true
+ },
+ "clearAll": {
+  "active": "Clear all filters",
+  "variantAttr": "ghost",
+  "dataEmphasis": "secondary",
+  "bg": "oklab(0.721321 0.00495294 0.0108792 / 0.6)",
+  "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-7 w-full text-small text-muted-foreground"
+ },
+ "clearAllAfter": {
+  "activeTag": "BODY",
+  "activeText": "→BrowseToolsBrowsePalettes Login  @mbabb",
+  "clearStillPresent": null,
+  "badgeText": ""
+ }
+}

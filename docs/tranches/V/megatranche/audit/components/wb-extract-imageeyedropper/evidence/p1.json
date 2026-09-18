@@ -1,0 +1,863 @@
+{
+  "desktop-light": {
+    "matrix": "desktop-light",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "pageErrors": [],
+    "dropZone": {
+      "ariaLabel": "Image preview area, tap to sample colors",
+      "tabindex": "-1",
+      "role": "button",
+      "hasKeydown": false
+    },
+    "tabRingContainsPreviewSeat": false,
+    "overlayRect": {
+      "x": 200,
+      "y": 192.66,
+      "w": 510,
+      "h": 685.42
+    },
+    "canvasRect": {
+      "x": 201,
+      "y": 372.87,
+      "w": 508,
+      "h": 381
+    },
+    "viewportRect": {
+      "x": 201,
+      "y": 249.66,
+      "w": 508,
+      "h": 627.42
+    },
+    "innerViewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 2
+    },
+    "canvasAttrs": {
+      "attrW": 320,
+      "attrH": 240,
+      "imageRendering": "auto",
+      "transform": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "ariaHidden": "true"
+    },
+    "activeElementOnOpen": "DIV.group[Image preview area, tap to sample colors]",
+    "overlayA11y": {
+      "role": null,
+      "ariaModal": null,
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "zIndex": "130",
+      "position": "absolute"
+    },
+    "tabWalkAfterOpen": [
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\"",
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\""
+    ],
+    "controls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "text": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readout_unsampled": "Tap to sample",
+    "hoverQuadrants": [
+      {
+        "label": "expect WHITE  (#ffffff)",
+        "at": [
+          395,
+          523.4
+        ],
+        "readout": "lab(100% 0 0)"
+      },
+      {
+        "label": "expect BLACK  (#000000)",
+        "at": [
+          515,
+          523.4
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect RED    (#ff0000)",
+        "at": [
+          395,
+          603.4
+        ],
+        "readout": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      },
+      {
+        "label": "expect BLUE   (#0055ff)",
+        "at": [
+          515,
+          603.4
+        ],
+        "readout": "lab(42.114698525303% 34.231611179643 -91.179394221958)"
+      }
+    ],
+    "hoverOffImage": {
+      "before": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "after": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "loupeStillVisible": true,
+      "loupeRect": {
+        "x": 460,
+        "y": 548,
+        "w": 110,
+        "h": 110
+      },
+      "pointerAt": [
+        205,
+        871.1
+      ]
+    },
+    "loupeRect": {
+      "x": 340,
+      "y": 468,
+      "w": 110,
+      "h": 110
+    },
+    "loupeVsStage": {
+      "widthShare": 0.217,
+      "heightShare": 0.175,
+      "areaShare": 0.03,
+      "centredOnPointer": {
+        "loupeCenter": [
+          395,
+          523
+        ],
+        "pointer": [
+          395,
+          523.4
+        ]
+      }
+    },
+    "loupeReticle": {
+      "centreBlockColours": [
+        "255,255,255,255"
+      ],
+      "neighbourColours": [
+        "255,255,255,255"
+      ],
+      "distinctCentreMarker": false
+    },
+    "tapCadence": [
+      {
+        "step": "tap WHITE quadrant",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (1st)",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (2nd, same point)",
+        "got": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      }
+    ],
+    "hoverInk": {
+      "error": "no add button"
+    },
+    "zoomAfterWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+    "overlayAfterEscape": null,
+    "activeElementAfterClose": "BODY[]"
+  },
+  "desktop-dark": {
+    "matrix": "desktop-dark",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "pageErrors": [],
+    "dropZone": {
+      "ariaLabel": "Image preview area, tap to sample colors",
+      "tabindex": "-1",
+      "role": "button",
+      "hasKeydown": false
+    },
+    "tabRingContainsPreviewSeat": false,
+    "overlayRect": {
+      "x": 200,
+      "y": 192.66,
+      "w": 510,
+      "h": 685.42
+    },
+    "canvasRect": {
+      "x": 201,
+      "y": 372.87,
+      "w": 508,
+      "h": 381
+    },
+    "viewportRect": {
+      "x": 201,
+      "y": 249.66,
+      "w": 508,
+      "h": 627.42
+    },
+    "innerViewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 2
+    },
+    "canvasAttrs": {
+      "attrW": 320,
+      "attrH": 240,
+      "imageRendering": "auto",
+      "transform": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "ariaHidden": "true"
+    },
+    "activeElementOnOpen": "DIV.group[Image preview area, tap to sample colors]",
+    "overlayA11y": {
+      "role": null,
+      "ariaModal": null,
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "zIndex": "130",
+      "position": "absolute"
+    },
+    "tabWalkAfterOpen": [
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\"",
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\""
+    ],
+    "controls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "text": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readout_unsampled": "Tap to sample",
+    "hoverQuadrants": [
+      {
+        "label": "expect WHITE  (#ffffff)",
+        "at": [
+          395,
+          523.4
+        ],
+        "readout": "lab(100% 0 0)"
+      },
+      {
+        "label": "expect BLACK  (#000000)",
+        "at": [
+          515,
+          523.4
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect RED    (#ff0000)",
+        "at": [
+          395,
+          603.4
+        ],
+        "readout": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      },
+      {
+        "label": "expect BLUE   (#0055ff)",
+        "at": [
+          515,
+          603.4
+        ],
+        "readout": "lab(42.114698525303% 34.231611179643 -91.179394221958)"
+      }
+    ],
+    "hoverOffImage": {
+      "before": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "after": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "loupeStillVisible": true,
+      "loupeRect": {
+        "x": 460,
+        "y": 548,
+        "w": 110,
+        "h": 110
+      },
+      "pointerAt": [
+        205,
+        871.1
+      ]
+    },
+    "loupeRect": {
+      "x": 340,
+      "y": 468,
+      "w": 110,
+      "h": 110
+    },
+    "loupeVsStage": {
+      "widthShare": 0.217,
+      "heightShare": 0.175,
+      "areaShare": 0.03,
+      "centredOnPointer": {
+        "loupeCenter": [
+          395,
+          523
+        ],
+        "pointer": [
+          395,
+          523.4
+        ]
+      }
+    },
+    "loupeReticle": {
+      "centreBlockColours": [
+        "255,255,255,255"
+      ],
+      "neighbourColours": [
+        "255,255,255,255"
+      ],
+      "distinctCentreMarker": false
+    },
+    "tapCadence": [
+      {
+        "step": "tap WHITE quadrant",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (1st)",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (2nd, same point)",
+        "got": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      }
+    ],
+    "hoverInk": {
+      "error": "no add button"
+    },
+    "zoomAfterWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+    "overlayAfterEscape": null,
+    "activeElementAfterClose": "BODY[]"
+  },
+  "mobile-light": {
+    "matrix": "mobile-light",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "pageErrors": [],
+    "dropZone": {
+      "ariaLabel": "Image preview area, tap to sample colors",
+      "tabindex": "-1",
+      "role": "button",
+      "hasKeydown": false
+    },
+    "tabRingContainsPreviewSeat": false,
+    "overlayRect": {
+      "x": 17,
+      "y": 173.97,
+      "w": 356,
+      "h": 607.64
+    },
+    "canvasRect": {
+      "x": 18,
+      "y": 375.04,
+      "w": 354,
+      "h": 265.5
+    },
+    "viewportRect": {
+      "x": 18,
+      "y": 234.97,
+      "w": 354,
+      "h": 545.64
+    },
+    "innerViewport": {
+      "w": 390,
+      "h": 664,
+      "dpr": 3
+    },
+    "canvasAttrs": {
+      "attrW": 320,
+      "attrH": 240,
+      "imageRendering": "auto",
+      "transform": "matrix(1.10625, 0, 0, 1.10625, 0, 140.070313)",
+      "ariaHidden": "true"
+    },
+    "activeElementOnOpen": "DIV.group[Image preview area, tap to sample colors]",
+    "overlayA11y": {
+      "role": null,
+      "ariaModal": null,
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "zIndex": "130",
+      "position": "absolute"
+    },
+    "tabWalkAfterOpen": [
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT BODY \"→ExtractPalettes Login  \"",
+      "OUT BUTTON:button \"Extract\"",
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT BODY \"→ExtractPalettes Login  \"",
+      "OUT BUTTON:button \"Extract\""
+    ],
+    "controls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "text": "",
+        "w": 44,
+        "h": 44
+      }
+    ],
+    "readout_unsampled": "Tap to sample",
+    "hoverQuadrants": [
+      {
+        "label": "expect WHITE  (#ffffff)",
+        "at": [
+          135,
+          467.8
+        ],
+        "readout": "lab(100% 0 0)"
+      },
+      {
+        "label": "expect BLACK  (#000000)",
+        "at": [
+          255,
+          467.8
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect RED    (#ff0000)",
+        "at": [
+          135,
+          547.8
+        ],
+        "readout": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      },
+      {
+        "label": "expect BLUE   (#0055ff)",
+        "at": [
+          255,
+          547.8
+        ],
+        "readout": "lab(42.114698525303% 34.231611179643 -91.179394221958)"
+      }
+    ],
+    "hoverOffImage": {
+      "before": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "after": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "loupeStillVisible": true,
+      "loupeRect": {
+        "x": 200,
+        "y": 492,
+        "w": 110,
+        "h": 110
+      },
+      "pointerAt": [
+        22,
+        774.6
+      ]
+    },
+    "loupeRect": {
+      "x": 80,
+      "y": 412,
+      "w": 110,
+      "h": 110
+    },
+    "loupeVsStage": {
+      "widthShare": 0.311,
+      "heightShare": 0.202,
+      "areaShare": 0.049,
+      "centredOnPointer": {
+        "loupeCenter": [
+          135,
+          467
+        ],
+        "pointer": [
+          135,
+          467.8
+        ]
+      }
+    },
+    "loupeReticle": {
+      "centreBlockColours": [
+        "255,255,255,255"
+      ],
+      "neighbourColours": [
+        "255,255,255,255"
+      ],
+      "distinctCentreMarker": false
+    },
+    "tapCadence": [
+      {
+        "step": "tap WHITE quadrant",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (1st)",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (2nd, same point)",
+        "got": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      }
+    ],
+    "hoverInk": {
+      "error": "no add button"
+    },
+    "wheelUnsupported": "Error: mouse.wheel: Mouse wheel is not supported in mobile WebKit",
+    "zoomAfterWheel": "matrix(1.10625, 0, 0, 1.10625, 0, 140.070313)",
+    "overlayAfterEscape": null,
+    "activeElementAfterClose": "BODY[]"
+  },
+  "rtl-desktop": {
+    "matrix": "rtl-desktop",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "pageErrors": [],
+    "dropZone": {
+      "ariaLabel": "Image preview area, tap to sample colors",
+      "tabindex": "-1",
+      "role": "button",
+      "hasKeydown": false
+    },
+    "tabRingContainsPreviewSeat": false,
+    "overlayRect": {
+      "x": 730,
+      "y": 192.66,
+      "w": 510,
+      "h": 685.42
+    },
+    "canvasRect": {
+      "x": 919,
+      "y": 372.87,
+      "w": 508,
+      "h": 381
+    },
+    "viewportRect": {
+      "x": 731,
+      "y": 249.66,
+      "w": 508,
+      "h": 627.42
+    },
+    "innerViewport": {
+      "w": 1440,
+      "h": 900,
+      "dpr": 2
+    },
+    "canvasAttrs": {
+      "attrW": 320,
+      "attrH": 240,
+      "imageRendering": "auto",
+      "transform": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "ariaHidden": "true"
+    },
+    "activeElementOnOpen": "DIV.group[Image preview area, tap to sample colors]",
+    "overlayA11y": {
+      "role": null,
+      "ariaModal": null,
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "zIndex": "130",
+      "position": "absolute"
+    },
+    "tabWalkAfterOpen": [
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\"",
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT INPUT:search \"\"",
+      "OUT BODY \"→ExtractToolsExtractPale\""
+    ],
+    "controls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "text": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readout_unsampled": "Tap to sample",
+    "hoverQuadrants": [
+      {
+        "label": "expect WHITE  (#ffffff)",
+        "at": [
+          925,
+          523.4
+        ],
+        "readout": "lab(100% 0 0)"
+      },
+      {
+        "label": "expect BLACK  (#000000)",
+        "at": [
+          1045,
+          523.4
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect RED    (#ff0000)",
+        "at": [
+          925,
+          603.4
+        ],
+        "readout": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      },
+      {
+        "label": "expect BLUE   (#0055ff)",
+        "at": [
+          1045,
+          603.4
+        ],
+        "readout": "lab(42.114698525303% 34.231611179643 -91.179394221958)"
+      }
+    ],
+    "hoverOffImage": {
+      "before": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "after": "lab(42.114698525303% 34.231611179643 -91.179394221958)",
+      "loupeStillVisible": true,
+      "loupeRect": {
+        "x": 990,
+        "y": 548,
+        "w": 110,
+        "h": 110
+      },
+      "pointerAt": [
+        735,
+        871.1
+      ]
+    },
+    "loupeRect": {
+      "x": 870,
+      "y": 468,
+      "w": 110,
+      "h": 110
+    },
+    "loupeVsStage": {
+      "widthShare": 0.217,
+      "heightShare": 0.175,
+      "areaShare": 0.03,
+      "centredOnPointer": {
+        "loupeCenter": [
+          925,
+          523
+        ],
+        "pointer": [
+          925,
+          523.4
+        ]
+      }
+    },
+    "loupeReticle": {
+      "centreBlockColours": [
+        "255,255,255,255"
+      ],
+      "neighbourColours": [
+        "255,255,255,255"
+      ],
+      "distinctCentreMarker": false
+    },
+    "tapCadence": [
+      {
+        "step": "tap WHITE quadrant",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (1st)",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (2nd, same point)",
+        "got": "lab(54.290541404672% 80.804928170435 69.890964768624)"
+      }
+    ],
+    "hoverInk": {
+      "error": "no add button"
+    },
+    "zoomAfterWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+    "overlayAfterEscape": null,
+    "activeElementAfterClose": "BODY[]"
+  },
+  "zoom-200-desktop": {
+    "matrix": "zoom-200-desktop",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+    ],
+    "pageErrors": [],
+    "dropZone": {
+      "ariaLabel": "Image preview area, tap to sample colors",
+      "tabindex": "-1",
+      "role": "button",
+      "hasKeydown": false
+    },
+    "tabRingContainsPreviewSeat": false,
+    "overlayRect": {
+      "x": 105,
+      "y": 179.95,
+      "w": 510,
+      "h": 534.31
+    },
+    "canvasRect": {
+      "x": 106,
+      "y": 284.61,
+      "w": 508,
+      "h": 381
+    },
+    "viewportRect": {
+      "x": 106,
+      "y": 236.95,
+      "w": 508,
+      "h": 476.31
+    },
+    "innerViewport": {
+      "w": 720,
+      "h": 450,
+      "dpr": 2
+    },
+    "canvasAttrs": {
+      "attrW": 320,
+      "attrH": 240,
+      "imageRendering": "auto",
+      "transform": "matrix(1.5875, 0, 0, 1.5875, 0, 47.65625)",
+      "ariaHidden": "true"
+    },
+    "activeElementOnOpen": "DIV.group[Image preview area, tap to sample colors]",
+    "overlayA11y": {
+      "role": null,
+      "ariaModal": null,
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "zIndex": "130",
+      "position": "absolute"
+    },
+    "tabWalkAfterOpen": [
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT BODY \"→ExtractPalettes Login  \"",
+      "OUT BUTTON:button \"Extract\"",
+      "OUT SPAN \"Number of colors\"",
+      "OUT SPAN \"Chroma weight\"",
+      "OUT BODY \"→ExtractPalettes Login  \"",
+      "OUT BUTTON:button \"Extract\""
+    ],
+    "controls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "text": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readout_unsampled": "Tap to sample",
+    "hoverQuadrants": [
+      {
+        "label": "expect WHITE  (#ffffff)",
+        "at": [
+          300,
+          435.1
+        ],
+        "readout": "lab(100% 0 0)"
+      },
+      {
+        "label": "expect BLACK  (#000000)",
+        "at": [
+          420,
+          435.1
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect RED    (#ff0000)",
+        "at": [
+          300,
+          515.1
+        ],
+        "readout": "lab(0% 0 0)"
+      },
+      {
+        "label": "expect BLUE   (#0055ff)",
+        "at": [
+          420,
+          515.1
+        ],
+        "readout": "lab(0% 0 0)"
+      }
+    ],
+    "hoverOffImage": {
+      "before": "lab(0% 0 0)",
+      "after": "lab(0% 0 0)",
+      "loupeStillVisible": true,
+      "loupeRect": {
+        "x": 365,
+        "y": 380,
+        "w": 110,
+        "h": 110
+      },
+      "pointerAt": [
+        110,
+        707.3
+      ]
+    },
+    "loupeRect": {
+      "x": 245,
+      "y": 380,
+      "w": 110,
+      "h": 110
+    },
+    "loupeVsStage": {
+      "widthShare": 0.217,
+      "heightShare": 0.231,
+      "areaShare": 0.039,
+      "centredOnPointer": {
+        "loupeCenter": [
+          300,
+          435
+        ],
+        "pointer": [
+          300,
+          435.1
+        ]
+      }
+    },
+    "loupeReticle": {
+      "centreBlockColours": [
+        "255,255,255,255"
+      ],
+      "neighbourColours": [
+        "255,255,255,255"
+      ],
+      "distinctCentreMarker": false
+    },
+    "tapCadence": [
+      {
+        "step": "tap WHITE quadrant",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (1st)",
+        "got": "lab(100% 0 0)"
+      },
+      {
+        "step": "tap RED quadrant (2nd, same point)",
+        "got": "lab(100% 0 0)"
+      }
+    ],
+    "hoverInk": {
+      "error": "no add button"
+    },
+    "zoomAfterWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 47.65625)",
+    "overlayAfterEscape": null,
+    "activeElementAfterClose": "BODY[]"
+  }
+}

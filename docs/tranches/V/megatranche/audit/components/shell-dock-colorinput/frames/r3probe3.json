@@ -1,0 +1,101 @@
+{
+ "transitionDuration": "0.1s",
+ "animationDuration": "1e-05s",
+ "hits": [
+  {
+   "sel": ".color-input[data-v-55dadc03]",
+   "media": null,
+   "td": "",
+   "t": "border-color var(--duration-fast) var(--ease-standard),\n        box-shadow var(--duration-fast) var(--ease-standard)",
+   "imp": ""
+  },
+  {
+   "sel": ":not([data-allow-motion])",
+   "media": "(prefers-reduced-motion: reduce)",
+   "td": "0.1s",
+   "t": "",
+   "imp": "important"
+  },
+  {
+   "sel": "*, ::before, ::after",
+   "media": "(prefers-reduced-motion: reduce)",
+   "td": "0.01ms",
+   "t": "",
+   "imp": "important"
+  },
+  {
+   "sel": "&",
+   "media": null,
+   "td": "var(--duration-fast)",
+   "t": "",
+   "imp": ""
+  },
+  {
+   "sel": "&",
+   "media": null,
+   "td": "var(--duration-fast)",
+   "t": "",
+   "imp": ""
+  }
+ ],
+ "chain": [
+  {
+   "tag": "SPAN",
+   "cls": "color-input w-full block border overflow-hidden it",
+   "r": "4px",
+   "bg": "rgb(251, 250, 248)",
+   "w": 324.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "relative w-full flex items-center cursor-default",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 324.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "grid grid-cols-1 gap-y-2 p-0 m-0 dock-layer is-act",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 324.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-layer-grid flex-1",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 324.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "flex items-center gap-0 min-w-0",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 377.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-face-content",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 442.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-face is-active",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 442.7
+  },
+  {
+   "tag": "DIV",
+   "cls": "dock-crossfade",
+   "r": "0px",
+   "bg": "rgba(0, 0, 0, 0)",
+   "w": 442.7
+  }
+ ],
+ "fieldRadius": "4px",
+ "prm": true
+}

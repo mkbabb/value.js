@@ -1,0 +1,151 @@
+{
+  "C0_viewport": {
+    "w": 390,
+    "h": 664,
+    "dpr": 3
+  },
+  "C1_menuOnly": {
+    "menus": [
+      {
+        "id": "reka-dropdown-menu-content-v-0-6",
+        "side": "top",
+        "align": "end",
+        "x": 151.3,
+        "y": 235.7,
+        "w": 192,
+        "h": 245.6,
+        "right": 343.3,
+        "bottom": 481.2,
+        "overflowsRight": false,
+        "overflowsLeft": false,
+        "overflowsBottom": false,
+        "items": [
+          {
+            "t": "Publish",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Rename",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Export",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Delete",
+            "w": 178,
+            "h": 44
+          }
+        ]
+      }
+    ],
+    "overlap": null,
+    "docScrollW": 390,
+    "innerW": 390,
+    "horizontalOverflow": false
+  },
+  "C3_touchTapOnExport": {
+    "menusBefore": 1,
+    "menusAfter": 1,
+    "subState": {
+      "ariaExpanded": "false",
+      "dataState": "closed",
+      "hasChevronAffordance": true,
+      "childSvgCount": 2
+    }
+  },
+  "C2_menuPlusSubmenu": {
+    "menus": [
+      {
+        "id": "reka-dropdown-menu-content-v-0-6",
+        "side": "top",
+        "align": "end",
+        "x": 151.3,
+        "y": 235.7,
+        "w": 192,
+        "h": 245.6,
+        "right": 343.3,
+        "bottom": 481.2,
+        "overflowsRight": false,
+        "overflowsLeft": false,
+        "overflowsBottom": false,
+        "items": [
+          {
+            "t": "Publish",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Rename",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Export",
+            "w": 178,
+            "h": 44
+          },
+          {
+            "t": "Delete",
+            "w": 178,
+            "h": 44
+          }
+        ]
+      },
+      {
+        "id": "reka-menu-sub-content-v-0-11",
+        "side": "left",
+        "align": "start",
+        "x": 0,
+        "y": 385.3,
+        "w": 301.4,
+        "h": 243,
+        "right": 301.4,
+        "bottom": 628.3,
+        "overflowsRight": false,
+        "overflowsLeft": false,
+        "overflowsBottom": false,
+        "items": [
+          {
+            "t": "JSON",
+            "w": 287,
+            "h": 44
+          },
+          {
+            "t": "CSS Custom Properties",
+            "w": 287,
+            "h": 44
+          },
+          {
+            "t": "Tailwind Config",
+            "w": 287,
+            "h": 44
+          },
+          {
+            "t": "SVG Swatch",
+            "w": 287,
+            "h": 44
+          },
+          {
+            "t": "PNG Swatch",
+            "w": 287,
+            "h": 44
+          }
+        ]
+      }
+    ],
+    "overlap": {
+      "xPx": 150.1,
+      "yPx": 95.9,
+      "area": 14395
+    },
+    "docScrollW": 390,
+    "innerW": 390,
+    "horizontalOverflow": false
+  },
+  "errs": []
+}

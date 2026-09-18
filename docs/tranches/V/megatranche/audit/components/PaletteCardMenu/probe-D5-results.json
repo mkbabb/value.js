@@ -1,0 +1,194 @@
+{
+  "desktop-mouse-click": {
+    "events": [
+      {
+        "phase": "capture",
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "pointermove",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "pointerdown",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "mousedown",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "mousedown",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "pointerup",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "pointerup",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "mouseup",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "mouseup",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "click",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "click",
+        "pointerType": "mouse",
+        "cancelable": true,
+        "defaultPrevented": true
+      },
+      {
+        "phase": "AFTER-ALL",
+        "type": "click",
+        "defaultPrevented": true
+      }
+    ],
+    "open": true,
+    "ariaExpanded": "true"
+  },
+  "touch-tap": {
+    "events": [
+      {
+        "phase": "capture",
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "pointerdown",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "touchstart",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "touchstart",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "pointerup",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "pointerup",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "touchend",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "touchend",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "mousedown",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "mousedown",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "mouseup",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "mouseup",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "capture",
+        "type": "click",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": false
+      },
+      {
+        "phase": "bubble-end",
+        "type": "click",
+        "pointerType": "touch",
+        "cancelable": true,
+        "defaultPrevented": true
+      },
+      {
+        "phase": "AFTER-ALL",
+        "type": "click",
+        "defaultPrevented": true
+      }
+    ],
+    "open": false,
+    "ariaExpanded": "false"
+  }
+}

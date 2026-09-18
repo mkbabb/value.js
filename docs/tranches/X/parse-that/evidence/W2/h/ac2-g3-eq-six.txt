@@ -1,0 +1,19 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac2
+# ⟨cmd⟩ node harness/w2/eq-six.mjs --candidate ac2 --corpus experiments/w2/corpus/slice.json --fuzz-seed experiments/w2/corpus/fuzz-seed.json
+
+=== X.P.W2.g — eq-six --candidate ac2 (G-3) ===
+product  divergences (js vs wasm)  first row
+-------  ------------------------  --------------------
+EQ-1     0                         -
+EQ-2     0                         -
+EQ-3     0                         -
+EQ-4     0                         -
+EQ-5     0                         -
+EQ-6     2035                      s0180 "var(--brand)"
+rows compared                           30527
+label indices aligned across lowerings  true
+third-cell differences                  236 (12 carrying a declared row)
+RED — 2035 divergences between the two lowerings (K-1)
+
+# exit 0

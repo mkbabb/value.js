@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g6:benchmark-run-manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "status", "attempt_id", "pre_author_receipt", "operation", "candidates", "correctness", "comparators", "schedule", "environment", "evidence_paths", "sealed_at"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 6 }, "status": { "const": "SEALED_BEFORE_FIRST_TIMING" },
+    "attempt_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{0,79}$" }, "pre_author_receipt": { "$ref": "#/$defs/identityRow" },
+    "operation": { "type": "object", "additionalProperties": false, "required": ["feature_row_sha256", "public_corpus_sha256", "revealed_holdout_corpus_sha256", "normalized_observations_sha256", "throughput_unit"], "properties": { "feature_row_sha256": { "$ref": "#/$defs/sha256" }, "public_corpus_sha256": { "$ref": "#/$defs/sha256" }, "revealed_holdout_corpus_sha256": { "$ref": "#/$defs/sha256" }, "normalized_observations_sha256": { "$ref": "#/$defs/sha256" }, "throughput_unit": { "const": "UTF16_CODE_UNITS_PER_SECOND" } } },
+    "candidates": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": { "type": "object", "additionalProperties": false, "required": ["seat", "source_sha256", "author_receipt_sha256", "build_manifest_sha256", "bundle_sha256", "export"], "properties": { "seat": { "enum": ["h", "b", "s", "d"] }, "source_sha256": { "$ref": "#/$defs/sha256" }, "author_receipt_sha256": { "$ref": "#/$defs/sha256" }, "build_manifest_sha256": { "$ref": "#/$defs/sha256" }, "bundle_sha256": { "$ref": "#/$defs/sha256" }, "export": { "const": "consumeNumber" } } }
+    },
+    "correctness": {
+      "type": "object", "additionalProperties": false,
+      "required": ["public_green_receipts", "holdout_green_receipts", "expected_public_observations_sha256", "expected_holdout_observations_sha256"],
+      "properties": {
+        "public_green_receipts": { "$ref": "#/$defs/fourSeatHashes" }, "holdout_green_receipts": { "$ref": "#/$defs/fourSeatHashes" },
+        "expected_public_observations_sha256": { "$ref": "#/$defs/sha256" }, "expected_holdout_observations_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "comparators": {
+      "type": "array", "minItems": 3, "maxItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "observed_bundle_sha256", "lane", "status", "reason", "build_manifest_sha256", "bundle_sha256", "semantic_green_receipt_sha256"],
+        "properties": {
+          "id": { "enum": ["live-regex", "deposed", "c14"] }, "observed_bundle_sha256": { "$ref": "#/$defs/sha256" }, "lane": { "const": "COMMON_PREFIX_SEMANTICS" },
+          "status": { "enum": ["COMPARABLE", "NON_COMPARABLE"] }, "reason": { "type": "string", "minLength": 1 },
+          "build_manifest_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] }, "bundle_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+          "semantic_green_receipt_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] }
+        }
+      }
+    },
+    "schedule": { "type": "object", "additionalProperties": false, "required": ["warmups", "rounds", "batch", "cases_per_batch", "order_sha256", "paired", "one_sided_confidence", "bootstrap_seed", "bootstrap_resamples", "strict_win_upper_bound"], "properties": { "warmups": { "type": "integer", "minimum": 1 }, "rounds": { "type": "integer", "minimum": 5 }, "batch": { "type": "integer", "minimum": 1 }, "cases_per_batch": { "type": "integer", "minimum": 1 }, "order_sha256": { "$ref": "#/$defs/sha256" }, "paired": { "const": true }, "one_sided_confidence": { "type": "number", "minimum": 0.9, "maximum": 0.999 }, "bootstrap_seed": { "type": "integer", "minimum": 1, "maximum": 4294967295 }, "bootstrap_resamples": { "type": "integer", "minimum": 1000 }, "strict_win_upper_bound": { "const": 1 } } },
+    "environment": { "type": "object", "additionalProperties": false, "required": ["node", "v8", "platform", "arch", "cpu", "runner_sha256"], "properties": { "node": { "type": "string", "minLength": 1 }, "v8": { "type": "string", "minLength": 1 }, "platform": { "type": "string", "minLength": 1 }, "arch": { "type": "string", "minLength": 1 }, "cpu": { "type": "string", "minLength": 1 }, "runner_sha256": { "$ref": "#/$defs/sha256" } } },
+    "evidence_paths": { "type": "object", "additionalProperties": false, "required": ["attempt_ledger", "raw_result"], "properties": { "attempt_ledger": { "type": "string", "pattern": "^attempts/ledger\\.jsonl$" }, "raw_result": { "type": "string", "pattern": "^attempts/[a-z0-9][a-z0-9._-]{0,79}\\.raw\\.json$" } } },
+    "sealed_at": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "identityRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } },
+    "fourSeatHashes": { "type": "object", "additionalProperties": false, "required": ["h", "b", "s", "d"], "properties": { "h": { "$ref": "#/$defs/sha256" }, "b": { "$ref": "#/$defs/sha256" }, "s": { "$ref": "#/$defs/sha256" }, "d": { "$ref": "#/$defs/sha256" } } }
+  }
+}

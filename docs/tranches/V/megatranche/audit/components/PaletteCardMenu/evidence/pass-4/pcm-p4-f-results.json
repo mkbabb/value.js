@@ -1,0 +1,29 @@
+{
+  "F1_clickPoint": {
+    "cx": 1184,
+    "cy": 605.6,
+    "itemAtPoint": "Publish"
+  },
+  "F2_afterStrayClick": [
+    {
+      "i": 0,
+      "name": "Palette: Probe Palette 0",
+      "h": 128,
+      "text": "Probe Palette 0 2 Failed to create session"
+    },
+    {
+      "i": 1,
+      "name": "Palette: Probe Palette 1",
+      "h": 100,
+      "text": "Probe Palette 1 2"
+    },
+    {
+      "i": 2,
+      "name": "Palette: Probe Palette 2",
+      "h": 100,
+      "text": "Probe Palette 2 2"
+    }
+  ],
+  "F3_network": [],
+  "F4_console": []
+}

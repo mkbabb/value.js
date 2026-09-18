@@ -1,0 +1,367 @@
+{
+ "scheme": "light",
+ "width": 1440,
+ "height": 900,
+ "consoleErrors": [],
+ "colorGhost": {
+  "plate": {
+   "x": 754,
+   "y": 560.8,
+   "w": 462,
+   "h": 118.7
+  },
+  "plateCls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well mix-plate--ghost vj-morph-enter-active vj-morph-enter-to",
+  "opacity": "0.55",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "radius": "12px",
+  "pad": "16px",
+  "gap": "12px",
+  "transition": "opacity | 0.2s | cubic-bezier(0.4, 0, 0.2, 1)",
+  "label": {
+   "text": "Result",
+   "font": "Fraunces",
+   "size": "14.384px",
+   "weight": "700",
+   "color": "rgb(112, 89, 66)",
+   "transform": "uppercase",
+   "spacing": "0.3596px"
+  },
+  "dots": [
+   {
+    "tagName": "SPAN",
+    "variant": "ghost",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 56,
+    "h": 56,
+    "pe": "none"
+   }
+  ],
+  "btns": [],
+  "seps": [],
+  "grad": null,
+  "code": null,
+  "mixTargets": 0,
+  "tagAttrCount": 0,
+  "ariaHiddenCount": 3,
+  "outer": "<div data-v-0f138735=\"\" class=\"mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well mix-plate--ghost vj-morph-enter-active vj-morph-enter-to\"><span data-v-0f138735=\"\" class=\"font-display text-caption font-bold text-muted-foreground uppercase tracking-wide\">Result</span><div data-v-0f138735=\"\" class=\"flex items-center gap-3\"><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"shrink-0 w-14 h-14 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"border-radius: 26.270399% 55.103989% 50.29469% 62.063959% / 79.093333% 77.956206% 76.667451% 76.262052%; pointer-events: none; --watercolor-color: oklab(73% 0.013018351724 0.016817844922); --watercolor-filter: url(#watercolor-filter-v-1-19); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-19\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"27\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"noise\" scale=\"1.3\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap></filter></defs></svg><span data-v-292b9032=\"\" class=\"watercolor-ghost-stroke\" aria-hidden=\"true\" style=\"border-radius: 26.270399% 55.103989% 50.29469% 62.063959% / 79.093333% 77.956206% 76.667451% 76.262052%; filter: url(&quot;#watercolor-filter-v-1-19&quot;);\"></span></span></div></div>"
+ },
+ "colorSettled": {
+  "plate": {
+   "x": 754,
+   "y": 560.8,
+   "w": 462,
+   "h": 158.7
+  },
+  "plateCls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well",
+  "opacity": "1",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "radius": "12px",
+  "pad": "16px",
+  "gap": "12px",
+  "transition": "opacity | 0.2s | cubic-bezier(0.4, 0, 0.2, 1)",
+  "label": {
+   "text": "Result",
+   "font": "Fraunces",
+   "size": "14.384px",
+   "weight": "700",
+   "color": "rgb(112, 89, 66)",
+   "transform": "uppercase",
+   "spacing": "0.3596px"
+  },
+  "dots": [
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 56,
+    "h": 56,
+    "pe": "none"
+   }
+  ],
+  "btns": [
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Copy color",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   },
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Save to palettes",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   },
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Reset",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   }
+  ],
+  "seps": [
+   {
+    "w": 1,
+    "h": 0,
+    "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+    "cls": "dock-separator",
+    "role": "separator",
+    "ori": "vertical"
+   }
+  ],
+  "grad": null,
+  "code": {
+   "text": "oklab(73% 0.013018351724 0.016817844922)",
+   "font": "\"Fira Code\"",
+   "size": "16.4px",
+   "color": "rgb(28, 25, 23)",
+   "wordBreak": "break-all",
+   "overflowWrap": "normal",
+   "w": 362,
+   "h": 46
+  },
+  "mixTargets": 0,
+  "tagAttrCount": 0,
+  "ariaHiddenCount": 2,
+  "outer": "<div data-v-0f138735=\"\" class=\"mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well\"><span data-v-0f138735=\"\" class=\"font-display text-caption font-bold text-muted-foreground uppercase tracking-wide\">Result</span><div data-v-0f138735=\"\" class=\"flex flex-col gap-3 vj-morph-enter-active vj-morph-enter-to\"><!-- Single color result --><div data-v-0f138735=\"\" class=\"flex items-center gap-3\"><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"w-14 h-14 shrink-0 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"solid\" style=\"background-color: oklab(0.73 0.013018 0.016818); border-radius: 26.270399% 55.103989% 50.29469% 62.063959% / 79.093333% 77.956206% 76.667451% 76.262052%; pointer-events: none; --watercolor-color: oklab(73% 0.013018351724 0.016817844922); --watercolor-filter: url(#watercolor-filter-v-1-20); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-20\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"27\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"noise\" scale=\"1.3\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap></filter></defs></svg><!----></span><span data-v-0f138735=\"\" class=\"text-mono-small text-foreground select-all break-all\">oklab(73% 0.013018351724 0.016817844922)</span></div><!-- Palette result --><!--v-if--><!-- Actions --><div data-v-0f138735=\"\" class=\"flex items-center gap-1\"><button data-v-0f138735=\"\" type=\"button\" class=\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact\" data-press-armed=\"\" title=\"Copy color\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000;\"><svg data-v-0f138735=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-copy-icon lucide-copy w-5 h-5\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"></rect><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"></path></svg></button><button data-v-0f138735=\"\" type=\"button\" class=\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact\" data-press-armed=\"\" title=\"Save to palettes\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000;\"><svg data-v-0f138735=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"lucide lucide-save-icon lucide-save w-5 h-5\"><path d=\"M15.2 3a2 2 0 0 1 1.4.6l3.8 3.8a2 2 0 0 1 .6 1.4V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z\"></path><path d=\"M17 21v-7a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v7\"></path><path d=\"M7 3v4a1 1 0 0 0 1 1h7\"></path></svg></button><div data-v-0f138735=\"\" class=\"dock-separator\" role=\"separator\" data-orientation=\"horizontal\" aria-orientation=\"vertical\"></div><button data-v-0f138735=\"\" type=\"button\" class=\"dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact\" data-press-armed=\"\" title=\"Reset\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000;\"><svg data-v-0f138735=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill"
+ },
+ "colorAria": "- text: Result oklab(73% 0.013018351724 0.016817844922)\n- button \"Copy color\":\n  - img\n- button \"Save to palettes\":\n  - img\n- separator\n- button \"Reset\":\n  - img",
+ "palSetup": {
+  "savedCount": 2,
+  "sel": 2,
+  "canMix": true
+ },
+ "palGhost": {
+  "plate": {
+   "x": 754,
+   "y": 722.3,
+   "w": 462,
+   "h": 102.7
+  },
+  "plateCls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well mix-plate--ghost",
+  "opacity": "0.55",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "radius": "12px",
+  "pad": "16px",
+  "gap": "12px",
+  "transition": "opacity | 0.2s | cubic-bezier(0.4, 0, 0.2, 1)",
+  "label": {
+   "text": "Result",
+   "font": "Fraunces",
+   "size": "14.384px",
+   "weight": "700",
+   "color": "rgb(112, 89, 66)",
+   "transform": "uppercase",
+   "spacing": "0.3596px"
+  },
+  "dots": [
+   {
+    "tagName": "SPAN",
+    "variant": "ghost",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   }
+  ],
+  "btns": [],
+  "seps": [],
+  "grad": null,
+  "code": null,
+  "mixTargets": 0,
+  "tagAttrCount": 0,
+  "ariaHiddenCount": 3,
+  "outer": "<div data-v-0f138735=\"\" class=\"mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well mix-plate--ghost\"><span data-v-0f138735=\"\" class=\"font-display text-caption font-bold text-muted-foreground uppercase tracking-wide\">Result</span><div data-v-0f138735=\"\" class=\"flex items-center gap-3\"><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"shrink-0 w-10 h-10 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"ghost\" style=\"border-radius: 21.221242% 73.960409% 70.404189% 58.763057% / 24.124254% 27.492783% 57.486678% 34.127257%; pointer-events: none; --watercolor-color: oklab(56% 0.180068501847 0.005946720533); --watercolor-filter: url(#watercolor-filter-v-1-30); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-30\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"65\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"noise\" scale=\"1.3\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap></filter></defs></svg><span data-v-292b9032=\"\" class=\"watercolor-ghost-stroke\" aria-hidden=\"true\" style=\"border-radius: 21.221242% 73.960409% 70.404189% 58.763057% / 24.124254% 27.492783% 57.486678% 34.127257%; filter: url(&quot;#watercolor-filter-v-1-30&quot;);\"></span></span></div></div>"
+ },
+ "palSettled": {
+  "plate": {
+   "x": 754,
+   "y": 688.3,
+   "w": 462,
+   "h": 170.7
+  },
+  "plateCls": "mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well",
+  "opacity": "1",
+  "bg": "oklab(0.913299 0.005463 0.013024)",
+  "radius": "12px",
+  "pad": "16px",
+  "gap": "12px",
+  "transition": "opacity | 0.2s | cubic-bezier(0.4, 0, 0.2, 1)",
+  "label": {
+   "text": "Result",
+   "font": "Fraunces",
+   "size": "14.384px",
+   "weight": "700",
+   "color": "rgb(112, 89, 66)",
+   "transform": "uppercase",
+   "spacing": "0.3596px"
+  },
+  "dots": [
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   },
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   },
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   },
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   },
+   {
+    "tagName": "SPAN",
+    "variant": "solid",
+    "attrs": [
+     "data-v-292b9032",
+     "data-v-0f138735",
+     "aria-hidden",
+     "class",
+     "data-testid",
+     "data-variant",
+     "style"
+    ],
+    "title": null,
+    "w": 40,
+    "h": 40,
+    "pe": "none"
+   }
+  ],
+  "btns": [
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Copy color",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   },
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Save to palettes",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   },
+   {
+    "w": 28,
+    "h": 28,
+    "title": "Reset",
+    "ariaLabel": null,
+    "text": "",
+    "disabled": false
+   }
+  ],
+  "seps": [
+   {
+    "w": 1,
+    "h": 0,
+    "bg": "color(srgb 0.11 0.098 0.09 / 0.15)",
+    "cls": "dock-separator",
+    "role": "separator",
+    "ori": "vertical"
+   }
+  ],
+  "grad": {
+   "w": 430,
+   "h": 16,
+   "aria": "true",
+   "role": "presentation"
+  },
+  "code": null,
+  "mixTargets": 0,
+  "tagAttrCount": 0,
+  "ariaHiddenCount": 11,
+  "outer": "<div data-v-0f138735=\"\" class=\"mix-plate flex flex-col gap-3 p-4 rounded-xl bg-well\"><span data-v-0f138735=\"\" class=\"font-display text-caption font-bold text-muted-foreground uppercase tracking-wide\">Result</span><div data-v-0f138735=\"\" class=\"flex flex-col gap-3\"><!-- Single color result --><!--v-if--><!-- Palette result --><div data-v-0f138735=\"\" class=\"swatch-row flex flex-wrap gap-2\"><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"w-10 h-10 shrink-0 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"solid\" style=\"background-color: oklab(0.56 0.180069 0.005947); border-radius: 21.221242% 73.960409% 70.404189% 58.763057% / 24.124254% 27.492783% 57.486678% 34.127257%; pointer-events: none; --watercolor-color: oklab(56% 0.180068501847 0.005946720533); --watercolor-filter: url(#watercolor-filter-v-1-31); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-31\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"65\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"noise\" scale=\"1.3\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap></filter></defs></svg><!----></span><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"w-10 h-10 shrink-0 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"solid\" style=\"background-color: oklab(0.71 -0.081033 -0.049874); border-radius: 40.332355% 24.676229% 27.21503% 27.613488% / 49.449051% 62.2738% 32.663156% 67.711357%; pointer-events: none; --watercolor-color: oklab(71% -0.08103323641 -0.049873872767); --watercolor-filter: url(#watercolor-filter-v-1-32); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-32\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"141\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"noise\" scale=\"1.3\" xChannelSelector=\"R\" yChannelSelector=\"G\"></feDisplacementMap></filter></defs></svg><!----></span><span data-v-292b9032=\"\" data-v-0f138735=\"\" aria-hidden=\"true\" class=\"w-10 h-10 shrink-0 watercolor-swatch\" data-testid=\"watercolor-swatch\" data-variant=\"solid\" style=\"background-color: oklab(0.7 0.047072 0.095734); border-radius: 50.52747% 33.34925% 36.413782% 39.32845% / 59.20228% 30.775857% 47.932916% 68.515479%; pointer-events: none; --watercolor-color: oklab(70% 0.047072335871 0.095733718183); --watercolor-filter: url(#watercolor-filter-v-1-33); --watercolor-wobble: none;\"><svg data-v-292b9032=\"\" class=\"watercolor-filter-host\" aria-hidden=\"true\" focusable=\"false\"><defs data-v-292b9032=\"\"><filter data-v-292b9032=\"\" id=\"watercolor-filter-v-1-33\" x=\"-15%\" y=\"-15%\" width=\"130%\" height=\"130%\" color-interpolation-filters=\"linearRGB\"><feTurbulence data-v-292b9032=\"\" type=\"fractalNoise\" baseFrequency=\"0.05\" numOctaves=\"5\" seed=\"102\" stitchTiles=\"stitch\" result=\"noise\"></feTurbulence><feDisplacementMap data-v-292b9032=\"\" in=\"SourceGraphic\" in2=\"n"
+ },
+ "palAria": "- text: Result\n- button \"Copy color\":\n  - img\n- button \"Save to palettes\":\n  - img\n- separator\n- button \"Reset\":\n  - img"
+}

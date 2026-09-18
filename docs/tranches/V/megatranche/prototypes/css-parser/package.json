@@ -1,0 +1,21 @@
+{
+  "name": "@value-js/mt-css-parser",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Mega-tranche parser band — idiomatic @mkbabb/parse-that CSS colour prototypes. NOT production. Consumes the PUBLISHED package only.",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "bench": "tsx bench/run.ts"
+  },
+  "dependencies": {
+    "@mkbabb/parse-that": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "tsx": "4.20.3",
+    "typescript": "5.8.3",
+    "vitest": "3.2.7"
+  }
+}

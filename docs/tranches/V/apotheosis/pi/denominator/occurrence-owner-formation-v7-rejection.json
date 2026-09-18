@@ -1,0 +1,58 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation/v7-rejection",
+  "date": "2026-07-22",
+  "status": "REJECTED_ZERO_CREDIT",
+  "subject": {
+    "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v7.json",
+    "sha256": "259d9fce299411222a126245ce22c627b260f4260d7009ecaf94ab9fbb7c0968",
+    "bytes": 21945
+  },
+  "formation_receipt": {
+    "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v7-formation-2026-07-22.md",
+    "sha256": "5c53eb81a34c1f8d95a2aff5134403217dbf5e53bee41b7dd3b19af1556e6861",
+    "bytes": 6864
+  },
+  "challenges": [
+    {
+      "id": "A",
+      "verdict": "REJECT",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v7-challenge-a.md",
+      "sha256": "d63c351119de1732194f9134752adf0d08e85eddbb74f20fd7fa2ec0e78ec528",
+      "bytes": 14554
+    },
+    {
+      "id": "B",
+      "verdict": "REJECT",
+      "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v7-challenge-b.md",
+      "sha256": "9308962748155124807f4ea0603d6b89dbc47673f5abd4afb070fbaeb70b185d",
+      "bytes": 7641
+    }
+  ],
+  "root_gestalt": {
+    "verdict": "REJECT",
+    "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v7-root-gestalt.md",
+    "sha256": "8a7dffde22dbdc68d38d92cb10484cf562386769f95d56dc23c32da92894f2f9",
+    "bytes": 4828
+  },
+  "confirmed_blockers": [
+    "Active specification links in HTML href attributes are omitted from the reference table, including a normative CSS Color 5 dependency.",
+    "Escaped shorthands and strings in class-highlighted raw examples are emitted as live references.",
+    "HTML comments produce live headings, carriers, operation intervals, and false ancestry.",
+    "Quote-blind tag stripping corrupts visible heading text for 32 authenticated carrier contexts."
+  ],
+  "required_next": "Form V8 around one quote-aware Bikeshed lexical-state model shared by reference, heading, carrier, container, and operation discovery; retain every prior positive witness and add the exact V7 negatives; regenerate all affected identities; then obtain two fresh challenges and root gestalt.",
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

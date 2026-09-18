@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g6:root-gestalt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "scope", "verdict", "identity", "model_receipt", "subject", "challenges", "three_altitude_findings", "evidence", "union_blockers", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 6 },
+    "scope": { "const": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION" },
+    "verdict": { "enum": ["ACCEPT", "REJECT"] },
+    "identity": {
+      "type": "object", "additionalProperties": false,
+      "required": ["root_id", "reviewer_id", "served_model", "reasoning_effort", "independent", "candidate_author", "challenge_reviewer", "hidden_plaintext_or_key_access"],
+      "properties": {
+        "root_id": { "type": "string", "minLength": 1 }, "reviewer_id": { "type": "string", "minLength": 1 },
+        "served_model": { "type": "string", "minLength": 1 }, "reasoning_effort": { "type": "string", "minLength": 1 },
+        "independent": { "const": true }, "candidate_author": { "const": false }, "challenge_reviewer": { "const": false }, "hidden_plaintext_or_key_access": { "const": false }
+      }
+    },
+    "model_receipt": {
+      "type": "object", "additionalProperties": false,
+      "required": ["served_model", "input_manifest_sha256", "root_input_sha256", "commands", "closed_at"],
+      "properties": {
+        "served_model": { "type": "string", "minLength": 1 }, "input_manifest_sha256": { "$ref": "#/$defs/sha256" }, "root_input_sha256": { "$ref": "#/$defs/sha256" },
+        "commands": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }, "closed_at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "subject": { "$ref": "#/$defs/subject" },
+    "challenges": {
+      "type": "array", "minItems": 2, "maxItems": 2,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["id", "reviewer_id", "path", "sha256", "bytes", "verdict"],
+        "properties": {
+          "id": { "enum": ["A", "B"] }, "reviewer_id": { "type": "string", "minLength": 1 }, "path": { "type": "string", "minLength": 1 },
+          "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 }, "verdict": { "enum": ["ACCEPT", "REJECT"] }
+        }
+      },
+      "contains": { "properties": { "id": { "const": "A" } }, "required": ["id"] }, "minContains": 1, "maxContains": 1
+    },
+    "three_altitude_findings": {
+      "type": "object", "additionalProperties": false,
+      "required": ["total_tranche", "feature_cell", "author_admission_and_tooling"],
+      "properties": {
+        "total_tranche": { "$ref": "#/$defs/axis" }, "feature_cell": { "$ref": "#/$defs/axis" }, "author_admission_and_tooling": { "$ref": "#/$defs/axis" }
+      }
+    },
+    "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } },
+    "union_blockers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "credit": { "$ref": "#/$defs/zeroCredit" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "verdict": { "const": "ACCEPT" } }, "required": ["verdict"] },
+      "then": {
+        "properties": {
+          "union_blockers": { "maxItems": 0 },
+          "challenges": { "items": { "properties": { "verdict": { "const": "ACCEPT" } } }, "contains": { "properties": { "id": { "const": "B" } }, "required": ["id"] }, "minContains": 1, "maxContains": 1 },
+          "three_altitude_findings": { "properties": { "total_tranche": { "$ref": "#/$defs/acceptAxis" }, "feature_cell": { "$ref": "#/$defs/acceptAxis" }, "author_admission_and_tooling": { "$ref": "#/$defs/acceptAxis" } } }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "identityRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } },
+    "subject": { "type": "object", "additionalProperties": false, "required": ["formation", "precursor_closure_sha256", "holdout_receipt", "holdout_ciphertext"], "properties": { "formation": { "$ref": "#/$defs/identityRow" }, "precursor_closure_sha256": { "$ref": "#/$defs/sha256" }, "holdout_receipt": { "$ref": "#/$defs/identityRow" }, "holdout_ciphertext": { "$ref": "#/$defs/identityRow" } } },
+    "axis": { "type": "object", "additionalProperties": false, "required": ["verdict", "findings"], "properties": { "verdict": { "enum": ["ACCEPT", "REJECT"] }, "findings": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } } } },
+    "acceptAxis": { "type": "object", "properties": { "verdict": { "const": "ACCEPT" } }, "required": ["verdict"] },
+    "zeroCredit": { "type": "object", "additionalProperties": false, "required": ["feature", "parser", "candidate", "benchmark", "integration", "production"], "properties": { "feature": { "const": 0 }, "parser": { "const": 0 }, "candidate": { "const": 0 }, "benchmark": { "const": 0 }, "integration": { "const": 0 }, "production": { "const": 0 } } }
+  }
+}

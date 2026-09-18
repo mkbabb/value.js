@@ -1,0 +1,59 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# ee02-diff-open.txt — G-0.3 OPEN reading (the EE-02 css-twin lag, as the wave found it)
+# Wave KF.W0 (Track B / X.KF) - unit KF.W0.c. Substrate: /Users/mkbabb/Programming/keyframes.js
+# Date: 2026-09-17. Every figure double-run; both runs agreed. Pair file: ee02-diff-close.txt.
+#
+# PROVENANCE OF THIS READING. The open tree no longer exists: OP-1's step (3) settled it before this
+# seat opened (unit order OP-1 -> .b || .c). The open reading is therefore RE-DERIVED from the
+# OWNER'S-HAND snapshot commit 6d280ee7bec7793846b2e2e1d250e1ea0a21859a, which is the tracked
+# worktree as found (226 rows: 219 M + 7 D), and it reproduces the fold seat's 2026-08-28 paste and
+# seat 0's 2026-09-17 baseline BYTE-FOR-BYTE. The substitution is declared, not silent.
+
+## The four EE-02 / manifest paths (spec KF-W0.md :526-538, RED baseline)
+
+$ git diff origin/master kf-sacred-snapshot-2026-09-17 --stat -- \
+      demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue \
+      demo/components/instrument/transport/channel-controls/composables/useTimingFunctionEditor.ts \
+      package.json package-lock.json
+
+ .../channel-controls/TimingFunctionPanel.vue       |  9 +---
+ .../composables/useTimingFunctionEditor.ts         | 19 ++------
+ package-lock.json                                  | 50 ----------------------
+ package.json                                       |  4 +-
+ 4 files changed, 6 insertions(+), 76 deletions(-)
+
+  -> identical to the spec's pasted RED baseline (6 insertions / 76 deletions over 4 files) and to
+     the seat-0 baseline of 2026-09-17. The instrument and its baseline are the same instrument
+     read twice.
+
+## The two EE-02 paths ALONE (the pair G-0.3's GREEN is keyed to)
+
+$ git diff origin/master kf-sacred-snapshot-2026-09-17 --stat -- <the .vue and the .ts>
+
+ .../channel-controls/TimingFunctionPanel.vue          |  9 +--------
+ .../composables/useTimingFunctionEditor.ts            | 19 ++++---------------
+ 2 files changed, 5 insertions(+), 23 deletions(-)
+
+## WHAT THE LAG WAS, read at the snapshot (site-identity, not just a stat)
+
+$ git show kf-sacred-snapshot-2026-09-17:demo/.../composables/useTimingFunctionEditor.ts \
+      | grep -n 'setAnimationTimingFunction\|timingFunctionLiteralFor'
+   96:    const setAnimationTimingFunction = (timingFunction: TimingFunction) => {      <- ONE arg
+  120:    const timingFunctionLiteralFor = (
+  159:        setAnimationTimingFunction(timingFunction);                               <- no css twin
+  167:            timingFunctionLiteralFor(key);
+  234:        setAnimationTimingFunction,
+
+$ git show kf-sacred-snapshot-2026-09-17:demo/.../TimingFunctionPanel.vue | sed -n '142,146p'
+      const pts = v.points as [number, number, number, number];
+      props.storedAnimationOptions.cubicBezierOptions.controlPoints = pts;
+      const timingFunction = { fn: cubicBezierEasing(...pts) };                         <- `{ fn }` only
+      props.animation.options.timingFunction = timingFunction;
+
+  -> the disk carried `{ fn }` at BOTH write sites where the frontier carries `{ fn, css }`
+     + the `timingFunctionLiteralFor` twin. C-4's two measured consequences (WAAPI demotion,
+     export-serializer identity-miss) are CURED at the frontier and would have been REGRESSED by a
+     master<-disk reconciliation. This is why the gate names the DIRECTION and not just the emptiness.
+
+## RED at open, for its intended reason (L-19). Pair: ee02-diff-close.txt.

@@ -1,0 +1,191 @@
+{
+ "runId": "wf_c431fb2c-82d",
+ "workflow": "wf_c431fb2c-82d",
+ "resultCount": 4,
+ "results": [
+  {
+   "agentId": "aa1463c0583fa72bc",
+   "key": "v2:991ba44f306ff1730657b3e964754aae741b31b844723165108e8046d49ddb17",
+   "result": {
+    "groups": [
+     [
+      "X.P.W0.a",
+      "X.P.W0.b"
+     ],
+     [
+      "X.P.W0.c"
+     ],
+     [
+      "X.P.W0.d"
+     ]
+    ],
+    "units": [
+     {
+      "id": "X.P.W0.a",
+      "model": "opus",
+      "sections": "W0.md §5 'X.P.W0.a Pause authentication ledger' (L203-219) · §6 G-1 (L300-329) · §6 G-2 (L331-344) · §3.1 · §2c rows 1-2 · §3a (STOP) · §11.3",
+      "writable": [
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/PAUSE-AUTHENTICATION-2026-09-17.md"
+      ],
+      "gates": [
+       "G-1",
+       "G-2"
+      ],
+      "locks": "Dated + append-never-rewrite (M-22 ¶5 / F-7): a NEW dated file only; no existing .sha256 packet edited, no 08-03 line of W0.md §6 rewritten (E-3, addenda-beside). ~/.codex/** and ~/Documents/Codex/** read/hash ONLY (C-02) — builder never opened for edit or run, residue never removed/regenerated/normalized/credited. Any MISMATCH = §9 STOP = §3a triumvirate + owner return, never a local repair. Commit 1 of §9: 'docs(x-p-w0/auth): re-derive the pause handoff's identities — seven rows, three dispositions'. Runs ∥ with .b; both commit BEFORE phase 2 dispatches (§4b).",
+      "brief": "Create evidence/W0/PAUSE-AUTHENTICATION-2026-09-17.md; line 1 = SERVED MODEL. Run G-1's commands: shasum -a 256 on the handoff (ced23440), 7e28 matrix (244c448a, 30242B), DREI-v11 intake (aa891714), in-repo ADOPT-COPY (0002ed93, 30927B); prove the 685-B header by `tail -c 30242 | shasum -a 256` -> 244c448a, not prose. Seven rows, one disposition each, MATCH/MISMATCH/EPERM never conflated, zero digests quoted. Per COHESION 0j gate-24: builder+residue MATCH, v12 target VERIFIED ABSENT - qualify each such sentence by date+access state (G-2 falsifier); 08-03 EPERM rows stand beside as dated history (E-3; never rewrite W0.md). Dated, append-only; no .sha256 edited. MISMATCH = 3a halt to owner."
+     },
+     {
+      "id": "X.P.W0.b",
+      "model": "opus",
+      "sections": "W0.md §5 'X.P.W0.b Frozen-roots census and the never-touch law' (L221-239) · §6 G-3 (L346-380) · §3.2 / §3.3 / §3.6 · §4 do-not-touch list (L145-167) · §4a",
+      "writable": [
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/FROZEN-ROOTS-CENSUS-2026-09-17.md",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/roots-census.sh",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/census-before.txt"
+      ],
+      "gates": [
+       "G-3 (before-half)"
+      ],
+      "locks": "census-before.txt MUST be captured BEFORE .c dispatches (§3.6) — this is the group-1 → group-2 edge. roots-census.sh writes nowhere but its own stdout, exits 0, `sh -n` clean, and is run twice (its second run IS its test, §7). No `status`, no gc, no worktree prune, no branch write anywhere in the census — G-3's own falsifier is that such an act makes the diff non-empty. The 7-not-8 worktree reading lands as a dated addendum beside W0.md's 08-03 eight (E-3), never as a rewrite. Commit 2 of §9: 'docs(x-p-w0/census): the eighteen preserved roots, the shared-repository finding, and the never-touch law' — body states that the frozen roots share one object store. Runs ∥ with .a.",
+      "brief": "Create evidence/W0/{FROZEN-ROOTS-CENSUS-2026-09-17.md, roots-census.sh, census-before.txt} (SERVED MODEL line 1). Enumerate 18 roots: path, `rev-parse --short HEAD` + branch (or NOT-A-GIT-ROOT/ABSENT), and a `find -type f` count excluding .git/node_modules; rev-parse+find ONLY, no `status` (P-2's stat-cache caveat), so diff-to-empty stays instrument-clean. State the shared-repo finding today (COHESION 0j gate-25): `worktree list` -> 7, .git/worktrees -> 6, the prunable m2-baseline record GONE - dated addendum beside W0.md's eight (E-3); six roots share ONE object store, one gc reaches all - the opening is a clone. `sh -n`; stdout only; run twice; census-before.txt BEFORE .c dispatches."
+     },
+     {
+      "id": "X.P.W0.c",
+      "model": "opus",
+      "sections": "W0.md §5 'X.P.W0.c The fresh root, opened' (L241-268; the two literal commands at L247-253) · §6 G-4 (L382-404) · §6 G-5 (L406-419) · §3.3 / §3.4 / §3.5 · §3a (clone-failing-twice) · §11.2",
+      "writable": [
+       "/Users/mkbabb/Programming/parse-that-css-totality-p2/**"
+      ],
+      "gates": [
+       "G-4",
+       "G-5"
+      ],
+      "locks": "../parse-that is READ-ONLY PERMANENTLY (runbook §5.5) — the clone must not need to touch it; if it does, that is a §3a scope reveal, never an edit to authorize. Clone, NEVER `git worktree add` (G-5 falsifier i); `--no-hardlinks` mandatory (falsifier ii); `--no-checkout` + `checkout --detach` at the 40-hex, never `--branch` (G-4 falsifier: a moving tip). No remote, no push, no branch ref, no build/install/execute — the toolchain is X.P.W1's. Clone failing twice ⇒ §3a halt (a third attempt against a shared object store is how a frozen root acquires .git/gc.log). Commit 3 of §9: 'chore(x-p-w0/root): open parse-that-css-totality-p2 at f5757082 by no-hardlink clone' — its value.js diff is EMPTY by design, so the receipt-carrying body is MANDATORY. Strictly serial after group 1.",
+      "brief": "FIRST WRITE of the lane: `git clone --no-hardlinks --no-checkout .../parse-that .../parse-that-css-totality-p2`, then `git -C ...-p2 checkout --detach f5757082ca160dd5f25fcf437e692c9df8f7e78d`. NEVER `git worktree add`, never a default clone - both fail G-5. No remote/push/branch/build/install/execution. Capture the source quadruple (worktree list / rev-parse HEAD / branch -a / porcelain) + `du -sh .git` before and after, diff to empty; inode intersection over `find <each>/.git/objects -type f -exec stat -f '%i' {} +` -> empty. Verify HEAD = the full 40-hex, porcelain empty, `remote -v` empty. Clone failing twice = 3a halt. value.js diff EMPTY by design; receipts ride in the commit body."
+     },
+     {
+      "id": "X.P.W0.d",
+      "model": "opus",
+      "sections": "W0.md §5 'X.P.W0.d Evidence chain and routing declaration' (L270-290) · §6 G-6 (L421-432) · §6 G-7 (L434-447) · §6 G-8 (L449-476) · §3.6 / §3.7 / §3.8 · §4a · §10 (handoff §8 disposition table)",
+      "writable": [
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/EVIDENCE-CHAIN.md",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w0.json",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/census-after.txt",
+       "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md"
+      ],
+      "gates": [
+       "G-3 (after-half)",
+       "G-6",
+       "G-8",
+       "G-7 (collate, per-row)"
+      ],
+      "locks": "Sole modify-carve on COHESION.md, taken AT CLOSE after the root exists, bounded to TWO lines: the §0 X·P status row + one §5 status-board line (§4a). DEFECT-LEDGER.md is modify-APPEND by the harvester script only, by this one unit, once — never edited by hand. G-8's citation is by section anchor + quoted sentence located by the two literal fragment greps; a line coordinate into COHESION is the exact defect the gate exists to catch, and either grep returning zero is RED. G-6: a harvest JSON with fewer seats than dispatched is RED, not green (L-13's corollary). G-7 must be stated PER ROW — a blanket 'pause law observed' fails. Commit 4 of §9: 'docs(x-p-w0/chain): evidence chain, harvest, and PLAW-BIND declared from this end'. Strictly serial, last.",
+      "brief": "Create EVIDENCE-CHAIN.md: workflow id, journal path `<session>/subagents/workflows/<runId>/journal.jsonl`, L-13 cadence (harvest after every completion or kill, before re-deploy), `resumeFromRunId` never a fresh invocation, and `componentsRun: N` all-NO_JURY = a failed run. Quote handoff 2's PLAW-BIND chain verbatim, name the forbidden parse-that->fourier edge, cite COHESION 2's X-P release-condition bullet by anchor + quoted sentence via the two fragment greps - NEVER a line number; flag the V-L5 rename. Run harvest-journals.mjs; file x-p-w0.json, seats = units dispatched. Capture census-after.txt, diff to empty. Collate G-7 per row. Carve COHESION: X-P row + one status-board line only."
+     }
+    ],
+    "alreadyDone": [],
+    "greenBeforeCure": [],
+    "recordCommit": "75863247fc4598dba18f0ab6447eb1b7a0c700bd",
+    "skip": false
+   }
+  },
+  {
+   "agentId": "a0db657d46d167768",
+   "key": "v2:56d90eb0d16945b3f711b92b128574422767a9f6f8892747d183ba9179726586",
+   "result": {
+    "unit": "X.P.W0.a",
+    "status": "DONE",
+    "commits": [
+     "80d96f18",
+     "607efb0e"
+    ],
+    "gatesGreen": [
+     "G-1",
+     "G-2"
+    ],
+    "gatesRed": [],
+    "notes": [
+     "ARTIFACT: /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/PAUSE-AUTHENTICATION-2026-09-17.md — line 1 = SERVED MODEL: claude-opus-5[1m]; settled bytes 36269, 504 lines, sha256 b7aa83e9fc6817082edfd03292ee4cc04e837b167edc6bca324064925ba17535 (double-run). Sole file written; zero bytes outside the writable set.",
+     "G-1 GREEN: 7 rows named in W0.md §6 G-1, 7 disposed, one disposition each — 6 MATCH · 1 EXPLAINED (the in-repo ADOPT-COPY, which no handoff row asserts) · 0 MISMATCH · 0 EPERM. Self-counted from the settled bytes: sed -n '76,85p' | grep -c '^| [1-7] ' → 7. Every measured digest computed by this seat this session with its literal command and output pasted; zero digests quoted into a measured column (the 'asserted' column is labelled as the claim under test, cited to handoff §3.1/§3.2/§3.3).",
+     "685-B header PROVED, not narrated: tail -c 30242 <ADOPT-COPY> | shasum -a 256 → 244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7 (equal to the 7e28 original's independently measured digest); expr 30927-30242 → 685; head -c 685 | wc -c → 685, and the literal 685 bytes are an HTML comment closing on byte 685. The header's own original-sha256/original-bytes lines are recorded as the copy's claim about itself, never as this unit's evidence.",
+     "G-2 GREEN: the v12 target is disposed ABSENT as measured 2026-09-17 by a reader with listable, readable parent access — by ENUMERATION, never by a failed ls. Parent lists 133 entries (double-run 133/133); parser-novelty-and-experiment-v1..v11 present by name; grep -c '^parser-novelty-and-experiment-v12$' → 0. Corroborated: the construction root holds exactly 2 files (builder + residue), no generated packet. Every absence sentence in the ledger carries date + access state; audited on settled bytes (grep -i 'absen' → 19 rows, each qualified inline, a quotation, a literal output, or a meta-claim). Two sentences were hardened after the first audit found them short of the bar.",
+     "COHESION §0j gate 24 discharged AT THE BYTES, not by citation: BUILD-V12.py 0732ebc2…64ee8 / 243,827 B / mode 0644 / nlink 1 → MATCH; __pycache__/BUILD-V12.cpython-314.pyc de1d62ff…c00937 / 154,221 B / mode 0644 / nlink 1 → MATCH; v12 target VERIFIED ABSENT (qualified). stat's %p prints 100644 = file type 100000 + perm bits 0644; recorded as such rather than silently normalized to the handoff's 0644.",
+     "E-3 honoured absolutely: W0.md was NOT edited. The three rows that read EPERM on 2026-08-03 STAY EPERM in the record; ledger §6 is a dated addendum-beside carrying today's MATCH/ABSENT next to them. G-2's reverse clause is applied forward in time as well — today's grant does not retro-fit the 08-03 record, and a standing caution tells later X·P seats to re-record EPERM beside §6 under a revoked grant rather than carry today's MATCH forward.",
+     "Handoff §9 STOP: five conditions evaluated row by row, ZERO fire (missing bytes · a present v12 target · a changed builder · a changed residue · a stale owner receipt — the governing owner word is dated 2026-09-17, same day as the measurement). W0.md §3a NOT triggered; no triumvirate requested. Resume-protocol §8 step 1 ('authenticate this handoff, the current builder, the preserved residue, and target absence before any write') is DISCHARGED on all four limbs — unit .c's FIRST WRITE may proceed on this authentication.",
+     "Pause law §7 tabulated PER ROW (all seven), never a blanket claim. C-02 honoured: builder hashed/stat'ed/listed, never opened for edit, never run; residue hashed, never removed, regenerated, normalized or credited. Append-never-rewrite PROVED: find docs/tranches -name '*.sha256' -newermt '2026-09-17' → no output; the two F-7 known-broken seals stay SUPERSEDED-BY-GIT and unrepaired (W0.md §11.3). Gate 27 / W4 G-2: git status --porcelain -- src api demo test e2e → 0 at both commits. scripts/dev/dev.sh never touched, never staged.",
+     "RESIDUAL 1 (dated, not durable): G-1 rows 5–7 are MATCH only for a reader holding the 2026-09-17 ~/Documents/Codex access. Written into the ledger as a standing caution for later X·P seats.",
+     "RESIDUAL 2 (disclosed, deliberately NOT an eighth row): handoff §3.2 also names five dry-audit generated digests (contract, Markdown, matrix, predecessor registry, generated source). They describe a packet that was never materialized, so there is nothing to hash and MATCH/MISMATCH/EPERM would each be a conflation. Ledger §9 discloses them so a later reader counting eleven digests in §3.2 does not conclude five were missed; revival is W0.md §10's DORMANT-UNLESS-NC-0-REVIVED set, owner-release-gated.",
+     "RESIDUAL 3 (for the close report): W0.md §6 G-1's 08-03 table now diverges from the measured state on rows 5–7 (EPERM there, MATCH/ABSENT here). That is E-3 working as designed. W0-CLOSE.md should cite ledger §6 rather than re-stating G-1's 08-03 cells, or a reader meets the two tables without the bridge.",
+     "RESIDUAL 4: rows 1 and 3 carry no asserted size in the handoff; their measured sizes (10,205 B · 7,558 B) are recorded as NEW facts for the next reader, explicitly flagged rather than dressed up as confirmations.",
+     "DECISION recorded in the record commit body: Prettier was run over this unit's own artifact (W0.md §7's cadence target) but NOT over the shared wave record /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W0.md — HEAD's version is already non-Prettier-formatted (verified via git show HEAD:<path> | prettier --check --stdin-filepath), so a --write would reformat the orchestrator's bytes wholesale and collide with unit .b's concurrent append. The record change is a PURE APPEND: 166 insertions, 0 deletions, one hunk at the file end under '## Unit receipts'.",
+     "Runs ∥ with .b as specified; both commits landed BEFORE phase 2 dispatches (§4b). Unit .b had not yet appended to the wave record at the time of my append, so no interleaving occurred."
+    ]
+   }
+  },
+  {
+   "agentId": "aa528852d0211f3f9",
+   "key": "v2:44facdbed32b07b797ba901a5dec4fc96c3f66c1b5bb53c41fb65e74ccd8b48d",
+   "result": {
+    "unit": "X.P.W0.b",
+    "status": "DONE",
+    "commits": [
+     "b69611a8d0238e61f1a8e341c365ab306d369c2e",
+     "fa9597cd"
+    ],
+    "gatesGreen": [
+     "G-3 (before-half)"
+    ],
+    "gatesRed": [],
+    "notes": [
+     "Three files created, exactly the writable set, zero writes outside it: /Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W0/FROZEN-ROOTS-CENSUS-2026-09-17.md (sha256 5821b5e1…), roots-census.sh (56e3d6c4…, 130 lines), census-before.txt (7f0c5b13…, 25 lines / 3242 bytes). Line 1 of each carries SERVED MODEL.",
+     "G-3 before-half: BEFORE = RED-AS-EXPECTED (script absent, 0 of 18 enumerated in any tracked file) → AFTER = GREEN. `sh -n` clean; run twice from an empty cwd, both exit 0, stderr 0 bytes, cwd gained 0 entries, both runs byte-identical at 7f0c5b13… (the second run IS its test, §7). census-before.txt is that stdout verbatim and was captured BEFORE .c dispatched (§3.6, the group-1→group-2 edge).",
+     "SHARED-REPOSITORY FINDING at today's bytes (COHESION §0j gate 25): `git worktree list` → 7 (not the eight of 2026-08-03); `ls .git/worktrees` → 6; the prunable m2-baseline registry record is GONE (grep -c → 0). Landed as a DATED ADDENDUM BESIDE W0.md's 08-03 eight (E-3), never a rewrite. Load-bearing consequence unchanged: rows 1–7 are SEVEN roots on ONE object store — row 1 the primary owning .git/objects, rows 2–7 six linked worktrees whose .git is a file pointing back into it (proved by `cat …-css-totality/.git` and `cat …-skv26/.git`). One gc/repack/prune reaches all seven; refs/ is shared so any branch write is a write to all seven; therefore THE OPENING IS A CLONE (--no-hardlinks), never `git worktree add`. The prune prohibition is now stricter, not looser: six registry records are all that remain to lose.",
+     "Instrument deliberately omits `git status` despite W0.md §5's field list naming it, under the P-2 precedent: status refreshes the index stat-cache, i.e. it WRITES into the very shared repository the census proves untouched, inside the interval G-3 measures. Proof it wrote nothing: parse-that/.git/index mtime 1784558162 and worktrees/parse-that-skv26/index mtime 1785346523 both UNCHANGED across the capture run. The dirty-state facts are preserved without the write (W0.md §4's named paths; the wave record's one-shot `status --porcelain | wc -l` → 31 taken outside the interval; `test -e` confirms row 2's two untracked F-6 provenance files still present). Documented in the census file §4 so no later reader files it as an omission.",
+     "No timestamp is emitted by roots-census.sh — a stamped census could never diff to empty, which would silently destroy the gate it serves. The script emits its own fixed provenance line so before/after captures stay byte-comparable; a load-bearing instruction is handed to unit .d in the receipts: capture census-after.txt by the exact redirection, UNEDITED, and do not hand-prepend or remove a SERVED MODEL line.",
+     "§4 do-not-touch coverage proved, not asserted: bullets 1–6 map onto rows 1+8 · 2–7 · 9–11 · 14–16 · 12–13 · 17 (`ls -1 ~/.codex/worktrees` → exactly three, so bullet 3 has no fourth path). Bullet 7 (src/ demo/ api/ test/ e2e/, scripts/dev/dev.sh, docs/tranches/X/waves/W*.md) is in-repository, not a preserved root, and is bound by gate 27 / W4 G-2 instead — measured 0 rows. 18 required, 18 present, 0 extra.",
+     "Dated addenda beside the 08-03 baseline: rows 10/11 were '(enumerate at open)' → 2988 / 1100 files; rows 14/16 were EPERM → readable (2 / 8 files) under §0j gate 24, a READ grant and never a write licence; row 15 EPERM → verified ABSENT by a reader with listable-parent access 2026-09-17 (the first date handoff §9's 'a present v12 target' STOP is detectable at all — it does NOT fire); rows 12/13 file counts filled. Rows 1–7, 9, 17, 18 identical in every cell. G-2's reverse clause honoured: the 08-03 EPERM rows stay EPERM beside today's readings. .p-totality unchanged to the byte (6 entries; archive 323894591 B).",
+     "RESIDUAL 1 — who removed the m2-baseline worktree record, and when, is UNKNOWN. Present 08-03, absent 09-17; no X·P seat removed it (the lane had taken no act). Recorded with two dates and no attribution rather than guessed.",
+     "RESIDUAL 2 (for the close report to rule on) — Prettier run as a CHECK, not applied. `npx prettier --check 'docs/tranches/X/**/*.md'` → 255 files FAIL, including the immutable spec W0.md and the wave record itself; a 20-file sample → 1 of 20 pass. Applying it to this unit's files alone would rewrite *emphasis* → _emphasis_ and balloon every table against the style of 255 sibling documents. The hard requirement, `git diff --check`, is clean on both commits. Not resolved unilaterally.",
+     "RESIDUAL 3 — a gc/repack inside the shared object store is INVISIBLE to this instrument (the file-count column excludes .git by construction). Disclosed in the census file §3c; it is G-5's to catch via checks (ii) inode intersection and (iii) `du -sh parse-that/.git` against the 28M recorded here (gc.log absent). The two instruments are complementary by design; neither is claimed to do the other's work.",
+     "FINDING FOR THE ORCHESTRATOR (concurrency, not a defect of this unit) — this unit staged its receipts by pathspec and its own `git commit` returned 'no changes added to commit': a concurrent seat's BARE `git commit` had already absorbed the staged file into a10e33ad (2 files / 204 insertions: this record +203, LEDGER.md +1). Block verified intact at HEAD (grep -c '### X.P.W0.b' → 1; `git diff HEAD --stat` for the path → 0 lines); evidence commit b69611a8 unaffected; NO history rewritten — the fact is recorded in the record instead (commit fa9597cd, made with the pathspec-safe `git commit -- <path>` form). The standing 'pathspec commits only' law should be read as binding the COMMIT verb, not only the ADD verb: under parallel seats on one shared index, a bare `git commit` is not pathspec-safe even when every seat stages by pathspec.",
+     "Standing invariants held at every commit: gate 27 / W4 G-2 `git status --porcelain -- src api demo test e2e` → 0; scripts/dev/dev.sh ' M' and NEVER staged; no gc, no worktree prune, no stash, no reset, no branch write, no push anywhere; sibling trees read-only; ~/Documents and ~/.codex read/hash only, residue never cleaned; W0.md §3a evaluated and NOT triggered (zero §9 STOP conditions, zero diagnose→act→re-measure iterations).",
+     "G-3's AFTER-half (`diff census-before.txt census-after.txt` empty) is unit .d's at close and is explicitly NOT asserted by this unit — nor is any claim that a root will remain unchanged; that is what the after-half measures."
+    ]
+   }
+  },
+  {
+   "agentId": "ac399c0f9a5e60338",
+   "key": "v2:51e420d09234f443c2d831d268ccbde1124e9df5dc2f8a6ae5e612c331175bdd",
+   "result": {
+    "unit": "X.P.W0.c",
+    "status": "DONE",
+    "commits": [
+     "8a83c8bbbe1a3673dd4700bd18bf3f0713627dbb",
+     "c0d70599314b9ffd554502f381bd49ba6abb6b39"
+    ],
+    "gatesGreen": [
+     "G-4",
+     "G-5"
+    ],
+    "gatesRed": [],
+    "notes": [
+     "FIRST WRITE performed with exactly the two literal commands of W0.md §5 L247-253, both exit 0 on the FIRST attempt. §3a clone-failure counter = 0; the halt-at-two was never approached, so no third attempt against the shared object store, and ../parse-that/.git/gc.log is ABSENT before and after.",
+     "G-4 GREEN, all four conjuncts, double-run identical: rev-parse HEAD string-equal to the full 40-hex f5757082ca160dd5f25fcf437e692c9df8f7e78d (not a prefix match) · status --porcelain 0 lines · rev-parse --abbrev-ref HEAD = HEAD (detached) · remote -v 0 lines. Both G-4 falsifiers foreclosed: no branch ref survives to be a moving tip (--branch never used), and the clone is complete (691 worktree files, cat-file -t HEAD = commit, HEAD^{tree} 3809a1ed635575b281641c826d9831b609a8b8ef, diff --stat HEAD = 0 rows). Date+subject of the checked-out commit re-derived IN THE CLONE match W0.md §6's 08-03 provenance.",
+     "G-5 GREEN on all three checks. (i) source quadruple byte-identical before/after: sha256 04f2c538b58e0c754a9226c9e947c70608147fe9bc18ce5700aa0be3c0c0c324 both sides, 76 lines each, diff exit 0 empty (worktree list 7 · HEAD ef10d5b78236c4a30a7bb22a6113b60bdc4bdf42 · branch -a 33 · status --porcelain 31). (ii) inode intersection over find <each>/.git/objects -type f -exec stat -f '%i' {} + : 4239 unique inodes per store, comm -12 = 0 lines / 0 bytes, double-run byte-identical. (iii) du -sh parse-that/.git 28M -> 28M, objects file count 4239 -> 4239, all seven index mtimes (.git/index + six worktrees/*/index) unmoved to the second.",
+     "The empty intersection is proved non-vacuous rather than assumed: both stores are on ONE device (stat %d = 16777234) and the SAME object path carries DIFFERENT inodes -- objects/61/d77b31950c92543b1a8c05ecf4a13b68602872 is 232119366 in the source and 268673739 in p2. That pair IS G-5 falsifier (ii) read directly (a default hardlinking clone would make them equal). Two checks stronger than the gate asks are also clean: find -links +1 = 0 in BOTH stores, and the whole-.git inode intersection (4471 vs 4260 files) is 0.",
+     "§3.5's 'any frozen root' answered by one intersection: all six frozen siblings have .git as a FILE (gitdir pointer) with no objects/ dir of their own, so parse-that's store is the only one and p2 n parse-that = null IS p2 n {all seven} = null. G-5 falsifier (i) answered from three sides: p2 absent from worktree list, .git/worktrees still 6 entries (§0j gate 25's six), and <p2>/.git is a DIRECTORY, i.e. an independent repository, never a linked worktree.",
+     "FINDING FOR THE CLOSE REPORT -- the mandated mechanism and the gate do not meet by themselves. The two literal commands CANNOT alone satisfy G-4's fourth conjunct: git clone creates 'origin' by construction with a fetch AND PUSH url into /Users/mkbabb/Programming/parse-that (the shared repository of six frozen worktrees), plus refs/heads/master carrying branch.master.merge=refs/heads/master upstream to it -- i.e. the 'provably fresh' root shipped with a configured write path back into the exact repository the wave exists to prove untouched. Cured entirely inside the writable set by `git remote remove origin` + `git branch -D master`, which is the end state §5's own prose states twice ('No remote is added, no push is ever run, no branch is created'; '--no-checkout + explicit detached checkout ... creates no branch ref in the clone that invites a push'). Measured after: 0 remotes, 0 heads, 9 tags, remote.*/branch.* config sections gone. Disclosed so the close report and the L-18 quartets re-rule rather than infer -- not a substitution for the specified cure, which was performed exactly and first.",
+     "Cost of that cure, stated not buried: with origin gone the remote-tracking refs go with it, so the 24 non-packet branch tips (incl. master @ ef10d5b) are no longer reachable in p2. Their objects are all still present (4239 files, nothing gc'd or pruned) and every one remains in the preserved read-only-forever source root. The alternative -- leaving a live push url into six frozen worktrees inside the fresh root -- is worse by the wave's own §2a criterion.",
+     "Pathspec-commit law confirmed at a second site (unit .b's finding). `git diff --cached --name-only` immediately before commit 3 returned ~300 paths staged by a CONCURRENT seat; a bare `git commit --allow-empty` would have swallowed them. The commit was taken as `git commit --allow-empty --only ... -- <one unmodified lane path>`, and after it: show --stat = 0 lines, diff-tree = 0 paths, HEAD^{tree} == HEAD~1^{tree} (TREES-IDENTICAL, zero bytes absorbed). The concurrent batch landed in its own commit befbc05a on its own terms. The --only / '-- <path>' form binds the COMMIT verb and holds even for --allow-empty.",
+     "Commit 3 of §9 landed verbatim as 8a83c8bb with an EMPTY diff in value.js by design; its mandatory body carries the pre/post quadruple, the inode intersection, the §3a counter and the G-4 finding. Receipts appended to docs/tranches/X/execution/D/X-P-W0.md as '### X.P.W0.c' (+295 lines, 0 deletions -- pure append, no prior seat's block rewritten) and committed as c0d70599. Both commits verified on tranche-u by `git branch --contains`.",
+     "Residuals booked in the record, not resolved: (1) the G-4 conjunct-4 divergence above; (2) du -sh is a 1MB-resolution instrument for G-5 (iii) -- the fine evidence beside it (exact 4239 object count, seven unmoved index mtimes, the 76-line quadruple digest) is what carries the claim, and a later seat should prefer those three; (3) the fresh root is PINNED but not FROZEN -- no ref, hook or lock holds it at f5757082 and X.P.W1's port will move its tree by design, so G-4 must not be over-read as a standing invariant; (4) the clone was deliberately NOT fsck'd -- §5 forbids executing anything in the fresh root beyond the opening, and G-4/G-5 do not ask for it.",
+     "§11.2 (Archaeology item 2, same-root repair) discharged mechanically rather than by intent, exactly as its guardrail demands: intersection null, quadruple digest equal.",
+     "ESCALATIONS: none. Zero `git worktree add`; zero writes outside /Users/mkbabb/Programming/parse-that-css-totality-p2/**; zero reads or writes that moved a byte or an mtime in ../parse-that (every source read used --no-optional-locks so the measuring instrument could not refresh the stat-cache inside the interval G-5 measures); zero gc/repack/prune/worktree prune/stash/reset/branch-write anywhere; zero pushes and no remote in existence to push to; nothing built, installed or executed in the fresh root (the toolchain is X.P.W1's). W0.md §3a evaluated and NOT triggered on any of its four limbs. Gate 27 / W4 G-2 = 0 at both commits. scripts/dev/dev.sh never touched, never staged (confirmed ' M' and UNSTAGED at both commits).",
+     "§7 Prettier cadence followed as unit .b's precedent: `git diff --check` (the hard requirement) CLEAN; `npx prettier --check` on the wave record warns, and applying --write was declined because it would reflow units .a and .b's already-committed receipt blocks (E-3) and is a concurrency hazard on a file three seats append to. Flagged for the close report, not resolved unilaterally.",
+     "LEDGER.md deliberately NOT edited by this unit: the X.P.W0 row is the wave's, and unit .d / the orchestrator closes it. Contending on that file concurrently is the hazard the standing law warns about; this unit's state is fully recorded in the wave record and in the two commit bodies. E13 mail: the wave-open four-path sweep is banked by seat 0 (0 unrowed, I-30 the tail); no unit-level mail act was in scope."
+    ]
+   }
+  }
+ ]
+}

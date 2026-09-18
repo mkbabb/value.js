@@ -1,0 +1,93 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.holdout-receipt/v1",
+  "status": "SEALED_PREAUTHOR",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 14,
+  "sealed_at_utc": "2026-07-22T18:58:07.980Z",
+  "authority": {
+    "feature.json": {
+      "sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29",
+      "mode": "0444"
+    },
+    "candidate.d.ts": {
+      "sha256": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+      "mode": "0444"
+    },
+    "fixtures/manifest.json": {
+      "sha256": "d679e8896b35402fc84ada7d308cb1ff28d6da04287e5770b17439c69335b3e6",
+      "mode": "0444"
+    },
+    "fixtures/repairs.json": {
+      "sha256": "d9e94359c3cac96ba44f151debed534042aabbca85e82d9e59c6022267bc18f2",
+      "mode": "0444"
+    },
+    "public-evaluator.mts": {
+      "sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+      "mode": "0444"
+    }
+  },
+  "corpus": {
+    "case_count": 61,
+    "family_count": 8,
+    "family_counts": {
+      "maximal-prefix-repeated-fractions": 6,
+      "incomplete-decimal-exponent-suffixes": 10,
+      "utf16-nonzero-offsets": 4,
+      "signed-zero-extreme-conversion": 10,
+      "transactional-failures": 8,
+      "ordinary-mutable-result-descriptors": 3,
+      "bounded-hostile-strings": 5,
+      "parent-composition": 15
+    },
+    "plaintext_schema": "value.pi.syntax-consume-number.g14.hidden-holdout/v1",
+    "canonicalization": "RFC8785-compatible JSON canonical form; UTF-8; no BOM; no trailing newline",
+    "plaintext_bytes": 13840,
+    "plaintext_sha256": "f53e24b703596990e9e53cf0160e2e32bf3a524022d41d982d251207ea5d5867"
+  },
+  "encryption": {
+    "algorithm": "AES-256-GCM",
+    "key_bytes": 32,
+    "key_disposition": "fresh random secret retained only by independent custodian; absent from repository and receipt",
+    "nonce_bytes": 12,
+    "nonce_hex": "b036a930b4f390dd7271f0c7",
+    "authentication_tag_bytes": 16,
+    "authentication_tag_hex": "3916d241ecb005f6a266b0a0ab720424",
+    "aad_format": "canonical JSON",
+    "aad_bytes": 1438,
+    "aad_sha256": "b8cf4486ce8ddae78e8917ebccb079e8ed81f21f2afec229cf1964a68f6ce2fc",
+    "frame_layout": "8-byte ASCII magic VPG14H01 || 12-byte nonce || ciphertext || 16-byte authentication tag",
+    "frame_encoding": "standard base64 with one terminal LF"
+  },
+  "sealed_artifact": {
+    "path": "holdout-ciphertext.b64",
+    "mode": "0444",
+    "ciphertext_bytes": 13840,
+    "ciphertext_sha256": "4d4f4e1985d6767a19970b89e9b06c368976409ab112ec2c73200df4761bbc64",
+    "frame_bytes": 13876,
+    "frame_sha256": "360e360ade9839723ed31894805025e796dc72df6e01b5dec472cabf3402ecd2",
+    "file_bytes": 18505,
+    "file_sha256": "e2aa624ebbd7344381fb59d6c420bd581086ab0346f2ce1fea5d3fac82a0d25c"
+  },
+  "isolation": {
+    "candidate_paths_checked": [
+      "candidates/h/index.ts",
+      "candidates/b/index.ts",
+      "candidates/s/index.ts",
+      "candidates/d/index.ts"
+    ],
+    "candidate_artifacts_existed_at_seal": false,
+    "candidate_bytes_read": false,
+    "g13_candidate_sources_read": false,
+    "future_g14_candidate_sources_read": false,
+    "production_sources_read": false,
+    "plaintext_written": false,
+    "seal_phase": "PREAUTHOR"
+  },
+  "assertions": [
+    "all five frozen authority byte hashes and modes were verified before sealing",
+    "none of the four declared G14 candidate artifacts existed when sealing began",
+    "no G14 candidate bytes, G13 candidate sources, future candidate sources, or production sources were read",
+    "plaintext was canonicalized and encrypted entirely in memory and was never written",
+    "only holdout-ciphertext.b64 and holdout-receipt.json are authorized outputs"
+  ]
+}

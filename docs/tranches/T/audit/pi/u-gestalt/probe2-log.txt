@@ -1,0 +1,13 @@
+# probe2 @ 2026-07-12T20:09:14.861Z
+RAMP light title box: {"x":820.484375,"y":165.5,"w":146.65625,"h":52}
+RAMP dark title box: {"x":820.484375,"y":165.5,"w":146.65625,"h":52}
+BORDER light card box: {"x":16,"y":86.90625,"w":1408}
+BORDER dark card box: {"x":16,"y":86.90625,"w":1408}
+REFLOW light clicked="Tools" before={"minTop":102,"count":8} after={"minTop":102,"count":8} scene-shift=0
+SCROLLED light captured
+TRANSITION swap→/gradient: {"frames":14,"max":154,"median":59,"over32":10,"over50":8}
+TRANSITION swap→/extract: {"frames":43,"max":89,"median":10,"over32":11,"over50":3}
+TRANSITION swap→/mix: {"frames":19,"max":111,"median":48,"over32":12,"over50":6}
+TRANSITION swap→/generate: {"frames":35,"max":124,"median":9,"over32":8,"over50":7}
+LOADPERF light wall=464ms perf={"lcp":null,"domContentLoaded":440,"loadEvent":462,"paints":{"first-paint":28,"first-contentful-paint":496},"longTaskCount":0,"tbtApprox":0}
+DONE probe2

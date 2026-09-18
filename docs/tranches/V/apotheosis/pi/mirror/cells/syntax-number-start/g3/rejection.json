@@ -1,0 +1,33 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 3,
+  "verdict": "REJECTED_BEFORE_CANDIDATE_CODE",
+  "manifest_sha256": "fc137224741dd4a0322efc9fd13cb6b12e213775ef56e287b95a72b9199594e2",
+  "challenges": [
+    {
+      "axis": "architecture",
+      "verdict": "REJECT",
+      "receipt": "reviews/architecture-boundary.md"
+    },
+    {
+      "axis": "specification/formation",
+      "verdict": "REJECT",
+      "receipt": "reviews/specification-formation-boundary.md",
+      "independence": "Principal docket sealed before late sibling-review exposure; late overlap receives no independent weight."
+    }
+  ],
+  "blocker_classes": [
+    "raw child return identity",
+    "ParserState.src preservation and benchmark restoration",
+    "AST export/source-access gate",
+    "live grammar and installed dependency drift verification",
+    "auditable holdout precursor bytes",
+    "complete public EOF endpoints",
+    "candidate-internal versus harness benchmark restoration",
+    "bootstrap stream and mode-block order"
+  ],
+  "candidate_sources_authored": false,
+  "holdout_revealed": false,
+  "credit": "FORMATION_EVIDENCE_ONLY",
+  "next_generation": 4
+}

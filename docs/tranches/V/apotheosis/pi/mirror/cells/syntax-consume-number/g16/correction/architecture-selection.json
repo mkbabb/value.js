@@ -1,0 +1,72 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.architecture-selection/v1",
+  "status": "EXISTING_BYTES_BOUND_FOR_INDEPENDENT_COMPARISON",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "candidate_set": {
+    "path": "../../g15/candidate-set.json",
+    "sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40"
+  },
+  "candidates": [
+    {
+      "id": "h",
+      "path": "../../g15/candidates/h/index.ts",
+      "sha256": "b78dfcd5194ec2480d4ce480417555fffb10788e9ea0cdef1fa4d778af901a0f",
+      "bytes": 553,
+      "lines": 17,
+      "topology": "one fused regex terminal plus one projection map"
+    },
+    {
+      "id": "b",
+      "path": "../../g15/candidates/b/index.ts",
+      "sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7",
+      "bytes": 1999,
+      "lines": 64,
+      "topology": "static BBNF-shaped all/any/opt production decomposition"
+    },
+    {
+      "id": "s",
+      "path": "../../g15/candidates/s/index.ts",
+      "sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169",
+      "bytes": 2238,
+      "lines": 81,
+      "topology": "static staged sign, mantissa, and exponent decision graph"
+    },
+    {
+      "id": "d",
+      "path": "../../g15/candidates/d/index.ts",
+      "sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137",
+      "bytes": 884,
+      "lines": 21,
+      "topology": "first-character dispatch into three complete static regex branches"
+    },
+    {
+      "id": "h2",
+      "path": "../../g15/optimization/h2/index.ts",
+      "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+      "bytes": 560,
+      "lines": 17,
+      "topology": "H topology with digit-first equivalent mantissa ordering"
+    }
+  ],
+  "common_correctness": {
+    "original_h_b_s_d_evidence_path": "../../g15/holdout-evidence.json",
+    "original_h_b_s_d_evidence_sha256": "b06c6345fe88149eb5cb90ff38a617dc08d5b26e8ae081ddfe80b9178322c63c",
+    "original_result": "H, B, S, and D each pass 180 of 180 cases plus construction, transaction, parent-composition, introspection, and parser-ID checks",
+    "h2_evidence_path": "../correctness/evidence.json",
+    "h2_evidence_sha256": "4eac6a187ef7f615152f364ff52e33ecaa2890c3595313fd6f40ae3714cd13d8",
+    "h2_result": "H2 passes 180 of 180 cases, the frozen public rail, and 65024 independent scanner-oracle transactions"
+  },
+  "selection_axes": {
+    "semantic_eligibility": "all five sources satisfy the frozen feature contract on their bound evidence",
+    "ownership": "all are internal value-unit numeric leaves; percentage, dimension, integer-only, delimiter, and complete-input policy remain parent operations",
+    "idiom": "all use published parse-that primitives; no source scanner, token tape, atom, component-value, or CST runtime is admitted",
+    "parsimony": "H2 is tied for minimum line count, has one regex terminal plus one map, and avoids B/S intermediate parser/value graphs and D branch duplication",
+    "readability": "the regular language is visible as one CSS consume-number terminal and the semantic projection is adjacent",
+    "performance": "the separately corrected G16 benchmark compares H2 only with the exact deposed operation-equivalent peer; no H2-versus-H/B/S/D inferential claim is made"
+  },
+  "selection": {
+    "candidate_id": "h2",
+    "reason": "It is the smallest direct grammar shape, preserves parent composition and the complete common semantic contract, and is the only candidate in the correction subject with a valid strict win over the required deposed peer.",
+    "reviewer_duty": "Reviewers must inspect the bound source bytes and may reject this selection; this record is a comparison input, not an acceptance verdict."
+  }
+}

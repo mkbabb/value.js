@@ -1,0 +1,56 @@
+{
+  "steps": [
+    {
+      "tag": "rest",
+      "alive": true,
+      "literal": "cubic-bezier(0, 0, 1, 1)",
+      "viewBox": "0 -0.1 1 1.2000000000000002",
+      "svgBox": {
+        "w": 410,
+        "h": 200
+      },
+      "unitPx": 166.67,
+      "inkH": 200,
+      "deadPct": 59.3,
+      "stageStyle": "--vb-ratio: 1.2;",
+      "aria": [
+        "x 0.000, y 0.000",
+        "x 1.000, y 1.000"
+      ]
+    },
+    {
+      "tag": "shiftUp x1",
+      "alive": true,
+      "literal": "cubic-bezier(0, 0, 1, 1.1)",
+      "viewBox": "0 -0.2000000000000001 1 1.3000000000000003",
+      "svgBox": {
+        "w": 410,
+        "h": 200
+      },
+      "unitPx": 153.85,
+      "inkH": 200,
+      "deadPct": 62.5,
+      "stageStyle": "--vb-ratio: 1.2;",
+      "aria": [
+        "x 0.000, y 0.000",
+        "x 1.000, y 1.100"
+      ],
+      "pageErrs": 0
+    },
+    {
+      "tag": "shiftUp x2",
+      "alive": false,
+      "svgBox": null,
+      "unitPx": 0,
+      "inkH": null,
+      "deadPct": null,
+      "aria": [],
+      "pageErrs": 0
+    }
+  ],
+  "pageErrs": [],
+  "consoleErrs": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "pageErrsFinal": []
+}

@@ -1,0 +1,61 @@
+{
+ "runId": "wf_4e763b6a-224",
+ "workflow": "wf_4e763b6a-224",
+ "resultCount": 3,
+ "results": [
+  {
+   "agentId": "a2d9caad836ea006c",
+   "key": "v2:751ca3d1128e14280faac84824e89b6ca2795c57748b0c237d06467ac6e32960",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",
+    "fixed": [
+     "W8-D1 (FOURTH PASS §(c) 'W8 — Shadcn and graph subtraction · DEFECT (1)': G-7 invokes the typed-graph oracle by description, no path, no bounds row — R-E), half 1 of 2: §File Bounds, new final row at W8.md:97 — `docs/tranches/V/megatranche/workflows/graph-v3.mjs` | execute, no write (G-7's SCC oracle over `demo/**`; X-W0 authors the bytes). Appended after the `W8-witness/**` create row so the existing row ordinals stay valid — the unit Files clauses cite 'File Bounds rows 2–9' (X.W8.b), '10–13' (X.W8.c) and '14–20' (X.W8.d), and an appended row 23 leaves all three intact. Matches W11:94-96 / W10:122 column form (path backticked, access cell plain). Sole textual deviation from the report's fix string: `demo/**` is inside a code span so the `**` renders literally in the table cell rather than opening markdown emphasis; characters otherwise verbatim.",
+     "W8-D1, half 2 of 2: §Hard Gate G-7's probe line (W8.md:276-280) now states the literal command — 'Run under X-W0's typed graph authority over `demo/**`, invoked as `node docs/tranches/V/megatranche/workflows/graph-v3.mjs` — once before X.W8.c's first commit and once after, both outputs banked under `docs/tranches/X/waves/W8-witness/` (§Verification Artefacts), and the same command re-run for the falsifier below: 0 runtime SCCs, …'. Arguments are the bare invocation, per W0 HG-14 (`W0.md:303`: 'node workflows/graph-v3.mjs emits typed multi-domain edges and runtime/load/ownership SCC classes') — the plain run is the one that emits the SCC classes G-7 reads; `--verify` is W0's round-trip flag (`W0.md:339`) and is not what this gate asserts, so it was not borrowed. The three runs named are exactly those the wave's own text implies: §Verification Artefacts' 'the G-7 graph-oracle output before and after' plus the existing falsifier's mutated-tree run. Follows W10:285's idiom (probe named by literal `node <path>` command on the gate's own line). The RED-today table, the falsifier line, and every other gate are untouched."
+    ],
+    "residual": [
+     "No residual on this defect: both prescribed halves landed and R-E's two-sided idiom is now satisfied for G-7 (execute-row + named command). The oracle's write side needs no Do-NOT-touch entry — the row itself is read-only-marked and X-W0 holds `create` on the same path (`W0.md:86`), which is the W2/W4/W5/W10 single-sided form rather than W11's two-sided one.",
+     "Out of scope, untouched by law: the fourth pass's other numbered defect is W0-D1 (X-W0.e's 46 report-authored axis files unbounded — W0 §4 + the §Disjointness e-line), owned by the W0 seat.",
+     "Out of scope, untouched: both 'Observations (not booked)' concern siblings, not W8 — W6 H2's now-landed `motion-quarantine.md` baseline (benign direction; D-19 re-measure-at-open governs), and W4's `W0.md:327`→`:328` single-line anchor drift (the corpus line-anchor law handles it at open). Neither has a W8 limb.",
+     "Not re-litigated, per the surgical bound: W8's other gates still name instruments in prose (G-8's Dock.md G-B chromium :9000 motion arm, G-9's null-DELTA pairs, G-12's back-navigation test) — none of these is a checked-in script path, so R-E's bounds-row duty does not attach and the fourth pass booked none of them."
+    ]
+   }
+  },
+  {
+   "agentId": "a419e28eed5746507",
+   "key": "v2:f2bb96a7b7e4926798c8cbd26ba6598df3858d0c110539c39b49fd9d9e6da8a1",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W0.md",
+    "fixed": [
+     "W0 defect (1) — X-W0.e's undeclared write surface (§Agent Units, W0.md:174 Mechanism): re-pointed per the fourth pass's stated preference and the orchestrator's ruling. The Mechanism now carries every motion/reduced-motion stamp (QUARANTINED-PENDING-TWO-GUARD-CHECK or a two-guard ruling) IN docs/tranches/V/megatranche/audit/codex-provenance/motion-quarantine.md — the landed record, cited by commit 9812f951 with its measured shape (46 files swept, 34 assertions across 16 files, §7 disposition over all 46) — extended by dated addendum for anything its sweep did not reach; the 46 axis files are stated 'read, never written'.",
+     "W0 defect (1), Files clause (§Agent Units X-W0.e, W0.md:176): rewritten to three explicit surfaces — the three r2 slugs' trees (r2 challenge files + evidence-r2/ probes, git-tracked), motion-quarantine.md (modify-append, the HG-11 stamps), and 'Read-only: the 46 report-authored axis files'. The prior clause's bare 'the 46 report-authored axis files' write surface is gone.",
+     "W0 defect (1), §4 File Bounds (W0.md:96-98): the three-slug row qualified ('X-W0.e's r2 challenge files + evidence-r2/ probes, git-tracked; no canonical challenge-*.md byte is rewritten'); one new write row added — motion-quarantine.md | modify-append (X-W0.e's HG-11 stamps — the dated addendum only; existing rulings corrected by addition, never rewritten); one new read-only row added — the 46 REPORT-AUTHORED axis files (canonical challenge-<AXIS>-<band>.md set, r2 files excluded) | read, no write (HG-11's subject set — canonical Codex-authored receipts, C-02; every stamp lands in motion-quarantine.md). No slug's axis file is now written outside a bounds row, because none is written at all.",
+     "W0 defect (1), §4 Do-NOT-touch (W0.md:101): the write-side half of the two-sided idiom added — 'Equally immutable: the 46 canonical REPORT-AUTHORED challenge-*.md axis files (C-02 — receipts literal) — X-W0.e adds r2 artefacts beside three of them and writes its HG-11 stamps into motion-quarantine.md, never into a canonical axis file.'",
+     "W0 defect (1), §Disjointness e-line (W0.md:112): widened to match — 'e → audit/components/<three slugs>/** (r2 artefacts only) + audit/codex-provenance/motion-quarantine.md (the HG-11 stamps, append-only); the 46 canonical axis files are read-only, and no other unit writes the quarantine record'. Disjointness is preserved: no other X-W0 unit holds the record (W6 only test -f's and cites it, never writes).",
+     "W0 defect (1), §Disjointness c/e sequencing sentence (W0.md:119): the now-false 'e writes axis files' replaced with 'e git-tracks the three slugs' r2 artefacts'; the c-after-e sequencing is unchanged.",
+     "W0 defect (1), HG-11 (W0.md:276-280): re-pointed at the record while keeping the falsifier shape — a stamp-coverage check over the 46 axes' motion/PRM assertions, now checked against motion-quarantine.md, keyed to <axis file>:<line>, with all 46 files required present in the record's file-level disposition so coverage is a set-difference against HYDRATION-LEDGER.md's 46 REPORT-AUTHORED rows. Governing rationale stated once, at the definition: 'the 46 axes are canonical Codex-authored files — receipts literal, never rewritten (C-02) — so corrections live in separate dated artifacts, which is exactly what the quarantine record is.' The born-RED is preserved verbatim as dated evidence (re-labelled 'measured at authoring') and a CURED-IN-PART line records the landed record with re-measure-at-open; the falsifier gains its intended-reason clause — a stamp written into an axis file fails the C-02 write-ban and is not a pass.",
+     "Gate/unit numbering untouched: HG-1..HG-18 and X-W0.a..X-W0.j unchanged; no re-glyphing; docs-only (git diff --stat: W0.md alone, 13 insertions / 10 deletions; git diff --check clean; no src/, demo/, api/, test/, e2e/, scripts/ byte touched; no git mutation)."
+    ],
+    "residual": [
+     "§Scope item 5 (W0.md:28) still reads 'quarantine every unchecked motion/PRM assertion in the 46 report-authored axes (CC-027)' — left untouched deliberately: it names the act, not a write surface, and the act's location is now fixed by the Mechanism, the Files clause, HG-11 and two §4 rows. Flagged rather than edited, per the surgical bound.",
+     "Commit-plan row 4 (W0.md:374) still reads 'the three re-run axes + the motion quarantine stamps' without naming motion-quarantine.md — true under the re-point either way; commit-plan cells are not bounds statements, so it was left alone.",
+     "No §Verification Artefacts row was added for HG-11's coverage set-difference output (e.g. an artefacts/W0/motion-quarantine-coverage.txt). The gate is checkable from the record plus HYDRATION-LEDGER without one, and adding it exceeds the named fix.",
+     "HG-11's new CURED-IN-PART measurement is dated 2026-08-03 and explicitly marked re-measure-at-open; the record can gain rows before X-W0 opens, and the addendum duty is what absorbs that.",
+     "W6 H2's stale born-RED for the same record ('does not exist, verified 2026-08-03') is the fourth pass's un-booked observation on W6 and remains W6's own file — not touched here."
+    ]
+   }
+  },
+  {
+   "agentId": "a6a4008a19d65d1f7",
+   "key": "v2:0d7c1bbcf83c8645bd01154ae799a8d159da8195873d1cc15d57de31b8da5dfc",
+   "result": {
+    "conformant": 10,
+    "defective": 2,
+    "tranchReady": false,
+    "remaining": [
+     "W6-D1 (R-E, gate c3, W6.md:208): the command cell reads \"`npx vite-node` mint chain against the tree\" — vite-node executes a file and c3 names none; no bounds row carries the id c3, so the invocation violates R-E and W6's own §4 Bounds law. FIX: name the literal path in c3's command cell — either add c3 to an existing evidence probe's execute row (if the mint chain re-runs …/evidence/parse-probe.ts's mint leg) or create docs/tranches/X/gates/gate-literal-dialect.mjs with a `create (c3)` row, matching the wave's nine-instrument idiom.",
+     "W10-D1 (§2 COMPLETABLE): \"Its file bounds intersect no other X wave's bounds\" is false on ≥5 paths — PaletteCard/PaletteCard.vue (X-W7 modify-carve, W7.md:98), animations.css + foundation.css + PaneSegmentedControl.vue (X-W5, W5.md:100-104; W10's own §4 row note admits the delete), VISUAL-CONSTITUTION.md + OPTICAL-BENCH-COMPOSITIONS.md (X-W5.e). Safe by sequencing, but the universal is false as written (the W9-D2 class). FIX: restate as \"its bounds intersect only closed predecessors' surfaces (X-W5 ×4, X-W7 ×1), inherited after their closes; no concurrently-open wave shares a write path\" and add one §4a Cross-wave line naming the five paths with their holders."
+    ]
+   }
+  }
+ ]
+}

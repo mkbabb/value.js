@@ -51,9 +51,9 @@
 import { watch, provide } from "vue";
 import type { ComputedRef, ShallowRef } from "vue";
 
-import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "@composables/color/keys";
-import type { PaneConfig } from "@composables/useViewManager";
-import { useContrastSafeColor } from "@composables/color/useContrastSafeColor";
+import { INK_AMBIENT_KEY, SAFE_ACCENT_KEY } from "../../../color-session/keys";
+import type { PaneConfig } from "../../../shell/useViewManager";
+import { useContrastSafeColor } from "../../../color-session/useContrastSafeColor";
 import { useViewAccents } from "./useViewAccents";
 import { useAtmosphere } from "./useAtmosphere";
 

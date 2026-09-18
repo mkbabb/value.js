@@ -1,0 +1,102 @@
+{
+  "A_hover": {
+    "swatchBox": {
+      "x": 825,
+      "y": 347.65625,
+      "width": 48,
+      "height": 54.90625
+    },
+    "errorsAfterOneRealHover": [],
+    "panel": {
+      "inlineStyle": "top: 305.656px; left: 849px;",
+      "position": "static",
+      "computedTop": "305.656px",
+      "computedLeft": "849px",
+      "rect": {
+        "x": 0,
+        "y": 900,
+        "w": 1440,
+        "h": 40
+      },
+      "parentIsBody": true,
+      "ariaHidden": "true",
+      "focusableInside": 3,
+      "ruleCount": 0
+    },
+    "btnInteractiveRuleCount": 0
+  },
+  "A_secondHoverErrors": [],
+  "B_buttons": [
+    {
+      "attrs": {
+        "data-v-0ce6f2b0": "",
+        "data-slot": "button",
+        "data-emphasis": "secondary",
+        "data-tone": "neutral",
+        "data-size": "md",
+        "data-icon-only": "true",
+        "data-control-target": "",
+        "data-press-armed": "",
+        "type": "button",
+        "class": "button tap-squish focus-ring glass-wash glass-capsule glass-capsule-hover h-8 w-8 rounded-full cursor-pointer border-border/50 shrink-0",
+        "variant": "outline",
+        "style": "--glass-btn-press-t: 0.0000; --flex-vel: 0.0000;"
+      },
+      "text": "",
+      "accName": "",
+      "box": {
+        "w": 32,
+        "h": 40
+      },
+      "bg": "oklab(0.915626 0.00551148 0.0130686 / 0.52)",
+      "borderColor": "oklab(0.779404 0.0118501 0.0342689 / 0.5)",
+      "borderWidth": "0px",
+      "dataEmphasis": "secondary",
+      "dataTone": "neutral",
+      "dataSize": "md"
+    }
+  ],
+  "B_input": {
+    "attrs": {
+      "data-v-0ce6f2b0": "",
+      "placeholder": "Palette 1",
+      "type": "text",
+      "data-slot": "input",
+      "data-kind": "input",
+      "data-size": "sm",
+      "data-state": "default",
+      "class": "field-control glass-defined flex-1"
+    },
+    "accName": "Palette 1",
+    "hasLabel": false,
+    "maxLength": -1
+  },
+  "C_rowAfterReload": {
+    "dots": 4,
+    "label": "3 colors",
+    "store": []
+  },
+  "C_banner": {
+    "bannerText": null,
+    "liveRegion": null,
+    "focused": "<body class=\"relative\" id=\"app\" data-paper-field=\"\" data-v-app=\"\"><div data-ink-probe=\"\" s"
+  },
+  "C_deleted": {
+    "before": [
+      "Latch"
+    ]
+  },
+  "C_afterDeleteAll": {
+    "store": [],
+    "bannerStillOpen": false,
+    "rowDots": 1
+  },
+  "C_updateButtonFound": 0,
+  "C_afterUpdate": {
+    "store": [],
+    "rowDots": 1,
+    "rowLabel": null,
+    "persistedSaved": [],
+    "anyFeedback": false
+  }
+}

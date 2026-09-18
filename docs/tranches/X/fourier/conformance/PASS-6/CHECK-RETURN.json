@@ -1,0 +1,73 @@
+{
+ "defects": [
+  {
+   "severity": "HIGH",
+   "claim": "D-1 \u2014 The R4-8.3 pin regime is stale program-wide; the purge seat still has not run last. Worse than PASS-5 recorded: of the eleven live wave digests, only FOUR appear anywhere in any spec, and all four are inside F-W1.md alone; seven live digests (F-W1, F-W5, F-W6, F-W7, F-W8, F-W9, F-W10) appear in no spec at all.",
+   "receipt": "(base waves/) grep -lF for each live 12-hex digest -> 34e03162e793/fe6fe8970f71/d524036ef161/571afa710bdb in F-W1.md only; 4ea7748eaf89, 8e633764d220, 8e885bc9ae7a, 52b171f02e8a, 4dec882ad56e, 5fe907a44bb3, 4822558a9e1c -> nothing. Ten superseded digests still pinned across nine specs: a89c3386f3f8 (7 specs), a1302689aaa3 (5), 282f0c120cd4 (4), 39e1a60b3fc9 (3), 132c03192176 (3), bb58dc400cff (3), e9a9c3016f4c, c8c6d1d7f136, 5cc3346db23e, 1e3698adf4ff (1 each). MITIGATION: not one quotation pinned to a stale row failed to reproduce (15/15, section 5)."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "D-2 \u2014 The R4-8.2 purge certificate is owed for a SIXTH consecutive round. No certificate exists anywhere in the programme; the owing file only restates that it is owed.",
+   "receipt": "(base fourier/) grep -rl 'R4-8.2' waves/ conformance/PASS-5/ -> five wave specs (F-W1, F-W2, F-W6, F-W7, F-W10) + five conformance artefacts (F-W6-CHECK, F-W7-CHECK, UNION, WORK-ORDER, SEAL), and NO certificate among them. Second probe for any issued-certificate spelling -> none. F-W6.md:57 still reads 'The R4-8.2 certificate that does not exist is still owed'."
+  },
+  {
+   "severity": "HIGH",
+   "claim": "D-3 \u2014 MID-21's own receipt is false at the settle for the second consecutive round. F-W4 publishes 7 \u00b7 3 \u00b7 3 \u00b7 7 at two sites; the live re-run returns 8 \u00b7 4 \u00b7 4 \u00b7 8. The self-referential-count class (R3-3.10 / P5-8) re-committed inside the repair written to end it, in the very section (Y) R4-9.1 created to make the sweep auditable.",
+   "receipt": "(base waves/) for t in PAW-6 PAW-18 PAW-26 PAW-29; do grep -oE \"\\b$t\\b\" F-W4.md | wc -l; done -> 8 \u00b7 4 \u00b7 4 \u00b7 8. grep -c '7 \u00b7 3 \u00b7 3 \u00b7 7' F-W4.md -> 2. Cause is mechanical: MID-21's corrective sentence names each token once more. The FINDING is untouched (the first member was never 4); only the transcript a successor re-runs is wrong."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-4 \u2014 NEW, filed against the canonical: band/standalone double-bank puts 17 phantom rows and 24 duplicate ids into section 3's totals. fr-NotationPills banks band K-1..K-17 AND standalone K-2..K-17, where all seventeen stubs live on the band's own single head line :79. fr-MorphShapePreview banks band K-1..K-8 minted from PROSE at :116 while all eight real banked heads stand as table rows :120-127.",
+   "receipt": "grep -nc '\\*\\*K-' fr-NotationPills.md -> 5 lines (79 83 84 85 86); sed -n '79p' | grep -oE '\\*\\*K-[0-9]+\\*\\*' | wc -l -> 17 (all on ONE line). fr-MorphShapePreview :116 = prose 'K-1..K-8 are r1's, re-ratified...'; :120-127 = '| **K-1** |'..'| **K-8** |'. Arithmetic: ROWS and TERMINAL each overstated by 17 (4262->4245; 1190->1173); band expansion double-counts 24 ids (4322->4298). Positive control: fr-FourierMorphSvg K-1..K-16 + K-17..K-20 has no overlap and is correct. MITIGATION: every affected row is TERMINAL, so the roster, escape count and fabrication figure are untouched."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-5 \u2014 F-W6 :470 survives one section away from BOTH its own cures: it still publishes the count word 'eight' against a ten-member roster, and still presents the STRUCK four-spelling detector as a live co-equal falsifier \u2014 in the paragraph whose stated job is to tell a successor how to run the gate.",
+   "receipt": "grep -noE 'R-5 qualifies exactly \\*\\*[a-z]+\\*\\*' F-W6.md -> 470:...**eight**, against REST-20's :65 'At least TEN banked tokens collide ... M-10 \u00b7 M-9 added at repair round 5'. grep -noE 'four-spelling' F-W6.md -> 248 \u00b7 470 \u00b7 526 \u00b7 526, where :526 is REST-19's strike face and :470 is not. Contrast: F-W7's 'four negatives' now appears ONLY inside its strike note (:291) and retirement clause (:355) \u2014 correct practice."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-6 \u2014 MID-42's per-clause holder marks landed at roughly eight of twenty. The universal and the enumeration are correct; the operative half ('each takes one at its own clause') did not follow.",
+   "receipt": "F-W5.md:275 reads 'TWENTY sites in this file carried a leg in a booking voice, not four' and names all seventeen clauses. Whole-file sweep returns EIGHT holder marks of any spelling (LEG CITED, HELD AT F.W3 x3 \u00b7 LEG \u2014 held at F-W4 x2 \u00b7 held at F-W3 \u00a7X.1-v5's x2 \u00b7 one held at F-W4 \u00a72.A). The five named clauses carry the id bare at their own site: FR-IC-6 :143, HLG-23 :156, FR-GSB-1 :182, GAB-17 :183, VV-R2-B :186."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-7 \u2014 NEW, filed against the canonical: E5-10's cure landed at one band row of six. Five section-2 band rows still carry the multiplicity INSIDE the backtick span while section 1 spells all six correctly, so the two sections disagree on five rows \u2014 the exact defect E5-10 declared cured.",
+   "receipt": "awk '/^## \u00a72/,/^## \u00a73/' CENSUS-CANONICAL.md | grep -ohE '`[^`]+\\.\\.[^`]+`' | sort -u -> six spans, five uncured: `FM-4..FM-16 (13 ids)` (F.W1, :4865) \u00b7 `K-1..K-16 (16 ids)` \u00b7 `K-1..K-17 (17 ids)` \u00b7 `K-1..K-8 (8 ids)` \u00b7 `S-1..S-9 (9 ids)`. Section 1 at :2412 spells it `FM-4..FM-16` <sub>band = 13 ids</sub>. Specs inherited the malformed form: grep -c 'FM-4..FM-16 (13 ids)' F-W1.md -> 3. MITIGATION: only FM-4..FM-16 is a wave-duty row and F-W1 books it."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-8 \u2014 NEW: REST-65's receipt is locale-dependent and no spec declares a locale. The published line NUMBER itself flips 10 <-> 19 with LC_ALL, because BSD tr in byte mode emits two newlines per two-byte UTF-8 separator.",
+   "receipt": "sed -n '49p' fr-ExportModal.md | tr '\u00b7' '\\n' | grep -n 'L-16' -> under LC_ALL=C: '19: L-16 -> fr-BasisCanvas :106, NO-WAVE-OWNER'; under LC_ALL=en_US.UTF-8: '10: L-16 -> ...'. Spec publishes 10:. The pinned-toolchain blocks pin PATH and binaries and say nothing about locale. MITIGATION: grep -lh \"tr '\u00b7'\" F-W*.md -> F-W10.md ONLY, one site in eleven; the finding, fold and home are correct under either locale."
+  },
+  {
+   "severity": "MEDIUM",
+   "claim": "D-9 \u2014 The surviving fabrication: fr-Tooltip FR-TT-1 is booked at F.W10 by F-W10 section 2.2's re-cut table while the canonical homes it at F.W4. Disclosed in the spec's own voice as a PENDING PAIRED EDIT, but uncured. This is the whole of fabricated = 1, down from eleven.",
+   "receipt": "Canonical extraction -> 'F.W4 fr-Tooltip FR-TT-1'. F-W10 section 2.5b: 'the fabrication test in the other direction, which convicts \u00a72.2's FR-TT-1 -> F.W10 cut against the canonical's F.W4 home and files it as a PENDING PAIRED EDIT beside AA-44 9->8'. Sibling #11 PAW-50 IS discharged: three divergences enumerated at :33 (PAW-49->F.W0 \u00b7 PAW-50->F.W4 \u00b7 FR-TT-1->F.W10)."
+  },
+  {
+   "severity": "LOW",
+   "claim": "D-10 \u2014 REST-65's verbatim paste carries a byte its command does not print: F-W10 publishes '10:  L-16' with TWO spaces after the colon; the command prints ONE under either locale. The two-space form is the work order's own spelling, so the paste was inherited rather than re-run.",
+   "receipt": "grep -c '10:  L-16' F-W10.md -> 1. od -c on the live command output shows a single 0x20 between ':' and 'L' under both LC_ALL=C and UTF-8. P5-10 class inside the cure for a P5-1 BLOCKER."
+  },
+  {
+   "severity": "LOW",
+   "claim": "D-11 \u2014 Filed against PASS-5/SEAL.md, a round-5 instrument under check: section 2.2's line count is off by one. It publishes '25 table lines = header + separator + 23 booked rows'; the block has 26 table lines because the vue-tsc disposal row IS a table line and was not counted.",
+   "receipt": "awk 'NR>=642 && NR<=673 && /^\\|/' F-W1.md | wc -l -> 26. Block = header :646, separator :647, 23 booked rows :648-:670, disposal row :671 ('\u2205 \u2014 NO ROW EXISTS'). The seal's prose is right where its arithmetic is not \u2014 it calls the 24th escape 'disposed not as a booking' two sentences later. The spec's own claim of 23 booked is TRUE."
+  },
+  {
+   "severity": "LOW",
+   "claim": "D-12 \u2014 F-W4 carries no VERIFIED declaration at all, while the other ten specs each declare VERIFIED NO. The zero-VERIFIED posture holds program-wide (no spec asserts YES), but ten of eleven declare it and one does not.",
+   "receipt": "grep -on 'VERIFIED' F-W4.md -> empty. Across the other ten: VERIFIED | **NO** x7, VERIFIED **NO** x3, plus F-W1's VERIFIED = NO. Total 15 occurrences, all NO, zero YES."
+  },
+  {
+   "severity": "LOW",
+   "claim": "D-13 \u2014 Three canonical residues remain open, disclosed and unmoved: the arrow-clause class is not proven confined to five rows (corpus-wide re-derivation owed); the alias-orphan sweep is partial (fr-PathPreview still carries a standalone C-10 UNROUTED row though C-10 has no banked head of its own); fr-PathPreview K7 is flagged, not moved.",
+   "receipt": "grep -n 'C-10' fr-PathPreview.md -> :49 (PP-GATE's alias parenthetical), :82 (K9's head, a mention), :110 (prose) \u2014 no banked head. Section 0.4's closing block names all three against interest. D-4 is the same owed alias-orphan sweep, now with two more instances and a number."
+  }
+ ],
+ "fabricated": 1,
+ "hashesClean": true,
+ "rosterEscapes": 0,
+ "verdict": "NOT CONFORMANT \u2014 zero BLOCKER/CRITICAL, but THREE HIGH (D-1 stale pin regime program-wide; D-2 R4-8.2 purge certificate owed a sixth round; D-3 MID-21's self-count false at the settle), one live fabrication (D-9, disclosed in-spec), and a six-MEDIUM/four-LOW tail. Hash gate PASSED 12/12 byte-identical to PASS-5/SEAL \u2014 which means the bytes never moved and all six uncured LW findings are live by construction; this seat re-measured each independently rather than inheriting it. The four axes the bar is really about DO close: the roster closes at ZERO escapes by this seat's own boundary-exact subtraction over 2515 wave-duty rows plus the 65-row drain (seven of eight rosters and the drain close on the first pass; F.W4's 68 strict misses all resolve to the spec's DECLARED suffix-elision chains and record-prefix compounds, and both chains carrying count words expand to exactly their stated figures); fabrication fell 11 -> 1 with 10 of 11 cures re-verified individually at the bytes; the canonical's arithmetic is exact in three independent directions (section 1 = section 2 = section 3 = 4262, all 66 per-record counts matching their own headers, and the 4322 band expansion re-deriving); and 15 of 15 round-5 re-cut receipts reproduce to the byte. Five of five corpus spot audits confirm the errata round's readings at the frozen bytes. Two findings no prior pass filed, both against the canonical and both real: D-4 (band/standalone double-bank putting 17 phantom rows and 24 duplicate ids into section 3, all TERMINAL so the roster is untouched) and D-7 (E5-10's cure landed at one band row of six). Every failure is in the instrument, not the corpus. The one act that closes this round is the one every round has ordered and none has performed: a purge seat that edits nothing, runs after the last wave byte, re-pins the five R4-8.3 tables at the true settle and issues the R4-8.2 certificate \u2014 plus, for D-3, a form change and not a figure (strike the self-count, cite the classification). Report at /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/conformance/PASS-6/CHECK.md; read-only discipline verified \u2014 post-write hashes byte-identical to first act, frozen corpus clean at 35fc8ebf."
+}

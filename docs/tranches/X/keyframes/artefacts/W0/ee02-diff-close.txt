@@ -1,0 +1,79 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# ee02-diff-close.txt — G-0.3 CLOSE reading (the settled tree; the css-twin NOT regressed)
+# Wave KF.W0 (Track B / X.KF) - unit KF.W0.c. Substrate: /Users/mkbabb/Programming/keyframes.js
+# Date: 2026-09-17. Every figure double-run; both runs agreed. Pair file: ee02-diff-open.txt.
+#
+# THE COORDINATE, pasted beside every reading below, because a gate leg closed on an oracle that
+# names no coordinate is the failure G-0.4's falsifier convicts one level up:
+$ date "+%Y-%m-%d"    -> 2026-09-17
+$ git rev-parse HEAD  -> 81a56990736ced5b5edde0b84c527680ac7689b1
+#
+# .c VERIFIES these two paths; it never writes them. They are OWNER'S-HAND bounds rows
+# (spec :347, :348) and they were reconciled BY OP-1's reset, never authored by any seat.
+
+## G-0.3's GREEN clause: an EMPTY diff for the .ts/.vue pair
+
+$ git diff origin/master --stat -- \
+      demo/components/instrument/transport/channel-controls/TimingFunctionPanel.vue \
+      demo/components/instrument/transport/channel-controls/composables/useTimingFunctionEditor.ts
+                                                            -> (no output: the diff is EMPTY)
+
+$ git diff origin/master --stat -- <the same two paths> package.json package-lock.json
+                                                            -> (no output: all four are EMPTY)
+$ git diff --check                                          -> (clean)
+
+## EMPTINESS IS NOT THE GATE — THE DIRECTION IS (the falsifier, met by content)
+##   "reconcile master<-disk and the diff also goes empty while the landed cure is destroyed."
+## Three independent readings prove disk<-master:
+
+  (1) THE CONTENT AT BOTH WRITE SITES IS THE FRONTIER'S, NOT THE DISK'S.
+
+$ grep -n 'setAnimationTimingFunction\|timingFunctionLiteralFor' \
+      demo/.../channel-controls/composables/useTimingFunctionEditor.ts
+   96:    const setAnimationTimingFunction = (
+   97:        timingFunction: TimingFunction,
+   98:        css?: string,                                   <- THE TWIN ARG (disk had ONE arg)
+  128:    const timingFunctionLiteralFor = (
+  170:        setAnimationTimingFunction(timingFunction, timingFunctionLiteralFor(key));   <- the twin PASSED
+  178:            timingFunctionLiteralFor(key);
+  245:        setAnimationTimingFunction,
+
+$ sed -n '96,106p' demo/.../composables/useTimingFunctionEditor.ts
+      const setAnimationTimingFunction = (
+          timingFunction: TimingFunction,
+          css?: string,
+      ) => {
+          const animation = getAnimation();
+          // The engine carries easing as a typed `Easing` ({ fn, css? });
+          // wrap the bare callable once and share the reference across
+          // frames so WAAPI uniform-timing eligibility sees ONE easing. The
+          // faithful CSS twin rides along so the Keyframes-string readout can
+          // serialize THIS live easing verbatim - a css-less `{ fn }` closure
+          // that is not the registry singleton makes `serializeEasing` throw
+
+$ sed -n '143,152p' demo/.../channel-controls/TimingFunctionPanel.vue
+      const pts = v.points as [number, number, number, number];
+      props.storedAnimationOptions.cubicBezierOptions.controlPoints = pts;   <- :144, the bezier-drag write
+      // The bezier-drag builds a FRESH `cubicBezierEasing(...)` closure (not the
+      // registry singleton), so attach its faithful `cubic-bezier(...)` CSS twin
+      // - else the Keyframes-string readout serialize throws (EE-02).
+      const timingFunction = {                                               <- :148, where the twin attaches
+          fn: cubicBezierEasing(...pts),
+          css: cubicBezierToString(...pts),                                  <- THE TWIN, present
+      };
+      props.animation.options.timingFunction = timingFunction;
+
+  -> SUBJECT-IDENTITY holds at both rows: the spec's stated subject is present at the spec's stated
+     line (:96 / :128 decls, :144 the write, :148 the attachment). A master<-disk reconciliation
+     would have left `{ fn }` here; `{ fn, css }` is the frontier's cure, standing.
+
+  (2) THE FRONTIER REF DID NOT MOVE.
+$ git rev-parse origin/master  -> 81a56990736ced5b5edde0b84c527680ac7689b1   (= the pinned coordinate)
+$ git rev-list --count origin/master..HEAD -> 0    (nothing local is ahead; no disk commit landed on master)
+
+  (3) THE DISK'S OWN PRIOR BYTES ARE PRESERVED ELSEWHERE, NOT PUSHED UPSTREAM.
+      snapshot 6d280ee7 holds the `{ fn }` form; origin/master holds `{ fn, css }`; the two are
+      distinct objects and the frontier carries no snapshot content.
+
+## G-0.3: RED -> GREEN. C-4's direction lock HONOURED (disk<-master, never master<-disk).

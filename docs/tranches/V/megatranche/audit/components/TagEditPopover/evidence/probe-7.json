@@ -1,0 +1,298 @@
+{
+  "ariaSnapshot": "- dialog:\n  - text: Tags\n  - checkbox \"pastel mood\"\n  - text: pastel mood\n  - checkbox \"warm temperature\"\n  - text: warm temperature\n  - checkbox \"muted-earthen-autumnal mood\"\n  - text: muted-earthen-autumnal mood\n  - checkbox \"neon saturation\"\n  - text: neon saturation\n  - checkbox \"monochrome structure\"\n  - text: monochrome structure\n  - checkbox \"duotone structure\"\n  - text: duotone structure\n  - checkbox \"high-contrast accessibility\"\n  - text: high-contrast accessibility\n  - checkbox \"brand usage\"\n  - text: brand usage\n  - checkbox \"vaporwave aesthetic\"\n  - text: vaporwave aesthetic\n  - checkbox \"sepia temperature\"\n  - text: sepia temperature",
+  "checkboxAccNames": [
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    },
+    {
+      "ariaLabel": null,
+      "ariaLabelledby": null,
+      "id": null,
+      "wrappedByLabel": true,
+      "labelHasFor": null,
+      "innerText": "",
+      "ariaChecked": "false"
+    }
+  ],
+  "roleCheckboxCount": 10,
+  "namedCheckboxProbe": [
+    {
+      "name": "pastel",
+      "count": 1
+    },
+    {
+      "name": "warm",
+      "count": 1
+    },
+    {
+      "name": "neon",
+      "count": 1
+    },
+    {
+      "name": "high-contrast",
+      "count": 1
+    }
+  ],
+  "light": {
+    "panelPadding": "20.351999px 16px",
+    "panelWidth": "208px",
+    "innerPadding": "8px 12px",
+    "innerWidth": "174px",
+    "panelClassList": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-52 p-0",
+    "p0Applied": true,
+    "effectiveInlinePadEachSide": 28,
+    "contentColumnWidth": 150,
+    "headingColor": "oklab(0.457941 0.014425 0.03273)",
+    "headingFont": "\"Fira Code\"",
+    "headingSize": "14.384px",
+    "headingTransform": "uppercase",
+    "headingTracking": "1.4384px",
+    "catColor": "rgb(112, 89, 66)",
+    "catFont": "\"Fira Code\"",
+    "catSize": "14.384px",
+    "catTransform": "uppercase",
+    "catTracking": "1.4384px",
+    "headingEqualsCategoryRegister": true,
+    "headingColorEqualsCategoryColor": false,
+    "panelBg": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+    "rows": [
+      {
+        "i": 0,
+        "name": "pastel",
+        "nameW": 46,
+        "cat": "mood",
+        "catW": 41.2,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 1,
+        "name": "warm",
+        "nameW": 0,
+        "cat": "temperature",
+        "catW": 113.2,
+        "catRight": 602.2,
+        "rowRight": 599,
+        "overflowsRow": true,
+        "cbW": 16
+      },
+      {
+        "i": 2,
+        "name": "muted-earthen-autumnal",
+        "nameW": 60.8,
+        "cat": "mood",
+        "catW": 41.2,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 3,
+        "name": "neon",
+        "nameW": 0,
+        "cat": "saturation",
+        "catW": 102.9,
+        "catRight": 591.9,
+        "rowRight": 599,
+        "overflowsRow": true,
+        "cbW": 16
+      },
+      {
+        "i": 4,
+        "name": "monochrome",
+        "nameW": 9.4,
+        "cat": "structure",
+        "catW": 92.6,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 5,
+        "name": "duotone",
+        "nameW": 9.4,
+        "cat": "structure",
+        "catW": 92.6,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 6,
+        "name": "high-contrast",
+        "nameW": 0,
+        "cat": "accessibility",
+        "catW": 133.8,
+        "catRight": 622.8,
+        "rowRight": 599,
+        "overflowsRow": true,
+        "cbW": 16
+      },
+      {
+        "i": 7,
+        "name": "brand",
+        "nameW": 44,
+        "cat": "usage",
+        "catW": 51.5,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 8,
+        "name": "vaporwave",
+        "nameW": 9.4,
+        "cat": "aesthetic",
+        "catW": 92.6,
+        "catRight": 591,
+        "rowRight": 599,
+        "overflowsRow": false,
+        "cbW": 16
+      },
+      {
+        "i": 9,
+        "name": "sepia",
+        "nameW": 0,
+        "cat": "temperature",
+        "catW": 113.2,
+        "catRight": 602.2,
+        "rowRight": 599,
+        "overflowsRow": true,
+        "cbW": 16
+      }
+    ],
+    "zeroNameRows": 4,
+    "ellipsisOnlyRows": 3,
+    "catOverflowRows": 4
+  },
+  "keyboard": {
+    "focusedTag": "BUTTON",
+    "focusedRole": "checkbox",
+    "rowBackground": "rgba(0, 0, 0, 0)",
+    "rowOutline": "3px none rgb(28, 25, 23)",
+    "rowBoxShadow": "none",
+    "checkboxOutline": "3px none rgb(251, 250, 248)",
+    "checkboxBoxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0px 0px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -1px 0px 0px inset, col",
+    "rowHasFocusStyle": true
+  },
+  "loading": {
+    "found": true,
+    "panelH": 134.3,
+    "text": "TAGS",
+    "spinner": {
+      "cls": "lucide lucide-loader-circle-icon lucide-loader-circle h-4 w-4 animate-spin text-muted-foreground",
+      "animation": "1s linear infinite spin",
+      "w": "16px",
+      "h": "16px",
+      "color": "rgb(112, 89, 66)",
+      "ariaHidden": null,
+      "role": null
+    },
+    "liveRegions": 0,
+    "ariaBusy": null
+  },
+  "reducedMotionSpin": {
+    "animation": "0.00001s linear spin",
+    "animationName": "spin",
+    "animationDuration": "0.00001s",
+    "animationIterationCount": "1",
+    "matchesReduce": true
+  },
+  "rtl": {
+    "docDir": "rtl",
+    "computedDir": "rtl",
+    "panelDir": "rtl",
+    "catMarginLeft": "14.875px",
+    "catMarginRight": "0px",
+    "order": [
+      575,
+      521,
+      471.9
+    ],
+    "headingTextAlign": "start"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "serverTotal": 137,
+  "returned": 50,
+  "emptyOnPage1": 10,
+  "listRequests": [
+    "http://localhost:9077/admin/users?limit=50&offset=0"
+  ],
+  "read": {
+    "countLine": "50 users",
+    "emptyLine": "· 10 empty",
+    "headerBadge": "50",
+    "rowsRendered": 50,
+    "paginationControls": [],
+    "head": "Users 50 Manage accounts and permissions. 50 users · 10 empty Prune empty Refresh use r-0000 0 use r-0001 3 Palettes use"
+  },
+  "pruneDialog": "Prune 10 empty users? This will permanently delete 10 users with 0 palettes and their sessions. This cannot be undone. Cancel Prune",
+  "VERDICT": {
+    "claimsTotal": "50 users",
+    "actualTotal": "137 users",
+    "pagingOffered": 0,
+    "unreachableUsers": 87
+  }
+}

@@ -1,0 +1,412 @@
+SERVED MODEL: claude-opus-5[1m]
+KF.W0.d — COUNTS artefact — SCH-1..SCH-7 + X-2 + OP-4, re-run at origin/master
+date: 2026-09-17 13:35:32 EDT
+cwd : /Users/mkbabb/Programming/keyframes.js
+============================================================
+[0] ANCHORS
+$ git rev-parse HEAD
+81a56990736ced5b5edde0b84c527680ac7689b1
+
+$ git rev-parse origin/master
+81a56990736ced5b5edde0b84c527680ac7689b1
+
+$ git rev-parse --abbrev-ref HEAD
+master
+
+$ git status --short | wc -l
+       6
+
+============================================================
+[SCH-1] glass-ui declaration at origin/master (COUNT-claim only; the RULING is KF.W0.b / G-0.2)
+$ git show origin/master:package.json | grep -n 'glass-ui'
+77:        "@mkbabb/glass-ui": "7.0.0",
+
+$ git show origin/master:package-lock.json | grep -c 'glass-ui'
+3
+
+============================================================
+[SCH-2] KfPillTabs fork — RE-VERIFY, DO NOT RE-BOOK (spec Excluded)
+$ git ls-tree -r --name-only origin/master | grep -i pilltabs
+demo/components/instrument/transport/KfPillTabs.vue
+demo/components/instrument/transport/KfPillTabs/useKfPillTabs.ts
+demo/components/instrument/transport/composables/useKfPillTabs.ts
+test/demo/instrument/KfPillTabs.test.ts
+
+$ git show origin/master:demo/components/instrument/transport/KfPillTabs.vue | wc -l
+     124
+
+$ git show origin/master:demo/components/instrument/transport/KfPillTabs/useKfPillTabs.ts | wc -l
+      93
+
+$ git show origin/master:demo/components/instrument/transport/composables/useKfPillTabs.ts | wc -l
+       4
+
+============================================================
+[SCH-3] src .ts count + LOC
+$ git ls-tree -r --name-only origin/master src/ | grep -c '\.ts$'
+153
+
+$ git ls-tree -r --name-only origin/master src/ | grep '\.ts$' | while read f; do git show "origin/master:$f"; done | wc -l
+   22778
+
+============================================================
+[SCH-4] MEASURE-AT-OPEN. PREDICATE (stated, never inherited):
+        lane-library.md:26's own command, git-resolved at a named ref, scope = src/ ONLY.
+$ git grep -h 'from "@mkbabb/value.js' origin/master -- src | wc -l
+      62
+
+$ git grep -h 'from "@mkbabb/value.js/value' origin/master -- src | wc -l
+      16
+
+$ git grep -l 'from "@mkbabb/value.js' origin/master -- src | wc -l
+      40
+
+--- the per-subpath split (LIB's table shape), origin/master, src/ ---
+$ git grep -ho 'from "@mkbabb/value\.js/[a-z]*' origin/master -- src | sed 's/.*value\.js//' | sort | uniq -c | sort -rn
+  29 /css
+  16 /value
+   7 /color
+   5 /math
+   3 /easing
+   2 /transform
+
+--- the SAME predicate at the two OTHER committed coordinates ---
+$ git grep -h 'from "@mkbabb/value.js' 8281638c -- src | wc -l
+      81
+
+$ git grep -h 'from "@mkbabb/value.js/value' 8281638c -- src | wc -l
+       0
+
+$ git grep -h 'from "@mkbabb/value.js' kf-sacred-snapshot-2026-09-17 -- src | wc -l
+      48
+
+$ git grep -h 'from "@mkbabb/value.js/value' kf-sacred-snapshot-2026-09-17 -- src | wc -l
+      10
+
+--- the two WIDER scopes (seat-0's baseline readings, reproduced) ---
+$ git grep -h 'from "@mkbabb/value.js' origin/master -- src demo test scripts | wc -l
+     148
+
+$ git grep -h 'from "@mkbabb/value.js/value' origin/master -- src demo test scripts | wc -l
+      30
+
+$ git grep -h 'from "@mkbabb/value.js' origin/master -- . | wc -l
+     207
+
+============================================================
+[SCH-5] Tier-A re-anchor at origin/master
+$ for p in src/animation/compile/adapter.ts src/animation/compile/value-ast.ts src/animation/compile/selector.ts src/animation/compile/easing/easing-registry.ts src/animation/compile/emit/format-options.ts src/animation/engine/options.ts src/animation/resolve/browser.ts src/animation/scroll/grammar.ts src/animation/validate.ts src/animation/engine/css/css-animation.ts; do if git cat-file -e "origin/master:$p" 2>/dev/null; then echo "PRESENT  $p"; else echo "ABSENT   $p"; fi; done
+PRESENT  src/animation/compile/adapter.ts
+ABSENT   src/animation/compile/value-ast.ts
+PRESENT  src/animation/compile/selector.ts
+ABSENT   src/animation/compile/easing/easing-registry.ts
+ABSENT   src/animation/compile/emit/format-options.ts
+PRESENT  src/animation/engine/options.ts
+PRESENT  src/animation/resolve/browser.ts
+PRESENT  src/animation/scroll/grammar.ts
+PRESENT  src/animation/validate.ts
+ABSENT   src/animation/engine/css/css-animation.ts
+
+$ git grep -n 'parseStylesheet(' origin/master -- src
+origin/master:src/animation/compile/adapter.ts:222:    const result = parseStylesheet(source);
+origin/master:src/animation/scroll/grammar.ts:109:        ? requireParsed(parseStylesheet(input), input)
+origin/master:src/animation/validate.ts:130: *   1. `parseStylesheet(css)` → the AST; `parseable` is true when Value
+origin/master:src/animation/validate.ts:182:        const parsed = parseStylesheet(css);
+
+$ git grep -n 'resolveKeyframes' origin/master -- src/animation/compile/adapter.ts src/animation/engine/css/
+origin/master:src/animation/compile/adapter.ts:158:        // resolveKeyframes → flatten seam. Only paid on a declaration that
+origin/master:src/animation/compile/adapter.ts:259: * of this STRING normaliser: where `resolveKeyframes` normalises a string of
+origin/master:src/animation/compile/adapter.ts:266:export const resolveKeyframes = (
+origin/master:src/animation/engine/css/animation.ts:15:import { resolveKeyframes } from "../../compile/adapter";
+origin/master:src/animation/engine/css/animation.ts:176:        const resolved = resolveKeyframes(keyframes);
+
+$ git grep -n 'parseCssValues(' origin/master -- src
+origin/master:src/animation/compile/value/compile.ts:32:        const parsed = parseCssValues(value);
+
+$ git grep -n 'parseKeyframeSelector' origin/master -- src
+origin/master:src/animation/compile/frame/compiler.ts:35:// validate+parse function (`parseKeyframeSelector`, carved off `addFrame` at
+origin/master:src/animation/compile/frame/compiler.ts:38:// `parseKeyframeSelector` from `./selector` DIRECTLY; this module imports only
+origin/master:src/animation/compile/frame/compiler.ts:40:import { FRAME_ID_SCALE, parseKeyframeSelector } from "../selector";
+origin/master:src/animation/compile/frame/compiler.ts:146:            typeof start === "string" ? parseKeyframeSelector(start) : start;
+origin/master:src/animation/compile/index.ts:19: * `namedSelectorToFraction` and `parseKeyframeSelector` come from `./selector`
+origin/master:src/animation/compile/index.ts:24:export { namedSelectorToFraction, parseKeyframeSelector } from "./selector";
+origin/master:src/animation/compile/selector.ts:3:    parseKeyframeSelector as parseValueSelector,
+origin/master:src/animation/compile/selector.ts:23:export function parseKeyframeSelector(start: string): KeyframeSelector {
+
+$ git grep -n 'parseTimingFunction(' origin/master -- src
+origin/master:src/animation/compile/easing/registry.ts:131:    const parsed = parseTimingFunction(timingFunction);
+origin/master:src/animation/compile/emit/format/options.ts:104:    const timing = parseTimingFunction(timingSource);
+
+$ git grep -n 'parseCssScalar(' origin/master -- src
+origin/master:src/animation/engine/options.ts:31:    const parsed = parseCssScalar(raw);
+origin/master:src/animation/resolve/browser.ts:162:    const parsed = parseCssScalar(source);
+
+$ git grep -n 'parseAnimationTimeline(\|parseAnimationRange(' origin/master -- src
+origin/master:src/animation/scroll/grammar.ts:77:    return requireParsed(parseAnimationTimeline(input), input);
+origin/master:src/animation/scroll/grammar.ts:85:    return requireParsed(parseAnimationRange(input), input);
+
+$ git ls-tree -r --name-only origin/master src/animation/engine/css/
+src/animation/engine/css/animation.ts
+src/animation/engine/css/index.ts
+src/animation/engine/css/metadata.ts
+
+$ git cat-file -e origin/master:src/animation/compile/emit/backward/backward.ts && echo PRESENT
+PRESENT
+
+$ git show origin/master:src/animation/compile/emit/easing-serialize.ts | sed -n '71,73p'
+    const registryName = timingFunctionEntries.find(
+        ([_name, func]) => func === easing.fn,
+    )?.[0];
+
+============================================================
+[SCH-6] demo .vue count
+$ git ls-tree -r --name-only origin/master demo/ | grep -c '\.vue$'
+58
+
+============================================================
+[SCH-7] depcruise L-1/L-2 — RESTATED UNVERIFIED-AT-HEAD. depcruise is NOT run here (spec Excluded).
+$ git grep -n 'physics/spring/\(duration\|reseat\|linear-stops\|timing-function\)' origin/master -- .dependency-cruiser.cjs
+origin/master:.dependency-cruiser.cjs:58:    "physics/spring/duration",
+origin/master:.dependency-cruiser.cjs:59:    "physics/spring/reseat",
+origin/master:.dependency-cruiser.cjs:60:    "physics/spring/linear-stops",
+origin/master:.dependency-cruiser.cjs:61:    "physics/spring/timing-function",
+
+$ for p in src/animation/physics/spring/solver/duration.ts src/animation/physics/spring/solver/reseat.ts src/animation/physics/spring/css/linear-stops.ts src/animation/physics/spring/css/timing-function.ts; do git cat-file -e "origin/master:$p" 2>/dev/null && echo "PRESENT $p" || echo "ABSENT  $p"; done
+PRESENT src/animation/physics/spring/solver/duration.ts
+PRESENT src/animation/physics/spring/solver/reseat.ts
+PRESENT src/animation/physics/spring/css/linear-stops.ts
+PRESENT src/animation/physics/spring/css/timing-function.ts
+
+$ git cat-file -e origin/master:.dependency-cruiser-known-violations.json 2>/dev/null && echo PRESENT || echo 'ABSENT at origin/master'
+ABSENT at origin/master
+
+$ git grep -c 'knownViolations' origin/master -- .dependency-cruiser.cjs || echo '0 hits'
+0 hits
+
+============================================================
+[X-2] demo .ts/.vue members
+$ git ls-tree -r --name-only origin/master demo/ | grep -cE '\.(ts|vue)$'
+185
+
+============================================================
+[OP-4] the parseAnimationCSS LOCUS probe — verbatim as commissioned. MEASURE ONLY.
+$ git grep -n 'parseAnimationCSS' 81a56990 -- src demo
+81a56990:demo/components/instrument/keyframes/composables/useKeyframeOps.ts:7:import { parseAnimationCSS } from "../utils/parseAnimationCSS";
+81a56990:demo/components/instrument/keyframes/composables/useKeyframeOps.ts:64:        const { options, keyframes } = await parseAnimationCSS(keyframesString);
+81a56990:demo/components/instrument/keyframes/composables/useKeyframeOps.ts:116:                        await parseAnimationCSS(wrapped);
+81a56990:demo/components/instrument/keyframes/composables/useKeyframeOps.ts:162:                    await parseAnimationCSS(keyframesString);
+81a56990:demo/components/instrument/keyframes/utils/parseAnimationCSS.ts:26:export const parseAnimationCSS = async (input: string) => {
+81a56990:demo/components/instrument/timeline/utils/timelineEngine.ts:11:import { parseAnimationCSS } from "../../keyframes/utils/parseAnimationCSS";
+81a56990:demo/components/instrument/timeline/utils/timelineEngine.ts:79:    const { keyframes: parsed } = await parseAnimationCSS(css);
+
+============================================================
+[C-9] the CASCADE-COUPLED column: the import census and its cascade complement
+$ git grep -h '@mkbabb/glass-ui' origin/master -- demo | wc -l
+      83
+
+$ git grep -l '@mkbabb/glass-ui' origin/master -- demo | wc -l
+      43
+
+$ git grep -l '@mkbabb/glass-ui' origin/master -- 'demo/**/*.vue' | wc -l
+      37
+
+$ comm -23 <(git ls-tree -r --name-only origin/master demo/ | grep '\.vue$' | sort) <(git grep -l '@mkbabb/glass-ui' origin/master -- 'demo/**/*.vue' | sed 's/^origin\/master://' | sort)
+demo/app/App.skeleton.vue
+demo/components/CopyButton.vue
+demo/components/instrument/keyframes/KeyframesStringControls.vue
+demo/components/instrument/shell/AnimatedText.vue
+demo/components/instrument/shell/EditorStartScreen.vue
+demo/components/instrument/shell/TypingDots.vue
+demo/components/instrument/timeline/TimelineCaret.vue
+demo/components/instrument/timeline/components/TimelineHoverPreview.vue
+demo/components/instrument/transport/KfPillTabs.vue
+demo/components/instrument/transport/components/DemoGlobalChrome.vue
+demo/scenes/amiga/AmigaScene.vue
+demo/scenes/cube/CubeAxisLines.vue
+demo/scenes/cube/CubeTarget.vue
+demo/scenes/cube/orbital-drag/OrbitalDrag.vue
+demo/scenes/easing/EasingScene.vue
+demo/scenes/sequence/SequenceAxis.vue
+demo/scenes/sequence/SequencePlayhead.vue
+demo/scenes/sequence/SequenceScene.vue
+demo/scenes/sequence/SequenceScrubber.vue
+demo/scenes/spring/SpringTrace.vue
+demo/scenes/square/SquareInstrument.vue
+
+--- vendor-only token/utility hits inside the zero-import set ---
+$ comm -23 <(git ls-tree -r --name-only origin/master demo/ | grep '\.vue$' | sort) <(git grep -l '@mkbabb/glass-ui' origin/master -- 'demo/**/*.vue' | sed 's/^origin\/master://' | sort) | while read f; do h=$(git show "origin/master:$f" | grep -oE 'text-mono-caption|text-caption|text-muted-foreground|border-border|--radius-pill|z-controls|--muted-foreground|--border' | sort -u | tr '\n' ' '); [ -n "$h" ] && printf '%s  ::  %s\n' "${f#demo/}" "$h"; done
+components/instrument/shell/EditorStartScreen.vue  ::  --muted-foreground z-controls 
+components/instrument/timeline/TimelineCaret.vue  ::  border-border text-muted-foreground 
+components/instrument/timeline/components/TimelineHoverPreview.vue  ::  border-border text-mono-caption text-muted-foreground 
+components/instrument/transport/KfPillTabs.vue  ::  --muted-foreground 
+scenes/amiga/AmigaScene.vue  ::  --border 
+scenes/sequence/SequenceAxis.vue  ::  text-mono-caption text-muted-foreground 
+scenes/sequence/SequencePlayhead.vue  ::  --radius-pill 
+scenes/sequence/SequenceScrubber.vue  ::  border-border text-caption text-mono-caption text-muted-foreground 
+scenes/spring/SpringTrace.vue  ::  --border text-mono-caption text-muted-foreground 
+scenes/square/SquareInstrument.vue  ::  --border text-caption text-mono-caption text-muted-foreground 
+
+--- the four definers: ZERO in the demo, vendor-only in the installed dist ---
+$ git grep -c -- '--radius-pill:' origin/master -- demo | wc -l
+       0
+
+$ git grep -c -- '--muted-foreground:' origin/master -- demo | wc -l
+       0
+
+$ git grep -c -- '--border:' origin/master -- demo | wc -l
+       0
+
+$ git grep -c -- '--z-controls:' origin/master -- demo | wc -l
+       0
+
+$ grep -c 'text-mono-caption' node_modules/@mkbabb/glass-ui/dist/styles/typography/utilities.css
+1
+
+$ grep -o -- '--radius-pill: [0-9a-z]*' node_modules/@mkbabb/glass-ui/dist/styles/theme/radius.css
+--radius-pill: 9999px
+
+$ grep -o -- '--z-index-controls: var(--z-controls)' node_modules/@mkbabb/glass-ui/dist/styles/theme/bridges.css
+--z-index-controls: var(--z-controls)
+
+$ grep -rl -- '--z-controls:' node_modules/@mkbabb/glass-ui/dist/styles/
+node_modules/@mkbabb/glass-ui/dist/styles/tokens/scheme-motion.css
+
+============================================================
+[C-10] PRM roster re-scope
+$ git grep -n 'prefers-reduced-motion' origin/master -- demo | grep '@media'
+origin/master:demo/app/App.skeleton.vue:95:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/components/instrument/shell/AnimatedText.vue:121:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/components/instrument/transport/controls-pane/ControlsPaneWrapper.css:144:@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/easing/EasingTarget.css:48:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/sequence/SequenceTarget.css:238:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/spring/SpringHeatmap.vue:333:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/spring/SpringTarget.vue:462:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/spring/StartingStyleTarget.vue:211:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/square/SquareInstrument.vue:207:@media (prefers-reduced-motion: reduce) {
+origin/master:demo/scenes/square/SquareScene.css:136:@media (prefers-reduced-motion: reduce) {
+
+$ git grep -n 'prefers-reduced-motion' origin/master -- demo | grep -c '@media'
+10
+
+$ git grep -n 'prefers-reduced-motion' origin/master -- demo | grep -v '@media'
+origin/master:demo/app/App.skeleton.vue:15: * `prefers-reduced-motion` (a static dimmed plate for reduced-motion users) and
+origin/master:demo/app/transition/useSceneSwap.ts:29: * spring snap to terminal in one emit under prefers-reduced-motion — an instant
+origin/master:demo/components/instrument/shell/AnimatedText.vue:118:/* PRM guard: the hero is the LCP node; under prefers-reduced-motion every char
+origin/master:demo/components/instrument/shell/TypingDots.vue:121:       and under prefers-reduced-motion (the engine snaps to the resting
+origin/master:demo/components/instrument/timeline/KeyframeTimeline.vue:94:             `prefers-reduced-motion` bracket (transitions.css PRM block) the
+origin/master:demo/scenes/cube/useCubeDemo.ts:164:            window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+origin/master:demo/scenes/easing/EasingTarget.vue:234:const reducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+origin/master:demo/scenes/sequence/useSequenceInstrument.ts:31:            window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+--- the vendor universal reset and its reachability chain ---
+$ head -c 300 node_modules/@mkbabb/glass-ui/dist/styles/utilities/a11y-overrides.css
+@media (prefers-reduced-motion: reduce) { *:not([data-allow-motion]) { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } *:not([data-allow-motion]) { transition-duration: 0.1s !important; transition-property: opacity, color, background-color, border-color, box-shadow 
+$ grep -o 'a11y-overrides.css' node_modules/@mkbabb/glass-ui/dist/styles/accessibility.css
+a11y-overrides.css
+
+$ grep -o './accessibility.css' node_modules/@mkbabb/glass-ui/dist/styles/index.css
+./accessibility.css
+
+$ node -p "require('./node_modules/@mkbabb/glass-ui/package.json').exports['./styles']"
+./dist/styles/index.css
+
+$ git grep -n '@import' origin/master -- demo/styles/style.css
+origin/master:demo/styles/style.css:1:@import "tailwindcss";
+origin/master:demo/styles/style.css:2:@import "tw-animate-css";
+origin/master:demo/styles/style.css:3:@import "@mkbabb/glass-ui/styles";
+origin/master:demo/styles/style.css:9:@import "@mkbabb/glass-ui/styles/fonts";
+origin/master:demo/styles/style.css:14:@import "./design-idioms.css";
+origin/master:demo/styles/style.css:15:@import "./layout.css";
+
+--- KeyframeTimeline:94's cited vendor file: it EXISTS but its PRM block is CLASS-SCOPED ---
+$ grep -o '@media (prefers-reduced-motion: reduce) { [^}]*}' node_modules/@mkbabb/glass-ui/dist/styles/transitions.css | head -1
+@media (prefers-reduced-motion: reduce) { .fade-enter-active, .fade-leave-active, .tab-fade-enter-active, .tab-fade-leave-active, .pane-swap-enter-active, .pane-swap-leave-active, .metric-swap-enter-active, .metric-swap-leave-active { transition-duration: 0.1s !important; }
+
+============================================================
+[C-11] the z-index cells
+$ git grep -n 'z-index' origin/master -- demo/scenes/cube/CubeAxisLines.vue
+origin/master:demo/scenes/cube/CubeAxisLines.vue:67:    z-index: var(--z-behind);
+
+$ git grep -n 'z-index: *-\?[0-9]' origin/master -- demo
+origin/master:demo/styles/style.css:38:   value (proof:brittleness gates against drift). The one raw `z-index: -10`
+
+$ git grep -n 'z-\[[-0-9]' origin/master -- demo
+
+============================================================
+[C-17] the mint's subject + id-space receipts
+$ node -p "Object.keys(require('./node_modules/@mkbabb/glass-ui/package.json').exports).length"
+73
+
+$ for s in ./canvas ./progress ./toast ./number-field ./chip ./command ./forms ./surface; do printf '%-16s : ' "$s"; node -p "require('./node_modules/@mkbabb/glass-ui/package.json').exports['$s'] ? 'PRESENT' : 'ABSENT'"; done
+./canvas         : PRESENT
+./progress       : PRESENT
+./toast          : PRESENT
+./number-field   : PRESENT
+./chip           : PRESENT
+./command        : PRESENT
+./forms          : PRESENT
+./surface        : PRESENT
+
+$ git cat-file -e origin/master:demo/components/instrument/shell/EditorHeader.vue && git show origin/master:demo/components/instrument/shell/EditorHeader.vue | wc -l
+     108
+
+$ git grep -n '<EditorHeader' origin/master -- demo || echo '(no instantiation site anywhere in demo/)'
+(no instantiation site anywhere in demo/)
+
+============================================================
+[C-9b] PREDICATE SENSITIVITY of the cascade-coupled column (both readings, per this wave's law)
+$ <the 8-token predicate above>  → cascade-coupled count
+      10
+
+$ <predicate WIDENED by text-foreground (vendor-bridged: --color-foreground: var(--foreground), bridges.css)>
+      11
+
+the one file the widening adds:
+demo/components/CopyButton.vue
+
+$ grep -o -- "--color-foreground: var(--foreground)" <vendor bridges.css>
+--color-foreground: var(--foreground)
+============================================================
+[C-17] THE MINT — id-space receipts (value.js corpus; cwd = docs/tranches/V/megatranche)
+$ grep -c "^### S-" lane-frontend.md
+8
+
+$ grep -oE "\bS-[0-9]+\b" lane-frontend.md | sort -u | tr "\n" " "
+S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 
+
+$ grep -oE "\bS-[0-9]+\b" CENSUS-2026-08-03.md | sort -u | tr "\n" " "
+S-1 S-2 S-3 S-4 S-5 S-6 S-7 S-8 
+
+--- C-17.R row 13's S-10 readings, replayed at the corpus bytes ---
+$ grep -n "S-10" kf-*.md | wc -l
+      37
+$ grep -l "S-10" kf-*.md | wc -l
+      15
+$ grep -o "KF-ES-10" kf-*.md | wc -l   (substring discard 1)
+      11
+$ grep -o "MISS-10" kf-*.md | wc -l    (substring discard 2)
+       4
+$ grep -o "KF-SS-10" kf-*.md | wc -l   (substring discard 3)
+       3
+$ grep -n "S-10" kf-*.md | grep -v "KF-ES-10\|MISS-10\|KF-SS-10" | wc -l   POST-DISCARD LINES
+      19
+$ ... | cut -d: -f1 | sort -u | wc -l   POST-DISCARD RECORDS
+       9
+$ ... | cut -d: -f1 | sort -u | tr "\n" " "
+kf-App.skeleton.md kf-ChromeDock.md kf-ControlsPaneWrapper.md kf-EasingSidebar.md kf-EasingTarget.md kf-KeyboardShortcutsModal.md kf-KeyframesEditor.md kf-RibbonBar.md kf-SquareInstrument.md 
+
+--- the WHOLE bare S-n token space over the 58 records (this seat, fresh) ---
+S-9   raw=127   records=31
+S-10  raw=40    records=15
+S-11  raw=19    records=7
+S-12  raw=17    records=4
+S-13  raw=782   records=58
+S-14  raw=6     records=3
+S-15  raw=5     records=3
+S-16  raw=18    records=5
+S-17  raw=8     records=4
+S-18  raw=13    records=5
+S-19  raw=6     records=3
+S-20  raw=48    records=30
+S-21  raw=6     records=3
+S-22  raw=15    records=5

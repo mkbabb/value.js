@@ -1,0 +1,1241 @@
+{
+ "desktop-light": {
+  "open": true,
+  "deadScan": {
+   "focus-ring": 2,
+   "scrollbar-thin": 6,
+   "shadow-cartoon-sm": 2,
+   "shadow-cartoon-md": 2,
+   "text-micro": 3,
+   "duration-fast": 1
+  },
+  "trigger": {
+   "rect": {
+    "x": 640.76,
+    "y": 336.36,
+    "w": 32.48,
+    "h": 40.6,
+    "right": 673.24,
+    "bottom": 376.96
+   },
+   "ariaExpanded": "true",
+   "ariaHaspopup": "dialog",
+   "contain": "paint",
+   "iconAriaHidden": null,
+   "badge": null
+  },
+  "dialog": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 468.06,
+    "right": 673,
+    "bottom": 849.06
+   },
+   "role": "dialog",
+   "ariaLabel": null,
+   "ariaLabelledby": "reka-popover-trigger-v-1-0",
+   "ariaDescribedby": null,
+   "headings": [],
+   "liveRegions": 0,
+   "padding": "20.351999px 16px",
+   "width": "240px"
+  },
+  "ladder": {
+   "dialogContentLeft": 433,
+   "sectionLefts": [
+    450,
+    450,
+    450
+   ],
+   "sectionPadLeft": [
+    "12px",
+    "12px",
+    "12px"
+   ],
+   "labelInkX": [
+    {
+     "text": "Sort",
+     "x": 462
+    },
+    {
+     "text": "Tier",
+     "x": 462
+    },
+    {
+     "text": "Find by Color",
+     "x": 462
+    }
+   ],
+   "optionRows": [
+    {
+     "text": "Newest",
+     "rowX": 462,
+     "rowW": 121.42,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": 475
+    },
+    {
+     "text": "Most Popular",
+     "rowX": 462,
+     "rowW": 165.44,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    },
+    {
+     "text": "Most Forked",
+     "rowX": 462,
+     "rowW": 159.69,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    },
+    {
+     "text": "All",
+     "rowX": 462,
+     "rowW": 61.14,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "textX": 475
+    },
+    {
+     "text": "Featured",
+     "rowX": 462,
+     "rowW": 132.92,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    }
+   ]
+  },
+  "typeRegister": {
+   "sectionLabel": {
+    "family": "Fira Code",
+    "size": "14.384px",
+    "weight": "400",
+    "transform": "uppercase",
+    "tracking": "1.4384px",
+    "lineHeight": "21.575998px",
+    "color": "oklab(0.457941 0.014425 0.03273)"
+   },
+   "optionText": {
+    "family": "Plus Jakarta Sans",
+    "size": "16.4px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "22.959999px",
+    "color": "rgb(251, 250, 248)"
+   },
+   "optionRow": {
+    "family": "Plus Jakarta Sans",
+    "size": "16.4px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "22.959999px",
+    "color": "rgb(28, 25, 23)"
+   },
+   "input": {
+    "family": "Fira Code",
+    "size": "14.384px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "21.575998px",
+    "color": "rgb(28, 25, 23)"
+   },
+   "searchPill": {
+    "family": "Plus Jakarta Sans",
+    "size": "11px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "13.75px",
+    "color": "rgb(112, 89, 66)"
+   },
+   "clearAll": null,
+   "badge": null
+  },
+  "colourRow": {
+   "swatch": {
+    "x": 462,
+    "y": 782.72,
+    "w": 28,
+    "h": 28,
+    "right": 490,
+    "bottom": 810.72
+   },
+   "swatchStyle": {
+    "borderWidth": "2px",
+    "borderRadius": "340282346638528859811704183484516925440px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "transition": "box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   },
+   "input": {
+    "x": 496,
+    "y": 779.72,
+    "w": 148,
+    "h": 36,
+    "right": 644,
+    "bottom": 815.72
+   },
+   "inputPadRight": "64px",
+   "inputTextOverflow": "ellipsis",
+   "inputOverflow": "hidden",
+   "inputWhiteSpace": "nowrap",
+   "searchPill": {
+    "x": 587.41,
+    "y": 785.72,
+    "w": 52.59,
+    "h": 24,
+    "right": 640,
+    "bottom": 809.72
+   },
+   "searchPillGapToInputEdge": 4,
+   "reservedMinusActual": 11.41,
+   "swatchCentreY": 796.72,
+   "inputCentreY": 797.72
+  },
+  "dividers": [
+   {
+    "i": 0,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 1,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 2,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   }
+  ],
+  "dividerCount": 0,
+  "rhythm": [
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 402.34,
+     "w": 206,
+     "h": 197.38,
+     "right": 656,
+     "bottom": 599.72
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 599.72,
+     "w": 206,
+     "h": 140.44,
+     "right": 656,
+     "bottom": 740.16
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 740.16,
+     "w": 206,
+     "h": 87.56,
+     "right": 656,
+     "bottom": 827.72
+    }
+   }
+  ],
+  "targets": [
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Newest",
+    "w": 121.42,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Popular",
+    "w": 165.44,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Forked",
+    "w": 159.69,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "All",
+    "w": 61.14,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Featured",
+    "w": 132.92,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Open color picker, current color #",
+    "w": 28,
+    "h": 28,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search by CSS color",
+    "w": 148,
+    "h": 36,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Search",
+    "w": 52.59,
+    "h": 24,
+    "under44": true,
+    "under24": false
+   }
+  ],
+  "tags": {
+   "scrollerRect": null,
+   "scrollH": null,
+   "clientH": null,
+   "overflowing": null,
+   "count": 0
+  },
+  "consoleErrs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+  ]
+ },
+ "desktop-dark": {
+  "open": true,
+  "deadScan": {
+   "focus-ring": 2,
+   "scrollbar-thin": 6,
+   "shadow-cartoon-sm": 2,
+   "shadow-cartoon-md": 2,
+   "text-micro": 3,
+   "duration-fast": 1
+  },
+  "trigger": {
+   "rect": {
+    "x": 640.76,
+    "y": 336.36,
+    "w": 32.48,
+    "h": 40.6,
+    "right": 673.24,
+    "bottom": 376.96
+   },
+   "ariaExpanded": "true",
+   "ariaHaspopup": "dialog",
+   "contain": "paint",
+   "iconAriaHidden": null,
+   "badge": null
+  },
+  "dialog": {
+   "rect": {
+    "x": 433,
+    "y": 381,
+    "w": 240,
+    "h": 468.06,
+    "right": 673,
+    "bottom": 849.06
+   },
+   "role": "dialog",
+   "ariaLabel": null,
+   "ariaLabelledby": "reka-popover-trigger-v-1-0",
+   "ariaDescribedby": null,
+   "headings": [],
+   "liveRegions": 0,
+   "padding": "20.351999px 16px",
+   "width": "240px"
+  },
+  "ladder": {
+   "dialogContentLeft": 433,
+   "sectionLefts": [
+    450,
+    450,
+    450
+   ],
+   "sectionPadLeft": [
+    "12px",
+    "12px",
+    "12px"
+   ],
+   "labelInkX": [
+    {
+     "text": "Sort",
+     "x": 462
+    },
+    {
+     "text": "Tier",
+     "x": 462
+    },
+    {
+     "text": "Find by Color",
+     "x": 462
+    }
+   ],
+   "optionRows": [
+    {
+     "text": "Newest",
+     "rowX": 462,
+     "rowW": 121.42,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": 475
+    },
+    {
+     "text": "Most Popular",
+     "rowX": 462,
+     "rowW": 165.44,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    },
+    {
+     "text": "Most Forked",
+     "rowX": 462,
+     "rowW": 159.69,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    },
+    {
+     "text": "All",
+     "rowX": 462,
+     "rowW": 61.14,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "textX": 475
+    },
+    {
+     "text": "Featured",
+     "rowX": 462,
+     "rowW": 132.92,
+     "rowH": 30.94,
+     "markerX": 457,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 496,
+     "textX": null
+    }
+   ]
+  },
+  "typeRegister": {
+   "sectionLabel": {
+    "family": "Fira Code",
+    "size": "14.384px",
+    "weight": "400",
+    "transform": "uppercase",
+    "tracking": "1.4384px",
+    "lineHeight": "21.575998px",
+    "color": "rgb(195, 185, 172)"
+   },
+   "optionText": {
+    "family": "Plus Jakarta Sans",
+    "size": "16.4px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "22.959999px",
+    "color": "rgb(11, 10, 9)"
+   },
+   "optionRow": {
+    "family": "Plus Jakarta Sans",
+    "size": "16.4px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "22.959999px",
+    "color": "rgb(233, 230, 226)"
+   },
+   "input": {
+    "family": "Fira Code",
+    "size": "14.384px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "21.575998px",
+    "color": "rgb(233, 230, 226)"
+   },
+   "searchPill": {
+    "family": "Plus Jakarta Sans",
+    "size": "11px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "13.75px",
+    "color": "rgb(195, 185, 172)"
+   },
+   "clearAll": null,
+   "badge": null
+  },
+  "colourRow": {
+   "swatch": {
+    "x": 462,
+    "y": 782.72,
+    "w": 28,
+    "h": 28,
+    "right": 490,
+    "bottom": 810.72
+   },
+   "swatchStyle": {
+    "borderWidth": "2px",
+    "borderRadius": "340282346638528859811704183484516925440px",
+    "boxShadow": "oklab(0.34 0.01136 0.027766 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -4px 4px 0px 0px",
+    "transition": "box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   },
+   "input": {
+    "x": 496,
+    "y": 779.72,
+    "w": 148,
+    "h": 36,
+    "right": 644,
+    "bottom": 815.72
+   },
+   "inputPadRight": "64px",
+   "inputTextOverflow": "ellipsis",
+   "inputOverflow": "hidden",
+   "inputWhiteSpace": "nowrap",
+   "searchPill": {
+    "x": 587.41,
+    "y": 785.72,
+    "w": 52.59,
+    "h": 24,
+    "right": 640,
+    "bottom": 809.72
+   },
+   "searchPillGapToInputEdge": 4,
+   "reservedMinusActual": 11.41,
+   "swatchCentreY": 796.72,
+   "inputCentreY": 797.72
+  },
+  "dividers": [
+   {
+    "i": 0,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(101, 87, 73)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 1,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(101, 87, 73)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 2,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(101, 87, 73)",
+    "cls": "filter-section"
+   }
+  ],
+  "dividerCount": 0,
+  "rhythm": [
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 402.34,
+     "w": 206,
+     "h": 197.38,
+     "right": 656,
+     "bottom": 599.72
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 599.72,
+     "w": 206,
+     "h": 140.44,
+     "right": 656,
+     "bottom": 740.16
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 450,
+     "y": 740.16,
+     "w": 206,
+     "h": 87.56,
+     "right": 656,
+     "bottom": 827.72
+    }
+   }
+  ],
+  "targets": [
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Newest",
+    "w": 121.42,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Popular",
+    "w": 165.44,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Forked",
+    "w": 159.69,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "All",
+    "w": 61.14,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Featured",
+    "w": 132.92,
+    "h": 30.94,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Open color picker, current color #",
+    "w": 28,
+    "h": 28,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search by CSS color",
+    "w": 148,
+    "h": 36,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Search",
+    "w": 52.59,
+    "h": 24,
+    "under44": true,
+    "under24": false
+   }
+  ],
+  "tags": {
+   "scrollerRect": null,
+   "scrollH": null,
+   "clientH": null,
+   "overflowing": null,
+   "count": 0
+  },
+  "consoleErrs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+  ]
+ },
+ "mobile-light": {
+  "open": true,
+  "deadScan": {
+   "focus-ring": 2,
+   "scrollbar-thin": 6,
+   "shadow-cartoon-sm": 2,
+   "shadow-cartoon-md": 2,
+   "text-micro": 3,
+   "duration-fast": 1
+  },
+  "trigger": {
+   "rect": {
+    "x": 299.34,
+    "y": 248.64,
+    "w": 44.66,
+    "h": 44.66,
+    "right": 344,
+    "bottom": 293.3
+   },
+   "ariaExpanded": "true",
+   "ariaHaspopup": "dialog",
+   "contain": "paint",
+   "iconAriaHidden": null,
+   "badge": null
+  },
+  "dialog": {
+   "rect": {
+    "x": 104,
+    "y": 297.33,
+    "w": 240,
+    "h": 459.41,
+    "right": 344,
+    "bottom": 756.74
+   },
+   "role": "dialog",
+   "ariaLabel": null,
+   "ariaLabelledby": "reka-popover-trigger-v-0-0",
+   "ariaDescribedby": null,
+   "headings": [],
+   "liveRegions": 0,
+   "padding": "20.351999px 16px",
+   "width": "240px"
+  },
+  "ladder": {
+   "dialogContentLeft": 104,
+   "sectionLefts": [
+    121,
+    121,
+    121
+   ],
+   "sectionPadLeft": [
+    "12px",
+    "12px",
+    "12px"
+   ],
+   "labelInkX": [
+    {
+     "text": "Sort",
+     "x": 133
+    },
+    {
+     "text": "Tier",
+     "x": 133
+    },
+    {
+     "text": "Find by Color",
+     "x": 133
+    }
+   ],
+   "optionRows": [
+    {
+     "text": "Newest",
+     "rowX": 133,
+     "rowW": 113.02,
+     "rowH": 27.59,
+     "markerX": 128,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 167,
+     "textX": 146
+    },
+    {
+     "text": "Most Popular",
+     "rowX": 133,
+     "rowW": 150.59,
+     "rowH": 27.59,
+     "markerX": 128,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 167,
+     "textX": null
+    },
+    {
+     "text": "Most Forked",
+     "rowX": 133,
+     "rowW": 145.69,
+     "rowH": 27.59,
+     "markerX": 128,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 167,
+     "textX": null
+    },
+    {
+     "text": "All",
+     "rowX": 133,
+     "rowW": 58.34,
+     "rowH": 27.59,
+     "markerX": 128,
+     "markerW": 44,
+     "markerH": 44,
+     "textX": 146
+    },
+    {
+     "text": "Featured",
+     "rowX": 133,
+     "rowW": 122.83,
+     "rowH": 27.59,
+     "markerX": 128,
+     "markerW": 44,
+     "markerH": 44,
+     "iconX": 167,
+     "textX": null
+    }
+   ]
+  },
+  "typeRegister": {
+   "sectionLabel": {
+    "family": "Fira Code",
+    "size": "12.179px",
+    "weight": "400",
+    "transform": "uppercase",
+    "tracking": "1.2179px",
+    "lineHeight": "18.268499px",
+    "color": "oklab(0.457941 0.014425 0.03273)"
+   },
+   "optionText": {
+    "family": "Plus Jakarta Sans",
+    "size": "14px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "19.6px",
+    "color": "rgb(251, 250, 248)"
+   },
+   "optionRow": {
+    "family": "Plus Jakarta Sans",
+    "size": "14px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "19.6px",
+    "color": "rgb(28, 25, 23)"
+   },
+   "input": {
+    "family": "Fira Code",
+    "size": "18.268499px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "27.402748px",
+    "color": "rgb(28, 25, 23)"
+   },
+   "searchPill": {
+    "family": "Plus Jakarta Sans",
+    "size": "11px",
+    "weight": "400",
+    "transform": "none",
+    "tracking": "normal",
+    "lineHeight": "13.75px",
+    "color": "rgb(112, 89, 66)"
+   },
+   "clearAll": null,
+   "badge": null
+  },
+  "colourRow": {
+   "swatch": {
+    "x": 133,
+    "y": 681.4,
+    "w": 28,
+    "h": 28,
+    "right": 161,
+    "bottom": 709.4
+   },
+   "swatchStyle": {
+    "borderWidth": "2px",
+    "borderRadius": "340282346638528859811704183484516925440px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -4px 4px 0px 0px",
+    "transition": "box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1)"
+   },
+   "input": {
+    "x": 167,
+    "y": 669.4,
+    "w": 148,
+    "h": 54,
+    "right": 315,
+    "bottom": 723.4
+   },
+   "inputPadRight": "64px",
+   "inputTextOverflow": "ellipsis",
+   "inputOverflow": "hidden",
+   "inputWhiteSpace": "nowrap",
+   "searchPill": {
+    "x": 258.41,
+    "y": 684.4,
+    "w": 52.59,
+    "h": 24,
+    "right": 311,
+    "bottom": 708.4
+   },
+   "searchPillGapToInputEdge": 4,
+   "reservedMinusActual": 11.41,
+   "swatchCentreY": 695.4,
+   "inputCentreY": 696.4
+  },
+  "dividers": [
+   {
+    "i": 0,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 1,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   },
+   {
+    "i": 2,
+    "borderTopWidth": "0px",
+    "borderTopColor": "rgb(198, 180, 159)",
+    "cls": "filter-section"
+   }
+  ],
+  "dividerCount": 0,
+  "rhythm": [
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 121,
+     "y": 318.68,
+     "w": 206,
+     "h": 184.03,
+     "right": 327,
+     "bottom": 502.71
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 121,
+     "y": 502.71,
+     "w": 206,
+     "h": 130.44,
+     "right": 327,
+     "bottom": 633.15
+    }
+   },
+   {
+    "cls": "filter-section",
+    "padTop": "12px",
+    "padBottom": "12px",
+    "padLeft": "12px",
+    "padRight": "12px",
+    "rect": {
+     "x": 121,
+     "y": 633.15,
+     "w": 206,
+     "h": 102.25,
+     "right": 327,
+     "bottom": 735.4
+    }
+   }
+  ],
+  "targets": [
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Newest",
+    "w": 113.02,
+    "h": 27.59,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Popular",
+    "w": 150.59,
+    "h": 27.59,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Most Forked",
+    "w": 145.69,
+    "h": 27.59,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "All",
+    "w": 58.34,
+    "h": 27.59,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "label",
+    "role": null,
+    "name": "Featured",
+    "w": 122.83,
+    "h": 27.59,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": "radio",
+    "name": "",
+    "w": 44,
+    "h": 44,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Open color picker, current color #",
+    "w": 28,
+    "h": 28,
+    "under44": true,
+    "under24": false
+   },
+   {
+    "tag": "input",
+    "role": null,
+    "name": "Search by CSS color",
+    "w": 148,
+    "h": 54,
+    "under44": false,
+    "under24": false
+   },
+   {
+    "tag": "button",
+    "role": null,
+    "name": "Search",
+    "w": 52.59,
+    "h": 24,
+    "under44": true,
+    "under24": false
+   }
+  ],
+  "tags": {
+   "scrollerRect": null,
+   "scrollH": null,
+   "clientH": null,
+   "overflowing": null,
+   "count": 0
+  },
+  "consoleErrs": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+  ]
+ }
+}

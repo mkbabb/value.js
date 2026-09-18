@@ -1,0 +1,21 @@
+{
+  "fixture_id": "G8-PATH-BEARING-PRE-AUTHOR-MISSING-REVIEW",
+  "manifest": {
+    "feature_id": "SYNTAX-CONSUME-NUMBER",
+    "generation": 8,
+    "formation": { "path": "formation-receipt.json", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "bytes": 101 },
+    "precursor_closure_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "holdout_receipt": { "path": "holdout-receipt.json", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "bytes": 103 },
+    "holdout_ciphertext": { "path": "holdout-ciphertext.b64", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "bytes": 104 },
+    "review_a": { "path": "reviews/challenge-a.json", "sha256": "5555555555555555555555555555555555555555555555555555555555555555", "bytes": 105 },
+    "review_b": { "path": "reviews/challenge-b.json", "sha256": "6666666666666666666666666666666666666666666666666666666666666666", "bytes": 106 },
+    "root": { "path": "root-gestalt.json", "sha256": "7777777777777777777777777777777777777777777777777777777777777777", "bytes": 107 }
+  },
+  "captured_before_reviews": [
+    { "path": "formation-receipt.json", "sha256": "1111111111111111111111111111111111111111111111111111111111111111", "bytes": 101 },
+    { "path": "holdout-receipt.json", "sha256": "3333333333333333333333333333333333333333333333333333333333333333", "bytes": 103 },
+    { "path": "holdout-ciphertext.b64", "sha256": "4444444444444444444444444444444444444444444444444444444444444444", "bytes": 104 }
+  ],
+  "expected_stage": "MISSING_REVIEW_A",
+  "notice": "This is identity-only non-secret gate input. It is not a holdout, ciphertext, review, root, manifest seal, or acceptance receipt."
+}

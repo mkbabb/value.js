@@ -4,7 +4,7 @@ export type {
     EasingIssue,
     JumpPosition,
     LinearEasingStop,
-} from "../v4/easing";
+} from "../easing";
 export {
     CubicBezier,
     bezierPresets,
@@ -22,4 +22,4 @@ export {
     linearEasing,
     smoothStep3,
     steppedEase,
-} from "../v4/easing";
+} from "../easing";

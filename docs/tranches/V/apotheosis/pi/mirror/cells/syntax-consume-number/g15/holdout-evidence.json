@@ -1,0 +1,630 @@
+{
+  "schema": "value.pi.syntax-consume-number.g15.holdout-evidence/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 15,
+  "status": "PASS_ALL_FOUR",
+  "evaluation": {
+    "executed_at": "2026-07-22T20:52:27.531Z",
+    "run_count": 1,
+    "candidates_loaded_once_each": true,
+    "benchmark_timing_performed": false,
+    "hidden_plaintext_persisted": false,
+    "hidden_case_disclosure": "stable IDs only on failure"
+  },
+  "frozen_bindings": {
+    "candidate_set_sha256": "6b3b2057519a595b83f70b317ccc88b08b0e34d232f20feaf580409b55da0d40",
+    "candidate_set_mode": "0444",
+    "feature_sha256": "a88dc7dfb1d452d8bcf103d359cd058722db7ad93ed598622f6e1cfc8d5b3a58",
+    "candidate_interface_sha256": "04b4decb604542c3416cc710aa155b826b86ca491e2ce485c546f815557f2bcf",
+    "receipt_sha256": "2ee93b9a8d239c9ecd6bd27762b826da69231a0bbb1b3f5def3fb7679b00dd1d",
+    "ciphertext_file_sha256": "5ff5a6b3f6bd9586711ec82a8f61a155ceeced7ac499a82bb6f9d08ba6c40ffe",
+    "ciphertext_sha256": "8b6476c3331f2f699566ed0da7f7a9e24693ab32e682a54ea8fe2054d621a01a",
+    "plaintext_sha256": "95c202bc1a7459c05fdf4beb573958e671256c228a515b661424713390ae1f11",
+    "aad_sha256": "1c9910aae04446f6c154586e93aeb9680a2555f2992a6f9ec9d690650582fbc4",
+    "semantic_contract_sha256": "2112d1d17c6463c5b1e81750bdbd4de6e32dbe0a23fec3723c2d6d4a9707b2c4",
+    "normative_source": {
+      "commit": "08f2f799da6a306e8bf5daca208683717f26d643",
+      "path": "css-syntax-3/Overview.bs",
+      "document_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "line_start": 1610,
+      "line_end": 1678,
+      "excerpt_sha256": "3d9bc61ac4fbaa5a1038354c260e2289bc334b9837b9faf5acab840439cc5708"
+    },
+    "candidate_sources": [
+      {
+        "id": "h",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/h/index.ts",
+        "sha256": "b78dfcd5194ec2480d4ce480417555fffb10788e9ea0cdef1fa4d778af901a0f",
+        "bytes": 553,
+        "lines": 17
+      },
+      {
+        "id": "b",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/b/index.ts",
+        "sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7",
+        "bytes": 1999,
+        "lines": 64
+      },
+      {
+        "id": "s",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/s/index.ts",
+        "sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169",
+        "bytes": 2238,
+        "lines": 81
+      },
+      {
+        "id": "d",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/candidates/d/index.ts",
+        "sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137",
+        "bytes": 884,
+        "lines": 21
+      }
+    ]
+  },
+  "runtime_bindings": {
+    "node": "v26.0.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "parse_that": {
+      "package": "@mkbabb/parse-that",
+      "version": "1.0.0",
+      "package_json_sha256": "f53ca9b85c43e65c1f3f8a21414f990211d8d0e6a7f07df805557cdb6b50f4ff",
+      "import": "@mkbabb/parse-that/core"
+    },
+    "tsx": {
+      "version": "4.20.3",
+      "package_json_sha256": "6a87ac1c6bafd1620e605b25c31d7910c24373ec3688613cbd6c3a2f6937b2aa"
+    }
+  },
+  "corpus": {
+    "total_cases": 180,
+    "family_counts": {
+      "descriptors-mutability": 8,
+      "hostile-bounded-strings": 16,
+      "incomplete-exponents": 18,
+      "maximal-prefix": 24,
+      "no-per-call-parser-id-growth": 8,
+      "parent-composition": 24,
+      "parser-introspection": 8,
+      "repeated-call-stability": 10,
+      "repeated-fraction": 16,
+      "signs-leading-zeroes": 18,
+      "transaction-ahead-diagnostics": 14,
+      "utf16-offsets-surrogates": 16
+    },
+    "family_order": [
+      "maximal-prefix",
+      "repeated-fraction",
+      "signs-leading-zeroes",
+      "incomplete-exponents",
+      "utf16-offsets-surrogates",
+      "transaction-ahead-diagnostics",
+      "descriptors-mutability",
+      "parent-composition",
+      "hostile-bounded-strings",
+      "repeated-call-stability",
+      "parser-introspection",
+      "no-per-call-parser-id-growth"
+    ]
+  },
+  "per_candidate": {
+    "h": {
+      "id": "h",
+      "source_sha256": "b78dfcd5194ec2480d4ce480417555fffb10788e9ea0cdef1fa4d778af901a0f",
+      "total_cases": 180,
+      "passed_cases": 180,
+      "failed_cases": 0,
+      "families": {
+        "maximal-prefix": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-fraction": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "signs-leading-zeroes": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "incomplete-exponents": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "utf16-offsets-surrogates": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "transaction-ahead-diagnostics": {
+          "total": 14,
+          "passed": 14,
+          "failed": 0,
+          "failures": []
+        },
+        "descriptors-mutability": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "parent-composition": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "hostile-bounded-strings": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-call-stability": {
+          "total": 10,
+          "passed": 10,
+          "failed": 0,
+          "failures": []
+        },
+        "parser-introspection": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "no-per-call-parser-id-growth": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        }
+      },
+      "construction_stability": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "assertions": {
+          "exported_parser_instance": true,
+          "id_safe_integer": true,
+          "id_stable": true,
+          "context_object": true,
+          "context_identity_stable": true,
+          "own_keys_stable": true,
+          "to_string_non_throwing": true,
+          "to_string_nonempty": true,
+          "to_string_stable": true
+        },
+        "failures": []
+      },
+      "transaction": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "failures": []
+      },
+      "parent_composition": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "introspection": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "parser_id_growth": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "failures": [],
+      "verdict": "PASS"
+    },
+    "b": {
+      "id": "b",
+      "source_sha256": "550da39c359a95ec5e23e84074254a5978c334884b1405c58bffd5b36802ccb7",
+      "total_cases": 180,
+      "passed_cases": 180,
+      "failed_cases": 0,
+      "families": {
+        "maximal-prefix": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-fraction": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "signs-leading-zeroes": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "incomplete-exponents": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "utf16-offsets-surrogates": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "transaction-ahead-diagnostics": {
+          "total": 14,
+          "passed": 14,
+          "failed": 0,
+          "failures": []
+        },
+        "descriptors-mutability": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "parent-composition": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "hostile-bounded-strings": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-call-stability": {
+          "total": 10,
+          "passed": 10,
+          "failed": 0,
+          "failures": []
+        },
+        "parser-introspection": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "no-per-call-parser-id-growth": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        }
+      },
+      "construction_stability": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "assertions": {
+          "exported_parser_instance": true,
+          "id_safe_integer": true,
+          "id_stable": true,
+          "context_object": true,
+          "context_identity_stable": true,
+          "own_keys_stable": true,
+          "to_string_non_throwing": true,
+          "to_string_nonempty": true,
+          "to_string_stable": true
+        },
+        "failures": []
+      },
+      "transaction": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "failures": []
+      },
+      "parent_composition": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "introspection": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "parser_id_growth": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "failures": [],
+      "verdict": "PASS"
+    },
+    "s": {
+      "id": "s",
+      "source_sha256": "a512bf454bac1fce922b80a9516876a0f88857f5f3a8cdfeaaf3ae3f9b09b169",
+      "total_cases": 180,
+      "passed_cases": 180,
+      "failed_cases": 0,
+      "families": {
+        "maximal-prefix": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-fraction": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "signs-leading-zeroes": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "incomplete-exponents": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "utf16-offsets-surrogates": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "transaction-ahead-diagnostics": {
+          "total": 14,
+          "passed": 14,
+          "failed": 0,
+          "failures": []
+        },
+        "descriptors-mutability": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "parent-composition": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "hostile-bounded-strings": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-call-stability": {
+          "total": 10,
+          "passed": 10,
+          "failed": 0,
+          "failures": []
+        },
+        "parser-introspection": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "no-per-call-parser-id-growth": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        }
+      },
+      "construction_stability": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "assertions": {
+          "exported_parser_instance": true,
+          "id_safe_integer": true,
+          "id_stable": true,
+          "context_object": true,
+          "context_identity_stable": true,
+          "own_keys_stable": true,
+          "to_string_non_throwing": true,
+          "to_string_nonempty": true,
+          "to_string_stable": true
+        },
+        "failures": []
+      },
+      "transaction": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "failures": []
+      },
+      "parent_composition": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "introspection": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "parser_id_growth": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "failures": [],
+      "verdict": "PASS"
+    },
+    "d": {
+      "id": "d",
+      "source_sha256": "d470a62a45016edb77bbd9bc6ee23ee61e40c610cb6df5911019a9f866b63137",
+      "total_cases": 180,
+      "passed_cases": 180,
+      "failed_cases": 0,
+      "families": {
+        "maximal-prefix": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-fraction": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "signs-leading-zeroes": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "incomplete-exponents": {
+          "total": 18,
+          "passed": 18,
+          "failed": 0,
+          "failures": []
+        },
+        "utf16-offsets-surrogates": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "transaction-ahead-diagnostics": {
+          "total": 14,
+          "passed": 14,
+          "failed": 0,
+          "failures": []
+        },
+        "descriptors-mutability": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "parent-composition": {
+          "total": 24,
+          "passed": 24,
+          "failed": 0,
+          "failures": []
+        },
+        "hostile-bounded-strings": {
+          "total": 16,
+          "passed": 16,
+          "failed": 0,
+          "failures": []
+        },
+        "repeated-call-stability": {
+          "total": 10,
+          "passed": 10,
+          "failed": 0,
+          "failures": []
+        },
+        "parser-introspection": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        },
+        "no-per-call-parser-id-growth": {
+          "total": 8,
+          "passed": 8,
+          "failed": 0,
+          "failures": []
+        }
+      },
+      "construction_stability": {
+        "total": 9,
+        "passed": 9,
+        "failed": 0,
+        "assertions": {
+          "exported_parser_instance": true,
+          "id_safe_integer": true,
+          "id_stable": true,
+          "context_object": true,
+          "context_identity_stable": true,
+          "own_keys_stable": true,
+          "to_string_non_throwing": true,
+          "to_string_nonempty": true,
+          "to_string_stable": true
+        },
+        "failures": []
+      },
+      "transaction": {
+        "total": 14,
+        "passed": 14,
+        "failed": 0,
+        "failures": []
+      },
+      "parent_composition": {
+        "total": 24,
+        "passed": 24,
+        "failed": 0,
+        "failures": []
+      },
+      "introspection": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "parser_id_growth": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "failures": []
+      },
+      "failures": [],
+      "verdict": "PASS"
+    }
+  },
+  "verdict": {
+    "all_candidates_pass": true,
+    "passed_candidates": [
+      "h",
+      "b",
+      "s",
+      "d"
+    ],
+    "failed_candidates": []
+  },
+  "authorship_receipt": {
+    "role": "independent preauthor holdout custodian and post-freeze evaluator author",
+    "agent": "Codex",
+    "model_family": "OpenAI GPT-5",
+    "exact_provider_checkpoint_available_to_agent": false,
+    "runtime_surface": "Codex desktop agent",
+    "candidate_sources_inspected_only_after_exact_freeze_verification": true,
+    "hidden_corpus_decrypted_only_after_exact_freeze_verification": true,
+    "hidden_plaintext_or_key_persisted_in_repository": false,
+    "prior_g14_holdout_cases_inspected": false,
+    "benchmark_timing_performed": false
+  }
+}

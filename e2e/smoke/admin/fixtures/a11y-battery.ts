@@ -70,7 +70,11 @@ export async function runBattery(
                 const r = el.getBoundingClientRect();
                 if (r.width === 0 && r.height === 0) return false;
                 const s = getComputedStyle(el);
-                return s.display !== "none" && s.visibility !== "hidden" && s.opacity !== "0";
+                return (
+                    s.display !== "none" &&
+                    s.visibility !== "hidden" &&
+                    s.opacity !== "0"
+                );
             };
 
             // Accessible-name resolution (a pragmatic subset of the ACCNAME
@@ -84,7 +88,10 @@ export async function runBattery(
                 if (labelledby) {
                     const parts = labelledby
                         .split(/\s+/)
-                        .map((id) => document.getElementById(id)?.textContent?.trim() ?? "")
+                        .map(
+                            (id) =>
+                                document.getElementById(id)?.textContent?.trim() ?? "",
+                        )
                         .filter(Boolean);
                     if (parts.length) return parts.join(" ");
                 }
@@ -109,9 +116,20 @@ export async function runBattery(
             // composited over white if translucent (the conservative floor).
             const parseRGB = (s: string): [number, number, number, number] => {
                 const m = s.match(/rgba?\(([^)]+)\)/);
-                if (!m) return [255, 255, 255, 1];
-                const p = m[1].split(",").map((x) => parseFloat(x));
-                return [p[0], p[1], p[2], p[3] ?? 1];
+                // X-W1 · G-1 — a capture group and the split that follows are
+                // both `| undefined` under `noUncheckedIndexedAccess`. The
+                // white/opaque fallback is the function's OWN declared
+                // conservative floor (see the miss branch above), so an
+                // unparseable component takes the same road as an unparseable
+                // string instead of arriving as `NaN` in a luminance sum.
+                const body = m?.[1];
+                if (body === undefined) return [255, 255, 255, 1];
+                const p = body.split(",").map((x) => parseFloat(x));
+                const [r, g, b, a] = p;
+                if (r === undefined || g === undefined || b === undefined) {
+                    return [255, 255, 255, 1];
+                }
+                return [r, g, b, a ?? 1];
             };
             const lin = (c: number): number => {
                 const s = c / 255;
@@ -133,7 +151,9 @@ export async function runBattery(
                 // composite bottom-up over white
                 acc = [255, 255, 255];
                 for (let i = stack.length - 1; i >= 0; i--) {
-                    const [r, g, b, a] = stack[i];
+                    const layer = stack[i];
+                    if (!layer) continue;
+                    const [r, g, b, a] = layer;
                     acc = [
                         r * a + acc[0] * (1 - a),
                         g * a + acc[1] * (1 - a),
@@ -142,7 +162,10 @@ export async function runBattery(
                 }
                 return acc;
             };
-            const ratio = (fg: [number, number, number], bg: [number, number, number]): number => {
+            const ratio = (
+                fg: [number, number, number],
+                bg: [number, number, number],
+            ): number => {
                 const l1 = lum(fg[0], fg[1], fg[2]);
                 const l2 = lum(bg[0], bg[1], bg[2]);
                 const [hi, lo] = l1 >= l2 ? [l1, l2] : [l2, l1];
@@ -157,7 +180,9 @@ export async function runBattery(
             }[] = [];
             const contrastRecords: { text: string; ratio: number; note: string }[] = [];
 
-            const controls = Array.from(root.querySelectorAll(OPERABLE)).filter(isVisible);
+            const controls = Array.from(root.querySelectorAll(OPERABLE)).filter(
+                isVisible,
+            );
             for (const el of controls) {
                 const tag = el.tagName.toLowerCase();
                 const name = accName(el);
@@ -176,8 +201,7 @@ export async function runBattery(
                 // 2. target-size (fine 24px). Skip inline text links (2.5.8
                 //    inline exception) — an <a> whose parent line-box wraps text.
                 const isInlineLink =
-                    tag === "a" &&
-                    getComputedStyle(el).display.includes("inline");
+                    tag === "a" && getComputedStyle(el).display.includes("inline");
                 if (!isInlineLink) {
                     const r = el.getBoundingClientRect();
                     if (r.width < 24 || r.height < 24) {
@@ -199,7 +223,10 @@ export async function runBattery(
                     contrastRecords.push({
                         text: shortText,
                         ratio: Math.round(cr * 100) / 100,
-                        note: cr < 3 ? "SUB-3:1 (coordinate U-F26)" : "sub-4.5 body (coordinate U-F26)",
+                        note:
+                            cr < 3
+                                ? "SUB-3:1 (coordinate U-F26)"
+                                : "sub-4.5 body (coordinate U-F26)",
                     });
                 }
             }

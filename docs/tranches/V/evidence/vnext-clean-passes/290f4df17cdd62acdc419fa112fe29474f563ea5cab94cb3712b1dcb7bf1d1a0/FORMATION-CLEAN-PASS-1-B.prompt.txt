@@ -1,0 +1,10 @@
+ASSUME-FORMATION-WRONG
+Protocol: docs/tranches/V/vnext/FORMATION-CLEAN-PASS-PROTOCOL.md
+Epoch: 290f4df17cdd62acdc419fa112fe29474f563ea5cab94cb3712b1dcb7bf1d1a0; pass: 1; role: critic_b; predecessor: none
+Coverage in order: api-closure,architecture-dags,consumer-universe,deletion-truth,design-mobile-desktop,gate-soundness,parser-boundary,prompt-seed-bijection,quarantine-safety,return-dependency-closure,state-routing,wave-formation
+Audit formation only. Do not edit the repository, evidence, dependencies or Git state; do not traverse r1-opus-refuted.
+Run corpus-epoch.mjs first and last. Hostilely probe every domain for vacuous gates, omissions, fallbacks, aliases, rebooked defects, unsupported claims and gestalt failure.
+A finding names one mechanism, exact command or file:line evidence, and owner. Separate fact from inference.
+Return only the protocol's strict JCS report with exact identity/route, ordered coverage, commands/evidence, owners and all defect vectors. CLEAN requires matching epochs, successful commands, twelve CLEAN rows and empty defect vectors.
+Work independently; never read a sibling report.
+Prompt body SHA-256: 4d2366efc09478d5c97083c7a8b2df949519dc76a3b5968878a8199a4188b2e9

@@ -1,0 +1,533 @@
+{ "SERVED MODEL": "claude-opus-5[1m]",
+  "schema": "x-p-w1.bench-baseline/1",
+  "note": "A JSON artifact cannot carry a bare receipt line, so the seat law's SERVED MODEL receipt is this object's FIRST KEY, on line 1 of the file.",
+  "wave": "X.P.W1",
+  "unit": "X.P.W1.e",
+  "date": "2026-09-17",
+  "authority": "docs/tranches/X/parse-that/waves/W1.md §5.e / §8; gates G-6, G-7, G-8",
+  "whatThisIs": "The wave's own measured rows: unit .d's bench legs, the depth declaration, the JS-boundary invariant, the two probe re-runs, and the Plane-B restatement computed from 1,636,680 us. Distilled from the settled bytes named in `provenance`; no figure here is transcribed by hand.",
+  "whatThisIsNot": "A verdict, a bar, or a proof of a product. No pass/fail field exists in this schema by construction (L-16: SOURCE / API-TEST / BENCH-PROCESS, never a product proof).",
+  "machine": {
+    "node": "v26.0.0",
+    "v8": "14.6.202.33-node.19",
+    "os": "darwin",
+    "os_release": "25.4.0",
+    "cpu": "Apple M5 Max",
+    "cores": 18,
+    "bound": "N=1 machine; same-process hot loop within a cell; ratios only",
+    "os_product_version": "26.4.1"
+  },
+  "method": {
+    "rounds": 40,
+    "warmupRoundsDiscarded": 10,
+    "statistic": "median of scored rounds",
+    "interleaving": "cells interleaved per round across a live process set",
+    "processModel": "one fresh process per cell; all cells alive simultaneously",
+    "latchObservation": "node loader hook appends a reader to every module declaring PACKRAT_ARMED; read at preload, entry and exit",
+    "barsApplied": "NONE — COHESION §0j.E OC-1: the bench table is RECORDED-NOT-GATING",
+    "historicalFloorsRecordedNotApplied": {
+      "VALUE_RATIO_FLOOR": 0.05,
+      "SHEET_RATIO_FLOOR": 0.1
+    }
+  },
+  "subjects": {
+    "published-4.0.0": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js",
+      "bytes": 43972,
+      "sha256": "8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42"
+    },
+    "c14": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W1/rescued/c14-bundle.mjs",
+      "bytes": 46661,
+      "sha256": "2b57626fff0975276f7d46d84ffc01835bc83bfe4f28ce6b5855622f6a22f0d6"
+    },
+    "deposed": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W1/rescued/deposed-full/deposed-bundle.mjs",
+      "bytes": 202595,
+      "sha256": "6c62368f6b4e6c1c28e6c0542bc86004c243fba6bb6d70ac0bba8435a81618eb"
+    },
+    "parse-that-dist": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/prototypes/css-parser/node_modules/@mkbabb/parse-that/dist/packrat-entry-CS1td-8B.js",
+      "bytes": 40576,
+      "sha256": "1f8674c3d325579363356e1fd091a3735ae9a7ac9da0cb61a4ca0ebfb6d474a8"
+    }
+  },
+  "legs_BENCH_PROCESS": {
+    "shared-accepted": [
+      {
+        "engine": "published-4.0.0",
+        "pid": 96143,
+        "doors": [
+          "parseCssColor",
+          "parseTimingFunction",
+          "parseStylesheet"
+        ],
+        "disposition": {
+          "accept": 7,
+          "reject": 0,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 2085.1,
+        "spread_pct": 11.9,
+        "mbps_median": 20.96,
+        "ratio_vs_published": 1,
+        "ratio_mbps_vs_jsonParser": 0.1921,
+        "dispositionMatchesReference": true
+      },
+      {
+        "engine": "c14",
+        "pid": 96146,
+        "doors": [
+          "parseColor",
+          "parseEasing",
+          "parseStylesheet"
+        ],
+        "disposition": {
+          "accept": 7,
+          "reject": 0,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 8010.7,
+        "spread_pct": 37.6,
+        "mbps_median": 5.46,
+        "ratio_vs_published": 0.26,
+        "ratio_mbps_vs_jsonParser": 0.05,
+        "dispositionMatchesReference": true
+      },
+      {
+        "engine": "deposed",
+        "pid": 96149,
+        "doors": [
+          "CSSValues.Value.parse",
+          "parseCSSStylesheet"
+        ],
+        "disposition": {
+          "accept": 7,
+          "reject": 0,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 2251.7,
+        "spread_pct": 8.4,
+        "mbps_median": 19.41,
+        "ratio_vs_published": 0.926,
+        "ratio_mbps_vs_jsonParser": 0.1779,
+        "dispositionMatchesReference": true
+      }
+    ],
+    "reject-non-throwing": [
+      {
+        "engine": "published-4.0.0",
+        "pid": 96144,
+        "doors": [
+          "parseCssColor",
+          "parseTimingFunction",
+          "parseStylesheet"
+        ],
+        "disposition": {
+          "accept": 0,
+          "reject": 9,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 146.8,
+        "spread_pct": 12.6,
+        "mbps_median": 75.69,
+        "ratio_vs_published": 1,
+        "ratio_mbps_vs_jsonParser": 0.6937,
+        "dispositionMatchesReference": true
+      },
+      {
+        "engine": "c14",
+        "pid": 96147,
+        "doors": [
+          "parseColor",
+          "parseEasing",
+          "parseStylesheet"
+        ],
+        "disposition": {
+          "accept": 0,
+          "reject": 9,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 801.5,
+        "spread_pct": 26.7,
+        "mbps_median": 13.86,
+        "ratio_vs_published": 0.183,
+        "ratio_mbps_vs_jsonParser": 0.1271,
+        "dispositionMatchesReference": true
+      }
+    ],
+    "r1-throw-class": [
+      {
+        "engine": "published-4.0.0",
+        "pid": 96145,
+        "doors": [
+          "parseCssColor"
+        ],
+        "disposition": {
+          "accept": 0,
+          "reject": 70,
+          "throw": 102
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 18960.8,
+        "spread_pct": 6.9,
+        "mbps_median": 0.44,
+        "ratio_vs_published": 1,
+        "ratio_mbps_vs_jsonParser": 0.004,
+        "dispositionMatchesReference": true
+      },
+      {
+        "engine": "c14",
+        "pid": 96148,
+        "doors": [
+          "parseColor"
+        ],
+        "disposition": {
+          "accept": 0,
+          "reject": 172,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 63.8,
+        "spread_pct": 5.3,
+        "mbps_median": 129.39,
+        "ratio_vs_published": 297.366,
+        "ratio_mbps_vs_jsonParser": 1.1858,
+        "dispositionMatchesReference": false
+      }
+    ],
+    "json-normaliser": [
+      {
+        "engine": "json-normaliser",
+        "pid": 96150,
+        "doors": [
+          "jsonParser.parse"
+        ],
+        "disposition": {
+          "accept": 1,
+          "reject": 0,
+          "throw": 0
+        },
+        "roundsScored": 30,
+        "ns_per_call_median": 2016.3,
+        "spread_pct": 11.5,
+        "mbps_median": 109.11,
+        "ratio_vs_published": null,
+        "ratio_mbps_vs_jsonParser": 1,
+        "dispositionMatchesReference": true
+      }
+    ]
+  },
+  "depthDeclaration_BENCH_PROCESS": {
+    "deepestOk": 7773,
+    "mode": "RangeError thrown at depth 7774",
+    "lazyArity": 1,
+    "corpora": [
+      {
+        "corpus": "shared-accepted",
+        "items": 7,
+        "bytes": 306,
+        "declaredMaxDepth": 2,
+        "deepestItem": "acc-sheet-1",
+        "allStrings": true,
+        "margin": 7771,
+        "marginPct": 99.97426990865817
+      },
+      {
+        "corpus": "reject-non-throwing",
+        "items": 9,
+        "bytes": 100,
+        "declaredMaxDepth": 3,
+        "deepestItem": "rej-sheet-1",
+        "allStrings": true,
+        "margin": 7770,
+        "marginPct": 99.96140486298727
+      },
+      {
+        "corpus": "r1-throw-class",
+        "items": 172,
+        "bytes": 1419,
+        "declaredMaxDepth": 1,
+        "deepestItem": "r1-4",
+        "allStrings": true,
+        "margin": 7772,
+        "marginPct": 99.9871349543291
+      },
+      {
+        "corpus": "json-normaliser",
+        "items": 1,
+        "bytes": 220,
+        "declaredMaxDepth": 3,
+        "deepestItem": "json-1",
+        "allStrings": true,
+        "margin": 7770,
+        "marginPct": 99.96140486298727
+      }
+    ]
+  },
+  "jsBoundaryInvariant_BENCH_PROCESS": {
+    "probes": 5,
+    "rawThrows": 5,
+    "rawModes": [
+      "TypeError"
+    ],
+    "guardedThrows": 0,
+    "guardedCodes": [
+      "non_string_input"
+    ],
+    "holds": true
+  },
+  "latchLedger_BENCH_PROCESS": [
+    {
+      "cell": "census",
+      "pid": 96134,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 3
+    },
+    {
+      "cell": "published-4.0.0/shared-accepted",
+      "pid": 96143,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 1
+    },
+    {
+      "cell": "published-4.0.0/reject-non-throwing",
+      "pid": 96144,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 1
+    },
+    {
+      "cell": "published-4.0.0/r1-throw-class",
+      "pid": 96145,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 1
+    },
+    {
+      "cell": "c14/shared-accepted",
+      "pid": 96146,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 2
+    },
+    {
+      "cell": "c14/reject-non-throwing",
+      "pid": 96147,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 2
+    },
+    {
+      "cell": "c14/r1-throw-class",
+      "pid": 96148,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 2
+    },
+    {
+      "cell": "deposed/shared-accepted",
+      "pid": 96149,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 2
+    },
+    {
+      "cell": "json-normaliser/json-normaliser",
+      "pid": 96150,
+      "entryArmed": false,
+      "exitArmed": false,
+      "latchBearingModules": 1
+    }
+  ],
+  "probes_API_TEST": {
+    "G-8 r1-published-totality": {
+      "command": "node docs/tranches/V/megatranche/audit/probes/r1-published-totality.mjs",
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "unpiped": true,
+      "exit": 1,
+      "doubleRunIdentical": true,
+      "stderr_bytes": 190,
+      "stderr_content": "node's own [DEP0205] module.register() deprecation warning; no probe output",
+      "totalThrows": 324,
+      "totalCalls": 1548,
+      "distinctFailureModes": 1,
+      "failureMode": {
+        "count": 324,
+        "message": "TypeError: Cannot read properties of undefined (reading 'replace')"
+      },
+      "perParser": [
+        {
+          "parser": "parseCssColor",
+          "throws": 102,
+          "calls": 172,
+          "reading": "RED"
+        },
+        {
+          "parser": "parseCssScalar",
+          "throws": 102,
+          "calls": 172,
+          "reading": "RED"
+        },
+        {
+          "parser": "parseCssValue",
+          "throws": 60,
+          "calls": 172,
+          "reading": "RED"
+        },
+        {
+          "parser": "parseCssValues",
+          "throws": 60,
+          "calls": 172,
+          "reading": "RED"
+        },
+        {
+          "parser": "parseKeyframeSelector",
+          "throws": 0,
+          "calls": 172,
+          "reading": "ok"
+        },
+        {
+          "parser": "parseStylesheet",
+          "throws": 0,
+          "calls": 172,
+          "reading": "ok"
+        },
+        {
+          "parser": "parseTimingFunction",
+          "throws": 0,
+          "calls": 172,
+          "reading": "ok"
+        },
+        {
+          "parser": "parseAnimationTimeline",
+          "throws": 0,
+          "calls": 172,
+          "reading": "ok"
+        },
+        {
+          "parser": "parseAnimationRange",
+          "throws": 0,
+          "calls": 172,
+          "reading": "ok"
+        }
+      ],
+      "gateState": "RED — and RED is this gate's own declared state ('R1 TOTALITY, RED TODAY'). Its GREEN condition (zero throws, exit 0) is unreachable inside this wave: W1.md §3 L109 writes no grammar, and the gate's falsifier keeps it wired until the whole surface is total. The wave's obligation under G-8 is its MEASURE-AT-OPEN clause, discharged by this row."
+    },
+    "G-10 parsethat-surface-gaps": {
+      "command": "node docs/tranches/V/megatranche/prototypes/css-parser/parsethat-surface-gaps.mjs",
+      "cwd": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/prototypes/css-parser",
+      "unpiped": true,
+      "exit": 1,
+      "gaps": 7,
+      "measuredBy": "unit .d, double-run; the only line that differed between runs was the UNARMED median (56.2 vs 55.3 ns/parse)",
+      "loweredByThisWave": 0
+    }
+  },
+  "planeB_restatement_SOURCE": {
+    "denominator_us": 1636680,
+    "denominatorProvenance": "M-22 para 4 conservative reconstruction. The claimed 1,870,633 us has no primary receipt and does not reproduce under the rule that reproduces its three sibling profiles (CC-097); its derived headroom figures are UNCITABLE until restated.",
+    "denominatorOverstatement_pct": 14.3,
+    "nativeFloor_us": 311883,
+    "budgets": [
+      {
+        "family": "historical 10x",
+        "k": 10,
+        "bar": "RETIRED AS LAW",
+        "budget_us": 163668,
+        "nativeFloor_us": 311883,
+        "headroom_us": -148215,
+        "floorOverBudget": 1.9056
+      },
+      {
+        "family": "candidate 3x",
+        "k": 3,
+        "bar": "OWNER-GATED-PENDING-RATIFICATION",
+        "budget_us": 545560,
+        "nativeFloor_us": 311883,
+        "headroom_us": 233677,
+        "floorOverBudget": 0.5717
+      },
+      {
+        "family": "candidate 2x",
+        "k": 2,
+        "bar": "OWNER-GATED-PENDING-RATIFICATION",
+        "budget_us": 818340,
+        "nativeFloor_us": 311883,
+        "headroom_us": 506457,
+        "floorOverBudget": 0.3811
+      },
+      {
+        "family": "measured break-even",
+        "k": 1,
+        "bar": "OWNER-GATED-PENDING-RATIFICATION",
+        "budget_us": 1636680,
+        "nativeFloor_us": 311883,
+        "headroom_us": 1324797,
+        "floorOverBudget": 0.1906
+      }
+    ],
+    "consistency_i_tenXImpossibility": {
+      "underPublishedDenominator": 1.667,
+      "underReconstruction": 1.906,
+      "reading": "Already impossible at 1.667x the budget on the unproven figure; impossible at 1.906x on the reconstruction. The conclusion STRENGTHENS."
+    },
+    "consistency_ii_headroomCheck": {
+      "supersededPair_UNCITABLE_AS_A_BUDGET": {
+        "3x": 311661,
+        "2x": 623434,
+        "shownOnlyAs": "the superseded basis of the check that supersedes it"
+      },
+      "restated": {
+        "3x": 233677,
+        "2x": 506457
+      },
+      "belowPublished_pct": {
+        "3x": 25,
+        "2x": 18.8
+      },
+      "reading": "25.0% and 18.8% reproduce provenance finding F-1's stated overstatement to the digit — an independent arithmetic check that the reconstruction and F-1 agree."
+    }
+  },
+  "bar": {
+    "applied": "NONE",
+    "ruling": "COHESION §0j.E OC-1 — the bench table is RECORDED-NOT-GATING; admission is decided on correctness.",
+    "planeB": "OWNER-GATED-PENDING-RATIFICATION — ≥10× RETIRED AS LAW; strict-3× / strict-2× / break-even each 0/5 OPEN and UNRATIFIED (handoff §3.1).",
+    "planeA": "CC-095's interleaved three-leg bar (accepted ≥0.9× · reject ≥0.6× · R1 zero throws) is attributed to CC-095, whose ruled home is X-W9. Its applicability to X·P is an OWNER CONFIRMATION, not an assumption of this harness.",
+    "historicalFloorsRecordedNotApplied": {
+      "VALUE_RATIO_FLOOR": 0.05,
+      "SHEET_RATIO_FLOOR": 0.1,
+      "provenance": "U-F14 re-anchor constants from the pre-v4 gate. Recorded for lineage only. The gate's own calibration subject failed them on 3 of 5 scenarios — a bar the calibration subject cannot meet is a broken ruler, not a standard.",
+      "appliedTo": "nothing in this file"
+    },
+    "note": "No verdict field exists in this schema, by construction. A ✓/✗ column on Plane B is the claim, and this wave does not make it."
+  },
+  "honestBounds": [
+    "N=1 machine; one build; one clock.",
+    "Within a cell, a same-process hot loop — the classic microbenchmark caveat applies.",
+    "Across cells, one live process set with cells interleaved per round.",
+    "Absolute ns/parse is not portable across runs or boxes (this wave's open measured 56.4 then 58.0 ns/parse for the same unarmed subject; the spec's own baseline read 55.6 and O-15 read 93.9). Read the ratios.",
+    "No speed claim exists outside the printed table."
+  ],
+  "provenance": {
+    "bench-results.json": {
+      "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/bench/bench-results.json",
+      "sha256": "4282f579e582079acef662b3bc66dd0122cd150c9b673883b9cbf32b7cb6e0c3"
+    },
+    "bench-raw.json": {
+      "path": "/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/bench/bench-raw.json",
+      "sha256": "e5cc044080cabeb5844535e5dd4b2565753e146e0576dd83ff83fc6fcfa8a0fa"
+    },
+    "BAR-LEDGER-2026-09-17.md": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W1/BAR-LEDGER-2026-09-17.md",
+      "sha256": "3669a1863e0284d1f62725e90d7218d3d0282d89fe53a06315df02b82eafe6b5"
+    }
+  }
+}

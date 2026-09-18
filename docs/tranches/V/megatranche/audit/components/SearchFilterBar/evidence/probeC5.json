@@ -1,0 +1,124 @@
+{
+ "rows": [
+  {
+   "text": "Newest",
+   "kind": "radio",
+   "labelRect": {
+    "w": 121.4,
+    "h": 31,
+    "top": 491.9
+   },
+   "controlRect": {
+    "w": 44,
+    "h": 44
+   },
+   "labelIsForwarding": "BUTTON/radio"
+  },
+  {
+   "text": "Most Popular",
+   "kind": "radio",
+   "labelRect": {
+    "w": 165.4,
+    "h": 31,
+    "top": 548.9
+   },
+   "controlRect": {
+    "w": 44,
+    "h": 44
+   },
+   "labelIsForwarding": "BUTTON/radio"
+  },
+  {
+   "text": "Most Forked",
+   "kind": "radio",
+   "labelRect": {
+    "w": 159.6,
+    "h": 31,
+    "top": 605.9
+   },
+   "controlRect": {
+    "w": 44,
+    "h": 44
+   },
+   "labelIsForwarding": "BUTTON/radio"
+  },
+  {
+   "text": "All",
+   "kind": "radio",
+   "labelRect": {
+    "w": 61.1,
+    "h": 31,
+    "top": 689.4
+   },
+   "controlRect": {
+    "w": 44,
+    "h": 44
+   },
+   "labelIsForwarding": "BUTTON/radio"
+  },
+  {
+   "text": "Featured",
+   "kind": "radio",
+   "labelRect": {
+    "w": 132.9,
+    "h": 31,
+    "top": 746.4
+   },
+   "controlRect": {
+    "w": 44,
+    "h": 44
+   },
+   "labelIsForwarding": "BUTTON/radio"
+  },
+  {
+   "text": "pastel",
+   "kind": "checkbox",
+   "labelRect": {
+    "w": 182,
+    "h": 31,
+    "top": 829.9
+   },
+   "controlRect": {
+    "w": 16,
+    "h": 16
+   },
+   "labelIsForwarding": "BUTTON/checkbox"
+  },
+  {
+   "text": "neon",
+   "kind": "checkbox",
+   "labelRect": {
+    "w": 182,
+    "h": 31,
+    "top": 862.9
+   },
+   "controlRect": {
+    "w": 16,
+    "h": 16
+   },
+   "labelIsForwarding": "BUTTON/checkbox"
+  },
+  {
+   "text": "earth",
+   "kind": "checkbox",
+   "labelRect": {
+    "w": 182,
+    "h": 31,
+    "top": 895.9
+   },
+   "controlRect": {
+    "w": 16,
+    "h": 16
+   },
+   "labelIsForwarding": "BUTTON/checkbox"
+  }
+ ],
+ "tagRowPitch": 33,
+ "doubleFire": {
+  "clicksOnControl": 1,
+  "stateChanges": [
+   "checked"
+  ],
+  "finalState": "checked"
+ }
+}

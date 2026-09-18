@@ -1,0 +1,93 @@
+<template>
+    <div
+        class="relative"
+        @pointerenter="$emit('hover', $event)"
+        @pointerleave="$emit('leave')"
+    >
+        <!-- Touch: native Popover click toggle -->
+        <Popover
+            v-if="!canHover"
+            :open="open"
+            @update:open="$emit('update:open', $event)"
+        >
+            <PopoverTrigger as-child>
+                <WatercolorDot
+                    :color="color"
+                    :variant="ghost ? 'ghost' : 'solid'"
+                    tag="button"
+                    :aria-label="`Color swatch ${color}`"
+                    :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
+                />
+            </PopoverTrigger>
+            <PopoverContent class="w-auto" :class="PANEL_LAYOUT" :side-offset="8">
+                <slot name="actions" />
+            </PopoverContent>
+        </Popover>
+
+        <!-- Hover: manually positioned floating panel -->
+        <template v-else>
+            <WatercolorDot
+                :color="color"
+                :variant="ghost ? 'ghost' : 'solid'"
+                tag="button"
+                :aria-label="`Color swatch ${color}`"
+                :class="[sizeClass, 'shrink-0 cursor-pointer', swatchExtraClass]"
+                @click.stop="$emit('click')"
+            />
+            <Teleport to="body">
+                <!-- W5-a11y: hover-only panel is keyboard-inaccessible — hidden from
+                     AT. The reka-ui Popover (touch path) is the accessible route. -->
+                <div
+                    v-if="open"
+                    class="floating-panel"
+                    :class="PANEL_LAYOUT"
+                    :style="floatingStyle"
+                    aria-hidden="true"
+                    @pointerenter="$emit('cancelLeave')"
+                    @pointerleave="$emit('leave')"
+                >
+                    <slot name="actions" />
+                </div>
+            </Teleport>
+        </template>
+
+        <!-- Optional overlay content (e.g., edit overlay) -->
+        <slot name="overlay" />
+    </div>
+</template>
+
+<script setup lang="ts">
+import type { CSSProperties } from "vue";
+import { Popover, PopoverContent, PopoverTrigger } from "../../../ui/popover";
+import { WatercolorDot } from "@mkbabb/glass-ui/watercolor-dot";
+
+/** Shared panel layout — applied to both PopoverContent and the hover Teleport
+ *  panel so the two paths cannot drift. */
+const PANEL_LAYOUT = "p-1.5 flex items-center gap-1";
+
+withDefaults(
+    defineProps<{
+        color: string;
+        open: boolean;
+        canHover: boolean;
+        floatingStyle?: CSSProperties | undefined;
+        sizeClass?: string | undefined;
+        swatchExtraClass?: string | undefined;
+        /** R.W4 Lane A / A3 (U18/U22): render the swatch as the glass-ui
+         *  ghost variant — the seeded dashed silhouette — for placeholder /
+         *  being-edited slots. One shape source; no dashed-outline fork. */
+        ghost?: boolean | undefined;
+    }>(),
+    {
+        sizeClass: "w-9 h-9 sm:w-10 sm:h-10",
+    },
+);
+
+defineEmits<{
+    hover: [e: PointerEvent];
+    leave: [];
+    cancelLeave: [];
+    click: [];
+    "update:open": [value: boolean];
+}>();
+</script>

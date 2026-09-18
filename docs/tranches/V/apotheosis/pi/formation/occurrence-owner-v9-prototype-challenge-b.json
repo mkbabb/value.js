@@ -1,0 +1,493 @@
+{
+    "schema_version": "value.pi.occurrence-owner-v9-prototype-hostile-challenge/v1",
+    "date": "2026-07-22",
+    "review_id": "OCCURRENCE-OWNER-V9-PROTOTYPE-CHALLENGE-B",
+    "review_protocol": {
+        "presumption": "WRONG_UNTIL_INDEPENDENTLY_REPRODUCED",
+        "peer_reviews_consulted": false,
+        "implementation_or_parser_files_edited": false,
+        "fresh_hostile_cases_authored_without_peer_review": true
+    },
+    "subject": {
+        "blueprint": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json",
+            "bytes": 11406,
+            "sha256": "fbaaadb4e3de6fc5fcef756e6bd4a1824514faac5360afa2d4c8450caf170bb3"
+        },
+        "fixtures": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json",
+            "bytes": 12452,
+            "sha256": "a6f61c71e47c9ed323fba148b3765ba8dd6e1cb11829884e57e90824d316f44a"
+        },
+        "prototype_evidence": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json",
+            "bytes": 6053,
+            "sha256": "1fcbcfc2c637d2add7dbedf3c6de1e8c7f150f69c8bd804dbaa19a308b845722"
+        },
+        "analyzer": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+            "bytes": 27806,
+            "sha256": "8d31d5189599f03be502aab450b5f17a9615d499c29dabc9a657eda4e69323da"
+        },
+        "oracle": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+            "bytes": 14073,
+            "sha256": "19c9dd905990129d48a37eeb7d8667482cf61f8fec9b95e2574ddacdbd659ec2"
+        },
+        "test": {
+            "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+            "bytes": 19213,
+            "sha256": "7378e6514359252e9fcd6ce726f9c76053a1d913b73e7d9e0c8f4430aeaa56ab"
+        },
+        "implementation_receipt": {
+            "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-implementation-2026-07-22.md",
+            "bytes": 7460
+        },
+        "resource_receipt": {
+            "path": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-time.txt",
+            "bytes": 777,
+            "sha256": "9eebe53f5e4fd99e0da9ec6cb7b36152d622020824ae9cef0cf0e1c117284cb1"
+        }
+    },
+    "verdict": "REJECT",
+    "disposition": "KEEP_RED_RESEARCH_ONLY_REPAIR_AND_REFREEZE_BEFORE_ANY_168_SOURCE_EXECUTION",
+    "verdict_reason": "The exact documented replay is reproducibly green, but fresh counterexamples prove wrong state classification, wrong byte ownership, wrong operation ownership, ledger-identity fabrication, semantically vacuous oracle acceptance, suppressible work accounting, hidden superlinear work, and absent launcher custody. These are confirmed defects inside the claimed hostile prototype boundary, not merely the already-acknowledged absence of the full denominator.",
+    "documented_replay": {
+        "syntax_checks": [
+            {
+                "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+                "exit": 0
+            },
+            {
+                "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+                "exit": 0
+            },
+            {
+                "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+                "exit": 0
+            }
+        ],
+        "test_run": {
+            "command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+            "exit": 0,
+            "output_bytes": 4208,
+            "output_sha256": "86514d8b2a9a1d5978c102cf8cad77974ff002f45a382f2952e7755cded2e04e",
+            "reported_v9_cases": 18,
+            "reported_inherited_v8_cases": 29,
+            "reported_no_throw_cases": 512,
+            "reported_no_throw_bytes": 82055,
+            "reported_mutations_rejected": 15
+        },
+        "resource_replay": {
+            "command": "/usr/bin/time -l node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs >/dev/null",
+            "exit": 0,
+            "elapsed_seconds": 0.11,
+            "maximum_resident_set_size_bytes": 73089024,
+            "classification": "FRESH_SMALL_FIXTURE_REPLAY_ONLY"
+        },
+        "external_cwd_replay": {
+            "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+            "cwd": "/tmp",
+            "exit": 1,
+            "exact_failure": "ENOENT: no such file or directory, open '/private/tmp/docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json'"
+        }
+    },
+    "fresh_hostile_counterexamples": [
+        {
+            "id": "HB-01-ESCAPED-INTERVAL-LOSES-ESCAPE-BYTE",
+            "input": "\\[=outer [=inner=]\n",
+            "contract": "The frozen fixture says the escaped opener is one reviewed-excluded interval and names the exact excluded raw bytes as \\[=.",
+            "observed": {
+                "escaped_range": [0, 3],
+                "candidate_raw": "[=",
+                "candidate_interval": [1, 3],
+                "disposition": "REVIEWED_EXCLUDED",
+                "inner_candidate_raw": "[=inner=]",
+                "inner_disposition": "INCLUDED"
+            },
+            "expected": {
+                "candidate_raw": "\\[=",
+                "candidate_interval": [0, 3],
+                "disposition": "REVIEWED_EXCLUDED"
+            },
+            "oracle_result": "PASS",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json:64",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json:67",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-fixtures.json:70",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:318",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:467",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:111"
+            ]
+        },
+        {
+            "id": "HB-02-REVIEWED-EXCLUDED-REFERENCE-STILL-JOINS",
+            "input": "<script>[=scope/name=]</script><dfn dfn-for=\"scope\">name</dfn>",
+            "observed": {
+                "candidate_raw": "[=scope/name=]",
+                "state": "RAW_SCRIPT",
+                "disposition": "REVIEWED_EXCLUDED",
+                "target_form": "scope/name",
+                "target_carrier_ids": [
+                    "carrier-0"
+                ]
+            },
+            "expected": "A reviewed-excluded opaque reference must not receive a semantic definition target join.",
+            "oracle_result": "PASS",
+            "root_cause": "joinDefinitionTargets compares candidate.state to the disposition string REVIEWED_EXCLUDED, so every definition candidate, including RAW_SCRIPT candidates, enters the join.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:720",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:722",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:195"
+            ]
+        },
+        {
+            "id": "HB-03-NONVOID-RAW-ELEMENT-SLASH-ESCAPES-RAW-STATE",
+            "input": "<script/>[=must-stay-raw=]</script>[=live=]",
+            "observed": {
+                "must_stay_raw_state": "VISIBLE_TEXT",
+                "must_stay_raw_disposition": "INCLUDED",
+                "live_state": "VISIBLE_TEXT",
+                "live_disposition": "INCLUDED"
+            },
+            "expected": "A self-closing flag does not make a non-void HTML script element void; content before the matching end tag remains raw.",
+            "oracle_result": "PASS",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:141",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:143",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:355"
+            ]
+        },
+        {
+            "id": "HB-04-MIDLINE-RANGE-START-PROMOTED-TO-HEADING",
+            "input": "<span>x</span># not-a-line-heading\n<div algorithm>A</div>",
+            "operation_ledger": [
+                {
+                    "operation_id": "OP",
+                    "kind": "explicit_algorithm",
+                    "sequence": 0,
+                    "required": true
+                }
+            ],
+            "observed": {
+                "false_heading_id": "heading-0",
+                "false_heading_interval": [14, 35],
+                "false_heading_title": "not-a-line-heading",
+                "operation_heading_id": "heading-0"
+            },
+            "expected": "The # begins after an inline closing tag on the same physical line and is not an ATX heading; it cannot own the operation.",
+            "oracle_result": "PASS",
+            "root_cause": "Heading recognition anchors to the beginning of each VISIBLE_TEXT range rather than the beginning of the source line.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:591",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:595",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:276"
+            ]
+        },
+        {
+            "id": "HB-05-NESTED-SAME-NAME-CLOSE-TRUNCATES-OWNER",
+            "input": "<div algorithm>outer<div>inner</div>tail</div>",
+            "operation_ledger": [
+                {
+                    "operation_id": "OUTER",
+                    "kind": "explicit_algorithm",
+                    "sequence": 0,
+                    "required": true
+                }
+            ],
+            "observed": {
+                "operation_interval": [0, 36],
+                "source_bytes": 46
+            },
+            "expected": {
+                "operation_interval": [0, 46]
+            },
+            "oracle_result": "PASS",
+            "root_cause": "matchingClose selects the first later closing tag with the same name and ignores nesting.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:567",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:628",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:165"
+            ]
+        },
+        {
+            "id": "HB-06-LEDGER-SEQUENCE-FABRICATES-NORMATIVE-IDENTITY",
+            "input": "<div algorithm>FOREIGN BODY</div>",
+            "operation_ledger": [
+                {
+                    "operation_id": "REVIEWED-DIFFERENT-OP",
+                    "kind": "explicit_algorithm",
+                    "sequence": 0,
+                    "required": true,
+                    "source_byte_anchor_or_reviewed_locator": 9999,
+                    "review_status": "REVIEWED"
+                }
+            ],
+            "observed": {
+                "operation_id": "REVIEWED-DIFFERENT-OP",
+                "operation_interval": [0, 33]
+            },
+            "expected": "The source occurrence at byte 0 must not acquire a reviewed identity whose supplied locator is 9999 merely because both are sequence zero.",
+            "oracle_result": "PASS",
+            "root_cause": "The analyzer uses only kind and sequence for explicit operations; the oracle checks only operation-id set membership and omission.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:123",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:614",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:632",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:231"
+            ]
+        },
+        {
+            "id": "HB-07-VACUOUS-SEMANTIC-ORACLE",
+            "input": "<script>[=opaque=]</script><a href=\"../x\">x</a>",
+            "forged_result": {
+                "ranges": [
+                    {
+                        "start_offset": 0,
+                        "end_offset_exclusive": 47,
+                        "state": "VISIBLE_TEXT"
+                    }
+                ],
+                "tags": [],
+                "candidates": [],
+                "dispositions": [],
+                "headings": [],
+                "operations": [],
+                "carriers": [],
+                "transition_count": 0
+            },
+            "oracle_result": "PASS",
+            "expected": "An independent semantic oracle must reject the omitted tag, href, raw state, opaque reference, and disposition, rather than validate only the internal consistency of emitted rows.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:39",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:67",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:106",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:307"
+            ]
+        },
+        {
+            "id": "HB-08-REAL-WORK-COUNTER-SUPPRESSION-IS-ACCEPTED",
+            "input_family": "<script></script> repeated 1000 times",
+            "source_bytes": 17000,
+            "analyzer_transition_count": 17000,
+            "mutated_transition_count": 0,
+            "oracle_result": "GREEN_INDEPENDENT_ORACLE_RED_PROTOTYPE_ONLY",
+            "expected": "The named work-counter-suppression mutation must reject suppression, not merely reject an over-limit count.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs:338",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:443",
+                "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-implementation-2026-07-22.md:137"
+            ]
+        }
+    ],
+    "resource_hostility": {
+        "command_family": "Analyze <script></script> repeated geometrically under Node v26.0.0; one fresh sample per 4000, 8000, and 16000 repetitions after a prior scaling run.",
+        "rows": [
+            {
+                "source_bytes": 68000,
+                "elapsed_ms": 23.085,
+                "reported_transitions": 68000
+            },
+            {
+                "source_bytes": 136000,
+                "elapsed_ms": 62.152,
+                "reported_transitions": 136000
+            },
+            {
+                "source_bytes": 272000,
+                "elapsed_ms": 215.688,
+                "reported_transitions": 272000
+            }
+        ],
+        "finding": "Four times the input bytes took approximately 9.34 times the elapsed time while the reported work stayed exactly one transition per byte. This is a direct witness that transition_count is not a bound on analyzer work. findRawEnd lowercases the entire source for every raw element, and later relation passes are also outside the counter.",
+        "classification": "HOSTILE_SCALING_WITNESS_NOT_A_FORMAL_BENCHMARK",
+        "exact_sources": [
+            "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:237",
+            "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:239",
+            "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:291",
+            "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:567",
+            "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-prototype-implementation-2026-07-22.md:137"
+        ]
+    },
+    "dimension_judgments": [
+        {
+            "dimension": "total_denominator_fit",
+            "verdict": "REJECT",
+            "evidence": "The 168-source, 14,609,103-byte universe remains a zero-credit input; there is no corpus runner, generator, shard schema implementation, arbitrary-output regeneration, or publisher. analyzeSource returns no containers or definitions collections despite those being separate required shared-stream consumers.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:39",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:101",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:760",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json:87"
+            ]
+        },
+        {
+            "dimension": "markup_and_state_machine_exactness",
+            "verdict": "REJECT",
+            "evidence": "HB-03 promotes raw script content, HB-04 invents a mid-line heading, and HB-05 truncates a valid nested owner. The receipt accurately concedes that this is not a complete Bikeshed or HTML parser, but the errors are inside the frozen hostile boundary's state and ownership laws.",
+            "blockers": [
+                "B-02",
+                "B-03"
+            ]
+        },
+        {
+            "dimension": "byte_ownership_and_dispositions",
+            "verdict": "REJECT",
+            "evidence": "HB-01 contradicts the fixture's own exact escaped interval, HB-02 gives semantic targets to reviewed-excluded bytes, and HB-05 violates properly nested owner intervals. Candidate IDs are truncated to 96 bits and a collision is silently dropped before the oracle can observe it.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:438",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs:448",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:167"
+            ]
+        },
+        {
+            "dimension": "normative_operation_discovery",
+            "verdict": "REJECT",
+            "evidence": "The complete independently reviewed ledger is absent as declared. More seriously, HB-06 proves that the executable contract ignores the required source, locator, normative-family, entry-condition, output, owner, citation, and review-status fields and can attach a reviewed ID to the wrong occurrence by sequence alone.",
+            "blockers": [
+                "B-04"
+            ]
+        },
+        {
+            "dimension": "analyzer_oracle_independence_and_common_mode",
+            "verdict": "REJECT",
+            "evidence": "The oracle has a separate import closure, which earns limited structural credit. It is not a semantic oracle: HB-01 through HB-06 all pass it, HB-07 shows an empty semantically false analysis passes, and HB-08 shows actual work suppression passes. The mutation suite mutates analyzer-shaped output and shared ledger assumptions rather than deriving independent expected occurrences from source bytes.",
+            "blockers": [
+                "B-05"
+            ]
+        },
+        {
+            "dimension": "no_throw_and_resource_bounds",
+            "verdict": "REJECT",
+            "evidence": "The exact 512 generated string cases and seven malformed geometric cases are no-throw and deserve credit. They are not the required arbitrary-byte corpus, the counter omits helpers and postpasses, the test's suppression mutation raises the count above the limit rather than suppressing it, and the fresh raw-element family exposes hidden superlinear work.",
+            "blockers": [
+                "B-06"
+            ]
+        },
+        {
+            "dimension": "toolchain_and_launcher_custody",
+            "verdict": "REJECT",
+            "evidence": "There is no non-executing preflight, launcher, runtime identity, transitive local-module/schema manifest, post-import attestation, publisher, or real crash injection. test.mjs imports analyzer and oracle before any authentication, trusts process.cwd(), and fails from /tmp. The launcher/dependency/publication mutations inspect a synthetic in-memory envelope only.",
+            "exact_sources": [
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-blueprint.json:188",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:1",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:12",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:447",
+                "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs:498",
+                "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-prototype-evidence.json:93"
+            ]
+        },
+        {
+            "dimension": "kiss",
+            "verdict": "REJECT",
+            "evidence": "The three-file dependency-light closure is readable, but 61,092 implementation/test bytes and 1,757 lines implement a partial bespoke markup parser, postpass owner resolver, consistency oracle, and self-authored test harness for 1,121 fixture bytes. The confirmed errors are architectural interactions, not one isolated typo; more fixture-specific conditionals would worsen the design.",
+            "measurements": {
+                "analyzer_oracle_test_bytes": 61092,
+                "analyzer_oracle_test_lines": 1757,
+                "v9_fixture_input_bytes": 1121
+            }
+        },
+        {
+            "dimension": "readiness_for_168_source_corpus",
+            "verdict": "REJECT",
+            "evidence": "NO_GO. The subject lacks the ledger, corpus runner, complete consumer outputs, semantic oracle, authenticated launcher, bounded-work proof, arbitrary-output regeneration, and publication fault rails; running it now would generate untrustworthy rows and could conceal semantic omissions behind a green oracle.",
+            "blockers": [
+                "B-01",
+                "B-02",
+                "B-03",
+                "B-04",
+                "B-05",
+                "B-06",
+                "B-07"
+            ]
+        }
+    ],
+    "blockers": [
+        {
+            "id": "B-01",
+            "severity": "BLOCKING",
+            "title": "No total-denominator executable path exists",
+            "claim": "The artifact cannot yet consume, close, regenerate, validate, or publish the pinned 168-source denominator and omits separately required container and definition outputs.",
+            "required_correction": "Materialize and independently review the complete normative operation ledger, define every required shared-stream consumer/output, then build a deterministic arbitrary-root corpus runner and shard generator before any corpus claim."
+        },
+        {
+            "id": "B-02",
+            "severity": "BLOCKING",
+            "title": "State and exact-candidate semantics are wrong",
+            "claim": "HB-01, HB-02, and HB-03 prove loss of the escape byte, semantic joining of excluded bytes, and escape from a raw script state.",
+            "required_correction": "Define and implement exact occurrence ownership across escape and raw-element boundaries, keep disposition available to semantic joins, add these cases to born-RED fixtures, and require the oracle to derive their classifications independently."
+        },
+        {
+            "id": "B-03",
+            "severity": "BLOCKING",
+            "title": "Structure and owner intervals are not source-exact",
+            "claim": "HB-04 and HB-05 prove headings are recognized at range starts rather than source line starts and same-name nesting is ignored when closing owner intervals.",
+            "required_correction": "Carry physical line-start status through the shared stream and pair opening/closing constructs with the actual nesting stack; independently verify full owner intervals and ancestry from source bytes."
+        },
+        {
+            "id": "B-04",
+            "severity": "BLOCKING",
+            "title": "Normative ledger identities can be fabricated by sequence",
+            "claim": "HB-06 passes a reviewed identity with locator 9999 onto an unrelated byte-zero marker. The analyzer and oracle ignore most required ledger fields.",
+            "required_correction": "Freeze a full ledger whose source identity and byte anchor or reviewed locator are executable join keys, validate every required field, and biject rows to exact occurrences without sequence-only identity assignment."
+        },
+        {
+            "id": "B-05",
+            "severity": "BLOCKING",
+            "title": "The independent oracle is semantically vacuous",
+            "claim": "HB-07 accepts one all-visible range with every tag, candidate, disposition, and owner omitted; the oracle also accepts every concrete analyzer defect in HB-01 through HB-06 and real work suppression in HB-08.",
+            "required_correction": "Build a genuinely independent semantic oracle that derives expected state boundaries, candidate intervals, attributes, owners, ledger joins, and a credible work witness from source and frozen normative inputs, with mutations that delete or misclassify real discoveries rather than only corrupt emitted rows."
+        },
+        {
+            "id": "B-06",
+            "severity": "BLOCKING",
+            "title": "The 8*N+64 counter is not a resource bound",
+            "claim": "It counts consumed source positions only; it can be set to zero without rejection and excludes repeated whole-source lowercase work, reference scans, URL work, closing-tag searches, ancestry searches, and joins. Fresh raw-element scaling grows far faster than the reported linear counter.",
+            "required_correction": "Either eliminate superlinear passes and count all bounded operations or replace the claim with a proved resource model; add real suppression controls, arbitrary-byte no-throw evidence, geometric hostile families for every costly path, peak-memory evidence, and full-corpus limits."
+        },
+        {
+            "id": "B-07",
+            "severity": "BLOCKING",
+            "title": "Launcher, dependency, runtime, and publication custody do not exist",
+            "claim": "The executable path has no authenticated launcher or post-import attestation, is cwd-dependent, and substitutes synthetic transcript checks for real publication and crash-fault execution.",
+            "required_correction": "Implement the blueprint's non-executing preflight, content-addressed launcher/runtime/transitive closures, every-path post-import attestation, arbitrary-output publisher, and real fault injection before full-source execution."
+        },
+        {
+            "id": "B-08",
+            "severity": "BLOCKING",
+            "title": "Collision checking has truncation silence",
+            "claim": "candidateId truncates SHA-256 to 24 hexadecimal characters and add silently returns when that ID already exists, so an actual collision erases an occurrence before verifyStableIds can observe it, contrary to the blueprint relation.",
+            "required_correction": "Use an untruncated content identity or preserve and reject every colliding preimage explicitly; mutation-test the real candidate insertion path rather than appending a duplicate only to stable_ids."
+        }
+    ],
+    "honest_credit": [
+        "All exact subject byte counts and SHA-256 identities checked in this review match the implementation receipt and prototype evidence.",
+        "The three syntax checks and exact 4,208-byte test output replay green at the recorded SHA-256.",
+        "The analyzer produces a gapless UTF-8 byte partition on the frozen suite and keeps analyzer, oracle, and test code in a small dependency surface with no analyzer import from oracle.mjs.",
+        "Basic parsed-attribute byte provenance and relative URL resolution work on the frozen positive cases.",
+        "The frozen run exercises all 13 declared state labels, 18 V9 fixtures, the authenticated inherited V8 fixture module, 512 deterministic no-throw strings, and seven malformed-size rows.",
+        "The evidence and implementation receipt are unusually candid: they preserve RED, zero-credit, no-shard, no-ledger, no-launcher, no-publisher, no-full-corpus, and no-production limits instead of claiming denominator closure.",
+        "This REJECT does not treat those candidly declared omissions alone as a semantic failure; it rests on reproduced defects within the implemented boundary."
+    ],
+    "credits": {
+        "denominator": 0,
+        "semantic": 0,
+        "owner": 0,
+        "operation": 0,
+        "compatibility": 0,
+        "conformance": 0,
+        "parser": 0,
+        "feature": 0,
+        "cost_lattice": 0,
+        "movement": 0,
+        "integration": 0,
+        "production": 0
+    },
+    "required_next": [
+        "Keep the current exact subject RED and do not run or publish denominator shards for the 168-source corpus.",
+        "Turn HB-01 through HB-08 and the raw-element scaling family into frozen born-RED controls before repairing the analyzer or oracle.",
+        "Repair state semantics, exact intervals, nesting, and ledger joins; replace the consistency oracle with an independently derived semantic oracle; then re-freeze all changed analyzer, oracle, fixture, test, and evidence bytes.",
+        "Prove a real resource model and build authenticated launcher/runtime/dependency/publication custody before attempting the full corpus.",
+        "After correction, rerun two fresh exact-byte hostile challenges and root gestalt as the blueprint requires."
+    ]
+}

@@ -1,0 +1,9 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "seat": "s",
+  "lineage": "CSS Syntax consume-number algorithm clean room",
+  "source_inputs": [{ "path": "../g5/authorities/css-syntax-3.Overview.bs", "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390", "bytes": 144427, "slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3" }],
+  "instruction": "Derive the clearest direct combinator production from the seven pinned normative algorithm steps. Do not consult H, B, or D sources or candidates.",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

@@ -1,0 +1,12 @@
+import { chromium } from "playwright";
+const b = await chromium.launch();
+const ctx = await b.newContext({ viewport:{width:1440,height:900}, colorScheme:"light", forcedColors:"active" });
+const p = await ctx.newPage();
+await p.goto("http://localhost:9000/#/extract",{waitUntil:"load"}); await p.waitForTimeout(3500);
+const S='[role="button"][aria-label*="mage"]';
+const read = () => p.evaluate((s)=>{const z=document.querySelector(s);const cs=getComputedStyle(z);return{scale:cs.scale,transform:cs.transform,border:cs.borderColor,bg:cs.backgroundColor,rect:z.getBoundingClientRect().width.toFixed(2)};},S);
+console.log("REST     ", JSON.stringify(await read()));
+await p.evaluate((s)=>document.querySelector(s).dispatchEvent(new DragEvent("dragover",{bubbles:true,cancelable:true,dataTransfer:new DataTransfer()})),S);
+await p.waitForTimeout(500);
+console.log("DRAGGING ", JSON.stringify(await read()));
+await b.close();

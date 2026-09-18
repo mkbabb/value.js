@@ -1,0 +1,259 @@
+{
+    "schema_version": "value.pi.occurrence-owner-v9-fixture-closure/v1",
+    "date": "2026-07-22",
+    "status": "RED_PREAUTHOR_FIXTURE_CLOSURE_ZERO_CREDIT",
+    "coordinate_system": "UTF8_BYTE_HALF_OPEN",
+    "inherited_suite": {
+        "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v8/fixtures.mjs",
+        "bytes": 22402,
+        "sha256": "3c5926b4911b0826fe86d4252aa93110083c22744bd2ffb4de5b3dd45d3ebc0a",
+        "case_count": 29,
+        "digest_sha256": "89bef854a071f9566924a9dc62da511d78c12de1e5589bf7adc3b448c668d870",
+        "credit": 0
+    },
+    "cases": [
+        {
+            "id": "V8A-FENCED-REFERENCE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "```css\n[=fenced fake=]\n```\n[=live concept=]\n",
+            "invariant": "Fenced code is opaque to references and structure while following visible text remains eligible.",
+            "expected": {
+                "included_raw": ["[=live concept=]"],
+                "excluded_raw": ["[=fenced fake=]"],
+                "states_required": ["FENCED_BLOCK", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-FENCED-ALGORITHM",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "```html\n# Parse\n<div algorithm>False.</div>\n```\n# Values\n",
+            "invariant": "Fenced headings and algorithm markers never create structural or operation rows.",
+            "expected": {
+                "included_raw": [],
+                "excluded_raw": ["# Parse", "<div algorithm>"],
+                "states_required": ["FENCED_BLOCK", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-DATABLOCK-OPAQUE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<pre class=metadata>\nTitle: [=not a link=]\n</pre>\n[=active=]\n",
+            "invariant": "Bikeshed datablocks are classified before delimiter formation.",
+            "expected": {
+                "included_raw": ["[=active=]"],
+                "excluded_raw": ["[=not a link=]"],
+                "states_required": ["DATABLOCK", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-RAW-OPENER-NO-CROSS-PAIR",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<script>[=opaque opener</script>\n[=live=]\n",
+            "invariant": "A delimiter opened in a raw element cannot close in or swallow a later eligible state.",
+            "expected": {
+                "included_raw": ["[=live=]"],
+                "excluded_raw": ["[=opaque opener"],
+                "states_required": ["RAW_SCRIPT", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-ESCAPED-OUTER-INNER-LIVE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "\\[=outer [=inner=]\n",
+            "invariant": "An escaped opener is one excluded interval and cannot consume an unescaped nested opener.",
+            "expected": {
+                "included_raw": ["[=inner=]"],
+                "excluded_raw": ["\\[="],
+                "states_required": ["VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-BOOLEAN-HIGHLIGHT-PRE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<pre highlight>\n'running'\n</pre>\n[=live=]\n",
+            "invariant": "Boolean highlighted pre is raw example content.",
+            "expected": {
+                "included_raw": ["[=live=]"],
+                "excluded_raw": ["'running'"],
+                "states_required": ["RAW_PRE", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-LANGUAGE-CLASS-PRE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<pre class=\"example language-javascript\">\n'running'\n</pre>\n",
+            "invariant": "The language-* highlighted-pre spelling is raw example content.",
+            "expected": {
+                "included_raw": [],
+                "excluded_raw": ["'running'"],
+                "states_required": ["RAW_PRE"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-PROCESSED-CODE-NOT-HEADING",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<code>\n# Parse Algorithm\n[=processed concept=]\n</code>\n<dfn>after</dfn>\n",
+            "invariant": "Processed code permits Bikeshed links but never promotes Markdown heading syntax.",
+            "expected": {
+                "included_raw": ["[=processed concept=]"],
+                "excluded_raw": ["# Parse Algorithm"],
+                "states_required": ["PROCESSED_CODE", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-RELATIVE-HREF-RESOLUTION",
+            "source_url": "https://drafts.csswg.org/css-values-4/Overview.bs",
+            "input": "<a href=\"../css-variables-2/#using-variables\">variables</a>\n",
+            "invariant": "A parsed relative href resolves against the pinned source URL before CSSWG classification and receives one disposition.",
+            "expected": {
+                "included_raw": ["../css-variables-2/#using-variables"],
+                "excluded_raw": [],
+                "states_required": ["TAG_ATTRIBUTE"],
+                "resolved_urls": [
+                    "https://drafts.csswg.org/css-variables-2/#using-variables"
+                ],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-DRAFT-ROOT-NO-THROW",
+            "source_url": "https://drafts.csswg.org/css-values-4/Overview.bs",
+            "input": "https://drafts.csswg.org/\n<a href=\"https://drafts.csswg.org/\">root</a>\n",
+            "invariant": "The CSSWG root URL is classified without indexing a nonexistent path segment and never throws.",
+            "expected": {
+                "included_raw": [
+                    "https://drafts.csswg.org/",
+                    "https://drafts.csswg.org/"
+                ],
+                "excluded_raw": [],
+                "states_required": ["VISIBLE_TEXT", "TAG_ATTRIBUTE"],
+                "resolved_urls": [
+                    "https://drafts.csswg.org/",
+                    "https://drafts.csswg.org/"
+                ],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-PARSED-DEFINITION-ATTRIBUTES",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<div data-note='dfn-for=\"wrong\"' dfn-for=\"right\"><dfn data-lt=\"term|alias\">term</dfn></div>\nUse [=right/term=], [=right/alias=], and [=wrong/term=].\n",
+            "invariant": "Only parsed attributes establish definition scope and alternate names; attribute-like prose cannot fabricate joins.",
+            "expected": {
+                "included_raw": ["[=right/term=]", "[=right/alias=]", "[=wrong/term=]"],
+                "excluded_raw": [],
+                "states_required": ["TAG_ATTRIBUTE", "VISIBLE_TEXT"],
+                "resolved_target_forms": ["right/term", "right/alias"],
+                "unresolved_target_forms": ["wrong/term"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-SAME-LINE-BYTE-OWNERSHIP",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<h2 id=\"one\">One</h2><div algorithm>A</div><h2 id=\"two\">Two</h2><div algorithm>B</div>\n",
+            "invariant": "Byte-position ancestry assigns A to One and B to Two despite a shared physical line.",
+            "expected": {
+                "included_raw": ["<div algorithm>", "<div algorithm>"],
+                "excluded_raw": [],
+                "states_required": ["TAG", "VISIBLE_TEXT"],
+                "operation_ledger_ids": ["EXPLICIT-ALGORITHM-A", "EXPLICIT-ALGORITHM-B"]
+            }
+        },
+        {
+            "id": "V8B-UNTERMINATED-QUOTED-TAG-BOUND",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<a title=\"unterminated <a <a <a [=visible-after-malformed=]\n",
+            "invariant": "Malformed quoted-tag recovery advances monotonically, remains within the declared work budget, and never throws.",
+            "expected": {
+                "included_raw": [],
+                "excluded_raw": [
+                    "<a title=\"unterminated <a <a <a [=visible-after-malformed=]"
+                ],
+                "states_required": ["MALFORMED_TAG_RECOVERY"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8A-ONE-HREF-DISPOSITION",
+            "source_url": "https://drafts.csswg.org/css-color-5/Overview.bs",
+            "input": "<a href=\"https://drafts.csswg.org/css-color-5/#colorcontrast\">contrast</a>\n",
+            "invariant": "The exact href value interval has one included disposition, not an included row plus excluded tag-text row.",
+            "expected": {
+                "included_raw": ["https://drafts.csswg.org/css-color-5/#colorcontrast"],
+                "excluded_raw": [],
+                "states_required": ["TAG_ATTRIBUTE"],
+                "resolved_urls": [
+                    "https://drafts.csswg.org/css-color-5/#colorcontrast"
+                ],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V8B-NORMATIVE-PROCEDURE",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "# Procedure {#fixture-procedure}\n1. Convert the input.\n",
+            "invariant": "Operation admission follows a separately declared normative ledger, never a heading keyword regex.",
+            "expected": {
+                "included_raw": ["# Procedure {#fixture-procedure}"],
+                "excluded_raw": [],
+                "states_required": ["VISIBLE_TEXT"],
+                "operation_ledger_ids": ["FIXTURE-PROCEDURE"]
+            }
+        },
+        {
+            "id": "V8B-CONVERT-A-COLOR",
+            "source_url": "https://drafts.csswg.org/css-color-4/",
+            "input": "# Convert a color {#fixture-convert-color}\n1. Return the result.\n",
+            "invariant": "A reviewed operation is admitted by normative identity even when its title misses historical keyword heuristics.",
+            "expected": {
+                "included_raw": ["# Convert a color {#fixture-convert-color}"],
+                "excluded_raw": [],
+                "states_required": ["VISIBLE_TEXT"],
+                "operation_ledger_ids": ["FIXTURE-CONVERT-COLOR"]
+            }
+        },
+        {
+            "id": "V8B-DESCRIPTIVE-DT-NOT-OPERATION",
+            "source_url": "https://drafts.csswg.org/css-color-4/",
+            "input": "<dl><dt>Color</dt><dd>A perceptual quality.</dd></dl>\n",
+            "invariant": "Definition-term markup alone never admits an operation absent a normative-ledger identity.",
+            "expected": {
+                "included_raw": [],
+                "excluded_raw": ["<dt>Color</dt><dd>A perceptual quality.</dd>"],
+                "states_required": ["TAG", "VISIBLE_TEXT"],
+                "operation_ledger_ids": []
+            }
+        },
+        {
+            "id": "V9-MALFORMED-SCALE-FAMILY",
+            "source_url": "https://drafts.csswg.org/css-values-4/",
+            "input": "<a \"<a <a <a <a <a <a <a <a <a <a <a <a <a <a <a ",
+            "invariant": "For every repeated malformed-opener family, transitions are at most 8 * UTF-8 bytes + 64 and recovery is no-throw.",
+            "expected": {
+                "included_raw": [],
+                "excluded_raw": ["<a \"<a <a <a <a <a <a <a <a <a <a <a <a <a <a <a "],
+                "states_required": ["MALFORMED_TAG_RECOVERY"],
+                "operation_ledger_ids": [],
+                "max_transition_formula": "8*N+64"
+            }
+        }
+    ],
+    "credits": {
+        "denominator": 0,
+        "semantic": 0,
+        "operation": 0,
+        "owner": 0,
+        "compatibility": 0,
+        "parser": 0,
+        "production": 0
+    }
+}

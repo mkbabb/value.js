@@ -1,0 +1,29 @@
+{
+  "touchTap": {
+    "before": {
+      "subContentPresent": false,
+      "ariaExpanded": "false"
+    },
+    "afterTap1": {
+      "subContentPresent": false,
+      "ariaExpanded": "false",
+      "dataState": "closed"
+    },
+    "afterTap2": {
+      "subContentPresent": false,
+      "ariaExpanded": "false"
+    },
+    "hasTouch": true,
+    "device": "iPhone 14"
+  },
+  "cancelableControl": {
+    "nonCancelableClick": {
+      "subContentPresent": true,
+      "ariaExpanded": "true"
+    },
+    "cancelableClick": {
+      "subContentPresent": true,
+      "ariaExpanded": "true"
+    }
+  }
+}

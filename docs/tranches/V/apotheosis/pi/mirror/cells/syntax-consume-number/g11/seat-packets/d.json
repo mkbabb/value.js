@@ -1,0 +1,13 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "seat": "d",
+  "lineage": "parse-that first-character dispatch clean room",
+  "private_design": "Construct one @mkbabb/parse-that/core dispatch with atomic sign, dot, and ASCII-digit continuation parsers, then one semantic map. Each arm must reject transactionally and consume the maximal guarded fraction/exponent prefix. No whole-number regex spanning every first-character family, no all/any aggregate, scanner, or source access.",
+  "verified_apis": ["dispatch", "regex", "Parser.map"],
+  "feasibility_probe": "probes/d.ts",
+  "named_lineage_source": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts",
+  "candidate_root": "candidates/d",
+  "required_export": "consumeNumber",
+  "credit": "ZERO_PRIVATE_DESIGN_PACKET_ONLY"
+}

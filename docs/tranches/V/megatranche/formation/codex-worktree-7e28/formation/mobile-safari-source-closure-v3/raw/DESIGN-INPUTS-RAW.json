@@ -1,0 +1,1123 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/DESIGN-INPUTS-RAW.json
+  original-mtime: 2026-08-01T20:31:35
+  original-sha256: 3ed23ab6962d7703fa33824b9046b313e05beb65dfdd96bfe8ba74f7ace795b4
+  original-bytes: 34539
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "inputs": [
+    {
+      "workflowId": "VC-001",
+      "sourcePath": "demo/color-picker/App.vue",
+      "job": "Route shell; the chosen color is protagonist",
+      "copy": [
+        "Application navigation",
+        "Color tool panes"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/dark",
+        "@mkbabb/glass-ui/dom"
+      ],
+      "direction": "V.U1 shell boundaries; SPLIT route scenes, KEEP composition root"
+    },
+    {
+      "workflowId": "VC-002",
+      "sourcePath": "demo/color-picker/ErrorBoundary.vue",
+      "job": "Make a failed scene recoverable",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U1; KEEP only if it catches app/route-owned failures"
+    },
+    {
+      "workflowId": "VC-003",
+      "sourcePath": "demo/color-session/ColorSpaceSelector.vue",
+      "job": "Change the mathematical interpretation of color",
+      "copy": [
+        "Select color space"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; KEEP semantic control, PRUNE decorative selector chrome"
+    },
+    {
+      "workflowId": "VC-004",
+      "sourcePath": "demo/color-session/color-chips/PreviewRamp.vue",
+      "job": "Show ordered tonal change",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; KEEP measured ramp, FOLD duplicate chip paint"
+    },
+    {
+      "workflowId": "VC-005",
+      "sourcePath": "demo/color-session/color-chips/PreviewStrip.vue",
+      "job": "Compare compact color samples",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; KEEP comparison, prove forced-colors text equivalent"
+    },
+    {
+      "workflowId": "VC-006",
+      "sourcePath": "demo/palettes/BrowsePane.vue",
+      "job": "Discover public palettes",
+      "copy": [
+        "Browse",
+        "Search the commons...",
+        "Loading palettes",
+        "Loading more palettes"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/search"
+      ],
+      "direction": "V.U4 (V.A1 dependency); SPLIT offline/error from empty"
+    },
+    {
+      "workflowId": "VC-007",
+      "sourcePath": "demo/palettes/PalettesPane.vue",
+      "job": "Manage the viewer’s palettes",
+      "copy": [
+        "My",
+        "Palettes",
+        "Delete all saved palettes?",
+        "Search your palettes...",
+        "Delete all saved palettes"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dialog",
+        "@mkbabb/glass-ui/search"
+      ],
+      "direction": "V.U4 (V.A1 dependency); central policy, explicit auth/offline"
+    },
+    {
+      "workflowId": "VC-008",
+      "sourcePath": "demo/palettes/admin/AdminPane.vue",
+      "job": "Seat privileged palette operations",
+      "copy": [
+        "subView === 'admin-users' ? 'Search users...' : 'Search color names...'"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/search"
+      ],
+      "direction": "V.U4 (V.A1 dependency); gate before rendering data state"
+    },
+    {
+      "workflowId": "VC-009",
+      "sourcePath": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "job": "Review immutable moderation evidence",
+      "copy": [
+        "Action...",
+        "Filter by action",
+        "Target...",
+        "Filter by target",
+        "Refresh audit log",
+        "Loading audit log"
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); KEEP audit chronology, hide unauthorized existence"
+    },
+    {
+      "workflowId": "VC-010",
+      "sourcePath": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "job": "Triage reported palettes",
+      "copy": [
+        "palette deleted",
+        "Refresh flagged palettes",
+        "Loading flagged palettes",
+        "`Delete palette ${item.palette?.name ?? item.paletteSlug}`"
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); KEEP action provenance, explicit queue states"
+    },
+    {
+      "workflowId": "VC-011",
+      "sourcePath": "demo/palettes/browser/admin/AdminListItem.vue",
+      "job": "Present one actionable admin record",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; independent full workflow required"
+    },
+    {
+      "workflowId": "VC-012",
+      "sourcePath": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+      "job": "Preserve admin-list geometry during load",
+      "copy": [
+        "Loading"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; prove useful, reduced-motion safe, or PRUNE"
+    },
+    {
+      "workflowId": "VC-013",
+      "sourcePath": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "job": "Adjudicate proposed names",
+      "copy": [
+        "Loading pending proposals",
+        "`Approve color name ${item.name}`",
+        "`Reject color name ${item.name}`",
+        "Loading approved names",
+        "`Delete color name ${item.name}`"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/tabs"
+      ],
+      "direction": "V.U4 (V.A1 dependency); KEEP queue semantics, explicit refusal"
+    },
+    {
+      "workflowId": "VC-014",
+      "sourcePath": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "job": "Adjudicate palette tags",
+      "copy": [
+        "Refresh tags",
+        "Tag name...",
+        "New tag name",
+        "Category...",
+        "New tag category",
+        "Create tag",
+        "Loading tags",
+        "`Delete tag ${tag.name}`"
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); KEEP taxonomy work, policy-gate"
+    },
+    {
+      "workflowId": "VC-015",
+      "sourcePath": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "job": "Administer users",
+      "copy": [
+        "and all associated data. This cannot be undone.",
+        "Cancel",
+        "Loading users",
+        "user.slug",
+        "`Delete user ${user.slug}`",
+        "Loading palettes"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dialog"
+      ],
+      "direction": "V.U4 (V.A1 dependency); fix auth/offline-as-empty"
+    },
+    {
+      "workflowId": "VC-016",
+      "sourcePath": "demo/palettes/browser/admin/PaginationBar.vue",
+      "job": "Navigate an admin result window",
+      "copy": [
+        "Previous page",
+        "Next page"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; prove pagination against actual collection semantics"
+    },
+    {
+      "workflowId": "VC-017",
+      "sourcePath": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "job": "Edit the current palette’s identity/content",
+      "copy": [
+        "&rarr;",
+        "`Edit color ${color}`",
+        "`Copy color ${color}`",
+        "`Remove color ${color} from palette`",
+        "Save edit",
+        "Cancel edit",
+        "`Add current color ${cssColorOpaque} to palette`",
+        "'Palette ' + (savedPaletteCount + 1)"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U4 (V.A1 dependency); KEEP local ownership, prevent policy bypass"
+    },
+    {
+      "workflowId": "VC-018",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+      "job": "Report one card action outcome",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; merge with owned action if redundant"
+    },
+    {
+      "workflowId": "VC-019",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "job": "Make one palette legible and actionable",
+      "copy": [
+        "`Palette: ${palette.name}`",
+        "palette.name",
+        "Palette menu"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/motion"
+      ],
+      "direction": "V.U4; KEEP specimen hierarchy, reduce generic card chrome"
+    },
+    {
+      "workflowId": "VC-020",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+      "job": "Expose policy-valid palette commands",
+      "copy": [
+        "offline"
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); FILTER actions through policy"
+    },
+    {
+      "workflowId": "VC-021",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+      "job": "State authorship/status without stealing focus",
+      "copy": [
+        "`Remixed from ${palette.forkOf}`",
+        "`${palette.forkCount} remix${palette.forkCount === 1 ? '' : 'es'}`",
+        "`${palette.versionCount} versions`",
+        "`${palette.voteCount ?? 0} votes, click to vote`"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; prove every metadata field"
+    },
+    {
+      "workflowId": "VC-022",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "job": "Show the palette itself as card protagonist",
+      "copy": [
+        "`Copy slug ${displaySlug}`",
+        "`Add ${color.css} to current palette`",
+        "`Edit color ${color.css}`",
+        "`Copy color ${color.css}`"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui"
+      ],
+      "direction": "V.U4; KEEP measured chroma, forced-colors equivalent"
+    },
+    {
+      "workflowId": "VC-023",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+      "job": "Rename one owned palette",
+      "copy": [
+        "Palette name..."
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); local validation and refusal"
+    },
+    {
+      "workflowId": "VC-024",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "job": "Lay out a browsable palette collection",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; own responsive density and collection states"
+    },
+    {
+      "workflowId": "VC-025",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+      "job": "Preserve palette-card geometry while loading",
+      "copy": [
+        "Loading palette"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; KEEP only with distinct loading semantics"
+    },
+    {
+      "workflowId": "VC-026",
+      "sourcePath": "demo/palettes/browser/card/PaletteColorStrip.vue",
+      "job": "Compactly expose a palette’s color order",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; KEEP chroma signature, accessible fallback"
+    },
+    {
+      "workflowId": "VC-027",
+      "sourcePath": "demo/palettes/browser/card/ShadowPalette.vue",
+      "job": "Preview a pending palette transformation",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; KEEP only as labeled provisional state"
+    },
+    {
+      "workflowId": "VC-028",
+      "sourcePath": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+      "job": "Act on a specific swatch",
+      "copy": [
+        "`Color swatch ${color}`"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U4; keyboard/touch parity, popup ownership"
+    },
+    {
+      "workflowId": "VC-029",
+      "sourcePath": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "job": "Submit a moderated report",
+      "copy": [
+        "Report Palette",
+        "Additional details (optional)..."
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A1 dependency); explicit auth/error/success"
+    },
+    {
+      "workflowId": "VC-030",
+      "sourcePath": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "job": "Explain and execute palette migration",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4 (V.A2 dependency); one migration path, no compatibility fork"
+    },
+    {
+      "workflowId": "VC-031",
+      "sourcePath": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+      "job": "Inspect and recover local palette releases",
+      "copy": [
+        "Version History",
+        "(current)"
+      ],
+      "glassImports": [],
+      "direction": "V.U4 (V.A2/A3 dependency); rename/version semantics to local releases"
+    },
+    {
+      "workflowId": "VC-032",
+      "sourcePath": "demo/palettes/browser/search/MiniColorPicker.vue",
+      "job": "Add color as a search constraint",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; KEEP only search-scoped controls"
+    },
+    {
+      "workflowId": "VC-033",
+      "sourcePath": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "job": "Express palette query and filters",
+      "copy": [
+        "Sort",
+        "Tier",
+        "All",
+        "Featured",
+        "Tags",
+        "Find by Color",
+        "Search",
+        "Filters",
+        "`Open color picker, current color ${pickerHex}`",
+        "#hex, hsl(...)",
+        "Search by CSS color"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; SPLIT query state from decorative container"
+    },
+    {
+      "workflowId": "VC-034",
+      "sourcePath": "demo/palettes/browser/search/TagEditPopover.vue",
+      "job": "Edit palette tags in context",
+      "copy": [
+        "Tags"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; D axis remains open, L/C hash-banked"
+    },
+    {
+      "workflowId": "VC-035",
+      "sourcePath": "demo/palettes/browser/search/UserSortMenu.vue",
+      "job": "Select a meaningful collection ordering",
+      "copy": [
+        "Sort",
+        "Sort users"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; PRUNE options without server semantics"
+    },
+    {
+      "workflowId": "VC-036",
+      "sourcePath": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+      "job": "Show/edit the palette’s durable address",
+      "copy": [
+        "Your slug",
+        "enter slug...",
+        "slugSwitching ? 'Signing in…' : 'Sign in with slug'",
+        "Cancel slug edit",
+        "Account menu"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/search"
+      ],
+      "direction": "V.U4 (V.A1 dependency); policy-safe direct-link behavior"
+    },
+    {
+      "workflowId": "VC-037",
+      "sourcePath": "demo/palettes/browser/status/ApiOfflineChip.vue",
+      "job": "Name service unavailability",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; KEEP as status, never substitute for route error body"
+    },
+    {
+      "workflowId": "VC-038",
+      "sourcePath": "demo/picker/ColorPicker.vue",
+      "job": "Author a color",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/dom"
+      ],
+      "direction": "V.U2; KEEP protagonist and local `ActionBarLayer`, dissolve shell/action leakage; V.U3 owns picker descendants"
+    },
+    {
+      "workflowId": "VC-039",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "job": "Numerically manipulate color components",
+      "copy": [
+        "`${component.toUpperCase()} channel`"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; KEEP typed controls and direction semantics"
+    },
+    {
+      "workflowId": "VC-040",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+      "job": "Expose diagnostic component values",
+      "copy": [
+        "Color channels",
+        "`${component} channel`"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dark",
+        "@mkbabb/glass-ui/dom",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; dev-only proof or PRUNE"
+    },
+    {
+      "workflowId": "VC-041",
+      "sourcePath": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+      "job": "Directly manipulate color in a plane",
+      "copy": [
+        "spectrumAriaLabel"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; keyboard alternative and paint/interaction split"
+    },
+    {
+      "workflowId": "VC-042",
+      "sourcePath": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+      "job": "Read exact component values",
+      "copy": [
+        ",",
+        "`${component} component value`"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; own numeric hierarchy, no duplicate readout"
+    },
+    {
+      "workflowId": "VC-043",
+      "sourcePath": "demo/picker/visual/DebugEventLog.vue",
+      "job": "Inspect interaction events during development",
+      "copy": [
+        "CAP"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; dev boundary or PRUNE from product"
+    },
+    {
+      "workflowId": "VC-044",
+      "sourcePath": "demo/picker/visual/HeroBlob.vue",
+      "job": "Embody the authored color",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui/blob",
+        "@mkbabb/glass-ui/color",
+        "@mkbabb/glass-ui/dark",
+        "@mkbabb/glass-ui/dom"
+      ],
+      "direction": "V.U3; KEEP subject-specific animation with reduced-motion final"
+    },
+    {
+      "workflowId": "VC-045",
+      "sourcePath": "demo/picker/visual/PointerDebugOverlay.vue",
+      "job": "Inspect pointer geometry during development",
+      "copy": [
+        "Debug",
+        "FROZEN?",
+        "copied!",
+        "State"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; dev boundary or PRUNE from product"
+    },
+    {
+      "workflowId": "VC-046",
+      "sourcePath": "demo/scenes/ConfigSliderPane.vue",
+      "job": "Configure one generative scene",
+      "copy": [
+        "def.label"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/configurator",
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U3; KEEP controls subordinate to output"
+    },
+    {
+      "workflowId": "VC-047",
+      "sourcePath": "demo/scenes/about/AboutPane.vue",
+      "job": "Explain Value’s model and provenance",
+      "copy": [
+        "Detailed Guide"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; KEEP narrative hierarchy, remove ornamental cards"
+    },
+    {
+      "workflowId": "VC-048",
+      "sourcePath": "demo/scenes/about/ColorNutritionLabel.vue",
+      "job": "Make a color’s measured properties scannable",
+      "copy": [
+        "Definition",
+        "Device Dependency:",
+        "White Point:",
+        "Gamut:",
+        "Created:",
+        "to",
+        "Perceptual Uniformity:",
+        "Hue Linearity:",
+        "Lightness Separation:",
+        "Usage",
+        "Common Applications:",
+        "Industries:"
+      ],
+      "glassImports": [],
+      "direction": "V.U4; KEEP distinctive measured-chroma signature"
+    },
+    {
+      "workflowId": "VC-049",
+      "sourcePath": "demo/scenes/about/katex/Katex.vue",
+      "job": "Render mathematical notation",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; isolate renderer, failure text fallback"
+    },
+    {
+      "workflowId": "VC-050",
+      "sourcePath": "demo/scenes/about/markdown/Markdown.vue",
+      "job": "Render trusted product narrative",
+      "copy": [
+        "Oh snap..."
+      ],
+      "glassImports": [],
+      "direction": "V.U4; keep bounded syntax and accessible headings"
+    },
+    {
+      "workflowId": "VC-051",
+      "sourcePath": "demo/scenes/atmosphere/AuroraPane.vue",
+      "job": "Generate an atmospheric color field",
+      "copy": [
+        "\" :sections=\"SECTIONS\" :defaults=\"(DEFAULT_AURORA_ATOMS as unknown) as Record",
+        "Harmony",
+        "Arrangement",
+        "Medium",
+        "Motion",
+        "Atmosphere",
+        "Palette harmony",
+        "Zone arrangement",
+        "Painterly medium",
+        "Motion register"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/aurora"
+      ],
+      "direction": "V.U3; fix RTL action clipping and motion ownership"
+    },
+    {
+      "workflowId": "VC-052",
+      "sourcePath": "demo/scenes/blob/BlobPane.vue",
+      "job": "Generate an animated color blob",
+      "copy": [
+        "\" :sections=\"SECTIONS\" :defaults=\"(BLOB_CONFIG_DEFAULTS as unknown) as Record",
+        "Blob"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/blob"
+      ],
+      "direction": "V.U3; reconcile 200–550ms overlaps and infinite pulse"
+    },
+    {
+      "workflowId": "VC-053",
+      "sourcePath": "demo/shared/ui/EmptyState.vue",
+      "job": "Explain a genuinely empty collection",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U4; SPLIT from offline/auth/error"
+    },
+    {
+      "workflowId": "VC-054",
+      "sourcePath": "demo/shared/ui/PaneHeader.vue",
+      "job": "Name the pane job and local actions",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U4; semantic heading contract consumed by all routes"
+    },
+    {
+      "workflowId": "VC-055",
+      "sourcePath": "demo/shell/PaneSegmentedControl.vue",
+      "job": "Switch sibling panes in constrained space",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui/tabs"
+      ],
+      "direction": "V.U1; MOVE to true consumer home if shell-only name duplicates child"
+    },
+    {
+      "workflowId": "VC-056",
+      "sourcePath": "demo/shell/PaneSlot.vue",
+      "job": "Seat a route pane without owning its commands",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U1; PRUNE ref dispatch and forward-only exposes"
+    },
+    {
+      "workflowId": "VC-057",
+      "sourcePath": "demo/shell/dock/ActionBarToggle.vue",
+      "job": "Open the dock’s route-local action layer",
+      "copy": [
+        "Toggle action bar"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2; reassess after GenericActionBar deletion"
+    },
+    {
+      "workflowId": "VC-058",
+      "sourcePath": "demo/shell/dock/ActionButton.vue",
+      "job": "Invoke one ColorPicker-local dock action",
+      "copy": [
+        "title"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2; independently KEEP/challenge; GenericActionBar deletion gives no closure credit"
+    },
+    {
+      "workflowId": "VC-059",
+      "sourcePath": "demo/shell/dock/ActionToolbar.vue",
+      "job": "Seat ColorPicker-local commands",
+      "copy": [
+        "Reset color",
+        "Copy color",
+        "Random color",
+        "Palettes",
+        "Extract palette"
+      ],
+      "glassImports": [],
+      "direction": "V.U2; independent open workflow; preserve through ActionBarLayer pending its own result"
+    },
+    {
+      "workflowId": "VC-060",
+      "sourcePath": "demo/shell/dock/ColorInput.vue",
+      "job": "Parse and commit textual color input",
+      "copy": [
+        "not a valid color",
+        "Enter a color",
+        "Any",
+        "valid CSS color string is accepted.",
+        "proposeMode ? 'Propose a color name' : 'Enter a CSS color'"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui"
+      ],
+      "direction": "V.U2 (V.L1 dependency); KEEP failure-explicit typed boundary"
+    },
+    {
+      "workflowId": "VC-061",
+      "sourcePath": "demo/shell/dock/Dock.vue",
+      "job": "Provide persistent navigation/status/input chrome",
+      "copy": [
+        "&rarr;",
+        "Save edit",
+        "Cancel edit",
+        "Back"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U2; SPLIT paint from route command ownership"
+    },
+    {
+      "workflowId": "VC-062",
+      "sourcePath": "demo/shell/dock/DockStatusLamp.vue",
+      "job": "Report current system/session status",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U2; remove infinite pulse when status is stable or reduced"
+    },
+    {
+      "workflowId": "VC-063",
+      "sourcePath": "demo/shell/dock/DockViewSelect.vue",
+      "job": "Navigate primary Value views",
+      "copy": [
+        "Admin",
+        "Back to app",
+        "Select view"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2; semantic nav, complete fourteen-route authority"
+    },
+    {
+      "workflowId": "VC-064",
+      "sourcePath": "demo/shell/dock/ParseEchoReadout.vue",
+      "job": "Show parsed input interpretation",
+      "copy": [
+        "outside srgb gamut",
+        "in srgb gamut"
+      ],
+      "glassImports": [],
+      "direction": "V.U2 (V.L1 dependency); prove user value or dev-only/PRUNE"
+    },
+    {
+      "workflowId": "VC-065",
+      "sourcePath": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "job": "Seat ColorPicker-owned dock commands",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2; KEEP ColorPicker-local layer; fold only proven forward-only relay"
+    },
+    {
+      "workflowId": "VC-066",
+      "sourcePath": "demo/shell/dock/layers/GenericActionBar.vue",
+      "job": "Silent shell-to-pane command proxy",
+      "copy": [
+        "act.title"
+      ],
+      "glassImports": [],
+      "direction": "V.U2 terminal DELETE; no replacement registry/renderer"
+    },
+    {
+      "workflowId": "VC-067",
+      "sourcePath": "demo/shell/dock/layers/SlugEditLayer.vue",
+      "job": "Edit the current palette slug",
+      "copy": [
+        "enter slug or token...",
+        "Switch to slug",
+        "Generate new slug",
+        "Cancel"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2 (V.A1 dependency); route-local ownership and refusal"
+    },
+    {
+      "workflowId": "VC-068",
+      "sourcePath": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+      "job": "Expose navigation/session actions on mobile",
+      "copy": [
+        "Copy slug",
+        "Switch account",
+        "Logout",
+        "Regenerate slug",
+        "admin",
+        "Login",
+        "@mbabb",
+        "Color space picker &amp; converter",
+        "Menu"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dark",
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2; restore focus to trigger on Escape"
+    },
+    {
+      "workflowId": "VC-069",
+      "sourcePath": "demo/shell/dock/menus/ProfileSection.vue",
+      "job": "Expose authenticated identity actions",
+      "copy": [
+        "Copy slug",
+        "Switch account",
+        "Logout",
+        "Regenerate slug",
+        "@mbabb",
+        "Color space picker &amp; converter"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dark",
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U2 (V.A1 dependency); explicit anonymous/offline/error states"
+    },
+    {
+      "workflowId": "VC-070",
+      "sourcePath": "demo/workbenches/extract/ExtractControls.vue",
+      "job": "Configure palette extraction",
+      "copy": [
+        "kC",
+        "Number of colors",
+        "Upload image",
+        "Open camera",
+        "Chroma weight",
+        "Reset"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U3; controls subordinate to source image/result"
+    },
+    {
+      "workflowId": "VC-071",
+      "sourcePath": "demo/workbenches/extract/ExtractPane.vue",
+      "job": "Seat extraction workflow",
+      "copy": [
+        "Extract"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; route-local states and commands"
+    },
+    {
+      "workflowId": "VC-072",
+      "sourcePath": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "job": "Coordinate image-to-palette extraction",
+      "copy": [
+        "% of the image",
+        "dominant",
+        "Capture frame",
+        "session.dominant.value.serialized"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock",
+        "@mkbabb/glass-ui/dom"
+      ],
+      "direction": "V.U3; KEEP state owner, split renderer leaves"
+    },
+    {
+      "workflowId": "VC-073",
+      "sourcePath": "demo/workbenches/extract/ImageDropZone.vue",
+      "job": "Acquire an image",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; keyboard/paste/drop/error parity"
+    },
+    {
+      "workflowId": "VC-074",
+      "sourcePath": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+      "job": "Sample color from an image",
+      "copy": [
+        "Close eyedropper",
+        "Add to palette",
+        "Apply as current color"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/dock",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; pointer/keyboard geometry and cleanup"
+    },
+    {
+      "workflowId": "VC-075",
+      "sourcePath": "demo/workbenches/generate/GenerateControls.vue",
+      "job": "Configure palette generation",
+      "copy": [
+        "Preset",
+        "Harmony",
+        "Generated palette",
+        "Palette name",
+        "Save palette",
+        "Copy all colors",
+        "`Copy ${css}`",
+        "Generation preset",
+        "Color harmony",
+        "Color count"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; KEEP meaningful generator dimensions"
+    },
+    {
+      "workflowId": "VC-076",
+      "sourcePath": "demo/workbenches/generate/GeneratePane.vue",
+      "job": "Generate and save a palette",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; local seats survive; V.U2 owns only generic relay deletion"
+    },
+    {
+      "workflowId": "VC-077",
+      "sourcePath": "demo/workbenches/gradient/GradientPane.vue",
+      "job": "Author a gradient",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; add local Reset; DELETE implicit first-palette Seed"
+    },
+    {
+      "workflowId": "VC-078",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+      "job": "Edit canonical gradient text",
+      "copy": [
+        "Gradient CSS"
+      ],
+      "glassImports": [],
+      "direction": "V.U3 + V.L1/L2; parse/refusal/inverse proof"
+    },
+    {
+      "workflowId": "VC-079",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "job": "Author gradient easing",
+      "copy": [
+        "`Eased ramp for interval ${row.label}`",
+        "row.css",
+        "copiedRow === row.index ? 'Copied' : `Copy ${row.css}`",
+        "Author a custom curve"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/easing"
+      ],
+      "direction": "V.U3 + V.L3; no Keyframes sampling-policy absorption"
+    },
+    {
+      "workflowId": "VC-080",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+      "job": "Author ordered gradient stops",
+      "copy": [
+        "`Gradient stop at ${Math.round(stop.position)}%`",
+        "Remove selected stop"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; named buttons, focus, forced-colors distinction"
+    },
+    {
+      "workflowId": "VC-081",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "job": "Make the gradient the route protagonist",
+      "copy": [
+        "Interpolation",
+        "Type",
+        "Space",
+        "Hue",
+        "Direction",
+        "Easing",
+        "CSS",
+        "Gradient type",
+        "Interpolation space",
+        "Hue interpolation",
+        "Gradient render with type and direction applied",
+        "Gradient direction"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/dock"
+      ],
+      "direction": "V.U3; measured-chroma signature, local command surface"
+    },
+    {
+      "workflowId": "VC-082",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+      "job": "Shape an easing curve",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui/easing"
+      ],
+      "direction": "V.U3 + V.L3; typed curve state, sampled animation frames"
+    },
+    {
+      "workflowId": "VC-083",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+      "job": "Compare easing behavior",
+      "copy": [
+        "Easing curve specimens",
+        "tile.id"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/chip",
+        "@mkbabb/glass-ui/fading-scroll"
+      ],
+      "direction": "V.U3 + V.L3; reduced-motion static comparison"
+    },
+    {
+      "workflowId": "VC-084",
+      "sourcePath": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+      "job": "Show temporal color mixing",
+      "copy": [],
+      "glassImports": [],
+      "direction": "V.U3; KEEP animation only with timing/cleanup proof"
+    },
+    {
+      "workflowId": "VC-085",
+      "sourcePath": "demo/workbenches/mix/MixConfigBar.vue",
+      "job": "Configure a mix",
+      "copy": [
+        "Color space",
+        "Hue method",
+        "Size mismatch",
+        "Size mismatch strategy"
+      ],
+      "glassImports": [],
+      "direction": "V.U3; fold decorative bar into meaningful control group"
+    },
+    {
+      "workflowId": "VC-086",
+      "sourcePath": "demo/workbenches/mix/MixPane.vue",
+      "job": "Mix selected palette colors",
+      "copy": [],
+      "glassImports": [
+        "@mkbabb/glass-ui"
+      ],
+      "direction": "V.U3; local Mix survives; DELETE `copyResult`, `clearSelection`, `MIN_COLORS`, and `canRemoveColor`; removal reaches zero"
+    },
+    {
+      "workflowId": "VC-087",
+      "sourcePath": "demo/workbenches/mix/MixResultDisplay.vue",
+      "job": "Present the mixed color/result",
+      "copy": [
+        "Result",
+        "color.css",
+        "copied ? 'Copied!' : 'Copy color'",
+        "Save to palettes",
+        "Reset"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui",
+        "@mkbabb/glass-ui/dock",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; local result Copy/Reset survive; result is protagonist"
+    },
+    {
+      "workflowId": "VC-088",
+      "sourcePath": "demo/workbenches/mix/MixSourceSelector.vue",
+      "job": "Select mix inputs",
+      "copy": [
+        "Selected",
+        "From palettes",
+        "`${sc.css} (${sc.source})`",
+        "Add current color to the mix",
+        "color.css",
+        "`Add color ${color.css} from ${palette.name}`",
+        "`${isPaletteSelected(palette.slug) ? 'Deselect' : 'Select'} palette ${palette.name}`"
+      ],
+      "glassImports": [
+        "@mkbabb/glass-ui/tabs",
+        "@mkbabb/glass-ui/watercolor-dot"
+      ],
+      "direction": "V.U3; enforce selection meaning and empty guidance"
+    }
+  ]
+}

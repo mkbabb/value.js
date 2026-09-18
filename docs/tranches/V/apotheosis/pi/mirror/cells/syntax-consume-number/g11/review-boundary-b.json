@@ -1,0 +1,166 @@
+{
+  "schema": "value.pi.syntax-consume-number.g11.boundary-review/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "review_seat": "B",
+  "review_task": "/root/g11_boundary_challenge_b",
+  "independence": {
+    "challenge_a_read": false,
+    "prior_challenge_outputs_read": false,
+    "assumption": "Every formation claim was treated as false until independently reproduced or contradicted.",
+    "model_identity": "Not content-attested by workspace bytes; this review does not fabricate a served-model receipt."
+  },
+  "subject": {
+    "path": "formation-receipt.json",
+    "sha256": "5db00f55de4a125a2710b4cf63114fbf5f34dd83c382b973d54652e8f0278ca2",
+    "bytes": 4833,
+    "closure_sha256": "cfa716718a9faf1b10d500660819cf30ea1271a6ea60d73fc0ede9603c6e9924",
+    "row_count": 30
+  },
+  "replay": {
+    "workspace": {
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "commands": [
+        "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/phase-validator.mjs --phase formation",
+        "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/public-harness.mjs --self-test",
+        "node docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/peer-harness.mjs"
+      ],
+      "output_sha256": {
+        "formation": "90d63ddf5cb385657284cdd4ead9ef30f0f8a5f2ada9eea9fe3a3daf19291c2b",
+        "public_self_test": "661139d1df8dadf51e00b55f4b6dc94566ca5af05c20bd35e7a19fbc3210a09f",
+        "peer_execution": "9a2c4352c9abeae93827fbf938eb48f34f968da56ef26bd0f10462cdbccbaff2"
+      }
+    },
+    "tmp": {
+      "cwd": "/tmp",
+      "commands": [
+        "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/phase-validator.mjs --phase formation",
+        "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/public-harness.mjs --self-test",
+        "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g11/peer-harness.mjs"
+      ],
+      "output_sha256": {
+        "formation": "90d63ddf5cb385657284cdd4ead9ef30f0f8a5f2ada9eea9fe3a3daf19291c2b",
+        "public_self_test": "661139d1df8dadf51e00b55f4b6dc94566ca5af05c20bd35e7a19fbc3210a09f",
+        "peer_execution": "9a2c4352c9abeae93827fbf938eb48f34f968da56ef26bd0f10462cdbccbaff2"
+      }
+    },
+    "reproduced_facts": {
+      "formation_status": "FROZEN_FORMATION_BORN_RED",
+      "formation_rows_read_only": 30,
+      "candidate_roots_absent": 4,
+      "active_root_rows": 4,
+      "negative_controls_rejected": 3,
+      "topology_probes_passed": 4,
+      "killability": "SIGKILL_AFTER_50MS",
+      "runtime_package_rows": 139,
+      "peer_cases": 13,
+      "peer_common_lane": [
+        "integer",
+        "negative-integer",
+        "fraction",
+        "negative-fraction",
+        "exponent",
+        "decimal",
+        "zero"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "G11-B-01",
+      "severity": "BLOCKER",
+      "area": "holdout chronology and lifecycle",
+      "evidence": [
+        "feature-row.json declares holdout_phase ONLY_AFTER_ALL_FOUR_CANDIDATES_CLOSE.",
+        "phase-validator.mjs validateChallenged() requires --holdout-receipt for both challenged and admit phases.",
+        "phase-validator.mjs always runs validateRuntimeAndExecutableProofs(), which requires every candidate root to remain ABSENT.",
+        "formation-receipt.json says the exact formation is challenged before no-write author tasks are spawned."
+      ],
+      "analysis": "There is no valid lifecycle state that satisfies these laws. Admission requires a holdout while all candidates are absent, but the frozen feature row forbids that holdout until all four candidates have closed. Following the validator leaks or fabricates the future candidate holdout before authors; following the feature row makes AUTHORS_MAY_WRITE unreachable. The artifacts define no separately named pre-author boundary secret that could resolve the contradiction.",
+      "required_redress": "Define one unambiguous chronology. Challenge this exact public formation without the candidate holdout; authenticate authors; close and content-address all four candidates; only then create the fresh encrypted holdout and a distinct candidate-reviewed subject. Encode and test those phase-specific artifact types separately."
+    },
+    {
+      "id": "G11-B-02",
+      "severity": "BLOCKER",
+      "area": "forgeable challenged/admit join",
+      "evidence": [
+        "validateChallenged() validates no schema, feature, generation, status, custody, chronology, or actor/model identity on the holdout receipt, reviewed subject, reviews, or root verdict.",
+        "The subject's holdout_ciphertext field is optional, so an empty content-only receipt can stand in for custody and ciphertext evidence.",
+        "The same review path and exact bytes may be supplied as --review-a and --review-b; no distinct path, hash, task, actor, or model is required. Root challenge membership is checked only by sha256 and bytes.",
+        "validateAuthorWitness() does not execute author-task-witness.schema.json and accepts nonempty served_model_receipt and external_creation_receipt strings plus self-asserted booleans as external proof.",
+        "root_external_receipt_adjudication.root_actor is not checked, and no external collaboration-tool receipt is available to or verified by the validator."
+      ],
+      "analysis": "An attacker can construct mutually self-consistent JSON documents that bind the known formation hash, reuse one invented ACCEPT review twice, claim an ACCEPT_BOUNDARY root, and fill four task records with arbitrary nonempty receipt strings. The validator then has all information needed to emit AUTHORS_MAY_WRITE despite observing no independent reviewers, no holdout custodian, and no collaboration task. Hash continuity proves only the attacker's invented bytes.",
+      "required_redress": "Require distinct externally attested challenge/task identities outside the content bundle, validate exact schemas and phase/status fields, require one immutable ciphertext/custody chain, reject duplicate review identity at path/hash/task/model levels, and make admission consume a root-created external receipt ledger that the submitting content cannot mint."
+    },
+    {
+      "id": "G11-B-03",
+      "severity": "HIGH",
+      "area": "author preflight isolation",
+      "evidence": [
+        "Each author prompt orders the seat to read only its enumerated inputs and verify the public harness command.",
+        "The plan assigns public-harness.mjs, public-worker.ts, public-corpus.json, and runtime-closure.json, but does not assign negative-controls.ts, any probe, or the inherited G5 public-cases file.",
+        "public-harness.mjs --born-red/--self-test imports negative-controls.ts and executes probes/h.ts, probes/b.ts, probes/s.ts, and probes/d.ts.",
+        "public-worker.ts reads the inherited G5 public-cases path at execution time.",
+        "The public self-test therefore reads all four private construction probes, including peer-seat topology, before candidate authoring."
+      ],
+      "analysis": "A preflight author cannot both execute the advertised public command and truthfully assert no peer access plus exact-input confinement. The eventual file witness can claim compliance but the boundary supplies no external observation of reads. This defeats the intended author independence before code exists.",
+      "required_redress": "Give authors a public-only preflight command whose transitive inputs are fully enumerated and contain no seat probes or private designs. Run topology feasibility only in root/reviewer infrastructure, never in the author-visible harness. Bind external read/write isolation evidence rather than an author-authored assertion."
+    },
+    {
+      "id": "G11-B-04",
+      "severity": "HIGH",
+      "area": "candidate/import/symlink/executable census",
+      "evidence": [
+        "source-census.mjs enumerates only mirror/apotheosis and four candidate roots; it does not enumerate unexpected files elsewhere in G11 or derive any candidate import graph.",
+        "The frozen census can only validate candidate roots as ABSENT. Once any legitimate candidate root exists, every phase-validator invocation fails before a candidate closure can be produced.",
+        "public-harness.mjs --candidate accepts an arbitrary resolved modulePath and exportName; it does not require a module inside the declared seat root.",
+        "No post-author mechanism binds all regular/importable/executable/symlink rows, resolves symlink targets, closes extensionless imports, or rejects forbidden Node/source/corpus imports."
+      ],
+      "analysis": "The pre-author absence census is real but is not a candidate provenance boundary. A candidate can be loaded from outside its seat root or import unbound helpers/corpus-aware code, while the phase validator has no legal state in which it can census a present candidate. Hidden or executable helper material is therefore outside the alleged closure.",
+      "required_redress": "Specify a separate post-author candidate-closure phase that requires the exact seat root, inventories every file kind and resolved import, rejects escapes/symlinks/unbound executables and forbidden imports, and makes public-harness candidate mode consume only that accepted closure."
+    },
+    {
+      "id": "G11-B-05",
+      "severity": "HIGH",
+      "area": "public corpus, negative controls, transaction diagnostics, and work proof",
+      "evidence": [
+        "public-corpus.json binds G8 controls, but public-worker.ts never reads that controls file; diagnostics enabled/disabled profiles and failure_case_ids are not independently driven from it.",
+        "Only three hand-written regex negative controls are required. Candidate source capabilities and corpus access are unrestricted by the harness.",
+        "The inherited hostile_cases section is never executed as a semantic correctness set; work mode synthesizes related strings but checks only isError, end, and a digest that distinguishes merely finite, infinite, or negative-zero categories.",
+        "Work mode does not compare the parsed value or result shape for its large constructions. A corpus-aware or source-length-special-cased Parser can return a constant-category value, jump to the expected extent, and appear sublinear.",
+        "Timing ratios over four finite sizes are useful smoke evidence but are not an operation bound and cannot by themselves reject contrived short-circuit work."
+      ],
+      "analysis": "The ordinary correctness cases cover valuable prefix, offset, binary64, composition, failure rollback, and no-throw behavior, and the three controls do go RED. They do not prove that the candidate performs the stated operation on hostile-size inputs or that diagnostics-mode and work laws inherited from G8 are actually enforced. Because candidate imports and state/source access are not policed, the timing rail is gameable.",
+      "required_redress": "Execute the exact inherited control matrix; validate large-input values and leaf shapes against an independent oracle; bind source/import restrictions; add a deterministic work counter or grammar-instrumented consumption witness alongside timing; and include negative controls that specifically exploit corpus reads, source-length shortcuts, offset assignment, and out-of-root imports."
+    },
+    {
+      "id": "G11-B-06",
+      "severity": "MEDIUM",
+      "area": "runtime/source closure claim strength",
+      "evidence": [
+        "runtime-closure.mjs reproduces all 139 rows of six installed packages and exact hashes for eleven named peer source files.",
+        "The named peer sources are a hand-maintained list rather than a resolved TS/JS import graph, and peer-harness only requires a nonempty common lane.",
+        "A runtime dependency omitted from the hard-coded source list would remain outside data_closure_sha256 while peer execution could still pass the weak nonempty-lane criterion."
+      ],
+      "analysis": "The current peer doors did execute from both working directories and the observed lanes are honest for the 13 cases. That proves current executable behavior, not a complete transitive source closure or fixed expected lane identity.",
+      "required_redress": "Resolve and bind the complete runtime import graph for each peer door, record the exact expected lane/observation digest, and fail on any omission or lane drift rather than only on an empty common intersection."
+    }
+  ],
+  "positive_evidence": [
+    "The 30 declared formation rows and closure hash reproduce exactly and are read-only at review time.",
+    "Workspace and /tmp replays are byte-identical.",
+    "All four feasibility probes pass the current correctness/work harness, and all three deliberate incomplete parsers are rejected.",
+    "The subprocess timeout demonstrably SIGKILLs a hanging worker.",
+    "The live-regex, historical parse-that, and C14 doors are actually imported and executed; exclusions are retained instead of denominator-borrowed.",
+    "The four proposed construction families provide three materially distinct topology families: whole-prefix regex, staged/aggregate composition, and first-character dispatch."
+  ],
+  "altitudes": {
+    "total_tranche": "REJECT. G11 materially improves executable peers, runtime package closure, public semantic coverage, topology feasibility, and timeout control, but its lifecycle can either leak the holdout or manufacture authority. Advancing authors on this boundary would make every later 3-to-5-to-3 receipt untrustworthy.",
+    "boundary_wave": "REJECT. Exact formation replay is green, yet the challenged/admit phase is chronologically contradictory and content-forgeable, and no accepted candidate-root closure exists.",
+    "feature": "ZERO FEATURE CREDIT. The four probes are useful feasibility witnesses only. No candidate exists, no hidden holdout has a valid chronology, no independent actor/task receipts are authenticated, no comparable benchmark has run, and no parser hash may be admitted."
+  },
+  "verdict": "REJECT",
+  "credit": "ZERO_BOUNDARY_ZERO_CANDIDATE_ZERO_PARSER_ZERO_BENCHMARK",
+  "terminal": false
+}

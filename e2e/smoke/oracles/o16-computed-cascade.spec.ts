@@ -29,15 +29,21 @@ const CLOBBER = "150ms"; // the dead :root --default-transition-duration (raw cu
 test("O-16 computed-cascade — the dist :root 150ms transition-default clobber is not live", async ({
     page,
 }) => {
-    // R1 EXPECTED-RED (PKT-1 producer-root). Remove test.fail when P2 lands the
-    // dist fix and the cascade default clears. See the file docstring.
-    test.fail();
+    // ── X-W1 · G-6 RULING — `test.fail()` REMOVED; the assertion stands real,
+    // and it is GREEN.
+    //
+    // The annotation read *"R1 EXPECTED-RED (PKT-1 producer-root). Remove
+    // test.fail when P2 lands the dist fix and the cascade default clears."*
+    // MEASURED at the full-suite baseline run of 2026-09-18 (`58d6f731`): this
+    // leg PASSED, which Playwright reported as `unexpected` precisely because
+    // the annotation still claimed it must fail. The dist fix HAS landed and the
+    // cascade default HAS cleared; the marker had outlived its defect and was
+    // by then asserting the opposite of the truth — an inverted gate that would
+    // have red the suite the day the product got better.
     test.setTimeout(30_000);
 
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     // The clobber SOURCE: the cascade default the ~46 dead sites resolve to.
     const defaultDur = await page.evaluate(() =>
@@ -108,9 +114,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
 }) => {
     test.setTimeout(45_000);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     for (const scheme of ["light", "dark"] as const) {
         await page.evaluate((s) => {
@@ -127,10 +131,7 @@ test("O-16 W5 census — every owned row's computed duration/curve ≡ its liqui
                     // timing functions carry commas INSIDE linear()/
                     // cubic-bezier(); split at top level only.
                     .split(/,\s*(?![^()]*\))/);
-                const legs: Record<
-                    string,
-                    { duration: string; timing: string }
-                > = {};
+                const legs: Record<string, { duration: string; timing: string }> = {};
                 props.forEach((p, i) => {
                     legs[p] = {
                         duration: durs[i % durs.length] ?? "",

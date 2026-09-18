@@ -1,0 +1,241 @@
+{
+  "chain1_danglingLatch": {
+    "t0_store": [
+      {
+        "name": "Latch",
+        "colors": [
+          "red",
+          "blue"
+        ],
+        "meta": [
+          {
+            "name": "Crimson",
+            "weight": 0.42
+          },
+          {
+            "name": "Crimson",
+            "weight": 0.42
+          }
+        ],
+        "updatedAt": "2026-01-01T00:00:00.000Z"
+      }
+    ],
+    "t0_row": {
+      "solidDots": 3,
+      "label": "3 colors",
+      "persisted": [
+        "oklch(70% 0.15 30deg)",
+        "oklch(60% 0.18 140deg)",
+        "oklch(55% 0.2 260deg)"
+      ],
+      "banner": null
+    },
+    "t1_afterSaveAttempt": {
+      "row": {
+        "solidDots": 3,
+        "label": "3 colors",
+        "persisted": [
+          "oklch(70% 0.15 30deg)",
+          "oklch(60% 0.18 140deg)",
+          "oklch(55% 0.2 260deg)"
+        ],
+        "banner": "\"Latch\" already exists."
+      },
+      "store": [
+        {
+          "name": "Latch",
+          "colors": [
+            "red",
+            "blue"
+          ],
+          "meta": [
+            {
+              "name": "Crimson",
+              "weight": 0.42
+            },
+            {
+              "name": "Crimson",
+              "weight": 0.42
+            }
+          ],
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      ]
+    },
+    "t1_updateBtn": 1,
+    "t2_afterDeleteAll": {
+      "store": [],
+      "row": {
+        "solidDots": 3,
+        "label": "3 colors",
+        "persisted": [
+          "oklch(70% 0.15 30deg)",
+          "oklch(60% 0.18 140deg)",
+          "oklch(55% 0.2 260deg)"
+        ],
+        "banner": "\"Latch\" already exists."
+      },
+      "updateBtnStillThere": 1
+    },
+    "t3_afterUpdate": {
+      "store": [],
+      "row": {
+        "solidDots": 0,
+        "label": null,
+        "persisted": [],
+        "banner": null
+      },
+      "anyErrorFeedback": false,
+      "anyLiveRegionText": [
+        "70.0%",
+        "0.1",
+        "30.0deg",
+        "100.0%",
+        "· empty plate ·No saved palettes yet.Add colors above, then save the set."
+      ]
+    },
+    "pageErrors": []
+  },
+  "chain2_defaultNameCollision": {
+    "t0_store": [
+      {
+        "name": "Palette 3",
+        "colors": [
+          "#111111",
+          "#222222"
+        ],
+        "meta": [
+          {
+            "name": "Ink",
+            "weight": 0.9
+          },
+          {
+            "name": "Ink",
+            "weight": 0.9
+          }
+        ],
+        "updatedAt": "2026-01-01T00:00:00.000Z"
+      },
+      {
+        "name": "Palette 2",
+        "colors": [
+          "#333333"
+        ],
+        "meta": [
+          {
+            "name": null,
+            "weight": null
+          }
+        ],
+        "updatedAt": "2026-01-01T00:00:00.000Z"
+      }
+    ],
+    "t0_placeholder": "Palette 3",
+    "t1": {
+      "row": {
+        "solidDots": 3,
+        "label": "3 colors",
+        "persisted": [
+          "oklch(70% 0.15 30deg)",
+          "oklch(60% 0.18 140deg)",
+          "oklch(55% 0.2 260deg)"
+        ],
+        "banner": "\"Palette 3\" already exists."
+      },
+      "store": [
+        {
+          "name": "Palette 3",
+          "colors": [
+            "#111111",
+            "#222222"
+          ],
+          "meta": [
+            {
+              "name": "Ink",
+              "weight": 0.9
+            },
+            {
+              "name": "Ink",
+              "weight": 0.9
+            }
+          ],
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        },
+        {
+          "name": "Palette 2",
+          "colors": [
+            "#333333"
+          ],
+          "meta": [
+            {
+              "name": null,
+              "weight": null
+            }
+          ],
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      ],
+      "updateBtn": 1
+    },
+    "t2_afterUpdate": {
+      "store": [
+        {
+          "name": "Palette 3",
+          "colors": [
+            "oklch(70% 0.15 30deg)",
+            "oklch(60% 0.18 140deg)",
+            "oklch(55% 0.2 260deg)"
+          ],
+          "meta": [
+            {
+              "name": null,
+              "weight": null
+            },
+            {
+              "name": null,
+              "weight": null
+            },
+            {
+              "name": null,
+              "weight": null
+            }
+          ],
+          "updatedAt": "2026-07-29T14:19:06.816Z"
+        },
+        {
+          "name": "Palette 2",
+          "colors": [
+            "#333333"
+          ],
+          "meta": [
+            {
+              "name": null,
+              "weight": null
+            }
+          ],
+          "updatedAt": "2026-01-01T00:00:00.000Z"
+        }
+      ],
+      "row": {
+        "solidDots": 0,
+        "label": null,
+        "persisted": [],
+        "banner": null
+      }
+    },
+    "pageErrors": []
+  },
+  "chain3_keyChurn": {
+    "stampsBefore": [
+      "0",
+      "1",
+      "2"
+    ],
+    "removeBtnCount": 1,
+    "stampsAfter": [
+      "UNSTAMPED",
+      "UNSTAMPED"
+    ],
+    "interpretation": "stampsAfter all UNSTAMPED ⟹ every surviving swatch was destroyed+recreated (keys re-minted)"
+  }
+}

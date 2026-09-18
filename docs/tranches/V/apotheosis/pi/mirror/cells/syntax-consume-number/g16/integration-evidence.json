@@ -1,0 +1,57 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.integration-evidence/v1",
+  "status": "ACTIVE_ROOT_GREEN",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "selection": {
+    "path": "selection.json",
+    "sha256": "79ab20d533e0892876c882907b08c5b0385d13c0a1f38825716d55fa3cef19e7"
+  },
+  "exact_promotion": {
+    "candidate_path": "../g15/optimization/h2/index.ts",
+    "candidate_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "active_path": "../../../apotheosis/grammar/css/l4/value-unit/numeric.ts",
+    "active_sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa",
+    "byte_compare": "PASS_IDENTICAL",
+    "bytes": 560
+  },
+  "active_test": {
+    "path": "../../../apotheosis/test/value-unit/numeric.test.ts",
+    "sha256": "4000f5dd78437292fdcd2895e75db1d68f9aaf6ef6a832cd80fb45b8be3fe8da",
+    "tests": 4,
+    "coverage": [
+      "intrinsic maximal-prefix result",
+      "incomplete exponent and repeated-fraction parent boundaries",
+      "positive percentage composition",
+      "transactional leaf failure and stable parser identity"
+    ]
+  },
+  "active_census": {
+    "path": "../../../apotheosis/clean-base.json",
+    "sha256": "186d247804484c57b9c62c20b891f16178f20b34fdae2b33679bb07e10f643c2"
+  },
+  "replay": {
+    "working_directory": "docs/tranches/V/apotheosis/pi/mirror",
+    "commands": [
+      {
+        "command": "cmp apotheosis/grammar/css/l4/value-unit/numeric.ts cells/syntax-consume-number/g15/optimization/h2/index.ts",
+        "exit_code": 0
+      },
+      {
+        "command": "npm run check",
+        "exit_code": 0,
+        "result": "strict TypeScript no-emit PASS"
+      },
+      {
+        "command": "npm test",
+        "exit_code": 0,
+        "result": "one file PASS; four tests PASS"
+      }
+    ]
+  },
+  "scope": {
+    "prototype_only": true,
+    "production_source_changed": false,
+    "public_css_surface_changed": false,
+    "next_owner": "value-unit percentage and dimension productions"
+  }
+}

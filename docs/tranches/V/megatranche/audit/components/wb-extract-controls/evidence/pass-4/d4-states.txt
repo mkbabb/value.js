@@ -1,0 +1,160 @@
+##### rtl-1440 #####
+{
+ "dir": "rtl",
+ "kLabel": {
+  "x": 1196,
+  "y": 495.2,
+  "w": 20,
+  "h": 22.9
+ },
+ "kLabelAlign": "right",
+ "kRail": {
+  "x": 754,
+  "y": 494.6,
+  "w": 434,
+  "h": 24
+ },
+ "labelRightEdge": 1216,
+ "railLeftEdge": 754,
+ "kcRow": {
+  "x": 823,
+  "y": 538.6,
+  "w": 276,
+  "h": 24
+ },
+ "kcTrack": {
+  "x": 849,
+  "y": 538.6,
+  "w": 230.5,
+  "h": 24
+ },
+ "thumb": {
+  "x": 866.5,
+  "y": 494.6,
+  "w": 12,
+  "h": 24
+ },
+ "docScrollW": 1440,
+ "docClientW": 1440,
+ "overflowX": 0
+}
+##### zoom200-720 #####
+{
+ "dir": "ltr",
+ "kLabel": {
+  "x": 129,
+  "y": 385.7,
+  "w": 20,
+  "h": 20.4
+ },
+ "kLabelAlign": "right",
+ "kRail": {
+  "x": 157,
+  "y": 384,
+  "w": 434,
+  "h": 24
+ },
+ "labelRightEdge": 149,
+ "railLeftEdge": 157,
+ "kcRow": {
+  "x": 246,
+  "y": 428,
+  "w": 276,
+  "h": 24
+ },
+ "kcTrack": {
+  "x": 265.5,
+  "y": 428,
+  "w": 230.5,
+  "h": 24
+ },
+ "thumb": {
+  "x": 269.5,
+  "y": 384,
+  "w": 12,
+  "h": 24
+ },
+ "docScrollW": 720,
+ "docClientW": 720,
+ "overflowX": 0
+}
+##### narrow-320 #####
+{
+ "dir": "ltr",
+ "kLabel": {
+  "x": 33,
+  "y": 380,
+  "w": 20,
+  "h": 19.6
+ },
+ "kLabelAlign": "right",
+ "kRail": {
+  "x": 61,
+  "y": 377.8,
+  "w": 226,
+  "h": 24
+ },
+ "labelRightEdge": 53,
+ "railLeftEdge": 61,
+ "kcRow": {
+  "x": 158,
+  "y": 413.8,
+  "w": 56,
+  "h": 44
+ },
+ "kcTrack": {
+  "x": 177.5,
+  "y": 423.8,
+  "w": 44,
+  "h": 24
+ },
+ "thumb": {
+  "x": 118.1,
+  "y": 367.8,
+  "w": 12,
+  "h": 44
+ },
+ "docScrollW": 320,
+ "docClientW": 320,
+ "overflowX": 0
+}
+##### focus-1440 #####
+{
+ "dir": "ltr",
+ "kLabel": {
+  "x": 224,
+  "y": 495.2,
+  "w": 20,
+  "h": 22.9
+ },
+ "kLabelAlign": "right",
+ "kRail": {
+  "x": 252,
+  "y": 494.7,
+  "w": 434,
+  "h": 24
+ },
+ "labelRightEdge": 244,
+ "railLeftEdge": 252,
+ "kcRow": {
+  "x": 341,
+  "y": 538.7,
+  "w": 276,
+  "h": 24
+ },
+ "kcTrack": {
+  "x": 360.5,
+  "y": 538.7,
+  "w": 230.5,
+  "h": 24
+ },
+ "thumb": {
+  "x": 364.5,
+  "y": 494.7,
+  "w": 12,
+  "h": 24
+ },
+ "docScrollW": 1440,
+ "docClientW": 1440,
+ "overflowX": 0
+}

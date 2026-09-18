@@ -1,0 +1,35 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.candidate-closure/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 13,
+  "seat": "d",
+  "root": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/d",
+  "entry": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/d/index.ts",
+  "rows": [
+    {
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/d/index.ts",
+      "kind": "regular",
+      "sha256": "552389f9c6212c274afad38b43130889f3f65f43c2bb9f3e091ed72ab0c3b4e1",
+      "bytes": 625,
+      "mode": "0444"
+    }
+  ],
+  "import_inputs": ["docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/d/index.ts"],
+  "ledger_sha256": "2203c0ee001ad4151bfe93a7dc6a1ae50e82d5b37cafcf85f99703d9359d994c",
+  "candidate_bundle_sha256": "06fd051bf3fc33535b32689b394f2dbc9b3e7d53973530de99d5bfdfd37e2909",
+  "candidate_bundle_bytes": 36301,
+  "strict_typescript": "PASS_NO_OUTPUT",
+  "architecture": "PASS_TYPESCRIPT_AST_DIRECT_PARSE_THAT_NO_STATE_SCANNER_NO_AMBIENT_CAPABILITY",
+  "ast": {
+    "policy": "TYPESCRIPT_COMPILER_API_CLOSED_AST_ALLOWLIST",
+    "one_source": true,
+    "exact_core_imports": ["dispatch", "regex"],
+    "declarations": ["signed", "dotted", "digit", "consumeNumber"],
+    "parser_regex_literals": ["/[+-](?:[0-9]+(?:\\.[0-9]+)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?/", "/[0-9]+(?:\\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/", "/\\.[0-9]+(?:[eE][+-]?[0-9]+)?/"],
+    "actual_call_counts": {"regex": 3, "all": 0, "any": 0, "dispatch": 1, "then": 0, "opt": 0, "map": 1, "skip": 0, "next": 0, "chain": 0},
+    "computed_element_accesses": 0,
+    "ambient_identifiers": 0,
+    "wrapper": "FORBIDDEN_AND_ABSENT"
+  },
+  "status": "CLOSED_NO_FEATURE_CREDIT"
+}

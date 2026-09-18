@@ -1,0 +1,56 @@
+{
+  "focus_contrast_chromium_light": {
+    "unfocused": [
+      229.1,
+      192.2,
+      200
+    ],
+    "focused": [
+      222.4,
+      198.4,
+      196.1
+    ],
+    "ratio": 1.024
+  },
+  "focus_contrast_chromium_dark": {
+    "unfocused": [
+      115.5,
+      89.5,
+      94.1
+    ],
+    "focused": [
+      97.8,
+      80.2,
+      78
+    ],
+    "ratio": 1.202
+  },
+  "count_line_contrast": {
+    "declaredColor": "rgb(112, 89, 66)",
+    "fontSize": "16.4px",
+    "weight": "400",
+    "darkestPixel": [
+      112,
+      89,
+      66
+    ],
+    "lightestPixel": [
+      240,
+      185,
+      202
+    ],
+    "inkVsPlateRatio": 3.91,
+    "note": "darkest ink pixel vs the 90th-percentile (plate) luminance in the crop"
+  },
+  "empty_state_species": {
+    "trioPresentOnAdminRoute": true,
+    "dotCount": 3,
+    "ariaHidden": "true",
+    "dotColorSource": "border-radius: 55.523831% 76.550129% 44.157421% 61.817093% / 38.143985% 71.614387% 75.530156% 32.78712%; pointer-events: none; --watercolor-color: var(--accent-live); --watercolor-filter: url(#watercolor-filter-v-1-1); --watercolor-wobble: none;",
+    "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+    "eyebrow": "· roster clear ·",
+    "statusRole": true,
+    "refreshEnabled": true,
+    "pruneDisabled": true
+  }
+}

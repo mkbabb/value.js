@@ -1,0 +1,205 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-CURRENT-TUPLE-REBIND-2026-08-02.json
+  original-mtime: 2026-08-02T22:24:04
+  original-sha256: 695358c08b33d6826abf3e82ea8d0605db9d2338cce97da1f613965b46583882
+  original-bytes: 8660
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value.mobile-safari.v7.quiescent-capture-r2-current-tuple-rebind.v1",
+  "date": "2026-08-02",
+  "decision": "REBIND_CAPTURE_R2_TO_CURRENT_STABLE_ROOT_TUPLE",
+  "status": "CAPTURE_R2_CONSTRUCTIBLE_ONCE_V7_SOURCE_REMAINS_FORBIDDEN",
+  "authority": {
+    "captureR2Construction": "AUTHORIZED_ONCE_AT_THE_EXISTING_EXACT_ABSENT_R2_ROOT",
+    "priorR2RulingConsumption": "SUPERSEDED_NONCONSUMABLE_DUE_STALE_ROOT_CHECKSUM_PIN",
+    "v7Source": "FORBIDDEN",
+    "product": "NONE",
+    "parser": "NONE",
+    "browser": "NONE",
+    "safari": "NONE",
+    "simulator": "NONE",
+    "api": "NONE",
+    "docker": "NONE",
+    "package": "NONE",
+    "release": "NONE",
+    "rebind": "NONE",
+    "admission": "NONE",
+    "credit": 0
+  },
+  "predecessorR2Ruling": {
+    "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json",
+    "sha256": "ea5eed7a6f43c8c61ed32a3f0c4f4487afa43043c48e83c39ae7b2addbbf033a",
+    "byteLength": 12484,
+    "mode": "0644",
+    "nlink": 1,
+    "disposition": "IMMUTABLE_CHRONOLOGY_ONLY_NOT_A_CONSUMABLE_CAPTURE_INPUT",
+    "stalePin": {
+      "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+      "sha256": "797dc887e17d587c00e0837cb6ed72fabf9ae912c3d0fb2bf5b03ff0ad86013e"
+    }
+  },
+  "currentStableRootTuple": {
+    "reportedSnapshots": 2,
+    "reportedStableAcrossSnapshots": true,
+    "independentRehashThisDecision": 1,
+    "checksumReplay": "48/48",
+    "members": [
+      {
+        "id": "HANDOFF",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/HANDOFF.md",
+        "sha256": "4a1a2768d13a3f847e80469fa3da0036181fb739347dbd6d5882db497844b19e"
+      },
+      {
+        "id": "PLAN",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-PLAN-2026-08-02.md",
+        "sha256": "36193536f6f353c151dd6b2eb78b263cbdde255be580ccb4b7208c6042a986c4"
+      },
+      {
+        "id": "MATRIX",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-MATRIX-2026-08-02.json",
+        "sha256": "8bac616f3ed8022a2d47df1d4cb1ab0d0dca5f42fc73f2eb98308e269b2f8b7e"
+      },
+      {
+        "id": "CHECKSUMS",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+        "sha256": "fbe7e882bf88998b45fbe4ef500db1828b390ae38b6a73c3a0f45b76fbd8283a",
+        "replay": "48/48"
+      }
+    ],
+    "ordering": [
+      "HANDOFF",
+      "PLAN",
+      "MATRIX",
+      "CHECKSUMS"
+    ],
+    "duplicateMissingExtraReorderedOrChanged": "TERMINAL_RED_BEFORE_R2_FIRST_WRITE"
+  },
+  "captureR2Coordinate": {
+    "root": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture-r2/outputs",
+    "stateAtRebind": "ABSENT",
+    "exactRegularFileCount": 8,
+    "exactFilesInWriteOrder": [
+      "capture-value-mobile-v7-r2.mjs",
+      "CAPABILITY-RECEIPT.json",
+      "SOURCE-MEMBERS.json",
+      "GOVERNING-MEMBERS.json",
+      "RAW-CAPTURE-RECEIPT.json",
+      "CAPTURE-MANIFEST.json",
+      "RECEIPT.md",
+      "checksums.sha256"
+    ],
+    "mode": "0644",
+    "nlink": 1,
+    "childDirectoryCount": 0,
+    "symlinkCount": 0,
+    "specialNodeCount": 0,
+    "checksumLast": true,
+    "postChecksumWritesAllowed": false
+  },
+  "exactUnchangedCaptureLaw": {
+    "sourceMemberCount": 310,
+    "sourceReadPasses": 2,
+    "sourcePayload": "STRICT_CANONICAL_BASE64_OF_ALL_BYTES",
+    "sourceIdentity": "DOMAIN_SEPARATED_U64BE_LENGTH_FRAMED_MEMBER_AND_ROOT_SHA256",
+    "governingMemberCount": 40,
+    "governingReadPasses": 2,
+    "retainedCapabilityReceipt": "FIRST_DERIVED_WRITE_BEFORE_SOURCE_GOVERNING_GIT_OR_AGGREGATE_READ",
+    "retainedCapabilityCheckCount": 6,
+    "bigIntModeMask": "0o7777n",
+    "statArithmetic": "BIGINT_ONLY",
+    "statSerialization": "CANONICAL_DECIMAL_STRINGS_OR_PADDED_MODE_STRING",
+    "byteLengthCheck": "stat.size === BigInt(buffer.byteLength)",
+    "nlinkCheck": "stat.nlink === 1n",
+    "repositoryRoots": [
+      "/Users/mkbabb/.codex/worktrees/7e28/value.js",
+      "/Users/mkbabb/Programming/value.js"
+    ],
+    "firstRedFreeze": true,
+    "retry": false,
+    "cleanup": false,
+    "repair": false,
+    "reseal": false,
+    "predecessorLawPath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json",
+    "predecessorLawSha256": "ea5eed7a6f43c8c61ed32a3f0c4f4487afa43043c48e83c39ae7b2addbbf033a",
+    "rule": "EVERY_NON_TUPLE_CAPTURE_REQUIREMENT_IS_INHERITED_BYTE_FOR_BYTE_AS_LAW; THIS_REBIND_CHANGES_NO_CAPTURE_MECHANISM_DENOMINATOR_OR_STOP_CONDITION"
+  },
+  "governingRosterRebind": {
+    "predecessorCount": 40,
+    "currentCount": 40,
+    "replacements": [
+      {
+        "role": "ROOT_HANDOFF_CURRENT_PIN",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/HANDOFF.md",
+        "oldExpectedSha256": null,
+        "newExpectedSha256": "4a1a2768d13a3f847e80469fa3da0036181fb739347dbd6d5882db497844b19e"
+      },
+      {
+        "role": "ROOT_PLAN_CURRENT_PIN",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-PLAN-2026-08-02.md",
+        "oldExpectedSha256": null,
+        "newExpectedSha256": "36193536f6f353c151dd6b2eb78b263cbdde255be580ccb4b7208c6042a986c4"
+      },
+      {
+        "role": "ROOT_MATRIX_CURRENT_PIN",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-MATRIX-2026-08-02.json",
+        "oldExpectedSha256": null,
+        "newExpectedSha256": "8bac616f3ed8022a2d47df1d4cb1ab0d0dca5f42fc73f2eb98308e269b2f8b7e"
+      },
+      {
+        "role": "ROOT_CHECKSUM_CURRENT_PIN",
+        "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+        "oldExpectedSha256": "797dc887e17d587c00e0837cb6ed72fabf9ae912c3d0fb2bf5b03ff0ad86013e",
+        "newExpectedSha256": "fbe7e882bf88998b45fbe4ef500db1828b390ae38b6a73c3a0f45b76fbd8283a"
+      },
+      {
+        "role": "OWNER_R2_RULING_SELF_PIN",
+        "oldPath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-OWNER-RULING-2026-08-02.json",
+        "oldSha256": "ea5eed7a6f43c8c61ed32a3f0c4f4487afa43043c48e83c39ae7b2addbbf033a",
+        "newPath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-R2-CURRENT-TUPLE-REBIND-2026-08-02.json",
+        "newSha256": "ROOT_MUST_SUPPLY_THIS_FROZEN_FILE_EXTERNALLY_COMPUTED_SHA_WITHOUT_REWRITING_IT"
+      }
+    ],
+    "additions": [],
+    "removals": [],
+    "noOtherMemberChanges": true,
+    "exactResolutionLaw": "ROOT_INTAKE_SUPPLIES_ONLY_THE_NEW_SELF_SHA; THE_CAPTURE_WRITER_EXACT_COMPARES_ALL_40_ROWS_AND_MAY_NOT_REPIN"
+  },
+  "writerAndStopLaw": {
+    "soleWriter": "CONSTELLATION_ROOT_CAPTURE_OWNER_DISTINCT_FROM_FUTURE_V7_SOURCE_AUTHOR",
+    "writesAllowed": "ONLY_THE_EIGHT_EXACT_FILES_AT_CAPTURE_R2_COORDINATE.ROOT",
+    "allOtherWritesForbidden": true,
+    "sourceOrProductExecutionAllowed": false,
+    "stopBeforeFirstWriteIf": [
+      "R2 root or parent output residue exists",
+      "any current root tuple hash or 48-row checksum replay differs",
+      "the rebind self-pin is absent unresolved or changed",
+      "the exact 40-row governing roster or 310-row source roster does not close"
+    ],
+    "stopAfterFirstWriteIf": "ANY_INHERITED_CAPABILITY_STAT_IDENTITY_MEMBERSHIP_PASS_OUTPUT_OR_CHECKSUM_CONDITION_FAILS",
+    "preserveFirstRedResidue": true
+  },
+  "nextBoundary": {
+    "captureR2MayBeCreatedByThisDecision": true,
+    "v7SourceMayBeCreatedByThisDecision": false,
+    "afterR2": "ROOT_MUST_INDEPENDENTLY_INTAKE_CLEAN_OR_FIRST_RED_R2_AND_REQUEST_A_SEPARATE_OWNER_DECISION",
+    "automaticSuccessor": false
+  },
+  "unchangedDenominators": {
+    "registrySpecification": "44/44",
+    "controlsExecuted": "0/44",
+    "orderedNonownerRetentions": "0/1892",
+    "acceptedMobileSafariSourceClosure": "0/5",
+    "currentEligibleSubjectPasses": "0/12",
+    "independentD2": "0/887",
+    "crossRepositoryOwnerSlots": "0/5",
+    "parserLawChronology": "14/34_PAUSED",
+    "kroneckerDenominator": "OPEN",
+    "appleDenominator": "OPEN",
+    "allCredits": 0
+  }
+}

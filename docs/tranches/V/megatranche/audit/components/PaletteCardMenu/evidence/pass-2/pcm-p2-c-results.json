@@ -1,0 +1,772 @@
+{
+  "cardCount": 30,
+  "scrollInfo": {
+    "docScrollH": 800,
+    "innerH": 800,
+    "docHasVScroll": false,
+    "scrollbarW": 0,
+    "candidates": [
+      {
+        "tag": "DIV",
+        "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+        "scrollH": 3680,
+        "clientH": 686,
+        "overflowY": "auto"
+      }
+    ]
+  },
+  "beforeOpen": {
+    "cardLeft": 673,
+    "cardRight": 1135,
+    "cardWidth": 462,
+    "clientW": 1280,
+    "scrollbarW": 0,
+    "scrollY": 0,
+    "bodyOverflow": "visible",
+    "bodyPadRight": "0px",
+    "htmlOverflow": "visible",
+    "appAriaHidden": null
+  },
+  "afterOpen": {
+    "cardLeft": 673,
+    "cardRight": 1135,
+    "cardWidth": 462,
+    "clientW": 1280,
+    "scrollbarW": 0,
+    "scrollY": 0,
+    "bodyOverflow": "hidden",
+    "bodyPadRight": "0px",
+    "htmlOverflow": "visible",
+    "appAriaHidden": null
+  },
+  "SHIFT": {
+    "cardLeftDelta": 0,
+    "cardWidthDelta": 0,
+    "clientWDelta": 0,
+    "scrollbarWDelta": 0,
+    "scrollYDelta": 0
+  },
+  "afterClose": {
+    "cardLeft": 673,
+    "cardRight": 1135,
+    "cardWidth": 462,
+    "clientW": 1280,
+    "scrollbarW": 0,
+    "scrollY": 0,
+    "bodyOverflow": "visible",
+    "bodyPadRight": "0px",
+    "htmlOverflow": "visible",
+    "appAriaHidden": null
+  },
+  "SHIFT_BACK": {
+    "cardLeftDelta": 0,
+    "scrollYDelta": 0
+  },
+  "domCensus": {
+    "totalNodes": 1058,
+    "triggers": 30,
+    "menuItemsInDom": 0,
+    "menusInDom": 0,
+    "articles": 30
+  },
+  "mixBodyHead": "dev misconfigured — run `npm run dev` Lab 92.0 % , 88.8 , 20.0 L a b α 92.0% 88.8 20.0 82.7% Mix Mix colors and palettes together. Colors Palettes Selected FROM PALETTES 30 COLOR SPACE OKLab HUE METHOD Shorter Mix",
+  "mixControls": [
+    {
+      "text": "",
+      "role": null,
+      "label": "Save edit"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Cancel edit"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Switch to slug"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Generate new slug"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Cancel"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Back"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Reset color"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Copy color"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Random color"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Palettes"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Extract palette"
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Open color input"
+    },
+    {
+      "text": "Mix",
+      "role": "combobox",
+      "label": "Select view"
+    },
+    {
+      "text": "Tools",
+      "role": null,
+      "label": "Toggle action bar"
+    },
+    {
+      "text": "Picker",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "Mix",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "",
+      "role": null,
+      "label": "Menu"
+    },
+    {
+      "text": "Login",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "@mbabb",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "Lab",
+      "role": "combobox",
+      "label": "Select color space"
+    },
+    {
+      "text": "L",
+      "role": "tab",
+      "label": "l channel"
+    },
+    {
+      "text": "a",
+      "role": "tab",
+      "label": "a channel"
+    },
+    {
+      "text": "b",
+      "role": "tab",
+      "label": "b channel"
+    },
+    {
+      "text": "α",
+      "role": "tab",
+      "label": "alpha channel"
+    },
+    {
+      "text": "Colors",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "Palettes",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "From palettes30",
+      "role": null,
+      "label": null
+    },
+    {
+      "text": "OKLab",
+      "role": "combobox",
+      "label": "Color space"
+    },
+    {
+      "text": "Shorter",
+      "role": "combobox",
+      "label": "Hue method"
+    },
+    {
+      "text": "Mix",
+      "role": null,
+      "label": null
+    }
+  ],
+  "nestedInteractiveButtons": [
+    {
+      "outerLabel": "Select palette Probe Palette 00",
+      "outerText": "Probe Palette 003",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 01",
+      "outerText": "Probe Palette 013",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 02",
+      "outerText": "Probe Palette 023",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 03",
+      "outerText": "Probe Palette 033",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 04",
+      "outerText": "Probe Palette 043",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 05",
+      "outerText": "Probe Palette 053",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 06",
+      "outerText": "Probe Palette 063",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 07",
+      "outerText": "Probe Palette 073",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 08",
+      "outerText": "Probe Palette 083",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 09",
+      "outerText": "Probe Palette 093",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 10",
+      "outerText": "Probe Palette 103",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 11",
+      "outerText": "Probe Palette 113",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 12",
+      "outerText": "Probe Palette 123",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 13",
+      "outerText": "Probe Palette 133",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 14",
+      "outerText": "Probe Palette 143",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 15",
+      "outerText": "Probe Palette 153",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 16",
+      "outerText": "Probe Palette 163",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 17",
+      "outerText": "Probe Palette 173",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 18",
+      "outerText": "Probe Palette 183",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 19",
+      "outerText": "Probe Palette 193",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 20",
+      "outerText": "Probe Palette 203",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 21",
+      "outerText": "Probe Palette 213",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 22",
+      "outerText": "Probe Palette 223",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 23",
+      "outerText": "Probe Palette 233",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 24",
+      "outerText": "Probe Palette 243",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 25",
+      "outerText": "Probe Palette 253",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 26",
+      "outerText": "Probe Palette 263",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 27",
+      "outerText": "Probe Palette 273",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 28",
+      "outerText": "Probe Palette 283",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    },
+    {
+      "outerLabel": "Select palette Probe Palette 29",
+      "outerText": "Probe Palette 293",
+      "innerCount": 1,
+      "inner": [
+        {
+          "tag": "BUTTON",
+          "label": "Palette menu",
+          "role": null
+        }
+      ]
+    }
+  ],
+  "mixArticles": 30,
+  "AX_paletteMenuNodesOnMix": [
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    },
+    {
+      "role": "button",
+      "name": "Palette menu",
+      "ignored": false,
+      "ignoredReasons": []
+    }
+  ],
+  "AX_articleNodesOnMix": 30,
+  "pageErrors": []
+}

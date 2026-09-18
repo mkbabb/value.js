@@ -1,0 +1,24 @@
+
+===== WITH tsconfig.demo.json paths (as shipped) =====
+FAIL @mkbabb/value.js              unresolved
+OK   @mkbabb/value.js/color        <repo>/dist/subpaths/color.d.ts
+OK   @mkbabb/value.js/css          <repo>/dist/subpaths/css.d.ts
+OK   @mkbabb/value.js/value        <repo>/dist/subpaths/value.d.ts
+OK   @mkbabb/value.js/math         <repo>/dist/subpaths/math.d.ts
+OK   @mkbabb/value.js/easing       <repo>/dist/subpaths/easing.d.ts
+OK   @mkbabb/value.js/quantize     <repo>/dist/subpaths/quantize.d.ts
+OK   @mkbabb/value.js/transform    <repo>/dist/subpaths/transform.d.ts
+FAIL @mkbabb/value.js/parsing      unresolved
+FAIL @mkbabb/value.js/units        unresolved
+
+===== WITHOUT the value.js paths block (self-reference only) =====
+FAIL @mkbabb/value.js              unresolved
+OK   @mkbabb/value.js/color        <repo>/dist/subpaths/color.d.ts
+OK   @mkbabb/value.js/css          <repo>/dist/subpaths/css.d.ts
+OK   @mkbabb/value.js/value        <repo>/dist/subpaths/value.d.ts
+OK   @mkbabb/value.js/math         <repo>/dist/subpaths/math.d.ts
+OK   @mkbabb/value.js/easing       <repo>/dist/subpaths/easing.d.ts
+OK   @mkbabb/value.js/quantize     <repo>/dist/subpaths/quantize.d.ts
+OK   @mkbabb/value.js/transform    <repo>/dist/subpaths/transform.d.ts
+FAIL @mkbabb/value.js/parsing      unresolved
+FAIL @mkbabb/value.js/units        unresolved

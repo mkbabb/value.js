@@ -1,0 +1,82 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "status": "PRE_AUTHOR_PROVENANCE_GRAPH_FROZEN",
+  "seats": {
+    "h": {
+      "lineage": "historical direct parse-that production transpose",
+      "inputs": [
+        {
+          "path": "authorities/historical-utils.ts",
+          "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4",
+          "bytes": 7656,
+          "origin": {
+            "repository": "value.js",
+            "commit": "9fce504a5764258c8e56b0ce77cd656c725a4907",
+            "path": "src/parsing/utils.ts",
+            "git_blob": "cbb57ab5327bc0afa667fbd13ad98d77f3b610de"
+          },
+          "production": {
+            "line": 96,
+            "exact_lf_line_sha256": "545226e90f05ae9beb0759a9b7ebf831bfb92eb0d36dcc212d9fad73e1f29169",
+            "exact_lf_line_bytes": 92,
+            "source": "export const number = regex(/-?(?:(0|[1-9]\\d*)(\\.\\d+)?|\\.\\d+)([eE][+-]?\\d+)?/).map(Number);"
+          }
+        }
+      ],
+      "required_transpose_repairs": [
+        "Add leading-plus support while retaining leading-minus and unsigned branches.",
+        "Replace the historical JSON-style 0|[1-9] digit restriction with CSS [0-9]+ maximal integer consumption.",
+        "Retain the historical dot and exponent digit guards so incomplete fraction/exponent syntax remains outside the consumed prefix.",
+        "Map the exact consumed representation to the G7 value/type/sign semantic leaf."
+      ],
+      "operative_topology": "Exactly one G7 whole-prefix regex terminal mapped inline to the result; no token, lexeme, any, all, string, dispatch, or scanner ancestry."
+    },
+    "b": {
+      "lineage": "acknowledged BBNF production transpose",
+      "inputs": [
+        { "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf", "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b", "bytes": 3084, "repository_head": "af15f63e0d2d3d719938c13b906a50acbb92ea3b" }
+      ],
+      "operative_topology": "Mantissa alternatives and optional exponent composed inline with at least two any and two all calls; no string/dispatch."
+    },
+    "s": {
+      "lineage": "specification-first algorithm-clause construction",
+      "inputs": [
+        { "path": "../g5/authorities/css-syntax-3.Overview.bs", "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390", "bytes": 144427, "occurrence_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3" }
+      ],
+      "operative_topology": "Six explicit start clauses extended by fraction/exponent clauses, with at least four string, two any, and one all call; no dispatch."
+    },
+    "d": {
+      "lineage": "engine-native prefix dispatch clean room",
+      "inputs": [
+        { "path": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts", "sha256": "ca3a8e2cb9257f9d56e95b247c4b58e46524ae68a84172ea217d3eb3c4a24869", "bytes": 2014 },
+        { "path": "../g5/fixtures/public-cases.json", "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3", "bytes": 5213, "role": "the six start arms remain subordinate fixtures" }
+      ],
+      "operative_topology": "One direct dispatch object covering +-, ., and 0-9 buckets, with each bucket feeding the exported parser; no whole-prefix regex."
+    }
+  },
+  "excluded_h_ancestry": [
+    {
+      "path": "../../../grammar/css-token.ts",
+      "sha256": "c258e98e22bd979d44c2dca1734b776db811f736c20a55378badf194660bc2a4",
+      "bytes": 2599,
+      "reason": "Rejected G6 false H lineage: this is a token/lexeme grammar, not the historical direct parse-that number production."
+    },
+    {
+      "identity": "current scanner-era numberFastParser",
+      "reason": "Post-historical scanner optimization is excluded from G7 H ancestry."
+    }
+  ],
+  "edges": [
+    { "pair": ["h", "b"], "finding": "ANCESTRY_NOT_AFFIRMATIVELY_INDEPENDENT", "consequence": "Both remain evidence/candidate seats but do not alone satisfy three orthogonal lineages; D is mandatory." },
+    { "pair": ["h", "s"], "finding": "DISTINCT_FROZEN_INPUTS_AND_CONSTRUCTION" },
+    { "pair": ["h", "d"], "finding": "DISTINCT_FROZEN_INPUTS_AND_CONSTRUCTION" },
+    { "pair": ["b", "s"], "finding": "DISTINCT_CONSTRUCTION_WITH_SHARED_NORMATIVE_END_LAW_ONLY" },
+    { "pair": ["b", "d"], "finding": "DISTINCT_FROZEN_INPUTS_AND_CONSTRUCTION" },
+    { "pair": ["s", "d"], "finding": "DISTINCT_FROZEN_INPUTS_AND_CONSTRUCTION" }
+  ],
+  "author_isolation": "Each author receives only the common admitted precursor plus that seat's exact lineage inputs, never peer source or peer design notes. Every receipt binds those exact input hashes.",
+  "mechanical_floor": "author-admission-validator.mjs permits only imports plus one directly exported consumeNumber const and walks only that initializer. Extra declarations, aliases, indirection, dead topology, recursive/lazy graphs, the three G5 B/S/D bypass constructions, and the G6 false H lineage are rejected.",
+  "review_remainder": "Mechanical topology is necessary, not semantic or idiom proof. The five skeptics retain provenance truth, construction orthogonality, KISS, and hidden indirection review.",
+  "credit": "ZERO before full owner-law acceptance."
+}

@@ -1,0 +1,305 @@
+{
+  "p2-desktop-light": {
+    "matrix": "p2-desktop-light",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette "
+    ],
+    "pageErrors": [],
+    "canvasAt40ms": {
+      "attrW": 320,
+      "attrH": 240,
+      "cssW": 421.6,
+      "cssH": 316.2,
+      "transform": "matrix(1.317354, 0, 0, 1.317354, 0, 66.555794)"
+    },
+    "glass": {
+      "backgroundColor": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "backdropFilter": "blur(11px) saturate(1.6)",
+      "opacity": "1",
+      "overflow": "hidden"
+    },
+    "behindEmptyBand": {
+      "probeAt": [
+        455,
+        283
+      ],
+      "bandHeight": 180.2,
+      "stack": [
+        "DIV.flex-1.min-h-0",
+        "DIV.absolute.inset-0",
+        "IMG.w-full.h-full",
+        "DIV.group.relative",
+        "DIV.flex.flex-col",
+        "DIV.flex.flex-col"
+      ]
+    },
+    "pinnedControls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "title": "Add to palette",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "title": "Apply as current color",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readoutOverflow": {
+      "text": "lab(54.290541404672% 80.804928170435 69.890964768624)",
+      "chars": 53,
+      "title": null,
+      "ariaLabel": null,
+      "dir": null,
+      "role": null,
+      "ariaLive": null,
+      "clientWidth": 275,
+      "scrollWidth": 535,
+      "truncatedPx": 260,
+      "visibleFraction": 0.514,
+      "boxW": 275
+    },
+    "hoverInk": {
+      "resting": "color(srgb 0.11 0.098 0.09 / 0.8)",
+      "svg": "rgb(255, 0, 0)",
+      "svgTransform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+      "hoverColorVar": "#ff0000",
+      "buttonBg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+      "panelBg": "oklab(0.936408 0.005529 0.013284 / 0.808)"
+    },
+    "zoom": {
+      "atFit": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "afterPlainWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "afterCtrlWheel": "matrix(6.813345, 0, 0, 6.813345, -836.135193, -503.26886)",
+      "plainWheelChanged": false,
+      "ctrlWheelChanged": true
+    },
+    "pinnedControlsAfterWheelGesture": [
+      "Close eyedropper",
+      "Add to palette",
+      "Apply as current color"
+    ],
+    "zoomedPixelRendering": {
+      "scale": 6.813,
+      "imageRendering": "auto",
+      "onePixelPaintedAt": "6.81 CSS px per source pixel"
+    }
+  },
+  "p2-mobile-light": {
+    "matrix": "p2-mobile-light",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette "
+    ],
+    "pageErrors": [],
+    "canvasAt40ms": {
+      "attrW": 320,
+      "attrH": 240,
+      "cssW": 337.6,
+      "cssH": 253.2,
+      "transform": "matrix(1.05487, 0, 0, 1.05487, 0, 72.335579)"
+    },
+    "glass": {
+      "backgroundColor": "oklab(0.936408 0.005529 0.013284 / 0.808)",
+      "backdropFilter": "blur(11px) saturate(1.6)",
+      "opacity": "1",
+      "overflow": "hidden"
+    },
+    "behindEmptyBand": {
+      "probeAt": [
+        195,
+        275
+      ],
+      "bandHeight": 201.1,
+      "stack": [
+        "DIV.flex-1.min-h-0",
+        "DIV.absolute.inset-0",
+        "IMG.w-full.h-full",
+        "DIV.group.relative",
+        "DIV.flex.flex-col",
+        "DIV.flex.flex-col"
+      ]
+    },
+    "pinnedControls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "title": "Add to palette",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 44,
+        "h": 44
+      },
+      {
+        "title": "Apply as current color",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 44,
+        "h": 44
+      }
+    ],
+    "readoutOverflow": {
+      "text": "lab(54.290541404672% 80.804928170435 69.890964768624)",
+      "chars": 53,
+      "title": null,
+      "ariaLabel": null,
+      "dir": null,
+      "role": null,
+      "ariaLive": null,
+      "clientWidth": 109,
+      "scrollWidth": 457,
+      "truncatedPx": 348,
+      "visibleFraction": 0.239,
+      "boxW": 109
+    },
+    "hoverInk": {
+      "resting": "color(srgb 0.11 0.098 0.09 / 0.8)",
+      "svg": "rgb(255, 0, 0)",
+      "svgTransform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+      "hoverColorVar": "#ff0000",
+      "buttonBg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+      "panelBg": "oklab(0.936408 0.005529 0.013284 / 0.808)"
+    }
+  },
+  "p2-forced-colors": {
+    "matrix": "p2-forced-colors",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette "
+    ],
+    "pageErrors": [],
+    "canvasAt40ms": {
+      "attrW": 320,
+      "attrH": 240,
+      "cssW": 443.6,
+      "cssH": 332.7,
+      "transform": "matrix(1.386224, 0, 0, 1.386224, 0, 80.999222)"
+    },
+    "glass": {
+      "backgroundColor": "rgb(255, 255, 255)",
+      "backdropFilter": "blur(0px) saturate(1.6)",
+      "opacity": "1",
+      "overflow": "hidden"
+    },
+    "behindEmptyBand": {
+      "probeAt": [
+        455,
+        283
+      ],
+      "bandHeight": 180.2,
+      "stack": [
+        "DIV.flex-1.min-h-0",
+        "DIV.absolute.inset-0",
+        "IMG.w-full.h-full",
+        "DIV.group.relative",
+        "DIV.flex.flex-col",
+        "DIV.flex.flex-col"
+      ]
+    },
+    "pinnedControls": [
+      {
+        "title": "Close eyedropper",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "title": "Add to palette",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "title": "Apply as current color",
+        "ariaLabel": null,
+        "accessibleText": "",
+        "w": 40,
+        "h": 40
+      }
+    ],
+    "readoutOverflow": {
+      "text": "lab(54.290541404672% 80.804928170435 69.890964768624)",
+      "chars": 53,
+      "title": null,
+      "ariaLabel": null,
+      "dir": null,
+      "role": null,
+      "ariaLive": null,
+      "clientWidth": 275,
+      "scrollWidth": 535,
+      "truncatedPx": 260,
+      "visibleFraction": 0.514,
+      "boxW": 275
+    },
+    "hoverInk": {
+      "resting": "color(srgb 0.11 0.098 0.09 / 0.8)",
+      "svg": "rgb(255, 0, 0)",
+      "svgTransform": "matrix(1.2, 0, 0, 1.2, 0, 0)",
+      "hoverColorVar": "#ff0000",
+      "buttonBg": "color(srgb 0.994 0.96 0.926)",
+      "panelBg": "rgb(255, 255, 255)"
+    },
+    "zoom": {
+      "atFit": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "afterPlainWheel": "matrix(1.5875, 0, 0, 1.5875, 0, 123.210938)",
+      "afterCtrlWheel": "matrix(6.813345, 0, 0, 6.813345, -836.135193, -503.26886)",
+      "plainWheelChanged": false,
+      "ctrlWheelChanged": true
+    },
+    "pinnedControlsAfterWheelGesture": [
+      "Close eyedropper",
+      "Add to palette",
+      "Apply as current color"
+    ],
+    "zoomedPixelRendering": {
+      "scale": 6.813,
+      "imageRendering": "auto",
+      "onePixelPaintedAt": "6.81 CSS px per source pixel"
+    },
+    "forcedColors": {
+      "panelBg": "rgb(255, 255, 255)",
+      "loupePresent": true,
+      "loupeBorder": "oklch(0.519287 0.139415 129.83403)",
+      "loupeShadow": "color(srgb 0.302997 0.467926 0.000002 / 0.4) 0px 0px 0px 2px, color(srgb 0.11 0.098 0.09 / 0.2) 0px 4px 16px 0px"
+    }
+  },
+  "p2-broken-file": {
+    "matrix": "p2-broken-file",
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette "
+    ],
+    "pageErrors": [
+      "Unhandled Promise Rejection: InvalidStateError: Cannot decode the data in the argument to createImageBitmap",
+      "Unhandled Promise Rejection: [object Event]"
+    ],
+    "previewAcceptedNonImage": true,
+    "quantizeErrorText": [],
+    "eyedropperEntryPresent": 1,
+    "overlayPresent": true,
+    "canvasState": {
+      "attrW": 300,
+      "attrH": 150,
+      "cssW": 300,
+      "cssH": 150,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "readout": "Tap to sample",
+    "anyErrorSurfaceInsideOverlay": false
+  }
+}

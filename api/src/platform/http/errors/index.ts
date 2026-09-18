@@ -80,7 +80,7 @@ export class AuthenticationError extends ApiError {
 }
 
 /** 403 — session present but not owner. Contract: `urn:contract:not-owner`.
- * The suspended-account 403 (`resolve-session.ts`) reuses this class; its
+ * The suspended-account 403 (`session/resolve.ts`) reuses this class; its
  * title ("Account suspended") disambiguates from the wrong-owner case (the
  * contract's `account-suspended` row maps to the same 403 shape). */
 export class OwnershipError extends ApiError {

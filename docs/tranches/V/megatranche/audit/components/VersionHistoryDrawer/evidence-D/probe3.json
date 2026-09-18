@@ -1,0 +1,353 @@
+{
+ "keyboardFocusOnRevert": [
+  {
+   "tag": "BUTTON",
+   "text": "Revert",
+   "inDialog": true,
+   "opacity": "0",
+   "visibility": "visible",
+   "rect": {
+    "w": 90,
+    "h": 36,
+    "top": 284
+   },
+   "inViewport": true,
+   "boxShadow": "rgba(255, 255, 255, 0.3) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.18) -1px 0"
+  },
+  {
+   "tag": "BODY",
+   "text": "→BrowseToolsBrowsePalett",
+   "inDialog": false,
+   "opacity": "1",
+   "visibility": "visible",
+   "rect": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "inViewport": true,
+   "boxShadow": "none"
+  },
+  {
+   "tag": "BUTTON",
+   "text": "Revert",
+   "inDialog": true,
+   "opacity": "0",
+   "visibility": "visible",
+   "rect": {
+    "w": 90,
+    "h": 36,
+    "top": 284
+   },
+   "inViewport": true,
+   "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.2"
+  },
+  {
+   "tag": "BODY",
+   "text": "→BrowseToolsBrowsePalett",
+   "inDialog": false,
+   "opacity": "1",
+   "visibility": "visible",
+   "rect": {
+    "w": 1440,
+    "h": 900,
+    "top": 0
+   },
+   "inViewport": true,
+   "boxShadow": "none"
+  }
+ ],
+ "widthCascade": {
+  "classList": "[--overlay-pad-inline:--spacing(6)] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) rounded-l-dialog border-l glass-floating w-[380px] sm:max-w-[420px] flex flex-col",
+  "matchedRules": [
+   {
+    "layer": "utilities",
+    "sel": ".w-\\[380px\\]",
+    "css": "width: 380px;"
+   },
+   {
+    "layer": "utilities",
+    "sel": ".sm\\:max-w-\\[420px\\]",
+    "css": ""
+   },
+   {
+    "layer": "utilities",
+    "sel": ".md\\:max-w-\\[420px\\]",
+    "css": ""
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement])",
+    "css": "position: fixed; z-index: var(--z-modal);"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement] > [data-slot=\"dialog-content-region\"])",
+    "css": "display: grid; align-content: start; gap: 1rem;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement][data-scroll] > [data-slot=\"dialog-content-region\"])",
+    "css": "min-block-size: 0px; max-block-size: calc(100dvh - var(--overlay-pad-block) - var(--overlay-pad-block)); overflow-y: auto;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"left\"] > [data-slot=\"dialog-content-region\"], [data-slot=\"dialog-content\"][data-placement=\"right\"]",
+    "css": "display: flex; flex-direction: column; block-size: 100%; min-block-size: 0px;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"left\"] > [data-slot=\"dialog-content-region\"] > :only-child, [data-slot=\"dialog-content\"][data-plac",
+    "css": "min-block-size: 0px;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement][data-surface=\"glass\"])",
+    "css": "isolation: isolate; -webkit-backdrop-filter: none; backdrop-filter: none;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement] > [data-slot=\"glass-graded-halo\"])",
+    "css": "position: absolute; inset: 0px; z-index: -1; border-radius: inherit; pointer-events: none; background: linear-gradient( var(--sheet-edge-dir"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"top\"]) > [data-slot=\"glass-graded-halo\"]",
+    "css": "--sheet-edge-direction: to top;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"bottom\"]) > [data-slot=\"glass-graded-halo\"]",
+    "css": "--sheet-edge-direction: to bottom;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"left\"]) > [data-slot=\"glass-graded-halo\"]",
+    "css": "--sheet-edge-direction: to left;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"right\"]) > [data-slot=\"glass-graded-halo\"]",
+    "css": "--sheet-edge-direction: to right;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"top\"])",
+    "css": "left: 0px; right: 0px; top: 0px;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"bottom\"])",
+    "css": "left: 0px; right: 0px; bottom: 0px;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"left\"])",
+    "css": "top: 0px; bottom: 0px; left: 0px; height: 100%; width: 75%;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"right\"])",
+    "css": "top: 0px; bottom: 0px; right: 0px; height: 100%; width: 75%;"
+   },
+   {
+    "layer": "(unlayered)",
+    "sel": ":where([data-slot=\"dialog-content\"][data-placement=\"left\"]), :where([data-slot=\"dialog-content\"][data-placement=\"right\"])",
+    "css": "max-width: 24rem;"
+   },
+   {
+    "layer": "components",
+    "sel": ".md\\:max-w-\\[420px\\]",
+    "css": "max-width: 420px;"
+   }
+  ],
+  "layerOrder": [
+   "properties",
+   "theme",
+   "base",
+   "components",
+   "utilities",
+   "theme",
+   "base",
+   "components",
+   "utilities",
+   "properties"
+  ],
+  "computed": {
+   "width": "384px",
+   "maxWidth": "384px"
+  },
+  "utilityExists": {
+   "w380": "380px",
+   "smMax420": "420px"
+  }
+ },
+ "typeCensus": {
+  "title": {
+   "text": "Version History",
+   "fontSize": "20.351999px",
+   "fontFamily": "Fraunces",
+   "fontWeight": "500",
+   "lineHeight": "20.351999px",
+   "color": "rgb(28, 25, 23)",
+   "letterSpacing": "-0.5088px",
+   "fontVariantNumeric": "normal"
+  },
+  "description": {
+   "text": "Census Palette — 24 versions",
+   "fontSize": "14px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "fontWeight": "400",
+   "lineHeight": "20px",
+   "color": "rgb(112, 89, 66)",
+   "letterSpacing": "normal",
+   "fontVariantNumeric": "normal"
+  },
+  "versionLabel": {
+   "text": "v24 (current)",
+   "fontSize": "11px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "fontWeight": "500",
+   "lineHeight": "13.75px",
+   "color": "rgb(28, 25, 23)",
+   "letterSpacing": "normal",
+   "fontVariantNumeric": "normal"
+  },
+  "timestamp": {
+   "text": "Mar 26 at 12:30 AM",
+   "fontSize": "11px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "fontWeight": "400",
+   "lineHeight": "13.75px",
+   "color": "rgb(112, 89, 66)",
+   "letterSpacing": "normal",
+   "fontVariantNumeric": "tabular-nums"
+  },
+  "nameLine": {
+   "text": "Census Palette",
+   "fontSize": "11px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "fontWeight": "400",
+   "lineHeight": "13.75px",
+   "color": "rgb(112, 89, 66)",
+   "letterSpacing": "normal",
+   "fontVariantNumeric": "normal"
+  },
+  "revertBtn": {
+   "text": "Revert",
+   "fontSize": "14.384px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "fontWeight": "400",
+   "lineHeight": "18.6992px",
+   "color": "rgb(0, 0, 0)",
+   "letterSpacing": "normal",
+   "fontVariantNumeric": "normal"
+  },
+  "loadMore": {
+   "fontSize": "14.384px",
+   "fontFamily": "\"Plus Jakarta Sans\"",
+   "color": "rgb(0, 0, 0)"
+  },
+  "rowSurface": {
+   "bg": "oklab(0.913299 0.005463 0.013024)",
+   "borderColor": "rgb(198, 180, 159)",
+   "borderRadius": "8px",
+   "padding": "12px",
+   "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0"
+  },
+  "sheetSurface": {
+   "bg": "oklab(0.903539 0.015313 0.014228 / 0.705088)",
+   "backdropFilter": "none",
+   "border": "1px oklab(0.216129 0.003491 0.005182 / 0.05)"
+  },
+  "currentRowSurface": {
+   "bg": "oklab(0.913299 0.005463 0.013024)",
+   "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0"
+  },
+  "currentBar": {
+   "bg": "oklch(0.470927 0.096235 89.834023)",
+   "w": 4,
+   "h": 16,
+   "left": 1081
+  },
+  "swatchBorder": {
+   "borderColor": "rgb(251, 250, 248)",
+   "borderWidth": "1px",
+   "w": 20
+  },
+  "rowHeights": [
+   85.5,
+   129.5,
+   129.5,
+   129.5,
+   129.5,
+   129.5
+  ]
+ },
+ "revertBehaviour": {
+  "requestsAfterRevert": [
+   "POST /palettes/census-palette/revert"
+  ],
+  "stateAfter": {
+   "drawerClosed": false,
+   "rowCount": 20,
+   "description": "Census Palette — 24 versions",
+   "labels": [
+    "v24",
+    "v23 (current)",
+    "v22",
+    "v21"
+   ],
+   "confirmationDialogs": 0
+  }
+ },
+ "reducedMotionLoading": {
+  "spinnerPresent": true,
+  "animationName": "spin",
+  "animationDuration": "0.00001s",
+  "animationPlayState": "running",
+  "transition": "opacity 0.1s, color 0.1s, background-color 0.1s, border-color 0.1s, box-shadow 0.1s",
+  "prefersReduced": true,
+  "rowCount": 0,
+  "bodyText": "Version HistoryCensus Palette — 0 versionsClose",
+  "spinnerAria": {
+   "ariaLabel": null,
+   "role": null,
+   "parentRole": null,
+   "parentAriaLive": null
+  }
+ },
+ "forcedColors": {
+  "rowCount": 20,
+  "current": {
+   "bg": "rgb(0, 0, 0)",
+   "borderColor": "rgb(255, 255, 255)",
+   "boxShadow": "none",
+   "color": "rgb(255, 255, 255)",
+   "forcedColorAdjust": "auto"
+  },
+  "other": {
+   "bg": "rgb(0, 0, 0)",
+   "borderColor": "rgb(255, 255, 255)",
+   "boxShadow": "none",
+   "color": "rgb(255, 255, 255)",
+   "forcedColorAdjust": "auto"
+  },
+  "swatch": {
+   "bg": "rgb(0, 0, 0)",
+   "borderColor": "rgb(255, 255, 255)",
+   "boxShadow": "none",
+   "color": "rgb(255, 255, 255)",
+   "forcedColorAdjust": "auto"
+  },
+  "swatchInline": "background-color: rgb(225, 29, 72);",
+  "currentBar": {
+   "bg": "rgb(0, 0, 0)",
+   "borderColor": "rgb(255, 255, 255)",
+   "boxShadow": "none",
+   "color": "rgb(255, 255, 255)",
+   "forcedColorAdjust": "auto"
+  },
+  "sheetBg": "rgb(0, 0, 0)"
+ }
+}

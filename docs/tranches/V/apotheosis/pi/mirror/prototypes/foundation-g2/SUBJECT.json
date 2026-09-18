@@ -1,0 +1,70 @@
+{
+  "schema": "value.pi.foundation-g2.skeptic-subject/v1",
+  "status": "FROZEN_FOR_FIVE_PER_FEATURE_SKEPTICS",
+  "generation": "foundation-g2",
+  "features": [
+    "SYNTAX-ESCAPE",
+    "SYNTAX-IDENT",
+    "SYNTAX-STRING",
+    "SYNTAX-SPACING"
+  ],
+  "authority": {
+    "addenda_07": { "path": "../../../ADDENDA-07.md", "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5" },
+    "module_dag": { "path": "../../../MODULE-DAG.md", "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f" },
+    "bbnf_exchange": { "path": "../../../formation/bbnf-exchange-receipt-2026-07-22.md", "sha256": "5faf82127542ebfe649180d2b484d90e8855d4ef9e7a624a8885809d8b9905a3" },
+    "normative_spec": "CSS Syntax Module Level 3, Editor's Draft 10 June 2026, sections pinned in BRIEF.md"
+  },
+  "inputs": {
+    "brief": { "path": "BRIEF.md", "sha256": "2c611bb84c27600f2e1e49d48b2e9285e295d54c7411cacce9fbcafa2ce0112f" },
+    "fixtures": { "path": "fixtures.json", "sha256": "138820f96520045ab4c866e4e3172cda609cd4355b7c8db2ec254b4b403f5be6" },
+    "runtime": {
+      "package": "@mkbabb/parse-that@1.0.0",
+      "registry_integrity": "sha512-ygzF6JPb0OC2XRCeg/ywtNYgo2hKmZYGabaimObx0/czxH/8I2gF8obQjkWpPrXW8azOtt5x3RpnU5nZVEpY1Q==",
+      "mirror_package_lock_sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"
+    }
+  },
+  "candidates": {
+    "h": {
+      "topology": "literal compositional grammar",
+      "ledger": { "path": "evidence/h-ledger.sha256", "sha256": "ab1ff2eb36a444fba7a6a9282ccb3b73bd94d7ea36e9682d8cb03d321f0b505d" },
+      "features": {
+        "SYNTAX-ESCAPE": "aaf79737a3a7c375176e81f93b02aeca4f6f89d889163adf7e6702b99012c094",
+        "SYNTAX-IDENT": "d5dbe9f00a507870595fbfa87346b08c2281cb8739777f2545843da4b06318d1",
+        "SYNTAX-STRING": "301d13f923fc346e8bc3d650ffc74af50ceeaddfbd26b179bef1da709c603389",
+        "SYNTAX-SPACING": "a4434a9a031d7182ac5664476a33764f1ebb1ba7e67b263f7f84089bfb3993f8"
+      }
+    },
+    "b": {
+      "topology": "compact algebraic grammar",
+      "ledger": { "path": "evidence/b-ledger.sha256", "sha256": "77f454b86b2f928d10e72746bddc1f48e6d41a20885ac20f5972b204c4ee44ac" },
+      "features": {
+        "SYNTAX-ESCAPE": "86deac89c02cecc66a8a1656bf84302850c8bd2e9470baf4397b98cabe737e11",
+        "SYNTAX-IDENT": "045df7df53ac20bda0deef45e96ec9ab85d9d76a21b56f9599ea18fb73b13cd4",
+        "SYNTAX-STRING": "7a8421f93d03e9632e1eb839f1542760522cb0ea682812fd8f63ac3f44e0834d",
+        "SYNTAX-SPACING": "7df71e75fb7118c14af6025c6816921151283daca6632cb0f630717609f288e5"
+      }
+    },
+    "s": {
+      "topology": "static first-character dispatch grammar",
+      "ledger": { "path": "evidence/s-ledger.sha256", "sha256": "cb634811b9c760adbddef20ed5cf0d48794c3c1adc8e1de2c4fbcbacacb83a92" },
+      "features": {
+        "SYNTAX-ESCAPE": "06e3a08fbc2489a0b70c4b06e6adb8fc511329879ec2cbe6da08034bfdae87ca",
+        "SYNTAX-IDENT": "46e3aeeb021f5e83446b5b2dcf4f8d82de0307bf6e4da278049482ece78f5b20",
+        "SYNTAX-STRING": "6aae388a31b36676723cd6458c6aa0c4a5b290a777d6f87b6e5d645f8444d891",
+        "SYNTAX-SPACING": "f4ab3f45a51839562364d3922923428dc9c784a26e4d2ce96a9f523298f10201"
+      }
+    }
+  },
+  "common_evidence": {
+    "correctness": { "path": "evidence/common-replay.json", "sha256": "9cdd3d5e99a7f672951f7a819aee38a89071c76a56d500719f2c48fd15a0595e" },
+    "browser": { "path": "evidence/browser-witness.json", "sha256": "eca0192bbd8ff84672a720c217ccf18045af7bcf1ccdc2c3b206e8c231106309" },
+    "benchmark": { "path": "evidence/benchmark-directional.json", "sha256": "745a0ee1222de1f16194f1b4bf423f36b95f8d68b15196db112e1b9b5add926c" }
+  },
+  "review_law": {
+    "verdict_granularity": "Each skeptic returns ACCEPT or REJECT for each candidate-feature pair, with exact blockers and a per-feature nomination or REJECT_ALL.",
+    "axes": ["spec and recovery", "parse-that idiom and architecture", "state and hostility", "performance and parsimony", "tranche gestalt and downstream fitness"],
+    "selection": "No integration occurs before five complete skeptic reviews and three independent synthesis adjudications over exact reviewed hashes.",
+    "mixed_seam": "A composition of feature files from different candidate trees is a new exact subject and must receive fresh skeptic treatment before integration."
+  },
+  "nonclaims": "No feature in this subject is accepted or integrated. The benchmark is directional candidate evidence only. Full CSS, public parser, peer-win, and production credit are zero."
+}

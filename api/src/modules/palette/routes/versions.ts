@@ -8,10 +8,8 @@
 
 import { Hono } from "hono";
 import type { AppEnv } from "../../../types.js";
-import {
-    paginationQuery,
-    revertPaletteBody,
-} from "../schema.js";
+import { revertPaletteBody } from "../schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import { ValidationError } from "../../../platform/http/errors/index.js";
 import { requireOwnership } from "../require-ownership.js";
 import { formatPalette } from "../format.js";

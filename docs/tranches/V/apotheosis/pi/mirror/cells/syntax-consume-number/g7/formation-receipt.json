@@ -1,0 +1,195 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G7-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "date": "2026-07-22",
+  "status": "FROZEN_PRE_AUTHOR_PRE_HOLDOUT_ZERO_CANDIDATES",
+  "precursor_rows": [
+    {
+      "path": "author-admission-protocol.json",
+      "sha256": "8535c0eff35c7f7a8bbe99df22135c126c342078848c11f315482bd59bfce451",
+      "bytes": 4160
+    },
+    {
+      "path": "author-admission-validator.mjs",
+      "sha256": "f09a000d5f0a8252c84a0e4b1772dcf828a7139eb9961a3c973107a7f077200d",
+      "bytes": 69430
+    },
+    {
+      "path": "author-receipt.schema.json",
+      "sha256": "ee7284f1eb8ef58b76eceddcce55d8b23df62253323f43be38bc2cb0fa20fc7d",
+      "bytes": 3225
+    },
+    {
+      "path": "authorities/historical-utils.ts",
+      "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4",
+      "bytes": 7656
+    },
+    {
+      "path": "benchmark-receipt.schema.json",
+      "sha256": "6fb6a1bef2827947bb2d17af63bcf4b55ad1fecae9d4525ec8b38851c0838f43",
+      "bytes": 4436
+    },
+    {
+      "path": "benchmark-run-manifest.schema.json",
+      "sha256": "1918e2b125a418d81daa99c9664e384788ae39f4a6506559e3b0b96e77168e3e",
+      "bytes": 5442
+    },
+    {
+      "path": "benchmark-validator.mjs",
+      "sha256": "4d065d20f38104aa741646c2b3a602b7a7b4b5a55dd12aafa1f5bef782ecd3c8",
+      "bytes": 27374
+    },
+    {
+      "path": "boundary-review.schema.json",
+      "sha256": "60e721bbabed2143fd516f24f0922c6b0fc96f287771210a36ca060c756003ac",
+      "bytes": 7381
+    },
+    {
+      "path": "contract.ts",
+      "sha256": "12db0b8a89dfcf1a93a7b4b0e97f088cd8b617588bbc5a0620884e55c6ffc10b",
+      "bytes": 2411
+    },
+    {
+      "path": "feature-row.json",
+      "sha256": "6ac864f25cbf1f0c4788e66d489313e42862dc5c0427b43bb4cabf3ec54d3c96",
+      "bytes": 6637
+    },
+    {
+      "path": "fixtures/g7-controls.json",
+      "sha256": "86b5ade2c88b420f372b114579cb437e66977b37f62eb3ce2875e148f6945022",
+      "bytes": 726
+    },
+    {
+      "path": "harness.ts",
+      "sha256": "fc66d47f70b0500d57232e4d1a934b08b14f56aa82d686ae607f59ad8a688cf5",
+      "bytes": 16547
+    },
+    {
+      "path": "holdout-receipt.schema.json",
+      "sha256": "fb9258cff513bb8582422d8d9f84a12ba85a11d97ef9b0b445e69ddc60ae171f",
+      "bytes": 4664
+    },
+    {
+      "path": "lineage.json",
+      "sha256": "70547f84e16a6ad3cce672503d1a141d5124f91bb982bda3be2026c28416fad6",
+      "bytes": 5239
+    },
+    {
+      "path": "pre-author-receipt.schema.json",
+      "sha256": "ac25a7f0349c4d4268ad9105c9334f8529114f118cafe8e1034517e19dad9911",
+      "bytes": 2028
+    },
+    {
+      "path": "root-gestalt.schema.json",
+      "sha256": "e0fe2aebb61e3c57d42d74b905d2767e3be0cf68238b0a6413ab82892f261b3c",
+      "bytes": 5235
+    }
+  ],
+  "authorities": [
+    {
+      "path": "../../../../ADDENDA-07.md",
+      "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5",
+      "bytes": 20954
+    },
+    {
+      "path": "../../../../FEATURE-LEDGER.md",
+      "sha256": "9b8950a275f7b7cb8c83d12e30a75021528d1a69a6066faa7b315996b040c258",
+      "bytes": 12559
+    },
+    {
+      "path": "../../../../MODULE-DAG.md",
+      "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+      "bytes": 4880
+    },
+    {
+      "path": "../g5/authorities/css-syntax-3.Overview.bs",
+      "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "bytes": 144427
+    },
+    {
+      "path": "../g5/fixtures/public-cases.json",
+      "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+      "bytes": 5213
+    },
+    {
+      "path": "../g5/holdout-destruction.json",
+      "sha256": "79d4fca13fc1a40b7221683e89f9b698429d86ac92fd56b27b920837cc3de0aa",
+      "bytes": 3383
+    },
+    {
+      "path": "../g5/parse-that-package.ledger",
+      "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d",
+      "bytes": 5665
+    },
+    {
+      "path": "../g5/proof-inputs.ledger",
+      "sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1",
+      "bytes": 539
+    },
+    {
+      "path": "../g5/rejection.json",
+      "sha256": "0036b7f2133776c6f38d4040d354b1ba683e8ed759fda3d7d7849d6b9d1a69ca",
+      "bytes": 5317
+    },
+    {
+      "path": "../g5/root-gestalt.json",
+      "sha256": "1df1ba45ca725d24c8f88cb7bba5dfd8084741bb8286b9c43fef7e8cb97192e6",
+      "bytes": 12466
+    },
+    {
+      "path": "../g5/typescript-package.ledger",
+      "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+      "bytes": 12054
+    },
+    {
+      "path": "../g6/formation-receipt.json",
+      "sha256": "41601fe8a14eaab1dd550148f269f114ca7ddbf1978f3644365e90f913d6d0be",
+      "bytes": 5680
+    },
+    {
+      "path": "../g6/rejection.json",
+      "sha256": "5e24fdeaabc5e9df08ed866eb6a8420de439ce6fb52175dd5d99bcaa00f41bf2",
+      "bytes": 4057
+    },
+    {
+      "path": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts",
+      "sha256": "ca3a8e2cb9257f9d56e95b247c4b58e46524ae68a84172ea217d3eb3c4a24869",
+      "bytes": 2014
+    },
+    {
+      "path": "../../../package.json",
+      "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af",
+      "bytes": 755
+    },
+    {
+      "path": "../../../tsconfig.apotheosis.json",
+      "sha256": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39",
+      "bytes": 315
+    },
+    {
+      "path": "../../../tsconfig.json",
+      "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc",
+      "bytes": 586
+    },
+    {
+      "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf",
+      "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+      "bytes": 3084
+    }
+  ],
+  "precursor_row_count": 34,
+  "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+  "formation_state": {
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "holdout_files": 0,
+    "ciphertext_files": 0,
+    "manifest_files": 0,
+    "review_files": 0,
+    "root_files": 0,
+    "production_mutations": 0
+  },
+  "required_next": "A fresh custodian may form a fresh G7 holdout only over this exact formation identity and 34-row closure. Then two substantive independent boundary reviews and a distinct root must ACCEPT before the exact pre-author receipt can invite H/B/S/D authors.",
+  "credit": "ZERO: frozen precursor only; no holdout, candidate, parser, benchmark, feature, integration, movement, or production credit."
+}

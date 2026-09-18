@@ -1,0 +1,49 @@
+{
+ "rowFocus": {
+  "isActive": true,
+  "outlineStyle": "none",
+  "outlineWidth": "3px",
+  "outlineColor": "rgb(28, 25, 23)",
+  "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+  "background": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+  "classList": "flex items-center gap-3 px-3 py-2.5 transition-colors cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+ },
+ "forcedColors": {
+  "forced": true,
+  "rowOutline": "solid 2px rgba(128, 188, 254, 0.6)",
+  "rowBoxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+  "rowBg": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+  "pillColor": "oklch(0.519287 0.207684 9.834023)",
+  "pillBorder": "oklch(0.519287 0.207684 9.834023)",
+  "anyFocusSignal": true
+ },
+ "rtl": {
+  "dir": "rtl",
+  "rowBox": {
+   "x": 755,
+   "w": 460
+  },
+  "pillBox": {
+   "x": 951,
+   "w": 252
+  },
+  "pillText": "aurora-drifting-lantern-4471",
+  "pillDirAttr": null,
+  "pillUnicodeBidi": "normal",
+  "pillDirection": "rtl",
+  "actionBoxes": [
+   {
+    "l": "Palettes",
+    "x": 801,
+    "w": 89.9
+   },
+   {
+    "l": "Delete user aurora-drifting-lantern-4471",
+    "x": 767,
+    "w": 28
+   }
+  ],
+  "docScrollW": 1440,
+  "innerW": 1440
+ }
+}

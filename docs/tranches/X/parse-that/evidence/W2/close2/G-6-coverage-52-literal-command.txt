@@ -1,0 +1,76 @@
+=== X.P.W2.g — coverage-52-report (G-6: report, never cure) ===
+manifest   harness/totality/manifest.json — 52 exports (33 types + 19 runtime), derived 2026-09-17
+contract   ALGEBRA.md §9 — 52 rows read by the §9 row grammar
+surface    re-derived in-process from 52 exports of src/css/index.ts
+manifest names          52
+contract rows           52
+universe − map          ∅
+map − universe          ∅
+by class                V:31 · K:2 · P:10 · W:2 · X:7
+declared holes (W + X)  9
+
+#   export                      kind     class  production                    verb (assayed)  note
+--  --------------------------  -------  -----  ----------------------------  --------------  ------------------------
+1   AnimationRangeValue         type     V      V:animation-range-value       ABSENT
+2   AnimationTimelineValue      type     V      V:animation-timeline-value    ABSENT
+3   AnimationTriggerValue       type     V      V:animation-trigger-value     ABSENT
+4   CSSAnimationOptions         type     V      V:animation-options           ABSENT
+5   CSSPropertyDescriptor       type     V      V:property-descriptor         ABSENT
+6   CSSTimelineOptions          type     V      V:timeline-options            ABSENT
+7   CollectedRule               type     V      V:collected-rule              ABSENT
+8   CssColor                    type     V      V:color                       ABSENT
+9   CssColorSpace               type     V      V:color-space                 ABSENT
+10  CssLinearStop               type     V      V:linear-stop                 ABSENT
+11  CssTimingFunction           type     V      V:timing-function             ABSENT
+12  CustomFunctionDescriptor    type     V      V:custom-function-descriptor  ABSENT
+13  CustomFunctionParameter     type     V      V:custom-function-parameter   ABSENT
+14  CustomFunctionRule          type     V      V:custom-function-rule        ABSENT
+15  Declaration                 type     V      V:declaration                 ABSENT
+16  KeyframeRule                type     V      V:keyframe-rule               ABSENT
+17  KeyframeSelector            type     V      V:keyframe-selector           ABSENT
+18  KeyframesBlock              type     V      V:keyframes-block             ABSENT
+19  ParseIssue                  type     K      K:issue                       ABSENT
+20  ParseResult                 type     K      K:result                      ABSENT
+21  PropertyRule                type     V      V:property-rule               ABSENT
+22  RangeBoundary               type     V      V:range-boundary              ABSENT
+23  RangePhase                  type     V      V:range-phase                 ABSENT
+24  ScrollTimelineDescriptor    type     V      V:scroll-timeline-descriptor  ABSENT
+25  ScrollerKeyword             type     V      V:scroller-keyword            ABSENT
+26  StyleRule                   type     V      V:style-rule                  ABSENT
+27  Stylesheet                  type     V      V:stylesheet                  ABSENT
+28  StylesheetItem              type     V      V:stylesheet-item             ABSENT
+29  TimelineAxis                type     V      V:timeline-axis               ABSENT
+30  TimelineScopeValue          type     V      V:timeline-scope-value        ABSENT
+31  TriggerType                 type     V      V:trigger-type                ABSENT
+32  ViewInset                   type     V      V:view-inset                  ABSENT
+33  ViewTimelineDescriptor      type     V      V:view-timeline-descriptor    ABSENT
+34  parseCssColor               runtime  P      P:color                       ABSENT
+35  parseCssScalar              runtime  P      P:scalar                      ABSENT
+36  parseCssValue               runtime  P      P:value                       ABSENT
+37  parseCssValues              runtime  P      P:value-list                  ABSENT
+38  parseKeyframeSelector       runtime  P      P:keyframe-selector           ABSENT
+39  parseTimingFunction         runtime  P      P:timing-function             ABSENT
+40  serializeCssColor           runtime  W      W:color                       ABSENT          declared hole (owner W3)
+41  coerceToSyntax              runtime  P      P:syntax-coerce               ABSENT
+42  parseAnimationRange         runtime  P      P:animation-range             ABSENT
+43  parseAnimationTimeline      runtime  P      P:animation-timeline          ABSENT
+44  serializeTimelineOptions    runtime  W      W:timeline-options            ABSENT          declared hole (owner W3)
+45  collectAnimationOptions     runtime  X      X:animation-options           ABSENT          declared hole (owner W3)
+46  collectCustomFunctions      runtime  X      X:custom-functions            ABSENT          declared hole (owner W3)
+47  collectDeclarations         runtime  X      X:declarations                ABSENT          declared hole (owner W3)
+48  collectKeyframes            runtime  X      X:keyframes                   ABSENT          declared hole (owner W3)
+49  collectPropertyDescriptors  runtime  X      X:property-descriptors        ABSENT          declared hole (owner W3)
+50  collectStyleRules           runtime  X      X:style-rules                 ABSENT          declared hole (owner W3)
+51  collectTimelineOptions      runtime  X      X:timeline-options            ABSENT          declared hole (owner W3)
+52  parseStylesheet             runtime  P      P:stylesheet                  ABSENT
+
+subject                                                           p2-native — no CSS surface exists under /Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css
+verbs, this run (W1's own assay, re-run — never hand-edited)      ABSENT:52
+aggregate (W1's tally)                                            {"TOTAL":0,"PARTIAL":0,"ABSENT":52}
+throws recorded by the assay                                      0
+inherited · GATE-VERDICT P-2 (the incumbent's measured distance)  0 TOTAL / 3 PARTIAL / 16 ABSENT runtime + 33 types ABSENT; kf seams 3/37
+inherited · X.P.W1 `p2-native` (the fresh root's own distance)    0 TOTAL / 0 PARTIAL / 52 ABSENT
+inherited · mapped productions before X.P.W2.c                    0
+OP-8                                                              this gate REPORTS. 52/52 TOTAL is the band's staged CLOSE gate; a W2 run that claimed it would have overreached by definition.
+map digest                                                        334fa95778e00727b945f66bac7af5dd
+GREEN — the 52-map joins W1's manifest ∅ both ways (52 rows; classes V:31 K:2 P:10 W:2 X:7), verbs assayed against p2-native

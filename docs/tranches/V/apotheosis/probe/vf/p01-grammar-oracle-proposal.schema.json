@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-grammar-oracle-proposal-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "slot", "input_epoch_hash", "execution_manifest", "origin_ledger_hash", "css_corpus_hash", "parse_that_package_receipt_hash", "proposal_root", "test_root", "fixture_root", "tests", "fixtures", "oracle_contract", "manifest_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-grammar-oracle-proposal/1" },
+    "slot": { "const": "grammar-oracle" },
+    "input_epoch_hash": { "$ref": "#/$defs/sha256" },
+    "execution_manifest": { "$ref": "#/$defs/executionBinding" },
+    "origin_ledger_hash": { "$ref": "#/$defs/sha256" },
+    "css_corpus_hash": { "$ref": "#/$defs/sha256" },
+    "parse_that_package_receipt_hash": { "$ref": "#/$defs/sha256" },
+    "proposal_root": { "$ref": "#/$defs/absolutePath" },
+    "test_root": { "$ref": "#/$defs/absolutePath" },
+    "fixture_root": { "$ref": "#/$defs/absolutePath" },
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["bbnf_path", "test_path", "sha256"],
+        "properties": {
+          "bbnf_path": { "$ref": "#/$defs/bbnfPath" },
+          "test_path": { "$ref": "#/$defs/testPath" },
+          "sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "fixtures": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "fixture_path", "sha256"],
+        "properties": {
+          "case_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._:-]*$" },
+          "fixture_path": { "type": "string", "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$))[A-Za-z0-9._/-]+$" },
+          "sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "oracle_contract": {
+      "const": {
+        "source": "pinned-bbnf-responsibilities-and-css-corpus",
+        "implementation_read_before_freeze": false,
+        "generated_or_copied_from_implementation": false,
+        "cst": true,
+        "malformed_input": true,
+        "original_utf16_spans": true,
+        "diagnostics": true,
+        "exact_edit_canonical_serialization": true,
+        "route_traces": true,
+        "active_t_u_or_bank_input": false
+      }
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "bbnfPath": { "type": "string", "pattern": "^grammar/css/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.bbnf$" },
+    "testPath": { "type": "string", "pattern": "^test/src/css/grammar/(?:[a-z0-9][a-z0-9-]*/)*[a-z0-9][a-z0-9-]*\\.test\\.ts$" },
+    "executionBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/.*/test/proof/p00/css-module-isomorphism\\.execution\\.json$" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

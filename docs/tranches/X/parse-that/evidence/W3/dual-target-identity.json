@@ -1,0 +1,243 @@
+{
+  "schema": "x-p-w3-d/dual-target-identity@1",
+  "note": "G-5 — DUAL-TARGET RECOVERY IDENTITY. The declared six-tuple {ok, code, start, end, expected, actual} compared byte-for-byte between the source-direct JS lowering and the zero-function-import Wasm lowering, over the graduated corpus. Canonicalization fixes KEY order only: no array is sorted, because `expected` order is part of a diagnostic's meaning (W3.md §6 G-5's falsifier).",
+  "generatedBy": "typescript/scripts/css-dual-target-identity.mjs",
+  "artifacts": {
+    "js": {
+      "path": "src/css/build/ac1.js",
+      "sha256": "5f300b7ea43e1d38fde7a91fc1a924a1b566d92382e031b9b520c8a599091c64"
+    },
+    "wasm": {
+      "path": "src/css/build/ac1.wasm",
+      "sha256": "7ce0382b2271658592166e4ac2eb5df3de2ba7240b376defaa5791be89a7baa4"
+    },
+    "specCommandPaths": {
+      "js": "dist/css.js",
+      "wasm": "dist/css.wasm"
+    },
+    "transcription": "W3.md §6 G-5 was authored 2026-08-03, before AC-1 was selected; the graduated survivor's artifacts are src/css/build/ac1.{js,wasm} and the two lowerings are published through src/css/entry.mjs. Both spec flags are accepted and default to these paths."
+  },
+  "canonicalization": {
+    "keyOrder": [
+      "ok",
+      "code",
+      "start",
+      "end",
+      "expected",
+      "actual"
+    ],
+    "sortsArrays": false,
+    "roundsNumbers": false,
+    "undefinedNormalizedToNull": true
+  },
+  "corpus": {
+    "path": "test/css-totality/corpus.json",
+    "rows": 26604,
+    "distinct": 26551,
+    "run": 26551,
+    "unwrappedForFc3": 172,
+    "rowsSha256": "559e84bfb632b1402d37d5832dbb9c45477b8f1ab82db7a2caae8468e5863152",
+    "rowsSha256Agrees": true
+  },
+  "entries": [
+    "parseCssColor",
+    "parseTimingFunction",
+    "parseStylesheet"
+  ],
+  "rows": [
+    {
+      "entry": "parseCssColor",
+      "cells": 26551,
+      "differ": 0,
+      "allIssueDiffer": 0,
+      "valueDiffer": 0,
+      "threw": 0,
+      "samples": []
+    },
+    {
+      "entry": "parseTimingFunction",
+      "cells": 26551,
+      "differ": 0,
+      "allIssueDiffer": 0,
+      "valueDiffer": 0,
+      "threw": 0,
+      "samples": []
+    },
+    {
+      "entry": "parseStylesheet",
+      "cells": 26551,
+      "differ": 0,
+      "allIssueDiffer": 0,
+      "valueDiffer": 0,
+      "threw": 0,
+      "samples": []
+    }
+  ],
+  "boundary": [
+    {
+      "id": "b7-0",
+      "js": "undefined",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-0",
+      "js": "undefined",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-0",
+      "js": "undefined",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-1",
+      "js": "null",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-1",
+      "js": "null",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-1",
+      "js": "null",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-2",
+      "js": "42",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-2",
+      "js": "42",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-2",
+      "js": "42",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-3",
+      "js": "{}",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-3",
+      "js": "{}",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-3",
+      "js": "{}",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-4",
+      "js": "[]",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-4",
+      "js": "[]",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-4",
+      "js": "[]",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-5",
+      "js": "true",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-5",
+      "js": "true",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-5",
+      "js": "true",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-6",
+      "js": "NaN",
+      "entry": "parseCssColor",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-6",
+      "js": "NaN",
+      "entry": "parseTimingFunction",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    },
+    {
+      "id": "b7-6",
+      "js": "NaN",
+      "entry": "parseStylesheet",
+      "identical": true,
+      "canonical": "{\"ok\":false,\"code\":\"css_syntax\",\"start\":0,\"end\":0,\"expected\":[\"<string source>\"],\"actual\":null}"
+    }
+  ],
+  "totals": {
+    "cells": 79674,
+    "sixTupleDifferingCells": 0,
+    "differingBytes": 0,
+    "fullDiagnosticsDifferingCells": 0,
+    "valueDifferingCells": 0,
+    "throwCells": 0
+  },
+  "gate": {
+    "id": "G-5",
+    "condition": "zero differing bytes in the declared six-tuple, over every corpus input, in both targets",
+    "reading": "GREEN"
+  },
+  "besideTheGate": {
+    "condition": "value identity of every accepted parse across both targets — an addition to G-5's letter, never a substitute",
+    "reading": "GREEN",
+    "valueDifferingCells": 0
+  }
+}

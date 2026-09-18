@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-bbnf-host-control-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "purpose", "imports_active_novelty", "runtime", "bbnf", "parse_that", "commands", "known_upstream_defects", "manifest_hash"],
+  "properties": {
+    "schema": { "const": "vnext-bbnf-host-control/1" },
+    "purpose": { "type": "string", "minLength": 1 },
+    "imports_active_novelty": { "const": false },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["node", "npm"],
+      "properties": {
+        "node": { "const": "v26.0.0" },
+        "npm": { "const": "11.12.1" }
+      }
+    },
+    "bbnf": { "$ref": "#/$defs/source" },
+    "parse_that": {
+      "allOf": [
+        { "$ref": "#/$defs/source" },
+        {
+          "type": "object",
+          "required": ["package_version", "packed_tarball", "packed_tarball_sha256"],
+          "properties": {
+            "package_version": { "const": "0.6.0" },
+            "packed_tarball": { "const": "mkbabb-parse-that-0.6.0.tgz" },
+            "packed_tarball_sha256": { "$ref": "#/$defs/sha256" }
+          }
+        }
+      ]
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parse_that", "bbnf", "css_control"],
+      "properties": {
+        "parse_that": { "$ref": "#/$defs/commands" },
+        "bbnf": { "$ref": "#/$defs/commands" },
+        "css_control": { "$ref": "#/$defs/commands" }
+      }
+    },
+    "known_upstream_defects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "disposition"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "disposition": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "manifest_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "source": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["repository", "ref", "commit", "archive_paths", "archive_sha256", "package_json_sha256", "package_lock_sha256"],
+      "properties": {
+        "repository": { "type": "string", "pattern": "^/" },
+        "ref": { "type": "string", "minLength": 1 },
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "archive_paths": {
+          "const": ["typescript", "grammar"]
+        },
+        "archive_sha256": { "$ref": "#/$defs/sha256" },
+        "package_json_sha256": { "$ref": "#/$defs/sha256" },
+        "package_lock_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "commands": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}

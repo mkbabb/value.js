@@ -1,0 +1,32 @@
+{
+  "arm_1440": {
+    "rowPaddingBlock": "10px / 10px",
+    "rowPaddingInline": "12px / 12px",
+    "actionClusterGap": "6px",
+    "listGap": "12px",
+    "spacingToken": "0.25rem",
+    "cardShellsOnRoute": 2,
+    "cardShellsInsideAdminPanel": 0
+  },
+  "arm_1440_expanded": {
+    "cardShellsInsideAdminPanel": 0,
+    "cardTuples": [],
+    "nestedBoundaryDepth": 0,
+    "cardMenuButtons": 1
+  },
+  "arm_390": {
+    "rowPaddingBlock": "10px / 10px",
+    "rowPaddingInline": "12px / 12px",
+    "actionClusterGap": "6px",
+    "listGap": "12px",
+    "spacingToken": "0.25rem",
+    "cardShellsOnRoute": 1,
+    "cardShellsInsideAdminPanel": 0
+  },
+  "arm_390_expanded": {
+    "cardShellsInsideAdminPanel": 0,
+    "cardTuples": [],
+    "nestedBoundaryDepth": 0,
+    "cardMenuButtons": 1
+  }
+}

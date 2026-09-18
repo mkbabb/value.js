@@ -1,0 +1,70 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G3-FORMATION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 3,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "cell": "cells/syntax-consume-number/g3",
+  "retained_boundary": "Consume the maximal CSS Syntax §4.3.13 number prefix at the current parse-that position and return exactly value/type/sign, with binary64 and Object.is semantics and number/integer/percentage/dimension composition witnesses.",
+  "g2_union_docket": [
+    { "path": "../g2/reviews/challenge-a-specification.md", "sha256": "7e555146be8158ec9ba1c3c67b3fb9d6bc4546116e73470a22ff4364e2f97e48", "bytes": 11880, "verdict": "REJECT" },
+    { "path": "../g2/reviews/challenge-b-architecture.md", "sha256": "26f5b9ca277a4c7c7eb89e36a444f74fc2729a28e1dc98a60f8e60282d643007", "bytes": 12361, "verdict": "REJECT" },
+    { "path": "../g2/root-gestalt.md", "sha256": "d8ad7e04f5a37797b2bac6c1c0ec6f32ca1292939249428a32b692487385f1ec", "bytes": 4820, "verdict": "REJECTED_BEFORE_CANDIDATES" },
+    { "path": "../g2/rejection.json", "sha256": "22028ecdac55b949623375c07c7dd484f08d184cd908accc946480bd58121bc5", "bytes": 2157 }
+  ],
+  "union_repairs": {
+    "semantic_leaf": "Reflect.ownKeys is exactly value/type/sign; Object.prototype is exact; all three are ordinary writable/enumerable/configurable own data properties.",
+    "proof_closure": "proof-inputs.ledger binds package.json, parent and child TypeScript configs, Vitest config, clean-base declaration, and the entire active grammar tree. Parse-that and TypeScript trees retain exact ledgers.",
+    "admission": "author-admission-validator.mjs is not a promotion gate. It captures inputs once, computes from captured buffers, closes paths/bytes before and after, directly binds the future ciphertext, and requires two exact ACCEPT boundary verdicts plus ACCEPT root gestalt before authors.",
+    "compiler": "The TypeScript implementation and every compiler source are captured tool-ledger buffers; the compiler is evaluated from its captured buffer and all SourceFiles are constructed from captured buffers.",
+    "candidate_floor": "Positive public-combinator construction, exact type, anti-state/source syntax, exact four-seat topology, pairwise-distinct bytes and authors, and independent receipts are mechanical floors. Four skeptic proofs remain required later.",
+    "seats": ["h", "b", "s", "d"],
+    "benchmark": "One executable runner and exact receipt schema use balanced four-round Williams orders, 8 warmup and 40 measured rounds, fixed 16-corpus batching, O(1) preallocated observation folding, 100000 shared-index paired log-ratio bootstrap resamples, and a Bonferroni family-wise 98.75th-percentile every-peer strict-win rule. Allocation is non-adjudicative."
+  },
+  "precursor_byte_closure": [
+    { "path": "author-admission-protocol.json", "sha256": "1fb2f4c510e576571c2f786d6f7b33dfdd6340bde86ad4baef84cdeae040e23d", "bytes": 5343 },
+    { "path": "author-admission-validator.mjs", "sha256": "14524bfaa0afccfb4a02f9152049e74b108ddee2ba701392714208c18378f071", "bytes": 35316 },
+    { "path": "benchmark-receipt.schema.json", "sha256": "b960bac7857e6e7aaf0ae7e52ebe6035a135a14ee578c37ef83aa30a0a0e6dfb", "bytes": 8207 },
+    { "path": "benchmark-runner.mjs", "sha256": "2c014fdc98388cde91d171161d76f1f968552b0ad173e87b4c0123f235745d31", "bytes": 18274 },
+    { "path": "contract.ts", "sha256": "81f1baa47137d3e1a7cdb5b0c589af14e9a1a10a94cb32e047b8ed2b4201141f", "bytes": 1740 },
+    { "path": "feature-public.json", "sha256": "7b8fb47b480c215edbd2cb8900edc520f6ab572010e5da91e949a1c16bd8b89c", "bytes": 10499 },
+    { "path": "fixtures/public-cases.json", "sha256": "0fa682a7b4d103aa99f4a5e9dffedff0ae91418ae747b8fe4401b2185abc74a6", "bytes": 5213 },
+    { "path": "harness.ts", "sha256": "557bad5b92e8e3cf914848e3601dcabce43f571b0d5043c4437b497c5eb86fa0", "bytes": 12797 },
+    { "path": "parse-that-package.ledger", "sha256": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d", "bytes": 5665 },
+    { "path": "proof-inputs.ledger", "sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1", "bytes": 539 },
+    { "path": "typescript-package.ledger", "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47", "bytes": 12054 }
+  ],
+  "proof_input_closure": {
+    "package_json": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af/755",
+    "tsconfig_json": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc/586",
+    "tsconfig_apotheosis_json": "32ab097846458d2df074bc13e8682d605872cb6f6eef2fbd5b4fa7f05bbcca39/315",
+    "vitest_config": "95117ad7b8cfbb108b50a99763a68a0c538829620b8b979028113c7017e2c2b9/216",
+    "clean_base": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2/1177",
+    "active_tree": ["77f8aaf85e4cf7dc85a7b3fc890a7bb63ba25018a5f10db9ebe55ad2a38b71b2/241 apotheosis/grammar/css/l4/README.md"]
+  },
+  "public_fixture_counts": { "number_start_prefix_evidence": 6, "prefix_cases": 23, "composition_cases": 6, "hostile_cases": 4, "total_rows": 39 },
+  "formation_assays": [
+    { "name": "package-default-check", "result": "PASS_EXIT_0" },
+    { "name": "package-default-test", "result": "PASS_EXIT_0_NO_TEST_FILES_NO_FEATURE_CREDIT" },
+    { "name": "direct-strict-contract-harness", "result": "PASS" },
+    { "name": "public-harness-valid-whole-prefix-parser", "result": "PASS_138_ASSERTIONS_4_HOSTILE" },
+    { "name": "semantic-shape-attacks", "result": "REJECTED_4_OF_4_NONENUMERABLE_SYMBOL_NULL_PROTOTYPE_ACCESSOR" },
+    { "name": "captured-buffer-positive-H-source-assay", "result": "PASS_EXACT_TOPOLOGY_TYPE_65_COMPILER_SOURCES" },
+    { "name": "candidate-bypass-negative-controls", "result": "REJECTED_8_OF_8_PARSERSTATE_ELEMENT_DESTRUCTURE_REFLECT_MAPSTATE_WRONG_PAYLOAD_CONSTRUCTOR_WRONG_TOPOLOGY" },
+    { "name": "benchmark-runner-self-check", "result": "PASS_BALANCE_OBSERVER_SYNTHETIC_STRICT_WINNER" },
+    { "name": "author-admission-validator-self-check", "result": "PASS_EXACT_CLOSURES" }
+  ],
+  "formation_state": {
+    "candidate_source_files": 0,
+    "candidate_directories": 0,
+    "manifest_files": 0,
+    "g3_holdout_files": 0,
+    "g3_ciphertext_files": 0,
+    "g3_challenge_files": 0,
+    "g3_root_gestalt_files": 0,
+    "active_grammar_mutations": 0
+  },
+  "acceptance_deferred": ["public runtime receipt", "revealed fresh holdout receipt", "four-seat benchmark receipt", "four skeptic receipts", "adjudicator receipt", "integration receipt", "projection/package-default receipt", "separate acceptance validator"],
+  "next": "Freeze these exact bytes; form a wholly fresh G3 holdout and directly bound ciphertext; obtain two fresh exact ACCEPT boundary JSON verdicts and one ACCEPT root JSON gestalt; only then invite four independent H/B/S/D authors.",
+  "receipt_self_identity": "The future owner-sealed manifest must bind this receipt's exact SHA-256 and byte length; self-hashing is impossible and the handoff reports them externally.",
+  "credit": "ZERO: no candidate, feature, parser, benchmark result, integration, conformance, production, or promotion credit."
+}

@@ -97,8 +97,7 @@ async function typeVoice(locator: import("@playwright/test").Locator) {
             fontWeight: cs.fontWeight,
             fontStyle: cs.fontStyle,
             lineClamp:
-                (cs as unknown as Record<string, string>).webkitLineClamp ??
-                "none",
+                (cs as unknown as Record<string, string>).webkitLineClamp ?? "none",
             overflow: cs.overflow,
         };
     });
@@ -188,16 +187,12 @@ test("O-10d census — every heading across the 7-view walk speaks the display v
         ).toBeVisible();
 
         const headings = await censusHeadings(page);
-        expect(
-            headings.length,
-            `${view}: census walked zero headings`,
-        ).toBeGreaterThan(0);
+        expect(headings.length, `${view}: census walked zero headings`).toBeGreaterThan(
+            0,
+        );
         for (const h of headings) {
             expect
-                .soft(
-                    h.fontFamily,
-                    `${view}: heading "${h.text}" off the display face`,
-                )
+                .soft(h.fontFamily, `${view}: heading "${h.text}" off the display face`)
                 .toMatch(DISPLAY_FACE);
         }
 
@@ -282,9 +277,7 @@ test("O-10d census — the 390 phone band: the card name clamps to TWO lines und
         .first();
     await expect(longTitle).toBeVisible();
     const voice = await typeVoice(longTitle);
-    expect(voice.fontFamily, "390: name off the display face").toMatch(
-        DISPLAY_FACE,
-    );
+    expect(voice.fontFamily, "390: name off the display face").toMatch(DISPLAY_FACE);
     expect(voice.lineClamp, "line-clamp-2 not active <sm").toBe("2");
     const twoLinesMax = await longTitle.evaluate((el) => {
         const cs = getComputedStyle(el);
@@ -453,15 +446,18 @@ test("O-10d census — MigratePalettesDialog (session-gated): the SOURCE registe
     const sfc = readFileSync(
         fileURLToPath(
             new URL(
-                "../../../demo/@/components/custom/palette-browser/dialog/MigratePalettesDialog.vue",
+                // X-W1 R2 (A-10): this dereferenced
+                // `demo/@/components/custom/palette-browser/dialog/…`, a tree
+                // DELETED at `a61094e3`, so the census threw ENOENT before any
+                // assertion and had done so unobserved. Re-pointed at the
+                // component's live home.
+                "../../../demo/palettes/browser/dialog/MigratePalettesDialog.vue",
                 import.meta.url,
             ),
         ),
         "utf8",
     );
-    const titleLine = sfc
-        .split("\n")
-        .find((l) => l.includes("<DialogTitle"));
+    const titleLine = sfc.split("\n").find((l) => l.includes("<DialogTitle"));
     expect(titleLine, "MigratePalettesDialog lost its DialogTitle").toBeTruthy();
     expect(
         titleLine,

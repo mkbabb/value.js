@@ -1,5 +1,9 @@
 # Value 4 release
 
+> **HISTORICAL / IMMUTABLE COORDINATE (V-A130):** `@mkbabb/value.js@4.0.0` has already been published with provenance. This file remains the producer workflow record; do not rerun its tag/publish recipe from this checkout. The live V release boundary is the Glass-only W17/W33 close.
+
+Observed immutable coordinate: gitHead `44ddaff7a22283a4f7a42608893eeae7bc234424`; tarball [value.js-4.0.0.tgz](https://registry.npmjs.org/@mkbabb/value.js/-/value.js-4.0.0.tgz); integrity `sha512-Z8ywb4htSxJlRFvoU1DNtvzr9Bsuaw9ahT/hvNlKbnRj6fTnLuXjn0itKq1Q5s6rwg24ct0zcLZ04BuR3/SzGw==`; shasum `ccb962e592fb42e6602fc2bb6afbfb1763788b9d`; provenance run `29497728532`.
+
 This is the canonical immutable publication path for `@mkbabb/value.js`.
 Value is the producer root of the Value → Keyframes → Glass dependency graph.
 It publishes from a registry-only lock and never resolves either consumer

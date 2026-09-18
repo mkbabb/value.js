@@ -1,0 +1,26 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1
+# ⟨cmd⟩ node harness/w2/wasm-audit.mjs --candidate ac1
+
+=== X.P.W2.g — wasm-audit --candidate ac1 (G-9) ===
+evidence root                                                       /Users/mkbabb/Programming/parse-that
+committed `wasm32` under rust/parse_that (OP-6)                     0 (exit 1, no output)
+uncommitted working-tree wasm32 files (K-10's forbidden substrate)  3
+file (evidence root, READ-ONLY)                  bytes  sha256
+-----------------------------------------------  -----  ----------------
+rust/parse_that/src/parsers/scan/number_simd.rs  7771   fe9217713262959f
+rust/parse_that/src/lib.rs                       1206   ad69ef56d65810ee
+rust/parse_that/src/scanners.rs                  19071  b4500d815ca548f0
+module bytes                           187341
+module sha256                          049b9904e829bedadf2dc12287013e33279a2079a43ddd4dd88c3a82611c6e22
+imports                                0
+imports by kind                        {}
+sections                               type, function, memory, global, export, code, data
+start section (a side channel counts)  absent
+exports                                run:function · setTheta:function · highWater:function · reset:function · memory:memory
+declared JS-artifact reproduction    node experiments/w2/ac1-tagless/build.mjs
+non-JS toolchain in that path (K-9)  none
+memory bytes before / after 2,000 steady-state parses  12582912 / 12582912
+GREEN — zero imports over all kinds, no start section, closed export set, no steady-state grow, substrate law intact
+
+# exit 0

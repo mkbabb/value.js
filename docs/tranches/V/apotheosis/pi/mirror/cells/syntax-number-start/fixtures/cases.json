@@ -1,0 +1,64 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 1,
+  "cases": [
+    { "id": "T-ROOT-DIGIT", "source": "0", "offset": 0, "starts": true, "continuation": "0" },
+    { "id": "T-ROOT-PLUS-DIGIT", "source": "+1", "offset": 0, "starts": true, "continuation": "+" },
+    { "id": "T-ROOT-MINUS-DOT-DIGIT", "source": "-.5", "offset": 0, "starts": true, "continuation": "-" },
+    { "id": "T-ROOT-DOT-DIGIT", "source": ".5", "offset": 0, "starts": true, "continuation": "." },
+    { "id": "T-ROOT-PERCENT-CONTINUATION", "source": "1%", "offset": 0, "starts": true, "continuation": "1" },
+    { "id": "T-ROOT-DIMENSION-CONTINUATION", "source": "1e3px", "offset": 0, "starts": true, "continuation": "1" },
+    { "id": "T-NONZERO-ASCII-PREFIX", "source": "xx+.5", "offset": 2, "starts": true, "continuation": "+" },
+    { "id": "T-NONZERO-ASTRAL-PREFIX", "source": "💩-.5", "offset": 2, "starts": true, "continuation": "-" },
+    { "id": "T-NONZERO-CR-PREFIX", "source": "\r1", "offset": 1, "starts": true, "continuation": "1" },
+    { "id": "T-NONZERO-LONE-HIGH-PREFIX", "sourceUtf16": [55296, 49], "offset": 1, "starts": true, "continuation": "1" },
+    { "id": "F-ROOT-EMPTY", "source": "", "offset": 0, "starts": false, "continuation": "" },
+    { "id": "F-ROOT-PLUS", "source": "+", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-ROOT-MINUS", "source": "-", "offset": 0, "starts": false, "continuation": "-" },
+    { "id": "F-ROOT-DOT", "source": ".", "offset": 0, "starts": false, "continuation": "." },
+    { "id": "F-ROOT-PLUS-DOT", "source": "+.", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-NONZERO-ASCII-PREFIX", "source": "xx+x", "offset": 2, "starts": false, "continuation": "+" },
+    { "id": "F-NONZERO-ASTRAL-PREFIX", "source": "💩+x", "offset": 2, "starts": false, "continuation": "+" },
+    { "id": "F-ARABIC-INDIC-DIGIT", "source": "١", "offset": 0, "starts": false, "continuation": "١" },
+    { "id": "F-FULLWIDTH-DIGIT", "source": "１", "offset": 0, "starts": false, "continuation": "１" },
+    { "id": "F-NUL-FIRST", "source": "\u0000", "offset": 0, "starts": false, "continuation": "\u0000" },
+    { "id": "F-NUL-SECOND", "source": "+\u00000", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-NUL-THIRD", "source": "+.\u0000", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-CR-FIRST", "source": "\r", "offset": 0, "starts": false, "continuation": "\r" },
+    { "id": "F-CR-SECOND", "source": "+\r0", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-CR-THIRD", "source": "+.\r", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-CRLF-FIRST", "source": "\r\n", "offset": 0, "starts": false, "continuation": "\r" },
+    { "id": "F-CRLF-SECOND", "source": "+\r\n0", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-FF-FIRST", "source": "\f", "offset": 0, "starts": false, "continuation": "\f" },
+    { "id": "F-FF-SECOND", "source": "+\f0", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-FF-THIRD", "source": "+.\f", "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-LONE-HIGH-FIRST", "sourceUtf16": [55296], "offset": 0, "starts": false, "continuationUtf16": [55296] },
+    { "id": "F-LONE-HIGH-SECOND", "sourceUtf16": [43, 55296, 48], "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-LONE-LOW-FIRST", "sourceUtf16": [56320], "offset": 0, "starts": false, "continuationUtf16": [56320] },
+    { "id": "F-LONE-LOW-THIRD", "sourceUtf16": [43, 46, 56320], "offset": 0, "starts": false, "continuation": "+" },
+    { "id": "F-ASTRAL-FIRST", "source": "💩", "offset": 0, "starts": false, "continuation": "💩" },
+    { "id": "F-ASTRAL-SECOND", "source": "+💩0", "offset": 0, "starts": false, "continuation": "+" }
+  ],
+  "deterministic_hostile": [
+    {
+      "id": "H-PREFIX-1M-TRUE",
+      "generator": "'x'.repeat(1000000) + '+.5'",
+      "utf8_bytes": 1000003,
+      "sha256": "346a45509695d35ee34fbacdf6868e8639c388c8f8ab61b4ebb1e35634c0033d"
+    },
+    {
+      "id": "H-ASTRAL-PREFIX-1M-FALSE",
+      "generator": "'💩'.repeat(500000) + '+x'",
+      "utf8_bytes": 2000002,
+      "sha256": "7beb0dc60ac2ec0d9c2de0b58ef2bf495d3906528671cc9713558ce0da3915ea"
+    },
+    {
+      "id": "H-CR-PREFIX-1M-TRUE",
+      "generator": "'\\r'.repeat(1000000) + '-.5'",
+      "utf8_bytes": 1000003,
+      "sha256": "0b0b6056e5f9ee5f9bfefb0347cab43876beb55ed23f6fb560d11d3497f460cc"
+    }
+  ],
+  "round_trip": "NOT_APPLICABLE_NO_SERIALIZATION",
+  "non_string": "OUT_OF_SCOPE_INTERNAL_GRAMMAR_ROOT"
+}

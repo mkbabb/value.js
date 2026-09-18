@@ -1,0 +1,190 @@
+{
+  "n1": {
+    "rows": 1,
+    "rowsDetail": [
+      {
+        "head": "1 → 2linear",
+        "expanded": "true",
+        "ink": "oklch(43.810195780825% 0.074812296191 205deg)",
+        "glyphStroke": "oklch(0.438102 0.074812 205)",
+        "rowRect": [
+          259.5,
+          552.9,
+          462,
+          196.8
+        ],
+        "headRect": [
+          260.5,
+          553.9,
+          460,
+          39.2
+        ],
+        "insetTop": 1,
+        "insetBottom": 156.64,
+        "insetLeft": 1,
+        "insetRight": 1,
+        "name": "linear",
+        "nameTrunc": false
+      }
+    ],
+    "distinctInks": 1,
+    "codes": [
+      "cubic-bezier(0, 0, 1, 1)"
+    ],
+    "specimenTiles": 27,
+    "svgPlots": 1,
+    "fadingScrolls": 1,
+    "allElements": 511,
+    "routeFocusables": 55,
+    "openRows": 1,
+    "easingSectionRect": [
+      259.5,
+      552.9,
+      462,
+      196.8
+    ],
+    "tuneButtons": 1,
+    "tryAgain": false
+  },
+  "n4": {
+    "rows": 4,
+    "rowsDetail": [
+      {
+        "head": "1 → 2linear",
+        "expanded": "true",
+        "ink": "oklch(43.469038579257% 0.099399119984 159.340000888644deg)",
+        "glyphStroke": "oklch(0.43469 0.099399 159.339996)",
+        "rowRect": [
+          259.5,
+          552.9,
+          462,
+          196.8
+        ],
+        "headRect": [
+          260.5,
+          553.9,
+          460,
+          39.2
+        ],
+        "insetTop": 1,
+        "insetBottom": 156.64,
+        "insetLeft": 1,
+        "insetRight": 1,
+        "name": "linear",
+        "nameTrunc": false
+      },
+      {
+        "head": "2 → 3linear",
+        "expanded": "false",
+        "ink": "oklch(43.732848103753% 0.075698781501 189.279996950463deg)",
+        "glyphStroke": "oklch(0.437328 0.075699 189.279999)",
+        "rowRect": [
+          259.5,
+          757.7,
+          462,
+          41.2
+        ],
+        "headRect": [
+          260.5,
+          758.7,
+          460,
+          39.2
+        ],
+        "insetTop": 1,
+        "insetBottom": 1,
+        "insetLeft": 1,
+        "insetRight": 1,
+        "name": "linear",
+        "nameTrunc": false
+      },
+      {
+        "head": "3 → 4linear",
+        "expanded": "false",
+        "ink": "oklch(44.026754204879% 0.080501071573 220.599992418895deg)",
+        "glyphStroke": "oklch(0.440268 0.080501 220.599991)",
+        "rowRect": [
+          259.5,
+          806.9,
+          462,
+          41.2
+        ],
+        "headRect": [
+          260.5,
+          807.9,
+          460,
+          39.2
+        ],
+        "insetTop": 1,
+        "insetBottom": 1,
+        "insetLeft": 1,
+        "insetRight": 1,
+        "name": "linear",
+        "nameTrunc": false
+      },
+      {
+        "head": "4 → 5linear",
+        "expanded": "false",
+        "ink": "oklch(44.705397762895% 0.128800163254 250.659996357076deg)",
+        "glyphStroke": "oklch(0.447054 0.1288 250.660004)",
+        "rowRect": [
+          259.5,
+          856.1,
+          462,
+          41.2
+        ],
+        "headRect": [
+          260.5,
+          857.1,
+          460,
+          39.2
+        ],
+        "insetTop": 1,
+        "insetBottom": 1,
+        "insetLeft": 1,
+        "insetRight": 1,
+        "name": "linear",
+        "nameTrunc": false
+      }
+    ],
+    "distinctInks": 4,
+    "codes": [
+      "cubic-bezier(0, 0, 1, 1)",
+      "cubic-bezier(0, 0, 1, 1)",
+      "cubic-bezier(0, 0, 1, 1)",
+      "cubic-bezier(0, 0, 1, 1)"
+    ],
+    "specimenTiles": 108,
+    "svgPlots": 4,
+    "fadingScrolls": 4,
+    "allElements": 1109,
+    "routeFocusables": 67,
+    "openRows": 1,
+    "easingSectionRect": [
+      259.5,
+      552.9,
+      462,
+      344.5
+    ],
+    "tuneButtons": 4,
+    "tryAgain": false
+  },
+  "collapsedFocus": {
+    "isFocused": true,
+    "matchesFocusVisible": true,
+    "outline": "none 3px rgb(28, 25, 23)",
+    "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+    "rowOverflow": "hidden",
+    "insets": {
+      "t": 1,
+      "b": 1,
+      "l": 1,
+      "r": 1
+    },
+    "rowH": 41.2,
+    "headH": 39.2
+  },
+  "pageErrors": [],
+  "consoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+  ]
+}

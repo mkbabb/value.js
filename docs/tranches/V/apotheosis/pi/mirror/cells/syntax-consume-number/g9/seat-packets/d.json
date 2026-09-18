@@ -1,0 +1,12 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "seat": "d",
+  "lineage": "engine-native minimal clean room",
+  "source_inputs": [
+    { "path": "../../../node_modules/@mkbabb/parse-that/dist/leaf.d.ts", "sha256": "ca3a8e2cb9257f9d56e95b247c4b58e46524ae68a84172ea217d3eb3c4a24869", "bytes": 2014 },
+    { "path": "../g5/fixtures/public-cases.json", "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3", "bytes": 5213 }
+  ],
+  "instruction": "Choose the smallest readable direct public parse-that construction satisfying the contract, without importing any peer recognizer. Do not consult H, B, or S sources or candidates.",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

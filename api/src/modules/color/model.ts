@@ -18,7 +18,12 @@ export interface ProposedName {
     name: string;
     css: string;
     status: ProposedNameStatus;
-    contributor: string | null;
+    /**
+     * Server-derived attribution: the slug of the authenticated Principal who
+     * proposed the name (V·W45 item 3). NEVER a caller-controlled body field.
+     * `null` for legacy/seeded rows with no known proposer.
+     */
+    proposerSlug: string | null;
     createdAt: Date;
     approvedAt: Date | null;
 }

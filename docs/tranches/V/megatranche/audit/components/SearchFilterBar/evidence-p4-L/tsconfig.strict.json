@@ -1,0 +1,8 @@
+{
+    "extends": "/Users/mkbabb/Programming/value.js/tsconfig.demo.json",
+    "vueCompilerOptions": { "strictTemplates": true },
+    "include": [
+        "/Users/mkbabb/Programming/value.js/demo/palettes/browser/search/SearchFilterBar.vue",
+        "/Users/mkbabb/Programming/value.js/src/vite-env.d.ts"
+    ]
+}

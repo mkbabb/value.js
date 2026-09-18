@@ -1,0 +1,134 @@
+{
+  "geomBeforeOpen": {
+    "cardLeft": 673,
+    "cardWidth": 462,
+    "scrollY": 0,
+    "docScrollW": 1280,
+    "innerW": 1280,
+    "bodyPadRight": "0px",
+    "bodyOverflow": "visible",
+    "hasVScroll": false
+  },
+  "geomAfterOpen": {
+    "cardLeft": 673,
+    "cardWidth": 462,
+    "scrollY": 0,
+    "docScrollW": 1280,
+    "innerW": 1280,
+    "bodyPadRight": "0px",
+    "bodyOverflow": "hidden"
+  },
+  "layoutShiftPx": {
+    "left": 0,
+    "width": 0
+  },
+  "subTriggerBox": {
+    "x": 936,
+    "y": 752.6875,
+    "width": 178,
+    "height": 45.59375
+  },
+  "subBeforeTouch": {
+    "ariaExpanded": "false",
+    "dataState": "closed",
+    "subContentInDom": true,
+    "menuCount": 1
+  },
+  "subAfterTouchTap": {
+    "ariaExpanded": "false",
+    "dataState": "closed",
+    "subContentInDom": true,
+    "menuCount": 1
+  },
+  "subItemsAfterTouch": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete"
+  ],
+  "subAfterMouseHover": {
+    "ariaExpanded": "true",
+    "dataState": "open",
+    "subContentInDom": true,
+    "menuCount": 2
+  },
+  "subItemsAfterHover": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete",
+    "JSON",
+    "CSS Custom Properties",
+    "Tailwind Config",
+    "SVG Swatch",
+    "PNG Swatch"
+  ],
+  "activeElementByFrame": [
+    {
+      "key": "INPUT|null|Palette name...",
+      "firstFrame": 0,
+      "tag": "INPUT",
+      "label": null,
+      "ph": "Palette name..."
+    },
+    {
+      "key": "BUTTON|Palette menu|null",
+      "firstFrame": 11,
+      "tag": "BUTTON",
+      "label": "Palette menu",
+      "ph": null
+    }
+  ],
+  "focusLog": [
+    {
+      "t": 5974,
+      "tag": "DIV",
+      "label": null,
+      "ph": null,
+      "cls": "dropdown-menu-content dropdown-menu__con"
+    },
+    {
+      "t": 6424,
+      "tag": "DIV",
+      "label": null,
+      "ph": null,
+      "cls": "dropdown-menu__item interactive-item gla"
+    },
+    {
+      "t": 6431,
+      "tag": "INPUT",
+      "label": null,
+      "ph": "Palette name...",
+      "cls": "input-bar-field"
+    },
+    {
+      "t": 6643,
+      "tag": "BUTTON",
+      "label": "Palette menu",
+      "ph": null,
+      "cls": "button tap-squish focus-ring glass-wash "
+    }
+  ],
+  "finalActiveElement": {
+    "tag": "BUTTON",
+    "label": "Palette menu",
+    "ph": null
+  },
+  "renameInputAxName": {
+    "placeholder": "Palette name...",
+    "ariaLabel": null,
+    "id": "",
+    "labelled": false
+  },
+  "publishItemAttrs": {
+    "ariaDisabled": null,
+    "dataDisabled": null,
+    "text": "Publish",
+    "pe": "auto"
+  },
+  "afterPublishConsole": [],
+  "afterPublishUnhandled": [],
+  "afterPublishPageErrors": [],
+  "afterPublishVisibleFeedback": "Failed to create session",
+  "afterPublishBodyTextTail": "dev misconfigured — run `npm run dev` Lab 92.0 % , 88.8 , 20.0 L a b α 92.0% 88.8 20.0 82.7% My Palettes2 (2 saved) Save, organize, and share your colors. Start a new palette 3 Failed to create session Second Probe Palette 2"
+}

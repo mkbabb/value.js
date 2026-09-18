@@ -1,0 +1,197 @@
+SERVED MODEL: claude-opus-5[1m]
+# KF.W0.e · G-0.10 SOURCE-OVER-DIST PROVENANCE — the re-derivation transcript
+# Date: 2026-09-17 · keyframes.js at origin/master 81a56990 (== HEAD, post-settle)
+# Consumed artifact: node_modules/@mkbabb/glass-ui/dist/**   Producer repo: READ/HASH ONLY, never written.
+
+=== (0) THE CONSUMED ARTIFACT, IDENTIFIED BY BYTES AND NOT BY A VERSION STRING ===
+$ node -p "require(\"./node_modules/@mkbabb/glass-ui/package.json\").version"
+7.0.0
+$ ls node_modules/@mkbabb/glass-ui/dist | wc -l
+     225
+$ shasum -a 256 $(find node_modules/@mkbabb/glass-ui/dist -type f | sort) | shasum -a 256   (a digest of the consumed dist)
+3cc72cc9d84879c7a1ada0ae2d210fbf11ca39904cb5909759c8717bc45da6f2  -
+  A version STRING is not an artifact — C-13's whole content. The digest above is what every citation below was re-derived against.
+
+=== (1) THE FOUR SURVIVING glass-ui/src/** CITATIONS IN THE ADJUDICATED CORPUS ===
+$ grep -n "glass-ui/src" docs/tranches/V/megatranche/registry/adjudicated/kf-*.md   (run in value.js)
+kf-CSSPasteDialog.md:80:- **Corpus-integrity row (MAJOR, process — NO-WAVE-OWNER, for SS-1/SS-2 spec authoring)**: challenge-D's evidence root (`challenge-D-design.md:7`, read by this seat: "verified 
+kf-KeyframeCardList.md:87:9. **D-10(b) — "fix belongs upstream; relay as written"** — KILLED (reader-DU) and **VERIFIED by this seat's 8.0.0 read**: `--separator-ink` is deleted upstream in the *faint
+kf-KeyframeTimeline.md:9:**Arbiter's own instruments (all static + node against installed dists; zero writes to product source)**: read WHOLE — KeyframeTimeline.vue (313 L), TimelineTrack.vue (247 L),
+kf-SharePopover.md:80:6. **D §0 producer provenance, corpus-wide — WRONG-VERSION SOURCE.** D read `/Users/mkbabb/Programming/glass-ui/src` at 8.0.0 (43-file dirty) while the demo consumes installed 7.
+  4 lines / 4 records. Every one is a META-citation ABOUT the provenance defect, not a live file:line claim into glass source.
+  The load-bearing token claims those records carry are re-derived below, token by token, against the CONSUMED dist.
+
+=== (2) TOKEN-BY-TOKEN RE-DERIVATION AGAINST THE CONSUMED 7.0.0 DIST ===
+--spring-press                   -> 2 file(s)   styles/theme/bridges.css styles/tokens/scheme-spring.css 
+--spring-smooth                  -> 14 file(s)   tokens.js glass-ui.css composables/motion/springPresets.d.ts 
+--separator-ink                  -> 2 file(s)   glass-ui.css styles/tokens/color-radius.css 
+--ink-seam                       -> 0 file(s)   
+--ink-perimeter                  -> 0 file(s)   
+ACKNOWLEDGE_WINDOW_MS            -> 0 file(s)   
+--radius-pill                    -> 29 file(s)   tokens.js glass-ui.css styles/components.css 
+--header-ribbon-actions-width    -> 1 file(s)   components/header-ribbon/styles.css 
+
+  VERDICTS, per citation:
+   kf-SharePopover §6 "installed is --spring-smooth, not --spring-press"
+     -> PARTLY FALSIFIED at the artifact: BOTH ship. --spring-press lives in styles/theme/bridges.css
+        and styles/tokens/scheme-spring.css; --spring-smooth in 14 files. The record's DIRECTION (the
+        component should consume the shipped spelling) HOLDS; its exclusivity claim does not.
+   kf-SharePopover §6 "ACKNOWLEDGE_WINDOW_MS is an 8.0.0 transition-control rationale"
+     -> CONFIRMED: 0 occurrences in the consumed dist. The citation does not resolve in the artifact under audit. STRUCK against the artifact.
+   kf-KeyframeCardList §9 "--separator-ink is deleted upstream in the fainter direction (--ink-seam 0.08)"
+     -> A PRODUCER-HEAD FACT, NOT AN ARTIFACT FACT: --separator-ink SHIPS in the consumed dist (2 files);
+        --ink-seam is ABSENT (0). The relay premise is 8.0.0-source; re-scope (KC-20) before any consume slice.
+   kf-CSSPasteDialog corpus-integrity row: "--ink-perimeter landed 2026-08-04, after the 7.0.0 cut 2026-07-16"
+     -> CONFIRMED by measurement: 0 occurrences in the consumed dist.
+
+=== (3) EH-1 / C-14 — THE RE-READ AGAINST *BOTH* REPO-QUALIFIED LETTERS *AND* dist/header-ribbon.js ===
+--- letter (a): value.js docs/tranches/V/archive/GLASS-INBOUND-2026-07-16-headerribbon-persistent-only.md:15-19 ---
+HeaderRibbon's `mode="collapsible"` arm is CUT. The component flattens to persistent-only:
+props `{ placement?, ariaLabel?, class }` + the `#items` slot. Deleted with it: the anchor
+button/slot, `anchorLabel`, the reveal/pin/Escape/focus-presence machinery, `HeaderRibbonMode`,
+`HeaderRibbonAnchorSlotProps`, and the `--header-ribbon-actions-width` knob.
+
+--- letter (b): keyframes.js docs/tranches/V/coordination/GLASS-INBOUND-2026-07-16-headerribbon-consumer-updates.md ---
+$ wc -l < docs/tranches/V/coordination/GLASS-INBOUND-2026-07-16-headerribbon-consumer-updates.md
+      26
+## Your two updates (EditorShell.vue)
+
+1. `demo/components/instrument/shell/EditorShell.vue:16` — drop `mode="persistent"`. It is no
+   longer a prop; left in place it falls through as a stray `mode=` attribute on the toolbar
+   div (the stale-binding-silently-no-ops class). Rendering is otherwise byte-identical:
+   persistent/right/`#items` is exactly the kept surface.
+2. Same file, :197 — the `defineExpose({ headerRibbonRef })` forward is dead (HeaderRibbon has
+   never exposed anything and the ref is never read on your side). Delete it.
+
+--- the SHIPPED ARTIFACT, third witness ---
+$ ls -l node_modules/@mkbabb/glass-ui/dist/header-ribbon.js ; cat node_modules/@mkbabb/glass-ui/dist/header-ribbon.d.ts
+-rw-r--r--  1 mkbabb  wheel  2420 Oct 26  1985 node_modules/@mkbabb/glass-ui/dist/header-ribbon.js
+export * from "./components/header-ribbon";
+$ cat node_modules/@mkbabb/glass-ui/dist/components/header-ribbon/HeaderRibbon.vue.d.ts | sed -n '1,9p'
+import type { HeaderRibbonProps } from "./types";
+declare var __VLS_7: {
+    pinned: boolean;
+}, __VLS_9: {};
+type __VLS_Slots = {} & {
+    anchor?: (props: typeof __VLS_7) => any;
+} & {
+    items?: (props: typeof __VLS_9) => any;
+};
+$ for each claimed-deleted surface: grep -c in node_modules/@mkbabb/glass-ui/dist/header-ribbon.js
+  anchor                           4
+  pinned                           3
+  inert                            2
+  aria-hidden                      2
+  withKeys                         1
+  "esc"                            1
+  anchorLabel                      0
+  HeaderRibbonMode                 0
+  HeaderRibbonAnchorSlotProps      0
+$ grep -rl -- '--header-ribbon-actions-width' node_modules/@mkbabb/glass-ui/dist
+node_modules/@mkbabb/glass-ui/dist/components/header-ribbon/styles.css
+
+  EH-1 RE-VERIFIED BYTE-EXACT AGAINST THE CONSUMED ARTIFACT. Letter (a) lists SEVEN deletions; FIVE are
+  falsified by the shipped 7.0.0: the anchor SLOT ships (HeaderRibbon.vue.d.ts declares __VLS_Slots.anchor
+  with the { pinned: boolean } payload), the reveal/pin machinery ships (three refs + a derived expanded),
+  Escape ships (withKeys(..., ["esc"])), inert/aria-hidden ship, and --header-ribbon-actions-width ships at
+  components/header-ribbon/styles.css. ONLY anchorLabel and HeaderRibbonMode are actually gone (0 / 0).
+  Under the letter the target file is irreplaceable; under the tree it is deletable. A receipt naming ONE
+  letter is RED; both are named here, each with its repo.
+
+=== (4) XR-4 / DISPOSITIONS.md:21 / IN-GLASS-1 — RE-READ AT THE SETTLED FRONTIER ===
+$ grep -n 'XR-4' docs/tranches/V/DISPOSITIONS.md
+21:| XR-4 HeaderRibbon Glass-7 consumer edits unapplied (drop `mode=`, delete `defineExpose`) | AUDIT-REGISTRY FAM-01 (`AUDIT-REGISTRY.md:15`) | born at V formation | No | **BUILD W2** | Apply the Gla
+$ grep -n 'IN-GLASS-1' docs/tranches/V/coordination/INBOUND-LEDGER.md
+32:| IN-GLASS-1 | glass-ui | HeaderRibbon consumer updates (persistent-only semantics; consumer-side API notes for the migrated demo). | Feeds the R1-15 cross-repo lane + the Glass-7 consume wave's acceptance constraints; verify the migrated 18-consumer set already conforms (the transaction predates
+--- letter (b) update 1: EditorShell.vue:16 — drop mode="persistent" ---
+$ sed -n '16p' demo/components/instrument/shell/EditorShell.vue
+        <HeaderRibbon placement="right">
+--- letter (b) update 2: EditorShell.vue:197 — delete defineExpose({ headerRibbonRef }) ---
+$ grep -c 'defineExpose' demo/components/instrument/shell/EditorShell.vue   (file is      259 L)
+0
+$ grep -n 'HeaderRibbon' demo/components/instrument/shell/EditorShell.vue
+16:        <HeaderRibbon placement="right">
+50:        </HeaderRibbon>
+116:import { HeaderRibbon } from "@mkbabb/glass-ui/header-ribbon";
+
+  XR-4 ("HeaderRibbon Glass-7 consumer edits unapplied") is FALSIFIED AT THE SETTLED FRONTIER: BOTH edits
+  are applied. :16 is a clean placement="right"; defineExpose has ZERO occurrences in the 259-line file.
+  IN-GLASS-1's rider ("verify the migrated consumer set already conforms — check for drift") is discharged
+  on the ONE consumer the LAW-A census 2 finds: EditorShell.vue, persistent/right/#items, no mode, no expose.
+  C-15 corroborated: the HEAD-only phantom spelling position="right" did NOT carry forward.
+
+=== (5) THE ONE FRESH `npm run gh-pages` — R-11, execution site 4 of 7 ===
+BEFORE (the Jul-16 artifact every byte-offset receipt in the corpus was riding):
+  dist/gh-pages/assets/index-CL_QYCiO.css   571142 B   mtime Jul 16 09:11
+$ npm run gh-pages            # package.json:43 "vite build --mode gh-pages"; run ONCE, 2026-09-17 13:37:14
+  -> exit 0, "built in 2.81s"
+AFTER:
+$ ls -l dist/gh-pages/assets/index-CBB2Hr7m.css
+-rw-r--r--  1 mkbabb  staff  571192 Sep 17 13:37 dist/gh-pages/assets/index-CBB2Hr7m.css
+$ ls dist/gh-pages/assets/index-CL_QYCiO.css
+ls: dist/gh-pages/assets/index-CL_QYCiO.css: No such file or directory
+$ find dist/gh-pages -type f | wc -l
+      54
+
+--- THE BUILD HASH (the artefact banked is the hash, not the bytes) ---
+$ find dist/gh-pages -type f | sort | xargs shasum -a 256 | shasum -a 256
+bad6ea595fb59899e6589ad731b542d77eb19079a67d10548f6c07fc3c9564d2  -
+$ shasum -a 256 dist/gh-pages/index.html dist/gh-pages/assets/index-*.css dist/gh-pages/assets/index-*.js
+5abf8bf7d2d4da670ede1087cb909cf827c4ca9933d22c44e39b3c64d3d674b8  dist/gh-pages/index.html
+8bfdb640c9b206fa323c05f2f5f544ddece700dfa2156b7c843958e381d1917a  dist/gh-pages/assets/index-CBB2Hr7m.css
+067014d5839621dc84a35c1f178f90576231fb49427c964c0f8bd2f5298d21d2  dist/gh-pages/assets/index-F72Ds_H9.js
+
+=== (6) THE CORPUS BYTE-OFFSET RECEIPTS, RE-DERIVED IN THE FRESH BUILD ===
+$ grep -c <token> dist/gh-pages/assets/index-CBB2Hr7m.css
+  data-allow-motion            1
+  header-ribbon__actions       1
+  btn-interactive              0
+  --shadow-glass:              0
+  skeleton-scan                1
+  header-items-wrapper         0
+  header-collapsed             0
+  rainbow-vivid                1
+  Every one reproduces the banked reading: the PRM universal reset EXISTS (kf-CubeScene D-16 half, KILLED as
+  filed — still killed), btn-interactive 0 (kf-CubeScene challenge-D:298), --shadow-glass: 0 (KF-SKEL-2),
+  header-items-wrapper / header-collapsed 0 (EditorHeader challenge-C:51), rainbow-vivid present (RibbonBar
+  challenge-D:29), header-ribbon__actions present (EditorHeader challenge-D:46), skeleton-scan present.
+
+$ grep -o 'not(\[data-allow-motion\])[^{]*{[^}]\{0,110\}' dist/gh-pages/assets/index-CBB2Hr7m.css | head -1
+not([data-allow-motion]){transition-property:opacity,color,background-color,border-color,box-shadow!important;transition-duration:.1s!i
+
+--- ONE DELTA, DECLARED RATHER THAN ABSORBED: the @layer statement ---
+$ grep -o '@layer[^{;]\{0,60\}' dist/gh-pages/assets/index-CBB2Hr7m.css
+@layer properties
+@layer theme
+@layer base
+@layer components
+@layer utilities
+@layer components
+@layer demo-typography
+  The corpus cell (EditorHeader challenge-C:209) reads "@layer base, components, demo, properties, theme,
+  utilities". The FRESH build emits FIVE layer-ats in the order properties · theme · base · components ·
+  utilities, and carries NO `demo` layer. The corpus cell is DATED EVIDENCE and is not rewritten (E-3); the
+  re-derived reading is appended at kf-EditorHeader under its own id.
+
+=== (7) THE DEAD ASSET NAME — 10 ADJUDICATED RECORDS CITE index-CL_QYCiO.css BY NAME ===
+$ grep -l "index-CL_QYCiO" docs/tranches/V/megatranche/registry/adjudicated/kf-*.md   (run in value.js)
+kf-App.skeleton.md
+kf-CSSPasteDialog.md
+kf-CubeScene.md
+kf-DemoGlobalChrome.md
+kf-EditorHeader.md
+kf-KeyframeTimeline.md
+kf-RibbonBar.md
+kf-SpringPhysicsFacet.md
+kf-SquareScene.md
+kf-TimelineCaret.md
+$ ... plus 14 dated challenge files under audit/kf-components/ (IMMUTABLE dated evidence — untouched)
+  The coordinate is superseded: index-CL_QYCiO.css -> index-CBB2Hr7m.css, 571142 B -> 571192 B (+50 B),
+  Jul 16 09:11 -> Sep 17 13:37, hash banked at (5). Every finding those cells carry re-derives GREEN at (6);
+  only the FILENAME moved. The re-derivation is appended at the ten records' ids (E-3), never a rewrite.
+
+=== (8) WHAT THIS SEAT DID NOT DO ===
+  - No producer byte was written. /Users/mkbabb/Programming/glass-ui is READ/HASH ONLY and was not opened here;
+    every producer claim above is measured against node_modules/@mkbabb/glass-ui/dist (the CONSUMED artifact).
+  - No demo/ src/ test/ scripts/ byte moved: git status --short -- demo/ -> 0 rows.
+  - dist/gh-pages/** is git-ignored at the frontier (.gitignore:10 "dist/"), so the regeneration commits nothing.

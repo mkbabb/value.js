@@ -1,0 +1,26 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac3
+# ⟨cmd⟩ node harness/w2/wasm-audit.mjs --candidate ac3
+
+=== X.P.W2.g — wasm-audit --candidate ac3 (G-9) ===
+evidence root                                                       /Users/mkbabb/Programming/parse-that
+committed `wasm32` under rust/parse_that (OP-6)                     0 (exit 1, no output)
+uncommitted working-tree wasm32 files (K-10's forbidden substrate)  3
+file (evidence root, READ-ONLY)                  bytes  sha256
+-----------------------------------------------  -----  ----------------
+rust/parse_that/src/parsers/scan/number_simd.rs  7771   fe9217713262959f
+rust/parse_that/src/lib.rs                       1206   ad69ef56d65810ee
+rust/parse_that/src/scanners.rs                  19071  b4500d815ca548f0
+module bytes                           25267
+module sha256                          fef1f1a7373c9797a1bda52d8e8f4ceb9f6e86ef92160ff34d8d4993e23bcecc
+imports                                0
+imports by kind                        {}
+sections                               type, function, memory, export, code, data
+start section (a side channel counts)  absent
+exports                                scan:function · take:function · lit:function · kw:function · num:function · spanDigits:function · dec2f64:function · clamp:function · scale:function · guard:function · pushC:function · pushP:function · pushD:function · truncate:function · labPush:function · labCopy:function · raise:function · mark:function · rollback:function · atEnd:function · setErr:function · setCut:function · setOff:function · setDepth:function · setFar:function · begin:function · resetAll:function · runEnd:function · cls:function · fold:function · at:function · memory:memory
+declared JS-artifact reproduction    node experiments/w2/ac3-span/build.mjs
+non-JS toolchain in that path (K-9)  none
+memory bytes before / after 2,000 steady-state parses  6291456 / 6291456
+GREEN — zero imports over all kinds, no start section, closed export set, no steady-state grow, substrate law intact
+
+# exit 0

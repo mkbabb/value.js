@@ -1,0 +1,14 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac2
+# ⟨cmd⟩ node harness/w2/recovery-laws.mjs --candidate ac2
+
+=== X.P.W2.g — recovery-laws --candidate ac2 (G-4) ===
+lowering  TRY sites  R-LAW-1 mismatches  R-LAW-2 COMP-1 failures  R-LAW-4 amplified  R-LAW-4 zero-width  R-LAW-3
+--------  ---------  ------------------  -----------------------  -----------------  ------------------  -------
+js        2942       0                   13                       0                  0                   silent
+wasm      2942       0                   13                       0                  0                   silent
+
+R-LAW-5  structural — see `op-bijection.mjs --structural` (recover-final-only, printed with its negative control)
+RED — js: R-LAW-2 — 13 rows fail COMP-1 | wasm: R-LAW-2 — 13 rows fail COMP-1
+
+# exit 0

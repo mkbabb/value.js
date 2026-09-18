@@ -1,0 +1,17 @@
+=== workbench DOM after upload ===
+{
+ "rootCls": "group relative rounded-panel border-2 border-dashed transition-all flex flex-col items-center justify-center overflow-hidden min-h-[140px] cursor-crosshair border-transparent hover:border-primary/50 bg-primary/5 min-h-[180px] max-h-[min(320px,40dvh)]",
+ "rootRect": {
+  "x": 489,
+  "y": 457.65625,
+  "width": 462,
+  "height": 320,
+  "top": 457.65625,
+  "right": 951,
+  "bottom": 777.65625,
+  "left": 489
+ },
+ "innerCls": "hidden",
+ "kidCount": 0,
+ "kids": []
+}

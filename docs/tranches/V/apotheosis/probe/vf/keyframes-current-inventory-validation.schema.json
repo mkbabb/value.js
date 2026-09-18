@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-keyframes-current-inventory-validation-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "mode", "inventory", "snapshot", "wave_id", "scope", "repository", "counts", "graph_hashes", "truth_hash", "receipt_hash"],
+  "properties": {
+    "schema": { "const": "vnext-keyframes-current-inventory-validation/1" },
+    "mode": { "enum": ["capture", "replay"] },
+    "inventory": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "file_sha256", "inventory_hash"],
+      "properties": { "path": { "$ref": "#/$defs/absolutePath" }, "file_sha256": { "$ref": "#/$defs/sha256" }, "inventory_hash": { "$ref": "#/$defs/sha256" } }
+    },
+    "snapshot": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "file_sha256", "files_sha256"],
+      "properties": { "path": { "$ref": "#/$defs/absolutePath" }, "file_sha256": { "$ref": "#/$defs/sha256" }, "files_sha256": { "$ref": "#/$defs/sha256" } }
+    },
+    "wave_id": { "enum": ["K00", "M00"] },
+    "scope": { "enum": ["library", "demo"] },
+    "repository": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "branch", "head", "dirty_sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" }, "branch": { "type": "string", "minLength": 1 },
+        "head": { "type": "string", "pattern": "^[0-9a-f]{40}$" }, "dirty_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "counts": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source", "test", "support", "export"],
+      "properties": {
+        "source": { "type": "integer", "minimum": 0 }, "test": { "type": "integer", "minimum": 0 },
+        "support": { "type": "integer", "minimum": 0 }, "export": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "graph_hashes": {
+      "type": "object", "additionalProperties": false,
+      "required": ["runtime", "type"],
+      "properties": { "runtime": { "$ref": "#/$defs/sha256" }, "type": { "$ref": "#/$defs/sha256" } }
+    },
+    "truth_hash": { "$ref": "#/$defs/sha256" },
+    "receipt_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "allOf": [
+    { "if": { "properties": { "scope": { "const": "library" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "K00" } } } },
+    { "if": { "properties": { "scope": { "const": "demo" } }, "required": ["scope"] }, "then": { "properties": { "wave_id": { "const": "M00" } } } }
+  ],
+  "$defs": {
+    "absolutePath": { "type": "string", "pattern": "^/" },
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" }
+  }
+}

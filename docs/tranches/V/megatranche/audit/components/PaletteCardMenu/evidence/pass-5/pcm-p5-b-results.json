@@ -1,0 +1,158 @@
+{
+  "N8": {
+    "n": 8,
+    "tFirstCard": 943,
+    "perfOn": true,
+    "census": {
+      "cards": 8,
+      "triggers": 8,
+      "nodes": 516,
+      "heapMB": 35.6
+    },
+    "tickMs": 30.1,
+    "measures": {
+      "totalMeasures": 0,
+      "pcm": [],
+      "card": [],
+      "top": []
+    },
+    "openTimings": [
+      {
+        "openMs": 53.4,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 68,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 30.5,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 68,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 21.9,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 70,
+        "bodyPE": "auto"
+      },
+      {
+        "openMs": 48.4,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 70,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 44.2,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 70,
+        "bodyPE": "none"
+      }
+    ],
+    "openMeasures": [],
+    "errs": []
+  },
+  "N60": {
+    "n": 60,
+    "tFirstCard": 1093,
+    "perfOn": true,
+    "census": {
+      "cards": 60,
+      "triggers": 60,
+      "nodes": 1712,
+      "heapMB": 51
+    },
+    "tickMs": 69.2,
+    "measures": {
+      "totalMeasures": 0,
+      "pcm": [],
+      "card": [],
+      "top": []
+    },
+    "openTimings": [
+      {
+        "openMs": 57.3,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 224,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 25.6,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 226,
+        "bodyPE": "auto"
+      },
+      {
+        "openMs": 49.1,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 226,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 49.8,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 226,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 43,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 226,
+        "bodyPE": "none"
+      }
+    ],
+    "openMeasures": [],
+    "errs": []
+  },
+  "N200": {
+    "n": 200,
+    "tFirstCard": 1235,
+    "perfOn": true,
+    "census": {
+      "cards": 200,
+      "triggers": 200,
+      "nodes": 4932,
+      "heapMB": 110.6
+    },
+    "tickMs": 110,
+    "measures": {
+      "totalMeasures": 0,
+      "pcm": [],
+      "card": [],
+      "top": []
+    },
+    "openTimings": [
+      {
+        "openMs": 56.3,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 644,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 27.6,
+        "ariaHidden": 18,
+        "ariaHiddenAny": 646,
+        "bodyPE": "auto"
+      },
+      {
+        "openMs": 51,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 646,
+        "bodyPE": "none"
+      },
+      {
+        "openMs": 41.8,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 646,
+        "bodyPE": "auto"
+      },
+      {
+        "openMs": 51.2,
+        "ariaHidden": 19,
+        "ariaHiddenAny": 646,
+        "bodyPE": "none"
+      }
+    ],
+    "openMeasures": [],
+    "errs": []
+  }
+}

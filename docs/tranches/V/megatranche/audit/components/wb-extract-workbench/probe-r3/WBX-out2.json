@@ -1,0 +1,82 @@
+{
+ "before": {
+  "tag": "before",
+  "skeleton": 0,
+  "shadowPalette": 1,
+  "undevelopedCaption": false,
+  "dominanceRow": false,
+  "paletteCards": 0,
+  "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+ },
+ "samples": [
+  {
+   "tag": "t=150ms",
+   "skeleton": 0,
+   "shadowPalette": 1,
+   "undevelopedCaption": false,
+   "dominanceRow": false,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  },
+  {
+   "tag": "t=400ms",
+   "skeleton": 0,
+   "shadowPalette": 0,
+   "undevelopedCaption": false,
+   "dominanceRow": true,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  },
+  {
+   "tag": "t=900ms",
+   "skeleton": 0,
+   "shadowPalette": 0,
+   "undevelopedCaption": false,
+   "dominanceRow": true,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  },
+  {
+   "tag": "t=2000ms",
+   "skeleton": 0,
+   "shadowPalette": 0,
+   "undevelopedCaption": false,
+   "dominanceRow": true,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  },
+  {
+   "tag": "t=4000ms",
+   "skeleton": 0,
+   "shadowPalette": 0,
+   "undevelopedCaption": false,
+   "dominanceRow": true,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  },
+  {
+   "tag": "t=7000ms",
+   "skeleton": 0,
+   "shadowPalette": 0,
+   "undevelopedCaption": false,
+   "dominanceRow": true,
+   "paletteCards": 0,
+   "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+  }
+ ],
+ "afterScroll": {
+  "tag": "after-scroll",
+  "skeleton": 0,
+  "shadowPalette": 0,
+  "undevelopedCaption": false,
+  "dominanceRow": true,
+  "paletteCards": 0,
+  "tree": "div.pane-container.pane-container--dual\n  div.pane-wrapper.pane-wrapper--left.w-full\n    div.relative.w-full.mx-auto\n      div[card].glass-resting.card.rounded-card\n        div.pane-header.px-4.sm:px-6\n          h3.pane-header-title.font-display\n          div.pane-header-desc-wrap\n            p.pane-header-desc.text-caption\n        div.relative.flex.flex-col\n          div.flex.flex-col.gap-4\n            div.flex.flex-col.gap-3\n            div.flex.flex-col.gap-3\n  div.pane-wrapper.pane-wrapper--right.w-full\n    div[card].glass-resting.card.rounded-card\n      div.pane-header.px-4.sm:px-6\n        h3.pane-header-title.font-display\n          span.capitalize\n            span.palettes-ramp-text\n        div.pane-header-desc-wrap\n          p.pane-header-desc.text-caption\n      div.px-4.sm:px-6.py-4\n        div.input-bar.search-seated\n          svg.\n            path.\n            circle.\n          input.input-bar-field\n        div.grid.gap-3\n          div.dashed-well\n            div.flex.items-center.justify-between\n            div.swatch-row.flex.items-center\n          div{list}.palette-card-grid.grid.grid-cols-1\n            div{status}.flex.flex-col.items-center\n        span.\n"
+ },
+ "logs": [
+  "[debug] [vite] connecting...",
+  "[debug] [vite] connected.",
+  "[error] [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh",
+  "[debug] [useCustomColorNames] color-name load failed (not backend-absence): DevMisconfigError: value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin produc"
+ ]
+}

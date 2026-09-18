@@ -1,0 +1,61 @@
+{
+ "chain": [
+  {
+   "tag": "DIV",
+   "cls": "dropdown-menu-content dropdown-menu__content gla",
+   "dirAttr": "ltr",
+   "computedDir": "ltr"
+  },
+  {
+   "tag": "DIV",
+   "cls": "",
+   "dirAttr": null,
+   "computedDir": "rtl"
+  },
+  {
+   "tag": "BODY",
+   "cls": "relative",
+   "dirAttr": null,
+   "computedDir": "rtl"
+  },
+  {
+   "tag": "HTML",
+   "dirAttr": "rtl",
+   "computedDir": "rtl"
+  }
+ ],
+ "header": {
+  "text": "لوحة ألوان الغروب الدافئ فوق البحر الأبيض المتوسط",
+  "direction": "ltr",
+  "textAlign": "start",
+  "unicodeBidi": "isolate",
+  "overflow": "hidden",
+  "textOverflow": "ellipsis",
+  "rect": {
+   "x": 245,
+   "right": 423,
+   "w": 178
+  },
+  "scrollW": 317,
+  "clientW": 178,
+  "clippedPx": 139
+ },
+ "menuRect": {
+  "x": 238,
+  "right": 430,
+  "w": 192
+ },
+ "glyphGutter": {
+  "rowX": 245,
+  "rowRight": 423,
+  "svgX": 253,
+  "svgRight": 269,
+  "sits": "physical LEFT of the row"
+ },
+ "cardName": {
+  "direction": "rtl",
+  "textAlign": "start",
+  "x": 320.1,
+  "right": 648
+ }
+}

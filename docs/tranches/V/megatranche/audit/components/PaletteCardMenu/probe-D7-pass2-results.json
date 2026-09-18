@@ -1,0 +1,214 @@
+{
+ "tokens": {
+  "--opacity-disabled": "0.5",
+  "--dropdown-text": "calc(clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem ) * 1)",
+  "--type-small": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+  "--overlay-min-width": "8rem",
+  "--radius-panel": "12px",
+  "--radius-card": "1rem"
+ },
+ "headerContrast": {
+  "menuBackgroundColor": "oklab(0.936403 0.00557132 0.0133027 / 0.808)",
+  "menuBackdropFilter": "blur(11px) saturate(1.6)",
+  "compositedSurface": [
+   0.9,
+   0,
+   0
+  ],
+  "labelColor": "rgb(112, 89, 66)",
+  "labelRatio": 3.19,
+  "itemColor": "rgb(28, 25, 23)",
+  "itemRatio": 1.2,
+  "labelFontSize": "14.384px"
+ },
+ "compounded": {
+  "found": true,
+  "itemOpacityBefore": "1",
+  "itemOpacityDisabled": "0.5",
+  "annotationOpacity": "0.55",
+  "effectiveAlpha": 0.275,
+  "annotationColor": "rgb(28, 25, 23)",
+  "annotationFontSize": "14.384px",
+  "annotationTextTransform": "uppercase",
+  "annotationLetterSpacing": "0.3596px",
+  "cursor": "not-allowed",
+  "pointerEvents": "none"
+ },
+ "submenu": {
+  "panels": [
+   {
+    "cls": "dropdown-menu-content dropdown-menu__content",
+    "x": 1010,
+    "y": 611,
+    "w": 192,
+    "h": 240.1,
+    "fontStyle": "normal",
+    "fontSize": "16.4px",
+    "minWidth": "128px",
+    "borderRadius": "12px"
+   },
+   {
+    "cls": "dropdown-sub-content dropdown-menu__sub-content",
+    "x": 1195,
+    "y": 755,
+    "w": 242,
+    "h": 243,
+    "fontStyle": "italic",
+    "fontSize": "14.384px",
+    "minWidth": "128px",
+    "borderRadius": "12px"
+   }
+  ],
+  "items": [
+   {
+    "text": "Publish",
+    "panel": "parent",
+    "itemLeft": 1017,
+    "hasIcon": true,
+    "textLeft": 1049,
+    "textInset": 32,
+    "fontStyle": "normal",
+    "h": 44
+   },
+   {
+    "text": "Rename",
+    "panel": "parent",
+    "itemLeft": 1017,
+    "hasIcon": true,
+    "textLeft": 1049,
+    "textInset": 32,
+    "fontStyle": "normal",
+    "h": 44
+   },
+   {
+    "text": "Export",
+    "panel": "parent",
+    "itemLeft": 1017,
+    "hasIcon": true,
+    "textLeft": 1049,
+    "textInset": 32,
+    "fontStyle": "normal",
+    "h": 44
+   },
+   {
+    "text": "Delete",
+    "panel": "parent",
+    "itemLeft": 1017,
+    "hasIcon": true,
+    "textLeft": 1049,
+    "textInset": 32,
+    "fontStyle": "normal",
+    "h": 44
+   },
+   {
+    "text": "JSON",
+    "panel": "sub",
+    "itemLeft": 1202,
+    "hasIcon": false,
+    "textLeft": 1210,
+    "textInset": 8,
+    "fontStyle": "italic",
+    "h": 44
+   },
+   {
+    "text": "CSS Custom Properties",
+    "panel": "sub",
+    "itemLeft": 1202,
+    "hasIcon": false,
+    "textLeft": 1210,
+    "textInset": 8,
+    "fontStyle": "italic",
+    "h": 44
+   },
+   {
+    "text": "Tailwind Config",
+    "panel": "sub",
+    "itemLeft": 1202,
+    "hasIcon": false,
+    "textLeft": 1210,
+    "textInset": 8,
+    "fontStyle": "italic",
+    "h": 44
+   },
+   {
+    "text": "SVG Swatch",
+    "panel": "sub",
+    "itemLeft": 1202,
+    "hasIcon": false,
+    "textLeft": 1210,
+    "textInset": 8,
+    "fontStyle": "italic",
+    "h": 44
+   },
+   {
+    "text": "PNG Swatch",
+    "panel": "sub",
+    "itemLeft": 1202,
+    "hasIcon": false,
+    "textLeft": 1210,
+    "textInset": 8,
+    "fontStyle": "italic",
+    "h": 44
+   }
+  ],
+  "separators": [
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 26.8
+   },
+   {
+    "panel": "parent",
+    "y": 654.1
+   },
+   {
+    "panel": "parent",
+    "y": 751.1
+   },
+   {
+    "panel": "sub",
+    "y": 898
+   }
+  ]
+ },
+ "mobile": {
+  "trigger": {
+   "w": 54,
+   "h": 54,
+   "right": 343
+  },
+  "viewportW": 390,
+  "metaRow": {
+   "w": 320,
+   "h": 81.1
+  },
+  "nameShown": {
+   "scrollW": 102,
+   "clientW": 0,
+   "text": "Muted Terracotta and Deep Sea Foam Study"
+  }
+ }
+}

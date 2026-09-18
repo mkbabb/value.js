@@ -1,0 +1,56 @@
+{
+ "parkedPointerAt": {
+  "x": 851,
+  "y": 40.546875
+ },
+ "before": {
+  "fieldRect": {
+   "x": 569,
+   "w": 302,
+   "right": 871
+  },
+  "popoverOpen": false
+ },
+ "after": {
+  "fieldRect": {
+   "x": 563.6,
+   "w": 324.7,
+   "right": 888.4
+  },
+  "popoverOpen": true,
+  "pill": [
+   {
+    "cls": "dock-crossfade",
+    "r": "0px",
+    "h": 46
+   },
+   {
+    "cls": "dock-layer-group horizontal rail-start",
+    "r": "0px",
+    "h": 46
+   },
+   {
+    "cls": "dock-layer dock-layer--full is-active",
+    "r": "0px",
+    "h": 46
+   },
+   {
+    "cls": "dock-layers",
+    "r": "0px",
+    "h": 46
+   },
+   {
+    "cls": "dock-controls",
+    "r": "0px",
+    "h": 0
+   },
+   {
+    "cls": "glass-dock horizontal shape-pill layout-line",
+    "r": "9999px",
+    "h": 62
+   }
+  ]
+ },
+ "pointerInsideFieldAfter": true,
+ "popoverOpenedWithoutMovingPointer": true
+}

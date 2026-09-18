@@ -1,0 +1,190 @@
+{
+  "desktop": {
+    "cardWidth": 512,
+    "rows": [
+      {
+        "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cas",
+        "inkWidth": 221,
+        "inkLeft": 888,
+        "inkRight": 1108,
+        "scrollerLeft": 754,
+        "scrollerRight": 1216,
+        "scrollerClientW": 462,
+        "scrollerScrollW": 462,
+        "scrollerCanScroll": false,
+        "cardClipRight": 1241,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": -133,
+        "inkPastScrollerRight": -108,
+        "recoverablePx": 0,
+        "lostPx": 0
+      },
+      {
+        "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b",
+        "inkWidth": 752,
+        "inkLeft": 780,
+        "inkRight": 1532,
+        "scrollerLeft": 754,
+        "scrollerRight": 1216,
+        "scrollerClientW": 462,
+        "scrollerScrollW": 778,
+        "scrollerCanScroll": true,
+        "cardClipRight": 1241,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": 291,
+        "inkPastScrollerRight": 316,
+        "recoverablePx": 316,
+        "lostPx": 0
+      },
+      {
+        "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac",
+        "inkWidth": 405,
+        "inkLeft": 795,
+        "inkRight": 1200,
+        "scrollerLeft": 754,
+        "scrollerRight": 1216,
+        "scrollerClientW": 462,
+        "scrollerScrollW": 462,
+        "scrollerCanScroll": false,
+        "cardClipRight": 1241,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": -41,
+        "inkPastScrollerRight": -16,
+        "recoverablePx": 0,
+        "lostPx": 0
+      },
+      {
+        "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n ",
+        "inkWidth": 479,
+        "inkLeft": 780,
+        "inkRight": 1259,
+        "scrollerLeft": 754,
+        "scrollerRight": 1216,
+        "scrollerClientW": 462,
+        "scrollerScrollW": 505,
+        "scrollerCanScroll": true,
+        "cardClipRight": 1241,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": 18,
+        "inkPastScrollerRight": 43,
+        "recoverablePx": 43,
+        "lostPx": 0
+      }
+    ]
+  },
+  "desktopHeader": {
+    "found": true,
+    "headerTag": "DIV.pane-header px-4 sm:px-6 pt-4 ",
+    "headerPosition": "sticky",
+    "headerZIndex": "35",
+    "headerBackground": "rgba(0, 0, 0, 0)",
+    "headerBackdropFilter": "none",
+    "headerRect": {
+      "top": 104,
+      "bottom": 241,
+      "h": 137
+    },
+    "h2Rect": {
+      "top": 127,
+      "bottom": 163
+    },
+    "h2OverlapPx": 36,
+    "markdownChildrenUnderHeader": 2,
+    "scrollPaddingTop": "auto",
+    "headingScrollMargin": "80px"
+  },
+  "mobile": {
+    "cardWidth": 358,
+    "rows": [
+      {
+        "text": "f(t)={t3t>ϵκ t+16116otherwisef(t) = \\begin{cas",
+        "inkWidth": 221,
+        "inkLeft": 98,
+        "inkRight": 318,
+        "scrollerLeft": 29,
+        "scrollerRight": 361,
+        "scrollerClientW": 332,
+        "scrollerScrollW": 332,
+        "scrollerCanScroll": false,
+        "cardClipRight": 374,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": -56,
+        "inkPastScrollerRight": -43,
+        "recoverablePx": 0,
+        "lostPx": 0
+      },
+      {
+        "text": "L∗=116 f ⁣(YYn)−16,a∗=500[f ⁣(XXn)−f ⁣(YYn)],b",
+        "inkWidth": 752,
+        "inkLeft": 55,
+        "inkRight": 807,
+        "scrollerLeft": 29,
+        "scrollerRight": 361,
+        "scrollerClientW": 332,
+        "scrollerScrollW": 778,
+        "scrollerCanScroll": true,
+        "cardClipRight": 374,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": 433,
+        "inkPastScrollerRight": 446,
+        "recoverablePx": 446,
+        "lostPx": 0
+      },
+      {
+        "text": "fy=L∗+16116,fx=a∗500+fy,fz=fy−b∗200f_y = \\frac",
+        "inkWidth": 405,
+        "inkLeft": 55,
+        "inkRight": 460,
+        "scrollerLeft": 29,
+        "scrollerRight": 361,
+        "scrollerClientW": 332,
+        "scrollerScrollW": 431,
+        "scrollerCanScroll": true,
+        "cardClipRight": 374,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": 86,
+        "inkPastScrollerRight": 99,
+        "recoverablePx": 99,
+        "lostPx": 0
+      },
+      {
+        "text": "X=Xn⋅f−1(fx),Y=Yn⋅f−1(fy),Z=Zn⋅f−1(fz)X = X_n ",
+        "inkWidth": 479,
+        "inkLeft": 55,
+        "inkRight": 534,
+        "scrollerLeft": 29,
+        "scrollerRight": 361,
+        "scrollerClientW": 332,
+        "scrollerScrollW": 505,
+        "scrollerCanScroll": true,
+        "cardClipRight": 374,
+        "cardOverflowX": "hidden",
+        "inkPastCardRight": 160,
+        "inkPastScrollerRight": 173,
+        "recoverablePx": 173,
+        "lostPx": 0
+      }
+    ]
+  },
+  "mobileHeader": {
+    "found": true,
+    "headerTag": "DIV.pane-header px-4 sm:px-6 pt-4 ",
+    "headerPosition": "sticky",
+    "headerZIndex": "35",
+    "headerBackground": "rgba(0, 0, 0, 0)",
+    "headerBackdropFilter": "none",
+    "headerRect": {
+      "top": 105,
+      "bottom": 219,
+      "h": 114
+    },
+    "h2Rect": {
+      "top": 129,
+      "bottom": 165
+    },
+    "h2OverlapPx": 36,
+    "markdownChildrenUnderHeader": 2,
+    "scrollPaddingTop": "auto",
+    "headingScrollMargin": "80px"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "found": 3,
+  "skeletonRects": [
+    {
+      "cls": "skeleton h-12 w-12 rounded-full",
+      "w": 48,
+      "h": 48,
+      "x": 754,
+      "y": 786.5
+    },
+    {
+      "cls": "skeleton h-4 w-full",
+      "w": 0,
+      "h": 16,
+      "x": 818,
+      "y": 790.5
+    },
+    {
+      "cls": "skeleton h-4 w-full",
+      "w": 0,
+      "h": 16,
+      "x": 818,
+      "y": 814.5
+    }
+  ],
+  "wrapperRect": {
+    "w": 462,
+    "h": 48,
+    "x": 754,
+    "y": 786.5
+  },
+  "wrapperHTML": "<div data-v-b622b24b=\"\" class=\"flex items-center space-x-4 h-full\"><div data-v-cd03d0b0=\"\" data-v-b622b24b=\"\" surface=\"glass\" variant=\"shimmer\" data-slot=\"skeleton\" aria-hidden=\"true\" class=\"skeleton h-12 w-12 rounded-full\"></div><div data-v-b622b24b=\"\" class=\"space-y-2\"><div data-v-cd03d0b0=\"\" data-v-b622b24b=\"\" surface=\"glass\" variant=\"shimmer\" data-slot=\"skeleton\" aria-hidden=\"true\" class=\"skeleton h-4 w-full\"></div><div data-v-cd03d0b0=\"\" data-v-b622b24b=\"\" surface=\"glass\" variant=\"shimmer\" data-slot=\"skeleton\" aria-hidden=\"true\" class=\"skeleton h-4 w-full\"></div></div></div>",
+  "markdownWrapperPresent": false
+}

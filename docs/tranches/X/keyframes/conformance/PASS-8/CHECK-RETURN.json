@@ -1,0 +1,52 @@
+{
+ "verdict": "CONFORMANT",
+ "hashesClean": true,
+ "censusEscapes": 0,
+ "defects": [
+  {
+   "severity": "MINOR",
+   "claim": "P8-1 \u2014 LAW G's instrument now EXISTS but remains unreachable by grep from the spec side: `RULINGS-6` is named by zero of the eleven specs while `LAW G` is cited 12 times in current voice. P7-1's BLOCKER is discharged (the instrument is real and all eight TR edits are byte-identical under this seat's own diff), so what survives is a reachability gap, not a dangling instrument. Mitigation: CLOSE-CERT-6 \u00a710 now enumerates the round's three instruments BY PATH, so RULINGS-6 is reachable from the certificate layer; the seal declined the spec-side cure on the correct ground that a spec edit lay outside its writable set. Seal OBS-5, carried; a one-command round-8 sweep closes it.",
+   "receipt": "grep -oh 'RULINGS-6' waves/KF-W*.md | wc -l \u2192 0; grep -oh 'LAW G' waves/KF-W*.md | wc -l \u2192 12; CLOSE-CERT-6.md \u00a710 'Third instrument, named here so the round's set is enumerated and not left to inference: PASS-6/RULINGS-6.md'"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P8-2 \u2014 a THIRD `CLOSE-CERT-5 re-verifies` delegation survives in current voice at KF-W9.md:77, outside the block that struck the other two. The :258 repair note names exactly two struck strings, '(1)' and '(2)'; the \u00a7Bounds capture-receipt cell at :77 still reads 'that verification is carried by command at S-10 as this round's baseline, and CLOSE-CERT-5 re-verifies from it'. Mitigation (why MINOR, not a repeat of the HIGH): :77 carries NO false universal \u2014 it sits under \u00a7Bounds, not under a bold 'NOT DELEGATED' head \u2014 and the verification it points at demonstrably happened, all six anchors reproducing at this seat. The clause is a forward re-verification duty layered on a completed verification, the exact shape LAW E(5)(ii) names as a sweep class.",
+   "receipt": "grep -c 'CLOSE-CERT-5 re-verifies under LAW E(5)(ii)' KF-W9.md \u2192 2 (one at :77 live, one at :258 quoted inside the strike); KF-W9.md:77 verbatim '\u2026that verification is carried by command at S-10 as this round's baseline, and **CLOSE-CERT-5 re-verifies from it** \u2014 the stage-2 \u2192 stage-2 class being a named sweep class from this round forward (LAW E(5)(ii))'; the six anchors re-run this seat: A1 :22 \u00b7 A2 :68 :232 :530 :537 :541 \u00b7 A3 :68 :84 :519 :537 \u00b7 A4 :553 \u00b7 A5 :212 \u00b7 A6 :203 :214 :232 :537 \u2014 6 of 6 reproduce col C"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P8-3 \u2014 KF-W9's LAW F(1) SHADOW form count is 2 against a ledger of 8; unrepaired at this seat's bytes. Mitigation: RULINGS-6 SELF-BOOKS this unrepaired rather than certifying it away, and the round's contract carried no widening edit. Booking a known gap forward is the correct conduct; it is the round's declared live carry. Seal OBS-2, carried unchanged.",
+   "receipt": "grep -oE 'SHADOW \\(LAW F\\(1\\)' waves/KF-W9.md | wc -l \u2192 2; full table this seat: W0 0 \u00b7 W1 3 \u00b7 W2 3 \u00b7 W3 0 \u00b7 W4 2 \u00b7 W5 0 \u00b7 W6 6 \u00b7 W7 0 \u00b7 W8 7 \u00b7 W9 2 \u00b7 W10 1"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P8-4 \u2014 TR-08's own mandated pattern returns 0 at the very file it holds up as the in-round standard. `SHADOW \\(LAW F\\(1\\)` \u2192 0 at KF-W5, the file TR-08 cites at 'fourteen'; widened to `SHADOW \\(LAW F` \u2192 15, resolving to 14 acts + 1 mention under LAW G's act-vs-mention split. KF-W5's fourteen are real and owe no repair \u2014 the PATTERN is what is wrong. Mitigation: RULINGS-6 diagnoses this against itself and states the round-8 choice as an exclusive-or (widen the pattern and apply the act/mention split, OR land the '(1)' spelling at KF-W5) \u2014 one or the other, not both, not neither. Seal OBS-3, carried.",
+   "receipt": "narrow pattern at KF-W5 \u2192 0; widened `SHADOW \\(LAW F` at KF-W5 \u2192 15; widened table all eleven: W0 0 \u00b7 W1 3 \u00b7 W2 3 \u00b7 W3 0 \u00b7 W4 2 \u00b7 W5 15 \u00b7 W6 6 \u00b7 W7 0 \u00b7 W8 7 \u00b7 W9 2 \u00b7 W10 1 \u2014 KF-W5 is the sole file where narrow and widened diverge"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P8-5 \u2014 the round-6/7 instrument layer is untracked or uncommitted in git, so the hash bracket's authority rests on working-tree bytes only and the round-6 'immutable origin' is not yet backed by repo history. Mitigation: the seven modified specs are EXACTLY the seven \u00a79.6 lists as MOVED (confirmed at the digest), the program is pre-execution and doc-only, pathspec-commit discipline is the standing rule, and every digest in the seal table reproduces at this seat. No figure in the corpus is wrong; the record is simply not yet durable.",
+   "receipt": "git status --porcelain -- docs/tranches/X/keyframes/ \u2192 '?? conformance/PASS-6/RULINGS-6.md', '?? conformance/PASS-7/SEAL.md', ' M' on KF-W1, KF-W2, KF-W5, KF-W7, KF-W8, KF-W9, KF-W10 + CLOSE-CERT-6.md; the four HELD digests (KF-W0 79f23888 \u00b7 KF-W3 c2d648ad \u00b7 KF-W4 bd8bc495 \u00b7 KF-W6 6019f5bf) are the four unmodified files"
+  },
+  {
+   "severity": "MINOR",
+   "claim": "P8-6 (this seat's own instrument, disclosed against itself) \u2014 the mandated coordinate-cure form systematically defeats mechanical staleness sweeps, because it PRESERVES the stale numeral in place as record and states the corrected reading afterwards, so any forward-window parser harvests the struck value first. My independent sweep of 99 cross-spec `grep -n <pat> KF-W<n>.md \u2192 :N` assertions reported 42, then 26, then 21 suspects as the cure-detection window widened from 150 to 700 to 3,000 chars; EVERY one opened by hand was a cure, not a defect. Zero uncured stale coordinates exist. Booked because a round-8 seat running the obvious instrument will manufacture the same false positives \u2014 the correct instrument requires the CORRECTED value to be absent, not merely the FIRST value to be stale.",
+   "receipt": "Worked example, my strongest candidate: KF-W7.md:347 asserts `DISCHARGED by KF.W7 SWAP verdict` \u2192 ':276 :407 :530 \u2014 UNMOVED across the twelfth write' dated 2026-08-29, against my measurement of :282 :413 :536 (each +6) \u2014 but a nested note already reads 'THE \"UNMOVED\" IS FALSE AND IS STRUCK \u2014 PASS-7 COORDINATE SWEEP, 2026-08-29, check P7-6' and prints :282 :413 :536. Likewise G-KFW4-1 (:205 \u2192 :207 cured, :198 still not a hit) and G-OPTSET (:339 retired; whole output :201 :234 :235 :244 :350 :351 :352 :353 :396 :409 :509, gate at :409) \u2014 all measured identical"
+  },
+  {
+   "severity": "INFO",
+   "claim": "P8-7 \u2014 E-5's corrected census is scope-bound and does not reproduce at CURRENT bytes (65 occurrences on 35 lines) while reproducing EXACTLY at the bytes \u00a711.2 declares. Mitigation: nothing is asserted falsely \u2014 \u00a711.2 names its scope ('measured over the hash-locked bytes') and the figure reproduces there to the digit, including its explanation of why occurrences and lines diverge. Recorded so no round-8 seat reads the delta as drift; this is OBS-4's shape, correctly handled.",
+   "receipt": "At the committed round-6 bytes via `git show HEAD:` \u2014 occurrences=63, lines=36, KF-W5 alone 35 occurrences on 10 lines: \u00a711.2's corrected form ('63 occurrences on 36 lines \u2026 KF-W5 carries 35 occurrences on 10 lines') exactly. At current working-tree bytes the same commands return 65 / 35"
+  },
+  {
+   "severity": "INFO",
+   "claim": "P8-8 \u2014 LAW H and LAW I have ZERO surface across the eleven specs. Expected and correct: both are seat-binding conformance laws landed at RULINGS-6 as TR-02/TR-03, binding auditors rather than specs \u2014 PASS-7/SEAL.md \u00a73/\u00a75 exercises both explicitly and so does PASS-8/CHECK.md \u00a73.3. Booked only so the zero reads as a measurement and not an unexamined omission.",
+   "receipt": "grep -oh 'LAW H' waves/KF-W*.md | wc -l \u2192 0; grep -oh 'LAW I\\b' waves/KF-W*.md | wc -l \u2192 0; against LAW A 165 \u00b7 B 168 \u00b7 C 200 \u00b7 D 132 \u00b7 E 226 \u00b7 F 114 \u00b7 G 12"
+  },
+  {
+   "severity": "INFO",
+   "claim": "P8-9 \u2014 four commands across the eleven specs carry absolute /Users/mkbabb/... machine paths (P7-8 carried). Three are cross-repo by necessity and a path is unavoidable; only the value.js-root `find` could be relativised. All four execute correctly at this seat and both named clones exist at the declared refs. No action required.",
+   "receipt": "git -C /Users/mkbabb/Programming/keyframes.js rev-parse origin/master \u2192 81a56990736ced5b5edde0b84c527680ac7689b1 (= the declared frontier); git -C /Users/mkbabb/Programming/keyframes-v-exec rev-parse HEAD \u2192 identical; `git -C keyframes-v-exec status --porcelain | wc -l` \u2192 0; `ls .../keyframes-v-exec/docs/tranches/V/coordination/ | wc -l` \u2192 10"
+  }
+ ]
+}

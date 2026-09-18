@@ -1,0 +1,133 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G5-TERMINAL-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "date": "2026-07-22",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_BOUNDARY_CHALLENGES_BEFORE_AUTHORS",
+  "frozen_subject": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "07794e3eb427457745f32c48d75dff2e8c8e2eaa90adf0572d77e7414ce21dd3",
+      "bytes": 4837,
+      "precursor_rows": 14,
+      "precursor_closure_sha256": "67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682"
+    },
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "e5d29b7e99595de8594eb9142ce5e5e542ecd4e1c570c41f841c448a9721f700",
+      "bytes": 7992,
+      "status": "SEALED_PRE_AUTHOR_CIPHERTEXT_ONLY_ZERO_FEATURE_CREDIT",
+      "corpus_id": "8e9365ff-36fc-43f9-8698-a4b431902d21"
+    },
+    "holdout_ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212",
+      "bytes": 111971,
+      "decoded_envelope_bytes": 82887
+    },
+    "holdout_plaintext_commitment": {
+      "sha256": "c3fb6a05c90a3dd5269cec18b7853de8cf19cf8c49aae111c15fdfbf579a127a",
+      "bytes": 82851,
+      "revealed": false,
+      "executed": false
+    },
+    "holdout_destruction": {
+      "path": "holdout-destruction.json",
+      "sha256": "79d4fca13fc1a40b7221683e89f9b698429d86ac92fd56b27b920837cc3de0aa",
+      "bytes": 3383,
+      "secret_material_destroyed_without_reveal": true,
+      "ciphertext_retained_immutable": true,
+      "reusable_by_later_generation": false
+    }
+  },
+  "terminal_review_docket": {
+    "challenges": [
+      {
+        "id": "A",
+        "path": "reviews/challenge-a.json",
+        "sha256": "de70a7419ff58910bd6a706cd8b629f61acaf978c1a2d3a408d517d19e496809",
+        "bytes": 17104,
+        "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+        "verdict": "REJECT"
+      },
+      {
+        "id": "B",
+        "path": "reviews/challenge-b.json",
+        "sha256": "07ba39718983d9d41eec2642b307ea10d3ebd1b5f59abacfb1f01b713c6bca4a",
+        "bytes": 12714,
+        "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+        "verdict": "REJECT"
+      }
+    ],
+    "root_gestalt": {
+      "path": "root-gestalt.json",
+      "sha256": "1df1ba45ca725d24c8f88cb7bba5dfd8084741bb8286b9c43fef7e8cb97192e6",
+      "bytes": 12466,
+      "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+      "verdict": "REJECT"
+    }
+  },
+  "confirmed_blocker_ids": [
+    "G5-ROOT-01-TRANCHE-SEQUENCING",
+    "G5-ROOT-02-SUBSTANTIVE-INDEPENDENT-REVIEW-GATE",
+    "G5-ROOT-03-AUTHOR-SEQUENCE-AND-PROVENANCE",
+    "G5-ROOT-04-OPERATIVE-TOPOLOGY-AND-ORTHOGONALITY",
+    "G5-ROOT-05-PUBLIC-FAILURE-STATE-AND-WORK-LIMIT",
+    "G5-ROOT-06-HOLDOUT-ADMISSION-BINDING",
+    "G5-ROOT-07-BENCHMARK-CORRECTNESS-AND-ATTRIBUTION",
+    "G5-ROOT-08-BENCHMARK-COMPARATORS-AND-EVIDENCE-LIFECYCLE"
+  ],
+  "retained_findings": "The consuming CSS number operation, exact semantic leaf, maximal-prefix and binary64 observations, authenticated source/tool closure, subordinate public number-start truth vectors, balanced candidate-only timing schedule, paired bootstrap components, and five-skeptic/three-adjudicator role law remain public design evidence only. Exact retained findings are bound in root-gestalt.json; none grants acceptance or credit.",
+  "sequencing_barrier_before_g6": {
+    "standalone_number_start": {
+      "feature_id": "SYNTAX-NUMBER-START",
+      "status": "TERMINALLY_REJECTED_AS_A_STANDALONE_PARSER_PREDICATE",
+      "path": "../../syntax-number-start/g7/rejection.json",
+      "sha256": "45318a954e312c1f85fa666ef320033b2ebba4b217e2d564616e9c6b96465b04",
+      "bytes": 2782
+    },
+    "feature_ledger": {
+      "path": "../../../../FEATURE-LEDGER.md",
+      "sha256": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3",
+      "bytes": 13998,
+      "stale_text": "SYNTAX-CONSUME-NUMBER follows only after that dependency is accepted.",
+      "required_action": "Correct the stale sequencing before forming G6 so the consuming feature does not depend on acceptance of the rejected standalone predicate.",
+      "updated_by_this_receipt": false
+    }
+  },
+  "terminal_generation_state": {
+    "authors_invited": 0,
+    "candidate_sources": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "candidate_executions": 0,
+    "candidate_benchmark_attempts": 0,
+    "candidate_manifest_files": 0,
+    "active_grammar_mutations": 0,
+    "production_mutations": 0,
+    "holdout_reveals": 0,
+    "holdout_executions": 0,
+    "g6_created_by_this_receipt": false
+  },
+  "disposition": {
+    "g5_closed": true,
+    "authors_may_be_invited": false,
+    "candidate_or_manifest_work_may_continue": false,
+    "holdout_may_be_revealed": false,
+    "g5_ciphertext_may_be_reused": false,
+    "next_generation": "Only after the FEATURE-LEDGER sequencing correction and a fresh precursor repairing every root blocker, form G6 with an independently fresh holdout and fresh boundary challenges."
+  },
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "prototype": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "conformance": 0,
+    "movement": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,27 @@
+
+===== desktop-light =====
+BASELINE {"editorPresent":true,"editorText":"linear-gradient(90deg, oklch(0.75 0.15 145) 0%, oklch(0.65 0.18 265) 100%)","editorAriaInvalid":null,"editorBorder":"oklab(0.779406 0.011815 0.034254 / 0.4)","verdict":null,"mainTextLen":581,"mainHtmlLen":91196,"buttons":53,"bodyText":"→\nGradient\nTools\nLogin\n@mbabb\ndev misconfigured — run `npm run dev`\nGradient\n\nBuild gradients with per-interval easing and CSS output.\n\nInterpolation\nTYPE\nLinear\nSPACE\nOKLCh\nHUE\nShorter\nDIRECTION\n90°\n","renderTilePresent":true}
+KEYBOARD {"tabIndexProp":-1,"tabIndexAttr":null,"isContentEditable":true}
+
+CASE  linear-gradient(90deg, oklch(), blue)
+  after: {"editorPresent":false,"editorText":null,"editorAriaInvalid":null,"editorBorder":null,"verdict":null,"mainTextLen":102,"mainHtmlLen":2832,"buttons":17,"bodyText":"→\nGradient\nTools\nLogin\n@mbabb\ndev misconfigured — run `npm run dev`\n\nThis panel hit an unexpected error.\n\nundefined is not an object (evaluating 'g[0].replace')\n\nTry again","renderTilePresent":false}
+  pageErrors(0): []
+  consoleErrors(0): []
+
+CASE  linear-gradient(90deg, rgb(), blue)
+  after: {"editorPresent":false,"editorText":null,"editorAriaInvalid":null,"editorBorder":null,"verdict":null,"mainTextLen":102,"mainHtmlLen":2832,"buttons":17,"bodyText":"→\nGradient\nTools\nLogin\n@mbabb\ndev misconfigured — run `npm run dev`\n\nThis panel hit an unexpected error.\n\nundefined is not an object (evaluating 'g[0].replace')\n\nTry again","renderTilePresent":false}
+  pageErrors(0): []
+  consoleErrors(0): []
+
+CASE  linear-gradient(90deg, hsl(  ), blue)
+  after: {"editorPresent":false,"editorText":null,"editorAriaInvalid":null,"editorBorder":null,"verdict":null,"mainTextLen":102,"mainHtmlLen":2832,"buttons":17,"bodyText":"→\nGradient\nTools\nLogin\n@mbabb\ndev misconfigured — run `npm run dev`\n\nThis panel hit an unexpected error.\n\nundefined is not an object (evaluating 'g[0].replace')\n\nTry again","renderTilePresent":false}
+  pageErrors(0): []
+  consoleErrors(0): []
+
+CASE  linear-gradient(90deg, notacolor, blue)
+  after: {"editorPresent":true,"editorText":"linear-gradient(90deg, notacolor, blue)","editorAriaInvalid":"true","editorBorder":"rgb(219, 36, 36)","verdict":"unparseable color \"notacolor\"","mainTextLen":578,"mainHtmlLen":91031,"buttons":53,"bodyText":"→\nGradient\nTools\nLogin\n@mbabb\ndev misconfigured — run `npm run dev`\nGradient\n\nBuild gradients with per-interval easing and CSS output.\n\nInterpolation\nTYPE\nLinear\nSPACE\nOKLCh\nHUE\nShorter\nDIRECTION\n90°\n","renderTilePresent":true}
+  pageErrors(0): []
+  consoleErrors(0): []
+
+REDUCED-MOTION {"transition":"opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1), color 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.1s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.1s cubic-bezier(0.4, 0, 0.2, 1)","transitionDuration":"0.1s","prm":true}
+FORCED-COLORS {"forced":true,"bg":"rgba(0, 0, 0, 0)","border":"oklab(0.00111 0.000017 0.000049 / 0.997868)","color":"rgb(28, 25, 23)"}

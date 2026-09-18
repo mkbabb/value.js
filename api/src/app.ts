@@ -16,14 +16,14 @@ import { corsHeaders } from "./platform/http/cors.js";
 import { idempotency } from "./platform/http/idempotency.js";
 import { injectServices } from "./platform/http/inject-services.js";
 import { rateLimit } from "./platform/http/rate-limit.js";
-import { resolveSession } from "./modules/session/resolve-session.js";
+import { resolveSession } from "./modules/session/resolve.js";
 import { sanitizeBody } from "./platform/http/sanitize-body.js";
 import { toResponseEnvelope } from "./platform/http/errors/index.js";
 import { palettes } from "./modules/palette/routes/index.js";
 import sessions from "./modules/session/routes.js";
 import colors from "./modules/color/routes.js";
 import admin from "./modules/admin/routes/index.js";
-import { meta } from "./modules/meta/routes.js";
+import { createMeta } from "./modules/meta/routes.js";
 
 export const app = new Hono<AppEnv>();
 
@@ -79,11 +79,14 @@ app.route("/sessions", sessions);
 app.route("/colors", colors);
 app.route("/admin", admin);
 
-// Liveness sentinel (the bare root). The richer /health (mongo ping + lineage
-// stamp), /docs, and /openapi.json live in the meta router (N.W4.D — the
-// constellation 4-endpoint vhost contract / inv-22-color).
+// Liveness sentinel (the bare root). The richer /health (real readiness),
+// /docs, and /openapi.json live in the meta router (N.W4.D). The meta router
+// is built with a thunk over THIS app's live route registry, so `/openapi.json`
+// and `/docs` are generated from the mounted surface (V·W45 item 6) and cannot
+// drift. The thunk is only invoked at request time, when every route above is
+// already mounted.
 app.get("/", (c) => c.json({ status: "ok", service: "palette-api" }));
-app.route("/", meta);
+app.route("/", createMeta(() => app));
 
 /**
  * I.W4 SOTA: emit problem+json responses with the correct

@@ -35,6 +35,27 @@ export interface DecodedImage {
 
 const PNG_SIG = [137, 80, 78, 71, 13, 10, 26, 10];
 
+/**
+ * X-W1 · G-1 — an in-bounds byte read, named ONCE.
+ *
+ * Every index in this decoder is guaranteed by a loop bound or by a length
+ * precondition checked before the loop, but `noUncheckedIndexedAccess` types
+ * `Uint8Array[i]` as `number | undefined` and the decoder read through that
+ * hole ~19 times. Scattering `!` would assert the guarantee silently; a `?? 0`
+ * would let a TRUNCATED stream decode to plausible-looking pixels and fake an
+ * oracle green — precisely what this file's own docstring forbids. So the
+ * guarantee gets one home, and a violation throws where it happens.
+ */
+function at(buf: Uint8Array, i: number): number {
+    const v = buf[i];
+    if (v === undefined) {
+        throw new Error(
+            `frame-diff: read past the end of the buffer (index ${i}, length ${buf.length}) — truncated or malformed stream`,
+        );
+    }
+    return v;
+}
+
 function paeth(a: number, b: number, c: number): number {
     const p = a + b - c;
     const pa = Math.abs(p - a);
@@ -90,15 +111,26 @@ export function decodePng(buf: Buffer): DecodedImage {
     const bpp = channels;
     const stride = width * bpp;
     const out = new Uint8Array(width * height * bpp);
+    // The un-filter loop reads exactly one filter byte plus `stride` sample
+    // bytes per scanline; a stream shorter than that is malformed, and saying
+    // so HERE beats discovering it one byte at a time inside the loop.
+    const expected = height * (1 + stride);
+    if (raw.length < expected) {
+        throw new Error(
+            `frame-diff: inflated IDAT is ${raw.length} bytes, ${expected} required for ${width}x${height}x${bpp}`,
+        );
+    }
     let ri = 0;
     for (let y = 0; y < height; y++) {
-        const filter = raw[ri++];
+        const filter = at(raw, ri++);
         const rowStart = y * stride;
         for (let x = 0; x < stride; x++) {
-            const rawByte = raw[ri++];
-            const a = x >= bpp ? out[rowStart + x - bpp] : 0; // left
-            const b = y > 0 ? out[rowStart - stride + x] : 0; // up
-            const c = x >= bpp && y > 0 ? out[rowStart - stride + x - bpp] : 0; // up-left
+            const rawByte = at(raw, ri++);
+            // PNG 15.1: samples outside the image are treated as zero — the
+            // ternaries below ARE that rule, not a convenience default.
+            const a = x >= bpp ? at(out, rowStart + x - bpp) : 0; // left
+            const b = y > 0 ? at(out, rowStart - stride + x) : 0; // up
+            const c = x >= bpp && y > 0 ? at(out, rowStart - stride + x - bpp) : 0; // up-left
             let val: number;
             switch (filter) {
                 case 0:
@@ -141,9 +173,9 @@ export function meanAbsDiff(a: DecodedImage, b: DecodedImage): number {
     for (let p = 0; p < n; p++) {
         const ai = p * a.channels;
         const bi = p * b.channels;
-        sum += Math.abs(a.data[ai] - b.data[bi]);
-        sum += Math.abs(a.data[ai + 1] - b.data[bi + 1]);
-        sum += Math.abs(a.data[ai + 2] - b.data[bi + 2]);
+        sum += Math.abs(at(a.data, ai) - at(b.data, bi));
+        sum += Math.abs(at(a.data, ai + 1) - at(b.data, bi + 1));
+        sum += Math.abs(at(a.data, ai + 2) - at(b.data, bi + 2));
     }
     return sum / (n * 3);
 }
@@ -156,9 +188,9 @@ export function meanRgb(img: DecodedImage): [number, number, number] {
     const n = img.width * img.height;
     for (let p = 0; p < n; p++) {
         const i = p * img.channels;
-        r += img.data[i];
-        g += img.data[i + 1];
-        bl += img.data[i + 2];
+        r += at(img.data, i);
+        g += at(img.data, i + 1);
+        bl += at(img.data, i + 2);
     }
     return [r / n, g / n, bl / n];
 }
@@ -208,7 +240,9 @@ export function cssColorToHex(s: string): string | null {
     const m = t.match(/^rgb\(\s*(\d+)\s*,?\s*(\d+)\s*,?\s*(\d+)\s*\)$/);
     if (!m) return null;
     const hex = (v: string) =>
-        Math.max(0, Math.min(255, parseInt(v, 10))).toString(16).padStart(2, "0");
+        Math.max(0, Math.min(255, parseInt(v, 10)))
+            .toString(16)
+            .padStart(2, "0");
     return `#${hex(m[1]!)}${hex(m[2]!)}${hex(m[3]!)}`;
 }
 

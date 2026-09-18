@@ -1,0 +1,237 @@
+{
+  "measure": [
+    {
+      "viewportWidth": 1440,
+      "maxInlineSize": "100%",
+      "bodyPx": 462,
+      "cardPx": 512,
+      "chPx": 9.342,
+      "bodyCh": 49.5
+    },
+    {
+      "viewportWidth": 1920,
+      "maxInlineSize": "100%",
+      "bodyPx": 462,
+      "cardPx": 512,
+      "chPx": 9.342,
+      "bodyCh": 49.5
+    },
+    {
+      "viewportWidth": 2560,
+      "maxInlineSize": "100%",
+      "bodyPx": 462,
+      "cardPx": 512,
+      "chPx": 9.342,
+      "bodyCh": 49.5
+    },
+    {
+      "viewportWidth": 3440,
+      "maxInlineSize": "100%",
+      "bodyPx": 462,
+      "cardPx": 512,
+      "chPx": 9.342,
+      "bodyCh": 49.5
+    }
+  ],
+  "schemes": {
+    "light": {
+      "plate": [
+        225,
+        177,
+        220
+      ],
+      "h2": [
+        170,
+        0,
+        67,
+        1
+      ],
+      "h3": [
+        113,
+        29,
+        49,
+        1
+      ],
+      "p": [
+        28,
+        25,
+        23,
+        1
+      ],
+      "code": [
+        170,
+        0,
+        67,
+        1
+      ],
+      "mark": [
+        170,
+        0,
+        67,
+        1
+      ],
+      "hrBorder": [
+        170,
+        0,
+        67,
+        1
+      ],
+      "wellBg": [
+        233,
+        225,
+        217,
+        1
+      ],
+      "h2Chroma": 0.188343,
+      "contrast": {
+        "h2_on_plate": 4.13,
+        "h3_on_plate": 6,
+        "p_on_plate": 9.6,
+        "code_on_well": 5.82,
+        "mark_on_plate": 4.13
+      },
+      "separation": {
+        "h2_vs_p": 150.7,
+        "h2_vs_h3": 66.4,
+        "h3_vs_p": 89,
+        "mark_vs_p": 150.7
+      },
+      "hrOpacity": "0.3"
+    },
+    "dark": {
+      "plate": [
+        68,
+        51,
+        52
+      ],
+      "h2": [
+        255,
+        236,
+        238,
+        1
+      ],
+      "h3": [
+        247,
+        233,
+        233,
+        1
+      ],
+      "p": [
+        233,
+        230,
+        226,
+        1
+      ],
+      "code": [
+        255,
+        236,
+        238,
+        1
+      ],
+      "mark": [
+        255,
+        236,
+        238,
+        1
+      ],
+      "hrBorder": [
+        255,
+        236,
+        238,
+        1
+      ],
+      "wellBg": [
+        66,
+        55,
+        47,
+        1
+      ],
+      "h2Chroma": 0.021053,
+      "contrast": {
+        "h2_on_plate": 10.45,
+        "h3_on_plate": 10.06,
+        "p_on_plate": 9.54,
+        "code_on_well": 10.16,
+        "mark_on_plate": 10.45
+      },
+      "separation": {
+        "h2_vs_p": 25.8,
+        "h2_vs_h3": 9.9,
+        "h3_vs_p": 15.9,
+        "mark_vs_p": 25.8
+      },
+      "hrOpacity": "0.3"
+    }
+  },
+  "mobile": {
+    "found": true,
+    "measure": {
+      "widthPx": 332,
+      "bodyCh": 35.5,
+      "maxInlineSize": "100%",
+      "docOverflowX": 0,
+      "bodyOverflowX": 0,
+      "katexBoxes": [
+        {
+          "cls": "inline-block",
+          "w": 332,
+          "scrollW": 332,
+          "clientW": 332,
+          "overflow": 0,
+          "overflowX": "auto"
+        },
+        {
+          "cls": "inline-block",
+          "w": 332,
+          "scrollW": 332,
+          "clientW": 332,
+          "overflow": 0,
+          "overflowX": "auto"
+        },
+        {
+          "cls": "katex-display",
+          "w": 306.1,
+          "scrollW": 752,
+          "clientW": 306,
+          "overflow": 446,
+          "overflowX": "visible"
+        },
+        {
+          "cls": "inline-block",
+          "w": 332,
+          "scrollW": 332,
+          "clientW": 332,
+          "overflow": 0,
+          "overflowX": "auto"
+        },
+        {
+          "cls": "katex-display",
+          "w": 306.1,
+          "scrollW": 405,
+          "clientW": 306,
+          "overflow": 99,
+          "overflowX": "visible"
+        },
+        {
+          "cls": "inline-block",
+          "w": 332,
+          "scrollW": 332,
+          "clientW": 332,
+          "overflow": 0,
+          "overflowX": "auto"
+        },
+        {
+          "cls": "katex-display",
+          "w": 306.1,
+          "scrollW": 479,
+          "clientW": 306,
+          "overflow": 173,
+          "overflowX": "visible"
+        }
+      ],
+      "h2FontSize": "30px",
+      "pFontSize": "16px",
+      "h2MarginTop": "41.875px"
+    }
+  }
+}

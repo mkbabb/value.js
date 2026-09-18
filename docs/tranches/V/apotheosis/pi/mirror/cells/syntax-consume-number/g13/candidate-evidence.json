@@ -1,0 +1,557 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.candidate-evidence/v1",
+  "generation": 13,
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "status": "PASS_ALL_FOUR_CANDIDATES_ALL_172_HOLDOUT_CASES",
+  "scope": "POST_REVEAL_PROTOTYPE_CORRECTNESS_EVIDENCE_ONLY",
+  "authentication": {
+    "status": "PASS_ALL_DECLARED_JOINS_HASHES_MODES_AND_AES_256_GCM_AUTHENTICATION",
+    "anchors": {
+      "formation": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/formation-receipt.json",
+        "sha256": "51e8f1e46c62c2aae047179ac417fb763a10da4395602436b4793508d9549572",
+        "bytes": 7167,
+        "mode": "0444",
+        "mode_claim": "0444",
+        "status": "PASS"
+      },
+      "root_accept": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/root-gestalt.json",
+        "sha256": "38383e09cfc2d788d6399cf06d0422af61e91efed72a26e88ecadfb23beaec09",
+        "bytes": 4946,
+        "mode": "0644",
+        "mode_claim": null,
+        "status": "PASS"
+      },
+      "holdout_receipt": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/holdout-receipt.json",
+        "sha256": "9d6e210c9489e082f514d096eb0ab470057e366c0e5e7446f27b19ee6164c47e",
+        "bytes": 4264,
+        "mode": "0444",
+        "mode_claim": "0444",
+        "status": "PASS"
+      },
+      "holdout_ciphertext": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/holdout-ciphertext.b64",
+        "sha256": "4e6a09fae3ddecef0437abb694421d2fd80c7e05ca6f33fdc9399dee8db48671",
+        "bytes": 329665,
+        "mode": "0444",
+        "mode_claim": "0444",
+        "status": "PASS"
+      },
+      "holdout_reveal": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/holdout-reveal.json",
+        "sha256": "47823ab2b89cb2f0dc17133dcb2a23dc3c84fe83829deefe50622a0cbeb1acb8",
+        "bytes": 6884,
+        "mode": "0444",
+        "mode_claim": "0444",
+        "status": "PASS"
+      },
+      "author_roster": {
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/author-roster.json",
+        "sha256": "39cfb3cbdaa829b7b2a33b6234cad5325a5200f824294197119c383ebcedbe57",
+        "bytes": 2473,
+        "mode": "0444",
+        "mode_claim": "0444",
+        "status": "PASS"
+      }
+    },
+    "formation_closure": {
+      "status": "PASS",
+      "rows": 33,
+      "closure_sha256": "53c79dd64ae4cc93ab497ae712e6d06b601c8c61fbaae49b5277d117c2f4c73c",
+      "row_mode": "0444"
+    },
+    "joins": {
+      "formation_to_root": "PASS",
+      "root_and_formation_to_holdout_receipt": "PASS",
+      "receipt_to_ciphertext_and_frame": "PASS",
+      "receipt_to_aad": "PASS",
+      "reveal_to_seal": "PASS",
+      "roster_to_unrevealed_seal": "PASS",
+      "reveal_to_all_four_candidate_closures": "PASS",
+      "authenticated_plaintext_to_receipt_and_reveal": "PASS"
+    },
+    "cryptography": {
+      "algorithm": "AES-256-GCM",
+      "aad_sha256": "35e5cafc67267afafb9aeddbd837e56765e3fa3c40adf40b3f6e4467a41d1591",
+      "sealed_frame_sha256": "860c09972642aee0da6019f482f3cf6a2f33e857808b00cabf092ec9aac89806",
+      "ciphertext_sha256": "7435a2ce3bec4b2fddb1aaa8770697e02ee996de8d3bbc97e730541276936569",
+      "plaintext_sha256": "ab1ff7a462070e4d1ed6b32457d28406cae0012223f18ecfb446294e9c2bcc5e",
+      "canonical_plaintext_exact": true
+    },
+    "corpus": {
+      "cases": 172,
+      "maximum_source_utf16_length": 4098,
+      "family_counts": [
+        {
+          "family": "core-success",
+          "cases": 24,
+          "canonical_case_bytes": 9386,
+          "status": "PASS"
+        },
+        {
+          "family": "maximal-prefix",
+          "cases": 26,
+          "canonical_case_bytes": 10258,
+          "status": "PASS"
+        },
+        {
+          "family": "utf16-offset",
+          "cases": 18,
+          "canonical_case_bytes": 6867,
+          "status": "PASS"
+        },
+        {
+          "family": "composition-boundary",
+          "cases": 18,
+          "canonical_case_bytes": 8735,
+          "status": "PASS"
+        },
+        {
+          "family": "descriptor-expectation",
+          "cases": 10,
+          "canonical_case_bytes": 4899,
+          "status": "PASS"
+        },
+        {
+          "family": "extreme-conversion",
+          "cases": 18,
+          "canonical_case_bytes": 9091,
+          "status": "PASS"
+        },
+        {
+          "family": "failure-transaction",
+          "cases": 40,
+          "canonical_case_bytes": 14854,
+          "status": "PASS"
+        },
+        {
+          "family": "bounded-hostile",
+          "cases": 18,
+          "canonical_case_bytes": 179557,
+          "status": "PASS"
+        }
+      ]
+    },
+    "candidate_inputs": {
+      "h": {
+        "topology": "WHOLE_PREFIX_REGEX",
+        "actual_collaboration_task": "/root/g13_author_h",
+        "candidate": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/h/index.ts",
+          "sha256": "d1e98dfe1d3f818ad690137b17f076fd59f2e27b3418e48c0a60c08a3389c8a0",
+          "bytes": 407,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "closure": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-closures/h.json",
+          "sha256": "0328252331466f4f73bb1cacaaa219c4163e7f69e10fff12fb92fec4fb1920c3",
+          "bytes": 1668,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "candidate_bundle": {
+          "sha256": "73df214320ef6fa7d9ceb521a8b72b6188a7a5fd563e5d5098c0f4e970ce026b",
+          "bytes": 34805,
+          "replay": "PASS_EXACT"
+        }
+      },
+      "b": {
+        "topology": "FACTORIZED_ALL_ANY",
+        "actual_collaboration_task": "/root/g13_author_b",
+        "candidate": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/b/index.ts",
+          "sha256": "00d6bf2fba70a6e7600bec2d9d3b136eff41eb066de5d27918976ec8d7b333f1",
+          "bytes": 957,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "closure": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-closures/b.json",
+          "sha256": "efda042bd17ad530d70a407971706a49d4b393f5b3824cbc9b17dd91a95e2c23",
+          "bytes": 1774,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "candidate_bundle": {
+          "sha256": "6603dcbd6dfaef4e9adb98e6faaca6d556148bda63b70a96722234de9a44a4d5",
+          "bytes": 36348,
+          "replay": "PASS_EXACT"
+        }
+      },
+      "s": {
+        "topology": "STAGED_THEN",
+        "actual_collaboration_task": "/root/g13_author_s",
+        "candidate": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/s/index.ts",
+          "sha256": "f2f379b0bcd5248c0839145ebc6566a23078415b3f97c4927e7bf20e9ef8606d",
+          "bytes": 1004,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "closure": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-closures/s.json",
+          "sha256": "8e7fe5162fe21ee1b50d4eabc9230ea20b9fe89894e6fac320558dd62ecba02d",
+          "bytes": 1772,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "candidate_bundle": {
+          "sha256": "ce2205e5fdb2a5194fbd97ffd70e1eb22ba40f638c2c41a1b30de41536783106",
+          "bytes": 35317,
+          "replay": "PASS_EXACT"
+        }
+      },
+      "d": {
+        "topology": "FIRST_CHARACTER_DISPATCH",
+        "actual_collaboration_task": "/root/g13_author_d",
+        "candidate": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidates/d/index.ts",
+          "sha256": "552389f9c6212c274afad38b43130889f3f65f43c2bb9f3e091ed72ab0c3b4e1",
+          "bytes": 625,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "closure": {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-closures/d.json",
+          "sha256": "145ae6893fb1817a5e5194b4cdb3b97d62a0802c86b3e4c781400658784ef6bc",
+          "bytes": 1789,
+          "mode": "0444",
+          "mode_claim": "0444",
+          "status": "PASS"
+        },
+        "candidate_bundle": {
+          "sha256": "06fd051bf3fc33535b32689b394f2dbc9b3e7d53973530de99d5bfdfd37e2909",
+          "bytes": 36301,
+          "replay": "PASS_EXACT"
+        }
+      }
+    },
+    "runtime_closure_replay": {
+      "status": "PASS",
+      "peer_sources": 14,
+      "packages": 6
+    },
+    "peer_door_replay": {
+      "status": "PASS",
+      "cases": 15,
+      "common": [
+        "integer",
+        "negative-integer",
+        "fraction",
+        "negative-fraction",
+        "exponent",
+        "negative-exponent",
+        "decimal",
+        "zero"
+      ],
+      "exact_expected": true
+    }
+  },
+  "evaluator": {
+    "policy": "one candidate-neutral worker bundled separately with each exact frozen candidate; no seat branches or candidate-specific exceptions",
+    "failure_diagnostics": {
+      "ordinary": "unscored: the frozen contract requires preservation only for pre-existing ahead diagnostics",
+      "preseeded_ahead": "all seeded diagnostic fields and nested values must remain structurally identical and ordered"
+    },
+    "source": {
+      "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-evaluator.mts",
+      "sha256": "c237d9a4ddc3c7cb88efdc165f1398f27201fdd9b491dcf4e32b43d43b33d5e7",
+      "bytes": 11788
+    }
+  },
+  "evidence_driver": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g13/candidate-evidence.mjs",
+    "sha256": "14ffb2296ac256daffc4315d148d8fa2e179abc46d6128f93e2b0bffcac02b9f",
+    "bytes": 23902
+  },
+  "seats": {
+    "h": {
+      "status": "PASS",
+      "cases": 172,
+      "passed": 172,
+      "failed": 0,
+      "families": {
+        "core-success": {
+          "status": "PASS",
+          "cases": 24,
+          "passed": 24,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "maximal-prefix": {
+          "status": "PASS",
+          "cases": 26,
+          "passed": 26,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "utf16-offset": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "composition-boundary": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "descriptor-expectation": {
+          "status": "PASS",
+          "cases": 10,
+          "passed": 10,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "extreme-conversion": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "failure-transaction": {
+          "status": "PASS",
+          "cases": 40,
+          "passed": 40,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "bounded-hostile": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        }
+      },
+      "evaluator_bundle": {
+        "sha256": "8f1249561581a4a4ef8e763ccb80595d59aa8552f0cf20ed7852f958ce35518e",
+        "bytes": 45255
+      }
+    },
+    "b": {
+      "status": "PASS",
+      "cases": 172,
+      "passed": 172,
+      "failed": 0,
+      "families": {
+        "core-success": {
+          "status": "PASS",
+          "cases": 24,
+          "passed": 24,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "maximal-prefix": {
+          "status": "PASS",
+          "cases": 26,
+          "passed": 26,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "utf16-offset": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "composition-boundary": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "descriptor-expectation": {
+          "status": "PASS",
+          "cases": 10,
+          "passed": 10,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "extreme-conversion": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "failure-transaction": {
+          "status": "PASS",
+          "cases": 40,
+          "passed": 40,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "bounded-hostile": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        }
+      },
+      "evaluator_bundle": {
+        "sha256": "2153b2bc2d3bd3f2265514b4280b4e481507990bda71f0a4bd2a1cb1655431f5",
+        "bytes": 46798
+      }
+    },
+    "s": {
+      "status": "PASS",
+      "cases": 172,
+      "passed": 172,
+      "failed": 0,
+      "families": {
+        "core-success": {
+          "status": "PASS",
+          "cases": 24,
+          "passed": 24,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "maximal-prefix": {
+          "status": "PASS",
+          "cases": 26,
+          "passed": 26,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "utf16-offset": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "composition-boundary": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "descriptor-expectation": {
+          "status": "PASS",
+          "cases": 10,
+          "passed": 10,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "extreme-conversion": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "failure-transaction": {
+          "status": "PASS",
+          "cases": 40,
+          "passed": 40,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "bounded-hostile": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        }
+      },
+      "evaluator_bundle": {
+        "sha256": "cd3cd05112c02e55e429f610abd94629df949bce9fe46317351e41435e5905ed",
+        "bytes": 45767
+      }
+    },
+    "d": {
+      "status": "PASS",
+      "cases": 172,
+      "passed": 172,
+      "failed": 0,
+      "families": {
+        "core-success": {
+          "status": "PASS",
+          "cases": 24,
+          "passed": 24,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "maximal-prefix": {
+          "status": "PASS",
+          "cases": 26,
+          "passed": 26,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "utf16-offset": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "composition-boundary": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "descriptor-expectation": {
+          "status": "PASS",
+          "cases": 10,
+          "passed": 10,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "extreme-conversion": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "failure-transaction": {
+          "status": "PASS",
+          "cases": 40,
+          "passed": 40,
+          "failed": 0,
+          "failed_cases": []
+        },
+        "bounded-hostile": {
+          "status": "PASS",
+          "cases": 18,
+          "passed": 18,
+          "failed": 0,
+          "failed_cases": []
+        }
+      },
+      "evaluator_bundle": {
+        "sha256": "f5557bcb715d1951006dfb8393344f2a1443b6effac19058b065375177332976",
+        "bytes": 46751
+      }
+    }
+  },
+  "holdout_disposition": "ALL_SEATS_PASS",
+  "benchmark_corpus_gate": "SEPARATE_EXACT_FULL_NUMBER_PREVALIDATION_REQUIRED_BEFORE_ANY_TIMING",
+  "parser_credit": 0,
+  "feature_credit": 0,
+  "benchmark_credit": 0,
+  "production_authority": 0
+}

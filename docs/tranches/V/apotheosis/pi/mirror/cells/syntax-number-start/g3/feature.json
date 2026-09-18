@@ -1,0 +1,205 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 3,
+  "status": "SEALED_AWAITING_BOUNDARY_CHALLENGES",
+  "owner": {
+    "family": "value-unit",
+    "module_namespace": "grammar/css/l4/value-unit",
+    "candidate_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+    "integration_target": "grammar/css/l4/value-unit/number-start.ts",
+    "internal_root": "numberStart: Parser<boolean>",
+    "public_root": null,
+    "compatibility_impact": "No public export or result type. A winner remains provisional until full-ledger freeze and integrated consumer replay."
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "definition": "§4.3.10 Check if three code points would start a number",
+    "preprocessing_dependency": "§3.3 preprocessing maps input code points to a preprocessed stream; §4.3.10 is evaluated only at mapped retained positions or EOF."
+  },
+  "structure_identity": {
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "module_dag_bbnf_disposition": "TERMINAL_SHARED_BOUNDARY_ACK",
+    "feature_ledger_sha256_at_formation": "8e52ecc7899b7f0a5404be9a46be8b42bde55424b3fb81029c542604bdff41e7",
+    "full_ledger_status": "INCOMPLETE_NO_APOTHEOSIS_ACCEPTANCE",
+    "integration_base_ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+    "parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b"
+  },
+  "prior_generations": [
+    {
+      "generation": 1,
+      "verdict": "ONE_ACCEPT_ONE_REJECT_BEFORE_CODE",
+      "repairs_carried": ["real parent-combinator invocation", "separate parser-only benchmark lane", "target-relative exact overlay identity"]
+    },
+    {
+      "generation": 2,
+      "manifest_sha256": "72183fb4dc3dae48c0e554bda1846beefcc57fcb1fe7874db7b092e2d23df9f5",
+      "verdict": "TWO_REJECTS_BEFORE_CODE",
+      "repairs_carried": [
+        "complete public sign/digit matrix",
+        "realistic diagnostic profiles and referential/structural equality",
+        "explicit enabled and disabled diagnostics modes",
+        "mapped raw/preprocessed positions and CRLF-interior exclusion",
+        "exact benchmark pool/schedule/bootstrap/allocation algorithms",
+        "mechanical transitive promotion verifier",
+        "five seats yielding at least three bounded construction lineages"
+      ]
+    }
+  ],
+  "occurrences": [
+    {
+      "id": "CSS-SYNTAX-3/4.3.10/definition",
+      "role": "owned operation",
+      "disposition": "Own the complete non-consuming boolean algorithm exactly once."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/plus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/minus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/dot-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/digit-number-dispatch",
+      "role": "explicit non-occurrence",
+      "disposition": "Leading digits enter numeric-token consumption directly and do not call §4.3.10."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.13/precondition",
+      "role": "incoming consumer",
+      "disposition": "Future consume-number imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/3.3/position-map",
+      "role": "incoming precondition",
+      "disposition": "SYNTAX-SOURCE-MAP supplies only retained source positions or EOF; an eliminated CRLF interior code unit is outside this operation's domain."
+    }
+  ],
+  "grammar_contract": {
+    "input": "An ordinary parse-that child state at a source-native UTF-16 offset corresponding to one retained CSS-preprocessed position or EOF, with any predecessor value and any valid parse-that diagnostic state.",
+    "operation": "Inspect no more than the next three positions through direct parse-that terminals/combinators. Return true exactly for digit, sign+digit, dot+digit, or sign+dot+digit; otherwise false.",
+    "composition": "The public harness invokes the candidate as string(prefix).map(variedPredecessor).next(candidate).skip(string(continuation)); .next invokes the candidate raw child parser.",
+    "state_identity": "Return the same ParserState object received by the child.",
+    "consumption": "Always succeed, replace the predecessor with one boolean, consume zero code units, and leave the following grammar at the candidate offset.",
+    "diagnostics": "Under explicit package diagnostics-disabled and diagnostics-enabled modes, preserve furthest, expected own-property presence, expected array identity and ordered values, suggestions array identity and each entry identity/fields, and secondarySpans array identity and each entry identity/fields. Preserve the global diagnostics mode.",
+    "diagnostic_profiles": [
+      "default present/undefined",
+      "absent expected with furthest before",
+      "undefined expected with multiple diagnostics before",
+      "empty expected at candidate offset",
+      "multiple diagnostics at candidate offset",
+      "multiple diagnostics beyond candidate offset",
+      "multiple diagnostics at source end"
+    ],
+    "diagnostic_sandbox": "Recognition uses direct core combinators. A candidate-local Parser wrapper may snapshot and restore only diagnostic bookkeeping around speculative recognition. It may not import the diagnostics subpath, change global mode, inspect/slice state.src, classify source manually, advance a cursor, or feed a token/CST layer.",
+    "preprocessing": "ASCII +, -, ., and digits are unchanged by preprocessing. Raw and preprocessed truth is asserted only at explicitly mapped corresponding retained positions/EOF. CRLF's eliminated LF interior is excluded and must never be supplied by the future source-map dependency.",
+    "result": "boolean",
+    "recovery": "NOT_APPLICABLE_ALWAYS_SUCCEEDS",
+    "serialization": "NOT_APPLICABLE_NO_SERIALIZATION",
+    "work_bound": "Worst-case O(1) time and space; inspect no more than three positions; no whole-number/exponent run, substring/CST/token materialization, imperative loop, or scanner."
+  },
+  "fixture_identity": {
+    "cases_path": "fixtures/cases.json",
+    "cases_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "materialized_public_cases": 406,
+    "public_true": 306,
+    "public_false": 100,
+    "positive_matrix": "six normative prefix forms × all ten ASCII digits × five source prefixes",
+    "negative_matrix": "eighteen hostile spellings × five source prefixes",
+    "mapped_preprocessing_pairs": 8,
+    "excluded_positions": 1,
+    "deterministic_hostile": 3,
+    "contract_sha256": "31ffbac4e1833a3a31342e4ce5dca47eb19c3c996b71e76eb28e92003de54322",
+    "harness_sha256": "60f0f60504f2bc2a55c6e1d79970762716a0dbc1a85219cb625d7341e00a3ec9",
+    "hidden_holdout": {
+      "status": "SEALED_WITHHELD",
+      "custodian": "/root/number_start_g2_spec_challenge#g3-restart-2",
+      "sha256": "968d2bb63477bf38ae2bf8c17667ba1cabd5faee2d859ec0dab9077357197b17",
+      "bytes": 9645,
+      "cases": 58,
+      "true": 29,
+      "false": 29,
+      "bound_precursor_feature_sha256": "b964292d5c68270b572835238abf1f7a967276709018825fe48c37fab63c8aa1",
+      "bound_parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+      "canonicalization": "UTF-8 canonical JSON with LF termination",
+      "reveal": "Only after all five candidate source, overlay, and projected aggregate identities close."
+    }
+  },
+  "oracle_roles": {
+    "spec": "Sole semantic arbiter.",
+    "bbnf": "Topology/provenance only; no acknowledged standalone predicate/runtime.",
+    "live": "NON_COMPARABLE: live public CSS parses complete tokens/values.",
+    "browser": "No independent CSSOM door for an internal three-position predicate."
+  },
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "required_authors": 5,
+    "lineage_accounting": "H/B/S bounded production branches remain one conservative lineage until proven otherwise. D prefix dispatch and R one-terminal bounded lookahead are two further construction lineages. Five isolated authors therefore guarantee at least three materially distinct paths without allowing an unbounded H/B whole-number regex.",
+    "common_inputs": [
+      "this exact sealed manifest/input set",
+      "published @mkbabb/parse-that@1.0.0",
+      "seat-specific allowed authority",
+      "fresh hidden-holdout hash without bytes"
+    ],
+    "seats": [
+      {
+        "id": "H",
+        "provenance": "historical direct-combinator transpose",
+        "allowed_authority": "value.js f5723e72 src/parsing/utils.ts SHA-256 bcaa6cb2206a1d57776a71c260b6ed30e8c29ad48ed4f1069def2896a650133c",
+        "topology": "Transpose only the bounded first-three decision implied by the historical terminal into explicit core-combinator branches; matching the whole number/exponent is forbidden."
+      },
+      {
+        "id": "B",
+        "provenance": "BBNF-production transpose",
+        "allowed_authority": "bbnf-lang af15f63e0d2d3d719938c13b906a50acbb92ea3b value-unit.bbnf SHA-256 cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+        "topology": "Transpose only bounded prefix productions; no f64 conversion or whole numeric run."
+      },
+      {
+        "id": "S",
+        "provenance": "specification-first",
+        "allowed_authority": "pinned CSS Syntax source plus sealed inputs and core API",
+        "topology": "Normative alternatives expressed as an explicit production tree."
+      },
+      {
+        "id": "D",
+        "provenance": "engine-native clean room",
+        "allowed_authority": "sealed observable contract/public fixtures and core API only",
+        "topology": "First-character dispatch/chain construction, not a production-tree or single-regex clone."
+      },
+      {
+        "id": "R",
+        "provenance": "bounded-terminal clean room",
+        "allowed_authority": "sealed observable contract and parse-that regex terminal API only; no H/B/S/D source",
+        "topology": "One bounded zero-width terminal expression inspecting at most three positions, plus an always-successful fallback and diagnostic sandbox."
+      }
+    ],
+    "isolation": "No author sees foreign candidate bytes, hidden bytes, benchmark results, or cross-seat design notes before every close.",
+    "anti_scanner_gate": "promotion-verifier.ts rejects non-core imports, state.src, slicing/indexing scanners, imperative loops, token/CST names, broad remainder patterns, and diagnostics-subpath access."
+  },
+  "benchmark": {
+    "protocol_path": "benchmark-protocol.json",
+    "protocol_sha256": "f6f79fa87f7b1c800434faaf6d38b8f499ab880a8ef2268f0fabb002f37b55a8",
+    "selection_lane": "STRICT_PARSER_ONLY_RAW_CHILD",
+    "peer_credit": "H/B/S/D/R only; public peer-beating credit remains an integrated-door obligation."
+  },
+  "promotion": {
+    "protocol_path": "promotion-protocol.json",
+    "protocol_sha256": "b0b79f1aa27de96f69eb42207b75632f6ff746c7313f164396df6283dfd4acd1",
+    "verifier_path": "promotion-verifier.ts",
+    "verifier_sha256": "fc1078dbbad8af3948cf337b7d129143550af75b74c692a112d1d579885cb432",
+    "allowed_transitive_runtime": "@mkbabb/parse-that/core at the pinned package-lock/dist identity only",
+    "candidate_identity": "source SHA-256 + overlay-ledger SHA-256 + projected grammar-ledger SHA-256"
+  },
+  "admission": "Insert a fresh hidden-holdout identity and seal a manifest over every byte. Two fresh independent challenges and one gestalt must ACCEPT before candidate source. Full feature apotheosis remains forbidden until the complete denominator ledger is frozen."
+}

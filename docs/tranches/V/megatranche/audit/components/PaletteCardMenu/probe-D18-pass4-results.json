@@ -1,0 +1,111 @@
+{
+ "C_rtl": {
+  "ltr": {
+   "trigger": {
+    "x": 1166,
+    "right": 1202
+   },
+   "card": {
+    "x": 754,
+    "right": 1216
+   }
+  },
+  "dirNow": {
+   "attr": "rtl",
+   "computed": "rtl"
+  },
+  "rowRtl": {
+   "trigger": {
+    "x": 238,
+    "right": 274
+   },
+   "card": {
+    "x": 224,
+    "right": 686
+   }
+  },
+  "menuRtl": {
+   "menuDirection": "ltr",
+   "rowDirection": "ltr",
+   "side": "bottom",
+   "align": "end",
+   "menu": {
+    "x": 238,
+    "right": 430,
+    "w": 192
+   },
+   "trigger": {
+    "x": 238,
+    "right": 274
+   },
+   "alignedEdge": "physical-left",
+   "row": {
+    "x": 245,
+    "right": 423,
+    "w": 178
+   },
+   "annotation": {
+    "x": 350.5,
+    "right": 415,
+    "w": 64.5
+   },
+   "annotationSits": "at the physical RIGHT of the row",
+   "gapToRowStartEdge_inlineStart_RTL": 8,
+   "gapToRowEndEdge_inlineEnd_RTL": 105.5
+  },
+  "subRtl": {
+   "menus": 2,
+   "parent": {
+    "x": 238,
+    "right": 430
+   },
+   "child": {
+    "x": 423,
+    "right": 665
+   },
+   "childSide": "right",
+   "childOpensToward": "physical right (outward in LTR, INWARD-over-parent in RTL)"
+  }
+ },
+ "F_irreversible": {
+  "before": {
+   "cards": 11,
+   "dialogs": 0,
+   "stored": 11
+  },
+  "afterSingleDelete": {
+   "cards": 10,
+   "dialogs": 0,
+   "stored": 10,
+   "bodyMentionsUndo": false,
+   "liveRegions": [
+    {
+     "live": "off",
+     "text": "92.0%"
+    },
+    {
+     "live": "off",
+     "text": "88.8"
+    },
+    {
+     "live": "off",
+     "text": "20.0"
+    },
+    {
+     "live": "off",
+     "text": "82.7%"
+    }
+   ],
+   "focused": "BODY.relative"
+  },
+  "bulkDeleteGrammar": {
+   "present": true,
+   "role": "dialog",
+   "text": "Delete all saved palettes? This will permanently delete 10 palettes from local storage. This cannot be undone. Cancel Delete all"
+  }
+ },
+ "G_flipShots": {
+  "cards": 11,
+  "bottomTriggerY": 736.6
+ }
+}

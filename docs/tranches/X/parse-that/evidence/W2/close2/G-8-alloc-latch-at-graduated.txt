@@ -1,0 +1,19 @@
+=== X.P.W2.g — alloc-latch --candidate ac1 (G-8) ===
+lowering  leg                                            reading                               reading                               note
+--------  ---------------------------------------------  ------------------------------------  ------------------------------------  -----------------------------------------------------------------------------
+js        history invariance (literal §6 reading)        parses 1–10000 median 2125.0 ns       late window median 2042.0 ns          drift 0.961x — a value < 1 is V8 tier-up, the opposite direction from a latch
+js        history invariance (warmed — the verdict leg)  early warmed window median 2125.0 ns  parses 90000–100000 median 2042.0 ns  drift 0.961x
+js        steady-state heap                              -32,760 B over 10000 parses           -3.3 B/parse                          after gc()
+js        reject-path heap                               -1,888 B over 10000 rejects           -0.2 B/parse                          zero (or reclaimed)
+js        sink (printed so nothing is optimized away)    40000
+js        arena high-water                               0 B                                                                         wasm only; the JS lowering reports 0
+js        DM-1 Object.freeze leg                         frozen 6479.5 ns                      unfrozen 2958.0 ns                    the mark measured as its own leg, never folded into another
+wasm      history invariance (literal §6 reading)        parses 1–10000 median 1667.0 ns       late window median 1167.0 ns          drift 0.700x — a value < 1 is V8 tier-up, the opposite direction from a latch
+wasm      history invariance (warmed — the verdict leg)  early warmed window median 1375.0 ns  parses 90000–100000 median 1167.0 ns  drift 0.849x
+wasm      steady-state heap                              48 B over 10000 parses                0.0 B/parse                           after gc()
+wasm      reject-path heap                               4,400 B over 10000 rejects            0.4 B/parse                           NONZERO
+wasm      sink (printed so nothing is optimized away)    40000
+wasm      arena high-water                               304 B                                                                       wasm only; the JS lowering reports 0
+wasm      reset residue                                  1542.0 ns → 1541.0 ns                 0.999x                                a reset that leaves timing residue is the PT-03 shape
+wasm      DM-1 Object.freeze leg                         frozen 1417.0 ns                      unfrozen 1375.0 ns                    the mark measured as its own leg, never folded into another
+RED — wasm: the reject path allocates 0.4 B/parse

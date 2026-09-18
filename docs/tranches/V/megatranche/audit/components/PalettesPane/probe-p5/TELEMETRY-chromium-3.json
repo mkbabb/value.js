@@ -1,0 +1,94 @@
+{
+  "fcFocus": {
+    "forcedColorsMedia": true,
+    "trash": {
+      "name": "Delete all saved palettes",
+      "outline": "2px solid rgba(5, 0, 73, 0.8)",
+      "outlineOffset": "2px",
+      "boxShadow": "none",
+      "forcedColorAdjust": "auto",
+      "isActive": true
+    },
+    "menu": {
+      "name": "Palette menu",
+      "outline": "2px solid rgba(5, 0, 73, 0.8)",
+      "outlineOffset": "2px",
+      "boxShadow": "none",
+      "forcedColorAdjust": "auto",
+      "isActive": true
+    },
+    "input": {
+      "name": "Search your palettes...",
+      "outline": "2px solid rgba(5, 0, 73, 0.8)",
+      "outlineOffset": "2px",
+      "boxShadow": "none",
+      "forcedColorAdjust": "auto",
+      "isActive": true
+    },
+    "searchWrapperOnFocus": {
+      "cls": "input-bar search-seated",
+      "boxShadow": "none",
+      "outline": "3px none"
+    }
+  },
+  "fcRamp": {
+    "color": "rgb(0, 0, 0)",
+    "backgroundImage": "none",
+    "webkitTextFillColor": "rgba(0, 0, 0, 0)",
+    "forcedColorAdjust": "auto"
+  },
+  "hoverCapability": {
+    "hoverHover": true,
+    "anyHover": true,
+    "pointerFine": true
+  },
+  "cardPointerStates": {
+    "rest": {
+      "transform": "none",
+      "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+      "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "translate": "none",
+      "scale": "none"
+    },
+    "hov": {
+      "matchesHover": true,
+      "transform": "none",
+      "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+      "borderColor": "oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+      "bg": "oklab(0.913295 0.00550478 0.0130424)",
+      "translate": "none",
+      "scale": "none"
+    },
+    "act": {
+      "matchesActive": true,
+      "transform": "none",
+      "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -7px 7px 0px 0px",
+      "translate": "none",
+      "scale": "1.0094 0.9515"
+    }
+  },
+  "focusRingNormal": {
+    "trash": {
+      "name": "Delete all saved palettes",
+      "outline": "3px none rgb(91, 70, 51)",
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+    },
+    "menu": {
+      "name": "Palette menu",
+      "outline": "3px none rgb(28, 25, 23)",
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+    }
+  },
+  "ghost": {
+    "opacity": "0.3",
+    "bg": "oklab(0.913295 0.00550478 0.0130424)",
+    "shadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -3px 3px 0px 0px, okl"
+  },
+  "scrollFade": {
+    "maskImage": "none",
+    "overflowY": "auto",
+    "scrollH": 772,
+    "clientH": 772
+  }
+}

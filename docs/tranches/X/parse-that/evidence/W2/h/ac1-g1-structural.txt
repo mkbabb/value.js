@@ -1,0 +1,27 @@
+SERVED MODEL: claude-fable-5-1
+# X.P.W2.h re-measurement · 2026-09-17 · cwd /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1
+# ⟨cmd⟩ node harness/w2/op-bijection.mjs --structural
+
+=== X.P.W2.g — op-bijection --structural (G-1) ===
+home  present  bytes   sha256
+----  -------  ------  ----------------------------------------------------------------
+<p2>  yes      154655  14450aa4e5fcc976dbdc2aa54b1608df5712e0f57975b00229e2666b151f66f7
+docs  yes      154655  14450aa4e5fcc976dbdc2aa54b1608df5712e0f57975b00229e2666b151f66f7
+homes sha256-equal: YES
+operators enumerated (registry block)  22
+count stated in prose (§4.1)           22
+enumeration == stated count            true
+target-conditional tokens in the contract text: 0
+RECOVER-in-nonfinal-ALT (negative control ALT[RECOVER(a), b]): 1
+
+id   subject           state    detail                                                            ops∉22  recover≺alt  cut∉alt  unowned-span  closure-leak
+---  ----------------  -------  ----------------------------------------------------------------  ------  -----------  -------  ------------  ------------
+ac1  ac1-tagless/js    present  29 terms                                                          0       0            7        0             0
+ac1  ac1-tagless/wasm  present  29 terms                                                          0       0            7        0             0
+ac2  ac2-closed-ir     ABSENT   candidate directory ABSENT (/Users/mkbabb/Programming/parse-that  -       -            -        -             -
+ac3  ac3-span          ABSENT   candidate directory ABSENT (/Users/mkbabb/Programming/parse-that  -       -            -        -             -
+ac4  ac4-siblings      ABSENT   candidate directory ABSENT (/Users/mkbabb/Programming/parse-that  -       -            -        -             -
+
+RED — ac1/js: CUT outside an ALT arm's scope (§5.2) | ac1/wasm: CUT outside an ALT arm's scope (§5.2)
+
+# exit 0

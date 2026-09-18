@@ -1,0 +1,134 @@
+{
+  "schema": "vnext-consumer-universe-bounds/2",
+  "purpose": "Canonical C00U/C05 discovery authority. A caller may tighten file-size limits only by reopening C00U; it may not narrow roots, required consumer identities, typed repository-subdirectory paths, depth, package scope, edge kinds, or quarantine exclusions.",
+  "bounds": {
+    "search_roots": [
+      {
+        "path": "/Users/mkbabb/Programming",
+        "canonical_realpath": "/Users/mkbabb/Programming",
+        "max_depth": 5
+      }
+    ],
+    "ignored_directory_names": [
+      ".cache",
+      ".git",
+      ".next",
+      ".nuxt",
+      ".pnpm",
+      ".turbo",
+      ".venv",
+      ".vnext",
+      ".yarn",
+      "__pycache__",
+      "build",
+      "coverage",
+      "dist",
+      "node_modules",
+      "playwright-report",
+      "r1-opus-refuted",
+      "target",
+      "test-results",
+      "tranches",
+      "venv"
+    ],
+    "edge_scope": [
+      {
+        "package": "@mkbabb/bbnf-lang",
+        "target": "bbnf-lang",
+        "kinds": ["css", "dynamic", "lock", "manifest", "peer", "runtime", "transitive", "type"]
+      },
+      {
+        "package": "@mkbabb/glass-ui",
+        "target": "glass-ui",
+        "kinds": ["css", "dynamic", "lock", "manifest", "peer", "runtime", "transitive", "type"]
+      },
+      {
+        "package": "@mkbabb/keyframes.js",
+        "target": "keyframes",
+        "kinds": ["css", "dynamic", "lock", "manifest", "peer", "runtime", "transitive", "type"]
+      },
+      {
+        "package": "@mkbabb/parse-that",
+        "target": "parse-that",
+        "kinds": ["css", "dynamic", "lock", "manifest", "peer", "runtime", "transitive", "type"]
+      },
+      {
+        "package": "@mkbabb/value.js",
+        "target": "value",
+        "kinds": ["css", "dynamic", "lock", "manifest", "peer", "runtime", "transitive", "type"]
+      }
+    ],
+    "required_roots": [
+      { "id": "atlas-active", "canonical_realpath": "/Users/mkbabb/Programming/.p-totality/atlas" },
+      { "id": "bbnf-buddy", "canonical_realpath": "/Users/mkbabb/Programming/bbnf-buddy" },
+      { "id": "bbnf-lang", "canonical_realpath": "/Users/mkbabb/Programming/bbnf-lang" },
+      { "id": "fourier-analysis", "canonical_realpath": "/Users/mkbabb/Programming/fourier-analysis" },
+      { "id": "glass-ui", "canonical_realpath": "/Users/mkbabb/Programming/glass-ui" },
+      { "id": "keyframes", "canonical_realpath": "/Users/mkbabb/Programming/keyframes-v-exec" },
+      { "id": "latex-paper", "canonical_realpath": "/Users/mkbabb/Programming/latex-paper" },
+      { "id": "muster", "canonical_realpath": "/Users/mkbabb/Programming/muster" },
+      { "id": "parse-that", "canonical_realpath": "/Users/mkbabb/Programming/parse-that" },
+      { "id": "sci-report", "canonical_realpath": "/Users/mkbabb/Programming/sci-report" },
+      { "id": "slides", "canonical_realpath": "/Users/mkbabb/Programming/slides" },
+      { "id": "slides-k", "canonical_realpath": "/Users/mkbabb/Programming/slides-K" },
+      { "id": "speedtest", "canonical_realpath": "/Users/mkbabb/Programming/speedtest" },
+      { "id": "value", "canonical_realpath": "/Users/mkbabb/Programming/value.js" },
+      { "id": "words", "canonical_realpath": "/Users/mkbabb/Programming/words" }
+    ],
+    "required_paths": [
+      {
+        "id": "bbnf-lang/playground",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "bbnf-lang",
+        "relative_path": "playground",
+        "path": "/Users/mkbabb/Programming/bbnf-lang/playground",
+        "canonical_realpath": "/Users/mkbabb/Programming/bbnf-lang/playground"
+      },
+      {
+        "id": "fourier-analysis/api",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "fourier-analysis",
+        "relative_path": "api",
+        "path": "/Users/mkbabb/Programming/fourier-analysis/api",
+        "canonical_realpath": "/Users/mkbabb/Programming/fourier-analysis/api"
+      },
+      {
+        "id": "fourier-analysis/web",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "fourier-analysis",
+        "relative_path": "web",
+        "path": "/Users/mkbabb/Programming/fourier-analysis/web",
+        "canonical_realpath": "/Users/mkbabb/Programming/fourier-analysis/web"
+      },
+      {
+        "id": "muster/frontend",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "muster",
+        "relative_path": "frontend",
+        "path": "/Users/mkbabb/Programming/muster/frontend",
+        "canonical_realpath": "/Users/mkbabb/Programming/muster/frontend"
+      },
+      {
+        "id": "sci-report/atlas",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "sci-report",
+        "relative_path": "atlas",
+        "path": "/Users/mkbabb/Programming/sci-report/atlas",
+        "canonical_realpath": "/Users/mkbabb/Programming/sci-report/atlas"
+      },
+      {
+        "id": "words/frontend",
+        "kind": "repository-subdirectory",
+        "repository_root_id": "words",
+        "relative_path": "frontend",
+        "path": "/Users/mkbabb/Programming/words/frontend",
+        "canonical_realpath": "/Users/mkbabb/Programming/words/frontend"
+      }
+    ],
+    "max_entries": 2000000,
+    "max_files": 500000,
+    "max_file_bytes": 8388608
+  },
+  "bounds_sha256": "69d6364137b1cee1196f96048312af9e538d80a84c0bc5217eeebfbb02de5636",
+  "manifest_hash": "6af1545ea116a5971a223c765b1fc3057c400142e459552c40b90c8aadf9c3f8"
+}

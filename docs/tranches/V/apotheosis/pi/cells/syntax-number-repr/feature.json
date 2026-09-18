@@ -1,0 +1,96 @@
+{
+  "feature_id": "SYNTAX-NUMBER-REPR",
+  "generation": 0,
+  "status": "BORN_RED_BOUNDARY_UNCHALLENGED",
+  "owner": "value-unit/number",
+  "purpose": "Recognize one CSS number representation directly with parse-that and preserve the grammar facts required for later exact numeric conversion.",
+  "normative_authority": [
+    {
+      "title": "CSS Syntax Module Level 3",
+      "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "retrieved": "2026-07-22",
+      "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "sections": [
+        "4.3.10 Check if three code points would start a number",
+        "4.3.13 Consume a number, steps 1-5 and type/sign portions of step 7"
+      ]
+    }
+  ],
+  "normative_routing": {
+    "included": "Number-start recognition, maximal representation consumption, integer/number type classification, and explicit sign preservation.",
+    "excluded": "Base-10 mathematical interpretation in consume-a-number steps 6-7 is routed to a separate VALUE-NUMBER-VALUE row; numeric-token percentage/dimension classification is routed to later rows."
+  },
+  "input_contract": {
+    "kind": "complete internal grammar input",
+    "accepted_language": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "trivia": "No leading or trailing trivia; callers compose accepted trivia productions outside this parser.",
+    "runtime_domain": "string only; non-string handling belongs to a public adapter."
+  },
+  "success_observation": {
+    "shape": {
+      "ok": true,
+      "value": {
+        "representation": "exact consumed source spelling",
+        "type": "integer | number",
+        "sign": "+ | - | null"
+      },
+      "diagnostics": []
+    },
+    "classification": "type is number when a fractional or exponent part is consumed; otherwise integer. The spelling and sign preserve leading zeros, exponent case/sign, and negative zero."
+  },
+  "failure_observation": {
+    "shape": {
+      "ok": false,
+      "diagnostics": [
+        {
+          "code": "number_syntax | trailing_input",
+          "start": "UTF-16 offset",
+          "end": "UTF-16 offset",
+          "expected": ["css-number | end of input"],
+          "actual": "one source code unit or null"
+        }
+      ]
+    },
+    "normalization": "If no CSS number starts at offset 0, report number_syntax at 0. Otherwise consume the longest valid number representation and report trailing_input at its end when source remains."
+  },
+  "serialization": "Identity of value.representation. This row performs no canonical numeric rewriting.",
+  "complexity": "O(source.length), no recursion, no token/CST allocation, no numeric conversion, and no artificial digit or exponent cap.",
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "authored": 0,
+    "required_seats": [
+      {
+        "id": "h",
+        "provenance": "Historical direct parse-that number terminal at value.js f5723e72, utils.ts SHA-256 bcaa6cb2206a1d57776a71c260b6ed30e8c29ad48ed4f1069def2896a650133c.",
+        "topology": "Historically shaped terminal transpose, corrected against the frozen row."
+      },
+      {
+        "id": "b",
+        "provenance": "BBNF value-unit.bbnf at af15f63e0d2d3d719938c13b906a50acbb92ea3b, SHA-256 cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b.",
+        "topology": "Near-production transpose without the BBNF f64 projection."
+      },
+      {
+        "id": "s",
+        "provenance": "Pinned CSS Syntax algorithms only; no H/B implementation source.",
+        "topology": "Explicit parse-that production tree using independently derived sign, integer/fraction, and exponent branches."
+      },
+      {
+        "id": "d",
+        "provenance": "Clean-room engine-native construction from the frozen contract and published parse-that API only.",
+        "topology": "Prefix-directed dispatch/chain construction; mandatory because H/B independence is not established."
+      }
+    ],
+    "isolation": "Authors share only this exact feature hash, fixture manifest, published @mkbabb/parse-that@1.0.0, and the observation harness. Candidate parser code and design notes are isolated until close."
+  },
+  "benchmark": {
+    "operation": "Complete-input parse to the exact success/failure observation above; grammar only, no public adapter and no Number conversion.",
+    "full_domain_lane": "All valid and invalid corpus bytes for H/B/S/D and the eventual accepted candidate.",
+    "common_domain_lane": "Only inputs on which historical/live peers implement the same accepted language and observation; no full-domain credit follows from this lane.",
+    "strict_win": "After semantic equality, the one-sided paired confidence interval for candidate/peer time lies wholly below 1.0."
+  },
+  "fixtures": {
+    "cases": "fixtures/cases.json",
+    "manifest": "fixtures/manifest.json"
+  },
+  "admission": "Two independent boundary challenges and one gestalt adjudication must accept the exact feature and fixture-manifest hashes before any candidate source is authored."
+}

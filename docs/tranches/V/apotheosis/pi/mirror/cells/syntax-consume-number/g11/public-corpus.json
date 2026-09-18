@@ -1,0 +1,46 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "inherited": {
+    "public_cases": {
+      "path": "../g5/fixtures/public-cases.json",
+      "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3",
+      "bytes": 5213,
+      "required_sections": ["number_start_prefix_evidence", "prefix_cases", "composition_cases", "hostile_cases"]
+    },
+    "controls": {
+      "path": "../g8/fixtures/g8-controls.json",
+      "sha256": "3a9e47f7bff1e08f3ba2cd8d7c3aef6dd3fef06de77d049f6d38bea949d27d82",
+      "bytes": 888
+    }
+  },
+  "additional_prefix_cases": [
+    { "id": "max-binary64", "source": "1.7976931348623157e308x", "offset": 0, "representation": "1.7976931348623157e308", "value_kind": "finite", "value": 1.7976931348623157e308, "type": "number", "sign": null, "end": 22 },
+    { "id": "min-subnormal", "source": "5e-324x", "offset": 0, "representation": "5e-324", "value_kind": "finite", "value": 5e-324, "type": "number", "sign": null, "end": 6 },
+    { "id": "positive-underflow", "source": "1e-324x", "offset": 0, "representation": "1e-324", "value_kind": "finite", "value": 0, "type": "number", "sign": null, "end": 6 },
+    { "id": "negative-underflow", "source": "-1e-324x", "offset": 0, "representation": "-1e-324", "value_kind": "negative-zero", "type": "number", "sign": "-", "end": 7 },
+    { "id": "positive-overflow", "source": "1e309x", "offset": 0, "representation": "1e309", "value_kind": "positive-infinity", "type": "number", "sign": null, "end": 5 },
+    { "id": "negative-overflow", "source": "-1e309x", "offset": 0, "representation": "-1e309", "value_kind": "negative-infinity", "type": "number", "sign": "-", "end": 6 },
+    { "id": "integer-rounding", "source": "9007199254740993x", "offset": 0, "representation": "9007199254740993", "value_kind": "finite", "value": 9007199254740992, "type": "integer", "sign": null, "end": 16 },
+    { "id": "offset-after-newline", "source": "head\n+.75e+2]", "offset": 5, "representation": "+.75e+2", "value_kind": "finite", "value": 75, "type": "number", "sign": "+", "end": 12 }
+  ],
+  "transaction_profiles": {
+    "predecessors": ["undefined", "null", "false", "zero", "empty-string", "array", "object"],
+    "diagnostics": ["ordinary", "preseeded-ahead"],
+    "preseed_ahead_delta": 17
+  },
+  "no_throw_extras": [
+    "\u0000", "\ud800", "\udfff", "∞", "--1", "+-1", ".e1", "1e++2", "1e--2", "🙂+", "\n\t1", "9e999999999999999999999999x"
+  ],
+  "work": {
+    "constructions": ["digits", "fraction", "exponent", "incomplete-exponent"],
+    "sizes_utf16": [4096, 8192, 16384, 32768],
+    "iterations_per_sample": 32,
+    "warmups": 2,
+    "samples": 5,
+    "timing_floor_ms": 0.05,
+    "adjacent_ratio_ceiling": 3,
+    "global_ratio_ceiling": 12,
+    "subprocess_timeout_ms": 1000
+  }
+}

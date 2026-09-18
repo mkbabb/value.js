@@ -1,0 +1,4228 @@
+{
+  "schema_version": "value.pi.css-source-complement-classification/v1",
+  "authority_status": "RESEARCH_CLASSIFICATION_ONLY_DENOMINATOR_NOT_CLOSED",
+  "verified_commit": "c7573530343759ace8e46438a1fa2c44515b5554",
+  "verified_commit_tree": "75bf19c016ed98126381508073de6893c9f756f5",
+  "source_universe_sha256": "c1b823396dcc38607d23243f578e58ef08de79136edd52abd1bbdf6a64f606b7",
+  "source_universe_content_digest_sha256": "8cabb03dd4d88f4e90d67d5ecce4de1f1a181cc747b6073ab8c7a067fad6ce5f",
+  "seed_manifest_sha256": "769ceff80ecc9f25dbef30ddb3f3dbb04ecdbd2b7f704ed733f29f4ab16fbb32",
+  "seed_manifest_content_digest": "cd505eecd6404e8719baef2c18a8e62b03916db46ec56a7ae92f0a1c2615937c",
+  "method": {
+    "source_authority": "Exact Overview source bytes at the pinned CSSWG commit; no current-web substitution.",
+    "precedence": [
+      "historical snapshot/meta index",
+      "explicit terminal/superseded/non-language exclusion candidate",
+      "seed dependency candidate",
+      "later-level/experimental language candidate",
+      "genuinely unresolved RED"
+    ],
+    "caveat": "Classification routes sources to later operation-level closure work. It grants no source inclusion/exclusion, parser, conformance, or production credit."
+  },
+  "counts": {
+    "source_universe": 168,
+    "seed_members": 76,
+    "complement_classified": 92,
+    "by_classification": {
+      "HISTORICAL_SNAPSHOT_OR_META_INDEX": 12,
+      "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE": 13,
+      "NORMATIVE_DEPENDENCY_CANDIDATE": 26,
+      "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE": 38,
+      "GENUINELY_UNRESOLVED_RED": 3
+    },
+    "unresolved_red": 3
+  },
+  "verification": {
+    "all_168_pinned_sources_hash_and_byte_verified": true,
+    "complement_bijection_exactly_once": true,
+    "hash_or_byte_failures": 0,
+    "canonical_order": "directory sorted by raw UTF-8 bytes"
+  },
+  "unresolved_red": [
+    {
+      "directory": "css-cascade-3",
+      "exact_path": "css-cascade-3/Overview.bs",
+      "reason": "Seed roots cite Level 3 normatively while also containing Levels 4 and 5; the pinned packet has not sealed a supersession/occurrence rule."
+    },
+    {
+      "directory": "css-text-5",
+      "exact_path": "css-text-5/Overview.bs",
+      "reason": "Directory/title say CSS Text Level 5 but the pinned metadata says Level 4, so identity and level routing remain RED."
+    },
+    {
+      "directory": "web-animations-css-integration",
+      "exact_path": "web-animations-css-integration/Overview.src.html",
+      "reason": "Pinned source states an intended migration into Animations/Transitions Level 2 but does not establish that migration as completed."
+    }
+  ],
+  "entries": [
+    {
+      "directory": "compositing-2",
+      "exact_path": "compositing-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "f6b6e0b19c67fa1aca34692f613a9b687e408ddb",
+      "sha256_raw_source": "c01a614c0fcdd5d6f0239b6182337c6e78c101d5f9fbcedd33e1abcbdba9445e",
+      "raw_source_bytes": 60575,
+      "metadata": {
+        "title": {
+          "value": "Compositing and Blending Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "compositing",
+          "line": 9
+        },
+        "level": {
+          "value": "2",
+          "line": 10
+        },
+        "status": {
+          "value": "ED",
+          "line": 4
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 8,
+        "grammar_production_markers": 3,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "Compositing and Blending Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 12 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "compositing-2/Overview.bs",
+          "sha256_raw_source": "c01a614c0fcdd5d6f0239b6182337c6e78c101d5f9fbcedd33e1abcbdba9445e",
+          "line": 2,
+          "fact": "Compositing and Blending Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-2007",
+      "exact_path": "css-2007/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "66a12a07b3f05c950a487249dff5bd003c4bc9ff",
+      "sha256_raw_source": "b7036f08c4edc8f81359325d6ec9e3bccad2e735efde8986ff7fc8cc7dd8c418",
+      "raw_source_bytes": 12372,
+      "metadata": {
+        "title": {
+          "value": "Cascading Style Sheets (CSS) Snapshot 2007",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "Cascading Style Sheets (CSS) Snapshot 2007 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2007/Overview.src.html",
+          "sha256_raw_source": "b7036f08c4edc8f81359325d6ec9e3bccad2e735efde8986ff7fc8cc7dd8c418",
+          "line": 6,
+          "fact": "Cascading Style Sheets (CSS) Snapshot 2007"
+        }
+      ]
+    },
+    {
+      "directory": "css-2010",
+      "exact_path": "css-2010/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "049fed6ef15b6d694cd324e3506cfdafa3ff1643",
+      "sha256_raw_source": "8104f9005cd56734848b1052fee7f8000632fbb92c7db4d4befb5937319543d8",
+      "raw_source_bytes": 72466,
+      "metadata": {
+        "title": {
+          "value": "Cascading Style Sheets (CSS) Snapshot 2010",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 113,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 1
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "Cascading Style Sheets (CSS) Snapshot 2010 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2010/Overview.src.html",
+          "sha256_raw_source": "8104f9005cd56734848b1052fee7f8000632fbb92c7db4d4befb5937319543d8",
+          "line": 7,
+          "fact": "Cascading Style Sheets (CSS) Snapshot 2010"
+        }
+      ]
+    },
+    {
+      "directory": "css-2015",
+      "exact_path": "css-2015/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c46cc1a0f129957f0eb8ba5b9ec68537109ccaa0",
+      "sha256_raw_source": "51c7ed2c9131061e74be380769b2ce62305cda5856f549f26fbb02cb1c73cf3e",
+      "raw_source_bytes": 37015,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2015",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2015",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Completed",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 8,
+        "css_function_tokens": 2
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2015 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2015/Overview.bs",
+          "sha256_raw_source": "51c7ed2c9131061e74be380769b2ce62305cda5856f549f26fbb02cb1c73cf3e",
+          "line": 2,
+          "fact": "CSS Snapshot 2015"
+        }
+      ]
+    },
+    {
+      "directory": "css-2017",
+      "exact_path": "css-2017/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "2d5476e575db6a149c4d7b430308927e9e774a6d",
+      "sha256_raw_source": "cb49f36cf6ec549f3ddbb3203bfe2a50236b37bb4a818a4d771d300bc6fae5d4",
+      "raw_source_bytes": 32048,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2017",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2017",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Completed",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 2
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2017 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2017/Overview.bs",
+          "sha256_raw_source": "cb49f36cf6ec549f3ddbb3203bfe2a50236b37bb4a818a4d771d300bc6fae5d4",
+          "line": 2,
+          "fact": "CSS Snapshot 2017"
+        }
+      ]
+    },
+    {
+      "directory": "css-2018",
+      "exact_path": "css-2018/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c1ed50daa2e8415bf47209b302fd5dd01825a397",
+      "sha256_raw_source": "5f8ff801d0ca29f1afe31fa23ceaae6e62e1bfa28d54289613fc3283591c7668",
+      "raw_source_bytes": 35184,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2018",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2018",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 3
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2018 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2018/Overview.bs",
+          "sha256_raw_source": "5f8ff801d0ca29f1afe31fa23ceaae6e62e1bfa28d54289613fc3283591c7668",
+          "line": 2,
+          "fact": "CSS Snapshot 2018"
+        }
+      ]
+    },
+    {
+      "directory": "css-2020",
+      "exact_path": "css-2020/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "5c61be9f60b7e43a84a170ca7ebfa317cbe56ee6",
+      "sha256_raw_source": "26066a3d81c1cc68983d72f72ebad828b9694c1f36aa44444df140c3753925ee",
+      "raw_source_bytes": 38057,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2020",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2020",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 3
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2020 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2020/Overview.bs",
+          "sha256_raw_source": "26066a3d81c1cc68983d72f72ebad828b9694c1f36aa44444df140c3753925ee",
+          "line": 2,
+          "fact": "CSS Snapshot 2020"
+        }
+      ]
+    },
+    {
+      "directory": "css-2021",
+      "exact_path": "css-2021/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "1d61a10aabbec38498ad9b6c5f0464b4c9796e92",
+      "sha256_raw_source": "b0bd6b27bd69e1ce4646311ce39a022de0410f48c28ce079f2bcd6b4d7e36299",
+      "raw_source_bytes": 40814,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2021",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2021",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "completed",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 3
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2021 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2021/Overview.bs",
+          "sha256_raw_source": "b0bd6b27bd69e1ce4646311ce39a022de0410f48c28ce079f2bcd6b4d7e36299",
+          "line": 2,
+          "fact": "CSS Snapshot 2021"
+        }
+      ]
+    },
+    {
+      "directory": "css-2022",
+      "exact_path": "css-2022/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6b167814457de2be951842ea636da54e38e87a83",
+      "sha256_raw_source": "868a17e0cd7dffa1f125a78c97c6a30ac1ddc05b175eb063de51cee4b8f4792d",
+      "raw_source_bytes": 42724,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2022",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2022",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 4
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2022 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2022/Overview.bs",
+          "sha256_raw_source": "868a17e0cd7dffa1f125a78c97c6a30ac1ddc05b175eb063de51cee4b8f4792d",
+          "line": 2,
+          "fact": "CSS Snapshot 2022"
+        }
+      ]
+    },
+    {
+      "directory": "css-2023",
+      "exact_path": "css-2023/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d5dfaa61fdd78387bfb6f0fd9af1a60c48cf27d7",
+      "sha256_raw_source": "0db20e614c1fe11a11ebefc296bfddf2ab3c966b9b723281b18adde2e70bae02",
+      "raw_source_bytes": 43550,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2023",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2023",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 4
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2023 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2023/Overview.bs",
+          "sha256_raw_source": "0db20e614c1fe11a11ebefc296bfddf2ab3c966b9b723281b18adde2e70bae02",
+          "line": 2,
+          "fact": "CSS Snapshot 2023"
+        }
+      ]
+    },
+    {
+      "directory": "css-2024",
+      "exact_path": "css-2024/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c36c263a4df6c6055cf1c946f3d33b0624129157",
+      "sha256_raw_source": "7521ae49e7778b571ce6cb7d0d67fda759d7661563555d79cb2f6db282432e05",
+      "raw_source_bytes": 45657,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2024",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2024",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 2
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2024 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2024/Overview.bs",
+          "sha256_raw_source": "7521ae49e7778b571ce6cb7d0d67fda759d7661563555d79cb2f6db282432e05",
+          "line": 2,
+          "fact": "CSS Snapshot 2024"
+        }
+      ]
+    },
+    {
+      "directory": "css-2025",
+      "exact_path": "css-2025/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "81b568b42a1ab3f99a211ca32a67001aa30c7e77",
+      "sha256_raw_source": "e8ddfe0e0467375c997681e7ca11861c0a7d9caf94a66a1a0a284b902b4483e4",
+      "raw_source_bytes": 46819,
+      "metadata": {
+        "title": {
+          "value": "CSS Snapshot 2025",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-2025",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 8
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "CSS Snapshot 2025 is a historical snapshot that aggregates specification membership; retain provenance, but extract operations from the member specifications.",
+      "evidence": [
+        {
+          "kind": "PINNED_SNAPSHOT_IDENTITY",
+          "exact_path": "css-2025/Overview.bs",
+          "sha256_raw_source": "e8ddfe0e0467375c997681e7ca11861c0a7d9caf94a66a1a0a284b902b4483e4",
+          "line": 2,
+          "fact": "CSS Snapshot 2025"
+        }
+      ]
+    },
+    {
+      "directory": "css-anchor-position-1",
+      "exact_path": "css-anchor-position-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "37b984fb56e9f1b18e8c3eab54ef4e62280e69ae",
+      "sha256_raw_source": "c95cf66fbee5321b81b8271bf4510b2fec61be0413e3062e29ca9929f4a40f1f",
+      "raw_source_bytes": 107995,
+      "metadata": {
+        "title": {
+          "value": "CSS Anchor Positioning Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-anchor-position",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "WD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "refining",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 13,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 9
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Anchor Positioning Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-position-3/Overview.bs",
+          "sha256_raw_source": "fef573ef81d55d6f8565ce1c57e088e060c5c48a255620aa1eabce43bec02215",
+          "line": 407,
+          "fact": "[[css-anchor-position-1#position-area]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-anchor-position-2",
+      "exact_path": "css-anchor-position-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d29b441ec7cddcc09c2b59c31573d3b488aead2a",
+      "sha256_raw_source": "704e6cfaa6aef0cfd08c476c26f9f7d4cc3c3fc7d5fc73598e0866f0302de284",
+      "raw_source_bytes": 11907,
+      "metadata": {
+        "title": {
+          "value": "CSS Anchor Positioning Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-anchor-position",
+          "line": 3
+        },
+        "level": {
+          "value": "2",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 2,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 1
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Anchor Positioning Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 5 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-anchor-position-2/Overview.bs",
+          "sha256_raw_source": "704e6cfaa6aef0cfd08c476c26f9f7d4cc3c3fc7d5fc73598e0866f0302de284",
+          "line": 2,
+          "fact": "CSS Anchor Positioning Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-backgrounds-4",
+      "exact_path": "css-backgrounds-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "afbe2bb101dafcf3292721e9e6b7ac632b5baae5",
+      "sha256_raw_source": "fd378b68ab29e14da121654b722520ad17a4637575f2c71bbe8e18800d4e3178",
+      "raw_source_bytes": 96167,
+      "metadata": {
+        "title": {
+          "value": "CSS Backgrounds Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-backgrounds",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "FPWD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 15,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Backgrounds Module Level 4 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 18 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-backgrounds-4/Overview.bs",
+          "sha256_raw_source": "fd378b68ab29e14da121654b722520ad17a4637575f2c71bbe8e18800d4e3178",
+          "line": 2,
+          "fact": "CSS Backgrounds Module Level 4"
+        }
+      ]
+    },
+    {
+      "directory": "css-borders-4",
+      "exact_path": "css-borders-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "502d9ddb0803bdb7015f4b84f345d9d983dc9093",
+      "sha256_raw_source": "90b7a646ed61a1418d4428d20638fb63612fb7006ad011933bd8be81cd836643",
+      "raw_source_bytes": 141225,
+      "metadata": {
+        "title": {
+          "value": "CSS Borders and Box Decorations Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-borders",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "WD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 38,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Borders and Box Decorations Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-break-3/Overview.bs",
+          "sha256_raw_source": "1310c4e80ba2c082a49c2b69fbb09e41e0a700ddf625c2fa652b4fd4327fbcff",
+          "line": 21,
+          "fact": "spec:css-borders-4;"
+        }
+      ]
+    },
+    {
+      "directory": "css-box-4",
+      "exact_path": "css-box-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9283c77a46f451b564b21c12e1a2804d08665d03",
+      "sha256_raw_source": "417e6eff31419711d1e29ea485f65011064fa950ac3f3dac92be8645be882fe0",
+      "raw_source_bytes": 26251,
+      "metadata": {
+        "title": {
+          "value": "CSS Box Model Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-box",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 5,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Box Model Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-view-transitions-1/Overview.bs",
+          "sha256_raw_source": "238a506264f3f37c9657416aa8bbbd095eddc26062d8304951c70a0363c857d3",
+          "line": 33,
+          "fact": "spec:css-box-4;"
+        }
+      ]
+    },
+    {
+      "directory": "css-break-4",
+      "exact_path": "css-break-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c20986aa09ee83f35e87079e87848d5722fef066",
+      "sha256_raw_source": "696afd498984ad4f5600e4672ef43dc3550006bee02dd1931d4931cbe1853a51",
+      "raw_source_bytes": 53313,
+      "metadata": {
+        "title": {
+          "value": "CSS Fragmentation Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-break",
+          "line": 6
+        },
+        "level": {
+          "value": "4",
+          "line": 8
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 5,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Fragmentation Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-backgrounds-3/Overview.bs",
+          "sha256_raw_source": "5119e57464695b40659e52bb19dbab978f3440c1665b63e952d158d0474ffb08",
+          "line": 26,
+          "fact": "spec:css-break-4;"
+        }
+      ]
+    },
+    {
+      "directory": "css-cascade-3",
+      "exact_path": "css-cascade-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c337b916047b2021ae574d36a6d8766679ba333c",
+      "sha256_raw_source": "80e4daab35238ccc3e00e846fc6eb6575f08b32fc73b5b5da69a39c2ef3f5fd4",
+      "raw_source_bytes": 47587,
+      "metadata": {
+        "title": {
+          "value": "CSS Cascading and Inheritance Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-cascade",
+          "line": 3
+        },
+        "level": {
+          "value": "3",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Completed",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 2
+      },
+      "classification": "GENUINELY_UNRESOLVED_RED",
+      "reason": "Seed roots cite Level 3 normatively while also containing Levels 4 and 5; the pinned packet has not sealed a supersession/occurrence rule.",
+      "evidence": [
+        {
+          "kind": "PINNED_CONFLICT_OR_INCOMPLETE_MIGRATION",
+          "exact_path": "css-display-3/Overview.bs",
+          "sha256_raw_source": "883aa6a221a91f5ee34cab17d8df974891a08921a410901e9328e6ff982671a5",
+          "line": 115,
+          "fact": "[[!CSS-CASCADE-3]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-cascade-6",
+      "exact_path": "css-cascade-6/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "8cd75053a1babf221f724781334180a842bf1d7b",
+      "sha256_raw_source": "2f56b30c56202fba28d0bf849d757ef1b954089aac1fa9858ae173ab637f40a2",
+      "raw_source_bytes": 42250,
+      "metadata": {
+        "title": {
+          "value": "CSS Cascading and Inheritance Module Level 6",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-cascade",
+          "line": 3
+        },
+        "level": {
+          "value": "6",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 3,
+        "at_rule_tokens": 10,
+        "css_function_tokens": 5
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Cascading and Inheritance Module Level 6 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 18 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-cascade-6/Overview.bs",
+          "sha256_raw_source": "2f56b30c56202fba28d0bf849d757ef1b954089aac1fa9858ae173ab637f40a2",
+          "line": 2,
+          "fact": "CSS Cascading and Inheritance Module Level 6"
+        }
+      ]
+    },
+    {
+      "directory": "css-color-3",
+      "exact_path": "css-color-3/Overview.html",
+      "source_format": "generated_or_legacy_html",
+      "git_blob_oid_sha1": "b8362f4806b2b61308cf3c8db41176f632e3bca8",
+      "sha256_raw_source": "4cfdd10ea66d4c826b376cfd78f35096b7f4a27c8687bf306f8c1aae5872ec7a",
+      "raw_source_bytes": 170820,
+      "metadata": {
+        "title": {
+          "value": "CSS Color Module Level 3",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 5
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Seed already contains CSS Color Levels 4 and 5; retain Level 3 provenance but treat its lower-level source as a candidate superseded operation source.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-color-3/Overview.html",
+          "sha256_raw_source": "4cfdd10ea66d4c826b376cfd78f35096b7f4a27c8687bf306f8c1aae5872ec7a",
+          "line": 6,
+          "fact": "CSS Color Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-color-6",
+      "exact_path": "css-color-6/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "2e879d598019388e3a8d28d2b1c4d57ac2c72a9d",
+      "sha256_raw_source": "069f5c31f47fb4946021e960852d0a0d63926af6b72f24d76923ee9fe9fdaa88",
+      "raw_source_bytes": 32358,
+      "metadata": {
+        "title": {
+          "value": "CSS Color Module Level 6",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-color",
+          "line": 3
+        },
+        "level": {
+          "value": "6",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 11
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 3,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Color Module Level 6 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 8 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-color-6/Overview.bs",
+          "sha256_raw_source": "069f5c31f47fb4946021e960852d0a0d63926af6b72f24d76923ee9fe9fdaa88",
+          "line": 2,
+          "fact": "CSS Color Module Level 6"
+        }
+      ]
+    },
+    {
+      "directory": "css-color-hdr-1",
+      "exact_path": "css-color-hdr-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a465bafbd2f991f32d414540c440dfbef8adbd53",
+      "sha256_raw_source": "e2185bea96e4f3347c4e8560cddfcf66a3c60d79a4a4049f3ee7a989a5c5286d",
+      "raw_source_bytes": 79677,
+      "metadata": {
+        "title": {
+          "value": "CSS Color HDR Module Level 1",
+          "line": 3
+        },
+        "shortname": {
+          "value": "css-color-hdr",
+          "line": 4
+        },
+        "level": {
+          "value": "1",
+          "line": 5
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 11
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 4,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 17
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Color HDR Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 28 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-color-hdr-1/Overview.bs",
+          "sha256_raw_source": "e2185bea96e4f3347c4e8560cddfcf66a3c60d79a4a4049f3ee7a989a5c5286d",
+          "line": 3,
+          "fact": "CSS Color HDR Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-conditional-values-1",
+      "exact_path": "css-conditional-values-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "e862a4ba36de73b73647c6f3d8357473a1426f9e",
+      "sha256_raw_source": "9745e12b64deb19e9f6a57786fd17d3afc6b1803658358d97510876ec68ca1a0",
+      "raw_source_bytes": 10211,
+      "metadata": {
+        "title": {
+          "value": "CSS Conditional Values Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-conditional-values",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "UD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 4,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Conditional Values Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 7 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-conditional-values-1/Overview.bs",
+          "sha256_raw_source": "9745e12b64deb19e9f6a57786fd17d3afc6b1803658358d97510876ec68ca1a0",
+          "line": 2,
+          "fact": "CSS Conditional Values Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-contain-3",
+      "exact_path": "css-contain-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9e372486f0a5c239beebf0a8a21f1e5857d95ceb",
+      "sha256_raw_source": "4355b8e269b044190a0734df5b8ec1c6ccb3da473b123bb51de58c5e38525531",
+      "raw_source_bytes": 7573,
+      "metadata": {
+        "title": {
+          "value": "CSS Containment Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-contain",
+          "line": 4
+        },
+        "level": {
+          "value": "3",
+          "line": 3
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 8,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Containment Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 9 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-contain-3/Overview.bs",
+          "sha256_raw_source": "4355b8e269b044190a0734df5b8ec1c6ccb3da473b123bb51de58c5e38525531",
+          "line": 2,
+          "fact": "CSS Containment Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-content-3",
+      "exact_path": "css-content-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "b8efde47495f16e42b58b614ffbe6e1d35adbee3",
+      "sha256_raw_source": "8a1515fe40e95961e3a492fa0b88c94ed10f7add366370f929b2e15d30220c2b",
+      "raw_source_bytes": 47880,
+      "metadata": {
+        "title": {
+          "value": "CSS Generated Content Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-content",
+          "line": 6
+        },
+        "level": {
+          "value": "3",
+          "line": 7
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 8,
+        "at_rule_tokens": 5,
+        "css_function_tokens": 9
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Generated Content Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 28 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-content-3/Overview.bs",
+          "sha256_raw_source": "8a1515fe40e95961e3a492fa0b88c94ed10f7add366370f929b2e15d30220c2b",
+          "line": 2,
+          "fact": "CSS Generated Content Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-display-4",
+      "exact_path": "css-display-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "22b6f3e3074393513ca0195a1eca31f6c30bf59a",
+      "sha256_raw_source": "979593ab2dff0d4557fd27ba9723a163ea81c8ee535ab4a38181d7acfd06cc17",
+      "raw_source_bytes": 118911,
+      "metadata": {
+        "title": {
+          "value": "CSS Display Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-display",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Testing",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Display Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "selectors-4/Overview.bs",
+          "sha256_raw_source": "ac800347a26eb67cff99d38c08cae2d47622dbbb64d730a531b84646cacfe84c",
+          "line": 43,
+          "fact": "spec:css-display-4;"
+        }
+      ]
+    },
+    {
+      "directory": "css-egg-1",
+      "exact_path": "css-egg-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "09bfd4930d3bc6775ac4b1b95a8e7acff926ee85",
+      "sha256_raw_source": "b8f38ed033c0de09416a26051c49fbccc4e65f1e0f0667d305e48b354d279529",
+      "raw_source_bytes": 18325,
+      "metadata": {
+        "title": {
+          "value": "CSS Expressive Generalizations and Gadgetry Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-egg",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 2,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Expressive Generalizations and Gadgetry Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 7 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-egg-1/Overview.bs",
+          "sha256_raw_source": "b8f38ed033c0de09416a26051c49fbccc4e65f1e0f0667d305e48b354d279529",
+          "line": 2,
+          "fact": "CSS Expressive Generalizations and Gadgetry Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-exclusions-1",
+      "exact_path": "css-exclusions-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "86a461f0b9b048cb8c22af8435c8989e84278969",
+      "sha256_raw_source": "8c9564d28bab98cff148f76fc56094c030a119b9b7f7d44633b33f465786d626",
+      "raw_source_bytes": 33535,
+      "metadata": {
+        "title": {
+          "value": "CSS Exclusions Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-exclusions",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 2,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Exclusions Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 2 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-exclusions-1/Overview.bs",
+          "sha256_raw_source": "8c9564d28bab98cff148f76fc56094c030a119b9b7f7d44633b33f465786d626",
+          "line": 2,
+          "fact": "CSS Exclusions Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-extensions-1",
+      "exact_path": "css-extensions-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6dfaccb3002c79b7a972413ba8c7fb8462ceeb06",
+      "sha256_raw_source": "9a45c4c475c611b22a58393bdfaca1075560b8652eec18ed3f4cfd287aa5c641",
+      "raw_source_bytes": 12384,
+      "metadata": {
+        "title": {
+          "value": "CSS Extensions Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-extensions",
+          "line": 4
+        },
+        "level": {
+          "value": "1",
+          "line": 5
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 5,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Extensions Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 9 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-extensions-1/Overview.bs",
+          "sha256_raw_source": "9a45c4c475c611b22a58393bdfaca1075560b8652eec18ed3f4cfd287aa5c641",
+          "line": 2,
+          "fact": "CSS Extensions Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-flexbox-2",
+      "exact_path": "css-flexbox-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "703b54654057753d2a0c33a4ddd93f55f1008449",
+      "sha256_raw_source": "031267d292d43f7e2e16c9b52b9d60c60a4f2a75028d962274a486088d752ca5",
+      "raw_source_bytes": 220308,
+      "metadata": {
+        "title": {
+          "value": "CSS Flexible Box Layout Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-flexbox",
+          "line": 3
+        },
+        "level": {
+          "value": "2",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 14,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Flexible Box Layout Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 15 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-flexbox-2/Overview.bs",
+          "sha256_raw_source": "031267d292d43f7e2e16c9b52b9d60c60a4f2a75028d962274a486088d752ca5",
+          "line": 2,
+          "fact": "CSS Flexible Box Layout Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-fonts-5",
+      "exact_path": "css-fonts-5/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "fde5666ac934b1fd90338c62cb17122e084f7b97",
+      "sha256_raw_source": "ded4c63e445f1feeab44eb48e15b37dfbef246f2396c7d68c81c64603ed723f3",
+      "raw_source_bytes": 54879,
+      "metadata": {
+        "title": {
+          "value": "CSS Fonts Module Level 5",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-fonts",
+          "line": 3
+        },
+        "level": {
+          "value": "5",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 10,
+        "grammar_production_markers": 4,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 3
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Fonts Module Level 5 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "filter-effects-1/Overview.bs",
+          "sha256_raw_source": "16fae7f47b89a8a713e8aec70671ff7340c5c8eb3164dcdd0becf52cd095230b",
+          "line": 50,
+          "fact": "spec:css-fonts-5;"
+        }
+      ]
+    },
+    {
+      "directory": "css-forms-1",
+      "exact_path": "css-forms-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "37d4c41bf8a1b0d6f9f4b468a72eb0f58261e070",
+      "sha256_raw_source": "9b4b6c88037a77f91dd4ab3ea9eee0d05813b8d229e1787f639cd7c11b91946a",
+      "raw_source_bytes": 37779,
+      "metadata": {
+        "title": {
+          "value": "CSS Form Control Styling Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-forms",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 13
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 14
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 4,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Form Control Styling Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 6 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-forms-1/Overview.bs",
+          "sha256_raw_source": "9b4b6c88037a77f91dd4ab3ea9eee0d05813b8d229e1787f639cd7c11b91946a",
+          "line": 2,
+          "fact": "CSS Form Control Styling Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-gaps-1",
+      "exact_path": "css-gaps-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "76d7f97dcf8a1aef9203226b410b163ea425401f",
+      "sha256_raw_source": "cd231b5954a4f361e6bc9b318b2aba808d99bdc2cf54c3049c248280d765a6fb",
+      "raw_source_bytes": 111812,
+      "metadata": {
+        "title": {
+          "value": "CSS Gaps Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-gaps",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "revising",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 24,
+        "grammar_production_markers": 7,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 1
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Gaps Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-align-3/Overview.bs",
+          "sha256_raw_source": "bf6a78a8aeea6b2967fa6954cc62f41f83212e418346826d9a799c0acdfd20e2",
+          "line": 2427,
+          "fact": "[[!CSS-GAPS-1]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-gcpm-3",
+      "exact_path": "css-gcpm-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "4351045089b7ae0699bb629c23c8be7f052d58dd",
+      "sha256_raw_source": "dfad570a7e2a6130026b5785c2fc36ae6875ad8b07a9591409db60b1f5e66f22",
+      "raw_source_bytes": 38411,
+      "metadata": {
+        "title": {
+          "value": "CSS Generated Content for Paged Media Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-gcpm",
+          "line": 6
+        },
+        "level": {
+          "value": "3",
+          "line": 7
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 7,
+        "grammar_production_markers": 5,
+        "at_rule_tokens": 8,
+        "css_function_tokens": 11
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Generated Content for Paged Media Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 31 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-gcpm-3/Overview.bs",
+          "sha256_raw_source": "dfad570a7e2a6130026b5785c2fc36ae6875ad8b07a9591409db60b1f5e66f22",
+          "line": 2,
+          "fact": "CSS Generated Content for Paged Media Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-gcpm-4",
+      "exact_path": "css-gcpm-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "3d59604a4aff71dcf7cd4c578d11a66e698e64f2",
+      "sha256_raw_source": "da7ca5bcbb7a299dd96bbbfc621201d60b5c193c553e6763fd973f329632d42c",
+      "raw_source_bytes": 11749,
+      "metadata": {
+        "title": {
+          "value": "CSS Generated Content for Paged Media Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-gcpm-4",
+          "line": 5
+        },
+        "level": {
+          "value": "4",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 6,
+        "css_function_tokens": 5
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Generated Content for Paged Media Module Level 4 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 13 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-gcpm-4/Overview.bs",
+          "sha256_raw_source": "da7ca5bcbb7a299dd96bbbfc621201d60b5c193c553e6763fd973f329632d42c",
+          "line": 2,
+          "fact": "CSS Generated Content for Paged Media Module Level 4"
+        }
+      ]
+    },
+    {
+      "directory": "css-grid-3",
+      "exact_path": "css-grid-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "300a50be4d3a14c987697a04d1133baae8914746",
+      "sha256_raw_source": "b2d25d202081758dcc6e4141953e7dbbcc4c54268b8a316fa1d2080c49338723",
+      "raw_source_bytes": 86339,
+      "metadata": {
+        "title": {
+          "value": "CSS Grid Layout Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-grid",
+          "line": 3
+        },
+        "level": {
+          "value": "3",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Refining",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 2,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Grid Layout Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 3 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-grid-3/Overview.bs",
+          "sha256_raw_source": "b2d25d202081758dcc6e4141953e7dbbcc4c54268b8a316fa1d2080c49338723",
+          "line": 2,
+          "fact": "CSS Grid Layout Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-highlight-api-1",
+      "exact_path": "css-highlight-api-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "6dc93d8650c0f7dc15b7eb50e6c8c3b1afab0b07",
+      "sha256_raw_source": "bb31e47d9cd1984f643ec1e53715b11022161f7add70cfaf800db6b6d168c7ee",
+      "raw_source_bytes": 34481,
+      "metadata": {
+        "title": {
+          "value": "CSS Custom Highlight API Module Level 1",
+          "line": 28
+        },
+        "shortname": {
+          "value": "css-highlight-api",
+          "line": 30
+        },
+        "level": {
+          "value": "1",
+          "line": 29
+        },
+        "status": {
+          "value": "ED",
+          "line": 31
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 32
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 5
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Custom Highlight API Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 5 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-highlight-api-1/Overview.bs",
+          "sha256_raw_source": "bb31e47d9cd1984f643ec1e53715b11022161f7add70cfaf800db6b6d168c7ee",
+          "line": 28,
+          "fact": "CSS Custom Highlight API Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-image-animation-1",
+      "exact_path": "css-image-animation-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "7d0cf6d9d1ed855568a5e596a17bf3357d9597f8",
+      "sha256_raw_source": "55b461c21c7ba181548dee80bfde0ecf658f76b378a9d9de90054c708c4e60f5",
+      "raw_source_bytes": 20547,
+      "metadata": {
+        "title": {
+          "value": "CSS Image Animation Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-image-animation",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Image Animation Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 2 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-image-animation-1/Overview.bs",
+          "sha256_raw_source": "55b461c21c7ba181548dee80bfde0ecf658f76b378a9d9de90054c708c4e60f5",
+          "line": 2,
+          "fact": "CSS Image Animation Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-images-5",
+      "exact_path": "css-images-5/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "d66fb44925680c733d7f89f0d64d25fd320a9e72",
+      "sha256_raw_source": "e1f72707072e0e0b606b20844f86adbb11b1cc5e4d42b414bec26e95d3823517",
+      "raw_source_bytes": 14591,
+      "metadata": {
+        "title": {
+          "value": "CSS Images Module Level 5",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-images",
+          "line": 5
+        },
+        "level": {
+          "value": "5",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 2,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 3
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Images Module Level 5 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-images-4/Overview.bs",
+          "sha256_raw_source": "e47a6426f40f863a247271a17c400f08edd961989f94b552755ba158ef7cd844",
+          "line": 409,
+          "fact": "[[css-images-5]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-inline-3",
+      "exact_path": "css-inline-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a8bc28f948b734c89a33b52fa497d4151e22969c",
+      "sha256_raw_source": "833c19a607f5221f982505628c4c03069300265f25813100b30e7a11d02373bd",
+      "raw_source_bytes": 128700,
+      "metadata": {
+        "title": {
+          "value": "CSS Inline Layout Module Level 3",
+          "line": 7
+        },
+        "shortname": {
+          "value": "css-inline",
+          "line": 8
+        },
+        "level": {
+          "value": "3",
+          "line": 9
+        },
+        "status": {
+          "value": "ED",
+          "line": 10
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 11
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 14,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Inline Layout Module Level 3 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 989,
+          "fact": "[[!CSS-INLINE-3]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-line-grid-1",
+      "exact_path": "css-line-grid-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "44b23ab7879bc1242062a4c1f43ecf7322e32bd7",
+      "sha256_raw_source": "a1d5dcedbfeb8b4fc931687b640528e0117aa712e2981d9e25ac23534a732c49",
+      "raw_source_bytes": 26254,
+      "metadata": {
+        "title": {
+          "value": "CSS Line Grid Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-line-grid",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Line Grid Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 4 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-line-grid-1/Overview.bs",
+          "sha256_raw_source": "a1d5dcedbfeb8b4fc931687b640528e0117aa712e2981d9e25ac23534a732c49",
+          "line": 2,
+          "fact": "CSS Line Grid Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-link-params-1",
+      "exact_path": "css-link-params-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "cc647fb8e613a69eb3c00d3a7805715bcbd3ad8e",
+      "sha256_raw_source": "c657ccf60b3d136cbae786cfe0cd23cb774ea045a63866bd0965cd661c3013d6",
+      "raw_source_bytes": 10561,
+      "metadata": {
+        "title": {
+          "value": "CSS Linked Parameters Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-link-params",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "FPWD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "refining",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Linked Parameters Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 4 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-link-params-1/Overview.bs",
+          "sha256_raw_source": "c657ccf60b3d136cbae786cfe0cd23cb774ea045a63866bd0965cd661c3013d6",
+          "line": 2,
+          "fact": "CSS Linked Parameters Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-mixins-1",
+      "exact_path": "css-mixins-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "120191c062405754fab006c222250b17d17dd8db",
+      "sha256_raw_source": "d590d7067db1cf2923c1d8442c1154c9e34db701a3e5c5c57eb375b46d664b05",
+      "raw_source_bytes": 88377,
+      "metadata": {
+        "title": {
+          "value": "CSS Custom Functions and Mixins Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-mixins",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 7,
+        "at_rule_tokens": 12,
+        "css_function_tokens": 32
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Custom Functions and Mixins Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-values-5/Overview.bs",
+          "sha256_raw_source": "1558654754407903cf70f9e6bcb3cec290de012d66e6ad2d6233335f405e0c76",
+          "line": 36,
+          "fact": "spec:css-mixins-1;"
+        }
+      ]
+    },
+    {
+      "directory": "css-mobile",
+      "exact_path": "css-mobile/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "18567abb2ef7258aa0355df7dea8904431a26a2c",
+      "sha256_raw_source": "e747669dedda26b7e5b66e69d2c1c5fbe23f9f27d5a267959e7c98f4530ed402",
+      "raw_source_bytes": 38074,
+      "metadata": {
+        "title": {
+          "value": "CSS Mobile Profile 2.0",
+          "line": 21
+        },
+        "shortname": {
+          "value": "css-mobile",
+          "line": 22
+        },
+        "level": {
+          "value": "none",
+          "line": 24
+        },
+        "status": {
+          "value": "ED",
+          "line": 25
+        },
+        "work_status": {
+          "value": "abandoned",
+          "line": 26
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 65,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned source marks the profile abandoned and obsolete.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-mobile/Overview.bs",
+          "sha256_raw_source": "e747669dedda26b7e5b66e69d2c1c5fbe23f9f27d5a267959e7c98f4530ed402",
+          "line": 59,
+          "fact": "This profile is obsolete."
+        }
+      ]
+    },
+    {
+      "directory": "css-module",
+      "exact_path": "css-module/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "e9b59f194bf905ac328e4f88330b3d166d1518e3",
+      "sha256_raw_source": "a33d080ff6cdd45489b58a4672de9aec52209cf7926532c091288c64f6c77da1",
+      "raw_source_bytes": 7952,
+      "metadata": {
+        "title": {
+          "value": "CSS Foo Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-foo",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 5,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Repository drafting template with placeholder foo/bar/baz language, not a CSS specification.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-module/Overview.bs",
+          "sha256_raw_source": "a33d080ff6cdd45489b58a4672de9aec52209cf7926532c091288c64f6c77da1",
+          "line": 2,
+          "fact": "CSS Foo Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-multicol-2",
+      "exact_path": "css-multicol-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "72f1e241ef9b139dc530f2ced232e58f9aa522a8",
+      "sha256_raw_source": "af91d50d7b26d5231fcaa60b1632d3dde4a3aa2ea2c0b7a9079342170e699620",
+      "raw_source_bytes": 85075,
+      "metadata": {
+        "title": {
+          "value": "CSS Multi-column Layout Module Level 2",
+          "line": 3
+        },
+        "shortname": {
+          "value": "css-multicol",
+          "line": 5
+        },
+        "level": {
+          "value": "2",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 7
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 7,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Multi-column Layout Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 7 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-multicol-2/Overview.bs",
+          "sha256_raw_source": "af91d50d7b26d5231fcaa60b1632d3dde4a3aa2ea2c0b7a9079342170e699620",
+          "line": 3,
+          "fact": "CSS Multi-column Layout Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-navigation-1",
+      "exact_path": "css-navigation-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "ef8502dfb35e539c5b69c6ad5077216480edcc72",
+      "sha256_raw_source": "65d9e94c6f716e78b7ea6fb1c0e0a1adcb65dfcc1ba864b78b3252da43943325",
+      "raw_source_bytes": 28926,
+      "metadata": {
+        "title": {
+          "value": "CSS Route Matching",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-navigation",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 8,
+        "at_rule_tokens": 6,
+        "css_function_tokens": 6
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Route Matching is outside the seed, is not terminally excluded by its pinned bytes, and exposes 20 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-navigation-1/Overview.bs",
+          "sha256_raw_source": "65d9e94c6f716e78b7ea6fb1c0e0a1adcb65dfcc1ba864b78b3252da43943325",
+          "line": 2,
+          "fact": "CSS Route Matching"
+        }
+      ]
+    },
+    {
+      "directory": "css-overflow-3",
+      "exact_path": "css-overflow-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "1906c5fa7997b8839452ef45177bee0bbf815ec5",
+      "sha256_raw_source": "6f38afbabdeaa238c6dc7446ac4f732aaaf18c2db60ab34b20294661d133cac6",
+      "raw_source_bytes": 55446,
+      "metadata": {
+        "title": {
+          "value": "CSS Overflow Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-overflow",
+          "line": 6
+        },
+        "level": {
+          "value": "3",
+          "line": 8
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Refining",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 7,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Overflow Module Level 3 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-text-3/Overview.bs",
+          "sha256_raw_source": "404b3febe09f47fe6deb3f9279448a222a8e72042a0aa7cbcdc2d46f15844af7",
+          "line": 7055,
+          "fact": "[[!CSS-OVERFLOW-3]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-overflow-4",
+      "exact_path": "css-overflow-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "0d4c09e2a00d0e9d2a0f76d52fa07eda84b8fc78",
+      "sha256_raw_source": "4280a2e028211a807ac2ae02a824f6ef3533b9924711a56b79972b9a1dd86fdc",
+      "raw_source_bytes": 79147,
+      "metadata": {
+        "title": {
+          "value": "CSS Overflow Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-overflow",
+          "line": 6
+        },
+        "level": {
+          "value": "4",
+          "line": 8
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 10,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Overflow Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-conditional-5/Overview.bs",
+          "sha256_raw_source": "b7399a570cdf5d47c0769e0cd1bb62853b3111c13871982270e72a3e2e768e32",
+          "line": 230,
+          "fact": "[[CSS-OVERFLOW-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-overflow-5",
+      "exact_path": "css-overflow-5/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "780388ad74d7ad44458368674971da114fa5b5c3",
+      "sha256_raw_source": "ddaec310317714b89c4a1f0f43853186c41f4c60bfc4278aa199311343db5645",
+      "raw_source_bytes": 58288,
+      "metadata": {
+        "title": {
+          "value": "CSS Overflow Module Level 5",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-overflow",
+          "line": 8
+        },
+        "level": {
+          "value": "5",
+          "line": 10
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Overflow Module Level 5 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 8 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-overflow-5/Overview.bs",
+          "sha256_raw_source": "ddaec310317714b89c4a1f0f43853186c41f4c60bfc4278aa199311343db5645",
+          "line": 2,
+          "fact": "CSS Overflow Module Level 5"
+        }
+      ]
+    },
+    {
+      "directory": "css-overscroll-1",
+      "exact_path": "css-overscroll-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "109f92f384e1a053caea8c9e1c4dd56eaaa81e9b",
+      "sha256_raw_source": "99e7729224b59383d456ebc5e3c20644f1b7b7a8d9f465acca71b399564ea3f5",
+      "raw_source_bytes": 15058,
+      "metadata": {
+        "title": {
+          "value": "CSS Overscroll Behavior Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-overscroll",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Overscroll Behavior Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 5 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-overscroll-1/Overview.bs",
+          "sha256_raw_source": "99e7729224b59383d456ebc5e3c20644f1b7b7a8d9f465acca71b399564ea3f5",
+          "line": 2,
+          "fact": "CSS Overscroll Behavior Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-page-3",
+      "exact_path": "css-page-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "33ed6d144418b7cfbcda3c937ca7baae756ac482",
+      "sha256_raw_source": "92bff1b9d38c2f929ec88f50666d447ed7c23909c93ec45c306090b826295256",
+      "raw_source_bytes": 97791,
+      "metadata": {
+        "title": {
+          "value": "CSS Paged Media Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-page",
+          "line": 3
+        },
+        "level": {
+          "value": "3",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 8,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 19,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Paged Media Module Level 3 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-display-3/Overview.bs",
+          "sha256_raw_source": "883aa6a221a91f5ee34cab17d8df974891a08921a410901e9328e6ff982671a5",
+          "line": 1933,
+          "fact": "[[!CSS-PAGE-3]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-page-4",
+      "exact_path": "css-page-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a09a4df4352c0aca9c2aff2e5e229474f92f1612",
+      "sha256_raw_source": "7b7d19eab05174456ecbfbb73555828eaddb20609439244d699e91a3d29d6ec8",
+      "raw_source_bytes": 4209,
+      "metadata": {
+        "title": {
+          "value": "Proposals for the future of CSS Paged Media",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-page",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "UD",
+          "line": 6
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 5,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "Proposals for the future of CSS Paged Media is outside the seed, is not terminally excluded by its pinned bytes, and exposes 5 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-page-4/Overview.bs",
+          "sha256_raw_source": "7b7d19eab05174456ecbfbb73555828eaddb20609439244d699e91a3d29d6ec8",
+          "line": 2,
+          "fact": "Proposals for the future of CSS Paged Media"
+        }
+      ]
+    },
+    {
+      "directory": "css-page-floats-3",
+      "exact_path": "css-page-floats-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "53bc3ebbb9f4c2d17bbca43f4bbd75bd76c0acf5",
+      "sha256_raw_source": "11272597c4a3cb14dc00826fd646b2e761d62504d9d4798a2c0dae24b59a95e6",
+      "raw_source_bytes": 41527,
+      "metadata": {
+        "title": {
+          "value": "CSS Page Floats Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-page-floats",
+          "line": 5
+        },
+        "level": {
+          "value": "3",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 8
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 5,
+        "grammar_production_markers": 2,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Page Floats Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 9 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-page-floats-3/Overview.bs",
+          "sha256_raw_source": "11272597c4a3cb14dc00826fd646b2e761d62504d9d4798a2c0dae24b59a95e6",
+          "line": 2,
+          "fact": "CSS Page Floats Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-page-template-1",
+      "exact_path": "css-page-template-1/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "e5d7f626065c3c46e6fbfa23cda61993e319b4a4",
+      "sha256_raw_source": "d19314843709f38058883f8556fa76923e19de4a8534fc94933ce32296142251",
+      "raw_source_bytes": 26165,
+      "metadata": {
+        "title": {
+          "value": "CSS Pagination Templates Module Level 3",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned source is an unofficial draft not adopted by the Working Group and expressly outside CSS.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-page-template-1/Overview.src.html",
+          "sha256_raw_source": "d19314843709f38058883f8556fa76923e19de4a8534fc94933ce32296142251",
+          "line": 83,
+          "fact": "should not be considered to be part of CSS"
+        }
+      ]
+    },
+    {
+      "directory": "css-position-4",
+      "exact_path": "css-position-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "89acdd6273c9a473398091133996a6d23740ce69",
+      "sha256_raw_source": "c64d3af8ac7ea04250f9dbf2cac1541f50aeb307d57b54fc5130b2903f2e6751",
+      "raw_source_bytes": 27761,
+      "metadata": {
+        "title": {
+          "value": "CSS Positioned Layout Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-position",
+          "line": 5
+        },
+        "level": {
+          "value": "4",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Positioned Layout Module Level 4 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 2 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-position-4/Overview.bs",
+          "sha256_raw_source": "c64d3af8ac7ea04250f9dbf2cac1541f50aeb307d57b54fc5130b2903f2e6751",
+          "line": 2,
+          "fact": "CSS Positioned Layout Module Level 4"
+        }
+      ]
+    },
+    {
+      "directory": "css-preslev-1",
+      "exact_path": "css-preslev-1/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "67638103ac5eaadaf36aee2f33e295e9960de587",
+      "sha256_raw_source": "aeb2c52c9d9adf0c625d3d5b5b9957b4bb5a7789dca8aaa8c0697a1b194858bf",
+      "raw_source_bytes": 12593,
+      "metadata": {
+        "title": {
+          "value": "CSS Presentation Levels Module",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned status says no further work and no Recommendation is planned.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-preslev-1/Overview.src.html",
+          "sha256_raw_source": "aeb2c52c9d9adf0c625d3d5b5b9957b4bb5a7789dca8aaa8c0697a1b194858bf",
+          "line": 84,
+          "fact": "At this time, the CSS Working Group does not envisage"
+        }
+      ]
+    },
+    {
+      "directory": "css-print",
+      "exact_path": "css-print/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "5cecb324cabe01fc610742f00db6bb102cd958eb",
+      "sha256_raw_source": "ff79362f6e9bdbfe19a74cb8a62cefd44c1e05eccd7d077fc9b4dd0ebabc8665",
+      "raw_source_bytes": 62119,
+      "metadata": {
+        "title": {
+          "value": "CSS Print Profile",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-print",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 5
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "abandoned",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 14,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned source marks the print profile abandoned and obsolete.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-print/Overview.bs",
+          "sha256_raw_source": "ff79362f6e9bdbfe19a74cb8a62cefd44c1e05eccd7d077fc9b4dd0ebabc8665",
+          "line": 26,
+          "fact": "This profile is obsolete."
+        }
+      ]
+    },
+    {
+      "directory": "css-pseudo-4",
+      "exact_path": "css-pseudo-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "331854a6d17fcc7d8366d227e31b539372132294",
+      "sha256_raw_source": "a821d362a7a6dce23a80e6321aee5806c57cb7ecee2abc89f7ab8d4f462709ff",
+      "raw_source_bytes": 87182,
+      "metadata": {
+        "title": {
+          "value": "CSS Pseudo-Elements Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-pseudo",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Refining",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 10
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Pseudo-Elements Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 987,
+          "fact": "[[!CSS-PSEUDO-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-regions-1",
+      "exact_path": "css-regions-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a2a44e734b5385f48c3d58e744306ca162718ad5",
+      "sha256_raw_source": "be48d1ad0216dbaeed55f289762b406cd078cd06c1086702d09e67e1efd1f197",
+      "raw_source_bytes": 73688,
+      "metadata": {
+        "title": {
+          "value": "CSS Regions Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-regions",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 4,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 15
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Regions Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-contain-1/Overview.bs",
+          "sha256_raw_source": "2946bdb02b9577437edac982f3576256ac062040b0cae20e8f5c5bd88b47ad58",
+          "line": 791,
+          "fact": "[[CSS-REGIONS-1]] has details"
+        }
+      ]
+    },
+    {
+      "directory": "css-rhythm-1",
+      "exact_path": "css-rhythm-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "eb671e943d9c3ffa441123fa2524da03c0888c17",
+      "sha256_raw_source": "9fc62bf56b77ba5b58ef5f3988a5080ea027d10c74865c7ad1016a415d9908f8",
+      "raw_source_bytes": 22206,
+      "metadata": {
+        "title": {
+          "value": "CSS Rhythmic Sizing Module Level 1",
+          "line": 9
+        },
+        "shortname": {
+          "value": "css-rhythm",
+          "line": 10
+        },
+        "level": {
+          "value": "1",
+          "line": 11
+        },
+        "status": {
+          "value": "WD",
+          "line": 13
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 16
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Rhythmic Sizing Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 10 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-rhythm-1/Overview.bs",
+          "sha256_raw_source": "9fc62bf56b77ba5b58ef5f3988a5080ea027d10c74865c7ad1016a415d9908f8",
+          "line": 9,
+          "fact": "CSS Rhythmic Sizing Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-round-display-1",
+      "exact_path": "css-round-display-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "f0818a1d6e83605944cee968a09b9a6e9d0990d1",
+      "sha256_raw_source": "e49ab58d21545abeb9ad5f3a4f99be50ae96f3794f7f48db7a64b444279dde01",
+      "raw_source_bytes": 23497,
+      "metadata": {
+        "title": {
+          "value": "CSS Round Display Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-round-display",
+          "line": 7
+        },
+        "level": {
+          "value": "1",
+          "line": 3
+        },
+        "status": {
+          "value": "ED",
+          "line": 4
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Round Display Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 8 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-round-display-1/Overview.bs",
+          "sha256_raw_source": "e49ab58d21545abeb9ad5f3a4f99be50ae96f3794f7f48db7a64b444279dde01",
+          "line": 2,
+          "fact": "CSS Round Display Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-ruby-1",
+      "exact_path": "css-ruby-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "4420bc0346e9107e21c254ad2f5f55a9009994c1",
+      "sha256_raw_source": "fdafe93b5fb3758f0bbbef8eadeb6e0ce2b43b05dc733b41b81ff1bd8bf215b6",
+      "raw_source_bytes": 115366,
+      "metadata": {
+        "title": {
+          "value": "CSS Ruby Annotation Layout Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-ruby",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 7,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Ruby Annotation Layout Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-display-3/Overview.bs",
+          "sha256_raw_source": "883aa6a221a91f5ee34cab17d8df974891a08921a410901e9328e6ff982671a5",
+          "line": 792,
+          "fact": "[[!CSS-RUBY-1]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-scoping-1",
+      "exact_path": "css-scoping-1/Overview.html",
+      "source_format": "generated_or_legacy_html",
+      "git_blob_oid_sha1": "2abefecac90c543d0f1f880414c79b98a214dd88",
+      "sha256_raw_source": "7703008444b22890efb0cab785df948259583121615b451da46bd655443423fc",
+      "raw_source_bytes": 315,
+      "metadata": {
+        "title": {
+          "value": "Moved to CSS Shadow Module Level 1",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Redirect-only source; its target is separately classified as a dependency candidate.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-scoping-1/Overview.html",
+          "sha256_raw_source": "7703008444b22890efb0cab785df948259583121615b451da46bd655443423fc",
+          "line": 4,
+          "fact": "Moved to CSS Shadow Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-scroll-snap-2",
+      "exact_path": "css-scroll-snap-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "ac22bc8b95bb813d1348ec153a9ec12aa498596f",
+      "sha256_raw_source": "c26d578a627e414db74e9b463c59e2c19e32b05321c395f31499eb4b6f5099af",
+      "raw_source_bytes": 26136,
+      "metadata": {
+        "title": {
+          "value": "CSS Scroll Snap Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-scroll-snap",
+          "line": 4
+        },
+        "level": {
+          "value": "2",
+          "line": 5
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Testing",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Scroll Snap Module Level 2 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-conditional-5/Overview.bs",
+          "sha256_raw_source": "b7399a570cdf5d47c0769e0cd1bb62853b3111c13871982270e72a3e2e768e32",
+          "line": 52,
+          "fact": "spec:css-scroll-snap-2;"
+        }
+      ]
+    },
+    {
+      "directory": "css-shaders-1",
+      "exact_path": "css-shaders-1/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "be9a4555da40a0147be0a8e8fc4ece820e0044a4",
+      "sha256_raw_source": "5ce81147448f3627417d3994666e5fff08ed28fca5b44d7e67a35f0d490589e7",
+      "raw_source_bytes": 56372,
+      "metadata": {
+        "title": {
+          "value": "CSS shaders",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 6
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned warning says not to use this source for implementation and routes the subject to Filter Effects.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-shaders-1/Overview.src.html",
+          "sha256_raw_source": "5ce81147448f3627417d3994666e5fff08ed28fca5b44d7e67a35f0d490589e7",
+          "line": 80,
+          "fact": "not being actively maintained"
+        }
+      ]
+    },
+    {
+      "directory": "css-shadow-1",
+      "exact_path": "css-shadow-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "031f5d930cbf0eabc751b4ac254cb5d0f3acb35c",
+      "sha256_raw_source": "0879121699895ad7670985665e6ee70bccd96c2a42e26cf99ca7fd56c44816e7",
+      "raw_source_bytes": 66126,
+      "metadata": {
+        "title": {
+          "value": "CSS Shadow Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-shadow",
+          "line": 4
+        },
+        "level": {
+          "value": "1",
+          "line": 3
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 8,
+        "css_function_tokens": 10
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Shadow Module Level 1 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_DEPENDENCY_REDIRECT_CHAIN",
+          "exact_path": "animation-triggers-1/Overview.bs",
+          "sha256_raw_source": "6d88146248aed4e3e873820b35c7ac2af0c0f0e2b2ace150d55a1ada8a40196a",
+          "line": 213,
+          "fact": "[[!CSS-SCOPING-1]]"
+        },
+        {
+          "kind": "PINNED_DEPENDENCY_REDIRECT_CHAIN",
+          "exact_path": "css-scoping-1/Overview.html",
+          "sha256_raw_source": "7703008444b22890efb0cab785df948259583121615b451da46bd655443423fc",
+          "line": 4,
+          "fact": "Moved to CSS Shadow Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-shadow-parts-1",
+      "exact_path": "css-shadow-parts-1/Overview.html",
+      "source_format": "generated_or_legacy_html",
+      "git_blob_oid_sha1": "56d7230f653dfeb50d90c1292f41d86d7ec7264f",
+      "sha256_raw_source": "06426a89742e4b4235ed58dbe1215ab82b079582f74fd677b4e111a8e1e94992",
+      "raw_source_bytes": 321,
+      "metadata": {
+        "title": {
+          "value": "Merged into CSS Shadow Module Level 1",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Redirect-only source merged into the separately classified CSS Shadow module.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-shadow-parts-1/Overview.html",
+          "sha256_raw_source": "06426a89742e4b4235ed58dbe1215ab82b079582f74fd677b4e111a8e1e94992",
+          "line": 4,
+          "fact": "Merged into CSS Shadow Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-shapes-2",
+      "exact_path": "css-shapes-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "90d54b081257618e9473036a9e20df0eff97f147",
+      "sha256_raw_source": "40ec668c35d4f19fa868b6bdd7914f2365a2fde8dc821179d5f2aa3ccefac423",
+      "raw_source_bytes": 14742,
+      "metadata": {
+        "title": {
+          "value": "CSS Shapes Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-shapes",
+          "line": 5
+        },
+        "level": {
+          "value": "2",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 2,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 7
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Shapes Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 9 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-shapes-2/Overview.bs",
+          "sha256_raw_source": "40ec668c35d4f19fa868b6bdd7914f2365a2fde8dc821179d5f2aa3ccefac423",
+          "line": 2,
+          "fact": "CSS Shapes Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-size-adjust-1",
+      "exact_path": "css-size-adjust-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "07eca4ed4f6ea7f1751ad87d25fe8e4f7476e5a6",
+      "sha256_raw_source": "5a290e77fe60c614701a4ff661103b209f7c8b175f84adbcd4a1c986e6dc3405",
+      "raw_source_bytes": 9111,
+      "metadata": {
+        "title": {
+          "value": "CSS Mobile Text Size Adjustment Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-size-adjust",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 7
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Mobile Text Size Adjustment Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 1 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-size-adjust-1/Overview.bs",
+          "sha256_raw_source": "5a290e77fe60c614701a4ff661103b209f7c8b175f84adbcd4a1c986e6dc3405",
+          "line": 2,
+          "fact": "CSS Mobile Text Size Adjustment Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-sizing-4",
+      "exact_path": "css-sizing-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "98f887947fac3dbb2681d70b37109a1607df1451",
+      "sha256_raw_source": "24d00369d43342e7de67f6a997817c287de50fc62d48267a2dc979b4622a8c45",
+      "raw_source_bytes": 82149,
+      "metadata": {
+        "title": {
+          "value": "CSS Box Sizing Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-sizing",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Box Sizing Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 956,
+          "fact": "[[!CSS-SIZING-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-spatial-nav-1",
+      "exact_path": "css-spatial-nav-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "a14d1edeea1b26695eb39ac12bbe6eef2df70cbb",
+      "sha256_raw_source": "c85d8ab307e209d92041c2d6e6572d0e0cb2fc84450290bdad0ffd2293c060a2",
+      "raw_source_bytes": 80141,
+      "metadata": {
+        "title": {
+          "value": "CSS Spatial Navigation Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-spatial-nav",
+          "line": 3
+        },
+        "level": {
+          "value": "1",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 3,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 6
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Spatial Navigation Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 10 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-spatial-nav-1/Overview.bs",
+          "sha256_raw_source": "c85d8ab307e209d92041c2d6e6572d0e0cb2fc84450290bdad0ffd2293c060a2",
+          "line": 2,
+          "fact": "CSS Spatial Navigation Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "css-tables-3",
+      "exact_path": "css-tables-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "644282b6cd8d96950fe8c11ef98007500153af18",
+      "sha256_raw_source": "2ee0fdd1d7679edf42cc73a5cb366756fa6d6ddb81a35b8e25babf10c7116140",
+      "raw_source_bytes": 191799,
+      "metadata": {
+        "title": {
+          "value": "CSS Table Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-tables",
+          "line": 3
+        },
+        "level": {
+          "value": "3",
+          "line": 4
+        },
+        "status": {
+          "value": "WD",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 5,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Table Module Level 3 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 8 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-tables-3/Overview.bs",
+          "sha256_raw_source": "2ee0fdd1d7679edf42cc73a5cb366756fa6d6ddb81a35b8e25babf10c7116140",
+          "line": 2,
+          "fact": "CSS Table Module Level 3"
+        }
+      ]
+    },
+    {
+      "directory": "css-template-1",
+      "exact_path": "css-template-1/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "880a234720be65b1b8d63c15bedc480e0c1ebbb7",
+      "sha256_raw_source": "e7ba88555641bb92e85ad6b30e4cc25a0aa075fd69c111aa2fedc548bc40ca9b",
+      "raw_source_bytes": 158629,
+      "metadata": {
+        "title": {
+          "value": "CSS Template Layout Module",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 7,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 7
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned Note is an ideas repository whose contents may migrate to other modules.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-template-1/Overview.src.html",
+          "sha256_raw_source": "e7ba88555641bb92e85ad6b30e4cc25a0aa075fd69c111aa2fedc548bc40ca9b",
+          "line": 131,
+          "fact": "not expected to become a W3C Recommendation"
+        }
+      ]
+    },
+    {
+      "directory": "css-text-4",
+      "exact_path": "css-text-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "8d95f68326718ac13f59765c6fea3dfa68fb2481",
+      "sha256_raw_source": "bf7fd748f1e304e0fb93bb4166837824649f1e5e659e135e0765e9607d765eac",
+      "raw_source_bytes": 505763,
+      "metadata": {
+        "title": {
+          "value": "CSS Text Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-text",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Refining",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 33,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Text Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 960,
+          "fact": "[[!CSS-TEXT-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-text-5",
+      "exact_path": "css-text-5/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "82ddf2dca25364c814f04bf1077a3c11d0fe9ee4",
+      "sha256_raw_source": "177c125c99935a633986c2d8c491ab9ab6b39c6075781595ae9ed317b0e6abe8",
+      "raw_source_bytes": 8010,
+      "metadata": {
+        "title": {
+          "value": "CSS Text Module Level 5",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-text",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "GENUINELY_UNRESOLVED_RED",
+      "reason": "Directory/title say CSS Text Level 5 but the pinned metadata says Level 4, so identity and level routing remain RED.",
+      "evidence": [
+        {
+          "kind": "PINNED_CONFLICT_OR_INCOMPLETE_MIGRATION",
+          "exact_path": "css-text-5/Overview.bs",
+          "sha256_raw_source": "177c125c99935a633986c2d8c491ab9ab6b39c6075781595ae9ed317b0e6abe8",
+          "line": 4,
+          "fact": "Level: 4"
+        }
+      ]
+    },
+    {
+      "directory": "css-text-decor-4",
+      "exact_path": "css-text-decor-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "03194bf48ce9d403f468a5a771325172ec61cd66",
+      "sha256_raw_source": "98c8ae9d2164a9f0bb778365dcd5f508d8d2514cabdaf5fe2d0ca361cc9d6026",
+      "raw_source_bytes": 91594,
+      "metadata": {
+        "title": {
+          "value": "CSS Text Decoration Module Level 4",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-text-decor",
+          "line": 3
+        },
+        "level": {
+          "value": "4",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 6
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 19,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Text Decoration Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 985,
+          "fact": "[[!CSS-TEXT-DECOR-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-transitions-2",
+      "exact_path": "css-transitions-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "29793811610a76c287c48b67241a3c8ef8d2eb09",
+      "sha256_raw_source": "28602df2ff183db48ec6dd8739c42726fdd972a98e35be58080c1efadfda7098",
+      "raw_source_bytes": 28944,
+      "metadata": {
+        "title": {
+          "value": "CSS Transitions Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-transitions",
+          "line": 5
+        },
+        "level": {
+          "value": "2",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Transitions Module Level 2 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "web-animations-1/Overview.bs",
+          "sha256_raw_source": "4dbbf8caec4e2ebce609a753158e2f9cfc1d4c631090e3724b0796a201372f98",
+          "line": 166,
+          "fact": "spec: css-transitions-2"
+        }
+      ]
+    },
+    {
+      "directory": "css-tv",
+      "exact_path": "css-tv/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "723997ce37ca2ded48d328b5a06e9a85c4650088",
+      "sha256_raw_source": "095912e4677ad25b84d3783dea9624f0c3adef1ebd2e0f7e29f12a49d78a408e",
+      "raw_source_bytes": 37313,
+      "metadata": {
+        "title": {
+          "value": "CSS TV Profile 1.0",
+          "line": 5
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 6,
+        "css_function_tokens": 1
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned status says no further work and no Recommendation is planned.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "css-tv/Overview.src.html",
+          "sha256_raw_source": "095912e4677ad25b84d3783dea9624f0c3adef1ebd2e0f7e29f12a49d78a408e",
+          "line": 72,
+          "fact": "At this time, the CSS Working Group does not"
+        }
+      ]
+    },
+    {
+      "directory": "css-ui-4",
+      "exact_path": "css-ui-4/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "81788b6b2fca15ab83bf44430fa1803e31502f17",
+      "sha256_raw_source": "71fef858b95a200b1c13d8afc694ca8512522835c8d8c792928b35776831b843",
+      "raw_source_bytes": 221459,
+      "metadata": {
+        "title": {
+          "value": "CSS Basic User Interface Module Level 4",
+          "line": 18
+        },
+        "shortname": {
+          "value": "css-ui",
+          "line": 27
+        },
+        "level": {
+          "value": "4",
+          "line": 28
+        },
+        "status": {
+          "value": "WD",
+          "line": 29
+        },
+        "work_status": {
+          "value": "Revising",
+          "line": 33
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 22,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 1
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Basic User Interface Module Level 4 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-2026/Overview.bs",
+          "sha256_raw_source": "2d2a7c2704a29e90f06b769f9f514ed03a50318743e97e9e5359879a7793d6f8",
+          "line": 995,
+          "fact": "[[CSS-UI-4]]"
+        }
+      ]
+    },
+    {
+      "directory": "css-view-transitions-2",
+      "exact_path": "css-view-transitions-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "eff42632900a0f967f62937058eab1420177fa8e",
+      "sha256_raw_source": "6716a6ae14db3e806c01e540b49371aa477f5537d9be7bf245f594ecbb2ae53b",
+      "raw_source_bytes": 161292,
+      "metadata": {
+        "title": {
+          "value": "CSS View Transitions Module Level 2",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-view-transitions",
+          "line": 3
+        },
+        "level": {
+          "value": "2",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 10
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 6,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 4,
+        "css_function_tokens": 13
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS View Transitions Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 23 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-view-transitions-2/Overview.bs",
+          "sha256_raw_source": "6716a6ae14db3e806c01e540b49371aa477f5537d9be7bf245f594ecbb2ae53b",
+          "line": 2,
+          "fact": "CSS View Transitions Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "css-viewport-1",
+      "exact_path": "css-viewport-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "7e9f82e5c42c4ec23a98a487723b3f867bcd2a31",
+      "sha256_raw_source": "dd81287993badc7b751414fc4729be0fc4876736bd6b9b672487fc6a10f0356e",
+      "raw_source_bytes": 35408,
+      "metadata": {
+        "title": {
+          "value": "CSS Viewport Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "css-viewport",
+          "line": 4
+        },
+        "level": {
+          "value": "1",
+          "line": 3
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 8
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 3,
+        "css_function_tokens": 2
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "CSS Viewport Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 6 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "css-viewport-1/Overview.bs",
+          "sha256_raw_source": "dd81287993badc7b751414fc4729be0fc4876736bd6b9b672487fc6a10f0356e",
+          "line": 2,
+          "fact": "CSS Viewport Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "fill-stroke-3",
+      "exact_path": "fill-stroke-3/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "c88a720111e3e4fa2970faf9901ceb98b7453422",
+      "sha256_raw_source": "7fbe5b52b46edcaf01824b468f6ca0152d526259c7382911b16987f1c5d8bb22",
+      "raw_source_bytes": 140621,
+      "metadata": {
+        "title": {
+          "value": "CSS Fill and Stroke Module Level 3",
+          "line": 2
+        },
+        "shortname": {
+          "value": "fill-stroke",
+          "line": 3
+        },
+        "level": {
+          "value": "3",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 5
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 28,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 3,
+        "css_function_tokens": 2
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "CSS Fill and Stroke Module Level 3 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-masking-1/Overview.bs",
+          "sha256_raw_source": "7b02d1b4a71c65b78ef1420511f0427602b13d7b9f579fb15f85656c09f3e028",
+          "line": 29,
+          "fact": "spec:fill-stroke-3;"
+        }
+      ]
+    },
+    {
+      "directory": "filter-effects-2",
+      "exact_path": "filter-effects-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "18d32d588ab7af2959d5a4cd1810a6a010c0ba84",
+      "sha256_raw_source": "4e5ad82b5130dcc048913e30637e3962a6184b6eab19aca6e707fa8970ea1aa6",
+      "raw_source_bytes": 24288,
+      "metadata": {
+        "shortname": {
+          "value": "filter-effects",
+          "line": 7
+        },
+        "level": {
+          "value": "2",
+          "line": 8
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 4
+        },
+        "title": {
+          "value": "Filter Effects Module Level 2",
+          "line": 1
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 1,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "Filter Effects Module Level 2 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 2 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "filter-effects-2/Overview.bs",
+          "sha256_raw_source": "4e5ad82b5130dcc048913e30637e3962a6184b6eab19aca6e707fa8970ea1aa6",
+          "line": 1,
+          "fact": "Filter Effects Module Level 2"
+        }
+      ]
+    },
+    {
+      "directory": "indexes",
+      "exact_path": "indexes/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "07fca4b465bf719aa445158b4df9e61913fc1c76",
+      "sha256_raw_source": "797187abf5662ce1eed142b885e071b2866d1096ce5f4b21b19a77a13efad8ea",
+      "raw_source_bytes": 1757,
+      "metadata": {
+        "title": {
+          "value": "CSS Indexes",
+          "line": 2
+        },
+        "shortname": {
+          "value": "indexes",
+          "line": 3
+        },
+        "level": {
+          "value": "none",
+          "line": 4
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "HISTORICAL_SNAPSHOT_OR_META_INDEX",
+      "reason": "Pinned CSS-wide term index; retain as provenance/discovery evidence, not as a normative operation source.",
+      "evidence": [
+        {
+          "kind": "PINNED_META_INDEX_IDENTITY",
+          "exact_path": "indexes/Overview.bs",
+          "sha256_raw_source": "797187abf5662ce1eed142b885e071b2866d1096ce5f4b21b19a77a13efad8ea",
+          "line": 2,
+          "fact": "CSS Indexes"
+        }
+      ]
+    },
+    {
+      "directory": "matrix",
+      "exact_path": "matrix/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "46dfc0bbb74adac877aa3318249d6192ee1aeb9a",
+      "sha256_raw_source": "10f7d0aaedcf872c0d6675f3191ff20660fa1f80562963c41b0dd37bcffde1da",
+      "raw_source_bytes": 685,
+      "metadata": {
+        "title": {
+          "value": "DOMMatrix interface",
+          "line": 2
+        },
+        "shortname": {
+          "value": "matrix",
+          "line": 8
+        },
+        "level": {
+          "value": "1",
+          "line": 9
+        },
+        "status": {
+          "value": "WG-NOTE",
+          "line": 3
+        },
+        "work_status": {
+          "value": "abandoned",
+          "line": 4
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 0
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Abandoned DOMMatrix API note that points to seeded Geometry Level 1 for the newer API.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "matrix/Overview.bs",
+          "sha256_raw_source": "10f7d0aaedcf872c0d6675f3191ff20660fa1f80562963c41b0dd37bcffde1da",
+          "line": 4,
+          "fact": "Work Status: abandoned"
+        }
+      ]
+    },
+    {
+      "directory": "pointer-animations-1",
+      "exact_path": "pointer-animations-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "2726f4ba1c26e166f4ca8d1f0191e6c74a2a68a3",
+      "sha256_raw_source": "647c55ceeab30890aeaa9230596d9454661acf37feba453843373d8a49a6498f",
+      "raw_source_bytes": 18597,
+      "metadata": {
+        "title": {
+          "value": "Pointer-driven Animations Module Level 1",
+          "line": 8
+        },
+        "shortname": {
+          "value": "pointer-animations",
+          "line": 12
+        },
+        "level": {
+          "value": "1",
+          "line": 13
+        },
+        "status": {
+          "value": "ED",
+          "line": 10
+        },
+        "work_status": {
+          "value": "exploring",
+          "line": 11
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 4,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 3
+      },
+      "classification": "LATER_LEVEL_OR_EXPERIMENTAL_LANGUAGE_CANDIDATE",
+      "reason": "Pointer-driven Animations Module Level 1 is outside the seed, is not terminally excluded by its pinned bytes, and exposes 8 mechanical parser-surface marker(s). Route it to later/experimental occurrence review; this is not inclusion credit.",
+      "evidence": [
+        {
+          "kind": "PINNED_MODULE_IDENTITY_AND_MECHANICAL_LANGUAGE_SIGNALS",
+          "exact_path": "pointer-animations-1/Overview.bs",
+          "sha256_raw_source": "647c55ceeab30890aeaa9230596d9454661acf37feba453843373d8a49a6498f",
+          "line": 8,
+          "fact": "Pointer-driven Animations Module Level 1"
+        }
+      ]
+    },
+    {
+      "directory": "selectors-5",
+      "exact_path": "selectors-5/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "76a88160d39393d5b60f3bdc60e14e859f92dd79",
+      "sha256_raw_source": "fd2ca9c173404cf8f93a4a264bd7ac946008bf88074248d67ba0b5be7c63f269",
+      "raw_source_bytes": 51434,
+      "metadata": {
+        "title": {
+          "value": "Selectors Level 5",
+          "line": 2
+        },
+        "shortname": {
+          "value": "selectors",
+          "line": 4
+        },
+        "level": {
+          "value": "5",
+          "line": 5
+        },
+        "status": {
+          "value": "ED",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 9
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 6
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "Selectors Level 5 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "selectors-4/Overview.bs",
+          "sha256_raw_source": "ac800347a26eb67cff99d38c08cae2d47622dbbb64d730a531b84646cacfe84c",
+          "line": 56,
+          "fact": "spec:selectors-5;"
+        }
+      ]
+    },
+    {
+      "directory": "selectors-nonelement-1",
+      "exact_path": "selectors-nonelement-1/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "9cdf4c1bf2fa04ff09fbaa853cd2e89324d53fe9",
+      "sha256_raw_source": "b2312aae7495c0017558e6af832a2d7a58518a1628d490ced2ef66e168cff3b7",
+      "raw_source_bytes": 4244,
+      "metadata": {
+        "title": {
+          "value": "Non-element Selectors Module Level 1",
+          "line": 2
+        },
+        "shortname": {
+          "value": "selectors-nonelement",
+          "line": 4
+        },
+        "level": {
+          "value": "1",
+          "line": 5
+        },
+        "status": {
+          "value": "WG-NOTE",
+          "line": 6
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 7
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 1,
+        "at_rule_tokens": 0,
+        "css_function_tokens": 1
+      },
+      "classification": "CANDIDATE_EXCLUDE_SUPERSEDED_OBSOLETE_OR_NON_LANGUAGE",
+      "reason": "Pinned source defines a non-CSS query language for other host environments.",
+      "evidence": [
+        {
+          "kind": "PINNED_TERMINAL_OR_SUPERSESSION_EVIDENCE",
+          "exact_path": "selectors-nonelement-1/Overview.bs",
+          "sha256_raw_source": "b2312aae7495c0017558e6af832a2d7a58518a1628d490ced2ef66e168cff3b7",
+          "line": 14,
+          "fact": "not intended to be used in CSS"
+        }
+      ]
+    },
+    {
+      "directory": "web-animations-2",
+      "exact_path": "web-animations-2/Overview.bs",
+      "source_format": "bikeshed_source",
+      "git_blob_oid_sha1": "423e1de2148079abc6f1e4da56185c640ee0afb9",
+      "sha256_raw_source": "21ea6f54969b7aaeb0307aa99b0120ff779febecc11d62559d56ad41edc4f57e",
+      "raw_source_bytes": 156463,
+      "metadata": {
+        "title": {
+          "value": "Web Animations Module Level 2",
+          "line": 60
+        },
+        "shortname": {
+          "value": "web-animations",
+          "line": 65
+        },
+        "level": {
+          "value": "2",
+          "line": 69
+        },
+        "status": {
+          "value": "WD",
+          "line": 61
+        },
+        "work_status": {
+          "value": "Exploring",
+          "line": 64
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 2,
+        "css_function_tokens": 15
+      },
+      "classification": "NORMATIVE_DEPENDENCY_CANDIDATE",
+      "reason": "Web Animations Module Level 2 is outside the 76-root seed but a seeded source imports, cites, or redirects to one of its definitions. It requires occurrence-level review before inclusion or exclusion.",
+      "evidence": [
+        {
+          "kind": "PINNED_SEED_DEPENDENCY_EDGE",
+          "exact_path": "css-values-5/Overview.bs",
+          "sha256_raw_source": "1558654754407903cf70f9e6bcb3cec290de012d66e6ad2d6233335f405e0c76",
+          "line": 1244,
+          "fact": "[[!WEB-ANIMATIONS-2]]"
+        }
+      ]
+    },
+    {
+      "directory": "web-animations-css-integration",
+      "exact_path": "web-animations-css-integration/Overview.src.html",
+      "source_format": "legacy_source_html",
+      "git_blob_oid_sha1": "5da85221f8b0e554867b7a5d0212db1ef59d26bb",
+      "sha256_raw_source": "2a0cdadff079269456a9cc599d8f7189e0e02f1bd5ea5f46980acb648d7d185e",
+      "raw_source_bytes": 14666,
+      "metadata": {
+        "shortname": {
+          "value": "web-animations-css",
+          "line": 5
+        },
+        "level": {
+          "value": "1",
+          "line": 6
+        },
+        "status": {
+          "value": "ED",
+          "line": 3
+        },
+        "title": {
+          "value": "Web Animations CSS Integration",
+          "line": 1
+        }
+      },
+      "mechanical_language_signals_non_credit": {
+        "property_or_descriptor_definition_markers": 0,
+        "grammar_production_markers": 0,
+        "at_rule_tokens": 1,
+        "css_function_tokens": 0
+      },
+      "classification": "GENUINELY_UNRESOLVED_RED",
+      "reason": "Pinned source states an intended migration into Animations/Transitions Level 2 but does not establish that migration as completed.",
+      "evidence": [
+        {
+          "kind": "PINNED_CONFLICT_OR_INCOMPLETE_MIGRATION",
+          "exact_path": "web-animations-css-integration/Overview.src.html",
+          "sha256_raw_source": "2a0cdadff079269456a9cc599d8f7189e0e02f1bd5ea5f46980acb648d7d185e",
+          "line": 22,
+          "fact": "intended to be incorporated into Level 2"
+        }
+      ]
+    }
+  ],
+  "content_digest_sha256": "16f1f186732ed7e91af57df4126a0f87a2e4868f8899278905cfa3aa58d97a6b",
+  "content_digest_method": "SHA-256 of compact UTF-8 JSON.stringify(payload) before these two digest fields are appended"
+}

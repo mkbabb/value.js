@@ -1,0 +1,9 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "seat": "b",
+  "lineage": "acknowledged BBNF value-unit production",
+  "source_inputs": [{ "path": "/Users/mkbabb/Programming/bbnf-lang/grammar/css/l4/value-unit.bbnf", "sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b", "bytes": 3084, "head": "af15f63e0d2d3d719938c13b906a50acbb92ea3b" }],
+  "instruction": "Transpose the BBNF number production into direct public parse-that combinators, repairing projection to the exact semantic leaf. Do not consult H, S, or D sources or candidates.",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

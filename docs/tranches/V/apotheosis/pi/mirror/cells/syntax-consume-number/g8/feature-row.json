@@ -1,0 +1,48 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "status": "FROZEN_PILOT_ROW_UNACCEPTED_PRE_HOLDOUT_PRE_AUTHOR",
+  "owner": "value-unit",
+  "g7_terminal_authority": {
+    "review_a": { "path": "../g7/reviews/challenge-a.json", "sha256": "5f1dcc96532b882fff0bcb40fd7af17cc694ada778b09a052cc6f6293420d6c8", "bytes": 24077, "verdict": "REJECT" },
+    "review_b": { "path": "../g7/reviews/challenge-b.json", "sha256": "b7fe735c15b4cea1e81ef80d5ea07900d12f1b36af016002eb90bf0aad0501d8", "bytes": 13444, "verdict": "REJECT" },
+    "root": { "path": "../g7/root-gestalt.json", "sha256": "986f3890522361536b25bb7c283e80323b924bce680eb85e7df8a444d67b2d82", "bytes": 5406, "verdict": "REJECT" },
+    "rejection": { "path": "../g7/rejection.json", "sha256": "26c964c3ac29bba9f9741aa89cc4208be793edfdd15ac4ddf68963c50f4d63f3", "bytes": 3979 },
+    "destruction": { "path": "../g7/holdout-destruction.json", "sha256": "e946ce86e6342d8d5d362664282fa393608f4b93af87cee196d563f770e26a66", "bytes": 5166, "secret_recoverable": false, "reusable": false }
+  },
+  "normative_occurrence": {
+    "authority_path": "../g5/authorities/css-syntax-3.Overview.bs",
+    "authority_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "authority_bytes": 144427,
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "anchor": "consume-number",
+    "line_start": 1610,
+    "line_end_inclusive": 1679,
+    "exact_lf_slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3",
+    "exact_lf_slice_bytes": 2303,
+    "algorithm_steps": [1, 2, 3, 4, 5, 6, 7]
+  },
+  "operation": {
+    "entry": "At the current parse-that UTF-16 offset consume one maximal CSS number prefix and return one semantic leaf.",
+    "accepted_prefix": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "maximality": "Dot and exponent syntax are consumed only when their following ASCII-digit guards are complete.",
+    "result": "Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>, ordinary Object.prototype, exactly three own writable/enumerable/configurable string data properties, Object.is binary64 value including negative zero.",
+    "composition": "Harness asserts complete value/type/sign/object shape/extent/final offset/unit on every successful number/integer/percentage/dimension composition and exact entry-state rollback/value/offset on integer rejection.",
+    "excluded": ["lexer", "scanner", "token", "atom", "component value", "CST", "manual cursor", "source slicing", "percentage/dimension dispatch ownership", "production mutation"]
+  },
+  "diagnostics": {
+    "failure_matrix": "Every one of ten public failures executes over seven predecessor values × diagnostics enabled/disabled × ordinary/preseeded-ahead = 280 public failure executions.",
+    "transaction": "Same ParserState and src identity; error true; entry offset and predecessor value preserved by Object.is; diagnostics mode preserved; ordinary mode exact failure diagnostics; preseeded-ahead diagnostics identities and contents unchanged; no throw."
+  },
+  "work_limit": {
+    "construction": "Four hostile families are constructed by exact total source.length UTF-16 code units and asserted at 4096/8192/16384/32768.",
+    "completion": "Every warmup and measured invocation verifies exact state identity, success, offset, representation, ordinary semantic leaf and source extent.",
+    "timeout": "Every invocation is measured against 1000 ms and counted; benchmark/build runners must additionally execute candidates in killable isolated processes.",
+    "scaling": "Five-sample medians use a 0.05 ms floor; each doubling ratio <=3 and the complete eightfold ratio <=12; topology forbids recursion, loops, mutation, manual scanning and unsafe broad terminals. This is a hostile rail, not benchmark credit."
+  },
+  "holdout_law": "A new independent G8 custodian must bind exact generator bytes and method, canonical hidden index/commitment, cross-generation comparison inputs, custody identity/model/commands/time/location, reveal-and-destroy protocol, and the limits of what pre-reveal public evidence can verify. G7 bytes and secrets are forbidden.",
+  "benchmark_law": "An evidence root must resolve every exact pre-author, feature, public/revealed corpus, normalized observation, candidate source, author receipt, reproducible build, bundle, public/holdout correctness, comparator build/bundle/semantic result, runner, schedule, attempt and raw identity. At least two append-only attempts must coexist without chmod or retry erasure.",
+  "owner_law": "Five pairwise-independent skeptics cover all candidates on the same correctness/idiom/performance/hostility/KISS axes; three further pairwise-independent and author/reviewer-disjoint blinded adjudicators must unanimously nominate one already reviewed unblocked exact candidate hash. No unseen composite can be selected.",
+  "admission": "After this exact formation freezes, form a wholly fresh G8 holdout; seal a path-bearing manifest; obtain two fresh independent substantive ACCEPT challenges and one distinct ACCEPT root; only then may isolated H/B/S/D authors receive the common law plus exactly their seat packet.",
+  "credit": { "feature": 0, "parser": 0, "candidate": 0, "benchmark": 0, "integration": 0, "production": 0 }
+}

@@ -1,0 +1,214 @@
+{
+  "utilityScan": {
+    "selectors": {
+      "shadow-cartoon-sm": [
+        ":where(.shadow-cartoon-sm, .shadow-cartoon-md, .shadow-cartoon-lg)",
+        ".shadow-cartoon-sm"
+      ],
+      "shadow-cartoon-md": [
+        ":where(.shadow-cartoon-sm, .shadow-cartoon-md, .shadow-cartoon-lg)",
+        ".shadow-cartoon-md"
+      ],
+      "focus-ring": [
+        ".focus-ring:focus-visible",
+        ".focus-ring:focus-visible, .interactive-item:focus-visible, .dock-icon-button:focus-visible, .dock-tab-button:focus-visi"
+      ],
+      "text-micro": [
+        ".text-micro",
+        ".text-micro",
+        ".text-micro"
+      ],
+      "scrollbar-thin": [
+        ".scrollbar-thin",
+        ".scrollbar-thin",
+        ".scrollbar-thin::-webkit-scrollbar"
+      ],
+      "duration-fast": [
+        ".duration-\\[var\\(--duration-fast\\)\\]",
+        ".duration-fast"
+      ]
+    },
+    "tokenSm": "-2px 2px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14%",
+    "tokenMd": "-3px 3px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14%"
+  },
+  "host": {
+    "found": true,
+    "triggerType": "button",
+    "triggerTypeProp": "button",
+    "hasFormAncestor": false,
+    "chain": [
+      "BUTTON.button",
+      "DIV.flex",
+      "DIV.input-bar",
+      "DIV.px-4",
+      "DIV.glass-resting",
+      "DIV.pane-wrapper",
+      "DIV.pane-container",
+      "MAIN.pane-main"
+    ]
+  },
+  "freshOpen": {
+    "open": true,
+    "padding": "20.352px 16px",
+    "paddingInline": "16px",
+    "paddingBlock": "20.352px",
+    "width": "240px",
+    "maxHeight": "none",
+    "overflowY": "visible",
+    "classList": "popover-content z-popover glass-floating [--overlay-pad-inline:1rem] [--overlay-pad-block:calc(var(--overlay-pad-inline)*1.272)] px-(--overlay-pad-inline) py-(--overlay-pad-block) glass-reveal w-60 p-0",
+    "inputValue": "",
+    "inputPlaceholderShown": true,
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "swatchBg": "rgb(68, 136, 204)",
+    "swatchBoxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px",
+    "swatchType": "button",
+    "swatchTypeProp": "button",
+    "swatchRect": {
+      "width": 28,
+      "height": 28
+    },
+    "searchBtnType": null,
+    "searchBtnTypeProp": "submit",
+    "searchBtnRect": {
+      "width": 52.6,
+      "height": 24
+    },
+    "searchBtnName": "Search",
+    "badge": ""
+  },
+  "swatchHover": {
+    "boxShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px"
+  },
+  "afterValidHexSearch": {
+    "swatchLabel": "Open color picker, current color #4488cc",
+    "swatchBg": "rgb(68, 136, 204)",
+    "inputValue": "#ff0000",
+    "triggerAccessibleLabel": "Filters",
+    "badgeText": "1",
+    "wallCount": 2
+  },
+  "svBox": {
+    "x": 479,
+    "y": 781.34375,
+    "w": 174,
+    "h": 112
+  },
+  "dragSamples": [
+    {
+      "label": "high-sat/high-val (control)",
+      "target": {
+        "fx": 0.9,
+        "fy": 0.2
+      },
+      "during": {
+        "thumbLeft": "90%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#1470cc",
+        "outerInput": "#1470cc"
+      },
+      "after": {
+        "thumbLeft": "90%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#1470cc",
+        "outerInput": "#1470cc"
+      }
+    },
+    {
+      "label": "near-gray high-val (hue-drift probe)",
+      "target": {
+        "fx": 0.02,
+        "fy": 0.2
+      },
+      "during": {
+        "thumbLeft": "2.00001%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#c8cacc",
+        "outerInput": "#c8cacc"
+      },
+      "after": {
+        "thumbLeft": "2.00001%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#c8cacc",
+        "outerInput": "#c8cacc"
+      }
+    },
+    {
+      "label": "back to high-sat (did hue survive?)",
+      "target": {
+        "fx": 0.9,
+        "fy": 0.2
+      },
+      "during": {
+        "thumbLeft": "90%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#1470cc",
+        "outerInput": "#1470cc"
+      },
+      "after": {
+        "thumbLeft": "90%",
+        "thumbTop": "20%",
+        "hueThumbLeft": null,
+        "readout": "#1470cc",
+        "outerInput": "#1470cc"
+      }
+    },
+    {
+      "label": "dark region (quantisation probe)",
+      "target": {
+        "fx": 0.6,
+        "fy": 0.95
+      },
+      "during": {
+        "thumbLeft": "60%",
+        "thumbTop": "95%",
+        "hueThumbLeft": null,
+        "readout": "#05090d",
+        "outerInput": "#05090d"
+      },
+      "after": {
+        "thumbLeft": "60%",
+        "thumbTop": "95%",
+        "hueThumbLeft": null,
+        "readout": "#05090d",
+        "outerInput": "#05090d"
+      }
+    },
+    {
+      "label": "return to mid",
+      "target": {
+        "fx": 0.6,
+        "fy": 0.5
+      },
+      "during": {
+        "thumbLeft": "60%",
+        "thumbTop": "50%",
+        "hueThumbLeft": null,
+        "readout": "#335980",
+        "outerInput": "#335980"
+      },
+      "after": {
+        "thumbLeft": "60%",
+        "thumbTop": "50%",
+        "hueThumbLeft": null,
+        "readout": "#335980",
+        "outerInput": "#335980"
+      }
+    }
+  ],
+  "afterEscape": {
+    "wrappers": 1,
+    "svPresent": false,
+    "filterPanelPresent": true,
+    "activeEl": "BUTTON/Open color picker, current color #335980"
+  },
+  "console": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected.",
+    "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localh"
+  ]
+}

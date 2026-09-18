@@ -1,0 +1,48 @@
+SERVED MODEL: claude-fable-5-1
+# ⟨cmd⟩ node ac3-k3-operator-realization.mjs <ac3>/lowering-wasm/compile.mjs  (run twice, identical)
+
+op	X.* module calls	runtime helpers	JS loops	JS ifs	class
+SCAN	raise,scan,setErr,setOff		0	1	terminal/arith-in-module
+LIT	lit,raise,setErr,setOff		0	1	terminal/arith-in-module
+NUM	num,pushP,raise,setErr,setOff		0	1	terminal/arith-in-module
+DIGITS	pushP,raise,setErr,setOff,spanDigits,take		0	1	terminal/arith-in-module
+TEXT	pushP,raise,scan,setErr,setOff		0	1	terminal/arith-in-module
+KW	kw,pushP,raise,scan,setErr,setOff		0	2	terminal/arith-in-module
+END	atEnd,raise,setErr		0	1	terminal/arith-in-module
+SEQ	setErr		1	2	control-in-JS
+ALT	setCut,setErr	markTuple,rollback,setOrg	1	3	control-in-JS
+CUT	setCut,setErr		0	0	control-in-JS
+PURE	setErr		0	0	control-in-JS
+REP	rollback,setErr	markTuple,rollback	1	6	control-in-JS
+DROP	pushC		0	2	control-in-JS
+DISPATCH	kw,pushP,raise,scan,setOff		0	2	terminal/arith-in-module
+FAIL	raise,setErr		1	0	control-in-JS
+EXPECT	raise,setErr,setFar		1	1	control-in-JS
+CLAMP	clamp		0	2	terminal/arith-in-module
+SCALE	scale		0	2	terminal/arith-in-module
+CTOR	raise,setErr	admits	2	4	control-in-JS
+TRY		markTuple,rollback	0	1	control-in-JS
+RECOVER	labCopy,pushC,pushD,setErr,setOff,truncate	markTuple,rollback	0	2	control-in-JS
+REF	guard,raise,setDepth	admits,setOrg,writeGuardTuple	2	3	control-in-JS
+
+cases 22 · operators whose control flow executes in JS for the Wasm target: 12 of 22
+module functions named by those 12: only σ stores/journal pushes (setErr, setCut, setDepth, setFar, pushC/D/P, truncate, labCopy, raise, guard, mark/rollback via runtime.mjs)
+
+# second run:
+cases 22 · operators whose control flow executes in JS for the Wasm target: 12 of 22
+module functions named by those 12: only σ stores/journal pushes (setErr, setCut, setDepth, setFar, pushC/D/P, truncate, labCopy, raise, guard, mark/rollback via runtime.mjs)
+
+# the seat's own header, lowering-wasm/compile.mjs L5-L14:
+// The control flow below is the JS lowering's, operator for operator — deliberately, because that
+// is what makes the differential informative. What DIFFERS is where the work happens: every
+// terminal decision, every numeral, every journal append, every rollback and every raise is a call
+// into `kernel.mjs`, over ONE class table shared byte-for-byte with the JS side and ONE 10^k table
+// shared the same way.
+//
+// That is the honest reading of "the identical table under `v128` or scalar fallback" (§12 AC-3):
+// the table is the algebra's carrier, and the two lowerings are two readers of it. What this
+// construction does NOT do is re-implement the combinator structure in Wasm — NC-1 pre-kills that
+// posture by citation (`W2.md` §3c), and `VERDICT.md` §A says in plain words what EQ-1..EQ-6
+
+# sibling existence proofs (a Wasm parse graph beside a source-direct JS lowering, both passing G-9/G-10):
+#  AC-1 build/ac1.wasm: 187341 B · AC-2 artifacts/ac2.wasm: 117544 B · AC-3 build/ac3.wasm: 25267 B

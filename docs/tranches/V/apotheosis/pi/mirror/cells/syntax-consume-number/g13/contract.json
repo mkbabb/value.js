@@ -1,0 +1,33 @@
+{
+  "schema": "value.pi.syntax-consume-number.g13.contract/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 13,
+  "status": "PUBLIC_PREAUTHOR_CONTRACT",
+  "input": "A CSS source string and UTF-16 offset carried by parse-that ParserState.",
+  "success": {
+    "grammar": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+    "maximal_prefix": true,
+    "offset": "Advance by exactly the matched representation; incomplete decimal/exponent suffixes remain unconsumed.",
+    "value": "Number(representation), including signed zero, subnormal underflow, and infinities.",
+    "result": "A frozen ordinary object with exactly own enumerable keys sign,type,value; sign is +, -, or null; type is integer iff the representation contains neither decimal point nor exponent."
+  },
+  "failure": "No throw; isError true; source, offset, predecessor value, and pre-existing ahead diagnostics remain byte/structurally unchanged.",
+  "composition": "The parser remains a singular prefix production usable inside percentage, dimension, integer-only, and delimited parent combinators.",
+  "architecture": {
+    "required": "Direct @mkbabb/parse-that/core combinator construction exporting consumeNumber.",
+    "forbidden": "ParserState/source/cursor loops, manual scanning/slicing, filesystem/process/network access, corpus reads, production imports, or out-of-seat imports.",
+    "narrow_transaction_exception": "Only B and S may use one local new Parser wrapper whose sole state operations are save(), one inner.call(state), restore(saved) on error, and isError restoration. It may never read or write src/offset or inspect input. H and D may not use the exception.",
+    "admission": "One index.ts is parsed with the pinned TypeScript compiler API. A closed AST allowlist checks the exact core import, declarations, identifiers, regex literals, calls/property accesses, seat topology/dataflow, and exact B/S transaction statements. Computed element access, ambient/global identifiers, loops, dynamic regexes, unrecognized syntax/properties, and any extra parse-that subpath fail closed."
+  },
+  "chronology": [
+    "Two independent reviewers inspect only this frozen public formation and root adjudicates their exact reviews.",
+    "Only after root ACCEPT, a separately tasked independent custodian seals an unrevealed hostile corpus and records its ciphertext/hash receipt.",
+    "Root records the actual four collaboration author task IDs externally; local JSON never claims to authenticate a service actor.",
+    "No author starts before both boundary ACCEPT and the custodian seal. Each author receives the common public inputs and only its own seat packet.",
+    "All four candidates close through candidate-closure.mjs; only then may the custodian reveal the hostile bytes.",
+    "Five hostile candidate skeptics and three independent synthesis adjudicators follow over exact candidate and holdout evidence."
+  ],
+  "holdout_now": "ABSENT_BY_DESIGN",
+  "benchmarks": "POST_CANDIDATE_ONLY; no timing threshold participates in boundary admission.",
+  "credit": "ZERO_FORMATION_ONLY"
+}

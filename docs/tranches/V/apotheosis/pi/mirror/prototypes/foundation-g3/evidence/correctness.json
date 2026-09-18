@@ -1,0 +1,41 @@
+{
+  "schema": "value.pi.foundation-g3.correctness/v1",
+  "status": "PASS",
+  "command": "../../node_modules/.bin/tsx evaluate.mts <h|b|s>",
+  "seats": {
+    "h": {
+      "exit": 0,
+      "success_transactions": 22,
+      "failure_transactions": 9,
+      "unicode_transactions": 1114112,
+      "hostile_calls": 230000
+    },
+    "b": {
+      "exit": 0,
+      "success_transactions": 22,
+      "failure_transactions": 9,
+      "unicode_transactions": 1114112,
+      "hostile_calls": 230000
+    },
+    "s": {
+      "exit": 0,
+      "success_transactions": 22,
+      "failure_transactions": 9,
+      "unicode_transactions": 1114112,
+      "hostile_calls": 230000
+    }
+  },
+  "strict_typescript": {
+    "exit": 0,
+    "module": "NodeNext",
+    "module_resolution": "NodeNext",
+    "target": "ES2022",
+    "strict": true
+  },
+  "nonclaims": [
+    "This evidence does not accept a candidate.",
+    "The aggregate G2 cssSpacing parser is excluded from this generation.",
+    "Peer and full-parser performance claims remain false."
+  ]
+}
+

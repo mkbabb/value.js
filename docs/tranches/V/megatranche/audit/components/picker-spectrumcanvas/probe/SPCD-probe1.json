@@ -1,0 +1,142 @@
+{
+  "probe": {
+    "aria": {
+      "role": "img",
+      "label": "Color spectrum, saturation 63%, lightness 100%",
+      "tabindex": null
+    },
+    "plateRect": {
+      "x": 220.47,
+      "y": 387.03,
+      "w": 469.06,
+      "h": 224,
+      "aspect": 2.094
+    },
+    "dotRect": {
+      "x": 500.58,
+      "y": 372.93,
+      "w": 28.82,
+      "h": 28.2
+    },
+    "dotInlineLeftTop": {
+      "left": "62.7886%",
+      "top": "0%"
+    },
+    "dotComputedTransform": "matrix(1.01453, 0.00180049, -0.0146334, 1.00539, 0, 0)",
+    "dotComputedBorder": "2px solid rgba(0, 0, 0, 0.8)",
+    "dotBoxShadow": "color(srgb 0.986 0.982 0.974 / 0.35) 0px 0px 6px 0px inset, color(srgb 0.11 0.098 0.09 / 0.06) 0px -2px 4px 0px inset, color(srgb 0.11 0.098 0.09 / 0.1) 0px 2px 6px 0px",
+    "dotBg": "lab(92 88.8 20)",
+    "dotBorderRadius": "15.954% 83.45% 19.1765% 33.1628% / 38.1292% 35.2683% 41.781% 37.9911%",
+    "dotFilter": "url(\"#watercolor-filter-v-7\")",
+    "sFromDotCenter": 0.6279,
+    "vFromDotCenter": 1,
+    "plateBackgroundImage": "linear-gradient(to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(to right, rgb(255, 255, 255), rgb(255, 0, 59))",
+    "plateBorderRadius": "12px",
+    "plateOverflow": "visible",
+    "plateOutline": "rgba(0, 0, 0, 0) solid 3px / offset 1px",
+    "plateAnimation": "0.42s cubic-bezier(0.4, 0, 0.2, 1) 0.18s both field-paint-in-ad23e00d",
+    "plateTransition": "box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+    "plateTouchAction": "none",
+    "plateBoxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "plateCursor": "crosshair",
+    "plateClasses": "spectrum-picker flex w-full h-[20dvh] min-h-24 max-h-40 lg:h-[14rem] lg:max-h-none cursor-crosshair relative touch-gate-target",
+    "figureTag": "FIGURE",
+    "figureHasCaption": false,
+    "dotEscape": {
+      "top": 14.1,
+      "left": -280.11,
+      "bottom": -209.9,
+      "right": -160.14
+    },
+    "readoutText": "92.0%,88.8,20.0",
+    "canvasInside": 0
+  },
+  "tabOrder": [
+    {
+      "tag": "BUTTON",
+      "name": "Save edit"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Cancel edit"
+    },
+    {
+      "tag": "INPUT",
+      "name": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Switch to slug"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Generate new slug"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Cancel"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Back"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Reset color"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Copy color"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Random color"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Palettes"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Extract palette"
+    },
+    {
+      "tag": "BUTTON",
+      "name": ""
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Open color input"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "combobox",
+      "name": "Select view"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Toggle action bar"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "Login"
+    },
+    {
+      "tag": "BUTTON",
+      "name": "@mbabb"
+    },
+    {
+      "tag": "BUTTON",
+      "role": "combobox",
+      "name": "Select color space"
+    },
+    {
+      "tag": "SPAN",
+      "role": "textbox",
+      "name": "l component value"
+    }
+  ],
+  "consoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+  ]
+}

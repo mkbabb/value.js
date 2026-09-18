@@ -1,0 +1,233 @@
+
+=== aria-label carriers (root leak vs thumb) ===
+[
+ {
+  "label": "Number of colors",
+  "tag": "span",
+  "cls": "glass-slider.relative",
+  "role": null,
+  "valuenow": null,
+  "valuetext": null,
+  "valuemin": null,
+  "valuemax": null,
+  "tabindex": null,
+  "w": 434,
+  "h": 24
+ },
+ {
+  "label": "Number of colors",
+  "tag": "span",
+  "cls": "slider-thumb.glass-specular-track",
+  "role": "slider",
+  "valuenow": "5",
+  "valuetext": null,
+  "valuemin": "1",
+  "valuemax": "16",
+  "tabindex": "0",
+  "w": 12,
+  "h": 24
+ },
+ {
+  "label": "Chroma weight",
+  "tag": "span",
+  "cls": "glass-slider.flex-1",
+  "role": null,
+  "valuenow": null,
+  "valuetext": null,
+  "valuemin": null,
+  "valuemax": null,
+  "tabindex": null,
+  "w": 230.5,
+  "h": 24
+ },
+ {
+  "label": "Chroma weight",
+  "tag": "span",
+  "cls": "slider-thumb.glass-specular-track",
+  "role": "slider",
+  "valuenow": "0.5",
+  "valuetext": null,
+  "valuemin": "0",
+  "valuemax": "1.5",
+  "tabindex": "0",
+  "w": 12,
+  "h": 24
+ }
+]
+
+=== kC keyboard walk 0 -> 1.5 (aria-valuenow vs .toFixed(1) readout) ===
+[
+ {
+  "readout": "0.0",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0",
+  "ariaText": null
+ },
+ {
+  "readout": "0.1",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.1",
+  "ariaText": null
+ },
+ {
+  "readout": "0.2",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.2",
+  "ariaText": null
+ },
+ {
+  "readout": "0.3",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.3",
+  "ariaText": null
+ },
+ {
+  "readout": "0.4",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.4",
+  "ariaText": null
+ },
+ {
+  "readout": "0.5",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.5",
+  "ariaText": null
+ },
+ {
+  "readout": "0.6",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.6",
+  "ariaText": null
+ },
+ {
+  "readout": "0.7",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.7",
+  "ariaText": null
+ },
+ {
+  "readout": "0.8",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.8",
+  "ariaText": null
+ },
+ {
+  "readout": "0.9",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "0.9",
+  "ariaText": null
+ },
+ {
+  "readout": "1.0",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1",
+  "ariaText": null
+ },
+ {
+  "readout": "1.1",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1.1",
+  "ariaText": null
+ },
+ {
+  "readout": "1.2",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1.2",
+  "ariaText": null
+ },
+ {
+  "readout": "1.3",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1.3",
+  "ariaText": null
+ },
+ {
+  "readout": "1.4",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1.4",
+  "ariaText": null
+ },
+ {
+  "readout": "1.5",
+  "readoutClientW": 20,
+  "readoutScrollW": 20,
+  "ariaNow": "1.5",
+  "ariaText": null
+ }
+]
+
+=== k readout @ End ===
+{
+ "labelText": "16",
+ "clientW": 20,
+ "scrollW": 20,
+ "ariaNow": "16",
+ "ariaMax": "16"
+}
+
+=== camera button disabled BEFORE first press ===
+false
+
+=== after 1st press ===
+{
+ "gumCalls": 1,
+ "stops": [],
+ "liveTracks": [
+  "live"
+ ],
+ "cameraVisible": false,
+ "cameraBtnDisabled": false,
+ "uploadBtnDisabled": false,
+ "resetBtnDisabled": true,
+ "kSliderPointerEvents": "auto"
+}
+
+=== after 2nd press — THE LEAK ===
+{
+ "gumCalls": 2,
+ "stops": [],
+ "trackStates": [
+  {
+   "id": "s1",
+   "track": "t1",
+   "state": "live"
+  },
+  {
+   "id": "s2",
+   "track": "t2",
+   "state": "live"
+  }
+ ]
+}
+
+=== after unmount (route change) — orphaned tracks ===
+{
+ "stops": [],
+ "trackStates": [
+  {
+   "id": "s1",
+   "track": "t1",
+   "state": "live"
+  },
+  {
+   "id": "s2",
+   "track": "t2",
+   "state": "live"
+  }
+ ]
+}

@@ -1,0 +1,841 @@
+{
+ "d-light": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 4,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    }
+   ],
+   "gridCols": "462px"
+  },
+  "errors": []
+ },
+ "d-dark": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.34 0.01136 0.027766 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.345296 0.010372 0.017546)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 4,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    }
+   ],
+   "gridCols": "462px"
+  },
+  "errors": []
+ },
+ "m-light": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 0,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 324,
+     "h": 100
+    },
+    {
+     "w": 324,
+     "h": 125.03
+    },
+    {
+     "w": 324,
+     "h": 125.03
+    },
+    {
+     "w": 324,
+     "h": 100
+    },
+    {
+     "w": 324,
+     "h": 100
+    }
+   ],
+   "gridCols": "324px"
+  },
+  "errors": []
+ },
+ "m-dark": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.34 0.01136 0.027766 / 0.46) -3px 3px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.38) -5px 5px 0px 0px, oklab(0.34 0.01136 0.027766 / 0.26) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.345296 0.010372 0.017546)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 0,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 324,
+     "h": 100
+    },
+    {
+     "w": 324,
+     "h": 125.03
+    },
+    {
+     "w": 324,
+     "h": 125.03
+    },
+    {
+     "w": 324,
+     "h": 100
+    },
+    {
+     "w": 324,
+     "h": 100
+    }
+   ],
+   "gridCols": "324px"
+  },
+  "errors": []
+ },
+ "d-forced": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 4,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    }
+   ],
+   "gridCols": "462px"
+  },
+  "errors": []
+ },
+ "d-rtl": {
+  "out": {
+   "cards": 0,
+   "bodyText": "→\nPalettes\nTools\nLogin\n@mbabb\n\nLab\n92.0\n%\n,\n88.8\n,\n20.0\nL\na\nb\nα\n92.0%\n88.8\n20.0\n82.7%"
+  },
+  "errors": []
+ },
+ "d-prm": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 4,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    },
+    {
+     "w": 462,
+     "h": 100
+    }
+   ],
+   "gridCols": "462px"
+  },
+  "errors": []
+ },
+ "d-zoom200": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "32px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 72,
+     "h": 72,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 4,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 700,
+     "h": 200
+    },
+    {
+     "w": 700,
+     "h": 200
+    },
+    {
+     "w": 700,
+     "h": 200
+    },
+    {
+     "w": 700,
+     "h": 200
+    },
+    {
+     "w": 700,
+     "h": 200
+    }
+   ],
+   "gridCols": "350px"
+  },
+  "errors": []
+ },
+ "m320": {
+  "out": {
+   "cards": 5,
+   "rootStyles": {
+    "tag": "DIV",
+    "role": "article",
+    "cursor": "pointer",
+    "borderWidth": "2px",
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+    "borderRadius": "16px",
+    "background": "oklab(0.913299 0.005463 0.013024)",
+    "tabIndex": -1,
+    "hasInert": false,
+    "classes": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer"
+   },
+   "rows": [
+    {
+     "cls": "overflow-hidden flex h-10 w-full rounded-t-card",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    },
+    {
+     "cls": "shrink-0 h-full",
+     "padT": 0,
+     "padR": 0,
+     "padB": 0,
+     "padL": 0
+    }
+   ],
+   "spacing": "0.25rem",
+   "titleFont": {
+    "family": "Fraunces",
+    "size": "20.351999px",
+    "weight": "500",
+    "lineHeight": "30.527998px"
+   },
+   "interactive": [
+    {
+     "tag": "BUTTON",
+     "name": "Palette menu",
+     "w": 36,
+     "h": 36,
+     "tooSmall": false
+    }
+   ],
+   "pressedSeats": 3,
+   "ariaSelected": 0,
+   "inertCount": 0,
+   "cardRects": [
+    {
+     "w": 254,
+     "h": 100
+    },
+    {
+     "w": 254,
+     "h": 125.03
+    },
+    {
+     "w": 254,
+     "h": 125.03
+    },
+    {
+     "w": 254,
+     "h": 100
+    },
+    {
+     "w": 254,
+     "h": 100
+    }
+   ],
+   "gridCols": "254px"
+  },
+  "errors": []
+ }
+}

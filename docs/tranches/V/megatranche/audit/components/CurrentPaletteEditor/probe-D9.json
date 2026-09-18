@@ -1,0 +1,91 @@
+{
+  "selfCollide": {
+    "proposed": "Palette 3",
+    "existing": [
+      "Palette 2",
+      "Palette 3"
+    ],
+    "after": {
+      "collisionShown": true,
+      "text": "\"Palette 3\" already exists. Update Cancel",
+      "role": null,
+      "ariaLive": null,
+      "msgType": {
+        "family": "\"Fira Code\"",
+        "size": "16.4px",
+        "style": "italic",
+        "color": "rgb(112, 89, 66)"
+      },
+      "rowRect": {
+        "w": 436,
+        "h": 36
+      },
+      "buttons": [
+        {
+          "text": "Update",
+          "rect": {
+            "w": 61.8,
+            "h": 36
+          },
+          "authored": [
+            "h-6",
+            "px-2",
+            "text-caption"
+          ],
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Cancel",
+          "rect": {
+            "w": 59.2,
+            "h": 36
+          },
+          "authored": [
+            "h-6",
+            "px-2",
+            "text-caption"
+          ],
+          "fontSize": "14.384px"
+        }
+      ],
+      "wellH": 242.7,
+      "inputAria": {
+        "invalid": null,
+        "describedby": null,
+        "labelledby": null,
+        "id": ""
+      },
+      "hasLabelEl": false
+    }
+  },
+  "targets": [
+    {
+      "name": "<nameless>",
+      "w": 32,
+      "h": 40,
+      "under44": true,
+      "inViewport": true
+    },
+    {
+      "name": "Edit color rgb(226 87 31)",
+      "w": 28,
+      "h": 28,
+      "under44": true,
+      "inViewport": false
+    },
+    {
+      "name": "Copy color rgb(226 87 31)",
+      "w": 28,
+      "h": 28,
+      "under44": true,
+      "inViewport": false
+    },
+    {
+      "name": "Remove color rgb(226 87 31) from palette",
+      "w": 28,
+      "h": 28,
+      "under44": true,
+      "inViewport": false
+    }
+  ]
+}

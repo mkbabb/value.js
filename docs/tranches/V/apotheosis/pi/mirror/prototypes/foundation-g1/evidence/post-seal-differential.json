@@ -1,0 +1,27 @@
+{
+  "schema": "value.pi.foundation-g1.post-seal-differential/v1",
+  "status": "PASS_EXACT_SEALED_CANDIDATES",
+  "subject_sha256": "687ac4941ab73f79fdf7abd21d997262a1c66ca15c51d04e2505d9c895631764",
+  "generator": {
+    "kind": "deterministic LCG",
+    "initial_seed_hex": "243f6a88",
+    "rows": 200000,
+    "maximum_input_symbols": 17,
+    "alphabet_size": 29
+  },
+  "operations": [
+    "cssEscape",
+    "cssNameCodePoint",
+    "cssIdentifier",
+    "cssString",
+    "cssWhitespace",
+    "cssComment",
+    "cssTrivia",
+    "cssPercentage",
+    "cssDimension"
+  ],
+  "comparison": "authoritative error flag and offset; semantic value on success; trivia spelling and failed state.value intentionally excluded",
+  "operation_input_comparisons": 1800000,
+  "candidate_pair_differences": 0,
+  "credit": "supplemental common-mode evidence only; not an independent semantic oracle"
+}

@@ -1,0 +1,93 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G7-TERMINAL-REJECTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "date": "2026-07-22",
+  "status": "REJECTED_BEFORE_AUTHORS_ZERO_CREDIT",
+  "subject": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+    "manifest": {
+      "path": "manifest.json",
+      "sha256": "4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422",
+      "bytes": 878
+    },
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2",
+      "bytes": 2363
+    },
+    "holdout_ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+      "bytes": 129225
+    }
+  },
+  "challenges": [
+    {
+      "id": "A",
+      "reviewer_id": "g7-boundary-spec-a",
+      "verdict": "REJECT",
+      "path": "reviews/challenge-a.json",
+      "sha256": "5f1dcc96532b882fff0bcb40fd7af17cc694ada778b09a052cc6f6293420d6c8",
+      "bytes": 24077
+    },
+    {
+      "id": "B",
+      "reviewer_id": "g7-quality-b",
+      "verdict": "REJECT",
+      "path": "reviews/challenge-b.json",
+      "sha256": "b7fe735c15b4cea1e81ef80d5ea07900d12f1b36af016002eb90bf0aad0501d8",
+      "bytes": 13444
+    }
+  ],
+  "root_gestalt": {
+    "reviewer_id": "root-g7-gestalt-20260722",
+    "verdict": "REJECT",
+    "path": "root-gestalt.json",
+    "sha256": "986f3890522361536b25bb7c283e80323b924bce680eb85e7df8a444d67b2d82",
+    "bytes": 5406
+  },
+  "holdout_destruction": {
+    "path": "holdout-destruction.json",
+    "sha256": "e946ce86e6342d8d5d362664282fa393608f4b93af87cee196d563f770e26a66",
+    "bytes": 5166,
+    "plaintext_revealed": false,
+    "secret_material_recoverable": false,
+    "reusable": false
+  },
+  "confirmed_blockers": [
+    "The path-bearing manifest row is passed to a two-field exact identity check, so the documented pre-author command rejects its own frozen manifest before reading reviews.",
+    "The candidate-root hash includes the detached author receipt that contains that hash, requiring an impossible digest fixed point.",
+    "Public failure diagnostics do not traverse every declared predecessor, composition observation is incomplete, and hostile constructions do not have the exact declared UTF-16 sizes or full semantic/time/scaling enforcement.",
+    "The public holdout contract cannot substantiate all coverage, freshness, custody, and later reveal claims it freezes.",
+    "All peer lineage inputs and construction notes are exposed through the common precursor, contradicting author isolation.",
+    "Reachable AST indirection can evade the topology checker, while forced combinator call quotas distort rather than prove idiomatic orthogonality.",
+    "Benchmark evidence hashes are syntax-checked but not resolved to exact source, build, correctness, corpus, comparator, runner, schedule, attempt, and raw-result bytes.",
+    "The five-skeptic plus three-adjudicator law has no executable frozen gate."
+  ],
+  "required_next": "G8 must repair the complete union docket, remove quota-driven idiom claims, prove real pre-author/four-seat/five-plus-three paths with executable fixtures, bind fresh seat-isolated lineage inputs and exact evidence closures, and then form a wholly fresh holdout before two new challenges. G7 secret material is destroyed and forbidden from reuse.",
+  "state": {
+    "candidates": 0,
+    "authors": 0,
+    "skeptics": 0,
+    "adjudicators": 0,
+    "selected_hashes": 0,
+    "parser_sources": 0,
+    "benchmarks": 0,
+    "integrations": 0,
+    "production_mutations": 0
+  },
+  "credit": {
+    "feature": 0,
+    "parser": 0,
+    "candidate": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

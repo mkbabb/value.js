@@ -1,0 +1,87 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+  "root": {
+    "actor": "value-pi-root-g9",
+    "served_model": "gpt-5.6-sol",
+    "candidate_author": false,
+    "reviewer": false,
+    "custodian": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "c7704187954057b5fa7f566f60324c9a908e5b94e7128d793945b80d54852ade",
+    "bytes": 944
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a.json",
+      "sha256": "b9f97284fff79c313c583bd8beae0b4abd6a02cbe86e53365ede1edc6882924d",
+      "bytes": 9094,
+      "verdict": "REJECT",
+      "actor": "/root/g9_boundary_challenge_a"
+    },
+    {
+      "path": "reviews/challenge-b.json",
+      "sha256": "885859d8cc1d72f27669a153572dc6df5cc7a36f10b7d43b97d8f9e6ebde39f5",
+      "bytes": 10487,
+      "verdict": "REJECT",
+      "actor": "/root/g9_boundary_challenge_b2"
+    }
+  ],
+  "accepted_narrow_facts": [
+    "The exact CSS Syntax consume-number slice and its maximal-prefix value/type/sign observation contract are sound enough to carry into a new generation.",
+    "A direct parse-that regex terminal is an allowed idiomatic combinator leaf; no lexical runtime, token object, atom, component-value aggregate, CST, manual scanner, or cursor loop is authorized.",
+    "The four H/B/S/D lineage packets are useful provenance inputs but do not by themselves prove orthogonal construction or isolated authorship.",
+    "Actual candidate timing, holdout reveal, five skeptic reviews, and three selection adjudications correctly belong after candidate close."
+  ],
+  "terminal_findings": [
+    {
+      "id": "G9-R1",
+      "finding": "The public holdout receipt changed after the reviewed subject was frozen, caused the exact subject replay to fail during Challenge A, and was later restored. ADDENDA-07 makes any holdout-byte change a generation restart; restoration cannot repair chronology."
+    },
+    {
+      "id": "G9-R2",
+      "finding": "The subject roster names the unusable /root/g9_boundary_challenge_b task rather than the independent replacement /root/g9_boundary_challenge_b2. G9 contains no lawful reviewer-substitution transition."
+    },
+    {
+      "id": "G9-R3",
+      "finding": "Review, root, and custodian identities are self-attested JSON strings. The validator accepts arbitrary axis names and token evidence, so it cannot distinguish independent substantive review from a fabricated internally consistent bundle."
+    },
+    {
+      "id": "G9-R4",
+      "finding": "The pre-author closure has no material topology assignment, pairwise provenance review, exact author task roster, author input roots, or complete author receipt contract. Four labels can still converge on one same-shape recognizer."
+    },
+    {
+      "id": "G9-R5",
+      "finding": "The zero-candidate census checks only regular .ts files in two roots and misses other executable TypeScript/JavaScript extensions, alternate reachable roots, and symlinks."
+    },
+    {
+      "id": "G9-R6",
+      "finding": "The closure does not bind the complete installed parse-that runtime or exact comparable regex/deposed/C14 peers. Comparator and parser-engine bytes remain selectable after candidate knowledge."
+    },
+    {
+      "id": "G9-R7",
+      "finding": "Custody liveness and AES-GCM recoverability are assertions, not a fresh fail-closed possession challenge, and the hostile timeout cannot kill a non-returning in-process parser."
+    },
+    {
+      "id": "G9-R8",
+      "finding": "The G9 formation binds a stale G8 feature-row authority with contradictory rejected admission language, and its seven negative controls do not execute the attacks that defeated the generation."
+    }
+  ],
+  "disposition": {
+    "authors_may_begin": false,
+    "candidate_count": 0,
+    "parser_credit": 0,
+    "feature_credit": 0,
+    "benchmark_credit": 0,
+    "required_next": [
+      "Destroy the unrevealed G9 plaintext, key, generator, and private hidden cases and bind the destruction to this exact subject and both challenges.",
+      "Start a fresh generation from immutable final public bytes, a generation-consistent feature row, complete runtime/comparator identities, explicit materially different construction topologies, exhaustive candidate census, killable harness, and externally witnessed actor/author continuity.",
+      "Keep the next pre-author boundary small. It authorizes isolated candidate writing only; it does not attempt to predeclare future review hashes or manufacture feature acceptance."
+    ]
+  },
+  "credit": "ZERO_ROOT_ADJUDICATION_ONLY"
+}

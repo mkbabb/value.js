@@ -1,0 +1,216 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 4,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_HOLDOUT_SEAL",
+  "owner": {
+    "family": "value-unit",
+    "module_namespace": "grammar/css/l4/value-unit",
+    "candidate_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+    "integration_target": "grammar/css/l4/value-unit/number-start.ts",
+    "internal_root": "numberStart: Parser<boolean>",
+    "public_root": null,
+    "compatibility_impact": "No public export or result type. A winner remains provisional until the complete feature ledger freezes and integrated consumers replay."
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "definition": "§4.3.10 Check if three code points would start a number",
+    "preprocessing_dependency": "§3.3 preprocessing maps input code points to a preprocessed stream; §4.3.10 is evaluated only at mapped retained positions or EOF."
+  },
+  "structure_identity": {
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "module_dag_git_object": "1f3da26c16d206ee989bcd47fadfb1d5808ee8a4",
+    "module_dag_bbnf_disposition": "TERMINAL_SHARED_BOUNDARY_ACK_WITHOUT_IMPLEMENTATION_OR_CONFORMANCE_CREDIT",
+    "feature_ledger_sha256_at_precursor": "d33164caaca8a64a2ff7cf205ccaaee4dda44f3d9609fd7a078752765a81e2fc",
+    "full_ledger_status": "INCOMPLETE_NO_APOTHEOSIS_ACCEPTANCE",
+    "integration_base_ledger_sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c",
+    "parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b"
+  },
+  "prior_generation": {
+    "generation": 3,
+    "manifest_sha256": "fc137224741dd4a0322efc9fd13cb6b12e213775ef56e287b95a72b9199594e2",
+    "rejection_sha256": "15334aac506e9f9a42dd5c5867a9bd434d9b1e0c1b42f5221b079255834bac6c",
+    "verdict": "TWO_REJECTS_BEFORE_CANDIDATE_CODE",
+    "repairs_carried": [
+      "observe the raw child's returned ParserState identity in addition to ordinary parent composition",
+      "preserve ParserState.src own-property shape and value and restore it in benchmark pools",
+      "require one direct numberStart export and reject export, alias, computed-source, reflection, serialization, and source-bearing helper bypasses mechanically",
+      "revalidate every live grammar TypeScript path/hash and installed parse-that dist/package identity at promotion",
+      "retain immutable public precursor bytes and bind a separate hidden-holdout receipt without rewriting the precursor",
+      "enumerate all six positive numeric forms with 0/9 endpoints and eleven incomplete/malformed EOF cases publicly",
+      "include candidate-local diagnostic sandbox work inside timing while excluding only harness construction/restoration",
+      "reset bootstrap state independently for every pair and specify disabled/enabled block order"
+    ]
+  },
+  "occurrences": [
+    {
+      "id": "CSS-SYNTAX-3/4.3.10/definition",
+      "role": "owned operation",
+      "disposition": "Own the complete non-consuming boolean algorithm exactly once."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/plus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/minus-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/dot-number-dispatch",
+      "role": "incoming consumer",
+      "disposition": "Future consume-token grammar imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.1/digit-number-dispatch",
+      "role": "explicit non-occurrence",
+      "disposition": "Leading digits enter numeric-token consumption directly and do not call §4.3.10."
+    },
+    {
+      "id": "CSS-SYNTAX-3/4.3.13/precondition",
+      "role": "incoming consumer",
+      "disposition": "Future consume-number imports the accepted root."
+    },
+    {
+      "id": "CSS-SYNTAX-3/3.3/position-map",
+      "role": "incoming precondition",
+      "disposition": "SYNTAX-SOURCE-MAP supplies only retained source positions or EOF; an eliminated CRLF interior code unit is outside this operation's domain."
+    }
+  ],
+  "grammar_contract": {
+    "input": "An ordinary parse-that child ParserState at a source-native UTF-16 offset corresponding to one retained CSS-preprocessed position or EOF, with any predecessor value and any valid tested diagnostic profile.",
+    "operation": "Inspect no more than the next three positions through direct parse-that terminals/combinators. Return true exactly for digit, sign+digit, dot+digit, or sign+dot+digit; otherwise false.",
+    "composition": "Both lanes are binding: direct parser.parser(state), and string(prefix).map(variedPredecessor).next(candidate).skip(string(continuation)).",
+    "state_identity": "The raw child must return the identical ParserState object received; the ordinary parent must retain its own input state identity.",
+    "source_identity": "Preserve ParserState.src own-property presence and exact string identity/value in both success and failure recognition paths.",
+    "consumption": "Always succeed, replace the predecessor with one boolean, consume zero UTF-16 code units, and leave the following grammar at the candidate offset.",
+    "diagnostics": "Under explicit package diagnostics-disabled and diagnostics-enabled modes, preserve furthest, expected own-property presence, expected array identity and ordered values, suggestions array identity and each entry identity/fields, and secondarySpans array identity and each entry identity/fields. Preserve the global diagnostics mode.",
+    "diagnostic_profiles": [
+      "default present/undefined",
+      "absent expected with furthest before",
+      "undefined expected with multiple diagnostics before",
+      "empty expected at candidate offset",
+      "multiple diagnostics at candidate offset",
+      "multiple diagnostics beyond candidate offset",
+      "multiple diagnostics at source end"
+    ],
+    "diagnostic_sandbox": "Recognition uses direct core combinators. A candidate-local Parser wrapper may snapshot and restore only offset/value/error and diagnostic bookkeeping around speculative recognition. Its exact work is candidate cost. It may not import diagnostics, change global mode, inspect or derive state.src, classify source manually, advance an imperative cursor, or feed a token/CST layer.",
+    "preprocessing": "ASCII +, -, ., and digits are unchanged by preprocessing. Raw and preprocessed truth is asserted only at explicitly mapped corresponding retained positions/EOF. CRLF's eliminated LF interior is excluded and must never be supplied by the future source-map dependency.",
+    "result": "boolean",
+    "recovery": "NOT_APPLICABLE_ALWAYS_SUCCEEDS",
+    "serialization": "NOT_APPLICABLE_NO_SERIALIZATION",
+    "work_bound": "Worst-case O(1) time and space; inspect at most three positions; no whole-number/exponent run, substring/CST/token materialization, imperative loop, balanced scanner, or broad remainder capture."
+  },
+  "fixture_identity": {
+    "generation_3_cases_path": "../g3/fixtures/cases.json",
+    "generation_3_cases_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "materialized_generation_3_public_cases": 406,
+    "generation_3_public_true": 306,
+    "generation_3_public_false": 100,
+    "endpoint_cases_path": "fixtures/endpoint-cases.json",
+    "endpoint_cases_sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187",
+    "endpoint_cases": 23,
+    "endpoint_true": 12,
+    "endpoint_false": 11,
+    "deterministic_hostile": 3,
+    "raw_and_composition_modes": 2,
+    "diagnostic_profiles": 7,
+    "predecessor_classes": 6,
+    "hidden_holdout": "A fresh custodian must bind exact immutable feature-public.json bytes and the parse-that dist ledger in a separate holdout-receipt.json. No public input may change after that receipt."
+  },
+  "oracle_roles": {
+    "spec": "Sole semantic arbiter.",
+    "bbnf": "Topology/provenance only; no acknowledged standalone predicate/runtime.",
+    "live": "NON_COMPARABLE: live public CSS parses complete tokens/values.",
+    "browser": "No independent CSSOM door exists for an internal three-position predicate."
+  },
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "required_authors": 5,
+    "seats": [
+      {
+        "id": "H",
+        "provenance": "historical direct-combinator transpose",
+        "allowed_authority": "value.js f5723e72 src/parsing/utils.ts SHA-256 bcaa6cb2206a1d57776a71c260b6ed30e8c29ad48ed4f1069def2896a650133c",
+        "topology": "Bounded first-three explicit core-combinator branches only; matching a whole number/exponent is forbidden."
+      },
+      {
+        "id": "B",
+        "provenance": "BBNF-production transpose",
+        "allowed_authority": "bbnf-lang af15f63e0d2d3d719938c13b906a50acbb92ea3b value-unit.bbnf SHA-256 cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+        "topology": "Bounded prefix productions only; no f64 conversion or whole numeric run."
+      },
+      {
+        "id": "S",
+        "provenance": "specification-first",
+        "allowed_authority": "Pinned CSS Syntax source plus exact public inputs and @mkbabb/parse-that/core",
+        "topology": "Normative alternatives expressed as an explicit production tree."
+      },
+      {
+        "id": "D",
+        "provenance": "engine-native clean room",
+        "allowed_authority": "Exact observable contract/public fixtures and @mkbabb/parse-that/core only",
+        "topology": "First-character dispatch/chain construction, not a production-tree or single-regex clone."
+      },
+      {
+        "id": "R",
+        "provenance": "bounded-terminal clean room",
+        "allowed_authority": "Exact observable contract and parse-that regex terminal API only; no H/B/S/D source",
+        "topology": "One bounded zero-width terminal expression inspecting at most three positions, plus always-successful fallback and diagnostic sandbox."
+      }
+    ],
+    "lineage_accounting": "H/B/S may converge on one conservative branch lineage; D and R are two independently constrained constructions. Five isolated authors therefore guarantee at least three material lineages or the feature returns to formation.",
+    "isolation": "No author sees another candidate, hidden bytes, benchmark results, or cross-seat design notes before all five exact candidate identities close.",
+    "candidate_source_gate": "No candidate source may exist until a manifest binds this immutable precursor and its separate holdout receipt, two fresh independent boundary challenges ACCEPT, and one root gestalt ACCEPTS."
+  },
+  "post_candidate_adjudication": {
+    "quintet": "Five independent skeptics each challenge every exact candidate across correctness, CSS fidelity, state/diagnostic preservation, idiomatic parse-that construction, anti-scanner policy, modular ownership, LOC/parsimony, work bound, and performance evidence. No axis is partitioned away.",
+    "triumvirate": "After quintet repairs/replays, three independent adjudicators receive identical exact-byte candidates and evidence. They must converge on one winner or an explicit composition without inventing a fourth opaque implementation.",
+    "integration": "Only the exact triumvirate-selected overlay may be promoted; full-ledger incompleteness still withholds feature apotheosis."
+  },
+  "benchmark": {
+    "protocol_path": "benchmark-protocol.json",
+    "protocol_sha256": "6a4e478ec551a67b7a2151dc4ed8930df68dbffe9b61d2be916af8125ac6008f",
+    "selection_lane": "STRICT_PARSER_ONLY_RAW_CHILD_DISABLED_PLUS_ENABLED",
+    "candidate_internal_restoration": "INCLUDED_IN_TIMING",
+    "harness_pool_restoration": "EXCLUDED_FROM_TIMING",
+    "peer_credit": "H/B/S/D/R only; regex/prior-parser peer-beating remains an integrated public-door obligation."
+  },
+  "promotion": {
+    "protocol_path": "promotion-protocol.json",
+    "protocol_sha256": "2ee8fd4259700c155f3eebffbd9939d16888b795db37c86fc952a95205b02d5b",
+    "verifier_path": "promotion-verifier.ts",
+    "verifier_sha256": "92f7d384baffd7b6e592c3af3b04239c9409a72acff36d7d45e5e71213b8a8ee",
+    "allowed_transitive_runtime": "@mkbabb/parse-that/core at the pinned package/package-lock/dist identities only",
+    "candidate_identity": "source SHA-256 + overlay-ledger SHA-256 + projected grammar-ledger SHA-256",
+    "human_gate": "The AST verifier is necessary but not sufficient; all five skeptics inspect exact bytes for aliases, indirection, recursion, source derivation, and contrived grammar."
+  },
+  "public_input_closure": [
+    { "path": "contract.ts", "bytes": 1207, "sha256": "cec73b16fe84603eeb485dea3bb2d789aa4cb66bc8ad230d71faf2da17e2e0b9" },
+    { "path": "harness.ts", "bytes": 11879, "sha256": "92ac650855113414b80a49d954a507f33c6461d9b62fa6b363530fb086949f05" },
+    { "path": "fixtures/endpoint-cases.json", "bytes": 3053, "sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187" },
+    { "path": "benchmark-protocol.json", "bytes": 6795, "sha256": "6a4e478ec551a67b7a2151dc4ed8930df68dbffe9b61d2be916af8125ac6008f" },
+    { "path": "promotion-protocol.json", "bytes": 2067, "sha256": "2ee8fd4259700c155f3eebffbd9939d16888b795db37c86fc952a95205b02d5b" },
+    { "path": "promotion-verifier.ts", "bytes": 8138, "sha256": "92f7d384baffd7b6e592c3af3b04239c9409a72acff36d7d45e5e71213b8a8ee" },
+    { "path": "../g3/contract.ts", "bytes": 2830, "sha256": "31ffbac4e1833a3a31342e4ce5dca47eb19c3c996b71e76eb28e92003de54322" },
+    { "path": "../g3/harness.ts", "bytes": 15655, "sha256": "60f0f60504f2bc2a55c6e1d79970762716a0dbc1a85219cb625d7341e00a3ec9" },
+    { "path": "../g3/fixtures/cases.json", "bytes": 3893, "sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706" },
+    { "path": "../g3/promotion-protocol.json", "bytes": 2143, "sha256": "b0b79f1aa27de96f69eb42207b75632f6ff746c7313f164396df6283dfd4acd1" },
+    { "path": "../g3/promotion-verifier.ts", "bytes": 5861, "sha256": "fc1078dbbad8af3948cf337b7d129143550af75b74c692a112d1d579885cb432" },
+    { "path": "../g3/parse-that-dist.ledger", "bytes": 5586, "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b" },
+    { "path": "../g3/rejection.json", "bytes": 1156, "sha256": "15334aac506e9f9a42dd5c5867a9bd434d9b1e0c1b42f5221b079255834bac6c" },
+    { "path": "../g2/integration-base.ledger", "bytes": 1756, "sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c" },
+    { "path": "../../../tsconfig.json", "bytes": 586, "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc" },
+    { "path": "../../../package.json", "bytes": 535, "sha256": "9250d9d95ab51664a47682a61bb1d82de8938481d8413b792378c9155d15723b" },
+    { "path": "../../../package-lock.json", "bytes": 69400, "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7" },
+    { "path": "../../../../MODULE-DAG.md", "bytes": 4880, "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f" },
+    { "path": "../../../../FEATURE-LEDGER.md", "bytes": 13394, "sha256": "d33164caaca8a64a2ff7cf205ccaaee4dda44f3d9609fd7a078752765a81e2fc" },
+    { "path": "../../../../ADDENDA-07.md", "bytes": 20954, "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5" }
+  ],
+  "admission": "Freeze these exact public bytes, obtain a fresh separate holdout receipt bound to this precursor, seal a manifest over both, then require two fresh independent exact-byte ACCEPT challenges and one gestalt ACCEPT before any candidate source."
+}

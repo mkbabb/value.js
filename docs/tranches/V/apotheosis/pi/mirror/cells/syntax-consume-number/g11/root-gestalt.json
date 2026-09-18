@@ -1,0 +1,105 @@
+{
+  "schema": "value.pi.syntax-consume-number.g11.root-gestalt/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "date": "2026-07-22",
+  "subject": {
+    "path": "formation-receipt.json",
+    "sha256": "5db00f55de4a125a2710b4cf63114fbf5f34dd83c382b973d54652e8f0278ca2",
+    "bytes": 4833,
+    "closure_sha256": "cfa716718a9faf1b10d500660819cf30ea1271a6ea60d73fc0ede9603c6e9924"
+  },
+  "independent_reviews": [
+    {
+      "task": "/root/g11_boundary_review_a2",
+      "path": "review-boundary-a.json",
+      "sha256": "f9c6b0b4fa8612decdf607a990a9e9b5049f4755e063a91244e08070d2bfa3a0",
+      "bytes": 16797,
+      "verdict": "REJECT"
+    },
+    {
+      "task": "/root/g11_boundary_challenge_b",
+      "path": "review-boundary-b.json",
+      "sha256": "b01c87c5a0e4f91cbd4e22309c2b8a3004b018178d4c5d5965ddd28c01b499c1",
+      "bytes": 14308,
+      "verdict": "REJECT"
+    }
+  ],
+  "root_replay": {
+    "workspace_and_tmp_output_sha256": "90d63ddf5cb385657284cdd4ead9ef30f0f8a5f2ada9eea9fe3a3daf19291c2b",
+    "workspace_and_tmp_byte_identical": true,
+    "formation_rows": 30,
+    "candidate_roots_absent": 4,
+    "holdout_artifacts": 0,
+    "parser_candidates": 0
+  },
+  "adjudication": [
+    {
+      "id": "G11-R-01",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The frozen feature row permits a holdout only after all four candidates close, while the challenged/admit validator requires a holdout before candidate roots may exist. The legal ADDENDA-07 chronology is instead: seal a withheld hostile corpus before authoring, close candidates, then reveal and execute it. G11 encodes no reachable state satisfying that law.",
+      "sources": ["G11-A2-02", "G11-B-01"]
+    },
+    {
+      "id": "G11-R-02",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The challenged/admit join accepts locally asserted review, root, task, model, and receipt strings without enforcing distinct external task identities or schemas. Hash continuity cannot establish independent seats.",
+      "sources": ["G11-A2-01", "G11-B-02"]
+    },
+    {
+      "id": "G11-R-03",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The author-visible self-test imports all four topology probes and additional unassigned inputs, contradicting the promised seat isolation and exposing peer construction information before author close.",
+      "sources": ["G11-A2-03", "G11-B-03"]
+    },
+    {
+      "id": "G11-R-04",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "The pre-author census proves only four absent roots. There is no legal post-author closure that binds a candidate root, its transitive imports, symlinks, executable helpers, and exact harness path; candidate mode accepts an arbitrary module path.",
+      "sources": ["G11-A2-04", "G11-B-04"]
+    },
+    {
+      "id": "G11-R-05",
+      "status": "CONFIRMED_BLOCKER",
+      "finding": "A concrete incomplete number grammar passes the public corpus, including omission of the combined signed exponent form. The public correctness boundary is therefore insufficient to admit authors or later rank candidates.",
+      "sources": ["G11-A2-05", "G11-B-05"]
+    },
+    {
+      "id": "G11-R-06",
+      "status": "CONFIRMED_HIGH",
+      "finding": "The finite timing-ratio smoke check is scheduler-sensitive and changed disposition without byte drift. It is not a formation gate or a complexity proof; benchmark qualification belongs after exact candidates close under the tranche benchmark law.",
+      "sources": ["G11-A2-06", "G11-B-05"]
+    },
+    {
+      "id": "G11-R-07",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Peer doors execute real implementations, but their source list is hand-maintained and the common lane is accepted when merely nonempty. Exact expected observations and resolved transitive source identities remain unbound.",
+      "sources": ["G11-B-06"]
+    },
+    {
+      "id": "G11-R-08",
+      "status": "CONFIRMED_HIGH",
+      "finding": "Loader-affecting environment, bounded child output/process cleanup, strict candidate compilation, exact readonly result shape, and forbidden source access are not enforced by the formation.",
+      "sources": ["G11-A2-07", "G11-A2-08"]
+    }
+  ],
+  "review_remedy_correction": "Any suggestion to create the hostile holdout only after candidate close is rejected as contrary to ADDENDA-07 section 4. The next generation must have an independent custodian seal its hash before authoring and reveal bytes only after every candidate closes. Boundary review and candidate review are separate subjects.",
+  "next_generation_law": [
+    "Keep one small public feature contract and correctness corpus; remove benchmark timing from author admission.",
+    "Challenge the public boundary first, then have an independent custodian seal the unrevealed holdout before any author sees a seat packet.",
+    "Give each author only common contract/corpus bytes plus its own provenance packet; root-only topology probes are never author inputs.",
+    "After each author closes, build a strict candidate-local transitive import/source/runtime closure before any candidate execution or review.",
+    "Add independently derived cross-product and maximal-prefix cases that reject the reproduced incomplete grammar.",
+    "Record actual collaboration task identities at root; do not ask candidate-controlled JSON to authenticate the service that created it."
+  ],
+  "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+  "credit": {
+    "formation": 0,
+    "candidate": 0,
+    "feature": 0,
+    "parser": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

@@ -1,0 +1,13 @@
+=== X.P.W2.g — eq-six --candidate ac1 (G-3) ===
+product  divergences (js vs wasm)  first row
+-------  ------------------------  --------------------
+EQ-1     0                         -
+EQ-2     0                         -
+EQ-3     0                         -
+EQ-4     0                         -
+EQ-5     0                         -
+EQ-6     2035                      s0180 "var(--brand)"
+rows compared                           30527
+label indices aligned across lowerings  true
+third-cell differences                  233 (12 carrying a declared row)
+RED — 2035 divergences between the two lowerings (K-1)

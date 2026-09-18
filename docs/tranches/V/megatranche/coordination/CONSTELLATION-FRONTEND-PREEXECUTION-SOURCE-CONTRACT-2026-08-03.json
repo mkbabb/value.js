@@ -1,0 +1,629 @@
+{
+  "schema": "constellation.frontend-preexecution-source-contract.v1",
+  "statusDate": "2026-08-03",
+  "mode": "TRANCHE_DEVELOPMENT_ONLY",
+  "authority": "NONE",
+  "executionAuthorized": false,
+  "credit": {
+    "sourcePacket": 0,
+    "product": 0,
+    "browser": 0,
+    "safari": 0,
+    "api": 0,
+    "docker": 0,
+    "package": 0,
+    "release": 0,
+    "rebind": 0,
+    "constellation": 0
+  },
+  "governingLaw": {
+    "path": "docs/tranches/V/megatranche/formation/CROSS-REPO-MOBILE-SAFARI-KRONECKER-AUDIT-LAW-2026-08-01.md",
+    "sha256": "2ab310b45b9289b53f5e1993ef870a0ae80cdd12c2856628fa523df85bf3ae5e"
+  },
+  "purpose": "Define the minimum authenticated machine packet that must exist before any frontend Browser, Simulator, Safari, API, Docker, package, or product execution may be authorized.",
+  "canonicalization": {
+    "textEncoding": "UTF-8",
+    "objectKeys": "UNICODE_CODEPOINT_ASCENDING",
+    "arrayOrder": "DECLARED_AND_SEMANTIC",
+    "lineEndings": "LF",
+    "identifierEncoding": "SHA256_UTF8_DOMAIN_NUL_THEN_U64BE_LENGTH_FRAMED_UTF8_COMPONENTS",
+    "identifierDomain": "CONSTELLATION_FRONTEND_PREEXECUTION_V1",
+    "identifierAlgorithm": "sha256(utf8(domain) || 0x00 || concat(u64be(byteLength(utf8(component))) || utf8(component)))",
+    "unicodeNormalization": "NONE_EXACT_SOURCE_SCALARS",
+    "sha256Representation": "LOWERCASE_64_HEX",
+    "forbidden": [
+      "HOST_LOCALE_SORT",
+      "RAW_UNNAMESPACED_SUBJECT_ID",
+      "CALLER_SUPPLIED_SUMMARY",
+      "FIELD_PRESENCE_ONLY_VALIDATION",
+      "EXPECTED_FAILURE_CODE_AS_ORACLE",
+      "SILENT_CONTINUE_ON_UNRESOLVED_SOURCE",
+      "FAMILY_TEMPLATE_SUBSTITUTED_FOR_SUBJECT_BRIEF"
+    ]
+  },
+  "requiredPacketMembers": [
+    "PACKET.json",
+    "SOURCE-MEMBERS.json",
+    "SUBJECTS.json",
+    "SURFACE-CONTRACTS.json",
+    "TOPOLOGY.json",
+    "APPLICABILITY.json",
+    "DESIGN-BRIEFS-D1.json",
+    "DESIGN-CRITIQUES-D2.json",
+    "AUTHOR-LINEAGE.json",
+    "ORACLES.json",
+    "KRONECKER-PLAN.json",
+    "PLATFORM-PROFILES.json",
+    "PERFORMANCE-BUDGETS.json",
+    "ZERO-CREDIT-RECEIPT.json",
+    "VALIDATOR.mjs",
+    "VALIDATOR-PROCESS-RECEIPT.json",
+    "checksums.sha256"
+  ],
+  "packetRoot": {
+    "mustBeAbsentBeforeAuthorization": true,
+    "membersExact": true,
+    "regularFilesOnly": true,
+    "symlinksAllowed": false,
+    "specialsAllowed": false,
+    "allMembersHashed": true,
+    "preWriteAbsenceReceiptRequired": true,
+    "beforeAfterTreeIdentityRequired": true
+  },
+  "sourceMembers": {
+    "closedMembershipRequired": true,
+    "fields": [
+      "memberId",
+      "repositoryId",
+      "repositoryHead",
+      "repositoryPorcelainSha256",
+      "path",
+      "kind",
+      "bytes",
+      "mode",
+      "nlink",
+      "sha256",
+      "semanticRoles"
+    ],
+    "semanticRoles": [
+      "ROUTE",
+      "MOUNT",
+      "EXPORT",
+      "COMPONENT",
+      "STYLE",
+      "COPY",
+      "ASSET",
+      "API_CLIENT",
+      "STORAGE_CLIENT",
+      "AUTHORIZATION",
+      "TEST_OR_FIXTURE",
+      "GOVERNING_RECEIPT"
+    ],
+    "closure": "Every source span, topology edge, applicability witness, D1 claim, D2 finding, and performance budget must resolve to one or more authenticated memberId values. Transitive runtime-consumed source is mandatory; direct imports alone are insufficient.",
+    "unresolvedBehavior": "FATAL"
+  },
+  "subjects": {
+    "identifierComponents": [
+      "repositoryId",
+      "subjectKind",
+      "canonicalRouteOrHarness",
+      "canonicalMountOrExportPath",
+      "instanceOrdinal"
+    ],
+    "subjectKinds": [
+      "PAGE",
+      "MOUNTED_INSTANCE",
+      "UNMOUNTED_PUBLIC_EXPORT_HARNESS",
+      "ADMIN_VIEW",
+      "DEBUG_VIEW",
+      "ERROR_VIEW",
+      "EMBEDDED_VISUAL_RUNTIME"
+    ],
+    "fields": [
+      "subjectId",
+      "repositoryId",
+      "subjectKind",
+      "canonicalRouteOrHarness",
+      "canonicalMountOrExportPath",
+      "instanceOrdinal",
+      "componentIdentity",
+      "sourceMemberIds",
+      "topologyLeafIds",
+      "publicOrInternal",
+      "auditDisposition"
+    ],
+    "duplicateMountsRequireDistinctOrdinals": true,
+    "unmountedPublicExportsRequireHarnessSubjects": true,
+    "unreachableComponentsRequireExplicitDisposition": true,
+    "pageEvidenceCannotCloseMountedChildren": true
+  },
+  "surfaceContracts": {
+    "oneRecordPerSubject": true,
+    "fields": [
+      "surfaceContractId",
+      "subjectId",
+      "titleContract",
+      "h1Contract",
+      "productRole",
+      "props",
+      "events",
+      "slots",
+      "variants",
+      "defaults",
+      "consumerSubjectIds",
+      "mountState",
+      "functionalStates",
+      "interactionStates",
+      "copyStates",
+      "accessibilityContract",
+      "adminDebugErrorApplicability",
+      "sourceMemberIds",
+      "sourceSpans"
+    ],
+    "requiredFunctionalStates": [
+      "ACTIVE",
+      "INACTIVE",
+      "IDLE",
+      "INTERACTING",
+      "LOADING",
+      "EMPTY",
+      "ERROR",
+      "OFFLINE",
+      "PERMISSION_DENIED"
+    ],
+    "propsEventsSlotsVariantsDefaultsMustBeExplicitArrays": true,
+    "transitiveConsumersRequired": true,
+    "missingTitleOrH1UsesExplicitAuthenticatedNa": true
+  },
+  "topology": {
+    "edgeFields": [
+      "edgeId",
+      "fromSubjectOrNodeId",
+      "toSubjectOrNodeId",
+      "edgeKind",
+      "activationPredicate",
+      "sourceMemberIds",
+      "sourceSpans",
+      "routeState",
+      "focusOwner",
+      "scrollOwner",
+      "storageOwner",
+      "apiOwner",
+      "cleanupOwner"
+    ],
+    "edgeKinds": [
+      "ROUTE_MOUNT",
+      "COMPONENT_MOUNT",
+      "DYNAMIC_COMPONENT_CANDIDATE",
+      "TELEPORT_OR_PORTAL",
+      "ASYNC_BOUNDARY",
+      "AUTHORIZATION_GATE",
+      "API_DEPENDENCY",
+      "STORAGE_DEPENDENCY",
+      "STYLE_DEPENDENCY",
+      "ERROR_OR_FALLBACK"
+    ],
+    "dynamicComponents": {
+      "candidateSetClosed": true,
+      "candidateActivationPredicatesRequired": true,
+      "unknownCandidateIsFatal": true
+    },
+    "teleportsAndPortals": {
+      "sourceInstanceRequired": true,
+      "targetRequired": true,
+      "openPredicateRequired": true,
+      "stackingAndFocusPolicyRequired": true,
+      "duplicateInstancesRemainDistinct": true
+    },
+    "silentOmissionForbidden": true
+  },
+  "applicability": {
+    "axisIds": [
+      "R",
+      "O",
+      "P",
+      "C",
+      "D",
+      "V",
+      "L",
+      "I",
+      "X",
+      "N",
+      "A",
+      "T"
+    ],
+    "recordFields": [
+      "subjectId",
+      "axisId",
+      "axisMemberId",
+      "disposition",
+      "causalWitnessMemberIds",
+      "causalWitnessSpans",
+      "reasonCode",
+      "equivalenceGroupId"
+    ],
+    "dispositions": [
+      "REQUIRED",
+      "NOT_APPLICABLE_AUTHENTICATED",
+      "OPEN_RED"
+    ],
+    "notApplicableRequiresSourceCausalWitness": true,
+    "generatedCartesianApplicabilityForbidden": true,
+    "missingRecordIsFatal": true,
+    "equivalence": {
+      "fields": [
+        "equivalenceGroupId",
+        "memberCellIds",
+        "exactEqualAxes",
+        "sourceReasonMemberIds",
+        "sourceReasonSpans",
+        "futureWitnessRequired"
+      ],
+      "executionCannotBePrebanked": true,
+      "onePageScreenshotCannotProveComponentEquivalence": true
+    }
+  },
+  "designBriefD1": {
+    "oneRecordPerSubject": true,
+    "recordFields": [
+      "subjectId",
+      "authorIdentity",
+      "authorRootIdentity",
+      "audience",
+      "singleJob",
+      "protagonist",
+      "informationHierarchy",
+      "copyVocabulary",
+      "displayTypography",
+      "bodyTypography",
+      "utilityTypography",
+      "paletteAndMeasuredChroma",
+      "spacingAndLayout",
+      "containerOwnership",
+      "responsiveAndSafeAreaLaw",
+      "touchTargetLaw",
+      "focusVoiceOverDynamicTypeRtlLaw",
+      "semanticMotionOwner",
+      "motionFrames",
+      "reducedMotionEquivalent",
+      "performanceBudgetIds",
+      "sharedDesignSystemRef",
+      "subjectGroundingOverride",
+      "semanticCoreSha256",
+      "subjectGroundedSignature",
+      "doctrineApplicability",
+      "sourceMemberIds"
+    ],
+    "motionFramesRequired": [
+      "0ms",
+      "120ms",
+      "420ms",
+      "settled"
+    ],
+    "familyTemplateReuseMayNotReplaceSubjectSemantics": true,
+    "identicalSemanticCoresAcrossDistinctSubjectsRequireAuthenticatedDesignEquivalence": true,
+    "genericPlaceholderCopyForbidden": true
+  },
+  "designCritiqueD2": {
+    "oneRecordPerSubject": true,
+    "mustUseSeparateAuthor": true,
+    "mustUseSeparateRoot": true,
+    "sharedAnswerKeyForbidden": true,
+    "recordFields": [
+      "subjectId",
+      "authorIdentity",
+      "authorRootIdentity",
+      "d1RecordSha256",
+      "sourceMemberIds",
+      "genericDefaultRisks",
+      "hierarchyFindings",
+      "copyFindings",
+      "motionFindings",
+      "mobileOcclusionFindings",
+      "keyboardFocusFindings",
+      "accessibilityFindings",
+      "performanceRisks",
+      "removableDetail",
+      "stateClarityFindings",
+      "dispositions"
+    ],
+    "requiredStateClarity": [
+      "ACTIVE",
+      "INACTIVE",
+      "IDLE",
+      "LOADING",
+      "EMPTY",
+      "ERROR",
+      "OFFLINE",
+      "PERMISSION_DENIED"
+    ],
+    "dispositionKinds": [
+      "KEEP",
+      "FOLD",
+      "MOVE",
+      "SPLIT",
+      "PRUNE"
+    ],
+    "everyDispositionRequiresOwnerAndReceiver": true
+  },
+  "authorLineage": {
+    "fields": [
+      "authorLineageId",
+      "role",
+      "authorIdentity",
+      "taskOrReviewIdentity",
+      "authorRoot",
+      "authorRootTreeSha256",
+      "authorChecksumsSha256",
+      "preWriteAbsenceReceiptSha256",
+      "sourceSnapshotSha256",
+      "rawProcessReceiptSha256",
+      "beforeTreeSha256",
+      "afterTreeSha256"
+    ],
+    "roles": [
+      "SOURCE_OWNER",
+      "D1_AUTHOR",
+      "D2_CRITIC",
+      "VALIDATOR_AUTHOR",
+      "HOSTILE_REVIEWER"
+    ],
+    "d1AndD2MustDifferByAuthorTaskAndRoot": true,
+    "lineageStringsWithoutPinnedRootAndReceiptAreInvalid": true,
+    "taskIdsAreChronologyNotSufficientEvidence": true
+  },
+  "oracles": {
+    "fields": [
+      "oracleId",
+      "oracleKind",
+      "authorLineageId",
+      "sourceMemberIds",
+      "sourceSpans",
+      "inputDomain",
+      "expectedProduct",
+      "independenceLaw",
+      "futureExecutionBinding"
+    ],
+    "oracleKinds": [
+      "FUNCTIONAL",
+      "COPY",
+      "ACCESSIBILITY",
+      "MOTION",
+      "VISUAL_GEOMETRY",
+      "PERFORMANCE",
+      "RESIDUE"
+    ],
+    "candidateGeneratorCannotAuthorItsOnlyOracle": true,
+    "callerExpectedCodesForbidden": true,
+    "oracleRefsMustResolve": true
+  },
+  "kroneckerPlan": {
+    "cellIdentifierComponents": [
+      "subjectId",
+      "R",
+      "O",
+      "P",
+      "C",
+      "D",
+      "V",
+      "L",
+      "I",
+      "X",
+      "N",
+      "A",
+      "T"
+    ],
+    "cellFields": [
+      "cellId",
+      "subjectId",
+      "axisSelections",
+      "applicabilityDispositionIds",
+      "preState",
+      "trigger",
+      "expectedPostState",
+      "rollbackState",
+      "focusExpectation",
+      "scrollExpectation",
+      "storageExpectation",
+      "apiExpectation",
+      "functionalExpectation",
+      "copyExpectation",
+      "accessibilityExpectation",
+      "motionExpectation",
+      "visualExpectation",
+      "uxExpectation",
+      "oracleRefs",
+      "performanceBudgetIds",
+      "equivalenceGroupId",
+      "executionStatus"
+    ],
+    "executionStatusAtSourceStage": "NOT_EXECUTED",
+    "cellPreimageMustReproduceId": true,
+    "duplicateOrMissingCellIsFatal": true,
+    "everyRequiredApplicabilityTupleHasCell": true,
+    "everyAuthenticatedNaTupleHasNoCell": true,
+    "openRedTuplesRemainExplicit": true
+  },
+  "platformProfiles": {
+    "requiredClasses": [
+      "REAL_IOS_SIMULATOR_MOBILE_SAFARI",
+      "INSTALLED_DESKTOP_SAFARI"
+    ],
+    "fields": [
+      "profileId",
+      "platformClass",
+      "runtimeBindingStatus",
+      "osVersionConstraint",
+      "safariVersionConstraint",
+      "deviceOrHostClass",
+      "viewportCssPixels",
+      "deviceScaleFactor",
+      "orientation",
+      "inputModality",
+      "colorScheme",
+      "contrastPreference",
+      "reducedMotionPreference",
+      "dynamicTypeOrTextScale",
+      "locale",
+      "direction",
+      "networkClass",
+      "freshStateLaw"
+    ],
+    "runtimeBindingStatusAtSourceStage": "PENDING_AUTHORIZED_EXECUTION",
+    "emulationCannotSatisfyRealSafariProfile": true,
+    "laterRuntimeReceiptMustExactBindInstalledVersionsAndDeviceIdentity": true
+  },
+  "performanceBudgets": {
+    "mustPrecedeObservation": true,
+    "fields": [
+      "budgetId",
+      "subjectId",
+      "interactionId",
+      "metric",
+      "threshold",
+      "unit",
+      "measurementWindow",
+      "deviceClass",
+      "networkClass",
+      "rationaleMemberIds"
+    ],
+    "requiredMetrics": [
+      "LCP_OR_SUBJECT_READY",
+      "INP_OR_INTERACTION_LATENCY",
+      "LONG_TASKS",
+      "LAYOUT_SHIFT",
+      "ANIMATION_FRAME_STABILITY",
+      "MEMORY_OR_RESOURCE_GROWTH"
+    ],
+    "postHocThresholdSelectionForbidden": true
+  },
+  "futureControlLaw": {
+    "sourceStageDoesNotExecuteControls": true,
+    "ownerMutationsMustReachSameProductionValidator": true,
+    "owningSuppressionMustRemoveOwnedFinding": true,
+    "allNonownerSuppressionsMustRetainOwnedFinding": true,
+    "unknownDuplicateOrReorderedSuppressionMustReject": true,
+    "rawProcessReceiptsRequired": true,
+    "callerExpectedCodeCannotDetermineVerdict": true
+  },
+  "validationOrder": [
+    {
+      "ordinal": 1,
+      "gate": "PACKET_AND_GOVERNING_PINS",
+      "failureClass": "AUTHENTICATION_RED"
+    },
+    {
+      "ordinal": 2,
+      "gate": "EXACT_SOURCE_MEMBERSHIP_AND_BYTES",
+      "failureClass": "SOURCE_MEMBERSHIP_RED"
+    },
+    {
+      "ordinal": 3,
+      "gate": "SUBJECT_NAMESPACE_ORDER_AND_UNIQUENESS",
+      "failureClass": "SUBJECT_IDENTITY_RED"
+    },
+    {
+      "ordinal": 4,
+      "gate": "TOPOLOGY_AND_CAUSAL_JOINS",
+      "failureClass": "TOPOLOGY_RED"
+    },
+    {
+      "ordinal": 5,
+      "gate": "APPLICABILITY_AND_NA_WITNESSES",
+      "failureClass": "APPLICABILITY_RED"
+    },
+    {
+      "ordinal": 6,
+      "gate": "SUBJECT_SPECIFIC_D1",
+      "failureClass": "DESIGN_BRIEF_RED"
+    },
+    {
+      "ordinal": 7,
+      "gate": "INDEPENDENT_D2_PROVENANCE_AND_CONTENT",
+      "failureClass": "DESIGN_CRITIQUE_RED"
+    },
+    {
+      "ordinal": 8,
+      "gate": "KRONECKER_PREIMAGE_AND_EQUIVALENCE",
+      "failureClass": "KRONECKER_RED"
+    },
+    {
+      "ordinal": 9,
+      "gate": "STATE_COPY_ACCESSIBILITY_MOTION_AND_PERFORMANCE",
+      "failureClass": "EXPERIENCE_CONTRACT_RED"
+    },
+    {
+      "ordinal": 10,
+      "gate": "ZERO_CREDIT_AND_OWNER_STOP",
+      "failureClass": "AUTHORITY_RED"
+    }
+  ],
+  "validatorLaw": {
+    "derivesFromOneAuthenticatedImmutableSnapshot": true,
+    "filesystemRereadAfterAuthenticationForbidden": true,
+    "rederivesAllCountsAndIdentifiers": true,
+    "exactComparesAllMachineFields": true,
+    "rejectsMissingExtraDuplicateReorderedOrReplacedRecords": true,
+    "rejectsUnusedPins": true,
+    "rejectsCallerSummaries": true,
+    "mustEmitFirstFailureByValidationOrder": true,
+    "mustRetainAllLaterFindingsAsSecondaryOnly": true
+  },
+  "repositorySpecificFloor": {
+    "value": {
+      "physicalSfc": 88,
+      "routes": 14,
+      "paneDynamicFamilies": 11,
+      "dynamicIsSites": 13,
+      "teleports": 2,
+      "workflowEvidence": "72/88",
+      "designLibraryComponentEvidence": "218/264",
+      "productionControls": "0/44",
+      "nativeInput": "0/1"
+    },
+    "keyframes": {
+      "frozenSourceMembers": 184,
+      "currentCells": "345 exact / 12 partial / 57 unresolved",
+      "currentWorkflows": "29 exact / 5 partial / 2 RED",
+      "futureUnadmittedCeiling": "393 exact / 15 partial / 6 RED",
+      "nativeInput": "0/1"
+    },
+    "fourier": {
+      "sourceWorkflows": 66,
+      "reachableWorkflows": 64,
+      "exactMountedSubjects": "207/1105",
+      "dynamicFamilies": 7,
+      "teleports": 2,
+      "clientEdges": "36/45",
+      "nativeInput": "0/1"
+    },
+    "glass": {
+      "frozenPublicEntries": 72,
+      "currentDirtyPublicEntriesAtReadinessAudit": 73,
+      "row8Closed": "7/87",
+      "row6": "ACTIVE_UNSEALED_MOVING_CHRONOLOGY",
+      "nativeInput": "0/1"
+    },
+    "auxiliary": {
+      "staticSurfaceFloor": 244,
+      "physicalVue": 184,
+      "reachableVue": 180,
+      "customVisuals": 34,
+      "staticMountRows": 173,
+      "staticMountInstances": 238,
+      "factorizedCellFloor": 118096,
+      "sourcePacketAdmissibleD2": "0/37",
+      "ownerAcceptance": "0/3"
+    }
+  },
+  "admissionBoundary": {
+    "sourceContractAcceptancePopulatesOwnerSlot": false,
+    "fourNativeOwnerSlots": "0/4",
+    "separateParserReceiver": "0/1 PAUSED",
+    "strictRootPolicy": "0/5",
+    "ownerSlotReceiptFieldsRequired": 12,
+    "candidateGenerationAllowed": false,
+    "realPlatformExecutionAllowed": false,
+    "ownerStopRequired": true
+  }
+}

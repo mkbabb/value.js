@@ -1,0 +1,45 @@
+{
+ "imgBox": {
+  "y": -326.3,
+  "h": 1374,
+  "bottom": 1047.7
+ },
+ "zoneBox": {
+  "y": 200.7,
+  "h": 320,
+  "bottom": 520.7
+ },
+ "naturalW": 400,
+ "naturalH": 1200,
+ "objectFit": "contain",
+ "croppedTopPx": 527,
+ "croppedBottomPx": 527,
+ "visibleFractionPct": 23.3,
+ "type": {
+  "paneTitle": {
+   "text": "Extract",
+   "fontSize": "16.4px",
+   "fontFamily": "Fraunces",
+   "weight": "400",
+   "lineHeight": "22.96px"
+  },
+  "dominanceStat": {
+   "text": "33% of the image",
+   "fontSize": "41.888px",
+   "fontFamily": "Fraunces",
+   "weight": "400",
+   "lineHeight": "41.888px"
+  },
+  "readout": {
+   "text": "oklch(56.686341050833% 0",
+   "fontSize": "16.4px",
+   "fontFamily": "\"Fira Code\"",
+   "weight": "400",
+   "lineHeight": "22.96px"
+  }
+ },
+ "readoutTruncated": true,
+ "readoutFull": "oklch(56.686341050833% 0.147031011912 285.636092993966deg)",
+ "readoutShownPx": 182,
+ "readoutNeededPx": 585
+}

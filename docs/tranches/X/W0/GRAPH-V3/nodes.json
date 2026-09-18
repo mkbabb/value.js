@@ -1,0 +1,4249 @@
+{
+  "digest": "0e75a1c9cc1a5c6c90494a186fc010bc934a18a0f1f288554152740072a55000",
+  "count": 487,
+  "nodes": [
+    {
+      "id": "api:http",
+      "kind": "api-surface",
+      "band": "external",
+      "area": "api"
+    },
+    {
+      "id": "assets/docs/hex.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 4509,
+      "sha256": "fad5822603eb396a8ca04a0412e80f71ac34f46f3b78362ef7440b81143e323c",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/hsl.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3423,
+      "sha256": "1ac0750961f84512e4472aa71117ecf8ca50b81a4711ee2e5abaa9ba577b66e3",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/hsv.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3446,
+      "sha256": "fd12155d23aaf84d9fd43f1e5bf0604599397acf0c1efba25996ceb6d9b9326b",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/hwb.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3273,
+      "sha256": "513f4a256c4356955c26ecd2616467861c91810361df7ace93e8d07909d29d63",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/kelvin.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3312,
+      "sha256": "464b95f25a075ea540d4a8f75b589ecfce01626addb88a813cdab4cfd1847252",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/lab.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 4207,
+      "sha256": "7a8f845151082e1d7f2e22e95806a8db1a7a04e8339a820c782199e4131a8be1",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/lch.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3205,
+      "sha256": "00225ff8c672b2628a891a04cbd62e0c7e802b8ee708c6e213c70b12dfd15cce",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/oklab.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3989,
+      "sha256": "87cf44df8aebf19508963d85ebb86af6e39427f0b0b514ea87ac0fe1d4c45caf",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/oklch.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 4193,
+      "sha256": "1b72889e4b716bd709fcb21752f9bf96c34f1a1289cafc4a8269c8fcf782844f",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/rgb.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 3849,
+      "sha256": "e358295e8e0b8b40bd1df2419203d56e8fb9c6299ce8c28f8c662f179462beb1",
+      "barrel": false
+    },
+    {
+      "id": "assets/docs/xyz.md",
+      "kind": "module",
+      "band": "asset",
+      "area": "assets",
+      "bytes": 4497,
+      "sha256": "f1b2dbf5dec3f411fcf673c123df4be514f8bdc07fd07812c7411eecf5226b7f",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/App.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 21424,
+      "sha256": "dbac47fae6b86bec4ad18ffaea52b12f981c9108ea6b12cacd5ec7579f1318fb",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/ErrorBoundary.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 3627,
+      "sha256": "45e5d83b836102259673aade5953465f13bf7d7fa8b3d652d0fdec7db9736e20",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/atmosphere-calibration.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 4681,
+      "sha256": "e97f88b28e083fcb96a0804124170672e7e8d5b11b7802368e3dad9cb13b597d",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/ground.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 7428,
+      "sha256": "8c3ed409d6cdf4cee4b048380b9763c4bbfd24b330e2d3677c8747c8e751ccf5",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/hydrate.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 5574,
+      "sha256": "473d15a7543b42bbf94dc7b5948eeab31bb11f3139d2a170bf8505b373e7f9fe",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/overture.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 9489,
+      "sha256": "a0d5e8816e72e3c219e8a50caed1969d3d34dfd324b38f2d00b197d842bf7457",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/useAtmosphere.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 20663,
+      "sha256": "cbcf3898cd93427f55d987ad46a03266c34deb7cbc946dca83f3fbd62e9d708d",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/useAtmosphereBoot.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 6833,
+      "sha256": "0334dcbfe235998de34b3d19e91980568967ca7618f6701eef79e0fd7cdf5119",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/useDockArrival.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 4154,
+      "sha256": "87f738d89a4862285e34096103996465e0541d2f1bdaa5dd5b5357e41365c06e",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/useOverture.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 11432,
+      "sha256": "737b99d5948bc04f9e9101ace30c9c23df6f9ae339ea33d0039af4cc8ea05c86",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/useViewAccents.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 8753,
+      "sha256": "919ebf35c56c9a7699f40d18e1b8596e0da228c80670be56a4a795ce7477b486",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/boot/view-accents.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 2074,
+      "sha256": "8607c46374f32e6c4f6c93cdf577d31dfb007af05efe40ff0222c6f8fe8728c1",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/useDevicePixelSnap.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 3771,
+      "sha256": "7bd9035279357adf26049a5b8e9a0ddd32d73d596b08fda0d061924441c4a30e",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/composables/usePaletteWiring.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 7242,
+      "sha256": "bd50755627ccda6f11d656ff206c2966f2a1ad69e9fb96c66c3c3de55e64e952",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/index.html",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 13165,
+      "sha256": "c8d073bda8d6dee378c7f05e6b9365364ddf742563f0650225ad2aaaf2935a0d",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/main.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 168,
+      "sha256": "b090d3a79c46bbdde9a6c1f27993ee68cdbdbdaf60907446b7c8082d4784bf5b",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/router/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 2349,
+      "sha256": "2aaa2282b397722cf8cf1e5696412c8a00d3dea6148b615c1206fc152de66aa0",
+      "barrel": true
+    },
+    {
+      "id": "demo/color-picker/router/useDocumentTitle.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 3688,
+      "sha256": "d80ccfa29a20bdcb35be8edfc7aebb76141f09fc1e5cc8a5618ccb95b32e980a",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-picker/vite.d.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-picker",
+      "bytes": 470,
+      "sha256": "f2f4a74cbf76888ff5d7f4d53762c72a6280eebc18fe1d4b930b3a27a910d6bb",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/ColorSpaceSelector.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 14677,
+      "sha256": "b87191d0076648a2ded482d4bd3dd2b67a634faed18bf792bb2b57e29c9aac5f",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-chips/PreviewRamp.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1763,
+      "sha256": "9574ce9923d229bc652541b1239eadbdcbcdae6fd42651d26b5779072d5f5143",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-chips/PreviewStrip.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 2615,
+      "sha256": "570051e191c25a95e1965b4199350b09f41c91cd760f2af3e713c5f6b86c2821",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-chips/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1520,
+      "sha256": "e53895923d00eca1ee821e342e04d1bbbb6a56b9326363d73e3a60cefec7fac9",
+      "barrel": true
+    },
+    {
+      "id": "demo/color-session/color-chips/sample.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 3721,
+      "sha256": "ee0f5cf2e3aa7020615e96d1cc1e8c5fae38f72105a19d558bda3e512b3b552a",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-model.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 2332,
+      "sha256": "588d079908becd8d0c12dbba4e620a83216de83be392a7936271eae7aa59d1ed",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-names.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1554,
+      "sha256": "ce1e72d60afe1f1d1630cb438edf1762230909c277bb73dc632abaa07252c73b",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-space-meta.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1980,
+      "sha256": "511ce64559a52c89a088155b68e07dc15d193f4255f11f26f0cae7d5e194a8a6",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/color-utils.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1092,
+      "sha256": "58afd984bc4a861d527630cdeb6c87927f26f61f8268cfe6c7f8474b6a50999b",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/colorSpaceInfo.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 13820,
+      "sha256": "91cd243fa01a31f5d07bab1b96b9e71ada361699d459233f64d6eb46ae82b0f3",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/generate-color.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 9099,
+      "sha256": "beb109de85ad22e68bb8160309abb8ae34324b7b9aa5eb7a04f1285904487c84",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/ink.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 5757,
+      "sha256": "b313fb89d375367f3d5c8b72d09add16086d5e072763ab0a6c85f6b8139e453b",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/keys.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1474,
+      "sha256": "e06de1db1c18623ded08416b8c429e05c948187d5b401f5ffdd5ef3f9292bcda",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/palettes-ramp.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 6857,
+      "sha256": "dc7bf953601446629f60ac3052eade5b669267c4b71293a6a1c4bb3d4e23a8a2",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/picker-color.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 8402,
+      "sha256": "199f129642ebd73b45fc90c045888e26dd2b136d6a84a20ed3f1efd5a8ab5eeb",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/prng.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 346,
+      "sha256": "b66b74cf91b1991f0870aeffe10fa582e4d4913cff9a469bcde70d89a2fb6df0",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useAtmosphereFrameCoalesce.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 2787,
+      "sha256": "a658fb17f0eece3c2dc519d615e99d080f74f7d2401ce9097800173db413a50b",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useColorNameResolution.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 2632,
+      "sha256": "831465b4fb4a3df56b711b1b207dbffd1a026f9bb3e227bda351f11909abb65a",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useColorParsing.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 5081,
+      "sha256": "102a180e92825221e364113e6ee1c442811fcbbc862a6c95489b72df7578d09d",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useColorPersistence.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 4925,
+      "sha256": "06bd3b7f61a3cbb43ff9a712d185a0834112914e4bce9c0b6c84aeb24d43aeff",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useColorPipeline.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 13214,
+      "sha256": "c4b72b694c63472e03d2dc76be969d5c593537aa6c6f8e40077497247c6237df",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useColorUrl.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 3019,
+      "sha256": "27d8f851a016af54bd85418a4a68065b85982085297332eaa07936db73cb6060",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/useContrastSafeColor.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 15672,
+      "sha256": "ca734160f460925f10b0174fc70fa8219c51044a58136a335a2e67b134c43ce8",
+      "barrel": false,
+      "moduleState": true
+    },
+    {
+      "id": "demo/color-session/useCustomColorNames.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 3367,
+      "sha256": "ef72ee8bdfc962019a637bcb34de65dfa582dca558b3a599a404f06c425902cb",
+      "barrel": false,
+      "moduleState": true
+    },
+    {
+      "id": "demo/color-session/useSliderGradients.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 3727,
+      "sha256": "44b24fe481216045b5afef9b961fc972c1600ff312fd90ca1a80f70fad32fbb4",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/valueDomain.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 2608,
+      "sha256": "a7ead66128a8c688c1a4befa603bb5765ed616ea461648b68194c50220c10736",
+      "barrel": false
+    },
+    {
+      "id": "demo/color-session/view-accent.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/color-session",
+      "bytes": 1617,
+      "sha256": "42e48f8802619f4f9bf9f253c846564ba70c4748c1d6eac5bda6e41c51b42da4",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/BrowsePane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 14606,
+      "sha256": "c840ec6fca15a4fd629693b4ae910afe85b65368af87541bcf2f555a97a062ce",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/PalettesPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 10044,
+      "sha256": "6521426680895595f91801efde819c2247bafd77980e617aa8d9b580e9b6bb71",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/admin/AdminPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 5402,
+      "sha256": "cad0113d2be118a4f78d231b500623e7d47cf5514af85f34e5728732efa2bd9b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/admin-audit.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1192,
+      "sha256": "63835e05fadbf7f05e072aeef63cef7794ab3f11941486a6a7ce0fb017aad05f",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/admin-colors.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2451,
+      "sha256": "52e2e4e64117fd0d7acca9fbecd2422c493043bcc4094af2fd005483dbb992e6",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/admin-palettes.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1816,
+      "sha256": "21b100c6dc85a6c761f36d4cd76b0b493c1a783527099e40eee0fbbcc87e5562",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/admin-users.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2281,
+      "sha256": "123edb04b7a0328e7b57efacb77e3bb51d1d5415b705fc1fb4ebd78a39ad01d7",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/colors.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 504,
+      "sha256": "d1810f59eab9517d48eea2f93eeaaa339b70c21361a8e489f5ce8c748335e73d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2001,
+      "sha256": "d3bafa892edd3a6c98d34349e2d00b7420b26ed3d2ca26d0bed5cf4efce0447a",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/api/palettes.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6310,
+      "sha256": "5f0b4130660374f833fccc25e25dda05bbaabfa63024bff3987a4dbc46e2a35c",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/api/versions.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1575,
+      "sha256": "4e53c1cce530258c87127376dbfd920fd27ed38044473630a416c99199f3f1c0",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4989,
+      "sha256": "f28b96cb9a9f84823516dffd07034f81ad7ad8076b67ecaf4e4f1ea21fb1259d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6946,
+      "sha256": "907d7ee340c684fc267de928e751d45a1ede8c97065a584786e7f127bd2e4725",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminListItem.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1253,
+      "sha256": "a15213314633bee79679f923988feaeb3e387d683106d574f03089b2b99e2c7a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1164,
+      "sha256": "be2b810a2edbdc8e6f52a2787905bcc08921a1f4422daa00f90e2d2314910db4",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 7547,
+      "sha256": "7cd3ddee4fd4eebb6c09724d703f7b3c203d9c0cea17647ec405b5c1ae2acd7a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 5433,
+      "sha256": "fcd07904d64a4a7a8f34ebb517d73a0629032433bf8e8dfcdbf0a3d7f871752d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 16510,
+      "sha256": "05b9b49a074deca53e70b262678bb2a96fd4b99bd9d4ad88486347b701b7097d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/PaginationBar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1211,
+      "sha256": "3006c9b99288b591c70272dada3b587fb5b30a88ef8bf775b67ea8e78b73322c",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/admin/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 450,
+      "sha256": "e6f3ff3e5f88cad472692bda1295cdf52fea7010861671c131153119af4b56c1",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 13778,
+      "sha256": "abc92623296c36a6a28517781be6ceddf9edf1914d0e8cf29b8903b531f3fb76",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1713,
+      "sha256": "9b5cbe86976967d366a7386980f4eb94fd5d1795a160fd2a87c098b9393dbdd2",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 15569,
+      "sha256": "94d218f385b563d5bfbfff9ad1f80b92c9b2142ed2d2a30da3bcfdaf353f49ec",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 9210,
+      "sha256": "c0af63cb880f24f8c7b20e0808e6ba17ab4242cbcd90a4db5f43411d63251616",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2421,
+      "sha256": "95dd9725de21b2c00e3a2c46f08606abd2afa1a5426d5fbd970b60971cb13c16",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4396,
+      "sha256": "f07d8ead460991ea34c941d9136b0b17749c73affc36e04a4587b3276940489a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2209,
+      "sha256": "97483747a1c97e35531288a267a874b54627fd83a742b4c27eb3a58b203e849b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1890,
+      "sha256": "e4ee08d80c1a2c23742f7fddc236c23aba3d5271d41fdd4a4f7a81856e4d7107",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 5902,
+      "sha256": "00bfb73fc578db2cf3b6b02dbbbec378e90bebdbd3fe7d2aebab96a62b23b4d0",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/PaletteColorStrip.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2358,
+      "sha256": "d714167b537e87d3751a17ad27ac5969051e2d6b7c4861b97df826f90eed883d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/ShadowPalette.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 5801,
+      "sha256": "46d86c5bb070cad660897ed57bf5cbbe606b10c53533a2e73784c3aeaff7be17",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3218,
+      "sha256": "a9399beec7aa99a7b54c61b4bc54bcf78fcd6e5602c6c1843430764659244cea",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/composables/useHeightTransition.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3325,
+      "sha256": "1a3a5724c4121dfdec2af645da501948f0418c4652555d5e6ce96f8f2d7513e7",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/composables/useHoverPopover.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1993,
+      "sha256": "0a9af4242d5d7491e8262d165ddc3b79effaf7929bcdc4b77fa5c36068df845b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/composables/useLeaveTimer.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 378,
+      "sha256": "71ffdf3cea28273d90cdcb5ae24cc594d36337f91c327ed17f78389888f0d374",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/composables/useSwatchActions.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4061,
+      "sha256": "de9a5e08eb714f9c1f69c2e11f09e19fd08ee7b2c36a635351972560a43d1d44",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/card/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 687,
+      "sha256": "cec5d2e50911a87bddaf4908478ffd93a97849fcf7965a402d90b04ca82aa456",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/dateFormat.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 638,
+      "sha256": "e8c30bc0f4627fddf7d1ebcd3cc34b8f121134bb8e6f4fa19363519e34a2da3b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3488,
+      "sha256": "4e90c7911dedb7a85a5db67742f70c322dae4c2baed64e20151bb4b767e2946a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3160,
+      "sha256": "8e9e8f264a963496e432db9d3c69405deedd51454691b4866c18e07197a0f762",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6373,
+      "sha256": "2b55ec282f702e03fb27065ab2762df942da0e87822cabd29c368b4d0e88384b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4297,
+      "sha256": "3def72217d61e108701ab4bb5dd2a596f462d321694ceecc3277e879c2da5a27",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/dialog/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 771,
+      "sha256": "09b5be9174e50171890a31809c04588a22fdaa0b81103afa1a0ab2452fae09e4",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1619,
+      "sha256": "c6566b80eb3ba6f6928b2e371224c299744f1bac83e65a3a42f5fe4761df5e66",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/search/MiniColorPicker.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6049,
+      "sha256": "f9f59e5846026065630b0e1bf027b27f89919696df9df88f1b0c9f0f1907ca88",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 10658,
+      "sha256": "c7e1ce515e78c0697ce121b9bfe6f6917eb03a474ee7f48b77324d8caee18620",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/search/TagEditPopover.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3404,
+      "sha256": "961debf279365c91455ee1724521dbd699c76b40837b29d4d902851f38623cdc",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/search/UserSortMenu.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2111,
+      "sha256": "de6cc257db85223fea80f45823f6df07af08b7bfc8d2e7f44bee3e92bfa1cf9a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/search/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 305,
+      "sha256": "24a6cddede0fdb88b3e8b93de1c1501c3089a0dadcffcd99c91e32cd4c275b13",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 9981,
+      "sha256": "18eba009fac4a924cd97cf5039a4ef957c44f258af54479a302cfd0eb26c2c25",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/slug/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 173,
+      "sha256": "df5dbcf8c359971f4f1efdadd8c80b37e5f5b9cc16066ded44496995cfd27722",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/browser/status/ApiOfflineChip.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3097,
+      "sha256": "d8000f7c42d0d026ef6d4eac38ffd9b471a324d33158b76eaceefa8c652e137d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/browser/status/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 533,
+      "sha256": "c951811dcc42e583c9e0a14e777d611f746f22e3ede556b39c9c31e6f1b2d87c",
+      "barrel": true
+    },
+    {
+      "id": "demo/palettes/constants.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 385,
+      "sha256": "5067fbe5a0394ee47ed2b000bcbd28ea19d61c8121b5139852ebd0e8bb76ab82",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4184,
+      "sha256": "19a5099356edd46fe1fddd47af8fc1ffb4e8a3182c828b6279fd6b244d3aaba6",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/bytes.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1374,
+      "sha256": "03e7c8797da287c4014f826fdd95b2ba8731958b65b17eaead072703c4d6ab1b",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/canonical.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3475,
+      "sha256": "4e56e702bcaf216382d18a00554f5ffc9e3521350b5fe6d0593d73a9cba66cf8",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/css.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 732,
+      "sha256": "5646f58900d7fc3dda863c8b73779ea94bf3ba7027d5bfcdb85793ce63c74d4a",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/digest.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2775,
+      "sha256": "e720a02595d8b5c64cc4b080554bc220293355a15aa10993ca982deaa430f751",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/json.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1216,
+      "sha256": "a45514feb0d7eb0c879879c055859284b1b9e01deda0a908cf9d4dc0e2276a8d",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/png.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 8185,
+      "sha256": "7a438dc8455bbdc8483d0141e3811667e17f6a56aac518580884bb32af2d1b34",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/reload.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 9511,
+      "sha256": "5b4d28f121b74195c21cee79094eeb1191366f94410aae472c53f4b86a6a7fd5",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/rfc8785.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1805,
+      "sha256": "558622a39d2647a2e58c7e72cf7d5d341bc0f122553d46d34cd78109b8d5c312",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/serializers.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1404,
+      "sha256": "91f79ea39c9641f60c15b705c6b3e691e6d3151f8910c7874560b327acb36747",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/svg.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 1261,
+      "sha256": "c2d9787e68dfc62c0ae2c7ea261f77cedfde508616d743a2741b4fefbb9eef58",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/tailwind.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 943,
+      "sha256": "9dc36a65c42085d7d9172f990c2a72e7fa5e4b8fce17e07643bea550ce0d11c3",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/export/types.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2186,
+      "sha256": "a9a001d21a9a343c3064e713ac2e7bf99c4db4083796ec4ae2a097ff0acedfd4",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/mix.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4603,
+      "sha256": "9efca706138cfc4c362f156c82f3b2ab39e22351028d867f59c03354313a6ccc",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/types.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3893,
+      "sha256": "af414918e645c761bd08aba11b45b8733fa9405b8c64424e053e3062465b9f8c",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useAdminAudit.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3109,
+      "sha256": "bd2836515e7718377ea69bbdb7b9a70113b85e015779db196e4c9fdd8908ebbb",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useAdminFlagged.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4491,
+      "sha256": "be147170c6563233db7b9fce14e63f8f5454638e0987bd722e3bb9f1283e55b0",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useAdminTags.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3500,
+      "sha256": "60292d456310b3d79800f2807cbd7443affa30fe0de2bc1693bedbba75432c91",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useAdminUsers.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 7371,
+      "sha256": "921b93eedc37429c343ab15c8160336ee6f5c3ac12efa628e6865f162f8e3397",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useBrowsePalettes.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 9320,
+      "sha256": "7510305e9e993291369a928df9c32b7ab0262d234a0b3c4fbfa064ca915b4744",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useColorNameQueue.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4219,
+      "sha256": "81ab3392546aa0631e808c88c383f99763012ebbc494269365bc0342d2434dbe",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useFilteredList.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 412,
+      "sha256": "92bb6c232b316c62ff6d8d6e4e6d5d79df90b0a2832f1bdb0da359f280e0ab73",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/usePaletteActions.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6180,
+      "sha256": "e783bc41a8c1723f980a9c5e9c2ea534cba039de2768f663676b21b0cdae71f1",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/usePaletteExport.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 879,
+      "sha256": "4b4260b7c0f3094e8c2ca60bd04993c78a56879e0ba55a4c3f544d1581cbdcc5",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/usePalettePorts.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 11367,
+      "sha256": "6e081d05420cd2da8e9aa3f4b3d1a276cebd2ec5d3cd4360a4e76a01e8c1ac42",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/usePaletteStore.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 6678,
+      "sha256": "ae8e25081d3e4861f00c269ef15dea7e971824f5723798de5e0b2f80e6661111",
+      "barrel": false,
+      "moduleState": true
+    },
+    {
+      "id": "demo/palettes/useSlugMigration.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 4572,
+      "sha256": "f5931900ad27df8b9aa0d10c8b05dae6a2f2ee03d300ca988379e73fc1975ff7",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useTagEdit.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 2441,
+      "sha256": "486c1143cc869083111a603585312800f70936d808aad48e6947aeca8c5eb483",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/useVersionHistory.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 3780,
+      "sha256": "afe38451fea81380c5d0337e6949146b50f9ade0e863a7737780885a2b3ed474",
+      "barrel": false
+    },
+    {
+      "id": "demo/palettes/utils.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/palettes",
+      "bytes": 961,
+      "sha256": "e7b0be0e376e039b2f9ebcb71563dad8871f34967b07e859c3ea5ae792b384be",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/ColorPicker.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 17694,
+      "sha256": "b207f7f7184e3081e911c809a13f1ba9c446253ec7cea8eddd405ec742e623e9",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/composables/useHeaderCondense.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 6221,
+      "sha256": "4587b36a1f51e52e1734db70516c95bb1ac12fb30d0265d0e5d7587bc53beed2",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/composables/usePointerDebug.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 10803,
+      "sha256": "a1ad5b7c4a5f3a72dcf99d7035f6df3fb440715e8ac48d708ecb1e9246db23aa",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 18598,
+      "sha256": "a61b5ed39703af205d6ba0f4923d32daeaaf55cf9c2e21e22030a01fa82ef327",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 15071,
+      "sha256": "a37d644bfda320772782c72ccb67e8433a04a691ad9101f36467abcfd5b6e279",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/ComponentSliders/composables/sliderAnnouncement.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 2915,
+      "sha256": "00ab93f2e24b9552f278ce8039ef1d6e8f7cb84c75059f28a715f5b805be0dbc",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 2332,
+      "sha256": "439582aea2f1d4947c20cb0492221c45d2347e8cd75931179a18649f05d22344",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 5728,
+      "sha256": "4a7aa8c0efe95c99599626d1ade6b8fa12fe6d499afbc64a6cc7723c6567d8a1",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 8779,
+      "sha256": "c4af2158e042c15a14aa231e93d746b2dffd547c274f4fbb136822378114c081",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/SpectrumCanvas/composables/useSpectrumPlateStyle.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 2707,
+      "sha256": "1be905fa2567b8f29b11c1d70e9ab3c8940e1476562eae0a8c27449fcfb15048",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/controls/spectrumLuma.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 1548,
+      "sha256": "73bbff1c72cbf6b954a5801e5abc628be47a30265bf58c6643733f3378ec5693",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 9118,
+      "sha256": "4e14149252a20e6c140c06ed284fb60a0186c0b7e8801d718dbf1a6728b24466",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/display/ColorComponentDisplay/readoutReservation.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 9588,
+      "sha256": "c8f7b22e24530656108102ccb3b3833a15cc1cf6d72eb08d22ffc9fe498f31d3",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/header.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 7110,
+      "sha256": "01366de8541022fd17ae19f4794ca11cf15473c137a41b2aa947b36177cafc55",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 377,
+      "sha256": "e780b4a5f399f23facd16c1951e0ee05bf497ec1ca9b1d298c895b5d91038cf8",
+      "barrel": true
+    },
+    {
+      "id": "demo/picker/seat.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 4671,
+      "sha256": "b4f636ac75cceb520e11d4d072894463860a1dacd647c29195d5711ad19d93a8",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/visual/DebugEventLog.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 3145,
+      "sha256": "61b8aaee894e344df847a113e7960abd5fb0f9a5ee8c9f1182c60386edfb6b3f",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/visual/HeroBlob.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 16407,
+      "sha256": "2fe3ca189808df54efa0fc9007e970dd59876c38664001908a66081c0dd1b740",
+      "barrel": false
+    },
+    {
+      "id": "demo/picker/visual/PointerDebugOverlay.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/picker",
+      "bytes": 7590,
+      "sha256": "5529d0384c46234b0e1c09cb1f81a99f12deb6f6d3ee9ba08ae4d6cfa9c56a27",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/auth/sessionToken.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 3484,
+      "sha256": "12d5a78a4578d552c69436296abffdfc9aee69dfebaec8fed0ec56aedfcd094a",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/auth/sessions.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 882,
+      "sha256": "9612dbf07d9600f3fbbf2bc0a6ad2f5e2c35da07391e15bf2f21224485acd1d8",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/auth/useAdminAuth.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 1589,
+      "sha256": "c83f4c87e265f30ce3e48a5ad7febef144a6987f6959b648d158b97202da19db",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/auth/useSession.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 1989,
+      "sha256": "c6fb865ebc6fc94415f468fb0a0445e830afbfb4df827d7a15b1526585210c79",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/auth/useUserAuth.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 4734,
+      "sha256": "25c7489c337c7f08272333336ce4566cd3d954af39039d3d60264de193b49f5e",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/storage/useSafeStorage.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 674,
+      "sha256": "5c46201e6cec4a5de2d0256268f35275b59ca905e6d0b5e5ae61f8235c2f8b57",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/transport/api-problem.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 2489,
+      "sha256": "cf9143388cd36cbe26b86f6ef5960c68bfeef34cc23a6e8b958e86024187e497",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/transport/availability.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 8558,
+      "sha256": "be89a4ede238afced3e24216b25a4dab036aff94ec332e4fe4fcbc8114d80969",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/transport/client.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 6006,
+      "sha256": "53eff87cb6d783dafa7c28b5a8272c2ca9c95deaedace14e045ce5edb32d007d",
+      "barrel": false
+    },
+    {
+      "id": "demo/platform/transport/useApiClient.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/platform",
+      "bytes": 2589,
+      "sha256": "93912f8f4fe5e4060ec7d955444d65bfb024a0e55743ece4a0051363de818443",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/ConfigSliderPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 10709,
+      "sha256": "e4ae64e6a5b1e30082cde67d7313cdc7be2da01b0357aab62b517933d8d58b2d",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/AboutPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 4814,
+      "sha256": "77a101f76bf986b9cf0458c180d471b8d171103ee0794a2ae75b5c13610dfc8f",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/ColorNutritionLabel.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 10283,
+      "sha256": "80642a673162d26f54e261ae86cd9804d3568f68dafc47d261c5a4ed2b173391",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/katex/Katex.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 2203,
+      "sha256": "38199249172b351ee799baebb0784a7d0112ec02202beb82204974da7765a179",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/katex/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 48,
+      "sha256": "d9b885d53612234f7f0432956512a35bc0d8214b5be22e1967915bb827411ed0",
+      "barrel": true
+    },
+    {
+      "id": "demo/scenes/about/markdown/Markdown.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 12555,
+      "sha256": "f5a9183e6645dd81c202c53a92df98393ee3e48c06c90934eaecec2408c10a1d",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/markdown/composables/useMarkdownColors.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 3881,
+      "sha256": "fcd680e8f10947b75dd09d4e8191b21221c1dc87f86fc66ed5771befd41694c0",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/markdown/composables/useMarkdownHighlighting.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 3594,
+      "sha256": "8b66fb3ca99f79d675a66c175685548a272342518385c0d10ed080f0e5552f55",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/about/markdown/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 201,
+      "sha256": "d6f31f9f93fd42fa2c89e8a89e1e50feb9d949f1cee4e4530d83bccd42488551",
+      "barrel": true
+    },
+    {
+      "id": "demo/scenes/atmosphere/AuroraPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 8330,
+      "sha256": "41331877c182eb031b3a12493324b720fd56d87da98d9707b4c7f41a3218ed64",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/atmosphere/aurora-atoms.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 4371,
+      "sha256": "52d6fc287268794f735535e5de119217f9b16e9bd789ca5bd2b0a7c7313c1e7e",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/atmosphere/aurora-harmony-stops.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 1784,
+      "sha256": "1c26c7ca3361cb3d9030ff78ee9a1ba67edb0183a517f7876583783aed2c22a5",
+      "barrel": false
+    },
+    {
+      "id": "demo/scenes/blob/BlobPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/scenes",
+      "bytes": 5680,
+      "sha256": "9d5f72dc17cdad1dd5d0203017128c4927ee59824b4bf6cba3966cfd923b8af7",
+      "barrel": false
+    },
+    {
+      "id": "demo/shared/ui/EmptyState.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shared",
+      "bytes": 5304,
+      "sha256": "08018dde4f74fdb38fb9ed1c557376294f49ece48fab7500679a4f407ed6d4c5",
+      "barrel": false
+    },
+    {
+      "id": "demo/shared/ui/PaneHeader.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shared",
+      "bytes": 10347,
+      "sha256": "40fdb6efe9be40e4617385cf368fa6f67e60176624fd59cb90a7256f3974f606",
+      "barrel": false
+    },
+    {
+      "id": "demo/shared/utils.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shared",
+      "bytes": 1509,
+      "sha256": "6ebf145305687a2ec225060f2550013573ad176de1ff92612a629cdd1bee8ba3",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/PaneSegmentedControl.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 1750,
+      "sha256": "6c20370d0596e2c6d686df9a2c2215c4eb266a5f8ce90b9231f672f240f589ce",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/PaneSlot.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 5261,
+      "sha256": "096d68de2693f63506e75c63bc037bf5dc3e41d51cf3d4ddff6dd746601eadf8",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/ActionBarToggle.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 6523,
+      "sha256": "6dee5ed09bdb43501b050b22646f421bcc07bebff8e1a4ed63f150886c89e3bc",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/ActionButton.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 4398,
+      "sha256": "792c465f9424cec466b354a638b2f94c2a61e247cc1196c9609992627eae7858",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/ActionToolbar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 2791,
+      "sha256": "bb73802a79a4b57857969d0d05a1cb57bbcfae65326b33f5204784621e3b3df8",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/ColorInput.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 14257,
+      "sha256": "e800a80e5e75b9e8e54a36e337f0206c1694b3ee29b4f227bff505728fcabcc1",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/Dock.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 20603,
+      "sha256": "232219b3bc8a622a2735a61a0832d6c48d9a9f7e3a232781fa0e63cd3ad0c707",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/DockStatusLamp.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 4229,
+      "sha256": "9ef91add55fd912b2af5a5de1983e429c26fbe488604117abcd9bc94f7c8c6f5",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/DockViewSelect.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 7805,
+      "sha256": "24517d3e495bdbac429ae1057a29e86215d37c0242b9c9893c6a56ebfab97be0",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/ParseEchoReadout.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 1871,
+      "sha256": "416468fdccb96ab6195e53834968129f020b3244cef981cebcf64d41ef1c82be",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/composables/useDockAdminMode.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 2788,
+      "sha256": "2823ed57be20befeae211447c1e5f9b9c95cc6b9cac6ee4652f1ecc8374ddb84",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/composables/usePopupMutex.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 2645,
+      "sha256": "07a7c99680baabb42c755b81d04df78fb337b67bd3015033f4910623e36e8e3f",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 230,
+      "sha256": "b82ac9b564aa2e661ee2e859a3706c3b1b4b5fbfa27e2cbab5b9b9237c67549e",
+      "barrel": true
+    },
+    {
+      "id": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 6094,
+      "sha256": "33a67c06df15225ffdfb0d1d98f9ff23321db7ac332d0ba330c472a22861349c",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/layers/GenericActionBar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 947,
+      "sha256": "3f7a43b76dd1a14d57c6b1d1a2bfdbbb18833a55412791d347ebf5ec5e9aa42c",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/layers/SlugEditLayer.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 3947,
+      "sha256": "997ba1e641e4b7fdff22e054443068fd2241930ad3a965498d570af8000f1972",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 6672,
+      "sha256": "cf98e476f2d2a63d511dcf8207fdbd8dc488abe37e4a3e2a00cd3d253455e69d",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/menus/ProfileSection.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 9898,
+      "sha256": "94875900d32cae415e59635e835acf56b56bc328c0c95b2e6a08996701066232",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/dock/status-lamp.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 2901,
+      "sha256": "7973f476046731ab4c7a0feb3115e253ffd0835146e97325294c1cd0f5b998ca",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/usePaneRouter.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 9559,
+      "sha256": "5c9a6bffa6e4262f0c693a9537598bddbbe77188a56770c613811ebe295fb7bf",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/useViewManager.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 3483,
+      "sha256": "60944ab42a90b357c02c684d84c71bf6d500bd4acefabfe46b1389ca0db8260c",
+      "barrel": false
+    },
+    {
+      "id": "demo/shell/viewSchema.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/shell",
+      "bytes": 6716,
+      "sha256": "7492a80a91b641625bf9eb587ddc8e49e1243d944a264b6499afb05b1784703b",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/animations.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 12821,
+      "sha256": "a64eb64fc847b1f1feffe49fd8b211f2aa335f43ceeac8bb626095e89968444b",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/focus-ring.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 1911,
+      "sha256": "cf8af954242f78b2048073b729c37ad2532776a3bf19bfce17f4f84d90640535",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/foundation.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 46269,
+      "sha256": "118dbe9c7fd1ff58c36b8b4fae7aecf78c96da41325ac11e3eecfaa294f33478",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/hljs.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 4011,
+      "sha256": "fa68aa9a4d8ff614555a64e3733e3736fb21df9d2baa7fe481ed761e073afb06",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/shell.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 10651,
+      "sha256": "a3eed0573edaaa4900fb0fddfab23418aa855a6292876f124ac51dc197ee7d63",
+      "barrel": false
+    },
+    {
+      "id": "demo/styles/utils.css",
+      "kind": "stylesheet",
+      "band": "demo",
+      "area": "demo/styles",
+      "bytes": 10122,
+      "sha256": "cfb441836ab92c3212341285a1d2ce85d776a1a383379b25cfe2f10b67f2eb2a",
+      "barrel": false
+    },
+    {
+      "id": "demo/test/export/byte-exact.test.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/test",
+      "bytes": 20692,
+      "sha256": "62027db100d57b324a5c6ce71b9cd1123383b44f86d47c715a8cd21c1ddf15eb",
+      "barrel": false
+    },
+    {
+      "id": "demo/test/glass/aurora-bracket.test.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/test",
+      "bytes": 8548,
+      "sha256": "6dadca7e10e1d03b2dbd9e0dd2c894c00bcc2c22e18a3827f3b10d2972096f03",
+      "barrel": false
+    },
+    {
+      "id": "demo/test/glass/aurora-motion.test.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/test",
+      "bytes": 2118,
+      "sha256": "17035fd701f65e92e699fdda2f99c2ba8c9a1401ad30092f7bf0c94200770bd0",
+      "barrel": false
+    },
+    {
+      "id": "demo/ui/alert/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 641,
+      "sha256": "d28e0ca92e0f3f61ed6b94e2bc9e28798744845f712a18a66a76e6912b42ff03",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/avatar/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 72,
+      "sha256": "e824d8c28123af5ddd08a706ee3d27619774004e9fbe6a7b1c336853e3403016",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/badge/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 77,
+      "sha256": "3037cee518d8fb12dca2560045ee58fbff7247e61979b862746e0a99276f7e29",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/button/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 43,
+      "sha256": "2488eb7bfdfd27f69605ea6e8994ddabbea78feaca620f12f0fc7e1aa806eb66",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/card/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 106,
+      "sha256": "070ff369e509f2d371a42dd3f03b235746eb3b0f99ed332880326e6745ff9661",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/checkbox/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 45,
+      "sha256": "313f07f43ff4334d2c62f34960e22308ff4fd7a6514ccc92d1f90b0e606835cf",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/collapsible/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 88,
+      "sha256": "6e243ae126da20d45a31e17ec887deda813c0d867e07991617ed93ee0a51c419",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/dialog/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 146,
+      "sha256": "2bf1affe9dbd16482771f428c3bcca354f29523d881ebabd2d3c493b2ebe491e",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/dropdown-menu/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 330,
+      "sha256": "8478ca76c7ba75ac01dd7778342e791de3ec2e933f479a8cfb1c29c0d26eb488",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/input/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 48,
+      "sha256": "4b624e2d4f66b8019a4edb4313ee24996ec0f36498ec98f9d3e6e0a234973ddb",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/label/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 42,
+      "sha256": "cc5aedb87016ef3a3276d3cd7dec6ebe4674d66e1b8d9fb326a23053b011aad7",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/popover/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 76,
+      "sha256": "052b4272c35b92da5f6d1ebe3badf39b81e1841814331b208e8c8b7fe8ce3db9",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/radio-group/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 63,
+      "sha256": "df37627bc08b2df7e282b5fa85f61e399be981291795c883e2dc3cc5d997bf65",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/select/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 141,
+      "sha256": "85bbea67e7a05ae907b8dbac513a76674c60abb2d61de32c38bb7d54ac37eec6",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/separator/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 46,
+      "sha256": "329bf35df8c7168aea44d39a316521877b849112a16a0802b978b1ba32d09e0c",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/skeleton/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 45,
+      "sha256": "1e457071c3ded4b6bfe755fb0e53f826482f1102c9def21b8b51e855440f3849",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/slider/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 43,
+      "sha256": "519a52f94963eff6421bd49db16616e5834dfa0c09bde405dca55d7ba9b2955f",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/switch/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 43,
+      "sha256": "eb0b011db57a494b144f5e57f9bdd449e421d91081bedc5a6a2585bf20fe5a2a",
+      "barrel": true
+    },
+    {
+      "id": "demo/ui/tooltip/index.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/ui",
+      "bytes": 93,
+      "sha256": "1fb0db6d17c116d0f1867c4884d68c9387d06e22be9553ecb60f41a7393a9d9c",
+      "barrel": true
+    },
+    {
+      "id": "demo/workbenches/extract/ExtractControls.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 6559,
+      "sha256": "71aa0a65873c367ae3ae393283d4e81bcfc9cbb57b6f232eec9f930264d46c28",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ExtractPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1352,
+      "sha256": "4a1dc96e50692c85d34dcad785ba3e18acb87abbd2446a06f96d149ae27f4ade",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 12704,
+      "sha256": "d718ae30ab051246bd7da477c8c8d89758ddcd0680f52cdc5c4fd654ebc95efe",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageDropZone.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4388,
+      "sha256": "4547827a9375078c90f61066f99620e15747de1007314c7ad53e4b0c0fb6a00d",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 9932,
+      "sha256": "67b7df00c8ed177166c113e3e32a6c98ba59ff9699c98fab53cbdaa052d67a1c",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4905,
+      "sha256": "a74985aa3a3b304df13cb4c088e107a78332eb3320f3764384c7081c857596bf",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 12879,
+      "sha256": "2d7518537b06034b4b3c3a6d41d98063b51a9529805d226c150ae46c29d2f006",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 2320,
+      "sha256": "2d76a2cc42d56bb65bfee1a8fdcfe5cdbf66e4ab8b4aca753b07e33955c5cc10",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/ImageEyedropper/constants.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 324,
+      "sha256": "9e36e848d2a293d29fdfa9fdf0502343ad2348f9533c37226ed99b755acfe59f",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/composables/useExtractSession.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 7434,
+      "sha256": "eac1cb810c5cf5a3f2cf93bfa3e7ddf7cabf7e7250af5dbb29f106fb379c5829",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/composables/useImageQuantize.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 6085,
+      "sha256": "14e8b27b92b2be367334340038da2cd56c23f0a63f508634131416af7359c87d",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/extract/quantize-worker.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1400,
+      "sha256": "842760ab7d954850fd068b0ac7d1a5e838d683672c15db670b089c9d880ab012",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/generate/GenerateControls.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 14486,
+      "sha256": "4f95c57c7a6c46fa15a08b98b954a39529a12f71bda672423c7008c33ae324f6",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/generate/GeneratePane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1476,
+      "sha256": "009c71a208ae2c4e16c41fc650c7ef531ff431803c3b8fd35d8f4e1e8a7afbc7",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/generate/composables/useColorGeneration.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1345,
+      "sha256": "d79223157278286db195b85c75f683e9cf61b3ce54e418eaabbe25b884930802",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1142,
+      "sha256": "193b938edb082f1c62fc623788d61d0f717ca56ff4851ab025e8ee84f6169880",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4256,
+      "sha256": "9919c631fc54784b291384f1c07f6546b7a6a7e709de67de378915894616944b",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 12449,
+      "sha256": "59a3c2db2179192fa383a56523738d8bd58ebd53001f90ca1fe5bd3725a79c0d",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 17314,
+      "sha256": "e229987aa4babb5354010d02309c06bff6b74db7a0b3b85d11be0c6b164a2194",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 11464,
+      "sha256": "7684f93f1dc6840686bef82e6ab6fdd4f64f1b9a62ef77cf5ea4e4a5357a5786",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4472,
+      "sha256": "a5aba0bc9f523cfb17c95ccaab0d33848a3de2093479cfec00c2c74193f24aba",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 8003,
+      "sha256": "1d8bbcca4130190715b85a96572e868092dc5157bb0a816a99fd2145751198d5",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 9045,
+      "sha256": "892b3de8917251960b414aee80975c7cd36305b2e05ee997bb041c54dc5e10fa",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 2646,
+      "sha256": "6e057fa1b2188eb0c8b9c118c7d760efccb79a5a9b5c3e1b477c12dbef954a6a",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/composables/gradientParse.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 10737,
+      "sha256": "28b991ef1a055d1a994f239b9d91bf55647d8e70628d4a55548d4baedb120a91",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/composables/useGradientCSS.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 11981,
+      "sha256": "f6adddd68f9c3d46886657a239c7b944c8f49fdb255e9562317f45e1299fc07a",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/composables/useGradientInterpolation.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 2011,
+      "sha256": "9a24dd8a374264048c537b594895cf6a11031cde31662a711c172d6655dd9cb1",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/gradient/composables/useGradientModel.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 6490,
+      "sha256": "fc32b993f79d248c980a4012d66d3355f42f202c8cf43ae08db0d0adc6011578",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 1189,
+      "sha256": "c35286dfe7ab77a766ba21aeb889e17be7950c1bb4e2385b524319e2dd7e3e06",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixAnimationCanvas/composables/mixStage.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 9385,
+      "sha256": "854e7f831270f2259184a4d54decde778a70837822c425e29f6967b2fe8f5c2f",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 7683,
+      "sha256": "39baf65bfe2cfc537b5998683ef8d0d65ac395cc7a5717e09183ef96d05f89e1",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixConfigBar.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 7418,
+      "sha256": "cceda8035c5f0da677d5bb0b625c0eb5cb6faa1c86bd3aaa96a26562c03d0365",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixPane.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4774,
+      "sha256": "e59d74fef292472aacede86635e7edcac5b043c9f8986c299d308546bc9b7d3b",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixResultDisplay.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 6243,
+      "sha256": "ca014bb6234da6145d69799670c0ea30e8b0a6bb36eec960a69eeae1d7faa12f",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/MixSourceSelector.vue",
+      "kind": "sfc",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 13469,
+      "sha256": "4506ac0f8e17406fc0e8bed953dcaeec11230367c8d22bfae08df981bb12064b",
+      "barrel": false
+    },
+    {
+      "id": "demo/workbenches/mix/composables/useMixingState.ts",
+      "kind": "module",
+      "band": "demo",
+      "area": "demo/workbenches",
+      "bytes": 4877,
+      "sha256": "11be74c58439f7d9a12466e4858d9b513eb7f77791c0f0b9bd3e84bd978217a2",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/a11y-modality-support.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 13370,
+      "sha256": "cf09a9447b27630fda5f533cbb83feba54719515c0a6a07fe75d064481d3e1bb",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/a11y-slider-operation.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3582,
+      "sha256": "a04a131c9922e2912d3c432128ecae73536b37509fe7beca2cec384b4b0b2df5",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/a11y-web-modality.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 6354,
+      "sha256": "3e2c740c30051e72e94cb5da8d6d3d399d364cf8c92e6b421ab389bf9af724e2",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/a11y-authed-admin.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7035,
+      "sha256": "a93d56b61e38735492b18239a63ea47ca21529ae93802c620c7f8c38e8dd3fc5",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/a11y-authed-user.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3403,
+      "sha256": "eb32938e57aca0b23a25ad01b24ee7ebf92dd5a3ee75a3ad8e9b56ea7f0fa17c",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/admin-populated.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4499,
+      "sha256": "d1204787063fe7f5f77b84f085af2409922f36a01f846cfc6909d039a638e17d",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/admin-walk.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3534,
+      "sha256": "5e5a4daff052560bf3d2af699831085f9fb168e2ad6c05afbd7c637015c0936d",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/fixtures/a11y-battery.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 11257,
+      "sha256": "d2a9c7a280acf9b7fe9f080dcb1df55967533e72e6c8e60c8ae8a28a353fd98e",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/fixtures/admin-auth.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3784,
+      "sha256": "a8de5d84f444b2f44caaf25703bf425580f131de2546777558be3a4e6b3fb451",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/fixtures/admin-populated.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7895,
+      "sha256": "85e2b2563ef4fe75762b3c767dd790fa812dce17b5d2586236c0daa1f5dcb7c6",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/color-approve.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1378,
+      "sha256": "423431d01cafade0a699891dd6501c877acb0469b430c3526b1431dd15cd636f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/color-reject.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1364,
+      "sha256": "ba7288d06bd72628c89017f0289b1e0b65e4d1b1c098fc1ff1b4d48db9a3dbf1",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/palette-feature.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1911,
+      "sha256": "49eb0160f9af6fdf7335cb28df01597db5929098c9c4c663baba1503d8b14a12",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/tag-create.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1752,
+      "sha256": "e6c1ac3392a3eb799b6ef89d6befdf73098961c6a3b4f92e91ef247f1d596d15",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/tag-delete.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2302,
+      "sha256": "5c226a31930b1cbf8886179be3f67687cbd0ae950726ca5593ee4511d052c251",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/flows/user-status.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1974,
+      "sha256": "90df4a563f67eb3d09d4d8fd6c1a90ac690c5973844fb856616e460c7ebcec5a",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/admin/o10d-admin-title-voice.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1709,
+      "sha256": "cedb1ccf9931075495853a4299c9e099e20591755e833412ca169c817f489597",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/atmosphere-cold-load.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 9896,
+      "sha256": "af95a214b54cba19fc23b62e9fb79ad2229259b58d6c031f07d471902b987f33",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/color-space-switching.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1141,
+      "sha256": "47fdd69f532bc9f15f2b2d648f1c99b3615c09f6aee7fc004df6d255de59e38f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/dual-pane-1440.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 14779,
+      "sha256": "c081e960e8fb6c5a1fe73629c0baae602882b3f8e87967a68fd7ae2f33ed2689",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/blob-timing.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3026,
+      "sha256": "146075a1a2b32b4cc9b308bf9129cf33c48cce4b202c5ca3ac6f0d5cf796107b",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/browse-palettes.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3942,
+      "sha256": "ac316c55b576125ed43ac099bd7e5d4efac95a808a2c830ab3d412cd925f15ef",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/dock.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 5589,
+      "sha256": "d7e92ad3c2281bf0add4ff778fdfd4b480310a9fbe2c943bed99328b6a722f55",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/env-noise.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3350,
+      "sha256": "819b1bacd60613725e61e0b53c8f18e5f49648cbbcc1f66a078b87925f23f85a",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/frame-diff.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 9979,
+      "sha256": "a764f7346709370ae215d2e1b5f32d309c3d86ee9642bda5686a65fad5741892",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/user-auth.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 5515,
+      "sha256": "011f123e2cf7aa3150d202d6401f106635b42a3166c04f94f08eeb249dbbebea",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/fixtures/webgl-appearance.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4372,
+      "sha256": "229df4747969c2f98b3ffe16ca1dd90bb9c17c1e62abe15c324f1fe39722997a",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/color-propose.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3130,
+      "sha256": "f7c4cde7e2d1557478b9eb1e647c278db014e68dea289f677337ddd56f4d7f93",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/login-register.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2232,
+      "sha256": "08c85e24de4b7576ea5f56722e1c32448133ea86433a5ab754801dd4d8cd0a11",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/palette-delete.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1747,
+      "sha256": "22af4aa587cf2ffcf5422ff1bf98fc8e255204f6f9cf0f79ad4461a87a86de13",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/palette-edit.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2010,
+      "sha256": "f37cc66edaf4048ffd1b43d336d6fc92a8609c5b758f5703944a01d334ca1168",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/palette-flag.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1809,
+      "sha256": "cfa80e442be7f74be0795c545de048b3e1454e75c509687758e0acee6a409a92",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/palette-fork.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1690,
+      "sha256": "9266f3020e9b358dc1cbec12491285cd16731d7bc21f909516decc7280ca180e",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/palette-save.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2644,
+      "sha256": "782093c33228a6b093cc274b18b4930906569b225bb76b4a6de78ec4f67b7c87",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/flows/vote-toggle.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1511,
+      "sha256": "f5c36f22e2873236d0680f3c3cd7a6a5a48e995bc07b82a7853bda7f0458be7f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/mobile/blob-presence-mobile.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7448,
+      "sha256": "877b1e73bc149f53ec168ba92d93e300bac92f7f1d3a37245145d294ef014a38",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/mobile/page-load-mobile.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2376,
+      "sha256": "a9e791f14047a7705af9778b25f51829309d48c5c008a4090878696acd56b6df",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/mobile/walk.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 8460,
+      "sha256": "c8c8c5351ecd14d774b05a0fbacdba2eb38be0a2683630b90f0f3a2f9db63f28",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/gradient-pixels.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3032,
+      "sha256": "6b99c7deff9fe3b7949d76696bde0382d657e36ee1eaf3b164835290975d9e48",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o1-color-truth-boot.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3945,
+      "sha256": "f0bc5be3bdf48e885a9c0aec61f53c52c2a92d0930f05102bd3a9bfed8c7dd25",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o10-type-locks.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 16334,
+      "sha256": "15e81a1c82432a9673a77097cb3051103be8e073b36ab7d59ffbda6486b4e8cc",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o10d-display-voice-census.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 18614,
+      "sha256": "d1aa645344252925b4db5e6692ba6ff56c82eaf37fb519e13f249f1c1e25bed2",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o11-header-gates.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 16236,
+      "sha256": "464d59debe576cdc3627e40051e5a3dbd50a1db2c7857f6699beeac4da71cbb6",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o12-blob-seat.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 10675,
+      "sha256": "1da093af813ea2817c4cbe6de974e41a6575adea89987dbd4f7ffa0a88c611ba",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o14-preview-truth.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 26478,
+      "sha256": "307637426b08ac50144b27b8596aa340928a322e155148ee70ed001796d26866",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o15-dock-register.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7691,
+      "sha256": "d1bfb2d9b3ee805677c990d9226c537d5b85fc5252e254e40ac4a056a4c1c94f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o16-computed-cascade.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 13732,
+      "sha256": "3975195cfb04a504474e3f047311bac9d5f38e76b18313e2c247d29b58cd3bae",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o17-easing-composition.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 8681,
+      "sha256": "6137413d115afd73176bb9369ca98b11e2ffc8daf16c4349abeb886dbc1d4bf5",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o18-contrast-census.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 55757,
+      "sha256": "62b5e5fceef2c865d88c8ee467d871407807569665fc669d46bd3626c9e5b8c0",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o19-netting-luma.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 5442,
+      "sha256": "373b9d792f5907bd82322b14dd510759fcc86773d0fa37528540db83c0bd0973",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o1b-ground-luma-leap.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4940,
+      "sha256": "c9d9992e87d8ee2a826351db7abba65d8073c5cf8ed823c4b3406d0c8b3bed8f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o2-real-hydration-coldload.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7427,
+      "sha256": "1ff82171ac993d60fa7a831356c1af39dae2ffdb5f6c0e5722e3bf9f6c58ad46",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o20-generate-plate.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4480,
+      "sha256": "ce750f20da04e72b0e8a75774cf1821b027480aca762946cfda0f52791a47929",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o21-gradient-rail.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7349,
+      "sha256": "e8d06f62e6235ffd0a56206412fc5edfd3d0926d7ea972b0dd3505b96ed90d0c",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o22-status-lamp.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4107,
+      "sha256": "32c7b93c1f7206ab415907194e16b24cc31940307c9c3485466c5ea93ccd4e97",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o26-aurora-perceptibility.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 5266,
+      "sha256": "a15c5cda9fdf4eab216c3225350276d2290f48c8d0fe166e2cbb535771efbffc",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o27-focus-affordance.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 9318,
+      "sha256": "ca2254d960ab6b323cab1c0b154fb32c7fe50c8fe79955afe48d062fbbf1f0d1",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o3-headed-gpu-probe.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2952,
+      "sha256": "aa0f6b9da5841f24a6101759dc83f79e47b8ce159d760c2159c9d2f5fce9e9a7",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o4-order-invariance.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3460,
+      "sha256": "e435242841b7ef98d1ae737ea5236ddbb2b4d20235b82b23acfc15b921e6a128",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o7-card-census.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 20575,
+      "sha256": "fc1efd06918765864de46d4d55fd05dcaee122c274a55e14f5d792eb906b48f3",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/o9-shadow-palette.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 10638,
+      "sha256": "2af70da49385d1b2191f1f342754d8f0e20156c6624adfcbed2e808c5fb2ccf5",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/readout-seam.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 7060,
+      "sha256": "2ae44e819dd02c13f131d7df91328167c7b7ab9ec37b8f653402584dfd30da01",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/oracles/t31-dock-band.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 13999,
+      "sha256": "ad54f8f827b40141a4eb34a1c54ce2fc32c7c246cd7b4987b13d864d0f04f293",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/page-load.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1667,
+      "sha256": "e21480564571c1df7f9db92132f7743df37c9cea5fcde9e0c16979b6d270d0a2",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/drag-frame-budget.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4569,
+      "sha256": "bc88088d1cd1b28ca8671c66e96a9a0d5b2cad62c7632e8b083dcf21639d044b",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/frame-budget.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 8849,
+      "sha256": "6d6c489d53338a8332169c9e77fbf92ee7754aa4e4ecb6bf4e71a030be67c0e2",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/idle-frame-budget.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 5656,
+      "sha256": "6a7c2ba7e72069fe884da7ab847e3e7d53d6ba452b68650df7105dcf7bcfbd76",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/o24-lcp-identity.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 6610,
+      "sha256": "b3d744fa381b26a0c155f73d117c530aedbb7a003283487171c2355766195042",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/o5-boot-pacing.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3720,
+      "sha256": "e22596fbba6ae6788c26e2872b34a8c7fa50a95073d86ce56e6d2bde402cb3d4",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/serve-built.mjs",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2591,
+      "sha256": "9dc4aa51b0db56bcc367b43787d1f25594b519c55f98bac5f189715d8ae31b1f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/perf/view-switch-frame-budget.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 6441,
+      "sha256": "369819125159a7e291a095fdce584a4bf0c784b01bcb34b359c9e16af84d8c53",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/reactivity-instant.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 11696,
+      "sha256": "654da84fc8cb2560a32136158e3ae7e169ed1d2b4497fae975ff57e64b2c124f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/safari/dual-webgl-atmosphere.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 16297,
+      "sha256": "0c67f45c4cb6d3495018abc3566b275c85e5efee1a829212225a9ce25282bdc1",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/safari/mix-flow.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2017,
+      "sha256": "5064339325b4388be686f897cc8938a81f50515eabdbe1b69be466745f473fed",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/safari/sustained-30s.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 11704,
+      "sha256": "59326c084e7a466df4f73dac19346d562bc79de8953f8a5ea5ee97126bfc5ec8",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/url-color-precedence.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4864,
+      "sha256": "db73f83bc880c5ee8da15b9b2bc51154f34939077c30971ed0283b124cef4178",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/views/browse-loading.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 1874,
+      "sha256": "b8de86ea922fe3207dbfab483170a8fd737f1e1b3579e5a9b6908e1be2cab30b",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/views/browse-pagination.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3166,
+      "sha256": "00e642d16f237eac6977d9cb12b01ac8bdc46a848e84c1ae1bf3e3243612cc96",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/views/gradient.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 13053,
+      "sha256": "9773dd4314fc4144a7cbeaf11277e2231fac51b8f9b5eaf975fabc41e4bec672",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/views/mix.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 2863,
+      "sha256": "ea1d7ec1c16245a6d9d9c07ae01eb10a475368a72c725d24ecabda6c34e4a063",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/walk.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4811,
+      "sha256": "7523c03b88428dc0a4619c5917aaf2d44085e2382fa38c38c3eeb8030a58d21f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/webgl-atmosphere.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3524,
+      "sha256": "6aa271cd59866647b4d0dc495c7cba02f2de3e4c0b4a615905cf33f7fa9cba40",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/webgl-blob-idle.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 3974,
+      "sha256": "eff60fbc1a144995b5cef52607544523ff76bfc3272a8bd5d470ef89017f8a7f",
+      "barrel": false
+    },
+    {
+      "id": "e2e/smoke/webgl-blob.spec.ts",
+      "kind": "module",
+      "band": "e2e",
+      "area": "e2e",
+      "bytes": 4898,
+      "sha256": "ca2630413b5de6fd742efb7780a2b4474a1f15276102a9e5e2303c85a9106292",
+      "barrel": false
+    },
+    {
+      "id": "outside:plugins/vite-defer-glass-fonts.ts",
+      "kind": "off-roster",
+      "band": "external",
+      "area": "outside"
+    },
+    {
+      "id": "outside:plugins/vite-source-export.ts",
+      "kind": "off-roster",
+      "band": "external",
+      "area": "outside"
+    },
+    {
+      "id": "outside:vite.library.ts",
+      "kind": "off-roster",
+      "band": "external",
+      "area": "outside"
+    },
+    {
+      "id": "package.json",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 3770,
+      "sha256": "5be878cd1806a003438ce0645d2c6338e027ff72ad075c107fa3e1aa08ebe544",
+      "barrel": false
+    },
+    {
+      "id": "pkg:@lucide/vue",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@lucide/vue",
+      "installedVersion": "1.17.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/aurora",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/blob",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/chip",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/color",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/configurator",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/dark",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/dialog",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/dock",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/dom",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/easing",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/fading-scroll",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/forms",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/motion",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/motion-core",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/search",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/styles",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/styles.css",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/tabs",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/glass-ui/watercolor-dot",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@mkbabb/glass-ui",
+      "installedVersion": "7.0.0"
+    },
+    {
+      "id": "pkg:@mkbabb/value.js/color",
+      "kind": "self-subpath",
+      "band": "external",
+      "area": "pkg:@mkbabb/value.js",
+      "resolvesTo": "./dist/subpaths/color.js",
+      "artefactPresent": true
+    },
+    {
+      "id": "pkg:@mkbabb/value.js/css",
+      "kind": "self-subpath",
+      "band": "external",
+      "area": "pkg:@mkbabb/value.js",
+      "resolvesTo": "./dist/subpaths/css.js",
+      "artefactPresent": true
+    },
+    {
+      "id": "pkg:@mkbabb/value.js/easing",
+      "kind": "self-subpath",
+      "band": "external",
+      "area": "pkg:@mkbabb/value.js",
+      "resolvesTo": "./dist/subpaths/easing.js",
+      "artefactPresent": true
+    },
+    {
+      "id": "pkg:@mkbabb/value.js/math",
+      "kind": "self-subpath",
+      "band": "external",
+      "area": "pkg:@mkbabb/value.js",
+      "resolvesTo": "./dist/subpaths/math.js",
+      "artefactPresent": true
+    },
+    {
+      "id": "pkg:@mkbabb/value.js/quantize",
+      "kind": "self-subpath",
+      "band": "external",
+      "area": "pkg:@mkbabb/value.js",
+      "resolvesTo": "./dist/subpaths/quantize.js",
+      "artefactPresent": true
+    },
+    {
+      "id": "pkg:@playwright/test",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@playwright/test",
+      "installedVersion": "1.60.0"
+    },
+    {
+      "id": "pkg:@tailwindcss/postcss",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@tailwindcss/postcss",
+      "installedVersion": "4.3.0"
+    },
+    {
+      "id": "pkg:@vitejs/plugin-vue",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@vitejs/plugin-vue",
+      "installedVersion": "6.0.7"
+    },
+    {
+      "id": "pkg:@vueuse/core",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@vueuse/core",
+      "installedVersion": "14.3.0"
+    },
+    {
+      "id": "pkg:@vueuse/integrations/useSortable",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:@vueuse/integrations",
+      "installedVersion": "14.3.0"
+    },
+    {
+      "id": "pkg:clsx",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:clsx",
+      "installedVersion": "2.1.1"
+    },
+    {
+      "id": "pkg:fs",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:fs"
+    },
+    {
+      "id": "pkg:highlight.js/lib/core",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:highlight.js",
+      "installedVersion": "11.11.1"
+    },
+    {
+      "id": "pkg:highlight.js/lib/languages/css",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:highlight.js",
+      "installedVersion": "11.11.1"
+    },
+    {
+      "id": "pkg:katex",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:katex",
+      "installedVersion": "0.16.47"
+    },
+    {
+      "id": "pkg:katex/dist/katex.min.css",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:katex",
+      "installedVersion": "0.16.47"
+    },
+    {
+      "id": "pkg:node:child_process",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:child_process"
+    },
+    {
+      "id": "pkg:node:fs",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:fs"
+    },
+    {
+      "id": "pkg:node:http",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:http"
+    },
+    {
+      "id": "pkg:node:path",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:path"
+    },
+    {
+      "id": "pkg:node:url",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:url"
+    },
+    {
+      "id": "pkg:node:zlib",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:node:zlib"
+    },
+    {
+      "id": "pkg:path",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:path"
+    },
+    {
+      "id": "pkg:reka-ui",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:reka-ui",
+      "installedVersion": "2.9.9"
+    },
+    {
+      "id": "pkg:tailwind-merge",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:tailwind-merge",
+      "installedVersion": "3.6.0"
+    },
+    {
+      "id": "pkg:tailwindcss",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:tailwindcss",
+      "installedVersion": "4.3.0"
+    },
+    {
+      "id": "pkg:tw-animate-css",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:tw-animate-css",
+      "installedVersion": "1.4.0"
+    },
+    {
+      "id": "pkg:unplugin-vue-markdown/vite",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:unplugin-vue-markdown",
+      "installedVersion": "32.0.0"
+    },
+    {
+      "id": "pkg:vite",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vite",
+      "installedVersion": "8.0.16"
+    },
+    {
+      "id": "pkg:vite-plugin-dts",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vite-plugin-dts",
+      "installedVersion": "4.5.4"
+    },
+    {
+      "id": "pkg:vitest",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vitest",
+      "installedVersion": "3.2.6"
+    },
+    {
+      "id": "pkg:vitest/config",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vitest",
+      "installedVersion": "3.2.6"
+    },
+    {
+      "id": "pkg:vue",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vue",
+      "installedVersion": "3.5.35"
+    },
+    {
+      "id": "pkg:vue-router",
+      "kind": "package",
+      "band": "external",
+      "area": "pkg:vue-router",
+      "installedVersion": "5.1.0"
+    },
+    {
+      "id": "playwright.config.ts",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 13499,
+      "sha256": "4ec8dbba5453fae2b784d8880b84c0dd80a951c2f63ab1af52aff0e86be1812c",
+      "barrel": false
+    },
+    {
+      "id": "route:/",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "picker",
+      "wildcard": false
+    },
+    {
+      "id": "route:/:pathMatch(.*)*",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": null,
+      "wildcard": true
+    },
+    {
+      "id": "route:/admin/audit",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "admin-audit",
+      "wildcard": false
+    },
+    {
+      "id": "route:/admin/flagged",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "admin-flagged",
+      "wildcard": false
+    },
+    {
+      "id": "route:/admin/names",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "admin-names",
+      "wildcard": false
+    },
+    {
+      "id": "route:/admin/tags",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "admin-tags",
+      "wildcard": false
+    },
+    {
+      "id": "route:/admin/users",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "admin-users",
+      "wildcard": false
+    },
+    {
+      "id": "route:/atmosphere",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "atmosphere",
+      "wildcard": false
+    },
+    {
+      "id": "route:/blob",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "blob",
+      "wildcard": false
+    },
+    {
+      "id": "route:/browse",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "browse",
+      "wildcard": false
+    },
+    {
+      "id": "route:/extract",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "extract",
+      "wildcard": false
+    },
+    {
+      "id": "route:/generate",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "generate",
+      "wildcard": false
+    },
+    {
+      "id": "route:/gradient",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "gradient",
+      "wildcard": false
+    },
+    {
+      "id": "route:/mix",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "mix",
+      "wildcard": false
+    },
+    {
+      "id": "route:/palettes",
+      "kind": "route",
+      "band": "route",
+      "area": "route",
+      "routeName": "palettes",
+      "wildcard": false
+    },
+    {
+      "id": "src/color/anchors.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 16563,
+      "sha256": "342e2c08adbebda075a60ae84d3c3d1b6a2be77d0e043ddf123f765f779faf0a",
+      "barrel": false
+    },
+    {
+      "id": "src/color/index.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 614,
+      "sha256": "f6d0487ad901c744a58d8b4123aec77a31c7d5a60327af2140165b11bdbf7b70",
+      "barrel": true
+    },
+    {
+      "id": "src/color/model.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 6385,
+      "sha256": "b5dc6194d4c58a72c4faee51adf3eab3bbc5bba798874ea9914031d9881512f0",
+      "barrel": false
+    },
+    {
+      "id": "src/color/operations.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 14010,
+      "sha256": "9d08df115172fd65affef63a566eb13ef76d5603c23bd52c17d96a57cdb4b8ed",
+      "barrel": false
+    },
+    {
+      "id": "src/css/grammar.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 22182,
+      "sha256": "40f8e379b8f3242b0f3c68efa7d52ebc3adf8d6dc7f8edc9231fa115e68d6b69",
+      "barrel": false
+    },
+    {
+      "id": "src/css/index.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 1310,
+      "sha256": "c09d076ed779fedee1840c59900e0f34e5cba36c32c126ced864a849a3acf90c",
+      "barrel": true
+    },
+    {
+      "id": "src/css/named-colors.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 3920,
+      "sha256": "ca26754d97a4d06e0131bde72bf31f8e4bfd011a40dbd3787484420054222a39",
+      "barrel": false
+    },
+    {
+      "id": "src/css/stylesheet.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 42910,
+      "sha256": "882317b69427bc6e23199e615941a13c5ce367064ef475eef03f075f821d2ec7",
+      "barrel": false
+    },
+    {
+      "id": "src/css/syntax.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 3967,
+      "sha256": "c60edbe6705973b055ca128d5fa636b10184f44ce877f1eb348da89bd9d03ca7",
+      "barrel": false
+    },
+    {
+      "id": "src/css/timeline.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 6044,
+      "sha256": "8e3be9dcf79437a7214ec2c013be4dadedab3d2ddea5a57e3eb1a50793ab53a1",
+      "barrel": false
+    },
+    {
+      "id": "src/css/types.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 5879,
+      "sha256": "109327ce94fdcc37d57677e23e3c0bd0c8dfde399ace2998a87e2442d9338fe2",
+      "barrel": false
+    },
+    {
+      "id": "src/easing.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 7121,
+      "sha256": "5fdc0e9160f7b3db99e74da9f89bc4a76e4672d2b255ed6a2ef87d9bee99bc87",
+      "barrel": false
+    },
+    {
+      "id": "src/foundation/math.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 4784,
+      "sha256": "92dcfc40e378f1bd9697db9adbc756670b4a6ccb6759e964e44870951961cbd6",
+      "barrel": false
+    },
+    {
+      "id": "src/foundation/result.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 278,
+      "sha256": "93e1b4bd65a7531e0df7fde9bb4aa07930517d289f1be8d3912df561f5ebdb39",
+      "barrel": false
+    },
+    {
+      "id": "src/quantize.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 5931,
+      "sha256": "3421d7f34f13e9a44c3052107c21e040c0d604c26f758b457aa0210822104dc8",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/color.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 538,
+      "sha256": "4ea184191026a6c47d2c1e7dc49e37cf7bc848e91876d3be3a2f0e7ca124a266",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/css.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 1233,
+      "sha256": "f4dade4353200fa86be0f7ba5c116eb8605cf6719a8c45b87ecb35204c154ae4",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/easing.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 438,
+      "sha256": "beefba647db53db6dcd0f63c8e4687ba2192f4c67bf1183aef8321dc31f36a6c",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/math.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 365,
+      "sha256": "a31a39f874e94dfe0a2d887175102638e876e295c141514371143ee749894264",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/quantize.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 144,
+      "sha256": "c626f9ac06797a59b9de60d263f2719110244f8fd8d901e6f3a524b00004f81b",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/transform.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 667,
+      "sha256": "b21d2de735470a4d44ef64274abceba847b7ac4f2c6d5cf24ee37535496cf8d9",
+      "barrel": false
+    },
+    {
+      "id": "src/subpaths/value.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 120,
+      "sha256": "67feafb877a1d9e481557a1aa668e3e9b7279a88200cfdd0fe61fe309615ab07",
+      "barrel": false
+    },
+    {
+      "id": "src/transform/decompose.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 21808,
+      "sha256": "3da7b62b2ecb71a33b1a4f7000c4c8f9757750b9d2a5000edf749ce9843fdb8d",
+      "barrel": false
+    },
+    {
+      "id": "src/transform/path.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 21726,
+      "sha256": "71327e18cc32d472d8e8fc9c5fbee502fb2a1452844e428a6efb232511a64a4a",
+      "barrel": false
+    },
+    {
+      "id": "src/value.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 1009,
+      "sha256": "73604f966c307d4424ee051277f4d8ae8e038aa7ba114d1a4502aaed7f3dfba1",
+      "barrel": false
+    },
+    {
+      "id": "src/vite-env.d.ts",
+      "kind": "module",
+      "band": "library",
+      "area": "src",
+      "bytes": 195,
+      "sha256": "03f2e0e648f979b67e81e768dd46c594ed21f78614524acc484fd3b989d69376",
+      "barrel": false
+    },
+    {
+      "id": "test/demo/palettes/api/admin-palettes.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 1455,
+      "sha256": "e9232702373d2e90e2d448a9cea7f8793fe5cc4f4f78807f37aa24999a3dc513",
+      "barrel": false
+    },
+    {
+      "id": "test/easing-export-stability.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 3541,
+      "sha256": "76b10ce444fa104b3e594dc0aa5f69269f9a026a50fe88857493f352aaa89eb3",
+      "barrel": false
+    },
+    {
+      "id": "test/easing.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 3004,
+      "sha256": "56b68b1f6de86528db41e9981f75b441adbb418c5dda95652954d0d22be48e74",
+      "barrel": false
+    },
+    {
+      "id": "test/gradient-parse.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 5643,
+      "sha256": "a4125856f4c4f053c416443ae52a4680cddcf2f3ba5ac50b894d92777907f6d5",
+      "barrel": false
+    },
+    {
+      "id": "test/gradient-v4-consume.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 2541,
+      "sha256": "286237c20e2258b9b22480503afe56c32c7599401cf53f671e56d32e38004ad6",
+      "barrel": false
+    },
+    {
+      "id": "test/image-sampler-v4.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 1238,
+      "sha256": "e004fb2defd8d14da9d6a52544a8ad1b9378c128ad869e3ac346eb91ada05bb3",
+      "barrel": false
+    },
+    {
+      "id": "test/ink.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 13985,
+      "sha256": "38ee850e93f711ad5733c41bb7fa3c9111842c303d2e2745b6e5fb957d88bf97",
+      "barrel": false
+    },
+    {
+      "id": "test/math.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 15298,
+      "sha256": "71940c5a4ff7e337bcbd7de005174316c4b8c32dd36b85d851fc177257c434ef",
+      "barrel": false
+    },
+    {
+      "id": "test/mix-v4.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 1916,
+      "sha256": "12b93a44b0c49f1919461c68635b8c98df8be16779197619d91153620fe44d74",
+      "barrel": false
+    },
+    {
+      "id": "test/parsing/timeline/parsing-easing.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 3907,
+      "sha256": "69d720ecdfa697a28acda3398553fc68f8def5843407304b8d53e5818d3b02ff",
+      "barrel": false
+    },
+    {
+      "id": "test/picker-blob-config.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 2147,
+      "sha256": "d0cbacb78f6c80d03f1fea4764b769c21f470b03005b1666896aa9e8af49a7db",
+      "barrel": false
+    },
+    {
+      "id": "test/preview-chips.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 4135,
+      "sha256": "9f388143b63d2ba4c5d1b2e1bd2e943a293c97c4e4ad8da5670a0db3ddcb40d0",
+      "barrel": false
+    },
+    {
+      "id": "test/slider-announcement.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 3581,
+      "sha256": "abe38916a1f5283dfede46f813052c69057da2d45b9cc3ec0a5bcf741d26db7e",
+      "barrel": false
+    },
+    {
+      "id": "test/status-lamp.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 6539,
+      "sha256": "bc474fe5745e1ab3c241729fd3942eaa5c82d251dd409592404d6ad7e8c749d3",
+      "barrel": false
+    },
+    {
+      "id": "test/transform/decompose-targeted.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 17992,
+      "sha256": "32c185dc7730fc3082b964667b431d4a995296b70a49608513e9da745d958dc2",
+      "barrel": false
+    },
+    {
+      "id": "test/transform/path-geometry.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 5111,
+      "sha256": "01a460cdce6746f95751059f810fcb2b8800abf7f19dca83cc973625aef3e6dd",
+      "barrel": false
+    },
+    {
+      "id": "test/v4-c1.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 19780,
+      "sha256": "d77cab23bd8d6845253479c14fcf90a48fa2bd11f1299a7b9bd5d9fc6cdc538e",
+      "barrel": false
+    },
+    {
+      "id": "test/v4-color-behavior.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 5771,
+      "sha256": "f796946bbed98683fce8acd8d01c32d3620c542434db4ce4f2997664ab3fb4da",
+      "barrel": false
+    },
+    {
+      "id": "test/v4-css-emerging.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 10235,
+      "sha256": "2ed1bf927a6497a11f8e3df85000247d9f46783cc97a462ec1a614d789ef423a",
+      "barrel": false
+    },
+    {
+      "id": "test/v4-css-public.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 8020,
+      "sha256": "5e668c6d53c24bca5ffd2b828a569e6b7d7b3c39985b91d560afaab38b3509fc",
+      "barrel": false
+    },
+    {
+      "id": "test/v4-quantize.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 5563,
+      "sha256": "0fa8f2652dbf6ac8690b0a8e8e97e5de4321f5987c4f1954349398afe3fbf5db",
+      "barrel": false
+    },
+    {
+      "id": "test/value-domain-clamp.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 4303,
+      "sha256": "a684b9bde8cb1e6af99339d8376cfbfebd30a05b6960a95eb1f065eace5efed2",
+      "barrel": false
+    },
+    {
+      "id": "test/view-accents.test.ts",
+      "kind": "module",
+      "band": "test",
+      "area": "test",
+      "bytes": 12934,
+      "sha256": "6e97786df2ec166ddabfebc9bc827c964266b5f5c163927c037b51b3f7d28af6",
+      "barrel": false
+    },
+    {
+      "id": "tsconfig.demo.json",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 3665,
+      "sha256": "10342b6fce51bd2a39f3f3b32512ec16f46149140d009f1404aea3c6aa6a83f5",
+      "barrel": false
+    },
+    {
+      "id": "tsconfig.json",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 723,
+      "sha256": "b9e47288c278cebffe3ca35697eb0712905ce26e995e8d51050fca18b92e7c4c",
+      "barrel": false
+    },
+    {
+      "id": "tsconfig.lib.json",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 1279,
+      "sha256": "6a6082bc05fdfc3ce7e02879908d3519056fb25ede75559d95fd4707c78a500f",
+      "barrel": false
+    },
+    {
+      "id": "unresolved:demo/@/lib/palette/types",
+      "kind": "unresolved",
+      "band": "unresolved",
+      "area": "unresolved"
+    },
+    {
+      "id": "vite.config.ts",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 14402,
+      "sha256": "4afbc168284ab781bc21c7a1c5dac59a0c8227dc5ac30d82b2acf59ee741d2f2",
+      "barrel": false
+    },
+    {
+      "id": "vitest.config.ts",
+      "kind": "buildfile",
+      "band": "build",
+      "area": "build",
+      "bytes": 1539,
+      "sha256": "ef2b40785a5cae9f99049191eeed457310dc79ee4496b3e758f07c3ef595b54a",
+      "barrel": false
+    }
+  ]
+}

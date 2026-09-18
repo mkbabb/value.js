@@ -1,0 +1,54 @@
+{
+  "A_rootRegister": {
+    "cardCount": 2,
+    "rest": {
+      "root": {
+        "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+        "translate": "none",
+        "scale": "none",
+        "transform": "none",
+        "borderColor": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+        "backgroundColor": "oklab(0.913299 0.005463 0.013024)",
+        "transition": "all",
+        "transitionDuration": "0s",
+        "filter": "none",
+        "opacity": "1",
+        "position": "relative",
+        "borderWidth": "2px"
+      },
+      "cast": {
+        "position": "static",
+        "zIndex": "auto",
+        "boxShadow": "none",
+        "display": "inline",
+        "w": 0
+      },
+      "vars": {
+        "shadowCartoonMd": "-3px 3px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 32%, transparent), -5px 5px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 26%, transparent), -7px 7px 0 color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 18%, transparent)",
+        "cartoonInkLead": "color-mix(in oklab, oklch(from light-dark(hsl(24 10% 10%), hsl(30 14% 90%)) clamp(0.28, l, 0.34) clamp(0.030, c, 0.050) h) 32%, transparent)",
+        "cartoonPressT": "0",
+        "cardPressT": "0.0000",
+        "easeCartoonPunch": "linear( 0, -0.012, -0.038 12%, -0.018 18%, 0.18 34%, 0.62 46%, 0.98 56%, 1.14 64%, 1.22 70%, 1.16 78%, 1.06 86%, 1.012 92%, 1 )"
+      }
+    },
+    "hoverDelta": {},
+    "pressDelta": {
+      "scale": {
+        "rest": "none",
+        "press": "1.0091 0.9512"
+      }
+    },
+    "groupHoverRulesLoaded": []
+  },
+  "B_hostNesting": {
+    "articles": 0,
+    "nested": []
+  },
+  "C_interactiveSurface": {
+    "collapsedInteractiveDescendants": 1,
+    "expanded": {
+      "interactive": 1,
+      "height": 172
+    }
+  }
+}

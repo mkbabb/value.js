@@ -1,0 +1,50 @@
+{
+ "forcedColors": {
+  "matchesForced": true,
+  "plateBg": "rgb(255, 255, 255)",
+  "plateFCA": "auto",
+  "dots": [
+   {
+    "bg": "oklab(0.73 0.0130184 0.0168178)",
+    "fca": "none",
+    "border": "0px rgb(198, 180, 159)",
+    "filter": "url(\"#watercolor-filter-v-1-20\")"
+   }
+  ],
+  "sep": {
+   "bg": "rgba(255, 255, 255, 0.15)",
+   "h": 0,
+   "fca": "auto"
+  },
+  "gradBg": null,
+  "gradFCA": null
+ },
+ "reducedMotionCss": {
+  "matches": true,
+  "plateTransition": "0.1s / opacity, color, background-color, border-color, box-shadow",
+  "durationFast": "0.2s",
+  "easeStandard": "cubic-bezier(0.4, 0, 0.2, 1)"
+ },
+ "normalMotionCss": {
+  "durationFast": "0.2s"
+ },
+ "tgroup": {
+  "rowPresent": false,
+  "firstMountFrames": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ],
+  "reMixFrames": [
+   [],
+   [],
+   [],
+   [],
+   [],
+   []
+  ]
+ }
+}

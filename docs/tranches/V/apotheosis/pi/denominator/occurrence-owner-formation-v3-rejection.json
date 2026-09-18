@@ -1,0 +1,59 @@
+{
+  "schema_version": "value.pi.full-source-occurrence-owner-formation-rejection/v3",
+  "status": "REJECTED_AFTER_TWO_INDEPENDENT_CHALLENGES_AND_ROOT_GESTALT",
+  "date": "2026-07-22",
+  "subject": {
+    "path": "occurrence-owner-formation-v3.json",
+    "bytes": 69590643,
+    "sha256": "3eaa1f5604a2e67087cfa1ddb8fedc571cd99f820ab716d6c7ec7ed1e86c5ef9",
+    "payload_sha256": "a630fff1643f5731af4a48a56ee9c8e8b9a4acea19ffc09881f761f8029f8ca2"
+  },
+  "schema": {
+    "path": "occurrence-owner-formation-v3.schema.json",
+    "bytes": 6775,
+    "sha256": "80f081145d3ac554f79fd68becd468748e567391ebe08ae2e4229893d5cbd72d"
+  },
+  "formation_receipt": {
+    "path": "../formation/occurrence-owner-v3-formation-2026-07-22.md",
+    "bytes": 5810,
+    "sha256": "7b6ae52d8abba34df2ea741d8f586323a22c9e7af4b09d6c5e01e2e39aaf793f"
+  },
+  "challenges": [
+    {
+      "path": "../formation/occurrence-owner-v3-challenge-a.md",
+      "bytes": 14309,
+      "sha256": "2b6ce7ff3f6f0c90af68d50ecdc01937e73cc52736410ba90d93de9cc9d8072c",
+      "verdict": "REJECT"
+    },
+    {
+      "path": "../formation/occurrence-owner-v3-challenge-b.md",
+      "bytes": 18006,
+      "sha256": "f204b533e4147347005ea2f6373ffda182bd47ae24151dff052bcd4a76dae1cc",
+      "verdict": "REJECT"
+    }
+  ],
+  "confirmed_blockers": [
+    "missing Bikeshed CSS/element/scoped-reference syntax",
+    "missing div-algorithm operation blocks",
+    "required slices lack exact or enclosing operation joins",
+    "operation interval aliases are counted as distinct boundaries",
+    "fixture coverage does not exercise the omitted syntax",
+    "schema accepts contradictory credit/count/row/digest mutations and is not executed",
+    "generator identity does not attest executed bytes or runtime envelope",
+    "formation receipt understates generator bytes by 61",
+    "52/37 routing is not a primary-source-to-DAG join",
+    "69 MB repeated monolith violates parsimonious reviewability"
+  ],
+  "accepted_narrow_fact": "Output-path-independent replay is correct for the exact v3 bytes.",
+  "credit": {
+    "denominator": 0,
+    "parser": 0,
+    "owner_graph": 0,
+    "cost_lattice": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "audit": 0,
+    "production": 0
+  },
+  "next": "Cut a compact sharded v4 subject closing the union docket, then obtain two fresh challenges and root gestalt."
+}

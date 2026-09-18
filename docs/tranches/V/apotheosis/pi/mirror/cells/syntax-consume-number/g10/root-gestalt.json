@@ -1,0 +1,78 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "subject": {
+    "path": "reviewed-subject.json",
+    "sha256": "589ed5ffe9c75416f4ffb8cdafe4ee776fecae27c4d6b16e2a3372c5c01c62c3",
+    "bytes": 1886
+  },
+  "challenges": [
+    {
+      "path": "reviews/challenge-a.json",
+      "sha256": "3b87be4d5d129eb2b9e405988325417110e3dc3fb406e286e595c3ae2cc851e4",
+      "bytes": 13648,
+      "verdict": "REJECT",
+      "actor": "/root/g10_boundary_challenge_a"
+    },
+    {
+      "path": "reviews/challenge-b.json",
+      "sha256": "dc9ebf11104c6cd396a194ffd20e685c46f578de2de49b60aa8c028b01a964f1",
+      "bytes": 11632,
+      "verdict": "REJECT",
+      "actor": "/root/g10_boundary_challenge_b"
+    }
+  ],
+  "verdict": "TERMINAL_REJECT_BEFORE_AUTHORS",
+  "accepted_narrow_facts": [
+    "The exact consume-number semantic contract, four-seat requirement, and direct-combinator architectural veto remain sound.",
+    "The complete installed @mkbabb/parse-that@1.0.0 package ledger, exact H/B lineage bytes, source peer identities, killable subprocess boundary, and write-once read-only holdout identities are useful inputs to a fresh generation.",
+    "The exact twelve-row formation replay passed in a disposable shadow; current hashes still prove byte identity but not lifecycle continuity or semantic adequacy.",
+    "The 240-case unrevealed holdout remains unconsumed and grants no feature or parser credit."
+  ],
+  "confirmed_blockers": [
+    {
+      "id": "G10-R1",
+      "finding": "The candidate harness executes only six successful smoke inputs. Both reviewers produced an incomplete direct parser that passes it while rejecting ordinary valid numbers; failure transactionality, maximal prefix, offsets, binary64 edges, composition, hostile behavior, and work limits are absent."
+    },
+    {
+      "id": "G10-R2",
+      "finding": "The B topology's optional-sign aggregate can restore offset while leaving predecessor value mutated on later failure. The S topology names a nonexistent guard API. B, S, and D need explicit transaction-safe constructions proven under the pinned engine before authors."
+    },
+    {
+      "id": "G10-R3",
+      "finding": "The peer adapters retype source regexes instead of executing the pinned live parseCssScalar, historical parse-that number parser, and C14 numberValue parser. They cannot support strict wins over the named implementations."
+    },
+    {
+      "id": "G10-R4",
+      "finding": "The harness executes through installed tsx bytes absent from the runtime closure, and the candidate census does not close all importable extensionless/module-resolution inputs or exact candidate roots."
+    },
+    {
+      "id": "G10-R5",
+      "finding": "No phase-aware current-subject/admission validator joins formation, holdout, challenges, root, external author-task witness, candidate roots, and author receipts. The only validator intentionally fails after lawful holdout creation."
+    },
+    {
+      "id": "G10-R6",
+      "finding": "Author task creation, served model, isolation prompts, per-seat inputs, no-prior-candidate access, and close receipts remain an absent manual witness. The combined topology file is common workspace material and must not become peer design leakage."
+    },
+    {
+      "id": "G10-R7",
+      "finding": "The public custodian receipt is internally consistent and fail-closed in policy, but no independent current possession witness is joined to the subject. Custody loss must reject before author work."
+    }
+  ],
+  "required_next": [
+    "Destroy G10's unrevealed private plaintext, key, generator, seed, and cases without disclosure and bind destruction to this exact subject and both challenges.",
+    "Freeze a full born-RED public corpus and harness that tests success, rejection, transactionality, offsets, maximal prefix, binary64 behavior, parent composition, no-throw, and killable work limits.",
+    "Replace impossible topology words with exact transaction-safe published parse-that constructions and keep each seat's design packet private from peers.",
+    "Execute the exact pinned peer implementations through a fully ledgered runtime, or mark a peer non-comparable; do not borrow implementation names for copied regexes.",
+    "Add one phase-aware admission join and a complete candidate-root/import census, then create external author tasks in a no-write preflight turn and bind their actual receipts before any candidate byte is written."
+  ],
+  "counts": {
+    "candidate_files": 0,
+    "holdout_reveals": 0,
+    "benchmark_runs": 0,
+    "skeptic_reviews": 0,
+    "synthesis_adjudications": 0,
+    "accepted_features": 0
+  },
+  "credit": "ZERO_ROOT_ADJUDICATION_ONLY"
+}

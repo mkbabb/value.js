@@ -1,0 +1,240 @@
+{
+  "engine": "chromium",
+  "viewport": "1440x900",
+  "steps": {
+    "triggerCount": 1,
+    "freshOpen": {
+      "present": true,
+      "dialogCount": 1,
+      "inputValue": "",
+      "inputPlaceholder": "#hex, hsl(...)",
+      "inputAria": "Search by CSS color",
+      "inputW": 148,
+      "inputH": 36,
+      "buttons": [
+        {
+          "text": "",
+          "aria": null,
+          "role": "radio",
+          "type": "button",
+          "checked": "true",
+          "state": "checked",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "",
+          "aria": null,
+          "role": "radio",
+          "type": "button",
+          "checked": "false",
+          "state": "unchecked",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "",
+          "aria": null,
+          "role": "radio",
+          "type": "button",
+          "checked": "false",
+          "state": "unchecked",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "",
+          "aria": null,
+          "role": "radio",
+          "type": "button",
+          "checked": "true",
+          "state": "checked",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "",
+          "aria": null,
+          "role": "radio",
+          "type": "button",
+          "checked": "false",
+          "state": "unchecked",
+          "w": 44,
+          "h": 44
+        },
+        {
+          "text": "",
+          "aria": "Open color picker, current color #4488cc",
+          "role": null,
+          "type": "button",
+          "checked": null,
+          "state": "closed",
+          "w": 28,
+          "h": 28
+        },
+        {
+          "text": "Search",
+          "aria": null,
+          "role": null,
+          "type": "submit",
+          "checked": null,
+          "state": null,
+          "w": 52.6,
+          "h": 24
+        }
+      ],
+      "radiogroups": [
+        {
+          "name": null
+        },
+        {
+          "name": null
+        }
+      ],
+      "panelRect": {
+        "w": 240,
+        "h": 468.3,
+        "top": 381,
+        "bottom": 849.3
+      },
+      "panelPadding": "20.352px 16px",
+      "panelMaxHeight": "none",
+      "panelOverflowY": "visible",
+      "hasTagSection": false,
+      "badge": null,
+      "triggerAria": "Filters"
+    },
+    "labelTarget": {
+      "found": true,
+      "x": 568.703125,
+      "y": 514.375,
+      "text": "Most Popular"
+    },
+    "labelActivation": {
+      "radiosBefore": [
+        "true",
+        "false",
+        "false",
+        "true",
+        "false"
+      ],
+      "radiosAfter": [
+        "false",
+        "true",
+        "false",
+        "true",
+        "false"
+      ],
+      "changed": true
+    },
+    "panelStillOpenAfterLabelClick": true,
+    "swatchCount": 1,
+    "swatchAriaBefore": "Open color picker, current color #4488cc",
+    "afterSwatchClick": {
+      "dialogCount": 2,
+      "outerPresent": true,
+      "miniPresent": true,
+      "miniRect": {
+        "w": 208,
+        "h": 218.7,
+        "top": 560,
+        "bottom": 778.7
+      }
+    },
+    "hueBox": null,
+    "textClobber": {
+      "inputBefore": "",
+      "typedQuery": "rebeccapurple",
+      "inputAfterType": "rebeccapurple",
+      "inputAfterDrag": "rebeccapurple",
+      "swatchAriaAfterDrag": "Open color picker, current color #4488cc"
+    },
+    "afterEscape1": {
+      "dialogCount": 1,
+      "outer": true,
+      "mini": false
+    },
+    "afterEscape2": {
+      "dialogCount": 0,
+      "outer": false,
+      "mini": false
+    },
+    "focusAfterEscapes": {
+      "active": "BUTTON",
+      "aria": "Filters"
+    },
+    "reopen": {
+      "present": true,
+      "inputValue": "rebeccapurple",
+      "swatchAria": "Open color picker, current color #4488cc",
+      "badge": null
+    },
+    "wallBefore": {
+      "cards": 0
+    },
+    "wallDataProbe": {
+      "ok": false,
+      "error": "SyntaxError: Unexpected token '<', \"<!doctype \"... is not valid JSON"
+    },
+    "searchBtnCount": 1,
+    "wallAfter": {
+      "cards": 0,
+      "badge": "1",
+      "bodyHasEmptyState": true
+    }
+  },
+  "consoleErrors": [
+    "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+  ],
+  "pageErrors": [],
+  "network": [
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/index.ts?t=1785261139656",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/composables/useDialogBrowseActions.ts",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dialog/VersionHistoryDrawer.vue?t=1785261139656",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/usePalettePorts.ts?t=1785261139656",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/browser/dateFormat.ts",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/usePaletteStore.ts",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/useBrowsePalettes.ts?t=1785261139656",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/useAdminUsers.ts?t=1785261139656",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/useFilteredList.ts",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:9000/@fs/Users/mkbabb/Programming/value.js/demo/palettes/useColorNameQueue.ts?t=1785261139656",
+      "status": 200
+    }
+  ]
+}

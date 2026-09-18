@@ -1,0 +1,20 @@
+{
+  "schema": "value.pi.syntax-consume-number.g12.seat/v1",
+  "seat": "d",
+  "role": "first-character-dispatch",
+  "construction": "Use dispatch for +/-, dot, and digit first-character classes; each arm owns an atomic grammar regex and maps to the frozen leaf.",
+  "required_shape": ["dispatch", "three atomic arm families", "map"],
+  "forbidden_shape": ["whole H recognizer", "all", "any", "then", "new Parser", "save/restore", "source/cursor access"],
+  "candidate_root": "candidates/d",
+  "common_inputs": [
+    { "path": "contract.json", "sha256": "b88198d2039f5a6b8efaf82218aaf4d2aac29de15f00250df588204be71491f0", "bytes": 2671 },
+    { "path": "public-corpus.json", "sha256": "53fcc7df2147d1ebe431b903c86ea411e96816e2f0a83072c68687f72cb396a0", "bytes": 3388 },
+    { "path": "public-worker.ts", "sha256": "527ae2caa55e9853266a37c4b6e8477bebd7a5da6b47de6b5b4a7e3233baeb7e", "bytes": 7837 },
+    { "path": "public-harness.mjs", "sha256": "1b5e4cebf3ecfc3ae495f6eb516a8e5485dda420f2ad1190c3f3c941bb088a3b", "bytes": 1162 },
+    { "path": "candidate-closure.mjs", "sha256": "c1046dbc4e63f3be9fed300ae44ed0fda66c541782472ed2bbd87e7a61260348", "bytes": 8236 },
+    { "path": "lib.mjs", "sha256": "e1ff5ded91aeb73d03ad6fc8ce986bbbba440e28a72614e50135c08417b2a862", "bytes": 4145 }
+  ],
+  "isolation": "Read the common inputs and this packet only. Never read root/, peer-*, runtime-closure*, or another seat packet/candidate.",
+  "start_gate": "No write until root reports public-boundary ACCEPT, an independently sealed unrevealed holdout receipt, and this seat's actual external collaboration task ID.",
+  "credit": 0
+}

@@ -1,0 +1,173 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "review_id": "B",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "verdict": "REJECT",
+  "identity": {
+    "reviewer_id": "syntax-consume-number-g5-boundary-architecture-b",
+    "role": "independent-parse-that-architecture-admission-skeptic",
+    "model_served": "gpt-5.6-sol",
+    "reasoning_effort": "ultra",
+    "independent": true,
+    "candidate_author": false,
+    "other_g5_review_access": false,
+    "hidden_plaintext_or_key_access": false
+  },
+  "subject": {
+    "precursor_rows": 14,
+    "precursor_closure_sha256": "67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682",
+    "holdout_receipt": {
+      "sha256": "e5d29b7e99595de8594eb9142ce5e5e542ecd4e1c570c41f841c448a9721f700",
+      "bytes": 7992
+    },
+    "ciphertext": {
+      "sha256": "a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212",
+      "bytes": 111971,
+      "decoded_envelope_bytes": 82887
+    },
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "addenda_07_sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5",
+    "parse_that": "@mkbabb/parse-that@1.0.0"
+  },
+  "three_altitude_findings": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "finding": "The consuming-number seam and value-unit ownership are suitable dependency-first work, but this generation can admit cosmetically distinct copies of one whole-prefix grammar as H/B/S/D and has no executable route to the required live-regex and retained-iteration strict-win evidence. That would contaminate every numeric consumer and falsely establish the tranche's prototype method."
+    },
+    "feature_cell": {
+      "verdict": "REJECT",
+      "finding": "The public semantic leaf, maximal-prefix rule, UTF-16 offset observation, no-token boundary, direct-combinator import surface, pinned authorities, and current sealed bytes are coherent. The author-admission sequence, holdout authentication checks, independent-review checks, and benchmark evidence binding are not mechanically closed."
+    },
+    "feature_and_tooling": {
+      "verdict": "REJECT",
+      "finding": "Captured-buffer TypeScript proof and exact package/tree closure are materially improved, and the public harness enforces Reflect.ownKeys, descriptors, prototype, source immutability, no-throw, diagnostic-mode preservation, composition witnesses, and hostile linear-size inputs. Blocking defects remain in exported-parser topology reachability, author provenance, review identity, hidden-corpus admission, and benchmark correctness/comparator/attempt integrity."
+    }
+  },
+  "defects": [
+    {
+      "id": "G5-B-01-TOPOLOGY-DEAD-CODE-BYPASS",
+      "severity": "BLOCKER",
+      "axis": "parse-that-idiom-and-orthogonality",
+      "summary": "Seat topology is counted over every call in the source file, not over the construction graph reachable from the exported consumeNumber initializer.",
+      "evidence": [
+        "author-admission-validator.mjs:323-369 increments global call counters and applies only count/key tests; it never proves that those calls feed the sole export.",
+        "Three stdin assays were accepted for B, S, and D while each exported the same exact H whole-prefix regex grammar and placed the required any/all/string/dispatch calls only in unused const declarations.",
+        "Accepted adversarial digests were B 67a311b0df85d3836e29243550534df9517cdd7dbb20fa4b23ff01ff4c98e126, S 1f768248f466ff401f07949e995962aad3d7de9d84eec89999802f2973b843ff, and D bf32182b329c7645ae82c9abe8650e84c1e58012f4ba3a7fd865d59495501372."
+      ],
+      "required_repair": "Reject unused/dead declarations and prove each topology on the exported initializer's reachable construction AST. Bind a pre-author provenance graph and pairwise construction review; byte inequality alone is insufficient."
+    },
+    {
+      "id": "G5-B-02-ADMISSION-SEQUENCE-AND-AUTHOR-RECEIPT-GAP",
+      "severity": "BLOCKER",
+      "axis": "author-admission-integrity",
+      "summary": "The four-seat admission command is independent of pre-author admission and its author receipts omit owner-required provenance fields.",
+      "evidence": [
+        "author-admission-validator.mjs:651-697 never invokes verifyPreAuthorAdmission, accepts no sealed manifest digest, and consumes no ACCEPT boundary/root receipt.",
+        "author-admission-validator.mjs:672-677 checks only feature, generation, seat, topology label, source identity, author_id, independent, and peer_source_access.",
+        "ADDENDA-07 section 3 requires served model, input-manifest hash, isolated candidate-root hash, commands, close time, provenance, and isolated authoring; these are absent from the executable receipt contract."
+      ],
+      "required_repair": "Make four-seat admission consume an exact successful pre-author receipt or owner-sealed manifest digest and bind every author's full provenance/model/input/command/close receipt to that same admitted boundary."
+    },
+    {
+      "id": "G5-B-03-REVIEW-ROOT-BOOTSTRAP",
+      "severity": "BLOCKER",
+      "axis": "independent-challenge-integrity",
+      "summary": "Pre-author ACCEPT can be bootstrapped from content-free, non-independent review JSON.",
+      "evidence": [
+        "author-admission-validator.mjs:548-567 checks only feature_id, generation, review_id, scope, verdict, and a root array of review hashes/lengths.",
+        "It does not require distinct reviewer identities, independence from authors/root, three-altitude findings, defect/evidence fields, commands, or subject closure.",
+        "A root JSON that merely repeats hashes for two trivial ACCEPT objects satisfies the executable shape; hash binding does not establish adversarial review."
+      ],
+      "required_repair": "Define and executable-check exact boundary-review and root schemas with pairwise-distinct identities, independence attestations, the common three-altitude/all-axis rubric, evidence, and subject/precursor hashes."
+    },
+    {
+      "id": "G5-B-04-HOLDOUT-ADMISSION-UNDERVALIDATED",
+      "severity": "BLOCKER",
+      "axis": "hidden-corpus-binding",
+      "summary": "The current holdout bytes are internally consistent, but the admission validator authenticates only canonical base64 and a few receipt fields, not the committed corpus envelope and precursor closure.",
+      "evidence": [
+        "Independent checks reproduced precursor closure 67bb0e1af5f425d1dfdb56db792d7e2b4576182655f0b88da076a1d2edd75682, decoded length 82887, and magic VPI5CN1 NUL for the exact current ciphertext.",
+        "author-admission-validator.mjs:570-584 does not verify receipt status/corpus_id, the 14 exact precursor rows and closure digest, plaintext hash/length, envelope decoded length/magic, encryption/AAD declaration, coverage/anti-duplication metadata, or candidate/key/plaintext absence assertions.",
+        "Consequently, a resealed manifest can admit arbitrary canonical base64 plus a minimal matching receipt without this gate detecting that it is not the promised fresh hostile corpus."
+      ],
+      "required_repair": "Executable-check every public holdout-receipt field that can be checked pre-reveal, including exact precursor closure, envelope framing, commitment fields, coverage/anti-duplication shape, and absence/freshness receipts."
+    },
+    {
+      "id": "G5-B-05-BENCHMARK-NOT-BOUND-TO-CANDIDATES-OR-CORRECTNESS",
+      "severity": "BLOCKER",
+      "axis": "performance-evidence-integrity",
+      "summary": "The benchmark times an arbitrary bundle and accepts cross-seat agreement as its only semantic preflight.",
+      "evidence": [
+        "benchmark-runner.mjs:79-95 checks only three bundle exports and four parser-like values; it does not bind bundled parsers to the four admitted source hashes or their compiled artifacts.",
+        "benchmark-runner.mjs:58-76 accepts a corpus containing only id/source/offset, and lines 272-277 accept equal observation digests without any expected semantic oracle or public/revealed-holdout receipt.",
+        "A bundle may therefore map all four seat names to one identical fast parser, or four identically wrong parsers, and receive timing evidence unrelated to the reviewed candidates."
+      ],
+      "required_repair": "Seal a run manifest that binds admitted source hashes, exact reproducible bundle construction, public and revealed-holdout semantic PASS receipts, expected corpus observations, operation identity, and the captured bundle before timing."
+    },
+    {
+      "id": "G5-B-06-BENCHMARK-COMPARATOR-AND-RAW-ATTEMPT-GAP",
+      "severity": "BLOCKER",
+      "axis": "performance-and-gestalt",
+      "summary": "The sole declared timing procedure cannot close the owner-required peer wins and cannot prevent retry erasure or forged receipt statistics.",
+      "evidence": [
+        "benchmark-runner.mjs:9 and its schema time only H/B/S/D; no LIVE regex comparator or retained prior parse-that iteration appears, while ADDENDA-07 sections 5-6 require strict wins over every genuinely comparable retained peer.",
+        "author-admission-protocol.json deferred_acceptance requires only a four-seat benchmark receipt, so the omitted peer matrix is not deferred through an executable requirement.",
+        "benchmark-runner.mjs:256-341 emits JSON to stdout and keeps no append-only raw path or attempt registry; its claim that attempt_id is retired is unenforced and a failed or losing run can be discarded and rerun.",
+        "The runner merely parses its JSON Schema and never validates or independently recomputes a receipt. The schema permits any three candidate-name keys in pair_geometric_mean_ratio rather than the exact three peers and does not enforce logical consistency among samples, statistics, and winner.",
+        "Allocation is declared non-adjudicative without an UNAVAILABLE tool reason, despite candidate-specific intermediate allocation being a material distinction for this row."
+      ],
+      "required_repair": "Add the exact comparable LIVE/prior peers, immutable append-only attempt/raw-result handling, a recomputing receipt validator, exact peer-key/logical constraints, and allocation evidence or a concrete tool-unavailable receipt."
+    }
+  ],
+  "evidence": {
+    "frozen_identity": {
+      "precursor_hashes_and_lengths": "PASS_14_OF_14",
+      "authority_hashes": "PASS_INCLUDING_MODULE_DAG_ADDENDA_FEATURE_LEDGER_BBNF_AND_REJECTION_DOCKETS",
+      "parse_that_ledger": "6fa2142d1bcfcd2f3fc5bcba8fd49ff7a61801b7e189e8cec0f8b4ea808d5d7d",
+      "typescript_ledger": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47"
+    },
+    "commands": [
+      {
+        "command": "npm run check",
+        "result": "PASS_EXIT_0"
+      },
+      {
+        "command": "npm test -- --run",
+        "result": "PASS_EXIT_0_NO_TEST_FILES_ZERO_FEATURE_CREDIT"
+      },
+      {
+        "command": "node cells/syntax-consume-number/g5/author-admission-validator.mjs --self-check",
+        "result": "PASS_EXIT_0"
+      },
+      {
+        "command": "node cells/syntax-consume-number/g5/benchmark-runner.mjs --self-check",
+        "result": "PASS_EXIT_0_SYNTHETIC_ONLY"
+      },
+      {
+        "command": "node cells/syntax-consume-number/g5/author-admission-validator.mjs --assay-stdin h",
+        "result": "PASS_FOR_VALID_WHOLE_PREFIX_POSITIVE_CONSTRUCTION"
+      },
+      {
+        "command": "three independent --assay-stdin B/S/D dead-topology adversarial constructions",
+        "result": "INCORRECTLY_ACCEPTED_ALL_THREE"
+      }
+    ],
+    "positive_findings": [
+      "The consuming operation is a semantic primitive under value-unit, not a scanner, atom, token object, component-value, or CST runtime.",
+      "The exact current public result boundary rejects prototype, descriptor, symbol, accessor, and surplus-key drift.",
+      "Compiler SourceFiles are constructed from captured buffers and every compiler input used by the type proof is checked against that capture.",
+      "The current public holdout receipt, precursor closure, canonical ciphertext, decoded envelope length, and magic agree without accessing plaintext or key.",
+      "The benchmark schedule is position and ordered-adjacency balanced and its O(1) observation fold avoids source slicing inside timing."
+    ]
+  },
+  "disposition": {
+    "authors_may_be_invited": false,
+    "candidate_credit": 0,
+    "benchmark_credit": 0,
+    "feature_credit": 0,
+    "required_next_generation": 6,
+    "holdout": "DESTROY_G5_WITHOUT_REVEAL_AND_FORM_A_FRESH_POST_REPAIR_GENERATION"
+  },
+  "credit": "ZERO: G5 has no accepted feature, parser, author admission, benchmark, integration, conformance, movement, or production credit."
+}

@@ -1,0 +1,146 @@
+{
+  "schema": "vnext-css-module-isomorphism/1",
+  "source": {
+    "repository": "/Users/mkbabb/Programming/bbnf-lang",
+    "commit": "af15f63e0d2d3d719938c13b906a50acbb92ea3b",
+    "root": "grammar/css"
+  },
+  "authority": {
+    "snapshot_kind": "formation-current",
+    "execution_resnapshot": "after the active BBNF CSS full-modular-union freeze, partition every committed grammar/css/**/*.bbnf file at the P00/P01 coordination pin into runtime modules or typed non-runtime exclusions",
+    "translation": "handwritten-parse-that-combinators",
+    "module_join": "replace grammar/css/ with src/css/grammar/ and .bbnf with .ts",
+    "responsibility_join": "every runtime BBNF CSS module has exactly one typed TypeScript combinator peer and external test owning the same grammar responsibility; every other CSS grammar has one typed non-runtime disposition",
+    "import_join": "formation snapshots may record exact upstream defects; an execution-input snapshot requires zero corrections and TypeScript edges equal BBNF edges exactly",
+    "runtime_modules_sha256": "1bf860ed0a1a0fc82585790bce962e3bc227236ecae56d77e86863322f2f8f1e",
+    "excluded_dispositions_sha256": "12fa7328424d929cfb98e82439866271272c59c46c73262f644004f17c92469e",
+    "resolved_edges_sha256": "1353e57446272f765f90866570e0375be52eef63085eaf09027496452a86e3a6",
+    "runtime": "typescript-combinator-only",
+    "future_generated_parser": "replacement-only-after-separate-adjudication",
+    "imports_active_engine_novelty": false
+  },
+  "modules": [
+    {
+      "bbnf_path": "grammar/css/l4/color.bbnf",
+      "bbnf_sha256": "e923f52ceb0649cd7817191347aa24105f3c73b42749d9528b6c8cf7ad81123b",
+      "typescript_path": "src/css/grammar/l4/color.ts",
+      "test_path": "test/src/css/grammar/l4/color.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/easing.bbnf",
+      "bbnf_sha256": "f5550fa89d67644d72ead3b6e30b33e28ff2a41219f91a98ec15d4424cde50bd",
+      "typescript_path": "src/css/grammar/l4/easing.ts",
+      "test_path": "test/src/css/grammar/l4/easing.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/filters.bbnf",
+      "bbnf_sha256": "8321e5436797fe1bf5a614cc46d529ff56164e21d07be49ef3cf7f4dfa622537",
+      "typescript_path": "src/css/grammar/l4/filters.ts",
+      "test_path": "test/src/css/grammar/l4/filters.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/func-body.bbnf",
+      "bbnf_sha256": "5b804cb75611645889babab14783cd052321fbf46694eac5b604ba8bd5e854d3",
+      "typescript_path": "src/css/grammar/l4/func-body.ts",
+      "test_path": "test/src/css/grammar/l4/func-body.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/gradients.bbnf",
+      "bbnf_sha256": "f0f2495d39dc0ee85cf203b622bb4507d7f3cf860817f1544dd1659ccbe4143e",
+      "typescript_path": "src/css/grammar/l4/gradients.ts",
+      "test_path": "test/src/css/grammar/l4/gradients.test.ts",
+      "imports": ["grammar/css/l4/color.bbnf", "grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/keyframes.bbnf",
+      "bbnf_sha256": "889dec7c994c3379c069524f6ed36ddc24c96de9663b4f6dab8ce762f43dffd8",
+      "typescript_path": "src/css/grammar/l4/keyframes.ts",
+      "test_path": "test/src/css/grammar/l4/keyframes.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/keywords.bbnf",
+      "bbnf_sha256": "bac8e98937bed7e3c4ea6fc2bc5dea9bd8ca046299a23879a8ff81685540fb0f",
+      "typescript_path": "src/css/grammar/l4/keywords.ts",
+      "test_path": "test/src/css/grammar/l4/keywords.test.ts",
+      "imports": []
+    },
+    {
+      "bbnf_path": "grammar/css/l4/media.bbnf",
+      "bbnf_sha256": "e0cf30d97ba7861dc7fadac3264e542c07317b32fd6f6df07ee4f71413aa005e",
+      "typescript_path": "src/css/grammar/l4/media.ts",
+      "test_path": "test/src/css/grammar/l4/media.test.ts",
+      "imports": ["grammar/css/l4/tokens.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/properties.bbnf",
+      "bbnf_sha256": "94451adff5a62ca401f935d696cbd9ee427feefc87660a4538cd20b2d768a8a0",
+      "typescript_path": "src/css/grammar/l4/properties.ts",
+      "test_path": "test/src/css/grammar/l4/properties.test.ts",
+      "imports": ["grammar/css/l4/color.bbnf", "grammar/css/l4/func-body.bbnf", "grammar/css/l4/keywords.bbnf", "grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/selectors.bbnf",
+      "bbnf_sha256": "455678a59a1a77c868326d988dd185a83a3c84c3a1a006b10fcbcea85de6c966",
+      "typescript_path": "src/css/grammar/l4/selectors.ts",
+      "test_path": "test/src/css/grammar/l4/selectors.test.ts",
+      "imports": ["grammar/css/l4/tokens.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/stylesheet.bbnf",
+      "bbnf_sha256": "2c2e62e71cdbd76be78906ad5741763c3ba12c3d7418bc6b39620330027fda07",
+      "typescript_path": "src/css/grammar/l4/stylesheet.ts",
+      "test_path": "test/src/css/grammar/l4/stylesheet.test.ts",
+      "imports": ["grammar/css/l4/media.bbnf", "grammar/css/l4/properties.bbnf", "grammar/css/l4/selectors.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/tokens.bbnf",
+      "bbnf_sha256": "23e535851ce43d7c5e6b243e3b766a4616c5181bf20cc6017405e4406f954054",
+      "typescript_path": "src/css/grammar/l4/tokens.ts",
+      "test_path": "test/src/css/grammar/l4/tokens.test.ts",
+      "imports": []
+    },
+    {
+      "bbnf_path": "grammar/css/l4/transforms.bbnf",
+      "bbnf_sha256": "650cc388d652f43a166a893ea8ce0538d04d2b733d63f2feefcce02127617cf5",
+      "typescript_path": "src/css/grammar/l4/transforms.ts",
+      "test_path": "test/src/css/grammar/l4/transforms.test.ts",
+      "imports": ["grammar/css/l4/value-unit.bbnf"]
+    },
+    {
+      "bbnf_path": "grammar/css/l4/value-unit.bbnf",
+      "bbnf_sha256": "cb57f79050a6304d79e3a7d8c7b690c902f243880aab4c896a63899290dd727b",
+      "typescript_path": "src/css/grammar/l4/value-unit.ts",
+      "test_path": "test/src/css/grammar/l4/value-unit.test.ts",
+      "imports": []
+    },
+    {
+      "bbnf_path": "grammar/css/l4/values.bbnf",
+      "bbnf_sha256": "ecbc3ad7997485abe8964f2f19df4129526ebc367270939e0a8242d8b7215396",
+      "typescript_path": "src/css/grammar/l4/values.ts",
+      "test_path": "test/src/css/grammar/l4/values.test.ts",
+      "imports": ["grammar/css/l4/color.bbnf", "grammar/css/l4/easing.bbnf", "grammar/css/l4/filters.bbnf", "grammar/css/l4/gradients.bbnf", "grammar/css/l4/tokens.bbnf", "grammar/css/l4/transforms.bbnf", "grammar/css/l4/value-unit.bbnf"]
+    }
+  ],
+  "edge_corrections": [
+    {
+      "from": "grammar/css/l4/stylesheet.bbnf",
+      "to": "grammar/css/l4/keyframes.bbnf",
+      "owner": "active-bbnf-css-generator-tranche",
+      "reason": "stylesheet.bbnf duplicates keyframe productions instead of importing the canonical keyframes module"
+    }
+  ],
+  "excluded": [
+    {
+      "bbnf_path": "grammar/css/pretty.bbnf",
+      "bbnf_sha256": "38682d3ff80bc66910dfe4dcc2f962fa4be5cc85cb360f18df00ebe92d98930b",
+      "disposition": "serialization-test-oracle-only",
+      "reason": "standalone non-L4 formatting/recovery grammar; never a second parser runtime"
+    }
+  ],
+  "manifest_hash": "4fbc661ec3206885636a419156564437019bde980ca69bac95413ac09e342ec3"
+}

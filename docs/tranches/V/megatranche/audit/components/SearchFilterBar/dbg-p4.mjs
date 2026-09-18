@@ -1,0 +1,21 @@
+import { webkit } from "playwright";
+const b = await webkit.launch();
+const ctx = await b.newContext({ viewport:{width:1440,height:900} });
+const p = await ctx.newPage();
+const errs=[]; p.on("pageerror",e=>errs.push(String(e)));
+const seen=[];
+await p.route(/^https?:\/\/(api\.color\.babb\.dev|localhost:1)/, async r=>{
+  const u=r.request().url(); seen.push(u);
+  const j=(x)=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(x)});
+  if(u.includes("/colors/tags")) return j(["pastel","neon","earth"].map((n,i)=>({name:n,count:9-i})));
+  if(u.includes("/sessions/me")) return r.fulfill({status:401,contentType:"application/json",body:"{}"});
+  if(u.includes("/palettes")) return j({palettes:[],hasMore:false});
+  return j({});
+});
+await p.goto("http://192.168.1.166:9000/#/browse",{waitUntil:"load"});
+await p.waitForTimeout(5000);
+console.log("ROUTES SEEN:", seen);
+console.log("ERRS:", errs.slice(0,4));
+console.log("filters btn:", await p.locator('button[aria-label="Filters"]').count());
+console.log("body:", (await p.evaluate(()=>document.body.innerText)).replace(/\n+/g,' | ').slice(0,300));
+await b.close();

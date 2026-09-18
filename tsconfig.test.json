@@ -1,0 +1,40 @@
+// The UNIT-SUITE program (X-W1 · fold R5 / NG-3).
+//
+// `test/**` sat in NO TypeScript program. vitest transpiles with esbuild, so
+// types were never checked there — which is why an annotation as specific as
+// `Array<[ApiAvailability, boolean, LampState | null]>` in `test/status-lamp.test.ts`
+// was decorative: nothing could have reported it wrong. `demo/test/**` was
+// inside `tsconfig.demo.json` (its include is `demo/`), so the repo's TWO test
+// homes differed in TYPE SAFETY, not merely in location. This program closes
+// that gap; `npm run typecheck` runs it.
+//
+// `demo/test/**` is included here as well, deliberately. It is already covered
+// by `tsconfig.demo.json`, so this is a second reading of the same files, not a
+// first — and it is what makes "the unit-suite program" mean the whole unit
+// suite rather than the half of it that happened to live under `demo/`.
+//
+// The `paths` map mirrors `tsconfig.demo.json`'s published-surface boundary:
+// the unit tree reaches the library through `@mkbabb/value.js/*` (the `dist/`
+// `.d.ts` trust boundary, refreshed by the `pretest`/`pretypecheck` build) and
+// through the `@src` alias vitest itself resolves.
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "types": ["node"],
+        "paths": {
+            "vue": ["./node_modules/vue"],
+            "@vue/*": ["./node_modules/@vue/*"],
+            "@src/*": ["./src/*"],
+            "@mkbabb/value.js": ["./dist/index.d.ts"],
+            "@mkbabb/value.js/color": ["./dist/subpaths/color.d.ts"],
+            "@mkbabb/value.js/parsing": ["./dist/subpaths/parsing.d.ts"],
+            "@mkbabb/value.js/math": ["./dist/subpaths/math.d.ts"],
+            "@mkbabb/value.js/easing": ["./dist/subpaths/easing.d.ts"],
+            "@mkbabb/value.js/units": ["./dist/subpaths/units.d.ts"],
+            "@mkbabb/value.js/transform": ["./dist/subpaths/transform.d.ts"],
+            "@mkbabb/value.js/quantize": ["./dist/subpaths/quantize.d.ts"],
+            "@mkbabb/value.js/css": ["./dist/subpaths/css.d.ts"]
+        }
+    },
+    "include": ["test/**/*.ts", "demo/test/**/*.ts", "src/vite-env.d.ts"]
+}

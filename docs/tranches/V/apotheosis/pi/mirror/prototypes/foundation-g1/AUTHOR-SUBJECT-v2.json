@@ -1,0 +1,38 @@
+{
+  "schema": "value.pi.foundation-g1.author-subject/v2",
+  "status": "FROZEN_FOR_THREE_INDEPENDENT_REPAIR_AUTHORS",
+  "supersedes": {
+    "path": "AUTHOR-SUBJECT.json",
+    "sha256": "f2e47526dafa001e4ecb585d9561910f85cbcb1ceddaa70e6f557ef73f4af936",
+    "reason": "fixture contradicted the normative inclusive U+FDF0-U+FFFD identifier range"
+  },
+  "brief": {
+    "path": "BRIEF.md",
+    "sha256": "b2fcc4698b119d1e0b83714c2cc226ab80fe0245b44e7a981d2e2b5ba558224e"
+  },
+  "fixtures": {
+    "path": "fixtures.json",
+    "sha256": "b323a80d403c494b4190a89cfa285c9d20d8816257c17f43f7b4c68adcceeaa8"
+  },
+  "erratum": {
+    "path": "ERRATUM-01.md",
+    "sha256": "9c2855e9f6e48c5b1ae77c0ae6f641a233ca7295643dec245782dc7d393025a3",
+    "fixtures_path": "fixtures-erratum-01.json",
+    "fixtures_sha256": "e8229b5493d3771f667ed4b0337f0335aefe69b98505ee8792bc7d3213763046"
+  },
+  "lineages": {
+    "h": "3fdc829978e07e182b4b27772dc4a3d3661d84377494a949f5c753fc5bb63e20",
+    "b": "98cb225e5f12da35cde816ca0a919bd42f4dc2fb5adbf1db9119fd3d9f7304f8",
+    "s": "8642ca648aaf5c1efb1d75f7596a5651deb19953feb5dfac7431ac10e741ed58"
+  },
+  "runtime": {
+    "package": "@mkbabb/parse-that",
+    "version": "1.0.0"
+  },
+  "candidate_roots": {
+    "h": "candidates/h",
+    "b": "candidates/b",
+    "s": "candidates/s"
+  },
+  "authority": "prototype only; no production execution or feature credit"
+}

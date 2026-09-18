@@ -1,0 +1,28 @@
+{
+  "escape": [
+    { "source": "\\61 ", "value": "a", "error": null, "offset": 4 },
+    { "source": "\\000000", "value": "�", "error": null, "offset": 7 },
+    { "source": "\\D800", "value": "�", "error": null, "offset": 5 },
+    { "source": "\\110000", "value": "�", "error": null, "offset": 7 },
+    { "source": "\\", "value": "�", "error": "unexpected-eof", "offset": 1 }
+  ],
+  "identifier": [
+    { "source": "--x", "value": "--x", "error": null, "offset": 3 },
+    { "source": "-\\31 0", "value": "-10", "error": null, "offset": 6 },
+    { "source": "fé", "value": "fé", "error": null, "offset": 2 },
+    { "source": "\ufeffx", "value": "\ufeffx", "error": null, "offset": 2 },
+    { "source": "x\\", "value": "x�", "error": "unexpected-eof", "offset": 2 }
+  ],
+  "string": [
+    { "source": "\"a\\41 b\"", "value": "aAb", "quote": "\"", "error": null, "offset": 8 },
+    { "source": "'a\\\nb'", "value": "ab", "quote": "'", "error": null, "offset": 6 },
+    { "source": "\"abc", "value": "abc", "quote": "\"", "error": "unexpected-eof", "offset": 4 },
+    { "source": "\"abc\\", "value": "abc", "quote": "\"", "error": "unexpected-eof", "offset": 5 },
+    { "source": "\"a\nb", "value": "a", "quote": "\"", "error": "newline", "offset": 2 }
+  ],
+  "spacing": [
+    { "source": " \r\n\f", "errors": [], "offset": 4 },
+    { "source": "/*a*/ ", "errors": [], "offset": 6 },
+    { "source": " /*a", "errors": ["unexpected-eof-comment"], "offset": 4 }
+  ]
+}

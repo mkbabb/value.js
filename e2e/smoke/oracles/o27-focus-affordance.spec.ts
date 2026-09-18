@@ -34,9 +34,7 @@ async function openGradient(page: Page): Promise<Locator> {
     await page.goto("/");
     await openView(page, "Gradient");
     const main = page.getByRole("main", { name: "Color tool panes" });
-    await expect(
-        main.getByRole("heading", { name: "Gradient" }).last(),
-    ).toBeVisible();
+    await expect(main.getByRole("heading", { name: "Gradient" }).last()).toBeVisible();
     await paneSettled(page);
     return main;
 }
@@ -48,8 +46,7 @@ const bar = (main: Locator) => main.getByTestId("gradient-stop-bar").last();
 // keeps its transition). `!important` beats the inline transition.
 async function freezeRingTransition(page: Page): Promise<void> {
     await page.addStyleTag({
-        content:
-            ".rail-handle, .rail-remove-chip { transition: none !important; }",
+        content: ".rail-handle, .rail-remove-chip { transition: none !important; }",
     });
 }
 
@@ -62,8 +59,7 @@ async function tabToHandle(page: Page, main: Locator): Promise<Locator> {
     for (let i = 0; i < 80; i++) {
         await page.keyboard.press("Tab");
         const onHandle = await page.evaluate(
-            () =>
-                document.activeElement?.hasAttribute("data-stop-id") ?? false,
+            () => document.activeElement?.hasAttribute("data-stop-id") ?? false,
         );
         if (onHandle) break;
     }
@@ -85,9 +81,7 @@ test("BR-1 · focus affordance PAINTS a ring layer over the stop fill", async ({
 
     await freezeRingTransition(page);
     const focused = await tabToHandle(page, main);
-    expect(await focused.evaluate((el) => el.matches(":focus-visible"))).toBe(
-        true,
-    );
+    expect(await focused.evaluate((el) => el.matches(":focus-visible"))).toBe(true);
     const box = await focused.evaluate((el) => getComputedStyle(el).boxShadow);
 
     // A dual-contrast ring layer is present (0-blur, ≥1px spread — the ring
@@ -142,9 +136,7 @@ test("BR-4 · every channel slider exposes a human-readable aria-valuetext", asy
 }) => {
     const consoleErrors = setupEnvNoise(page);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     const thumbs = page
         .getByRole("main", { name: "Color tool panes" })
@@ -212,9 +204,7 @@ test("BR-1 forced-colors · focus affordance survives WHCM via a computed outlin
     await page.emulateMedia({ forcedColors: "active" });
     const main = await openGradient(page);
     expect(
-        await page.evaluate(
-            () => matchMedia("(forced-colors: active)").matches,
-        ),
+        await page.evaluate(() => matchMedia("(forced-colors: active)").matches),
         "forced-colors emulation active",
     ).toBe(true);
     const focused = await tabToHandle(page, main);
@@ -225,4 +215,167 @@ test("BR-1 forced-colors · focus affordance survives WHCM via a computed outlin
     });
     expect(outline.style).not.toBe("none");
     expect(outline.width).toBeGreaterThanOrEqual(2);
+});
+
+/**
+ * X-W1 · R26 (picker-colorcomponentdisplay M-2 ≡ consolerail D2-02 + MISS-3) —
+ * THE FORCED-COLORS ARM, EXTENDED PAST ONE RAIL HANDLE.
+ *
+ * The BR-1 arm above reaches exactly one control: the gradient rail handle. The
+ * corpus measured why that matters — the shared WHCM register in
+ * `foundation.css:698-720` binds its `outline: 2px solid Highlight` through
+ * `:where(...)`, which pins its specificity at **0**, so any control's OWN
+ * `.foo:focus-visible { outline: none }` (specificity 0,2,0) wins in the forced
+ * -colors register too. Five controls do exactly that, removing the one property
+ * WHCM preserves and keeping the one it strips — against the repo's own written
+ * law at `focus-ring.css:31`. `GradientStopEditor` is the sole conformant
+ * control because it re-declares the outline INSIDE its own
+ * `@media (forced-colors: active)` block at matching specificity.
+ *
+ * The cure is at the five sites (or a specificity raise on the shared block),
+ * and it is **X-W4's** — MISS-3's CURE-SHAPE LOCK says so in as many words, and
+ * adds: *never another line in the register*. W1 owns only this arm's reach.
+ *
+ * The roster is asserted TWICE over: every member must be MOUNTED somewhere in
+ * the sweep (an absent class is a named failure, not a silent pass), and every
+ * mounted member must paint a real outline. `.rail-handle` rides along as the
+ * control-of-record: if the conformant one ever stops painting, the instrument
+ * itself is suspect.
+ */
+interface WhcmRosterRow {
+    /** The control's own class, as its scoped CSS declares it. */
+    selector: string;
+    /** Which view mounts it. */
+    view: "Picker" | "Gradient";
+    /** The source site whose `outline: none` this row measures. */
+    site: string;
+}
+
+const WHCM_ROSTER: WhcmRosterRow[] = [
+    {
+        selector: ".channel-rail-item",
+        view: "Picker",
+        site: "ConsoleRail.vue:273",
+    },
+    {
+        selector: ".readout-fig",
+        view: "Picker",
+        site: "ColorComponentDisplay.vue:180",
+    },
+    {
+        selector: ".space-trigger",
+        view: "Picker",
+        site: "ColorSpaceSelector.vue:277",
+    },
+    {
+        selector: ".interval-head",
+        view: "Gradient",
+        site: "GradientEasingEditor.vue:229",
+    },
+    { selector: ".rail-btn", view: "Gradient", site: "GradientEasingEditor.vue:286" },
+    {
+        selector: ".rail-handle",
+        view: "Gradient",
+        site: "GradientStopEditor.vue:353 — the CONFORMANT control, the instrument's own check",
+    },
+];
+
+/**
+ * Give `selector`'s first instance true keyboard `:focus-visible` modality.
+ *
+ * One real `Tab` establishes the keyboard modality Chromium's `:focus-visible`
+ * heuristic keys on; the programmatic focus that follows then inherits it. The
+ * returned flag says whether it actually did — a measurement taken in the
+ * WRONG register is worse than no measurement, so the caller asserts on it
+ * rather than reading a computed style regardless.
+ */
+async function focusVisibly(
+    page: Page,
+    selector: string,
+): Promise<{
+    present: boolean;
+    focusVisible: boolean;
+    outline: string;
+    width: number;
+}> {
+    const present = (await page.locator(selector).count()) > 0;
+    if (!present) {
+        return { present, focusVisible: false, outline: "", width: 0 };
+    }
+    await page.locator(selector).first().scrollIntoViewIfNeeded();
+    await page.keyboard.press("Tab");
+    return page.evaluate((sel) => {
+        const el = document.querySelector<HTMLElement>(sel);
+        if (!el) {
+            return { present: false, focusVisible: false, outline: "", width: 0 };
+        }
+        el.focus();
+        const cs = getComputedStyle(el);
+        return {
+            present: true,
+            focusVisible: el.matches(":focus-visible"),
+            outline: `${cs.outlineWidth} ${cs.outlineStyle} ${cs.outlineColor}`,
+            width: parseFloat(cs.outlineWidth) || 0,
+        };
+    }, selector);
+}
+
+test("BR-1 forced-colors · EVERY operable control class paints an outline, not only the rail handle", async ({
+    page,
+}) => {
+    test.setTimeout(90_000);
+    await page.emulateMedia({ forcedColors: "active" });
+
+    await page.goto("/");
+    expect(
+        await page.evaluate(() => matchMedia("(forced-colors: active)").matches),
+        "forced-colors emulation active",
+    ).toBe(true);
+
+    const measured: Array<WhcmRosterRow & { width: number; outline: string }> = [];
+    const missing: WhcmRosterRow[] = [];
+    const wrongRegister: WhcmRosterRow[] = [];
+
+    for (const view of ["Picker", "Gradient"] as const) {
+        await openView(page, view);
+        await paneSettled(page);
+        for (const row of WHCM_ROSTER.filter((r) => r.view === view)) {
+            const probe = await focusVisibly(page, row.selector);
+            if (!probe.present) {
+                missing.push(row);
+                continue;
+            }
+            if (!probe.focusVisible) {
+                wrongRegister.push(row);
+                continue;
+            }
+            measured.push({ ...row, width: probe.width, outline: probe.outline });
+        }
+    }
+
+    console.log(
+        `[o27 WHCM roster] ${measured
+            .map((m) => `${m.selector} → ${m.outline}`)
+            .join(" | ")}`,
+    );
+
+    // The roster's own integrity, before any verdict about the product.
+    expect(
+        missing.map((m) => `${m.selector} (${m.view})`),
+        "a roster control class mounts nowhere in the sweep — the arm's reach is a claim, and this is the claim failing",
+    ).toEqual([]);
+    expect(
+        wrongRegister.map((m) => m.selector),
+        "focus landed WITHOUT :focus-visible, so the outline read would be from the wrong register",
+    ).toEqual([]);
+
+    // The product law: WHCM strips box-shadow, so the affordance must ride a
+    // real outline on EVERY operable control — `focus-ring.css:31`.
+    const unpainted = measured
+        .filter((m) => m.width < 2)
+        .map((m) => `${m.selector} → "${m.outline}" (${m.site})`);
+    expect(
+        unpainted,
+        "these controls remove the one property WHCM preserves and keep the one it strips; the cure is at the five sites or a specificity raise on the shared `:where(...)` register — X-W4's, never another line in the register",
+    ).toEqual([]);
 });

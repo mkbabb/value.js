@@ -1,0 +1,203 @@
+{
+ "loadedImage": {
+  "wh": [
+   64,
+   64
+  ],
+  "p16_16": "64,64,0",
+  "p48_16": "192,64,0",
+  "p16_48": "64,192,0",
+  "p48_48": "192,192,0"
+ },
+ "rects": {
+  "cb": {
+   "x": 236.546875,
+   "y": 303.1484375,
+   "w": 508
+  },
+  "vb": {
+   "x": 236.546875,
+   "y": 243.359375,
+   "w": 508,
+   "h": 627.578125,
+   "bottom": 870.9375
+  },
+  "n": 64,
+  "scale": 7.9375
+ },
+ "samples": [
+  {
+   "ix": 16,
+   "iy": 16,
+   "text": "lab(26.204429255222% -5.850981650629 34.437795422268)",
+   "title": null,
+   "scrollW": 541,
+   "clientW": 371,
+   "dotBg": "rgb(64, 64, 0)"
+  },
+  {
+   "ix": 48,
+   "iy": 16,
+   "text": "lab(46.181823343728% 50.626966696352 57.965303917225)",
+   "title": null,
+   "scrollW": 541,
+   "clientW": 371,
+   "dotBg": "rgb(192, 64, 0)"
+  },
+  {
+   "ix": 16,
+   "iy": 48,
+   "text": "lab(68.69973816107% -57.095623898395 66.501235107593)",
+   "title": null,
+   "scrollW": 541,
+   "clientW": 371,
+   "dotBg": "rgb(64, 192, 0)"
+  },
+  {
+   "ix": 48,
+   "iy": 48,
+   "text": "lab(75.771313545705% -12.72265212646 75.442991211055)",
+   "title": null,
+   "scrollW": 541,
+   "clientW": 371,
+   "dotBg": "rgb(192, 192, 0)"
+  },
+  {
+   "ix": 0,
+   "iy": 0,
+   "text": "lab(0% 0 0)",
+   "title": null,
+   "scrollW": 112,
+   "clientW": 112,
+   "dotBg": "rgb(0, 0, 0)"
+  },
+  {
+   "ix": 63,
+   "iy": 63,
+   "text": "lab(0% 0 0)",
+   "title": null,
+   "scrollW": 112,
+   "clientW": 112,
+   "dotBg": "rgb(0, 0, 0)"
+  },
+  {
+   "ix": 31,
+   "iy": 31,
+   "text": "lab(54.203226772194% 12.705539013534 -36.489561020654)",
+   "title": null,
+   "scrollW": 551,
+   "clientW": 371,
+   "dotBg": "rgb(124, 124, 193)"
+  },
+  {
+   "ix": 32,
+   "iy": 32,
+   "text": "lab(52.149527332% -9.447862249415 56.024088496729)",
+   "title": null,
+   "scrollW": 510,
+   "clientW": 371,
+   "dotBg": "rgb(128, 128, 0)"
+  }
+ ],
+ "readoutTruncation": {
+  "full": "lab(52.149527332% -9.447862249415 56.024088496729)",
+  "fullLen": 50,
+  "scrollWidth": 510,
+  "clientWidth": 371,
+  "clippedPx": 139,
+  "hasTitle": false,
+  "classes": "text-mono-small text-muted-foreground truncate select-all",
+  "color": "rgb(112, 89, 66)"
+ },
+ "keyboard": {
+  "btnTabIndex": 0,
+  "inertAncestor": null,
+  "hiddenAncestor": null,
+  "totalFocusables": 22,
+  "focusablesInOverlay": 1,
+  "outsideSample": [
+   "BUTTON|Save edit",
+   "BUTTON|Cancel edit",
+   "INPUT|",
+   "BUTTON|Switch to slug",
+   "BUTTON|Generate new slug",
+   "BUTTON|Cancel",
+   "BUTTON|Select view",
+   "BUTTON|Toggle action bar",
+   "BUTTON|Extract",
+   "BUTTON|Palettes",
+   "BUTTON|Menu",
+   "BUTTON|"
+  ]
+ },
+ "pinCycle": {
+  "hoverA": {
+   "text": "lab(26.204429255222% -5.850981650629 34.437795422268)",
+   "btns": [
+    "Close eyedropper"
+   ],
+   "loupePinned": false,
+   "loupeNonAlpha": 9684
+  },
+  "click1_pinA": {
+   "text": "lab(26.204429255222% -5.850981650629 34.437795422268)",
+   "btns": [
+    "Close eyedropper",
+    "Add to palette",
+    "Apply as current color"
+   ],
+   "loupePinned": true,
+   "loupeNonAlpha": 9684
+  },
+  "click2_atB": {
+   "text": "lab(26.204429255222% -5.850981650629 34.437795422268)",
+   "btns": [
+    "Close eyedropper"
+   ],
+   "loupePinned": false,
+   "loupeNonAlpha": null
+  },
+  "click3_atB": {
+   "text": "lab(75.771313545705% -12.72265212646 75.442991211055)",
+   "btns": [
+    "Close eyedropper",
+    "Add to palette",
+    "Apply as current color"
+   ],
+   "loupePinned": true,
+   "loupeNonAlpha": 9684
+  }
+ },
+ "zoom200": {
+  "overlay": {
+   "x": 34,
+   "y": 372.8,
+   "w": 796,
+   "h": 1371.2,
+   "bottom": 1743.9
+  },
+  "canvas": {
+   "y": 1101.9,
+   "w": 1280,
+   "h": 1280,
+   "bottom": 2381.9
+  },
+  "vpBottom": 1741.9,
+  "innerH": 806,
+  "innerW": 1512,
+  "readoutClippedPx": 378,
+  "readoutText": "lab(75.771313545705% -12.72265212646 75.442991211055)",
+  "docOverflowX": 0
+ },
+ "pageErrors": [],
+ "prm": {
+  "prm": true,
+  "canvasTransitionDuration": "0.1s",
+  "canvasTransitionProperty": "opacity, color, background-color, border-color, box-shadow",
+  "durationFastVar": "0.2s",
+  "swatchAnimationName": "swatch-pop-5659b98f",
+  "swatchAnimationDuration": "0.00001s",
+  "swatchW": "28px",
+  "swatchH": "28px"
+ }
+}

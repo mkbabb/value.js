@@ -1,0 +1,100 @@
+{
+  "dotVsRing": {
+    "railBorderBox": [
+      234.47,
+      265
+    ],
+    "railPaddingBox": [
+      235.47,
+      264
+    ],
+    "railContentBox": [
+      237.47,
+      262
+    ],
+    "seatBox": [
+      236.47,
+      263
+    ],
+    "paintedDotSpanCss": [
+      235.03,
+      265.7
+    ],
+    "paintedDotWidthCss": 30.67,
+    "ringStrokeLeftCss": 235.54,
+    "ringStrokeRightCss": 264.94,
+    "clearance_left_css": -0.51,
+    "clearance_right_css": -0.76,
+    "dsf": 3.9449779392681026
+  },
+  "activeGlyphContrast": {
+    "darkestGlyphPx": [
+      0,
+      0,
+      0
+    ],
+    "modalFillPx": [
+      255,
+      143,
+      200
+    ],
+    "ratio": 10.02,
+    "note": "α glyph over the live-colour dot"
+  },
+  "focusDelta": {
+    "changedPx": 16975,
+    "totalPx": 119616,
+    "changedPct": 14.19,
+    "maxChannelDistance": 108.4,
+    "focusedItem": {
+      "text": "α",
+      "selected": "true"
+    }
+  },
+  "spaceOptions": [
+    "RGBrgb(385.302835934518 143.376536829596 199.64311881105 / 82.7%)",
+    "HSLhsl(346.045357898758deg -1295.152156124318% 103.662622110611% / 82.7%)",
+    "HSVhsv · 346.0454 · 0.6279 · 1.511",
+    "HWBhwb(346.045357898758deg 56.226092874351% -51.09915134687% / 82.7%)",
+    "Lablab(92% 88.8 20 / 82.7%)",
+    "LChlch(92% 91.024392335242 12.692665545118deg / 82.7%)",
+    "OKLaboklab(95.832172477266% 0.268447234915 0.046533068626 / 82.7%)",
+    "OKLChoklch(95.832172477266% 0.272450443952 9.83402284231deg / 82.7%)",
+    "XYZcolor(xyz 1.266749228777 0.787798986715 0.629624515433 / 82.7%)",
+    "Kelvinkelvin · 5309",
+    "sRGB Linearcolor(srgb-linear 2.580409706575 0.276260750926 0.575271696508 / 82.7%)",
+    "Display P3color(display-p3 1.402321458483 0.628430810501 0.790516044279 / 82.7%)",
+    "Adobe RGBcolor(a98-rgb 1.346578648967 0.557139518713 0.770090470472 / 82.7%)",
+    "ProPhoto RGBcolor(prophoto-rgb 1.270097960811 0.688918884826 0.734567553273 / 82.7%)",
+    "Rec. 2020color(rec2020 1.258032413371 0.709533221683 0.797987052561 / 82.7%)",
+    "ICtCpictcp · 0.5591 · 0.0437 · 0.1739",
+    "Jzazbzjzazbz · 0.2215 · 0.1177 · 0.0428",
+    "Hex#ff8fc8d3"
+  ],
+  "glyphArms": {
+    "ICtCp": {
+      "picked": false
+    },
+    "Jzazbz": {
+      "picked": false
+    },
+    "LCh": {
+      "picked": false
+    },
+    "HWB": {
+      "picked": false
+    },
+    "XYZ": {
+      "picked": false
+    }
+  },
+  "forcedColorsFocus": {
+    "onRail": true,
+    "text": "L",
+    "focusVisible": true,
+    "boxShadow": "none",
+    "outline": "3px none",
+    "bg": "rgba(255, 255, 255, 0)",
+    "color": "rgb(0, 0, 0)"
+  }
+}

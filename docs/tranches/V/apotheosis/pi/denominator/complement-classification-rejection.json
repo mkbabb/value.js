@@ -1,0 +1,27 @@
+{
+  "schema_version": "value.pi.css-source-complement-rejection/v1",
+  "status": "V1_SEMANTIC_ROUTING_REJECTED_MECHANICAL_CENSUS_RETAINED",
+  "subject": {
+    "path": "complement-classification.json",
+    "bytes": 149757,
+    "sha256": "1ec512250bafc09f510194b48e3fb87f4427b83c84a6a543b58e81040ae18af2",
+    "payload_sha256": "16f1f186732ed7e91af57df4126a0f87a2e4868f8899278905cfa3aa58d97a6b"
+  },
+  "mechanical_disposition": "GREEN_168_SOURCE_UNIVERSE_92_COMPLEMENT_BIJECTION",
+  "semantic_disposition": "REJECT",
+  "challenges": [
+    {
+      "path": "../formation/denominator-complement-challenge-a.md",
+      "bytes": 17874,
+      "sha256": "8687bc986b96b8f9208fef12d24d96573146766f82b3e5adb0e2fe7aa64926a7",
+      "verdict": "REJECT"
+    },
+    {
+      "path": "../formation/denominator-complement-challenge-b.md",
+      "bytes": 16429,
+      "sha256": "a89eaa7dc2e6db5d49c7944553de22b158130870577f28d904188a124df83dc3",
+      "verdict": "REJECT"
+    }
+  ],
+  "next": "Occurrence-first v2 classification with exact successor mapping or conservative experimental/RED retention, then two fresh challenges and gestalt."
+}

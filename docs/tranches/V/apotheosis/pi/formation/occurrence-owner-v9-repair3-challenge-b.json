@@ -1,0 +1,430 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair3-challenge/v1",
+  "date": "2026-07-22",
+  "challenge": "B",
+  "review_mode": "FRESH_INDEPENDENT_ASSUME_FAULTY_EXACT_BYTE_ADVERSARIAL",
+  "reviewer": {
+    "task": "/root/v9_repair3_review_b",
+    "model_served": "UNAVAILABLE_TO_AGENT_RUNTIME_NOT_INFERRED",
+    "independence": [
+      "Challenge A was not read.",
+      "The 168-source corpus was not run.",
+      "The review used only the exact repair3 subject, its declared local inputs, official semantic references named by the contract, and small in-memory counterexamples.",
+      "No analyzer, oracle, test, semantic contract, evidence, parser, production source, ledger, shard, or other repository file was edited. Temporary replay output existed only under /tmp."
+    ]
+  },
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 56293,
+      "sha256": "8181757557f3a6e86ea5d45c3620c2649e6b083c4a4aead323c4196f17040425"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 17007,
+      "sha256": "f2c2397c22b7fdae350b074943c52cb18906e6c9e814f8f3bc709b57f411fc33"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 18149,
+      "sha256": "989ff130d4c6fd11688d02a91109860663fdf255bff859e75290b38264b177aa"
+    },
+    "semantic_contract": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json",
+      "bytes": 6381,
+      "sha256": "732ebafdf0336c9c21027bfa4b4df3b6b143ef61336603750797b4a254c1c702",
+      "rules": 10,
+      "witnesses": 19
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair3-evidence.json",
+      "bytes": 8185,
+      "sha256": "8215baeb14bb2fe205bd9e7689eef06c068aba9bb70d89f1687f489c25c11ec0"
+    },
+    "expected_stdout": {
+      "bytes": 14316,
+      "sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf"
+    },
+    "identity_recheck_before_receipt": "GREEN_EXACT"
+  },
+  "environment": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "architecture": "arm64",
+    "operating_system": "macOS 26.4.1"
+  },
+  "authoritative_reference_checks": [
+    {
+      "source": "Bikeshed Documentation sections 5.7 and 5.8.1",
+      "url": "https://speced.github.io/bikeshed/#datablocks",
+      "fact": "Datablocks are initially opaque, while l enables autolink shorthands anywhere and recognizes them even when their Markup Shorthands category is disabled."
+    },
+    {
+      "source": "Bikeshed Documentation sections 7.1.2, 7.2, and 7.3",
+      "url": "https://speced.github.io/bikeshed/#autolink-syntax",
+      "fact": "An empty slash is a valid explicit for-less definition link, inside syntax can carry visible text, spec/section references include local and cross-spec forms, and every a element without href is a manual autolink."
+    },
+    {
+      "source": "Bikeshed Documentation sections 6.2, 6.7, and 6.9",
+      "url": "https://speced.github.io/bikeshed/#dfn-model",
+      "fact": "Definition linking text defaults to semantic text content, alternate and definition attributes can be inherited from ancestors, and headings may be definition carriers."
+    },
+    {
+      "source": "WHATWG HTML Standard",
+      "url": "https://html.spec.whatwg.org/multipage/syntax.html#syntax-attributes",
+      "fact": "Attribute values contain text and character references; the repaired analyzer correctly retains raw spelling while decoding the semantic value in the targeted cases."
+    },
+    {
+      "source": "RFC 3986 section 3.1",
+      "url": "https://www.rfc-editor.org/rfc/rfc3986#section-3.1",
+      "fact": "URI schemes are ASCII-case-insensitive; the repaired text URL probe passes."
+    }
+  ],
+  "commands": [
+    {
+      "id": "IDENTITY",
+      "command": "shasum -a 256 docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/semantic-contract.json docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair3-evidence.json && wc -c <same five paths>",
+      "result": "GREEN; all five hashes and byte counts equal the frozen subject"
+    },
+    {
+      "id": "SYNTAX",
+      "command": "node --check analyzer.mjs && node --check oracle.mjs && node --check test.mjs, using the exact subject paths",
+      "result": "GREEN"
+    },
+    {
+      "id": "WORKSPACE_REPLAY",
+      "command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > $(mktemp /tmp/v9-r3-b-workspace.XXXXXX)",
+      "result": {
+        "stdout_bytes": 14316,
+        "stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf"
+      }
+    },
+    {
+      "id": "EXTERNAL_CWD_REPLAY",
+      "command": "cd /tmp && node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs > $(mktemp /tmp/v9-r3-b-external.XXXXXX)",
+      "result": {
+        "stdout_bytes": 14316,
+        "stdout_sha256": "2590f7d4c1b2ec964b5f951a5eebc5171ab7bfb4c4e22f35af315de5447747bf",
+        "byte_identical_to_workspace": true
+      }
+    },
+    {
+      "id": "COUNTEREXAMPLE_DRIVER",
+      "command": "node --input-type=module with direct imports of analyzeSource and verifyAnalysis; run only the exact small sources and in-memory mutations recorded under findings",
+      "result": "Reproduced every finding below without creating a repository file."
+    },
+    {
+      "id": "ENVIRONMENT",
+      "command": "git rev-parse HEAD && node -p process.version && uname -m && sw_vers -productVersion",
+      "result": "c654824e0b252cda7f8490b67f182a48c48cc0ed / v26.0.0 / arm64 / 26.4.1"
+    }
+  ],
+  "findings": [
+    {
+      "id": "R3B-01-HREFLESS-DEFAULT-MANUAL-AUTOLINK-OMITTED",
+      "severity": "BLOCKER",
+      "axes": ["references", "manual-autolinks", "declarative-contract", "oracle"],
+      "source_locations": [
+        "analyzer.mjs:700-721",
+        "oracle.mjs:286-325",
+        "semantic-contract.json rule DEFINITIONS"
+      ],
+      "reproduction": {
+        "source": "<a>term</a>",
+        "actual_candidates": [],
+        "actual_oracle": "GREEN_DECLARATIVE_WITNESS_ORACLE_REPAIR3_RED_ONLY with semantic_witness_id null",
+        "expected": "one manual_autolink candidate whose default type and linking text derive from the element text"
+      },
+      "cause": "The analyzer only emits an href-less a when its opening tag also has lt, data-lt, dfn, or data-link-type. The declared Bikeshed rule is broader: every a without href is a manual autolink, with dfn type and text content as defaults.",
+      "impact": "The occurrence census silently omits the shortest and default manual-autolink spelling while the oracle certifies the omission."
+    },
+    {
+      "id": "R3B-02-REFERENCE-INSIDE-SYNTAX-IS-STILL-INCOMPLETE",
+      "severity": "BLOCKER",
+      "axes": ["references", "definitions", "bibliography", "target-resolution", "oracle"],
+      "source_locations": [
+        "analyzer.mjs:528-543",
+        "analyzer.mjs:634-659",
+        "analyzer.mjs:1249-1257",
+        "oracle.mjs:286-325"
+      ],
+      "reproductions": [
+        {
+          "source": "[=/url=]",
+          "actual_candidates": [],
+          "expected": "one included definition reference explicitly targeting the for-less url definition"
+        },
+        {
+          "source": "<dfn>foo</dfn>[=foo|visible=]",
+          "actual_target_form": "foo|visible",
+          "actual_target_carrier_ids": [],
+          "expected_target_form": "foo",
+          "expected_target_carrier_count": 1
+        },
+        {
+          "source": "[[CSS-FOO|the CSS Foo spec]] [[FOO#bar]]",
+          "actual_candidates": [],
+          "expected": "two included spec/section-reference occurrences"
+        }
+      ],
+      "actual_oracle_for_each": "ACCEPT with semantic_witness_id null",
+      "cause": "The definition validator requires both slash-separated parts to be nonempty, contrary to the explicit empty-slash form, and target joining never parses the !!type or |visible-text segments. The bibliographic target regex also rejects declared visible-text and cross-spec-section forms.",
+      "impact": "Valid references are absent or carry the wrong semantic target, so candidate and definition-owner relations remain incomplete."
+    },
+    {
+      "id": "R3B-03-EXPLICIT-L-CONFLATES-AUTOLINK-ELIGIBILITY-WITH-STRUCTURAL-VISIBILITY",
+      "severity": "HIGH",
+      "axes": ["source-states", "tags", "headings", "markup-shorthands", "oracle"],
+      "source_locations": [
+        "analyzer.mjs:360-369",
+        "analyzer.mjs:679-696",
+        "analyzer.mjs:1023-1070",
+        "semantic-contract.json rules PRE and MARKUP_SHORTHANDS"
+      ],
+      "reproductions": [
+        {
+          "source": "<pre><l>\n# Not a heading\n[=active=]\n</l></pre>",
+          "actual_inner_state": "VISIBLE_TEXT",
+          "actual_heading_titles": ["Not a heading"],
+          "actual_included_reference": "[=active=]",
+          "expected": "the l element re-enables the autolink but does not promote Markdown block structure inside pre"
+        },
+        {
+          "source": "<pre class=metadata>Markup Shorthands: css no</pre><pre><l>'active'</l></pre>",
+          "actual_candidates": [],
+          "expected": "one included css_shorthand_single candidate because explicit l recognizes autolink syntaxes even when the category is disabled"
+        }
+      ],
+      "actual_oracle_for_each": "ACCEPT with semantic_witness_id null",
+      "cause": "The lexical state is changed wholesale from RAW_PRE to VISIBLE_TEXT beneath l, so heading discovery sees Markdown that should stay structurally opaque. Separately, CSS candidate discovery still gates l content on the global css setting.",
+      "impact": "The repaired pre/l behavior both fabricates headings and misses explicit autolinks."
+    },
+    {
+      "id": "R3B-04-DEFINITION-TEXT-CONTENT-IS-NOT-ENTITY-DECODED",
+      "severity": "HIGH",
+      "axes": ["definition-carriers", "semantic-text", "target-resolution", "oracle"],
+      "source_locations": [
+        "analyzer.mjs:788-805",
+        "analyzer.mjs:1194-1219",
+        "analyzer.mjs:1236-1257"
+      ],
+      "reproduction": {
+        "source": "<dfn>A&amp;B</dfn>[=A&B=]",
+        "actual_carrier_names": [["A&amp;B"]],
+        "actual_reference_target_form": "a&b",
+        "actual_target_carrier_ids": [],
+        "expected_carrier_name": "A&B",
+        "expected_target_carrier_count": 1,
+        "actual_oracle": "ACCEPT with semantic_witness_id null"
+      },
+      "cause": "Attribute values are now decoded correctly, but projected definition text remains raw source spelling. Bikeshed linking text defaults to semantic text content, so character references in dfn or heading content must not become literal ampersand-name bytes.",
+      "impact": "Definition carrier identities and resolved reference joins can still disagree even though the repaired attribute-only entity witnesses pass."
+    },
+    {
+      "id": "R3B-05-HOSTILE-OPTION-BOUNDARY-STILL-THROWS",
+      "severity": "BLOCKER",
+      "axes": ["options", "input-contract", "no-throw", "ledger"],
+      "source_locations": [
+        "analyzer.mjs:1280-1336",
+        "semantic-contract.json rule INPUT",
+        "test.mjs:237-270"
+      ],
+      "reproduction": {
+        "program": "const p=Proxy.revocable([],{}); p.revoke(); analyzeSource('x',{operationLedger:p.proxy})",
+        "actual": "throws TypeError: Cannot perform 'IsArray' on a proxy that has been revoked",
+        "expected": "a returned analysis containing an explicit input_contract_errors row"
+      },
+      "cause": "safeInput calls Array.isArray(ledgerInput) outside a protective try. The six frozen hostile cases cover throwing property access and a throwing row getter but not a revoked array proxy or other hostile field values that escape later validation.",
+      "impact": "The explicit nonthrowing option boundary claimed by the declarative INPUT rule and evidence is not closed."
+    },
+    {
+      "id": "R3B-06-DECLARATIVE-RULES-DO-NOT-GENERALIZE-BEYOND-EXACT-WITNESS-STRINGS",
+      "severity": "BLOCKER",
+      "axes": ["declarative-contract", "oracle-independence", "source-states", "tags", "headings", "references", "test-closure"],
+      "source_locations": [
+        "oracle.mjs:11-21",
+        "oracle.mjs:89-216",
+        "oracle.mjs:286-325",
+        "oracle.mjs:339-381",
+        "test.mjs:121-199"
+      ],
+      "reproduction": {
+        "source": "<pre>[=novel=]</pre>\n# H\n",
+        "mutation": [
+          "replace the full state partition with one gapless VISIBLE_TEXT range",
+          "erase every tag, candidate, disposition, heading, operation candidate, operation, carrier, and stable ID",
+          "make range_rows, tag_rows, candidate_rows, relation_rows, and total_instrumented_units internally consistent with the fabricated result"
+        ],
+        "actual_oracle": "GREEN_DECLARATIVE_WITNESS_ORACLE_REPAIR3_RED_ONLY",
+        "semantic_witness_id": null,
+        "expected_rejection": "source state, missing tags, missing excluded reference, and missing heading must each be independently rejected"
+      },
+      "cause": "The oracle loads the contract rules but never interprets or checks them. It applies semantic expectations only on exact source-url/source-string lookup into the 19-row witness map; all other inputs receive structural self-consistency checks without source-derived state, tag, candidate, heading, carrier, or owner semantics.",
+      "impact": "The 6,381-byte table is an exact-example rail, not an independent semantic oracle. Small source variations and erased relations can be certified green."
+    },
+    {
+      "id": "R3B-07-ADMITTED-OPERATION-OWNER-AND-LEDGER-EVIDENCE-ARE-NOT-VERIFIED",
+      "severity": "HIGH",
+      "axes": ["ledger-authority", "operation-owner", "container-ownership", "oracle"],
+      "source_locations": [
+        "oracle.mjs:179-216",
+        "oracle.mjs:218-244",
+        "analyzer.mjs:1153-1168"
+      ],
+      "reproduction": {
+        "source": "# Outer {#outer}\n<div algorithm>x</div>",
+        "ledger_owner_candidate": "heading-0",
+        "mutation": "change the emitted admitted operation's owner_candidate and heading_id to fabricated-owner, heading_title to Fabricated, and ledger_evidence.owner_candidate to fabricated-owner",
+        "actual_oracle": "GREEN_DECLARATIVE_WITNESS_ORACLE_REPAIR3_RED_ONLY with semantic_witness_id null",
+        "expected_rejection": "operation owner and copied ledger evidence differ from both source-derived operation candidate and reviewed ledger row"
+      },
+      "cause": "verifyRelations checks operation_candidates but not admitted operations. verifyLedger checks only operation ID, review status, source identity, source URL, and locator; it does not compare kind, anchor, owner_candidate, heading fields, or copied ledger evidence.",
+      "impact": "The analyzer's exact container witness passes, but the claimed independent authority path cannot detect owner or evidence substitution in an admitted operation row."
+    },
+    {
+      "id": "R3B-08-TOTAL-WORK-SUPPRESSION-IS-ADMITTED",
+      "severity": "MEDIUM",
+      "axes": ["work-accounting", "oracle", "mutation-closure"],
+      "source_locations": [
+        "analyzer.mjs:1261-1277",
+        "oracle.mjs:328-337",
+        "oracle.mjs:378-380",
+        "test.mjs:319-348"
+      ],
+      "reproduction": {
+        "source": "x",
+        "mutation": "set result.work.total_instrumented_units to 0 and change no other field",
+        "actual_oracle": "GREEN_DECLARATIVE_WITNESS_ORACLE_REPAIR3_RED_ONLY and analyzer_work_units 0",
+        "expected_rejection": "total_instrumented_units must equal the sum of the nine declared component counters"
+      },
+      "cause": "verifyAnalyzerWork validates selected component counters but never recomputes total_instrumented_units. The geometric test only checks monotonic totals produced by the sealed analyzer and contains no total-field suppression mutation.",
+      "impact": "The separate analyzer/verifier observations are honestly non-formal, but their analyzer total is not independently authenticated and cannot support even the stated mutation rail."
+    }
+  ],
+  "targeted_passes": [
+    {
+      "id": "R3B-PASS-IDENTITY-SYNTAX-REPLAY",
+      "result": "All frozen subject identities match, all three JavaScript syntax checks pass, and workspace and /tmp stdout are exactly 14,316 bytes at the expected SHA-256."
+    },
+    {
+      "id": "R3B-PASS-FROZEN-RAILS",
+      "result": "The sealed driver reports 18 V9 fixture cases, 29 inherited V8 cases, all 19 exact semantic witnesses, 13 rejected mutations, 512 decoded arbitrary-byte strings, all 13 state labels, and 20 geometric observations as declared."
+    },
+    {
+      "id": "R3B-PASS-STACK-PRE-DATABLOCK-SETEXT",
+      "result": "The exact stale same-name stack, processed-code depth, ordinary-pre exclusion, explicit-l reference, datablock opacity, metadata css-no, and single-consumption Setext witnesses pass. This is qualified by R3B-03 because l still leaks structural visibility and does not override a disabled CSS category."
+    },
+    {
+      "id": "R3B-PASS-BIBLIO-NEGATIVES-AND-ASCII-URL",
+      "result": "The six declared biblio modifiers, invalid status/punctuation targets, whitespace-adjacent definition slashes, and uppercase HTTPS witness pass. This is qualified by R3B-02 because other documented inside-syntax forms remain absent or mistargeted."
+    },
+    {
+      "id": "R3B-PASS-ATTRIBUTE-PROVENANCE-AND-URLS",
+      "result": "Raw attribute spelling and decoded semantic href/scope values pass the exact absolute URL, relative-query URL, and inherited-scope witnesses. URL resolution uses decoded values and ASCII-insensitive platform schemes."
+    },
+    {
+      "id": "R3B-PASS-DEFINITION-WITNESSES",
+      "result": "The exact definition-bearing heading, inherited data-lt dfn, and decoded data-dfn-for witness joins pass. This is qualified by the default manual-link omission and raw entity-bearing definition text."
+    },
+    {
+      "id": "R3B-PASS-CONTAINER-OWNER",
+      "result": "For the declared closed nested section source, the later explicit algorithm is owned by Outer rather than the closed Inner heading."
+    },
+    {
+      "id": "R3B-PASS-LEDGER-STATUS-AND-STABLE-UNION",
+      "result": "A REJECTED ledger status is not admitted, REVIEWED_ACCEPTED is the only accepted status, duplicate intervals are rejected by the inherited rail, and candidate/operation/carrier union collisions are reported and rejected by the mandatory analyzer-plus-oracle path."
+    },
+    {
+      "id": "R3B-PASS-HONEST-RESOURCE-AND-AUTHORITY-LABELS",
+      "result": "The evidence consistently labels analyzer counters as an instrumented lower bound, claims no formal bound or benchmark, records no 168-source run, and keeps denominator, parser, publication, launcher, and production authority red with zero credit."
+    }
+  ],
+  "oracle_independence_adjudication": {
+    "verdict": "REJECT_AS_GENERAL_SEMANTIC_ORACLE",
+    "positive": [
+      "The oracle does not import the analyzer and content-addresses the declarative contract.",
+      "It independently checks UTF-8 partition continuity, emitted byte provenance, attribute decoding, disposition bijection, exact stable-ID construction, collision presence, accepted ledger source identity, zero credits, and all 19 exact witnesses.",
+      "The replacement is materially smaller than the rejected duplicated implementation and avoids rebuilding the analyzer's full policy."
+    ],
+    "negative": [
+      "None of the ten general rule texts is executable or interpreted.",
+      "Semantic checks are keyed by exact whole source strings; a one-byte variation falls out of the witness authority.",
+      "The oracle accepts erased source-state, tag, reference, and heading relations on a non-witness input.",
+      "The oracle accepts substituted owner and copied ledger evidence in an admitted operation.",
+      "The oracle accepts suppression of the aggregate analyzer work value it returns as analyzer_work_units."
+    ],
+    "consequence": "The artifact is a useful integrity checker plus exact example table, but it cannot independently arbitrate general occurrence semantics or close the blueprint's named semantic mutation boundary."
+  },
+  "work_accounting_adjudication": {
+    "verdict": "REJECT_AS_VERIFIED_ACCOUNTING_ACCEPT_AS_HONEST_NONFORMAL_OBSERVATION",
+    "confirmed": [
+      "Analyzer and verifier observations are emitted separately.",
+      "No formal complexity, benchmark, cost-lattice, or full-corpus resource claim is made.",
+      "The sealed output's geometric values increase on the four tested families."
+    ],
+    "remaining_red": [
+      "The oracle does not recompute total_instrumented_units.",
+      "Both counters remain partial observations rather than complete work accounting.",
+      "No authenticated launcher, dependency closure, raw full-corpus RSS evidence, or 168-source resource run exists."
+    ]
+  },
+  "three_altitudes": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "analysis": "The exact subject is reproducible and honestly zero-credit, but it cannot seed a denominator traversal. It still omits documented reference occurrences, fabricates structure under explicit l, fails a hostile option value, and relies on a verifier that accepts erased semantics outside 19 literal strings. Running 168 sources now would content-address an incomplete census and give no independent assurance that the omissions were detected."
+    },
+    "wave": {
+      "verdict": "REJECT",
+      "analysis": "Repair3 closes every repair2 counterexample represented by its exact witnesses and materially improves parsimony, decoded attributes, Setext consumption, container ownership, status admission, stable-ID union checking, and reproducibility. The wave nevertheless fails semantic and hostile-input closure because small exact counterexamples defeat the declared INPUT, PRE, DEFINITIONS, reference, and oracle-independence boundaries."
+    },
+    "feature": {
+      "verdict": "REJECT",
+      "analysis": [
+        "Source partition integrity and frozen state witnesses pass, but l incorrectly turns raw-pre content into structurally visible Markdown.",
+        "Tag pairing and raw attribute provenance pass targeted checks, but the oracle can erase all tags on an unlisted source.",
+        "Setext and the exact HTML/ATX heading witnesses pass, but l fabricates an ATX heading and the oracle does not derive headings generally.",
+        "Declared invalid biblio and slash negatives pass, while valid default manual links, empty-slash definitions, visible-text targets, and section references remain incomplete.",
+        "Attribute entity decoding and href resolution pass; semantic definition text still retains entity source spelling and misses a valid carrier join.",
+        "The exact closed-container owner witness passes, but admitted-operation owner and ledger-evidence substitution is not rejected.",
+        "Only REVIEWED_ACCEPTED is admitted and union collisions are reported, but the semantic ledger authority remains absent and the verifier does not compare all admitted operation fields.",
+        "The six frozen hostile option cases pass; a revoked ledger-array proxy still escapes as TypeError.",
+        "The declarative table is independent in bytes but not general in semantics: its rules are inert and exact-source witnesses do not cover variations.",
+        "Separate work observations and honest no-bound labels pass, but aggregate work suppression is accepted."
+      ]
+    }
+  },
+  "required_repairs_before_fresh_review": [
+    "Emit every href-less a as a manual autolink and derive default link type and linking text from semantic element content when attributes are absent.",
+    "Implement the documented autolink inside grammar, including empty slash, type and visible-text segments, local/cross-spec section references, and exact target extraction rather than treating the whole body as the target.",
+    "Separate autolink eligibility from structural source state so l can enable only autolink recognition without enabling Markdown headings, and make l override disabled shorthand categories as declared.",
+    "Decode semantic HTML text content for definition and heading carrier names while retaining raw byte provenance.",
+    "Protect Array.isArray and every later ledger validation operation from hostile proxies and values, and freeze each escape as an exact negative control.",
+    "Replace exact-source-only semantic authority with independently executable general rules or a sufficiently broad external semantic oracle; add mutations on non-witness source variations for states, tags, headings, references, carriers, URLs, containers, and operations.",
+    "Compare every admitted operation's kind, anchor, source-derived owner, heading fields, and copied ledger evidence against both its operation candidate and exact reviewed ledger row.",
+    "Recompute and verify total_instrumented_units, while retaining the honest non-formal, zero-benchmark resource classification.",
+    "Keep all denominator, semantic, operation, owner, compatibility, parser, feature, benchmark, and production credit at zero and do not run the 168-source corpus until two fresh exact-byte reviews and root adjudication accept a repaired subject."
+  ],
+  "terminal_verdict": {
+    "status": "REJECT",
+    "may_seed_next_denominator_formation": false,
+    "may_run_full_168_source_corpus": false,
+    "may_generate_or_publish_shards": false,
+    "may_change_parser_or_production": false,
+    "rationale": "Five direct analyzer semantic/input counterexamples and three verifier mutation escapes are sufficient to reject the exact frozen subject despite exact deterministic replay and material bounded repairs."
+  },
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "benchmark": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

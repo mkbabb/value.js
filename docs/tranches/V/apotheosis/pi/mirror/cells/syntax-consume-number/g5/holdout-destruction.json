@@ -1,0 +1,66 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G5-HOLDOUT-DESTRUCTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 5,
+  "status": "TERMINALLY_REJECTED_BEFORE_CANDIDATES_UNREVEALED_SECRET_DESTROYED",
+  "terminal_rejection": {
+    "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+    "verdict": "REJECT",
+    "challenges": [
+      {
+        "seat": "a",
+        "path": "reviews/challenge-a.json",
+        "sha256": "de70a7419ff58910bd6a706cd8b629f61acaf978c1a2d3a408d517d19e496809",
+        "bytes": 17104,
+        "verdict": "REJECT"
+      },
+      {
+        "seat": "b",
+        "path": "reviews/challenge-b.json",
+        "sha256": "07ba39718983d9d41eec2642b307ea10d3ebd1b5f59abacfb1f01b713c6bca4a",
+        "bytes": 12714,
+        "verdict": "REJECT"
+      }
+    ],
+    "consequence": "G5 cannot admit authors. No candidate, parser, benchmark, integration, conformance, movement, or production credit exists."
+  },
+  "sealed_evidence_retained_immutable": {
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "e5d29b7e99595de8594eb9142ce5e5e542ecd4e1c570c41f841c448a9721f700",
+      "bytes": 7992
+    },
+    "ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "a520fdea071354a76fcd689966b706e459479f4807148f6c2c80fa0d30ccc212",
+      "bytes": 111971,
+      "disposition": "Retained solely as content-addressed evidence of the rejected sealed generation; not decrypted, altered, deleted, or reusable."
+    }
+  },
+  "secret_destruction": {
+    "original_custody": "The AES-256-GCM key and plaintext existed only in the custodian tool-session store; no plaintext/key filesystem artifact was created.",
+    "resumed_turn_probe": "The known secret custody key returned absent before destruction, confirming that the prior ephemeral tool-session secret object did not survive the task-turn boundary.",
+    "tombstone": "The known secret custody key and its auxiliary public in-memory record were explicitly overwritten with null, then immediately reread as null.",
+    "verification": {
+      "secret_store_after_is_null": true,
+      "auxiliary_public_store_after_is_null": true,
+      "workspace_plaintext_files": 0,
+      "workspace_key_files": 0,
+      "candidates_directory_exists": false,
+      "recoverable_secret_material_from_known_custody_locations": false
+    },
+    "result": "The unrevealed plaintext and AES key cannot be recovered from this custodian's tool-session store or the workspace. The surviving ciphertext is intentionally undecryptable within project custody.",
+    "disclosure": "No key, plaintext, hidden case, nonce, authentication tag, or decrypted result was revealed to root, an author, a challenger, or the workspace."
+  },
+  "generation_state": {
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "revealed_holdout_files": 0,
+    "secret_files": 0,
+    "production_mutations": 0
+  },
+  "no_reuse": "Neither G5 ciphertext nor any unrevealed G5 plaintext, key, case, identifier, result, or secret-generation material may seed or support a later generation. A later holdout must be independently regenerated with a fresh key, nonce, corpus identity, and cases.",
+  "receipt_self_identity": "Externally report this exact destruction receipt's SHA-256 and byte length.",
+  "credit": "ZERO: secret destruction and retained ciphertext are rejection evidence only."
+}

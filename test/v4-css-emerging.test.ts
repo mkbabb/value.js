@@ -9,7 +9,7 @@ import {
     parseStylesheet,
     serializeTimelineOptions,
 } from "../src/subpaths/css";
-import { serializeCssValue } from "../src/v4/css/stylesheet";
+import { serializeCssValue } from "../src/css/stylesheet";
 
 function declarations(source: string) {
     const parsed = parseStylesheet(`.sample { ${source} }`);

@@ -1,0 +1,409 @@
+{
+ "stage": null,
+ "type": {
+  "rows": [
+   {
+    "text": "1 → 2",
+    "px": "16.4px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "fira-code text-mono-small text-muted-foregroun"
+   },
+   {
+    "text": "linear",
+    "px": "16.4px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "fira-code text-mono-small text-muted-foregroun"
+   },
+   {
+    "text": "css",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "linear",
+    "px": "9px",
+    "weight": "600",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "oklch(0.438102 0.0748123 205)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "ease",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "sine",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "quad",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "cubic",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "smooth",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "expo",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "circ",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "back",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "in",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "in-out",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "steps",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "family-eyebrow"
+   },
+   {
+    "text": "n = 4",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "start",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "end",
+    "px": "9px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(91, 70, 51)",
+    "cls": "tile-label"
+   },
+   {
+    "text": "cubic-bezier(0, 0, 1, ",
+    "px": "16.4px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(112, 89, 66)",
+    "cls": "fira-code text-mono-small text-muted-foregroun"
+   },
+   {
+    "text": "Left and Right change ",
+    "px": "18.608px",
+    "weight": "400",
+    "family": "Plus Jakarta Sans",
+    "transform": "none",
+    "color": "rgb(28, 25, 23)",
+    "cls": "sr-only"
+   },
+   {
+    "text": "0",
+    "px": "0.05px",
+    "weight": "400",
+    "family": "Fira Code",
+    "transform": "none",
+    "color": "rgb(28, 25, 23)",
+    "cls": ""
+   }
+  ],
+  "distinctSizes": [
+   "0.05px",
+   "9px",
+   "14.384px",
+   "16.4px",
+   "18.608px"
+  ],
+  "distinctFamilies": [
+   "Fira Code",
+   "Plus Jakarta Sans"
+  ],
+  "count": 43
+ },
+ "crash": [
+  {
+   "id": "ease-in-out-back",
+   "before": {
+    "tiles": 27,
+    "rows": 1
+   },
+   "after": {
+    "tiles": 0,
+    "rows": 0,
+    "body": "This panel hit an unexpected error. Gradient color mix failed: color_progress_out_of_range"
+   },
+   "survived": false,
+   "pageErrors": []
+  },
+  {
+   "id": "ease-out-quad",
+   "before": {
+    "tiles": 27,
+    "rows": 1
+   },
+   "after": {
+    "tiles": 27,
+    "rows": 1,
+    "body": "Gradient Build gradients with per-interval easing and CSS output. Interpolation TYPE Linea"
+   },
+   "survived": true,
+   "pageErrors": []
+  }
+ ]
+}

@@ -1,0 +1,333 @@
+{
+  "desktopRows": [
+    {
+      "name": "Sunset",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 65,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "5",
+        "x": 865,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 895,
+      "clusterOverflow": -271,
+      "badgeCount": 1
+    },
+    {
+      "name": "A very long palette name that will",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 91,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "3",
+        "x": 891,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 1158,
+      "clusterOverflow": -8,
+      "badgeCount": 1
+    },
+    {
+      "name": "Featured One",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 130,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "8",
+        "x": 1057,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 1087,
+      "clusterOverflow": -79,
+      "badgeCount": 3
+    },
+    {
+      "name": "Single",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 60,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "1",
+        "x": 860,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 890,
+      "clusterOverflow": -276,
+      "badgeCount": 1
+    },
+    {
+      "name": "🎨",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 22,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "2",
+        "x": 822,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 852,
+      "clusterOverflow": -314,
+      "badgeCount": 1
+    },
+    {
+      "name": "A & B </text><script>alert(1)</scr",
+      "card": {
+        "x": 754,
+        "w": 462,
+        "h": 100
+      },
+      "title": {
+        "x": 792,
+        "w": 328,
+        "h": 31,
+        "clamp": "1",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "2",
+        "x": 1128,
+        "w": 30
+      },
+      "menuX": 1166,
+      "clusterRight": 1158,
+      "clusterOverflow": -8,
+      "badgeCount": 1
+    }
+  ],
+  "mobileRows": [
+    {
+      "name": "Sunset",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 118
+      },
+      "title": {
+        "x": 71,
+        "w": 65,
+        "h": 31,
+        "clamp": "2",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "5",
+        "x": 144,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 177,
+      "clusterOverflow": -112,
+      "badgeCount": 1
+    },
+    {
+      "name": "A very long palette name that will",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 125
+      },
+      "title": {
+        "x": 71,
+        "w": 0,
+        "h": 61,
+        "clamp": "2",
+        "ov": true
+      },
+      "countBadge": {
+        "text": "3",
+        "x": 79,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 281,
+      "clusterOverflow": -8,
+      "badgeCount": 1
+    },
+    {
+      "name": "Featured One",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 125
+      },
+      "title": {
+        "x": 71,
+        "w": 13,
+        "h": 61,
+        "clamp": "2",
+        "ov": true
+      },
+      "countBadge": {
+        "text": "8",
+        "x": 248,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 281,
+      "clusterOverflow": -8,
+      "badgeCount": 3
+    },
+    {
+      "name": "Single",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 118
+      },
+      "title": {
+        "x": 71,
+        "w": 60,
+        "h": 31,
+        "clamp": "2",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "1",
+        "x": 139,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 172,
+      "clusterOverflow": -117,
+      "badgeCount": 1
+    },
+    {
+      "name": "🎨",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 118
+      },
+      "title": {
+        "x": 71,
+        "w": 22,
+        "h": 31,
+        "clamp": "2",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "2",
+        "x": 101,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 134,
+      "clusterOverflow": -155,
+      "badgeCount": 1
+    },
+    {
+      "name": "A & B </text><script>alert(1)</scr",
+      "card": {
+        "x": 33,
+        "w": 324,
+        "h": 125
+      },
+      "title": {
+        "x": 71,
+        "w": 169,
+        "h": 61,
+        "clamp": "2",
+        "ov": false
+      },
+      "countBadge": {
+        "text": "2",
+        "x": 248,
+        "w": 33
+      },
+      "menuX": 289,
+      "clusterRight": 281,
+      "clusterOverflow": -8,
+      "badgeCount": 1
+    }
+  ],
+  "loadingShift": {
+    "PROBE_ERROR": "TimeoutError: page.waitForSelector: Timeout 15000ms exceeded."
+  },
+  "cardGeom": {
+    "h": 100,
+    "w": 462,
+    "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(",
+    "overflow": "visible",
+    "borderWidth": "2px",
+    "radius": "16px",
+    "stripH": 40,
+    "stripRadius": "16px 16px 0px 0px"
+  },
+  "exportSeat": {
+    "runs": [
+      {
+        "idx": 5,
+        "fmt": "SVG Swatch",
+        "filename": "a-b-text-script-alert-1-script.svg",
+        "head": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"110\" viewBox=\"0 0 120 110\">\n  <rect x=\"0\" y=\"0\" width=\"60\" height=\"80\" fill=\"#123456\" />\n  <rect x=\"60\" y=\"0\" width=\"60\" height=\"80\" fill=\"#654321\" />\n  <text x=\"60\" y=\"100\" text-anchor=\"middle\" font-family=\"system-ui, sans-serif\" font-size=\"14\" fill=\"#333\">A & B </text><script>alert(1)</script></text>\n</svg>"
+      },
+      {
+        "idx": 4,
+        "fmt": "CSS Custom Properties",
+        "filename": "css.css",
+        "head": ":root {\n  --palette--0: #ff0000;\n  --palette--1: #00ff00;\n}\n"
+      },
+      {
+        "idx": 5,
+        "fmt": "PNG Swatch",
+        "download": null,
+        "note": "no download event within 6s"
+      }
+    ],
+    "console": [
+      "error: [value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\".",
+      "warning: Export failed: Error: Failed to load SVG for PNG conversion"
+    ]
+  }
+}

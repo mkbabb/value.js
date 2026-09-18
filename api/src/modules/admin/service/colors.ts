@@ -23,7 +23,7 @@ export interface ProposedNameDTO {
     name: string;
     css: string;
     status: ProposedNameStatus;
-    contributor: string | null;
+    proposerSlug: string | null;
     createdAt: Date;
     approvedAt: Date | null;
 }
@@ -41,7 +41,7 @@ function format(doc: WithId<ProposedName>): ProposedNameDTO {
         name: doc.name,
         css: doc.css,
         status: doc.status,
-        contributor: doc.contributor,
+        proposerSlug: doc.proposerSlug,
         createdAt: doc.createdAt,
         approvedAt: doc.approvedAt,
     };

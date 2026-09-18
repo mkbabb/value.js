@@ -1,0 +1,440 @@
+[
+  {
+    "matrix": "desktop-light",
+    "consoleErrors": [],
+    "measure": {
+      "found": true,
+      "wrapperVars": {
+        "h2": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+        "h3": "color-mix(in oklab, oklch(47.092665778393% 0.188342548603 9.83402284231deg) 61.8%, light-dark(hsl(24 10% 10%), hsl(30 14% 90%)))",
+        "accent": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)"
+      },
+      "bodyMaxWidth": "100%",
+      "bodyMaxInlineSize": "100%",
+      "bodyWidthPx": 462,
+      "chPx": 200,
+      "bodyWidthCh": 2.3,
+      "widestParaCh": 2.3,
+      "cardWidthPx": 512,
+      "directChildren": 34,
+      "cvAutoChildren": 33,
+      "cvStuckAt200": 25,
+      "scrollHeight": 6636,
+      "roles": {
+        "h1": null,
+        "h2": {
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "lineHeight": "36px",
+          "fontWeight": "600",
+          "color": "oklch(0.470927 0.188343 9.834023)",
+          "marginTop": "41.875px",
+          "marginBottom": "16px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "color 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "h3": {
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "lineHeight": "32px",
+          "fontWeight": "600",
+          "color": "oklab(0.373594 0.116019 0.021859)",
+          "marginTop": "0px",
+          "marginBottom": "9.875px",
+          "width": 462,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "color 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "h4": null,
+        "h5": null,
+        "h6": null,
+        "p": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(28, 25, 23)",
+          "marginTop": "0px",
+          "marginBottom": "16px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "all"
+        },
+        "li": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(28, 25, 23)",
+          "marginTop": "0px",
+          "marginBottom": "6.109375px",
+          "width": 420,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "all"
+        },
+        "code": {
+          "fontFamily": "Fira Code",
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": "400",
+          "color": "oklch(0.470927 0.188343 9.834023)",
+          "marginTop": "0px",
+          "marginBottom": "0px",
+          "width": 23,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "all"
+        },
+        "pre": null,
+        "th": null,
+        "blockquote": null,
+        "hr": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(28, 25, 23)",
+          "marginTop": "41.875px",
+          "marginBottom": "41.875px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "all"
+        },
+        ".toc": null
+      },
+      "headingCensus": [
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "fontSize": "30px",
+          "color": "oklch(0.470927 0.188343 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "fontSize": "30px",
+          "color": "oklch(0.470927 0.188343 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "fontSize": "30px",
+          "color": "oklch(0.470927 0.188343 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "fontSize": "24px",
+          "color": "oklab(0.373594 0.116019 0.021859)"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "fontSize": "30px",
+          "color": "oklch(0.470927 0.188343 9.834023)"
+        }
+      ],
+      "markCount": 9,
+      "markStyle": {
+        "color": "oklch(0.470927 0.188343 9.834023)",
+        "background": "rgba(0, 0, 0, 0)",
+        "weight": "600"
+      },
+      "tocPresent": false,
+      "calloutPresent": false,
+      "taskListPresent": false,
+      "footnotesPresent": false,
+      "dlPresent": false,
+      "tablePresent": false,
+      "imgPresent": false,
+      "blockquotePresent": false,
+      "katexDisplay": 4,
+      "preCount": 0,
+      "hrCount": 4,
+      "anchorIds": 0
+    },
+    "instability": {
+      "before": 8023,
+      "after": 4908,
+      "deltaPx": -3115,
+      "pctChange": -38.8
+    }
+  },
+  {
+    "matrix": "desktop-dark",
+    "consoleErrors": [],
+    "measure": {
+      "found": true,
+      "wrapperVars": {
+        "h2": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+        "h3": "color-mix(in oklab, oklch(95.832172477266% 0.021053120065 9.83402284231deg) 61.8%, hsl(30 14% 90%))",
+        "accent": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)"
+      },
+      "bodyMaxWidth": "100%",
+      "bodyMaxInlineSize": "100%",
+      "bodyWidthPx": 462,
+      "chPx": 200,
+      "bodyWidthCh": 2.3,
+      "widestParaCh": 2.3,
+      "cardWidthPx": 512,
+      "directChildren": 34,
+      "cvAutoChildren": 33,
+      "cvStuckAt200": 25,
+      "scrollHeight": 6636,
+      "roles": {
+        "h1": null,
+        "h2": {
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "lineHeight": "36px",
+          "fontWeight": "600",
+          "color": "oklch(0.958322 0.021053 9.834023)",
+          "marginTop": "41.875px",
+          "marginBottom": "16px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "color 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "h3": {
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "lineHeight": "32px",
+          "fontWeight": "600",
+          "color": "oklab(0.94567 0.013714 0.004409)",
+          "marginTop": "0px",
+          "marginBottom": "9.875px",
+          "width": 462,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "color 0.45s cubic-bezier(0.4, 0, 0.2, 1)"
+        },
+        "h4": null,
+        "h5": null,
+        "h6": null,
+        "p": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(233, 230, 226)",
+          "marginTop": "0px",
+          "marginBottom": "16px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "all"
+        },
+        "li": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(233, 230, 226)",
+          "marginTop": "0px",
+          "marginBottom": "6.109375px",
+          "width": 420,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "all"
+        },
+        "code": {
+          "fontFamily": "Fira Code",
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": "400",
+          "color": "oklch(0.958322 0.021053 9.834023)",
+          "marginTop": "0px",
+          "marginBottom": "0px",
+          "width": 23,
+          "contentVisibility": "visible",
+          "containIntrinsicSize": "none",
+          "transition": "all"
+        },
+        "pre": null,
+        "th": null,
+        "blockquote": null,
+        "hr": {
+          "fontFamily": "Plus Jakarta Sans",
+          "fontSize": "16px",
+          "lineHeight": "28px",
+          "fontWeight": "400",
+          "color": "rgb(233, 230, 226)",
+          "marginTop": "41.875px",
+          "marginBottom": "41.875px",
+          "width": 462,
+          "contentVisibility": "auto",
+          "containIntrinsicSize": "auto 200px",
+          "transition": "all"
+        },
+        ".toc": null
+      },
+      "headingCensus": [
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "fontSize": "30px",
+          "color": "oklch(0.958322 0.021053 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "fontSize": "30px",
+          "color": "oklch(0.958322 0.021053 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "fontSize": "30px",
+          "color": "oklch(0.958322 0.021053 9.834023)"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "fontSize": "24px",
+          "color": "oklab(0.94567 0.013714 0.004409)"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "fontSize": "30px",
+          "color": "oklch(0.958322 0.021053 9.834023)"
+        }
+      ],
+      "markCount": 9,
+      "markStyle": {
+        "color": "oklch(0.958322 0.021053 9.834023)",
+        "background": "rgba(0, 0, 0, 0)",
+        "weight": "600"
+      },
+      "tocPresent": false,
+      "calloutPresent": false,
+      "taskListPresent": false,
+      "footnotesPresent": false,
+      "dlPresent": false,
+      "tablePresent": false,
+      "imgPresent": false,
+      "blockquotePresent": false,
+      "katexDisplay": 4,
+      "preCount": 0,
+      "hrCount": 4,
+      "anchorIds": 0
+    },
+    "instability": {
+      "before": 8023,
+      "after": 4908,
+      "deltaPx": -3115,
+      "pctChange": -38.8
+    }
+  },
+  {
+    "matrix": "mobile-light",
+    "consoleErrors": [],
+    "measure": {
+      "found": false
+    },
+    "instability": null
+  }
+]

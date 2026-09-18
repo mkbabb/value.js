@@ -1,0 +1,19 @@
+(node:88014) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugin `vite:dts`. See https://rolldown.rs/options/checks#plugintimings for more details.
+
+RED  parseCssColor             102/172 throw
+RED  parseCssScalar            102/172 throw
+RED  parseCssValue              60/172 throw
+RED  parseCssValues             60/172 throw
+ok   parseKeyframeSelector       0/172 throw
+ok   parseStylesheet             0/172 throw
+ok   parseTimingFunction         0/172 throw
+ok   parseAnimationTimeline      0/172 throw
+ok   parseAnimationRange         0/172 throw
+
+TOTAL 324 throws / 1548 calls
+DISTINCT FAILURE MODES: 1
+  324x  TypeError: Cannot read properties of undefined (reading 'replace')
+
+RED — 324 totality violations. A ParseResult-returning parser must not throw.

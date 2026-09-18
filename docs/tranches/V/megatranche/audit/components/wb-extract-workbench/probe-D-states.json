@@ -1,0 +1,251 @@
+{
+ "log": [
+  {
+   "tag": "01-empty-k5",
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.7,
+    "w": 462,
+    "h": 150
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 19,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "tag": "02-empty-k1",
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.7,
+    "w": 462,
+    "h": 150
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 13,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "tag": "03-empty-k16",
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 517.7,
+    "w": 462,
+    "h": 278
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 416.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 430.7,
+    "w": 462,
+    "h": 395.6
+   },
+   "paneScrollH": 704,
+   "paneClientH": 704,
+   "docH": 900,
+   "anims": 43,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "tag": "04-empty-k5-again",
+   "present": {
+    "ghost": true,
+    "skeleton": false,
+    "card": true,
+    "caption": true,
+    "error": null
+   },
+   "ghostRect": {
+    "y": 581.7,
+    "w": 462,
+    "h": 150
+   },
+   "skelRect": null,
+   "cardRect": {
+    "y": 480.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": {
+    "y": 494.7,
+    "w": 462,
+    "h": 267.6
+   },
+   "paneScrollH": 576,
+   "paneClientH": 576,
+   "docH": 900,
+   "anims": 21,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "tag": "05-extracted",
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 9,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  },
+  {
+   "tag": "06-after-focus",
+   "present": {
+    "ghost": false,
+    "skeleton": false,
+    "card": true,
+    "caption": false,
+    "error": null
+   },
+   "ghostRect": null,
+   "skelRect": null,
+   "cardRect": {
+    "y": 382.8,
+    "w": 462,
+    "h": 218.1
+   },
+   "colRect": null,
+   "paneScrollH": 774,
+   "paneClientH": 772,
+   "docH": 900,
+   "anims": 13,
+   "live": [
+    "status:· empty plate ·No saved palettes yet.Add"
+   ]
+  }
+ ],
+ "ctl": [
+  {
+   "title": "Upload image",
+   "base": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "3px",
+    "shadow": "none",
+    "opacity": "1",
+    "cursor": "pointer",
+    "pe": "auto"
+   },
+   "hov": {
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "shadow": "none"
+   },
+   "foc": {
+    "outline": "none 3px lab(92 88.800003 20)",
+    "shadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0",
+    "matches": true
+   }
+  },
+  {
+   "title": "Open camera",
+   "base": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "3px",
+    "shadow": "none",
+    "opacity": "1",
+    "cursor": "pointer",
+    "pe": "auto"
+   },
+   "hov": {
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "shadow": "none"
+   },
+   "foc": {
+    "outline": "none 3px lab(92 88.800003 20)",
+    "shadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0",
+    "matches": true
+   }
+  },
+  {
+   "title": "Reset",
+   "base": {
+    "bg": "rgba(0, 0, 0, 0)",
+    "outline": "3px",
+    "shadow": "none",
+    "opacity": "1",
+    "cursor": "pointer",
+    "pe": "auto"
+   },
+   "hov": {
+    "bg": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "shadow": "none"
+   },
+   "foc": {
+    "outline": "none 3px lab(92 88.800003 20)",
+    "shadow": "oklab(0 0 0 / 0) 0px 0px 0px 0px, oklab(0 0 0 / 0) 0px 0px 0",
+    "matches": true
+   }
+  }
+ ],
+ "pageErrors": [
+  "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev"
+ ]
+}

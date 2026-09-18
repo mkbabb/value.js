@@ -1,0 +1,127 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# substrate-close.txt — G-0.1 CLOSE reading (the settled tree, after the COHESION 0j.C three-step act)
+# Wave KF.W0 (Track B / X.KF) - unit KF.W0.OP-1. Substrate: /Users/mkbabb/Programming/keyframes.js
+# Date: 2026-09-17. Every figure double-run; both runs agreed. Pair file: substrate-open.txt.
+
+## The three acts, in the ruled order and no other (COHESION 0j.C KF-OP1)
+
+  (1) $ git branch kf-sacred-snapshot-2026-09-17            -> ref created at HEAD 8281638c
+  (2) $ git checkout kf-sacred-snapshot-2026-09-17 && git add -u && git commit -m "snapshot(kf): ..."
+                                                            -> 6d280ee7   (226 files changed, 4483 insertions(+), 6156 deletions(-))
+  (3) $ git checkout master && git fetch origin && git reset --hard origin/master
+                                                            -> HEAD is now at 81a56990
+
+  snapshot sha (the receipt handed to KF.W0.c): 6d280ee7bec7793846b2e2e1d250e1ea0a21859a
+  its parent (the 1-ahead commit, preserved by ref): 8281638c0ac4ac8c54a67a018ca5bf6a9117174f
+  $ git merge-base --is-ancestor 8281638c kf-sacred-snapshot-2026-09-17 -> ancestor (0)
+  read-only pre-fetch probe, so the fetch could not move the pinned coordinate under the act:
+  $ git ls-remote origin refs/heads/master -> 81a56990736ced5b5edde0b84c527680ac7689b1  (= the pin; the fetch moved nothing)
+
+## The G-0.1 sextuple, AFTER (compare substrate-open.txt)
+
+$ git rev-parse HEAD                               -> 81a56990736ced5b5edde0b84c527680ac7689b1
+$ git rev-parse origin/master                      -> 81a56990736ced5b5edde0b84c527680ac7689b1
+$ git rev-parse --abbrev-ref HEAD                  -> master
+$ git rev-list --count HEAD..origin/master         -> 0      (was 41)
+$ git rev-list --count origin/master..HEAD         -> 0      (was  1)
+$ git status --short | wc -l                       -> 6      (was 252)
+$ git status --short | grep -vc "^??"              -> 0      (was 226 tracked rows)
+$ git diff --name-only origin/master | wc -l       -> 0      (was 325)
+$ git ls-files --others --exclude-standard | wc -l -> 6      (was 124)  <- SEE THE FINDING BELOW
+$ git merge-base HEAD origin/master                -> 81a56990736ced5b5edde0b84c527680ac7689b1
+$ git diff --check                                 -> (clean)
+
+  The two surfaces that did not nest at open are both EMPTY at close, so the D-2 falsifier
+  (comm -13 / -23 / -12) has nothing left to enumerate against the frontier:
+$ comm -13 <(status paths) <(frontier-diff paths) | wc -l -> 0
+$ comm -23 ...                                    | wc -l -> 6
+$ comm -12 ...                                    | wc -l -> 0
+
+## N-2 / LAW-A Census 1 — the flat emit triad REMOVED BY PATH (G-0.1 GREEN clause)
+
+  src/animation/compile/emit/backward.ts               -> ABSENT -- removed by the full reset, as only the full reset can
+  src/animation/compile/emit/backward-walk.ts          -> ABSENT -- removed by the full reset, as only the full reset can
+  src/animation/compile/emit/backward-color.ts         -> ABSENT -- removed by the full reset, as only the full reset can
+
+$ ls src/animation/compile/emit/ ->
+      backward
+      css-text.ts
+      densify.ts
+      easing-serialize.ts
+      entry.ts
+      format
+      index.ts
+      refusal-probes.ts
+      view-transition.ts
+  (the frontier layout: backward/ and format/ are MODULES; 7 flat siblings beside them)
+
+## The four glass-ui manifest coordinates AFTER the settle (Dispatch check; the RULING is KF.W0.b s)
+
+$ git show HEAD:package.json          | grep -n @mkbabb/glass-ui -> 77:        "@mkbabb/glass-ui": "7.0.0",
+$ git show origin/master:package.json | grep -n @mkbabb/glass-ui -> 77:        "@mkbabb/glass-ui": "7.0.0",
+$ grep -n @mkbabb/glass-ui package.json                          -> 77:        "@mkbabb/glass-ui": "7.0.0",
+$ node -p "require(./node_modules/@mkbabb/glass-ui/package.json).version"  -> 7.0.0
+$ grep -c @mkbabb/glass-ui package-lock.json                     -> 3
+  -> the worktree DELETION is gone (reconciled BY the reset, never authored); all four read 7.0.0.
+  -> NO MANIFEST MISMATCH; the Triumvirate Dispatch owner-return trigger does NOT fire.
+  -> .npmrc still unruled -- silence is not a disposition; that ruling is KF.W0.b s (G-0.2).
+$ cat .npmrc -> legacy-peer-deps=true
+
+## EE-02 (G-0.3 evidence, produced BY the reset; the GATE is KF.W0.c s)
+
+$ git diff origin/master --stat -- demo/.../useTimingFunctionEditor.ts demo/.../TimingFunctionPanel.vue package.json package-lock.json ->
+      (empty = the disk<-master direction lock honoured; the css-twin is NOT regressed)
+
+## FINDING (LOUD, IRREVERSIBLE) — the ruled premise "untracked V docs unharmed" does NOT hold for
+## untracked paths that EXIST IN THE TARGET TREE. Measured, not inferred.
+
+  COHESION 0j.C KF-OP1 step (2) reasons: "untracked files are not added and are therefore left in
+  place by the reset exactly as the spec requires (untracked V docs unharmed)". Step (2) held
+  exactly as ruled -- `git add -u` staged 226 TRACKED rows and zero untracked ones. The inference
+  about step (3) does not: `git reset --hard <t>` skips the verify_absent check, so an UNTRACKED
+  working-tree file whose path exists in <t> is OVERWRITTEN with <t> bytes (unlike `git checkout`,
+  which refuses). Only untracked paths ABSENT from <t> are left alone.
+
+  MEASURED:
+    untracked files before the act                                 -> 124
+    untracked files after the act                                  -> 6
+    => ABSORBED (now tracked, carrying origin/master bytes)        -> 118
+    untracked docs/tranches/V/ files before                        -> 99
+    untracked docs/tranches/V/ files after                         -> 2
+    => V docs ABSORBED                                             -> 97
+$ git diff --name-status 8281638c origin/master | grep -c "^A"     -> 219   paths the 41 commits ADD
+$ git ls-tree -r --name-only origin/master docs/tranches/V/ | wc -l -> 175   V files at the frontier
+  (8281638c carries NO docs/tranches/V/ at all -- that is why `git status --short` collapsed the
+   whole dir to one `?? docs/tranches/V/` row at open; see substrate-open.txt.)
+
+  THE SIX SURVIVORS -- untracked at open, untracked at close, byte- and mtime-intact:
+    2026-07-24 16:41  docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-24-parser-totality-exposure.md
+    2026-07-27 12:27  docs/tranches/V/coordination/VALUEJS-INBOUND-2026-07-27-library-band-r1-widened-k1-k4.md
+    2026-07-16 03:36  src/animation/compile/compiled-frame.ts
+    2026-07-16 03:42  src/animation/compile/interp-slot.ts
+    2026-07-16 03:11  src/animation/compile/value-ast.ts
+    2026-07-16 03:38  src/animation/group/composite-storage.ts
+
+  The two V survivors are value.js OUTBOUND MAIL delivered into this tree and never committed here.
+  E13 CONSEQUENCE: the cross-repo mail value.js delivered is UNHARMED. The 97 absorbed V docs are
+  keyframes.js OWN V-tranche docs, all 97 of which exist at origin/master and now carry the
+  frontier bytes -- which is the authority this whole wave declares (local 8281638c is DISQUALIFIED).
+
+  WHAT IS UNRECOVERABLE, stated honestly rather than minimised: if any of the 118 absorbed files
+  held local bytes DIFFERING from origin/master, those bytes are gone. `add -u` never staged them
+  (correctly, as ruled), so no git object holds them, and no filesystem signal survives to say which
+  97 of the 175 frontier V paths pre-existed on disk: git unlinked and recreated ALL of them --
+  $ find docs/tranches/V -type f -exec stat -f %SB ... | sort | uniq -c -> 175 with birthtime 2026-09-17,
+  the two survivors alone keeping their 2026-07-24 / 2026-07-27 birthtimes.
+
+  CONSEQUENCE FOR G-0.1 GREEN, routed to KF.W0.c: the reconciliation record must disposition these
+  118 rows as DISCARDED (superseded by origin/master), NOT as "kept (untracked)" -- the class the
+  ruling anticipated. 6 rows are genuinely KEPT. 226 rows are COMMITTED (snapshot 6d280ee7).
+
+  THE PROBE A FUTURE SEAT RUNS FIRST, stated so the miss is not repeated (this seat did not run it
+  before step (3), and records that as its own miss rather than as a property of git):
+    $ comm -12 <(git ls-files --others --exclude-standard | sort) \
+               <(git ls-tree -r --name-only origin/master | sort) | wc -l
+    -- any nonzero reading is the set of untracked files `reset --hard` will clobber, and it is an
+       owner question BEFORE the act, never a finding after it.

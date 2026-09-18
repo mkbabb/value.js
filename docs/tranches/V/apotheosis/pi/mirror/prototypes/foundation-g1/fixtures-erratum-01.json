@@ -1,0 +1,10 @@
+{
+  "removeRawIdentifierExcluded": ["\ufeffx"],
+  "removeDimensionFailure": ["1\ufeff"],
+  "addRawIdentifierAllowed": [
+    ["\ufeffx", "\ufeffx", 2]
+  ],
+  "addDimensionBoundary": [
+    ["1\ufeff", "\ufeff", null, 2]
+  ]
+}

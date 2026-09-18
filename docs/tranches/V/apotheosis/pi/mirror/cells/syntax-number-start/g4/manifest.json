@@ -1,0 +1,56 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 4,
+  "status": "SEALED_AWAITING_TWO_CHALLENGES_AND_GESTALT",
+  "sealed_at": "2026-07-22",
+  "public_precursor": {
+    "path": "feature-public.json",
+    "bytes": 16016,
+    "sha256": "f3ff92a0b3589c00e3ec6a2b29e0394961db1b9a7bc63a3521c30209852acb1a",
+    "immutability": "The custodian bound these exact bytes. Any change invalidates the holdout and starts a new generation."
+  },
+  "holdout_receipt": {
+    "path": "holdout-receipt.json",
+    "bytes": 3204,
+    "sha256": "3da23e5c9d4944e5930079df3427a2f3305da5236c8549e1f772d540c60866e5"
+  },
+  "public_input_closure": [
+    { "path": "contract.ts", "bytes": 1207, "sha256": "cec73b16fe84603eeb485dea3bb2d789aa4cb66bc8ad230d71faf2da17e2e0b9" },
+    { "path": "harness.ts", "bytes": 11879, "sha256": "92ac650855113414b80a49d954a507f33c6461d9b62fa6b363530fb086949f05" },
+    { "path": "fixtures/endpoint-cases.json", "bytes": 3053, "sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187" },
+    { "path": "benchmark-protocol.json", "bytes": 6795, "sha256": "6a4e478ec551a67b7a2151dc4ed8930df68dbffe9b61d2be916af8125ac6008f" },
+    { "path": "promotion-protocol.json", "bytes": 2067, "sha256": "2ee8fd4259700c155f3eebffbd9939d16888b795db37c86fc952a95205b02d5b" },
+    { "path": "promotion-verifier.ts", "bytes": 8138, "sha256": "92f7d384baffd7b6e592c3af3b04239c9409a72acff36d7d45e5e71213b8a8ee" },
+    { "path": "../g3/contract.ts", "bytes": 2830, "sha256": "31ffbac4e1833a3a31342e4ce5dca47eb19c3c996b71e76eb28e92003de54322" },
+    { "path": "../g3/harness.ts", "bytes": 15655, "sha256": "60f0f60504f2bc2a55c6e1d79970762716a0dbc1a85219cb625d7341e00a3ec9" },
+    { "path": "../g3/fixtures/cases.json", "bytes": 3893, "sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706" },
+    { "path": "../g3/promotion-protocol.json", "bytes": 2143, "sha256": "b0b79f1aa27de96f69eb42207b75632f6ff746c7313f164396df6283dfd4acd1" },
+    { "path": "../g3/promotion-verifier.ts", "bytes": 5861, "sha256": "fc1078dbbad8af3948cf337b7d129143550af75b74c692a112d1d579885cb432" },
+    { "path": "../g3/parse-that-dist.ledger", "bytes": 5586, "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b" },
+    { "path": "../g3/rejection.json", "bytes": 1156, "sha256": "15334aac506e9f9a42dd5c5867a9bd434d9b1e0c1b42f5221b079255834bac6c" },
+    { "path": "../g2/integration-base.ledger", "bytes": 1756, "sha256": "115b93f3b44fd0df7fc941e499e9392405a39267b87c2867617521f93e273b4c" },
+    { "path": "../../../tsconfig.json", "bytes": 586, "sha256": "a0d0395313c3eb6521ba9b8550345ba21e1dba49f8f68d7c56dfa330e736a1cc" },
+    { "path": "../../../package.json", "bytes": 535, "sha256": "9250d9d95ab51664a47682a61bb1d82de8938481d8413b792378c9155d15723b" },
+    { "path": "../../../package-lock.json", "bytes": 69400, "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7" },
+    { "path": "../../../../MODULE-DAG.md", "bytes": 4880, "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f" },
+    { "path": "../../../../FEATURE-LEDGER.md", "bytes": 13394, "sha256": "d33164caaca8a64a2ff7cf205ccaaee4dda44f3d9609fd7a078752765a81e2fc" },
+    { "path": "../../../../ADDENDA-07.md", "bytes": 20954, "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5" }
+  ],
+  "holdout": {
+    "status": "SEALED_WITHHELD",
+    "custodian": "/root/number_start_g4_holdout",
+    "bytes": 35169,
+    "cases": 160,
+    "true": 80,
+    "false": 80,
+    "sha256": "2883fbf1e3eb152723528c76fa2f53e139a529428c5a4ac01b1455401a8303dd",
+    "bound_precursor_sha256": "f3ff92a0b3589c00e3ec6a2b29e0394961db1b9a7bc63a3521c30209852acb1a",
+    "bound_parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "canonicalization": "UTF-8 canonical two-space JSON plus one terminal LF",
+    "disjointness": "Machine-verified zero overlap with 406 generation-3 public cases and 23 generation-4 endpoints by ID, source, source+offset, and semantic tuple; zero internal duplicates on the same axes.",
+    "prior_holdout_access": "NONE",
+    "reveal": "Only after all five candidate source, overlay-ledger, and projected aggregate grammar-ledger identities close."
+  },
+  "candidate_sources_present": false,
+  "admission": "Two fresh independent exact-byte boundary challenges and one root gestalt must ACCEPT this manifest before any of five isolated candidate authors may write source. Full-ledger incompleteness still forbids feature apotheosis."
+}

@@ -1,0 +1,116 @@
+{
+  "C1a_cardMetaChips": [
+    {
+      "title": "Saved From Remote",
+      "text": "Saved From Remote",
+      "hasHistoryIcon": false,
+      "rect": {
+        "w": 172.4,
+        "h": 30.5
+      }
+    },
+    {
+      "title": "4 versions",
+      "text": "4",
+      "hasHistoryIcon": true,
+      "rect": {
+        "w": 20.8,
+        "h": 13.8
+      }
+    }
+  ],
+  "C1b_menuForThatSameCard": {
+    "label": "Saved From Remote",
+    "items": [
+      "Publish",
+      "Rename",
+      "Export",
+      "Delete"
+    ],
+    "hasVersions": false
+  },
+  "C1c_featuredBadgeOnAPurelyLocalPalette": {
+    "text": "Featured",
+    "cls": "badge-atom inline-flex items-center rounded-badge font-semibold wrap-anywhere [&"
+  },
+  "C2_componentCensus_2cards": {
+    "ok": true,
+    "totalInstances": 787,
+    "interesting": {
+      "Primitive": 126,
+      "ActionButton": 5,
+      "PopperRoot": 17,
+      "PopperAnchor": 17,
+      "PrimitiveSlot": 66,
+      "SelectScrollUpButton": 4,
+      "CollectionItem": 29,
+      "SelectScrollDownButton": 4,
+      "DropdownMenu": 4,
+      "DropdownMenuRoot": 4,
+      "MenuRoot": 4,
+      "DropdownMenuTrigger": 8,
+      "MenuAnchor": 4,
+      "DropdownMenuContent": 8,
+      "DropdownMenuPortal": 4,
+      "Button": 5,
+      "CollectionSlot": 4,
+      "PaletteCardGrid": 1,
+      "PaletteCard": 2,
+      "PaletteCardMeta": 2,
+      "PaletteCardMenu": 2
+    }
+  },
+  "C3_pressDragRelease": {
+    "del": null,
+    "before": [
+      "Saved From Remote",
+      "Plain Local"
+    ],
+    "after": {
+      "store": [
+        "Saved From Remote",
+        "Plain Local"
+      ],
+      "dialogs": 0,
+      "cards": 2
+    }
+  },
+  "C4a_typeahead": [
+    {
+      "key": "d",
+      "role": "menuitem",
+      "text": "Delete",
+      "menus": 1
+    },
+    {
+      "key": "e",
+      "role": "menuitem",
+      "text": "Export",
+      "menus": 1
+    },
+    {
+      "key": "r",
+      "role": "menuitem",
+      "text": "Rename",
+      "menus": 1
+    },
+    {
+      "key": "p",
+      "role": "menuitem",
+      "text": "Publish",
+      "menus": 1
+    }
+  ],
+  "C4b_spaceActivatesDelete": {
+    "focusedBeforeSpace": {
+      "role": "menuitem",
+      "text": "Delete",
+      "menus": 1
+    },
+    "storeBefore": 6,
+    "storeAfter": 5,
+    "dialogs": 0,
+    "scrolled": 0
+  },
+  "pageErrors": []
+}

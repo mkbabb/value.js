@@ -34,11 +34,8 @@ import {
     markApiReachable,
     markApiUnreachable,
     type ApiAvailability,
-} from "../demo/@/lib/palette/api/availability";
-import {
-    resolveLampState,
-    type LampState,
-} from "../demo/@/components/custom/dock/status-lamp";
+} from "../demo/platform/transport/availability";
+import { resolveLampState, type LampState } from "../demo/shell/dock/status-lamp";
 
 afterEach(() => {
     // The latch is deliberate module state; reset between tests via its own
@@ -137,16 +134,15 @@ describe("S.W0-1 seed-rider contract (byte-preserved under the W6-6 re-home)", (
     });
 
     it("initApiEnvironment logs the LOUD console.error and latches misconfigured", () => {
-        const consoleError = vi
-            .spyOn(console, "error")
-            .mockImplementation(() => {});
+        const consoleError = vi.spyOn(console, "error").mockImplementation(() => {});
         apiAvailability.value = "unknown";
         // jsdom's origin is loopback (http://localhost:3000) and vitest sets no
         // VITE_API_URL — the cross-origin prod base completes the triad.
         initApiEnvironment("https://api.color.babb.dev");
         expect(apiAvailability.value).toBe("misconfigured");
         expect(consoleError).toHaveBeenCalledTimes(1);
-        const [message] = consoleError.mock.calls[0];
+        // X-W1/NG-3: `toHaveBeenCalledTimes(1)` above proves call 0 exists.
+        const [message] = consoleError.mock.calls[0]!;
         expect(String(message)).toContain("MISCONFIGURED");
         expect(String(message)).toContain("npm run dev");
     });

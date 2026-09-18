@@ -1,0 +1,49 @@
+{
+  "$schema": "X.KF.W9 negative register (G-KFW9-12)",
+  "servedModel": "claude-opus-5[1m]",
+  "wave": "X.KF.W9",
+  "seat": ".a",
+  "published": "2026-09-17",
+  "prose": "docs/tranches/X/keyframes/evidence/W9/NEGATIVE-REGISTER.md",
+  "figures": { "records": 6, "probes": 11, "traps": 4 },
+  "law": "A retired probe re-entering the surface list is a GATE FAILURE (budget loss), not a duplicate. A trap run without its discriminator is a SPEC DEFECT, not a measurement. A third pass at a non-discriminating probe HALTS (S-13): re-author, do not re-run.",
+  "retired": [
+    { "id": "N-1", "record": "kf-KeyboardShortcutsModal.md", "line": 114, "probe": "R-A's Tab-reach probe (has WebKit shipped keyboard-focusable scrollers)", "disposition": "RETIRED", "ground": "foreclosed statically by the trap; the trap forecloses every engine" },
+    { "id": "N-2", "record": "kf-KeyframesStringControls.md", "line": 161, "probe": "D-1's rendered-landing question", "disposition": "RETIRED", "ground": "statically settled — structurally unreachable (DemoGlobalChrome bank); corroborated at :49" },
+    { "id": "N-3", "record": "kf-KeyframesStringControls.md", "line": 161, "probe": "the Monaco escape-hatch / keyboard-trap probe", "disposition": "RETIRED", "ground": "identical to banked KF-CE-3" },
+    { "id": "N-4", "record": "kf-KeyframesStringControls.md", "line": 161, "probe": "the clean `npm ci` fails probe", "disposition": "MOOTED", "ground": "origin/master:package.json:77 already carries \"@mkbabb/glass-ui\": \"7.0.0\"; a checkout-lag artifact. Two-limb disambiguation at :194 — L-M-9 carries a MAJOR fold AND this retired probe" },
+    { "id": "N-5", "record": "kf-KeyframesStringControls.md", "line": 161, "probe": "C-2's reachability", "disposition": "RETIRED", "ground": "identical to value.js R1 (banked, KF.W3-gated) — a value.js-side question, not an SS-13 pixel" },
+    { "id": "N-6", "record": "kf-KeyframeCard.md", "line": 25, "probe": "L-10's dialog/drawer paint probe", "disposition": "STRUCK", "ground": "containment: container-type: inline-size implies contain: layout style inline-size; layout containment creates a stacking context and a containing block (css-contain-2 §3.2); z-index 140 is scoped inside the 26rem band. Struck from the SS-13 list at :109" },
+    { "id": "N-7", "record": "kf-KeyframeCard.md", "line": 25, "probe": "C-5's dialog/drawer paint probe", "disposition": "STRUCK", "ground": "same containment derivation, same act. The MINOR token-contract breach survives as KF-KC-28 and is NOT retired" },
+    { "id": "N-8", "record": "kf-MbabbMenu.md", "line": 165, "probe": "reader-LC's useHideOthers sweep (#10)", "disposition": "MOOTED", "ground": "the menu is NON-MODAL by Boolean-cast; MenuRootContentNonModal passes trap-focus:false / disable-outside-pointer-events:false / disable-outside-scroll:false — the non-modal branch never calls useHideOthers" },
+    { "id": "N-9", "record": "kf-MbabbMenu.md", "line": 165, "probe": "D-7's leading question (leading-tight vs line-height:1 intra-layer order)", "disposition": "SOURCE-UNDECIDABLE, IRRELEVANT", "ground": "both readers concordant — a 10px uppercase mono prose line is the defect at either leading" },
+    { "id": "N-10", "record": "kf-TimelineTrack.md", "line": 146, "probe": "#12 — the flat --kf-* namespace hazard", "disposition": "CHECKED-AND-NEGATIVE", "ground": "zero --kf- custom properties in demo/styles; the accent family is --accent-kf*; the cluster defines no custom properties" },
+    { "id": "N-11", "record": "kf-SequenceAxis.md", "line": 84, "probe": "#5 — the naive one-line cures (L-1's margin-left; D's left: var(--track-inset)) and C-1's dichotomy", "disposition": "KILLED", "ground": "subgrid-gutter centring derivation — a third origin at ~3.625rem, both sub-units wrong ~6px in opposite directions. The readers' 'probe MUST run before any cure' imperative is itself killed; the banked ruling-1 parent-gutter cure is sound under every branch" }
+  ],
+  "traps": [
+    {
+      "id": "T-1", "record": "kf-ChromeDock.md", "line": 23, "rowId": "M-2",
+      "trap": "D-19's 'cheap live kill' is a FALSE-CONFIRMATION TRAP: BOTH arms render a Curve-labelled node, so the label proves nothing",
+      "discriminator": "the rendered ELEMENT KIND — a combobox (the select arm, allControlTabs.length === 4) versus a bare div (the inline arm). Read the role/tag, never the label.",
+      "falsifier": "a bare div with no combobox semantics on easing OR spring revives D-19's inline arm and re-opens D-8 and D-17's rider; a measured allControlTabs.length of 1 falsifies the enumeration (prediction: length in {0,3,4}, never 1)"
+    },
+    {
+      "id": "T-2", "record": "kf-SpringHeatmap.md", "line": 107, "rowId": "D-M2",
+      "trap": "Light->dark is NOT the tell (K-6) — the intuitive toggle direction returns a null",
+      "discriminator": "open the spring scene DARK, toggle to LIGHT, do NOT resize. The signature is cured-by-resize-not-by-retoggle: the field stays near-black on a light panel until a RESIZE cures it.",
+      "falsifier": "if a RE-TOGGLE (rather than a resize) restores the tone, the modelled race is wrong and the row dies"
+    },
+    {
+      "id": "T-3", "record": "kf-EasingTarget.md", "line": 66, "rowId": "KF-ET-24",
+      "trap": "the comment's paused-entry exemplar CANNOT occur (entry phase = 0 by construction) — probing 'on entry' returns a guaranteed null (kill register #9)",
+      "discriminator": "observable ONLY on a filter change while paused at a scrubbed phase != 0 — NOT on entry. visibleStages is cleared at :282 and refilled only by the async IO task; the :256 gate skips all 28 on the register pass.",
+      "falsifier": "a repaint that DOES land on the register pass (28 stages painted with visibleStages empty) kills the row"
+    },
+    {
+      "id": "T-4", "record": "kf-SquareScene.md", "line": 145, "rowId": "C-1",
+      "trap": "the probe is authored with its own predicted negative ('it will not — occlusion is spec+source-certain') — a confirmation machine unless the falsifier is honoured",
+      "discriminator": "double-tap, then sample the box centre with data-palette-sweep set; the question is whether the sampled pixel TRACKS THE SWEPT HUE, not whether the sweep is running",
+      "falsifier": "a pixel that tracks the swept hue KILLS the row"
+    }
+  ]
+}

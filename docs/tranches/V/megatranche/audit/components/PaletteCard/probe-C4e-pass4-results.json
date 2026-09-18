@@ -1,0 +1,34 @@
+{
+  "no-prm": {
+    "baseline": {
+      "cards": 6,
+      "swatchPanels": 0,
+      "swatchNodes": 4,
+      "zeroHeightPanels": 0,
+      "totalDomNodes": 608
+    },
+    "afterWalk": {
+      "cards": 6,
+      "swatchPanels": 0,
+      "swatchNodes": 4,
+      "zeroHeightPanels": 0,
+      "totalDomNodes": 608
+    }
+  },
+  "prm": {
+    "baseline": {
+      "cards": 6,
+      "swatchPanels": 0,
+      "swatchNodes": 4,
+      "zeroHeightPanels": 0,
+      "totalDomNodes": 607
+    },
+    "afterWalk": {
+      "cards": 6,
+      "swatchPanels": 6,
+      "swatchNodes": 148,
+      "zeroHeightPanels": 6,
+      "totalDomNodes": 1628
+    }
+  }
+}

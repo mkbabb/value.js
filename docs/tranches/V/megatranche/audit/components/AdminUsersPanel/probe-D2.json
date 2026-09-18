@@ -1,0 +1,392 @@
+{
+  "A": {
+    "interactiveRows": 3,
+    "allHeaderRows": 6,
+    "headerBadge": "6",
+    "toolbarCount": [
+      "6 users"
+    ],
+    "trashCount": 6,
+    "trashRestingColor": "rgb(91, 70, 51)",
+    "trashRect": {
+      "w": 28,
+      "h": 36
+    },
+    "palettesBtnCount": 4,
+    "palettesBtnRect": {
+      "w": 0,
+      "h": 0
+    },
+    "pill": {
+      "font": "\"Fira Code\"",
+      "size": "16.4px",
+      "weight": "700",
+      "color": "oklch(0.751 0.147 84.199997)",
+      "border": "oklch(0.751 0.147 84.199997)",
+      "bw": "1px"
+    },
+    "rowBadge": null,
+    "borderChain": [
+      "DIV.rounded-md.border.border-card-edge",
+      "DIV.glass-resting.card.rounded-card"
+    ],
+    "rowComputedMinWidth": "0px",
+    "wrapperComputedMinWidth": "auto",
+    "wrapperOverflow": "hidden",
+    "inertRows": 3,
+    "inertRowCursor": "default",
+    "inertRowHasTrash": true,
+    "inertRowButtons": [
+      "Delete user empty-ghost-account-aaaa-33"
+    ]
+  },
+  "B": {
+    "scrollW": 390,
+    "clientW": 390,
+    "rows": 3,
+    "wrap": {
+      "l": 33,
+      "r": 357,
+      "w": 324
+    },
+    "pill": {
+      "l": 46,
+      "r": 179.4,
+      "w": 133.4,
+      "text": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2\nf9a-33"
+    },
+    "badge": {
+      "l": 187.4,
+      "r": 216,
+      "w": 28.6,
+      "clipped": false
+    },
+    "actions": {
+      "l": 228,
+      "r": 344,
+      "w": 116,
+      "clipped": false
+    },
+    "rowScrollW": 322,
+    "rowClientW": 322,
+    "rowOverflowsBy": 0,
+    "headSpanW": 63.7,
+    "tailSpanW": 51.7,
+    "buttons": [
+      {
+        "t": "Save edit",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "t": "Cancel edit",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "t": "Switch to slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Generate new slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Cancel",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Select view",
+        "w": 56,
+        "h": 32
+      },
+      {
+        "t": "Toggle action bar",
+        "w": 32,
+        "h": 32
+      },
+      {
+        "t": "Users",
+        "w": 57.5,
+        "h": 26.3
+      },
+      {
+        "t": "Palettes",
+        "w": 57.5,
+        "h": 26.3
+      },
+      {
+        "t": "Menu",
+        "w": 40,
+        "h": 32
+      },
+      {
+        "t": "Sort users",
+        "w": 28,
+        "h": 28
+      },
+      {
+        "t": "Prune empty",
+        "w": 107.9,
+        "h": 36
+      },
+      {
+        "t": "Refresh",
+        "w": 79.7,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user mbabb",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user an-extremely",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-ghost-",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-ghost-",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user zed",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-three-",
+        "w": 28,
+        "h": 36
+      }
+    ],
+    "under24": [
+      {
+        "t": "Switch to slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Generate new slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Cancel",
+        "w": 22,
+        "h": 22
+      }
+    ],
+    "under44": [
+      {
+        "t": "Save edit",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "t": "Cancel edit",
+        "w": 40,
+        "h": 40
+      },
+      {
+        "t": "Switch to slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Generate new slug",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Cancel",
+        "w": 22,
+        "h": 22
+      },
+      {
+        "t": "Select view",
+        "w": 56,
+        "h": 32
+      },
+      {
+        "t": "Toggle action bar",
+        "w": 32,
+        "h": 32
+      },
+      {
+        "t": "Users",
+        "w": 57.5,
+        "h": 26.3
+      },
+      {
+        "t": "Palettes",
+        "w": 57.5,
+        "h": 26.3
+      },
+      {
+        "t": "Menu",
+        "w": 40,
+        "h": 32
+      },
+      {
+        "t": "Sort users",
+        "w": 28,
+        "h": 28
+      },
+      {
+        "t": "Prune empty",
+        "w": 107.9,
+        "h": 36
+      },
+      {
+        "t": "Refresh",
+        "w": 79.7,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user mbabb",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user an-extremely",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-ghost-",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-ghost-",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "t": "Delete user zed",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "t": "Delete user empty-three-",
+        "w": 28,
+        "h": 36
+      }
+    ]
+  },
+  "C": {
+    "dir": "rtl",
+    "headText": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2",
+    "headL": 1010.5,
+    "headR": 1194,
+    "tailText": "f9a-33",
+    "tailL": 950,
+    "tailR": 1010.5,
+    "tailRenderedLeftOfHead": true,
+    "countText": "6 users",
+    "countUnicodeBidi": "normal",
+    "countDirection": "rtl"
+  },
+  "D_expanded": {
+    "nestedBorderChainInsideExpanded": [],
+    "panelBg": "oklab(0.228631 0.003632 0.007323 / 0.3)"
+  },
+  "D_filtered": {
+    "headerBadge": "6",
+    "toolbar": [
+      "6 users",
+      "· 1 empty"
+    ],
+    "renderedRows": 1
+  },
+  "D_dialog": {
+    "role": "dialog",
+    "text": "Prune 1 empty users?\n\nThis will permanently delete 1 user with 0 palettes and their sessions. This cannot be undone.\n\nCancel\nPrune",
+    "ariaModal": null
+  },
+  "D_after": {
+    "adminReqsDelta": [
+      "POST /admin/users/prune-empty",
+      "POST /admin/users/prune-empty"
+    ],
+    "toolbarAfter": [
+      "Pruned 3 users"
+    ]
+  },
+  "E": {
+    "token": null,
+    "adminReqsBefore": 10,
+    "adminReqsAfterRefreshClick": 10,
+    "domTextIdentical": false,
+    "emptyStateSays": "· ROSTER CLEAR · |  | No users found.",
+    "refreshDisabled": false,
+    "pruneDisabled": true
+  },
+  "F": {
+    "before": [
+      {
+        "t": "Prune empty",
+        "x": 249.1,
+        "y": 274.1
+      },
+      {
+        "t": "Refresh",
+        "x": 33,
+        "y": 318.1
+      }
+    ],
+    "after": [
+      {
+        "t": "Prune empty",
+        "x": 249.1,
+        "y": 379.1
+      },
+      {
+        "t": "Refresh",
+        "x": 33,
+        "y": 423.1
+      }
+    ],
+    "celebrationText": "Pruned 3 users"
+  }
+}

@@ -12,6 +12,7 @@ import { ConflictError, NotFoundError, ValidationError } from "../../../platform
 import { computeContentHash } from "../hash.js";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
+import { isActivePublic } from "./visibility.js";
 
 const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
@@ -159,38 +160,62 @@ export async function listForks(
     };
 }
 
-export interface ProvenanceEntry {
-    slug: string;
-    name: string;
-    userSlug: string | null;
-    contentHash: string | null;
-    createdAt: Date;
-    isFork: boolean;
-}
+/**
+ * A single provenance step. A public, live ancestor is a minimal, release-
+ * scoped `palette` step; a private / unlisted / trashed / purged ancestor
+ * collapses to a non-correlatable `unavailable` step carrying ONLY its
+ * ordinal (V·W45 item 4). No raw document or lineage field (userSlug,
+ * contentHash, createdAt, parent slug) ever crosses the wire for a
+ * non-public hop.
+ */
+export type ProvenanceStep =
+    | {
+          kind: "palette";
+          ordinal: number;
+          slug: string;
+          name: string;
+          isFork: boolean;
+      }
+    | { kind: "unavailable"; ordinal: number };
 
 export async function getProvenance(
     services: Services,
     slug: string,
-): Promise<ProvenanceEntry[]> {
-    const chain: ProvenanceEntry[] = [];
+): Promise<ProvenanceStep[]> {
+    const chain: ProvenanceStep[] = [];
     const visited = new Set<string>();
-    let current = await services.repositories.palettes.findBySlug(slug);
+    let currentSlug: string | null = slug;
+    let ordinal = 0;
 
-    while (current && chain.length < 50) {
-        if (visited.has(current.slug)) break;
-        visited.add(current.slug);
+    while (currentSlug && chain.length < 50) {
+        if (visited.has(currentSlug)) break;
+        visited.add(currentSlug);
 
-        chain.push({
-            slug: current.slug,
-            name: current.name,
-            userSlug: current.userSlug,
-            contentHash: current.currentHash,
-            createdAt: current.createdAt,
-            isFork: !!current.forkOf,
-        });
+        const doc = await services.repositories.palettes.findBySlug(currentSlug);
+        if (!doc) {
+            // Purged ancestor: a non-correlatable step; we cannot walk past it.
+            chain.push({ kind: "unavailable", ordinal });
+            break;
+        }
 
-        if (!current.forkOf) break;
-        current = await services.repositories.palettes.findBySlug(current.forkOf);
+        if (isActivePublic(doc)) {
+            chain.push({
+                kind: "palette",
+                ordinal,
+                slug: doc.slug,
+                name: doc.name,
+                isFork: !!doc.forkOf,
+            });
+        } else {
+            // Private / unlisted / trashed hop: collapse to a non-correlatable
+            // step. We still hold the doc, so the walk continues to reveal the
+            // PUBLIC ancestors above — but this hop's identity/lineage is not
+            // emitted.
+            chain.push({ kind: "unavailable", ordinal });
+        }
+
+        ordinal++;
+        currentSlug = doc.forkOf;
     }
 
     return chain;

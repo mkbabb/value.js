@@ -1,0 +1,345 @@
+{
+  "focus_webkit_light": {
+    "engine": "webkit",
+    "scheme": "light",
+    "tabsToRow": 2,
+    "rowFocused": true,
+    "bgBefore": "rgba(0, 0, 0, 0)",
+    "focusVisible": true,
+    "bgAfter": "oklab(0.871139 0.007229 0.023625 / 0.5)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "outline": "none",
+    "wrapperOverflow": "hidden",
+    "rowRect": {
+      "x": 225,
+      "y": 373.8,
+      "w": 460,
+      "h": 56
+    },
+    "wrapperRect": {
+      "x": 224,
+      "y": 372.8,
+      "w": 462,
+      "h": 58
+    },
+    "rowDiff": {
+      "changedPx": 20488,
+      "maxChannelDelta": 27,
+      "total": 37596,
+      "clipW": 482,
+      "clipH": 78,
+      "bbox": {
+        "minX": 11,
+        "minY": 12,
+        "maxX": 470,
+        "maxY": 67
+      }
+    },
+    "controlButtonFocusedName": "zed1 Palettes",
+    "controlButtonDiff": {
+      "changedPx": 1738,
+      "maxChannelDelta": 25,
+      "total": 2688,
+      "clipW": 48,
+      "clipH": 56,
+      "bbox": {
+        "minX": 0,
+        "minY": 1,
+        "maxX": 47,
+        "maxY": 55
+      }
+    }
+  },
+  "focus_webkit_dark": {
+    "engine": "webkit",
+    "scheme": "dark",
+    "tabsToRow": 2,
+    "rowFocused": true,
+    "bgBefore": "rgba(0, 0, 0, 0)",
+    "focusVisible": true,
+    "bgAfter": "oklab(0.348597 0.008654 0.02038 / 0.5)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "outline": "none",
+    "wrapperOverflow": "hidden",
+    "rowRect": {
+      "x": 225,
+      "y": 373.8,
+      "w": 460,
+      "h": 56
+    },
+    "wrapperRect": {
+      "x": 224,
+      "y": 372.8,
+      "w": 462,
+      "h": 58
+    },
+    "rowDiff": {
+      "changedPx": 23938,
+      "maxChannelDelta": 62,
+      "total": 37596,
+      "clipW": 482,
+      "clipH": 78,
+      "bbox": {
+        "minX": 11,
+        "minY": 12,
+        "maxX": 470,
+        "maxY": 67
+      }
+    },
+    "controlButtonFocusedName": "zed1 Palettes",
+    "controlButtonDiff": {
+      "changedPx": 2549,
+      "maxChannelDelta": 61,
+      "total": 2688,
+      "clipW": 48,
+      "clipH": 56,
+      "bbox": {
+        "minX": 0,
+        "minY": 1,
+        "maxX": 47,
+        "maxY": 55
+      }
+    }
+  },
+  "identity_light": {
+    "slugPillTotal": 7,
+    "rosterPills": 6,
+    "dockPills": 1,
+    "rosterSample": {
+      "text": "mbabb",
+      "color": "oklch(0.470927 0.188343 9.834023)",
+      "border": "oklch(0.470927 0.188343 9.834023)",
+      "borderWidth": "1px",
+      "weight": "700",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "radius": "340282346638528859811704183484516925440px"
+    },
+    "dockSample": {
+      "text": "admin",
+      "color": "oklch(0.751 0.147 84.199997)",
+      "border": "oklch(0.751 0.147 84.199997)",
+      "borderWidth": "1px",
+      "weight": "700",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "radius": "340282346638528859811704183484516925440px"
+    },
+    "mutedForeground": "light-dark(hsl(30 22% 40%), hsl(34 14% 62%))",
+    "inkMuted": "oklch(44.687157993053% 0.003861589952 34.629978305623deg)",
+    "accentLive": "oklch(47.092665778393% 0.188342548603 9.83402284231deg)",
+    "countSpanColor": "rgb(112, 89, 66)",
+    "emptyStatePlateInkUsed": false
+  },
+  "expanded_header_delta": {
+    "changedPx": 25760,
+    "maxChannelDelta": 451,
+    "total": 25760,
+    "clipW": 460,
+    "clipH": 56,
+    "bbox": {
+      "minX": 0,
+      "minY": 0,
+      "maxX": 459,
+      "maxY": 55
+    },
+    "ariaExpandedAfter": "true",
+    "chevronCount": 6
+  },
+  "identity_dark": {
+    "slugPillTotal": 7,
+    "rosterPills": 6,
+    "dockPills": 1,
+    "rosterSample": {
+      "text": "mbabb",
+      "color": "oklch(0.958322 0.021053 9.834023)",
+      "border": "oklch(0.958322 0.021053 9.834023)",
+      "borderWidth": "1px",
+      "weight": "700",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "radius": "340282346638528859811704183484516925440px"
+    },
+    "dockSample": {
+      "text": "admin",
+      "color": "oklch(0.784 0.143 86)",
+      "border": "oklch(0.784 0.143 86)",
+      "borderWidth": "1px",
+      "weight": "700",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "radius": "340282346638528859811704183484516925440px"
+    },
+    "mutedForeground": "hsl(34 14% 62%)",
+    "inkMuted": "oklch(88.939954106575% 0.003821851545 41.86844006185deg)",
+    "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+    "countSpanColor": "rgb(195, 185, 172)",
+    "emptyStatePlateInkUsed": false
+  },
+  "rtl_long_slug": {
+    "dir": "rtl",
+    "bdi": 0,
+    "pills": [
+      {
+        "domHead": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2",
+        "domTail": "f9a-33",
+        "headLeft": 1010.5,
+        "tailLeft": 950,
+        "tailLeftOfHead": true,
+        "renderedReadingOrderLTR": "f9a-33an-extremely-long-anonymous-visitor-slug-from-the-wild-2",
+        "innerText": "an-extremely-long-anonymous-visitor-slug-from-the-wild-2 f9a-33"
+      },
+      {
+        "domHead": "empty-ghost-account-a",
+        "domTail": "aaa-33",
+        "headLeft": 982,
+        "tailLeft": 921.5,
+        "tailLeftOfHead": true,
+        "renderedReadingOrderLTR": "aaa-33empty-ghost-account-a",
+        "innerText": "empty-ghost-account-a aaa-33"
+      },
+      {
+        "domHead": "empty-ghost-account-a",
+        "domTail": "aaa-77",
+        "headLeft": 982,
+        "tailLeft": 921.5,
+        "tailLeftOfHead": true,
+        "renderedReadingOrderLTR": "aaa-77empty-ghost-account-a",
+        "innerText": "empty-ghost-account-a aaa-77"
+      },
+      {
+        "domHead": "empty-three-b",
+        "domTail": "bbb-11",
+        "headLeft": 1062.8,
+        "tailLeft": 1002.2,
+        "tailLeftOfHead": true,
+        "renderedReadingOrderLTR": "bbb-11empty-three-b",
+        "innerText": "empty-three-b bbb-11"
+      }
+    ]
+  },
+  "focus_chromium_light": {
+    "engine": "chromium",
+    "scheme": "light",
+    "tabsToRow": 7,
+    "rowFocused": true,
+    "bgBefore": "rgba(0, 0, 0, 0)",
+    "focusVisible": true,
+    "bgAfter": "oklab(0.871135 0.0072692 0.0236415 / 0.5)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "outline": "none",
+    "wrapperOverflow": "hidden",
+    "rowRect": {
+      "x": 225,
+      "y": 373.8,
+      "w": 460,
+      "h": 56
+    },
+    "wrapperRect": {
+      "x": 224,
+      "y": 372.8,
+      "w": 462,
+      "h": 58
+    },
+    "rowDiff": {
+      "changedPx": 21405,
+      "maxChannelDelta": 34,
+      "total": 37596,
+      "clipW": 482,
+      "clipH": 78,
+      "bbox": {
+        "minX": 11,
+        "minY": 12,
+        "maxX": 470,
+        "maxY": 67
+      }
+    },
+    "controlButtonFocusedName": "Delete user mbabb",
+    "controlButtonDiff": {
+      "changedPx": 2039,
+      "maxChannelDelta": 177,
+      "total": 2688,
+      "clipW": 48,
+      "clipH": 56,
+      "bbox": {
+        "minX": 0,
+        "minY": 1,
+        "maxX": 47,
+        "maxY": 55
+      }
+    }
+  },
+  "focus_chromium_dark": {
+    "engine": "chromium",
+    "scheme": "dark",
+    "tabsToRow": 7,
+    "rowFocused": true,
+    "bgBefore": "rgba(0, 0, 0, 0)",
+    "focusVisible": true,
+    "bgAfter": "oklab(0.348596 0.00867023 0.0203869 / 0.5)",
+    "boxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(233, 230, 226) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+    "outline": "none",
+    "wrapperOverflow": "hidden",
+    "rowRect": {
+      "x": 225,
+      "y": 373.8,
+      "w": 460,
+      "h": 56
+    },
+    "wrapperRect": {
+      "x": 224,
+      "y": 372.8,
+      "w": 462,
+      "h": 58
+    },
+    "rowDiff": {
+      "changedPx": 24102,
+      "maxChannelDelta": 72,
+      "total": 37596,
+      "clipW": 482,
+      "clipH": 78,
+      "bbox": {
+        "minX": 11,
+        "minY": 12,
+        "maxX": 470,
+        "maxY": 67
+      }
+    },
+    "controlButtonFocusedName": "Delete user mbabb",
+    "controlButtonDiff": {
+      "changedPx": 2599,
+      "maxChannelDelta": 290,
+      "total": 2688,
+      "clipW": 48,
+      "clipH": 56,
+      "bbox": {
+        "minX": 0,
+        "minY": 1,
+        "maxX": 47,
+        "maxY": 55
+      }
+    }
+  },
+  "forced_colors": {
+    "forcedActive": true,
+    "rosterPill": {
+      "color": "rgb(0, 0, 0)",
+      "bg": "rgba(255, 255, 255, 0)",
+      "border": "rgb(0, 0, 0)",
+      "forcedColorAdjust": "auto"
+    },
+    "deleteBtn": {
+      "color": "rgb(0, 0, 0)",
+      "bg": "rgb(255, 255, 255)",
+      "border": "rgb(0, 0, 0)",
+      "forcedColorAdjust": "auto"
+    },
+    "palettesBtn": {
+      "color": "rgb(0, 0, 0)",
+      "bg": "rgba(255, 255, 255, 0)",
+      "border": "rgb(0, 0, 0)",
+      "forcedColorAdjust": "auto"
+    },
+    "destructiveHoverClassPresent": true
+  }
+}

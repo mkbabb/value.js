@@ -1,0 +1,18 @@
+{
+  "witness": "browser CSS.supports",
+  "page": "https://www.w3.org/TR/css-color-4/",
+  "pageTitle": "CSS Color Module Level 4",
+  "observedOn": "2026-07-21",
+  "property": "color",
+  "cases": [
+    { "source": "/**/red", "supported": true },
+    { "source": "red/**/", "supported": true },
+    { "source": "rgb(255/**/0/**/0)", "supported": true },
+    { "source": "\\72 ed", "supported": true },
+    { "source": "rgb(12 34 56 / 50%)", "supported": true },
+    { "source": "rgb(255, 0, 0)", "supported": true },
+    { "source": "rgb(255, 0, 0 / 50%)", "supported": false },
+    { "source": "rgb(255 0, 0)", "supported": false }
+  ],
+  "note": "Read-only third-witness evidence. The parser differential remains secondary where LIVE disagrees with CSS Syntax tokenization."
+}

@@ -1,0 +1,50 @@
+{
+ "area": "core",
+ "parallelism": 2,
+ "components": [
+  {
+   "file": "demo/color-picker/App.vue",
+   "slug": "App",
+   "area": "core",
+   "loc": 417,
+   "extra": "This is the mount target of the P0 in MT-F012: demo/color-picker/index.html:205-213 is an inline <script type=module> whose module graph Vite 8/Rolldown silently DROPS from the production bundle, so the built gh-pages artifact has no application in it. A minimal stock-Vite repro produced a SHA-256-identical broken chunk. The cure is to move those 8 lines into main.ts and reference via src=. Judge App.vue's boot contract in that light: what does it assume about how it is mounted, and would a correct entry make any of that assumption unnecessary?"
+  },
+  {
+   "file": "demo/color-session/ColorSpaceSelector.vue",
+   "slug": "ColorSpaceSelector",
+   "area": "core",
+   "loc": 311
+  },
+  {
+   "file": "demo/shared/ui/PaneHeader.vue",
+   "slug": "PaneHeader",
+   "area": "core",
+   "loc": 224,
+   "extra": "OWNS MT-F023 (BORN RED, MAJOR): its three scroll-timeline animations (pane-header-veil / pane-title-shrink / pane-desc-shrink, PaneHeader.vue:178-193) are STRUCTURALLY unreachable by the global prefers-reduced-motion guard at demo/styles/animations.css:184, because a scroll-driven animation has animation-duration:auto and the guard only overrides animation-duration + animation-iteration-count. Verified cross-engine: under reducedMotion:reduce the title still scales 1.0 -> 0.311 (WebKit) / 0.618 (Chromium) across a 200px scroll, IDENTICAL to no-preference to the last digit. Repro: node docs/tranches/V/megatranche/audit/probes/prm-scroll-timeline.mjs. NOTE the file's own comment at animations.css:178 claims it 'Neutralises CSS keyframe animations and transitions app-wide' -- that headline is false, though its narrower claims about the WebGL rAF loops are TRUE and verified (raf/1.5s=0 under reduce on all 5 routes). The root's disposition is STRUCTURE not gate (L-8): move the three declarations inside @media (prefers-reduced-motion: no-preference), matching the existing idiom at animations.css:43. Your jury must adopt that or beat it with a better-argued cure, and must NOT weaken it into another override stacked on the blunt guard."
+  },
+  {
+   "file": "demo/shared/ui/EmptyState.vue",
+   "slug": "EmptyState",
+   "area": "core",
+   "loc": 105
+  },
+  {
+   "file": "demo/color-picker/ErrorBoundary.vue",
+   "slug": "ErrorBoundary",
+   "area": "core",
+   "loc": 87
+  },
+  {
+   "file": "demo/color-session/color-chips/PreviewStrip.vue",
+   "slug": "PreviewStrip",
+   "area": "core",
+   "loc": 76
+  },
+  {
+   "file": "demo/color-session/color-chips/PreviewRamp.vue",
+   "slug": "PreviewRamp",
+   "area": "core",
+   "loc": 50
+  }
+ ]
+}

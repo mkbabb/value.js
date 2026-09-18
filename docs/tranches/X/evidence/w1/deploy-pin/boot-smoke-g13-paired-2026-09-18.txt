@@ -1,0 +1,422 @@
+SERVED MODEL: claude-opus-5[1m]
+
+
+> @mkbabb/value.js@4.0.0 gh-pages
+> vite build --mode gh-pages
+
+vite v8.0.16 building client environment for gh-pages...
+(node:43236) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[2Ktransforming...
+./fonts/fraunces-latin-normal.woff2 referenced in ./fonts/fraunces-latin-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-normal.woff2 referenced in ./fonts/fraunces-latin-ext-normal.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-italic.woff2 referenced in ./fonts/fraunces-latin-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+
+./fonts/fraunces-latin-ext-italic.woff2 referenced in ./fonts/fraunces-latin-ext-italic.woff2 didn't resolve at build time, it will remain unchanged to be resolved at runtime
+Found 16 warnings while optimizing generated CSS:
+
+Issue #1:
+[2m│   }[22m
+[2m│   .z-\[var\(\)\] {[22m
+[2m│[22m     z-index: var();
+[2m┆[22m                  [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .z-\[var\(--z-\*\)\] {[22m
+
+Issue #2:
+[2m│   }[22m
+[2m│   .z-\[var\(--z-\*\)\] {[22m
+[2m│[22m     z-index: var(--z-*);
+[2m┆[22m                      [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .z-\[var\(--z-background\)\] {[22m
+
+Issue #3:
+[2m│   }[22m
+[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m│[22m     width: var(--icon-*);
+[2m┆[22m                       [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│     height: var(--icon-*);[22m
+[2m│   }[22m
+
+Issue #4:
+[2m│   .size-\[var\(--icon-\*\)\] {[22m
+[2m│     width: var(--icon-*);[22m
+[2m│[22m     height: var(--icon-*);
+[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('*')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .size-\[var\(--ui-glyph\)\] {[22m
+
+Issue #5:
+[2m│   }[22m
+[2m│   .\[max-height\:var\(\.\.\.\)\] {[22m
+[2m│[22m     max-height: var(...);
+[2m┆[22m                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .max-h-0 {[22m
+
+Issue #6:
+[2m│   }[22m
+[2m│   .rounded-\[var\(\)\] {[22m
+[2m│[22m     border-radius: var();
+[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-card\)\] {[22m
+
+Issue #7:
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-card\/panel\/dialog\/input\/button\/badge\)\] {[22m
+[2m│[22m     border-radius: var(--radius-card/panel/dialog/input/button/badge);
+[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('/')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .rounded-\[var\(--radius-dialog\)\] {[22m
+
+Issue #8:
+[2m│   }[22m
+[2m│   .text-\[var\(…\)\] {[22m
+[2m│[22m     color: var(…);
+[2m┆[22m                [33m[2m^--[22m Unexpected token Ident("…")[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .text-\[…\] {[22m
+
+Issue #9:
+[2m│   }[22m
+[2m│   .duration-\[var\(\)\] {[22m
+[2m│[22m     --tw-duration: var();
+[2m┆[22m                        [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│     transition-duration: var();[22m
+[2m│   }[22m
+
+Issue #10:
+[2m│   .duration-\[var\(\)\] {[22m
+[2m│     --tw-duration: var();[22m
+[2m│[22m     transition-duration: var();
+[2m┆[22m                              [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .duration-\[var\(--duration-fast\)\] {[22m
+
+Issue #11:
+[2m│   }[22m
+[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     --tw-duration: var(...);
+[2m┆[22m                        [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│     transition-duration: var(...);[22m
+[2m│   }[22m
+
+Issue #12:
+[2m│   .duration-\[var\(\.\.\.\)\] {[22m
+[2m│     --tw-duration: var(...);[22m
+[2m│[22m     transition-duration: var(...);
+[2m┆[22m                              [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .duration-\[…\] {[22m
+
+Issue #13:
+[2m│   }[22m
+[2m│   .ease-\[var\(\)\] {[22m
+[2m│[22m     --tw-ease: var();
+[2m┆[22m                    [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│     transition-timing-function: var();[22m
+[2m│   }[22m
+
+Issue #14:
+[2m│   .ease-\[var\(\)\] {[22m
+[2m│     --tw-ease: var();[22m
+[2m│[22m     transition-timing-function: var();
+[2m┆[22m                                     [33m[2m^--[22m Unexpected end of input[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .ease-\[var\(--ease-standard\)\] {[22m
+
+Issue #15:
+[2m│   }[22m
+[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m│[22m     --tw-ease: var(...);
+[2m┆[22m                    [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│     transition-timing-function: var(...);[22m
+[2m│   }[22m
+
+Issue #16:
+[2m│   .ease-\[var\(\.\.\.\)\] {[22m
+[2m│     --tw-ease: var(...);[22m
+[2m│[22m     transition-timing-function: var(...);
+[2m┆[22m                                     [33m[2m^--[22m Unexpected token Delim('.')[39m
+[2m┆[22m
+[2m│   }[22m
+[2m│   .ease-accelerate {[22m
+
+✓ 2832 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/gh-pages/assets/favicon-BpOvZXpk.svg                            1.12 kB │ gzip:   0.61 kB
+dist/gh-pages/assets/KaTeX_Size3-Regular-CTq5MqoE.woff               4.42 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2              4.92 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2              5.20 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2              5.46 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-BF-4gkZK.woff               5.98 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-oD1tc_U0.woff               6.18 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-C195tn64.woff               6.49 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2        6.90 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2           6.91 kB
+dist/gh-pages/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf                7.58 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff         7.65 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff            7.71 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-D3wIWfF6.woff2             9.64 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2         10.34 kB
+dist/gh-pages/assets/KaTeX_Size4-Regular-DWFBv043.ttf               10.36 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-D5yQViql.woff             10.58 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2           11.31 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2              11.34 kB
+dist/gh-pages/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf               11.50 kB
+dist/gh-pages/assets/quantize-worker-xMwe415C.js                    11.77 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2          12.02 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2            12.21 kB
+dist/gh-pages/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf               12.22 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff          12.31 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf         12.34 kB
+dist/gh-pages/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf            12.36 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff            13.20 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff               13.29 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2        13.56 kB
+dist/gh-pages/index.html                                            13.90 kB │ gzip:   5.03 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff           14.11 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff             14.40 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff         16.02 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2           16.40 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-t53AETM-.woff2               16.44 kB
+dist/gh-pages/assets/KaTeX_Script-Regular-C5JkGWo-.ttf              16.64 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2           16.78 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2               16.98 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff            18.66 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-DA0__PXp.woff                18.74 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff            19.41 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf           19.43 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Regular-CB_wures.ttf             19.57 kB
+dist/gh-pages/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf                19.58 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-BMLOBm91.woff                19.67 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf            22.36 kB
+dist/gh-pages/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf              24.50 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-Cx986IdX.woff2                 25.32 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-B22Nviop.woff2              26.27 kB
+dist/gh-pages/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf          27.55 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2               28.07 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-Jm3AIy58.woff                  29.91 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-Dr94JaBh.woff               30.77 kB
+dist/gh-pages/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf             31.19 kB
+dist/gh-pages/assets/KaTeX_Math-Italic-flOr_0UB.ttf                 31.30 kB
+dist/gh-pages/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf             32.96 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-DMm9YOAa.woff                33.51 kB
+dist/gh-pages/assets/KaTeX_Main-Italic-3WenGoN9.ttf                 33.58 kB
+dist/gh-pages/assets/KaTeX_Main-Bold-waoOVXN0.ttf                   51.33 kB
+dist/gh-pages/assets/KaTeX_Main-Regular-ypZvNtVU.ttf                53.58 kB
+dist/gh-pages/assets/KaTeX_AMS-Regular-DRggAlZN.ttf                 63.63 kB
+dist/gh-pages/assets/usePaletteExport-CHPcYyhw.css                   0.05 kB │ gzip:   0.07 kB
+dist/gh-pages/assets/EmptyState-CgNOz977.css                         0.07 kB │ gzip:   0.08 kB
+dist/gh-pages/assets/PaletteCardSkeleton-DXEagPLF.css                0.20 kB │ gzip:   0.15 kB
+dist/gh-pages/assets/AuroraPane-CJP3GyYw.css                         0.35 kB │ gzip:   0.26 kB
+dist/gh-pages/assets/MixPane-Bkl6nI9g.css                            0.44 kB │ gzip:   0.29 kB
+dist/gh-pages/assets/PaletteCard-CSkv81W2.css                        0.45 kB │ gzip:   0.25 kB
+dist/gh-pages/assets/PreviewStrip-DDSZt218.css                       0.48 kB │ gzip:   0.28 kB
+dist/gh-pages/assets/BrowsePane-B-2cz1Cw.css                         0.79 kB │ gzip:   0.41 kB
+dist/gh-pages/assets/ConfigSliderPane-BJKGnFct.css                   1.47 kB │ gzip:   0.58 kB
+dist/gh-pages/assets/PalettesPane-JwZeBp7Z.css                       1.55 kB │ gzip:   0.64 kB
+dist/gh-pages/assets/PaneHeader-BbhkfwPH.css                         1.76 kB │ gzip:   0.62 kB
+dist/gh-pages/assets/ExtractPane-IJg716G7.css                        2.28 kB │ gzip:   0.68 kB
+dist/gh-pages/assets/GradientPane-DwPurJyL.css                       4.84 kB │ gzip:   1.36 kB
+dist/gh-pages/assets/AboutPane-BgazgfSw.css                         12.65 kB │ gzip:   1.97 kB
+dist/gh-pages/assets/vendor-katex-BorAY7qD.css                      28.48 kB │ gzip:   7.92 kB
+dist/gh-pages/assets/glass-fonts-DH5GtBvs.css                      132.94 kB │ gzip:  99.91 kB
+dist/gh-pages/assets/index-BIMnUuDA.css                            519.14 kB │ gzip:  88.30 kB
+dist/gh-pages/assets/dateFormat-cLUypFi4.js                          0.44 kB │ gzip:   0.28 kB
+dist/gh-pages/assets/accent-tone-solve-Cw7WkRD9-BSNWValp.js          0.45 kB │ gzip:   0.30 kB
+dist/gh-pages/assets/sample-Ci76P1bf.js                              0.50 kB │ gzip:   0.34 kB
+dist/gh-pages/assets/Katex-C5_J-l65.js                               0.50 kB │ gzip:   0.35 kB
+dist/gh-pages/assets/PaneHeader-DPFB_RSi.js                          0.62 kB │ gzip:   0.41 kB
+dist/gh-pages/assets/rolldown-runtime-QTnfLwEv.js                    0.69 kB │ gzip:   0.42 kB
+dist/gh-pages/assets/PreviewStrip-BG2g1dGp.js                        0.75 kB │ gzip:   0.48 kB
+dist/gh-pages/assets/PaletteColorStrip-BRE88vXJ.js                   1.02 kB │ gzip:   0.59 kB
+dist/gh-pages/assets/PaletteCardSkeleton-sdtOxhEA.js                 1.65 kB │ gzip:   0.77 kB
+dist/gh-pages/assets/EmptyState-BgOAG7cO.js                          1.91 kB │ gzip:   0.84 kB
+dist/gh-pages/assets/BlobPane-adx1psBG.js                            2.16 kB │ gzip:   0.94 kB
+dist/gh-pages/assets/ConfigSliderPane-BsbQrwTE.js                    2.64 kB │ gzip:   1.30 kB
+dist/gh-pages/assets/usePaletteExport-CaAXsr7N.js                    3.02 kB │ gzip:   1.55 kB
+dist/gh-pages/assets/search-Bk-bcmUK.js                              3.14 kB │ gzip:   1.48 kB
+dist/gh-pages/assets/AuroraPane-YaEHlwog.js                          4.01 kB │ gzip:   1.43 kB
+dist/gh-pages/assets/color-space-meta-_0NJWWgV.js                    4.14 kB │ gzip:   1.72 kB
+dist/gh-pages/assets/kelvin-NImNIA0B.js                              4.15 kB │ gzip:   1.97 kB
+dist/gh-pages/assets/lch-ZU5-Sl01.js                                 4.27 kB │ gzip:   2.01 kB
+dist/gh-pages/assets/hwb-C2W454xF.js                                 4.47 kB │ gzip:   1.99 kB
+dist/gh-pages/assets/hsv-D-GO9Vnd.js                                 4.49 kB │ gzip:   1.99 kB
+dist/gh-pages/assets/hsl-DWzilNqU.js                                 4.51 kB │ gzip:   2.05 kB
+dist/gh-pages/assets/rgb-9DX122NO.js                                 4.81 kB │ gzip:   2.13 kB
+dist/gh-pages/assets/oklab-DhpvhVx3.js                               4.99 kB │ gzip:   2.09 kB
+dist/gh-pages/assets/lab-C4Rh_5YP.js                                 5.31 kB │ gzip:   2.33 kB
+dist/gh-pages/assets/oklch-B7Wt629d.js                               5.43 kB │ gzip:   2.42 kB
+dist/gh-pages/assets/xyz-DL9lpXk6.js                                 5.53 kB │ gzip:   2.44 kB
+dist/gh-pages/assets/hex-CdAk859I.js                                 6.00 kB │ gzip:   2.60 kB
+dist/gh-pages/assets/GeneratePane-C_3-E-GR.js                        6.55 kB │ gzip:   2.61 kB
+dist/gh-pages/assets/AboutPane-CcH1XBne.js                           9.91 kB │ gzip:   3.80 kB
+dist/gh-pages/assets/MixPane-CR-lcIgI.js                            20.73 kB │ gzip:   7.63 kB
+dist/gh-pages/assets/BrowsePane-BzTU6ho2.js                         22.31 kB │ gzip:   7.70 kB
+dist/gh-pages/assets/PaletteCard-CWV4ArVi.js                        24.79 kB │ gzip:   7.94 kB
+dist/gh-pages/assets/ExtractPane-q0Pi69C1.js                        25.88 kB │ gzip:   9.73 kB
+dist/gh-pages/assets/css-h0A6KHoK.js                                26.13 kB │ gzip:  10.42 kB
+dist/gh-pages/assets/AdminPane-d5JWLgN5.js                          27.73 kB │ gzip:   7.35 kB
+dist/gh-pages/assets/vendor-highlight-D9VP3A7h.js                   32.06 kB │ gzip:  12.07 kB
+dist/gh-pages/assets/usePointerVelocityField-DsIf7yyq-N5LP1vHt.js   41.00 kB │ gzip:  15.34 kB
+dist/gh-pages/assets/GradientPane-DAWpw6Ne.js                       42.41 kB │ gzip:  14.84 kB
+dist/gh-pages/assets/PalettesPane-DgW1FHzP.js                       50.94 kB │ gzip:  17.95 kB
+dist/gh-pages/assets/HeroBlob-ATp0M0T-.js                           94.59 kB │ gzip:  34.72 kB
+dist/gh-pages/assets/vue.runtime.esm-bundler-DVtiiGpU.js           109.83 kB │ gzip:  42.19 kB
+dist/gh-pages/assets/vendor-katex-DJ58vqXJ.js                      258.87 kB │ gzip:  77.46 kB
+dist/gh-pages/assets/_plugin-vue_export-helper-BY3JwTuk.js         262.27 kB │ gzip:  66.55 kB
+dist/gh-pages/assets/index-Bzkubr2p.js                             446.66 kB │ gzip: 148.79 kB
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:3362:1 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m3362 │[0m /* #__PURE__ */
+ [38;5;240m     │[0m ───────┬───────  
+ [38;5;240m     │[0m        ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[31m[INVALID_ANNOTATION] [0mA comment "/* #__PURE__ */" in "node_modules/@vueuse/core/dist/index.js" contains an annotation that Rolldown cannot interpret due to the position of the comment.
+      [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/@vueuse/core/dist/index.js:5780:23 [38;5;246m][0m
+      [38;5;246m│[0m
+ [38;5;246m5780 │[0m [38;5;249mc[0m[38;5;249mo[0m[38;5;249mn[0m[38;5;249ms[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249md[0m[38;5;249me[0m[38;5;249mf[0m[38;5;249ma[0m[38;5;249mu[0m[38;5;249ml[0m[38;5;249mt[0m[38;5;249mS[0m[38;5;249mt[0m[38;5;249ma[0m[38;5;249mt[0m[38;5;249me[0m[38;5;249m [0m[38;5;249m=[0m[38;5;249m [0m[38;5;249m([0m/* #__PURE__ */[38;5;249m [0m[38;5;249m{[0m
+ [38;5;240m     │[0m                       ───────┬───────  
+ [38;5;240m     │[0m                              ╰───────── comment ignored due to position
+ [38;5;240m     │[0m 
+ [38;5;240m     │[0m [38;5;115mHelp[0m: For more information on how to use pure annotations correctly, check the documentation: https://rolldown.rs/in-depth/dead-code-elimination#pure
+[38;5;246m──────╯[0m
+
+[33m[PLUGIN_TIMINGS] [0mYour build spent significant time in plugins. Here is a breakdown:
+  - source-export (66%)
+  - unplugin-vue-markdown (19%)
+  - value-defer-glass-fonts (7%)
+  - vite:css (5%)
+See https://rolldown.rs/options/checks#plugintimings for more details.
+
+✓ built in 3.62s
+[boot-smoke] mode=prod-preview origin=http://127.0.0.1:62293 seeds=8
+[boot-smoke] artifact census (R42): 122 assets · entry ./assets/index-Bzkubr2p.js (446664 B) · 5 modulepreload · vendor-katex chunks 2 (in modulepreload set: false)
+
+[boot-smoke] PASS · default · http://127.0.0.1:62293/
+             the W1.md literal — a cold boot with no seed at all
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] FAIL · deep-link-black · http://127.0.0.1:62293/#/?space=rgb&color=black
+             R16 — `?color=black` at minimum; grey 0 is hsv-powerless
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62293 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] FAIL · deep-link-grey-333333 · http://127.0.0.1:62293/#/?space=hex&color=%23333333
+             R16 — grey 51, a member of the 28/256 hsv-powerless set
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62293 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] PASS · deep-link-grey-808080 · http://127.0.0.1:62293/#/?space=hex&color=%23808080
+             CONTROL — grey 128 is NOT hsv-powerless; a matrix that reds this row is reporting something other than the seed class
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 6 element child(ren): [DIV, DIV, SPAN, DIV, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] PASS · deep-link-lch-none · http://127.0.0.1:62293/#/?space=lch&color=lch(50%25%200%20none)
+             R17 — the legal `none` hue reaching the picker through the URL
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] PASS · deep-link-oklch-none · http://127.0.0.1:62293/#/?space=oklch&color=oklch(0.5%200%20none)
+             R17 — the same in oklch; 256/256 greys emit `none` in both
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] FAIL · persisted-black · http://127.0.0.1:62293/
+             R16 — the self-perpetuating arm: the seed that crashed the last session is still in localStorage on the next one
+             FAIL A1 #app has >= 1 element child
+                  #app is <BODY> with 0 element child(ren): []
+             FAIL A2 a role=main landmark exists
+                  0 landmark(s): []
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 5 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+             console.error (2):
+                  • [value.js] value.js dev is MISCONFIGURED: http://127.0.0.1:62293 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette
+                  • PickerColorError: Missing hsv.h
+
+[boot-smoke] PASS · persisted-oklch-none · http://127.0.0.1:62293/
+             R17 — a persisted none-hue string, the returning-user path
+             ok   A1 #app has >= 1 element child
+                  #app is <BODY> with 5 element child(ren): [DIV, DIV, SPAN, DIV, DIV]
+             ok   A2 a role=main landmark exists
+                  1 landmark(s): [Color tool panes]
+             ok   A3 pageerror collected []
+                  []
+             ok   A4 >= 1 desktop utility class in the emitted CSS
+                  47 desktop utility rule(s) across 8 sheet(s) — e.g. .lg\:grid-cols-\[1fr_18rem\] @ (width >= 64rem), .lg\:border-t-0 @ (width >= 64rem), .lg\:border-r @ (width >= 64rem)
+
+[boot-smoke] report → /private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/wf/g13-run1.json
+
+[boot-smoke] prod-preview: 5/8 seed cases passed
+[boot-smoke] FAIL — 3 case(s): deep-link-black, deep-link-grey-333333, persisted-black

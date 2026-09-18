@@ -1,0 +1,173 @@
+{
+  "schema": "value.pi.syntax-consume-number.g16.confirmatory-benchmark/v1",
+  "status": "FROZEN_READY_FOR_FIRST_ATTEMPT",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "operation": {
+    "h2": "Create one ParserState over source at offset, invoke the exact pinned H2 consumeNumber parser once, and return its one intrinsic mutable {sign,type,value} leaf in one mutable {end,leaf} observation wrapper.",
+    "deposed": "Create one ParserState over source at offset, invoke the exact pinned historical number parser once, derive sign/type/end from the consumed source span without oracle fields, construct one equivalent mutable {sign,type,value} leaf, and return it in the same mutable {end,leaf} observation wrapper.",
+    "timed_lanes": ["h2", "deposed"],
+    "oracle_fields_passed_to_lanes": [],
+    "scope": "All 64 timed rows are in the exact common domain. Plus-sign and multiple-leading-zero behavioral differences are excluded from timing."
+  },
+  "corpus": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/corpus.json",
+    "sha256": "084d40cceed3cce481e23cbac1ca288c2af2899fad515dc948115c0aed9fd46b",
+    "cases": 64,
+    "fields": ["id", "family", "source", "offset", "end", "sign", "type", "binary64_be_hex"],
+    "required_families": {
+      "integer": 8,
+      "decimal": 10,
+      "exponent": 10,
+      "css_continuation": 10,
+      "rollback_maximal_prefix": 10,
+      "nonzero_offset": 10,
+      "mantissa_16": 2,
+      "mantissa_64": 2,
+      "mantissa_128": 2
+    }
+  },
+  "correctness_evidence": {
+    "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/evidence/correctness.json",
+    "sha256": "0196d9a361bea3bc43fa370f64c7354c739e2c99e1f3e73853d71a712794c22f",
+    "schema": "value.pi.syntax-consume-number.g16.correctness-evidence/v1",
+    "required_status": "PASS_EXACT_TWO_LANES_64_CASES_NO_TIMING",
+    "creation_command": "Root captured the exact deterministic stdout of ../../../node_modules/.bin/tsx bench/benchmark.mts --validate and added it with apply_patch; cmp replay is required before timing.",
+    "status": "FROZEN_CONTENT_ADDRESSED_CORRECTNESS_EVIDENCE"
+  },
+  "attempt": {
+    "raw_path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/evidence/raw-first-attempt.ndjson",
+    "command": "../../../node_modules/.bin/tsx bench/benchmark.mts --run-first-attempt",
+    "creation": "Controller opens this one path with wx before frozen binding and correctness-evidence verification.",
+    "persistence": "Every complete NDJSON record is synchronously written with short-write accounting and fsynced before work continues. All work after the exclusive open is failure-guarded; final fsync and close are attempted independently.",
+    "failure": "Any verification, spawn, IPC, semantic, checksum, timeout, stderr, signal, exit, persistence, or inference error terminally fails the sole attempt.",
+    "retry_policy": "NONE. No restart, retry, replacement path, deletion, rewrite, truncation, V2, or alternate attempt is permitted.",
+    "timing_executed": false
+  },
+  "protocol": {
+    "clock": "process.hrtime.bigint",
+    "replicate_unit": "one fresh child process",
+    "replicate_count": 30,
+    "replicate_seeds_uint32": [
+      1684164658,
+      340428713,
+      1445982368,
+      4019235728,
+      4007080336,
+      1141635573,
+      3715364666,
+      2248049900,
+      2574432274,
+      917525004,
+      2125787155,
+      935845436,
+      1696146983,
+      2873764021,
+      3959421798,
+      3302800852,
+      3362906686,
+      2935465452,
+      80309279,
+      338160580,
+      1454452225,
+      3543154265,
+      913847203,
+      2673159327,
+      1599684666,
+      2857538971,
+      3767423187,
+      2132324420,
+      212554680,
+      149001807
+    ],
+    "child_order": "Exactly the 30 listed seeds in array order; children are spawned sequentially, one at a time, and never restarted.",
+    "preflight": "Every child validates both exact lanes against all 64 rows before any warmup or timed block.",
+    "warmup_blocks": 4,
+    "warmup_blocks_per_order": 2,
+    "warmup_schedule": "Two [h2,deposed] and two [deposed,h2] paired blocks, shuffled with the replicate seed XOR 0xa5a5a5a5.",
+    "sample_blocks": 12,
+    "sample_blocks_per_order": 6,
+    "sample_schedule": "Six [h2,deposed] and six [deposed,h2] paired blocks, Fisher-Yates shuffled by the frozen per-replicate seed. Every block is retained.",
+    "full_corpus_repetitions_per_lane_per_block": 5000,
+    "operations_per_lane_per_block": 320000,
+    "child_aggregate": "d_r is the arithmetic mean of exactly 12 ln(h2_elapsed_ns/deposed_elapsed_ns) paired-block ratios in child r.",
+    "inference": "The only estimator uses the 30 child d_r values: mean plus 1.6991270265 times sample_sd divided by sqrt(30), with n=30 and df=29.",
+    "t_critical_one_sided_95_df_29": 1.6991270265,
+    "qualification": "PASS if and only if the one-sided 95% upper log-ratio bound is strictly less than zero; equality fails.",
+    "outliers": "Retain all predeclared sample blocks and all 30 process aggregates. No deletion, trimming, winsorization, substitution, rerun, or retry.",
+    "alternate_estimators": "FORBIDDEN",
+    "child_timeout_ms": 900000,
+    "child_exec_argv_append": "--disable-warning=DEP0205",
+    "worker_stderr_policy": "REJECT_ANY_NONEMPTY_STDERR_AFTER_SUPPRESSING_ONLY_DEP0205"
+  },
+  "bindings": {
+    "runtime": {
+      "node": {
+        "path": "/opt/homebrew/Cellar/node/26.0.0/bin/node",
+        "version": "v26.0.0",
+        "sha256": "08dad0581f00a0cabf4d49ec92ca1f25fdfd01c2c18fa8e92b35f04d4c24c164"
+      },
+      "files": [
+        {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/package.json",
+          "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af"
+        },
+        {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/package-lock.json",
+          "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7"
+        }
+      ],
+      "trees": [
+        {
+          "id": "PARSE_THAT",
+          "path": "docs/tranches/V/apotheosis/pi/mirror/node_modules/@mkbabb/parse-that",
+          "files_or_links": 65,
+          "ledger_bytes": 6607,
+          "sha256": "ce9242a2c00d18a61db3ab2fc252e50b382ab7ee3ccfabbca243487431c433c1"
+        },
+        {
+          "id": "TSX_LOADER",
+          "path": "docs/tranches/V/apotheosis/pi/mirror/node_modules/tsx",
+          "files_or_links": 50,
+          "ledger_bytes": 5182,
+          "sha256": "a9d1ef7f63eadf6be4deae98277357b0505ef47d1359958e317283079c50ccb1"
+        }
+      ]
+    },
+    "lanes": [
+      {
+        "id": "h2",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g15/optimization/h2/index.ts",
+        "sha256": "8c3ac689f2e24635216ac0499f23166996ac0136e0b6876e82a8da4f75eb95aa"
+      },
+      {
+        "id": "deposed",
+        "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g7/authorities/historical-utils.ts",
+        "sha256": "73e6a9731c802be86ac0230f32062f1075d344f6143715786eb1d9b8fe0f28e4"
+      }
+    ],
+    "harness": {
+      "files": [
+        {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/benchmark.mts",
+          "sha256": "bd46893f1ddfa628a258f9f0c953227b1d0513f28643a75c13977f49815a74c3"
+        },
+        {
+          "path": "docs/tranches/V/apotheosis/pi/mirror/cells/syntax-consume-number/g16/bench/benchmark-evidence.schema.json",
+          "sha256": "e07b83d9f5d344cde2c62c554c4f6a92d832cab452615ba61630cd34c500e880"
+        }
+      ]
+    }
+  },
+  "environment_retention": "The raw start/binding events retain exact manifest, corpus, lane, correctness, runtime, and harness bindings; the controller and every child retain their observed Node/V8/OS/CPU/memory environments.",
+  "provenance": {
+    "author_task": "/root/g16_benchmark_impl",
+    "phase": "CONFIRMATORY_PRE_TIMING_ONLY",
+    "allowed_pre_timing_commands": [
+      "../../../node_modules/.bin/tsc -p bench/tsconfig.json --noEmit",
+      "../../../node_modules/.bin/tsx bench/benchmark.mts --self-test",
+      "../../../node_modules/.bin/tsx bench/benchmark.mts --validate",
+      "../../../node_modules/.bin/tsx bench/benchmark.mts --worker-launch-smoke"
+    ],
+    "timing_executed": false
+  }
+}

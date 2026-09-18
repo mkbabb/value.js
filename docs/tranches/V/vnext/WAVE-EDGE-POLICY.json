@@ -1,0 +1,49 @@
+{
+  "schema": "vnext-wave-edge-policy/1",
+  "orientation": "producer-to-consumer",
+  "formation_graph_sha256": "cf7286faa28cd496d3808c99dcf4690dadc1f0340a94a28ed72f8f4fb910017d",
+  "policy_schema_sha256": "94640bafe07e26d8561a0df3fa8c8337b8da6071028b10e15c666635efd59ed0",
+  "classes": {
+    "complete": {
+      "edge_role": "completion-predecessor",
+      "advancing_statuses": ["COMPLETE"]
+    },
+    "fixed-keep": {
+      "edge_role": "requires-keep",
+      "advancing_statuses": ["KEEP"]
+    },
+    "fixed-prune": {
+      "edge_role": "requires-prune",
+      "advancing_statuses": ["PRUNE"]
+    }
+  },
+  "default_wave_class": "complete",
+  "wave_class_overrides": [
+    {
+      "class": "fixed-keep",
+      "waves": ["K14", "K15", "K16", "K17", "K21", "K22", "V15P", "V18H", "V18V"]
+    },
+    {
+      "class": "fixed-prune",
+      "waves": ["K09", "K18", "K19", "K20", "V24"]
+    }
+  ],
+  "edge_overrides": [],
+  "supersession": {
+    "role": "reopening-supersession",
+    "static_edge": false,
+    "allowed_statuses": "owner-advancing-plus-refused"
+  },
+  "expected": {
+    "wave_count": 193,
+    "edge_count": 797,
+    "role_counts": {
+      "completion-predecessor": 758,
+      "requires-keep": 29,
+      "requires-prune": 10
+    },
+    "wave_outcomes_sha256": "b48677ef56ff037604c2085bb9695230e5bab049678a5ef8800b0e6c0bc72528",
+    "edges_sha256": "46cc0f81427fa1acf29ce041cd9576b7bde31526aba07b1d11e76958f8db2e34"
+  },
+  "manifest_hash": "391605a72ba10b887ddc90d546a1aded80305b060bf6599edeb3fd98e446bedc"
+}

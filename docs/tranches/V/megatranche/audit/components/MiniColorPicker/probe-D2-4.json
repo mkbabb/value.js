@@ -1,0 +1,53 @@
+{
+ "rect": {
+  "x": 479,
+  "y": 581.34375,
+  "width": 174,
+  "height": 112
+ },
+ "borderRadius": "8px",
+ "corners": [
+  {
+   "name": "top-left  (S=0, V=1 → pure white)",
+   "before": "#406080",
+   "after": "#406080",
+   "actuated": false,
+   "elementFromPoint": "div.popover-content.z-popover"
+  },
+  {
+   "name": "top-right (S=1, V=1 → the pure hue)",
+   "before": "#406080",
+   "after": "#406080",
+   "actuated": false,
+   "elementFromPoint": "div.popover-content.z-popover"
+  },
+  {
+   "name": "bottom-left (S=0, V=0)",
+   "before": "#406080",
+   "after": "#406080",
+   "actuated": false,
+   "elementFromPoint": "div.popover-content.z-popover"
+  },
+  {
+   "name": "bottom-right (S=1, V=0)",
+   "before": "#406080",
+   "after": "#406080",
+   "actuated": false,
+   "elementFromPoint": "div.popover-content.z-popover"
+  },
+  {
+   "name": "control: top edge mid",
+   "before": "#406080",
+   "after": "#7fbefe",
+   "actuated": true,
+   "elementFromPoint": "div.sv-canvas.relative"
+  },
+  {
+   "name": "control: left edge mid",
+   "before": "#406080",
+   "after": "#808080",
+   "actuated": true,
+   "elementFromPoint": "div.sv-canvas.relative"
+  }
+ ]
+}

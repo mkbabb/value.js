@@ -1,0 +1,245 @@
+{
+  "ONLINE": {
+    "mode": "online",
+    "cards": 4,
+    "names": [
+      "Palette: PUBLIC palette",
+      "Palette: UNLISTED palette",
+      "Palette: PRIVATE palette",
+      "Palette: UNDEFINED-visibility palette"
+    ],
+    "rows": [
+      {
+        "card": "Palette: PUBLIC palette",
+        "items": [
+          {
+            "text": "Save",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Make private public",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Remix",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Rename",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Edit Tags",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Versions 3",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Export",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Delete",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          }
+        ]
+      },
+      {
+        "card": "Palette: UNLISTED palette",
+        "items": [
+          {
+            "text": "Save",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Make private public",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Remix",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Rename",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Edit Tags",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Versions 3",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Export",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Delete",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          }
+        ]
+      },
+      {
+        "card": "Palette: PRIVATE palette",
+        "items": [
+          {
+            "text": "Save",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Publish private",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Remix",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Rename",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Edit Tags",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Versions 3",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Export",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Delete",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          }
+        ]
+      },
+      {
+        "card": "Palette: UNDEFINED-visibility palette",
+        "items": [
+          {
+            "text": "Save",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Make private public",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Remix",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Rename",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Edit Tags",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Versions 3",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Export",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          },
+          {
+            "text": "Delete",
+            "ariaDisabled": null,
+            "dataDisabled": null
+          }
+        ]
+      }
+    ],
+    "ax": [
+      {
+        "name": "Save",
+        "disabled": null
+      },
+      {
+        "name": "Make private PUBLIC",
+        "disabled": null
+      },
+      {
+        "name": "Remix",
+        "disabled": null
+      },
+      {
+        "name": "Rename",
+        "disabled": null
+      },
+      {
+        "name": "Edit Tags",
+        "disabled": null
+      },
+      {
+        "name": "Versions 3",
+        "disabled": null
+      },
+      {
+        "name": "Export",
+        "disabled": null
+      },
+      {
+        "name": "Delete",
+        "disabled": null
+      }
+    ],
+    "latch": {
+      "variant": "solid",
+      "text": ""
+    },
+    "errs": []
+  },
+  "OFFLINE": {
+    "mode": "offline",
+    "cards": 0,
+    "names": [],
+    "rows": [],
+    "ax": [],
+    "latch": {
+      "variant": "solid",
+      "text": ""
+    },
+    "errs": []
+  }
+}

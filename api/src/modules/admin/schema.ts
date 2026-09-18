@@ -5,7 +5,7 @@
  */
 
 import { z } from "zod";
-import { USER_STATUSES } from "../session/model.js";
+import { userStatusSchema } from "../session/schema.js";
 import { colorsArraySchema, paletteNameSchema, slugSchema } from "../palette/schema.js";
 
 // ---------------------------------------------------------------
@@ -13,7 +13,7 @@ import { colorsArraySchema, paletteNameSchema, slugSchema } from "../palette/sch
 // ---------------------------------------------------------------
 
 export const setUserStatusBody = z.object({
-    status: z.enum(USER_STATUSES),
+    status: userStatusSchema,
 });
 
 export const impersonateBody = z.object({

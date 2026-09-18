@@ -1,0 +1,73 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G3-AUTHOR-ADMISSION",
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "scope": "This is an author-admission and candidate-construction floor, not a promotion or acceptance validator.",
+  "commands": {
+    "self": "node cells/syntax-consume-number/g3/author-admission-validator.mjs --self-check",
+    "pre_author": "node cells/syntax-consume-number/g3/author-admission-validator.mjs --pre-author <owner-sealed-manifest-sha256>",
+    "source_assay": "node cells/syntax-consume-number/g3/author-admission-validator.mjs --assay-stdin <h|b|s|d>",
+    "four_seat": "node cells/syntax-consume-number/g3/author-admission-validator.mjs --four-seat <candidate-root>"
+  },
+  "pre_author_manifest": {
+    "precursor_rows": [
+      "author-admission-protocol.json",
+      "author-admission-validator.mjs",
+      "benchmark-receipt.schema.json",
+      "benchmark-runner.mjs",
+      "contract.ts",
+      "feature-public.json",
+      "fixtures/public-cases.json",
+      "formation-receipt.json",
+      "harness.ts",
+      "parse-that-package.ledger",
+      "proof-inputs.ledger",
+      "typescript-package.ledger"
+    ],
+    "postfreeze_rows": [
+      "holdout-ciphertext.b64",
+      "holdout-receipt.json",
+      "reviews/challenge-a.json",
+      "reviews/challenge-b.json",
+      "root-gestalt.json"
+    ],
+    "manifest_self_binding": "The adjacent manifest is captured once and its exact SHA-256 is supplied out of band.",
+    "ciphertext": "holdout-ciphertext.b64 is a direct manifest row and its captured bytes must exactly match holdout-receipt.json. No G2 ciphertext, plaintext, result, or key material may be reused.",
+    "verdicts": "Challenge A and B must each be JSON with scope PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION and verdict ACCEPT. root-gestalt.json must say ACCEPT and bind the exact captured review hashes and byte lengths.",
+    "candidate_absence": "The candidates directory must not exist when --pre-author succeeds."
+  },
+  "captured_byte_law": "The validator reads each precursor, manifest row, proof input, tool input, compiler source, and clean-base tree file once into immutable buffers. Parsing, hashing, TypeScript SourceFile construction, and decisions use those buffers. Exact file bytes and tree path sets are revalidated at close.",
+  "proof_inputs": {
+    "ledger": "proof-inputs.ledger",
+    "ledger_sha256": "247192938b2f578c6fb6ace195dfb1d55b581a2c92374eb4ef386c450c9a20e1",
+    "rows": 6,
+    "bound": ["package.json", "tsconfig.json", "tsconfig.apotheosis.json", "apotheosis/vitest.config.ts", "apotheosis/clean-base.json", "apotheosis/grammar/css/l4/README.md"],
+    "source_extensions_closed": [".js", ".jsx", ".ts", ".tsx", ".mts", ".cts", ".mjs", ".cjs"]
+  },
+  "candidate_floor": {
+    "target": "grammar/css/l4/value-unit/consume-number.ts",
+    "export": "consumeNumber",
+    "exact_type": "Parser<Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>>",
+    "allowed_import": { "module": "@mkbabb/parse-that/core", "named": ["Parser", "all", "any", "dispatch", "regex", "string"] },
+    "positive_construction": "Only direct public-combinator construction, direct Number conversion, tightly listed pure mapper methods, identifier variables, direct arrows, and ordinary object literals are admitted. Constructors, state/source identifiers, element access, object destructuring, reflection, symbols, proxies, dynamic import, mutation, casts, loops, custom functions/classes, mapState, call, parseState, aliases, and indirect calls fail mechanically.",
+    "nonclaim": "This floor is proportionate, not whole-program proof. Runtime truth, hidden semantic indirection, lineage, idiom, and KISS remain mandatory skeptic-review axes."
+  },
+  "four_seats": {
+    "seats": ["h", "b", "s", "d"],
+    "exact_paths_per_seat": ["<seat>/author-receipt.json", "<seat>/overlay/grammar/css/l4/value-unit/consume-number.ts"],
+    "receipt": "Each receipt binds feature/generation/seat/topology, source SHA-256/bytes, a nonempty unique author_id, independent=true, and peer_source_access=false.",
+    "cross_seat": "All four source byte digests and all four author IDs must be pairwise distinct.",
+    "topologies": {
+      "h": "Exactly one exact whole-prefix regex call; no any, all, or dispatch.",
+      "b": "Regex-terminal production tree with at least two any and two all calls; no string or dispatch.",
+      "s": "Specification clauses with at least four string, two any, and one all call; no dispatch.",
+      "d": "At least one dispatch table with +-, dot, and 0-9 buckets."
+    },
+    "skeptics": "Four independent exact-byte skeptic receipts remain required by the later acceptance validator."
+  },
+  "deferred_acceptance": {
+    "validator": "A separate post-author acceptance validator must be formed after authors; it is not fabricated in this precursor.",
+    "mandatory_receipts": ["public runtime", "revealed fresh holdout", "four-seat benchmark", "four independent skeptics", "adjudicator", "integration", "projection and package-default gates"],
+    "law": "Only that later validator may decide candidate acceptance. This author-admission validator cannot promote, integrate, project, or grant feature/parser/benchmark credit."
+  },
+  "credit": "ZERO before the separate acceptance validator succeeds."
+}

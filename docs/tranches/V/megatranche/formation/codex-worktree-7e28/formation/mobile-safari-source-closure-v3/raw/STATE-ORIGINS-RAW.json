@@ -1,0 +1,1677 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/raw/STATE-ORIGINS-RAW.json
+  original-mtime: 2026-08-01T20:31:35
+  original-sha256: f669eef3e904d0d161c402f448ed2d0f2b0e93c63df3e901988a44dbd0bac39b
+  original-bytes: 48097
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schemaVersion": 3,
+  "sourceRootIdentity": "49d4692e83462ebe11bd1bbf96b1f27e54a97834dc22a115ef1820a2345a5f23",
+  "records": [
+    {
+      "workflowId": "VC-001",
+      "sourcePath": "demo/color-picker/App.vue",
+      "origins": {
+        "api": true,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-picker/ErrorBoundary.vue",
+          "demo/color-picker/composables/boot/hydrate.ts",
+          "demo/color-picker/composables/boot/useAtmosphereBoot.ts",
+          "demo/color-picker/composables/boot/useDockArrival.ts",
+          "demo/color-picker/composables/boot/useOverture.ts",
+          "demo/color-picker/composables/useDevicePixelSnap.ts",
+          "demo/color-picker/composables/usePaletteWiring.ts",
+          "demo/color-session/color-model.ts",
+          "demo/color-session/keys.ts",
+          "demo/color-session/useColorPipeline.ts",
+          "demo/color-session/useColorUrl.ts",
+          "demo/color-session/useCustomColorNames.ts",
+          "demo/palettes/browser/dialog/index.ts",
+          "demo/picker/index.ts",
+          "demo/platform/transport/useApiClient.ts",
+          "demo/shell/PaneSlot.vue",
+          "demo/shell/dock/index.ts",
+          "demo/shell/usePaneRouter.ts",
+          "demo/shell/useViewManager.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-002",
+      "sourcePath": "demo/color-picker/ErrorBoundary.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-003",
+      "sourcePath": "demo/color-session/ColorSpaceSelector.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/keys.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/ui/select/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-004",
+      "sourcePath": "demo/color-session/color-chips/PreviewRamp.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-chips/sample.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-005",
+      "sourcePath": "demo/color-session/color-chips/PreviewStrip.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-chips/sample.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-006",
+      "sourcePath": "demo/palettes/BrowsePane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/card/index.ts",
+          "demo/palettes/browser/dialog/index.ts",
+          "demo/palettes/browser/search/index.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePaletteExport.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/button/index.ts",
+          "demo/ui/card/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-007",
+      "sourcePath": "demo/palettes/PalettesPane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/card/index.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePaletteExport.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/card/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-008",
+      "sourcePath": "demo/palettes/admin/AdminPane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/admin/index.ts",
+          "demo/palettes/browser/search/index.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/badge/index.ts",
+          "demo/ui/card/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-009",
+      "sourcePath": "demo/palettes/browser/admin/AdminAuditPanel.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/browser/admin/AdminListSkeleton.vue",
+          "demo/palettes/browser/admin/PaginationBar.vue",
+          "demo/palettes/browser/dateFormat.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/input/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-010",
+      "sourcePath": "demo/palettes/browser/admin/AdminFlaggedPanel.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/browser/admin/AdminListSkeleton.vue",
+          "demo/palettes/browser/admin/PaginationBar.vue",
+          "demo/palettes/browser/dateFormat.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-011",
+      "sourcePath": "demo/palettes/browser/admin/AdminListItem.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-012",
+      "sourcePath": "demo/palettes/browser/admin/AdminListSkeleton.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/ui/skeleton/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-013",
+      "sourcePath": "demo/palettes/browser/admin/AdminNamesPanel.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/color-names.ts",
+          "demo/palettes/browser/admin/AdminListItem.vue",
+          "demo/palettes/browser/admin/AdminListSkeleton.vue",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-014",
+      "sourcePath": "demo/palettes/browser/admin/AdminTagsPanel.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/button/index.ts",
+          "demo/ui/input/index.ts",
+          "demo/ui/skeleton/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-015",
+      "sourcePath": "demo/palettes/browser/admin/AdminUsersPanel.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/admin/AdminListSkeleton.vue",
+          "demo/palettes/browser/card/index.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-016",
+      "sourcePath": "demo/palettes/browser/admin/PaginationBar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-017",
+      "sourcePath": "demo/palettes/browser/card/CurrentPaletteEditor.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/card/SwatchHoverMenu.vue",
+          "demo/palettes/browser/card/composables/useSwatchActions.ts",
+          "demo/palettes/browser/status/ApiOfflineChip.vue",
+          "demo/palettes/types.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/input/index.ts",
+          "demo/ui/tooltip/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-018",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-019",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCard.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/palettes/browser/card/PaletteCard/ActionFeedback.vue",
+          "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+          "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+          "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+          "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+          "demo/palettes/browser/card/PaletteColorStrip.vue",
+          "demo/palettes/browser/card/composables/useHeightTransition.ts",
+          "demo/palettes/browser/card/composables/useHoverPopover.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/utils.ts",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-020",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMenu.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/types.ts",
+          "demo/palettes/utils.ts",
+          "demo/platform/transport/useApiClient.ts",
+          "demo/ui/dropdown-menu/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-021",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardMeta.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/palettes/types.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-022",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteCardSwatches.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/palettes/browser/card/SwatchHoverMenu.vue",
+          "demo/palettes/types.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-023",
+      "sourcePath": "demo/palettes/browser/card/PaletteCard/PaletteRenameInput.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-024",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardGrid.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/shared/ui/EmptyState.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-025",
+      "sourcePath": "demo/palettes/browser/card/PaletteCardSkeleton.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/skeleton/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-026",
+      "sourcePath": "demo/palettes/browser/card/PaletteColorStrip.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/palettes/types.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-027",
+      "sourcePath": "demo/palettes/browser/card/ShadowPalette.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-028",
+      "sourcePath": "demo/palettes/browser/card/SwatchHoverMenu.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/popover/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-029",
+      "sourcePath": "demo/palettes/browser/dialog/FlagReportDialog.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts",
+          "demo/ui/dialog/index.ts",
+          "demo/ui/radio-group/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-030",
+      "sourcePath": "demo/palettes/browser/dialog/MigratePalettesDialog.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts",
+          "demo/ui/dialog/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-031",
+      "sourcePath": "demo/palettes/browser/dialog/VersionHistoryDrawer.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/browser/dateFormat.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/dialog/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-032",
+      "sourcePath": "demo/palettes/browser/search/MiniColorPicker.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts",
+          "demo/ui/popover/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-033",
+      "sourcePath": "demo/palettes/browser/search/SearchFilterBar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-utils.ts",
+          "demo/palettes/browser/search/MiniColorPicker.vue",
+          "demo/palettes/types.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/checkbox/index.ts",
+          "demo/ui/input/index.ts",
+          "demo/ui/popover/index.ts",
+          "demo/ui/radio-group/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-034",
+      "sourcePath": "demo/palettes/browser/search/TagEditPopover.vue",
+      "origins": {
+        "api": true,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/api/index.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/ui/checkbox/index.ts",
+          "demo/ui/popover/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-035",
+      "sourcePath": "demo/palettes/browser/search/UserSortMenu.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts",
+          "demo/ui/dropdown-menu/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-036",
+      "sourcePath": "demo/palettes/browser/slug/PaletteSlugBar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/ui/button/index.ts",
+          "demo/ui/popover/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-037",
+      "sourcePath": "demo/palettes/browser/status/ApiOfflineChip.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/platform/transport/useApiClient.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-038",
+      "sourcePath": "demo/picker/ColorPicker.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-picker/composables/boot/useOverture.ts",
+          "demo/color-session/ColorSpaceSelector.vue",
+          "demo/color-session/color-model.ts",
+          "demo/color-session/keys.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/picker/composables/useHeaderCondense.ts",
+          "demo/picker/composables/usePointerDebug.ts",
+          "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+          "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+          "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+          "demo/picker/visual/HeroBlob.vue",
+          "demo/picker/visual/PointerDebugOverlay.vue",
+          "demo/shell/useViewManager.ts",
+          "demo/ui/card/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-039",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ComponentSliders.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/picker/composables/usePointerDebug.ts",
+          "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+          "demo/picker/controls/ComponentSliders/composables/useSliderAnnouncements.ts",
+          "demo/picker/controls/ComponentSliders/composables/useSliderTouchGates.ts",
+          "demo/picker/controls/spectrumLuma.ts",
+          "demo/picker/display/ColorComponentDisplay/readoutReservation.ts",
+          "demo/ui/card/index.ts",
+          "demo/ui/slider/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-040",
+      "sourcePath": "demo/picker/controls/ComponentSliders/ConsoleRail.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/colorSpaceInfo.ts",
+          "demo/color-session/ink.ts",
+          "demo/color-session/keys.ts",
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/ui/tooltip/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-041",
+      "sourcePath": "demo/picker/controls/SpectrumCanvas/SpectrumCanvas.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/picker/composables/usePointerDebug.ts",
+          "demo/picker/controls/SpectrumCanvas/composables/useSpectrumPlateStyle.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-042",
+      "sourcePath": "demo/picker/display/ColorComponentDisplay/ColorComponentDisplay.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/picker/display/ColorComponentDisplay/readoutReservation.ts",
+          "demo/ui/card/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-043",
+      "sourcePath": "demo/picker/visual/DebugEventLog.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/picker/composables/usePointerDebug.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-044",
+      "sourcePath": "demo/picker/visual/HeroBlob.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/color-session/useContrastSafeColor.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-045",
+      "sourcePath": "demo/picker/visual/PointerDebugOverlay.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/picker/composables/usePointerDebug.ts",
+          "demo/picker/visual/DebugEventLog.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-046",
+      "sourcePath": "demo/scenes/ConfigSliderPane.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/button/index.ts",
+          "demo/ui/card/index.ts",
+          "demo/ui/slider/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-047",
+      "sourcePath": "demo/scenes/about/AboutPane.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/ColorSpaceSelector.vue",
+          "demo/color-session/color-model.ts",
+          "demo/scenes/about/ColorNutritionLabel.vue",
+          "demo/scenes/about/markdown/index.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/card/index.ts",
+          "demo/ui/separator/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-048",
+      "sourcePath": "demo/scenes/about/ColorNutritionLabel.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/colorSpaceInfo.ts",
+          "demo/color-session/ink.ts",
+          "demo/color-session/keys.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/ui/alert/index.ts",
+          "demo/ui/separator/index.ts",
+          "demo/ui/tooltip/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-049",
+      "sourcePath": "demo/scenes/about/katex/Katex.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-050",
+      "sourcePath": "demo/scenes/about/markdown/Markdown.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/scenes/about/markdown/composables/useMarkdownColors.ts",
+          "demo/scenes/about/markdown/composables/useMarkdownHighlighting.ts",
+          "demo/scenes/about/markdown/index.ts",
+          "demo/ui/alert/index.ts",
+          "demo/ui/skeleton/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-051",
+      "sourcePath": "demo/scenes/atmosphere/AuroraPane.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-chips/index.ts",
+          "demo/scenes/ConfigSliderPane.vue",
+          "demo/scenes/atmosphere/aurora-atoms.ts",
+          "demo/scenes/atmosphere/aurora-harmony-stops.ts",
+          "demo/ui/select/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-052",
+      "sourcePath": "demo/scenes/blob/BlobPane.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/scenes/ConfigSliderPane.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-053",
+      "sourcePath": "demo/shared/ui/EmptyState.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-054",
+      "sourcePath": "demo/shared/ui/PaneHeader.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-055",
+      "sourcePath": "demo/shell/PaneSegmentedControl.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-056",
+      "sourcePath": "demo/shell/PaneSlot.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-057",
+      "sourcePath": "demo/shell/dock/ActionBarToggle.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-058",
+      "sourcePath": "demo/shell/dock/ActionButton.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/ui/popover/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-059",
+      "sourcePath": "demo/shell/dock/ActionToolbar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/shell/dock/ActionButton.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-060",
+      "sourcePath": "demo/shell/dock/ColorInput.vue",
+      "origins": {
+        "api": true,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/color-names.ts",
+          "demo/color-session/keys.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/platform/auth/useSession.ts",
+          "demo/shell/dock/ParseEchoReadout.vue",
+          "demo/ui/popover/index.ts",
+          "demo/ui/separator/index.ts",
+          "demo/ui/tooltip/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-061",
+      "sourcePath": "demo/shell/dock/Dock.vue",
+      "origins": {
+        "api": true,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/keys.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shell/PaneSegmentedControl.vue",
+          "demo/shell/dock/ActionBarToggle.vue",
+          "demo/shell/dock/DockStatusLamp.vue",
+          "demo/shell/dock/DockViewSelect.vue",
+          "demo/shell/dock/composables/useDockAdminMode.ts",
+          "demo/shell/dock/composables/usePopupMutex.ts",
+          "demo/shell/dock/index.ts",
+          "demo/shell/dock/layers/ActionBarLayer.vue",
+          "demo/shell/dock/layers/GenericActionBar.vue",
+          "demo/shell/dock/layers/SlugEditLayer.vue",
+          "demo/shell/dock/menus/MobileMenuDropdown.vue",
+          "demo/shell/dock/menus/ProfileSection.vue",
+          "demo/shell/usePaneRouter.ts",
+          "demo/shell/useViewManager.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-062",
+      "sourcePath": "demo/shell/dock/DockStatusLamp.vue",
+      "origins": {
+        "api": true,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/platform/transport/useApiClient.ts",
+          "demo/shell/dock/status-lamp.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-063",
+      "sourcePath": "demo/shell/dock/DockViewSelect.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shell/dock/composables/useDockAdminMode.ts",
+          "demo/ui/select/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-064",
+      "sourcePath": "demo/shell/dock/ParseEchoReadout.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-065",
+      "sourcePath": "demo/shell/dock/layers/ActionBarLayer.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-model.ts",
+          "demo/color-session/keys.ts",
+          "demo/shell/dock/ActionToolbar.vue",
+          "demo/shell/dock/ColorInput.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-066",
+      "sourcePath": "demo/shell/dock/layers/GenericActionBar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/shell/dock/ActionButton.vue",
+          "demo/shell/usePaneRouter.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-067",
+      "sourcePath": "demo/shell/dock/layers/SlugEditLayer.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/usePalettePorts.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-068",
+      "sourcePath": "demo/shell/dock/menus/MobileMenuDropdown.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/ui/avatar/index.ts",
+          "demo/ui/dropdown-menu/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-069",
+      "sourcePath": "demo/shell/dock/menus/ProfileSection.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/ui/avatar/index.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/dropdown-menu/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-070",
+      "sourcePath": "demo/workbenches/extract/ExtractControls.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/ink.ts",
+          "demo/color-session/useContrastSafeColor.ts",
+          "demo/ui/slider/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-071",
+      "sourcePath": "demo/workbenches/extract/ExtractPane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/card/index.ts",
+          "demo/workbenches/extract/ExtractWorkbench.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-072",
+      "sourcePath": "demo/workbenches/extract/ExtractWorkbench.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/browser/card/index.ts",
+          "demo/workbenches/extract/ExtractControls.vue",
+          "demo/workbenches/extract/ImageDropZone.vue",
+          "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+          "demo/workbenches/extract/composables/useExtractSession.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-073",
+      "sourcePath": "demo/workbenches/extract/ImageDropZone.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-074",
+      "sourcePath": "demo/workbenches/extract/ImageEyedropper/ImageEyedropper.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/workbenches/extract/ImageEyedropper/composables/useImageSampler.ts",
+          "demo/workbenches/extract/ImageEyedropper/composables/useInertiaGesture.ts",
+          "demo/workbenches/extract/ImageEyedropper/composables/useLoupeCanvas.ts",
+          "demo/workbenches/extract/ImageEyedropper/constants.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-075",
+      "sourcePath": "demo/workbenches/generate/GenerateControls.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-chips/index.ts",
+          "demo/color-session/generate-color.ts",
+          "demo/palettes/browser/card/index.ts",
+          "demo/palettes/types.ts",
+          "demo/ui/badge/index.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/select/index.ts",
+          "demo/ui/slider/index.ts",
+          "demo/workbenches/generate/composables/useColorGeneration.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-076",
+      "sourcePath": "demo/workbenches/generate/GeneratePane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/card/index.ts",
+          "demo/workbenches/generate/GenerateControls.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-077",
+      "sourcePath": "demo/workbenches/gradient/GradientPane.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/card/index.ts",
+          "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-078",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/shared/utils.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-079",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+          "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+          "demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts",
+          "demo/workbenches/gradient/GradientVisualizer/easing/useSpecimenRows.ts",
+          "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "demo/workbenches/gradient/composables/useGradientModel.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-080",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/workbenches/gradient/composables/useGradientModel.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-081",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/GradientVisualizer.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/picker-color.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/ui/select/index.ts",
+          "demo/ui/slider/index.ts",
+          "demo/workbenches/gradient/GradientVisualizer/GradientCodeEditor.vue",
+          "demo/workbenches/gradient/GradientVisualizer/GradientEasingEditor.vue",
+          "demo/workbenches/gradient/GradientVisualizer/GradientStopEditor.vue",
+          "demo/workbenches/gradient/composables/useGradientCSS.ts",
+          "demo/workbenches/gradient/composables/useGradientInterpolation.ts",
+          "demo/workbenches/gradient/composables/useGradientModel.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-082",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingAuthoringStage.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": []
+      }
+    },
+    {
+      "workflowId": "VC-083",
+      "sourcePath": "demo/workbenches/gradient/GradientVisualizer/easing/EasingSpecimenStrip.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/workbenches/gradient/GradientVisualizer/easing/easingCatalogue.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-084",
+      "sourcePath": "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/picker-color.ts",
+          "demo/workbenches/mix/MixAnimationCanvas/composables/useMixingAnimation.ts",
+          "demo/workbenches/mix/composables/useMixingState.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-085",
+      "sourcePath": "demo/workbenches/mix/MixConfigBar.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/color-session/color-chips/index.ts",
+          "demo/color-session/color-space-meta.ts",
+          "demo/color-session/picker-color.ts",
+          "demo/palettes/mix.ts",
+          "demo/ui/button/index.ts",
+          "demo/ui/select/index.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-086",
+      "sourcePath": "demo/workbenches/mix/MixPane.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/color-session/keys.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/PaneHeader.vue",
+          "demo/ui/card/index.ts",
+          "demo/workbenches/mix/MixAnimationCanvas/MixAnimationCanvas.vue",
+          "demo/workbenches/mix/MixConfigBar.vue",
+          "demo/workbenches/mix/MixResultDisplay.vue",
+          "demo/workbenches/mix/MixSourceSelector.vue",
+          "demo/workbenches/mix/composables/useMixingState.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-087",
+      "sourcePath": "demo/workbenches/mix/MixResultDisplay.vue",
+      "origins": {
+        "api": false,
+        "store": false,
+        "di": false,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": false,
+        "admin": false,
+        "importedSourcePaths": [
+          "demo/workbenches/mix/composables/useMixingState.ts"
+        ]
+      }
+    },
+    {
+      "workflowId": "VC-088",
+      "sourcePath": "demo/workbenches/mix/MixSourceSelector.vue",
+      "origins": {
+        "api": false,
+        "store": true,
+        "di": true,
+        "worker": false,
+        "serviceWorker": false,
+        "auth": true,
+        "admin": true,
+        "importedSourcePaths": [
+          "demo/palettes/browser/card/index.ts",
+          "demo/palettes/types.ts",
+          "demo/palettes/usePalettePorts.ts",
+          "demo/shared/ui/EmptyState.vue",
+          "demo/ui/collapsible/index.ts",
+          "demo/workbenches/mix/composables/useMixingState.ts"
+        ]
+      }
+    }
+  ]
+}

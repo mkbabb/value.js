@@ -1,0 +1,21 @@
+{
+  "schema": "value.pi.foundation-g4.benchmark-erratum/v1",
+  "raw_sha256": "5a4b04a42f88a05d8bdca10d67f54679fbc6f98bb6ad1c47b06b79deb41aa6bd",
+  "manifest_sha256": "da08eab5bb3901593d55c1f857f4c83b3957c1f1e14a9e2d596056ba6c5f3b3e",
+  "correction": {
+    "raw_status_literal": "PASS_FIRST_ATTEMPT",
+    "actual_attempt": 2,
+    "correct_status": "PASS_ATTEMPT_2_AFTER_RETAINED_PRETIMING_IMPORT_FAILURE",
+    "retained_pre_reset_peer_disposition": "NON_COMPARABLE_DIFFERENT_RESULT_AND_RECOVERY_CONTRACT",
+    "retired_inaccurate_phrase": "REJECTED_TOKEN_RUNTIME"
+  },
+  "unchanged": [
+    "candidate bytes",
+    "corpus bytes",
+    "manifest bytes",
+    "raw timing samples",
+    "summary statistics",
+    "candidate-relative-only claim"
+  ],
+  "prior_failure_sha256": "a3ab74cdd63b0129e146583a8d474a28f4d93e675a8dc8fde62699c10960ec0f"
+}

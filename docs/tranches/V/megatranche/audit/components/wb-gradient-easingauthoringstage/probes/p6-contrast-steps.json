@@ -1,0 +1,119 @@
+{
+  "contrast_light": {
+    "cardBg": "oklab(0.913295 0.00550478 0.0130424)",
+    "restingBg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.65) * 1) * 100%), transparent)",
+    "curve": "oklch(0.438102 0.0748123 205)",
+    "curveVsWell": 5.81,
+    "curveVsRestingToken": 6.92,
+    "boxRect": "rgb(198, 180, 159)",
+    "boxRectVsWell": 1.56,
+    "gridLine": "oklab(0.779404 0.0118501 0.0342689 / 0.4)",
+    "gridVsWell": 1.56,
+    "diagonalGuide": "oklab(0.482204 0.0186377 0.0425246 / 0.3)",
+    "diagonalVsWell": 5.06,
+    "axisLabel": {
+      "fill": "oklab(0.482204 0.0186377 0.0425246 / 0.6)",
+      "fontSizePx": 0.066,
+      "renderedPx": null
+    },
+    "axisVsWell": 5.13
+  },
+  "axisPx_light": {
+    "w": 5.14,
+    "h": 11,
+    "text": "0"
+  },
+  "steps_light": {
+    "alive": true,
+    "mode": "steps",
+    "literal": "steps(4, jump-end)",
+    "viewBox": "-0.05 -0.1 1.1 1.2",
+    "box": {
+      "w": 410,
+      "h": 200
+    },
+    "ink": {
+      "w": 183.3,
+      "h": 200
+    },
+    "deadPct": 55.3,
+    "vbRatioVar": "1.2",
+    "controls": [
+      "Easing curve 1 → 2",
+      "Step count",
+      "Step count",
+      "Jump term"
+    ],
+    "stageH": 377.2
+  },
+  "contrast_dark": {
+    "cardBg": "oklab(0.345295 0.0103877 0.0175526)",
+    "restingBg": "color-mix(in srgb, hsl(26 22% 17%) calc((1 - (1 - 0.72) * 1) * 100%), transparent)",
+    "curve": "oklch(0.875853 0.131048 205)",
+    "curveVsWell": 8.31,
+    "curveVsRestingToken": 10.04,
+    "boxRect": "rgb(101, 87, 73)",
+    "boxRectVsWell": 1.66,
+    "gridLine": "oklab(0.465229 0.0110701 0.0260825 / 0.4)",
+    "gridVsWell": 1.65,
+    "diagonalGuide": "oklab(0.790699 0.00560597 0.0204731 / 0.3)",
+    "diagonalVsWell": 5.97,
+    "axisLabel": {
+      "fill": "oklab(0.790699 0.00560597 0.0204731 / 0.6)",
+      "fontSizePx": 0.066,
+      "renderedPx": null
+    },
+    "axisVsWell": 5.97
+  },
+  "axisPx_dark": {
+    "w": 5.14,
+    "h": 11,
+    "text": "0"
+  },
+  "steps_dark": {
+    "alive": true,
+    "mode": "steps",
+    "literal": "steps(4, jump-end)",
+    "viewBox": "-0.05 -0.1 1.1 1.2",
+    "box": {
+      "w": 410,
+      "h": 200
+    },
+    "ink": {
+      "w": 183.3,
+      "h": 200
+    },
+    "deadPct": 55.3,
+    "vbRatioVar": "1.2",
+    "controls": [
+      "Easing curve 1 → 2",
+      "Step count",
+      "Step count",
+      "Jump term"
+    ],
+    "stageH": 377.2
+  },
+  "boundaryZ": {
+    "pRect": {
+      "x": 498,
+      "y": 437,
+      "w": 445,
+      "h": 36
+    },
+    "topEl": "P.font-display text-heading text-foregroun",
+    "stack": [
+      "P.font-display text-heading text-foregroun",
+      "DIV.vj-error-boundary flex flex-col items-ce",
+      "MAIN.pane-main",
+      "DIV.app-layout",
+      "BODY.relative",
+      "HTML."
+    ],
+    "bodyChildren": [
+      "DIV.",
+      "DIV.app-layout",
+      "SPAN.",
+      "DIV."
+    ]
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "A-rest-light": {
+    "opened": true,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "text": "lab(92% 88.8 20 / 82.7%)",
+    "inputRect": {
+      "x": 563.64,
+      "y": 17.59,
+      "w": 324.72,
+      "h": 45.91
+    },
+    "sendRect": {
+      "x": 860.36,
+      "y": 28.55,
+      "w": 24,
+      "h": 24
+    },
+    "contentBoxCentreX": 714,
+    "borderBoxCentreX": 726,
+    "styles": {
+      "textAlign": "center",
+      "paddingLeft": "12px",
+      "paddingRight": "36px",
+      "fontFamily": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+      "fontSize": "18.608px",
+      "lineHeight": "27.912px",
+      "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0) 100%)",
+      "borderColor": "rgb(198, 180, 159)",
+      "borderWidth": "1px",
+      "direction": "ltr",
+      "textOverflow": "ellipsis",
+      "overflow": "hidden",
+      "whiteSpace": "nowrap",
+      "background": "rgb(251, 250, 248)",
+      "color": "rgb(28, 25, 23)"
+    },
+    "attrs": {
+      "spellcheck": null,
+      "contenteditable": "",
+      "role": "textbox",
+      "ariaLabel": "Enter a CSS color",
+      "ariaMultiline": null,
+      "ariaInvalid": null,
+      "ariaDescribedby": null,
+      "tabIndex": -1,
+      "inputmode": null,
+      "enterkeyhint": null,
+      "autocapitalize": null,
+      "autocorrect": null
+    },
+    "sendStyles": {
+      "w": "24px",
+      "h": "24px",
+      "padding": "4px",
+      "opacity": "1",
+      "ariaLabel": null,
+      "title": null,
+      "textContent": "",
+      "typeAttr": null,
+      "svgAriaHidden": null,
+      "inlineStyle": "stroke: oklch(0.471189 0.188448 9.83402);"
+    },
+    "crownKeyframeNames": [
+      "crown-appear-55dadc03"
+    ]
+  },
+  "B-f001-light": {
+    "opened": true,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "afterType": {
+      "text": "oklch()",
+      "badge": false
+    },
+    "afterEnter": {
+      "text": "oklch()",
+      "badgeText": "not a valid color",
+      "badgeRect": {
+        "x": 682.1,
+        "y": 31.4,
+        "w": 101,
+        "h": 18.4
+      },
+      "sendRect": {
+        "x": 763.1,
+        "y": 28.5,
+        "w": 24,
+        "h": 24
+      },
+      "overlapPx2": 367.5,
+      "sendAreaPx2": 576,
+      "badgeStyles": {
+        "bg": "rgb(219, 36, 36)",
+        "color": "rgb(251, 250, 248)",
+        "fontSize": "12px",
+        "pointerEvents": "none",
+        "role": null,
+        "ariaLive": null,
+        "id": "",
+        "zIndex": "auto"
+      },
+      "inputAria": {
+        "invalid": null,
+        "describedby": null
+      },
+      "inputBorder": "rgb(219, 36, 36)",
+      "inputBoxShadow": "color(srgb 0.86 0.14 0.14 / 0.25) 0px 0px 0px 2px",
+      "topElementAtSendCentre": {}
+    },
+    "after2s": {
+      "badge": false,
+      "text": "oklch()",
+      "border": "lab(92 88.8 20 / 0.827)"
+    }
+  },
+  "C-focus-dark": {
+    "opened": true,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "focus": {
+      "outlineStyle": "none",
+      "outlineWidth": "1px",
+      "borderColor": "oklab(0.934091 0.255763 0.0455515 / 0.834093)",
+      "mask": "none",
+      "boxShadow": "none",
+      "selection": "lab(92% 88.8 20 / 82.7%)"
+    },
+    "longValue": {
+      "scrollW": 586,
+      "clientW": 586,
+      "overflowing": false,
+      "scrollLeft": 0,
+      "text": "color(display-p3 0.12345 0.98765 0.55555 / 0.5)"
+    },
+    "empty": {
+      "text": "\n",
+      "html": "<br>",
+      "dataPlaceholder": null,
+      "rectH": 45.91,
+      "badge": false
+    },
+    "afterBlur": {
+      "text": "lab(92% 88.8 20 / 82.7%)"
+    }
+  },
+  "D-paste": {
+    "opened": true,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "after": {
+      "innerHTML": "<b style=\"color:lime;font-size:32px\">red</b>",
+      "innerText": "red",
+      "childNodes": 1,
+      "height": 66
+    }
+  },
+  "E-rtl": {
+    "opened": true,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "dir": "rtl",
+    "paddingLeft": "12px",
+    "paddingRight": "36px",
+    "maskImage": "linear-gradient(to right, rgb(0, 0, 0) calc(100% - 40px), rgba(0, 0, 0, 0) 100%)",
+    "inputRect": {
+      "x": 551.6,
+      "w": 324.7
+    },
+    "sendRect": {
+      "x": 848.4,
+      "w": 24
+    },
+    "sendOnInlineStartSide": false
+  },
+  "F-mobile": {
+    "opened": false,
+    "consoleErrors": [
+      "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+    ],
+    "pageErrors": [],
+    "missing": true
+  }
+}

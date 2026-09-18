@@ -150,21 +150,21 @@
 
     <!-- Global modals -->
     <MigratePalettesDialog
-        v-model:open="paletteManager.showMigrateDialog.value"
-        :count="paletteManager.savedPalettes.value.length"
-        :mode="paletteManager.migrateMode.value"
-        @respond="paletteManager.onMigrateRespond"
+        v-model:open="paletteManager.migration.showMigrateDialog.value"
+        :count="paletteManager.library.savedPalettes.value.length"
+        :mode="paletteManager.migration.migrateMode.value"
+        @respond="paletteManager.migration.onMigrateRespond"
     />
 </template>
 
 <script setup lang="ts">
 import { computed, onMounted, provide, ref, shallowRef, useTemplateRef } from "vue";
 
-import type { ColorModel, EditTarget } from "@components/custom/color-picker";
-import { ColorPicker } from "@components/custom/color-picker";
-import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "@composables/color/keys";
+import type { ColorModel, EditTarget } from "../color-session/color-model";
+import { ColorPicker } from "../picker";
+import { CSS_COLOR_KEY, EDIT_TARGET_KEY, COLOR_MODEL_KEY } from "../color-session/keys";
 
-import { Dock } from "@components/custom/dock";
+import { Dock } from "../shell/dock";
 // U.W-DEMO · U-F47 (G-DEMO-3b): reached through the `dialog/` sub-barrel (a
 // barrel the top-level palette-browser seam re-exports), never the raw `.vue`
 // file. BOOK (PI-6 residual): the root `package.json` marks `./demo/**`
@@ -173,22 +173,22 @@ import { Dock } from "@components/custom/dock";
 // (narrow the `demo/**` sideEffects glob, or a manualChunk for this dialog) is a
 // build-config change to be verified once the demo builds (currently blocked by
 // the glass-ui 5.0.0 adopt-gap); tracked to U.W-CLOSE's re-probe.
-import { MigratePalettesDialog } from "@components/custom/palette-browser/dialog";
-import PaneSlot from "@components/custom/panes/PaneSlot.vue";
+import { MigratePalettesDialog } from "../palettes/browser/dialog";
+import PaneSlot from "../shell/PaneSlot.vue";
 // U.W-A11Y · U-F58: the focus-managed / SR-announced boundary that catches a
 // pane render throw instead of white-screening (never a silent dead plate).
-import ErrorBoundary from "@components/common/ErrorBoundary.vue";
+import ErrorBoundary from "./ErrorBoundary.vue";
 
-import { useCustomColorNames } from "@composables/color/useCustomColorNames";
-import { useColorUrl } from "@composables/color/useColorUrl";
+import { useCustomColorNames } from "../color-session/useCustomColorNames";
+import { useColorUrl } from "../color-session/useColorUrl";
 
-import { useViewManager, VIEW_MANAGER_KEY } from "@composables/useViewManager";
-import { useColorPipeline } from "@composables/color/useColorPipeline";
-import { usePaneRouter } from "@composables/usePaneRouter";
-import { usePaletteManagerWiring } from "./composables/usePaletteManagerWiring";
-import { provideApiClient } from "@lib/palette/api/useApiClient";
+import { useViewManager, VIEW_MANAGER_KEY } from "../shell/useViewManager";
+import { useColorPipeline } from "../color-session/useColorPipeline";
+import { usePaneRouter } from "../shell/usePaneRouter";
+import { usePaletteWiring } from "./composables/usePaletteWiring";
+import { provideApiClient } from "../platform/transport/useApiClient";
 import { useGlobalDark } from "@mkbabb/glass-ui/dark";
-import { copyToClipboard } from "@mkbabb/glass-ui";
+import { useClipboard } from "@mkbabb/glass-ui";
 import { useBreakpoint } from "@mkbabb/glass-ui/dom";
 import { useAtmosphereBoot } from "./composables/boot/useAtmosphereBoot";
 import { resolveHydratedBootModel } from "./composables/boot/hydrate";
@@ -196,14 +196,14 @@ import { useOverture, OVERTURE_KEY } from "./composables/boot/useOverture";
 import { useDockArrival } from "./composables/boot/useDockArrival";
 import { useDevicePixelSnap } from "./composables/useDevicePixelSnap";
 
-import "@styles/utils.css";
-import "@styles/style.css";
+import "../styles/utils.css";
+import "../styles/foundation.css";
 // U.W-A11Y / U-F25: the `--focus-ring-inner/-outer` token recipe (:root) that
 // every keyboard-operable control's focus affordance composes. Global wire (a
 // `:root` token must be defined regardless of which control is mounted); the
 // modality lane REFERENCES these names from style.css. Imported AFTER style.css
 // so a later owner override there wins the cascade.
-import "@styles/focus-ring.css";
+import "../styles/focus-ring.css";
 // The overture's one-clock grammar sheet (tokens + arrival/appear/dock/emerge
 // rules) — colocated with the boot chain; imported AFTER style.css so the
 // cascade order matches the former in-SFC blocks (T.W2-3).
@@ -348,7 +348,7 @@ const { mobile, desktopLeft, desktopRight, actionBar } = usePaneRouter(
 );
 
 // --- Palette manager ---
-const paletteManager = usePaletteManagerWiring(
+const paletteManager = usePaletteWiring(
     colorPickerRef,
     viewManager,
     model,
@@ -357,16 +357,13 @@ const paletteManager = usePaletteManagerWiring(
 );
 
 // --- Share link ---
-const linkCopied = ref(false);
-let linkCopiedTimer: ReturnType<typeof setTimeout> | undefined;
+// Glass 7: scope-owned confirmation state replaces the hand-rolled copy+timer;
+// `linkCopied` (a prop feed to the dock) derives off the reactive status.
+const { status: linkCopyStatus, copy: copyLink } = useClipboard({ resetMs: 2000 });
+const linkCopied = computed(() => linkCopyStatus.value === "success");
 
 const shareLink = async () => {
-    const success = await copyToClipboard(window.location.href);
-    if (success) {
-        linkCopied.value = true;
-        clearTimeout(linkCopiedTimer);
-        linkCopiedTimer = setTimeout(() => { linkCopied.value = false; }, 2000);
-    }
+    await copyLink(window.location.href);
 };
 
 // --- URL sync + persistence precedence (S.W2 · W2-1; re-scoped T.W2 · W2-1) ---
@@ -387,7 +384,7 @@ onMounted(() => { loadCustomColorNames(); });
 </script>
 
 <style scoped>
-@reference "../../demo/@/styles/style.css";
+@reference "../../demo/styles/foundation.css";
 
 /* W3-4 (S.W3 · pane-swap payload): the former height/margin/padding transition
    on .pane-wrapper is DELETED. Layout properties never animate on a pane swap

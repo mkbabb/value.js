@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g8:skeptic-receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "role", "reviewer", "candidate_set", "candidate_findings", "ranking", "confirmed_blockers", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 8 }, "role": { "enum": ["specification", "parse-that", "hostility", "performance", "gestalt"] },
+    "reviewer": { "type": "object", "additionalProperties": false, "required": ["id", "served_model", "independent", "author", "boundary_reviewer", "root", "peer_skeptic_access", "adjudicator"], "properties": { "id": { "type": "string", "minLength": 1 }, "served_model": { "type": "string", "minLength": 1 }, "independent": { "const": true }, "author": { "const": false }, "boundary_reviewer": { "const": false }, "root": { "const": false }, "peer_skeptic_access": { "const": false }, "adjudicator": { "const": false } } },
+    "candidate_set": { "type": "object", "additionalProperties": false, "required": ["path", "sha256", "bytes", "set_closure_sha256"], "properties": { "path": { "const": "candidate-set.json" }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 }, "set_closure_sha256": { "$ref": "#/$defs/sha256" } } },
+    "candidate_findings": { "type": "object", "additionalProperties": false, "required": ["h", "b", "s", "d"], "properties": { "h": { "$ref": "#/$defs/finding" }, "b": { "$ref": "#/$defs/finding" }, "s": { "$ref": "#/$defs/finding" }, "d": { "$ref": "#/$defs/finding" } } },
+    "ranking": { "type": "array", "minItems": 4, "maxItems": 4, "uniqueItems": true, "items": { "enum": ["h", "b", "s", "d"] } },
+    "confirmed_blockers": { "type": "array", "items": { "type": "object", "additionalProperties": false, "required": ["candidate", "axis", "docket_id", "evidence"], "properties": { "candidate": { "enum": ["h", "b", "s", "d"] }, "axis": { "enum": ["correctness", "idiom", "performance", "hostility", "kiss"] }, "docket_id": { "type": "string", "minLength": 1 }, "evidence": { "type": "string", "minLength": 1 } } } },
+    "credit": { "const": "ZERO_SKEPTIC_RECEIPT_ONLY" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "finding": { "type": "object", "additionalProperties": false, "required": ["payload_closure_sha256", "correctness", "idiom", "performance", "hostility", "kiss", "evidence"], "properties": { "payload_closure_sha256": { "$ref": "#/$defs/sha256" }, "correctness": { "enum": ["ACCEPT", "REJECT"] }, "idiom": { "enum": ["ACCEPT", "REJECT"] }, "performance": { "enum": ["ACCEPT", "REJECT"] }, "hostility": { "enum": ["ACCEPT", "REJECT"] }, "kiss": { "enum": ["ACCEPT", "REJECT"] }, "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } } } }
+  }
+}

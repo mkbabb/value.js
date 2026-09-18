@@ -29,16 +29,15 @@
  * FIRST value — the seed the graph is constructed from.
  */
 
-import { parseCSSColor } from "@mkbabb/value.js/parsing";
-import { colorUnit2, normalizeColorUnit } from "@mkbabb/value.js/color";
-import type { ColorModel, DisplayColorSpace } from "@components/custom/color-picker";
+import { convertPickerColor, parsePickerColor } from "../../../color-session/picker-color";
+import type { ColorModel, DisplayColorSpace } from "../../../color-session/color-model";
 import {
     createDefaultColorModel,
     resolveColorSpace,
-} from "@components/custom/color-picker";
+} from "../../../color-session/color-model";
 // The persisted color-state projection key — single-sourced (U-F48), shared
 // with useColorPersistence. boot→lib is a legal DOWN import.
-import { COLOR_STORE_KEY } from "@lib/palette/constants";
+import { COLOR_STORE_KEY } from "../../../color-session/useColorPersistence";
 
 export type BootSeedSource = "url" | "storage" | "default";
 
@@ -79,14 +78,9 @@ function readStoredSeed(): string | null {
 /** Build a hydrated model from a css string + display space (throws on
  *  malformed input — the caller's arm falls through). */
 function modelFrom(css: string, space: DisplayColorSpace): ColorModel {
-    const parsed = parseCSSColor(css.trim().toLowerCase());
-    const normalized = normalizeColorUnit(parsed);
-    const converted = colorUnit2(
-        normalized,
+    const converted = convertPickerColor(
+        parsePickerColor(css.trim().toLowerCase()),
         resolveColorSpace(space),
-        true,
-        false,
-        false,
     );
     return {
         selectedColorSpace: space,
@@ -119,11 +113,10 @@ export function resolveHydratedBootModel(): HydratedBootModel {
     const stored = readStoredSeed();
     if (stored) {
         try {
-            const parsed = parseCSSColor(stored.trim().toLowerCase());
-            const normalized = normalizeColorUnit(parsed);
+            const parsed = parsePickerColor(stored.trim().toLowerCase());
             // Mirror parseAndSetColor's space detection: a hex input selects
             // the "hex" display mode rather than "rgb".
-            const own = normalized.value.colorSpace;
+            const own = parsed.space;
             const space: DisplayColorSpace =
                 own === "rgb" && stored.trim().startsWith("#") ? "hex" : own;
             return { model: modelFrom(stored, space), source: "storage" };

@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "noEmit": false,
+    "outDir": ".dts",
+    "rootDir": "."
+  },
+  "include": [
+    "deps/**/*.ts",
+    "grammar/**/*.ts",
+    "stylesheet/**/*.ts",
+    "*.ts"
+  ]
+}
+

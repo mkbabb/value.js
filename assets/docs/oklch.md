@@ -1,22 +1,12 @@
 <script setup>
-import { oklch2oklab, oklab2oklch, oklab2xyz, xyz2oklab } from "@src/units/color/conversions/oklab?source";
-import { getFormattedColorSpaceRange } from "@src/units/color/dispatch";
-import { Katex } from "@components/custom/katex";
-import {
-    COLOR_SPACE_DENORM_UNITS,
-    COLOR_SPACE_NAMES,
-    COLOR_SPACE_RANGES,
-} from "@src/units/color/constants";
-import { Alert, AlertDescription, AlertTitle } from "@components/ui/alert";
-const { l, c, h } = getFormattedColorSpaceRange("oklch");
-
+import { Katex } from "../../demo/scenes/about/katex";
 </script>
 
 ### Attributes
 
--   `L`: Lightness ({{l.min}} to {{l.max}})
--   `C`: Chroma ({{c.min}} to {{c.max}})
--   `H`: Hue ({{h.min}} to {{h.max}})
+-   `L`: Lightness (0 to 1)
+-   `C`: Chroma (0 to ~0.4)
+-   `H`: Hue (0° to 360°)
 
 ### Historical Context
 
@@ -71,15 +61,11 @@ Polar to Cartesian—recover the `a`/`b` axes from chroma and hue:
 
 <Katex expression="a = C \cos(2\pi h), \quad b = C \sin(2\pi h)" />
 
-<div v-html="oklch2oklab" />
-
 ### OKLab to OKLCh
 
 Cartesian to polar—extract chroma (magnitude) and hue (angle) from the `a`/`b` plane:
 
 <Katex expression="C = \sqrt{a^2 + b^2}, \quad h = \frac{\operatorname{atan2}(b,\, a)}{2\pi}" />
-
-<div v-html="oklab2oklch" />
 
 ### OKLab to XYZ
 
@@ -87,15 +73,11 @@ Invert the two linear transforms around a cube operation. The cube reverses the 
 
 <Katex expression="\begin{bmatrix} l' \\ m' \\ s' \end{bmatrix} = M_1^{-1} \begin{bmatrix} L \\ a \\ b \end{bmatrix}, \quad \begin{bmatrix} X \\ Y \\ Z \end{bmatrix} = M_2^{-1} \begin{bmatrix} l'^3 \\ m'^3 \\ s'^3 \end{bmatrix}" />
 
-<div v-html="oklab2xyz" />
-
 ### XYZ to OKLab
 
 Two matrix multiplications sandwiching a cube root. The first maps XYZ to LMS cone responses; the cube root models the perceptual non-linearity; the second projects into OKLab:
 
 <Katex expression="\begin{bmatrix} l \\ m \\ s \end{bmatrix} = M_1 \begin{bmatrix} X \\ Y \\ Z \end{bmatrix}, \quad \begin{bmatrix} L \\ a \\ b \end{bmatrix} = M_2 \begin{bmatrix} \sqrt[3]{l} \\ \sqrt[3]{m} \\ \sqrt[3]{s} \end{bmatrix}" />
-
-<div v-html="xyz2oklab" />
 
 ---
 

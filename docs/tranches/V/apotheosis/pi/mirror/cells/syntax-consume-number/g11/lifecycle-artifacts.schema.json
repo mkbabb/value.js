@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "value.pi.syntax-consume-number.g11.lifecycle/v1",
+  "description": "Shape contract for artifacts created only after the frozen formation. The formation contains no future artifact hashes.",
+  "required_chain": [
+    "holdout-receipt binds formation-receipt",
+    "reviewed-subject binds formation-receipt and holdout-receipt/ciphertext",
+    "each challenge binds reviewed-subject",
+    "root-gestalt binds both challenge identities and accepts",
+    "author-task-witness binds formation and accepted root plus external task receipts"
+  ],
+  "admission_output": "AUTHORS_MAY_WRITE",
+  "credit": "ZERO_SCHEMA_ONLY"
+}

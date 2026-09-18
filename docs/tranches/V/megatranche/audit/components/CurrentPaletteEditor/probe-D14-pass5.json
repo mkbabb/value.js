@@ -1,0 +1,233 @@
+{
+  "P1": {
+    "counts": {
+      "text-caption": 0,
+      "btn-interactive": 0,
+      "mono-caption": 0,
+      "text-small": 0,
+      "text-mono-small": 0
+    },
+    "samples": {
+      "text-caption": [],
+      "mono-caption": []
+    },
+    "authoredCaptionSitesInWell": [],
+    "varTypeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+    "varTextCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )"
+  },
+  "P2_light": {
+    "wellBg": "oklab(0.913295 0.00550478 0.0130424)",
+    "wellLum": 0.000060415588215868385,
+    "wellBorder": "1px dashed oklab(0.216128 0.00350075 0.00518669 / 0.12)",
+    "wellShadow": "oklab(0.28 0.0167833 0.0248661 / 0.32) -2px 2px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.26) -3px 3px 0px 0px, oklab(0.28 0.0167833 0.0248661 / 0.18) -4px 4px 0px 0px",
+    "hostEl": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+    "hostBg": "oklab(0.928268 0.00554796 0.0132111 / 0.664)",
+    "hostLum": 0.0000613948640842591,
+    "ghostBorderColor": "rgb(198, 180, 159)",
+    "ghostBorderStyle": "solid",
+    "ghostBg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+    "ghostRadius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+    "trio": [
+      {
+        "w": 32,
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "borderWidth": "2px",
+        "radius": "55.5238% 76.5501% 44.1574% 61.8171% / 38.144% 71.6144% 75.53"
+      },
+      {
+        "w": 44,
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "borderWidth": "2px",
+        "radius": "22.4401% 50.3407% 79.0677% 79.1384% / 57.6914% 41.4253% 52.8"
+      },
+      {
+        "w": 24,
+        "borderColor": "oklch(0.361256 0.114318 139.18)",
+        "borderWidth": "2px",
+        "radius": "32.6172% 24.0066% 77.3515% 35.9219% / 34.9353% 67.8838% 65.5"
+      }
+    ],
+    "headerChildren": [
+      {
+        "t": "Current Palette",
+        "x": 767,
+        "w": 122.4
+      },
+      {
+        "t": "3 colors",
+        "x": 1122.3,
+        "w": 80.8
+      }
+    ],
+    "headerLabelToCountGapPx": 232.8,
+    "wellWidth": 462,
+    "toneStepSign": "well DARKER than host",
+    "toneStepDelta": 0
+  },
+  "P2_dark": {
+    "wellBg": "oklab(0.345295 0.0103877 0.0175526)",
+    "wellLum": 0.000024921476889455477,
+    "wellBorder": "1px dashed oklab(0.925196 0.00238398 0.00574207 / 0.12)",
+    "wellShadow": "oklab(0.34 0.0115033 0.0277069 / 0.46) -2px 2px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.38) -3px 3px 0px 0px, oklab(0.34 0.0115033 0.0277069 / 0.26) -4px 4px 0px 0px",
+    "hostEl": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+    "hostBg": "oklab(0.395239 0.00969829 0.0165355 / 0.7536)",
+    "hostLum": 0.000027972406819644272,
+    "ghostBorderColor": "rgb(101, 87, 73)",
+    "ghostBorderStyle": "solid",
+    "ghostBg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+    "ghostRadius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+    "trio": [
+      {
+        "w": 32,
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "borderWidth": "2px",
+        "radius": "55.5238% 76.5501% 44.1574% 61.8171% / 38.144% 71.6144% 75.53"
+      },
+      {
+        "w": 44,
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "borderWidth": "2px",
+        "radius": "22.4401% 50.3407% 79.0677% 79.1384% / 57.6914% 41.4253% 52.8"
+      },
+      {
+        "w": 24,
+        "borderColor": "oklch(0.771453 0.244124 139.18)",
+        "borderWidth": "2px",
+        "radius": "32.6172% 24.0066% 77.3515% 35.9219% / 34.9353% 67.8838% 65.5"
+      }
+    ],
+    "headerChildren": [
+      {
+        "t": "Current Palette",
+        "x": 767,
+        "w": 122.4
+      },
+      {
+        "t": "3 colors",
+        "x": 1122.3,
+        "w": 80.8
+      }
+    ],
+    "headerLabelToCountGapPx": 232.8,
+    "wellWidth": 462,
+    "toneStepSign": "well DARKER than host",
+    "toneStepDelta": 0
+  },
+  "P4": {
+    "before": {
+      "liveColor": null,
+      "ghost": {
+        "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+        "filter": "url(\"#watercolor-filter-v-1-4\")",
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "tagAttr": null,
+        "tagName": "SPAN"
+      },
+      "faces": [
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(30 -70 80)",
+          "radius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+          "filter": "url(\"#watercolor-filter-v-1-0\")",
+          "w": 48
+        },
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(48.3 -20 30)",
+          "radius": "67.5063% 36.3944% 21.1529% 70.8199% / 32.4471% 54.4905% 41.9614% 61.9355%",
+          "filter": "url(\"#watercolor-filter-v-1-1\")",
+          "w": 48
+        },
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(66.7 30 -20)",
+          "radius": "68.712% 66.3297% 49.0993% 55.7512% / 54.3118% 58.6727% 45.0156% 26.0811%",
+          "filter": "url(\"#watercolor-filter-v-1-2\")",
+          "w": 48
+        },
+        {
+          "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+          "isGhost": false,
+          "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+          "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+          "filter": "url(\"#watercolor-filter-v-1-4\")",
+          "w": 48
+        },
+        {
+          "cls": "watercolor-ghost-stroke",
+          "isGhost": true,
+          "bg": "rgba(0, 0, 0, 0)",
+          "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+          "filter": "url(\"#watercolor-filter-v-1-4\")",
+          "w": 48
+        }
+      ],
+      "n": 5
+    },
+    "after": {
+      "liveColor": null,
+      "ghost": {
+        "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+        "filter": "url(\"#watercolor-filter-v-1-4\")",
+        "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+        "tagAttr": null,
+        "tagName": "SPAN"
+      },
+      "faces": [
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(30 -70 80)",
+          "radius": "59.1746% 69.1889% 31.6219% 33.2892% / 67.017% 75.0312% 23.6854% 75.7299%",
+          "filter": "url(\"#watercolor-filter-v-1-0\")",
+          "w": 48
+        },
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(48.3 -20 30)",
+          "radius": "67.5063% 36.3944% 21.1529% 70.8199% / 32.4471% 54.4905% 41.9614% 61.9355%",
+          "filter": "url(\"#watercolor-filter-v-1-1\")",
+          "w": 48
+        },
+        {
+          "cls": "w-11 h-11 sm:w-12 sm:h-12 shrink-0 cursor-pointer watercolor",
+          "isGhost": false,
+          "bg": "lab(66.7 30 -20)",
+          "radius": "68.712% 66.3297% 49.0993% 55.7512% / 54.3118% 58.6727% 45.0156% 26.0811%",
+          "filter": "url(\"#watercolor-filter-v-1-2\")",
+          "w": 48
+        },
+        {
+          "cls": "add-slot-ghost btn-interactive w-11 h-11 sm:w-12 sm:h-12 shr",
+          "isGhost": false,
+          "bg": "color(srgb -0.227923 0.354299 -0.203357 / 0.12)",
+          "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+          "filter": "url(\"#watercolor-filter-v-1-4\")",
+          "w": 48
+        },
+        {
+          "cls": "watercolor-ghost-stroke",
+          "isGhost": true,
+          "bg": "rgba(0, 0, 0, 0)",
+          "radius": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+          "filter": "url(\"#watercolor-filter-v-1-4\")",
+          "w": 48
+        }
+      ],
+      "n": 5
+    },
+    "verdict": {
+      "ghostRadiusBeforeClick": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+      "newFaceRadiusAfterClick": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+      "identical": true,
+      "ghostRadiusAfterClick": "45.1408% 73.3282% 27.7853% 64.3725% / 46.385% 50.3528% 39.8982% 24.6094%",
+      "ghostReshapedByCommit": false,
+      "faceCountBefore": 5,
+      "faceCountAfter": 5
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 10,
+  "status": "FROZEN_REVIEWED_SUBJECT_PRE_CHALLENGE",
+  "formation": {
+    "path": "formation-receipt.json",
+    "sha256": "0efb4c63e7dc0be6599790b345a6b6584e2df4101a332f46a105edf6bceec732",
+    "bytes": 2687,
+    "closure_sha256": "e7e122ea8a86fc3c696aad653e44e06ce79a236a65839f77c1ea8e35acd32163"
+  },
+  "holdout_receipt": {
+    "path": "holdout-receipt.json",
+    "sha256": "7d1e635bd274f95c3fe8b885af52b84a3c0640e4d682fd89e4f3a695aea95058",
+    "bytes": 6564,
+    "mode": "0444"
+  },
+  "holdout_ciphertext": {
+    "path": "holdout-ciphertext.b64",
+    "sha256": "318d9272b75b34d34a71afa3665133723de4159c888cae003760d6094756fe59",
+    "bytes": 159533,
+    "mode": "0444"
+  },
+  "actors": {
+    "custodian": "/root/g10_holdout_custodian",
+    "review_a": "/root/g10_boundary_challenge_a",
+    "review_b": "/root/g10_boundary_challenge_b",
+    "root": "value-pi-root-g10",
+    "authors": [
+      "/root/g10_author_h",
+      "/root/g10_author_b",
+      "/root/g10_author_s",
+      "/root/g10_author_d"
+    ]
+  },
+  "actor_identity_law": "Content hashes prove bytes only. Root must bind the external Codex task creation/served-model/isolation receipts before author writing; a local JSON task-id string is not identity proof.",
+  "review_scope": [
+    "semantic and normative boundary",
+    "direct idiomatic parse-that law",
+    "four materially distinct construction topologies",
+    "installed runtime and peer identities",
+    "public fixture and killable harness adequacy",
+    "holdout commitment/custody/immutability",
+    "candidate absence and future author isolation",
+    "small pre-author lifecycle with all correctness, benchmark, five-skeptic, three-adjudicator, and integration credit deferred"
+  ],
+  "candidate_count": 0,
+  "parser_credit": 0,
+  "feature_credit": 0,
+  "credit": "ZERO_REVIEW_SUBJECT_ONLY"
+}

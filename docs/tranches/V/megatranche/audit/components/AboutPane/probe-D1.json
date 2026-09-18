@@ -1,0 +1,3337 @@
+{
+  "origin": "http://localhost:9000",
+  "when": "2026-07-28T15:54:41.806Z",
+  "runs": [
+    {
+      "label": "d1-desktop-light",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 147.5,
+        "w": 512,
+        "h": 684.73,
+        "bottom": 832.23
+      },
+      "scroll": {
+        "scrollHeight": 8023,
+        "clientHeight": 772,
+        "hidden": 7251,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "92.0%,88.8,20.0",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 586.25,
+          "w": 462,
+          "h": 1,
+          "bottom": 587.25
+        },
+        {
+          "x": 754,
+          "y": 712.59,
+          "w": 462,
+          "h": 1,
+          "bottom": 713.59
+        },
+        {
+          "x": 754,
+          "y": 868.92,
+          "w": 462,
+          "h": 1,
+          "bottom": 869.92
+        },
+        {
+          "x": 754,
+          "y": 1160.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 1161.11
+        },
+        {
+          "x": 730,
+          "y": 1341.25,
+          "w": 510,
+          "h": 1,
+          "bottom": 1342.25
+        },
+        {
+          "x": 754,
+          "y": 2152.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 2153.98
+        },
+        {
+          "x": 754,
+          "y": 4176.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4177.98
+        },
+        {
+          "x": 754,
+          "y": 5323.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 5324.36
+        },
+        {
+          "x": 754,
+          "y": 7610.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.36
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 88.64,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0.665034 0 0.261497 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d2-desktop-dark",
+      "colorScheme": "dark",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 147.5,
+        "w": 512,
+        "h": 684.73,
+        "bottom": 832.23
+      },
+      "scroll": {
+        "scrollHeight": 8023,
+        "clientHeight": 772,
+        "hidden": 7251,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "92.0%,88.8,20.0",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 586.25,
+          "w": 462,
+          "h": 1,
+          "bottom": 587.25
+        },
+        {
+          "x": 754,
+          "y": 712.59,
+          "w": 462,
+          "h": 1,
+          "bottom": 713.59
+        },
+        {
+          "x": 754,
+          "y": 868.92,
+          "w": 462,
+          "h": 1,
+          "bottom": 869.92
+        },
+        {
+          "x": 754,
+          "y": 1160.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 1161.11
+        },
+        {
+          "x": 730,
+          "y": 1341.25,
+          "w": 510,
+          "h": 1,
+          "bottom": 1342.25
+        },
+        {
+          "x": 754,
+          "y": 2152.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 2153.98
+        },
+        {
+          "x": 754,
+          "y": 4176.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4177.98
+        },
+        {
+          "x": 754,
+          "y": 5323.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 5324.36
+        },
+        {
+          "x": 754,
+          "y": 7610.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.36
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 88.64,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 1 0.924654 0.933001 / 0.86)",
+        "titleColor": "rgb(233, 230, 226)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d3-nomodule-display-p3",
+      "colorScheme": "light",
+      "url": "/#/?space=display-p3&color=oklch(0.7 0.15 200)",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 178,
+        "w": 512,
+        "h": 623.53,
+        "bottom": 801.53
+      },
+      "scroll": {
+        "scrollHeight": 1250,
+        "clientHeight": 772,
+        "hidden": 478,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "0.1,0.7,0.8",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Display P3",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 7,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 563.31,
+          "w": 462,
+          "h": 1,
+          "bottom": 564.31
+        },
+        {
+          "x": 754,
+          "y": 689.66,
+          "w": 462,
+          "h": 1,
+          "bottom": 690.66
+        },
+        {
+          "x": 754,
+          "y": 845.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 846.98
+        },
+        {
+          "x": 754,
+          "y": 1061.28,
+          "w": 462,
+          "h": 1,
+          "bottom": 1062.28
+        },
+        {
+          "x": 730,
+          "y": 1219.48,
+          "w": 510,
+          "h": 1,
+          "bottom": 1220.48
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 0,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 208.25,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0 0.358823 0.374563 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d3-nomodule-rec2020",
+      "colorScheme": "light",
+      "url": "/#/?space=rec2020&color=oklch(0.7 0.15 200)",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 178,
+        "w": 512,
+        "h": 623.53,
+        "bottom": 801.53
+      },
+      "scroll": {
+        "scrollHeight": 1250,
+        "clientHeight": 772,
+        "hidden": 478,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "0.4,0.7,0.8",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Rec. 2020",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 7,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 563.31,
+          "w": 462,
+          "h": 1,
+          "bottom": 564.31
+        },
+        {
+          "x": 754,
+          "y": 689.66,
+          "w": 462,
+          "h": 1,
+          "bottom": 690.66
+        },
+        {
+          "x": 754,
+          "y": 845.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 846.98
+        },
+        {
+          "x": 754,
+          "y": 1061.28,
+          "w": 462,
+          "h": 1,
+          "bottom": 1062.28
+        },
+        {
+          "x": 730,
+          "y": 1219.48,
+          "w": 510,
+          "h": 1,
+          "bottom": 1220.48
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 0,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 200.52,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0 0.358823 0.374563 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d3-nomodule-jzazbz",
+      "colorScheme": "light",
+      "url": "/#/?space=jzazbz&color=oklch(0.7 0.15 200)",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 147.5,
+        "w": 512,
+        "h": 684.73,
+        "bottom": 832.23
+      },
+      "scroll": {
+        "scrollHeight": 8024,
+        "clientHeight": 772,
+        "hidden": 7252,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "70.0%,0.1,200.0deg",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, OKLCh",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Relationship to OKLab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "OKLCh to OKLab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "OKLab to OKLCh",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "OKLab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to OKLab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 356.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 357.05
+        },
+        {
+          "x": 754,
+          "y": 543.31,
+          "w": 462,
+          "h": 1,
+          "bottom": 544.31
+        },
+        {
+          "x": 754,
+          "y": 669.66,
+          "w": 462,
+          "h": 1,
+          "bottom": 670.66
+        },
+        {
+          "x": 754,
+          "y": 825.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 826.98
+        },
+        {
+          "x": 754,
+          "y": 1117.17,
+          "w": 462,
+          "h": 1,
+          "bottom": 1118.17
+        },
+        {
+          "x": 730,
+          "y": 1275.38,
+          "w": 510,
+          "h": 1,
+          "bottom": 1276.38
+        },
+        {
+          "x": 754,
+          "y": 2087.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 2088.11
+        },
+        {
+          "x": 754,
+          "y": 3503.61,
+          "w": 462,
+          "h": 1,
+          "bottom": 3504.61
+        },
+        {
+          "x": 754,
+          "y": 4649.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4650.98
+        },
+        {
+          "x": 754,
+          "y": 7610.86,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.86
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "OKLCh is the polar form of OKLab, publis",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "L (Lightness): 0 (black) to 1 (white). N",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "C (Chroma): 0 (achromatic) to roughly 0.",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "H (Hue): 0 to 360 degrees (or 0–1 normal",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "OKLCh relates to OKLab exactly as CIE LC",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Polar to Cartesian—recover the a/b axes ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Cartesian to polar—extract chroma (magni",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the two linear transforms around ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Two matrix multiplications sandwiching a",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 151.75,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0 0.358823 0.374563 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d4-mobile-light-about",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 552,
+        "bottom": 656
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": null,
+      "scroll": {
+        "scrollHeight": 7993,
+        "clientHeight": 550,
+        "hidden": 7443,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "25.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 17,
+          "y": 219.39,
+          "w": 356,
+          "h": 1,
+          "bottom": 220.39
+        },
+        {
+          "x": 29,
+          "y": 381.77,
+          "w": 332,
+          "h": 1,
+          "bottom": 382.77
+        },
+        {
+          "x": 29,
+          "y": 575.25,
+          "w": 332,
+          "h": 1,
+          "bottom": 576.25
+        },
+        {
+          "x": 29,
+          "y": 718.36,
+          "w": 332,
+          "h": 1,
+          "bottom": 719.36
+        },
+        {
+          "x": 29,
+          "y": 864.66,
+          "w": 332,
+          "h": 1,
+          "bottom": 865.66
+        },
+        {
+          "x": 29,
+          "y": 1144.17,
+          "w": 332,
+          "h": 1,
+          "bottom": 1145.17
+        },
+        {
+          "x": 17,
+          "y": 1311.94,
+          "w": 356,
+          "h": 1,
+          "bottom": 1312.94
+        },
+        {
+          "x": 29,
+          "y": 2123.67,
+          "w": 332,
+          "h": 1,
+          "bottom": 2124.67
+        },
+        {
+          "x": 29,
+          "y": 4147.67,
+          "w": 332,
+          "h": 1,
+          "bottom": 4148.67
+        },
+        {
+          "x": 29,
+          "y": 5294.05,
+          "w": 332,
+          "h": 1,
+          "bottom": 5295.05
+        },
+        {
+          "x": 29,
+          "y": 7581.05,
+          "w": 332,
+          "h": 1,
+          "bottom": 7582.05
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 324,
+          "ch": 45.5,
+          "maxInline": "none",
+          "fontSize": "12.179px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 290.1,
+          "ch": 31.1,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 121.45,
+          "y": 148.16,
+          "w": 55.28,
+          "h": 29.61,
+          "bottom": 177.77
+        },
+        "triggerColor": "color(srgb 0.665034 0 0.261497 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "25.888px",
+        "titleFontSize": "25.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d5-mobile-dark-about",
+      "colorScheme": "dark",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 16,
+        "y": 104,
+        "w": 358,
+        "h": 552,
+        "bottom": 656
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": null,
+      "scroll": {
+        "scrollHeight": 7993,
+        "clientHeight": 550,
+        "hidden": 7443,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "25.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 17,
+          "y": 219.39,
+          "w": 356,
+          "h": 1,
+          "bottom": 220.39
+        },
+        {
+          "x": 29,
+          "y": 381.77,
+          "w": 332,
+          "h": 1,
+          "bottom": 382.77
+        },
+        {
+          "x": 29,
+          "y": 575.25,
+          "w": 332,
+          "h": 1,
+          "bottom": 576.25
+        },
+        {
+          "x": 29,
+          "y": 718.36,
+          "w": 332,
+          "h": 1,
+          "bottom": 719.36
+        },
+        {
+          "x": 29,
+          "y": 864.66,
+          "w": 332,
+          "h": 1,
+          "bottom": 865.66
+        },
+        {
+          "x": 29,
+          "y": 1144.17,
+          "w": 332,
+          "h": 1,
+          "bottom": 1145.17
+        },
+        {
+          "x": 17,
+          "y": 1311.94,
+          "w": 356,
+          "h": 1,
+          "bottom": 1312.94
+        },
+        {
+          "x": 29,
+          "y": 2123.67,
+          "w": 332,
+          "h": 1,
+          "bottom": 2124.67
+        },
+        {
+          "x": 29,
+          "y": 4147.67,
+          "w": 332,
+          "h": 1,
+          "bottom": 4148.67
+        },
+        {
+          "x": 29,
+          "y": 5294.05,
+          "w": 332,
+          "h": 1,
+          "bottom": 5295.05
+        },
+        {
+          "x": 29,
+          "y": 7581.05,
+          "w": 332,
+          "h": 1,
+          "bottom": 7582.05
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 324,
+          "ch": 45.5,
+          "maxInline": "none",
+          "fontSize": "12.179px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 290.1,
+          "ch": 31.1,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 332,
+          "ch": 35.5,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 121.45,
+          "y": 148.16,
+          "w": 55.28,
+          "h": 29.61,
+          "bottom": 177.77
+        },
+        "triggerColor": "color(srgb 1 0.924654 0.933001 / 0.86)",
+        "titleColor": "rgb(233, 230, 226)",
+        "triggerFontSize": "25.888px",
+        "titleFontSize": "25.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d6-reduced-motion",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 147.5,
+        "w": 512,
+        "h": 684.73,
+        "bottom": 832.23
+      },
+      "scroll": {
+        "scrollHeight": 8023,
+        "clientHeight": 772,
+        "hidden": 7251,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "92.0%,88.8,20.0",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 586.25,
+          "w": 462,
+          "h": 1,
+          "bottom": 587.25
+        },
+        {
+          "x": 754,
+          "y": 712.59,
+          "w": 462,
+          "h": 1,
+          "bottom": 713.59
+        },
+        {
+          "x": 754,
+          "y": 868.92,
+          "w": 462,
+          "h": 1,
+          "bottom": 869.92
+        },
+        {
+          "x": 754,
+          "y": 1160.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 1161.11
+        },
+        {
+          "x": 730,
+          "y": 1341.25,
+          "w": 510,
+          "h": 1,
+          "bottom": 1342.25
+        },
+        {
+          "x": 754,
+          "y": 2152.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 2153.98
+        },
+        {
+          "x": 754,
+          "y": 4176.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4177.98
+        },
+        {
+          "x": 754,
+          "y": 5323.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 5324.36
+        },
+        {
+          "x": 754,
+          "y": 7610.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.36
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 88.64,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0.665034 0 0.261497 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d7-forced-colors",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 729,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 199,
+        "y": 146.5,
+        "w": 512,
+        "h": 686.73,
+        "bottom": 833.23
+      },
+      "scroll": {
+        "scrollHeight": 8023,
+        "clientHeight": 772,
+        "hidden": 7251,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "92.0%,88.8,20.0",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 730,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 754,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 754,
+          "y": 586.25,
+          "w": 462,
+          "h": 1,
+          "bottom": 587.25
+        },
+        {
+          "x": 754,
+          "y": 712.59,
+          "w": 462,
+          "h": 1,
+          "bottom": 713.59
+        },
+        {
+          "x": 754,
+          "y": 868.92,
+          "w": 462,
+          "h": 1,
+          "bottom": 869.92
+        },
+        {
+          "x": 754,
+          "y": 1160.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 1161.11
+        },
+        {
+          "x": 730,
+          "y": 1341.25,
+          "w": 510,
+          "h": 1,
+          "bottom": 1342.25
+        },
+        {
+          "x": 754,
+          "y": 2152.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 2153.98
+        },
+        {
+          "x": 754,
+          "y": 4176.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4177.98
+        },
+        {
+          "x": 754,
+          "y": 5323.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 5324.36
+        },
+        {
+          "x": 754,
+          "y": 7610.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.36
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 894.39,
+          "y": 163.97,
+          "w": 88.64,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0.758618 0 0.302633 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    },
+    {
+      "label": "d8-zoom200",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": false
+    },
+    {
+      "label": "d9-rtl",
+      "colorScheme": "light",
+      "url": "/#/",
+      "consoleErrors": [
+        "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+      ],
+      "present": true,
+      "cardRect": {
+        "x": 199,
+        "y": 103,
+        "w": 512,
+        "h": 774,
+        "bottom": 877
+      },
+      "cardTag": "DIV",
+      "cardRole": null,
+      "pickerRect": {
+        "x": 729,
+        "y": 147.5,
+        "w": 512,
+        "h": 684.73,
+        "bottom": 832.23
+      },
+      "scroll": {
+        "scrollHeight": 8023,
+        "clientHeight": 772,
+        "hidden": 7251,
+        "overflowY": "auto"
+      },
+      "headings": [
+        {
+          "tag": "H3",
+          "text": "92.0%,88.8,20.0",
+          "inAbout": false,
+          "fontFamily": "Fraunces",
+          "fontSize": "54.645782px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H3",
+          "text": "About the color spaces, Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "41.888px",
+          "fontWeight": "400"
+        },
+        {
+          "tag": "H2",
+          "text": "Basic Information",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Properties",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Conversion Graph",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Usage",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "20.351999px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Detailed Guide",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "32.928001px",
+          "fontWeight": "700"
+        },
+        {
+          "tag": "H3",
+          "text": "Attributes",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Historical Context",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Key Characteristics",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Advantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Disadvantages",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "White Points",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Model",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Components",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Representation",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Color Conversions",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "XYZ to Lab",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H3",
+          "text": "Lab to XYZ",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "24px",
+          "fontWeight": "600"
+        },
+        {
+          "tag": "H2",
+          "text": "Applications",
+          "inAbout": true,
+          "fontFamily": "Fraunces",
+          "fontSize": "30px",
+          "fontWeight": "600"
+        }
+      ],
+      "h1Count": 0,
+      "mainCount": 1,
+      "separatorsInAbout": 11,
+      "separatorRects": [
+        {
+          "x": 200,
+          "y": 240.59,
+          "w": 510,
+          "h": 1,
+          "bottom": 241.59
+        },
+        {
+          "x": 224,
+          "y": 376.05,
+          "w": 462,
+          "h": 1,
+          "bottom": 377.05
+        },
+        {
+          "x": 224,
+          "y": 586.25,
+          "w": 462,
+          "h": 1,
+          "bottom": 587.25
+        },
+        {
+          "x": 224,
+          "y": 712.59,
+          "w": 462,
+          "h": 1,
+          "bottom": 713.59
+        },
+        {
+          "x": 224,
+          "y": 868.92,
+          "w": 462,
+          "h": 1,
+          "bottom": 869.92
+        },
+        {
+          "x": 224,
+          "y": 1160.11,
+          "w": 462,
+          "h": 1,
+          "bottom": 1161.11
+        },
+        {
+          "x": 200,
+          "y": 1341.25,
+          "w": 510,
+          "h": 1,
+          "bottom": 1342.25
+        },
+        {
+          "x": 224,
+          "y": 2152.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 2153.98
+        },
+        {
+          "x": 224,
+          "y": 4176.98,
+          "w": 462,
+          "h": 1,
+          "bottom": 4177.98
+        },
+        {
+          "x": 224,
+          "y": 5323.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 5324.36
+        },
+        {
+          "x": 224,
+          "y": 7610.36,
+          "w": 462,
+          "h": 1,
+          "bottom": 7611.36
+        }
+      ],
+      "prose": [
+        {
+          "text": "The math, the science, the art, the beau",
+          "w": 462,
+          "ch": 55,
+          "maxInline": "none",
+          "fontSize": "14.384px"
+        },
+        {
+          "text": "Standardized by the CIE in 1976, Lab was",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Conversions between D50 and D65 use Brad",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "b* (Blue-Yellow axis):",
+          "w": 420.1,
+          "ch": 45,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "A three-dimensional Cartesian space. L* ",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Normalize XYZ by the reference white poi",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "where ϵ=21624389\\epsilon = \\tfrac{216}{2",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        },
+        {
+          "text": "Invert the L*a*b* formulas—recover the n",
+          "w": 462,
+          "ch": 49.4,
+          "maxInline": "none",
+          "fontSize": "16px"
+        }
+      ],
+      "detailedGuidePresent": true,
+      "detailedGuideBodyChildren": 1,
+      "detailedGuideVisible": false,
+      "detailedGuideStyle": {
+        "fontFamily": "Fraunces",
+        "fontSize": "32.928001px",
+        "fontWeight": "700"
+      },
+      "selector": {
+        "triggerRect": {
+          "x": 456.86,
+          "y": 163.97,
+          "w": 88.64,
+          "h": 47.94,
+          "bottom": 211.91
+        },
+        "triggerColor": "color(srgb 0.665034 0 0.261497 / 0.86)",
+        "titleColor": "rgb(28, 25, 23)",
+        "triggerFontSize": "41.888px",
+        "titleFontSize": "41.888px",
+        "titleLines": 2
+      },
+      "tokens": {
+        "phi3": "1.618rem",
+        "phi4": "2.618rem",
+        "typeTitle": "2.058rem",
+        "typeHeading": "1.618rem"
+      }
+    }
+  ]
+}

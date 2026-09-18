@@ -1,0 +1,86 @@
+{
+  "schema": "value.pi.foundation-g3.skeptic-subject/v1",
+  "status": "FROZEN_FOR_FIVE_PER_FEATURE_SKEPTICS",
+  "generation": "foundation-g3",
+  "features": [
+    "SYNTAX-ESCAPE",
+    "SYNTAX-IDENT",
+    "SYNTAX-STRING",
+    "SYNTAX-WHITESPACE",
+    "SYNTAX-COMMENT"
+  ],
+  "boundary_correction": {
+    "source_subject": "../foundation-g2/SUBJECT.json",
+    "source_subject_sha256": "3c22642dd2e6687c8449fb9640b4cb25c74381e19a9c7caffebe4c2062057f78",
+    "finding": "SYNTAX-SPACING incorrectly combined whitespace, comment, and aggregate-trivia operations.",
+    "correction": "Whitespace and comment are independently adjudicable; no aggregate parser is in scope."
+  },
+  "inputs": {
+    "brief": {
+      "path": "BRIEF.md",
+      "sha256": "2db4d6a455406095e9fbeb69fa27f4c75fc5e8b58a2706d5d810b5ec13ce77c7"
+    },
+    "evaluator": {
+      "path": "evaluate.mts",
+      "sha256": "15275aafb7975b9c05ecbf93138765015afc9c03b013b7845e0b74c88b0a13ef"
+    },
+    "correctness": {
+      "path": "evidence/correctness.json",
+      "sha256": "c634d1ed28a083162811cf3e95ea94818d7b9bf897b36c0df5498695a3d0a20b"
+    },
+    "g2_common_replay": {
+      "path": "../foundation-g2/evidence/common-replay.json",
+      "sha256": "9cdd3d5e99a7f672951f7a819aee38a89071c76a56d500719f2c48fd15a0595e"
+    },
+    "g2_browser_witness": {
+      "path": "../foundation-g2/evidence/browser-witness.json",
+      "sha256": "eca0192bbd8ff84672a720c217ccf18045af7bcf1ccdc2c3b206e8c231106309"
+    },
+    "g2_benchmark_manifest": {
+      "path": "../foundation-g2/benchmark-manifest.json",
+      "sha256": "bef65f94197190d6ced499a86a7acd34773c729bb5a9a74fb410fa564eeb8a2d",
+      "scope": "candidate-relative evidence for the same operation implementations; exact G3 source qualification remains a performance-review obligation"
+    }
+  },
+  "candidates": {
+    "h": {
+      "topology": "literal compositional grammar",
+      "index_sha256": "1924d5b90dbe801bbf56cab767bead8d7b5b715e70c58bbee8ebc8384faef6b6",
+      "escape_sha256": "aaf79737a3a7c375176e81f93b02aeca4f6f89d889163adf7e6702b99012c094",
+      "identifier_sha256": "d5dbe9f00a507870595fbfa87346b08c2281cb8739777f2545843da4b06318d1",
+      "string_sha256": "301d13f923fc346e8bc3d650ffc74af50ceeaddfbd26b179bef1da709c603389",
+      "whitespace_sha256": "8cd4d201b115eacd3ba420c1f8ae9f6244dfe34400393c184216268f4900674f",
+      "comment_sha256": "625e722f21ac42d488c2e5220a5281dd4b1d1de732ffb96a72b19754eb0a3c6d"
+    },
+    "b": {
+      "topology": "compact algebraic grammar",
+      "index_sha256": "2dfacf2b398fa9c1f21403f6adb5cfa171337987b28d58ba64aa3c01ae763f42",
+      "escape_sha256": "86deac89c02cecc66a8a1656bf84302850c8bd2e9470baf4397b98cabe737e11",
+      "identifier_sha256": "045df7df53ac20bda0deef45e96ec9ab85d9d76a21b56f9599ea18fb73b13cd4",
+      "string_sha256": "7a8421f93d03e9632e1eb839f1542760522cb0ea682812fd8f63ac3f44e0834d",
+      "whitespace_sha256": "313ccc102d18be1249cbf47c83eec68fac1d88a1d65837a5c251d708820a0b3f",
+      "comment_sha256": "06d99e56fadf3f6f7c50c2e4e67e92a3ccf73a62f7b9d729f9a6969a3916fe4d"
+    },
+    "s": {
+      "topology": "static first-character dispatch grammar",
+      "index_sha256": "25b71e2d3ee04a2b3887ab77164060f95f530e64d619ad0255a61a9f1fad93d0",
+      "escape_sha256": "06e3a08fbc2489a0b70c4b06e6adb8fc511329879ec2cbe6da08034bfdae87ca",
+      "identifier_sha256": "46e3aeeb021f5e83446b5b2dcf4f8d82de0307bf6e4da278049482ece78f5b20",
+      "string_sha256": "6aae388a31b36676723cd6458c6aa0c4a5b290a777d6f87b6e5d645f8444d891",
+      "whitespace_sha256": "41d3a77002c0b6b62848abc6317a48ab730075a5e8c978966b09d4a4d9a98649",
+      "comment_sha256": "2acc3c848a37b59e6125efe04bd18374b98255f6678ce27a257855a4f442b5e5"
+    }
+  },
+  "review_law": {
+    "axes": [
+      "CSS semantics and recovery",
+      "parse-that idiom and architecture",
+      "state, hostility, and composition",
+      "performance and parsimony",
+      "tranche gestalt and downstream fitness"
+    ],
+    "verdict": "Each skeptic returns ACCEPT or REJECT for every candidate-feature pair.",
+    "selection": "Three independent adjudicators may synthesize only after five complete fresh reviews of this exact subject."
+  },
+  "nonclaims": "No G3 feature is accepted or integrated. No aggregate spacing production is claimed."
+}

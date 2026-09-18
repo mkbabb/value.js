@@ -1,0 +1,292 @@
+{
+  "P1_typography_light": {
+    "pruneBtn": {
+      "text": "Prune empty",
+      "family": "Fraunces",
+      "size": "14.384px",
+      "weight": "400",
+      "style": "italic",
+      "color": "rgb(28, 25, 23)"
+    },
+    "refreshBtn": {
+      "text": "Refresh",
+      "family": "Fraunces",
+      "size": "14.384px",
+      "weight": "400",
+      "style": "italic",
+      "color": "rgb(28, 25, 23)"
+    },
+    "rowPalettesBtn": {
+      "text": "Palettes",
+      "family": "Fraunces",
+      "size": "14px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(0, 0, 0)"
+    },
+    "countSpan": {
+      "text": "6 users",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "weight": "400",
+      "style": "normal",
+      "color": "rgb(112, 89, 66)"
+    },
+    "headerBadge": {
+      "text": "6",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "weight": "600",
+      "style": "normal",
+      "color": "rgb(28, 25, 23)"
+    },
+    "slugPill": {
+      "text": "admin",
+      "family": "Fira Code",
+      "size": "16.4px",
+      "weight": "700",
+      "style": "normal",
+      "color": "oklch(0.751 0.147 84.199997)"
+    },
+    "paneH1": null
+  },
+  "P2_boundary_census": {
+    "rowBoxes": 6,
+    "perRow": {
+      "t": "1px",
+      "r": "1px",
+      "b": "1px",
+      "l": "1px",
+      "color": "oklab(0.216129 0.003491 0.005182 / 0.12)",
+      "radius": "6px"
+    },
+    "horizontalRulesRendered": 12,
+    "verticalRulesRendered": 12,
+    "adjacentSeparatorsPermitted": 5,
+    "terminalRuleRendered": true,
+    "leadingRuleRendered": true
+  },
+  "P3_geometry_1440": {
+    "badgeLefts": [
+      313.5,
+      507,
+      535.5,
+      535.5,
+      293.3,
+      454.8
+    ],
+    "distinctBadgeLefts": 5,
+    "badgeLeftSpread": 242.2,
+    "actionClusterLefts": [
+      549.1,
+      645
+    ],
+    "pillWidths": [
+      68.5,
+      262,
+      290.5,
+      290.5,
+      48.3,
+      209.8
+    ]
+  },
+  "P4_identity_light": {
+    "color": "oklch(0.751 0.147 84.199997)",
+    "borderColor": "oklch(0.751 0.147 84.199997)",
+    "weight": "700",
+    "borderWidth": "1px"
+  },
+  "P4_identity_dark": {
+    "pillColor": "oklch(0.784 0.143 86)",
+    "pillBorder": "oklch(0.784 0.143 86)",
+    "neighbourButtonColor": "rgb(213, 208, 200)",
+    "accentLive": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)"
+  },
+  "P5_focus_ring": {
+    "engine": "webkit",
+    "tabsToReachRow": 2,
+    "rowFocused": true,
+    "changedPx": 0,
+    "total": 35372,
+    "clipW": 478,
+    "clipH": 74,
+    "bbox": null,
+    "computed": {
+      "rowBoxShadow": "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgb(28, 25, 23) 0px 0px 0px 2px, rgba(0, 0, 0, 0) 0px 0px 0px 0px",
+      "rowOutline": "none 3px rgb(28, 25, 23)",
+      "rowBg": "oklab(0.871139 0.007229 0.023625 / 0.330817)",
+      "wrapperOverflow": "hidden",
+      "wrapperRadius": "6px",
+      "matchesFocusVisible": true
+    }
+  },
+  "P6_targets_390": {
+    "controls": [
+      {
+        "name": "Prune empty",
+        "w": 107.9,
+        "h": 36
+      },
+      {
+        "name": "Refresh",
+        "w": 79.7,
+        "h": 36
+      },
+      {
+        "name": "mbabb12 Palettes",
+        "w": 322,
+        "h": 56
+      },
+      {
+        "name": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "name": "Delete user mbabb",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "name": "an-extremely-long-anonymous-",
+        "w": 322,
+        "h": 56
+      },
+      {
+        "name": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "name": "Delete user an-extremely-lon",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "name": "Delete user empty-ghost-acco",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "name": "Delete user empty-ghost-acco",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "name": "zed1 Palettes",
+        "w": 322,
+        "h": 56
+      },
+      {
+        "name": "Palettes",
+        "w": 82,
+        "h": 36
+      },
+      {
+        "name": "Delete user zed",
+        "w": 28,
+        "h": 36
+      },
+      {
+        "name": "Delete user empty-three-bbbb",
+        "w": 28,
+        "h": 36
+      }
+    ],
+    "under24": 0,
+    "under44": 11,
+    "total": 14
+  },
+  "P6_toolbar_wrap_390": [
+    {
+      "t": "Prune empty",
+      "x": 249.1,
+      "y": 274.1
+    },
+    {
+      "t": "Refresh",
+      "x": 33,
+      "y": 318.1
+    }
+  ],
+  "P7_skeleton": {
+    "skeletonCount": 3,
+    "skeletonHeight": 54,
+    "skeletonHasLeadingSwatch": true,
+    "skeletonLines": 4,
+    "toolbarTextWhileLoading": [],
+    "loadingRegionRole": null,
+    "liveRegions": 4,
+    "refreshAriaBusy": null
+  },
+  "P7_resolved": {
+    "rowHeight": 56,
+    "rowHasLeadingSwatch": false,
+    "rowLines": 1
+  },
+  "P8_silent_delete_failure": {
+    "dialogText": "Delete user? | This will permanently delete user zed and all associated data. This cannot be undone. | Cancel | Delete user",
+    "rowsBefore": 7,
+    "rowsAfter": 7,
+    "dialogStillOpen": false,
+    "alertRoles": 0,
+    "anyErrorText": false,
+    "toolbar": [
+      "6 users",
+      "· 3 empty"
+    ],
+    "adminRequests": [
+      "DELETE /admin/users/zed"
+    ],
+    "console": [
+      "[error] Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+      "[warning] Failed to delete user: Internal Server Error"
+    ]
+  },
+  "P9_reduced_motion": {
+    "spinnerPresent": true,
+    "spinnerAnimationDuration": "0.00001s",
+    "spinnerIterationCount": "1",
+    "refreshDisabled": true,
+    "refreshAriaBusy": null,
+    "refreshAriaDisabled": null,
+    "disabledOpacity": "0.5",
+    "liveRegionCount": 0
+  },
+  "P10_rtl": {
+    "dir": "rtl",
+    "domOrder": [
+      "mbabb",
+      ""
+    ],
+    "renderedLeftToRight": [
+      "",
+      "mbabb"
+    ],
+    "tailRendersLeftOfHead": false,
+    "pillInnerText": "mbabb",
+    "bdiCount": 0,
+    "unicodeBidiOnPill": "normal",
+    "countSpanText": "6 users",
+    "trashIconMarginRight": null
+  },
+  "P11_zoom200": {
+    "innerWidth": 720,
+    "horizontalOverflow": false,
+    "scrollW": 720,
+    "clientW": 720,
+    "toolbarButtonYs": [
+      {
+        "t": "Prune empty",
+        "y": 246.5
+      },
+      {
+        "t": "Refresh",
+        "y": 246.5
+      }
+    ],
+    "firstRowPillWidth": 62.9,
+    "firstRowText": "mbabb 12 Palettes",
+    "panelWidth": 462
+  }
+}

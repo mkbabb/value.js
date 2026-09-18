@@ -1,0 +1,687 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-QUIESCENT-CAPTURE-OWNER-RELEASE-2026-08-02.json
+  original-mtime: 2026-08-02T21:40:24
+  original-sha256: 32da65a2a831d4d335f3a23664ca33ef5f78709662826117dc8da8bed0dc7bf3
+  original-bytes: 26173
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value.mobile-safari.v7.quiescent-capture-owner-release.v1",
+  "date": "2026-08-02",
+  "decision": "AUTHORIZE_ONE_ROOT_OWNED_PRE_AUTHORING_QUIESCENT_CAPTURE",
+  "status": "CAPTURE_ONLY_AUTHORIZED_V7_SOURCE_REMAINS_FORBIDDEN",
+  "authority": {
+    "captureConstruction": "AUTHORIZED_ONCE_AT_EXACT_ABSENT_ROOT",
+    "v7Source": "FORBIDDEN",
+    "product": "NONE",
+    "parser": "NONE",
+    "browser": "NONE",
+    "safari": "NONE",
+    "simulator": "NONE",
+    "api": "NONE",
+    "docker": "NONE",
+    "package": "NONE",
+    "release": "NONE",
+    "rebind": "NONE",
+    "admission": "NONE",
+    "credit": 0
+  },
+  "boundOwnerRegistry": {
+    "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-44-CONTROL-REGISTRY-OWNER-DECISION-2026-08-02.json",
+    "sha256": "7994587aacd548c724be75e3b3756f21bfa6e326e4856cd50675c8c73c280e5e",
+    "byteLength": 41990,
+    "mode": "0644",
+    "nlink": 1,
+    "registryId": "VALUE-MOBILE-SAFARI-V7-CONTROL-REGISTRY-R1",
+    "controlCount": 44,
+    "retentionDenominator": 1892,
+    "admittedRetentions": 0
+  },
+  "rootIntake": {
+    "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-NEXT-SOURCE-WAVE-OWNER-DECISIONS-2026-08-02.md",
+    "sha256": "630b4c8353979eebf273453085392edebef2de9c2aea1aff7706a7b1f85b95e0"
+  },
+  "integrationAudit": {
+    "path": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-NEXT-SOURCE-WAVE-OWNER-DECISIONS-INTEGRATION-AUDIT-2026-08-02.md",
+    "sha256": "25ccf9318060ef7a76d6455ba0062238a02f58a77549b9579ab9fd17eb1bbf53"
+  },
+  "captureCoordinate": {
+    "root": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-v7-quiescent-governing-capture/outputs",
+    "stateAtRelease": "ABSENT",
+    "soleWriterRole": "CONSTELLATION_ROOT_CAPTURE_OWNER_DISTINCT_FROM_V7_SOURCE_AUTHOR",
+    "exactFilesInWriteOrder": [
+      "capture-value-mobile-v7.mjs",
+      "SOURCE-MEMBERS.json",
+      "GOVERNING-MEMBERS.json",
+      "RAW-CAPTURE-RECEIPT.json",
+      "CAPTURE-MANIFEST.json",
+      "RECEIPT.md",
+      "checksums.sha256"
+    ],
+    "exactRegularFileCount": 7,
+    "childDirectoryCount": 0,
+    "symlinkCount": 0,
+    "specialNodeCount": 0,
+    "mode": "0644",
+    "nlink": 1,
+    "checksumFileWrittenLast": true,
+    "postChecksumWritesAllowed": false
+  },
+  "sourceMembershipLaw": {
+    "sourceRoot": "/Users/mkbabb/.codex/worktrees/7e28/value.js",
+    "enumeration": {
+      "recursiveRegularFileRoots": [
+        "demo",
+        "src"
+      ],
+      "exactSupportingPaths": [
+        "demo/color-picker/index.html",
+        "package.json",
+        "package-lock.json",
+        "vite.config.ts",
+        "tsconfig.json",
+        "tsconfig.demo.json",
+        "tsconfig.lib.json",
+        "plugins/vite-source-export.ts",
+        "scripts/dev/dev.sh",
+        "docs/instructions/README.md",
+        "docs/tranches/V/megatranche/formation/COMPONENT-WORKFLOW-MATRIX-2026-07-29.md",
+        "docs/tranches/V/megatranche/formation/NON-PARSER-FRONTEND-SPEC-CLOSURE-2026-07-30.md",
+        "docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-KRONECKER-AUDIT-PLAN-2026-08-01.md"
+      ],
+      "union": "EXACT_DEDUPLICATED_CODEPOINT_ORDER",
+      "silentExclusionAllowed": false,
+      "symlinkOrSpecialNodeDisposition": "TERMINAL_RED",
+      "historicalRosterComparison": {
+        "path": "docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/SOURCE-SNAPSHOT.json",
+        "expectedPathCount": 310,
+        "rule": "THE_DETERMINISTIC_CURRENT_ROSTER_MUST_EXACTLY_EQUAL_THE_310_HISTORICAL_PATHS; BYTES_AND_STATS_ARE_REDERIVED_FROM_CURRENT_FILES"
+      }
+    },
+    "byteAuthority": {
+      "readCountPerPass": 1,
+      "passes": 2,
+      "payload": "STRICT_CANONICAL_BASE64_OF_EVERY_MEMBER_INCLUDING_ALL_BINARY_FILES",
+      "base64RoundTrip": "DECODE_THEN_REENCODE_MUST_EQUAL_EXACT_INPUT",
+      "byteLength": "DERIVED_FROM_DECODED_BYTES",
+      "bytesSha256": "DERIVED_FROM_DECODED_BYTES",
+      "rowSchema": [
+        "tupleOrdinal",
+        "path",
+        "kind",
+        "mode",
+        "nlink",
+        "byteLength",
+        "bytesSha256",
+        "payloadEncoding",
+        "payloadBase64",
+        "memberIdentity"
+      ],
+      "unknownOrMissingRowFields": "TERMINAL_RED"
+    },
+    "memberIdentity": {
+      "domain": "VALUE-MOBILE-SAFARI-V7-SOURCE-MEMBER-v1",
+      "framing": "U64BE_LENGTH_PREFIX_FOR_EACH_UTF8_FIELD",
+      "orderedFields": [
+        "path",
+        "kind",
+        "mode",
+        "nlink",
+        "byteLength",
+        "bytesSha256",
+        "payloadEncoding",
+        "payloadBase64"
+      ],
+      "algorithm": "SHA-256"
+    },
+    "sourceRootIdentity": {
+      "domain": "VALUE-MOBILE-SAFARI-V7-SOURCE-ROOT-v1",
+      "framing": "U64BE_COUNT_THEN_U64BE_LENGTH_PREFIXED_MEMBER_IDENTITIES",
+      "ordering": "CODEPOINT_PATH_ORDER",
+      "algorithm": "SHA-256",
+      "passesMustMatch": true
+    }
+  },
+  "governingMembershipLaw": {
+    "exactMemberCount": 35,
+    "ordering": "CODEPOINT_ABSOLUTE_PATH_ORDER",
+    "members": [
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/COMPONENT-WORKFLOW-MATRIX-2026-07-29.md",
+        "expectedSha256": "3efc8638b765f0cb7bef019ff3d3b6a2f47664b1f66b6b9c6ff3fb9dd301c6a9",
+        "role": "88-workflow owner matrix",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/FORMATION-AUTHORITY-STATUS-2026-07-29.md",
+        "expectedSha256": "713ae753738af09985f9e5d63e96182b953c4cc62dd8daff1815b1f8e0dae1ea",
+        "role": "Value formation authority status",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/NON-PARSER-FRONTEND-SPEC-CLOSURE-2026-07-30.md",
+        "expectedSha256": "a911162502a5a32cb512c00af266004e1d5d3f56ed2a963256b75caa3ee6c883",
+        "role": "non-parser specification closure",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-KRONECKER-AUDIT-PLAN-2026-08-01.md",
+        "expectedSha256": "18f8ac83045496e6553d10d21e5cea26d2da43304952d4c67940aecb2e7a72ef",
+        "role": "Value mobile Safari plan",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V3-OWNER-INTAKE-2026-08-01.md",
+        "expectedSha256": "0a81da8ccbf6a36cbc91b3ebe174d3e8e92d8803e195fcc9527b63dba8ab4065",
+        "role": "v3 negative owner intake",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V4-OWNER-INTAKE-AND-V5-SOURCE-RULING-2026-08-02.md",
+        "expectedSha256": "26e3bbc50a14f06a2b2cfcd1e692f99efce3489ddc3ff68914ce3f44ab2e9921",
+        "role": "member-byte authentication law",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-SOURCE-CLOSURE-V5-HOSTILE-ORDER-OWNER-CORRECTION-2026-08-02.md",
+        "expectedSha256": "b9febba9ee253299b5917005b1f882974c9858007d1391015fad4576bb50c485",
+        "role": "disconnected-control first-falsifier correction",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-44-CONTROL-REGISTRY-OWNER-DECISION-2026-08-02.json",
+        "expectedSha256": "7994587aacd548c724be75e3b3756f21bfa6e326e4856cd50675c8c73c280e5e",
+        "role": "normative fresh 44-row registry",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-MOBILE-SAFARI-V7-SOURCE-ONLY-OWNER-DECISION-2026-08-02.md",
+        "expectedSha256": "e1522725a855a1f413bea7a62e4bfc2c6897668f4b6f26d3a22d69c404325486",
+        "role": "predecessor v7 source-only law",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-NON-PARSER-CONVERGENCE-MATRIX-2026-07-30.md",
+        "expectedSha256": "717bf1e36e11fb9b702dc95b26be82c26bffce48c9c8a78c8a7cc3bb614435c5",
+        "role": "non-parser convergence matrix",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/VALUE-PARSER-LAW-CONVERGENCE-MATRIX-2026-07-30.md",
+        "expectedSha256": "244c448a90059002be1194e6a512191c96881a9413ceb021f3b8fe7b62b504a7",
+        "role": "paused parser receiver matrix",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-source-closure-v3/SOURCE-SNAPSHOT.json",
+        "expectedSha256": "cf812c05539c6fd0b0975870fa24c173936401cad0dd7b6d1953ebc6c70618b4",
+        "role": "historical 310-path roster only",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/CONTROL-MAP.json",
+        "expectedSha256": "25f9545ac62f914ef2188f8260ab56f53835e74d2a3a3e7683772fa28cd39f45",
+        "role": "terminal negative mapping evidence",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/RECEIPT.md",
+        "expectedSha256": "3c00fa4dd2a4f60ab277a020a0b974fe2e6aa2455b78abe0242fb5521fba2223",
+        "role": "terminal mapping receipt",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/mobile-safari-v7-control-map/checksums.sha256",
+        "expectedSha256": "d784658d2c1cb4c6f13cf82373975d3462f6a17eacadb7eb6ed400fd2c9c4767",
+        "role": "terminal mapping checksum",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-source-closure-v6/outputs/AUDITOR.mjs",
+        "expectedSha256": "465e1f9de10b025a4e721db59e12077de7c0af9e3c9e4bc393c50ad19d296ae8",
+        "role": "v6 archaeology",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-source-closure-v6/outputs/INSTANCE-STATE-REGISTRY.json",
+        "expectedSha256": "8b338c4e163714e68a484881d19838296893029386d6e88d63ee70a3e7028160",
+        "role": "v6 semantic-name archaeology",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-source-closure-v6/outputs/REPORT.md",
+        "expectedSha256": "48d84694098e369de83429752051e4677dcfb02142ae79f46b620ca5be66d9a8",
+        "role": "v6 terminal report",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-source-closure-v6/outputs/SOURCE-PINS-AND-CENSUS.json",
+        "expectedSha256": "c10db27a04f6062062cec04d14f412c8f2411711d017a43e21c17d7cafcc033c",
+        "role": "v6 negative pin census",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Documents/Codex/2026-08-02/value-mobile-safari-source-closure-v6/outputs/checksums.sha256",
+        "expectedSha256": "cfa6a6c2c18109e9331f185b692f78c2c40b16eb9bdb4b63bfd1987f2991c310",
+        "role": "v6 packet checksum",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/HANDOFF.md",
+        "expectedSha256": null,
+        "role": "current root handoff captured under quiescence",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ],
+        "rule": "PIN_EXACT_BYTES_AT_CAPTURE_AND_INCLUDE_IN_BOTH_READ_PASSES"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-HOSTILE-A-2026-08-02.md",
+        "expectedSha256": "71af1ef358637eff3f596d954e87142ba3ac280662fb6ebcad4273294f76ef95",
+        "role": "pass-provenance hostile A",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-HOSTILE-B-2026-08-02.md",
+        "expectedSha256": "5e3f07cc0654df78b3f0a404d42cf8a25a50909b4fe5e8adf63611b2a03619e6",
+        "role": "pass-provenance hostile B",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-HOSTILE-C-2026-08-02.md",
+        "expectedSha256": "d99e5f3f558d4eb621e871f1b1f383d75053823af5705b66e0e259e57c0d2648",
+        "role": "pass-provenance hostile C",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-OWNER-ADJUDICATION-2026-08-02.md",
+        "expectedSha256": "e7bded94f2912b5cd151a8bbf5cafd5763a5b0f3a3eec940fd7edd44d28bbac1",
+        "role": "pass-provenance owner adjudication",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-RECONCILIATION-CHECKSUMS-2026-08-02.sha256",
+        "expectedSha256": "de3dcb32c6db8661534eafb1691e73a1c09d6e9c30b7c58424f5e56bfbb04288",
+        "role": "pass-provenance checksum packet",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-RECONCILIATION-LAW-2026-08-02.md",
+        "expectedSha256": "aae33795016080760b72d03a1ccfcf11aa26daeedaf8a9d9e58d885e6831a721",
+        "role": "pass-provenance law",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/AUTHENTICATED-PASS-PROVENANCE-RECONCILIATION-MATRIX-2026-08-02.json",
+        "expectedSha256": "7f69d258e242ee4976342dfb65b4e62c01dc2ae2764ee5111b45d28f5a2aef50",
+        "role": "pass-provenance matrix",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-AUDIT-PAUSE-CHECKSUMS-2026-08-02.sha256",
+        "expectedSha256": "c468ab99a3cf37a58515026b927f957645282a3a0f7cd1ca5f3f0eed44a98f16",
+        "role": "root 39-row checksum boundary",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-NEXT-SOURCE-WAVE-OWNER-DECISIONS-2026-08-02.md",
+        "expectedSha256": "630b4c8353979eebf273453085392edebef2de9c2aea1aff7706a7b1f85b95e0",
+        "role": "root registry intake",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-NEXT-SOURCE-WAVE-OWNER-DECISIONS-INTEGRATION-AUDIT-2026-08-02.md",
+        "expectedSha256": "25ccf9318060ef7a76d6455ba0062238a02f58a77549b9579ab9fd17eb1bbf53",
+        "role": "root registry integration audit",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-MATRIX-2026-08-02.json",
+        "expectedSha256": null,
+        "role": "current root machine matrix captured under quiescence",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ],
+        "rule": "PIN_EXACT_BYTES_AT_CAPTURE_AND_INCLUDE_IN_BOTH_READ_PASSES"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/CONSTELLATION-REMAINING-AUDIT-PLAN-2026-08-02.md",
+        "expectedSha256": null,
+        "role": "current root plan captured under quiescence",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ],
+        "rule": "PIN_EXACT_BYTES_AT_CAPTURE_AND_INCLUDE_IN_BOTH_READ_PASSES"
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/coordination/VALUE-MOBILE-SAFARI-V6-TERMINAL-OWNER-INTAKE-2026-08-02.md",
+        "expectedSha256": "c6e8e458fbb81bf54201b5b527951b39284e4556867ece2b193a32b27768320f",
+        "role": "terminal v6 intake",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      },
+      {
+        "absolutePath": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/formation/CROSS-REPO-MOBILE-SAFARI-KRONECKER-AUDIT-LAW-2026-08-01.md",
+        "expectedSha256": "2ab310b45b9289b53f5e1993ef870a0ae80cdd12c2856628fa523df85bf3ae5e",
+        "role": "cross-repository real Safari law",
+        "expectedKind": "regular-file",
+        "captureStat": [
+          "byteLength",
+          "mode",
+          "nlink",
+          "sha256"
+        ]
+      }
+    ],
+    "memberIdentity": {
+      "domain": "VALUE-MOBILE-SAFARI-V7-GOVERNING-MEMBER-v1",
+      "framing": "U64BE_LENGTH_PREFIX_FOR_PATH_KIND_MODE_NLINK_BYTE_LENGTH_SHA256",
+      "algorithm": "SHA-256"
+    },
+    "governingRootIdentity": {
+      "domain": "VALUE-MOBILE-SAFARI-V7-GOVERNING-ROOT-v1",
+      "framing": "U64BE_COUNT_THEN_U64BE_LENGTH_PREFIXED_MEMBER_IDENTITIES",
+      "ordering": "CODEPOINT_ABSOLUTE_PATH_ORDER",
+      "algorithm": "SHA-256",
+      "passesMustMatch": true
+    },
+    "missingExtraDuplicateReorderedReplacedOrChanged": "TERMINAL_RED"
+  },
+  "repositoryAuthentication": {
+    "roots": [
+      {
+        "path": "/Users/mkbabb/.codex/worktrees/7e28/value.js",
+        "requiredFacts": [
+          "absoluteRoot",
+          "HEAD",
+          "branchOrDetached",
+          "statusShortBranchRawBytes",
+          "statusSha256",
+          "stagedNameStatusSha256"
+        ],
+        "mutationAllowed": false
+      },
+      {
+        "path": "/Users/mkbabb/Programming/value.js",
+        "requiredFacts": [
+          "absoluteRoot",
+          "HEAD",
+          "branchOrDetached",
+          "statusShortBranchRawBytes",
+          "statusSha256",
+          "stagedNameStatusSha256"
+        ],
+        "mutationAllowed": false
+      }
+    ],
+    "protectedUserChanges": "RECORD_STATUS_ONLY_DO_NOT_STAGE_EDIT_CLEAN_OR_DISCLOSE_FILE_CONTENT_BEYOND_AUTHORIZED_MEMBERS",
+    "beforeAfterRepositoryFactsMustMatch": true
+  },
+  "writerBounds": {
+    "allowedReads": [
+      "the exact source membership under sourceMembershipLaw",
+      "the exact governingMembershipLaw paths",
+      "read-only git identity/status commands for the two named repositories"
+    ],
+    "allowedWrites": [
+      "the seven exact captureCoordinate files at the absent capture root"
+    ],
+    "forbidden": [
+      "any write outside captureCoordinate.root",
+      "any product or tranche source edit",
+      "git/index/branch mutation",
+      "network",
+      "Browser Safari Simulator API Docker package build parser product or release execution",
+      "caller-supplied member summaries or hashes",
+      "self-repinning after any mismatch",
+      "cleanup retry reseal or replacement after first RED"
+    ],
+    "rawFirst": true,
+    "aggregateAfterRaw": true,
+    "noPostChecksumWrites": true
+  },
+  "stopConditions": [
+    "capture root or parent output residue exists before first write",
+    "writer identity is not root-owned and distinct from the future v7 source author",
+    "any source or governing path is missing extra duplicate reordered ambiguous symlinked special or unreadable",
+    "current source roster differs from the exact 310-path historical roster",
+    "strict base64 round-trip byte length SHA-256 member identity or root derivation fails",
+    "any known governing SHA differs",
+    "either read pass differs in bytes stats membership roots git facts or status",
+    "any governing root changes before checksum-last seal",
+    "any output file count name kind mode nlink order or checksum rule differs",
+    "any forbidden write command process or external-state mutation occurs"
+  ],
+  "twoPhaseQuiescenceLaw": {
+    "thisReleaseAuthorizes": "PRE_AUTHORING_CAPTURE_ONLY",
+    "thisReleaseDoesNotAuthorize": [
+      "v7 source authoring",
+      "start-of-v7 rehash receipt",
+      "end-of-v7 rehash receipt",
+      "capture acceptance",
+      "hostile review",
+      "source execution or materialization"
+    ],
+    "cycleAvoidance": "THE_IMMUTABLE_PRE_CAPTURE_IS_SEALED_FIRST; A_LATER_SEPARATE_ROOT_RULING_MUST AUTHORIZE_AND_BIND A START-OF-V7 REHASH, AND A STILL_LATER ROOT RECEIPT MUST BIND THE END-OF-V7 REHASH. NEITHER MAY MODIFY THIS CAPTURE ROOT.",
+    "nextBoundary": "ROOT_INTAKES_THE_EXACT_CAPTURE_PACKET_OR_BANKS_ITS_FIRST_RED; ONLY_THEN_MAY_OWNER_CONSIDER_A_SEPARATE_V7_SOURCE_AUTHORING_RELEASE"
+  },
+  "unchangedDenominators": {
+    "historicalFormationCells": "15/15",
+    "currentEligibility": "0/15",
+    "nonParserSpecification": "11/11",
+    "parserLawChronology": "14/34_PAUSED",
+    "acceptedMobileSafariSourceClosure": "0/5",
+    "controlsExecuted": "0/44",
+    "orderedNonownerRetentions": "0/1892",
+    "independentD2": "0/887",
+    "crossRepositoryOwnerSlots": "0/5",
+    "currentEligibleSubjectPasses": "0/12",
+    "realMobileSafari": 0,
+    "realDesktopSafari": 0,
+    "kroneckerDenominator": "OPEN",
+    "appleDenominator": "OPEN",
+    "allCredits": 0
+  },
+  "ownerReleaseRequiredAfterCapture": true
+}

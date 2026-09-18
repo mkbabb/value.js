@@ -1,0 +1,122 @@
+{
+ "tokens": {
+  "typeCaption": "clamp( 0.75rem, 0.71rem + 0.21vw, 1rem )",
+  "typeSmall": "clamp( 0.875rem, 0.8rem + 0.25vw, 1.25rem )",
+  "typeMonoSmall": "",
+  "fontDisplayResolved": "Fraunces, \"Fraunces Fallback\", serif",
+  "fontDisplayStyle": "normal"
+ },
+ "desktop": {
+  "interactiveRows": 1,
+  "inertRows": 2,
+  "rowH": 56,
+  "inertRowH": 56,
+  "contentColW": 69.1,
+  "pillStyle": {
+   "x": 237,
+   "y": 449.3,
+   "w": 252,
+   "h": 28.9,
+   "color": "oklch(0.470927 0.188343 9.834023)",
+   "borderColor": "oklch(0.470927 0.188343 9.834023)",
+   "borderWidth": "1px",
+   "fontWeight": "700"
+  },
+  "plateBg": "oklab(0.928273 0.005506 0.013193 / 0.664)"
+ },
+ "nestedCard": {
+  "found": true,
+  "cardClass": "group rounded-card cartoon-surface border-card-edge bg-well cursor-pointer",
+  "dataSlot": null,
+  "boxShadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.26) -5px 5px 0px 0px, oklab(0.28 0.01676 0.024882 / 0.18) -7px 7px 0px 0px",
+  "backgroundColor": "oklab(0.913299 0.005463 0.013024)",
+  "backdropFilter": "none",
+  "box": {
+   "x": 237,
+   "w": 436,
+   "h": 100
+  },
+  "boundedAncestorCount": 4,
+  "boundaryChain": [
+   {
+    "cls": "group rounded-card cartoon-surface border-card-edge bg-well cursor-poi",
+    "border": "2px",
+    "shadow": "oklab(0.28 0.01676 0.024882 / 0.32) -3px 3px 0px 0px, oklab("
+   },
+   {
+    "cls": "border-t border-border bg-muted/30 px-3 py-3",
+    "border": "1px",
+    "shadow": "none"
+   },
+   {
+    "cls": "rounded-md border border-card-edge overflow-hidden",
+    "border": "1px",
+    "shadow": "none"
+   },
+   {
+    "cls": "glass-resting card rounded-card text-card-foreground scrollbar-hidden ",
+    "border": "1px",
+    "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px"
+   }
+  ]
+ },
+ "dialogSurface": {
+  "role": "dialog",
+  "ariaModal": null,
+  "surfaceBg": "oklab(0.903539 0.015313 0.014228 / 0.705088)",
+  "backdrop": "blur(11px) saturate(1.6)",
+  "opacity": "1",
+  "descLines": 3,
+  "descBox": {
+   "w": 462,
+   "h": 68.9
+  },
+  "pillBox": {
+   "w": 300.6,
+   "h": 28.9,
+   "bw": "1px"
+  },
+  "buttons": [
+   {
+    "t": "Cancel",
+    "color": "oklch(0.470927 0.188343 9.834023)",
+    "bg": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "Delete user",
+    "color": "rgb(251, 250, 248)",
+    "bg": "rgb(219, 36, 36)"
+   }
+  ]
+ },
+ "mobileToolbar": {
+  "viewport": 390,
+  "count": {
+   "text": "3 users",
+   "x": 33,
+   "y": 278,
+   "w": 60.3,
+   "h": 19.6
+  },
+  "empty": {
+   "text": "· 2 empty",
+   "x": 101.3,
+   "y": 278,
+   "w": 77.5,
+   "h": 19.6
+  },
+  "prune": {
+   "x": 249.1,
+   "y": 260.8,
+   "w": 107.9,
+   "h": 54
+  },
+  "refresh": {
+   "x": 33,
+   "y": 322.8,
+   "w": 79.7,
+   "h": 54
+  },
+  "sameLine": false
+ }
+}

@@ -1,0 +1,2616 @@
+{
+ "A-desktop-light-gradient": {
+  "rest": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 636.8,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "32px",
+    "min-height": "auto",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "color": "color(srgb 0 0 0 / 0.8)",
+    "scale": "1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "false",
+    "tabindex": "0",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 640.8,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "x": 725.3,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.471189 0.188448 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 674.1,
+    "y": 29.1,
+    "w": 41.9,
+    "h": 23
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "oklch(0.471189 0.188448 9.83402)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "125.516px",
+    "opacity": "1",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "innerCS": {
+    "overflow": "visible",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 559.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 605.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 673.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 720.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 748.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Back",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+     "x": 485.7,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Reset",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 602,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Copy CSS",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 736.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Seed from palette",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 871,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 485.7,
+     "y": 24.5,
+     "w": 128.1,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 636.8,
+     "y": 24.5,
+     "w": 104.5,
+     "h": 32
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 768.3,
+     "y": 26.5,
+     "w": 86.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 877.8,
+     "y": 26.5,
+     "w": 76.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 546.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 707.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 537.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 625.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 757.3,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 864.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 473.7,
+    "y": 9.5,
+    "w": 492.6,
+    "h": 62
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "hover": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 631.5,
+    "y": 22.9,
+    "w": 115,
+    "h": 35.2
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "32px",
+    "min-height": "auto",
+    "background-color": "color(srgb 0.994 0.96 0.926 / 0.65)",
+    "color": "rgb(28, 25, 23)",
+    "scale": "1.1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "false",
+    "tabindex": "0",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 635.9,
+     "y": 27.3,
+     "w": 26.4,
+     "h": 26.4
+    },
+    {
+     "x": 728.9,
+     "y": 33.9,
+     "w": 13.2,
+     "h": 13.2
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.471189 0.188448 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 672.6,
+    "y": 27.9,
+    "w": 46.1,
+    "h": 25.3
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "oklch(0.471189 0.188448 9.83402)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "125.516px",
+    "opacity": "1",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "innerCS": {
+    "overflow": "visible",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 559.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 605.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 673.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 720.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 748.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Back",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+     "x": 485.7,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Reset",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 602,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Copy CSS",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 736.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Seed from palette",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 871,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 485.7,
+     "y": 24.5,
+     "w": 128.1,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 631.5,
+     "y": 22.9,
+     "w": 115,
+     "h": 35.2
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 768.3,
+     "y": 26.5,
+     "w": 86.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 877.8,
+     "y": 26.5,
+     "w": 76.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 546.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 707.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 537.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 625.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 757.3,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 864.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 473.7,
+    "y": 9.5,
+    "w": 492.6,
+    "h": 62
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "focusChain": [
+   {
+    "label": "Select view",
+    "tag": "BUTTON"
+   },
+   {
+    "label": "Toggle action bar",
+    "tag": "BUTTON"
+   }
+  ],
+  "focusCS": {
+   "outline": "rgb(28, 25, 23) none 3px",
+   "boxShadow": "oklab(0.471189 0.185679 0.0321859 / 0.103638) 0px 0px 0px 0.690922px, oklab(0.471189 0.185679 0.0321859 / 0.0518191) 0px 0px 2.76369px 0px",
+   "background": "color(srgb 0.994 0.96 0.926 / 0.65)"
+  },
+  "active": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 790.6,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "32px",
+    "min-height": "auto",
+    "background-color": "color(srgb 0.994 0.96 0.926 / 0.8)",
+    "color": "rgb(28, 25, 23)",
+    "scale": "1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "true",
+    "tabindex": "0",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn is-active",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 794.6,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "x": 879.1,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.471189 0.188448 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 827.9,
+    "y": 29.1,
+    "w": 41.9,
+    "h": 23
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "oklch(0.471189 0.188448 9.83402)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "0px",
+    "opacity": "1",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "innerCS": {
+    "overflow": "visible",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 713.6,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 759.6,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 827.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 874.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 902.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Back",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+     "x": 639.5,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Reset",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 704.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Copy CSS",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 736.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Seed from palette",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 768.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 639.5,
+     "y": 24.5,
+     "w": 128.1,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 790.6,
+     "y": 24.5,
+     "w": 104.5,
+     "h": 32
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 796.6,
+     "y": 26.5,
+     "w": 86.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 906,
+     "y": 26.5,
+     "w": 76.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 700.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 861.5,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 691.5,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 779.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 785.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 893,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 627.5,
+    "y": 9.5,
+    "w": 185,
+    "h": 62
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "pressedInAx": false,
+  "activeAx": "- navigation \"Application navigation\":\n  - button \"Back\":\n    - img\n  - separator\n  - button \"Reset\"\n  - button \"Copy CSS\"\n  - button \"Seed from palette\"\n  - alert: \"dev misconfigured — run `npm run dev`\"",
+  "shots": {
+   "toolsLabel": {
+    "ink": 0.08951295297390595,
+    "paper": 0.5131278285645572,
+    "ratio": 4.04,
+    "n": 4128
+   },
+   "viewLabel": {
+    "ink": 0.01839192762670729,
+    "paper": 0.4951274906166565,
+    "ratio": 7.97,
+    "n": 6720
+   }
+  },
+  "pageErrors": []
+ },
+ "E-desktop-browse-absent": {
+  "m": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 694.1,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "32px",
+    "min-height": "auto",
+    "background-color": "rgba(0, 0, 0, 0)",
+    "color": "color(srgb 0 0 0 / 0.8)",
+    "scale": "1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "false",
+    "tabindex": "-1",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 698.1,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "x": 782.6,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.471189 0.188448 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 731.4,
+    "y": 29.1,
+    "w": 41.9,
+    "h": 23
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "oklch(0.471189 0.188448 9.83402)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "0px",
+    "opacity": "0",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-live is-settled",
+   "innerCS": {
+    "overflow": "hidden",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 628,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 674,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 741.9,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 788.9,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 816.9,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 553.9,
+     "y": 24.5,
+     "w": 117.2,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 694.1,
+     "y": 24.5,
+     "w": 104.5,
+     "h": 32
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 700.1,
+     "y": 26.5,
+     "w": 86.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 809.5,
+     "y": 26.5,
+     "w": 76.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 615,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 775.9,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 683.1,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 689.1,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 796.5,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 541.9,
+    "y": 9.5,
+    "w": 356.2,
+    "h": 62
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "inAx": {
+   "hit": true,
+   "snap": "- navigation \"Application navigation\":\n  - combobox \"Select view\":\n    - img\n    - text: Browse\n  - separator\n  - button \"Toggle action bar\":\n    - img\n    - text: Tools\n    - img\n  - separator\n  - button \"Login\":\n    - img\n    - text: Login\n  - separator\n  - button \"@mbabb\"\n  - alert: \"dev misconfigured — run `npm run dev`\""
+  },
+  "clickable": {
+   "rect": {
+    "w": 104.52,
+    "h": 32
+   },
+   "hitIsSelf": false,
+   "focusable": true
+  },
+  "pageErrors": []
+ },
+ "F-zoom200-gradient": {
+  "toolsPresent": true,
+  "toolsBox": {
+   "x": 262.8,
+   "y": 32.5,
+   "w": 32,
+   "h": 32
+  },
+  "toolsCS": {
+   "padding": "4px",
+   "margin-inline-start": "4px",
+   "margin-inline-end": "4px",
+   "gap": "8.332px",
+   "height": "32px",
+   "min-height": "auto",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "color": "color(srgb 0 0 0 / 0.8)",
+   "scale": "1",
+   "box-shadow": "none",
+   "border-radius": "9999px",
+   "opacity": "1",
+   "visibility": "visible"
+  },
+  "toolsAttrs": {
+   "ariaPressed": "false",
+   "tabindex": "0",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+   "title": null,
+   "ariaExpanded": null,
+   "ariaControls": null,
+   "disabled": false
+  },
+  "toolsSvgBoxes": [
+   {
+    "x": 266.8,
+    "y": 36.5,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  ],
+  "toolsIconCS": {
+   "width": "24px",
+   "height": "24px",
+   "color": "oklch(0.471189 0.188448 9.83402)"
+  },
+  "toolsLabelText": null,
+  "toolsLabelBox": null,
+  "toolsLabelCS": null,
+  "slotCS": {
+   "display": "grid",
+   "grid-template-columns": "40px",
+   "opacity": "1",
+   "transition-property": "grid-template-columns, opacity",
+   "transition-duration": "0.3s, 0.3s"
+  },
+  "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+  "innerCS": {
+   "overflow": "visible",
+   "min-width": "0px"
+  },
+  "mainLayerCS": null,
+  "mainLayerCls": null,
+  "controls": [
+   {
+    "label": "Save edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 269.3,
+    "y": 28.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Cancel edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 315.3,
+    "y": 28.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Switch to slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 384.8,
+    "y": 37.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Generate new slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 431.8,
+    "y": 37.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Cancel",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 459.8,
+    "y": 37.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Back",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+    "x": 196.8,
+    "y": 28.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Reset",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 289.3,
+    "y": 32.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Copy CSS",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 376.5,
+    "y": 32.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Seed from palette",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 463.7,
+    "y": 32.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Select view",
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+    "x": 196.8,
+    "y": 32.5,
+    "w": 56,
+    "h": 32
+   },
+   {
+    "label": "Toggle action bar",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 262.8,
+    "y": 32.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Gradient",
+    "tag": "BUTTON",
+    "cls": "segmented-tab",
+    "x": 308.8,
+    "y": 33,
+    "w": 82.3,
+    "h": 31
+   },
+   {
+    "label": "Palettes",
+    "tag": "BUTTON",
+    "cls": "segmented-tab glass-capsule-hover",
+    "x": 391,
+    "y": 33,
+    "w": 82.3,
+    "h": 31
+   },
+   {
+    "label": "Menu",
+    "tag": "BUTTON",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "x": 483.3,
+    "y": 32.5,
+    "w": 40,
+    "h": 32
+   }
+  ],
+  "seps": [
+   {
+    "x": 256.3,
+    "y": 34.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 418.8,
+    "y": 34.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 248.8,
+    "y": 34.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  ],
+  "dockBox": {
+   "x": 184.8,
+   "y": 20.5,
+   "w": 350.5,
+   "h": 56
+  },
+  "tokens": {
+   "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+   "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+   "--dock-active-scale": "1",
+   "--dock-active-shadow": "none",
+   "--dock-active-border": "none",
+   "--dock-compact-control-padding": "",
+   "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+   "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+   "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+   "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "--duration-normal": "0.3s",
+   "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+   "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+   "--dock-layer-gap": ""
+  },
+  "pageErrors": []
+ },
+ "G-forced-colors": {
+  "rest": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 634.8,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "32px",
+    "min-height": "auto",
+    "background-color": "rgba(255, 255, 255, 0)",
+    "color": "rgb(0, 0, 0)",
+    "scale": "1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "false",
+    "tabindex": "0",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 638.8,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "x": 723.3,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.537335 0.214902 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 672.1,
+    "y": 29.1,
+    "w": 41.9,
+    "h": 23
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(0, 0, 0)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "125.516px",
+    "opacity": "1",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "innerCS": {
+    "overflow": "visible",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 557.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 603.8,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 671.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 718.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 746.7,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Back",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+     "x": 483.7,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Reset",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 600.6,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Copy CSS",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 736.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Seed from palette",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 872.4,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 483.7,
+     "y": 24.5,
+     "w": 128.1,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 634.8,
+     "y": 24.5,
+     "w": 104.5,
+     "h": 32
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 766.3,
+     "y": 26.5,
+     "w": 88.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 877.8,
+     "y": 26.5,
+     "w": 78.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 544.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 705.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 535.7,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 623.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 755.3,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 864.8,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 470.7,
+    "y": 8.5,
+    "w": 498.6,
+    "h": 64
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 0) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(53.733493465032% 0.214901894737 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "active": {
+   "toolsPresent": true,
+   "toolsBox": {
+    "x": 790.6,
+    "y": 22.5,
+    "w": 108.5,
+    "h": 36
+   },
+   "toolsCS": {
+    "padding": "4px",
+    "margin-inline-start": "4px",
+    "margin-inline-end": "4px",
+    "gap": "9.304px",
+    "height": "36px",
+    "min-height": "auto",
+    "background-color": "rgb(255, 255, 255)",
+    "color": "rgb(0, 0, 0)",
+    "scale": "1",
+    "box-shadow": "none",
+    "border-radius": "9999px",
+    "opacity": "1",
+    "visibility": "visible"
+   },
+   "toolsAttrs": {
+    "ariaPressed": "true",
+    "tabindex": "0",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn is-active",
+    "title": null,
+    "ariaExpanded": null,
+    "ariaControls": null,
+    "disabled": false
+   },
+   "toolsSvgBoxes": [
+    {
+     "x": 796.6,
+     "y": 28.5,
+     "w": 24,
+     "h": 24
+    },
+    {
+     "x": 881.1,
+     "y": 34.5,
+     "w": 12,
+     "h": 12
+    }
+   ],
+   "toolsIconCS": {
+    "width": "24px",
+    "height": "24px",
+    "color": "oklch(0.537335 0.214902 9.83402)"
+   },
+   "toolsLabelText": "Tools",
+   "toolsLabelBox": {
+    "x": 829.9,
+    "y": 29.1,
+    "w": 41.9,
+    "h": 23
+   },
+   "toolsLabelCS": {
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "16.4px",
+    "font-weight": "400",
+    "color": "rgb(0, 0, 0)",
+    "line-height": "22.96px",
+    "letter-spacing": "normal"
+   },
+   "slotCS": {
+    "display": "grid",
+    "grid-template-columns": "0px",
+    "opacity": "1",
+    "transition-property": "grid-template-columns, opacity",
+    "transition-duration": "0.3s, 0.3s"
+   },
+   "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+   "innerCS": {
+    "overflow": "visible",
+    "min-width": "0px"
+   },
+   "mainLayerCS": null,
+   "mainLayerCls": null,
+   "controls": [
+    {
+     "label": "Save edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 713.6,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Cancel edit",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+     "x": 759.6,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Switch to slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 827.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Generate new slug",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 874.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Cancel",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 902.5,
+     "y": 29.5,
+     "w": 22,
+     "h": 22
+    },
+    {
+     "label": "Back",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+     "x": 639.5,
+     "y": 20.5,
+     "w": 40,
+     "h": 40
+    },
+    {
+     "label": "Reset",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 704.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Copy CSS",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 736.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Seed from palette",
+     "tag": "BUTTON",
+     "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+     "x": 768.5,
+     "y": 24.5,
+     "w": 32,
+     "h": 32
+    },
+    {
+     "label": "Select view",
+     "tag": "BUTTON",
+     "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+     "x": 639.5,
+     "y": 24.5,
+     "w": 128.1,
+     "h": 32
+    },
+    {
+     "label": "Toggle action bar",
+     "tag": "BUTTON",
+     "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+     "x": 790.6,
+     "y": 22.5,
+     "w": 108.5,
+     "h": 36
+    },
+    {
+     "label": "Login",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 796.6,
+     "y": 26.5,
+     "w": 88.5,
+     "h": 28
+    },
+    {
+     "label": "@mbabb",
+     "tag": "BUTTON",
+     "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+     "x": 908,
+     "y": 26.5,
+     "w": 78.6,
+     "h": 28
+    }
+   ],
+   "seps": [
+    {
+     "x": 700.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 861.5,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 691.5,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 779.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 785.6,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    },
+    {
+     "x": 895,
+     "y": 26.8,
+     "w": 1,
+     "h": 27.5
+    }
+   ],
+   "dockBox": {
+    "x": 626.5,
+    "y": 8.5,
+    "w": 187,
+    "h": 64
+   },
+   "tokens": {
+    "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 0) * 100%), transparent)",
+    "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+    "--dock-active-scale": "1",
+    "--dock-active-shadow": "none",
+    "--dock-active-border": "none",
+    "--dock-compact-control-padding": "",
+    "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+    "--accent-live": "oklch(53.733493465032% 0.214901894737 9.83402284231deg)",
+    "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+    "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "--duration-normal": "0.3s",
+    "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+    "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+    "--dock-layer-gap": ""
+   }
+  },
+  "pageErrors": []
+ },
+ "H-reduced-motion": {
+  "toolsPresent": true,
+  "toolsBox": {
+   "x": 636.8,
+   "y": 24.5,
+   "w": 104.5,
+   "h": 32
+  },
+  "toolsCS": {
+   "padding": "4px",
+   "margin-inline-start": "4px",
+   "margin-inline-end": "4px",
+   "gap": "9.304px",
+   "height": "32px",
+   "min-height": "auto",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "color": "color(srgb 0 0 0 / 0.8)",
+   "scale": "1",
+   "box-shadow": "none",
+   "border-radius": "9999px",
+   "opacity": "1",
+   "visibility": "visible"
+  },
+  "toolsAttrs": {
+   "ariaPressed": "false",
+   "tabindex": "0",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+   "title": null,
+   "ariaExpanded": null,
+   "ariaControls": null,
+   "disabled": false
+  },
+  "toolsSvgBoxes": [
+   {
+    "x": 640.8,
+    "y": 28.5,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 725.3,
+    "y": 34.5,
+    "w": 12,
+    "h": 12
+   }
+  ],
+  "toolsIconCS": {
+   "width": "24px",
+   "height": "24px",
+   "color": "oklch(0.471189 0.188448 9.83402)"
+  },
+  "toolsLabelText": "Tools",
+  "toolsLabelBox": {
+   "x": 674.1,
+   "y": 29.1,
+   "w": 41.9,
+   "h": 23
+  },
+  "toolsLabelCS": {
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-size": "16.4px",
+   "font-weight": "400",
+   "color": "oklch(0.471189 0.188448 9.83402)",
+   "line-height": "22.96px",
+   "letter-spacing": "normal"
+  },
+  "slotCS": {
+   "display": "grid",
+   "grid-template-columns": "125.516px",
+   "opacity": "1",
+   "transition-property": "opacity, color, background-color, border-color, box-shadow",
+   "transition-duration": "0.1s"
+  },
+  "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+  "innerCS": {
+   "overflow": "visible",
+   "min-width": "0px"
+  },
+  "mainLayerCS": null,
+  "mainLayerCls": null,
+  "controls": [
+   {
+    "label": "Save edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 559.8,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Cancel edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 605.8,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Switch to slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 673.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Generate new slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 720.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Cancel",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 748.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Back",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+    "x": 485.7,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Reset",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 602,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Copy CSS",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 736.5,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Seed from palette",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 871,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Select view",
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+    "x": 485.7,
+    "y": 24.5,
+    "w": 128.1,
+    "h": 32
+   },
+   {
+    "label": "Toggle action bar",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 636.8,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   {
+    "label": "Login",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+    "x": 768.3,
+    "y": 26.5,
+    "w": 86.5,
+    "h": 28
+   },
+   {
+    "label": "@mbabb",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+    "x": 877.8,
+    "y": 26.5,
+    "w": 76.6,
+    "h": 28
+   }
+  ],
+  "seps": [
+   {
+    "x": 546.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 707.7,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 537.7,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 625.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 757.3,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 864.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   }
+  ],
+  "dockBox": {
+   "x": 473.7,
+   "y": 9.5,
+   "w": 492.6,
+   "h": 62
+  },
+  "tokens": {
+   "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+   "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+   "--dock-active-scale": "1",
+   "--dock-active-shadow": "none",
+   "--dock-active-border": "none",
+   "--dock-compact-control-padding": "",
+   "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+   "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+   "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+   "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "--duration-normal": "0.3s",
+   "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+   "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+   "--dock-layer-gap": ""
+  },
+  "pageErrors": []
+ },
+ "I-mobile-gradient": {
+  "toolsPresent": true,
+  "toolsBox": {
+   "x": 122.8,
+   "y": 32.3,
+   "w": 33.3,
+   "h": 33.3
+  },
+  "toolsCS": {
+   "padding": "4.68px",
+   "margin-inline-start": "4px",
+   "margin-inline-end": "4px",
+   "gap": "8px",
+   "height": "33.3438px",
+   "min-height": "auto",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "color": "color(srgb 0 0 0 / 0.8)",
+   "scale": "1",
+   "box-shadow": "none",
+   "border-radius": "9999px",
+   "opacity": "1",
+   "visibility": "visible"
+  },
+  "toolsAttrs": {
+   "ariaPressed": "false",
+   "tabindex": "0",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+   "title": null,
+   "ariaExpanded": null,
+   "ariaControls": null,
+   "disabled": false
+  },
+  "toolsSvgBoxes": [
+   {
+    "x": 127.4,
+    "y": 37,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  ],
+  "toolsIconCS": {
+   "width": "24px",
+   "height": "24px",
+   "color": "oklch(0.471189 0.188448 9.83402)"
+  },
+  "toolsLabelText": null,
+  "toolsLabelBox": null,
+  "toolsLabelCS": null,
+  "slotCS": {
+   "display": "grid",
+   "grid-template-columns": "41.3438px",
+   "opacity": "1",
+   "transition-property": "grid-template-columns, opacity",
+   "transition-duration": "0.3s, 0.3s"
+  },
+  "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+  "innerCS": {
+   "overflow": "visible",
+   "min-width": "0px"
+  },
+  "mainLayerCS": null,
+  "mainLayerCls": null,
+  "controls": [
+   {
+    "label": "Save edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 127.9,
+    "y": 25.6,
+    "w": 46.8,
+    "h": 46.8
+   },
+   {
+    "label": "Cancel edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 181.7,
+    "y": 25.6,
+    "w": 46.8,
+    "h": 46.8
+   },
+   {
+    "label": "Switch to slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 241,
+    "y": 37.3,
+    "w": 23.3,
+    "h": 23.3
+   },
+   {
+    "label": "Generate new slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 291.4,
+    "y": 37.3,
+    "w": 23.3,
+    "h": 23.3
+   },
+   {
+    "label": "Cancel",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 321.8,
+    "y": 37.3,
+    "w": 23.3,
+    "h": 23.3
+   },
+   {
+    "label": "Back",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+    "x": 53,
+    "y": 25.6,
+    "w": 46.8,
+    "h": 46.8
+   },
+   {
+    "label": "Reset",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 147.8,
+    "y": 33,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Copy CSS",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 221.6,
+    "y": 33,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Seed from palette",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 295.4,
+    "y": 33,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Select view",
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+    "x": 53,
+    "y": 32.3,
+    "w": 58.7,
+    "h": 33.3
+   },
+   {
+    "label": "Toggle action bar",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 122.8,
+    "y": 32.3,
+    "w": 33.3,
+    "h": 33.3
+   },
+   {
+    "label": "Gradient",
+    "tag": "BUTTON",
+    "cls": "segmented-tab",
+    "x": 170.1,
+    "y": 35.9,
+    "w": 62.7,
+    "h": 26.3
+   },
+   {
+    "label": "Palettes",
+    "tag": "BUTTON",
+    "cls": "segmented-tab glass-capsule-hover",
+    "x": 232.9,
+    "y": 35.9,
+    "w": 62.7,
+    "h": 26.3
+   },
+   {
+    "label": "Menu",
+    "tag": "BUTTON",
+    "cls": "dropdown-menu__trigger dock-trigger dock-dropdown-trigger",
+    "x": 305.6,
+    "y": 32.3,
+    "w": 42.7,
+    "h": 33.3
+   }
+  ],
+  "seps": [
+   {
+    "x": 113.8,
+    "y": 35.3,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 277.4,
+    "y": 35.3,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 112.8,
+    "y": 35.3,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "x": 0,
+    "y": 0,
+    "w": 0,
+    "h": 0
+   }
+  ],
+  "dockBox": {
+   "x": 39,
+   "y": 16.6,
+   "w": 312,
+   "h": 64.7
+  },
+  "tokens": {
+   "--dock-active-bg": "color-mix(in srgb, light-dark(hsl(30 85% 96%), hsl(26 22% 17%)) calc((1 - (1 - 0.80) * 1) * 100%), transparent)",
+   "--dock-active-color": "light-dark(hsl(24 10% 10%), hsl(30 14% 90%))",
+   "--dock-active-scale": "1",
+   "--dock-active-shadow": "none",
+   "--dock-active-border": "none",
+   "--dock-compact-control-padding": "",
+   "--dock-icon-glyph": "max( calc(calc(2.5rem * 1.5) * 0.5), 1rem )",
+   "--accent-live": "oklch(47.118925176164% 0.188447570516 9.83402284231deg)",
+   "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+   "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "--duration-normal": "0.3s",
+   "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+   "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+   "--dock-layer-gap": ""
+  },
+  "pageErrors": []
+ },
+ "J-desktop-dark-gradient": {
+  "toolsPresent": true,
+  "toolsBox": {
+   "x": 636.8,
+   "y": 24.5,
+   "w": 104.5,
+   "h": 32
+  },
+  "toolsCS": {
+   "padding": "4px",
+   "margin-inline-start": "4px",
+   "margin-inline-end": "4px",
+   "gap": "9.304px",
+   "height": "32px",
+   "min-height": "auto",
+   "background-color": "rgba(0, 0, 0, 0)",
+   "color": "color(srgb 1 1 1 / 0.8)",
+   "scale": "1",
+   "box-shadow": "none",
+   "border-radius": "9999px",
+   "opacity": "1",
+   "visibility": "visible"
+  },
+  "toolsAttrs": {
+   "ariaPressed": "false",
+   "tabindex": "0",
+   "cls": "dock-icon-button glass-specular-track glass-capsule-hover dock-icon-button--compact dock-tools-btn",
+   "title": null,
+   "ariaExpanded": null,
+   "ariaControls": null,
+   "disabled": false
+  },
+  "toolsSvgBoxes": [
+   {
+    "x": 640.8,
+    "y": 28.5,
+    "w": 24,
+    "h": 24
+   },
+   {
+    "x": 725.3,
+    "y": 34.5,
+    "w": 12,
+    "h": 12
+   }
+  ],
+  "toolsIconCS": {
+   "width": "24px",
+   "height": "24px",
+   "color": "oklch(0.958322 0.0210531 9.83402)"
+  },
+  "toolsLabelText": "Tools",
+  "toolsLabelBox": {
+   "x": 674.1,
+   "y": 29.1,
+   "w": 41.9,
+   "h": 23
+  },
+  "toolsLabelCS": {
+   "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+   "font-size": "16.4px",
+   "font-weight": "400",
+   "color": "oklch(0.958322 0.0210531 9.83402)",
+   "line-height": "22.96px",
+   "letter-spacing": "normal"
+  },
+  "slotCS": {
+   "display": "grid",
+   "grid-template-columns": "125.516px",
+   "opacity": "1",
+   "transition-property": "grid-template-columns, opacity",
+   "transition-duration": "0.3s, 0.3s"
+  },
+  "slotCls": "action-bar-toggle-slot is-visible is-live is-settled",
+  "innerCS": {
+   "overflow": "visible",
+   "min-width": "0px"
+  },
+  "mainLayerCS": null,
+  "mainLayerCls": null,
+  "controls": [
+   {
+    "label": "Save edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 559.8,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Cancel edit",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover",
+    "x": 605.8,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Switch to slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 673.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Generate new slug",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 720.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Cancel",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 748.7,
+    "y": 29.5,
+    "w": 22,
+    "h": 22
+   },
+   {
+    "label": "Back",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover sh",
+    "x": 485.7,
+    "y": 20.5,
+    "w": 40,
+    "h": 40
+   },
+   {
+    "label": "Reset",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 602,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Copy CSS",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 736.5,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Seed from palette",
+    "tag": "BUTTON",
+    "cls": "action-button-wrapper focus-visible:outline-none focus-visib",
+    "x": 871,
+    "y": 24.5,
+    "w": 32,
+    "h": 32
+   },
+   {
+    "label": "Select view",
+    "tag": "BUTTON",
+    "cls": "dock-trigger dock-select-trigger view-select-trigger text-sm",
+    "x": 485.7,
+    "y": 24.5,
+    "w": 128.1,
+    "h": 32
+   },
+   {
+    "label": "Toggle action bar",
+    "tag": "BUTTON",
+    "cls": "dock-icon-button glass-specular-track glass-capsule-hover do",
+    "x": 636.8,
+    "y": 24.5,
+    "w": 104.5,
+    "h": 32
+   },
+   {
+    "label": "Login",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+    "x": 768.3,
+    "y": 26.5,
+    "w": 86.5,
+    "h": 28
+   },
+   {
+    "label": "@mbabb",
+    "tag": "BUTTON",
+    "cls": "button tap-squish focus-ring glass-wash glass-capsule glass-",
+    "x": 877.8,
+    "y": 26.5,
+    "w": 76.6,
+    "h": 28
+   }
+  ],
+  "seps": [
+   {
+    "x": 546.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 707.7,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 537.7,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 625.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 757.3,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   },
+   {
+    "x": 864.8,
+    "y": 26.8,
+    "w": 1,
+    "h": 27.5
+   }
+  ],
+  "dockBox": {
+   "x": 473.7,
+   "y": 9.5,
+   "w": 492.6,
+   "h": 62
+  },
+  "tokens": {
+   "--dock-active-bg": "color-mix(in srgb, hsl(26 22% 17%) calc((1 - (1 - 0.88) * 1) * 100%), transparent)",
+   "--dock-active-color": "hsl(30 14% 90%)",
+   "--dock-active-scale": "1",
+   "--dock-active-shadow": "none",
+   "--dock-active-border": "none",
+   "--dock-compact-control-padding": "",
+   "--dock-icon-glyph": "max( calc(calc(2.5rem * 1) * 0.5), 1rem )",
+   "--accent-live": "oklch(95.832172477266% 0.021053120065 9.83402284231deg)",
+   "--font-display": "\"Fraunces\", \"Fraunces Fallback\", serif",
+   "--font-text": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+   "--duration-normal": "0.3s",
+   "--ease-standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+   "--spring-snappy": "linear(0, 0.00652 2.041%, 0.02458 4.082%, 0.05211 6.122%, 0.08725 8.163%, 0.12834 10.204%, 0.17392 12.245%, 0.22268 14.286%, 0.27350 16.327%, 0.32540 18.367%, 0.37757 20.408%, 0.42929 22.449%, 0.47998 24.490%, 0.52916 26.531%, 0.57646 28.571%, 0.62156 30.612%, 0.66426 32.653%, 0.70440 34.694%, 0.74187 36.735%, 0.77662 38.776%, 0.80866 40.816%, 0.83800 42.857%, 0.86471 44.898%, 0.88887 46.939%, 0.91058 48.980%, 0.92996 51.020%, 0.94713 53.061%, 0.96223 55.102%, 0.97539 57.143%, 0.98677 59.184%, 0.99649 61.224%, 1.00471 63.265%, 1.01156 65.306%, 1.01716 67.347%, 1.02166 69.388%, 1.02516 71.429%, 1.02778 73.469%, 1.02964 75.510%, 1.03082 77.551%, 1.03142 79.592%, 1.03153 81.633%, 1.03122 83.673%, 1.03057 85.714%, 1.02963 87.755%, 1.02847 89.796%, 1.02713 91.837%, 1.02566 93.878%, 1.02410 95.918%, 1.02249 97.959%, 1)",
+   "--dock-layer-gap": ""
+  },
+  "labelInk": {
+   "ink": 0.17408840483278756,
+   "paper": 0.8742395195035468,
+   "ratio": 4.12,
+   "n": 4128
+  },
+  "pageErrors": []
+ }
+}

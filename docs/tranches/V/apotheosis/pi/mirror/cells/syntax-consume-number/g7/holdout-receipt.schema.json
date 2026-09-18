@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:value-js:syntax-consume-number:g7:holdout-receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["feature_id", "generation", "status", "corpus_id", "precursor", "plaintext_commitment", "ciphertext", "envelope", "coverage", "anti_duplication", "absence_freshness", "credit"],
+  "properties": {
+    "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" },
+    "generation": { "const": 7 },
+    "status": { "const": "SEALED_PRE_AUTHOR_CIPHERTEXT_ONLY_ZERO_FEATURE_CREDIT" },
+    "corpus_id": { "type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$" },
+    "precursor": {
+      "type": "object", "additionalProperties": false,
+      "required": ["formation", "rows", "closure_sha256"],
+      "properties": {
+        "formation": { "$ref": "#/$defs/identityRow" }, "rows": { "type": "integer", "minimum": 1 }, "closure_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "plaintext_commitment": { "$ref": "#/$defs/identityRow" },
+    "ciphertext": {
+      "type": "object", "additionalProperties": false,
+      "required": ["path", "sha256", "bytes", "encoding", "decoded_envelope_bytes"],
+      "properties": {
+        "path": { "const": "holdout-ciphertext.b64" }, "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 },
+        "encoding": { "const": "base64-with-final-lf" }, "decoded_envelope_bytes": { "type": "integer", "minimum": 37 }
+      }
+    },
+    "envelope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["algorithm", "magic_ascii_nul", "magic_bytes", "nonce_bytes", "tag_bytes", "aad"],
+      "properties": {
+        "algorithm": { "const": "AES-256-GCM" }, "magic_ascii_nul": { "const": "VPI7CN1\u0000" }, "magic_bytes": { "const": 8 }, "nonce_bytes": { "const": 12 }, "tag_bytes": { "const": 16 },
+        "aad": {
+          "type": "object", "additionalProperties": false,
+          "required": ["feature_id", "generation", "corpus_id", "formation_sha256", "precursor_closure_sha256", "plaintext_sha256", "plaintext_bytes"],
+          "properties": {
+            "feature_id": { "const": "SYNTAX-CONSUME-NUMBER" }, "generation": { "const": 7 }, "corpus_id": { "type": "string", "minLength": 1 },
+            "formation_sha256": { "$ref": "#/$defs/sha256" }, "precursor_closure_sha256": { "$ref": "#/$defs/sha256" },
+            "plaintext_sha256": { "$ref": "#/$defs/sha256" }, "plaintext_bytes": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    },
+    "coverage": {
+      "type": "object", "additionalProperties": false,
+      "required": ["case_count", "unique_case_ids", "categories", "public_case_ids_sha256", "generator_sha256"],
+      "properties": {
+        "case_count": { "type": "integer", "minimum": 1 }, "unique_case_ids": { "type": "integer", "minimum": 1 },
+        "categories": { "type": "array", "minItems": 6, "uniqueItems": true, "items": { "enum": ["positive", "negative", "boundary", "offset", "diagnostics", "hostile", "binary64", "composition"] } },
+        "public_case_ids_sha256": { "$ref": "#/$defs/sha256" }, "generator_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "anti_duplication": {
+      "type": "object", "additionalProperties": false,
+      "required": ["duplicate_ids", "duplicate_cases", "public_exact_duplicates", "cross_generation_exact_duplicates"],
+      "properties": { "duplicate_ids": { "const": 0 }, "duplicate_cases": { "const": 0 }, "public_exact_duplicates": { "const": 0 }, "cross_generation_exact_duplicates": { "const": 0 } }
+    },
+    "absence_freshness": {
+      "type": "object", "additionalProperties": false,
+      "required": ["candidate_sources_existed", "candidate_sources_accessed", "plaintext_workspace_files", "key_workspace_files", "prior_secret_material_reused", "fresh_key", "fresh_nonce", "fresh_corpus_id"],
+      "properties": {
+        "candidate_sources_existed": { "const": false }, "candidate_sources_accessed": { "const": false }, "plaintext_workspace_files": { "const": 0 }, "key_workspace_files": { "const": 0 },
+        "prior_secret_material_reused": { "const": false }, "fresh_key": { "const": true }, "fresh_nonce": { "const": true }, "fresh_corpus_id": { "const": true }
+      }
+    },
+    "credit": { "const": "ZERO_SEALING_ONLY" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "identityRow": { "type": "object", "additionalProperties": false, "required": ["sha256", "bytes"], "properties": { "sha256": { "$ref": "#/$defs/sha256" }, "bytes": { "type": "integer", "minimum": 1 } } }
+  }
+}

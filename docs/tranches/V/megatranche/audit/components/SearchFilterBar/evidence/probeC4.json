@@ -1,0 +1,189 @@
+{
+ "viewports": {
+  "desktop-1440x1000": {
+   "open": true,
+   "viewport": {
+    "w": 1440,
+    "h": 1000
+   },
+   "contentRect": {
+    "top": 431,
+    "bottom": 1101.8,
+    "h": 670.8
+   },
+   "maxHeight": "none",
+   "overflowY": "visible",
+   "scrollHeight": 669,
+   "clientHeight": 669,
+   "availableHeightVar": "569.0125122070312px",
+   "bottomOverflowPx": 101.8,
+   "clearRect": {
+    "top": 1036.4,
+    "bottom": 1072.4,
+    "h": 36
+   },
+   "clearOffscreenPx": 72.4,
+   "clearFullyOffscreen": true,
+   "scrollableAncestor": null,
+   "badge": "1"
+  },
+  "laptop-1440x800": {
+   "open": true,
+   "viewport": {
+    "w": 1440,
+    "h": 800
+   },
+   "contentRect": {
+    "top": 331,
+    "bottom": 1001.8,
+    "h": 670.8
+   },
+   "maxHeight": "none",
+   "overflowY": "visible",
+   "scrollHeight": 669,
+   "clientHeight": 669,
+   "availableHeightVar": "469.01251220703125px",
+   "bottomOverflowPx": 201.8,
+   "clearRect": {
+    "top": 936.4,
+    "bottom": 972.4,
+    "h": 36
+   },
+   "clearOffscreenPx": 172.4,
+   "clearFullyOffscreen": true,
+   "scrollableAncestor": null,
+   "badge": "1"
+  },
+  "mobile-390x664": {
+   "open": true,
+   "viewport": {
+    "w": 390,
+    "h": 664
+   },
+   "contentRect": {
+    "top": 293,
+    "bottom": 923.4,
+    "h": 630.4
+   },
+   "maxHeight": "none",
+   "overflowY": "visible",
+   "scrollHeight": 628,
+   "clientHeight": 628,
+   "availableHeightVar": "371.015625px",
+   "bottomOverflowPx": 259.4,
+   "clearRect": {
+    "top": 858.1,
+    "bottom": 894.1,
+    "h": 36
+   },
+   "clearOffscreenPx": 230.1,
+   "clearFullyOffscreen": true,
+   "scrollableAncestor": null,
+   "badge": "1"
+  }
+ },
+ "T2_miniOpen": {
+  "wrappers": 2,
+  "sv": 1
+ },
+ "T2_afterOutside": {
+  "wrappers": 0,
+  "sv": 0,
+  "panel": false
+ },
+ "T2_afterReopen": {
+  "wrappers": 1,
+  "sv": 0,
+  "miniAutoOpened": false
+ },
+ "T3_reentrancy": {
+  "fiveClicksMs": 43,
+  "spinnerEverSeen": false
+ },
+ "T4_tapTargets": [
+  {
+   "role": "radio",
+   "label": "",
+   "w": 44,
+   "h": 44,
+   "under24": false
+  },
+  {
+   "role": "radio",
+   "label": "",
+   "w": 44,
+   "h": 44,
+   "under24": false
+  },
+  {
+   "role": "radio",
+   "label": "",
+   "w": 44,
+   "h": 44,
+   "under24": false
+  },
+  {
+   "role": "radio",
+   "label": "",
+   "w": 44,
+   "h": 44,
+   "under24": false
+  },
+  {
+   "role": "radio",
+   "label": "",
+   "w": 44,
+   "h": 44,
+   "under24": false
+  },
+  {
+   "role": "checkbox",
+   "label": "",
+   "w": 16,
+   "h": 16,
+   "under24": true
+  },
+  {
+   "role": "checkbox",
+   "label": "",
+   "w": 16,
+   "h": 16,
+   "under24": true
+  },
+  {
+   "role": "checkbox",
+   "label": "",
+   "w": 16,
+   "h": 16,
+   "under24": true
+  },
+  {
+   "role": "BUTTON",
+   "label": "Open color picker, current",
+   "w": 28,
+   "h": 28,
+   "under24": false
+  },
+  {
+   "role": "INPUT",
+   "label": "Search by CSS color",
+   "w": 148,
+   "h": 36,
+   "under24": false
+  },
+  {
+   "role": "BUTTON",
+   "label": "Search",
+   "w": 52.6,
+   "h": 24,
+   "under24": false
+  },
+  {
+   "role": "BUTTON",
+   "label": "Clear all filters",
+   "w": 182,
+   "h": 36,
+   "under24": false
+  }
+ ]
+}

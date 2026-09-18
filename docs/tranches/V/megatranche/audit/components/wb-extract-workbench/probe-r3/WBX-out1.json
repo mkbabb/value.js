@@ -1,0 +1,268 @@
+{
+ "nameless": [
+  {
+   "tag": "button",
+   "title": "Upload image",
+   "rect": {
+    "w": 40,
+    "h": 40
+   },
+   "html": "<button data-v-bfbc09b0=\"\" type=\"button\" class=\"dock-icon-button glass-specular-track glass-capsule-hover\" data-press-armed=\"\" title=\"Upload image\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000; --btn-hover-color: lab(92% 88.8 20);\"><sv",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "title": "Open camera",
+   "rect": {
+    "w": 40,
+    "h": 40
+   },
+   "html": "<button data-v-bfbc09b0=\"\" type=\"button\" class=\"dock-icon-button glass-specular-track glass-capsule-hover\" data-press-armed=\"\" title=\"Open camera\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000; --btn-hover-color: lab(92% 88.8 20);\"><svg",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "title": "Reset",
+   "rect": {
+    "w": 40,
+    "h": 40
+   },
+   "html": "<button data-v-bfbc09b0=\"\" type=\"button\" disabled=\"\" aria-disabled=\"true\" class=\"dock-icon-button glass-specular-track glass-capsule-hover\" data-press-armed=\"\" title=\"Reset\" style=\"--dock-press-t: 0.0000; --flex-vel: 0.0000; --btn-hover-col",
+   "inMain": true
+  }
+ ],
+ "taps": [
+  {
+   "tag": "div",
+   "role": "button",
+   "label": "Upload image, click to browse or d",
+   "w": 462,
+   "h": 180,
+   "tabindex": "0"
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Number of colors",
+   "w": 12,
+   "h": 24,
+   "tabindex": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Upload image",
+   "w": 40,
+   "h": 40,
+   "tabindex": null
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Open camera",
+   "w": 40,
+   "h": 40,
+   "tabindex": null
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Chroma weight",
+   "w": 12,
+   "h": 24,
+   "tabindex": "0"
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Reset",
+   "w": 40,
+   "h": 40,
+   "tabindex": null
+  },
+  {
+   "tag": "input",
+   "role": null,
+   "label": "",
+   "w": 414,
+   "h": 24,
+   "tabindex": null
+  }
+ ],
+ "dzBefore": {
+  "label": "Upload image, click to browse or drop an image here",
+  "tabindex": "0"
+ },
+ "dzAfter": {
+  "label": "Image preview area, tap to sample colors",
+  "tabindex": "-1",
+  "cursor": "crosshair"
+ },
+ "tabOrder": [
+  {
+   "tag": "button",
+   "role": "combobox",
+   "label": "Select view",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Login",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "@mbabb",
+   "inMain": false
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Number of colors",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Upload image",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Open camera",
+   "inMain": true
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Chroma weight",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Reset",
+   "inMain": true
+  },
+  {
+   "tag": "input",
+   "role": null,
+   "label": "",
+   "inMain": true
+  },
+  {
+   "tag": "body",
+   "role": null,
+   "label": "→ExtractToolsExtractPalettes Login  @mba",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": "combobox",
+   "label": "Select view",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Login",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "@mbabb",
+   "inMain": false
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Number of colors",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Upload image",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Open camera",
+   "inMain": true
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Chroma weight",
+   "inMain": true
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Reset",
+   "inMain": true
+  },
+  {
+   "tag": "input",
+   "role": null,
+   "label": "",
+   "inMain": true
+  },
+  {
+   "tag": "body",
+   "role": null,
+   "label": "→ExtractToolsExtractPalettes Login  @mba",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": "combobox",
+   "label": "Select view",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "Login",
+   "inMain": false
+  },
+  {
+   "tag": "button",
+   "role": null,
+   "label": "@mbabb",
+   "inMain": false
+  },
+  {
+   "tag": "span",
+   "role": "slider",
+   "label": "Number of colors",
+   "inMain": true
+  }
+ ],
+ "paletteState": {
+  "mainText": "Extract\n\nPull palettes from any image.\n\nSAMPLE\n5\nkC\n0.5\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a new palette\n\n· EMPTY PLATE ·\n\nNo saved palettes yet.\n\nAdd colors above, then save the set.",
+  "swatches": 5
+ },
+ "beforeCorrupt": {
+  "errs": 1,
+  "page": 0
+ },
+ "corruptState": {
+  "unhandled": [
+   "InvalidStateError: The source image could not be decoded."
+  ],
+  "mainText": "Extract\n\nPull palettes from any image.\n\nSAMPLE\n5\nkC\n0.5\nMy Palettes\n\nSave, organize, and share your colors.\n\nStart a new palette\n\n· EMPTY PLATE ·\n\nNo saved palettes yet.\n\nAdd colors above, then save the set.",
+  "previewSrcPrefix": "data:image/png;base64,iVBORw0KGgotLSBub3"
+ },
+ "consoleErrors": [
+  "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev"
+ ],
+ "pageErrors": [
+  "InvalidStateError: The source image could not be decoded."
+ ]
+}

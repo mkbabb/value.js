@@ -1,0 +1,58 @@
+{
+  "beforeSelect": {
+    "scrollY": 0,
+    "consoleScrollTop": 0,
+    "rowsScrollTop": 0,
+    "activeEl": "BODY.relative",
+    "railRect": {
+      "x": 234.47,
+      "y": 635.17
+    }
+  },
+  "afterSelect": {
+    "scrollY": 0,
+    "consoleScrollTop": 0,
+    "rowsScrollTop": 0,
+    "activeEl": "BUTTON.channel-rail-item font-display text-subh",
+    "activeIsSlider": false,
+    "railRect": {
+      "x": 234.47,
+      "y": 635.17
+    }
+  },
+  "selectionEffect": {
+    "consoleDelta": {
+      "changedPx": 68283,
+      "pct": 8.51,
+      "max": 148.6
+    },
+    "rowsDelta_theSlidersThemselves": {
+      "changedPx": 0,
+      "pct": 0,
+      "max": 4.2
+    },
+    "note": "rowsDelta measures whether ANYTHING in the slider column responds to a rail selection"
+  },
+  "tooltip": {
+    "box": {
+      "x": 91.33,
+      "y": 662.33,
+      "w": 1,
+      "h": 1
+    },
+    "text": "a* (Green-Red)(-125 - 125)",
+    "captionBox": null,
+    "maxWidthClass": false
+  },
+  "prominence": {
+    "hoverVsRest": {
+      "changedPx": 13594,
+      "pct": 22.84,
+      "max": 103.9
+    },
+    "note": "selected-dot delta measured earlier in probe-06 focusDelta; both quoted in the report"
+  },
+  "prmPress": {
+    "transform": "matrix(0.96, 0, 0, 0.96, 0, 0)"
+  }
+}

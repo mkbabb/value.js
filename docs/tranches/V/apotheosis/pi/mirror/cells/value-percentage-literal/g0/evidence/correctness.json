@@ -1,0 +1,25 @@
+{
+  "schema": "value.pi.percentage-literal.correctness/v1",
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "status": "PASS_ALL_THREE_CANDIDATES",
+  "candidateSetSha256": "a73cdcd6f8dcf4f8002b3cf0d76105d762dc0b47893453a15cc748bf0c06f6e1",
+  "public": {
+    "casesSha256": "35304fbed79db3827e1b83631f7e5ea8ecfca883dbc7dff4aaec726f692549b0",
+    "successesPerCandidate": 5,
+    "failuresPerCandidate": 6
+  },
+  "holdout": {
+    "receiptSha256": "0e71b964306f8533b09f25f2704d80fdbcad4efeaa676d2e0673a9e0e2198f1c",
+    "revealSha256": "689f68dd26ced87c895431a34b36b8fd3a33723736f904d2f84fc7430a1a9c76",
+    "evaluatorSha256": "c7bf56e43ec0c6c1c561f04fd02b3637ccb5037ed0934ea4a301fecba9b2ef66",
+    "erratumSha256": "caaf4b8127d4d242eebe8a13a60d389af77a208053800e9cd676b634c0e95af6",
+    "successesPerCandidate": 5,
+    "failuresPerCandidate": 10,
+    "oracleCorrection": "The sealed JSON wrote 0 for -0%; the evaluator preserves the reveal and separately requires Object.is(value, -0)."
+  },
+  "candidateTransactions": 78,
+  "strictTypeScript": "PASS",
+  "apotheosisSuite": "PASS_1_FILE_4_TESTS",
+  "candidateMutationAfterFreeze": false,
+  "featureCredit": 0
+}

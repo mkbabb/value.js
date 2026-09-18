@@ -1,0 +1,52 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 9,
+  "owner": "value-unit",
+  "status": "FROZEN_FEATURE_CONTRACT_UNACCEPTED",
+  "operation": "At the current parse-that UTF-16 offset, consume one maximal CSS Syntax 3 number prefix and return its semantic number leaf.",
+  "accepted_prefix": "[+-]?(?:[0-9]*\\.[0-9]+|[0-9]+)(?:[eE][+-]?[0-9]+)?",
+  "guards": [
+    "A dot belongs to the number only when followed by an ASCII digit.",
+    "An exponent marker belongs to the number only when followed by an ASCII digit or by a sign and an ASCII digit.",
+    "The parser succeeds on the maximal valid prefix and leaves all following source to its parent production."
+  ],
+  "result": {
+    "shape": "Readonly<{ value: number; type: 'integer' | 'number'; sign: '+' | '-' | null }>",
+    "value": "JavaScript binary64 Number of the exact consumed representation, preserving Object.is(-0).",
+    "type": "integer exactly when the consumed representation contains neither a decimal point nor an exponent marker.",
+    "sign": "The explicit leading sign or null.",
+    "excluded_observations": ["token object", "atom", "component value", "CST", "source slice", "cursor object"]
+  },
+  "failure": "No throw; one parse-that failure at the entry offset; the ParserState source, predecessor value, offset, and pre-existing-ahead diagnostics remain transactional.",
+  "composition": ["number", "integer", "percentage", "dimension"],
+  "implementation_law": {
+    "required": "One readable exported @mkbabb/parse-that@1.0.0 parser assembled directly from public combinators.",
+    "forbidden": ["manual source or offset access", "imperative scanner", "lexer or token tape", "atom/component-value/CST layer", "broad remainder capture", "loop or recursive cursor walk", "production source mutation"],
+    "note": "A parse-that regex terminal is an idiomatic combinator leaf, not a forbidden external regex parser. There is no combinator-call quota or required construction shape."
+  },
+  "candidate_law": {
+    "seats": ["h", "b", "s", "d"],
+    "minimum_candidates": 4,
+    "isolation": "Each author receives this exact contract, the common public harness, and only that seat's lineage packet and named lineage sources.",
+    "selection": "After all four payloads close and the fresh holdout is revealed, five independent skeptics review the same exact candidate set; three further disjoint adjudicators may select only one already reviewed unblocked exact hash."
+  },
+  "benchmark_law": "Benchmark qualification occurs after candidate closure and correctness, not in pre-author admission. It must execute exact source/build/bundle/corpus/runner/schedule bytes, retain at least two attempts, compare identical work and observations, compute its own statistics, and require strict wins over comparable live-regex, deposed, and C14 peers without correctness relaxation.",
+  "normative_authority": {
+    "path": "../g5/authorities/css-syntax-3.Overview.bs",
+    "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "bytes": 144427,
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "anchor": "consume-number",
+    "line_start": 1610,
+    "line_end_inclusive": 1679,
+    "exact_lf_slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3",
+    "exact_lf_slice_bytes": 2303
+  },
+  "public_evidence": [
+    { "path": "../g5/fixtures/public-cases.json", "sha256": "65006f3ed05ac6db0554deb21e7cf6ef0f2096dc524a7924d9bd3e0857f90cf3", "bytes": 5213 },
+    { "path": "../g8/fixtures/g8-controls.json", "sha256": "3a9e47f7bff1e08f3ba2cd8d7c3aef6dd3fef06de77d049f6d38bea949d27d82", "bytes": 888 },
+    { "path": "../g8/contract.ts", "sha256": "7dec8367db6040150e8be4e31eb762e2c5927c1b86e7d54671277545ddf2f73d", "bytes": 2725 },
+    { "path": "../g8/harness.ts", "sha256": "5a5f9a440f0d2df0f1bdeced756b304224b33e8c794cecc4ef830bef74226864", "bytes": 18556 }
+  ],
+  "credit": "ZERO_CONTRACT_ONLY"
+}

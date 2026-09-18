@@ -1,0 +1,144 @@
+{
+  "schema": "value.pi.syntax-consume-number.g14.acceptance/v1",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 14,
+  "status": "REJECT_ALL_QUINTET_COMPLETE_NO_SYNTHESIS",
+  "subject": {
+    "feature_sha256": "266df7a5994fd7a75cb7bb2eee2fbcee02d38320ae0dde265727c6737626dc29",
+    "candidate_set_sha256": "e2f786bb2e190da3c45e9f6396ffb98bad652772de12c6c047519d48c4fda5e6",
+    "candidates": {
+      "h": "ca17a811198a286c3e07ab06670b76b16f98c513d246696296dd4c3e4abffaa8",
+      "b": "42e6e6a3662c5bb30858b845fe04ced565ff6f755e7edd54d703804285f4e913",
+      "s": "2edb390a542ebb98221c624934b14c009bc07c6b306cf7d4be1ccfcfd74202c8",
+      "d": "a1e4fc2016362f4d1e4b49089c9580b85f6caa19d2adf91f60dd2dac412f8cd8"
+    },
+    "public_evaluator_sha256": "bbeeee5e7333a0105fe85c91624fc2be4c34500447bfe9dfce9de5a426b784b7",
+    "holdout_evaluator_sha256": "887799d06f170c6ae799cfb5ce5d5d825b555e50c394b21f78c5b156890e05c0",
+    "holdout_evidence_sha256": "fdc135c2cb9480a181321824cb67e823c7d9c3af07eaaa56dd8adba4d29c43d9",
+    "benchmark_manifest_sha256": "652f3f5056ff5d4fbcec69bba1b009a4a9612516d31da0a33ee4665b9a7e0807",
+    "benchmark_harness_sha256": "90ee2014b7e8705208c0d45c6ebf245f53ec7be3a573512fec32fb3890193540",
+    "benchmark_result_sha256": "722f5edcd8b25337a0d08d724406f7038cdfa93df632687423c397dee172644a"
+  },
+  "skeptic_reviews": [
+    {
+      "seat": 1,
+      "task": "/root/g14_skeptic_1",
+      "sha256": "3ca39a3cbf56061e020859054a03eab8482286f59228e45a72cd73976115475a",
+      "primary_axis": "specification-and-corpus",
+      "verdict": "ACCEPT_H_AXIS_ONLY_HOLD_APOTHEOSIS"
+    },
+    {
+      "seat": 2,
+      "task": "/root/g14_skeptic_2",
+      "sha256": "a629c8a45f87e7d971c07f127067b99634cce880f7d9c0660b25d866eccd7814",
+      "primary_axis": "parse-that-architecture-and-parsimony",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 3,
+      "task": "/root/g14_skeptic_3",
+      "sha256": "dee4d28e2eb034fd6ceb4ff5394a7a60e73b8da65d5e46e25b628f67aa7b71bc",
+      "primary_axis": "performance-and-benchmark-equivalence",
+      "verdict": "REJECT_ALL"
+    },
+    {
+      "seat": 4,
+      "task": "/root/g14_skeptic_4",
+      "sha256": "68532e850081ad697a0d97cd62de0d21e5798eb912ae8fb316b6c3922086a7ca",
+      "primary_axis": "hostile-state-diagnostics-composition-recovery",
+      "verdict": "ACCEPT_H_D_AXIS_ONLY_REJECT_WAVE"
+    },
+    {
+      "seat": 5,
+      "task": "/root/g14_skeptic_5",
+      "sha256": "921a3f143fd371eebe9eb73fbd539c74020b621a47372a1754bb4c14633de980",
+      "primary_axis": "total-tranche-gestalt",
+      "verdict": "REJECT_ALL_NO_SYNTHESIS_NO_INTEGRATION"
+    }
+  ],
+  "root_findings": {
+    "feature_boundary": "RETAIN_SOUND_VALUE_UNIT_CONSUMING_LEAF_ZERO_CREDIT",
+    "semantic_evidence": "PASS_ALL_FOUR_ON_EXACT_PUBLIC_AND_61_CASE_HOLDOUT",
+    "ranking": ["h", "d", "b", "s"],
+    "candidate_disposition": {
+      "h": "RETAIN_IDIOMATIC_WHOLE_TERMINAL_BASELINE_ZERO_CREDIT",
+      "d": "RETAIN_ENGINE_NATIVE_OPTIMIZATION_COMPARATOR_ZERO_CREDIT",
+      "b": "REJECT_NONPRINTABLE_TRANSACTION_WRAPPER_NON_BBNF_SHAPE_AND_EXCESS_COMPLEXITY",
+      "s": "REJECT_RUNTIME_PARSER_CONSTRUCTION_GLOBAL_ID_EXHAUSTION_AND_NONPRINTABLE_WRAPPER"
+    }
+  },
+  "confirmed_blockers": [
+    {
+      "id": "D-1",
+      "scope": "tranche-denominator",
+      "evidence": "FEATURE-LEDGER remains BORN-RED and has no accepted occurrence-to-feature bijection; ADDENDA-07 forbids pilot acceptance before full-ledger freeze."
+    },
+    {
+      "id": "N-1",
+      "scope": "normative-pin",
+      "evidence": "Fresh CSS Syntax responses preserve the reviewed 10 June 2026 algorithm but do not reproduce feature.json's document hash; retained bytes or a declared canonicalization are absent."
+    },
+    {
+      "id": "O-1",
+      "scope": "candidate-provenance",
+      "evidence": "The bundle records distinct source topologies but lacks the preauthor provenance graph and exact author receipts required by ADDENDA-07; B is not a near-one-for-one transpose of the actual one-terminal BBNF production."
+    },
+    {
+      "id": "A-1",
+      "scope": "candidates-b-s",
+      "evidence": "B and S construct a Parser without context, so the published toString/introspection surface throws parserPrint: missing parser context name."
+    },
+    {
+      "id": "A-2",
+      "scope": "candidate-s",
+      "evidence": "S constructs two Parser objects during each ordinary integer parse; repeated valid calls exhaust the process-global safe parser-ID budget and make later memoized parsing throw."
+    },
+    {
+      "id": "P-1",
+      "scope": "benchmark-custody",
+      "evidence": "The only persisted timing is an unpredeclared third capture after two successful but unpersisted runs; it lawfully grants zero qualification credit."
+    },
+    {
+      "id": "P-2",
+      "scope": "benchmark-operation-equivalence",
+      "evidence": "Candidate lanes construct their intrinsic leaf and then a second normalized leaf, while deposed receives oracle sign/type and constructs only one leaf; LIVE and C14 execute broader public/CST doors. The lanes are not one comparable feature operation."
+    },
+    {
+      "id": "P-3",
+      "scope": "frozen-performance-result",
+      "evidence": "Even if accepted as directional evidence, every exact candidate loses every persisted pair to deposed; no candidate satisfies the declared all-peer strict-win gate."
+    },
+    {
+      "id": "C-1",
+      "scope": "holdout-custody",
+      "evidence": "The replacement holdout frame authenticates byte-identical committed plaintext, but the original frame key expired and original-ciphertext continuity is unavailable."
+    }
+  ],
+  "synthesis_adjudicators": {
+    "status": "NOT_DISPATCHED",
+    "reason": "No exact candidate survived all five skeptic axes without an open blocker; ADDENDA-07 forbids synthesis and root selection."
+  },
+  "cross_repo_engine_assay": {
+    "status": "RED_NO_CONSUMABLE_UPLIFT",
+    "receipt_sha256": "6968e378e024b5c178da830a3878b0fdb72831ca7252aa7abe94b030c4c39ed5",
+    "published_control": "@mkbabb/parse-that@1.0.0",
+    "source_commit": "7eab78c89961001a689952c091fdbbf64af735da"
+  },
+  "next_generation_requirements": [
+    "Retain exact H as the architecture baseline and exact D as an optimization comparator; replace B/S only with static, printable, genuinely orthogonal direct-combinator constructions.",
+    "Persist preauthor provenance and author receipts; do not inflate a BBNF seat when historical and acknowledged BBNF sources converge on one terminal shape.",
+    "Retain or canonically pin the normative CSS document bytes.",
+    "Seal a fresh hidden corpus before G15 authors because G14's cases are now revealed.",
+    "Predeclare a create-once raw result path and preserve the first timing attempt, including checksums, medians, dispersion, environment, exits, and attempt identity.",
+    "Benchmark one equivalent leaf operation: candidates reuse their intrinsic leaf; deposed derives sign/type/end and constructs one equivalent leaf; broader LIVE/C14 doors are separately adapted or NON_COMPARABLE.",
+    "Use seeded balanced/reversed blocks without fixed-neighbor confounding and keep corrected-only inputs distinct from the common peer domain.",
+    "Rerun public, hidden, benchmark, and all five skeptic passes over the exact G15 subject before any synthesis or integration."
+  ],
+  "credits": {
+    "parser": 0,
+    "feature": 0,
+    "benchmark": 0,
+    "integration": 0,
+    "production": 0
+  }
+}

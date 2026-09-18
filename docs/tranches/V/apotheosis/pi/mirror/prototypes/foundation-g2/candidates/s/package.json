@@ -1,0 +1,13 @@
+{
+  "name": "foundation-g2-candidate-s",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run --config vitest.config.ts",
+    "typecheck": "tsc --project tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@mkbabb/parse-that": "1.0.0"
+  }
+}
+

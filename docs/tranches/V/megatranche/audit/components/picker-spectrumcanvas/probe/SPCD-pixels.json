@@ -1,0 +1,215 @@
+{
+  "light": {
+    "blackFraction": 0.1215,
+    "sampled": 11470,
+    "edgeContrast": {
+      "topLeft": {
+        "outside": [
+          244,
+          182,
+          215
+        ],
+        "inside": [
+          248,
+          244,
+          245
+        ],
+        "contrastRatio": 1.538
+      },
+      "bottomLeft": {
+        "outside": [
+          244,
+          187,
+          209
+        ],
+        "inside": [
+          6,
+          6,
+          6
+        ],
+        "contrastRatio": 12.423
+      },
+      "topRight": {
+        "outside": [
+          244,
+          196,
+          207
+        ],
+        "inside": [
+          248,
+          4,
+          61
+        ],
+        "contrastRatio": 2.688
+      },
+      "bottomRight": {
+        "outside": [
+          244,
+          203,
+          205
+        ],
+        "inside": [
+          7,
+          0,
+          2
+        ],
+        "contrastRatio": 14.131
+      },
+      "leftMid": {
+        "outside": [
+          244,
+          184,
+          211
+        ],
+        "inside": [
+          127,
+          125,
+          125
+        ],
+        "contrastRatio": 2.464
+      }
+    }
+  },
+  "dark": {
+    "blackFraction": 0.1215,
+    "sampled": 11470,
+    "edgeContrast": {
+      "topLeft": {
+        "outside": [
+          122,
+          77,
+          101
+        ],
+        "inside": [
+          248,
+          244,
+          245
+        ],
+        "contrastRatio": 6.256
+      },
+      "bottomLeft": {
+        "outside": [
+          122,
+          81,
+          97
+        ],
+        "inside": [
+          6,
+          6,
+          6
+        ],
+        "contrastRatio": 3.065
+      },
+      "topRight": {
+        "outside": [
+          122,
+          88,
+          95
+        ],
+        "inside": [
+          248,
+          4,
+          61
+        ],
+        "contrastRatio": 1.498
+      },
+      "bottomRight": {
+        "outside": [
+          122,
+          94,
+          94
+        ],
+        "inside": [
+          7,
+          0,
+          2
+        ],
+        "contrastRatio": 3.555
+      },
+      "leftMid": {
+        "outside": [
+          122,
+          79,
+          99
+        ],
+        "inside": [
+          127,
+          125,
+          125
+        ],
+        "contrastRatio": 1.642
+      }
+    }
+  },
+  "forced": {
+    "blackFraction": 0.1215,
+    "sampled": 11470,
+    "edgeContrast": {
+      "topLeft": {
+        "outside": [
+          255,
+          255,
+          255
+        ],
+        "inside": [
+          248,
+          244,
+          245
+        ],
+        "contrastRatio": 1.091
+      },
+      "bottomLeft": {
+        "outside": [
+          255,
+          255,
+          255
+        ],
+        "inside": [
+          6,
+          6,
+          6
+        ],
+        "contrastRatio": 20.262
+      },
+      "topRight": {
+        "outside": [
+          255,
+          255,
+          255
+        ],
+        "inside": [
+          248,
+          4,
+          61
+        ],
+        "contrastRatio": 4.137
+      },
+      "bottomRight": {
+        "outside": [
+          255,
+          255,
+          255
+        ],
+        "inside": [
+          7,
+          0,
+          2
+        ],
+        "contrastRatio": 20.794
+      },
+      "leftMid": {
+        "outside": [
+          255,
+          255,
+          255
+        ],
+        "inside": [
+          127,
+          125,
+          125
+        ],
+        "contrastRatio": 4.092
+      }
+    }
+  }
+}

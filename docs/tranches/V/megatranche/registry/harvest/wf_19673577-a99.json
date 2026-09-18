@@ -1,0 +1,176 @@
+{
+ "runId": "wf_19673577-a99",
+ "workflow": "wf_19673577-a99",
+ "resultCount": 13,
+ "results": [
+  {
+   "agentId": "a117a7af12f608045",
+   "key": "v2:8f419495447635c34c407782f19bfa690c1678c339ff90ab7c09ce425c56f370",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W1.md",
+    "gates": 21,
+    "bornRed": 21,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "ab141d58269c33f61",
+   "key": "v2:b7b2929e17709912a7de8f076058ce813a723aab90a22a3b604d8fcb589b073e",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W3.md",
+    "gates": 22,
+    "bornRed": 19,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "a74e009a1ac073080",
+   "key": "v2:7876ee3791a141213c1d65e89717bb7ea985c2651f46de0efbc4dda1f06eb4b0",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W5.md",
+    "gates": 28,
+    "bornRed": 25,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "a3a5ccd617e5fe1b9",
+   "key": "v2:1604861814b7b40b551667cd04f6afced54785b8a6ba84337dad4e8f7baf155e",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W10.md",
+    "gates": 9,
+    "bornRed": 9,
+    "blockedRows": [
+     "CC-112"
+    ]
+   }
+  },
+  {
+   "agentId": "a6eb4687886293294",
+   "key": "v2:035da1212582a67523621046ee2079acd5d19064e1fb9560132c445fb0b8f24c",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W7.md",
+    "gates": 20,
+    "bornRed": 19,
+    "blockedRows": [
+     "CC-115 (A-21 compact formatting + A-22 badge min-inline-size floor) — BLOCKED-ON TR#87 shipping at glass 8.0.0; X-W7 builds only CC-070's ruled consumer interim (G16/G17), never an early adoption",
+     "CC-074 producer half (A-19 chip-overflow TR#43, A-20 priority-collapse TR#76 LIB-SEAM) — NEW-SEAT default DECLINE-AT-8.0.0, owner-revivable next-window; glass-owned and never a value gate. The consumer composition interim IS built here",
+     "CC-044 (six WatercolorDot impostors) — BLOCKED-ON CC-003's four-part trigger; not opened even where a palette surface hosts a watercolor-dot",
+     "CC-113 (A-18 watercolor indicator paint) — BLOCKED-ON TR#84's consumer-painted indicator slot at 8.0.0"
+    ]
+   }
+  },
+  {
+   "agentId": "a208a88e24a378969",
+   "key": "v2:c12e8af68f032d0d6c7566cd98f229bd13d808a8a40347de388c6afb8da2e8c9",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W0.md",
+    "gates": 16,
+    "bornRed": 14,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "ae354b9ee2370b2b8",
+   "key": "v2:a4b7068daa34249e0654e9b41996bc1cd6a69024e33b6fd3d1d1779b5952e7b3",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W11.md",
+    "gates": 12,
+    "bornRed": 10,
+    "blockedRows": [
+     "CC-003",
+     "CC-044",
+     "CC-105",
+     "CC-106",
+     "CC-107",
+     "CC-110",
+     "CC-111",
+     "CC-112",
+     "CC-113",
+     "CC-114",
+     "CC-115"
+    ]
+   }
+  },
+  {
+   "agentId": "ae79d54ec52a3d0cd",
+   "key": "v2:e936c5e696651eb5575d740f2fc6a19590b8a00cf5ac1669dd06168ea2303c50",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W2.md",
+    "gates": 8,
+    "bornRed": 7,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "abbbaffd3d3b3eca4",
+   "key": "v2:3cbaecaf3b36ed770394cb8e6413f19352e686b1a7acd6d68535885843fef101",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W6.md",
+    "gates": 50,
+    "bornRed": 46,
+    "blockedRows": [
+     "CC-058 · D-6/D2-16 limb (MT-GRADSTOP-2 WatercolorDot faces) — held in the glass bank under CC-003's four-condition Glass-8 trigger; receiving row CC-113. Adopting ./watercolor-dot now would mint a seventh impostor that CC-044's atomic cut must delete (second migration forbidden). Remainder of MT-GRADSTOP-2 builds in X-W6.b."
+    ]
+   }
+  },
+  {
+   "agentId": "abe6e03ef51f601a0",
+   "key": "v2:e3f1ecb83637d393bcef020168f2360cafb1cf18e08a983100afa233659e97a7",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W9.md",
+    "gates": 33,
+    "bornRed": 31,
+    "blockedRows": []
+   }
+  },
+  {
+   "agentId": "a43f38225b1c608d4",
+   "key": "v2:cd6696454a217a72ae207e0b44b6db1214a9126e5ffb192ce70a097dc28fe7dd",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W8.md",
+    "gates": 15,
+    "bornRed": 14,
+    "blockedRows": [
+     "NONE of the assigned rows were banked - CC-078, CC-079, CC-080, CC-081 (Button/Skeleton/dead-surface/overlay limbs), CC-007, CC-082, CC-083 all land in X-W8",
+     "CC-044 - NOT assigned; adjacent row kept banked, named in Do-NOT-touch (trigger: CC-003's four-part Glass-8 census event; one atomic cut, not a barrel rewrite)",
+     "CC-105 - NOT assigned; adjacent row kept banked (trigger: the 8.0.0 repin census). The slider import lines are in bounds; the --slider-track-bg style sites are not",
+     "CC-107 retirement half - NOT assigned; kept banked (trigger: glass TR#47 dock publish). Building the paintedTintOf walk in G-13 is unblocked; retiring the probe is not",
+     "CC-113 - NOT assigned; kept banked (trigger: glass TR#84 consumer-painted indicator slot)",
+     "CC-114 - NOT assigned; kept banked (trigger: glass TR#22 --glass-shadow-capsule)",
+     "CC-115 - NOT assigned; kept banked (trigger: glass TR#87 at 8.0.0)",
+     "I-17 spectrum shim (demo/styles/foundation.css:571-574) - kept banked against its six named conditions; its own in-comment 'W8 /slider consume' checkpoint refers to V-prime W8, not X-W8",
+     "CC-081 Checkbox limb routed to X-W7 and ICtCp limb to X-W9 by the ledger itself - not a bank, a ledger-directed split"
+    ]
+   }
+  },
+  {
+   "agentId": "af3dd0d62c2def4a1",
+   "key": "v2:9dd0005d79a5b33d1a329722cf57b912132dd2d1506fc66db3ea8b7e0cd916d9",
+   "result": {
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/X/waves/W4.md",
+    "gates": 16,
+    "bornRed": 13,
+    "blockedRows": [
+     "CC-044",
+     "CC-003"
+    ]
+   }
+  },
+  {
+   "agentId": "adf88292d3fa7600a",
+   "key": "v2:987dadd24c082bd9f01ab85b85cd100eeb1b06427328cd51c560bdcf3074e6ef",
+   "result": {
+    "report": "L-20 conformance adjudication complete; full verdicts at /Users/mkbabb/Programming/value.js/docs/tranches/X/CONFORMANCE-2026-08-03.md. All twelve wave files (W0..W11) carry every WAVE_SPEC-mandated section, an argued COMPLETABLE (C-06), an L-18 two-quartet rider, and born-RED gates with measured baselines or explicit MEASURE-AT-OPEN — zero glass-bank smuggling and zero re-litigation found; all 63 ledger BUILD rows are owned. VERDICTS — CONFORMANT: W0, W1, W3, W4. DEFECTS (9 numbered, each with an exact fix): W2 (Status field uses off-enum token SPECIFIED; fix: `planned`); W5 (close commit stamps VERIFIED; four-verb/L-18 law puts gates-green at IMPLEMENTED); W6 (Hard Gate invokes ~9 new gate/probe scripts — docs/tranches/X/gates/*.mjs + probes/x-w6/*.mjs — absent from File Bounds, tripping its own bounds-expansion trigger); W7 (Opens-after omits X-W6 despite four shared modify paths — ColorSpaceSelector/AuroraPane/MixConfigBar/MixSourceSelector — and W6's own Blocks claim; admits a §4a parallel-write violation); W8 (same gap vs X-W6 on the three gradient composables its unit .c rewrites); W9 (State claims \"three explicitly marked MEASURE-AT-OPEN\" but only G24 is marked; plus \"order-independent of X-W2..X-W8\" contradicted by the shared ConsoleRail.vue path with X-W4.a); W10 (phase-3 implementation units .d/.e/.f declare no model seat — M-23 requires Opus declared, and the tranche's own W3 standard says an undeclared seat is a defect); W11 (docs-lint cure names two wrong owners and its \"cured here\" arm exceeds its own File Bounds — real owner is X-W8 G-6's docs-tree ignore). TRANCHE-LEVEL: (1) two one-directional ordering contradictions — W6 Blocks W7/W8, neither reciprocates (fixed by W7-D1/W8-D1); (2) the Glass-8 repin census has NO receiving wave anywhere — W4 §10a explicitly disclaims being the bank rows' home, so a mid-tranche trigger-fire orphans the atomic cut (fix: name the receiving surface in ledger §2 or W4 §10a); (3) four unowned ledger rows (below), of which CC-011 is the real miss — its C-13 RETIRE act appears in no wave and W11 G1 requires a tombstone path nobody authors (home it in X-W0.f); (4) status-verb convention drift (W4/W10 stamp IMPLEMENTED at close, W5/W1 stamp VERIFIED — ratify one convention). Denominator law clean: no unqualified 264/264, no proof-*.mjs, every gate names a falsifier.",
+    "conformant": 4,
+    "defective": 8,
+    "unownedRows": [
+     "CC-011 (V·L5 RETIRE per C-13 — routing-law rewrite + middot normalization): named in 0/12 wave files; W0's tombstone set stops at CC-015..CC-023, so W11 G1's required RETIRED-with-tombstone-path has no author",
+     "CC-109 (G-4 thumb glyph, FOLD → glass seat — value action = consume at the 8.0.0 repin census): no wave owns it and no wave owns the census event itself",
+     "CC-116 (I-21 remainder, FOLD → glass TR seats — value action = the single 8.0.0 repin census): appears only inside W1's range mention (CC-105..CC-116); no wave owns it",
+     "CC-117 (five 08-02 peer intakes, FOLD → INBOX I-24): evidence-only by design, but no wave emits its terminal word for W11 G1's 117-row walk"
+    ]
+   }
+  }
+ ]
+}

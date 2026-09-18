@@ -1,0 +1,327 @@
+{
+ "desktopLight": {
+  "rowCount": 3,
+  "rowBoxes": [
+   {
+    "x": 225,
+    "y": 408.8,
+    "w": 460,
+    "h": 56
+   },
+   {
+    "x": 225,
+    "y": 618.8,
+    "w": 460,
+    "h": 56
+   },
+   {
+    "x": 225,
+    "y": 688.8,
+    "w": 460,
+    "h": 56
+   }
+  ],
+  "rowClasses": "flex items-center gap-3 px-3 py-2.5 transition-colors cursor-pointer hover:bg-accent/50 focus-visible:bg-accent/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+  "rowChildInteractive": [
+   2,
+   2,
+   2
+  ],
+  "toolbarButtons": [
+   {
+    "text": "Prune empty",
+    "box": {
+     "x": 470.5,
+     "y": 359.8,
+     "w": 120.4,
+     "h": 36
+    },
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "14.384px",
+    "font-style": "italic",
+    "font-weight": "400",
+    "min-height": "36px",
+    "height": "36px",
+    "padding-inline-start": "10px",
+    "color": "rgb(28, 25, 23)",
+    "border-color": "rgb(28, 25, 23)"
+   },
+   {
+    "text": "Refresh",
+    "box": {
+     "x": 598.9,
+     "y": 359.8,
+     "w": 87.1,
+     "h": 36
+    },
+    "font-family": "Fraunces, \"Fraunces Fallback\", serif",
+    "font-size": "14.384px",
+    "font-style": "italic",
+    "font-weight": "400",
+    "min-height": "36px",
+    "height": "36px",
+    "padding-inline-start": "10px",
+    "color": "rgb(28, 25, 23)",
+    "border-color": "rgb(28, 25, 23)"
+   }
+  ],
+  "rowActionButtons": [
+   {
+    "text": "Palettes",
+    "box": {
+     "x": 549.1,
+     "y": 418.8,
+     "w": 89.9,
+     "h": 36
+    }
+   },
+   {
+    "text": "Palettes",
+    "box": {
+     "x": 549.1,
+     "y": 628.8,
+     "w": 89.9,
+     "h": 36
+    }
+   },
+   {
+    "text": "Palettes",
+    "box": {
+     "x": 549.1,
+     "y": 698.8,
+     "w": 89.9,
+     "h": 36
+    }
+   }
+  ],
+  "slugPill": {
+   "text": " admin ",
+   "box": {
+    "x": 702.1,
+    "y": 25.9,
+    "w": 68.5,
+    "h": 28.9
+   },
+   "color": "oklch(0.751 0.147 84.199997)",
+   "border-color": "oklch(0.751 0.147 84.199997)",
+   "border-width": "1px",
+   "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+   "font-size": "16.4px",
+   "font-weight": "700"
+  },
+  "firstRowInner": [
+   {
+    "label": "Palettes",
+    "box": {
+     "x": 549.1,
+     "y": 418.8,
+     "w": 89.9,
+     "h": 36
+    }
+   },
+   {
+    "label": "Delete user aurora-drifting-lantern-4471",
+    "box": {
+     "x": 645,
+     "y": 418.8,
+     "w": 28,
+     "h": 36
+    }
+   }
+  ],
+  "mainWidth": 1408,
+  "cards": [
+   {
+    "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+    "box": {
+     "x": 199,
+     "y": 205,
+     "w": 512,
+     "h": 569.8
+    }
+   },
+   {
+    "cls": "glass-resting card rounded-card text-card-foreground scrollb",
+    "box": {
+     "x": 729,
+     "y": 205,
+     "w": 512,
+     "h": 569.8
+    }
+   }
+  ],
+  "h1Count": 0,
+  "docTitle": "lab(92% 88.8 20 / 82.7%) · Users — Color Picker"
+ },
+ "expanded": {
+  "expandedRowAria": "true",
+  "hasAriaControls": false,
+  "disclosureId": null,
+  "disclosureBox": {
+   "y": 362.8,
+   "h": 233
+  },
+  "paletteCards": 0,
+  "nestedCardShellClass": "rounded-md border border-card-edge overflow-hidden"
+ },
+ "dialog": {
+  "present": true,
+  "role": "dialog",
+  "hasAriaModal": null,
+  "focused": "BUTTON:Cancel",
+  "text": "Delete user?This will permanently delete user aurora-drifting-lantern-4471 and all associated data. This cannot be undone.Cancel Delete user",
+  "buttons": [
+   {
+    "text": "Cancel",
+    "bg": "rgba(0, 0, 0, 0)",
+    "color": "oklch(0.470927 0.188343 9.834023)",
+    "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "w": 61.6,
+    "h": 40
+   },
+   {
+    "text": "Delete user",
+    "bg": "rgb(219, 36, 36)",
+    "color": "rgb(251, 250, 248)",
+    "fontFamily": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+    "w": 142,
+    "h": 40
+   }
+  ],
+  "pillInDescription": true
+ },
+ "darkHover": {
+  "color": "rgb(235, 71, 71)",
+  "background": "oklab(0.633291 0.181478 0.084362 / 0.1)"
+ },
+ "mobile": {
+  "docScrollW": 390,
+  "innerW": 390,
+  "rowBoxes": [
+   {
+    "x": 34,
+    "w": 322,
+    "h": 74
+   },
+   {
+    "x": 34,
+    "w": 322,
+    "h": 74
+   },
+   {
+    "x": 34,
+    "w": 322,
+    "h": 74
+   }
+  ],
+  "slugTexts": [
+   "admin",
+   "aurora-drifting-lantern-4471",
+   "empty-ghost-quiet-meadow-77",
+   "empty-ghost-quiet-meadow-33",
+   "z",
+   "an-extremely-long-user-slug-that-will-certainly-need-truncating-on-a-phone-9912"
+  ],
+  "slugBoxes": [
+   {
+    "x": 0,
+    "w": 0,
+    "h": 0
+   },
+   {
+    "x": 46,
+    "w": 113.1,
+    "h": 25.6
+   },
+   {
+    "x": 46,
+    "w": 217.1,
+    "h": 25.6
+   },
+   {
+    "x": 46,
+    "w": 217.1,
+    "h": 25.6
+   },
+   {
+    "x": 46,
+    "w": 26.6,
+    "h": 25.6
+   },
+   {
+    "x": 46,
+    "w": 126,
+    "h": 25.6
+   }
+  ],
+  "rowButtonBoxes": [
+   {
+    "label": "Palettes",
+    "x": 225,
+    "w": 85,
+    "h": 54
+   },
+   {
+    "label": "Delete user aurora-drifting-lantern-4471",
+    "x": 316,
+    "w": 28,
+    "h": 54
+   },
+   {
+    "label": "Palettes",
+    "x": 225,
+    "w": 85,
+    "h": 54
+   },
+   {
+    "label": "Delete user z",
+    "x": 316,
+    "w": 28,
+    "h": 54
+   },
+   {
+    "label": "Palettes",
+    "x": 225,
+    "w": 85,
+    "h": 54
+   },
+   {
+    "label": "Delete user an-extremely-long-user-slug-that-will-certainly-need-truncating-on-a-phone-9912",
+    "x": 316,
+    "w": 28,
+    "h": 54
+   }
+  ],
+  "toolbarWrapped": [
+   {
+    "x": 249.1,
+    "w": 107.9,
+    "h": 54
+   },
+   {
+    "x": 33,
+    "w": 79.7,
+    "h": 54
+   }
+  ]
+ },
+ "reducedMotion": {
+  "celebrateRules": [
+   ".error-badge[data-v-55dadc03] { position: absolute; right: 0.5rem; top: 50%; transform: translateY(-50%); font-size: var(--text-xs, 0.75rem); line-height: 1; padding: 0.2rem 0.4rem; border-radius: var(--radius-sm); background: var(--destructive); color: var(--",
+   ".vj-celebrate-enter-active { transition: opacity var(--duration-fast) var(--ease-decelerate),\n        transform var(--spring-bouncy-duration) var(--spring-bouncy),\n        max-height var(--duration-normal) var(--ease-decelerate); overflow: hidden; }",
+   ".vj-celebrate-leave-active { transition: opacity var(--duration-fast) var(--ease-accelerate),\n        transform var(--duration-fast) var(--ease-accelerate),\n        max-height var(--duration-fast) var(--ease-accelerate); overflow: hidden; }",
+   ".vj-celebrate-enter-from, .vj-celebrate-leave-to { opacity: 0; transform: translate(var(--vj-celebrate-x, 0px), var(--vj-celebrate-y, 0px))\n        scale(var(--vj-celebrate-scale, 0.9)); max-height: var(--vj-celebrate-collapse, none); }",
+   ".vj-celebrate-enter-to, .vj-celebrate-leave-from { max-height: var(--vj-celebrate-expanded, none); }",
+   ".feedback-chip[data-v-b0fe04fe] { --vj-celebrate-collapse: 0px; --vj-celebrate-expanded: 2.5rem; --vj-celebrate-scale: 1; }"
+  ],
+  "rowTransition": {
+   "prop": "opacity, color, background-color, border-color, box-shadow",
+   "dur": "0.1s"
+  },
+  "spinKeyframeGated": null,
+  "prefersReduced": true
+ },
+ "error": {
+  "text": "Users 0Manage accounts and permissions.0 users Prune empty Refresh The roster is unreachable.Internal Server Error Retry My PalettesSave, organize, and share your colors.Start a new palette· empty plate ·No saved palettes yet.Add colors above, then save the set."
+ }
+}

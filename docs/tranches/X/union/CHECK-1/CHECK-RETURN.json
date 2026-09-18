@@ -1,0 +1,35 @@
+{
+ "verdict": "THE REGISTER \u2014 not UNION-CLEAN. 2 MAJOR + 4 MINOR. The three artifacts survive hostile re-walk on substance: every seam verdict I re-tested at both ends holds (19 of 24 seams walked, incl. all 9 convictions), the G-F adjudication's arithmetic reproduces cell-for-cell under independent re-derivation (92/604/73; P1 442 lines / 58 records / \u03a3590; P2 complement 19 rows across exactly the 5 named records with ApiOfflineChip=7), 10 independently drawn NWO rows are all carried at namespace-correct fold coordinates, all 27 runbook gates exist at their cited coordinates, all ordering coordinates I checked resolve, planning-only posture is clean, and E-3 holds by git status. But the runbook of record drops a hard sequencing declaration in the section titled THE ORDER, and one CONSISTENT seam stamp rests on a quotation its own cited command does not produce.",
+ "defects": [
+  {
+   "severity": "MAJOR",
+   "claim": "RUNBOOK REALITY \u2014 the runbook drops F.W9's declared predecessor chain entirely. F-W9 \u00a7State declares three hard predecessors; the runbook's Track C draws F.W9 as a root node with no incoming edge, and no ordering edge into F.W9 exists anywhere in the file. Combined with \u00a71.0 ('the four heads may open together at the begin-word'), an executor reading Track C can open F.W9 beside F.W0. This is the exact class \u00a71's own preamble commits to sourcing.",
+   "receipt": "`sed -n '15p' /Users/mkbabb/Programming/value.js/docs/tranches/X/fourier/waves/F-W9.md` \u2192 \"**Opens after**: F.W0 (substrate pre-gates, hard) \u2192 F.W1 (atomic) \u2192 F.W3/W4 (the cures this wave gates).\"  vs  EXECUTION-RUNBOOK.md:175 `F.W9 \u2500\u2500\u25ba F.W10   \u2500\u2500 RE-CUT-0 \u2026` drawn at the left margin at the same indent as F.W0/F.W1; `grep -n 'F\\.W9' EXECUTION-RUNBOOK.md` \u2192 11 hits, the only \u00a71.3 edge-table row being :195 `| F.W9 \u2194 F.W10 | RE-CUT-0 \u2026|` \u2014 zero rows cite F.W0/F.W1/F.W3/F.W4 \u2192 F.W9. Runbook \u00a71 preamble (:44) names the source as \"X\u00b7F each `F-W*.md` \u00a7State `Opens after`\"."
+  },
+  {
+   "severity": "MAJOR",
+   "claim": "SEAMS S-10 (CONSISTENT) rests on a quotation that does not exist in the file and that its own cited command does not return. The seam's substance survives (the 7.0.0 exact devDep IS at both ends), but the register's \u00a7Method makes 'quoted by a runnable command' the sole basis for a CONSISTENT stamp \u2014 and this stamp's quote is synthesized. It is a worse instance of the class S-19 convicts nine sections later.",
+   "receipt": "SEAMS.md:322 states \u27e8cmd\u27e9 `grep -n 'AGG-P1' keyframes/waves/KF-W0.md | head -1` \u2192 *\"`origin/master` package.json:77 carries `@mkbabb/glass-ui: 7.0.0` as an EXACT devDep (census SCH-1, AGG-P1), so the phantom-dependency headline is FALSIFIED at HEAD\"*. Re-run at HEAD cbc201f7: that command returns `269:| **D-4** \u2014 \\`AGG-P1\\`, the probe that DECIDED SCH-1, absent from the wave that re-runs SCH-1 |\u2026`. `grep -c 'phantom-dependency' keyframes/waves/KF-W0.md` \u2192 0; `grep -n 'FALSIFIED' keyframes/waves/KF-W0.md` \u2192 only :361, a different sentence. MITIGATION: the fact is real at KF-W0.md:514 (`git show origin/master:package.json \u2192 :77 \"@mkbabb/glass-ui\": \"7.0.0\" under devDependencies`) and :522 (\"**exact devDep**\"), so the CONSISTENT verdict itself stands."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "RUNBOOK misquotes the F.W1 atomic charter as already carrying the 9.0.0 branch. The '/9' is the runbook's own S-11 extension \u2014 which \u00a73.2 correctly books as an owed addendum \u2014 rendered inside a citation of the spec bytes, pre-empting the E-3 addendum it elsewhere says is required.",
+   "receipt": "EXECUTION-RUNBOOK.md:189 `| F.W1 atomic | F-W1 \u00a74 step 4: **ONE commit, TWELVE limbs** (glass 4\u21927(\u21928/9, G1/ESC-1 owner-gated) \u2227 \u2026)`. Measured: `grep -c '9\\.0\\.0' fourier/waves/F-W1.md` \u2192 **0**; `sed -n '5p' F-W1.md` \u2192 \"glass-ui **4\u21927(\u21928, G1-gated)**\"; `sed -n '276p' F-W1.md` (= \u00a74 step 4) carries no version branch at all, only \"producer bump (glass + keyframes + value, lockstep per MPC-14)\". `grep -rl '9\\.0\\.0' waves/ keyframes/waves/ fourier/waves/ parse-that/waves/ COHESION.md` \u2192 no output: no X spec anywhere contains the string."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "SEAMS S-11's ACK receipt cites a byte size belonging to a different file in the same listing \u2014 the size is transposed from the adjacent row. Name, date, timestamp and existence are all correct, and the ACK's quoted contents all verify at the bytes.",
+   "receipt": "SEAMS.md:334 quotes `ls -la \u2026/BK/coordination/` \u2192 \"`glass-outbound-2026-08-29-valuejs-o20-ack.md` (3,438 B, 2026-08-29 16:41)\". Measured: that file is **3293 B** (Aug 29 16:41); **3438 B** is `ATLAS-TO-GLASS-2026-08-03-AUDIT-BATCH.md`, the row immediately above it in the same `ls -la` output."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "SEAMS S-14's receipt command cannot produce its stated output, and its enumeration misattributes O-15 to X\u00b7F. Verdict (no O-number collisions; no X\u00b7V/X\u00b7F/X\u00b7P file mints an outbound id) survives independent re-derivation.",
+   "receipt": "SEAMS.md:453 cites `grep -rEo 'O-1[0-9]|O-2[0-9]' fourier/waves/ waves/ | cut -d: -f1,3 | sort -u` \u2014 grep -o emits 2-field `file:match`, so `-f1,3` prints filenames only, never the id list quoted. Re-derived over fourier/waves/ + waves/ + parse-that/waves/: O-15 occurs ONLY in parse-that (W1, W2, W2-fable-author, W2-opus-author, W3, W4); X\u00b7F cites O-10\u00b7O-14\u00b7O-17\u00b7O-20; X\u00b7V cites O-18 (W7) \u00b7 O-19 (W4). SEAMS lists O-15 under \"X\u00b7F cites\"."
+  },
+  {
+   "severity": "MINOR",
+   "claim": "RUNBOOK \u00a71 overstates its X\u00b7F provenance: 3 of 11 F-W* specs carry no `Opens after` declaration at all. The edges themselves hold (F.W6's real declaration is quoted correctly at \u00a71.3), but the named source does not exist for three specs.",
+   "receipt": "EXECUTION-RUNBOOK.md:44 \u2014 \"X\u00b7F each `F-W*.md` \u00a7State `Opens after`\". Measured per-file: F-W6.md \u2192 no 'Opens after' line; F-W10.md \u2192 no 'Opens after' line; F-W4.md's only match (:33) is a citation of F-W1's line (\"F.W1 is pinned `4\u21927(\u21928, G1-gated)` and *opens after \u2026 ESC-1 ruled (G1)*\"), not its own. F-W6's actual edge is at its \u00a74 (:536) \"**In-wave order** \u2026 `a` preconditions (FW6-G19 receipt + F.W5 clause set + FW6-G18 rulings)\" \u2014 which the runbook quotes accurately."
+  }
+ ]
+}

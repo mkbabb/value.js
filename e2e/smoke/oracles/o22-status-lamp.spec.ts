@@ -1,3 +1,7 @@
+import { readFileSync, readdirSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { test, expect } from "@playwright/test";
 
 /**
@@ -27,14 +31,47 @@ import { test, expect } from "@playwright/test";
  * consumes.
  */
 
+/**
+ * Every file under `demo/` whose bytes name `needle`. The census walks the
+ * tracked product tree rather than asking the browser, because a resurrection
+ * guard must be able to fail BEFORE the thing it guards against is rendered.
+ */
+function sourcesNaming(needle: string): string[] {
+    const root = fileURLToPath(new URL("../../../demo", import.meta.url));
+    const hits: string[] = [];
+    const walk = (dir: string) => {
+        for (const entry of readdirSync(dir, { withFileTypes: true })) {
+            const full = join(dir, entry.name);
+            if (entry.isDirectory()) {
+                if (entry.name === "test") continue;
+                walk(full);
+            } else if (/\.(vue|ts|css|html)$/.test(entry.name)) {
+                if (readFileSync(full, "utf8").includes(needle)) hits.push(full);
+            }
+        }
+    };
+    walk(root);
+    return hits;
+}
+
 test.describe("O-22 · the dock status lamp (W6-6 / T-9)", () => {
-    test("healthy backend → no lamp; the dead banner stays dead", async ({
-        page,
-    }) => {
+    test("healthy backend → no lamp; the dead banner stays dead", async ({ page }) => {
         await page.goto("/");
         await page.waitForSelector(".glass-dock");
-        // The banner's negative watch (the resurrection guard).
-        await expect(page.locator(".dev-misconfig-banner")).toHaveCount(0);
+        // ── X-W1 · R2/R29 (AP-4) — the resurrection guard, made capable of
+        // failing. It watched `.dev-misconfig-banner` at RUNTIME, a class that
+        // exists in no product byte and never has since the banner died: the
+        // assertion was a tautology, green forever, and it would stay green if
+        // the banner came back under any other class name. R29's cure is
+        // literal — *"watch the STRING per MT-F031's born-RED grep, not a dead
+        // selector"* — so the guard is now a SOURCE census that reds the moment
+        // the banner's own identifier reappears anywhere in `demo/`.
+        expect(
+            sourcesNaming("dev-misconfig-banner"),
+            "the dev-misconfig BANNER was killed by owner order and re-homed as the dock band's status lamp; these files resurrect it",
+        ).toEqual([]);
+        // Its live successor is the lamp, whose absence under a healthy backend
+        // is the real runtime claim.
         // A healthy band carries no lamp (correct variant per precondition:
         // available → nothing).
         await expect(page.locator(".dock-status-lamp")).toHaveCount(0);
@@ -69,9 +106,7 @@ test.describe("O-22 · the dock status lamp (W6-6 / T-9)", () => {
         ).toBe(true);
         await expect(nav).toBeVisible();
         // … and NOT inside the dock's collapsible layer machinery.
-        expect(
-            await lamp.evaluate((el) => !!el.closest(".dock-layers")),
-        ).toBe(false);
+        expect(await lamp.evaluate((el) => !!el.closest(".dock-layers"))).toBe(false);
 
         // Geometry: the lamp is ON the band's axis (its vertical centre falls
         // within the dock pill's band), parked at the inline end — it never

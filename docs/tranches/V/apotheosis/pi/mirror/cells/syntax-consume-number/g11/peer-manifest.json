@@ -1,0 +1,17 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 11,
+  "status": "FROZEN_EXACT_PEER_EXECUTION_BOUNDARY",
+  "worker": { "path": "peer-worker.mjs", "sha256": "d13cc5bf13c48c359216cb048926a8d9e61cc8cf472348966e660440e2b0fbf9", "bytes": 1933 },
+  "harness": { "path": "peer-harness.mjs", "sha256": "d614667170709f92c96aed023cf71e70346f840a690f78c9eb1d2569942cadaf", "bytes": 2540 },
+  "resolver": { "path": "peer-resolver.mjs", "sha256": "07de1050899e46ecc165cf7590d9f033727b06f63c80ba239226d35168a1de21", "bytes": 831 },
+  "corpus": { "path": "peer-corpus.json", "sha256": "e51e15f4a9820add9164ed3db8b111f1816460ad89fe108d1cda28e4727b69e8", "bytes": 1911, "cases": 13 },
+  "runtime": { "path": "runtime-closure.json", "sha256": "39dffcc5ae9515f73731a5666853f6614f719e66185e7564f8b6b1a21485bec3", "bytes": 3282, "package_rows": 139 },
+  "doors": {
+    "live_regex": "Import and call src/css/grammar.ts parseCssScalar(raw); normalize only its returned numeric CssScalar after the call.",
+    "deposed": "Import and call the actual historical parse-that number Parser from g7/authorities/historical-utils.ts on ParserState(raw).",
+    "c14": "Import and call the actual C14 numberValue Parser from vnext/prototypes/c14-css/src/css/grammar/l4/value-unit.ts on ParserState(raw), including its pattern/CST allocation."
+  },
+  "lane_law": "Each peer lane is derived separately by exact success, extent, binary64 value, type, and sign agreement with the CSS consume-number observation. The common lane is the intersection after execution; exclusions are retained and no adapter or denominator borrowing is permitted.",
+  "performance_credit": "ZERO_UNTIL_REAL_CANDIDATES_CLOSE_AND_IDENTICAL-WORK_BENCHES_RUN"
+}

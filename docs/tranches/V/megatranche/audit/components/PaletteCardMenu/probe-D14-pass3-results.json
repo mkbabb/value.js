@@ -1,0 +1,87 @@
+{
+  "menus": [
+    {
+      "role": "menu",
+      "name": "Palette menu",
+      "nameFrom": [
+        "relatedElement:aria-labelledby"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    }
+  ],
+  "items": [
+    {
+      "role": "menuitem",
+      "name": "Publish",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Rename",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Export",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Delete",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Publish PRIVATE",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Make private PUBLIC",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    },
+    {
+      "role": "menuitem",
+      "name": "Versions 4",
+      "nameFrom": [
+        "contents:"
+      ],
+      "checked": null,
+      "disabled": null,
+      "description": null
+    }
+  ],
+  "buttons": []
+}

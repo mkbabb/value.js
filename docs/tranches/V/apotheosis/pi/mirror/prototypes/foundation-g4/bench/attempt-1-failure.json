@@ -1,0 +1,13 @@
+{
+  "schema": "value.pi.foundation-g4.benchmark-failure/v1",
+  "attempt": 1,
+  "status": "FAIL_BEFORE_VALIDATION_OR_TIMING",
+  "manifest_sha256": "4faf314b7cd0636f5877abc76452db8bacb4eb1654cfb37203dc558774cde192",
+  "harness_sha256": "3d4eb3ca9ec617c3f195b11f4046254e4c2d1bba273da7dfe5cd2af667d1e81c",
+  "exit": 1,
+  "error_code": "ERR_MODULE_NOT_FOUND",
+  "error": "The H import was resolved relative to bench/benchmark.mts as foundation-g4/foundation-g3 instead of prototypes/foundation-g3.",
+  "timing_started": false,
+  "raw_result_created": false,
+  "disposition": "Retained. Attempt 2 must bind repaired harness bytes and a distinct write-once result path."
+}

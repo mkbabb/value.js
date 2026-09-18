@@ -1,0 +1,11 @@
+{
+  "feature": "VALUE-PERCENTAGE-LITERAL",
+  "success": [
+    ["0%", 2, {"kind":"percentage","number":{"sign":null,"type":"integer","value":0}}],
+    ["+12%", 4, {"kind":"percentage","number":{"sign":"+","type":"integer","value":12}}],
+    ["-.5%", 4, {"kind":"percentage","number":{"sign":"-","type":"number","value":-0.5}}],
+    ["1.25e2%", 7, {"kind":"percentage","number":{"sign":null,"type":"number","value":125}}],
+    ["12%tail", 3, {"kind":"percentage","number":{"sign":null,"type":"integer","value":12}}]
+  ],
+  "failure": ["%", "x%", "12 %", "12x", "1e+%", "1.2.3%"]
+}

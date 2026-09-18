@@ -1,0 +1,34 @@
+{
+  "seededSlugs": [
+    "cafe-noir-aabbccdd",
+    "underscoremix-aabbccdd"
+  ],
+  "topLevelMenuItems": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete"
+  ],
+  "menuInclSubmenu": [
+    "Publish",
+    "Rename",
+    "Export",
+    "Delete",
+    "JSON",
+    "CSS Custom Properties",
+    "Tailwind Config",
+    "SVG Swatch",
+    "PNG Swatch"
+  ],
+  "downloadFilenames": [
+    "caf-noir.json"
+  ],
+  "downloadBodyHead": "n/a — object URL revoked at export.ts:130",
+  "openMenusAfterRename": 0,
+  "menuButtonCount": 2,
+  "jsonItemFound": 1,
+  "menuStateBeforeRename": [
+    "open"
+  ],
+  "renameInputsVisible": 2
+}

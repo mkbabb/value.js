@@ -1,0 +1,52 @@
+{
+  "valid": [
+    { "source": "0", "representation": "0", "type": "integer", "sign": null },
+    { "source": "+0", "representation": "+0", "type": "integer", "sign": "+" },
+    { "source": "-0", "representation": "-0", "type": "integer", "sign": "-" },
+    { "source": "00", "representation": "00", "type": "integer", "sign": null },
+    { "source": "123456789", "representation": "123456789", "type": "integer", "sign": null },
+    { "source": ".5", "representation": ".5", "type": "number", "sign": null },
+    { "source": "+.5", "representation": "+.5", "type": "number", "sign": "+" },
+    { "source": "-.5", "representation": "-.5", "type": "number", "sign": "-" },
+    { "source": "1.0", "representation": "1.0", "type": "number", "sign": null },
+    { "source": "1e3", "representation": "1e3", "type": "number", "sign": null },
+    { "source": "1E+3", "representation": "1E+3", "type": "number", "sign": null },
+    { "source": "-1e-3", "representation": "-1e-3", "type": "number", "sign": "-" },
+    { "source": "000.000e000", "representation": "000.000e000", "type": "number", "sign": null },
+    { "source": "1e999999999999999999999999", "representation": "1e999999999999999999999999", "type": "number", "sign": null },
+    { "source": "9999999999999999999999999999999999999999", "representation": "9999999999999999999999999999999999999999", "type": "integer", "sign": null }
+  ],
+  "invalid_start": [
+    { "source": "", "code": "number_syntax", "start": 0, "end": 0, "expected": "css-number", "actual": null },
+    { "source": "+", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "+" },
+    { "source": "-", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "-" },
+    { "source": ".", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "." },
+    { "source": "+.", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "+" },
+    { "source": "e1", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "e" },
+    { "source": "--1", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "-" },
+    { "source": "++1", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "+" },
+    { "source": "NaN", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "N" },
+    { "source": "Infinity", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": "I" },
+    { "source": " 1", "code": "number_syntax", "start": 0, "end": 1, "expected": "css-number", "actual": " " }
+  ],
+  "trailing": [
+    { "source": "1.", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "." },
+    { "source": "1e", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "e" },
+    { "source": "1e+", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "e" },
+    { "source": "1e-", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "e" },
+    { "source": "1x", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "x" },
+    { "source": ".5x", "prefix": ".5", "code": "trailing_input", "start": 2, "end": 3, "expected": "end of input", "actual": "x" },
+    { "source": "+1x", "prefix": "+1", "code": "trailing_input", "start": 2, "end": 3, "expected": "end of input", "actual": "x" },
+    { "source": "0x1", "prefix": "0", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "x" },
+    { "source": "1_0", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "_" },
+    { "source": "1%", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "%" },
+    { "source": "1px", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": "p" },
+    { "source": "1 ", "prefix": "1", "code": "trailing_input", "start": 1, "end": 2, "expected": "end of input", "actual": " " }
+  ],
+  "hostile_templates": [
+    { "id": "digits-1m", "description": "one million ASCII digits; syntactically valid integer" },
+    { "id": "fraction-1m", "description": "0. followed by one million ASCII digits; syntactically valid number" },
+    { "id": "exponent-1m", "description": "1e followed by one million ASCII digits; syntactically valid number" },
+    { "id": "incomplete-exponent-1m", "description": "one million ASCII digits followed by e+; valid integer prefix then trailing input" }
+  ]
+}

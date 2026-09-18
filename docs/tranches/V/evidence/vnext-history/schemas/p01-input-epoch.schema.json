@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://babb.dev/schemas/vnext-p01-input-epoch-1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "wave_id", "wave_contract_sha256", "coordinator_session_id", "coordinator_transcript", "predecessor_returns", "coordination_clearance", "committed_value", "bbnf_css_union_freeze", "parse_that_package", "host_capsule", "css_module_isomorphism", "css_corpus", "standards_lock", "value_css_signatures", "shared_inputs", "frozen_at", "epoch_hash"],
+  "properties": {
+    "schema": { "const": "vnext-p01-input-epoch/1" },
+    "wave_id": { "const": "P01" },
+    "wave_contract_sha256": { "$ref": "#/$defs/sha256" },
+    "coordinator_session_id": { "type": "string", "pattern": "^[A-Za-z0-9._:-]+$" },
+    "coordinator_transcript": { "$ref": "#/$defs/evidence" },
+    "predecessor_returns": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["wave_id", "path", "file_sha256", "return_hash", "wave_contract_sha256"],
+        "properties": {
+          "wave_id": { "enum": ["P00", "V01", "V02"] },
+          "path": { "$ref": "#/$defs/absolutePath" },
+          "file_sha256": { "$ref": "#/$defs/sha256" },
+          "return_hash": { "$ref": "#/$defs/sha256" },
+          "wave_contract_sha256": { "$ref": "#/$defs/sha256" }
+        }
+      }
+    },
+    "coordination_clearance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stream", "tip_sequence", "tip_event_sha256", "parse_that", "bbnf_lang", "validator_command", "validator_stdout"],
+      "properties": {
+        "stream": { "$ref": "#/$defs/evidence" },
+        "tip_sequence": { "type": "integer", "minimum": 1 },
+        "tip_event_sha256": { "$ref": "#/$defs/sha256" },
+        "parse_that": { "$ref": "#/$defs/livePin" },
+        "bbnf_lang": { "$ref": "#/$defs/livePin" },
+        "validator_command": { "const": "node docs/tranches/V/vnext/tools/validate-pt-coordination.mjs --require-current" },
+        "validator_stdout": { "$ref": "#/$defs/evidence" }
+      }
+    },
+    "committed_value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "repository", "commit", "committed_tree_sha256"],
+      "properties": {
+        "state": { "const": "committed" },
+        "repository": { "const": "/Users/mkbabb/Programming/value.js" },
+        "commit": { "$ref": "#/$defs/gitCommit" },
+        "committed_tree_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "bbnf_css_union_freeze": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "scope", "source_thread_id", "snapshot_event_sha256", "bbnf_commit", "module_manifest_sha256", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256", "imports_parse_that_novelty"],
+      "properties": {
+        "state": { "const": "frozen" },
+        "scope": { "const": "snapshot-2026-constituents-and-exceptions-plus-every-w3c-level-4-module-plus-css-syntax-and-normative-dependencies" },
+        "source_thread_id": { "type": "string", "pattern": "^[0-9a-f-]{36}$" },
+        "snapshot_event_sha256": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "module_manifest_sha256": { "$ref": "#/$defs/sha256" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" },
+        "imports_parse_that_novelty": { "const": false }
+      }
+    },
+    "parse_that_package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "registry_spec", "integrity", "receipt", "receipt_hash", "tarball_sha256", "files_sha256", "runtime_files_sha256", "declaration_files_sha256", "export_conditions_sha256", "no_link_tree_sha256"],
+      "properties": {
+        "name": { "const": "@mkbabb/parse-that" },
+        "version": { "const": "1.0.0" },
+        "registry_spec": { "const": "@mkbabb/parse-that@1.0.0" },
+        "integrity": { "type": "string", "pattern": "^sha512-[A-Za-z0-9+/]+={0,2}$" },
+        "receipt": { "$ref": "#/$defs/evidence" },
+        "receipt_hash": { "$ref": "#/$defs/sha256" },
+        "tarball_sha256": { "$ref": "#/$defs/sha256" },
+        "files_sha256": { "$ref": "#/$defs/sha256" },
+        "runtime_files_sha256": { "$ref": "#/$defs/sha256" },
+        "declaration_files_sha256": { "$ref": "#/$defs/sha256" },
+        "export_conditions_sha256": { "$ref": "#/$defs/sha256" },
+        "no_link_tree_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "host_capsule": { "$ref": "#/$defs/evidence" },
+    "css_module_isomorphism": { "$ref": "#/$defs/executionManifest" },
+    "css_corpus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "corpus_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "corpus_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "standards_lock": { "$ref": "#/$defs/evidence" },
+    "value_css_signatures": { "$ref": "#/$defs/evidence" },
+    "shared_inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "ledger_hash"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "ledger_hash": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "frozen_at": { "type": "string", "format": "date-time" },
+    "epoch_hash": { "$ref": "#/$defs/sha256" }
+  },
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "gitCommit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+    "absolutePath": { "type": "string", "pattern": "^/(?!$)(?!.*(?:^|/)\\.\\.(?:/|$))[^\\r\\n]*$" },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "livePin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "branch", "head", "dirty_sha256"],
+      "properties": {
+        "path": { "$ref": "#/$defs/absolutePath" },
+        "branch": { "type": "string", "minLength": 1 },
+        "head": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "dirty_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "executionManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "manifest_hash", "bbnf_commit", "runtime_modules_sha256", "excluded_dispositions_sha256", "resolved_edges_sha256"],
+      "properties": {
+        "path": { "type": "string", "pattern": "^/.*/test/proof/p00/css-module-isomorphism\\.execution\\.json$" },
+        "file_sha256": { "$ref": "#/$defs/sha256" },
+        "manifest_hash": { "$ref": "#/$defs/sha256" },
+        "bbnf_commit": { "$ref": "#/$defs/gitCommit" },
+        "runtime_modules_sha256": { "$ref": "#/$defs/sha256" },
+        "excluded_dispositions_sha256": { "$ref": "#/$defs/sha256" },
+        "resolved_edges_sha256": { "$ref": "#/$defs/sha256" }
+      }
+    }
+  }
+}

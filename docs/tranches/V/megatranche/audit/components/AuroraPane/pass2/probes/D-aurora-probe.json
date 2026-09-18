@@ -1,0 +1,1152 @@
+{
+ "desktop-1440": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "docScrollW": 1440,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 224,
+     "y": 266.38,
+     "w": 82.14,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 318.14,
+     "y": 260.69,
+     "w": 897.86,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 224,
+     "y": 314.38,
+     "w": 129.06,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 365.06,
+     "y": 308.69,
+     "w": 850.94,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 224,
+     "y": 362.38,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 306.41,
+     "y": 356.69,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 224,
+     "y": 410.38,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 306.41,
+     "y": 404.69,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 239,
+    "y": 471.69,
+    "w": 58.67,
+    "h": 20
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "16.4px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.64px",
+    "color": "rgb(112, 89, 66)"
+   }
+  },
+  "cardRect": {
+   "x": 199,
+   "y": 163,
+   "w": 1042,
+   "h": 654.2
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 804
+  },
+  "scrollers": []
+ },
+ "mobile-390": {
+  "viewport": {
+   "w": 390,
+   "h": 844
+  },
+  "docScrollW": 390,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 33,
+     "y": 261.11,
+     "w": 70.11,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 115.11,
+     "y": 253.61,
+     "w": 241.89,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 33,
+     "y": 309.11,
+     "w": 110.17,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 155.17,
+     "y": 301.61,
+     "w": 201.83,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 33,
+     "y": 357.11,
+     "w": 60.09,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 105.09,
+     "y": 349.61,
+     "w": 251.91,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 33,
+     "y": 405.11,
+     "w": 60.09,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 105.09,
+     "y": 397.61,
+     "w": 251.91,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 48,
+    "y": 463.61,
+    "w": 50.08,
+    "h": 17
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.4px",
+    "color": "rgb(112, 89, 66)"
+   }
+  },
+  "cardRect": {
+   "x": 16,
+   "y": 144,
+   "w": 358,
+   "h": 651.39
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 104,
+   "w": 358,
+   "h": 732
+  },
+  "scrollers": []
+ },
+ "narrow-320": {
+  "viewport": {
+   "w": 320,
+   "h": 800
+  },
+  "docScrollW": 320,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 33,
+     "y": 247.22,
+     "w": 70.11,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 115.11,
+     "y": 239.72,
+     "w": 176,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 33,
+     "y": 295.22,
+     "w": 110.17,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 155.17,
+     "y": 287.72,
+     "w": 176,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 33,
+     "y": 343.22,
+     "w": 60.09,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 105.09,
+     "y": 335.72,
+     "w": 181.91,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 33,
+     "y": 391.22,
+     "w": 60.09,
+     "h": 21
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.4px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 105.09,
+     "y": 383.72,
+     "w": 181.91,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 48,
+    "y": 449.72,
+    "w": 50.08,
+    "h": 17
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.4px",
+    "color": "rgb(112, 89, 66)"
+   }
+  },
+  "cardRect": {
+   "x": 16,
+   "y": 114.98,
+   "w": 288,
+   "h": 666.52
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 104,
+   "w": 288,
+   "h": 688
+  },
+  "scrollers": []
+ },
+ "zoom200": {
+  "viewport": {
+   "w": 720,
+   "h": 450
+  },
+  "docScrollW": 720,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 129,
+     "y": 211.77,
+     "w": 73.13,
+     "h": 21.89
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.6px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.46px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 214.13,
+     "y": 204.72,
+     "w": 376.88,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14.6px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 129,
+     "y": 259.77,
+     "w": 114.89,
+     "h": 21.89
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.6px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.46px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 255.89,
+     "y": 252.72,
+     "w": 335.11,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14.6px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 129,
+     "y": 307.77,
+     "w": 62.67,
+     "h": 21.89
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.6px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.46px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 203.67,
+     "y": 300.72,
+     "w": 387.33,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14.6px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 129,
+     "y": 355.77,
+     "w": 62.67,
+     "h": 21.89
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "14.6px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.46px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 203.67,
+     "y": 348.72,
+     "w": 387.33,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "14.6px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 144,
+    "y": 414.72,
+    "w": 52.23,
+    "h": 17
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "14.6px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.46px",
+    "color": "rgb(112, 89, 66)"
+   }
+  },
+  "cardRect": {
+   "x": 104,
+   "y": 104,
+   "w": 512,
+   "h": 338
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 104,
+   "w": 688,
+   "h": 338
+  },
+  "scrollers": [
+   {
+    "cls": "app-layout",
+    "sh": 456,
+    "ch": 450
+   },
+   {
+    "cls": "pane-scroll-fade scrollbar-thin flex-1 min-w-0 overflow-y-auto overflo",
+    "sh": 567,
+    "ch": 259
+   }
+  ]
+ },
+ "forced-colors": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "docScrollW": 1440,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 224,
+     "y": 265.36,
+     "w": 82.14,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(0, 0, 0)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 318.14,
+     "y": 259.67,
+     "w": 897.86,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 224,
+     "y": 313.36,
+     "w": 129.06,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(0, 0, 0)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 365.06,
+     "y": 307.67,
+     "w": 850.94,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 224,
+     "y": 361.36,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(0, 0, 0)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 306.41,
+     "y": 355.67,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 224,
+     "y": 409.36,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(0, 0, 0)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 306.41,
+     "y": 403.67,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 239,
+    "y": 470.67,
+    "w": 58.67,
+    "h": 20
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "16.4px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.64px",
+    "color": "rgb(0, 0, 0)"
+   }
+  },
+  "cardRect": {
+   "x": 199,
+   "y": 161.98,
+   "w": 1042,
+   "h": 656.2
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 804
+  },
+  "scrollers": []
+ },
+ "rtl": {
+  "viewport": {
+   "w": 1440,
+   "h": 900
+  },
+  "docScrollW": 1440,
+  "rows": [
+   {
+    "label": "Harmony",
+    "labelRect": {
+     "x": 1133.86,
+     "y": 266.38,
+     "w": 82.14,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 224,
+     "y": 260.69,
+     "w": 897.86,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Palette harmony",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Arrangement",
+    "labelRect": {
+     "x": 1086.94,
+     "y": 314.38,
+     "w": 129.06,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 224,
+     "y": 308.69,
+     "w": 850.94,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Zone arrangement",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Medium",
+    "labelRect": {
+     "x": 1145.59,
+     "y": 362.38,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 224,
+     "y": 356.69,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Painterly medium",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   },
+   {
+    "label": "Motion",
+    "labelRect": {
+     "x": 1145.59,
+     "y": 410.38,
+     "w": 70.41,
+     "h": 24.61
+    },
+    "labelCS": {
+     "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+     "font-size": "16.4px",
+     "text-transform": "uppercase",
+     "letter-spacing": "1.64px",
+     "color": "rgb(112, 89, 66)",
+     "font-style": "normal"
+    },
+    "trigRect": {
+     "x": 224,
+     "y": 404.69,
+     "w": 909.59,
+     "h": 36
+    },
+    "trigCS": {
+     "font-family": "\"Plus Jakarta Sans\", \"Plus Jakarta Sans Fallback\", system-ui, sans-serif",
+     "font-size": "16.4px",
+     "font-style": "italic",
+     "min-width": "176px",
+     "height": "36px"
+    },
+    "trigTag": "BUTTON/combobox",
+    "ariaLabel": "Motion register",
+    "ariaLabelledby": null,
+    "labelHasId": false
+   }
+  ],
+  "sectionTitle": {
+   "text": "Field",
+   "rect": {
+    "x": 1142.33,
+    "y": 471.69,
+    "w": 58.67,
+    "h": 20
+   },
+   "cs": {
+    "font-family": "\"Fira Code\", \"Fira Code Fallback\", \"Fira Mono\", monospace",
+    "font-size": "16.4px",
+    "text-transform": "uppercase",
+    "letter-spacing": "1.64px",
+    "color": "rgb(112, 89, 66)"
+   }
+  },
+  "cardRect": {
+   "x": 199,
+   "y": 163,
+   "w": 1042,
+   "h": 654.2
+  },
+  "cardSel": "glass-resting card rounded-card text-card-foreground scrollbar-hidden w-full min-w-0 h-ful",
+  "mainRect": {
+   "x": 16,
+   "y": 88,
+   "w": 1408,
+   "h": 804
+  },
+  "scrollers": []
+ },
+ "menuOpen": {
+  "content": {
+   "rect": {
+    "x": 318,
+    "y": 301,
+    "w": 899.9,
+    "h": 322.5
+   },
+   "maxHeight": "384px",
+   "overflow": "hidden",
+   "sh": 320,
+   "ch": 320
+  },
+  "items": [
+   {
+    "text": "Analogous",
+    "rect": {
+     "x": 323,
+     "y": 307.1,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "true",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   },
+   {
+    "text": "Complementary",
+    "rect": {
+     "x": 323,
+     "y": 358.8,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "false",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   },
+   {
+    "text": "Split Complementary",
+    "rect": {
+     "x": 323,
+     "y": 410.5,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "false",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   },
+   {
+    "text": "Triad",
+    "rect": {
+     "x": 323,
+     "y": 462.2,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "false",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   },
+   {
+    "text": "Tetradic",
+    "rect": {
+     "x": 323,
+     "y": 514,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "false",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   },
+   {
+    "text": "Monochrome",
+    "rect": {
+     "x": 323,
+     "y": 565.7,
+     "w": 889.9,
+     "h": 51.7
+    },
+    "sel": "false",
+    "fontStyle": "italic",
+    "fontSize": "16.4px"
+   }
+  ],
+  "viewportH": 900
+ }
+}

@@ -1,0 +1,103 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "value.pi.occurrence-owner-v9-fixture-closure/v1",
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "schema_version",
+        "date",
+        "status",
+        "coordinate_system",
+        "inherited_suite",
+        "cases",
+        "credits"
+    ],
+    "properties": {
+        "schema_version": {
+            "const": "value.pi.occurrence-owner-v9-fixture-closure/v1"
+        },
+        "date": { "const": "2026-07-22" },
+        "status": { "const": "RED_PREAUTHOR_FIXTURE_CLOSURE_ZERO_CREDIT" },
+        "coordinate_system": { "const": "UTF8_BYTE_HALF_OPEN" },
+        "inherited_suite": {
+            "type": "object",
+            "required": [
+                "path",
+                "bytes",
+                "sha256",
+                "case_count",
+                "digest_sha256",
+                "credit"
+            ],
+            "properties": {
+                "path": { "type": "string", "minLength": 1 },
+                "bytes": { "type": "integer", "minimum": 1 },
+                "sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+                "case_count": { "type": "integer", "minimum": 1 },
+                "digest_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+                "credit": { "const": 0 }
+            }
+        },
+        "cases": {
+            "type": "array",
+            "minItems": 18,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["id", "source_url", "input", "invariant", "expected"],
+                "properties": {
+                    "id": { "type": "string", "pattern": "^[A-Z0-9-]+$" },
+                    "source_url": { "type": "string", "format": "uri" },
+                    "input": { "type": "string", "minLength": 1 },
+                    "invariant": { "type": "string", "minLength": 16 },
+                    "expected": {
+                        "type": "object",
+                        "required": [
+                            "included_raw",
+                            "excluded_raw",
+                            "states_required",
+                            "operation_ledger_ids"
+                        ],
+                        "properties": {
+                            "included_raw": {
+                                "type": "array",
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "excluded_raw": {
+                                "type": "array",
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "states_required": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "operation_ledger_ids": {
+                                "type": "array",
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "resolved_urls": {
+                                "type": "array",
+                                "items": { "type": "string", "format": "uri" }
+                            },
+                            "resolved_target_forms": {
+                                "type": "array",
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "unresolved_target_forms": {
+                                "type": "array",
+                                "items": { "type": "string", "minLength": 1 }
+                            },
+                            "max_transition_formula": { "const": "8*N+64" }
+                        }
+                    }
+                }
+            }
+        },
+        "credits": {
+            "type": "object",
+            "minProperties": 7,
+            "additionalProperties": { "const": 0 }
+        }
+    }
+}

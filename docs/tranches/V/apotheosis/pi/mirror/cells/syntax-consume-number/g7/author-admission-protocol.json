@@ -1,0 +1,43 @@
+{
+  "protocol_id": "SYNTAX-CONSUME-NUMBER-G7-AUTHOR-ADMISSION",
+  "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+  "status": "FROZEN_PRECURSOR_AWAITING_FRESH_HOLDOUT_AND_TWO_CHALLENGES",
+  "commands": {
+    "self": "node cells/syntax-consume-number/g7/author-admission-validator.mjs --self-check",
+    "topology": "node cells/syntax-consume-number/g7/author-admission-validator.mjs --assay-stdin <h|b|s|d>",
+    "negative_bypasses": "node cells/syntax-consume-number/g7/author-admission-validator.mjs --negative-controls",
+    "pre_author": "node cells/syntax-consume-number/g7/author-admission-validator.mjs --pre-author <manifest.json>",
+    "four_seat": "node cells/syntax-consume-number/g7/author-admission-validator.mjs --four-seat <candidate-root> <pre-author-receipt.json> <exact-receipt-sha256>"
+  },
+  "sequence": [
+    "Freeze this exact precursor and formation receipt with zero candidates and zero holdout.",
+    "A fresh custodian forms a fresh receipt/ciphertext over the exact precursor; G5 secret material is forbidden.",
+    "Two distinct independent non-author reviewers validate the exact precursor and holdout under boundary-review.schema.json.",
+    "A third distinct independent root validates root-gestalt.schema.json and may ACCEPT only two ACCEPT reviews and zero union blockers.",
+    "--pre-author validates all captured bytes once and emits one AUTHORS_MAY_BE_INVITED receipt.",
+    "Four isolated H/B/S/D authors bind that exact receipt and manifest; --four-seat rejects any drift before candidate review."
+  ],
+  "schemas": [
+    "boundary-review.schema.json",
+    "root-gestalt.schema.json",
+    "pre-author-receipt.schema.json",
+    "author-receipt.schema.json",
+    "holdout-receipt.schema.json",
+    "benchmark-run-manifest.schema.json",
+    "benchmark-receipt.schema.json"
+  ],
+  "candidate_floor": {
+    "target": "<seat>/overlay/grammar/css/l4/value-unit/consume-number.ts",
+    "export": "consumeNumber",
+    "allowed_runtime_import": "@mkbabb/parse-that/core",
+    "allowed_type_import": "the exact G7 contract.ts",
+    "source_shape": "Imports plus one exported initialized const only; no other declaration. The reachable construction graph is therefore exactly the export initializer.",
+    "forbidden": "Aliases, dead declarations, local functions/classes, state/src/source access, slicing/indexing/scanners, loops, mutation, casts, dynamic import, constructors, mapState/call/parseState, lazy/recursive graphs, broad remainder regexes, tokens/atoms/component values/CST."
+  },
+  "review_gate": "Exact schemas and executable semantic checks require distinct reviewer/root identities, independence/non-author attestations, served-model receipts, exact subject/precursor/holdout hashes, three altitudes and all axes, evidence, defects, zero credit, and ACCEPT only with zero blockers.",
+  "holdout_gate": "Pre-reveal validation binds the complete precursor, status/corpus identity, plaintext commitment, ciphertext identity and AES-256-GCM envelope magic/length/AAD metadata, coverage and anti-duplication facts, candidate/key/plaintext absence, and freshness from all prior generations.",
+  "author_receipt_gate": "Every author receipt binds served model, admitted manifest and exact pre-author receipt hashes, isolated candidate root and source hashes, commands, close time, APIs, LOC, backtracking, material allocations, compromises, exact lineage input hashes, and isolation facts.",
+  "benchmark_gate": "benchmark-validator.mjs requires a correctness-qualified source/build-bound run manifest, exact H/B/S/D plus LIVE/deposed/C14 lanes, immutable append-only attempts/raw results, independent statistical recomputation, exact peer keys, descriptive/exits/throughput/allocation evidence, and no retry erasure.",
+  "owner_law": "After authors, five pairwise-distinct independent skeptics and three further pairwise-distinct adjudicators bind one exact candidate set; all three adjudicators unanimously nominate one already reviewed unblocked hash.",
+  "credit": "ZERO: this validator can invite authors only after boundary admission; it cannot accept, benchmark-credit, integrate, project, or promote a feature."
+}

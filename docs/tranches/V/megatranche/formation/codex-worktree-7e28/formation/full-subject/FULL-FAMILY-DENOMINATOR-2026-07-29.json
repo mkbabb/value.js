@@ -1,0 +1,131 @@
+<!--
+  PROVENANCE — M-21 C-11 (codex-provenance ledger row 28), 7e28 worktree census, ruled 2026-08-03
+  original: /Users/mkbabb/.codex/worktrees/7e28/value.js/docs/tranches/V/megatranche/formation/full-subject/FULL-FAMILY-DENOMINATOR-2026-07-29.json
+  original-mtime: 2026-07-29T18:37:26
+  original-sha256: 1d6df52abdd89dcc2e56b0aaaca6cc7d4a516eb5e8493dd4547adeebd070dd85
+  original-bytes: 5186
+  ruling: ADOPT-COPY — M-21 C-11 — 2026-08-03
+  note: this comment block is prepended to otherwise byte-exact original content, so the
+  copy's own sha256 differs; both digests are recorded in CENSUS.md. The original bytes
+  are exactly the last original-bytes bytes of this file.
+-->
+{
+  "schema": "value-full-family-denominator/v1",
+  "date": "2026-07-29",
+  "subject": "value.js",
+  "mode": "formation-only",
+  "candidatePacketSha256": "aa6840601388258246677c1c619deeadd763d5dbddb56f9feb92b2b803961840",
+  "seedSha256": "dcfe434d882e2d3962ec5afd92210029361f940a11ae21babdc5cdc12544d0f8",
+  "familyCount": 18,
+  "requiredPassFields": [
+    "familyId",
+    "research",
+    "synthesis",
+    "prototype",
+    "critique",
+    "agglomeration",
+    "disposition",
+    "waveAction",
+    "openDelta",
+    "evidence"
+  ],
+  "allowedDispositions": [
+    "KEEP",
+    "FOLD",
+    "MOVE",
+    "SPLIT",
+    "PRUNE"
+  ],
+  "families": [
+    {
+      "familyId": "V.F0",
+      "name": "authority archaeology and evidence identity",
+      "denominator": "committed/live status, 111-session archaeology, 88-SFC/264-axis corpus, adjudications, graph authority, prototypes and external receipts"
+    },
+    {
+      "familyId": "V.L1",
+      "name": "sole CSS grammar and recovery",
+      "denominator": "stylesheet, keyframes, animation, timing, timeline and value grammar; UTF-16 spans, immutable diagnostics, transactional recovery and package reachability"
+    },
+    {
+      "familyId": "V.L2",
+      "name": "canonical CSS inverses",
+      "denominator": "values, timing functions, selectors, declarations, stylesheet items, parsed animation shorthand, semantic ordered longhands and refusal contracts"
+    },
+    {
+      "familyId": "V.L3",
+      "name": "explicit CSS linear stops",
+      "denominator": "typed explicit-stop construction, validation, fix-up, canonical inverse and the boundary against Keyframes callable sampling policy"
+    },
+    {
+      "familyId": "V.L5",
+      "name": "SVG path and numeric transform",
+      "denominator": "SVG d grammar/inverse, total typed PathGeometry, empty/move-only/multi-subpath/nonfinite laws and zero-parsing numeric transform leaf"
+    },
+    {
+      "familyId": "V.L4",
+      "name": "CSS transform and motion semantics",
+      "denominator": "transform-list, typed matrices, offset path/distance/rotate, CSS path wrapper, Webref/WPT axis forms and unresolved var/calc"
+    },
+    {
+      "familyId": "V.L6",
+      "name": "Keyframes consumer adoption",
+      "denominator": "49 direct CSS import sites, serializer/scanner/grammar deletion, eager/timing/engine tier truth, immutable pack and open Atlas consumer edge"
+    },
+    {
+      "familyId": "V.A1",
+      "name": "central palette access policy",
+      "denominator": "private/public, owner/non-owner/Admin, active/trashed, moderation and immutable-release visibility across detail/fork/list/provenance/revisions"
+    },
+    {
+      "familyId": "V.A2",
+      "name": "revision membership and payload storage",
+      "denominator": "palette-local release membership, authorship, ancestry, identical-content isolation, digest collision, storage candidates and transaction rollback"
+    },
+    {
+      "familyId": "V.A3",
+      "name": "API route transaction and wire closure",
+      "denominator": "canonical numeric revision routes, 201 fork/revert, If-Match, idempotency, CAS matchedCount, provenance redaction, OpenAPI and route/service/repository tests"
+    },
+    {
+      "familyId": "V.U1",
+      "name": "application boot and route-scene identity",
+      "denominator": "single mount, persistent main, fourteen route jobs, protagonist/H1, focus/scroll restoration and scene identity"
+    },
+    {
+      "familyId": "V.U2",
+      "name": "dock and action ownership",
+      "denominator": "GenericActionBar/ref-bridge deletion, stable navigation chrome, local Generate/Gradient/Mix action seats and truthful desktop/mobile controls"
+    },
+    {
+      "familyId": "V.U3",
+      "name": "picker and workbench workflows",
+      "denominator": "picker, Extract, Generate, Gradient, Mix and Atmosphere components with pointer, keyboard, reduced-motion, forced-colors and RTL states"
+    },
+    {
+      "familyId": "V.U4",
+      "name": "palette Admin shared and content workflows",
+      "denominator": "palette CRUD/provenance/history/fork, Admin policy, shared/content components and loading/empty/error/offline/auth state separation"
+    },
+    {
+      "familyId": "V.H1",
+      "name": "Glass shadcn barrel tooling and package subtraction",
+      "denominator": "Glass imports, shadcn/CSS/style/barrel/raw-source/compat paths, dev readiness, manifest/lock classification and phantom Keyframes dependency"
+    },
+    {
+      "familyId": "V.G1",
+      "name": "packed consumer and browser gestalt proof",
+      "denominator": "immutable producer/Value packs, module tiers and every route/component across desktop/mobile/short-landscape/keyboard/reduced-motion/forced-colors/RTL/state/animation frames"
+    },
+    {
+      "familyId": "V.Q1",
+      "name": "first clean execution audit contract",
+      "denominator": "fresh implemented source/export/route/state/DI/style/test/API/consumer census and independent browser/package evidence"
+    },
+    {
+      "familyId": "V.Q2",
+      "name": "second hostile clean execution audit contract",
+      "denominator": "new checkout and environment, independent falsifiers, no inherited Q1 artifacts and release handoff"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+
+=== RING vs its own gradient — every column (light) ===
+{
+ "ringColor": "oklch(0.545141 0.218024 9.834023)",
+ "railBackgroundColorUnderneath": "oklch(0.545141 0.218024 9.834023)",
+ "RING_EQUALS_FILL_PREIMAGE": true,
+ "stopCount": 4,
+ "MAX_contrast_anywhere_along_the_ring": 2.673,
+ "at_fraction": 1,
+ "MIN_contrast": 1.002,
+ "at_fraction_min": 0.438,
+ "GRAPHICS_FLOOR": 3,
+ "PASSES_ANYWHERE": false,
+ "samples": 401
+}
+
+=== RING vs its own gradient — every column (dark) ===
+{
+ "ringColor": "oklch(0.958322 0.021053 9.834023)",
+ "railBackgroundColorUnderneath": "oklch(0.958322 0.021053 9.834023)",
+ "RING_EQUALS_FILL_PREIMAGE": true,
+ "stopCount": 4,
+ "MAX_contrast_anywhere_along_the_ring": 6.992,
+ "at_fraction": 0.235,
+ "MIN_contrast": 1.845,
+ "at_fraction_min": 1,
+ "GRAPHICS_FLOOR": 3,
+ "PASSES_ANYWHERE": true,
+ "samples": 401
+}

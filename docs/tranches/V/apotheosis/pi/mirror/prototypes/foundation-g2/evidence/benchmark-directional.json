@@ -1,0 +1,25 @@
+{
+  "schema": "value.pi.foundation-g2.benchmark-directional/v1",
+  "status": "DIRECTIONAL_ONLY",
+  "harness_sha256": "69a3197080e55b664b8dbe4fdb71af6e6202260c6e8b2cce1af2c3b7f40724ce",
+  "claim": "candidate-local operation-equivalent comparison; no public, full-parser, LIVE, historical, C14, or peer win",
+  "method": { "cycles": 2000, "warmups": 6, "samples": 31, "schedule_permutations": 6 },
+  "medians_ms": {
+    "cssEscape": { "h": 0.46537500000067666, "b": 0.41554100000030303, "s": 1.3835829999998168 },
+    "cssIdentifier": { "h": 1.9452909999999974, "b": 27.68125000000009, "s": 2.0803750000004584 },
+    "cssString": { "h": 3.6320830000004207, "b": 109.73649999999998, "s": 2.758208000000195 },
+    "cssWhitespace": { "h": 0.927958000000217, "b": 20.171124999999847, "s": 0.724792000000889 },
+    "cssComment": { "h": 0.7912919999998849, "b": 23.700459000000592, "s": 0.9272499999997308 },
+    "cssSpacing": { "h": 10.02600000000075, "b": 22.66270799999984, "s": 13.045916000000034 }
+  },
+  "fastest": {
+    "cssEscape": "b",
+    "cssIdentifier": "h",
+    "cssString": "s",
+    "cssWhitespace": "s",
+    "cssComment": "h",
+    "cssSpacing": "h"
+  },
+  "normalization": "ParserState comparison intentionally binds isError, offset, and value; successful furthest diagnostic state is not a semantic result contract.",
+  "credit": "DIRECTIONAL_CANDIDATE_SELECTION_INPUT_ONLY"
+}

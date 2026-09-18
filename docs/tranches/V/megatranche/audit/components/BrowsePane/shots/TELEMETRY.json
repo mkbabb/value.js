@@ -1,0 +1,220 @@
+[
+  {
+    "matrix": "populated-desktop-light",
+    "url": "http://localhost:9010/#/browse?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "vw": 1440,
+    "vh": 900,
+    "panes": [
+      {
+        "title": "Browse",
+        "x": 199,
+        "w": 512,
+        "h": 774,
+        "scrollH": 1289,
+        "clientH": 772,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      },
+      {
+        "title": "My Palettes",
+        "x": 729,
+        "w": 512,
+        "h": 774,
+        "scrollH": 772,
+        "clientH": 772,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      }
+    ],
+    "paneSharePct": [
+      50,
+      50
+    ],
+    "h1": 0,
+    "headingTags": [
+      "H3",
+      "H3"
+    ],
+    "mains": 1,
+    "browseCards": 10,
+    "browseLists": 1,
+    "browsePressed": 0,
+    "browseSelected": 0,
+    "browseInert": 0,
+    "browseLive": [],
+    "browseOperable": 22,
+    "browseOperableSmall": [],
+    "browseNameless": 1,
+    "deadSpaceBottomPx": -515.66,
+    "animations": [
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption",
+      "metal-shimmer-sweep@badge-atom inline-flex items-c",
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption"
+    ]
+  },
+  {
+    "matrix": "populated-desktop-dark",
+    "url": "http://localhost:9010/#/browse?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "vw": 1440,
+    "vh": 900,
+    "panes": [
+      {
+        "title": "Browse",
+        "x": 199,
+        "w": 512,
+        "h": 774,
+        "scrollH": 1289,
+        "clientH": 772,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      },
+      {
+        "title": "My Palettes",
+        "x": 729,
+        "w": 512,
+        "h": 774,
+        "scrollH": 772,
+        "clientH": 772,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      }
+    ],
+    "paneSharePct": [
+      50,
+      50
+    ],
+    "h1": 0,
+    "headingTags": [
+      "H3",
+      "H3"
+    ],
+    "mains": 1,
+    "browseCards": 10,
+    "browseLists": 1,
+    "browsePressed": 0,
+    "browseSelected": 0,
+    "browseInert": 0,
+    "browseLive": [],
+    "browseOperable": 22,
+    "browseOperableSmall": [],
+    "browseNameless": 1,
+    "deadSpaceBottomPx": -515.66,
+    "animations": [
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption",
+      "metal-shimmer-sweep@badge-atom inline-flex items-c",
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption"
+    ]
+  },
+  {
+    "matrix": "populated-mobile-light",
+    "url": "http://localhost:9010/#/browse?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "vw": 390,
+    "vh": 664,
+    "panes": [
+      {
+        "title": "Browse",
+        "x": 16,
+        "w": 358,
+        "h": 552,
+        "scrollH": 1502,
+        "clientH": 550,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.8) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      }
+    ],
+    "h1": 0,
+    "headingTags": [
+      "H3"
+    ],
+    "mains": 1,
+    "browseCards": 10,
+    "browseLists": 1,
+    "browsePressed": 0,
+    "browseSelected": 0,
+    "browseInert": 0,
+    "browseLive": [],
+    "browseOperable": 22,
+    "browseOperableSmall": [
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"2 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"1 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"1 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\""
+    ],
+    "browseNameless": 1,
+    "deadSpaceBottomPx": -951.12,
+    "animations": [
+      "gl-fade-start-in@dock-layer dock-layer--full is",
+      "gl-fade-end-out@dock-layer dock-layer--full is",
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption",
+      "metal-shimmer-sweep@badge-atom inline-flex items-c"
+    ]
+  },
+  {
+    "matrix": "populated-mobile-dark",
+    "url": "http://localhost:9010/#/browse?space=lab&color=lab(92%25+88.8+20+/+82.7%25)",
+    "vw": 390,
+    "vh": 664,
+    "panes": [
+      {
+        "title": "Browse",
+        "x": 16,
+        "w": 358,
+        "h": 552,
+        "scrollH": 1502,
+        "clientH": 550,
+        "shadow": "color(srgb 0.11 0.098 0.09 / 0.5) 8px 8px 0px 0px",
+        "overflowY": "auto"
+      }
+    ],
+    "h1": 0,
+    "headingTags": [
+      "H3"
+    ],
+    "mains": 1,
+    "browseCards": 10,
+    "browseLists": 1,
+    "browsePressed": 0,
+    "browseSelected": 0,
+    "browseInert": 0,
+    "browseLive": [],
+    "browseOperable": 22,
+    "browseOperableSmall": [
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"2 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"1 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"1 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\"",
+      "BUTTON.flex 38.63x23.59 name=\"0 votes, click to vote\""
+    ],
+    "browseNameless": 1,
+    "deadSpaceBottomPx": -951.12,
+    "animations": [
+      "gl-fade-start-in@dock-layer dock-layer--full is",
+      "gl-fade-end-out@dock-layer dock-layer--full is",
+      "pane-header-veil-19daabcf@pane-header px-4 sm:px-6 pt-4 ",
+      "pane-title-shrink-19daabcf@pane-header-title font-display",
+      "pane-desc-shrink-19daabcf@pane-header-desc text-caption",
+      "metal-shimmer-sweep@badge-atom inline-flex items-c"
+    ]
+  }
+]

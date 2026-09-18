@@ -1,0 +1,50 @@
+{
+  "schema": "value.frontend.canonical-report-closure.v1",
+  "statusDate": "2026-08-03",
+  "mode": "TRANCHE_DEVELOPMENT_ONLY",
+  "status": "CLEAN_SOURCE_REPORT_CLOSURE_ZERO_EXECUTION",
+  "authority": "NONE",
+  "sourceCoordinate": {
+    "head": "e01d0065fa6c7c80282280566af2b9a4add809bf",
+    "tree": "a28eb1a79ee695ce77699ab70e14b2feb7ec5ba5",
+    "gapRegistrySha256": "373d9f5668445a33cce6085f6dcf0ebfa75f6edfab888c68882a180784da7740"
+  },
+  "closure": {
+    "subjects": 16,
+    "newCanonicalReports": 46,
+    "preservedPriorCanonicalReports": 2,
+    "subjectAxesBound": 48,
+    "workflowReports": { "satisfied": 88, "total": 88, "percent": 100 },
+    "canonicalAxes": { "satisfied": 264, "total": 264, "percent": 100 },
+    "runtimeEvidence": 0,
+    "appleBrowserCells": 0,
+    "productChanges": 0
+  },
+  "durability": {
+    "reportManifest": "VALUE-FRONTEND-CANONICAL-REPORT-CLOSURE-REPORTS-2026-08-03.sha256",
+    "reportManifestSha256": "e66962864a34dd1e4981dfb550a83c49f2c8ab0a25d5bb130b670e36c67be89f",
+    "reportManifestRows": 48,
+    "hydrationLedgerSha256": "7062709645abff37fde8ed6c53cf29a4b4951a430b66da1014a4913acff333a1",
+    "completenessLedgerSha256": "1c7da6f003da0bb9154f798c8fd7dfabe5c6274d1a17503e0ab9fb3b2b92e9ec",
+    "hydration": { "original": 232, "direct": 51, "hydrated": 0, "unparseable": 0 },
+    "completenessVerdict": "GREEN_ZERO_INCOMPLETE_COMPONENTS"
+  },
+  "review": {
+    "independentHostile": "CLEAN",
+    "firstCorrectionPass": "APPLIED_AND_REHASHED",
+    "receiptSha256": "15158f91c6ee8595ebde7c9f64ffafe7bec438800ae172a950f1c32b4233b3ad",
+    "materialFalsifier": null,
+    "promotionRule": "The 88/88 and 264/264 numerators describe hash-banked source reports only. They do not promote runtime, Browser, Safari, API, package, product, release, owner-slot, or constellation authority."
+  },
+  "credit": {
+    "trancheSourceReports": 46,
+    "product": 0,
+    "browser": 0,
+    "safari": 0,
+    "api": 0,
+    "package": 0,
+    "release": 0,
+    "ownerSlot": 0,
+    "constellation": 0
+  }
+}

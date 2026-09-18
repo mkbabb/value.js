@@ -1,0 +1,94 @@
+
+=== DockControl style — pre-image (Reset SHOULD read disabled) ===
+{
+ "upload": {
+  "disabled": false,
+  "ariaDisabled": null,
+  "opacity": "1",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "pointer",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ },
+ "camera": {
+  "disabled": false,
+  "ariaDisabled": null,
+  "opacity": "1",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "pointer",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ },
+ "reset": {
+  "disabled": true,
+  "ariaDisabled": "true",
+  "opacity": "0.5",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "default",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ }
+}
+
+=== DockControl style — developed (Reset now enabled) ===
+{
+ "upload": {
+  "disabled": false,
+  "ariaDisabled": null,
+  "opacity": "1",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "pointer",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ },
+ "camera": {
+  "disabled": false,
+  "ariaDisabled": null,
+  "opacity": "1",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "pointer",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ },
+ "reset": {
+  "disabled": false,
+  "ariaDisabled": null,
+  "opacity": "1",
+  "color": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "filter": "brightness(1)",
+  "cursor": "pointer",
+  "svgStroke": "color(srgb 0.11 0.098 0.09 / 0.8)",
+  "svgOpacity": "1",
+  "rect": {
+   "w": 40,
+   "h": 40
+  }
+ }
+}
+
+clips written

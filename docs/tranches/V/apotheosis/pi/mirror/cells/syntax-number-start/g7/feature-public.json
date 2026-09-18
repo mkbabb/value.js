@@ -1,0 +1,184 @@
+{
+  "feature_id": "SYNTAX-NUMBER-START",
+  "generation": 7,
+  "status": "PUBLIC_BOUNDARY_PRECURSOR_AWAITING_FRESH_G7_HOLDOUT_SEAL",
+  "owner": {
+    "family": "value-unit",
+    "active_root": "mirror/apotheosis",
+    "module_namespace": "grammar/css/l4/value-unit",
+    "candidate_path": "candidates/<seat>/overlay/grammar/css/l4/value-unit/number-start.ts",
+    "integration_target": "mirror/apotheosis/grammar/css/l4/value-unit/number-start.ts",
+    "internal_root": "numberStart: Parser<boolean>",
+    "public_root": null,
+    "compatibility_impact": "No public export/result type. Promotion remains provisional until the complete denominator and integrated consumers close."
+  },
+  "authority": {
+    "title": "CSS Syntax Module Level 3",
+    "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+    "retrieved": "2026-07-22",
+    "url": "https://raw.githubusercontent.com/w3c/csswg-drafts/c7573530343759ace8e46438a1fa2c44515b5554/css-syntax-3/Overview.bs",
+    "raw_sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+    "raw_bytes": 144427,
+    "definition": "§4.3.10 Check if three code points would start a number",
+    "preprocessing_dependency": "§3.3 filtering maps raw input into retained code-point positions; the operation receives only mapped retained positions or EOF."
+  },
+  "inherited_semantic_boundary": {
+    "generation_6_precursor": {
+      "path": "../g6/feature-public.json",
+      "bytes": 19707,
+      "sha256": "8a5559937ce73bd0db576fb36a35427a182c0cf682cae42c50781552e6a8c667"
+    },
+    "contract": {
+      "path": "contract.ts",
+      "disposition": "Exact type re-export of the G6 contract, which exact-re-exports the sound G5/G4 contract."
+    },
+    "harness": {
+      "path": "harness.ts",
+      "disposition": "Exact runtime re-export of the G6 harness, which exact-re-exports the sound G5 harness."
+    },
+    "benchmark": {
+      "path": "benchmark-protocol.json",
+      "disposition": "Content-addressed inheritance of every G6 semantic/numeric procedure; only G7 identity, fresh-holdout identity, raw-output name, and resolved-program receipt binding change."
+    },
+    "semantic_delta_from_g6": "NONE",
+    "harness_delta_from_g6": "NONE",
+    "benchmark_method_delta_from_g6": "NONE"
+  },
+  "prior_generation": {
+    "generation": 6,
+    "manifest_sha256": "fc3c059accc160841c391bb20bee0364e2defb3b69a8661ae00cfc9fa0e1f064",
+    "challenge_a_sha256": "89b112ab2621b4a21c281af706c826ff218875833c61430b432fa4312dbcb29c",
+    "challenge_a_verdict": "REJECT",
+    "challenge_b_sha256": "0809fb83866d14fddf22eb795a1ec136d11485d42e8a3f48116292428eb5ff2c",
+    "challenge_b_verdict": "REJECT",
+    "root_gestalt_sha256": "3866bc53927393dab1372598db5ca6510bd98c8aec7d3a11a15fcf4962ceb6da",
+    "rejection_sha256": "ce4ad499fcb180b79826036c6798528ad8490367924982c409d7f7d40d790612",
+    "verdict": "TWO_REJECTS_PLUS_ROOT_REJECT_BEFORE_CANDIDATE_CODE",
+    "candidate_sources_written": 0,
+    "holdout": {
+      "revealed": false,
+      "reused": false,
+      "disposition": "IRREVERSIBLY_DESTROYED_AND_DISCARDED",
+      "custodian_accessible_copies_remaining": 0
+    },
+    "confirmed_blockers": [
+      "The broad project typecheck admitted unbound workspace/package inputs and did not isolate or necessarily include the candidate overlay.",
+      "The verifier did not enforce exactly numberStart: Parser<boolean>; number, any, and Parser<any> were not excluded by the advertised candidate gate.",
+      "The running verifier bytes were not linked to the exact sealed manifest row."
+    ]
+  },
+  "generation_7_repairs": {
+    "isolated_program": "The exact candidate and an in-memory verifier probe are the only compiler roots. Explicit strict ES2022/ESNext/Bundler/noEmit/types=[] options replace project tsc. Every resolved SourceFile must be the candidate, probe, or a byte-bound member of the 130-file TypeScript package or 64-file parse-that dist; every input is hashed and emitted.",
+    "exact_type": "The probe rejects root/payload any and unknown and requires bidirectional exactness for both typeof numberStart ↔ Parser<boolean> and inferred payload ↔ boolean. TypeScript module inspection separately requires one exact direct numberStart export and emits the observed type receipt.",
+    "manifest_anchor": "The invocation supplies the externally recorded owner-sealed G7 manifest SHA-256. The canonical verifier hashes adjacent manifest.json to that digest, reads exactly one own row, reproduces its running bytes against that row, and emits both identities.",
+    "nonconformant_digest": "A different caller-supplied digest is not a G7 gate invocation even if it describes other bytes. Candidate receipts must bind the one owner-sealed digest recorded after the fresh holdout joins this precursor.",
+    "mechanical_nonclaims": "The repaired type/identity mechanisms still grant no semantic, idiom, scanner, architecture, O(1), KISS, or performance credit. All five exact-source skeptics retain every such axis."
+  },
+  "grammar_contract": {
+    "input": "An ordinary parse-that child ParserState at a source-native UTF-16 offset corresponding to one retained CSS-preprocessed position or EOF.",
+    "operation": "Inspect no more than the next three CSS input positions through direct parse-that terminals/combinators. Return true exactly for digit, sign+digit, dot+digit, or sign+dot+digit; otherwise false.",
+    "composition": "Both binding lanes run: direct candidate.parser(state), and string(prefix).map(predecessor).next(candidate).skip(string(continuation)).",
+    "state_identity": "Raw child and outer parent each return the identical ParserState object received.",
+    "source_identity": "Preserve ParserState.src own-property presence and exact string value/identity.",
+    "predecessor": "Replace any predecessor with the boolean result without depending on predecessor content. Seven representatives cover package-default undefined, null, false, 0, empty string, frozen array, and frozen object; this evidence is not an enumeration of JavaScript values.",
+    "consumption": "Always succeed, consume zero UTF-16 code units, and leave the following grammar at the candidate offset.",
+    "diagnostics": "In explicit package disabled/enabled modes, preserve furthest, expected own-property/reference/ordered values, suggestions array and entry identities/fields, secondarySpans array and entry identities/fields, and global diagnostics mode.",
+    "diagnostic_profiles": [
+      "default present/undefined",
+      "absent expected with furthest before",
+      "undefined expected with multiple diagnostics before",
+      "empty expected at candidate offset",
+      "multiple diagnostics at candidate offset",
+      "multiple diagnostics beyond candidate offset",
+      "multiple diagnostics at source end"
+    ],
+    "diagnostic_sandbox": "A candidate-local Parser wrapper may snapshot/restore only parser and diagnostic bookkeeping around direct core-combinator recognition. Its work is candidate cost. It may not import diagnostics, change global mode, inspect/derive state.src, classify source manually, advance an imperative cursor, or feed a token/CST layer.",
+    "preprocessing": "ASCII +, -, ., and digits survive filtering. Assert raw/preprocessed truth only at mapped retained positions/EOF; never supply an eliminated CRLF interior.",
+    "result": "boolean",
+    "recovery": "NOT_APPLICABLE_ALWAYS_SUCCEEDS",
+    "serialization": "NOT_APPLICABLE_NO_SERIALIZATION",
+    "work_bound": "Worst-case O(1) time/space; at most three positions; no whole-number/exponent run, source materialization, token/CST, imperative loop/scanner, or broad remainder capture."
+  },
+  "fixture_identity": {
+    "generation_3_cases_sha256": "14154a45452971f40d0661afdaccd63ee391cec6dec6a7d1d7f79dbaaa2b6706",
+    "generation_3_cases": 406,
+    "generation_3_true": 306,
+    "generation_3_false": 100,
+    "generation_4_endpoint_sha256": "b1e52a69e275dc27722a67066b03b40163a1787fe37dc0aae1bdd6b1cb1dc187",
+    "endpoint_cases": 23,
+    "endpoint_true": 12,
+    "endpoint_false": 11,
+    "deterministic_hostile": 3,
+    "raw_and_parent_lanes": 2,
+    "diagnostics_modes": 2,
+    "diagnostic_profiles": 7,
+    "predecessor_representatives": 7,
+    "fresh_holdout_law": "A wholly fresh G7 custodian binds these immutable precursor bytes and all public closure identities. No G4/G5/G6 hidden byte may be recovered, inferred, revealed, or reused."
+  },
+  "candidate_generation": {
+    "minimum_orthogonal": 3,
+    "required_authors": 5,
+    "seats": [
+      { "id": "H", "provenance": "historical direct-combinator transpose", "topology": "Bounded first-three explicit core-combinator branches; never whole-number/exponent recognition." },
+      { "id": "B", "provenance": "BBNF-production transpose", "topology": "Bounded prefix productions; no f64 conversion or whole numeric run." },
+      { "id": "S", "provenance": "specification-first", "topology": "Normative alternatives as an explicit production tree." },
+      { "id": "D", "provenance": "engine-native clean room", "topology": "First-character dispatch/chain, not production-tree or single-regex clone." },
+      { "id": "R", "provenance": "bounded-terminal clean room", "topology": "One bounded zero-width terminal expression plus always-successful fallback and diagnostic sandbox." }
+    ],
+    "lineage_accounting": "H/B/S may converge on one branch lineage; D and R remain independently constrained. Five isolated authors must yield at least three material lineages or return to formation.",
+    "isolation": "No author sees another candidate, hidden bytes/results, or cross-seat design notes before all five source, overlay, projected, isolated-program, and type identities close.",
+    "candidate_source_gate": "No candidate source exists before one G7 manifest binds this precursor and a wholly fresh G7 holdout receipt, two independent exact-byte boundary challenges ACCEPT, and root gestalt ACCEPTS."
+  },
+  "post_candidate_adjudication": {
+    "quintet": "Five independent skeptics each review every exact candidate on correctness, spec, state/diagnostics, predecessor independence, exact type/identity, idiomatic parse-that, anti-scanner/source policy, modular ownership, LOC/KISS, work bound, and performance. No axis is partitioned away.",
+    "triumvirate": "Three independent adjudicators then nominate an already-reviewed exact candidate or explicit composition; a new opaque implementation restarts candidate generation.",
+    "integration": "Only the converged exact overlay may enter the empty active base; full-ledger incompleteness still withholds feature apotheosis."
+  },
+  "promotion": {
+    "protocol_path": "promotion-protocol.json",
+    "verifier_path": "promotion-verifier.mjs",
+    "candidate_identity": "source + overlay + projected grammar + owner-sealed manifest/running-verifier + parse-that/TypeScript + complete resolved-program ledger + observed exact type + roots/host receipt",
+    "compiler_roots": ["exact candidate", "in-memory verifier-generated probe"],
+    "exact_type": "numberStart: Parser<boolean>; any, unknown, Parser<any>, Parser<unknown>, Parser<literal>, numeric/non-parser, missing, and multiple exports reject",
+    "human_gate": "The mechanical floor is necessary only; all five exact-source skeptics bind every mechanical nonclaim."
+  },
+  "structure_identity": {
+    "module_dag_sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f",
+    "module_dag_bbnf_disposition": "TERMINAL_SHARED_BOUNDARY_ACK_WITHOUT_IMPLEMENTATION_OR_CONFORMANCE_CREDIT",
+    "feature_ledger_sha256_at_precursor": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3",
+    "full_ledger_status": "INCOMPLETE_NO_APOTHEOSIS_ACCEPTANCE",
+    "active_clean_base_manifest_sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2",
+    "active_grammar_typescript_sources": 0,
+    "parse_that_dist_ledger_sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b",
+    "typescript_package_ledger_sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47",
+    "typescript_package_files": 130
+  },
+  "public_input_closure": [
+    { "path": "contract.ts", "bytes": 190, "sha256": "9e8a24d12444f7631bf5fa66e1c7011a20e32f1bc0d80ac488df758b9f96db3e" },
+    { "path": "harness.ts", "bytes": 188, "sha256": "c595d3ad5ddba2996bf55c7e166e5f6f08342fffa668e20687087d0f09e56932" },
+    { "path": "benchmark-protocol.json", "bytes": 1054, "sha256": "b3939805eb229ce6b010386db04a833a2ed22a4ab61bcb245703a911410a6e90" },
+    { "path": "promotion-protocol.json", "bytes": 7286, "sha256": "64e37760ea312f69759800abc6a9d593bcdaa583b2cbb4d7268bdc91beb9dab8" },
+    { "path": "promotion-verifier.mjs", "bytes": 31585, "sha256": "7e22b43b386ff4a38d24f6f6f978a13ca0310b9ea06fac1140eb3737821badf5" },
+    { "path": "../g6/contract.ts", "bytes": 175, "sha256": "e8e1f82bd0eafafc3795fa4cddbd04dd22d5653e4364b5b6e6f3468017b3d51e" },
+    { "path": "../g6/harness.ts", "bytes": 187, "sha256": "8de9fbd556b3f4cc95e3d99fd32615401c4ebb7fdc26500231d1a37d2ad7cb4d" },
+    { "path": "../g6/benchmark-protocol.json", "bytes": 7220, "sha256": "a3cfc5356d535c4a8a100bb7301cf58b7775479db04d5d0b69249b58bf72a4ed" },
+    { "path": "../g6/feature-public.json", "bytes": 19707, "sha256": "8a5559937ce73bd0db576fb36a35427a182c0cf682cae42c50781552e6a8c667" },
+    { "path": "../g6/manifest.json", "bytes": 7663, "sha256": "fc3c059accc160841c391bb20bee0364e2defb3b69a8661ae00cfc9fa0e1f064" },
+    { "path": "../g6/reviews/challenge-a-specification.md", "bytes": 12889, "sha256": "89b112ab2621b4a21c281af706c826ff218875833c61430b432fa4312dbcb29c" },
+    { "path": "../g6/reviews/challenge-b-architecture.md", "bytes": 8468, "sha256": "0809fb83866d14fddf22eb795a1ec136d11485d42e8a3f48116292428eb5ff2c" },
+    { "path": "../g6/root-gestalt.md", "bytes": 3160, "sha256": "3866bc53927393dab1372598db5ca6510bd98c8aec7d3a11a15fcf4962ceb6da" },
+    { "path": "../g6/rejection.json", "bytes": 1861, "sha256": "ce4ad499fcb180b79826036c6798528ad8490367924982c409d7f7d40d790612" },
+    { "path": "../g6/typescript-package.ledger", "bytes": 12054, "sha256": "3a08d88df997493df6c0dc751d81e52377f155defada21c1a0a7d4d0df048f47" },
+    { "path": "../g3/parse-that-dist.ledger", "bytes": 5586, "sha256": "998c5668fa103e4692d69f48a0665f152cb1d014b11fa668c99693307ef1690b" },
+    { "path": "../../../apotheosis/clean-base.json", "bytes": 1177, "sha256": "dcece5fb104fbcbf1f87ec5d548307f38a0a18bf98bfdb9a771aef0bd7da37d2" },
+    { "path": "../../../package.json", "bytes": 755, "sha256": "b15f2948615b3ab979fdd1c356d5cbdaee3639115e07930d4041ccc77b3cd3af" },
+    { "path": "../../../package-lock.json", "bytes": 69400, "sha256": "489c5981ffa75d795cd3fae0e6d5a837b272ffec1633d862dba9c11a59e668b7" },
+    { "path": "../../../../MODULE-DAG.md", "bytes": 4880, "sha256": "291e51451d84f2fd41adb8b9a31b3c33cf1503b6f47019a06e16702c98daca8f" },
+    { "path": "../../../../FEATURE-LEDGER.md", "bytes": 13998, "sha256": "16a95950a51432b31615d0c9b714b2024b811b360f4d0e7546caa1ea1ad766b3" },
+    { "path": "../../../../ADDENDA-07.md", "bytes": 20954, "sha256": "78a5bdb753fec5efb61311db570930bc2af80757531054b9ee3c415e98ee26d5" }
+  ],
+  "candidate_sources_present": false,
+  "holdout_receipt_present": false,
+  "manifest_present": false,
+  "admission": "Freeze these exact precursor bytes and all 22 public-input identities, obtain a wholly fresh G7 holdout receipt with no prior hidden reuse, seal one G7 manifest, then require two fresh independent exact-byte ACCEPT challenges and one root gestalt ACCEPT before any candidate source."
+}

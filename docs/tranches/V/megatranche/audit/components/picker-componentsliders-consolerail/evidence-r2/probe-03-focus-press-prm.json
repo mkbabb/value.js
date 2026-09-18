@@ -1,0 +1,539 @@
+{
+  "webkit": {
+    "engine": "webkit",
+    "opts": null,
+    "staggerOnItems": [
+      {
+        "text": "L",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "a",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.04s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "b",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.08s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "α",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.12s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      }
+    ],
+    "press": {
+      "matchesActive": true,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "expected": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "renderedBoxW": 23.641
+    },
+    "tabTraversal": {
+      "tabsToReachRail": 4,
+      "reached": true
+    },
+    "focusAfterTab": {
+      "text": "b",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "color": "oklch(0 0 0)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "focusAfterArrow": {
+      "text": "α",
+      "isRailItem": true,
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "color": "oklch(0 0 0)"
+    },
+    "focusAfterArrow2": {
+      "text": "L",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px"
+    },
+    "focusRingVsDot": {
+      "hasDot": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "zIndexSeat": "0"
+    }
+  },
+  "chromium": {
+    "engine": "chromium",
+    "opts": null,
+    "staggerOnItems": [
+      {
+        "text": "L",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "a",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.04s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "b",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.08s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "α",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.12s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      }
+    ],
+    "press": {
+      "matchesActive": true,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "expected": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "renderedBoxW": 23.641
+    },
+    "tabTraversal": {
+      "tabsToReachRail": 9,
+      "reached": true
+    },
+    "focusAfterTab": {
+      "text": "b",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "color": "oklch(0 0 0)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "focusAfterArrow": {
+      "text": "α",
+      "isRailItem": true,
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "color": "oklch(0 0 0)"
+    },
+    "focusAfterArrow2": {
+      "text": "L",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px"
+    },
+    "focusRingVsDot": {
+      "hasDot": true,
+      "boxShadow": "color(srgb 0.665504 0.000101413 0.261748 / 0.3) 0px 0px 0px 2px, color(srgb 0.665504 0.000101413 0.261748 / 0.15) 0px 0px 8px 0px",
+      "zIndexSeat": "0"
+    }
+  },
+  "webkit_reducedMotion": {
+    "engine": "webkit+prefers-reduced-motion:reduce",
+    "opts": {
+      "reducedMotion": "reduce"
+    },
+    "staggerOnItems": [
+      {
+        "text": "L",
+        "animationName": "none",
+        "fillMode": "none",
+        "animationDuration": "0.00001s",
+        "animationDelay": "0s",
+        "transform": "none",
+        "runningAnimations": [],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "a",
+        "animationName": "none",
+        "fillMode": "none",
+        "animationDuration": "0.00001s",
+        "animationDelay": "0s",
+        "transform": "none",
+        "runningAnimations": [],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "b",
+        "animationName": "none",
+        "fillMode": "none",
+        "animationDuration": "0.00001s",
+        "animationDelay": "0s",
+        "transform": "none",
+        "runningAnimations": [],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "α",
+        "animationName": "none",
+        "fillMode": "none",
+        "animationDuration": "0.00001s",
+        "animationDelay": "0s",
+        "transform": "none",
+        "runningAnimations": [],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      }
+    ],
+    "press": {
+      "matchesActive": true,
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "expected": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "renderedBoxW": 22.695
+    },
+    "tabTraversal": {
+      "tabsToReachRail": 4,
+      "reached": true
+    },
+    "focusAfterTab": {
+      "text": "b",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "color": "oklch(0 0 0)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "focusAfterArrow": {
+      "text": "α",
+      "isRailItem": true,
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "color": "oklch(0 0 0)"
+    },
+    "focusAfterArrow2": {
+      "text": "L",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px"
+    },
+    "focusRingVsDot": {
+      "hasDot": true,
+      "boxShadow": "color(srgb 0.665034 0 0.261497 / 0.3) 0px 0px 0px 2px, color(srgb 0.665034 0 0.261497 / 0.15) 0px 0px 8px 0px",
+      "zIndexSeat": "0"
+    }
+  },
+  "chromium_forcedColors": {
+    "engine": "chromium+forced-colors:active",
+    "opts": {
+      "forcedColors": "active"
+    },
+    "staggerOnItems": [
+      {
+        "text": "L",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "a",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.04s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "b",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.08s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "α",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.12s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      }
+    ],
+    "press": {
+      "matchesActive": true,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "expected": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "renderedBoxW": 23.641
+    },
+    "tabTraversal": {
+      "tabsToReachRail": 9,
+      "reached": true
+    },
+    "focusAfterTab": {
+      "text": "b",
+      "focusVisible": true,
+      "boxShadow": "none",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "color": "rgb(0, 0, 0)",
+      "bg": "rgba(255, 255, 255, 0)"
+    },
+    "focusAfterArrow": {
+      "text": "α",
+      "isRailItem": true,
+      "focusVisible": true,
+      "boxShadow": "none",
+      "outlineStyle": "none",
+      "color": "rgb(0, 0, 0)"
+    },
+    "focusAfterArrow2": {
+      "text": "L",
+      "focusVisible": true,
+      "boxShadow": "none"
+    },
+    "focusRingVsDot": {
+      "hasDot": true,
+      "boxShadow": "none",
+      "zIndexSeat": "0"
+    }
+  },
+  "chromium_dark": {
+    "engine": "chromium+dark",
+    "opts": {
+      "colorScheme": "dark"
+    },
+    "staggerOnItems": [
+      {
+        "text": "L",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "a",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.04s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "b",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.08s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      },
+      {
+        "text": "α",
+        "animationName": "stagger-child-in",
+        "fillMode": "both",
+        "animationDuration": "0.3s",
+        "animationDelay": "0.12s",
+        "transform": "matrix(1, 0, 0, 1, 0, 0)",
+        "runningAnimations": [
+          {
+            "id": "stagger-child-in",
+            "playState": "finished",
+            "fill": "both"
+          }
+        ],
+        "parentHasStagger": true,
+        "isDirectStaggerChild": true
+      }
+    ],
+    "press": {
+      "matchesActive": true,
+      "transform": "matrix(1, 0, 0, 1, 0, 0)",
+      "expected": "matrix(0.96, 0, 0, 0.96, 0, 0)",
+      "renderedBoxW": 23.641
+    },
+    "tabTraversal": {
+      "tabsToReachRail": 9,
+      "reached": true
+    },
+    "focusAfterTab": {
+      "text": "b",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "color": "oklch(0 0 0)",
+      "bg": "rgba(0, 0, 0, 0)"
+    },
+    "focusAfterArrow": {
+      "text": "α",
+      "isRailItem": true,
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+      "outlineStyle": "none",
+      "color": "oklch(0 0 0)"
+    },
+    "focusAfterArrow2": {
+      "text": "L",
+      "focusVisible": true,
+      "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px"
+    },
+    "focusRingVsDot": {
+      "hasDot": true,
+      "boxShadow": "color(srgb 0.999884 0.924705 0.933067 / 0.3) 0px 0px 0px 2px, color(srgb 0.999884 0.924705 0.933067 / 0.15) 0px 0px 8px 0px",
+      "zIndexSeat": "0"
+    }
+  }
+}

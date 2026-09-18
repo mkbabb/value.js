@@ -7,7 +7,8 @@ import { test, expect, type Page, type Locator } from "@playwright/test";
  * range on arrow / Home / End).
  *
  * This is a born-RED COVERAGE gate: no test drove the sliders' keyboard value
- * change before. The Slider is the glass-ui primitive (demo/@/components/ui/slider
+ * change before. The Slider is the glass-ui primitive (demo/ui/slider — the path
+ * moved out of the deleted `demo/@` tree at `bc06a0cd`
  * re-exports @mkbabb/glass-ui Slider). If operation were broken the cure is a
  * glass-ui RELAY (not a demo edit) — the born-RED test is the demo's, the source
  * cure (if any) is relayed. Here we drive each channel slider and assert the
@@ -19,9 +20,9 @@ import { test, expect, type Page, type Locator } from "@playwright/test";
 
 async function ready(page: Page) {
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible({ timeout: 20000 });
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible({
+        timeout: 20000,
+    });
 }
 
 async function valueNow(slider: Locator): Promise<number> {
@@ -47,8 +48,7 @@ test("BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value acros
     for (let i = 0; i < count; i++) {
         const slider = sliders.nth(i);
         if (!(await slider.isVisible())) continue;
-        const label =
-            (await slider.getAttribute("aria-label")) ?? `slider#${i}`;
+        const label = (await slider.getAttribute("aria-label")) ?? `slider#${i}`;
 
         await slider.focus();
 
@@ -74,9 +74,7 @@ test("BR-8 · slider keyboard OPERATION — Home/End/Arrow drive the value acros
         if (moved) {
             drivenOk++;
         } else {
-            failures.push(
-                `${label}: min=${atMin} max=${atMax} arrow=${afterArrow}`,
-            );
+            failures.push(`${label}: min=${atMin} max=${atMax} arrow=${afterArrow}`);
         }
         console.log(
             `[BR-8] ${label}: Home=${atMin} End=${atMax} ArrowLeft=${afterArrow} → ${moved ? "MOVES" : "STUCK"}`,

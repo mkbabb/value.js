@@ -1,0 +1,91 @@
+{
+  "../color/anchors.ts": [
+    "../color/model.ts"
+  ],
+  "../color/index.ts": [
+    "../color/model.ts",
+    "../color/operations.ts",
+    "../foundation/result.ts"
+  ],
+  "../color/model.ts": [
+    "../foundation/result.ts"
+  ],
+  "../color/operations.ts": [
+    "../color/anchors.ts",
+    "../color/model.ts",
+    "../foundation/result.ts"
+  ],
+  "../css/grammar.ts": [
+    "../color/anchors.ts",
+    "../color/model.ts",
+    "../css/named-colors.ts",
+    "../css/types.ts",
+    "../foundation/result.ts",
+    "../value.ts"
+  ],
+  "../css/index.ts": [
+    "../css/grammar.ts",
+    "../css/stylesheet.ts",
+    "../css/syntax.ts",
+    "../css/timeline.ts",
+    "../css/types.ts"
+  ],
+  "../css/named-colors.ts": [],
+  "../css/stylesheet.ts": [
+    "../css/grammar.ts",
+    "../css/syntax.ts",
+    "../css/timeline.ts",
+    "../css/types.ts",
+    "../value.ts"
+  ],
+  "../css/syntax.ts": [
+    "../css/grammar.ts",
+    "../css/types.ts",
+    "../value.ts"
+  ],
+  "../css/timeline.ts": [
+    "../css/grammar.ts",
+    "../css/types.ts"
+  ],
+  "../css/types.ts": [
+    "../color/model.ts",
+    "../easing.ts",
+    "../foundation/result.ts",
+    "../value.ts"
+  ],
+  "../easing.ts": [
+    "../foundation/result.ts"
+  ],
+  "../foundation/math.ts": [],
+  "../foundation/result.ts": [],
+  "../quantize.ts": [
+    "../color/index.ts"
+  ],
+  "../transform/decompose.ts": [],
+  "../transform/path.ts": [],
+  "../value.ts": [
+    "../color/index.ts"
+  ],
+  "color.ts": [
+    "../color/index.ts"
+  ],
+  "css.ts": [
+    "../css/index.ts"
+  ],
+  "easing.ts": [
+    "../easing.ts"
+  ],
+  "math.ts": [
+    "../foundation/math.ts"
+  ],
+  "quantize.ts": [
+    "../quantize.ts"
+  ],
+  "transform.ts": [
+    "../transform/decompose.ts",
+    "../transform/path.ts"
+  ],
+  "value.ts": [
+    "../value.ts"
+  ]
+}

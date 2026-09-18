@@ -1,0 +1,14 @@
+import { webkit } from "playwright";
+const ORIGIN = "http://localhost:9000";
+const browser = await webkit.launch();
+const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, colorScheme: "light" });
+const page = await context.newPage();
+await page.goto(`${ORIGIN}/#/browse`, { waitUntil: "networkidle" });
+await page.waitForTimeout(2800);
+await page.click('button[aria-label="Filters"]');
+await page.waitForTimeout(800);
+console.log("=== ARIA SNAPSHOT of the popover ===");
+console.log(await page.locator('[role="dialog"][data-state="open"]').ariaSnapshot());
+console.log("=== ARIA SNAPSHOT of the trigger ===");
+console.log(await page.locator('button[aria-label="Filters"]').ariaSnapshot());
+await browser.close();

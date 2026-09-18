@@ -1,0 +1,219 @@
+SERVED MODEL: claude-opus-5[1m]
+# KF.W0.e · G-0.9 REGISTRY RE-ANCHOR — the stamp audit
+# Date: 2026-09-17 · Ref of record: keyframes.js origin/master 81a56990736ced5b5edde0b84c527680ac7689b1
+# Disqualified pin: 8281638c0ac4ac8c54a67a018ca5bf6a9117174f   Pre-settle worktree snapshot: 6d280ee7
+
+=== (1) RED BASELINE, re-run at this seat BEFORE the pass ===
+$ ls docs/tranches/V/megatranche/registry/adjudicated/kf-*.md | wc -l
+      58
+$ grep -lc "REF-OF-RECORD" (before the pass)  -> 0   [measured at open; the baseline row in the wave record]
+
+=== (2) AFTER THE PASS — every record stamped EXACTLY ONCE ===
+$ grep -lc 'REF-OF-RECORD — KF.W0' docs/tranches/V/megatranche/registry/adjudicated/kf-*.md | wc -l
+      58
+$ grep -c  'REF-OF-RECORD — KF.W0' docs/tranches/V/megatranche/registry/adjudicated/kf-*.md | awk -F: '$NF!=1'   (rows where the count is not 1)
+  (empty above = 58 of 58, exactly once each)
+
+=== (3) E-3 PROOF — THE PASS IS A PURE APPEND ===
+$ git diff --numstat -- docs/tranches/V/megatranche/registry/adjudicated/ | awk '{a+=$1;d+=$2} END {print a,d}'
+  added: 1204   DELETED: 0
+$ git diff --numstat -- docs/tranches/V/megatranche/registry/adjudicated/ | awk '$2!=0'   (any record with a deletion)
+  (empty above = not one byte of dated evidence was rewritten)
+
+=== (4) C-21 — THE PASS IS DEMONSTRABLY PER-FILE (58 rows, 64 file-readings) ===
+$ git diff --numstat 8281638c 81a56990 -- <each record subject>   (run per record, python driver)
+AmigaScene               | AmigaScene.vue=+1/-1
+AnimatedText             | AnimatedText.vue=IDENTICAL
+AnimationControlsGroup   | AnimationControlsGroup.css=IDENTICAL · AnimationControlsGroup.vue=IDENTICAL
+AnimationVisualizer      | AnimationVisualizer.vue=+1/-1
+App                      | App.vue=+8/-1
+App.skeleton             | App.vue=+8/-1
+CSSCodeEditor            | CSSCodeEditor.vue=+5/-5
+CSSPasteDialog           | CSSPasteDialog.vue=IDENTICAL
+ChannelControls          | ChannelControls.vue=+2/-2
+ChannelOptions           | ChannelOptions.vue=+232/-58
+ChromeDock               | ChromeDock.vue=+4/-4
+ControlsPaneWrapper      | ControlsPaneWrapper.css=IDENTICAL · ControlsPaneWrapper.vue=IDENTICAL
+CopyButton               | CopyButton.vue=+1/-1
+CubeAxisLines            | CubeAxisLines.vue=IDENTICAL
+CubeScene                | CubeScene.vue=IDENTICAL
+CubeTarget               | CubeTarget.css=IDENTICAL · CubeTarget.vue=IDENTICAL
+DemoGlobalChrome         | DemoGlobalChrome.vue=IDENTICAL
+EasingScene              | EasingScene.vue=IDENTICAL
+EasingSidebar            | EasingSidebar.vue=+4/-6
+EasingTarget             | EasingTarget.css=IDENTICAL · EasingTarget.vue=+41/-16
+EditorHeader             | EditorHeader.vue=+1/-1
+EditorShell              | EditorShell.vue=+18/-20
+EditorStartScreen        | EditorStartScreen.vue=IDENTICAL
+HeroAurora               | HeroAurora.vue=IDENTICAL
+KeyboardShortcutsModal   | KeyboardShortcutsModal.vue=IDENTICAL
+KeyframeCard             | KeyframeCard.vue=+16/-3
+KeyframeCardList         | KeyframeCardList.vue=+14/-1
+KeyframeTimeline         | KeyframeTimeline.vue=+66/-49
+KeyframesAddDialog       | KeyframesAddDialog.vue=IDENTICAL
+KeyframesEditor          | KeyframesEditor.vue=+33/-4
+KeyframesStringControls  | KeyframesStringControls.vue=+1/-1
+KfPillTabs               | KfPillTabs.vue=IDENTICAL
+LayerConfigPanel         | LayerConfigPanel.vue=+8/-8
+MatrixEditor             | MatrixEditor.vue=+38/-39
+MbabbMenu                | MbabbMenu.vue=+13/-133
+OrbitalDrag              | OrbitalDrag.vue=IDENTICAL
+PlaybackRibbon           | PlaybackRibbon.vue=+30/-23
+RibbonBar                | RibbonBar.vue=+9/-9
+SequenceAxis             | SequenceAxis.vue=IDENTICAL
+SequencePlayhead         | SequencePlayhead.vue=IDENTICAL
+SequenceScene            | SequenceScene.vue=IDENTICAL
+SequenceScrubber         | SequenceScrubber.vue=IDENTICAL
+SequenceTarget           | SequenceTarget.css=IDENTICAL · SequenceTarget.vue=+5/-7
+SharePopover             | SharePopover.vue=+2/-2
+SpringHeatmap            | SpringHeatmap.vue=IDENTICAL
+SpringPhysicsFacet       | SpringPhysicsFacet.vue=+2/-1
+SpringScene              | SpringScene.vue=IDENTICAL
+SpringTarget             | SpringTarget.vue=IDENTICAL
+SpringTrace              | SpringTrace.vue=IDENTICAL
+SquareInstrument         | SquareInstrument.vue=IDENTICAL
+SquareScene              | SquareScene.css=IDENTICAL · SquareScene.vue=+2/-2
+StartingStyleTarget      | StartingStyleTarget.vue=+1/-1
+TimelineCaret            | TimelineCaret.vue=IDENTICAL
+TimelineHoverPreview     | TimelineHoverPreview.vue=IDENTICAL
+TimelineTrack            | TimelineTrack.vue=IDENTICAL
+TimingFunctionPanel      | TimingFunctionPanel.vue=+16/-9
+TransportDock            | TransportDock.vue=+52/-40
+TypingDots               | TypingDots.vue=+4/-9
+
+  IDENTICAL readings : 33
+  MOVED readings     : 31
+  A blanket per-repo verdict would have mis-stated every IDENTICAL row as stale and, at TypingDots.vue,
+  in the WRONG DIRECTION. That is the falsifier this gate names, and the enumeration above is its answer.
+
+=== (5) THE C-21 EXEMPLAR AND THE C-21 INVERSION, BOTH RE-RUN ===
+$ git -C ../keyframes.js diff --numstat 8281638c 81a56990 -- demo/scenes/amiga/useAmigaDemo.ts
+5	7	demo/scenes/amiga/useAmigaDemo.ts
+  158 L -> 156 L, net -2; BOTH hunks are comment-block rewrites with zero code-line change; the first
+  opens at @@ -73,11 +73,9 @@.  Banked: "comment-only drift, useAmigaDemo -2 below :73"  -> byte-exact.
+$ git -C ../keyframes.js diff --numstat 8281638c 81a56990 -- demo/components/instrument/shell/TypingDots.vue
+4	9	demo/components/instrument/shell/TypingDots.vue
+  Banked (fold seat): "vs HEAD 1 file, 4+/9-"  -> byte-exact. The worktree was IDENTICAL to origin/master
+  for this file, so the local pin was the OUTLIER: the direction REVERSES for it alone.
+
+=== (6) C-20 — THE NAMED TEST CASE, RESOLVED BY MEASUREMENT ===
+$ git -C ../keyframes.js show <ref>:demo/app/dock/MbabbMenu.vue | wc -l
+  8281638c : 241 L
+  81a56990 : 121 L
+  6d280ee7 : 121 L
+$ git -C ../keyframes.js diff --numstat 6d280ee7 81a56990 -- demo/app/dock/MbabbMenu.vue   (worktree vs frontier)
+  (empty = BYTE-IDENTICAL -> kf-CubeScene is RIGHT)
+$ git -C ../keyframes.js diff --numstat 8281638c 81a56990 -- demo/app/dock/MbabbMenu.vue   (pin vs frontier)
+13	133	demo/app/dock/MbabbMenu.vue
+  (+13/-133, net -120 -> kf-ChromeDock is RIGHT IN DIRECTION; its "-146" reproduces at NO coordinate)
+$ git -C ../keyframes.js grep -c "select.prevent" origin/master -- demo/app/dock/MbabbMenu.vue   (the load-bearing shape)
+  demo/app/dock/MbabbMenu.vue:5
+  VERDICT: the two banks were measuring DIFFERENT COORDINATE PAIRS and neither named its pair. Both cells
+  are true; the contradiction was a coordinate ambiguity, which is C-2 exactly. Appended at BOTH banks
+  (kf-ChromeDock, kf-CubeScene) and at the subject (kf-MbabbMenu) and at kf-EditorShell (DISSENT 3).
+
+=== (7) D-19 — THE STAMP IS KEYED TO THE BANKED ID (C-1.R row 6) ===
+$ cd docs/tranches/V/megatranche/registry/adjudicated
+$ grep -l 'D-19' kf-*.md | wc -l        (bare-token RECORDS)
+      58
+$ grep -h 'D-19' kf-*.md | wc -l        (bare-token LINES)
+     187
+$ predicate: a D-19 line ALSO matching 're-anchor|re-resolve|Re-anchor|Re-resolve'
+   RECORDS in the re-anchor sense : 34
+   LINES   in the re-anchor sense : 132
+   COMPONENT-LOCAL-ONLY records (bare minus re-anchor-sense), enumerated:
+     kf-ChannelOptions
+     kf-CubeScene
+     kf-KeyframesStringControls
+     kf-OrbitalDrag
+     kf-SquareInstrument
+     kf-SquareScene
+     kf-StartingStyleTarget
+     kf-TimelineCaret
+   RECORDS CARRYING NO D-19 AT ALL: 58 - 42 = 16 — reached by the stamp and by nothing else.
+  Reproduces C-1.R row 6 exactly (42/94 bare; 34/39 in the re-anchor sense; the same EIGHT local-id records).
+  The two records the spec names nowhere else — kf-ChannelControls, kf-TimelineTrack — reach this GREEN
+  through that key, and both carry a stamp.
+
+=== (8) C-19 — THE LEDGER RESOLVED AT ITS CORRECTED DENOMINATOR ===
+$ sed -n '379p' docs/tranches/X/keyframes/waves/KF-W0.md | grep -oE 'kf-[A-Za-z.]+' | sort -u | wc -l
+      32
+  32 distinct records named in the C-19 cell. TWO of them are the cell's own DECLARED ANTI-FIRINGS:
+    kf-CubeAxisLines  (reader-beta re-derived F-1's substrate FROM GIT)
+    kf-AnimatedText   (two readers converged independently on the role="img" override)
+  32 - 2 = 30 LEDGER MEMBERS + 2 ANTI-FIRINGS, ENUMERATED SEPARATELY. A sweep keyed to 32 resolves the
+  two anti-firings to the OPPOSITE disposition and cannot close — which is why D-3 corrected it.
+  The 30, each stamped with the member line; the 2, each stamped with the anti-firing line:
+    MEMBER   kf-AmigaScene
+    MEMBER   kf-ChannelOptions
+    MEMBER   kf-ChromeDock
+    MEMBER   kf-CopyButton
+    MEMBER   kf-CubeScene
+    MEMBER   kf-CubeTarget
+    MEMBER   kf-EasingScene
+    MEMBER   kf-EditorHeader
+    MEMBER   kf-EditorShell
+    MEMBER   kf-KeyframeCard
+    MEMBER   kf-KeyframesStringControls
+    MEMBER   kf-LayerConfigPanel
+    MEMBER   kf-MatrixEditor
+    MEMBER   kf-MbabbMenu
+    MEMBER   kf-OrbitalDrag
+    MEMBER   kf-RibbonBar
+    MEMBER   kf-SequenceAxis
+    MEMBER   kf-SequencePlayhead
+    MEMBER   kf-SequenceScene
+    MEMBER   kf-SequenceScrubber
+    MEMBER   kf-SequenceTarget
+    MEMBER   kf-SharePopover
+    MEMBER   kf-SpringHeatmap
+    MEMBER   kf-SpringScene
+    MEMBER   kf-SpringTarget
+    MEMBER   kf-SpringTrace
+    MEMBER   kf-SquareInstrument
+    MEMBER   kf-SquareScene
+    MEMBER   kf-StartingStyleTarget
+    MEMBER   kf-TimelineCaret
+    ANTI     kf-AnimatedText
+    ANTI     kf-CubeAxisLines
+
+=== (9) THE SIX NAMED APPENDED CORRECTIONS, LANDED BY ID ===
+$ grep -l 'CORRECTION (' docs/tranches/V/megatranche/registry/adjudicated/kf-*.md
+    kf-AnimationVisualizer.md
+    kf-App.md
+    kf-App.skeleton.md
+    kf-HeroAurora.md
+    kf-KeyboardShortcutsModal.md
+    kf-KeyframeTimeline.md
+    kf-TransportDock.md
+  (i) CORRECTION (i) of the six named at G-0.9 — the `TABS_EXTERNALLY_MANAGED_KEY` provide site is `demo/app/App.vue:176`, not
+  (ii) CORRECTION (ii) of the six named at G-0.9 — `--dock-margin`'s live-site count (C-22 (ii)), re-derived at the ref of reco
+  (iii) CORRECTION (iii) of the six named at G-0.9 — KF-SKEL-7's cascade-level coupling arm is RECORDED BESIDE THE IMPORT CENSUS
+  (iv) CORRECTION (iv) of the six named at G-0.9 — the census cell at `:9` is corrected to WORKTREE-SCOPE (C-9 / C-1.R row 3; t
+  (v) CORRECTION (v) of the six named at G-0.9 — THE SEAT-RULED RENUMBER IS DEMOTED TO A CLAIM-INPUT (R-5; E-3 addendum under 
+  (vi) CORRECTION (vi) of the six named at G-0.9 — THE HEADER'S SUBSTRATE EQUATION IS FALSE AND IS CORRECTED HERE BY APPENDED N
+
+=== (10) WHAT THIS PASS DID NOT DO ===
+  - It rewrote no dated evidence: 1204 lines added, 0 deleted, across 58 files.
+  - It booked no cure, renamed no id, minted no census slot (C-17 is KF.W0.d's single motion).
+  - It moved no product byte: git -C ../keyframes.js status --short -- demo/ src/ test/ scripts/ -> 0 rows.
+
+=== (9b) THE §9 GREP HAS ONE FALSE POSITIVE — declared rather than left to be re-found ===
+$ grep -n 'CORRECTION (' docs/tranches/V/megatranche/registry/adjudicated/kf-HeroAurora.md
+84:| K12 | **L:D-3 at MAJOR / reader-DU's MAJOR carry** — the "120–1000 Hz" rate premise | **SEAT CORRECTION (ruling 5).** The premise is th
+  That hit is PRE-EXISTING dated evidence at :84 ("SEAT CORRECTION (ruling 5)"), not this pass's work;
+  this seat appended no numbered correction to kf-HeroAurora. The six land at exactly six records:
+    (i)  kf-App                     TABS_EXTERNALLY_MANAGED_KEY -> demo/app/App.vue:176
+    (ii) kf-TransportDock           --dock-margin = 9 live unfallbacked + 1 prose mention
+    (iii) kf-App.skeleton           KF-SKEL-7 cascade-coupling arm beside the import census
+    (iv) kf-AnimationVisualizer     the :9 census cell corrected to worktree-scope
+    (v)  kf-KeyboardShortcutsModal  the S-10 renumber DEMOTED to a claim-input
+    (vi) kf-KeyframeTimeline        the header "working tree = the audited tree" equation is FALSE
+$ grep -l 'of the six named at G-0.9' docs/tranches/V/megatranche/registry/adjudicated/kf-*.md | wc -l
+       6
+    kf-AnimationVisualizer.md
+    kf-App.md
+    kf-App.skeleton.md
+    kf-KeyboardShortcutsModal.md
+    kf-KeyframeTimeline.md
+    kf-TransportDock.md

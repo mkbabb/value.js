@@ -1,0 +1,369 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair-hostile-challenge/v1",
+  "review_id": "OCCURRENCE-OWNER-V9-REPAIR-CHALLENGE-B",
+  "date": "2026-07-22",
+  "verdict": "REJECT",
+  "disposition": "NOT_READY_FOR_NEXT_DENOMINATOR_FORMATION",
+  "verdict_reason": "The exact repaired subject replays deterministically, but benign local inputs still expose a Unicode raw-close state/reference omission, duplicate ATX/Setext headings that map one ledger row twice and make the analyzer fail its own oracle, fabricated definition ownership from ordinary HTML label-for markup, and an operation oracle that ignores the required ledger owner_candidate. The oracle independently imports but repeats the analyzer's decisive semantics, so it accepts three of those false results. Structure and ledger joins also retain unmeasured superlinear scans outside the geometric evidence families.",
+  "review_protocol": {
+    "scope": "Conventional correctness and design review of the exact repaired V9 CSS corpus analyzer subject; readiness for the next denominator formation only.",
+    "inputs": "Benign local strings and in-memory fixture ledgers only.",
+    "repair_challenge_a_read": false,
+    "implementation_or_parser_edits": false,
+    "full_168_source_denominator_executed": false,
+    "publisher_or_shard_generation_executed": false,
+    "unrelated_dirty_worktree_preserved": true
+  },
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 36243,
+      "sha256": "5b084bfba01f5fcf8979aaed7a3be21a326cbef070f0cffd2e9599e1e6c1fb9e"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 37680,
+      "sha256": "5c4e1f65f5eaeefd886fa63ac2aa6d771adda9bbd13b6a4169b1d5f77b5e4afd"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 25356,
+      "sha256": "2e09d97a7af648c81b072b2cf67f2682ee2e427e9b4f074a0f3a1ad33c3d965b"
+    },
+    "repair_evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair-evidence.json",
+      "bytes": 6501,
+      "sha256": "b7316ed3d3beef7a10fb39ec73d4cb8f5f254083a0c7851ca85f77e7248090b3"
+    }
+  },
+  "replay": {
+    "repository_head": "c654824e0b252cda7f8490b67f182a48c48cc0ed",
+    "node": "v26.0.0",
+    "syntax_checks": [
+      {
+        "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+        "exit": 0
+      },
+      {
+        "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+        "exit": 0
+      },
+      {
+        "command": "node --check docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+        "exit": 0
+      }
+    ],
+    "workspace_cwd": {
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "exit": 0,
+      "stderr": "",
+      "stdout_bytes": 10148,
+      "stdout_sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4",
+      "reported_status": "GREEN_V9_REPAIR_RESEARCH_ONLY_ZERO_DENOMINATOR_CREDIT"
+    },
+    "external_cwd": {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "exit": 0,
+      "stderr": "",
+      "stdout_bytes": 10148,
+      "stdout_sha256": "b7dd3b9c0eb4f12a50a70e77247aa404a753bfbbc8dc38f5782d745f346c1dd4",
+      "reported_status": "GREEN_V9_REPAIR_RESEARCH_ONLY_ZERO_DENOMINATOR_CREDIT"
+    },
+    "byte_identical_across_cwds": true,
+    "judgment": "The documented suite is reproducible, but its green research-only status is not a semantic readiness result."
+  },
+  "blockers": [
+    {
+      "id": "B1-UNICODE-RAW-CLOSE-OFFSET-DRIFT",
+      "severity": "BLOCKER",
+      "dimensions": [
+        "markup",
+        "state",
+        "reference",
+        "oracle"
+      ],
+      "input": {
+        "source": "<script>İ</script>[=live=]",
+        "utf8_bytes": 27,
+        "sha256": "09d0553b45f48f90d30b05652eb2db2027aa14c52c04d0cd1f1a70a5a17cde6d",
+        "options": {
+          "operationLedger": []
+        }
+      },
+      "observed": {
+        "ranges": [
+          {
+            "start_offset": 0,
+            "end_offset_exclusive": 8,
+            "state": "TAG"
+          },
+          {
+            "start_offset": 8,
+            "end_offset_exclusive": 27,
+            "state": "RAW_SCRIPT"
+          }
+        ],
+        "candidate": {
+          "raw": "[=live=]",
+          "start_offset": 19,
+          "end_offset_exclusive": 27,
+          "type": "definition",
+          "state": "RAW_SCRIPT",
+          "disposition": "REVIEWED_EXCLUDED"
+        },
+        "oracle": "ACCEPT"
+      },
+      "expected_invariant": "The valid </script> closes at source character index 9 / UTF-8 byte offset 10, its tag occupies bytes [10,19), and [=live=] occupies eligible visible bytes [19,27). Unicode text before the raw closer must not change source-coordinate lookup.",
+      "cause": "The analyzer lowercases the entire source once and reuses indexes from that folded string against the original source. U+0130 lowercases to two code points, so lowerText and text no longer have the same indexes. The oracle makes the same whole-source fold and repeats the defect.",
+      "code_evidence": [
+        "analyzer.mjs:306-307 constructs lowerText with text.toLowerCase()",
+        "analyzer.mjs:236-274 returns raw-close indexes found in lowerText as original-text indexes",
+        "oracle.mjs:277 constructs folded with source.toLowerCase()",
+        "oracle.mjs:238-270 repeats the same index assumption"
+      ],
+      "impact": "A valid raw close can be missed after benign Unicode, swallowing all later visible references, headings, definitions, and operation markers into an opaque state while the oracle certifies the omission."
+    },
+    {
+      "id": "B2-ATX-SETEXT-DUPLICATE-BREAKS-LEDGER-BIJECTION",
+      "severity": "BLOCKER",
+      "dimensions": [
+        "heading",
+        "ledger",
+        "oracle",
+        "no-throw"
+      ],
+      "input": {
+        "source": "# Foo {#foo}\n---\n",
+        "utf8_bytes": 17,
+        "sha256": "ee91a48d52996975ed99ed3c906e85150d380c717ec4f1d6f8248e376ee0637a",
+        "source_url": "https://example.invalid/x.bs",
+        "ledger": [
+          {
+            "operation_id": "FOO",
+            "kind": "heading_anchor",
+            "anchor": "foo",
+            "source_id": "ee91a48d52996975ed99ed3c906e85150d380c717ec4f1d6f8248e376ee0637a",
+            "source_url": "https://example.invalid/x.bs",
+            "source_byte_anchor_or_reviewed_locator": 0,
+            "normative_family": "TEST",
+            "entry_conditions": [],
+            "outputs": [],
+            "owner_candidate": null,
+            "citation_identity": "probe",
+            "review_status": "REVIEWED",
+            "required": true
+          }
+        ]
+      },
+      "observed": {
+        "headings": [
+          {
+            "id": "heading-0",
+            "syntax": "BIKESHED_ATX",
+            "level": 1,
+            "start_offset": 0,
+            "end_offset_exclusive": 13,
+            "title": "Foo",
+            "anchor": "foo"
+          },
+          {
+            "id": "heading-1",
+            "syntax": "BIKESHED_SETEXT",
+            "level": 2,
+            "start_offset": 0,
+            "end_offset_exclusive": 17,
+            "title": "# Foo",
+            "anchor": "foo"
+          }
+        ],
+        "operation_ids": [
+          "FOO",
+          "FOO"
+        ],
+        "stable_ids": [
+          "FOO",
+          "FOO"
+        ],
+        "oracle": "REJECT: OracleFailure/STABLE_ID_COLLISION"
+      },
+      "expected_invariant": "One physical heading occurrence and one reviewed ledger row must form at most one heading and one operation. A successful analyzer call on a benign source and valid ledger must not produce a result rejected by its paired oracle.",
+      "cause": "Setext recognition does not exclude a preceding line already recognized as ATX. Both heading candidates share kind, source identity, locator, and anchor, and the ledger join does not prevent reuse of an already-used ledger row.",
+      "code_evidence": [
+        "analyzer.mjs:687-737 independently emits ATX and Setext headings for the same first line",
+        "analyzer.mjs:775-799 records used operation IDs but does not use that set to prevent a second join",
+        "oracle.mjs:603-635 repeats the duplicate heading derivation",
+        "oracle.mjs:811-825 rejects the duplicated stable ID after independently deriving and accepting both joins"
+      ],
+      "impact": "Heading counts and owner context are wrong, the operation-ledger join is not a bijection, and the normal analyze-plus-verify pipeline throws on a benign valid input."
+    },
+    {
+      "id": "B3-ORDINARY-LABEL-FOR-FABRICATES-DEFINITION-OWNER",
+      "severity": "BLOCKER",
+      "dimensions": [
+        "markup",
+        "owner",
+        "reference",
+        "oracle"
+      ],
+      "input": {
+        "source": "<label for=control><dfn>term</dfn></label> [=control/term=]",
+        "utf8_bytes": 59,
+        "sha256": "fa683210f386331b26c9366dfc69b7b227fa132bd27132d424a4c9f6ec581467"
+      },
+      "observed": {
+        "carrier_scope": "control",
+        "scope_attribute": {
+          "tag_id": "tag-0",
+          "tag_name": "label",
+          "name": "for",
+          "value": "control",
+          "value_start_offset": 11,
+          "value_end_offset_exclusive": 18
+        },
+        "definition_target_form": "control/term",
+        "target_carrier_count": 1,
+        "oracle": "ACCEPT"
+      },
+      "expected_invariant": "The ordinary HTML label for attribute identifies the labelled form control; it does not create a Bikeshed definition scope for a descendant dfn. Scope ownership must be constrained by element/attribute semantics, not by the spelling of any ancestor attribute.",
+      "cause": "Every opening tag bearing data-dfn-for, dfn-for, or for is made a scope owner without checking tag semantics. Carrier derivation then accepts the first such attribute from that tag. The oracle copies the same rule.",
+      "code_evidence": [
+        "analyzer.mjs:366-380 marks any opening element with an attribute named for as a scope owner",
+        "analyzer.mjs:801-834 turns that inherited owner into a dfn carrier and exact target join",
+        "oracle.mjs:347-354 and 703-735 repeat the same rule"
+      ],
+      "impact": "The owner graph can contain source-derived but semantically fabricated carrier/reference joins, so parsed-attribute provenance alone does not make owner attribution correct."
+    },
+    {
+      "id": "B4-LEDGER-OWNER-CANDIDATE-IS-UNVERIFIED-AND-DROPPED",
+      "severity": "BLOCKER",
+      "dimensions": [
+        "owner",
+        "ledger",
+        "oracle"
+      ],
+      "input": {
+        "source": "<div algorithm>A</div>",
+        "utf8_bytes": 22,
+        "sha256": "bb10f8b3d772d25d2bcb3af85c86cd88450a96d57c2f09220e2b2501ea5ebbd3",
+        "source_url": "https://example.invalid/op.bs",
+        "ledger_owner_candidate": "FABRICATED-OWNER"
+      },
+      "observed": {
+        "operation_admitted": true,
+        "operation_id": "OP",
+        "operation_owner_field_present": false,
+        "oracle": "ACCEPT"
+      },
+      "expected_invariant": "The required normative-ledger owner_candidate must be semantically checked against source-derived ownership or preserved with an explicit unresolved/reviewed disposition. Mere property presence cannot authorize an operation-owner relation.",
+      "cause": "The analyzer's join reads only operation_id from the matching ledger row. The oracle ledger contract checks Object.hasOwn(row, owner_candidate) but never checks its value, and derived operations also discard it.",
+      "code_evidence": [
+        "analyzer.mjs:775-799 joins by locator fields and emits operation_id while ignoring owner_candidate",
+        "oracle.mjs:776-808 checks only that owner_candidate is present",
+        "oracle.mjs:680-701 independently emits the operation without owner_candidate"
+      ],
+      "impact": "A complete operation ledger could carry arbitrary or stale owner candidates and still receive a green oracle result; operation-owner readiness is therefore unproved."
+    }
+  ],
+  "additional_defects": [
+    {
+      "id": "D1-NULL-LEDGER-THROWS",
+      "severity": "HIGH",
+      "dimensions": [
+        "no-throw",
+        "ledger"
+      ],
+      "input": {
+        "source": "ordinary",
+        "utf8_bytes": 8,
+        "sha256": "03822375f2aca5e53d66838a3e803183e0c1a7921da8e4056d3341ea95777cd9",
+        "options": {
+          "operationLedger": null
+        }
+      },
+      "observed": "TypeError: Cannot read properties of null (reading 'filter')",
+      "code_evidence": "analyzer.mjs:843 calls operationLedger.filter after the destructuring default has been bypassed by an explicit null.",
+      "scope": "This does not refute no-throw for a source string with default well-typed options, but it refutes an unqualified analyzer no-throw claim and is absent from the arbitrary-byte suite."
+    },
+    {
+      "id": "D2-ORACLE-IS-A-SECOND-COPY-NOT-A-SEMANTICALLY-INDEPENDENT-CHECK",
+      "severity": "HIGH",
+      "dimensions": [
+        "oracle"
+      ],
+      "observed": "The oracle accepts B1, B3, and B4 because it repeats the same whole-source case fold, generic ancestor-for scope rule, carrier join, and owner-blind ledger derivation. Its source-derived implementation boundary is separate, but its decisive semantic assumptions are shared.",
+      "impact": "Output mutation rejection demonstrates tamper detection against a duplicate derivation; it does not protect formation from shared semantic defects."
+    }
+  ],
+  "resource_scope": {
+    "verdict": "INSUFFICIENT_FOR_NEXT_FORMATION",
+    "formal_bound_claimed": false,
+    "honest_zero_credit_preserved": true,
+    "remaining_design_defects": [
+      {
+        "site": "analyzer.mjs:617-632",
+        "behavior": "projectedText scans the range list for every HTML heading, ATX/Setext heading, and dfn carrier",
+        "worst_case_shape": "superlinear in relations times range rows"
+      },
+      {
+        "site": "analyzer.mjs:687-737",
+        "behavior": "heading discovery calls ranges.find from the beginning for heading and Setext lines",
+        "worst_case_shape": "superlinear in source lines times range rows"
+      },
+      {
+        "site": "analyzer.mjs:744-760",
+        "behavior": "each explicit algorithm filters the complete preceding-heading array",
+        "worst_case_shape": "quadratic for interleaved headings and algorithms"
+      },
+      {
+        "site": "analyzer.mjs:775-783",
+        "behavior": "each operation candidate filters the complete operation ledger",
+        "worst_case_shape": "candidate-count times ledger-row count"
+      }
+    ],
+    "instrumentation_gap": "work.relation_rows records output cardinalities, not iterations performed by projections, range searches, heading filters, ledger filters, sorting, hashing, or URL resolution. total_instrumented_units is honestly labelled a lower bound, so its geometric values cannot establish an execution envelope.",
+    "test_gap": "The five geometric families isolate raw tags, invalid raw ends, unterminated references, nested same-name tags, and ATX-only lines. They do not exercise interleaved many-range headings, many algorithms, many definitions, or a growing normative ledger, and the evidence contains no full-corpus RSS run."
+  },
+  "dimension_judgments": {
+    "markup_and_state": "REJECT",
+    "headings": "REJECT",
+    "references": "REJECT",
+    "owners": "REJECT",
+    "operation_ledger": "REJECT",
+    "independent_oracle": "REJECT",
+    "no_throw": "REJECT",
+    "resource_scope": "REJECT",
+    "deterministic_replay": "ACCEPT_AS_REPRODUCIBILITY_ONLY",
+    "credit_posture": "ACCEPT_ZERO_CREDIT_ONLY"
+  },
+  "honest_credit": {
+    "suite_reproducibility": "The exact test output is reproducible and byte-identical from the workspace and /tmp.",
+    "scope_limitation": "This challenge does not authorize the 168-source denominator, shard generation, publication, parser changes, or production use.",
+    "formation_readiness": false
+  },
+  "credits": {
+    "denominator": 0,
+    "semantic": 0,
+    "owner": 0,
+    "operation": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  },
+  "required_next": [
+    "Replace raw-close case matching with source-coordinate-preserving ASCII tag-name matching and add the U+0130 counterexample to both semantic fixtures and a genuinely independent oracle.",
+    "Make heading syntaxes mutually exclusive per source occurrence and enforce one-to-one consumption of reviewed ledger rows.",
+    "Define element- and attribute-specific definition-scope semantics; reject or explicitly disposition unrelated and conflicting for spellings.",
+    "Validate and preserve or source-check every ledger owner_candidate rather than checking property presence only.",
+    "Normalize or reject malformed analyzer options without an incidental TypeError, and state the exact no-throw input domain.",
+    "Replace repeated full-list structure/ledger scans or establish bounded indexes, then measure adversarial combined families and full-corpus RSS before denominator execution.",
+    "Rebuild the semantic oracle from independently specified relations so shared analyzer rules cannot certify the same false state and owner results.",
+    "Re-run two fresh exact-byte challenges and root gestalt after a new exact subject is frozen."
+  ]
+}

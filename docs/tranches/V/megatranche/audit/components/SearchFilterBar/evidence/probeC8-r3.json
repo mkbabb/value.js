@@ -1,0 +1,92 @@
+{
+  "mobile-390x664_searchClickError": "TimeoutError: locator.click: Timeout 4000ms exceeded. | Call log: | \u001b[2m  - waiting for locator('button').filter({ hasText: /^Search$/ }).first()\u001b[22m",
+  "mobile-390x664": {
+    "before": {
+      "h": 441.4,
+      "bottom": 745.4,
+      "vh": 664
+    },
+    "searchClicked": false,
+    "badge": "",
+    "panel": {
+      "top": 304,
+      "bottom": 745.4,
+      "h": 441.4
+    },
+    "maxHeight": "none",
+    "overflowY": "visible",
+    "scrollable": false,
+    "availableHeight": "359.7156372070313px",
+    "clearPresent": false,
+    "clearRect": null,
+    "clearFullyOffscreen": null,
+    "viewport": {
+      "w": 390,
+      "h": 664
+    },
+    "findByColorVisible": false,
+    "clearClick": "n/a"
+  },
+  "mobile-390x844": {
+    "before": {
+      "h": 441.4,
+      "bottom": 835.4,
+      "vh": 844
+    },
+    "searchClicked": true,
+    "badge": "1",
+    "panel": {
+      "top": 394,
+      "bottom": 888.4,
+      "h": 494.4
+    },
+    "maxHeight": "none",
+    "overflowY": "visible",
+    "scrollable": false,
+    "availableHeight": "450.01562500000006px",
+    "clearPresent": true,
+    "clearRect": {
+      "top": 823.1,
+      "bottom": 859.1,
+      "h": 36
+    },
+    "clearFullyOffscreen": false,
+    "viewport": {
+      "w": 390,
+      "h": 844
+    },
+    "findByColorVisible": true,
+    "clearClick": "clicked"
+  },
+  "laptop-1440x800": {
+    "before": {
+      "h": 468.3,
+      "bottom": 799.3,
+      "vh": 800
+    },
+    "searchClicked": true,
+    "badge": "1",
+    "panel": {
+      "top": 331,
+      "bottom": 852.3,
+      "h": 521.3
+    },
+    "maxHeight": "none",
+    "overflowY": "visible",
+    "scrollable": false,
+    "availableHeight": "469.01251220703125px",
+    "clearPresent": true,
+    "clearRect": {
+      "top": 786.9,
+      "bottom": 822.9,
+      "h": 36
+    },
+    "clearFullyOffscreen": false,
+    "viewport": {
+      "w": 1440,
+      "h": 800
+    },
+    "findByColorVisible": true,
+    "clearClick": "clicked"
+  }
+}

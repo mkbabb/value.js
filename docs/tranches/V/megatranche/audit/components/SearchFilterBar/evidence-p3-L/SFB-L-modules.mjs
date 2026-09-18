@@ -1,0 +1,14 @@
+import { webkit } from "playwright";
+const b = await webkit.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+const reqs = [];
+p.on("request", (r) => reqs.push(r.url()));
+await p.goto("http://localhost:9000/#/browse", { waitUntil: "networkidle" });
+await p.waitForTimeout(3000);
+const glass = reqs.filter((u) => u.includes("glass-ui"));
+const uniq = [...new Set(glass)];
+console.log("total requests:", reqs.length);
+console.log("glass-ui module requests on /#/browse:", uniq.length);
+console.log("root-barrel entry loaded:", uniq.some((u) => /glass-ui\.js/.test(u)));
+console.log("sample:", uniq.slice(0, 12).map((u) => u.split("/@mkbabb/glass-ui/")[1]?.split("?")[0]).join(", "));
+await b.close();

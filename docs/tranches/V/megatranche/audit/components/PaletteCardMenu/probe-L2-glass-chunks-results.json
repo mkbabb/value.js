@@ -1,0 +1,18 @@
+{
+  "chunks": {
+    "@mkbabb_glass-ui_dark.js": 2464,
+    "@mkbabb_glass-ui_dom.js": 4688,
+    "@mkbabb_glass-ui.js": 234309,
+    "@mkbabb_glass-ui_dock.js": 45241,
+    "@mkbabb_glass-ui_watercolor-dot.js": 5128,
+    "@mkbabb_glass-ui_aurora.js": 202667,
+    "@mkbabb_glass-ui_color.js": 3084,
+    "@mkbabb_glass-ui_blob.js": 104669,
+    "@mkbabb_glass-ui_tabs.js": 11259,
+    "@mkbabb_glass-ui_dialog.js": 2077,
+    "@mkbabb_glass-ui_search.js": 16469,
+    "@mkbabb_glass-ui_motion.js": 8322,
+    "@mkbabb_glass-ui_forms.js": 19719
+  },
+  "totalBytes": 660096
+}

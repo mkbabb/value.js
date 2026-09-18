@@ -1,0 +1,189 @@
+{
+  "collide": [
+    {
+      "w": 1024,
+      "r": "/",
+      "lamp": [
+        752.4,
+        255.6
+      ],
+      "dockRight": 740.9,
+      "gap": 11.5,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1024,
+      "r": "/#/browse",
+      "lamp": [
+        752.4,
+        255.6
+      ],
+      "dockRight": 684.8,
+      "gap": 67.6,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1024,
+      "r": "/#/tools",
+      "lamp": [
+        752.4,
+        255.6
+      ],
+      "dockRight": 740.9,
+      "gap": 11.5,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1024,
+      "r": "/#/about",
+      "lamp": [
+        752.4,
+        255.6
+      ],
+      "dockRight": 740.9,
+      "gap": 11.5,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1100,
+      "r": "/",
+      "lamp": [
+        828.4,
+        255.6
+      ],
+      "dockRight": 780.1,
+      "gap": 48.3,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1100,
+      "r": "/#/browse",
+      "lamp": [
+        828.4,
+        255.6
+      ],
+      "dockRight": 723.8,
+      "gap": 104.6,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1100,
+      "r": "/#/tools",
+      "lamp": [
+        828.4,
+        255.6
+      ],
+      "dockRight": 780.1,
+      "gap": 48.3,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1100,
+      "r": "/#/about",
+      "lamp": [
+        828.4,
+        255.6
+      ],
+      "dockRight": 780.1,
+      "gap": 48.3,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1280,
+      "r": "/",
+      "lamp": [
+        1008.4,
+        255.6
+      ],
+      "dockRight": 873.1,
+      "gap": 135.3,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1280,
+      "r": "/#/browse",
+      "lamp": [
+        1008.4,
+        255.6
+      ],
+      "dockRight": 816.1,
+      "gap": 192.4,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1280,
+      "r": "/#/tools",
+      "lamp": [
+        1008.4,
+        255.6
+      ],
+      "dockRight": 873.1,
+      "gap": 135.3,
+      "overlapsDock": false,
+      "covered": []
+    },
+    {
+      "w": 1280,
+      "r": "/#/about",
+      "lamp": [
+        1008.4,
+        255.6
+      ],
+      "dockRight": 873.1,
+      "gap": 135.3,
+      "overlapsDock": false,
+      "covered": []
+    }
+  ],
+  "cancel": {
+    "box": [
+      348.9,
+      38,
+      22,
+      22
+    ],
+    "vis": "visible",
+    "op": "1",
+    "display": "flex",
+    "anc": [
+      {
+        "cls": "dock-face-content",
+        "display": "flex",
+        "vis": "visible",
+        "op": "1",
+        "pe": "none"
+      },
+      {
+        "cls": "dock-face justify-center",
+        "display": "block",
+        "vis": "visible",
+        "op": "0",
+        "pe": "none"
+      },
+      {
+        "cls": "dock-crossfade",
+        "display": "grid",
+        "vis": "visible",
+        "op": "1",
+        "pe": "auto"
+      },
+      {
+        "cls": "dock-layer-group horizontal rail-start",
+        "display": "flex",
+        "vis": "visible",
+        "op": "1",
+        "pe": "auto"
+      }
+    ]
+  }
+}

@@ -20,15 +20,17 @@ import type { ProposedNameDTO } from "./queries.js";
 export interface ProposeInput {
     name: string;
     css: string;
-    contributor?: string | undefined;
 }
 
 export async function proposeColor(
     services: Services,
-    sessionToken: string | undefined,
+    proposerSlug: string | undefined,
     input: ProposeInput,
 ): Promise<ProposedNameDTO> {
-    if (!sessionToken) throw new AuthenticationError("Session token required");
+    // V·W45 item 3 — attribution is server-derived from the authenticated
+    // Principal (the resolved session's `userSlug`), NEVER a caller-supplied
+    // body field. Anonymous / user-less sessions cannot propose.
+    if (!proposerSlug) throw new AuthenticationError("Authentication required");
 
     const { proposedNames } = services.repositories;
 
@@ -44,7 +46,7 @@ export async function proposeColor(
             name: input.name,
             css: input.css,
             status: "proposed",
-            contributor: input.contributor ?? null,
+            proposerSlug,
             createdAt: now,
             approvedAt: null,
         });
@@ -66,7 +68,7 @@ export async function proposeColor(
             name: input.name,
             css: input.css,
             status: "proposed",
-            contributor: input.contributor ?? null,
+            proposerSlug,
             createdAt: now,
             approvedAt: null,
         };
@@ -76,7 +78,7 @@ export async function proposeColor(
         name: doc.name,
         css: doc.css,
         status: doc.status,
-        contributor: doc.contributor,
+        proposerSlug: doc.proposerSlug,
         createdAt: doc.createdAt,
         approvedAt: doc.approvedAt,
     };

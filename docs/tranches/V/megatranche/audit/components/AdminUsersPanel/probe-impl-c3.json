@@ -1,0 +1,86 @@
+{
+  "chromium": {
+    "domOrder": [
+      "beta-drifter-00022Pale",
+      "alpha-keeper-00014Pale"
+    ],
+    "t_afterAlphaClick": {
+      "openRow": "alpha-keeper-00014Pale",
+      "disclosure": ""
+    },
+    "t_betaSettled": {
+      "openRow": "beta-drifter-00022Pale",
+      "disclosure": "BETA-PALETTE-BBB 2 0"
+    },
+    "t_alphaLanded": {
+      "openRow": "beta-drifter-00022Pale",
+      "disclosure": "ALPHA-PALETTE-AAA 2 0"
+    },
+    "badgesBefore": [
+      {
+        "slug": "beta-drifter-00022Pale",
+        "expanded": "true",
+        "badge": "2"
+      },
+      {
+        "slug": "alpha-keeper-00014Pale",
+        "expanded": "false",
+        "badge": "4"
+      }
+    ],
+    "discButtons": [
+      {
+        "i": 0,
+        "label": "0 votes, click to vote"
+      },
+      {
+        "i": 1,
+        "label": "Palette menu"
+      }
+    ],
+    "deletedRequests": [],
+    "RACE_REPRODUCED": true
+  },
+  "webkit": {
+    "domOrder": [
+      "beta-drifter-00022Pale",
+      "alpha-keeper-00014Pale"
+    ],
+    "t_afterAlphaClick": {
+      "openRow": "alpha-keeper-00014Pale",
+      "disclosure": ""
+    },
+    "t_betaSettled": {
+      "openRow": "beta-drifter-00022Pale",
+      "disclosure": "BETA-PALETTE-BBB 2 0"
+    },
+    "t_alphaLanded": {
+      "openRow": "beta-drifter-00022Pale",
+      "disclosure": "ALPHA-PALETTE-AAA 2 0"
+    },
+    "badgesBefore": [
+      {
+        "slug": "beta-drifter-00022Pale",
+        "expanded": "true",
+        "badge": "2"
+      },
+      {
+        "slug": "alpha-keeper-00014Pale",
+        "expanded": "false",
+        "badge": "4"
+      }
+    ],
+    "discButtons": [
+      {
+        "i": 0,
+        "label": "0 votes, click to vote"
+      },
+      {
+        "i": 1,
+        "label": "Palette menu"
+      }
+    ],
+    "deletedRequests": [],
+    "RACE_REPRODUCED": true
+  }
+}

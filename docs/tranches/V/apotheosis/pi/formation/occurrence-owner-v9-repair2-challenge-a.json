@@ -1,0 +1,378 @@
+{
+  "schema_version": "value.pi.occurrence-owner-v9-repair2-hostile-challenge/v1",
+  "date": "2026-07-22",
+  "challenge": "A",
+  "scope": "denominator research tooling only",
+  "status": "REJECT",
+  "independence": {
+    "challenge_b_read": false,
+    "prior_challenge_artifacts_read": false,
+    "subject_and_public_contract_only": true,
+    "assumption": "Every repair, semantic-independence, no-throw, and resource claim was treated as false until replayed."
+  },
+  "subject": {
+    "analyzer": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/analyzer.mjs",
+      "bytes": 46651,
+      "sha256": "919af7dbd7a094e13c2d72d8e82684b5f9d9201f88aaa462bccfeb1fdeb107cd"
+    },
+    "oracle": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/oracle.mjs",
+      "bytes": 44369,
+      "sha256": "899cf3d2c336c4ac84b855da902cb00e6269336080b19ae051e1ec0fc66a881e"
+    },
+    "test": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "bytes": 31914,
+      "sha256": "6c4da44635d2a1e31f68966360a5fdaa5483240ff1780a60561c069e33e75ebb"
+    },
+    "evidence": {
+      "path": "docs/tranches/V/apotheosis/pi/denominator/occurrence-owner-formation-v9-repair2-evidence.json",
+      "bytes": 7894,
+      "sha256": "c82f75e684f1990d1e458a124f7c8ca592377a0bf01f0bf1b473108d17963cb4"
+    },
+    "deterministic_stdout": {
+      "bytes": 14468,
+      "sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861"
+    }
+  },
+  "replay": {
+    "syntax_checks": "GREEN",
+    "workspace": {
+      "cwd": "/Users/mkbabb/Programming/value.js",
+      "command": "node docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "exit": 0,
+      "stdout_bytes": 14468,
+      "stdout_sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861"
+    },
+    "temporary_cwd": {
+      "cwd": "/tmp",
+      "command": "node /Users/mkbabb/Programming/value.js/docs/tranches/V/apotheosis/pi/denominator/tools/occurrence-owner-v9/test.mjs",
+      "exit": 0,
+      "stdout_bytes": 14468,
+      "stdout_sha256": "ec77c14f630df19f54befa2117f385dbf25312d448748efd12c929f6bac87861",
+      "byte_identical_to_workspace": true,
+      "classification": "cwd-independence only; this was not a relocated import closure"
+    },
+    "bounded_green_evidence": {
+      "fixtures": 18,
+      "inherited_v8_cases": 29,
+      "semantic_counterexamples": 26,
+      "rejected_mutations": 16,
+      "arbitrary_decoded_byte_sequences": 512,
+      "state_labels": 13,
+      "geometric_observations": 35
+    },
+    "limits": {
+      "full_168_source_run": false,
+      "normative_operation_ledger": false,
+      "authenticated_launcher_or_runtime_closure": false,
+      "formal_resource_bound": false,
+      "publisher_or_shards": false,
+      "parser_or_production_credit": false
+    }
+  },
+  "external_semantic_authority": {
+    "source": "Bikeshed Documentation",
+    "url": "https://speced.github.io/bikeshed/",
+    "relevant_sections": [
+      "5.7 Datablocks",
+      "5.8 Autolinks",
+      "6.7 Link Attributes On Ancestors",
+      "6.9 Definitions data model",
+      "7.3 Manual Autolinks",
+      "8.1 Biblio Link Modifiers"
+    ],
+    "facts_used": [
+      "Datablocks are opaque to the initial Bikeshed parse until their closing tag.",
+      "Ordinary pre content does not activate shorthand autolinks; an l element is the explicit exception.",
+      "An a element without href is a manual autolink.",
+      "Definition attributes may be inherited from ancestors.",
+      "Heading elements h2 through h6 can be definition carriers.",
+      "Bibliographic links accept modifiers such as current, snapshot, inline, direct, index, and obsolete."
+    ]
+  },
+  "adversarial_evidence": [
+    {
+      "id": "BIBLIOGRAPHIC_SHAPE_DIVERGENCE_INVALID_ADMISSION",
+      "input": "[[as?!]]",
+      "analyzer": "emitted one INCLUDED bibliographic candidate",
+      "oracle": "REJECT CANDIDATE_SEMANTICS",
+      "cause": "analyzer.mjs:497 uses split(/s+/), which splits on literal s runs rather than whitespace"
+    },
+    {
+      "id": "BIBLIOGRAPHIC_SHAPE_DIVERGENCE_VALID_MODIFIER_OMISSION",
+      "input": "[[ABC current]]",
+      "analyzer": "emitted no candidate",
+      "oracle": "REJECT CANDIDATE_SEMANTICS",
+      "authority": "Bikeshed 8.1 explicitly defines current as a valid biblio modifier"
+    },
+    {
+      "id": "STALE_SAME_NAME_OPENING",
+      "input": "<a><b><b></a><code>[=should-be-code=]</code></b>[=after=]",
+      "analyzer": "retained a removed b opening and later paired the unmatched closing b to it",
+      "oracle": "REJECT TAG_SEMANTICS",
+      "cause": "analyzer.mjs:428-433 removes an outer-to-inner splice but pops a per-name stack only when each row is currently last; an earlier same-name row remains stale"
+    },
+    {
+      "id": "STALE_OPENING_CORRUPTS_PROCESSED_DEPTH",
+      "input": "<a><b><b></a><code>[=first=]</b>[=must-remain-code=]</code>",
+      "analyzer": "classified the second reference as VISIBLE_TEXT after an unmatched stale b close spliced the live code element",
+      "oracle": "REJECT STATE_SEMANTICS"
+    },
+    {
+      "id": "ORDINARY_PRE_FALSE_ACTIVATION",
+      "input": "<pre>[=not-active=]</pre>",
+      "analyzer": "emitted an INCLUDED definition candidate in VISIBLE_TEXT",
+      "oracle": "ACCEPT",
+      "authority": "Bikeshed 5.8 says shorthand autolinks do not work in pre content unless explicitly wrapped in l"
+    },
+    {
+      "id": "DATABLOCK_FALSE_ACTIVATION_AND_HEADING_PROMOTION",
+      "input": "<pre class=anchors>[=not-active=]\n# Not a heading {#not}\n</pre>",
+      "analyzer": "emitted an INCLUDED definition candidate and promoted an ATX heading",
+      "oracle": "ACCEPT",
+      "authority": "Bikeshed 5.7 and 6.8 define anchors as an opaque datablock"
+    },
+    {
+      "id": "DISABLED_SHORTHAND_FALSE_ACTIVATION",
+      "input": "<pre class=metadata>Markup Shorthands: css no</pre> 'not-active'",
+      "analyzer": "emitted an INCLUDED css_shorthand_single candidate",
+      "oracle": "ACCEPT",
+      "cause": "the source-state model never materializes per-document Markup Shorthands settings"
+    },
+    {
+      "id": "MANUAL_AUTOLINK_OMISSION",
+      "input": "<a dfn for=scope lt=\"term\">visible</a>",
+      "analyzer": "emitted no reference candidate or disposition",
+      "oracle": "ACCEPT",
+      "authority": "Bikeshed 7.3 defines href-less a as a manual autolink"
+    },
+    {
+      "id": "HEADING_DEFINITION_CARRIER_OMISSION",
+      "input": "<h2 id=term data-dfn-type=dfn>Term</h2> [=Term=]",
+      "analyzer": "created a heading and definition reference but zero carriers and an empty target_carrier_ids relation",
+      "oracle": "ACCEPT",
+      "cause": "analyzer.mjs:1017 restricts carriers to dfn elements"
+    },
+    {
+      "id": "INHERITED_DEFINITION_ATTRIBUTE_OMISSION",
+      "input": "<section data-lt=\"alias\"><dfn>visible</dfn></section> [=alias=]",
+      "analyzer": "created one carrier named only visible and left alias unresolved",
+      "oracle": "ACCEPT",
+      "authority": "Bikeshed 6.7 permits definition attributes on ancestors and applies the closest value"
+    },
+    {
+      "id": "PARSED_ATTRIBUTE_ENTITY_RESOLUTION_DRIFT",
+      "input": "<a href=\"https&#x3A;//drafts.csswg.org/css-values-4/\">x</a>",
+      "base": "https://drafts.csswg.org/base/",
+      "analyzer_resolved_url": "https://drafts.csswg.org/base/https&#x3A;//drafts.csswg.org/css-values-4/",
+      "oracle": "ACCEPT",
+      "cause": "the duplicated attribute readers retain source spelling rather than the parsed attribute value before applying URL semantics"
+    },
+    {
+      "id": "REJECTED_LEDGER_ROW_ADMISSION",
+      "input": "[=term=]\n<div algorithm>x</div>",
+      "ledger_review_status": "REJECTED",
+      "analyzer": "emitted operation REJECTED-REVIEW-ROW with no ledger_contract_errors",
+      "oracle": "ACCEPT",
+      "cause": "analyzer.mjs:818-819 and oracle.mjs:733 accept every nonempty review_status rather than an explicit reviewed-authority state"
+    },
+    {
+      "id": "CROSS_DOMAIN_STABLE_ID_COLLISION_NOT_REPORTED_BY_ANALYZER",
+      "input": "[=term=]\n<div algorithm>x</div>",
+      "ledger_operation_id": "the exact candidate ID emitted for [=term=]",
+      "analyzer": "emitted duplicate stable IDs while stable_id_collisions remained empty",
+      "oracle": "REJECT STABLE_ID_COLLISION"
+    },
+    {
+      "id": "ORACLE_GEOMETRIC_OBSERVATION",
+      "shape": "N alternating anchored ATX headings and explicit algorithm tags; no ledger",
+      "rows": [
+        {
+          "n": 250,
+          "bytes": 9280,
+          "analyzer_ms": 6.546333,
+          "oracle_ms": 12.156125
+        },
+        {
+          "n": 500,
+          "bytes": 18780,
+          "analyzer_ms": 5.278333,
+          "oracle_ms": 21.669625
+        },
+        {
+          "n": 1000,
+          "bytes": 37780,
+          "analyzer_ms": 8.869375,
+          "oracle_ms": 43.064667
+        },
+        {
+          "n": 2000,
+          "bytes": 77780,
+          "analyzer_ms": 21.439666,
+          "oracle_ms": 226.764542
+        }
+      ],
+      "classification": "single local observation, not a benchmark",
+      "static_causes": [
+        "oracle.mjs:653-655 and 668-670 scan ranges from the beginning for each source line",
+        "oracle.mjs:769 filters the complete heading list for every explicit operation candidate",
+        "oracle.mjs:639-644 scans ranges for every HTML heading projection"
+      ],
+      "evidence_gap": "the published analyzer work counter excludes oracle work, and the geometric rail records only elapsed_observed=true"
+    }
+  ],
+  "findings": [
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-01-BIBLIOGRAPHIC-VALIDATION",
+      "title": "The analyzer both admits invalid and omits valid bibliographic shorthands.",
+      "evidence_ids": [
+        "BIBLIOGRAPHIC_SHAPE_DIVERGENCE_INVALID_ADMISSION",
+        "BIBLIOGRAPHIC_SHAPE_DIVERGENCE_VALID_MODIFIER_OMISSION"
+      ],
+      "impact": "Candidate/disposition totality is false on a normative Bikeshed reference family, and the bounded suite is missing inputs that its own oracle already rejects."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-02-STACK-STATE-CORRUPTION",
+      "title": "Mismatched closes leave stale same-name openings and can corrupt later state.",
+      "evidence_ids": [
+        "STALE_SAME_NAME_OPENING",
+        "STALE_OPENING_CORRUPTS_PROCESSED_DEPTH"
+      ],
+      "impact": "Tag ancestry, matching relations, processed-code ownership, candidate state, heading ownership, and definition scope can all be wrong after one malformed but nonthrowing sequence."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-03-BIKESHED-SOURCE-STATE",
+      "title": "The state machine does not implement Bikeshed pre/datablock/metadata activation semantics.",
+      "evidence_ids": [
+        "ORDINARY_PRE_FALSE_ACTIVATION",
+        "DATABLOCK_FALSE_ACTIVATION_AND_HEADING_PROMOTION",
+        "DISABLED_SHORTHAND_FALSE_ACTIVATION"
+      ],
+      "impact": "The denominator fabricates references and headings inside opaque source regions and ignores document-level shorthand configuration. rawState recognizes metadata and a narrow highlight spelling, not the Bikeshed datablock family."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-04-REFERENCE-AND-CARRIER-DENOMINATOR",
+      "title": "Whole normative reference and definition-carrier shapes remain absent.",
+      "evidence_ids": [
+        "MANUAL_AUTOLINK_OMISSION",
+        "HEADING_DEFINITION_CARRIER_OMISSION",
+        "INHERITED_DEFINITION_ATTRIBUTE_OMISSION"
+      ],
+      "impact": "A full-source occurrence ledger made from this analyzer would be incomplete even if every emitted row were correct. The implementation scans href-bearing a elements and dfn carriers only."
+    },
+    {
+      "severity": "HIGH",
+      "code": "V9R2-A-05-PARSED-ATTRIBUTE-SEMANTICS",
+      "title": "Attribute provenance is byte-positioned but attribute values are not semantically parsed.",
+      "evidence_ids": [
+        "PARSED_ATTRIBUTE_ENTITY_RESOLUTION_DRIFT"
+      ],
+      "impact": "Resolved href identity can be wrong while both analyzer and oracle call it active and green. This is a direct common-mode failure of the platform-URL relation."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-06-LEDGER-AUTHORITY",
+      "title": "The operation-ledger validator treats rejected status text as reviewed authority.",
+      "evidence_ids": [
+        "REJECTED_LEDGER_ROW_ADMISSION",
+        "CROSS_DOMAIN_STABLE_ID_COLLISION_NOT_REPORTED_BY_ANALYZER"
+      ],
+      "impact": "A syntactically nonempty status can admit an operation regardless of disposition, and collision reporting covers candidate hash collisions rather than the complete stable-ID namespace."
+    },
+    {
+      "severity": "BLOCKER",
+      "code": "V9R2-A-07-ORACLE-COMMON-MODE",
+      "title": "The separate import closure is not an independent semantic oracle.",
+      "evidence_ids": [
+        "ORDINARY_PRE_FALSE_ACTIVATION",
+        "DATABLOCK_FALSE_ACTIVATION_AND_HEADING_PROMOTION",
+        "DISABLED_SHORTHAND_FALSE_ACTIVATION",
+        "MANUAL_AUTOLINK_OMISSION",
+        "HEADING_DEFINITION_CARRIER_OMISSION",
+        "INHERITED_DEFINITION_ATTRIBUTE_OMISSION",
+        "PARSED_ATTRIBUTE_ENTITY_RESOLUTION_DRIFT",
+        "REJECTED_LEDGER_ROW_ADMISSION"
+      ],
+      "impact": "The oracle independently catches two analyzer defects, but it duplicates the source-state, attribute, URL, reference, carrier, and ledger policy closely enough to accept at least eight demonstrated semantic failures. Separate files are not sufficient independence."
+    },
+    {
+      "severity": "HIGH",
+      "code": "V9R2-A-08-RESOURCE-RAIL",
+      "title": "The verifier retains non-output-quadratic relations that the evidence rail neither counts nor exposes.",
+      "evidence_ids": [
+        "ORACLE_GEOMETRIC_OBSERVATION"
+      ],
+      "impact": "The analyzer improvements do not make the analyzer-plus-oracle qualification path scalable. No formal bound was claimed, but this subject cannot yet seed a trustworthy 168-source gate."
+    }
+  ],
+  "axis_verdicts": {
+    "identity_and_replay": "GREEN_BOUNDED",
+    "utf8_half_open_coordinates": "GREEN_ON_BOUND_SUITE_ONLY",
+    "raw_script_style_xmp_counterexamples": "GREEN_ON_BOUND_SUITE_ONLY",
+    "atx_and_setext_counterexamples": "GREEN_ON_BOUND_SUITE_ONLY",
+    "arbitrary_decoded_string_no_throw": "GREEN_512_CASES_ONLY",
+    "source_state_semantics": "REJECT",
+    "tag_ancestry_and_recovery": "REJECT",
+    "reference_shape_completeness": "REJECT",
+    "parsed_attribute_and_href_semantics": "REJECT",
+    "definition_carrier_and_scope_semantics": "REJECT",
+    "operation_ledger_authority": "REJECT",
+    "collision_behavior": "REJECT_ANALYZER_CONTRACT_ORACLE_CATCHES_ONE_CASE",
+    "oracle_independence": "REJECT",
+    "resource_evidence": "RED_BY_SUBJECT_AND_STATIC_QUADRATIC_PATHS",
+    "full_denominator": "ZERO_CREDIT",
+    "parser_or_production": "ZERO_CREDIT"
+  },
+  "three_altitude_verdict": {
+    "total_tranche": {
+      "verdict": "REJECT",
+      "analysis": "This analyzer cannot materialize the feature denominator that gates the direct parse-that apotheosis. It would both invent and omit source occurrences, then let a common-mode oracle certify many of those errors. No parser, grammar, feature, operation, owner, cost-lattice, movement, or production conclusion may be drawn from it."
+    },
+    "wave": {
+      "verdict": "REJECT",
+      "analysis": "Repair generation 2 is reproducible and meaningfully better on its sealed cases, but it fails new bounded counterexamples in its own analyzer/oracle contract, violates Bikeshed source semantics, lacks complete occurrence families, and retains an unmeasured quadratic qualification path. The wave is not ready to seed the next denominator formation."
+    },
+    "feature": {
+      "verdict": "REJECT",
+      "analysis": "Bibliographic references, tag recovery, pre/datablock states, manual autolinks, heading and inherited definition carriers, parsed hrefs, ledger review status, stable-ID namespace, and verifier resource behavior each have independently actionable defects."
+    }
+  },
+  "required_repairs_before_rechallenge": [
+    "Correct bibliographic target/modifier parsing and freeze both invalid-admission and valid-modifier cases.",
+    "Replace stale per-name opening removal with a relation that removes every implicitly closed row exactly once and prove processedDepth transactionality.",
+    "Derive Bikeshed pre, datablock, explicit l, opaque-element, and Markup Shorthands activation from a reviewed source-state contract rather than a narrow class regex.",
+    "Inventory manual a/l autolinks and all reviewed carrier families, including heading definitions and per-attribute nearest-ancestor inheritance.",
+    "Separate raw attribute byte provenance from decoded semantic attribute values before URL resolution.",
+    "Give review_status an explicit authority enum and reject nonaccepted rows before operation emission; collision-check the union stable-ID namespace in the analyzer output.",
+    "Rebuild the oracle from an independently specified semantic model or an authenticated Bikeshed witness, and add every common-mode case above as an externally judged vector.",
+    "Index oracle state and preceding-heading lookups, count verifier work, and expose geometric timing values rather than booleans before any full-source run."
+  ],
+  "credit": {
+    "denominator": 0,
+    "semantic": 0,
+    "operation": 0,
+    "owner": 0,
+    "compatibility": 0,
+    "conformance": 0,
+    "parser": 0,
+    "feature": 0,
+    "cost_lattice": 0,
+    "movement": 0,
+    "integration": 0,
+    "production": 0
+  },
+  "review_boundary": {
+    "full_168_source_census_run": false,
+    "subject_files_edited": false,
+    "parser_or_production_files_edited": false,
+    "temporary_attack_driver_removed": true,
+    "only_persistent_write": "docs/tranches/V/apotheosis/pi/formation/occurrence-owner-v9-repair2-challenge-a.json"
+  },
+  "verdict": "REJECT"
+}

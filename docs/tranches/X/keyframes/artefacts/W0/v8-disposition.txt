@@ -1,0 +1,69 @@
+SERVED MODEL: claude-opus-5[1m]
+# KF.W0.e · G-0.8 CODEX v8 PIN DISPOSITIONED — the measurement transcript
+# Date: 2026-09-17 · keyframes.js at origin/master 81a56990 (== HEAD, post-settle)
+# The RULING is COHESION.md §0j.C KF-OGKF1, already made by the owner and NOT re-openable.
+
+=== (1) THE PIN THE WHOLE v8 LINEAGE IS MEASURED ON ===
+$ git rev-parse 8281638c^{commit}
+8281638c0ac4ac8c54a67a018ca5bf6a9117174f
+$ git merge-base --is-ancestor 8281638c origin/master ; echo $?
+  exit=1  (nonzero => the pin is NOT an ancestor of the ref of record)
+$ git rev-list --count 8281638c..origin/master
+41
+$ git rev-list --count origin/master..8281638c
+1
+  The pin is the tree COHESION §0 already ruled non-authoritative, and it is not on the ref of record`s
+  first-parent path: 41 commits ahead of it, 1 commit off it. Every v8 denominator was measured there.
+
+=== (2) X-2 — THE DEMO MEMBER COUNT, AT ALL THREE COORDINATES (double-run) ===
+$ git ls-tree -r --name-only origin/master demo/ | grep -cE '\.(ts|vue)$'    (the ref of record)
+185
+185
+$ git ls-tree -r --name-only 8281638c    demo/ | grep -cE '\.(ts|vue)$'    (the DISQUALIFIED pin's TREE)
+183
+183
+
+  185 at the ref of record (ADOPTED, per KF-OGKF1). 183 at the pin`s committed tree.
+  ***THE CLAIMED 184 REPRODUCES AT NEITHER.*** C-18 reads: "184`s exact Codex/census agreement is the
+  PROOF both censused the same stale worktree." This measurement SHARPENS that to a demonstration:
+  184 is not even the pin`s TREE reading — it is the pin`s DIRTY DISK reading, with the uncommitted
+  deletions and additions folded in. Two independent instruments agreeing on a figure that exists at
+  no committed coordinate is not corroboration; it is a shared substrate error, which is exactly what
+  the dirty-manifest law (C-19) convicts.
+
+=== (3) THE OTHER DENOMINATORS — STATUS, STATED, NOT RE-MEASURED ===
+  414 contracts   : Codex-internal; no product consumer; measured at the disqualified pin. NOT CITABLE.
+  152 surfaces    : idem. NOT CITABLE.
+  73 568 Safari cells : a Kronecker SELF-cross-product of the audit`s own categories. REJECTED at
+                    B18-26 (numerator INHERITED — zero real-Safari execution; denominator REJECTED).
+                    KF.W9 scopes its own surface list; this figure enters no wave.
+  184 demo members: measured above — reproduces at NO committed coordinate. Superseded by 185.
+  THE ONLY CITABLE FORM OF THE SEAL, per KF-OGKF1 and C-18:
+     "345 exact / 12 partial / 57 unresolved @ 8281638c"    — never 357/414, never as HEAD coverage.
+
+=== (4) THE FIVE CONDITIONAL TCC RE-READS ===
+  B10-9 · B19-10 (pin half) · B19-11 · B20-6 · B21-7 — owed ONLY if the v8 contract is ever cited.
+  KF-OGKF1: the lineage DOES NOT CONTINUE, so the contract is never cited, so THE FIVE NEVER OPEN.
+  This disposition is what decides that, and it decides it CLOSED.
+
+=== (5) THE INTAKE CARRIED-ROWS TABLE (value.js corpus) ===
+$ grep -n "### KF.W0" docs/tranches/V/megatranche/audit/codex-provenance/INTAKE-ADJUDICATION-2026-08-03.md
+140:### KF.W0 · Substrate Settle
+### KF.W0 · Substrate Settle
+X-1 (the B-lineage is pinned to the stale `8281638c` checkout — §B-12 must re-anchor the Codex v8
+contract too, or declare it stale-by-substrate and never citable for a live count) · B10-9 ·
+B19-10(pin half) · B19-11 · B20-6 · B21-7(3 of 5 pins) — TCC re-reads owed only if the v8 contract
+is ever cited.
+
+### KF.W4 · K-Quartet Hygiene (born-RED gate-authoring law, feeds G-L7a–d)
+B10-17 · B10-18 · B10-19 · B10-20 · B10-22 · B10-23 · B10-27 (the four gate-design rules) ·
+
+=== (6) OG-KF1 — NAMED HERE, RULED AT KF.W10 ===
+  B21-18: "Does the Codex Keyframes B-lineage continue at all — and must any continuation re-anchor to
+  origin/master 81a56990 before its denominators may be cited?"
+  W0 NAMES. W10 RULES, at its owner block beside OD-V3/OD-V5, never proxied.
+  A seat that RULES it here fails the wave (KF-W0.md §Excluded). This seat does not rule it.
+  NOTE, and it is a real one: COHESION §0j.C KF-OGKF1 is a DIFFERENT item from OG-KF1. §0j.C is the
+  owner`s already-made ruling on the v8 CONTRACT`s citability, consumed here as G-0.8`s input and not
+  re-openable. OG-KF1 is the OWNER ROW about the LINEAGE`s continuation, named here and ruled at W10.
+  The two share a stem and are not the same row; conflating them would be a seat ruling W10`s item.

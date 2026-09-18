@@ -1,0 +1,241 @@
+{
+ "gutter": [
+  {
+   "text": "Publish",
+   "itemLeft": 1017,
+   "paddingInlineStart": "8px",
+   "hasIcon": true,
+   "iconLeft": 1025,
+   "iconW": 16,
+   "textLeft": 1049,
+   "textInset": 32,
+   "fontStyle": "normal",
+   "fontFamily": "\"Fira Code\"",
+   "fontSize": "16.4px"
+  },
+  {
+   "text": "Rename",
+   "itemLeft": 1017,
+   "paddingInlineStart": "8px",
+   "hasIcon": true,
+   "iconLeft": 1025,
+   "iconW": 16,
+   "textLeft": 1049,
+   "textInset": 32,
+   "fontStyle": "normal",
+   "fontFamily": "\"Fira Code\"",
+   "fontSize": "16.4px"
+  },
+  {
+   "text": "Export",
+   "itemLeft": 1017,
+   "paddingInlineStart": "8px",
+   "hasIcon": true,
+   "iconLeft": 1025,
+   "iconW": 16,
+   "textLeft": 1049,
+   "textInset": 32,
+   "fontStyle": "normal",
+   "fontFamily": "\"Fira Code\"",
+   "fontSize": "16.4px"
+  },
+  {
+   "text": "Delete",
+   "itemLeft": 1017,
+   "paddingInlineStart": "8px",
+   "hasIcon": true,
+   "iconLeft": 1025,
+   "iconW": 16,
+   "textLeft": 1049,
+   "textInset": 32,
+   "fontStyle": "normal",
+   "fontFamily": "\"Fira Code\"",
+   "fontSize": "16.4px"
+  }
+ ],
+ "parentOrder": [
+  {
+   "role": null,
+   "tag": "DIV",
+   "cls": "dropdown-menu__label font-display",
+   "text": "Muted Terracotta and Deep Se",
+   "y": 618,
+   "h": 32.1
+  },
+  {
+   "role": "separator",
+   "tag": "DIV",
+   "cls": "dropdown-menu__separator",
+   "text": "",
+   "y": 654.1,
+   "h": 1
+  },
+  {
+   "role": "menuitem",
+   "tag": "DIV",
+   "cls": "dropdown-menu__item interactive-item",
+   "text": "Publish",
+   "y": 659.1,
+   "h": 44
+  },
+  {
+   "role": "menuitem",
+   "tag": "DIV",
+   "cls": "dropdown-menu__item interactive-item",
+   "text": "Rename",
+   "y": 703.1,
+   "h": 44
+  },
+  {
+   "role": "separator",
+   "tag": "DIV",
+   "cls": "dropdown-menu__separator",
+   "text": "",
+   "y": 751.1,
+   "h": 1
+  },
+  {
+   "role": "menuitem",
+   "tag": "DIV",
+   "cls": "dropdown-menu__sub-trigger interactive-item",
+   "text": "Export",
+   "y": 756.1,
+   "h": 44
+  },
+  {
+   "role": "menuitem",
+   "tag": "DIV",
+   "cls": "dropdown-menu__item interactive-item",
+   "text": "Delete",
+   "y": 800.1,
+   "h": 44
+  }
+ ],
+ "typeahead": [
+  {
+   "textContent": "Publish",
+   "dataTextValue": null
+  },
+  {
+   "textContent": "Rename",
+   "dataTextValue": null
+  },
+  {
+   "textContent": "Export",
+   "dataTextValue": null
+  },
+  {
+   "textContent": "Delete",
+   "dataTextValue": null
+  }
+ ],
+ "iconsAria": [
+  {
+   "parentText": "Publish",
+   "ariaHidden": null,
+   "role": null,
+   "focusable": null
+  },
+  {
+   "parentText": "Rename",
+   "ariaHidden": null,
+   "role": null,
+   "focusable": null
+  },
+  {
+   "parentText": "Export",
+   "ariaHidden": null,
+   "role": null,
+   "focusable": null
+  },
+  {
+   "parentText": "Export",
+   "ariaHidden": "true",
+   "role": null,
+   "focusable": null
+  },
+  {
+   "parentText": "Delete",
+   "ariaHidden": null,
+   "role": null,
+   "focusable": null
+  }
+ ],
+ "header": {
+  "text": "Muted Terracotta and Deep Sea Foam Study",
+  "title": null,
+  "ariaLabel": null,
+  "scrollW": 319,
+  "clientW": 178,
+  "color": "rgb(112, 89, 66)",
+  "fontSize": "14.384px"
+ },
+ "occlusion": {
+  "menu": {
+   "x": 1010,
+   "y": 611,
+   "w": 192,
+   "h": 240.1
+  },
+  "cards": [
+   {
+    "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+    "x": 754,
+    "y": 518.6,
+    "w": 462,
+    "h": 100
+   },
+   {
+    "label": "Palette: Temp",
+    "x": 754,
+    "y": 630.6,
+    "w": 462,
+    "h": 100
+   }
+  ],
+  "overlapPx": [
+   {
+    "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+    "area": 1459,
+    "cardArea": 46200
+   },
+   {
+    "label": "Palette: Temp",
+    "area": 19200,
+    "cardArea": 46200
+   }
+  ]
+ },
+ "offlineError": "TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Palette menu' }).first()\u001b[22m\n",
+ "mix": {
+  "nestedInteractiveInButton": 2,
+  "nestedSample": [
+   {
+    "tag": "BUTTON",
+    "label": "Palette menu",
+    "outerLabel": "Select palette Muted Terracotta and Deep Sea Foam Study"
+   },
+   {
+    "tag": "BUTTON",
+    "label": "Palette menu",
+    "outerLabel": "Select palette Temp"
+   }
+  ],
+  "paletteCardsInsideButton": 2,
+  "cardSample": [
+   "Palette: Muted Terracotta and Deep Sea Foam Study",
+   "Palette: Temp"
+  ]
+ },
+ "extract": {
+  "paletteMenus": 2,
+  "articles": [
+   "Palette: Muted Terracotta and Deep Sea Foam Study",
+   "Palette: Temp"
+  ],
+  "downloads": [],
+  "consoleErrors": [
+   "[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin production API (https://api.color.babb.dev), whose CORS allow-list excludes localhost — every palette request will be blocked. Run `npm run dev` (the full local stack via scripts/dev.sh up) instead of `npm run dev:web-only`, or set VITE_API_URL to a reachable, CORS-permissive backend. This is a dev-config error, NOT \"backend offline\"."
+  ]
+ }
+}

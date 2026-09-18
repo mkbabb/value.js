@@ -29,12 +29,9 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "paths": {
-            "@styles/*": ["./demo/@/styles/*"],
-            "@components/*": ["./demo/@/components/*"],
-            "@utils/*": ["./demo/@/utils/*"],
-            "@lib/*": ["./demo/@/lib/*"],
-            "@composables/*": ["./demo/@/composables/*"],
-            "@assets/*": ["./assets/*"],
+            // W43 (RF-15): the demo `@…` path aliases were killed — every demo
+            // import is relative to its physical home. No `@styles`/`@components`/
+            // `@utils`/`@lib`/`@composables`/`@assets` project alias survives.
             "vue": ["./node_modules/vue"],
             "@vue/*": ["./node_modules/@vue/*"],
             // The value.js published surface: the bare `.` root + the 7 subpath

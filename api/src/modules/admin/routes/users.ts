@@ -13,7 +13,7 @@ import {
     importPalettesBody,
     setUserStatusBody,
 } from "../schema.js";
-import { paginationQuery } from "../../palette/schema.js";
+import { paginationQuery } from "../../../platform/http/pagination.js";
 import {
     deleteUser,
     deleteUserPalettes,

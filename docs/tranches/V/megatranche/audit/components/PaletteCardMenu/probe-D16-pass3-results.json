@@ -1,0 +1,112 @@
+{
+  "320": {
+    "groupRect": {
+      "x": 47,
+      "right": 211,
+      "w": 164
+    },
+    "groupOverflow": "visible",
+    "kids": [
+      {
+        "tag": "svg",
+        "cls": "[object SVGAnimatedString]",
+        "x": 47,
+        "right": 63,
+        "w": 16
+      },
+      {
+        "tag": "SPAN",
+        "cls": "font-display font-medium t",
+        "x": 71,
+        "right": 71,
+        "w": 0
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex ite",
+        "x": 79,
+        "right": 227.4,
+        "w": 148.4
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex ite",
+        "x": 235.4,
+        "right": 268.3,
+        "w": 32.9
+      },
+      {
+        "tag": "SPAN",
+        "cls": "flex items-center gap-0.5 ",
+        "x": 276.3,
+        "right": 297.1,
+        "w": 20.8
+      }
+    ],
+    "kidsSum": 218.1,
+    "trigger": {
+      "x": 219,
+      "right": 273,
+      "w": 54
+    },
+    "lastKidRight": 297.1,
+    "cardOverflow": "visible",
+    "overrunsGroupBy": 86.1,
+    "collidesWithTrigger": true
+  },
+  "390": {
+    "groupRect": {
+      "x": 47,
+      "right": 281,
+      "w": 234
+    },
+    "groupOverflow": "visible",
+    "kids": [
+      {
+        "tag": "svg",
+        "cls": "[object SVGAnimatedString]",
+        "x": 47,
+        "right": 63,
+        "w": 16
+      },
+      {
+        "tag": "SPAN",
+        "cls": "font-display font-medium t",
+        "x": 71,
+        "right": 71,
+        "w": 0
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex ite",
+        "x": 79,
+        "right": 227.4,
+        "w": 148.4
+      },
+      {
+        "tag": "DIV",
+        "cls": "badge-atom inline-flex ite",
+        "x": 235.4,
+        "right": 268.3,
+        "w": 32.9
+      },
+      {
+        "tag": "SPAN",
+        "cls": "flex items-center gap-0.5 ",
+        "x": 276.3,
+        "right": 297.1,
+        "w": 20.8
+      }
+    ],
+    "kidsSum": 218.1,
+    "trigger": {
+      "x": 289,
+      "right": 343,
+      "w": 54
+    },
+    "lastKidRight": 297.1,
+    "cardOverflow": "visible",
+    "overrunsGroupBy": 16.1,
+    "collidesWithTrigger": true
+  }
+}

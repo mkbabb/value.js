@@ -1,0 +1,789 @@
+{
+ "runId": "wf_28c0c210-172",
+ "workflow": "wf_28c0c210-172",
+ "resultCount": 38,
+ "results": [
+  {
+   "agentId": "adcf86777ab1a7e30",
+   "key": "v2:2b631df559232c0c2ba5b0ba57fda974680fdba6cc19c84e8b6ed858bacdad18",
+   "result": {
+    "components": [
+     {
+      "slug": "AdminAuditLog",
+      "path": "web/src/components/visualization/gallery/AdminAuditLog.vue",
+      "lines": 190
+     },
+     {
+      "slug": "AdminFlaggedPanel",
+      "path": "web/src/components/visualization/gallery/AdminFlaggedPanel.vue",
+      "lines": 285
+     },
+     {
+      "slug": "AdminUserList",
+      "path": "web/src/components/visualization/gallery/AdminUserList.vue",
+      "lines": 529
+     },
+     {
+      "slug": "AnimationControls",
+      "path": "web/src/components/visualization/AnimationControls.vue",
+      "lines": 224
+     },
+     {
+      "slug": "App",
+      "path": "web/src/App.vue",
+      "lines": 32
+     },
+     {
+      "slug": "AppHeader",
+      "path": "web/src/components/layout/AppHeader.vue",
+      "lines": 354
+     },
+     {
+      "slug": "BasisCanvas",
+      "path": "web/src/components/visualization/BasisCanvas.vue",
+      "lines": 547
+     },
+     {
+      "slug": "BasisSelector",
+      "path": "web/src/components/visualization/BasisSelector.vue",
+      "lines": 324
+     },
+     {
+      "slug": "CanvasControlsDock",
+      "path": "web/src/components/visualization/CanvasControlsDock.vue",
+      "lines": 132
+     },
+     {
+      "slug": "CanvasOverlayButton",
+      "path": "web/src/components/visualization/CanvasOverlayButton.vue",
+      "lines": 25
+     },
+     {
+      "slug": "CoefficientsPanel",
+      "path": "web/src/components/visualization/CoefficientsPanel.vue",
+      "lines": 26
+     },
+     {
+      "slug": "CoefficientsSpectrum",
+      "path": "web/src/components/shared/CoefficientsSpectrum.vue",
+      "lines": 168
+     },
+     {
+      "slug": "CollapsibleSection",
+      "path": "web/src/components/ui/CollapsibleSection.vue",
+      "lines": 72
+     },
+     {
+      "slug": "ContourEditorCanvas",
+      "path": "web/src/components/visualization/ContourEditorCanvas.vue",
+      "lines": 340
+     },
+     {
+      "slug": "ContourPreview",
+      "path": "web/src/components/visualization/ContourPreview.vue",
+      "lines": 62
+     },
+     {
+      "slug": "ContourSettings",
+      "path": "web/src/components/visualization/ContourSettings.vue",
+      "lines": 470
+     },
+     {
+      "slug": "ConvergenceLegend",
+      "path": "web/src/components/equation/convergence/ConvergenceLegend.vue",
+      "lines": 97
+     },
+     {
+      "slug": "ConvergencePlot",
+      "path": "web/src/components/equation/ConvergencePlot.vue",
+      "lines": 410
+     },
+     {
+      "slug": "ConvergenceTimeline",
+      "path": "web/src/components/equation/convergence/ConvergenceTimeline.vue",
+      "lines": 146
+     },
+     {
+      "slug": "DarkModeToggle",
+      "path": "web/src/components/layout/DarkModeToggle.vue",
+      "lines": 109
+     },
+     {
+      "slug": "EasingCurvePreview",
+      "path": "web/src/components/visualization/EasingCurvePreview.vue",
+      "lines": 41
+     },
+     {
+      "slug": "EasingPicker",
+      "path": "web/src/components/visualization/EasingPicker.vue",
+      "lines": 98
+     },
+     {
+      "slug": "EditorControlsDock",
+      "path": "web/src/components/visualization/EditorControlsDock.vue",
+      "lines": 230
+     },
+     {
+      "slug": "EqCoefficientsPanel",
+      "path": "web/src/components/equation/EqCoefficientsPanel.vue",
+      "lines": 17
+     },
+     {
+      "slug": "EquationModeToggle",
+      "path": "web/src/components/equation/EquationModeToggle.vue",
+      "lines": 80
+     },
+     {
+      "slug": "EquationPanel",
+      "path": "web/src/components/visualization/EquationPanel.vue",
+      "lines": 134
+     },
+     {
+      "slug": "EquationResult",
+      "path": "web/src/components/equation/EquationResult.vue",
+      "lines": 101
+     },
+     {
+      "slug": "EquationView",
+      "path": "web/src/components/equation/EquationView.vue",
+      "lines": 469
+     },
+     {
+      "slug": "ExportModal",
+      "path": "web/src/components/visualization/ExportModal.vue",
+      "lines": 114
+     },
+     {
+      "slug": "FourierMorphDemo",
+      "path": "web/src/components/morph/FourierMorphDemo.vue",
+      "lines": 330
+     },
+     {
+      "slug": "FourierMorphSvg",
+      "path": "web/src/components/decorative/FourierMorphSvg.vue",
+      "lines": 41
+     },
+     {
+      "slug": "FourierShapeExtractor",
+      "path": "web/src/components/morph/FourierShapeExtractor.vue",
+      "lines": 191
+     },
+     {
+      "slug": "FrequencyGraph",
+      "path": "web/src/components/equation/FrequencyGraph.vue",
+      "lines": 247
+     },
+     {
+      "slug": "FullscreenViewer",
+      "path": "web/src/components/visualization/FullscreenViewer.vue",
+      "lines": 245
+     },
+     {
+      "slug": "FunctionInput",
+      "path": "web/src/components/equation/FunctionInput.vue",
+      "lines": 261
+     },
+     {
+      "slug": "GalleryAdminBanner",
+      "path": "web/src/components/visualization/gallery/GalleryAdminBanner.vue",
+      "lines": 107
+     },
+     {
+      "slug": "GalleryCard",
+      "path": "web/src/components/visualization/gallery/GalleryCard.vue",
+      "lines": 309
+     },
+     {
+      "slug": "GalleryCardModal",
+      "path": "web/src/components/visualization/gallery/GalleryCardModal.vue",
+      "lines": 261
+     },
+     {
+      "slug": "GalleryDraftsSection",
+      "path": "web/src/components/visualization/gallery/GalleryDraftsSection.vue",
+      "lines": 108
+     },
+     {
+      "slug": "GalleryFeaturedCarousel",
+      "path": "web/src/components/visualization/gallery/GalleryFeaturedCarousel.vue",
+      "lines": 91
+     },
+     {
+      "slug": "GalleryInfiniteGrid",
+      "path": "web/src/components/visualization/gallery/GalleryInfiniteGrid.vue",
+      "lines": 54
+     },
+     {
+      "slug": "GalleryMarquee",
+      "path": "web/src/components/visualization/gallery/GalleryMarquee.vue",
+      "lines": 134
+     },
+     {
+      "slug": "GallerySearchBar",
+      "path": "web/src/components/visualization/gallery/GallerySearchBar.vue",
+      "lines": 223
+     },
+     {
+      "slug": "GalleryView",
+      "path": "web/src/components/visualization/GalleryView.vue",
+      "lines": 442
+     },
+     {
+      "slug": "GlassTimeline",
+      "path": "web/src/components/visualization/GlassTimeline.vue",
+      "lines": 127
+     },
+     {
+      "slug": "HarmonicLevelGrid",
+      "path": "web/src/components/morph/HarmonicLevelGrid.vue",
+      "lines": 286
+     },
+     {
+      "slug": "ImageUpload",
+      "path": "web/src/components/visualization/ImageUpload.vue",
+      "lines": 207
+     },
+     {
+      "slug": "InfoCard",
+      "path": "web/src/components/equation/InfoCard.vue",
+      "lines": 43
+     },
+     {
+      "slug": "MobileFloatingToc",
+      "path": "web/src/components/paper/MobileFloatingToc.vue",
+      "lines": 397
+     },
+     {
+      "slug": "MorphPhaseConfig",
+      "path": "web/src/components/morph/MorphPhaseConfig.vue",
+      "lines": 212
+     },
+     {
+      "slug": "MorphShapePreview",
+      "path": "web/src/components/morph/MorphShapePreview.vue",
+      "lines": 175
+     },
+     {
+      "slug": "NotationPills",
+      "path": "web/src/components/equation/NotationPills.vue",
+      "lines": 47
+     },
+     {
+      "slug": "PaperArticleWindow",
+      "path": "web/src/components/paper/PaperArticleWindow.vue",
+      "lines": 212
+     },
+     {
+      "slug": "PaperSearch",
+      "path": "web/src/components/paper/PaperSearch.vue",
+      "lines": 397
+     },
+     {
+      "slug": "PaperSearchDropdown",
+      "path": "web/src/components/paper/search/PaperSearchDropdown.vue",
+      "lines": 70
+     },
+     {
+      "slug": "PaperSearchInput",
+      "path": "web/src/components/paper/search/PaperSearchInput.vue",
+      "lines": 69
+     },
+     {
+      "slug": "PaperSearchModal",
+      "path": "web/src/components/paper/search/PaperSearchModal.vue",
+      "lines": 124
+     },
+     {
+      "slug": "PaperSidebar",
+      "path": "web/src/components/paper/PaperSidebar.vue",
+      "lines": 283
+     },
+     {
+      "slug": "PaperView",
+      "path": "web/src/components/paper/PaperView.vue",
+      "lines": 685
+     },
+     {
+      "slug": "PathPreview",
+      "path": "web/src/components/ui/PathPreview.vue",
+      "lines": 69
+     },
+     {
+      "slug": "SliderControl",
+      "path": "web/src/components/ui/SliderControl.vue",
+      "lines": 150
+     },
+     {
+      "slug": "SpeedSelect",
+      "path": "web/src/components/visualization/SpeedSelect.vue",
+      "lines": 70
+     },
+     {
+      "slug": "SvgFilters",
+      "path": "web/src/components/decorative/SvgFilters.vue",
+      "lines": 178
+     },
+     {
+      "slug": "Tooltip",
+      "path": "web/src/components/ui/tooltip/Tooltip.vue",
+      "lines": 38
+     },
+     {
+      "slug": "UserSlugBar",
+      "path": "web/src/components/visualization/gallery/UserSlugBar.vue",
+      "lines": 168
+     },
+     {
+      "slug": "VisualizationView",
+      "path": "web/src/components/visualization/VisualizationView.vue",
+      "lines": 486
+     }
+    ]
+   }
+  },
+  {
+   "agentId": "aa95fd244f1e8ec6b",
+   "key": "v2:b04452e3001ea9a85c72ed16b44c28fa01c69c16067f28286cb726719e939857",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-C-consumption.md",
+    "defects": 10,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "ada4ebbddeaba0470",
+   "key": "v2:39c578ef3fe2dd32612a7f69acc15e1701e09868f854c5881205ffe1e31d6723",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-D-design.md",
+    "defects": 14,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a35f748fdf2f64803",
+   "key": "v2:f3879e4b4347dc561223b2e1ca5637c5f0cf1676ea730f10adf8086f5c59c339",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-L-library.md",
+    "defects": 10,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a4c2dfed475aab90a",
+   "key": "v2:01447e667ba09cdaff5901a46878dedeed2c4a478dc68279a30c4435f403b78c",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ae576299eddbff191",
+   "key": "v2:cd66d6e086585018a4b4d62079802289195cab1a5c8c1b9c414c91b033999ecb",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a9cfee0e2c3f1b444",
+   "key": "v2:05bd0ffb10524dd2b219d4effbc03f2c452de66962f6086c7bbd75b60c1dc797",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-D-design.md",
+    "defects": 19,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a8ab34368ca71f5d9",
+   "key": "v2:cbabfbaa6d8f67de2c710ce2e134a287bfb8bea6c4ec951fe0f87b1ba585a1fe",
+   "result": {
+    "slug": "ContourEditorCanvas",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourEditorCanvas/challenge-D-design.md",
+    "defects": 23,
+    "blockers": 5,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a1236c99b4b28850d",
+   "key": "v2:8807260d17108a047130f8c26719a57c9c79df31932b18958938923c9ec3f08a",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ab9b5928b163cd8a0",
+   "key": "v2:a92a00e62ba5d921edb2ef82867ce5745c5ab15c3738a73632177bfe6f5ecbb3",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-L-library.md",
+    "defects": 18,
+    "blockers": 1,
+    "superlatives": 8
+   }
+  },
+  {
+   "agentId": "a9de15fd52ceff260",
+   "key": "v2:367fff4090b1be8d83fa91955c5847008c1c83d1c89da79d44ad8f4cc43872d5",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-L-library.md",
+    "defects": 20,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a84bb6fb851bbdab5",
+   "key": "v2:de66593eb3380925e8d1aaccd383b26d5bfa398fc595384a4eb37ef295f20df3",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-C-consumption.md",
+    "defects": 20,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a27227519d08c0c79",
+   "key": "v2:b7d3fedb0f45c09a18161e0d9bc38c813c75a831e871f8b3b6281c74ca96719d",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 0,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a0573c542f65e7cd9",
+   "key": "v2:b6661495ac1e347672929fff438315498906addb1fa38c5045e4e580884a2e8c",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-D-design.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a8c378cc7f45aca15",
+   "key": "v2:cf7d0e8d00a3bdca8d3fd20e6f18afd2601ba89bd4304aa56fa76d6c50e33327",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ab7db1faf538193d9",
+   "key": "v2:f3879e4b4347dc561223b2e1ca5637c5f0cf1676ea730f10adf8086f5c59c339",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-L-library.md",
+    "defects": 11,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a48e22db01c302d75",
+   "key": "v2:7f43423b5fa013557e52c85b24cead51f83d4b7d16cc9362c9fa7913b3331f69",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-C-consumption.md",
+    "defects": 17,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a1c2b793869e76d8e",
+   "key": "v2:cbabfbaa6d8f67de2c710ce2e134a287bfb8bea6c4ec951fe0f87b1ba585a1fe",
+   "result": {
+    "slug": "ContourEditorCanvas",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourEditorCanvas/challenge-D-design.md",
+    "defects": 31,
+    "blockers": 6,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "ac14bf48e450f52bc",
+   "key": "v2:39c578ef3fe2dd32612a7f69acc15e1701e09868f854c5881205ffe1e31d6723",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-D-design.md",
+    "defects": 17,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a5ddcf9982108c57a",
+   "key": "v2:b04452e3001ea9a85c72ed16b44c28fa01c69c16067f28286cb726719e939857",
+   "result": {
+    "slug": "CanvasOverlayButton",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasOverlayButton/challenge-C-consumption.md",
+    "defects": 14,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "aeef65ecf760d62fc",
+   "key": "v2:01447e667ba09cdaff5901a46878dedeed2c4a478dc68279a30c4435f403b78c",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-L-library.md",
+    "defects": 15,
+    "blockers": 1,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a4bf7f212e3b46384",
+   "key": "v2:b7d3fedb0f45c09a18161e0d9bc38c813c75a831e871f8b3b6281c74ca96719d",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-L-library.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "aa316ceb01e754f81",
+   "key": "v2:05bd0ffb10524dd2b219d4effbc03f2c452de66962f6086c7bbd75b60c1dc797",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a39ed32736a96eebf",
+   "key": "v2:5ad35793ce4590c6ec5d165eed86184ef99b49b8c55fe7510ff3cdde7ccf744e",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-D-design.md",
+    "defects": 21,
+    "blockers": 4,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "acb41d277e4507650",
+   "key": "v2:8807260d17108a047130f8c26719a57c9c79df31932b18958938923c9ec3f08a",
+   "result": {
+    "slug": "CollapsibleSection",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CollapsibleSection/challenge-C-consumption.md",
+    "defects": 22,
+    "blockers": 1,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a89634d2d32579012",
+   "key": "v2:a92a00e62ba5d921edb2ef82867ce5745c5ab15c3738a73632177bfe6f5ecbb3",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-L-library.md",
+    "defects": 25,
+    "blockers": 2,
+    "superlatives": 10
+   }
+  },
+  {
+   "agentId": "a03b1c8990f298108",
+   "key": "v2:de66593eb3380925e8d1aaccd383b26d5bfa398fc595384a4eb37ef295f20df3",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-C-consumption.md",
+    "defects": 29,
+    "blockers": 2,
+    "superlatives": 9
+   }
+  },
+  {
+   "agentId": "a60d48761d9559334",
+   "key": "v2:b6661495ac1e347672929fff438315498906addb1fa38c5045e4e580884a2e8c",
+   "result": {
+    "slug": "CoefficientsPanel",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsPanel/challenge-D-design.md",
+    "defects": 31,
+    "blockers": 2,
+    "superlatives": 7
+   }
+  },
+  {
+   "agentId": "ad5d418e55ffb59e4",
+   "key": "v2:cf7d0e8d00a3bdca8d3fd20e6f18afd2601ba89bd4304aa56fa76d6c50e33327",
+   "result": {
+    "slug": "CoefficientsSpectrum",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CoefficientsSpectrum/challenge-D-design.md",
+    "defects": 38,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ab382483edfab49c7",
+   "key": "v2:66a0970a8e4a1f55c890a8cf63edaea1d79befea525aa1c96440c1d991c4df91",
+   "result": {
+    "slug": "ContourEditorCanvas",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourEditorCanvas/challenge-L-library.md",
+    "defects": 21,
+    "blockers": 2,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a5ef48c5c2b4d9abb",
+   "key": "v2:cd66d6e086585018a4b4d62079802289195cab1a5c8c1b9c414c91b033999ecb",
+   "result": {
+    "slug": "CanvasControlsDock",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/CanvasControlsDock/challenge-C-consumption.md",
+    "defects": 28,
+    "blockers": 3,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a439ee91a14d201a1",
+   "key": "v2:113e6d0a231eb55d4217edeeed57e80b747e7a80b930eb4e39f7276d1eb6c4a4",
+   "result": {
+    "slug": "ContourPreview",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourPreview/challenge-C-consumption.md",
+    "defects": 11,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a5efb15745c2d1cf2",
+   "key": "v2:80ac6bde5f88fe9bdfacd73e67e12dfc30aef3df17aa53fd80bf0554741f49a9",
+   "result": {
+    "slug": "ContourEditorCanvas",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourEditorCanvas/challenge-C-consumption.md",
+    "defects": 27,
+    "blockers": 3,
+    "superlatives": 5
+   }
+  },
+  {
+   "agentId": "a227a5d445aa8dee9",
+   "key": "v2:e944d368029a34ee7a4fc0ca8f4f233242d4afa11093030a87e8000e165c4b6e",
+   "result": {
+    "slug": "ContourPreview",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourPreview/challenge-L-library.md",
+    "defects": 13,
+    "blockers": 0,
+    "superlatives": 4
+   }
+  },
+  {
+   "agentId": "a81bec1b706a8c055",
+   "key": "v2:0b3ceb5ccae418236ab3dc61033d16b6a102b7ad936540e412c6dce301fff468",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "L",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-L-library.md",
+    "defects": 17,
+    "blockers": 3,
+    "superlatives": 3
+   }
+  },
+  {
+   "agentId": "a895763d1595f6ee5",
+   "key": "v2:31e3e1da40d34609f17cb2b1157a750e1b3e85965f1b19f265586e805982a52c",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-D-design.md",
+    "defects": 24,
+    "blockers": 2,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "ab526c12608b1d990",
+   "key": "v2:9931b14c0b6ba83c443ea1ac7868665c23c77ced4cb5d1043344890788739b44",
+   "result": {
+    "slug": "ContourSettings",
+    "axis": "C",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourSettings/challenge-C-consumption.md",
+    "defects": 25,
+    "blockers": 5,
+    "superlatives": 6
+   }
+  },
+  {
+   "agentId": "a45b0acf237f65b23",
+   "key": "v2:2368a72a7273dc646b9056f13d11b892575498fc197b2288663bba8decc8812f",
+   "result": {
+    "slug": "ContourPreview",
+    "axis": "D",
+    "file": "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/audit/fourier-components/ContourPreview/challenge-D-design.md",
+    "defects": 26,
+    "blockers": 1,
+    "superlatives": 7
+   }
+  }
+ ]
+}

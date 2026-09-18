@@ -1,0 +1,571 @@
+[
+ {
+  "id": "forced-colors",
+  "engine": "chromium",
+  "opts": {
+   "scheme": "light"
+  },
+  "nPal": 2,
+  "ghost": {
+   "present": true,
+   "plate": {
+    "w": 462,
+    "h": 102.7,
+    "top": 727.84,
+    "bottom": 830.55,
+    "radius": "12px",
+    "padding": "16px",
+    "gap": "12px",
+    "bg": "rgb(255, 255, 255)",
+    "boxShadow": "none",
+    "border": "0px solid",
+    "opacity": "0.55",
+    "transition": "opacity 0.2s",
+    "ghost": true
+   },
+   "scroller": {
+    "top": 132,
+    "bottom": 847.55,
+    "scrollTop": 0,
+    "scrollHeight": 714,
+    "clientHeight": 714,
+    "plateFullyVisible": true,
+    "plateVisiblePx": 102.7
+   },
+   "dashedWell": null,
+   "labels": {
+    "result": {
+     "text": "Result",
+     "family": "Fraunces",
+     "size": "14.384px",
+     "weight": "700",
+     "style": "italic",
+     "transform": "uppercase",
+     "tracking": "0.3596px",
+     "color": "rgb(0, 0, 0)"
+    },
+    "source": null,
+    "config": {
+     "text": "Color space",
+     "family": "\"Fira Code\"",
+     "size": "14.384px",
+     "weight": "400",
+     "style": "normal",
+     "transform": "uppercase",
+     "tracking": "1.4384px"
+    }
+   },
+   "value": null,
+   "buttons": [],
+   "lineElements": [],
+   "swatchKids": null,
+   "strayTagAttr": [],
+   "gradientStrip": null,
+   "plateText": "RESULT",
+   "liveRegions": [
+    "span[alert]",
+    "span[off]",
+    "span[off]",
+    "span[off]",
+    "span[off]"
+   ],
+   "plateHasLive": false,
+   "docOverflowX": 0,
+   "activeEl": "body[]"
+  },
+  "settledAsDelivered": {
+   "present": true,
+   "plate": {
+    "w": 462,
+    "h": 218.7,
+    "top": 698.84,
+    "bottom": 917.55,
+    "radius": "12px",
+    "padding": "16px",
+    "gap": "12px",
+    "bg": "rgb(255, 255, 255)",
+    "boxShadow": "none",
+    "border": "0px solid",
+    "opacity": "1",
+    "transition": "opacity 0.2s",
+    "ghost": false
+   },
+   "scroller": {
+    "top": 103,
+    "bottom": 877,
+    "scrollTop": 0,
+    "scrollHeight": 830,
+    "clientHeight": 772,
+    "plateFullyVisible": false,
+    "plateVisiblePx": 178.16
+   },
+   "dashedWell": null,
+   "labels": {
+    "result": {
+     "text": "Result",
+     "family": "Fraunces",
+     "size": "14.384px",
+     "weight": "700",
+     "style": "italic",
+     "transform": "uppercase",
+     "tracking": "0.3596px",
+     "color": "rgb(0, 0, 0)"
+    },
+    "source": null,
+    "config": {
+     "text": "Color space",
+     "family": "\"Fira Code\"",
+     "size": "14.384px",
+     "weight": "400",
+     "style": "normal",
+     "transform": "uppercase",
+     "tracking": "1.4384px"
+    }
+   },
+   "value": null,
+   "buttons": [
+    {
+     "title": "Copy color",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    },
+    {
+     "title": "Save to palettes",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    },
+    {
+     "title": "Reset",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    }
+   ],
+   "lineElements": [],
+   "swatchKids": [
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 770,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 818,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 866,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 914,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 962,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 1010,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 1058,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 1106,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 745.55,
+     "left": 1154,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 793.55,
+     "left": 770,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 793.55,
+     "left": 818,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 793.55,
+     "left": 866,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    }
+   ],
+   "strayTagAttr": [],
+   "gradientStrip": {
+    "w": 430,
+    "h": 16,
+    "inlineStyle": "background: linear-gradient(to right, oklab(0.72 0.147444 0.0194114), oklab(0.72 0.117985 0.090533), oklab(0.72 0.0569114 0.137396), oklab(0.72 -0.0194114 0.147444), oklab(0.72 -0.090533 0.117985), oklab(0.72 -0.137396 0.0569114), oklab(0.72 -0.147444 -0.0194114), oklab(0.72 -0.117985 -0.090533), oklab(0.72 -0.0569114 -0.137396), oklab(0.72 0.0194114 -0.147444), oklab(0.72 0.090533 -0.117985), oklab(0.72 0.137396 -0.0569114));",
+    "computedBgImage": "none",
+    "bgColor": "rgba(255, 255, 255, 0)",
+    "ariaHidden": "true",
+    "role": "presentation"
+   },
+   "plateText": "RESULT",
+   "liveRegions": [
+    "span[alert]",
+    "span[off]",
+    "span[off]",
+    "span[off]",
+    "span[off]"
+   ],
+   "plateHasLive": false,
+   "docOverflowX": 0,
+   "activeEl": "body[]"
+  },
+  "settled": {
+   "present": true,
+   "plate": {
+    "w": 462,
+    "h": 218.7,
+    "top": 640.84,
+    "bottom": 859.55,
+    "radius": "12px",
+    "padding": "16px",
+    "gap": "12px",
+    "bg": "rgb(255, 255, 255)",
+    "boxShadow": "none",
+    "border": "0px solid",
+    "opacity": "1",
+    "transition": "opacity 0.2s",
+    "ghost": false
+   },
+   "scroller": {
+    "top": 103,
+    "bottom": 877,
+    "scrollTop": 58,
+    "scrollHeight": 830,
+    "clientHeight": 772,
+    "plateFullyVisible": true,
+    "plateVisiblePx": 218.7
+   },
+   "dashedWell": null,
+   "labels": {
+    "result": {
+     "text": "Result",
+     "family": "Fraunces",
+     "size": "14.384px",
+     "weight": "700",
+     "style": "italic",
+     "transform": "uppercase",
+     "tracking": "0.3596px",
+     "color": "rgb(0, 0, 0)"
+    },
+    "source": null,
+    "config": {
+     "text": "Color space",
+     "family": "\"Fira Code\"",
+     "size": "14.384px",
+     "weight": "400",
+     "style": "normal",
+     "transform": "uppercase",
+     "tracking": "1.4384px"
+    }
+   },
+   "value": null,
+   "buttons": [
+    {
+     "title": "Copy color",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    },
+    {
+     "title": "Save to palettes",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    },
+    {
+     "title": "Reset",
+     "aria": null,
+     "text": "",
+     "w": 28,
+     "h": 28,
+     "dockControlSize": "(unset)",
+     "dockSafeInset": "(unset)",
+     "bg": "rgba(255, 255, 255, 0)",
+     "ariaPressed": null
+    }
+   ],
+   "lineElements": [],
+   "swatchKids": [
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 770,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 818,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 866,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 914,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 962,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 1010,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 1058,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 1106,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 687.55,
+     "left": 1154,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 735.55,
+     "left": 770,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 735.55,
+     "left": 818,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    },
+    {
+     "tag": "span",
+     "w": 40,
+     "h": 40,
+     "top": 735.55,
+     "left": 866,
+     "title": null,
+     "tagAttr": null,
+     "aria": null,
+     "role": null
+    }
+   ],
+   "strayTagAttr": [],
+   "gradientStrip": {
+    "w": 430,
+    "h": 16,
+    "inlineStyle": "background: linear-gradient(to right, oklab(0.72 0.147444 0.0194114), oklab(0.72 0.117985 0.090533), oklab(0.72 0.0569114 0.137396), oklab(0.72 -0.0194114 0.147444), oklab(0.72 -0.090533 0.117985), oklab(0.72 -0.137396 0.0569114), oklab(0.72 -0.147444 -0.0194114), oklab(0.72 -0.117985 -0.090533), oklab(0.72 -0.0569114 -0.137396), oklab(0.72 0.0194114 -0.147444), oklab(0.72 0.090533 -0.117985), oklab(0.72 0.137396 -0.0569114));",
+    "computedBgImage": "none",
+    "bgColor": "rgba(255, 255, 255, 0)",
+    "ariaHidden": "true",
+    "role": "presentation"
+   },
+   "plateText": "RESULT",
+   "liveRegions": [
+    "span[alert]",
+    "span[off]",
+    "span[off]",
+    "span[off]",
+    "span[off]"
+   ],
+   "plateHasLive": false,
+   "docOverflowX": 0,
+   "activeEl": "body[]"
+  },
+  "copy": {
+   "title": "Copy color",
+   "innerHtml": "<svg data-v-0f138735=\"\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stro",
+   "ariaPressed": null,
+   "plateHasLive": false
+  },
+  "focus": null,
+  "errs": [
+   "console:[value.js] value.js dev is MISCONFIGURED: http://localhost:9000 has no VITE_API_URL and is targeting the cross-origin pr"
+  ]
+ }
+]

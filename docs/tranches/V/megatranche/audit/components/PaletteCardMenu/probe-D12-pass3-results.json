@@ -1,0 +1,240 @@
+{
+  "neighbourDark": {
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "menuRect": {
+        "x": 1010,
+        "y": 611,
+        "w": 192,
+        "h": 240.1
+      },
+      "cards": [
+        {
+          "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+          "y": 518.6,
+          "h": 100
+        },
+        {
+          "label": "Palette: Neighbour",
+          "y": 630.6,
+          "h": 100
+        }
+      ],
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          232,
+          219,
+          211
+        ],
+        "surface": [
+          112,
+          89,
+          66
+        ],
+        "contrast": 4.85
+      },
+      "annotation": {
+        "ink": [
+          168,
+          160,
+          154
+        ],
+        "surface": [
+          237,
+          227,
+          219
+        ],
+        "contrast": 2.04
+      },
+      "rename": {
+        "ink": [
+          28,
+          25,
+          23
+        ],
+        "surface": [
+          241,
+          230,
+          221
+        ],
+        "contrast": 14.24
+      },
+      "del": {
+        "ink": [
+          28,
+          24,
+          22
+        ],
+        "surface": [
+          244,
+          228,
+          219
+        ],
+        "contrast": 14.24
+      },
+      "bottomBand": {
+        "surface": [
+          244,
+          229,
+          219
+        ]
+      }
+    }
+  },
+  "neighbourLight": {
+    "boxes": {
+      "menuW": 192,
+      "menuH": 240.1,
+      "menuRect": {
+        "x": 1010,
+        "y": 611,
+        "w": 192,
+        "h": 240.1
+      },
+      "cards": [
+        {
+          "label": "Palette: Muted Terracotta and Deep Sea Foam Study",
+          "y": 518.6,
+          "h": 100
+        },
+        {
+          "label": "Palette: Neighbour",
+          "y": 630.6,
+          "h": 100
+        }
+      ],
+      "label": {
+        "x": 7,
+        "y": 7,
+        "w": 178,
+        "h": 32.1
+      },
+      "annotation": {
+        "x": 112.5,
+        "y": 60.1,
+        "w": 64.5,
+        "h": 20.1
+      },
+      "rename": {
+        "x": 7,
+        "y": 92.1,
+        "w": 178,
+        "h": 44
+      },
+      "del": {
+        "x": 7,
+        "y": 189.1,
+        "w": 178,
+        "h": 44
+      }
+    },
+    "sampled": {
+      "label": {
+        "ink": [
+          112,
+          89,
+          66
+        ],
+        "surface": [
+          243,
+          234,
+          228
+        ],
+        "contrast": 5.54
+      },
+      "annotation": {
+        "ink": [
+          182,
+          173,
+          167
+        ],
+        "surface": [
+          241,
+          231,
+          223
+        ],
+        "contrast": 1.81
+      },
+      "rename": {
+        "ink": [
+          28,
+          25,
+          23
+        ],
+        "surface": [
+          241,
+          230,
+          221
+        ],
+        "contrast": 14.24
+      },
+      "del": {
+        "ink": [
+          28,
+          24,
+          22
+        ],
+        "surface": [
+          244,
+          228,
+          219
+        ],
+        "contrast": 14.24
+      },
+      "bottomBand": {
+        "surface": [
+          244,
+          229,
+          219
+        ]
+      }
+    }
+  },
+  "wheel": {
+    "centre": {
+      "x": 985,
+      "y": 440
+    },
+    "closed": {
+      "before": 0,
+      "after": 400,
+      "delta": 400,
+      "scroller": "glass-resting card rounded-card text-car",
+      "sh": 1556,
+      "ch": 686
+    },
+    "menuOpen": {
+      "before": 0,
+      "after": 0,
+      "delta": 0,
+      "menuStillOpen": true
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "verdict": "REJECT",
+  "root": {
+    "id": "value-pi-root-g8",
+    "served_model": "gpt-5.6-sol",
+    "independent": true,
+    "candidate_author": false,
+    "challenge_reviewer": false,
+    "hidden_access": false
+  },
+  "subject": {
+    "formation": {
+      "sha256": "ad53112eb32e7f9d918aa928215e1f8f6bffb2745589dfd6f21977bc71c6f0ba",
+      "bytes": 9872
+    },
+    "closure_sha256": "ff2bbfa4ab797f5d7b75f726b444a41dea5da46fdfc45750befa76b61e3c1d0d",
+    "holdout_receipt": {
+      "sha256": "bbb1c02e327eda8f3cc17073bb752c82fd8bd8f2b7d742333248bb5d75a073a9",
+      "bytes": 5651
+    },
+    "holdout_ciphertext": {
+      "sha256": "bba30de346a637ba718334606153e1ce47325fa623daf21cef34bb978eff9319",
+      "bytes": 287609
+    }
+  },
+  "reviews": [
+    {
+      "id": "A",
+      "reviewer_id": "g8-boundary-challenge-a-codex",
+      "path": "reviews/challenge-a.json",
+      "sha256": "34d9293325b088346a159867e59663c78cc68ff576cd24c5da369faa36644118",
+      "bytes": 9079,
+      "verdict": "REJECT"
+    },
+    {
+      "id": "B",
+      "reviewer_id": "g8-boundary-challenge-b",
+      "path": "reviews/challenge-b.json",
+      "sha256": "2f6ce247be13d93c9fa780dd762ea684d88ec7c08dc46bada019ff3ae69daa21",
+      "bytes": 11375,
+      "verdict": "REJECT"
+    }
+  ],
+  "union_blockers": [
+    "The actual pre-author CLI does not require or fully validate the exact frozen G8 formation, its 28-row precursor closure, authority closure, G7 terminal chain, or phase-appropriate zero-candidate state.",
+    "Boundary review instances are not schema-validated or joined to the exact formation, precursor closure, holdout receipt, and ciphertext; minimal or foreign ACCEPT JSON can pass.",
+    "The root instance is not schema-validated or joined to the exact two review paths, hashes, bytes, reviewer identities, verdicts, or subject; a fabricated root can bless unrelated reviews.",
+    "The manifest requires future review and root identities while claiming to be sealed before those actors work; no separate immutable reviewed-subject identity exists.",
+    "Formation actors are reduced to optional strings and are not carried into the later owner-law evidence root, allowing custodian, reviewer, or root identities to be laundered before skeptic and adjudicator checks.",
+    "The advertised strict replay rejects the legitimate post-holdout lifecycle solely because the authorized holdout and review artifacts exist, while the pre-author CLI does not replace it with full frozen-closure verification.",
+    "Holdout comparison inputs are not resolved, ciphertext authenticity and freshness are not publicly substantiated, and reveal/destruction lacks a frozen durable executable transition.",
+    "Benchmark validation content-addresses opaque files and positive samples but does not execute or independently prove work units, observation equality, schedule, environment, statistics, or strict peer wins.",
+    "Negative controls do not exercise foreign formation admission, subject-swapped reviews, review-swapped roots, actor overlap or substitution, synthetic holdout admission, or fabricated benchmark evidence.",
+    "Because these defects precede candidate admission, G8 must terminate with zero candidate, parser, benchmark, integration, or production credit and its unrevealed secret must be destroyed."
+  ],
+  "credit": "ZERO_ROOT_ADMISSION_ONLY"
+}

@@ -1,0 +1,476 @@
+{
+  "A.servedGuards": {
+    "totalPrmMediaRules": 76,
+    "globalNeutralisers": [],
+    "noPreferenceGates": [
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)",
+          ".lamp-dot[data-v-45530b34]"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @keyframes lamp-dot-pulse-45530b34 { \n  0%, 100% { opacity: 1; }\n  50% { opacity: 0.35; }\n}\n  .lamp-dot[data-v-45530b34] { animation: lamp-dot-pulse-45530b34 2.4s var(--ease-standard) infinite; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)",
+          ".spectrum-picker[data-v-ad23e00d]"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @keyframes field-paint-in-ad23e00d { \n  0% { opacity: 0; background-size: 120% 120%, 120% 120%; }\n  100% { opacity: 1; background-size: 100% 100%, 100% 100%; }\n}\n  .spectrum-picker[data-v-ad23e00d] { animation: field-paint-in-ad23e00d 420ms var(--ease-standard) 180ms both; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  animation: var(--animate-ping);\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  animation: var(--animate-spin);\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".liquid-enter",
+          ".liquid-enter.is-display",
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .liquid-enter { animation-duration: ; animation-timing-function: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-play-state: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-delay: calc( var( --lq-enter-step, calc(var(--lq-enter-duration) * 0.618) ) * var(--i, 0) ); transform-origin: var(--lq-enter-origin); }\n  .liqui"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".liquid-enter.is-cel",
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .liquid-enter.is-cel { animation: gl-cel-slam var(--lq-enter-duration) var(--ease-cartoon-punch, var(--spring-bouncy)) both; }\n  @keyframes gl-cel-slam { \n  0% { opacity: 0; translate: 0 calc(14px * var(--motion-weight, 0.618)); scale: calc(1 - 0.12 * var(--motion-weight, 0.618)) calc(1 + 0.06 * var(--motion-weight, 0.618)); filter: blur(var(--lq-enter-blur, 4px)); }\n  62% { opacity: 1; translate: 0 calc(-"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".liquid-enter.is-cel > .cartoon-cast",
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .liquid-enter.is-cel > .cartoon-cast { animation-duration: ; animation-timing-function: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; animation-play-state: ; animation-name: ; animation-timeline: ; animation-range-start: ; animation-range-end: ; animation-delay: calc(0.006s + 0.06s * var(--motion-weight, 0.618)); }\n  @keyframes gl-cast-lag { \n  0% { opacity: 0; translate: 0 c"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "canvas[data-substrate-reveal]"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  canvas[data-substrate-reveal] { animation: substrate-reveal-bloom var(--substrate-reveal-duration) var(--ease-out); }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @supports (animation-timeline: scroll()) {\n  @keyframes gl-scroll-grow { \n  0% { transform: scaleX(0); }\n  100% { transform: scaleX(1); }\n}\n  .scroll-progress { animation-duration: auto; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: none; animation-play-state: running; animation-name: gl-scroll-grow; animation-range: "
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @supports ((animation-timeline: view()) and (animation-range: entry)) {\n  @keyframes gl-reveal-in { \n  0% { opacity: 0; transform: translateY(var(--scroll-reveal-rise, 6px)); }\n}\n  [data-scroll-reveal] > * { animation-duration: auto; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: both; animation-play-state: running; an"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @supports ((animation-timeline: view()) and (animation-range: entry)) {\n  @keyframes gl-cascade-build { \n  0% { opacity: 0; transform: translateY(var(--scroll-cascade-rise, 1.25rem)); }\n  100% { opacity: 1; transform: translateY(0px); }\n}\n  .scroll-cascade > * { animation-duration: ; animation-timing-function: ; animation-delay: ; animation-iteration-count: ; animation-direction: ; animation-fill-mode: ; a"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".scroll-pin-stage .scroll-pin-phase-reveal",
+          ".scroll-pin-stage .scroll-pin-phase-settle"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .scroll-pin-stage .scroll-pin-phase-reveal { --t: clamp( 0, calc(var(--pin-t, 0) / var(--scroll-pin-phase-reveal-end-frac, 0.382)), 1 ); opacity: var(--t); translate: 0 calc((1 - var(--t)) * var(--scroll-pin-lift, 2.5rem)); scale: calc( var(--scroll-pin-squash-floor, 0.944) + (1 - var(--scroll-pin-squash-floor, 0.944)) * var(--t) ); will-change: transform, opacity; }\n  .scroll-pin-stage .scroll-pin-phase-s"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".smooth-scroll"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .smooth-scroll { scroll-behavior: smooth; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".scroll-chrome"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .scroll-chrome { transform: scale(calc(1 - var(--chrome-collapse-t) * var(--chrome-shrink-depth))) translateY(calc(var(--chrome-collapse-t) * var(--chrome-rise-px) * -1)); transform-origin: center top; opacity: calc(1 - var(--chrome-collapse-t) * var(--chrome-fade-depth)); will-change: transform, opacity; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @supports (animation-timeline: scroll()) {\n  @keyframes gl-chrome-collapse { \n  0% { --chrome-collapse-t: 0; }\n  100% { --chrome-collapse-t: 1; }\n}\n  .scroll-chrome--native { animation-duration: auto; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: 1; animation-direction: normal; animation-fill-mode: both; animation-play-state: running; animation-name: gl-chrome-collapse;"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".gold-shimmer"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .gold-shimmer { animation: metal-shimmer-sweep var(--duration-shimmer) linear infinite; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".metal-gold, .metal-silver, .metal-bronze, .metal-rainbow-rim, .metal-gold-border::before, .metal-silver-border::before, .metal-bronze-border::before"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .metal-gold, .metal-silver, .metal-bronze, .metal-rainbow-rim, .metal-gold-border::before, .metal-silver-border::before, .metal-bronze-border::before { animation: metal-shimmer-sweep var(--duration-metal) linear infinite; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".segmented-indicator"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .segmented-indicator { transition: scale var(--tab-indicator-duration) var(--ease-cartoon-punch); }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".segmented-tabs--underline::before"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .segmented-tabs--underline::before { transition: inset var(--tab-indicator-duration) var(--spring-snappy), scale var(--tab-indicator-duration) var(--spring-snappy); }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".completion-seal[data-play]",
+          ".completion-seal:not([data-shape=\"disc\"])[data-play] .completion-seal__mark",
+          ".completion-seal[data-shape=\"disc\"][data-play] .completion-seal__disc",
+          ".completion-seal[data-shape=\"disc\"][data-play] .completion-seal__ring",
+          ".completion-seal[data-shape=\"disc\"][data-play] .completion-seal__check"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .completion-seal[data-play] { animation: completion-seal-settle var(--spring-bouncy-duration, 0.57s) var(--spring-bouncy) both; }\n  .completion-seal:not([data-shape=\"disc\"])[data-play] .completion-seal__mark { animation: completion-seal-draw var(--spring-snappy-duration, 0.34s) var(--ease-out, ease-out) both, completion-seal-glint var(--spring-snappy-duration, 0.34s) var(--ease-out, ease-out) var(--spring-"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".draw-rule:not(.draw-rule--wipe), [data-draw-in]:not([data-draw-in=\"wipe\"])",
+          ".draw-rule--wipe, [data-draw-in=\"wipe\"]"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .draw-rule:not(.draw-rule--wipe), [data-draw-in]:not([data-draw-in=\"wipe\"]) { transform: scaleX(0); animation: draw-rule-in var(--draw-in-duration) var(--ease-out-expo) var(--draw-in-delay, 0s) both; }\n  .draw-rule--wipe, [data-draw-in=\"wipe\"] { transform: none; clip-path: inset(0px 100% 0px 0px); animation: draw-rule-wipe var(--draw-in-duration) var(--ease-out-expo) var(--draw-in-delay, 0s) both; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".skeleton[data-v-cd03d0b0]::after"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .skeleton[data-v-cd03d0b0]::after { animation: skeleton-scan-cd03d0b0 var(--duration-shimmer,2.4s) ease-in-out infinite; will-change: transform; transform: translate(-110%); }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          ".stagger-children > *",
+          ".stagger-children > :nth-child(1)",
+          ".stagger-children > :nth-child(2)",
+          ".stagger-children > :nth-child(3)",
+          ".stagger-children > :nth-child(4)",
+          ".stagger-children > :nth-child(5)",
+          ".stagger-children > :nth-child(6)",
+          ".stagger-children > :nth-child(n+7)"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  .stagger-children > * { animation: stagger-child-in var(--duration-normal) var(--ease-standard) both; }\n  .stagger-children > :nth-child(1) { animation-delay: calc(var(--stagger-base, 0ms) + 0ms); }\n  .stagger-children > :nth-child(2) { animation-delay: calc(var(--stagger-base, 0ms) + 40ms); }\n  .stagger-children > :nth-child(3) { animation-delay: calc(var(--stagger-base, 0ms) + 80ms); }\n  .stagger-childre"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)",
+          ".pane-shell > :first-child"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @keyframes plate-land { \n  0% { box-shadow: transparent 0px 0px 0px 0px; }\n  100% { box-shadow: var(--shadow-cartoon); }\n}\n  .pane-shell > :first-child { animation: plate-land var(--overture-plate-land, 440ms)\n            var(--spring-snappy) var(--overture-appear-delay, 0ms) backwards; }\n}"
+      },
+      {
+        "q": "(prefers-reduced-motion: no-preference)",
+        "sel": [
+          "(no-selector)",
+          ".hero-blob-anchor"
+        ],
+        "t": "@media (prefers-reduced-motion: no-preference) {\n  @keyframes blob-emerge { \n  0% { transform: scale(0.35); }\n  100% { transform: none; }\n}\n  .hero-blob-anchor { animation: blob-emerge 500ms var(--ease-decelerate) backwards; }\n}"
+      }
+    ],
+    "overlayCarveOut": [
+      {
+        "sheet": "(inline)",
+        "query": "(prefers-reduced-motion: reduce)",
+        "selectors": [
+          "[data-state=\"open\"], [data-state=\"closed\"], [data-state=\"open\"]::before, [data-state=\"closed\"]::after"
+        ],
+        "text": "@media (prefers-reduced-motion: reduce) {\n  [data-state=\"open\"], [data-state=\"closed\"], [data-state=\"open\"]::before, [data-state=\"closed\"]::after { transition-duration: 150ms !important; transition-property: opacity !important; }\n}"
+      }
+    ]
+  },
+  "B.no-preference": {
+    "debugFrozen.blink": {
+      "animationName": "probe-blink",
+      "animationDuration": "0.5s",
+      "animationIterationCount": "infinite",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "actionFeedback.celebrateEnter": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, transform, max-height",
+      "transitionDuration": "0.2s, 0.57s, 0.3s"
+    },
+    "actionFeedback.celebrateLeave": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, transform, max-height",
+      "transitionDuration": "0.2s, 0.2s, 0.2s"
+    },
+    "paletteRenameInput.confirmBtn": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+      "transitionDuration": "0.2s"
+    },
+    "paletteCardMeta.voteBtn": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+      "transitionDuration": "0.2s"
+    },
+    "tagEditPopover.spinner": {
+      "animationName": "spin",
+      "animationDuration": "1s",
+      "animationIterationCount": "infinite",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    },
+    "tagEditPopover.tagRow": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+      "transitionDuration": "0.2s"
+    },
+    "consoleRail.channelItem": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, transform",
+      "transitionDuration": "0.3s, 0.3s, 0.12s"
+    },
+    "control.transformTransition": {
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "transform",
+      "transitionDuration": "0.3s"
+    },
+    "control.allowMotion": {
+      "animationName": "probe-blink",
+      "animationDuration": "0.5s",
+      "animationIterationCount": "infinite",
+      "transitionProperty": "all",
+      "transitionDuration": "0s"
+    }
+  },
+  "B.reduce": {
+    "debugFrozen.blink": {
+      "animationName": "probe-blink",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "actionFeedback.celebrateEnter": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "actionFeedback.celebrateLeave": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "paletteRenameInput.confirmBtn": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "paletteCardMeta.voteBtn": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "tagEditPopover.spinner": {
+      "animationName": "spin",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "tagEditPopover.tagRow": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "consoleRail.channelItem": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "control.transformTransition": {
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s"
+    },
+    "control.allowMotion": {
+      "animationName": "probe-blink",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "all",
+      "transitionDuration": "1e-05s"
+    }
+  },
+  "C1.debugFrozen.no-preference": {
+    "mode": "no-preference",
+    "reached": true,
+    "text": "FROZEN?",
+    "animationName": "blink-6d4a6a5e",
+    "animationDuration": "0.5s",
+    "animationIterationCount": "infinite",
+    "opacity": "0.947066",
+    "samples": [
+      "0.947066",
+      "0.947066",
+      "0.947066",
+      "0.947066",
+      "0.947066"
+    ]
+  },
+  "C1.debugFrozen.reduce": {
+    "mode": "reduce",
+    "reached": true,
+    "text": "FROZEN?",
+    "animationName": "blink-6d4a6a5e",
+    "animationDuration": "1e-05s",
+    "animationIterationCount": "1",
+    "opacity": "1",
+    "samples": [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  },
+  "C2.consoleRail.no-preference": {
+    "mode": "no-preference",
+    "railItem": {
+      "sel": ".channel-rail-item",
+      "present": true,
+      "animationName": "stagger-child-in",
+      "animationDuration": "0.3s",
+      "animationIterationCount": "1",
+      "transitionProperty": "color, background-color, transform",
+      "transitionDuration": "0.3s, 0.3s, 0.12s",
+      "transform": "matrix(1, 0, 0, 1, 0, 0)"
+    },
+    "railDotSeat": {
+      "sel": ".rail-dot-seat",
+      "present": false
+    },
+    "railDot": {
+      "sel": ".rail-dot",
+      "present": false
+    },
+    "watercolor": {
+      "sel": ".watercolor-swatch",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "0s",
+      "animationIterationCount": "1",
+      "transitionProperty": "transform, border-radius, filter, box-shadow",
+      "transitionDuration": "0.2s, 0.6s, 0.2s, 0.2s",
+      "transform": "none"
+    }
+  },
+  "C2.consoleRail.reduce": {
+    "mode": "reduce",
+    "railItem": {
+      "sel": ".channel-rail-item",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity",
+      "transitionDuration": "0.15s",
+      "transform": "none"
+    },
+    "railDotSeat": {
+      "sel": ".rail-dot-seat",
+      "present": false
+    },
+    "railDot": {
+      "sel": ".rail-dot",
+      "present": false
+    },
+    "watercolor": {
+      "sel": ".watercolor-swatch",
+      "present": true,
+      "animationName": "none",
+      "animationDuration": "1e-05s",
+      "animationIterationCount": "1",
+      "transitionProperty": "opacity, color, background-color, border-color, box-shadow",
+      "transitionDuration": "0.1s",
+      "transform": "none"
+    }
+  },
+  "C3.skeleton.no-preference": {
+    "mode": "no-preference",
+    "realSkeletonOnScreen": false,
+    "injected": {
+      "after": {
+        "animationName": "none",
+        "animationDuration": "0s",
+        "animationIterationCount": "1",
+        "transform": "none"
+      }
+    }
+  },
+  "C3.skeleton.reduce": {
+    "mode": "reduce",
+    "realSkeletonOnScreen": false,
+    "injected": {
+      "after": {
+        "animationName": "none",
+        "animationDuration": "1e-05s",
+        "animationIterationCount": "1",
+        "transform": "none"
+      }
+    }
+  }
+}

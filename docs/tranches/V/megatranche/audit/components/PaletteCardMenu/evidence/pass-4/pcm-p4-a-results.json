@@ -1,0 +1,255 @@
+{
+  "A0_portal": {
+    "chain": [
+      "div#reka-dropdown-menu-content-v-1-8.dropdown-menu-content.dropdown-menu__content",
+      "div",
+      "body#app.relative"
+    ],
+    "insideArticle": false
+  },
+  "A1_afterOpenCard0": {
+    "tag": "afterOpenCard0",
+    "menuCount": 1,
+    "menuIds": [
+      "reka-dropdown-menu-content-v-1-8"
+    ],
+    "menuLabels": [
+      "Probe Palette 0"
+    ],
+    "triggerExpanded": [
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "none",
+    "bodyOverflow": "hidden",
+    "htmlOverflow": "",
+    "activeElement": "DIV:menu:Probe Palette 0 Publish  Renam",
+    "expandedCards": 0
+  },
+  "A2_afterClickCard1Trigger_1st": {
+    "tag": "afterClickCard1Trigger_1st",
+    "menuCount": 0,
+    "menuIds": [],
+    "menuLabels": [],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "activeElement": "BUTTON:Palette menu",
+    "expandedCards": 0
+  },
+  "A3_eventTrace_1st": [
+    {
+      "phase": "capture",
+      "type": "focusin",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "pointerdown",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "mousedown",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "click",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "focusin",
+      "target": "BUTTON[Palette menu]",
+      "defaultPrevented": false
+    }
+  ],
+  "A4_afterClickCard1Trigger_2nd": {
+    "tag": "afterClickCard1Trigger_2nd",
+    "menuCount": 0,
+    "menuIds": [],
+    "menuLabels": [],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "activeElement": "BODY:→lab(92% 88.8 20 / 82.7%)Palet",
+    "expandedCards": 2
+  },
+  "A5_eventTrace_2nd": [
+    {
+      "phase": "capture",
+      "type": "pointerdown",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "mousedown",
+      "target": "DIV",
+      "defaultPrevented": false
+    },
+    {
+      "phase": "capture",
+      "type": "click",
+      "target": "DIV",
+      "defaultPrevented": false
+    }
+  ],
+  "A6_afterClickCard1Trigger_3rd": {
+    "tag": "afterClickCard1Trigger_3rd",
+    "menuCount": 0,
+    "menuIds": [],
+    "menuLabels": [],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "activeElement": "BODY:→lab(92% 88.8 20 / 82.7%)Palet",
+    "expandedCards": 0
+  },
+  "A7_afterEscape": {
+    "tag": "afterEscape",
+    "menuCount": 0,
+    "menuIds": [],
+    "menuLabels": [],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "activeElement": "BODY:→lab(92% 88.8 20 / 82.7%)Palet",
+    "expandedCards": 0
+  },
+  "A8_CONTROL_cleanOpenCard2": {
+    "tag": "CONTROL_cleanOpenCard2",
+    "menuCount": 1,
+    "menuIds": [
+      "reka-dropdown-menu-content-v-1-10"
+    ],
+    "menuLabels": [
+      "Probe Palette 2"
+    ],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "true",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "none",
+    "bodyOverflow": "hidden",
+    "htmlOverflow": "",
+    "activeElement": "DIV:menu:Probe Palette 2 Publish  Renam",
+    "expandedCards": 0
+  },
+  "A9_tabWalkWithMenuOpen": [
+    {
+      "el": "DIV:menu",
+      "text": "Probe Palette 0 Publish  Ren",
+      "inMenu": true,
+      "menus": 1
+    },
+    {
+      "el": "DIV:menu",
+      "text": "Probe Palette 0 Publish  Ren",
+      "inMenu": true,
+      "menus": 1
+    },
+    {
+      "el": "DIV:menu",
+      "text": "Probe Palette 0 Publish  Ren",
+      "inMenu": true,
+      "menus": 1
+    },
+    {
+      "el": "DIV:menu",
+      "text": "Probe Palette 0 Publish  Ren",
+      "inMenu": true,
+      "menus": 1
+    }
+  ],
+  "A10_longNameLabel": {
+    "tag": "DIV",
+    "role": null,
+    "className": "dropdown-menu__label font-display font-bold truncate max-w-[180px]",
+    "title": null,
+    "ariaLabel": null,
+    "text": "Extremely Long Palette Name That Should Certainly Overflow The One Hundred And Eighty Pixel Clamp",
+    "textLen": 97,
+    "clientWidth": 178,
+    "scrollWidth": 740,
+    "clipped": true,
+    "maxWidth": "180px",
+    "overflow": "hidden",
+    "textOverflow": "ellipsis",
+    "labRect": {
+      "w": 178,
+      "h": 32.1
+    },
+    "menuRect": {
+      "w": 192,
+      "h": 240.1,
+      "x": 1010
+    },
+    "visibleChars": "Extremely Long Palette N"
+  },
+  "A11_afterDoubleClick": {
+    "tag": "afterDoubleClick",
+    "menuCount": 0,
+    "menuIds": [],
+    "menuLabels": [],
+    "triggerExpanded": [
+      "false",
+      "false",
+      "false",
+      "false",
+      "false",
+      "false"
+    ],
+    "bodyPointerEvents": "",
+    "bodyOverflow": "",
+    "htmlOverflow": "",
+    "activeElement": "BUTTON:Palette menu",
+    "expandedCards": 0
+  },
+  "pageErrors": []
+}

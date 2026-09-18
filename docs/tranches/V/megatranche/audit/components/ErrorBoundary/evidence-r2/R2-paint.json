@@ -1,0 +1,196 @@
+{
+  "meta": {
+    "rects": {
+      "svg": {
+        "x": 706,
+        "y": 409,
+        "width": 28,
+        "height": 28
+      },
+      "msg": {
+        "x": 498,
+        "y": 449,
+        "width": 445,
+        "height": 36
+      },
+      "detail": {
+        "x": 553,
+        "y": 496,
+        "width": 333,
+        "height": 23
+      },
+      "btn": {
+        "x": 658,
+        "y": 535,
+        "width": 124,
+        "height": 36
+      }
+    },
+    "ink": {
+      "msg": [
+        28,
+        25,
+        23
+      ],
+      "svg": [
+        219,
+        36,
+        36
+      ],
+      "detail": [
+        86,
+        84,
+        83
+      ]
+    },
+    "style": {
+      "boundary": {
+        "position": "static",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "none"
+      },
+      "msg": {
+        "position": "static",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "none"
+      },
+      "svg": {
+        "position": "static",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "none"
+      },
+      "btn": {
+        "position": "relative",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "paint"
+      },
+      "canvas": {
+        "position": "absolute",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "none"
+      },
+      "main": {
+        "position": "static",
+        "zIndex": "auto",
+        "opacity": "1",
+        "visibility": "visible",
+        "isolation": "auto",
+        "mixBlendMode": "normal",
+        "transform": "none",
+        "filter": "none",
+        "contain": "none"
+      }
+    },
+    "canvasRect": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 900,
+      "top": 0,
+      "right": 1440,
+      "bottom": 900,
+      "left": 0
+    },
+    "canvasDomIndex": 2,
+    "boundaryText": "This panel hit an unexpected error.Importing a module script failed. Try again",
+    "boundaryRect": {
+      "x": 16,
+      "y": 88,
+      "width": 1408,
+      "height": 804,
+      "top": 88,
+      "right": 1424,
+      "bottom": 892,
+      "left": 16
+    },
+    "fonts": {
+      "msg": "Fraunces 25.888px/35.596001px w700",
+      "btn": "Fraunces 16.4px w500",
+      "detail": "\"Fira Code\" 16.4px"
+    }
+  },
+  "shipped": {
+    "msgRectInkCensus": {
+      "pixels": 16020,
+      "nearInkPixels": 0,
+      "nearInkPct": 0,
+      "minLuma": 128
+    },
+    "iconRectInkCensus": {
+      "pixels": 784,
+      "nearInkPixels": 0,
+      "nearInkPct": 0,
+      "minLuma": 128.7
+    },
+    "btnRectInkCensus": {
+      "pixels": 4464,
+      "nearInkPixels": 237,
+      "nearInkPct": 5.309,
+      "minLuma": 25.5
+    }
+  },
+  "lifted": {
+    "msgRectInkCensus": {
+      "pixels": 16020,
+      "nearInkPixels": 3089,
+      "nearInkPct": 19.282,
+      "minLuma": 25.5
+    },
+    "iconRectInkCensus": {
+      "pixels": 784,
+      "nearInkPixels": 154,
+      "nearInkPct": 19.643,
+      "minLuma": 85.4
+    },
+    "btnRectInkCensus": {
+      "pixels": 4464,
+      "nearInkPixels": 237,
+      "nearInkPct": 5.309,
+      "minLuma": 25.5
+    }
+  },
+  "canvasHidden": {
+    "msgRectInkCensus": {
+      "pixels": 16020,
+      "nearInkPixels": 3016,
+      "nearInkPct": 18.826,
+      "minLuma": 25.5
+    },
+    "iconRectInkCensus": {
+      "pixels": 784,
+      "nearInkPixels": 124,
+      "nearInkPct": 15.816,
+      "minLuma": 94.2
+    }
+  }
+}

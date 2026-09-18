@@ -1,0 +1,112 @@
+{
+  "receipt_id": "SYNTAX-CONSUME-NUMBER-G7-HOLDOUT-DESTRUCTION",
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 7,
+  "status": "TERMINALLY_REJECTED_BEFORE_AUTHORS_UNREVEALED_SECRET_AND_GENERATOR_DESTROYED",
+  "destroyed_at": "2026-07-22T12:45:26Z",
+  "precursor": {
+    "formation": {
+      "path": "formation-receipt.json",
+      "sha256": "171516646086aea8d87d578b3a411c46c013b157173e7a62db1a26d6ac0d3cf0",
+      "bytes": 6565
+    },
+    "precursor_closure_sha256": "8064807b6d594530c24c65c053a36c7a7ccd16e17a7d5f9b68966a264b76db73",
+    "boundary_manifest": {
+      "path": "manifest.json",
+      "sha256": "4a1b7096fb48a69240b66a2b9a4fb42a1707f71b5d0e0af0dcf50d8bf6c43422",
+      "bytes": 878
+    }
+  },
+  "terminal_rejection": {
+    "scope": "PUBLIC_BOUNDARY_AND_AUTHOR_ADMISSION",
+    "verdict": "REJECT",
+    "challenges": [
+      {
+        "seat": "a",
+        "reviewer_id": "g7-boundary-spec-a",
+        "path": "reviews/challenge-a.json",
+        "sha256": "5f1dcc96532b882fff0bcb40fd7af17cc694ada778b09a052cc6f6293420d6c8",
+        "bytes": 24077,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      },
+      {
+        "seat": "b",
+        "reviewer_id": "g7-quality-b",
+        "path": "reviews/challenge-b.json",
+        "sha256": "b7fe735c15b4cea1e81ef80d5ea07900d12f1b36af016002eb90bf0aad0501d8",
+        "bytes": 13444,
+        "verdict": "REJECT",
+        "hidden_plaintext_or_key_access": false
+      }
+    ],
+    "root_gestalt": {
+      "reviewer_id": "root-g7-gestalt-20260722",
+      "path": "root-gestalt.json",
+      "sha256": "986f3890522361536b25bb7c283e80323b924bce680eb85e7df8a444d67b2d82",
+      "bytes": 5406,
+      "verdict": "REJECT",
+      "hidden_plaintext_or_key_access": false
+    },
+    "consequence": "G7 cannot admit H/B/S/D authors. No candidate, parser, benchmark, integration, conformance, movement, or production credit exists."
+  },
+  "sealed_evidence_retained_unchanged": {
+    "holdout_receipt": {
+      "path": "holdout-receipt.json",
+      "sha256": "6b861aa822815600147003ca354c1b38f9ed8a20d8540f6f77aead8d4cb1f1d2",
+      "bytes": 2363
+    },
+    "ciphertext": {
+      "path": "holdout-ciphertext.b64",
+      "sha256": "019e72116bdd5f3f216b7a42d8d9638ab666c6c5c8fc5ca880930ff8dd8d61b3",
+      "bytes": 129225,
+      "decoded_envelope_bytes": 96917,
+      "disposition": "Retained solely as content-addressed evidence of the rejected sealed generation; not decrypted, altered, deleted, or reusable."
+    },
+    "plaintext_commitment": {
+      "sha256": "30f6d0e59df7fd2ab6978afc6ad1606267fa932be6fb8b6945c61b0801e047dd",
+      "bytes": 96881,
+      "revealed": false
+    },
+    "generator_commitment": {
+      "sha256": "f2f2a24868e9ac21623cdd703c70f4f9564a67a4be52a6a35f8e7392ac8b0a3f",
+      "bytes": 12933,
+      "revealed": false
+    }
+  },
+  "secret_destruction": {
+    "original_custody": "The AES-256-GCM key, plaintext, and exact generator bytes existed only in the fresh custodian tool-session store. No plaintext, key, or generator workspace/private-temp file was created.",
+    "resumed_turn_probe": "Both known custody keys returned absent before explicit destruction, proving that the prior ephemeral tool-session objects did not survive the completed custodian turn.",
+    "explicit_overwrite": "Both known custody keys were explicitly overwritten with null and immediately reread as null.",
+    "destroyed_material": [
+      "AES-256-GCM key",
+      "holdout plaintext",
+      "exact deterministic generator bytes",
+      "private nonce/tag/AAD custody copies"
+    ],
+    "verification": {
+      "secret_store_after_is_null": true,
+      "auxiliary_public_store_after_is_null": true,
+      "workspace_plaintext_files": 0,
+      "workspace_key_files": 0,
+      "workspace_generator_files": 0,
+      "workspace_reveal_files": 0,
+      "candidates_directory_exists": false,
+      "candidate_files": 0,
+      "recoverable_secret_material_from_known_custody_locations": false
+    },
+    "result": "The unrevealed G7 plaintext, AES key, and generator cannot be recovered from the custodian tool store or workspace. The retained ciphertext is intentionally undecryptable within project custody.",
+    "disclosure": "No key, plaintext, hidden case, generator byte, nonce, authentication tag, AAD byte, or decrypted result was revealed to root, either challenger, an author, or the workspace."
+  },
+  "generation_state": {
+    "candidate_files": 0,
+    "candidate_directories": 0,
+    "author_receipts": 0,
+    "revealed_holdout_files": 0,
+    "secret_files": 0,
+    "production_mutations": 0
+  },
+  "no_reuse": "Neither G7 ciphertext nor any unrevealed G7 plaintext, key, case, identifier, result, generator, seed, nonce, tag, or secret-generation material may seed or support a later generation. A later holdout must be independently regenerated with fresh secret material and cases after a newly frozen precursor.",
+  "receipt_self_identity": "Externally report this exact destruction receipt's SHA-256 and byte length; it cannot self-contain its own digest.",
+  "credit": "ZERO: terminal rejection, secret destruction, and retained ciphertext are evidence only."
+}

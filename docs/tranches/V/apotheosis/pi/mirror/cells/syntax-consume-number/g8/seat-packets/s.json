@@ -1,0 +1,22 @@
+{
+  "feature_id": "SYNTAX-CONSUME-NUMBER",
+  "generation": 8,
+  "seat": "s",
+  "lineage": "pinned CSS Syntax 3 consume-number algorithm clean room",
+  "source_inputs": [
+    {
+      "path": "../g5/authorities/css-syntax-3.Overview.bs",
+      "sha256": "3f129d17407f9bd027291bcfb8015beb86fc229bf5efe505b49ec2dc30be4390",
+      "bytes": 144427,
+      "revision": "c7573530343759ace8e46438a1fa2c44515b5554",
+      "anchor": "consume-number",
+      "line_start": 1610,
+      "line_end_inclusive": 1679,
+      "exact_lf_slice_sha256": "3058a6b5287a950a425d26cb414f1276d4d0dfd268ef56f74a0dfe6ed150a0a3",
+      "exact_lf_slice_bytes": 2303
+    }
+  ],
+  "lineage_instruction": "Derive the clearest direct combinator grammar from the seven pinned algorithm steps. The six number-start arms remain subordinate evidence and are not a forced construction shape or call quota. Do not consult H, B, or D source or notes.",
+  "quota": "NONE",
+  "credit": "ZERO_LINEAGE_PACKET_ONLY"
+}

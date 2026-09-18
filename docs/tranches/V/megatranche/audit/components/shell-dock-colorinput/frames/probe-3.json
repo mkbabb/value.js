@@ -1,0 +1,118 @@
+{
+  "opened": true,
+  "sendStates": {
+    "rest": {
+      "label": "rest",
+      "opacity": "1",
+      "scale": "none",
+      "transform": "matrix(1, 0, 0, 1, 0, -12)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "filter": "none",
+      "transition": "all",
+      "rect": {
+        "x": 860.36,
+        "y": 28.55,
+        "w": 24,
+        "h": 24
+      }
+    },
+    "hover": {
+      "label": "hover",
+      "opacity": "1",
+      "scale": "none",
+      "transform": "matrix(1, 0, 0, 1, 0, -12)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "filter": "none",
+      "transition": "all",
+      "rect": {
+        "x": 860.36,
+        "y": 28.55,
+        "w": 24,
+        "h": 24
+      }
+    },
+    "active": {
+      "label": "active",
+      "opacity": "1",
+      "scale": "none",
+      "transform": "matrix(1, 0, 0, 1, 0, -12)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "filter": "none",
+      "transition": "all",
+      "rect": {
+        "x": 860.36,
+        "y": 28.55,
+        "w": 24,
+        "h": 24
+      }
+    },
+    "focus": {
+      "label": "focus",
+      "opacity": "1",
+      "scale": "none",
+      "transform": "matrix(1, 0, 0, 1, 0, -12)",
+      "bg": "rgba(0, 0, 0, 0)",
+      "outlineStyle": "none",
+      "outlineWidth": "3px",
+      "outlineColor": "rgb(28, 25, 23)",
+      "boxShadow": "none",
+      "filter": "none",
+      "transition": "all",
+      "rect": {
+        "x": 860.36,
+        "y": 28.55,
+        "w": 24,
+        "h": 24
+      }
+    },
+    "hoverDelta": false,
+    "focusRing": false
+  },
+  "typingReflow": {
+    "inputWidths": [
+      61.5,
+      72.9,
+      84.3,
+      95.8,
+      107.2,
+      118.7,
+      130.1,
+      141.6,
+      153,
+      164.5,
+      175.9,
+      187.4,
+      198.8
+    ],
+    "dockWidths": [
+      179.5,
+      190.9,
+      202.3,
+      213.8,
+      225.2,
+      236.7,
+      248.1,
+      259.6,
+      271,
+      282.5,
+      293.9,
+      305.4,
+      316.8
+    ],
+    "inputWidthSpan": 137.3,
+    "dockWidthSpan": 137.3
+  },
+  "debounceMs": null
+}

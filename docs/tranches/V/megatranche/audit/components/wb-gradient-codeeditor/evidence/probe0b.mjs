@@ -1,0 +1,12 @@
+import { chromium } from "playwright";
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const browser = await chromium.launch();
+const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
+await page.goto("http://localhost:9000/#/gradient", { waitUntil: "load" });
+await page.waitForSelector('[role="textbox"][aria-label="Gradient CSS"]', { timeout: 20000 });
+await sleep(2500);
+const editor = page.locator('[role="textbox"][aria-label="Gradient CSS"]').last();
+console.log("count", await page.locator('[role="textbox"][aria-label="Gradient CSS"]').count());
+console.log("class", await editor.getAttribute("class", { timeout: 5000 }).catch(e => "ERR:" + e.message.slice(0,80)));
+console.log("nth0 class", await page.locator('[role="textbox"][aria-label="Gradient CSS"]').first().getAttribute("class", { timeout: 5000 }).catch(e => "ERR:" + e.message.slice(0,80)));
+await browser.close();
