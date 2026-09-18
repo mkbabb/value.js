@@ -5046,3 +5046,22 @@ reading: §0p's redress was dispatched, `.f` took it to the bytes, and the mecha
 **cannot be written inside the bounds the addendum left unchanged** — which is a finding about the
 ruling's file bounds, returned with its measurement, not a failure to try. **Nothing is parked;
 nothing is averaged; nothing is rounded up.**
+
+### C3.9 — Push receipt (the owner's 2026-09-17 authorization)
+
+```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js push origin HEAD
+   799dddb4..c9b750e7  HEAD -> tranche-u
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that push origin HEAD
+   Everything up-to-date            (0 ahead / 0 behind origin/master; the frozen root is at `ef10d5b`
+                                     with its pinned 31-path porcelain untouched — a no-op, as the
+                                     fresh-root law requires)
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 remote -v
+   (empty)                          R-2: the fresh writer root has NO remote by construction; its
+                                     history is local, and nothing of this round was owed to it
+                                     anyway — `.f` landed 0 bytes there and `<p2>` HEAD is `ab6d694`.
+```
+
+**Never force, never `-a`, never `-A`, never a reset.** Both this round's value.js commits carry
+their own pathspec on the commit itself (`e765e079` = 4 paths · `c9b750e7` = 2 paths), and neither
+swept in a byte of the four sibling seats that share this index.
