@@ -170,14 +170,26 @@ export class DevMisconfigError extends Error {
     }
 }
 
+/** Set once the environment has actually been resolved in a DOM context. */
+let environmentResolved = false;
+
 /**
  * Resolve the dev-config truth once, at client init, BEFORE any fetch can trip
  * the latch. If the silent prod-target precondition holds, enter the designed
  * `misconfigured` state and warn LOUD. Idempotent + browser-guarded (a no-op in
  * SSR / non-DOM unit contexts). `baseUrl` is owned by the client (client.ts:35).
+ *
+ * X.W3.7 · AP-33 — "Idempotent" was PROSE: nothing stopped a second call from
+ * re-latching and re-shouting. Benign while the sole caller was a module's own
+ * eval, load-bearing the moment AP-24 moved that call to an explicit seat a
+ * caller can reach twice. The guard therefore lands BEFORE the move, not with
+ * it. The browser guard stays first: a non-DOM call resolves nothing, so it
+ * must not consume the one resolution.
  */
 export function initApiEnvironment(baseUrl: string): void {
     if (typeof window === "undefined") return; // SSR / non-DOM test context
+    if (environmentResolved) return; // idempotent in fact (AP-33)
+    environmentResolved = true;
     const inputs: DevMisconfigInputs = {
         viteApiUrlSet: Boolean(import.meta.env.VITE_API_URL),
         baseUrl,
