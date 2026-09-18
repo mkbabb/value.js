@@ -1694,3 +1694,193 @@ conformance result rather than a debt** — a GREEN there would mean a regenerat
    `C-7` ⊕ `L-m3/C-10+L-m5` **carried on L-B1** · `fr-FourierShapeExtractor M-10` **a PROHIBITION, not an
    identity** (its head `D-16 ≡ C-9 ≡ L-m2-arm` is canonical **F.W4**'s) — tabulated at §1.g so the
    closure reads it rather than re-deriving it.
+
+---
+
+### h — the liveness strikes: E10's ONE disposition, and a hold discharged by a ruling
+
+**Seat**: Opus 5 (1M), **2026-09-18**. **Sections executed exactly as ordered**: spec §2.7 (`:218-224` —
+PP-DEADSEAM ⊕ M-β4 ⊕ L·m-6 ⊕ GM-M4; `fr-EquationModeToggle` FR-EMT-20 **cited**) · §4 **lock 8** (`:549`) ·
+§4 **F.W7 cross-edge** (`:561`). **Writes**: the two paths of the unit's writable set and nothing else —
+`docs/tranches/X/fourier/waves/F-W6/burn-register.md` and this record. **Zero fourier bytes · zero
+value-tree product bytes.** Engine `/usr/bin/grep` (§0.2's pin). Every figure double-run; both runs agreed.
+
+**The unit with NO gate, stated first.** The plan's own cell reads *"(none — the wave's one ungated unit;
+its evidence is its register rows, read by FW6-G17)"*. **That is a higher bar, not a lower one**: nothing
+here is checkable against a gate's GREEN cell, so every witness below is **enumerated over a closed
+surface** rather than sampled, and both landing cells name in advance what the fourier sub-session must
+show for the ask to be considered discharged.
+
+#### Acts, in order
+
+**Act 1 — the spec read WHOLE, then the unit's three coordinates verified at the true bytes before any of
+them was consumed.** `F-W6.md` is **634 lines / 263,396 B** (⟨cmd⟩ `wc -l -c`) — **unchanged, and nothing
+in it was edited** (⟨cmd⟩ `git status --porcelain -- docs/tranches/X/fourier/waves/F-W6.md` → **no output**,
+E-3). Each ordered coordinate resolved to the section it names: `:218` `### §2.7 Liveness and projections
+(2 rows)` · `:549` §4 lock 8 · `:561` the §4 **F.W7** cross-edge row. **No anchor drifted; no INTENT
+substitution was needed.** The wave record's Open block, baseline, unit plan, brief `h` and the receipts of
+`a`–`g` were read before measuring, and **COHESION §0j.D** was read for the one ruling this unit consumes.
+
+**Act 2 — substrate re-measured (D-19 MEASURE-AT-OPEN) and §0.1c CONSUMED, not re-derived.** ⟨cmd⟩
+`git -C $F rev-parse --short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` →
+**0**, both double-run — **unmoved from units `a`–`g`**. The register's §0.1c anchor table already holds
+this unit's four rows — `assets.py:85` (PP-DEADSEAM write 1) · `responses.py:22` (write 3) ·
+`image_storage.py:285`/`:290`/`:318` (write 2) · `equations.py:100-106` — all marked **HOLDS**, including
+unit `a`'s two rooting corrections (*"there is **no** `api/routers/assets.py`"*; `responses.py` rooted at
+`api/`, not `api/schemas/`) and its beside-note that the `reconstructed_points` **field** is emitted at
+`:114`/`:128` and typed at `api/models/equations.py:33`. They were **re-read at the bytes here and cited
+from that table, never re-resolved as a rival act** (§4's F.W0 edge, R-9.1).
+
+**Act 3 — the ruling read before the lock, so the lock could be answered rather than argued.** §4 lock 8 is
+a **conditional**: ⟨cmd⟩ `/usr/bin/grep -o 'No projection strike that is really a compression decision\*\*
+until G7/E16 rules' $W/F-W6.md` → *"No projection strike that is really a compression decision** until
+G7/E16 rules"*. ⟨cmd⟩ `/usr/bin/grep -o 'F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1)\*\* — \*\*NO TRIE\*\*' $H` →
+*"F-TRIE (R2 ≡ E16 ≡ G7 ≡ G-F7-1)** — **NO TRIE**"* — **the antecedent is satisfied at COHESION §0j.D, so
+the hold is DISCHARGED, not waived.** The distinction is written into the register because a waived lock is
+a finding against the wave and a discharged one is the sequencing working. ⊕ **And the ruling changes the
+ask, not only its permission**: the ruled default is *"whole-snapshot duplication is the recorded shipped"*
+behaviour (⟨cmd⟩ `/usr/bin/grep -o` on `$H`), so **no future de-duplicating store will ever amortise
+`trace`'s `structuredClone` cost** — under NO TRIE the dead projection is exactly the cost nothing
+downstream absorbs. ▲ **What stays forbidden was checked in the same act**: ⟨cmd⟩ `/usr/bin/grep -o 'unit
+`b` never opens, `design/R4-variant-storage.md` is never created' $H` → the ruling's own words — **no trie,
+no variant store, no compression scheme is designed here**, §5's exclusion of F.W7's compression design
+stands, and the incumbent guardrail was re-read unchanged at ⟨cmd⟩ `/usr/bin/sed -n '12,14p'
+$F/api/lib/crud/atomdiff.py` → *"KISS guardrails (J.W1-crud-remix §0/§9): the atoms are a flat BAG (not a
+tree / Merkle / document) …"*. The §4 F.W7 edge's ∅ posture is likewise **asserted against by nothing**:
+this unit adds **no row** to F.W7's routing census.
+
+**Act 4 — `preview_path` closed as a SURFACE, and the negative half measured rather than assumed.** ⟨cmd⟩
+`git -C $F grep -n 'preview_path'` → **four lines in the whole tracked tree and there is no fifth**:
+`api/models/assets.py:85` (the default) · `api/responses.py:22` (the read-back) ·
+`api/services/image_storage.py:318` (the write) · `web/src/lib/types.ts:77` (the declaration). The spec's
+three server addresses reproduce byte-for-byte. **The half the spec does not state**: ⟨cmd⟩
+`git -C $F grep -nE 'preview_path"?\]?[[:space:]]*[:=][[:space:]]*"[^"]'` → **0** (double-run) — **no site
+anywhere assigns a non-empty value**, so the field is not merely unread, **it is never populated**, which
+is what makes it B4's *mutual dead seam* by measurement and not by reading. ⊘ **And the trap was walked
+into and is named in the row**: ⟨cmd⟩ `/usr/bin/grep -rn 'previewPath' $F/web/src` → `ContourPreview.vue:10`
+· `:43` — a **camelCase local `computed`** built from `props.points` via `closedSplinePath`, a different
+thing entirely. **A seat grepping the client's spelling finds two hits and concludes the leaf is live.**
+
+**Act 5 — the dead-projection family stated as a SET DIFFERENCE over each response type, never as a reading
+of one name** (unit `g`'s method lesson, adopted). One instrument throughout: `/usr/bin/grep -rnE
+'\.<m>\b' $F/web/src --include='*.ts' --include='*.vue' | wc -l`, which counts the **member-access** token
+and therefore excludes each field's own declaration. **`EpicycleData`** has four members and the readers
+partition them: `components` **15** · `path` **12** · **`trace` 0** · **`n_components` 0** — and `trace` is
+the expensive one of the two zeros (⟨cmd⟩ `/usr/bin/sed -n '121,127p' $F/api/services/computation.py` →
+`ts = np.linspace(0, 1, 3000, endpoint=False)` … `"trace": {"x": trace.real.tolist(), "y":
+trace.imag.tolist()},` — **6000 floats per response**), paid twice because ⟨cmd⟩ `/usr/bin/grep -rn
+'structuredClone' $F/web/src` → **one site**, `stores/workspace.ts:95`, whose literal carries
+`epicycleData: epicycleData.value`. **`ComputeEquationResponse`** has nine members, published whole so
+*"the only zero"* is checkable: `status` 8 · `tier` 24 · `latex` 8 · `latex_sigma` 2 · `coefficients` 6 ·
+`original_points` **1** · **`reconstructed_points` 0** · `energy_captured` 3 · `effective_n` 2.
+**`SimplifyResponse`** has three: `latex` 8 · `energy_captured` 3 · **`term_count` 0**. ▲ **Two findings
+the spec and the clause do not carry, both of which change what a cure may argue.** (a) ⟨cmd⟩
+`/usr/bin/sed -n '113,114p' $F/api/routers/equations.py` → the two point arrays **share the identical
+`x_eval.tolist()` expression**, so the response ships that 500-float array twice, once consumed and once
+not. (b) ⟨cmd⟩ `/usr/bin/sed -n '144p' $F/web/src/components/equation/ConvergencePlot.vue` → the consumer
+builds **per-harmonic partial sums on its own lerped grid**, so `reconstructed_points` — one full-order
+reconstruction on the server's grid — **could not serve it even if someone wired it**. *Retain-with-reason*
+therefore has no candidate reason at these bytes, and the row says so without choosing the branch.
+
+**Act 6 — GM-M4 enumerated, and its BRANCH deliberately NOT taken.** ⟨cmd⟩ `git -C $F grep -nw 'softDelete'
+-- 'web/src/*'` → **2**, split as `stores/gallery.ts:165` (**definition**) and `:286` (**return-object
+entry**) — the record's own instrument, reproduced. ⟨cmd⟩ `git -C $F grep -nw 'restore' --
+'web/src/components/*' 'web/src/views/*' | /usr/bin/grep -v 'ctx.restore'` → **2**, and **both are
+comments**. **Zero callers, twice over.** ▲ **Three findings added, each of which changes what *"wire it or
+delete it"* means, and none of which is a new identity.** **(a) The dead pair has a WIRED TWIN and the twin
+is admin-only**: `GalleryView.vue:138-139` routes the user's *"Delete this gallery entry?"* confirm to
+`gallery.deleteEntry`, whose opening is ⟨cmd⟩ `/usr/bin/sed -n '150,152p' $F/web/src/stores/gallery.ts` →
+`const token = useAuthStore().getAdminToken();` · `if (!token) return;` — **a silent early return for a
+non-admin**. **(b) The dead population is THREE functions across TWO stores**: `workspace.ts:395`
+`deleteVisualization` is a third owner-side soft-delete, exported at `:462`, with ⟨cmd⟩ `git -C $F grep -nw
+'deleteVisualization' -- 'web/src/components/*' 'web/src/views/*'` → **no output — not a member of the
+matching set**. **(c) The ROUTE is live and e2e-covered**: ⟨cmd⟩ `git -C $F grep -n
+'restoreVisualization\|/restore' -- 'web/e2e/*'` → `visualization-crud.spec.ts:385` · `:393`, and the same
+spec carries its **own** local `softDelete` helper at `:363`, called at `:591` — so *"delete it"* can only
+mean the store wrapper, never the route. **All three are EMITTED to `fr-VisualizationView` VV-R2-B's single
+F.W4 wiring unit and none is acted on here**, because §2.7's cure cell says the wiring *"belongs to
+VV-R2-B's single F.W4 wiring unit … F.W6 may not scatter it"*. **A wiring unit told only *"zero callers"*
+could plausibly delete the ETag-guarded owner path and leave an admin-only verb as the product's whole
+delete; that is why the findings travel and the branch does not.**
+
+**Act 7 — the two register rows, §1.h and the §2 stamp written and committed.** Commit **`0b0fd980`**
+(pathspec `docs/tranches/X/fourier/waves/F-W6/burn-register.md`). **ONE commit, ONE meaning** — §2.7's two
+rows are **ONE cut** by the spec's own lock (*"`reconstructed_points` is the SAME field PP-DEADSEAM names,
+so the two rows are ONE cut"*), so splitting them would have published the shape E10 forbids. Register
+measured after the write (WRITE-THEN-MEASURE, double-run identical): **1,128 lines / 270,425 B**, **243**
+table rows, and the two new rows verified well-formed **5-cell** rows by unescaped-pipe count (**6** each,
+character-match to the twenty rows already in the table). ⊘ *The first draft of both rows carried **7**
+unescaped pipes — a sixth column — because the witness and the ask were written as separate cells; the
+check caught it before the commit, and the two were merged into the `commissioned act` column the header
+actually declares.*
+
+#### Gate readings — BEFORE → AFTER (§3's SPLIT VERDICT, never a claimed GREEN)
+
+| gate | BEFORE (baseline, unit `a`'s read) | AFTER (this unit) |
+|---|---|---|
+| *(none)* | §3 carries **19** gates and **not one of them is §2.7's** — the unit plan's own cell says so | **UNCHANGED, by construction.** This unit turns no gate and claims none. Its product is the **two register rows**, which are FW6-G17's operand at unit `i`. **No gate of this wave moved BECAUSE of this unit, and none was expected to** |
+
+**Nothing turned GREEN and nothing was claimed.** §3's split verdict makes GREEN the *landing's*, this wave
+moves **zero fourier bytes**, and this unit has no gate to move in the first place. **The honest statement
+is that the unit's conformance is entirely legible in its two rows** — which is exactly the condition the
+plan set when it called this the wave's one ungated unit.
+
+#### Divergences and errata — BESIDE, never over (E-3)
+
+- **D-13 · the *"only ETag/If-Match round-trip"* half of GM-M4's witness does NOT reproduce; the
+  load-bearing half does.** Spec §2.7 and v2 `B4` both say `softDelete`/`restore` are *"the gallery store's
+  only ETag/If-Match round-trip"* (the frozen record adds *"on the gallery path"*). **The splice/unshift
+  half HOLDS** — ⟨cmd⟩ `/usr/bin/grep -nE 'entries\.value\.(splice|unshift)' $F/web/src/stores/gallery.ts`
+  → `:171` · `:182`, the store's only other `entries.value` mutator being a `push` at `:74`. **The ETag
+  half does not**: `publish` (`gallery.ts:218`) captures an ETag at `:223` and sends it through
+  `api.updateVisualization`, whose `:426` sets `If-Match`, **and `publish` is wired**
+  (`VisualizationView.vue:112`). **Zero callers — the half the cure rests on — is untouched and double-run.**
+  Recorded **because it cuts toward the cure**: a fourier seat reasoning *"this is the store's only ETag
+  path, so it must be kept"* would retain the dead pair for a false reason. **No frozen record, clause or
+  spec byte edited.**
+- **D-14 · the spec's §2.7 sequencing cell and its own REST-15 conversion cannot both be followed, and the
+  conflict is recorded rather than silently resolved.** The cell reads *"Booked rather than cited because
+  this wave ALREADY executes E10's family at the row above"*; the same row's id cell carries **REST-15**,
+  repair round 5's conversion of `FR-EMT-20` to **CITED, NOT BOOKED** on R4-10's holder law. **§0.1 makes
+  the canonical the operand** and ⟨cmd⟩ `/usr/bin/grep -F '| `FR-EMT-20` |' "$C"` → *"`F.W5` | **F.W5**"* —
+  no band leg at all. **This seat follows the conversion**: the *mechanism* is executed here inside the
+  PP-DEADSEAM cut, the *identity* stays F.W5's, and F.W6 claims neither the clause nor the id. A close seat
+  reading only the sequencing sentence would book it, which is why the choice is written down.
+- **D-15 · `EpicycleData.n_components` is a fourth produced-and-unconsumed member, RECORDED and NOT
+  BOOKED.** Measured **0** readers by the same instrument as `trace`. **No banked id exists and this seat
+  mints none** (§2.0's recorded-not-booked idiom). It is named in the row only because E10's whole point is
+  that the family answers to **one** rule, so a fourth member found at the same bytes belongs in front of
+  the rule-maker rather than in a later erratum. It is trivially derivable (`components.length`, used at
+  `AnimationControls.vue:47`), which is the disposition's business and not this seat's.
+- **D-16 · a wrong instrument returned this unit's preferred answer, and is published for that reason.**
+  `git grep -nE '\.<m>\b'` returns **0 for every member, including the live `components` and `path`** —
+  `\b` is not POSIX ERE and git's matcher does not honour it. **The wrong tool here produces four zeros,
+  which is the result this unit wanted**; it was caught only by cross-checking the members that must be
+  non-zero. The published instrument is `/usr/bin/grep -rnE` throughout, and **a zero from it is exact
+  while a non-zero is an upper bound**, since the probe is not type-scoped — stated in both the row and
+  §1.h rather than left for a reader to infer.
+
+#### Residuals carried forward (none blocking)
+
+1. **The landings.** Both rows read **PENDING** and will stay so until the fourier sub-session acts under
+   COMMISSION §2. The acceptance bar is written into the rows rather than left to taste: **(1)** the
+   **stated disposition** quoted from wherever the fourier seat records it, **before** any field is
+   removed — *a landing showing deletions with no stated disposition is the three-ad-hoc-deletions shape
+   E10 forbids and fails the row*; **(2)** `preview_path` at **0** tree-wide, or a populated write with the
+   operation that makes the leaf reachable named beside it, **with the client declaration moving in the
+   same act either way**; **(3)** the per-member read partition re-run with every member either read or
+   gone; **(4)** for the ZERO-CONSUMER pair, **no F.W6 landing at all**.
+2. **The `softDelete`/`restore` branch is F.W4's and stays there.** This unit measured the surface and
+   emitted three findings to **VV-R2-B's single wiring unit**; it wired nothing, deleted nothing, and named
+   no preferred wrapper. **An F.W6 landing appearing on that arm would itself be the scatter §2.7 forbids.**
+3. **`n_components`** rides the disposition or does not, at the fourier API row's choice. Booked nowhere.
+4. **Magnitudes unspent**: **no probe was run** (§5.2 probe parsimony). Every witness is a static read of
+   shipped bytes; nothing was weighed on the wire and no page was opened.
+5. **For unit `i`'s FW6-G17 closure**, this unit's identities resolve as: `fr-PathPreview PP-DEADSEAM`
+   **booked** · `fr-BasisCanvas M-β4` **carried on PP-DEADSEAM** · `fr-EquationView L·m-6` **carried on
+   PP-DEADSEAM** · `fr-GalleryMarquee GM-M4` **carried on PP-DEADSEAM, branch emitted to F.W4** ·
+   `fr-VisualizationView VV-R2-B` **cited-to-holder (F.W4), booked nowhere** · `fr-EquationModeToggle
+   FR-EMT-20` **cited-to-holder (F.W5), booked nowhere** · `EpicycleData.n_components` **recorded, not
+   booked, no id minted** — tabulated at §1.h so the closure reads it rather than re-deriving it.
+6. **E13 mail**: nothing arrived in this unit's scope and nothing is owed by it. The wave's four-path sweep
+   is seat 0's at open and unit `i`'s at close; **this unit minted no letter and no `I-n` row.**
