@@ -2991,14 +2991,20 @@ stayed READ-ONLY.
 - **keyframes.js — NOTHING OWED.** ⟨cmd⟩ `git log --oneline origin/master..HEAD` → **0**; `master` ≡
   `origin/master` ≡ `1fa98a5d`, and all 23 wave commits are reachable from it. `.j`'s push stands.
 - **value.js — PUSHED by this seat**, the act `.j` declined by scope and this seat's brief names.
-  **The sibling-commit disclosure is NOT an empty set here and is stated before the act**: ⟨cmd⟩
-  `git log --oneline origin/tranche-u..HEAD` before the push → **four commits, three KF.W7's own**
-  (`058af07c` the LEDGER row · `fd553933` the `.j` receipt · `2e6a60ba` the O-31 mail act) **and ONE
-  Track D's** — `d854c296` *"docs(x-p-w3/check-1-round-4): L-20 pass 1 of the round-4 close"*. That
-  commit is **already in the shared local history and is not this seat's to hold**; the push is an
-  ordinary non-force fast-forward of a branch four tracks write, it **publishes no byte this seat
-  authored outside its set**, and Track D's row is named here so its own close seat finds it
-  published rather than missing. **No force, no lease, no rewrite.**
+  **The sibling-commit disclosure is NOT an empty set here, and it is READ AT THE ACT rather than at
+  the writing — because it moved between the two.** ⟨cmd⟩ `git log --oneline origin/tranche-u..HEAD`
+  when this section was drafted → **four commits, three KF.W7's own and ONE Track D's**. ⟨cmd⟩ the
+  same command **immediately before the push, ninety seconds later** → **nine**: KF.W7's five
+  (`2e6a60ba` O-31 · `fd553933` the `.j` receipt · `058af07c` the re-close ledger row · `1fd1dde9`
+  this addendum · `78994614` its ledger line) **and FOUR siblings'** — Track D's `d854c296`
+  (X.P.W3 CHECK 1 round 4), Track A's `e9ab3579` (X-W3 CHECK 1), and Track C's `efae39b3` +
+  `e805e8f8` (F.W4 `.a` and its ledger row). **Every one is already in the shared local history and
+  none is this seat's to hold**; the push is an ordinary non-force fast-forward of a branch four
+  tracks write, it **publishes no byte this seat authored outside its set**, and each sibling is
+  named here so its own close seat finds its work published rather than missing. **No force, no
+  lease, no rewrite.** ⟨**The lesson is the finding**: on an index and a branch four tracks share, a
+  disclosure written before the act is a forecast. It is re-read at the act, and the drafted figure
+  is corrected in place rather than left standing.⟩
 
 **SECOND-PASS VERDICT: IMPLEMENTED — fifteen of fifteen gates GREEN at an independent seat's own
 commands, zero carried RED, zero escalations, zero landed-wrong.** VERIFIED remains unstamped and
