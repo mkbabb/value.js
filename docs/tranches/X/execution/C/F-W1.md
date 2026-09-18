@@ -1148,3 +1148,160 @@ The four paths ⊕ the atlas **Q** extension were swept at §Open (seat 0, 19:11
 - **`.level-slider-track`'s four `--slider-scrub-*` declarations (`HarmonicLevelGrid.vue:208-214`) survive** the `:style` deletion and now read an unset `--track-color`. They were already inert (Act 3) and the family is **G9's operand, executed at F.W3/W4** — deleting them here would execute another wave's gate.
 
 **Self-count**: this `### d` block is **not** counted in any figure above; every count is of the settled product bytes, the read-only producer tree at its tag, or the frozen witness output, each double-run.
+
+---
+
+### e
+
+**SERVED MODEL: claude-opus-5[1m]**
+
+**Unit**: `e` — THE ATOMIC TRANSACTION (ONE `feat(fourier)!:` commit, TWELVE limbs).
+**Sections executed**: §4 step 4 `:276` (the roster, cited whole) · §3 **G4** `:250` · **G6** `:252` · **G8** `:254` · **G9** `:255` · **G10** `:256` · **G11** `:257` · **G13** `:259` · §2 **WU-C** · **WU-F** · **WU-G** · **WU-J** `:150-156` · **WU-K** `:158-164` · **WU-L** `:166-175` · **WU-N** `:185-189` · **WU-O** `:191-197` · **WU-P** `:199-209` · §3 **G19** `:265` and §2 **WU-R** `:221-229` + **§2·R2d** (the LOCK this unit is held by).
+**Writable set honoured, hard bound**: **ZERO product bytes written.** This record is the ONLY file this unit wrote. ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain` → **0**, before and after every act, double-run. The fourier · glass-ui · value.js · pencil-boil trees, the npm registry and the 4.0.0 tarball were **READ-ONLY** throughout (`git show` · `git grep` · `grep` · `sed` · `awk` · `wc` · `ls` · `npm view` · `npm pack` into the session scratchpad · `node` as a reader only). `scripts/dev/dev.sh` untouched and unstaged; `docs/tranches/V/reformation/CARRY-LEDGER.md` left dirty-as-found and unstaged. Pathspec commit only. No `git stash`, no `reset`, no force-push.
+**Clock**: 2026-09-17, following unit `d`'s landing at `3bac3d5`.
+
+**STATUS: ESCALATED. The transaction did not begin, and not one of its twelve limbs was partially landed.** The reason is the unit's own first LOCK, verified at the bytes before anything else was measured, and it has not moved since unit `a` returned it.
+
+---
+
+#### Act 1 — the LOCK is a PRECONDITION, so it was read first and falsified twice, not concluded at the end
+
+§3 **G19**'s condition is *"**ESC-1..ESC-7** each carry a ruling or an explicit deferral with blocked rows named"*, and this unit's own lock reads *"**BLOCKED until G19's ESC-2…ESC-7 carry a ruling or an explicit deferral with blocked rows named** — … and *the sweep may not proceed on the map's silence*."* The runbook restates it program-wide at §5.7: *"Owner rulings are FLAGGED INLINE and never presumed."*
+
+**The falsifier, run by this seat rather than inherited from unit `a`** (cwd `docs/tranches/X/`):
+
+- ⟨cmd⟩ `grep -n "ESC-2\|ESC-3\|ESC-4\|ESC-5\|ESC-6\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → **no output, exit 1** (run 1) · **no output, exit 1** (run 2) · and a third reading as a count, ⟨cmd⟩ `grep -c …` → `COHESION.md:0` · `EXECUTION-RUNBOOK.md:0`.
+- **Widened over the whole tranche tree**, ⟨cmd⟩ `grep -rln "ESC-2\|…\|ESC-7" .` → `execution/C/F-W1.md` · `execution/LEDGER.md` · `fourier/carry/F-W1-CARRY.md` · `fourier/conformance/PASS-1..PASS-5/*` · `fourier/evidence/w1/G7-BUTTON-BUDGET.md` · `fourier/evidence/w1/K1-RE-RESOLUTION.md` · `fourier/waves/F-W1.md` · `fourier/waves/F-W2.md` — i.e. **only where the six are RAISED, re-raised, or measured; nowhere one is ANSWERED.**
+- **The owner's own X·F section read whole**: `COHESION.md` **§0j.D** carries `OG-F1` · `OG-F2/OG-V2` · `G-10` · `G-15` (four contradictions) · `F-TRIE` · `F-PRODRET` · `F-SS4REST` (R1/R4/R5/R6/R7/R8/R9). **No ESC-2…ESC-7 row exists in it**, and §0j.A/B/C/E/F address other tracks.
+
+**A seat may not defer on the owner's behalf** — the deferral G19 accepts is an *explicit* one. **The condition that opens this unit is not met, and it was not met at the moment the unit opened.**
+
+---
+
+#### Act 2 — which of the SIX actually gate a limb: measured, and it is TWO, not six
+
+Returning "six are open" is true but not useful to the owner, so this seat priced each of the six against the twelve-limb roster at the adopted pin. **Two block a limb. Four do not.** Each verdict is a measurement, and **none of them is a ruling**.
+
+| ESC | question (WU-R / §2·R2d) | measured relation to the TWELVE limbs | verdict |
+|---|---|---|---|
+| **ESC-4** | easing-drift acceptance (14/22 analytic→CubicBezier) | **limb 1's value.js half cannot be authored without it** — see Act 3 limb 1 | **LIMB-BLOCKING** |
+| **ESC-7** | the `outline` register's retirement | **limb 2 is 21/88 unmapped** — see Act 3 limb 2 | **LIMB-BLOCKING** |
+| **ESC-2** | ToC model ownership (`fr-PaperSidebar L-4`/`M6`) | `web/src/components/paper/**` is **CLOSED** at §1 unless a ruling seats G16's carry here, and none does; WU-R routes the collapse's execution to **F.W4** | **not limb-blocking** |
+| **ESC-3** | the invisible-picker design (`U-2`) | **a measured ZERO at this tree**: ⟨cmd⟩ `grep -rln 'glass-ui/select' web/src \| wc -l` → **5** files, ⟨cmd⟩ `grep -rn '<SelectTrigger' web/src \| wc -l` → **6** callsites, and **not one passes `variant` or `size`** — ⟨cmd⟩ an `awk` open-tag scan over the five files piped to `grep -c 'variant=\|size='` → **0** (double-run). The producer's own docblock at the adopted tag says so from its end: ⟨cmd⟩ `git show 17a11bc5:src/components/select/SelectTrigger.vue \| sed -n '20,22p'` → *"ONE trigger, one register. `variant="ghost"` and `size="sm"` are gone with no … (a picker with no edge is not a picker)"*. **There is no prop to rewrite**; the consequence is that six pickers GAIN an edge at the hop — a **visual** outcome for the WU-F diff-review ledger and the edge-9 checkpoint set (unit `f`), not an unbounded limb | **not limb-blocking** |
+| **ESC-5** | B-2's regrade price — *"priced on G5 existing — **if G5 is not adopted**, revisit the BLOCKER regrade"* | **the antecedent is measured FALSE**: G5 was adopted and turned **GREEN** by unit `c`, which published `.paper-texture`'s cure as re-target **R1** (texture-restore from the surviving `--paper-clean-texture` ⊕ `--paper-texture-size` tokens, **1 application**, `App.vue:24`). The cure is executable and its landing seat is the G5 LANDING CELL inside commit #4. ESC-5 remains the owner's severity question; **it gates no limb**, because the conditional it states does not fire | **not limb-blocking** |
+| **ESC-6** | `color-mix` browser band (`FR-MSP-12` → `FR-COB-26`) | sizes **MINOR vs INFO** — a severity question. Neither id is a member of the twelve-limb roster, and `FR-MSP-12` left on **NWO-1** under I-32's `A-12` `ROUTE → fourier` (unit `b`, Act 2) | **not limb-blocking** |
+
+**This narrows the owner's round from six questions to two.** It does not answer either.
+
+---
+
+#### Act 3 — the TWELVE limbs measured at their TRUE BYTES (METHOD: measure before you edit), so the successor seat executes without re-archaeology
+
+Every anchor below was re-verified at the settled bytes of fourier HEAD `3bac3d5` and the producer at `17a11bc5`. **Drift is recorded where it exists; nothing was edited.** All figures double-run.
+
+| # | limb (§4 step 4, cited whole) | measured at the bytes | ready? |
+|---|---|---|---|
+| **1** | producer bump — glass `8.0.0` @ `17a11bc5` · kf `^6.0.0` · value `^4.0.0`, lockstep (MPC-14) | manifest today ⟨cmd⟩ `sed -n '/"dependencies"/,/^  }/p' web/package.json` → `"@mkbabb/glass-ui": "^4.0.0"` · `"@mkbabb/keyframes.js": "^4.3.0"` · `"@mkbabb/value.js": "^0.13.0"`. **The value.js half carries ESC-4 inside it** — see the block below this table | **BLOCKED (ESC-4)** |
+| **2** | the G7-sized Button re-grammar, G8-preserving | budget of record = `evidence/w1/G7-BUTTON-BUDGET.md` **B1 88 · B3 129**. Per-arm: `ghost` **46/21** → `emphasis="quiet"` · **`outline` 21/14 → NO SUCCESSOR** · `glass` **9/7** and `default` **4/4** → `emphasis="primary"` · `destructive` **4/4** → `emphasis="primary" tone="destructive"` · `secondary` **1/1** · `link` **1/1** (the evidence's own cell flags `emphasis="text"` as *"nearest; **not** a banked mapping"*) · bound `:variant=` **2/2**, hand-migrated. Size: `icon` **35** ⊕ `default` **6** = **41** breaking. **The successor axes at the adopted tag are CLOSED SETS** — ⟨cmd⟩ `git grep -n "ButtonEmphasis\s*=\|ButtonTone\s*=\|ButtonSize\s*=" 17a11bc5 -- src` → `Button.vue:39` `ButtonEmphasis = "primary" \| "secondary" \| "quiet" \| "text"` · `:46` `ButtonTone = "neutral" \| "destructive"` · `:40` `ButtonSize = Extract<Size, "xs" \| "sm" \| "md" \| "lg">`. **`outline` is in none of them, and no combination is a mechanical successor** | **BLOCKED (ESC-7)** |
+| **3** | the `copied`→`status` triple | **all three anchors reproduce to the line**: ⟨cmd⟩ `grep -n "copied" …` → `EquationResult.vue:15` `const { copied, copy } = useClipboard({ resetMs: 2000 });` · `UserSlugBar.vue:23` (`resetMs: 1500`) · `useMorphConfig.ts:58`. Consumers at `EquationResult.vue:46` · `UserSlugBar.vue:99` (`v-if="copied"`) and `useMorphConfig.ts:90` (re-exported) | **ready** |
+| **4** | the lucide rename to `@lucide/vue` | ⟨cmd⟩ `grep -rn "lucide-vue-next" web/src \| wc -l` → **34**, `-l` → **34** (double-run) — §Baseline finding 1 reproduces, and the manifest row is ⟨cmd⟩ `grep -n "lucide" web/package.json` → `35: "lucide-vue-next": "^1.0.0"` **in devDependencies**. **+1 inline** `D·D-M11` verified verbatim: ⟨cmd⟩ `sed -n '277,279p' web/src/components/equation/EquationView.vue` → `<svg class="size-[18px]" viewBox="0 0 24 24" …>` ⊕ `<circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/>` ⊕ `</svg>` — element-identical to lucide `Info`, **exactly at the banked coordinate**. The **17 hand-svgs / 12 files** reproduce exactly (⟨cmd⟩ `grep -rn "<svg" web/src \| wc -l` → **17**, `-l` → **12**) and are **ledgered, not swept** | **ready** |
+| **5** | G10's symmetric disclosure deletions | **all five landmarks per twin reproduce the round-4 re-measurement to the line**, double-run: `CollapsibleSection.vue` `overflow: hidden` **`:55`** · `animation:` **`:61` `:64` `:69`** · PRM **`:66`**; `ContourSettings.vue` `overflow: hidden` **`:362`** *and* **`:425`** · `animation:` **`:365` `:368` `:373`** · PRM **`:370`**. The pair to delete is the two `[data-state]` shorthands ⊕ the PRM arm **on both twins at corresponding scope**; **`overflow: hidden` EXCLUDED on both**, and **`:425` is the disclosed different rule and is not touched** | **ready** |
+| **6** | FR-EQC-7's `vaul-vue` declare+lock | **born-RED confirmed at the bytes, double-run**: ⟨cmd⟩ `grep -rn "vaul-vue" web/src \| wc -l` → **0** and ⟨cmd⟩ `grep -c "vaul-vue" web/package.json` → **0**. No manifest row, no lock row — MISS-LC2's other half, whose landing §4 step 2 assigns to this transaction | **ready** |
+| **7** | G13's manifest/lock moves | `cva` · `clsx` · `reka-ui` · `lucide-vue-next` all sit in **devDependencies** at `web/package.json` (C-3), and **CVA stays** (FMD-21). BEFORE: ⟨cmd⟩ (cwd `web/`) `npm ls --all` → **exit 1**; `npm ls` prints **extraneous** `@emnapi/*` · `@napi-rs/wasm-runtime` · `@tybys/wasm-util` · `embla-carousel*` · `perfect-freehand` | **ready** |
+| **8** | PP-REDGATE's ambient declare in `env.d.ts` | born-RED confirmed: ⟨cmd⟩ `wc -l < web/env.d.ts` → **12** (double-run), holding only the vite client reference, the `*.vue` shim and `ImportMetaEnv` — **no `declare module "@mkbabb/latex-paper/theme"`**. Its witness is live in the typecheck: `PaperView.vue(12,8) TS2882` (Act 4) | **ready** |
+| **9** | FR-CP-13's gap decision, made ONCE with FR-CP-24's hairline row, same commit | anchor reproduces: ⟨cmd⟩ `grep -n "viz-panel-left" web/src/components/visualization/VisualizationView.vue` → the rule at **`:363`**, and its **`gap: 0.75rem`** at **`:366`** — the banked **12px** exactly. The file is in bound as a Button **and** lucide consumer (`:29` `@mkbabb/glass-ui/button`, `:10` `lucide-vue-next`) | **ready** |
+| **10** | ExportModal M-γ's deletion (a sequenced PREREQUISITE) | anchor reproduces to the line: ⟨cmd⟩ `grep -rn "min-width: 300px" web/src` → **`src/components/visualization/ExportModal.vue:87`**, one hit. In bound as a Button ⊕ lucide consumer (`:3`, `:12`) — and it is itself an ESC-7 site: `:74` `<Button variant="outline" size="default" …>` | **ready** |
+| **11** | GCM-22's `p-0` — *"state which way ESC-1's 8.0.0 flipped it"* | **IT FLIPPED TO SUPERSEDED, and the receipt is the producer's own specificity.** GCM-22's cure (*retire `p-0` for authored bleed geometry*) is conditioned *"**superseded if target = 8.0.0** (the `:where()` clamp; `w-full` genuinely outranks)"*, and ESC-1 ruled **8.0.0**. Measured at the adopted tag: ⟨cmd⟩ `git grep -n ":where(" 17a11bc5 -- src/components/dialog` → `styles.css:20` `:where([data-slot="dialog-content"]) {` and ⟨cmd⟩ `git grep -rn "padding" 17a11bc5 -- src/components/dialog` → `:25 padding-inline: var(--space-family);` · `:26 padding-block: var(--space-family);`. **The padding authority is inside `:where()`, so it computes at specificity (0,0,0); the consumer's `p-0` utility is (0,1,0) and genuinely outranks it.** The consumer site is `GalleryCardModal.vue:73` (`… overflow-y-auto p-0 border-2 …`). **Limb 11 therefore lands as NO CONSUMER EDIT — a ruled kill, recorded, not a silent omission** | **ready — resolves to a KILL** |
+| **12** | the pencil-boil floor per G14 | floor at the adopted tag ⟨cmd⟩ `git show 17a11bc5:package.json` → peer `@mkbabb/pencil-boil` **`^0.11.2`**; manifest today `"@mkbabb/pencil-boil": "^0.4.1"`. **The brief's *"an in-range 0.11.x"* has a UNIQUE referent — `0.11.2`** — per unit `b`'s measured correction (the in-range published set of `^0.11.2` is `{0.11.2}`, one version; `0.11.0` belongs to `^0.11.0`), which this seat consumes as binding rather than re-deriving | **ready** |
+
+**Ten of twelve limbs are measured ready. Two are blocked. Because §3.4's lock makes a partial landing the L-18 failure and G6 fuses limbs 1 ⊕ 2 ⊕ 3 into one change, ten-of-twelve is not a landing — it is the failure.**
+
+**Limb 1's ESC-4 leg, measured at the PUBLISHED bytes rather than argued.** WU-K books value 4.0.0 as *"no `"."` export AND deletes `timingFunctions`"*, with **14 of 22 morph keys silently drifting analytic→CubicBezier** routed to **ESC-4** as *"explicit acceptance, not a silent bump"*. Both halves reproduce exactly at the registry artifact (⟨cmd⟩ `npm pack @mkbabb/value.js@4.0.0` into the session scratchpad, then read):
+
+- ⟨cmd⟩ `npm view @mkbabb/value.js@4.0.0 exports --json` → **seven subpaths** (`./color` · `./value` · `./css` · `./easing` · `./math` · `./transform` · `./quantize`) and **no `"."` key**. fourier holds **six bare-root value.js import lines across five files** — ⟨cmd⟩ `grep -rn '"@mkbabb/value.js"' web/src` → `ConvergencePlot.vue:5` · `harmonics.ts:5` · `useCurveTransition.ts:8` · `colors.ts:19` · `easings.ts:9` · `easings.ts:16`. **Every one is a hard break at the hop.**
+- ⟨cmd⟩ `grep -c "timingFunctions" package/dist/subpaths/easing.d.ts` → **0**. **Deleted, as banked.**
+- **The drift figure, derived rather than quoted**: `EASING_LABELS` (`easings.ts:29-52`) holds **22** keys; `./easing`'s analytic named exports are `linear` · `easeInOutQuad` · `easeOutCubic` · `easeInOutCubic` · `easeInOutSine` · `easeOutExpo` · `easeInOutExpo` · `easeInOutCirc`. ⟨cmd⟩ a `node` reader over `package/dist/subpaths/easing.js` mapping the 22 keys against those exports → **`analytic_survivors=8 drift=14`** — **the banked 14/22 reproduced at the published bytes for the first time.** All 14 resolve through `easing(name)` (each returning a `Result` ok against `bezierPresets`' 30 keys), so the re-point is **executable**; what it is not is **this seat's to accept**. The `as EasingFn` EXECUTION LOCK is live exactly where banked: ⟨cmd⟩ `sed -n '58p' web/src/lib/easings.ts` → `{ label, fn: timingFunctions[name as keyof typeof timingFunctions] as EasingFn },`.
+
+**ESC-4 is therefore not a feasibility blocker; it is an AUTHORITY blocker** — the limb is authorable the hour it is ruled, and ruling it is the owner's act. **Accepting 14 silent semantic substitutions on the owner's behalf is precisely what "never presumed" forbids**, and the drift is the kind a typecheck cannot see (G12's own born-RED).
+
+**Limb 2's ESC-7 leg, stated as the option set the ruling needs and nothing more.** 21 `<Button variant="outline">` attributes over 14 files (grep of record, comment-stripped, `Button`-attributed) meet a `ButtonEmphasis` of four closed values none of which is `outline`. The lawful dispositions the corpus already names are: **re-select per site** from `{primary, secondary, quiet, text}` (± `tone`), **retire the register** to one chosen emphasis, or **ask the producer for a successor on NWO-1** (§2·R2d's own third arm; NWO-1 is authored and rowed at `70a87e7e` and could carry it). **This seat states the set; it chooses nothing.** The register's raw figure also reproduces unchanged for the owner's reference — ⟨cmd⟩ `grep -rn 'variant="outline"' web/src \| wc -l` → **30**, `-l` → **16** (double-run) — with unit `c`'s **21/14** the live Button surface beneath it, the difference being 7 comment-resident mentions ⊕ 2 `<Badge variant="outline">` sites.
+
+---
+
+#### Act 4 — the pre-cut gate readings, banked as the honest BEFORE
+
+The Cadence requires `vue-tsc -b --force` and `npm run build` **before the cut**. **There is no cut, so these are banked as the BEFORE the successor seat inherits**, not as a green stamp.
+
+- **G11 / vue-tsc** — ⟨cmd⟩ (cwd `web/`) `npx vue-tsc -b --force` → **exit 1 · 20 diagnostics**, double-run identical, and **by code**: ⟨cmd⟩ `grep -o "error TS[0-9]*" … \| sort \| uniq -c` → **17 `TS6133` · 1 `TS6196` · 1 `TS2882` · 1 `TS2769`**. **This reproduces §Baseline's G11 row and unit `d`'s post-commit reading EXACTLY** — the palette cure added and removed nothing, and the substrate is where F.W0 left it. The `TS2882` is `PaperView.vue(12,8)` — **limb 8's witness**; the `TS2769` is `vite.config.ts(51,21)` (`manualChunks` against vite 8's `ManualChunksFunction`) and rides WU-L's manifest pass.
+- **G13 / peer graph** — ⟨cmd⟩ (cwd `web/`) `npm ls --all` → **exit 1**; `npm ls` prints extraneous `@emnapi/core` · `@emnapi/runtime` · `@emnapi/wasi-threads` · `@napi-rs/wasm-runtime` · `@tybys/wasm-util` · `embla-carousel` · `embla-carousel-vue` · `embla-carousel-reactive-utils` · `perfect-freehand`. **RED, as born.**
+- **G4 / emission** — **NOT RUN, and the reason is structural rather than discretionary**: its `npm run build` (i) needs the **bumped install**, which is limb 1 and is blocked, and (ii) **writes `web/dist`**, a §1 read-only witness. Running it at the un-bumped pin would produce a sheet that answers none of G4's four greps (`size-\(--ui-glyph\)` · `\.h-3\\.5` · `rounded-pill` · `animate-collapsible`) about the target, while dirtying a witness. **It stays UNRUNNABLE-AT-OPEN, unchanged, and is stated so the successor does not read silence as a claim.**
+- ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis diff --check` → clean, exit 0. ⟨cmd⟩ `git … status --porcelain` → **0**, double-run.
+
+---
+
+#### Act 5 — why NOTHING was landed, stated as the law that forbids each alternative
+
+Three landings were available and **all three are defects**, which is why the correct act was to write no product byte:
+
+1. **Land ten limbs and hold two.** §3.4's first lock: *"a partial landing is the L-18 failure"*, and **G6** fuses the bump ⊕ the prop rewrite ⊕ the `copied` triple into ONE change *"else four green e2e specs go red for the wrong cause"*. A ten-limb commit is the L-18 failure by definition.
+2. **Land all twelve, leaving the 21 `outline` sites untouched.** At `17a11bc5` Button has **no `variant` prop**, and **FR-COB-2 (a)** says the `variant` limb is **SILENT** — *"no `strictTemplates` → junk DOM attr, zero diagnostic"*. The build would go green while 21 sites across 14 files silently lost their register. **That is a masking outcome, which standing law grades a HIGH defect**, and it is the exact shape *"the sweep may not proceed on the map's silence"* forbids.
+3. **Pick an emphasis for `outline` and sweep.** That is a seat ruling on the owner's behalf on *"the wave's largest undecided design surface"*. **Forbidden by WU-R, by G19, and by runbook §5.7.**
+
+The same logic holds for ESC-4: a re-point that silently accepts 14 analytic→CubicBezier substitutions typechecks clean, passes G11, and is invisible to every static gate — **it would be discovered, if ever, as motion that feels wrong**. `easings.ts:58`'s `as EasingFn` is the corpus's own warning that this class hides from the compiler.
+
+**No `test.skip`, no allowlist, no try/catch, no producer patch, no local `node_modules` edit, no descope of a limb was considered or written.**
+
+---
+
+#### Gate readings, BEFORE → AFTER
+
+| gate | BEFORE (§Baseline / predecessors) | AFTER (this unit) | receipt |
+|---|---|---|---|
+| **G4** emission pre-gate | **UNRUNNABLE-AT-OPEN** | **UNRUNNABLE — unchanged, stated** | Needs the bumped install (limb 1, blocked) and its command writes `web/dist`, a §1 read-only witness. Act 4 |
+| **G6** atomic land-or-lose | **RED by construction** (no transaction commit) | **RED — unchanged, and honestly so** | ⟨cmd⟩ `git -C … log --oneline --all \| grep -ci "feat(fourier)"` → **0**. No transaction exists to test. The four zero-console-error specs are untouched and unfiltered |
+| **G7** applied | budget GREEN at unit `c`; **not yet applied** | **NOT APPLIED** | The budget of record is consumed and re-verified (Act 3 limb 2). Its application is the rewrite, which ESC-7 blocks |
+| **G8** touch-floor | **RED** | **RED — unchanged** | The floor is preserved by carrying `iconOnly` at each of the 35 migrated `size="icon"` sites; no site migrated, so nothing was preserved and nothing was dropped |
+| **G9** token-family sweep *(acceptance only)* | **RED** — `--slider-scrub` **23 / 7** | **RED — unchanged; operand re-verified, execution correctly NOT performed** | The acceptance shape is F.W1's, the execution F.W3/W4's. Unit `d` recorded the four `HarmonicLevelGrid.vue:208-214` declarations surviving its `:style` deletion; **deleting them here would execute another wave's gate** |
+| **G10** disclosure-deletion | **RED** (deletions unmade) | **RED — unchanged; all ten landmarks re-verified at the bytes** | Act 3 limb 5. The twin symmetry, the PRM arms and the two `overflow: hidden` exclusions (⊕ the untouched `:425`) are confirmed executable **exactly as specified**; they are a limb of the ONE commit and do not land alone |
+| **G11** module resolution | **RED** — exit 1 / 20 | **RED — exit 1 / 20, byte-identical by code** | Act 4. 17 `TS6133` · 1 `TS6196` · 1 `TS2882` · 1 `TS2769`, double-run. **Zero diagnostics added, zero removed** across this unit |
+| **G13** peer-graph closure | **RED** — `npm ls --all` exit 1 | **RED — unchanged** | Act 4. Extraneous set re-measured; `vaul-vue` and `@lucide/vue` still have no manifest row (limbs 6 and 7) |
+| **G14** applied | floor GREEN at unit `c`; **not yet applied** | **NOT APPLIED** | `^0.11.2` read at the tag; the in-range referent is uniquely `0.11.2` (unit `b`). Application is limb 12, inside the blocked commit |
+| **G19** owner rulings | **RED — ONE of SEVEN** | **RED — ONE of SEVEN, and now PRICED: two of the six open rulings gate a limb, four do not** | Acts 1–2. Falsifier run twice + a third count + widened + §0j.D read whole. **No ruling minted, none presumed, none deferred by this seat** |
+
+**No gate moved. The unit turned none of the eight it was seated to turn, and says so rather than claiming partial credit.**
+
+---
+
+#### E13
+
+The four paths ⊕ the atlas **Q** extension were swept at §Open (seat 0, 19:11) with **0 unrowed**; **I-32 and I-33 were read in full and CONSUMED by unit `b`**, whose receipt records that no status cell was flipped because the three `UNREAD` marks are **Track D's rows**, routed to X-W0.j / the X formation mail seat. **This unit mints no letter, flips no cell and appends no INBOX row** — `docs/tranches/V/coordination/INBOX.md` is **not in unit `e`'s writable set**.
+
+**What I-32 owes this unit specifically, checked rather than assumed.** Unit `d` handed forward that I-32's **`B-4`** (*"`--viz-amber` = `oklch(0.530 0.124 69.6)` … the 3.54 is a 4.0.x figure"*) bears on **`web/src/style.css:113-127`'s D.W4.d override**, a file in **this unit's** bound at the hop. **It is received and it is carried into the escalation, not dropped**: at 8.0.0 `--viz-amber` becomes an `oklch()`, which is why the resolver unit `d` landed is what makes the hop safe — but the override's own re-ink is a **limb-adjacent token-parity act inside the blocked commit** (WU-O), so it lands with the transaction or not at all. **Nothing in I-32/I-33/I-34 is discharged or lost here.** `PD-1`/`A-10`/`G18` remain unit `f`'s and are untouched.
+
+**0 unrowed · 0 new `I-n` · 0 new `O-n` · 0 UNREAD created in this unit's scope.**
+
+---
+
+#### Residuals handed forward, by name
+
+1. **→ the OWNER, and it is the whole of this unit's return.** **ESC-4** and **ESC-7** each need a ruling or an explicit deferral with blocked rows named. **ESC-2 · ESC-3 · ESC-5 · ESC-6 still need one for G19 to go green, but none of the four gates a limb** (Act 2) — so **a two-answer round unblocks the transaction**, and a six-answer round closes G19.
+2. **→ the successor `e` seat (binding, and it is the reason Act 3 exists).** **Ten of twelve limbs are measured ready at the true bytes**, with every anchor re-verified and every drift recorded. **No anchor in the twelve-limb roster has drifted** — the G10 twins, the `copied` triple, the `D·D-M11` inline svg, `ExportModal.vue:87`, `VisualizationView.vue:366` and `easings.ts:58` all reproduce to the line. The successor re-runs, but inherits no archaeology.
+3. **→ the successor `e` seat: limb 11 is a RULED KILL, not an omission.** **GCM-22 flipped to SUPERSEDED at the ruled 8.0.0**, measured at `dialog/styles.css:20` ⊕ `:25-26` — the padding authority is inside `:where()` at specificity (0,0,0) and the consumer's `p-0` (0,1,0) genuinely outranks it. **`GalleryCardModal.vue:73` must NOT be edited**, and the transaction's commit body should say so, since §4 step 4 lists the limb and a silent no-op reads as a dropped limb.
+4. **→ the successor `e` seat: the three unit-`c` BINDING residuals are consumed and re-verified.** The breaking `size=` set is **`icon` (35) ⊕ `default` (6) = 41** and the attribute operand is **129**; **`DockIconButton` (19 callsites / 2 files) and `DockDropdownTrigger` (1/1) are DELETED** at `17a11bc5` behind a surviving `./dock` — invisible to every import-shaped probe; the **three consumer re-targets R1 · R2 · R3** (9 sites / 6 files) land **inside commit #4** as the G5 LANDING CELL requires. **None of these is a thirteenth limb.**
+5. **→ unit `f` / G19.** This unit's Act-2 pricing is a **sharpening, never a ruling** — it says which questions gate execution, not what their answers are. If the owner rules only ESC-4 and ESC-7, **G19 stays RED on four**, and the close must say so rather than reading an unblocked transaction as a green gate.
+6. **→ unit `f` / the WU-F ledger and the edge-9 checkpoint set.** **ESC-3's consequence is visual and arrives with the hop whether or not it is ruled**: six `SelectTrigger` callsites across five files gain `glass-control-edge` ⊕ `glass-capsule-hover` at 8.0.0, and **zero of them pass a prop that could opt out**. That is a before/after screenshot row, and `U-2`'s `R1-DU` MAJOR-on-permanent-blur dissent revives at any uplift with its BANK trigger `grep "contain: paint"` on the installed `dock/shell.css`.
+7. **→ unit `f` / the close.** The `link` arm is a **second unmapped value inside limb 2, smaller than `outline` and not covered by ESC-7's text**: 1 site, and the G7 evidence's own cell calls `emphasis="text"` *"nearest; **not** a banked mapping — flagged"*. **It should ride ESC-7's ruling** rather than be swept on a "nearest" reading; naming it here is the whole of what this seat can do.
+8. **→ the close.** **`F-W1-LOG.md` was deliberately NOT created**, for unit `c`'s stated reason (it would seat a partial log), and with this unit's own added: there is no transaction to log.
+
+---
+
+#### Escalation RETURNED by this unit
+
+**ESC-4 and ESC-7 — TWO owner rulings, UNRULED and UNDEFERRED, which BLOCK the atomic transaction at limbs 1 and 2. ESC-2 · ESC-3 · ESC-5 · ESC-6 remain open for G19 but block no limb.**
+
+- **ESC-7** — `variant="outline"` has **NO successor** in `ButtonEmphasis = "primary" | "secondary" | "quiet" | "text"`, `ButtonTone = "neutral" | "destructive"` or `ButtonSize` at `17a11bc5`. **Blocked rows**: the **21 occurrences / 14 files** of the grep of record (register figure **30 / 16**) · AA-2's sweep · G7's application · `fr-BasisSelector M-1` · **G6's atomicity** — an unruled arm inside a land-or-lose transaction is an unbounded limb. **⊕ the `link` site (1), unmapped and not covered by ESC-7's own text.**
+- **ESC-4** — value 4.0.0 deletes `timingFunctions` and ships no `"."` export; **14 of the 22 `EASING_LABELS` keys have no analytic survivor at `./easing`** and become CubicBezier approximations (measured at the published bytes this seat unpacked: `analytic_survivors=8 drift=14`). **Blocked rows**: `L/B-1` · `MPC-5/RD-5` · the six bare-root value.js import lines across five files · **limb 1's lockstep half**, and with it the whole transaction (MPC-14: no member lands alone). The drift is **typecheck-invisible** — `easings.ts:58`'s `as EasingFn` is the corpus's own warning — so no gate in this wave can catch a wrong acceptance.
+
+**A seat may not defer on the owner's behalf, and may not rule on it.** The deferral G19 accepts is an *explicit* one; naming the blocked rows, pricing which questions actually gate execution, and measuring every other limb to readiness is the whole of what this seat can supply — and it has supplied it.
+
+**Self-count**: this `### e` block is **not** counted in any figure above; every published count is of the settled product bytes at fourier `3bac3d5`, of the read-only producer tree at `17a11bc5`, or of the registry artifact at its version, each double-run.
