@@ -1,0 +1,541 @@
+{
+    "servedModel": "claude-opus-5[1m]",
+    "schema": "x-p-w3.b.recovery-closure/1",
+    "unit": "X.P.W3.b",
+    "gate": [
+        "G-4",
+        "G-8"
+    ],
+    "takenAt": "2026-09-18",
+    "operands": {
+        "corpus": {
+            "path": "typescript/test/css-totality/corpus.json",
+            "defaulted": false,
+            "inputs": 26604,
+            "shape": "{rows:[{src}]}"
+        },
+        "frozenUnion": {
+            "spec": "c654824e:src/css/types.ts",
+            "defaulted": false,
+            "size": 8,
+            "codes": [
+                "css_syntax",
+                "trailing_input",
+                "keyframe_selector_invalid",
+                "color_context_required",
+                "syntax_descriptor_invalid",
+                "syntax_mismatch",
+                "animation_option_invalid",
+                "timeline_option_invalid"
+            ]
+        },
+        "valueJsRoot": "/Users/mkbabb/Programming/value.js",
+        "publicEntries": [
+            "typescript/src/css/lower.mjs",
+            "typescript/src/css/harness-adapter.mjs"
+        ],
+        "reachableModules": [
+            "typescript/src/css/algebra/grammar.mjs",
+            "typescript/src/css/algebra/ops.mjs",
+            "typescript/src/css/algebra/tables.mjs",
+            "typescript/src/css/codes.mjs",
+            "typescript/src/css/diagnostics.mjs",
+            "typescript/src/css/harness-adapter.mjs",
+            "typescript/src/css/lower.mjs",
+            "typescript/src/css/lowering-js/index.mjs",
+            "typescript/src/css/lowering-js/js-alg.mjs",
+            "typescript/src/css/lowering-js/values.mjs",
+            "typescript/src/css/lowering-wasm/asm.mjs",
+            "typescript/src/css/lowering-wasm/index.mjs",
+            "typescript/src/css/lowering-wasm/layout.mjs",
+            "typescript/src/css/lowering-wasm/runtime.mjs",
+            "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+            "typescript/src/css/reify/term-alg.mjs",
+            "typescript/src/parse/ansi.ts",
+            "typescript/src/parse/debug.ts",
+            "typescript/src/parse/index.ts",
+            "typescript/src/parse/lazy.ts",
+            "typescript/src/parse/leaf.ts",
+            "typescript/src/parse/packrat.ts",
+            "typescript/src/parse/parser.ts",
+            "typescript/src/parse/parsers/csv.ts",
+            "typescript/src/parse/parsers/index.ts",
+            "typescript/src/parse/parsers/json.ts",
+            "typescript/src/parse/parsers/utils.ts",
+            "typescript/src/parse/split.ts",
+            "typescript/src/parse/state.ts",
+            "typescript/src/parse/utils.ts"
+        ],
+        "bareSpecifiers": [
+            "node:path",
+            "node:url",
+            "tsx/esm/api"
+        ]
+    },
+    "executed": {
+        "calls": 159672,
+        "rejections": 144640,
+        "issues": 154328,
+        "lowerings": [
+            "js",
+            "wasm"
+        ],
+        "entries": [
+            "P:color",
+            "P:timing-function",
+            "P:stylesheet"
+        ]
+    },
+    "setDifferences": {
+        "emittedMinusFrozen": [],
+        "frozenMinusEmitted": [
+            "animation_option_invalid",
+            "keyframe_selector_invalid",
+            "syntax_descriptor_invalid",
+            "syntax_mismatch",
+            "timeline_option_invalid"
+        ],
+        "frozenMinusGraphDeclared": [
+            "animation_option_invalid",
+            "keyframe_selector_invalid",
+            "syntax_descriptor_invalid",
+            "syntax_mismatch",
+            "timeline_option_invalid"
+        ],
+        "graphDeclaredMinusFrozen": []
+    },
+    "emittedCounts": {
+        "color_context_required": 840,
+        "css_syntax": 153260,
+        "trailing_input": 228
+    },
+    "graph": {
+        "codeSites": 288,
+        "declared": [
+            "color_context_required",
+            "css_syntax",
+            "trailing_input"
+        ],
+        "outsideFrozen": []
+    },
+    "fallbackArms": [
+        {
+            "file": "typescript/src/css/lowering-js/index.mjs",
+            "line": 56,
+            "text": "code: sg.far.code === null ? \"css_syntax\" : sg.far.code,",
+            "window": [
+                "54: const actual = source.slice(f);",
+                "55: sg.D.push({",
+                "56: code: sg.far.code === null ? \"css_syntax\" : sg.far.code,"
+            ],
+            "authored": false
+        },
+        {
+            "file": "typescript/src/css/lowering-wasm/index.mjs",
+            "line": 126,
+            "text": "(t) => t.i32(CODES.indexOf(\"css_syntax\")),",
+            "window": [
+                "124: (t) => t.gget(G.farf).set(f));",
+                "125: b.gget(G.farcode).i32(0).x(\"i32.lt_s\").if_(I32,",
+                "126: (t) => t.i32(CODES.indexOf(\"css_syntax\")),"
+            ],
+            "authored": false
+        }
+    ],
+    "branchCensus": {
+        "default": [
+            {
+                "file": "typescript/src/css/lowering-wasm/index.mjs",
+                "line": 253,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 41,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 330,
+                "authored": false
+            }
+        ],
+        "else": [
+            {
+                "file": "typescript/src/css/lowering-js/values.mjs",
+                "line": 50,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/css/lowering-js/values.mjs",
+                "line": 51,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/asm.mjs",
+                "line": 193,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 556,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 602,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 604,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 607,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 642,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/utils.ts",
+                "line": 36,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/utils.ts",
+                "line": 43,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/packrat.ts",
+                "line": 367,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/packrat.ts",
+                "line": 413,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/packrat.ts",
+                "line": 470,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 15,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 56,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 121,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 123,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 127,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 214,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 261,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 264,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/leaf.ts",
+                "line": 305,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/split.ts",
+                "line": 33,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 27,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 87,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 153,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 155,
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 324,
+                "authored": false
+            }
+        ]
+    },
+    "console": {
+        "executedWrites": [],
+        "calls": [
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 67,
+                "channel": "error",
+                "guard": "isDiagnosticsEnabled()",
+                "authored": false
+            }
+        ],
+        "references": [
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 67,
+                "channel": "erro",
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/parser.ts",
+                "line": 728,
+                "channel": "log",
+                "authored": false
+            },
+            {
+                "file": "typescript/src/parse/debug.ts",
+                "line": 355,
+                "channel": "error",
+                "authored": false
+            }
+        ],
+        "armedBefore": false,
+        "armedAfter": false
+    },
+    "intrinsics": {
+        "declared": [
+            "css_syntax",
+            "trailing_input"
+        ],
+        "verifiedAt": [
+            {
+                "file": "typescript/src/css/lowering-js/index.mjs",
+                "line": 56,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/index.mjs",
+                "line": 78,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/index.mjs",
+                "line": 126,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/index.mjs",
+                "line": 334,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 238,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 258,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 259,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 278,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 304,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 326,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 369,
+                "code": "trailing_input"
+            },
+            {
+                "file": "typescript/src/css/lowering-js/js-alg.mjs",
+                "line": 708,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 102,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 118,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 134,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 164,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 204,
+                "code": "css_syntax"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 243,
+                "code": "trailing_input"
+            },
+            {
+                "file": "typescript/src/css/lowering-wasm/wasm-alg.mjs",
+                "line": 607,
+                "code": "css_syntax"
+            }
+        ],
+        "undeclared": []
+    },
+    "signature": {
+        "signature": 22,
+        "destructured": 22,
+        "extra": [],
+        "missing": []
+    },
+    "negativeControls": {
+        "a 23rd operation halts the signature check": true,
+        "a missing operation halts the signature check": true,
+        "a ninth code halts the frozen-union authentication": true,
+        "a missing code halts the frozen-union authentication": true,
+        "an unknown label has no named production": true,
+        "the silence instrument sees a write": true
+    },
+    "violations": {
+        "counts": {
+            "tuple": 0,
+            "span": 0,
+            "expectedEmpty": 0,
+            "unnamed": 0,
+            "outsideFrozen": 0,
+            "okWithDiagnostics": 0,
+            "nullFarCode": 0
+        },
+        "samples": {
+            "tuple": [],
+            "span": [],
+            "expectedEmpty": [],
+            "unnamed": [],
+            "outsideFrozen": [],
+            "okWithDiagnostics": [],
+            "nullFarCode": []
+        }
+    },
+    "legs": [
+        {
+            "id": "C-1",
+            "what": "⊆ built graph",
+            "verdict": "GREEN",
+            "detail": "288 code sites · declared [color_context_required css_syntax trailing_input] · outside frozen 0 · intrinsics [css_syntax trailing_input] verified at 19 lowering sites, undeclared 0"
+        },
+        {
+            "id": "C-2",
+            "what": "⊆ executed corpus",
+            "verdict": "GREEN",
+            "detail": "emitted [color_context_required css_syntax trailing_input] · outside frozen 0"
+        },
+        {
+            "id": "C-3",
+            "what": "⊇ executed corpus",
+            "verdict": "RED",
+            "detail": "frozen \\ emitted = 5 [animation_option_invalid keyframe_selector_invalid syntax_descriptor_invalid syntax_mismatch timeline_option_invalid]"
+        },
+        {
+            "id": "C-4",
+            "what": "no fallback arm",
+            "verdict": "RED",
+            "detail": "authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 144640 rejections"
+        },
+        {
+            "id": "C-5",
+            "what": "tuple law",
+            "verdict": "GREEN",
+            "detail": "ok:false with an empty tuple 0 · ok:true carrying diagnostics 0"
+        },
+        {
+            "id": "C-6",
+            "what": "span law",
+            "verdict": "GREEN",
+            "detail": "spans outside [0,len] or with a mismatched actual 0 · empty expected 0"
+        },
+        {
+            "id": "C-7",
+            "what": "G-8 expected[0] named",
+            "verdict": "GREEN",
+            "detail": "154328 issues · unnamed first expectations 0 · label surface 51 rows"
+        },
+        {
+            "id": "C-8",
+            "what": "G-8 unarmed",
+            "verdict": "GREEN",
+            "detail": "isDiagnosticsEnabled() before=false after=false"
+        },
+        {
+            "id": "C-9",
+            "what": "G-8 silence",
+            "verdict": "GREEN",
+            "detail": "executed writes 0 · authored call sites 0 · inherited 1 (unguarded 0) · references 3 · strict letter: 1 call site(s) on the reachable set"
+        },
+        {
+            "id": "C-10",
+            "what": "22-operator closure",
+            "verdict": "GREEN",
+            "detail": "signature 22 · destructured 22 · both differences ∅"
+        }
+    ],
+    "verdict": "RED"
+}
