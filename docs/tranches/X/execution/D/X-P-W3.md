@@ -1564,3 +1564,28 @@ identical gap**, and the lawful cure is the seat's own config inside its own `bo
 row, exactly as `.a` and `.b` took it), `.a` F-a.6 (G-1's implementation is assigned to no unit) and
 F-b4 (the promoted `expected` labels are a **`.d` divergence row** with a consumer direction). Each
 is an orchestrator row; **no seat of this resume grants itself a bound.**
+
+### R.6 — F-r.2 (MINOR, disclosed): the shared ledger carried a sibling's uncommitted row byte, and this seat committed only its own hunk
+
+`LEDGER.md` is one file that four tracks append to, so the pathspec discipline — which separates
+*paths* — does not separate *hunks*. At this seat's clock the working tree carried an **uncommitted
+Track-B byte**: an append of `· 917892a3 · 58059e74 · a6f474d3` to the **KF.W7** row's commit cell.
+A `git add` of the file would have swept a sibling's in-flight row into this wave's commit — the
+same defect class as X-W0's three contaminated commits, one level down.
+
+**The cure, taken without any forbidden instrument** (no `stash`, no `reset`, no `checkout --`, no
+`add -p`, no byte of the sibling's row altered): the working-tree file was copied aside; the file was
+re-composed as `git show HEAD:…/LEDGER.md` **plus this seat's own two appended lines**; that was
+staged and committed by pathspec; the copy was then restored, putting the sibling's byte back exactly
+as it was found. Measured on each side:
+
+```
+⟨cmd⟩ git diff --numstat -- …/LEDGER.md   (before)  → 3  1     ← 2 mine + the sibling's 1/1 row
+⟨cmd⟩ git diff --numstat -- …/LEDGER.md   (staged)  → 2  0     ← mine alone, append-only
+⟨cmd⟩ git show --stat --format= HEAD                → 2 files changed, 139 insertions(+), 0 deletions(-)
+⟨cmd⟩ git diff --numstat -- …/LEDGER.md   (after)   → 1  1     ← the sibling's row byte, restored intact
+```
+
+Routed to the orchestrator as a standing operational row beside F-a.7's branch-switch lesson: **on a
+file four tracks share, "pathspec only" is necessary and not sufficient — a seat must also verify
+that the file's working-tree diff contains nothing but its own lines before it stages.**
