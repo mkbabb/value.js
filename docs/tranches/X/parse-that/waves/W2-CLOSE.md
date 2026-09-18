@@ -84,3 +84,66 @@ after `§Selected` · F-h6 the phase-1 drafts commit · the close acts of §4a.
 - [ ] `<p2>` candidate branches merged to the root's working branch after phase 5 (§9); `git worktree list` recorded
 
 _Opened 2026-09-17 by `X.P.W2.h` (served model `claude-fable-5-1`)._
+
+---
+
+## 7. The close seat's own reading (2026-09-17, VERIFY-ONLY; `claude-opus-5[1m]`)
+
+`W2.md` §4 reserves this file's completion to the orchestrator at close. This section is that
+completion. **Every one of the twelve gates was re-run at this seat's own clock, in its own literal
+command form, twice** — 25 of 25 captured outputs byte-identical between runs (G-8 is a timing/heap
+probe and was drawn twice on ac1 instead, same verdict line). The full BEFORE → AFTER table, with
+each command and each number, is in `docs/tranches/X/execution/D/X-P-W2.md` **§Close C.2**; it is
+not duplicated here, because two copies of one table is the drift this programme measures.
+
+**Tally at the close seat: 6 GREEN · 5 RED · 1 SPLIT.**
+
+| | gates |
+|---|---|
+| **GREEN** | G-2 (22/22 both lowerings × 3 candidates) · G-5 (published 324/1,548 reproduced to the digit at HEAD `0a9db11f`; candidates 0/172 × 3 × 2 with 7/7 boundary) · G-6 (52 rows ∅ both ways; `ABSENT:52`, report-half only, OP-8) · G-9 (`imports {}` all kinds, no start section, K-9/K-10 intact × 3) · G-10 · G-11 |
+| **RED** | **G-1** — the two `ALGEBRA.md` homes are not sha256-equal (docs `67c8253a…` vs `<p2>` `14450aa4…`), the literal command exits 1 (**F-h7**); **G-3** — EQ-6 2,035 identical in both lowerings of all three (**E-2**); **G-4** — R-LAW-2 13 rows, same cause (**E-2**); **G-7** — no registration surface in W1's bench, `grep -c 'w2' bench.ts` → 0, **no W2 table exists** (**E-6**); **G-8** — the reject path allocates on at least one lowering of every candidate, inside a ±10 B/parse instrument band |
+| **SPLIT** | **G-12** — ledger half **GREEN** (4/4 terminal, the tie escalated by name); graduation half **RED** (`<p2>/typescript/src/css` ABSENT) |
+
+**One divergence from §2's reading, recorded rather than smoothed**: §2 books G-1
+GREEN-WITH-RESIDUALS on the contract half. Run as its literal command the gate prints `RED` and
+exits 1 on the very first condition it states. The close seat reads the command.
+
+### 7.1 — §6's docket, dispositioned
+
+- [ ] `.i` dispatched on the owner's E-1 word — **NOT DONE, and not doable**: E-1 is unruled, `.i`
+      returned ESCALATED with 0 bytes written, G-12's graduation half is RED at this seat.
+- [ ] `<p2>/experiments/w2/contract/ALGEBRA.md` re-landed byte-equal (F-h7) — **NOT DONE**; it is a
+      cure, and this seat cures nothing. G-1 stays RED until the orchestrator lands one `cp`.
+- [ ] evidence fold beyond `h/**` — **PARTIAL**: `evidence/W2/h/**` is present and verifies
+      (⟨`shasum -a 256 -c SHA256SUMS`⟩ → **27 of 27 OK**); the seats' own tables are not folded.
+- [ ] `registry/harvest/x-p-w2.json` — **ABSENT**.
+- [ ] `DEFECT-LEDGER.md` append — **NOT RUN**.
+- [ ] COHESION §5 status-board carve — **NOT MADE**; the X·P row still reads *"EXECUTING — W0 gates
+      8/8 GREEN"*.
+- [ ] `<p2>` candidate branches merged after phase 5 — **NOT DONE**; `w2/harness` stands at
+      `81370815`, the three candidate branches unmerged in their worktrees. Arguably correctly
+      deferred: merging before the E-1 word banks a field the owner has not ruled on.
+
+### 7.2 — Landed wrong (findings, not fixes — §Close C.5 carries the detail)
+
+1. **F-h6 — the phase-1 drafts have no git object.** `draft-fable.md` (550 L) and `draft-opus.md`
+   (743 L) are on disk and **untracked**; §9's `docs(x-p/w2): blind algebra drafts` commit was never
+   made, though §8 names both as verification artefacts. The twice-authored blindness this wave
+   rests on is unbanked. **Orchestrator.**
+2. **F-h7 — the two contract homes are out of equality**, so G-1 is RED. **Orchestrator.**
+3. **The candidate branches are unmerged.** **Orchestrator.**
+
+Nothing landed in a place it was not admitted to. All 14 value.js commits and all 7 `<p2>` commits
+touch only their unit's writable set (audited path-by-path in §Close C.4); `scripts/dev/dev.sh`
+appears in **0** of the 21; `/Users/mkbabb/Programming/parse-that` carries **0** commits from this
+wave and stands at `ef10d5b`.
+
+### 7.3 — Verbs and close shape
+
+**No verb moves.** IMPLEMENTED stays **NO** — its condition (`W2.md` §2: gates green + the survivor
+graduated) fails on both limbs. VERIFIED stays **NO** (X.P.W4's, R-A). The wave closes
+**`complete_with_misses`, BLOCKED-ON the owner's E-1 word**, which is the alternative §6 wrote for
+itself. The blocking chain, stated once: **E-1 needs the owner's word; word (b) needs E-6 first;
+G-3/G-4 need E-2; `.i`'s own sub-gate needs ESC-i2.** Nothing in that chain is a seat's to rule.
+
+_Completed 2026-09-17 by the X.P.W2 VERIFY-ONLY close seat (served model `claude-opus-5[1m]`)._

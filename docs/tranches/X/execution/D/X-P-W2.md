@@ -2473,3 +2473,234 @@ for a red that predates it; the 343 is the honest denominator any future `.i` si
   not inherited silently.
 - **Commit of this record**: pathspec on the commit itself, this file + `LEDGER.md` (one appended
   line).
+
+---
+
+## Close
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · the **VERIFY-ONLY close seat**
+(`W2.md` §4 *"`W2-CLOSE.md` — create (`.h` opens; orchestrator completes at close)"*). **This seat
+cured nothing, wrote zero bytes in `<p2>`, zero bytes under `harness/**`, and zero bytes in any
+candidate directory.** Everything below was re-measured at this seat's own clock from the settled
+bytes; nothing is inherited, and every figure that is quoted from a sibling seat is labelled as
+such. Spec read whole (999 L); the record read whole (2,475 L before this block).
+
+**E-3 held at the close.** ⟨cmd⟩ `shasum -a 256 docs/tranches/X/parse-that/waves/W2.md` →
+`248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd` — identical to §Open's pin, and
+to `.i`'s re-hash. The two sealed author arms are at their authoring commit `03e4bfef` and appear
+in **0** of this wave's commits: ⟨`shasum -a 256 W2-fable-author.md W2-opus-author.md`⟩ →
+`59162207…c590fad` · `f31d2cb2…12b95740`.
+
+### C.1 — E13, the close sweep, at this seat's own clock
+
+⟨cmd⟩ `find <each of the four paths> -maxdepth 1 -type f -newermt "2026-09-17 22:00"` →
+
+| path | newest | hits after `.i`'s sweep |
+|---|---|---|
+| `docs/tranches/V/` + `docs/tranches/V/coordination/` | `INBOX.md` | **1 — `INBOX.md` itself**, a sibling Track-C seat's F.W6 sweep line. **No letter file.** |
+| `../glass-ui/docs/tranches/BK/coordination/` | `glass-outbound-2026-09-17-constellation-o20-relay.md` | **0** |
+| `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` | **0** — and it is value.js's own outbound |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` | **0** |
+
+The three `UNREAD 2026-09-17` rows are **I-32 · I-33 · I-34**, classification read from each row's
+**status cell** (⟨`awk 'NR>=105 && NR<=107' INBOX.md`⟩), never from a bare `grep -i unread` (X.P.W0
+CHECK 1 **D-1**). Each names its own non-applicability to this lane verbatim: I-32 *"Zero
+parse-that bytes; not X·P's"* · I-33 *"**Not X·P's**: it names no parse-that byte"* · I-34
+*"**Not X·P's**, not a value.js act today"*, all three routed to X-W0.j / X-EXT-1 / the X formation
+mail seat. **UNREAD mail in X.P.W2's scope: 0.** This wave wrote zero value.js `src/**`/`demo/**`
+bytes and zero glass bytes (glass is READ-ONLY always). No row flipped at this seat.
+
+### C.2 — The twelve gates, BEFORE → AFTER, every one re-run at the close seat's clock
+
+Every command below is the gate's own literal command from `W2.md` §6, run from `<p2>` or from the
+candidate's worktree as the gate's subject requires. **Every gate was run twice; 25 of 25 captured
+outputs are byte-identical between runs** (⟨`diff -q run1 run2`⟩ × 25 → silent; G-8 is a timing and
+heap probe and is drawn, not diffed — its verdict line reproduced on a second ac1 draw).
+
+| gate | BEFORE (§Baseline, 2026-09-17, read-only) | AFTER — this seat's own reading | verdict |
+|---|---|---|---|
+| **G-1** | both `ALGEBRA.md` ABSENT; `algebra/` dir ABSENT; structural script `Cannot find module`, exit 1 | contract half met: **22** enumerated in the registry block == **22** stated in prose · target-conditional tokens in the contract text **0** · ⟨`grep -rnE "isWasm\|target\s*===\|TARGET_JS\|TARGET_WASM" experiments/w2/*/`⟩ → **0 hits, exit 1** · the RECOVER-in-nonfinal-ALT negative control fires (**1**). **Homes NOT sha256-equal**: docs `67c8253abaecb29a…3fc537de` (901 L · 157,010 B) vs `<p2>` `14450aa4e5fcc976…151f66f7` (876 L · 154,655 B) — the lawful `§Selected` append, un-re-landed (**F-h7**). Structural walk, run inside each worktree: ac1 js/wasm 29 terms `cut∉alt` **7** · ac2 js/wasm 6 terms **all zeros** · ac3 js/wasm 5 terms `cut∉alt` **2**; `ops∉22` **0**, `recover≺alt` **0**, `unowned-span` **0**, `closure-leak` **0** everywhere | **RED** — the instrument's own verdict line, exit 1: *"RED — the two ALGEBRA.md homes are not sha256-equal \| ac1/js: CUT outside an ALT arm's scope (§5.2)"*. `.h` read this **GREEN-WITH-RESIDUALS**; this seat reads the literal command, which is RED (**F-h7** orchestrator · **E-3** owner) |
+| **G-2** | script ABSENT; op count 0; no bijection printed anywhere in the lane | `node harness/w2/op-bijection.mjs --candidate <id>` in each worktree: contract rows **22** · js rows **22** · wasm rows **22** · DECLARED-ABSENT wasm symbols **0**, fingerprints pairwise equal — ac1 · ac2 · ac3, exit 0, double-run byte-identical | **GREEN** (carrying **F-h1**: the pairing accepts a JS-executing symbol as a Wasm row) |
+| **G-3** | no second lowering exists anywhere; 0 comparisons run | `node harness/w2/eq-six.mjs --candidate <id> --corpus experiments/w2/corpus/slice.json --fuzz-seed experiments/w2/corpus/fuzz-seed.json`: **30,527 rows** each. EQ-1 · EQ-2 · EQ-3 · EQ-4 · EQ-5 = **0** for all three. **EQ-6 = 2,035** for all three, first row `s0180 "var(--brand)"`, **identical in both lowerings** of each. Third-cell differences 233 (ac1) · 236 (ac2) · 236 (ac3), 12 carrying a declared row. Exit 1 | **RED — honest, contract-owned (E-2)**; §3a's *"G-3 red on the SAME product for all three admitted candidates (the contract is then suspect, not the candidates)"* fired, and was escalated, not papered |
+| **G-4** | 0 probes exist | `node harness/w2/recovery-laws.mjs --candidate <id>`: R-LAW-1 mismatches **0** over **2,951** (ac1) · **2,942** (ac2) · **2,946** (ac3) TRY sites, both lowerings · R-LAW-3 **silent** · R-LAW-4 amplified **0**, zero-width **0** · R-LAW-5 structural, with its control firing. **R-LAW-2: 13 rows fail COMP-1**, both lowerings, all three. Exit 1 | **RED — the same E-2 rows** (COMP-1c, `kind 'keyword'`) |
+| **G-5** | published `parseCssColor` 102/172 + 7/7; **324 throws / 1,548 calls** (MEASURE-AT-OPEN, taken at seat 0 at value.js HEAD `223f951b`) | **MEASURE-AT-CLOSE re-taken** at HEAD `0a9db11f`, probe run **unmodified** (R-E): `parseCssColor` **102/172** · `parseCssScalar` 102/172 · `parseCssValue` 60/172 · `parseCssValues` 60/172 · five parsers 0/172; **TOTAL 324 throws / 1,548 calls**, **DISTINCT FAILURE MODES 1** (`TypeError: Cannot read properties of undefined (reading 'replace')`), exit 1. **Reproduces the §6 header to the digit; R1 is still live in the incumbent.** Candidates: `node harness/w2/r1-candidates.mjs --candidate <id>` → **0/172** on each of 3 productions × 2 lowerings, boundary **7/7**, empty-diagnostic rejections **0** — ac1 · ac2 · ac3, exit 0 | **GREEN** |
+| **G-6** | reporter ABSENT; mapped productions **0** | `node harness/w2/coverage-52-report.mjs`: **52 rows, ∅ both ways** against W1's manifest (classes V:31 K:2 P:10 W:2 X:7), map digest `334fa95778e00727b945f66bac7af5dd`; verbs by W1's own re-run assay **ABSENT:52**, aggregate `{"TOTAL":0,"PARTIAL":0,"ABSENT":52}`, throws recorded **0**; the subject line reads *"p2-native — no CSS surface exists under `<p2>/typescript/src/css`"*. Exit 0 | **GREEN (report half)** — OP-8's staged reading honoured, the gate reports and never cures. **The survivor's slice rows cannot be printed: there is no survivor and no graduated location** |
+| **G-7** | no W2 cells (`grep -c 'w2' harness/bench/bench.ts` → 0); the literal entry unrunnable from `<p2>` (the E-1 wall, cured by `.0`) | the entry is runnable (`.0`'s receipt, §A.3). **The cells are still absent**: ⟨`grep -c 'w2' harness/bench/bench.ts`⟩ → **0** · ⟨`grep -rn 'ac1\|ac2\|ac3\|tagless\|closed-ir\|span-algebra' harness/bench/ \| wc -l`⟩ → **0**. `loadEngine` is a closed `if`-chain over W1's four named engines (`published-4.0.0` · `c14` · `deposed` · `json-normaliser`, else `throw new Error(unknown engine)`); the argv contract is `--rounds`/`--warmup`/`--out`/`--no-finalize` only. **NO W2 BENCH TABLE EXISTS ANYWHERE.** `node harness/w2/substrate-receipt.mjs` runs and stamps (`<p2>` `81370815c595` on `w2/harness`, node v26.0.0, third cell `8b5381…0c42 == pinned`, denominator **1,636,680 µs**, `bar OWNER-GATED-PENDING-RATIFICATION`) | **RED — structural (E-6)**. Registering a W2 cell is a write under `harness/bench/**`, which `W2.md` §4 makes execute-no-write and §3a makes a halt. **K-5 is therefore unevaluable, which is the direct cause of the AC-1/AC-2 tie.** No bar was set by this seat or any other |
+| **G-8** | script ABSENT; inherited counter-example O-15 PT-03 (93.9 → 138.2 = 1.47×; reset leaves 139.3) | `node --expose-gc harness/w2/alloc-latch.mjs --candidate <id>`, one draw each (ac1 drawn twice, same verdict line): warmed history-invariance drift **0.902×** (ac1 wasm) · **0.911×** (ac2 wasm) · **0.945×** (ac3 wasm) — all inside the envelope and all *faster-later*, the opposite direction from a latch; steady-state heap ≤ 0 B/parse everywhere; arena high-water 304 B (ac1) · 352 B (ac3). **The reject path allocates on at least one lowering of every candidate**: ac1 wasm **2.1 B/parse** (both draws) · ac2 js **13.8** · ac3 js **18.1** and wasm **11.9**. Exit 1, all three | **RED — instrument-owned** (F-4 · F-e8 · F-f3 · F-h3: the gate tests an exact zero with an instrument whose noise spans ±10 B/parse at that window) |
+| **G-9** | no module exists; **0** committed `wasm32` in either root | `node harness/w2/wasm-audit.mjs --candidate <id>`: **`imports by kind {}`** over all kinds · **start section absent** · closed export sets (ac1 5 · ac2 4 · ac3 32 exports, each enumerated) · memory bytes before == after **2,000** steady-state parses (12,582,912 · 33,554,432 · 6,291,456) · K-9 `non-JS toolchain in that path: none` · K-10 intact. Exit 0, all three | **GREEN** |
+| **G-10** | no artifact; 24 public `Parser` methods at the clone point | `node harness/w2/idiom-nocst.mjs --candidate <id>`: graph clean (`opt` under `all` **0**, `lazy` **0**, memoize **0**), the five textual zeros all **0** (`!` · `as any` · `as unknown as` · `.parse(` truthiness · hand-rolled cursor), and the excess-property fixture *"PASSES — V is assignable AND an excess property is rejected"* under `tsc --noEmit --strict`. Exit 0, all three | **GREEN** |
+| **G-11** | script ABSENT; ceiling 7,761 (O-15) / 7,759 (W1) / 7,789 (`.g`); census 13 : 0 : 0 | `node harness/w2/depth-scan.mjs --candidate <id>`: the deep-nesting row **s0526** returns `ok:false, 1 issue(s)` from the constructed bound in **both** lowerings of every candidate — **never a `RangeError`**; every scan primitive reached as an algebra leaf, `DIGITS · DISPATCH · KW · LIT · SCAN · TEXT`, both lowerings. Exit 0, all three | **GREEN** |
+| **G-12** | ledger ABSENT; **0 of 4** dispositioned; `typescript/src/css` ABSENT | **Ledger half GREEN** — `W2-KILL-LEDGER.md` present and tracked (505 L · 79,063 B); **4 of 4** terminal: AC-1 **SURVIVES-TO-W3** · AC-2 **SURVIVES-TO-W3** · AC-3 **KILLED(K-3)** · AC-4 **KILLED(K-2)**; the two survivors are a **measured tie escalated to the owner, Mike Babb, by name** — which is G-12's own stated alternative, its falsifier being *"two survivors **without** an owner escalation"*. **Graduation half RED** — ⟨`ls <p2>/typescript/src`⟩ → **`parse`** only; ⟨`ls <p2>/typescript/src/css`⟩ → `No such file or directory` | **SPLIT — ledger GREEN · graduation RED (E-1)** |
+
+**Tally at the close seat's own clock: 6 GREEN (G-2 · G-5 · G-6 · G-9 · G-10 · G-11) · 5 RED
+(G-1 · G-3 · G-4 · G-7 · G-8) · 1 SPLIT (G-12, ledger GREEN / graduation RED).** Every RED carries a
+named non-candidate owner. **No gate is GREEN by assertion; no bar exists anywhere in this wave; no
+gate was cured at this seat.**
+
+One divergence from `.h`'s reading is recorded rather than smoothed: `.h` books **G-1** as
+GREEN-WITH-RESIDUALS on the strength of the contract half. Run as its literal command, the gate
+prints `RED` and exits 1, because the two homes are not sha256-equal — the condition `W2.md` §6 G-1
+states first. This seat reads the command. The cure is one `cp` and one `<p2>` commit (**F-h7**),
+outside a VERIFY-ONLY seat's hand.
+
+### C.3 — §8 Verification Artefacts, run as written
+
+| §8 artefact | state at the close seat | |
+|---|---|---|
+| `algebra/draft-fable.md` (550 L) · `draft-opus.md` (743 L) | **PRESENT ON DISK, UNTRACKED** — ⟨`git ls-files --error-unmatch`⟩ fails on both; `git status` shows `?? …/draft-fable.md`, `?? …/draft-opus.md` | **LANDED WRONG (F-h6)** |
+| `algebra/ALGEBRA.md` | TRACKED, 901 L, `67c8253a…` — `.c`'s ratification (`b5a0cb1f`) + `.h`'s 25-line `§Selected` append (`ba01b405`) | ✓ |
+| `waves/W2-KILL-LEDGER.md` | TRACKED, 505 L · 79,063 B | ✓ |
+| per-candidate `VERDICT.md` | present in all three: `.worktrees/ac1/experiments/w2/ac1-tagless/VERDICT.md` · `…/ac2/…/ac2-closed-ir/VERDICT.md` · `…/ac3/…/ac3-span/VERDICT.md` | ✓ |
+| printed tables/JSONs under `evidence/W2/**`, sha256 each | **only `evidence/W2/h/**`** — 27 files + `SHA256SUMS`; ⟨`shasum -a 256 -c SHA256SUMS`⟩ → **27 of 27 `OK`**, exit 0. **The seats' own printed tables (`.g`'s admission record, `.d`/`.e`/`.f`'s gate prints) are NOT folded** | **PARTIAL — orchestrator** |
+| `waves/W2-CLOSE.md` | TRACKED, 86 L, opened by `.h` with the twelve-gate BEFORE/AFTER table; its §6 ORCHESTRATOR-AT-CLOSE docket is **six unticked boxes** | **PARTIAL — orchestrator** |
+| `registry/harvest/x-p-w2.json` | **ABSENT** (⟨`ls registry/harvest/`⟩ shows `x-p-w0.json` · `x-p-w1.json` and no `x-p-w2.json`) | **NOT RUN — orchestrator** |
+| `DEFECT-LEDGER.md` append by `harvest-journals.mjs` | not run (it is the harvest's second product) | **NOT RUN — orchestrator** |
+| `COHESION.md` §5 status-board carve | not made — the X·P row still reads *"EXECUTING — W0 gates 8/8 GREEN 2026-09-17"* | **NOT MADE — orchestrator** |
+
+### C.4 — Commit roster, and the bounds audit of every one
+
+**value.js — 14 wave commits, all on `tranche-u`, newest last:**
+
+| # | hash | unit | files | inside that unit's writable set? |
+|---|---|---|---|---|
+| 1 | `dac211c1` | `.0` | `waves/W2-ADDENDA-2026-09-17.md` (134 +) | ✓ |
+| 2 | `4cd00ad0` | `.0` | `evidence/W0/roots-census-v2.sh` (223 +) | ✓ |
+| 3 | `f62bf82b` | `.0` | the record | ✓ (D-4 standing path) |
+| 4 | `c9a524c8` | `.a` | the record | ✓ — **but `.a`'s product byte, `draft-fable.md`, never landed** |
+| 5 | `013a4b59` | `.b` | the record | ✓ — **`draft-opus.md` likewise unlanded** |
+| 6 | `0e7fa96b` | `.b` | the record (3 +) | ✓ |
+| 7 | `b5a0cb1f` | `.c` | `algebra/ALGEBRA.md` (876 +) | ✓ |
+| 8 | `75882bf8` | `.c` | the record | ✓ |
+| 9 | `2f3ad7e3` | `.g` | the record | ✓ |
+| 10 | `87316b6c` | `.e` | the record + `LEDGER.md` | ✓ |
+| 11 | `6b5fa141` | `.f` | the record | ✓ |
+| 12 | `ba01b405` | `.h` | 31 files: `W2-KILL-LEDGER.md` · `W2-CLOSE.md` · `ALGEBRA.md` (+25/−0) · `evidence/W2/h/**` | ✓ — ⟨`git show --name-only --format= ba01b405 \| grep -vE '<the four globs>'`⟩ → **0 lines outside** |
+| 13 | `2e55ab39` | `.h` | the record + `LEDGER.md` | ✓ |
+| 14 | `0a9db11f` | `.i` | the record + `LEDGER.md` | ✓ (`.i` wrote 0 product bytes, by design) |
+
+Union of every path touched by the fourteen, deduped: `execution/D/X-P-W2.md` ·
+`execution/LEDGER.md` · `algebra/ALGEBRA.md` · `evidence/W0/roots-census-v2.sh` ·
+`evidence/W2/h/**` · `waves/W2-ADDENDA-2026-09-17.md` · `waves/W2-CLOSE.md` ·
+`waves/W2-KILL-LEDGER.md` — **eight paths, every one admitted by `W2.md` §4 or by
+`W2-ADDENDA-2026-09-17.md` §A-1**. ⟨`git show --name-only --format= <each> | grep -c scripts/dev/dev.sh`⟩
+→ **0 in all fourteen**. `W2.md` and the two sealed author arms appear in **none**.
+
+**`<p2>` — 7 wave commits across four branches; the two histories were never merged:**
+
+| branch | hash | unit | files | bounds |
+|---|---|---|---|---|
+| `w2/harness` | `99bd987d` | `.0` | `package.json` · `package-lock.json` (2) | ✓ (addendum §A-1.1) |
+| `w2/harness` | `9bf2da5a` | `.c` | `experiments/w2/contract/ALGEBRA.md` (1) | ✓ |
+| `w2/harness` | `81370815` | `.g` | 28 files, **0 outside** `harness/w2/` ∪ `experiments/w2/{corpus,stage0}/` | ✓ |
+| `w2/ac1` | `af40fb2d` | `.d` | 20, **0 outside** `experiments/w2/ac1-tagless/` | ✓ |
+| `w2/ac2` | `a7ac4ea4` | `.e` | 36, **0 outside** `experiments/w2/ac2-closed-ir/` | ✓ |
+| `w2/ac3-scan-union` | `76033aac` | `.f` | the scan union, `typescript/src/**` — admitted to this seat on this branch alone | ✓ |
+| `w2/ac3-scan-union` | `f9349560` | `.f` | **0 outside** `experiments/w2/ac3-span/` ∪ `typescript/src/` | ✓ |
+
+**W1's instruments are byte-identical to their W1 commits**: ⟨`git -C <p2> diff --stat 336b2ad HEAD
+-- harness/totality harness/equivalence harness/bench harness/README.md`⟩ → **empty**. W1's three
+banked bench artifacts are unmoved at the close seat's clock (`bench-raw.json e5cc0440…`,
+`bench-results.json 4282f579…`, `bench.stderr e3b0c442…`, 0 B). **`/Users/mkbabb/Programming/parse-that`
+carries no commit from this wave** — it stands at `ef10d5b`, the clone-point master, exactly as
+OP-7 recorded it.
+
+### C.5 — Landed wrong
+
+1. **The phase-1 drafts were never committed (F-h6).** `W2.md` §9 prescribes
+   `docs(x-p/w2): blind algebra drafts — Fable and Opus arms` as phase 1's **one** value.js commit;
+   §8 names both files as verification artefacts. `draft-fable.md` (550 L) and `draft-opus.md`
+   (743 L) exist on disk and are **untracked**. `.a`'s and `.b`'s receipt commits (`c9a524c8`,
+   `013a4b59`) landed the *receipts about* the drafts and not the drafts. The blindness of phase 1
+   — the twice-authoring this whole wave rests on — has no git object. **Owner: the orchestrator.**
+   This seat did not land them: they sit outside a VERIFY-ONLY close seat's writable set, and the
+   §9 commit is phase 1's to make, with the two model receipts in its body.
+2. **The two `ALGEBRA.md` homes are out of equality (F-h7).** `.h`'s `§Selected` append was lawful
+   and sequenced; the `<p2>` copy was not re-landed after it, so **G-1's first condition is RED at
+   the close**. One `cp` + one `<p2>` commit cures it. **Owner: the orchestrator.**
+3. **The candidate branches were never merged to the fresh root's working branch.** §9: *"merged to
+   the root's working branch only after phase 5"*. Phase 5 closed at `ba01b405`; `w2/harness` is
+   still at `81370815` and the three candidate branches are unmerged in their worktrees.
+   **Owner: the orchestrator** — and it is arguably correctly deferred, since a merge before the
+   E-1 word would bank a field the owner has not ruled on.
+
+Nothing landed in a place it was not admitted to; nothing was swept in by a sibling seat; no commit
+lacks its own pathspec. The three items above are acts **not taken**, not bytes in the wrong place.
+
+### C.6 — Escalations carried out of this wave (unchanged by the close; none is the close's to rule)
+
+**To the owner, Mike Babb, by name** — `W2-KILL-LEDGER.md` §9/§10, restated here so the docket is
+not split across files:
+
+| id | what is owed |
+|---|---|
+| **E-1** | **THE TIE.** AC-1 TAGLESS-TWIN and AC-2 CLOSED-IR both terminal-verbed `SURVIVES-TO-W3` on every evaluable rule. Word **(a)** names the survivor; word **(b)** orders Stage 4 — which requires E-6 first. **`.i` cannot run, and G-12's graduation half cannot turn, until this word exists.** This is the wave's single blocking condition. |
+| **E-2** | The contract's §4.5 × §10.1 `keyword` kind: **2,035 rows / 2,047 occurrences** fail COMP-1c identically in every lowering of every candidate — G-3 and G-4's shared cause, re-measured at this seat. Three cures measured on in-memory copies, each driving the population to 0; **no seat cured it**, because `ALGEBRA.md` is `.c`'s ratified file and E-3 makes corrections dated addenda-beside. |
+| **E-3** | The `CUT` scoping idiom — 14 lexically-outside-`ALT` sites; the only scope-opener is `ALT` and OP-09 fixes n ≥ 2, so the cure is inexpressible in the contract as written. Reproduced at this seat: ac1 `cut∉alt` **7**, ac3 **2**. |
+| **E-4** | §10.2's `ALT` order makes `linear(…)` unreachable — found independently by `.d` (F-7) and `.e` (F-e13) from different codebases, same offset, same label. |
+| **E-5** | EQ-5's sixth coordinate is specified two ways (line 238 / §6 EQ-5 vs the serializer's six-coordinate digest). |
+| **E-6** | **G-7 has no registration surface.** W1's bench is a closed engine switch and a four-flag argv; registering a W2 cell is a write under `harness/bench/**`, execute-no-write by §4 and a §3a halt. Re-measured at this seat: `grep -c 'w2' bench.ts` → **0**. Until a dated addendum widens those bounds, **Stage 4 cannot run and K-5 cannot be evaluated** — which is why E-1 is a tie rather than a ranking. |
+| **E-7** | OP-7 × the graduated seed's library substrate (the promoted seed would carry its published-1.0.0 absolute import as declared). |
+| **E-8** | §10.3's `REF` count against §8 D-3. |
+| **ESC-i2** | `.i`'s `tsc --noEmit` sub-gate has no lawful subject: `<p2>` has no root `tsconfig.json`, and the product form reads **343 `error TS`** from absent `typescript/node_modules` workspace deps — a red that **predates** any graduation. Owed: a dated E-3 addendum in the §0l E-1 shape, one level down. |
+
+**To the orchestrator**: **F-h6** (the phase-1 drafts commit) · **F-h7** (re-land the `<p2>`
+`ALGEBRA.md`) · the §4a close acts that remain — evidence fold beyond `h/**`, `x-p-w2.json`
+harvest, the `DEFECT-LEDGER.md` append, the COHESION §5 carve, the candidate-branch merge.
+
+### C.7 — Residuals, with named owners (carried, not closed)
+
+| id | severity | what | owner |
+|---|---|---|---|
+| **F-h1** | MAJOR | G-2's registry pairing accepts a JS-executing symbol as a Wasm-row lowering (AC-3 printed GREEN 22/22 and was nevertheless `KILLED(K-3)` on a measurement the harness does not take) | `.g` / L-18 |
+| **F-h2** | MINOR | `eq-six.mjs`'s verdict line labels EQ-6's **identical-in-both** COMP-1 failures *"divergences between the two lowerings (K-1)"* — re-read at this seat on all three candidates; the label is wrong in the same way each time, and the number is right | `.g` |
+| **F-h3 / F-4 / F-e8 / F-f3** | MAJOR | G-8's envelope is narrower than the instrument's draw spread on this box, and its reject leg tests an exact zero inside a **±10 B/parse** band | `.g` / L-18 |
+| **F-1 / F-e6** | MAJOR | the §4.5 × §10.1 `keyword` defect (→ **E-2**) | contract / owner |
+| **F-2** | MAJOR | the `CUT` scoping idiom (→ **E-3**) | contract / owner |
+| **F-3** | MAJOR | EQ-5's sixth coordinate (→ **E-5**) | contract / owner |
+| **F-7 / F-e13** | MAJOR | §10.2's `ALT` order (→ **E-4**); `.d` cured it in its realization, `.e` shipped §10.2 verbatim — **their 5 `linear(…)` rows are not comparable row-for-row**, and `.h` did not read the difference as a capability gap | contract / owner / L-18 |
+| **R-g2** | MAJOR | **RESERVE = NONE.** AC-4 died at Stage 0, so §3e's reserve-entry rule has no subject; had an admitted candidate died structurally at Stage 2 the field would have become two | orchestrator / owner |
+| **R-g1** | MAJOR | AC-3's Stage-0 boundary screen is noise-dominated on this shared box; the tightest margin was **1.9 percentage points** under a 20 % screen | L-18 |
+| **R-i1** | MAJOR | `<p2>` cannot typecheck its own library — **343** `error TS` from absent workspace deps, independent of this wave (→ **ESC-i2**) | orchestrator |
+| **F-h8** | INFO | `w2/ac3-scan-union` `76033aac` (the scan union as a parse-that citizen) is a §3 item-12 deliverable **independent of AC-3's death**; W3's open decides whether to consume it | W3 |
+| **F-g1 · R-g3..R-g6 · F-5 · F-6 · F-8 · R-d1 · R-d2 · F-e1..F-e12 · F-f1..F-f10 · F-h4 · F-h5 · R-h1 · R-i2 · R-i3** | MINOR / INFO | as recorded in each unit's own block above; none blocks the close and none is cured here | per each row |
+| **`?? .worktrees/`** | INFO | the fresh root's porcelain carries one untracked line — the worktree container §4b prescribes. Present before `.h` opened and unchanged through the close | orchestrator |
+
+### C.8 — The four-verb line: this close moves NOTHING
+
+`W2.md` §2's four-verb table and **R-A** are explicit: IMPLEMENTED is stamped *"at the wave's own
+close"* on **"gates green + the survivor graduated"**, and VERIFIED *"only at X.P.W4's sub-tranche
+release close"*.
+
+| verb | value after this close | why |
+|---|---|---|
+| AUDITED | **YES** (unchanged) | `GATE-VERDICT.md` · `registry/adjudicated/parser-band.md` · the pause handoff · INBOX O-15 |
+| SPECIFIED | **YES** (unchanged) | `W2.md` 2026-08-04 (`248eb088…`, byte-untouched) + `W2-ADDENDA-2026-09-17.md` |
+| IMPLEMENTED | **NO — deliberately not stamped** | its condition is not met on either limb: **five gates are RED** (G-1 · G-3 · G-4 · G-7 · G-8) and **no survivor is graduated** (`<p2>/typescript/src/css` ABSENT). A stamp here would be a verb bought with an assertion |
+| VERIFIED | **NO** (unchanged) | X.P.W4's release close alone (R-A) |
+
+**Close shape: `complete_with_misses`, BLOCKED-ON the owner's E-1 word** — which is precisely the
+alternative `W2-CLOSE.md` §6 wrote for itself: *"or the wave closed `complete_with_misses` with this
+docket if E-1 stays unruled"*. Ten of ten units ran; every unit that could land bytes landed them;
+the one act that remains — `.i`'s mechanical graduation — has **no lawful input** until the owner
+names AC-1 or AC-2 or orders Stage 4, and ordering Stage 4 needs E-6 first. The wave did not fail;
+it measured itself to the end of what a seat may decide.
+
+### C.9 — Push
+
+A push receipt cannot be written before the commit it pushes, so the readings are appended below in
+**C.9a**, in their own commit, after both commands have run. Measured in advance and stated here
+because it is a standing condition, not a result: ⟨`git -C <p2> remote -v \| wc -l`⟩ → **0**. The
+fresh root has **no remote** — it is a local clone opened by X.P.W0 (`remote -v` → 0 lines has been
+its recorded state since W0, and X.P.W1's own LEDGER row reads *"in `<p2>` (no remote, R-2)"*), so
+`git -C <p2> push origin HEAD` **cannot** succeed and the command is run to record its reading, not
+in hope. value.js's `origin` is `https://github.com/mkbabb/value.js.git` and the branch is
+`tranche-u`.
+
+### C.10 — Close conditions for this seat
+
+- **Bounds**: written set = `{ docs/tranches/X/execution/D/X-P-W2.md, docs/tranches/X/parse-that/waves/W2-CLOSE.md, docs/tranches/X/execution/LEDGER.md }` — the three standing orchestration/close paths, each admitted by `W2.md` §4 or `W2-ADDENDA-2026-09-17.md` §A-1.3. **0 bytes** in `<p2>`, **0** under `harness/**`, **0** in any candidate directory, **0** under `/Users/mkbabb/Programming/parse-that`, `~/.codex`, `~/Documents/Codex`, any frozen root, glass-ui, value.js `src/**` · `api/**` · `demo/**` · `package.json`. `W2.md`, the sealed author arms, `ALGEBRA.md`, `W2-KILL-LEDGER.md`, `evidence/W2/h/**` and `.g`'s harness and corpora: **untouched**. `scripts/dev/dev.sh`: never opened, never staged.
+- **Cured nothing**: five gates are RED at this seat and all five stay RED. No fallback, no skip, no allowlist, no local patch. The one gate whose cure is a single `cp` (G-1 / F-h7) was **left to its owner** rather than quietly fixed under a VERIFY-ONLY brief.
+- **Numbers**: every gate run twice; **25 of 25** captured outputs byte-identical between runs; G-8 drawn twice on ac1 with the same verdict line; G-5's published baseline re-taken at the close's own HEAD rather than inherited. Self-counts read back from the settled bytes.
+- **Bar**: none set, none implied. `bar applied: NONE` and `OWNER-GATED-PENDING-RATIFICATION` stand exactly as `.0` and `.g` printed them.
+- **E13**: 0 UNREAD in scope; a dated close sweep line appended to `INBOX.md`? **No** — this seat appends none: seat 0's line is this wave's, and `.i` recorded the same reasoning. The sweep is recorded here, in the wave's own record.
+- **Commits of this close**: pathspec on each commit itself; the close report and record in one, the LEDGER row in its own.
