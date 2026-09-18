@@ -902,3 +902,325 @@ no amend, no force. Transient probe files this seat used for measurement (`test/
 `probe12`, repo-root `.probe*.mjs`) were deleted at the end of each measurement and appear in **0
 commits**; ⟨`ls`⟩ → none survives. ⟨`git status --porcelain`⟩ does carry one untracked
 `test/engine/zz-probe.test.ts` — **a sibling seat's, not this one's, and NOT touched**.
+
+---
+
+### `KF.W2.d` — the round-trip net · the malformed fuzz corpus · close
+
+**SERVED MODEL: claude-opus-5[1m]** · phase 3, serial · **status DONE** — both gates this unit turns
+are **GREEN at its own clock, double-run**, the manifest's mode column is provably untouched, and the
+wave's nine clauses are re-run below at this seat's own commands. Nothing is inherited from the
+baseline table or from a sibling's receipt.
+
+**Sections read at the bytes before writing** (D-19 · METHOD): §Gates **G-W2-7** (769–773) ·
+**G-W2-5** (717–735, the third clause whole, its second member **Z3 / KF-KC-17** and the **K-11**
+refuting datum) · §Goal criterion (46–51) · §Sequencing (782–853, whole, including the commit-family
+line, the packet homing and every cross-edge). The wave record's Open, Baseline, Unit plan and all
+three prior unit receipts were read whole first. `COHESION.md` §0j (whole) **and every later addendum
+to the file end** (§0k ×2 · §0l · §0m.0/§0m.1/§0m.2) were read for the rulings this unit consumes —
+§0j.C **KF-WRITE** is this seat's write authority and its push instruction.
+
+#### Substrate
+
+⟨`git rev-parse HEAD`⟩ at unit open → **`5083c3f8`** (`.c`'s last commit); at close → **`e325018f`**
+(KF.W5 `.e` landed on the shared `master` during this sitting). ⟨`git merge-base --is-ancestor
+7d958f21 HEAD`⟩ → **YES** throughout. Every figure below was taken at the true bytes at the moment it
+was taken, and no anchor is inherited.
+
+**Hard order 2 satisfied**: `.a`'s `da0fbc22` + `500c13fd` precede every cure commit. **Hard order 3
+satisfied**: `.b`'s façade `49cd647b` precedes both of this unit's commits. **Hard order 6 (NO REPIN)**:
+⟨`node -e "…@mkbabb/value.js/package.json').version"`⟩ → **`4.0.0`**, the installed pin, unmoved.
+
+#### THE TWO STANDING OBLIGATIONS, DISCHARGED BEFORE THE ACTS THEY CONDITION
+
+**(1) KF-AV-28 / §Carry F5 — L-6/C-4's discharge status, read BEFORE the conditional emit-half clause
+was spent.** G-W2-7's second clause is conditional: the façade publishes both halves L-6/C-4
+hand-rolled *"unless KF.W7's S-9 verdict for the timeline cluster is SWAP"*.
+
+```
+⟨awk -F'|' '/^\| KF\.W7 /{print $4}' docs/tranches/X/execution/LEDGER.md⟩ → " planned "
+```
+
+**KF.W7 has not sat; no S-9 verdict exists for the timeline cluster; L-6/C-4 is NOT DISCHARGED and the
+delegation-target obligation is LIVE at this seat's clock**, exactly as `.b` read it before spending
+the emit half at `46f0b77b`. **This unit VERIFIES the target exists rather than re-authoring it** —
+⟨`grep -n 'export function parseDeclarationBlock\|export function serializeDeclarationBlock'
+src/animation/compile/parse-facade.ts`⟩ → **`:181`, `:202`** — and the G-W2-7 arm landed below
+**consumes both halves** on all fourteen fixtures, which is what makes the clause executable rather
+than asserted. A SWAP verdict arriving later moots the obligation without invalidating the cure; the
+round-trip clause is unconditional and stands either way.
+
+**(2) The §F-2 addendum — VERIFIED, never re-written (the commit-family lock: it is `.a`'s, landed
+with the ingress census in ONE commit `500c13fd`).**
+
+```
+$ ls docs/tranches/V/apotheosis/parser-proof/ | grep -i addendum
+    GATE-VERDICT-F2-ADDENDUM-2026-09-17.md
+$ sed -n '42p' docs/tranches/V/apotheosis/parser-proof/GATE-VERDICT.md
+    swap is the cure; no known consumer feeds the crash shape (kf's 37 seams
+$ sed -n '3p' docs/tranches/V/apotheosis/parser-proof/GATE-VERDICT-F2-ADDENDUM-2026-09-17.md
+    # ADDENDUM BESIDE `GATE-VERDICT.md` §F-2 — 2026-09-17
+```
+
+**The pinned authority's `:42` is byte-unchanged and the correction lives BESIDE it** — the epoch rule
+and E-3 honoured, and this seat wrote no byte of either file.
+
+#### Acts, in order
+
+**D-0 · E13 unit-level mail sweep** (the four paths ⊕ the atlas **Q** lane, read-only, at this seat's
+own clock; classification taken from each row's **status cell**, never a bare `grep -i unread`;
+`INBOX.md` self-excluded under SELF-COUNT and **NOT touched** — it is outside this unit's writable set):
+
+```
+$ ls -t docs/tranches/V/coordination/ | head -4
+    INBOX.md (self-excluded) · value-inbox-2026-09-17-o8-o11-amendment-addendum.md (OURS, outbound)
+    · value-inbox-2026-07-27-… · value-inbox-2026-07-24-…   (both rowed)
+$ ls -dt ../glass-ui/docs/tranches/*/ | head -3      → BK/ BJ/ BI/        (BK still the newest)
+$ ls -t ../glass-ui/docs/tranches/BK/coordination/ | head -4
+    …-2026-09-17-{constellation-o20-relay, bbnf-lang-9.0.0-addendum, valuejs-o20-disposition}.md
+    = I-33 · I-34 · I-32 · …-2026-08-29-valuejs-o20-ack.md = I-30   — all four rowed
+$ ls -t ../keyframes.js/docs/tranches/V/coordination/ | head -4   → vnext/ · VALUEJS-INBOUND-* (letters WE sent)
+$ ls -t ../sci-report/atlas/docs/tranches/P/coordination/ | head -3 → unchanged since 2026-08-03, pre-rowed
+$ grep -cE '\| *UNREAD *\|' docs/tranches/V/coordination/INBOX.md   → 0
+```
+
+**0 unrowed · 0 new `I-n` minted · ZERO `UNREAD` status cells in the ledger · `INBOX.md` NOT touched.**
+I-32/I-33 were read and consumed at F.W1 unit `b` (INBOX `:167`) and I-34 is addressed to bbnf-lang;
+**E13's close condition — *no wave closes with UNREAD mail in scope* — is MET at this wave's close, by
+measurement rather than by routing.**
+
+**D-1 · G-W2-7 — the round-trip net reaches the FAÇADE. Commit `0b747396`, one file.**
+
+The corpus was driven through the ENGINE alone (`fromString` → `CSSKeyframesToString`), which reaches
+value.js's grammar only transitively: **nothing in the net NAMED the Tier-A seam**, so a seam that
+re-grew a second grammar would not have been seen there. A third suite drives the **same fourteen
+fixtures** through `compile/parse-facade.ts`, built on **the in-tree oracle precedent the spec names**
+— `scroll/grammar.ts:143` `roundTripScrollCSS`, `serialize(parse(s)) ≡ s` — generalised from the
+scroll grammar to the whole keyframe corpus. Two legs per row, both dispatched on the manifest's own
+`roundtrip` column:
+
+- **(a) REPLAY-EQUALITY AT THE SEAM** — each stop's declarations through the façade's declaration pair
+  (`parseDeclarationBlock` / `serializeDeclarationBlock`), with the `verbatim` authored tokens asserted
+  present in the façade's own emission.
+- **(b) THE ROUND TRIP READ BACK THROUGH THE SEAM** — fixture → façade → engine serialize → façade,
+  every animated value compared **stop for stop**, each stop keyed by the values the grammar already
+  parsed. **No selector text is emitted anywhere in the arm**: that serializer is MISS-β2's publication
+  decision and belongs to KF.W8, and a fourth copy of it in a test is the corruption set this wave
+  exists to stop.
+
+The seam arm also asserts what the engine arm structurally cannot: **one** `@keyframes` block comes
+back, the **stop count** is the manifest's, the **animated key set** is the manifest's, and a fixture
+declaring a per-keyframe `animation-timing-function` has it **LIFTED TYPED** onto `rule.timingFunction`
+— a regression leaving it as raw declaration text passes the key-set check and fails that one.
+
+**THE EPSILON ROW IS NOT WIDENED, AND THE MODE COLUMN IS PROVABLY UNTOUCHED.**
+
+```
+$ git log --oneline 7d958f21..HEAD -- test/fixtures/keyframes/    → (no output)   ← 0 commits
+$ git diff --stat 7d958f21 HEAD -- test/fixtures/keyframes/       → (no output)   ← 0 bytes
+$ git ls-tree --name-only HEAD test/fixtures/keyframes/ | grep -c '\.css$'  → 14
+```
+
+The mode column was **read and never edited by any seat of this wave**; the chromatic row keeps the
+engine arm's own **1e-9** tolerance. **Measured beside the landing and recorded rather than spent**: at
+the DECLARATION seam that row is in fact **byte-same**, so the declared value.js oklab handoff is
+confined to the interpolated MIDPOINT and does not touch the declaration replay. The row keeps its
+declared mode regardless — tightening it on this seat's authority would be the same act as widening it,
+performed in the flattering direction.
+
+**Falsifiability MEASURED, not asserted** (the gate's own falsifier is *"a serializer that drops a
+channel"*): with a one-line simulated channel drop applied to the replayed side only,
+
+```
+$ npx vitest run --project library test/compile/roundtrip-fidelity.test.ts   → 14 failed | 43 passed (57)
+$ <reverted>                                                                  → 57 passed (57), twice
+```
+
+**14 of 14 rows RED — the epsilon row included, on its number count.** 29 tests → **57**.
+
+**D-2 · G-W2-5 clause 3 — the fuzz corpus reaches the MALFORMED class. Commit `6941e833`, one file.**
+
+The harness's own docblock line, re-read verbatim at the current bytes before a byte was written:
+
+```
+$ sed -n '8p' test/compile/grammar-fuzz.test.ts
+ * random VALID @keyframes fragments from MODEL grammars (not raw-string fuzz),
+```
+
+That is why it could never have caught either banked class: **a model grammar emits no call with an
+empty argument list, and no character its own alphabet lacks.** Both classes land, because the spec's
+own words are that either alone leaves the class *"half-covered by construction"*:
+
+**(i) MALFORMED SYNTAX — the empty-argument colour form (R1)**, modelled over five functions × two
+colour properties, each paired with the WELL-FORMED control of the **same** function. Measured against
+the installed 4.0.0 before the assertions were written, all five:
+
+```
+$ <five empty-argument forms through kf's own fromString>
+  oklch() · rgb() · hsl() · lab() · color()   → THROW TypeError   (5 of 5)
+$ <the same five through the façade's SWALLOW posture>
+  swallowParsed(() => parseStylesheet(css), …, "fallback")  → "fallback"   (5 of 5)
+$ <the well-formed control of each, through the structural round trip>
+  oklch(0.6 0.1 200) · rgb(10, 20, 30) · hsl(200 50% 50%) · lab(50% 20 -30)
+  · color(display-p3 1 0 0)             → ok, byte-stable   (5 of 5)
+```
+
+Three arms ride those three readings: the **throw** arm is a DECLARED tripwire at the pinned 4.0.0 —
+when KF.W3's repin to `RC-P(V)` turns it into an `ok:false` the arm reds, **which is the repin's
+headline rather than a footnote nobody noticed** (the §Sequencing cross-edge's own instruction); the
+**SWALLOW** arm is the kf-side invariant that holds in EITHER direction across the repin, and it makes
+the façade's own claim executable (**ABSORB is unreachable on this class** — it absorbs refusals and
+this throws); the **control** arm proves the refusal tracks the ARGUMENT LIST and never the function
+name.
+
+**(ii) CHARACTER-CLASS INPUT DELIVERED OFF THE MODEL CHANNEL — Z3 / `KF-KC-17`'s 4×NBSP.** The payload
+is injected **INTO** the model's output at three sites (`indent` — the literal `range.insertNode` case
+— `post-colon`, and `both`), because the generator cannot reach the class by construction: that is the
+whole content of *"off the model channel"*.
+
+**THE ARM ASSERTS THE PARSE SUCCEEDS AND THE MODEL IS WHAT DIVERGED.** value.js's `/\s/` **matches**
+U+00A0 — banked as **`K-11`** ⟨kf-KeyframesAddDialog `:107`⟩ with a do-not-re-derive lock, **CITED in
+the docblock and never re-probed by this seat**. Measured over 120 model-generated declarations at
+both injection sites before the arm was written: **runs=120, bad=0** — every input parses, every
+serialized model carries **ZERO** U+00A0, every round trip is byte-stable. So the defect is the
+**BYPASSED MODEL CHANNEL** — the DOM holds characters the model never recorded, and the two disagree
+until the next remount — not *"a character the parser cannot swallow"*. The component cure stays
+CARD-UNIT's; this is the census's executable half.
+
+**Falsifiability MEASURED**: inverting the three load-bearing assertions (the throw, the SWALLOW
+containment, the model's zero-NBSP) → **3 of 3 RED**; reverted → **9 passed (9)**, twice. 5 tests → **9**.
+
+**D-3 · A pre-existing serializer duplicate, measured in an ISOLATED CLONE at the ref of record rather
+than attributed to this wave.** The façade read of the engine's emission showed the three easing
+fixtures carrying `animation-timing-function` **twice** per stop (the declaration `parsedVars` retains,
+plus the lifted `templateFrame.timingFunction` re-emitted). Rather than assume its provenance, a clean
+clone was taken at the wave's own ref:
+
+```
+$ git clone --no-hardlinks … && git checkout 7d958f21
+$ <CSSKeyframesToString over the three easing fixtures>
+  per-kf-easing.css: atfCount=2   steps-easing.css: atfCount=2   linear-easing.css: atfCount=2
+```
+
+**PRE-EXISTING, byte-identical at HEAD; this wave introduced nothing.** It is idempotent on re-parse
+(a duplicate declaration is last-wins with the same value), which is why the corpus passes today and
+passed at `7d958f21`. Recorded as a residual with its owner named, **not cured**: `emit/format/format.ts`
+is `.c`'s file under hard order 4 and the emit surface is MISS-β2's, and the G-W2-7 arm is therefore
+built on the **animated** property set with the easing channel asserted as a **typed lift** — which is
+the stronger check, not an evasion of the duplicate.
+
+#### Gate readings — BEFORE → AFTER, each double-run with identical output
+
+| gate | BEFORE (at `7d958f21`, the baseline table's reading, re-derived by this seat where a control was possible) | AFTER (at `e325018f`, this seat's own commands) | verdict at this unit |
+|---|---|---|---|
+| **G-W2-7** | 14 `.css` + `manifest.json`; **no fixture exercises a façade** — the suite named the engine and never the seam; 29 tests | the same **14 `.css` + `manifest.json`, 0 commits and 0 bytes of diff since the ref**; a third suite drives all 14 **through `parse-facade.ts`** at the manifest's declared mode, two legs each; **57 tests**, double-run identical. Simulated channel drop → **14 of 14 RED**; reverted → 57 of 57 | **GREEN.** All 14 fixtures pass through the façade at the mode they pass today; the epsilon row is neither widened nor tightened; the mode column is untouched and the conditional emit-half clause is discharged on a LIVE (not-discharged) L-6/C-4 reading, stated before it was spent |
+| **G-W2-5, clause 3** | `grammar-fuzz.test.ts:8` docblock verbatim — *"random VALID @keyframes fragments from MODEL grammars (not raw-string fuzz)"*; **0 malformed inputs**, 5 tests | the docblock line **byte-unchanged** and now cited as the reason the extension exists; **both** classes generated — malformed SYNTAX (5 forms × 2 properties, 3 arms) **and** the off-model character class (3 injection sites); **9 tests**, double-run identical. Inverted assertions → **3 of 3 RED** | **GREEN.** The malformed corpus covers SYNTAX and CHARACTER-CLASS; the character arm asserts the parse SUCCEEDS and the MODEL diverged, on K-11's cited (never re-derived) datum |
+
+#### Residuals
+
+- **R-1 · The duplicate `animation-timing-function` emission is PRE-EXISTING and UNCURED** (D-3). Owner:
+  `emit/format/format.ts` (`.c`'s file, hard order 4) and the emit surface MISS-β2 (**KF.W8**). Harmless
+  today (idempotent on re-parse); recorded so it is not rediscovered as this wave's.
+- **R-2 · `test/fixtures/keyframes/` was in this unit's writable set and NOTHING was written there.**
+  Adding a fixture would have required a manifest row and therefore a mode-column edit, which the
+  wave's own lock forbids the implementing seat; the malformed corpus is generated, not filed. The
+  writable path is declared used-and-unwritten rather than left ambiguous.
+- **R-3 · The `test/` LAW-A census (A-5) is UNMOVED at 10.** ⟨`git grep -l 'from "@mkbabb/value.js/css"'
+  HEAD -- test/ \| wc -l`⟩ → **10**. Both of this unit's files import the **façade**, never the package:
+  a test that reached the package directly to test the façade would have moved a frozen number for
+  nothing, which is the defect `.b` cured at `36b4615a` and this seat did not re-open.
+- **R-4 · No LEDGER cell of another wave was touched**; only KF.W2's own row and one appended event line.
+- **NOT PERFORMED, and why**: no `INBOX.md` edit (outside the writable set, and 0 unrowed); no spec byte
+  (E-3 — the spec, the registries, the §F-2 addendum and every prior receipt are immutable to this seat);
+  no `scripts/dev/dev.sh`; no amend, no stash, no reset, no force.
+
+#### Commits
+
+| hash | contents |
+|---|---|
+| **`0b747396`** | `test/compile/roundtrip-fidelity.test.ts` — the façade arm over all 14 fixtures (G-W2-7). 1 file |
+| **`6941e833`** | `test/compile/grammar-fuzz.test.ts` — the malformed corpus, both classes (G-W2-5 clause 3). 1 file |
+| *(this section + the close)* | `docs/tranches/X/execution/B/KF-W2.md`, `docs/tranches/X/execution/LEDGER.md` — pathspec, per meaning |
+
+**Hygiene**: both commits carry their own pathspec **on the commit itself** and were verified by
+`git show --stat` to contain **exactly one declared file each** — **0 sibling files swept in** across
+four concurrent seats on one index. `scripts/dev/dev.sh` appears in **0 of 2**. No `git add -A`/`-u`,
+no `commit -a`, no reset, no stash, no amend, no force. The measurement instruments were kept **inside
+this unit's own writable file** and reverted from a saved copy at each step, so **no transient probe
+file was ever created in the shared tree** ⟨`git status --porcelain`⟩ → the two untracked KF.W1 mail
+packets only, exactly as at wave open.
+
+---
+
+## Close — the nine clauses re-run at the close seat's own clock (`.d`, 2026-09-17)
+
+**Every command below was run by this seat, twice, with identical output. Nothing is inherited from
+the baseline table, from a unit receipt, or from the spec's prose.** Substrate: keyframes.js
+`e325018f` (HEAD ≡ `origin/master` after this wave's push; `7d958f21`, the wave's declared ref, an
+ancestor), value.js at the current tree bytes, `@mkbabb/value.js` **4.0.0** installed — **NO REPIN**
+(OP-5), so every reading describes the measured artifact the spec names.
+
+| # | clause | baseline at `7d958f21` | AT THIS SEAT'S CLOCK | verdict |
+|---|---|---|---|---|
+| 1 | **G-W2-1** posture registry | `ls …/keyframes/registries/` → **No such file or directory**; 0-of-N enumerated | `ls` → `INGRESS-CENSUS.md POSTURES.md`; §1 floor rows → **20**; corpus ⟨`ls …/registry/adjudicated/kf-*.md \| wc -l`⟩ → **58**; **site limb**: ⟨`git grep -nE '\.ok\b' HEAD -- src/ \| grep -v parse-facade`⟩ → **(no output)** — **ZERO parse-failure branches anywhere in `src/` outside the façade** | **GREEN** (enumeration + site) |
+| 2 | **G-W2-2** Tier-A single entry | 25 runtime specifiers over 13 modules, **10** of them the parse surface; 21 call sites; no `parse-facade.ts` | **20 runtime specifiers over 5 modules** — `parse-facade.ts` ×15 · **`engine/css/metadata.ts` ×2** · `emit/css-text.ts` ×1 + `frame/interp-slot.ts` ×1 (the emit half, out of denominator by the gate's own words) · `resolve/function.ts` ×1 (the declared stray). **Parse-surface paths 10 → 2** | **HONEST-RED on exactly one module** — `engine/css/metadata.ts` is **not in §Bounds' Owned files**; the ESCALATION `.b` returned stands, un-widened |
+| 3 | **G-W2-2b** (MONITOR) | 7 files · 6 runtime modules · 8 runtime specifiers under `demo/` | **7 · 6 · 8**, module-for-module identical; `test/` **10** (census A-5 unmoved), `scripts/` **0** | **TRUE — the monitor holds.** This wave opened no demo call site |
+| 4 | **G-W2-3** Tier-C deletion | comment-stripped scan over the five files at `7d958f21` → **6 SURVIVES of 6** (re-derived by this seat in an isolated clone, not inherited) | the same scan at HEAD → **0 SURVIVES of 6**, twice | **GREEN**, with a real before/after control |
+| 5 | **G-W2-4** cssom injection cure | `new RegExp(` in `cssom.ts` CODE (comments stripped) → **1** (re-derived at `7d958f21`) | → **0**, twice; `test/ingest/keyframes-name-escapes.test.ts` → **17 passed (17)** | **GREEN** on both clauses the wave owns; `.c`'s RED-BY-PRODUCER residual (value.js 4.0.0 refuses an escaped ident in the declaration-VALUE position) stands **routed to X·V**, pinned by the fixture's clause (c) |
+| 6 | **G-W2-5** R1 census + §F-2 + the malformed corpus | `GATE-VERDICT.md:42` returns the phrase; **no addendum file**; fuzz docblock generates VALID fragments only | `:42` **byte-unchanged** (E-3); `GATE-VERDICT-F2-ADDENDUM-2026-09-17.md` present BESIDE it; `INGRESS-CENSUS.md` published; the fuzz corpus reaches **both** malformed classes, **9 passed (9)** twice, inverted assertions **3 of 3 RED** | **GREEN** — clauses 1–2 (`.a`), clause 3 (`.d`) |
+| 7 | **G-W2-6** entry-point contract | the contract does not exist (**0-of-1**) | `test/compile/valuejs-contract.test.ts` **16 tests / 6 clauses** green; freeze invariant re-measured ⟨`git grep -c 'isFrozen\|Object.freeze' HEAD -- src/`⟩ → `interp-slot 1 · browser 4 · conditional 9 · core 6 · function 3` = **23 LINES over 5 modules**; the pin still **`:43` `:67` `:84`** (three assertions) | **CONTRACT CLAUSE GREEN.** The call-site limb is **KFED-UNIT's** by the gate's own restriction — this wave opens no call site |
+| 8 | **G-W2-7** round-trip net | 14 `.css` + `manifest.json`; no fixture exercises a façade; 29 tests | all **14** through the façade at the manifest's declared mode; **57 passed (57)** twice; fixtures dir **0 commits / 0 bytes** changed since the ref; simulated channel drop → **14 of 14 RED** | **GREEN** |
+| 9 | **G-W2-8** serializer publication | 3 copies, 0 exported | copies re-verified at HEAD: `emit/format/format.ts:20` (private) · `emit/css-text.ts:59` (private) · `demo/utils/keyframeSelector.ts:7` (exported); ⟨`grep -cE 'selectorText\|serializeSelector' src/animation/compile/emit/index.ts`⟩ → **0**. Order re-measured: ⟨`awk … LEDGER`⟩ **KF.W8 = `planned`** — it has **NOT** preceded | **FAÇADE-SIDE CONTRACT CLAUSE GREEN · COUNT ARM RED AND HOMED** at `KF-W8 §Rows · MISS-β2 (unit d · G3)`, which is where the spec itself homes it |
+
+**READ PLAINLY: 7 of the 8 gates GREEN · 1 HONEST-RED on one out-of-bounds module · the declared
+MONITOR TRUE · 0 undeclared GREEN and 0 gate claimed on another seat's measurement.**
+
+### Tree health at the close (double-run, whole project)
+
+```
+$ npx vitest run --project library    → 1256 passed | 3 expected fail | 14 skipped (1273)   [twice, identical]
+$ npx tsc --noEmit -p tsconfig.lib.json → 3 errors: group/composite/compositor.ts:79 ·
+                                          group/waapi.ts:9 · physics/smooth.ts:194   — ALL pre-existing
+$ npx tsc --noEmit -p tsconfig.test.json → 24 errors — the pre-existing count; **0 in either `.d` file**
+$ npm run proof:structure              → PASS: scope=src clean (0 violations across R1–R6)
+$ npx depcruise --config … src demo    → 4 violations / 435 modules — identical to `.b`'s reading; 0 new
+```
+
+**The suite grew 1211 → 1256 across `.c`'s close and this unit's two landings (+45: 28 façade rows,
+4 malformed arms and the siblings' own); zero regressions, zero skips added, zero `.skip`, zero
+allowlist entry, zero `try/catch` around a defect.**
+
+### The push (COHESION §0j.C **KF-WRITE**: *"every wave pushing `origin HEAD` at close"*)
+
+```
+$ git fetch origin && git log --oneline origin/master..HEAD | wc -l   → 35
+$ git push origin HEAD                                                 → 7d958f21..e325018f  HEAD -> master
+$ git rev-parse HEAD origin/master   → e325018f… / e325018f…   (identical)
+$ <merge-base --is-ancestor, each of this wave's 13 kf commits vs origin/master>  → 13 of 13 ON origin/master
+```
+
+**All thirteen of this wave's keyframes.js commits are published.** The push necessarily carried **22
+sibling commits** already resident on the shared `master` (KF.W5's band and the KF.W4 repair) — a
+branch cannot be pushed in parts, and the ruling's instruction is `origin HEAD`. **This seat authored
+none of those 22 and claims none of them**; they are named here so the range is not read as this
+wave's. The wave's own two `.d` commits are `0b747396` and `6941e833`.
+
+### The wave's goal criterion, measured against its own words
+
+*"exactly one module in `src/animation/**` that speaks to value.js's grammar"* — **two paths carry a
+runtime grammar/collector edge**: `parse-facade.ts` (15 specifiers, the whole surface) and
+`engine/css/metadata.ts` (2 collectors), the second **outside §Bounds** and returned as an escalation
+rather than written into. *"exactly one declared thing that happens when a CSS string is bad"* —
+**MET**: four named postures, **zero** `result.ok` branches anywhere in `src/` outside the façade,
+and a registry of **20** enumerated over **58** records. *"one published answer to which grammar
+belongs at this seam"* — **MET**: the contract exists, is executable at 16 tests, and now has a
+round-trip net and a malformed corpus behind it. *"A wave that adds a wrapper and leaves the twenty-one
+call sites and the nineteen enumerated postures standing has failed this goal"* — **19 of 21 call
+sites routed; 20 postures enumerated; the 2 that stand are one module the spec's own §Bounds omits.**
+
+### The ONE thing the next seat must not re-discover
+
+**`src/animation/engine/css/metadata.ts` needs a dated §Bounds addendum-beside naming the path** (E-3;
+never a seat's own widening). The cure is one import-line repoint of two collector symbols plus their
+two call sites — bounded, mechanical, and the last thing between G-W2-2 and green. Everything else in
+this wave is landed, measured and pushed.
