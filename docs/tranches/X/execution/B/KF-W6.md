@@ -1701,3 +1701,136 @@ The `.f` seat committed twenty times and wrote no receipt. Reconstructed from th
 **Self-count**: keyframes.js commits this seat — **6**: `0bd0215b` · `f2fe9a73` · `86612f22` · `c2ec05ce` · `e3884bc5` · `41a7ebb6` (every one by pathspec on the commit itself, session trailer in the `-m` chain, `--no-verify`); kf `master` **`7152e2a0` → `41a7ebb6`**, then **pushed** at close per COHESION §0m.1 (receipt below). No `git stash`, no reset, no amend. No file outside the writable set written. No new `proof:*` mark. Status: **PARTIAL (`complete_with_misses`) — IMPLEMENTED; VERIFIED not stamped** (this seat authored bytes; the fresh L-20 pass is seat 0's).
 
 **Push receipt (§0m.1 — the wave pushes at close)** ⟨cmd⟩ `git -C ../keyframes.js push origin HEAD` → `3cc7e126..41a7ebb6  HEAD -> master`; after: `master` = `origin/master` = **`41a7ebb6`** (the 93 inherited unpushed commits + this seat's 6 = 99, all on `origin/master` now).
+
+---
+
+## Close
+
+SERVED MODEL: claude-opus-5[1m]
+**The CLOSE SEAT — VERIFY-ONLY.** Track B · X·KF · 2026-09-18 (17:2x–18:0x EDT) · session `session_01QkbQV4VgkoQgSoUj2oKZim`. This seat **authored no cure byte** and holds only `docs/tranches/X/execution/B/KF-W6.md` and `docs/tranches/X/execution/LEDGER.md`. It is a seat distinct from `.l`: `.l` was the closing *measurement* seat and wrote cure bytes; this seat re-measures `.l`'s product from the outside and records where it disagrees. Substrate at open: keyframes.js `master` = `origin/master` = **`41a7ebb6`**, **0 unpushed**; value.js `tranche-u` = `origin/tranche-u` = **`4a2d4900`**, **0 unpushed**.
+
+**CRASH-RECOVERY sweep, run before any other act** ⟨cmd⟩ `git status --porcelain` in both repos. value.js: 12 tracked modifications — **none in this seat's writable set** (`demo/palettes/**` ×7, `demo/picker/…/ConsoleRail.vue`, `demo/shell/dock/layers/SlugEditLayer.vue`, `docs/tranches/V/reformation/CARRY-LEDGER.md`, `scripts/dev/dev.sh` — the unowned standing-dirty path, **never touched**) plus 3 untracked paths, all sibling-seat property. keyframes.js: **0 tracked modifications**; 2 untracked July-dated letters under `docs/tranches/V/coordination/` (sibling mail, never touched). **Nothing inherited on this unit; nothing stashed, nothing restored.**
+
+**Probe parsimony (§5.2)**: zero browser tooling. Every figure below is a `git grep`/`git show` at `HEAD`, a `vue-tsc`/`vitest`/`vite build` run, or a `shasum`. The wave's own gate script was not reused — this seat wrote its own (`scratchpad/close-gates.sh`) and **double-ran it** ⟨cmd⟩ `diff run1.txt run2.txt` → **identical**.
+
+### §1 · ACT (1) — every unit's commits exist, and touch only that unit's writable set
+
+**Window**: kf `ae83da07..41a7ebb6` = **135 commits**, of which **19** carry `X.KF.W7` (the sibling wave, excluded by subject) and **116** are KF.W6's.
+
+**UNION bounds** ⟨cmd⟩ the 80-path §File-Bounds union of `.a`…`.l` written to `scratchpad/union.txt`; every one of the 116 commits' `git show --format= --name-only` compared against it → **0 out-of-union paths**.
+
+**PER-UNIT bounds** ⟨cmd⟩ `node scratchpad/bounds.mjs` — each commit attributed by its subject tag (`.l`'s six by the record's own Self-count; the untagged remainder to `.i`, whose receipt claims exactly sixteen kf commit families) and checked against **that unit's** §Bounds row → **0 out-of-unit paths**. Distribution: `.a` **1** · `.c` **7** · `.d` **10** · `.e` **14** · `.f` **20** · `.g` **7** · `.h` **9** · `.i` **16** · `.j` **8** · `.k` **18** · `.l` **6** = **116**. `.b` made **0** keyframes.js commits (its grant is value.js + the glass-ui mail mirror only) — consistent with its receipt.
+
+**value.js side**: the wave's 17 value.js commits touch exactly four paths and no others ⟨cmd⟩ `git log --since=2026-09-17 … | git show --name-only | sort -u` → `docs/tranches/V/coordination/INBOX.md` · `docs/tranches/X/execution/B/KF-W6.md` · `docs/tranches/X/execution/LEDGER.md` · `docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md`. **`scripts/dev/dev.sh` appears in 0 commits of the window.**
+
+**E-3 held** ⟨cmd⟩ `git log --since=2026-09-17 -- docs/tranches/X/keyframes/waves/KF-W6.md docs/tranches/X/registry docs/tranches/X/keyframes/conformance` → **empty**. The dated spec, the adjudicated registry and every conformance artifact are untouched by this wave.
+
+**COMMIT FAMILIES that the spec declares must not split — each verified ONE commit**:
+
+| family | commit | limbs, from `--stat` |
+|---|---|---|
+| **R4-1 EditorHeader atomic (G-W6-15)** | `4b909ed2` | `EditorHeader.vue` −108 · `shell/index.ts` −1 · `layout.css` −1 — **3 files, 110 deletions, one act** |
+| **R3-1.2 shim + repoint (G-W6-3)** | `8e7a6ff8` | `composables/useAnimationGroupPlayback.ts` −1 · `no-shadow-playback-authority.test.ts` ±1 — **2 files, one act** |
+| **S-1 delete family (G-W6-2)** | `46b0d1c7` | 15 files, −597/+123: the strip, both skins, `useTabStripScroll`, the `transport/index.ts` edge, `font-roles.json`'s rows, `tab-idiom.css`'s corpse, the 4-ancestor `extraTabs` chain — **one act** |
+| **MISSED-3 same-commit law (G-W6-8)** | `6edee007` | the swap and its replacement bound are **one attribute**: `-  class="font-mono text-admin-label text-muted-foreground max-h-24 …"` / `+  class="text-mono-small text-muted-foreground max-h-[12.6em] …"` |
+| **MM-29 pairing (G-W6-8)** | `3cc7e126` | `normal-case` and `tracking-normal` arrive on the same attribute in the MbabbMenu motion |
+
+**Sequencing, verified by clock rather than by claim**: `.b`'s relay `f90dbc97` precedes every interim (§Sequencing 7); `.i`'s discharge lists were committed at **15:11:17** and its first cure at **15:14:16** (§Sequencing 8's gate condition on G-W6-9 — **stated before spent**).
+
+**MASKING SCAN over the whole kf diff** ⟨cmd⟩ `git diff ae83da07..41a7ebb6 -- demo/ test/ scripts/ | grep '^+' | grep -E 'test\.skip|\.only\(|@ts-ignore|eslint-disable|continue-on-error|allowlist'` → **2 hits, both prose forbidding the thing** (*"no allowlist selector could reach"*, *"no `test.skip` stands in for a cure"*). **9 added `try`/`catch` lines, every one fail-closed and read at the bytes**: the reformat rejection leaves the draft byte-for-byte and reports the cause; the share latch is a `finally` release; the submit path surfaces the message; `parseDeclarationBlock` converts the façade's R1 throw into a typed `{ok:false}` the surface renders — **none wraps a defect**. `node_modules` touched in **0** commits; `glass-ui/dist/` deep imports at HEAD → **0**; new `proof:*` marks → **0**.
+
+### §2 · ACT (2) — all fifteen gates re-run by this seat, double-run at `41a7ebb6`
+
+`grep -oE '\*\*G-W6-[0-9]+\*\*' KF-W6.md | sort -u | wc -l` → **15** (the roster is the id set; `G-W6-14` is the last ROW, not the last id).
+
+| gate | BEFORE (kf `ae83da07`, wave-open) | AFTER — this seat's own readings | verdict |
+|---|---|---|---|
+| **G-W6-1** | RED | `--dock-margin` **1 def / 10 reads** · `--shadow-glass` **0 defs / 0 reads** · `var(--dock-label-padding-inline)` **0** | **GREEN** |
+| **G-W6-2** | RED | `KfPillTabs` under `demo/` → **2**, both prose (`SpringScene.vue:22` · `useSpringDemo.ts:61`) · `KfPillTabs.vue` **absent** · `filing-tab` in `font-roles.json` **0** · the 7-case gate **MIGRATED not deleted**: `test/demo/instrument/KfPillTabs.test.ts` drives `useSelectionGroup` on the **published `./motion-core`** subpath (no private-dist deep import), **9 cases**, green inside 233/233 | **honest-RED, distance 2** |
+| **G-W6-3** | RED | all four shims/barrels **absent** · `transport/composables/useAnimationGroupPlayback` specifiers **0** · `:21` imports `…/transport/AnimationControlsGroup/useAnimationGroupPlayback` (the real module) and the suite **collects** | **GREEN** |
+| **G-W6-4** | RED | `btn-interactive` **0** in source **and 0 in the built sheet** · `tap-floor` **2** hits, both disposition prose, **0** in the built sheet · `proof-phantom-classes` **0** | **GREEN** |
+| **G-W6-5** | RED | `--color-gold` 6 hits **all prose** (0 defs, 0 live `var()`) · demo `.text-gold` rule **0** · `--scale-hover` **0** · demo `.focus-ring` rule **0** · `--rainbow-*` **7 defs** = RETAINED-BY-POLICY in `.e`'s disposition table (**26 rows** in this record) | **GREEN** |
+| **G-W6-6** | RED | `.kf-focus-ring` **12** hosts · forced-colors arms **4** · built sheet carries `.kf-focus-ring` **×2** · `field-control` **9** refs, never erased · **bare `focus-ring` class hosts: 2** | **GREEN-WITH-RESIDUALS** |
+| **G-W6-7** | RED | `touch-hit-area` **0** · `KF-SST-30` cited **×1** · `44px` **5** hits, **none a house-practice cite**: 2 name the retired class as dead, 1 names the demo's own written floor, and `SequenceTarget.css:135-140` **is** that floor (`width: 44px`, S.G3 S4, drag-axis) | **GREEN** |
+| **G-W6-8** | RED | `max-h-24` **0** in source **and 0 in the built sheet** · `normal-case` **3** hits: **1 live** (`MbabbMenu.vue:14`) paired with `tracking-normal` **on the same attribute**, 2 comment lines · `tracking-normal` **1**, same element · **UNPAIRED 0** | **GREEN** |
+| **G-W6-9** | RED | `Textarea` **1 mount** + `./forms` import · **`NumberField` 1 REAL ROOT MOUNT** (`LayerConfigPanel.vue:56`, `./number-field` import, with `NumberFieldContent/Decrement/Input/Increment`) · `FadingScroll` **3 mounts / 2 subpath imports** · `Card` **30 mounts** · **`ToggleGroup` 2 mounts** (`EasingTarget.vue:54`,`:116`; import `:177`) · glass `Skeleton` subpath **0** (declined in writing) · `./canvas` **2 imports** · `shape="cell"` **1** = the SPF-10 retirement prose | **GREEN** |
+| **G-W6-10** | RED | `SpringSidebar` **5 sites / 4 files**, `ls-tree` → **0** such file · `ONE WRITER` **4 / 2** · `AnimationControls.vue` **4**, every one self-describing-as-phantom · `glass-ui 4.x` **7 sites / 6 files** · `CONDITIONAL_SURFACES` **5**, every one self-describing-as-deleted · `tab-idiom.css` header true · `transitions.css` cite corrected | **honest-RED** |
+| **G-W6-11** | RED | clause 1 **cured**: `.fillStyle =` **4 assignment sites** (2 through `resolveCanvasColor`, 1 gradient object, 1 baked ramp) · `resolveCanvasColor` subpath imports **2** · `onFlipSettled` **3** · the cube's 4 face + 2 axis `light-dark()` arms ship (`--face-3:var(--lightningcss-light,#33fc)var(--lightningcss-dark,#00fc)`, `--axis-y:…#369636…#40b040`). clause 2 **open**: `demo/scenes/amiga/useAmigaThree.ts` **7 colour literals**, `onFlipSettled` under `demo/scenes/amiga/` **0** | **honest-RED, distance 1** |
+| **G-W6-12** | RED | `light: ?true` **0** · `'eager'` **0** · `--aurora-opacity-ceiling` **4** refs · `opacityCeiling` **2**. RED on the **installed-vs-published substrate** (I-35 §0/§4(1)), not on a demo defect | **honest-RED, distance 1** |
+| **G-W6-13** | RED | **126** distinct unprefixed demo custom-property definitions at this seat's own pattern · `--kf-*` **0** · product = `.e`'s disposition table, **no blanket rename** | **GREEN** |
+| **G-W6-14** | RED | communiqué present at `docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md` · mirror at `../glass-ui/docs/tranches/BK/coordination/valuejs-outbound-2026-09-18-kfw6-bh-relay.md` — **sha256 `ab8d87eb…` on BOTH, byte-identical** · the reply is I-35 | **GREEN** |
+| **G-W6-15** | RED | `EditorHeader` over `demo/ test/ src/` → **0** · `header-items-max-w` → **0** · barrel = **exactly** `{EditorShell, EditorStartScreen, SharePopover}` · three limbs in ONE commit `4b909ed2` | **GREEN** |
+
+**TALLY: 11 GREEN (one with residuals) · 4 honest-RED · 0 masked · 0 GREEN-over-a-convicted-figure.** This reproduces `.l`'s tally exactly; **three of its cells do not reproduce** and are recorded at §4.
+
+### §3 · ACT (3) — §Verification Artefacts
+
+**The spec declares no `§Verification Artefacts` and no `§Hard Gate`** ⟨cmd⟩ `grep -n '^## §' KF-W6.md` → `§Bounds` · `§Carry` · `§Gates` · `§Sequencing` · `§Excluded` only. The verification of record is therefore the gate table above plus the wave's standing instruments, **each double-run by this seat at `41a7ebb6`**:
+
+- `npx vue-tsc --noEmit -p tsconfig.json` → **54 errors** · **54 errors** (identical), **51 in `demo/` · 3 in `src/`** — the KF.W4 born-RED set; **zero introduced by this wave**.
+- `npx vitest run --project demo` → **35 files / 233 tests passed** · **35 / 233** (identical).
+- `npx vite build --mode gh-pages` ×2 into two clean scratch trees → `✓ built` both; **the whole output tree is byte-identical** ⟨cmd⟩ `find . -type f | sort | xargs shasum -a 256 | shasum -a 256` → `d2a18ac1…` on both. Index sheet **568,454 B**, `index-Dq8v8DBI.css` both runs.
+- **Built-sheet witnesses** (the only place a Tailwind-scanned comment can resurrect a class): `btn-interactive` **0** · `tap-floor` **0** · `max-h-24` **0** · `kf-focus-ring` **2** · `kf-text-entry` **1** · `demo-typography` **1** block carrying `.text-caption{font-style:normal}` **after** the utility it cancels.
+
+### §4 · LANDED-WRONG — three findings, all in `.l`'s receipt, none in the code
+
+None of these moves a gate verdict. All three move the **routing** of residue, which is why the close names them rather than silently re-measuring.
+
+1. **`G-W6-9`'s `NumberField` cell is FALSE.** `.l` §Act 3 reads *"`NumberField` 17 hits all prose (K-9's evaluation, no mount)"*. Measured here: **`LayerConfigPanel.vue:56` is a live `<NumberField` root mount** with the `@mkbabb/glass-ui/number-field` subpath import and five imported members — landed by `.i`'s `3e6f9093` (*"LP-8≡KF-CO-35 EVALUATED — glass NumberField ADOPTED"*), and stated correctly in `.i`'s own receipt (*"NumberField 0→1 root"*). The close seat's cell contradicts the unit receipt it was summarising. **The gate is GREEN either way** — a consumed surface is the stronger reading — but the ledger of what glass the demo now mounts was wrong by one surface.
+2. **`G-W6-10`'s residue is mis-attributed as out-of-set.** `.l` writes *"16 comment sites in 13 files **outside every unit's writable set**"*. Measured against the §Bounds rows: **8 of those sites, in 6 files, are INSIDE some unit's grant** — `KeyframesEditor.vue:5,:8,:253,:254` (`.e`/`.f`/`.i`/`.j`) · `SpringHeatmap.vue:76` (`.g`/`.h`/`.j`) · `ChromeDock.vue:463` (`.c`/`.d`) · `ControlsPaneWrapper.vue:7` (`.c`/`.e`/`.k`) · `PlaybackRibbon.vue:219` (`.e`) · `EasingSidebar.vue:18` (`.g`). Genuinely out of every set: `useSpringHotPath.ts:27` · `useSpringLinearStops.ts:9` · `useSceneMachineRouterBinding.ts:10,:86` · `useSelectedControlSurface.ts:42,:88` · `useKeyframesPaneReveal.ts:38` · `controlSurfaces.ts:125` · `TimingFunctionPanel.vue:26`. **From `.l`'s OWN grant the statement is true** (none of the six is in `.l`'s ten-path row); as written about *every* unit it is false. Consequence: **half the G-W6-10 residue is this formation's to finish, not the owner's.**
+3. **`G-W6-2`'s and `G-W6-6`'s residuals are likewise mis-attributed.** `G-W6-2`: `SpringScene.vue:22` is in `.e`/`.g`/`.k`'s sets (only `useSpringDemo.ts:61` is out). `G-W6-6`: of the two bare `focus-ring` class hosts, **`SquareScene.vue:46` is in `.e`'s writable set** — an in-bounds miss, not the "out-of-bounds residual" the receipt calls it; `SpringTarget.vue:63` is genuinely out of every set. Minor arithmetic beside them, recorded for the record's accuracy and not as defects: `.l` prints the `fillStyle` sites as *"3 assignments"* while listing four, and `G-W6-13`'s *"96 distinct"* is a narrower pattern than this seat's **126** — the verdict is the disposition table either way, and neither figure is load-bearing.
+
+**No landed-wrong finding in the product code.** Bounds: clean at both the union and the per-unit level. Families: intact. Masking: none.
+
+### §5 · ACT (4) — E13 close sweep, read-only, 17:5x EDT
+
+Four paths swept at this seat's own clock, classification from each row's **Status cell**, `INBOX.md` self-excluded (SELF-COUNT law): (1) `docs/tranches/V/coordination/` · (2) the value.js repo root's inbound letters · (3) `../keyframes.js/docs/tranches/V/coordination/` · (4) `../glass-ui/docs/tranches/BK/coordination/`. **0 unrowed · 0 new `I-n` · 0 UNREAD in scope** — `I-35` is the tail and reads **READ + CONSUMED WHOLE** (consumed by `.l` at the producer's COMMITTED bytes, `42,776 B` / `1835cfa6…`, re-verified here ⟨cmd⟩ `git -C ../glass-ui show HEAD:<path> | shasum -a 256` → `1835cfa6…`). **No wave closes with UNREAD mail in scope; this one does not.**
+
+**One observation the sweep surfaced, recorded and routed rather than consumed**: the producer's O-26 reply is **DIRTY in glass-ui's working tree** — `43,967 B` / `fe75887c…` on disk against `1835cfa6…` at glass `HEAD`, `+15/−2`. The diff is two dated `[2026-09-18 · re-ruled after lane M: …]` brackets, both about the **8.0.0/9.0.0 bump and not about the installed 7.0.0**: (a) the touch-seat geometry is *host-is-seat* (`.control-bit` sized to `max(--touch-target, face)`), with the producer's own conclusion *"your conclusion is unchanged and so is ours — the exposure is nil"*; (b) the `Surface` recipe at 8.0.0 is `<Surface tier="floating" surface="glass">` — `material` and `specular` were **deleted at 8.0.0**, so the recipe R-11/W6-L would have typed is corrected. **Uncommitted producer bytes are not sent mail**; nothing at 7.0.0 moves, no KF.W6 cure changes, glass-ui was read and never written. **Routed to seat 0 with I-35 §4(1)** — it lands with the re-install, not before.
+
+### §6 · Commit roster
+
+| unit | kf commits | value.js receipt | product |
+|---|---|---|---|
+| `.a` | **1** | `011075a9` | the KF.W4∥KF.W6 atomic bundle discharged; census A-11(4) measured |
+| `.b` | **0** (grant is value.js + the mail mirror) | `f90dbc97` · `58d6f731` | **G-W6-14 GREEN** — the ONE BH relay at its path, mirrored byte-identical; the eleven phase-1 rulings |
+| `.c` | **7** | `d23a0371` | **G-W6-3 GREEN**, G-W6-2 honest-RED d2; the S-1 delete family whole; the 7-case gate migrated |
+| `.d` | **10** | `9c563069` | **G-W6-15 GREEN** on every clause; R4-1 atomic; the EH rows spent at their own anchors |
+| `.e` | **14** | `b8d9ed55` | **G-W6-1 · -4 · -5 · -13 GREEN**; the disposition table; the 8-site sweep whole; the z-contract recut |
+| `.f` | **20** | *(absent — reconstructed by `.l` Act 4)* | **G-W6-6 GREEN-WITH-RESIDUALS · G-W6-7 GREEN** |
+| `.g` | **7** | `1a7e1485` | the ONE canvas discipline; G-W6-11 honest-RED d1; four W6-H rows escalated |
+| `.h` | **9** | `e2925973` | **G-W6-8 RED→GREEN**; one register per role |
+| `.i` | **16** | `e0c07310` · `862bd2e1` | **G-W6-9 RED→GREEN**; discharge lists stated before spend |
+| `.j` | **8** | `ccea7fb0` | the ONE aurora config motion; G-W6-12 honest-RED d1 on substrate |
+| `.k` | **18** | `0e07de05` | W6-M + W6-N; the propagation lock both ends |
+| `.l` | **6** | `609b9ae1` | the fifteen-gate double-run; the cube theme packet; W6-C at the bytes; `.f` reconstructed; I-35 consumed |
+
+**Totals: 116 keyframes.js commits `ae83da07 → 41a7ebb6` · 17 value.js commits + this close.** Seat-0 dispatch records: `baa0fe97` (OPEN) · `0c0b358b` · `b1cee4f6` (RESUMEs) · `4a2d4900` (the `.l` ledger row).
+
+### §7 · Residuals, with named owners
+
+**In-bounds — this formation's, not the owner's** (the correction §4.2/§4.3 produces):
+1. **G-W6-10's in-set half — 8 comment sites / 6 files** reachable at `.c`/`.d`/`.e`/`.f`/`.g`/`.h`/`.i`/`.j`/`.k`'s grants: `KeyframesEditor.vue:5,:8,:253,:254` · `SpringHeatmap.vue:76` · `ChromeDock.vue:463` · `ControlsPaneWrapper.vue:7` · `PlaybackRibbon.vue:219` · `EasingSidebar.vue:18` → **KF.W6 successor sitting (seat 0 to dispatch), not the owner.**
+2. **`SquareScene.vue:46`'s bare `focus-ring`** — in `.e`'s set, left on the producer's selector → **same sitting.**
+3. **`SpringScene.vue:22`'s `KfPillTabs` prose** — in `.e`/`.g`/`.k`'s sets → **same sitting.**
+
+**Out of every unit's set — owner/seat-0 routed** (carried from the unit receipts, re-verified here):
+4. **G-W6-11 clause 2** — `demo/scenes/amiga/useAmigaThree.ts` (7 literals, 0 re-bake), granted to no unit → **seat 0**, E-3 addendum beside the spec.
+5. **I-35 §4(1)** — registry re-install and the re-take of every banked byte figure; `R-11`'s `#anchor` adoption (`.d`) and the producer's uncommitted `Surface`-recipe correction decide with it → **seat 0 / KF.W0**.
+6. **`CubeTarget #8`** — one both-arms-dark material-register member (`design-idioms.css` + `DESIGN.md §2`), producer-unblocked by I-35 R-15 → **seat 0**.
+7. **G-W6-10's out-of-set half — 8 sites / 7 files**: `useSpringHotPath.ts:27` · `useSpringLinearStops.ts:9` · `useSceneMachineRouterBinding.ts:10,:86` · `useSelectedControlSurface.ts:42,:88` · `useKeyframesPaneReveal.ts:38` · `controlSurfaces.ts:125` · `TimingFunctionPanel.vue:26` → **owner**.
+8. **`useSpringDemo.ts:61`** (G-W6-2's second site) and **`SpringTarget.vue:63`** (G-W6-6's second host) → **owner**.
+9. `CubeTarget.vue:152-167` / `CubeAxisLines.vue:43-51` "DECLARED, NOT CURED" notes, stale since `0bd0215b` → **the cube packet's next touch**.
+10. `LayerConfigPanel.vue:3-4` (KF-CO-37) · KF-CO-33's hygiene body and the 729 L R3 breach → **OPTIONS-UNIT (KF.W12)**.
+11. Rendered witnesses for `#9`/`#58`, the aurora presence number, the contrast composites, the iOS zoom hardware witnesses → **KF.W9 / SS-13**. `G-KFW9-6` and `KAD-11` stay **split, neither end closed alone**.
+12. Owner-gated questions still open: `KF-HA-2`/`KF-HA-10`'s wordings (the drift register's blessing, held against W9's frame cost), `C-14`, and the `KF-EST-8` hero leading departure `.h` wrote for re-blessing.
+
+### §8 · Escalations
+
+**None new from this seat.** The four carried escalations are `G-W6-11` clause 2 (the amiga §Bounds gap), `I-35 §4(1)` (the registry re-install, a substrate act no unit may take), `CubeTarget #8`'s register member, and `SquareScene D-18`'s §Bounds partition — all already routed to seat 0 by `.g`, `.l` and `.j`. This close adds **one routing correction**, not an escalation: residuals 1–3 above were routed to the owner on a false out-of-set premise and are returned to the formation.
+
+### §9 · The four-verb line
+
+**The spec designates no seat to stamp VERIFIED** — it carries no `§State` section and no verification-artefact clause ⟨cmd⟩ `grep -n '^## §' KF-W6.md`. Under the standing rule (*VERIFIED only if the spec designates this wave's own seat to stamp it*) this wave moves to **IMPLEMENTED and no further**. The wave is **PARTIAL — IMPLEMENTED with carried REDs**: every born-RED gate that a cure could reach inside §Bounds is GREEN; the four that remain are **honest-RED**, each with its distance measured and its cause named (out-of-set prose ×2, a §Bounds grant gap, and a producer substrate finding) — **none masked, none conceded, none green over a convicted figure.** The fresh adversarial L-20 pass that would stamp VERIFIED is seat 0's and has not run.
+
+**Self-count (this seat)**: keyframes.js commits **0** — VERIFY-ONLY, not one product byte. value.js commits **1**, by pathspec on the commit itself: this `## Close` and the `KF.W6` LEDGER row. Files written: **2**, both inside this seat's writable set. No `git stash`, no `reset`, no `--amend`, no force-push. No new `proof:*` mark. `scripts/dev/dev.sh` never touched, never staged.
