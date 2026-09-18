@@ -374,3 +374,171 @@ unit does not stamp CLOSED and does not stamp VERIFIED.**
 ## Unit receipts
 
 *(appended by each unit, in order; no seat rewrites another's rows — E-3)*
+
+---
+
+### a — preconditions, and the register's spine
+
+**Seat**: Opus 5 (1M), 2026-09-17. **Sections executed exactly as ordered**: spec §0.1–§0.3 · §1 Bounds ·
+§3 **FW6-G19** + **FW6-G18** · §4 locks 1–2 · §4 cross-edges **F.W0** and **F.W5**. **Writes**: the two
+paths of the unit's writable set and nothing else. **Zero fourier bytes · zero value-tree product bytes.**
+
+#### Acts, in order
+
+**Act 1 — the spec read WHOLE, then the unit's sections read again at their own bytes.** `F-W6.md` is
+**634 lines / 263,396 B** (⟨cmd⟩ `wc -l -c`); the unit's ordered coordinates were re-confirmed to be the
+sections they name before any of them was consumed. **Nothing in the spec was edited** (E-3).
+
+**Act 2 — §4 lock 1, the F.W0 HARD pre-gate, run FIRST.** *"F.W0 failing to re-ground HALTS this wave."*
+⟨cmd⟩ `ls -l $F/docs/tranches/F/SUBSTRATE-LEDGER.md` → **201,985 B, Sep 17 15:03** · ⟨cmd⟩
+`git -C $F rev-parse --short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0**.
+**Re-grounded. The wave does not halt.** The spec's born-RED figures (`cd26c653`, 28 dirty, the unresolvable
+pin `14d83356`) are F.W5-authoring-pass readings and no longer reproduce.
+
+**Act 3 — the two F.W0 tables addressed BY GATE ID, never by line** (§4's F.W0 cross-edge, verbatim:
+*"Cited hereafter as F-W0 §4 G-11 / §4 G-12 — by gate id, never by line"*). ⟨cmd⟩
+`/usr/bin/grep -nE "^### G-11 —|^### G-12 —" waves/F-W0.md` → `364:### G-11 — ONE corrected anchor table
+published; every later wave quotes it` · `369:### G-12 — ONE corrected-denominator table published;
+superseded figures FORBIDDEN downstream` ⟨*the line numbers are the command's output, never this seat's
+address for them — R3-3.10's distinction, observed*⟩.
+
+**Act 4 — THE FINDING THAT SHAPED THE UNIT: G-11's table does not reach a single F.W6 anchor.** F.W0's
+own §2.1.3 row 5 states the boundary in its state cell — *"**RECORD** (api/py coordinates are outside F.W0's
+bounds)"* — and its §2.1.4 states the narrowing in F.W0's own hand: *"Under **FREEZE-WITH-ADOPTION AND
+WORKTREE-AS-BASELINE**, G-11 is **drift-correction only**."* F.W6's anchor set is overwhelmingly `api/**`.
+**Consequence, taken rather than absorbed**: the re-resolution FW6-G19's second conjunct demands is **this
+wave's own act**, performed read-only here, and the burn register says so at §0.1a rather than letting a
+later seat read G-11's silence as a certification.
+
+**Act 5 — the substrate delta measured before the anchors, because it governs the work.** G-11's table is
+dated at fourier **`8bc7736`**; HEAD is **`3bac3d52`**. ⟨cmd⟩
+`git -C $F diff --name-only 8bc7736 3bac3d52 -- api | wc -l` → **0** — **not one `api/` byte moved between
+G-11's substrate and this wave's open**, so every server anchor sits on the bytes G-11's seat read. ⟨cmd⟩
+`git -C $F diff --name-only 8bc7736 3bac3d52 -- web` → **13** files, **none of them an F.W6 anchor** (they
+are G-10's DELETE + the `aria-pressed` lift and the `--viz-*` cure — F.W0's own acts).
+
+**Act 6 — every anchor this wave cites, re-resolved at the true bytes, read-only.** ⟨cmd⟩
+`/usr/bin/sed -n '<L>p' <rooted path>` per coordinate, double-run, at `3bac3d52`. Published as three tables
+at burn-register §0.1c (**A** the fourier server · **B** the fourier web tree · **C** the value tree's four
+routed-out rows, explicitly outside the F.W0 lock per §2.10). **Result: NOT ONE ANCHOR IS FALSE.** Sixteen
+table rows carry a **⟨beside⟩** correction — **7 rootings · 1 collision · 1 split spelling · 5 extent
+disclosures · 2 reading corrections** — each recorded **beside** the spec's spelling, **never over it**
+(E-3), and self-counted at the settled bytes (⟨cmd⟩ `/usr/bin/grep -c '⟨beside' burn-register.md` → **18**,
+double-run 18, **minus the notation's own definition and the receipt's own command text = 16**; the
+arithmetic is disclosed in the file because the probe matches its own receipt).
+
+**The one correction a burn seat could have been misled by, named here as well as there**: §2.4 FR-AFP-9's
+*"restore route live at `:430`"* — `admin.py:430` is `result = await db.visualizations.update_many(`, the
+batch write of a different row. The restore route is **`api/routers/visualizations.py:430`** —
+`@router.post("/{slug}/restore")`, with `:445 result = await softdelete.restore(...)`. **The claim is TRUE
+at the corrected coordinate**; only the address collided. Two more worth the close seat's eye: §2.10's V-β
+cell spells **one** filename for **two** files (`models/visualization.py:235` ⊕ `routers/visualizations.py:129`,
+both true), and **`GalleryView.vue:128`'s *"can only add"* is a REACHABILITY claim, not a syntactic one** —
+the delete arm is present at `:128` and unreachable only because `gallery.ts:195` hard-codes
+`const liked = true`. Recorded so unit `d` does not "cure" a ternary that is not the defect.
+
+**Act 7 — G-12's forbidden-figure register checked against the spec, and it comes back clean.** ⟨cmd⟩ a
+`-F` loop over the thirteen literal forbidden figures against `F-W6.md` → **0** at every one. The fourteenth
+(*any array-literal `loops[].cardinality`*) returns one `-F 'cardinality'` hit which is **not** it — ⟨cmd⟩
+`/usr/bin/grep -n -F 'cardinality' F-W6.md` → `430:| fr-ContourPreview row 28 | 2 | carried at §2.6
+(boundary cardinality on the write path) |`, an ordinary noun in a landing cell. **F.W6 quotes no superseded
+denominator** — published as a measured negative, not assumed.
+
+**Act 8 — FW6-G18's roster, quoted from COHESION §0j.D with ruling ids, mapped per row, re-ruled by nobody.**
+The rulings exist (⟨cmd⟩ `ls -l …/OWNER-RULINGS-F.W5.md` → **18,702 B, Sep 17 18:16**; ⟨cmd⟩
+`/usr/bin/grep -c '^| \*\*R[1-9]\*\*'` → **9**, double-run 9), and **§0j.D is the authority for what each
+one SAYS**. Eleven entries carried: **R1 F-SS4REST · R2 F-TRIE · R3 F-PRODRET · R4–R9 F-SS4REST ⊕ OG-F1 ⊕
+OG-F2 ⊕ G-15(c)**. ▲ **Three rulings RE-HOME a row away from this wave and each re-homing is stated IN its
+row**, because a seat reading only §2 would ship it here: **R3's port → F.W8** (§2.4's *"If PRODUCER: F.W6
+ships the flag-write operation"* superseded **on the homing only**; the band's other server rows stay
+F.W6's), **R4's deletion → F.W4** (by §2.9's own branch, F.W6 books **no** server act), and **R9's ⊙ →
+F.W8 attached to `FR-USB-23`**, as FW6-G18's own cell already ordered. Two holds **DISCHARGED** by ruling:
+**F-TRIE** frees unit `h`'s E10 strikes from §4 lock 8's compression hold (**and no trie is designed here**),
+and **R7 = CODEGEN** lifts FW6-G12's ⊙ (**K9's five `?? item.slug` fallbacks survive the lift**).
+
+**Act 9 — the F.W5 clause set consumed by clause id.** ⟨cmd⟩
+`/usr/bin/grep -cE '^### [A-G][0-9]+c? (—|⊙)' J-diff-shape-v2.md` → **71** (double-run 71), enumerated whole
+in the register: `A1–A6 · B1–B5 · C1–C5 · D1–D8 · D10–D17 · E1–E20 · F1–F9 · G1c–G10c`. ⟨cmd⟩
+`/usr/bin/grep -cE '^### D9 ' J-diff-shape-v2.md` → **0** — **`D9` is absent from the clause register**, which
+is the record's own state and the reason the actor clause is **E18**. ⟨cmd⟩ `/usr/bin/grep -c '^| '
+operation-register.md` → **114**. Each clause this wave burns verified present by ⟨cmd⟩
+`/usr/bin/grep -cE "^### <id> (—|⊙)"` → **1** at every one of `C1 C2 C5 D2 D3 D5 D6 D8 D10 D11 D12 D16 D17 E2
+E5 E6 E7 E13 E14 E17 E18 B4 E10 G1c…G10c`. A **per-unit clause map** is published so each burn seat reads its
+own stating clause and no other. ▲ **E-3 stated: F.W6 CONSUMES these clauses and authors none.**
+
+**Act 10 — the census pin, and no roster integer re-derived.** ⟨cmd⟩ `shasum -a 256 …/CENSUS-CANONICAL.md |
+cut -c1-12` → **`f44362757458`**, character-match to the spec's pin. ⟨cmd⟩
+`/usr/bin/grep -nE '^### F\.W5(-W8)? — ' "$C"` → `5078:### F.W5 — **27 rows**` · `5092:### F.W5-W8 — **89
+rows**`; ⟨cmd⟩ `/usr/bin/grep -o 'F\.W6., .F\.W8. and .F\.W10. are likewise named by \*\*no record\*\*' "$C"`
+→ *"F.W6`, `F.W8` and `F.W10` are likewise named by **no record**"*. **27 ⊕ 89 = 116, ZERO at F.W6** — the
+116 is **the canonical's, quoted**, and this wave's own population stays folds, gate operands and
+commissioned acts, summed into nothing.
+
+**Act 11 — the register's spine opened.** `waves/F-W6/burn-register.md` created (`mkdir -p` first; the
+directory did not exist — the baseline's FW6-G16/G17 RED rested on exactly that). §1 carries the table
+**FW6-G17 greps**, with the `id` column first; **unit `a` books no identity** and says so in the table, since
+its product is §0, an operand, not a burn.
+
+#### Commit
+
+| commit | meaning | pathspec |
+|---|---|---|
+| **`7f2d6baa`** | `docs(x-f/w6.a): burn register OPENED — FW6-G19's anchor re-resolution and FW6-G18's ruled roster` | `docs/tranches/X/fourier/waves/F-W6/burn-register.md` |
+
+Settled bytes: **357 lines / 40,373 B**; line 1 = `SERVED MODEL: claude-opus-5[1m]`. ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/fourier/waves/F-W6/` → **0** after the commit. **`scripts/dev/dev.sh`
+untouched and unstaged** — ⟨cmd⟩ `git show --stat 7f2d6baa` names one file.
+
+#### Gate readings — BEFORE → AFTER
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G19** F.W0 re-grounding (D-19) | **RED** — first conjunct GREEN-BEFORE-CURE (receipt exists, substrate re-grounded), **second conjunct unperformed**: *"every anchor cited by this wave is re-resolved against it"* | **GREEN** | Both conjuncts now hold at the bytes. Every anchor re-resolved at `3bac3d52` against F.W0's receipt, addressed **by gate id**; **not one anchor false**; 16 corrections recorded **beside**, none over. The gate's owner cell is *"F.W0; F.W6 cites"* — there is no fourier-side landing to wait on, so the split verdict does not hold it open |
+| **FW6-G18** owner rulings present before any conditioned burn | **RED** — the born-RED witness (*"`OWNER-RULINGS-F.W5.md` does not exist"*) no longer reproduces (D-3), but *"no F.W6 row carries anything yet — the burn register does not exist"* | **RED — operand installed, roster complete** | ▲ **Reported RED deliberately.** The gate's falsifier is *"**each conditioned row** either carries its ruling or is explicitly deferred with its honest default recorded"* — and the conditioned rows are units `d`/`e`/`g`/`h`'s. **This unit's whole obligation is discharged**: the register exists, all nine rulings ⊕ OG-F1/OG-F2 ⊕ G-15(c) are quoted from §0j.D with their ruling ids, each is mapped to the rows it conditions, and the three re-homings are stated in their rows. Calling it GREEN here would be *a gate argued green over rows that do not exist* — an L-18 base by name |
+
+**No other gate was touched, and none was read as GREEN.** FW6-G16 and FW6-G17 stay RED at unit `a`: the
+value-side routing receipt does not exist (unit `i`'s), and the register's id column is open with **zero**
+booked rows. The standing FW6-G16 condition holds at this seat's clock — ⟨cmd⟩ `git diff --stat -- api/src
+src` → **empty** · ⟨cmd⟩ `git status --porcelain -- api/src src | wc -l` → **0**.
+
+#### Locks observed, each with the act that observed it
+
+- **§4 lock 1 (F.W0 pre-gate, HARD)** — run first, before any anchor was cited (Act 2). Not a halt.
+- **§4 lock 2 (F.W5 STATES, F.W6 BURNS)** — the law quoted from **both** its homes and **never fused**:
+  **F-W5 §2 §E clause E2**'s ▲ sentence and **F-W5 §3 gate G3**'s green-owner cell. Unit `a` books no
+  identity, so it double-books none.
+- **D-19 MEASURE-AT-OPEN** — every figure in the register is this seat's own read at `3bac3d52`; no figure
+  is re-asserted from the spec's authoring pass.
+- **Census freeze `f44362757458`, sole operand** — **no roster integer re-derived**; 116 quoted from the
+  canonical, 132/111/153 not touched.
+- **Anchors by gate id, never by line into a live sibling** — the only line numbers this unit publishes for
+  a live sibling are the **outputs** of the `grep -n` receipts that locate G-11/G-12, and they are labelled
+  as outputs, not as addresses.
+- **R-5 record-qualification from the first row on** — the ten colliding tokens are written with their
+  record everywhere they appear (`fr-FourierShapeExtractor L-B1` · `fr-ContourEditorCanvas C-2` ·
+  `fr-BasisSelector M-9` · `fr-GalleryDraftsSection B-2`).
+- **Read-only siblings** — every fourier and value-side figure above is a `grep`/`sed`/`ls`/`git … status`
+  read. **glass-ui untouched**; §4's SS-6 relay stays **DECLARED EMPTY** and is recorded as such.
+- **E-3** — the spec, the 66 `fr-*.md`, the census, the F.W5 contract set and F.W0's receipt were read and
+  not written. Every correction is an addendum **beside**.
+
+#### Residuals carried forward (none blocking)
+
+1. **The sixteen beside-corrections are a reading aid, not a spec amendment.** `F-W6.md` is immutable;
+   units `b`–`i` cite the corrected coordinates **from the register**, and the spec's spellings stay where
+   they are.
+2. **`admin.py:430` / `visualizations.py:430`** — unit `e` (FR-AFP-66, R6 KEEP) inherits the corrected
+   restore-route coordinate; the spec's bare `:430` is not to be followed inside an `admin.py` paragraph.
+3. **`equations.py`'s three `reconstructed_points` sites** (`:114` emitted, `:128` returned, `models/equations.py:33`
+   typed) are unit `h`'s real strike surface; the spec's `:100-106` is the compute, not the field.
+4. **`GalleryView.vue:128` is a reachability claim** — unit `d`'s row must say so or it invites a cure of the
+   wrong line.
+5. **G-11's api/py boundary** is now on the record: any later X·F wave whose anchors are server-side gets no
+   drift-correction from F.W0 and must re-resolve its own, as this one did.
+
+**Escalations: none.** No write was attempted outside the writable set; no specified cure was impossible at
+the bytes; no third diagnose→edit→re-measure occurred on any gate.
+
+**Unit `a` CLOSED. Unit `b` opens** — the PATCH/chain one-cut (F-α · F-β · SS-C-1 — FW6-G1/G2/G3/G4),
+**ONE COMMIT** per §2.1's head and §4 lock 3, with the KISS lift of the remix tri-state idiom
+re-resolved above and holding at `visualizations.py:522-528`.
