@@ -177,7 +177,9 @@ let environmentResolved = false;
  * Resolve the dev-config truth once, at client init, BEFORE any fetch can trip
  * the latch. If the silent prod-target precondition holds, enter the designed
  * `misconfigured` state and warn LOUD. Idempotent + browser-guarded (a no-op in
- * SSR / non-DOM unit contexts). `baseUrl` is owned by the client (client.ts:35).
+ * SSR / non-DOM unit contexts). `baseUrl` is owned by the client
+ * (`client.ts`'s `BASE_URL`, :36 — the citation read `:35` and was re-measured
+ * here rather than carried); the caller is `provideApiClient()` (AP-24).
  *
  * X.W3.7 · AP-33 — "Idempotent" was PROSE: nothing stopped a second call from
  * re-latching and re-shouting. Benign while the sole caller was a module's own

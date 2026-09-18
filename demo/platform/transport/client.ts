@@ -30,17 +30,19 @@ import {
     markApiReachable,
     markApiUnreachable,
     ApiUnavailableError,
-    initApiEnvironment,
 } from "./availability.js";
 
 const DEFAULT_REMOTE_API_URL = "https://api.color.babb.dev";
 export const BASE_URL = import.meta.env.VITE_API_URL ?? DEFAULT_REMOTE_API_URL;
 
-// S.W0 W0-1: resolve the dev-config truth ONCE, before any fetch can trip the
-// latch. Surfaces the designed `misconfigured` state (loud) when this is the
-// silent prod-target footgun — a loopback dev page with no VITE_API_URL aimed
-// at the cross-origin prod api. A no-op in production (non-loopback origin).
-initApiEnvironment(BASE_URL);
+// S.W0 W0-1's dev-config resolution (`initApiEnvironment`) used to run HERE, at
+// module eval. X.W3.7 · AP-24 moved it to `provideApiClient()` in
+// `useApiClient.ts` — the App-root seat that already exists and is already
+// called once, before any surface can issue a request. Importing this module
+// for any reason (a type, `setSessionToken`, one api sub-module) no longer
+// mutates global state or writes to the console as a side effect of the import
+// graph. The resolution still happens strictly before the first fetch, which is
+// the contract the S.W0 W0-1 seed rider actually names.
 
 // S.W2 W2-4: the session-token cell is a real `ref` (not a bare module `let`)
 // so the `useApiClient()` DI seam can re-expose it reactively — the SAME

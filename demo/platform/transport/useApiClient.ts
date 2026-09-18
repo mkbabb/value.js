@@ -17,7 +17,11 @@
  */
 import { inject, provide, type InjectionKey, type Ref } from "vue";
 import { request, adminRequest, sessionTokenRef, BASE_URL } from "./client.js";
-import { apiAvailability, type ApiAvailability } from "./availability.js";
+import {
+    apiAvailability,
+    initApiEnvironment,
+    type ApiAvailability,
+} from "./availability.js";
 
 export interface ApiClient {
     request: typeof request;
@@ -43,8 +47,19 @@ export function createApiClient(): ApiClient {
     };
 }
 
-/** Provide the api client at App root. Returns it for the provider's own use. */
+/**
+ * Provide the api client at App root. Returns it for the provider's own use.
+ *
+ * X.W3.7 · AP-24 — this is also where the dev-config truth is resolved. It used
+ * to run at `client.ts`'s module eval, so importing the transport module for
+ * ANY reason mutated global state and could `console.error`; the App-root
+ * provider is the explicit seat, called once, strictly before any surface can
+ * issue a request. `initApiEnvironment` carries its own idempotence guard
+ * (AP-33, landed first), so a second provider — a test harness, a second app
+ * instance — re-latches and re-shouts nothing.
+ */
 export function provideApiClient(): ApiClient {
+    initApiEnvironment(BASE_URL);
     const client = createApiClient();
     provide(API_CLIENT_KEY, client);
     return client;
