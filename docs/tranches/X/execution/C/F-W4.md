@@ -744,7 +744,7 @@ The lock ordered first, and it inverted under measurement — **the most consequ
 
 ⊘ **Two of three callsites rewired; the third is inside the EVALUATE-ONLY lock** → **A-c-2**. `PathPreview` is the sharper of the two landed: it already had the `|| 1` floors but no finite screen, and there a single non-finite coordinate poisons `Math.min` to `NaN`, every projected point stringifies `NaN,NaN`, and the `<path d>` is discarded — a blank tile on the gallery's densest surface with nothing in the console. ⊘ Its **uniform-scale** framing is its own contract and was NOT flattened into the per-axis form; the extraction supplies the box, the floors and the screen, and the projection stays local.
 
-**`G-F4-VITEST`'s `contourBounds` rider**: `web/e2e/unit/contour-bounds.vitest.ts` at `.g`'s ruled runner home, **7 tests, every one a booked row rather than a paraphrase of the implementation**. ⟨cmd⟩ `npm run test:unit` ×2 → `Test Files 5 passed (5) · Tests 35 passed (35)` (was 4/28).
+**`G-F4-VITEST`'s `contourBounds` rider**: `web/e2e/unit/contour-bounds.vitest.ts` at `.g`'s ruled runner home, **7 tests, every one a booked row rather than a paraphrase of the implementation**. ⟨cmd⟩ `npm run test:unit` ×2 at this seat's clock → `Test Files 5 passed (5) · Tests 35 passed (35)` (was 4/28). ⊘ **The whole-suite total is a MOVING figure and is banked as dated, not as a standing fact**: `.b` runs concurrently in this group and a re-run minutes later reads `36`. The stable claim is this unit's own — **one new file, seven passing tests, all `contourBounds`** — and a successor re-runs the suite rather than inheriting either total.
 
 #### Act 4 — SP-4: the clocks that started themselves (`24b81ff`)
 
@@ -802,7 +802,7 @@ Six paths swept read-only (the four landing paths ⊕ the atlas P-lane ⊕ the f
 
 | gate | BEFORE (wave baseline) | AFTER | verdict |
 |---|---|---|---|
-| **G-F4-VITEST** (`contourBounds` rider) | `.g` GREEN with 4 files / 28 assertions; **no `contourBounds` subject** | **5 files / 35 assertions**, `contourBounds` executing 7 row-keyed tests | **rider DISCHARGED** |
+| **G-F4-VITEST** (`contourBounds` rider) | `.g` GREEN with 4 files / 28 assertions; **no `contourBounds` subject** | **+1 file, +7 row-keyed `contourBounds` tests, all passing** (suite total dated, not standing — `.b` is concurrent) | **rider DISCHARGED** |
 | **G-F4-VUE-TSC-CLEAN** | 18 diagnostics at open; **7 declared `.c` sites** | **7 total tree-wide, 0 of them this unit's**; 3 in `visualization/` are `.d`'s ×2 + the EVALUATE-ONLY file | **this unit's leg GREEN** |
 | **G-F4-DEAD-DEP** | VV 5 dead declarations · ECD's dead retint unit · 2 idiom families · 2 no-op `:deep()` props | all deleted **with zero-consumer proofs in the code** (`--ease-apple-spring` → 0 · `--slider-scrub-*` → ∅ · both children declare the flex pair) | **advanced** |
 | **G-F4-PRM-CLOCK** | 5 ungated clock owners; `AC-D-8/C-19` auto-starting | **`useCanvasHover`'s two gated** + the auto-start path gated under the terminal-frame law; `stores/animation.ts`'s loop **declared to `.f`** | **advanced, honest-RED** |
