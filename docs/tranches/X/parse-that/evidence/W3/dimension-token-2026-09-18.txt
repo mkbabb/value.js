@@ -1,0 +1,33 @@
+SERVED MODEL: claude-opus-5[1m] · X.P.W3.g dimension-token probe (post-cure) · 2026-09-18
+
+── A. the surfaces this unit must NOT move
+  R_cls keys (9): ws ident digit hexdigit any-but-paren any-but-brace-or-semi any-but-semi-or-close any-but-brace-close ident-start
+  R_cls["ident-start"].label = "ident" (shared with "ident" — L does not move)
+  L.length = 60 · "<string>" at L[50] · "input <= 65458" at L[51]
+  THETA.input = 65458 · CLASS3_PROOF.arena.K = 101 · vstack.K = 1
+  per-entry arena rate: P:color 72 · P:timing-function 98 · P:stylesheet 101
+
+── B. COHESION §0p F-e1 / F-e2, their controls, and the legacy-hsl divergence
+  F-e1     "hsl(120deg50%50%)"      IDENTICAL cand {"ok":false,"code":"css_syntax","start":10,"end":17,"expected":["<ident>"],"actual":"50%50%)"}
+                                    incumbent ok:false css_syntax
+  F-e2     "rgb(255none none)"      IDENTICAL cand {"ok":false,"code":"css_syntax","start":7,"end":17,"expected":["<percent-sign>","<ident>"],"actual":"none none)"}
+                                    incumbent ok:false css_syntax
+  legacy   "hsl(120, 50, 50)"       IDENTICAL cand {"ok":false,"code":"css_syntax","start":11,"end":16,"expected":["<percent-sign>"],"actual":", 50)"}
+                                    incumbent ok:true {"space":"hsl","channels":[120,50,50],"alpha":1}
+  control  "hsl(120 50% 50%)"       IDENTICAL cand {"ok":true,"code":null,"start":null,"end":null,"expected":null,"actual":null}
+                                    incumbent ok:true {"space":"hsl","channels":[120,0.5,0.5],"alpha":1}
+  control  "rgb(255 0 0)"           IDENTICAL cand {"ok":true,"code":null,"start":null,"end":null,"expected":null,"actual":null}
+                                    incumbent ok:true {"space":"rgb","channels":[255,0,0],"alpha":1}
+  control  "hsl(120deg 50% 50%)"    IDENTICAL cand {"ok":true,"code":null,"start":null,"end":null,"expected":null,"actual":null}
+                                    incumbent ok:true {"space":"hsl","channels":[120,0.5,0.5],"alpha":1}
+  control  "rgb(255 none none)"     IDENTICAL cand {"ok":true,"code":null,"start":null,"end":null,"expected":null,"actual":null}
+                                    incumbent ok:true {"space":"rgb","channels":[255,"none","none"],"alpha":1}
+
+── C. the generated families (the fixture's own rule, re-derived)
+  merged witnesses 33 · not rejected identically as css_syntax: 0
+  of those, the incumbent ACCEPTS: 0 — the cure adds NO new divergence
+  §10.2 pinned edges 10 · not rejected identically: 0 — the omitted guards are INERT
+  S-1 dissent + §4.3.9 '-' clause 5 · lost acceptance: 0
+
+── D. shield: 0 -> 0
+wrote docs/tranches/X/parse-that/evidence/W3/dimension-token-2026-09-18.json
