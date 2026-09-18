@@ -266,3 +266,451 @@ re-pin, no timeout widening, no denominator rewrite, no self-authored answer key
 
 *(empty at open; each unit appends its own block below, dated, with its served-model line and its
 commit hashes in both repos)*
+
+---
+
+### X.P.W3.0
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18 00:2x–01:0x EDT · the wave's **first act** in both
+repos (`COHESION.md` §0n.3). Spec sections executed exactly: §0n.1 tail (L1016–1019) · §0n.3
+(L1024–1031) · §0n.4 (L1032–1035) · §0n.5 (L1036–1039) · `X-P-W2.md` K.8 rows **D-c1 · D-i2 · R-i1 ·
+R-i3 · F-h8** · `W3.md` §4 (L148–183) · §4a (L184–197) · §7 (L550–559). `W3.md` read WHOLE (673 L);
+`COHESION.md` read to the file end (1,042 L, §0n.6 last).
+
+**Gates turned: NONE of the ten** — this unit's own dispatch row says so, and it is true at the
+bytes: no `scripts/css-universe.mjs`, `css-recovery-closure.mjs`, `css-dual-target-identity.mjs` or
+`css-bench-three-leg.mjs` was authored here, and no `test/css-*/**` exists yet. What moved is the
+substrate the ten stand on, and the **W2** gates that stood RED on it.
+
+`<p2>` = `/Users/mkbabb/Programming/parse-that-css-totality-p2`. Every figure below was read from the
+**settled bytes** and **double-run**; the two runs were identical in every case, and the
+verification sweep at the end was run twice over all eight probes.
+
+---
+
+#### 0.1 — Method note, stated before the numbers
+
+**The `.ts`/`.mjs` reconciliation** the open recorded is adopted and rowed in this unit's own §4
+addendum (§A-2): §5 names `.ts`, the survivor is `.mjs` (17 files, exactly **1** `.ts` and it is the
+generated `build/ac1.d.ts`), §4's first row admits the whole glob, so no bounds question arises. None
+of the five names §4a assigns to `.b`/`.c` (`lower`, `diagnostics`, `codes`, `entry`, `bounds`) was
+opened by this unit — the §4a shared-glob hazard does not arise.
+
+**BEFORE readings were taken read-only, at this seat's own clock, before any edit** — not inherited
+from X.P.W2's close, except where a figure is explicitly cited as dated evidence under the epoch rule
+(E-4's *"exactly 3 slice rows"*, G-8's instrument band).
+
+---
+
+#### Act 1 — the dated §4 addendum-beside, FIRST (never an edit of `W3.md`)
+
+`docs/tranches/X/parse-that/waves/W3-ADDENDA-2026-09-18.md` (**115 L · 11,494 B**). It admits, each
+with the ruling that grants it: `<p2>/harness/bench/lib/engines.mjs` (§0n.4's own grant),
+`<p2>/harness/w2/coverage-52-report.mjs` (K.8 D-i2), the three addenda files and **itself**, plus the
+`<p2>` home of the contract addendum and the three standing orchestration paths (the `W2-ADDENDA`
+§A-1.3 precedent, restated not re-argued). §A-1.4 shows §4a undisturbed. §A-3 states what it does not
+do — including that **`<p2>/typescript/src/parse/**` is NOT admitted** (see act 7).
+
+```
+⟨cmd⟩ shasum -a 256 docs/tranches/X/parse-that/waves/W3.md
+53ebaf426aa8bce07c1cf9db8d4c74ecfea6319810031bb10394194a0fbc93d0   (673 L · 51,921 B)   ← before AND after
+```
+
+#### Act 2 — the ONE dated ALGEBRA addendum-beside, both homes sha256-equal (§0n.3)
+
+```
+⟨cmd⟩ shasum -a 256 <value.js>/docs/tranches/X/parse-that/algebra/ALGEBRA-ADDENDA-2026-09-18.md \
+                    <p2>/experiments/w2/contract/ALGEBRA-ADDENDA-2026-09-18.md
+83ba069bc5553c56c00468a6e82a2b42c4b24af13d5375d6effd73d7d574c022      (320 L · 17,714 B)
+83ba069bc5553c56c00468a6e82a2b42c4b24af13d5375d6effd73d7d574c022      (320 L · 17,714 B)
+⟨cmd⟩ diff <the two>   → (empty).  BYTE-IDENTICAL, landed in the same sitting.
+⟨cmd⟩ shasum -a 256 <both>/ALGEBRA.md → 67c8253abaecb29a0b16a862bf63ad25ff1140d91f06248c843b9c253fc537de ×2
+                                        (901 L · 157,010 B) — UNTOUCHED, before and after (E-3)
+```
+
+**The lock the ruling names is held in both directions**: `ALGEBRA.md` is string-equal across the two
+homes *and* unmoved, and the addendum's own pair is string-equal. Prettier was run over the value.js
+copies (§7's cadence) and the `<p2>` home was then re-copied from the formatted bytes, so the cadence
+and the lock do not fight.
+
+**The five items, as landed** (each with its contract change and its measurement, in the addendum):
+
+| item | disposition | seed moves? |
+|---|---|---|
+| **E-2** | cure **(3)** — `balanced-tail`'s `DROP` re-kinded `keyword` → `skipped`; `π_skipped`'s general form stated, not widened. **(2) widening `π_keyword` REFUSED**, as the ruling refuses it. **(1) the seventh kind `opaque` NOT taken** — this seat looked for an OP-13 break to cite and found none, so `K_C` stays **six** | **YES** (act 4) |
+| **E-3** | `DISPATCH` joins §5.2's pass-through list; §10.3's **two inert `CUT`s struck** | **YES** (act 4) |
+| **E-4** | the `DISPATCH` arm FIRST in §10.2 | **no** — the seed already encoded it as a *declared* deviation with the contract defect named; the addendum makes the contract agree. The *"exactly 3 slice rows REJECT → ok"* figure is `.d`/`.e`'s W2 measurement, **cited by id, not re-derived** (epoch rule) |
+| **E-5** | EQ-5's sixth coordinate (arena) leaves the cross-lowering tuple; the watermark rides a **G-8 row** | **no** — AC-1's bytes already read `arena 0` in both; measured `js 0 B · wasm 304 B` on `alloc-latch`'s own row |
+| **E-8** | `color-body` inlined; §8 D-3's **two-`REF`** count stands | **no** — measured `refs.targets = 2` (`balanced-tail` · `value-slice`), `refs.sites = 5`, `unresolved []`, and `REF_TARGETS` in the seed is exactly those two |
+
+#### Act 3 — E-6's `--engine=<adapter>` under the dated W1 §Bounds addendum (§0n.4)
+
+`docs/tranches/X/parse-that/waves/W1-ADDENDA-2026-09-18.md` (**98 L · 6,318 B**) widens `W1.md` §4
+(L142) by **one row and one arm**: `<p2>/harness/bench/lib/engines.mjs`, **modify**, for the
+registration path and nothing else. `W1.md` is untouched — `519df03ff21b48f3b2c4f352d6a4d8ae98c86d3dde117ba786b6c924204c6d09`
+(718 L · 55,891 B) before and after.
+
+The arm is a **chain plus one declared external cell**, never a fifth hard-coded subject: the four
+named engines are unchanged, `loadEngine` still throws `unknown engine <name>`, the caller declares
+the id, and the arm resolves it against the **same adapter contract every W2 probe already uses** —
+so `W2.md` §3 item 7 (*"a per-candidate harness is a defect"*) is untouched and **no candidate name
+appears in the file**. Id: `adapter:<path-to-harness-adapter.mjs>#<js|wasm>`, the lowering fragment
+**required** (§0n.4 wants both lowerings printed; a default would print a lowering nobody declared).
+
+```
+⟨cmd⟩ node -e "…adapterEngineIds(['--rounds=40','--engine=…harness-adapter.mjs#js', '--engine=adapter:…#wasm'])"
+["adapter:typescript/src/css/harness-adapter.mjs#js","adapter:typescript/src/css/harness-adapter.mjs#wasm"]
+adapter:…#js    -> color,easing,sheet | lowerings.js.entry("P:color")   | pins: adapter,jsEntry,dts,wasm
+   oklch(0.7 0.1 30) accept · oklch() reject · non-string reject · cubic-bezier(0,0,1,1) accept · a{color:red} accept
+adapter:…#wasm  -> color,easing,sheet | lowerings.wasm.entry("P:color") | (the same five readings)
+closed-chain: unknown engine nope · no-lowering: HALT … names no lowering · absent: HALT: adapter ABSENT at …
+published-4.0.0 still loads: function
+⟨cmd⟩ npx tsx harness/bench/bench.ts --rounds=3 --warmup=1 --no-finalize --out=<scratch>/bench-smoke.json
+EXIT=0 · stderr bytes 0 · "GREEN — 8 timing cells + 1 census cell, each in its own process, each proving
+PACKRAT_ARMED === false at entry and at exit, no PID repeated; three legs published separately"
+⟨cmd⟩ git -C <p2> status --porcelain -- harness/   →   one line, ` M harness/bench/lib/engines.mjs`
+```
+
+**W2's G-7 was RED-structural** (*"Registering a W2 cell is a write under `harness/bench/**`, which
+`W2.md` §4 makes execute-no-write and §3a makes a halt … K-5 is therefore unevaluable, which is the
+direct cause of the AC-1/AC-2 tie"*). **The subject now exists.** The table itself is **`.d`'s** to
+print — both lowerings, two runs pasted — and **no bar, no ratio and no budget is published here**
+(§0j.E OC-1: RECORDED-NOT-GATING; *"inventing a bar is a defect"*). The smoke used the entry's own
+`--out` to a scratch path, so `harness/bench/`'s three banked result files are byte-unchanged, and
+`--rounds=3` is a smoke whose numbers appear nowhere as a ratio.
+
+#### Act 4 — **ONE act, not two**: the OP-7 re-point AND D-c1's cure (K.8's own words)
+
+**(a) OP-7 / §0n.5.** Measured before, at the bytes:
+
+```
+⟨cmd⟩ grep -n PARSE_THAT_DIST <p2>/typescript/src/css/lowering-js/*.mjs
+js-alg.mjs:25  import { PARSE_THAT_DIST } from "../../../../harness/bench/lib/engines.mjs";
+index.mjs:12   (the same import)
+⟨cmd⟩ grep -n 'export const PARSE_THAT_DIST' <p2>/harness/bench/lib/engines.mjs
+43: `${WORKSPACE}/node_modules/@mkbabb/parse-that/dist`,  WORKSPACE = …/value.js/docs/tranches/V/
+    megatranche/prototypes/css-parser      ← ANOTHER REPOSITORY'S node_modules. Exactly what OP-7 forbids.
+```
+
+Re-pointed to **this root's own library**: one load, in `js-alg.mjs`, of the **relative**
+`"../../parse/index.ts"`; `index.mjs` takes `Parser`/`createParserContext` **from `js-alg.mjs`**
+(a second load would be a second `Parser` class and `instanceof` across the two would be false). The
+specifier never leaves the tree, so the lowering is **location-independent by construction** — the
+D-c1 class of defect cannot recur at this seam.
+
+*The mechanism, and why it is the root-cause one.* The library is TypeScript source whose internal
+specifiers are TS-style (`./parser.js` naming `parser.ts`). Measured: Node 26 **strips types** but
+does **not** re-resolve those — `⟨cmd⟩ node -e "import('…/src/parse/index.ts')"` →
+`ERR_MODULE_NOT_FOUND …/src/parse/parser.js`. `⟨cmd⟩ node --help | grep -i ts-resolve` → nothing.
+The cure is the fresh root's **own pinned toolchain** (§0l E-1, `tsx@4.23.13`): `tsImport` scopes its
+hooks to this import graph rather than registering a process-wide loader, and the bare `tsx/esm/api`
+specifier resolves at `<p2>/node_modules`, inside the root. **No `node_modules` is patched, no
+library byte is edited, no fallback is installed.** `PARSE_THAT_DIST` **stays** in `engines.mjs`: it
+is the *bench's declared subject* — the latch witness O-15 PT-03's `:678`/`:722` coordinates name —
+and a subject under measurement is not a substrate.
+
+**Measured after the re-point, before anything else changed** — every W2 probe at the graduated
+location, unchanged **to the digit**: `op-bijection` 22/22/22, DECLARED-ABSENT 0 · `eq-six` EQ-1..EQ-5
+= 0, **EQ-6 = 2035**, 30,527 rows, labels aligned, third cell 233 (12 declared) · `r1-candidates`
+0/172 × 6, boundary 7/7 · `recovery-laws` 2,951 TRY sites, R-LAW-2 **13** · `wasm-audit` GREEN ·
+`depth-scan` GREEN. **The fresh root's own library source is behaviour-identical to the published
+1.0.0 dist across every gate** — which is the fact that makes the re-point a substrate change and not
+a semantic one.
+
+**(b) D-c1, in the same act** — the artifact's own declared mechanism (`build.mjs:52-54`: *"a moved
+tree re-runs `node build.mjs`, it does not hand-edit a path"*):
+
+```
+⟨cmd⟩ sed -n 7p <p2>/typescript/src/css/build/ac1.d.ts
+BEFORE  from "../../../../../../../value.js/…/vendor/value-js-4.0.0/dist/subpaths/css"   ← seven levels
+        resolve from <p2>/typescript/src/css/build            → /Users/value.js/…            MISSING
+        resolve from <p2>/.worktrees/ac1/typescript/src/css/build → /Users/mkbabb/Programming/value.js/…  EXISTS
+⟨cmd⟩ node typescript/src/css/build.mjs        (run at <p2> proper)
+ac1.wasm 187341 bytes · 1273 functions · 55500 bytes of static data
+AFTER   from "../../../../../value.js/…/vendor/value-js-4.0.0/dist/subpaths/css"          ← five levels
+        ac1.wasm 049b9904… and ac1.js 5f300b7e… re-emitted BYTE-IDENTICAL — the rebuild moved the
+        one specifier and nothing else.
+⟨cmd⟩ node harness/w2/idiom-nocst.mjs --candidate ac1 --at typescript/src/css
+BEFORE  excess-property fixture FAILS — "error TS2578: Unused '@ts-expect-error' directive" → RED, exit 1
+AFTER   excess-property fixture PASSES — "V is assignable AND an excess property is rejected" → GREEN, exit 0
+```
+
+**W2's G-10 read GREEN in the worktree and RED at the root on identical bytes. It now reads GREEN at
+both. D-c1 is DISCHARGED**, and D-x3's correction is honoured: D-c1 was carried as **its own row**,
+cured in one act with the OP-7 re-point, exactly as K.8 words it.
+
+#### Act 5 — the seed conformed to the addendum (E-2's re-kind · E-3's two struck `CUT`s)
+
+**E-2**, on the promoted seed, both lowerings:
+
+```
+⟨cmd⟩ node harness/w2/eq-six.mjs --candidate ac1 --at typescript/src/css \
+        --corpus experiments/w2/corpus/slice.json --fuzz-seed experiments/w2/corpus/fuzz-seed.json
+BEFORE  EQ-1 0 · EQ-2 0 · EQ-3 0 · EQ-4 0 · EQ-5 0 · EQ-6 2035  (first row s0180 "var(--brand)")   RED, exit 1
+AFTER   EQ-1 0 · EQ-2 0 · EQ-3 0 · EQ-4 0 · EQ-5 0 · EQ-6    0                                     GREEN, exit 0
+UNMOVED rows compared 30527 · labels aligned true · third-cell differences 233 (12 carrying a declared row)
+```
+
+**2,035 → 0, and no other product moved** — the ruling's own predicate, met literally. Cause, read at
+the bytes: §4.5's `π_keyword` is *"an ASCII-folded literal that is **not** a leaf of `V`"*, and
+`var(--brand)`'s tail is not a literal of that class, so **COMP-1c (fidelity of kind)** failed on
+every row reaching the `var` dispatch arm — §3's own *"a `ws` entry over `abc` fails here"*, one arm
+over.
+
+**A second W2 gate moved, and it is named rather than pocketed:**
+
+```
+⟨cmd⟩ node harness/w2/recovery-laws.mjs --candidate ac1 --at typescript/src/css
+BEFORE  js 2951 TRY sites · R-LAW-1 0 · R-LAW-2 COMP-1 failures 13 · R-LAW-4 0/0 · R-LAW-3 silent   RED
+        wasm 2951 · … · 13 · … (identical)
+AFTER   js 2951 TRY sites · R-LAW-1 0 · R-LAW-2 COMP-1 failures  0 · R-LAW-4 0/0 · R-LAW-3 silent   GREEN
+        wasm 2951 · … ·  0 · … (identical)
+```
+
+The TRY-site population is **identical** (2,951, both sides, both lowerings), so the 13 were **cured,
+not avoided**. §0n.3 named **G-3 and G-4** as E-2's two carried REDs; **one cure discharges both**,
+which is the strongest evidence available that the diagnosis named the disease.
+
+**E-3**, measured with `.g`'s own `structuralReport` executed read-only against each lowering's
+`grammar()` (`harness/totality/**` and `harness/w2/lib/**` are execute + read; not a byte written):
+
+```
+                                    cutOutsideAlt   opsOutsideContract  recoverInNonFinalAlt  unownedSpans  closureLeaks
+BEFORE (candidate directory)        7  (js · wasm)  0                   0                     0             0
+AFTER  (promoted seed)              0  (js · wasm)  0                   0                     0             0
+```
+
+The seven were `stylesheet`×2 · `rule`×2 · `qualified-rule`×2 · `declaration`×1 — the two struck
+terms, counted once per reified site. **G-1's structural half turns GREEN at the graduated location.**
+Both struck `CUT`s stood directly under a scope-opening operator (`qualified-rule`'s under
+`stylesheet`'s `RECOVER`; `declaration`'s under `qualified-rule`'s `REP`), which §5.2's own last
+clause makes a **walk error** — they were not merely inert, they were ill-formed as encoded.
+
+The emitted module shrank exactly as two struck operators should make it shrink, and the build
+reproduces:
+
+```
+⟨cmd⟩ node typescript/src/css/build.mjs     187341 B / 1273 functions  →  187131 B / 1266 functions
+                                            static data unchanged at 55,500 B
+⟨cmd⟩ (re-run, K-9's reproduction leg)      ac1.wasm 7ce0382b2271658592166e4ac2eb5df3de2ba7240b376defaa5791be89a7baa4
+                                            ac1.js   5f300b7ea43e1d38fde7a91fc1a924a1b566d92382e031b9b520c8a599091c64
+                                            ac1.d.ts 0eb6d69b01af9234120b42642a896dd3049b903509b1c8fe84acded59181f2e8
+                                            — byte-identical on the second run
+```
+
+**Nothing else moved** across E-3: `op-bijection` 22/22/22 · `eq-six` six zeros over 30,527 rows,
+third cell 233 (12) · `r1-candidates` 0/172 × 6, boundary 7/7 · `depth-scan` GREEN · `wasm-audit`
+GREEN · `idiom-nocst` GREEN.
+
+#### Act 6 — D-i2 cured, and R-i1 re-pointed
+
+**D-i2** (MAJOR). Two bugs on one line of `harness/w2/coverage-52-report.mjs`, both read at the bytes:
+`meta.artifacts.dts` is a **path string** and was handed to `classify()` as if it were the declaration
+**text** (nothing ever read the file from disk), *and* the path was **pre-applied** to
+`readTypeDeclarations()` here while `classify()`'s own `classifyTypes()` applies it again by contract
+— the first application returned `{}` and the second called `.matchAll` on that object.
+
+```
+⟨cmd⟩ node harness/w2/coverage-52-report.mjs --candidate ac1 --at typescript/src/css
+BEFORE  TypeError: text.matchAll is not a function or its return value is not iterable
+          at readTypeDeclarations (harness/totality/lib/surface.mjs:202)
+          at classifyTypes        (harness/totality/lib/classify.mjs:122)
+          at main                 (harness/w2/coverage-52-report.mjs:92)
+AFTER   exit 0 · GREEN · throws recorded by the assay 0
+        52 rows · ∅ both ways · classes V:31 K:2 P:10 W:2 X:7 · map digest 334fa95778e00727b945f66bac7af5dd (UNCHANGED)
+        declaration surface (read, not guessed)  …/typescript/src/css/build/ac1.d.ts — 539 B, sha256 0eb6d69b01af9234
+        verbs, this run (W1's own assay, re-run)  TOTAL:1 · PARTIAL:2 · ABSENT:49
+AFTER   --candidate ac1 (the candidate address, where it was latent since `.g`) → exit 0
+AFTER   --candidate ac4 (ABSENT) and the bare literal command                  → exit 0, unchanged
+```
+
+The cure honours `classify()`'s own contract — **read** the declared surface, pass its **text**, apply
+the extractor **exactly once** in the module that owns it — and an undeclared or absent surface is now
+reported **UNREAD with the member named**, never defaulted (README §2's rule), with its provenance a
+printed row. `harness/totality/**` is untouched. **G-6's survivor-verb half is runnable for the first
+time**, and it reports the seed's true distance (**1 TOTAL / 2 PARTIAL / 49 ABSENT**) rather than a
+stack trace. **OP-8 stands: the gate reports, it does not cure** — and this unit cured nothing of the
+52.
+
+**R-i1** (INFO). `meta.build.jsArtifactReproduction` re-pointed to the tree of record:
+
+```
+⟨cmd⟩ node harness/w2/wasm-audit.mjs --candidate ac1 --at typescript/src/css
+BEFORE  declared JS-artifact reproduction  node experiments/w2/ac1-tagless/build.mjs
+AFTER   declared JS-artifact reproduction  node typescript/src/css/build.mjs
+BOTH    non-JS toolchain in that path (K-9)  none      → GREEN, exit 0
+```
+
+`.i` carried it unaltered **on purpose** (§11.2 permits relative-*import* adjustments only, and a
+declared build command is not an import) and it was still true at the candidate directory. At W3 the
+graduated tree is the tree of record, and the command that reproduces **these** bytes is the one now
+declared — measured to regenerate all three artifacts and to re-run byte-identically.
+
+#### Act 7 — F-h8, and the two label corrections
+
+**F-h8 — `w2/ac3-scan-union` `f934956`: CRITERION MET, CONSUMPTION NOT TAKEN AT THIS SEAT.** The
+decision rule is §0n.5's *"consumed at W3's open **by measurement** (library `tsc` + `vitest`
+unchanged-or-better), else left on its branch"*. Both halves were measured, read-only, with **no write
+anywhere** — the scan-union bytes are already checked out at `<p2>/.worktrees/ac3` (`f934956`,
+§4b-lawful, inside the root), so the comparison needed no new tree:
+
+```
+                                     library tsc (-p typescript/tsconfig.json)   library vitest (--root typescript)
+<p2> (HEAD, without the scan union)  343 error TS                                 4 failed | 10 passed (14 files)
+                                     TS2580 109 · TS2307 84 · TS7006 47 ·         2 failed | 122 passed | 2 skipped (126)
+                                     TS2339 45 · TS2584 29 · TS2304 23
+<p2>/.worktrees/ac3 (with it)        343 error TS                                 4 failed | 10 passed (14 files)
+                                                                                  2 failed | 122 passed | 2 skipped (126)
+```
+
+**Unchanged, exactly** — the criterion is MET. It is nonetheless **left on its branch**, for three
+reasons stated so the next seat does not have to re-derive them:
+
+1. **Bounds.** `76033aa` writes `typescript/src/parse/{core,index,scan,state}.ts` (+264 L, 4 files).
+   `W3.md` §4 admits `<p2>/typescript/src/css/**`; `typescript/src/parse/**` is in **no** row of it and
+   in no row of this unit's writable set, and this unit's own §4 addendum deliberately does **not**
+   admit it (§A-3). §0n.5 **ADOPTS** the clone point's three `src/parse/**` commits **as the base** —
+   adoption of an ancestor states where the numbers were taken, it is not a licence to write new bytes
+   there. A write there is a `W3.md` §3a **File-bound expansion**, which halts rather than proceeds.
+2. **A named hazard**, measured: `f934956` is the tip of the **ac3-span** branch, whose candidate is
+   **KILLED (K-3)**. `⟨cmd⟩ git diff --name-status HEAD w2/ac3-scan-union` → it **deletes**
+   `typescript/src/css/**` (17 files) and `experiments/w2/ac1-tagless/**` (20) and adds AC-3's tree —
+   the branch predates the graduation. Any consumption is therefore a **cherry-pick of `76033aa`
+   alone**, never a merge of `f934956`, and X.P.W2's K.2 already refused to make that call
+   (*"Merging a killed candidate's library edits would be this close deciding what §0n.5 gave to W3"*).
+3. **No consumer exists.** Nothing under `<p2>/typescript/src/css/**` imports `scan`; the algebra's
+   `SCAN` is its own operator (OP-04), and `src/parse/index.ts` at HEAD exports no scan surface. The
+   consumption would add 264 L of unreferenced library surface that **no W3 gate reads** — and the
+   substrate this wave just re-pointed onto should not move in the same sitting it was re-pointed to.
+
+**Returned to the orchestrator** as a residual with the measurement above, for a one-row grant (or a
+declination) at the wave's close. Nothing was staged, nothing was merged, and the branch is byte-
+untouched: `⟨cmd⟩ git rev-parse w2/ac3-scan-union` → `f93495602ee17e50b2ff97ab86bed32b28dc9966`.
+
+**R-i3 / F-h2 — the label corrected BESIDE, never the measurement.** The mislabel is in
+`harness/w2/eq-six.mjs`'s final `verdict(...)`: its RED branch prints `${total} divergences between
+the two lowerings (K-1)` where `total` is the **sum of all six EQ counts**. When only EQ-6 is
+non-zero the sentence therefore calls an **intra-lowering COMP-1 failure** a cross-lowering
+divergence. *The number was right, the label was wrong* — `.g`'s, and `eq-six.mjs` is execute-only for
+this unit, so it is corrected **here** and in the addendum, not in the script. It no longer fires on
+this candidate (EQ-6 = 0 → the GREEN branch prints), and it stays latent for any future non-zero
+reading; **owner `.g` / L-18**.
+
+**R-i2 — the shape recorded, as the open assigned.** ESC-i2's GREEN is narrow and stays narrow at this
+seat: the library project compiles **403** program files of which the graduated tree contributes
+**1** (`build/ac1.d.ts`), `allowJs` is absent, and the **sixteen `.mjs`** under `typescript/src/css`
+— **including the four this unit edited** — are **not typechecked by any compile that runs today**.
+This unit therefore leaned on the executable gates, not on `tsc`, and says so. `.a`'s assignability
+compile is the widening.
+
+---
+
+#### The commits (two histories, never merged; `.0` first in each repo)
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | value.js | **`641ba4db`** | the three dated addenda-beside (W3 §4 · W1 §Bounds E-6 · ALGEBRA E-2·E-3·E-4·E-5·E-8) — **the wave's first commit in this repo** |
+| 2 | `<p2>` | **`8d8ebc6`** | the `<p2>` home of the contract addendum, sha256-equal — **the wave's first commit in the fresh root** |
+| 3 | `<p2>` | **`1857c9b`** | **ONE act, not two** — OP-7's re-point **and** D-c1's cure |
+| 4 | `<p2>` | **`4d8dae4`** | the seed conformed to the addendum — E-2's re-kind + E-3's two struck `CUT`s (one meaning; the rebuild rides it) |
+| 5 | `<p2>` | **`7be817c`** | E-6 — `engines.mjs` gains `--engine=<adapter>` |
+| 6 | `<p2>` | **`a35e3c5`** | D-i2 — `coverage-52-report.mjs` reads the declared surface |
+| 7 | `<p2>` | **`57ddc96`** | R-i1 — the declared JS-artifact reproduction re-pointed |
+
+Every commit carries **its own pathspec on the commit itself**; four tracks share the value.js index
+and commit 1 contains **exactly three files**, all under `docs/tranches/X/parse-that/`. `git diff
+--check` clean on every one. `scripts/dev/dev.sh` appears in **0** commits of this unit and was never
+opened. `/Users/mkbabb/Programming/parse-that` carries **no commit from this unit**. No `git stash`,
+no `reset`, no `force-push`, no `-A`, no `-u`, no `commit -a`. Neither repo was pushed by this unit.
+
+```
+⟨cmd⟩ git -C <p2> status --porcelain     →  `?? .worktrees/`  — one line, §4b's prescribed container,
+                                            before and after, exactly as the open measured it
+⟨cmd⟩ git -C <p2> worktree list          →  4, all inside <p2>/.worktrees/ (ac1 130f72d · ac2 a7ac4ea ·
+                                            ac3 f934956) — `.worktrees/ac2` at a7ac4ea4 STAYS (§0n.1), untouched
+⟨cmd⟩ ls -d /Users/mkbabb/Programming/parse-that*  →  no `<p2>-w3*` sibling exists
+```
+
+---
+
+#### Gate readings — this unit's own dispatch row, answered
+
+**The ten `W3.md` gates: 10 RED before, 10 RED after. This unit turned none, and claims none.** What
+it did is what the row says — *unblock the literal form* of five of them and half of a sixth:
+
+| gate | what was in the way | state after this unit |
+|---|---|---|
+| **G-1** | the universe manifest must be generated against a candidate that resolves at `<p2>`; the `.d.ts` did not resolve there (D-c1), so the assignability compile could not be read at the root | **unblocked** — `ac1.d.ts` resolves at `<p2>`, `idiom-nocst`'s `tsc` fixture passes there, and `coverage-52-report` now prints a **per-row verb** (`1 TOTAL / 2 PARTIAL / 49 ABSENT`) instead of throwing |
+| **G-4** | the closure checker executes the corpus through the lowering; the lowering loaded its combinators from another repo's `node_modules` (OP-7) | **unblocked** — the substrate is this root's own `src/parse/**`, and the closed-union discipline's nearest W2 analogue (`R-LAW-2`) reads **0** |
+| **G-5** | the comparator needs both targets loadable at `<p2>` proper | **unblocked** — both lowerings load and answer at the root; the Wasm artifact rebuilds byte-reproducibly |
+| **G-6** (survivor half) | `coverage-52-report.mjs` threw whenever a candidate was present (D-i2) | **unblocked — the half is runnable** |
+| **G-7** | the differential harness and its bench peer had no registrable subject (W2 G-7 RED-structural) | **unblocked** — E-6's declared external cell resolves both lowerings |
+| **G-10** | no engine could be registered, so no candidate row could be timed | **unblocked** (the table stays `.d`'s; **no bar, no ratio, no verdict here**) |
+
+**The `W2` gates this unit's acts actually moved, BEFORE → AFTER, at the settled bytes, double-run:**
+
+| W2 gate | probe | BEFORE (this seat, read-only) | AFTER (settled bytes) |
+|---|---|---|---|
+| **G-1** structural half | `structuralReport` at the graduated tree | `cutOutsideAlt` **7** (js · wasm) | **0** (js · wasm) — **RED → GREEN** |
+| **G-3** | `eq-six --candidate ac1 --at typescript/src/css` | EQ-6 **2035**, exit 1 | **0**, six zeros over 30,527 rows — **RED → GREEN** |
+| **G-4** | `recovery-laws` | R-LAW-2 **13** both lowerings, exit 1 | **0** both lowerings — **RED → GREEN** |
+| **G-6** | `coverage-52-report --candidate ac1 --at …` | **throws** (D-i2) | exit 0, verbs printed — **SPLIT → both halves runnable** |
+| **G-10** (W2's) | `idiom-nocst --candidate ac1 --at …` | `TS2578`, exit 1 (D-c1) | fixture PASSES, exit 0 — **RED → GREEN** |
+| **G-7** (W2's) | the bench cell | **RED-structural**: no registrable subject | **subject exists** (E-6); the table is `.d`'s |
+| G-2 · G-5 · G-9 · G-11 · G-12 | `op-bijection` · `r1-candidates` · `wasm-audit` · `depth-scan` | GREEN | **GREEN, unchanged to the digit** |
+| **G-8** | `alloc-latch` | RED, **instrument-owned** (F-4 · F-e8 · F-f3 · F-h3) | **still RED, still instrument-owned** — see below |
+
+**Verification sweep at the settled bytes, run TWICE over all eight probes — 8 of 8 exit 0, both runs
+identical:** `op-bijection` · `eq-six` · `recovery-laws` · `r1-candidates` · `idiom-nocst` ·
+`wasm-audit` · `depth-scan` · `coverage-52-report`.
+
+**G-8 is reported honestly and is NOT claimed.** This seat's draw: `js` reject path **7.9 B/parse**,
+`wasm` **2.2 B/parse** against an exact-zero condition; warmed history drift `js` **0.745×**. X.P.W2
+booked this gate's instrument four times (**F-4 · F-e8 · F-f3 · F-h3**): the reject leg tests an exact
+zero with an instrument whose draw-to-draw spread on the same subject is **±10 B/parse**, and F-h3
+records the envelope (0.80–1.25) as *narrower than the instrument's four-draw spread on this box*
+(ac1 wasm **0.744–0.931×**). This draw sits inside both bands. **No re-run for a greener number was
+taken, and none of these numbers is offered as a change.**
+
+---
+
+#### Findings raised by this unit (none cured here; each with an owner)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **F-0.1** | MINOR | **`op-bijection.mjs --structural` does not accept `--at`** (⟨cmd⟩ `grep -n 'flags.has("structural")' harness/w2/op-bijection.mjs` → L188 dispatches `--at` to `bijection()` only). Its literal invocation therefore walks `experiments/w2/ac1-tagless/**` — the untouched candidate directory — and still prints `cut∉alt 7 · RED` after E-3's strike, while the graduated tree reads **0**. A true reading of a tree this wave did not change, but G-1's structural half cannot be read at the tree of record by its own literal command | **`.g` / L-18** |
+| **F-0.2** | INFO | After E-3's strike, `CUT` joins the structural walk's `opsUnexercised` list, because the **seven surviving `CUT`s live in `grammar().dispatchTerms`** and the walk reaches only `grammar().terms`. The blind spot is **pre-existing and already declared** by the seed's own `algebra/grammar.mjs` header and `VERDICT.md`; it is restated here so a reader does not mistake the list for a regression | `.g` / `.b` |
+| **F-0.3** | INFO | **R-i2 measured, not inherited**: the library compile covers **403** program files, the graduated tree contributes **1**, `allowJs` is absent, and the **sixteen `.mjs`** under `typescript/src/css` — including this unit's four edited files — are typechecked by **no** compile that runs today | `.a` (the assignability compile is the widening) |
+| **F-0.4** | INFO | **`<p2>/typescript` has no `node_modules`**, so the library's own `tsc` reads **343** `error TS` (TS2580 109 · TS2307 84 · TS7006 47 · TS2339 45 · TS2584 29 · TS2304 23) and `vitest` reads **4 failed / 10 passed** files (2 failed / 122 passed / 2 skipped), one failure being `ENOENT: ../data/json/data-l.json` — a `data/` directory this root does not carry. ESC-i2's 343 reproduces **exactly**. Both instruments are RED-PREEXISTING for reasons independent of anything this wave does, which is what makes F-h8's "unchanged-or-better" a weak signal even though it is met | orchestrator / `.a` |
+| **D-i1** | MINOR | restated, **not** cured here (the open already routed it): §0n.2's tail cites a **§0n.7** that does not exist; the substance is §0n.5. E-3 — a ruling's dangling cross-reference is curable only by its author | **orchestrator** |
+
+**Escalations: NONE.** No `W3.md` §3a trigger fired. No write was proposed or made outside the §4
+table as widened by this unit's own dated addendum; no gate entered a third diagnose→edit→re-measure
+iteration (every cure landed and was confirmed on its **first** re-measure); no `ParseIssue` code was
+added, proposed or discussed as a ninth; no seventh complement kind was taken; no bar was set,
+invented, inferred or reconciled. F-h8 is **returned as a residual with its measurement**, not
+escalated — *"left on its branch"* is one of the two dispositions §0n.5 itself names.
+
+---
+
+#### E13 and the standing invariants, at this unit's own clock
+
+The wave's **O.1** four-path sweep stands (0 unrowed · 0 UNREAD **in X.P.W3's scope**; I-32/I-33/I-34
+carry `UNREAD 2026-09-17` status cells and were read row-by-row at the open as naming **no parse-that
+byte** — *"Not X·P's"*). This unit **minted no mail**, wrote **zero** bytes in any producer tree, and
+read `../glass-ui/**` not at all. `⟨cmd⟩ grep -c '^| I-' docs/tranches/V/coordination/INBOX.md` → **36**,
+unchanged; `I-34` is still the tail of the rowed inbound set and `I-30` the standing obligation tail.
+
+`⟨cmd⟩ git -C <value.js> show --stat 641ba4db` → **3 files, all `docs/tranches/X/parse-that/`**; this
+unit wrote nothing under `src/**`, `api/**`, `demo/**`, `test/**`, `e2e/**`, `scripts/**` or
+`package.json`, and `/Users/mkbabb/Programming/parse-that`, `~/Documents/Codex/**`, `~/.codex/**`,
+`../glass-ui/**`, `../keyframes.js/**` and `../fourier-analysis/**` were **never written**. The
+value.js working tree carries modified `test/*.ts` and `vitest.config.ts` from **sibling tracks** of
+this sitting; none is in any commit of this unit, which is what the pathspec discipline is for.
+
+**Format and lint cadence (§7).** This repo: Prettier over the three touched `.md` (then the `<p2>`
+ALGEBRA home re-copied from the formatted bytes, so §0n.3's sha256 lock holds on the formatted pair)
++ `git diff --check` clean on every commit. The fresh root: the eight W2 probes are the executable
+cadence and all eight exit 0 twice; `npx tsc --noEmit -p typescript/tsconfig.json` reads its
+**RED-PREEXISTING 343** unchanged (F-0.4), and **no proof-farm script was authored for any gate**
+(L-19) — every figure above is a program's own output.
