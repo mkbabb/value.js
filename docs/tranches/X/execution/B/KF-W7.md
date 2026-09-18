@@ -626,3 +626,88 @@ prior pass, except the §Bounds line-count tier which is **cited to this record'
 `-u`, no `git commit -a`, no reset or unstage of another seat's paths**; `scripts/dev/dev.sh` appears
 in **zero** commits of this unit, in either repo. The kf tree's only other content at every commit
 was its two untracked `VALUEJS-INBOUND-*.md` survivors, which stayed untracked.
+
+### X.KF.W7.c
+
+SERVED MODEL: claude-fable-5-1 · **2026-09-18** · Fable design seat, **documents only** — zero keyframes.js
+bytes, zero registry bytes (both measured at close, below). Sections executed: §Carry P7 (:198-219) · P8
+(:220-237) · §Gates G9 · G10 · G14 · G15 · §Sequencing 7 and 9 · §Excluded KAD-15/16/20 (:371). Writable set
+honoured: `evidence/W7/**` + this record; **no write outside it → no escalation**.
+
+**Step 0 (E13 mail sweep)**: COHESION §0j + §0k/§0l/§0m/§0n re-read — nothing addressed to KF.W7 beyond
+standing law; G1-VERDICT-TABLE (`.a`) read whole — its §2.2 routes L-15 to G14 (this seat), §2.3 THP
+KEEP-BESPOKE with producer seams → `.f` relay; `.a`'s residual (`@vue/test-utils` not on disk) is `.a`'s, not
+re-claimed.
+
+**Measure before design** (the counts every ruling cites; script `scratchpad/w7c-measure.sh`, run twice,
+`diff run1 run2` → **DOUBLE-RUN IDENTICAL**; all read at the G12 pin `ae83da07`, files byte-identical at the
+then-HEAD `77d0e0b1` — ⟨`git diff --stat ae83da07 HEAD -- <scope>`⟩ → 0 lines):
+- G14: useTimelineBuild toasts `121 133 137 148 155 157` · `console.error` `48` · useTimelineOps toasts `24 34`
+  · caret `isNaN` `61` · KT close-before-parse `270 277` · KT template `v-if|v-else` **1** · vue-sonner
+  importers **9** · Toaster mount `DemoGlobalChrome.vue:28` · `vue-sonner/style` imports **0** · vue-sonner
+  **2.0.9** · `lib/index.js` positioning/injection tokens **0** · `lib/index.css` `position: *fixed` lines
+  `21 387` (→ the banked kf-DemoGlobalChrome D-1/L-1/C-1 BLOCKER is REAL at the bytes: the channel is
+  unpositioned) · `withErrorToastAsync` `useKeyframeOps.ts:25` · glass forms exports `Textarea` +
+  `useUserInvalidAria` · Button `loading?: boolean` d.ts:15 · POSTURES.md floor **20**, KF.W7-owned rows **7**.
+- G15: CPD **80** L / KAD **161** L · `defineExpose` `:79` · `initialText` hits `49 53 59 67`, `:initial-text`
+  at the mounts **0** · KAD live import `KeyframesEditor.vue:118`, mount `:75` · KAD-1 cured at
+  `useHighlightCSS.ts:183` (W5) · `useCodeHighlight(` consumers **2** · N-2 `.label` **1** + timelineTypes **1**
+  · KAD-16 footer at `:41` · nested `DialogDescription` **2** in `:24-31` · parent-owned close
+  `useKeyframeOps.ts:183`.
+- G10/G9: `previewCache` `81 217 221 226`, `delete` **0** · `return null` `93 111` · `getGhostStyle` `91 151` ·
+  `<TooltipContent` `:86`, `aria-label` **0** · `diamondHover` `83 133` · track role/aria-label in `:21-35`
+  **0** · THP `data-register` `:20`, `normal-case` **0** · reka `ariaLabel` computed `:87` · value.js
+  `/transform` exports `decomposeMatrix2D decomposeMatrix3D`, kf demo imports **0**.
+
+**Acts** (one commit per meaning, pathspec on the commit itself; each file line 1 = `SERVED MODEL:
+claude-fable-5-1`, ⟨`head -n1`⟩ ×4 → **4**):
+
+| # | commit | file | meaning |
+|---|---|---|---|
+| 1 | `7fee73f9` | `evidence/W7/G14-POSTURE-RULING.md` (152 L) | **G14 RULED**: ONE posture — *SURFACE, NEVER SWALLOW — IN PLACE WHERE THERE IS A PLACE; OUTCOME BEFORE ACKNOWLEDGEMENT* — four clauses P1..P4 (⟨`grep -c '^- \*\*P[1-4] '`⟩ → **4**) + a named PRECONDITION (the toast channel is dead at the bytes; not cured here; no bare stylesheet import — M-1); consumer table **5** rows over the seven POSTURES.md KF.W7 rows (C-7 · L-15 · L-11 · D-15 · R-4+KAD-9+KAD-10) with executor and cure shape each; cross-referenced both ends (the registry rows already carry `**KF.W7**`; disposition write-back routed to `.f`/KF.W10 — **no registry byte**). |
+| 2 | `fa502444` | `evidence/W7/G15-FOLD-RULING.md` (248 L + addendum) | **G15 RULED — FOLD**: shell contract (awaitable `submit`, `defineModel("text")` replacing `initialText`, `trigger` slot, `cn()` class merge, `footer-extra` + `textEl` LIVE), KAD survives as a thin adapter (import/mount at `KeyframesEditor.vue:75/:118` UNCHANGED → no out-of-bounds write); the four deltas preserved; **L-4's falsifier answered YES** with mechanism + its one residual (the R-1 hljs/VDOM class, unchanged, dies at W6's swap); **dispositions FIRST**: 18 table rows / 40 ids, **KAD-15 · KAD-16 · KAD-20 named by id** with their W6 anchor rows and the fold's structural effect on each (KAD-16's footer tokens become MOOT at the fold); **N-2 RULED WIRE** (marker name · THP caption · tooltip description; export OUT with reason); **order lock: FOLD FIRST (`.e`), W6's S-9 swap SECOND**. |
+| 3 | `7515ecd2` | `evidence/W7/G10-GHOST-CACHE-DESIGN.md` (176 L) | G10 design (family D-7 + MISSED-4 + GHOST-PLATE + L-D8/C-4(a) + L-D4/C-4(b)): one content-keyed `previews` Map, evicted by a deep watch on keyframes; failed = terminal state that renders its reason; `scrubAndCapture` REJECTS (finally-restore kept); KEEP comment rewritten to true conditions; THP derives its ghost (prop deleted); fixed PLATE → SWATCH → decomposed-transform WRAPPER via `@mkbabb/value.js/transform`; reserved media box (M9); terminal `v-else`; `@error` → failed; D-15 demo half; `max-h-24` untouched (MISSED-3); m-7/m-8 validation AFTER L-6/C-4. Six falsifiers. |
+| 4 | `4444e6f8` | `evidence/W7/G9-A11Y-DESCRIPTION-DESIGN.md` (126 L) | G9 design: `describeKeyframe` in TT (derived from the rendering data; `; ` at row boundaries, terminal `.`; media sentence re-derived on ghost→image through reka's props-first `ariaLabel`); three readers (tooltip `:aria-label`, `<img alt>`, marker name); M7 at THP:20 with the verbatim element (DISSENT-4), `normal-case tracking-normal`; RR-A missed-1 group role + `aria-hidden` ticks; D-10 `@focus` beside `@mouseenter`; P2-DEAD; producer seams (reka `textContent` fallback, available-height) → `.f` relay, no local patch. Six falsifiers. |
+| 5 | `500e5a0a` | `G15-FOLD-RULING.md` addendum | the §1 count line corrected by dated addendum-beside (E-3): 18 rows / 40 ids, measured. |
+| 6 | (below) | this record | these receipts. |
+
+**Gate readings BEFORE → AFTER**:
+- **G14**: RED (six postures measured at baseline) → **GREEN as a RULING** (one declared posture, read out of
+  KF.W2's `POSTURES.md`, cross-referenced both ends). The BYTE half (C-7 → `.e`; L-15 · L-11 → `.d`; D-15 →
+  `.e`; R-4 → `.e`) stays RED until those commits land; `.f` reads it at close.
+- **G15**: RED → **GREEN as a RULING** (fold ruled, not declined; falsifier answered; dispositions stated
+  first with KAD-15/16/20 by id; N-2 WIRE). The BYTE half (the ONE fold commit) is `.e`'s.
+- **G9 · G10**: NOT turned by this unit — designs LIVE (files 3, 4); byte halves `.d`/`.e`.
+
+**Locks measured at close**: ⟨`git -C keyframes.js log --grep='w7.c' --format=%h | wc -l`⟩ → **0** kf commits
+by this unit; ⟨`git status --short -- docs/tranches/X/keyframes/registries`⟩ → **0**; ⟨`git log --format=%h
+7fee73f9^..HEAD -- scripts/dev/dev.sh | wc -l`⟩ → **0**. Observed, not touched: the kf tree carries **4** dirty
+tracked files (`KeyframeTimeline.vue` · `TimelineTrack.vue` · `timelineTypes.ts` · `timelineEngine.ts`) and kf
+HEAD has moved `77d0e0b1` → `e1c596a0` — sibling seats' (`.b`/`.d`) in-flight work; this seat ran only
+`git show`/`git grep` there.
+
+**Residuals (owner named)**:
+1. **Toaster BLOCKER** (kf-DemoGlobalChrome D-1/L-1/C-1, NO-WAVE-OWNER): the ★ S-7 house channel is
+   unpositioned at the bytes; G14 P3's precondition. Not cured here (M-1 forbids the bare import as a fix);
+   → `.f`'s close residuals + the KF.W10 ledger.
+2. **W6∥W7 same-file order lock** (G15 §5): runbook §3.4 has NO row for `CSSPasteDialog.vue` /
+   `KeyframesAddDialog.vue` / THP / TT / KT / caret shared by KF.W6 `.f`/`.h`/`.i` and KF.W7 `.d`/`.e`. Ruled
+   from this end: **FOLD FIRST, SWAP SECOND**; W6's writes to these files land after W7 `.d`/`.e` close. →
+   ORCHESTRATOR (a runbook row; no runbook byte written by this seat).
+3. **Phase-3 file-crossing** (G10 §6): the ghost family needs four carves in `.d`'s `TimelineTrack.vue`; the
+   a11y family needs one carve at `.e`'s THP:20. Two seats carving each other's file concurrently in one
+   worktree is a race the §Disjointness table did not foresee. **Recommendation to seat 0** (not a ruling):
+   serialize `.d` → `.e` and re-home each family WHOLE (ghost → `.e` with its TT carves; a11y → `.d` with the
+   THP:20 carve).
+4. **Registry write-back**: the seven POSTURES.md rows and the dialog/THP/TT/KT records receive their
+   disposition cells at `.f`/KF.W10 (E-3; **no registry byte written by this seat**).
+5. **KFED-UNIT declarations** (to `KF-W10.md` §6.D → the KF.W12 row): the parent half of KAD-13
+   (`useKeyframeOps.ts:149-150`); the KAD mount's `submit` returning its promise so busy/error inherit.
+6. `@vue/test-utils` install residual — `.a`'s; unchanged.
+
+**Escalations**: none — no write outside the writable set; no third diagnose→edit→re-measure iteration; no
+allowlist pressure.
+
+**Index hygiene**: every commit carried its own pathspec on the commit itself; no `git add -A`, no `-u`, no
+`commit -a`, no reset/unstage of another seat's paths; the record was re-read (⟨`wc -l`⟩ → 628, last entry
+`### X.KF.W7.a`, working tree clean for it) immediately before this append.
