@@ -1,0 +1,132 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X-W3 §8 artefact 3 (AFTER half) — `cd api && npm test` at the SETTLED bytes, wave close
+
+Close seat (VERIFY-ONLY), 2026-09-18 18:5x EDT, branch tranche-u.
+DOUBLE-RUN: run 1 and run 2 back to back; the FAIL set and both totals are byte-identical.
+
+⟨cmd⟩ cd api && npm test   (RUN 1)
+--------------------------------------------------------------------
+[32m- Expected:[39m 
+"b12243d56c48d7e572e7687ccdf0e4e104eff0820f7cf37f088828822556184a"
+
+[31m+ Received:[39m 
+undefined
+
+ ❯ src/modules/palette/__tests__/palette-forks.test.ts:71:46
+     69|             palette.currentHash as string,
+     70|         );
+     71|         expect(childVersion?.forkedFromHash).toBe(source?.currentHash …
+       |                                              ^
+     72|     });
+     73| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged
+AssertionError: expected 428 to be 404 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 404[39m
+[31m+ 428[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:320:28
+    318|             body: JSON.stringify({ hash: bHash }),
+    319|         });
+    320|         expect(res.status).toBe(404);
+       |                            ^
+    321| 
+    322|         const after = await services.repositories.palettes.findBySlug(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/modules/palette/__tests__/palettes-forks.test.ts > routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version)
+AssertionError: expected 428 to be 200 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 200[39m
+[31m+ 428[39m
+
+ ❯ src/modules/palette/__tests__/palettes-forks.test.ts:164:31
+    162|             body: JSON.stringify({ hash: firstHash }),
+    163|         });
+    164|         expect(revert.status).toBe(200);
+       |                               ^
+    165|         const body = (await revert.json()) as { name: string; slug: st…
+    166|         expect(body.slug).toBe("source");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  3 failed | 241 passed (244)
+   Start at  18:56:55
+   Duration  13.70s (transform 221ms, setup 0ms, collect 1.88s, tests 5.96s, environment 2ms, prepare 789ms)
+
+
+⟨cmd⟩ cd api && npm test   (RUN 2)
+--------------------------------------------------------------------
+[32m- Expected:[39m 
+"b12243d56c48d7e572e7687ccdf0e4e104eff0820f7cf37f088828822556184a"
+
+[31m+ Received:[39m 
+undefined
+
+ ❯ src/modules/palette/__tests__/palette-forks.test.ts:71:46
+     69|             palette.currentHash as string,
+     70|         );
+     71|         expect(childVersion?.forkedFromHash).toBe(source?.currentHash …
+       |                                              ^
+     72|     });
+     73| 
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/modules/palette/__tests__/palette-versions.test.ts > service.palette.versions > G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged
+AssertionError: expected 428 to be 404 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 404[39m
+[31m+ 428[39m
+
+ ❯ src/modules/palette/__tests__/palette-versions.test.ts:320:28
+    318|             body: JSON.stringify({ hash: bHash }),
+    319|         });
+    320|         expect(res.status).toBe(404);
+       |                            ^
+    321| 
+    322|         const after = await services.repositories.palettes.findBySlug(…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/modules/palette/__tests__/palettes-forks.test.ts > routes.palettes forks/provenance + revert (N.W3.H-tests) > POST /:slug/revert → 200 FormattedPalette (owner reverts to a prior version)
+AssertionError: expected 428 to be 200 // Object.is equality
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 200[39m
+[31m+ 428[39m
+
+ ❯ src/modules/palette/__tests__/palettes-forks.test.ts:164:31
+    162|             body: JSON.stringify({ hash: firstHash }),
+    163|         });
+    164|         expect(revert.status).toBe(200);
+       |                               ^
+    165|         const body = (await revert.json()) as { name: string; slug: st…
+    166|         expect(body.slug).toBe("source");
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 37 passed (40)
+      Tests  3 failed | 241 passed (244)
+   Start at  18:57:09
+   Duration  13.73s (transform 236ms, setup 0ms, collect 1.92s, tests 5.98s, environment 2ms, prepare 811ms)
+
