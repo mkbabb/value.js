@@ -1475,3 +1475,276 @@ yet a closed wave.
 Per the bar, **the LEDGER Track A `X-W2` status cell is NOT moved to CLOSED** — the wave remains
 **PARTIAL** — and a dated event line is appended to the append-only §Event log. Nothing else in the
 ledger is touched; no gate, bar, grep, spec byte or prior receipt was moved by this seat.
+
+---
+
+## Repair 1
+
+**REPAIR SEAT, round 1 — the wave's FIRST curing seat since unit a.** **SERVED MODEL**:
+`claude-opus-5[1m]`. **Seat clock**: 2026-09-17, **19:36–20:1x EDT**. Branch `tranche-u`, HEAD at open
+`57a65fc6`. **Register consumed**: §Check 1's defect register — **D-1 (HIGH) · D-2 (HIGH) ·
+D-3 (MEDIUM) · D-4 (MINOR, mitigated) · INFO-1 · INFO-2**.
+**The act**: **X.W2.d was dispatched.** CHECK 1's verdict was that two REDs sat unrelieved because the
+unit that cures them was never run, and the close agreed with itself at `cl-F5` — *"unit d is
+executable today and is blocked only by dispatch … the single largest miss of this wave is a dispatch
+gap, not a technical one."* This seat ran it. **E-3 held**: no dated spec, registry, conformance
+artefact or prior receipt was edited; §Baseline, §Unit receipts, §Close and §Check 1 are byte-untouched
+above, and the two §4-granted living fields (`W2.md` §State `Status`, the LEDGER row) moved by
+**appending**, never by rewriting.
+
+### D-1 (HIGH) — G6 · **CURED**
+
+**Cure idiom taken**: §6 G6's **second arm**, because the spec forbids the seat to choose:
+*"The spec's own assertion (`maxDelta ≤ 3 × median`) decides it; the seat may not choose the verdict,
+only report it."* The assertion returned **RED**, so `test.fail()` **stays** and the header now carries
+today's numbers and today's cause. **`SPIKE_RATIO` (3), `DROP_RATIO` (2), `DROP_FRACTION_MAX` (0.1) and
+the `frames.length > 10` precondition are BYTE-UNCHANGED** — ⟨cmd⟩
+`grep -n "SPIKE_RATIO = \|DROP_RATIO = \|DROP_FRACTION_MAX = \|toBeGreaterThan(10)"` → `69:const
+SPIKE_RATIO = 3;` · `70:const DROP_RATIO = 2;` · `71:const DROP_FRACTION_MAX = 0.1;` ·
+`90: expect(frames.length, "no boot frames captured").toBeGreaterThan(10);`. Nothing narrowed, nothing
+skipped, no ratio raised.
+
+**Today's measurement, from the spec's own command** (⟨cmd⟩ `npx playwright test --project=smoke-perf
+e2e/smoke/perf/o5-boot-pacing.spec.ts`, **ten sittings**, host load 12.88–36.29). Nine of ten failed at
+the spec's own **precondition** (`no boot frames captured`); the one that reached the assertion printed:
+
+> `[O-5] renderer=ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)),
+> SwiftShader driver) frames=12 median=140.7ms max=2625.0ms (18.7× median) dropped=3 (25.0%)`
+
+— **median 140.7 ms · max-ratio 18.7× (bar 3×) · dropped 25.0 % (bar ≤ 10 %)**. Both legs RED; the
+pile-up leg, GREEN at the W2-3 reading (5.3 %), is red here.
+
+**Today's diagnosed cause, and it is NOT the payload.** Four probes of the same collector plus a
+`PerformanceObserver('longtask')` census (a scratchpad probe — **no repo byte was written for it and no
+product or spec file was modified to take it**):
+
+| probe | host load | frames | median | max | ratio | dropped | max-gap span |
+|---|---|---:|---:|---:|---:|---|---|
+| P1 | 46.63 | 10 | 141.7 ms | 2450.0 ms | 17.3× | 3 (30.0 %) | [262, 2712] ms |
+| P2 | 43.86 | 11 | 140.8 ms | 2625.1 ms | 18.6× | 3 (27.3 %) | [173, 2798] ms |
+| P3 | 25.49 | 11 | 141.8 ms | 2524.9 ms | 17.8× | 3 (27.3 %) | [180, 2705] ms |
+| P4 | 22.79 | 7 | 150.0 ms | 2733.0 ms | 18.2× | 2 (28.6 %) | [273, 3006] ms |
+
+- the whole 4,000 ms window holds **exactly ONE main-thread long task — 139–238 ms**, the Vue mount,
+  ending by 250 ms. The prophecy's *"ONE eager-payload mount task (the 347.9 KiB gz eager index —
+  RP-2)"* is now that task, against an eager set this wave made **32,790 B gz lighter**;
+- **ZERO long tasks lie INSIDE the max frame gap — 4 of 4 probes**, 0 ms of 2,450–2,733 ms;
+- the gap is stable **±6 % across host load 22.8 → 46.6**, so it is **not** host noise either;
+- the hero engine is **not** a candidate: within 4,000 ms the JS resource census contains **no**
+  HeroBlob chunk and `goo-blob-canvas` count is **0**; a timing probe put both at **4–8 s**
+  (`t≈4000ms canvas=0 chunks=[]` → `t≈8000ms canvas=1 chunks=["HeroBlob-CK6WV_Kd.js"]`).
+
+**Therefore**: a **~2.5 s presentation-side rAF / BeginFrame stall carrying no main-thread work**, on a
+headless software-GL compositor. §ENV already owns that boundary — *"Headless Chromium is software-GL
+(SwiftShader) … the real-GPU oracle is CC-029 / X-W1, not this wave"* — and §6 G6 itself routes the
+**disposition** of the marker: *"X-W1 (CC-031) rules the disposition of the three `test.fail()` legs as
+a class; X-W2 executes the payload cure and supplies the measurement for this one."* Payload cure:
+unit a, `13f4ddc2`. Measurement: this seat. **The forbidden third state — a stale prophecy naming a
+dead wave — no longer exists in the tree**: ⟨cmd⟩ `grep -c "payload cure is W7's\|Re-measure at the W7
+adopt" e2e/smoke/perf/o5-boot-pacing.spec.ts` → **0**.
+
+**Recorded beside it, NOT cured**: the 4,000 ms window yields only **7–12 rAF frames** on SwiftShader,
+which is why the spec's own `frames.length > 10` guard fails in **9 of 10** sittings and the legs are
+usually not evaluated at all at this bench. **Lowering that guard would be the narrowed assertion this
+wave's law forbids**, so it stands and the fact is published.
+
+**Commit**: `1129d22e` — `e2e/smoke/perf/o5-boot-pacing.spec.ts` (+39/−9) ·
+`docs/tranches/X/evidence/W2/o5-remeasure.txt` (147 lines). Exactly 2 files.
+
+### D-2 (HIGH) — G7 · **CURED**
+
+`docs/tranches/V/megatranche/audit/telemetry/PERF-X-W2.json` **now exists** — 151 lines, dated
+2026-09-17, carrying the pin string **verbatim** (asserted by equality in the generator, not by eye),
+four rows (two configs × two N=20 sittings), the G3/G4 verdicts, the bench-quiescence caveat, and an
+explicit **reader warning** that the 2026-07-24 zero rows are the MT-F012 empty-mount build's honest
+zeros and **not a boot measurement**.
+
+**F-7 held, and was measured rather than promised**: ⟨cmd⟩ `git diff --stat --
+docs/tranches/V/megatranche/audit/telemetry/PERF.json` → **0 lines**, and ⟨cmd⟩ `ls -la` shows
+`PERF.json` still at its **Jul 24 14:21** mtime beside the new file. The successor supersedes by
+existing; the original was never opened for write. **G7 → GREEN.**
+
+**Commit**: `6a5fea76` (the receipts family, below).
+
+### D-3 (MEDIUM) — the Hard Gate's *"with a before/after receipt"* clause, and §8 · **CURED as far as the bench permits, with the residue named**
+
+§8 was **2 of 7**. It is now **7 of 7**: `BEFORE.json` · **`AFTER.json`** · **`DELTA.md`** ·
+**`o5-remeasure.txt`** · **`PERF-X-W2.json`** · **the dated §D producer note** · the unit commit hashes
+(**a** `13f4ddc2` · **c** `eaa70162` · **b** none by design · **d** `1129d22e` + `6a5fea76`).
+
+**The byte half of the pair IS formed and IS differenced** — it is load-independent and read from disk:
+
+| | BEFORE (unit c) | AFTER (this seat) | delta |
+|---|---:|---:|---:|
+| eager JS gz **(GATED)** | 313,601 B | **280,811 B** | **−32,790 B** |
+| eager JS raw | 979,024 B | 886,610 B | −92,414 B |
+| verdict vs the untouched 286,720 B bar | RED (+26,881) | **GREEN** (5,909 under) | — |
+
+and the **realized-vs-predicted line §8 names** is published rather than rounded away: §6 G2 predicted
+a **35,461 B** gz cut; the realized cut is **32,790 B = 92.5 %** of it, landing **2,671 B above the
+predicted ceiling** and **5,909 B under the BAR**. Directionally right, quantitatively 7.5 %
+optimistic, cause stated (gzip's non-additivity over a re-chunked graph). §3a's *"budget still red
+after the cut"* trigger did **not** fire; **no re-baseline was available, attempted or needed**, and
+the bar reads `286720` in both wave-written files, byte-identical to §6's.
+
+**This seat also WIDENED the close's own `cl-F2` rather than repeat it.** The post-cure eager JS gz now
+has **four** independent readings on **zero** changed product bytes — 280,813 (unit a) · 280,811
+(close · CHECK 1 · repair build 1) · **280,803** (repair build 2, taken after the §7 cadence destroyed
+`dist/gh-pages` — `b-F6` confirmed a fourth time). Raw is exactly 886,610 B in all four. The close
+recorded the drift as **±2 B from two samples**; **it is a 10 B band from four**, and `DELTA.md` and
+`AFTER.json` publish the corrected band rather than the narrower one.
+
+**The CWV half is NOT formed, deliberately, and that is the honest act.** CHECK 1's D-3 said the pair
+could not be taken under the four-track cap; this seat reproduced the reason and did not manufacture
+the pair anyway:
+
+| sitting | host load | desktop p75 TBT | mobile-4× p75 TBT | mobile-4× p75 LCP |
+|---|---|---:|---:|---:|
+| unit c, **PRE-cure** | not recorded | **58 ms** | **386 ms** | 608 ms |
+| close ×2 | ~19–37 | 220 / 218 ms | 616 / 529 ms | 1,136 / 780 ms |
+| CHECK 1 | 19.4–40.9 | 202 ms | 786 ms | 1,080 ms |
+| **repair sitting 1** | **31.3 → 52.2** | **124 ms** | **1,282 ms** | **2,028 ms** |
+| **repair sitting 2** | **12.1 → 36.7** | **101 ms** | **655 ms** | **972 ms** |
+
+On a build **32,790 B gz lighter** with **zero** changed product bytes, the desktop p75 TBT went **up**
+from 58 ms and has never returned to it. Differencing those halves would publish a fiction, so
+`AFTER.json` carries `pairing.cwvHalf.differenceable: false` with the measured reason, both halves are
+published **whole** with their host loads, and `DELTA.md` states the non-differenceability, its cause,
+and its owner. **What IS published is load-robust**: G3 **RED** on `mobile-4x-cpu` at every reading at
+every load (including the **pre-cure** 386 ms), **GREEN** on desktop in all five post-cure sittings;
+G4 **GREEN** on all ten post-cure legs. **Owner of the missing quiescent pair**: X-W1's pinned
+`ubuntu-24.04` job (G3 pin (i)) or a dated quiescent-bench sitting — the close's **residual 7**,
+carried and **not** discharged here.
+
+**The §D producer note is authored**, 93 lines, dated, recording at the installed bytes that glass-ui
+**7.0.0** already ships `settled` (`Blob.vue.d.ts:63`), `settledFrame` (`:64`) and `./blob-config`
+(245 B, six exports) — **explicitly non-gating per CC-035** (*"Producer half = one dated §D letter,
+never a gate"*). It is authored **in-bounds** under `evidence/W2/` because **`glass-ui` is READ-ONLY
+always**; **delivery** to the BH/BI inbox is the **X formation mail seat's** act (the close's
+residual 4), and this seat does **not** claim to have delivered it. Unit b's **b-F1** and **b-F2** ride
+as separate rows the note names and refuses to collapse into itself — that note records the seam as
+*shipped*; b-F1/b-F2 record it as *unreachable*, and they are different letters.
+
+**Commit**: `6a5fea76` — `AFTER.json` · `DELTA.md` · `PERF-X-W2.json` · the §D note. Exactly 4 files.
+
+### D-4 (MINOR, mitigated) — **reproduced a third time, and its one-command cure is not available to this seat**
+
+The register's own cure text is a **mitigation**, not an act: *"the byte gates … reproduce to the byte
+at every load, and EVERY mobile-4× reading at EVERY load exceeds the 300 ms bar, so G3's RED verdict is
+load-robust even though its magnitude is not. **Owner already named** (residual 7 → X-W1's pin (i) /
+the orchestrator's concurrency cap)."* This seat re-measured it (⟨cmd⟩ `uptime` across every run: load
+averages **12.12 · 12.88 · 13.59 · 13.68 · 13.92 · 15.93 · 16.66 · 17.81 · 20.78 · 22.79 · 25.49 ·
+31.27 · 32.37 · 32.55 · 35.26 · 35.76 · 36.29 · 36.70 · 43.86 · 46.63 · 52.19**) and **widened the
+evidence**: the mobile-4× p75 TBT census is now **386 · 616 · 529 · 786 · 1,282 · 655 ms** and the
+desktop census **58 · 220 · 218 · 202 · 124 · 101 ms**, on identical product bytes. **No act is owed
+in-bounds**: pinning machine *state* means X-W1's `ubuntu-24.04` job or a quiescent bench, both outside
+W2.md §4. Recorded in `AFTER.json.benchQuiescence`, in `PERF-X-W2.json.caveat` and in `DELTA.md` §2 so
+that no successor reads a magnitude here as a product figure. **Not an escalation** — its owner was
+already named in the close's register and nothing new is discovered; it is a carried residual.
+
+### INFO-1 / INFO-2 — **no act owed, and none taken**
+
+INFO-1: the gated TBT window is `[navigationStart, observationEnd]`, the **stricter** one; the strict
+Lighthouse `[FCP, TTI]` window reads **0–1 ms** on both legs in both of this seat's sittings
+(`p75TbtLighthouseWindow` = 1 desktop / 0 mobile in sitting 1; 0 / 0 in sitting 2), i.e. **G3 would
+read GREEN under the canonical window** and the seat that built the instrument gated the harder one.
+This seat **did not touch the window**, and records CHECK 1's warning intact: no successor may flip G3
+GREEN by silently reverting to the strict window. INFO-2: the one discarded warm-up load per config is
+still measured, logged and kept (`warmup` in both sittings' records).
+
+### Gates re-read after the cures (every gate a cure could move, WRITE-THEN-MEASURE, double-run)
+
+| gate | reading at REPAIR 1 | verdict | moved by this seat? |
+|---|---|---|---|
+| **G1** | `smin` **0 · 0 · 0 · 0 · 0 · 0** over the six eager chunks; ⟨cmd⟩ `grep -c smin dist/gh-pages/assets/*.js` → one file only (`HeroBlob-CK6WV_Kd.js:41`, and `HeroBlob-DqLA8laX.js:41` on the rebuild); `index.html` names it **0** times; source `glass-ui/blob"` → **2**, both `HeroBlob.vue`; `blob-config` → **3** | **GREEN** | no — re-read only |
+| **G2** | **280,811 B** (274.2 KiB), margin **5,909 B**, instrument double-run identical excluding `generatedAt`; the enforcing spec re-run from the spec file in **both** CWV sittings → `1 passed`, `bar=286720 B → GREEN` | **GREEN** | no — re-read only |
+| **G3** | mobile-4× **1,282 / 655 ms**; desktop **124 / 101 ms**; N=20 per config per sitting | **RED** (honest-RED per CHECK 1 axis 10, §11 guardrail 2) | no — **not cured, not claimed cured** |
+| **G4** | **356 / 2,028 / 324 / 972 ms** against a 2,500 ms bar | **GREEN** | no — re-read only |
+| **G5** | untouched at the bytes; producer-owned escalation under §3a *"Quiescence does not park"* | **RED — ESCALATED** | no — out of this repair's register |
+| **G6** | second arm executed; header carries median **140.7 ms**, max-ratio **18.7×** and today's cause; dead-W7 prophecy count **0**; receipt `o5-remeasure.txt` | **GREEN by its asserted property** (the leg itself stays honestly RED; disposition is X-W1's by G6's own text) | **YES — cured** |
+| **G7** | `PERF-X-W2.json` present, dated, pin verbatim; `PERF.json` diff **0 lines**, mtime unmoved | **GREEN** | **YES — cured** |
+| **G8** | ⟨cmd⟩ `grep -rn "BLOB_HERO" demo/ src/ \| wc -l` → **0**; the close's tombstone stands, re-stated in the §D note with its X-W10 re-trigger | **GREEN** | no — re-read only |
+
+**Tally after repair: 6 GREEN (G1 · G2 · G4 · G6 · G7 · G8) · 2 RED (G3 measured-RED · G5 ESCALATED).**
+**0 gates moved by narrowing, 0 bars touched, 0 greps narrowed, 0 assertions weakened.**
+
+**The §State Hard Gate is still NOT MET** — G3 and G5 are its unmet clauses, and the *"with a
+before/after receipt"* clause is met on its **byte** half and published-with-its-limit on its **CWV**
+half. **IMPLEMENTED is therefore still NOT stamped**: §State attaches it to *"gates green, bytes
+landed"*, and the gates are not all green. Unit d's bytes **did** land, which is the half this repair
+moved. **VERIFIED remains X-W11's and is untouched.**
+
+### §7 cadence, re-run at this seat
+
+⟨cmd⟩ `npm run typecheck` (`vue-tsc -p tsconfig.lib.json` **and** `-p tsconfig.demo.json`) → **exit 0**.
+⟨cmd⟩ `npm test` (vitest) → **26 test files, 348 tests, ALL PASSED** — the close's and CHECK 1's figure
+to the number, a third time.
+⟨cmd⟩ `npx eslint e2e/smoke/perf/o5-boot-pacing.spec.ts scripts/perf/eager-bytes.mjs
+e2e/smoke/perf/eager-payload.spec.ts --max-warnings=0` → **exit 0**.
+⟨cmd⟩ `npm run lint` (repo-wide) → **exit 1, 50 problems (18 errors, 32 warnings)** — `c-F5`'s
+pre-existing `docs/tranches/V/**` baseline, reproduced to the number a **fifth** time, and ⟨cmd⟩
+`grep -cE "evidence/W2|PERF-X-W2|o5-boot-pacing"` over the lint output → **0**, i.e. **not one of this
+seat's five new or modified paths appears in it**. Carried, not cured: a write there is an
+ESCALATION-by-write.
+⟨cmd⟩ `git diff --check` and `git diff --check --cached` → **clean, exit 0** both.
+
+### Bounds, families and the index
+
+**Every write is inside X.W2.d's §4 writable set.** `e2e/smoke/perf/o5-boot-pacing.spec.ts`
+(modify-carve) · `docs/tranches/X/evidence/W2/**` (create) ·
+`docs/tranches/V/megatranche/audit/telemetry/PERF-X-W2.json` (create) · `docs/tranches/X/waves/W2.md`
+(the §State Status field only, exactly the §4 grant) · this record and the LEDGER (the execution
+surface). **`scripts/dev/dev.sh` was never read for write and appears 0 times** — ⟨cmd⟩
+`git log 1129d22e^..HEAD --name-only --format="" | sort -u | grep -c dev.sh` → **0**, and it is still
+` M` and unstaged in the tree. **`docs/tranches/V/megatranche/audit/telemetry/PERF.json` was never
+opened for write** (F-7). **No `src/` byte, no `api/` byte, no `vite.config.ts`, no `.github/`, no
+`lighthouserc.json`, no `node_modules/@mkbabb/glass-ui/**` — and no `../glass-ui/**` byte of any kind.**
+
+**Three commits, each pathspec-scoped on the commit itself, each carrying its `Claude-Session`
+trailer, and none sweeping a sibling track's staged paths** (four tracks share this index):
+`1129d22e` (2 files) · `6a5fea76` (4 files) · this record's own commit (3 files: this record,
+`W2.md` §State, `LEDGER.md`). **§9's row 4 landed as row 4; row 5 landed split by MEANING, not by
+family** — the receipts are one commit and the record/status/ledger are another, and no family §5 or §9
+declares unsplittable was divided.
+
+### What this repair did NOT do — stated, because a repair that reports only its wins is not a repair
+
+1. **G3 is not cured and is not claimed cured.** §3a's *"TBT still red after the cut — halt and
+   research"* remains **fired**, the triumvirate remains the orchestrator's, and this seat published a
+   **worse** mobile number (1,282 ms) than the close's without touching the bar.
+2. **G5 is not touched.** It is unit b's producer-owned escalation, outside this register.
+3. **The CWV before/after pair is not formed**, for the measured reason above. Owner: X-W1 / a
+   quiescent bench.
+4. **The §D note is authored but not delivered.** Delivery is the X formation mail seat's act.
+5. **b-F1 / b-F2 are not relayed** — same routing, same owner; this seat only re-stated them so the
+   note could refuse to collapse them into itself.
+6. **The `frames.length > 10` precondition is not adjusted**, though it fails 9 of 10 sittings.
+   Adjusting it would be a narrowed assertion.
+7. **`c-F5`'s repo-wide lint red is not cured** — out of bounds.
+8. **IMPLEMENTED is not stamped**, because the gates are not all green.
+
+### E13 — the four-path sweep at this seat's clock (19:58 EDT), read-only
+
+⟨cmd⟩ `/usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 19:33'` over all five paths
+(the four ⊕ the atlas **Q**-lane extension): `docs/tranches/V/coordination/` → **`INBOX.md` alone**
+(self-excluded, SELF-COUNT law) · `../glass-ui/docs/tranches/BK/coordination/` → **nothing** ·
+`../sci-report/atlas/docs/tranches/P|Q/coordination/` → **nothing** ·
+`../keyframes.js/docs/tranches/V/coordination/` → **nothing**. **0 unrowed · 0 new `I-n` · 0 new `O-n`
+minted.**
+
+**0 UNREAD in X-W2's scope.** The live `UNREAD` rows are **O-20** (an outbound sweep note, not inbound
+mail), **I-30** (glass 9.0.0 pin / K-R1, the orchestrator's), **I-31** (atlas Q pass-2, whose Routing
+cell already reads **FOLDED at the X-W0 close**) and **I-32 · I-33 · I-34** (Track D's, routed by their
+own cells to X-W0.j / the X formation mail seat). Scope probe re-run at the letters' **current** bytes:
+⟨cmd⟩ `grep -Eic "blob|settled|eager|metaball"` → I-30 **0** · I-31 **0** · I-32 **1** · I-33 **2** ·
+I-34 **0**, and ⟨cmd⟩ `grep -Eio` shows **every one of the three hits is `defaultBlobColorResolver`**,
+which ⟨cmd⟩ `grep -rn defaultBlobColorResolver demo/ src/ | wc -l` → **0** places nowhere in this tree.
+`HeroBlob`, `blob-config` and `settled` → **0** in all five. **No row was rewritten by this seat**
+(append-only).
+
+### The act this repair takes on the ledger
+
+The Track A `X-W2` status cell is **NOT moved to CLOSED** — the wave remains **PARTIAL**, because G3
+and G5 are unmet Hard-Gate clauses and IMPLEMENTED is unstamped. The cell's existing text is left
+standing and the repair's outcome is **appended** to it; a dated event line is appended to the
+append-only §Event log. Nothing else in the ledger is touched.
