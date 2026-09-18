@@ -428,7 +428,22 @@ export async function waitForQuiescence(
                         typeof a.currentTime === "number"
                             ? Math.round(a.currentTime)
                             : -1;
-                    return `${a.animationName || a.transitionProperty}@${t}`;
+                    // `getAnimations()` is typed as the BASE `Animation`, which
+                    // carries neither name: `animationName` belongs to
+                    // `CSSAnimation` and `transitionProperty` to `CSSTransition`,
+                    // and a script-driven `Animation` has neither. Feature-test
+                    // rather than cast — `instanceof CSSAnimation` would also
+                    // narrow, but those globals are absent in WebKit and this
+                    // helper is shared with the safari arms. A script animation
+                    // falls back to its `id`, which is stable across the polls
+                    // this signature compares.
+                    const name =
+                        ("animationName" in a ? String(a.animationName) : "") ||
+                        ("transitionProperty" in a
+                            ? String(a.transitionProperty)
+                            : "") ||
+                        a.id;
+                    return `${name}@${t}`;
                 })
                 .sort()
                 .join("|");

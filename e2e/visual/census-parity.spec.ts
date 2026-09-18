@@ -34,38 +34,60 @@ import {
     SCHEMES,
     routeArmCellCount,
     panesFor,
+    type CensusRightPane,
 } from "./census";
 
 const REPO_ROOT = resolve(import.meta.dirname, "../..");
 const ROUTER = resolve(REPO_ROOT, "demo/color-picker/router/index.ts");
 const VIEW_SCHEMA = resolve(REPO_ROOT, "demo/shell/viewSchema.ts");
 
+/**
+ * A reading this guard's own pattern makes mandatory — a matched capture group,
+ * or the match itself. `undefined`/`null` here means the product's source text
+ * has moved out from under the pattern, which is EXACTLY the divergence this
+ * file exists to report, so it is thrown with that sentence rather than
+ * asserted away with `!` or absorbed by a `?? ""`. Under
+ * `noUncheckedIndexedAccess` the compiler cannot know a group participated;
+ * this is where that knowledge is earned instead of asserted.
+ */
+function required<T>(value: T | null | undefined, what: string): T {
+    if (value === null || value === undefined) throw new Error(what);
+    return value;
+}
+
 /** Every `name: "…"` in the router's `routes` table. The catch-all has none. */
 function routerNames(): string[] {
     const src = readFileSync(ROUTER, "utf8");
-    return [...src.matchAll(/\bname:\s*"([a-z][a-z-]*)"/g)].map((m) => m[1]);
+    return [...src.matchAll(/\bname:\s*"([a-z][a-z-]*)"/g)].map((m) =>
+        required(m[1], `${ROUTER}: a \`name: "…"\` matched with no capture`),
+    );
+}
+
+/** The body of a `export type <name> = …;` declaration in `viewSchema.ts`. */
+function unionBody(name: string): string {
+    const src = readFileSync(VIEW_SCHEMA, "utf8");
+    const union = new RegExp(`export type ${name} =([\\s\\S]*?);`).exec(src);
+    return required(
+        union?.[1],
+        `viewSchema.ts no longer declares \`export type ${name} = …\``,
+    );
+}
+
+/** The string members of one of those unions. */
+function unionMembers(name: string): string[] {
+    return [...unionBody(name).matchAll(/"([a-z][a-z-]*)"/g)].map((m) =>
+        required(m[1], `viewSchema.ts ${name}: a member matched with no capture`),
+    );
 }
 
 /** The `ViewId` union members declared in `viewSchema.ts`. */
 function viewIds(): string[] {
-    const src = readFileSync(VIEW_SCHEMA, "utf8");
-    const union = /export type ViewId =([\s\S]*?);/.exec(src);
-    expect(
-        union,
-        "viewSchema.ts no longer declares `export type ViewId = …`",
-    ).not.toBeNull();
-    return [...union![1].matchAll(/"([a-z][a-z-]*)"/g)].map((m) => m[1]);
+    return unionMembers("ViewId");
 }
 
 /** The `RightPane` union members — the pane-hosted surfaces R34 names. */
 function rightPanes(): string[] {
-    const src = readFileSync(VIEW_SCHEMA, "utf8");
-    const union = /export type RightPane =([\s\S]*?);/.exec(src);
-    expect(
-        union,
-        "viewSchema.ts no longer declares `export type RightPane = …`",
-    ).not.toBeNull();
-    return [...union![1].matchAll(/"([a-z][a-z-]*)"/g)].map((m) => m[1]);
+    return unionMembers("RightPane");
 }
 
 test("the visual census is exactly the router's route table", () => {
@@ -89,8 +111,15 @@ test("every pane-hosted surface is reachable by some cell", () => {
     // R34's Katex R6 limb: About is a PANE, not a route, so a route-only matrix
     // can never photograph it. Each RightPane member must be the `right` of at
     // least one census route, and at 390 that pane must get its own cell.
-    const reachable = new Set(
-        ROUTE_CENSUS.map((r) => r.right).filter((p): p is string => p !== null),
+    // `Set<string>`, not `Set<CensusRightPane>`: the members come from the
+    // product's own source text (`rightPanes()` reads `viewSchema.ts` as bytes),
+    // so they are `string` by construction. A `Set` keyed on the literal union
+    // could not be asked about a pane the census has never heard of — which is
+    // the one question this test exists to ask.
+    const reachable = new Set<string>(
+        ROUTE_CENSUS.map((r) => r.right).filter(
+            (p): p is NonNullable<CensusRightPane> => p !== null,
+        ),
     );
     for (const pane of rightPanes()) {
         expect(

@@ -69,6 +69,35 @@ interface Modality {
     readonly fidelity: "real" | "emulated";
     /** The capture geometry, for the half-pixel tie guard (see IC-11). */
     readonly size: { width: number; height: number };
+    /**
+     * The Playwright options this arm's describe block applies.
+     *
+     * ─── WHY THE MEDIA PREFERENCES SIT UNDER `contextOptions` ───────────────
+     *
+     * `reducedMotion` and `forcedColors` are NOT top-level test options in the
+     * installed Playwright: ⟨`grep -n reducedMotion node_modules/playwright/
+     * types/test.d.ts`⟩ → one hit, and it is a doc example showing them nested
+     * INSIDE `contextOptions`. `PlaywrightTestOptions` declares neither, and
+     * `lib/index.js`'s `_combinedContextOptions` fixture — the one place a
+     * context's options are assembled — enumerates every option fixture it
+     * reads and names neither of them (⟨`grep -rn reducedMotion
+     * node_modules/playwright/lib/`⟩ → **0**).
+     *
+     * Written as a TOP-LEVEL key the preference is therefore a SILENT NO-OP:
+     * Playwright does not error, the arm runs, the frames mint, and the
+     * modality is simply never applied. Measured at this seat with a two-arm
+     * probe against `about:blank`:
+     *
+     *     test.use({ reducedMotion: "reduce", forcedColors: "active" })
+     *         → { reduced: false, forced: false }
+     *     test.use({ contextOptions: { reducedMotion: …, forcedColors: … } })
+     *         → { reduced: true,  forced: true  }
+     *
+     * That no-op is what the 14 `TS2353` diagnostics under G-1 were reporting,
+     * and it is why the goldens minted before this cure do not witness what
+     * their own filenames claim (see `evidence/w1/visual/
+     * MODALITY-NO-OP-2026-09-18.md`).
+     */
     readonly use: Parameters<typeof test.use>[0];
     /** Applied after the route has loaded and quiesced. */
     readonly after?: "rtl" | "tab";
@@ -89,7 +118,10 @@ const MODALITIES: readonly Modality[] = [
         viewport: "1024",
         fidelity: "real",
         size: { width: 1024, height: 768 },
-        use: { viewport: { width: 1024, height: 768 }, reducedMotion: "reduce" },
+        use: {
+            viewport: { width: 1024, height: 768 },
+            contextOptions: { reducedMotion: "reduce" },
+        },
         note: "prefers-reduced-motion: reduce — the genuine media feature the product reads",
     },
     {
@@ -97,7 +129,10 @@ const MODALITIES: readonly Modality[] = [
         viewport: "1024",
         fidelity: "emulated",
         size: { width: 1024, height: 768 },
-        use: { viewport: { width: 1024, height: 768 }, forcedColors: "active" },
+        use: {
+            viewport: { width: 1024, height: 768 },
+            contextOptions: { forcedColors: "active" },
+        },
         note: "EMULATED. chromium/emulated-forced-colors, NOT windows/real-HCM (R36, EC-8 residue 8)",
     },
     {

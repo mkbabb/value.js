@@ -149,11 +149,24 @@ test("no committed golden is a single flat colour", () => {
         outer: for (let y = 0; y < image.height; y += 8)
             for (let x = 0; x < image.width; x += 8) {
                 const i = (y * image.width + x) * image.channels;
-                seen.add(
-                    (image.data[i] << 16) |
-                        (image.data[i + 1] << 8) |
-                        image.data[i + 2],
-                );
+                // Read the three channels as values, not as an expression the
+                // compiler must be told to trust. Under
+                // `noUncheckedIndexedAccess` a decoded buffer that ends mid-pixel
+                // reads `undefined` here, and `undefined << 16` is 0 — a
+                // truncated golden would quietly count as one more BLACK pixel
+                // and could even push a flat frame over the floor. The
+                // truncation is a real defect of exactly the class this file
+                // exists to catch, so it is named and thrown, never coerced.
+                const r = image.data[i];
+                const g = image.data[i + 1];
+                const b = image.data[i + 2];
+                if (r === undefined || g === undefined || b === undefined)
+                    throw new Error(
+                        `${name}: decoded pixel data ends mid-pixel at byte ${i} ` +
+                            `(${image.width}×${image.height}×${image.channels}, ` +
+                            `${image.data.length} bytes) — the golden is truncated`,
+                    );
+                seen.add((r << 16) | (g << 8) | b);
                 if (seen.size >= FLAT_FRAME_MIN_COLOURS) break outer;
             }
         if (seen.size < FLAT_FRAME_MIN_COLOURS)
