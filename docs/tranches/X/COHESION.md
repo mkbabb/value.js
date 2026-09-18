@@ -1112,3 +1112,58 @@ written by any of the eighteen attempts. Cure at the chassis: Tracks B and C rel
 at a time** (`maxWaves: 1`), the fan-out the ceiling tolerates; the waves re-open in RESUME MODE.
 
 **§0o erratum, 2026-09-18 (E-3, dated beside).** The runner-dead paragraph above attributed the six-fold seat deaths to the harness's concurrent-agent ceiling. Measured afterwards in the dead seats' own transcripts: each death follows a tool result answered by **no model turn for > 180 s**, and the transcripts carry **twelve HTTP 429 responses** — the API's rate-limit backoff outran the runner's 180 s no-progress window. The ceiling was never the cause; the one-wave-at-a-time cure stands because it lowers request rate, which is the true lever. Relaunch remains the durability mechanism (the begin-word's *"survive … rate-limiting"*): a runner-dead wave re-opens in RESUME MODE with nothing lost.
+
+## §0p ADDENDUM 2026-09-18 — X.P.W3 NOT-CONFORMANT AFTER TWO REPAIRS: ESC-e1 (THE LOAD-BEARING SHIELD) AND ESC-e2, RULED; TWO UNITS ADDED BY ADDENDUM
+
+Same standing as §0n/§0o. `W3.md` §3a routes a G-5 divergence *"rooted in the Wasm memory model"* to
+X.P.W1/W2 as an architecture question; both are CLOSED, so this addendum is the triumvirate's redress
+(research: `.e`'s L-14 measurements at `<p2>` `dc52ed5`; plan augment: below; redress: units `.f`/`.g`).
+
+**ESC-e1 — measured.** `parseStylesheet` over 8,191 valid rules overflows the Wasm mark journal
+(`MARK_CAP` 32,768; `lowering-wasm/index.mjs:274` throws `HALT: … overflowed its fixed region`), and
+`source.length > INPUT_CAP` (1,048,577 code units, `:266`) throws likewise; `entry.mjs:191`'s catch
+re-shapes both as `ok:false css_syntax` (`SHIELD.caught` +1) while the JS lowering answers `ok:true`.
+The shield is therefore LOAD-BEARING and the two targets diverge on valid input — G-3's falsifier
+fires by inspection, G-5's intent fails beyond the corpus.
+
+**Ruling — the depth bound's own idiom, applied to every fixed region.** `bounds.mjs` already states
+the law: *a bound is a VALUE, an ASSERTION that the mechanism carries it, and a WITNESS GENERATOR;
+a bound reached is an ordinary `ok:false` with a frozen code.* So:
+1. Every fixed region of the Wasm memory model — the input window, the mark journal, the value
+   stack, the arena and the C/D/P journals (whatever `W_OVF` guards) — becomes a **declared
+   capacity in Θ** (`THETA` gains them beside `depthBound`), its VALUE **read from the build's own
+   layout constants**, never re-typed by hand and never re-sized by this unit.
+2. **Both lowerings carry each bound** and reject at it on the parse path, BEFORE the region can
+   overflow: the JS lowering measures the same quantity (source length; its own mark/journal
+   counters, which EQ-4 already makes it keep) against the same declared value. The rejection is
+   `ok:false` with **`css_syntax`** and a label naming the bound (`marks <= 32768`, the `nesting <=
+   64` form). **A ninth code is REFUSED** (`codes.mjs`, §3a) — capacity, like depth, is `css_syntax`.
+3. `witnessAtCapacity(bound)` generators (not pinned strings) for each region; `assertCapacityBound`
+   reads each value back off BOTH lowerings and the label surface, as `assertDepthBound` does.
+4. **Growable regions are REFUSED**: an undeclared bound is the defect (the JS lowering itself dies
+   at a 24 MB input on this box — heap OOM, exit 134 — which is the same class); the cure is
+   declaration, not elasticity. The shield stays retained and must measure NON-load-bearing on the
+   new witnesses (`SHIELD.caught` 0), which restores `.c` item 1's own sentence.
+5. G-5 is re-run with the capacity witnesses folded into the corpus as a boundary band; G-9 gains a
+   capacity leg beside depth and latch.
+
+**ESC-e2 — L-13's 5-of-6.** A wave's last seat cannot harvest itself. **The successor harvests**:
+X.P.W4's seat 0 re-runs the harvester over W3's journals (6 of 6) at its open; W3's L-13 reads
+HONEST-RED-BY-CONSTRUCTION at close. **F-e11 / K.7(i)**: the harvester's 143-file spillage and its
+wholesale `DEFECT-LEDGER.md` rewrite are a MAJOR defect of the harvester, owed to X-W11's HARVEST
+(§0k HG-7's owner); until cured, every harvest runs **from a scratch mirror with the script
+symlinked** (the procedure `.e` used), and `W3.md` §4's *"writes only the two registry rows"* gains a
+dated addendum-beside naming that procedure — the spec is never patched.
+
+**F-e1 / F-e2 — spec-conformance MIS_ACCEPTs (L-14 (ii)).** `hsl(120deg50%50%)` and
+`rgb(255none none)` are accepted by both lowerings where css-syntax-3 §4.3.3 tokenizes `120deg50` /
+`255none` as single invalid `<dimension-token>`s; legacy `hsl(120, 50, 50)` is rejected correctly
+(the incumbent mis-accepts — a new value.js divergence row). A candidate that accepts invalid CSS
+fails R1 totality in the accept direction; cured in-wave as unit `.g` (the juxtaposition boundary in
+`algebra/**`), never routed to the adoption seam.
+
+**Units added to `W3.md` §5 by dated addendum-beside** (bounds already granted: §4 row
+`typescript/src/css/**` create/modify): **`.f`** capacity bounds (Fable seat — the Wasm memory model
+is architecture) → **`.g`** dimension-token boundary (Opus seat), serial, both after `.e`; each
+re-runs G-3 · G-5 · G-9 and appends its receipt. Carried unmoved: F-a.6 · E-1/E-2/E-3 · ESC-c1 ·
+ESC-d1 · ESC-d2 (their owners stand as W3-CLOSE.md names them). D relaunches on this word.
