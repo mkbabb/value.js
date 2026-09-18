@@ -812,3 +812,227 @@ staged**; `scripts/dev/dev.sh` in **zero** commits, either repo; no `git add -A`
 reset/unstage of another seat's paths; kf HEAD moved under this unit (`77d0e0b1` → `252a8248` → mine),
 each of my commits made on the then-HEAD with its own pathspec. The record was re-read (⟨`wc -l`⟩ → 713,
 last entry `### X.KF.W7.c`, clean) immediately before this append.
+
+---
+
+### X.KF.W7.e
+
+SERVED MODEL: claude-opus-5[1m] · **2026-09-18** · Phase 3 implementation seat — timeline head · preview ·
+build · dialogs. Sections executed: §Carry **P5** (`:171-181`) · **P7** (`:198-219`) · **P8** (`:220-237`) ·
+**P9** (`:238-248`) · §Gates **G6** · **G9** · **G10** · **G15** · **G11** (fixtures 3–4) · §Bounds'
+`flattenVars` LAW A census (`:55`). **Status: PARTIAL — G6 RED → GREEN · G15 RED → GREEN (byte half) ·
+G11 fixtures 3–4 LANDED; G9 and G10 ESCALATED, un-landable by ANY seat of this wave** (evidence:
+`evidence/W7/G9-G10-FILE-CROSSING-ESCALATION.md`). Writable set honoured on every commit — **no write outside
+it**; the one escalation is a cure this seat could not lawfully reach, not a write it made.
+
+**Substrate at open**: kf `HEAD` = `origin/master` = **`f77b152d`** (`.b`'s seam). Consumed whole before any
+byte: `.a`'s G1 (six KEEP-BESPOKE; **SequenceScrubber's shape rows PERSIST**), `.a`'s OP-0/OP-1 settlements,
+`.b`'s SEAM-DESIGN (its `.e` residuals R-b1/R-b2/R-b3), `.c`'s G9 · G10 · G14 · G15 rulings. `.d` ran
+CONCURRENTLY throughout (its `9f585bee` G8 and `a93bcd37` G13 landed between this unit's commits) — **zero
+shared modify paths, and every commit carried its own pathspec.**
+
+**Step 0 (E13, seat-level)**: COHESION §0j re-read to the file end; nothing addressed to KF.W7 beyond standing
+law. `INBOX.md`'s three live UNREAD (**I-32 · I-33 · I-34**) reproduce and all three route to X-W0.j, as the
+OPEN sweep and KF.W2's CHECK 2 both found; not one names a keyframes timeline byte. **0 new inbound in this
+unit's scope · 0 `I-n` minted · no INBOX row added.**
+
+#### Act 0 — the harness, materialized WITHOUT a tracked byte (`.a`'s residual 1)
+
+`.a` left `@vue/test-utils` **in the manifest and not on disk**, owner *"the orchestrator, by one `npm install`
+… before `.d`/`.e` dispatch"*. It had not happened, and G11's four fixtures cannot mount without it.
+⟨cmd⟩ `npm install --no-save --no-package-lock @vue/test-utils@2.5.1` → installed, **2.5.1**; ⟨cmd⟩
+`diff` of `package.json` and `package-lock.json` against copies taken first → **both UNCHANGED**, confirmed
+again by `git status --short package.json package-lock.json` → **empty**. This materializes a dependency the
+tree already DECLARES (`.a`'s `3a01e362`); it writes no tracked byte, so it widens no bounds and touches no
+KF.W0 OWNER'S-HAND row. **Still owed by the orchestrator**: the lockfile entry, via a real `npm install`.
+
+#### Acts, in the order the locks require (one commit per meaning; pathspec ON the commit)
+
+| # | commit | meaning |
+|---|---|---|
+| 1 | `8cfee94e` | **G11 fixtures 3–4, BEFORE the first cure commit** (the lock). `timeline-hover-preview.test.ts` + `sequence-scrubber-mount.test.ts` — **13 tests, 5 born RED** on the rows they lock, 8 GREEN (the mounts themselves work). |
+| 2 | `53abdf29` | **G6 — the round-trip family, ONE commit** (N-8 + C-5 (THP) + R-3). |
+| 3 | `f892ce4b` | **L-6/C-4's delegation + C-7's posture + D-15's states** (G14's byte half for the three rows `.c` routed here). |
+| 4 | `8ee852b9` | **G15 — THE FOLD, ONE commit** (R-7 ≡ KAD-F3 with KAD-6 · KAD-13 · R-4 · R-17 · R-19 · R-21 · R-22 · R-23 · KAD-21 · L-16/L-17). |
+| 5 | `be82defe` | **P9 — the dead surfaces** (L-13 with its dependent delete in the SAME act · L-14/C-16 · L-12/C-8 · L-8/C-9 · N-9's dead-state arm · N-2's control typed). |
+| 6 | `43556828` | **C·C-4** — SequenceScrubber's provider guard (`.a`'s narrowing: one line + the asymmetry declared). |
+| 7 | `85b3c8fa` | **m-7/m-8's validation half** (AFTER the delegation, as the lock requires) **+ `.b`'s R-b2 hand-off**. |
+| 8 | `4dc92768` (vjs) | **The G9/G10 escalation, measured** — `evidence/W7/G9-G10-FILE-CROSSING-ESCALATION.md`. |
+| 9 | (this commit, vjs) | these receipts. |
+
+#### The two ESCALATED gates — stated first, because they size everything else
+
+**G9 and G10 are un-landable by ANY seat of this wave, and the reason is a plan seam, not a design defect.**
+`.c` DECLARED the file-crossing at `G10-GHOST-CACHE-DESIGN.md` §6 and asked seat 0 to re-home each family
+whole; the Unit plan did not. The result is symmetric and total: **G10's ghost/cache family (this seat's THP ·
+KeyframeTimeline · useTimelineBuild) requires four carves in `TimelineTrack.vue`, which is `.d`'s; G9's a11y
+family (`.d`'s TimelineTrack) requires one carve in `TimelineHoverPreview.vue`, which is this seat's.** Both
+families are LOCKED WHOLE by the plan's own Locks, `vue-tsc` is live so neither half typechecks alone, and the
+derived-projection workaround that would spare `.d`'s file is exactly the legacy-compat shim house law
+forbids. **No reduced cure was improvised and no family was split to manufacture a green.** The measurement
+that settles it, run twice five minutes apart: **every `TimelineTrack.vue` coordinate MOVED between the two
+runs and not one row changed** — `137→143` the `<TooltipContent …class="p-2 max-w-56">` with **no
+`:aria-label` in either run** · `140→146` `:preview-src="previewCache[…]"` · `142→148`
+`:ghost-style="getGhostStyle(stop.vars)"` · `177→184` the prop declaration · `232→270` `getGhostStyle`;
+`@focus` and `role="group"` absent in both. A sibling seat was writing that file while this seat read it.
+**The cure, for seat 0 / `.f`: ratify `.c`'s §6 — re-home each family WHOLE to one seat and serialize.** Two
+of G10's obligations are ALREADY discharged and must not be re-spent (the capture re-point and the
+parse-boundary validation, both at `85b3c8fa`); what remains is exactly `.c`'s §1, §2 and §3. The four G10
+assertions are written out **verbatim in the fixture's own header**, at the mount they belong to —
+**STATED, never `test.skip`'d.**
+
+#### G6 — the round-trip, and a banked claim REFUTED at the frontier
+
+**MEASURED CORRECTION (D-19).** N-9's *"`importCSSToTimeline` DROPS per-stop `animation-timing-function`"* is
+**FALSE at these bytes**. Probe, double-run: `@keyframes p { … 50% { opacity: 0.5; animation-timing-function:
+ease-in; } … }` → the import carries `"animation-timing-function": "ease-in"` in that stop's `vars`, and the
+export re-emits `50% { opacity: 0.5; animation-timing-function: ease-in; }` **verbatim**. The per-stop easing
+already survives; what is true is the **dead `TimelineKeyframe.easing?` field**, and `timelineTypes.ts` is
+`.b`'s serial file, not this seat's → routed. G6's assertion is therefore met clause by clause:
+
+- **per-stop easing survives** — by measurement, above (no cure was needed or spent);
+- **named phases render as named** — C-5 (THP): the caption was `Math.round(percent)%` for every keyframe, so
+  `entry 100%` and `cover 0%` both read *"25%"*, a percent the author never wrote. It now renders the AUTHORED
+  form with the resolution secondary, and a percent selector renders once. Three fixture tests, GREEN;
+- **"Add" does what the copy says** — R-3: `mergeCSS` folds pasted stops in by the engine's own selector key,
+  later declarations winning (`coalesceKeyframes`' rule), new selectors appended. Probe: import `0%`+`100%`,
+  then Add `50% {color:red}` + `100% {transform:scale(2)}` → **3 keyframes**, the `100%` stop carrying BOTH
+  `opacity` and `transform`; nothing destroyed. Before the cure the same gesture left **2**;
+- **"animate to none" is authorable** — N-8: `captureSnapshot` dropped `none`/`auto` over a set holding
+  `transform`/`filter`/`box-shadow`. Measured FIRST that the compile accepts `transform: none` · `filter:
+  none` · `box-shadow: none` · `width: auto` (4/4 OK), then widened the filter to skip only genuinely empty
+  values. Probe on a bare `<div>`: `{"transform":"none","opacity":"1","filter":"none"}`. P7's K-4 kill stands
+  — the surviving set only grew.
+
+**G6: RED → GREEN.** Evidence is by-command (double-run) plus fixture 3's five caption tests. **Residual**: a
+durable engine-level round-trip CORPUS file has no owner in this wave's four-fixture allocation → `.f`/KF.W8.
+
+#### G15 — the fold, landed as ONE commit
+
+`.c` RULED it; this seat wrote it. The shell survives and the twin becomes a thin adapter: `CSSPasteDialog.vue`
+**80 → 138 L** (template 27 → 50: the `trigger` slot, the error node, the busy/disabled primary),
+`KeyframesAddDialog.vue` **161 → 142 L** with its **template 55 → 23** and 161 lines of re-authored shell gone.
+**Its mount contract is byte-identical** (`v-model:open` · `v-model:text` · `:format` · `@submit`), so
+`KeyframesEditor.vue` — its one live consumer, OUTSIDE §Bounds — needed **no edit, no repoint, no delete**;
+LAW A's census is honoured by leaving the import where it is.
+
+**L-4's falsifier, re-read at the settled bytes**: ⟨cmd⟩ `git grep -ln 'useCodeHighlight(' HEAD -- demo/` →
+**three files = the two consumers (`KeyframesEditor.vue`, `KeyframesAddDialog.vue`) plus its own definition**,
+exactly `.c`'s §0 count. The adapter closes over `shell.value?.textEl`; the `<pre>` identity is held by the
+shell and published through the seam R-19 called dead. ⟨cmd⟩ `git grep -n 'initialText' HEAD -- demo/` → **one
+hit, inside the shell's own doc comment explaining what replaced it** — the prop is gone.
+
+Folded in the same act because they ARE the shell's contract: KAD-6 (the `<h2><h3/><p/></h2>` dies with KAD's
+template) · KAD-13 (`reformat` now EMITS the formatted text instead of secretly writing the parent model) ·
+R-4 + KAD-10 (G14 P2: awaitable `submit` — resolve closes, reject keeps the dialog open with the message
+beside an **untouched draft**, `void` leaves the close to the consumer, which preserves the adapter's parent
+contract by construction; `:loading` while in flight) · R-17 (an empty draft disables the primary) · R-19 ·
+R-21 (`cn` merges) · R-22 · R-23 (Mod+Enter) · KAD-21. `importCSS`/`mergeCSS` now **REJECT** rather than
+toasting their own parse failure — that internal catch is what made the dialog close on a failure and destroy
+the paste. **§Excluded KAD-15 · KAD-16 · KAD-20 are NOT cured here**, by id: the progress bar rides
+`footer-extra` unchanged, KAD's footer tokens die with its template (W6's cells for them are MOOT, as `.c`
+declared), and the well's empty state stays the S-9 swap's.
+
+**Dated deviation, beside `G15-FOLD-RULING.md` §1's L-16/L-17 row**: the two timeline mounts became the in-file
+`v-for` over a descriptor in the FOLD commit rather than the P9 commit — the fold had to rewrite both mounts to
+carry `:submit` and `v-model:text`, and writing them twice would have been churn. The cure-shape lock is
+honoured: **an in-file `v-for`, no new component** (`feedback_kiss_no_contrivance`).
+
+**G15 byte half: RED → GREEN.**
+
+#### G14's byte half (the three rows `.c` routed to `.e`) and P9
+
+**L-6/C-4 — DELEGATED.** The hand-rolled declaration scanner inside a CSS engine's own demo is gone;
+`@mkbabb/value.js/css` parses the block and `serializeCssValue` emits it — **the same pair `timelineEngine`
+already used**, so the TYPING ingress and the IMPORT ingress finally agree about what a declaration is. ⟨cmd⟩
+`git grep -c 'value.js/css' HEAD -- KeyframeTimeline.vue` → **2** · `split("\n")` → **0**.
+
+**C-7 — the posture, at the seam that convicts it.** The façade **THROWS** (rather than returning a
+diagnostic) on `oklch()` at this live untrusted ingress, re-measured here; the crash IDENTITY stays folded to
+megatranche R1 and is never re-booked — what books here is that the throw is now SURFACED in place, the draft
+survives, and **nothing is assigned**. `rebuild` no longer terminates in `console.error` alone: it publishes
+`buildError` and toasts with a Retry (★ S-7's shape, not a new helper). Probe: the legacy `rgba(0, 0, 0, 0)`
+form `.b` found refused → `buildError` = *"Invalid CSS value for \"backgroundColor\" at 0-16: expected
+scalar."*, and it CLEARS on the next good build.
+
+**D-15 — three rendered states** (G14 P4b): empty (naming both entry gestures), single-frame, and
+rebuild-failed with its message and a Retry.
+
+**P9.** L-13's two-part delete landed as **ONE act**: `loadPreset` had zero callers and was the sole consumer
+of all 33 lines of `flattenVars.ts`, and its re-export at `useTimeline` went with them — a lone `flattenVars`
+delete would have left `loadPreset` uncompilable. **LAW A re-run at the settled bytes**: ⟨cmd⟩
+`git grep -n '\bflattenVars\b' HEAD -- demo/ test/ src/ scripts/` → **0** (was 4); `loadPreset` → **0**;
+⟨cmd⟩ `git ls-tree` on the utils dir → **`snapshotCapture.ts` · `timelineEngine.ts`**, two files.
+L-14/C-16: `captureNonDefaultSnapshot` is **DELETED rather than adopted** — adopting it would silently change
+what `snapshot()` captures and no row rules that. L-12/C-8: the published contract is the **SEVEN verbs its
+consumers actually call**, measured (`RibbonBar` takes four, `useControlsKeyboardShortcuts` three);
+`selectedKeyframeId`, `canUndo`, `canRedo` were published and taken by nobody. L-8/C-9: one removal verb, and
+the `!` goes with the divergence. N-9's dead-state arm: `isPlaying` and `clearHistory` gone.
+**Timeline-scoped `error TS`: 2 BEFORE → 0 AFTER.**
+
+#### `.b`'s hand-offs and `.a`'s `.e` note
+
+- **R-b2 — TAKEN (`85b3c8fa`).** After the G2 seam the engine paints the detached preview subject, so
+  `scrubAndCapture` screenshotting `targets.value[0]` returned the SCENE's untouched pose at every percent —
+  the same picture N times. The capture follows the engine's own binding (`animation.value?.targets[0]`), with
+  `targets[0]` kept for the pre-build state where nothing has been scrubbed at all.
+- **m-7/m-8's validation half — TAKEN (`85b3c8fa`), after the delegation as the lock requires.**
+- **R-b1 (the `useTimeline` source/subject split) and R-b3 (the L-5 generation counter) — NOT TAKEN**: both
+  need `timelineEngine.ts`'s signature, which is `.b`'s serial file. The G2 invariant already holds
+  synchronously at the owner, so nothing is unsafe; the split is a terminal shape → routed.
+- **`.a`'s `.e` note — SequenceScrubber's shape rows PERSIST**: C·C-4's narrowed cure landed (`43556828`).
+
+#### Gate readings BEFORE → AFTER (settled bytes, double-run — ⟨`diff run1 run2`⟩ → no output)
+
+| gate | BEFORE (this record's Baseline) | AFTER | witness |
+|---|---|---|---|
+| **G6** | **RED** — four leaves | **GREEN** | easing survives (measured, the DROP claim refuted) · named phases render as named (`authoredSelector`, 2 hits in THP; 5 fixture tests) · Add merges (probe: 2 → 3 keyframes, the shared stop carrying both declarations) · none/auto authorable (`value !== "none"` → **0** occurrences in `snapshotCapture.ts`) |
+| **G15** | **RED** — 80 / 161 L, two shells | **GREEN (byte half)** | one shell; the twin is a 23-line template over it; `useCodeHighlight(` → 2 consumers + 1 definition; `initialText` → 1 hit, a doc comment; mount contract byte-identical, `KeyframesEditor.vue` untouched |
+| **G11** | **RED** — leg (i) **0 hits** | **GREEN for fixtures 3–4** (and leg (i) now names **all four**) | ⟨cmd⟩ `git grep -ln "TimelineHoverPreview\|previewCache\|SequenceScrubber" HEAD -- test/` → `sequence-scrubber-mount.test.ts` · `timeline-hover-preview.test.ts` · `timeline-mount-keyboard.test.ts` · `timeline-mount-projection.test.ts` — **four files and only those four**; **none of the twelve tracked files edited** |
+| **G9** | **RED** | **RED — ESCALATED** | `<TooltipContent>` still carries `class="p-2 max-w-56"` and **no `:aria-label`**; no `role="group"` on the track container; no `@focus`; no `describeKeyframe` — all `.d`'s bytes, and THP's register carve is this seat's, so **neither seat can land the family** |
+| **G10** | **RED** | **RED — ESCALATED** | `previewCache` still a write-once map (`delete previewCache` → **0**); `getGhostStyle` still composes `scale(0.3) …` onto the plate; THP still takes `ghostStyle` — the four cure carves are `.d`'s |
+
+**Typecheck**: ⟨cmd⟩ `npm run check 2>&1 | grep -c 'error TS'` → **56**, of which **0** are in any file this
+unit owns (the two that WERE — `KeyframeTimeline.vue`'s `Input` TS2379 and `snapshotCapture.ts`'s TS6133 —
+are both cured). The 56 are the frontier's, chiefly `OrbitalDrag.vue` (24) under KF.W6's in-flight dirty
+`CubeScene.vue`. **Tests**: ⟨cmd⟩ `npx vitest run --project demo` → **35 files · 233 tests · ALL PASSING**
+(including `.d`'s two fixtures and the read-only witnesses `timeline-undo.test.ts` ·
+`value4-editor-boundary.test.ts` · `resize-tracks.test.ts`, unedited); ⟨cmd⟩ `--project library` →
+**112 passed · 5 skipped · 1256 tests**.
+
+#### Findings routed (measured; owner named; neither cured nor worked around here)
+
+1. **The value.js `/css` grammar does not treat comments as trivia inside a declaration list.** Probed at
+   four positions, double-run: `/* hi */ a{…}` and `a{…} /* hi */ b{…}` parse correctly, but
+   `a{/* hi */opacity:0.5}` yields a declaration whose **NAME** is `"/* hi */opacity"`, `opacity: /* x */ 0.5`
+   yields the VALUE `"* x * / 0.5"`, and inside `@keyframes` the declaration is **dropped entirely**. This is
+   the sibling of `.b`'s legacy-`rgba` finding. **Owner: the value.js library band** (→ `.f`'s relay + KF.W10).
+   Defended at the boundary meanwhile by m-7/m-8's name validation — surfaced, never silently written.
+2. **`@vue/test-utils` is still absent from `package-lock.json`** (`grep -c` → 0). This unit materialized it on
+   disk without a tracked byte (Act 0); the lockfile entry is still **the orchestrator's**.
+3. **`TimelineKeyframe.easing?` is dead** (never written, never read) — `timelineTypes.ts` is `.b`'s serial
+   file. Owner: KF.W8 or a re-homed act.
+4. **KF-AV-17's resize-immune playhead form** — the overshooting `translateX(calc(p * 100cqw))` is still live
+   at `SequenceScrubber.vue`'s `.scrub-ball` binding. It is a P4 GEOMETRY row under OP-3's re-derivation lock
+   and P4 is not this unit's section; **not improvised**. Owner: `.d` / `.f`.
+5. **`updateKeyframeProperty` (banked DEAD) and `addKeyframe`** are re-exported by `useTimeline` but defined in
+   `useTimelineOps.ts` — `.d`'s file — so their re-export was left rather than orphaning an exported function
+   in a file this seat cannot edit. Owner: `.d` / KF.W8.
+6. **`be82defe`'s message lost one backticked token** to shell expansion (*"Timeline-scoped  count"* should
+   read *"Timeline-scoped `error TS` count"*). Recorded here rather than amended: the figure it states —
+   **2 BEFORE → 0 AFTER** — is correct and is re-measured above.
+
+#### Escalations
+
+**ONE, and it is G9 + G10 together** — the `.d`/`.e` file-crossing, stated in full above and in
+`evidence/W7/G9-G10-FILE-CROSSING-ESCALATION.md`. Every OTHER specified cure was possible at the bytes and was
+implemented as specified. **No write outside the writable set was attempted or made.**
+
+#### Index hygiene
+
+Every commit carried its own pathspec ON the commit; ⟨cmd⟩ `git show --stat --name-only` on all seven kf
+commits returns **only files from this unit's writable set** (2 · 5 · 3 · 4 · 5 · 1 · 2 files). No
+`git add -A`, no `-u`, no `commit -a`, no reset or unstage of another seat's paths. ⟨cmd⟩
+`git log --format=%h 8cfee94e^..HEAD -- scripts/dev/dev.sh | wc -l` → **0**. `.d` committed twice into this
+worktree mid-unit and KF.W6's dirty tracked files sat beside mine throughout; **none was ever staged**. The
+record was re-read (⟨`wc -l`⟩ → 814, last entry `### X.KF.W7.b`, clean) immediately before this append.
