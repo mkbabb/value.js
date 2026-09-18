@@ -3500,3 +3500,118 @@ living receipt for the rest.
 | value.js | `git push origin HEAD` | **SUCCESS** — `To https://github.com/mkbabb/value.js.git` / `5ab795d4..49da7352  HEAD -> tranche-u`; ⟨`git status -sb`⟩ after → `## tranche-u...origin/tranche-u` with **no `ahead`**. The wave's second-sitting commits (`aedb07b5` `.i` · `44057a91` the fold · `c8e50ffc` the close + record + carve · `49da7352` the LEDGER row) are on the remote, alongside the sibling tracks' commits that share this branch. Nothing was force-pushed. |
 | `<p2>` — the fresh **writer** root, this wave's only Track D write surface | `git -C <p2> push origin HEAD` | **FAILS, as its standing condition requires**: `fatal: 'origin' does not appear to be a git repository`. ⟨`git -C <p2> remote -v \| wc -l`⟩ → **0** — no remote since X.P.W0 opened it (X.P.W1's own LEDGER row records the same: *"in `<p2>` (no remote, R-2)"*). Its nine commits are durable on local branches `w2/harness` (now at `cdf7975`, carrying the graduation) · `w2/ac1` · `w2/ac2` · `w2/ac3-scan-union`. **Giving `<p2>` a remote is an owner act, not a close seat's.** This is also why §8's evidence fold matters: `evidence/W2/{h,close2,seats}/**` is the only copy of those artefacts that reaches a pushed history. |
 | `/Users/mkbabb/Programming/parse-that` — the READ-ONLY evidence root | **NOT RUN, deliberately** | The dispatch named this seat's repo as `value.js/../parse-that`, which resolves **here** — but `W2.md` §4's *"Do NOT touch, anywhere, by any seat"* list opens with this exact path, and §9 reads *"No commit in this wave touches `/Users/mkbabb/Programming/parse-that` — a **wave-invalidating event**, not a mistake to amend."* Track D's write surface is the fresh **writer** root `parse-that-css-totality-p2` (§4 Surface B), one directory over. Measured read-only so the refusal carries a number rather than a preference: its `origin` is `https://github.com/mkbabb/parse-that.git`, its HEAD is **`ef10d5b`** dated **2026-07-05** — the clone-point master, unmoved by this wave — and its 31 porcelain lines are the pre-existing OP-6 residue. **Pushing it would publish an unadjudicated working state of a root the spec freezes; the spec governs the dispatch, so it was not pushed.** Recorded as an escalation to the orchestrator: the Track D repo path in the dispatch is one directory off. |
+
+---
+
+## Check 1
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-18 · **FRESH ADVERSARIAL CHECK (L-20, pass
+1), VERIFY-ONLY.** This seat authored none of this wave's bytes — not the spec, not `ALGEBRA.md`,
+not the kill ledger, not one unit receipt, and neither close section. It **cured nothing, wrote no
+`<p2>` byte, edited no probe and no instrument, and installed nothing**; its entire written set is
+this block and the LEDGER row's own cells. `W2.md` read whole (999 L); the record read whole (3,502
+L before this block); every commit the record names inspected at `git show`. Every figure below was
+**re-measured at this seat's own clock from the settled bytes**, never inherited.
+
+**E-3 held at the check.** ⟨cmd⟩ `shasum -a 256 docs/tranches/X/parse-that/waves/W2.md` →
+`248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd` — string-equal to §Open's pin,
+to R.2's, to `.i`'s and to both closes'. ⟨cmd⟩ `git diff --stat <pre-wave>..HEAD -- W2.md
+W2-fable-author.md W2-opus-author.md registry/adjudicated/ evidence/W2/h/ …` over **this wave's own
+commits only** → the spec and the two sealed author arms appear in **0** of the 23; `evidence/W2/h/**`
+was created by `.h` and touched by no later commit; the adjudicated registry and the sibling waves'
+files carry **no** X·P commit.
+
+### CK.1 — Every gate re-run at this seat's own commands (axis 1)
+
+Twelve gates plus the §0n.2 sub-gate, each run from the address its subject requires. **13 of 13
+verdicts reproduce; 0 failed to reproduce.**
+
+| gate | this seat's own reading | matches the close? |
+|---|---|---|
+| **G-1** | from `<p2>`: *"homes sha256-equal: **YES**"* — both `67c8253abaecb29a…3fc537de`, 157,010 B; enumerated **22** == stated **22**; target-conditional tokens in the contract text **0**; R-LAW-5 control fires (**1**); ac1/js · ac1/wasm **29 terms**, `ops∉22` 0 · `recover≺alt` 0 · **`cut∉alt` 7** · unowned-span 0 · closure-leak 0. Verdict line: *"RED — ac1/js: CUT outside an ALT arm's scope (§5.2) \| ac1/wasm: …"*, the homes clause gone | **YES** — RED, sole cause E-3 (one figure in the row does not reproduce; **D-x1** below) |
+| **G-2** | `node harness/w2/op-bijection.mjs --candidate ac1 --at typescript/src/css` from `<p2>`: OP-01..OP-22 each `js:<OP> / wasm:<OP> / ok`; **contract 22 · js 22 · wasm 22 · DECLARED-ABSENT 0**; *"GREEN"*, exit 0; **double-run byte-identical** (⟨`diff -q`⟩ silent) | **YES — GREEN** |
+| **G-3** | `eq-six.mjs --candidate ac1 --at typescript/src/css --corpus … --fuzz-seed …`: **EQ-1..EQ-5 = 0**, **EQ-6 = 2035**, first row `s0180 "var(--brand)"`, **30,527 rows**, labels aligned `true`, third cell 233 (12 declared), exit 1. Corpus arithmetic checked independently: `slice.json` **527 rows** + **30,000** fuzz = 30,527 | **YES — honest-RED (E-2)**; and F-h2/R-i3's mislabel reproduces verbatim |
+| **G-4** | `recovery-laws.mjs --candidate ac1 --at typescript/src/css`: **2,951** TRY sites both lowerings, R-LAW-1 mismatches **0**, R-LAW-3 **silent**, R-LAW-4 amplified 0 / zero-width 0, **R-LAW-2 = 13 COMP-1 failures, identical in js and wasm**, exit 1 | **YES — RED, same E-2 cause** |
+| **G-5** | published baseline re-taken at **this seat's** HEAD, probe unmodified (R-E): `parseCssColor` **102/172** · `parseCssScalar` 102/172 · `parseCssValue` 60/172 · `parseCssValues` 60/172 · five parsers 0/172 · **TOTAL 324 throws / 1,548 calls** · **DISTINCT FAILURE MODES 1**. Candidates at the graduated location: **0/172** × 3 productions × 2 lowerings, boundary **7/7**, empty-diagnostic rejections **0**, exit 0. `r1.json` carries **172 inputs + 7 boundary**, script-derived from the probe's own base data | **YES — GREEN**, and the §6 header reproduces to the digit |
+| **G-6** | §6's literal command: **52 rows, ∅ both ways**, classes V:31 K:2 P:10 W:2 X:7, map digest **`334fa95778e00727b945f66bac7af5dd`**, `{"TOTAL":0,"PARTIAL":0,"ABSENT":52}`, exit 0. `--candidate ac1` → `TypeError: text.matchAll is not a function` at `harness/totality/lib/surface.mjs:202`, reproduced at the **candidate** address too | **YES — SPLIT** (map GREEN on the literal command · survivor-verb half unrunnable, D-i2) |
+| **G-7** | ⟨`grep -c 'w2' harness/bench/bench.ts`⟩ → **0**; ⟨`grep -rn 'ac1\|tagless' harness/bench/ \| wc -l`⟩ → **0**. No W2 bench table exists anywhere | **YES — RED-structural (E-6)**; K-5 unevaluable |
+| **G-8** | `node --expose-gc alloc-latch.mjs --candidate ac1 --at typescript/src/css`, one draw: warmed drift **1.000×** (js) · **0.999×** (wasm) — no latch; steady-state heap −3.3 B/parse (js) · 0.0 (wasm); arena high-water **304 B**; **wasm reject path 2.1 B/parse — NONZERO**, exit 1 | **YES — RED, instrument-owned.** My draw is 2.1 where the close drew 0.4 on the same bytes: the ±10 B/parse band F-h3 names, measured a third time |
+| **G-9** | `wasm-audit.mjs --candidate ac1 --at typescript/src/css`: module **187,341 B**, sha256 `049b9904…611c6e22`, **imports 0**, `imports by kind {}`, **start section absent**, exports `run · setTheta · highWater · reset · memory`, memory **12582912 / 12582912** over 2,000 parses, K-9 none, OP-6 re-read 0 committed `wasm32` / 3 uncommitted, exit 0. Adversarial probe of F-h1 against the **survivor**: `lowering-wasm/index.mjs:208-210` builds `new WebAssembly.Module(built.bytes)` and `new WebAssembly.Instance(module)` **with no import object**, and the entry calls `ex.run(k, source.length)` at `:273` — AC-1's second lowering really is Wasm, so F-h1's weakness does not flatter the survivor | **YES — GREEN** |
+| **G-10** | **two addresses, two verdicts, identical bytes.** From `<p2>/.worktrees/ac1`: graph clean (`opt` under `all` 0 · `lazy` 0 · memoize 0), five textual zeros **0**, fixture *"PASSES"*, **GREEN**. From `<p2>` proper: the same zeros and the fixture **FAILS** — `error TS2578: Unused '@ts-expect-error' directive` → **RED**. D-c1 confirmed at the bytes: ⟨`node -e path.resolve`⟩ on `build/ac1.d.ts:7`'s seven-`..` specifier → from the worktree `…/value.js/…/vendor/value-js-4.0.0/dist/subpaths/css` **EXISTS**, from `<p2>` proper `/Users/value.js/…` **MISSING** | **YES** — and see **D-x2**: this gate is missing from the close's own tally |
+| **G-11** | `depth-scan.mjs --candidate ac1 --at typescript/src/css`: row **s0526** → `ok:false, 1 issue(s)` from the constructed bound in **both** lowerings, never a `RangeError`; scan primitives `DIGITS · DISPATCH · KW · LIT · SCAN · TEXT` reached as algebra leaves, exit 0 | **YES — GREEN** |
+| **G-12** | **ledger half**: `W2-KILL-LEDGER.md` **505 L · 79,063 B · `3c567b2b1d6681a4…`**; **4 of 4** terminal — AC-1 SURVIVES-TO-W3 · AC-2 SURVIVES-TO-W3 (tied) · AC-3 KILLED(K-3) · AC-4 KILLED(K-2); `PEER-REVIEW-PENDING` appears twice and **both are the prohibition**; the tie ruled at COHESION §0n.1. **Graduation half**: `<p2>/typescript/src/css` holds **17 tracked files** at the fresh root; ⟨`diff -r experiments/w2/ac1-tagless typescript/src/css`⟩ → exactly *"Only in …: VERDICT.md"* + *"Only in …: probes"*; digests EQ on every file spot-checked (`grammar.mjs` · `runtime.mjs` · `ac1.wasm` · `harness-adapter.mjs`); G-2/G-5/G-9 GREEN and G-3 honest-RED at `--at`; **17 promoted + 3 left behind = 20 = the candidate's full tracked set** | **YES — SPLIT → GREEN-WITH-RESIDUALS (E-2 · D-c1)** |
+| **ESC-i2** | ⟨`npx tsc --noEmit -p typescript/tsconfig.json`⟩ from `<p2>/.worktrees/ac1` → **exit 0, 0 output lines**; `--listFiles` → **403** program files, **1** under `typescript/src/css`; `allowJs` absent; no root `<p2>/tsconfig.json` | **YES — GREEN, narrowly, exactly as R-i2 publishes it** |
+
+**Claimed GREENs re-run and reproduced: G-2 · G-5 (both halves) · G-6 (map half) · G-9 · G-10
+(worktree) · G-11 · G-12 (ledger half + the graduation's own falsifier) · ESC-i2 — 8 of 8.**
+
+### CK.2 — Bounds, masking, families, E-3, mail, the verb (axes 2–7)
+
+| axis | this seat's reading |
+|---|---|
+| **Bounds** | Union of the **23** value.js wave commits, deduped: `execution/D/X-P-W2.md` · `execution/LEDGER.md` · `COHESION.md` · `algebra/{ALGEBRA,draft-fable,draft-opus}.md` · `evidence/W0/roots-census-v2.sh` · `evidence/W2/{h,close2,seats}/**` · `waves/{W2-ADDENDA-2026-09-17,W2-CLOSE,W2-KILL-LEDGER}.md` — **every one admitted by `W2.md` §4 or `W2-ADDENDA-2026-09-17.md` §A-1**. In `<p2>`: `130f72db` → ⟨`git show --name-only \| grep -vc '^typescript/src/css/'`⟩ = **0** outside `.i`'s set; `cdf7975` is §9's own merge (37 files, all §4-admitted). ⟨`grep -c 'scripts/dev/dev.sh'`⟩ over all 23 → **0**; `/Users/mkbabb/Programming/parse-that` is at **`ef10d5b`** dated 2026-07-05 with **0** commits since, its 31 porcelain lines the pre-existing OP-6 residue |
+| **Masking** | The promoted tree carries **zero** `try {`/`catch` (one comment naming their absence), **zero** `test.skip`/`ts-ignore`/`ts-expect-error`/`eslint-disable`/allowlist tokens, and no `node_modules` path appears in any commit of either history. No gate was wrapped, skipped or narrowed: the five REDs print RED and exit non-zero at this seat, and G-8's exact-zero condition is still tested against an instrument that fails it. **0 masking findings** |
+| **Families** | §9's three value.js commits: phase-1 drafts (`562077ad`, landed between the sittings under F-h6) · contract apotheosis (`b5a0cb1f`) · the close family (`ba01b405` = kill ledger + close report + `§Selected` + the `h/**` fold, undivided). §9's fresh-root plan: `feat(w2/harness)` `81370815` · one `feat(w2/<candidate>)` per seat · **`feat(w2/graduate)` `130f72db`**. Every other commit is a receipt/record commit on a standing orchestration path, one meaning each; pathspec on the commit itself in all 23 (the merge takes none and had nothing staged) |
+| **E-3** | `W2.md` `248eb088…` unmoved; the two sealed author arms in **0** commits; `evidence/W2/h/**` **27 of 27 `OK`** and untouched by the second sitting; the adjudicated registry and `docs/tranches/X/waves/**` carry no X·P commit; `close2/` **17 of 17 `OK`**, `seats/` **4 of 4 `OK`** |
+| **Mail (E13)** | Four-path sweep at this seat's clock → **0** new files on any path but `INBOX.md` itself (self-excluded). Rows read at their **status cells**: the three `UNREAD 2026-09-17` are **I-32 · I-33 · I-34**, each routed by its own Routing cell to the X formation mail seat / X-W0.j / X-EXT-1, and each saying in its own bytes that it is not X·P's (*"No X·P wave, no X·P act, opens on this row"* · *"Not X·P's"* · *"Not X·P's, not a value.js act today"*). **UNREAD in X.P.W2's scope: 0** |
+| **Four-verb** | Exactly one verb moved: **IMPLEMENTED NO → YES (2026-09-17)**, stamped in the record's K.9 and the LEDGER row — **never in `W2.md`**, which is byte-untouched (R-A / E-3). **VERIFIED stays NO**, X.P.W4's release close alone. AUDITED and SPECIFIED unchanged. The stamp's authority is COHESION **§0n.2**'s pre-ruling — *"closes IMPLEMENTED-with-carried-REDs (G-3 · G-4 · G-7 · G-8), never GREEN-by-assertion"* — and the close published five REDs rather than four, G-1's extra cause being E-3, which **§0n.3** routes to X.P.W3's first act by the same ruling |
+| **Goal (§2a)** | **MET at the bytes.** One architecture carries the hypothesis (AC-1, §0n.1 word (a)); its two lowerings are **measured equal on all six products between themselves** — EQ-1..EQ-5 = 0 and EQ-6's 2,035 rows fail COMP-1 **identically in both**, so the failure is against the contract's own law, not between the lowerings (E-2, W3's first act); no CST (G-10's graph + assignability halves, GREEN in the worktree); `typescript/src/css/**` is seeded **at the fresh root**, so W3 §4a inherits a subject. Two rivals are dead by rule **and number** (AC-3 K-3 at 12/22 operators · AC-4 K-2 at 7/65 decisions); AC-2 is not killed but ruled not-selected on a **measured tie escalated to the owner by name**, which is G-12's own stated alternative — the wave escalated instead of manufacturing a kill, exactly as §3e requires |
+
+### CK.3 — The honest-RED register (axis 10) — every RED, and its relief at the spec's bytes
+
+| gate | RED at this seat | relief | owner named? |
+|---|---|---|---|
+| **G-1** | `cut∉alt` **7** in both lowerings | **Owner-owed, routed**: the cure is inexpressible in `ALGEBRA.md` as written (the only scope-opener is `ALT`, OP-09 fixes n ≥ 2), and COHESION **§0n.3** lands the E-3 addendum as **X.P.W3's first act** | ✓ owner / W3 |
+| **G-3** | EQ-6 **2,035** / 30,527 | **Ruled honest-RED by id in advance**: COHESION §0n.2 — *"G-3 reads EQ-6 = 2,035 at the graduated location and is recorded honest-RED with E-2's id"*; cure (3) at W3's first act (§0n.3). A consumer-side cure here would be a grammar edit `.i` is forbidden | ✓ owner / W3 |
+| **G-4** | R-LAW-2 **13** rows | Same E-2 cause, same routing; §0n.2 enumerates G-4 among the carried REDs | ✓ owner / W3 |
+| **G-7** | no registration surface (`grep -c 'w2'` → 0) | **Structurally producer-owned inside the wave's own bounds**: registering a W2 cell is a write under `harness/bench/**`, which `W2.md` §4 makes execute-no-write and §3a a halt; **§0n.4** assigns the `--engine` widening to X.P.W3. The bar itself is OWNER-GATED (OP-4), so no verdict was owed | ✓ W3 / owner |
+| **G-8** | wasm reject path **2.1 B/parse** | **Instrument-owned**: an exact-zero condition tested inside a **±10 B/parse** draw band (F-4 · F-e8 · F-f3 · F-h3) — 2.1 here, 0.4 at the close, on identical bytes; §0n.2 enumerates G-8 among the carried REDs | ✓ `.g` / L-18 |
+| **G-10 at `<p2>` proper** | fixture `TS2578`, exit 1 (GREEN in the worktree) | **Relieved only by the close's own assignment, not by the spec's routing** — see **D-x3**. Cure is one command, the artifact's own declared `node typescript/src/css/build.mjs`; nothing masks it and the close raised it itself as D-c1 (MAJOR) | ✓ W3's open seat |
+| **G-6 survivor-verb half** | `TypeError: text.matchAll` | **Latent since `.g`**, reproduced at the candidate address that `.i` never touched; the gate's **literal §6 command is GREEN**, and OP-8 makes G-6 report-only | ✓ `.g` / W3's open seat |
+
+**Honest-RED set: G-1 · G-3 · G-4 · G-7 · G-8, plus G-10 at the fresh root and G-6's survivor-verb
+half.** Not one of the seven is a candidate defect, and not one was cured, skipped, allowlisted or
+wrapped by any seat of this wave.
+
+### CK.4 — Register (severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-x1** | MINOR | **K.3's G-1 row publishes two pre-merge readings as this-seat post-merge readings.** (a) the row states ⟨`grep -rnE "isWasm\|target\s*===\|TARGET_JS\|TARGET_WASM" experiments/w2/*/`⟩ → **0**; post-merge at `<p2>` it is **3**. (b) the folded §8 capture `evidence/W2/close2/G-1-structural-p2-postmerge.txt`, whose README row asserts *"run from `<p2>` (branch `w2/harness`, **post-merge**)"*, contains *"SUBJECT ABSENT — 0 of 4 candidates present … GREEN — contract half"* — the state that existed only **before** the merge | ⟨cmd⟩ the grep at `<p2>` → `ac1-tagless/VERDICT.md:57`, `:58` (prose quoting the regex) and `probes/predicted-failures.mjs:28` (the probe's own `TARGET_CONDITIONAL` constant), exit 0; ⟨cmd⟩ the same grep over `typescript/src/css/` → **0**. The capture's own body vs my post-merge run (subject present, 29 terms, `cut∉alt` 7) | **Mitigated**: the row's verdict reproduces exactly, and no hit is grammar/algebra source — the graduated tree greps 0, so G-1's substantive clause holds and its RED cause is unchanged. Cure: a **dated addendum-beside** under `evidence/W2/` re-capturing G-1 at `<p2>` post-merge and restating the grep as 3-with-provenance (M-22 ¶5 forbids rewriting the packet) |
+| **D-x2** | MINOR | **The close's headline tally accounts for eleven of the twelve gates.** *"5 GREEN (G-2 · G-5 · G-9 · G-11 · ESC-i2) · 5 RED (G-1 · G-3 · G-4 · G-7 · G-8) · 2 SPLIT (G-6 · G-12)"* counts **ESC-i2**, a §0n.2 sub-gate and not one of the twelve, inside the GREEN set, and **omits G-10** — the one gate whose reading is GREEN in the worktree and RED at the fresh root | K.3's tally line vs its own table, which carries a G-10 row; SELF-COUNT: G-1..G-12 = 12, the tally names 11 | **Mitigated**: G-10's split is stated in its own row, and the LEDGER row names D-c1 with *"G-10 prints GREEN in the worktree and RED at the root on identical bytes"* — nothing is hidden, the arithmetic is wrong. Cure: a dated line restating the tally as **4 GREEN · 5 RED · 3 SPLIT (+ ESC-i2 GREEN)** |
+| **D-x3** | MINOR | **D-c1's relief is mis-cited.** K.6/K.8 route D-c1 to W3 as *"the same act"* as §11.3 / §0n.5. At the bytes §11.3 reads *"the import of the **published 1.0.0 dist** stays exactly as the candidate declared it"* — the `PARSE_THAT_DIST` specifier reached through `harness/bench/lib/engines.mjs` — and §0n.5's *"the seed's one import specifier"* is that same OP-7/E-7 substrate import. D-c1 names a **different** specifier: `build/ac1.d.ts:7`'s re-export of the **vendored value-js-4.0.0** declaration. §B.4 of this record says *"the only depth-sensitive specifier is `../../../../harness/bench/lib/engines.mjs`"*, which is where the seventh-level one was missed | ⟨cmd⟩ `grep -n 'from "' <p2>/typescript/src/css/build/ac1.d.ts` → the 7-segment vendored path; `lowering-js/index.mjs:12` · `js-alg.mjs:25` → the 4-segment `engines.mjs` path, which **re-resolves at both addresses**; `W2-KILL-LEDGER.md:456-458` (§11.3) | **Mitigated**: the owner named (W3's open seat) is the right one and the cure is the artifact's own header. Cure: W3's open docket carries **D-c1 as its own row**, not as §11.3's act, and runs `node typescript/src/css/build.mjs` at `<p2>` before reading G-10 there |
+| **D-x4** | INFO | **One self-count read before the seat's own append**: K.4 publishes `W2-CLOSE.md` as **149 L**; the settled file is **244 L**, because the close's own §8 block (+95, `c8e50ffc`) landed in the same commit | ⟨`wc -l < waves/W2-CLOSE.md`⟩ → 244; ⟨`git show --numstat c8e50ffc`⟩ → `95 0` for that path | Read the count back **after** the commit, or state it as the pre-append length. No reading depends on it |
+
+**0 BLOCKER · 0 CRITICAL · 0 HIGH · 3 MINOR (all mitigated) · 1 INFO.** No masking fallback of any
+kind exists in this wave's diff; no claimed GREEN fails to reproduce; no RED was laundered — the
+one RED whose relief the close constructed rather than inherited (G-10 at the fresh root) is named
+above as D-x3 and still carries a measured cure and a named owner.
+
+### CK.5 — The successors' "Opens after" conjuncts, read against this wave
+
+| successor conjunct | state at this seat |
+|---|---|
+| W3 §2 — **X.P.W0** (pause authentication + the fresh root opened at first write) | **GREEN** — LEDGER `X.P.W0 CLOSED`; `<p2>` present, 4 worktrees, porcelain `?? .worktrees/` alone |
+| W3 §2 — **"X.P.W1 (the semantic-and-recovery algebra: bijection, closed authenticated unions, no-CST)"**, discharged **here** by `W2.md` §10's alias table | **GREEN on its stated conditions** — `ALGEBRA.md` ratified and both homes `67c8253a…`; G-2's bijection 22/22/22 with DECLARED-ABSENT 0; G-6's 52-map ∅ both ways; no-CST proven structurally (the assignability half GREEN in the worktree, RED at the root under D-c1) |
+| W3 §2b **OP-4** — *"X.P.W1's bijection is closed … both set-differences ∅"* | **GREEN** — G-2 + G-6 reproduced at this seat |
+| W3 §2 — **"X.P.W2 (dual-target realization: source-direct JS + zero-function-import Wasm)"** · W3 §10 *"both targets built"* | **GREEN** — both lowerings build at the graduated location byte-reproducing, and G-9 reads **imports 0** over all kinds on a real 187,341 B module |
+| W3 §4a — *"X.P.W2 holds `src/css/**` in the fresh root and closes before this wave opens"* | **GREEN, and only because of §9's merge** — ⟨`ls <p2>/typescript/src`⟩ → `css parse`; 17 tracked files. Inside a worktree alone it would have been false |
+| W3 §2b OP-1 (begin-word) · OP-5 (no bar) | **GREEN** — COHESION §0j; `OWNER-GATED-PENDING-RATIFICATION` stands, no bar set anywhere in W2 |
+| W4 §10 — *"X.P.W2 (the Wasm artifact — G-4 has no subject without it)"* | **GREEN** — the zero-import artifact and its lineage exist at the fresh root |
+
+**No successor is lawfully blocked by this wave.** W3 opens carrying, by the rulings' own routing,
+E-2 · E-3 · E-4 · E-5 · E-8 (the contract addenda, §0n.3), E-6 (the bench widening, §0n.4), E-7 /
+OP-7 (§0n.5) — **and, added by this check, D-c1 as its own row (D-x3) and D-i2**.
+
+### CK.6 — Verdict
+
+**CONFORMANT-HONEST-RED.** Zero BLOCKER/CRITICAL/HIGH; **13 of 13 gate verdicts and 8 of 8 claimed
+GREENs reproduce** at an independent seat's own commands; bounds, masking, commit families, E-3,
+mail and the four-verb line are clean at the bytes; the goal criterion of §2a is met at the bytes
+and not merely at the gates; and every remaining RED is relieved and owner-named — **G-1 · G-3 ·
+G-4 · G-7 · G-8, plus G-10 at the fresh root and G-6's survivor-verb half** — with the single
+mis-cited relief (D-x3) recorded rather than accepted. Three MINOR and one INFO are registered
+above; none blocks, and each carries its own cure.
+
+*Check 1 sealed 2026-09-18 by a fresh adversarial L-20 seat (`claude-opus-5[1m]`), VERIFY-ONLY —
+0 gates cured, 0 `<p2>` bytes, 0 probe or instrument bytes, 0 installs.*
