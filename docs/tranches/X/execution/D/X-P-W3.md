@@ -4211,3 +4211,301 @@ for a reader to find. Owner: the orchestrator, by dated addendum-beside if it is
 measurement three rounds of register did not take: the cure they all named, executed in full,
 discharges two of the five codes — and the third defect's real owner is a parse row this wave has
 never once written down.**
+
+---
+
+## Check 3
+
+**SERVED MODEL: claude-opus-5[1m]** · X.P.W3 **FRESH ADVERSARIAL CHECK (L-20, pass 3)** · Track D,
+X·P · 2026-09-18, this seat's own clock; the sitting's date of record stays **2026-09-17**. This
+seat is **VERIFY-ONLY**: it wrote no byte in `<p2>`, opened no unit's file, moved no gate and
+changed no verdict. Every reading below was **re-derived here** from `W3.md` §6's own commands or
+from a probe this seat wrote fresh — none is read off `W3-CLOSE.md`, off the ## Close, or off
+## Check 1 / ## Repair 1 / ## Check 2 / ## Repair 2. `W3.md` read WHOLE (673 L); this record's
+Close, both prior Checks and both Repairs read whole; `W4.md` §2 and §2b read at the bytes for the
+successor conjuncts; `COHESION.md` §5 / §0n.3 / §0n.4 / L957 and `ALGEBRA.md` §9 row 41 read at the
+bytes.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain` in every repo this seat may write,
+before any other act. Inside this seat's writable set — ⟨cmd⟩ `git --no-optional-locks status
+--porcelain -- docs/tranches/X/execution/D/X-P-W3.md docs/tranches/X/execution/LEDGER.md
+docs/tranches/X/parse-that/ | wc -l` → **0**: **nothing dirty, no predecessor residue, nothing
+inherited, and no inherited path to name in this receipt because there is none.** `<p2>`: ⟨cmd⟩
+`git -C <p2> status --porcelain` → **`?? .worktrees/` alone**, measured before the first run and
+again after the last. Outside the set and never opened: ten `demo/**` + two `e2e/**` rows,
+`CARRY-LEDGER.md`, the untracked Track-A/C evidence dirs, and `scripts/dev/dev.sh` (` M`, unowned,
+unstaged, **never touched**, in 0 of this seat's commits).
+`/Users/mkbabb/Programming/parse-that` is dirty by standing arrangement, outside this seat's set
+entirely, and not opened — re-measured unmoved below.
+
+### K3.1 — Axis 1 and axis 9: the ten gates re-run at a **seventh** seat. **10 of 10 reproduce.**
+
+| gate | this seat's command | this seat's reading | == the record's? |
+|---|---|---|---|
+| **G-1** | `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602` | `tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL` · `tsc exit 2 · diagnostics attributed 56 · unattributed 0` · `RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT)` · `16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured` · **EXIT=1**, two runs `diff -q` **byte-identical** | **YES — RED, to the row** |
+| **G-2** | `shasum -a 256` the probe, then run it unmodified | probe `77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec` (**unmodified**); `RED parseCssColor 102/172 · parseCssScalar 102/172 · parseCssValue 60/172 · parseCssValues 60/172`, five `ok`; `TOTAL 324 throws / 1548 calls` · `DISTINCT FAILURE MODES: 1` · **EXIT=1**; ⟨cmd⟩ `git status --porcelain -- …/audit/probes/` → **0 lines after** | **YES — RED, to the call** |
+| **G-3** | this seat's **own** probe (`<scratch>/check3-g3.mjs`, read-only, written fresh) | `empty-body heads (2 lowerings × 10): throws 0 · undefined 0 · bad-shape 0 · codes [css_syntax]`; boundary **20** non-string values × 3 entries × 2 lowerings = **120 cells · throws 0 · undefined 0 · bad-shape 0 · distinct shapes 1** (`{"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]}` — incl. `new String("rgb(1 2 3)")`, `Object("s")`, `Object.create(null)`, `10n`, `Symbol("x")`, `new Map()`, `new Set()`, `new Date(0)`, `/re/`, a `Promise`); R1 `parseCssColor("oklch()")` → `css_syntax [6,7) ["<number>","<none-keyword> ('none')"] actual ")"`, **`identical: true`** across the two lowerings | **YES — green on its command, proof leg refuted (K3.2)** |
+| **G-4** | `node scripts/css-recovery-closure.mjs --corpus test/css-recovery/corpus.json --frozen-union c654824e:src/css/types.ts` | `685 inputs` · `4158 calls · 3710 rejections · 3744 issues` · C-1 GREEN (288 sites · outside frozen 0 · intrinsics verified at 19 lowering sites) · C-2 GREEN · **C-3 RED** `frozen \ emitted = 5` · **C-4 RED** `authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 3710` · C-5…C-10 GREEN (C-10 `signature 22 · destructured 22 · both differences ∅`) · `CTRL ×6 fires` · **EXIT=1**, two runs identical (`diff` prints only the `--out` evidence-path line) | **YES — RED** |
+| **G-4** *(Repair 1's spec-literal operand)* | `… --corpus test/css-totality/corpus.json …` | `26604 inputs · F-c3 {id,src} rows unwrapped 172` · `159672 calls · 144640 rejections · 154328 issues` · **C-3 RED 5** · **C-4 RED** `0 of 144640` · **EXIT=1**; `--out` sha256 `240473b17fff…91b4` **== the committed `recovery-closure-spec-literal-operand.json`** | **YES — Repair 1's figures reproduce to the digit** |
+| **G-5** | `node scripts/css-dual-target-identity.mjs --js src/css/build/ac1.js --wasm src/css/build/ac1.wasm --corpus test/css-totality/corpus.json` | `cells 79674 · six-tuple differing cells 0 (differing bytes 0) · full-diagnostics differing 0 · value differing 0 · cells where a target threw 0` · per-entry `26551` each · `boundary … identical across both targets: ALL` · `GREEN` · **EXIT=0** | **YES — GREEN on its command** |
+| **G-6** | `npx vitest run --config test/css-totality/vitest.config.ts` | `spec-conformance.test.ts (13 tests)` ✓ · `universe.test.ts (59 tests)` ✓ · **`Tests 72 passed (72)`** · **EXIT=0** | **YES — GREEN** |
+| **G-7** | `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602` | oracle `value.js-4.0.0.tgz — 37290 B · sha256 7f80658ca4e1…03ae` · `taxonomy UNMOVED · 554c2993cebd3ed3` · `rows 52 · COMPARED 8 · NO-PEER 44` · per-row `parseCssColor 4027 (spec-undecided 2461)` / `parseTimingFunction 170` / `parseStylesheet 1693` · **`MIRROR-DEFECTS 5890 (of which spec-undecided 3982)`** · **EXIT=1** | **YES — RED at 5,890, to the digit** |
+| **G-8** | `node scripts/css-recovery-closure.mjs --assert-no-console` | `union authentication … → 8 codes, both differences ∅` · `branch census default: 3 (authored 0) · else 28 (authored 0)` · `GREEN — 2 of 2 legs green (C-8 · C-9); negative controls all fire` · **EXIT=0** | **YES — GREEN** (and see K3.4 **F-t1** on its strict letter) |
+| **G-9** | `npx vitest run --config test/css-recovery/boundary/vitest.config.ts` | `depth.test.ts` **15 ✓** · `boundary.test.ts` **77 ✓** · `no-throw.test.ts` **19 ✓** · `latch.test.ts` **5 ✓ / 2 ✗** (`L-3 RESETTABLE — resetPackrat() must DISARM…` at `:147`, `the whole reading, published as one record` at `:157`) · **`Tests 2 failed | 116 passed (118)`** · **EXIT=1** | **YES — depth GREEN · latch RED** |
+| **G-10** | `node scripts/css-bench-three-leg.mjs --baseline-tarball ./test/css-equivalence/vendor/value.js-4.0.0.tgz --rounds 40 --discard 10 --denominator 1636680` | three legs · **9 rows, arm-state on every one** (`UNARMED — before & after` ×6 / `N/A — published bundle carries no packrat` ×3) · `sink 580440` · `NOT RECONCILED AND NOT ERASED` · `BAR: OWNER-GATED-PENDING-RATIFICATION` · `VERDICT: none. … RECORDED-NOT-GATING` · `well-formedness OK — the four G-10 falsifier conditions all hold` · **EXIT=0**; `--denominator 1870633` → **`REFUSED … VOID`, EXIT=2** | **YES — well-formed, no verdict** |
+
+**Tally, derived independently at a seventh seat: 4 GREEN (G-5 · G-6 · G-8 · G-10-well-formed) · 1
+GREEN-on-command with its proof leg REFUTED (G-3) · 1 SPLIT (G-9 depth GREEN / latch RED) · 4 RED
+(G-1 · G-2 · G-4 · G-7).** Gate for gate and figure for figure this is `.e`'s reading, the Close's,
+Check 1's, Repair 1's, Check 2's and Repair 2's. **Six clocks, six seats, one set of numbers, and
+every claimed GREEN reproduces.** The bench ratios move run to run, as a wall-clock measurement
+must (this seat read `1606.3 / 1210 / 1291.2 / 906.8 / 1122.9 / 832.8` ns against the published
+`796.4 / 364.3 / 32461.8`); the gate's own falsifier conditions — three legs, arm-state per row,
+one denominator, no verdict — are what `well-formedness OK` asserts, and they hold here.
+
+**Axis 9 — the published artefacts, regenerated to this seat's scratchpad and hashed against the
+committed bytes:**
+
+```
+⟨cmd⟩ shasum -a 256 <regenerated>   vs   <committed>
+0005f26b10b0c9f093466c134c7fc71d472be7d8d6b0bf2809bb83386f2598de  universe-52.json                            EQUAL
+25fa6a4b08653334ed506a0b38aa690c96fa6e92d500f08473056bd5ebfc9240  recovery-closure.json                       EQUAL
+b68bab94c01cd2eae24a3b74b0b8096a1bbd30b12d8d75e04233b26dd5686216  dual-target-identity.json                   EQUAL
+d03b458c0f095c7b201c17ded478fcfcfdf7c53b54f48668450b6c4166e41595  equivalence-full-surface.json               EQUAL
+240473b17fff1e6f5a836a360a0a27ebfcb3b0c7781fbca00c71fbf2bee791b4  recovery-closure-spec-literal-operand.json  EQUAL
+```
+
+**Five for five, at a seventh seat.** The record's figures are the measurement.
+
+### K3.2 — ESC-e1, re-measured a **fifth** time (Repair 2 declined a fifth reading; this seat took one)
+
+This seat wrote its own probe (`<scratch>/check3-esce1.mjs`) rather than re-run any prior seat's:
+
+```
+⟨cmd⟩ node <scratch>/check3-esce1.mjs        (read-only; <p2> `?? .worktrees/` before and after)
+ESC-e1 rules=8190 bytes=98280 js=ok:true wasm=ok:true          SHIELD.caught=0
+ESC-e1 rules=8191 bytes=98292 js=ok:true wasm=ok:false css_syntax  SHIELD.caught=1
+faults: [{"entry":"parseStylesheet","kind":"wasm",
+          "message":"HALT: a journal, the value stack or the arena overflowed its fixed region"}]
+```
+
+**CONFIRMED at the bytes, fifth seat, fifth clock.** On a **VALID** 98,292-byte stylesheet the JS
+lowering answers `ok:true`, the Wasm lowering `ok:false css_syntax`, and `SHIELD.caught` steps
+0 → 1 on exactly that input: the answer is the **`catch`'s**, not the grammar's. The retained guard
+is **load-bearing**, so G-3's own falsifier fires and the record's refusal to report G-3 green is
+**correct, not conservative**. The relief is the spec's own and this seat verified the routing
+rather than accepting it — ⟨cmd⟩ `grep -rn 'MARK_CAP|INPUT_CAP' src/css/lowering-wasm/` →
+`layout.mjs:41 MARK_CAP = 32768` · `layout.mjs:22 INPUT_CAP = 0x100000`, fixed regions of the Wasm
+memory model, which is §3a's named direction verbatim.
+
+### K3.3 — Repair 2's two new findings, put to the test at the incumbent's own bytes
+
+Both are claims about **value.js `src/css/**`**, which this seat can read directly and which no
+gate output is needed to settle. Neither was taken on report.
+
+**F-p1 — CONFIRMED, independently.** ⟨cmd⟩ `grep -rn '"<code>"' src/css/*.ts` for each of C-3's five
+missing codes, with the enclosing top-level function read at the file:
+
+```
+keyframe_selector_invalid  grammar.ts:416 · :419 · :425      → parseKeyframeSelector   ∈ UNREALIZED_ENTRIES  ✓ reachable
+timeline_option_invalid    timeline.ts:32 · :45 · :50 …      → parseAnimationTimeline  ∈ UNREALIZED_ENTRIES  ✓ reachable
+                           timeline.ts:69 · :73 · :83        → parseAnimationRange     ∈ UNREALIZED_ENTRIES  ✓ reachable
+                           stylesheet.ts:50 · :78 · :405 · :414                        ∉                     (also inside P:stylesheet)
+syntax_descriptor_invalid  syntax.ts:94                      → coerceToSyntax          ∉ UNREALIZED_ENTRIES  ✗
+                           stylesheet.ts:655                 → parseItems (internal)   ∉                     ✗
+syntax_mismatch            syntax.ts:100                     → coerceToSyntax  (ONLY)  ∉ UNREALIZED_ENTRIES  ✗
+animation_option_invalid   stylesheet.ts:397 · :405          → parseDeclarations (ONLY, `stylesheet.ts:386`) ✗
+```
+
+**Realizing all six declared entries makes 2 of the 5 missing codes emittable.** Repair 2's tally
+is true at the bytes, reached here by a different instrument (a direct read of the enclosing
+declaration rather than a backward column-0 walk) and agreeing exactly.
+
+**F-p2 — CONFIRMED, independently.** ⟨cmd⟩ `grep -n 'coerceToSyntax' src/css/index.ts` →
+`45:export { coerceToSyntax } from "./syntax";` — it **is** one of the 52 frozen exports. ⟨cmd⟩
+`grep -n 'coerceToSyntax' docs/tranches/X/parse-that/algebra/ALGEBRA.md` → **row 41**, `runtime`,
+class **P**, `P:syntax-coerce`, slice cell **`— (W3)`**, shape *"two inputs `(source, syntax)`"*,
+codes *"`syntax_descriptor_invalid`, `syntax_mismatch`"*. ⟨cmd⟩ `sed -n '97,105p' src/css/entry.mjs`
+→ `UNREALIZED_ENTRIES` lists six and **not** the coercer. The mis-class is real, and its consequence
+is exactly F-p1's: the one frozen code with a single owner (`syntax_mismatch`) had no route in any
+register round. **Nothing is hidden** — `coerceToSyntax` prints as `NO-PEER … CN-2` in G-7's own
+output, read here at this seat's run.
+
+### K3.4 — Axes 2 · 3 · 4 · 5 · 6 · 7: all held, re-measured over the wider commit set
+
+- **Axis 2 (bounds).** ⟨cmd⟩ `git log --format=%H --all --grep="x-p-w3"` → **33** commits (Check 2's
+  30 + Check 2's own + Repair 2's two), a deliberately wider net than the wave's roster; ⟨cmd⟩
+  `git show --pretty=format: --name-only` over all of them → **17 distinct paths**. ⟨cmd⟩
+  `grep -v '^docs/tranches/X/'` prints exactly **two**: `docs/tranches/V/megatranche/registry/
+  DEFECT-LEDGER.md` and `docs/tranches/V/megatranche/registry/harvest/x-p-w3.json` — the two rows §4
+  names for `.e`. ⟨cmd⟩ `grep -cE '^(src/|demo/|api/|e2e/|test/|scripts/|package\.json)'` → **0**.
+  ⟨cmd⟩ `grep -c 'dev\.sh'` → **0**, and per-commit → **0** for every one of the 33. In `<p2>`,
+  ⟨cmd⟩ the same over `8d8ebc6^..HEAD` (**16** commits) → **54 paths**, all under §4's admitted
+  globs but **three**, each carrying a grant this seat read at the bytes:
+  `harness/bench/lib/engines.mjs` ← `COHESION.md:1078` §0n.4 verbatim; `harness/w2/coverage-52-report.mjs`
+  ← `COHESION.md:186` K.8 D-i2; `experiments/w2/contract/ALGEBRA-ADDENDA-2026-09-18.md` ←
+  `COHESION.md:1068` §0n.3, and the addendum's two homes are sha256-equal here (⟨cmd⟩ both →
+  `83ba069bc5553c56c00468a6e82a2b42c4b24af13d5375d6effd73d7d574c022`). The frozen read-only root is
+  untouched: ⟨cmd⟩ `git -C …/parse-that rev-parse HEAD` → `ef10d5b78236c4a30a7bb22a6113b60bdc4bdf42`
+  · `status --porcelain | wc -l` → **31** · `worktree list | wc -l` → **7** — **identical to X.P.W0's
+  pinned quadruple and to every reading since**. **0 landed-wrong paths.** ⟨cmd⟩ `git diff --check`
+  → clean.
+- **Axis 3 (masking fallback).** ⟨cmd⟩ over the whole `cdf7975..HEAD` `<p2>` diff (**14,855** lines):
+  zero added `test.skip` / `it.skip` / `describe.skip` / `.only(` / `xit(` / `fit(` / `test.todo` —
+  the only three textual hits are **prose lines refusing those idioms by name** (`"never a
+  test.skip, never a narrowed corpus, never an allowlist, never a re-pinned …"`). Zero `node_modules`
+  **bytes**: the three textual hits are all comment prose about a specifier the wave re-pointed away
+  from. ⟨cmd⟩ `awk` over the diff attributing every added `catch (` to its file → **ten sites**:
+  `css-bench-three-leg.mjs` · `css-dual-target-identity.mjs` · `oracle.mjs` · `matrix.mjs` ·
+  `assignability.mjs` · `boundary.test.ts` ×2 · `no-throw.test.ts` ×2 — **nine instruments that
+  record the throw as data** — and **one load-bearing: the shield at `src/css/entry.mjs`**, treated
+  at K3.2, on which **no gate is reported green**. `UNREALIZED_ENTRIES` is re-tested here as an
+  allowlist candidate and is **not** one: its six names still read **ABSENT** in G-1 (EXIT=1) and
+  **NO-PEER** in G-7 (EXIT=1 at 5,890) at this seat's own runs — nothing is suppressed into green.
+  Repair 1's `<p2>` cure (`ab6d694`) re-read at the diff: the `s` key beside `src`/`input`, HALTing
+  by name on a third shape, no defaulted `""`, no coercion, no skipped cell.
+- **Axis 4 (families).** §9's four fresh-root titles land verbatim and whole (`bd10e5c` `.a` ·
+  `39503f8` `.b` · `f14f59f` `.c`, all three cures in ONE commit as §5 requires · `d8d7169` `.d`);
+  §9's chain commit lands as **one** commit carrying all three of its paths (`c2bc7f5a`). The
+  check/repair rounds keep one meaning per commit, verified by ⟨cmd⟩ `git show --name-only` on each:
+  `00f473e7` (Check 1 = record + ledger) · `2b11bca1` (repair-1 evidence, one file) · `3398c28c`
+  (repair-1 record) · `9be102fa` (repair-1 ledger) · `0dc5a80d` (Check 2 = record + ledger) ·
+  `73c500b1` (repair-2 record) · `95bca865` (repair-2 ledger). **No family split.**
+- **Axis 5 (E-3).** ⟨cmd⟩ `git diff --stat 641ba4db^..HEAD -- docs/tranches/V/megatranche/registry/
+  adjudicated/ docs/tranches/X/parse-that/waves/W{0,1,2,3,4}.md docs/tranches/X/parse-that/algebra/
+  ALGEBRA.md docs/tranches/V/megatranche/conformance/ docs/tranches/V/apotheosis/
+  docs/tranches/V/megatranche/coordination/ docs/tranches/X/parse-that/evidence/W{0,1,2}` →
+  **prints nothing.** The dated spec, the adjudicated registry, the conformance artifacts, every
+  sibling X·P spec, `ALGEBRA.md` itself and every prior wave's sealed evidence are **byte-untouched
+  by this wave**. Every correction rode a dated addendum-beside.
+- **Axis 6 (E13 mail).** Swept at this seat's own clock from the **Status cell of each row**, never a
+  bare grep. ⟨cmd⟩ `grep -c '^| I-' INBOX.md` → **37**. ⟨cmd⟩ an `awk` that prints the first cell of
+  each `I-` row containing the token UNREAD → **five rows whose Status cell reads UNREAD: I-30 ·
+  I-32 · I-33 · I-34 · I-35**; **I-31's own cell reads `FOLDED 2026-09-17 at the X-W0 close`** and is
+  matched only because it quotes its prior status — the X.P.W0 **D-1** grep trap, avoided here by
+  reading the cell. Each of the five routes **away** from X·P in its own Routing cell: I-30 *"No
+  reply owed"* · I-32 *"Zero parse-that bytes; not X·P's to dispose"* · I-33 *"Not X·P's … Glass is
+  READ-ONLY always"* · I-34 *"Not X·P's, not a value.js act today"* · I-35 *"Routing: X·KF (Track B),
+  NOT X-W1"*. ⟨cmd⟩ `find` over the four coordination paths `-newermt '2026-09-18 15:00'` → **no
+  files**; ⟨cmd⟩ `ls -dt ../glass-ui/docs/tranches/*/ | head -3` → `BK/ · BJ/ · BI/`, **BK still the
+  newest**. **0 unrowed value-addressed · 0 new `I-n` minted · 0 UNREAD in X.P.W3's scope. This wave
+  does not close with unread mail.** `INBOX.md` is outside this seat's writable set and carries a
+  sibling's uncommitted hunk; no line was appended there — this paragraph is the sweep's receipt.
+- **Axis 7 (the four-verb line).** `W3.md` §2's table is byte-untouched (axis 5) and the record moves
+  **no verb**: AUDITED YES · SPECIFIED YES · **IMPLEMENTED NO** · VERIFIED NO. §2/§9/§12 stamp
+  IMPLEMENTED on *"gates green + bytes landed"*; four gates are RED and one is split, so **refusing
+  the stamp is the lawful act**, and VERIFIED is X.P.W4's alone (R-A). `COHESION.md` §0n.2's
+  `IMPLEMENTED-with-carried-REDs` licence is **X.P.W2's alone** — re-read here — so this wave
+  inherits no such permission. The line moved lawfully by not moving.
+
+**Two falsifier legs no prior pass exercised, run here.** (i) **G-1's TOTAL-row falsifier** — *"a row
+marked TOTAL whose assertion does not execute, or whose accept/reject corpus is empty, fails."*
+⟨cmd⟩ a read of `universe-52.json`'s five TOTAL rows: `CssColor` · `CssTimingFunction` ·
+`Declaration` · `StyleRule` · `Stylesheet`, each `kind: type`, each with `assertion:
+test/css-totality/generated/assignability.generated.ts :: <T> (both directions)`, **`cellsRun: 2`**
+and **accept 4 / reject 4** — every one executes and none has an empty corpus. **The falsifier does
+not fire; the five are honest TOTALs.** (ii) **G-7's ledger falsifier** — *"A row whose 'direction of
+behaviour change for a consumer' field is empty fails."* ⟨cmd⟩ over `DIVERGENCE-LEDGER.md`:
+**29** `| **consumer direction** |` cells against **29** declared rows, and ⟨cmd⟩ a regex for an
+empty such cell → **0**. **The falsifier does not fire.** Both legs were claimed and neither had
+been measured by an adversarial seat; both hold.
+
+### K3.5 — New finding from this pass (register: severity · claim · receipt · cure)
+
+| id | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **F-t1** | **INFO** | **G-8's GREEN rests on a pass condition narrower than the gate's literal sentence — disclosed in the run, and relieved the same way G-9's latch is.** `W3.md` §6 G-8 reads *"a `console.*` call site on that set fails"*; the checker's C-9 passes on *zero executed writes ∧ zero AUTHORED call sites ∧ zero unguarded inherited sites* and prints the strict count beside it | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs --assert-no-console` → `C-9 … executed writes 0 · authored call sites 0 · inherited 1 (unguarded 0) · references 3 · strict letter: 1 call site(s) on the reachable set`, and the site itself: `inherited typescript/src/parse/parser.ts:67 console.error( guard: isDiagnosticsEnabled()`. The narrowing is **reasoned in the source** (`css-recovery-closure.mjs:546-552`): the gate's own falsifier says *"a candidate that silences the logger by patching parse-that's dist fails the fresh-root/read-only bounds"*, so a strict reading *"would make the gate unsatisfiable by its own words"* | **None owed to this wave.** Under the strict letter G-8 would be RED on **one inherited, guarded, never-executed** site under `<p2>/typescript/src/parse/**` — a path §4 admits in **no** row and `W3-ADDENDA-2026-09-18.md` §A-3 **declines by name**, i.e. the identical relief that makes G-9's latch an honest-RED. **The verdict is unchanged either way**; recorded so the narrowing is adjudicated rather than merely printed. Owner: **X.P.W4**, by dated addendum-beside if the gate's wording is to move |
+
+**Nothing else was found.** No write outside bounds, no split family, no E-3 breach, no unread mail
+in scope, no fabricated figure, no gate reported green on a narrative, no `test.skip`, no allowlist,
+no copied producer selector, no patched `node_modules`, and **no claimed GREEN that fails to
+reproduce**. F-k1 (cured at Repair 1) re-verified GREEN at this seat; F-m1…F-m5 and F-p1/F-p2
+re-confirmed standing, two of them at the bytes above.
+
+### K3.6 — Axis 10: HONEST-RED ADJUDICATION, gate by gate, at the spec's bytes
+
+**RELIEVED under the spec's own relief — the honest-RED set (4), each owner-named in the record's
+residual register (C.7 / R1.3 / RP2.6):**
+
+| gate | the relief, cited at the spec's bytes | owner in the register |
+|---|---|---|
+| **G-2** (324 / 1,548) | **Producer-owned.** The probe *packs the incumbent* and witnesses shipped value.js bytes — re-run here unmodified at sha `77678a57…`, and its `src/css/*.ts` subject is a tree §4 marks **Do NOT touch**; §9 forbids any commit containing a path under `value.js/src/**`; §3a calls an edit to the incumbent *"the inversion of the experiment"*. A consumer-side patch would be the gate failure, not the cure. **GREEN is structurally unreachable from inside X·P** | **YES** — ESC-d2, owner **X·V** |
+| **G-9 latch** (`resetPackrat()` does not disarm) | **Green only upstream, and out of every §4 row.** The cure is a write under `<p2>/typescript/src/parse/**`; §4 admits `typescript/src/css/**` and **not** that path, and `W3-ADDENDA-2026-09-18.md` §A-3 declines it by name. §3a makes a File-bound expansion a **halt**. The seat refused the green-making re-export as *"a fake restore of a different latch"*, and the failing assertion at `latch.test.ts:147`/`:157` carries the refusal in its own message — an honest instrument, never a skip | **YES** — ESC-c1, owner **X.P.W4 / the parse-that library seam** |
+| **G-3's proof leg / ESC-e1** (the retained shield is load-bearing) | **Routed by §3a**: a divergence *"rooted in the Wasm numeric or memory model"* is *"an architecture question for X.P.W1/W2, not a patch here"* — verified at K3.2 at this seat's own probe and at the `MARK_CAP` 32,768 / `INPUT_CAP` 0x100000 fixed regions. §5 `.c` forecloses the alternative: removal *"is a live option for X.P.W4, not a decision here"*. **No gate is reported green on it** | **YES** — ESC-e1 (HIGH), owners **X.P.W1/W2 · X.P.W4 · the contract's owner** |
+| **G-4's no-fallback leg** (2 inherited arms) | **In no unit's set by §4a** — both arms live in `lowering-{js,wasm}/index.mjs`, which §4a assigns to no unit (`.b` = `{lower,diagnostics,codes}`, `.c` = `entry`/`bounds`), and the Wasm arm is compiled **into** `ac1.wasm`, unanswerable from above. Measured **DEAD at both operands** here: `far.code === null` on **0 of 3,710** and on **0 of 144,640** rejections | **YES** — E-2 (+ F-e10 for the shield as a third, live arm), owner **X.P.W4** |
+
+**UNRELIEVED — a real defect by the spec's own weight (3). Unchanged across three adversarial
+passes; Repair 1 and Repair 2 each tried and each measured why no seat's byte moves them:**
+
+| gate | why no relief of the three admitted kinds exists | severity |
+|---|---|---|
+| **G-1** — 5 of 52 TOTAL | Not **producer-owned**: the candidate is the subject, in the root this wave writes. Not **routed to a successor by the spec**: §3 item 2 orders *"Drive every runtime export to TOTAL"*, §2a makes it the wave's goal criterion, `COHESION.md:957` routes W1's G-8 relief **to X.P.W3** by name (*"Owner: X.P.W3 (the 52-export universe TOTAL; the R1 throw class dead)"*), and `W4.md` §2/§2b OP-2 make *"`universe-52.json` all TOTAL"* a **precondition W4 checks**, not a task it is given — read at the bytes at this seat. Not an **honest-RED the spec names by id**: §6 calls it *born-RED*, which is a baseline, not a relief. §3a's *"universe is mis-specified"* trigger needs three passes without a monotone rise; the wave made one, 0 → 5 | **CRITICAL** |
+| **G-7** — 5,890 mirror-defects | The gate's floor is *"zero MIRROR-DEFECTs … across all 52 exports"*. §3a routes only a **newly discovered incumbent defect (a sixth R-class)** to X·V, and that trigger did not fire; 5,890 over 8 compared rows (3,982 spec-undecided) is not that, and 44 rows have **NO-PEER** — a coverage absence, not a routed finding. `--cross-check-ledger` GREEN proves the 16 adjudicated conflicts are rowed and its consumer-direction fields are all non-empty (K3.4); it does not relieve the 5,890 | **HIGH** |
+| **G-4's ⊇ leg** — 5 of 8 codes unemitted | Same root, and **sharper after F-p1**: the cure is not *"six more entries"* but **nine ABSENT rows** — the six, plus `coerceToSyntax` (§9 row 41, confirmed at this seat), plus `P:stylesheet` deepened past both §10.3 slice restrictions — i.e. `W3.md` §3 items 2–3 entire. §4's glob **does** admit the path, so it is a **dispatch gap, not a bounds wall**; §3a's halt *returns* it to the Triumvirate Dispatch, which is an orchestrator/owner act and **not one of axis 10's three admitted reliefs**. Re-measured RED at both operands here | **HIGH** |
+
+**Axis 8 — the spec's own goal criterion, at the bytes: NOT MET.** §2a asks two things. (i) *"no CSS
+string … makes the candidate parser do anything other than return a typed result"* — true for the
+three realized entries over the corpus (this seat's own probe: 0 throws, 0 `undefined`, 0 bad shapes
+over 120 boundary cells and 20 empty-body heads), **but** six of the nine public entries are absent
+from the surface and a **valid** 98,292-byte stylesheet is answered by the `catch` on the Wasm
+target (K3.2). (ii) *"the 52-export contract … covered by name and shape rather than approximated"* —
+**5 of 52**, and the five are all type rows. The criterion is unmet at the bytes, not merely at the
+gates.
+
+### K3.7 — Successor conjuncts: X.P.W4's "Opens after", measured against this wave
+
+`W4.md` §2, read at the bytes: *"**Opens after**: X.P.W3 IMPLEMENTED (the 52-export universe TOTAL,
+the R1 throw class dead, the equivalence floor held, the divergence ledger written, the three-leg
+table published). The dependency is on those artefacts, not on the label — §2b checks each."* §2b
+**OP-2** spells the same four values as file-level checks.
+
+| conjunct | state at this seat's clock |
+|---|---|
+| the 52-export universe **TOTAL** | **FALSE** — 5 of 52 (G-1, EXIT=1, two runs byte-identical here) |
+| the R1 throw class **dead** | **PARTIAL** — R1 is a typed rejection identical in both lowerings and the corpus is throw-free (0 of 120 boundary cells, 0 of 20 heads at this seat), but the Wasm answer at 8,191 **valid** rules is the shield's (ESC-e1, K3.2). `r1-anchor-after.txt` exists; **OP-2 also asks it read `exit 0`, and G-2 measures EXIT=1** |
+| the equivalence floor **held** | **FALSE** — 5,890 mirror-defects (G-7, EXIT=1) |
+| the divergence ledger **written** | **GREEN** — 66,080 B, 29 rows, every consumer-direction cell non-empty (K3.4), `--cross-check-ledger` GREEN 16 / 0 not carried |
+| the three-leg table **published** | **GREEN** — `bench-three-leg.md`, 9 rows each with its arm-state, `BAR: OWNER-GATED-PENDING-RATIFICATION`, `VERDICT: none`, well-formedness OK, `--denominator 1870633` REFUSED at EXIT=2 |
+
+**X.P.W4 is LAWFULLY BLOCKED — 2 of 5 conjuncts GREEN, 2 FALSE, 1 PARTIAL, and the label
+(IMPLEMENTED) is correctly unstamped.** `W3.md` §10 states *"X.P.W4 cannot be authored around a
+missing W3"*. **No successor is unblocked by this wave, and none is blocked unlawfully.**
+
+### K3.8 — Verdict
+
+**NOT-CONFORMANT**, on axis 10 and axis 8, and on nothing else.
+
+**What it does not say.** It is **not** a finding against the Close, against either prior Check,
+against either Repair, or against any unit seat. This seat re-ran all ten gates from the spec's own
+commands at a seventh seat and **10 of 10 reproduce**; **every claimed GREEN reproduces**; **five**
+generated artefacts regenerate **sha256-equal**; bounds are clean over 33 value.js commits (17
+paths, 2 outside `docs/tranches/X/**` and both §4 `.e` rows, 0 forbidden prefixes, `dev.sh` in 0) and
+16 `<p2>` commits (54 paths, 3 outside §4 with their COHESION grants read at the bytes); the frozen
+`parse-that` quadruple is unmoved (`ef10d5b7…` · 31 · 7); E-3 prints nothing; families are whole;
+mail is clean with the I-31 grep trap avoided; the only load-bearing `catch` in the tree is the
+spec-permitted shield, whose permission condition the wave **itself refuted, published and
+escalated** rather than leant on; and two falsifier legs nobody had exercised (G-1's TOTAL rows,
+G-7's consumer-direction fields) **both hold**. Measured against its own record this remains one of
+the more honest closes in the tranche.
+
+**What it does say.** Three of the ten hard-gate conditions are RED with **no relief of the three
+kinds axis 10 admits** — **G-1 (CRITICAL)**, **G-7 (HIGH)**, **G-4's ⊇ leg (HIGH)** — and §2a's goal
+criterion is unmet at the bytes. CONFORMANT-HONEST-RED requires **every** remaining RED to be
+relieved; three are not. Promoting this row would launder them, which is exactly what axis 10
+forbids. **The LEDGER status stays `PARTIAL 2026-09-17`** and this seat does not move it.
+
+**What this third pass adds, and it is the loop's own reading.** Pass 1 read the residue as one fact
+wearing three gate numbers (a §5 dispatch gap). Repair 1 measured it as two (adding F-r1's
+gate contradiction, confirmed at pass 2 by a one-input proof). Repair 2 measured the third defect's
+cure as **insufficient by a factor nobody had counted** — and this seat confirms F-p1 and F-p2
+independently at the incumbent's own bytes (K3.3). **Three adversarial passes and two repair rounds
+have now moved zero of the three unrelieved REDs, and each round's measurement has enlarged, never
+reduced, the act that is owed.** The docket is stable and complete: (1) a **dispatch** — nine ABSENT
+runtime rows = `W3.md` §3 items 2–3 entire, §4a's no-unit gap, routed by §3a to the Triumvirate
+Dispatch; (2) a **ruling** on G-1's expectation oracle, since G-1's TOTAL rule and G-6's conformance
+rows are mutually unsatisfiable at the bytes; (3) the **GROUND-C** ruling `W3.md` §10 puts *"not
+opened here"*, which 3,982 of G-7's 5,890 cells wait on. **None of the three is a seat's byte, and a
+fourth repair round cannot reach any of them.** The honest disposition is the owner's word, not
+another pass.
+
+**Check 3 stamps no verb, cures no gate, and writes no byte in `<p2>`.**
