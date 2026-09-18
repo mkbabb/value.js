@@ -312,3 +312,116 @@ producer row never becomes a demo-side hack). No `.vue` file is written by any a
 ## Unit receipts
 
 _(empty at open; each unit appends its own section here, with its commits, gate readings and receipts)_
+
+### X.KF.W5.a — Arm 0, THE FRONT-LOAD (S-0) — **DONE · G-XSS GREEN (both halves)**
+
+**Seat**: Opus (`claude-opus-5[1m]`). **Substrate**: kf `master` == `origin/master` `7d958f21` at
+open; zero tracked modifications; the two untracked rows (the §0m.0 survivors) never staged.
+**Evidence**: `docs/tranches/X/keyframes/evidence/W5/G-XSS-unit-a.md` (the full receipt sheet).
+Every figure below is read from the settled bytes and **double-run**; both runs agree.
+
+**Acts, in order.**
+
+1. **MEASURE — the gate's born state reproduces at the frontier.**
+   ⟨`git grep -n 'innerHTML' origin/master -- demo/components/instrument/keyframes/composables/useHighlightCSS.ts`⟩
+   → **2 lines**, `:111 el.innerHTML = s;` · `:123 el.innerHTML = h.value;`; property form
+   ⟨`… | grep -v 'h\.value'`⟩ → **1**. Anchors verified at the true bytes, **none drifted**:
+   `:104` bare `setCodeTheme()` · `:110`/`:117`/`:124` the marker · `:111` the sink · `:123` the
+   hljs-escaped writer · `:31-40`/`:58-61` the singleton · `:147` the `highlight` export.
+
+2. **THE FIXTURE, WRITTEN FIRST AND MEASURED RED.**
+   `test/demo/instrument/highlight-css-roundtrip.test.ts` (create, the one file arm 0 owns in the
+   four-party shared directory) drives the component path exactly as `KeyframesAddDialog.vue` wires
+   it — `setHighlightingString` → `highlightAll` → `innerText` → emit.
+   ⟨`npx vitest run --project demo test/demo/instrument/highlight-css-roundtrip.test.ts`⟩ against the
+   **un-cured** composable → **4 failed (4)**: `100% { content: "<name> & <other>"; }` returned as
+   `100% { content: " & "; }` (both tags swallowed); `children.length` ≠ 0; a crafted `?state=`
+   payload minted a **live `<img src=x onerror=…>`**; and the empty-first-open case never
+   colourised at all — the boolean marker read `"true"` and the session was inert.
+
+3. **COMMIT 1 (S-0) — `a9fe060fc7c4c8138071a6aa141aa78d0b1f8148`**, one file, the sink cure **and**
+   the KAD-14(a) marker redesign together, as the lock requires. `:111` → `el.textContent = s`. The
+   marker becomes a module-level `WeakMap<HTMLElement, string>` recording **the source text the
+   element's current markup was produced from** — a pass is skipped exactly when the element
+   already shows the highlight of the text it holds — and `setHighlightingString` deletes the
+   element's record because the element now holds raw text. KAD-14(a)'s trap is then structurally
+   impossible: there is no boolean left to normalise. **`:123` is untouched** (the declared
+   inversion): the escaped `h.value` write survives verbatim, at `:198` of the cured file. No live
+   consumer of the old attribute exists — ⟨`git grep -n 'highlighted' origin/master -- .`⟩ returns
+   prose only (`PlaybackRibbon.vue:161` + seven dated tranche docs).
+
+4. **COMMIT 2 — `3fa103cd`**, the fixture. **GREEN 4/4** against the cured composable.
+
+5. **COMMIT 3 — `2f688f9c` (KAD-5)**: `applyCodeTheme` (may reject) + a `setCodeTheme` **boundary**
+   that handles the rejection once; both callers — the per-keydown ensure and `watch(isDark, …)` —
+   go through it, so **no bare async call is left**. **Non-toast posture**, as the row requires: the
+   demo's toast surface is structurally unreachable (the vue-sonner stylesheet is imported nowhere),
+   so a toast would be an inert cure.
+
+6. **COMMIT 4 — `54d5c20e` (KAD-14(b))**: the github stylesheet is written only when the theme
+   actually changed; the per-keystroke whole-sheet re-parse is gone, the dark-mode flip still writes.
+
+7. **COMMIT 5 — `f5f68034` (KAD-14(d))**: the shared `#highlightjs-theme` node is refcounted — the
+   **last** holder out removes it. **Premise re-verified before grading, as the row demands**:
+   `useCodeHighlight` has exactly two call sites (`KeyframesEditor.vue:176` ·
+   `KeyframesAddDialog.vue:92`) and the dialog is rendered **unconditionally** inside the editor's
+   toolbar (`KeyframesEditor.vue:75`, no `v-if`) — child and parent **do** co-terminate, so the row
+   stays **LATENT**. N-2's three-concurrent-instances bank is about `useKeyframesEditor`, a
+   **different composable** (⟨`git grep -n 'useCodeHighlight' -- demo/`⟩ → 2 call sites, neither in
+   `KeyframesStringControls.vue`); recorded so it is not re-filed as a falsification. The cure lands
+   regardless — co-termination is a property of one template, not of the composable.
+
+8. **COMMIT 6 — `8bc83753` (KAD-14(e))**: `highlight` dropped from the return. Symbol census re-run
+   at the settled bytes — `KeyframesEditor.vue:176` takes `{ highlightAll }`,
+   `KeyframesAddDialog.vue:92` takes `{ setHighlightingString, highlightAll }`, the new fixture uses
+   the same two: **consumers of `highlight` = ∅**. It survives as `highlightAll`'s internal
+   per-element step. `vue-tsc` raises nothing at either consumer — the independent check on the
+   delete.
+
+**Gate readings, BEFORE → AFTER (double-run).**
+
+| gate leg | command | before | after (run 1 / run 2) |
+|---|---|---|---|
+| **G-XSS** observable | `git grep -n 'innerHTML' <ref> -- …/useHighlightCSS.ts` | **2 lines** (`:111` sink · `:123` escaped writer) | **exactly ONE line**, `:198 el.innerHTML = h.value` — the `h.value` writer, `h = hljs.highlight(el.innerText, {language:"css"})` / same |
+| **G-XSS** observable, property form | `… \| grep -v 'h\.value'` | **1** | **0 / 0** |
+| **G-XSS** round-trip | `npx vitest run --project demo` | 30 files / 191 tests, fixture **ABSENT** | **31 files / 195 tests passed** / **31 / 195** |
+| the fixture alone | `npx vitest run --project demo test/…/highlight-css-roundtrip.test.ts` | **4 failed (4)** | **4 passed (4)** |
+
+Delta over the record's §Baseline: **+1 file / +4 tests**, all this unit's. **G-XSS: RED → GREEN,
+both halves.** Falsifiers honoured at the bytes — the escaped write is neither deleted nor
+rewritten; no new `innerHTML` write appears in the file; `setHighlightingString` assigns no
+caller-supplied markup; the fixture was **not** re-homed into a library zone directory; and **no
+tracked file in `test/demo/instrument/` was touched** (the nine are byte-identical; the unit's only
+directory footprint is one added path).
+
+**Instrument floors, measured and attributed — none of them moved by this unit.**
+`npx tsc --noEmit -p tsconfig.test.json` → **24** (the record's banked floor, FINDING 3; ⟨`… | grep
+-c 'highlight-css-roundtrip'`⟩ → **0**). `npx vue-tsc --noEmit -p tsconfig.json` → **34** across 24
+files; ⟨`… | grep -c 'useHighlightCSS\|highlight-css-roundtrip'`⟩ → **0** (`KeyframesEditor.vue`'s
+two are `TS2339 … 'KeyframeSelector'` at `(38,73)`/`(43,41)`, a different subject). `npm run lint` →
+**4 `no-cycle` errors**, all the pre-existing `demo/scenes/cube/orbital-drag/**` ring; `npx eslint`
+over the composable alone → clean. **The floors are carried, never reduced**: greening a leg by
+deleting a sibling's pre-existing diagnostic would move another wave's RED.
+
+**Instrument caveat, declared (not buried).** jsdom implements no `innerText` (measured:
+`"innerText" in HTMLElement.prototype` → **false** at jsdom 29). It is the **reader** the component
+uses, never this gate's **subject**, which is the writer — so the spec installs a `<pre>`-faithful
+shim for its own duration and removes it in `afterAll` (the editable surface is `white-space: pre`,
+where `innerText` and `textContent` agree byte for byte). The shim flatters nothing: the fixture was
+**RED 4/4 with it installed** and went GREEN only when the writer changed.
+
+**Bounds.** Two keyframes.js paths written — `…/composables/useHighlightCSS.ts` (modify, taken
+whole) and `test/demo/instrument/highlight-css-roundtrip.test.ts` (create, by name) — plus this
+record and `docs/tranches/X/keyframes/evidence/W5/`. **No `src/` byte, no `.vue` byte, no glass-ui
+byte, no `scripts/dev/dev.sh`.** Six commits, each with its own pathspec **on the commit itself**,
+each carrying the session trailer; nothing staged that was not this unit's.
+
+**Residuals / carries.**
+- **KAD-14(c)** (`onMounted :156-160`, SFC-side) **NOT TAKEN** — §Excluded, rides KAD-17's KF.W6
+  packet; no `.vue` byte was written.
+- **Nothing pushed.** Under KF-WRITE the push of `origin HEAD` is the **wave's close**, not a
+  unit's; the six commits sit on kf `master` ahead of `origin/master` awaiting that close.
+- **E13**: the record's open-time four-path sweep stands; this unit minted no mail, consumed no
+  routed letter, and leaves **0 UNREAD in its scope**.
+- **No escalation.** Every anchor resolved at the true bytes and the specified cure was reachable
+  as specified.
