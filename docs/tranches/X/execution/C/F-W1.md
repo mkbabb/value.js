@@ -2550,3 +2550,214 @@ No verb stamped.**
 **Self-count**: no figure in this Close counts this Close or any live sibling; every count is of the settled
 fourier bytes at `538db90`, the read-only producer tree at `17a11bc5`, the frozen census at `f44362757458`, or a
 committed artefact at its landed bytes — each double-run where load-bearing.
+
+---
+
+## Check 1 — FRESH ADVERSARIAL L-20 PASS 1 (VERIFY-ONLY, 2026-09-18)
+
+**SERVED MODEL: claude-opus-5[1m]** — an independent adversarial seat that authored none of units `a`–`f`'s
+bytes and none of either Close. **It cured nothing**: no product byte, no spec byte, no evidence byte was
+written; every reading below is this seat's own instrument at its own clock, double-run where load-bearing.
+**Writable set honoured**: this record (append-only) · `docs/tranches/X/execution/LEDGER.md` (F.W1 row cell +
+one appended line). **No other path written.** fourier-analysis · glass-ui · latex-paper · pencil-boil were
+**READ-ONLY** throughout; `scripts/dev/dev.sh` untouched and never staged; the nine dirty `demo/` paths,
+`CARRY-LEDGER.md`, `X-P-W3.md`, `W1-LOG.md` and the two untracked `e2e/smoke/` specs were left dirty-as-found
+and unstaged (sibling seats' work). **Crash-recovery sweep, run BEFORE any other act**: ⟨cmd⟩
+`git status --porcelain` in both repos → value.js dirty set is entirely OUTSIDE this seat's writable pair
+(**0 inherited paths to judge**); fourier `| wc -l` → **0**. Pathspec commits only. No `git stash`, no `reset`,
+no force-push. **Probe parsimony (§5.2)**: ONE declared capture family, re-run from a **scratchpad copy**
+(⟨cmd⟩ `shasum -a 256` → `6901da6d51c7df31…` on both the committed instrument and the copy) so **not one shot
+of unit `f`'s dated evidence moved**; the dev stack and a scratchpad-homed `mongod` were torn down after the
+runs — ⟨cmd⟩ `lsof -iTCP:<p> -sTCP:LISTEN` on **3000 · 8000 · 27017** → **0 · 0 · 0**, and fourier
+`git status --porcelain | wc -l` → **0** after every run.
+
+### Axis 1 — every claimed GREEN re-run at this seat
+
+**19 of 19 reproduce** (the 17 GREEN · G2 discharged-as-owed · FR-CP-5), and **G20 leg (a) reproduces GREEN**
+besides. Nothing is inherited; where the Close published a figure this seat re-derived it with its own command.
+
+| gate | close claim | **this seat's own reading** |
+|---|---|---|
+| **G1** | GREEN | **GREEN** — ⟨cmd⟩ `grep -c "17a11bc5" waves/F-W1.md` → **20**, **20**; ⟨cmd⟩ (cwd `../glass-ui`) `git tag --points-at 17a11bc5` → `v8.0.0` · `git rev-parse --short=8 'v8.0.0^{commit}'` → `17a11bc5` — each the other's inverse |
+| **G2** | DISCHARGED-as-owed | **reproduced** — ⟨cmd⟩ `wc -c < node_modules/@mkbabb/glass-ui/dist/styles/index.css` → **1514** · `grep -c "@source"` → **1** · installed `"version": "8.0.0"`; the fold-block is gone and the sheet emits |
+| **G3** | GREEN | **GREEN** — fourier `git status --porcelain \| wc -l` → **0**, and **0** again after this seat's own `vite build`, four e2e specs and two capture-family runs |
+| **G4** | GREEN on condition · literal invocation RED (D-C1) | **reproduced exactly** — ⟨cmd⟩ `npm run build` → **exit 1** at its `vue-tsc` limb; ⟨cmd⟩ `npx vite build` → **exit 0**, `✓ built in 2.52s`; four probes over `dist/assets/index-d4iUHY57.css` → `size-(--ui-glyph)` **0** · `\.h-3\.5` **2** · `rounded-pill` **2** · `animate-collapsible` **0**. `web/dist` gitignored (`.gitignore:42`) — no tracked witness moved |
+| **G5** | GREEN | **GREEN** — `G5-CSS-CLASS-CENSUS.md` **323 L / 25,617 B** (self-count reproduced); `.paper-texture` **6** (the restore arm landed), `.cartoon-card` **24 / 14** |
+| **G6** | GREEN | **GREEN** — ⟨cmd⟩ (cwd `web/`) `BASE_URL=… npx playwright test --project=chromium --workers=1 -g "no console errors\|full lifecycle" <the four specs>` → **`6 passed (27.3s)`** at this seat's own stack; anchors `contour-extraction:139` · `gallery:118` · `visualization-crud:498` · `workspace-flow:175`; ⟨cmd⟩ `grep -rn '\[glass-ui\]' e2e/ \| wc -l` → **0**; ⟨cmd⟩ `git log --oneline 3bac3d5~1..HEAD -- web/e2e scripts/` → **∅** — the witnesses are byte-untouched by the wave that they gate |
+| **G7** | GREEN | **GREEN** — ⟨cmd⟩ over `web/src`: `emphasis=` **88** · `tone=` **6** · `lucide-vue-next` **0** · `@lucide/vue` **34 / 34 files** · surviving `variant=` **20**. The **9** `<Button … variant=` hits were read one by one and **every one is comment-resident prose** (`BasisSelector:248` · `AnimationControls:213` · `GallerySearchBar:205` · `GalleryCard:253,276` · `GalleryCardModal:218,233,246` · `notation.ts:6`) — **zero live `<Button variant=…>`** |
+| **G8** | GREEN | **GREEN** — ⟨cmd⟩ `grep -rn 'size="md" icon-only' web/src \| wc -l` → **35**; emitted sheet `data-control-target` **1** · `data-size="icon"` **0** |
+| **G9** | RED by design | **RED — reproduced** (23 / 7) and **relieved at the spec's own bytes**: see §Axis 10 |
+| **G10** | GREEN both halves | **GREEN** — deletion: ⟨cmd⟩ `grep -n '^\s*animation:'` on both twins → **no output, exit 1**, `overflow: hidden` retained on both; witness, this seat's own capture family **×2** — **5/5** surfaces `completes=true animates=true`, `disclosure-close`, close **192.9–229.8 ms** (run 1) / **196.1–216.2 ms** (run 2), 9–24 intermediate heights |
+| **G11** | GREEN on its own condition | **GREEN** — ⟨cmd⟩ `npx vue-tsc -b --force` → exit **1**; ⟨cmd⟩ `grep -c "error TS2307"` → **0** (zero unresolved specifiers); by code **17 `TS6133` ⊕ 1 `TS6196` = 18**, the identical F.W0 substrate the 09-17 Close measured pre-transaction (which then also carried `TS2882` ⊕ `TS2769`, both now gone) — **the uplift removed two diagnostics and added none** |
+| **G12** | GREEN | **GREEN** — capture family ×2, two morphs per run (**4 morphs**): `pass=true`, phases **`idle>settle-out>morph>settle-in>idle`**, **452–499 ms**, `pageErrors` **0** per morph |
+| **G13** | GREEN both halves | **GREEN** — ⟨cmd⟩ `npm ls --all` → **exit 0**; `extraneous` **0** · `invalid` **0** (the 80 `UNMET` lines are other-platform OPTIONAL `@tailwindcss/oxide` binaries); ⟨cmd⟩ `npm ci --omit=dev --dry-run` → **exit 0** and `git status --porcelain -- web/package-lock.json` → **0** |
+| **G14** | GREEN | **GREEN** — ⟨cmd⟩ `grep -n "pencil-boil" web/package.json` → `:18 "^0.11.2"`, equal to ⟨cmd⟩ (cwd `../glass-ui`) `git show 17a11bc5:package.json \| grep -n "pencil-boil"` → `:513 "^0.11.2"` |
+| **G15** | GREEN all three | **GREEN** — **(a)** ⟨cmd⟩ `git show 538db90 --format=%B --no-patch \| grep -n "pagination\|AA-11"` → `:148` · `:151`, ⊕ `F-W1-LOG.md` §7; **(b)** `ls X/coordination/ \| grep -c nwo` → **3**, `grep -c 'FR-GIG-5'` on NWO-1 → **5**; **(c)** `git show 17a11bc5:package.json \| grep -c '"\./pagination":'` → **0** |
+| **G16** | GREEN arm 2 | **GREEN** — `grep -c "hsl(var(" node_modules/@mkbabb/latex-paper/src/vue/theme.css` → **42** (producer bytes) · `grep -rn "hsl(var(" web/src \| wc -l` → **0**; NWO-5 `:6` names *"the **latex-paper** producer"* at its own header |
+| **G17** | GREEN | **GREEN** — `F-W1-LOG.md` **§9** carries the ordering in terms: FR-EQC-3/FR-IC-19 **retire first at F.W3** onto the surviving `cartoon-surface` (KILL-6 honoured, no consumer re-creation of the hover-lift), AA-4 `<Card>` **adopts second at F.W4**, never both in one commit and never in the other order |
+| **G18** | GREEN | **GREEN** — capture family ×2: `startScrub=true` · `scrubbingMid=true` · `falseAfter=true` · `endScrub=true` · `calls=26`, **identical across both runs** |
+| **G19** | GREEN | **GREEN** — ⟨cmd⟩ `grep -n "^## §0o" COHESION.md` → `:1088`; per-id ⟨cmd⟩ `grep -c` → `ESC-1` **7** · `ESC-2` **2** · `ESC-3` **1** · `ESC-4` **1** · `ESC-5` **1** · `ESC-6` **1** · `ESC-7` **3** — the published figures to the digit |
+| **G20** | (a) GREEN · (b) RED by two rows | **REPRODUCED FROM SCRATCH, both legs.** Operands rebuilt at this seat: ⟨cmd⟩ `shasum -a 256 conformance/CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`** ×2; roster **65** lines / **660** backticks ⇒ **330** ids; spec-minus-paste (`awk 'NR<550 \|\| NR>614'`) **811** lines; paste bounds at `:549`–`:615` as published. The retained join re-run **twice**, ⟨cmd⟩ `diff run1 run2` → **EMPTY**: **330 pairs · 235 RECORD-QUALIFIED · 60 TOKEN-UNIQUE · 34 HOMONYM-TAIL · 1 escape-by-bytes**; fabrication check **56 booked claims / 20 not-homed-F.W1 → 0 fabrications**; leg (a) **104 tokenized ⊕ 1 prose id = 105 / 105**. **Both escapes independently confirmed at the bytes** (below) |
+| **FR-CP-5** | verified | **verified** — capture family ×2: `rotatesNotSnaps=true`, `transitionProperty=rotate`, **8** and **7** distinct sampled angles (the frame-timing variance the Close already named) |
+
+**The two G20 leg-(b) escapes, confirmed at this seat and not inherited.** **(1) `fr-ExportModal R2-1`** —
+⟨cmd⟩ `grep -n 'R2-1' spec-nopaste.md | grep -v 'R2-1-LAW'` → **∅**, while ⟨cmd⟩
+`sed -n 361p waves/F-W1.md | grep -o '2\.5\.8 \*\*headline\*\* is KILLED on two independent grounds'` →
+**matches**: folded by substance, unnamed by token. **(2) `fr-ContourSettings M-4`** — the canonical homes it
+at F.W1 (⟨cmd⟩ under `### fr-ContourSettings` → `` | `M-4` | … | **F.W1** ``), and the spec's only `M-4` cell
+outside the roster paste is **`:206`**, the `loading`-prop budget whose companion is `FR-AFP-16`
+(**`fr-AdminFlaggedPanel`** — a different record's `M-4`). **Both escapes are real; neither is a product byte.**
+
+### Axis 2 — no write outside §File Bounds
+
+⟨cmd⟩ `git show --name-only --format="" <h>` over **all twenty** value.js commits and **both** fourier commits.
+The **union** of every path the twenty touched is exactly the wave's declared docs surface: this record ·
+`LEDGER.md` · `INBOX.md` · the three `X/coordination/` NWO letters · `evidence/w1/**` · `waves/F-W1.md`.
+⟨cmd⟩ `git show --name-only --format="" <h> | grep -c "dev.sh"` → **0 ×20**. The 58-file transaction:
+⟨cmd⟩ `git show --name-only --format="" 538db90 | grep -vc "^web/"` → **0**, and the residue after removing
+`web/src/**` · `web/package.json` · `web/package-lock.json` · `web/env.d.ts` · `web/vite.config.ts` is
+**EMPTY** — no `web/e2e/**`, no `scripts/**`, no `web/dist/**`, no registry record, no conformance file.
+⟨cmd⟩ `git show --numstat --format="" 538db90 | awk` → **1,500 ins / 744 del over 58 files**, the published
+figure. **LANDED WRONG: none.**
+
+### Axis 3 — no masking fallback anywhere in the diff
+
+⟨cmd⟩ over the 737 added lines of `538db90` and over `3bac3d5`, for `try {` · `catch` · `test.skip` · `.only`
+· `eslint-disable` · `@ts-ignore` · `@ts-expect-error` · `ts-nocheck` · allowlist shapes · `!important` ·
+`node_modules`. **Findings, each judged at the bytes rather than by keyword:**
+
+- **`node_modules` paths in the wave's commits: 0.** No producer patch of any kind.
+- **`!important` added: 0.** No specificity-war workaround.
+- **`test.skip` / `.fixme` introduced by the wave: 0.** The eight that exist in `web/e2e/` all pre-date the
+  wave (⟨cmd⟩ `git log --oneline 3bac3d5~1..HEAD -- web/e2e` → **∅**); `contour-extraction.spec.ts:148`'s guard
+  sits INSIDE G6's own gate test and **did not fire** — this seat's run reports that test **passed in 4.5 s**.
+- **The one `try/catch` in the wave** is `3bac3d5`'s `cssColorToHex` (`web/src/lib/colors.ts`). **Not a
+  masking fallback**: `parseCSSColor` is a parser combinator whose contract is to signal an unreadable form by
+  throwing, so the branch is the function's declared failure arm and returns `null` — leaving the palette entry
+  alone rather than substituting a placeholder — and the docblock says exactly that. At runtime it does not
+  fire: **0 `console.error` lines across four full app sessions** at this seat.
+- **No copied producer selector.** The `.paper-texture` restore (`style.css`, the G5 landing cell §4 step 4
+  names by that name) composes the producer's **surviving published tokens** `--paper-clean-texture` ⊕
+  `--paper-texture-size`, authors no data-URI, and states its own deletion trigger. It is the spec's own
+  texture-restore arm, not a reach into producer internals.
+- **No silently narrowed assertion.** The four e2e witnesses are byte-untouched and carry **0** `[glass-ui]`
+  console filters; the G10 deletion removes consumer shorthands naming keyframes glass-ui ≥7 no longer ships
+  (the root cause) and **retains `overflow: hidden` on both twins**, as §3 G10 requires.
+
+### Axis 4 — commit families not split; one commit per meaning
+
+§4's Commit plan ⟷ what landed: **#2** `docs(X·F/coordination): the SS-6 BH letter + LATEX-RELAY + pencil-boil
+letters` = `70a87e7e` · **#3** `fix(fourier/viz): the --viz-* palette cure at the current pin` = `3bac3d5` ·
+**#4** `feat(fourier)!: the atomic tri-package uplift` = `538db90` · **#5** `docs(X·F): F.W1 close report` =
+`31e082ce` — **each message is the plan's own string**. The ONE family the spec declares unsplittable is #4
+(*"the roster is TWELVE limbs and stays twelve"* ⊕ the G5 landing cell, *"never a separate change"*):
+⟨cmd⟩ `git log --oneline --all | grep -ci "feat(fourier)"` → **1**. Plan #1's docs surface landed as **two
+dated addenda-beside** (`c05fc57e` §8 · `582d9b04` §9) with the G20 arithmetic in `evidence/w1/G20-CLOSURE.md`
+— a lawful E-3 shape, and no family the spec forbids splitting.
+
+### Axis 5 — E-3 held
+
+Scoped to **F.W1's own twenty commits** (the branch is shared by four tracks, so a range diff would charge
+siblings' KF.W6 registry rows to this wave): **not one of the twenty touches**
+`docs/tranches/V/megatranche/registry/adjudicated/` · `docs/tranches/X/fourier/conformance/` ·
+`docs/tranches/X/fourier/carry/` · `COHESION.md` · `EXECUTION-RUNBOOK.md` · any sibling wave spec. The only
+`waves/` file written is **`F-W1.md` itself**, and both writes are **insertion-only** — ⟨cmd⟩
+`git show --numstat --format=""` → **`103  0`** and **`38  0`**. The frozen census is byte-unmoved at
+`f44362757458`, re-shasum'd twice at this seat.
+
+### Axis 6 — mail
+
+⟨cmd⟩ `grep -c 'dock-separator'`-class sweeps aside, the E13 reading: `I-32` · `I-33` · `I-34` still carry
+`UNREAD 2026-09-17` status cells and **`I-35` is Track B's**. Their routing cells, read here, address **the X
+formation mail seat / X-W0.j** and **X-EXT-1** — not F.W1. The one clause that does reach this lane is
+**`I-33`'s fourier section** (the producer ruling on PD-1 / A-10), and it was **read and consumed**: it is what
+discharges PD-1's disjunction at G18, which this seat re-measured by execution. No F.W1 seat may flip a
+Track-D status cell. **Mitigated; see the register below.**
+
+### Axis 7 — the four-verb line moved lawfully
+
+It did **not** move, and that is the correct reading. `waves/F-W1.md`'s table at this seat: AUDITED **YES** ·
+SPECIFIED **YES** · IMPLEMENTED **NO** · VERIFIED **NO**, and `**Status**: `planned`` at `:8` — byte-untouched
+by both Closes. IMPLEMENTED's own basis cell is *"stamps at G1–G20 green + close report"*; **G20 is RED**, so
+it may not stamp. VERIFIED stamps at the X·F sub-tranche close and nowhere here. **No verb was stamped, and
+none was owed.**
+
+### Axis 8 — the spec's own goal criterion, MET AT THE BYTES
+
+§State's Name is *glass-ui 4→7(→8, G1-gated) ∧ keyframes 4.3→6 ∧ value.js 0.13→4.0, ONE land-or-lose
+transaction, + the `lucide-vue-next`→`@lucide/vue` rename + the pencil-boil floor correction*. Measured at
+`web/package.json` and at the installed tree: `@mkbabb/glass-ui` **`^8.0.0`** → installed **8.0.0** ·
+`@mkbabb/keyframes.js` **`^6.0.0`** → **6.0.0** · `@mkbabb/value.js` **`^4.0.0`** → **4.0.0** ·
+`@lucide/vue` **`^1.16.0`** with `lucide-vue-next` at **0** occurrences in `web/src` ·
+`@mkbabb/pencil-boil` **`^0.11.2`** → **0.11.2**. **ONE** `feat(fourier)!` commit carries all of it.
+**The goal is met at the bytes, not merely at the gates.**
+
+### Axis 9 — the record's published figures reproduce
+
+Every load-bearing figure re-derived above reproduces. The Close's **own divergence register is accurate and
+this seat confirms all three**: **D-C1** `npm run build` exit **1** / `npx vite build` exit **0**;
+**D-C2** ⟨cmd⟩ `grep -c 'dock-separator' waves/F-W1.md` → **2**, not `G20-CLOSURE.md`'s published **3** (leg (a)
+still closes 105/105); **D-C3** `grep -c "17a11bc5"` → **20**, not `F-W1-LOG.md`'s **18**. A Close that names
+its own three misquotes before an adversary can is the behaviour L-20 exists to reward.
+
+### Axis 10 — HONEST-RED ADJUDICATION
+
+**Two gates remain RED. Both are relieved by the spec's own bytes, and both are owner-named in the record's
+residual register.**
+
+- **G9 — RELIEVED BY THE SPEC'S OWN ROUTING (a later wave's act).** §2 **WU-I**'s own heading is
+  *"Sliders (gates F.W1's; execution F.W3/W4)"*, and its `B-2` cell states in terms: **"Acceptance = G9,
+  F.W1's; execution rides F.W3/W4."** §1 Bounds repeats it on the seven files (*"G9 gate only; execution
+  F.W3/W4"*). G9's literal condition (`--slider-scrub` → 0) is therefore **executable only by F.W3/W4**; a
+  consumer sweep here would run another wave's gate. Reproduced RED at **23 / 7**. **Owner named**: residual 4,
+  *"→ F.W3 / F.W4 … acceptance banked here, execution theirs, MPC-10's contrast leg riding it."*
+- **G20 leg (b) — RELIEVED as an act the spec assigns to a successor seat, and owner-named by id.** The gate's
+  own `blocks` cell is **`X·F SPECIFIED`** — it gates a verb, not the wave's product work — and its witness
+  cell anticipates precisely this outcome (*"this file may not green it by having repaired itself … a FOURTH
+  independent run … is the only thing that can green it"*). The run happened, honestly, and convicted **two
+  rows by name**; under **R4-10** an id's re-home is the **census seat's** act and a booking is the **spec
+  seat's**, and R4-10 forbids any wave seat from re-homing (*"this seat re-homes nothing"*). Both cures are
+  documentation tokens — **no product byte, no gate re-definition**. **Owners named**: residuals 1
+  (`fr-ExportModal R2-1` → the spec seat, one CITED token at §2·R2a.1) and 2 (`fr-ContourSettings M-4` → the
+  spec/census seat, a CITED row held F.W3/W4 beside `m-17` **or** a dated canonical errata).
+
+**Not laundered.** Neither RED was green-stamped, neither was descoped, and IMPLEMENTED was correctly withheld.
+
+### Successor waves — "Opens after" conjuncts measured against this wave
+
+| successor | its conjuncts | this seat's reading |
+|---|---|---|
+| **F.W2** | F.W0 closed · **F.W1 landed for the specifier arm only** · the adjudicated registry whole | **the F.W1 conjunct is GREEN** — the specifier arm IS the atomic transaction and it landed at `538db90` (installed 8.0.0 / 6.0.0 / 4.0.0). Not blocked by F.W1 |
+| **F.W3** | F.W0 · **F.W1 (the atomic tri-package uplift)** — except the §C.H rows available at the installed pin | **GREEN** — the uplift landed. Not blocked by F.W1. (Its own note carries an S-15 g20 re-baseline before open) |
+| **F.W4** | **F.W1** (gated whole) | **GREEN** — same conjunct, same landing |
+| **F.W8** | F.W0 · **F.W1.close** · F.W2 · F.W5 | **GREEN on its F.W1 conjunct** — the close report of record exists (`F-W1-LOG.md`, `31e082ce`) and both Closes are landed |
+| **F.W9** | F.W0 → **F.W1** → F.W3/W4 | **GREEN on its F.W1 conjunct**; it remains gated on F.W3/W4, and inherits `CP-1…CP-14` with CP-8/CP-9 BASELINE OWED |
+
+**No successor is blocked by anything F.W1 left undone.** The two open G20 rows gate the **SPECIFIED** verb at
+the X·F sub-tranche, not any successor's opening conjunct.
+
+### Register — severity · claim · receipt · cure
+
+| severity | claim | receipt | cure |
+|---|---|---|---|
+| **MINOR** (mitigated, non-blocking) | The Close states both G20 leg-(b) cures are *"outside every F.W1 execution seat's writable set"*. That is true of the seats that remained (`f`, close) but **not of the wave**: `waves/F-W1.md` was in-bound for units `a` and `e`, each of which wrote a dated addendum-beside into it | ⟨cmd⟩ `git show --numstat --format="" c05fc57e` → `103  0` and `582d9b04` → `38  0`, both on `docs/tranches/X/fourier/waves/F-W1.md` | **Mitigation accepted**: the escape is undiscoverable until G20 runs, and §3 G20 seats that run at the close by a seat that is not the spec's author — so no seat holding the spec could have acted on a finding that did not yet exist. The wording overstates the bound; the **owner-naming is correct** and the cure is unchanged. Recommend the successor spec seat land both rows as one dated **§10 addendum-beside** |
+| **MINOR** (mitigated, non-blocking) | `I-33` routes its fourier section to X·F's lane, so one `UNREAD 2026-09-17` row does touch this wave's lane; E13's law is discharged by a scope reading plus recorded consumption, not by a cleared status cell | `INBOX.md:106` Routing cell → *"the X formation mail seat, which relays each sibling's section to that sibling's lane (fourier → X·F's mail-ledger surface)"*; status cell `UNREAD 2026-09-17` | **Mitigated and correctly bounded**: the durable cell is Track D's and no F.W1 seat may flip it; the material clause (PD-1 / A-10) was read and is **load-bearing** — it is what discharges PD-1 at G18, which this seat re-measured by execution. Owner named (Track D / the X formation mail seat). No cure owed by F.W1 |
+| **INFO** | `3bac3d5`'s `cssColorToHex` carries the wave's only `try/catch` | `web/src/lib/colors.ts`, docblock + branch; 0 `console.error` across four app sessions here | **None owed** — it is a parser-combinator's declared failure arm returning `null`, not a swallow around a defect. Recorded so a later seat does not re-litigate it by keyword |
+| **INFO** | Three published figures do not reproduce (D-C1 · D-C2 · D-C3) | reproduced exactly as the Close's Act 5 states them | **None owed** — already named by the Close itself before this pass; none moves a verdict |
+
+**No BLOCKER · no CRITICAL · no HIGH.**
+
+### Verdict — **CONFORMANT-HONEST-RED**
+
+**19 of 19 claimed GREEN readings reproduce at this seat** (17 GREEN · G2 discharged-as-owed · FR-CP-5), and
+G20 leg (a) reproduces GREEN besides. **Zero writes outside §File Bounds** over twenty value.js commits and two
+fourier commits; **`dev.sh` in 0 of 20**. **Zero masking fallbacks** — no `node_modules` patch, no `!important`,
+no introduced skip, no copied producer selector, no narrowed assertion, and the four e2e witnesses byte-untouched
+by the wave they gate. **The unsplittable family held as ONE commit.** **E-3 held**, both spec writes
+insertion-only and every dated artefact byte-unmoved. **The four-verb line did not move, and none was owed.**
+**The spec's own goal is met at the bytes**, not merely at its gates. **Honest-RED set: `G9` (execution routed
+to F.W3/W4 by WU-I's own words) · `G20(b)` (two named documentation rows, owners named by id).**
+
+**Self-count**: no figure in this section counts this section or any live sibling; every count is of the settled
+fourier bytes at `538db90`, the read-only producer tree at `17a11bc5`, the frozen census at `f44362757458`, or a
+committed artefact at its landed bytes — each double-run where load-bearing.
