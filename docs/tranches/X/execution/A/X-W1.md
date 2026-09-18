@@ -594,3 +594,173 @@ softening it with `continue-on-error` is exactly what G-2 forbids by name.
   lock requires.
 - **E13 mail**: no letter in this unit's scope; the wave's open sweep stands (0 unrowed, 0 UNREAD in
   X-W1's scope). `scripts/dev/dev.sh` untouched and unstaged throughout.
+
+### X.W1.b
+
+**Visual regression oracle (CC-030 · CC-029 half a) · G-8 · G-9 · G-10 · NG-11 · NG-12 ·
+opus (`claude-opus-5[1m]`)** — 2026-09-17/18. Commits: **`e2347c0e`** (Commit Plan row 2,
+`test(e2e/visual)` — 227 files, the suite + 207 goldens + the regeneration script, a family
+that does not split) · **`c959b22e`** (row 6, evidence).
+
+**Worktree, recorded as a DIVERGENCE, not glossed.** `W1.md:194` assigns this unit
+`/Users/mkbabb/Programming/value-js-x-w1-b`. At this seat's dispatch that path did not
+exist and an earlier sitting of this unit had already authored the whole suite **in the
+primary tree, untracked**. Minting in a fresh worktree would have photographed a
+different `node_modules` and left the primary tree's untracked set to be reconciled by
+hand; the disjointness the worktree exists to protect was never at risk (`e2e/visual/**`
+and `scripts/visual/**` are this unit's alone, and no sibling seat touched either — 227
+untracked paths at open, 227 staged at commit). Recorded here so the departure is on the
+record rather than discovered later.
+
+#### Act 0 — the one act a mint cannot perform on itself
+
+The suite and a 207-cell golden set existed untracked. FM-12 is *"untracked evidence is
+not evidence"*, so the question was not whether they could be committed but whether they
+were TRUE — and `--update-snapshots` has no baseline to disagree with, so only an ordinary
+run can answer it.
+
+⟨`npx playwright test -c e2e/visual/visual.config.ts --project=visual`⟩ → **`28 failed ·
+188 passed (29.9m)`**
+
+**None of those 207 goldens was committed.** The 28 classify to six named roots, every
+one with its measured pixel count and bounding box
+(`evidence/w1/visual/FIRST-MINT-VERIFICATION.md`):
+
+| # | class | cells | root at the bytes |
+|---|---|---|---|
+| 1 | product entropy | **12** | `useColorGeneration.ts:24` seeds from `Math.random` at mount; 33,909–46,184 px each; **0 of 12 passed** |
+| 2 | late module graph | 4 | one golden carries a dock with **no home icon** (6,230 px); three `keyboard-focus` cells red downstream (30,277 / 33,591 / 46,416 px) because one fewer focusable moves where 12 Tabs land |
+| 3 | blank frames under host load | 8 | complete DOM, nothing composited, under this seat's own concurrent decode sweeps |
+| 4 | **false baselines already committed** | 2 | two goldens ARE a single flat colour — the pre-mount ground, ratified as the product's appearance |
+| 5 | bookkeeping | 2 | `MANIFEST.json` had never been generated |
+| 6 | missing cell | 1 | `forced-colors-desktop · mix` had no golden at all (206 PNGs against a 207-cell derivation) |
+
+Class 4, measured over all 207 on an 8-px grid: exactly those two hold **≤ 8** distinct
+colours; **every other cell holds ≥ 401**. The population has nothing in between.
+
+#### Act 1 — the cures, all at the capture, none at the bar
+
+| cure | what it closes |
+|---|---|
+| `pinEntropy()` — mulberry32 at a fixed seed, on the shared `VISUAL_FIXTURE` context override so no arm can forget it | class 1. Scope measured: ⟨`grep -rn 'Math.random' demo/`⟩ → **5 rows**, 2 the generate composable, 1 a debug gate that is off, 2 pure-generator defaults |
+| a second `waitForLoadState("networkidle")` after the `role=main` landmark, in `gotoRoute()` and `showPane()` | class 2 — every pane is a `defineAsyncComponent` and every dock icon a module, so those requests are issued AFTER mount |
+| `requireQuiescence()` — the cap is a FAILURE | the mint-time half of class 4. The old reasoning (*"photographed anyway — and then fails loudly against its golden"*) is true on a verification run and **false on a mint run**, and that gap is exactly how the two flat goldens were made |
+| `assertRendered()` — proof of life at the shutter, floors **12 descendants / 24 chars** | the DOM half of class 4. Floors measured against the real minima: 1024 → 81/185; 390 → 26/68 |
+| `golden-integrity.spec.ts`'s **flat-frame** assertion over the COMMITTED bytes | the byte half of class 4 — the DOM guards refuse to take the picture; this one refuses to keep it |
+| `capture.css` **Rule 2** — pin `.spectrum-dot`'s `transform` and `filter` | IC-17, below |
+
+No `test.skip`, no allowlist, no try/catch over a defect, no widened bar, **no `demo/`
+byte** — every capture input is an init script, a route mock, an injected stylesheet or a
+keypress (R35's cure-shape lock). Class 3 is **RECORDED honest-RED** (IC-16c): it produces
+false REDs only, never false greens.
+
+#### Act 2 — re-mint, and the residue's TAIL
+
+⟨`… --update-snapshots`⟩ → `214 passed · 3 failed` (the three manifest guards, mid-run) ·
+⟨`--manifest-only`⟩ → 207 goldens · ⟨verification⟩ → **`216 passed · 1 failed`**.
+
+The one failure is the reason `capture.css` grew a Rule 2: `param-sweep · hsl · 1024 ·
+light` at **147 differing pixels against the 120 bar**, bbox `[441,301]–[481,342]` — one
+element, `.spectrum-dot`, which is glass-ui's `<WatercolorDot animate
+:cycle-duration="2000">`.
+
+**It never settles, measured both ways.** Eight cold loads read eight different
+transforms; within ONE page, t+0 / t+2 s / t+6 s read three more, with
+`getAnimations()` reporting **4–5 running** throughout. `waitForQuiescence` correctly
+excludes infinite animations and Playwright's `animations:"disabled"` does not still it.
+
+**A residue whose tail crosses the bar makes the gate flaky, and a flaky gate is a gate
+someone turns off.** The bar was not raised. `transform` and `filter` are pinned at
+capture time — never position (`left`/`top`, measured static at `424.828px`/`32.4688px`
+across all eight loads), never size, never colour. After:
+⟨`VJS_VISUAL_MAX_DIFF_PIXELS=0 … -g param-sweep`⟩, double-run → **65 / 53 / 62** px,
+identical both times. glass-ui untouched (READ-ONLY always).
+
+#### Act 3 — the runs of record, double-run
+
+| run | result |
+|---|---|
+| re-mint (post-Rule 2) | **217 passed** (15.2m) |
+| **verification A** | **217 passed** (16.0m) |
+| **verification B** | **216 passed · 1 failed** (16.2m) |
+| B's failing cell, re-run | **3 consecutive passes** |
+
+B's failure is the new guard **catching the class 3 event in the act**, printed by the
+guard itself rather than inferred:
+
+```
+PROOF OF LIFE FAILED at at-rest__browse__both__1024__dark__real__… :
+  main present=false, descendants=0 (floor 12), body text=0 chars (floor 24).
+```
+
+`main present=false` — the landmark `gotoRoute` had already waited for and seen visible
+was **gone** by the shutter; the error context carries no page snapshot because there was
+no accessible content to snapshot. Measured rate of the class across four full runs of the
+cured suite: **8/216 under self-inflicted load · 0/217 · 0/217 · 1/217** (IC-16c). The
+golden is correct and the event is transient. **It is not cured; it is caught** — and the
+alternative, the same event at mint time silently ratified, is now structurally
+impossible.
+
+#### Act 4 — G-9's injections, run against the COMMITTED goldens
+
+| injection | pixel gate | digest gate | flat-frame gate |
+|---|---|---|---|
+| **20×20** (G-9's unit, 400 px painted) | **RED — 394 px measured vs the 120 bar**; the sibling 3440 cell GREEN | **RED — ALTERED**, both digests printed | — |
+| **1×1** (the sub-gate's unit) | GREEN — *that is what a 120-px tolerance MEANS* | **RED — ALTERED** | — |
+| **whole frame** (the flat guard's own falsifier) | — | — | **RED — `1 distinct colour(s)`**, naming the file |
+
+394 and not 400 because six painted pixels were already within `threshold: 0.15` of
+magenta: the gate reports the MEASURED difference, not the size of the edit. After each,
+⟨`--restore`⟩ then ⟨`git status --porcelain e2e/visual scripts/visual | wc -l`⟩ → **`0`**,
+three times.
+
+**The script's own two clauses, executed rather than read**: ⟨`node
+scripts/visual/regenerate-goldens.mjs`⟩ on a clean tree → **exit 2**, *"DRY RUN — nothing
+written"*; ⟨`… --accept`⟩ with one byte appended to `e2e/visual/tolerance.ts` → **exit 1**,
+*"REFUSED — the working tree is dirty where it can change a pixel."*
+
+**And running it is how a hole IN it was found.** `git()` returned `stdout.trim()`, which
+eats the leading space of `git status --porcelain`'s first line, so `dirtyPaths()` cut one
+character too many: `ocs/tranches/…`. Harmless on that tree; **not harmless in general** —
+an unstaged `demo/App.vue` sorting first arrives as `emo/App.vue`, matches no
+`PIXEL_RELEVANT` prefix, and the dirty-tree refusal does not fire. Cured with `gitRaw()`.
+
+**GATE READINGS, BEFORE → AFTER**
+
+| gate | BEFORE (open baseline, `X-W1.md:130-132`) | AFTER | basis |
+|---|---|---|---|
+| **G-8** — `e2e/visual/` with goldens COMMITTED, route census × 3 viewports × light/dark | **RED** — `ls e2e/visual` → *No such file or directory*; `toHaveScreenshot\|toMatchSnapshot` → **0** over 71 spec files | **GREEN** — **207 goldens committed at `e2347c0e`**; 70 at-rest public + 40 at-rest admin + 84 modality + 13 non-route, derived by `routeArmCellCount()` and asserted by `census-parity.spec.ts`, never typed. FM-12 verified at the bytes: `git check-ignore --no-index` returns 1 (not ignored) for every golden, and the script exits 4 if any is | `MANIFEST.json`; `DENOMINATOR.md` |
+| **G-9** — tolerance numeric with rationale; `--accept` + dirty-tree refusal; validated by injection | **RED** — no suite, no `scripts/visual/` | **GREEN** — `maxDiffPixels: 120` · `threshold: 0.15` (TIGHTENED from 0.2), sited 1.8–2.1× above the measured 58–65-px floor and 3.3× below the 400-px injection; **validated by the injection, not by argument** (394 px → RED); refusals exit **2** and **1** | `TOLERANCE.md`; `G9-INJECTION.md` |
+| **G-10** — renderer read from the LIVE browser, into every golden and the header; emulation labelled | **RED** — six closes, zero runs | **GREEN** — `renderer.ts` reads `WEBGL_debug_renderer_info` **in-page**; **207 of 207** filenames carry the slug; **179 `real` / 28 `emulated`** (R36: forced-colors and zoom-200 are chromium emulation and discharge no real-modality obligation). CC-029 half b untouched — it is X.W1.f's | `RENDERER.json`; `MANIFEST.json` |
+| **G-10 · the "every push" half** | RED | **OWED TO X.W1.a, contract delivered** — `VISUAL_PROJECTS` / `VISUAL_CI_INVOCATION` / `VISUAL_CI_RUNNER` (`macos-15`, load-bearing: `{platform}` is in the golden path because text rasterisation is an OS property) are exported for one spread into `playwright.config.ts`. W1.md §Disjointness forbids this unit writing `ci.yml` or the root config | `visual.project.ts` |
+| **NG-11** — the census + the non-route arms | **RED** — six shipped modality arms, the SAME five routes in each | **GREEN** — all **14** router names; `census-parity.spec.ts` re-derives the table from `router/index.ts` and `viewSchema.ts` as TEXT and reds in either direction, which is NG-11's own falsifier standing; R35's arms present: seeded-storage 3 · seeded-fixture 2 (the existing `routeBrowsePalettesDelayed`, consumed rather than re-authored) · seeded-admin 2 · overlay 2 · forced-state 1 · param-sweep 3 | `DENOMINATOR.md` |
+| **NG-12** — the caveat register committed; every gate cites its caveat or states none applies | **RED** — no register in the tree | **GREEN** — 17 rows committed, with a citation index closing the clause gate by gate. R37's four inherited (IC-1..IC-4) plus this unit's, of which **IC-15/16/17 are new at this seat** | `instrument-caveats.md` |
+| **R54** — the four residue-witness cells | booked, unwitnessed | **DISCHARGED, 4 of 4 named to their goldens**: RW-1 `rtl-desktop-extract-…-real` + `rtl-mobile-extract-…-real`; RW-2 `zoom-200-desktop-extract-…-**emulated**`; RW-3 the same zoom frame, discharged AS FRAME with K-7's "unscrollable" inference left dead and IC-2 named as why no casual geometry number may be taken; RW-4 three `seeded-storage-palettes-populated-…-real`. **Four more CARRIED OPEN with reasons** (O-1 real WHCM needs a Windows host · O-2 the FlagReportDialog · O-3 the `misconfigured` lamp face · O-4 IC-4's paint-time family), because R54's rule is that silence at close is not discharge | `R54-RESIDUE-WITNESS.md` |
+
+#### Residuals, escalations, and what this unit hands on
+
+- **NO ESCALATION.** No Triumvirate trigger fired: no write under `src/`, `demo/` or
+  `api/`; no third-iteration flake loop — the two diagnostic loops that ran (the first-mint
+  census, the dot's tail) each converged on their first cure, and verification B's failure
+  is the **recurrence of a class already diagnosed and recorded as honest-RED**, re-confirmed
+  by three green re-runs of the same cell, not a new triage.
+- **RESIDUAL 1 — the class-3 blank frame is CAUGHT, not CURED** (IC-16c). Rate on a quiet
+  host ≈ 1 in 217; under host load ≈ 1 in 27. Four tranche-X tracks share one machine, so
+  the operational rule is recorded where a gate cannot assert it: **mint and verify with
+  nothing else heavy running**. A CI run that reds here reds for a named, measured reason.
+- **RESIDUAL 2 — `test-results/` is not a durable evidence surface.** It is gitignored,
+  shared, and cleaned at the start of every Playwright run; a concurrent sibling track's run
+  swept two diff artefacts before they could be read. Later seats: copy out what you need.
+- **HAND-OFF to X.W1.a.** (i) The CI job contract above, verbatim, including `macos-15`.
+  (ii) G-5's slate will see a **seventh** project named `visual`, which must have a job or
+  the slate reds — that coupling is correct, not accidental. (iii) `capture.ts`'s
+  `seedAdmin()` expresses `e2e/smoke/admin/fixtures/admin-auth.ts`'s seam at CONTEXT scope
+  because the matrix needs it per-route; when X.W1.a owns `e2e/smoke/**` it can export the
+  two constants for both callers.
+- **E13 mail**: swept at this seat's clock across all four paths — `docs/tranches/V/` +
+  `coordination/`, glass-ui **BK**, keyframes.js, atlas. Newest rows unchanged from the
+  wave-open sweep (I-32 · I-33 · I-34, already rowed by Track D); **not one names
+  `e2e/**`, `.github/workflows/**` or the visual surface**. 0 unrowed, 0 UNREAD in this
+  unit's scope.
+- `scripts/dev/dev.sh` untouched and unstaged throughout; both commits carry their own
+  pathspec on the commit itself; no sibling seat's path entered either index.
