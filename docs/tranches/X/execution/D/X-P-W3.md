@@ -3927,3 +3927,287 @@ for which F-m2 names a cheaper instrument than the record does (§5 `.a`'s own *
 seat's byte.
 
 **Check 2 stamps no verb, cures no gate, and writes no byte in `<p2>`.**
+
+---
+
+## Repair 2
+
+**SERVED MODEL: claude-opus-5[1m]** · X.P.W3 **REPAIR SEAT, round 2** (Track D, X·P) · 2026-09-18,
+this seat's own clock; the sitting's date of record stays **2026-09-17**. Register: the **## Check 2**
+section above — 1 CRITICAL (**G-1**), 2 HIGH (**G-7** · **G-4's ⊇ leg**). `W3.md` read WHOLE (673 L);
+`W3-ADDENDA-2026-09-18.md` §A-1/§A-3 read at the bytes; `ALGEBRA.md` §9 (the totality contract) and
+§10.1–§10.5 read at the bytes — the first seat of this round-series to do so, and the reason this
+repair reaches a different answer from Repair 1's on the third defect; the ## Close, ## Check 1,
+## Repair 1 and ## Check 2 read whole.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain` in every repo this seat may write,
+before any other act. Inside this seat's writable set — ⟨cmd⟩ `git --no-optional-locks status
+--porcelain -- docs/tranches/X/execution/D/X-P-W3.md docs/tranches/X/execution/LEDGER.md
+docs/tranches/X/parse-that/ | wc -l` → **0**: **nothing dirty, no predecessor residue, nothing
+inherited, no path named in this receipt as inherited because there is none.** `<p2>`:
+⟨cmd⟩ `git -C <p2> status --porcelain` → **`?? .worktrees/` alone**, before and after every run this
+seat made. Outside the set and never opened: ten `demo/**` + two `e2e/**` rows, `CARRY-LEDGER.md`,
+the untracked `docs/tranches/X/waves/evidence/` dir (Track A/C's), and `scripts/dev/dev.sh` (` M`,
+unowned, unstaged, **never touched**, in 0 of this seat's commits).
+`/Users/mkbabb/Programming/parse-that` is dirty by standing arrangement, outside this seat's set
+entirely, and not opened.
+
+**Outcome: 0 cured at the bytes · 3 escalated · 2 new findings, the first of which CORRECTS the
+register's stated cure for the third defect by measurement.** This seat wrote **no byte in `<p2>`**.
+The reason is not that the cure lies outside §4's file bounds — it does not — and it is not Repair 1's
+reason either. It is that the cure the register names, **executed in full, discharges 2 of the 5
+codes**, and the remaining three need a parse row the wave has never named.
+
+### RP2.1 — The ten gates re-run at a **sixth** seat, from `W3.md` §6's own commands. **10 of 10 reproduce.**
+
+| gate | this seat's reading | == the record's? |
+|---|---|---|
+| **G-1** | `tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL` · `RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT)` · **EXIT=1**, two runs `diff -q` **byte-identical** | **YES — RED** |
+| **G-2** | probe `shasum -a 256` → `77678a574d7c6b11448b19b6ab8fc0686dddf405a01cd7ea16757bc0837ad4ec` (**unmodified**), run verbatim → `TOTAL 324 throws / 1548 calls` · `DISTINCT FAILURE MODES: 1` · **EXIT=1** | **YES — RED** |
+| **G-3** | the boundary suite's own legs at this seat: `boundary.test.ts` **77 ✓** · `no-throw.test.ts` **19 ✓** (the `SHIELD.caught === 0` assertion among them) | **YES — green on command**; its proof leg (ESC-e1) stands refuted at Check 2's fourth clock and is **not** re-measured a fifth time here |
+| **G-4** | 685-row operand: `4158 calls · 3710 rejections · 3744 issues` · **C-3 RED** `frozen \ emitted = 5` · **C-4 RED** (`far.code === null` on 0 of 3710) · C-1/C-2/C-5…C-10 GREEN · `CTRL ×6 fires` · **EXIT=1**. Spec-literal operand: `159672 calls · 144640 rejections · 154328 issues` · **C-3 RED 5** · **C-4 RED** (0 of 144,640) · **EXIT=1** | **YES — RED under both operands, to the digit** |
+| **G-5** | `cells 79674 · six-tuple differing 0 (differing bytes 0)` · per-entry `26551` each · `boundary … identical across both targets: ALL` · **EXIT=0** | **YES — GREEN** |
+| **G-6** | `spec-conformance.test.ts (13)` ✓ · `universe.test.ts (59)` ✓ · **`Tests 72 passed (72)`** · **EXIT=0** | **YES — GREEN** |
+| **G-7** | `rows 52 · COMPARED 8 · NO-PEER 44` · **`MIRROR-DEFECTS 5890 (of which spec-undecided 3982)`** · per-row `parseCssColor 4027` / `parseStylesheet 1693` / `parseTimingFunction 170` · **EXIT=1** | **YES — RED at 5,890** |
+| **G-8** | `GREEN — 2 of 2 legs green (--assert-no-console: C-8 · C-9)` · `branch census default: 3 (authored 0) · else 28 (authored 0)` · **EXIT=0** | **YES — GREEN** |
+| **G-9** | `Tests 2 failed \| 116 passed (118)`; both failures in `latch.test.ts` (`L-3 RESETTABLE …` and `the whole reading, published as one record`); `depth.test.ts` **15 ✓** · **EXIT=1** | **YES — depth GREEN · latch RED** |
+| **G-10** | `sink 580440` · `BAR: OWNER-GATED-PENDING-RATIFICATION` · `VERDICT: none. … RECORDED-NOT-GATING` · `well-formedness OK — the four G-10 falsifier conditions all hold` · **EXIT=0** | **YES — well-formed, no verdict** |
+
+**One honest correction to a published phrase, not to a figure.** G-7's two runs are **not**
+byte-identical: ⟨cmd⟩ `diff` over them prints exactly one hunk, and it is the **node PID** inside a
+`[MODULE_TYPELESS_PACKAGE_JSON]` warning line (`(node:91531)` vs `(node:91598)`). Every substantive
+line — the 52 rows, `COMPARED 8`, `NO-PEER 44`, `MIRROR-DEFECTS 5890`, `spec-undecided 3982` — is
+identical, and the record's own byte-identity instrument for this gate was always `--out`'s sha256,
+which holds below. Recorded so no reader takes "byte-identical" to cover a stderr banner.
+
+**Axis 9 — the published artefacts, regenerated to this seat's scratchpad and hashed:**
+
+```
+⟨cmd⟩ shasum -a 256 <regenerated>   vs   <committed>
+0005f26b10b0c9f093466c134c7fc71d472be7d8d6b0bf2809bb83386f2598de  universe-52.json                EQUAL
+d03b458c0f095c7b201c17ded478fcfcfdf7c53b54f48668450b6c4166e41595  equivalence-full-surface.json   EQUAL
+25fa6a4b08653334ed506a0b38aa690c96fa6e92d500f08473056bd5ebfc9240  recovery-closure.json           EQUAL
+b68bab94c01cd2eae24a3b74b0b8096a1bbd30b12d8d75e04233b26dd5686216  dual-target-identity.json       EQUAL
+```
+
+**Four for four, at a sixth seat.** Nothing this seat measured moved a published figure.
+
+### RP2.2 — **F-p1 (NEW, HIGH): the register's stated cure for G-4's ⊇ leg is INSUFFICIENT, measured — the six entries discharge 2 of the 5 codes**
+
+This is the finding this round adds, and like Repair 1's F-r1 it was reached by **trying to cure the
+defect**, not by re-reading the Check.
+
+**The register's cure, quoted.** Check 1 and Check 2 both write it the same way (K2.5, the G-4 row):
+*"The cure is six more entries in `algebra/grammar.mjs` — a path §4's glob **does** admit and §4a
+assigns to no unit, i.e. a dispatch gap, not a bounds wall."* Repair 1 restated it as *"the cure is
+authoring six parsers"* (R1.3, E-1). **Nine occurrences of the "six" framing stand in this record**
+(⟨cmd⟩ `grep -c 'six unrealized\|the six entries\|six more entries\|six public entries'` → **9**).
+
+**The gate already prints the refutation, and no seat had read it.** `css-recovery-closure.mjs`'s own
+⊇ block ends with a per-code attribution to the incumbent's emission sites:
+
+```
+⟨cmd⟩ node scripts/css-recovery-closure.mjs --corpus test/css-recovery/corpus.json \
+        --frozen-union c654824e:src/css/types.ts        (tail)
+the ⊇ difference, with the incumbent site each missing code is emitted from:
+  animation_option_invalid   incumbent: src/css/stylesheet.ts:397 · src/css/stylesheet.ts:405
+  keyframe_selector_invalid  incumbent: src/css/grammar.ts:416 · :419 · :425
+  syntax_descriptor_invalid  incumbent: src/css/stylesheet.ts:655 · src/css/syntax.ts:94
+  syntax_mismatch            incumbent: src/css/syntax.ts:100
+  timeline_option_invalid    incumbent: src/css/stylesheet.ts:50 · :78 · :405 · :414 ·
+                                        src/css/timeline.ts:32 · :45 · :50 · :69 · :73 · :83
+```
+
+**The attribution, re-derived at this seat by a probe written fresh** (`<scratch>/repair2-code-attrib.mjs`,
+read-only in both roots, double-run `diff -q` identical). Method: find every `"<code>"` literal in
+value.js `src/css/**`, walk **backwards** to the nearest column-0 `function`/`const` declaration —
+the enclosing top-level function — and ask whether that function is one of the candidate's declared
+six:
+
+```
+code                       enclosing top-level fn (incumbent)              exported  in UNREALIZED_ENTRIES?
+keyframe_selector_invalid  parseKeyframeSelector  @ grammar.ts:416/419/425 true      YES
+timeline_option_invalid    parseAnimationTimeline @ timeline.ts:32/45/50   true      YES
+timeline_option_invalid    parseAnimationRange    @ timeline.ts:69/73/83   true      YES
+timeline_option_invalid    parseTimelineScope     @ stylesheet.ts:50       false     NO
+timeline_option_invalid    parseAnimationTrigger  @ stylesheet.ts:78       false     NO
+timeline_option_invalid    parseDeclarations      @ stylesheet.ts:405/414  false     NO
+animation_option_invalid   parseDeclarations      @ stylesheet.ts:397/405  false     NO   ← its ONLY owner
+syntax_descriptor_invalid  coerceToSyntax         @ syntax.ts:94           true      NO
+syntax_descriptor_invalid  parseItems             @ stylesheet.ts:655      false     NO
+syntax_mismatch            coerceToSyntax         @ syntax.ts:100          true      NO   ← its ONLY owner
+
+TALLY: realizing all six UNREALIZED_ENTRIES makes 2 of 5 missing codes emittable.
+```
+
+**The three that the six cannot reach, each with what it actually needs:**
+
+1. **`syntax_mismatch`** — one owner in the whole incumbent, `coerceToSyntax` (`syntax.ts:100`).
+   `ALGEBRA.md` §9 **row 41** classes `coerceToSyntax` **class P**, production **`P:syntax-coerce`**,
+   slice cell **`— (W3)`** — *the same cell as each of the six*. It is a **seventh unrealized parse
+   row**, and it is named in no register entry, in no escalation, and in the candidate's own
+   `UNREALIZED_ENTRIES` (F-p2 below). §9 row 41 also states its shape: *"two inputs `(source,
+   syntax)`: a production parameterised by a `<syntax>` descriptor"* — where §2 defines a parse as
+   `S ↦ (V, C, P, D)`, **one** input, and the closed set carries no operator taking a second source
+   (⟨cmd⟩ `ops.mjs` OP-01…OP-22 read at the bytes; `C-10` measures `signature 22 · destructured 22 ·
+   both differences ∅`). It is realizable only by **decomposition** — `P:value` + a new
+   `P:syntax-descriptor` + an `X`-class matcher over `V` — which is a design act on the algebra, not
+   a term added to a grammar file.
+2. **`syntax_descriptor_invalid`** — `coerceToSyntax` as above, or `parseItems`
+   (`stylesheet.ts:655`), an internal of `parseStylesheet`'s **at-rule** handling.
+3. **`animation_option_invalid`** — **one owner only**: `parseDeclarations` (`stylesheet.ts:397`,
+   `:405`), the name-conditional **declaration validators** inside `parseStylesheet` — a production
+   the candidate **already realizes**. `ALGEBRA.md` §10.3 carries `declaration` with *no*
+   name-conditional validation at all, and pins two restrictions by name: `rule := qualified-rule`
+   *"(**DECLARED SLICE RESTRICTION**: the at-rule arm is **W3's**; inputs whose prelude begins with
+   `"@"` are excluded from the slice corpus)"* and `value-slice := CTOR value-color [REF color-body]`
+   *"(**DECLARED SLICE RESTRICTION** of `P:value` … **W3 replaces it with `P:value`**)"*. So this code
+   is not an entry at all — it is a **deepening of a realized production past two restrictions the
+   adjudicated §3d slice declares**, and it pulls `P:value`, `P:animation-range`, `P:timeline-scope`
+   and `P:animation-trigger` in behind it.
+
+**What the cure therefore is, measured.** Not *"six more entries"*: it is **nine of the sixteen
+ABSENT runtime rows** — the six, plus `coerceToSyntax` (§9 row 41), plus the at-rule arm and the
+`value-slice → P:value` replacement that §10.3 marks **W3's** — which is `W3.md` §3 items 2–3, the
+wave's principal unbuilt scope, entire. **§4a assigns not one of them to any unit.** The register's
+classification — *"a dispatch gap, not a bounds wall"* — is **correct on bounds and wrong on size**:
+it is a dispatch gap the width of the wave's own scope, and §3a reserves that redress to the
+Triumvirate Dispatch, *"mandatory … the orchestrator may not redispatch the failing unit alone"*.
+
+**This finding does not soften the escalation; it sharpens the ask.** G-4's ⊇ leg stays **HIGH** and
+stays **RED at 5**. What changes is what the owner is being asked to dispatch.
+
+### RP2.3 — **F-p2 (NEW, MEDIUM): the candidate declares six unrealized parse rows; §9 measures seven**
+
+`entry.mjs:97` declares `UNREALIZED_ENTRIES` as *"The six frozen runtime exports the candidate does
+NOT realize, named rather than omitted. An absence a reader has to discover is the shape §11
+guardrail 2 warns about."* Measured against `ALGEBRA.md` §9 **by §9's own published row grammar**
+(transcribed from the file, not invented here; ⟨cmd⟩ `<scratch>/repair2-algebra9.mjs`, double-run
+identical):
+
+```
+§9 rows parsed by its own grammar: 52 · runtime 19 · type 33
+runtime rows of class P (parse productions): 10
+  34 parseCssColor  P:color  **slice — deep**        39 parseTimingFunction  P:timing-function  **slice — whole**
+  35 parseCssScalar         P:scalar              — (W3)     41 coerceToSyntax        P:syntax-coerce      — (W3)
+  36 parseCssValue          P:value               — (W3)     42 parseAnimationRange   P:animation-range    — (W3)
+  37 parseCssValues         P:value-list          — (W3)     43 parseAnimationTimeline P:animation-timeline — (W3)
+  38 parseKeyframeSelector  P:keyframe-selector   — (W3)     52 parseStylesheet       P:stylesheet  **slice — recovery**
+
+P rows the candidate does NOT realize: 7
+entry.mjs UNREALIZED_ENTRIES declares:   6
+P rows unrealized AND undeclared: [coerceToSyntax (§9 row 41, P:syntax-coerce)]
+```
+
+**Nothing is hidden by it, and this seat says so plainly.** `coerceToSyntax` **is** declared — as a
+row of `DIVERGENCE-LEDGER.md` **CN-2**, and G-7 prints it as `NO-PEER … CN-2` on its own surface. The
+defect is one of **class**, and its consequence is the one F-p1 measures: CN-2's adjudication cell
+reads *"the collectors, **the coercer** and the serializers, which are **not parse entries** and which
+the candidate's grammar does not address at all"*, and its subject line reads *"`UNREALIZED_ENTRIES`
+names the **six PARSE entries**"* — while §9 row 41 classes the coercer **P**, a parse production,
+with the same `— (W3)` slice cell as the six. That single mis-class is why three rounds of register
+wrote the cure as *"six"*, and why `syntax_mismatch` — a frozen code with exactly one owner — had no
+route in any of them.
+
+**Not cured at the bytes, and the reason is E-3, not reluctance.** `UNREALIZED_ENTRIES` is consumed
+at **25 sites** at this seat's own count — ⟨cmd⟩ `grep -rn 'UNREALIZED_ENTRIES' src test scripts |
+grep -v node_modules | wc -l` → **25**, distributed `entry.mjs` 2 · `ledger.mjs` 9 ·
+`emit-divergence-ledger.mjs` 5 · `boundary.test.ts` 3 · `differential.mjs` 2 · `equivalence.test.ts` 2
+· `run-full-surface.mjs` 2. (**Check 2 published 19** for what reads as the same command; this seat
+publishes what it read, per the self-count law, and flags the difference rather than adopting the
+prior figure. Nothing turns on it — the finding is the *contents* of the constant, not its fan-out —
+but a reader comparing the two rounds should know which is measured here.) Among them is
+`ledger.mjs:214-215`, the generator of `DIVERGENCE-LEDGER.md`'s CN-1/CN-2 rows. Changing the constant
+re-emits a **committed evidence artefact** (⟨cmd⟩ `wc -c` → **66,080 B**, landed at `313d5bac`), which
+E-3 forbids over its own bytes. The lawful instrument is a **dated addendum-beside**, and it is the
+orchestrator's or X.P.W4's to write, not this seat's. Owner: **X.P.W4** · the orchestrator.
+
+### RP2.4 — Defects 1 and 2 (G-1 · G-7): re-measured here, and the register's own cure names them owner acts
+
+Both were re-derived at this seat (RP2.1) and **neither moved**. Neither is cured here, and the
+register itself says why in its own cure cells — *"An OWNER ACT in two parts, **neither a seat's
+byte**"* (G-1) and *"Owner act, the same one as G-1's"* (G-7). Check 2's K2.8 concludes identically:
+*"Both are the owner's, and neither is a seat's byte."* This seat adds no new ground on either and
+does not pretend to: **F-r1's one-input proof stands** (`rgb(285 0 153 / 0.5)` is in the corpus, is
+not one of the 22 adjudicated literals, and the candidate answers `[255,0,153]` **because G-6 row d
+orders it** while G-1 scores it a miss for not answering the incumbent's `[285,0,153]`), and G-6
+measures **`Tests 72 passed (72)`** at this seat's own clock, so the contradiction is live at these
+bytes today. **No byte a seat may write makes G-1 green while G-6 stands**, and each new peer makes
+G-7's count **worse** before better (`parseCssColor`'s peer alone contributes **4,027 of the 5,890**,
+re-read here).
+
+### RP2.5 — Why no *partial* realization landed, measured rather than asserted
+
+The one code of the five that a single small production would reach is `keyframe_selector_invalid`
+(§9 row 38). This seat costed landing it and refused, on three grounds, the first of which is
+objective:
+
+1. **E-3.** Realizing any entry moves, at minimum: `universe-52.json` (its row flips ABSENT →
+   PARTIAL), `equivalence-full-surface.json` (`COMPARED 8`→9, `NO-PEER 44`→43, and the mirror-defect
+   total **rises**), `recovery-closure.json` **and**
+   `recovery-closure-spec-literal-operand.json` (C-3's `frozen \ emitted` set), `dual-target-identity.json`
+   (its per-entry cell counts), and `DIVERGENCE-LEDGER.md` (CN-1 is generated from
+   `UNREALIZED_ENTRIES` at `ledger.mjs:214`). **Six committed artefacts** — every one of which this
+   seat has just re-derived **sha256-equal** to its landed bytes at RP2.1 — regenerated for a gate that
+   would stay **RED at 4 of 8**. E-3 admits corrections only as dated addenda-beside; it does not
+   admit a wave re-emitting its own sealed evidence for no green.
+2. **§3a, third diagnostic iteration.** On G-4 this is the third diagnose→edit→re-measure pass:
+   `.b` authored the gate and measured C-3 RED; Repair 1 cured F-k1 and re-measured it RED at the
+   spec's own operand; this seat is the third. §3a's instruction at that point is a **halt** into
+   Triumvirate Dispatch — explicitly not a seat's unilateral redress.
+3. **It cures nothing and costs a published figure.** A partial realization leaves G-4 RED, leaves
+   G-1's row PARTIAL rather than TOTAL (F-r1's rule applies to every new entry identically), and
+   **raises** G-7's published mirror-defect count. A repair whose only measurable effect is to make a
+   RED gate's neighbour worse is churn, and §3's *"no silent re-pin of a corpus, fixture, or
+   expectation to make a gate pass"* is the law it would be edging toward.
+
+**Nothing at ≥MEDIUM was cured by a workaround. No `test.skip`, no allowlist, no narrowed corpus, no
+re-pinned expectation, no patched `node_modules`, no gate reported green on a narrative, and no byte
+written in `<p2>`.**
+
+### RP2.6 — Escalations, each with its measured reason
+
+| id | gate | severity | why no cure landed here | owner |
+|---|---|---|---|---|
+| **ESC-r1** (carried) | **G-1** — 5 of 52 TOTAL | **CRITICAL** | Unmoved and re-derived at this seat. **F-r1**: G-1's TOTAL rule (`matrix.mjs:494-495`, expectation = the published module's own answer less 22 literals) contradicts G-6, which measures `72 passed (72)` here. The cure is a **ruling**, and the register's own cure cell says so: *"neither a seat's byte"*. The dispatch half, executed in full, still yields **0** TOTAL runtime rows | the owner · X.P.W4 |
+| **ESC-d1** (carried) | **G-7** — 5,890 mirror-defects | **HIGH** | Unmoved and re-derived (`rows 52 · COMPARED 8 · NO-PEER 44`, EXIT=1). 3,982 cells carry `specUndecided: true` and want the **GROUND-C** ruling `W3.md` §10 puts *"not opened here"*; the 1,908 `DIVERGENT_VALUE` cells want F-r1's ruling. Flipping `differential.mjs:31`'s declared convention or widening the adjudication index to class level is W1.md §6 G-2's named falsifier — refused again here | the owner · X.P.W4 · X·V |
+| **E-1** (carried, **re-grounded by F-p1**) | **G-4's ⊇ leg** — 5 of 8 codes unemitted | **HIGH** | Re-measured RED at **both** operands (3,744 and 154,328 issues). Repair 1 escalated it for want of a dispatch; this seat escalates it for a **stronger, measured** reason: the dispatch the register names, **executed whole, discharges 2 of the 5 codes**. `syntax_mismatch` and `syntax_descriptor_invalid` need `coerceToSyntax` (§9 row 41, `P:syntax-coerce`) — a **seventh** parse row, two-input, not a term the closed 22 can carry; `animation_option_invalid` needs `parseStylesheet` deepened past **both** slice restrictions §10.3 declares as W3's. The true cure is nine ABSENT rows = §3 items 2–3 entire, which §4a gives to no unit and §3a gives to the Triumvirate Dispatch | the owner · X.P.W4 |
+| **F-p2** (new) | — (declaration, not a gate) | **MEDIUM** | `UNREALIZED_ENTRIES` names 6 of the 7 class-P rows §9 measures unrealized; `DIVERGENCE-LEDGER.md` CN-2 classes the missing one as *"not [a] parse entr[y]"* where §9 row 41 classes it **P**. Nothing is hidden (CN-2 rows it; G-7 prints it), so it is a class defect, not a coverage hole — but it is the reason three register rounds wrote *"six"*. The cure re-emits a committed 66,080 B evidence artefact, which **E-3** admits only as a dated addendum-beside | X.P.W4 · the orchestrator |
+
+### RP2.7 — E13, swept at this seat's own clock
+
+Four paths, read-only, from the **Status cell of each row** and never a bare grep (the I-31 trap, per
+Check 2's K2.4). ⟨cmd⟩ `grep -c '^| I-'` → **37**. Status cells reading **UNREAD**: **I-30 · I-32 ·
+I-33 · I-34 · I-35** — five; **I-31's cell reads `FOLDED 2026-09-17 at the X-W0 close`**. Each of the
+five routes **away** from X·P in its own Routing cell: I-30 *"No reply owed"* · I-32 *"Zero
+parse-that bytes; not X·P's to dispose"* · I-33 *"Not X·P's … Glass is READ-ONLY always"* · I-34
+*"Not X·P's, not a value.js act today"* · I-35 *"Routing: X·KF (Track B), NOT X-W1"*. ⟨cmd⟩ `find
+docs/tranches/V/coordination ../glass-ui/docs/tranches/BK/coordination
+../keyframes.js/docs/tranches/V/coordination ../sci-report/atlas/docs/tranches/P/coordination -type f
+-newermt '2026-09-18 15:00'` → **no files**. **0 unrowed
+value-addressed · 0 new `I-n` minted · 0 UNREAD in X.P.W3's scope. This round does not close with
+unread mail.** `INBOX.md` is outside this seat's writable set and carries a sibling's uncommitted
+hunk; no line was appended there — this paragraph is the sweep's receipt.
+
+### RP2.8 — Verbs and the LEDGER row
+
+This repair **stamps no verb** and **moves no gate**. G-1, G-4 and G-7 stay RED at exactly the
+figures the Close, Check 1, Repair 1 and Check 2 published, re-derived here from §6's own commands at
+a sixth seat; four gates RED, G-9's latch leg RED and G-3's proof leg refuted means `W3.md` §2's
+*"gates green"* condition for **IMPLEMENTED** is still unmet, and **VERIFIED is X.P.W4's alone**
+(R-A). **The LEDGER status stays `PARTIAL 2026-09-17`** and this seat does not move it; the row gains
+this round's commits, **F-p1** and **F-p2** by id.
+
+**§7's cadence, stated rather than silently skipped.** ⟨cmd⟩ `git diff --check` → **clean**. Prettier
+is **not** applied: ⟨cmd⟩ `npx prettier --check` on **HEAD's** copy of this record already warns
+*before* this append, and ⟨cmd⟩ `prettier --write` on a scratch copy of the record's own **## Check 2**
+block rewrites **148 lines** of it (table alignment). Normalizing the file would therefore rewrite
+prior seats' sealed blocks — an **E-3** breach — and normalizing only this block would make it the
+single prettier-formatted section in a 4,213-line record. This block is authored in the record's own
+style; the pre-existing warning is **inherited, not introduced**, and is named here rather than left
+for a reader to find. Owner: the orchestrator, by dated addendum-beside if it is to move at all.
+
+**Repair 2 cured nothing, and says so in the first line rather than the last. What it adds is the
+measurement three rounds of register did not take: the cure they all named, executed in full,
+discharges two of the five codes — and the third defect's real owner is a parse row this wave has
+never once written down.**
