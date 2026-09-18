@@ -424,3 +424,244 @@ grammar, no validation) · `:263` `kf.vars = newVars` · `:264` **un-awaited** `
 
 **Hard order 2 is satisfied**: both registries are committed **before any cure commit**; `.b` and `.c`
 may start.
+
+---
+
+### `KF.W2.b` — the façade · the Tier-A repoint · the entry-point contract
+
+**SERVED MODEL: claude-opus-5[1m]** · phase 2, ∥ `.c` · **status PARTIAL (honest)** — every act inside
+the unit's writable set landed and three of its four gates turn; **G-W2-2 is HONEST-RED on exactly one
+module**, `src/animation/engine/css/metadata.ts`, which is **not in §Bounds' Owned files** and is
+**returned as the ESCALATION the wave record armed at open**, never widened into by this seat.
+
+**Sections read at the bytes before writing** (D-19 · METHOD): §Carry F1 (473–508) · F4 (578–585) ·
+F5 (586–595) · §Gates G-W2-2 (655–693) · G-W2-2b (694–704) · G-W2-6 (736–768) · G-W2-8 (774–781) ·
+§Sequencing (782–800), plus §Bounds LAW-A censuses A-1/A-5 and the §Bounds Owned-files table.
+COHESION §0j (whole) and every later addendum to the file end were read for the rulings this unit
+consumes (**§0j.C KF-WRITE / KF-OP1**, **§0m.0/§0m.1/§0m.2**).
+
+#### Substrate, and the fact that it MOVED under this seat
+
+The wave record's ref is `7d958f21`. **Four sibling commits landed on the shared `master` during this
+unit's sitting** — `f0f86ed8` · `e9b64342` · `24bbeda2` · `2e0d91ae` (KF.W5 `.c`) and `f7cbc41c`
+(KF.W2 `.c`) — so every measurement below was taken at the **true bytes at the moment it was taken**,
+and the ref is named beside each. Nothing is inherited from the baseline table.
+
+```
+⟨git rev-parse HEAD (at unit open)⟩  → 2549c1332e60eeb64730c8dba1ddb36033ac8d7e
+⟨git rev-parse HEAD (at unit close)⟩ → 36b4615a7cf5e76cd8b5f9d5fc4732b894c701c8
+⟨git merge-base --is-ancestor 7d958f21 HEAD⟩ → YES (the ref of record is an ancestor throughout)
+```
+
+#### Anchors re-resolved at the true bytes (D-19), before any byte was written
+
+| spec anchor | at `7d958f21` | note |
+|---|---|---|
+| A5 `easing/registry.ts:131` `parseTimingFunction` | **`:166`** | drifted 35 L (the brief's figure, reproduced); symbol + module unchanged. Now `:165` after this unit's own edit |
+| copy 2 `emit/css-text.ts:58` `serializeSelector`, consumer `:75` | **`:59`**, consumer **`:76`** | the brief's figure, reproduced. Consumer now `:82` — **moved by THIS unit's own six-line docblock**, recorded rather than left for `.d` to rediscover |
+| `emit/format/options.ts:104` · `selector.ts:24` · `value/compile.ts:32` · `engine/options.ts:31` · `resolve/browser.ts:162` · `scroll/grammar.ts:77/:85/:109/:111/:112` · `validate.ts:182/:186` · `adapter.ts:205/:222/:241/:341/:374/:377` · `metadata.ts:42/:102` | **exact** | all 21 parse-surface call sites resolved at the ref of record by this seat |
+
+**The façade's absence proved by `git ls-tree`, never by `cat-file -e`** (the wave record's instrument
+note, reproduced on this seat):
+
+```
+$ git ls-tree --name-only 7d958f21 src/animation/compile/
+  adapter.ts  easing  emit  frame  index.ts  selector.ts  value        ← NO parse-facade.ts
+$ git cat-file -e 7d958f21:src/animation/compile/parse-facade.ts
+  fatal: path '…/parse-facade.ts' exists on disk, but not in '7d958f21'
+```
+
+#### THE TWO STANDING RIDERS, STATED BEFORE THE CURES THEY CONDITION (not after)
+
+**KF-AV-28 (§Carry F5) — L-6/C-4's discharge status, read BEFORE the emit-half cure was spent.**
+
+```
+⟨awk -F'|' '/^\| KF\.W7/ {print $4}' docs/tranches/X/execution/LEDGER.md⟩ → " planned "
+```
+
+**KF.W7 has not sat; no S-9 verdict exists for the timeline cluster; L-6/C-4 is therefore NOT
+DISCHARGED and the delegation-target obligation is LIVE.** The emit half was spent on that reading.
+Recorded exactly, because the rider's whole content is that a seat states this *before* spending, and
+a SWAP verdict arriving later would moot the obligation without invalidating the cure — the spec's own
+words: *"the emit half of the façade is built either way."*
+
+**OP-6 / G-W2-8 — the order, MEASURED and STATED, not assumed.**
+
+```
+⟨awk -F'|' '/^\| KF\.W8/ {print $4}' docs/tranches/X/execution/LEDGER.md⟩ → " planned "
+```
+
+**At this clock KF.W8 has NOT preceded.** RULINGS **R-16** declares *KF.W8 PRECEDES*; the execution
+ledger measures the opposite. Under the gate's own wording the count arm's arming condition
+(*"arms if-and-only-if W8 has not preceded"*) is therefore **MET** — and the **3 → 1 publication ACT
+is still KF.W8's row 10 / G3, and performing it here is out of bounds.** This unit consequently turns
+**the façade-side contract clause only** and leaves the count RED and HOMED, which is the one
+disposition consistent with both the ruling and the measurement. The divergence is a finding for the
+wave's close seat, not a licence.
+
+#### Acts, in order
+
+**A-0 · E13 unit-level mail sweep** (four paths ⊕ the atlas **Q** lane, read-only, this seat's clock;
+`INBOX.md` self-excluded under SELF-COUNT and **not touched** — it is outside this unit's writable set):
+
+```
+$ ls -t docs/tranches/V/coordination/ | head -3
+    INBOX.md (self-excluded) · value-inbox-2026-09-17-o8-o11-amendment-addendum.md (OURS, outbound)
+$ ls -t ../glass-ui/docs/tranches/BK/coordination/ | head -3
+    glass-outbound-2026-09-17-{constellation-o20-relay, bbnf-lang-9.0.0-addendum, valuejs-o20-disposition}.md
+    = I-33 · I-34 · I-32, all rowed, all routed to X-W0.j / the X mail seat
+$ ls -t ../keyframes.js/docs/tranches/V/coordination/ | head -3   → vnext/ · VALUEJS-INBOUND-* (letters WE sent)
+$ ls -t ../sci-report/atlas/docs/tranches/P/coordination/ | head -3 → unchanged since 2026-08-03, pre-rowed
+```
+
+**0 unrowed · 0 new `I-n` minted · no status cell flipped.** The three live `UNREAD` marks are
+glass-producer rows routed away from Track B; **none is mail addressed to KF.W2's scope**, so E13's
+close condition is not armed at this unit.
+
+**A-1 · `src/animation/compile/parse-facade.ts` CREATED, and the Tier-A seam collapsed to it.**
+208 lines. It re-publishes **value.js's own** grammar entries and collectors at one path — the import
+statement is a real `import { … } from "@mkbabb/value.js/css"` followed by `export { … }`, **not an
+`export … from` re-export**, because G-W2-2's command (ii) matches `import` and a bare re-export would
+have made the façade invisible to the very gate it exists to turn. It mints no grammar.
+
+It publishes **four named postures**, so that *no call site writes `result.ok`* — the seam's
+"exactly one declared thing that happens when a CSS string is bad":
+
+| posture | the tree shape it collapses | consumers after this act |
+|---|---|---|
+| `requireParsed` THROW | `selector.ts:23-35` (`AnimationOptionError`/`EMPTY_PARSE`) · `value/compile.ts:33-38` · `scroll/grammar.ts:57-63` · `easing/registry` · `emit/format/options` · `resolve/browser` | 6 modules |
+| `absorbParsed` ABSORB | `adapter.ts:219-226` `parseSource` → empty AST + surfaced `ParseIssue[]` | `adapter.ts` |
+| `swallowParsed` SWALLOW | `validate.ts:180-192` `keyframesNames` `try{}catch{return []}` | `validate.ts` |
+| `orFallback` FALLBACK | `engine/options.ts:31`'s refusal→`undefined` (a refusal decision, with the throw NOT caught — the two are different postures, not one with an option) | `engine/options.ts` |
+
+Two **byte-identical** private `ParseIssue` renderers — `selector.ts`'s `issueText` and `adapter.ts`'s
+`parserMessage` — collapse into `formatParseIssue`. The **type surface is deliberately NOT collapsed**
+(`import type` is erased; collapsing it is the different, unmandated act §Gates names).
+**SWALLOW's `read` runs inside the posture on purpose**: `validate.ts` guarded parse *and* collect
+together, and narrowing that guard here would be a behaviour change dressed as hygiene.
+
+**A-2 · The entry-point contract PUBLISHED with its conformance test — ONE commit, the declared
+family.** `test/compile/valuejs-contract.test.ts`, **16 tests, 6 clauses**:
+
+- **clause 0** — the façade **re-publishes, it does not re-implement**: all **14** parse-surface
+  entries asserted `facade[name] === valueCss[name]` **by identity**. This is the executable falsifier
+  for *"it mints no grammar"* — a wrapped entry breaks it.
+- **clause 1** — which grammar belongs at the keyframe-selector seam, with `parseCssScalar`'s
+  admission of `500%`/`-20%` pinned as the counterexample **and** the registry's precision correction
+  pinned with it (`parseCssScalar("from"|"to")` → `ok:true`, so *"rejects from/to"* is a FIELD
+  behaviour, never an entry behaviour).
+- **clause 2 — THE FROZEN PARSE BOUNDARY**: `Object.isFrozen(<façade result>) === true` **mirroring
+  `test/resolve/value4-immutable-resolve.test.ts:43`**, over envelope *and* payload, for the selector
+  and the stylesheet entries; **plus a write asserted to `throw TypeError`** — the clause's whole
+  point is that a consumer write is loud, not a no-op.
+- **clause 3 — the payload shape (`KF-KC-1`)**: `String(<parsed selector>)` === `"[object Object]"`.
+  *The freeze is why a write is loud; the shape is why the same object renders as `[object Object]`
+  when nobody writes to it at all* — a contract stating one and not the other publishes half a clause.
+- **clause 4** — the four postures, each pinned.
+- **clause 5 — the emit mirror**: `parseDeclarationBlock` / `serializeDeclarationBlock` round-trip,
+  and a malformed body **REFUSES** (`css_syntax`, measured — see below) instead of silently dropping
+  what a hand-rolled scanner missed.
+
+**A-3 · The declaration pair — F4's "BOTH halves", built from the tree's existing authorities.**
+Parse half = value.js's own grammar (`parseStylesheet` → `collectStyleRules` → `collectDeclarations`),
+with the bare body lifted under a universal style rule — **the same wrap idiom `resolveKeyframes`
+already applies to a bare keyframe stop-list** (`@keyframes anonymous { … }`), so no grammar is
+minted. Emit half = `emit/css-text.ts`'s **single** declaration emitter, exported rather than copied
+(*a serializer with two implementations is the Tier-D defect this seam exists to stop*).
+The pair returns value.js's `ParseResult` **unchanged**, so the CALLER declares its posture — a
+whole-replacement consumer that silently drops what its scanner missed is the defect the pair exists
+to retire, and a posture chosen inside it would re-inflict it.
+
+Measured before the assertions were written (WRITE-THEN-MEASURE), run in an isolated clone:
+
+```
+"opacity 0.5"        → REFUSE css_syntax
+"opacity: ;"         → REFUSE css_syntax
+"--x: 10px;\nbogus"  → REFUSE css_syntax      ← refuses even when the FIRST declaration is well-formed
+""                   → ok, size 0              ← empty is not malformed
+roundtrip("--offset: 10px;\nopacity: 0.5;") → "--offset: 10px;\nopacity: 0.5;"
+```
+
+**A-4 · A census consequence caught and corrected in the same sitting.** Publishing the contract
+against the façade removed this file's **direct** `@mkbabb/value.js/css` edge, dropping LAW-A census
+**A-5**'s frozen test-arm population from **10 → 9** — a number the wave declared *censused and
+frozen*, moved by an act of this wave. Cured at the root, not by re-declaring the number: the file now
+holds **both** edges, and the direct one **earns its place** as clause 0's subject. Measured after:
+`git grep -l 'from "@mkbabb/value.js/css"' -- test/ | wc -l` → **10**.
+
+#### Gate readings — BEFORE → AFTER, each double-run with identical output
+
+| gate | BEFORE (at the ref of record) | AFTER (at `36b4615a`) | verdict at this unit |
+|---|---|---|---|
+| **G-W2-2** | command (ii) → **25 runtime specifiers over 13 modules**, of which **10 are the parse surface**; **21** parse-surface call sites; `git ls-tree … compile/` → **no `parse-facade.ts`** | command (ii) → **20 runtime specifiers over 5 modules**: **`parse-facade.ts` × 15** (the whole grammar/collector surface, at ONE path) · **`engine/css/metadata.ts` × 2** (`collectStyleRules`, `collectTimelineOptions`) · `emit/css-text.ts` + `frame/interp-slot.ts` × 1 each (`serializeCssColor`, the emit half, **out of denominator by the gate's own words**) · `resolve/function.ts` × 1 (`coerceToSyntax`, the stray — `.c`'s delete-or-declare). **Parse-surface paths: 10 → 2. Call sites routed: 19 of 21.** | **HONEST-RED ON EXACTLY ONE MODULE.** The assertion (*"exactly one path"*) is unreachable while `engine/css/metadata.ts` keeps its edge, **and that module is not in §Bounds** — see the escalation. **NOT claimed green.** |
+| **G-W2-2b** (MONITOR) | 7 files · **6** demo runtime modules · **8** runtime specifiers | **7 · 6 · 8**, module-for-module identical | **TRUE — the monitor holds.** This unit opened **no** demo call site. **Paired clause satisfied**: neither clause was re-scoped to `src/` — this seat measured `src/` **and** `demo/` **and** `test/` (**10**) **and** `scripts/` (**0**), all four quadrants of the same graph |
+| **G-W2-6** | the contract does not exist (**0-of-1**); `KeyframesEditor.vue:123`/`:186` `parseCssScalar`; the freeze invariant **23 lines over 5 `src/` modules**, pinned at `:43`/`:67`/`:84` | the contract EXISTS and is executable: **16 tests / 6 clauses**, `Object.isFrozen(<façade result>) === true` at the selector and stylesheet entries, the write asserted to throw, the payload shape pinned. Freeze invariant re-measured: `interp-slot 1 · browser 4 · conditional 9 · core 6 · function 3` = **23 LINES**, pin still **`:43`/`:67`/`:84`** | **CONTRACT CLAUSE GREEN.** The call-site limb (*"`parseCssScalar` appears at zero selector seams"*) is **KFED-UNIT's** — measured unchanged at `KeyframesEditor.vue:123`/`:186`, and **this wave does not open the call site** (the gate's own restriction) |
+| **G-W2-8** | 3 copies, 0 exported | copies unchanged and **re-verified at HEAD**: copy 1 `emit/format/format.ts:20` (module-private) · copy 2 `emit/css-text.ts:59` (private, sole consumer `:82`) · copy 3 `demo/utils/keyframeSelector.ts:7`; `emit/index.ts` still exports **no** keyframe-selector serializer. **The emit mirror EXISTS and the façade is its single `src/` caller**: `serializeTimelineOptions` is imported at `parse-facade.ts` only, and `serializeDeclaration` has exactly one consumer outside its own module — the façade | **FAÇADE-SIDE CONTRACT CLAUSE GREEN · COUNT ARM RED AND HOMED.** The order is measured above (KF.W8 = `planned`, has NOT preceded); the **3 → 1 act is KF.W8's row 10 / G3** and is not performed here |
+
+#### Regression measurement — the delta is ZERO, measured against an isolated clone
+
+The shared checkout carried two sibling seats' in-flight bytes throughout, so *"the suite is green"*
+read there would be a claim about their work as much as this unit's. Every figure below was taken in a
+**clean clone at the exact commit**, `node_modules` symlinked, nothing else present:
+
+| measurement | at `49cd647b^` (before this unit) | at `36b4615a` (this unit's tip) |
+|---|---|---|
+| `vitest run --project library` | **1167 passed · 0 failed** · 3 expected fail · 14 skipped | **1203 passed · 0 failed** · 3 expected fail · 14 skipped (double-run identical) |
+| `check:lib` (`tsc -p tsconfig.lib.json`) | **3** (pre-existing, none in this unit's files) | **3** — identical |
+| `tsc -p tsconfig.test.json` | **24** (pre-existing) | **24** — identical; **0** in `valuejs-contract.test.ts` |
+| `depcruise src demo` | **4 violations** / 434–435 modules | **4 violations** / 435 modules (+1 module, +4 edges, **0 new violations**) |
+| `proof:structure` | R4×2 · R6×1 (`group.ts`, `engine/animation.ts`, `waapi/delegation.ts`) | R4×3 · R6×1 — **the third is `ingest/cssom.ts` (530 L), `.c`'s commit `f7cbc41c`**; the R6 is KF.W5 `.c`'s. **Zero violations attributable to this unit**; `parse-facade.ts` is 208 L and clean on R1–R6 |
+
+#### ESCALATION (returned, not widened)
+
+**`src/animation/engine/css/metadata.ts` carries the last 2 runtime collector specifiers on
+G-W2-2's own parse surface and is NOT in §Bounds' Owned-files table.**
+
+```
+$ git grep -n 'from "@mkbabb/value.js/css"' HEAD -- src/animation/engine/css/metadata.ts   → :30
+    collectStyleRules      call :42
+    collectTimelineOptions call :102
+```
+
+G-W2-2's assertion cannot be reached while that edge stands. The wave record armed this at open as an
+**ESCALATION TRIGGER, not a licence** (*"unit `.b` stops and returns it rather than widening its own
+bounds"*), and that is exactly what this seat did: **no write outside the writable set, the gate
+recorded honest-RED on that one module with the §Bounds cell named.** The cure is one import-line
+repoint of two symbols plus their two call sites — it is bounded and mechanical; what it needs is a
+dated §Bounds addendum-beside naming the path, not a seat's own widening.
+
+#### Residuals
+
+- **R-1 · `frame/compiler.ts` NOT carved, deliberately.** §Bounds gives it `modify-carve` and §Carry F1
+  calls `:146` *"the façade's first natural consumer"*. Measured: `:146` calls **kf's OWN**
+  `parseKeyframeSelector` from `../selector` — a symbol G-W2-2 excludes **by construction**, and
+  `selector.ts` now routes through the façade, so the site already reaches value.js's grammar through
+  exactly one seam. Repointing it would rename a call, not cure one. Recorded rather than performed.
+- **R-2 · `emit/index.ts` untouched** although it is in the writable set: its export list is
+  **MISS-β2's publication decision surface and the ACT is KF.W8's** (§Bounds). Note for `.d`/W8: KF.W5
+  `.c`'s commit `2e0d91ae` published `cssIdent` / `reverseCSSTime` / `serializeTimingFunction` through
+  that file during this sitting — **no keyframe-selector serializer was published**, so MISS-β2's 3 → 1
+  is untouched and W8's denominator is unmoved.
+- **R-3 · `engine/css/animation.ts` needed no repoint** and is left byte-clean: its
+  `@mkbabb/value.js/css` specifier is **inline-`type` only** (no runtime edge), and `:176`
+  `resolveKeyframes` is **kf's own** adapter symbol — the census correction §Carry F1 makes, confirmed
+  at the bytes by this seat.
+- **R-4 · The seam moved a sibling's coordinate.** This unit's six-line docblock in `emit/css-text.ts`
+  pushed `serializeSelector`'s sole consumer `:76 → :82`. Named here so KF.W8 re-resolves rather than
+  inherits — the §Bounds table's line numbers were never load-bearing, and this is why.
+- **R-5 · `check:lib` 3 / `tsc -p tsconfig.test.json` 24 / `depcruise` 4 / `proof:structure` R4×3+R6×1
+  are ALL pre-existing or siblings'**, measured both sides. This unit adds none and cures none — none
+  of the owning files is in its writable set.
+
+#### Commits
+
+| hash | contents |
+|---|---|
+| **`49cd647b`** | `compile/parse-facade.ts` (create) **+** the nine in-bounds Tier-A repoints (`adapter` · `easing/registry` · `emit/format/options` · `selector` · `value/compile` · `engine/options` · `resolve/browser` · `scroll/grammar` · `validate`) — **the declared family: a façade with zero callers is not a seam**, so it is born with all nine. 10 files |
+| **`46f0b77b`** | `test/compile/valuejs-contract.test.ts` **+** `compile/parse-facade.ts` (the declaration pair) **+** `emit/css-text.ts` (the single declaration emitter exported) — **the entry-point contract + its conformance test, ONE commit, not split**. 3 files |
+| **`36b4615a`** | `test/compile/valuejs-contract.test.ts` — clause 0 (the façade↔package identity) and the restoration of census A-5's frozen test arm to **10**. 1 file |
+| *(this section)* | `docs/tranches/X/execution/B/KF-W2.md` — the unit receipt, pathspec, one file |
+
+**Hygiene**: all three commits verified by `git show --name-only` to contain **exactly** their declared
+paths — **0 sibling files swept in** across four concurrent seats on one index. `scripts/dev/dev.sh`
+appears in **0 of 3**. **No push** — a wave's close pushes its own `origin HEAD`, and that is `.d`'s act.
