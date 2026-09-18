@@ -275,12 +275,42 @@ describe("palette read policy (X-W3 · X.A1)", () => {
         it("selects exactly the documents the predicate admits", async () => {
             // One row per interesting (owner, visibility, deletedAt) tuple.
             const rows = [
-                { slug: "a-pub", userSlug: "alice", visibility: "public", deletedAt: null },
-                { slug: "a-priv", userSlug: "alice", visibility: "private", deletedAt: null },
-                { slug: "a-trash", userSlug: "alice", visibility: "public", deletedAt: new Date() },
-                { slug: "b-pub", userSlug: "bob", visibility: "public", deletedAt: null },
-                { slug: "b-priv", userSlug: "bob", visibility: "private", deletedAt: null },
-                { slug: "anon-priv", userSlug: null, visibility: "private", deletedAt: null },
+                {
+                    slug: "a-pub",
+                    userSlug: "alice",
+                    visibility: "public",
+                    deletedAt: null,
+                },
+                {
+                    slug: "a-priv",
+                    userSlug: "alice",
+                    visibility: "private",
+                    deletedAt: null,
+                },
+                {
+                    slug: "a-trash",
+                    userSlug: "alice",
+                    visibility: "public",
+                    deletedAt: new Date(),
+                },
+                {
+                    slug: "b-pub",
+                    userSlug: "bob",
+                    visibility: "public",
+                    deletedAt: null,
+                },
+                {
+                    slug: "b-priv",
+                    userSlug: "bob",
+                    visibility: "private",
+                    deletedAt: null,
+                },
+                {
+                    slug: "anon-priv",
+                    userSlug: null,
+                    visibility: "private",
+                    deletedAt: null,
+                },
             ];
             await db.collection("palettes").insertMany(rows.map((r) => ({ ...r })));
 

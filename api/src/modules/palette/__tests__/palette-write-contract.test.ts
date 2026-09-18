@@ -429,7 +429,10 @@ describe("palette write contract (X-W3 · X.W3.3)", () => {
         expect(second.headers.get("Idempotency-Replayed")).toBe("true");
 
         // One fork, not two — the handler never ran the second time.
-        const forks = await services.repositories.palettes.countForksOf("source", "alice");
+        const forks = await services.repositories.palettes.countForksOf(
+            "source",
+            "alice",
+        );
         expect(forks).toBe(1);
     });
 
