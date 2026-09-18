@@ -542,3 +542,188 @@ the bytes; no third diagnose→edit→re-measure occurred on any gate.
 **Unit `a` CLOSED. Unit `b` opens** — the PATCH/chain one-cut (F-α · F-β · SS-C-1 — FW6-G1/G2/G3/G4),
 **ONE COMMIT** per §2.1's head and §4 lock 3, with the KISS lift of the remix tri-state idiom
 re-resolved above and holding at `visualizations.py:522-528`.
+
+---
+
+### b — the PATCH/chain one-cut (F-α · F-β · SS-C-1), ONE COMMIT
+
+**Seat**: Opus 5 (1M), 2026-09-17. **Sections executed exactly as ordered**: spec **§2.1** (F-α · F-β ·
+SS-C-1) · **§3 FW6-G1 · FW6-G2 · FW6-G3 · FW6-G4** · **§4 lock 3** (the ONE-CUT laws). **Writes**: the two
+paths of the unit's writable set and nothing else — `waves/F-W6/burn-register.md` (append) and this record.
+**Zero fourier bytes · zero value-tree product bytes.** Engine `/usr/bin/grep` (§0.2's pin).
+
+#### Acts, in order
+
+**Act 1 — the spec read WHOLE, then §2.1 / §3 G1–G4 / §4 lock 3 read again at their own bytes.** The three
+rows of §2.1 were read as one table (the head declares *"**ONE COMMIT** (3 rows)"*), and the four gate rows
+were read with their owner cells, because FW6-G4's owner cell is itself a lock (*"same commit as
+FW6-G2/G3 (one PATCH-model cut)"*). **The spec was not edited** (E-3). Unit `a`'s §0 was read whole first:
+its anchor re-resolution is the coordinate source for every citation below, and **no anchor was re-derived**.
+
+**Act 2 — substrate re-measured at this seat's clock before any citation** (D-19). ⟨cmd⟩ `git -C $F rev-parse
+--short=8 HEAD` → **`3bac3d52`** · ⟨cmd⟩ `git -C $F status --porcelain | wc -l` → **0** — **unmoved from
+unit `a`'s reading**, so §0.1c holds at this clock and the F.W0 pre-gate is not re-litigated.
+
+**Act 3 — F-α's witness, measured whole.** ⟨cmd⟩ `/usr/bin/grep -rn "_write_root_version" $F/api
+--include='*.py' | wc -l` → **3**, double-run **3** (`routers/visualizations.py:110` def · `:220` create ·
+`:592` remix) — **the only writer**; ⟨cmd⟩ `/usr/bin/sed -n '136,142p'` prints `:138 parent_hash=None,` ·
+`:140 root_hash=set_hash_value,` · `:141 depth=0,`; ⟨cmd⟩ `/usr/bin/grep -rn "visualization_versions" $F/api
+--include='*.py' | /usr/bin/grep -v tests | wc -l` → **8**, double-run **8** (insert `:146` · finds `:749`
+/`:874` · `find_one` `:822` · 2 migration-script sites · 2 index creations `api/services/database.py:132-133`).
+▲ **Added at this seat, and it sharpens the row**: `GET /{slug}/versions`'s own docstring at `:862-863` reads
+*"The viz's own version chain, ``depth``-ordered, bounded ≤50"* — **the file states the chain the constructor
+forbids**. ⟨*divergence of FORM, disclosed*: the spec's unscoped `grep -rn "_write_root_version" $F/api` also
+prints a **binary match** line for `routers/__pycache__/visualizations.cpython-314.pyc`; the published figure
+is the `--include='*.py'` source count, **3**, identical to the baseline's. Recorded in the register's §1.b⟩.
+
+**Act 4 — F-β's witness, the PATCH handler read WHOLE rather than at its three cited lines.** ⟨cmd⟩
+`/usr/bin/sed -n '355,392p' $F/api/routers/visualizations.py` → after `resolve_session`, the ownership check,
+`etag.require_if_match` and the visibility-transition guard, the body is **three statements**: `:381 updates
+= {k: v for k, v in body.model_dump(exclude_unset=True).items() if v is not None}` · `:382 updates
+["updated_at"] = datetime.now(UTC)` · `:383 await db.visualizations.update_one({"slug": slug}, {"$set":
+updates})`. **No `set_hash` recompute · no `content_hash` recompute · no `_write_root_version` call** — the
+last confirmed by Act 3's enumeration, which is why the handler was read whole: an absence-proof over three
+cited lines proves nothing about the other thirty-five (K-6/S-8's method law, applied to a handler body).
+`:480` `_head_set_hash` → `return doc.get("set_hash") or atomdiff.set_hash(atomdiff.enumerate_atoms(doc))` —
+**the stored value whenever non-empty**. ▲ **Witness sharpened, measured not inferred**: `VisualizationUpdate`'s
+own docstring at `:199-200` states *"``slug`` is immutable and ``content_hash`` is recomputed server-side"* —
+**the recompute the handler does not perform**. Booked into the register row as part of the defect surface.
+
+**Act 5 — FW6-G3's arm and the KISS lift, verified at both ends.** The drop is at the same `:381`
+comprehension (`if v is not None` discards an explicit null); the idiom to lift is live — ⟨cmd⟩
+`/usr/bin/sed -n '520,529p'` → `:522 if "palette_slug" in body.model_fields_set:` … `:528 child_atoms
+["palette_slug"] = body.palette_slug`, under the in-source comment *"tri-state (F-08): null CLEARS the
+binding (atom removed from the bag); a slug rebinds; an omitted field inherits the source's."* **The
+commissioned act names the lift and forbids a second spelling** — the KISS lock is quoted into the row.
+
+**Act 6 — SS-C-1's witness computed as set against set, not as prose.** PATCH fields: ⟨cmd⟩ `/usr/bin/sed -n
+'203,207p' $F/api/models/visualization.py | /usr/bin/grep -c ':'` → **5**, double-run **5** (`visibility ·
+title · description · tags · palette_slug`, sealed by `ConfigDict(extra="forbid")` at `:209`); the wire twin
+⟨cmd⟩ `/usr/bin/sed -n '257,261p' $F/web/src/lib/types.ts | /usr/bin/grep -c '?:'` → **5**, double-run **5**.
+Atoms: ⟨cmd⟩ `/usr/bin/sed -n '30,34p' $F/api/lib/crud/atomdiff.py | /usr/bin/grep -c '"'` → **5**, double-run
+**5** (`ATOM_KEY_ORDER`, restated as the `AtomKey` Literal at `:37-39`). **Intersection 1 · PATCH-only 4 ·
+atom-only 4** — and the named casualty is located: `class AnimationSettings` at **`api/models/shared.py:65`**
+(⟨*the spec names the field, not the class's home; recorded here because a burn seat will need it*⟩), whose
+`speed` the control types at `web/src/lib/types.ts:49`.
+
+**Act 7 — the dissents, hunted rather than assumed.** The spec orders F-α's dissent *carried*, so it was
+read at its source: ⟨cmd⟩ `/usr/bin/grep -n 'W2-transpose' $F/docs/tranches/M/M.md` → **4** sites, of which
+the one inside **§7** (*"§7 — The chronic + deferred fold (terminal verdicts — no perpetual punt)"*) is the
+verdict row — *"Phantom within-viz version chain (depth always 0) | J | **DELETE** (W2-transpose; net code
+decrease, inv-3) | W10"* — and the **M.W10** wave row carries its execution language, ⟨cmd⟩ `/usr/bin/grep -o
+'W2-transpose: DELETE the phantom within-viz version chain' M.md` → *"W2-transpose: DELETE the phantom
+within-viz version chain"* ⟨*the pattern is cut short of the source's own backticks so the receipt is
+runnable as printed; the row's full clause — …`keep the per-viz atom /diff + cross-viz fork_of`… — is quoted
+in the register row, where it sits inside the quotation and not inside a command*⟩. **The spec's `M/M.md §7`
+citation HOLDS at the bytes.** ▲ **A SECOND dissent was found in the same row and is booked** — ⟨cmd⟩
+`/usr/bin/grep -o 'W2-fix: .palette_slug. remix-only' M.md` → *"W2-fix: `palette_slug` remix-only"* (the
+dots stand for the source's backticks, same reason): fourier's board plans to take atom 5 **off** the PATCH
+surface, under which FW6-G3's tri-state is moot and FW6-G4's set equality resolves **by subtraction**.
+**Neither dissent is arbitrated here**; both are carried in their rows and routed to the ruling seat through
+unit `i`'s letter. **Neither weakens a gate** — the four falsifiers stay the spec's own words.
+
+**Act 8 — the unruled disposition, FLAGGED INLINE (runbook §5.7), never presumed.** COHESION §0j.D was read
+whole for this unit: **R1–R9 ⊕ OG-F1 / OG-F2 ⊕ G-15** reach `TA-4`, the trie, the flag port, the like verb,
+the off-state `[]`, the hard-delete arm, codegen, born visibility, the session subsystem and the four G-15
+contradictions — ⟨cmd⟩ `/usr/bin/grep -n 'deepen\|F-α\|SS-C-1\|F-β' COHESION.md` → **no output; none of the
+ten rulings is a member of the set that reaches this unit's three identities.** Unit `b` is therefore
+**unconditioned by owner ruling**, and F-α's *deepen-or-retire* is **open**: the row names both branches
+with the falsifier that closes either and hands the choice to F.W5's ruling seat. **This seat chose
+neither** — choosing would be an implementer resolving an owner question by shipping.
+
+**Act 9 — the register rows written, and the self-count trap disarmed at the root.** Three rows appended to
+§1 (the `id` column FW6-G17 greps), plus **§1.b** carrying the receipts, the form-divergence disclosure and
+the *what-this-seat-did-not-decide* block, plus the unit stamp in §2. ▲ **A real defect of my own, caught by
+WRITE-THEN-MEASURE and cured structurally rather than patched**: §0.1c publishes a self-count over unit
+`a`'s beside-marker (**18**, of which two are self-references). My first draft **quoted that probe's pattern
+verbatim**, and ⟨cmd⟩ `/usr/bin/grep -c '⟨beside' burn-register.md` read **22** — I would have silently
+falsified a receipt I did not author. Two corrections followed, and the second introduced the same
+fixed-point problem one level up (a count of my own marker moved each time I named it: **2 → 3 → 4**). The
+cure is **structural, not a third patch**: unit `b` publishes **no count of a notation marker at all** —
+the register's countable operand is the `id` column, a marker is not an operand — and the beside-probe is
+quoted with a bracketed spelling (`'⟨besid[e]'`) that matches the same lines while the quoting line is not
+one of them. **Settled figure, double-run after the commit: 18 = unit `a`'s figure, unmoved.**
+
+#### Commit
+
+| commit | meaning | pathspec |
+|---|---|---|
+| **`4e65aa76`** | `docs(x-f/w6.b): the PATCH/chain one-cut booked — F-α · F-β · SS-C-1 in ONE COMMIT, four gates' commissioned acts installed` | `docs/tranches/X/fourier/waves/F-W6/burn-register.md` |
+
+**ONE COMMIT family honoured** (§2.1's head *"ONE COMMIT (3 rows)"* ⊕ §4 lock 3's F-β ⊕ SS-C-1 one-cut ⊕
+FW6-G4's *"same commit as FW6-G2/G3"*): the three rows, §1.b and the stamp landed together — ⟨cmd⟩
+`git show --stat 4e65aa76` → **1 file changed, 68 insertions(+)**. Settled bytes of the register: **425
+lines / 56,903 B**, double-run identical; line 1 still `SERVED MODEL: claude-opus-5[1m]`. ⟨cmd⟩
+`git status --porcelain -- docs/tranches/X/fourier/waves/F-W6/` → **0**. **`scripts/dev/dev.sh` untouched
+and unstaged** — it remains ` M` in the tree and appears in no commit of this unit.
+
+#### Gate readings — BEFORE → AFTER
+
+Every AFTER witness was **re-run post-commit**; all four reproduce unchanged, as they must while fourier is
+read-only (HEAD `3bac3d52`, **0** dirty, both measured again after the landing).
+
+| gate | BEFORE (baseline, this record) | AFTER (this unit) | reading |
+|---|---|---|---|
+| **FW6-G1** chain depth (F-α) | **RED-AS-EXPECTED** — 3 writer sites, `depth=0` hard-coded, 8 non-test `visualization_versions` sites | **RED — commissioned act installed; disposition UNRULED** | §3's split verdict, applied literally: *"a gate closes for F.W6 when the commissioned act is authored with its evidence row in the burn register; it goes GREEN only when the named landing occurs."* The act is authored with both branches, the reference walk and the gate's own falsifier; **the landing is fourier's and the DISPOSITION IS NOT RULED**. A GREEN here would be a gate argued green over bytes that did not move and a branch nobody chose |
+| **FW6-G2** `set_hash` recompute on atom PATCH (F-β) | **RED-AS-EXPECTED** — bare `$set`, `_head_set_hash` returns the stored value | **RED — commissioned act installed** | Act = recompute from `enumerate_atoms(doc)` ⊕ the version write, with the in-source docstring claim (`:199-200`) folded into the defect surface. Falsifier carried verbatim. Landing pending |
+| **FW6-G3** `palette_slug` clearable | **RED-AS-EXPECTED** — `if v is not None` drops the null; the remix arm tri-states twenty lines away | **RED — commissioned act installed** | Act = **LIFT** `:522-528`'s `model_fields_set` idiom; the KISS lock is quoted into the row so no seat invents a second spelling. Landing pending; M.W10's *remix-only* dissent carried beside |
+| **FW6-G4** PATCH field set = atom set (SS-C-1 write leg) | **RED-AS-EXPECTED** — five PATCH fields vs five atoms, one shared | **RED — commissioned act installed** | Act = set equality **or** a per-atom statement with reasons (the gate admits either, never silence), landing in the **same commit** as G2/G3. **READ leg NOT re-booked** — banked at `fr-GalleryCardModal` GCM-1 → F.W4 |
+
+**No other gate was touched, and none was read as GREEN.** The standing FW6-G16 condition holds at this
+seat's clock — ⟨cmd⟩ `git status --porcelain -- api/src src | wc -l` → **0**, before and after the commit.
+
+#### Locks observed, each with the act that observed it
+
+- **ONE COMMIT family (§2.1 head)** — one commit, one file, 68 insertions (Act 9 / Commit). The three rows
+  were written into the buffer together and were never staged separately.
+- **ONE-CUT LAW, F-β ⊕ SS-C-1 (§4 lock 3)** — stated **in both rows** and in FW6-G4's reading, with the
+  reason spelled out in each direction (a widened field set without the recompute mints four more
+  stale-hash paths; a recompute over a one-atom field set leaves four atoms unreachable). The landing
+  evidence cell of SS-C-1 forbids a stamp from a split landing.
+- **KISS lock (§2.1's ▲)** — *"the tri-state idiom ships in the same router twenty lines away — LIFT it, do
+  not invent one"*: the act names the exact site and the three arms in the source's own words (Act 5). **No
+  idiom was designed by this seat.**
+- **§4 lock 2, F.W5 STATES / F.W6 BURNS** — each row cites its stating clause (**E2** for F-α, **E7** for
+  F-β and SS-C-1's write leg) and **claims no F.W1/F.W3/F.W4/F.W5/F.W8 credit**; the READ leg is left with
+  GCM-1 rather than re-homed, so FW6-G17 has no double-booking to find in this unit's rows.
+- **R-5 record-qualification (§4 lock 10)** — the one colliding token this unit touches is written with its
+  record: **`fr-GalleryCardModal` GCM-1**. No bare `M-9`/`M-10`/`B-2`/`C-2` appears in these rows.
+- **D-19 MEASURE-AT-OPEN** — every figure above is this seat's own read at `3bac3d52`, double-run; unit
+  `a`'s §0.1c supplied the coordinates and **none was re-derived**.
+- **READ-ONLY fourier** — every witness is `grep`/`sed`/`git status`. **Zero fourier bytes**: HEAD and dirty
+  count measured before and after the commit, both unmoved. glass-ui untouched; no producer row rides this
+  unit.
+- **Runbook §5.7** — *"Owner rulings are FLAGGED INLINE and never presumed"*: F-α's disposition is flagged
+  inline in the row and in this receipt, and is **not** treated as an escalation trigger (no write outside
+  bounds, no third diagnose→edit→re-measure on a gate, no allowlist pressure).
+
+#### Residuals carried forward
+
+1. **F-α's disposition is UNRULED and must be ruled before the landing.** Unit `i`'s letter carries it as
+   its **first ask**, with both branches and the single falsifier that closes either. A fourier seat that
+   picks a branch unilaterally resolves an open owner question by shipping.
+2. **Two dissents of record now ride the F.W6 → fourier edge**, not one: the M.W10 **DELETE** of the
+   within-viz chain (F-α) and the M.W10 **`palette_slug` remix-only** plan (F-β/SS-C-1). The second is new
+   to this wave's record and **materially changes what "cure" means for FW6-G3 and FW6-G4** — subtraction
+   rather than addition. Both belong in the letter.
+3. **`VisualizationUpdate`'s docstring (`:199-200`) is part of F-β's cure surface**, not decoration: a
+   landing that recomputes the hash and leaves the docstring's *"recomputed server-side"* claim unqualified
+   still ships a false in-source statement (the claim is true of `set_hash` after the cure, and was never
+   true of a PATCH that touched no atom).
+4. **`class AnimationSettings` lives at `api/models/shared.py:65`**, not in `models/visualization.py` where
+   the atom is referenced — recorded because SS-C-1's landing edits the PATCH model and will need the
+   class's real home.
+5. **The self-count lesson generalises** (Act 9): a figure published over a token that a later append can
+   mint has no fixed point. Units `c`–`i` append to the same file; **the `id` column is the operand FW6-G17
+   greps, and it is the only figure of this file a later seat should be counting.**
+
+**Escalations: none.** No write was attempted outside the writable set (the two paths, both of which the
+brief names); no specified cure was impossible at the bytes — **every cure in this unit is a commissioned
+ask, and the asks are authored exactly as §2.1 words them**; no third diagnose→edit→re-measure occurred on
+any gate (the two re-writes in Act 9 were to **this seat's own prose figure**, not to a gate, and the second
+was replaced by a structural cure rather than a third patch).
+
+**Unit `b` CLOSED. Unit `c` opens** — the privacy limb (F-γ + FR-AFP-4 — FW6-G5/FW6-G11), **ONE CUT**, with
+`_readable_or_none`'s five call sites and the bare ancestor-walk `find_one` at `:784` holding as unit `a`
+re-resolved them, and value.js's `service/forks.ts:167-179` `{kind:"unavailable", ordinal}` shape standing
+as the adoption target rather than a design question.
