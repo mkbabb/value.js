@@ -1167,3 +1167,36 @@ fails R1 totality in the accept direction; cured in-wave as unit `.g` (the juxta
 is architecture) → **`.g`** dimension-token boundary (Opus seat), serial, both after `.e`; each
 re-runs G-3 · G-5 · G-9 and appends its receipt. Carried unmoved: F-a.6 · E-1/E-2/E-3 · ESC-c1 ·
 ESC-d1 · ESC-d2 (their owners stand as W3-CLOSE.md names them). D relaunches on this word.
+
+## §0q ADDENDUM 2026-09-18 — X.P.W3.f's ESCALATION (E-f1 · E-f2 · E-f3), RULED; `.f` REDISPATCHED WITH ITS GRANTS
+
+`.f` halted per §3a without landing a byte (`<p2>` `ab6d694` unmoved; reachability census banked at
+`evidence/W3/capacity-reachability-2026-09-18.*`, `e765e079`). Each ask is answered at the bytes it cited.
+
+- **E-f1 — GRANTED.** `.f`'s writable set gains `typescript/src/css/algebra/tables.mjs` (the capacity
+  labels appended to `L` AFTER `"<string>"`, no index moves — K-10-safe) and `typescript/src/css/diagnostics.mjs`
+  (the promoted rows, e.g. `<mark-journal> (at most 32768 marks)`; `isNamedProduction` accepts them).
+  `.g` (`algebra/**`) runs after `.f`, so no two writers share a path.
+- **E-f2 — nine `W_OVF` regions, three classes, ruled per class.**
+  - **Class 1** (input · marks · recoveries · D): boundary-visible in both lowerings, identical by
+    measurement — cured as §0p states.
+  - **Class 2** (C · P, restored journals whose guarded quantity is a PEAK): **peak-with-grant.**
+    `.f` gains `lowering-js/runtime.mjs` (the appender) and `lowering-js/js-alg.mjs` (the push sites)
+    for a high-water counter on the journals the JS lowering ALREADY keeps (EQ-4) — the same quantity
+    the module guards, not a second memory model. Final-count-with-proof is REFUSED: a restored
+    journal's final count does not bound its peak.
+  - **Class 3** (value stack · arena · expsnap; no σ-side quantity; arena overflow a Wasm TRAP):
+    **unreachable-by-construction.** Θ declares each class-3 capacity from `layout.mjs`; `.f` derives
+    a per-unit ceiling `K` for each from the emitter's own node table (bytes per tag, cells per
+    numeral, snapshot depth per `REF`) in terms of already-declared class-1/depth quantities, and
+    ASSERTS AT LOAD `cap₃ ≥ K × bound₁` — lowering the declared class-1 bound in Θ (both lowerings)
+    where the built module's regions require it, so a class-1 rejection always fires first. The
+    suite measures the census maxima against `K` (`≤`, never `=`). Shadow counters are REFUSED.
+- **E-f3 — the in-bounds form.** A capacity-band identity leg in `test/css-recovery/boundary/capacity.test.ts`
+  using G-5's `canonical()` idiom, reported BESIDE the unchanged 79,674 / 0; `corpus.json` and
+  `css-dual-target-identity.mjs` (sealed, `.a`/`.d`) untouched.
+- **Also ruled:** the valid-input window witness is `"a"×(INPUT_CAP−1) + "{}"` (the seat's correction
+  of R3.4); the mandatory census (20 families, binary-searched) is the suite's boundary band.
+
+`W3.md` gains a second dated addendum widening `.f`'s Files line accordingly. The running D workflow
+was STOPPED before its close/check could grade an unrealizable unit; D relaunches on this word.
