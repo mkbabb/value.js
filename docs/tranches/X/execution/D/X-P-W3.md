@@ -2955,3 +2955,14 @@ commit is the stamping act, X.P.W2's `complete_with_misses` precedent theirs to 
 VERIFIED is X.P.W4's alone (R-A). Status returned: **PARTIAL** — the unit's own acts are complete
 (close report, adjudication, chain, carve), its L-13 sub-gate reads RED by construction, and ESC-e1
 is returned rather than cured.
+
+**Addendum-beside to X.P.W3.e, same sitting (E-3; nothing above is rewritten).** e.4 row 4 said the
+LEDGER hunks would be staged *"through a temporary index"*. Measured immediately before staging, the
+sibling X-W1 and F.W1 hunks had already been committed by their seats (`767c62c3` 14:31 · `c9f1b1e4`
+14:27), so ⟨cmd⟩ `git diff -- docs/tranches/X/execution/LEDGER.md` contained **exactly this seat's two
+hunks** (the row cells at L81, the timeline line at the end) and ⟨cmd⟩ `git diff --cached --stat` → empty.
+A plain pathspec commit therefore swept nothing and **no temporary index was used**: the ledger landed
+as **`d166abc5`** (`1 file changed, 3 insertions(+), 1 deletion(-)`), the receipt as **`984d2c27`**.
+The unit's value.js commits are four: `313d5bac` · `c2bc7f5a` · `984d2c27` · `d166abc5`, each
+`git branch --contains` → `* tranche-u`. Final state at 14:5x: this unit's whole writable set clean in
+`git status`; `<p2>` → `?? .worktrees/` alone; `scripts/dev/dev.sh` ` M`, unstaged, untouched.
