@@ -71,18 +71,23 @@ const DROP_RATIO = 2; // a "dropped" frame is > 2× median
 const DROP_FRACTION_MAX = 0.1; // ≤ 10% dropped
 
 test("O-5 boot pacing — no jitter spike over the boot window", async ({ page }) => {
-    // HONESTLY RED (X-W2 re-measure, 2026-09-17): both legs red, and the cause
-    // is NOT the payload — the payload cure landed at X-W2 unit a (13f4ddc2)
-    // and the 2.5s gap holds zero main-thread long tasks. Disposition of this
-    // marker is X-W1's class-wide ruling (CC-031), not this spec's.
-    test.fail();
+    // ── X-W1 · G-6 RULING — `test.fail()` REMOVED; the assertion stands real,
+    // and it is RED.
+    //
+    // X-W2's own note asked for this: *"X-W1 (CC-031) rules the DISPOSITION of
+    // this `test.fail()` as a class; X-W2 supplied the payload cure and this
+    // measurement. A red stays red with its cite."* The ruling, applied: the
+    // assertion is real, so the marker goes and the leg reds with its cite. The
+    // surviving spike is a ~2.5s presentation-side rAF/BeginFrame stall carrying
+    // NO main-thread work on a software-GL compositor (X-W2's four-probe
+    // longtask census, `docs/tranches/X/evidence/W2/o5-remeasure.txt`); its cure
+    // is not X-W1's, and neither is lowering the `frames.length > 10` guard,
+    // which X-W2 records as forbidden.
     test.setTimeout(30_000);
 
     await installFrameCollector(page);
     await page.goto("/");
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     // The boot window B0→B4 — the first ~4s of real-time boot rendering.
     await waitMs(page, 4000);

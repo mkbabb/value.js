@@ -62,10 +62,14 @@
         "gh-pages": "vite build --mode gh-pages",
         "prepare": "rm -rf dist && npm run build",
         "pretypecheck": "npm run build",
-        "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit",
+        "typecheck": "vue-tsc -p tsconfig.lib.json --noEmit && vue-tsc -p tsconfig.demo.json --noEmit && vue-tsc -p tsconfig.test.json --noEmit && tsc -p tsconfig.e2e.json --noEmit",
         "lint": "eslint . --max-warnings=0",
+        "pretest": "npm run build",
         "test": "vitest run",
-        "test:e2e": "playwright test"
+        "test:e2e": "playwright test",
+        "test:visual": "playwright test --project=visual",
+        "slate": "node scripts/ci/oracle-slate.mjs",
+        "boot-smoke": "node scripts/ci/boot-smoke.mjs"
     },
     "repository": {
         "type": "git",

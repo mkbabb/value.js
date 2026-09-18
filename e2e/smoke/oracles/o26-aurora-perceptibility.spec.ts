@@ -51,18 +51,22 @@ const MIGRATION_MIN = 4; // ≥ 4 over the 10s window
 test("O-26 aurora perceptibility — the field migrates unmistakably over 10s", async ({
     page,
 }) => {
-    // BORN-RED: the current field is a still (sub-perceptual breath + dead pointer
-    // axes + marigold-for-gray). Cured at W2-5 (T-26 full composition); remove
-    // this annotation then. See the file docstring.
-    test.fail();
+    // ── X-W1 · G-6 RULING — `test.fail()` REMOVED; the assertion stands real,
+    // and it is RED.
+    //
+    // The defect is live and was re-measured at the full-suite baseline run of
+    // 2026-09-18 (`58d6f731`): the field is still a still — sub-perceptual
+    // breath, dead pointer axes, marigold-for-gray. G-6 admits exactly two
+    // dispositions, *"a real assertion or deleted"*, and `test.skip()` is named
+    // as the same deferral under a new name. The assertion is REAL, so the
+    // annotation goes and the leg reds for its own reason. Its cure is W2-5's
+    // (T-26 full composition), NOT this wave's: X-W1 owns the gate, not the
+    // atmosphere. A red that names its cure is the honest state; an
+    // expected-to-fail marker is a green that hides one.
     test.setTimeout(45_000);
 
-    await page.goto(
-        "/#/?space=oklch&color=" + encodeURIComponent(MID_C_SEED),
-    );
-    await expect(
-        page.getByRole("main", { name: "Color tool panes" }),
-    ).toBeVisible();
+    await page.goto("/#/?space=oklch&color=" + encodeURIComponent(MID_C_SEED));
+    await expect(page.getByRole("main", { name: "Color tool panes" })).toBeVisible();
 
     const renderer = await detectRenderer(page);
     console.log(

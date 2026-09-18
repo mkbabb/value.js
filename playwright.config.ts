@@ -1,5 +1,13 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// X-W1 · G-8/G-9/G-10 — the visual matrix's project DEFINITION, imported rather
+// than restated. X.W1.b authored `e2e/visual/**` but §Disjointness forbids it
+// writing this file, so it shipped the project as a module with its CI contract
+// in the header; this is the single spread W1.md's plan calls for. One source of
+// truth, no copy to drift — and G-5's slate now sees a seventh project, which
+// must have a CI job or the slate reds.
+import { VISUAL_PROJECTS } from "./e2e/visual/visual.project.ts";
+
 /**
  * E.W3 Lane B — 5-project smoke partition (extends E.W3 Lane A 4-project
  * partition with a `smoke-safari` WebKit project for iOS-Safari
@@ -65,11 +73,7 @@ import { defineConfig, devices } from "@playwright/test";
  */
 const WEBGL_CHANNEL = "chromium" as const;
 const SWIFTSHADER_LAUNCH = {
-    args: [
-        "--use-gl=angle",
-        "--use-angle=swiftshader",
-        "--enable-unsafe-swiftshader",
-    ],
+    args: ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader"],
 };
 
 // T.W3 — the lane-local port seam. Tranche T's standing execution mode (E-6)
@@ -237,6 +241,30 @@ export default defineConfig({
             },
         },
         {
+            // ── X-W1 · R50 / G-5 section C — THE WEBKIT ORACLE PROJECT ──────
+            // PH-4 measured the hole: *"the oracles subtree is structurally
+            // unreachable from any WebKit project"* — `smoke-safari`'s testDir
+            // is the DISJOINT `./e2e/smoke/safari`, so not one file under
+            // `oracles/` had ever been collected by a WebKit cell, while the
+            // corpus has been citing engine-specific rows against those very
+            // oracles by ordinal. Every project had a job and a whole subtree
+            // was still reachable by no project x engine cell, which is exactly
+            // the class a PROJECT-level slate cannot see.
+            //
+            // The iPhone 14 descriptor is deliberately NOT used here: these are
+            // desktop-viewport oracles, and the claim under test is the ENGINE,
+            // not the device. Chromium launch flags are omitted for the same
+            // reason `smoke-safari` omits them — WebKit has its own GL stack.
+            name: "oracles-safari",
+            testDir: "./e2e/smoke/oracles",
+            use: {
+                baseURL: E2E_ORIGIN,
+                browserName: "webkit",
+                headless: true,
+                viewport: { width: 1280, height: 720 },
+            },
+        },
+        {
             // E.W3 Lane B — iPhone 14 WebKit engine project. Catches
             // iOS-Safari class bugs (e.g. ValueUnit-nesting frame-294
             // stack-overflow, WebGL-on-WebKit shader-compile divergence)
@@ -257,5 +285,14 @@ export default defineConfig({
                 headless: true,
             },
         },
+        // The visual matrix, spread from its own module (see the import note).
+        // `baseURL` is supplied here because this config owns the dev server the
+        // whole suite runs against; everything else — `testDir`, `testMatch`,
+        // `snapshotPathTemplate`, `workers`, the SwiftShader launch args — is
+        // X.W1.b's and is not restated.
+        ...VISUAL_PROJECTS.map((project) => ({
+            ...project,
+            use: { ...project.use, baseURL: E2E_ORIGIN },
+        })),
     ],
 });
