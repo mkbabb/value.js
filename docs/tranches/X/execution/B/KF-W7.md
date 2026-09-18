@@ -414,3 +414,215 @@ gate-run / single-file-cure / verify-only seat → **Opus solo**. Receipts every
 ## Unit receipts
 
 *(appended by each unit as it lands; nothing below this line at OPEN)*
+
+---
+
+### X.KF.W7.a
+
+**Phase 1 — THE S-9 EVALUATE (serial, alone).** **Model**: `claude-opus-5[1m]`.
+**Date**: 2026-09-18. **Ref of record**: keyframes.js `origin/master` **`ae83da07`**.
+**Status**: **DONE.** Both owed gates turned: **G12 RED → GREEN · G1 RED → GREEN.**
+
+Evidence authored (all three under `docs/tranches/X/keyframes/evidence/W7/`, each opening
+`SERVED MODEL: claude-opus-5[1m]`): `G12-REF-PIN.md` · `OP-0-OP-1-SETTLEMENTS.md` ·
+`G1-VERDICT-TABLE.md`.
+
+#### Acts, in the order the locks require
+
+**Act 1 — G12, THE OPENING COMMIT (§Sequencing 3: no cure commit precedes it).** `0dc2941a`.
+The ref is named: ⟨cmd⟩ `git -C …/keyframes.js rev-parse master origin/master` → `ae83da07…` twice,
+`git merge-base` → the same — **`master` ≡ `origin/master` ≡ `ae83da07`**. The five composable /
+engine §Bounds rows are marked **origin-side** with the law that binds every later seat (*an anchor
+is read `git show origin/master:<f>` at `ae83da07`, or it is not read*). **The D-19 re-resolution
+banks 21 anchor rows** across OP-0 (3) · OP-1 (5) · KF-CE-2 (4) · G1's witness (9), **19 EXACT · 2
+DRIFTED**, both **+4** and both recorded as **INTENT at the true bytes**:
+`AnimationControlsGroup.vue` `activeTimelineRef` banked `:198-201` → **`:202`**;
+`ChannelControls.vue` `isTimelineVisible` banked `:377-379` → **`:381`**. **Neither drift moves a
+mechanism and neither moves a verdict** — both BLOCKERs verify at the true bytes. The §Bounds
+line-count tier is **consumed from this record's Baseline, not re-run** (LAW D(3)); the DISQUALIFIED-
+HEAD clause is recorded as **discharged by the bytes** (no second ref exists to disqualify).
+
+**Act 2 — OP-4's residue (b), the wave's ONE manifest add.** kf `3a01e362`.
+⟨cmd⟩ `git diff --stat package.json` → **`1 file changed, 1 insertion(+)`**; the line is
+`"@vue/test-utils": "^2.5.1",` at `package.json:84`, placed in `devDependencies` between
+`@vitejs/plugin-vue` and `@vueuse/core`. Version read, not guessed: ⟨cmd⟩
+`npm view @vue/test-utils version` → **2.5.1**. **Single-instance and idempotent** — ⟨cmd⟩
+`grep -c 'test-utils' package.json` → **0 BEFORE, 1 AFTER**; KF.W8, the other claimant, **consumes
+and asserts presence** rather than writing a second entry. **Nothing else moved**: ⟨cmd⟩
+`git diff --unified=0 package.json | grep -c '"check"\|"lint"\|"test\|exports\|sideEffects'` →
+**0** — no script, no `exports`/`sideEffects` key, no other dependency line. JSON re-parsed after the
+write (`devDependencies` = **47** keys). The struck `+@vitejs/plugin-vue` half stays struck (present
+at `:83`, `^6.0.7`, installed). **No `vitest.config.ts` byte was written by this unit**; KF.W4's
+commit-2 registration is consumed as the inbound dependency the OPEN seat already measured live.
+
+**Act 3 — OP-0 and OP-1, SETTLED IN WRITING (§Sequencing 1 and 2).** `250f527b`.
+Both cures are **NO-WAVE-OWNER and out of §Bounds; this unit wrote no byte of either.**
+
+- **OP-0 — kf-AnimationControlsGroup D-1 (restored BLOCKER): RULED ***KEEP the portal
+  architecture; cure by ARBITRATION AT THE SOURCE.**** The banked scope enumeration is carried whole
+  (**cube 3 · amiga 3 · spring 2**, all stamped with the scene `superKey` so ONE bucket flips ALL
+  instances) and is load-bearing, not decorative: `isTimelineVisible` (`:381`) is **scene-shared on
+  both disjuncts**, so no work at the sink or in that predicate can separate three instances sharing
+  one bucket — only a **per-channel** term can. **Cure shape, ruled exactly**: the Teleport's
+  `:disabled` becomes *expanded AND this channel is selected*; every other channel's timeline stays
+  **mounted and in place**. **`v-if` is REJECTED BY NAME** — gating the source by existence would
+  unmount the non-selected timelines and destroy their authored keyframes, curing D-1 by committing
+  L-2/C-2 on a second axis. The discriminator already exists in the contract (`active?: boolean`,
+  `:257`, bound by every host, forwarded at `:108`) and the in-place panel already demonstrates the
+  idiom (`:150`) — the teleported node is gated on neither, which is kf-ChannelControls **L-8** rider
+  (iii), carried. **Both alternatives declined with named reasons**: N sinks cure the address, not the
+  cause; *AnimationControlsGroup as single owner* (attractive — it already computes
+  `activeTimelineRef`) makes collapsed and expanded **two mount sites**, hence two instances, hence
+  **state loss on every expand/collapse** against a `state` that opens literal-empty with **0**
+  rehydration paths (⟨cmd⟩ `grep -c 'createGlobalState\|useStorage' useTimeline.ts` → **0**).
+  **M-9 rides this cure and is NOT mooted by it** (one id, still hand-spelled in two files;
+  `transport/injectionKeys.ts` verified present as the established seam).
+  **§Sequencing item 1's forward condition is DISCHARGED: G2's AnimationControlsGroup arm is
+  UNBLOCKED for `.b`**, under the settlement's three properties (no unmount · no keyed stateful
+  subtree · per-channel arbitration).
+- **OP-1 — kf-ChannelControls L-2/C-2 (BLOCKER): RULED ***DROP THE KEY.**** `:189`'s
+  `:key="storedControls.selectedControl"` is deleted; the entrance effect (`:190`), if wanted, is
+  retriggered **without keying the stateful subtree** — **keying any ancestor of `<KeyframeTimeline>`
+  is forbidden by this settlement, in this file and in every successor.** The `defer` + `:disabled`
+  pair already performs the relocation the key is nominally there for. **KF-CE-2's second-order
+  collision resolved as the spec rules it**: the *keyed remount* option is **REJECTED**; **arm-time
+  id capture** is the cure shape — verified against the bytes it must be written for
+  (`<CSSCodeEditor>` `:123-127` binds **no `:key`**, ⟨cmd⟩ `grep -c ':key='` → **0**; the live-ref
+  resolution at `:247-248`; **`kf.vars = newVars;` at `:263` ASSIGNS, not merges**, which is why a
+  late emit replaces a whole keyframe's `vars`). **`L-15-PROTECTED` restated and binding**: the
+  `if (!kf) return;` guard at **`:249`** is load-bearing against this exact timer and **stays** — no
+  dedupe, no tidy-up and no arm-time-capture implementation may remove it.
+  **The interlock is stated because the two settlements are one system**: §1 without §2 still
+  destroys the selected channel's work on every switch; §2 without §1 preserves the work and still
+  stacks three instruments in one clipped box.
+
+**Act 4 — G1, THE §VERDICT TABLE.** `4c03ceda`.
+**The importable surface, established by command and double-run, before any row was ruled**:
+`dist/components/timeline/index.d.ts` = **2 L**; the directory ships **9** files; **the `./timeline`
+subpath exports ONE runtime binding** — ⟨cmd⟩ `grep -c '^export' dist/timeline.js` → **1**,
+`export { me as GlassTimeline };` — and there is **no deep-import escape hatch**: **73** export
+subpaths, **exactly one** matching `/timeline/i`, and the package's **only** wildcard is
+`./fonts/*`. `SliderVariant = "standard" | "spectrum"` (no "timeline" member); demo imports of
+`glass-ui/timeline` = **0**; `GlassTimeline` references in the whole kf tree = **0**;
+`geometry.d.ts` hits for `percent|zoom|pan(` = **1**, and that hit is **prose** in the `fillFor`
+docblock — **zero** exported percent↔position map, **zero** zoom, **zero** pan. glass-ui **7.0.0**.
+
+**THE VERDICT: six surfaces, six KEEP-BESPOKE, ZERO SWAP.**
+
+| surface | L | verdict | the reason in one line |
+|---|---|---|---|
+| KeyframeTimeline / TimelineTrack rail | 312 / 246 | **KEEP-BESPOKE** | no zoom/pan counterpart (C-15's arm, corroborated) **and** C-15's playhead-swap candidate is DECLINED with its mechanism named: with no percent↔position map to share, it installs a SECOND geometry authority in one box — N-10's class, so PARTIAL here is not smaller, it is incoherent |
+| TimelineCaret | 70 | **KEEP-BESPOKE** | `label` is tooltip **text**; there is no caret to adopt. **C-10 RULED**: the `update:percent` emit (`:43`/`:62`) is renamed OFF the `update:*` protocol — a consumer writing `v-model:percent` would bypass the ops layer; owner `.d`. **L-15 PERSISTS, routed to G14 (`.c`)** |
+| TimelineHoverPreview | **44** ⟨spec 38, drift +6, named⟩ | **KEEP-BESPOKE** | `popoverContent`'s scope is a weighted `TimelineSegment`; it cannot carry a per-keyframe thumbnail + ghost + cache. Producer seams → `.f`'s BH relay |
+| SequenceScrubber (S-3/S-4) | 162 | **KEEP-BESPOKE** | the gesture drives `Sequence.scrub` → each child's `--ball-p` under an explicit **inv ζ single-writer** rule; the primitive would insert a producer spring clock as a second writer. It is the house idiom's **compliant** consumer (`:31`, `:32-35`), and its a11y contract is already met (`:22-29`) |
+| AnimationVisualizer | 256 | **KEEP-BESPOKE** | its root is `aria-hidden="true"` under a documented **"one AT slider per scrub value"** disposition — the imported `role="slider"` is dead weight inside it and a second AT slider outside it; and the ball is the **animated subject** of a keyframes.js demo (`SmoothProgress`/`SpringProgress`/`RAFPlayback`), not a scrub handle |
+| SpringTarget / SpringTrace idiom arms | — | **KEEP-BESPOKE** (house idiom ADOPTED) | no rail+ball counterpart anywhere in the package. **C-4 RULED: DELETE THE SENTENCE** — `MetricBadge` = **0 files** in glass dist, the `/metric` barrel exports exactly four components, `Metric` has no badge affordance and the `.status-badge` AA mix is load-bearing. **C-3 DECISION: the export is WARRANTED** on C-15's precedent (⟨cmd⟩ `grep -c 'sampleNormalizedSpring\|resolveLinearStops' dist/keyframes.d.ts` → **0**); implementation edge → KF.W5/KF.W8, no `src/**` byte here |
+
+**§3 — THE DISCHARGE SET IS EMPTY, and it is stated in the form W10 consumes.** No surface is ruled
+SWAP, so **this unit emits ZERO `DISCHARGED by KF.W7 SWAP verdict <surface>, <date>` receipts** and
+**KF.W10 CARRIES EVERY ROW**. R3-10.3 is satisfied by construction. Written as a positive finding,
+because the inverse error — a downstream wave assuming a swap happened — costs as much as a silent
+discharge. **KF.W11 arm (d) and KF.W13's two packets read §3 as their answer.**
+
+**PR-CAUTION was weighed BEFORE the first row** (quoted verbatim at the evidence file's §0.2), and
+its direction is **concordant with every row** — it never had to overturn one, and it is recorded in
+full so that discipline is auditable rather than asserted. **C-15 is cited and never re-derived**
+(killed-claim #15 intact); everything measured is the IMPORTABLE-surface reading G1's own assertion
+demands, and where measurement and C-15 meet, **C-15 governs**.
+
+**Both triggers ARMED** (neither predicate is this unit's; the seam ruling is `.b`'s G2):
+**D-1/C-1 dissent** — the instrument is KEPT whole, so a **LIVE** seam ruling fires it and
+{C-1, C-6, L-3, L-5, M-3/C-4} inherit BLOCKER weight **as one cluster** (N-10: one design problem,
+one commit family). **M-3/C-4 inverse** — a **permanently** display-only ruling drops M-3/C-4 to
+MINOR; **a deferral is not a display-only ruling and earns no demotion.**
+
+#### What this verdict does to the wave's roster (OP-6 — the verdict sizes the rest)
+
+- **`.b`** — the seam is **LIVE work, ungated by any swap**; G2's AnimationControlsGroup arm is
+  **UNBLOCKED** by the OP-0 settlement, bounded by its three properties. Two locks it inherits from
+  this table: **KF-AV-17's resize-immune form** `translateX(calc(var(--p) * (100cqw − 100%)))` binds
+  any transform-based playhead (the overshooting `translateX(calc(p*100cqw))` form is live at
+  `SequenceScrubber.vue:34`, K-12's own coordinate, re-verified here), and **no cure may key a
+  stateful subtree or unmount a mounted timeline.**
+- **`.c`** — **L-15 is routed to G14 and not pre-empted here**; the THP ghost/cache and a11y designs
+  are LIVE; the tooltip producer seams are `.f`'s relay, never a demo-side patch.
+- **`.d`** — **the KF-AV-10 idiom family is LIVE, NOT SPENT-UNUSED**, ruled at length so no
+  discretion is left: the registry's *"bespoke-survives ⇒ adopt the idiom; swap ⇒ moot"* has a TRUE
+  antecedent (§2.5 keeps the bespoke), and §Bounds' *"if G1 rules KEEP-BESPOKE these carves are
+  SPENT-UNUSED"* is consistent with it **when read with §Verdict row 6 as its subject** (the
+  ADOPT/KEEP axis there is the **house idiom**, not glass) — the consistent reading governs (M-25).
+  All five carve sites are **SPENDABLE**, with **OP-3's padding-box re-derivation first** and
+  **kf-EasingTarget P-2 binding the spend**: the idiom leaves `transform` unclaimed BY DESIGN and
+  AnimationVisualizer's ball already writes `transform` itself — **the adoption takes the rail
+  geometry and the tint tokens, never `transform`.** Plus **C-10's emit rename** at the caret.
+- **`.e`** — **SequenceScrubber's shape rows PERSIST** (S-3/S-4; C·C-4 narrowed to *a one-line
+  provider guard + declaring the asymmetry*, with the `{progress}`-prop-plus-emits cure **still dead**
+  under K-8; D-5/D-6/D-11's *"the primitive already solves it"* arms **persist** — it does not). All
+  four G11 fixtures are still owed.
+- **`.f`** — the relay cargo is enumerated at the evidence file's §5 (the `/timeline` one-binding
+  export gap with its no-wildcard finding · `geometry`'s missing percent↔position map · the
+  `SliderVariant` fact · TooltipContent's two seams), with the `cn` padding-group seam **not**
+  re-filed.
+
+#### Gate readings
+
+| gate | BEFORE (this record's Baseline) | AFTER | witness |
+|---|---|---|---|
+| **G12** | **RED until stamped** | **GREEN** | `0dc2941a` states `ae83da07`, marks the composable/engine anchors origin-side, and banks 21 re-resolved anchors (19 EXACT · 2 DRIFTED +4, both INTENT-at-true-bytes) |
+| **G1** | **RED** — *"no table exists and 5 of 6 counterparts are not importable"* | **GREEN** | `4c03ceda` — six surfaces ruled with named reasons against the importable surface only; every SWAP-discharged row named (**there are none**, §3); PR-CAUTION weighed; both triggers armed. The Baseline's *"5 of 6 not importable"* is **sharpened, not contradicted**: at the runtime surface it is **6 of 6** — one binding is exported and it is the dispatcher, not a counterpart to any of the six |
+
+#### Residuals, each with a named owner
+
+1. **`@vue/test-utils` is in the MANIFEST but NOT ON DISK.** Measured after the commit:
+   `ls node_modules/@vue/test-utils` → **No such file or directory**; ⟨cmd⟩
+   `grep -c '@vue/test-utils' package-lock.json` → **0**. **`package-lock.json` and `node_modules/`
+   are outside every KF.W7 unit's writable set as this record's Unit plan states them** (the spec's
+   §Bounds carve is `package.json`, one line), and `package-lock.json` is a KF.W0 OWNER'S-HAND row
+   (COHESION §0j.C). **This unit therefore did not run an install, and did not silently widen its own
+   bounds to do so.** **Consequence: G11 is UNRUNNABLE until the install lands** — `.d`'s and `.e`'s
+   four fixtures cannot mount. **Owner: the orchestrator**, by one `npm install` in
+   `/Users/mkbabb/Programming/keyframes.js` (or a dated E-3 §Bounds widening to `package-lock.json`)
+   **before `.d`/`.e` dispatch**. Recorded loud because a seat that discovers this mid-flight will be
+   tempted into exactly the masking fallback the standing law forbids.
+2. **Two anchors drifted +4** (`activeTimelineRef` `:198-201`→`:202`; `isTimelineVisible`
+   `:377-379`→`:381`). Banked as INTENT-at-true-bytes; **no successor re-derives them.** Owner: none
+   — closed.
+3. **The spec's `TimelineHoverPreview` 38 L is 44 L** at this ref. Consumed from this record's
+   Baseline, restated in the verdict table so no seat reads 38 as a receipt. Owner: `.f`, as a dated
+   observation at close.
+4. **Cures ruled here whose code is NOT this wave's**: the D-1 portal arbitration · the
+   `ChannelControls` `:key` deletion · KF-CE-2's arm-time id capture (parent half) and its
+   EDITOR-UNIT child half · C-3's library export · C-4's repo-wide prose arm · KF-AV-13's
+   press-to-seek decision. **All NO-WAVE-OWNER or another wave's**, each named with its owner in the
+   evidence files. **Decisions taken, code not spent.**
+
+#### Escalations
+
+**NONE.** No write outside the writable set was attempted or required; every specified cure was
+possible at the bytes and was implemented as specified.
+
+#### Double-run block (WRITE-THEN-MEASURE)
+
+Two measurement scripts were written to the scratchpad and each run **twice** with ⟨cmd⟩
+`diff run1 run2` → **no output** both times (**DOUBLE-RUN IDENTICAL**): the 21-row anchor
+re-resolution (§Act 1) and the 12-row importable-surface census (§Act 4). Every count published above
+— 1 insertion · 47 devDeps · 0/1 test-utils · 2 L · 9 files · 1 runtime export · 73 subpaths · 1
+timeline subpath · 1 wildcard · 0 demo imports · 0 GlassTimeline refs · 0 MetricBadge files · 4
+metric components · 0 dts hits for the two spring samplers · 0 `:key=` in KeyframeTimeline · 0
+rehydration paths — was **read from the settled bytes**, never from the spec, the registry or a
+prior pass, except the §Bounds line-count tier which is **cited to this record's Baseline by name**.
+
+#### Commits (5 — 4 in value.js, 1 in keyframes.js; pathspec on every one)
+
+| # | sha | repo | meaning |
+|---|---|---|---|
+| 1 | `0dc2941a` | value.js | **G12** — the ref pin + the D-19 anchor re-resolution (**the opening commit; no cure commit precedes it**) |
+| 2 | `3a01e362` | keyframes.js | **OP-4 residue (b)** — `+@vue/test-utils ^2.5.1`, ONE line |
+| 3 | `250f527b` | value.js | **OP-0 / OP-1** — the two settlements (§Sequencing 1 and 2 discharged) |
+| 4 | `4c03ceda` | value.js | **G1** — the six-surface verdict table |
+| 5 | this commit | value.js | these receipts |
+
+**Index hygiene**: every commit carried its own pathspec on the commit itself; **no `git add -A`, no
+`-u`, no `git commit -a`, no reset or unstage of another seat's paths**; `scripts/dev/dev.sh` appears
+in **zero** commits of this unit, in either repo. The kf tree's only other content at every commit
+was its two untracked `VALUEJS-INBOUND-*.md` survivors, which stayed untracked.
