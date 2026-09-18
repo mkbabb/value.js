@@ -56,14 +56,31 @@ jobs:
               shell: bash
               run: |
                   set -euo pipefail
-                  npm pack --json --ignore-scripts --silent > /tmp/value-pack.json
+                  pack_dir="${RUNNER_TEMP}/value-pack"
+                  rm -rf "$pack_dir"
+                  mkdir -p "$pack_dir"
+                  npm pack --ignore-scripts --pack-destination "$pack_dir" > "$pack_dir/npm-pack.log" 2>&1
+                  mapfile -t candidates < <(find "$pack_dir" -maxdepth 1 -type f -name '*.tgz' -print)
+                  if [[ "${#candidates[@]}" -ne 1 ]]; then
+                      echo "expected exactly one npm pack archive, found ${#candidates[@]}" >&2
+                      cat "$pack_dir/npm-pack.log" >&2
+                      exit 1
+                  fi
+                  export PACKED_FILE="${candidates[0]}"
                   node --input-type=module <<'NODE'
                   import { createHash } from "node:crypto";
+                  import { execFileSync } from "node:child_process";
                   import { appendFileSync, readFileSync, writeFileSync } from "node:fs";
 
-                  const [packed] = JSON.parse(readFileSync("/tmp/value-pack.json", "utf8"));
                   const packageJson = JSON.parse(readFileSync("package.json", "utf8"));
-                  const bytes = readFileSync(packed.filename);
+                  const filename = process.env.PACKED_FILE;
+                  const packedPackageJson = JSON.parse(
+                      execFileSync("tar", ["-xOf", filename, "package/package.json"], { encoding: "utf8" }),
+                  );
+                  if (packedPackageJson.name !== packageJson.name) throw new Error(`packed name ${packedPackageJson.name}`);
+                  if (packedPackageJson.version !== packageJson.version) throw new Error(`packed version ${packedPackageJson.version}`);
+                  if (packedPackageJson.gitHead !== process.env.GITHUB_SHA) throw new Error(`packed gitHead ${packedPackageJson.gitHead}`);
+                  const bytes = readFileSync(filename);
                   const sha256 = createHash("sha256").update(bytes).digest("hex");
                   const sha512 = createHash("sha512").update(bytes).digest("hex");
                   const integrity = `sha512-${createHash("sha512").update(bytes).digest("base64")}`;
@@ -71,7 +88,7 @@ jobs:
                   const manifest = {
                       package: "@mkbabb/value.js",
                       version: packageJson.version,
-                      filename: packed.filename,
+                      filename,
                       bytes: bytes.length,
                       sha256,
                       sha512,
@@ -85,7 +102,7 @@ jobs:
                       runAttempt: process.env.GITHUB_RUN_ATTEMPT,
                   };
                   writeFileSync("release-candidate.json", `${JSON.stringify(manifest, null, 2)}\n`);
-                  appendFileSync(process.env.GITHUB_OUTPUT, `filename=${packed.filename}\n`);
+                  appendFileSync(process.env.GITHUB_OUTPUT, `filename=${filename}\n`);
                   appendFileSync(process.env.GITHUB_OUTPUT, `sha256=${sha256}\n`);
                   appendFileSync(process.env.GITHUB_OUTPUT, `integrity=${integrity}\n`);
                   NODE
