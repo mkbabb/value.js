@@ -85,6 +85,9 @@ export async function forkPalette(
         // which they chose to publish. Publication is now the explicit
         // `POST /:slug/publish` verb, as it is for every other palette.
         visibility: "private",
+        // X-W3 · G-15: a fresh child carries a clear clock of its own — a
+        // withdrawal is an action against a row, never an inherited property.
+        moderation: "clear",
         tier: "standard",
         deletedAt: null,
         createdAt: now,
@@ -196,7 +199,7 @@ export async function listForks(
 
 /**
  * A single provenance step. A public, live ancestor is a minimal, release-
- * scoped `palette` step; a private / unlisted / trashed / purged ancestor
+ * scoped `palette` step; a private / withdrawn / trashed / purged ancestor
  * collapses to a non-correlatable `unavailable` step carrying ONLY its
  * ordinal (V·W45 item 4). No raw document or lineage field (userSlug,
  * contentHash, createdAt, parent slug) ever crosses the wire for a

@@ -35,6 +35,7 @@ import {
     describeMigration,
     migrateXW3PayloadHash,
 } from "../../../platform/migrations/x-w3-visibility-payloadhash.js";
+import { checkMigrations } from "../../../platform/migrations/check.js";
 import { palettes } from "../routes/index.js";
 import { toResponseEnvelope } from "../../../platform/http/errors/index.js";
 import { NotFoundError } from "../../../platform/http/errors/index.js";
@@ -440,6 +441,82 @@ describe("service.palette.versions", () => {
         expect(again.payloadHashWritten).toBe(0);
         expect(again.revisionNoWritten).toBe(0);
         expect(again.currentHashRestamped).toBe(0);
+    });
+
+    it("G-15: the migration maps at-rest `unlisted` to `private` and clocks moderation", async () => {
+        // A pre-X-W3 estate carrying the dead third visibility state and no
+        // moderation clock — exactly what the two-state enum cannot represent
+        // and what W3.md §3a asks to be measured rather than assumed.
+        const t = new Date("2026-01-01T00:00:00.000Z");
+        await db.collection("palettes").insertMany([
+            {
+                name: "Middle",
+                slug: "middle",
+                colors: [{ css: "#ff0000", position: 0 }],
+                oklabColors: [],
+                tags: [],
+                voteCount: 0,
+                userSlug: "alice",
+                visibility: "unlisted",
+                tier: "standard",
+                deletedAt: null,
+                createdAt: t,
+                updatedAt: t,
+                currentHash: null,
+                forkOf: null,
+                forkOfHash: null,
+                forkCount: 0,
+                versionCount: 1,
+            },
+            {
+                name: "Open",
+                slug: "open",
+                colors: [{ css: "#00ff00", position: 0 }],
+                oklabColors: [],
+                tags: [],
+                voteCount: 0,
+                userSlug: "alice",
+                visibility: "public",
+                tier: "standard",
+                deletedAt: null,
+                createdAt: t,
+                updatedAt: t,
+                currentHash: null,
+                forkOf: null,
+                forkOfHash: null,
+                forkCount: 0,
+                versionCount: 1,
+            },
+        ]);
+
+        // The boot probe REFUSES this estate before the migration runs — that
+        // is the falsifier for the enum narrowing: delete `check.ts`'s
+        // visibility row and this expectation alone goes green with an
+        // unrepresentable value still at rest.
+        const before = await checkMigrations(db);
+        expect(before.ok).toBe(false);
+        expect(before.missing).toContainEqual({ slug: "middle", field: "visibility" });
+
+        const report = await migrateXW3PayloadHash(db);
+        console.log(describeMigration(report));
+        expect(report.unlistedMapped).toBe(1);
+        expect(report.moderationClocked).toBe(2);
+
+        const mapped = await db.collection("palettes").findOne({ slug: "middle" });
+        expect(mapped?.visibility).toBe("private");
+        expect(mapped?.moderation).toBe("clear");
+        // The public row keeps the visibility its owner chose — the mapping
+        // touches `unlisted` and nothing else.
+        const open = await db.collection("palettes").findOne({ slug: "open" });
+        expect(open?.visibility).toBe("public");
+
+        const after = await checkMigrations(db);
+        expect(after.ok).toBe(true);
+
+        // Idempotent: a second run maps nothing further.
+        const again = await migrateXW3PayloadHash(db);
+        expect(again.unlistedMapped).toBe(0);
+        expect(again.moderationClocked).toBe(0);
     });
 
     it("revertToVersion throws NotFoundError on missing palette", async () => {

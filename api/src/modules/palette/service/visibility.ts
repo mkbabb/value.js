@@ -1,11 +1,16 @@
 /**
  * Palette visibility service (J.W1c — the publish/unpublish OPERATION).
  *
- * Publish is a binary OPERATION over the existing 3-state visibility enum —
- * NOT a new state (J.W1c §0). `publish` flips `visibility` to `public`;
- * `unpublish` flips to `private` (value.js's not-in-public-view state — all 9
- * `(visibility, tier)` tuples are legal resting states, §5.1). The `unlisted`
- * middle state is preserved and never destroyed.
+ * Publish is a binary OPERATION over the visibility enum — NOT a new state
+ * (J.W1c §0). `publish` flips `visibility` to `public`; `unpublish` flips to
+ * `private` (value.js's not-in-public-view state — all `(visibility, tier)`
+ * tuples are legal resting states, §5.1).
+ *
+ * X-W3 · G-15: the enum is now TWO-STATE (D9). The `unlisted` middle state is
+ * dead — it was the one value these verbs could never produce and the read
+ * predicate could never distinguish from `private`. Admin withdrawal moved to
+ * its own clock (`Palette.moderation`), so this file's verbs remain exactly
+ * what their names say: the OWNER's public-membership toggle.
  *
  * The load-bearing guarantee (§3): publish is an idempotent IN-PLACE
  * visibility mutation on the SAME `{slug}` row. It NEVER creates a new document
@@ -27,7 +32,10 @@ import { formatPalette, type FormattedPalette } from "../format.js";
  * visible iff its visibility is exactly `public` AND it is not soft-deleted.
  * Shared by the provenance walk (and available to any detail/social read that
  * must decide whether a row may cross the public wire) so those surfaces cannot
- * drift apart. `unlisted`/`private` and trashed rows are NOT active-public.
+ * drift apart. `private` and trashed rows are NOT active-public.
+ *
+ * It answers the VISIBILITY axis alone — the moderation clock is a separate
+ * fact, composed beside it by `isReadable`, never folded in here.
  */
 export function isActivePublic(
     p: Pick<Palette, "visibility" | "deletedAt">,
@@ -47,17 +55,15 @@ export function isActivePublic(
  *
  * `moderation` is the withdrawal clock ruled by D9: it is a SEPARATE axis from
  * `visibility`, so a withdrawn row is not silently re-spelled as private. The
- * field itself is minted on `Palette` at X.W3.5 (G-15); until then no document
- * carries it and an absent value reads `clear`, which is the same answer the
- * two-field model gives. The predicate therefore needs no amendment when the
- * field lands — only the model does.
+ * field is minted on `Palette` at X.W3.5 (G-15); an absent value reads `clear`,
+ * which is the same answer the two-field model gives, so rows written before
+ * the migration and rows written after it are judged identically. The predicate
+ * needed no amendment when the field landed — only the model did.
  */
 export type ReadableSubject = Pick<
     Palette,
-    "visibility" | "deletedAt" | "userSlug"
-> & {
-    readonly moderation?: "clear" | "withdrawn";
-};
+    "visibility" | "deletedAt" | "userSlug" | "moderation"
+>;
 
 /**
  * THE palette object-read predicate (X-W3 · X.A1 · G-1). One decision point
@@ -118,8 +124,18 @@ export function assertReadable(
 export function paletteReadableFilter(
     viewer: string | null | undefined,
 ): Filter<Palette> {
-    const activePublic: Filter<Palette> = { visibility: "public", deletedAt: null };
-    return viewer ? { $or: [{ userSlug: viewer }, activePublic] } : activePublic;
+    // The moderation clause mirrors `isReadable`'s `(doc.moderation ?? "clear")`
+    // exactly: a row that carries no clock reads `clear`, so it must SELECT —
+    // `{moderation: {$ne: "withdrawn"}}` is the query spelling of that default,
+    // and it matches absent fields where `{moderation: "clear"}` would not.
+    const activePublicClear: Filter<Palette> = {
+        visibility: "public",
+        deletedAt: null,
+        moderation: { $ne: "withdrawn" },
+    };
+    return viewer
+        ? { $or: [{ userSlug: viewer }, activePublicClear] }
+        : activePublicClear;
 }
 
 /**
@@ -145,8 +161,8 @@ export async function assertPaletteReadable(
 /**
  * inv-I-2 visibility transition guard — the FIRST LIVE caller (J.W1c §5.1).
  *
- * value.js treats all 9 `(visibility, tier)` tuples as valid resting states, so
- * every transition between the three enum members is legal; the guard's real
+ * value.js treats every `(visibility, tier)` tuple as a valid resting state, so
+ * each transition between the enum members is legal; the guard's real
  * job is to reject a MALFORMED target (outside the closed enum) — materializing
  * inv-I-2 as real, composed code rather than the dead-authored guard it was
  * through I→J. (Contrast fourier, whose flat enum forbids `public→draft`; the
@@ -165,8 +181,10 @@ export function assertVisibilityTransition(
 
 export interface SetVisibilityInput {
     slug: string;
-    /** publish → "public"; unpublish → "private". The binary public-membership toggle. */
-    target: Extract<PaletteVisibility, "public" | "private">;
+    /** publish → "public"; unpublish → "private". The binary public-membership
+     * toggle — which, since G-15 narrowed the enum to two states, is now the
+     * whole of `PaletteVisibility` rather than a subset of it. */
+    target: PaletteVisibility;
 }
 
 /**

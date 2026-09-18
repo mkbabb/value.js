@@ -109,6 +109,9 @@ export async function createPalette(
         voteCount: 0,
         userSlug,
         visibility: "public",
+        // X-W3 · G-15: the moderation clock is written explicitly at birth, so
+        // no palette-domain row depends on the absent-reads-`clear` reading.
+        moderation: "clear",
         tier: "standard",
         deletedAt: null,
         createdAt: now,

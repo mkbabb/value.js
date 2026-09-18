@@ -24,8 +24,18 @@ export interface FormattedPalette {
     tags: string[];
     voteCount: number;
     userSlug: string | null;
-    /** I.W1 canonical visibility: `public`/`unlisted`/`private`. */
+    /** Canonical visibility, 2-state since X-W3 · G-15 (D9): `public`/`private`.
+     * What the OWNER asked for — never the moderation clock. */
     visibility: Palette["visibility"];
+    // X-W3 · G-15 — `moderation` (D9) is deliberately NOT on this envelope.
+    // The clock is a first-class field of `Palette` and is composed by the read
+    // predicate, but no shipped client reads it, and L-19 governs here exactly
+    // as it governs the diff class: a surface with no named consumer is not
+    // built. Emitting it would also widen the CRUD-CONTRACT v2 envelope whose
+    // key set `api/test/conformance/crud.test.ts` pins — a contract change,
+    // owed to the wave that owns that contract and that file, neither of which
+    // is X-W3. Withdrawal is already OBSERVABLE without it: a withdrawn row
+    // answers `404` to everyone but its owner.
     /** I.W1 canonical curation tier: `standard`/`featured`/`archived`. */
     tier: Palette["tier"];
     /** I.W2 soft-delete timestamp; null means live. */

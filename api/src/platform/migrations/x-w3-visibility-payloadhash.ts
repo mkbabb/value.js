@@ -22,7 +22,12 @@
  *      ascending with `_id` as a deterministic tiebreak;
  *   3. re-stamps every palette's `currentHash` under the new framing, so the
  *      value the ETag and the PATCH change-detector read is the same function
- *      the new version rows are hashed with.
+ *      the new version rows are hashed with;
+ *   4. (X.W3.5 · G-15) maps every at-rest `unlisted` palette to `private` and
+ *      backfills the `moderation: "clear"` clock — the two-state enum and the
+ *      separate withdrawal axis D9 rules. Step 4 shares this file by the wave
+ *      spec's own design ("authored by X.W3.2 for a second author"): one
+ *      migration, one run, one transcript.
  *
  * It does NOT rewrite `palette_versions._id`. That is deliberate and it is
  * bounded by the wave spec: `W3.md` §3a names "a rewrite of at-rest
@@ -50,6 +55,10 @@ export interface MigrationReport {
     currentHashRestamped: number;
     /** Palettes visited while numbering revisions. */
     palettesScanned: number;
+    /** X.W3.5 · G-15: at-rest `unlisted` rows mapped to `private`. */
+    unlistedMapped: number;
+    /** X.W3.5 · G-15: rows given an explicit `moderation: "clear"` clock. */
+    moderationClocked: number;
 }
 
 interface LegacyVersionRow {
@@ -67,6 +76,9 @@ interface LegacyPaletteRow {
     name: string;
     colors: PaletteColor[];
     currentHash: string | null;
+    /** Pre-X-W3 the enum was 3-state; `unlisted` is mapped away by step 4. */
+    visibility?: "public" | "unlisted" | "private";
+    moderation?: "clear" | "withdrawn";
 }
 
 /**
@@ -83,6 +95,8 @@ export async function migrateXW3PayloadHash(db: Db): Promise<MigrationReport> {
         revisionNoWritten: 0,
         currentHashRestamped: 0,
         palettesScanned: 0,
+        unlistedMapped: 0,
+        moderationClocked: 0,
     };
 
     // --- 1 + 2: payloadHash and revisionNo, per palette ------------------
@@ -127,6 +141,35 @@ export async function migrateXW3PayloadHash(db: Db): Promise<MigrationReport> {
         report.currentHashRestamped++;
     }
 
+    // --- 4: X.W3.5 · G-15 — `unlisted` dies; the moderation clock lands ----
+    //
+    // The mapping is `unlisted` → `private`, and it is not a choice between two
+    // defensible readings: it is the state those rows were ALREADY being read
+    // as. `isActivePublic` has always required `visibility === "public"`
+    // exactly, so an `unlisted` row was refused to every non-owner and forced
+    // out of the public browse (`crud-list.ts` pins anonymous listing to
+    // `visibility: "public"`); mapping it to `public` would PUBLISH content its
+    // owner never published. W3.md §3a names "at-rest `unlisted` rows the
+    // two-state enum cannot represent" a triumvirate trigger — none exist:
+    // every `unlisted` row is representable as `private` with its read
+    // behaviour byte-unchanged, so the arm runs rather than escalating.
+    //
+    // The clock is backfilled in the same pass. `clear` is the reading an
+    // absent field already has (`service/visibility.ts: isReadable`), so
+    // writing it changes no decision — it makes the field PRESENT, which is
+    // what lets `migrations/check.ts` police its value domain at boot.
+    const unlisted = await palettes.updateMany(
+        { visibility: "unlisted" },
+        { $set: { visibility: "private" } },
+    );
+    report.unlistedMapped = unlisted.modifiedCount;
+
+    const clocked = await palettes.updateMany(
+        { moderation: { $exists: false } },
+        { $set: { moderation: "clear" } },
+    );
+    report.moderationClocked = clocked.modifiedCount;
+
     return report;
 }
 
@@ -138,5 +181,7 @@ export function describeMigration(report: MigrationReport): string {
         `[x-w3-migration] payloadHash written:     ${report.payloadHashWritten}`,
         `[x-w3-migration] revisionNo written:      ${report.revisionNoWritten}`,
         `[x-w3-migration] currentHash re-stamped:  ${report.currentHashRestamped}`,
+        `[x-w3-migration] unlisted -> private:     ${report.unlistedMapped}`,
+        `[x-w3-migration] moderation clocked:      ${report.moderationClocked}`,
     ].join("\n");
 }

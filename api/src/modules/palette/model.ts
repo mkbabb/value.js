@@ -15,9 +15,33 @@ import type { ObjectId } from "mongodb";
 // I.W1 visibility split — CRUD-CONTRACT v2.0.0 §3 binding.
 // `visibility` carries WHO-can-see (orthogonal to admin curation);
 // `tier` carries WHAT-position-in-curation (orthogonal to visibility).
-// The canonical 9-tuple curation state-machine.
-export const PALETTE_VISIBILITIES = ["public", "unlisted", "private"] as const;
+//
+// X-W3 · G-15 — the enum is TWO-STATE. D9 (`docs/tranches/V/DECISIONS.md:36`)
+// rules: "Palette visibility is `private | public`; owner lifecycle is
+// `active | trashed`; admin moderation is separately clocked `clear |
+// withdrawn`. The unused `unlisted` state dies."
+//
+// `unlisted` was a third WHO-can-see value that no surface implemented and no
+// client could reach: the public browse forced `visibility: "public"` for every
+// anonymous caller, the publish verb pair flipped only between `public` and
+// `private`, and the read predicate treated it exactly as `private`. Carrying
+// it meant a state the policy could never distinguish — a permanent invitation
+// to a fourth reading. At-rest rows are mapped to `private` by
+// `platform/migrations/x-w3-visibility-payloadhash.ts` (the state they were
+// already being READ as), and `platform/migrations/check.ts` refuses to boot
+// against a collection that still carries one.
+export const PALETTE_VISIBILITIES = ["public", "private"] as const;
 export type PaletteVisibility = (typeof PALETTE_VISIBILITIES)[number];
+
+// X-W3 · G-15 — the moderation clock (D9), a SEPARATE axis from `visibility`.
+// Admin withdrawal must not be re-spelled as "the owner made it private": the
+// owner would then be able to undo it with `POST /:slug/publish`, and nobody
+// could tell an owner's own privacy choice from an enforcement action after the
+// fact. `withdrawn` hides a row from everyone but its owner (the read predicate
+// composes it in `service/visibility.ts: isReadable`) while `visibility` keeps
+// recording what the OWNER asked for.
+export const PALETTE_MODERATIONS = ["clear", "withdrawn"] as const;
+export type PaletteModeration = (typeof PALETTE_MODERATIONS)[number];
 
 export const PALETTE_TIERS = ["standard", "featured", "archived"] as const;
 export type PaletteTier = (typeof PALETTE_TIERS)[number];
@@ -58,8 +82,25 @@ export interface Palette {
     tags: string[];
     voteCount: number;
     userSlug: string | null;
-    /** I.W1 canonical visibility (3-state): `public`/`unlisted`/`private`. */
+    /** I.W1 canonical visibility, narrowed to 2-state at X-W3 · G-15 (D9):
+     * `public`/`private`. What the OWNER asked for, and nothing else. */
     visibility: PaletteVisibility;
+    /**
+     * X-W3 · G-15 — the admin moderation clock (D9), separately clocked from
+     * `visibility`. An absent value reads `clear`, which is the same answer the
+     * two-field model gives, and the migration writes `clear` onto every
+     * at-rest row.
+     *
+     * OPTIONAL at the TYPE, not by preference: one construction site —
+     * `api/src/modules/admin/service/import.ts:47-63` — lies outside this
+     * wave's §4 File Bounds, so requiring the field here would either break
+     * that file's compile or force an out-of-bounds write. The one-line cure is
+     * returned as `ESC-W3.5-MODERATION-REQUIRED` rather than taken. Every
+     * palette-domain insert (`service/crud.ts`, `service/forks.ts`) writes it
+     * explicitly, and `platform/migrations/check.ts` rejects any at-rest value
+     * outside the enum.
+     */
+    moderation?: PaletteModeration;
     /** I.W1 canonical curation tier (3-state): `standard`/`featured`/`archived`. */
     tier: PaletteTier;
     /** I.W2 soft-delete timestamp. `null` means live; a Date means
