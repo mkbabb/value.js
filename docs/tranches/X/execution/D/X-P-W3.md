@@ -4509,3 +4509,170 @@ fourth repair round cannot reach any of them.** The honest disposition is the ow
 another pass.
 
 **Check 3 stamps no verb, cures no gate, and writes no byte in `<p2>`.**
+
+---
+
+## RESUME 2026-09-18 (THIRD) — COHESION §0p re-opens X.P.W3; TWO units owed (`.f` → `.g`)
+
+SERVED MODEL: claude-opus-5[1m] · Track D seat 0 (OPEN) · clock **2026-09-18 16:2x–16:4x EDT** ·
+value.js HEAD at this seat's open `8d85a6d4` · `<p2>` HEAD `ab6d694`.
+
+**Why this section exists.** Check 1, Repair 1, Check 2, Repair 2 and Check 3 each closed with the
+row left at `PARTIAL 2026-09-17` and each named an act **no seat's byte could reach**. The owner's
+triumvirate redress arrived as **`COHESION.md` §0p** (`8d85a6d4`, 2026-09-18) and it does three
+things this seat consumes by id and does not re-open:
+
+| ruling | what it says, in its own words | what it obliges here |
+|---|---|---|
+| **§0p ESC-e1** | *"Every fixed region of the Wasm memory model … becomes a **declared capacity in Θ** … its VALUE **read from the build's own layout constants** … **Both lowerings carry each bound** and reject at it on the parse path, BEFORE the region can overflow … `ok:false` with **`css_syntax`** … **A ninth code is REFUSED** … **Growable regions are REFUSED** … The shield stays retained and must measure NON-load-bearing on the new witnesses (`SHIELD.caught` 0)"* | unit **`.f`** (Fable seat) |
+| **§0p F-e1 / F-e2** | *"`hsl(120deg50%50%)` and `rgb(255none none)` are accepted by both lowerings where css-syntax-3 §4.3.3 tokenizes `120deg50` / `255none` as single invalid `<dimension-token>`s … cured in-wave as unit `.g` … never routed to the adoption seam"* | unit **`.g`** (Opus seat) |
+| **§0p ESC-e2** | *"A wave's last seat cannot harvest itself. **The successor harvests**: X.P.W4's seat 0 re-runs the harvester over W3's journals (6 of 6) at its open; W3's L-13 reads HONEST-RED-BY-CONSTRUCTION at close."* | **nothing owed here** — L-13's 5-of-6 is now honest-RED **by ruling**, and the harvest obligation moved to X.P.W4's seat 0 |
+
+`W3.md` gained its own dated **ADDENDUM 2026-09-18** (L677–695, same commit) carrying the two units,
+their files and their sub-gates, and the sequencing `.e` → `.f` → `.g` → close (VERIFY-ONLY) → check.
+**§4 File Bounds is UNCHANGED** — the addendum says so at its own head (*"`typescript/src/css/**` is
+already create/modify for this wave; `test/css-recovery/boundary/**` is `.c`'s named test home and is
+shared serially"*), so neither unit needs a bounds expansion and neither may take one.
+
+**Carried, NOT re-opened by this resume** (their owners stand exactly as `W3-CLOSE.md`, Check 1–3 and
+Repair 1–2 name them): **F-a.6** · **E-1** (G-4 ⊇, re-grounded by F-p1) · **E-2** · **E-3** ·
+**ESC-c1** (G-9 latch) · **ESC-d1** (G-7 5,890) · **ESC-d2** (G-2 structural) · **ESC-r1** (G-1,
+F-r1) · **F-p1** · **F-p2** · **F-k1 (CURED)** · **F-m1..F-m5** · **F-t1**. §0p re-opens **two**
+questions and no others; a seat that cures one of the carried rows out of its own bounds has done
+the thing three adversarial passes convicted this wave of not doing.
+
+### R3.1 — CRASH-RECOVERY sweep (standing law), before any other act
+
+```
+⟨cmd⟩ git -C /Users/mkbabb/Programming/parse-that-css-totality-p2 status --porcelain
+?? .worktrees/
+⟨cmd⟩ git -C /Users/mkbabb/Programming/value.js status --porcelain   (16 lines; none in this seat's writable set)
+ M demo/palettes/… ×8 · demo/picker/controls/ComponentSliders/ConsoleRail.vue · demo/shell/dock/layers/SlugEditLayer.vue
+ M docs/tranches/V/reformation/CARRY-LEDGER.md · M scripts/dev/dev.sh   (unowned — NEVER touched)
+?? docs/tranches/X/evidence/w1/falsifier/ · ?? docs/tranches/X/waves/evidence/ · ?? e2e/smoke/…a11y-control-targets.spec.ts ×2
+```
+
+**No inherited partial work exists for this seat or for either owed unit.** `<p2>` is clean but for
+the `?? .worktrees/` line every prior seat recorded; the sixteen value.js paths are sibling seats'
+(X·V `demo/**`, X-W1 evidence, the standing-dirty `dev.sh`) and **not one lies inside `W3.md` §4's
+writable set**. Nothing was stashed, restored or reverted.
+
+### R3.2 — E13 Step-0: the four-path mail sweep, at this seat's own clock (16:2x EDT)
+
+Compared against **every** row of `docs/tranches/V/coordination/INBOX.md`; classification taken from
+each row's **Status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md`
+self-excluded (SELF-COUNT law).
+
+```
+⟨cmd⟩ find <the four paths> -maxdepth 1 -type f -newermt '2026-09-18 12:00'
+/Users/mkbabb/Programming/glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md
+docs/tranches/V/coordination/INBOX.md        ← self, excluded
+⟨cmd⟩ ls -dlt /Users/mkbabb/Programming/glass-ui/docs/tranches/*/ | head -1
+drwxr-xr-x  14 mkbabb  staff  448 Sep 17 20:15 …/docs/tranches/BK/     ← BK is still the NEWEST tranche dir
+```
+
+1. `docs/tranches/V/` + `V/coordination/` — newest non-self entry `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` @ 01:41, **ours, outbound**, rowed **O-28**.
+2. `../glass-ui/docs/tranches/BK/coordination/` — **one delta since the 14:2x sweep**: `glass-outbound-2026-09-18-valuejs-o26-reply.md` is now **COMMITTED** at glass `a53d67bc` (2026-09-18 14:50:28 −0400) and its bytes moved **41,738 B → 42,776 B** (476 L). It is **already rowed as I-35** (rowed 12:17 when it was `?? …` untracked at glass HEAD `2113670c`). **Routing is unchanged and is Track B (X·KF)**: the two §4 asks are a registry re-install and a demo CSS-entry confirmation — keyframes-lane acts. **No new `I-n` is minted**; the delta (committed + 1,038 B larger) is recorded here and in the sweep line so the Track-B seat that owns I-35 re-reads the settled bytes rather than the draft.
+3. `../keyframes.js/docs/tranches/V/coordination/` — 12 files + `vnext/`, newest `VALUEJS-INBOUND-2026-07-27-…` @ Jul 27; **0 new**.
+4. `../sci-report/atlas/docs/tranches/P/coordination/` — newest @ Aug 3; **0 new**.
+
+**0 unrowed · 0 new `I-n` minted here · 0 UNREAD addressed to X.P.W3's scope.** The five standing
+UNREAD rows route to Track A/B lanes, exactly as Check 2 and Check 3 read them from their Status
+cells.
+
+### R3.3 — Preconditions, verified at the bytes AND in the ledger
+
+| condition (its authority) | receipt at this seat's clock | verdict |
+|---|---|---|
+| `W3.md` §2 *Opens after* — X.P.W0 · W1 · W2 | `LEDGER.md` rows 78/79/80 → **CLOSED 2026-09-17** ×3 | **MET** |
+| `.e` landed (addendum: `.f`/`.g` are *"both after `.e`"*) | `parse-that/waves/W3-CLOSE.md` present, 553 L, committed `313d5bac`; `<p2>` HEAD `ab6d694` | **MET** |
+| the §0p ruling exists and names both units | `COHESION.md:1116` §0p, committed `8d85a6d4`; `W3.md` L677–695 ADDENDUM in the same commit | **MET** |
+| OP-1 begin-word | COHESION **§0j** / **§0j.E** — GRANTED 2026-09-17, unchanged | **MET** |
+| fresh-root law (§4b) — ONE root, no `<p2>-w3*` sibling | ⟨cmd⟩ `ls -d /Users/mkbabb/Programming/parse-that*` → 8 dirs (7 siblings), **no `-p2-w3*`**; `git -C <p2> worktree list` → root + `w2/ac1` · `w2/ac2` · `w2/ac3-scan-union`, **all inside `<p2>/.worktrees/`** | **MET** |
+| frozen `parse-that` byte-unchanged | ⟨cmd⟩ `git -C ../parse-that log --oneline -1` → **`ef10d5b`**; porcelain **31 lines (13 M · 1 D · 17 ??)** — the pinned quadruple, unmoved | **MET** |
+| both lowerings built (G-5 has no subject without the Wasm one) | `<p2>/typescript/src/css/build/` → `ac1.js` · `ac1.wasm` (187,131 B) · `ac1.d.ts`, all @ 00:48 | **MET** |
+
+**No precondition failed; the wave is not blocked.**
+
+### R3.4 — BASELINE, re-taken READ-ONLY at this seat's own clock (the BEFORE of round 3)
+
+Every command below was run by **this** seat, in `<p2>/typescript`, writing nothing there
+(`git -C <p2> status --porcelain` → `?? .worktrees/` before and after). The gates the two owed units
+must turn or hold are re-measured here; the six gates neither unit touches are cited at Check 3's
+seventh-seat reading, which stands because **no `<p2>` byte has moved since `ab6d694`**.
+
+| gate | this seat's ⟨cmd⟩ | BEFORE reading (16:2x EDT) | verdict |
+|---|---|---|---|
+| **G-3** (`.f` sub-gate) — command leg | this seat's own fresh probe `<scratch>/w3-open3-baseline.mjs` | `empty-body heads (2 lowerings × 10): throws 0 · undefined 0 · bad-shape 0 · codes [css_syntax]`; boundary `20 values × 3 entries × 2 lowerings = 120 cells · throws 0 · undefined 0 · bad-shape 0 · distinct shapes 1` | **GREEN on its command** |
+| **G-3** (`.f` sub-gate) — **proof leg, the one `.f` must turn** | same probe, capacity witnesses | `rules=8190 bytes=98280 js=ok:true wasm=ok:true SHIELD.caught 0→0` · `rules=8191 bytes=98292 js=ok:true wasm=ok:false css_syntax SHIELD.caught 0→1` · `len=1048577 wasm ok:false css_syntax SHIELD.caught 1→2` · faults `HALT: a journal, the value stack or the arena overflowed its fixed region` / `HALT: the input exceeds the module's 1048576-byte window` | **RED — the shield is LOAD-BEARING on TWO fixed regions, `SHIELD.caught = 2`** |
+| **G-5** (both units re-run it) | `node scripts/css-dual-target-identity.mjs --js src/css/build/ac1.js --wasm src/css/build/ac1.wasm --corpus test/css-totality/corpus.json` | `cells 79674 · six-tuple differing 0 (differing bytes 0) · full-diagnostics differing 0 · value differing 0 · threw 0` · `GREEN` · **EXIT=0**; artefact sha256 **`b68bab94…6216` — EQUAL to the committed `dual-target-identity.json`**, double-run identical | **GREEN BEFORE THE CURE — a floor to hold, not a gate to turn (R.2 finding, §R3.6)** |
+| **G-9** (`.f` gains a capacity leg) | `npx vitest run --config test/css-recovery/boundary/vitest.config.ts` | `Test Files 1 failed \| 3 passed (4)` · **`Tests 2 failed \| 116 passed (118)`** — both failures `latch.test.ts` (`:147` L-3 RESETTABLE · `:157` the whole reading) · **EXIT=1** | **SPLIT — depth/boundary/no-throw GREEN · latch RED (ESC-c1, relieved, NOT `.f`'s)**; **no capacity leg exists yet** |
+| **G-7** (`.g` sub-gate) | `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602` | `rows 52 · COMPARED 8 · NO-PEER 44` · `ledger 29 rows — ADJUDICATED 16 · DISSENT 4 · FIXTURE 5 · LABEL 1 · NARROWING 3 · empty consumer-direction fields: 0` · **`MIRROR-DEFECTS 5890 (of which spec-undecided 3982)`** · **EXIT=1**; artefact sha256 **`d03b458c…1595` — EQUAL to the committed `equivalence-full-surface.json`**, double-run identical | **RED at 5,890 (ESC-d1, relieved); `.g`'s obligation is that this number does NOT RISE and its new row IS counted** |
+| **G-6** (`.g`'s regression floor) | `npx vitest run --config test/css-totality/vitest.config.ts` | `Test Files 2 passed (2)` · **`Tests 72 passed (72)`** · **EXIT=0** | **GREEN — must still read 72/72 after `.g`** |
+| **F-e1 / F-e2** (`.g`'s born-RED, §0p's own witnesses) | this seat's probe | `"hsl(120deg50%50%)" js=ok:true wasm=ok:true` · `"rgb(255none none)" js=ok:true wasm=ok:true` · `"hsl(120, 50, 50)" js=ok:false css_syntax wasm=ok:false css_syntax` · controls `"hsl(120 50% 50%)"` and `"rgb(255 0 0)"` **ok:true** both lowerings | **RED — two MIS_ACCEPTs reproduce exactly as §0p states; the legacy row already rejects (the divergence `.g` must ROW)** |
+| **Θ as published today** | same probe | `THETA keys ["depthBound"] depthBound 64`; fixed regions read from `lowering-wasm/layout.mjs`: `INPUT_CAP 1048576 · MARK_CAP 32768 · VSTACK_CAP 65536 · C_CAP 65536 · D_CAP 4096 · P_CAP 65536 · REC_CAP 4096 · ARENA_CAP 7208960` | **ONE declared capacity of EIGHT fixed regions — the measured gap `.f` closes** |
+| G-1 · G-2 · G-4 · G-8 · G-10 | not re-run here (neither owed unit's sub-gate; `<p2>` unmoved at `ab6d694`) | Check 3's seventh-seat readings stand: G-1 `ALL 5 of 52 TOTAL` EXIT=1 · G-2 `324 throws / 1548 calls` EXIT=1 · G-4 C-3 RED 5 ∧ C-4 RED at both operands EXIT=1 · G-8 `2 of 2 legs` EXIT=0 · G-10 well-formed, `--denominator 1870633` REFUSED EXIT=2 | **carried, unmoved** |
+
+The probe itself was **double-run and is byte-identical** (⟨cmd⟩ `diff -q base-run1.txt base-run2.txt`
+→ identical); G-5 and G-7 were each run twice with their `--out` artefacts hashing **equal to the
+committed evidence**, which is the strongest form of the write-then-measure receipt available here:
+the round-3 baseline is the same measurement the close, three checks and two repairs made.
+
+### R3.5 — The dispatch: TWO units, TWO ordered groups, peak concurrency 1
+
+`W3.md` ADDENDUM §Sequencing is literal — *"`.e` → `.f` → `.g` → close (VERIFY-ONLY) → check"* — and
+both units re-run G-5, so they may not run concurrently even if their named files were disjoint
+(they are not: a capacity label is a σ-label surface and `algebra/**` is `.g`'s glob; `src/css/build/**`
+is regenerated by both).
+
+| group | unit | model | sub-gates | the act |
+|---|---|---|---|---|
+| 6 | **`.f`** | **fable** (§0p: *"the Wasm memory model is architecture"*, M-12/M-23) | **G-3** (shield non-load-bearing on the witnesses) · **G-5** (re-run, identity on the boundary band) · **G-9** (capacity leg) | every fixed region a declared Θ capacity, VALUE read from `layout.mjs`, rejected at the bound by **both** lowerings as ordinary `ok:false css_syntax` with a naming label; `witnessAtCapacity` / `assertCapacityBound` in `bounds.mjs`'s own idiom; **no ninth code, no growable region, no re-sizing** |
+| 7 | **`.g`** | **opus** | **G-5** (re-run) · **G-7** (the new divergence row counted; the mirror-defect total not increased by a candidate MIS_ACCEPT) | the juxtaposition width decision realised at the token boundary in `algebra/**`: a numeric token followed with no whitespace by an ident-start is ONE `<dimension-token>`, not two values; spec-cited generated fixture pair; the legacy `hsl(120, 50, 50)` divergence ROWED |
+
+**Writable set — `.f`** (every path inside `W3.md` §4's table, which the addendum leaves unchanged):
+`<p2>/typescript/src/css/bounds.mjs` · `entry.mjs` · `lowering-js/index.mjs` ·
+`lowering-wasm/index.mjs` · `lowering-wasm/layout.mjs` (**export-only: no CAP value may move**) ·
+`src/css/build/**` (regenerated by `node src/css/build.mjs`, never hand-edited) ·
+`test/css-recovery/boundary/**` · in value.js: `docs/tranches/X/parse-that/evidence/W3/**` and its
+receipt block in this record.
+
+**Writable set — `.g`**: `<p2>/typescript/src/css/algebra/**` · `src/css/build/**` (rebuild) ·
+`test/css-recovery/**` (its own fixture file) · `test/css-equivalence/lib/ledger.mjs` (the divergence
+row's SOURCE table — the ledger is emitted, never hand-written: `emit-divergence-ledger.mjs` measures
+both result columns) · in value.js: `docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md` (re-emitted by
+that script alone) · `docs/tranches/X/parse-that/evidence/W3/**` · its receipt block here.
+
+**Locks binding both**: strictly serial `.f` → `.g` (ADDENDUM §Sequencing) · one commit per unit,
+pathspec on the commit itself, `feat(x-p-w3/.f): …` / `fix(x-p-w3/.g): …` (ADDENDUM §Commit Plan) ·
+**E-3**: `W3.md`, `W3-CLOSE.md`, the dated addenda, this record's sealed blocks and the **five
+committed evidence JSONs** (`0005f26b…` · `25fa6a4b…` · `b68bab94…` · `d03b458c…` · `240473b1…`) are
+IMMUTABLE — a post-cure re-run that changes any of them is banked **beside** it as a dated artefact
+(Repair 1's `recovery-closure-spec-literal-operand.json` is the idiom), never over it · §3a stands:
+a ninth `ParseIssue` code, a growable region, a write outside §4, or a third diagnose→edit→re-measure
+iteration on one gate **halts the unit and returns it**.
+
+### R3.6 — R.2: the one GREEN-BEFORE-CURE of this round, named
+
+**G-5** measures **GREEN at the open** (79,674 cells · 0 differing bytes · EXIT=0). It is not a
+finding against the wave — it is the wave's own MEASURE-AT-OPEN gate, turned GREEN by `.d` and
+re-run here — but it **is** a gate listed as a sub-gate of both owed units that is already green, so
+it is recorded under R.2's letter: for `.f` and `.g` G-5 is a **regression floor**, not a cure
+target, and a unit that reports it "turned" has reported a cure it did not make.
+
+### R3.7 — Verbs
+
+This seat stamps **nothing**. The LEDGER row's measured history (`PARTIAL 2026-09-17`, Checks 1–3,
+Repairs 1–2) is left standing **verbatim** and the re-open is written as a prefix to the same cell —
+overwriting that cell with a bare `OPEN` would delete six seats' measurements, which E-3 forbids and
+which no orchestration convention outranks.
+
+## Unit receipts — round 3 (`.f` · `.g`)
+
+### X.P.W3.f
+
+*(owed — the unit seat writes here)*
+
+### X.P.W3.g
+
+*(owed — the unit seat writes here)*
