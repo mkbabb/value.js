@@ -340,9 +340,24 @@ jobs:
                   echo "newest successful deploy : ${DEPLOY_AT:-<none>}  [$DEPLOY_SRC]"
                   echo "newest recorded close    : ${CLOSE_AT:-<none>}  [$CLOSE_SRC]"
 
+                  # X-W1 repair 1 (Check 1 · D-8). This read `exit 0` — the one
+                  # silent-green path in a job whose entire purpose is to refuse
+                  # a silent green. This repository has recorded closes under
+                  # docs/tranches since tranche A, so an EMPTY reading here does
+                  # not mean "no close exists"; it means the INSTRUMENT broke —
+                  # the path moved, the subject grammar changed, or the checkout
+                  # is shallow (the `|| true` above swallows a git error under
+                  # `set -e`, so a broken query arrives as an empty string, not
+                  # as a failure). A check that measured nothing must not report
+                  # OK: that is the fail-open half of DR-11, which is the disease
+                  # this job exists to end.
                   if [ -z "$CLOSE_AT" ]; then
-                      echo "no close recorded — nothing to be stale against"
-                      exit 0
+                      echo "FAIL — the close query returned nothing, so this check" \
+                           "measured nothing. Either no commit under docs/tranches" \
+                           "announces a close (impossible in this repository's" \
+                           "history) or the query itself is broken. Fix the input;" \
+                           "do not pass on its absence."
+                      exit 1
                   fi
                   if [ -z "$DEPLOY_AT" ]; then
                       echo "FAIL — no successful deploy-pages run exists at all," \
