@@ -1058,3 +1058,90 @@ SERVED MODEL: claude-opus-5[1m]
 #### §8 · Escalation, stated in one line for the dispatcher
 
 **`G-W6-11` cannot reach full GREEN under ANY seat of this wave as partitioned**, because clause 2's remaining half lives in `demo/scenes/amiga/useAmigaThree.ts`, a file the spec's §Bounds grants to no unit; and three W6-H theme rows (`#8` · `#9 ≡ D-7` · `#58 ≡ KF-AX-3`) cure at token definitions in `demo/styles/style.css` and `demo/styles/design-idioms.css`, which this unit does not hold. **Neither needs a bounds WIDENING of the wave — only a re-partition of the same §Bounds plus one file named.** Owner: seat 0 / the orchestrator, else KF.W10 carries `G-W6-11` RED and the theme packet whole.
+
+---
+
+## Resume — seat 0, THIRD dispatch (2026-09-18, 14:24 EDT)
+
+SERVED MODEL: claude-opus-5[1m]
+
+**E-3: an append beside the Open / Baseline / Unit-plan blocks and beside the second dispatch's
+resume — not one byte of any of them is edited.** The wave was re-entered at a fresh seat-0 after
+the §0o runner-dead relaunch (COHESION **§0o**: *"a runner-dead wave re-opens in RESUME MODE with
+nothing lost"*, and its dated erratum: the deaths were **HTTP 429 backoff outrunning the 180 s
+no-progress window**, not a concurrency ceiling). The ledger row still reads **OPEN 2026-09-17**.
+**Nothing here re-opens a ruling and nothing here re-plans**: the twelve-unit plan of record above
+is unchanged in sections, bounds, gates and locks.
+
+### What has landed since the second dispatch, verified at the commits and not read from prose
+
+⟨cmd⟩ (cwd `../keyframes.js`) `for u in a..l; do git log --oneline -400 --format='%s' | grep -cE "kf-w6/\.$u|kf/w6\.$u|X\.KF\.W6\.$u"; done` → double-run, identical:
+
+| unit | commits | evidence |
+|---|---|---|
+| `KF.W6.a` | **1** (kf `77d0e0b1`) | the KF.W4∥KF.W6 atomic bundle; receipted §KF.W6.a |
+| `KF.W6.b` | **0** in kf, value.js `f90dbc97` + glass mirror `edccdc44` | the ONE BH communiqué, rowed **O-26**; **G-W6-14 GREEN** |
+| `KF.W6.c` | **7** | S-1 delete family whole; **G-W6-3 GREEN · G-W6-2 honest-RED at distance 2** |
+| `KF.W6.d` | **10** | R4-1 atomic three-limb delete; **G-W6-15 GREEN** |
+| `KF.W6.e` | **14** (`c0b4ecd4` … `3630a883`) | the per-property disposition table; **G-W6-1 · G-W6-4 · G-W6-5 · G-W6-13** turned; receipt at §KF.W6.e, record commit `b8d9ed55` |
+| `KF.W6.f` | **20** (`93d0fdc3` … `04274eee`) | the instrument-side focus/target-size carve (G-W6-6 · G-W6-7); **RECEIPT ABSENT — see below** |
+| `KF.W6.g` | **7** (`2cb18417` … `a6418729`) | the ONE canvas-colour discipline; **G-W6-11 honest-RED at distance 1**, four W6-H rows ESCALATED on a measured §Bounds gap; receipt at §KF.W6.g, record commit `1a7e1485` |
+| `.h` `.i` `.j` `.k` `.l` | **0** each | still owed |
+
+Substrate at this seat: ⟨cmd⟩ `git -C ../keyframes.js rev-parse --abbrev-ref HEAD; rev-parse --short=8 HEAD; rev-parse --short=8 origin/master` → `master` · **`04274eee`** · `3cc7e126`; ⟨`git rev-list --count origin/master..HEAD`⟩ → **42** unpushed (this wave's plus Track B's siblings) — **a wave pushes at close (`.l`), never a sibling** (§0m.1). Worktree: **0 tracked modifications**, 2 untracked (the O-8/O-11 mail survivors). ⟨`git log -400 --name-only --format='' -- scripts/dev/dev.sh | wc -l`⟩ → **0**.
+
+**Seven units are NEVER re-dispatched** (runbook §5: a unit whose commits exist is done): `.a` · `.b` · `.c` · `.d` · `.e` · `.f` · `.g`. **Five are owed**: `.h` · `.i` · `.j` · `.k` · `.l`, in the plan's own groups **7 → 11**.
+
+**Crash-recovery sweep (STANDING LAW), performed before any other act**: ⟨cmd⟩ `git status --porcelain` in both repos, read ONLY at this seat's writable paths (`execution/B/KF-W6.md` · `execution/LEDGER.md` · `V/coordination/INBOX.md`) → the record and the ledger are **CLEAN**; `INBOX.md` is dirty with a **sibling's** edit (see the INBOX note). **No predecessor partial work exists at this seat's paths; nothing was inherited, stashed or restored.**
+
+### The `KF.W6.f` receipt is ABSENT — recorded, routed, and NOT cured by re-dispatch
+
+⟨cmd⟩ `grep -c '^### KF\.W6\.f' docs/tranches/X/execution/B/KF-W6.md` → **0**, against **20** landed `.f` commits in keyframes.js. The seat died (§0o) after committing its cures and before appending its receipt; ⟨`git log --oneline -30 -- docs/tranches/X/execution/B/KF-W6.md`⟩ carries receipts for `.a` `.c` `.d` `.e` `.g` and none for `.f`. **The unit is NOT re-dispatched** — its bytes are in the tree and a second seat over the same rows would re-derive cures that exist. **The receipt obligation is ROUTED TO `.l`**, the closing measurement seat that already holds the record: it reconstructs a `### KF.W6.f` block **FROM THE 20 COMMITS** (acts, rows, gates `G-W6-6`/`G-W6-7` measured at the settled bytes), labelled **RECONSTRUCTED BY THE CLOSE SEAT**, never written as if the working seat had signed it. Two facts `.g` §7.1 banks travel with it: `.f`'s commit `45bac4ae` was rewritten to `0a828e05` by `.g`'s amend on a shared branch (**zero bytes of `.f`'s cure changed**, one trailer line added), and `.f`'s own last two commits (`e081a5a7`, `04274eee`) are prose corrections to its notes — the Tailwind-scans-comments discipline and the G-W6-7 no-pixel-cite bound.
+
+### E13 Step-0 — the four-path sweep at this seat's clock, and the ONE letter now in this wave's scope
+
+Swept read-only at **2026-09-18 14:24 EDT**, compared against **every row** of `docs/tranches/V/coordination/INBOX.md`, classification from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**); `INBOX.md` **self-excluded** (SELF-COUNT law).
+
+⟨cmd⟩ `/usr/bin/find <each of the four paths> -maxdepth 1 -type f -name '*.md' | wc -l` → (1) `docs/tranches/V/` **10** + `V/coordination/` **18** · (2) `../glass-ui/docs/tranches/BK/coordination/` **9** — **BK re-confirmed the newest glass tranche dir** ⟨`ls -1dt ../glass-ui/docs/tranches/*/ | head -4`⟩ → `BK/ · BJ/ · BI/ · IOS27-MICRO/` · (3) `../keyframes.js/docs/tranches/V/coordination/` **12** · (4) `../sci-report/atlas/docs/tranches/P/coordination/` **28**.
+
+⟨cmd⟩ `/usr/bin/find <the four paths> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 12:15"` → exactly **two**: `INBOX.md` (**self**) and `../glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md`. ⟨`for f in <every swept file>; do grep -cF "$(basename $f)" INBOX.md; done`⟩ → **every 2026-09 letter is rowed**; the unrowed remainder is the July historical corpus prior sweeps have already dispositioned (atlas-internal / keyframes-internal / value.js design docs, none addressed to us).
+
+**Result: 0 unrowed · 0 new `I-n` minted by this seat (max stays I-35) · but KF.W6's scope is NO LONGER EMPTY.**
+
+**`I-35` IS THIS WAVE'S MAIL AND ITS STATUS CELL READS `UNREAD 2026-09-18`.** It was rowed at 12:17 by the **X-W1 RESUME** seat (Track A), whose own Routing cell hands it here verbatim: *"**Routing: X·KF (Track B), NOT X-W1.** O-26 was KF.W6 unit `b`'s relay and this is its reply by row id … Rowed here for traceability and for the Track-B seat that owns it; no obligation is minted on X-W1 and none is discharged by this seat."* The letter (41,738 B · sha256 `9066b6607ff3…`) is addressed *"To: value.js tranche X, Track B (X·KF) — KF.W6 unit `b`, the relay seat"* and answers **every O-26 row by id**. `.g` §6 read it and consumed exactly **one** row (**R-15 → *"no collision, mint them bare"***); **the rest is unconsumed**. What it carries, stated so no owed unit spends a glass verdict blind:
+
+1. **§0, a load-bearing measurement against us**: *"Your installed 7.0.0 is not the published 7.0.0"* — our `dist/glass-ui.css` **70,109 B** vs the registry's **69,884 B**, two cited hashed chunks in **no** published 6.0.0–9.0.0, and two dated witnesses putting this tree **before** the v7.0.0 tag. *Nothing is withdrawn on this ground*; what moves is **line cites, two chunk names, and R-11**.
+2. **§2 corrects one mis-read**: `/timeline` is **A-8 alone**; **A-9 is `TooltipContent`'s block ceiling and is NOT cured at 9.0.0**.
+3. **§3 returns our whole 7.0.0 interim table with the producer's column corrected, row by row** (R-1 · R-3 · R-4 · R-5 · R-6 · R-7 · R-8 · R-9 · R-10 · R-11 · R-12 · R-16), each with the version that retires it.
+4. **§4 = TWO ASKS OF US**: (1) re-install `@mkbabb/glass-ui` **from the registry** and re-take every banked byte figure; (2) confirm **which CSS entry the demo imports**.
+
+**DISPATCH RULING ON §4, ask (1) — NO OWED UNIT PERFORMS IT.** A registry re-install is a **substrate act**: it moves the bytes every banked figure in KF.W4/KF.W6/KF.W7/KF.W9 was measured against, mid-wave, on a tree four tracks share, and `node_modules` is in **no** unit's §Bounds writable set. It is **ESCALATED to seat 0 / KF.W0 (the substrate wave)** — the same finding `.g` §6 flagged from the other end. The five owed units **measure the INSTALLED bytes this tree builds against and say so**, exactly as `.g` did. **§4 ask (2)** (the demo's CSS entry) is a one-command read and is **routed to `.l`** with the letter's consumption.
+
+**E13 CONDITION ON THIS WAVE'S CLOSE, stated now so it cannot be discovered late**: *no wave closes with UNREAD mail in scope*. **`I-35` is in scope.** `.l` **READS IT WHOLE, CONSUMES IT IN WRITING** (row by row against the communiqué's own ids), states which banked figures §0 moves and which it does not, and **moves the row's status cell** — and `.l` is the only owed unit whose writable set contains `INBOX.md`.
+
+### INBOX note — why this seat writes no byte of `INBOX.md`
+
+⟨cmd⟩ `git status --porcelain -- docs/tranches/V/coordination/INBOX.md` → **` M`**, and the hunk is the **X-W1 RESUME seat's** own I-35 row and 14:2x sweep line — a **live sibling's uncommitted work**, not a killed predecessor's on this unit. A pathspec commit of that file here would sweep a sibling's row into this wave's commit: exactly the contamination measured at X-W0 (three contaminated commits), and exactly the second dispatch's reason for leaving `LEDGER.md` alone. **So the file is left untouched and unstaged**, the sweep is banked here instead, and the durable INBOX line is `.l`'s at close (when it consumes I-35 and is the file's writer by plan). **Nothing is lost**: I-35 is already rowed, already UNREAD, already routed to Track B by its own cell.
+
+### Ledger note
+
+**Two readings, both recorded, because the second falsified the first inside two minutes — and the first is not quietly deleted.** At **14:24 EDT** ⟨`git status --porcelain -- docs/tranches/X/execution/LEDGER.md`⟩ → **∅ (clean)**, and this seat's plan was to append one event-log line and commit the ledger with the record under one pathspec. **Re-read immediately before editing** (the law's own instruction — *"re-read immediately before editing; other seats edit it concurrently"*) → **` M`**, ⟨`git diff --numstat`⟩ → **`6 2`**, and ⟨`git diff -U0`⟩ shows the hunks are **not this wave's**: `@@ -29`  the **X-W1** row (Track A, `RESUMED 2026-09-18 after the host restart`), `@@ -64` the **F.W1** row (Track C, `unit e LANDED`), and `@@ -203,0 +204,4` two event-log lines, one X-W1's and one F.W1's. **Live siblings' uncommitted work, not a killed predecessor's on this unit** — the crash-recovery law's inherited-work clause does not reach them.
+
+**Decision: the ledger is left UNTOUCHED and UNSTAGED, and this seat appends NO event-log line.** A pathspec commit of that file here would sweep two sibling rows and two sibling event lines into a KF.W6 commit — the contamination measured at X-W0 (three contaminated commits), and the second dispatch's own recorded reason for leaving this same file alone. **Nothing is owed and nothing is lost**: KF.W6's status cell already reads **OPEN 2026-09-17**, a resume is not a status change (minimal-in-place law), and the resume is banked here instead. The row — and the wave's event-log line — move at `.l`, which holds `LEDGER.md` by plan and must re-read it the same way before writing.
+
+### Baseline — not re-banked
+
+The §Baseline block above stands as the wave's BEFORE (**all fifteen RED** at kf `ae83da07`, **greenBeforeCure = ∅**). R.2 is a property of the *pre-cure* reading. The gates since turned — **G-W6-14** (`.b`) · **G-W6-3** (`.c`) · **G-W6-15** (`.d`) · **G-W6-1 · -4 · -5 · -13** (`.e`) · **G-W6-6 · -7** (`.f`, receipt owed) — are **cured, not green-before-cure**; **G-W6-2** stands honest-RED at distance 2 (`.c`) and **G-W6-11** honest-RED at distance 1 (`.g`). The five owed gates are **G-W6-8** (`.h`) · **G-W6-9** (`.i`) · **G-W6-12** (`.j`) · **G-W6-10** (`.l`), with `.k` feeding `-9`'s KSM composition and `-10`'s figure and turning neither alone.
+
+### The escalations that ride into the five owed units (routing only — NO bounds are widened)
+
+`.g` §5/§8 escalated four W6-H rows on **one measured cause: a §Bounds partition, not a cure that could not be found.** Seat 0 disposes of them as **routing inside the SAME §Bounds**, and of the rest as ESCALATIONS held for the close:
+
+1. **`CubeScene D-7 ≡ CubeTarget #9` (the face palette) and `CubeTarget #58 ≡ KF-AX-3` (the axis triple)** cure at token definitions in `demo/styles/style.css` ⟨`git grep -n -- '--face-[1-6]' -- demo/`⟩ → `style.css:154-159`; ⟨`--axis-[wxyz]`⟩ → `style.css:115-118`. `style.css` **is** a §Bounds file (spec `:62`, `modify`) and is held by **`.h`** and **`.l`**. **ROUTED TO `.l`**, which holds `CubeScene.vue` **and** `style.css` — the only owed unit holding both ends — and keeps them in **ONE motion with `#8`** as `.g` requires. `.h` does **not** claim them (its §Carry section is W6-G and `#8`'s register member is not in its set).
+2. **`CubeTarget #8`** needs **ONE new material-register member, dark in BOTH arms**, at `demo/styles/design-idioms.css` + `DESIGN.md §2`, with the **sheen half held with it** (one register decision, never half now and half later). `design-idioms.css` is in **no owed unit's** writable set (`.c`/`.e`/`.f` held it and are closed); `DESIGN.md` is **`.l`'s**. The producer end is **UNBLOCKED** by I-35's R-15 answer (*"no collision, mint them bare"*). **ESCALATED, not improvised**: `.l` records it and routes it to seat 0 / KF.W10; **no seat spells a raw literal at a call site** (DESIGN.md §2: *"A literal is permitted only inside the material token definition"*).
+3. **The AmigaScene canvas-theme half — `D-4` · `D-5` · `D-9` · `L-i5`, and `G-W6-11`'s clause-2 distance — cures at `demo/scenes/amiga/useAmigaThree.ts`, granted to NO unit of this wave.** **ESCALATION STANDS; `G-W6-11` cannot reach full GREEN under this wave as partitioned.** No owed unit restates that file's constants at a second site to manufacture a green (`.g` considered and REJECTED exactly that). `.l` names it in the close and routes it to seat 0 / KF.W10.
+4. **`.b` §2.4's remaining two bare `.focus-ring` scene hosts** — ⟨`git grep -n '\bfocus-ring\b' -- demo/scenes/ | grep -v kf-focus-ring`⟩ → `SpringTarget.vue:63` and `SquareScene.vue:46`. Neither file is in any owed unit's set. **Declared so `.l`'s "zero bare demo hosts" measurement reads them as an out-of-bounds residual, not as a miss.**
+5. **`EasingSidebar.vue` / `EasingScene.vue`'s glass-TIER decision** (`.g` §7.6) is **W6-I's section and `.i`'s gate condition**. `EasingScene.vue` is in **`.k`'s** set and `EasingSidebar.vue` in **no owed unit's**. **`.i` states them in its discharge list** — claimed with a written decision if reachable at its own bounds, declared if not; **not silently skipped.**
+6. **`#60`'s raw-duration family** (`CubeTarget.css`'s `160ms`, `CubeAxisLines.vue`'s three `180ms`) was left whole by `.g` for **`.j`**, which holds both files — **one motion picks one rung.**
+
+**Standing clause binding every owed unit** (dispatch, not a re-plan): **read `I-35` §2/§3 before spending any glass-adoption or glass-tier verdict**, cite the producer's corrected column where it bears, **do not re-install anything**, and state that every producer figure was measured at the **installed** bytes.
