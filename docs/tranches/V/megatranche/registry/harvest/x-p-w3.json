@@ -1,0 +1,962 @@
+{
+ "servedModel": "claude-fable-5-1",
+ "schema": "x-p-w3.e.harvest-fold/2",
+ "workflow": "x-p-w3",
+ "unit": "X.P.W3.e",
+ "clock": "2026-09-18 14:36 EDT",
+ "note": "FOLDED by X.P.W3.e, by program, from the UNMODIFIED harvester's own outputs. `harvest-journals.mjs` names every output by runId (`NAMES[dir] ?? dir`) and so cannot emit a file called x-p-w3.json (x-p-w0.json and x-p-w1.json were filed the same way). X.P.W3 ran as THREE workflow runs — the open with groups 1-2 (wf_25c53370-7ee), the first RESUME with groups 3-4 and the `.e` seat that died uncommitted (wf_3e7ab295-b6d), and the second RESUME that dispatched this seat (wf_a9980aef-425). All three run files are embedded VERBATIM as the harvester wrote them (`document`), each with its sha256 and byte count; nothing inside `document` was edited. `planned`, `harvested` and `seatCount` are this seat's envelope, computed from the embedded documents by the same program. The dead predecessor `.e` seat left NO result row in wf_3e7ab295-b6d (a killed seat writes none) — it is not counted as a harvested seat, and its uncommitted draft of this file (schema fold/1, two runs) is superseded by these bytes, not merged into them.",
+ "harvester": {
+  "path": "docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
+  "sha256": "77a6e04c20674f1575891ac9f3daa8421491fc2ec98bd784dc61b4563c978a28",
+  "lastCommit": "c0078d96 2026-07-27",
+  "workingTreeStatus": "clean (git status --porcelain -- docs/tranches/V/megatranche/workflows/ → 0 lines)",
+  "invocation": "node docs/tranches/V/megatranche/workflows/harvest-journals.mjs",
+  "session": "default (CLAUDE_SESSION_DIR unset) — /Users/mkbabb/.claude/projects/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e",
+  "cwd": "a scratch MIRROR whose docs/tranches/V/megatranche/workflows/harvest-journals.mjs is a SYMLINK to the repo's own script (so the bytes executed are the repo's, sha256 above). The script resolves its two output paths relative to cwd. Run A: registry/ wholly in the mirror. Run B: registry/harvest/ in the mirror and registry/DEFECT-LEDGER.md a SYMLINK to the repo's own file, so the ledger write is the SCRIPT's act on the repo path, never a hand's copy. Reason: measured at this clock the script writes 143 harvest files per run, of which 94 are NEW and 2 CHANGED (wf_247fe7fa-e67.json, wf_6f552e12-062.json) against the repo's tracked set — every one outside X.P.W3's §4 bounds (K.7(i), third firing).",
+  "exit": 0,
+  "stdout": [
+   "harvested 2966 agent results · 7585 defects · {\"BLOCKER\":914,\"MAJOR\":3245,\"MINOR\":2196,\"INFO\":718,\"MEDIUM\":192,\"HIGH\":111,\"LOW\":156,\"MEDIUM-LOW\":1,\"MINOR-RISING-TO-MAJOR\":1,\"MODERATE\":5,\"CRITICAL\":16,\"HIGH — FILED AGAINST CENSUS-CANONICAL.MD\":1,\"MEDIUM — FILED AGAINST CENSUS-CANONICAL.MD\":1,\"INFO — FILED AGAINST PASS-4/RULINGS-4.MD\":1,\"INFO — ENVIRONMENTAL, FOR SUCCESSOR SEATS\":1,\"CLEAR — AXIS 2 PASSES\":1,\"CLEAR — AXES 3/4/5 PASS\":1,\"MEDIUM-HIGH\":5,\"MINOR-WITH-MITIGATION (NON-BLOCKING)\":1,\"MINOR (MITIGATED — DOES NOT BLOCK)\":2,\"INFO (NEVER BLOCKS)\":2,\"MINOR-WITH-MITIGATION (DOES NOT BLOCK)\":1,\"MINOR-WITH-MITIGATION\":3,\"LOW-MEDIUM\":2,\"MINOR (MITIGATED)\":6,\"MINOR (REGISTER TRUTH — ARITHMETIC THAT DOES NOT DECOMPOSE; AXIS 5)\":1,\"MINOR (DATED-EVIDENCE LAW — UN-DATED STALE COUNT IN CURRENT VOICE; AXIS 4)\":1}",
+   "EXIT=0"
+  ],
+  "runs": 2,
+  "runsByteIdentical": true,
+  "harvestFilesWrittenPerRun": 143,
+  "newAgainstRepo": 94,
+  "changedAgainstRepo": 2,
+  "defectLedgerSha256": "8092610ba3117de87ff03f50bbc502b584ab111e602d9a8a8df4adfedff84356",
+  "defectLedgerBytes": 10551839,
+  "defectLedgerHeadline": "7520 → 7585 defects"
+ },
+ "dispatched": [
+  "X.P.W3.0",
+  "X.P.W3.a",
+  "X.P.W3.b",
+  "X.P.W3.c",
+  "X.P.W3.d",
+  "X.P.W3.e"
+ ],
+ "planned": {
+  "X.P.W3.0": [
+   "wf_25c53370-7ee"
+  ],
+  "X.P.W3.a": [
+   "wf_25c53370-7ee"
+  ],
+  "X.P.W3.b": [
+   "wf_25c53370-7ee"
+  ],
+  "X.P.W3.c": [
+   "wf_25c53370-7ee",
+   "wf_3e7ab295-b6d"
+  ],
+  "X.P.W3.d": [
+   "wf_25c53370-7ee",
+   "wf_3e7ab295-b6d"
+  ],
+  "X.P.W3.e": [
+   "wf_25c53370-7ee",
+   "wf_3e7ab295-b6d",
+   "wf_a9980aef-425"
+  ]
+ },
+ "harvested": {
+  "X.P.W3.0": {
+   "runId": "wf_25c53370-7ee",
+   "resultIndex": 7,
+   "agentId": "a7b86e8135cbebd58",
+   "status": "DONE",
+   "commits": 8,
+   "gatesGreen": [
+    "(none of the ten W3 gates — this unit turns none and claims none)",
+    "UNBLOCKED, literal form: G-1 · G-4 · G-5 · G-7 · G-10, and G-6's survivor half",
+    "W2 G-1 structural half: cutOutsideAlt 7 → 0 at the graduated tree, both lowerings (E-3)",
+    "W2 G-3: eq-six EQ-6 2035 → 0, six zeros over 30,527 rows, third cell unmoved at 233 (12 declared) — RED → GREEN (E-2)",
+    "W2 G-4: recovery-laws R-LAW-2 COMP-1 failures 13 → 0, both lowerings, 2,951 TRY sites unchanged — RED → GREEN (E-2)",
+    "W2 G-6: coverage-52-report --candidate ac1 --at typescript/src/css threw → exit 0, verbs printed (1 TOTAL / 2 PARTIAL / 49 ABSENT) — D-i2 cured",
+    "W2 G-10: idiom-nocst TS2578 exit 1 → excess-property fixture PASSES, exit 0 — D-c1 cured",
+    "W2 G-7: RED-structural → a registrable subject exists (E-6); the table remains .d's, no bar/ratio published",
+    "W2 G-2 · G-5 · G-9 · G-11 · G-12 unchanged GREEN (op-bijection 22/22/22 · r1-candidates 0/172×6 + 7/7 · wasm-audit · depth-scan)",
+    "Verification sweep at settled bytes, run TWICE over all eight W2 probes: 8 of 8 exit 0, both runs identical"
+   ],
+   "gatesRed": [
+    "W3 G-1 · G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 · G-10 — all ten still RED, by design: this unit authored none of scripts/css-universe.mjs, css-recovery-closure.mjs, css-dual-target-identity.mjs, css-bench-three-leg.mjs and no test/css-*/** exists yet",
+    "W2 G-8 (alloc-latch) — still RED and reported as instrument-owned (F-4 · F-e8 · F-f3 · F-h3): this draw js 7.9 / wasm 2.2 B/parse against an exact zero inside a ±10 B/parse band, warmed drift js 0.745× inside F-h3's recorded 0.744–0.931× spread. No re-run for a greener number was taken"
+   ],
+   "journalRows": 1
+  },
+  "X.P.W3.b": {
+   "runId": "wf_25c53370-7ee",
+   "resultIndex": 8,
+   "agentId": "ac2cc7b9aadbad0b9",
+   "status": "PARTIAL",
+   "commits": 6,
+   "gatesGreen": [
+    "G-8"
+   ],
+   "gatesRed": [
+    "G-4"
+   ],
+   "journalRows": 1
+  },
+  "X.P.W3.a": {
+   "runId": "wf_25c53370-7ee",
+   "resultIndex": 9,
+   "agentId": "ae6dda4241c5b3734",
+   "status": "PARTIAL",
+   "commits": 6,
+   "gatesGreen": [
+    "G-6"
+   ],
+   "gatesRed": [
+    "G-1"
+   ],
+   "journalRows": 1
+  },
+  "X.P.W3.c": {
+   "runId": "wf_3e7ab295-b6d",
+   "resultIndex": 4,
+   "agentId": "ae1326ac8200491f7",
+   "status": "PARTIAL",
+   "commits": 4,
+   "gatesGreen": [
+    "G-3"
+   ],
+   "gatesRed": [
+    "G-9"
+   ],
+   "journalRows": 1
+  },
+  "X.P.W3.d": {
+   "runId": "wf_3e7ab295-b6d",
+   "resultIndex": 5,
+   "agentId": "ae2e4cc76b3bbc9a9",
+   "status": "PARTIAL",
+   "commits": 9,
+   "gatesGreen": [
+    "G-5",
+    "G-10"
+   ],
+   "gatesRed": [
+    "G-2",
+    "G-7"
+   ],
+   "journalRows": 1
+  }
+ },
+ "seatCount": {
+  "dispatched": 6,
+  "harvestedUnitRows": 5,
+  "absent": [
+   "X.P.W3.e"
+  ],
+  "zeroRowSeats": [],
+  "reading": "RED under L-13's letter (5 of 6): X.P.W3.e is structurally absent — a harvesting unit cannot appear in its own harvest; its result row lands in wf_a9980aef-425's journal only after this seat returns (X.P.W0 R-3 and X.P.W1 R-3, reproduced a third time). Every dispatched seat that has returned carries exactly one non-empty result row; no returned seat has zero journal rows. A post-return re-harvest by the orchestrator with the same unmodified command is the only act that can read 6."
+ },
+ "runs": [
+  {
+   "file": "registry/harvest/wf_25c53370-7ee.json (as the harvester emitted it, in the mirror run)",
+   "runId": "wf_25c53370-7ee",
+   "sha256": "ebe56ca986fc8d00ab8d4acb20920333026a469b0100dac9fa59d85c1eb872c5",
+   "bytes": 81320,
+   "byteIdenticalAcrossTheTwoRuns": true,
+   "resultCount": 10,
+   "document": {
+    "runId": "wf_25c53370-7ee",
+    "workflow": "wf_25c53370-7ee",
+    "resultCount": 10,
+    "results": [
+     {
+      "agentId": "ac3b5db67a4e10ef1",
+      "key": "v2:e3719d912b0cdad30f968d9c7f992652ef7eb553c08573e2e14b169dd449fa23",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "adf73fc9a194afb61",
+      "key": "v2:b612c7ef23ecb55e50a8976bc807913cb1a61f538783e5af6bd44229eded1074",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a5d76350081add0ad",
+      "key": "v2:3d1716e79e6ee11a4ef061ff4b1ea6c78d09d45afa487c8e927180f13dd1519e",
+      "result": {
+       "groups": [
+        [
+         "X.P.W2.i"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W2.i",
+         "model": "opus",
+         "sections": "W2.md §5 `.i` L660-670 · §3 item 10 L183-185 · §6 G-12 L839-852 · §10 alias table L921-929 · W2-KILL-LEDGER.md §11 L434-465 · COHESION §0n.1 L961-988 + §0n.2 L990-992",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/typescript/src/css/** (create; branch w2/ac1 — the `<p2>/typescript/src/css/**` bound of W2.md §4 Surface B, reached on the candidate's own branch per KILL-LEDGER §11.2)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W2.md (append ONLY inside '## Unit receipts — second sitting')"
+         ],
+         "gates": [
+          "G-12 graduation half (typescript/src/css exists, both lowerings build there)",
+          "G-2 — node harness/w2/op-bijection.mjs --candidate ac1 --at typescript/src/css",
+          "G-3 — eq-six.mjs --at (expected honest-RED: EQ-6 = 2,035, E-2)",
+          "G-5 — r1-candidates.mjs --at",
+          "G-9 — wasm-audit.mjs --at",
+          "G-10 — idiom-nocst.mjs --at",
+          "ESC-i2 sub-gate — npm ci in <p2>/typescript, then npx tsc --noEmit -p typescript/tsconfig.json"
+         ],
+         "locks": "Runs only after `.h` commits (§4a) — `.h` landed `ba01b405`. Touches NOTHING but typescript/src/css/** (§4a verbatim): harness/{totality,equivalence,bench}/** is W1's execute-no-write (§3a halt), harness/w2/** is `.g`'s (invoked, never edited), experiments/** is the seats'. ONE commit on w2/ac1 (`feat(w2/graduate): …`); NO branch merge — §11.2/§0n.2 give `w2/ac1` → `w2/harness` to the relaunch's close. The two histories are never merged (§9); no byte under /Users/mkbabb/Programming/parse-that (K-10). No contract byte: §0n.3 makes E-2/E-3/E-4/E-5/E-8 X.P.W3's first act. No bar (OWNER-GATED-PENDING-RATIFICATION). Third diagnose→edit→re-measure iteration on one gate → §3a halt.",
+         "brief": "Execute KILL-LEDGER §11 mechanically for AC-1 (§0n.1 word a): promote .worktrees/ac1/experiments/w2/ac1-tagless {algebra,lowering-js,lowering-wasm,build}/** + build.mjs + harness-adapter.mjs + .d.ts (+reify/ if its meta says) -> typescript/src/css/** IN THAT WORKTREE; probes/ and VERDICT.md stay. No redesign; only move-forced import edits, listed one by one or ZERO proven; 1.0.0 import carried. Build both lowerings; re-run the WORKTREE'S OWN harness/w2 probes --at typescript/src/css (G-2/3/5/9/10), paste. ESC-i2: npm ci in typescript/, then npx tsc --noEmit -p typescript/tsconfig.json; outside errors RED-PREEXISTING. G-3 EQ-6=2,035 honest-RED (E-2), never touch the grammar. Commit on w2/ac1."
+        }
+       ],
+       "alreadyDone": [
+        "X.P.W2.0",
+        "X.P.W2.a",
+        "X.P.W2.b",
+        "X.P.W2.c",
+        "X.P.W2.g",
+        "X.P.W2.d",
+        "X.P.W2.e",
+        "X.P.W2.f",
+        "X.P.W2.h"
+       ],
+       "greenBeforeCure": [
+        "G-1 (contract half) — GREEN at this open before any unit of this sitting acts: both ALGEBRA.md homes sha256-equal `67c8253abaecb29a0b16a862bf63ad25ff1140d91f06248c843b9c253fc537de` (157,010 B each), 22 enumerated == 22 stated, target-conditional tokens 0, R-LAW-5 negative control fires. Cause named, not a measurement doubt: the orchestrator landed F-h7 between the sittings (COHESION §0n.6), re-landing the `<p2>` execution copy at `4afad90`. The gate as a whole is NOT green — run from `<p2>/.worktrees/ac1` it exits RED on `cut∉alt` 7 (E-3, owner-owed, cured by X.P.W3's addendum, not by this wave)."
+       ],
+       "recordCommit": "ec96a825"
+      }
+     },
+     {
+      "agentId": "a88db2a3de44acfd6",
+      "key": "v2:ed690b55f07dc4997fb60ec9fb212ed7081e66bfdca48b82e034e96537e32368",
+      "result": {
+       "unit": "X.P.W2.i",
+       "status": "DONE",
+       "commits": [
+        "130f72db681f0cfd69b5824d6859398d7ffeba5a",
+        "aedb07b58a131c1d6d57438f9e07cca94e80a971"
+       ],
+       "gatesGreen": [
+        "G-12 graduation half — GREEN-WITH-RESIDUALS (E-2), the best §11.5 permits: typescript/src/css exists (17 tracked files), both lowerings build there, falsifier diff empty",
+        "G-2 — op-bijection --at typescript/src/css: contract 22 · js 22 · wasm 22 · DECLARED-ABSENT 0, fingerprints pairwise equal, exit 0",
+        "G-5 — r1-candidates --at: 0/172 throws × 3 productions × 2 lowerings, 0 empty-diagnostic rejections, boundary 7/7, exit 0",
+        "G-9 — wasm-audit --at: 0 imports all kinds, no start section, 5 enumerated exports, memory 12582912 == 12582912 over 2,000 parses, K-9/K-10 intact, exit 0",
+        "G-10 — idiom-nocst --at: 139 graph nodes, opt-under-all 0 · lazy 0 · memoize 0, five textual zeros all 0, excess-property fixture PASSES, exit 0",
+        "ESC-i2 sub-gate — npm ci in typescript/ (lockfile digest string-equal before/after, no tracked byte), then npx tsc --noEmit -p typescript/tsconfig.json → exit 0, ZERO diagnostics; NO RED-PREEXISTING residue remains"
+       ],
+       "gatesRed": [
+        "G-3 — eq-six --at: EQ-1..EQ-5 = 0, EQ-6 = 2,035 over 30,527 rows (first row s0180 \"var(--brand)\"), exit 1. HONEST-RED with E-2's id, exactly the number §11.5 predicted; the grammar was not touched — §0n.3 puts the addendum at X.P.W3's first act"
+       ],
+       "notes": [
+        "The promotion is mechanically exact: `diff -r experiments/w2/ac1-tagless typescript/src/css` prints only `Only in …: VERDICT.md` and `Only in …: probes` — the two things §11.1 names as staying — and all 17 promoted files' sha256 digests are string-equal to the candidate's. G-12's falsifier (\"a graduation that redesigns in passing\") is refuted at the bytes, not by assertion.",
+        "MOVE-FORCED IMPORT EDITS: ZERO, proven. Exactly one specifier escapes the promoted directory (`../../../../harness/bench/lib/engines.mjs`, at lowering-js/index.mjs:12 and lowering-js/js-alg.mjs:25); both source and destination sit four levels below the root, and node's own resolver was run on all four file/location pairs — all resolve to <ac1>/harness/bench/lib/engines.mjs. The 1.0.0 substrate import is CARRIED, never re-pointed (§11.3 / §0n.5 — W3's act).",
+        "`reify/term-alg.mjs` PROMOTED, settled by the bytes not by taste: it is the fourth entry of `meta.sources.algebra` in harness-adapter.mjs:35, and §11.1's own criterion for what stays behind is \"they are not meta.sources\". SELF-COUNT: 17 promoted + 3 left behind (VERDICT.md, probes/×2) = 20 = `git ls-files experiments/w2/ac1-tagless | wc -l`. `dev/` does not exist in this candidate.",
+        "`node typescript/src/css/build.mjs` re-run at the graduated location reproduces all three artifacts BYTE-IDENTICALLY (ac1.wasm 049b9904… 187,341 B · ac1.js 5f300b7e… · ac1.d.ts 3b93f1b5…), including the build-regenerated relative .d.ts specifier. Both lowerings instantiate there: 22 registry rows, 51 labels, grammar built, entry() a function, parse ok=true in each.",
+        "ESC-i2 published narrowly and honestly: tsconfig include is [\"src/\",\"test/\"], so the graduated tree IS in the project, and `--listFiles` measures exactly 1 of 403 program files under typescript/src/css (build/ac1.d.ts). The sixteen .mjs files are not type-checked — no `allowJs` — which is the candidate's own authored shape carried unaltered. The clean exit is stated with that limit rather than left to imply more (residual R-i2, W3's).",
+        "D-i1 (MINOR, orchestrator): COHESION §0n.2's tail cites \"§0n.7\" for the carried 1.0.0 import; COHESION ends at §0n.6 (1,012 L) and `grep -c '§0n.7'` → 1, the cite itself. The substance is §0n.5. Executed at INTENT — the import is carried, not re-pointed. A dangling cross-reference in a ruling, curable only by its author.",
+        "D-i2 (MAJOR, handed to the close / W3's open seat): `harness/w2/coverage-52-report.mjs` (G-6) THROWS whenever a candidate is actually present at the queried location — `TypeError: text.matchAll is not a function` at harness/totality/lib/surface.mjs:202. Cause read at the bytes: coverage-52-report.mjs:97 passes an ALREADY-PARSED `readTypeDeclarations(subject.declarationText)` into classify(), which calls readTypeDeclarations again at classify.mjs:122; and subject.declarationText is `meta.artifacts.dts`, a PATH STRING never read from disk. ATTRIBUTION SETTLED, NOT GUESSED: it reproduces identically at the candidate location (`--candidate ac1`, no `--at`), which this unit never touched and which has existed since phase 4 — latent since `.g`, merely made reachable by the graduation. §C.2's G-6 GREEN was taken on the ABSENT path, which returns before line 97. harness/w2/** is `.g`'s, invoked never edited; G-6 is not this unit's gate, so it was measured and recorded, not cured.",
+        "R-i1 (INFO, W3): harness-adapter.mjs's `meta.build.jsArtifactReproduction` still reads `node experiments/w2/ac1-tagless/build.mjs` at the graduated location (G-9 prints it). Carried unaltered ON PURPOSE — §11.2 permits relative-IMPORT adjustments only, and a declared build command is not an import; re-pointing it would be the \"improvement in passing\" G-12's falsifier names. It is also still true, and the graduated build.mjs was measured to reproduce the same three digests.",
+        "R-i3 (INFO): `.g`'s F-h2 reproduces verbatim at the graduated location — G-3's verdict line reads \"2035 divergences between the two lowerings (K-1)\" while its own table shows EQ-1..EQ-5 = 0. The lowerings agree; EQ-6 is COMP-1 failing identically in both. The number is right, the label is `.g`'s to fix.",
+        "WRITE-THEN-MEASURE honoured on every figure: each of the five probes was double-run byte-identical BEFORE the commit and re-run once more AFTER it against the settled bytes, with all five outputs diffing IDENTICAL to their pre-commit runs; tsc was double-run and re-run post-commit (0 diagnostics each time).",
+        "BOUNDS: both commits audited — value.js `aedb07b5` touches exactly `docs/tranches/X/execution/D/X-P-W2.md` (253 insertions, 0 deletions, append-only under '## Unit receipts — second sitting'; the first sitting's immutable `### X.P.W2.i` at L2280 untouched, E-3); `<p2>` `130f72db` touches exactly `typescript/src/css/**` (17 files). Pathspec on both commits themselves. `scripts/dev/dev.sh` and the three sibling seats' dirty paths were never staged. NO branch merged — §11.2/§0n.2 give `w2/ac1` → `w2/harness` to the close. K-10 verified rather than assumed: `find /Users/mkbabb/Programming/parse-that -newermt '2026-09-17 18:00' -type f` → ∅; that repo's HEAD is still ef10d5b and its 31 porcelain lines are pre-existing OP-6 residue this seat only read. LEDGER.md was NOT edited — it is outside this unit's hard-bound writable set; the row is the orchestrator's/close seat's.",
+        "E13: four-path sweep at this seat's clock, 0 unrowed · 0 new I-n · 0 new O-n. The three UNREAD rows I-32/I-33/I-34 were read from their own status and Routing cells (never a bare `grep -i unread`) and each routes to X-W0.j / the X formation mail seat, not X·P. UNREAD in X.P.W2.i's scope: 0. No cell flipped, no sweep line appended — `.i` is not a close act.",
+        "No §3a halt fired: no gate needed a second diagnose→edit→re-measure iteration, because no gate needed an edit at all. No bar set or implied — OWNER-GATED-PENDING-RATIFICATION stands. Carried REDs unmoved and not this unit's: G-3 (E-2, W3's first act) · G-4 (same E-2 cause) · G-7 (E-6, W3 per §0n.4) · G-8 (instrument resolution) · G-1's structural half on this branch (`cut∉alt` 7, E-3, owner-owed, resolved by the close's merge). The wave stands IMPLEMENTED-with-carried-REDs, never GREEN-by-assertion."
+       ]
+      }
+     },
+     {
+      "agentId": "a147b6eb7c1bb65d6",
+      "key": "v2:7046fc2451dde4f85297261acbebf159b0a91832c141f0c46c77aa9babe06526",
+      "result": {
+       "verdict": "IMPLEMENTED",
+       "gatesGreen": [
+        "G-2 op-bijection --at typescript/src/css — GREEN, run from BOTH <p2> proper and the ac1 worktree, double-run byte-identical at each: contract 22 · js 22 · wasm 22 · DECLARED-ABSENT wasm symbols 0, OP-01..OP-22 each `js:<OP> / wasm:<OP> / ok`, fingerprints pairwise equal, exit 0",
+        "G-5 R1-zero-throw + the JS boundary — GREEN. Candidates at the graduated location: 0/172 throws × 3 productions × 2 lowerings, 0 empty-diagnostic rejections, boundary 7/7 each, exit 0. The MEASURE-AT-OPEN published baseline was re-taken at THIS seat's HEAD `aedb07b5` with the probe unmodified (R-E) and reproduces §6's header to the digit: parseCssColor 102/172 · TOTAL 324 throws / 1,548 calls · DISTINCT FAILURE MODES 1 — R1 is still live in the incumbent",
+        "G-9 wasm-audit --at — GREEN, from both addresses: module 187,341 B sha256 `049b9904…611c6e22`, imports 0 with `imports by kind {}` over ALL kinds, start section absent, 5 enumerated exports (run · setTheta · highWater · reset · memory), memory 12582912 == 12582912 across 2,000 steady-state parses, K-9 `non-JS toolchain in that path: none`, K-10 intact (0 committed wasm32, the 3 uncommitted read only), exit 0",
+        "G-11 depth-scan --at — GREEN: row s0526 returns `ok:false, 1 issue(s)` from a CONSTRUCTED bound in both lowerings, never a RangeError; every scan primitive reached as an algebra leaf (DIGITS · DISPATCH · KW · LIT · SCAN · TEXT), exit 0, double-run byte-identical",
+        "ESC-i2 (§0n.2's sub-gate) — GREEN with NO RED-PREEXISTING residue. Lockfile `3846f742…46721fb8` and package.json `f53ca9b8…` string-equal to `.i`'s recorded digests; `npx tsc --noEmit -p typescript/tsconfig.json` → exit 0, ZERO diagnostic lines, double-run byte-identical; no root `<p2>/tsconfig.json` minted; porcelain clean. Published with its own limit rather than in place of it (R-i2): `--listFiles` → 1 of 403 program files under typescript/src/css, `allowJs` absent",
+        "G-6 (MAP HALF) — GREEN on §6's literal command `node harness/w2/coverage-52-report.mjs`: 52 rows, ∅ both ways against W1's manifest, map digest `334fa95778e00727b945f66bac7af5dd`, `{\"TOTAL\":0,\"PARTIAL\":0,\"ABSENT\":52}`, throws 0, exit 0, double-run byte-identical. The gate's OTHER half is RED — see gatesRed (D-i2)",
+        "G-12 (LEDGER HALF) — GREEN: W2-KILL-LEDGER.md tracked, 505 L · 79,063 B · `3c567b2b…4e16c16f`; 4 of 4 terminal verbs (AC-1 SURVIVES-TO-W3 · AC-2 SURVIVES-TO-W3 · AC-3 KILLED(K-3) · AC-4 KILLED(K-2)), each with its number; PEER-REVIEW-PENDING appears twice and both are the PROHIBITION, never a verb; the tie is ruled — `grep -c \"AC-1 TAGLESS-TWIN is the survivor\" COHESION.md` → 1 (§0n.1)",
+        "G-12 (GRADUATION HALF) — GREEN-WITH-RESIDUALS (E-2 · D-c1), the best §11.5 permits. The tree exists at BOTH addresses (17 tracked files at <p2> and in the worktree) after this close took §9/§0n.2's merge; both lowerings build there BYTE-REPRODUCING (`node typescript/src/css/build.mjs` → digests before == after, porcelain empty) and instantiate (registry 22 rows · labels 51 · entry(P:color) a function · parse ok=true in each). G-12's own falsifier is REFUTED AT THE BYTES: `diff -r experiments/w2/ac1-tagless typescript/src/css` prints only `VERDICT.md` and `probes` — the two things §11.1 names as staying — and all 17 promoted files are sha256-EQ to the candidate's. SELF-COUNT 17 promoted + 3 left behind = 20 = `git ls-files experiments/w2/ac1-tagless | wc -l`",
+        "G-1 (CONTRACT HALF) — GREEN again at <p2> post-F-h7 and post-merge: `homes sha256-equal: YES`, both `67c8253abaecb29a…3fc537de` at 157,010 B; operators enumerated 22 == stated 22; `grep -rnE \"isWasm|target\\s*===|TARGET_JS|TARGET_WASM\" experiments/w2/*/` → 0 hits; the R-LAW-5 negative control fires (1). The gate as a whole is still RED — see gatesRed"
+       ],
+       "gatesRed": [
+        "G-1 — RED, and NARROWED to a single cause. Run from <p2> post-merge the verdict line is `RED — ac1/js: CUT outside an ALT arm's scope (§5.2) | ac1/wasm: …`, exit 1, double-run byte-identical: `cut∉alt` 7 in both lowerings, with `ops∉22` 0 · `recover≺alt` 0 · `unowned-span` 0 · `closure-leak` 0. The compound RED the FIRST close read (homes-not-equal ⊕ cut∉alt) is now one owner-owed idiom defect: E-3, whose cure §C.6 records as `inexpressible in the contract as written`. Not cured here",
+        "G-3 eq-six --at — honest-RED with E-2's id, exactly the number §11.5 predicted. EQ-1 · EQ-2 · EQ-3 · EQ-4 · EQ-5 = 0; EQ-6 = 2,035 over 30,527 rows (first row s0180 \"var(--brand)\"); label indices aligned true; third-cell differences 233 (12 declared); exit 1. Byte-identical at <p2> AND at the worktree, double-run at each. The grammar was not touched — §0n.3 puts the E-2 addendum at X.P.W3's FIRST act. Carries R-i3/F-h2 verbatim: the verdict line says `2035 divergences between the two lowerings (K-1)` while its own table shows EQ-1..EQ-5 = 0 — the lowerings AGREE; EQ-6 is COMP-1 failing identically in both. The number is right, the label is `.g`'s",
+        "G-4 recovery-laws — RED, carried, same E-2 cause: R-LAW-1 mismatches 0 over 2,951 TRY sites both lowerings · R-LAW-3 silent · R-LAW-4 amplified 0, zero-width 0 · R-LAW-2 13 rows fail COMP-1 identically in both, exit 1. Re-run with `--at typescript/src/css`: the same numbers line for line",
+        "G-7 — RED-STRUCTURAL (E-6), carried. `grep -c 'w2' <p2>/harness/bench/bench.ts` → 0; `grep -rn 'ac1|tagless' harness/bench/ | wc -l` → 0. NO W2 BENCH TABLE EXISTS ANYWHERE. Registering a cell is a write under harness/bench/** — execute-no-write by §4 and a §3a halt — so K-5 STAYS UNEVALUABLE; §0n.4 assigns the widening to W3. substrate-receipt.mjs runs and stamps <p2> `130f72db681f` (0 dirty) · value.js `aedb07b58a13` · parse-that `ef10d5b78236` (31 dirty, READ-ONLY), node v26.0.0, third cell `8b5381…0c42 == pinned`, denominator 1,636,680 µs, `bar OWNER-GATED-PENDING-RATIFICATION`",
+        "G-8 alloc-latch --at — RED, instrument-owned, carried. History-invariance drift 0.961× (js) and 0.849× (wasm), both FASTER-LATER — the opposite direction from a latch; steady-state heap −3.3 B/parse (js) · 0.0 (wasm); reset residue 0.999×; arena high-water 304 B; DM-1 Object.freeze measured as its own leg. RED on one number: the wasm reject path allocates 0.4 B/parse against an exact-zero condition. This seat drew 0.4 where the first sitting drew 2.1 on the SAME bytes — that is the ±10 B/parse instrument band (F-4 · F-e8 · F-f3 · F-h3), not a change",
+        "G-6 (SURVIVOR-VERB HALF) — RED/unrunnable, D-i2. §6 asks the report to restate the universe `with a measured verb per row for the survivor`; `--candidate ac1` and `--candidate ac1 --at typescript/src/css` BOTH throw `TypeError: text.matchAll is not a function` at harness/totality/lib/surface.mjs:202. Re-derived here rather than inherited: it reproduces at the CANDIDATE location too — which `.i` never touched — so it is latent since `.g` and merely reachable now. The first close's G-6 GREEN was taken on the ABSENT path, which returns before the defect",
+        "G-10 idiom-nocst --at — SPLIT BY ADDRESS, and this is the close's own finding D-c1. From the ac1 worktree: 139 graph nodes, `opt` under `all` 0 · lazy 0 · memoize 0, five textual zeros all 0, excess-property fixture PASSES, exit 0 GREEN. From <p2> proper post-merge, ON IDENTICAL BYTES: the graph and textual halves print the same zeros and the fixture FAILS — `error TS2578: Unused '@ts-expect-error' directive`, exit 1. Cause measured, not inferred: the promoted build/ac1.d.ts's re-export specifier is depth-calibrated to the .worktrees/ac1 address"
+       ],
+       "residuals": [
+        "D-c1 (MAJOR, owner = W3's open seat) — THE CLOSE'S OWN FINDING, surfaced by the §9 merge. The promoted `build/ac1.d.ts` carries a seven-`..` re-export specifier that resolves to `/Users/mkbabb/Programming/value.js/…/subpaths/css` (EXISTS) from `<p2>/.worktrees/ac1/typescript/src/css/build` and to `/Users/value.js/…` (MISSING) from `<p2>/typescript/src/css/build` — two levels too many at the root. Consequence measured: G-10's fixture resolves the frozen types to nothing at <p2>, its @ts-expect-error goes unused, the gate exits 1 on bytes that pass in the worktree. EXACTLY ONE specifier is affected; the other escaping one, `../../../../harness/bench/lib/engines.mjs`, was re-resolved at the root and EXISTS — which is why G-2/G-3/G-5/G-9 all run at <p2> proper. Cure is the artifact's own declared mechanism (build.mjs:52-54: `a moved tree re-runs node build.mjs, it does not hand-edit a path`) — one command, and it is the SAME act §0n.5/§11.3 already give W3, not a second one. Not `.i`'s miss: `.i` compared two directories inside ONE worktree, where the arithmetic holds; the address that breaks it is the one the merge creates, which was the close's act",
+        "D-i2 (MAJOR, owner = `.g` / W3's open seat) — `harness/w2/coverage-52-report.mjs` throws whenever a candidate is present at the queried location. Cause read at the bytes and re-derived here: line 97 passes `readTypeDeclarations(subject.declarationText)` — ALREADY PARSED — into classify(), which calls readTypeDeclarations again at classify.mjs:122, and surface.mjs:202 then calls .matchAll on an object; and `subject.declarationText` is `c.meta.artifacts?.dts` (line 85), a PATH STRING never read from disk, so the first application returns {}. Latent since phase 4, reachable only now. harness/w2/** was invoked, never edited",
+        "D-i1 (MINOR, owner = orchestrator) — COHESION §0n.2's tail cites `§0n.7` for the carried 1.0.0 import; `grep -n '^### §0n' COHESION.md` → §0n.1 … §0n.6 and the substance is at §0n.5, which says the same thing. `grep -c '§0n.7'` → 1, the cite itself. A dangling cross-reference in a ruling, curable only by its author; `.i` executed it at intent and carried the import",
+        "R-i1 (INFO, W3) — harness-adapter.mjs's `meta.build.jsArtifactReproduction` still reads `node experiments/w2/ac1-tagless/build.mjs` at the graduated location (G-9 prints it verbatim). Carried unaltered ON PURPOSE: §11.2 permits relative-IMPORT adjustments only, a declared build command is not an import, and re-pointing it would be the `improvement in passing` G-12's falsifier names. It is also still true",
+        "R-i2 (INFO, W3) — ESC-i2's GREEN is real but NARROW and is published as such: 1 of 403 program files under typescript/src/css, `allowJs` absent (grep -c → 0), the sixteen .mjs not type-checked. That is the candidate's own authored shape carried unaltered; W3 decides whether the realization becomes TypeScript",
+        "R-i3 / F-h2 (INFO, `.g`) — eq-six.mjs's verdict line mislabels EQ-6's identical-in-both COMP-1 failures as `divergences between the two lowerings (K-1)`. Re-read here at BOTH addresses: the lowerings agree, EQ-1..EQ-5 = 0. Number right, label wrong",
+        "F-h1 (MAJOR, `.g`/L-18) — G-2's registry pairing accepts a JS-executing symbol as a Wasm-row lowering (AC-3 printed 22/22 GREEN and was nevertheless KILLED(K-3) on a measurement the harness does not take)",
+        "F-h3 / F-4 / F-e8 / F-f3 (MAJOR, `.g`/L-18) — G-8 tests an exact zero with an instrument whose draw spread is ±10 B/parse at that window; 0.4 vs 2.1 B/parse across two sittings on identical bytes is the band, not a change",
+        "OWNER DOCKET, unchanged in substance and each re-measured here — E-2 (§4.5 × §10.1 `keyword`; 2,035 rows; G-3 and G-4's shared cause) · E-3 (the CUT scoping idiom; cut∉alt 7; NOW G-1's SOLE cause) · E-4 (§10.2's ALT order makes `linear(…)` unreachable) · E-5 (EQ-5's sixth coordinate specified two ways) · E-6 (G-7 has no registration surface; until a dated addendum widens §4's bounds Stage 4 cannot run and K-5 cannot be evaluated) · E-7 (OP-7 × the graduated seed's substrate) · E-8 (§10.3's REF count). DISCHARGED since the first close: E-1 (COHESION §0n.1 word (a)) and ESC-i2 (§0n.2's ruling + this close's exit-0/zero-diagnostic re-measurement)",
+        "ORCHESTRATOR — the `x-p-w2.json` harvest and its DEFECT-LEDGER.md append were REFUSED WITH THE MEASUREMENT, not skipped: `harvest-journals.mjs` writes ONE FILE PER WORKFLOW (41 `wf_*.json`, none admitted to this wave) and rewrites DEFECT-LEDGER.md WHOLESALE via writeFileSync where §4 says `modify-append … once`, and it names outputs by runId so it cannot emit x-p-w2.json at all (x-p-w0.json / x-p-w1.json are hand-carved slices of one run, wf_c431fb2c-82d). Riding with it: **W2.md §4's execute-no-write row mis-describes the script** — a spec row curable only by a dated addendum-beside",
+        "ORCHESTRATOR — the dispatch named Track D's repo as `value.js/../parse-that`, which resolves to the READ-ONLY EVIDENCE ROOT that §4's DO-NOT-TOUCH list opens with and §9 calls `a wave-invalidating event`. Track D's write surface is the fresh WRITER root `parse-that-css-totality-p2`. The evidence root was measured read-only (origin github.com/mkbabb/parse-that.git, HEAD `ef10d5b` dated 2026-07-05, unmoved, 31 pre-existing OP-6 porcelain lines) and deliberately NOT pushed. The dispatch's repo path is one directory off",
+        "R-g1 · R-g2 · F-h8 (MAJOR/INFO) — AC-3's Stage-0 screen noise margin (1.9 pp under a 20% screen) · RESERVE = NONE (AC-4 died at Stage 0, so §3e's reserve-entry rule had no subject) · `w2/ac3-scan-union` 76033aac left unconsumed on its branch by §0n.5, W3's to take by measurement",
+        "`?? .worktrees/` (INFO) — the fresh root's one untracked porcelain line, §4b's prescribed worktree container, unchanged before and after the merge"
+       ],
+       "landedWrong": [
+        "NOTHING landed in a place it was not admitted to. Both of `.i`'s commits were audited path-by-path: `<p2>` 130f72db touches 17 files and `git show --name-only | grep -vc '^typescript/src/css/'` → 0 lines outside `.i`'s writable set; value.js aedb07b5 touches only docs/tranches/X/execution/D/X-P-W2.md and is APPEND-ONLY (`--numstat` → 253 0). scripts/dev/dev.sh appears in 0 commits of this wave and was never opened — it is still ` M` and unstaged",
+        "D-c1 — the one thing that DID land wrong, and it landed inside the writable set: `.i`'s promoted build/ac1.d.ts carries a specifier calibrated to the `.worktrees/ac1` depth, so the graduation is not location-independent. It is a wrong BYTE in a right PLACE, reported not repaired (VERIFY-ONLY), with its one-command cure named and routed to W3's first act beside §11.3",
+        "D-i2 — `harness/w2/coverage-52-report.mjs` has been broken since `.g` (phase 4) on the candidate-present path; attribution was SETTLED by reproducing it at the candidate location, which `.i` never touched, rather than pinned on the graduation that merely made it reachable",
+        "CONTEXT, not a defect of this wave: a sibling track committed its large staged `e2e/visual/**` set (06c00504, e2347c0e) into this shared index while this close was working. This seat's first `git add` failed outright (zsh does not word-split an unquoted variable), so it staged nothing and swept nothing; all four close commits then carried their own explicit pathspecs and the audit above shows 0 foreign paths in each",
+        "DISCHARGED SINCE THE FIRST CLOSE, verified at the bytes here — F-h6: the two blind drafts draft-fable.md (550 L) and draft-opus.md (743 L) are now TRACKED (orchestrator, 562077ad), so phase 1's twice-authored blindness finally has a git object · F-h7: the two ALGEBRA.md homes are sha256-equal again, both 67c8253a…3fc537de · §C.3's evidence-fold PARTIAL: close2/ 17-of-17 OK + seats/ 4-of-4 OK landed, h/ untouched at 27-of-27 OK · the COHESION §5 carve MADE · `w2/ac1` MERGED to the root's working branch (cdf7975, dry-run first, 0 conflicts, the F-h7 copy preserved). `w2/ac2` and `w2/ac3-scan-union` deliberately left unmerged per §0n.1 and §0n.5"
+       ],
+       "commit": "c10f8d1561879b24bef8c014d8033a41c47f5b5c — value.js `tranche-u`, pushed (49da7352..c10f8d15), status `## tranche-u...origin/tranche-u` with no ahead. This close's four commits: 44057a91 (§8 evidence fold — 25 files under evidence/W2/{close2,seats}) · c8e50ffc (close report + record + COHESION §5 carve, +30/+330/+95 all append-only) · 49da7352 (LEDGER row, minimal in-place replacement, 1 line changed 1 added, five cells intact, no other row touched) · c10f8d15 (push receipts). Unit `.i`'s commits: value.js aedb07b5 + `<p2>` 130f72db. The close also took §9/§0n.2's merge in the fresh root: `<p2>` cdf7975 on `w2/harness`. `<p2>` has NO remote (remote -v → 0) so its nine commits stay local on `w2/harness` · `w2/ac1` · `w2/ac2` · `w2/ac3-scan-union`; giving it a remote is an owner act. /Users/mkbabb/Programming/parse-that carries 0 commits from this wave and still stands at ef10d5b. W1's three instruments and `.g`'s harness/w2/** are byte-identical to their own commits (both `git diff --stat` empty) — invoked, never edited."
+      }
+     },
+     {
+      "agentId": "a8c85cb85741845c7",
+      "key": "v2:e563ac749376f59b821d4835a75e47ee53b77353d58bd21c9aebf4191513279f",
+      "result": {
+       "verdict": "CONFORMANT-HONEST-RED",
+       "defects": [
+        {
+         "severity": "MINOR",
+         "claim": "K.3's G-1 AFTER row publishes two PRE-MERGE readings as this-seat post-merge readings: (a) the row states the G-1 target-conditional grep over experiments/w2/*/ returns 0, but post-merge at <p2> it returns 3; (b) the folded §8 capture evidence/W2/close2/G-1-structural-p2-postmerge.txt, whose README row asserts 'run from <p2> (branch w2/harness, post-merge)', contains the pre-merge state ('SUBJECT ABSENT — 0 of 4 candidates present … GREEN — contract half').",
+         "receipt": "⟨cmd⟩ grep -rnE \"isWasm|target\\s*===|TARGET_JS|TARGET_WASM\" experiments/w2/*/ at /Users/mkbabb/Programming/parse-that-css-totality-p2 → 3 hits, exit 0: experiments/w2/ac1-tagless/VERDICT.md:57, :58 (prose quoting the regex) and experiments/w2/ac1-tagless/probes/predicted-failures.mjs:28 (the probe's own TARGET_CONDITIONAL constant). The same grep over typescript/src/css/ → 0. ⟨cmd⟩ node harness/w2/op-bijection.mjs --structural from <p2> → 'ac1 ac1-tagless/js present 29 terms … cut∉alt 7' and 'RED — ac1/js: CUT outside an ALT arm's scope (§5.2) | ac1/wasm: …', i.e. subject PRESENT, contradicting the capture filed as post-merge (cat evidence/W2/close2/G-1-structural-p2-postmerge.txt).",
+         "cure": "Mitigated: the row's verdict (RED, sole cause E-3) reproduces exactly and no grep hit is grammar/algebra source (the graduated tree greps 0), so G-1's substantive clause is unaffected. Cure = a dated addendum-beside under docs/tranches/X/parse-that/evidence/W2/ re-capturing G-1 at <p2> post-merge and restating the grep as 3-with-provenance (M-22 ¶5 forbids rewriting the dated packet)."
+        },
+        {
+         "severity": "MINOR",
+         "claim": "The close's headline tally accounts for eleven of the twelve gates: '5 GREEN (G-2 · G-5 · G-9 · G-11 · ESC-i2) · 5 RED (G-1 · G-3 · G-4 · G-7 · G-8) · 2 SPLIT (G-6 · G-12)' counts ESC-i2 — a COHESION §0n.2 sub-gate, not one of the twelve — inside the GREEN set, and omits G-10 entirely, the one gate reading GREEN in the worktree and RED at the fresh root.",
+         "receipt": "docs/tranches/X/execution/D/X-P-W2.md K.3 tally line vs its own table, which carries a G-10 row verdicted 'GREEN in the worktree · RED at the fresh root — the D-c1 finding'. SELF-COUNT: G-1..G-12 = 12; the tally names 11. Reproduced at this seat: G-10 from <p2> → 'excess-property fixture FAILS … error TS2578: Unused @ts-expect-error directive → RED'; from <p2>/.worktrees/ac1 → 'PASSES … GREEN'.",
+         "cure": "Mitigated: the G-10 row and the LEDGER row both state the split ('G-10 prints GREEN in the worktree and RED at the root on identical bytes'), so nothing is hidden — the arithmetic is wrong. Cure = a dated line restating the tally as 4 GREEN · 5 RED · 3 SPLIT (+ ESC-i2 GREEN)."
+        },
+        {
+         "severity": "MINOR",
+         "claim": "D-c1's relief is mis-cited. K.6/K.8 route D-c1 to W3 as 'the same act' as W2-KILL-LEDGER §11.3 / COHESION §0n.5, but those rule the PUBLISHED-1.0.0 parse-that dist specifier (the PARSE_THAT_DIST import reached through harness/bench/lib/engines.mjs), not the vendored value-js-4.0.0 .d.ts re-export that D-c1 names. D-c1 is therefore a NEW residual assigned by the close, not one the spec or the rulings routed.",
+         "receipt": "W2-KILL-LEDGER.md §11.3: 'Substrate is carried, not re-pointed — the import of the published 1.0.0 dist stays exactly as the candidate declared it (E-7 is the owner's)'. COHESION §0n.5: 'the seed's one import specifier is re-pointed by W3's first act (§11.3)'. The record's own §B.4 says 'the only depth-sensitive specifier is \"../../../../harness/bench/lib/engines.mjs\"' — which re-resolves identically at both addresses (verified with node's resolver), while ⟨cmd⟩ grep -n 'from \"' <p2>/typescript/src/css/build/ac1.d.ts shows the seven-segment vendored specifier resolving to /Users/mkbabb/Programming/value.js/… (EXISTS) from the worktree and /Users/value.js/… (MISSING) from <p2> proper.",
+         "cure": "Mitigated: the owner named (W3's open seat) is the right one and the cure is the artifact's own generated header ('a moved tree re-runs node build.mjs'). Cure = W3's open docket carries D-c1 as its own row, and runs `node typescript/src/css/build.mjs` at <p2> before reading G-10 there."
+        },
+        {
+         "severity": "INFO",
+         "claim": "One self-count read before the seat's own append: K.4 publishes waves/W2-CLOSE.md as '149 L'; the settled file is 244 L because the close's own §8 block (+95) landed in the same commit.",
+         "receipt": "⟨cmd⟩ wc -l < docs/tranches/X/parse-that/waves/W2-CLOSE.md → 244; ⟨cmd⟩ git show --numstat --format= c8e50ffc → '95 0 docs/tranches/X/parse-that/waves/W2-CLOSE.md'.",
+         "cure": "Read the count back after the commit, or label it as the pre-append length. No reading depends on it."
+        }
+       ],
+       "gatesReproduced": 13,
+       "gatesFailed": [],
+       "honestRed": [
+        "G-1 — cut∉alt 7 in both lowerings; the cure is inexpressible in ALGEBRA.md as written (the only scope-opener is ALT, OP-09 fixes n≥2). Relief: owner-owed E-3, routed by COHESION §0n.3 to X.P.W3's first act. Owner: owner / W3.",
+        "G-3 — EQ-6 = 2,035 over 30,527 rows with EQ-1..EQ-5 = 0 (COMP-1 failing identically in BOTH lowerings, not a lowering divergence). Relief: ruled honest-RED by id in advance — COHESION §0n.2 'G-3 reads EQ-6 = 2,035 at the graduated location and is recorded honest-RED with E-2's id'; cure (3) at W3's first act (§0n.3). Owner: owner / W3.",
+        "G-4 — R-LAW-2: 13 rows fail COMP-1, identically in js and wasm over 2,951 TRY sites. Relief: the same E-2 cause and routing; §0n.2 enumerates G-4 among the carried REDs. Owner: owner / W3.",
+        "G-7 — RED-structural (E-6): no registration surface, grep -c 'w2' harness/bench/bench.ts → 0. Relief: registering a W2 cell is a write under harness/bench/**, which W2.md §4 makes execute-no-write and §3a a halt — a consumer-side cure would itself be the gate failure; COHESION §0n.4 assigns the --engine widening to X.P.W3, and the bar is OWNER-GATED (OP-4), so K-5 stays unevaluable. Owner: W3 / owner.",
+        "G-8 — the wasm reject path allocates against an exact-zero condition (2.1 B/parse drawn at this seat, 0.4 at the close, on identical bytes). Relief: instrument-owned — the gate tests an exact zero inside a ±10 B/parse draw band (F-4 · F-e8 · F-f3 · F-h3); §0n.2 enumerates G-8 among the carried REDs. Owner: .g / L-18.",
+        "G-10 at <p2> proper — the excess-property fixture fails (TS2578) at the fresh root while identical bytes print GREEN in the .worktrees/ac1 checkout; cause D-c1, the promoted build/ac1.d.ts's worktree-depth-calibrated specifier. Relief: booked MAJOR by the close itself with a one-command cure (the artifact's own 'a moved tree re-runs node build.mjs') and an owner — W3's open seat — but the relief is the CLOSE'S OWN assignment, not the spec's routing (see D-x3). Owner: W3's open seat.",
+        "G-6's survivor-verb half — unrunnable: coverage-52-report.mjs throws TypeError: text.matchAll is not a function whenever a candidate is present, reproduced at the candidate address .i never touched, so latent since .g. Relief: the gate's literal §6 command (no --candidate) is GREEN (52 rows, ∅ both ways, digest 334fa957…), and OP-8 makes G-6 report-only. Owner: .g / W3's open seat."
+       ]
+      }
+     },
+     {
+      "agentId": "ab08869ce70f36b7a",
+      "key": "v2:4d5479ae69695189c118e2066e72fc2c75aa91fbf1c2a8720a921db0cc6edae5",
+      "result": {
+       "groups": [
+        [
+         "X.P.W3.0"
+        ],
+        [
+         "X.P.W3.a",
+         "X.P.W3.b"
+        ],
+        [
+         "X.P.W3.c"
+        ],
+        [
+         "X.P.W3.d"
+        ],
+        [
+         "X.P.W3.e"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W3.0",
+         "model": "opus",
+         "sections": "COHESION.md §0n.1 tail L1016-1019 · §0n.3 L1024-1031 · §0n.4 L1032-1035 · §0n.5 L1036-1039 · execution/D/X-P-W2.md K.8 rows D-c1/D-i2/R-i1/R-i3/F-h8 · W3.md §4 L148-183 · §4a L184-197 · §7 L550-559",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3-ADDENDA-2026-09-18.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W1-ADDENDA-2026-09-18.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/algebra/ALGEBRA-ADDENDA-2026-09-18.md",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/experiments/w2/contract/ALGEBRA-ADDENDA-2026-09-18.md",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/**",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/bench/lib/engines.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/harness/w2/coverage-52-report.mjs"
+         ],
+         "gates": [
+          "(turns none of the ten; unblocks the literal form of G-1, G-4, G-5, G-7, G-10 and G-6's survivor half)"
+         ],
+         "locks": "FIRST commit of the wave in each repo (§0n.3 'X.P.W3's first act'); the two ALGEBRA addendum homes must be sha256-equal and land in the same sitting (ALGEBRA.md itself is 67c8253a... in both today); D-c1's cure is ONE act with the OP-7 re-point (K.8: 'one act, not two'); W3.md, W1.md, W2.md, ALGEBRA.md, W2-KILL-LEDGER.md and evidence/W0..W2/** are IMMUTABLE — dated addenda-beside only (E-3).",
+         "brief": "FIRST the dated §4 addendum-beside (never edit W3.md): admits engines.mjs, coverage-52-report.mjs and the 3 addenda. Then ONE dated ALGEBRA addendum-beside, BOTH homes sha256-equal (§0n.3): E-2 cure(3) DROP to skipped (2,035 to 0), (2) REFUSED; E-3 DISPATCH pass-through + the 2 inert CUTs struck; E-4 DISPATCH arm first; E-5 sixth coordinate dropped; E-8 inlined. Then E-6's --engine=<adapter> under a dated W1 §Bounds addendum. Then ONE ACT NOT TWO: re-point PARSE_THAT_DIST off another repo's node_modules to src/parse/** (OP-7) AND run build.mjs at <p2>, curing D-c1's 7-level ac1.d.ts specifier. Then D-i2, R-i1. Consume ac3-scan-union f934956 only on measured tsc+vitest unchanged-or-better."
+        },
+        {
+         "id": "X.P.W3.a",
+         "model": "opus",
+         "sections": "W3.md §5 .a L237-251 · §3 items 1-3 L92-98 · §6 G-1 L348-370 · §6 G-6 L451-466 · §4/§4a/§4b L148-226 · §11 items 2 and 4 L644-655",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-universe.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-totality/**",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/universe-52.json"
+         ],
+         "gates": [
+          "G-1",
+          "G-6"
+         ],
+         "locks": "Runs concurrently with .b; disjoint modify sets. Every conflict .a resolves against parser-band.md's adjudications MUST become a .d DIVERGENCE-LEDGER row — one family with .d, never a silent pick. The manifest is generated from src/css/index.ts at a pinned commit, never hand-transcribed (§11 guardrail 2). Three diagnose-edit-remeasure passes with no monotone rise in the TOTAL count is a §3a halt, not a fourth pass.",
+         "brief": "Emit the 52-row matrix MECHANICALLY from src/css/index.ts at a pinned value.js commit, never hand-transcribed. 19 runtime by name AND shape; 33 types by bidirectional assignability in one tsc -p test/css-totality/tsconfig.assignability.json. A TOTAL row whose assertion does not execute, or whose corpus is empty, fails. Fold the corpus as a UNION: GROUND-A 21x10, cand-F 4,000 fuzz, cand-O 30,000 mulberry32, the 148 colours, the 403 P-1, the 172 R1. Conflicts resolve to parser-band.md (hue unwrapped; juxtaposition accept; 1e400 non-finite), each becoming a .d divergence row, never a silent pick. G-6's 11 rows are independent named assertions. 3 passes with no monotone TOTAL rise = halt."
+        },
+        {
+         "id": "X.P.W3.b",
+         "model": "opus",
+         "sections": "W3.md §5 .b L253-270 · §3 item 4 L99-101 · §6 G-4 L420-433 · §6 G-8 L487-502 · §11 item 3 L650-652 · COHESION.md §0n.1 tail (the wired 22-check)",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/lower.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/diagnostics.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/codes.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-recovery-closure.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-recovery/** (EXCLUDING boundary/**, which is .c's)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/recovery-closure.json"
+         ],
+         "gates": [
+          "G-4",
+          "G-8"
+         ],
+         "locks": "Runs concurrently with .a but must NOT open test/css-recovery/boundary/** (.c's, a nested glob — §4a names the shared glob as the X·V W5-D1 defect). Lands the frozen-code module BEFORE .c opens entry/bounds: that is the group-2 to group-3 lock. Any proposal to widen the union to a ninth ParseIssue code halts the wave to X·V and the owner — never a local decision. G-4's corpus operand is .a's test/css-totality/corpus.json; the closure run is .b's last act and is re-run at integration.",
+         "brief": "Emit ParseIssue only from the frozen 8-code union (types.ts:11-19). css-recovery-closure.mjs asserts over the BUILT GRAPH and the EXECUTED corpus: emitted subset-of frozen AND every frozen code emitted by >=1 input (both differences empty); zero default:/else arms in code selection; every ok:false carries a non-empty [ParseIssue,...]; every [start,end) indexes real bytes with expected.length >= 1. G-8: expected[0] a NAMED production, diagnostics NEVER armed, --assert-no-console over the reachable set from the public entries = 0. NOT a grep gate. Also wire §0n.1's check so a 23rd op halts BOTH lowerings (buildGrammar's 22, a check not a comment). A ninth code = halt."
+        },
+        {
+         "id": "X.P.W3.c",
+         "model": "opus",
+         "sections": "W3.md §5 .c L279-297 · §3 items 5-6 L102-106 · §6 G-3 L398-418 · §6 G-9 L504-518 · §2c rows L74, L86-87",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/entry.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-recovery/boundary/**"
+         ],
+         "gates": [
+          "G-3",
+          "G-9"
+         ],
+         "locks": "Runs ALONE after .b: it imports .b's frozen-code module and its test dir is nested inside .b's test/css-recovery/**. .c never opens .b's three lowering files and .b never opens entry/bounds (§4a states the split at authoring). The three cures stay one unit — splitting them would put two writers on the entry module. Shield removal is a live option for X.P.W4, never a decision here.",
+         "brief": "Three cures, one unit (shared entry module). (1) No throw reachable from any public entry; cand-O's guard retained ONLY as a proven non-load-bearing shield, asserted by the raw-parseState-over-corpus test; removal is X.P.W4's call, not this seat's. (2) PT-07: null/undefined/number/object/symbol give ok:false with css_syntax and actual:null, never a raw TypeError - our invariant ABOVE parse-that. (3) PT-04/PT-03: the one lazy back-edge carries an explicit depth bound, tested at bound AND bound+1; arm-state readable AND resettable - resetPackrat() must DISARM, not merely clear the memo store. Fold (p*255)/100 exactness. Catch-and-reshape is NOT a cure; empty diagnostics fails."
+        },
+        {
+         "id": "X.P.W3.d",
+         "model": "opus",
+         "sections": "W3.md §5 .d L299-317 · §3 items 7-10 L107-117 · §6 G-2 L372-396 · G-5 L435-449 · G-7 L468-485 · G-10 L520-548 · §2c L75-76 and L80 · §2b OP-5 L64 · COHESION.md §0j.E OC-1 · §0n.4",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/**",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-dual-target-identity.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-bench-three-leg.mjs",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/r1-anchor-after.txt",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/dual-target-identity.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/equivalence-full-surface.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/bench-three-leg.md"
+         ],
+         "gates": [
+          "G-2",
+          "G-5",
+          "G-7",
+          "G-10"
+         ],
+         "locks": "Serial after .a, .b and .c land (§5 phase 2). Carries G-2, G-5 and G-10 — named by §4 as create/execute rows but by NO §5 unit; assigned to this seat at this open and recorded in advance so it cannot be improvised. .a's adjudicated conflicts and .d's ledger rows are ONE family. The BAR is never set (§0j.E OC-1: recorded-not-gating); the 1,870,633 us denominator and its derivatives are UNCITABLE; the anchor probe is run UNMODIFIED or the gate is void. Carries AC-2's K-9 recipe as W3's artifact-reproduction procedure (§0n.1).",
+         "brief": "Graduate the P-1 harness from 3 shapes to all 52 exports. Oracle = the vendored sha-pinned published 4.0.0 tarball, sha256 asserted IN-TEST before any comparison, never the working-tree dist. Every non-defect difference is a DIVERGENCE-LEDGER row carrying input, incumbent, candidate, spec citation, adjudication and the DIRECTION OF BEHAVIOUR CHANGE FOR A CONSUMER - empty direction fails; unrowed intent = defect. R1-R5 stay spec-correct fixtures. G-5: byte-identical {ok,code,start,end,expected,actual}; expected ORDER counts. G-2: the anchor probe UNMODIFIED against the packed candidate. G-10: 3 legs, arm-state per row, budgets vs 1,636,680 us, literal BAR: OWNER-GATED-PENDING-RATIFICATION."
+        },
+        {
+         "id": "X.P.W3.e",
+         "model": "fable",
+         "sections": "W3.md §5 .e L319-339 · §8 L561-582 · §9 L584-608 · §12 L657-669 · §4 rows L163-172",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3-CLOSE.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md (§Adjudication section only)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w3.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md (modify-append, by the script only)",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md (§5 status-board line only)"
+         ],
+         "gates": [
+          "the §5.e sub-gate: the close report exists with all ten gates' pasted outputs; at least one load-bearing claim carries a recorded refutation attempt; no gate reported green on a narrative; harvest-journals.mjs exits 0 with x-p-w3.json present, seat list non-empty, count equal to the units dispatched"
+         ],
+         "locks": "Writes only after .d commits (§4a). FRESH seat — an author cannot adjudicate his own union (M-23 §1, L-14). Holds the SOLE modify-carve on COHESION §5's status-board line and the SOLE DEFECT-LEDGER append, both single-owner acts at close; the append is the script's act, never a hand's, and hand-editing generated bytes stays forbidden. The harvest seat count is SIX — the roster recorded at this open — not §5's parenthetical five.",
+         "brief": "Fresh Fable adjudicator (M-23 §1), L-14-obligated to REFUTE, never to average: a named refutation attempt with its outcome against (i) the closure proof - find an input reaching no declared code; (ii) one divergence row's spec reading; (iii) the shield's non-load-bearing claim. Write W3-CLOSE.md with the ten gates' RED-before/GREEN-after outputs PASTED - no gate green on a narrative. Then run harvest-journals.mjs VERBATIM (exit 0), file x-p-w3.json with a seat count equal to the units dispatched (six, as recorded at open) - fewer seats, or any seat with zero rows, is RED - and carve the COHESION §5 status-board line."
+        }
+       ],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": "c60c3390"
+      }
+     },
+     {
+      "agentId": "a7b86e8135cbebd58",
+      "key": "v2:decf0b24c2b282bf5205d9e7f3d87eab98ac7a398fae948d3cd72ed709c170c0",
+      "result": {
+       "unit": "X.P.W3.0",
+       "status": "DONE",
+       "commits": [
+        "641ba4db (value.js) — the three dated addenda-beside: W3 §4 bounds · W1 §Bounds E-6 · ALGEBRA E-2·E-3·E-4·E-5·E-8 (the wave's FIRST commit in this repo)",
+        "8d8ebc6 (<p2>) — the contract addendum's second home, sha256-equal 83ba069b… (the wave's FIRST commit in the fresh root)",
+        "1857c9b (<p2>) — ONE act, not two: OP-7's re-point off another repo's node_modules onto this root's own typescript/src/parse/**, AND D-c1's cure by node typescript/src/css/build.mjs",
+        "4d8dae4 (<p2>) — the seed conformed to the addendum: E-2's balanced-tail re-kind + E-3's two struck CUTs, with the artifact rebuild riding it",
+        "7be817c (<p2>) — E-6: engines.mjs gains the --engine=<adapter> registration path",
+        "a35e3c5 (<p2>) — D-i2: coverage-52-report.mjs reads the declared surface instead of parsing its path twice",
+        "57ddc96 (<p2>) — R-i1: the declared JS-artifact reproduction re-pointed to the graduated location",
+        "3fa2b1ab (value.js) — the unit receipt appended to docs/tranches/X/execution/D/X-P-W3.md"
+       ],
+       "gatesGreen": [
+        "(none of the ten W3 gates — this unit turns none and claims none)",
+        "UNBLOCKED, literal form: G-1 · G-4 · G-5 · G-7 · G-10, and G-6's survivor half",
+        "W2 G-1 structural half: cutOutsideAlt 7 → 0 at the graduated tree, both lowerings (E-3)",
+        "W2 G-3: eq-six EQ-6 2035 → 0, six zeros over 30,527 rows, third cell unmoved at 233 (12 declared) — RED → GREEN (E-2)",
+        "W2 G-4: recovery-laws R-LAW-2 COMP-1 failures 13 → 0, both lowerings, 2,951 TRY sites unchanged — RED → GREEN (E-2)",
+        "W2 G-6: coverage-52-report --candidate ac1 --at typescript/src/css threw → exit 0, verbs printed (1 TOTAL / 2 PARTIAL / 49 ABSENT) — D-i2 cured",
+        "W2 G-10: idiom-nocst TS2578 exit 1 → excess-property fixture PASSES, exit 0 — D-c1 cured",
+        "W2 G-7: RED-structural → a registrable subject exists (E-6); the table remains .d's, no bar/ratio published",
+        "W2 G-2 · G-5 · G-9 · G-11 · G-12 unchanged GREEN (op-bijection 22/22/22 · r1-candidates 0/172×6 + 7/7 · wasm-audit · depth-scan)",
+        "Verification sweep at settled bytes, run TWICE over all eight W2 probes: 8 of 8 exit 0, both runs identical"
+       ],
+       "gatesRed": [
+        "W3 G-1 · G-2 · G-3 · G-4 · G-5 · G-6 · G-7 · G-8 · G-9 · G-10 — all ten still RED, by design: this unit authored none of scripts/css-universe.mjs, css-recovery-closure.mjs, css-dual-target-identity.mjs, css-bench-three-leg.mjs and no test/css-*/** exists yet",
+        "W2 G-8 (alloc-latch) — still RED and reported as instrument-owned (F-4 · F-e8 · F-f3 · F-h3): this draw js 7.9 / wasm 2.2 B/parse against an exact zero inside a ±10 B/parse band, warmed drift js 0.745× inside F-h3's recorded 0.744–0.931× spread. No re-run for a greener number was taken"
+       ],
+       "notes": [
+        "ALGEBRA addendum lock HELD both ways: ALGEBRA-ADDENDA-2026-09-18.md is 83ba069bc5553c56c00468a6e82a2b42c4b24af13d5375d6effd73d7d574c022 (320 L · 17,714 B) in BOTH homes, landed in the same sitting; ALGEBRA.md itself is still 67c8253abaecb29a0b16a862bf63ad25ff1140d91f06248c843b9c253fc537de in both and untouched. Prettier ran on the value.js copies first and the <p2> home was re-copied from the formatted bytes, so §7's cadence and §0n.3's lock do not fight.",
+        "E-3 immutability held: W3.md 53ebaf42… (673 L), W1.md 519df03f… (718 L), ALGEBRA.md 67c8253a… unchanged before and after; every correction is a dated addendum-beside.",
+        "OP-7's mechanism, root-cause: the library is TS source with TS-style './parser.js' specifiers; Node 26 strips types but does NOT re-resolve them (measured: ERR_MODULE_NOT_FOUND …/parse/parser.js; `node --help` lists no ts-resolve flag). The cure uses the fresh root's OWN pinned tsx (§0l E-1, tsx@4.23.13) via tsImport, which scopes hooks to this import graph — no process-wide loader, no node_modules patch, no built copy, no fallback. The specifier is RELATIVE ('../../parse/index.ts'), so the lowering is now location-independent by construction. PARSE_THAT_DIST stays in engines.mjs because it is the BENCH's declared subject (the O-15 PT-03 latch witness), not a substrate.",
+        "The re-point was measured to move NOTHING before any other change: every W2 probe identical to the digit, i.e. this root's own library source is behaviour-identical to the published 1.0.0 dist across every gate.",
+        "D-c1 discharged as K.8 words it — ONE act with the OP-7 re-point, cured by the artifact's own declared build; ac1.d.ts's specifier 7 levels → 5, ac1.wasm/ac1.js re-emitted byte-identical at that step. Build reproduces byte-identically on a second run (K-9's leg).",
+        "E-2's ruled predicate met literally: 2,035 → 0 with no other product moved (EQ-1..EQ-5 = 0, 30,527 rows, labels aligned, third cell 233/12 unchanged). Cure (2) widening π_keyword REFUSED as the ruling refuses it; cure (1) the seventh kind 'opaque' NOT taken — no OP-13 break found to cite, so K_C stays six. The same one cure also discharged G-4's R-LAW-2, which §0n.3 had named as E-2's second carried RED.",
+        "E-4 (DISPATCH arm first) and E-8 (color-body inlined) needed no seed change — the seed already carried both as DECLARED deviations; the addendum makes the contract agree. E-5 is contract-only; the arena watermark rides a G-8 row (measured js 0 B / wasm 304 B).",
+        "RESIDUAL RETURNED, not escalated — F-h8 (w2/ac3-scan-union f934956): criterion MET (library tsc 343 errors and vitest 4 failed/10 passed files, 2 failed/122 passed/2 skipped tests — IDENTICAL with and without the scan union, measured read-only at the already-present <p2>/.worktrees/ac3), but LEFT ON ITS BRANCH for three reasons: (1) 76033aa writes typescript/src/parse/{core,index,scan,state}.ts, which no §4 row and no row of this unit's writable set admits, and which this unit's own §4 addendum deliberately declines to admit — §0n.5 ADOPTS those commits as the BASE, which is not a licence to write there; (2) f934956 is the tip of the KILLED ac3-span branch and its diff DELETES typescript/src/css/** (17 files) — any consumption must be a cherry-pick of 76033aa alone, never a merge, and X.P.W2 K.2 already refused to make that call; (3) nothing under typescript/src/css/** imports scan, so it would add 264 unreferenced lines no W3 gate reads. Needs a one-row bounds grant (or a declination) at the close.",
+        "R-i3 corrected BESIDE, never the measurement: the mislabel is harness/w2/eq-six.mjs's final verdict() RED branch, which prints `${total} divergences between the two lowerings (K-1)` where total is the SUM of all six EQ counts — so an intra-lowering COMP-1 failure was called a cross-lowering divergence. eq-six.mjs is .g's and execute-only here; it no longer fires (EQ-6 = 0) and stays latent. Owner .g / L-18.",
+        "Findings raised, none cured here: F-0.1 MINOR — op-bijection.mjs --structural does not accept --at (L188 routes --at to bijection() only), so G-1's structural half cannot be read at the tree of record by its literal command and still prints 7 against the untouched candidate directory (owner .g). F-0.2 INFO — CUT joins the walk's opsUnexercised list because the seven surviving CUTs live in grammar().dispatchTerms, a blind spot the seed's own header already declared. F-0.3 INFO — R-i2's shape measured: 403 program files, the graduated tree contributes 1, allowJs absent, the sixteen .mjs (including this unit's four edited files) typechecked by no compile that runs today. F-0.4 INFO — <p2>/typescript has no node_modules, so 343 tsc errors and the 4 failed vitest files are RED-PREEXISTING (ESC-i2's 343 reproduces exactly). D-i1 restated, not cured (orchestrator).",
+        "Bounds and hygiene: every commit carries its own pathspec ON the commit; value.js 641ba4db contains exactly 3 files and 3fa2b1ab exactly 1, all under docs/tranches/X/; scripts/dev/dev.sh appears in 0 commits and was never opened; /Users/mkbabb/Programming/parse-that carries no commit from this unit; <p2> porcelain is the single `?? .worktrees/` line before and after; the four worktrees are all INSIDE <p2>/.worktrees/ and .worktrees/ac2 at a7ac4ea stays untouched (§0n.1); no <p2>-w3* sibling exists; no stash, reset, force-push, -A, -u or commit -a; neither repo pushed by this unit. git diff --check clean on every commit.",
+        "No §3a trigger fired: no out-of-bounds write, no third diagnose→edit→re-measure iteration (every cure landed on its FIRST re-measure), no ninth ParseIssue code, no seventh complement kind, no bar set or inferred, no ratio published, no re-pin, no timeout widening, no masking fallback, no test.skip, no allowlist, no node_modules patch.",
+        "E13: the wave's O.1 four-path sweep stands (0 unrowed · 0 UNREAD in X.P.W3's scope; I-32/I-33/I-34 carry UNREAD status cells but were read at the open as naming no parse-that byte). This unit minted no mail, wrote zero bytes in any producer tree, and left the INBOX row count at 36."
+       ]
+      }
+     },
+     {
+      "agentId": "ac2cc7b9aadbad0b9",
+      "key": "v2:b07949d6c96c8708b051379ca876188f0b876a4577139802ffbea72081e66d4f",
+      "result": {
+       "unit": "X.P.W3.b",
+       "status": "PARTIAL",
+       "commits": [
+        "<p2> 39503f8 — feat(x-p-w3/recovery): closed 8-code union, no fallback arm (src/css/codes.mjs · diagnostics.mjs · lower.mjs, 507 L; the frozen-code module family, landed BEFORE .c opens entry/bounds — the group-2→3 lock)",
+        "<p2> 1cfa29b — test(x-p-w3/recovery): the closure gate and the malformed-inverse suite (scripts/css-recovery-closure.mjs 610 L + test/css-recovery/{build-corpus.mjs, corpus.json 685 rows, labels.test.ts, closure.test.ts, vitest.config.ts})",
+        "<p2> f666b6f — fix(x-p-w3/.b): the NUL corpus row is BUILT, not written — two suite files had landed binary (F-b1, cured; corpus re-derives byte-identically)",
+        "value.js 2456033b — docs(x-p-w3/.b): unit receipt appended to docs/tranches/X/execution/D/X-P-W3.md (285 insertions, 0 deletions)",
+        "value.js f7954997 — docs(x-p-w3/.b): evidence RE-LANDED on tranche-u (docs/tranches/X/parse-that/evidence/W3/recovery-closure.json, 541 L) — the first evidence commit 3c002f1c is stranded on a sibling seat's scratch branch x-w1-falsifier-g7; see F-b5",
+        "value.js 27ed1e49 — docs(x-p-w3/.b): addendum-beside — the evidence commit of record is f7954997, and why (55 insertions, 0 deletions)"
+       ],
+       "gatesGreen": [
+        "G-8"
+       ],
+       "gatesRed": [
+        "G-4"
+       ],
+       "escalation": "THREE, all §3a \"hard-gate failure that is not local-edit-recoverable\" — each measured, none worked around. (E-1) G-4's ⊇ direction CANNOT close: the candidate's grammar realizes 3 of the 9 public entries (P:color · P:timing-function · P:stylesheet), so 5 of the 8 frozen codes have no production — frozen\\emitted = [animation_option_invalid, keyframe_selector_invalid, syntax_descriptor_invalid, syntax_mismatch, timeline_option_invalid], each printed with the incumbent site it is emitted from (src/css/grammar.ts:416-425, stylesheet.ts:50/78/397/405/414/655, syntax.ts:94/100, timeline.ts:32-83). The cure is a grammar act in algebra/grammar.mjs — a file in NO unit's writable set in this wave, and the same wall .a's G-1 meets (5 of 52 TOTAL). REFUSED HERE ON PURPOSE: a lower.mjs that answered the six missing entries with a stub rejection would emit all eight codes and be a masking fallback; declaring the five out of scope would be the denominator rewrite §3 prohibits. (E-2) G-4's no-fallback leg: TWO fallback arms, authored 0, inherited 2 — src/css/lowering-js/index.mjs:56 (`code: sg.far.code === null ? \"css_syntax\" : sg.far.code`) and src/css/lowering-wasm/index.mjs:125-127 (the same defaulting compiled INTO ac1.wasm). Both are measured DEAD: far.code === null on 0 of 3,710 rejections, both lowerings, over 685 inputs. The cure is one line in each file; .b's writable set is src/css/{lower,diagnostics,codes}.mjs + the script + test/css-recovery/** (excluding boundary/**), so a write there is a §3a file-bound expansion. Returned for a one-row grant. (E-3) The gate's LITERAL vitest command collects zero files: typescript/vitest.config.ts includes `test/*.test.ts` (one level) and vitest positionals FILTER rather than extend, so `npx vitest run test/css-recovery/labels.test.ts` finds nothing. The suite carries its own project (`npx vitest run --config typescript/test/css-recovery/vitest.config.ts`) rather than this unit editing a library file belonging to no seat. .a's G-6 command and .c's G-9 command meet the identical gap — ONE orchestrator row, not three private workarounds.",
+       "notes": [
+        "G-8 GREEN on all three legs, BEFORE→AFTER at the settled bytes: labels — 1,474 of 3,696 issues (39.9%) carried an expected[0] that is NOT a named production (22 distinct first-expectations, only 6 angle-bracketed) → 0 of 3,744; unarmed — isDiagnosticsEnabled() false before AND after every run (the label surface never depends on arming, which is the cure G-8 names); silence — 0 executed console writes over 4,158 calls, 0 authored call sites, the one inherited site (src/parse/parser.ts:67) printed WITH its guard isDiagnosticsEnabled(). The one reading taken rather than inherited is stated in the receipt for .e to overturn: G-8's falsifier forbids patching parse-that's dist, so a leg that reddened on that guarded library site would make the gate unsatisfiable by its own words; the strict-letter count (1 call site) is printed beside the verdict on every run.",
+        "G-4 GREEN on four of six legs: ⊆ built graph (288 code sites, 0 outside the eight — and the walk covers `terms` AND `dispatchTerms`, so .0's F-0.2 blind spot, the seven dispatch productions the harness walk cannot reach, is covered here); ⊆ executed (0 of 3,744 issues outside the eight); tuple law (0 empty tuples on ok:false, 0 diagnostics on ok:true); span law (0 spans outside [0,len], and `actual` is exactly src.slice(start,end) or null on every issue).",
+        "COHESION §0n.1's carried obligation is WIRED: buildGrammar's destructure of exactly the 22 was a COMMENT (algebra/grammar.mjs:5); it is now a load-time CHECK that reads what the grammar actually destructures off a recording Proxy, asserted in both directions against OP_NAMES and again from each lowering's published registry. signature 22 · destructured 22 · both differences ∅. Since every recovery entry of BOTH lowerings is constructed through lower.mjs, a 23rd operation halts both — and the check FIRES: the gate's control feeds it a 23-operation builder and it throws.",
+        "THE DESIGN, stated because it is the cure: selectCode is a lookup into a frozen null-prototype table — not a switch, so there is no default: arm to write and no ??/|| to hide one — and the miss case is made UNREACHABLE rather than unobserved by three construction-time proofs (operator closure · lowering signature · every code the finite closed graph can declare ∈ the frozen eight). That is what lets the parse path carry no violation arm at all, which it must not, because a throw there would fail G-3.",
+        "The gate is NOT a grep gate: the ⊇ direction executes 685 inputs × 3 entries × 2 lowerings (4,158 calls · 3,710 rejections · 3,744 issues); the silence leg runs the corpus under R-LAW-3's own instrument; every static leg prints every site with its 3-line window and the line scanner is comment-aware. SIX negative controls run FIRST and all fire (W2 G-4: a probe that cannot fail for its intended reason is itself a defect). Everything double-run: stdout and the evidence JSON byte-identical, and re-verified a third time after .a's landings.",
+        "The corpus is DERIVED, never hand-typed (build-corpus.mjs --write/--check, re-derives byte-identically): 172 R1 rows + 457 slice rows + 56 authored recovery-band rows = 685 unique inputs. NO expected value appears anywhere in this unit's bytes — §3's prohibition on self-authored answer keys; every law asserted is structural.",
+        "F-b1 (MINOR, cured at f666b6f, recorded loud): two of this unit's files landed BINARY at 1cfa29b — a raw NUL byte in a string literal made git and file(1) read them as data. The defect survived a green test run and was caught only by reading the commit's own stat. Cured by BUILDING the character (String.fromCharCode(0)); the corpus is unchanged.",
+        "F-b5 (cross-seat hazard, routed): this unit's first evidence commit 3c002f1c landed on the X·V W1.a seat's scratch branch x-w1-falsifier-g7 while it was checked out in the shared value.js worktree, and was left behind at the checkout back to tranche-u — as was .a's 6021105a. Re-landed as f7954997 with NO reset/rebase/cherry-pick/stash/force-push: the gate was re-run and the file re-committed by its own pathspec, byte-identical to the stranded blob. A seat that checks out a scratch branch in the shared worktree silently redirects every other seat's commits for the duration, and the pathspec discipline does not defend against it.",
+        "F-b2 (INFO, for .a/orchestrator): the library compile now reads 439 error TS (from .0's 343); this unit contributes 31, ALL resolution-class — TS2584 `console` (12), TS2339 import.meta.url (4), TS2307 node:* (8), TS7016 implicit-any on six .mjs imports (7) — i.e. exactly F-0.3's absent `allowJs` and F-0.4's empty typescript/node_modules. ZERO are type errors in the suites' own logic; the suites run green under the root's own vitest. F-b3: eslint is not installed in this root (0 matches in node_modules/.bin), so §7's `npx eslint .` was not run — .0's posture.",
+        "F-b4 (INFO, routed to .d for DIVERGENCE-LEDGER.md): the ParseIssue.expected this unit publishes are PROMOTED labels, not cand-O's raw σ labels — that is G-8's cure and parser-band debt 1's ask, and it is a behaviour difference from the incumbent. Consumer direction: a caller reading expected[0] receives a named production where 4.0.0 gives a byte-class or a bare literal.",
+        "Bounds and invariants held: test/css-recovery/boundary/** was NEVER opened (the §4a nested-glob lock); .a's concurrent typescript/scripts/css-universe.mjs and test/css-totality/ stayed untouched across all three <p2> commits; zero bytes under value.js src/**; scripts/dev/dev.sh in 0 commits and never opened; no -A, no -u, no commit -a, no stash, no reset, no force-push, no push. E13: 0 UNREAD in scope, no mail minted, INBOX I-count unchanged at 36."
+       ]
+      }
+     },
+     {
+      "agentId": "ae6dda4241c5b3734",
+      "key": "v2:33124ad76808a9961c2e319b34d59b32b3a395acb130293b8a72c754664aa5a7",
+      "result": {
+       "unit": "X.P.W3.a",
+       "status": "PARTIAL",
+       "commits": [
+        "bd10e5c (parse-that-css-totality-p2): feat(x-p-w3/universe): generate the 52-export conformance manifest and its corpora — 15 files, 3,325 insertions, all under typescript/scripts/css-universe.mjs and typescript/test/css-totality/**",
+        "12564399 (value.js): docs(x-p-w3/.a): evidence — the generated 52-row universe matrix, born-RED at 5 of 52 — 1 file, docs/tranches/X/parse-that/evidence/W3/universe-52.json",
+        "007d3820 (value.js): docs(x-p-w3/.a): unit receipt — G-6 RED to GREEN on twelve independent rows, G-1 RUN for the first time at 5 of 52 — 1 file, docs/tranches/X/execution/D/X-P-W3.md",
+        "d7eb2e33 (value.js): docs(x-p-w3/.a): ledger — the X.P.W3 row's .a cells — 1 line changed in docs/tranches/X/execution/LEDGER.md",
+        "d500e1e4 (value.js): docs(x-p-w3/.a): addendum-beside — gate 27 re-measured at the file's clock reads 1, a sibling track's e2e byte, not this unit's",
+        "6021105a (value.js, SUPERSEDED): the first landing of the evidence commit, orphaned onto branch x-w1-falsifier-g7 by a sibling seat's branch switch; recovered by cherry-pick as 12564399 at an identical sha256"
+       ],
+       "gatesGreen": [
+        "G-6"
+       ],
+       "gatesRed": [
+        "G-1"
+       ],
+       "escalation": "F-a.6 (MAJOR, §3a File-bound expansion — returned, not taken). G-1 requires all 52 frozen exports TOTAL. W3.md §5 assigns G-1 to `.a` as a sub-gate but assigns the IMPLEMENTATION of the surface to no unit at all. Measured at the bytes: the graduated survivor ships 3 runtime exports (build/ac1.js: parseCssColor, parseTimingFunction, parseStylesheet) and 5 type re-exports (build/ac1.d.ts). Closing the remaining 16 runtime and 28 type rows is a write under <p2>/typescript/src/css/**, which §4a gives to `.b` (lower/diagnostics/codes) and `.c` (entry/bounds) for THEIR named cures and to nobody for the 52; it is in no row of this seat's writable set. This seat did not write outside its bound and did not narrow the universe to what the candidate covers (§11 guardrail 2). G-1 is a wave-level condition, not a `.a`-level one — it needs the Triumvirate Dispatch or a dated addendum naming the implementing seat. NOTE: no §3a halt fires on iteration count — G-1 has taken exactly ONE pass and it carries a monotone rise (0 -> 5 against the 07-20 census); the halt needs three passes without one. || F-a.7 (MAJOR, cross-seat). A sibling X·V W1.a seat ran `git checkout x-w1-falsifier-g7` in the SHARED value.js working tree and then back to tranche-u, orphaning two evidence commits onto the scratch branch. Reflog read at this seat: ec654158 HEAD@{0} checkout x-w1-falsifier-g7 -> tranche-u · 6021105a HEAD@{1} docs(x-p-w3/.a) · 3c002f1c HEAD@{2} docs(x-p-w3/.b) · 139bca9b HEAD@{3} · ec654158 HEAD@{4} checkout tranche-u -> x-w1-falsifier-g7. Mine is recovered (cherry-pick --no-commit, re-landed as 12564399, file sha256 identical; no reset, no force, no other seat's path touched). **`.b`'s 3c002f1c is STILL ORPHANED on x-w1-falsifier-g7 and is `.b`'s to recover, not this seat's.** Four tracks share one working tree as well as one index: a branch switch is as destructive as an unpathspec'd `git add`, and no standing law names it yet — a standing-law row beside the pathspec rule is owed.",
+       "notes": [
+        "G-6 RED -> GREEN. BEFORE: test -e typescript/test/css-totality/spec-conformance.test.ts -> ABSENT. AFTER: 13 tests pass, twice. W3.md §6 G-6 L451-455 enumerates TWELVE named assertions (5 accept-side + 7 reject-side), not eleven — the spec's bytes govern and twelve were landed, each its own it(), plus a guard that the adjudication table carries exactly a..l. The record's dispatch row and the seat brief both say 'eleven' (F-a.2, corrected beside, never by editing W3.md).",
+        "G-1 RED -> RED, but RUN for the first time and at a measured distance that ROSE. `node typescript/scripts/css-universe.mjs --check --pinned-value-commit 6aca8602...` exits 1: tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL. Against the 07-20 census W3.md §6 G-1 pastes (runtime 0/3/16, types 0/0/33, 0 of 52) the runtime distribution reproduces TO THE ROW and the type column moves 0 -> 5 on the bidirectional assignability compile. One pass, one monotone rise, no §3a halt.",
+        "The universe is GENERATED, never transcribed: 52 names read via `git show 6aca86020b6b2605e7d0f04fccb6601746e387f7:src/css/index.ts` (sha256 c09d076e...), so a dirty working tree, a sibling commit or a branch switch cannot move it under a running gate. Pin elected = src/css/index.ts's own last change, which also carries src/css/types.ts (sha256 109327ce..., string-equal to the working tree).",
+        "The SHAPE oracle is PROVED, not assumed. The pinned src/css/types.ts does not compile alone (it imports ../color/model, ../foundation/result, ../easing, ../value at L1-4), so the assignability compile's frozen side is the vendored sha-pinned published 4.0.0 declaration (css.d.ts c81d0952, css.js 8b538130). One extractor — W1's own readTypeDeclarations, imported and executed — run over BOTH texts: type names ∅ both ways, runtime names ∅ both ways, 0 member/literal disagreements.",
+        "Corpus folded as a UNION, nothing transcribed: ground-a 210/210 (heads x fillings EXTRACTED from cand-f/totality.test.ts:60-71) · fuzz-f 4,000/4,000 (alphabet, 6 seeds, PRNG seed 0xbadc0de and case count all extracted; only the 8-line mutation algorithm restated, over the root's own mulberry32) · fuzz-o 30,000/30,000 (generateFuzzRows IMPORTED from experiments/w2/corpus/fuzz-gen.mjs, replay checked against the banked pin) · named 148/148 · p1 403/403 · r1 172/172 (+7 declared non-string boundary cases). Arm total 34,933 -> UNION 26,604 distinct, overlap 8,329, rows sha256 559e84bf. Written to typescript/test/css-totality/corpus.json — G-4's named operand, where `.b`'s command looks for it.",
+        "ZERO THROWS. Across all 26,604 union rows x every resolvable export the candidate THREW on 0 cells. That is W3.md §2a's own criterion ('no CSS string ... makes the candidate parser do anything other than return a typed result'), true at the bytes today on the surface the candidate covers.",
+        "16 adjudicated conflicts rowed for `.d`, never a silent pick: PB-01..PB-13 from parser-band.md:85-100's MEASURED published-defect table, ADJ-1..ADJ-3 from the three folded-suite conflicts W3.md §5 .a names. 22 witnessed inputs, 19 diverge from the incumbent, 0 NOT honoured by the candidate. The incumbent and candidate halves of every row are MEASURED, never written from memory — `.d` writes its DIVERGENCE-LEDGER rows from evidence/W3/universe-52.json's declaredObservations. `--cross-check-ledger` is wired and RED-as-expected today (the ledger is `.d`'s and absent), and already names all 16 ids.",
+        "NO NINTH ParseIssue CODE proposed, added or implied. parser-band.md spells the third folded conflict '1e400 -> color_non_finite', which is cand-O's own vocabulary; the frozen union has EIGHT codes (src/css/types.ts:11-19, read mechanically — frozenCodes.length -> 8) and color_non_finite is not among them. Adding it would be a W3.md §3a halt to X·V and the owner. Carried at its MEANING (clamp where a clamp exists, reject the unclamped non-finite channel), lowered onto css_syntax, with the naming difference itself an ADJ-3 ledger field.",
+        "Two generator defects found and cured on the FIRST re-measure, not worked around: ParseResult<T>'s instantiation argument had to be side-aware (Frozen.ParseResult<Frozen.Declaration> vs Candidate.ParseResult<Candidate.Declaration>; an unqualified Declaration yielded four TS2304s), and TS2724 — TS2694's 'did you mean' variant — had to join the unresolved set or StylesheetItem would have claimed two executed cells it never ran. Final compile: 56 diagnostics attributed (28 undeclared types x 2 directions), 0 unattributed, 0 on the frozen side.",
+        "F-a.1 cured in passing: experiments/w2/corpus/fuzz-seed.json banks rowsSha256 39f3903b... as its replay assertion but NO script in the tree produces it — the digest was un-replayable from the repository's own bytes. Recovered and written down at lib/corpus.mjs: sha256 over rows.map(r => r.src).join('\\0'), not over any JSON form. A pin nobody can recompute is not a pin.",
+        "F-a.3 (MINOR): G-6's literal command collects ZERO files. `npx vitest run test/css-totality/spec-conformance.test.ts` from <p2>/typescript -> 'No test files found ... include: test/*.test.ts'. typescript/vitest.config.ts:5 scopes include to ONE directory level and a Vitest positional is a filter over the collected set. Widening it is a write to a file in no row of W3.md §4 (a §3a File-bound expansion), so the lawful cure is a config inside this seat's own create row: `npx vitest run --config typescript/test/css-totality/vitest.config.ts`. It narrows nothing — it collects every *.test.ts under test/css-totality/**.",
+        "F-a.4 (INFO): the generated assignability program adds 56 deliberate TS2694/TS2724 diagnostics to the WORKSPACE compile, because typescript/tsconfig.json includes test/ wholesale and the fixture is SUPPOSED to be red while the candidate lacks 28 frozen types. Zero errors come from this seat's three hand-written .ts files. One-line cure — \"exclude\": [\"test/css-totality/generated/\"] — is in no row of §4 and not this seat's to make.",
+        "F-a.5 (INFO): §7's `npx eslint .` has no subject in the fresh root — 'ESLint couldn't find an eslint.config.* file' (ESLint 10.10.0), pre-existing. Cadence actually run: node --check on all 7 authored .mjs (7/7 ok), tsc (0 errors from hand-written .ts), both suites twice (72/72 both times), git diff --check clean on every commit.",
+        "Dominant miss classes, handed to `.d` as CLASSES rather than 6,734 rows (signature = miss kind x the input's leading function head; adjudicating them is `.d`'s act): parseCssColor 4,599 (DIVERGENT_VALUE:rgb 942 · MIS_ACCEPT:rgb 805 · FALSE_REJECT:rgb 642 · DIVERGENT_VALUE:hsl 623 · DIVERGENT_VALUE:oklch 489 · FALSE_REJECT:oklch 327 · FALSE_REJECT:hsl 292 · MIS_ACCEPT:oklch 204 · MIS_ACCEPT:hsl 191 · FALSE_REJECT:lab 55 · FALSE_REJECT:color 26 · FALSE_REJECT:{hwb,lch,oklab} 1 each) · parseTimingFunction 170 · parseStylesheet 1,965.",
+        "No sha256 sidecar was written for universe-52.json: this seat's hard writable set names the JSON alone while the wave record's .a row adds '(+ sha256 sidecar)'. The conservative reading was taken and the digest published instead — 0005f26b10b0c9f093466c134c7fc71d472be7d8d6b0bf2809bb83386f2598de, 155,452 B, byte-identical on two consecutive generations (the document carries no timestamp, by design). One command recovers the sidecar if the orchestrator grants the path.",
+        "Bounds and standing invariants: every commit carries its own pathspec ON the commit; scripts/dev/dev.sh appears in 0 commits and was never opened; no git stash, reset, force-push, -A, -u or commit -a; /Users/mkbabb/Programming/parse-that, ~/Documents/Codex/**, ~/.codex/**, ../glass-ui/**, ../keyframes.js/**, ../fourier-analysis/** carry no byte from this unit; neither repo was pushed. Gate 27 read 0 (double-run) at this unit's clock and reads 1 at the file's clock — ` M e2e/smoke/admin/a11y-authed-admin.spec.ts`, a sibling X·V W1.a byte; none of .a's three value.js commits touches src/, api/, demo/, test/ or e2e/. Corrected by a dated addendum-beside (d500e1e4), never a rewrite.",
+        "E13: the wave's O.1 four-path sweep stands, re-measured here — `grep -c '^| I-' INBOX.md` -> 36 unchanged; the three UNREAD rows I-32/I-33/I-34 each state in their own bytes that they are not X·P's. 0 unrowed, 0 UNREAD in X.P.W3.a's scope. This unit minted no mail and wrote zero bytes in any producer tree.",
+        "Status PARTIAL rather than DONE: the unit's mechanism is complete, G-6 is turned, and G-1 is RUN and published at its true reading — but G-1 is RED and cannot be closed from inside this seat's writable set (see escalation F-a.6). No workaround, no narrowed universe, no masked fallback was taken to make it look otherwise."
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "registry/harvest/wf_3e7ab295-b6d.json (as the harvester emitted it, in the mirror run)",
+   "runId": "wf_3e7ab295-b6d",
+   "sha256": "4f9fd230206ce01e2f4b855d1757a668e36d93ed4fb1b9484db19b97109ef48e",
+   "bytes": 33020,
+   "byteIdenticalAcrossTheTwoRuns": true,
+   "resultCount": 6,
+   "document": {
+    "runId": "wf_3e7ab295-b6d",
+    "workflow": "wf_3e7ab295-b6d",
+    "resultCount": 6,
+    "results": [
+     {
+      "agentId": "ad1790c44ff0fb535",
+      "key": "v2:e3719d912b0cdad30f968d9c7f992652ef7eb553c08573e2e14b169dd449fa23",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "ac501571a4a80a0a1",
+      "key": "v2:b612c7ef23ecb55e50a8976bc807913cb1a61f538783e5af6bd44229eded1074",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "ac719dd20452a8876",
+      "key": "v2:3d1716e79e6ee11a4ef061ff4b1ea6c78d09d45afa487c8e927180f13dd1519e",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "ac7c7549fe81d98c3",
+      "key": "v2:2f1a6b7151beec85476b1317806e61b64b996dcc3a7cca0ccfe4c98460d709bd",
+      "result": {
+       "groups": [
+        [
+         "X.P.W3.c"
+        ],
+        [
+         "X.P.W3.d"
+        ],
+        [
+         "X.P.W3.e"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W3.c",
+         "model": "opus",
+         "sections": "W3.md §5 `.c` (L279–297) · §3 items 5–6 (L102–106) · §6 G-3 (L398–418) · §6 G-9 (L504–518) · §2c rows (L74, L86–87); W3-ADDENDA-2026-09-18.md §A-2 (the spec's `.ts` names, the tree's `.mjs`); COHESION §0j.E",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/entry.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/src/css/bounds.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-recovery/boundary/**",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md"
+         ],
+         "gates": [
+          "G-3",
+          "G-9"
+         ],
+         "locks": "Opens only after `.b`'s frozen-code module landed (`<p2>` `39503f8` — verified at the bytes); runs ALONE because its test dir is nested inside `.b`'s glob (§4a, the X·V W5-D1 hazard). The three cures are ONE unit and must not split — `entry` and `bounds` share the module. `.b`'s frozen 8-code union is consumed, never widened: a ninth `ParseIssue` code is a §3a halt to X·V + the owner. E-3: `W3.md` is IMMUTABLE; every correction is a dated addendum-beside. No evidence path in this repo is in this unit's bound — its measurements ride in its receipt block.",
+         "brief": "Read the dead seat's UNTRACKED draft FIRST (F-r.1: `src/css/{entry,bounds}.mjs`, `test/css-recovery/boundary/**`) — draft not result: verify, rewrite what fails. Three cures, one unit: (1) no `throw` reachable from a public entry; cand-O's shield kept only as PROVEN non-load-bearing (raw-`parseState`-over-corpus test); (2) PT-07 non-string args → `ok:false`+`css_syntax`+`actual:null`, never a TypeError; (3) PT-04 depth bound tested at bound AND bound+1; PT-03 arm-state readable, `resetPackrat()` DISARMS. Only `.b`'s frozen 8 codes; re-shaping a caught throw is NOT a cure, empty diagnostics fails G-3. G-9's literal vitest form collects 0 files (E-3) — own config under `boundary/**`."
+        },
+        {
+         "id": "X.P.W3.d",
+         "model": "opus",
+         "sections": "W3.md §5 `.d` (L299–317) · §3 items 7–10 (L107–117) · §6 G-2 (L372–396) · G-5 (L435–449) · G-7 (L468–485) · G-10 (L520–548) · §2c (L75–76, L80) · §2b OP-5 (L64); COHESION §0j.E OC-1 (bench RECORDED-NOT-GATING) · §0n.4 (E-6, both lowerings, two runs)",
+         "writable": [
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/test/css-equivalence/**",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-dual-target-identity.mjs",
+          "/Users/mkbabb/Programming/parse-that-css-totality-p2/typescript/scripts/css-bench-three-leg.mjs",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/r1-anchor-after.txt",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/dual-target-identity.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/equivalence-full-surface.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/evidence/W3/bench-three-leg.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md"
+         ],
+         "gates": [
+          "G-2",
+          "G-5",
+          "G-7",
+          "G-10"
+         ],
+         "locks": "Serial, after `.c` commits (§5 phase 2: 'needs `.a`–`.c` landed'). `.a`'s 16 adjudicated conflicts and `.d`'s divergence rows are ONE family — every conflict `.a` resolved against `parser-band.md` MUST appear as a row, and F-b4 (promoted `expected` labels) is a rowed row with its consumer direction. No bar may be set, inferred or reconciled (§0j.E OC-1: 'inventing a bar is a defect'); the 1,870,633 µs denominator and its derivatives are UNCITABLE. G-5 failing in a direction rooted in the Wasm numeric/memory model is a §3a halt to X.P.W1/W2, and G-7 RED on a newly discovered incumbent defect is a finding routed to X·V, never a mirror repair.",
+         "brief": "Graduate the P-1 harness to all 52 exports. Oracle = the vendored sha-pinned 4.0.0 tarball, sha256 asserted IN-TEST — never `dist/`. Every difference is a DIVERGENCE-LEDGER row: input · incumbent · candidate · spec cite · adjudication · consumer direction; empty direction or unrowed intentional difference FAILS G-7. Seed: the four dissents, `.a`'s 16 conflicts (one family), F-b4. R1-R5 stay spec-correct fixtures. G-5: byte-identical `{ok,code,start,end,expected,actual}` both targets, `expected` ORDER counts. G-2: anchor probe re-run UNMODIFIED. G-10: three legs, median-of-rounds, arm-state/row, 1,636,680 µs, literal `BAR: OWNER-GATED-PENDING-RATIFICATION`, both lowerings, two runs."
+        },
+        {
+         "id": "X.P.W3.e",
+         "model": "fable",
+         "sections": "W3.md §5 `.e` (L319–339) · §8 (L561–582) · §9 (L584–608) · §12 (L657–669) · §4 rows (L163–172); the record's §Unit plan L-13 referent (SIX units dispatched) and X.P.W2 K.7(i) on the harvester's execute-no-write mis-description",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3-CLOSE.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w3.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/coordination/INBOX.md"
+         ],
+         "gates": [
+          "§5.e close sub-gate (ten gates pasted RED-before/GREEN-after · a named refutation attempt per load-bearing claim · harvest exit 0 with a six-seat non-empty x-p-w3.json)"
+         ],
+         "locks": "Writes only after `.d` commits (§4a). Holds the SOLE modify-carve on `COHESION.md` (§5 status-board line only) and the SOLE `DEFECT-LEDGER.md` append (by the script only) — both single-owner acts at close. `DIVERGENCE-LEDGER.md` is §Adjudication-only for this seat; `.d` owns the rows. A FRESH Fable seat that authored none of this wave's bytes (an author cannot adjudicate his own union). Hand-editing generated bytes stays forbidden; if the harvester's execute-no-write row mis-describes it again, that is a dated addendum-beside, never a spec patch.",
+         "brief": "Fresh Fable adjudicator (M-23 §1), L-14-obligated to REFUTE, never to average: a NAMED refutation attempt with its outcome against (i) the closure proof — an input reaching no declared code; (ii) one divergence row's spec reading; (iii) the shield's non-load-bearing-ness. Write `W3-CLOSE.md` with all ten gates' RED-before/GREEN-after outputs PASTED — no gate green on a narrative; G-1 and G-4 stay honest-RED with their escalations named. Run `harvest-journals.mjs` VERBATIM (exit 0); `x-p-w3.json` seat count = SIX dispatched (`.0`, `.a`–`.e`); a short harvest or a zero-row seat is RED (L-13). Carve the COHESION §5 line; DEFECT-LEDGER appended by the script only."
+        }
+       ],
+       "alreadyDone": [
+        "X.P.W3.0",
+        "X.P.W3.a",
+        "X.P.W3.b"
+       ],
+       "greenBeforeCure": [],
+       "recordCommit": "7486c8a9 (⊕ 29fcc39c, the F-r.2 disclosure appended to the same record)"
+      }
+     },
+     {
+      "agentId": "ae1326ac8200491f7",
+      "key": "v2:ddcea648e039813c9130bc9ecf8971a7bd347e10597c8ac244290aa1fd56bb59",
+      "result": {
+       "unit": "X.P.W3.c",
+       "status": "PARTIAL",
+       "commits": [
+        "f14f59f5e789238b984369bd146ca3c8452168bd",
+        "31f65d56",
+        "8a21ea8c",
+        "41220892"
+       ],
+       "gatesGreen": [
+        "G-3"
+       ],
+       "gatesRed": [
+        "G-9"
+       ],
+       "escalation": "ESC-c1 — G-9's LATCH LEG cannot close inside this unit's bound, for two independent measured reasons. (1) BOUNDS: `resetPackrat()` returns early while `PACKRAT_ARMED` stays true (`<p2>/typescript/src/parse/packrat.ts:273`) and nothing anywhere assigns it false (`:158` decl · `:224` reader · `:297` the one-way arm — all four re-measured at this seat). The cure is a write under `typescript/src/parse/**`, which `W3.md` §4 admits in NO row (it admits `typescript/src/css/**`) and which X.P.W3.0's dated addendum `W3-ADDENDA-2026-09-18.md` §A-3 DECLINES BY NAME (\"`<p2>/typescript/src/parse/**` IS NOT ADMITTED BY THIS ADDENDUM\"). That is a §3a File-bound expansion, which halts rather than proceeds — the identical disposition `.b` took at b.5 E-2. (2) ARCHITECTURE: the library argues its own asymmetry at `packrat.ts:147-152` — \"a memoized parser, once built, could be invoked at any later parse … from the moment any memoizer exists the epoch machinery must run for cross-input + re-entrancy soundness (PT-B1 / PT-Q1)\" — so the naive one-line disarm is a soundness regression; the real cure is a symmetric arm-state (a live-memoizer count, or a disarm lawful only when none exists), which is an architecture question, not a local edit. REFUSED on purpose, each measured first: a `bounds.mjs` re-import that WOULD have made the leg green because `tsImport` does not dedupe (verified: `a === b` false, `a.resetPackrat === b.resetPackrat` false) — a fake restore of a DIFFERENT latch, i.e. the masking fallback G-3 refuses by name; also refused test.skip, an allowlist, a narrowed assertion, and any edit to the library. The leg is left RED with its cause inside the assertion message (`latch.test.ts` L-3 and the record row). PROVED INSTEAD, and this is all that is provable here: the candidate never arms the latch — exactly one `memoize(`/`mergeMemos(` site under `src/css` and it is this seat's declared instrument (comment-aware scan, full list printed), `entry.mjs` names no part of the arming surface, and the arm-state still reads false after parsing through BOTH lowerings; and because `js-alg.mjs:48` loads the library with its own `tsImport`, the lowerings' latch is not the instrument's latch, so the parse path's arm-state is reachable from no module in this seat's bounds — published as part of the finding, not around it. ROUTED TO: the orchestrator, for a one-row grant on `typescript/src/parse/packrat.ts` or a ruling that the leg is X.P.W4's. Same shape as `.b`'s E-1/E-2 and `.a`'s F-a.6; this seat grants itself nothing.",
+       "notes": [
+        "The F-r.1 draft was read as a DRAFT, NOT A RESULT. `entry.mjs` (228 L · 13,409 B) and `bounds.mjs` (265 L · 14,300 B) measured byte-count IDENTICAL to R.2's reading and every coordinate they cite was re-measured true at this seat (packrat.ts:158/224/273/297 · js-alg.mjs:259 slice, :700 depth label · grammar.mjs:93 REF back-edge, :100 headVar · tables.mjs:218 · lowering-js/index.mjs:7 DM-4 · cand-o/index.ts:18-23), so they were KEPT UNREWRITTEN. The suite took four corrections plus one new file.",
+        "FOUR CORRECTIONS to the draft suite, each with its reason: (1) AUTHORED `test/css-recovery/boundary/vitest.config.ts` (55 L) — the draft had none and pointed all four headers at `.b`'s project; (2) every SHIELD-ledger assertion made a DELTA — the draft asserted `SHIELD.caught` absolutely (`toBe(0)` / `toHaveLength(1)`), which is true only because vitest isolates files, i.e. an assertion about run order dressed as one about bytes; (3) `latch.test.ts` L-4's pinned line `bounds.mjs:238` replaced by exactly-one-site matching `/^bounds\\.mjs:\\d+$/` (a line number reddens the leg when a comment above it grows — failing for a reason not its own); (4) ADDED T-1b, the entry module's WHOLE `throw` census with 8-line comment-aware windows against a declared HALT table, because G-3's falsifier says a masking fallback fails 'by inspection of the entry module' and the draft inspected only each shipped closure. Measured: 1 site · 1 declared · 0 undeclared, with its own negative control.",
+        "G-3 BEFORE→AFTER, both re-measured at this seat rather than inherited. BEFORE (value.js 4.0.0 dist): 'empty-body throws: 10/10', every one TypeError, and 5/5 non-string raw TypeError (O-15 PT-07) — identical call-for-call to W3.md §6's 2026-08-03 paste and to the open's B.2. AFTER (candidate, both lowerings): empty-body throws 0/10, all ten ok:false + css_syntax; ten non-string kinds → 0/10 throws, ONE shape (css_syntax · actual:null · expected [\"<string source>\"]); 0 `undefined` returns. R1, the named enemy: parseCssColor(\"oklch()\") → {ok:false,[{css_syntax,6,7,[\"<number>\",\"<none-keyword> ('none')\"],\")\"}]}.",
+        "The retained cand-O shield is PROVEN non-load-bearing, MEASURED not asserted, by cand-O's own instrument (the raw path, which carries no try/catch at all — lowering-js/index.mjs:7, DM-4): 160,710 PUBLIC calls and 160,710 RAW UNSHIELDED calls over the 26,785-source corpus union (26,604 `.a` rows + 685 `.b` rows, independently re-derived by this seat) → 0 throws, 0 `undefined`, SHIELD.caught delta 0. cand-F's dissent is RECORDED, not resolved: removal is a live option for X.P.W4 and explicitly not a decision of this seat (W3.md §5 `.c`'s own sentence).",
+        "G-9 DEPTH GREEN, both lowerings, on GENERATED witnesses (never a pinned fixture — §3's no-silent-re-pin): ok:false at 64 · 65 · 7,761 · 7,762 and 200,000, with 0 thrown errors. At the bound the rejection is the CONTEXT GUARD's (color_context_required), which is what makes the next row non-vacuous; one past it the rejection carries the declared depth production '<nesting-depth> (at most 64 levels)' and `\"value\" in result` is false — the MIS_ACCEPT half of the falsifier. PT-04's 7,761/7,762 RangeError cliff is now a regression fixture rather than a limit. Θ, the raw label in L and the promoted production all read 64, asserted at construction, with a negative control that a widened Θ HALTS.",
+        "SUITE: 118 assertions · 116 GREEN · 2 BORN-RED (the latch leg, cause inside the assertion message — never test.skip, never an allowlist). Double-run at the settled committed bytes, identical both times. `.b`'s project re-run and UNHARMED: 23 ✓ / 1 born-RED, unchanged (its 6-file project now reads 139 ✓ / 3 ✗ = `.b`'s 1 + this seat's 2).",
+        "F-c2 (MINOR) — `.b`'s E-3 has now been met by ALL THREE phase-1 seats (`.a` G-6 · `.b` G-8 · `.c` G-9), with one datum `.b` could not have had: the reading is WORKING-DIRECTORY-DEPENDENT. From `<p2>/typescript` the literal `npx vitest run test/css-recovery/boundary/{depth,latch}.test.ts` collects 0 files ('include: test/*.test.ts'); from `<p2>` itself it collects BOTH (no root config → default include, positionals match as substrings). Both readings published because either alone misleads. The lawful cure taken here is the seat's own project inside its own create row, never a library file no unit of this wave owns.",
+        "F-c3 (MINOR) — 172 rows of `.a`'s generated union carry `s` as an OBJECT {id, src} rather than a string (the whole `r1` band; row 26,432 = {\"i\":26432,\"s\":{\"id\":\"r1-0\",\"src\":\"\"},…}). Feeding one straight to the raw path throws `TypeError: sg.src.slice is not a function`, which is how this seat found it. `test/css-totality/**` is `.a`'s create row, so the rows are unwrapped in THIS seat's own corpus reader, the count is published on every read, and the defect is returned rather than cured across a bound. Owner: `.a` / `.d`.",
+        "F-c6 (INFO) — the candidate publishes THREE of the nine public entries (parseCssColor · parseTimingFunction · parseStylesheet) and NAMES the other six in `UNREALIZED_ENTRIES` rather than stubbing them; a stub rejection would emit codes no grammar raises and is the masking fallback `.b` refused at b.5 E-1. Same wall as `.a`'s F-a.6 and `.b`'s E-1, seen from the entry module. Consequence stated in advance so `.d` does not re-diagnose it: G-2's anchor probe targets all nine and cannot be discharged by a slice, so `.d`'s G-2 will read RED for the grammar's reach, not for a throw.",
+        "F-c4/F-c5 (INFO) — `npx tsc --noEmit -p typescript/tsconfig.json` → 467 errors (from `.b`'s 439); 28 are this seat's and ALL 28 are resolution-class (TS2307 node:* 11 · TS2339 import.meta.url 4 · TS7016 implicit-any on .mjs imports 13), ZERO logic errors — F-b2's exact shape (allowJs absent). `eslint` is not installed in this root (`ls node_modules/.bin | grep -ci eslint` → 0), the posture `.0` and `.b` both recorded; the executable cadence stood in, every probe run twice.",
+        "DISCIPLINE: one pathspec commit per meaning, pathspec on the commit itself; `git -C <p2> status --porcelain` → `?? .worktrees/` and nothing else, before and after; `git diff --check` clean; no -A, no -u, no commit -a, no stash, reset, rebase, cherry-pick, force-push or push. `scripts/dev/dev.sh` appears in 0 commits and was never opened. ZERO bytes written under value.js `src/**`, `/Users/mkbabb/Programming/parse-that/**`, `~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`, `../keyframes.js/**`, `../fourier-analysis/**`, and `<p2>/typescript/src/parse/**` — the one file whose one line would have turned the latch leg green. `.b`'s and `.a`'s files were read and imported, never opened for write. All three value.js commits verified `git branch --contains` → tranche-u (the F-a.7/F-b5 scratch-branch hazard re-checked and closed).",
+        "E13: four paths swept read-only at this seat's clock, classified by each row's STATUS CELL (never by a bare `grep -i unread`, X.P.W0 CHECK 1 D-1). `grep -c '^| I-'` → 36, unchanged since the open and the resume. The UNREAD cells are O-20 (ours, outbound), I-30 (standing glass tail), I-31 (atlas Q-lane, 'Do not edit value.js from this lane') and I-32/I-33/I-34, whose Routing cells read 'No X·P wave, no X·P act, opens on this row' / 'Glass is READ-ONLY always' / 'Not X·P's, not a value.js act today'. 0 unrowed value-addressed · 0 new I-n · 0 UNREAD in X.P.W3.c's scope. No mail minted; zero bytes in any producer tree; `../glass-ui/**` not read at all.",
+        "GATE 27 CORRECTION, disclosed rather than left to be found and committed as its own addendum-beside (41220892): c.9 published 0 (double-run), true at this seat's open and immediately before its two value.js commits; a third measure after them reads 2 — `?? e2e/smoke/a11y-control-targets.spec.ts` and `?? e2e/smoke/mobile/a11y-control-targets.spec.ts`, a SIBLING X·V W1.a seat's untracked bytes. None of this unit's three commits touches src/, api/, demo/, test/ or e2e/ (`git show --stat` on each). Restates `.b`'s lesson: in a working tree four tracks share, gate 27 is a tranche-wide reading, not a per-seat one.",
+        "STATUS PARTIAL, not DONE: both cures this seat could lawfully make are landed and GREEN (G-3 whole; G-9's depth leg), and the third is returned with its measurement. G-9 is reported RED because a gate is green only when every leg is — the depth leg's GREEN is stated beside it rather than allowed to round the gate up, which is the specific dishonesty this wave's §11 guardrail 2 names.",
+        "Record: /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W3.md §X.P.W3.c (c.0–c.9 + the addendum-beside), append-only, 383 insertions / 0 deletions across two commits. Ledger: /Users/mkbabb/Programming/value.js/docs/tranches/X/execution/LEDGER.md — one in-place commit-cell replacement + one appended timeline line, diff verified to contain nothing but this seat's two lines before staging (F-r.2's standing lesson)."
+       ]
+      }
+     },
+     {
+      "agentId": "ae2e4cc76b3bbc9a9",
+      "key": "v2:21340a022c6dc2c993c5fb9a2a727a2dbfdda0ab795f49d72839a46d03203c7a",
+      "result": {
+       "unit": "X.P.W3.d",
+       "status": "PARTIAL",
+       "commits": [
+        "<p2> d8d7169 test(x-p-w3/equivalence): graduate the differential harness to the full 52-export surface",
+        "<p2> 2e1b006 feat(x-p-w3/identity): the dual-target recovery comparator — G-5's missing subject",
+        "<p2> dde249d feat(x-p-w3/bench): the three-leg table, recorded and never gating",
+        "<p2> dc52ed5 fix(x-p-w3/.d): the emitted ledger ends with one newline and no blank line before it",
+        "value.js 0e9bac30 docs(x-p-w3/.d): divergence ledger — 29 rows, both halves measured against the sha-pinned 4.0.0",
+        "value.js 3a9baee4 docs(x-p-w3/.d): evidence — G-2 anchor after, G-5 identity, G-7 full surface, G-10 bench",
+        "value.js 5545d284 docs(x-p-w3/.d): unit receipt — G-5 GREEN, G-10 well-formed, G-7 RED at 5890, G-2 RED structurally",
+        "value.js 90ab2d1a docs(x-p-w3/.d): ledger — X.P.W3 commit cell + the .d reading on the wave's own row",
+        "value.js 861941c2 docs(x-p-w3/.d): addendum-beside — the last two hashes, and the gates re-read at the settled bytes"
+       ],
+       "gatesGreen": [
+        "G-5",
+        "G-10"
+       ],
+       "gatesRed": [
+        "G-2",
+        "G-7"
+       ],
+       "escalation": "TWO, both §3a \"hard-gate failure that is not local-edit-recoverable\", both returned with their measurement and neither masked. ESC-d1 — G-7 is RED at 5,890 mirror-defects and its cure is out of every unit's writable set: 44 of 52 exports have no candidate peer (6 parse entries want six more productions in `algebra/grammar.mjs`, which `.b`'s E-1 already named as \"a file in no unit's writable set in this wave\"; 10 collectors/coercer/serializers were assigned to nobody; 28 frozen types), and the 5,890 cells on the 3 realized entries are grammar behaviour under `<p2>/typescript/src/css/**`, which §4a gives to `.b` and `.c` for their named cures and to nobody for this. Same wall as `.a`'s F-a.6 and `.c`'s F-c6. Four moves that would each have reduced the number were REFUSED on purpose and are named in the receipt: widening the declared shape (taxonomy widening, W1.md §6 G-2's own falsifier), reading unadjudicated disagreements as LIVE_STRICTER (zeroes class B on an argument nobody measured), generalizing the sixteen adjudications from inputs to classes (a decision with a consumer direction that belongs to `.e` and the owner), and stubbing the six unrealized entries (the masking fallback `.b` and `.c` both refused). The §3a \"newly discovered incumbent defect (a sixth R-class)\" trigger was CHECKED and did NOT fire — the MIS_ACCEPT/FALSE_REJECT samples are further instances of R-classes `parser-band.md` already records (P-037 unsound accepts; the comma→space rewrite), and the classes with their samples are published in `equivalence-full-surface.json` for `.e` and X·V rather than swallowed. ESC-d2 — G-2's close condition is unsatisfiable by ANY act of this wave, measured at the probe's own bytes: `const REPO = new URL(\"../../../../../..\", import.meta.url)` resolves to /Users/mkbabb/Programming/value.js, so the probe packs and imports the INCUMBENT, which this wave writes zero bytes of by §3/§4 law, and modifying the probe voids the gate. G-2's GREEN lives at X.P.W4's seam and X·V's bytes. Both routed to the orchestrator and `.e`; this seat granted itself nothing.",
+       "notes": [
+        "G-5 GREEN (the wave's one MEASURE-AT-OPEN gate): 79,674 cells — 26,551 distinct sources x 3 realized entries x 2 lowerings + the 7 declared non-string boundary values x 3 entries — ZERO differing bytes in {ok, code, start, end, expected, actual}; full-diagnostics differ 0, accepted-value differ 0, throws 0. Exit 0, double-run byte-identical (evidence sha256 b68bab94…). Canonicalization fixes KEY order and sorts nothing, per the gate's own falsifier.",
+        "G-10 WELL-FORMED with NO VERDICT and NO BAR. The program prints the literal BAR: OWNER-GATED-PENDING-RATIFICATION and `verdict: null`, and checks G-10's four falsifier conditions on its OWN output: 0 ratios outside the three legs, 0 citations of the uncitable denominator (scanned literally; the evidence file does not even reproduce their digits), 0 rows without arm-state, no pass/fail verdict. --denominator anything but 1636680 is REFUSED. Two runs, both lowerings (§0n.4). The R1-class baseline reproduces parser-band's inherited 82,559/78,034 ns at 81,286.9/78,019.5; the accept and reject legs do NOT reproduce its parity reading and the disagreement is printed, not smoothed. The 07-20 'LIVE regex FASTEST ~1.8x' contradiction is row C-1.",
+        "G-7 RED at 5,890 mirror-defects over 8 compared rows; 44 of 52 exports NO-PEER. parseCssColor 4,027 (A 1566 / B 1200 / C 1261) · parseTimingFunction 170 · parseStylesheet 1,693. 3,982 are spec-undecided and counted AGAINST the candidate by a convention declared BEFORE the run — the opposite convention would zero the count on an argument nobody measured. The P-1 taxonomy is imported from harness/equivalence/taxonomy.ts and asserted UNMOVED byte-for-byte before a single cell is classified. Evidence byte-identical on two consecutive generations (d03b458c…). Suite: 23 passed / 1 born-RED, twice; the one failure IS the gate and carries its whole cause in the assertion message — no test.skip, no narrowed corpus, no allowlist, no re-pin.",
+        "G-2 RED, the probe run UNMODIFIED twice with identical output (324 throws / 1548 calls, 1 failure mode, 4 of 9 entry points RED, exit 1) — the 2026-08-03 baseline to the call. `git status --porcelain` on the probes dir is empty before and after both runs. A SHADOW reading is published beside it and labelled NOT THE GATE: the probe's own 172-input corpus through the candidate's public surface gives 0 throws / 0 undefined over 516 calls in EACH lowering.",
+        "F-d1 (MAJOR): the 'vendored sha-pinned published 4.0.0 tarball' the spec names as G-7's oracle DID NOT EXIST in either tree — all that existed was cand-o/vendor/value-js-4.0.0/, an unpacked directory nobody had hashed against the registry. Recovered from npm's content-addressed cache WITH the registry's own sha512 integrity (sha512-Z8ywb4ht…), vendored at test/css-equivalence/vendor/value.js-4.0.0.tgz (37,290 B, sha256 7f80658c…), and proved byte-identical to that directory on both css.js and css.d.ts — so the two halves of this wave are measured, not assumed, to have used ONE 4.0.0. Three handles are asserted in-test before any comparison runs and loadOracle() hashes before it unpacks.",
+        "DIVERGENCE-LEDGER.md opened: 29 rows in five families (ADJUDICATED 16, imported from .a's lib/adjudications.mjs and not re-typed · PRESERVED DISSENT 4 · REGRESSION FIXTURE 5 · LABEL 1 = .b's F-b4 · DECLARED COVERAGE NARROWING 3, generated from the candidate's own UNREALIZED_ENTRIES). 0 empty consumer-direction fields. Both result columns MEASURED at generation through the tarball and both lowerings. 5/5 GATE-VERDICT anchors re-read in the authority. NO ninth ParseIssue code anywhere. §6 Adjudication left deliberately EMPTY for .e, with three rows named as the ones most worth refuting (S-1, ADJ-3/S-2, PB-03). The .a/.d family is CLOSED by measurement: --cross-check-ledger GREEN, 0 of 16 not carried, and ADJUDICATION_UNHONOURED = 0 in both lowerings.",
+        "Sub-census in d.3.1, measured and reclassifying NOTHING: 100.00% of parseCssColor's 1,566 DIVERGENT_VALUE cells are PB-03 or PB-04 generalized to inputs no adjudication row names (predicate declared before the run; a first strict pass read 95.40% and the 72-cell residue was entirely a signed-zero alpha artifact of the PREDICATE, corrected visibly rather than silently). Recorded so the 5,890 reads as structure rather than as five thousand separate diagnoses; the script was run from the scratchpad and deliberately NOT committed, because authoring a third file under scripts/ would be a §3a file-bound expansion.",
+        "F-d4 (MINOR, for the adoption packet): the published value.js 4.0.0 bundle carries NO packrat machinery at all — 0 occurrences of PACKRAT_ARMED / packratEnter / resetPackrat / memoize across its whole dist. O-15 PT-03's one-way latch is parse-that's; no consumer of published 4.0.0 has ever been able to arm it. This bounds but does not weaken .c's ESC-c1.",
+        "F-d6 (MINOR): R5's fixture has NO executed cell — the graduated corpus union carries no comment-bearing declaration row, so 'comment trivia folded into declaration names' is neither met nor contradicted here. Adding inputs is a write in .a's create row, so the gap is returned, and its ledger row says so in its own bytes. F-d7: .b's E-3 (the gate's literal vitest form collects zero files) is now met by ALL FOUR seats — one orchestrator row, four sightings, zero private workarounds.",
+        "Bounds: this unit's whole write set is typescript/test/css-equivalence/**, typescript/scripts/css-dual-target-identity.mjs and typescript/scripts/css-bench-three-leg.mjs in <p2>, and DIVERGENCE-LEDGER.md + the four evidence/W3/ artifacts + the wave record + the ledger row in value.js — the writable set exactly. .a's, .b's and .c's files were read and imported, never opened for write. Zero bytes under value.js src/**, /Users/mkbabb/Programming/parse-that/**, ~/Documents/Codex/**, ~/.codex/**, ../glass-ui/**, ../keyframes.js/**, ../fourier-analysis/**, or <p2>/typescript/src/**. scripts/dev/dev.sh appears in 0 commits and was never opened. Every commit carries its own pathspec ON the commit; no -A, no -u, no commit -a, no stash, no reset, no rebase, no cherry-pick, no force-push, no push.",
+        "Gate 27 MOVED under this seat mid-sitting, 2 -> 12, and both readings are published with the cause: ten concurrent X·V W1.a demo/** edits plus its two untracked e2e specs. None is this unit's — its value.js commits name only docs/tranches/X/ paths. Third sighting of .b's lesson that on a shared working tree gate 27 is a tranche-wide reading, not a per-seat one. LEDGER.md was edited by minimal in-place replacement of the X.P.W3 row alone (1 insertion / 1 deletion, verified before staging per F-r.2).",
+        "E13 at this seat's own clock: four paths swept read-only, classification from each row's status cell. INBOX 36 rows, unchanged since the open, the resume, .a, .b and .c. UNREAD rows are O-20 (ours, outbound), I-30, I-31, I-32, I-33, I-34 — each re-read and each stating in its own Routing cell that it is not X·P's. 0 unrowed value-addressed, 0 new I-n, 0 UNREAD in X.P.W3.d's scope. No mail minted, zero bytes in any producer tree, ../glass-ui/** read only to list one directory's mtimes (BK re-confirmed newest).",
+        "Cadence (§7): node --check on all 9 authored .mjs -> 9/9 ok; every gate program and the suite run twice, identical; git diff --check clean on every commit (the one it caught — a blank line at EOF in the GENERATED ledger — was cured in the generator, not by hand, as F-d11); tsc 467 -> 479, all 12 new ones this seat's and ALL resolution-class (the three TS7006 the first reading showed were this seat's own logic and were annotated away before commit); eslint absent from this root (F-d10). No proof-farm script was authored for any gate — each program executes a corpus and its output IS the evidence.",
+        "Known self-referential residual, disclosed: the addendum-beside 861941c2 states this unit's value.js total as four commits (0e9bac30 · 3a9baee4 · 5545d284 · 90ab2d1a), which was true when it was written; its own commit makes five. `git log --oneline --grep='x-p-w3/.d'` is authoritative. A second addendum to correct the count would reopen the same gap by one, so it is reported here instead of spawned into the record."
+       ]
+      }
+     }
+    ]
+   }
+  },
+  {
+   "file": "registry/harvest/wf_a9980aef-425.json (as the harvester emitted it, in the mirror run)",
+   "runId": "wf_a9980aef-425",
+   "sha256": "149ad0cc40a042deb34e2172a2b2ccd3a3b4c8ddd368eccfd3cfd5d58d91f244",
+   "bytes": 4191,
+   "byteIdenticalAcrossTheTwoRuns": true,
+   "resultCount": 4,
+   "document": {
+    "runId": "wf_a9980aef-425",
+    "workflow": "wf_a9980aef-425",
+    "resultCount": 4,
+    "results": [
+     {
+      "agentId": "a69219b0eddc10906",
+      "key": "v2:3931eba5fbfa5efe5a677afbcde98828b81fea36efc89eeeb6194630d14133b1",
+      "result": {
+       "groups": [],
+       "units": [],
+       "skip": true,
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a997044c035998ba4",
+      "key": "v2:6dc4705983e4e73c946098c3ccd6278e50af88a4112f36e175d3bc8f222cdadf",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "a4c3649001ec3d525",
+      "key": "v2:9bdc38c59ac8437499bf52d034a66b214675d4f0e1855e91fd15b041a040ea4d",
+      "result": {
+       "skip": true,
+       "groups": [],
+       "units": [],
+       "alreadyDone": [],
+       "greenBeforeCure": [],
+       "recordCommit": ""
+      }
+     },
+     {
+      "agentId": "afb40d72db68d41be",
+      "key": "v2:d4aeae2093a9e823476e6ad9a2afcf65693f5c530bc256e51900187522ad31a1",
+      "result": {
+       "groups": [
+        [
+         "X.P.W3.e"
+        ]
+       ],
+       "units": [
+        {
+         "id": "X.P.W3.e",
+         "model": "fable",
+         "sections": "W3.md §5 `.e` (L319-339) · §8 Verification Artefacts (L561-582) · §9 Commit Plan (L584-608) · §12 L-18 rider (L657-669) · §4 bounds rows (L163-172) · §4a `.e` clauses (L184-197) · COHESION §0j.E OC-1 + §0n.3-§0n.5 · record `execution/D/X-P-W3.md` §Unit plan P.1/P.2 and §RESUME-2 R2.1-R2.6",
+         "writable": [
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/waves/W3-CLOSE.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/harvest/x-p-w3.json",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/COHESION.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/D/X-P-W3.md",
+          "/Users/mkbabb/Programming/value.js/docs/tranches/X/execution/LEDGER.md"
+         ],
+         "gates": [
+          "§5.e close sub-gate (W3-CLOSE.md exists with all ten gates' pasted RED-before/GREEN-after; ≥1 load-bearing claim carries a recorded refutation attempt; no gate green on a narrative)",
+          "L-13 harvest (harvest-journals.mjs exit 0 · x-p-w3.json present · seat list non-empty · count = units dispatched = SIX)",
+          "re-reads all ten: G-1 G-2 G-3 G-4 G-5 G-6 G-7 G-8 G-9 G-10"
+         ],
+         "locks": "Opens only after `.d` commits (§4a) — MET, `<p2>` `dc52ed5` / value.js `861941c2`. SOLE modify-carve on COHESION.md (§5 status-board line ONLY) and SOLE DEFECT-LEDGER.md append, which is the script's act, never a hand's. W3.md/W1.md/W2.md/ALGEBRA.md/W2-KILL-LEDGER.md/registry/adjudicated/**/evidence/W0..W2/** IMMUTABLE (E-3) — corrections are dated addenda-beside. DIVERGENCE-LEDGER.md: §Adjudication ONLY, never `.d`'s emitted rows. DEFECT-LEDGER.md and LEDGER.md are written by four tracks — stage your own hunk only (F-r.2, F-r2.2). Carried and NOT curable here: `.a` F-a.6/F-b4 · `.b` E-1/E-2/E-3 · `.c` ESC-c1 · `.d` ESC-d1/ESC-d2.",
+         "brief": "CRASH-RECOVERY FIRST: four uncommitted `.e` artefacts sit in the tree (COHESION +36 · DIVERGENCE §6.1 +37 · DEFECT-LEDGER +405/-1 · untracked harvest/x-p-w3.json 123,158 B; 12:23-12:25, served claude-fable-5-1). Read all whole; they are a DRAFT, not a result. `W3-CLOSE.md` DOES NOT EXIST though both drafts cite it — write it. Re-run all ten gates at your own clock, RED-before/GREEN-after PASTED; no gate green on narrative. L-14 named refutations vs (i) closure, (ii) >=1 divergence row's spec reading, (iii) the shield's non-load-bearing-ness. Run harvest-journals.mjs VERBATIM (exit 0); the L-13 referent is SIX seats. Carve COHESION §5 only. Pathspec commits, own hunks only."
+        }
+       ],
+       "alreadyDone": [
+        "X.P.W3.0",
+        "X.P.W3.a",
+        "X.P.W3.b",
+        "X.P.W3.c",
+        "X.P.W3.d"
+       ],
+       "greenBeforeCure": [],
+       "recordCommit": "8d63415fa0052b57d11f71f38723f07cdaabbc63",
+       "skip": false
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

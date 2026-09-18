@@ -5,7 +5,7 @@ from the workflow journals. **This file exists so that a session limit, a compac
 truncated notification cannot lose work that was already paid for.** Never re-run a seat whose
 rows are already here.
 
-**7520 defects** from completed challenger seats: BLOCKER 914 · MAJOR 3245 · MINOR 2170 · INFO 692 · MEDIUM 191 · HIGH 105 · LOW 156 · MEDIUM-LOW 1 · MINOR-RISING-TO-MAJOR 1 · MODERATE 5 · CRITICAL 16 · HIGH — FILED AGAINST CENSUS-CANONICAL.MD 1 · MEDIUM — FILED AGAINST CENSUS-CANONICAL.MD 1 · INFO — FILED AGAINST PASS-4/RULINGS-4.MD 1 · INFO — ENVIRONMENTAL, FOR SUCCESSOR SEATS 1 · CLEAR — AXIS 2 PASSES 1 · CLEAR — AXES 3/4/5 PASS 1 · MEDIUM-HIGH 5 · MINOR-WITH-MITIGATION 3 · LOW-MEDIUM 2 · MINOR (MITIGATED) 6 · MINOR (REGISTER TRUTH — ARITHMETIC THAT DOES NOT DECOMPOSE; AXIS 5) 1 · MINOR (DATED-EVIDENCE LAW — UN-DATED STALE COUNT IN CURRENT VOICE; AXIS 4) 1
+**7585 defects** from completed challenger seats: BLOCKER 914 · MAJOR 3245 · MINOR 2196 · INFO 718 · MEDIUM 192 · HIGH 111 · LOW 156 · MEDIUM-LOW 1 · MINOR-RISING-TO-MAJOR 1 · MODERATE 5 · CRITICAL 16 · HIGH — FILED AGAINST CENSUS-CANONICAL.MD 1 · MEDIUM — FILED AGAINST CENSUS-CANONICAL.MD 1 · INFO — FILED AGAINST PASS-4/RULINGS-4.MD 1 · INFO — ENVIRONMENTAL, FOR SUCCESSOR SEATS 1 · CLEAR — AXIS 2 PASSES 1 · CLEAR — AXES 3/4/5 PASS 1 · MEDIUM-HIGH 5 · MINOR-WITH-MITIGATION (NON-BLOCKING) 1 · MINOR (MITIGATED — DOES NOT BLOCK) 2 · INFO (NEVER BLOCKS) 2 · MINOR-WITH-MITIGATION (DOES NOT BLOCK) 1 · MINOR-WITH-MITIGATION 3 · LOW-MEDIUM 2 · MINOR (MITIGATED) 6 · MINOR (REGISTER TRUTH — ARITHMETIC THAT DOES NOT DECOMPOSE; AXIS 5) 1 · MINOR (DATED-EVIDENCE LAW — UN-DATED STALE COUNT IN CURRENT VOICE; AXIS 4) 1
 
 > Status: these are **challenger** outputs. A defect here has NOT been adjudicated by a jury —
 > the jury seats were the ones most often killed by the rate wall. Treat every row as an
@@ -103776,6 +103776,162 @@ MixResultDisplay.vue:4 `import { computed, TransitionGroup } from "vue";` vs :60
 
 ---
 
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
 ## INFO
 
 ### `CHALLENGE-C — implementation (demo/shared/ui/PaneHeader.vue,` · C-11 · CHALLENGE-C
@@ -115033,6 +115189,162 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light /#/mi
 
 ---
 
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
 ## MEDIUM
 
 ### `` ·  · 
@@ -115639,6 +115951,28 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light /#/mi
 
 ---
 
+## HIGH
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## MEDIUM
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
 ### `` ·  · 
 
 **Defect.** 
@@ -115744,6 +116078,12 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light /#/mi
 ---
 
 ## HIGH
+
+### `` ·  · 
+
+**Defect.** 
+
+---
 
 ### `` ·  · 
 
@@ -117212,6 +117552,70 @@ docs/tranches/V/megatranche/audit/visual/REPORT.json, safari-desktop-light /#/mi
 **Defect.** 
 
 ---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## HIGH
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## MINOR-WITH-MITIGATION (NON-BLOCKING)
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## MINOR (MITIGATED — DOES NOT BLOCK)
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## INFO (NEVER BLOCKS)
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+### `` ·  · 
+
+**Defect.** 
+
+---
+
+## MINOR-WITH-MITIGATION (DOES NOT BLOCK)
 
 ### `` ·  · 
 

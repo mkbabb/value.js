@@ -187,6 +187,50 @@ the per-component apotheoses are authoritative.
   location, latent since `.g`, reachable only now. **No bar was set, implied, or printed**;
   `OWNER-GATED-PENDING-RATIFICATION` stands (OP-4 / §0j.E OC-1). **IMPLEMENTED is this wave's own
   close report's stamp; VERIFIED is X.P.W4's alone (R-A).**
+- 2026-09-18: **X·P W3 CLOSE-ADJUDICATED by the fresh Fable seat `.e` (`claude-fable-5-1`) —
+  honest-RED; one load-bearing claim REFUTED and one divergence row's spec reading REFUTED at the
+  bytes** (`parse-that/waves/W3-CLOSE.md`; six units dispatched `.0` `.a`–`.e`, five landed before it,
+  `<p2>` at `dc52ed5`). All ten gates re-run at the close seat's own clock, twice, every generated
+  evidence artefact regenerated **sha256-equal** to the committed one: **GREEN** G-6 (72/72) · G-8
+  (C-7/C-8/C-9, labels never armed, 0 executed writes) · G-5 **on its command** (79,674 cells, 0
+  differing bytes) · G-10 **well-formed, no verdict** (a third run beside `.d`'s two; `BAR:
+  OWNER-GATED-PENDING-RATIFICATION`; `--denominator 1870633` REFUSED). **GREEN on its command legs
+  but NOT reported green**: G-3 (0/10 heads, 72/72 non-string cells one shape, R1 `oklch()` typed in
+  both lowerings) — its proof leg *"the shield is non-load-bearing"* is **REFUTED under L-14**: on the
+  Wasm lowering `parseStylesheet` over **8,191 rules of `a{color:red}` (98,292 B, VALID)** overflows
+  the fixed **mark journal** (`MARK_CAP` 32,768; 32,770 marks), the RAW path throws `HALT: a journal,
+  the value stack or the arena overflowed its fixed region`, and the public entry answers `ok:false
+  css_syntax ["<stylesheet>"]` **only because the shield fired** while the JS lowering answers
+  **`ok:true`**; likewise every input over `INPUT_CAP` 1,048,576 code units on all three entries. G-3's
+  falsifier fires by inspection and G-5's intent falls beyond the corpus in the §3a "Wasm memory
+  model" direction → **ESC-e1**, routed (X.P.W1/W2 architecture · X.P.W4 adoption), not patched.
+  **RED, each with its named owner**: G-1 (5 of 52 TOTAL — F-a.6) · G-2 (324/1,548 twice, structural
+  — ESC-d2) · G-4 C-3/C-4 (E-1/E-2; + F-e10: the shield's `catch → css_syntax` is a **third**, live
+  fallback arm C-4's regex does not count) · G-7 (5,890 — ESC-d1) · G-9 latch (ESC-c1; depth GREEN
+  at 64/65/7,761/7,762 in both lowerings). **L-14, the other two**: (ii) **S-1/ADJ-2 REFUTED as
+  stated** — `hsl(120deg50%50%)` and `rgb(255none none)` are ACCEPTED by both lowerings where
+  css-syntax-3 §4.3.3 tokenizes `120deg50` / `255none` as single invalid dimension-tokens (F-e1);
+  **ADJ-3/S-2 half-REFUTED** — css-color-4 §4.3 normalizes an infinite hue to 0deg and css-values-4 §5
+  clamps an over-range angle; the row's "§10.9" is *Type Checking* and its attributed sentence does not
+  exist (F-e3); **PB-03 UPHELD** verbatim (§7.1 "100% or 100") with a NEW unrowed divergence beside
+  it — legacy `hsl(120, 50, 50)`: incumbent MIS-ACCEPTS, candidate correctly rejects (F-e2). (i)
+  closure **NOT refuted on its ⊆ half** over two fresh 20,000-source bands (seeds `0x9e3779b1` ·
+  `0x00c0ffee`; 240,000 public calls: 0 codes outside the eight read from value.js
+  `6aca8602:src/css/types.ts`, 0 empty tuples, 0 raw throws, 0 `far.code === null`, 0 cross-target
+  differences), **refuted on its no-fallback conjunct through the shield**. **Harvest chain**: the
+  unmodified harvester (sha256 `77a6e04c…`) run three times, exit 0, outputs byte-identical — measured
+  to write **143 files per run** (94 NEW + 2 CHANGED `wf_*.json`, all outside every W3 bound) and the
+  ledger wholesale (7,520 → 7,585; the 65 new rows are all empty stubs, W0 R-5; 130 whitespace flags),
+  so it ran in a scratch mirror with the script symlinked and, in run B, `DEFECT-LEDGER.md` symlinked
+  to the repo's file so the **script itself** wrote the append (sha256 `8092610b…`, equal to run A);
+  the wave's THREE run files (`wf_25c53370-7ee` · `wf_3e7ab295-b6d` · `wf_a9980aef-425`) folded
+  VERBATIM into `registry/harvest/x-p-w3.json` (fold/2). **Seat count 5 of 6 — RED under L-13's
+  letter** (`.e` structurally absent from its own harvest; W0 R-3 / W1 R-3 reproduced — ESC-e2).
+  K.7(i) fired a third time and is recorded in `W3-CLOSE.md` §5 / F-e11, never a spec patch. The
+  crashed first `.e` seat's uncommitted draft was read whole and **rewritten** where measurement
+  disagreed (region, rule count, JS memory figures, cell/file/run counts — `W3-CLOSE.md` §0).
+  **IMPLEMENTED is NOT stamped by this seat** (gates are not green); the four-verb line stays
+  IMPLEMENTED NO pending the orchestrator's close commit; **VERIFIED is X.P.W4's alone (R-A).**
 
 ## §0a BOUNDARY 2026-08-25 — THE REGISTRY IS WHOLE; THE AUTHORING BLOCK OPENS
 
