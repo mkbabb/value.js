@@ -15,6 +15,7 @@
  * `deletedAt` (§5.4 orthogonality).
  */
 
+import type { WithId } from "mongodb";
 import type { Palette, PaletteVisibility } from "../model.js";
 import { PALETTE_VISIBILITIES } from "../model.js";
 import type { Services } from "../../../platform/http/inject-services.js";
@@ -35,6 +36,84 @@ export function isActivePublic(
         p.visibility === "public" &&
         (p.deletedAt === null || p.deletedAt === undefined)
     );
+}
+
+/**
+ * The subject of a read decision: the three facts the policy reads, and
+ * nothing else. Taking a structural subset (rather than the whole document)
+ * keeps the predicate callable from a provenance hop, a version's addressing
+ * palette, and a detail read alike, and makes it impossible for a caller to
+ * smuggle a decision in on a field the policy never inspects.
+ *
+ * `moderation` is the withdrawal clock ruled by D9: it is a SEPARATE axis from
+ * `visibility`, so a withdrawn row is not silently re-spelled as private. The
+ * field itself is minted on `Palette` at X.W3.5 (G-15); until then no document
+ * carries it and an absent value reads `clear`, which is the same answer the
+ * two-field model gives. The predicate therefore needs no amendment when the
+ * field lands — only the model does.
+ */
+export type ReadableSubject = Pick<
+    Palette,
+    "visibility" | "deletedAt" | "userSlug"
+> & {
+    readonly moderation?: "clear" | "withdrawn";
+};
+
+/**
+ * THE palette object-read predicate (X-W3 · X.A1 · G-1). One decision point
+ * owns every read: a viewer may read a palette iff they own it — in any state,
+ * including trashed and withdrawn, because an owner is entitled to the truth
+ * about their own row — or the row is active-public with a clear moderation
+ * clock.
+ *
+ * Two surfaces, one decision: `isReadable` for a walk that must keep going
+ * past a hop it may not disclose (the provenance redaction, V·W45 item 4), and
+ * `assertReadable` for a read entry point that must refuse. Nothing else may
+ * re-derive this rule — a second spelling of it is the drift this gate exists
+ * to close.
+ *
+ * A null-owned row (`userSlug: null`, an anonymously created palette) is
+ * nobody's: an absent viewer must never match it, which is why the viewer is
+ * tested for presence before it is compared.
+ */
+export function isReadable(
+    doc: ReadableSubject,
+    viewer: string | null | undefined,
+): boolean {
+    if (viewer && doc.userSlug === viewer) return true;
+    return isActivePublic(doc) && (doc.moderation ?? "clear") === "clear";
+}
+
+/**
+ * The throwing form of `isReadable`. Refusal is ALWAYS `NotFoundError`: a
+ * refusal that distinguished "exists but is not yours" from "does not exist"
+ * would be the existence oracle the predicate is here to remove.
+ */
+export function assertReadable(
+    doc: ReadableSubject,
+    viewer: string | null | undefined,
+): void {
+    if (!isReadable(doc, viewer)) throw new NotFoundError("Palette not found");
+}
+
+/**
+ * Resolve a palette by slug and authorize the viewer against it, returning the
+ * document so the caller need not read it twice.
+ *
+ * This is the service-level entry point for a surface that is ADDRESSED by a
+ * palette slug but does not itself format the palette — the revision list is
+ * the first (G-3). Routes call services, never repositories (D-6), so the
+ * resolve half belongs here beside the predicate rather than in a handler.
+ */
+export async function assertPaletteReadable(
+    services: Services,
+    slug: string,
+    viewer: string | null | undefined,
+): Promise<WithId<Palette>> {
+    const doc = await services.repositories.palettes.findBySlug(slug);
+    if (!doc) throw new NotFoundError("Palette not found");
+    assertReadable(doc, viewer);
+    return doc;
 }
 
 /**

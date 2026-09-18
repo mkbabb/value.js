@@ -18,6 +18,7 @@ import {
     listVersions,
     revertToVersion,
 } from "../service/versions.js";
+import { assertPaletteReadable } from "../service/visibility.js";
 import { paletteOwnerExtractor } from "./crud.js";
 
 export const versionsRouter = new Hono<AppEnv>();
@@ -30,6 +31,13 @@ versionsRouter.get("/:slug/versions", async (c) => {
     }
     const limit = Math.max(1, Math.min(parsed.data.limit ?? 20, 100));
     const offset = Math.max(0, parsed.data.offset ?? 0);
+
+    // X-W3 · G-3: the release decision for this list is the ADDRESSING
+    // palette's, and it is taken before any item is read, let alone formatted.
+    // The list is strictly more disclosure than the detail route — it emits
+    // every superseded `{name, colors, authorSlug, parentHash}` — so it cannot
+    // be the one read path that authorizes nobody.
+    await assertPaletteReadable(c.var.services, slug, c.var.userSlug);
 
     const { data, total } = await listVersions(c.var.services, slug, offset, limit);
     return c.json({

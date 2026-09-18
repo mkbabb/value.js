@@ -29,6 +29,7 @@ import type {
 import type { z } from "zod";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
+import { assertPaletteReadable } from "./visibility.js";
 
 type CreateBody = z.infer<typeof createPaletteBody>;
 type UpdateBody = z.infer<typeof updatePaletteBody>;
@@ -46,13 +47,18 @@ export async function getPaletteBySlug(
     slug: string,
     currentUserSlug: string | undefined,
 ): Promise<FormattedPalette> {
-    const doc = await services.repositories.palettes.findBySlug(slug);
-    if (!doc) throw new NotFoundError("Palette not found");
+    // X-W3 · G-1: the object-read predicate decides BEFORE a single byte of
+    // the document is disclosed. `currentUserSlug` was previously read only
+    // for the vote lookup below — the detail read answered every caller.
+    const doc = await assertPaletteReadable(services, slug, currentUserSlug);
 
-    // I.W2: soft-deleted palettes within grace window return 410 Gone with
-    // an explicit `gone` code so consumers can distinguish from 404. After
-    // grace expires, the reaper hard-deletes the doc and findBySlug returns
-    // null → 404 NotFound (the natural state-transition).
+    // X-W3 · G-2: the Gone arm sits BEHIND the predicate. I.W2's contract is
+    // unchanged for the party it was written for — a soft-deleted palette
+    // within the grace window answers its OWNER 410 with an explicit `gone`
+    // code, distinguishable from 404, and after the reaper hard-deletes the
+    // doc `findBySlug` returns null → 404 (the natural state-transition). A
+    // stranger no longer reaches this line at all: `assertReadable` refused
+    // them above, so the 410 can no longer serve as an existence oracle.
     if (doc.deletedAt !== null && doc.deletedAt !== undefined) {
         throw new GoneError("Palette has been deleted");
     }
