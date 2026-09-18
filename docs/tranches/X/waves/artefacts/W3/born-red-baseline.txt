@@ -1,0 +1,199 @@
+SERVED MODEL: claude-opus-5[1m]
+
+# X-W3 §8 artefact 1 — born-red-baseline.txt
+# Unit X.W3.1 (policy kernel, G-1..G-4). Re-produced READ-ONLY at this seat's own clock,
+# NOT inherited from seat 0. Every command is quoted verbatim with its output.
+# Wall clock: 2026-09-18 17:32:46 EDT
+# HEAD: 9455dc8f  branch: tranche-u
+# Spec baselines were taken at HEAD 41450f02 (2026-08-03); seat 0 re-dated them at c753d924.
+
+=== G-1 ⟨cmd⟩ grep -rn "assertReadable" api/src | wc -l
+       0
+=== G-1 ⟨cmd⟩ grep -rn "isActivePublic" api/src
+api/src/modules/palette/service/visibility.ts:31:export function isActivePublic(
+api/src/modules/palette/service/forks.ts:15:import { isActivePublic } from "./visibility.js";
+api/src/modules/palette/service/forks.ts:201:        if (isActivePublic(doc)) {
+=== G-1 ⟨cmd⟩ sed -n '44,69p' api/src/modules/palette/service/crud.ts
+export async function getPaletteBySlug(
+    services: Services,
+    slug: string,
+    currentUserSlug: string | undefined,
+): Promise<FormattedPalette> {
+    const doc = await services.repositories.palettes.findBySlug(slug);
+    if (!doc) throw new NotFoundError("Palette not found");
+
+    // I.W2: soft-deleted palettes within grace window return 410 Gone with
+    // an explicit `gone` code so consumers can distinguish from 404. After
+    // grace expires, the reaper hard-deletes the doc and findBySlug returns
+    // null → 404 NotFound (the natural state-transition).
+    if (doc.deletedAt !== null && doc.deletedAt !== undefined) {
+        throw new GoneError("Palette has been deleted");
+    }
+
+    let voted = false;
+    if (currentUserSlug) {
+        const vote = await services.repositories.votes.findOne(currentUserSlug, slug);
+        voted = vote !== null;
+    }
+
+    const result = formatPalette(doc);
+    result.voted = voted;
+    return result;
+}
+=== G-2 ⟨cmd⟩ sed -n '52,58p' api/src/modules/palette/service/crud.ts
+    // I.W2: soft-deleted palettes within grace window return 410 Gone with
+    // an explicit `gone` code so consumers can distinguish from 404. After
+    // grace expires, the reaper hard-deletes the doc and findBySlug returns
+    // null → 404 NotFound (the natural state-transition).
+    if (doc.deletedAt !== null && doc.deletedAt !== undefined) {
+        throw new GoneError("Palette has been deleted");
+    }
+=== G-3 ⟨cmd⟩ sed -n '25,41p' api/src/modules/palette/routes/versions.ts
+versionsRouter.get("/:slug/versions", async (c) => {
+    const slug = c.req.param("slug");
+    const parsed = paginationQuery.safeParse(c.req.query());
+    if (!parsed.success) {
+        throw new ValidationError("Invalid query parameters", parsed.error.format());
+    }
+    const limit = Math.max(1, Math.min(parsed.data.limit ?? 20, 100));
+    const offset = Math.max(0, parsed.data.offset ?? 0);
+
+    const { data, total } = await listVersions(c.var.services, slug, offset, limit);
+    return c.json({
+        data: data.map((v) => ({ hash: v._id, ...v, _id: undefined })),
+        total,
+        limit,
+        offset,
+    });
+});
+=== G-3 ⟨cmd⟩ sed -n '22,27p' api/src/modules/palette/repository/paletteVersion.ts
+        return this.col
+            .find({ paletteSlug })
+            .sort({ createdAt: -1 })
+            .skip(skip)
+            .limit(limit)
+            .toArray();
+=== G-4 ⟨cmd⟩ sed -n '181,222p' api/src/modules/palette/service/forks.ts
+export async function getProvenance(
+    services: Services,
+    slug: string,
+): Promise<ProvenanceStep[]> {
+    const chain: ProvenanceStep[] = [];
+    const visited = new Set<string>();
+    let currentSlug: string | null = slug;
+    let ordinal = 0;
+
+    while (currentSlug && chain.length < 50) {
+        if (visited.has(currentSlug)) break;
+        visited.add(currentSlug);
+
+        const doc = await services.repositories.palettes.findBySlug(currentSlug);
+        if (!doc) {
+            // Purged ancestor: a non-correlatable step; we cannot walk past it.
+            chain.push({ kind: "unavailable", ordinal });
+            break;
+        }
+
+        if (isActivePublic(doc)) {
+            chain.push({
+                kind: "palette",
+                ordinal,
+                slug: doc.slug,
+                name: doc.name,
+                isFork: !!doc.forkOf,
+            });
+        } else {
+            // Private / unlisted / trashed hop: collapse to a non-correlatable
+            // step. We still hold the doc, so the walk continues to reveal the
+            // PUBLIC ancestors above — but this hop's identity/lineage is not
+            // emitted.
+            chain.push({ kind: "unavailable", ordinal });
+        }
+
+        ordinal++;
+        currentSlug = doc.forkOf;
+    }
+
+    return chain;
+}
+=== G-4 ⟨cmd⟩ grep -n "getProvenance" api/src/modules/palette/routes/forks.ts
+15:import { forkPalette, getProvenance, listForks } from "../service/forks.js";
+74:    const chain = await getProvenance(c.var.services, slug);
+
+########################################################################
+# X.W3.1 — THE BORN-RED READING OF THE UNIT'S OWN POLICY SPEC
+# The spec file api/src/modules/palette/__tests__/palette-policy.test.ts was
+# authored BEFORE its cure and run against the uncured bytes at 17:34 EDT.
+########################################################################
+
+⟨cmd⟩ cd api && npx vitest run src/modules/palette/__tests__/palette-policy.test.ts
+  → Test Files  1 failed (1) | Tests  7 failed | 2 passed (9)
+
+  ×  assertReadable / isReadable > admits the owner in ANY state and refuses every stranger but active-public
+  ×  assertReadable / isReadable > throws NotFoundError — never a distinguishable refusal — when it refuses
+  ×  G-1 > refuses an anonymous reader of a private palette and serves its owner
+  ×  G-1 > refuses a DIFFERENT authenticated user of a private palette
+  ✓  G-1 > still serves a public palette to a stranger (the cure is not a wall)      <- control, GREEN both sides
+  ×  G-2 > answers a stranger 404 and the owner 410
+  ×  G-3 > 404s an anonymous caller on a private palette and serves its owner
+  ✓  G-3 > still serves a public palette's revision list anonymously                 <- control, GREEN both sides
+  ×  G-3 > 404s the revision list of a palette that does not exist
+
+The two GREEN rows are deliberate controls: they hold on BOTH sides of the cut, so a
+wholesale refusal (a cure that walls the surface instead of authorizing it) reads RED.
+
+########################################################################
+# L-19 FALSIFIER DEMONSTRATIONS — each gate fails for EXACTLY one reason
+# Each falsifier was applied to the cured tree, measured, and reverted. The
+# reverted bytes are the committed bytes (verified by git diff after each revert).
+########################################################################
+
+F-1 (G-2 · ordering).  Hoist the GoneError arm back ABOVE assertPaletteReadable in
+  service/crud.ts getPaletteBySlug (the HEAD shape), leaving the predicate in place.
+  ⟨cmd⟩ npx vitest run …/palette-policy.test.ts  →  Tests  1 failed | 8 passed (9)
+  The ONE failure is G-2's 'answers a stranger 404 and the owner 410'. G-1 and G-3 stay
+  GREEN — proof that G-2 measures the ORDER and nothing else.
+
+F-2 (G-1 · the predicate itself).  Replace assertPaletteReadable with the HEAD's bare
+  findBySlug + null check in getPaletteBySlug.
+  ⟨cmd⟩ npx vitest run …/palette-policy.test.ts  →  Tests  3 failed | 6 passed (9)
+  The three failures are G-1's two refusal rows and G-2 (which cannot hold without the
+  predicate it sits behind). G-3 stays GREEN — its cure is a different byte.
+
+F-3 (G-3 · the revision list).  Delete the single assertPaletteReadable line from
+  routes/versions.ts's /:slug/versions handler.
+  ⟨cmd⟩ npx vitest run …/palette-policy.test.ts  →  Tests  2 failed | 7 passed (9)
+  The two failures are both G-3 rows. G-1 and G-2 stay GREEN.
+
+########################################################################
+# AFTER — the cured measurements, double-run (byte-identical both readings)
+########################################################################
+
+⟨cmd⟩ grep -rn "assertReadable" api/src | wc -l          → 7   (baseline 0)
+⟨cmd⟩ grep -rn "assertPaletteReadable" api/src
+api/src/modules/palette/service/visibility.ts:108:export async function assertPaletteReadable(
+api/src/modules/palette/service/crud.ts:32:import { assertPaletteReadable } from "./visibility.js";
+api/src/modules/palette/service/crud.ts:53:    const doc = await assertPaletteReadable(services, slug, currentUserSlug);
+api/src/modules/palette/routes/versions.ts:21:import { assertPaletteReadable } from "../service/visibility.js";
+api/src/modules/palette/routes/versions.ts:40:    await assertPaletteReadable(c.var.services, slug, c.var.userSlug);
+
+⟨cmd⟩ grep -rn "isReadable" api/src | grep -v __tests__
+api/src/modules/palette/service/visibility.ts:69: * Two surfaces, one decision: `isReadable` for a walk that must keep going
+api/src/modules/palette/service/visibility.ts:79:export function isReadable(
+api/src/modules/palette/service/visibility.ts:88: * The throwing form of `isReadable`. Refusal is ALWAYS `NotFoundError`: a
+api/src/modules/palette/service/visibility.ts:96:    if (!isReadable(doc, viewer)) throw new NotFoundError("Palette not found");
+
+⟨cmd⟩ grep -rn "isActivePublic" api/src
+api/src/modules/palette/service/visibility.ts:32:export function isActivePublic(
+api/src/modules/palette/service/visibility.ts:84:    return isActivePublic(doc) && (doc.moderation ?? "clear") === "clear";
+api/src/modules/palette/service/forks.ts:15:import { isActivePublic } from "./visibility.js";
+api/src/modules/palette/service/forks.ts:201:        if (isActivePublic(doc)) {
+
+G-4 REMAINS RED — ESC-W3.1-G4-BOUNDS. The uncured byte, quoted:
+⟨cmd⟩ grep -n "getProvenance" api/src/modules/palette/routes/forks.ts
+15:import { forkPalette, getProvenance, listForks } from "../service/forks.js";
+74:    const chain = await getProvenance(c.var.services, slug);
+  routes/forks.ts is in the WAVE's §4 File Bounds (modify) but NOT in X.W3.1's §5 Files
+  list nor this unit's hard writable set. Both G-4 clauses are unreachable without that
+  one call-site edit, so the limb is RETURNED, not taken, and not half-landed behind an
+  optional viewer no caller passes.
