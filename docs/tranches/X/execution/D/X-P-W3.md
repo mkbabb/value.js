@@ -1951,3 +1951,24 @@ runs over the bytes a unit authors, and this unit's value.js bytes are this bloc
 and untouched; `docs/tranches/V/reformation/CARRY-LEDGER.md` and the `docs/tranches/X/evidence/w1/**`
 untracked files are **sibling tracks' bytes**, read and left exactly as found (the tranche-wide
 reading `.b`'s addendum-beside taught).
+
+**Addendum-beside to X.P.W3.c, same sitting, never a rewrite of the block above (E-3).** The gate-27
+reading in c.9 (⟨cmd⟩ `git --no-optional-locks status --porcelain -- src api demo test e2e | wc -l`
+→ **0**, double-run) was true at this seat's open **and** immediately before its two value.js
+commits; re-measured once more after them it reads **2**:
+
+```
+⟨cmd⟩ git --no-optional-locks status --porcelain -- src api demo test e2e
+?? e2e/smoke/a11y-control-targets.spec.ts
+?? e2e/smoke/mobile/a11y-control-targets.spec.ts
+```
+
+Both are a **sibling track's** untracked bytes — the X·V W1.a seat whose whole brief is the
+Playwright/e2e verification surface, the same seat `.b`'s own addendum-beside named — and **neither
+of this unit's three commits touches any path under `src/`, `api/`, `demo/`, `test/` or `e2e/`**:
+⟨cmd⟩ `git show --stat f14f59f` → 8 files, all under `<p2>`; `git show --stat 31f65d56` /
+`8a21ea8c` → one `docs/tranches/X/execution/**` file each. The correction is recorded rather than
+left to be discovered, and it restates the lesson `.b` drew: **in a working tree four tracks share,
+gate 27 is a tranche-wide reading and not a per-seat one.** Both value.js commits verified on the
+right branch — ⟨cmd⟩ `git branch --contains 31f65d56` / `8a21ea8c` → `* tranche-u` (the F-a.7 /
+F-b5 scratch-branch hazard, re-checked and closed at this seat too).
