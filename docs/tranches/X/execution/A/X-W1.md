@@ -962,3 +962,145 @@ builds.
   `.github/workflows/**`.
 - `scripts/dev/dev.sh` untouched and unstaged throughout; all five commits carry their own pathspec
   **on the commit itself**; no sibling seat's path entered any index of mine.
+
+---
+
+## RESUME — 2026-09-18 (Track A seat 0, second sitting)
+
+**SERVED MODEL (this seat): `claude-opus-5[1m]`.** This section is **appended, never a rewrite**:
+every byte above is a killed sitting's authored record and stays exactly as it was (E-3).
+
+### Why a resume and not an open
+
+`LEDGER.md:29` reads **`OPEN 2026-09-17`** and `execution/A/X-W1.md` exists (964 L before this
+block), so the dispatcher's RESUME branch applies. The **2026-09-18 host restart** killed the
+sitting mid-flight; three unit worktrees are still on disk at their own detached heads
+(⟨cmd⟩ `git worktree list` → `value-js-x-w1-c @ cad51f9e` · `value-js-x-w1-d @ 2e1fd65f`;
+`value-js-x-w1-b` **already removed**).
+
+### CRASH-RECOVERY sweep (standing law), run before any other act
+
+⟨cmd⟩ `git status --porcelain` at `/Users/mkbabb/Programming/value.js` → 15 `M` + 10 `??`.
+**Judged path-by-path against THIS seat's writable set** (`execution/A/X-W1.md` ·
+`execution/LEDGER.md` · `V/coordination/INBOX.md`):
+
+| dirty path | inside seat-0's set? | disposition |
+|---|---|---|
+| `demo/palettes/**` (8 files) · `demo/picker/controls/ComponentSliders/ConsoleRail.vue` · `demo/shell/dock/layers/SlugEditLayer.vue` | **no** | a sibling seat's (X-W4's `demo/` bound). **Untouched.** |
+| `docs/tranches/V/megatranche/registry/DEFECT-LEDGER.md` · `V/reformation/CARRY-LEDGER.md` · `X/COHESION.md` · `X/parse-that/DIVERGENCE-LEDGER.md` | **no** | sibling tracks' shared ledgers. **Untouched, never staged.** |
+| `scripts/dev/dev.sh` | **no** | CC-021, unowned, dirty by standing arrangement. **NEVER touched, never staged.** |
+| `docs/tranches/X/waves/evidence/W4/**` (6 `??`) · `V/megatranche/registry/harvest/x-p-w3.json` · `X/fourier/evidence/w1/**` | **no** | Track A **W4** and Track C **F.W1** seats'. **Untouched.** |
+| `e2e/smoke/a11y-control-targets.spec.ts` · `e2e/smoke/mobile/a11y-control-targets.spec.ts` | **no** (X.W1.a's bound, not seat 0's) | see **ESC-W1R-1**. |
+| `docs/tranches/X/waves/W1-LOG.md` (92 L) · `X/evidence/w1/baseline/g3-full-suite-2026-09-18.md` (203 L) · `…/typecheck-born-red-2026-09-18.md` (270 L) · `…/slate/slate-2026-09-18.md` (2,618 B) | **no** (X.W1.a's bound) | see **ESC-W1R-1**. |
+
+**Zero bytes written by this seat outside its three-path set. No stash, no restore, no reset, no
+`git add -A`.**
+
+### Unit census at the bytes — which units are landed, measured not assumed
+
+⟨cmd⟩ `git log --oneline -300 | grep -iE 'x-v/w1\.|X·W1'`, then each artefact probed with
+`git cat-file -e HEAD:<path>`:
+
+| unit | commits on `tranche-u` | source artefact proved present at HEAD | receipt block in this record | verdict |
+|---|---|---|---|---|
+| **X.W1.a** | `75636b16` · `49306a1d` · `ca1a4459` · `ec654158` · `02497fcf` · `a0df89d9` (6) | `tsconfig.e2e.json` · `tsconfig.test.json` · `e2e/fixtures/palette-envelopes.ts` · `scripts/ci/oracle-slate.mjs` · `ci.yml` **365 L with jobs `producer · api · oracle-slate · e2e-smoke · e2e-safari · visual · boot-smoke · lhci · deploy-age`**, and ⟨cmd⟩ `grep -n continue-on-error .github/workflows/ci.yml` → **2 hits, both inside comments (`:26`, `:218`)** — the HARD flip is at the bytes | **absent** | **LANDED, receipt owed** (ESC-W1R-1) |
+| **X.W1.b** | `e2347c0e` (the oracle + 207 goldens) · `c959b22e` · `ac3c8b92` (2 doc) | `e2e/visual/**` · `scripts/visual/regenerate-goldens.mjs` | present (`:598`) | **LANDED** |
+| **X.W1.c** | `cad51f9e` (integrated) · `d677c30c` · `309981a9` | `scripts/ci/boot-smoke.mjs` | present (`:396`) | **LANDED** |
+| **X.W1.d** | `7bc72838` → `2e1fd65f` (integrated) · `8a7792b9` (`release.yml` ride-in) · `01d38273` · `18bd6b0e` | `deploy-pages.yml` — ⟨cmd⟩ `grep -n 'tranche/BG' .github/workflows/deploy-pages.yml` → the only hit is `:83`, **the retired-history comment**; the live steps assert `entry.resolved` matches `^https://registry\.npmjs\.org/` and reject a `link:` | present (`:768`) | **LANDED** |
+| **X.W1.e** | **none** | — | absent | **OWED** |
+| **X.W1.f** | **none** | — | absent | **OWED** |
+
+**Per the dispatcher's resume law — *a unit whose commits exist is NEVER re-dispatched* — `a`, `b`,
+`c` and `d` are returned in `alreadyDone` and omitted from `groups`. Only `e` then `f` are owed.**
+
+### Preconditions, re-verified at this sitting (not inherited)
+
+- **`W1.md:6` — *Opens after: X-W0 (Formation) closes*.** `LEDGER.md:28` reads
+  **`CLOSED 2026-09-17 (honest-RED: HG-8's literal byte-diff clause — ESC-N1)`**, X-W0.m's
+  VERIFY-ONLY check at **18/18 hard · 8/8 fold GREEN**, close commit `1246f859`. **MET.**
+- **Owner begin-word (2026-09-17, COHESION §0j)** — standing; publish/push/pull/deploy authorized.
+- **§0i / §0j / §0k.1 / §0k.3 / §0l / §0o read to the file end.** Nothing added since the open
+  sitting re-opens an X-W1 cell; the 8.0.0-vs-9.0.0 repin stays **X-W0.j / X-W4.g's**, never
+  X.W1.d's (§0i, quoted in the open block above), and X.W4.g stays **CLOSED** at the 1/4 census.
+
+### Baseline: **not re-banked**
+
+The BEFORE baseline belongs to the open sitting and is immutable above (**19 RED · 2
+MEASURE-AT-OPEN · 0 GREEN**, with the three GREEN-BEFORE-CURE findings at `:174`). Re-running it
+now would measure a *cured* tree and destroy the very comparison it exists for. **Two divergences
+recorded beside, for unit `e`'s gates only:**
+
+- **B16 · 234 → 559 → 790.** ⟨cmd⟩ `git rev-list --count master..HEAD` → **790** at `69987a73`
+  (the open sitting measured 559; the spec authored 234). Three tracks have committed since.
+  G-18's falsifier is unchanged: the count must read **0** after the merge.
+- **29 commits unpushed.** ⟨cmd⟩ `git rev-list --count origin/tranche-u..HEAD` → **29**. Unit `e`
+  pushes `tranche-u` before it merges, or the merge lands code `origin` has never seen.
+
+### E13 Step-0 — the four-path mail sweep (this sitting's own clock, 14:2x EDT)
+
+Swept read-only and compared against **every row** of `V/coordination/INBOX.md`, classification
+from each row's **status cell**, never from a bare `grep -i unread` (X.P.W0 CHECK 1 **D-1**);
+`INBOX.md` self-excluded (SELF-COUNT law). Glass **BK** re-confirmed the newest glass tranche dir
+(⟨cmd⟩ `ls -dt docs/tranches/*/ | head -6` → `BK/@2026-09-17 20:15 · BJ/ · BI/ · IOS27-MICRO/ ·
+BH/ · BG/`). Delta since the 11:00 EDT X-W4-open sweep ⟨cmd⟩
+`find <each path> -maxdepth 1 -type f -newermt "2026-09-18 10:55"` → exactly **two**: `INBOX.md`
+(ours) and **`../glass-ui/docs/tranches/BK/coordination/glass-outbound-2026-09-18-valuejs-o26-reply.md`@12:17
+— unrowed, addressed to value.js by name**.
+
+**ONE new `I-n` minted: `I-35`, UNREAD** (41,738 B · sha256 `9066b6607ff3…`; the O-26 reply,
+every row answered by id). Its §0 carries a measurement against us — *"Your installed 7.0.0 is not
+the published 7.0.0"* (our `dist/glass-ui.css` **70,109 B** vs the registry's **69,884 B**; scope
+hash `data-v-87831917` vs `data-v-defd849d`) — and §4 asks two things: re-install from the
+registry and re-take every banked byte figure, and confirm which CSS entry the demo imports.
+**Both are Track B (X·KF) acts and neither is X-W1's.** Measured, not asserted: ⟨cmd⟩
+`grep -Eic "glass-ui|node_modules|dist/glass-ui.css|data-v-|header-ribbon|TooltipContent|/timeline"
+docs/tranches/X/waves/W1.md` → **6** (double-run), enumerated `:57 · :88 · :94 · :257 · :258 ·
+:315`; **five are unit `d`'s `deploy-pages.yml` row** — whose cure *deletes* the source checkout in
+favour of the registry install, the same direction §0 asks for — and `:88` is a
+`-not -path './node_modules/*'` exclusion inside B6's `find`. **Zero** of the six name a `dist`
+byte figure, a scope hash, a chunk name, `TooltipContent` or `/timeline`.
+
+Also noted and not hidden: the letter is **untracked at glass HEAD `2113670c`** (⟨cmd⟩
+`git -C ../glass-ui status --porcelain -- docs/tranches/BK/coordination/` → `?? …o26-reply.md`) —
+authored on disk, not yet committed by its own side. Rowed anyway; E13 rows what is *addressed*.
+
+**Result: 1 unrowed letter found and rowed · 1 new `I-n` (max I-34 → I-35) · 0 UNREAD in X-W1's
+scope.** I-32 · I-33 · I-34 route to X-W0.j / X-EXT-1..6; I-35 routes to Track B. `INBOX.md` edit
+shape ⟨cmd⟩ `git diff --numstat` → **3 insertions, 0 deletions** — append-only.
+
+### Escalations returned by this seat (neither cured here nor buried)
+
+- **ESC-W1R-1 — X.W1.a's seat died after its source commits and before its evidence.** Four
+  authored artefacts sit **untracked** inside `a`'s own §File Bounds and **FM-12 says untracked
+  evidence is not evidence**: `docs/tranches/X/waves/W1-LOG.md` (92 L, already carrying its
+  `SERVED MODEL` line and the create-here/append-there LOCK), `evidence/w1/baseline/g3-full-suite-2026-09-18.md`
+  (203 L), `evidence/w1/baseline/typecheck-born-red-2026-09-18.md` (270 L),
+  `evidence/w1/slate/slate-2026-09-18.md` (2,618 B). Two `e2e/smoke/a11y-control-targets.spec.ts`
+  files (root + `mobile/`) are likewise untracked inside `a`'s bound. **Disposition**: `a` is not
+  re-dispatched, so the adoption is **re-homed to unit `e`**, which is lawful at the *spec's* own
+  bounds — `W1.md` §File Bounds gives `docs/tranches/X/evidence/w1/**` to **all** units
+  ("subdirectory-partitioned") and names `W1-LOG.md` in `e`'s writable set already; only this
+  record's per-unit partition, written by the open seat, is crossed, and its owner is retired.
+  `e` reads each file whole, judges every line against the spec, commits what conforms under a
+  clearly-labelled inherited-orphan commit and **names the inherited paths in its receipt** — the
+  standing CRASH-RECOVERY clause's own words. The two `e2e/` spec files are **product test
+  surface**, not evidence: they stay outside `e`'s bound and are returned to the close seat.
+- **ESC-W1R-2 — G-7's falsifier evidence was never written.**
+  ⟨cmd⟩ `ls -la docs/tranches/X/evidence/w1/falsifier/` → **empty directory**, created 01:35 and
+  never filled. `W1.md:253`/`:307` require the scratch-branch falsifier **with its red run URL**.
+  G-7 is X.W1.a's gate; a retired seat cannot turn it. **Returned to the wave's close/verify seat
+  as an open gate — NOT re-homed, NOT waived, and on no account marked green by inheritance.**
+- **ESC-W1R-3 — X.W1.a has no receipt block in this record.** Its six commits are self-describing
+  and its ci.yml/tsconfig artefacts are provable at HEAD (table above), but the per-gate BEFORE→AFTER
+  transitions for G-1..G-7 and NG-1..NG-15 exist nowhere. Returned with ESC-W1R-2 to the close seat.
+
+### Unit plan for the resume
+
+Unchanged in substance from `## Unit plan` above; **groups 1–3 are spent**, and only the tail runs:
+
+| group | unit | why |
+|---|---|---|
+| 4 | **X.W1.e** | the landing — `a`'s green-capable `ci.yml` and `d`'s reconciled `release.yml` are both at the bytes; `e` also adopts ESC-W1R-1's orphans |
+| 5 | **X.W1.f** | the real-GPU arm closes last (run-or-tombstone), appending to `W1-LOG.md` after `e` |
+
+Serial, never concurrent: both write `docs/tranches/X/waves/W1-LOG.md`.
