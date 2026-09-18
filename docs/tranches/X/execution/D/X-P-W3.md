@@ -4671,7 +4671,185 @@ which no orchestration convention outranks.
 
 ### X.P.W3.f
 
-*(owed — the unit seat writes here)*
+SERVED MODEL: claude-fable-5-1 · unit seat · clock **2026-09-18 16:3x–16:5x EDT** · value.js HEAD at
+open `8d85a6d4` (→ `ed4ad0d4` by sibling seats during the unit) · `<p2>` HEAD **`ab6d694`, unmoved by
+this seat**. Status: **ESCALATED** (§3a — two triggers, both measured below). **0 `<p2>` bytes
+landed**; one dated evidence triple banked beside the sealed artefacts; this receipt.
+
+**f.0 — Crash-recovery sweep (standing law), first act.** ⟨cmd⟩ `git -C <p2> status --porcelain` →
+`?? .worktrees/` only; ⟨cmd⟩ `git -C value.js status --porcelain` → the same 18 sibling paths R3.1
+lists, none inside this unit's writable set. **No inherited partial work.** Nothing stashed, restored
+or reverted; `scripts/dev/dev.sh` untouched.
+
+**f.1 — Read whole.** `W3.md` (696 L: §.f L681–687, ADDENDUM head L677–680, §Sequencing/§Commit
+Plan L695, G-3/G-5/G-9, §3a, §4/§4a) · `COHESION.md` §0j → file end (§0p L1116–1169; no §0q exists) ·
+this record R3.1–R3.7 + C.3 (`.e`'s ESC-e1 reading) · at the bytes: `bounds.mjs` · `entry.mjs` ·
+`lowering-js/index.mjs` · `lowering-js/js-alg.mjs` (σ, `mark`/`restore`, `REF`) ·
+`lowering-wasm/index.mjs` · `layout.mjs` · `runtime.mjs` (every `G.ovf` site) · `wasm-alg.mjs`
+(`take`/`restore`, `EXPECT`'s snapshot stack) · `lower.mjs` · `diagnostics.mjs` ·
+`algebra/tables.mjs` L205–245 · `scripts/css-dual-target-identity.mjs` · the four boundary suites +
+`lib/corpus.mjs` · `test/css-equivalence/lib/corpus.mjs` exports.
+
+**f.2 — E13 sweep at this seat's clock (16:46 EDT).** ⟨cmd⟩ `find <the four paths> -maxdepth 1
+-type f -newermt '2026-09-18 16:00'` (INBOX.md self-excluded) → **0 files**; newest glass tranche dir
+still `BK/` (Sep 17 20:15). **0 new · 0 UNREAD in scope**; R3.2's classification stands.
+
+**f.3 — BEFORE, re-taken at this seat (write-then-measure; the probe is banked, see f.6).**
+
+```
+⟨cmd⟩ node docs/tranches/X/parse-that/evidence/W3/capacity-reachability-2026-09-18.mjs <out>   (from <p2>/typescript; read-only)
+── A. ESC-e1 baseline, re-taken (SHIELD.caught before = 0 )
+  rules=8190 bytes=98280 js=ok:true wasm=ok:true SHIELD.caught=0
+  rules=8191 bytes=98292 js=ok:true wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=1
+  len=1048577 js=ok:false css_syntax [<open-brace>] wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=2
+  faults: 'HALT: a journal, the value stack or the arena overflowed its fixed region' / "HALT: the input exceeds the module's 1048576-byte window"
+── B.  THETA {"depthBound":64}
+  regions guarded (ovf or throw): {"input":1048576,"marks":32768,"vstack":65536,"arena":7208960,"C":65536,"P":65536,"D":4096,"recoveries":4096,"expsnap":32}
+── C. the label surface, asked mechanically for a capacity label
+  L.includes("marks <= 32768") = false · promoteLabel("marks <= 32768") = undefined
+  Object.isFrozen(PRODUCTION_LABELS) = true · L.length = 51 · PRODUCTION_LABELS rows = 51
+  isNamedProduction("<mark-journal> (at most 32768 marks)") = true
+```
+
+**G-3 proof leg BEFORE = RED, `SHIELD.caught` 0→2** — R3.4's reading reproduced to the digit.
+**Nine** `W_OVF`-guarded regions at the bytes, not eight: R3.4's table omits `EXPSNAP_CAP` (32), which
+sets `G.ovf` at `wasm-alg.mjs:443` (`EXPECT`'s `far` snapshot stack); §0p(1)'s *"whatever `W_OVF`
+guards"* is the nine. (R3.4's input-window witness `"a"×1048577` is INVALID CSS — the JS lowering
+rejects it at `<open-brace>` — so it does not witness the *valid-input* divergence §0p names; the
+valid form is `"a"×(INPUT_CAP−1) + "{}"`, measured `ok:true` in JS at 1,048,576 and the throw at
+1,048,577 — family *long ident selector* in section D below.)
+
+**f.4 — The design, taken to the bytes before any edit, and where it stops.** §0p's mechanism is
+the depth bound's idiom: a VALUE in Θ, BOTH lowerings rejecting at it with `css_syntax` **and a label
+naming it in the `nesting <= 64` form**, and `assertCapacityBound` reading the value back *"off BOTH
+lowerings and the label surface, as `assertDepthBound` does"*. Followed literally to the bytes:
+
+1. **The label surface is two files outside this unit's writable set, and there is no in-bounds
+   path to it.** `assertDepthBound` (`bounds.mjs:96–104`) reads the label back as `L.includes(label)`
+   (`algebra/tables.mjs:218` — `.g`'s glob) and `promoteLabel(label)` (`diagnostics.mjs:93`, the
+   frozen `PRODUCTION_LABELS` — `.b`'s file), and `assertLabelSurfaceClosed()` HALTs at load on any
+   row present in one and absent in the other. A capacity diagnostic constructed at either boundary
+   with a raw label reaches `lower.mjs:132` `promoteExpected` → `PRODUCTION_LABELS[raw]` →
+   `undefined` (section C above), i.e. `expected: [null]` on the six-tuple and G-8's *"not a named
+   production"*. Re-using an existing label misnames the bound (§0p(2) says *naming*); mutating `L`
+   from `bounds.mjs` at load is a cross-module hack over `.g`'s surface; re-shaping the diagnostics
+   in `entry.mjs` after `inner()` is the masking re-shape G-3's falsifier names. Every in-bounds
+   route is a HIGH defect; the lawful route is a bounds grant — **§3a "file-bound expansion"**.
+2. **Three of the nine regions have NO JS-side quantity at any boundary this unit owns.** `vstack`
+   (`G.vsp`), `arena` (`G.arena`/`G.high`) and `expsnap` (`G.expsp`) exist only in the Wasm memory
+   model; the JS σ (`js-alg.mjs:52–66`) carries no value stack, no arena (`arena: 0` by contract,
+   `ALGEBRA.md` EQ-5) and no snapshot stack. §0p(2)'s *"the JS lowering measures the same quantity"*
+   has no realization in `lowering-js/index.mjs`: a JS counter for any of the three is a model of the
+   Wasm allocator/stack discipline written into `js-alg.mjs` — a second memory model, and a write to
+   a file in no unit's set. **§3a "a divergence rooted in the Wasm … memory model is an architecture
+   question"** — the very route §0p says is closed, which is why this returns to the triumvirate.
+3. **Two more regions are RESTORED journals whose guarded quantity is a PEAK no boundary exposes.**
+   `C` and `P` are truncated on every `TRY` failure in both lowerings (`js-alg.mjs:98–104`,
+   `wasm-alg.mjs:67–75`); the appender sets `ovf` at the peak. Section D proves `C` is reachable by
+   VALID input **before `marks`** — so it cannot be left to the marks bound — and its final count
+   equals its peak only on the witnesses where no later `TRY` fails; in general the JS boundary has
+   no signal at all while the Wasm flag is set. A peak counter is `runtime.mjs`'s appender +
+   `js-alg.mjs`'s push sites: both outside the set.
+4. **§0p(5)'s fold** — *"the witnesses join G-5's corpus as a boundary band"* — is `.a`'s generated
+   `test/css-totality/corpus.json` and/or `.d`'s `scripts/css-dual-target-identity.mjs` (whose
+   `totals.cells` = 26,551×3 + 7×3 = **79,674** counts its `boundary` cells), neither in this set;
+   the dispatch's *"79,674 must hold"* and *"folded in"* are in tension unless the band is reported
+   **beside** the 79,674 by a capacity-band identity leg in `boundary/**` (in-bounds, proposed at f.7).
+
+Per the METHOD law — *"if the specified cure is impossible at the bytes, do NOT substitute: return
+ESCALATED with the measured reason"* — no partial landed: Θ capacities without their labels, or a
+`css_syntax` whose `expected[0]` is `null`/a borrowed label, would be exactly the masking rejection
+this unit exists to remove, and the ADDENDUM's ONE-commit family may not split.
+
+**f.5 — Reachability, measured (section D of the banked probe; 20 families, binary-searched to the
+first firing repetition; double-run byte-identical, json sha256 `b11f2c39…2431`).** Read as: at the
+last clean input / at the firing input, which region's counter meets its cap.
+
+| family (valid unless noted) | fires at | regions at cap | markn | C peak | P peak | D | rec | vstack | arena B | expsnap |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `a{color:red}`×n (ESC-e1) | n=8191 | **marks** | 32770 | 24573 | 24573 | 0 | 0 | 8206 | 3,866,192 | 1 |
+| `a{}`×n | n=16382 | **marks** | 32770 | 32764 | 16382 | 0 | 0 | 16390 | 3,014,320 | 0 |
+| `linear(0, …)` n stops | n=32767 | **marks + C** (same n) | 32769 | 65536 | 32769 | 0 | 0 | 32777 | 4,194,392 | 1 |
+| `linear(0 1%, …)` n stops | n=16384 | **C alone** | 16386 | **65538** | 32770 | 0 | 0 | — | 3,408,096 | 1 |
+| `linear(0 1% 2%, …)` n stops | n=10923 | **C alone** | 2 | **65540** | 32771 | 0 | 0 | — | 2,971,272 | 1 |
+| `linear(0 , …)` ws before comma | n=21845 | **C alone** | 21847 | 65537 | 21847 | 0 | 0 | — | 2,796,376 | 1 |
+| `a { color : red ; } `×n | n=6554 | **C alone** | 19668 | 65540 | 19662 | 0 | 0 | — | 3,303,248 | 1 |
+| `a{`+`c:r;`×n+`}` (malformed decls, recovers) | n=4096 | **D + recoveries** | 4112 | 4097 | 2 | 4097 | 4097 | 4098 | 213,064 | 1 |
+| `a{c}`×n (malformed rules, recovers) | n=4097 | **D + recoveries** | 16394 | 4098 | 2 | 4097 | 4097 | 4102 | 213,080 | 0 |
+| long ident selector `a`×n+`{}` | len=1,048,577 | **input** (ok:true at 1,048,576) | 8 | 2 | 1 | 0 | 0 | 9 | 224 | 0 |
+| leading ws, `1 `×n / `x `×n / `(`ⁿ`)`ⁿ in a value, `rgb(1 1 …)`, comment per stop | len>INPUT_CAP | **input** | ≤15 | ≤5 | ≤4 | ≤1 | ≤1 | ≤10 | ≤216 | 1 |
+| `var(`+`(`×63+`)`×63+`)` (depth 64, one-shot) | — | none | 196 | 128 | 1 | 1 | 0 | 68 | 3,080 | **1** |
+
+Readings that bind the plan: (i) **reachable by valid input before any other bound**: `input`,
+`marks`, `C` (four families), `D`+`recoveries` (together, on recovering input); (ii) **never reached
+in any family before another bound fired**: `P` (max 32,771 of 65,536), `vstack` (max 32,777 of
+65,536 — 1 slot per stop + 10), `arena` (max 4,194,392 of 7,208,960 — ≤128 B per mark), `expsnap`
+(max **1** of 32 in every family, including depth 64: `EXPECT` does not nest through the one lazy
+back-edge); unreachability is NOT proven — 20 families is a census, not a bound; (iii) **the two
+lowerings agree on every boundary-visible counter** (section E: at n=8190/8191 JS `marks.length` =
+Wasm `markn` = 32,766/32,770; `C`/`P` finals 24,570/24,573 both) — so for `input`, `marks`,
+`recoveries` and `D` a boundary check against the same VALUE yields the same verdict in both
+lowerings by measurement, which is the identity §0p(2) asks for; (iv) the Wasm's `ovf` is ONE flag
+for nine regions — a boundary that reads `ovf` cannot NAME the region unless the region's counter is
+still at/over its cap after `run`, which the restored journals do not guarantee.
+
+**f.6 — Banked, dated, beside (E-3; `evidence/W3/**` is this unit's create row):**
+`capacity-reachability-2026-09-18.mjs` (the probe, 162 L, sha256 `93d59f41…724b`) ·
+`capacity-reachability-2026-09-18.json` (815 L, sha256 `b11f2c39…2431`) ·
+`capacity-reachability-2026-09-18.txt` (80 L, the console transcript, sha256 `e4bfaaff…25d9`).
+⟨cmd⟩ run twice from `<p2>/typescript`, `diff -q` on both outputs → **IDENTICAL** both times;
+⟨cmd⟩ `git -C <p2> status --porcelain` before/after every run → `?? .worktrees/` only. The five
+sealed JSONs are untouched (`ls -la evidence/W3/` mtimes unchanged).
+
+**f.7 — ESCALATION (§3a; the orchestrator may not redispatch `.f` alone — research + plan augment
++ redress):**
+
+- **E-f1 — bounds (file-bound expansion), MANDATORY for any capacity label.** Grant `.f`
+  `typescript/src/css/algebra/tables.mjs` (the nine `L` rows, appended AFTER `"<string>"` so no
+  existing label index moves — the Wasm `DLAB` indices are compile-time) and
+  `typescript/src/css/diagnostics.mjs` (nine `PRODUCTION_LABELS` rows in the `nesting <= 64` →
+  `<nesting-depth> (at most 64 levels)` form, e.g. `marks <= 32768` → `<mark-journal> (at most 32768
+  marks)`; `isNamedProduction` accepts the form, measured). Serial ordering already protects `.g`'s
+  glob (R3.5's own reason for serializing).
+- **E-f2 — architecture ruling owed (the Wasm memory model), one of two readings per class:**
+  (a) **class 1** `input · marks · recoveries · D` — boundary-measurable in BOTH lowerings, identical
+  by measurement: cure as §0p states, entirely in `lowering-js/index.mjs` / `lowering-wasm/index.mjs`
+  / `bounds.mjs` / `entry.mjs` once E-f1 lands; (b) **class 2** `C · P` — the guarded quantity is a
+  PEAK: either grant `runtime.mjs` (a per-region high-water beside each appender, or a per-region
+  overflow word in place of the one `ovf`) + `js-alg.mjs` (the matching JS high-water at the push
+  sites) so both lowerings bind the peak, or RULE that the bound is on the *final* count (visible in
+  both, identical) and prove the dropped-then-restored case harmless to `{V, D}` (it is: a dropped
+  entry beyond a restored mark never reaches the product — but that is a proof for the record, not
+  this seat's ruling); (c) **class 3** `vstack · arena · expsnap` — no JS quantity exists: either
+  RULE declare-with-proof (Θ carries the VALUE from `layout.mjs`; `assertCapacityBound` reads it off
+  both lowerings' Θ and the label surface; the witness is a MEASURED ceiling per mark — arena ≤128
+  B/mark, vstack ≤1 slot/mark+10, expsnap static — asserted against the marks cap in the suite so a
+  grammar change that raises the ratio reddens it), or grant `js-alg.mjs` + `runtime.mjs` for shadow
+  counters (a second memory model; this seat advises against). `arena` is the one region whose
+  overflow is a Wasm **trap** (`alloc` returns the past-cap pointer and the caller writes it,
+  `runtime.mjs:85–92`), so (c)'s declare-with-proof must be paired with the ratio assertion.
+- **E-f3 — the G-5 fold.** Rule the boundary band's home: `.a`'s corpus / `.d`'s comparator
+  (bounds grant), or the in-bounds form — a capacity-band identity leg in
+  `test/css-recovery/boundary/capacity.test.ts` applying G-5's own `canonical()` idiom (fixed key
+  order, no array sorted) to every witness across both lowerings, reported BESIDE the unchanged
+  79,674 / 0. This seat recommends the in-bounds form: it keeps `.d`'s sealed artefact immutable and
+  the dispatch's "must hold" literally true.
+- **INFO — the census is nine, not eight** (`EXPSNAP_CAP`, `wasm-alg.mjs:443`); the ruling's
+  *"whatever `W_OVF` guards"* already covers it, but the plan should name it so a seat does not
+  declare eight and call Θ complete.
+
+**f.8 — Gate readings, BEFORE → AFTER (no `<p2>` byte moved; AFTER = BEFORE by construction):**
+G-3 proof leg **RED → RED** (`SHIELD.caught` 2 on the two ESC-e1 witnesses; the valid-input window
+witness added at f.3) · G-5 **GREEN floor → GREEN floor** (not re-run — the subject is unmoved at
+`ab6d694`; R3.4's double-run `b68bab94…6216` equal to the committed artefact stands) · G-9
+**SPLIT → SPLIT** (depth/boundary/no-throw GREEN, latch 2 RED = ESC-c1's; **no capacity leg**
+exists). **Nothing turned; nothing regressed.**
+
+**f.9 — Verbs and locks.** IMPLEMENTED stays NO for `.f`; `.g` is UNBLOCKED by sequencing (this
+seat holds no lock and has left `src/css/build/**` and `boundary/**` untouched) but note `.g`
+re-runs G-5 over the same unmoved subject. Commits: **0 in `<p2>`** (the ONE `feat(x-p-w3/.f)` is
+owed by the redispatch after the ruling) · **1 in value.js**, pathspec on the commit itself: the
+three evidence files + this record.
 
 ### X.P.W3.g
 

@@ -1,0 +1,80 @@
+SERVED MODEL: claude-fable-5-1 · X.P.W3.f capacity-reachability probe · 2026-09-18
+── A. ESC-e1 baseline, re-taken (SHIELD.caught before = 0 )
+  rules=8190 bytes=98280 js=ok:true wasm=ok:true SHIELD.caught=0
+  rules=8191 bytes=98292 js=ok:true wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=1
+  len=1048577 js=ok:false css_syntax [<open-brace>] wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=2
+  faults: [
+  'HALT: a journal, the value stack or the arena overflowed its fixed region',
+  "HALT: the input exceeds the module's 1048576-byte window"
+]
+
+── B. THETA today and the fixed regions of layout.mjs
+  THETA {"depthBound":64}
+  regions guarded (ovf or throw): {"input":1048576,"marks":32768,"vstack":65536,"arena":7208960,"C":65536,"P":65536,"D":4096,"recoveries":4096,"expsnap":32}
+
+── C. the label surface, asked mechanically for a capacity label
+  L.includes("marks <= 32768") = false
+  promoteLabel("marks <= 32768") = undefined
+  Object.isFrozen(PRODUCTION_LABELS) = true · Object.isFrozen(L) = false
+  isNamedProduction("<mark-journal> (at most 32768 marks)") = true
+  L.length = 51 · PRODUCTION_LABELS rows = 51
+
+── D. reachability — per valid-input family, the FIRST region whose counter meets its cap
+  stylesheet rules a{color:red}×n:
+     n=8190 (last clean) {"len":98280,"ovf":0,"markn":32766,"recn":0,"dlenFinal":0,"clenFinal":24570,"plenFinal":24570,"arenaFinal":3865712,"arenaHigh":3865712,"ok":1,"Cpeak":24570,"Ppeak":24570,"Dpeak":0,"vstackPeak":8205,"expsnapPeak":1,"threw":null}
+     n=8191 (FIRES)      {"len":98292,"ovf":1,"markn":32770,"recn":0,"dlenFinal":0,"clenFinal":24573,"plenFinal":24573,"arenaFinal":3866192,"arenaHigh":3866192,"ok":1,"Cpeak":24573,"Ppeak":24573,"Dpeak":0,"vstackPeak":8206,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [marks]
+  stylesheet empty rules a{}×n:
+     n=16381 (last clean) {"len":49143,"ovf":0,"markn":32768,"recn":0,"dlenFinal":0,"clenFinal":32762,"plenFinal":16381,"arenaFinal":3014144,"arenaHigh":3014144,"ok":1,"Cpeak":32762,"Ppeak":16381,"Dpeak":0,"vstackPeak":16389,"expsnapPeak":0,"threw":null}
+     n=16382 (FIRES)      {"len":49146,"ovf":1,"markn":32770,"recn":0,"dlenFinal":0,"clenFinal":32764,"plenFinal":16382,"arenaFinal":3014320,"arenaHigh":3014320,"ok":1,"Cpeak":32764,"Ppeak":16382,"Dpeak":0,"vstackPeak":16390,"expsnapPeak":0,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [marks]
+  one rule, n declarations:
+     n=4095 (last clean) {"len":16383,"ovf":0,"markn":4111,"recn":4096,"dlenFinal":4096,"clenFinal":4096,"plenFinal":0,"arenaFinal":213008,"arenaHigh":213008,"ok":0,"Cpeak":4096,"Ppeak":2,"Dpeak":4096,"vstackPeak":4097,"expsnapPeak":1,"threw":null}
+     n=4096 (FIRES)      {"len":16387,"ovf":1,"markn":4112,"recn":4097,"dlenFinal":4097,"clenFinal":4097,"plenFinal":0,"arenaFinal":213064,"arenaHigh":213064,"ok":0,"Cpeak":4097,"Ppeak":2,"Dpeak":4096,"vstackPeak":4098,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [D, recoveries]
+  one declaration, n numbers:
+     n=524285 (last clean) {"len":1048575,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":88,"ok":0,"Cpeak":2,"Ppeak":2,"Dpeak":1,"vstackPeak":8,"expsnapPeak":1,"threw":null}
+     n=524286 (FIRES)      {"len":1048577,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":0,"ok":0,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  one declaration, n idents:
+     n=524285 (last clean) {"len":1048575,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":88,"ok":0,"Cpeak":2,"Ppeak":2,"Dpeak":1,"vstackPeak":8,"expsnapPeak":1,"threw":null}
+     n=524286 (FIRES)      {"len":1048577,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":0,"ok":0,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  one declaration, n nested parens:
+     n=524285 (last clean) {"len":1048575,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":88,"ok":0,"Cpeak":2,"Ppeak":2,"Dpeak":1,"vstackPeak":8,"expsnapPeak":1,"threw":null}
+     n=524286 (FIRES)      {"len":1048577,"ovf":0,"markn":15,"recn":1,"dlenFinal":1,"clenFinal":1,"plenFinal":0,"arenaFinal":88,"arenaHigh":0,"ok":0,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  long ident selector:
+     n=1048574 (last clean) {"len":1048576,"ovf":0,"markn":8,"recn":0,"dlenFinal":0,"clenFinal":2,"plenFinal":1,"arenaFinal":224,"arenaHigh":224,"ok":1,"Cpeak":2,"Ppeak":1,"Dpeak":0,"vstackPeak":9,"expsnapPeak":0,"threw":null}
+     n=1048575 (FIRES)      {"len":1048577,"ovf":0,"markn":8,"recn":0,"dlenFinal":0,"clenFinal":2,"plenFinal":1,"arenaFinal":224,"arenaHigh":0,"ok":1,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  leading whitespace:
+     n=1048573 (last clean) {"len":1048576,"ovf":0,"markn":8,"recn":0,"dlenFinal":0,"clenFinal":3,"plenFinal":1,"arenaFinal":224,"arenaHigh":224,"ok":1,"Cpeak":3,"Ppeak":1,"Dpeak":0,"vstackPeak":9,"expsnapPeak":0,"threw":null}
+     n=1048574 (FIRES)      {"len":1048577,"ovf":0,"markn":8,"recn":0,"dlenFinal":0,"clenFinal":3,"plenFinal":1,"arenaFinal":224,"arenaHigh":0,"ok":1,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  n malformed rules a{c}:
+     n=4096 (last clean) {"len":16384,"ovf":0,"markn":16390,"recn":4096,"dlenFinal":4096,"clenFinal":4096,"plenFinal":0,"arenaFinal":213024,"arenaHigh":213024,"ok":0,"Cpeak":4097,"Ppeak":2,"Dpeak":4096,"vstackPeak":4101,"expsnapPeak":0,"threw":null}
+     n=4097 (FIRES)      {"len":16388,"ovf":1,"markn":16394,"recn":4097,"dlenFinal":4097,"clenFinal":4097,"plenFinal":0,"arenaFinal":213080,"arenaHigh":213080,"ok":0,"Cpeak":4098,"Ppeak":2,"Dpeak":4096,"vstackPeak":4102,"expsnapPeak":0,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [D, recoveries]
+  n malformed decls a{c;c;…}:
+     n=4095 (last clean) {"len":8193,"ovf":0,"markn":4106,"recn":4096,"dlenFinal":4096,"clenFinal":4096,"plenFinal":0,"arenaFinal":213008,"arenaHigh":213008,"ok":0,"Cpeak":4096,"Ppeak":2,"Dpeak":4096,"vstackPeak":4097,"expsnapPeak":0,"threw":null}
+     n=4096 (FIRES)      {"len":8195,"ovf":1,"markn":4107,"recn":4097,"dlenFinal":4097,"clenFinal":4097,"plenFinal":0,"arenaFinal":213064,"arenaHigh":213064,"ok":0,"Cpeak":4097,"Ppeak":2,"Dpeak":4096,"vstackPeak":4098,"expsnapPeak":0,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [D, recoveries]
+  linear() n stops:
+     n=32766 (last clean) {"len":98307,"ovf":0,"markn":32768,"recn":0,"dlenFinal":0,"clenFinal":65534,"plenFinal":32768,"arenaFinal":4194272,"arenaHigh":4194272,"ok":1,"Cpeak":65534,"Ppeak":32768,"Dpeak":0,"vstackPeak":32776,"expsnapPeak":1,"threw":null}
+     n=32767 (FIRES)      {"len":98310,"ovf":1,"markn":32769,"recn":0,"dlenFinal":0,"clenFinal":65536,"plenFinal":32769,"arenaFinal":4194392,"arenaHigh":4194392,"ok":1,"Cpeak":65536,"Ppeak":32769,"Dpeak":0,"vstackPeak":32777,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [marks, C]
+  linear() n stops with one %:
+     n=16383 (last clean) {"len":98307,"ovf":0,"markn":16385,"recn":0,"dlenFinal":0,"clenFinal":65534,"plenFinal":32768,"arenaFinal":3407880,"arenaHigh":3407880,"ok":1,"Cpeak":65534,"Ppeak":32768,"Dpeak":0,"vstackPeak":16393,"expsnapPeak":1,"threw":null}
+     n=16384 (FIRES)      {"len":98313,"ovf":1,"markn":16386,"recn":0,"dlenFinal":0,"clenFinal":65538,"plenFinal":32770,"arenaFinal":3408096,"arenaHigh":3408096,"ok":1,"Cpeak":65536,"Ppeak":32770,"Dpeak":0,"vstackPeak":16394,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [C]
+  linear() n stops with two %:
+     n=10922 (last clean) {"len":98307,"ovf":0,"markn":2,"recn":0,"dlenFinal":0,"clenFinal":65534,"plenFinal":32768,"arenaFinal":2971008,"arenaHigh":2971008,"ok":1,"Cpeak":65534,"Ppeak":32768,"Dpeak":0,"vstackPeak":10932,"expsnapPeak":1,"threw":null}
+     n=10923 (FIRES)      {"len":98316,"ovf":1,"markn":2,"recn":0,"dlenFinal":0,"clenFinal":65540,"plenFinal":32771,"arenaFinal":2971272,"arenaHigh":2971272,"ok":1,"Cpeak":65536,"Ppeak":32771,"Dpeak":0,"vstackPeak":10933,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [C]
+  linear() n stops, ws before comma:
+     n=21844 (last clean) {"len":87385,"ovf":0,"markn":21846,"recn":0,"dlenFinal":0,"clenFinal":65534,"plenFinal":21846,"arenaFinal":2796256,"arenaHigh":2796256,"ok":1,"Cpeak":65534,"Ppeak":21846,"Dpeak":0,"vstackPeak":21854,"expsnapPeak":1,"threw":null}
+     n=21845 (FIRES)      {"len":87389,"ovf":1,"markn":21847,"recn":0,"dlenFinal":0,"clenFinal":65537,"plenFinal":21847,"arenaFinal":2796376,"arenaHigh":2796376,"ok":1,"Cpeak":65536,"Ppeak":21847,"Dpeak":0,"vstackPeak":21855,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [C]
+  linear() n stops, comment per stop:
+     n=149795 (last clean) {"len":1048574,"ovf":0,"markn":2,"recn":0,"dlenFinal":1,"clenFinal":2,"plenFinal":2,"arenaFinal":120,"arenaHigh":120,"ok":0,"Cpeak":2,"Ppeak":2,"Dpeak":1,"vstackPeak":10,"expsnapPeak":1,"threw":null}
+     n=149796 (FIRES)      {"len":1048581,"ovf":0,"markn":2,"recn":0,"dlenFinal":1,"clenFinal":2,"plenFinal":2,"arenaFinal":120,"arenaHigh":0,"ok":0,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  stylesheet rules with ws:
+     n=6553 (last clean) {"len":131060,"ovf":0,"markn":19665,"recn":0,"dlenFinal":0,"clenFinal":65530,"plenFinal":19659,"arenaFinal":3302752,"arenaHigh":3302752,"ok":1,"Cpeak":65530,"Ppeak":19659,"Dpeak":0,"vstackPeak":6568,"expsnapPeak":1,"threw":null}
+     n=6554 (FIRES)      {"len":131080,"ovf":1,"markn":19668,"recn":0,"dlenFinal":0,"clenFinal":65540,"plenFinal":19662,"arenaFinal":3303248,"arenaHigh":3303248,"ok":1,"Cpeak":65536,"Ppeak":19662,"Dpeak":0,"vstackPeak":6569,"expsnapPeak":1,"threw":"HALT: a journal, the value stack or the arena overflowed its fixed region"} → regions at cap: [C]
+  steps/cubic one-shot: {"len":32,"ovf":0,"markn":0,"recn":0,"dlenFinal":0,"clenFinal":8,"plenFinal":5,"arenaFinal":376,"arenaHigh":376,"ok":1,"Cpeak":8,"Ppeak":5,"Dpeak":0,"vstackPeak":15,"expsnapPeak":1,"threw":null}
+  color one-shot: {"len":16,"ovf":0,"markn":8,"recn":0,"dlenFinal":0,"clenFinal":7,"plenFinal":5,"arenaFinal":384,"arenaHigh":384,"ok":1,"Cpeak":7,"Ppeak":5,"Dpeak":0,"vstackPeak":13,"expsnapPeak":1,"threw":null}
+  color n-arg juxtaposition rgb(1 1 1 …):
+     n=524285 (last clean) {"len":1048575,"ovf":0,"markn":8,"recn":0,"dlenFinal":1,"clenFinal":5,"plenFinal":4,"arenaFinal":216,"arenaHigh":216,"ok":0,"Cpeak":5,"Ppeak":4,"Dpeak":1,"vstackPeak":10,"expsnapPeak":1,"threw":null}
+     n=524286 (FIRES)      {"len":1048577,"ovf":0,"markn":8,"recn":0,"dlenFinal":1,"clenFinal":5,"plenFinal":4,"arenaFinal":216,"arenaHigh":0,"ok":0,"Cpeak":0,"Ppeak":0,"Dpeak":0,"vstackPeak":0,"expsnapPeak":0,"threw":"HALT: the input exceeds the module's 1048576-byte window"} → regions at cap: [input]
+  var nested at depth 64 (one-shot): {"len":131,"ovf":0,"markn":196,"recn":0,"dlenFinal":1,"clenFinal":128,"plenFinal":1,"arenaFinal":3080,"arenaHigh":3080,"ok":0,"Cpeak":128,"Ppeak":1,"Dpeak":1,"vstackPeak":68,"expsnapPeak":1,"threw":null}
+
+── E. JS-side counters on the ESC-e1 witness (same quantity?)
+  n=8190 js marks=32766 recoveries=0 C=24570 P=24570 D=0 | wasm markn=32766 recn=0 Cfinal=24570 Pfinal=24570 ovf=0
+  n=8191 js marks=32770 recoveries=0 C=24573 P=24573 D=0 | wasm markn=32770 recn=0 Cfinal=24573 Pfinal=24573 ovf=1
