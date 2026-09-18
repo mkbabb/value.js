@@ -53,9 +53,15 @@ jobs:
              github.event.workflow_run.event == 'push')
         runs-on: ubuntu-latest
         timeout-minutes: 20
-        # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): actions/checkout
-        # refuses paths outside $GITHUB_WORKSPACE, so the repo nests at ./value.js
-        # with the `file:` siblings beside it (./glass-ui, ./keyframes.js).
+        # NESTED-WORKSPACE LAYOUT (R.W7 X3 first-wire finding): the repo nests at
+        # ./value.js because actions/checkout refuses paths outside
+        # $GITHUB_WORKSPACE, and this job once checked producer siblings out beside
+        # it. Those sibling checkouts are GONE (X-W1 · CC-034 · G-15, below) and
+        # nothing is nested beside the repo any more. The layout itself is kept
+        # byte-for-byte: it is the shape every recorded successful deploy ran under,
+        # it is orthogonal to the provenance defect cured below, and unwinding it is
+        # a structural change no local run can verify. Recorded as a residual for
+        # the X-W11 release close — never as a live dependency.
         defaults:
             run:
                 working-directory: value.js
@@ -68,39 +74,51 @@ jobs:
                   ref: ${{ github.event.workflow_run.head_sha || github.sha }}
                   fetch-depth: 0
                   path: value.js
-            # The demo consumes @mkbabb/glass-ui via `file:../glass-ui` (kept
-            # deliberately — the §3.4 pin policy, Q4 RATIFIED). So the siblings
-            # must be checked out and their dists built BEFORE `npm ci` / the
-            # demo build — the SAME precondition the CI jobs satisfy. (The
-            # library itself imports glass-ui NEVER — inv-K-1 — but the DEMO does.)
-            - name: "Checkout glass-ui @ tranche/BG (the D8-1-cured live tree; un-pin at the 5.0.0 master landing)"
-              uses: actions/checkout@v5
-              with:
-                  repository: mkbabb/glass-ui
-                  ref: tranche/BG
-                  path: glass-ui
-            - name: "Checkout keyframes.js (file: workspace dep)"
-              uses: actions/checkout@v5
-              with:
-                  repository: mkbabb/keyframes.js
-                  path: keyframes.js
             - uses: actions/setup-node@v5
               with:
                   node-version: 24
                   cache: "npm"
                   cache-dependency-path: value.js/package-lock.json
-            - name: Build glass-ui dist (gh-pages needs its full CSS dist)
-              working-directory: glass-ui
-              run: |
-                  npm ci
-                  npm run build
-            - name: Build keyframes.js dist (the demo bundle resolves it via glass-ui's peer)
-              working-directory: keyframes.js
-              run: |
-                  npm ci
-                  npm run build
+            # PRODUCER RESOLUTION IS THE REGISTRY'S (X-W1 · CC-034 · DR-22 · G-15).
+            # This job used to check mkbabb/glass-ui out at its `tranche/BG` branch
+            # and build that dist before `npm ci`, under a `file:../glass-ui` premise
+            # that has not been true since W44 adopted glass 7.0.0 whole:
+            # package.json declares `@mkbabb/glass-ui: ^7.0.0` and
+            # package-lock.json pins the registry tarball, so `npm ci` has been
+            # installing registry bytes while the job spent minutes building a
+            # branch tree (BG head = 5.0.0) that nothing consumed — the deploy
+            # claimed a provenance it did not have, and the named un-pin waypoint
+            # (the "5.0.0 master landing") was skipped outright: glass went
+            # 4.2.0 → 7.0.0. The keyframes.js checkout carried the identical dead
+            # premise (`^6.0.0`, registry-pinned) and goes with it. `npm ci` below
+            # IS the install the declaration already implies; ci.yml — the workflow
+            # whose green gates this one — has always had exactly this shape.
             - name: npm ci
               run: npm ci
+            # G-15's proof, structural rather than one-time: the producer the
+            # deployed bundle links MUST come from the registry, and the subpaths
+            # the demo imports MUST be in that producer's exports map. `./blob`
+            # (5 sites, incl. demo/color-picker/composables/boot/useAtmosphere.ts)
+            # and `./chip` (EasingSpecimenStrip.vue) are named because they are the
+            # pair the tranche/BG head did not export — a build resolved through
+            # that tree dies at the first of them. This step reds the deploy BEFORE
+            # the build if a producer bump ever drops either subpath, or if
+            # resolution ever silently reverts to a linked sibling tree.
+            - name: "Assert producer provenance (registry) + the demo's subpaths resolve"
+              run: |
+                  set -euo pipefail
+                  node --input-type=module <<'NODE'
+                  import { readFileSync } from "node:fs";
+                  const hidden = JSON.parse(readFileSync("node_modules/.package-lock.json", "utf8"));
+                  const entry = hidden.packages["node_modules/@mkbabb/glass-ui"];
+                  if (!entry) throw new Error("@mkbabb/glass-ui is not installed");
+                  if (entry.link) throw new Error(`@mkbabb/glass-ui is a link to ${entry.resolved} — the deploy must build against the registry`);
+                  if (!/^https:\/\/registry\.npmjs\.org\//.test(entry.resolved ?? "")) throw new Error(`@mkbabb/glass-ui resolved from ${entry.resolved} — not the registry`);
+                  for (const subpath of ["blob", "chip"]) {
+                      console.log(`@mkbabb/glass-ui/${subpath} -> ${import.meta.resolve(`@mkbabb/glass-ui/${subpath}`)}`);
+                  }
+                  console.log(`@mkbabb/glass-ui ${entry.version} <- ${entry.resolved}`);
+                  NODE
             # The demo self-aliases `@mkbabb/value.js` → dist/value.js
             # (vite.config.ts, mechanism-C), so the library dist must exist before
             # the gh-pages build resolves the graph.
