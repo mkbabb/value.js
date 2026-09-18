@@ -4854,3 +4854,195 @@ three evidence files + this record.
 ### X.P.W3.g
 
 *(owed — the unit seat writes here)*
+
+---
+
+## Close — round 3 (`.f` → `.g`), VERIFY-ONLY
+
+SERVED MODEL: claude-opus-5[1m] · X.P.W3 **round-3 CLOSE seat** (Track D, X·P) · clock
+**2026-09-18 16:5x EDT**; the sitting's date of record stays **2026-09-17**. The round-1 `## Close`
+above is **E-3 IMMUTABLE** — this is a dated close **beside** it, for the round COHESION §0p opened,
+never over it.
+
+This seat **cured nothing**: it wrote no byte in `<p2>`, opened no unit's file and moved no gate.
+Every AFTER reading below was **re-derived here**, from `W3.md` §6's own commands or from a probe
+this seat wrote fresh — none is read off `.f`'s receipt, off `W3-CLOSE.md`, or off Checks 1–3.
+`W3.md` read WHOLE (⟨cmd⟩ `wc -l` → **695 L**, ADDENDUM L677–695 included — `.f`'s receipt says
+696, an off-by-one in its own prose, harmless and noted); this record's §R3.1–R3.7 and the `.f`
+receipt read whole; the round-1 `## Close`, `## Check 3` and `## Repair 2` read.
+
+**CRASH-RECOVERY, first act.** ⟨cmd⟩ `git status --porcelain` in both repos before anything else.
+`<p2>` → `?? .worktrees/` alone. value.js → **16** paths at this seat's open, **not one inside this
+seat's writable set** (`execution/D/X-P-W3.md` · `execution/LEDGER.md`): ten `demo/**` + two `e2e/**`
+(the concurrent X·V W1 seat's), `CARRY-LEDGER.md`, `scripts/dev/dev.sh` (` M`, unowned, **never
+opened**), and two untracked Track-A/C evidence dirs (`docs/tranches/X/evidence/w1/falsifier/`,
+`docs/tranches/X/waves/evidence/`). Two further paths — `execution/A/X-W1.md` and `execution/LEDGER.md` — were a Track-A
+seat's **in-flight** edits and were **committed by that seat** (`77b9f0b4`, `2dd99193`) while this
+close ran; re-read immediately before this seat's own LEDGER edit, as the standing law requires.
+**No inherited partial work; nothing stashed, restored or reverted.**
+
+### C3.1 — Commit roster, verified by `git log` / `git show --stat` at this seat
+
+| unit | commits | bounds |
+|---|---|---|
+| `.f` | value.js **`e765e079`** · `<p2>` **0** | ⟨cmd⟩ `git show --pretty=format: --name-only e765e079` → `docs/tranches/X/execution/D/X-P-W3.md` + `evidence/W3/capacity-reachability-2026-09-18.{json,mjs,txt}` — **4 paths, all inside `.f`'s R3.5 writable set** (`evidence/W3/**` + its receipt block). `scripts/dev/dev.sh` in **0**; `value.js/src/**` in **0**; `parse-that/**` in **0** |
+| `.g` | **none — the unit was never dispatched** | n/a |
+
+⟨cmd⟩ `git -C <p2> log --oneline -1` → **`ab6d694`, unmoved** — the round landed **zero** mechanism
+bytes, exactly as `.f`'s ESCALATED status says. ⟨cmd⟩ `git branch --contains e765e079` → `*
+tranche-u` — **no branch-stranding this round** (the round-1 `x-w1-falsifier-g7` defect, C.5/F-z2,
+did not recur). ⟨cmd⟩ `git -C ../parse-that log --oneline -1` → **`ef10d5b`**, the frozen root
+unmoved. **E-3**: ⟨cmd⟩ `git diff --stat --` over `W3.md`, `W3-CLOSE.md`, `evidence/W3/`,
+`COHESION.md` and `megatranche/registry/` prints **nothing**.
+
+### C3.2 — The ten gates, BEFORE → AFTER **at this close seat's own clock** (the eighth seat)
+
+BEFORE is **§R3.4**, the round-3 baseline. AFTER is **this seat's own run**, at `<p2>` `ab6d694`.
+
+| gate | BEFORE (§R3.4, 16:2x) | AFTER (this seat, 16:5x) | verdict |
+|---|---|---|---|
+| **G-1** | `ALL 5 of 52 TOTAL` EXIT=1 (carried, Check 3) | ⟨cmd⟩ `node scripts/css-universe.mjs --check --pinned-value-commit 6aca8602` → `tally runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL` · `tsc exit 2 · diagnostics attributed 56 · unattributed 0` · `RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT)` · `16 adjudications · 22 witnessed inputs · 19 diverge · 0 NOT honoured` · **EXIT=1**; two runs ⟨cmd⟩ `diff -q` **byte-identical**; `--emit` sha256 `0005f26b…98de` **== committed** | **RED — unmoved** (F-a.6 / ESC-r1) |
+| **G-2** | `324 / 1548` EXIT=1 (carried) | ⟨cmd⟩ `shasum -a 256 …/probes/r1-published-totality.mjs` → `77678a574d7c…d4ec` (**unmodified**); run → `RED parseCssColor 102/172 · parseCssScalar 102/172 · parseCssValue 60/172 · parseCssValues 60/172`, five `ok`; `TOTAL 324 throws / 1548 calls · DISTINCT FAILURE MODES: 1` · **EXIT=1**; ⟨cmd⟩ `git status --porcelain -- …/audit/probes/` → **0 lines after** | **RED, structural — unmoved** (ESC-d2) |
+| **G-3** command legs | heads 0 throws · boundary 120 cells 1 shape | this seat's **own** probe, written fresh: `empty-body heads (2 lowerings × 10): throws 0 · undefined 0 · bad-shape 0 · codes [css_syntax]` · `boundary 20 values × 3 entries × 2 lowerings = 120 cells · throws 0 · undefined 0 · bad-shape 0 · distinct shapes 1` = `{"ok":false,"diagnostics":[{"code":"css_syntax","start":0,"end":0,"expected":["<string source>"],"actual":null}]}` · R1 `parseCssColor("oklch()")` → `css_syntax [6,7) ["<number>","<none-keyword> ('none')"] actual ")"` **identical in both lowerings** | **GREEN on its command** |
+| **G-3** proof leg (`.f`'s own sub-gate) | **RED — `SHIELD.caught` 0→2** | same probe: `rules=8190 … js=ok:true wasm=ok:true SHIELD.caught=0` → `rules=8191 bytes=98292 js=ok:true wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=1`; **and the valid-input window witness `.f` identified** — `"a"×(INPUT_CAP−1)+"{}"`: `len=1048576 js=ok:true wasm=ok:true` → `len=1048577 js=ok:true wasm=ok:false css_syntax [<stylesheet>] SHIELD.caught=2`; faults `HALT: a journal, the value stack or the arena overflowed its fixed region` / `HALT: the input exceeds the module's 1048576-byte window`; double-run identical | **RED → RED.** The shield is **load-bearing on two fixed regions**, and `.f`'s correction of R3.4's witness is **CONFIRMED at this seat**: the 1,048,577-byte divergence is reachable by **VALID** CSS, which R3.4's `"a"×1048577` (invalid; JS rejects at `<open-brace>`) did not show |
+| **G-4** | C-3 RED 5 · C-4 RED, EXIT=1 (carried) | ⟨cmd⟩ `… --corpus test/css-recovery/corpus.json --frozen-union c654824e:src/css/types.ts` → `685 inputs · 4158 calls · 3710 rejections · 3744 issues` · C-1/C-2 GREEN · **C-3 RED** `frozen \ emitted = 5` · **C-4 RED** `authored 0 · inherited 2 · measured DEAD: far.code === null on 0 of 3710` · C-5…C-10 GREEN · **EXIT=1**, `--out` sha256 `25fa6a4b…9240` **== committed**; Repair 1's spec-literal operand → `26604 inputs · 159672 calls · 144640 rejections` · C-3 RED 5 · C-4 RED `0 of 144640` · **EXIT=1**, sha256 `240473b1…91b4` **== committed** | **RED — unmoved** (E-1 / E-2 / F-e10 / F-p1) |
+| **G-5** | **GREEN floor** 79,674 / 0 | ⟨cmd⟩ `node scripts/css-dual-target-identity.mjs --js src/css/build/ac1.js --wasm src/css/build/ac1.wasm --corpus test/css-totality/corpus.json` → `cells 79674 · six-tuple differing 0 (differing bytes 0) · full-diagnostics differing 0 · value differing 0 · threw 0` · per-entry `26551` ×3 · `boundary … identical across both targets: ALL` · `GREEN` · **EXIT=0**; two runs, artefacts ⟨cmd⟩ `diff -q` identical, sha256 `b68bab94…6216` **== committed** | **GREEN floor HELD** — not turned by either unit, and **not claimed as turned** (R.2 / §R3.6) |
+| **G-6** | `72 passed (72)` EXIT=0 | ⟨cmd⟩ `npx vitest run --config test/css-totality/vitest.config.ts` → `spec-conformance.test.ts (13)` ✓ · `universe.test.ts (59)` ✓ · **`Tests 72 passed (72)`** · **EXIT=0** | **GREEN floor HELD** |
+| **G-7** | **RED 5,890** (must not rise) | ⟨cmd⟩ `node test/css-equivalence/run-full-surface.mjs --pinned-value-commit 6aca8602` → oracle `value.js-4.0.0.tgz — 37290 B · sha256 7f80658c…03ae` · `taxonomy UNMOVED · 554c2993cebd3ed3` · `parseCssColor 4027 (2461) · parseTimingFunction 170 (170) · parseStylesheet 1693 (1351)` · `rows 52 · COMPARED 8 · NO-PEER 44` · **`MIRROR-DEFECTS 5890 (of which spec-undecided 3982)`** · **EXIT=1**, `--out` sha256 `d03b458c…1595` **== committed**; ⟨cmd⟩ `--cross-check-ledger …/DIVERGENCE-LEDGER.md` → `rows 16 adjudicated conflicts, 0 not carried · GREEN` **EXIT=0** | **RED at 5,890 — did NOT rise** (ESC-d1). `.g`'s row is **absent**, the unit never having run |
+| **G-8** | GREEN (carried) | ⟨cmd⟩ `node scripts/css-recovery-closure.mjs --assert-no-console` → `union authentication … 8 codes, both differences ∅` · `branch census default: 3 (authored 0) · else 28 (authored 0)` · `GREEN — 2 of 2 legs green (C-8 · C-9); negative controls all fire` · **EXIT=0** | **GREEN** |
+| **G-9** | **SPLIT** — 2 ✗ / 116 ✓ (118); **no capacity leg** | ⟨cmd⟩ `npx vitest run --config test/css-recovery/boundary/vitest.config.ts` → `depth.test.ts` **15 ✓** · `boundary.test.ts` **77 ✓** · `no-throw.test.ts` **19 ✓** · `latch.test.ts` **5 ✓ / 2 ✗** (`L-3 RESETTABLE …` `:147`, `the whole reading …` `:157`) · **`Tests 2 failed \| 116 passed (118)`** · **EXIT=1**. ⟨cmd⟩ `ls test/css-recovery/boundary/` → `boundary.test.ts · depth.test.ts · latch.test.ts · lib · no-throw.test.ts · vitest.config.ts`; ⟨cmd⟩ `grep -rln 'witnessAtCapacity\|assertCapacityBound' test/ src/css/bounds.mjs` → **nothing** | **SPLIT → SPLIT.** depth/boundary/no-throw GREEN · latch **RED** (ESC-c1, relieved, not `.f`'s) · **the capacity leg §0p ordains does NOT EXIST** |
+| **G-10** | well-formed, no verdict (carried) | ⟨cmd⟩ `node scripts/css-bench-three-leg.mjs --baseline-tarball ./test/css-equivalence/vendor/value.js-4.0.0.tgz --rounds 40 --discard 10 --denominator 1636680` → three legs · arm-state on **every** row · `sink 580440` · `NOT RECONCILED AND NOT ERASED` · `BAR: OWNER-GATED-PENDING-RATIFICATION` · `VERDICT: none. … RECORDED-NOT-GATING` · `well-formedness OK — the four G-10 falsifier conditions all hold` · **EXIT=0**; ⟨cmd⟩ `--denominator 1870633` → `REFUSED … VOID`, **EXIT=2** | **WELL-FORMED, NO VERDICT** (§0j.E OC-1) |
+
+**Round-3 delta: NOTHING TURNED, NOTHING REGRESSED.** Tally at this eighth seat, identical gate for
+gate and figure for figure to §R3.4, Check 3, Repair 2, Check 2, Repair 1, Check 1 and the round-1
+`## Close`: **4 GREEN (G-5 · G-6 · G-8 · G-10-well-formed) · 1 GREEN-on-command with its proof leg
+REFUTED (G-3) · 1 SPLIT (G-9) · 4 RED (G-1 · G-2 · G-4 · G-7).** **The hard gate's ten conditions
+are NOT all met.**
+
+Two further §0p subjects, re-measured here and **both unmoved** (the two units' own born-REDs):
+
+```
+⟨cmd⟩ node <scratch>/close3-g3.mjs        (this seat's probe; <p2> `?? .worktrees/` before and after)
+THETA {"depthBound":64} · declared capacities 1
+fixed regions {"input":1048576,"marks":32768,"vstack":65536,"arena":7208960,"C":65536,
+               "P":65536,"D":4096,"recoveries":4096,"expsnap":32} · count 9
+label surface: L.includes("marks <= 32768") = false · promoteLabel(...) = undefined
+               Object.isFrozen(PRODUCTION_LABELS) = true · L.length 51
+F-e1/F-e2 "hsl(120deg50%50%)" js=ok:true  wasm=ok:true      ← MIS_ACCEPT, unmoved
+F-e1/F-e2 "rgb(255none none)" js=ok:true  wasm=ok:true      ← MIS_ACCEPT, unmoved
+F-e1/F-e2 "hsl(120, 50, 50)"  js=ok:false css_syntax [<percent-sign>] wasm=ok:false css_syntax
+F-e1/F-e2 "hsl(120 50% 50%)"  js=ok:true  wasm=ok:true      (control)
+F-e1/F-e2 "rgb(255 0 0)"      js=ok:true  wasm=ok:true      (control)
+```
+
+**Θ carries ONE declared capacity against NINE fixed regions** — `.f`'s census of nine (not §R3.4's
+eight) is **confirmed at this seat** at the bytes, `EXPSNAP_CAP 32` included. The label surface is
+**closed against a capacity label** exactly as `.f` measured, which is the mechanical fact its
+bounds-grant escalation rests on.
+
+### C3.3 — §8 Verification Artefacts, run as written
+
+| §8 artefact | present? | this seat's reading |
+|---|---|---|
+| `evidence/W3/universe-52.json` **+ sha256 sidecar** | file **YES** · **sidecar NO** | regenerated `0005f26b…98de` — **sha256-equal**. ⟨cmd⟩ `ls evidence/W3/ \| grep -i sha` → nothing (**F-z1**, carried) |
+| `evidence/W3/r1-anchor-before.txt` | **ABSENT** | **F-e14**, carried; the BEFORE reading is real and lives in this record's B.1 and `W3.md` §6 |
+| `evidence/W3/r1-anchor-after.txt` | YES (7,245 B) | present |
+| `evidence/W3/recovery-closure.json` | YES (17,318 B) | regenerated `25fa6a4b…9240` — **sha256-equal** |
+| `evidence/W3/recovery-closure-spec-literal-operand.json` (Repair 1, beside) | YES (17,335 B) | regenerated `240473b1…91b4` — **sha256-equal** |
+| `evidence/W3/dual-target-identity.json` | YES (8,059 B) | regenerated `b68bab94…6216` — **sha256-equal** |
+| `evidence/W3/equivalence-full-surface.json` | YES (463,739 B) | regenerated `d03b458c…1595` — **sha256-equal** |
+| `evidence/W3/bench-three-leg.md` | YES (16,916 B) | present; the table's form re-run at C3.2 |
+| **`evidence/W3/capacity-reachability-2026-09-18.{mjs,json,txt}`** *(round 3, `.f`, banked beside)* | YES (9,863 / 18,834 / 12,521 B) | ⟨cmd⟩ the probe **re-run by this seat** from `<p2>/typescript` → json `b11f2c39…2431` and txt `e4bfaaff…25d9`, **both sha256-equal to the committed bytes**; `<p2>` porcelain unchanged before and after |
+| `DIVERGENCE-LEDGER.md` | YES (66,080 B) | `--cross-check-ledger` **GREEN, 16 / 0 not carried** |
+| `waves/W3-CLOSE.md` | YES (56,284 B) | present, unmoved (E-3) |
+| `registry/harvest/x-p-w3.json` | YES (129,579 B) | `dispatched 6 · planned 6 · harvested 5` at the bytes. With `.f` the dispatched set is now **7** and `.g` is an eighth planned — so the harvest reads **5 of 7**. **Owner is X.P.W4's seat 0** by §0p **ESC-e2** (*"the successor harvests"*); nothing is owed here |
+| commit hashes, both roots | YES | C3.1 |
+
+**Six generated artefacts, regenerated at an eighth seat hours later, all sha256-equal** — the five
+sealed ones and `.f`'s new pair. `.f` banked its evidence **beside**, never over, and this seat
+verified that at the mtimes as well as the hashes.
+
+### C3.4 — E13, swept at this seat's own clock (16:55 EDT)
+
+⟨cmd⟩ `find <the four paths> -maxdepth 1 -type f -newermt '2026-09-18 16:30'` → **exactly one file**,
+`docs/tranches/V/coordination/INBOX.md` — **self, excluded** (SELF-COUNT law). ⟨cmd⟩
+`ls -dlt ../glass-ui/docs/tranches/*/ | head -2` → `BK/` (Sep 17 20:15) then `BJ/` — **BK still the
+newest tranche dir**, so no unswept lane exists. ⟨cmd⟩ `grep -o '^| I-[0-9a-z]*' INBOX.md | sort -u
+| wc -l` → **37**, unchanged from the round-1 close: **0 new `I-n` minted**.
+
+Status cells reading **UNREAD**: **I-30 · I-32 · I-33 · I-34 · I-35** — each Routing cell read here
+in full, and each routes **away** from X·P in its own words: I-30 *"No reply owed"*; I-32 *"Zero
+parse-that bytes; not X·P's to dispose"* → the X formation mail seat / X-W0.j; I-33 *"Not X·P's …
+Glass is READ-ONLY always"* → the formation mail seat; I-34 *"no obligation is minted here"* →
+X-W0.j / X-EXT-1; I-35 → **X·KF (Track B)**, its object committed at glass `a53d67bc` with routing
+unchanged (§R3.2). **0 unrowed value-addressed · 0 UNREAD in X.P.W3's scope. This round does not
+close with unread mail.** `INBOX.md` is outside this seat's writable set; this paragraph is the
+sweep's receipt.
+
+### C3.5 — Landed-wrong, found and named here
+
+**None at the path level, and none at the branch level.** Every path in `e765e079` is inside `.f`'s
+declared writable set (C3.1); `<p2>` took zero bytes; the commit is reachable from `tranche-u`;
+`scripts/dev/dev.sh` appears in **0** of the round's commits; no commit touches
+`/Users/mkbabb/Programming/value.js/src/**` or `/Users/mkbabb/Programming/parse-that/**`.
+
+Two **structural** landed-wrongs of the round, neither a path defect:
+
+1. **`.g` was never dispatched.** `W3.md`'s ADDENDUM §Sequencing is `.e` → `.f` → `.g` → close, and
+   `.f`'s f.9 records `.g` **UNBLOCKED** (no lock held, `src/css/build/**` and `boundary/**`
+   untouched). The round nonetheless reached this close with group 7 unrun, so §0p's **F-e1/F-e2**
+   remain MIS_ACCEPT at the bytes (C3.2) and G-7's ledger has no new row. This is a **dispatch**
+   residual, not a seat's defect, and it is owed to the next round — `.g` is dispatchable **today**,
+   against an unmoved subject, without waiting on `.f`'s ruling.
+2. **The round-1 commit cell said `check-3 (this act)`** and never resolved to a hash. Repaired in
+   place by this close (C3.7), on this wave's row only.
+
+### C3.6 — Escalations returned (§3a; none is this seat's to rule)
+
+`.f`'s three, verified by this seat at the bytes rather than taken on report — the label surface is
+closed (`L.includes(...) = false`, `promoteLabel(...) = undefined`, `Object.isFrozen(PRODUCTION_LABELS)
+= true`), `tables.mjs` is `.g`'s glob and `diagnostics.mjs` is `.b`'s file, and neither is in `.f`'s
+R3.5 writable set:
+
+| id | class | what is owed, and to whom |
+|---|---|---|
+| **E-f1** | **file-bound expansion (§3a, MANDATORY for any capacity label)** | Grant `.f` `typescript/src/css/algebra/tables.mjs` (nine `L` rows appended **after** `"<string>"`, no index moves) and `typescript/src/css/diagnostics.mjs` (nine promoted rows in the `<nesting-depth> (at most 64 levels)` form). Every in-bounds alternative — borrowed label, `L` mutated from `bounds.mjs`, diagnostics re-shaped in `entry.mjs` — is a **HIGH masking defect**, which is why `.f` landed nothing. **Owner: the triumvirate (COHESION §0p's author)** |
+| **E-f2** | **architecture ruling (the Wasm memory model) — the route §3a names and §0p declares closed** | Nine `W_OVF` regions, three classes. **Class 1** `input · marks · recoveries · D`: boundary-visible in BOTH lowerings and identical by measurement — curable as §0p states once E-f1 lands. **Class 2** `C · P`: the guarded quantity is a **PEAK**, and `C` is reachable by VALID input **before** `marks` (`linear(0 1%, …)`×16,384; `a { color : red ; } `×6,554) — rule *peak-with-grant* (`runtime.mjs` + `js-alg.mjs`) or *final-count-with-proof*. **Class 3** `vstack · arena · expsnap`: **no JS-side quantity exists** (σ has no value stack, `arena: 0` by EQ-5) — rule *declare-with-proof* (Θ VALUE from `layout.mjs` + a measured per-mark ceiling asserted in the suite) or grant shadow counters (`.f` advises against: a second memory model). `arena` overflow is a Wasm **trap**, so class 3 must carry the ratio assertion. **Owner: the triumvirate / X.P.W1–W2** |
+| **E-f3** | **the G-5 fold** | §0p(5)'s *"the witnesses join G-5's corpus"* names `.a`'s `corpus.json` / `.d`'s `css-dual-target-identity.mjs` (whose 79,674 = 26,551×3 + 7×3), **neither in `.f`'s set**. `.f` recommends the **in-bounds** form — a capacity-band identity leg in `test/css-recovery/boundary/capacity.test.ts` using G-5's own `canonical()` idiom, reported **beside** the unchanged 79,674 / 0. This seat concurs on the measurement: the 79,674 held **exactly** here, and any fold that moves it re-opens a sealed artefact. **Owner: the triumvirate** |
+| **INFO** | census | **nine** regions, not eight — `EXPSNAP_CAP 32` (`wasm-alg.mjs:443`). Confirmed at this seat. A plan that declares eight and calls Θ complete is wrong by measurement |
+
+### C3.7 — Residuals, each with a named owner
+
+Round 3 **adds three and resolves none**. Everything the round-1 `## Close` §C.7 carried stands
+verbatim — **ESC-e1** (HIGH; re-confirmed at this seat for the **sixth** time, and now with the
+**valid-input** window witness as well as the 8,191-rule one) · **ESC-e2** (harvest, now 5 of 7) ·
+**ESC-c1** (G-9 latch) · **ESC-d1** (G-7 5,890) · **ESC-d2** (G-2 structural) · **F-a.6 / ESC-r1**
+(G-1) · **E-1 / E-2 / F-e10 / F-p1** (G-4) · **F-e1 · F-e2 · F-e3** · **F-e8** · **F-e11** ·
+**F-e14** · **F-z1** · **F-z2** · **F-p2** · **F-m1..F-m5** · **F-t1** · **R-2** (`<p2>` has **no
+git remote** — ⟨cmd⟩ `git -C <p2> remote -v` → empty; the push act is satisfiable in **value.js
+only**, measured again here).
+
+| id | severity | residual | owner |
+|---|---|---|---|
+| **E-f1** | **HIGH** | the capacity label has **no in-bounds realization**; a bounds grant on `tables.mjs` + `diagnostics.mjs` is mandatory before any Θ capacity can be named | triumvirate (§0p author) |
+| **E-f2** | **HIGH** | the nine regions' three classes need one ruling each; classes 2 and 3 have no boundary-visible JS quantity, so §0p(2) as written is unrealizable for five of nine regions | triumvirate · X.P.W1/W2 |
+| **E-f3** | MEDIUM | §0p(5)'s fold names two files in no unit's set; the in-bounds capacity-band leg is the recommended form | triumvirate |
+| **`.g` UNRUN** | **HIGH** | group 7 was never dispatched; F-e1/F-e2 stay MIS_ACCEPT in **both** lowerings and G-7 gains no divergence row. `.g` is **unblocked** and dispatchable against the unmoved `ab6d694` | orchestrator (next round) |
+
+### C3.8 — Verbs: what this close stamps, and what it refuses to
+
+`W3.md` §2's four-verb table and §12: **IMPLEMENTED** is stamped by *"gates green + bytes landed in
+the fresh root"* (R-A); **VERIFIED is X.P.W4's sub-tranche release close alone — never this wave's**.
+
+| verb | value | moved here? |
+|---|---|---|
+| AUDITED | **YES** | no — unchanged |
+| SPECIFIED | **YES — 2026-08-03** (+ ADDENDUM 2026-09-18) | no — unchanged |
+| IMPLEMENTED | **NO** | **NOT stamped.** Four gates RED, G-9 SPLIT with its ordained capacity leg absent, G-3's proof leg refuted at this seat, and the round landed **zero** `<p2>` bytes |
+| VERIFIED | **NO** | no — **X.P.W4's alone** (R-A) |
+
+**This round moves no verb and the wave's status stays `PARTIAL 2026-09-17`.** It is the honest
+reading: §0p's redress was dispatched, `.f` took it to the bytes, and the mechanism it ordains
+**cannot be written inside the bounds the addendum left unchanged** — which is a finding about the
+ruling's file bounds, returned with its measurement, not a failure to try. **Nothing is parked;
+nothing is averaged; nothing is rounded up.**
