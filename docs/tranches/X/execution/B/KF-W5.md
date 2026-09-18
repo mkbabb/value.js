@@ -1467,3 +1467,219 @@ close sha) · **`070ed342`** (these push receipts, whose own sha is filled in be
 follow-on commit below). ⟨`git status --porcelain`⟩ after the pushes:
 `scripts/dev/dev.sh` still modified and **never staged**, plus the pre-existing unowned rows — unchanged
 by this seat. **No force, no stash, no reset, either repo.**
+
+---
+
+## Check 1
+
+**Fresh adversarial L-20 pass 1, VERIFY-ONLY.** Seat: an independent Opus (`claude-opus-5[1m]`) that
+authored **none** of this wave's bytes — not a unit's, not the close's, not an evidence sheet's. This
+seat cured nothing, wrote no product byte in either repo, and every figure below is **its own command
+at its own clock**, nothing inherited from a receipt. **Substrate**: kf `master`
+**`e325018fb257540d6103950c3ab3c6195f51c5e2`** == `origin/master`; ⟨`git -C ../keyframes.js status
+--porcelain`⟩ → **2 rows, both untracked**, the two §0m.0 I-26 survivors, exactly as at open and at
+the close.
+
+**VERDICT: CONFORMANT-HONEST-RED — 0 BLOCKER/CRITICAL/HIGH · 2 MINOR · 2 INFO. All 23 gate verdicts
+in §2 reproduce, GREEN and RED alike; no claimed GREEN failed.**
+
+### 1 · Every gate re-run — 23 verdicts, 23 reproduce
+
+| # | gate | this seat's command → output | close's verdict | reproduces |
+|---|---|---|---|---|
+| 1 | G-XSS observable | ⟨`git grep -n 'innerHTML' HEAD -- …/useHighlightCSS.ts`⟩ → **exactly one line**, `:198 el.innerHTML = h.value`; property form **0**; `:183 el.textContent = s` | GREEN | **YES** |
+| 2 | G-XSS round-trip | ⟨`npx vitest run --project demo …/highlight-css-roundtrip.test.ts`⟩ → **4 passed (4)**; whole project **31 files / 195 passed** | GREEN | **YES** |
+| 3 | G-ROLE | `split-text-implicit-role.test.ts` → **8 passed** | GREEN | **YES** |
+| 4 | G-REFUSE | `split-text-refuse.test.ts` → **7 passed** | GREEN | **YES** |
+| 5 | G-REVERT | `split-text-revert.test.ts` → **6 passed** | GREEN | **YES** |
+| 6 | G-STAGGER-DOC leg 1 | ⟨`npx tsc --noEmit -p tsconfig.test.json \| grep -c 'error TS'`⟩ → **24**; ⟨`… \| grep -cE '<the 13 created fixtures>'`⟩ → **0** — floor carried, not reduced | GREEN | **YES** |
+| 7 | G-STAGGER-DOC leg 2 | `group-viability.test.ts` → **5 passed**; `stagger-doc-example.test.ts` → **3 passed** | GREEN | **YES** |
+| 8 | G-PRM-FLIP | `prm-engagement.test.ts` → **5 passed** | GREEN | **YES** |
+| 9 | G-DELAY | `delay-semantics.test.ts` → **5 passed** | GREEN | **YES** |
+| 10 | **G-FROMSTRING** | `fromstring-idempotence.test.ts` → **1 passed \| 2 expected fail (3)** — the two ruled assertions execute and still fail | **RED — honest** | **YES (RED)** |
+| 11 | G-CSSIDENT | `public-surface.test.ts` → **7 passed**; ⟨`git grep -c '<name>' HEAD -- public.ts load-engine.ts`⟩ → **2/2** for each of `cssIdent` · `reverseCSSTime` · `serializeTimingFunction` | GREEN | **YES** |
+| 12 | G-OPTSET | `option-setter-propagation.test.ts` → **11 passed** | GREEN | **YES** |
+| 13 | G-RAF | `raf-degrade.test.ts` → **7 passed** | GREEN | **YES** |
+| 14 | G-RENDERER | `adopt-compiled-renderer.test.ts` → **6 passed** | GREEN | **YES** |
+| 15 | G-DEPCRUISE | ⟨`npx depcruise --config .dependency-cruiser.cjs src`⟩ → **✔ 0 violations (160 modules, 705 deps)**; allowlist **24 entries / 24 resolve / 0 DEAD** (existence-swept at this seat); oracle **(i) `grep -c 'knownViolations'` 0 · (ii) `package.json:44` carries no `--known-violations` · (iii) baseline file ABSENT**. **Falsifier exercised independently, no repo byte written**: a scratchpad copy with one name mutated to `…/duration-GONE` **THREW** *"LIGHT_BARREL_MODULES names 1 module(s) that do not exist"*; the pristine config loads clean | GREEN | **YES** |
+| 16 | G-RING | ⟨same cruise, **both** type-only clauses lifted via a read-only scratchpad overlay⟩ → **45 violations**; ⟨`viaOnly` alone lifted⟩ → **38** — the close's published reconciliation, both halves, at an independent seat | GREEN | **YES** |
+| 17 | G-SHIM (floor) | presets tree **exactly 3** (`catalog` · `classic-data` · `index`) · `grep -c 'split by kind'` **0** · ⟨`npx vitest run --project library`⟩ **112 files \| 5 skipped · 1256 passed \| 3 expected fail \| 14 skipped** · ⟨`npm run build`⟩ **✓ exit 0** | GREEN | **YES** |
+| 18 | G-STRUCT | the ≥437 L loop re-run at HEAD → **10 god modules** (`cssom` 499 · `group` 498 · `animation` 497 · `progress` 484 · `draggable` 470 · `compiler` 461 · `entry` 459 · `classic-data` 458 · `split-text` 442 · `emit/view-transition` 438); the parent-token predicate re-run → **12 stutters**, the same members | GREEN on its stated condition | **YES** |
+| 19 | G-BASIS | ⟨`git ls-tree -r 7d958f21 --name-only -- src \| grep -c '\.ts$'`⟩ → **153**; at HEAD → **154**; `.d.ts` → **0**. The 14-zone census re-derived from the tree sums **29+22+20+17+15+9+8+7+6+6+5+3+3+3 = 153**, matching `.b`'s table zone for zone; the owned/unowned split **53 + 100 = 153** sums at the table | GREEN | **YES** |
+| 20 | **G-ID** | ⟨`grep -cE 'KF-ES-[0-9]+\|(^\|[^-])\bL-2\b' waves/KF-W5.md`⟩ → **22** (LINE unit); ⟨`grep -oE …\| wc -l`⟩ → **58** occurrences. The two bare-at-site residues re-cut from the bytes here: **`:386` occurrence 1** = *"G-DEPCRUISE's L-2 leg ← the honest comment"* · **`:412`'s last** = *"and for L-2 (cured, `81a56990`)"* | **RED — honest** | **YES (RED)** |
+| 21 | G-TAX relay leg | ⟨`grep -rn 'KF.W5-PARTIALS' registry/adjudicated/`⟩ → **3 header hits**, **0 row hits**; the RD-2 relay row present and naming all three records with both authorities; **0 registry bytes written by this wave** | RELAY LEG GREEN | **YES** |
+| 22 | G-TAX annotation leg | ⟨`grep -c 'SUPERSEDED\|superseded'` over the three⟩ → **0 · 1 · 0**, the one hit `kf-DemoGlobalChrome:154`, a dead `dist/gh-pages` byte-offset — a different subject | RED, unobservable by design | **YES (RED)** |
+| 23 | G-SCOPE | ⟨`awk 'NR>=309 && NR<=379 && /^\| \*\*/' \| wc -l`⟩ → **46**, and each arm over its own sub-range → **7 · 8 · 22 · 3 · 6** (five independent measurements summing to 46); §Excluded **6 numbered items** whose item 1 carries **7 sub-bullets**, items 2–6 **5** → **12**; **46 + 12 = 58** | GREEN | **YES** |
+
+**Repo instruments, re-run whole**: library **112 / 1256 / 3 xfail / 14 skipped** · demo **31 / 195** ·
+`tsc -p tsconfig.test.json` **24** · `tsc -p tsconfig.lib.json` **3** · `proof:structure` **PASS, 0
+violations across R1–R6** · `npm run build` **✓ exit 0** · `npm run lint` **x 4 no-cycle, all
+`demo/scenes/cube/orbital-drag/**`** (RD-e-2, not this wave's — the wave wrote no `.vue` and no
+`demo/scenes/**` byte) · `proof:publish` **exit 1** before *and* after a fresh ⟨`npm run build`⟩ at
+this seat (ESC-close-1, below). The wave's own library contribution re-counted from the twelve
+single-file runs: **8+7+6+5+3+5+5+3+11+7+7+6 = 73 tests across 12 created library spec files**, the
+close's figure exactly.
+
+### 2 · Bounds — every commit inside its unit's writable set, nothing swept in
+
+⟨`git log --oneline 7d958f21..e325018f`⟩ → **35**, of which **22 are this wave's** (`.a` 6 · `.c` 14 ·
+`.d` 1 · `.e` 1) and 13 the concurrent X.KF.W2 seat's. ⟨`git show --stat`⟩ per commit, all 22:
+
+- `.a` — `demo/…/useHighlightCSS.ts` ×5 + the one created fixture. **The S-0 lock holds at the bytes**:
+  ⟨`git show a9fe060f`⟩ carries the `:111` sink → `el.textContent = s` **and** the KAD-14(a) marker
+  redesign (the attribute replaced by a module-level `WeakMap`) in **one commit**, and the escaped
+  `h.value` writer is neither deleted nor rewritten.
+- `.c` — every path named in §Bounds *Arm B*; `src/animation/index.ts` **never opened**
+  (⟨`git diff --name-only 7d958f21..e325018f \| grep -x 'src/animation/index.ts'`⟩ → **0**).
+  `constants/types.ts` took `:182`'s tautology only — ⟨`git show 95d91c53 -- …/constants/types.ts`⟩ is
+  a docblock over `InputAnimationOptions`; the `| string` arm (KF.W4's, `0c52152a`) is untouched.
+- `.d` — the five granted paths in **one** unsplit engine-seam packet (S-4).
+- `.e` — `.dependency-cruiser.cjs`, one file, one motion.
+
+**Zero `.vue`, zero glass-ui, zero `demo/scenes/**`, zero `demo/styles/**`** across the range
+(⟨`git diff --name-only 7d958f21..e325018f \| grep -E '\.vue$|glass|dev\.sh'`⟩ → **0**).
+**`scripts/dev/dev.sh` never staged in either repo** (⟨`git log --format=%H <range> -- scripts/dev/dev.sh`⟩
+→ empty, both). **The four-party shared directory**: ⟨`git diff --stat 7d958f21..HEAD -- test/demo/instrument/`⟩
+→ **1 file changed, 215 insertions** — the one created fixture, zero modifications to the nine tracked
+files. **All 22 kf commits carry the session trailer** (⟨`git log -1 --format=%B <sha> | grep -c`⟩ → 1 ×22).
+**value.js side, 12 commits** (the 8 unit/open + the 4 close), ⟨`git show --name-only`⟩ each: only
+`docs/tranches/X/execution/B/KF-W5.md`, `docs/tranches/X/keyframes/evidence/W5/**`, and — at open and
+close alone — `LEDGER.md` + `INBOX.md` (the latter an **appended** sweep line, verified at the diff).
+
+### 3 · No masking fallback anywhere in the diff
+
+⟨`git diff 7d958f21..e325018f -- src test .dependency-cruiser.cjs demo | grep -E '^\+' | grep -E 'test\.skip|it\.skip|describe\.skip|\.only\(|xit\(|@ts-ignore|eslint-disable|istanbul ignore'`⟩ → **no
+output**. Every `try`/`catch` added under `src/` read at the bytes:
+
+- `backward/backward.ts` (`24bbeda2`) — the catch is **narrower** than the bare one it replaces: only
+  `AnimationOptionError` with `option === "timingFunction"` is absorbed, **anything else re-throws**.
+  No blanket outer guard.
+- `physics/playback.ts` (`d7f68225`) — `failFrame` winds the loop down **through `reschedule`** and
+  then **`throw error`**; the async arm is `.then(reschedule, failFrame)`. A re-raise, not a swallow —
+  the gate's own falsifier.
+- `load-engine.ts` (`5a494429`) — the memo is dropped on failure and the error **re-thrown to the
+  caller**. Retry, not swallow.
+- The one remaining `try`/`catch` in the range sits in `compile/parse-facade.ts`, **the concurrent
+  X.KF.W2 seat's file**, not this wave's.
+
+**No allowlist was edited** (`LIGHT_BARREL_MODULES` gained an existence **assertion**, not an
+exemption; `proof:structure`'s R4 allowlist is still empty). **No `node_modules` patch, no copied
+producer selector, no producer byte.** **`it.fails` is not a skip**: read at
+`test/engine/fromstring-idempotence.test.ts:73`/`:88`, both assertions **execute**, both **fail**, and
+the header states they must be unwrapped to plain `it` the day the cure lands — the repo's own
+documented idiom (`test/group/group-snapshot-identity.test.ts`), and the gate is reported **RED** in
+the receipt, in the close and in the LEDGER, never laundered green.
+
+### 4 · Commit families (§Sequencing S-0 … S-7)
+
+**S-0** — `a9fe060f` is the first commit after `7d958f21`, and it carries both halves of the lock.
+**S-2** — the three ruling commits (`1c481b09` delay · `d002ce7e` PRM · `0b593743` singleTarget) land
+before their fixes; `fromString`'s ruling was taken pre-wave at COHESION §0j.C and **no fix was
+authored ahead of a ruling**. **S-4** — B-1+B-2+B-3 one landing (`2549c133`, one file + its three
+specs) · the option-setter letter one commit (`24bbeda2`, four legs) · the engine-seam packet one
+commit (`d7f68225`) · the depcruise motion one commit (`e325018f`). **The `setTargets` three-declaration
+family was not split — it was not performed** (ESC-c-2; all three declarations byte-identical at HEAD,
+⟨`git grep -n 'setTargets(\.\.\.targets: HTMLElement\[\])' HEAD -- src/`⟩ → the same three lines).
+**S-5** — `.d` consumed `0b593743` and opened neither `group/group.ts` nor `group/waapi.ts`.
+**S-6/S-7** — `.e` ran last; **zero renames landed**, so "renames last" is vacuously held and ESC-e-1
+carries the unexecuted programme.
+
+### 5 · E-3 — the immutable surfaces are byte-untouched
+
+⟨`shasum -a 256 waves/KF-W5.md`⟩ → **`216a9102eb6723a3cdbf91a4a9a288542236ade289a0e98a51f6cf090f90f045`**,
+and ⟨`git show dea4dd4e~1:…/waves/KF-W5.md | shasum -a 256`⟩ → **the identical digest**. Over the whole
+branch range ⟨`git diff --stat dea4dd4e~1..HEAD -- waves/ registry/adjudicated/ conformance/ carry/
+formation/`⟩ → **empty** (all five trees verified to exist and to be non-empty first, so the silence is
+a measurement and not a typo: 12 · 232 · 9 · 1 · 4 entries). **The dated spec, the 58-record adjudicated
+registry, the conformance artifacts, the carry and the sibling specs are untouched by this wave.**
+
+### 6 · E13 — mail
+
+⟨INBOX row status cells re-read⟩ → three rows carry **UNREAD** program-wide (**I-32 · I-33 · I-34**).
+**None is addressed to KF.W5's scope, verified at the letter's bytes rather than at the row**: I-33 is
+the one whose routing cell names keyframes at all, and its `## 2 · keyframes.js` section carries only
+`.vue` / `demo/styles` rows (`--rainbow-*` partial override · `text-admin-label` 16 sites · the THP
+tooltip ceiling · `useSelectionGroup` · `glass-chip.css`) — **every one outside this wave's §Bounds**,
+which forbids `.vue`, `demo/scenes/**` and `demo/styles/**` in any arm. The letter *"asks value.js for
+nothing beyond relay"* and the relay is the **X formation mail seat's** act. **0 UNREAD in scope; the
+wave closed lawfully under E13.** One citation slip is filed below (D-2).
+
+### 7 · The four-verb line
+
+⟨`grep -n 'IMPLEMENTED\|VERIFIED' waves/KF-W5.md`⟩ at the §State table → **IMPLEMENTED | NO** ·
+**VERIFIED | NO**, byte-identical to the pre-wave spec (§5's digest). **Not moving it is the lawful
+act, twice over**: IMPLEMENTED's own stated condition (*"gates green + bytes landed"*) is not met — three
+gates are RED at this seat's own commands and arm D's rename programme is unexecuted — and the spec
+file is granted writable to no arm and is IMMUTABLE under E-3. VERIFIED is KF.W10's by the spec's own
+words. The wave's status rides the LEDGER row, which is the surface this seat's law grants.
+
+### 8 · The spec's own goal criterion, at the bytes
+
+Eight concrete clauses; **seven MET at the bytes, one MISSED and published**:
+one declared counting basis with all five rivals derived or struck **✓** · a per-module D/L/C matrix
+denominated in it **✓** (53/153, re-summed here) · a `splitText` that cannot delete an `<h1>`'s role
+nor mutate a DOM it is about to refuse **✓** (8/7/6) · four rulings taken before their fixes **✓** (the
+rulings; `fromString`'s FIX is the honest-RED) · `cssIdent` reachable from a published entry **✓** ·
+an `adoptCompiled` that does not eat a receiver's renderer **✓** (read at the cure: the renderer is
+read off the frames through the class's own reference test *before* the transplant and re-pointed onto
+template **and** compiled frames) · a `RAFPlayback` that fails loudly instead of wedging **✓** · a
+`.dependency-cruiser.cjs` whose allowlist paths all resolve **✓** (24/24, now assertion-guarded at load
+time). **The miss is the goal's own first clause — *"the published surface … either true or deleted"*:**
+`proof:publish` is RED at HEAD because the wave published five names the docs cannot teach. That is
+ESC-close-1, and the close's verdict is **PARTIAL**, not COMPLETE — the record does not claim the goal
+met. Filed as D-1.
+
+### 9 · Defect register
+
+| # | severity | claim | receipt | cure |
+|---|---|---|---|---|
+| **D-1** | **MINOR (mitigated)** | **The wave turned a blocking CI gate RED and it is RED on `origin/master`.** `2e0d91ae`'s S-3 publication added five exports the README and `docs/published-surface.md` teach nowhere, so `proof:published-surface` clause (b) now fires | ⟨`node scripts/gates/surface/index.mjs`; `echo $?`⟩ → **exit 1**, both runs, **and again after a fresh ⟨`npm run build`⟩ at this seat** — `cssIdent` · `resolveTimingFunction` · `reverseCSSTime` · `serializeTimingFunction` · `timingFunctionEntries`. Attribution confirmed independently: ⟨`git grep -c '<name>' 7d958f21 -- public.ts load-engine.ts index.ts`⟩ → **0 for all five** (the clause had no subject before the wave) and ⟨`grep -c '<name>' README.md docs/published-surface.md`⟩ → **0/0 for all five** at HEAD. It is blocking: ⟨`grep -rn 'proof:publish' .github/workflows/`⟩ → `ci.yml:78` · `ci.yml:109` · `release.yml:49` | **MITIGATION, and it is why this is MINOR**: the close **found this itself**, over four unit seats that had read `PASS` off a stale `dist/`, named the mechanism (the gate measures `dist` AS BUILT; `dist/` is gitignored), corrected the stale receipts as a dated addendum-beside rather than rewriting them, refused to un-publish (that would revert S-3's RULING and re-red G-CSSIDENT), refused an allowlist, and named an owner. **The cure surfaces `README.md` and `docs/published-surface.md` appear nowhere in this spec — ⟨`grep -c 'README' waves/KF-W5.md`⟩ → 0, ⟨`grep -c 'published-surface' …`⟩ → 0 — so no arm of this wave could have cured it inside its grant.** Cure: teach the five in README §Beyond CSS or enumerate them in `docs/published-surface.md`, **one commit**, at the next seat granted those two paths → **KF.W6, terminus KF.W10** (ESC-close-1, as booked) |
+| **D-2** | **MINOR (mitigated)** | **§4's mail sweep misquotes I-33's routing cell, and the cell it skipped is the only one that names keyframes.** §4 gives the three UNREAD rows' routing as *"the X formation mail seat / X-W0.j"*, *"X-EXT-1..6"*, *"X-W0.j / X-EXT-1"* — the middle string is **I-32's** | I-33's live cell reads *"the X formation mail seat, which relays each sibling's section to that sibling's lane (fourier → X·F's mail-ledger surface, §0k.1/§0k.2; **kf → X·KF**)"*, re-read at the bytes here | **MITIGATION: the conclusion survives the correction, measured at the letter and not at the row.** `glass-outbound-2026-09-17-constellation-o20-relay.md` `## 2 · keyframes.js` (read at this seat) carries five rows, every one a `.vue` or `demo/styles` surface this wave's §Bounds forbids to every arm, and the letter states *"no edits were made in any of these trees"*. So **0 UNREAD in KF.W5's scope holds**; only the citation is wrong, and the relay is another seat's act. Cure: a dated one-line correction beside §4 naming I-33's real routing cell and its kf section's rows, at the next seat holding this record → **X·KF** |
+| **D-3** | INFO | `.e`'s receipt says *"the 500-line ceiling is **two** lines from firing"* while §7 says **one**; §7 is right | `scripts/gates/structure/index.mjs:535-536` measures `src.split("\n").length > 500`, which for `cssom.ts` at `wc -l` **499** is **500** — not over. One more line makes 501 and fires | None owed — the residual (RD-e-3) is routed to **KF.W8**, and `cssom.ts` to **KF.W2**, on either reading |
+| **D-4** | INFO | Two self-reported errata and one follow-through bend "one commit per meaning" without splitting any declared family | `24bbeda2`'s message lost two words to zsh command substitution; the `singleTarget` docblock trim rode into `9e5aec60`; `99834edc` is `685ca13f`'s R6 follow-through, booked with it | None owed — each is declared in the record with its reason (a shared index makes an amend a contamination risk), each touches only the unit's own bytes in the unit's own file, and ⟨`git show 9e5aec60 -- group/group.ts`⟩ shows the trim is **condensation, not deletion of a true claim** |
+
+**Nothing above is BLOCKER, CRITICAL or HIGH, and nothing was softened to get there**: every `try`/`catch`
+in the range was read at its bytes, the one `it.fails` pair was read at its assertions, the depcruise
+falsifier was exercised at a second seat, and the two MINORs are filed against the close's own text
+rather than waived.
+
+### 10 · Honest-RED adjudication — three legs, each relieved by the spec and each owner-named
+
+| gate | why it is RED BY THE SPEC'S OWN RELIEF | owner named in the record |
+|---|---|---|
+| **G-FROMSTRING** | **Relieved by the spec's own §Bounds/§Disjointness partition.** The cure's only site is `src/animation/engine/css/animation.ts` — granted to **arm C** — while the gate's spec `test/engine/fromstring-idempotence.test.ts` is enumerated in **arm B's** created-spec row, and §Disjointness declares *"`.d` owns exactly **three** `src/` files `.c` never opens"*. **No lawful unit of this wave held both**, and under the standing law a write outside a unit's set is an ESCALATION, not an option. The RULING was taken first exactly as S-2 requires (COHESION §0j.C **KF-W5R4(1)**, pre-wave) and is pinned by two **executed, failing** assertions that flip the day the cure lands. Verified live here: **1 passed \| 2 expected fail** | **X·KF — one seat granted BOTH paths; terminus KF.W10** (ESC-c-1). The act is named: clear the template set (and the compiled frames) before the ingest loop, **then** unwrap the two rows to plain `it` |
+| **G-ID** | **Relieved by E-3 and by the spec's own routing.** The two bare-at-site `L-2` occurrences are bytes of `waves/KF-W5.md`, which §Bounds grants writable to **no arm** and which E-3 makes IMMUTABLE — confirmed by the digest in §5. §0 R-1.4 and §Sequencing route doc-authority addenda to KF.W10 by name | **KF.W10**, as doc-authority addenda |
+| **G-TAX annotation leg** | **Relieved by the gate's own declared observability rider.** Its cell reads *"authored RED and stays unobservable until the SS-1/SS-2 authoring block acts"* and *"**G-TAX PERFORMS NO REGISTRY EDIT**"*, with a falsifier that fires if this wave annotates a registry file. **0 registry bytes written** — verified over the whole branch range in §5 | **SS-1/SS-2**, as dated E-3 addenda under the original ids |
+
+**The three escalations are the same shape and are likewise owner-named**: **ESC-c-2** (the `setTargets`
+element contract — 9 diagnostics across 5 files, 3 outside `.c`'s bounds, nothing written, and a
+finding that **refutes** B-19's INFO rationale) → **KF.W8**; **ESC-e-1** (the rename programme — **11 of
+12 importer paths outside arm D's grant**, and no shim, no split, no quiet re-disposition was taken) →
+**KF.W8**, needing the eleven paths **plus a sequencing decision**; **ESC-close-1** → **KF.W6**,
+terminus **KF.W10** (D-1).
+
+### 11 · Successor "Opens after" conjuncts, checked against this wave
+
+- **KF.W8** — *"opens after W0·W4·W5 (+W6 SCOPED for G7)"*. **W0 CLOSED ✓ · W4 CLOSED (honest-RED) ✓ ·
+  W5 CLOSED by this check ✓** — the three-conjunct head is **GREEN**. The trailing **"+W6 SCOPED for
+  G7" conjunct is NOT green** (KF.W6 = `planned`), so **KF.W8's G7 arm alone stays scoped-blocked** while
+  the wave is otherwise lawfully open. It inherits five of this wave's residues by name (ESC-c-2 ·
+  ESC-e-1 · RD-e-1 · RD-e-3 · the D-6 predicate wording).
+- **KF.W10** — *"opens after W0·W1·W9 + W2·W4·W5·W6·W7·W8·W9 **IMPLEMENTED**"*. **LAWFULLY BLOCKED, and
+  this wave is one of the reasons**: KF.W5's IMPLEMENTED verb is **not stamped** (§8 above, correctly),
+  and independently KF.W2 is `PARTIAL` while W6 · W7 · W8 are `planned`. Four conjuncts short.
+- **KF.W6** — *"opens after KF.W4"*, which is CLOSED; **not gated on KF.W5**, so it is already lawfully
+  open, and it is the named owner of KAD-14(c), RD-e-2 and ESC-close-1's docs cure.
+
+### 12 · Verdict
+
+**CONFORMANT-HONEST-RED.** Twenty-three gate verdicts reproduce at an independent seat's own
+double-run commands — every one the close called GREEN, and every one it called RED. The three RED
+legs are each relieved by the spec's own text (a §Bounds partition no lawful unit could cross, an
+IMMUTABLE spec, and a gate cell that declares its own leg unobservable) and each carries a named
+owner. Bounds are clean in both repos, E-3 holds at the digest, no masking fallback exists anywhere in
+the diff, the declared commit families are unsplit, mail is clean in scope, and the four-verb line was
+correctly left alone. Two MINORs are filed — a CI-RED the wave created whose cure is out of every arm's
+grant, and a misquoted routing cell whose conclusion survives correction — and neither blocks.
+
+**Honest-RED set: G-FROMSTRING · G-ID · G-TAX (annotation leg).**
