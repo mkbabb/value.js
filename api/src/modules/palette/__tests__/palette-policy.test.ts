@@ -18,14 +18,17 @@
  *        the detail route — every superseded `{name, colors, authorSlug,
  *        parentHash}`).
  *
- * G-4 (`GET /palettes/{slug}/provenance` authorizes the target before walking,
- * and an owner's own private hops resolve to `palette` steps) is NOT covered
- * here. Its cure requires threading `c.var.userSlug` from
- * `routes/forks.ts:74` into `getProvenance`, and `routes/forks.ts` is outside
- * this unit's writable set — the limb is RETURNED as an escalation
- * (`ESC-W3.1-G4-BOUNDS`), never half-landed behind an optional viewer that no
- * caller passes. D-5 stands either way: the provenance *redaction* half is
- * ALREADY CLOSED (V·W45 item 4) and is not rebuilt.
+ *   G-4  `GET /palettes/{slug}/provenance` authorizes the target BEFORE
+ *        walking, and an owner's own private hops resolve to `palette` steps
+ *        rather than `unavailable`.
+ *
+ * G-4 was authored as an escalation at X.W3.1 (`ESC-W3.1-G4-BOUNDS`): its cure
+ * needs `c.var.userSlug` threaded from `routes/forks.ts`, which was outside
+ * that unit's writable set, and it was never half-landed behind an optional
+ * viewer no caller passes. `routes/forks.ts` IS in the wave's §4 File Bounds,
+ * so the limb is taken at Repair 1 and its rows are the last block below.
+ * D-5 stands either way: the provenance *redaction* half is ALREADY CLOSED
+ * (V·W45 item 4) and is not rebuilt.
  */
 
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from "vitest";
@@ -256,6 +259,78 @@ describe("palette read policy (X-W3 · X.A1)", () => {
         it("404s the revision list of a palette that does not exist", async () => {
             const app = buildTestApp(services);
             const res = await app.request("/palettes/ghost/versions");
+            expect(res.status).toBe(404);
+        });
+    });
+
+    // -----------------------------------------------------------------
+    // G-4 — the provenance walk (the limb returned as ESC-W3.1-G4-BOUNDS,
+    // taken at Repair 1 with `routes/forks.ts` in the repair seat's bounds).
+    // -----------------------------------------------------------------
+
+    describe("G-4 · provenance authorizes the target before it walks", () => {
+        /** `parent` (alice, forced private) ← `child` (bob, public). */
+        async function makeChain(): Promise<void> {
+            await makePrivate("parent", "alice");
+            await createPalette(services, {
+                body: { name: "child", slug: "child", colors: COLORS, tags: [] },
+                userSlug: "bob",
+            });
+            await db
+                .collection("palettes")
+                .updateOne({ slug: "child" }, { $set: { forkOf: "parent" } });
+        }
+
+        it("refuses an anonymous walk of a private target and serves its owner", async () => {
+            await makePrivate("secret", "alice");
+            const app = buildTestApp(services);
+
+            const anon = await app.request("/palettes/secret/provenance");
+            expect(anon.status).toBe(404);
+
+            const stranger = await app.request("/palettes/secret/provenance", {
+                headers: { "X-Test-User-Slug": "bob" },
+            });
+            expect(stranger.status).toBe(404);
+
+            const owner = await app.request("/palettes/secret/provenance", {
+                headers: { "X-Test-User-Slug": "alice" },
+            });
+            expect(owner.status).toBe(200);
+        });
+
+        it("collapses a hop the viewer may not read, and resolves the owner's own", async () => {
+            await makeChain();
+            const app = buildTestApp(services);
+
+            // Anonymous: the public child resolves, its private parent does not.
+            const anon = await app.request("/palettes/child/provenance");
+            expect(anon.status).toBe(200);
+            const anonChain = (await anon.json()) as Record<string, unknown>[];
+            expect(anonChain).toHaveLength(2);
+            expect(anonChain[0]).toMatchObject({ kind: "palette", slug: "child" });
+            expect(anonChain[1]).toEqual({ kind: "unavailable", ordinal: 1 });
+
+            // Alice owns the parent: HER walk resolves it to a real step. This
+            // is the arm `isActivePublic` could not express — the falsifier is
+            // to restore `isActivePublic` here, at which point this row alone
+            // fails while the anonymous row above stays green.
+            const owner = await app.request("/palettes/child/provenance", {
+                headers: { "X-Test-User-Slug": "alice" },
+            });
+            expect(owner.status).toBe(200);
+            const ownerChain = (await owner.json()) as Record<string, unknown>[];
+            expect(ownerChain).toHaveLength(2);
+            expect(ownerChain[1]).toMatchObject({
+                kind: "palette",
+                ordinal: 1,
+                slug: "parent",
+            });
+        });
+
+        it("404s the provenance of a palette that does not exist", async () => {
+            const app = buildTestApp(services);
+            const res = await app.request("/palettes/ghost/provenance");
             expect(res.status).toBe(404);
         });
     });

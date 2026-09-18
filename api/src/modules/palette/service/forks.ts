@@ -12,7 +12,7 @@ import { ConflictError, NotFoundError, ValidationError } from "../../../platform
 import { computeContentHash } from "../hash.js";
 import { computeOklabColors } from "./oklab.js";
 import { createVersionRecord } from "./versions.js";
-import { isActivePublic } from "./visibility.js";
+import { assertPaletteReadable, isReadable } from "./visibility.js";
 
 const SLUG_PATTERN = /^[a-z0-9][a-z0-9-]*$/;
 
@@ -181,24 +181,34 @@ export type ProvenanceStep =
 export async function getProvenance(
     services: Services,
     slug: string,
+    viewer: string | null | undefined,
 ): Promise<ProvenanceStep[]> {
+    // X-W3 · G-4 — the TARGET is authorized before the walk begins. The
+    // redaction half (V·W45 item 4, D-5) has always been correct per hop, but
+    // it answered every caller: a stranger could name any private palette and
+    // learn its ancestry DEPTH and which of its ancestors are public — a
+    // correlatable shape the detail route refuses to serve. `assertPaletteReadable`
+    // is the SAME predicate the detail read takes (never a second spelling of
+    // it) and returns the document, so hop 0 is not read twice.
+    let doc: WithId<Palette> | null = await assertPaletteReadable(
+        services,
+        slug,
+        viewer,
+    );
+
     const chain: ProvenanceStep[] = [];
     const visited = new Set<string>();
-    let currentSlug: string | null = slug;
     let ordinal = 0;
 
-    while (currentSlug && chain.length < 50) {
-        if (visited.has(currentSlug)) break;
-        visited.add(currentSlug);
+    while (doc && chain.length < 50) {
+        if (visited.has(doc.slug)) break;
+        visited.add(doc.slug);
 
-        const doc = await services.repositories.palettes.findBySlug(currentSlug);
-        if (!doc) {
-            // Purged ancestor: a non-correlatable step; we cannot walk past it.
-            chain.push({ kind: "unavailable", ordinal });
-            break;
-        }
-
-        if (isActivePublic(doc)) {
+        if (isReadable(doc, viewer)) {
+            // X-W3 · G-4 — `isReadable`, not `isActivePublic`: an owner is
+            // entitled to the truth about their OWN row, so their private hops
+            // resolve to real `palette` steps instead of collapsing into an
+            // `unavailable` run that hides their own lineage from them.
             chain.push({
                 kind: "palette",
                 ordinal,
@@ -207,15 +217,23 @@ export async function getProvenance(
                 isFork: !!doc.forkOf,
             });
         } else {
-            // Private / unlisted / trashed hop: collapse to a non-correlatable
+            // A hop this viewer may not read: collapse to a non-correlatable
             // step. We still hold the doc, so the walk continues to reveal the
-            // PUBLIC ancestors above — but this hop's identity/lineage is not
-            // emitted.
+            // ancestors above — but this hop's identity/lineage is not emitted.
             chain.push({ kind: "unavailable", ordinal });
         }
 
         ordinal++;
-        currentSlug = doc.forkOf;
+
+        const parentSlug: string | null = doc.forkOf;
+        doc = parentSlug
+            ? await services.repositories.palettes.findBySlug(parentSlug)
+            : null;
+        if (parentSlug && !doc) {
+            // Purged ancestor: a non-correlatable step; we cannot walk past it.
+            chain.push({ kind: "unavailable", ordinal });
+            break;
+        }
     }
 
     return chain;

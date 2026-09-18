@@ -112,7 +112,7 @@ describe("service.palette.forks", () => {
             slug: "child",
             userSlug: "bob",
         });
-        const chain = await getProvenance(services, "child");
+        const chain = await getProvenance(services, "child", undefined);
         expect(chain).toHaveLength(2);
         expect(chain[0]).toMatchObject({
             kind: "palette",
@@ -139,7 +139,7 @@ describe("service.palette.forks", () => {
             $set: { visibility: "private", deletedAt: new Date() },
         });
 
-        const chain = await getProvenance(services, "child");
+        const chain = await getProvenance(services, "child", undefined);
         expect(chain).toHaveLength(2);
         // The child itself is still public → a full palette step.
         expect(chain[0]).toMatchObject({ kind: "palette", slug: "child" });

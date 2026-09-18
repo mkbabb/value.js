@@ -71,6 +71,9 @@ forksRouter.get("/:slug/forks", async (c) => {
 
 forksRouter.get("/:slug/provenance", async (c) => {
     const slug = c.req.param("slug");
-    const chain = await getProvenance(c.var.services, slug);
+    // X-W3 · G-4: the viewer reaches the policy. Without it the route
+    // authorized nobody and every hop was judged against the anonymous
+    // reading, so an owner's own lineage came back redacted to the owner.
+    const chain = await getProvenance(c.var.services, slug, c.var.userSlug);
     return c.json(chain);
 });
