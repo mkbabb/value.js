@@ -1305,3 +1305,230 @@ The four paths ⊕ the atlas **Q** extension were swept at §Open (seat 0, 19:11
 **A seat may not defer on the owner's behalf, and may not rule on it.** The deferral G19 accepts is an *explicit* one; naming the blocked rows, pricing which questions actually gate execution, and measuring every other limb to readiness is the whole of what this seat can supply — and it has supplied it.
 
 **Self-count**: this `### e` block is **not** counted in any figure above; every published count is of the settled product bytes at fourier `3bac3d5`, of the read-only producer tree at `17a11bc5`, or of the registry artifact at its version, each double-run.
+
+---
+
+## Close
+
+**SERVED MODEL: claude-opus-5[1m]** — the **VERIFY-ONLY CLOSE SEAT**, Track C. This seat authored
+none of units `a`–`e`'s bytes. **It cured nothing**: no product byte was written, no gate was
+green-stamped from another seat's reading, and every verdict below was re-measured at this seat's
+own clock with each load-bearing figure double-run.
+**Clock**: 2026-09-17, following unit `e`'s landing at `8a3c2f8e`.
+**Writable set honoured**: `docs/tranches/X/execution/C/F-W1.md` (this Close) ·
+`docs/tranches/X/execution/LEDGER.md` (Track C row cell + one appended line) ·
+`docs/tranches/V/coordination/INBOX.md` (**append-only**, one dated sweep line). **No other path
+written.** fourier-analysis · glass-ui · latex-paper · pencil-boil and the npm registry were
+**READ-ONLY** throughout. `scripts/dev/dev.sh` untouched and unstaged;
+`docs/tranches/V/reformation/CARRY-LEDGER.md` left dirty-as-found and unstaged. Pathspec commits
+only. No `git stash`, no `reset`, no force-push.
+
+### Act 1 — every unit's commits exist, and every path set is inside its unit's writable bound
+
+⟨cmd⟩ `git log -1 --format='%h %ad %s'` per hash, and ⟨cmd⟩ `git show --stat --format=""` per hash.
+
+| unit | commit | paths touched | inside its writable set? |
+|---|---|---|---|
+| `a` | **`c05fc57e`** 19:31 | `docs/tranches/X/fourier/waves/F-W1.md` — **103 insertions, 0 deletions** | **YES** (dated addendum-beside only) |
+| `a` | **`59bd88b9`** 19:34 | `docs/tranches/X/execution/C/F-W1.md` — 78 ins | **YES** |
+| `b` | **`70a87e7e`** 19:49 | `docs/tranches/V/coordination/INBOX.md` (5 ins, append) ⊕ the three `X/coordination/` letters (323 · 161 · 138 ins) | **YES** |
+| `c` | **`2a84bd5a`** 22:03 | the five `docs/tranches/X/fourier/evidence/w1/*.md` — **1,098 insertions, 0 deletions** | **YES** |
+| `c` | **`dcc266f2`** 22:07 | `docs/tranches/X/execution/C/F-W1.md` — 399 ins | **YES** |
+| `d` | **`3bac3d5`** (fourier) | `web/src/lib/colors.ts` · `…/visualization/lib/basis-display.ts` · `web/src/main.ts` · `…/morph/HarmonicLevelGrid.vue` — 4 files, **+169 / −68** | **YES** — and `EditorControlsDock.vue`, which its bound permits, is **byte-untouched** (Act 6 of that unit) |
+| `d` | **`473a8098`** 22:30 | `docs/tranches/X/execution/C/F-W1.md` — 147 ins | **YES** |
+| `e` | **`8a3c2f8e`** 22:41 | `docs/tranches/X/execution/C/F-W1.md` — 157 ins | **YES** — **ZERO product bytes**, as its own receipt claims |
+
+**`scripts/dev/dev.sh` was staged in NONE of the eight** — ⟨cmd⟩
+`git show --name-only --format="" <h> | grep -c "dev.sh"` → **0 · 0 · 0 · 0 · 0 · 0 · 0** across
+the seven value.js commits, and the fourier commit's four paths are all under `web/src`.
+
+**E-3 form proved at the diff, not inherited.** ⟨cmd⟩ `git show --numstat --format="" c05fc57e` →
+`103	0` — **zero deletions on the dated spec**. ⟨cmd⟩ `sed -n '161p;227p;276p;294p' F-W1.md` re-read
+at this seat reproduces unit `a`'s four pinned coordinates **byte-for-byte**: `:161`
+`| **L/B-1 + C/B-1** (BLOCKER-fold) | value 4.0.0 has no …` · `:227`
+`| **ESC-4** | Easing semantic drift acceptance (14/22 analytic→CubicBe` · `:276`
+`4. **The atomic transaction (ONE change, G6):** producer bump (glass +` · `:294`
+`1. **F.W0 → F.W1 (HARD predecessor).** G2 · G3 · MISS-LC2 · FR-AH-33 ·`. **No row was inserted
+above `:294`; no sibling's pinned coordinate re-keyed.**
+
+**LANDED WRONG: none.** No commit touched a path outside its unit's declared writable set, no
+commit split a family the spec declares unsplittable, and no dated artefact was rewritten.
+
+### Act 2 — all twenty gates re-run at this seat's own clock, against §3's own GREEN definitions
+
+**Nothing below is inherited.** Where a unit published a figure, this seat re-derived it with its
+own instrument rather than re-reading the unit's.
+
+| gate | BEFORE (§Baseline, at open) | **AFTER — this seat's own reading** | receipt run here |
+|---|---|---|---|
+| **G1** RE-PIN | **RED** — `grep -c "17a11bc5" F-W1.md` → **0** | **GREEN** | same command → **18**, **18** (double-run). Pin re-verified at the producer's bytes: ⟨cmd⟩ (cwd `../glass-ui`) `git tag --points-at 17a11bc5` → `v8.0.0` · `git rev-parse --short=8 'v8.0.0^{commit}'` → `17a11bc5`. **Tag and hash are each other's inverse at this seat too** |
+| **G2** corrupt-dist *(F.W0's; F.W1 owes the RECORDING)* | **RED at the installed pin · ABSENT at the adopted pin** | **RED at the installed pin — unchanged; the RECORDING obligation is DISCHARGED** | ⟨cmd⟩ `wc -c < web/node_modules/@mkbabb/glass-ui/dist/styles/index.css` → **13949** · `grep -c "@source"` → **3** · installed `"version": "4.0.0"`. Recorded at `F-W1.md` §8.3. The red is cured BY the transaction, which did not run |
+| **G3** substrate settle *(F.W0's)* | **GREEN** ⚠ green-before-cure, by predecessor | **GREEN — held** | ⟨cmd⟩ `git -C /Users/mkbabb/Programming/fourier-analysis status --porcelain \| wc -l` → **0**, **0** (double-run), *after* unit `d`'s product commit. Declared under R.2, never quietly enjoyed |
+| **G4** emission pre-gate | **UNRUNNABLE-AT-OPEN** | **UNRUNNABLE — unchanged** | Its `npm run build` (i) needs the bumped install, which is limb 1 and is blocked, and (ii) **writes `web/dist`**, a §1 read-only witness. This seat did not run it and did not dirty the witness |
+| **G5** P0 CSS-class census | **RED** — no census exists | **GREEN** | The census is landed at `evidence/w1/G5-CSS-CLASS-CENSUS.md` (**323 L / 25,617 B**, self-count reproduced here). Its four operands re-measured at this seat: `paper-texture` **1** · `text-admin-label` **7 / 4** · `cartoon-card` **24 / 14** raw — each reproducing §Baseline. AA-15's cure/break collision is reconciled **in writing** inside the gate, as §3 G5 requires |
+| **G6** atomic land-or-lose | **RED by construction** | **RED — unchanged** | ⟨cmd⟩ (cwd fourier) `git log --oneline --all \| grep -ci "feat(fourier)"` → **0**. **No transaction exists to test**, and the four zero-console-error e2e specs are untouched and unfiltered |
+| **G7** Button budget | **RED** — six banked figures disagreeing, no grep of record | **GREEN — and its instrument INDEPENDENTLY REPRODUCED at this seat** | This seat wrote its **own** comment-stripper (blanking `<!-- -->`, `/* */` and line-initial/post-punctuation `//`, line numbers preserved) over `web/src` and measured **130 files scanned · 106 comment-stripped `variant=` occurrences** — **exactly** unit `c`'s closure figure (`106 attributed = 106 unattributed, residue 0`). The same instrument reproduces **ESC-7's grep-of-record operand**: **23** stripped `variant="outline"` over **15** files, minus the **2** `<Badge variant="outline">` sites → **21 / 14**, unit `c`'s published figure to the digit, against the register's raw **30 / 16** (re-measured here). **The two Badge coordinates are the ELEMENT OPEN-TAG lines** (`GalleryCard.vue:115` · `GalleryCardModal.vue:129`, verified by `sed`) — the attribution unit the evidence declares, not an off-by-three |
+| **G8** touch-floor | **RED** | **RED — unchanged** | ⟨cmd⟩ `grep -rn 'data-size="icon"' web/node_modules/@mkbabb/glass-ui/dist/styles/` → `utilities/a11y-overrides.css:116` (the §Baseline coordinate, its directory now spelled in full) · ⟨cmd⟩ `grep -rl 'data-control-target' …/dist \| wc -l` → **0**. No site migrated, so the 44px floor was neither preserved nor dropped |
+| **G9** token-family sweep *(acceptance only; execution F.W3/W4)* | **RED** — 23 / 7 | **RED — unchanged, operand reproduced** | ⟨cmd⟩ `grep -rn -- "--slider-scrub" web/src \| wc -l` → **23**, `-l` → **7**, double-run. Correctly NOT executed here: executing it would run another wave's gate |
+| **G10** disclosure-deletion | **RED** — deletions unmade | **RED — unchanged; all ten landmarks reproduce at this seat** | ⟨cmd⟩ `grep -n 'overflow: hidden\|animation:\|prefers-reduced-motion'` per twin → `CollapsibleSection.vue` `:55` · `:61 :64 :69` · `:66`; `ContourSettings.vue` `:362` **and `:425`** · `:365 :368 :373` · `:370`. **Identical to §Baseline and to the round-4 re-measurement.** The R4-4.1 over-correction has not crept back |
+| **G11** module resolution | **RED** — exit 1 / 20 | **RED — exit 1 / 20, byte-identical** | ⟨cmd⟩ (cwd `web/`) `npx vue-tsc -b --force` → exit **1**; `grep -o "error TS[0-9]*" \| sort \| uniq -c` → **17 `TS6133` · 1 `TS6196` · 1 `TS2882` · 1 `TS2769`**. Run twice; ⟨cmd⟩ `diff run1 run2` → **EMPTY**. Unit `d`'s product commit added and removed **zero** diagnostics |
+| **G12** easing re-point by execution | **RED · probe UNRUNNABLE-AT-OPEN** | **RED · probe UNRUNNABLE — unchanged** | The witness is post-uplift execution (`play()` resolves, `phase` returns to `"idle"`). There is no uplift. The `as EasingFn` hazard at `easings.ts:58` stands unmoved |
+| **G13** peer-graph closure | **RED** | **RED — unchanged** | ⟨cmd⟩ (cwd `web/`) `npm ls --all` → **exit 1**; `npm ls` prints **9** extraneous (`@emnapi/core` · `@emnapi/runtime` · `@emnapi/wasi-threads` · `@napi-rs/wasm-runtime` · `@tybys/wasm-util` · `embla-carousel` · `embla-carousel-vue` · `embla-carousel-reactive-utils` · `perfect-freehand`). ⟨cmd⟩ `grep -n "lucide\|vaul-vue" package.json` → **one hit**, `:35 "lucide-vue-next"` — **`@lucide/vue` and `vaul-vue` still have no row** (limbs 6 and 7) |
+| **G14** pencil-boil floor | **RED** | **GREEN on the gate's own condition; the APPLICATION is not landed** | The condition is *"read the optional-peer range at the ADOPTED tag; correct the three drifted registry rows"*. Read here: ⟨cmd⟩ (cwd `../glass-ui`) `git show 17a11bc5:package.json \| grep -n "pencil-boil"` → `:513 "@mkbabb/pencil-boil": "^0.11.2"` (optional peer) ⊕ `:540 "0.11.2"` (devDep). The three rows are corrected as **dated rows D1–D3 ⊕ D4** at `evidence/w1/G14-PENCIL-BOIL-FLOOR.md`. **The manifest bump is limb 12 and did not land** — ⟨cmd⟩ `grep -n "pencil-boil" web/package.json` → `:17 "^0.4.1"` |
+| **G15** non-credit discharge | **RED, all three legs** | **(b) GREEN · (c) GREEN · (a) RED ⇒ the gate is RED** | **(b)**: ⟨cmd⟩ `ls docs/tranches/X/coordination/ \| grep -c nwo` → **3**; on NWO-1 ⟨cmd⟩ `grep -c 'FR-GIG-5'` → **5**, the three preserved BLOCKER dissents at `:164-166`, the non-credit **stated in terms** at `:174`, and the INBOX row **O-23** appended at `:109`. **(c)**: ⟨cmd⟩ `git show 17a11bc5:package.json \| grep -c '"\./pagination":'` → **0** — absent at the adopted map, so no cure *can* be planned around it. **(a) is a CONJUNCTION — *"the close report **and** the transaction's commit body each state"*. This Close states it (below); the commit body does not exist. The leg is STRUCTURALLY unsatisfiable while the transaction is blocked, and this seat does not stamp half a conjunction** |
+| **G16** latex-paper sufficiency | **RED — first arm measured UNEXECUTABLE in bounds** | **GREEN on the second arm — seated explicitly, owner named** | ⟨cmd⟩ `grep -c "hsl(var(" web/node_modules/@mkbabb/latex-paper/src/vue/theme.css` → **42**; ⟨cmd⟩ `grep -rn "hsl(var(" web/src \| wc -l` → **0**. The 42 are **producer bytes inside `node_modules`** — rewriting them in place is the HIGH defect standing law forbids. The disjunction therefore resolves to its second arm, and **NWO-5 seats it with its owner named at its own header**: ⟨cmd⟩ `grep -n -i 'latex-paper' …nwo5….md` → `:6 **To**: the **latex-paper** producer`. Recorded here; **delivery is the residual below**, not the seating |
+| **G17** cartoon-card order | **RED** — ruling gate, product is written prose in a close report | **RED — the ordering prose is NOT WRITTEN** | The gate's product is *"the written ordering in F.W1's close report"*, and the spec seats it at unit **`f`**, the wave's **only design seat (fable)**. **Unit `f` did not run.** This seat is VERIFY-ONLY and **may not author a design ruling it was not seated to make**. What IS recorded: unit `c`'s measurement that `.cartoon-card` is **not an uplift break** (already absent at the installed pin; the local shim survives because `cartoon-surface` does), which re-frames G17 as a **design** ordering rather than a break ordering — and leaves `KILL-6` untouched. **Named as an unpaid debt, not swept** |
+| **G18** binding-verification probe | **RED · probe UNRUNNABLE-AT-OPEN** | **RED · probe UNRUNNABLE — unchanged** | The witness is a real post-uplift drag firing `anim.startScrub()`. There is no uplift. **I-32's `A-10` answer was read by unit `b` and its disposition against PD-1's disjunction was deliberately NOT pre-consumed** — the required statement (*discharges · narrows · leaves*) is unit `f`'s and is **unmade**. It rides forward |
+| **G19** owner rulings recorded | **RED — ONE of SEVEN** | **RED — ONE of SEVEN, unchanged** | Falsifier re-run at this seat, **twice, two forms**: ⟨cmd⟩ (cwd `docs/tranches/X/`) `grep -n "ESC-2\|ESC-3\|ESC-4\|ESC-5\|ESC-6\|ESC-7" COHESION.md EXECUTION-RUNBOOK.md` → **no output, exit 1**; ⟨cmd⟩ `grep -c …` same operands → `COHESION.md:0` · `EXECUTION-RUNBOOK.md:0`, **exit 1**. **ESC-1 alone is ruled** (§0i.3). **Six carry no ruling and no explicit deferral** |
+| **G20** closure, both sources | **RED** — the run is the close seat's, and must not be this file's author | **RED — NOT RUN; both operands verified intact** | Leg (b)'s frozen operand re-verified at this seat: ⟨cmd⟩ `shasum -a 256 CENSUS-CANONICAL.md \| cut -c1-12` → **`f44362757458`**, **`f44362757458`** (double-run) — the pinned digest, unmoved. Leg (a)'s operand present: `carry/F-W1-CARRY.md`. **The two set-differences themselves are unit `f`'s act and were not performed.** This seat did not author `F-W1.md`, so it *could* have run them — it did not, because the wave is BLOCKED short of its own transaction and a closure claim over an unexecuted roster is a claim about nothing. **Named as the largest unpaid debt of the wave** |
+
+**Tally at the close — 20 gates: 6 GREEN (G1 · G3 · G5 · G7 · G14 · G16) · 14 RED, of which 3 are
+UNRUNNABLE by construction (G4 · G12 · G18) and 2 more are structurally blocked by the missing
+transaction (G6 · G15(a)).** The wave **moved five gates** off born-RED (G1 · G5 · G7 · G14 · G16)
+and inherited one green-before-cure (G3, by predecessor).
+
+### Act 3 — §4 Cadence's evidence list, run as written
+
+The spec declares **no `§Verification Artefacts` heading**; its verification instrument is **§4
+Cadence**, which names `npx vue-tsc -b --force`, `npm run build` at G4 and post-cut,
+`git diff --check` every commit, an evidence roster under `evidence/w1/`, and `F-W1-LOG.md`.
+
+| cadence item | run here | reading |
+|---|---|---|
+| `npx vue-tsc -b --force` | **YES, twice** | exit 1 · 20 diagnostics · `diff run1 run2` EMPTY |
+| `npm run build` (G4) | **NO — lawfully** | needs the bumped install (blocked limb 1); its command writes `web/dist`, a §1 read-only witness |
+| `git diff --check` | **YES, both repos** | clean, exit 0 |
+| `evidence/w1/` roster | **5 of the named artefacts landed** | `G7-BUTTON-BUDGET.md` **220 L / 15,402 B** · `M7-PROP-LEVEL-DIFF.md` **282 / 20,577** · `G5-CSS-CLASS-CENSUS.md` **323 / 25,617** · `G14-PENCIL-BOIL-FLOOR.md` **123 / 9,353** · `K1-RE-RESOLUTION.md` **150 / 8,748** — self-counts reproduced at this seat, double-run; `head -1` of each is its own `SERVED MODEL:` line. **Absent and owed: the G4 emitted-CSS grep · the G6 `git show --stat` + four e2e runs · the G10 witness · the G12 transcript · the G13 `npm ls`/`npm ci --omit=dev` outputs · the G18 assertion · the WU-F / edge-9 screenshot rows** — every one of them a post-transaction artefact |
+| `F-W1-LOG.md` | **NOT created** | units `c` and `e` each disclosed the decision with its reason (a partial log would have to be reconciled; there is no transaction to log). **Carried forward, not dropped** |
+
+### Act 4 — E13, the close sweep at this seat's own clock
+
+The four paths ⊕ the atlas **Q**-lane extension re-swept **read-only**, classification taken from
+each row's **status cell**, never from a bare `grep -i unread`. **Delta test** ⟨cmd⟩
+`/usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 19:11'` (19:11 = the F.W1 open
+sweep) per path → (1) `docs/tranches/V/` **∅**; `V/coordination/` → **`INBOX.md` itself only**
+(SELF-COUNT law) · (2) `../glass-ui/docs/tranches/BK/coordination/` **∅** · (3)
+`../keyframes.js/docs/tranches/V/coordination/` **∅** · (4)
+`../sci-report/atlas/docs/tranches/P/coordination/` **∅** · (Q) **∅**.
+
+**BK re-confirmed the newest glass tranche dir** ⟨cmd⟩ `ls -dlt ../glass-ui/docs/tranches/*/ | head -3`
+→ `BK` · `BJ` (08-03) · `BI` (07-28). **BK's directory mtime moved 17:52 → 20:15 and this seat
+chased it rather than passing over it**: ⟨cmd⟩ `find ../glass-ui/docs/tranches/BK -newermt '2026-09-17 19:11' -type f -name '*.md'` → **seven files, ALL under `BK/execution/2026-09-17-o20-cure/*/RECORD.md`** — glass's own execution records for its O-20 cure, **not mail, not addressed here**. `BK/coordination/` itself has **no file newer than 17:43**. **0 unrowed · 0 new `I-n` minted · 0 new `O-n`.**
+
+**UNREAD mail in scope — stated plainly rather than finessed.** ⟨cmd⟩
+`sed -n '105p;106p;107p' INBOX.md | grep -o 'UNREAD [0-9-]*'` → **`UNREAD 2026-09-17` ×3**.
+**I-32 · I-33 · I-34 still carry that mark.** Their *material* F.W1 content **is** consumed:
+unit `b` read I-32 and I-33 **in full** before authoring NWO-1, struck every producer-disposed item
+from the roster, and recorded the consumption as a dated paragraph at `INBOX.md`'s foot; unit `e`
+received I-32's `B-4` and carried it into the escalation rather than dropping it; I-34 names no
+F.W1 surface (its `./search` clause is value.js's, budgeted at X-EXT-1). **The durable status cells
+are Track D's rows**, minted by X.P.W2 seat 0 and routed to X-W0.j / the X formation mail seat — no
+F.W1 seat, this one included, may flip them.
+
+**How this seat discharges *"no wave closes with UNREAD mail in scope"*: it does not close the
+wave.** The Track C row moves to **BLOCKED-ON**, not CLOSED. The law binds a close; this is a hold.
+The three rows are named here so that whoever resumes F.W1 meets them at the first line.
+
+### Act 5 — G15's non-credit, stated in terms (leg (a)'s close-report half)
+
+*The F.W1 tri-package uplift is **NOT** credited with curing the whole-collection pagination drain.*
+`FR-GIG-1`'s drain is an **observer-root geometry** defect in the producer's
+`useInfiniteScroll.ts`; it **survives the hop** to `v8.0.0 @ 17a11bc5` unchanged, and no limb of the
+twelve-limb transaction touches it. `FR-GIG-5` is the non-credit lock, and it leaves on **NWO-1**
+with its **three preserved BLOCKER dissents** — the L axis, the C axis, and reader-B — intact and
+un-narrowed. **`AA-11` holds**: no cure anywhere in this wave is planned around `./pagination`,
+which is absent from **both** export maps (0 at the installed 4.0.0 and 0 at `17a11bc5`).
+
+**This discharges only the close-report half of leg (a).** The other half — *"and the transaction's
+commit body"* — has no commit to carry it. **G15 stays RED**, and the successor `e` seat inherits
+the obligation to put this paragraph's substance in the `feat(fourier)!:` body when it lands.
+
+### Act 6 — the four-verb line: it does **not** move, and that is a reading, not an omission
+
+§State's own basis cells govern: **IMPLEMENTED** *"stamps at G1–G20 green + close report"* —
+**14 of 20 are RED**, so it stays **NO**. **VERIFIED** *"stamps at X·F sub-tranche close, never
+here"* — it stays **NO**, and no seat of this wave may move it. **AUDITED** and **SPECIFIED** are
+unchanged at YES. **This seat wrote no byte into `F-W1.md`**: the spec's `Status: planned` cell and
+its four-verb table are untouched, the wave's execution state of record being
+`execution/LEDGER.md`'s Track C row, which this seat moves to **BLOCKED-ON**.
+
+### Commit roster — the whole wave
+
+**value.js** (`tranche-u`): `c05fc57e` · `59bd88b9` (`a`) · `70a87e7e` (`b`) · `2a84bd5a` ·
+`dcc266f2` (`c`) · `473a8098` (`d`) · `8a3c2f8e` (`e`) · **this Close**.
+**fourier-analysis** (`m/w1-bump-migration`): **`3bac3d5`** (`d` — the severable palette cure, the
+wave's **only** product commit).
+**Not landed: the `feat(fourier)!:` atomic transaction (commit #4) and the F.W1 close-report commit
+plan step 5's witnesses.**
+
+### Residuals handed forward, each with a named owner
+
+1. **→ THE OWNER — the whole of why this wave is held. `ESC-4` and `ESC-7`** need a ruling or an
+   **explicit deferral with blocked rows named**; each gates a limb of the atomic transaction.
+   **`ESC-2` · `ESC-3` · `ESC-5` · `ESC-6`** need one for **G19** to go green but gate no limb.
+   **A two-answer round unblocks the transaction; a six-answer round closes G19.** Re-measured
+   here: ESC-7's live Button surface is **21 occurrences / 14 files** under the grep of record
+   (register figure **30 / 16**), plus the **1 unmapped `link` site** unit `e` named, which is not
+   covered by ESC-7's own text and should ride its ruling.
+2. **→ unit `f` (unrun) / the successor design seat — `G17`'s ordering ruling is UNWRITTEN.** It is
+   **independently runnable**: it needs no transaction, only the FR-EQC-3-retire ⟷ AA-4-adopt
+   ordering as prose F.W3/F.W4 can execute against. Unit `c`'s finding narrows it to a *design*
+   ordering. **This is an unpaid debt of the wave, not a blocked one.**
+3. **→ unit `f` (unrun) — `G20`'s two set-differences are NOT RUN.** Both operands are verified
+   intact at this seat (`f44362757458`; `carry/F-W1-CARRY.md`). Like G17, **it is independently
+   runnable** and was not run. **The second unpaid debt.**
+4. **→ the X formation mail seat — the three relay packets are AUTHORED and ROWED, NOT DELIVERED.**
+   `../glass-ui/**` is READ-ONLY always, and the latex-paper and pencil-boil trees sit outside every
+   F.W1 writable set, so the hop into each producer's coordination dir is that seat's act.
+   **G16's seating and G15 (b) both depend on the hop for effect, not for their grade.**
+5. **→ Track D / the mail seat — `I-32` · `I-33` · `I-34` remain `UNREAD 2026-09-17`.** Materially
+   consumed (unit `b`, in full, recorded); the durable marks are not F.W1's to flip.
+6. **→ the successor `e` seat (binding, and the reason unit `e`'s Act 3 exists).** **Ten of twelve
+   limbs are measured ready at their true bytes, with no anchor drifted.** Consumed and re-verified:
+   the breaking `size=` set is **`icon` (35) ⊕ `default` (6) = 41** and the attribute operand is
+   **129**; **`DockIconButton` (19 callsites / 2 files) and `DockDropdownTrigger` (1 / 1) are
+   DELETED behind a SURVIVING `./dock`** — invisible to every import-shaped probe; the three
+   consumer re-targets **R1 · R2 · R3** (9 sites / 6 files) land **inside commit #4**, never as a
+   thirteenth limb; **limb 11 is a RULED KILL** (GCM-22 SUPERSEDED at 8.0.0 — `GalleryCardModal.vue:73`
+   must NOT be edited, and the commit body must say so, since a silent no-op reads as a dropped
+   limb); the `^0.11.2` in-range set is **uniquely `{0.11.2}`**.
+7. **→ unit `d`'s widening question (an ESCALATION unit `d` returned and this seat re-states rather
+   than absorbs).** Three WU-E limbs have their ONLY repair site outside every F.W1 bound:
+   **`fr-BasisCanvas C-4`** (`BasisCanvas.vue` — every draw runs inside a `watch` callback, which
+   tracks nothing), **`m-9`** (`DarkModeToggle.vue:30,31,49,50,53,54`), **`M-α5`**
+   (`canvas-drawing/epicycles.ts:289`). **The right disposition is a bound, not a revert** — commit
+   #3 is severable and stands.
+8. **→ F.W3 / F.W4.** `G9`'s 23 declarations / 7 files (acceptance-only here); FM-2's token column
+   (**5 `var(--ring)` sites / 4 files** lose their register silently — one edit to
+   `--focus-ring-color`); **R2's successor rung `text-mono-micro uppercase font-medium` is binding
+   on F.W4's AA-15**; `GM-19`'s new layered-`!important` route at 8.0.0.
+9. **→ F.W9 / F.W10.** The cross-edge-9 visual-regression checkpoint set is **UNMINTED** (unit `f`).
+   Unit `e` named one row that arrives with the hop whether or not ESC-3 is ruled: **six
+   `SelectTrigger` callsites across five files gain `glass-control-edge` ⊕ `glass-capsule-hover` at
+   8.0.0, and zero of them pass a prop that could opt out.**
+10. **→ the close of X·F.** `F-W1-LOG.md` was deliberately not created, twice disclosed with reason.
+
+### Escalations returned by the wave
+
+**SIX owner rulings — `ESC-2` … `ESC-7` — UNRULED and UNDEFERRED**, flagged INLINE at `F-W1.md`
+§8.6 by unit `a` and re-priced by unit `e`. **Two of the six (`ESC-4`, `ESC-7`) BLOCK the atomic
+transaction at limbs 1 and 2.** Unit `e` measured, and this seat confirms, that all three
+alternatives to holding are defects: a ten-limb landing is the **L-18 partial-landing failure**
+(§3.4's first lock); a twelve-limb landing that leaves the `outline` sites untouched goes **green
+while 21 sites silently lose their register** (Button has no `variant` prop at `17a11bc5` and
+FR-COB-2 (a) says the limb is SILENT) — **a masking outcome, which standing law grades a HIGH
+defect**; and picking an emphasis is a seat ruling on the owner's behalf on *"the wave's largest
+undecided design surface"*. **No `test.skip`, no allowlist, no try/catch around a defect, no
+producer patch, no `node_modules` edit, no descoped limb was written anywhere in this wave**, and
+this seat re-read all eight commits to confirm it.
+
+**A seat may not defer on the owner's behalf.** The deferral G19 accepts is an **explicit** one.
+
+### Verdict
+
+**BLOCKED** — held, not closed. **Five gates moved off born-RED** (G1 · G5 · G7 · G14 · G16), one
+product commit landed and is **severable and correct standing alone** (`3bac3d5`), three relay
+packets are authored and rowed, and **ten of the twelve transaction limbs are measured ready at
+their true bytes**. The wave stops one ruling-round short of its own centre. **The unpaid debts
+that are NOT blocked are G17's ordering ruling and G20's closure run** — both belong to the unrun
+unit `f` and both are runnable today.
