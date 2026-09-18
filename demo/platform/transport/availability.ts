@@ -172,8 +172,19 @@ export function markApiUnreachable(): void {
     apiAvailability.value = "unavailable";
 }
 
-/** Release the latch: a request reached the backend (any HTTP status). */
+/**
+ * Release the latch: a request reached the backend (any HTTP status).
+ *
+ * X.W3.7 · AP-31 — the `misconfigured` invariant is defended on BOTH sides.
+ * `markApiUnreachable` already refuses to relabel a designed misconfig as an
+ * offline backend; this side refused nothing, so any reached-backend mark would
+ * have silently cleared it — and a cleared misconfig is a dev-config error the
+ * instrument has stopped naming. It is not reachable through the transport
+ * today (the gate throws `DevMisconfigError` before a request is issued), which
+ * is exactly why it is cured now rather than after a caller finds it.
+ */
 export function markApiReachable(): void {
+    if (apiAvailability.value === "misconfigured") return;
     if (apiAvailability.value !== "available") {
         apiAvailability.value = "available";
     }
