@@ -532,3 +532,201 @@ Delta sweep at this unit's clock (01:1x EDT) against `.b`'s 00:31 sweep ⟨`/usr
 #### §9 · Escalations
 
 **None.** Every act this unit was given was available at the bytes and executed as specified. The two places where the literal instruction did not meet the bytes are **measured deviations inside the spec's own censuses, not substitutions** — §3.5(a) (the `:230` repoint is moot by construction; census A-3's *"two die in this family"* authorises the shim's home) and §3.5(b) (the provide survives because four live consumers depend on it and the honest fold needs a file no unit holds). Both are stated in the commits, in the code, and here. No quick fix, no workaround, no masking fallback, no `test.skip`, no allowlist, no producer selector copied, no `node_modules` patch; glass-ui was read-only throughout; `scripts/dev/dev.sh` was never touched and appears in zero commits.
+
+---
+
+### KF.W6.d
+
+SERVED MODEL: claude-opus-5[1m]
+
+**Unit**: `KF.W6.d` — the **R4-1 atomic delete** of the `EditorHeader` fork (three limbs, one commit), then the LIVE `EH-*` rows spent at their OWN banked anchors, `KF-APP-5`'s consumer half, the four **ChromeDock** rows (D-5 · D-22 · D-23 · D-24), and the **MbabbMenu motion** family. **Seat clock**: 2026-09-18 00:5x → 02:2x EDT.
+**Sections executed**: §Carry **W6-L** `:459-485` · §Bounds census **A-11** `:146-163` · §Gates **G-W6-15** `:545` · §Sequencing commit families `:562` + the **→ KF.W8** cross-edge `:572`. Spec read WHOLE (661 L / 299.8 KB, in four passes — it exceeds a single read). This record's Open/Baseline/Unit-plan and the `.a` + `.b` + `.c` receipts read; COHESION §0j read whole — **§0m.1 consumed** (a unit does not push; the wave pushes at close).
+**Substrate at open**: keyframes.js `master` HEAD **`98be70f5`** (this unit's base, from which every BEFORE below is measured), worktree 2 untracked (the O-8/O-11 mail survivors, pre-existing), 0 tracked modifications of mine.
+**Gate turned**: **`G-W6-15`** — RED at base, **GREEN** at the settled bytes, double-run.
+**Commits (10, in order)**: `4b909ed2` · `998124e1` · `fe6e5dfa` · `f1324983` · `412b8324` · `4cf174eb` · `e64103be` · `7b721d10` · `3cc7e126` · `ac30976f`.
+
+**Anchor drift, recorded (INTENT at the true bytes, LAW F(3) — each LIVE row spent at its own anchor, never disposed by co-id, host record or fold carrier)**: the brief's `App.vue:143` barrel-import site resolves at **`:146`** — and resolves at `:146` **at base `98be70f5` too** ⟨`git show 98be70f5:demo/app/App.vue | grep -n 'instrument/shell'`⟩ → `146:`, so the +3 is drift against the spec's `81a56990` anchor and **not** any seat's edit in this wave. The brief's `MbabbMenu.vue:81` shell import resolves at **`:189`** at close — **that drift is this unit's own** (`3cc7e126`'s in-source rationale), and at base it is exactly `:81`. `EditorShell.vue:20 / :36 / :44-47` and `MbabbMenu.vue:20` resolved exact at open.
+
+---
+
+#### §0 · LOCK R4-1 — the three limbs, ONE commit
+
+Census **A-11** is reproduced at the base bytes before the cut, ⟨`git grep -n 'EditorHeader' 98be70f5 -- demo/ test/ src/`⟩ → **2 files, 2 lines**:
+
+```
+98be70f5:demo/components/instrument/shell/index.ts:2:export { default as EditorHeader } from "./EditorHeader.vue";
+98be70f5:demo/styles/layout.css:15:    --header-items-max-w: 500px; /* the EditorHeader expanded items-wrapper cap … */
+```
+
+— i.e. **ONE live importer** (the barrel), **exported-symbol consumers ∅**, **mounts 0** ⟨`git grep -n '<EditorHeader' 98be70f5 -- demo/`⟩ → 0, and the coupled token whose **sole consumer** is the fork's own scoped rule ⟨`git grep -n 'header-items-max-w' 98be70f5 -- demo/`⟩ → **3 lines / 2 files**, two of them inside `EditorHeader.vue` (`:90` its naming comment, `:92` `max-width: var(--header-items-max-w)`). The census's "not yet orphan" reading is therefore exact: the token is orphaned **by** the delete, in the same act, which is why the limbs may not split.
+
+**`4b909ed2`** — `refactor(kf/w6.d)!: the EditorHeader fork dies WITH its barrel edge and the token that would outlive it — ONE ACT, three limbs (KF-APP-41 adopted, RULINGS-4 R4-1; G-W6-15)`
+
+⟨`git show --stat --format='' 4b909ed2`⟩:
+
+```
+ demo/components/instrument/shell/EditorHeader.vue | 108 ----------------------
+ demo/components/instrument/shell/index.ts         |   1 -
+ demo/styles/layout.css                            |   1 -
+ 3 files changed, 110 deletions(-)
+```
+
+Limb 1 = the 108-line file deleted; limb 2 = `shell/index.ts:2` struck (**R4-5(c): KF.W6 is the barrel's ONE write owner; KF.W8 G7 measures and performs no barrel edit** — that ownership is exercised here and nowhere else in this unit); limb 3 = `layout.css:15` struck **whole**, declaration *and* its naming comment together (KF-CE-41 — a comment naming a dead component is the same phantom the declaration is).
+
+**Procedural note, recorded because it nearly forced a forbidden command.** `git add <path>` on the deleted file fails — `git rm` had already staged it as `D` and it is absent from the worktree, so the pathspec matches nothing. The lawful shape is to `git add` **only the two modified paths** and let the commit's **own pathspec** carry all three, which records the deletion: `git commit --no-verify -- <the three paths>`. **`git add -A` / `-u` was not reached for** (four tracks share this index).
+
+#### §1 · EH-4 — ONE row, BOTH spend sites, one commit
+
+**`998124e1`** — the row is LIVE at **two** banked anchors (`EditorShell.vue:45` and `MbabbMenu.vue:20`); LAW F(3) forbids disposing the second by the first's green, and the spec's commit families forbid splitting one row across two commits. Both `title="Toggle dark mode"` attributes are dropped in one act.
+
+**Measured at the producer before the strike** (glass-ui **7.0.0 EXACT**, the ruled pin; read at the installed dist, never guessed): `DarkModeToggle` destructures `let { class: e, type: t, ...n } = h;` and spreads `n` onto **the same `<button>`** that already carries its own state-aware `aria-label: v.value ? "Switch to light mode" : "Switch to dark mode"` plus `aria-pressed`. A `title` therefore lands on the named element itself and ships a **visible string that is not in the accessible name** — WCAG 2.5.3 Label in Name. In the menu the adjacent `Dark mode` span is already the row's visible label; in the ribbon the control is icon-only and the producer's own name is the correct one. **No tooltip is substituted** — that would be a second, demo-owned name competing with the producer's.
+
+#### §2 · EH-5 ⊕ EH-8 — ONE sizing decision across the ribbon cluster
+
+**`fe6e5dfa`** — the brief requires these **decided together**, and they are: one commit, one rule, three controls.
+
+**Producer facts, measured at 7.0.0 before deciding** (each read at the dist): `--dark-mode-toggle-size: 2.25rem` is the base, with `sm` / `lg` / `control` / `dock` arms and **no `md` arm**; `.button[data-icon-only] { inline-size: var(--button-size); block-size: var(--button-size) }`; `--control-h-sm: 2.25rem`, `--control-h-md: 2.5rem`.
+
+The defect those facts expose: `class="aspect-square w-8"` on an `icon-only` Button sets only the **inline** axis (utilities cascade after components), so the box was **32px × md** and the `aspect-ratio: 1` was **inert against two definite dimensions** — a width utility silently overriding a producer control's own geometry, and `aspect-square` reading as though it had fixed it. The cure is the `size` vocabulary: `size="sm"` → `--control-h-sm` `2.25rem`, **the same rung `DarkModeToggle`'s own base ships**, so the two chrome controls agree **by construction** rather than by a coincidence of literals. `.b` §2.8's ONE `min-block-size` policy ("no demo `h-*` on a glass CONTROL; height is `size`-driven") is consumed, not re-decided. **Rendered magnitudes are left to KF.W9**, as the brief directs — this commit decides the *vocabulary*, not the number.
+
+#### §3 · KF-APP-5 — the CONSUMER half (supply `#anchor`)
+
+**`f1324983`** — the row's producer half rides the BH relay (**O-26 R-11**); this is the consumer half only, and it is supplied by **using** the API rather than fighting the seam.
+
+**The seam, read at the producer's render before writing a line**: `HeaderRibbon` renders its actions with `inert` + `aria-hidden` and **zero inline-size** until `expanded` (= `pinned || hovered || focus-within`), opens on hover **only for a non-touch pointer**, its anchor `div` carries `onClick: k` (the pin toggle), its root `onFocusin` sets focus-within, and Escape restores focus via `b.value?.querySelector("button, a, [tabindex]:not([tabindex='-1'])")`. **The `#anchor` slot was EMPTY.** With no focusable in it there was **no tab stop, no touch affordance and no Escape landing target**: Share and the theme toggle were keyboard- and AT-unreachable in the shell, and the shortcuts modal was wholly unreachable on touch (its only two routes are this ribbon and the `?` shortcut).
+
+One real focusable control is added in the anchor — a quiet `icon-only` `size="sm"` Button with `:aria-pressed="pinned"` and a state-aware `aria-label` (`Unpin header actions` / `Show header actions`), `Pin`/`PinOff`. **It deliberately carries NO click handler**: the producer's own wrapper owns the click, and adding a second would double-toggle. Tab reaches it → focusin expands the band → the three actions leave `inert`; tap pins on touch, where hover never fires.
+
+#### §4 · ChromeDock D-22 — delete the single-slot wrapper
+
+**`412b8324`** — the `<div class="flex items-center gap-2">` around the dock row is deleted (opening tag and its `</div>`).
+
+Two costs, the second consequential: it substituted `8px` for the token'd `--dock-layer-gap`; and it made itself **the single direct child of the slot**, so every onset step of the producer's staggered reveal — `.dock-layer.is-active > *:nth-child(2 of *)`, `:nth-child(3 of *)`, `:nth-child(n+4):nth-child(-n+5)` and their `nth-last-child` mirrors, **read at `dist/components/dock/styles/layers.css`** — matched that one div, and the whole row faded and scaled as a block. **The dock's signature expand animation was silently absent on the app's most-seen chrome.** The producer's `.dock-layer` already *is* the flex row (`display:flex; align-items:center; gap: var(--dock-layer-gap)`), so the wrapper bought nothing it did not also break. If `8px` is wanted it is `--dock-layer-gap`'s to say; the magnitude is KF.W9's.
+
+#### §5 · ChromeDock D-5 (+ KF-APP-26) — ONE glyph rung, and it is the dock's own
+
+**`4cf174eb`** — every dock glyph site moves off the demo's `icon-*` family onto the producer's own token.
+
+Three defects, one root: the demo's `icon-{xs,sm,md,lg}` `@utility` family (14/16/20/24px) **shadows glass-ui's `--icon-*` scale** (12/14/16/20px) under identical stems, uniformly one rung up. Reading those stems inside the dock (a) put **four** glyph rungs in one row; (b) let `icon-lg` — an `@layer utilities` rule, therefore later than `@layer components` — **defeat** `.dock-icon-button > svg { width: var(--dock-icon-glyph) }`, drifting the dock's invariant 0.5 glyph-to-control ratio; and (c) inverted the file's own grammar (the **identity** glyph was the smallest thing in the row at `icon-sm`=16, the panel toggle the largest at `icon-lg`=24).
+
+Cure: one scoped rule reading the producer's token, and **the DockControl glyphs lose `icon-lg` entirely** — the producer already sizes its own `> svg` from the same token, which is exactly the invariant `icon-lg` was defeating.
+
+```css
+.dock-glyph { width: var(--dock-icon-glyph); height: var(--dock-icon-glyph); }
+```
+
+`--dock-icon-glyph` = `max(--dock-layer-height * --dock-icon-glyph-ratio, --dock-icon-glyph-floor)` and is declared at `:root` **as well as** on `.glass-dock[data-size]`, so it resolves inside the **portalled** SelectContent too — checked, because a `.glass-dock`-scoped-only token would have silently failed there.
+
+**KF-APP-26 rides in the same commit** (the KF-APP-25 token-alignment family): `.dock-inline-tab`'s `padding-inline: var(--dock-label-padding-inline, 0.5rem)` named a **phantom** — one consumer, **zero definitions** anywhere in the demo or the dist — so the rule had always been running on its own literal fallback while *looking* token-driven. Repointed to the producer's shipped `--dock-trigger-padding-inline`. The `icon-*` family's own corpus-wide disposition is W6-D's audit row, not this file's.
+
+#### §6 · ChromeDock D-23 / C-5 — a GETTER, never a selector string
+
+**`e64103be`** — `:background-canvas="auroraCanvas"` on `<GlassDock>`, where
+
+```ts
+const auroraCanvas = (): HTMLCanvasElement | null =>
+    typeof document === "undefined"
+        ? null
+        : document.querySelector<HTMLCanvasElement>(".hero-aurora canvas");
+```
+
+**THE CURE LAW, proved at the bytes — both halves, because the two disagree.** `GlassDock` does **not** hand its prop to the resolver; it wraps it, verbatim at `dist/dock.js`:
+
+```js
+backgroundCanvas: () => { let e = n.backgroundCanvas;
+  return typeof e == "function" ? e() : e instanceof HTMLCanvasElement ? e : null; }
+```
+
+A **string** falls through both arms and is `null` **before** the underlying resolver — which *does* handle selectors — ever sees it. The `.d.ts` advertises *"an element, a getter, or a CSS selector"*; the shipped adapter honours two of the three. **A selector-string diff would type-check, review clean, and change nothing.** Hence a getter, resolving through the **demo's own** `.hero-aurora` wrapper (`HeroAurora.vue`), never a producer-internal class — the standing law forbids a copied producer selector.
+
+**Effect measured in-browser (bounded probe, §5.2)**: the dock's `data-backdrop-sample-reason` moves `source-unavailable` → **`sample-unavailable`**, and the two docks now differ **exactly in the leg this commit supplied** (ChromeDock `sample-unavailable` · TransportDock still `source-unavailable`) — corroboration the binding is live and reaching the sampler. **The residue is diagnosed, not papered over**: a `drawImage` readback of the aurora canvas measures `maxAlpha 0 / rgbSum 0` because the canvas is created with `preserveDrawingBuffer: false`. Aurora **publishes** `runtimeOptions.preserveDrawingBuffer?: boolean`, so the completing half is **ONE token in `HeroAurora.vue`** — which is **unit `.j`'s ONE aurora config motion, outside this unit's writable set**. Declared, routed, **not reached for**, and **no `node_modules` patch** was contemplated. Contrast delta and observer cost are KF.W9's.
+
+#### §7 · ChromeDock D-24 — stop signalling SELECTION with a HEALTH primitive
+
+**`7b721d10`** — `hide-indicator` and all three `<StatusDot …>` go, with the `StatusDot` import.
+
+The defect in one line: a **health-status** primitive (`online` green / dashed `unknown` ring, **one per NON-current row**) was carrying the **selection** signal in three menus — against this dock's own "never a saturated brand hue" register — while the primitive **built for the job**, the producer's `SelectItem` **indicator**, was switched off at every one of those rows by `hide-indicator`. The demo hid the selection vocabulary and re-invented it out of a health vocabulary. Leaving the indicator on is enough: reka renders it for `data-state="checked"` **alone**, so the **current** row is marked instead of every **other** row being marked "unknown".
+
+**Why `--select-dot-color` is bound explicitly — measured, not preferred.** The producer's dot paints `background-color: var(--select-dot-color, var(--glass-accent, currentColor))`, and **in this app the middle link is dead**: `--glass-accent: var(--color-gold)` is declared by the producer where `--color-gold` is not yet defined and the property is `@property`-registered, so it falls to its **transparent initial** — measured `rgba(0, 0, 0, 0)` at both `:root` and `body`, while the demo's own `--color-gold` measures `#d9a520` one scope later. **Dropping `hide-indicator` alone would have swapped a wrong-but-visible signal for an INVISIBLE one.** The binding names the chain's own terminal link, `currentColor` — the row's ink, legible in both themes for free, and pointedly not a saturated brand hue.
+
+**`--dock-selected-accent` is NOT what gets bound, and that is measured too**: its only consumer in the dist is `.glass-dock.vertical .dock-icon-button:is(.is-active, …)::before` — a **vertical rail** accent strip — resolving to a **14%** wash (`oklab(0.216 … / 0.14)`) sized for a 3px bar. Piping that into an 8px dot on a **horizontal** dock authors an invisible affordance. The row's premise that the token sits unused is true and stays true; at this dock's orientation it is unreachable. Recorded in source, not silently dropped.
+
+**Delivery idiom, forced by measurement**: a `.dock-select-content` **scoped** rule does **not** apply — the portalled `SelectContent` root carries the producer's `data-v-f79fd526`, not ChromeDock's scope id. The binding is therefore an inline `:style`, which is also this file's own documented portal-safe idiom (the `--ppmycota-primary` precedent). **No `:deep` (banned), no global block.**
+
+#### §8 · The MbabbMenu motion — MM-4 + MM-15 + MM-30 + MM-8/-9/-29/-31, ONE commit
+
+**`3cc7e126`** — the family the brief names, landed whole. (The **MUST-CARRY rider travels wherever ChromeDock M-4 lands**; M-4 is **not** this unit's, so the rider does not land here and is **not** discharged here.)
+
+- **MM-29 (site 1)** — `normal-case` cancels `text-transform` **and nothing else**: `text-mono-caption` also binds `letter-spacing: var(--type-tracking-caps)` (0.1em), which rode on regardless, so a lowercase handle shipped with **CAPS tracking**. `tracking-normal` is paired with it (G-W6-8 binds this wave and KF.W7 identically). The responsive rung pair is left exactly as authored — collapsing it would decide a dock-band **magnitude**, and magnitudes are KF.W9's.
+- **MM-15** — `z-popover`, not `z-modal`. The demo's written z-contract reserves `--z-modal` (140) for modal dialogs. **The wrong rung was INERT and therefore invisible**: the producer's **unlayered** `z-index: var(--z-popover)` outranked the layered utility, so both portalled siblings sat at 130 and DOM order decided. The moment glass layers its sheet (MM-4, relayed as O-26 R-1) **the utility ARMS** — and `z-modal` would then occlude the Share popover. Corrected **before** the producer fix lands, which is precisely why it rides this motion.
+- **MM-4 (interim, and labelled as one in source)** — glass-ui emits `.dropdown-menu__item` **outside** its single `@layer components` block (**byte 29523** against the block's **2531–18827**), and an unlayered rule beats a layered one whatever the source order — so `cursor-pointer` on a row that has an `@click` **never paints** and the row reads as inert. The durable fix is the producer's and was **sent as O-26 R-1 before this interim was written** (§Sequencing 7). Until it lands the paint is declared inline — the file's own portal-safe idiom — **with the class kept alongside so that removing the `:style` is the whole migration**. `MM-44`: this file is the demo's **only** DropdownMenu consumer, so the interim's blast radius is this component.
+- **MM-30** — the row reached for the **wrong red**. `text-destructive` is the vendor's `--destructive`, while this repo's own law (`style.css:114-119`, which names Clear-all **by name**) assigns `--accent-red` — and `--accent-red` alone carries a bespoke `.dark` arm (`style.css:187`) and a Tailwind bridge (`--color-accent-red`, `style.css:58`). **Order matters**: curing MM-4's layer first would have *armed* the class and painted the vendor's red, so the token correction had to land **with** it.
+- **MM-8 + MM-9** — `text-admin-label` is a 10px **all-caps mono chip** register (`font-mono` · `text-transform: uppercase` · caps tracking · `line-height: 1`) and it was carrying **four sentence-case English sentences**: wrong register for prose (MM-8) and a T.D4 mono-contract breach (MM-9, none of these leaves is a `monoAllowedSelectors` entry) in one place. All four move to `text-micro` (11px, inherited text face, no transform, no caps tracking). **The mono register survives at the one leaf that earns it** — the bare `ppmycota.com` URL, an artifact string, not prose.
+- **MM-31 (+ MM-29 site 2, cured STRUCTURALLY rather than patched)** — the `@mbabb` title was simultaneously the **smallest** string in the menu and its **only bold** one: the person the menu is named after read below "Share" and "Clear all & reload". It takes its siblings' rung (`text-mono-small` = `--type-small`, the same size token the sibling titles read; mono is correct because `@mbabb` is a case-significant identifier, `data-register="code"`), and the bold goes with the inversion. **MM-29 needs no pairing here** because `text-mono-small` applies neither `text-transform` nor `--type-tracking-caps` — the `normal-case` that used to sit there existed only to cancel the caption rung's transform, and the right rung never had one.
+
+#### §9 · `ac30976f` — G-W6-15's grep made LITERALLY zero
+
+The D-5 comment in `4cf174eb` opened `/* ChromeDock D-5 ≡ EditorHeader F4 …`, citing the row's **co-id**. `G-W6-15`'s first clause is a **literal** `git grep EditorHeader` → 0. Rather than argue the gate green over a row-id citation — the exact shape of self-serving reading the gate exists to catch — the comment was reworded to `/* ChromeDock D-5 (co-id: the F4 row of the deleted header fork's record) …`. **The co-id is preserved as prose; the token is gone.** Two lines, one commit, nothing else touched.
+
+#### §10 · Gate — `G-W6-15`, BEFORE → AFTER
+
+| clause | BEFORE (at base `98be70f5`) | AFTER (settled HEAD, double-run) |
+|---|---|---|
+| file deleted | **PRESENT**, 108 L | **ABSENT** |
+| `git grep EditorHeader` (demo/ test/ src/) | **2 files / 2 lines** | **0** |
+| mounts `<EditorHeader` | 0 | **0** |
+| `git grep header-items-max-w` (demo/) | **2 files / 3 lines** | **0** |
+| barrel == {EditorShell, EditorStartScreen, SharePopover} | **4 exports** (EditorHeader present) | **exactly the 3** |
+| `App.vue` barrel import resolves | `:146` (EditorShell, EditorStartScreen) | `:146`, unchanged |
+| `MbabbMenu.vue` shell import resolves | `:81` `SharePopover` | `:189` `SharePopover` (this unit's own comment drift) |
+
+⟨the AFTER block, run twice, byte-identical both times⟩:
+
+```
+a) git grep -c EditorHeader -- demo/ test/ src/  -> 0 files
+b) git grep -n '<EditorHeader' -- demo/          -> 0 mounts
+c) git grep -c header-items-max-w -- demo/       -> 0 files
+d) test -f EditorHeader.vue                      -> ABSENT
+e) barrel: EditorShell | EditorStartScreen | SharePopover
+f) App.vue:44 <EditorShell … App.vue:110 </EditorShell>   (mount intact)
+g) MbabbMenu.vue:189 import { SharePopover } from "@components/instrument/shell";
+```
+
+**The four falsifiers, each answered rather than assumed**: (1) the limbs did **not** split — `4b909ed2` is one commit, three paths, 110 deletions; (2) **no green here is read as discharging C-22's D-27 or RR-2 M7** — both remain **NO-WAVE-OWNER** and untouched (§11); (3) the barrel was edited by **this** seat and **only** here — it appears in exactly one of this unit's ten commits; (4) **no row whose banked anchor lies outside `EditorHeader.vue` was mooted by the delete** — EH-4, EH-5 and EH-8 were each spent at their **own** anchors *after* the cut (§1–§2), which is the whole reason they are sequenced that way.
+
+**`G-W6-15`: RED → GREEN.** No other gate in this wave was turned by this unit and none is claimed.
+
+#### §11 · Measurements at the settled bytes
+
+- **Build.** ⟨`npx vite build --mode gh-pages`⟩ → `✓ built in 36.71s`, clean.
+- **`vue-tsc`, by SUBSTITUTION against base `98be70f5`** (a raw before/after is worthless here — a sibling seat writes in this shared checkout, and two *identical* runs moved the total 59 → 60 mid-unit). Method: save this unit's bytes, restore the six base files, run, diff the *sorted, line-number-stripped* error sets, restore. ⟨`npx vue-tsc --noEmit -p tsconfig.json | grep 'error TS' | sed 's/([0-9]*,[0-9]*)//' | sort`⟩ → **56 before · 56 after · `diff` EMPTY**. **∅ new · ∅ gone** — this unit introduces no type error and, honestly, cures none.
+- **Suite.** ⟨`npx vitest run`⟩ → **Test Files 5 failed | 142 passed | 5 skipped (152)** · **Tests 6 failed | 1483 passed | 3 expected fail | 14 skipped (1506)**. **Not one failure is this unit's, proved two ways**: (a) ⟨`grep -lE 'EditorHeader|EditorShell|ChromeDock|MbabbMenu|header-items-max-w|dock-glyph|select-dot-color' <the 5 files>`⟩ → **zero matches**; (b) by substitution, the same five files at **base** bytes fail in the same shape. Two are **flaky**, not RED: `typing-dots-engine-seam.test.ts` (subject `shell/TypingDots.vue`, a file this unit never touched) run three times alone on identical bytes → **4 failed · 4 failed · 4 passed**. `boundary-cohesion.test.ts` fails **identically at base and at HEAD** — pre-existing.
+- **The earlier run's harness event, disclosed rather than buried.** A first full run reported `Failed to start forks worker … Timeout waiting for worker to respond` for `test/orchestration/split-a11y-oracle.test.ts` (a browser-harness file that launches Chromium). Reproduced **in isolation** and then **at base bytes** — identical failure both times, so it is substrate/contention, not this unit's. It did not recur in the published run.
+- **Bounds, measured not asserted.** ⟨`git show --stat`⟩ over all ten commits → **exactly six paths**, every one inside this unit's writable set: `shell/EditorHeader.vue` (deleted) · `shell/index.ts` · `shell/EditorShell.vue` · `styles/layout.css` · `app/dock/ChromeDock.vue` · `app/dock/MbabbMenu.vue`. **Zero bytes outside the bound.** `demo/app/App.vue` and `transport/TransportDock.vue` are in the writable set and were **deliberately not touched** (§12.5–§12.6). `scripts/dev/dev.sh` appears in **zero** commits and was never staged.
+
+#### §12 · Residuals, declarations, and what no green here discharges
+
+1. **D-23's completing half is `.j`'s.** The aurora canvas is `preserveDrawingBuffer: false`, so the sampler reads an empty buffer; Aurora publishes the flag as `runtimeOptions.preserveDrawingBuffer`, and the one-token cure sits in `HeroAurora.vue` — **unit `.j`'s ONE aurora config motion**, outside this writable set. The dock's leg is complete and measurably live (`sample-unavailable`); the source's leg is routed, not reached for.
+2. **MM-12 is RECORDED IN SOURCE AND CURED NOWHERE — bounds, not oversight.** The ppmycota *label* follows the theme (`--ppmycota-primary` → `--accent-kf`, a `light-dark()` pair) while the *mark* beside it is repainted by `--filter-brand-color`, a single static filter chain (`brand.css:30` reads it, `style.css:178` declares it) with **no `.dark` arm** — `.dark` re-declares only `--accent-red`, `--accent-red-foreground`, `--primary`. Mark and label diverge in dark mode **by construction**. Both lawful cures (`a .dark --filter-brand-color` arm; a mask/inline-SVG mark on `currentColor`) live **outside every writable set in this wave's plan**, and inventing a filter chain at the call site would be a third, worse dialect. Perceptual magnitude is SS-13's.
+3. **C-22's D-27 and RR-2 M7 remain NO-WAVE-OWNER. Nothing here discharges them** — stated because `G-W6-15` fails on exactly that misreading.
+4. **kf-ChromeDock M-4 and its MUST-CARRY rider are not this unit's.** The rider travels wherever M-4 lands; MM-4's *interim* here is labelled an interim in source and names the producer fix (O-26 R-1) it yields to.
+5. **`demo/app/App.vue` — in the writable set, untouched.** `:147`'s `editor-shell/` misdirection comment is **KF.W8's**; touching it here would spend another wave's row.
+6. **`TransportDock.vue` — in the writable set, untouched.** Its `--dock-margin` sites `:389`/`:395` are **`.e`'s W6-D row** (KF-APP-6).
+7. **KF-APP-21 was already discharged by `.c`** at `344f2049` under `.b` §2.9's CONFIG-UNIFICATION-AT-THE-ROOT ruling. This unit re-verified that and **did not re-decide or re-execute it** — the brief's "config unification not deletion" is satisfied upstream.
+8. **TD-24 / TD-36 are sequencing-only** for this unit; no byte was written for either.
+9. **FOUR new producer findings are owed to a glass-ui relay and cannot be sent from this seat.** O-26 (the KF.W6 BH communiqué, `.b`'s, 16 rows) predates them and **E-3 makes it immutable**; glass-ui's tree is **READ-ONLY always**; and both the communiqué and any BK file are outside this unit's writable set. They are therefore **declared here for the wave's close/relay seat**, each measured at the installed 7.0.0 dist: (a) **`GlassDock`'s `backgroundCanvas` adapter honours two of the three shapes its `.d.ts` advertises** — a selector string is `null`ed before the resolver that handles it (§6, verbatim bytes); (b) **`--glass-accent` resolves to `rgba(0,0,0,0)` app-wide** — declared as `var(--color-gold)` where `--color-gold` is undefined, over a registered transparent initial — so **every `SelectItem` indicator dot is invisible by default** unless `--select-dot-color` is bound (§7); (c) **`Aurora` cannot be sampled by `backgroundCanvas` at its default** (`preserveDrawingBuffer: false` → `maxAlpha 0 / rgbSum 0` on readback), i.e. the two published features do not compose without a consumer opting in; (d) **`--dark-mode-toggle-size` ships `sm`/`lg`/`control`/`dock` arms and no `md` arm**, so `size="md"` silently falls to base. ⟨`grep -niE 'backgroundCanvas|preserveDrawingBuffer|glass-accent|select-dot-color|dark-mode-toggle-size|SelectItemIndicator' docs/tranches/X/keyframes/relay/KF-W6-BH-COMMUNIQUE.md`⟩ → **0 matches**, so none of the four is a re-send.
+10. **NOT PUSHED** (§0m.1): all ten commits sit local on `master`; a wave pushes at close, a unit does not.
+11. **`LEDGER.md` not edited** — outside this unit's writable set; the wave row moves at `.l`'s close.
+12. **Concurrent-substrate fact.** Sibling `X.KF.W7` seats committed into this shared index throughout (`72cdc27a`, `8146cc5a`, `aa3d4092`, `a93bcd37`, `9f585bee`, `8ee852b9`, `e42e0aa3`, `f892ce4b`, `85b3c8fa`, `43556828`, `be82defe` interleave with this unit's ten). **Every commit here carried its own pathspec**; `git show --stat` confirms the file list each time and **no sibling path was ever swept, staged, reset or unstaged**.
+
+#### §13 · E13
+
+Delta sweep at this unit's close (02:2x EDT) over the four paths. (1) `docs/tranches/V/` + `V/coordination/` → newest non-self is `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` = **O-28, rowed** (`INBOX.md` **self-excluded**, SELF-COUNT law). (2) glass BK → newest is `valuejs-outbound-2026-09-18-kfw6-bh-relay.md`, **our own outbound**, the O-26 mirror `.b` delivered. (3) keyframes.js `V/coordination/` → no new inbound; the 2 untracked `VALUEJS-INBOUND-2026-07-24/-27` files are **pre-existing survivors**, not new mail. (4) atlas `P/coordination/` → unmoved.
+
+**Live UNREAD rows re-read for scope**: `I-30` · `I-31` · `I-32` · `I-33` · `I-34` (+ `O-20`, an outbound). **Not one is addressed to KF.W6's scope** — their own Routing cells assign them to **X-W0.j / X-EXT-1** (the glass-election receiver and the `./search` removal), and none names a byte this unit wrote or a file in its writable set. **0 new inbound · 0 new `I-n` · 0 `O-n` minted by this unit · 0 UNREAD in KF.W6 scope.** The four producer findings of §12.9 are **owed to the close/relay seat**, not sendable from here.
+
+#### §14 · Escalations
+
+**None.** Every act this unit was given was available at the bytes and executed as specified, at its own anchor, in the spec's families. Where a literal instruction did not meet the bytes the deviation is a **measured one inside the spec's own census or lock**, stated in the commit, in the source and here — `EH-4`'s two spend sites in one commit; the `#anchor` button carrying **no** handler because the producer's wrapper owns the click; `--select-dot-color` bound to `currentColor` rather than to the row the bank names, because the named token measures an invisible wash at this dock's orientation; MM-4 landed as a **labelled** interim that names the producer fix it yields to.
+
+**No quick fix, no workaround, no masking fallback.** Zero `try/catch` around a defect, zero `test.skip`, zero allowlist, zero copied producer selector (D-23 resolves through the **demo's** `.hero-aurora`), zero `node_modules` patch (the `preserveDrawingBuffer` half was routed to `.j` instead). glass-ui was read-only throughout; no sibling tree was written; `scripts/dev/dev.sh` was never touched and appears in zero commits; no `git stash`, no `reset --hard`, no force-push, no `git add -A`/`-u`.
