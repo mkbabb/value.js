@@ -1450,3 +1450,19 @@ owner's act** (G-TAX), and **one CI-RED this wave created and this close publish
 `proof:publish`). Nothing was masked: no `test.skip`, no allowlist, no swallow, no shim, no
 sibling's RED moved to green a leg — the three instrument floors (24 · 3 · 4) are carried at their
 open values, measured here.
+
+### 11 · Push receipts, read at the commands (appended after §9's acts, so the claim carries its output)
+
+⟨`git -C ../keyframes.js push origin HEAD`⟩ → **`Everything up-to-date`**; ⟨`git -C ../keyframes.js rev-parse HEAD origin/master`⟩
+→ **`e325018f…` == `e325018f…`**. Idempotent, for the reason §9 measured: the concurrent X.KF.W2 close
+pushed the shared `master` and carried this wave's 22 commits with it.
+
+⟨`git push origin HEAD`⟩ (value.js, branch `tranche-u`) → **`633f6465..7306904c  HEAD -> tranche-u`**;
+⟨`git rev-parse HEAD origin/tranche-u`⟩ → **`7306904c…` == `7306904c…`**. The range's lower bound is
+origin's head at push time, which sibling tracks had advanced past this seat's earlier reading — the
+shared branch, stated rather than read as this seat's own commits.
+
+Close commits: **`9063de78`** (this §Close + the LEDGER row) · **`7306904c`** (the row names its own
+close sha) · **`<this commit>`** (these push receipts). ⟨`git status --porcelain`⟩ after the pushes:
+`scripts/dev/dev.sh` still modified and **never staged**, plus the pre-existing unowned rows — unchanged
+by this seat. **No force, no stash, no reset, either repo.**
