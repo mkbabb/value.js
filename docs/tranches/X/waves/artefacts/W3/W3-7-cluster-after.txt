@@ -1,0 +1,41 @@
+SERVED MODEL: claude-opus-5[1m]
+# X.W3.7 · GF-R1 — AFTER transcript — the same probe at HEAD c6e67eb1, every row cured. 12 passed / 0 failed, double-run identical.
+# Probe: scratchpad-resident (W3.md §4 grants this unit no test/** path); source embedded in W3-7-transport-cluster-record.md §5.
+# ---
+
+ RUN  v3.2.6 /Users/mkbabb/Programming/value.js
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > inside the window every caller is refused (the half that already holds)
+[AP-17] inside-window admitted = 0 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > BORN-RED: past the window, exactly ONE of 10 callers is admitted
+[AP-17] first-window-open admitted = 1 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-17 — the cooldown gate admits exactly ONE probe per window > FALSIFIER: the NEXT window still opens — the cure admits, it does not wedge
+[AP-17] window1 admitted = 1 of 10 · window2 admitted = 1 of 10
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-31 — markApiReachable defends `misconfigured` > BORN-RED: a reachable mark never clears a designed misconfig
+[AP-31] after markApiReachable → misconfigured
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-33 — initApiEnvironment is idempotent in fact, not only in prose > BORN-RED: a second call is a no-op — one latch, ONE console.error
+[AP-33] console.error calls after 3 inits = 1
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-24 — importing the transport module mutates no global state > BORN-RED: importing client.ts leaves the latch `unknown` and the console silent
+[AP-24] after bare import of client.ts → availability=unknown · console.error=0
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-24 — importing the transport module mutates no global state > and `provideApiClient()` IS the explicit seat that inits
+[AP-24] after provideApiClient() → availability=misconfigured · console.error=1
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-12 — ONE owner for "the backend is not answering" (transport limb) > BORN-RED: the predicate trips on the LATCH's condition and nothing else
+[AP-12] predicate: ApiUnavailableError=true · ApiProblem=false · DevMisconfigError=false · bare Error=false
+
+stdout | ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts > AP-30 — the third conjunct's reachability, measured (recorded, not rebuilt) > at the ONLY call site's input shape, legs 1+2 force leg 3 true
+[AP-30] third conjunct is a tautology at the only call site — RECORDED (moot-on-AP-1), detector left pure+total
+
+ ✓ ../../../../private/tmp/claude-504/-Users-mkbabb-Programming-value-js/6614e90c-8bd6-434f-b017-5ad4277c6e5e/scratchpad/w37/transport-cluster.probe.test.ts (12 tests) 16ms
+
+ Test Files  1 passed (1)
+      Tests  12 passed (12)
+   Start at  18:15:50
+   Duration  412ms (transform 36ms, setup 0ms, collect 39ms, tests 16ms, environment 128ms, prepare 37ms)
+
