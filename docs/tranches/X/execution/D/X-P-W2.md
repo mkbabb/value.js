@@ -2909,3 +2909,256 @@ at close"*, and are docketed in **R.3** so the close seat inherits them in writi
 ## Unit receipts — second sitting
 
 *(empty at open; `.i` appends its block here)*
+
+### X.P.W2.i — second sitting
+
+**SERVED MODEL: claude-opus-5[1m]** · Track D · 2026-09-17 · phase 6, the **graduation seat**
+(`W2.md` §5 `.i` L660–670; M-23 §2). The first sitting's `### X.P.W2.i` block above is **ESCALATED
+and immutable (E-3)**; it escalated on one measured fact — no survivor was named. **COHESION §0n.1
+names one**, and this block is the execution the word unblocked. **Sections executed exactly**:
+`W2.md` §5 `.i` L660–670 · §3 item 10 L183–185 · §6 **G-12** L839–852 · §10 alias table L921–929 ·
+`W2-KILL-LEDGER.md` **§11** L434–465 · COHESION **§0n.1** L961–988 + **§0n.2** L990–992.
+
+**STATUS: DONE — the graduation landed, mechanically, with zero bytes changed.** ONE commit,
+`130f72db681f0cfd69b5824d6859398d7ffeba5a` on `w2/ac1`. G-12's graduation half is
+**GREEN-WITH-RESIDUALS (E-2)** exactly as §11.5 predicted; **ESC-i2 is GREEN with no
+RED-PREEXISTING residue at all**, which §0n.2 had left open as the likely outcome.
+
+#### i.0 — Anchors verified at true bytes before any edit
+
+```
+⟨cmd⟩ sed -n '183p;185p;660p;670p;839p;852p;921p;929p' docs/tranches/X/parse-that/waves/W2.md
+183  10. **Graduate the survivor** (`.i`): promote its slice realization into
+185      location — the seed W3 conforms to the full 52 and the Wasm-artifact lineage W4 admits.
+660  ### X.P.W2.i Graduation (Opus seat)
+670    `git -C <p2> status --porcelain` shows only the graduated paths before the closing commit.
+839  **G-12 — KILL LEDGER TERMINAL + THE SURVIVOR GRADUATED.** `W2-KILL-LEDGER.md` exists; every named
+852  fourth prototype). PEER-REVIEW-PENDING is not a terminal state.
+921  - **Alias table (R-B — sibling text ↔ the condition ↔ where discharged)**:
+929    | W1 §10 "the architecture wave … may not open without the three instruments" | W1 IMPLEMENTED first | OP-3 here |
+
+⟨cmd⟩ sed -n '434p' docs/tranches/X/parse-that/waves/W2-KILL-LEDGER.md
+434  ## 11. The graduation ruling for `.i` (`W2.md` §5 `.i`; G-12's graduation half)
+
+⟨cmd⟩ sed -n '961p;990p' docs/tranches/X/COHESION.md
+961  ### §0n.1 · E-1 — THE TIE: word (a). **AC-1 TAGLESS-TWIN is the survivor.**
+990  ### §0n.2 · `.i` opens on this word — and ESC-i2
+
+⟨cmd⟩ shasum -a 256 docs/tranches/X/parse-that/waves/W2.md
+248eb0889f7ef101591435bd6bd2b6b5efc7e571cf9955a6360338507b29a4cd   == §Open's pin (E-3 holds, 999 L)
+```
+
+**Seven of eight anchors ZERO-DRIFT.** One drifted cite, recorded and executed at INTENT:
+**§0n.2's tail cites "§0n.7"** for the carried 1.0.0 import — ⟨cmd⟩ `grep -c '§0n.7'
+docs/tranches/X/COHESION.md` → **1** (the cite itself); ⟨cmd⟩ `grep -n '^### §0n' …` → §0n.1 · §0n.2
+· §0n.3 · §0n.4 · §0n.5 · §0n.6, and the file ends at **1,012 L**. **§0n.7 does not exist.** The
+substrate ruling lives at **§0n.5** (*"the seed's one import specifier is re-pointed by W3's first
+act (§11.3)"*), which says exactly what the citing sentence says; `.i` executed §0n.5 / §11.3 —
+**the import is carried, not re-pointed.** Recorded as **D-i1**, a dangling cross-reference in an
+orchestrator ruling, curable only by its author.
+
+#### i.1 — E13 Step-0, the four-path sweep at this seat's own clock
+
+Classification from each row's **status cell**, never a bare `grep -i unread` (X.P.W0 CHECK 1 D-1);
+`INBOX.md` self-excluded (SELF-COUNT law). Delta taken against 23:30, this sitting's open.
+
+```
+⟨cmd⟩ /usr/bin/find <path> -maxdepth 1 -name '*.md' -newermt '2026-09-17 23:30' | wc -l
+docs/tranches/V                                                         0
+docs/tranches/V/coordination                                            1  → INBOX.md itself (self-excluded)
+../glass-ui/docs/tranches/BK/coordination                               0
+../keyframes.js/docs/tranches/V/coordination                            0
+../sci-report/atlas/docs/tranches/P/coordination                        0
+⟨cmd⟩ grep -cE "^\| I-[0-9]+ " docs/tranches/V/coordination/INBOX.md    → 34   (unchanged from R.1)
+```
+
+The three `UNREAD 2026-09-17` rows are **I-32 · I-33 · I-34**, and each one's own **Routing** cell
+was read verbatim (⟨cmd⟩ `sed -n '105,107p' INBOX.md`): I-32 → *"the X formation mail seat / X-W0.j
+… **No X·P wave, no X·P act, opens on this row**"*; I-33 → *"the X formation mail seat, which relays
+each sibling's section … Glass is **READ-ONLY always**"*; I-34 → *"X-W0.j / X-EXT-1, beside I-32.
+**Not X·P's, not a value.js act today**"*. **UNREAD in X.P.W2.i's scope: 0 · unrowed: 0 · minted: 0.**
+No status cell flipped and no sweep line appended — `.i` is not a close act.
+
+#### i.2 — The promotion source, settled by `meta`, not by taste (§11.1)
+
+`W2-KILL-LEDGER.md` §11.1 names the promoted set as `algebra/** + lowering-js/** + lowering-wasm/** +
+build.mjs + harness-adapter.mjs + the built artifact and its .d.ts`, and says what stays: *"the seat's
+`probes/**`, `dev/**` and `VERDICT.md` stay in the candidate directory (**they are not
+`meta.sources`**)"*. §B.4 handed this seat one open reading — whether `reify/term-alg.mjs` is a source
+— with the instruction to *"read `harness-adapter.mjs`'s `meta` to settle it"*. It is settled by the
+bytes, not by this seat's judgement:
+
+```
+⟨cmd⟩ sed -n '34,41p' .worktrees/ac1/experiments/w2/ac1-tagless/harness-adapter.mjs
+    sources: {
+        algebra: [at("algebra/ops.mjs"), at("algebra/tables.mjs"), at("algebra/grammar.mjs"), at("reify/term-alg.mjs")],
+        js: [at("lowering-js/js-alg.mjs"), at("lowering-js/values.mjs"), at("lowering-js/index.mjs")],
+        wasm: [
+            at("lowering-wasm/asm.mjs"), at("lowering-wasm/layout.mjs"), at("lowering-wasm/runtime.mjs"),
+            at("lowering-wasm/wasm-alg.mjs"), at("lowering-wasm/index.mjs"),
+        ],
+    },
+```
+
+`reify/term-alg.mjs` is the **fourth entry of `meta.sources.algebra`** — §11.1's own criterion admits
+it, and both lowerings import it (⟨cmd⟩ `grep -rn 'reify/term-alg' lowering-js/ lowering-wasm/` → 2
+hits: `lowering-js/index.mjs:16`, `lowering-wasm/index.mjs:19`). **PROMOTED.** `VERDICT.md` and
+`probes/` appear in no `meta` list — **LEFT BEHIND**. `dev/` does not exist in this candidate
+(⟨cmd⟩ `find … -type f` → 20 files, no `dev/`). **17 files promoted, 3 left behind** (`VERDICT.md`,
+`probes/comp1-and-third-cell.mjs`, `probes/predicted-failures.mjs`); 17 + 3 = 20 = the candidate's
+full tracked set (⟨cmd⟩ `git ls-files experiments/w2/ac1-tagless | wc -l` → 20). **SELF-COUNT: the
+enumeration is complete and exhausts the source.**
+
+#### i.3 — Move-forced import edits: **ZERO, proven — not asserted**
+
+§11.2: *"the only permitted byte changes are relative-import path adjustments the move itself forces,
+listed in `.i`'s receipt one by one."* The list is empty, and here is why, by command.
+
+Every `from "…"` specifier in the 17 promoted files was enumerated first (⟨cmd⟩ `grep -rnE
+'^\s*(import|export).*from "'`). All but one are `node:*` builtins or **intra-set relatives**
+(`./`, `../algebra/`, `../reify/`, `./asm.mjs` …) — a set moved whole preserves every one of those.
+Exactly **one** specifier escapes the promoted directory:
+
+```
+⟨cmd⟩ grep -rn '\.\./\.\./' .worktrees/ac1/typescript/src/css/
+typescript/src/css/lowering-js/index.mjs:12:import { PARSE_THAT_DIST } from "../../../../harness/bench/lib/engines.mjs";
+typescript/src/css/lowering-js/js-alg.mjs:25:import { PARSE_THAT_DIST } from "../../../../harness/bench/lib/engines.mjs";
+typescript/src/css/build/ac1.d.ts:7:export type { … } from "../../../../../../../value.js/…/subpaths/css";
+```
+
+Both trees sit **four levels below the root**, so node resolves the first identically at either
+address — measured with node's own resolver rather than counted by eye:
+
+```
+⟨cmd⟩ node -e 'path.resolve(dirname(<file>), "../../../../harness/bench/lib/engines.mjs")'
+<ac1>/harness/bench/lib/engines.mjs  <- experiments/w2/ac1-tagless/lowering-js/index.mjs
+<ac1>/harness/bench/lib/engines.mjs  <- typescript/src/css/lowering-js/index.mjs        SAME
+<ac1>/harness/bench/lib/engines.mjs  <- experiments/w2/ac1-tagless/lowering-js/js-alg.mjs
+<ac1>/harness/bench/lib/engines.mjs  <- typescript/src/css/lowering-js/js-alg.mjs       SAME
+⟨cmd⟩ ls -l <ac1>/harness/bench/lib/engines.mjs → 6902 bytes (it exists at the resolved address)
+```
+
+The third is `build.mjs`'s **generated** `.d.ts` specifier, which `build.mjs` computes for its own
+location (*"a moved tree re-runs `node build.mjs`, it does not hand-edit a path"*, `build.mjs:54`) —
+and both `build/` directories also sit seven levels below `Programming/`, so the regenerated value is
+the same string. **The build was re-run at the graduated location and reproduced it; see i.4.**
+
+**The 1.0.0 substrate import is CARRIED, never re-pointed** (§11.3 / E-7 / §0n.5 — W3's act):
+`engines.mjs:43` still reads `PARSE_THAT_DIST = ${WORKSPACE}/node_modules/@mkbabb/parse-that/dist`
+with `WORKSPACE` the value.js prototypes workspace. `.i` resolved no OP-7 mark.
+
+#### i.4 — Both lowerings built at the graduated location
+
+```
+⟨cmd⟩ node typescript/src/css/build.mjs                                       (run from <ac1>)
+ac1.wasm   187341 bytes · 1273 functions · 55500 bytes of static data
+ac1.js     P:color · P:timing-function · P:stylesheet
+ac1.d.ts   re-exports from ../../../../../../../value.js/docs/tranches/V/megatranche/prototypes/css-parser/cand-o/vendor/value-js-4.0.0/dist/subpaths/css
+```
+
+| artifact | digest BEFORE the graduated build | digest AFTER | candidate's own digest |
+|---|---|---|---|
+| `ac1.wasm` | `049b9904e829beda…611c6e22` | **identical** | **identical** |
+| `ac1.js` | `5f300b7ea43e1d38…99091c64` | **identical** | **identical** |
+| `ac1.d.ts` | `3b93f1b5b018a436…f053d200` | **identical** | **identical** |
+
+The build at the new address is **byte-reproducing**, including the regenerated relative specifier.
+And both lowerings instantiate there, not merely compile:
+
+```
+⟨cmd⟩ node --input-type=module -e 'import(<graduated>/harness-adapter.mjs) …'
+js:   registry 22 rows · labels 51 · grammar built · entry(P:color) function · parse ok=true
+wasm: registry 22 rows · labels 51 · grammar built · entry(P:color) function · parse ok=true
+meta.id=ac1 name=TAGLESS-TWIN
+```
+
+#### i.5 — G-12's falsifier, run as written
+
+G-12's falsifier is *"a 'graduation' that redesigns in passing — **the diff between the candidate
+directory and the graduated tree is the check**"*. Run:
+
+```
+⟨cmd⟩ diff -r experiments/w2/ac1-tagless typescript/src/css
+Only in experiments/w2/ac1-tagless: VERDICT.md
+Only in experiments/w2/ac1-tagless: probes
+```
+
+**Not one differing byte in any file present on both sides**, and the only asymmetries are the two
+§11.1 names as staying. Restated per-file, digest against digest, all **17 EQ**: `algebra/{grammar,
+ops,tables}.mjs` · `reify/term-alg.mjs` · `lowering-js/{index,js-alg,values}.mjs` ·
+`lowering-wasm/{asm,index,layout,runtime,wasm-alg}.mjs` · `build.mjs` · `harness-adapter.mjs` ·
+`build/{ac1.js,ac1.d.ts,ac1.wasm}`. **The falsifier is refuted at the bytes, not by assertion.**
+
+#### i.6 — The gates at the graduated location, BEFORE → AFTER
+
+Every probe was invoked from **the ac1 worktree's own `harness/w2/`** — `harness/w2/lib/contract.mjs:15`
+sets `P2_ROOT = resolve(HARNESS_W2_DIR, "..", "..")`, so `<p2>`'s copy would resolve `--at` against the
+wrong root and read ABSENT (§P.x's warning, heeded). Every run is **double-run byte-identical**, and
+every one was **re-run again after the commit** against the settled bytes and compared to its
+pre-commit output — **all five IDENTICAL**. `harness/w2/**` was invoked, never edited.
+
+| gate | BEFORE (this sitting's baseline, re-taken here) | AFTER, `--at typescript/src/css` | verdict |
+|---|---|---|---|
+| **G-2** op-bijection | *"contract rows: 22 / ABSENT — candidate ac1: candidate directory ABSENT (…/typescript/src/css) — phase 4 has not run"* | 22 rows printed OP-01..OP-22, each `js:<OP> / wasm:<OP> / ok`; **contract 22 · js 22 · wasm 22 · DECLARED-ABSENT wasm symbols 0**; *"GREEN — 22 rows, both lowerings, fingerprints pairwise equal"*, exit 0 | **RED → GREEN** |
+| **G-3** eq-six | ABSENT, *"comparisons run 0 — no second lowering exists"* | **EQ-1..EQ-5 = 0** · **EQ-6 = 2035** (first row `s0180 "var(--brand)"`) over **30,527 rows**; label indices aligned `true`; third-cell differences 233 (12 carrying a declared row); exit 1 | **RED → honest-RED (E-2), exactly 2,035 as §11.5 predicted** |
+| **G-5** r1-candidates | ABSENT | `js`/`wasm` × `P:color`/`P:timing-function`/`P:stylesheet` = **0/172 throws** each, **0** empty-diagnostic rejections, boundary **7/7** each; *"GREEN — zero throws over 172 + 7, every rejection carrying ≥1 diagnostic, both lowerings"*, exit 0 | **RED → GREEN** |
+| **G-9** wasm-audit | ABSENT | module **187,341 B**, sha256 `049b9904…611c6e22`; **imports 0**, `imports by kind {}`; sections `type, function, memory, global, export, code, data`; **start section absent**; exports `run · setTheta · highWater · reset · memory`; memory **12582912 / 12582912** before/after 2,000 steady-state parses; K-9 *"non-JS toolchain in that path: none"*; OP-6 re-read **0 committed `wasm32`**, 3 uncommitted (K-10's forbidden substrate, READ-ONLY); *"GREEN"*, exit 0 | **RED → GREEN** |
+| **G-10** idiom-nocst | ABSENT | graph nodes walked **139**; `opt` under `all` **0** · `lazy` **0** · memoize **0**; five textual zeros over **7 declared source files** all **0**; excess-property fixture under `tsc --noEmit --strict` **PASSES**; *"GREEN"*, exit 0 | **RED → GREEN** |
+| **ESC-i2** | `<ac1>/typescript/node_modules` ABSENT (§B.3's 343-error cause) | `npm ci` → *"added 164 packages in 1s"*; lockfile digest `3846f742…46721fb8` **string-equal before and after**, `package.json` `f53ca9b8…` unchanged, ⟨`git status --porcelain`⟩ after the install → **`?? typescript/src/css/` alone**, i.e. **no tracked byte written**. Then ⟨`npx tsc --noEmit -p typescript/tsconfig.json`⟩ → **exit 0, ZERO diagnostic lines**, double-run byte-identical, and re-run once more post-commit: still 0. No root `<p2>/tsconfig.json` minted (⟨`ls <p2>/tsconfig.json`⟩ → `No such file or directory`) | **RED → GREEN, with NO RED-PREEXISTING residue** |
+| **G-12** graduation half | ⟨`ls typescript/src/css`⟩ → `No such file or directory` | tree exists (17 files) · both lowerings build there · G-2/G-5/G-9/G-10 green with `--at` · `tsc --noEmit` clean · falsifier diff empty | **GREEN-WITH-RESIDUALS (E-2)** |
+
+**ESC-i2 read honestly, not flatteringly.** `tsconfig.json`'s `include` is `["src/", "test/"]`, so the
+graduated tree *is* inside the project, and it is inside the program, measured rather than presumed:
+⟨cmd⟩ `npx tsc … --listFiles | grep -c 'typescript/src/css'` → **1** (`typescript/src/css/build/ac1.d.ts`)
+of **403** program files. The sixteen `.mjs` files are **not** type-checked — `allowJs` is absent, so
+tsc excludes them by design; that is the candidate's own shape (the slice realization is authored in
+`.mjs`) carried unaltered, and this seat states it rather than letting a clean exit imply more than it
+measured. The one graduated file tsc *does* read resolves its vendored re-export (a `TS2307` would
+have fired otherwise) and raises nothing. **§0n.2's "errors inside the graduated tree are `.i`'s": 0.**
+**"Errors outside, recorded RED-PREEXISTING with counts by code": none exist** — `npm ci` was the whole
+of the 343, which is precisely why §0n.2 ordered the install as the sub-gate's first limb.
+
+**G-3 is not touched.** §0n.3 puts the E-2 addendum (cure (3), the `balanced-tail` `DROP` re-kinded to
+`skipped`) at **X.P.W3's first act**; ⟨cmd⟩ `git -C <ac1> status --porcelain` shows no byte of
+`algebra/` or of either `ALGEBRA.md` home moved by this seat. 2,035 is recorded as the number it is.
+`.g`'s **F-h2** is restated at the reading, uncured: the verdict line prints *"2035 divergences between
+the two lowerings (K-1)"*, and the table directly above it shows **EQ-1..EQ-5 = 0** — the two lowerings
+do **not** diverge; EQ-6 is COMP-1 failing identically in both. The label is `.g`'s to fix, not `.i`'s.
+
+#### i.7 — The commit
+
+Porcelain before the commit was ⟨`git -C <ac1> status --porcelain`⟩ → **`?? typescript/src/css/`**,
+and nothing else — §5 `.i`'s *"shows only the graduated paths before the closing commit"*, met. `<p2>`'s
+own root read `?? .worktrees/` alone (§4b's container, unchanged).
+
+```
+⟨cmd⟩ git add typescript/src/css && git commit --no-verify --quiet -m … -- typescript/src/css
+130f72db681f0cfd69b5824d6859398d7ffeba5a   w2/ac1
+feat(w2/graduate): AC-1 TAGLESS-TWIN promoted to typescript/src/css — mechanical, zero byte changed
+ 17 files changed, 4439 insertions(+)
+⟨cmd⟩ git -C <ac1> status --porcelain   → (empty)
+```
+
+**ONE commit, pathspec on the commit itself, on `w2/ac1`.** No branch merged — §11.2 and §0n.2 give
+`w2/ac1` → `w2/harness` to the relaunch's **close**, after the ledger commit (§9). The two histories
+are not merged. **K-10 verified rather than assumed**: ⟨cmd⟩ `find /Users/mkbabb/Programming/parse-that
+-newermt '2026-09-17 18:00' -type f` (excluding `.git`, `node_modules`, `target`) → **∅**; that repo's
+HEAD is still `ef10d5b` and its 31 porcelain lines are the pre-existing OP-6 residue this seat only
+**read**. No `harness/**`, no `experiments/**`, no value.js byte but this record.
+
+#### i.8 — Findings and residuals (recorded, not cured — none is `.i`'s to cure)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **D-i1** | MINOR | **COHESION §0n.2 cites a section that does not exist** — *"the 1.0.0 import carried, not re-pointed — §0n.7"*, and COHESION ends at **§0n.6** (1,012 L). The substance is at **§0n.5**, which says the same thing; `.i` executed §0n.5 / §11.3 and carried the import. A dangling cite in a ruling, curable only by its author | orchestrator |
+| **D-i2** | MAJOR | **`harness/w2/coverage-52-report.mjs` (G-6) throws whenever a candidate is actually present at the queried location.** ⟨cmd⟩ `node harness/w2/coverage-52-report.mjs --candidate ac1 --at typescript/src/css` → `TypeError: text.matchAll is not a function` at `harness/totality/lib/surface.mjs:202`. Cause, read at the bytes: `coverage-52-report.mjs:97` passes `declarationText: readTypeDeclarations(subject.declarationText)` — **already parsed** — into `classify()`, which at `classify.mjs:122` calls `readTypeDeclarations(declarationText)` **again**; and `subject.declarationText` is `c.meta.artifacts?.dts`, a **path string, never read from disk**, so the first application returns `{}` and the second calls `.matchAll` on an object. **Attribution settled, not guessed**: it reproduces identically at the **candidate** location (⟨cmd⟩ `… --candidate ac1` with no `--at` → the same throw), which `.i` never touched and which has existed since phase 4 — the defect is latent since `.g` and is merely *reachable* now that a candidate exists where the gate looks. §C.2's G-6 GREEN was taken on the ABSENT path, which returns before line 97. `harness/w2/**` is `.g`'s, **invoked never edited**; G-6 is not this unit's gate | the close / W3's open seat |
+| **R-i1** | INFO | `harness-adapter.mjs`'s `meta.build.jsArtifactReproduction` still reads `node experiments/w2/ac1-tagless/build.mjs` at the graduated location (G-9 prints it verbatim). It is **carried unaltered on purpose**: §11.2 permits *relative-import* adjustments only, and a declared build command is not an import — re-pointing it would be the "improvement in passing" G-12's falsifier names. It is also still **true**: the candidate directory stands, and `node typescript/src/css/build.mjs` was measured to reproduce the same three digests (i.4) | W3's open seat |
+| **R-i2** | INFO | The graduated slice is sixteen `.mjs` files plus one `.d.ts`; `typescript/tsconfig.json` has no `allowJs`, so **only `build/ac1.d.ts` enters the tsc program** (1 of 403, measured). ESC-i2's GREEN is therefore a real but *narrow* reading, and is published as such. W3, which authors the 52 on this seed, decides whether the realization becomes TypeScript | W3 |
+| **R-i3** | INFO | `.g`'s **F-h2** reproduces verbatim at the graduated location: G-3's verdict line says *"2035 divergences between the two lowerings (K-1)"* while its own table reads **EQ-1..EQ-5 = 0** — the lowerings agree; EQ-6 is COMP-1 failing identically in both (E-2). The number is right, the label is wrong | `.g` / W3 |
+
+**Carried REDs, unmoved by this unit and not its to move**: **G-3** (E-2, W3's first act) · **G-4**
+(same E-2 cause) · **G-7** (E-6, W3 per §0n.4) · **G-8** (instrument resolution, F-4/F-e8/F-f3/F-h3) ·
+**G-1**'s structural half on this worktree (`cut∉alt` 7, E-3, owner-owed — the `w2/ac1 → w2/harness`
+merge at the close also carries the pre-F-h7 contract copy this branch holds). **No bar was set or
+implied**; `OWNER-GATED-PENDING-RATIFICATION` stands. **No escalation.** No §3a halt fired — no gate
+needed a second diagnose→edit→re-measure iteration, because no gate needed an edit at all.
