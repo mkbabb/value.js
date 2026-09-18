@@ -1001,3 +1001,150 @@ substituted cures: the **34-not-35 drift is TWO subtractions in two different fi
 already chartered, adds no limb, and is handed to its owning unit by name. **No banked id was
 re-graded, no dated artefact was rewritten, no registry file was touched, and no product byte was
 written.**
+
+---
+
+### d
+
+**SERVED MODEL: claude-opus-5[1m]**
+
+**Unit**: `d` — the `--viz-*` palette cure at the CURRENT pin (WU-E, ONE repair, SEVERABLE).
+**Sections executed**: §2 **WU-E** `:92-101` · §4 commit-plan **step 3** `:282` (the ABORT SEMANTICS clause) · **cross-edge 3** `:296` · §5 **Excluded**'s `color2` / D-4 row `:514`.
+**Writable set honoured, hard bound**: `web/src/lib/colors.ts` · `web/src/components/visualization/lib/basis-display.ts` · `web/src/main.ts` · `web/src/components/morph/HarmonicLevelGrid.vue` · this record. **`web/src/components/visualization/EditorControlsDock.vue` was OPENED AND MEASURED, and is deliberately UNWRITTEN** (Act 6). **No other path written** — ⟨cmd⟩ `git status --porcelain` in fourier → **0** before the commit's `git add` and **0** after it. `glass-ui`, `latex-paper`, `value.js`'s own tree and the npm registry were **READ-ONLY** throughout (`git show` · `grep` · `sed` · `ls` · `wc` · `node` against `node_modules` only). `scripts/dev/dev.sh` untouched and unstaged. Pathspec commit.
+**Clock**: 2026-09-17, following unit `c`'s landing at `dcc266f2`.
+**Commit**: **`3bac3d522fa55d22eddb0c87595f06cf3c44d8dd`** (`3bac3d5`) — `fix(fourier/viz): the --viz-* palette cure at the current pin`, **ONE commit**, 4 files, **+169 / −68**.
+
+#### Act 1 — M-RTC's seat verified at BOTH pins before a byte was written (the seat-0 brief's binding instruction)
+
+The brief re-homes the cure to installed glass-ui 4.0.0's own `@mkbabb/glass-ui/dom` and forbids `./motion-curves`. Both halves were re-measured here rather than inherited:
+
+- ⟨cmd⟩ (cwd `../glass-ui`) `git show 17a11bc5:package.json | grep -c '"\./motion-curves":'` → **0** — §Baseline finding 5 reproduced. **`./motion-curves` does not exist at the adopted tag**; nothing in this commit routes through it.
+- ⟨cmd⟩ (cwd `web/`) `grep -c '"\./dom":' node_modules/@mkbabb/glass-ui/package.json` → **1** · ⟨cmd⟩ (cwd `../glass-ui`) `git show 17a11bc5:package.json | grep -c '"\./dom":'` → **1**. **`./dom` is present at BOTH pins**, and its `exports` block is byte-identical at the two (`types: ./dist/dom.d.ts` · `import: ./dist/dom.js`).
+- The three named symbols, at both pins. Installed: ⟨cmd⟩ `cat node_modules/@mkbabb/glass-ui/dist/dom.js` → the barrel re-exports `createTokenColorCache`, `resolveTokenColor`, `useTokenColor` by name. Adopted: ⟨cmd⟩ `git show 17a11bc5:src/composables/dom/useResolveTokenColor.ts | grep -n '^export function'` → `:48 resolveTokenColor(css: string, el: HTMLElement | null): string` · `:68 createTokenColorCache(maxEntries = 256)`; `…/useTokenColor.ts` → `:72 useTokenColor(`. **Signatures byte-identical at both pins — the cure survives the hop at unit `e` and breaks nothing there.**
+- **A correction to the roster, measured, not presumed**: of M-RTC's three symbols, **`useTokenColor` is the wrong leaf at this seat, twice over.** (i) It reads the DECLARED value — ⟨cmd⟩ `git show 17a11bc5:src/composables/dom/useTokenColor.ts` → `getComputedStyle(el ?? document.documentElement).getPropertyValue(prop)` — which on `light-dark(oklch(), oklch())` returns the **wrapper**, i.e. exactly the string WU-E forbids parsing. (ii) It calls `onMounted` and is therefore a component-scope composable, while C-4's seat is `main.ts` **before `app.mount()`**, where there is no instance. **The cure therefore homes on `resolveTokenColor` ⊕ `createTokenColorCache`, the two scope-free leaves, which is the pair §5 Excluded `:514` names as the remedy** (*"glass's `/dom` `resolveTokenColor`"*). `useTokenColor` is not used and is not needed.
+
+#### Act 2 — the born-RED, measured at the bytes rather than quoted
+
+The producer's `--viz-*` authoring, read at the installed pin: ⟨cmd⟩ `grep -rhn -- "--viz-[a-z]*:" node_modules/@mkbabb/glass-ui/dist/styles/` → `color-radius.css:263-267` `oklch(…)` ×3 ⊕ `--viz-amber: var(--section-color-5)` ⊕ `--viz-green: var(--section-color-4)` · `dark-arm.css:113-115` `oklch(…)` ×3 · `light-dark.css:145-147` `light-dark(oklch(…), oklch(…))` ×3 under `@supports (color: light-dark(white, black))` `:71`. fourier's own `style.css:120`/`:125` overrides `--viz-amber` to `hsl(35 76% 35%)` / `hsl(37 73% 67%)`.
+
+**The live declared values** (bounded Playwright, chromium, dev server on `:5199`, both entry routes — §5.2):
+
+| property | declared, light arm | declared, dark arm |
+|---|---|---|
+| `--viz-fourier` | `light-dark(oklch(0.579 0.201 30.4),  oklch(0.693 0.151 28.1))` | `oklch(0.693 0.151 28.1)` |
+| `--viz-chebyshev` | `light-dark(oklch(0.484 0.163 265.5), oklch(0.718 0.107 268.4))` | `oklch(0.718 0.107 268.4)` |
+| `--viz-legendre` | `light-dark(oklch(0.532 0.180 317.5), oklch(0.739 0.134 318.1))` | `oklch(0.739 0.134 318.1)` |
+| `--viz-amber` | `hsl(35 76% 35%)` | `hsl(37 73% 67%)` |
+
+**The pre-cure `cssVarToHex` body (`colors.ts:22-53` @ `5842377`) replayed against those exact strings** ⟨cmd⟩ `node before.mjs` →
+
+```
+light {"--viz-fourier":"#888888","--viz-chebyshev":"#888888","--viz-legendre":"#888888","--viz-amber":"#9d6515"}
+dark  {"--viz-fourier":"#888888","--viz-chebyshev":"#888888","--viz-legendre":"#888888","--viz-amber":"#e8b96d"}
+```
+
+**WU-E's arithmetic of record reproduces to the byte**: *"sole survivor `--viz-amber` `#9d6515`/`#e8b96d`; four of five grey"* — `--viz-green` is the fifth, and it takes `#888888` on the same fall-through. The mechanism is named exactly: the `light-dark(…)` form carries no `hsl(` substring, is not a bare triplet and is not `rgb(`, so the three regex arms miss and control reaches the terminal `return "#888888"`; `--viz-amber` survives only because fourier's own override happens to be authored in the one form the regex reads.
+
+#### Act 3 — the cure, as WU-E specifies it and no wider
+
+**D-1 (ADJUDICATED BLOCKER) — `colors.ts`, 117 → 183 L.** The read is now a **used-value probe**, never a string match: `createTokenColorCache()` at module scope, and per token `tokenColors.resolve("var(--viz-…)", document.documentElement)`, which paints the wrapper onto a real CSS `color` property and reads the engine's answer back. That is the only reading in which **the cascade picks the `light-dark()` arm** and **follows the `var(--section-color-N)` alias chain**. The used value is then converted by **`colorUnit2 ∘ parseCSSColor`** — `colorUnit2(parseCSSColor(css), "rgb")`, channels via `ValueUnit.unwrapDeep`, clamped into gamut and formatted `#rrggbb`. **`color2` is NEVER used** (MG-ι); **D-4's getter cure is NOT the remedy** (K-5) — see Act 5. The third clause of D-1 is cured too: **`resolveVizColors()` no longer overwrites a brand hex with a placeholder** — an unset or unreadable property leaves its `VIZ_COLORS` entry alone, and `#888888` no longer exists anywhere in the file (⟨cmd⟩ `grep -c 888888 web/src/lib/colors.ts` → **0**).
+
+*Two hazards found by measurement and closed in the same breath.* (i) `var(--unset)` is **guaranteed-invalid at computed-value time**, so probing an undeclared property would read back the INHERITED `color` — a plausible wrong answer rather than a miss; the pass therefore reads each property's declared value first and skips the empty ones. (ii) ⟨cmd⟩ `node probe2.mjs` measured `parseCSSColor` **throwing** on every form it cannot read (`""` · `"not-a-color"` · `"var(--x)"` · `"oklch()"` · `"currentColor"` · `"light-dark(red, blue)"`), so the failure branch is a `catch` **around the parser boundary only**, returning `null` so the authored value stands. It masks no defect of ours: it is the parser's declared failure protocol, and the branch is unreachable for a used value.
+
+**The `@property` limb is not needed and is not taken.** D-1's identity notes *"no `@property` color registration"*; registering `<color>` syntax is one way to make a `getPropertyValue` read return a resolved value, but the used-value probe obtains the same answer **without touching a producer-owned token declaration** (the `--viz-*` family is authored in `node_modules/@mkbabb/glass-ui/dist/styles/tokens/`, and `web/src/style.css` is **not** in this unit's bound). Recorded so the omission is a decision, not a gap.
+
+**D-2 — `basis-display.ts`, 7 → 37 L.** The module-eval value copy is **gone**: the three colours are `computed(() => VIZ_COLORS.…)` inside a `reactive` record, so `basisDisplay[k].color` is derived rather than captured. The exported type is pinned `Record<string, BasisDisplay>` **deliberately** — the seven consumers index it with a `string` variable (`BasisCanvas.vue:251` · `GalleryCard.vue:40` · `GalleryCardModal.vue:45` · `labels.ts:30` · `GallerySearchBar.vue:31` · `GalleryDraftsSection.vue:44` · `BasisSelector.vue:139`), all of them **outside this unit's bound**, and Vue's `UnwrapNestedRefs` makes the annotation land with **no cast**.
+
+**C-4 — `main.ts`, 11 → 19 L.** `installVizColors()` is called **synchronously before `app.mount()`**, and `app.mount` is reached only through `router.isReady().then(…)`, i.e. a microtask strictly after the module body — so the ordering is a property of the bytes, not of a timing hope. The child-first race the prose at `useCoeffHover.ts:60-65` documents is closed at its root: a root `onMounted` fires **after** every child's, so a child reading the palette while it mounts used to win.
+
+**M-β5 — the repair's own gate, turned in the same commit.** `hexToRgba`/`hexToRgb` now split through one validating `hexChannels()` (`#rgb` · `#rgba` · `#rrggbb` · `#rrggbbaa`), which **raises a named `TypeError`** instead of forwarding `NaN` into `ctx.shadowColor`/`ctx.strokeStyle`, where Canvas2D drops it without a word. The `:29` unvalidated hex fast-path is **deleted with `cssVarToHex` itself**, and the gate's own wording — *"validate before D-1 emits any hex branch"* — holds by construction: the only hex D-1 emits is `toHex()`'s clamped output, and it is emitted only after the parse succeeds.
+
+**HLG-41, ordering edict honoured: the dead bindings die WITH the cure, in the same commit, and no later.** `HarmonicLevelGrid.vue:25` and `:48` (`:style="{ '--track-color': VIZ_COLORS.chebyshev }"`) are **deleted**, and with them the `:91` `VIZ_COLORS` import that they alone justified (286 → 283 L). They are **dead at the bytes, measured**: ⟨cmd⟩ `grep -rl -- "--slider-scrub" node_modules/@mkbabb/glass-ui/dist/` → **no output** — the installed producer consumes the `--slider-scrub-*` family **nowhere**, so `.level-slider-track`'s four declarations (`:208-214`) are inert and `--track-color` feeds only inert declarations. The edict's rationale is now live rather than theoretical: before this commit `VIZ_COLORS.chebyshev` was pinned at `#888888` through every flip, so the binding never invalidated; **the cure mints the per-theme-flip re-render trigger on a `v-for` grid**, which is precisely why the deletion may not follow it.
+
+**L-7 — the dead `VIZ_COLORS.green` read.** ⟨cmd⟩ `grep -rno "VIZ_COLORS\.[a-zA-Z]*" web/src | sed 's/.*VIZ_COLORS\./VIZ_COLORS./' | sort | uniq -c | sort -rn` → `11 fourier · 10 golden · 7 amber · 5 chebyshev · 3 legendre · **1 green**`, and that one is **its own write at `colors.ts:95`**. Zero readers: the member and its resolve are **deleted**. The token roster is now four, not five.
+
+**M-β6 — the unfiltered `getComputedStyle` round-trips.** Before: five calls to `getComputedStyle(document.documentElement)` per invocation, one per token, each interleaved with nothing that could share them. After: **one** `getComputedStyle` handle and one batched declared-value read for the whole pass, then a **cached** probe per unique token expression (`createTokenColorCache` — the producer's own answer: *"the un-wrap (a forced sync reflow) runs once per unique color string"*), dropped wholesale by `invalidate()` when the cascade moves. With L-7 the pass is four tokens, not five.
+
+**A cascade channel the tree did not observe, closed where the palette lives.** `installVizColors()` also subscribes to `matchMedia("(prefers-color-scheme: dark)")`. `:root { color-scheme: light dark }` (`tokens/scheme-motion.css:24`) makes the producer's `light-dark()` arms follow the OS, and an OS flip is **not** a class mutation — the app root's `MutationObserver` watches `attributeFilter: ["class"]` only. This mirrors the producer's own pattern in `useTokenColor` (MutationObserver on class ⊕ `matchMedia` change), so it is the sanctioned shape rather than an invention.
+
+#### Act 4 — the SS-13 witness, entry route PINNED (R-1), light ⊕ dark ⊕ back, both routes
+
+R-1 is binding: *"the split-brain is entry-conditional … every SS-13 witness and repair test pins the entry route"*. Both routes were driven: **`/paper`** (the default target of `/` and the post-poison route named in WU-E) and **`/w/`** (the visualization entry, where `components/visualization/**` — hence `basis-display` — is evaluated). The witness imports the **live module instances over the dev-server module graph**, so it reads `VIZ_COLORS` and `basisDisplay` themselves, not a re-implementation. ⟨cmd⟩ `node witness2.mjs`, **double-run, output diff EMPTY**:
+
+| route · arm | `VIZ_COLORS` fourier · chebyshev · legendre · amber | `basisDisplay.*.color` | `hasGreen` |
+|---|---|---|---|
+| `/paper` LIGHT | `#d73523` · `#3156b9` · `#9541af` · `#9d6515` | `#d73523` · `#3156b9` · `#9541af` | `false` |
+| `/paper` DARK | `#eb7366` · `#88a1e7` · `#ce8ee1` · `#e8b96d` | `#eb7366` · `#88a1e7` · `#ce8ee1` | `false` |
+| `/paper` BACK | `#d73523` · `#3156b9` · `#9541af` · `#9d6515` | `#d73523` · `#3156b9` · `#9541af` | `false` |
+| `/w/` LIGHT | `#d73523` · `#3156b9` · `#9541af` · `#9d6515` | `#d73523` · `#3156b9` · `#9541af` | `false` |
+| `/w/` DARK | `#eb7366` · `#88a1e7` · `#ce8ee1` · `#e8b96d` | `#eb7366` · `#88a1e7` · `#ce8ee1` | `false` |
+| `/w/` BACK | `#d73523` · `#3156b9` · `#9541af` · `#9d6515` | `#d73523` · `#3156b9` · `#9541af` | `false` |
+
+`PAGE ERRORS: []` on every route and every arm.
+
+**BEFORE → AFTER, the CHROME↔CANVAS divergence closed**: `#888888 · #888888 · #888888 · #9d6515` → `#d73523 · #3156b9 · #9541af · #9d6515` (light) and `#888888 · #888888 · #888888 · #e8b96d` → `#eb7366 · #88a1e7 · #ce8ee1 · #e8b96d` (dark). **`--viz-amber` is byte-unchanged in both arms** — the one token the old path read correctly still reads identically, which is the honest check that the new path is a superset and not a re-tint.
+
+**MG-κ's provenance claim, confirmed rather than repeated.** WU-E states *"prior pin authored HEX; `#d73523` byte-identical to `colorUnit2(oklch-token)`"*. The cured light-arm `--viz-fourier` reads **`#d73523`** — the cure does not invent a colour, it **restores the one the prior pin shipped**, and the regression is dated exactly where MG-κ dates it. ⟨cmd⟩ `node probe.mjs` shows the arithmetic standing alone: `oklch(0.579 0.201 30.4)` → `rgb(0.8433193…, 0.2083613…, 0.1371963…)` → `#d73523`, and `#d73523` → `rgb(0.8431372…, 0.2078431…, 0.1372549…)`, the two agreeing to the 8-bit byte.
+
+**D-2's split-brain, witnessed dead**: `basisDisplay.*.color` equals `VIZ_COLORS.*` on every row above, including after a flip and after a flip back, on **both** entry routes. Before the commit it would have held `#bf4040`/`#3d72b8`/`#9545b8` — the authored fallbacks, frozen at module evaluation — against a live `VIZ_COLORS`, which is *"one basis two colours one frame"* exactly.
+
+**M-β5, witnessed at the boundary** ⟨cmd⟩ (same run) → `hexToRgba("not-a-hex", .5)` → `THREW: not a CSS hex color: "not-a-hex"` · `("")` → `THREW: …: ""` · `("#12345")` → `THREW: …: "#12345"` · `("#888888")` → `rgba(136, 136, 136, 0.5)` · `("#abc")` → `rgba(170, 187, 204, 0.5)`. **The NaN channel is unreachable; valid input, including the 3-digit short form, is unaffected.**
+
+**The OS-scheme channel** ⟨cmd⟩ `node witness3.mjs` (no class touched; `emulateMedia({colorScheme})` only) → `OS light {"fourier":"#d73523","legendre":"#9541af"}` → `OS dark {"fourier":"#eb7366","legendre":"#ce8ee1"}` → `OS back {"fourier":"#d73523","legendre":"#9541af"}`, `PAGE ERRORS: []`. **Measured note**: glass's `useGlobalDark` *also* mirrors the OS preference onto the `.dark` class, so on this configuration both channels fire and the resolve is idempotent; the subscription is the contract for the arm, not a duplicate path.
+
+#### Act 5 — the two KILLS, honoured explicitly
+
+- **`color2` NEVER (MG-ι).** The symbol appears **nowhere in the tree**, in either sense: ⟨cmd⟩ `grep -rnw "color2" web/src | wc -l` → **0**, and ⟨cmd⟩ `grep -c "color2" web/src/lib/colors.ts` → **0** — `colorUnit2` does not even contain the substring (`colorUnit2` ≠ `color2`), so the count is not a near-miss being read charitably. What the file imports is ⟨cmd⟩ `grep -n "@mkbabb/value" web/src/lib/colors.ts` → `:19 import { colorUnit2, parseCSSColor, ValueUnit } from "@mkbabb/value.js";`, and the composition `colorUnit2(parseCSSColor(css), "rgb")` is the cure WU-E names.
+- **D-4's "make `color` a getter" cure is KILLED (K-5), and is not what landed.** K-5's stated rationale is *"the getter restores reactivity onto a `#888888` resolver — **the cure alone worsens the surface**"*, and §5 `:514` excludes it **as the palette remedy**, naming the remedy as *"`colorUnit2 ∘ parseCSSColor` or glass's `/dom` `resolveTokenColor`"*. That remedy is what this commit lands. What `basis-display.ts` gains is **D-2's own repair — the removal of a module-eval value copy** — and it ships in the SAME commit as the resolver, so the condition the kill guards against is extinguished at the bytes: **`#888888` is no longer an emittable value** (⟨cmd⟩ `grep -c 888888 web/src/lib/colors.ts` → `0`). Stated in full here so the distinction is on the record and not left to a reader's charity.
+
+#### Act 6 — the `EditorControlsDock.vue:123` rider: MEASURED, and NO BYTE WRITTEN
+
+WU-E's rider reads *"`EditorControlsDock.vue:123` magnet track goes grey"*. The site is ⟨cmd⟩ `grep -n "VIZ_COLORS" web/src/components/visualization/EditorControlsDock.vue` → `:8 import` · `:123 :style="{ '--track-color': VIZ_COLORS.fourier }"` — a **template binding**, which re-renders on the reactive write. **D-1 cures it with no edit at all**: the binding now emits `#d73523`/`#eb7366` where it emitted `#888888`. The file was opened, measured and **left byte-identical**, because writing to it would be an edit the disposition does not ask for.
+
+**A finding that belongs to G9, not here, and is handed on rather than acted on**: `.magnet-slider-track` (`:223-229`) is the same A.W2.c pattern as HLG-41's `.level-slider-track`, and the `--slider-scrub-*` family it projects onto is consumed **0×** by the installed producer (Act 3's measurement). So `:123` is structurally the same dead binding HLG-41 orders deleted, and it mints the same per-flip trigger. **It is NOT deleted here**: the spec issues its ORDERING EDICT for `HarmonicLevelGrid.vue:25/:48` alone, and the `--slider-scrub-*` family is **G9's operand — *"acceptance only — execution is F.W3/W4"*** — whose seven named files include **both** `visualization/EditorControlsDock.vue` and `morph/HarmonicLevelGrid.vue`. A third instance of the same shape stands at `BasisSelector.vue:176`/`:203`/`:318-322`. **Routed to F.W3/W4 under G9, with this measurement attached.**
+
+#### Act 7 — the abort semantics, discharged clause by clause (§4 step 3 `:282`)
+
+> *"What it may never do is presume the hop: no bare-root-specifier leg, no ≥7 token spelling, no producer-deleted class inside it."*
+
+- **No bare-root specifier added.** ⟨cmd⟩ `git show 3bac3d5 -- web/src | grep -c '^+.*@mkbabb/glass-ui"'` → **0**. The tree's six pre-existing bare-root sites are untouched and remain unit `e`'s (`useMorphConfig.ts:9` · `UserSlugBar.vue:5` · `AdminUserList.vue:4` · `GalleryCard.vue:5` · `EquationResult.vue:4` · `router/index.ts:2`). The one glass specifier this commit adds is **`@mkbabb/glass-ui/dom`**, a subpath present at BOTH pins (Act 1).
+- **No ≥7 token spelling.** The commit's entire `--` surface is ⟨cmd⟩ `git show 3bac3d5 -- web/src | grep -E "^[+-].*--"` → two **deleted** `--track-color` bindings and the four pre-existing `--viz-*` names it reads. **No token is introduced.**
+- **No producer-deleted class.** The commit adds **no class attribute and no selector at all**; `class="level-slider-track"` survives unchanged on both sliders (it still carries `flex: 1`).
+- **Severability, affirmatively true.** The commit compiles and runs against the **installed 4.0.0** tree with no manifest change; `web/package.json`, `web/package-lock.json`, `web/dist/**` and every producer byte are untouched. **If commit #4 aborts, this stands** — and Act 4 is the measurement of the spec's own claim that what remains is *"the pre-uplift tree plus a palette that resolves"*.
+
+#### Gates
+
+| gate | BEFORE | AFTER | receipt |
+|---|---|---|---|
+| **M-β5 — the repair's own gate** (*validate before D-1 emits any hex branch, same commit*) | **RED** — `hexToRgba`/`hexToRgb` `:101-117` do `parseInt` on an unchecked slice; the `:29` fast-path forwards any `#…` unvalidated | **GREEN** | one validating `hexChannels()` behind both exports, raising a named `TypeError`; the `:29` fast-path deleted with `cssVarToHex`; D-1's only hex branch is `toHex()`'s clamped output, reached only after the parse succeeds. Witnessed in-page: 3 malformed inputs THROW, 2 valid inputs convert (Act 4). **Same commit, `3bac3d5`.** |
+
+**No gate of G1–G20 is this unit's to turn** (§Unit plan: *"none of G1–G20 directly"*), and none was moved. **Two are touched and are reported, not claimed:**
+
+- **G11 (module resolution) — the inherited RED is UNCHANGED, and that is the reading that matters.** ⟨cmd⟩ (cwd `web/`) `npx vue-tsc -b --force` → **exit 1 · 20 diagnostics** at open (17 `TS6133` · 1 `TS6196` · 1 `TS2882` `PaperView.vue(12,8)` · 1 `TS2769` `vite.config.ts`), reproducing §Baseline's G11 row exactly. After the commit: **exit 1 · 20 diagnostics**, ⟨cmd⟩ `diff base.txt after.txt` → **EMPTY**, and the run **double-run identical**. **Zero diagnostics added, zero removed** — G-15(a)'s ruling (*the RED is the uplift's, its cure owned by F.W1/W2*) is honoured: this commit neither inherits the RED as its own nor disturbs it.
+- **G4** is not run here — its `npm run build` needs the bumped install and is unit `e`'s (§Unit plan). ⟨cmd⟩ `git status --porcelain` → **0**: `web/dist` was neither read as evidence nor written.
+
+⟨cmd⟩ `git diff --check` → clean, before and after the commit.
+
+#### E13
+
+The four paths ⊕ the atlas **Q** extension were swept at §Open (seat 0, 19:11) and I-32/I-33 were **read in full and consumed** by unit `b`, whose own row records *"NO STATUS CELL WAS FLIPPED"* because the three `UNREAD` marks are **Track D's rows**. **This unit mints no letter, flips no cell and appends no INBOX row** — `docs/tranches/V/coordination/INBOX.md` is **not in unit `d`'s writable set**. **Nothing in I-32/I-33/I-34 is owed by WU-E**, checked rather than assumed: I-32's `B-4` is the only row naming `--viz-amber`, and it is a **producer-pin fact** (*"`--viz-amber` = `oklch(0.530 0.124 69.6)`: 5.018 on `--card`, 5.214 on `--background`, 7.721 dark … the 3.54 is a 4.0.x figure"*), i.e. it bears on **`web/src/style.css:113-127`'s D.W4.d override**, a file in **unit `e`'s** bound at the hop, not on the resolver. **Handed to unit `e` by name** — and with a forward note the cure already covers: at 8.0.0 `--viz-amber` becomes an `oklch()`, the very form the deleted regex could not read, so the resolver landed here is what makes that hop safe. `PD-1`/`A-10`/`G18` are unit `f`'s and are not touched. **0 unrowed · 0 new `I-n` · 0 new `O-n` · 0 UNREAD in unit `d`'s scope.**
+
+#### Residuals and escalations — nothing absorbed silently
+
+**ESCALATION — three WU-E limbs have their ONLY repair site OUTSIDE this unit's writable set, and outside the wave's §1 product surface.** Measured, not inferred; none is a substitute cure and none was attempted.
+
+1. **`fr-BasisCanvas C-4`** — *"No draw path holds a reactive dependency on `VIZ_COLORS` — theme flip never repaints paused/off-screen canvas."* The site is **`web/src/components/visualization/BasisCanvas.vue`**. ⟨cmd⟩ `grep -n "watch(" web/src/components/visualization/BasisCanvas.vue` → `:378` `[() => store.epicycleData, …]` · `:402` `[() => store.basesData, () => props.activeBases]` · `:418` `[() => anim.t, () => anim.easedT, () => props.showGhost, () => props.showImageOverlay]`. **Every draw runs inside a `watch` CALLBACK, which tracks nothing**, and `drawFrame` reads the palette at ⟨cmd⟩ `grep -n "cfg.color\|VIZ_COLORS.golden" web/src/components/visualization/BasisCanvas.vue` → `:127` · `:172` · `:257` (`cfg.color`) · `:261` · `:326`. Making `basisDisplay.color` a `computed` (this unit's D-2) **does not close it**: a computed read inside an untracked callback still registers no dependency. The cure is one source in that watcher's array, or one `watch` on the palette next to it — **one byte in `BasisCanvas.vue`**, which is not in unit `d`'s writable set and is not enumerated at §1. **The limb is newly visible exactly as WU-E predicts** (*"Newly visible the moment D-1 lands"*): before this commit a flip changed nothing, because all four tokens were pinned grey through it.
+2. **`m-9`** — the `MOON_COLOR`/`SUN_COLOR` false anchors. ⟨cmd⟩ `grep -rn "MOON_COLOR\|SUN_COLOR" web/src` → **`web/src/components/layout/DarkModeToggle.vue:30,31,49,50,53,54`** — `SUN_COLOR = [232, 136, 69]`, `MOON_COLOR = [192, 132, 252]` with the comment *"matches `VIZ_COLORS.legendre`"*, which the cured light-arm legendre (`#9541af`) shows it does not. Out of bound.
+3. **`M-α5`** — the focal mark's third divergence site. ⟨cmd⟩ `grep -rn "#ff3b3b" web/src` → **`web/src/components/visualization/lib/canvas-drawing/epicycles.ts:289`** `ctx.fillStyle = "#ff3b3b"`. Out of bound.
+
+**The declared interlock landed whole**: WU-E's binding clause is *"**Interlock: D-1 and D-2 are ONE repair** (curing either alone worsens the surface)"*, and **both** are in this commit, with C-4, M-β5, HLG-41, L-7 and M-β6 beside them. The three limbs above are additive to the palette's correctness, not conditions of it; the surface after this commit is strictly better than before it on every measurement in Act 4. **Per §4 step 3 `:282` this commit is SEVERABLE and is not reverted if #4 aborts** — so the right disposition of the three is a bound, not a revert: **either widen unit `d`'s writable set by three paths and re-seat the limbs, or route them to the unit that already owns those files.**
+
+**Residuals, each with its measurement, none acted on:**
+
+- **`App.vue:10-18` still calls `resolveVizColors()` in the root `onMounted` and installs its own class `MutationObserver`.** §1 lists `web/src/App.vue` on the **same line** as `colors.ts`/`basis-display.ts`/`main.ts` — the WU-E line — but it is **not** in unit `d`'s writable set, so it was not touched. The consequence is **benign and measured**: the `onMounted` call is one redundant re-resolve at boot (the second pass writes the same strings, so no reactive churn), and the class observer is the channel the app still needs. The cure was designed so this is harmless: `installVizColors()` adds **no** second `MutationObserver`, only the `matchMedia` subscription the root does not have. **The tidy-up is three deleted lines in `App.vue` (the `resolveVizColors()` call, the observer, and then the import), and belongs to the seat that owns it.**
+- **`VIZ_COLORS.rainbow` · `.pink` · `.emerald` are dead exactly as `.green` was.** ⟨cmd⟩ `grep -rno "VIZ_COLORS\.rainbow\|VIZ_COLORS\.pink\|VIZ_COLORS\.emerald" web/src | wc -l` → **0** for all three. **Not deleted**: WU-E's rider names `green` and only `green`, and three more deletions is a second meaning in a commit the spec fixes at one. Handed to F.W2/F.W3.
+- **`hexToRgb` has zero call sites.** ⟨cmd⟩ `grep -rn "hexToRgb\b" web/src | grep -v "lib/colors.ts"` → no output. It is validated with its twin (M-β5 names both) and **kept**, because deleting an export is not this repair's meaning.
+- **`hexToRgba`'s `alpha` argument is unvalidated**, so a `NaN` alpha still produces `rgba(…, NaN)`. M-β5's identity is the **hex** channel; the alpha arm is stated here rather than swept in.
+- **`.level-slider-track`'s four `--slider-scrub-*` declarations (`HarmonicLevelGrid.vue:208-214`) survive** the `:style` deletion and now read an unset `--track-color`. They were already inert (Act 3) and the family is **G9's operand, executed at F.W3/W4** — deleting them here would execute another wave's gate.
+
+**Self-count**: this `### d` block is **not** counted in any figure above; every count is of the settled product bytes, the read-only producer tree at its tag, or the frozen witness output, each double-run.
