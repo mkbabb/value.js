@@ -1,0 +1,18 @@
+=== X.P.W2.g — idiom-nocst --candidate ac1 (G-10) ===
+graph nodes walked  139
+`opt` under `all`   0
+`lazy` nodes        0
+memoize nodes       0
+
+textual zero (comments stripped)             count over 7 declared source files
+-------------------------------------------  ----------------------------------
+non-null `!`                                 0
+`as any`                                     0
+`as unknown as`                              0
+`.parse(` truthiness entry                   0
+hand-rolled cursor (`charCodeAt` in a loop)  0
+
+excess-property fixture (`tsc --noEmit --strict`)  FAILS
+../../../../var/folders/ld/20j4p2791k5_90_0ccgx2txm0000gr/T/w2-nocst-l6Xz0g/fixture.ts(6,1): error TS2578: Unused '@ts-expect-error' directive.
+
+RED — the excess-property fixture fails — V is not assignable to the frozen type, or the type admits an extra field (no-CST's second half)

@@ -1,0 +1,30 @@
+=== X.P.W2.g — op-bijection --candidate ac1 --at typescript/src/css (G-2) ===
+contract  name      js row          jsSymbol     wasm row        wasmSymbol     pairing
+--------  --------  --------------  -----------  --------------  -------------  -------
+OP-01     SCAN      OP-01 SCAN      js:SCAN      OP-01 SCAN      wasm:SCAN      ok
+OP-02     LIT       OP-02 LIT       js:LIT       OP-02 LIT       wasm:LIT       ok
+OP-03     NUM       OP-03 NUM       js:NUM       OP-03 NUM       wasm:NUM       ok
+OP-04     DIGITS    OP-04 DIGITS    js:DIGITS    OP-04 DIGITS    wasm:DIGITS    ok
+OP-05     TEXT      OP-05 TEXT      js:TEXT      OP-05 TEXT      wasm:TEXT      ok
+OP-06     KW        OP-06 KW        js:KW        OP-06 KW        wasm:KW        ok
+OP-07     END       OP-07 END       js:END       OP-07 END       wasm:END       ok
+OP-08     SEQ       OP-08 SEQ       js:SEQ       OP-08 SEQ       wasm:SEQ       ok
+OP-09     ALT       OP-09 ALT       js:ALT       OP-09 ALT       wasm:ALT       ok
+OP-10     CUT       OP-10 CUT       js:CUT       OP-10 CUT       wasm:CUT       ok
+OP-11     PURE      OP-11 PURE      js:PURE      OP-11 PURE      wasm:PURE      ok
+OP-12     REP       OP-12 REP       js:REP       OP-12 REP       wasm:REP       ok
+OP-13     DROP      OP-13 DROP      js:DROP      OP-13 DROP      wasm:DROP      ok
+OP-14     DISPATCH  OP-14 DISPATCH  js:DISPATCH  OP-14 DISPATCH  wasm:DISPATCH  ok
+OP-15     FAIL      OP-15 FAIL      js:FAIL      OP-15 FAIL      wasm:FAIL      ok
+OP-16     EXPECT    OP-16 EXPECT    js:EXPECT    OP-16 EXPECT    wasm:EXPECT    ok
+OP-17     CLAMP     OP-17 CLAMP     js:CLAMP     OP-17 CLAMP     wasm:CLAMP     ok
+OP-18     SCALE     OP-18 SCALE     js:SCALE     OP-18 SCALE     wasm:SCALE     ok
+OP-19     CTOR      OP-19 CTOR      js:CTOR      OP-19 CTOR      wasm:CTOR      ok
+OP-20     TRY       OP-20 TRY       js:TRY       OP-20 TRY       wasm:TRY       ok
+OP-21     RECOVER   OP-21 RECOVER   js:RECOVER   OP-21 RECOVER   wasm:RECOVER   ok
+OP-22     REF       OP-22 REF       js:REF       OP-22 REF       wasm:REF       ok
+contract rows                 22
+js rows                       22
+wasm rows                     22
+DECLARED-ABSENT wasm symbols  0
+GREEN — 22 rows, both lowerings, fingerprints pairwise equal

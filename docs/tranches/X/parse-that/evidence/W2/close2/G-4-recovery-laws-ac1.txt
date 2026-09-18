@@ -1,0 +1,8 @@
+=== X.P.W2.g — recovery-laws --candidate ac1 (G-4) ===
+lowering  TRY sites  R-LAW-1 mismatches  R-LAW-2 COMP-1 failures  R-LAW-4 amplified  R-LAW-4 zero-width  R-LAW-3
+--------  ---------  ------------------  -----------------------  -----------------  ------------------  -------
+js        2951       0                   13                       0                  0                   silent
+wasm      2951       0                   13                       0                  0                   silent
+
+R-LAW-5  structural — see `op-bijection.mjs --structural` (recover-final-only, printed with its negative control)
+RED — js: R-LAW-2 — 13 rows fail COMP-1 | wasm: R-LAW-2 — 13 rows fail COMP-1

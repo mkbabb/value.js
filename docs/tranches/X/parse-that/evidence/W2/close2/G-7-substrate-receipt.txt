@@ -1,0 +1,15 @@
+=== X.P.W2.g — substrate-receipt (G-7's per-number stamp · G-9's substrate witness) ===
+subject                       root                                                                 commit        branch     worktree  note
+----------------------------  -------------------------------------------------------------------  ------------  ---------  --------  -----------------------------------------------------
+<p2> (the fresh writer root)  /Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1  130f72db681f  w2/ac1     0 dirty   base f5757082 — §0l R-13
+value.js                      /Users/mkbabb/Programming/value.js                                   aedb07b58a13  tranche-u  6 dirty   docs + the frozen surface; never written by X·P
+parse-that (evidence)         /Users/mkbabb/Programming/parse-that                                 ef10d5b78236  master     31 dirty  READ-ONLY always; K-10 forbids its uncommitted wasm32
+
+node                                          v26.0.0 · v8 14.6.202.33-node.19 · darwin arm64
+<p2> package                                  parse-that-css-totality-p2@- (private)
+third cell                                    @mkbabb/value.js@4.0.0 /css — VENDORED, sha-pinned
+third cell sha256                             8b5381305ea26236326f06a38559247b2089a5be7fa78abe43640d0556320c42 == pinned 8b5381…0c42
+third cell dist-or-tree                       dist (the published tarball) — never the working-tree dist
+committed wasm32 in the evidence root (OP-6)  0 (exit 1, no output) — OP-6 holds
+ratio denominator (OP-5)                      1,636,680 µs — OP-5 / SCOPE.md M-22 ¶4 — the conservative reconstruction every ratio row carries until `P4-EVIDENCE-REPLAY.json` is readable
+bar                                           OWNER-GATED-PENDING-RATIFICATION (COHESION §0j.E OC-1: the bench table is RECORDED-NOT-GATING; no bar is set here or anywhere in W2)

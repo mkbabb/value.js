@@ -1,0 +1,22 @@
+=== X.P.W2.g — coverage-52-report (G-6: report, never cure) ===
+manifest   harness/totality/manifest.json — 52 exports (33 types + 19 runtime), derived 2026-09-17
+contract   ALGEBRA.md §9 — 52 rows read by the §9 row grammar
+surface    re-derived in-process from 52 exports of src/css/index.ts
+manifest names          52
+contract rows           52
+universe − map          ∅
+map − universe          ∅
+by class                V:31 · K:2 · P:10 · W:2 · X:7
+declared holes (W + X)  9
+file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/totality/lib/surface.mjs:202
+        ...text.matchAll(/export\s+(?:declare\s+)?(type|interface)\s+([A-Za-z_$][\w$]*)/g),
+                ^
+
+TypeError: text.matchAll is not a function or its return value is not iterable
+    at readTypeDeclarations (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/totality/lib/surface.mjs:202:17)
+    at classifyTypes (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/totality/lib/classify.mjs:122:54)
+    at classify (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/totality/lib/classify.mjs:173:19)
+    at main (file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/w2/coverage-52-report.mjs:92:24)
+    at async file:///Users/mkbabb/Programming/parse-that-css-totality-p2/.worktrees/ac1/harness/w2/coverage-52-report.mjs:135:14
+
+Node.js v26.0.0

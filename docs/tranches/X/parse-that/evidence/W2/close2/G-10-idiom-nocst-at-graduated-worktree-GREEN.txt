@@ -1,0 +1,16 @@
+=== X.P.W2.g — idiom-nocst --candidate ac1 (G-10) ===
+graph nodes walked  139
+`opt` under `all`   0
+`lazy` nodes        0
+memoize nodes       0
+
+textual zero (comments stripped)             count over 7 declared source files
+-------------------------------------------  ----------------------------------
+non-null `!`                                 0
+`as any`                                     0
+`as unknown as`                              0
+`.parse(` truthiness entry                   0
+hand-rolled cursor (`charCodeAt` in a loop)  0
+
+excess-property fixture (`tsc --noEmit --strict`)  PASSES — V is assignable AND an excess property is rejected
+GREEN — graph clean, textual zeros all zero, V assignable under an excess-property check
