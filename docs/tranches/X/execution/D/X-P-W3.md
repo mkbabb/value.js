@@ -999,3 +999,364 @@ part of that program. Prettier was **checked and deliberately not applied to thi
 `npx prettier --check` on `git show HEAD:…/X-P-W3.md` already warns **before** this append, so
 `--write` would rewrite `.0`'s receipt inside a file three seats append to concurrently. The cadence
 is run over the bytes a unit authors, and this unit's only value.js byte is script-generated JSON.
+
+---
+
+### X.P.W3.a
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18 01:0x–01:4x EDT · phase 1, run concurrently with
+`.b` on a disjoint modify set. Spec sections executed exactly: `W3.md` §5 `.a` (L237–251) · §3 items
+1–3 (L92–98) · §6 **G-1** (L348–370) · §6 **G-6** (L451–466) · §4/§4a/§4b (L148–226) · §11 items 2
+and 4 (L644–655). `W3.md` read WHOLE (673 L, sha256 `53ebaf42…` before and after — **UNTOUCHED**);
+`COHESION.md` read to the file end (1,042 L, §0n.6 last); this record read whole through `.0`'s
+receipt. Every anchor verified at true bytes before any write; **none had drifted**.
+
+**Gates: G-1 and G-6, this unit's two. G-6 RED → GREEN. G-1 RED → RED, at a measured distance that
+rose.** Both readings were taken twice at the settled bytes and were identical.
+
+---
+
+#### a.0 — Method note, stated before the numbers
+
+**The oracle is the published sha-pinned 4.0.0 tarball, and no answer key is self-authored**
+(`W3.md` §3 prohibitions). Every accept/reject partition below is *computed* by running
+`cand-o/vendor/value-js-4.0.0/dist/subpaths/css.js` over the corpus, not typed. A published THROW
+puts its input in the **reject** set as an R1-class row, because `W3.md` §5 `.d` says the mirror
+"preserves spec-correctness, never bug-compatibility". Where `parser-band.md` adjudicates against
+the published reading, **the adjudication wins and the input is rowed** — never a silent pick.
+
+**The pin is an argument, never a default.** The universe is read through
+`git show <sha>:src/css/index.ts`, so a dirty working tree, a sibling track's commit, or a branch
+switch cannot move it under a running gate. The pin elected is **`6aca86020b6b2605e7d0f04fccb6601746e387f7`**
+— `src/css/index.ts`'s own last change (`feat(v-w43a)!: god-module seam splits css/syntax +
+css/timeline`), which also carries `src/css/types.ts` unmoved since `f024d385`. Measured:
+`git show 6aca8602:src/css/types.ts | shasum -a 256` → `109327ce94fdcc37…`, string-equal to the
+working tree's, so the pin and today's bytes are the same contract.
+
+**The `.ts`/`.mjs` reconciliation** the open recorded is inherited unchanged: this unit authored
+`.ts` where the tree is TypeScript (`test/css-totality/*.test.ts`) and `.mjs` where the graduated
+tree is (`lib/*.mjs`), and opened **none** of the five names §4a assigns to `.b`/`.c`.
+
+---
+
+#### Act 1 — the universe, generated from the pinned barrel (§3 item 1 · §11 guardrail 2)
+
+`typescript/scripts/css-universe.mjs` + `typescript/test/css-totality/lib/pin.mjs`. Zero export
+names appear in either file: the 52 are derived by walking `export [type] { … } from "<module>"`
+blocks of the pinned barrel text, in source order, `X as Y` tolerated.
+
+```
+⟨cmd⟩ node typescript/scripts/css-universe.mjs --check --pinned-value-commit 6aca8602…
+pin        6aca86020b6b2605e7d0f04fccb6601746e387f7
+  index    …:src/css/index.ts — 1310 B, sha256 c09d076ed779fede
+  types    …:src/css/types.ts — 5879 B, sha256 109327ce94fdcc37
+  oracle   …/vendor/value-js-4.0.0/dist/subpaths/css.js  — sha256 8b5381305ea26236
+  frozen   …/vendor/value-js-4.0.0/dist/subpaths/css.d.ts — sha256 c81d095213d112c6
+universe   19 runtime + 33 types = 52
+```
+
+**THE SHAPE ORACLE IS PROVED, NOT ASSUMED.** The pinned `src/css/types.ts` does **not** compile
+alone — it imports `../color/model`, `../foundation/result`, `../easing`, `../value` (L1–4) — so the
+assignability compile's frozen side is the vendored sha-pinned 4.0.0 declaration. That substitution
+is licensed by a measurement, not by convenience: one extractor (W1's own `readTypeDeclarations`,
+imported and executed — `harness/totality/**` is execute-and-read) is run over **both** texts and
+the two are compared by name and by member/literal set.
+
+```
+pin agreement (the frozen declaration vs the pinned src/css/types.ts, one extractor)
+  type names     barrel−published ∅ · published−barrel ∅
+  runtime names  barrel−published ∅ · published−barrel ∅
+  member/literal disagreements 0
+```
+
+---
+
+#### Act 2 — the corpus, folded as a UNION (§5 `.a`)
+
+`typescript/test/css-totality/lib/corpus.mjs`. **Nothing is transcribed.** Each arm reads its own
+source, and an extraction that comes back empty or off its declared count **throws** rather than
+producing a quietly smaller corpus.
+
+| arm | declared | read | source, and how it is read |
+|---|---|---|---|
+| `ground-a` | 210 | **210** | `cand-f/totality.test.ts:60-71` — the `heads` (21) and `fillings` (10) arrays **extracted from the fixture text**, crossed here |
+| `fuzz-f` | 4,000 | **4,000** | `cand-f/totality.test.ts:206-240` — the alphabet, the six seed strings, the PRNG seed `0xbadc0de` and the case count all **extracted**; only the eight-line mutation algorithm is restated, over the fresh root's own `mulberry32` |
+| `fuzz-o` | 30,000 | **30,000** | `experiments/w2/corpus/fuzz-gen.mjs` — `generateFuzzRows` **imported**, seed `0x5eedc0de`, replay checked against the banked pin |
+| `named` | 148 | **148** | `fixtures/css-color-4-named-colors.json` (`count: 148`, css-color-4, fetched 2026-07-24) |
+| `p1` | 403 | **403** | `harness/equivalence/corpus.json` — the P-1 pilot corpus, generated 2026-07-20 |
+| `r1` | 172 | **172** | `experiments/w2/corpus/r1.json` + its **7** declared non-string boundary cases |
+
+```
+arm total 34,933 · UNION 26,604 · overlap 8,329 · declared non-string boundary 7
+written to typescript/test/css-totality/corpus.json — rows sha256 559e84bfb632b140
+```
+
+**UNION MEANS SET UNION.** 8,329 inputs appear in more than one arm and are **one row carrying
+several provenances**, not several rows; a corpus that double-counts its overlaps inflates every
+denominator downstream. `corpus.json` is G-4's named operand (`W3.md` §6 G-4) and is written where
+`.b`'s command looks for it.
+
+**F-a.1, cured in passing.** `experiments/w2/corpus/fuzz-seed.json` banks
+`rowsSha256 39f3903b…` as the replay assertion, but **no script in the tree produces it** — the
+digest was un-replayable from the repository's own bytes. It was recovered by search and is now
+written down at `lib/corpus.mjs`: it is sha256 over the row **sources joined by NUL**
+(`rows.map(r => r.src).join("\0")`), not over any JSON form. Measured, matching:
+`39f3903bbfb1f92f723113ca894e2279f71c0f3b31208c0d981b4164872d09ff`. A pin nobody can recompute is
+not a pin.
+
+---
+
+#### Act 3 — the 33 type rows, bidirectional, in ONE compile (§3 item 3 · G-1)
+
+`lib/assignability.mjs` generates the program, its line map, its tsconfig, and a **copy** of the
+frozen declaration (copied, not referenced across seven directory levels — that is exactly the
+defect `.0` had to cure at `ac1.d.ts`, K.8 D-c1; a generated file regenerated from a pinned source
+is location-independent by construction).
+
+Per frozen type `T`, two ordinary assignments and nothing cleverer:
+
+```ts
+declare const c_T: Candidate.T;   export const to_frozen_T: Frozen.T = c_T;       // candidate → frozen
+declare const f_T: Frozen.T;      export const to_candidate_T: Candidate.T = f_T; // frozen → candidate
+```
+
+A **widened** candidate type fails the first; a **narrowed** one fails the second. No conditional
+`extends` probe appears anywhere — a conditional reports `false` instead of failing, which is how a
+name check disguises itself as a shape check.
+
+```
+⟨cmd⟩ npx tsc --noEmit -p typescript/test/css-totality/tsconfig.assignability.json
+  program      typescript/test/css-totality/generated/assignability.generated.ts — sha256 8a1b8ab116224e77
+  frozen copy  typescript/test/css-totality/generated/frozen-4.0.0.d.ts          — sha256 733fb88e284dfd46
+  tsc exit     2 · diagnostics attributed 56 · unattributed 0
+```
+
+**56 = 28 undeclared types × 2 directions; zero diagnostics are unattributed and zero land on the
+FROZEN side** — the instrument itself compiles clean, which is what makes the 28 readings
+trustworthy. Two generator defects were found and cured on the first re-measure, not worked around:
+`ParseResult<T>`'s instantiation argument had to be **side-aware**
+(`Frozen.ParseResult<Frozen.Declaration>` against `Candidate.ParseResult<Candidate.Declaration>`;
+an unqualified `Declaration` is not in scope and yielded four TS2304s), and **TS2724** — TS2694's
+"did you mean …" variant — had to join the unresolved set, or `StylesheetItem` would have claimed
+two executed cells it never ran.
+
+**The 5 TOTAL type rows**: `CssColor` · `CssTimingFunction` · `Declaration` · `StyleRule` ·
+`Stylesheet` — the exact five `build/ac1.d.ts` re-exports, each bidirectionally assignable.
+
+---
+
+#### Act 4 — the 52-row matrix, and G-1's reading
+
+Three families, because the frozen surface has three shapes and pretending otherwise would let a
+row pass on a cell that never touched it: **parser** (the nine `(source: string) => ParseResult<T>`
+entries, corpus-driven) · **coercer** (`coerceToSyntax(source, syntax)`, the corpus crossed with the
+**13 `<production>` literals extracted from the published module's own bytes**, never a hand-picked
+list) · **structured** (the two serializers and seven collectors, whose accept inputs are the
+published oracle's **own outputs** over the corpus and whose reject inputs are the 7 declared
+degenerate values).
+
+```
+⟨cmd⟩ node typescript/scripts/css-universe.mjs --check --pinned-value-commit 6aca8602…   → exit 1
+tally  runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT · types 5 / 0 / 28 · ALL 5 of 52 TOTAL
+RED — 47 of 52 rows are not TOTAL (3 PARTIAL, 44 ABSENT).
+```
+
+| row | family | accept | reject | cells run | verdict | misses |
+|---|---|---|---|---|---|---|
+| `parseCssColor` | parser | 6,075 | 20,529 | **26,604** | PARTIAL | 4,599 |
+| `parseTimingFunction` | parser | 503 | 26,101 | **26,604** | PARTIAL | 170 |
+| `parseStylesheet` | parser | 2,256 | 24,348 | **26,604** | PARTIAL | 1,965 |
+| `parseCssScalar` · `parseCssValue` · `parseCssValues` · `parseKeyframeSelector` · `parseAnimationRange` · `parseAnimationTimeline` | parser | 4 – 10,619 | 15,985 – 26,600 | 0 | ABSENT | — |
+| `coerceToSyntax` | coercer | 653 | 32,311 | 0 | ABSENT | — |
+| the 2 serializers + 7 collectors | structured | 200 – 400 | 7 | 0 | ABSENT | — |
+| the 33 types | type | 1 | 1 | 2 where resolvable | 5 TOTAL / 28 ABSENT | 56 diagnostics |
+
+**Against the census `W3.md` §6 G-1 pastes — runtime 0 TOTAL / 3 PARTIAL / 16 ABSENT, types 0/0/33,
+0 of 52 — the runtime distribution reproduces TO THE ROW and the type column moves 0 → 5.** Pass 1
+therefore carries a **monotone rise (0 → 5)** and **no §3a halt condition is met**: the halt needs
+*three* passes without a rise, and this is one pass with one.
+
+**Every row carries a non-empty accept AND reject corpus, including the 44 ABSENT ones** — so the
+instant a peer lands, the row is measurable without a byte of this instrument moving. A row is TOTAL
+**only** when its assertion executed (`cellsRun > 0`), both corpora are non-empty, and there are
+zero misses; the legend is asserted mechanically and never applied by judgement, which is G-1's own
+falsifier.
+
+**The dominant miss classes, handed to `.d` as classes rather than 6,734 rows** (the signature is
+purely descriptive — miss kind × the input's leading function head; *adjudicating* these classes is
+`.d`'s act, not this seat's):
+
+```
+parseCssColor        4,599   DIVERGENT_VALUE:rgb 942 · MIS_ACCEPT:rgb 805 · FALSE_REJECT:rgb 642 ·
+                             DIVERGENT_VALUE:hsl 623 · DIVERGENT_VALUE:oklch 489 · FALSE_REJECT:oklch 327 ·
+                             FALSE_REJECT:hsl 292 · MIS_ACCEPT:oklch 204 · MIS_ACCEPT:hsl 191 ·
+                             FALSE_REJECT:lab 55 · FALSE_REJECT:color 26 · FALSE_REJECT:{hwb,lch,oklab} 1 each
+parseTimingFunction    170   FALSE_REJECT:linear 95 · FALSE_REJECT:steps 46 · MIS_ACCEPT:linear 19 ·
+                             FALSE_REJECT:cubic-bezier 6 · MIS_ACCEPT:cubic-bezier 4
+parseStylesheet      1,965   FALSE_REJECT 1,287 · DIVERGENT_VALUE 442 · MIS_ACCEPT 236
+```
+
+**THE ONE NUMBER THAT IS ZERO, AND IT IS THE WAVE'S OWN CRITERION.** Across all 26,604 union rows ×
+every resolvable export — **the candidate THREW on 0 cells.** `W3.md` §2a asks for exactly this:
+"there is no CSS string — well-formed, malformed, hostile, or not a string at all — that makes the
+candidate parser do anything other than return a typed result." On the surface the candidate covers,
+that sentence is true at the bytes today.
+
+---
+
+#### Act 5 — the 16 adjudicated conflicts, rowed, and G-6
+
+`lib/adjudications.mjs` is the **one** source of truth for G-6's named rows, the matrix's oracle
+override, and `.d`'s ledger. Two groups, both out of `registry/adjudicated/parser-band.md`:
+**PB-01..PB-13**, its `MEASURED — published-parser defects` table (`:85-100`, "each confirmed by
+direct probe"), and **ADJ-1..ADJ-3**, the three folded-suite conflicts `W3.md` §5 `.a` names.
+
+Every row carries the six fields `DIVERGENCE-LEDGER.md` demands; the **incumbent and candidate
+halves are MEASURED**, never written from memory:
+
+```
+id     G-6  input                       incumbent                    candidate                    wants    honoured
+PB-01  a    "rgba(1, 2, 3, 0.5)"        reject css_syntax            ok {rgb,[1,2,3],0.5}         accept   YES
+PB-02  b    "hsla(120, 50%, 50%, 0.5)"  reject css_syntax            ok {hsl,[120,0.5,0.5],0.5}   accept   YES
+PB-03  c    "hsl(120 50 50)"            ok {hsl,[120,50,50]}         ok {hsl,[120,0.5,0.5]}       accept   YES
+PB-03  c    "hsl(120 50% 50%)"          ok {hsl,[120,0.5,0.5]}       ok {hsl,[120,0.5,0.5]}       accept   YES
+PB-04  d    "rgb(300 -20 3)"            ok {rgb,[300,-20,3]}         ok {rgb,[255,0,3]}           accept   YES
+PB-05  e    "rgb(1 2 3 / 1.5)"          reject css_syntax            ok alpha 1                   accept   YES
+PB-06  f    "rgb(1,2,3,)"               ok {rgb,[1,2,3]}             reject css_syntax            reject   YES
+PB-07  g    "rgb(1 2 3 / )"             ok {rgb,[1,2,3]}             reject css_syntax            reject   YES
+PB-08  h    "rgb(1, 2 3)"               ok {rgb,[1,2,3]}             reject css_syntax            reject   YES
+PB-09  i    "hsl(120%, 50%, 50%)"       ok hue 432                   reject css_syntax            reject   YES
+PB-10  j    "lch(50% 50% 50%)"          ok {lch,[50,75,180]}         reject css_syntax            reject   YES
+PB-11  k    "hwb(120, 30%, 40%)"        ok {hwb,[120,0.3,0.4]}       reject css_syntax            reject   YES
+PB-12  l    "rgb(1. 2 3)"               ok {rgb,[1,2,3]}             reject css_syntax            reject   YES
+PB-13  —    "currentcolor"              reject color_context_required reject color_context_required reject  YES
+ADJ-1  —    "hsl(480 50% 50%)"          ok hue 480                   ok hue 480                   accept   YES
+ADJ-1  —    "hsl(-120 50% 50%)"         ok hue −120                  ok hue −120                  accept   YES
+ADJ-2  —    "rgb(50%20%30%)"            reject css_syntax            ok {rgb,[127.5,51,76.5]}     accept   YES
+ADJ-2  —    "rgb(1.5.5 3)"              reject css_syntax            ok {rgb,[1.5,0.5,3]}         accept   YES
+ADJ-2  —    "hsl(120 50%50%)"           reject css_syntax            ok {hsl,[120,0.5,0.5]}       accept   YES
+ADJ-3  —    "rgb(1e400 0 0)"            reject css_syntax            ok {rgb,[255,0,0]}           accept   YES
+ADJ-3  —    "lab(50 1e400 0)"           reject css_syntax            reject css_syntax            reject   YES
+ADJ-3  —    "hsl(1e400 0% 50%)"         reject css_syntax            reject css_syntax            reject   YES
+
+  16 adjudications · 22 witnessed inputs · 19 diverge from the incumbent · 0 NOT honoured
+```
+
+**NO NINTH `ParseIssue` CODE IS PROPOSED, ADDED, OR IMPLIED.** `parser-band.md` spells the third
+folded conflict "`1e400` → `color_non_finite`", which is **cand-O's own diagnostic vocabulary**, not
+the frozen union's: the frozen union has eight codes (`src/css/types.ts:11-19`, read mechanically by
+the matrix — `frozenCodes.length` → **8**) and `color_non_finite` is not among them. Adding it would
+be a `W3.md` §3a halt to X·V and the owner, "never a local decision". The adjudication is therefore
+carried **at its meaning** — clamp where a clamp exists, reject the unclamped non-finite channel —
+lowered onto `css_syntax`, and **the naming difference is itself an ADJ-3 ledger field**. This is
+recorded loudly because it is the one place in this unit where the §3a tripwire was within reach.
+
+**G-6, the suite:**
+
+```
+⟨cmd⟩ npx vitest run --config typescript/test/css-totality/vitest.config.ts
+ ✓ test/css-totality/spec-conformance.test.ts (13 tests)
+ ✓ test/css-totality/universe.test.ts        (59 tests)
+ Test Files  2 passed (2) · Tests  72 passed (72)      — run TWICE, identical both runs
+```
+
+**13 = the twelve named rows, each its own `it(...)`, plus a guard that the adjudication table
+carries exactly `a…l`.** The rows are not typed in the suite; they are read from the same
+adjudication table the matrix uses, so a row proved green here that the matrix did not know about
+would be exactly the drift the generator exists to prevent.
+
+**59 = 7 instrument assertions + one `it` per frozen export, all 52.** Each row asserts the two
+things that must hold *whatever* the coverage count is: **totality** (the candidate THREW on no cell
+of that row) and **honesty** (the corpus is non-empty; TOTAL implies an executed assertion and zero
+misses). G-1's pass/fail stays where `W3.md` §6 G-1 puts it — `css-universe.mjs --check` — so no
+seat after `.a` inherits a red file for a condition no seat here can turn.
+
+**`--cross-check-ledger`, the other half of the `.a`/`.d` family, is wired and RED-as-expected today**
+because `.d` has not written its ledger yet; it already hands `.d` the sixteen ids by name:
+
+```
+⟨cmd⟩ node typescript/scripts/css-universe.mjs --cross-check-ledger docs/tranches/X/parse-that/DIVERGENCE-LEDGER.md
+RED — the ledger is ABSENT. 16 adjudicated conflicts were resolved by `.a` and every one of them
+must be a row: W3.md §6 G-7 treats an unrowed intentional difference exactly as it treats a defect.
+  UNROWED  PB-01 … PB-13 · ADJ-1 · ADJ-2 · ADJ-3
+```
+
+---
+
+#### Gate readings, BEFORE → AFTER, at the settled bytes, double-run
+
+| gate | BEFORE (read-only, this seat's own clock) | AFTER | verdict |
+|---|---|---|---|
+| **G-1** UNIVERSE-52-TOTAL | `test -e typescript/scripts/css-universe.mjs` → **ABSENT**; `test -e typescript/test/css-totality/tsconfig.assignability.json` → **ABSENT**; the 07-20 census stands at **0 of 52 TOTAL** | the command RUNS: **5 of 52 TOTAL** (runtime 0/3/16 · types 5/0/28), exit **1**, over a 26,604-row union with 26,604 cells executed on each resolvable parser row | **RED → RED, at a measured distance that ROSE by 5.** Not claimed green, not narrated green |
+| **G-6** SPEC CONFORMANCE ROWS | `test -e typescript/test/css-totality/spec-conformance.test.ts` → **ABSENT**; the incumbent readings stand (legacy 4-arg forms REJECT; the two `hsl` spellings disagree 100×; `rgb(300 -20 3)` → `[300,−20,3]`; `rgb(1 2 3 / 1.5)` rejects; all seven unsound inputs ACCEPT) — **each re-measured at this seat against the pinned oracle and each reproduced** | **13 tests pass**, twice; all twelve named rows honoured, 0 unhonoured adjudications of 22 witnessed inputs | **RED → GREEN** |
+
+**G-1 is reported honestly and is NOT claimed.** The 47 rows that are not TOTAL are 44 the candidate
+has no peer for and 3 whose corpora reach grammar the candidate does not implement (`color()`,
+`lab()`, `lch()`, `oklab()`, `hwb()`, `var()` in declarations, `@`-preludes in stylesheets). Closing
+that distance is a write under `<p2>/typescript/src/css/**` — `.b`'s and `.c`'s glob by §4a, and in
+**no** row of this seat's writable set. `W3.md` §5 assigns G-1 to `.a` as a sub-gate and assigns the
+*implementation* of the 16 absent runtime exports and 28 absent type exports to **no unit at all**;
+that is stated here as **F-a.6**, for the orchestrator, rather than solved by a write outside bounds.
+
+---
+
+#### The commits
+
+| # | repo | hash | meaning |
+|---|---|---|---|
+| 1 | `<p2>` | **`bd10e5c`** | `feat(x-p-w3/universe): generate the 52-export conformance manifest and its corpora` — 15 files, 3,325 insertions, all under `typescript/scripts/css-universe.mjs` and `typescript/test/css-totality/**` |
+| 2 | value.js | **`12564399`** | `docs(x-p-w3/.a): evidence — the generated 52-row universe matrix, born-RED at 5 of 52` — **1 file**, `docs/tranches/X/parse-that/evidence/W3/universe-52.json` |
+
+`universe-52.json` — **155,452 B**, sha256
+`0005f26b10b0c9f093466c134c7fc71d472be7d8d6b0bf2809bb83386f2598de`, **byte-identical on two
+consecutive generations** (the document carries no timestamp, by design).
+
+Both commits carry **their own pathspec on the commit itself**. `git diff --check` clean on both.
+`scripts/dev/dev.sh` appears in **0** commits of this unit and was never opened —
+`git status --porcelain -- scripts/dev/dev.sh` reads ` M`, unstaged, before and after. Gate 27:
+`git status --porcelain -- src api demo test e2e | wc -l` → **0**, double-run. No `git stash`, no
+`reset`, no `--force`, no `-A`, no `-u`, no `commit -a`. `/Users/mkbabb/Programming/parse-that`,
+`~/Documents/Codex/**`, `~/.codex/**`, `../glass-ui/**`, `../keyframes.js/**` and
+`../fourier-analysis/**` carry **no byte** from this unit. Neither repo was pushed by this unit.
+
+---
+
+#### Findings raised by this unit (each with an owner)
+
+| id | severity | finding | owner |
+|---|---|---|---|
+| **F-a.1** | INFO | **`experiments/w2/corpus/fuzz-seed.json`'s `rowsSha256` had no producer in the tree** — no script computes it, so the replay assertion was un-reproducible from the repository's own bytes. Recovered by search and **written down** at `lib/corpus.mjs`: sha256 over `rows.map(r => r.src).join("\0")`. Matches the banked `39f3903b…`. Cured in passing; recorded so the next seat does not re-derive it | `.g` / L-18 (the pin's author); cured here |
+| **F-a.2** | MINOR | **`W3.md` §6 G-6 (L451-455) enumerates TWELVE named assertions**, not eleven — five accept-side (two legacy 4-arg forms, one bit-for-bit spelling equivalence, one channel clamp, one alpha clamp) and seven reject-side. This record's own `.a` dispatch row (L222) and this seat's brief both say *"eleven"*. The spec's bytes govern; **twelve** were landed, each independent, and the suite asserts the row set is exactly `a…l`. Corrected **beside**, never by editing `W3.md` (E-3) | **orchestrator** — a record-row correction, not a spec patch |
+| **F-a.3** | MINOR | **G-6's literal command collects ZERO files.** ⟨cmd⟩ `npx vitest run test/css-totality/spec-conformance.test.ts` (from `<p2>/typescript`) → *"No test files found, exiting with code 1 · filter: test/css-totality/spec-conformance.test.ts · include: test/\*.test.ts"*. `typescript/vitest.config.ts:5` scopes `include` to ONE directory level and a Vitest CLI positional is a **filter** over the collected set, not an addition to it. Widening that glob is a write to a file in **no** row of `W3.md` §4 (§3a File-bound expansion), so the minimal lawful cure is a config inside this seat's own create row: `npx vitest run --config typescript/test/css-totality/vitest.config.ts`. It narrows nothing — the config collects every `*.test.ts` under `test/css-totality/**` | **orchestrator / `.e`** — a one-row `include` widening or a dated addendum; the gate is RUN and GREEN through the seat's own config meanwhile |
+| **F-a.4** | INFO | **The generated assignability program adds 56 deliberate diagnostics to the WORKSPACE compile.** `typescript/tsconfig.json` includes `test/` wholesale, so `generated/assignability.generated.ts` — a conformance fixture that is *supposed* to be red while the candidate lacks 28 frozen types — lands in it. Measured: every one of the 56 is TS2694/TS2724 in that single generated file; **zero** errors come from this seat's three hand-written `.ts` files. The one-line cure is `"exclude": ["test/css-totality/generated/"]` in `typescript/tsconfig.json`, which is in no row of §4 and therefore not this seat's to make | **orchestrator / `.e`** |
+| **F-a.5** | INFO | **§7's `npx eslint .` has no subject in the fresh root**: ⟨cmd⟩ `npx eslint typescript/test/css-totality` → *"ESLint couldn't find an eslint.config.\* file"* (ESLint 10.10.0). Pre-existing and independent of this wave. The cadence actually run here was `node --check` on all 7 `.mjs` (7/7 ok), `tsc` on the `.ts` (0 errors from hand-written files), and the suites twice | **orchestrator** |
+| **F-a.6** | **MAJOR** | **`W3.md` §5 assigns G-1 to `.a` as a sub-gate but assigns the IMPLEMENTATION of the surface to no unit.** G-1 requires all 52 TOTAL; the graduated survivor ships **3** runtime exports and **5** type re-exports (`build/ac1.js`, `build/ac1.d.ts` — measured, not inferred). Closing the remaining 16 runtime and 28 type rows is a write under `<p2>/typescript/src/css/**`, which §4a gives to `.b` (`lower`/`diagnostics`/`codes`) and `.c` (`entry`/`bounds`) for *their* named cures, and to nobody for the 52. This seat did **not** write outside its bound to close it, and did not narrow the universe to what the candidate covers (§11 guardrail 2). **G-1 is a wave-level condition, not a `.a`-level one** | **orchestrator** — for the §3a Triumvirate Dispatch, or a dated addendum naming the implementing seat |
+| **F-a.7** | **MAJOR** | **A sibling seat's branch switch orphaned two commits off `tranche-u`.** Reflog, read at this seat: `ec654158 HEAD@{0}: checkout: moving from x-w1-falsifier-g7 to tranche-u` · `6021105a HEAD@{1}: commit: docs(x-p-w3/.a): evidence …` · `3c002f1c HEAD@{2}: commit: docs(x-p-w3/.b): evidence — the recovery-closure run …` · `139bca9b HEAD@{3}` · `ec654158 HEAD@{4}: checkout: moving from tranche-u to x-w1-falsifier-g7`. An X·V W1.a seat checked out a scratch branch **in the shared working tree**, and this unit's and `.b`'s evidence commits landed on it. **Mine is recovered**: `git cherry-pick --no-commit 6021105a` onto `tranche-u`, re-landed as **`12564399`** with the file's sha256 identical to the first landing's; no reset, no force, no other seat's path touched. **`.b`'s `3c002f1c` is still orphaned on `x-w1-falsifier-g7` and is `.b`'s to recover, not this seat's.** Four tracks share one working tree as well as one index: a branch switch is as destructive as an unpathspec'd `git add`, and no standing law names it yet | **orchestrator** — and a standing-law row beside the pathspec rule |
+
+**Escalations: NONE from this unit's own acts.** No `W3.md` §3a trigger fired *by anything this seat
+did*: no write was proposed or made outside the §4 table as widened by `.0`'s dated addendum; no
+gate entered a third diagnose→edit→re-measure iteration (both generator defects were cured and
+confirmed on the **first** re-measure, and G-1 has taken exactly **one** pass, with a monotone rise);
+no ninth `ParseIssue` code was added, proposed, or discussed; no bench bar was set, invented,
+inferred or reconciled; no CST. **F-a.6 and F-a.7 are returned to the orchestrator as findings with
+their measurements**, which is what §3a's File-bound-expansion and cross-seat clauses ask for — this
+seat did not take the write that would have closed either.
+
+---
+
+#### E13 and the standing invariants, at this unit's own clock
+
+The wave's **O.1** four-path sweep stands. Re-measured here: ⟨cmd⟩ `grep -c '^| I-' INBOX.md` →
+**36**, unchanged; the three `UNREAD 2026-09-17` rows are **I-32 · I-33 · I-34**, each read
+row-by-row and each stating in its own bytes that it is not X·P's (*"Zero parse-that bytes; not
+X·P's to dispose"* · *"Not X·P's: it names no parse-that byte"* · *"Not X·P's, not a value.js act
+today"*). **0 unrowed · 0 UNREAD in X.P.W3.a's scope.** This unit **minted no mail**, wrote **zero**
+bytes in any producer tree, and read `../glass-ui/**` not at all.
+
+**Format and lint cadence (§7).** Fresh root: `node --check` on all 7 authored `.mjs` → **7/7 ok**;
+`npx tsc --noEmit -p typescript/tsconfig.json` attributes **0** errors to this seat's hand-written
+`.ts` files and **56** to the generated fixture (F-a.4); the two suites run **twice**, 72/72 both
+times; `npx eslint` has no config in this root (F-a.5). This repo: the wave is docs-only for this
+seat — one generated JSON, `git diff --check` clean. **No proof-farm script was authored for any
+gate** (L-19): `css-universe.mjs` executes a 26,604-row corpus and compiles a program, and its
+output *is* the evidence.
