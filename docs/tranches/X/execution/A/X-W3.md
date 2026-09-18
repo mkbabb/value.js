@@ -1017,3 +1017,277 @@ Under `docs/tranches/X/waves/artefacts/W3/`: `W3-7-born-red-before.txt` ·
 `W3-7-cluster-after.txt` · `W3-7-boot-smoke-dev.txt` · `W3-7-transport-cluster-record.md`
 (AP-30's terminal record · AP-12's split with the 7-sentence census · the five residuals · the
 cures considered and refused · the probe source verbatim).
+
+---
+
+### X.W3.2
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **unit**: Membership join (X.A2) · **Track A** ·
+**wall clock** `2026-09-18 18:08:33` → `18:2x EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at open**: `02238dbb` ⟨cmd⟩ `git rev-parse --short=8 HEAD` · branch `tranche-u`.
+(HEAD moved `9455dc8f` → `47a9acd5` → … → `02238dbb` before this seat: sibling tracks share
+the index. Nothing this seat measured moved with it.)
+**Gates**: G-5 · G-6 (P0) · G-7. **Status returned: PARTIAL** — all three gates GREEN at the
+bytes; **two out-of-bounds test files and one out-of-bounds fixture type are RETURNED** as
+`ESC-W3.2-PAYLOAD-ADDRESSED-TESTS` + `ESC-W3.2-FIXTURE-TYPE`.
+
+#### 0. Crash-recovery (standing law) — no inherited work
+
+⟨cmd⟩ `git status --porcelain` at open → 12 modified + 4 untracked. **Not one path is inside
+this unit's writable set** (checked path by path over all eight). The ten `demo/palettes/**` ·
+`demo/picker/**` · `demo/shell/dock/layers/SlugEditLayer.vue` rows and the two
+`e2e/smoke/**a11y-control-targets**` untracked specs are **X-W4 unit `a`'s**;
+`docs/tranches/V/reformation/CARRY-LEDGER.md`, `docs/tranches/X/waves/evidence/` and
+`docs/tranches/X/parse-that/evidence/W3/…` are sibling seats'; `scripts/dev/dev.sh` is the
+standing unowned dirty row (DR-24, COHESION §0j.A — **never touched, never staged**).
+**Nothing stashed, restored or reverted.** X.W3.2 inherited **no** partial work. Every commit
+below carries its own pathspec ON the commit and only this unit's paths (⟨cmd⟩
+`git show --stat --oneline <sha>` on each).
+
+#### 1. Anchors verified at true bytes before any edit
+
+| spec anchor | true bytes | verdict |
+|---|---|---|
+| `repository/paletteVersion.ts` gains `findByPaletteAndHash` | `:13-15` `findByHash` unjoined `findOne({_id: hash})`; no joined method | **EXACT** |
+| `routes/versions.ts:43-47` reads the route slug | true byte **`:51-55`** (the handler moved down when X.W3.1 added the list-route authorization at `:35-40`) | **DRIFTED — INTENT taken at `:51-55`**, the bytes the spec describes |
+| `service/versions.ts:99-106` global `getVersionByHash` | `:99` `export async function getVersionByHash(` | **EXACT** |
+| `service/versions.ts:131-135` revert's source read | `:131-135` — `findBySlug` + `findByHash(hash)` unjoined | **EXACT** |
+| `hash.ts:8-17` | `:8` `export function computeContentHash(`, JSON canonical, no framing, no `PaletteColor.name` | **EXACT** |
+| `model.ts` `PaletteVersion` | `:84-98`, `_id` docstring *"_id is the content-hash"* | **EXACT** |
+| `platform/migrations/x-w3-visibility-payloadhash.ts` | ⟨cmd⟩ `ls -1 api/src/platform/migrations/` → **`check.ts`** only | **ABSENT — create** |
+| §7 `cd api && npm run lint` | **DRIFTED — the script does not exist** (X.W3.1 measured the same); root eslint stands in | **INTENT at the true bytes** |
+
+#### 2. Acts, in order
+
+**Act 1 — the spec BEFORE the cure (fold S-11 / L-18).** `__tests__/palette-versions.test.ts`
+rewritten as a wire+service conformance file and run against the **uncured** bytes:
+⟨cmd⟩ `npx vitest run …/palette-versions.test.ts` → **`Tests 7 failed | 3 passed (10)`**.
+The three passing rows are deliberate **both-sides controls** (B's own address still resolves
+`200`; the owner's own prior revision still reverts; a missing palette still `404`s) so that a
+cure which **walls** the surface instead of **joining** it reads RED. No `test.skip`, no
+`test.fail()`, no allowlist. Transcript `W3-2-born-red-baseline.txt`; commit **`cf5c8784`**.
+The migration's own born-RED is the `ls` above — the module did not exist.
+
+**Act 2 — `hash.ts`: two hashes where there was one (G-7).** `frame(domain, payload)` =
+`domain ‖ 0x00 ‖ uint64be(len) ‖ bytes`, applied per field. `computeContentHash` becomes the
+**payload** hash and now folds `PaletteColor.name` — a per-color rename was previously
+invisible to palette identity. `computeReleaseHash(ReleaseIdentity)` is new: palette slug +
+`revisionNo` + payload + parent + forked-from + author. A `null` reference frames as a
+**zero-length** payload, which no real 64-hex reference can produce, so absent/present is a
+byte fact rather than a convention.
+
+> **The function KEEPS ITS NAME, deliberately.** `computeContentHash` has two callers outside
+> this unit's writable set — `service/crud.ts:92,194` and `service/forks.ts:65` — so renaming
+> it to `computePayloadHash` would have been an out-of-bounds write (or a `tsc` break that
+> poisons the serial chain). The docstring is corrected to say what the value now IS. The
+> rename is **owed to a successor that holds those two files**; recorded, not smuggled.
+
+**Act 3 — `model.ts`: `payloadHash` + `revisionNo`, both REQUIRED.** Post-migration every row
+carries them; making them optional to spare an un-typechecked fixture would have put slack in
+the model to keep a test quiet (see §5, `ESC-W3.2-FIXTURE-TYPE`). `_id`'s docstring now states
+that pre-migration rows keep a legacy content-hash `_id` and are **not rewritten**.
+
+**Act 4 — `repository/paletteVersion.ts` (G-5 · G-6 · S-6).** `findByPaletteAndHash(paletteSlug,
+hash)` = `findOne({ _id: hash, paletteSlug })`, the §3 Scope 3 filter literally.
+`findHeadByPaletteSlug` resolves a palette's head release by MEMBERSHIP. `findByPaletteSlug`'s
+sort becomes `{ revisionNo: -1, _id: -1 }` — fold **S-6**'s total-order key with its `_id`
+tiebreak. `findByHash` is **kept** (its only remaining callers are two out-of-bounds test
+files) and its docstring now says every SERVICE read goes through the joined method.
+
+**Act 5 — `service/versions.ts` (G-5 · G-6 · G-7).** `getVersionByHash` **DELETED**, not
+deprecated; `getPaletteVersion(services, paletteSlug, hash, viewer)` replaces it — it
+authorizes the addressing palette through **X.W3.1's** `assertPaletteReadable` (called, never
+re-derived) and then reads JOINED. Both refusals are `NotFoundError`, because distinguishing
+*"exists but is not addressed by this palette"* from *"does not exist"* is the existence
+oracle this wave is removing. `revertToVersion` takes the same joined read, **before** the
+transaction, so a refused transplant leaves the target byte-unchanged.
+`createVersionRecord` writes `_id: releaseHash`, `payloadHash`, `revisionNo`, and resolves the
+chain from the palette's own **head** rather than from the caller-supplied `parentHash` —
+which is a payload reference (`Palette.currentHash`) and therefore no longer an `_id`.
+
+> **A Scope-1 clause discharged at a byte inside this unit's set.** `W3.md` §3 Scope 1 lists
+> *"revision detail"* among the five `assertReadable` call sites; X.W3.1's §5 mechanism named
+> only the revision **list**, and its receipt landed only that. The revision-detail route is
+> `routes/versions.ts` — **this unit's file** — and the join alone would have left a private
+> palette's revisions readable anonymously by anyone holding a hash. The authorization is
+> therefore inside `getPaletteVersion`. G-5's cross-object probe uses **two public palettes**,
+> so the join and the authorization are measured as separate rows and neither hides the other.
+
+**Act 6 — the recorded migration (G-7).** `platform/migrations/x-w3-visibility-payloadhash.ts`
+(create) backfills `payloadHash` from each row's own stored `name`+`colors` under the new
+framing, numbers `revisionNo` per palette (1-based, `createdAt` ascending, `_id` tiebreak —
+`createdAt` is not injective), and re-stamps `palettes.currentHash` so the ETag/change-detector
+input is produced by the same function the new rows are hashed with. Idempotent: a second run
+writes nothing and reports zeros, asserted in the spec.
+**§3a was checked, not assumed: NO triumvirate trigger fires.** The split does **not** force a
+rewrite of at-rest `palette_versions._id` — `_id` is opaque to every reader, legacy rows stay
+addressable by the ids the version list already handed out, and every new row gets a release
+id. Old and new rows differ in how `_id` was **derived**, never in how it is **used**. The
+migration spec asserts that non-rewrite explicitly. The file is shared: **X.W3.5 appends** the
+`unlisted` → `private` mapping to it.
+
+**Act 7 — L-19 falsifiers, five arms, each applied to the cured tree, measured, restored.**
+Full transcript `W3-2-falsifiers.txt`. Restores are `cp` from a scratchpad copy; **the git
+index was never touched** (no stash, no `checkout --`, no reset) and ⟨cmd⟩
+`git status --porcelain api/` is **empty** after every arm.
+
+| falsifier | edit | reading | reads |
+|---|---|---|---|
+| **F-1 (G-5)** | detail read un-joined → `findByHash(hash)` | `1 failed \| 10 passed` | the **one** failure is G-5's cross-object row; G-6 and the private-palette row stay GREEN |
+| **F-2 (G-6)** | revert's read un-joined | `1 failed \| 10 passed` | the **one** failure is G-6; G-5 GREEN — two independent bytes |
+| **F-3 (G-7)** | drop `uint64be(len)` from `frame()` | `1 failed \| 10 passed` | the exact-digest reconstruction row, built from the SPEC's words not the implementation's framer |
+| **F-4 (G-7)** | `_id: releaseHash` → `_id: payloadHash` | `2 failed \| 9 passed` | exactly the two rows that assert the split, including its wire clause |
+| **F-5 (S-6)** | list sort → `{createdAt: -1}` | `1 failed \| 10 passed` | the **one** row that seeds two revisions sharing an identical `createdAt` — S-6's stated defect |
+
+**A row that claimed more than it could fail for, corrected rather than left standing.** F-3
+showed the *"length framing defeats field-boundary confusion"* row stays GREEN when the length
+prefix is dropped (the per-field domain labels alone separate `("ab","c")` from `("a","bc")`).
+The row was re-titled to the property it actually guards, with a comment naming the row that
+does measure the prefix — commit **`6e5b6e32`**. Recorded loud: a gate row that cannot fail for
+its stated reason is exactly what L-19 exists to prevent, and this one was mine.
+
+#### 3. Gate readings — BEFORE → AFTER (every figure double-run, byte-identical)
+
+| gate | BEFORE (this seat's own baseline at `02238dbb`) | AFTER | verdict |
+|---|---|---|---|
+| **G-5** | ⟨cmd⟩ `grep -rn "getVersionByHash" api/src \| grep -v __tests__ \| wc -l` → **3**; ⟨cmd⟩ `grep -rn "findByPaletteAndHash" api/src \| wc -l` → **0**; `routes/versions.ts:52-53` reads `hash` and never `slug`; wire: `GET /palettes/a/versions/<hash-of-b>` → **200** carrying `#00ff00` | `getVersionByHash` non-test → **1**, **disambiguated (SELF-COUNT)**: ⟨cmd⟩ `… \| grep -vE ':[[:space:]]*\*' \| wc -l` → **0 in code**, the single hit is the `service/versions.ts:125` docstring naming what was deleted. `findByPaletteAndHash` → **5** (1 definition + 2 imports + 2 call sites). Wire: cross-object → **404**, body carries no `#00ff00`; B's own address → **200**; a private palette's revision anonymously → **404**, owner → **200** | **GREEN** |
+| **G-6** (P0) | `service/versions.ts:134` `findByHash(hash)` unjoined; wire: owner of A reverting to B's hash → **200**, A's `name`/`colors` **overwritten** with B's | joined read before the transaction. Wire: → **404**; `name`, `colors`, `currentHash` and `versionCount` all **byte-identical** to the pre-request read; the owner's own prior revision still reverts | **GREEN** |
+| **G-7** | ⟨cmd⟩ `grep -rn "payloadHash\|revisionNo" api/src/modules/palette/{hash,model}.ts` → **0**; `hash.ts:8-17` JSON canonical, no domain, no `0x00`, no `uint64be`, no `PaletteColor.name`; `_id` **is** the content hash; ⟨cmd⟩ `ls api/src/platform/migrations/` → `check.ts` | ⟨cmd⟩ `grep -rn "payloadHash" api/src \| wc -l` → **37**; `revisionNo` → **38**; `computeReleaseHash` → **6**; `ls` → `check.ts` · `x-w3-visibility-payloadhash.ts`. Two palettes differing only in a per-color `name` hash differently; the digest equals an independently reconstructed `domain ‖ 0x00 ‖ uint64be(len) ‖ bytes` stream; one payload released twice → **two rows, one `payloadHash`, two `_id`s**; `revisionNo` reaches the wire as `[3,2,1]`; migration reports `palettes 1 · rows 2 · payloadHash 2 · revisionNo 2 · currentHash 1`, re-run all zero | **GREEN** |
+
+⟨cmd⟩ `cd api && npm test` **run twice** → `Test Files 2 failed | 37 passed (39)` ·
+`Tests 2 failed | 227 passed (229)` — **byte-identical both runs**. Open baseline was
+**38→39 files / 222 tests**; the delta is `−4 +11` in this unit's own file and **two collateral
+reds named in §5**. ⟨cmd⟩ `cd api && npx tsc --noEmit -p tsconfig.json` → exit **0**.
+⟨cmd⟩ `npm run typecheck` (lib · demo · test · e2e) → exit **0**.
+⟨cmd⟩ `npx eslint <7 touched paths> --max-warnings=0` → exit **0**.
+⟨cmd⟩ `npx prettier --check <the 6 source paths>` → **clean**; `service/versions.ts` is the one
+warn and its ONLY delta is a **pre-existing** reflow at `listVersions` (⟨cmd⟩
+`npx prettier … | diff -u` → one hunk, lines this unit did not write) — the same pre-existing
+condition X.W3.1 recorded, left alone rather than burying a P0 cure in a whole-file reflow.
+
+#### 4. Behaviour deltas this unit chose, stated rather than discovered later
+
+1. **Content dedup is gone; release dedup replaces it.** `createVersionRecord` no longer
+   early-returns on an existing content hash — with `revisionNo` inside the identity, two
+   releases of one payload are two events, which is the split's whole point. `insertIfAbsent`
+   still makes a re-entrant write of the **same** event a no-op. Side effect, in the right
+   direction: revert now always appends a row, so `versionCount`'s unconditional `$inc`
+   (`:172`) and the log **move together** — fold candidate **N-1**'s arm (b) is incidentally
+   relieved (arm (a), the unattributed `$inc`, is untouched and is not this unit's gate).
+2. **A fork's first release roots its own chain** (`rootHash = own release hash`, `depth = 0`)
+   instead of continuing the source's. Resolving the source's row needs the source **slug**,
+   which only `service/forks.ts` (X.W3.4's file) holds; the alternative was a global
+   payload-hash lookup, i.e. re-opening the content-addressed door fold **S-5** names. Both
+   fields are write-only — ⟨cmd⟩ `db.ts:64-66` records their indexes were dropped as *"ZERO
+   query consumers"* — and `forkedFromHash` still records the edge, so nothing is unrecoverable.
+   The successor act is named: thread the source slug from `service/forks.ts`.
+3. **The version list is no longer index-backed on its sort.** `{paletteSlug, createdAt}` is
+   the only `palette_versions` index (`db.ts:68`); the filter still uses its prefix, the sort is
+   now in memory over one palette's rows. `db.ts` is outside this unit's set — a
+   `{paletteSlug: 1, revisionNo: -1}` index is **owed**, and with it the unique
+   `{paletteSlug, revisionNo}` constraint that would make the ordinal race-proof. Until then
+   S-6's prescribed **`_id` tiebreak** keeps the list totally ordered under a tie.
+
+#### 5. Escalations returned — not taken (artefact `W3-2-ESC-REVERT-ADDRESS.md`)
+
+**`ESC-W3.2-PAYLOAD-ADDRESSED-TESTS`.** Two existing tests address a version row by the
+palette's `currentHash` — its **payload** identity — and are green only because of the
+conflation this gate removes. They are the suite's only two reds:
+`__tests__/palette-forks.test.ts:68-71` (`findByHash(palette.currentHash)`) and
+`__tests__/palettes-forks.test.ts:147-163` (revert by the detail envelope's `currentHash`).
+Both files are in `W3.md` §4 but belong to **X.W3.4**, not to this unit — so **neither was
+touched, not even in the working tree**. The exact hunk for each is banked in the artefact, and
+**each shape is already measured GREEN in this unit's own spec** (the owner's-own-revision
+revert reads a row's `_id` out of `findByPaletteSlug`; the wire row reads `data[].hash` off the
+live `/versions` envelope), so the ruling seat is not handed an unproven patch.
+**The cure was not bent to keep them green**: the only in-bounds way is a second `$or` arm on
+`payloadHash`, which §3 Scope 3 forbids by naming the filter literally, which is ambiguous
+after the split (a revert re-releases an older payload, so `payloadHash` is not unique within
+a palette), and which would read GREEN while the defect stood. **No product path is affected**
+— ⟨cmd⟩ `grep -rn "revert(" demo/ --include="*.ts" --include="*.vue"` → `useVersionHistory.ts:88`
+(definition) + `BrowsePane.vue:279`, whose hash comes from `listVersions` → `data[].hash` → `_id`.
+
+**`ESC-W3.2-FIXTURE-TYPE`.** `__tests__/paletteVersion.test.ts:7-21`'s `makeVersion` factory is
+annotated `: PaletteVersion` and is now type-incomplete. Measured, not assumed: ⟨cmd⟩
+`npx tsc --noEmit --strict … src/modules/palette/__tests__/paletteVersion.test.ts` →
+`TS2322 … Property 'payloadHash' is optional … but required`. **No gate reads it** — ⟨cmd⟩
+`api/tsconfig.json` `"exclude": [… "src/**/__tests__/**"]`, and vitest transpiles without
+checking — so the file runs and **passes**. It is in **no** unit's writable set in this wave
+(not in `W3.md` §4 at all). Two lines owed; the hunk is in the artefact.
+
+**Prior docket, unchanged by this seat**: `ESC-W3-G21`, `ESC-W3-FOLD-A` and
+`ESC-W3.1-G4-BOUNDS` stand exactly as banked; this unit neither discharged nor widened any.
+
+#### 6. Locks honored, each by name
+
+- **P0 triad (commit 2)** — `9b3e6923` is §9's commit 2 and **must reach the same integration
+  as commit 7 (`504819ea`) and the G-1 half of commit 1 (`326dbe57`)** before X-W3 reports.
+- **`getVersionByHash` is DELETED, not deprecated** — no alias, no re-export, no deprecation
+  comment. Code occurrences: **0**.
+- **fold §CrossEdges §I** — `revisionNo` is minted as a **FIELD**. No route was renamed, no
+  `/revisions/{revisionNo}` path exists, **D-1 (`/versions` STANDS) is not reopened**.
+- **fold S-5** — the membership framing is adopted at the byte: `_id` is no longer derived from
+  content, and the service still JOINS rather than trusting that property. The demo-side
+  trigger stays **HYPOTHESIS**; no reproduction is claimed that this seat does not hold.
+- **fold S-6** — all three clauses: `revisionNo` is first-class **(a)** the total-order key with
+  an `_id` tiebreak and **(b)** on the wire. Clause (b)'s *render* half is **X-W7's**:
+  ⟨cmd⟩ `grep -n "revisionNo" demo/palettes/types.ts` → **0** and
+  `VersionHistoryDrawer.vue:37` still renders `v{{ total - i }}` off a separate count. Those
+  two files are outside this unit's set; the field they need is now **served**, which is the
+  half X-W3 owed. `VHD-11`/`VHD-10` are no longer uncurable anywhere in X.
+- **§3a** — checked and **not** triggered (Act 6). No at-rest `_id` rewrite; nothing improvised.
+- **X.W3.5's shared file** — the migration is authored so its visibility arm appends cleanly;
+  its header names X.W3.5 as the second author.
+
+#### 7. E13 mail sweep at this unit's own clock (`2026-09-18 18:21 EDT`)
+
+Four paths swept: `V/coordination` **18** · glass `BK/coordination` **9** · keyframes
+`V/coordination` **13** · atlas `P/coordination` **28**. ⟨cmd⟩
+`/usr/bin/find <the four> -maxdepth 1 -type f -name '*.md' -newermt "2026-09-18 17:55"` →
+**one hit, `INBOX.md` itself** (self-excluded, SELF-COUNT law). The rows whose Status cells read
+`UNREAD` are **I-32 · I-33 · I-34** (routed *X formation mail seat / X-W0.j*) and **I-35**
+(routed *X·KF, Track B*) — **none is X.W3.2's**. Each vocabulary-checked against this unit's
+scope ⟨cmd⟩ `grep -ciE "payloadHash|revisionNo|releaseHash|getVersionByHash|palette_versions|/versions|revert|findByPaletteAndHash|content hash|X\.W3"`
+→ **0 · 0 · 0 · 0**. **No obligation minted on this unit, none discharged.** No letter written;
+`glass-ui` stayed **READ-ONLY**.
+
+#### 8. Commits — pathspec on the commit itself, one meaning each
+
+| # | sha | scope | paths |
+|---|---|---|---|
+| born-RED (S-11) | **`cf5c8784`** | `test(api/palette-versions): born-RED spec — joined revision identity, cross-object revert refusal, payload/release split (X.W3.2 · G-5 · G-6 · G-7)` | `__tests__/palette-versions.test.ts` · `artefacts/W3/W3-2-born-red-baseline.txt` |
+| §9 commit 2 | **`9b3e6923`** | `fix(api/palette-versions): join revision identity to the addressing palette; delete the global getVersionByHash (X.A2)` — **P0** | `routes/versions.ts` · `service/versions.ts` · `repository/paletteVersion.ts` · `hash.ts` · `model.ts` |
+| §9 commit 3 | **`0324197e`** | `feat(api/palette-hash): split payloadHash from release identity + migration (X.A2)` | `platform/migrations/x-w3-visibility-payloadhash.ts` · `__tests__/palette-versions.test.ts` |
+| correction | **`6e5b6e32`** | `test(api/palette-versions): name the field-separation row for what it actually measures` | `__tests__/palette-versions.test.ts` |
+| artefacts | **`f82704f9`** | `docs(X·W3): X.W3.2 §8 artefacts — after-suite, migration run, L-19 falsifiers, the returned escalation` | four files under `artefacts/W3/` |
+
+**Why the hash split rides commit 2 rather than commit 3.** §9 names two meanings; the BYTES
+are one family — `model.ts`'s two new required fields and `computeReleaseHash` are precisely
+what `service/versions.ts` writes, so a commit 2 without them does not compile and a commit 3
+without them does not either. Commit 2 therefore carries the identity plumbing (the mechanism
+by which `_id` stops being a content address) and commit 3 carries §9's declared **migration**
+body plus its spec. Both commits compile and both are green in isolation. Stated, not smuggled.
+
+**§8 artefacts banked by this unit** (under `docs/tranches/X/waves/artefacts/W3/`):
+`W3-2-born-red-baseline.txt` · `W3-2-api-test-after.txt` · `W3-2-migration-run.txt` ·
+`W3-2-falsifiers.txt` · `W3-2-ESC-REVERT-ADDRESS.md`.
+
+#### 9. Residuals carried out of this unit
+
+1. **`ESC-W3.2-PAYLOAD-ADDRESSED-TESTS`** — two reds, both out of bounds, both with their hunk
+   banked. Until ruled, `cd api && npm test` carries **exactly** these two and no others.
+2. **`ESC-W3.2-FIXTURE-TYPE`** — two lines owed in a fixture no type gate reads.
+3. **`computeContentHash` keeps a name that is now half a lie** — it computes the payload hash.
+   The rename is blocked by two out-of-bounds callers; the docstring states the truth today.
+4. **`findByHash` has no service caller left.** It is kept because deleting it breaks two
+   out-of-bounds test files. It is no longer a content-addressed door (`_id` is a release hash),
+   and its docstring says every service read joins. Named here so no later seat reads it as
+   dead code, and so no later seat calls it in a service.
+5. **The `{paletteSlug: 1, revisionNo: -1}` index and the unique `{paletteSlug, revisionNo}`
+   constraint are owed** in `db.ts` (§4 item 3).
+6. **Fold S-6 clause (b)'s render half is X-W7's** — `demo/palettes/types.ts` carries no
+   `revisionNo` and `VersionHistoryDrawer.vue:37` still computes `v{{ total - i }}`. The field
+   is now served; the render is X-W7's `VHD-11`/`VHD-10`.
+7. **`npm run lint` is absent in `api/`** — §7's cadence names a script the package does not
+   carry (X.W3.6 measured the same). Root eslint over the touched paths stands in, exit 0.
+   A wave-level fact for the close seat.
