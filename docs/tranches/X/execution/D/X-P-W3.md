@@ -2579,3 +2579,31 @@ per-seat one** (`.b` drew it, `.c` restated it, this seat watched it move mid-si
 found — the tranche-wide reading `.b` taught and `.c` restated. Both value.js commits verified on the
 right branch: ⟨cmd⟩ `git branch --contains 0e9bac30` / `3a9baee4` → `* tranche-u` (the F-a.7 / F-b5
 scratch-branch hazard, re-checked and closed at this seat too).
+
+**Addendum-beside to X.P.W3.d, same sitting, never a rewrite of the block above (E-3).** Two things
+the receipt could not carry because they did not exist when it was written, plus one re-measurement.
+
+1. **The last two commit hashes.** d.11 rows 7 and 8 read *"(this record's append)"*; they landed as
+   value.js **`5545d284`** (`docs(x-p-w3/.d): unit receipt — G-5 GREEN, G-10 well-formed, G-7 RED at
+   5890, G-2 RED structurally`, 1 file, 607 insertions) and **`90ab2d1a`**
+   (`docs(x-p-w3/.d): ledger — X.P.W3 commit cell + the .d reading on the wave's own row`, **1
+   insertion / 1 deletion**, verified before staging per F-r.2's lesson — on a file four tracks
+   share, pathspec-only is necessary and not sufficient, and the working-tree diff must contain
+   nothing but this seat's own lines). This unit's value.js total is therefore **four** commits:
+   `0e9bac30` · `3a9baee4` · `5545d284` · `90ab2d1a`, each verified ⟨cmd⟩ `git branch --contains` →
+   `* tranche-u`.
+
+2. **The gates re-read once more from the settled, committed bytes** — the third reading of each, all
+   agreeing with the receipt:
+
+```
+⟨cmd⟩ git -C <p2> status --porcelain                                   → ?? .worktrees/   (and nothing else)
+⟨cmd⟩ node typescript/scripts/css-dual-target-identity.mjs             → GREEN, exit 0   (G-5)
+⟨cmd⟩ node typescript/scripts/css-universe.mjs --cross-check-ledger …  → GREEN, 16 conflicts, 0 not carried   (G-7's family leg)
+```
+
+3. **`<p2>`'s `?? .worktrees/` is §4b's prescribed container and was never staged** — it is the same
+   single untracked entry `.b`, `.c` and the resume all measured, unchanged by this unit.
+
+**Nothing above this line is edited.** The receipt stands as written; this is the correction-beside
+the wave's own E-3 idiom requires.
