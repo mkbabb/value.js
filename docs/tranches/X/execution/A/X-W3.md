@@ -546,3 +546,256 @@ commit 1** (`326dbe57`) must reach the same integration as commits 2 and 7 befor
 4. **`isActivePublic` survives** with its original caller (`service/forks.ts:201`) — it is composed
    **into** `isReadable`, not duplicated by it. X.W3.5 owns its prose (`visibility.ts:7,29`, the
    `unlisted` sentences); this seat left that prose byte-unchanged (E-3, and it is G-15's).
+
+---
+
+### X.W3.6
+
+**SERVED MODEL**: `claude-opus-5[1m]` · **unit**: route closure and admin policy branch
+(CC-037 + class 9) · **Track A** · **wall clock at open** `2026-09-18 17:2x EDT`, at close
+`2026-09-18 17:55 EDT` ⟨cmd⟩ `date "+%Y-%m-%d %H:%M:%S %Z"`.
+**HEAD at open**: `9455dc8f` ⟨cmd⟩ `git rev-parse --short=8 HEAD`. (HEAD moved to `47a9acd5`
+mid-unit — **X.W3.1 landed its policy kernel while this unit ran**, which is the `[1 ∥ 6]`
+group working as planned; the api half of this unit was authored **against the landed
+`isReadable`**, not against a promise.)
+**Gates**: G-17 · G-18 (P0) · G-19 · G-20 · G-21 → **ESC-W3-G21**.
+
+#### 0. Crash-recovery + worktree
+
+⟨cmd⟩ `git status --porcelain` → 14 modified + 3 untracked at open. ⟨cmd⟩ per-path check over all
+ten writable paths → **every one clean or absent**. This unit inherited **no** partial work. The
+dirty rows are X-W4 unit `a`'s (`demo/palettes/**`, `demo/picker/**`,
+`demo/shell/dock/layers/SlugEditLayer.vue`, the two `a11y-control-targets` specs) and sibling
+seats' docs; `scripts/dev/dev.sh` is the standing unowned row (DR-24). **Nothing stashed,
+restored or reverted.** Confirmed again at close: those ten paths are byte-untouched by this unit.
+
+**§4b worktree — declared, per the spec's own escape clause.** ⟨cmd⟩ `git worktree list` →
+`/Users/mkbabb/Programming/value.js-x-w3-fe` **ABSENT**. This unit **ran in the main tree under
+strict pathspec disjointness** and says so here, as `W3.md:198-199` directs. The reason is
+recorded, not assumed: a sibling worktree has no `node_modules`, so neither the demo Vite server
+(three Playwright runs) nor the api vitest could run there without a fresh install, and its
+commits would land **detached** while X.W3.1 commits to `tranche-u` in the main tree — orphaning
+this unit's P0 half from the integration §9 requires. Disjointness was **measured**, not asserted:
+X.W3.1's writable set is `api/src/modules/palette/**`, this unit's api half is
+`api/src/modules/admin/**`; **zero shared paths**. Every commit below carries its own pathspec on
+the commit itself, and no sibling's staged path was ever added, reset or unstaged.
+
+#### 1. Anchors verified at true bytes (drift recorded, INTENT taken at the truth)
+
+| spec anchor | true byte | verdict |
+|---|---|---|
+| `router/index.ts:36` wildcard (`W3.md:276`, G-20 `:321`) | `:36` is the **comment**; the record is `:37` | **drifted by 1** — INTENT taken at `:37`, the byte the spec describes |
+| `usePaneRouter.ts:94` `return ColorPicker;` | `:94` exactly | exact |
+| `usePalettePorts.ts:57` `useAdminAuth` | `:57` exactly | exact |
+| `admin/service/palettes.ts:34-35, :59, :64` repo reaches | `:34-35`, `:59`, `:64` exactly | exact |
+| `admin/service/palettes.ts:48-51, :79` audit rows | `:48-51`, `:79` exactly | exact |
+| `admin/service/palettes.ts:6` docstring lie (fold S-10) | `:6` exactly | exact |
+
+#### 2. Born-RED first (fold S-11), then the cure
+
+**Act 1 — the spec, before its cure.** `e2e/smoke/admin/route-guard.spec.ts` (create), three
+tests. Run at `9455dc8f`:
+
+⟨cmd⟩ `npx playwright test --project=smoke-admin e2e/smoke/admin/route-guard.spec.ts`
+→ **2 failed · 1 passed**. G-18 and G-20 fail on `getByRole('heading', { name: 'Not Found' })`
+*element(s) not found* — no guard, no record. The L-19 falsifier arm (an authenticated admin
+still reaches the pane) **passes at the baseline by design**: it reds only if the cure fail-closes
+on the ROUTE instead of on the TOKEN. Transcript `W3-6-e2e-route-guard-before.txt`.
+Commit **`38f7a0a9`**.
+
+It takes the **base** `test`, not `adminTest` — anonymity is the measurement, and that fixture
+seeds a token before the first page script. `smoke-admin` applies no fixture of its own, so the
+spec is anonymous by construction. It also does not touch the rotten fixture estate fold **S-11**
+warns of; `AF-30`'s `demo/@/lib/palette/types` limb is already repaired (X-W1, `a61094e3`).
+
+**Act 2 — G-18 · G-20 · G-19.** Commit **`504819ea`**.
+
+- **`router/guards.ts`** (create) — `installAdminGuard` fail-closes `to.meta.admin` against
+  `useAdminAuth`, registered in `router/index.ts` **before** the title guard (so a refused admin
+  deep-link's tab reads *Not Found* and never leaks the admin label). The refusal resolves to the
+  **not-found record at the typed address**, not to `/`: bouncing to the picker would confirm
+  which admin URLs are real and hand an anonymous prober the route table. **Fold S-2's state arm
+  discharged at the byte**: `useAdminAuth` is a module-level singleton whose lazy init reads
+  `localStorage` synchronously (`useAdminAuth.ts:19-24`), so calling it *inside* the guard keeps
+  Storage off the import path **and** leaves no async hop — the guard can neither fail-open on an
+  auth race nor evict an admin who deep-links holding a token. Proven both ways by the spec.
+- **`NotFoundPane.vue`** (create) + the `not-found` view in **`viewSchema.ts`** + the named record
+  in **`router/index.ts`** — the wave's **ONE** non-`Stub` record (**D-4**). `not-found` is a full
+  `ViewId` because `useViewManager.ts:43-45` clamps unknown names to `picker`; a record the clamp
+  rejects would reproduce the very redirect it replaces. It is deliberately absent from
+  `useDockAdminMode.ts:26-27`'s lists — a destination, never a place to navigate to.
+- **`usePaneRouter.ts`** — G-19 **structurally**, per fold **S-8**. `componentFor` narrows to
+  `LeftPane | RightPane`, the `:94` tail is **deleted**, and the `if`-chain becomes the one
+  name→component map the module header already promised, typed
+  `Record<Exclude<LeftPane | RightPane, null>, Component>`. Confined to `componentFor` and
+  committed with its own pathspec (the X-W4 unit `d` cross-wave lock); re-read immediately before
+  writing, **clean**, and clean again at commit.
+
+**A defect the bundler named, cured rather than silenced.** Run 1 emitted
+`[INEFFECTIVE_DYNAMIC_IMPORT] … NotFoundPane.vue is dynamically imported by usePaneRouter.ts but
+also statically imported by router/index.ts`. The not-found pane is now **static in both places**:
+it is the fail-closed terminal, and a fallback that can fail to arrive is not a fallback. This
+also adds **no eleventh** bare `defineAsyncComponent` loader to the ten X-W5 inherits (fold
+§CrossEdges §C(b), F-18).
+
+**Act 3 — G-17.** Commit **`8f1ea728`**. `api/src/modules/admin/policy.ts` (create) +
+`admin/service/palettes.ts` + `docs/tranches/X/contracts/ADMIN-POLICY.md` (create).
+`authorizeAdminPaletteOp` resolves the palette, 404s a missing one, and names its branch by
+**calling** X.W3.1's `isReadable` — never re-deriving it. `public` = the admin exercised no
+privilege the public lacked; `admin-override` = the admin reached past the object-read policy on
+the bearer token alone, which is the reviewable event. The viewer passed is `undefined` on
+purpose; the admin is **never** handed the owner's slug (that is the ownership impersonation
+`API-POLICY §4` forbids). The branch reaches **both** the audit row's `target` — the only field
+`AdminAuditPanel.vue:77` renders, so a branch living only in the payload would be CC-039's
+disclosed-only-in-source failure in a new coat — and its typed `payload`, from one decision
+through two functions, so they cannot drift.
+
+**Fold S-10 discharged**: `:6`'s *"delete palette + cascade votes/flags"* claimed a cascade the
+body never performed (soft delete; `repository/flag.ts`'s `deleteByPaletteSlug` uncalled
+anywhere). The **sentence** is corrected to what the code does. No cascade was invented to match
+an unbuilt promise. **D-7 honored**: `vnext/api-contract.source.json` **not written**.
+
+#### 3. Gate readings BEFORE → AFTER (double-run, byte-identical both runs)
+
+| gate | BEFORE (at `9455dc8f`) | AFTER (at `8f1ea728`) | verdict |
+|---|---|---|---|
+| **G-17** | `policy.ts` NO · `ADMIN-POLICY` in `api/src` **0** · unmediated `findBySlug` in the admin service **2** | `policy.ts` YES · `ADMIN-POLICY` **3** · unmediated `findBySlug` **0** · `authorizeAdminPaletteOp` calls **4**. Live probe: `policy=ADMIN-POLICY:public` / `:admin-override` in both `target` and `payload`, 4/4 | **GREEN** |
+| **G-18** (P0) | guards in `demo/` **0**; `meta:{admin:true}` **5** | one live `router.beforeEach` (`guards.ts:50`); `installAdminGuard(router)` **1**. e2e: all five admin URLs anonymous → not-found, AdminPane heading count **0** | **GREEN** |
+| **G-19** | `:81 function componentFor(name: string \| null)` · `:94 return ColorPicker;` | `function componentFor(name: LeftPane \| RightPane)` · `^    return ColorPicker;$` **0** · total `Record` | **GREEN** (structural) |
+| **G-20** | `:37 { path: "/:pathMatch(.*)*", redirect: "/" }` · no not-found component | **0** live redirects · named `not-found` record over `NotFoundPane` **1** · `Stub` records still **14** (D-4 respected) | **GREEN** |
+| **G-21** | `grep -c Stub W5.md` **0** · `grep -c Stub X-W5-FOLD.md` **0** | **unchanged — 0 and 0** | **RED, returned as `ESC-W3-G21`** |
+
+**Three of those counts are ambiguous greps, and are published disambiguated (SELF-COUNT law).**
+⟨cmd⟩ `grep -rn "beforeEach\|beforeEnter" demo …` → **3**, of which **1 is the live guard**
+(`guards.ts:50`) and 2 are this unit's own prose. ⟨cmd⟩ `grep -c 'redirect: "/"'
+router/index.ts` → **1**, and it is the **comment recording what was retired**; the route table
+carries **zero** redirects (⟨cmd⟩ `grep -n redirect router/index.ts` → one line, `:39`, a
+comment). ⟨cmd⟩ `grep -c 'cascade votes/flags'` → **1**, and it is the S-10 note **quoting** the
+retired sentence; the live docstring reads *"SOFT delete — sets `deletedAt`"*.
+
+#### 4. Falsifiers (L-19) — each gate fails for exactly one reason
+
+- **G-19**: delete one entry from `PANE_COMPONENTS` → `TS2741: Property '"not-found"' is missing
+  … but required in type 'Record<…, Component>'`, naming the pane. Restored → exit 0.
+  `W3-6-g19-structural-falsifier.txt`.
+- **G-17**: pin `const branch: AdminPolicyBranch = "public"` → **exactly the two private-palette
+  rows red**, quoting `expected 'slug=mod policy=ADMIN-POLICY:public' to contain
+  'policy=ADMIN-POLICY:admin-override'`. Restored → 4 passed. The branch is derived at runtime,
+  not asserted by a literal. `W3-6-g17-admin-policy-probe.txt`.
+- **G-18**: the spec's third test is the standing falsifier — it seeds the token and passes both
+  before and after, so a guard fail-closing on the route rather than the token reds there.
+
+#### 5. Suites and cadence
+
+⟨cmd⟩ `npx playwright test --project=smoke-admin` → **21 passed** — the whole project, i.e. the
+**eighteen pre-existing admin specs the new guard now fences are unbroken**.
+⟨cmd⟩ `npm run typecheck` (lib · demo · test · e2e) → **exit 0**; `vue-tsc -p tsconfig.demo.json`
+→ **exit 0**. ⟨cmd⟩ `cd api && npx tsc --noEmit` → **exit 0**; `npm test` → **39 files · 222
+tests passed** (the open baseline's 38/213 plus X.W3.1's file).
+
+**The four `smoke` failures are PRE-EXISTING — measured, not assumed.** `walk.spec.ts` (the
+router-sensitive view walk) **passed**. The four that did not — `gradient.spec.ts:38 · :102 ·
+:252` and `mix.spec.ts:28` — were re-run **at baseline bytes** (this unit's five files replaced in
+the **working tree only** from `git show 9455dc8f:`, guards/NotFoundPane moved aside) and fail
+**identically, with the same error signatures**. The cure was then restored and `diff -q`'d
+against banked copies: **five identical**, demo typecheck exit 0. **The git index was never
+touched** — no stash, no `checkout --`, no reset.
+
+**`npm run lint` does not exist in `api/`** ⟨cmd⟩ `cd api && npm run lint` → *"Missing script:
+lint"*; ⟨cmd⟩ the api's scripts are `dev · build · start · test`. §7's cadence names a script this
+package does not carry. Recorded as a **measured fact**, not worked around; `npx tsc --noEmit`
+stands in as the api's static gate and is green.
+
+**`prettier --check`**: `router/index.ts` and `usePaneRouter.ts` were **already** non-conformant
+at `9455dc8f` (verified against `git show`'d copies with `--config .prettierrc.json`), on lines
+this unit does not own — reformatting them would bury a P0 cure in a whole-file reflow and
+collide with X-W4 unit `d`. Left alone, recorded. The three source files this unit **authored**
+are formatted and clean. `ADMIN-POLICY.md` is **not** prettier-formatted: ⟨cmd⟩ `prettier --check
+W3.md COHESION.md execution/A/X-W3.md` → **all three fail**, so tranche markdown is hand-authored
+prose by convention, not a prettier surface. ⟨cmd⟩ `git diff --check` on the doc → exit 0.
+
+#### 6. Locks honored, each by name
+
+- **COHESION §0k.3 S-6 / fold §CrossEdges §A — the AdminGate seam.** X-W3 landed **first**. This
+  unit closes **NAVIGATION only**. The pane-side unauthorized state — the **21 `if (!token)`
+  early-returns across five composables** — is **X-W7's**, and none of those files is in this
+  unit's writable set. **Neither wave reports the AdminGate identity closed alone**, and **X-W7's
+  gate may not go green over this edit**. Written into the spec's header, the guard's header, the
+  commit body and `ADMIN-POLICY.md` §5 so it cannot be lost.
+- **D-4** — exactly **ONE** non-`Stub` record lands; `grep -c "component: Stub"` is still **14**.
+- **D-6** — route-local repository access stays closed; routes were already calling services and
+  were not touched.
+- **D-7 / M-15** — `vnext/api-contract.source.json` **never written** (⟨cmd⟩ `git status` clean at
+  that path throughout).
+- **Fold §E — anti-smuggle.** The four-way "admin" enumeration is **X-W8's** `G-C` derivation.
+  This unit landed the guard and **derived nothing**: no `group`/`audience` field, no schema
+  change that any other site reads as an admin authority. The `not-found` view is a destination,
+  not an audience.
+- **Cross-wave `usePaneRouter.ts`** — re-read immediately before writing (clean), edit confined to
+  `componentFor`, committed under its own pathspec with four sibling files, none of them X-W4's.
+
+#### 7. E13 mail sweep at this unit's own clock (`2026-09-18 17:55 EDT`)
+
+Four paths swept: `V/coordination` **18** · glass `BK/coordination` **9** · keyframes
+`V/coordination` **13** · atlas `P/coordination` **28**. ⟨cmd⟩ `find … -newermt "2026-09-18
+17:19"` → **one hit, `INBOX.md` itself** (self-excluded, SELF-COUNT). The rows whose Status cells
+read UNREAD are **I-32 · I-33 · I-34** (routed *X formation mail seat / X-W0.j*) and **I-35**
+(routed *X·KF, Track B*) — **none is X.W3.6's**. Each was vocabulary-checked against this unit's
+scope ⟨cmd⟩ `grep -ciE "beforeEach|route guard|meta\.admin|admin route|not-found|NotFoundPane|
+ADMIN-POLICY|usePaneRouter|componentFor|viewSchema|admin/service/palettes" <letter>` → **0 · 0 ·
+0 · 0**. **No obligation minted on this unit, none discharged.** No letter written; `glass-ui`
+stayed READ-ONLY.
+
+#### 8. Escalations returned — not taken
+
+**`ESC-W3-G21` — the `Stub`-render handoff row to X-W5 (G-21, D-4). RETURNED.**
+Re-measured at close, double-run: ⟨cmd⟩ `grep -c "Stub" docs/tranches/X/waves/W5.md` → **0**;
+⟨cmd⟩ `grep -c "Stub" docs/tranches/X/refinement/X-W5-FOLD.md` → **0**. **The handoff row exists
+at neither candidate home.** Both files sit outside `W3.md` §4 and outside this unit's writable
+set, so authoring it is an **ESCALATION, and this seat does not take it**. The exact byte owed:
+a row in `W5.md` naming the **14** `component: Stub` records of
+`demo/color-picker/router/index.ts` as X-W5's (CC-049), citing this wave's not-found record as
+the landed pattern. The 14-record baseline **reproduces unmoved** at `8f1ea728` and is quoted
+above. Until that row exists, **G-21 is an honest RED whose cure is out of bounds**, exactly as
+the wave-open docket banked it.
+
+**No other escalation.** `ESC-W3-FOLD-A` (the class-A `§BoundsDelta` rows B-1/B-2/B-3) is not
+this unit's; fold **S-10**'s docstring obligation, which *is* in bounds, is **discharged** above.
+
+#### 9. Commits
+
+| # | hash | scope |
+|---|---|---|
+| born-RED (S-11) | **`38f7a0a9`** | `test(e2e/admin): born-RED route-guard spec — anonymous admin deep-link + unknown URL (X.W3.6 · G-18 · G-20)` |
+| §9 commit 7 | **`504819ea`** | `fix(demo/router): fail-closed admin guard + source-realized not-found route + fail-closed pane fallback (CC-037)` |
+| §9 commit 8 | **`8f1ea728`** | `feat(api/admin-policy): explicit ADMIN-POLICY branch + audited branch record (class 9)` |
+
+`ADMIN-POLICY.md` rides commit 8 rather than §9's commit 9: commit 9 is the **wave-close** docs
+commit (status + artefacts), and a contract separated from the code that implements it is a
+family split. Stated, not smuggled.
+
+**§8 artefacts banked by this unit** (under `docs/tranches/X/waves/artefacts/W3/`):
+`W3-6-born-red-baseline.txt` · `W3-6-e2e-route-guard-before.txt` ·
+`W3-6-e2e-route-guard-after.txt` · `W3-6-g19-structural-falsifier.txt` ·
+`W3-6-g17-admin-policy-probe.txt` · `W3-6-openapi-admin-after.json`.
+
+#### 10. Residuals carried out of this unit
+
+1. **`ESC-W3-G21`** — above. The only RED this unit leaves, and its cure is out of bounds.
+2. **The AdminGate seam is OPEN by ruling.** X-W7 owes the 21 `if (!token)` deletions; neither
+   wave may report the identity closed alone.
+3. **Four admin services still reach the palette repository** — `batch.ts` · `users.ts` ·
+   `tags.ts` · `import.ts` (⟨cmd⟩ `grep -lE "(^|[^.[:alnum:]])palettes\." api/src/modules/admin/
+   service/*.ts` → **5 files**, of which only `palettes.ts` is mediated). Their operations are
+   **set-valued**, so the per-object branch is the wrong shape for them and inventing one here
+   would author a predicate no gate measures. **`W3.md` §4 grants this unit no right to rewire
+   them.** Recorded in `ADMIN-POLICY.md` §4.1 with the source-fact condition that reopens it (§7)
+   — booked, not smuggled and not silently claimed closed. *An earlier draft of that section
+   asserted the bound from `grep -rn "repositories.palettes"`, which is **unsound** (four of the
+   five destructure); corrected at the bytes before the file was committed.*
+4. **`npm run lint` is absent in `api/`** — §7's cadence names a script the package does not
+   carry. A wave-level fact for the close seat, not this unit's to add.
+5. **The G-17 runtime probe is scratchpad-resident.** `W3.md` §4 assigns `api/src/modules/admin/
+   __tests__/**` to **no unit**, so this unit could not lawfully commit a repo test for its own
+   runtime gate. The transcript and its falsifier are banked as §8 artefacts; a permanent api spec
+   for the ADMIN-POLICY branch is **owed to a successor that holds the bounds**.
