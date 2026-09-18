@@ -24,9 +24,17 @@ import { Hono } from "hono";
 import { createHash } from "node:crypto";
 import type { MongoClient, Db } from "mongodb";
 import { buildServices, cleanCollections, connect } from "../../../../test/helpers.js";
-import { createVersionRecord, listVersions, revertToVersion } from "../service/versions.js";
+import {
+    createVersionRecord,
+    listVersions,
+    revertToVersion,
+} from "../service/versions.js";
 import { createPalette, patchPalette } from "../service/crud.js";
 import { computeContentHash } from "../hash.js";
+import {
+    describeMigration,
+    migrateXW3PayloadHash,
+} from "../../../platform/migrations/x-w3-visibility-payloadhash.js";
 import { palettes } from "../routes/index.js";
 import { toResponseEnvelope } from "../../../platform/http/errors/index.js";
 import { NotFoundError } from "../../../platform/http/errors/index.js";
@@ -61,7 +69,12 @@ const jsonAlice = { ...alice, "Content-Type": "application/json" };
 function frame(domain: string, payload: Buffer): Buffer {
     const len = Buffer.alloc(8);
     len.writeBigUInt64BE(BigInt(payload.length));
-    return Buffer.concat([Buffer.from(domain, "utf8"), Buffer.from([0x00]), len, payload]);
+    return Buffer.concat([
+        Buffer.from(domain, "utf8"),
+        Buffer.from([0x00]),
+        len,
+        payload,
+    ]);
 }
 
 describe("service.palette.versions", () => {
@@ -91,7 +104,9 @@ describe("service.palette.versions", () => {
 
     it("G-7: two palettes differing only in per-color `name` hash differently", () => {
         const a = computeContentHash("p", [{ css: "#fff", name: "snow", position: 0 }]);
-        const b = computeContentHash("p", [{ css: "#fff", name: "paper", position: 0 }]);
+        const b = computeContentHash("p", [
+            { css: "#fff", name: "paper", position: 0 },
+        ]);
         expect(a).not.toBe(b);
     });
 
@@ -102,11 +117,14 @@ describe("service.palette.versions", () => {
             .update(
                 Buffer.concat([
                     frame(D, Buffer.from("sample", "utf8")),
-                    frame(`${D}#colors`, (() => {
-                        const n = Buffer.alloc(8);
-                        n.writeBigUInt64BE(BigInt(colors.length));
-                        return n;
-                    })()),
+                    frame(
+                        `${D}#colors`,
+                        (() => {
+                            const n = Buffer.alloc(8);
+                            n.writeBigUInt64BE(BigInt(colors.length));
+                            return n;
+                        })(),
+                    ),
                     frame(`${D}#color/css`, Buffer.from("#ff0000", "utf8")),
                     frame(`${D}#color/name`, Buffer.from("red", "utf8")),
                     frame(`${D}#color/position`, Buffer.from("0.5", "utf8")),
@@ -193,15 +211,29 @@ describe("service.palette.versions", () => {
 
     it("G-5: GET /palettes/A/versions/<hash-of-B> → 404", async () => {
         await createPalette(services, {
-            body: { name: "A", slug: "a", colors: [{ css: "#ff0000", position: 0 }], tags: [] },
+            body: {
+                name: "A",
+                slug: "a",
+                colors: [{ css: "#ff0000", position: 0 }],
+                tags: [],
+            },
             userSlug: "alice",
         });
         await createPalette(services, {
-            body: { name: "B", slug: "b", colors: [{ css: "#00ff00", position: 0 }], tags: [] },
+            body: {
+                name: "B",
+                slug: "b",
+                colors: [{ css: "#00ff00", position: 0 }],
+                tags: [],
+            },
             userSlug: "bob",
         });
 
-        const bRows = await services.repositories.paletteVersions.findByPaletteSlug("b", 0, 10);
+        const bRows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "b",
+            0,
+            10,
+        );
         const bHash = bRows[0]?._id as string;
         expect(typeof bHash).toBe("string");
 
@@ -217,20 +249,31 @@ describe("service.palette.versions", () => {
 
     it("G-5: a private palette's revision detail is refused anonymously", async () => {
         await createPalette(services, {
-            body: { name: "P", slug: "p", colors: [{ css: "#123456", position: 0 }], tags: [] },
+            body: {
+                name: "P",
+                slug: "p",
+                colors: [{ css: "#123456", position: 0 }],
+                tags: [],
+            },
             userSlug: "alice",
         });
         await services.repositories.palettes.update("p", {
             $set: { visibility: "private" },
         });
-        const rows = await services.repositories.paletteVersions.findByPaletteSlug("p", 0, 10);
+        const rows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "p",
+            0,
+            10,
+        );
         const hash = rows[0]?._id as string;
 
         const anon = await app.request(`/palettes/p/versions/${hash}`);
         expect(anon.status).toBe(404);
         expect(await anon.text()).not.toContain("#123456");
 
-        const owner = await app.request(`/palettes/p/versions/${hash}`, { headers: alice });
+        const owner = await app.request(`/palettes/p/versions/${hash}`, {
+            headers: alice,
+        });
         expect(owner.status).toBe(200);
     });
 
@@ -240,16 +283,30 @@ describe("service.palette.versions", () => {
 
     it("G-6: owner of A reverting to a hash belonging to B → 404, A byte-unchanged", async () => {
         await createPalette(services, {
-            body: { name: "A", slug: "a", colors: [{ css: "#ff0000", position: 0 }], tags: [] },
+            body: {
+                name: "A",
+                slug: "a",
+                colors: [{ css: "#ff0000", position: 0 }],
+                tags: [],
+            },
             userSlug: "alice",
         });
         await createPalette(services, {
-            body: { name: "B", slug: "b", colors: [{ css: "#00ff00", position: 0 }], tags: [] },
+            body: {
+                name: "B",
+                slug: "b",
+                colors: [{ css: "#00ff00", position: 0 }],
+                tags: [],
+            },
             userSlug: "bob",
         });
 
         const before = await services.repositories.palettes.findBySlug("a");
-        const bRows = await services.repositories.paletteVersions.findByPaletteSlug("b", 0, 10);
+        const bRows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "b",
+            0,
+            10,
+        );
         const bHash = bRows[0]?._id as string;
 
         const res = await app.request("/palettes/a/revert", {
@@ -268,7 +325,12 @@ describe("service.palette.versions", () => {
 
     it("G-6: the owner's own prior revision still reverts", async () => {
         await createPalette(services, {
-            body: { name: "Source", slug: "s", colors: [{ css: "#ff0000", position: 0 }], tags: [] },
+            body: {
+                name: "Source",
+                slug: "s",
+                colors: [{ css: "#ff0000", position: 0 }],
+                tags: [],
+            },
             userSlug: "alice",
         });
         await patchPalette(services, {
@@ -276,7 +338,11 @@ describe("service.palette.versions", () => {
             body: { name: "Edited" },
             userSlug: "alice",
         });
-        const rows = await services.repositories.paletteVersions.findByPaletteSlug("s", 0, 10);
+        const rows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "s",
+            0,
+            10,
+        );
         const first = rows.find((v) => v.name === "Source");
         expect(first).toBeDefined();
 
@@ -286,6 +352,91 @@ describe("service.palette.versions", () => {
             userSlug: "alice",
         });
         expect(palette.name).toBe("Source");
+    });
+
+    // -----------------------------------------------------------------
+    // G-7 — the recorded at-rest migration
+    // -----------------------------------------------------------------
+
+    it("G-7: the migration backfills payloadHash + revisionNo and re-stamps currentHash", async () => {
+        // A pre-X-W3 estate: `_id` IS the legacy content hash, no
+        // `payloadHash`, no `revisionNo`, two rows sharing one `createdAt`
+        // (the non-injective key the old sort trusted).
+        const t = new Date("2026-01-01T00:00:00.000Z");
+        const legacyColors = [{ css: "#ff0000", position: 0 }];
+        await db.collection("palettes").insertOne({
+            name: "Legacy",
+            slug: "legacy",
+            colors: legacyColors,
+            oklabColors: [],
+            tags: [],
+            voteCount: 0,
+            userSlug: "alice",
+            visibility: "public",
+            tier: "standard",
+            deletedAt: null,
+            createdAt: t,
+            updatedAt: t,
+            currentHash: "legacy-content-hash",
+            forkOf: null,
+            forkOfHash: null,
+            forkCount: 0,
+            versionCount: 2,
+        });
+        await db.collection("palette_versions").insertMany([
+            {
+                _id: "legacy-a" as unknown as never,
+                name: "Legacy",
+                colors: legacyColors,
+                parentHash: null,
+                forkedFromHash: null,
+                authorSlug: "alice",
+                paletteSlug: "legacy",
+                createdAt: t,
+                rootHash: "legacy-a",
+                depth: 0,
+            },
+            {
+                _id: "legacy-b" as unknown as never,
+                name: "Legacy Edited",
+                colors: legacyColors,
+                parentHash: "legacy-a",
+                forkedFromHash: null,
+                authorSlug: "alice",
+                paletteSlug: "legacy",
+                createdAt: t,
+                rootHash: "legacy-a",
+                depth: 1,
+            },
+        ]);
+
+        const report = await migrateXW3PayloadHash(db);
+        console.log(describeMigration(report));
+
+        expect(report.versionsScanned).toBe(2);
+        expect(report.payloadHashWritten).toBe(2);
+        expect(report.revisionNoWritten).toBe(2);
+        expect(report.currentHashRestamped).toBe(1);
+
+        const rows = await services.repositories.paletteVersions.findByPaletteSlug(
+            "legacy",
+            0,
+            10,
+        );
+        expect(rows.map((v) => v.revisionNo)).toEqual([2, 1]);
+        expect(rows.map((v) => v._id)).toEqual(["legacy-b", "legacy-a"]);
+        expect(rows[1]?.payloadHash).toBe(computeContentHash("Legacy", legacyColors));
+
+        const palette = await services.repositories.palettes.findBySlug("legacy");
+        expect(palette?.currentHash).toBe(computeContentHash("Legacy", legacyColors));
+
+        // At-rest `_id` values are NOT rewritten (W3 §3a) and re-running is a
+        // no-op: same totals scanned, nothing further written.
+        const again = await migrateXW3PayloadHash(db);
+        expect(again.versionsScanned).toBe(2);
+        expect(again.payloadHashWritten).toBe(0);
+        expect(again.revisionNoWritten).toBe(0);
+        expect(again.currentHashRestamped).toBe(0);
     });
 
     it("revertToVersion throws NotFoundError on missing palette", async () => {
