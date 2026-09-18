@@ -1427,3 +1427,140 @@ whose whole brief is the Playwright/e2e verification surface (`ci(x-v/w1.a)` · 
 `e2e/`**, which `git show --stat` on each confirms. Stated rather than left to be discovered: a
 shared working tree makes gate 27 a *tranche-wide* reading, not a per-seat one, which is the same
 lesson F-a.7 draws from the branch switch.
+
+---
+
+## RESUME 2026-09-18 — Track D seat 0, X.P.W3 re-opened in RESUME MODE
+
+**SERVED MODEL: claude-opus-5[1m]** · 2026-09-18, this seat's own clock. The wave was not closed and
+was not re-opened: `LEDGER.md` reads **`OPEN 2026-09-17`** for `X.P.W3` and this record exists, which
+is the runner's RESUME predicate exactly. **Nothing above this line is rewritten** (E-3): the open,
+the baseline and the three landed receipts stand as their authors wrote them, and this block is the
+correction-and-continuation beside them. The prior seat 0 died the way `COHESION.md` §0o's erratum
+describes — *"the API's rate-limit backoff outran the runner's 180 s no-progress window"* — and §0o's
+own cure is what is being exercised here: *"a runner-dead wave re-opens in RESUME MODE with nothing
+lost."*
+
+### R.1 — What has LANDED, verified at the bytes in both histories (never from the record's prose)
+
+**Eighteen commits, all reachable, none orphaned.** The `x-w1-falsifier-g7` hazard F-a.7 and F-b5
+recorded is re-measured here and is **closed**: every value.js commit below reports `tranche-u` in
+`git branch --contains`.
+
+```
+⟨cmd⟩ for h in …; do git branch --contains $h; done      (value.js, 8 commits)
+641ba4db  tranche-u, x-w1-falsifier-g7      ← .0  the three dated addenda-beside
+12564399  tranche-u                         ← .a  evidence, the 52-row universe matrix (the re-land)
+007d3820  tranche-u                         ← .a  unit receipt
+d7eb2e33  tranche-u                         ← .a  ledger cells
+d500e1e4  tranche-u                         ← .a  addendum-beside (gate 27 re-measured)
+2456033b  tranche-u                         ← .b  unit receipt
+f7954997  tranche-u                         ← .b  evidence, RE-LANDED (the commit of record, not 3c002f1c)
+27ed1e49  tranche-u                         ← .b  addendum-beside
+⟨cmd⟩ git -C <p2> log -1 --format=%s <h>                 (<p2>, 10 commits)
+8d8ebc6 · 1857c9b · 4d8dae4 · 7be817c · a35e3c5 · 57ddc96   ← .0 (six)
+39503f8 · 1cfa29b · f666b6f                                  ← .b (three)
+bd10e5c                                                      ← .a (one)
+```
+
+**The named artefacts, present at HEAD** — `git cat-file -e HEAD:<path>` on each, **5 of 5 PRESENT**
+in value.js (`W3-ADDENDA-2026-09-18.md` · `W1-ADDENDA-2026-09-18.md` ·
+`algebra/ALGEBRA-ADDENDA-2026-09-18.md` · `evidence/W3/universe-52.json` ·
+`evidence/W3/recovery-closure.json`) and **6 of 6 PRESENT** in `<p2>` (`src/css/codes.mjs` ·
+`diagnostics.mjs` · `lower.mjs` · `scripts/css-recovery-closure.mjs` · `scripts/css-universe.mjs` ·
+`experiments/w2/contract/ALGEBRA-ADDENDA-2026-09-18.md`).
+
+**`.0`, `.a` and `.b` are therefore DONE and are NOT re-dispatched** — the resume law's own words: a
+unit whose commits exist is never re-dispatched. Their REDs are carried, not re-opened: `.a`'s **G-1
+RED at 5 of 52** and `.b`'s **G-4 RED on C-3 (⊇, 5 of 8 unemitted) and C-4 (two inherited dead
+fallback arms)**, each with its escalation already written above (`.b` b.5 E-1 · E-2 · E-3, `.a`
+F-a.6). **No seat of this resume may turn any of them green by narrative, by denominator, or by a
+write outside its own bound.**
+
+### R.2 — What is OWED: `.c`, `.d`, `.e` — and a WIP residue found in the tree, disclosed loud
+
+**No `.c`, `.d` or `.e` commit exists in either history**, on any branch:
+
+```
+⟨cmd⟩ git log --oneline --grep='x-p-w3'                  → 8 commits, all .0/.a/.b (above)
+⟨cmd⟩ git -C <p2> branch -a                              → w2/ac1 · w2/ac2 · w2/ac3-scan-union · * w2/harness
+⟨cmd⟩ git -C <p2> log --all --oneline | grep 'x-p-w3/.c' → (none)
+```
+
+**F-r.1 — MAJOR (disclosure, not an adoption).** A `.c` seat ran and died mid-flight before it
+committed anything. Its bytes are in the `<p2>` working tree, **untracked**, and they carry this
+wave's own `SERVED MODEL` header and `X.P.W3.c` bylines:
+
+```
+⟨cmd⟩ git -C <p2> status --porcelain
+?? .worktrees/                                    ← §4b's prescribed container, as the open measured it
+?? typescript/src/css/bounds.mjs                  14,300 B   Sep 18 01:59
+?? typescript/src/css/entry.mjs                   13,409 B   Sep 18 02:01
+?? typescript/test/css-recovery/boundary/         boundary.test.ts 11,954 B · depth.test.ts 6,913 B ·
+                                                  latch.test.ts 9,159 B · no-throw.test.ts 9,648 B ·
+                                                  lib/corpus.mjs                     (02:04–02:17)
+```
+
+Every one of those paths is **inside `.c`'s own writable set** (`W3.md` §5 `.c` Files; §4a's split of
+`<p2>/typescript/src/css/**`), so nothing unlawful was written — the seat simply never reached its
+commit. **The bytes are UNVERIFIED**: no gate reading was published for them, no receipt block was
+appended here, and no `.d`/`.e` artefact exists at all. The re-dispatched `.c` **inherits them as a
+draft, not as a result**: it reads them against `W3.md` §5 `.c` and §6 G-3/G-9 at the bytes, runs
+both gates itself, keeps what measures true, rewrites what does not, and commits by pathspec. **A
+receipt that reports a gate it did not run on the bytes it is committing is the dishonesty this
+wave's own §11 guardrail 2 names.**
+
+### R.3 — Baseline: banked at the open, NOT re-taken here
+
+The ten hard-gate conditions were read READ-ONLY at the open and are in **§Baseline** above — **10 of
+10 RED before cure, 0 GREEN-BEFORE-CURE**, with G-2 reproducing 324/1548, G-3 10/10 to the call, and
+G-5's MEASURE-AT-OPEN taken. **This seat re-ran no gate** (R.2's discipline: a GREEN before its cure
+is a finding, and a resume that re-baselines after three units have landed would be measuring the
+cures, not the disease). The two gate readings that have moved since are the landed ones, published
+in their own receipts: **G-6 RED → GREEN** (`.a`) and **G-8 RED → GREEN** (`.b`).
+
+### R.4 — E13 Step-0, re-swept at this seat's own clock
+
+The four paths swept read-only and compared against **every** row of `INBOX.md`; classification taken
+from each row's **status cell**, never from a bare `grep -i unread`.
+
+| path | newest by mtime | verdict |
+|---|---|---|
+| `docs/tranches/V/` + `V/coordination/` | `valuejs-outbound-2026-09-18-kfw7-bh-relay.md` (Sep 18 01:41) | **ours, outbound** — already rowed **O-28** |
+| `../glass-ui/docs/tranches/BK/coordination/` (**BK confirmed newest**: `ls docs/tranches/` → … BI · BJ · **BK**) | `valuejs-outbound-2026-09-18-kfw6-bh-relay.md` (Sep 18 00:31) | **ours, outbound** — already rowed **O-26** |
+| `../keyframes.js/docs/tranches/V/coordination/` | `VALUEJS-INBOUND-2026-09-17-o8-o11-amendment-addendum.md` | ours, outbound; rowed |
+| `../sci-report/atlas/docs/tranches/P/coordination/` | `valuejs-inbound-2026-07-27-library-band-export-delta.md` | rowed since 07-27 |
+
+⟨cmd⟩ `grep -c '^| I-' docs/tranches/V/coordination/INBOX.md` → **36**, unchanged since the open.
+**0 unrowed value-addressed items · 0 new `I-n` · 0 UNREAD in X.P.W3's scope.** The three rows whose
+status cell still reads `UNREAD 2026-09-17` are **I-32 · I-33 · I-34**, re-read row-by-row at this
+seat: their own Routing cells read *"**No X·P wave, no X·P act, opens on this row**"* (I-32),
+*"Glass is **READ-ONLY always** — producer rows ride SS-6"* (I-33) and *"**Not X·P's, not a value.js
+act today**"* (I-34). **This seat minted no mail and wrote zero bytes in any producer tree.**
+
+### R.5 — The dispatch, on the record's own group table
+
+Groups 1 and 2 are spent. **Three ordered groups remain, concurrency 1 each** — `.c` alone (it
+imports `.b`'s frozen-code module and its test dir is nested inside `.b`'s), then `.d` (*"needs
+`.a`–`.c` landed"*), then `.e` (the fresh Fable adjudicator, after `.d` commits).
+
+| group | unit | model | still owed |
+|---|---|---|---|
+| 3 | **`.c`** | opus | G-3 · G-9; the throw class, the JS boundary (PT-07), depth (PT-04) + latch (PT-03) — over the untracked draft of F-r.1, verified not adopted |
+| 4 | **`.d`** | opus | G-2 · G-5 · G-7 · G-10; the 52-export differential, `DIVERGENCE-LEDGER.md`, the three-leg bench table with **`BAR: OWNER-GATED-PENDING-RATIFICATION`** (§0j.E OC-1: *"inventing a bar is a defect"*) |
+| 5 | **`.e`** | **fable** (fresh) | the §5.e sub-gate; the L-14 refutation attempts, `W3-CLOSE.md` with RED-before/GREEN-after pasted, the harvest chain, the `COHESION.md` §5 carve |
+
+**`.e`'s L-13 referent is unchanged and is fixed here again so it cannot be argued after the fact:
+the units dispatched are SIX — `.0`, `.a`, `.b`, `.c`, `.d`, `.e`** — three landed before this
+resume, three after; a harvest reporting fewer seats is RED, not a passing summary. `W3.md` §5.e's
+literal *"five"* is `W3.md`'s own count of §5's roster and is reconciled, not contradicted, by the
+`.0` row this record has carried since the open (the X.P.W2 `.0` precedent, COHESION §0l).
+
+**Carried into the re-dispatch, none of it re-opened and none of it curable by the seat that meets
+it**: `.b` E-1 (the ⊇ direction wants six more grammar entries in `algebra/grammar.mjs`, **in no
+unit's writable set**), `.b` E-2 (the two dead fallback arms in `lowering-{js,wasm}/index.mjs`,
+likewise), `.b` E-3 (the literal vitest form collects zero files — **`.c`'s G-9 command meets the
+identical gap**, and the lawful cure is the seat's own config inside its own `boundary/**` create
+row, exactly as `.a` and `.b` took it), `.a` F-a.6 (G-1's implementation is assigned to no unit) and
+F-b4 (the promoted `expected` labels are a **`.d` divergence row** with a consumer direction). Each
+is an orchestrator row; **no seat of this resume grants itself a bound.**
