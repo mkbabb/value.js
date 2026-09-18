@@ -1040,3 +1040,29 @@ W3 builds the 52 on `<p2>/typescript/src/parse/**` — the fresh root's own libr
 ### §0n.6 · Orchestrator acts performed at this sitting
 
 F-h6: the two blind drafts committed `562077ad`. F-h7: `<p2>/experiments/w2/contract/ALGEBRA.md` re-landed byte-equal (`67c8253a…`) at p2 `4afad90`. `?? .worktrees/` stays (§4b's container). Track D relaunched fresh; seat 0 RESUME MODE dispatches `.i` on this word.
+
+## §0o ADDENDUM 2026-09-18 — THE F.W1 DOCKET (WU-R ESC-2..ESC-7, G19) AND THE KF.W2 ESCALATION, RULED UNDER THE BEGIN-WORD'S DELEGATION; THE RUNNER-DEAD WAVES
+
+Same standing as §0n: orchestrator rulings under the §0j begin-word, reversible, overturnable by the
+owner at read. G19's condition — *"ESC-1..ESC-7 each carry a ruling or an explicit deferral with
+blocked rows named"* — is met by this addendum; ESC-1 stays as ruled at §0i.3.
+
+| id | ruling | blocked rows released |
+|---|---|---|
+| **ESC-2** ToC model ownership | **ONE owner.** The ToC model is a single `useSidebarFollow` instance owned by the paper view (the highest common ancestor of sidebar and body), provided through a **typed `InjectionKey`**; the second instance and the untyped `defineExpose` seam are retired. Ruled at F.W1 as WU-R says; **F.W4 executes the collapse**; L-5(a) is its prerequisite. | `fr-PaperSidebar L-4` · `M6` |
+| **ESC-3** the invisible picker | **FOLLOW THE PRODUCER.** No edgeless trigger is re-created downstream (glass-ui-first-class law; the producer's docblock at `17a11bc5` rules it out by design). The six pickers gain an edge at the hop — a WU-F diff-review row and edge-9 checkpoint, not a port. | `U-2` |
+| **ESC-4** easing drift | **DRIFT REFUSED — no acceptance, silent or explicit.** Measured at the published bytes: value 4.0.0's `./easing` carries 8 analytic survivors; keyframes.js's source carries 8 names; **no producer ships the 22**. The 14 orphans (`ease-in/out/in-out` × back · quad · cubic · sine · expo · circ minus the survivors) are **defined analytically inside the corpus's own `web/src/lib/easings.ts`** (the closed forms the morph catalogue already relies on — one line each; the file already owns the catalogue), the 8 survivors re-point to `@mkbabb/value.js/easing`, and `easings.ts:58`'s `as EasingFn` cast falls with the `timingFunctions` lookup. **The gate is MPC-5's sampler re-run: every one of the 22 samples EQUAL (Δ = 0 at every sample point) to the pre-bump 0.13.0 function under the same key**, so the hop changes no motion; RD-5 RESTORE is thereby executed, not re-priced. No CubicBezier approximation is admitted for any key. | `L/B-1` · `MPC-5/RD-5` · the six bare-root import lines · limb 1's lockstep half |
+| **ESC-5** B-2's regrade | **STANDS AS PRICED.** The antecedent (*"if G5 is not adopted"*) is measured false — G5 adopted and GREEN at unit `c`; no revisit. | `B-2` |
+| **ESC-6** `color-mix` band | **INFO.** The band is Baseline 2023 (Chromium 111 · Safari 16.2 · Firefox 113); no hand-authored fallback; `FR-COB-26` records the band and the 1.00:1 paint of the generated fallback as the consequence below it. | `FR-MSP-12 → FR-COB-26` |
+| **ESC-7** the `outline` register | **RETIRE the register; successor by rule, per-site exception by evidence.** Default mapping `variant="outline"` → `emphasis="secondary"` (the bordered, unfilled register in the producer's four); a site re-selects `quiet` **only** where its own evidence row shows a tertiary action, and the re-selection is written into AA-2's map as that site's row. The lone `link` site → `emphasis="text"` — the G7 evidence's "nearest" reading is **ADOPTED as the banked mapping** by this ruling. **No successor is requested on NWO-1**: asking the producer to re-mint what it retired inverts glass-ui-first-class. G7 sizes the 21/14 (+2 `Badge` sites, which keep `Badge`'s own `variant` if the producer still ships it, else `secondary` likewise); G6's limb 2 is bounded. | the 21 sites / 14 files (register 30/16) · AA-2's sweep · G7's application · `fr-BasisSelector M-1` · G6's atomicity · the `link` site |
+
+**ESC-KFW2-1 (KF.W2 G-W2-2, Tier-A single entry).** The §Bounds addendum-beside is **GRANTED**:
+`src/animation/engine/css/metadata.ts` joins KF-W2's Owned-files table by dated E-3 addendum; the
+one-import repoint (+ call sites `:42/:102`) is performed by **KF.W8's unit d** beside MISS-β2 (the
+same parse/emit neighbourhood, one commit), and G-W2-2 is re-measured at KF.W8's close.
+
+**The runner-dead waves (F.W7 · KF.W6 · KF.W7).** Each open seat died six times with `[Request
+interrupted by user]` — the harness's concurrent-agent ceiling, not a wall (A and D ran through it,
+no synthetic stop anywhere) — and the stall detector then declared the wave dead. Nothing was
+written by any of the eighteen attempts. Cure at the chassis: Tracks B and C relaunch at **one wave
+at a time** (`maxWaves: 1`), the fan-out the ceiling tolerates; the waves re-open in RESUME MODE.
